@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: d0f2669610f2086c29d52d95c9796e6a2939622e
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 9d2fa8ec96f629ff85d785897398bc9af52ab3bc
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985438"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49165756"
 ---
 # <a name="azure-active-directory-b2b-collaboration-code-and-powershell-samples"></a>Voorbeelden van de Azure Active Directory B2B-samenwerkingscode en PowerShell
 
@@ -34,14 +34,14 @@ U kunt externe gebruikers bulksgewijs uitnodigen voor een organisatie aan de han
 
 3. Aanmelden bij uw tenancy
 
-    ```
+    ```powershell
     $cred = Get-Credential
     Connect-AzureAD -Credential $cred
     ```
 
 4. De PowerShell-cmdlet uitvoeren
 
-  ```
+  ```powershell
   $invitations = import-csv C:\data\invitations.csv
   $messageInfo = New-Object Microsoft.Open.MSGraph.Model.InvitedUserMessageInfo
   $messageInfo.customizedMessageBody = "Hey there! Check this out. I created an invitation through PowerShell"
@@ -56,7 +56,7 @@ Deze cmdlet stuurt een uitnodiging naar de e-mailadressen in invitations.csv. Aa
 ## <a name="code-sample"></a>Codevoorbeeld
 Hier laten we zien hoe u de uitnodigings-API in de ‘alleen-appmodus’ kunt aanroepen om de aflossings-URL op te halen voor de resource waarvoor u de B2B-gebruiker uitnodigt. Het doel is het verzenden van een aangepaste uitnodigingsmail. Het e-mailbericht kan zijn samengesteld met een HTTP-client; u kunt dus de vormgeving ervan aanpassen en het bericht verzenden via de Graph-API.
 
-```
+```csharp
 namespace SampleInviteApp
 {
     using System;

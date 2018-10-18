@@ -11,13 +11,13 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/15/2018
-ms.openlocfilehash: aaffdb2f0d21dbb7a5baf029a90e452658c5bd31
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.date: 10/17/2018
+ms.openlocfilehash: e0a4e069995c1e905834ff541b3562140b6ab01c
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353633"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49379006"
 ---
 # <a name="use-sql-database-managed-instance-with-virtual-networks-and-near-100-compatibility"></a>SQL Database Managed Instance met virtuele netwerken en in de buurt van 100% compatibiliteit gebruiken
 
@@ -30,7 +30,7 @@ Het volgende diagram geeft een overzicht van de belangrijkste functies van het b
 
 ![belangrijke functies](./media/sql-database-managed-instance/key-features.png)
 
-Azure SQL Database Managed Instance is ontworpen voor klanten die willen migreren van een groot aantal apps van on-premises of IaaS, zelf is ingebouwd, of ISV-omgeving volledig beheerde PaaS-cloudomgeving, met als lage migratie inspanning mogelijk worden opgegeven. Met behulp van de volledig geautomatiseerde [Data Migration Service (DMS)](../dms/tutorial-sql-server-to-managed-instance.md#create-an-azure-database-migration-service-instance) in Azure, klanten kunnen lift- en shift van hun on-premises SQL Server naar een beheerd exemplaar biedt compatibiliteit met SQL Server on-premises en volledig isoleren de exemplaren van de klant met ondersteuning voor systeemeigen VNet.  Met Software Assurance, kunt u exchange-hun bestaande licenties voor kortingstarieven op een SQL Database Managed Instance met de [Azure Hybrid Use Benefit voor SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).  SQL Database Managed Instance is de beste Migratiebestemming in de cloud voor SQL Server-exemplaren die hoge beveiliging en een uiterst programmeerbare oppervlak vereisen.
+Azure SQL Database Managed Instance is ontworpen voor klanten die willen migreren van een groot aantal apps van on-premises of IaaS, zelf is ingebouwd, of ISV-omgeving volledig beheerde PaaS-cloudomgeving, met als lage migratie inspanning mogelijk worden opgegeven. Met behulp van de volledig geautomatiseerde [Data Migration Service (DMS)](../dms/tutorial-sql-server-to-managed-instance.md#create-an-azure-database-migration-service-instance) in Azure, klanten kunnen lift- en shift van hun on-premises SQL Server naar een beheerd exemplaar biedt compatibiliteit met SQL Server on-premises en volledig isoleren de exemplaren van de klant met ondersteuning voor systeemeigen VNet.  Met Software Assurance, kunt u exchange-hun bestaande licenties voor kortingstarieven op een SQL Database Managed Instance met de [Azure Hybrid Benefit voor SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).  SQL Database Managed Instance is de beste Migratiebestemming in de cloud voor SQL Server-exemplaren die hoge beveiliging en een uiterst programmeerbare oppervlak vereisen.
 
 Door de algemene beschikbaarheid, Managed Instance is erop gericht om te leveren dicht bij surface area van 100% compatibiliteit met de nieuwste versie van on-premises SQL Server via een gefaseerde release-plan.
 
@@ -70,7 +70,7 @@ De belangrijkste functies van Managed Instance worden in de volgende tabel weerg
 
 ## <a name="vcore-based-purchasing-model"></a>Op vCore gebaseerd aanschafmodel
 
-De [vCore gebaseerde aankoopmodel](sql-database-service-tiers-vcore.md) in het beheerde exemplaar biedt u flexibiliteit, controle, transparantie en een eenvoudige manier te vertalen van de vereisten van de on-premises workloads naar de cloud. Dit model kunt u rekenkracht, geheugen en opslag op basis van uw workloadbehoefte wijzigen. Het vCore-model is ook in aanmerking komen voor van 30 procent besparen met de [Azure Hybrid Use Benefit voor SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).
+De [vCore gebaseerde aankoopmodel](sql-database-service-tiers-vcore.md) in het beheerde exemplaar biedt u flexibiliteit, controle, transparantie en een eenvoudige manier te vertalen van de vereisten van de on-premises workloads naar de cloud. Dit model kunt u rekenkracht, geheugen en opslag op basis van uw workloadbehoefte wijzigen. Het vCore-model is ook in aanmerking komen voor van 30 procent besparen met de [Azure Hybrid Benefit voor SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).
 
 In het vCore-model, kunt u kiezen tussen verschillende hardwaregeneraties.
 

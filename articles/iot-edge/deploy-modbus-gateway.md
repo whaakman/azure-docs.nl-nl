@@ -8,12 +8,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: kgremban
-ms.openlocfilehash: b5316479011a432f3822448f03b8ad6ecddd4fe1
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 031524f4ef00b57f598c1114d594fb70eeedd15b
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39590581"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49393997"
 ---
 # <a name="connect-modbus-tcp-devices-through-an-iot-edge-device-gateway"></a>Modbus TCP-apparaten verbinden via de gateway van een IoT Edge-apparaat
 
@@ -23,7 +23,7 @@ Als u IoT-apparaten die gebruikmaken van Modbus TCP- of RTU-protocollen wilt ver
 
 Dit artikel gaat over hoe u uw eigen containerinstallatiekopie maakt voor een Modbus-module (u kunt ook een kant- en-klaar voorbeeld gebruiken) en deze vervolgens implementeert op het IoT Edge-apparaat dat als uw gateway zal fungeren. 
 
-In dit artikel wordt ervan uitgegaan dat u het Modbus-protocol TCP gebruikt. Voor meer informatie over hoe u de module configureert ter ondersteuning van Modbus RTU raadpleegt u het project [Azure IoT Edge Modbus module](https://github.com/Azure/iot-edge-modbus) op Github. 
+In dit artikel wordt ervan uitgegaan dat u het Modbus-protocol TCP gebruikt. Zie voor meer informatie over hoe u de module configureert ter ondersteuning van Modbus RTU, de [Azure IoT Edge Modbus-module](https://github.com/Azure/iot-edge-modbus) project op Github. 
 
 ## <a name="prerequisites"></a>Vereisten
 * Een Azure IoT Edge-apparaat. Voor een overzicht van hoe u er een instelt, raadpleegt u [Deploy Azure IoT Edge on a simulated device in Windows](quickstart.md) (Azure IoT Edge implementeren op een gesimuleerd apparaat in Windows) of [Linux](quickstart-linux.md). 
@@ -38,7 +38,7 @@ Als u de functionaliteit van de Modbus-gateway wilt testen, heeft Microsoft een 
 mcr.microsoft.com/azureiotedge/modbus:1.0
 ```
 
-Als u uw eigen module wilt maken en deze wilt aanpassen voor uw omgeving, bestaat er een open-source project [Azure IoT Edge Modbus-module](https://github.com/Azure/iot-edge-modbus) op Github. Volg de instructies in dit project om uw eigen containerinstallatiekopie te maken. Als u uw eigen containerinstallatiekopie hebt gemaakt, raadpleegt u [Develop and deploy a C# IoT Edge module](tutorial-csharp-module.md) (Een C# IoT Edge-module ontwikkelen en implementeren) voor instructies over hoe u containerinstallatiekopieën publiceert naar een register en een aangepaste module implementeert op uw apparaat. 
+Als u wilt uw eigen module maken en aanpassen voor uw omgeving, er is een open-source [Azure IoT Edge Modbus-module](https://github.com/Azure/iot-edge-modbus) project op Github. Volg de instructies in dit project om uw eigen containerinstallatiekopie te maken. Als u uw eigen containerinstallatiekopie hebt gemaakt, raadpleegt u [Develop and deploy a C# IoT Edge module](tutorial-csharp-module.md) (Een C# IoT Edge-module ontwikkelen en implementeren) voor instructies over hoe u containerinstallatiekopieën publiceert naar een register en een aangepaste module implementeert op uw apparaat. 
 
 
 ## <a name="run-the-solution"></a>De oplossing uitvoeren
@@ -54,13 +54,12 @@ Als u uw eigen module wilt maken en deze wilt aanpassen voor uw omgeving, bestaa
 
       ```JSON
       {  
-        "properties.desired":{  
+        "properties.desired":{
           "PublishInterval":"2000",
-          "SlaveConfigs":{  
-            "Slave01":{  
-              "SlaveConnection":"<IPV4 address>",
-              "HwId":"PowerMeter-0a:01:01:01:01:01",
-              "Operations":{  
+          "SlaveConfigs":{
+            "Slave01":{
+              "SlaveConnection":"<IPV4 address>","HwId":"PowerMeter-0a:01:01:01:01:01",
+              "Operations":{
                 "Op01":{  
                   "PollingInterval": "1000",
                   "UnitId":"1",
@@ -96,12 +95,9 @@ U bekijkt als volgt de gegevens die via de modbus-module lopen:
 docker logs -f modbus
 ```
 
-U kunt ook de telemetrie met behulp van het apparaat verzendt bekijken de [Azure IoT Toolkit-extensie voor Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit). 
+U kunt ook de telemetriegegevens bekijken die het apparaat verzendt door de [Azure IoT Toolkit-extensie voor Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) te gebruiken. 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Zie voor meer informatie over hoe IoT Edge-apparaten als gateways kunnen fungeren, [een IoT Edge-apparaat die als een transparante gateway fungeert maken][lnk-transparent-gateway-linux]
+- Voor meer informatie over hoe IoT Edge-apparaten als gateways kunnen fungeren, raadpleegt u [Create an IoT Edge device that acts as a transparent gateway](./how-to-create-transparent-gateway-linux.md) (Een IoT Edge-apparaat maken dat als een transparante gateway fungeert)
 - Voor meer informatie over de werking van IoT Edge-modules raadpleegt u [Azure IoT Edge-modules](iot-edge-modules.md)
-
-<!-- Links -->
-[lnk-transparent-gateway-linux]: ./how-to-create-transparent-gateway-linux.md

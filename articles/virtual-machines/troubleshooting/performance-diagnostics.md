@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 9/20/2018
 ms.author: anandh
-ms.openlocfilehash: f79be44d33a327f3ead8d950885cb5d47ce3a015
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 67778a269aa962b3184bf55c692154570e8357ba
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47413648"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49387381"
 ---
 # <a name="performance-diagnostics-for-azure-virtual-machines"></a>Diagnostische gegevens over prestaties voor virtuele Azure-machines
 
@@ -103,7 +103,7 @@ Na het uploaden, wordt een nieuw rapport voor diagnostische gegevens vermeld in 
 Gebruik de **instellingen** werkbalkknop te wijzigen van het opslagaccount waar de diagnostische gegevens over inzichten en de uitvoer kunnen worden opgeslagen. U kunt hetzelfde opslagaccount gebruiken voor meerdere virtuele machines die gebruikmaken van diagnostische gegevens voor prestaties. Wanneer u het opslagaccount wijzigt, worden de oude rapporten en inzichten worden niet verwijderd. Echter, wordt ze niet meer worden weergegeven in de lijst met diagnostische gegevens over rapporten. 
 
 ## <a name="review-insights-and-performance-diagnostics-report"></a>Inzichten en diagnostische gegevens Prestatierapport bekijken
-Elke diagnose uitvoeren bevat een lijst met inzichten en aanbevelingen, betrokken resources, logboekbestanden en andere geavanceerde diagnostische gegevens die worden verzameld, plus een rapport voor offline te bekijken. Zie voor een volledige lijst van alle verzamelde diagnostische gegevens, [wat voor soort informatie wordt verzameld door PerfInsights?](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/how-to-use-perfinsights#what-kind-of-information-is-collected-by-perfinsights) 
+Elke diagnose uitvoeren bevat een lijst met inzichten en aanbevelingen, betrokken resources, logboekbestanden en andere geavanceerde diagnostische gegevens die worden verzameld, plus een rapport voor offline te bekijken. Zie voor een volledige lijst van alle verzamelde diagnostische gegevens, [wat voor soort informatie wordt verzameld door PerfInsights?](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-use-perfinsights#what-kind-of-information-is-collected-by-perfinsights) 
 
 ### <a name="select-a-performance-diagnostics-report"></a>Selecteer een rapport van de diagnostische gegevens over prestaties
 De lijst met diagnostische gegevens van rapporten kunt u zoeken naar alle diagnostische rapporten die zijn uitgevoerd. De lijst bevat informatie over de analyse die is gebruikt, inzichten die zijn gevonden en hun niveaus van impact. Selecteer een rij om meer details weer te geven.
@@ -123,7 +123,7 @@ U kunt een inzicht om meer informatie over de betrokken resources, voorgestelde 
 ![Schermafbeelding van een insight-details van de prestatie-diagnostische gegevens](media/performance-diagnostics/insight-detail.png)
 
 ### <a name="download-and-review-the-full-performance-diagnostics-report"></a>Downloaden en bekijken van het rapport van de diagnostische gegevens over de volledige prestaties
-U kunt de **rapport downloaden** knop voor het downloaden van een HTML-rapport met gegevens over de aanvullende uitgebreide diagnostische gegevens, zoals opslag en configuratie van het netwerk, prestatiemeteritems, traceringen, overzicht van de processen, en zich aanmeldt. De inhoud, is afhankelijk van de geselecteerde analyse. Voor geavanceerde probleemoplossing, bevat het rapport mogelijk aanvullende informatie en interactieve grafieken die gerelateerd zijn aan hoge CPU-gebruik, -intensief gebruik en -processen die excessief veel geheugen gebruiken. Zie voor meer informatie over het rapport van de diagnostische gegevens over prestaties, [diagnostisch rapport bekijken](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/how-to-use-perfinsights#review-the-diagnostics-report).
+U kunt de **rapport downloaden** knop voor het downloaden van een HTML-rapport met gegevens over de aanvullende uitgebreide diagnostische gegevens, zoals opslag en configuratie van het netwerk, prestatiemeteritems, traceringen, overzicht van de processen, en zich aanmeldt. De inhoud, is afhankelijk van de geselecteerde analyse. Voor geavanceerde probleemoplossing, bevat het rapport mogelijk aanvullende informatie en interactieve grafieken die gerelateerd zijn aan hoge CPU-gebruik, -intensief gebruik en -processen die excessief veel geheugen gebruiken. Zie voor meer informatie over het rapport van de diagnostische gegevens over prestaties, [diagnostisch rapport bekijken](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-use-perfinsights#review-the-diagnostics-report).
 
 ## <a name="manage-performance-diagnostics-reports"></a>Diagnostische rapporten beheren
 U kunt een of meer prestaties diagnostische rapporten verwijderen met behulp van de **rapport verwijderen** knop.

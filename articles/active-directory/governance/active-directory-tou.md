@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.component: compliance
 ms.date: 09/04/2018
 ms.author: rolyon
-ms.openlocfilehash: 9fa966999e220ea4357d5b5c37f0038c75fe2339
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: b6cc81a49875739a61aa397a65eb70c6b4f082ef
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45607925"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49393980"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Functie Azure Active Directory Gebruiksrechtovereenkomst
 Azure AD Gebruiksrechtovereenkomst is een eenvoudige methode waarmee organisaties informatie kunnen presenteren aan eindgebruikers. Deze presentatie zorgt ervoor dat gebruikers relevante disclaimers voor juridische vereisten of nalevingsvereisten te zien krijgen. In dit artikel wordt beschreven hoe u aan de slag kunt gaan met Azure AD Gebruiksrechtovereenkomst.
@@ -128,7 +128,7 @@ Gebruikers zijn alleen vereist om de gebruiksvoorwaarden accepteren één keer t
 ### <a name="how-users-can-review-their-terms-of-use"></a>Hoe gebruikers hun gebruiksvoorwaarden kunnen bekijken
 Gebruikers kunnen de gebruiksvoorwaarden die ze hebben geaccepteerd, controleren en inzien met behulp van de volgende procedure.
 
-1. Aanmelden bij [ https://myapps.microsoft.com ](https://myapps.microsoft.com).
+1. Meld u aan bij [https://myapps.microsoft.com](https://myapps.microsoft.com).
 
 1. Klik in de rechterbovenhoek op uw naam en selecteer **Profiel** in de vervolgkeuzelijst.
 
@@ -242,4 +242,4 @@ A: u kunt [revisie geaccepteerd eerder gebruiksvoorwaarden](#how-users-can-revie
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Best practices for conditional access in Azure Active Directory](../../cognitive-services/qnamaker/concepts/best-practices.md) (Best practices voor voorwaardelijke toegang in Azure Active Directory)
+- [Best practices for conditional access in Azure Active Directory](../../active-directory/conditional-access/best-practices.md) (Best practices voor voorwaardelijke toegang in Azure Active Directory)

@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/21/2018
+ms.date: 10/17/2018
 ms.author: jingwang
-ms.openlocfilehash: 56f1721240d4b685133149d50dd7c2a0e6b7e974
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 4da56b275c2b224d56b8296dd480e638a27a03a1
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44158838"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49379091"
 ---
 # <a name="copy-data-from-and-to-salesforce-by-using-azure-data-factory"></a>Gegevens kopiëren van en naar Salesforce met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -35,6 +35,8 @@ Om precies ondersteunt deze Salesforce-connector:
 
 - SalesForce-ontwikkelaar, Professional, Enterprise of onbeperkt-edities.
 - Kopiëren van gegevens van en naar Salesforce-productie, sandbox- en aangepaste domein.
+
+De Salesforce-connector is gebaseerd op de REST API voor Salesforce, met [v39](https://developer.salesforce.com/docs/atlas.en-us.206.0.api_rest.meta/api_rest/resources_list.htm) voor gegevens kopiëren van en [v40](https://developer.salesforce.com/docs/atlas.en-us.208.0.api_asynch.meta/api_asynch/asynch_api_intro.htm) om gegevens te kopiëren.
 
 ## <a name="prerequisites"></a>Vereisten
 

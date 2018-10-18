@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2018
 ms.author: magoedte
-ms.openlocfilehash: 308a447ff99cd11ad6a28df0bdb515764b0f546b
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 282620342d2348868ceab5257de7415a9cb2147c
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47063452"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49388354"
 ---
 # <a name="azure-monitor-for-vms-frequently-asked-questions"></a>Veelgestelde vragen over Azure Monitor voor virtuele machines
 Dit Microsoft-FAQ is een lijst met veelgestelde vragen over Azure Monitor voor virtuele machines in Microsoft Azure. Als u aanvullende vragen over de oplossing hebt, gaat u naar de [discussieforum](https://feedback.azure.com/forums/34192--general-feedback) en plaats uw vraag. Wanneer u een vraag is vaak wordt gevraagd, toevoegen we deze aan dit artikel zodat snel en eenvoudig kunnen worden gevonden.
@@ -76,7 +76,7 @@ De Azure-Monitor voor de functie voor toewijzing van virtuele machines is gebase
 Dit kan gebeuren een aantal oorzaken hebben.  In gevallen waarbij er een onderbreking in het verzamelen van gegevens wordt de stippellijn met regels weer.  Als u de samplingfrequentie gegevens voor de prestatiemeteritems ingeschakeld hebt gewijzigd (de standaardinstelling is het verzamelen van gegevens elke 60 seconden), ziet u de stippellijn in de grafiek als u een smal tijdsbereik voor de grafiek en de samplingfrequentie is kleiner dan de Bucketgrootte in de grafiek gebruikt (bijvoorbeeld de samplingfrequentie is elke 10 minuten en elke bucket op de grafiek is 5 minuten).  Het kiezen van een breder scala van de tijd om weer te geven, zou de regels van de grafiek wordt weergegeven als ononderbroken lijnen in plaats van punten in dit geval veroorzaken.
 
 ## <a name="are-groups-supported-with-azure-monitor-for-vms"></a>Worden groepen ondersteund met Azure Monitor voor virtuele machines?
-De functie prestaties biedt ondersteuning voor groepen op basis van de gemarkeerde bronnen binnen een specifieke werkruimte, evenals de groepering op basis van een bepaalde virtuele machine van Azure-schaalset en cloudservice.
+Ja, zodra u de agent voor afhankelijkheden we gegevens verzamelen van de virtuele machines om weer te geven van de groepen op basis van abonnement, resourcegroep, virtuele machine schaalsets, en cloudservices.  Als u hebt gebruikt Serviceoverzicht en machine-groepen hebt gemaakt, worden deze ook weergegeven.  Computergroepen wordt ook weergegeven in het filter groepen als u deze hebt gemaakt voor de werkruimte die u bekijkt. 
 
 ## <a name="how-do-i-see-the-details-for-what-is-driving-the-95th-percentile-line-in-the-aggregate-performance-charts"></a>Hoe zien de details voor wat het 95e percentiel vraagt om een lijndiagram in het aggregaat prestaties?
 Standaard wordt de lijst om weer te geven u de virtuele machines waarvoor de hoogste waarde voor het 95e percentiel voor de geselecteerde metrische gegevens, met uitzondering van de grafiek beschikbaar geheugen, waarin de machines met de laagste waarde van 5% van de gevallen gesorteerd.  Te klikken op de grafiek wordt geopend de **Top N lijst** weergeven met de juiste metriek geselecteerd.

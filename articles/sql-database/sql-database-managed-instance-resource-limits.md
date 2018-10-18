@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: bonova
 ms.author: bonova
-ms.reviewer: carlrab, jovanpop
+ms.reviewer: carlrab, jovanpop, sachinp
 manager: craigg
-ms.date: 10/04/2018
-ms.openlocfilehash: 3f571a8d8a138656fc8bae5d6f45d183a8819bc3
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.date: 10/17/2018
+ms.openlocfilehash: 97c141b6e0c071a8cea27f9a873f28a6c5113a18
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48803202"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394859"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Overzicht van Azure SQL Database Managed Instance-resourcebeperkingen
 
@@ -140,6 +140,7 @@ Als u meer beheerde instanties in uw huidige regio's, kunt u de ondersteuningsaa
      > - Regio in welk abonnement u limiet moet worden verhoogd
      > - Vereiste aantal exemplaren per servicelaag in bestaande subnetten na het quotum (als een van de bestaande subnetten moet worden uitgebreid verhogen
      > - Aantal nieuwe subnetten en totaal aantal exemplaren per servicelaag in de nieuwe subnetten vereist (als u implementeren van beheerde exemplaren in de nieuwe subnetten wilt).
+     
 5. Klik op **Volgende**.
 6. Voer op het tabblad contact opnemen met informatie voor de nieuwe ondersteuningsaanvraag contactwijze (bijvoorbeeld e-mail of telefoon) en de gegevens van de contactpersoon.
 7. Klik op **Create**.

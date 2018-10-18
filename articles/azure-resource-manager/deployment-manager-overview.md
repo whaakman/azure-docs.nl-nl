@@ -11,20 +11,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2018
 ms.author: tomfitz
-ms.openlocfilehash: f19708d232080b53446bedd9316fcf9d7772890d
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: a5a2300bd0b768b4a29b01e75f9558c4923ac11c
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47585795"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49395120"
 ---
-# <a name="enable-safe-deployment-practices-with-azure-deployment-manager-public-preview"></a>Implementatie van veilige procedures met Azure Deployment Manager (openbare Preview) inschakelen
+# <a name="enable-safe-deployment-practices-with-azure-deployment-manager-private-preview"></a>Implementatie van veilige procedures met Azure Deployment Manager (Private Preview) inschakelen
 
 Voor het implementeren van uw service in veel regio's en zorg ervoor dat deze wordt uitgevoerd zoals verwacht in elke regio, kunt u Azure Deployment Manager gebruiken voor de coördinatie van een gefaseerde implementatie van de service. Net zoals u zou voor elke Azure-implementatie doen, definieert u de resources voor uw service in [Resource Manager-sjablonen](resource-group-authoring-templates.md). Na het maken van de sjablonen, kunt u Deployment Manager gebruiken om te beschrijven van de topologie voor uw service en hoe deze moet worden geïmplementeerd.
 
-Deployment Manager is een functie van Resource Manager. Hiermee wordt uw mogelijkheden tijdens de implementatie. Deployment Manager gebruiken wanneer u een complexe service die moet worden geïmplementeerd voor meerdere regio's. Door de implementatie van uw service voor fasering, vindt u potentiële problemen voordat deze is geïmplementeerd voor alle regio's. Als u niet de extra voorzorgsmaatregelen van een gefaseerde implementatie nodig hebt, gebruikt u de standaard [implementatieopties](resource-group-template-deploy-portal.md) voor Resource Manager. Deployment Manager integreert naadloos met alle bestaande hulpprogramma's van derden die ondersteuning bieden voor Resource Manager-implementaties, zoals continue integratie en continue levering (CI/CD)-aanbiedingen. 
+Deployment Manager is een functie van Resource Manager. Hiermee wordt uw mogelijkheden tijdens de implementatie. Deployment Manager gebruiken wanneer u een complexe service die moet worden geïmplementeerd voor meerdere regio's. Door de implementatie van uw service te faseren, kunt u potentiële problemen opsporen voordat de service is geïmplementeerd voor alle regio's. Als u niet de extra voorzorgsmaatregelen van een gefaseerde implementatie nodig hebt, gebruikt u de standaard [implementatieopties](resource-group-template-deploy-portal.md) voor Resource Manager. Deployment Manager integreert naadloos met alle bestaande hulpprogramma's van derden die ondersteuning bieden voor Resource Manager-implementaties, zoals continue integratie en continue levering (CI/CD)-aanbiedingen. 
 
-Azure Deployment Manager is in openbare preview. Voer voor het gebruik van Azure Deployment Manager, de [aanmeldingsformulier hebt ingevuld](https://aka.ms/admsignup). Help-informatie van de functie verbeteren door [feedback](https://aka.ms/admfeedback).
+Azure Deployment Manager is in de beperkte Preview-versie. Voer voor het gebruik van Azure Deployment Manager, de [aanmeldingsformulier hebt ingevuld](https://aka.ms/admsignup). Help-informatie van de functie verbeteren door [feedback](https://aka.ms/admfeedback).
 
 Deployment Manager wilt gebruiken, moet u vier bestanden maken:
 
@@ -37,7 +37,7 @@ U implementeren de sjabloon topologie voordat u de implementatie-sjabloon implem
 
 ## <a name="supported-locations"></a>Ondersteunde locaties
 
-Voor de openbare preview, worden Deployment Manager-resources ondersteund in Centraal VS en VS-Oost 2. Bij het definiëren van resources in uw topologie en de implementatie-sjablonen, zoals de service-eenheden, artefactbronnen en implementaties die worden beschreven in dit artikel, moet u een van deze regio's voor de locatie opgeven. De resources die u implementeert voor het maken van uw service, zoals virtuele machines, opslagaccounts en web-apps, worden echter ondersteund in alle hun [standaardlocaties](https://azure.microsoft.com/global-infrastructure/services/?products=all).  
+Voor de Preview-versie, worden Deployment Manager-resources ondersteund in Centraal VS en VS-Oost 2. Bij het definiëren van resources in uw topologie en de implementatie-sjablonen, zoals de service-eenheden, artefactbronnen en implementaties die worden beschreven in dit artikel, moet u een van deze regio's voor de locatie opgeven. De resources die u implementeert voor het maken van uw service, zoals virtuele machines, opslagaccounts en web-apps, worden echter ondersteund in alle hun [standaardlocaties](https://azure.microsoft.com/global-infrastructure/services/?products=all).  
 
 ## <a name="identity-and-access"></a>Identiteit en toegang
 
@@ -89,7 +89,7 @@ Het volgende voorbeeld ziet de algemene indeling van de bron-artefact.
 
 Zie voor meer informatie, [artifactSources sjabloonverwijzing](/azure/templates/Microsoft.DeploymentManager/artifactSources).
 
-### <a name="service-topology"></a>Service-topologie
+### <a name="service-topology"></a>Servicetopologie
 
 Het volgende voorbeeld ziet de algemene indeling van de resource voor de service-topologie. U opgeven dat de resource-ID van de bron-artefact waarin de sjablonen en parameterbestanden. De topologie van de service omvat alle serviceresources. Als u wilt controleren of dat de bron-artefact beschikbaar is, de topologie van de service is afhankelijk van het.
 

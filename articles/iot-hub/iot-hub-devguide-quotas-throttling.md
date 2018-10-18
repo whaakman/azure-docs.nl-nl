@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: dobett
-ms.openlocfilehash: 377f28f4798a1ffb6423c1f4d9f4e34b4fc60234
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: b7ef5d2853cdf4a7b09aa52c510c268cb42a245f
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48018839"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49395153"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Referentie - IoT-Hub-quota en beperkingen
 
@@ -75,9 +75,9 @@ IoT Hub dwingt andere operationele beperkingen:
 | Apparaat-naar-cloud-berichten | Maximale berichtgrootte van 256 KB |
 | Cloud-naar-apparaat-berichten<sup>1</sup> | Maximale berichtgrootte 64 KB. Maximaal aantal in behandeling zijnde berichten voor de levering is 50. |
 | Directe methode<sup>1</sup> | Directe methode die maximale nettolading is 128 KB. |
-| Configuraties | 20 configuraties per hub. |
-| Edge-implementaties | 20 implementaties per hub. 20 modules per implementatie. |
-| Dubbels | Maximale grootte per dubbele punt (tags, de gewenste eigenschappen, gerapporteerde eigenschappen) is 8 KB |
+| Automatische apparaatconfiguraties<sup>1</sup> | 100 configuraties per betaalde SKU-hub. 20 configuraties per gratis SKU-hub. |
+| Automatische Edge-implementaties<sup>1</sup> | 20 modules per implementatie. 100 implementaties per betaalde SKU-hub. 20 implementaties per gratis SKU-hub. |
+| Dubbele<sup>1</sup> | Maximale grootte per dubbele punt (tags, de gewenste eigenschappen, gerapporteerde eigenschappen) is 8 KB |
 
 <sup>1</sup>deze functie is niet beschikbaar in de basic-laag van IoT-Hub. Zie voor meer informatie, [u bij het kiezen van de juiste IoT-Hub](iot-hub-scaling.md).
 

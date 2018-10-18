@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/01/2018
 ms.author: hrushib
-ms.openlocfilehash: 4aeb37d656dcb5ebca1a48253c418186dfca0a7a
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: eeaa0e9a940f16c2416418959c98cd17e4816afc
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45575409"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49387630"
 ---
 # <a name="understanding-periodic-backup-configuration-in-azure-service-fabric"></a>Informatie over periodieke back-upconfiguratie in Azure Service Fabric
 
@@ -155,23 +155,23 @@ Wordt ervan uitgegaan dat deze toepassingen gegevens back-vereisten als volgt zi
 
 Om deze vereisten voor het back-up van gegevens op te lossen, back-upbeleid BP_1 naar BP_5 worden gemaakt en back-up als volgt is ingeschakeld.
 1. MyApp_A
-    1. Back-upbeleid maken _BP_1_, met op basis van een frequentie van back-upschema waarvan de frequentie is ingesteld op 24 uur. en back-upopslag geconfigureerd voor het gebruik van de opslaglocatie _BackupStore1_. Dit beleid inschakelt voor toepassing _MyApp_A_ met behulp van [toepassing Backup inschakelen](https://docs.microsoft.com/en-in/rest/api/servicefabric/sfclient-api-enableapplicationbackup) API. Deze actie kunt u gegevensback-up met behulp van back-upbeleid _BP_1_ voor alle partities van _betrouwbare Stateful services_ en _Reliable Actors_ die behoren tot de toepassing  _MyApp_A_.
+    1. Back-upbeleid maken _BP_1_, met op basis van een frequentie van back-upschema waarvan de frequentie is ingesteld op 24 uur. en back-upopslag geconfigureerd voor het gebruik van de opslaglocatie _BackupStore1_. Dit beleid inschakelt voor toepassing _MyApp_A_ met behulp van [toepassing Backup inschakelen](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-enableapplicationbackup) API. Deze actie kunt u gegevensback-up met behulp van back-upbeleid _BP_1_ voor alle partities van _betrouwbare Stateful services_ en _Reliable Actors_ die behoren tot de toepassing  _MyApp_A_.
 
-    2. Back-upbeleid maken _BP_2_, met back-upschema frequentie op basis van waar de frequentie is ingesteld op 1 uur. en back-upopslag geconfigureerd voor het gebruik van de opslaglocatie _BackupStore1_. Dit beleid voor de service inschakelen _SvcA3_ met behulp van [Service Backup inschakelen](https://docs.microsoft.com/en-in/rest/api/servicefabric/sfclient-api-enableservicebackup) API. Deze actie is doorgegeven beleid overschreven _BP_1_ door back-upbeleid expliciet ingeschakeld _BP_2_ voor alle partities van de service _SvcA3_ leidt tot de back-up met behulp van back-up beleid _BP_2_ voor deze partities.
+    2. Back-upbeleid maken _BP_2_, met back-upschema frequentie op basis van waar de frequentie is ingesteld op 1 uur. en back-upopslag geconfigureerd voor het gebruik van de opslaglocatie _BackupStore1_. Dit beleid voor de service inschakelen _SvcA3_ met behulp van [Service Backup inschakelen](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-enableservicebackup) API. Deze actie is doorgegeven beleid overschreven _BP_1_ door back-upbeleid expliciet ingeschakeld _BP_2_ voor alle partities van de service _SvcA3_ leidt tot de back-up met behulp van back-up beleid _BP_2_ voor deze partities.
 
-    3. Back-upbeleid maken _BP_3_, met op basis van een frequentie van back-upschema waarvan de frequentie is ingesteld op 24 uur. en back-upopslag geconfigureerd voor het gebruik van de opslaglocatie _BackupStore2_. Inschakelen van dit beleid voor de partitie _SvcA1_P2_ met behulp van [partitie Backup inschakelen](https://docs.microsoft.com/en-in/rest/api/servicefabric/sfclient-api-enablepartitionbackup) API. Deze actie is doorgegeven beleid overschreven _BP_1_ door back-upbeleid expliciet ingeschakeld _BP_3_ voor partitie _SvcA1_P2_.
+    3. Back-upbeleid maken _BP_3_, met op basis van een frequentie van back-upschema waarvan de frequentie is ingesteld op 24 uur. en back-upopslag geconfigureerd voor het gebruik van de opslaglocatie _BackupStore2_. Inschakelen van dit beleid voor de partitie _SvcA1_P2_ met behulp van [partitie Backup inschakelen](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-enablepartitionbackup) API. Deze actie is doorgegeven beleid overschreven _BP_1_ door back-upbeleid expliciet ingeschakeld _BP_3_ voor partitie _SvcA1_P2_.
 
 2. MyApp_B
-    1. Back-upbeleid maken _BP_4_, met op basis van tijd back-upschema waarvan schematype frequentie is ingesteld op wekelijks, voer dagen is ingesteld op zondag en uitvoeringstijden is ingesteld op 8:00 uur. Back-upopslag geconfigureerd voor het gebruik van de opslaglocatie _BackupStore1_. Dit beleid voor de service inschakelen _SvcB1_ met behulp van [Service Backup inschakelen](https://docs.microsoft.com/en-in/rest/api/servicefabric/sfclient-api-enableservicebackup) API. Deze actie kunt u gegevensback-up met behulp van back-upbeleid _BP_4_ voor alle partities van de service _SvcB1_.
+    1. Back-upbeleid maken _BP_4_, met op basis van tijd back-upschema waarvan schematype frequentie is ingesteld op wekelijks, voer dagen is ingesteld op zondag en uitvoeringstijden is ingesteld op 8:00 uur. Back-upopslag geconfigureerd voor het gebruik van de opslaglocatie _BackupStore1_. Dit beleid voor de service inschakelen _SvcB1_ met behulp van [Service Backup inschakelen](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-enableservicebackup) API. Deze actie kunt u gegevensback-up met behulp van back-upbeleid _BP_4_ voor alle partities van de service _SvcB1_.
 
-    2. Back-upbeleid maken _BP_5_, met back-upschema op basis van tijd waar schematype frequentie is ingesteld op dagelijks en uitvoeringstijden is ingesteld op 8:00 uur. Back-upopslag geconfigureerd voor het gebruik van de opslaglocatie _BackupStore1_. Inschakelen van dit beleid voor de partitie _SvcB2_P1_ met behulp van [partitie Backup inschakelen](https://docs.microsoft.com/en-in/rest/api/servicefabric/sfclient-api-enablepartitionbackup) API. Deze actie kunt u gegevensback-up met behulp van back-upbeleid _BP_5_ voor partitie _SvcB2_P1_.
+    2. Back-upbeleid maken _BP_5_, met back-upschema op basis van tijd waar schematype frequentie is ingesteld op dagelijks en uitvoeringstijden is ingesteld op 8:00 uur. Back-upopslag geconfigureerd voor het gebruik van de opslaglocatie _BackupStore1_. Inschakelen van dit beleid voor de partitie _SvcB2_P1_ met behulp van [partitie Backup inschakelen](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-enablepartitionbackup) API. Deze actie kunt u gegevensback-up met behulp van back-upbeleid _BP_5_ voor partitie _SvcB2_P1_.
 
 Volgende diagram ziet u expliciet ingeschakelde back-upbeleid en back-upbeleid doorgegeven.
 
 ![Service Fabric-toepassingshiërarchie][0]
 
 ## <a name="disable-backup"></a>Back-up uitschakelen
-Back-upbeleid kunnen worden uitgeschakeld als er geen moeten back-upgegevens. Back-upbeleid ingeschakeld op een _toepassing_ kan alleen worden uitgeschakeld op hetzelfde _toepassing_ met behulp van [uitschakelen toepassing Backup](https://docs.microsoft.com/en-in/rest/api/servicefabric/sfclient-api-disableapplicationbackup) API, back-up-beleid is ingeschakeld op een _service_ kan worden uitgeschakeld op hetzelfde _service_ met behulp van [uitschakelen Service Backup](https://docs.microsoft.com/en-in/rest/api/servicefabric/sfclient-api-disableservicebackup) API, en back-upbeleid ingeschakeld op een _partitie_ kan worden uitgeschakeld op hetzelfde _partitie_ met behulp van [uitschakelen partitie Backup](https://docs.microsoft.com/en-in/rest/api/servicefabric/sfclient-api-disablepartitionbackup) API.
+Back-upbeleid kunnen worden uitgeschakeld als er geen moeten back-upgegevens. Back-upbeleid ingeschakeld op een _toepassing_ kan alleen worden uitgeschakeld op hetzelfde _toepassing_ met behulp van [uitschakelen toepassing Backup](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-disableapplicationbackup) API, back-up-beleid is ingeschakeld op een _service_ kan worden uitgeschakeld op hetzelfde _service_ met behulp van [uitschakelen Service Backup](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-disableservicebackup) API, en back-upbeleid ingeschakeld op een _partitie_ kan worden uitgeschakeld op hetzelfde _partitie_ met behulp van [uitschakelen partitie Backup](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-disablepartitionbackup) API.
 
 * Uitschakelen van back-upbeleid voor een _toepassing_ stopt alle gegevens op periodieke back-ups gebeurt als gevolg van het doorgeven van het back-upbeleid betrouwbare Stateful servicepartities of Reliable Actor-partities.
 

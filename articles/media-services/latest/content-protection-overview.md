@@ -4,21 +4,21 @@ description: In dit artikel biedt een overzicht van de beveiliging van inhoud me
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/30/2018
+ms.date: 10/15/2018
 ms.author: juliako
-ms.openlocfilehash: 2a3e94d37a926bd36b780b45eb3d6cb29fb73597
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: f8ef92a335dd6faee076356dbffc873b08afbdc0
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39521751"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394257"
 ---
 # <a name="content-protection-overview"></a>Overzicht van de beveiliging van inhoud
 
@@ -149,9 +149,7 @@ Het voorbeeld wordt getoond hoe u:
 
 2. Maak een StreamingLocator die is geconfigureerd voor het streamen van een gecodeerde asset. 
 
-  In het geval van dit voorbeeld stellen we **StreamingPolicyName** naar **PredefinedStreamingPolicy.SecureStreaming** die envelop en cenc versleuteling ondersteunt en stelt u twee sleutels van de inhoud in de StreamingLocator. 
-
-  Als u ook versleutelen met FairPlay wilt, stelt u de **StreamingPolicyName** naar **PredefinedStreamingPolicy.SecureStreamingWithFairPlay**.
+  U kunt bijvoorbeeld StreamingLocator.StreamingPolicyName instellen voor het beleid 'Predefined_MultiDrmCencStreaming'. Dit beleid geeft aan dat u wilt dat er twee inhoudssleutels (envelop en CENC) worden gegenereerd en ingesteld voor de locator. Er worden dan de envelop-, PlayReady- en Widevine-coderingen toegepast (de sleutel wordt aan de afspeelclient geleverd op basis van de geconfigureerde DRM-licenties). Als u wilt dat ook voor het versleutelen van uw stream met CBCS (FairPlay), gebruikt u 'Predefined_MultiDrmStreaming'.
 
 3. Maken van een test-token.
 

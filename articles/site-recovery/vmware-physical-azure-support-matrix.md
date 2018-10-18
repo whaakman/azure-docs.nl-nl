@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: raynew
-ms.openlocfilehash: 25db7d1f0a546cb5c6071ec4d625a7a52867053a
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: f6f1ceb4f9afaaeb0a436879802144bdebc06280
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47433920"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49378649"
 ---
 # <a name="support-matrix-for-vmware-and-physical-server-replication-to-azure"></a>Ondersteuningsmatrix voor VMware en fysieke servers repliceren naar Azure
 
@@ -64,7 +64,7 @@ Site Recovery biedt ondersteuning voor replicatie van alle werkbelasting die wor
 --- | ---
 Instellingen van de computer | Machines die worden gerepliceerd naar Azure moeten voldoen aan [Azure-vereisten](#azure-vm-requirements).
 Windows-besturingssysteem | 64-bits Windows Server 2016 (Server Core, Server met Bureaubladervaring), Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 met op minimaal SP1. </br></br>  [Windows Server 2008 met op minste SP2 - 32-bits en 64-bits](migrate-tutorial-windows-server-2008.md) (alleen voor de migratie). </br></br> Windows 2016 Nano Server wordt niet ondersteund.
-Linux-besturingssysteem | Red Hat Enterprise Linux: 5.2 naar 5,11<b>\*\*</b>, 6.1-6.10<b>\*\*</b>, 7.0 naar 7.5 <br/><br/>CentOS: 5.2 naar 5,11<b>\*\*</b>, 6.1-6.10<b>\*\*</b>, 7.0 naar 7.5 <br/><br/>Ubuntu 14.04 LTS server[ (kernel-versies ondersteund)](#ubuntu-kernel-versions)<br/><br/>Ubuntu 16.04 LTS server[ (kernel-versies ondersteund)](#ubuntu-kernel-versions)<br/><br/>Debian 7/Debian 8[ (kernel-versies ondersteund)](#debian-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 12 SP1, SP2, SP3 [ (kernel-versies ondersteund)](#suse-linux-enterprise-server-12-supported-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 11 SP3<b>\*\*</b>, SUSE Linux Enterprise Server 11 SP4 * </br></br>Oracle Enterprise Linux 6.4, 6.5, 6.6, 6.7 met Red Hat compatibele kernel of Unbreakable Enterprise Kernel versie 3 (UEK3) <br/><br/></br>* *Gerepliceerde machines upgraden van SUSE Linux Enterprise Server 11 SP3 naar SP4 wordt niet ondersteund. Als u wilt bijwerken, replicatie uitschakelen en inschakelen na de upgrade opnieuw.*</br></br><b>\*\*</b> *Raadpleeg [ondersteuning voor virtuele Linux-machines in Azure](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure) om te begrijpen van ondersteuning voor Linux en open source-technologie in Azure. Azure Site Recovery kunt u failover en Linux-servers in Azure uitvoert, maar Linux-leveranciers mogelijk beperken ondersteuning voor alleen deze versies van de verdeling ervan waarvoor geen einde van de levensduur is bereikt.*
+Linux-besturingssysteem | Red Hat Enterprise Linux: 5.2 naar 5,11<b>\*\*</b>, 6.1-6.10<b>\*\*</b>, 7.0 naar 7.5 <br/><br/>CentOS: 5.2 naar 5,11<b>\*\*</b>, 6.1-6.10<b>\*\*</b>, 7.0 naar 7.5 <br/><br/>Ubuntu 14.04 LTS server[ (kernel-versies ondersteund)](#ubuntu-kernel-versions)<br/><br/>Ubuntu 16.04 LTS server[ (kernel-versies ondersteund)](#ubuntu-kernel-versions)<br/><br/>Debian 7/Debian 8[ (kernel-versies ondersteund)](#debian-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 12 SP1, SP2, SP3 [ (kernel-versies ondersteund)](#suse-linux-enterprise-server-12-supported-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 11 SP3<b>\*\*</b>, SUSE Linux Enterprise Server 11 SP4 * </br></br>Oracle Linux 6.4, 6.5, 6.6, 6.7 met Red Hat compatibele kernel of Unbreakable Enterprise Kernel versie 3 (UEK3) <br/><br/></br>* *Gerepliceerde machines upgraden van SUSE Linux Enterprise Server 11 SP3 naar SP4 wordt niet ondersteund. Als u wilt bijwerken, replicatie uitschakelen en inschakelen na de upgrade opnieuw.*</br></br><b>\*\*</b> *Raadpleeg [ondersteuning voor virtuele Linux-machines in Azure](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure) om te begrijpen van ondersteuning voor Linux en open source-technologie in Azure. Azure Site Recovery kunt u failover en Linux-servers in Azure uitvoert, maar Linux-leveranciers mogelijk beperken ondersteuning voor alleen deze versies van de verdeling ervan waarvoor geen einde van de levensduur is bereikt.*
 
 
 >[!NOTE]

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/08/2017
 ms.author: alkohli
-ms.openlocfilehash: 77154d596eb9202c4f9d1063ba7f4e1ec4855181
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 33be58ae3ac5fcc8d0b35b240f9f378ccce134cc
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43665002"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49387681"
 ---
 # <a name="deploy-and-manage-a-storsimple-cloud-appliance-in-azure-update-3-and-later"></a>Een StorSimple-cloudapparaat implementeren en beheren in Azure (Update 3 en hoger)
 
@@ -265,7 +265,7 @@ Als u alle kosten wilt stoppen, moet u het cloudapparaat verwijderen. Als u de b
 ## <a name="troubleshoot-internet-connectivity-errors"></a>Problemen met internetverbinding oplossen
 Als er tijdens het maken van een cloudapparaat geen verbinding is met internet, mislukt deze stap. Als u problemen met de internetverbinding wilt oplossen, voert u de volgende stappen uit in de klassieke Azure-portal:
 
-1. [Een virtuele Windows-machine maken in de Azure-portal](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/quick-create-portal). Deze virtuele machine moet hetzelfde opslagaccount, VNet en subnet gebruiken als die worden gebruikt door uw cloudapparaat. Als er al een bestaande Windows Server-host in Azure is die hetzelfde opslagaccount, VNet en subnet gebruikt, kunt u deze ook gebruiken om het probleem met de internetverbinding op te lossen.
+1. [Een virtuele Windows-machine maken in de Azure-portal](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal). Deze virtuele machine moet hetzelfde opslagaccount, VNet en subnet gebruiken als die worden gebruikt door uw cloudapparaat. Als er al een bestaande Windows Server-host in Azure is die hetzelfde opslagaccount, VNet en subnet gebruikt, kunt u deze ook gebruiken om het probleem met de internetverbinding op te lossen.
 2. Meld u extern aan bij de virtuele machine die u in de vorige stap hebt gemaakt.
 3. Open een opdrachtvenster in de virtuele machine (Win + R en typ vervolgens `cmd`).
 4. Voer de volgende opdracht uit bij de prompt.

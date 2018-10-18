@@ -8,12 +8,12 @@ ms.component: speech-service
 ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: panosper
-ms.openlocfilehash: 01a386d37841c78e4aae96111e4671ec33b87e00
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: d74a5ded7d86969b3ca2cc20a59ddc20af7dc932
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48017548"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49364112"
 ---
 # <a name="tutorial-create-a-custom-language-model"></a>Zelfstudie: Een aangepast taalmodel maken
 
@@ -98,8 +98,6 @@ De juiste landinstelling moet worden geselecteerd voordat er actie wordt onderno
 Voer op de pagina Create Language Model (Taalmodel maken) een **naam** en **beschrijving** in om relevante informatie over dit model bij te houden, zoals de gegevensset die wordt gebruikt. Selecteer vervolgens het **Base Language Model** (Basistaalmodel) in de vervolgkeuzelijst. Dit model is het startpunt voor uw aanpassing. 
 
 U kunt kiezen uit twee basistaalmodellen. Het Search and Dictation-model (Zoeken en dicteren) is geschikt voor spraak gericht op een toepassing, zoals opdrachten, zoekquery's of dicteren. Het Conversational model (Conversatiemodel) is geschikt voor het herkennen van spraak in een conversatiestijl. Dit type spraak is doorgaans gericht op een andere persoon en vindt plaats in callcenters of vergaderingen. 
-
-Voer op de pagina Create Language Model (Taalmodel maken) een **naam** en **beschrijving** in om relevante informatie over dit model bij te houden, zoals de gegevensset die wordt gebruikt. Selecteer vervolgens het **Base Language Model** (Basistaalmodel) in de vervolgkeuzelijst. Dit model is het startpunt voor uw aanpassing. U kunt kiezen uit twee basistaalmodellen. 
 
 Het Search and Dictation-model (Zoeken en dicteren) is geschikt voor spraak gericht op een toepassing, zoals opdrachten, zoekquery's of dicteren. Het Conversational model (Conversatiemodel) is geschikt voor het herkennen van spraak in een conversatiestijl. Dit type spraak is doorgaans gericht op een andere persoon en vindt plaats in callcenters of vergaderingen. Er is ook een nieuw model met de naam 'Universal' (universeel) openbaar beschikbaar. Universal streeft ernaar om alle scenario's aan te pakken en uiteindelijk de modellen Search and Dictation en Conversational te vervangen.
 

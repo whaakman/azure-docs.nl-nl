@@ -1,10 +1,10 @@
 ---
-title: Azure Machine Learning geautomatiseerde data pipeline-referentieoverzicht | Microsoft Docs
-description: Een afdrukbaar referentieoverzicht waarin het instellen van een pijplijn geautomatiseerde gegevens naar uw Azure Machine Learning-webservice of uw gegevens zich on-premises streaming in Azure of in een cloudservice van derden.
+title: Azure Machine Learning geautomatiseerde data pipeline-referentiemateriaal | Microsoft Docs
+description: Een afdrukbaar overzichtskaart waarin u hoe ziet het instellen van een geautomatiseerde pijplijn naar uw Azure Machine Learning-webservice of uw gegevens zich on-premises, streaming in Azure of in een cloudservice van derden.
 services: machine-learning
 documentationcenter: ''
 author: garyericson
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: 22674d6b-4491-4805-a3ac-d423611177bb
 ms.service: machine-learning
@@ -15,23 +15,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: garye
-ms.openlocfilehash: 54a3aca4c3519948a9e18d035565f746964b38bc
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: cd08f6a31f431900a2cb7ed9ed222409f9583b55
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34836157"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49393368"
 ---
 # <a name="cheat-sheet-for-an-automated-data-pipeline-for-azure-machine-learning-predictions"></a>Overzichtskaart voor een geautomatiseerde pijplijn voor voorspellingen van Azure Machine Learning
-De **Microsoft Azure Machine Learning geautomatiseerde data pipeline-referentieoverzicht** helpt u door de technologie die u gebruiken navigeren kunt om uw gegevens op uw Machine Learning-webservice waarbij kan worden verkregen door uw predictive analytics model.
+De **Microsoft Azure Machine Learning geautomatiseerde data pipeline-overzichtskaart** helpt u door de technologie die u gebruiken navigeren kunt om uw gegevens op uw Machine Learning-webservice waar het kan worden beoordeeld door uw predictive analytics model.
 
-Afhankelijk van of uw gegevens is on-premises in de cloud of realtime streaming er verschillende methoden beschikbaar voor het verplaatsen van de gegevens naar uw webservice-eindpunt voor score berekenen zijn.
-Deze referentieoverzicht wordt u begeleid bij de beslissingen die u wilt maken en koppelingen naar artikelen die kunnen helpen bij het ontwikkelen van uw oplossing biedt.
+Afhankelijk van of uw gegevens zich on-premises, in de cloud, of er verschillende methoden beschikbaar voor het verplaatsen van de gegevens naar uw webservice-eindpunt voor het scoren van realtime streaming zijn.
+Deze overzichtskaart begeleidt u bij de beslissingen die u wilt aanbrengen, en biedt koppelingen naar artikelen die kunnen helpen bij het ontwikkelen van uw oplossing.
 
-## <a name="download-the-machine-learning-automated-data-pipeline-cheat-sheet"></a>De Machine Learning geautomatiseerde data pipeline-referentieoverzicht downloaden
-Zodra u de referentieoverzicht hebt gedownload, kunt u het kunt afdrukken in a3-grootte (11 x 17.).
+## <a name="download-the-machine-learning-automated-data-pipeline-cheat-sheet"></a>Het referentiemateriaal voor Machine Learning geautomatiseerde pijplijn downloaden
+Nadat u het referentiemateriaal voor hebt gedownload, kunt u het kunt afdrukken in a3-grootte (11 x 17.).
 
-De referentieoverzicht hier downloaden:  **[Microsoft Azure Machine Learning geautomatiseerde data pipeline-referentieoverzicht](http://download.microsoft.com/download/C/C/7/CC726F8B-2E6F-4C20-9B6F-AFBEE8253023/microsoft-machine-learning-operationalization-cheat-sheet_v1.pdf)**
+Het referentiemateriaal voor hier downloaden:  **[Microsoft Azure Machine Learning geautomatiseerde pijplijn overzichtskaart van gegevens](http://download.microsoft.com/download/C/C/7/CC726F8B-2E6F-4C20-9B6F-AFBEE8253023/microsoft-machine-learning-operationalization-cheat-sheet_v1.pdf)**
 
 ![Overzicht van de mogelijkheden van Microsoft Azure Machine Learning Studio][op-cheat-sheet]
 
@@ -39,9 +39,9 @@ De referentieoverzicht hier downloaden:  **[Microsoft Azure Machine Learning gea
 
 
 ## <a name="more-help-with-machine-learning-studio"></a>Meer hulp bij Machine Learning Studio
-* Zie voor een overzicht van Microsoft Azure Machine Learning [Inleiding tot machine learning in Microsoft Azure](../studio/what-is-machine-learning.md).
-* Zie voor meer informatie over het implementeren van een score webservice, [Azure Machine Learning-webservice implementeren](../studio/publish-a-machine-learning-web-service.md).
-* Zie voor een beschrijving van hoe u een score webservice verbruiken [gebruiken van een Azure Machine Learning-webservice](../studio/consume-web-services.md).
+* Zie voor een overzicht van Microsoft Azure Machine Learning, [Inleiding tot machine learning in Microsoft Azure](../studio/what-is-machine-learning.md).
+* Zie voor een uitleg van hoe u een scoringwebservice implementeert, [een Azure Machine Learning-webservice implementeren](../studio/publish-a-machine-learning-web-service.md).
+* Zie voor een discussie over het gebruik van een scoringwebservice, [hoe u een Azure Machine Learning-webservice gebruiken](../studio/consume-web-services.md).
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 

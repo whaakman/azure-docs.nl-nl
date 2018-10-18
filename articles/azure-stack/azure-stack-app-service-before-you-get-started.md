@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/20/2018
 ms.author: anwestg
-ms.openlocfilehash: e5fc6b5d396a45d15548cfdd8f445158147ad12f
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 08fcaa44fc807f986324b8304010792af99fd838
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42056704"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49387993"
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Voordat u aan de slag met App Service in Azure Stack
 
@@ -310,7 +310,7 @@ Volg deze stappen:
 3. [Installeren van PowerShell voor Azure Stack](azure-stack-powershell-install.md).
 4. Voer de **maken AADIdentityApp.ps1** script. Wanneer u wordt gevraagd, typt u de Azure AD-tenant-ID die u voor uw Azure Stack-implementatie. Voer bijvoorbeeld **myazurestack.onmicrosoft.com**.
 5. In de **referentie** venster, Voer uw Azure AD-service admin-account en wachtwoord. Selecteer **OK**.
-6. Voer het pad naar het certificaatbestand en het certificaatwachtwoord voor de [certificaat dat u eerder hebt gemaakt](https://docs.microsoft.com/en-gb/azure/azure-stack/azure-stack-app-service-before-you-get-started#certificates-required-for-azure-app-service-on-azure-stack). Het certificaat dat is gemaakt voor deze stap standaard is **sso.appservice.local.azurestack.external.pfx**.
+6. Voer het pad naar het certificaatbestand en het certificaatwachtwoord voor de [certificaat dat u eerder hebt gemaakt](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-before-you-get-started#certificates-required-for-azure-app-service-on-azure-stack). Het certificaat dat is gemaakt voor deze stap standaard is **sso.appservice.local.azurestack.external.pfx**.
 7. Het script maakt een nieuwe toepassing in de tenant Azure AD-instantie. Noteer de toepassings-ID die wordt geretourneerd in de PowerShell-uitvoer. U hebt deze informatie tijdens de installatie nodig.
 8. Open een nieuw browservenster en meld u aan de [Azure-portal](https://portal.azure.com) als de Azure Active Directory-service-beheerder.
 9. Open de Azure AD-resourceprovider.
@@ -350,11 +350,11 @@ Beheerders moeten eenmalige aanmelding te configureren:
 Volg deze stappen:
 
 1. Open een PowerShell-sessie als azurestack\AzureStackAdmin.
-2. Ga naar de locatie van de scripts die u hebt gedownload en uitgepakt de [vereiste stap](https://docs.microsoft.com/en-gb/azure/azure-stack/azure-stack-app-service-before-you-get-started#download-the-azure-app-service-on-azure-stack-installer-and-helper-scripts).
+2. Ga naar de locatie van de scripts die u hebt gedownload en uitgepakt de [vereiste stap](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-before-you-get-started#download-the-azure-app-service-on-azure-stack-installer-and-helper-scripts).
 3. [Installeren van PowerShell voor Azure Stack](azure-stack-powershell-install.md).
 4. Voer de **maken ADFSIdentityApp.ps1** script.
 5. In de **referentie** venster, Geef uw AD FS cloud-beheerdersaccount en het wachtwoord. Selecteer **OK**.
-6. Geef het pad naar het certificaatbestand en het certificaatwachtwoord voor de [certificaat dat u eerder hebt gemaakt](https://docs.microsoft.com/en-gb/azure/azure-stack/azure-stack-app-service-before-you-get-started#certificates-required-for-azure-app-service-on-azure-stack). Het certificaat dat is gemaakt voor deze stap standaard is **sso.appservice.local.azurestack.external.pfx**.
+6. Geef het pad naar het certificaatbestand en het certificaatwachtwoord voor de [certificaat dat u eerder hebt gemaakt](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-before-you-get-started#certificates-required-for-azure-app-service-on-azure-stack). Het certificaat dat is gemaakt voor deze stap standaard is **sso.appservice.local.azurestack.external.pfx**.
 
 ```PowerShell
     Create-ADFSIdentityApp.ps1

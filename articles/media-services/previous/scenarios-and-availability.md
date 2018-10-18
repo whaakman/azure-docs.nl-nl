@@ -4,21 +4,21 @@ description: In dit onderwerp vindt u informatie over Microsoft Azure Media Serv
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 07/10/2017
-ms.author: juliako;anilmur
-ms.openlocfilehash: 8381cdfffd34ffa25d1b87be3a3aca3de69c2802
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.date: 10/15/2018
+ms.author: juliako
+ms.openlocfilehash: 0e9537f09049d5fe056819e6f8b9718cfc52f489
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34809275"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49352805"
 ---
 # <a name="scenarios-and-availability-of-media-services-features-across-datacenters"></a>Scenario's en de beschikbaarheid van Media Services-functies in datacenters
 
@@ -158,7 +158,7 @@ AMS-klanten kunnen streaming-eindpunten, de mediaverwerking en de opslag in hun 
     Zie [Mediaverwerking schalen](media-services-portal-scale-media-processing.md) voor meer informatie.
 * U kunt uw Media Services-account schalen door opslagaccounts toe te voegen. Elk opslagaccount is beperkt tot 500 TB. Als u uw opslag wilt uitbreiden buiten de standaardbeperkingen, kunt u meerdere opslagaccounts aan een enkel Media Services-account koppelen. Zie [Opslagaccounts beheren](meda-services-managing-multiple-storage-accounts.md) voor meer informatie.
 
-##<a id="availability"></a> De beschikbaarheid van Media Services-functies in datacenters
+## <a id="availability"></a> De beschikbaarheid van Media Services-functies in datacenters
 
 Deze sectie bevat informatie over de beschikbaarheid van Media Services-functies in datacenters.
 
@@ -183,7 +183,7 @@ Media Services-klanten kunnen een **Standard**-streaming-eindpunt of een Premium
 
 #### <a name="availability"></a>Beschikbaarheid
 
-Beschikbaar in alle datacenters, behalve in: Duitsland, Zuid-Brazilië, West-India, Zuid-India en Centraal-India. 
+Beschikbaar in alle datacenters, behalve in: Duitsland, BR - zuid, India - west, India - zuid en India - centraal. 
 
 ### <a name="encoding-media-processors"></a>Mediaprocessors coderen
 
@@ -249,8 +249,8 @@ Zie de sectie [Schalen](#scaling) voor meer informatie.
 |RU-typenaam|Status|Datacenters
 |---|---|---|
 |S1|Algemene beschikbaarheid|Alle|
-|S2|Algemene beschikbaarheid|Overal behalve in Zuid-Brazilië en West-India|
-|S3|Algemene beschikbaarheid|Overal behalve in West-India|
+|S2|Algemene beschikbaarheid|Overal behalve in BR - zuid en India - west|
+|S3|Algemene beschikbaarheid|Overal behalve in India - west|
 
 ## <a name="next-steps"></a>Volgende stappen
 

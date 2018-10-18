@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/08/2018
+ms.date: 10/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 66f3558a4314b1639d54d4e8ea6814eea9064073
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 2b1a6e2921fdaf9ede1184cfc02c3f61f63c60ac
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49113883"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49393759"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Uitvoeren van Runbook in Azure Automation
 
@@ -135,19 +135,11 @@ Get-AzureRmLog -ResourceId $JobResourceID -MaxRecord 1 | Select Caller
 
 ## <a name="fair-share"></a>Evenredige deel
 
-Om te kunnen resources kan delen met alle runbooks in de cloud, wordt Azure Automation tijdelijk of er taken zijn verwijderd nadat deze is gestart voor drie uur. Gedurende deze periode worden taken voor [op basis van een PowerShell-runbooks](automation-runbook-types.md#powershell-runbooks) worden gestopt en worden niet opnieuw worden gestart. De taak de status geeft **gestopt**. Dit type runbook wordt altijd opnieuw opgestart vanaf het begin omdat deze geen ondersteuning voor controlepunten bieden.
+Azure Automation wordt tijdelijk om resources kan delen met alle runbooks in de cloud, verwijderen of stoppen van elke taak die gedurende meer dan drie uur actief is geweest. Taken voor [op basis van een PowerShell-runbooks](automation-runbook-types.md#powershell-runbooks) en [Python runbooks](automation-runbook-types.md#python-runbooks) worden gestopt en niet opnieuw opgestart, en de status van de taak wordt gestopt.
 
-[PowerShell-werkstroom gebaseerde runbooks](automation-runbook-types.md#powershell-workflow-runbooks) worden hervat vanaf de laatste [controlepunt](https://docs.microsoft.com/system-center/sma/overview-powershell-workflows#bk_Checkpoints). Na het uitvoeren van drie uur, de runbooktaak is onderbroken door de service en de status ervan bevat **uitgevoerd, wachten op resources**. Wanneer een sandbox beschikbaar is, wordt het runbook automatisch opnieuw opgestart door de Automation-service en wordt hervat vanaf het laatste controlepunt. Dit gedrag is normaal PowerShell-werkstroom voor het tijdelijk intrekken/opnieuw opstarten. Als het runbook opnieuw groter is dan drie uur van de runtime, het proces wordt herhaald, maximaal drie keer. Na het derde opnieuw opstarten, als het runbook nog steeds is niet voltooid in drie uur en vervolgens de runbooktaak is mislukt, en ziet u de taakstatus **is mislukt, wachten op resources**. In dit geval ontvangt u de volgende uitzondering vanwege de fout.
+Voor langdurige taken wordt u aangeraden een [Hybrid Runbook Worker](automation-hrw-run-runbooks.md#job-behavior) te gebruiken. Hybrid Runbook Workers worden niet beperkt door evenredige deel en hoeft een beperking op hoe lang een runbook kunt uitvoeren. De andere taak [limieten](../azure-subscription-service-limits.md#automation-limits) gelden voor zowel Azure sandboxes als Hybrid Runbook Workers. Terwijl de Hybrid Runbook Workers worden niet beperkt door de limiet van de evenredige deel 3 uur, runbooks die worden uitgevoerd op deze moet nog steeds worden ontwikkeld ter ondersteuning van opnieuw opstarten gedrag van problemen met onverwachte lokale infrastructuur.
 
-*De taak kan niet worden voortgezet te voeren, omdat het herhaaldelijk vanaf het dezelfde controlepunt is verwijderd. Zorg ervoor dat uw Runbook heeft geen langdurige bewerkingen uitvoeren zonder dat de status.*
-
-Dit gedrag is het beschermen van de service van runbooks die voor onbepaalde tijd worden uitgevoerd zonder te worden voltooid, omdat ze zijn niet in staat om te maken voor het volgende controlepunt zonder ontladen opnieuw.
-
-Als het runbook geen controlepunten heeft of de taak niet het eerste controlepunt bereikt heeft voordat het wordt ongedaan gemaakt, klikt u vervolgens opnieuw wordt gestart vanaf het begin.
-
-Voor langdurige taken wordt u aangeraden een [Hybrid Runbook Worker](automation-hrw-run-runbooks.md#job-behavior) te gebruiken. Hybrid Runbook Workers worden niet beperkt door evenredige deel en hoeft een beperking op hoe lang een runbook kunt uitvoeren. De andere taak [limieten](../azure-subscription-service-limits.md#automation-limits) gelden voor zowel Azure sandboxes als Hybrid Runbook Workers.
-
-Als u een PowerShell Workflow-runbook in Azure, wanneer u een runbook maakt, moet u ervoor zorgen dat de tijd voor het uitvoeren van alle activiteiten tussen twee controlepunten niet groter is dan drie uur. U moet mogelijk controlepunten toevoegen aan uw runbook om te controleren of deze niet kan deze drie uur limiet is bereikt of splits lange bewerkingen. Uw runbook kan bijvoorbeeld een reindex uitvoeren op een grote SQL-database. Als deze één bewerking niet voltooid binnen de limiet van evenredige deel, vervolgens de taak is verwijderd en opnieuw opgestart vanaf het begin. In dit geval moet u splitst u de bewerking opnieuw indexeren in meerdere stappen, zoals het indexeren van een tabel op een tijdstip, en voeg vervolgens een controlepunt na elke bewerking, zodat de taak kan worden hervat na de laatste bewerking is voltooid.
+Een andere optie is het optimaliseren van het runbook met behulp van de onderliggende runbooks. Als uw runbook dezelfde functie op een aantal resources, zoals een databasebewerking op verschillende databases doorloopt, kunt u deze functie voor het verplaatsen een [onderliggend runbook](automation-child-runbooks.md) en roep deze aan met de [ Start-AzureRMAutomationRunbook](/powershell/module/azurerm.automation/start-azurermautomationrunbook) cmdlet. Elk van deze onderliggende runbooks wordt parallel uitgevoerd in afzonderlijke processen, waardoor het minder lang duurt voordat het bovenliggende runbook is voltooid. U kunt de [Get-AzureRmAutomationJob](/powershell/module/azurerm.automation/Get-AzureRmAutomationJob) cmdlet in uw runbook om te controleren van de taak de status van alle onderliggende als er bewerkingen die worden uitgevoerd moeten nadat het onderliggende runbook is voltooid.
 
 ## <a name="next-steps"></a>Volgende stappen
 

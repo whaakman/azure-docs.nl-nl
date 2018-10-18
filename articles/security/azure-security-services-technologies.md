@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/25/2018
 ms.author: barclayn
-ms.openlocfilehash: 0addad1db4d9f897736a7793c5489897bca2cd38
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 32174af9edcd6da7b87b6b38c0824fa7f07aa8f9
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47093423"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49384884"
 ---
 # <a name="security-services-and-technologies-available-on-azure"></a>Beveiligingsservices en -technologieën die beschikbaar zijn op Azure
 
@@ -48,7 +48,7 @@ Na verloop van tijd, wordt deze lijst wijzigt en groeien, net als Azure. Zorg er
 | [Azure Storage Shared Access Signatures](../storage/common/storage-dotnet-shared-access-signature-part-1.md)|Een shared access signature biedt gedelegeerde toegang tot resources in uw opslagaccount.  |
 |[Azure Storage-Accountsleutels](../storage/common/storage-create-storage-account.md)| Een methode van toegangsbeheer voor Azure-opslag die wordt gebruikt voor verificatie wanneer het opslagaccount dat wordt geopend. |
 |[Azure-bestandsshares met SMB 3.0-versleuteling](../storage/files/storage-files-introduction.md)|Een netwerk beveiligingstechnologie waarmee automatische versleuteling voor het Server Message Block (SMB)-protocol voor bestandsdeling. |
-|[Azure Storage Analytics](https://docs.microsoft.com/en-us/rest/api/storageservices/Storage-Analytics)| Een technologie logboekregistratie en metrische gegevens te genereren voor gegevens in uw storage-account. |
+|[Azure Storage Analytics](https://docs.microsoft.com/rest/api/storageservices/Storage-Analytics)| Een technologie logboekregistratie en metrische gegevens te genereren voor gegevens in uw storage-account. |
 
 <!------>
 
@@ -58,8 +58,8 @@ Na verloop van tijd, wordt deze lijst wijzigt en groeien, net als Azure. Zorg er
 | [Azure&nbsp;SQL&nbsp;Firewall](../sql-database/sql-database-firewall-configure.md)|Een netwerk besturingselement onderdeel toegang biedt bescherming tegen aanvallen op het netwerk naar de database. |
 |[Azure&nbsp;SQL&nbsp;cel&nbsp;niveau van versleuteling](https://blogs.msdn.microsoft.com/sqlsecurity/2015/05/12/recommendations-for-using-cell-level-encryption-in-azure-sql-database/)| Een database beveiligingstechnologie waarmee versleuteling op een gedetailleerd niveau biedt.  |
 | [Azure&nbsp;SQL&nbsp;versleuteling voor verbinding](../sql-database/sql-database-control-access.md)|Voor de beveiliging regelt SQL Database toegang met firewallregels die de connectiviteit beperken op basis van IP-adres. Met behulp van verificatiemechanismen moeten gebruikers hun identiteit kunnen aantonen en met autorisatiemechanismen worden gebruikers beperkt tot bepaalde gegevens en acties. |
-| [Azure SQL altijd versleuteling](https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-2017)|Gevoelige gegevens, zoals creditcardnummers of nationale identificatienummers (bijvoorbeeld VS burgerservicenummers), die zijn opgeslagen in Azure SQL Database of SQL Server-databases beveiligt.  |
-| [Azure&nbsp;SQL&nbsp;Transparent Data Encryption](https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql?view=azuresqldb-current)| Een database beveiligingsfunctie die de opslag van een volledige database versleutelt. |
+| [Azure SQL altijd versleuteling](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-2017)|Gevoelige gegevens, zoals creditcardnummers of nationale identificatienummers (bijvoorbeeld VS burgerservicenummers), die zijn opgeslagen in Azure SQL Database of SQL Server-databases beveiligt.  |
+| [Azure&nbsp;SQL&nbsp;Transparent Data Encryption](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql?view=azuresqldb-current)| Een database beveiligingsfunctie die de opslag van een volledige database versleutelt. |
 | [Azure SQL Database Auditing](../sql-database/sql-database-auditing.md)|Een database met controle-functie die worden databasegebeurtenissen bijgehouden en geschreven naar een auditlogboek in uw Azure storage-account.  |
 
 

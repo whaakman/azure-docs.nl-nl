@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 09/06/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: f3b80af1dfaca921efbe656356e85aeb353a576b
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 93bd141b591cda5ec6ff1d9d042222070d3146e6
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46315306"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49390309"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Versiegeschiedenis van release
 Azure AD Connect het team van Azure Active Directory (Azure AD) regelmatig bijgewerkt met nieuwe functies en functionaliteit. Niet alle toevoegingen gelden voor alle doelgroepen.
@@ -112,7 +112,7 @@ Nieuwe functies en verbeteringen
 
 ### <a name="fixed-issues"></a>Problemen opgelost 
 
-- De SQL Server Express-installatie deze versie bijgewerkt naar SQL Server 2012 SP4, die, onder andere oplossingen voor enkele beveiligingsproblemen biedt.  Raadpleeg [hier](https://support.microsoft.com/en-ca/help/4018073/sql-server-2012-service-pack-4-release-information) voor meer informatie over SQL Server 2012 SP4.
+- De SQL Server Express-installatie deze versie bijgewerkt naar SQL Server 2012 SP4, die, onder andere oplossingen voor enkele beveiligingsproblemen biedt.  Raadpleeg [hier](https://support.microsoft.com/help/4018073/sql-server-2012-service-pack-4-release-information) voor meer informatie over SQL Server 2012 SP4.
 - Verwerken van de regel voor synchronisatie: uitgaande Join-synchronisatieregels met geen Join-voorwaarde moet ongedaan maken toegepast als de bovenliggende synchronisatieregel niet langer van toepassing is
 - Verschillende toegankelijkheid correcties zijn toegepast op de Synchronization Service Manager-UI en de regeleditor synchroniseren
 - Azure AD Connect-Wizard: Fout bij het maken van AD Connector-account bij Azure AD Connect is in een werkgroep

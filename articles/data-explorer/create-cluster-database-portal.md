@@ -2,18 +2,18 @@
 title: 'Snelstart: een Azure Data Explorer-cluster en -database maken'
 description: In deze snelstart leert u hoe u een Azure Data Explorer-cluster en -database maakt en hoe u gegevens opneemt (laadt).
 services: data-explorer
-author: mgblythe
-ms.author: mblythe
+author: orspod
+ms.author: v-orspod
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: 3280709c59edfd5d8e810c7ab33aa615e13f4b93
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 6aff31c662a845028a02cecd7a99837f92bc87e5
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46974711"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394218"
 ---
 # <a name="quickstart-create-an-azure-data-explorer-cluster-and-database"></a>Snelstart: een Azure Data Explorer-cluster en -database maken
 
@@ -41,7 +41,7 @@ U maakt een Azure Data Explorer-cluster in een Azure-resourcegroep, met een gede
 
     ![Een resourcegroep maken](media/create-cluster-database-portal/create-resource-group.png)
 
-1. Vul in het formulier de volgende gegevens in.
+1. Vul het formulier in met de volgende gegevens.
 
    ![Een clusterformulier maken](media/create-cluster-database-portal/create-cluster-form.png)
 
@@ -113,13 +113,13 @@ U kunt een cluster stoppen en opnieuw opstarten, afhankelijk van de behoeften va
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Als u graag onze andere snelstarts en zelfstudies wilt volgen, bewaart u de gemaakte resources. Als u dit niet van plan bent, verwijdert u **test-resource-group** om kosten te vermijden.
+Als u onze andere snelstarts en zelfstudies wilt volgen, behoudt u de gemaakte resources. Als u dit niet van plan bent, verwijdert u **test-resource-group** om kosten te vermijden.
 
 1. Selecteer in Azure Portal **Resourcegroepen** aan de linkerkant en selecteer vervolgens de resourcegroep die u hebt gemaakt.  
 
-    Wanneer het menu links is samengevouwen, klikt u op ![Knop Uitvouwen](media/create-cluster-database-portal/expand.png) om het menu uit te vouwen.
+    Als het menu links is samengevouwen, selecteert u ![Knop Uitvouwen](media/create-cluster-database-portal/expand.png) om het menu uit te vouwen.
 
-   ![Selecteer de resourcegroep om te verwijderen](media/create-cluster-database-portal/delete-resources-select.png)
+   ![Resourcegroep selecteren die moet worden verwijderd](media/create-cluster-database-portal/delete-resources-select.png)
 
 1. Selecteer onder **test-resource-group** de optie **Resourcegroep verwijderen**.
 

@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/25/2018
+ms.date: 10/17/2018
 ms.author: tomfitz
-ms.openlocfilehash: 33d5560f2bfef04678cf7a2236fd920385d68aac
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: c32c4f97a963485e87e36afc44e9cea2ebcebd90
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452153"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394406"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Resources verplaatsen naar een nieuwe resourcegroep of abonnement
 
@@ -110,7 +110,7 @@ Neem contact op met [ondersteunen](https://portal.azure.com/#blade/Microsoft_Azu
 
 ## <a name="validate-move"></a>Verplaatsen valideren
 
-De [verplaatsingsbewerking valideren](/rest/api/resources/resources/validatemoveresources) kunt u het testen van uw scenario verplaatsen zonder daadwerkelijk de resources te verplaatsen. Deze bewerking gebruiken om te bepalen als de verplaatsing slaagt. Als u wilt deze bewerking uitvoeren, moet u de:
+De [verplaatsingsbewerking valideren](/rest/api/resources/resources/resources_validatemoveresources) kunt u het testen van uw scenario verplaatsen zonder daadwerkelijk de resources te verplaatsen. Deze bewerking gebruiken om te bepalen als de verplaatsing slaagt. Als u wilt deze bewerking uitvoeren, moet u de:
 
 * naam van de resourcegroep
 * Resource-ID van de doelresourcegroep

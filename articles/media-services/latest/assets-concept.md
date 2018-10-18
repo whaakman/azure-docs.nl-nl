@@ -1,83 +1,92 @@
 ---
-title: Activa in Azure mediaservices | Microsoft Docs
-description: In dit artikel geeft een uitleg van wat activa zijn en hoe ze worden gebruikt door Azure Media Services.
+title: Assets in Azure mediaservices | Microsoft Docs
+description: Dit artikel bevat een uitleg over wat activa zijn en hoe ze worden gebruikt door Azure Media Services.
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 10/15/2018
 ms.author: juliako
-ms.openlocfilehash: 61555eb6cca6995215ce43051abbda9aa43539ec
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: fcb4500a1e4503d90b00528544ae98fa93e16191
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36284835"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49379211"
 ---
 # <a name="assets"></a>Assets
 
-Een **Asset** digitale bestanden (inclusief video, audio, afbeeldingen, verzamelingen miniaturen, tekst tekstsporen en ondertitelingsbestanden bestanden) en de metagegevens over deze bestanden bevat. Nadat de digitale bestanden zijn geüpload naar een asset, kunnen ze in de Media Services-codering en streaming-werkstromen worden gebruikt.
+Een **Asset** digitale bestanden (met inbegrip van de video, audio, afbeeldingen, verzamelingen van miniaturen, tekstsporen en ondertitelingsbestanden-bestanden) en de metagegevens over deze bestanden bevat. Nadat de digitale bestanden zijn geüpload naar een asset, kunnen ze worden gebruikt in de Media Services coderen en streamen van werkstromen.
 
-Een asset is toegewezen aan een blobcontainer in de [Azure Storage-account](storage-account-concept.md) en de bestanden in de asset worden opgeslagen als blok-blobs in de container. U kunt werken met de Asset-bestanden in de containers met behulp van de opslag-SDK-clients.
+Een asset is toegewezen aan een blobcontainer in de [Azure Storage-account](storage-account-concept.md) en de bestanden in de asset worden opgeslagen als blok-blobs in die container. U kunt werken met de Asset-bestanden in de containers met behulp van de Storage-SDK-clients.
 
-Azure Media Services ondersteunt de Blob-lagen wanneer het account wordt gebruikt voor algemene doeleinden v2 (GPv2) opslag. Met GPv2, kunt u bestanden naar cool of koude opslag verplaatsen. Koude opslag is geschikt voor het archiveren van bronbestanden wanneer deze niet langer nodig is (bijvoorbeeld nadat ze zijn gecodeerd.)
+Azure Media Services biedt ondersteuning voor Blob-lagen wanneer het account wordt gebruikt voor algemeen gebruik v2 (GPv2)-opslag. Met gpv2-Opslagaccounts kunt u bestanden naar statisch of koude opslag verplaatsen. Koude opslag is geschikt voor het archiveren van bronbestanden wanneer u niet meer nodig hebt (bijvoorbeeld, nadat ze zijn gecodeerd.)
 
-In Media Services v3, kan de invoer van de taak van activa of van HTTP (s) URL's worden gemaakt. Zie het maken van een asset die kan worden gebruikt als invoer voor de taak [maken van een taak voor invoer van een lokaal bestand](job-input-from-local-file-how-to.md).
+In Media Services v3, kan de invoer van de taken kan worden gemaakt van de activa of via HTTP (s) URL's. Zie voor het maken van een asset die kan worden gebruikt als invoer voor uw taak, [de Taakinvoer van een maken vanuit een lokaal bestand](job-input-from-local-file-how-to.md).
 
-Lees ook over [storage-accounts in een Media Services](storage-account-concept.md) en [transformaties en taken](transform-concept.md).
+Lees ook over [storage-accounts in Media Services](storage-account-concept.md) en [transformaties en taken](transform-concept.md).
 
 ## <a name="asset-definition"></a>Asset-definitie
 
-De volgende tabel ziet u de eigenschappen van de Asset en geeft de definities.
+De volgende tabel ziet u de eigenschappen van de Asset en biedt de definities.
 
 |Naam|Type|Beschrijving|
 |---|---|---|
-|Id|tekenreeks|Volledig gekwalificeerde resource-ID voor de resource.|
+|id|tekenreeks|Volledig gekwalificeerde resource-ID voor de resource.|
 |naam|tekenreeks|De naam van de resource.|
 |properties.alternateId |tekenreeks|De alternatieve ID van de Asset.|
-|properties.assetId |tekenreeks|De id van de Asset.|
+|properties.assetId |tekenreeks|De Asset-ID.|
 |Properties.container |tekenreeks|De naam van de asset blob-container.|
 |Properties.created |tekenreeks|De aanmaakdatum van de Asset.|
-|Properties.Description |tekenreeks|De beschrijving Asset.|
-|properties.lastModified |tekenreeks|De laatste wijzigingsdatum van de activa.|
-|properties.storageAccountName |tekenreeks|De naam van het opslagaccount.|
-|properties.storageEncryptionFormat |AssetStorageEncryptionFormat |De coderingsindeling Asset. Een none of MediaStorageEncryption.|
+|Properties.Description |tekenreeks|De beschrijving van de Asset.|
+|properties.lastModified |tekenreeks|Datum van de activa van de laatste wijziging.|
+|properties.storageAccountName |tekenreeks|De naam van het storage-account.|
+|properties.storageEncryptionFormat |AssetStorageEncryptionFormat |De coderingsindeling Asset. Een op None of MediaStorageEncryption.|
 |type|tekenreeks|Het type van de resource.|
 
-Zie voor de volledige definitie [activa](https://docs.microsoft.com/rest/api/media/assets).
+Zie voor de definitie van de volledige [activa](https://docs.microsoft.com/rest/api/media/assets).
 
-## <a name="filtering-ordering-paging"></a>Filteren, ordenen, paginering
+## <a name="filtering-ordering-paging"></a>Filters, bestellen, wisselbestand
 
-Media Services ondersteunt de volgende opties voor OData-query voor de activa: 
+Media Services ondersteunt de volgende OData-queryopties voor activa: 
 
 * $filter 
 * $orderby 
 * $top 
 * $skiptoken 
 
-### <a name="filteringordering"></a>Filteren/ordenen
+Beschrijving van de operator:
+
+* EQ = gelijk zijn aan
+* Ne = niet gelijk zijn aan
+* Ge = groter dan of gelijk aan
+* Le = kleiner dan of gelijk aan
+* Gt = groter dan
+* Lt = minder dan
+
+### <a name="filteringordering"></a>Filteren/bestellen
 
 De volgende tabel ziet u hoe deze opties kunnen worden toegepast op de Asset-eigenschappen: 
 
-|Naam|Filteren|Volgorde|
+|Naam|Filteren|Bestellen|
 |---|---|---|
-|Id|Ondersteunt:<br/>Is gelijk aan<br/>Groter dan<br/>Kleiner dan|Ondersteunt:<br/>Oplopend<br/>Aflopend|
-|naam|||
-|properties.alternateId |Ondersteunt:<br/>Is gelijk aan||
-|properties.assetId |Ondersteunt:<br/>Is gelijk aan||
+|id|||
+|naam|Ondersteunt: Eq, Gt, Lt|Ondersteunt: oplopend of aflopend|
+|properties.alternateId |Ondersteunt: Eq||
+|properties.assetId |Ondersteunt: Eq||
 |Properties.container |||
-|Properties.created|Ondersteunt:<br/>Is gelijk aan<br/>Groter dan<br/>Kleiner dan|Ondersteunt:<br/>Oplopend<br/>Aflopend|
+|Properties.created|Ondersteunt: Eq, Gt, Lt| Ondersteunt: Oplopend of aflopend|
 |Properties.Description |||
 |properties.lastModified |||
 |properties.storageAccountName |||
 |properties.storageEncryptionFormat | ||
 |type|||
 
-De volgende C#-voorbeeld kunt u filteren op de datum gemaakt:
+De volgende C#-voorbeeld kunt u filteren op de aanmaakdatum:
 
 ```csharp
 var odataQuery = new ODataQuery<Asset>("properties/created lt 2018-05-11T17:39:08.387Z");
@@ -86,13 +95,16 @@ var firstPage = await MediaServicesArmClient.Assets.ListAsync(CustomerResourceGr
 
 ### <a name="pagination"></a>Paginering
 
-Paginering wordt ondersteund voor elk van de vier ingeschakelde sorteervolgorde. 
+Paginering wordt voor elk van de vier ingeschakelde sorteervolgorde ondersteund. Op dit moment is de paginagrootte 1000.
 
-Als een queryantwoord bevat een groot aantal (momenteel meer dan 1000) items, de service retourneert een '\@odata.nextLink ' eigenschap ophalen van de volgende pagina van de resultaten. Dit kan worden gebruikt door de volledige resultatenset. De paginagrootte kan niet worden geconfigureerd door de gebruiker. 
+> [!TIP]
+> U moet de volgende koppeling altijd gebruiken om inventariseren van de verzameling en niet afhankelijk van het formaat van een bepaalde pagina.
 
-Als activa zijn gemaakt of verwijderd tijdens het wisselbestand via de verzameling, worden de wijzigingen doorgevoerd in de geretourneerde resultaten (als deze wijzigingen zijn in het gedeelte van de verzameling die niet zijn gedownload.) 
+Als een query-antwoord veel items bevat, retourneert de service een "\@odata.nextLink" eigenschap om de volgende pagina van de resultaten. Dit kan worden gebruikt door de volledige resultatenset. U kunt het formaat van de pagina niet configureren. 
 
-De volgende C#-voorbeeld laat zien hoe opsommen via alle activa in het account.
+Als Assets zijn gemaakt of verwijderd, wanneer de verzameling worden er pagina's, worden de wijzigingen doorgevoerd in de geretourneerde resultaten (als deze wijzigingen zijn in het gedeelte van de verzameling die niet zijn gedownload.) 
+
+De volgende C#-voorbeeld laat zien hoe om te inventariseren alle activa in het account.
 
 ```csharp
 var firstPage = await MediaServicesArmClient.Assets.ListAsync(CustomerResourceGroup, CustomerAccountName);
@@ -104,24 +116,23 @@ while (currentPage.NextPageLink != null)
 }
 ```
 
-Zie voor voorbeelden van REST [activa - lijst](https://docs.microsoft.com/rest/api/media/assets/list)
+Zie voor voorbeelden van REST [activa - lijst](https://docs.microsoft.com/rest/api/media/assets/assets_list)
 
 
-## <a name="storage-side-encryption"></a>Versleuteling van opslag aan de clientzijde
+## <a name="storage-side-encryption"></a>Versleuteling van opslag aan de serverzijde
 
-Ter bescherming van uw Assets in rust, moeten de activa door de versleuteling van opslag aan de clientzijde worden versleuteld. De volgende tabel ziet u hoe de versleuteling van opslag aan de clientzijde werkt in een Media Services:
+Ter bescherming van uw activa in rust, moeten de activa van de versleuteling van opslag aan de serverzijde worden versleuteld. De volgende tabel ziet u de werking van de versleuteling van opslag aan de serverzijde in Media Services:
 
-|versleutelingsoptie|Beschrijving|Media Services v2|Media Services v3|
+|Optie voor opslagversleuteling|Beschrijving|Media Services v2|Media Services v3|
 |---|---|---|---|
-|Media Services-versleuteling van opslag|AES-256-versleuteling, key beheerd door Media Services|Ondersteund<sup>(1)</sup>|Niet ondersteund<sup>(2)</sup>|
-|[Service-versleuteling van opslag voor gegevens in rust](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)|Versleuteling aan de clientzijde van de server die worden aangeboden door Azure Storage-sleutel beheerd door Azure of door de klant|Ondersteund|Ondersteund|
-|[Versleuteling van opslag aan de clientzijde](https://docs.microsoft.com/azure/storage/common/storage-client-side-encryption)|Versleuteling van clientzijde die worden aangeboden door de Azure-opslag, beheerd door de klant in de Sleutelkluis sleutel|Niet ondersteund|Niet ondersteund|
+|Media Services-Storage-versleuteling|AES-256-codering, sleutel beheerd door Media Services|Ondersteund<sup>(1)</sup>|Niet ondersteund<sup>(2)</sup>|
+|[Storage Service Encryption voor Data-at-Rest](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)|Versleuteling op de server die worden aangeboden door Azure Storage, sleutel beheerd door Azure of door de klant|Ondersteund|Ondersteund|
+|[Client-Side-versleuteling van opslag](https://docs.microsoft.com/azure/storage/common/storage-client-side-encryption)|Clientversleuteling die worden aangeboden door Azure-opslag, beheerd door de klant in Key Vault sleutel|Niet ondersteund|Niet ondersteund|
 
-<sup>1</sup> terwijl Media Services biedt ondersteuning voor de verwerking van inhoud in het wissen/zonder enige vorm van versleuteling, dit dus niet aanbevolen.
+<sup>1</sup> terwijl Media Services biedt ondersteuning voor de verwerking van inhoud in de wissen/zonder enige vorm van versleuteling, als dit dus niet aanbevolen.
 
-<sup>2</sup> in Media Services-v3 versleuteling van opslag (AES-256-versleuteling) wordt alleen ondersteund voor compatibiliteit met eerdere wanneer uw Assets met Media Services-v2 zijn gemaakt. Dit betekent dat v3 werkt met bestaande opslag activa versleuteld, maar staat niet toe dat het maken van nieuwe activiteiten.
+<sup>2</sup> in Media Services v3, versleuteling van opslag (AES-256-codering) wordt alleen ondersteund voor achterwaartse compatibiliteit bij uw activa zijn gemaakt met Media Services v2. Dit betekent dat v3 werkt met bestaande opslag versleuteld activa, maar staat niet toe dat het maken van nieuwe labels.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-> [!div class="nextstepaction"]
-> [Een bestand streamen](stream-files-dotnet-quickstart.md)
+[Een bestand streamen](stream-files-dotnet-quickstart.md)

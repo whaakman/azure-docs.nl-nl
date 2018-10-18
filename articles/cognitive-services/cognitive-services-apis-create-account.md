@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 02/01/2018
 ms.author: garye
-ms.openlocfilehash: 9c4aea2493ffed12b90f82113baf81c6c77a0ea2
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 37f53303a3b0c224c1286fb488a796fd5cdee0e5
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48801400"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49386413"
 ---
 # <a name="quickstart-create-a-cognitive-services-account-in-the-azure-portal"></a>Snelstartgids: Een Cognitive Services-account maken in Azure portal
 
@@ -49,7 +49,7 @@ Gebruik deze Quick Start om te beginnen met behulp van Azure Cognitive Services.
 ## <a name="access-your-resource"></a>Toegang tot uw resource 
 
 > [!NOTE]
-> Eigenaars van abonnementen het maken van Cognitive Services-accounts voor resourcegroepen en abonnementen kunnen uitschakelen door toe te passen [Azure policy](https://docs.microsoft.com/en-us/azure/governance/policy/overview#policy-definition), het toewijzen van een beleidsdefinitie 'niet toegestane resourcetypen' en op te geven **Microsoft.CognitiveServices/accounts** als het doeltype van de resource.
+> Eigenaars van abonnementen het maken van Cognitive Services-accounts voor resourcegroepen en abonnementen kunnen uitschakelen door toe te passen [Azure policy](https://docs.microsoft.com/azure/governance/policy/overview#policy-definition), het toewijzen van een beleidsdefinitie 'niet toegestane resourcetypen' en op te geven **Microsoft.CognitiveServices/accounts** als het doeltype van de resource.
 
 Nadat de resource is gemaakt, kunt u openen vanuit het Azure-dashboard als u deze hebt vastgemaakt. Anders kunt u deze vinden in **resourcegroepen**.
 

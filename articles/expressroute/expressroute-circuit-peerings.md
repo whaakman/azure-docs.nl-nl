@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: cherylmc
-ms.openlocfilehash: c1fbc99702e077e600f01959224f3321e7543e59
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 8ef231982cfdc9a2c4387ee47e651fdf1af0baaf
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48044396"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49388422"
 ---
 # <a name="expressroute-circuits-and-routing-domains"></a>ExpressRoute-circuits en Routeringsdomeinen
  U moet worden besteld een *ExpressRoute-circuit* om uw on-premises infrastructuur naar Microsoft via een connectiviteitsprovider verbinding te maken. De volgende afbeelding ziet u een logische representatie van connectiviteit tussen uw WAN en Microsoft.
@@ -82,7 +82,7 @@ Als u dat alle drie peering sessies wilt, moet u drie paren van BGP-sessies (een
 ## <a name="expressroute-health"></a>ExpressRoute-status
 ExpressRoute-circuits mogen worden bewaakt voor beschikbaarheid, verbinding met vnet's en het gebruik van bandbreedte gebruik [Network Performance Monitor](https://docs.microsoft.com/azure/networking/network-monitoring-overview) (NPM).
 
-NPM controleert de status van persoonlijke Azure-peering en Microsoft-peering.  Bekijk onze [boeken](https://azure.microsoft.com/en-in/blog/monitoring-of-azure-expressroute-in-preview/) voor meer informatie.
+NPM controleert de status van persoonlijke Azure-peering en Microsoft-peering.  Bekijk onze [boeken](https://azure.microsoft.com/blog/monitoring-of-azure-expressroute-in-preview/) voor meer informatie.
 
 ## <a name="next-steps"></a>Volgende stappen
 * Zoek een serviceprovider Zie [ExpressRoute-providers en -locaties service](expressroute-locations.md).

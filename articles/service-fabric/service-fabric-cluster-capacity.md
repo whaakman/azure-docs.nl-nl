@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/27/2018
 ms.author: chackdan
-ms.openlocfilehash: 86099c5385c14ce7cf10bbc84ebe1b5e70b2b3e6
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: d8f2dbe4885f1cb85ab5eb78ae4f06b2ad702d53
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49094204"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389578"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Service Fabric-cluster overwegingen voor capaciteitsplanning
 Voor een productie-implementatie is plannen van capaciteit een belangrijke stap. Hier volgen enkele van de artikelen waarmee u rekening moet houden als onderdeel van dit proces.
@@ -83,7 +83,7 @@ De duurzaamheidslaag wordt gebruikt om aan te geven aan het systeem de rechten v
 > [!WARNING]
 > Knooppunttypen met de duurzaamheid Brons verkrijgen _geen bevoegdheden_. Dit betekent dat infrastructuur-taken die invloed hebben op uw staatloze werkbelastingen worden niet worden gestopt of uitgesteld, kan dit gevolgen hebben voor uw workloads. Gebruik alleen Brons voor typen die alleen staatloze werkbelastingen worden uitgevoerd. Voor productieworkloads, Zilver uitgevoerd of hoger wordt aanbevolen. 
 
-> Ongeacht eventuele duurzaamheidsniveau [toewijzing is opgeheven](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachinescalesets/deallocate) bewerking op de VM-Schaalset wordt het cluster vernietigen
+> Ongeacht eventuele duurzaamheidsniveau [toewijzing is opgeheven](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/deallocate) bewerking op de VM-Schaalset wordt het cluster vernietigen
 
 **Voordelen van het gebruik van Silver- of Gold duurzaamheid niveaus**
  

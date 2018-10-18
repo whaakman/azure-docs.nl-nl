@@ -5,6 +5,7 @@ services: machine-learning, team-data-science-process
 documentationcenter: ''
 author: deguhath
 ms.author: deguhath
+manager: cgronlun
 editor: cgronlun
 ms.assetid: b8fbef77-3e80-4911-8e84-23dbf42c9bee
 ms.service: machine-learning
@@ -14,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2018
-ms.openlocfilehash: 427ea1f3f22855b2c54beacbfb89a8f7fd37cce0
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: ee2e797f3838b8b6b36174d14c73e97fe9790315
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42054320"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49392809"
 ---
 # <a name="skin-cancer-image-classification-with-the-azure-machine-learning-package-for-computer-vision-and-team-data-science-process"></a>Weergavekader kanker afbeeldingsclassificatie met de Azure Machine Learning-pakket voor computer vision en Team Data Science Process
 
-In dit artikel leest u hoe u de [Azure Machine Learning-pakket voor computer vision-](https://docs.microsoft.com/en-us/python/api/overview/azure-machine-learning/computer-vision?view=azure-ml-py-latest) om te trainen, testen en implementeren van een *afbeeldingsclassificatie* model. In het voorbeeld wordt de structuur van Team Data Science Process (TDSP) en de sjablonen in [Azure Machine Learning Workbench](https://docs.microsoft.com/en-us/azure/machine-learning/service/quickstart-installation). In dit scenario biedt het complete voorbeeld. Hierbij de [Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/cognitive-toolkit/) als de deep learning framework en training wordt uitgevoerd op een [Data Science virtual machine](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.dsvm-deep-learning?tab=Overview) GPU-machine. Implementatie maakt gebruik van de uitoefening van de Azure Machine Learning CLI.
+In dit artikel leest u hoe u de [Azure Machine Learning-pakket voor computer vision-](https://docs.microsoft.com/python/api/overview/azure-machine-learning/computer-vision?view=azure-ml-py-latest) om te trainen, testen en implementeren van een *afbeeldingsclassificatie* model. In het voorbeeld wordt de structuur van Team Data Science Process (TDSP) en de sjablonen in [Azure Machine Learning Workbench](https://docs.microsoft.com/azure/machine-learning/service/quickstart-installation). In dit scenario biedt het complete voorbeeld. Hierbij de [Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/cognitive-toolkit/) als de deep learning framework en training wordt uitgevoerd op een [Data Science virtual machine](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.dsvm-deep-learning?tab=Overview) GPU-machine. Implementatie maakt gebruik van de uitoefening van de Azure Machine Learning CLI.
 
 Veel toepassingen in het domein van de computer vision kunnen worden opgesteld als afbeelding classificatie problemen. Deze omvatten het ontwikkelen van modellen die eenvoudige vragen beantwoorden als 'Is een aanwezig zijn in de installatiekopie van het object?' het object kan waar zijn een hond-, auto- of verzenden. Dit omvat ook antwoorden op complexere vragen zoals "welke klasse van ogen ziekten ernst is evinced door retinal scan van de patiënt?" De Azure Machine Learning-pakketten voor computer vision-stroomlijnt installatiekopie classificatie gegevens verwerken en de pijplijn modelleren. 
 
@@ -32,7 +33,7 @@ Dit artikel bevat een samenvatting over de voorbeeld. U kunt uitgebreidere docum
 
 ## <a name="team-data-science-process-walkthrough"></a>Overzicht van team Data Science Process
 
-In deze walkthrough wordt de [Team Data Science Process](https://docs.microsoft.com/en-us/azure/machine-learning/team-data-science-process/overview) levenscyclus. Het scenario omvat de volgende stappen in de levenscyclus.
+In deze walkthrough wordt de [Team Data Science Process](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/overview) levenscyclus. Het scenario omvat de volgende stappen in de levenscyclus.
 
 ### <a name="1-data-acquisitionhttpsgithubcomazuremachinelearningsamples-amlvisionpackage-isicimageclassificationblobmastercode01dataacquisitionandunderstanding"></a>[1. Gegevens ophalen](https://github.com/Azure/MachineLearningSamples-AMLVisionPackage-ISICImageClassification/blob/master/code/01_data_acquisition_and_understanding)
 De gegevensset internationale weergavestijl Imaging samenwerking (ISIC) wordt gebruikt voor de installatiekopie-classificatietaak. ISIC is een partnerschap tussen academische wereld en de bedrijfstak van de toepassing van digitale weergavestijl imaging om te bestuderen en het verminderen van melanoma sterfte te vergemakkelijken. De [ISIC archief](https://isic-archive.com/#images) meer dan 13.000 weergavestijl beschadiging installatiekopieën die zijn gelabeld als onschadelijke of kwaadaardige bevat. Een voorbeeld van de installatiekopieën uit het archief van ISIC downloaden.
@@ -71,13 +72,13 @@ De substappen worden in detail uitgelegd in de bijbehorende Jupyter-Notebook. De
 Deze stap operationalizes het model dat wordt gemaakt van de stap modelleren. Het bevat de vereisten en de vereiste instellingen. Het verbruik van de webservice wordt ook uitgelegd. In deze zelfstudie leert u deep learning-modellen met de Azure Machine Learning-pakketten voor computer vision-bouwen en het model in Azure uitvoeren.
 
 ## <a name="next-steps"></a>Volgende stappen
-- Aanvullende documentatie voor meer informatie over [Azure Machine Learning-pakket voor computer vision-](https://docs.microsoft.com/en-us/python/api/overview/azure-machine-learning/computer-vision?view=azure-ml-py-latest).
+- Aanvullende documentatie voor meer informatie over [Azure Machine Learning-pakket voor computer vision-](https://docs.microsoft.com/python/api/overview/azure-machine-learning/computer-vision?view=azure-ml-py-latest).
 - Lees de [Team Data Science Process](https://aka.ms/tdsp) documentatie aan de slag.
 
 
 ## <a name="references"></a>Verwijzingen
 
-* [Azure Machine Learning-pakket voor computer vision](https://docs.microsoft.com/en-us/python/api/overview/azure-machine-learning/computer-vision?view=azure-ml-py-latest)
-* [Azure Machine Learning Workbench](https://docs.microsoft.com/en-us/azure/machine-learning/service/quickstart-installation)
+* [Azure Machine Learning-pakket voor computer vision](https://docs.microsoft.com/python/api/overview/azure-machine-learning/computer-vision?view=azure-ml-py-latest)
+* [Azure Machine Learning Workbench](https://docs.microsoft.com/azure/machine-learning/service/quickstart-installation)
 * [Virtuele machine voor Datatechnologie](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.dsvm-deep-learning?tab=Overview)
 

@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 06/08/2018
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 9eea0cabebb67095d4c6c813e7d13c885a447db4
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 24b4cbe0eb13a41ccd6ae98db90d4bf0cf7d22a7
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44378887"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49311215"
 ---
 # <a name="tutorial-monitor-windows-containers-on-service-fabric-using-log-analytics"></a>Zelfstudie: Windows-containers in Service Fabric bewaken met behulp van Log Analytics
 
@@ -42,7 +42,7 @@ Voordat u aan deze zelfstudie begint, dient u eerst:
 
 ## <a name="setting-up-log-analytics-with-your-cluster-in-the-resource-manager-template"></a>Log Analytics voor uw cluster instellen in de Resource Manager-sjabloon
 
-Als u in het eerste deel van deze zelfstudie de [opgegeven sjabloon](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/Tutorial) hebt gebruikt, dient deze de volgende aanvullingen voor een generieke Service Fabric Azure Resource Manager-sjabloon te bevatten. Als u over een eigen cluster beschikt die u voor het bewaken van containers met Log Analytics wilt instellen, gaat u als volgt te werk:
+Als u in het eerste deel van deze zelfstudie de [opgegeven sjabloon](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-OMS-UnSecure) hebt gebruikt, dient deze de volgende aanvullingen voor een generieke Service Fabric Azure Resource Manager-sjabloon te bevatten. Als u over een eigen cluster beschikt die u voor het bewaken van containers met Log Analytics wilt instellen, gaat u als volgt te werk:
 
 * Breng de volgende wijzigingen in de Resource Manager-sjabloon aan.
 * Implementeer de sjabloon met PowerShell om uw cluster bij te werken door [de sjabloon te implementeren](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm). Azure Resource Manager weet dat de resource bestaat, zodat de resource als een upgrade wordt uitgebracht.

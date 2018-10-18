@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 293b6af1d591c0c9763c2914713fe892392ae7ea
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: d25142cecd62fc34a08939d5f1915ba9b2cee749
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45578137"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49387426"
 ---
 # <a name="find-an-address-using-the-azure-maps-search-service"></a>Zoeken naar een adres met behulp van de search-service van Azure Maps
 
@@ -59,7 +59,7 @@ De meeste zoekopdrachten standaard `maxFuzzyLevel=1` om prestaties en onvoorspel
 
 4. Klik op **verzenden** en bekijk de antwoordtekst.
 
-    De niet-eenduidige queryreeks van 'pizza' geretourneerd 10 [punt van belang resultaat](https://docs.microsoft.com/en-us/rest/api/maps/search/getsearchpoi#searchpoiresponse) (pijl) resultaten met categorieën vallen in "pizza" en 'restaurant'. Elk resultaat retourneert een Straatadres, breedtegraad / lengtegraadwaarden, poort en toegangspunten voor de locatie weergeven.
+    De niet-eenduidige queryreeks van 'pizza' geretourneerd 10 [punt van belang resultaat](https://docs.microsoft.com/rest/api/maps/search/getsearchpoi#searchpoiresponse) (pijl) resultaten met categorieën vallen in "pizza" en 'restaurant'. Elk resultaat retourneert een Straatadres, breedtegraad / lengtegraadwaarden, poort en toegangspunten voor de locatie weergeven.
   
     De resultaten zijn verschillend voor deze query is niet gekoppeld aan een bepaalde referentielocatie. U kunt de **countrySet** parameter om op te geven alleen de landen waarvoor de toepassing nodig dekking heeft, zoals het standaardgedrag is om te zoeken naar de hele wereld, mogelijk onnodige resultaten retourneren.
 

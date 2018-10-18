@@ -14,20 +14,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: barclayn
-ms.openlocfilehash: 7e98853b5b2ccc779dca970337fc44217977c8c9
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 56a1ebcfbb6dda9bc96aa241bd2b8d753022181a
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49342554"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49385841"
 ---
 # <a name="what-is-azure-key-vault"></a>Wat is Azure Sleutelkluis?
 
 Met Azure Key Vault kunt u de volgende problemen oplossen
-- **Geheimen Management** -Azure Key Vault kan worden gebruikt voor het veilig opslaan en toegang tot tokens, wachtwoorden, certificaten, API-sleutels en andere geheimen nauw beheren
-- **Sleutelbeheer** -Azure Key Vault kan ook worden gebruikt als een oplossing voor sleutelbeheer. Met Azure Key Vault kunt u eenvoudig de versleutelingssleutels maken en beheren waarmee uw gegevens worden versleuteld. 
-- **Certificaatbeheer** : Azure Key Vault is ook een service waarmee u eenvoudig inrichten, beheren en implementeren van openbare en persoonlijke Secure Sockets Layer/Transport Layer Security (SSL/TLS)-certificaten voor gebruik met Azure en uw interne verbonden resources. 
-- **Geheimen die worden ondersteund door Hardware Security Modules Store** -geheimen en sleutels kunnen worden beveiligd door software of FIPS 140-2 Level 2 HSM's valideert
+- **Geheimenbeheer** - Met Azure Key Vault kunt u veilig de toegang tot tokens, wachtwoorden, certificaten, API-sleutels en andere geheimen opslaan en strikt beheren
+- **Sleutelbeheer** - U kunt Azure Key Vault ook gebruiken als een oplossing voor sleutelbeheer. Met Azure Key Vault kunt u eenvoudig de versleutelingssleutels maken en beheren waarmee uw gegevens worden versleuteld. 
+- **Certificaatbeheer** - Azure Key Vault is ook een service waarmee u eenvoudig openbare en persoonlijke SSL/TLS-certificaten (Secure Sockets Layer/Transport Layer Security) kunt inrichten, beheren en implementeren voor gebruik met Azure en uw interne verbonden bronnen. 
+- **Sla geheimen op met hardwarebeveiligingsmodules (HSM's)** - De geheimen en sleutels kunnen worden beveiligd door software of met FIPS 140-2 niveau 2-validatie-HSM's
 
 ## <a name="basic-concepts"></a>Basisbegrippen
 
@@ -35,7 +35,7 @@ Azure Key Vault is een hulpprogramma voor het veilig opslaan en openen van gehei
 
 Er zijn fundamenteel 3 manieren om te verifiëren naar Key Vault
 
-1. **Met behulp van [beheerde identiteiten voor een Azure-resources](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview)**  (**aanbevolen en beste praktijken**): wanneer u een App op een virtuele Machine in Azure implementeert, kunt u een identiteit toewijzen aan uw virtuele Machine die heeft toegang tot Key Vault. U kunt identiteiten ook toewijzen aan andere azure-resources die worden vermeld [hier](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview). Het voordeel met deze methode is de app / service wordt niet beheerd door de draaihoek van het eerste geheim. Azure draait automatisch de identiteit. 
+1. **Met behulp van [beheerde identiteiten voor een Azure-resources](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)**  (**aanbevolen en beste praktijken**): wanneer u een App op een virtuele Machine in Azure implementeert, kunt u een identiteit toewijzen aan uw virtuele Machine die heeft toegang tot Key Vault. U kunt identiteiten ook toewijzen aan andere azure-resources die worden vermeld [hier](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview). Het voordeel met deze methode is de app / service wordt niet beheerd door de draaihoek van het eerste geheim. Azure draait automatisch de identiteit. 
 2. **Met behulp van Service-Principal en certificaat:** de 2e optie is het gebruik van een Service-Principal en een bijbehorende certificaat dat toegang tot de Key Vault heeft. De plicht draaien van het certificaat is op de toepassingseigenaar van de of de ontwikkelaar en kan daarom dit wordt niet aanbevolen
 3. **Met behulp van Service-Principal en geheim:** de 3e optie (niet aanbevolen optie) is een Service-Principal en een geheim gebruiken om te verifiëren naar Key Vault
 

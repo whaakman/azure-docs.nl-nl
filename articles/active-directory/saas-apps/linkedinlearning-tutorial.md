@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 02e7d9d26b389e82365f3447cceb5566244236f1
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 618437d0007668800e0a14e8233db1676be2a364
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39440905"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49379260"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-linkedin-learning"></a>Zelfstudie: Azure Active Directory-integratie met LinkedIn Learning
 
@@ -59,7 +59,7 @@ Voor het configureren van de integratie van LinkedIn Learning in Azure AD, moet 
 
 **Als u wilt toevoegen LinkedIn Learning uit de galerie, moet u de volgende stappen uitvoeren:**
 
-1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
 
     ![Active Directory][1]
 
@@ -110,7 +110,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     ![Eenmalige aanmelding configureren](./media/linkedinlearning-tutorial/tutorial_linkedin_admin_01.png)
 
-1. Klik op **of Klik hier om te laden en kopiëren van afzonderlijke velden van het formulier** en kopieert u **entiteit-Id** en **Assertion Consumer Access (ACS)-Url**
+1. Klik op **of Klik hier om te laden en kopiëren van afzonderlijke velden van het formulier** en kopieert u **entiteit-Id** en **Assertion Consumer Service (ACS)-Url**
 
     ![Eenmalige aanmelding configureren](./media/linkedinlearning-tutorial/tutorial_linkedin_admin_03.png)
 
@@ -120,9 +120,9 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     a. In de **id** tekstvak, voer de **entiteit-ID** opgehaald uit de LinkedIn-Portal 
 
-    b. In de **antwoord-URL** tekstvak, voer de **Assertion Consumer Access (ACS) Url** opgehaald uit de LinkedIn-Portal
+    b. In de **antwoord-URL** tekstvak, voer de **Assertion Consumer Service (ACS) Url** opgehaald uit de LinkedIn-Portal
 
-1. Als u wilt configureren van eenmalige aanmelding in **SP geïnitieerde**, klikt u op geavanceerde URL weergeven instelling-optie in het gedeelte over configuratie en de aanmeldings-URL configureren met het volgende patroon:
+1. Als u wilt configureren van eenmalige aanmelding in **SP geïnitieerde**, klikt u op geavanceerde URL weergeven instelling-optie in de configuratiesectie waar u uw aanmeldings-URL opgeeft.  Om uw aanmeldings-Url kopie te maken de **Assertion Consumer Service (ACS) Url** en /saml/ met/aanmelding/vervangen.   Zodra dit is gebeurd, moet het volgende patroon beschikken over de aanmeldings-URL:
 
     `https://www.linkedin.com/checkpoint/enterprise/login/<AccountId>?application=learning&applicationInstanceId=<InstanceId>`
 
@@ -136,7 +136,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     | Naam kenmerk | Waarde kenmerk |
     | --- | --- |
-    | e-mailen| User.mail |    
+    | e-mail| User.mail |    
     | Afdeling| User.Department |
     | Voornaam| User.givenName |
     | Achternaam| User.surname |

@@ -4,25 +4,25 @@ description: In dit artikel wordt beschreven hoe Media Services maakt gebruik va
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 10/16/2018
 ms.author: juliako
-ms.openlocfilehash: 883aecaa82f1a83af22bf345d364c2b43776e559
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: dbd8dea32bbd4cacefd64e91541ab20b1056731e
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45732206"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49379024"
 ---
 # <a name="storage-accounts"></a>Opslagaccounts
 
 Als u een Media Services-account gaat maken, moet u de naam van een Azure Storage-accountresource opgeven. De opgegeven opslagaccount wordt gekoppeld aan uw Media Services-account. 
 
-U moet een hebben **primaire** storage-account en u kunt beschikken over een aantal **secundaire** storage-accounts die zijn gekoppeld aan uw Media Services-account. Media Services ondersteunt **GPv2**-accounts (General-purpose v2) of **GPv1**-accounts (General-purpose v1). 
+U kunt maar één **primaire** opslagaccount koppelen aan uw Media Services-account, maar een onbeperkt aantal **secundaire** opslagaccounts. Media Services ondersteunt **GPv2**-accounts (General-purpose v2) of **GPv1**-accounts (General-purpose v1). 
 
 >[!NOTE]
 > Blob-accounts kunt u niet instellen als **primaire** account. 

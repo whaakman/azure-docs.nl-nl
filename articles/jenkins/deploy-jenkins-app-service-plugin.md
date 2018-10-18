@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 07/31/2018
-ms.openlocfilehash: a6ad40f90e12bbf4dd85c3cbd22839d39a734ca1
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 5f76d18662105df6d278e09e047baa13773ab4ac
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391162"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319350"
 ---
 # <a name="deploy-to-azure-app-service-by-using-the-jenkins-plugin"></a>Implementeren naar Azure App Service met behulp van de Jenkins-invoegtoepassing 
 
@@ -36,8 +36,10 @@ Als u nog geen Jenkins-master hebt, begint u met de [oplossingssjabloon](install
 * [Azure App Service](https://plugins.jenkins.io/azure-app-service) versie 0.1
 
 U kunt de Jenkins-invoegtoepassing gebruiken om een web-app te implementeren in elke taal die wordt ondersteund door Web Apps, zoals C#, PHP, Java en Node.js. In deze zelfstudie gebruiken we een [eenvoudige Java-web-app voor Azure](https://github.com/azure-devops/javawebappsample). Om de opslagplaats naar uw eigen GitHub-account te vertakken, selecteert u de knop **Fork** in de rechterbovenhoek van de GitHub-interface.  
+
 > [!NOTE]
 > De Java JDK en Maven zijn vereist om de build van het Java-project uit te voeren. Installeer deze onderdelen op de Jenkins-master, of op de VM-agent als u de agent gebruikt voor continue integratie. Als u een Java SE-toepassing implementeert, is ook ZIP nodig op de build-server.
+>
 
 Om de onderdelen te installeren, meldt u zich bij het Jenkins-exemplaar aan met SSH en voert u de volgende opdrachten uit:
 
@@ -48,7 +50,7 @@ sudo apt-get install -y maven
 
 Om te implementeren naar Web App voor Containers, installeert u Docker op de Jenkins-master of op de VM-agent die voor de build wordt gebruikt. Zie [Docker installeren op Ubuntu](https://docs.docker.com/engine/installation/linux/ubuntu/) voor instructies.
 
-##<a name="service-principal"></a> Een Azure-service-principal toevoegen aan de Jenkins-referenties
+## <a name="service-principal"></a> Een Azure-service-principal toevoegen aan de Jenkins-referenties
 
 U hebt een Azure-service-principal nodig om te kunnen implementeren naar Azure. 
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: jasonh
 ROBOTS: NOINDEX
-ms.openlocfilehash: abf9cd311af141a646c56f452ded77a914bc1d2f
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 294353cfcfba617ab19e703f11f35402bcf7ea82
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43093295"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49387577"
 ---
 # <a name="analyze-twitter-data-using-hive-in-hdinsight"></a>Twitter-gegevens met behulp van Hive in HDInsight analyseren
 Sociale websites vormen een van de belangrijkste drijvende krachten voor acceptatie van big data. Openbare API's die worden geleverd door sites zoals Twitter zijn een handige bron van de gegevens voor het analyseren en inzicht krijgen in populaire trends.
@@ -72,7 +72,7 @@ De eerste stap voor het gebruik van OAuth is het maken van een nieuwe toepassing
 
 **Een Twitter-toepassing maken**
 
-1. Aanmelden bij [ https://apps.twitter.com/ ](https://apps.twitter.com/). Klik op de **Meld u nu** koppelen als u geen een Twitter-account.
+1. Meld u aan bij [https://apps.twitter.com/](https://apps.twitter.com/). Klik op de **Meld u nu** koppelen als u geen een Twitter-account.
 2. Klik op **nieuwe App maken**.
 3. Voer **naam**, **beschrijving**, **Website**. U kunt maken van een URL voor de **Website** veld. De volgende tabel ziet u enkele voorbeeldwaarden gebruiken:
 
@@ -95,7 +95,7 @@ In deze zelfstudie, kunt u Windows PowerShell gebruiken om de webservice aanroep
 
 **Tweets ophalen**
 
-1. Open de Windows PowerShell Integrated Scripting Environment (ISE). (Typ op het scherm Start van Windows 8 **PowerShell_ISE** en klik vervolgens op **Windows PowerShell ISE**. Zie [Start Windows PowerShell in Windows 8 en Windows](https://docs.microsoft.com/en-us/powershell/scripting/setup/starting-windows-powershell?view=powershell-6)
+1. Open de Windows PowerShell Integrated Scripting Environment (ISE). (Typ op het scherm Start van Windows 8 **PowerShell_ISE** en klik vervolgens op **Windows PowerShell ISE**. Zie [Start Windows PowerShell in Windows 8 en Windows](https://docs.microsoft.com/powershell/scripting/setup/starting-windows-powershell?view=powershell-6)
 2. Kopieer het volgende script in het scriptvenster:
 
     ```powershell

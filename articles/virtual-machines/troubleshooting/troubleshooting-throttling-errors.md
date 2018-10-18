@@ -13,12 +13,12 @@ ms.topic: troubleshooting
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: vashan, rajraj, changov
-ms.openlocfilehash: d9d9e9cdb791504c864cae20d1248ba78a180a4c
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: b951d0b8d91729340cf382e70f72511fb009053e
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49320268"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49386549"
 ---
 # <a name="troubleshooting-api-throttling-errors"></a>Oplossen van problemen met API beperkingsfouten 
 
@@ -26,7 +26,7 @@ Azure Compute-aanvragen kunnen worden beperkt op een abonnement en op basis van 
 
 ## <a name="throttling-by-azure-resource-manager-vs-resource-providers"></a>Beperking van Azure Resource Manager vs Resourceproviders  
 
-Als de voordeur naar Azure biedt Azure Resource Manager de verificatie en de volgorde van de eerste validatie en beperking van alle binnenkomende API-aanvragen. Azure Resource Manager aanroep frequentielimieten toe en gerelateerde diagnostische HTTP-antwoordheaders worden beschreven [hier](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-request-limits).
+Als de voordeur naar Azure biedt Azure Resource Manager de verificatie en de volgorde van de eerste validatie en beperking van alle binnenkomende API-aanvragen. Azure Resource Manager aanroep frequentielimieten toe en gerelateerde diagnostische HTTP-antwoordheaders worden beschreven [hier](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-request-limits).
  
 Wanneer een Azure API App client een beperking-fout ontvangt, wordt de HTTP-status 429 te veel aanvragen. Om te begrijpen als de aanvraagbeperking wordt gedaan door Azure Resource Manager of een onderliggende resourceprovider, zoals CRP, Controleer de `x-ms-ratelimit-remaining-subscription-reads` voor GET-aanvragen en `x-ms-ratelimit-remaining-subscription-writes` antwoordheaders voor niet-GET-aanvragen. Als het resterende aantal aanroepen 0 nadert is van het abonnement algemene aanroep limiet is gedefinieerd door Azure Resource Manager bereikt. Activiteiten door alle Abonnementclients worden samen geteld. De beperking anders afkomstig is van de doel-resourceprovider (de verholpen door de `/providers/<RP>` segment van de aanvraag-URL). 
 
@@ -88,4 +88,4 @@ Zoals hierboven geïllustreerd, elke beperking fout bevat de `Retry-After` kopte
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor meer informatie over richtlijnen voor opnieuw proberen voor andere services in Azure, [richtlijnen voor specifieke services voor opnieuw proberen](https://docs.microsoft.com/en-us/azure/architecture/best-practices/retry-service-specific)
+Zie voor meer informatie over richtlijnen voor opnieuw proberen voor andere services in Azure, [richtlijnen voor specifieke services voor opnieuw proberen](https://docs.microsoft.com/azure/architecture/best-practices/retry-service-specific)

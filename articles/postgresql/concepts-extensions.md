@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 05/30/2018
-ms.openlocfilehash: 92321929c7929cc62321317c7e94e74ef77034ad
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: f9216800f0e91d71f1da3f2bac16ecfcbf8b4850
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970080"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49376547"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql"></a>PostgreSQL-extensies in Azure Database for PostgreSQL
 PostgreSQL biedt de mogelijkheid om uit te breiden de functionaliteit van uw database met behulp van extensies. Extensies bieden samen bundeling van meerdere verwante SQL-objecten in één pakket die kan worden geladen of verwijderd uit de database met slechts één opdracht. Extensies kunnen na worden geladen in de database, functioneren als ingebouwde functies. Zie voor meer informatie over de PostgreSQL-extensies, [verpakking verwante objecten in een extensie](https://www.postgresql.org/docs/9.6/static/extend-extensions.html).
@@ -88,6 +88,7 @@ De volgende tabellen worden de standaard PostgreSQL-extensies die momenteel word
 | [pgstattuple](https://www.postgresql.org/docs/9.6/static/pgstattuple.html) | Biedt een manier voor het weergeven van statistieken van de tuple op serverniveau. |
 | [postgres\_fdw](https://www.postgresql.org/docs/9.6/static/postgres-fdw.html) | Extern-data-wrapper gebruikt voor toegang tot gegevens die zijn opgeslagen in externe PostgreSQL-servers. |
 | [hypopg](https://hypopg.readthedocs.io/en/latest/) | Biedt een manier voor het maken van hypothetische indexen die geen CPU of schijf kosten. |
+| [plv8](https://plv8.github.io/) | Een Javascript-taal-extensie voor PostgreSQL die kan worden gebruikt voor opgeslagen procedures, triggers, enzovoort. |
 
 ### <a name="postgis-extensions"></a>PostGIS-extensies
 

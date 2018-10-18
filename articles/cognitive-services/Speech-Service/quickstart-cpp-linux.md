@@ -7,14 +7,14 @@ author: wolfma61
 ms.service: cognitive-services
 ms.component: Speech
 ms.topic: quickstart
-ms.date: 09/24/2018
+ms.date: 10/12/2018
 ms.author: wolfma
-ms.openlocfilehash: f3bcbc7bcbd57e9baa5a01f3a2ef572b09128260
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: f23e25ec117d798bae81945104fa3fb53f320f1c
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48886242"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49344080"
 ---
 # <a name="quickstart-recognize-speech-in-c-on-linux-by-using-the-speech-sdk"></a>Snelstart: Gesproken tekst herkennen in C++ onder Linux met behulp van de Speech SDK
 
@@ -30,7 +30,7 @@ U hebt een abonnementssleutel voor de Speech-service nodig om deze snelstartgids
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-De huidige versie van de Speech SDK van Cognitive Services is `1.0.0`.
+De huidige versie van de Speech SDK van Cognitive Services is `1.0.1`.
 
 De Speech SDK voor Linux kan worden gebruikt om zowel 32-bits als 64-bits toepassingen te compileren. De vereiste bibliotheken en headerbestanden kunnen als tarfile worden gedownload van https://aka.ms/csspeech/linuxbinary.
 

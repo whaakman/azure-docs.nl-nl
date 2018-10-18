@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: abfe7f0b39463a842b1eb167661af7da90bc9eca
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: bed0c15504323aba4ebf680273870720a8ff833a
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46980845"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49388295"
 ---
 # <a name="create-metric-alerts-for-logs-in-azure-monitor"></a>Metrische waarschuwingen maken voor logboeken in Azure Monitor  
 
@@ -58,11 +58,11 @@ Zie voor stapsgewijze details en voorbeelden van - [maken en beheren van metrisc
 - Signaal gekozen voor waarschuwing voor metrische gegevens voor geselecteerde *Log Analytics-werkruimte* is van het type **metrische gegevens**
 - Filteren op specifieke voorwaarden of resource met behulp van dimensiefilters. metrische gegevens voor logboeken zijn multi-dimensionale
 - Bij het configureren van *Signaallogica*, één waarschuwing kan worden gemaakt voor het bereik van meerdere waarden van de dimensie (bijvoorbeeld Computer)
-- Als **niet** met behulp van Azure portal voor het maken van de waarschuwing voor metrische gegevens voor geselecteerde *Log Analytics-werkruimte*; vervolgens handmatig moet de gebruiker eerst maken een expliciete regel voor het converteren van logboekgegevens naar een metrische waarde met behulp van [Azure Monitor - geplande queryregels](https://docs.microsoft.com/en-us/rest/api/monitor/scheduledqueryrules
+- Als **niet** met behulp van Azure portal voor het maken van de waarschuwing voor metrische gegevens voor geselecteerde *Log Analytics-werkruimte*; vervolgens handmatig moet de gebruiker eerst maken een expliciete regel voor het converteren van logboekgegevens naar een metrische waarde met behulp van [Azure Monitor - geplande queryregels](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules
 ).
 
 > [!NOTE]
-> Bij het maken van de waarschuwing voor metrische gegevens voor Log Analytics-werkruimte via Azure portal - regel voor het converteren van logboekgegevens naar metrische gegevens via overeenkomt [Azure Monitor - queryregels gepland](https://docs.microsoft.com/en-us/rest/api/monitor/scheduledqueryrules) wordt automatisch gemaakt op de achtergrond,  *zonder de noodzaak van een tussenkomst van de gebruiker of een actie*. Zie voor waarschuwing voor metrische gegevens voor het maken van de logboeken met gebruikmaking van dan Azure portal, [Resource-sjabloon voor metrische waarschuwingen voor logboeken](#resource-template-for-metric-alerts-for-logs) sectie over de wijze van voorbeeld van het maken van een logboek ScheduledQueryRule op basis van metrische conversie-regel voor waarschuwing voor metrische gegevens maken - anders zal er geen gegevens voor de waarschuwing voor metrische gegevens op Logboeken die zijn gemaakt.
+> Bij het maken van de waarschuwing voor metrische gegevens voor Log Analytics-werkruimte via Azure portal - regel voor het converteren van logboekgegevens naar metrische gegevens via overeenkomt [Azure Monitor - queryregels gepland](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) wordt automatisch gemaakt op de achtergrond,  *zonder de noodzaak van een tussenkomst van de gebruiker of een actie*. Zie voor waarschuwing voor metrische gegevens voor het maken van de logboeken met gebruikmaking van dan Azure portal, [Resource-sjabloon voor metrische waarschuwingen voor logboeken](#resource-template-for-metric-alerts-for-logs) sectie over de wijze van voorbeeld van het maken van een logboek ScheduledQueryRule op basis van metrische conversie-regel voor waarschuwing voor metrische gegevens maken - anders zal er geen gegevens voor de waarschuwing voor metrische gegevens op Logboeken die zijn gemaakt.
 
 ## <a name="resource-template-for-metric-alerts-for-logs"></a>Resource-sjabloon voor metrische waarschuwingen voor logboeken
 Zoals eerder gezegd, is het proces voor het maken van metrische waarschuwingen van Logboeken twee dingen tegelijk:

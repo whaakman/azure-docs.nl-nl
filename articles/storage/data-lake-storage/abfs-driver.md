@@ -9,12 +9,12 @@ ms.author: jamesbak
 ms.date: 06/27/2018
 ms.service: storage
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: dedf398064dd0a49e5691e952ea7c9b6d16e34fd
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: f618b925839d6f501635748734327293a2073b64
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42054441"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49384852"
 ---
 # <a name="the-azure-blob-filesystem-driver-abfs-a-dedicated-azure-storage-driver-for-hadoop"></a>Het bestandssysteem van Azure Blob-stuurprogramma (ABFS): een speciale Azure Storage-stuurprogramma voor Hadoop
 
@@ -26,7 +26,7 @@ Het Windows Azure Storage-Blob-stuurprogramma of [WASB-stuurprogramma](https://h
 
 ## <a name="the-azure-blob-file-system-driver"></a>Het bestandssysteem van Azure Blob-stuurprogramma
 
-De [Azure Data Lake Storage REST-interface](https://docs.microsoft.com/en-us/rest/api/storageservices/data-lake-storage-gen2) is ontworpen voor ondersteuning van semantiek van het bestandssysteem via Azure Blob Storage. Gezien het feit dat de Hadoop FileSystem ook ontworpen is ter ondersteuning van dezelfde semantiek is niet vereist voor de toewijzing van een complexe in het stuurprogramma. Het stuurprogramma (of ABFS) Azure Blob-bestandssysteem is dus een shim louter client voor de REST-API.
+De [Azure Data Lake Storage REST-interface](https://docs.microsoft.com/rest/api/storageservices/data-lake-storage-gen2) is ontworpen voor ondersteuning van semantiek van het bestandssysteem via Azure Blob Storage. Gezien het feit dat de Hadoop FileSystem ook ontworpen is ter ondersteuning van dezelfde semantiek is niet vereist voor de toewijzing van een complexe in het stuurprogramma. Het stuurprogramma (of ABFS) Azure Blob-bestandssysteem is dus een shim louter client voor de REST-API.
 
 Er zijn echter enkele functies die het stuurprogramma moet nog steeds uitvoeren:
 

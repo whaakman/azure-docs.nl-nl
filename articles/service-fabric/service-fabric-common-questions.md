@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: chackdan
-ms.openlocfilehash: fe86e94e745ae9ba65636ab0d1ccfead83261515
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 70372f30ffaea1fafda3f76d4754489ae89a0a7c
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49094255"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49390173"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Veelgestelde vragen over Service Fabric
 
@@ -126,7 +126,7 @@ Nee. Virtuele machines met lage prioriteit worden niet ondersteund.
 Hier volgen betekent voor uw toepassing om op te halen van referenties voor verificatie bij de KeyVault:
 
 A. Tijdens uw toepassingen bouwen/verpakking taak, kunt u een certificaat in het gegevenspakket van uw app SF ophalen en dit gebruiken om te verifiëren bij de KeyVault.
-B. Voor virtuele-ingeschakelde MSI-hosts machineschaalset, kunt u een eenvoudige PowerShell SetupEntryPoint voor uw app SF om op te halen ontwikkelen [een toegangstoken van het MSI-eindpunt](https://docs.microsoft.com/en-us/azure/active-directory/managed-service-identity/how-to-use-vm-token), en vervolgens [uw geheimen ophalen uit Key Vault](https://docs.microsoft.com/en-us/powershell/module/azurerm.keyvault/Get-AzureKeyVaultSecret?view=azurermps-6.5.0)
+B. Voor virtuele-ingeschakelde MSI-hosts machineschaalset, kunt u een eenvoudige PowerShell SetupEntryPoint voor uw app SF om op te halen ontwikkelen [een toegangstoken van het MSI-eindpunt](https://docs.microsoft.com/azure/active-directory/managed-service-identity/how-to-use-vm-token), en vervolgens [uw geheimen ophalen uit Key Vault](https://docs.microsoft.com/powershell/module/azurerm.keyvault/Get-AzureKeyVaultSecret?view=azurermps-6.5.0)
 
 ## <a name="application-design"></a>Het ontwerp van toepassing
 

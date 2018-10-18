@@ -9,12 +9,12 @@ ms.date: 10/05/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 88ea4b2eab57684bc5455c0d8eb23a5d62f9dd77
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: b04f909d58e1555cad9f34b682f9062bbd96cd0e
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48817498"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394728"
 ---
 # <a name="update-the-iot-edge-runtime"></a>Bijwerken van de IoT Edge-runtime
 
@@ -24,10 +24,11 @@ Twee onderdelen van een IoT Edge-apparaat moeten worden bijgewerkt als u wilt ve
 
 De nieuwste versie van Azure IoT Edge, Zie [releases van Azure IoT Edge](https://github.com/Azure/azure-iotedge/releases).
 
-
 ## <a name="update-the-security-daemon"></a>Update de daemon voor beveiliging
 
 De daemon van de beveiliging IoT Edge is een systeemeigen onderdeel dat moet worden bijgewerkt met behulp van de package manager op het IoT Edge-apparaat. 
+
+Controleer de versie van de security-daemon op uw apparaat met behulp van de opdracht `iotedge version`. 
 
 ### <a name="linux-devices"></a>Linux-apparaten
 
@@ -59,6 +60,10 @@ Install-SecurityDaemon -Manual -ContainerOS <Windows or Linux>
 ## <a name="update-the-runtime-containers"></a>Bijwerken van de runtimecontainers
 
 De manier waarop de Edge agent en Edge hub containers te werken, is afhankelijk van of u rolling tags (zoals 1.0) of specifieke tags (zoals 1.0.2) in uw implementatie gebruiken. 
+
+Controleer de versie van de IoT Edge-agent en Edge hub-modules die zich momenteel op uw apparaat met de opdrachten `iotedge logs edgeAgent` of `iotedge logs edgeHub`. 
+
+  ![Versie van de container weergeven](./media/how-to-update-iot-edge/container-version.png)
 
 ### <a name="understand-iot-edge-tags"></a>Informatie over IoT Edge-tags
 
@@ -117,5 +122,4 @@ In een manifest van de implementatie JSON bijwerken van de module-afbeeldingen i
 
 Bekijk de meest recente [releases van Azure IoT Edge](https://github.com/Azure/azure-iotedge/releases).
 
-Blijf up-to-date met recente updates en de aankondiging in de [Internet of Things-blog](https://azure.microsoft.com/blog/topics/internet-of-things/
-) 
+Blijf up-to-date met recente updates en de aankondiging in de [Internet of Things-blog](https://azure.microsoft.com/blog/topics/internet-of-things/) 

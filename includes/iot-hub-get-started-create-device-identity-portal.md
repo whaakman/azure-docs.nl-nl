@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/17/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 4809881276da752ac6eb08773fb8be145dc5f4c7
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: ffd5da239f8e271a8c9b2aaf3f6d5fd9f885c79c
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/17/2018
-ms.locfileid: "49367056"
+ms.locfileid: "49400450"
 ---
 ## <a name="create-a-device-identity"></a>Een apparaat-id maken
 
@@ -21,19 +21,19 @@ In deze sectie maakt u de [Azure-portal](https://portal.azure.com) te maken van 
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com)
 
-1. Selecteer **alle resources** en zoek de resource van uw IoT hub.
+2. Selecteer **alle resources** en zoek de resource van uw IoT hub.
 
-1. Wanneer uw IoT hub-resource wordt geopend, klikt u op de **IoT-apparaten** hulpprogramma, en klik vervolgens op **toevoegen** aan de bovenkant. 
+3. Wanneer uw IoT hub-resource wordt geopend, klikt u op de **IoT-apparaten** hulpprogramma, en klik vervolgens op **toevoegen** aan de bovenkant. 
 
     ![Apparaat-id in de portal maken](./media/iot-hub-get-started-create-device-identity-portal/create-identity-portal.png)
 
-1. Geef een naam voor het nieuwe apparaat, zoals **myDeviceId**, en klikt u op **opslaan**. Deze actie wordt een nieuwe apparaat-id voor uw IoT-hub gemaakt.
+4. Geef een naam voor het nieuwe apparaat, zoals **myDeviceId**, en klikt u op **opslaan**. Deze actie wordt een nieuwe apparaat-id voor uw IoT-hub gemaakt.
 
    [!INCLUDE [iot-hub-pii-note-naming-device](iot-hub-pii-note-naming-device.md)]
 
    ![Een nieuw apparaat toevoegen](./media/iot-hub-get-started-create-device-identity-portal/create-a-device.png)
 
-1. In de lijst, klikt u op het zojuist gemaakte apparaat en kopieer de **Connection string---primaire sleutel** voor later gebruik.
+5. In de lijst, klikt u op het zojuist gemaakte apparaat en kopieer de **Connection string---primaire sleutel** voor later gebruik.
 
     ![Apparaat-verbindingsreeks](./media/iot-hub-get-started-create-device-identity-portal/device-details.png)
 

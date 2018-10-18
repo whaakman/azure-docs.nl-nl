@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/12/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 2e40f0520c0f5e605974f883b3327699ff26313e
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 3843898ba2d7cdd3697236a9f4cc19070c6f07c3
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49321815"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49395170"
 ---
 # <a name="azure-stack-1808-update"></a>Azure Stack 1808 update
 
@@ -261,6 +261,10 @@ Hier volgen na de installatie bekende problemen voor deze buildversie.
    2. Als u een omgeving met meerdere tenants hebt geconfigureerd, mislukken virtuele machines implementeren in een abonnement dat is gekoppeld aan een gast-map met een interne fout. U kunt de fout oplossen door de volgende stappen uit:
       1. Van toepassing de [1808 Azure Stack-Hotfix](https://support.microsoft.com/help/4467062/).
       2. Volg de stappen in [in dit artikel](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) opnieuw configureren van elk van de Gast-mappen.
+      
+<!-- 3179561 - IS --> 
+- Gebruik van beheerde schijven wordt vermeld in uren, zoals beschreven in de [Veelgestelde vragen over Azure Stack gebruik](azure-stack-usage-related-faq.md#managed-disks). Echter, facturering Azure Stack maakt gebruik van de maandelijkse prijs in plaats daarvan, zodat u niet correct in rekening voor gebruik van Managed Disks op of vóór September 27 gebracht mogelijk. We hebben kosten tijdelijk onderbroken voor Managed Disks na 27 September totdat het facturering probleem is verholpen. Als u hebt ten onrechte is doorberekend voor gebruik van Managed Disks, neem contact op met Microsoft-ondersteuning voor facturering.
+Rapporten over gebruik gemaakt van het gebruik van Azure Stack API's juist aantallen en kunnen worden gebruikt.
 
 <!-- 2869209 – IS, ASDK --> 
 - Wanneer u de [ **toevoegen AzsPlatformImage** cmdlet](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage?view=azurestackps-1.4.0), moet u de **- OsUri** parameter als het opslagaccount URI waar de schijf is geüpload. Als u het lokale pad van de schijf gebruikt, wordt de cmdlet mislukt met de volgende fout: *langdurige bewerking is mislukt met de status 'Mislukt'*. 

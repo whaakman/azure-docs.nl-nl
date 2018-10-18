@@ -7,39 +7,39 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/26/2018
-ms.openlocfilehash: 6de302dbcfa9d6d1d2b311f41b03d8e54aeb63f6
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 46a4e69ecb08276e12ccc197de2d3ad838628b78
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47395437"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49378598"
 ---
 # <a name="performance-recommendations-in-azure-database-for-postgresql"></a>Aanbevelingen in Azure Database for PostgreSQL voor prestaties
 
 **Is van toepassing op:** Azure Database for PostgreSQL 9.6 en 10
 
 > [!IMPORTANT]
-> Aanbevelingen voor prestaties is in openbare Preview in een beperkt aantal regio's.
+> Aanbevelingen voor prestaties is in openbare Preview.
 
 De functie voor aanbevelingen voor prestaties geeft de bovenste indexen die kunnen worden gemaakt in uw Azure Database for PostgreSQL-server om prestaties te verbeteren. Om te produceren indexaanbevelingen, wordt de functie rekening gehouden met verschillende kenmerken van de database, met inbegrip van het schema en de werkbelasting, zoals gerapporteerd door de Query Store. Na de implementatie van elke aanbeveling prestaties, moeten klanten prestaties voor het evalueren van de impact van deze wijzigingen testen. 
 
 ## <a name="permissions"></a>Machtigingen
-**De eigenaar van** of **Inzender** machtigingen vereist voor het uitvoeren van analyses met de functie voor aanbevelingen voor prestaties.
+De machtigingen van **Eigenaar** of **Inzender** zijn vereist voor het uitvoeren van analyses met de functie Prestatieaanbevelingen.
 
 ## <a name="performance-recommendations"></a>Aanbevelingen voor prestaties
-De [aanbevelingen voor prestaties](concepts-performance-recommendations.md) functie analyseert werkbelastingen op de server voor het identificeren van indexen met de mogelijkheid om prestaties te verbeteren.
+De functie [Prestatieaanbevelingen](concepts-performance-recommendations.md) analyseert workloads op de server om indexen te analyseren met de mogelijkheid om prestaties te verbeteren.
 
-Open **aanbevelingen voor prestaties** uit de **ondersteuning en probleemoplossing** sectie van de in de menubalk op de Azure portal-pagina voor uw PostgreSQL-server.
+Open **Prestatieaanbevelingen** in de sectie **Ondersteuning en probleemoplossing** van de menubalk op de Azure Portal-pagina voor uw PostgreSQL-server.
 
-![Aanbevelingen voor prestaties landingspagina](./media/concepts-performance-recommendations/performance-recommendations-landing-page.png)
+![Landingspagina van Prestatieaanbevelingen](./media/concepts-performance-recommendations/performance-recommendations-landing-page.png)
 
-Selecteer **analyseren** en kiest u een database. Hiermee wordt begonnen met de analyse. Dit kan enkele minuten duren, afhankelijk van uw workload. Zodra de analyse is voltooid, wordt er een melding in de portal.
+Selecteer **Analyseren** en kies een database. De analyse wordt hiermee gestart. Dit kan enkele minuten duren, afhankelijk van uw workload. Wanneer de analyse is voltooid, verschijnt er een melding in de portal.
 
-De **aanbevelingen voor prestaties** venster ziet u een lijst met aanbevelingen als deze zijn gevonden. Een aanbeveling ziet u informatie over de desbetreffende **Database**, **tabel**, **kolom**, en **indexgrootte**.
+Het venster **Prestatieaanbevelingen** toont een lijst met aanbevelingen als deze zijn gevonden. Een aanbeveling bevat informatie over de relevante **Database**, **Tabel**, **Kolom** en **Indexgrootte**.
 
 ![Nieuwe pagina voor prestatie-aanbevelingen](./media/concepts-performance-recommendations/performance-recommendations-result.png)
 
-Voor het implementeren van de aanbeveling, Kopieer de querytekst en uitvoeren vanaf de client naar keuze.
+Als u de aanbeveling wilt implementeren, kopieert u de querytekst en voert u deze uit vanaf de gewenste client.
 
 ## <a name="next-steps"></a>Volgende stappen
 - Meer informatie over [bewaking en afstemming](concepts-monitoring.md) in Azure Database for PostgreSQL.

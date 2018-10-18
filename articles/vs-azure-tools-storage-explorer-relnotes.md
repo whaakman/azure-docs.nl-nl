@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
-ms.openlocfilehash: 7e73f676f47de8256928224aae55ea30eb414ddf
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 708b80787337d549ebc5e66bca21e734620616ac
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49344747"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49388288"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Opmerkingen bij de release van Microsoft Azure Storage Explorer
 
@@ -72,7 +72,7 @@ In dit artikel bevat de releaseopmerkingen voor Azure Storage Explorer 1.4.3 rel
 ./StorageExplorer.exe --disable-gpu
 ```
 
-* Voor Linux-gebruikers, moet u voor het installeren van [.NET Core 2.0](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* Voor Linux-gebruikers, moet u voor het installeren van [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
 * Voor gebruikers op Ubuntu 14.04, moet u ervoor zorgen GCC is bijgewerkt: dit kan worden gedaan door te voeren van de volgende opdrachten en vervolgens de computer opnieuw op te starten:
 
     ```
@@ -160,7 +160,7 @@ In dit artikel bevat de releaseopmerkingen voor Azure Storage Explorer 1.4.3 rel
 ./StorageExplorer.exe --disable-gpu
 ```
 
-* Voor Linux-gebruikers, moet u voor het installeren van [.NET Core 2.0](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* Voor Linux-gebruikers, moet u voor het installeren van [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
 * Voor gebruikers op Ubuntu 14.04, moet u ervoor zorgen GCC is bijgewerkt: dit kan worden gedaan door te voeren van de volgende opdrachten en vervolgens de computer opnieuw op te starten:
 
     ```
@@ -215,7 +215,7 @@ In dit artikel bevat de releaseopmerkingen voor Azure Storage Explorer 1.4.3 rel
 ./StorageExplorer.exe --disable-gpu
 ```
 
-* Voor Linux-gebruikers, moet u voor het installeren van [.NET Core 2.0](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* Voor Linux-gebruikers, moet u voor het installeren van [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
 * Voor gebruikers op Ubuntu 14.04, moet u ervoor zorgen GCC is bijgewerkt: dit kan worden gedaan door te voeren van de volgende opdrachten en vervolgens de computer opnieuw op te starten:
 
     ```
@@ -275,7 +275,7 @@ In dit artikel bevat de releaseopmerkingen voor Azure Storage Explorer 1.4.3 rel
 ./StorageExplorer.exe --disable-gpu
 ```
 
-* Voor Linux-gebruikers, moet u voor het installeren van [.NET Core 2.0](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* Voor Linux-gebruikers, moet u voor het installeren van [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
 * Voor gebruikers op Ubuntu 14.04, moet u ervoor zorgen GCC is bijgewerkt: dit kan worden gedaan door te voeren van de volgende opdrachten en vervolgens de computer opnieuw op te starten:
 
     ```
@@ -332,7 +332,7 @@ In dit artikel bevat de releaseopmerkingen voor Azure Storage Explorer 1.4.3 rel
 ./StorageExplorer.exe --disable-gpu
 ```
 
-* Voor Linux-gebruikers, moet u voor het installeren van [.NET Core 2.0](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* Voor Linux-gebruikers, moet u voor het installeren van [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
 * Voor gebruikers op Ubuntu 14.04, moet u ervoor zorgen GCC is bijgewerkt: dit kan worden gedaan door te voeren van de volgende opdrachten en vervolgens de computer opnieuw op te starten:
 
     ```
@@ -389,7 +389,7 @@ In dit artikel bevat de releaseopmerkingen voor Azure Storage Explorer 1.4.3 rel
 ./StorageExplorer.exe --disable-gpu
 ```
 
-* Voor Linux-gebruikers, moet u voor het installeren van [.NET Core 2.0](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* Voor Linux-gebruikers, moet u voor het installeren van [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
 * Voor gebruikers op Ubuntu 14.04, moet u ervoor zorgen GCC is bijgewerkt: dit kan worden gedaan door te voeren van de volgende opdrachten en vervolgens de computer opnieuw op te starten:
 
     ```
@@ -410,7 +410,7 @@ In dit artikel bevat de releaseopmerkingen voor Azure Storage Explorer 1.4.3 rel
 
 ### <a name="new"></a>Nieuw
 * Storage Explorer biedt nu ondersteuning voor het gebruik van Azurite. Opmerking: de verbinding met Azurite wordt vastgelegd op de eindpunten van de standaard-ontwikkeling.
-* Storage Explorer biedt nu ondersteuning voor laag voor alleen-Blob en GPV2-Opslagaccounts. Meer informatie over Toegangslagen [hier](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-storage-tiers).
+* Storage Explorer biedt nu ondersteuning voor laag voor alleen-Blob en GPV2-Opslagaccounts. Meer informatie over Toegangslagen [hier](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers).
 * Een begintijd is niet langer vereist bij het genereren van een SAS.
 
 ### <a name="fixes"></a>Oplossingen
@@ -443,7 +443,7 @@ In dit artikel bevat de releaseopmerkingen voor Azure Storage Explorer 1.4.3 rel
 ./StorageExplorer.exe --disable-gpu
 ```
 
-* Voor Linux-gebruikers, moet u voor het installeren van [.NET Core 2.0](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* Voor Linux-gebruikers, moet u voor het installeren van [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
 * Voor gebruikers op Ubuntu 14.04, moet u ervoor zorgen GCC is bijgewerkt: dit kan worden gedaan door te voeren van de volgende opdrachten en vervolgens de computer opnieuw op te starten:
 
     ```
@@ -470,7 +470,7 @@ In dit artikel bevat de releaseopmerkingen voor Azure Storage Explorer 1.4.3 rel
 * Storage Explorer feedback is nu aanwezig op GitHub. U kunt onze pagina met problemen bereiken door te klikken op de knop Feedback onderaan links of door te gaan [ https://github.com/Microsoft/AzureStorageExplorer/issues ](https://github.com/Microsoft/AzureStorageExplorer/issues). U kunt voorstellen, rapporteren van problemen, vragen of laat u een andere vorm van feedback.
 * Als u SSL-certificaat problemen ondervindt en kan de strijdige certificaat niet vinden, kunt u nu Storage Explorer starten vanuit de opdrachtregel met de `--ignore-certificate-errors` vlag. Wanneer met deze markering wordt gestart, worden de Storage Explorer SSL-certificaatfouten genegeerd.
 * Er is nu een downloadoptie '' in het contextmenu voor de blob en bestand.
-* Verbeterde toegankelijkheid en ondersteuning voor schermlezers. Als u zich op toegankelijkheidsfuncties baseert, Zie onze [toegankelijkheid documentatie](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-explorer-accessibility) voor meer informatie.
+* Verbeterde toegankelijkheid en ondersteuning voor schermlezers. Als u zich op toegankelijkheidsfuncties baseert, Zie onze [toegankelijkheid documentatie](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-accessibility) voor meer informatie.
 * Storage Explorer gebruikt nu Electron 1.8.3
 
 ### <a name="breaking-changes"></a>Wijzigingen die fouten veroorzaken
@@ -509,7 +509,7 @@ In dit artikel bevat de releaseopmerkingen voor Azure Storage Explorer 1.4.3 rel
 ./StorageExplorer.exe --disable-gpu
 ```
 
-* Voor Linux-gebruikers, moet u voor het installeren van [.NET Core 2.0](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* Voor Linux-gebruikers, moet u voor het installeren van [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
 * Voor gebruikers op Ubuntu 14.04, moet u ervoor zorgen GCC is bijgewerkt: dit kan worden gedaan door te voeren van de volgende opdrachten en vervolgens de computer opnieuw op te starten:
 
     ```

@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry, michmcla
-ms.openlocfilehash: a8bcbc37ffba2caace0934c5414e1ccfd6fbb558
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 67f99e68bc4091d076e27aee06c2851bc77e6fc7
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48901988"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49378921"
 ---
 # <a name="what-are-authentication-methods"></a>Wat zijn verificatiemethoden?
 
@@ -30,7 +30,7 @@ Microsoft raadt beheerders kunnen gebruikers meer dan de minimaal vereiste aanta
 | Wachtwoord | MFA en Self-service voor Wachtwoordherstel |
 | Beveiligingsvragen | Alleen SSPR |
 | E-mailadres | Alleen SSPR |
-| Microsoft Authenticator-app | MFA en Preview-versie voor SSPR |
+| Microsoft Authenticator-app | MFA en preview-versie voor SSPR |
 | OATH-token van Hardware | Openbare preview-versie van MFA en Self-service voor Wachtwoordherstel |
 | Sms | MFA en Self-service voor Wachtwoordherstel |
 | Spraakoproep | MFA en Self-service voor Wachtwoordherstel |
@@ -148,11 +148,13 @@ De Microsoft Authenticator-app of andere apps van derden kunnen worden gebruikt 
 > Self-service voor wachtwoord opnieuw ingesteld wanneer alleen één methode vereist is voor het opnieuw instellen van de verificatiecode is de enige optie beschikbaar voor gebruikers **om te controleren of het hoogste niveau van beveiliging**.
 >
 
-## <a name="oath-hardware-tokens"></a>OATH-tokens voor hardware
+## <a name="oath-hardware-tokens-public-preview"></a>OATH-hardware-tokens (openbare preview)
 
 OATH is een open standaard die aangeeft hoe eenmalig wachtwoord (OTP)-codes worden gegenereerd. Azure AD ondersteunt het gebruik van de mobiele TOTP-SHA-1-OATH-tokens van de verschillende 30 seconden of 60 seconden. Klanten kunnen deze tokens verkrijgen van de leverancier van hun keuze. Houd er rekening mee dat de geheime sleutels zijn beperkt tot 128 tekens die niet compatibel met alle tokens.
 
 ![OATH-tokens geüpload naar de blade van de MFA Server OATH-tokens in Azure portal](media/concept-authentication-methods/oath-tokens-azure-ad.png)
+
+Hardware-OATH-tokens worden ondersteund als onderdeel van een openbare preview. Zie voor meer informatie over previews [aanvullende gebruiksrechtovereenkomst voor Microsoft Azure-Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 
 Zodra de tokens worden verkregen moet het worden geüpload in een indeling met door komma's gescheiden waarden (CSV) met inbegrip van de UPN, serienummer, geheime sleutel, tijdsinterval, de fabrikant en model als in het voorbeeld hieronder ziet.
 

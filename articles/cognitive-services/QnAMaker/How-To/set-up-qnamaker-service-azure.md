@@ -10,12 +10,12 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: tulasim
-ms.openlocfilehash: c4175a22cc503113f3b3ef64f03f0ae0913bd20e
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 103da0c65bcf9b9bd24130082f844b9bd12a9a02
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/17/2018
-ms.locfileid: "49364894"
+ms.locfileid: "49389714"
 ---
 # <a name="create-a-qna-maker-service"></a>Een QnA Maker-service maken
 
@@ -44,7 +44,7 @@ Deze instellingen implementeert een aantal Azure-resources. Deze resources worde
     * Kies de **zoeken prijscategorie** van de Azure Search-service. Als u de gratis laag-optie grijs weergegeven, betekent dat u hebt al een gratis Azure Search-laag in uw abonnement. In dat geval moet u eerst de laag Basic Azure Search. Zie de details van prijzen van Azure search [hier](https://azure.microsoft.com/pricing/details/search/).
     * Kies de **zoeklocatie** waar u Azure Search-gegevens om te worden geïmplementeerd. Beperkingen in waar de gegevens van de klant moet worden opgeslagen, wordt de locatie die u voor Azure Search kiest informeren.
     * Geef een naam aan uw appservice in **appnaam**.
-    * Standaard wordt de appservice standaard naar de prijscategorie standard (S1). U kunt het abonnement wijzigen nadat de is gemaakt. Zie meer informatie over prijzen voor App service [hier](https://azure.microsoft.com/en-in/pricing/details/app-service/).
+    * Standaard wordt de appservice standaard naar de prijscategorie standard (S1). U kunt het abonnement wijzigen nadat de is gemaakt. Zie meer informatie over prijzen voor App service [hier](https://azure.microsoft.com/pricing/details/app-service/).
     * Kies de **locatie van de Website** waarop de App-Service wordt geïmplementeerd.
 
         > [!NOTE]

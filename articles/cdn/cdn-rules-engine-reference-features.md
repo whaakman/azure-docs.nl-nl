@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: magattus
-ms.openlocfilehash: c5f486498e357927880ae51c1fec13a00296b457
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: d5be292c66a07f43b40d12e10e4939d9d91559e1
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093354"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49395238"
 ---
 # <a name="azure-cdn-rules-engine-features"></a>Functies Azure CDN-regelengine
 Dit artikel vindt u gedetailleerde beschrijvingen van de beschikbare functies voor Azure Content Delivery Network (CDN) [regels-Engine](cdn-rules-engine.md).
@@ -1256,7 +1256,7 @@ Deze URL-omleiding kan worden bereikt via de volgende configuratie: ![URL-omleid
         - Aanvraag-URL (na omleiding): http:\//cdn.mydomain.com/resources/widgets.pdf  
     - Voorbeeldscenario voor #2: 
         - Voorbeeld van een aanvraag (Edge CNAME-URL): http:\//marketing.mydomain.com/brochures/widgets.pdf 
-        - Aanvraag-URL (na omleiding): http:\//cdn.mydomain.com/resources/widgets.pdf voorbeeldscenario
+        - Aanvraag-URL (na omleiding): http:\//cdn.mydomain.com/resources/widgets.pdf
     - Voorbeeldscenario voor #3: 
         - Voorbeeld van een aanvraag (Edge CNAME-URL): http:\//brochures.mydomain.com/campaignA/final/productC.ppt 
         - Aanvraag-URL (na omleiding): http:\//cdn.mydomain.com/resources/campaignA/final/productC.ppt  

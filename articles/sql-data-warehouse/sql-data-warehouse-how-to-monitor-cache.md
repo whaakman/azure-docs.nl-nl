@@ -10,12 +10,12 @@ ms.component: monitor and tune
 ms.date: 09/06/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 1cf2fcb2ce99d4c6c670e5afdb1c4208158ea4de
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 1d366850bc886dc48afc59ffaf0958b39314ebb1
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44096213"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49385529"
 ---
 # <a name="how-to-monitor-the-gen2-cache"></a>De cache Gen2 bewaken
 De opslagarchitectuur Gen2 wordt automatisch de meest aangevraagde columnstore-segmenten in een cache op basis van SSD's die zijn ontworpen voor datawarehouses Gen2 NVMe lagen. Betere prestaties wordt gerealiseerd wanneer uw query's halen segmenten die die zich in de cache bevinden zijn. Dit artikel wordt beschreven hoe u controleert en prestaties van trage query's op te lossen door te bepalen of uw werkbelasting is optimaal gebruik te maken van de cache Gen2.  
@@ -43,7 +43,7 @@ De matrix die hieronder worden beschreven scenario's op basis van de waarden van
 
 **Scenario 2:** uw huidige werkset van de gegevens niet passen in de cache die zorgt ervoor een klein aantal dat cachetreffers percentage vanwege fysieke leesbewerkingen. Houd rekening met omhoog schalen van het prestatieniveau en uw workload om in te vullen van de cache opnieuw.
 
-**Scenario 3:** is het waarschijnlijk dat uw query traag wordt uitgevoerd vanwege redenen die niet gerelateerd aan de cache. [Problemen oplossen](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-manage-monitor) andere gebieden die mogelijk uw query's vertragen. U kunt ook overwegen [verkleint uw exemplaar](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-manage-monitor) uw cache verkleinen om kosten te besparen. 
+**Scenario 3:** is het waarschijnlijk dat uw query traag wordt uitgevoerd vanwege redenen die niet gerelateerd aan de cache. [Problemen oplossen](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-manage-monitor) andere gebieden die mogelijk uw query's vertragen. U kunt ook overwegen [verkleint uw exemplaar](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-manage-monitor) uw cache verkleinen om kosten te besparen. 
 
 **Scenario 4:** moest u een cold cache die mogelijk de reden waarom uw query traag is. Houd rekening met uw query opnieuw uitvoeren als uw gegevensset werken moet nu in in de cache. 
 

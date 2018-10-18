@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/11/2017
+ms.date: 10/17/2018
 ms.author: barbkess
-ms.openlocfilehash: 732a305da377670b45f8b2f95bed741d82b4dae0
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 6acc9a8b9cd7b6ef1218b1e8cae2e6a9af92f9d8
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44356653"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49393691"
 ---
 # <a name="how-to-remove-a-users-access-to-an-application"></a>Het verwijderen van een gebruiker toegang tot een toepassing
 
@@ -29,7 +29,7 @@ In dit artikel helpt u te begrijpen hoe u van een gebruiker toegang tot een toep
 
 Als u wilt verwijderen van een gebruiker of groepstoewijzing aan een toepassing, volgt u de stappen in de [de toewijzing van een gebruiker of groep verwijderen uit een enterprise-app in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-remove-assignment-azure-portal) artikel.
 
-. ## ik wil alle toegang tot een toepassing voor elke gebruiker uitschakelen
+## <a name="i-want-to-disable-all-access-to-an-application-for-every-user"></a>Ik wil alle toegang tot een toepassing voor elke gebruiker uitschakelen
 
 Als u wilt alle gebruikers zich aangemeld bij een toepassing uitschakelen, volgt u de stappen in de [gebruikersaanmeldingen voor een enterprise-app in Azure Active Directory uitschakelen](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-disable-app-azure-portal) artikel.
 
@@ -55,21 +55,19 @@ Naar **verwijderen van een toepassing**, volgt u deze instructies:
 
 ## <a name="i-want-to-disable-all-future-user-consent-operations-to-any-application"></a>Ik wil alle bewerkingen van toekomstige gebruikers toestemming voor elke toepassing uitschakelen
 
-Toestemming van de gebruiker wordt uitgeschakeld voor uw hele directory te voorkomen dat eindgebruikers ermee akkoord dat voor elke toepassing. Beheerders kunnen nog steeds op van de gebruiker behalves instemmen. Voor meer informatie over de toestemming van de toepassing en waarom u niet wenst dat mogelijk dit wilt doen of lezen [inzicht in gebruikers- en toestemming van een beheerder](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent).
+Toestemming van de gebruiker wordt uitgeschakeld voor uw hele directory te voorkomen dat eindgebruikers ermee akkoord dat voor elke toepassing. Beheerders kunnen nog steeds op van de gebruiker behalves instemmen. Voor meer informatie over de toepassing toestemming geven en waarom u mogelijk of niet nalevingsredenen om dit te doen, Lees [inzicht in gebruikers- en toestemming van een beheerder](../develop/howto-convert-app-to-be-multi-tenant.md#understand-user-and-admin-consent). Zie ook [machtigingen en toestemming](../develop/v2-permissions-and-consent.md).
 
 Naar **uitschakelen van alle toekomstige gebruikers toestemming bewerkingen in uw hele directory**, volgt u deze instructies:
 
 1.  Open de [ **Azure-portal** ](https://portal.azure.com/) en meld u aan als een **globale beheerder.**
 
-2.  Open de **Azure Active Directory-extensie** door te klikken op **alle services** aan de bovenkant van het menu links hoofdgedeelte voor navigatie.
+2.  Open de **Azure Active Directory-extensie** 
 
-3.  Typ in **' Azure Active Directory**' in het zoekvak van filter en selecteer de **Azure Active Directory** item.
-
-4.  Klik op **gebruikers en groepen** in het navigatiemenu.
+3.  Klik op **bedrijfstoepassingen** in het navigatiemenu.
 
 5.  Klik op **gebruikersinstellingen**.
 
-6.  Alle toekomstige gebruikers toestemming bewerkingen uitschakelen door in te stellen de **gebruikers kunnen toestaan dat apps toegang tot hun gegevens** overzet naar **Nee** en klikt u op de **opslaan** knop.
+6.  Stelt de **gebruikers kunnen toestaan dat apps toegang hebben tot bedrijfsgegevens namens hen** in-of uitschakelen om te **Nee** en klik op de knop opslaan.
 
 
 # <a name="next-steps"></a>Volgende stappen

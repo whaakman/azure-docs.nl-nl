@@ -4,7 +4,7 @@ description: API voor afwijkingsdetectie is een voorbeeld gebouwd met Microsoft 
 services: machine-learning
 documentationcenter: ''
 author: alokkirpal
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: 52fafe1f-e93d-47df-a8ac-9a9a53b60824
 ms.service: machine-learning
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/05/2017
 ms.author: alok
-ms.openlocfilehash: fa8a1f6ae70b4bbb078e25dcf109f53d77aa3b21
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 0b99aeb2ffdb78e472cdc0e11d0efaf91feb3e4a
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48815684"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394479"
 ---
 # <a name="machine-learning-anomaly-detection-api"></a>Machine Learning-Anomaliedetectie-API
 ## <a name="overview"></a>Overzicht
@@ -124,18 +124,18 @@ Meer gedetailleerde informatie over deze invoerparameters die zijn opgegeven wor
 | --- | --- | --- | --- | --- | --- |
 | detectors.historywindow |Geschiedenis (in totaal aantal gegevenspunten) gebruikt voor anomaliedetectie score berekeningen |500 |geheel getal |10-2000 |Afhankelijk van het time series |
 | detectors.spikesdips | Of u wilt detecteren alleen pieken, alleen Spanningsdips, of beide |Beide |geïnventariseerd |Beide, pieken, Spanningsdips |Beide |
-| bileveldetector.Sensitivity |Gevoeligheid voor in twee richtingen niveau detector wijzigen. |3.25 |dubbel |Geen |3,25-5 (lagere waarden betekenen hogere gevoeligheid) |
-| trenddetector.Sensitivity |Gevoeligheid voor positieve trend detector. |3.25 |dubbel |Geen |3,25-5 (lagere waarden betekenen hogere gevoeligheid) |
+| bileveldetector.Sensitivity |Gevoeligheid voor in twee richtingen niveau detector wijzigen. |3.25 |double |Geen |3,25-5 (lagere waarden betekenen hogere gevoeligheid) |
+| trenddetector.Sensitivity |Gevoeligheid voor positieve trend detector. |3.25 |double |Geen |3,25-5 (lagere waarden betekenen hogere gevoeligheid) |
 | tspikedetector.sensitivity |Gevoeligheid voor TSpike Detector |3 |geheel getal |1-10 |3-5 (lagere waarden betekenen hogere gevoeligheid) |
 | zspikedetector.sensitivity |Gevoeligheid voor ZSpike Detector |3 |geheel getal |1-10 |3-5 (lagere waarden betekenen hogere gevoeligheid) |
-| postprocess.tailRows |Nummer van de meest recente gegevenspunten worden bewaard in de uitvoer-resultaten |0 |geheel getal |0 (Houd alle gegevenspunten), of geef het aantal punten met resultaten |N.v.t. |
+| postprocess.tailRows |Nummer van de meest recente gegevenspunten worden bewaard in de uitvoer-resultaten |0 |geheel getal |0 (Houd alle gegevenspunten), of geef het aantal punten met resultaten |N/A |
 
 ### <a name="output"></a>Uitvoer
 De API wordt alle detectoren uitgevoerd op uw time series-gegevens en scores van afwijkingen en binaire piek indicatoren voor elk punt in tijd retourneert. De volgende tabel bevat de uitvoer van de API. 
 
 | Uitvoer | Beschrijving |
 | --- | --- |
-| Tijd |Tijdstempels van onbewerkte gegevens, of geaggregeerde (en/of) impliciete gegevens als aggregatie (en/of) ontbrekende gegevens toerekening wordt toegepast |
+| Time |Tijdstempels van onbewerkte gegevens, of geaggregeerde (en/of) impliciete gegevens als aggregatie (en/of) ontbrekende gegevens toerekening wordt toegepast |
 | Gegevens |Als de waarden van onbewerkte gegevens, of geaggregeerde (en/of) impliciete gegevens aggregatie (en/of) ontbrekende gegevens toerekening wordt toegepast |
 | TSpike |Binaire indicator om aan te geven of een piek wordt gedetecteerd door TSpike Detector |
 | ZSpike |Binaire indicator om aan te geven of een piek wordt gedetecteerd door ZSpike Detector |
@@ -159,26 +159,26 @@ Meer gedetailleerde informatie over deze invoerparameters die zijn opgegeven wor
 | Invoerparameters | Beschrijving | Standaardinstelling | Type | Het geldige bereik | Voorgestelde bereik |
 | --- | --- | --- | --- | --- | --- |
 | preprocess.aggregationInterval |Aggregatie-interval in seconden voor het verzamelen van invoer tijdreeks |0 (geen aggregatie wordt uitgevoerd) |geheel getal |0: aggregatie, > 0 anders overslaan |5 minuten op 1 dag, afhankelijk van het time series |
-| preprocess.aggregationFunc |Functie die wordt gebruikt voor het verzamelen van gegevens in de opgegeven AggregationInterval |gemiddelde |geïnventariseerd |gemiddelde, som, lengte |N.v.t. |
-| preprocess.replaceMissing |Waarden gebruikt voor het rekenen, ontbrekende gegevens |lkv (laatst bekende waarde) |geïnventariseerd |nul, lkv, gemiddelde |N.v.t. |
+| preprocess.aggregationFunc |Functie die wordt gebruikt voor het verzamelen van gegevens in de opgegeven AggregationInterval |gemiddelde |geïnventariseerd |gemiddelde, som, lengte |N/A |
+| preprocess.replaceMissing |Waarden gebruikt voor het rekenen, ontbrekende gegevens |lkv (laatst bekende waarde) |geïnventariseerd |nul, lkv, gemiddelde |N/A |
 | detectors.historywindow |Geschiedenis (in totaal aantal gegevenspunten) gebruikt voor anomaliedetectie score berekeningen |500 |geheel getal |10-2000 |Afhankelijk van het time series |
 | detectors.spikesdips | Of u wilt detecteren alleen pieken, alleen Spanningsdips, of beide |Beide |geïnventariseerd |Beide, pieken, Spanningsdips |Beide |
-| bileveldetector.Sensitivity |Gevoeligheid voor in twee richtingen niveau detector wijzigen. |3.25 |dubbel |Geen |3,25-5 (lagere waarden betekenen hogere gevoeligheid) |
-| postrenddetector.Sensitivity |Gevoeligheid voor positieve trend detector. |3.25 |dubbel |Geen |3,25-5 (lagere waarden betekenen hogere gevoeligheid) |
-| negtrenddetector.Sensitivity |Gevoeligheid voor negatieve trend detector. |3.25 |dubbel |Geen |3,25-5 (lagere waarden betekenen hogere gevoeligheid) |
+| bileveldetector.Sensitivity |Gevoeligheid voor in twee richtingen niveau detector wijzigen. |3.25 |double |Geen |3,25-5 (lagere waarden betekenen hogere gevoeligheid) |
+| postrenddetector.Sensitivity |Gevoeligheid voor positieve trend detector. |3.25 |double |Geen |3,25-5 (lagere waarden betekenen hogere gevoeligheid) |
+| negtrenddetector.Sensitivity |Gevoeligheid voor negatieve trend detector. |3.25 |double |Geen |3,25-5 (lagere waarden betekenen hogere gevoeligheid) |
 | tspikedetector.sensitivity |Gevoeligheid voor TSpike Detector |3 |geheel getal |1-10 |3-5 (lagere waarden betekenen hogere gevoeligheid) |
 | zspikedetector.sensitivity |Gevoeligheid voor ZSpike Detector |3 |geheel getal |1-10 |3-5 (lagere waarden betekenen hogere gevoeligheid) |
-| seasonality.Enable |Of seizoensgebondenheid analyse wordt uitgevoerd |waar |booleaans |waar of ONWAAR |Afhankelijk van het time series |
+| seasonality.Enable |Of seizoensgebondenheid analyse wordt uitgevoerd |true |booleaans |waar of ONWAAR |Afhankelijk van het time series |
 | seasonality.numSeasonality |Maximum aantal periodieke cycli worden gedetecteerd |1 |geheel getal |1, 2 |1-2 |
-| seasonality.transform |Of seizoensgebonden (en) trend onderdelen moeten worden verwijderd voordat u detectie van afwijkingen |deseason |geïnventariseerd |None, deseason, deseasontrend |N.v.t. |
-| postprocess.tailRows |Nummer van de meest recente gegevenspunten worden bewaard in de uitvoer-resultaten |0 |geheel getal |0 (Houd alle gegevenspunten), of geef het aantal punten met resultaten |N.v.t. |
+| seasonality.transform |Of seizoensgebonden (en) trend onderdelen moeten worden verwijderd voordat u detectie van afwijkingen |deseason |geïnventariseerd |None, deseason, deseasontrend |N/A |
+| postprocess.tailRows |Nummer van de meest recente gegevenspunten worden bewaard in de uitvoer-resultaten |0 |geheel getal |0 (Houd alle gegevenspunten), of geef het aantal punten met resultaten |N/A |
 
 ### <a name="output"></a>Uitvoer
 De API wordt alle detectoren uitgevoerd op uw time series-gegevens en scores van afwijkingen en binaire piek indicatoren voor elk punt in tijd retourneert. De volgende tabel bevat de uitvoer van de API. 
 
 | Uitvoer | Beschrijving |
 | --- | --- |
-| Tijd |Tijdstempels van onbewerkte gegevens, of geaggregeerde (en/of) impliciete gegevens als aggregatie (en/of) ontbrekende gegevens toerekening wordt toegepast |
+| Time |Tijdstempels van onbewerkte gegevens, of geaggregeerde (en/of) impliciete gegevens als aggregatie (en/of) ontbrekende gegevens toerekening wordt toegepast |
 | OriginalData |Als de waarden van onbewerkte gegevens, of geaggregeerde (en/of) impliciete gegevens aggregatie (en/of) ontbrekende gegevens toerekening wordt toegepast |
 | ProcessedData |Een van de volgende: <ul><li>Tijdreeks seizoen aangepast als aanzienlijke seizoensgebondenheid is gedetecteerd en deseason optie geselecteerd.</li><li>seizoen aangepast en detrended tijdreeks als aanzienlijke seizoensgebondenheid is gedetecteerd en deseasontrend optie is geselecteerd</li><li>anders is dit hetzelfde als OriginalData</li> |
 | TSpike |Binaire indicator om aan te geven of een piek wordt gedetecteerd door TSpike Detector |

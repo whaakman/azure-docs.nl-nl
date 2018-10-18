@@ -10,12 +10,12 @@ ms.component: bing-spell-check
 ms.topic: overview
 ms.date: 05/03/2018
 ms.author: nolachar
-ms.openlocfilehash: 81c80ab6c8d10d263de96566f5554709a2404a24
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 4caa05ffa96dbc15922fed85edfdefdb68ead68b
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48802590"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49361708"
 ---
 # <a name="what-is-bing-spell-check-api"></a>Wat is de Bing Spellingcontrole-API?
 
@@ -36,7 +36,7 @@ Deze spellingcontrole is geschikt voor elk tekstverwerkingsscenario:
 
 ## <a name="spell-check-modes"></a>Modi van spellingcontroles
 
-De API ondersteunt twee controlemodi, `Proof` en `Spell`.  Probeer [hier](https://azure.microsoft.com/en-us/services/cognitive-services/spell-check/) voorbeelden uit.
+De API ondersteunt twee controlemodi, `Proof` en `Spell`.  Probeer [hier](https://azure.microsoft.com/services/cognitive-services/spell-check/) voorbeelden uit.
 ### <a name="proof---for-documents-scenario"></a>Controleren - voor documenten
 De standaardmodus is `Proof`. De spellingmodus `Proof` bevat de meest uitgebreide controles, inclusief hoofdlettergebruik, basisinterpunctie en andere functies om te helpen bij het maken van het document. Deze is echter alleen beschikbaar in en-US (Engels-Verenigde Staten), es-ES (Spaans), pt-BR (Portugees). (Opmerking: alleen in de bètaversie voor Spaans en Portugees). Voor alle andere markten stelt u de queryparameter mode in op Spelling. 
 <br /><br/>**Opmerking:** als de querytekst langer is dan 4096, wordt deze afgekapt tot 4096 tekens, waarna deze wordt verwerkt. 

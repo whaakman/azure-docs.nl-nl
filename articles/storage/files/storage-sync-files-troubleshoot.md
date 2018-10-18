@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/06/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: b53be5a5683ca8fcc8760a2d4cb7e766904a44a3
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: d240bafa543633999a74ef66efcfd7130a4a7b7a
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167661"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389272"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Problemen met Azure Files Sync oplossen
 Gebruik Azure File Sync te centraliseren bestandsshares van uw organisatie in Azure Files, terwijl de flexibiliteit, prestaties en compatibiliteit van een on-premises bestandsserver. Azure File Sync transformeert Windows Server naar een snelle cache van uw Azure-bestandsshare. U kunt elk protocol dat beschikbaar is op Windows Server voor toegang tot uw gegevens lokaal, met inbegrip van SMB, NFS en FTPS gebruiken. U kunt zoveel caches hebben als u nodig hebt over de hele wereld.
@@ -133,8 +133,8 @@ U lost dit probleem, moet u de volgende stappen uitvoeren:
 
 1. Op de server opent u Taakbeheer en controleer of dat de Monitor van de synchronisatie-opslag (AzureStorageSyncMonitor.exe)-proces wordt uitgevoerd. Als het proces wordt niet uitgevoerd, moet u eerst probeert de server opnieuw wordt opgestart. Als de server opnieuw wordt opgestart, wordt het probleem niet verhelpen, de Azure File Sync-agent bijwerken naar versie [3.3.0.0]( https://support.microsoft.com/help/4457484/update-rollup-for-azure-file-sync-agent-september-2018) als momenteel niet geïnstalleerd.
 2. Controleer of de Firewall en Proxy-instellingen correct zijn geconfigureerd:
-    - Als de server zich achter een firewall bevindt, controleert u of poort 443, uitgaand is toegestaan. Als de firewall verkeer tot specifieke domeinen beperkt, controleert u of de domeinen die worden vermeld in de Firewall [documentatie](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-firewall-and-proxy#firewall) toegankelijk zijn.
-    - Als de server zich achter een proxy, de brede, door het machine of app-specifieke proxy-instellingen configureren met de volgende stappen in de Proxy [documentatie](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-firewall-and-proxy#proxy).
+    - Als de server zich achter een firewall bevindt, controleert u of poort 443, uitgaand is toegestaan. Als de firewall verkeer tot specifieke domeinen beperkt, controleert u of de domeinen die worden vermeld in de Firewall [documentatie](https://docs.microsoft.com/azure/storage/files/storage-sync-files-firewall-and-proxy#firewall) toegankelijk zijn.
+    - Als de server zich achter een proxy, de brede, door het machine of app-specifieke proxy-instellingen configureren met de volgende stappen in de Proxy [documentatie](https://docs.microsoft.com/azure/storage/files/storage-sync-files-firewall-and-proxy#proxy).
 
 <a id="endpoint-noactivity-sync"></a>**Servereindpunt heeft een status van "Geen activiteit" en de status van de server op de blade geregistreerde servers is 'Online'**  
 
@@ -343,7 +343,7 @@ Deze fout treedt op wanneer er een probleem met de interne database die wordt ge
 | **Fouttekenreeks** | ECS_E_AGENT_VERSION_BLOCKED |
 | **Herstel is vereist** | Ja |
 
-Deze fout treedt op als de versie van de Azure File Sync-agent geïnstalleerd op de server wordt niet ondersteund. Dit probleem op te lossen [upgrade]( https://docs.microsoft.com/en-us/azure/storage/files/storage-files-release-notes#upgrade-paths) naar een [ondersteunde agentversie]( https://docs.microsoft.com/en-us/azure/storage/files/storage-files-release-notes#supported-versions).
+Deze fout treedt op als de versie van de Azure File Sync-agent geïnstalleerd op de server wordt niet ondersteund. Dit probleem op te lossen [upgrade]( https://docs.microsoft.com/azure/storage/files/storage-files-release-notes#upgrade-paths) naar een [ondersteunde agentversie]( https://docs.microsoft.com/azure/storage/files/storage-files-release-notes#supported-versions).
 
 <a id="-2134351810"></a>**U bereikt de Azure file share-opslaglimiet.**  
 | | |

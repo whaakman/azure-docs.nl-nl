@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/03/2018
+ms.date: 10/17/2018
 ms.author: tomfitz
-ms.openlocfilehash: b4dc1517c909439c499749eaf18dca11983eecee
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: ea926a64e3df853d6845266ff20255b76d9ff387
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49069145"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49386719"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Met behulp van gekoppelde en geneste sjablonen bij het implementeren van Azure-resources
 
@@ -401,7 +401,7 @@ De volgende sjabloon een koppeling naar de voorgaande sjabloon. Hiermee maakt u 
 
 Na de implementatie, kunt u de uitvoerwaarden met de volgende PowerShell-script ophalen:
 
-```powershell
+```azurepowershell-interactive
 $loopCount = 3
 for ($i = 0; $i -lt $loopCount; $i++)
 {
@@ -411,9 +411,11 @@ for ($i = 0; $i -lt $loopCount; $i++)
 }
 ```
 
-Of Azure CLI-script:
+Of Azure CLI-script in een Bash-shell:
 
-```azurecli
+```azurecli-interactive
+#!/bin/bash
+
 for i in 0 1 2;
 do
     name="linkedTemplate$i";
@@ -459,16 +461,18 @@ Het volgende voorbeeld laat zien hoe om door te geven van een SAS-token bij het 
 
 In PowerShell kunt u een token verkrijgen voor de container en de sjablonen implementeren met de volgende opdrachten. U ziet dat de **containerSasToken** parameter is gedefinieerd in de sjabloon. Het is niet een parameter in de **New-AzureRmResourceGroupDeployment** opdracht.
 
-```powershell
+```azurepowershell-interactive
 Set-AzureRmCurrentStorageAccount -ResourceGroupName ManageGroup -Name storagecontosotemplates
 $token = New-AzureStorageContainerSASToken -Name templates -Permission r -ExpiryTime (Get-Date).AddMinutes(30.0)
 $url = (Get-AzureStorageBlob -Container templates -Blob parent.json).ICloudBlob.uri.AbsoluteUri
 New-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateUri ($url + $token) -containerSasToken $token
 ```
 
-In de Azure CLI, moet u een token verkrijgen voor de container en de sjablonen implementeren met de volgende code:
+Voor Azure CLI in een Bash-shell, moet u een token verkrijgen voor de container en de sjablonen implementeren met de volgende code:
 
-```azurecli
+```azurecli-interactive
+#!/bin/bash
+
 expiretime=$(date -u -d '30 minutes' +%Y-%m-%dT%H:%MZ)
 connection=$(az storage account show-connection-string \
     --resource-group ManageGroup \

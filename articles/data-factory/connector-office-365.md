@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/15/2018
 ms.author: jingwang
-ms.openlocfilehash: 8a36053fe3189a72c33ea14445a6b064260eec01
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: c9252380581e77049e9464316ca77cc135f784b6
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49318313"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49377586"
 ---
 # <a name="copy-data-from-office-365-into-azure-using-azure-data-factory-preview"></a>Gegevens uit Office 365 kopiëren naar Azure met behulp van Azure Data Factory (Preview) 
 
@@ -125,7 +125,7 @@ Als u wilt kopiëren van gegevens van Office 365, zijn de volgende eigenschappen
 |:--- |:--- |:--- |
 | type | De eigenschap type van de gegevensset moet worden ingesteld op: **Office365Table** | Ja |
 | tableName | Naam van de gegevensset om op te halen van Office 365. Raadpleeg [hier](https://github.com/OfficeDev/MS-Graph-Data-Connect/wiki/Capabilities#datasets) voor een lijst van beschikbare voor het ophalen van Office 365-gegevenssets. | Ja |
-| Predikaat | Een predicaatexpressie die kan worden gebruikt voor het filteren van de specifieke rijen om uit te pakken uit Office 365.  Raadpleeg hier als u wilt weten welke kolommen kunnen worden gebruikt voor predicaatfiltrering voor elke tabel en de indeling van de expressie filter. | Nee<br>(Als er geen predicaat wordt opgegeven, de standaardwaarde is om gegevens te extraheren voor de afgelopen 30 dagen) |
+| Predikaat | Een predicaatexpressie die kan worden gebruikt voor het filteren van de specifieke rijen om uit te pakken uit Office 365.  Raadpleeg [hier](https://github.com/OfficeDev/MS-Graph-Data-Connect/wiki/Capabilities#filters) om erachter te komen welke kolommen kunnen worden gebruikt voor predicaatfiltrering voor elke tabel en de indeling van de expressie filter. | Nee<br>(Als er geen predicaat wordt opgegeven, de standaardwaarde is om gegevens te extraheren voor de afgelopen 30 dagen) |
 
 **Voorbeeld**
 

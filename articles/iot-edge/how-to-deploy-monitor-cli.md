@@ -9,18 +9,18 @@ ms.date: 07/25/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: c94a58a19558350c3c20377ce750f6758f688c0d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: a3d073e9fd7c535ea84d6e4dbbf8003a6c55725b
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46998505"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394609"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-cli"></a>Implementeren en bewaken van IoT Edge-modules op schaal met behulp van de Azure CLI
 
 [!INCLUDE [iot-edge-how-to-deploy-monitor-selector](../../includes/iot-edge-how-to-deploy-monitor-selector.md)]
 
-Azure IoT Edge kunt u analytics verplaatsen naar de rand en biedt een cloudinterface, zodat u kunt beheren en controleren van uw IoT Edge-apparaten zonder fysieke toegang tot elkaar. De mogelijkheid voor het beheren van apparaten op afstand is belangrijker zoals Internet of Things-oplossingen er die grotere en complexere groeien zijn. Azure IoT Edge is ontworpen ter ondersteuning van uw zakelijke doelstellingen, ongeacht het aantal apparaten die u toevoegt.
+Azure IoT Edge kunt u analytics verplaatsen naar de rand, en biedt een cloudinterface die u kunt beheren en bewaken van uw IoT Edge-apparaten op afstand. De mogelijkheid voor het beheren van apparaten op afstand is belangrijker zoals Internet of Things-oplossingen er die grotere en complexere groeien zijn. Azure IoT Edge is ontworpen ter ondersteuning van uw zakelijke doelstellingen, ongeacht het aantal apparaten die u toevoegt.
 
 U kunt afzonderlijke apparaten beheren en implementeren van modules op deze één voor één. Echter, als u wilt om apparaten op grote schaal te wijzigen, kunt u een **automatische implementatie van IoT Edge**, die deel uitmaakt van automatische Apparaatbeheer in IoT Hub. Implementaties zijn dynamische processen waarmee u kunt meerdere modules in één keer implementeren op meerdere apparaten, de status en integriteit van de modules volgen en wijzig indien nodig. 
 
@@ -128,7 +128,7 @@ Voordat u een implementatie maken kunt, moet u opgeven welke apparaten die u wil
 }
 ```
 
-Zie voor meer informatie over apparaatdubbels en tags [apparaatdubbels begrijpen en gebruiken in IoT Hub][lnk-device-twin].
+Zie voor meer informatie over apparaatdubbels en tags [apparaatdubbels begrijpen en gebruiken in IoT Hub](../iot-hub/iot-hub-devguide-device-twins.md).
 
 ## <a name="create-a-deployment"></a>Een implementatie maken
 
@@ -209,16 +209,4 @@ az iot edge deployment delete --deployment-id [deployment id] --hub-name [hub na
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Meer informatie over [modules naar Edge-apparaten implementeren][lnk-deployments].
-
-<!-- Images -->
-[1]: ./media/how-to-deploy-monitor/iot-edge-deployments.png
-
-<!-- Links -->
-[lnk-device-twin]: ../iot-hub/iot-hub-devguide-device-twins.md
-[lnk-portal]: https://portal.azure.com
-[lnk-docker-create]: https://docs.docker.com/engine/reference/commandline/create/
-[lnk-deployments]: module-deployment-monitoring.md
-
-<!-- Anchor links -->
-[anchor-monitor]: #monitor-a-deployment
+Meer informatie over [modules naar Edge-apparaten implementeren](module-deployment-monitoring.md).

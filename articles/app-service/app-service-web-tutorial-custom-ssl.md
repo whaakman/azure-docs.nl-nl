@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 08/24/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 700465279a43a8490c5863e7181c4c4d009ee97b
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: abd751cf867fea2e634161c4cf0b1e84acbe18c6
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857921"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49354101"
 ---
 # <a name="tutorial-bind-an-existing-custom-ssl-certificate-to-azure-web-apps"></a>Zelfstudie: een bestaand aangepast SSL-certificaat met Azure Web Apps verbinden
 
@@ -64,45 +64,7 @@ Als u een certificaat in App Service wilt gebruiken, moet het certificaat aan de
 > [!NOTE]
 > **ECC-certificaten (cryptografie met behulp van elliptische krommen)** kunnen met App Service worden gebruikt, maar worden niet in dit artikel beschreven. Werk samen met uw certificeringsinstantie aan de exacte stappen voor het maken van ECC-certificaten.
 
-## <a name="prepare-your-web-app"></a>Uw web-app voorbereiden
-
-Als u een aangepast SSL-certificaat met uw web-app wilt verbinden, moet uw [App Service-plan](https://azure.microsoft.com/pricing/details/app-service/) op de prijscategorie **Basic**, **Standard** **Premium** of **Isolated** zijn ingesteld. In deze stap zorgt u ervoor dat de web-app zich in de ondersteunde prijscategorie bevindt.
-
-### <a name="log-in-to-azure"></a>Meld u aan bij Azure.
-
-Open de [Azure Portal](https://portal.azure.com).
-
-### <a name="navigate-to-your-web-app"></a>Navigeer naar uw web-app
-
-Klik in het linkermenu op **App Services** en klik op de naam van uw web-app.
-
-![Selecteer de web-app](./media/app-service-web-tutorial-custom-ssl/select-app.png)
-
-U bevindt zich op de beheerpagina van uw web-app.  
-
-### <a name="check-the-pricing-tier"></a>Controleer de prijscategorie
-
-Scrol in de navigatiebalk links van de web-app-pagina naar het gedeelte **Instellingen** en selecteer **Opschalen (App Service-plan)**.
-
-![Menu Opschalen](./media/app-service-web-tutorial-custom-ssl/scale-up-menu.png)
-
-Controleer of de web-app zich niet in de laag **F1** of **D1** bevindt. De huidige categorie van de web-app is gemarkeerd met een donkerblauw vak.
-
-![Controleer prijscategorie](./media/app-service-web-tutorial-custom-ssl/check-pricing-tier.png)
-
-Aangepaste SSL wordt niet ondersteund in de laag **F1** of **D1**. Als u omhoog moet schalen, volgt u de stappen in het volgende gedeelte. Anders sluit u de pagina **Scale up** (Omhoog schalen) en gaat u door naar [Upload and bind your SSL certificate](#upload) (Uw SSL-certificaat uploaden en binden).
-
-### <a name="scale-up-your-app-service-plan"></a>Uw App Service-plan omhoog schalen
-
-Selecteer een van de lagen die niet gratis zijn (**B1**, **B2**, **B3** of een laag in de categorie **Productie**). Klik op **Aanvullende opties bekijken** voor aanvullende opties.
-
-Klik op **Toepassen**.
-
-![Prijscategorie kiezen](./media/app-service-web-tutorial-custom-ssl/choose-pricing-tier.png)
-
-Wanneer u de volgende melding ziet, is de schaalbewerking voltooid.
-
-![Melding voor omhoog schalen](./media/app-service-web-tutorial-custom-ssl/scale-notification.png)
+[!INCLUDE [Prepare your web app](../../includes/app-service-ssl-prepare-app.md)]
 
 <a name="upload"></a>
 

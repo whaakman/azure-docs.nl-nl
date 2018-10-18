@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/17/2018
+ms.date: 10/16/2018
 ms.author: magoedte
-ms.openlocfilehash: 06073197254245727cfa41020f060d904a4e50f9
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 63549768f616e60e92c853047525c18cefdaddb4
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46957549"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49386266"
 ---
 # <a name="how-to-chart-performance-with-azure-monitor-for-vms"></a>Hoe u op de prestaties van de grafiek met Azure Monitor voor virtuele machines
 Azure Monitor voor virtuele machines bevat een set van prestatiegrafieken weergegeven die zijn gericht verschillende prestatie-indicatoren (KPI's) om te bepalen hoe goed een virtuele machine wordt uitgevoerd. De grafieken weergegeven Resourcegebruik gedurende een bepaalde periode, zodat u kunt identificeren van knelpunten, afwijkingen, of schakel over naar een perspectief aanbieding elke machine om gebruik van resources op basis van de geselecteerde meetwaarde weer te geven. Er zijn talrijke elementen bij het omgaan met prestaties, wordt Azure Monitor voor virtuele machines is gericht op het besturingssysteem als gemanifesteerd via de processor, geheugen, netwerkadapters en schijven. Prestaties is een aanvulling op de functie voor health monitoring en helpt u problemen die wijzen op een onderdeel systeemfouten, ondersteuning voor afstemmen en optimalisatie voor het bereiken van efficiëntie blootstellen of ondersteuning voor capaciteitsplanning.  
@@ -33,7 +33,9 @@ Azure monitor biedt de functie voor prestaties een weergave met meerdere virtuel
 
 ![VM insights prestaties Top N-lijstweergave](./media/monitoring-vminsights-performance/vminsights-performance-aggview-01.png)
 
-Op de **Top N grafieken** tabblad, hebt u meer dan één Log Analytics-werkruimte, kiest de optie die is geïntegreerd met de oplossing uit de **werkruimte** kiezer boven aan de pagina.  Selecteer u vervolgens in de **groep** selector, een abonnement, resourcegroep of specifieke computer heeft, gedurende een opgegeven periode.  Standaard wordt de grafieken de afgelopen 24 uur weergegeven.  Met behulp van de **TimeRange** selector, kunt u zoeken naar historische tijdsbereik van maximaal 30 dagen om weer te geven hoe de prestaties in het verleden hebt bekeken.   
+Op de **Top N grafieken** tabblad, hebt u meer dan één Log Analytics-werkruimte, kiest u de werkruimte ingeschakeld met de oplossing uit de **werkruimte** kiezer boven aan de pagina. De **groep** selector abonnementen, resourcegroepen, retourneert [computergroepen](../log-analytics/log-analytics-computer-groups.md), en VM scale sets van computers met betrekking tot de geselecteerde werkruimte die u gebruiken kunt voor het filteren van meer resultaten weergegeven in de grafieken op deze pagina en alle andere pagina's. Uw selectie wordt alleen toegepast op de functie voor prestaties en wordt niet meegenomen naar de status of de kaart.  
+
+Standaard wordt de grafieken de afgelopen 24 uur weergegeven. Met behulp van de **TimeRange** selector, kunt u zoeken naar historische tijdsbereik van maximaal 30 dagen om weer te geven hoe de prestaties in het verleden hebt bekeken.   
 
 De vijf capaciteit gebruik grafieken weergegeven op de pagina zijn:
 
@@ -100,6 +102,9 @@ De volgende capaciteit gebruik grafieken zijn beschikbaar:
 * Bytes ontvangen Rate - gemiddelde aantal bytes dat is ontvangen met standaardinstellingen
 
 ![Rechtstreeks VM insights prestaties weergeven van virtuele machine](./media/monitoring-vminsights-performance/vminsights-performance-directvm-01.png)
+
+## <a name="alerting-and-alert-management"></a>Meldingen en waarschuwingen beheren 
+Metrische gegevens voor prestaties ingeschakeld als onderdeel van Azure Monitor voor virtuele machines bevatten geen vooraf geconfigureerde regels voor waarschuwingen. Hoewel er statusmeldingen overeenkomt met de prestatieproblemen op uw Azure-VM gedetecteerd, zoals hoge CPU-gebruik, onvoldoende geheugen beschikbaar is, weinig schijfruimte, enz., deze health-waarschuwingen worden alleen toegepast op alle virtuele machines die zijn verbonden met de dezelfde Log Analytics-werkruimte geïntegreerd met Azure Monitor voor virtuele machines. Als u de flexibiliteit om op te geven van uw eigen criteria of logica nodig hebt, kunt u regels voor aangepaste waarschuwingen maken door [maken, weergeven en beheren van waarschuwingen via Azure Monitor](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md). 
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie voor meer informatie over het gebruik van de health-functie, [weergave Azure Monitor voor de gezondheid van virtuele machines](monitoring-vminsights-health.md), of als u afhankelijkheden van gedetecteerde toepassingen, Zie [weergave Azure Monitor voor virtuele machines kaart](monitoring-vminsights-maps.md). 

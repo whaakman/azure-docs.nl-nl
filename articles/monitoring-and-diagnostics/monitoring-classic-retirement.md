@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/04/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 93bd04ce654b8403ab3cd69ecd6837b97063e5e8
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: ebbb231e7d9eefa8eb681b0e14c711e2c4f1fad7
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/17/2018
-ms.locfileid: "49363943"
+ms.locfileid: "49386516"
 ---
 # <a name="unified-alerting--monitoring-in-azure-monitor-replaces-classic-alerting--monitoring"></a>Geïntegreerde waarschuwingen en -bewaking in Azure Monitor vervangt klassieke waarschuwingen en -bewaking
 
@@ -49,8 +49,8 @@ Nieuwere metrische gegevens voor Azure-resources zijn beschikbaar als:
 Zoals gezegd, het klassieke bewaking en waarschuwingen platform op dit moment kan worden gebruikt vanuit de [waarschuwingen (klassiek) sectie](monitoring-overview-alerts-classic.md) van Azure portal wordt beëindigd in de komende maanden gegeven ze zijn vervangen door de nieuwere systeem.
 Oudere klassiek bewaking en waarschuwingen wordt buiten gebruik gesteld op 30 juni 2019; het sluiten van gerelateerde API's, de interface van de Azure portal en de Services inclusief erin. Om precies worden deze functies afgeschaft:
 
-- Oudere (klassiek) metrische gegevens en waarschuwingen voor Azure-resources als op dit moment beschikbaar zijn via [waarschuwingen (klassiek) sectie](monitoring-overview-alerts-classic.md) van Azure portal; toegankelijk als [microsoft.insights/alertrules](https://docs.microsoft.com/en-us/rest/api/monitor/alertrules) resource
-- Oudere (klassiek) platform en aangepaste metrische gegevens voor Application Insights, evenals waarschuwingen op deze als op dit moment beschikbaar zijn via [waarschuwingen (klassiek) sectie](monitoring-overview-alerts-classic.md) van Azure portal en toegankelijk als [microsoft.insights/ alertrules](https://docs.microsoft.com/en-us/rest/api/monitor/alertrules) resource
+- Oudere (klassiek) metrische gegevens en waarschuwingen voor Azure-resources als op dit moment beschikbaar zijn via [waarschuwingen (klassiek) sectie](monitoring-overview-alerts-classic.md) van Azure portal; toegankelijk als [microsoft.insights/alertrules](https://docs.microsoft.com/rest/api/monitor/alertrules) resource
+- Oudere (klassiek) platform en aangepaste metrische gegevens voor Application Insights, evenals waarschuwingen op deze als op dit moment beschikbaar zijn via [waarschuwingen (klassiek) sectie](monitoring-overview-alerts-classic.md) van Azure portal en toegankelijk als [microsoft.insights/ alertrules](https://docs.microsoft.com/rest/api/monitor/alertrules) resource
 - Oudere (klassiek) Foutafwijkingen waarschuwing momenteel beschikbaar als [Slimme detectie in Application Insights](../application-insights/app-insights-proactive-diagnostics.md) in de Azure-portal; met waarschuwingen geconfigureerd wordt weergegeven in [waarschuwingen (klassiek) sectie](monitoring-overview-alerts-classic.md) van Azure Portal
 
 Alle klassieke voor bewaking en waarschuwingen van systemen, met inbegrip van bijbehorende [API](https://msdn.microsoft.com/library/azure/dn931945.aspx), [PowerShell](insights-alerts-powershell.md), [CLI](insights-alerts-command-line-interface.md), [Azure portal-pagina, en [Resourcesjabloon](monitoring-enable-alerts-using-template.md) bruikbaar blijven tot juni 2019. Na deze datum is klassieke bewaking en waarschuwingen service buiten gebruik is gesteld en niet meer beschikbaar voor gebruik; Wanneer een waarschuwing van regels die blijven bestaan in waarschuwingen (klassiek) buiten juni 2019 blijft uitvoeren, maar niet meer beschikbaar voor de wijziging.

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 745b26661d34357e44b6a7c2ed6e40f3195781f1
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 35feb1b2aa593d403b3b54781ddbba41964d15e5
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48237990"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394830"
 ---
 # <a name="become-a-cloud-marketplace-publisher"></a>Word een Cloud-Marketplace-uitgever
 
@@ -97,7 +97,7 @@ De afzonderlijke registratie [Dev Center](https://developer.microsoft.com/store/
 Wanneer u hebt de [Dev Center](https://developer.microsoft.com/store/register) registratie, uw Cloud Partner-profiel met een koppeling uw [Dev Center](https://developer.microsoft.com/store/register) rekening (Zie de gedetailleerde stappen). Deze stap moet worden voltooid voordat u uw transact-aanbieding publiceert. 
 
 >[!Note]
->Om te vervallen de kosten $99 Developer Center registratie, vul het registratieformulier marketplace en u ontvangt een e-mail met uw promotiecode. 
+>Om te vervallen de kosten $99 Developer Center registratie, voltooi de [marketplace registratieformulier](https://azuremarketplace.microsoft.com/en-us/sell/signup) en u ontvangt een e-mail met uw promotiecode. 
 
 >[!Important]
 >Voordat u een Microsoft Developer Center-account maakt, Controleer of dat uw organisatie nog geen een Dev Center-account om te voorkomen dat dubbele accounts. Voor meer informatie gaat u naar de [registreren in Dev Center](https://docs.microsoft.com/azure/marketplace/register-dev-center) sectie.

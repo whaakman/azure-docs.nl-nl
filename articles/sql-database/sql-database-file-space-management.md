@@ -12,19 +12,19 @@ ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/14/2018
-ms.openlocfilehash: ee3b8c274b769cd570d70c5e0dfae939e030ecf5
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 803bab4f0b91e2612abceedfa09baedaaea2a55e
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49352426"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49377934"
 ---
 # <a name="manage-file-space-in-azure-sql-database"></a>Ruimte in Azure SQL Database beheren
 Dit artikel beschrijft de verschillende typen opslagruimte in Azure SQL Database en de stappen die kunnen worden uitgevoerd wanneer de bestandsruimte voor databases toegewezen en elastische pools moet expliciet worden beheerd.
 
 ## <a name="overview"></a>Overzicht
 
-In Azure SQL Database zijn er patronen van werkbelasting waarbij de toewijzing van onderliggende gegevensbestanden voor databases die groter is dan de hoeveelheid gebruikte gegevenspagina's kan worden. Dit kan gebeuren wanneer de ruimte gebruikt toeneemt en gegevens worden vervolgens verwijderd. Dit komt doordat de toegewezen ruimte niet automatisch wordt opgeëist wanneer gegevens worden verwijderd.
+In Azure SQL Database zijn er patronen van werkbelasting waarbij de toewijzing van onderliggende gegevensbestanden voor databases die groter is dan de hoeveelheid gebruikte gegevenspagina's kan worden. Dit probleem kan optreden wanneer ruimte toeneemt gebruikt en gegevens worden vervolgens verwijderd. De reden is dat bestandsruimte die is toegewezen niet automatisch wordt opgeëist wanneer gegevens worden verwijderd.
 
 Gebruik van ruimte bewaking en gegevensbestanden verkleinen mogelijk in de volgende scenario's:
 - Groei van gegevens in een elastische pool toestaan wanneer het toegewezen bestandsruimte voor de databases de maximale grootte van de groep bereikt.
@@ -32,11 +32,11 @@ Gebruik van ruimte bewaking en gegevensbestanden verkleinen mogelijk in de volge
 - Het wijzigen van een individuele database of elastische pool naar een andere servicelaag of de prestatielaag met een lagere maximale grootte toegestaan.
 
 ### <a name="monitoring-file-space-usage"></a>Gebruik van schijfruimte bewaken
-De meeste storage space metrische gegevens weergegeven in de Azure-portal en de volgende API's meten alleen de hoeveelheid gegevens die worden gebruikt pagina's:
+De meeste storage space metrische gegevens weergegeven in de Azure-portal en de volgende API's meten alleen het formaat van pagina's van gegevens die worden gebruikt:
 - Azure Resource Manager op basis van metrische gegevens over API's zoals PowerShell [get-metrische gegevens](https://docs.microsoft.com/powershell/module/azurerm.insights/get-azurermmetric)
 - T-SQL: [sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)
 
-De volgende API's meten echter ook de hoeveelheid toegewezen ruimte voor databases en elastische pools:
+De volgende API's meten echter ook de grootte van de toegewezen ruimte voor databases en elastische pools:
 - T-SQL: [sys.resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)
 - T-SQL: [sys.elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)
 
@@ -110,7 +110,7 @@ Inzicht krijgen in de volgende storage space aantallen zijn belangrijk voor het 
 |**Gebruikte gegevensruimte**|De som van de ruimte die wordt gebruikt door alle databases in de elastische pool.||
 |**Toegewezen gegevensruimte**|De som van de ruimte die door alle databases in de elastische pool toegewezen.||
 |**Gegevensruimte op de niet-gebruikte toegewezen**|Het verschil tussen de hoeveelheid toegewezen gegevensruimte en gegevensruimte die wordt gebruikt door alle databases in de elastische pool.|Dit aantal geeft de maximale hoeveelheid toegewezen ruimte voor de elastische pool die kan worden vrijgemaakt door gegevens van databasebestanden verkleinen.|
-|**Maximale grootte**|De maximale hoeveelheid ruimte die door de elastische groep kan worden gebruikt voor alle bijbehorende databases.|De toegewezen ruimte voor de elastische pool mag niet groter zijn dan de maximale grootte van de elastische pool.  Als dit gebeurt, kan toegewezen ruimte die wordt gebruikt door de databasebestanden te verkleinen gegevens worden vrijgemaakt.|
+|**Maximale grootte**|De maximale hoeveelheid ruimte die door de elastische groep kan worden gebruikt voor alle bijbehorende databases.|De toegewezen ruimte voor de elastische pool mag niet groter zijn dan de maximale grootte van de elastische pool.  Als deze fout optreedt, kan toegewezen ruimte die wordt gebruikt door de databasebestanden te verkleinen gegevens worden vrijgemaakt.|
 ||||
 
 ## <a name="query-an-elastic-pool-for-storage-space-information"></a>Een elastische pool voor storage space informatie opvragen
@@ -131,7 +131,7 @@ ORDER BY end_time DESC
 
 ### <a name="elastic-pool-data-space-allocated-and-unused-allocated-space"></a>Gegevensruimte op de elastische pool toegewezen en ongebruikte toegewezen ruimte
 
-De volgende PowerShell-script om te retourneren een tabel met de ruimte die is toegewezen en ongebruikte toegewezen ruimte voor elke database in een elastische pool wijzigen. De tabel orders databases die met de grootste hoeveelheid niet-gebruikte toegewezen ruimte aan de minimale hoeveelheid niet-gebruikte ruimte toegewezen.  Eenheden van het queryresultaat zijn in MB.  
+De volgende PowerShell-script om te retourneren een tabel met de ruimte die is toegewezen en ongebruikte toegewezen ruimte voor elke database in een elastische pool wijzigen. De tabel orders databases van deze databases met de grootste hoeveelheid niet-gebruikte toegewezen ruimte aan de minimale hoeveelheid niet-gebruikte ruimte toegewezen.  Eenheden van het queryresultaat zijn in MB.  
 
 De resultaten van de query voor het bepalen van de toegewezen ruimte voor elke database in de groep, kan samen worden toegevoegd om te bepalen van de totale ruimte voor de elastische pool toegewezen. De toegewezen ruimte voor de elastische pool mag niet groter zijn dan de maximale grootte van de elastische pool.  
 
@@ -201,17 +201,35 @@ ORDER BY end_time DESC
 
 ## <a name="reclaim-unused-allocated-space"></a>Niet-gebruikte toegewezen ruimte vrijmaken
 
-Zodra de databases zijn geïdentificeerd voor het vrijmaken van ongebruikte toegewezen ruimte, wijzigt u de volgende opdracht voor het verkleinen van de gegevensbestanden voor elke database.
+### <a name="dbcc-shrink"></a>DBCC verkleinen
+
+Zodra de databases zijn geïdentificeerd voor het vrijmaken van ongebruikte toegewezen ruimte, wijzigt u de naam van de database in de volgende opdracht voor het verkleinen van de gegevensbestanden voor elke database.
 
 ```sql
 -- Shrink database data space allocated.
 DBCC SHRINKDATABASE (N'db1')
 ```
 
+Met deze opdracht kan invloed hebben op prestaties van de database terwijl deze wordt uitgevoerd, en indien mogelijk moet worden uitgevoerd tijdens perioden met een laag gebruik.  
+
 Zie voor meer informatie over deze opdracht [SHRINKDATABASE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql). 
 
-> [!IMPORTANT] 
-> Houd rekening met herbouwen database indexen na de databasebestanden van de gegevens worden gecomprimeerd, indexen gefragmenteerd raken en hun effectiviteit van de optimalisatie van prestaties verliezen. Als dit het geval is, klikt u vervolgens de indexen moeten opnieuw worden opgebouwd. Zie voor meer informatie over fragmentatie en opnieuw opbouwen van indexen [Reorganize en indexen opnieuw samenstellen](https://docs.microsoft.com/sql/relational-databases/indexes/reorganize-and-rebuild-indexes).
+### <a name="auto-shrink"></a>Automatisch verkleind
+
+U kunt ook kan automatisch verkleind worden ingeschakeld voor een database.  Automatisch verkleind vermindert de complexiteit van de bestand-beheer en is minder impact hebben op prestaties van de database dan SHRINKDATABASE of SHRINKFILE.  Automatische verkleining kan met name handig voor het beheren van elastische pools met veel databases worden gemaakt.  Automatische verkleining is echter minder effectief in het vrijmaken van ruimte dan SHRINKDATABASE en SHRINKFILE.
+Wijzig de naam van de database in de volgende opdracht uit zodat automatisch verkleind.
+
+
+```sql
+-- Enable auto-shrink for the database.
+ALTER DATABASE [db1] SET AUTO_SHRINK ON
+```
+
+Zie voor meer informatie over deze opdracht [DATABASE ingesteld](https://docs.microsoft.com/en-us/sql/t-sql/statements/alter-database-transact-sql-set-options?view=sql-server-2017) opties. 
+
+### <a name="rebuild-indexes"></a>Indexen opnieuw samenstellen
+
+Nadat de databasebestanden van de gegevens worden gecomprimeerd, worden de indexen gefragmenteerd raken en verliezen hun effectiviteit van de optimalisatie van prestaties. Als verminderde prestaties optreedt, overweeg dan om database-indexen herbouwen. Zie voor meer informatie over fragmentatie en opnieuw opbouwen van indexen [Reorganize en indexen opnieuw samenstellen](https://docs.microsoft.com/sql/relational-databases/indexes/reorganize-and-rebuild-indexes).
 
 ## <a name="next-steps"></a>Volgende stappen
 

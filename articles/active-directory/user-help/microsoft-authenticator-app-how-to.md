@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
 ms.reviewer: librown
-ms.openlocfilehash: 5b8264667e09e7dd6c048fae11e363ee8dfdca33
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: a88a0d9105942502b634f3be7c3279167ea590c6
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49165368"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49393249"
 ---
 # <a name="get-started-with-the-microsoft-authenticator-app"></a>Aan de slag met de Microsoft Authenticator-app
 
@@ -25,7 +25,7 @@ De Microsoft Authenticator-app te voorkomen dat onbevoegde toegang tot accounts 
 
 Wanneer u de app voor verificatie in twee stappen, kan dit werkt op twee manieren:
 
-- **Melding over.** De app verzendt een melding naar uw apparaat. Zorg ervoor dat de melding is rechts en selecteer vervolgens **controleren**. Als u de melding niet herkent, selecteert u **weigeren**. Gebruikers krijgen de mogelijkheid om een aanvraag als fraude markeren als ze weigeren. 
+- **Melding over.** De app verzendt een melding naar uw apparaat. Zorg ervoor dat de melding is rechts en selecteer vervolgens **controleren**. Als u de melding niet herkent, selecteert u **weigeren**. Nadat u op **weigeren**, kunt u ook de aanvraag als frauduleus markeren.
 
 - **Verificatiecode.** Nadat u uw gebruikersnaam en wachtwoord hebt getypt, kunt u de app openen en kopieert u de verificatiecode hebt opgegeven op de **Accounts** scherm op het aanmeldingsscherm. De verificatiecode in die fungeert als een tweede vorm van verificatie.
 

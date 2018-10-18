@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: a40f4489e63c30a101dd708b5a175c25788fb04b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 51e96065f726fadd528323157609034b5bb3f151
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46976751"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49387885"
 ---
 # <a name="how-to-roll-x509-device-certificates"></a>Het verwijderen van certificaten voor x.509-apparaten
 
@@ -52,7 +52,7 @@ Wanneer een apparaat in eerste instantie is ingericht via automatische inrichtin
 
 Zodra een nieuw leafcertificaat is teruggedraaid naar het apparaat, het kan langer verbinding maken met de IoT-hub omdat deze een nieuw certificaat wordt gebruikt om verbinding te maken. Het apparaat met het oude certificaat alleen wordt herkend door de IoT-hub. Het resultaat van de verbindingspoging van het apparaat is de foutmelding 'onbevoegd' verbinding. U kunt deze fout oplossen, moet u de vermelding voor apparaatinschrijving voor het apparaat voor de nieuwe leaf-certificaat van het apparaat bijwerken. De inrichtingsservice werk vervolgens de IoT Hub apparaat registergegevens zo nodig bij het apparaat is ingericht. 
 
-Een mogelijke uitzondering op deze verbindingsfout zou een scenario waarin u hebt gemaakt een [Registratiegroep](concepts-service.md#enrollment-group) voor uw apparaat in de provisioning-service. In dit geval, als u niet zijn de basis- of tussenliggende certificaten in de certificaatketen van het apparaat van de vertrouwensrelatie rolling, wordt klikt u vervolgens het apparaat herkend als het nieuwe certificaat deel uit van de keten van vertrouwen die zijn gedefinieerd in de registratiegroep maakt. Als dit scenario zich als reactie op een schending van de beveiliging voordoet, moet u ten minste de certificaten voor specifieke apparaten in de groep die worden beschouwd als te worden geschonden blokkeringslijst. Zie voor meer informatie, [specifieke apparaten in een registratiegroep zit zwarte](https://docs.microsoft.com/en-us/azure/iot-dps/how-to-revoke-device-access-portal#blacklist-specific-devices-in-an-enrollment-group).
+Een mogelijke uitzondering op deze verbindingsfout zou een scenario waarin u hebt gemaakt een [Registratiegroep](concepts-service.md#enrollment-group) voor uw apparaat in de provisioning-service. In dit geval, als u niet zijn de basis- of tussenliggende certificaten in de certificaatketen van het apparaat van de vertrouwensrelatie rolling, wordt klikt u vervolgens het apparaat herkend als het nieuwe certificaat deel uit van de keten van vertrouwen die zijn gedefinieerd in de registratiegroep maakt. Als dit scenario zich als reactie op een schending van de beveiliging voordoet, moet u ten minste de certificaten voor specifieke apparaten in de groep die worden beschouwd als te worden geschonden blokkeringslijst. Zie voor meer informatie, [specifieke apparaten in een registratiegroep zit zwarte](https://docs.microsoft.com/azure/iot-dps/how-to-revoke-device-access-portal#blacklist-specific-devices-in-an-enrollment-group).
 
 Bijwerken van de vermeldingen voor inschrijving voor certificaten die zijn samengevouwen wordt uitgevoerd op de **registraties beheren** pagina. Voor toegang tot deze pagina, de volgende stappen uit:
 

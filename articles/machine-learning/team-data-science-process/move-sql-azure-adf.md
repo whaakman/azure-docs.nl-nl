@@ -4,7 +4,7 @@ description: Instellen van een ADF-pijplijn waarmee stelt het bericht op twee ac
 services: machine-learning
 documentationcenter: ''
 author: deguhath
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: 36837c83-2015-48be-b850-c4346aa5ae8a
 ms.service: machine-learning
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: deguhath
-ms.openlocfilehash: c0a488d34ffe2e5a8e8a3883276c1038039bc785
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: f67bab33413b0048fc93d5f62e88984acaa25fd6
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45731290"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49393232"
 ---
 # <a name="move-data-from-an-on-premises-sql-server-to-sql-azure-with-azure-data-factory"></a>Gegevens verplaatsen van een on-premises SQL server naar SQL Azure met Azure Data Factory
 In dit onderwerp wordt beschreven hoe gegevens uit een on-premises SQL Server-Database verplaatsen naar een SQL Azure-Database via Azure Blob Storage met behulp van de Azure Data Factory (ADF).

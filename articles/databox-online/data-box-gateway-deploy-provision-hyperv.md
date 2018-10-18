@@ -1,26 +1,19 @@
 ---
 title: Zelfstudie over het inrichten van Azure Data Box Gateway in Hyper-V| Microsoft Docs
 description: In de tweede zelfstudie moet voor het implementeren van Azure Data Box Gateway een virtueel apparaat in Hyper-V worden ingericht.
-services: databox-edge-gateway
-documentationcenter: NA
+services: databox
 author: alkohli
-manager: twooley
-editor: ''
-ms.assetid: ''
-ms.service: databox-edge-gateway
-ms.devlang: NA
+ms.service: databox
+ms.subservice: gateway
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 09/26/2018
 ms.author: alkohli
-ms.custom: ''
-ms.openlocfilehash: ad498dc8c5bea9516bef5a62495fc0d0cc8f7399
-ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
+ms.openlocfilehash: 3187c516ef22a97d2af89e08d5b99ad7a00d875d
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47419692"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49166454"
 ---
 # <a name="tutorial-provision-azure-data-box-gateway-in-hyper-v-preview"></a>Zelfstudie: Azure Data Box Gateway inrichten in Hyper-V (preview)
 
@@ -51,7 +44,7 @@ De vereisten om een virtueel apparaat in te richten op een hostsysteem waarop Hy
 Zorg voordat u begint voor het volgende:
 
 * U hebt alle stappen in [De portal voorbereiden voor Data Box Gateway](data-box-gateway-deploy-prep.md) uitgevoerd.
-* U hebt de installatiekopie van het virtuele apparaat voor Hyper-V vanuit de Azure-portal gedownload zoals is beschreven in [De portal voorbereiden voor Data Box Gateway](data-box-gateway-deploy-prep.md).
+* U hebt de installatiekopie van het virtuele apparaat voor Hyper-V vanuit de Azure Portal gedownload zoals is beschreven in [De portal voorbereiden voor Data Box Gateway](data-box-gateway-deploy-prep.md).
 
   > [!IMPORTANT]
   > De software die wordt uitgevoerd op de Data Box Gateway kan alleen worden gebruikt met de Data Box Gateway-resource.
@@ -74,7 +67,7 @@ Voordat u een apparaat implementeert, controleert u het volgende:
 Voordat u begint:
 
 - Controleer de netwerkvereisten voor het implementeren van een Data Box Gateway en configureer het netwerk van het datacenter aan de hand van die vereisten. Zie [Netwerkvereisten voor Data Box Gateway](data-box-gateway-system-requirements.md#networking-requirements) voor meer informatie.
-- Voor een optimale werking van het apparaat heeft internet een minimale bandbreedte 20 Mbps nodig.
+- Voor een optimale werking van het apparaat heeft internet een minimale bandbreedte van 20 Mbps nodig.
 
 
 ## <a name="check-the-host-system"></a>Het hostsysteem controleren
@@ -95,7 +88,7 @@ Voor het maken van een virtueel apparaat hebt u het volgende nodig:
 
 Voer de volgende stappen uit om een apparaat in de hypervisor in te richten.
 
-1. Kopieer de installatiekopie van het virtuele apparaat op de Windows Server-host naar een lokaal station. U hebt deze VHDX-installatiekopie gedownload via de Azure-portal. Noteer de locatie waar u de installatiekopie naartoe hebt gekopieerd, want u hebt deze installatiekopie verderop in de procedure nodig.
+1. Kopieer de installatiekopie van het virtuele apparaat op de Windows Server-host naar een lokaal station. U hebt deze VHDX-installatiekopie gedownload via de Azure Portal. Noteer de locatie waar u de installatiekopie naartoe hebt gekopieerd, want u hebt deze installatiekopie verderop in de procedure nodig.
 2. Open **Serverbeheer**. Klik in de rechterbovenhoek op **Hulpprogramma's** en selecteer **Hyper-V-beheer**.
 
     ![](./media/data-box-gateway-deploy-provision-hyperv/image1.png)  

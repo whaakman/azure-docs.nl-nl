@@ -1,10 +1,10 @@
 ---
-title: HDInsight Hadoop-gegevens wetenschappelijke scenario's met Hive in Azure | Microsoft Docs
-description: Voorbeelden van het Team gegevens wetenschap proces om op Azure HDInsight Hadoop predictive analytics doen door het gebruik van Hive.
+title: HDInsight Hadoop datatechnologische rondleidingen met behulp van Hive in Azure | Microsoft Docs
+description: Voorbeelden van het Team Data Science Process die stapsgewijs door het gebruik van Hive op Azure HDInsight Hadoop voor het doen van voorspellende analyses.
 services: machine-learning
 documentationcenter: ''
 author: deguhath
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: ''
 ms.service: machine-learning
@@ -15,37 +15,37 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: deguhath
-ms.openlocfilehash: 8b7eead12b6546ad86f6ff0aa48f4754c00a4734
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 2aa64d6dc144e85e1a0f03b8548fa47dba91a2eb
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34838752"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49393156"
 ---
-# <a name="hdinsight-hadoop-data-science-walkthroughs-using-hive-on-azure"></a>HDInsight Hadoop-gegevens wetenschappelijke scenario's met Hive in Azure 
+# <a name="hdinsight-hadoop-data-science-walkthroughs-using-hive-on-azure"></a>HDInsight Hadoop datatechnologische rondleidingen met behulp van Hive in Azure 
 
-Deze scenario's voor het gebruik van Hive met HDInsight Hadoop-cluster voor predictive analytics. Ze stappen de die worden beschreven in de procedure voor wetenschappelijke gegevens Team. Zie voor een overzicht van het Team gegevens wetenschap proces [gegevens wetenschap proces](overview.md). Zie voor een inleiding tot Azure HDInsight, [Inleiding tot Azure HDInsight, het Hadoop-technologiestack en Hadoop-clusters](../../hdinsight/hadoop/apache-hadoop-introduction.md).
+Deze scenario's voor het gebruik van Hive met een HDInsight Hadoop-cluster voor voorspellende analyses. Ze stappen de die worden beschreven in het Team Data Science Process. Zie voor een overzicht van het Team Data Science Process [Data Science Process](overview.md). Zie voor een inleiding tot Azure HDInsight, [Inleiding tot Azure HDInsight, de Hadoop-technologiestack en Hadoop-clusters](../../hdinsight/hadoop/apache-hadoop-introduction.md).
 
-Aanvullende gegevens wetenschap-scenario's die het Team gegevens wetenschap proces worden uitgevoerd zijn gegroepeerd op de **platform** die ze gebruiken. Zie [scenario's voor het uitvoeren van het Team gegevens wetenschap proces](walkthroughs.md) voor een specificatie van deze voorbeelden.
+Aanvullende gegevens datatechnologische rondleidingen die het Team Data Science Process worden uitgevoerd zijn gegroepeerd op de **platform** die ze gebruiken. Zie [scenario's voor het uitvoeren van het Team Data Science Process](walkthroughs.md) voor een specificatie van deze voorbeelden.
 
 
-## <a name="predict-taxi-tips-using-hive-with-hdinsight-hadoop"></a>Voorspellen taxi tips voor het gebruik van Hive met HDInsight Hadoop
+## <a name="predict-taxi-tips-using-hive-with-hdinsight-hadoop"></a>Met behulp van Hive met HDInsight Hadoop taxiritjes voorspellen
 
-De [gebruik HDInsight Hadoop-clusters](hive-walkthrough.md) Stapsgewijze instructies wordt gebruikgemaakt van gegevens van de New York taxi's te voorspellen: 
+De [gebruik HDInsight Hadoop-clusters](hive-walkthrough.md) scenario worden gegevens uit de New York taxi's gebruikt om te voorspellen: 
 
-- Hiermee wordt aangegeven of een tip wordt betaald 
-- De verdeling van tip bedragen
+- Of een tip wordt betaald 
+- De verdeling van de tip bedragen
 
-Het scenario is geïmplementeerd met behulp van Hive met een [Azure HDInsight Hadoop-cluster](https://azure.microsoft.com/services/hdinsight/). U informatie over het verkennen om op te slaan en gegevens van de functie engineer van een openbaar NYC taxi reis en tarief gegevensset. U kunt ook Azure Machine Learning gebruiken om te bouwen en implementeren van de modellen.
+Het scenario wordt geïmplementeerd met behulp van Hive met een [Azure HDInsight Hadoop-cluster](https://azure.microsoft.com/services/hdinsight/). Leert u hoe u wilt opslaan, verkennen en gegevens van de functie-engineering toepassen van een openbaar beschikbare NYC taxi reis- en fare gegevensset. U kunt ook Azure Machine Learning gebruiken om te bouwen en de modellen te implementeren.
 
-## <a name="predict-advertisement-clicks-using-hive-with-hdinsight-hadoop"></a>Aankondiging klikt op het gebruik van Hive met HDInsight Hadoop voorspellen
+## <a name="predict-advertisement-clicks-using-hive-with-hdinsight-hadoop"></a>Aankondiging klikken met behulp van Hive met HDInsight Hadoop voorspellen
 
-De [gebruik Azure HDInsight Hadoop-Clusters op een gegevensset 1 TB](hive-criteo-walkthrough.md) scenario maakt gebruik van een openbaar beschikbare [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/) klikt u op dataset om te voorspellen of een tip wordt betaald en het bereik van bedragen verwacht. Het scenario is geïmplementeerd met behulp van Hive met een [Azure HDInsight Hadoop-cluster](https://azure.microsoft.com/services/hdinsight/) om op te slaan, verkennen, functie engineer van en naar beneden voorbeeldgegevens. Azure Machine Learning wordt gebruikt om te bouwen, te trainen en te voorspellen of een gebruiker op een advertentie klikt binaire classificatie model beoordelen. Deze stapsgewijze Kennismaking concludeert de domeincontroller die laat zien hoe u een van deze modellen als een webservice publiceert.
+De [met Azure HDInsight Hadoop-Clusters op een gegevensset van 1 TB](hive-criteo-walkthrough.md) scenario maakt u een openbaar beschikbare gebruik [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/) klikt u op de gegevensset om te voorspellen of een tip wordt betaald en het bereik van de bedragen verwacht. Het scenario wordt geïmplementeerd met behulp van Hive met een [Azure HDInsight Hadoop-cluster](https://azure.microsoft.com/services/hdinsight/) wilt opslaan, verkennen, functie-engineering en verkleinen met voorbeeldgegevens. Het maakt gebruik van Azure Machine Learning te bouwen, te trainen en te beoordelen een binair classificeringsmodel voorspellen of een gebruiker op een aankondiging klikt. De procedure wordt beëindigd met een van deze modellen publiceren als een webservice.
 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor een bespreking van de belangrijke onderdelen waaruit het Team gegevens wetenschap proces [Team gegevens wetenschappelijke procesoverzicht](overview.md).
+Zie voor een bespreking van de belangrijkste onderdelen die deel uitmaken van het Team Data Science Process [Team Data Science Process overzicht](overview.md).
 
-Zie voor een bespreking van de levensduur van het Team gegevens wetenschappelijke processen die u gebruiken kunt voor de structuur van uw gegevens wetenschappelijke projecten [Team gegevens wetenschap proces lifecycle](lifecycle.md). De levenscyclus van bevat de stappen, van begin tot eind, projecten meestal volgen wanneer ze worden uitgevoerd. 
+Zie voor een bespreking van de levenscyclus van het Team Data Science Process die u gebruiken kunt voor uw data science-projecten structureren, [Team Data Science Process lifecycle](lifecycle.md). De levenscyclus van geeft een overzicht van de stappen van begin tot eind, projecten gewoonlijk volgen wanneer ze worden uitgevoerd. 
 

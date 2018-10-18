@@ -6,19 +6,19 @@ author: jeffpatt24
 tags: storage
 ms.service: storage
 ms.topic: article
-ms.date: 05/11/2018
+ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: 31a0ffc2937f6d93a630bf6ce474d7dcf20c923f
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 87190a7f46a209ae66ca47d9346ed4b5929ac8fd
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/17/2018
-ms.locfileid: "49364384"
+ms.locfileid: "49394198"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>Problemen met Azure Files oplossen in Linux
 
-Dit artikel worden veelvoorkomende problemen met betrekking tot Microsoft Azure-bestanden wanneer u verbinding vanaf een Linux-clients maakt. Het biedt ook mogelijke oorzaken en oplossingen voor deze problemen.
+Dit artikel worden veelvoorkomende problemen met betrekking tot Microsoft Azure-bestanden wanneer u verbinding vanaf een Linux-clients maakt. Het biedt ook mogelijke oorzaken en oplossingen voor deze problemen. Naast de stappen in dit artikel, kunt u ook gebruiken [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-02184089) om te controleren of de Linux-client heeft juiste vereisten. AzFileDiagnostics automatiseert de detectie van de meeste van de symptomen die in dit artikel worden vermeld en helpt bij het instellen van uw omgeving om de optimale prestaties. U kunt ook deze informatie vinden in de [probleemoplosser voor Azure-bestandsshares](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares) waarmee de stappen om u te helpen met problemen die verbinding maken/toewijzing/koppelen Azure-bestandsshares.
 
 <a id="permissiondenied"></a>
 ## <a name="permission-denied-disk-quota-exceeded-when-you-try-to-open-a-file"></a>"[machtiging is geweigerd] schijfquotum is overschreden" wanneer u probeert een bestand te openen
@@ -82,7 +82,7 @@ Sommige Linux-distributies nog ondersteunen geen versleutelingsfuncties in SMB 3
 
 ### <a name="solution"></a>Oplossing
 
-De functie versleuteling voor SMB 3.0 voor Linux is geïntroduceerd in 4.11 kernel. Deze functie kunt koppelen van Azure-bestandsshare vanaf on-premises of een andere Azure-regio. Deze functionaliteit is op het moment van publicatie, backported Ubuntu 17.04 en Ubuntu 16,10. Als uw Linux SMB-client biedt geen ondersteuning voor versleuteling, koppelen van een Azure bestanden met behulp van SMB 2.1 van een Azure Linux VM die zich in hetzelfde datacenter als het bestand delen en controleer of de [veilige overdracht vereist]( https://docs.microsoft.com/en-us/azure/storage/common/storage-require-secure-transfer) instelling is uitgeschakeld op de opslag -account. 
+De functie versleuteling voor SMB 3.0 voor Linux is geïntroduceerd in 4.11 kernel. Deze functie kunt koppelen van Azure-bestandsshare vanaf on-premises of een andere Azure-regio. Deze functionaliteit is op het moment van publicatie, backported Ubuntu 17.04 en Ubuntu 16,10. Als uw Linux SMB-client biedt geen ondersteuning voor versleuteling, koppelen van een Azure bestanden met behulp van SMB 2.1 van een Azure Linux VM die zich in hetzelfde datacenter als het bestand delen en controleer of de [veilige overdracht vereist]( https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) instelling is uitgeschakeld op de opslag -account. 
 
 <a id="slowperformance"></a>
 ## <a name="slow-performance-on-an-azure-file-share-mounted-on-a-linux-vm"></a>Langzame prestaties van een Azure-bestandsshare die is gekoppeld aan een Linux-VM
@@ -150,7 +150,7 @@ Meest voorkomende oorzaken van dit probleem zijn:
 - SMB 3.0-versleuteling wordt niet ondersteund op de client. SMB 3.0-versleuteling is beschikbaar in Ubuntu 16.4 en hoger, SUSE 12.3 en hoger. Andere distributies vereist kernel 4.11 en hoger.
 - U wilt verbinding maken met een storage-account via TCP-poort 445 die niet wordt ondersteund.
 - U probeert verbinding maken met Azure-bestandsshare vanaf een Azure-VM en de virtuele machine bevindt zich niet in dezelfde regio als het opslagaccount.
-- Als [veilige overdracht vereist]( https://docs.microsoft.com/en-us/azure/storage/common/storage-require-secure-transfer) instelling is ingeschakeld op het storage-account, Azure Files kunnen alleen verbindingen met behulp van SMB 3.0 met-codering.
+- Als [veilige overdracht vereist]( https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) instelling is ingeschakeld op het storage-account, Azure Files kunnen alleen verbindingen met behulp van SMB 3.0 met-codering.
 
 ### <a name="solution"></a>Oplossing
 
@@ -191,7 +191,7 @@ Als u gebruik van symlinks, voeg de volgende aan het einde van uw CIFS mount-opd
 Zodat de opdracht ziet er ongeveer als uit:
 
 ```
-sudo mount -t cifs //<storage-account-name>.file.core.windows.net/<share-name> <mount-point> -o vers=<smb-version>,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino,mfsynlinks
+sudo mount -t cifs //<storage-account-name>.file.core.windows.net/<share-name> <mount-point> -o vers=<smb-version>,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino,mfsymlinks
 ```
 
 Nadat u hebt toegevoegd, kunt u zich kunt symlinks maken als voorgestelde op de [Wiki](https://wiki.samba.org/index.php/UNIX_Extensions#Storing_symlinks_on_Windows_servers).

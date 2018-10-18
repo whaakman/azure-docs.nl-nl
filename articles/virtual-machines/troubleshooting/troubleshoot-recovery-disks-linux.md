@@ -1,12 +1,25 @@
-<a name="-headarticlesvirtual-machinestroubleshootingtroubleshoot-recovery-disks-linuxmd"></a><<<<<<< HEAD:articles/virtual-machines/troubleshooting/troubleshoot-recovery-disks-linux.md
 ---
-
-titel: een Linux VM met de Azure CLI probleemoplossing gebruiken | Microsoft-Docs-beschrijving: informatie over het oplossen van problemen met Linux-VM door verbinding te maken van de besturingssysteemschijf aan een virtuele machine met behulp van de Azure CLI-services voor herstel: virtuele machines-linux documentationCenter: '' auteurs: genlin manager: jeconnoc editor: ''
-
-MS.service: virtuele machines-linux ms.devlang: Azure CLI ms.topic: probleemoplossing ms.tgt_pltfrm: vm-linux ms.workload: infrastructuur ms.date: 16-02-2017 ms.author: genli
-
+title: Gebruik van een virtuele machine met de Azure CLI voor het oplossen van problemen voor Linux | Microsoft Docs
+description: Informatie over het oplossen van problemen met Linux-VM door verbinding te maken van de besturingssysteemschijf aan een virtuele machine met de Azure CLI voor herstel
+services: virtual-machines-linux
+documentationCenter: ''
+authors: genlin
+manager: jeconnoc
+editor: ''
+ms.service: virtual-machines-linux
+ms.devlang: azurecli
+ms.topic: troubleshooting
+ms.tgt_pltfrm: vm-linux
+ms.workload: infrastructure
+ms.date: 02/16/2017
+ms.author: genli
+ms.openlocfilehash: 2f10a231c4edc3e01d3f8c5f7f4db1854f83044d
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49392399"
 ---
-
 # <a name="troubleshoot-a-linux-vm-by-attaching-the-os-disk-to-a-recovery-vm-with-the-azure-cli"></a>Een Linux-VM oplossen door de besturingssysteemschijf koppelen aan een virtuele machine met de Azure CLI voor herstel
 Als uw Linux-machine (VM) een fout opstart- of schijffout optreedt, moet u mogelijk de stappen voor probleemoplossing uitvoeren op de virtuele harde schijf zelf. Een veelvoorkomend voorbeeld is een ongeldige waarde in `/etc/fstab` dat voorkomt dat de virtuele machine wordt het opstarten. Dit artikel wordt uitgelegd hoe u verbinding maken met de virtuele harde schijf met een andere Linux-VM op eventuele fouten te corrigeren en vervolgens de oorspronkelijke virtuele machine opnieuw te maken met de Azure CLI. 
 

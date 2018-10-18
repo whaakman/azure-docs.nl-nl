@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: govindk
-ms.openlocfilehash: a4758e5597876112fa7a85850786491e22af8c83
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 868f465cc651043d3ef4b1735b4b528252572dbb
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47037133"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49378082"
 ---
 # <a name="secure-access-to-an-azure-cosmos-db-account-by-using-azure-virtual-network-service-endpoint"></a>Toegang tot een Azure Cosmos DB-account beveiligen met behulp van Azure Virtual Network service-eindpunt
 
@@ -226,7 +226,7 @@ Ja, virtuele netwerken die in verschillende regio's zijn gemaakt door de nieuwe 
 
 Ja, Virtual Network-Service-eindpunt en een firewall kunnen naast elkaar bestaan. In het algemeen moet u ervoor zorgen dat toegang tot de portal is altijd ingeschakeld voor het configureren van een service-eindpunt van het virtuele netwerk waarmee u kunt de metrische gegevens die zijn gekoppeld aan de container weergeven.
 
-### <a name="can-i-allow-access-to-other-azure-services-from-a-given-azure-region-when-service-endpoint-access-is-enabled-for-azure-cosmos-db"></a>Kan ik 'toestaan toegang tot andere Azure-services van een bepaald Azure-regio' wanneer toegang tot de service-eindpunt is ingeschakeld voor Azure Cosmos DB?  
+### <a name="can-i-accept-connections-from-within-public-azure-datacenters-when-service-endpoint-access-is-enabled-for-azure-cosmos-db"></a>Kan ik 'Verbindingen accepteren van in de openbare Azure-datacenters' wanneer toegang tot de service-eindpunt is ingeschakeld voor Azure Cosmos DB?  
 
 Dit is vereist alleen als u wilt dat uw Azure Cosmos DB-account om te worden geopend door andere Azure eerste partij services zoals Azure Data factory, een Azure Search of een service die wordt geïmplementeerd in de opgegeven Azure-regio.
 

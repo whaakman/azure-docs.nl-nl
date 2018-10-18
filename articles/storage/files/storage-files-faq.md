@@ -7,12 +7,12 @@ ms.service: storage
 ms.date: 10/04/2018
 ms.author: renash
 ms.component: files
-ms.openlocfilehash: 20a87148e3c0df29e5f4dffd74a8f5389e3658b9
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 29f09034988acde3643eebe368445caab035fabd
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/17/2018
-ms.locfileid: "49364555"
+ms.locfileid: "49387500"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Veelgestelde vragen (FAQ) over Azure Files
 [Azure Files](storage-files-introduction.md) biedt volledig beheerde bestandsshares in de cloud die toegankelijk zijn via het industriestandaard [Server Message Block (SMB)-protocol](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx). U kunt Azure-bestandsshares gelijktijdig koppelen in de cloud of on-premises implementaties van Windows, Linux en macOS. U kunt ook Azure-bestandsshares op Windows Server-machines cache met behulp van Azure File Sync voor snelle toegang dicht bij waar de gegevens wordt gebruikt.
@@ -242,7 +242,7 @@ In dit artikel vindt u antwoorden op veelgestelde vragen over Azure Files-functi
 * <a id="data-compliance-policies"></a>
 **Welke gegevens nalevingsbeleid biedt ondersteuning voor Azure Files?**  
 
-   Azure Files wordt uitgevoerd boven op de dezelfde opslagarchitectuur die wordt gebruikt in andere storage-services in Azure Storage. Azure Files is van toepassing de dezelfde nalevingsbeleid voor gegevens die worden gebruikt in andere Azure storage-services. Voor meer informatie over de naleving van Azure Storage-gegevens, kunt u verwijzen naar [compliance-aanbiedingen voor Azure Storage](https://docs.microsoft.com/en-us/azure/storage/common/storage-compliance-offerings), en Ga naar de [Microsoft Trust Center](https://microsoft.com/en-us/trustcenter/default.aspx).
+   Azure Files wordt uitgevoerd boven op de dezelfde opslagarchitectuur die wordt gebruikt in andere storage-services in Azure Storage. Azure Files is van toepassing de dezelfde nalevingsbeleid voor gegevens die worden gebruikt in andere Azure storage-services. Voor meer informatie over de naleving van Azure Storage-gegevens, kunt u verwijzen naar [compliance-aanbiedingen voor Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-compliance-offerings), en Ga naar de [Microsoft Trust Center](https://microsoft.com/en-us/trustcenter/default.aspx).
 
 ## <a name="on-premises-access"></a>Toegang tot on-premises
 * <a id="expressroute-not-required"></a>
@@ -258,7 +258,7 @@ In dit artikel vindt u antwoorden op veelgestelde vragen over Azure Files-functi
 ## <a name="backup"></a>Backup
 * <a id="backup-share"></a>
 **Hoe kan ik maak een back-up van mijn Azure-bestand delen?**  
-    U kunt periodieke [momentopnamen van bestandsshares](storage-snapshots-files.md) voor bescherming tegen onbedoeld verwijderen. Ook kunt u AzCopy, Robocopy of een back-uphulpprogramma van derden die back-up van een gekoppelde bestandsshare. Azure Backup biedt back-up van Azure Files. Meer informatie over [maakt u een back-up van Azure-bestandsshares door Azure Backup](https://docs.microsoft.com/en-us/azure/backup/backup-azure-files).
+    U kunt periodieke [momentopnamen van bestandsshares](storage-snapshots-files.md) voor bescherming tegen onbedoeld verwijderen. Ook kunt u AzCopy, Robocopy of een back-uphulpprogramma van derden die back-up van een gekoppelde bestandsshare. Azure Backup biedt back-up van Azure Files. Meer informatie over [maakt u een back-up van Azure-bestandsshares door Azure Backup](https://docs.microsoft.com/azure/backup/backup-azure-files).
 
 ## <a name="share-snapshots"></a>Momentopnamen van shares
 

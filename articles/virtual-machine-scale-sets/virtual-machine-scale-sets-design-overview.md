@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2017
 ms.author: negat
-ms.openlocfilehash: 1716ebf1d3490511d7102c8c756c78c0f0c55291
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: e03016b80b0a7043a72e55b6c8b68b67b55283b1
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43669878"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49388123"
 ---
 # <a name="design-considerations-for-scale-sets"></a>Ontwerpoverwegingen voor Schaalsets
 Dit artikel worden besproken ontwerpoverwegingen voor Schaalsets voor virtuele machines. Raadpleeg voor informatie over wat er in Virtual Machine Scale Sets zijn [Virtual Machine Scale Sets overzicht](virtual-machine-scale-sets-overview.md).
@@ -33,8 +33,8 @@ Over het algemeen zijn schaalsets nuttig voor het implementeren van maximaal bes
 
 - Als u opgeeft in de configuratie van de schaalset, kunt u bijwerken de *capaciteit* eigenschap meer virtuele machines parallel te implementeren. Dit proces is het beter dan het schrijven van een script voor de organisatie van veel afzonderlijke virtuele machines tegelijkertijd implementeren.
 - U kunt [voor automatisch schalen van Azure gebruiken voor het automatisch schalen van een schaalset](./virtual-machine-scale-sets-autoscale-overview.md) , maar niet voor afzonderlijke VM's.
-- U kunt [terugzetten van een installatiekopie schaalset-VM's](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachinescalesets/reimage) maar [niet voor afzonderlijke VM's](https://docs.microsoft.com/rest/api/compute/virtualmachines).
-- U kunt [overprovision](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-design-overview#overprovisioning) schaalset-VM's voor hogere mate van betrouwbaarheid en snellere implementatietijden. U kunt geen afzonderlijke virtuele machines overprovision, tenzij u aangepaste code schrijven voor deze actie uitvoeren.
+- U kunt [terugzetten van een installatiekopie schaalset-VM's](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/reimage) maar [niet voor afzonderlijke VM's](https://docs.microsoft.com/rest/api/compute/virtualmachines).
+- U kunt [overprovision](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-design-overview#overprovisioning) schaalset-VM's voor hogere mate van betrouwbaarheid en snellere implementatietijden. U kunt geen afzonderlijke virtuele machines overprovision, tenzij u aangepaste code schrijven voor deze actie uitvoeren.
 - Kunt u een [Upgradebeleid](./virtual-machine-scale-sets-upgrade-scale-set.md) om gemakkelijk upgrades voor virtuele machines in de schaalset worden uitgerold. Met afzonderlijke virtuele machines, moet u uzelf updates indeelt.
 
 ### <a name="vm-specific-features"></a>VM-specifieke functies

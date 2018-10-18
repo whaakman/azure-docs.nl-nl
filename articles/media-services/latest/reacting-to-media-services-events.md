@@ -9,16 +9,16 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 09/19/2018
+ms.date: 10/16/2018
 ms.author: juliako
-ms.openlocfilehash: 143fec2ddb168b0fff0e419fa5767e9718637241
-ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
+ms.openlocfilehash: 3541a5b33aa0bb98d9381b51caefc63b6aa677ad
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46465534"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49377545"
 ---
-# <a name="reacting-to-media-services-events"></a>Reageren op gebeurtenissen voor Media Services
+# <a name="handling-event-grid-events"></a>Event Grid-gebeurtenissen verwerken
 
 Media Services-gebeurtenissen kunnen toepassingen om te reageren op verschillende gebeurtenissen (bijvoorbeeld de taak statuswijzigingsgebeurtenis) met behulp van moderne architecturen zonder servers. Dit gebeurt zonder de noodzaak voor complexe code of kostbaar en inefficiënt polling-services. In plaats daarvan de gebeurtenissen worden gepusht via [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) naar gebeurtenis-handlers zoals [Azure Functions](https://azure.microsoft.com/services/functions/), [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/), of zelfs naar uw eigen Webhook en u betaalt voor wat u gebruikt. Zie voor meer informatie over de prijzen [prijzen van Event Grid](https://azure.microsoft.com/pricing/details/event-grid/).
 

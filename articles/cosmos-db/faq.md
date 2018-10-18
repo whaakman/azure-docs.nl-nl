@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: sngun
-ms.openlocfilehash: 85d8eb555d96b1c50da0ed00ae1f06c3eec1a5ba
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: de67d71a209ea0889b4dc5c87fed254700cb9916
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44722200"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49395126"
 ---
 # <a name="azure-cosmos-db-faq"></a>Veelgestelde vragen over Azure Cosmos DB
 ## <a name="azure-cosmos-db-fundamentals"></a>Grondbeginselen van Azure Cosmos DB
@@ -100,7 +100,7 @@ De volgende voorwaarden van toepassing op abonnementen Try Azure Cosmos DB:
 Azure Cosmos DB is beschikbaar in de Azure-portal. Eerst zich registreren voor een Azure-abonnement. Nadat u zich hebt aangemeld, kunt u een SQL-API, Gremlin-API, tabel-API, MongoDB-API of Cassandra-API-account toevoegen aan uw Azure-abonnement.
 
 ### <a name="what-is-a-master-key"></a>Wat is een hoofdsleutel?
-Een hoofdsleutel is een beveiligingstoken voor toegang tot alle resources voor een account. Personen met de sleutel hebt gelezen en schrijftoegang tot alle resources in de databaseaccount. Wees voorzichtig met het distribueren van hoofdsleutels. De hoofdsleutel van de primaire en secundaire hoofdsleutel zijn beschikbaar op de **sleutels** blade van de [Azure-portal][azure-portal]. Zie voor meer informatie over sleutels, [weergeven, kopiëren en opnieuw genereren toegangssleutel](manage-account.md#keys).
+Een hoofdsleutel is een beveiligingstoken voor toegang tot alle resources voor een account. Personen met de sleutel hebt gelezen en schrijftoegang tot alle resources in de databaseaccount. Wees voorzichtig met het distribueren van hoofdsleutels. De hoofdsleutel van de primaire en secundaire hoofdsleutel zijn beschikbaar op de **sleutels** blade van de [Azure-portal][azure-portal]. Zie [Toegangssleutels weergeven, kopiëren en opnieuw genereren](manage-account.md#keys) voor meer informatie over sleutels.
 
 ### <a name="what-are-the-regions-that-preferredlocations-can-be-set-to"></a>Wat zijn de regio's die u opgeeft als PreferredLocations kan worden ingesteld op? 
 De PreferredLocations-waarde kan worden ingesteld op een van de Azure-regio's waarin Cosmos DB beschikbaar is. Zie voor een lijst van beschikbare regio's, [Azure-regio's](https://azure.microsoft.com/regions/).
@@ -127,7 +127,7 @@ Ja Azure cosmos DB biedt ondersteuning voor tijdseries analyseren, ziet u hier e
 ### <a name="how-do-i-start-developing-against-the-sql-api"></a>Hoe start ik ontwikkelen op basis van de SQL-API?
 Eerst moet u aanmelden voor een Azure-abonnement. Zodra u zich hebt aangemeld voor een Azure-abonnement, kunt u een SQL-API-container toevoegen aan uw Azure-abonnement. Zie voor instructies over het toevoegen van een Azure Cosmos DB-account [maken van een Azure Cosmos DB-databaseaccount](create-sql-api-dotnet.md#create-account). 
 
-[SDK's](sql-api-sdk-dotnet.md) zijn beschikbaar voor .NET, Python, Node.js, JavaScript en Java. Ontwikkelaars kunnen ook gebruiken de [RESTful HTTP-API's](/rest/api/cosmos-db/) om te communiceren met Azure Cosmos DB-resources uit verschillende platforms en talen.
+Er zijn [SDK's](sql-api-sdk-dotnet.md) beschikbaar voor .NET, Python, Node.js, JavaScript en Java. Ontwikkelaars kunnen ook gebruiken de [RESTful HTTP-API's](/rest/api/cosmos-db/) om te communiceren met Azure Cosmos DB-resources uit verschillende platforms en talen.
 
 ### <a name="can-i-access-some-ready-made-samples-to-get-a-head-start"></a>Ik heb toegang tot de en-klare voorbeelden om aan de slag?
 Voorbeelden voor de SQL API [.NET](sql-api-dotnet-samples.md), [Java](https://github.com/Azure/azure-documentdb-java), [Node.js](sql-api-nodejs-samples.md), en [Python](sql-api-python-samples.md) SDK's zijn beschikbaar op GitHub.
@@ -466,7 +466,7 @@ Azure Cosmos DB maakt gebruik van [horizontale partitionering](partition-data.md
 
 ### <a name="how-can-i-protect-against-injection-attacks-using-gremlin-drivers"></a>Hoe kan ik beveiligen tegen aanvallen via injectie met behulp van Gremlin-stuurprogramma's? 
 
-Meest systeemeigen Tinkerpop Gremlin-stuurprogramma's kunnen de optie voor een woordenlijst met de parameters voor uitvoeren van query's. Dit is een voorbeeld van hoe u dit doen [Gremlin.Net]((http://tinkerpop.apache.org/docs/3.2.7/reference/#gremlin-DotNet)) en [Gremlin-Javascript](https://github.com/Azure-Samples/azure-cosmos-db-graph-nodejs-getting-started/blob/master/app.js).
+Meest systeemeigen Tinkerpop Gremlin-stuurprogramma's kunnen de optie voor een woordenlijst met de parameters voor uitvoeren van query's. Dit is een voorbeeld van hoe u dit doen [Gremlin.Net](http://tinkerpop.apache.org/docs/3.2.7/reference/#gremlin-DotNet) en [Gremlin-Javascript](https://github.com/Azure-Samples/azure-cosmos-db-graph-nodejs-getting-started/blob/master/app.js).
 
 ### <a name="why-am-i-getting-the-gremlin-query-compilation-error-unable-to-find-any-method-error"></a>Waarom krijg ik de ' Fout bij Schemacompilatie Gremlin-Query: kan niet vinden van elke methode "fout?
 

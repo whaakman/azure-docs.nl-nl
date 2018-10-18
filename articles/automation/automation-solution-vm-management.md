@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 10/04/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 8ae3a2d8dc42944bdea2b3e6ebac0a40029c0540
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 642fc66bff763105e9d5463886474703a9a50781
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48817174"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49376700"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>VM's starten/stoppen buiten kantooruren oplossing in Azure Automation
 
@@ -36,7 +36,7 @@ De volgende zijn beperkingen aan de huidige oplossing:
 >
 > Abonnementen voor Azure Cloud Solution Provider (Azure CSP) ondersteunen alleen de Azure Resource Manager-model, niet - Azure Resource Manager-services zijn niet beschikbaar in het programma. Als de oplossing starten/stoppen wordt uitgevoerd krijgt u mogelijk fouten omdat u cmdlets voor het beheren van klassieke resources. Zie voor meer informatie over de CSP, [beschikbare services in CSP-abonnementen](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services#comments).
 
-## <a name="prerequisites"></a>Vereiste onderdelen
+## <a name="prerequisites"></a>Vereisten
 
 De runbooks voor deze oplossing werkt met een [uitvoeren als-account](automation-create-runas-account.md). Uitvoeren als-account is de aanbevolen verificatiemethode omdat deze verificatie via certificaten gebruikt in plaats van een wachtwoord dat mogelijk verlopen of regelmatig wordt gewijzigd.
 
@@ -271,7 +271,7 @@ Automation worden twee typen records gemaakt in de Log Analytics-werkruimte: taa
 |RunbookName | De naam van het runbook.|
 |SourceSystem | Hiermee wordt het bronsysteem voor de verzonden gegevens opgegeven. Voor Automation is de waarde OpsManager.|
 |StreamType | Het type taakstroom. Mogelijke waarden zijn:<br>-Voortgang<br>- Uitvoer<br>- Waarschuwing<br>- Fout<br>- Foutopsporing<br>- Uitgebreid|
-|Tijd | Datum en tijd van uitvoering van de runbooktaak.|
+|Time | Datum en tijd van uitvoering van de runbooktaak.|
 
 Wanneer u een zoekopdracht in Logboeken waarmee categorierecords met uitvoert **JobLogs** of **JobStreams**, kunt u de **JobLogs** of **JobStreams**weergave die een set tegels samenvatting van de updates die zijn geretourneerd door de zoekopdracht weergeeft.
 
@@ -279,7 +279,7 @@ Wanneer u een zoekopdracht in Logboeken waarmee categorierecords met uitvoert **
 
 De volgende tabel bevat voorbeeldzoekopdrachten in logboeken voor taakrecords die worden verzameld met deze oplossing.
 
-|Query | Beschrijving|
+|Query’s uitvoeren | Beschrijving|
 |----------|----------|
 |Taken zoeken voor runbook ScheduledStartStop_Parent die met succes voltooid | ''' zoeken naar categorie == "JobLogs" | waar (RunbookName_s == "ScheduledStartStop_Parent") | waar (ResultType == "Voltooid")  | samenvatten |AggregatedValue = count() by ResultType, bin (TimeGenerated, 1 uur) | sorteren op TimeGenerated desc'' '|
 |Taken zoeken voor runbook SequencedStartStop_Parent die met succes voltooid | ''' zoeken naar categorie == "JobLogs" | waar (RunbookName_s == "SequencedStartStop_Parent") | waar (ResultType == "Voltooid") | samenvatten |AggregatedValue = count() by ResultType, bin (TimeGenerated, 1 uur) | sorteren op TimeGenerated desc'' '|
@@ -297,6 +297,9 @@ Hier kunt kunt u verder analyse uitvoeren van de Taakrecords door te klikken op 
 ## <a name="configure-email-notifications"></a>E-mailmeldingen configureren
 
 Voor het e-mailmeldingen wordt gewijzigd nadat de oplossing is geïmplementeerd, actiegroep die is gemaakt tijdens de implementatie te wijzigen.  
+
+> [!NOTE]
+> Abonnementen in de Azure Government-Cloud bieden geen ondersteuning voor de e-mailfunctionaliteit van deze oplossing.
 
 In de Azure-portal, gaat u naar Monitor actiegroepen ->. Selecteer de actiegroep met de titel **StartStop_VM_Notication**.
 

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/04/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 70b7af1701c13e6a5d7644f04e4502f76ef7743a
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 2363f7f2e17bfc451ea9fd5486ba60fbc8ccb993
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43187842"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49364282"
 ---
 # <a name="tutorial-build-a-nodejs-and-mongodb-web-app-in-azure"></a>Zelfstudie: Een web-app voor Node.js en MongoDB bouwen in Azure
 
@@ -136,7 +136,7 @@ Voor MongoDB wordt in deze zelfstudie gebruikgemaakt van [Azure Cosmos DB](/azur
 ### <a name="create-a-cosmos-db-account"></a>Cosmos DB-account maken
 
 > [!NOTE]
-> Er zijn kosten voor het maken van de Azure Cosmos DB-databases in deze zelfstudie in uw eigen Azure-abonnement. Als u gedurende zeven dagen een gratis Azure Cosmos DB-account wilt gebruiken, kunt u de ervaring [Probeer Azure Cosmos DB gratis uit](https://azure.microsoft.com/en-us/try/cosmosdb/) gebruiken. Klik gewoon op de knop **Maken** in de tegel MongoDB om een gratis MongoDB-database te maken in Azure. Wanneer de database is gemaakt, gaat u naar **Verbindingsreeks** in de portal en haalt u de verbindingsreeks voor Azure Cosmos DB op die u verderop in de zelfstudie gaat gebruiken.
+> Er zijn kosten voor het maken van de Azure Cosmos DB-databases in deze zelfstudie in uw eigen Azure-abonnement. Als u gedurende zeven dagen een gratis Azure Cosmos DB-account wilt gebruiken, kunt u de ervaring [Probeer Azure Cosmos DB gratis uit](https://azure.microsoft.com/try/cosmosdb/) gebruiken. Klik gewoon op de knop **Maken** in de tegel MongoDB om een gratis MongoDB-database te maken in Azure. Wanneer de database is gemaakt, gaat u naar **Verbindingsreeks** in de portal en haalt u de verbindingsreeks voor Azure Cosmos DB op die u verderop in de zelfstudie gaat gebruiken.
 >
 
 Maak in Cloud Shell een Cosmos DB-account met de opdracht [`az cosmosdb create`](/cli/azure/cosmosdb?view=azure-cli-latest#az-cosmosdb-create).
@@ -272,7 +272,7 @@ Standaard houdt het MEAN.js-project _config/env/local-production.js_ buiten de G
 
 Gebruik de opdracht [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) in Cloud Shell om de app-instellingen te definiëren. 
 
-In het volgende voorbeeld wordt een `MONGODB_URI`-app-instelling in de Azure-web-app geconfigureerd. Vervang de tijdelijke aanduidingen *\<app_name>*, *\<cosmosdb_name>* en *\<primary_master_key>*.
+In het volgende voorbeeld wordt een app-instelling voor `MONGODB_URI` in de Azure-web-app geconfigureerd. Vervang de tijdelijke aanduidingen *\<app_name>*, *\<cosmosdb_name>* en *\<primary_master_key>*.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings MONGODB_URI="mongodb://<cosmosdb_name>:<primary_master_key>@<cosmosdb_name>.documents.azure.com:10250/mean?ssl=true"

@@ -9,12 +9,12 @@ ms.component: speech
 ms.topic: article
 ms.date: 05/18/2018
 ms.author: erhopf
-ms.openlocfilehash: 53e159c7fc357d0c3776102294f4871863cbf4a5
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 300e2d593dfe00b2d7348c7eaf15b0f26ec7e0dd
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167372"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389884"
 ---
 # <a name="get-started-with-the-speech-devices-sdk"></a>Aan de slag met de SDK van de apparaten spraak
 
@@ -39,9 +39,9 @@ Voordat u begint met ontwikkelen met de SDK van de apparaten spraak, verzamel de
 
 * Krijgen een [Speech-service-abonnementssleutel](get-started.md). U kunt een gratis proefversie van 30 dagen of u een sleutel van uw Azure-dashboard.
 
-* Als u gebruiken van de spraakservice intentieherkenning wilt, zich abonneren op de [Language Understanding service](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) (LUIS) en [ophalen van een abonnementssleutel](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/azureibizasubscription). 
+* Als u gebruiken van de spraakservice intentieherkenning wilt, zich abonneren op de [Language Understanding service](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) (LUIS) en [ophalen van een abonnementssleutel](https://docs.microsoft.com/azure/cognitive-services/luis/azureibizasubscription). 
 
-    U kunt [maken een eenvoudige LUIS-model](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/) of gebruik het voorbeeld LUIS-model, LUIS-example.json. Het voorbeeld LUIS-model beschikbaar via is de [site voor het downloaden van spraak Devices SDK](https://shares.datatransfer.microsoft.com/). Voor het uploaden van uw model JSON-bestand naar de [LUIS portal](https://www.luis.ai/home), selecteer **importeren nieuwe app**, en selecteer vervolgens het JSON-bestand.
+    U kunt [maken een eenvoudige LUIS-model](https://docs.microsoft.com/azure/cognitive-services/luis/) of gebruik het voorbeeld LUIS-model, LUIS-example.json. Het voorbeeld LUIS-model beschikbaar via is de [site voor het downloaden van spraak Devices SDK](https://shares.datatransfer.microsoft.com/). Voor het uploaden van uw model JSON-bestand naar de [LUIS portal](https://www.luis.ai/home), selecteer **importeren nieuwe app**, en selecteer vervolgens het JSON-bestand.
 
 ## <a name="set-up-the-development-kit"></a>Instellen van de development kit
 

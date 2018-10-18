@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/21/2018
 ms.author: jeedes
-ms.openlocfilehash: e2037ff2f1b95a5ce5de69d76d66ec81cc9badb4
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 100ea0147bf56242ba15bee39e4bda1b65af27da
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47064200"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49390088"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sharepoint-on-premises"></a>Zelfstudie: Azure Active Directory-integratie met SharePoint on-premises
 
@@ -144,7 +144,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     Meld u aan bij de server voor SharePoint Server 2016 en open de SharePoint 2016 Management Shell. Vul de waarden van $realm (id-waarde uit de SharePoint on-premises domein en URL's sectie in Azure portal), $wsfedurl (Single Sign-On Service URL) en $filepath (bestandspad waarnaar u het certificaatbestand hebt gedownload) van Azure portal en uitvoeren de volgende opdrachten voor het configureren van een nieuwe vertrouwde id-provider.
 
     > [!TIP]
-    > Als u geen ervaring hebt met behulp van PowerShell of lees de informatie over de werking van PowerShell wilt [PowerShell voor SharePoint](https://docs.microsoft.com/en-us/powershell/sharepoint/overview?view=sharepoint-ps). 
+    > Als u geen ervaring hebt met behulp van PowerShell of lees de informatie over de werking van PowerShell wilt [PowerShell voor SharePoint](https://docs.microsoft.com/powershell/sharepoint/overview?view=sharepoint-ps). 
 
     ```
     $realm = "<Identifier value from the SharePoint on-premises Domain and URLs section in the Azure portal>"
@@ -310,7 +310,7 @@ Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsve
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
-* [Met behulp van Azure AD voor SharePoint Server-verificatie](https://docs.microsoft.com/en-us/office365/enterprise/using-azure-ad-for-sharepoint-server-authentication)
+* [Met behulp van Azure AD voor SharePoint Server-verificatie](https://docs.microsoft.com/office365/enterprise/using-azure-ad-for-sharepoint-server-authentication)
 
 <!--Image references-->
 

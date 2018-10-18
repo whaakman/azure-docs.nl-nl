@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 07/19/18
 ms.author: sakthivetrivel
 ms.custom: mvc
-ms.openlocfilehash: 6ec39116596c7abb7b1d26f864cdb57d839c88be
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: e16c82f7c49bf90fc074732d0a989b9de94a52c5
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/17/2018
-ms.locfileid: "49365132"
+ms.locfileid: "49375848"
 ---
 # <a name="cluster-autoscaler-on-azure-kubernetes-service-aks---preview"></a>Automatisch schalen van cluster op Azure Kubernetes Service (AKS) - Preview
 
@@ -26,11 +26,22 @@ In dit artikel wordt beschreven hoe u het cluster automatisch schalen op de agen
 > Integratie van Azure Kubernetes Service (AKS) cluster automatisch schalen is momenteel in **preview**. Previews worden voor u beschikbaar gesteld op voorwaarde dat u akkoord gaat met de [aanvullende gebruiksvoorwaarden](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Sommige aspecten van deze functie worden mogelijk nog gewijzigd voordat de functie algemeen beschikbaar wordt.
 >
 
-## <a name="prerequisites"></a>Vereisten
+## <a name="prerequisites-and-considerations"></a>Vereisten en overwegingen
 
 Dit document wordt ervan uitgegaan dat u een RBAC-functionaliteit AKS-cluster hebt. Als u een cluster AKS nodig hebt, raadpleegt u de [Azure Kubernetes Service (AKS)-snelstartgids][aks-quick-start].
 
  Voor het gebruik van het cluster automatisch schalen, uw cluster moet worden met behulp van Kubernetes v1.10.X of hoger en moet worden ingeschakeld voor RBAC. Als u wilt uw cluster upgraden, raadpleegt u het artikel [een AKS-cluster upgraden][aks-upgrade].
+
+Resourceaanvragen voor uw schillen definiëren. Het cluster automatisch schalen er ongeveer zo uitziet bij welke resource-aanvragen worden gemaakt door schillen, niet de resources daadwerkelijk in gebruik, zoals het horizontale schillen automatisch schalen heeft. Binnen de `spec: containers` sectie van de implementatiedefinitie van de, definieert u de vereisten voor CPU en geheugen. Het volgende voorbeeld-codefragment vraagt 0,5 vCPU en 64Mb geheugen op het knooppunt:
+
+  ```yaml
+  resources:
+    requests:
+      cpu: 500m
+      memory: 64Mb
+  ```
+
+Wanneer het cluster automatisch schalen wordt gebruikt, te voorkomen dat het aantal knooppunten handmatig te schalen. Het cluster automatisch schalen niet mogelijk om te bepalen van de juiste hoeveelheid rekenbronnen en conflicteren met het aantal knooppunten die u handmatig definiëren.
 
 ## <a name="gather-information"></a>Gegevens verzamelen
 

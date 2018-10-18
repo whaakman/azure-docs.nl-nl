@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/16/2018
 ms.author: jdial
-ms.openlocfilehash: 1ec60300d179edf69e32dc07653b6c69c7cc8e52
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: cf540caebd5f993cdba0d85f4109a6e78e201658
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42054658"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49378751"
 ---
 # <a name="plan-virtual-networks"></a>Virtuele netwerken plannen
 
@@ -93,7 +93,7 @@ U kunt verbinding maken met een virtueel netwerk naar andere virtuele netwerken 
 
 ### <a name="peering"></a>Peering
 
-Bij het gebruik van [peering op virtueel netwerk](virtual-network-peering-overview.md), de virtuele netwerken kunnen zich in de dezelfde of verschillende Azure-regio's wordt ondersteund. De virtuele netwerken kunnen zich in de dezelfde of verschillende Azure-abonnementen, zolang beide abonnementen zijn toegewezen aan dezelfde Azure Active Directory-tenant. Voordat u een peering, wordt aanbevolen dat u vertrouwd met alle van de peering raakt [vereisten en beperkingen](virtual-network-manage-peering.md#requirements-and-constraints). Bandbreedte tussen resources in virtuele netwerken aan elkaar gekoppeld in dezelfde regio is hetzelfde als wanneer de resources zich in hetzelfde virtuele netwerk.
+Bij het gebruik van [peering op virtueel netwerk](virtual-network-peering-overview.md), de virtuele netwerken kunnen zich in de dezelfde of verschillende Azure-regio's wordt ondersteund. De virtuele netwerken kunnen zich in hetzelfde of een ander Azure-abonnementen (zelfs abonnementen die behoren tot verschillende Azure Active Directory-tenants). Voordat u een peering, wordt aanbevolen dat u vertrouwd met alle van de peering raakt [vereisten en beperkingen](virtual-network-manage-peering.md#requirements-and-constraints). Bandbreedte tussen resources in virtuele netwerken aan elkaar gekoppeld in dezelfde regio is hetzelfde als wanneer de resources zich in hetzelfde virtuele netwerk.
 
 ### <a name="vpn-gateway"></a>VPN-gateway
 

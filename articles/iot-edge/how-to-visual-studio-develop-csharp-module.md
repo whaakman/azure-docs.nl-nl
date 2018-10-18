@@ -9,12 +9,12 @@ ms.author: xshi
 ms.date: 09/24/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 9cc8e1db577859ad7637902a5ccd5a044efcd033
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 768ff899ca2c71cb32fe29bdd5d58654d8f7d431
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978519"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394745"
 ---
 # <a name="use-visual-studio-2017-to-develop-and-debug-c-modules-for-azure-iot-edge-preview"></a>Visual Studio 2017 gebruiken om te ontwikkelen en fouten opsporen in C#-modules voor Azure IoT Edge (Preview)
 
@@ -90,6 +90,21 @@ De **IoTEdgeModule1** project is een .net Core-consoletoepassing 2.1. Deze bevat
 De standaard C#-module-code die wordt geleverd met de oplossing bevindt zich in **IoTEdgeModule1** > **Program.cs**. De module en het bestand deployment.template.json zijn ingesteld zodat u kunt de oplossing te bouwen, deze naar het containerregister pushen en implementeren op een apparaat om te testen zonder code aan te starten. De module is gebouwd om te gewoon nemen invoer van een bron (in dit geval de tempSensor-module die gegevens simuleert) en doorgeven naar IoT Hub. 
 
 Wanneer u klaar bent om de sjabloon C# met uw eigen code aanpassen, gebruikt u de [Azure IoT Hub SDK's](../iot-hub/iot-hub-devguide-sdks.md) modules bouwen dat adres de sleutel die nodig zijn voor IoT-oplossingen, zoals beveiliging, beheer van apparaten en betrouwbaarheid. 
+
+## <a name="initialize-iotegehubdev-with-iot-edge-device-connection-string"></a>Initialiseren **iotegehubdev** met IoT Edge-apparaat-verbindingsreeks
+
+1. U moet ophalen van de verbindingsreeks van elk IoT Edge-apparaat, mag u de waarde van "Primary Connection String" kopiëren vanuit Cloud Explorer in Visual Studio 2017 als volgt. Controleer de verbindingsreeks van niet-Edge-apparaat niet kopiëren, het pictogram van IoT Edge-apparaat wijkt af van een van de niet-Edge-apparaat.
+
+   ![Edge-apparaat-verbindingsreeks kopiëren](./media/how-to-visual-studio-develop-csharp-module/copy-edge-conn-string.png)
+
+2. U moet Klik met de rechtermuisknop op **AzureIoTEdgeApp1** project openen in het contextmenu en klik vervolgens op **verbindingsreeks van de Edge-apparaat instellen**, venster van de installatie van Azure IoT Edge wordt weergegeven.
+
+   ![Venster tekenreeks Edge-verbinding instellen openen](./media/how-to-visual-studio-develop-csharp-module/set-edge-conn-string.png)
+
+3. In het instellingenvenster u hebt verkregen in de eerste stap verbindingsreeks invoeren, en klikt u op **OK** knop.
+
+>[!NOTE]
+>Dit is eenmalig werken, u alleen moet worden uitgevoerd in deze stap één keer op één computer, alle volgende Azure IoT Edge oplossingen krijgt als gratis. Natuurlijk kan u deze stap opnieuw uitvoeren als de verbindingsreeks ongeldig is of u wilt wijzigen in een andere verbindingstekenreeks.
 
 ## <a name="build-and-debug-single-c-module"></a>Bouwen en fouten opsporen in één C#-module
 
@@ -190,7 +205,10 @@ In dit snelstartartikel voor het instellen van uw IoT Edge-apparaat hebt u een m
 
 2. In **Cloud Explorer**uit, vouw uw abonnement, zoeken naar uw Azure-IoT-Hub en de Azure IoT Edge-apparaat dat u wilt implementeren.
 
-3. Met de rechtermuisknop op IoT Edge-apparaat aan de implementatie voor het maken, moet u ervoor kiezen het manifestbestand van de implementatie onder de `$AzureIoTEdgeApp1\config\Debug|Release\deployment.json`.
+3. Met de rechtermuisknop op IoT Edge-apparaat aan de implementatie voor het maken, moet u ervoor kiezen het manifestbestand van de implementatie onder de `$AzureIoTEdgeAppSolutionDir\config\deployment.(amd64|amd64.debug|windows-amd64).json`.
+
+>>[!NOTE]
+>>U moet niet selecteren `$AzureIoTEdgeAppSolutionDir\config\deployment_for_local_debug.json`
 
 4. Klik op de knop Vernieuwen. U ziet nu de nieuwe modules uitvoeren samen met de **TempSensor** module en de **$edgeAgent** en **$edgeHub**.
 

@@ -4,7 +4,7 @@ description: Een uitgebreide beschrijving van de wetenschap dat wordt gebruikt d
 services: machine-learning
 author: fboylu
 manager: cgronlun
-editor: ''
+editor: cgronlun
 ms.assetid: 2e8b66db-91eb-432b-b305-6abccca25620
 ms.service: machine-learning
 ms.component: team-data-science-process
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2018
 ms.author: fboylu
-ms.openlocfilehash: 7802aa8ea9798b18d5424c2342ba63c01406b25a
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 2a5d8540dba491dec8b2da227b0e84c10ff09c77
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47221703"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394990"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>Azure AI-handleiding voor oplossingen voor Voorspellend onderhoud
 
@@ -256,7 +256,7 @@ In deze sectie worden de belangrijkste modeltechnieken PdM problemen, samen met 
 > moet in overleg met het domein deskundige worden bepaald.
 
 ### <a name="binary-classification"></a>Binaire classificatie
-Binaire classificatie wordt gebruikt voor het _voorspel de kans dat een apparaat is mislukt binnen een periode van de toekomstige_ - naam de _toekomstige horizon periode X_. X wordt bepaald door het zakelijke probleem en de gegevens bij de hand, in overleg met het domein deskundige. Voorbeelden zijn:
+Binaire classificatie wordt gebruikt voor het _voorspel de kans dat een apparaat is mislukt binnen een periode van de toekomstige_ - naam de _toekomstige horizon periode X_. X wordt bepaald door het zakelijke probleem en de gegevens bij de hand, in overleg met het domein deskundige. Een aantal voorbeelden:
 - _Minimale levertijd_ vereist voor het vervangen van onderdelen, onderhoud resources implementeren, uitvoeren van onderhoud om te voorkomen dat een probleem dat is dat waarschijnlijk ook voorkomt in die periode.
 - _minimum aantal gebeurtenissen_ dat kan gebeuren voordat er een probleem optreedt.
 

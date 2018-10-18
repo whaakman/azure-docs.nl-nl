@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: bryanla
-ms.openlocfilehash: d5cc634451c5412f9a3339c8d2d26654c4d5c1b8
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 60920aaa62d8472eaca8f929c62ce1c0af08f9a4
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44298910"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49385631"
 ---
 # <a name="get-started-with-key-vault-certificates"></a>Aan de slag met Key Vault-certificaten
 De volgende scenario's worden enkele van de primaire gebruik van Key Vault de certificate management-service met inbegrip van de extra stappen vereist voor het maken van uw eerste certificaat in uw key vault.
@@ -83,7 +83,7 @@ Opmerking: dit proces, via stap 3.1, is een eenmalige bewerking.
       -   Informatie over verlenging - > ex. 90 dagen vóór de verloopdatum  
 
   - Proces voor het maken van een certificaat is meestal een asynchroon proces en omvat het opvragen van configuratiegegevens bij uw key vault voor de status van de certificaatbewerking maken.  
-[Get-certificaatbewerking](https://docs.microsoft.com/en-us/rest/api/keyvault/getcertificateoperation)  
+[Get-certificaatbewerking](https://docs.microsoft.com/rest/api/keyvault/getcertificateoperation)  
       -   Status: voltooid, is mislukt met de informatie over de fout of, geannuleerd  
       -   Vanwege de vertraging te maken, kan een annuleringsbewerking worden gestart. Het annuleren kan of kan niet worden van kracht.  
 

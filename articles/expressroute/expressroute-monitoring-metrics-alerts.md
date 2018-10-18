@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 09/21/2018
 ms.author: cherylmc
-ms.openlocfilehash: fc8abee93983ce4ea06d0b433eb35ed22e0f61b4
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: fcdaf10ad30cee0e7b79304ff21d67560522875c
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47218068"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49377794"
 ---
 # <a name="expressroute-monitoring-metrics-and-alerts"></a>Bewaking, metrische gegevens en waarschuwingen voor ExpressRoute
 
@@ -20,15 +20,15 @@ ms.locfileid: "47218068"
 
 ## <a name="circuit-metrics"></a>Circuit metrische gegevens
 
-Om te navigeren naar **metrische gegevens**, klikt u op het ExpressRoute-pagina voor het circuit die u wilt bewaken. Onder **bewaking** vindt u de **metrische gegevens**.
+Om te navigeren naar **metrische gegevens**, klikt u op het ExpressRoute-pagina voor het circuit die u wilt bewaken. Onder **bewaking** vindt u de **metrische gegevens**. Selecteer BitsInPerSecond of BitsOutPerSecond en de aggregatie. U kunt eventueel toepassen splitsen die de metrische gegevens per peeringtype wordt weergegeven.
 
-![circuit metrische gegevens](./media/expressroute-monitoring-metrics-alerts/ermetricspeering.jpg)
+![Circuit metrische gegevens](./media/expressroute-monitoring-metrics-alerts/ermetricspeering.jpg)
 
 ## <a name="metrics-per-peering"></a>Metrische gegevens per peering
 
 Hier vindt u metrische gegevens voor persoonlijke, openbare en Microsoft-peering in bits per seconde.
 
-![metrische gegevens per peering](./media/expressroute-monitoring-metrics-alerts/erpeeringmetrics.jpg) 
+![Metrische gegevens per peering](./media/expressroute-monitoring-metrics-alerts/erpeeringmetrics.jpg) 
 
 ## <a name="expressroute-gateway-connections-in-bitsseconds"></a>ExpressRoute-gateway-verbindingen in bits/seconden
 

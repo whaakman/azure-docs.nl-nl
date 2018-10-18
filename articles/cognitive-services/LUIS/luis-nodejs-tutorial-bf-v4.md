@@ -10,20 +10,20 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: diberry
-ms.openlocfilehash: acd9d9ff0b97bf0eaaca2f8ae9a6909e18e320d6
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: ad21754b3f55a0d14bb43a2898d5bd4b8b8150ae
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47168127"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49385903"
 ---
 # <a name="tutorial-luis-bot-in-nodejs"></a>Zelfstudie: de LUIS-bot in Node.js
-Met Node.js kunt u een chatbot bouwen met ingebouwd taalbegrip (LUIS). Deze bot maakt gebruik van de app HomeAutomation om een botoplossing te implementeren. De bot is gebouwd aan de hand van de Azure-[web-app-bot](https://docs.microsoft.com/azure/bot-service/) en [Bot Framework](https://github.com/Microsoft/botbuilder-js) versie 4.
+Met Node.js kunt u een chatbot bouwen met ingebouwd taalbegrip (LUIS). Deze bot maakt gebruik van de app HomeAutomation om een botoplossing te implementeren. De bot is gebouwd aan de hand van de Azure-[web-app-bot](https://docs.microsoft.com/azure/bot-service/) en [Bot Framework versie](https://github.com/Microsoft/botbuilder-js) 4.
 
 **In deze zelfstudie leert u het volgende:**
 
 > [!div class="checklist"]
-> * Een webtoepassingsbot maken. Bij dit proces wordt een nieuwe LUIS-app voor u gemaakt.
+> * Een web-app-bot maken. Bij dit proces wordt een nieuwe LUIS-app gemaakt.
 > * Een vooraf gemaakt domein toevoegen aan het nieuwe LUIS-model
 > * Het project downloaden dat is gemaakt door de webbotservice
 > * De bot en emulator lokaal op uw computer starten
@@ -38,9 +38,9 @@ https://github.com/Microsoft/BotBuilder-Samples/tree/v4/javascript_nodejs/12.nlp
 * [Visual Studio Code](https://code.visualstudio.com/Download)
 
 
-## <a name="create-web-app-bot"></a>Een webtoepassingsbot maken
+## <a name="create-web-app-bot"></a>Een web-app-bot maken
 
-1. Selecteer in [Azure Portal](https://portal.azure.com) de optie **Nieuwe resource maken**.
+1. Selecteer in de [Azure-portal](https://portal.azure.com) de optie **Nieuwe resource maken**.
 
 2. Zoek via het zoekvak naar **Web-app-bot** en selecteer deze optie. Selecteer **Maken**.
 
@@ -51,7 +51,7 @@ https://github.com/Microsoft/BotBuilder-Samples/tree/v4/javascript_nodejs/12.nlp
     |Botnaam|Resourcenaam|`luis-nodejs-bot-` + `<your-name>`, bijvoorbeeld, `luis-nodejs-bot-johnsmith`|
     |Abonnement|Het abonnement waarvoor de bot moet worden gemaakt.|Uw primaire abonnement.
     |Resourcegroep|Logische groep van Azure-resources|Maak een nieuwe groep voor het opslaan van alle resources die worden gebruikt met deze bot. Geef de groep de naam `luis-nodejs-bot-resource-group`.|
-    |Locatie|Azure-regio: dit hoeft niet dezelfde te zijn als de LUIS-regio voor maken en publiceren.|`westus`|
+    |Locatie|Azure-regio: deze hoeft niet dezelfde te zijn als de LUIS-regio voor maken en publiceren.|`westus`|
     |Prijscategorie|Wordt gebruikt voor serviceaanvraaglimieten en facturatie.|`F0` is de gratis laag.
     |Naam van app|Deze naam wordt gebruikt als subdomein wanneer uw bot wordt geïmplementeerd in de cloud (bijvoorbeeld humanresourcesbot.azurewebsites.net).|`luis-nodejs-bot-` + `<your-name>`, bijvoorbeeld, `luis-nodejs-bot-johnsmith`|
     |Botsjabloon|Instellingen voor het botframework - zie de volgende tabel|
@@ -62,12 +62,12 @@ https://github.com/Microsoft/BotBuilder-Samples/tree/v4/javascript_nodejs/12.nlp
     |Instelling|Doel|Selectie|
     |--|--|--|
     |SDK-versie|Versie van het botframework|**SDK v4**|
-    |SDK-taal|Programmeertaal van de bot|**Node.js**|
+    |SDK-taal|Computertaal van de bot|**Node.js**|
     |Echo-/basisbot|Type bot|**Basisbot**|
     
-5. Selecteer **Maken**. Hiermee maakt u de botservice en implementeert u deze in Azure. Bij dit proces wordt een LUIS-app voor u gemaakt met de naam `luis-nodejs-bot-XXXX`. Deze naam is gebaseerd op de bot en de app-naam uit het vorige gedeelte.
+5. Selecteer **Maken**. Hiermee maakt u de botservice en implementeert u deze in Azure. Bij dit proces wordt een LUIS-app gemaakt met de naam `luis-nodejs-bot-XXXX`. Deze naam is gebaseerd op de bot en de app-naam uit het vorige gedeelte.
 
-    [ ![De web-app-bot maken](./media/bfv4-nodejs/create-web-app-service.png) ](./media/bfv4-nodejs/create-web-app-service.png#lightbox)
+    [ ![Een web-app-bot maken](./media/bfv4-nodejs/create-web-app-service.png) ](./media/bfv4-nodejs/create-web-app-service.png#lightbox)
 
 6. Laat dit browsertabblad open. Voor alle stappen die u in de LUIS-portal moet uitvoeren, opent u een nieuw tabblad in de browser. Ga door naar het volgende gedeelte zodra de nieuwe botservice is geïmplementeerd.
 
@@ -84,7 +84,7 @@ Als onderdeel van de botservice-implementatie wordt er een nieuwe LUIS-app gemaa
 Voeg de vooraf gemaakte HomeAutomation-app toe aan het model om uitingen als de volgende te kunnen verwerken: `Turn off the living room lights`
 
 1. Ga naar de [LUIS](https://www.luis.ai)-portal en meld u aan.
-2. Op de pagina **Mijn apps** selecteert u de kolom **Gemaakt op** om te sorteren op de datum waarop de app is gemaakt. Azure Bot Service heeft in het vorige gedeelte een nieuwe app gemaakt. De naam ervan is `luis-nodejs-bot-` + `<your-name>` + vier willekeurige tekens.
+2. Op de pagina **Mijn apps** selecteert u de kolom **Gemaakt op** om te sorteren op de datum waarop de app is gemaakt. Azure Bot Service heeft in het vorige gedeelte een nieuwe app gemaakt. De naam ervan is `luis-nodejs-bot-` + `<your-name>` plus vier willekeurige tekens.
 3. Open de app en selecteer het gedeelte **Bouwen** in de bovenste navigatiebalk.
 4. Selecteer **Vooraf gemaakte domeinen** in het navigatiedeelvenster links.
 5. Selecteer het domein **HomeAutomation** door op de kaart **Domein toevoegen** te selecteren.
@@ -101,15 +101,15 @@ Voeg de vooraf gemaakte HomeAutomation-app toe aan het model om uitingen als de 
 ## <a name="download-the-web-app-bot"></a>De web-app-bot downloaden 
 Als u de code van de web-app-bot verder wilt ontwikkelen, downloadt u de code en gebruikt u deze op uw lokale computer. 
 
-1. In Azure Portal, in de resource van de web-app-bot, selecteert u de **toepassingsinstellingen** en kopieert u de waarden van **botFilePath** en **botFileSecret**. U moet deze later toevoegen aan een omgevingsbestand. 
+1. In de Azure-portal, in de resource van de web-app-bot, selecteert u de **toepassingsinstellingen** en kopieert u de waarden van **botFilePath** en **botFileSecret**. U moet deze later toevoegen aan een omgevingsbestand. 
 
-2. In Azure Portal selecteert u **Bouwen** in het gedeelte **Botbeheer**. 
+2. In de Azure-portal selecteert u **Bouwen** in het gedeelte **Botbeheer**. 
 
 3. Selecteer **Broncode bot downloaden**. 
 
     [ ![Download de broncode van de web-app-bot voor de basisbot](../../../includes/media/cognitive-services-luis/bfv4/download-code.png) ](../../../includes/media/cognitive-services-luis/bfv4/download-code.png#lightbox)
 
-4. Als de broncode is ingepakt, ziet u een bericht met een koppeling voor het downloaden van de code. Selecteer de koppeling. 
+4. Als de broncode is ingepakt, ziet u een bericht met een link voor het downloaden van de code. Selecteer de link. 
 
 5. Sla het zip-bestand op uw lokale computer op en pak de bestanden uit. Open het project. 
 
@@ -238,7 +238,7 @@ Voordat u code of instellingen wijzigt, controleert u of de bot werkt.
     ![Geheim in botemulator versie 4](../../../includes/media/cognitive-services-luis/bfv4/bot-secret.png)
 
 
-4. Voer `Hello` in in de botemulator en haal het juiste antwoord op bij de basisbot.
+4. Voer `Hello` in de botemulator in en haal het juiste antwoord op bij de basisbot.
 
     [ ![Antwoord van de basisbot in de emulator](../../../includes/media/cognitive-services-luis/bfv4/emulator-test.png) ](../../../includes/media/cognitive-services-luis/bfv4/emulator-test.png#lightbox)
 
@@ -350,9 +350,9 @@ In het bestand `bot.js` voegt u code toe om de nieuwe intenties te verwerken.
 ## <a name="learn-more-about-bot-framework"></a>Meer informatie over Bot Framework
 Azure Bot Service maakt gebruik van de Bot Framework-SDK. Meer informatie over de SDK en het botframework:
 
-* [Azure Bot Service](https://docs.microsoft.com/en-us/azure/bot-service/bot-service-overview-introduction?view=azure-bot-service-4.0) v4-documentatie
+* [Azure Bot Service](https://docs.microsoft.com/azure/bot-service/bot-service-overview-introduction?view=azure-bot-service-4.0) v4-documentatie
 * [Bot Builder-voorbeelden](https://github.com/Microsoft/botbuilder-samples)
-* [Bot Builder-SDK](https://docs.microsoft.com/en-us/javascript/api/botbuilder-core/?view=botbuilder-ts-latest)
+* [Bot Builder-SDK](https://docs.microsoft.com/javascript/api/botbuilder-core/?view=botbuilder-ts-latest)
 * [Bot Builder-hulpprogramma's](https://github.com/Microsoft/botbuilder-tools):
 
 ## <a name="next-steps"></a>Volgende stappen

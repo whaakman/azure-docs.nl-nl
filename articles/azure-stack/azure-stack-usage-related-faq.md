@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 09/27/2018
 ms.author: mabrigg
 ms.reviewer: alfredop
-ms.openlocfilehash: e4bb17bd068076a9ffa9bcab5826f0efa84a19d7
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 362ee7e84229c421f69ff0db0c8cfb040b105c97
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47406002"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394507"
 ---
 # <a name="frequently-asked-questions-in-azure-stack-usage-api"></a>Veelgestelde vragen over Azure Stack gebruiks-API
 
@@ -128,102 +128,102 @@ Gebruik wordt voor de volgende resourceproviders gerapporteerd:
 
 **ID meten**: 5d76e09f-4567-452a-94cc-7d1f097761f0   
 **Meternaam**: S4   
-**Eenheid**: het aantal schijven   
+**Eenheid**: aantal van de schijven\*uur   
 **Opmerkingen bij de**: standaard beheerde schijf: 32 GB 
 
 **ID meten**: dc9fc6a9-0782-432a-b8dc-978130457494   
 **Meternaam**: S6   
-**Eenheid**: het aantal schijven   
+**Eenheid**: aantal van de schijven\*uur   
 **Opmerkingen bij de**: standaard beheerde schijf – 64 GB 
 
 **ID meten**: e5572fce-9f58-49d7-840c-b168c0f01fff   
 **Meternaam**: S10   
-**Eenheid**: het aantal schijven   
+**Eenheid**: aantal van de schijven\*uur   
 **Opmerkingen bij de**: standaard beheerde schijf: 128 GB 
 
 **ID meten**: 9a8caedd-1195-4cd5-80b4-a4c22f9302b8   
 **Meternaam**: S15   
-**Eenheid**: het aantal schijven   
+**Eenheid**: aantal van de schijven\*uur   
 **Opmerkingen bij de**: standaard beheerde schijf – 256 GB 
 
 **ID meten**: 5938f8da-0ecd-4c48-8d5a-c7c6c23546be   
 **Meternaam**: S20   
-**Eenheid**: het aantal schijven      
+**Eenheid**: aantal van de schijven\*uur      
 **Opmerkingen bij de**: standaard beheerde schijf – 512 GB 
 
 **ID meten**: 7705a158-bd8b-4b2b-b4c2-0782343b81e6   
 **Meternaam**: S30   
-**Eenheid**: het aantal schijven   
+**Eenheid**: aantal van de schijven\*uur   
 **Opmerkingen bij de**: standaard beheerde schijf: 1024 GB 
 
 **ID meten**: d9aac1eb-a5d1-42f2-b617-9e3ea94fed88   
 **Meternaam**: S40   
-**Eenheid**: het aantal schijven   
+**Eenheid**: aantal van de schijven\*uur   
 **Opmerkingen bij de**: standaard beheerde schijf: 2048 GB 
 
 **ID meten**: a54899dd-458e-4a40-9abd-f57cafd936a7   
 **Meternaam**: S50   
-**Eenheid**: het aantal schijven   
+**Eenheid**: aantal van de schijven\*uur   
 **Opmerkingen bij de**: standaard beheerde schijf – 4096 GB 
 
 **ID meten**: 5c105f5f-cbdf-435c-b49b-3c7174856dcc   
 **Meternaam**: P4   
-**Eenheid**: het aantal schijven   
+**Eenheid**: aantal van de schijven\*uur   
 **Opmerkingen bij de**: Premium-beheerde schijf: 32 GB 
 
 **ID meten**: 518b412b-1927-4f25-985f-4aea24e55c4f   
 **Meternaam**: P6   
-**Eenheid**: het aantal schijven   
+**Eenheid**: aantal van de schijven\*uur   
 **Opmerkingen bij de**: Premium-beheerde schijf – 64 GB 
 
 **ID meten**: 5cfb1fed-0902-49e3-8217-9add946fd624   
 **Meternaam**: P10   
-**Eenheid**: het aantal schijven   
+**Eenheid**: aantal van de schijven\*uur   
 **Opmerkingen bij de**: Premium-beheerde schijf: 128 GB  
 
 **ID meten**: 8de91c94-f740-4d9a-b665-bd5974fa08d4   
 **Meternaam**: P15  
-**Eenheid**: het aantal schijven   
+**Eenheid**: aantal van de schijven\*uur   
 **Opmerkingen bij de**: Premium-beheerde schijf – 256 GB 
 
 **ID meten**: c7e7839c-293b-4761-ae4c-848eda91130b   
 **Meternaam**: P20   
-**Eenheid**: het aantal schijven   
+**Eenheid**: aantal van de schijven\*uur   
 **Opmerkingen bij de**: Premium-beheerde schijf – 512 GB 
 
 **ID meten**: 9f502103-adf4-4488-b494-456c95d23a9f   
 **Meternaam**: P30   
-**Eenheid**: het aantal schijven   
+**Eenheid**: aantal van de schijven\*uur   
 **Opmerkingen bij de**: Premium-beheerde schijf: 1024 GB 
 
 **ID meten**: 043757fc-049f-4e8b-8379-45bb203c36b1   
 **Meternaam**: P40   
-**Eenheid**: het aantal schijven    
+**Eenheid**: aantal van de schijven\*uur    
 **Opmerkingen bij de**: Premium-beheerde schijf: 2048 GB 
 
 **ID meten**: c0342c6f-810b-4942-85d3-6eaa561b6570   
 **Meternaam**: P50   
-**Eenheid**: het aantal schijven   
+**Eenheid**: aantal van de schijven\*uur   
 **Opmerkingen bij de**: Premium-beheerde schijf – 4096 GB 
 
 **ID meten**: 8a409390-1913-40ae-917b-08d0f16f3c38   
 **Meternaam**: ActualStandardDiskSize   
-**Eenheid**: bytes      
+**Eenheid**: Byte\*uur      
 **Opmerkingen bij de**: de werkelijke grootte op schijf van de standard-beheerde schijven  
 
 **ID meten**: 1273b16f-8458-4c34-8ce2-a515de551ef6  
 **Meternaam**: ActualPremiumDiskSize   
-**Eenheid**: bytes      
+**Eenheid**: Byte\*uur      
 **Opmerkingen bij de**: de werkelijke grootte op schijf van de premium-beheerde schijf 
 
 **ID meten**: 89009682-df7f-44fe-aeb1-63fba3ddbf4c  
 **Meternaam**: ActualStandardSnapshotSize   
-**Eenheid**: bytes   
+**Eenheid**: Byte\*uur   
 **Opmerkingen bij de**: de werkelijke grootte op schijf van beheerde standard momentopname.  
 
 **ID meten**: 95b0c03f-8a82-4524-8961-ccfbf575f536   
 **Meternaam**: ActualPremiumSnapshotSize   
-**Eenheid**: bytes   
+**Eenheid**: Byte\*uur   
 **Opmerkingen bij de**: de werkelijke grootte op schijf van beheerde premium.   
 
 ### <a name="sql-rp"></a>SQL-RP

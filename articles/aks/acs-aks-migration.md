@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 06/13/2018
 ms.author: nobun
 ms.custom: mvc
-ms.openlocfilehash: d26e849cf775e0c645ae97e4b67b5918bbbabd55
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: e42b0e7bd1bce40b7c58d75cb07f5a3f8afa5836
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/17/2018
-ms.locfileid: "49361375"
+ms.locfileid: "49385038"
 ---
 # <a name="migrating-from-azure-container-service-acs-to-azure-kubernetes-service-aks"></a>Migreren van Azure Containerservice (ACS) naar Azure Kubernetes Service (AKS)
 
@@ -53,7 +53,7 @@ Voorbeeld:
 | agentpool0 | 3 | Standard_D8_v2 | Linux |
 | agentpool1 | 1 | Standard_D2_v2 | Windows |
 
-Omdat de extra virtuele machines worden geïmplementeerd in uw abonnement tijdens de migratie, moet u controleren of uw quota en limieten voldoende voor deze resources zijn. U kunt meer informatie aan de hand [Azure-abonnement en Servicelimieten](https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits). Om te controleren of uw huidige quota, gaat u naar de [blade abonnementen](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) in Azure portal, selecteert u uw abonnement en vervolgens `Usage + quotas`.
+Omdat de extra virtuele machines worden geïmplementeerd in uw abonnement tijdens de migratie, moet u controleren of uw quota en limieten voldoende voor deze resources zijn. U kunt meer informatie aan de hand [Azure-abonnement en Servicelimieten](https://docs.microsoft.com/azure/azure-subscription-service-limits). Om te controleren of uw huidige quota, gaat u naar de [blade abonnementen](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) in Azure portal, selecteert u uw abonnement en vervolgens `Usage + quotas`.
 
 ### <a name="networking"></a>Netwerken
 
@@ -86,7 +86,7 @@ Er zijn diverse factoren om te overwegen als u bestaande permanente Volumes AKS 
 2. Momentopnameschijven
 3. Nieuwe beheerde schijven maken van momentopnamen
 4. Permanente Volumes in AKS maakt
-5. Bijwerken van de schil specificaties die moeten worden [bestaande volumes gebruiken](https://docs.microsoft.com/en-us/azure/aks/azure-disk-volume) in plaats van PersistentVolumeClaims (vaste inrichting)
+5. Bijwerken van de schil specificaties die moeten worden [bestaande volumes gebruiken](https://docs.microsoft.com/azure/aks/azure-disk-volume) in plaats van PersistentVolumeClaims (vaste inrichting)
 6. Toepassing implementeren naar AKS
 7. Valideren
 8. Bepaald verkeer naar het AKS-cluster
@@ -112,7 +112,7 @@ Als dat niet het geval is, moet u mogelijk migratie benadering omvat de volgende
 4. Valideren
 5. Bepaald verkeer naar het AKS-cluster
 
-In gevallen waar u wilt beginnen met een lege delen en vervolgens maakt u een kopie van de brongegevens bevinden, kunt u de [ `az storage file copy` ](https://docs.microsoft.com/en-us/cli/azure/storage/file/copy?view=azure-cli-latest) opdrachten om uw gegevens te migreren.
+In gevallen waar u wilt beginnen met een lege delen en vervolgens maakt u een kopie van de brongegevens bevinden, kunt u de [ `az storage file copy` ](https://docs.microsoft.com/cli/azure/storage/file/copy?view=azure-cli-latest) opdrachten om uw gegevens te migreren.
 
 ### <a name="deployment-strategy"></a>Implementatiestrategie
 
@@ -134,7 +134,7 @@ Er zijn ook verschillende open-source-hulpprogramma's die, afhankelijk van uw be
 
 ### <a name="1-create-an-aks-cluster"></a>1. Een AKS-cluster maken
 
-U kunt de documenten te volgen [een AKS-cluster maken](https://docs.microsoft.com/en-us/azure/aks/create-cluster) via Azure portal, Azure CLI of Resource Manager-sjabloon.
+U kunt de documenten te volgen [een AKS-cluster maken](https://docs.microsoft.com/azure/aks/create-cluster) via Azure portal, Azure CLI of Resource Manager-sjabloon.
 
 > Vindt u voorbeeld van Azure Resource Manager-sjablonen voor AKS op de [Azure/AKS](https://github.com/Azure/AKS/tree/master/examples/vnet) -bibliotheek op GitHub
 

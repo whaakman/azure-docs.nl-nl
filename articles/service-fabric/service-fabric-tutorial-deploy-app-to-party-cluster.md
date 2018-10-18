@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 07/12/2018
 ms.author: ryanwi,mikhegn
 ms.custom: mvc
-ms.openlocfilehash: 68ff8ae6a055ee609e3b4f87c4847c6f2a55a9da
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 443d37f5b45db9495c09d68300c9ea4978466eb9
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44300695"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49388225"
 ---
 # <a name="tutorial-deploy-a-service-fabric-application-to-a-cluster-in-azure"></a>Zelfstudie: Een Service Fabric-toepassing implementeren naar een cluster in Azure
 
@@ -57,12 +57,12 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 
 ## <a name="publish-to-a-service-fabric-cluster"></a>Een Service Fabric-cluster publiceren
 
-Nu de toepassing klaar is, kunt u deze rechtstreeks vanuit Visual Studio implementeren naar een cluster. Een [Service Fabric-cluster](https://docs.microsoft.com/en-gb/azure/service-fabric/service-fabric-deploy-anywhere) is een met het netwerk verbonden reeks virtuele of fysieke machines waarop uw microservices worden geïmplementeerd en beheerd.
+Nu de toepassing klaar is, kunt u deze rechtstreeks vanuit Visual Studio implementeren naar een cluster. Een [Service Fabric-cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-anywhere) is een met het netwerk verbonden reeks virtuele of fysieke machines waarop uw microservices worden geïmplementeerd en beheerd.
 
 Voor deze zelfstudie kunt u de stemtoepassing op twee manieren met behulp van Visual Studio implementeren naar een Service Fabric-cluster:
 
 * Publiceren naar een (extern) testcluster. 
-* Publiceren naar een bestaand cluster in uw abonnement. U kunt Service Fabric-clusters maken via de [Azure-portal](https://portal.azure.com), met behulp van [PowerShell](./scripts/service-fabric-powershell-create-secure-cluster-cert.md)- of [Azure CLI](./scripts/cli-create-cluster.md)-scripts, of vanuit een [Azure Resource Manager-sjabloon](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
+* Publiceren naar een bestaand cluster in uw abonnement. U kunt Service Fabric-clusters maken via [Azure Portal](https://portal.azure.com), met behulp van [PowerShell](./scripts/service-fabric-powershell-create-secure-cluster-cert.md)- of [Azure CLI](./scripts/cli-create-cluster.md)-scripts, of vanuit een [Azure Resource Manager-sjabloon](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
 
 > [!NOTE]
 > Veel services gebruiken de omgekeerde proxy om met elkaar te communiceren. Clusters die zijn gemaakt vanuit Visual Studio en clusters van derden hebben omgekeerde proxy standaard ingeschakeld. Als u een bestaand cluster gebruikt, moet u [de omgekeerde proxy in het cluster inschakelen](service-fabric-reverseproxy-setup.md).
@@ -78,7 +78,7 @@ De front-endwebservice luistert op een specifieke poort. Wanneer de toepassing i
 <Endpoint Protocol="http" Name="ServiceEndpoint" Type="Input" Port="8080" />
 ```
 
-Open deze poort voor uw Azure-abonnement met behulp van een taakverdelingsregel in Azure. Gebruik hiervoor een [PowerShell-script](./scripts/service-fabric-powershell-open-port-in-load-balancer.md) of de ga naar de load balancer voor dit cluster in de [Azure-portal](https://portal.azure.com).
+Open deze poort voor uw Azure-abonnement met behulp van een taakverdelingsregel in Azure. Gebruik hiervoor een [PowerShell-script](./scripts/service-fabric-powershell-open-port-in-load-balancer.md) of de ga naar de load balancer voor dit cluster in [Azure Portal](https://portal.azure.com).
 
 ### <a name="join-a-party-cluster"></a>Deelnemen aan een Party-cluster
 

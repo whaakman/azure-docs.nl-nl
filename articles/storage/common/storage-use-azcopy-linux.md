@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/26/2018
 ms.author: seguler
 ms.component: common
-ms.openlocfilehash: 3863c2eeb73997361a6a903f0b382a8c50ad6d4f
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 1aff2ecdec83886d40d12b76e64a14a81451e89e
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48870754"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49386685"
 ---
 # <a name="transfer-data-with-azcopy-on-linux"></a>Gegevens overdragen met AzCopy voor Linux
 
@@ -713,7 +713,7 @@ Zie de volgende bronnen voor meer informatie over Azure Storage en AzCopy:
 * [Blob Storage gebruiken met Python](../blobs/storage-python-how-to-use-blob-storage.md)
 
 ### <a name="azure-storage-blog-posts"></a>Azure Storage-blogberichten:
-* [Aankondiging van AzCopy in Linux-Preview](https://azure.microsoft.com/en-in/blog/announcing-azcopy-on-linux-preview/)
+* [Aankondiging van AzCopy in Linux-Preview](https://azure.microsoft.com/blog/announcing-azcopy-on-linux-preview/)
 * [Maak kennis met de verplaatsing van Azure Storage-bibliotheek Gegevensvoorbeeld](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/)
 * [AzCopy: Introductie van synchrone kopiëren en aangepaste inhoudstype](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/01/13/azcopy-introducing-synchronous-copy-and-customized-content-type.aspx)
 * [AzCopy: Aankondiging van algemene beschikbaarheid van AzCopy 3.0 plus preview-versie van AzCopy 4.0 met ondersteuning voor tabel en bestand](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/10/29/azcopy-announcing-general-availability-of-azcopy-3-0-plus-preview-release-of-azcopy-4-0-with-table-and-file-support.aspx)

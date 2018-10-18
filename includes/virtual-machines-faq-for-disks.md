@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/03/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: ea9eecbc1d59b80e5454a2677e897588d258c96a
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: c0045af02b307bff686d47dd8fc4aabb290711a4
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48874075"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49400354"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Veelgestelde vragen over Azure IaaS VM-schijven en beheerde en onbeheerde premium-schijven
 
@@ -171,7 +171,7 @@ Het volgende voorbeeld wordt de *properties.storageProfile.osDisk* sectie voor e
 Zie voor een voorbeeld van de volledige sjabloon van het maken van een Standard-SSD-schijf met een sjabloon, [een virtuele machine maken vanaf een Windows-installatiekopie met de Standard-SSD-gegevensschijven](https://github.com/azure/azure-quickstart-templates/tree/master/101-vm-with-standardssd-disk/).
 
 **Kan ik mijn bestaande schijven converteren naar Standard-SSD?**
-Ja, dat is mogelijk. Raadpleeg [converteren Azure managed disks-opslag van standard naar premium, en vice versa](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/convert-disk-storage) voor de algemene richtlijnen voor het converteren van Managed Disks. En gebruik de volgende waarde voor het bijwerken van het schijftype naar de Standard-SSD.
+Ja, dat is mogelijk. Raadpleeg [converteren Azure managed disks-opslag van standard naar premium, en vice versa](https://docs.microsoft.com/azure/virtual-machines/windows/convert-disk-storage) voor de algemene richtlijnen voor het converteren van Managed Disks. En gebruik de volgende waarde voor het bijwerken van het schijftype naar de Standard-SSD.
 -AccountType StandardSSD_LRS
 
 **Wat is het voordeel van het gebruik van Standard-SSD-schijven in plaats van HDD?**

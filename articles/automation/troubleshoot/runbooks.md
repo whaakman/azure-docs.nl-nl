@@ -4,16 +4,16 @@ description: Meer informatie over het oplossen van problemen met Azure Automatio
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 07/13/2018
+ms.date: 10/17/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: b02f1b04756f1e3f01426e58c5f8c625cb746f05
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: b8c6b82af1a71f5e2df7dd555c7ceb91b8ccd292
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47163899"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394541"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Fouten met runbooks oplossen
 
@@ -32,14 +32,14 @@ Unknown_user_type: Unknown User Type
 
 #### <a name="cause"></a>Oorzaak
 
-Deze fout treedt op als de naam van de referentie-asset niet geldig is of als de gebruikersnaam en het wachtwoord die u hebt gebruikt voor het instellen van het Automation-referentieasset niet geldig zijn.
+Deze fout treedt op als de naam van de referentie-asset is niet geldig of als de gebruikersnaam en het wachtwoord die u hebt gebruikt voor het instellen van het Automation-referentieasset ongeldig zijn.
 
 #### <a name="resolution"></a>Oplossing
 
 Om te bepalen wat er mis is, moet u de volgende stappen uitvoeren:  
 
-1. Zorg ervoor dat u geen speciale tekens heeft, met inbegrip van de **@** teken in de naam van Automation-referentie asset die u gebruikt voor het verbinding maken met Azure.  
-2. Controleer dat u de gebruikersnaam en het wachtwoord die zijn opgeslagen in de Azure Automation-referentie in uw lokale PowerShell ISE-editor kunt gebruiken. U kunt dit doen door het uitvoeren van de volgende cmdlets in PowerShell ISE:  
+1. Zorg ervoor dat u geen speciale tekens heeft, met inbegrip van de **@** teken in de naam van Automation-referentie asset die u gebruikt om te verbinden met Azure.  
+2. Controleer dat u de gebruikersnaam en het wachtwoord die zijn opgeslagen in de Azure Automation-referentie in uw lokale PowerShell ISE-editor kunt gebruiken. U kunt doen. Controleer de gebruikersnaam en het wachtwoord juist zijn door het uitvoeren van de volgende cmdlets in PowerShell ISE:  
 
    ```powershell
    $Cred = Get-Credential  
@@ -49,9 +49,9 @@ Om te bepalen wat er mis is, moet u de volgende stappen uitvoeren:
    Connect-AzureRmAccount –Credential $Cred
    ```
 
-3. Als de verificatie lokaal mislukt, betekent dit dat u uw Azure Active Directory-referenties juist nog niet hebt ingesteld. Raadpleeg [zich verifiëren bij Azure met behulp van Azure Active Directory](https://azure.microsoft.com/blog/azure-automation-authenticating-to-azure-using-azure-active-directory/) blogbericht om op te halen van de Azure Active Directory-account juist ingesteld.  
+3. Als de verificatie lokaal is mislukt, betekent dit dat u uw Azure Active Directory-referenties juist nog niet hebt ingesteld. Raadpleeg [zich verifiëren bij Azure met behulp van Azure Active Directory](https://azure.microsoft.com/blog/azure-automation-authenticating-to-azure-using-azure-active-directory/) blogbericht om op te halen van de Azure Active Directory-account juist ingesteld.  
 
-4. Als het erop lijkt te zijn van een tijdelijke fout, probeer logica voor opnieuw proberen toe te voegen aan uw verificatie routine maken verifiëren krachtiger.
+4. Als het ziet als een tijdelijke fout eruit, kunt u de logica voor opnieuw proberen toe te voegen aan uw verificatie routine maken verifiëren krachtiger.
 
    ```powershell
    # Get the connection "AzureRunAsConnection"
@@ -79,7 +79,7 @@ Om te bepalen wat er mis is, moet u de volgende stappen uitvoeren:
 
 #### <a name="issue"></a>Probleem
 
-U ontvangt de volgende fout bij het werken met de `Select-AzureSubscription` of `Select-AzureRmSubscription` cmdlets.:
+U ontvangt de volgende fout bij het werken met de `Select-AzureSubscription` of `Select-AzureRmSubscription` cmdlets:
 
 ```
 The subscription named <subscription name> cannot be found.
@@ -87,11 +87,11 @@ The subscription named <subscription name> cannot be found.
 
 #### <a name="error"></a>Fout
 
-Deze fout treedt op als naam van het abonnement niet geldig is of als de Azure Active Directory-gebruiker die is bij het ophalen van details van het abonnement is niet geconfigureerd als een beheerder van het abonnement.
+Deze fout treedt op als naam van het abonnement is niet geldig of als de Azure Active Directory-gebruiker die is bij het ophalen van details van het abonnement is niet geconfigureerd als een beheerder van het abonnement.
 
 #### <a name="resolution"></a>Oplossing
 
-Om te bepalen als u hebt geverifieerd naar Azure en hebben toegang tot het abonnement dat u wilt selecteren, moet u de volgende stappen uitvoeren:  
+Om te bepalen als u hebt geverifieerd naar Azure en toegang tot het abonnement dat u probeert hebben te selecteren, moet u de volgende stappen uitvoeren:  
 
 1. Zorg ervoor dat u uitvoert het **Add-AzureAccount** cmdlet voordat u de **Select-AzureSubscription** cmdlet.  
 2. Als u nog steeds deze foutmelding ziet, wijzigt u de code door toe te voegen de **- AzureRmContext** parameter volgende de **Add-AzureAccount** cmdlet en vervolgens de code wordt uitgevoerd.
@@ -197,7 +197,7 @@ The term 'Connect-AzureRmAccount' is not recognized as the name of a cmdlet, fun
 Deze fout kan worden veroorzaakt door de volgende redenen:
 
 1. De module met de cmdlet is niet geïmporteerd in het automation-account
-2. De module containg de cmdlet is geïmporteerd, maar is verouderd
+2. De module met de cmdlet is geïmporteerd, maar is verouderd
 
 #### <a name="resolution"></a>Oplossing
 
@@ -205,7 +205,7 @@ Deze fout kan worden opgelost door een van de volgende taken voltooien:
 
 Als de module een Azure-module is, Zie [het bijwerken van Azure PowerShell-modules in Azure Automation](../automation-update-azure-modules.md) voor informatie over het bijwerken van de modules in uw automation-account.
 
-Als een afzonderlijke module is, controleert u of de module in geïmporteerd in uw Automation-Account.
+Als er geen afzonderlijke module, zorg ervoor dat de module in geïmporteerd in uw Automation-Account.
 
 ### <a name="job-attempted-3-times"></a>Scenario: Het begin van de runbook-taak drie keer is uitgevoerd, maar deze kan niet worden gestart elke keer
 
@@ -221,11 +221,11 @@ The job was tried three times but it failed
 
 Deze fout kan worden veroorzaakt door de volgende redenen:
 
-1. Limiet voor geheugen. Er zijn voorgeschreven limiet op hoeveel geheugen toegewezen aan een Sandbox [Automation Servicelimieten](../../azure-subscription-service-limits.md#automation-limits) , zodat een taak uitvoeren kan als er meer dan 400 MB aan geheugen.
+1. Limiet voor geheugen. Er zijn voorgeschreven limiet op hoeveel geheugen is toegewezen aan een Sandbox [Automation Servicelimieten](../../azure-subscription-service-limits.md#automation-limits) , zodat een taak uitvoeren kan als er meer dan 400 MB aan geheugen.
 
 1. Netwerk-Sockets. Azure-sandboxes geladen zijn beperkt tot 1000 gelijktijdige netwerk sockets, zoals beschreven op [Automation Servicelimieten](../../azure-subscription-service-limits.md#automation-limits).
 
-1. Module die incompatibel is. Dit kan gebeuren als de module-afhankelijkheden niet juist zijn en als dat niet het geval is, uw runbook doorgaans retourneert 'Opdracht niet gevonden' of 'Kan niet binden parameter'-bericht.
+1. Module die incompatibel is. Deze fout kan optreden als de module-afhankelijkheden niet juist zijn en als ze niet, uw runbook retourneert doorgaans een '-opdracht niet gevonden' of 'Kan niet binden parameter'-bericht.
 
 #### <a name="resolution"></a>Oplossing
 
@@ -251,13 +251,13 @@ Cannot convert the <ParameterType> value of type Deserialized <ParameterType> to
 
 #### <a name="cause"></a>Oorzaak
 
-Als uw runbook een PowerShell-werkstroom is, slaat deze complexe objecten in een gedeserialiseerde indeling om de status van uw runbook behouden als de werkstroom wordt onderbroken.
+Als uw runbook een PowerShell-werkstroom is, slaat deze complexe objecten in een gedeserialiseerde indeling om vast te leggen de status van uw runbook als de werkstroom wordt onderbroken.
 
 #### <a name="resolution"></a>Oplossing
 
 Een van de volgende drie oplossingen kunt dit probleem oplossen:
 
-1. Als u complexe objecten van een cmdlet naar een andere zijn sluizen, moet u deze cmdlets verpakken in een InlineScript.
+1. Als u complexe objecten van een cmdlet naar een andere sluizen bent, moet u deze cmdlets verpakken in een InlineScript.
 2. De naam of de waarde die u nodig hebt van het complexe object in plaats van het doorgeven van het gehele object doorgegeven.
 3. Een PowerShell-runbook gebruiken in plaats van een PowerShell Workflow-runbook.
 
@@ -296,44 +296,46 @@ De runbook-taak is mislukt met de fout:
 
 #### <a name="cause"></a>Oorzaak
 
-Deze fout wordt veroorzaakt wanneer de PowerShell-engine de cmdlet die u in uw runbook gebruikt niet kan vinden. Dit kan zijn omdat de module met de cmdlet in het account ontbreekt, er een naamconflict geeft met de naam van een runbook wordt of de cmdlet ook in een andere module bestaat en de naam kan niet worden omgezet in Automation.
+Deze fout wordt veroorzaakt wanneer de PowerShell-engine de cmdlet die u in uw runbook niet kan vinden. Dit kan zijn omdat de module met de cmdlet in het account ontbreekt, er een naamconflict geeft met de naam van een runbook wordt of de cmdlet ook in een andere module bestaat en de naam kan niet worden omgezet in Automation.
 
 #### <a name="resolution"></a>Oplossing
 
 Een van de volgende oplossingen het probleem wordt opgelost:  
 
 * Controleer of u de cmdletnaam van de juist hebt ingevoerd.  
-* Zorg ervoor dat de cmdlet bestaat in uw Automation-account en er zijn geen conflicten. Om te controleren of de cmdlet aanwezig is, opent u een runbook in de bewerkingsmodus en zoeken naar de cmdlet die u wilt zoeken in de bibliotheek of uitvoeren `Get-Command <CommandName>`. Nadat u hebt gevalideerd die de cmdlet voor het account beschikbaar is, en dat er geen naam conflicteert met andere cmdlets of runbooks, toe te voegen aan het canvas en zorg ervoor dat u van een geldige parameter ingesteld in uw runbook gebruikmaakt.  
+* Zorg ervoor dat de cmdlet bestaat in uw Automation-account en er zijn geen conflicten. Om te controleren of de cmdlet aanwezig is, opent u een runbook in de bewerkingsmodus en zoeken naar de cmdlet die u wilt zoeken in de bibliotheek of uitvoeren `Get-Command <CommandName>`. Zodra u hebt gevalideerd die de cmdlet voor het account beschikbaar is en dat er geen naam conflicteert met andere cmdlets of runbooks, toe te voegen aan het canvas en zorg ervoor dat u een geldige parameter ingesteld in uw runbook.  
 * Als er een naamconflict en de cmdlet beschikbaar in twee verschillende modules is, kunt u deze kunt oplossen met behulp van de volledig gekwalificeerde naam van de cmdlet. Bijvoorbeeld, kunt u **ModuleName\CmdletName**.  
-* Als u de runbook on-premises worden uitgevoerd in een hybrid worker-groep en zorg ervoor dat is de module/cmdlet op de computer die als host fungeert voor de hybrid worker geïnstalleerd.
-
-### <a name="evicted-from-checkpoint"></a>Scenario: Een langlopende runbook consistent is mislukt met de uitzondering: "de taak kan niet worden voortgezet te voeren, omdat het herhaaldelijk is verwijderd uit het hetzelfde controlepunt"
-
-#### <a name="issue"></a>Probleem
-
-Dit gedrag is standaard vanwege de bewaking van 'Geoorloofd delen' van de processen in Azure Automation, waarmee automatisch een runbook wordt geblokkeerd als deze meer dan drie uur wordt uitgevoerd. Het foutbericht geretourneerd biedt echter geen in 'wat nu' opties.
-
-#### <a name="cause"></a>Oorzaak
-
-Een runbook kan worden onderbroken voor een aantal oorzaken hebben. Wordt onderbroken gebeurt meestal vanwege fouten. Bijvoorbeeld, een niet-onderschepte uitzondering in een runbook, een netwerkstoring of een crash van de Runbook-Worker waarop het runbook wordt uitgevoerd, alle ertoe leiden dat het runbook wordt onderbroken en starten vanaf de laatste controlepunt wanneer hervat.
-
-#### <a name="resolution"></a>Oplossing
-
-De gedocumenteerde oplossing om te voorkomen dat dit probleem is met controlepunten in een werkstroom. Raadpleeg voor meer informatie, [Learning PowerShell-werkstromen](../automation-powershell-workflow.md#checkpoints). Een meer gedetailleerde informatie over het 'Geoorloofd delen' en de controlepunten vindt u in dit blogartikel [met behulp van controlepunten in Runbooks](https://azure.microsoft.com/blog/azure-automation-reliable-fault-tolerant-runbook-execution-using-checkpoints/).
+* Als u bent de runbook on-premises wordt uitgevoerd in een hybrid worker-groep en zorg ervoor dat is de module/cmdlet op de computer die als host fungeert voor de hybrid worker geïnstalleerd.
 
 ### <a name="long-running-runbook"></a>Scenario: Een langlopende runbook kan niet worden voltooid
 
 #### <a name="issue"></a>Probleem
 
-Dit gedrag is inherent aan Azure-sandboxes geladen vanwege de bewaking van 'Geoorloofd delen' van de processen in Azure Automation, waarmee automatisch een runbook wordt geblokkeerd als deze meer dan drie uur wordt uitgevoerd.
+Uw runbook bevat in een **gestopt** status nadat het is uitgevoerd voor drie uur. De fout kan ook optreden:
+
+```
+The job was evicted and subsequently reached a Stopped state. The job cannot continue running
+```
+
+Dit gedrag is inherent aan Azure-sandboxes geladen vanwege de bewaking van 'Geoorloofd delen' van de processen in Azure Automation, waarmee automatisch een runbook wordt gestopt als deze meer dan drie uur wordt uitgevoerd. De status van een runbook dat na de termijn eerlijke-share gaat verschilt per runbooktype. PowerShell en Python-runbooks zijn ingesteld op een **gestopt** status. PowerShell Workflow-runbooks zijn ingesteld op **mislukt**.
 
 #### <a name="cause"></a>Oorzaak
 
-Het runbook werd uitgevoerd dan de limiet 3 uur is toegestaan door evenredige deel in een Azure-Sandbox
+Het runbook werd uitgevoerd dan de limiet 3 uur is toegestaan door evenredige deel in een Sandbox met Azure.
 
 #### <a name="resolution"></a>Oplossing
 
-De aanbevolen oplossing is om uit te voeren van het runbook op een [Hybrid Runbook Worker](../automation-hrw-run-runbooks.md). Hybrid Workers worden niet beperkt door de [evenredige deel](../automation-runbook-execution.md#fair-share) 3 uur runbook beperken die Azure-sandboxes geladen zijn.
+Een aanbevolen oplossing is om uit te voeren van het runbook op een [Hybrid Runbook Worker](../automation-hrw-run-runbooks.md).
+
+Hybrid Workers zijn niet beperkt door de [evenredige deel](../automation-runbook-execution.md#fair-share) 3 uur runbook beperken die Azure-sandboxes geladen zijn. Terwijl de Hybrid Runbook Workers zijn niet beperkt door de limiet van de evenredige deel 3 uur, runbooks die worden uitgevoerd op Hybrid Runbook Workers moeten nog steeds worden ontwikkeld ter ondersteuning van opnieuw opstarten gedrag in het geval van problemen met onverwachte lokale infrastructuur.
+
+Een andere optie is het optimaliseren van het runbook met het maken van [onderliggende runbooks](../automation-child-runbooks.md). Als uw runbook dezelfde functie op een aantal resources, zoals een databasebewerking op verschillende databases doorloopt, kunt u deze functie kunt verplaatsen naar een onderliggend runbook. Elk van deze onderliggende runbooks wordt parallel uitgevoerd in afzonderlijke processen, waardoor het minder lang duurt voordat het bovenliggende runbook is voltooid.
+
+De PowerShell-cmdlets waarmee het onderliggende runbook scenario zijn:
+
+[Start-AzureRMAutomationRunbook](/powershell/module/AzureRM.Automation/Start-AzureRmAutomationRunbook) -met deze cmdlet kunt u een runbook te starten en parameters doorgeven aan het runbook
+
+[Get-AzureRmAutomationJob](/powershell/module/azurerm.automation/get-azurermautomationjob) -met deze cmdlet kunt u de taak de status van alle onderliggende controleren als er bewerkingen die worden uitgevoerd moeten nadat het onderliggende runbook is voltooid.
 
 ## <a name="common-errors-when-importing-modules"></a>Veelvoorkomende fouten bij het importeren van modules
 
@@ -348,9 +350,9 @@ Een module te importeren is mislukt of is geïmporteerd, maar geen cmdlets worde
 Er zijn enkele veelvoorkomende redenen waarom dat een module niet met succes in Azure Automation importeren kan:
 
 * De structuur komt niet overeen met de structuur die het Automation nodig heeft om te worden.
-* De module is afhankelijk van een andere module die niet is geïmplementeerd voor uw Automation-account.
+* De module is afhankelijk van een andere module die nog niet geïmplementeerd is naar uw Automation-account.
 * De module ontbreekt de bijbehorende afhankelijkheden in de map.
-* De `New-AzureRmAutomationModule` cmdlet voor het uploaden van de module wordt gebruikt en u hebt niet de volledige opslagpad gegeven of de module met behulp van een openbaar toegankelijke URL niet geladen.
+* De `New-AzureRmAutomationModule` cmdlet wordt gebruikt voor het uploaden van de module en have't u de volledige opslagpad gegeven of de module nog niet hebt geladen met behulp van een openbaar toegankelijke URL.
 
 #### <a name="resolution"></a>Oplossing
 
@@ -362,7 +364,7 @@ Een van de volgende oplossingen het probleem wordt opgelost:
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Als u het probleem niet wordt gezien of kan niet aan het oplossen van uw probleem, gaat u naar een van de volgende kanalen voor ondersteuning van meer:
+Als u uw probleem niet zien of u niet kunt oplossen van uw probleem, gaat u naar een van de volgende kanalen voor ondersteuning van meer:
 
 * Krijg antwoorden van Azure-experts op [Azure-Forums](https://azure.microsoft.com/support/forums/)
 * Maak verbinding met [@AzureSupport](https://twitter.com/azuresupport), het officiële Microsoft Azure-account voor het verbeteren van de gebruikerservaring door de Azure-community in contact te brengen met de juiste resources: antwoorden, ondersteuning en experts.

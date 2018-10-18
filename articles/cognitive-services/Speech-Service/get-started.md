@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: erhopf
-ms.openlocfilehash: 4530ecca973054ee73a02ca4e047dfe52ea90d04
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 7ca423a4953dbe05af119d6b6eb12976c722e374
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49166182"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49393266"
 ---
 # <a name="try-the-speech-service-for-free"></a>Speech Service gratis uitproberen
 
@@ -67,7 +67,7 @@ Volg de stappen in de volgende sectie voor een abonnement op de spraak-service s
 
 Een bron van de spraak-service (gratis of betaalde laag) toevoegen aan uw Azure-account:
 
-1. Aanmelden bij de [Azure-portal](https://ms.portal.azure.com/) met uw Microsoft-account.
+1. Aanmelden bij de [Azure-portal](https://portal.azure.com/) met uw Microsoft-account.
 
 1. Selecteer **een resource maken** op linksboven in de portal.
 

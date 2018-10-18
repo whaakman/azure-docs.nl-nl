@@ -2,25 +2,19 @@
 title: Quickstart voor Microsoft Azure Data Box Disk | Microsoft Docs
 description: Gebruik deze quickstart om uw Azure Data Box Disk snel te implementeren in de Azure-portal.
 services: databox
-documentationcenter: NA
 author: alkohli
-manager: twooley
-editor: ''
-ms.assetid: ''
 ms.service: databox
-ms.devlang: NA
+ms.subservice: disk
 ms.topic: quickstart
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 09/07/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to quickly deploy Data Box Disk so as to import data into Azure.
-ms.openlocfilehash: b4ec329fc5b1f3df9e6641bee3e1378c3a4d09c6
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: ca0fb177c8b6a16cf624fd4533c9c9040e6d9dee
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44378343"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49365231"
 ---
 # <a name="quickstart-deploy-azure-data-box-disk-using-the-azure-portal-preview"></a>Quickstart: De Azure Data Box Disk implementeren met de Azure-portal (preview)
 
@@ -28,7 +22,7 @@ In deze quickstart wordt beschreven hoe u de Azure Data Box Disk implementeert m
 
 Ga naar [Zelfstudie: Azure Data Box Disk bestellen](data-box-disk-deploy-ordered.md) voor gedetailleerde stapsgewijze implementatie- en volginstructies. 
 
-Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/en-us/free/?WT.mc_id=A261C142F) aan.
+Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan.
 
 > [!IMPORTANT]
 > Data Box Disk is in de preview-fase. Lees de [Azure-gebruiksvoorwaarden voor de preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voordat u deze oplossing implementeert.
@@ -41,7 +35,7 @@ Voordat u begint:
 
 ## <a name="sign-in-to-azure"></a>Aanmelden bij Azure
 
-Meld u aan bij de Azure-portal op [http://aka.ms/azuredataboxfromdiskdocs](http://aka.ms/azuredataboxfromdiskdocs).
+Meld u aan bij de Azure Portal op [http://aka.ms/azuredataboxfromdiskdocs](http://aka.ms/azuredataboxfromdiskdocs).
 
 ## <a name="order"></a>Bestellen
 

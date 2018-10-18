@@ -4,29 +4,29 @@ description: Dit onderwerp biedt een overzicht van live streamen met Azure Media
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 06/06/2018
+ms.date: 10/16/2018
 ms.author: juliako
-ms.openlocfilehash: e9ecf1ba3022ca057fa09bad2413aa19d902ae23
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 533aa505c38d3cbfb46d70acecd43cc66614b13d
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38972176"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49378133"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Live streamen met Azure Media Services v3
 
 Bij het leveren van live streaming-gebeurtenissen met Azure Media Services wordt u doorgaans gebruik van de volgende onderdelen:
 
 * Een camera die wordt gebruikt voor het uitzenden van een gebeurtenis.
-* Een coderingsprogramma voor live video dat signalen van de camera (of een ander apparaat, zoals een laptop) converteert naar stromen die worden verzonden naar de Media Services live-streamingservice. De signalen kunnen ook advertentie SCTE 35 en Ad-hints. 
-* De Media Services live streaming-service kunt u opnemen, preview, inpakken, registreren, versleutelen en uitzenden van de inhoud aan uw klanten of aan een CDN voor verdere distributie.
+* Een coderingsprogramma voor live video dat signalen van de camera (of een ander apparaat, zoals een laptop) converteert naar stromen die worden verzonden naar de service licten Streaming. De signalen kunnen ook advertentie SCTE 35 en Ad-hints. 
+* De Media Services Live Streaming-service kunt u opnemen, preview, inpakken, registreren, versleutelen en uitzenden van de inhoud aan uw klanten of aan een CDN voor verdere distributie.
 
 In dit artikel biedt een gedetailleerd overzicht en schema's van de belangrijkste onderdelen die betrokken zijn bij het live streamen met Media Services bevat.
 
@@ -40,6 +40,17 @@ Media Services kunt u uw inhoud dynamisch wordt versleuteld bezorgen (**dynamisc
 
 Indien gewenst, kunt u ook toepassen **dynamisch filteren**, die kan worden gebruikt voor het beheren van de aantal sporen te wissen, indelingen bitsnelheden, die worden verzonden naar de spelers. Media Services biedt ook ondersteuning voor advertentie-invoeging.
 
+### <a name="new-live-encoding-improvements"></a>Nieuwe verbeteringen in Live encoding
+
+De volgende nieuwe verbeteringen zijn uitgevoerd in de nieuwste versie.
+
+- Nieuwe modus voor lage latentie voor live (10 seconden end-to-end).
+- Verbeterde RTMP-ondersteuning (verbeterde stabiliteit en meer bron encoder-ondersteuning).
+- Beveiligde RTMPS opnemen.
+
+    Bij het maken van een LiveEvent u nu toegang tot 4 URL's voor opnemen. Opname van de 4 URL's zijn bijna identiek, hetzelfde streaming-token (AppId), alleen de poort nummer onderdeel verschilt. Twee van de URL's zijn primaire en back-up voor RTMPS.   
+- ondersteuning voor het transcoderen van 24 uur per dag. 
+- Verbeterde ondersteuning voor ad-signalering in RTMP via SCTE35.
 
 ## <a name="liveevent-types"></a>LiveEvent typen
 

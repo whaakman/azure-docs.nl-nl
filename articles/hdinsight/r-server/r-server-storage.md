@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 5bd5919efa84f2dd22929075b806747b413ac346
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 4c3b36891030ae97f382d5e1d0623fa7c698dbf6
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43051790"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49395075"
 ---
 # <a name="azure-storage-solutions-for-ml-services-on-azure-hdinsight"></a>Azure Storage-oplossingen voor ML-Services op Azure HDInsight
 
@@ -159,7 +159,7 @@ De volgende opdrachten worden gebruikt voor het Data Lake Store-account configur
 
 ## <a name="use-azure-file-storage-with-ml-services-on-hdinsight"></a>Azure File storage gebruiken met ML-Services op HDInsight
 
-Er is ook een handige gegevens voor de opslagoptie voor gebruik op het edge-knooppunt met de naam [Azure Files] ((https://azure.microsoft.com/services/storage/files/). Hiermee kunt u een Azure Storage-bestandsshare naar het Linux-bestandssysteem koppelen. Deze optie is handig voor het opslaan van gegevensbestanden, R-scripts en resultaatobjecten die mogelijk ook later nodig zijn, met name wanneer het verstandig om het gebruik van de systeemeigen bestandssysteem op het edge-knooppunt in plaats van HDFS. 
+Er is ook een handige gegevens voor de opslagoptie voor gebruik op het edge-knooppunt met de naam [Azure Files](https://azure.microsoft.com/services/storage/files/). Hiermee kunt u een Azure Storage-bestandsshare naar het Linux-bestandssysteem koppelen. Deze optie is handig voor het opslaan van gegevensbestanden, R-scripts en resultaatobjecten die mogelijk ook later nodig zijn, met name wanneer het verstandig om het gebruik van de systeemeigen bestandssysteem op het edge-knooppunt in plaats van HDFS. 
 
 Een groot voordeel van Azure Files is dat de bestandsshares kunnen worden gekoppeld en die worden gebruikt door een systeem met een ondersteund besturingssysteem, zoals Windows of Linux. Het kan bijvoorbeeld worden gebruikt door een andere HDInsight-cluster waaraan u of iemand in uw team, door een Azure-VM of zelfs door een on-premises systeem. Zie voor meer informatie:
 

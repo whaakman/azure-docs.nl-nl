@@ -7,44 +7,44 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/26/2018
-ms.openlocfilehash: cc041104169ca8c4344b9d3de597283d122e63db
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 38cfac8932859db7daa76e831372c97d97f0b24c
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47394757"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49376308"
 ---
 # <a name="query-performance-insight"></a>Inzicht in queryprestaties 
 
 **Is van toepassing op:** Azure Database for PostgreSQL 9.6 en 10
 
 > [!IMPORTANT]
-> De Query Performance Insight-functie is in openbare Preview in een beperkt aantal regio's. 
+> De Query Performance Insight-functie is beschikbaar als openbare preview. 
 
 Query Performance Insight kunt u snel vinden wat uw langst lopende query's zijn, hoe ze na verloop van tijd veranderen en welke wacht van invloed zijn op deze.
 
 ## <a name="permissions"></a>Machtigingen
-**De eigenaar van** of **Inzender** machtigingen die nodig zijn om de tekst van de query's in Query Performance Insight weer te geven. **Lezer** kunt grafieken en tabellen weergeven maar geen query uitvoeren op tekst.
+De machtigingen **Eigenaar** of **Inzender** zijn vereist om de tekst van de query's weer te geven in Query Performance Insight. Met de machtiging **Lezer** kunt u grafieken en tabellen weergeven maar geen tekst opvragen.
 
 ## <a name="prerequisites"></a>Vereisten
 Voor Query Performance Insight functie, gegevens moeten aanwezig zijn in de [Query Store](concepts-query-store.md).
 
 ## <a name="viewing-performance-insights"></a>Prestatie-inzichten weergeven
-De [Query Performance Insight](concepts-query-performance-insight.md) weergeven in Azure portal verschijnt visualisaties op belangrijke informatie van de Query Store. 
+De weergave [Query Performance Insight](concepts-query-performance-insight.md) in de Azure Portal toont visualisaties van belangrijke informatie uit de Query Store. 
 
 Selecteer in de portal-pagina van uw Azure Database for PostgreSQL-server, **Query performance Insight** onder de **ondersteuning en probleemoplossing** sectie van de in de menubalk.
 
 ![Query Performance Insight langlopende query 's](./media/concepts-query-performance-insight/query-performance-insight-landing-page.png)
 
-De **langlopende query's** tabblad toont de top 5 query's door de gemiddelde duur per uitvoering, samengevoegd in intervallen van 15 minuten. U kunt meer query's weergeven door te selecteren in de **nummer van query's** vervolgkeuzelijst. Kleuren in de grafiek kunnen wijzigen voor een specifieke Query-ID als u dit doet.
+Op het tabblad **Langlopende query's** ziet u de top 5 query's op de gemiddelde duur per uitvoering, samengevoegd in intervallen van 15 minuten. U kunt meer query's weergeven door een optie te selecteren in de vervolgkeuzelijst **Aantal query's**. Het is mogelijk dat de grafiekkleuren voor een specifieke query-id verschillen wanneer u dit doet.
 
-U kunt Klik en sleep in de grafiek om te beperken tot een specifiek tijdstip-venster. Het zoomniveau in- en pictogrammen ook gebruiken om respectievelijk een kleiner of groter periode weer te geven.
+U kunt in de grafiek klikken en slepen om de tijdspanne te beperken tot een specifiek tijdvenster. Het zoomniveau in- en pictogrammen ook gebruiken om respectievelijk een kleiner of groter periode weer te geven.
 
 In de tabel onder de grafiek geeft meer informatie over de langlopende query's in dat tijdvenster.
 
-Selecteer de **wacht statistieken** tabblad om de bijbehorende visualisaties op wacht op de server weer te geven.
+Selecteer het tabblad **Wachtstatistieken** om de bijbehorende visualisaties voor wachttijden in de server weer te geven.
 
-![Query Performance Insight Wachtstatistieken](./media/concepts-query-performance-insight/query-performance-insight-wait-statistics.png)
+![Wachtstatistieken van Query Performance Insight](./media/concepts-query-performance-insight/query-performance-insight-wait-statistics.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 - Meer informatie over [bewaking en afstemming](concepts-monitoring.md) in Azure Database for PostgreSQL.

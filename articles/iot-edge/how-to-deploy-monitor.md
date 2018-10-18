@@ -9,12 +9,12 @@ ms.date: 07/25/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 28aa2904f63a9802305d24fec1650f84e38601ab
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: c6700dc4bc0cc458e34e129b2468daad88ecc8be
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39258430"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49393454"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-portal"></a>Implementeren en bewaken van IoT Edge-modules op schaal met Azure portal
 
@@ -39,11 +39,11 @@ Voordat u een implementatie maken kunt, moet u opgeven welke apparaten die u wil
 }
 ```
 
-Zie voor meer informatie over apparaatdubbels en tags [apparaatdubbels begrijpen en gebruiken in IoT Hub][lnk-device-twin].
+Zie voor meer informatie over apparaatdubbels en tags [apparaatdubbels begrijpen en gebruiken in IoT Hub](../iot-hub/iot-hub-devguide-device-twins.md).
 
 ## <a name="create-a-deployment"></a>Een implementatie maken
 
-1. In de [Azure-portal][lnk-portal], gaat u naar uw IoT-hub. 
+1. In de [Azure-portal](https://portal.azure.com), gaat u naar uw IoT-hub. 
 1. Selecteer **IoT Edge**.
 1. Selecteer **IoT Edge-implementatie toevoegen**.
 
@@ -77,7 +77,7 @@ Aangepaste code als een module toevoegen of handmatig toevoegen van een Azure-se
 1. Selecteer **IoT Edge-Module**.
 1. Geef uw module een **naam**.
 1. Voor de **URI installatiekopie** veld, voert u de container-installatiekopie voor uw module. 
-1. Geef een **Container maken opties** die moeten worden doorgegeven aan de container. Zie voor meer informatie, [docker maken][lnk-docker-create].
+1. Geef een **Container maken opties** die moeten worden doorgegeven aan de container. Zie voor meer informatie, [docker maken](https://docs.docker.com/engine/reference/commandline/create/).
 1. Gebruik de vervolgkeuzelijst om te selecteren een **beleid voor opnieuw opstarten**. Kies in de volgende opties: 
    * **Altijd** -de module wordt altijd opnieuw opgestart als deze uitgeschakeld voor een bepaalde reden wordt.
    * **Nooit** -de module nooit wordt opnieuw opgestart als deze wordt afgesloten om een bepaalde reden.
@@ -117,11 +117,11 @@ Lees de informatie van uw implementatie, en selecteer vervolgens **indienen**.
 
 Bekijk de details van een implementatie en controleren van de apparaten waarop deze wordt uitgevoerd, gebruikt u de volgende stappen uit:
 
-1. Aanmelden bij de [Azure-portal] [ lnk-portal] en navigeer naar uw IoT-hub. 
+1. Aanmelden bij de [Azure-portal](https://portal.azure.com) en navigeer naar uw IoT-hub. 
 1. Selecteer **IoT Edge**.
 1. Selecteer **IoT Edge-implementaties**. 
 
-   ![IoT Edge-implementaties weergeven][1]
+   ![IoT Edge-implementaties weergeven](./media/how-to-deploy-monitor/iot-edge-deployments.png)
 
 1. Controleer de implementatie-lijst. Voor elke implementatie, kunt u de volgende gegevens bekijken:
    * **ID** -de naam van de implementatie.
@@ -144,11 +144,11 @@ Als u de doelvoorwaarde bijwerkt, gebeuren de volgende updates:
 
 Als u wilt wijzigen in een implementatie, gebruikt u de volgende stappen uit: 
 
-1. Aanmelden bij de [Azure-portal] [ lnk-portal] en navigeer naar uw IoT-hub. 
+1. Aanmelden bij de [Azure-portal](https://portal.azure.com) en navigeer naar uw IoT-hub. 
 1. Selecteer **IoT Edge**.
 1. Selecteer **IoT Edge-implementaties**. 
 
-   ![IoT Edge-implementaties weergeven][1]
+   ![IoT Edge-implementaties weergeven](./media/how-to-deploy-monitor/iot-edge-deployments.png)
 
 1. Selecteer de implementatie die u wilt wijzigen. 
 1. Updates aanbrengen in de volgende velden: 
@@ -156,17 +156,17 @@ Als u wilt wijzigen in een implementatie, gebruikt u de volgende stappen uit:
    * Labels 
    * Prioriteit 
 1. Selecteer **Opslaan**.
-1. Volg de stappen in [Controleer de implementatie van een] [ anchor-monitor] om te bekijken van de wijzigingen worden uitgerold. 
+1. Volg de stappen in [Controleer de implementatie van een](#monitor-a-deployment) om te bekijken van de wijzigingen worden uitgerold. 
 
 ## <a name="delete-a-deployment"></a>Een implementatie verwijderen
 
 Wanneer u een implementatie verwijdert, worden alle apparaten op de volgende implementatie met hoogste prioriteit. Als uw apparaten niet voldoen aan de doelvoorwaarde van elke andere implementatie, klikt u vervolgens de modules niet verwijderd wanneer de implementatie wordt verwijderd. 
 
-1. Aanmelden bij de [Azure-portal] [ lnk-portal] en navigeer naar uw IoT-hub. 
+1. Aanmelden bij de [Azure-portal](https://portal.azure.com) en navigeer naar uw IoT-hub. 
 1. Selecteer **IoT Edge**.
 1. Selecteer **IoT Edge-implementaties**. 
 
-   ![IoT Edge-implementaties weergeven][1]
+   ![IoT Edge-implementaties weergeven](./media/how-to-deploy-monitor/iot-edge-deployments.png)
 
 1. Gebruik het selectievakje in om de implementatie die u wilt verwijderen. 
 1. Selecteer **Verwijderen**.
@@ -174,16 +174,4 @@ Wanneer u een implementatie verwijdert, worden alle apparaten op de volgende imp
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Meer informatie over [modules naar Edge-apparaten implementeren][lnk-deployments].
-
-<!-- Images -->
-[1]: ./media/how-to-deploy-monitor/iot-edge-deployments.png
-
-<!-- Links -->
-[lnk-device-twin]: ../iot-hub/iot-hub-devguide-device-twins.md
-[lnk-portal]: https://portal.azure.com
-[lnk-docker-create]: https://docs.docker.com/engine/reference/commandline/create/
-[lnk-deployments]: module-deployment-monitoring.md
-
-<!-- Anchor links -->
-[anchor-monitor]: #monitor-a-deployment
+Meer informatie over [modules naar Edge-apparaten implementeren](module-deployment-monitoring.md).

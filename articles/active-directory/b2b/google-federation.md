@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: mal
-ms.openlocfilehash: 4ffe6cf3f1da4c149d1cb39856d02fc40acd20cf
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 396fb947a95ebc634ab0dea24d20f35126bc006e
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45984789"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389442"
 ---
 # <a name="add-google-as-an-identity-provider-for-b2b-guest-users"></a>Google als id-provider voor B2B-gastgebruikers toevoegen
 
@@ -68,7 +68,7 @@ Maak eerst een nieuw project in de Google-ontwikkelaars-Console om op te halen v
 Nu hebt u ingesteld de Google-client-ID en clientgeheim, door te voeren in de Azure AD-portal of met behulp van PowerShell. Zorg ervoor dat uw federation-configuratie van Google testen door het uitnodigen van uzelf met een Gmail-adres en probeer het inwisselen van de uitnodiging met het uitgenodigde Google-account. 
 
 #### <a name="to-configure-google-federation-in-the-azure-ad-portal"></a>Google om Federatie te configureren in de Azure AD-portal 
-1. Ga naar de [Azure Portal](https://portal.azure.com). Selecteer in het linkerdeelvenster **Azure Active Directory**. 
+1. Ga naar de [Azure Portal](https://portal.azure.com). Selecteer de knop **Azure Active Directory** in het linkerdeelvenster. 
 2. Selecteer **organisatie relaties**.
 3. Selecteer **id-providers**, en klik vervolgens op de **Google** knop.
 4. Voer een naam. Voer vervolgens de client-ID en clientgeheim die u eerder hebt verkregen. Selecteer **Opslaan**. 
@@ -84,13 +84,13 @@ Nu hebt u ingesteld de Google-client-ID en clientgeheim, door te voeren in de Az
    `New-AzureADMSIdentityProvider -Type Google -Name Google -ClientId [Client ID] -ClientSecret [Client secret]`
  
    > [!NOTE]
-   > Gebruik de client-id en clientgeheim in van de app die u hebt gemaakt in ' stap 1: configureren van een Google developer-project. " Zie voor meer informatie de [New-AzureADMSIdentityProvider](https://docs.microsoft.com/en-us/powershell/module/azuread/new-azureadmsidentityprovider?view=azureadps-2.0-preview) artikel. 
+   > Gebruik de client-id en clientgeheim in van de app die u hebt gemaakt in ' stap 1: configureren van een Google developer-project. " Zie voor meer informatie de [New-AzureADMSIdentityProvider](https://docs.microsoft.com/powershell/module/azuread/new-azureadmsidentityprovider?view=azureadps-2.0-preview) artikel. 
  
 ## <a name="how-do-i-remove-google-federation"></a>Hoe verwijder ik Google federation?
 U kunt uw Google-federatie-instellingen verwijderen. Als u dit doet, Google-gastgebruikers die hun uitnodiging al hebt ingewisseld zich niet aanmelden, maar u kunt zodat ze toegang tot uw resources opnieuw door deze uit de map worden verwijderd en opnieuw uitnodiging. 
  
 ### <a name="to-delete-google-federation-in-the-azure-ad-portal"></a>Verwijderen van Google federation in de Azure AD-portal: 
-1. Ga naar de [Azure Portal](https://portal.azure.com). Selecteer in het linkerdeelvenster **Azure Active Directory**. 
+1. Ga naar de [Azure Portal](https://portal.azure.com). Selecteer de knop **Azure Active Directory** in het linkerdeelvenster. 
 2. Selecteer **organisatie relaties**.
 3. Selecteer **id-providers**, en klik vervolgens op de **Google** knop.
 4. Selecteer **Google**, en selecteer vervolgens **verwijderen**. 
@@ -108,4 +108,4 @@ U kunt uw Google-federatie-instellingen verwijderen. Als u dit doet, Google-gast
     `Remove-AzureADMSIdentityProvider -Id Google-OAUTH`
 
    > [!NOTE]
-   > Zie voor meer informatie, [Remove-AzureADMSIdentityProvider](https://docs.microsoft.com/en-us/powershell/module/azuread/Remove-AzureADMSIdentityProvider?view=azureadps-2.0-preview). 
+   > Zie voor meer informatie, [Remove-AzureADMSIdentityProvider](https://docs.microsoft.com/powershell/module/azuread/Remove-AzureADMSIdentityProvider?view=azureadps-2.0-preview). 

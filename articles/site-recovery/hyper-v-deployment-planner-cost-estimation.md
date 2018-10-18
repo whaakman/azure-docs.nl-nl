@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: nisoneji
-ms.openlocfilehash: dba323b8cd57dd33c1477027f853cba3c95c8a07
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 40a8e2e6d994608d4aa26f6d9b3723c0ee27d3db
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092504"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49387239"
 ---
 # <a name="cost-estimation-report-by-azure-site-recovery-deployment-planner"></a>Rapport met kostenramingen van Azure Site Recovery Deployment Planner 
 
@@ -143,7 +143,7 @@ Handmatig VM's toevoegen:
 
 **Aantal noodherstelanalyses in een jaar**: het aantal keer per jaar dat u noodherstelanalyse uitvoert. Dit is standaard vier keer per jaar. U kunt de periode voor bepaalde VM's wijzigen of de nieuwe waarde toepassen op alle VM's. Geef de nieuwe waarde op in de bovenste rij en selecteer **Toepassen op alles**. Op basis van het aantal noodherstelanalyses in een jaar en de duur van elke analyse worden de totale kosten voor noodherstelanalyse berekend. 
 
-**Duur van elke noodherstelanalyse (dagen)**: de duur van elke noodherstelanalyse. Standaard is dit 7 dagen om de 90 dagen, overeenkomstig [Disaster Recovery Software Assurance Benefit](https://azure.microsoft.com/en-in/pricing/details/site-recovery). U kunt de periode voor bepaalde VM's wijzigen of een nieuwe waarde toepassen op alle VM's. Geef een nieuwe waarde op in de bovenste rij en selecteer **Toepassen op alles**. De totale kosten voor noodherstelanalyse worden berekend op basis van het aantal analyses in een jaar en de duur van elke analyse.
+**Duur van elke noodherstelanalyse (dagen)**: de duur van elke noodherstelanalyse. Standaard is dit 7 dagen om de 90 dagen, overeenkomstig [Disaster Recovery Software Assurance Benefit](https://azure.microsoft.com/pricing/details/site-recovery). U kunt de periode voor bepaalde VM's wijzigen of een nieuwe waarde toepassen op alle VM's. Geef een nieuwe waarde op in de bovenste rij en selecteer **Toepassen op alles**. De totale kosten voor noodherstelanalyse worden berekend op basis van het aantal analyses in een jaar en de duur van elke analyse.
  
 **Type besturingssysteem**: het type besturingssysteem van de virtuele machine. Dit is Windows of Linux. Als het type besturingssysteem Windows is, kan Azure Hybrid Use Benefit op die VM worden toegepast. 
 

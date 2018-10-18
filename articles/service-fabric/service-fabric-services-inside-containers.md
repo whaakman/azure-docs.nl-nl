@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 5/23/2018
 ms.author: anmola
-ms.openlocfilehash: d3ed1ff46bf4c82a172954828ec74bae80241288
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 5672f5fffd9c93f710f8001285380fdbfcab0c5d
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44057104"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49386972"
 ---
 # <a name="containerize-your-service-fabric-reliable-services-and-reliable-actors-on-windows"></a>Uw Service Fabric Reliable Services en Reliable Actors op Windows in een container plaatsen
 
@@ -103,7 +103,7 @@ Dit document bevat richtlijnen voor het ophalen van de service die wordt uitgevo
 </Policies>
  ```
 
-9. Zie voor het configureren van container-isolatiemodus [isolatiemodus configureren]( https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started-containers#configure-isolation-mode). Windows ondersteunt twee isolatiemodi voor containers: proces en Hyper-V. De volgende codefragmenten laten zien hoe de isolatiemodus wordt opgegeven in het manifestbestand van de toepassing.
+9. Zie voor het configureren van container-isolatiemodus [isolatiemodus configureren]( https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-containers#configure-isolation-mode). Windows ondersteunt twee isolatiemodi voor containers: proces en Hyper-V. De volgende codefragmenten laten zien hoe de isolatiemodus wordt opgegeven in het manifestbestand van de toepassing.
 
  ```xml
 <Policies>

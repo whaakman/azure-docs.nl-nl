@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 10/12/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: a14462ec5311a9b82293ba7f6e9ae76dc1972b36
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: a12549a52171afc1c95588f9a2b259829e170fcc
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49355449"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389952"
 ---
 # <a name="azure-ad-connectconfigure-ad-ds-connector-account-permissions"></a>Azure AD Connect: Accountmachtigingen voor AD DS-Connector configureren 
 
@@ -42,7 +42,7 @@ De volgende tabel bevat een samenvatting van de vereiste machtigingen voor AD-ob
 | Groep terugschrijven |Lezen, maken, bijwerken en verwijderen van groep objecten voor gesynchroniseerd **Office 365-groepen**.  Zie voor meer informatie [Write-back van groep](how-to-connect-preview.md#group-writeback).|
 
 ## <a name="using-the-adsyncconfig-powershell-module"></a>Met behulp van de ADSyncConfig PowerShell-Module 
-De module ADSyncConfig vereist de [Remote Server Administration Tools (RSAT) voor AD DS](https://docs.microsoft.com/en-us/windows-server/remote/remote-server-administration-tools) omdat deze afhankelijk van de AD DS-PowerShell-module en de hulpprogramma's is. Als u wilt installeren RSAT voor AD DS, open een Windows PowerShell-venster met 'Als Administrator uitvoeren' en uitvoeren: 
+De module ADSyncConfig vereist de [Remote Server Administration Tools (RSAT) voor AD DS](https://docs.microsoft.com/windows-server/remote/remote-server-administration-tools) omdat deze afhankelijk van de AD DS-PowerShell-module en de hulpprogramma's is. Als u wilt installeren RSAT voor AD DS, open een Windows PowerShell-venster met 'Als Administrator uitvoeren' en uitvoeren: 
 
 ``` powershell
 Install-WindowsFeature RSAT-AD-Tools 

@@ -2,25 +2,19 @@
 title: Microsoft Azure Data Box Disk terugsturen| Microsoft Docs
 description: In deze zelfstudie leest u hoe u uw Azure Data Box Disk terugstuurt naar Microsoft
 services: databox
-documentationcenter: NA
 author: alkohli
-manager: twooley
-editor: ''
-ms.assetid: ''
 ms.service: databox
-ms.devlang: NA
+ms.subservice: disk
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/10/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 783c837bbb9ce22e7354252523e6725753776836
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: f971a1bed0391e809e19ff5bb0508d153319faf4
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39011055"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49094000"
 ---
 # <a name="tutorial-return-azure-data-box-disk-and-verify-data-upload-to-azure"></a>Zelfstudie: Azure Data Box Disk terugsturen en de gegevensupload naar Azure controleren
 
@@ -88,7 +82,7 @@ Nadat de kopie is voltooid en u de gegevens in het Azure-opslagaccount hebt geco
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie bent u meer te weten gekomen over verschillende onderwerpen met betrekking tot Azure Data Box Disk, zoals:
+In deze zelfstudie zijn verschillende onderwerpen besproken over de Azure Data Box-schijf, zoals:
 
 > [!div class="checklist"]
 > * Een Data Box Disk naar Microsoft verzenden

@@ -10,12 +10,12 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: tulasim
-ms.openlocfilehash: efdcf57fb0f175be51e6b9f8e72e4a02fcbeb5f3
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 76024266a8ae3eb03e910e140184a07ae363e881
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47162318"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49384939"
 ---
 # <a name="qna-maker-limits"></a>QnA Maker-limieten
 Uitgebreide lijst met limieten voor QnA Maker.
@@ -29,7 +29,7 @@ Uitgebreide lijst met limieten voor QnA Maker.
 |Maximum aantal gepubliceerde knowledge bases toegestaan (maximum aantal indexen--1 (gereserveerd voor test)|2|14|49|199|199|2999|
 
 ## <a name="extraction-limits"></a>Extractie limieten
-* Maximum aantal bestanden die kunnen worden geëxtraheerd en maximale bestandsgrootte: Zie [QnAMaker prijzen](https://azure.microsoft.com/en-in/pricing/details/cognitive-services/qna-maker/)
+* Maximum aantal bestanden die kunnen worden geëxtraheerd en maximale bestandsgrootte: Zie [QnAMaker prijzen](https://azure.microsoft.com/pricing/details/cognitive-services/qna-maker/)
 * Maximum aantal deep-koppelingen die kunnen worden benaderd voor extractie van vragen en antwoorden supereenvoudig van veelgestelde vragen over het HTML-pagina's: 20
 
 ## <a name="metadata-limits"></a>Limieten voor metagegevens
@@ -49,7 +49,7 @@ Algemene beperkingen met betrekking tot de inhoud in het knowledge base:
 * Lengte van bestandsnaam: 200
 * Ondersteunde bestandsindelingen: ".tsv", '.pdf', '.txt', ".docx", '.xlsx'.
 * Maximum aantal alternatieve vragen: 100
-* Maximum aantal paren met vraag-antwoord: afhankelijk van de [Azure Search tier](https://docs.microsoft.com/en-in/azure/search/search-limits-quotas-capacity#document-limits) gekozen 
+* Maximum aantal paren met vraag-antwoord: afhankelijk van de [Azure Search tier](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity#document-limits) gekozen 
 
 ## <a name="create-knowledge-base-call-limits"></a>Limieten voor Knowledge base-aanroep maken:
 Deze vertegenwoordigen de limieten voor elk maken knowledge base-actie. dat wil zeggen, te klikken op *maken KB* of de CreateKnowledgeBase-API aan te roepen.

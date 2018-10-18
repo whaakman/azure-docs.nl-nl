@@ -4,25 +4,22 @@ description: Volg de stappen van deze snelstartgids om een Azure Media Services-
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cflower
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 03/27/2018
+ms.date: 10/15/2018
 ms.author: juliako
-ms.openlocfilehash: abed9fd8d466b582b534b365f4be4257f4986435
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: de54571308b737b9160a39ee4ba5d4b2d9f15775
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45735999"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49376530"
 ---
 # <a name="quickstart-create-an-azure-media-services-account"></a>Snelstartgids: Een Azure Media Services-account maken
-
-> [!NOTE]
-> De nieuwste versie van Azure Media Services (30-03-2018) is in preview. Deze versie wordt ook wel v3 genoemd. 
 
 Ongeacht of u een ontwikkelaar of een maker van media-inhoud bent, hebt u een Media Services-account nodig voor het opslaan, versleutelen, coderen, beheren en streamen van media-inhoud in Azure. Als u een Media Services-account gaat maken, moet u de id van een Azure Storage-accountresource opgeven. Het opgegeven opslagaccount wordt gekoppeld aan uw Media Services-account. Deze opslagaccountresource moet zich in dezelfde geografische regio bevinden als het Media Services-account.  
 

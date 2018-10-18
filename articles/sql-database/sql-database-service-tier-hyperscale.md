@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 10/15/2018
-ms.openlocfilehash: 372f1a0b7e2ad07612caaac478aea14693e002fa
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.date: 10/17/2018
+ms.openlocfilehash: 526b6ac9c510b13461181d76c0032602d8f3f435
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49352299"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49377979"
 ---
 # <a name="hyperscale-service-tier-preview-for-up-to-100-tb"></a>Zeer grootschalige servicelaag (preview) voor maximaal 100 TB
 
@@ -148,8 +148,8 @@ Zeer grootschalige service-laag is momenteel in openbare preview en beschikbaar 
 
 | Probleem | Beschrijving |
 | :---- | :--------- |
-| Deelvenster ManageBackups voor een logische server wordt niet weergegeven voor het zeer grootschalige databases worden gefilterd vanuit SQL server ->  | Zeer grootschalige heeft een afzonderlijke methode voor het beheren van back-ups en zo de lange termijn wordt bewaard en punt in tijd back-retentie-instellingen zijn niet van toepassing / ongeldig worden gemaakt. Zeer grootschalige databases verschijnen dus niet in het deelvenster back-up beheren. |
-| Terugzetten naar eerder tijdstip | Zodra een database wordt gemigreerd naar de servicelaag van grootschalige, wordt herstel naar een punt-in-tIme wordt niet ondersteund.|
+| Het deelvenster back-ups beheren voor een logische server wordt niet weergegeven voor het zeer grootschalige databases worden gefilterd vanuit SQL server ->  | Zeer grootschalige heeft een afzonderlijke methode voor het beheren van back-ups en zo de lange termijn wordt bewaard en punt in tijd back-retentie-instellingen zijn niet van toepassing / ongeldig worden gemaakt. Zeer grootschalige databases verschijnen dus niet in het deelvenster back-up beheren. |
+| Terugzetten naar eerder tijdstip | Zodra een database wordt gemigreerd naar de servicelaag van grootschalige, wordt herstel naar een punt-in-tIme vóór de migratie wordt niet ondersteund.|
 | Als een databasebestand tijdens de migratie vanwege een actieve werkbelasting toeneemt en de 1 TB per bestand grens snijdt, mislukt de migratie | Oplossingen: <br> -Migreren van de database indien mogelijk, als er geen update-workload uitgevoerd.<br> -Probeer opnieuw de migratie, het slaagt, zolang de grens van 1 TB niet tijdens de migratie is overschreden.|
 | Managed Instance is momenteel niet ondersteund. | Momenteel niet ondersteund |
 | Migratie naar grootschalige is momenteel een enkelvoudige bewerking | Zodra een database wordt gemigreerd naar grootschalige, worden niet het rechtstreeks aan de servicelaag van een niet-flexibele gemigreerd. Op dit moment is de enige manier om een database migreren van grootschalige naar niet-flexibele te exporteren/importeren met behulp van een BACPAC-bestand.|

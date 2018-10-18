@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: apimpm
-ms.openlocfilehash: 8c4ae9c7b8be8cf390ad4ad6d99cd1ec41cd3d08
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: ce4ff33a8af9cf864ad4902599a0ab18b2b27182
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42058679"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49387222"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Het opslaan en het configureren van de configuratie van uw API Management-service met behulp van Git
 
@@ -219,14 +219,14 @@ De instelling van de laatste `$ref-policy`, toegewezen aan het globale beleid in
 ### <a name="apis-folder"></a>map van de API 's
 De `apis` een map bevat voor elke API in het service-exemplaar dat de volgende items bevat.
 
-* `apis\<api name>\configuration.json` -Dit is de configuratie voor de API en bevat informatie over de URL van de back-end-service en de bewerkingen. Dit is dezelfde informatie die wordt geretourneerd als u aan te roepen [ophalen van een bepaalde API](https://docs.microsoft.com/en-us/rest/api/apimanagement/api/get) met `export=true` in `application/json` indeling.
-* `apis\<api name>\api.description.html` -Dit is de beschrijving van de API en komt overeen met de `description` eigenschap van de [API-entiteit](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.storage.table._entity_property).
-* `apis\<api name>\operations\` -Deze map bevat `<operation name>.description.html` bestanden die zijn toegewezen aan de bewerkingen in de API. Elk bestand bevat de beschrijving van een enkele bewerking in de API, die wordt toegewezen aan de `description` eigenschap van de [bewerking entiteit](https://docs.microsoft.com/en-us/rest/api/visualstudio/operations/list#operationproperties) in de REST-API.
+* `apis\<api name>\configuration.json` -Dit is de configuratie voor de API en bevat informatie over de URL van de back-end-service en de bewerkingen. Dit is dezelfde informatie die wordt geretourneerd als u aan te roepen [ophalen van een bepaalde API](https://docs.microsoft.com/rest/api/apimanagement/api/get) met `export=true` in `application/json` indeling.
+* `apis\<api name>\api.description.html` -Dit is de beschrijving van de API en komt overeen met de `description` eigenschap van de [API-entiteit](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.table._entity_property).
+* `apis\<api name>\operations\` -Deze map bevat `<operation name>.description.html` bestanden die zijn toegewezen aan de bewerkingen in de API. Elk bestand bevat de beschrijving van een enkele bewerking in de API, die wordt toegewezen aan de `description` eigenschap van de [bewerking entiteit](https://docs.microsoft.com/rest/api/visualstudio/operations/list#operationproperties) in de REST-API.
 
 ### <a name="groups-folder"></a>map groepen
 De `groups` map bevat een map voor elke groep die is gedefinieerd in het service-exemplaar.
 
-* `groups\<group name>\configuration.json` -Dit is de configuratie voor de groep. Dit is dezelfde informatie die wordt geretourneerd als u aan te roepen de [ophalen van een specifieke groep](https://docs.microsoft.com/en-us/rest/api/apimanagement/group/get) bewerking.
+* `groups\<group name>\configuration.json` -Dit is de configuratie voor de groep. Dit is dezelfde informatie die wordt geretourneerd als u aan te roepen de [ophalen van een specifieke groep](https://docs.microsoft.com/rest/api/apimanagement/group/get) bewerking.
 * `groups\<group name>\description.html` -Dit is de beschrijving van de groep en komt overeen met de `description` eigenschap van de [groep entiteit](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-group-entity).
 
 ### <a name="policies-folder"></a>map beleid
@@ -246,7 +246,7 @@ De `portalStyles` map bevat configuratie- en opmaakmodellen voor developer porta
 ### <a name="products-folder"></a>producten map
 De `products` map bevat een map voor elk product dat is gedefinieerd in het service-exemplaar.
 
-* `products\<product name>\configuration.json` -Dit is de configuratie voor het product. Dit is dezelfde informatie die wordt geretourneerd als u aan te roepen de [ophalen van een specifiek product](https://docs.microsoft.com/en-us/rest/api/apimanagement/product/get) bewerking.
+* `products\<product name>\configuration.json` -Dit is de configuratie voor het product. Dit is dezelfde informatie die wordt geretourneerd als u aan te roepen de [ophalen van een specifiek product](https://docs.microsoft.com/rest/api/apimanagement/product/get) bewerking.
 * `products\<product name>\product.description.html` -Dit is de beschrijving van het product en komt overeen met de `description` eigenschap van de [productenentiteit](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-product-entity) in de REST-API.
 
 ### <a name="templates"></a>sjablonen

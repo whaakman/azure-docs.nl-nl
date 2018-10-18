@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/20/2018
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: 6a64d85cc476c7494a1730959b96e9480115cd90
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 56f48f6676b3c878effe788316024e642c17ff5a
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47047664"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49400202"
 ---
 Gedeelde afbeeldingengalerie is een service waarmee u structuur en de organisatie om uw aangepaste VM-installatiekopieën maken. Galerie met installatiekopieën voor gedeelde biedt drie belangrijkste waardevoorstellen
 - Eenvoudig beheer
@@ -75,9 +75,9 @@ Gedeelde galerie met installatiekopieën kunt u uw installatiekopieën automatis
 ## <a name="access"></a>Access
 Als de gedeelde afbeeldingengalerie gedeelde installatiekopie en de versie van gedeelde installatiekopie zijn alle resources, ze kunnen worden gedeeld met de ingebouwde die systeemeigen Azure RBAC bepaalt. Met RBAC kunt u deze resources aan andere gebruikers, service-principals en groepen in uw organisatie delen. Het bereik van het delen van deze resources is binnen dezelfde AD-tenant. Wanneer een gebruiker toegang tot de versie van de gedeelde-installatiekopie heeft, kunnen ze een virtuele machine of een virtuele-machineschaalset in een van de abonnementen die ze toegang hebben tot binnen hetzelfde AD-tenant als de versie van de gedeelde-installatiekopie implementeren.  Hier volgt de delen matrix die helpt te begrijpen wat de gebruiker krijgt toegang tot:
 
-| Gedeeld met gebruiker     | Gedeelde Afbeeldingengalerie | Gedeelde installatiekopie | De versie van gedeelde installatiekopie |
+| Gedeeld met gebruiker     | Galerie met gedeelde installatiekopieën | Gedeelde installatiekopie | De versie van gedeelde installatiekopie |
 |----------------------|----------------------|--------------|----------------------|
-| Gedeelde Afbeeldingengalerie | Ja                  | Ja          | Ja                  |
+| Galerie met gedeelde installatiekopieën | Ja                  | Ja          | Ja                  |
 | Gedeelde installatiekopie         | Nee                   | Ja          | Ja                  |
 | De versie van gedeelde installatiekopie | Nee                   | Nee           | Ja                  |
 
@@ -146,7 +146,7 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
 
 **V:** Kan ik de versie van een installatiekopie maken van een gespecialiseerde schijf?
 
- A. Nee, we op dit moment ondersteunen geen gespecialiseerde schijf als afbeeldingen. Als u een gespecialiseerde schijf hebt, moet u [een virtuele machine maken van de VHD](https://docs.microsoft.com/azure/virtual-machines/windows/create-vm-specialized-portal#create-a-vm-from-a-disk) door de specializeddisk koppelen aan een nieuwe virtuele machine. Nadat u een actieve virtuele machine hebt, moet u Volg de instructies voor een beheerde installatiekopie maken van de [Windows-VM] (https://docs.microsoft.com/en-us/azure/virtual-machines/windows/tutorial-custom-images) of [Linux-VM](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/tutorial-custom-images). Zodra u een gegeneraliseerde installatiekopie van de beheerde hebt, kunt u het proces voor het maken van een gedeelde installatiekopie beschrijving en de versie van installatiekopie kunt starten.
+ A. Nee, we op dit moment ondersteunen geen gespecialiseerde schijf als afbeeldingen. Als u een gespecialiseerde schijf hebt, moet u [een virtuele machine maken van de VHD](https://docs.microsoft.com/azure/virtual-machines/windows/create-vm-specialized-portal#create-a-vm-from-a-disk) door de specializeddisk koppelen aan een nieuwe virtuele machine. Nadat u een actieve virtuele machine hebt, moet u Volg de instructies voor een beheerde installatiekopie maken van de [Windows-VM] (https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-custom-images) of [Linux-VM](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-custom-images). Zodra u een gegeneraliseerde installatiekopie van de beheerde hebt, kunt u het proces voor het maken van een gedeelde installatiekopie beschrijving en de versie van installatiekopie kunt starten.
 
 
 **V:** Kan ik een galerie met installatiekopieën van gedeelde, de definitie van installatiekopie en de versie van de installatiekopie via de Azure-portal maken?

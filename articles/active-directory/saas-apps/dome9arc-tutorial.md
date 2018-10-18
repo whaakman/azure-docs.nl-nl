@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/22/2018
 ms.author: jeedes
-ms.openlocfilehash: 934520764749b5abce9aefe22b8eb9a5d8e490f2
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 0b6730d6c365484dc19273069785e6824218113e
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42746488"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49387851"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-dome9-arc"></a>Zelfstudie: Azure Active Directory-integratie met Dome9 boog
 
@@ -150,7 +150,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     d. Klik op **OK**.
     
     > [!NOTE]
-    > Raadpleeg dit [koppeling](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-enterprise-app-role-management) over het configureren en instellen van de functies voor de toepassing.
+    > Raadpleeg dit [koppeling](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-app-role-management) over het configureren en instellen van de functies voor de toepassing.
 
 7. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **Certificate(Base64)** en slaat u het certificaatbestand op uw computer.
 

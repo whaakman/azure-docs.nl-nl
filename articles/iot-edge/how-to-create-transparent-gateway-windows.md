@@ -8,16 +8,16 @@ ms.date: 6/20/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: e9de037f886db7a48411959ef62e1e6687e54beb
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f584e2cdcb038c6f8e9fcdbeecc22fb957bd7f8d
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46984293"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394803"
 ---
 # <a name="create-a-windows-iot-edge-device-that-acts-as-a-transparent-gateway"></a>Een Windows IoT Edge-apparaat die als een transparante gateway fungeert maken
 
-In dit artikel vindt u gedetailleerde instructies voor het gebruik van een IoT Edge-apparaat als een transparante gateway. Voor de rest van dit artikel wordt de term *IoT Edge-gateway* verwijst naar een IoT Edge-apparaat gebruikt als een transparante gateway. Zie voor meer informatie, [hoe een IoT Edge-apparaat kan worden gebruikt als een gateway][lnk-edge-as-gateway], waardoor een conceptueel overzicht.
+In dit artikel vindt u gedetailleerde instructies voor het gebruik van een IoT Edge-apparaat als een transparante gateway. Voor de rest van dit artikel wordt de term *IoT Edge-gateway* verwijst naar een IoT Edge-apparaat gebruikt als een transparante gateway. Zie voor meer informatie, [hoe een IoT Edge-apparaat kan worden gebruikt als een gateway](./iot-edge-as-gateway.md), waardoor een conceptueel overzicht.
 
 >[!NOTE]
 >Op dit moment:
@@ -27,16 +27,16 @@ In dit artikel vindt u gedetailleerde instructies voor het gebruik van een IoT E
 
 Het moeilijke gedeelte over het maken van een transparante gateway is de gateway naar downstream apparaten veilig verbinding wordt gemaakt. Azure IoT Edge kunt u gebruikmaken van PKI-infrastructuur voor het instellen van beveiligde TLS-verbindingen tussen deze apparaten. In dit geval toestemming we een downstream apparaat verbinding maakt met een IoT Edge-apparaat als een transparante gateway fungeert.  Redelijke om beveiliging te handhaven, moet het downstream apparaat de identiteit van het Edge-apparaat bevestigen omdat u wilt dat alleen de apparaten die verbinding maken met uw gateways en niet een mogelijk schadelijke gateway.
 
-U kunt een certificaatinfrastructuur waarmee de vertrouwensrelatie die vereist zijn voor de topologie van uw apparaat-gateway maken. In dit artikel gaan we ervan uit dezelfde certificaat-instellingen die u gebruiken zou om in te schakelen [x.509-CA-beveiliging] [ lnk-iothub-x509] in IoT-Hub, die bestaat uit een X.509-CA-certificaat dat is gekoppeld aan een specifieke IoT-hub (IoT hub de eigenaar van de CA ), en een reeks van certificaten die zijn ondertekend met deze CA en een CA voor het Edge-apparaat.
+U kunt een certificaatinfrastructuur waarmee de vertrouwensrelatie die vereist zijn voor de topologie van uw apparaat-gateway maken. In dit artikel gaan we ervan uit dezelfde certificaat-instellingen die u gebruiken zou om in te schakelen [x.509-CA-beveiliging](../iot-hub/iot-hub-x509ca-overview.md) in IoT Hub, waarbij een X.509-CA-certificaat dat is gekoppeld aan een specifieke IoT-hub (de IoT hub eigenaar CA) en een reeks van certificaten geregistreerd bij deze Certificeringsinstantie, en een CA voor het Edge-apparaat.
 
-![Gateway-installatie][1]
+![Gateway-installatie](./media/how-to-create-transparent-gateway/gateway-setup.png)
 
 De gateway geeft het Edge-apparaat CA-certificaat naar het downstream apparaat tijdens de initialisatie van de verbinding. Het downstream apparaat controleert om ervoor te zorgen dat het Edge-apparaat CA-certificaat is ondertekend door de eigenaar van CA-certificaat. Dit proces kan de downstream-apparaat om te bevestigen van dat de gateway van een vertrouwde bron afkomstig is.
 
 De volgende stappen helpen u bij het proces van het maken van de certificaten en ze te installeren in de juiste plaatsen worden uitgevoerd.
 
 ## <a name="prerequisites"></a>Vereisten
-1.  [Installeer de Azure IoT Edge-runtime] [ lnk-install-windows-x64] op een Windows-apparaat dat u wilt gebruiken als de transparante gateway.
+1. [Installeer de Azure IoT Edge-runtime](./how-to-install-iot-edge-windows-with-windows.md) op een Windows-apparaat dat u wilt gebruiken als de transparante gateway.
 
 1. Haal OpenSSL voor Windows. Er zijn veel manieren kunt u OpenSSL installeren:
 
@@ -45,11 +45,11 @@ De volgende stappen helpen u bij het proces van het maken van de certificaten en
 
    * Download en installeer een [OpenSSL binaire bestanden van derden](https://wiki.openssl.org/index.php/Binaries), bijvoorbeeld van [dit project op SourceForge](https://sourceforge.net/projects/openssl/).
    
-   * De OpenSSL-broncode downloaden en bouwen van de binaire bestanden op uw computer door uzelf of hiervoor via [vcpkg](https://github.com/Microsoft/vcpkg). De onderstaande instructies gebruiken vcpkg broncode downloaden, compileren en OpenSSL installeren op uw Windows-computer in stappen van zeer eenvoudig te gebruiken.
+   * De OpenSSL-broncode downloaden en bouwen van de binaire bestanden op uw computer zelf of via [vcpkg](https://github.com/Microsoft/vcpkg). De onderstaande instructies gebruiken vcpkg broncode, compileren en OpenSSL installeren op uw Windows-computer met eenvoudige stappen downloadt.
 
       1. Ga naar een map waar u vcpkg installeren. Vanaf nu verwijzen we naar dit als $VCPKGDIR. Volg de instructies voor het downloaden en installeren [vcpkg](https://github.com/Microsoft/vcpkg).
    
-      1. Wanneer vcpkg is geïnstalleerd, een powershell-opdrachtprompt en voer de volgende opdracht voor het installeren van de OpenSSL-pakket voor Windows x64. Dit vindt meestal plaats ongeveer 5 minuten.
+      1. Wanneer vcpkg is geïnstalleerd, een powershell-opdrachtprompt en voer de volgende opdracht voor het installeren van de OpenSSL-pakket voor Windows x64. De installatie duurt meestal ongeveer 5 minuten.
 
          ```PowerShell
          .\vcpkg install openssl:x64-windows
@@ -93,13 +93,13 @@ De volgende stappen helpen u bij het proces van het maken van de certificaten en
    ```
 
 ## <a name="certificate-creation"></a>Het maken van certificaten
-1.  De eigenaar van CA-certificaat en een tussenliggende certificaat maken. Dit zijn alle geplaatst `$WRKDIR`.
+1. De eigenaar van CA-certificaat en een tussenliggende certificaat maken. De certificaten worden geplaatst `$WRKDIR`.
 
       ```PowerShell
       New-CACertsCertChain rsa
       ```
 
-1.  De CA-certificaat voor Edge-apparaat en de persoonlijke sleutel maken met de onderstaande opdracht.
+1. De CA-certificaat voor Edge-apparaat en de persoonlijke sleutel maken met de onderstaande opdracht.
 
    >[!NOTE]
    > **GEEN** gebruik een naam die is hetzelfde als de DNS-hostnaam van de gateway. In dat geval zorgt ervoor dat clientcertificaten op basis van deze certificaten mislukken.
@@ -115,19 +115,19 @@ Een certificaatketen van de eigenaar van CA-certificaat, tussenliggende certific
    Write-CACertsCertificatesForEdgeDevice "<gateway device name>"
    ```
 
-   De uitvoer van de uitvoering van het script worden de volgende certificaten en de sleutel:
+   Het script maakt u de volgende certificaten en de sleutel:
    * `$WRKDIR\certs\new-edge-device.*`
    * `$WRKDIR\private\new-edge-device.key.pem`
    * `$WRKDIR\certs\azure-iot-test-only.root.ca.cert.pem`
 
 ## <a name="installation-on-the-gateway"></a>Installatie op de gateway
-1.  Kopieer de volgende bestanden vanuit $WRKDIR overal op uw Edge-apparaat, verwijzen we naar die als $CERTDIR. Deze stap overslaan als u de certificaten op uw Edge-apparaat gegenereerd.
+1. Kopieer de volgende bestanden vanuit $WRKDIR overal op uw Edge-apparaat, verwijzen we naar die als $CERTDIR. Als u de certificaten op uw Edge-apparaat hebt gegenereerd, moet u deze stap overslaan.
 
    * Device CA-certificaat-  `$WRKDIR\certs\new-edge-device-full-chain.cert.pem`
    * De persoonlijke sleutel Device CA- `$WRKDIR\private\new-edge-device.key.pem`
    * De eigenaar van CA- `$WRKDIR\certs\azure-iot-test-only.root.ca.cert.pem`
 
-2.  Stel de `certificate` eigenschappen in de Security-Daemon config yaml-bestand naar het pad waar u de bestanden van het certificaat en de sleutel hebt geplaatst.
+2. Stel de `certificate` eigenschappen in de Security-Daemon config yaml-bestand naar het pad waar u de bestanden van het certificaat en de sleutel hebt geplaatst.
 
 ```yaml
 certificates:
@@ -136,7 +136,7 @@ certificates:
   trusted_ca_certs: "$CERTDIR\\certs\\azure-iot-test-only.root.ca.cert.pem"
 ```
 ## <a name="deploy-edgehub-to-the-gateway"></a>EdgeHub naar de gateway implementeren
-Een van de belangrijkste mogelijkheden van Azure IoT Edge is dat u er modules voor uw IoT Edge-apparaten mee kunt implementeren vanuit de cloud. In deze sectie heeft u bij het maken van een schijnbaar lege implementatie; Edge Hub is echter automatcially toegevoegd aan alle implementaties, zelfs als er geen andere modules die aanwezig zijn. Edge Hub is de enige module die u op een Edge-apparaat beschikken over het fungeren als een transparante gateway moet, zodat het maken van een lege implementatie voldoende is. 
+Een van de belangrijkste mogelijkheden van Azure IoT Edge is dat u er modules voor uw IoT Edge-apparaten mee kunt implementeren vanuit de cloud. In deze sectie heeft u bij het maken van een schijnbaar lege implementatie; Edge Hub is echter automatisch toegevoegd aan alle implementaties, zelfs als er geen andere modules die aanwezig zijn. Edge Hub is de enige module die u op een Edge-apparaat beschikken over het fungeren als een transparante gateway moet, zodat het maken van een lege implementatie voldoende is. 
 1. Ga in Azure Portal naar uw IoT-hub.
 2. Ga naar **IoT Edge** en selecteert u uw IoT Edge-apparaat dat u wilt gebruiken als een gateway.
 3. Selecteer **Modules instellen**.
@@ -152,7 +152,7 @@ Een van de belangrijkste mogelijkheden van Azure IoT Edge is dat u er modules vo
 6. Selecteer in de sjabloon controlestap **indienen**.
 
 ## <a name="installation-on-the-downstream-device"></a>Installatie op de downstream-apparaat
-Een downstream-apparaat mag elke toepassing met behulp van de [Azure IoT device-SDK][lnk-devicesdk], zoals de eenvoudige één dat wordt beschreven in [uw apparaat aansluiten op uw IoT-hub met behulp van .NET] [ lnk-iothub-getstarted]. Een downstream-device-toepassing heeft vertrouwt de **eigenaar CA** certificaat om te kunnen valideren van de TLS-verbindingen met de gatewayapparaten. Deze stap kan doorgaans worden uitgevoerd op twee manieren: op het niveau van het besturingssysteem, of (voor bepaalde talen) op het toepassingsniveau van de.
+Een downstream-apparaat mag elke toepassing met behulp van de [Azure IoT device-SDK](../iot-hub/iot-hub-devguide-sdks.md), zoals de eenvoudige één dat wordt beschreven in [uw apparaat aansluiten op uw IoT-hub met behulp van .NET](../iot-hub/quickstart-send-telemetry-dotnet.md). Een downstream-device-toepassing heeft vertrouwt de **eigenaar CA** certificaat om te kunnen valideren van de TLS-verbindingen met de gatewayapparaten. Deze stap kan doorgaans worden uitgevoerd op twee manieren: op het niveau van het besturingssysteem, of (voor bepaalde talen) op het toepassingsniveau van de.
 
 ### <a name="os-level"></a>Het niveau van
 Dit certificaat te installeren in het certificaatarchief van het besturingssysteem kunnen alle toepassingen kunnen gebruikmaken van de eigenaar van de CA-certificaat als een vertrouwd certificaat.
@@ -167,10 +167,10 @@ Dit certificaat te installeren in het certificaatarchief van het besturingssyste
     U ziet een bericht, 'bijwerken certificaten in /etc/ssl/certs... 1 heeft toegevoegd, 0 verwijderd; gedaan."
 
 * Windows - als volgt een voorbeeld van een CA-certificaat installeren op een Windows-host.
-  * Op het menu starttype in 'Certificaten beheren computer'. Dit hulpprogramma moet tevoorschijn `certlm`.
-  * Navigeer naar certificaten lokale Computer--> vertrouwde basiscertificaten--> certificaten--> rechts Klik--> alle taken--> importeren om te starten van de wizard Certificaat importeren.
-  * Volg de stappen te gaan en certificaat bestand $CERTDIR/certs/azure-iot-test-only.root.ca.cert.pem importeren.
-  * Wanneer dit is voltooid, kunt u een "Geïmporteerd" bericht moet zien.
+  1. Op het menu starttype in 'Certificaten beheren computer'. Dit hulpprogramma moet tevoorschijn `certlm`.
+  2. Navigeer naar **certificaten lokale Computer** > **vertrouwde basiscertificaten** > **certificaten** > met de rechtermuisknop op > **Alle taken** > **importeren** om te starten van de wizard Certificaat importeren.
+  3. Volg de stappen te gaan en certificaat bestand $CERTDIR/certs/azure-iot-test-only.root.ca.cert.pem importeren.
+  4. Wanneer dit is voltooid, kunt u een "Geïmporteerd" bericht moet zien.
 
 ### <a name="application-level"></a>Niveau van de toepassing
 Voor .NET-toepassingen, kunt u het volgende codefragment om te vertrouwen van een certificaat in de PEM-indeling toevoegen. De variabele initialiseren `certPath` met `$CERTDIR\certs\azure-iot-test-only.root.ca.cert.pem`.
@@ -187,7 +187,7 @@ Voor .NET-toepassingen, kunt u het volgende codefragment om te vertrouwen van ee
    ```
 
 ## <a name="connect-the-downstream-device-to-the-gateway"></a>De downstream apparaat verbinden met de gateway
-U moet de sdk van de IoT Hub device initialiseren met een verbindingsreeks die verwijst naar de hostnaam van het gateway-apparaat. Dit wordt gedaan door toe te voegen de `GatewayHostName` eigenschap in de verbindingstekenreeks voor uw apparaat. Bijvoorbeeld, als volgt een voorbeeld van apparaat-verbindingsreeks voor een apparaat, waaraan we toegevoegd de `GatewayHostName` eigenschap:
+Initialiseren van de IoT Hub apparaat-sdk met een verbindingsreeks die verwijst naar de hostnaam van het gateway-apparaat. Dit wordt gedaan door toe te voegen de `GatewayHostName` eigenschap in de verbindingstekenreeks voor uw apparaat. Bijvoorbeeld, als volgt een voorbeeld van apparaat-verbindingsreeks voor een apparaat, waaraan we toegevoegd de `GatewayHostName` eigenschap:
 
    ```
    HostName=yourHub.azure-devices.net;DeviceId=yourDevice;SharedAccessKey=XXXYYYZZZ=;GatewayHostName=mygateway.contoso.com
@@ -205,30 +205,9 @@ IoT Edge-runtime kunt versturen berichten worden verzonden van downstream appara
    { "routes":{ "sensorToAIInsightsInput1":"FROM /messages/* WHERE NOT IS_DEFINED($connectionModuleId) INTO BrokeredEndpoint(\"/modules/ai_insights/inputs/input1\")", "AIInsightsToIoTHub":"FROM /messages/modules/ai_insights/outputs/output1 INTO $upstream" } }
    ```
 
-Raadpleeg de [module samenstelling artikel] [ lnk-module-composition] voor meer informatie over het routeren van berichten.
+Zie voor meer informatie over het routeren van berichten, [modulesamenstelling](./module-composition.md).
 
-[!INCLUDE [](../../includes/iot-edge-extended-offline-preview.md)]
+[!INCLUDE [iot-edge-extended-ofline-preview](../../includes/iot-edge-extended-offline-preview.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
-[Informatie over de vereisten en hulpprogramma's voor het ontwikkelen van IoT Edge-modules][lnk-module-dev].
-
-<!-- Images -->
-[1]: ./media/how-to-create-transparent-gateway/gateway-setup.png
-
-<!-- Links -->
-[lnk-install-windows-x64]: ./how-to-install-iot-edge-windows-with-windows.md
-[lnk-module-composition]: ./module-composition.md
-[lnk-devicesdk]: ../iot-hub/iot-hub-devguide-sdks.md
-[lnk-tutorial1-win]: tutorial-simulate-device-windows.md
-[lnk-tutorial1-lin]: tutorial-simulate-device-linux.md
-[lnk-edge-as-gateway]: ./iot-edge-as-gateway.md
-[lnk-module-dev]: module-development.md
-[lnk-iothub-getstarted]: ../iot-hub/quickstart-send-telemetry-dotnet.md
-[lnk-iothub-x509]: ../iot-hub/iot-hub-x509ca-overview.md
-[lnk-iothub-secure-deployment]: ../iot-hub/iot-hub-security-deployment.md
-[lnk-iothub-tokens]: ../iot-hub/iot-hub-devguide-security.md#security-tokens
-[lnk-iothub-throttles-quotas]: ../iot-hub/iot-hub-devguide-quotas-throttling.md
-[lnk-iothub-devicetwins]: ../iot-hub/iot-hub-devguide-device-twins.md
-[lnk-iothub-c2d]: ../iot-hub/iot-hub-devguide-messages-c2d.md
-[lnk-ca-scripts]: https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md
-[lnk-modbus-module]: https://github.com/Azure/iot-edge-modbus
+[Informatie over de vereisten en hulpprogramma's voor het ontwikkelen van IoT Edge-modules](module-development.md).

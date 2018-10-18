@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: dlap
-ms.openlocfilehash: 637f837ec2421f0bef5131a33c709087b891aa0f
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: d52785dd7569560f4b6986080b14723762537ec8
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39505108"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49388305"
 ---
 # <a name="trusted-internet-connections-guidance"></a>Richtlijnen voor vertrouwde verbindingen via Internet
 
@@ -150,16 +150,16 @@ Services die ondersteuning bieden voor implementatie van toegewezen instanties i
 
 |Service                               |Beschikbaarheid      |
 |--------------------------------------|------------------|
-|Beheerd exemplaar voor Azure SQL Database   | Openbare preview   |
+|Azure SQL Database Managed Instance   | Openbare preview   |
 |Azure Kubernetes Service (AKS)        | Openbare preview   |
 |Azure Service Fabric                  | Algemene beschikbaarheid               |
 |Azure API Management                  | Algemene beschikbaarheid               |
 |Azure Active Directory                | Algemene beschikbaarheid               |
 |Azure Batch                           | Algemene beschikbaarheid               |
-|App Service Environment               | Algemene beschikbaarheid               |
+|App Service-omgeving               | Algemene beschikbaarheid               |
 |Azure Redis-cache                     | Algemene beschikbaarheid               |
 |Azure HDInsight                       | Algemene beschikbaarheid               |
-|Virtuele-machineschaalset             | Algemene beschikbaarheid               |
+|Schaalset voor virtuele machines             | Algemene beschikbaarheid               |
 |Azure Cloud Services                  | Algemene beschikbaarheid               |
 
 
@@ -211,7 +211,7 @@ Beheerders kunnen hun eigen aangepaste definities samen met veel ingebouwde defi
 
 Het volgende voorbeeldsbeleid kunnen worden gebruikt voor boter naleving scenario's:
 
-|Beleid  |Voorbeeldscenario  |Sjabloon  |
+|Beleid  |Voorbeeldscenario  |Template  |
 |---------|---------|---------|
 |Afgedwongen door gebruiker gedefinieerde routetabel. | Zorg ervoor dat de standaardroute op alle virtuele netwerken naar een goedgekeurde virtuele netwerkgateway verwijst voor de routering naar on-premises.    | Aan de slag met dit [sjabloon](https://docs.microsoft.com/azure/azure-policy/scripts/no-user-def-route-table). |
 |Audit als Network Watcher is niet ingeschakeld voor een regio.  | Zorg ervoor dat de Network Watcher is ingeschakeld voor alle regio's gebruikt.  | Aan de slag met dit [sjabloon](https://docs.microsoft.com/azure/azure-policy/scripts/net-watch-not-enabled). |
@@ -223,7 +223,7 @@ Het volgende voorbeeldsbeleid kunnen worden gebruikt voor boter naleving scenari
 
 ### <a name="network-watcher-traffic-analytics"></a>Network Watcher-traffic analytics
 
-Network Watcher [traffic analytics](https://azure.microsoft.com/en-in/blog/traffic-analytics-in-preview/) stroom logboekgegevens en andere logboeken voor een overzicht op hoog niveau van het netwerkverkeer in beslag neemt. De gegevens zijn handig voor het controleren van boter-naleving en voor het identificeren van knelpunten. Het dashboard op hoog niveau kunt u snel de virtuele machines die communiceren met internet en een gerichte lijst voor de routering van boter scherm.
+Network Watcher [traffic analytics](https://azure.microsoft.com/blog/traffic-analytics-in-preview/) stroom logboekgegevens en andere logboeken voor een overzicht op hoog niveau van het netwerkverkeer in beslag neemt. De gegevens zijn handig voor het controleren van boter-naleving en voor het identificeren van knelpunten. Het dashboard op hoog niveau kunt u snel de virtuele machines die communiceren met internet en een gerichte lijst voor de routering van boter scherm.
 
 ![Verkeersanalyse](media/tic-traffic-analytics-1.png)
 
@@ -251,11 +251,11 @@ U kunt eenvoudig toegang tot Microsoft Azure, Office 365 en Dynamics 365 om te v
 |---------|---------|---------|---------|--------|
 | Compute | Azure virtuele Linux-machines | Ja | | |
 | Compute | Windows virtuele machines van Azure | Ja | | |
-| Compute | Virtual machine scale sets | Ja | | |
-| Compute | Azure Functions | | App Service Environment | |
-| Web en mobiel | Interne webtoepassingen | | App Service Environment| |
-| Web en mobiel | Interne mobiele toepassing | | App Service Environment | |
-| Web en mobiel | API-Apps | | App Service Environment | |
+| Compute | Virtuele-machineschaalsets | Ja | | |
+| Compute | Azure Functions | | App Service-omgeving | |
+| Web en mobiel | Interne webtoepassingen | | App Service-omgeving| |
+| Web en mobiel | Interne mobiele toepassing | | App Service-omgeving | |
+| Web en mobiel | API-Apps | | App Service-omgeving | |
 | Containers | Azure Container Service | | | Ja |
 | Containers | Azure Kubernetes Service (AKS) \* | | | Ja |
 | Database | Azure SQL Database | | Beheerd exemplaar voor Azure SQL Database \* | Azure SQL |
@@ -264,7 +264,7 @@ U kunt eenvoudig toegang tot Microsoft Azure, Office 365 en Dynamics 365 om te v
 | Database | Azure SQL Data Warehouse | | | Ja |
 | Database | Azure Cosmos DB | | | Ja |
 | Database | Azure Redis-cache | | Ja | |
-| Storage | Azure Blob-opslag | Ja | | |
+| Storage | Azure Blob Storage | Ja | | |
 | Storage | Azure Files | Ja | | |
 | Storage | Azure Queue storage | Ja | | |
 | Storage | Azure Table Storage | Ja | | |

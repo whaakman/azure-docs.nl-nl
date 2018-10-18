@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: raynew
-ms.openlocfilehash: cd0af3bc9489452dfc98efaa3ded768a8ca775ab
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 71d96d7e88404c1f8b617370ef5cc841aad882f8
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49079477"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49390037"
 ---
 # <a name="azure-site-recovery-frequently-asked-questions-faq"></a>Azure Site Recovery: veelgestelde vragen (FAQ)
 Dit artikel bevat veelgestelde vragen over Azure Site Recovery. Als u vragen hebt na het lezen van dit artikel, plaatst u deze op de [Azure Recovery Services-Forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).
@@ -70,7 +70,7 @@ Als u virtuele VMware-machines wilt beveiligen, hebt u een vSphere-hypervisor no
 Ja. Wanneer u Site Recovery gebruiken voor het indelen van replicatie en failover in uw filialen, krijgt u een uniforme indeling en de weergave van alle werkbelastingen van uw vertakking office op een centrale locatie. Vanuit het hoofdkantoor kunt u eenvoudig failovers uitvoeren en herstel na noodgeval beheren voor alle filialen. Het is niet nodig de afzonderlijke filialen te bezoeken.
 
 ## <a name="pricing"></a>Prijzen
-Voor vragen over prijzen, raadpleegt u de veelgestelde vragen op [prijzen voor Azure Site Recovery](https://azure.microsoft.com/en-in/pricing/details/site-recovery/).
+Voor vragen over prijzen, raadpleegt u de veelgestelde vragen op [prijzen voor Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).
 
 ## <a name="security"></a>Beveiliging
 ### <a name="is-replication-data-sent-to-the-site-recovery-service"></a>Worden er replicatiegegevens verzonden naar de Site Recovery-service?

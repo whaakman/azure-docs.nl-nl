@@ -12,16 +12,16 @@ ms.topic: quickstart
 ms.date: 03/28/2018
 ms.author: glenga
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 5a5e14c2a8501ce2672923545df8d32a32dee8fa
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 4809c09b5aa7b8212981cc13589602a365a23a37
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44093977"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49113611"
 ---
 # <a name="create-a-function-in-azure-that-is-triggered-by-a-timer"></a>Maak een functie in Azure die wordt geactiveerd door een timer
 
-Ontdek hoe u Azure Functions gebruikt om een [serverloze](https://azure.microsoft.com/overview/serverless-computing/) functie te maken die wordt uitgevoerd op basis van een schema dat u definieert.
+Ontdek hoe u Azure Functions gebruikt om een [serverloze](https://azure.microsoft.com/solutions/serverless/) functie te maken die wordt uitgevoerd op basis van een schema dat u definieert.
 
 ![Functie-app maken in Azure Portal](./media/functions-create-scheduled-function/function-app-in-portal-editor.png)
 

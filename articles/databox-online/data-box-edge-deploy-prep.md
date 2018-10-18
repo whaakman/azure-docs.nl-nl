@@ -1,27 +1,20 @@
 ---
 title: Zelfstudie over het voorbereiden van Azure Portal voor de implementatie van Data Box Edge | Microsoft Docs
 description: De eerste zelfstudie voor het implementeren van Azure Data Box Edge omvat het voorbereiden van Azure Portal.
-services: databox-edge-gateway
-documentationcenter: NA
+services: databox
 author: alkohli
-manager: twooley
-editor: ''
-ms.assetid: ''
-ms.service: databox-edge-gateway
-ms.devlang: NA
+ms.service: databox
+ms.subservice: edge
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 10/08/2018
 ms.author: alkohli
-ms.custom: ''
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Data Box Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: 79061caac3d598df79f383b9b13458ab9537cd81
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: 35ac28d687c8bc6636a7d8e10f54ffb5b219a776
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48832594"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49167457"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-data-box-edge-preview"></a>Zelfstudie: implementatie voorbereiden van Azure Data Box Edge (Preview-versie)
 

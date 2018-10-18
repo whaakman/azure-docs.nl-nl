@@ -8,12 +8,12 @@ ms.topic: get-started-article
 ms.date: 07/11/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 693ba07e46900ba6f3e025d97cb34aad9e244ace
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: f03872a125e4e4d2f1e0b458a31d67a07802f2c8
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44027041"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49387444"
 ---
 # <a name="introduction-to-azure-storage"></a>Kennismaking met Azure Storage
 
@@ -23,7 +23,7 @@ Azure Storage is Microsoft's cloudoplossing bedoeld voor scenario's voor gegeven
 - **Veilig.** Alle gegevens die naar Azure Storage worden geschreven, worden versleuteld door de service. Azure Storage biedt u gedetailleerde controle over wie toegang tot uw gegevens heeft.
 - **Schaalbaar.** Azure Storage is in hoge mate schaalbaar om te voldoen aan de gegevensopslag- en prestatiebehoeften van de huidige toepassingen. 
 - **Beheerd.** Microsoft Azure zorgt voor het onderhoud en handelt kritieke problemen voor u af.
-- **Toegankelijk.** Gegevens in Azure Storage zijn overal ter wereld toegankelijk via HTTP of HTTPS. Microsoft biedt SDK's voor Azure Storage in verschillende talen, te weten .NET, Java, Node.js, Python, PHP, Ruby, Go en andere, samen met een goed ontwikkelde REST-API. Azure Storage ondersteunt scripts in Azure PowerShell of Azure CLI. En de Azure-portal en Azure Storage Explorer bieden handige visuele oplossingen voor het werken met uw gegevens.  
+- **Toegankelijk.** Gegevens in Azure Storage zijn overal ter wereld toegankelijk via HTTP of HTTPS. Microsoft biedt SDK's voor Azure Storage in verschillende talen, te weten .NET, Java, Node.js, Python, PHP, Ruby, Go en andere, samen met een goed ontwikkelde REST-API. Azure Storage ondersteunt scripts in Azure PowerShell of Azure CLI. En Azure Portal en Azure Storage Explorer bieden handige visuele oplossingen voor het werken met uw gegevens.  
 
 ## <a name="azure-storage-services"></a>Azure Storage-services
 
@@ -85,7 +85,7 @@ Zie [Overzicht van Azure Table Storage](../tables/table-storage-overview.md) voo
 
 ## <a name="disk-storage"></a>File Storage
 
-Azure Storage omvat ook mogelijkheden voor beheerde en onbeheerde schijven die worden gebruikt door virtuele machines. Zie voor meer informatie over deze functies de [documentatie over de Compute-service](https://docs.microsoft.com/en-gb/azure/#pivot=products&panel=Compute).
+Azure Storage omvat ook mogelijkheden voor beheerde en onbeheerde schijven die worden gebruikt door virtuele machines. Zie voor meer informatie over deze functies de [documentatie over de Compute-service](https://docs.microsoft.com/azure/#pivot=products&panel=Compute).
 
 ## <a name="types-of-storage-accounts"></a>Typen opslagaccounts
 
