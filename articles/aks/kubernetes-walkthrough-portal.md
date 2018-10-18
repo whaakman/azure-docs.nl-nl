@@ -1,20 +1,19 @@
 ---
-title: Snelstart - portal-snelstart voor Azure Kubernetes-cluster
-description: Leer snel hoe u een Kubernetes-cluster voor Linux-containers in AKS maakt met behulp van Azure Portal.
+title: 'Snelstart: een Azure Kubernetes Service-cluster maken in de portal'
+description: Lees meer over hoe u Azure Portal kunt gebruiken om snel een Azure Kubernetes Service (AKS)-cluster te maken, en vervolgens snel een toepassing te implementeren en bewaken.
 services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
 ms.topic: quickstart
-ms.date: 07/27/2018
+ms.date: 09/24/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: aceddc2594065c9c36f8dbf63fce2ad03577a383
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 5d70f00294b1f08d2cc4cede6575efd3149599dd
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39443364"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49067448"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster"></a>Snelstart: Een AKS-cluster (Azure Kubernetes Service) implementeren
 
@@ -40,15 +39,13 @@ Voltooi de volgende stappen om een AKS-cluster te maken:
     - *SCHAAL*: selecteer een VM-grootte voor de AKS-knooppunten. De VM-grootte kan **niet** meer worden gewijzigd als een AKS-cluster eenmaal is geïmplementeerd.
         - Selecteer het aantal knooppunten dat u in het cluster wilt implementeren. Stel voor deze quickstart het **Aantal knooppunten** in op *1*. Het aantal knooppunten kan nog **wel** worden gewijzigd als het cluster is geïmplementeerd.
     
-    ![AKS-cluster maken - basisgegevens opgeven](media/kubernetes-walkthrough-portal/create-cluster-1.png)
+    ![AKS-cluster maken - basisgegevens opgeven](media/kubernetes-walkthrough-portal/create-cluster-basics.png)
 
     Selecteer **Volgende: verificatie** wanneer u klaar bent.
 
 1. **Verificatie**, configureer de volgende opties:
     - Maak een nieuwe service-principal of *configureer* om een bestaande te gebruiken. Wanneer u een bestaande service-principal gebruikt, moet u de SPN-client-ID en het geheim opgeven.
     - Schakel de optie voor Kubernetes-toegangsbeheer op basis van rollen (RBAC) in. Deze besturingselementen bieden een verfijnder beheer van de toegang tot de Kubernetes-resources die zijn geïmplementeerd in het AKS-cluster.
-
-    ![AKS-cluster maken - verificatie configureren](media/kubernetes-walkthrough-portal/create-cluster-2.png)
 
     Selecteer **Volgende: Netwerk** wanneer u klaar bent.
 
@@ -59,7 +56,7 @@ Voltooi de volgende stappen om een AKS-cluster te maken:
     
     Selecteer **Volgende: Controle** wanneer u klaar bent.
 
-1. Bij het implementeren van een AKS-cluster kan Azure Container Insights worden geconfigureerd voor het controleren van de status van het AKS-cluster en schillen die in het cluster worden uitgevoerd. Zie [Status van Azure Kubernetes Service controleren][aks-monitor] voor meer informatie over het controleren van de status van de container.
+1. Bij het implementeren van een AKS-cluster kunt u Azure Monitor voor containers configureren voor het bewaken van de status van het AKS-cluster en de pods die in het cluster worden uitgevoerd. Zie [Status van Azure Kubernetes Service controleren][aks-monitor] voor meer informatie over het controleren van de status van de container.
 
     Selecteer **Ja** als u statuscontrole van de container wilt inschakelen en selecteer een bestaande Log Analytics-werkruimte of maak een nieuwe.
     
@@ -93,7 +90,7 @@ In de volgende voorbeelduitvoer ziet u het enkele knooppunt dat is gemaakt in de
 
 ```
 NAME                       STATUS    ROLES     AGE       VERSION
-aks-agentpool-14693408-0   Ready     agent     10m       v1.10.5
+aks-agentpool-14693408-0   Ready     agent     10m       v1.11.2
 ```
 
 ## <a name="run-the-application"></a>De toepassing uitvoeren
@@ -117,6 +114,13 @@ spec:
       containers:
       - name: azure-vote-back
         image: redis
+        resources:
+          requests:
+            cpu: 100m
+            memory: 128Mi
+          limits:
+            cpu: 250m
+            memory: 256Mi
         ports:
         - containerPort: 6379
           name: redis
@@ -145,6 +149,13 @@ spec:
       containers:
       - name: azure-vote-front
         image: microsoft/azure-vote-front:v1
+        resources:
+          requests:
+            cpu: 100m
+            memory: 128Mi
+          limits:
+            cpu: 250m
+            memory: 256Mi
         ports:
         - containerPort: 80
         env:
@@ -209,13 +220,20 @@ Open een webbrowser naar het externe IP-adres van uw service om de Azure Vote-ap
 
 Toen u het cluster maakte, werd Container Insights-controle ingeschakeld. Deze controlefunctie biedt metrische statusgegevens voor zowel het AKS-cluster als de pods die in het cluster worden uitgevoerd. Zie [Status van Azure Kubernetes Service controleren][aks-monitor] voor meer informatie over het controleren van de status van de container.
 
-Het kan enkele minuten duren voordat deze gegevens in Azure Portal worden ingevuld. Ga terug naar de AKS-resource in de Azure-portal, zoals *myAKSCluster*, om de huidige status, de uptime en het resourcegebruik te zien voor de Azure Vote-pods. Kies **Containerstatus controleren** > selecteer de **standaardnaamruimte** > en selecteer vervolgens **Containers**.  De containers *azure-vote-back* en *azure-vote-front* worden weergegeven:
+Het kan enkele minuten duren voordat deze gegevens in Azure Portal worden ingevuld. Ga terug naar de AKS-resource in de Azure-portal, zoals *myAKSCluster*, om de huidige status, de uptime en het resourcegebruik te zien voor de Azure Vote-pods. Vervolgens kunt u de status als volgt openen:
+
+1. Kies onder **Bewaking** aan de linkerkant de optie **Inzichten (preview)**
+1. Kies bovenaan **+ Filter toevoegen**
+1. Selecteer *Namespace* als eigenschap en kies vervolgens  *\<Alles behalve kube-systeem\>*
+1. Kies de weergave **Containers**.
+
+De containers *azure-vote-back* en *azure-vote-front* worden weergegeven, zoals in het volgende voorbeeld:
 
 ![De status van actieve containers in AKS weergeven](media/kubernetes-walkthrough-portal/monitor-containers.png)
 
-Selecteer de koppeling **Logboeken weergeven** aan de rechterkant van de lijst met containers om de logboeken voor de `azure-vote-front`-pod te zien. Deze logboeken bevatten de stromen *stdout* en *stderr* van de container.
+Selecteer de koppeling **Containerlogboeken weergeven** aan de rechterkant van de lijst met containers om de logboeken voor de `azure-vote-front`-pod te zien. Deze logboeken bevatten de stromen *stdout* en *stderr* van de container.
 
-![De containerlogboeken in AKS weergeven](media/kubernetes-walkthrough-portal/monitor-containers-logs.png)
+![De containerlogboeken in AKS weergeven](media/kubernetes-walkthrough-portal/monitor-container-logs.png)
 
 ## <a name="delete-cluster"></a>Cluster verwijderen
 
@@ -224,6 +242,9 @@ Wanneer het cluster niet meer nodig is, verwijdert u de clusterresource. Hierdoo
 ```azurecli-interactive
 az aks delete --resource-group myResourceGroup --name myAKSCluster --no-wait
 ```
+
+> [!NOTE]
+> Wanneer u het cluster verwijdert, wordt de Azure Active Directory-service-principal die door het AKS-cluster wordt gebruikt niet verwijderd. Zie [Overwegingen voor en verwijdering van AKS service-principal][sp-delete] voor stappen voor het verwijderen van de service-principal.
 
 ## <a name="get-the-code"></a>Code ophalen
 
@@ -258,3 +279,4 @@ Voor meer informatie over AKS en een volledig stapsgewijs voorbeeld van code tot
 [aks-network]: ./networking-overview.md
 [aks-tutorial]: ./tutorial-kubernetes-prepare-app.md
 [http-routing]: ./http-application-routing.md
+[sp-delete]: kubernetes-service-principal.md#additional-considerations

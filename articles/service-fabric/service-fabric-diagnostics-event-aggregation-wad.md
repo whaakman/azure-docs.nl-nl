@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/03/2018
 ms.author: srrengar
-ms.openlocfilehash: fe8cf752337bdb3fcd61ce6aa9f3e5cb834fb0aa
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: a870c99718ecafe8af33e13be9aa46631888c8cb
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49310960"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389680"
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>Aggregatie van de gebeurtenis en verzameling met Windows Azure Diagnostics
 > [!div class="op_single_selector"]
@@ -65,7 +65,7 @@ Nu dat u bij het samenvoegen van gebeurtenissen in Azure Storage, [Log Analytics
 ## <a name="deploy-the-diagnostics-extension-through-azure-resource-manager"></a>De extensie voor diagnostische gegevens via Azure Resource Manager implementeren
 
 ### <a name="create-a-cluster-with-the-diagnostics-extension"></a>Een cluster maken met de extensie voor diagnostische gegevens
-Voor het maken van een cluster met behulp van Resource Manager, moet u de configuratie van diagnostische JSON naar de volledige Resource Manager-sjabloon toevoegen voordat u het cluster maakt. Wij bieden een voorbeeld van vijf VM-cluster Resource Manager-sjabloon met configuratie van diagnostische toegevoegd als onderdeel van onze voorbeelden Resource Manager-sjabloon. U kunt het zien op deze locatie in de galerie met voorbeelden van Azure: [cluster met vijf knooppunten met een voorbeeld van diagnostische Resource Manager-sjabloon](https://azure.microsoft.com/en-in/resources/templates/service-fabric-secure-cluster-5-node-1-nodetype/).
+Voor het maken van een cluster met behulp van Resource Manager, moet u de configuratie van diagnostische JSON naar de volledige Resource Manager-sjabloon toevoegen voordat u het cluster maakt. Wij bieden een voorbeeld van vijf VM-cluster Resource Manager-sjabloon met configuratie van diagnostische toegevoegd als onderdeel van onze voorbeelden Resource Manager-sjabloon. U kunt het zien op deze locatie in de galerie met voorbeelden van Azure: [cluster met vijf knooppunten met een voorbeeld van diagnostische Resource Manager-sjabloon](https://azure.microsoft.com/resources/templates/service-fabric-secure-cluster-5-node-1-nodetype/).
 
 Als u de instelling voor diagnostische gegevens in het Resource Manager-sjabloon, open het bestand azuredeploy.json en zoeken naar **IaaSDiagnostics**. Voor het maken van een cluster met behulp van deze sjabloon, selecteert u de **implementeren in Azure** knop beschikbaar op de vorige koppeling.
 

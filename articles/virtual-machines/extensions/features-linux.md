@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
-ms.openlocfilehash: 255fe84f0d155902b2a3ac477a1e677efef42bb4
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
-ms.translationtype: MT
+ms.openlocfilehash: b4e2971b5bb4ed5add2e68c1aabbc82443a61160
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/17/2018
-ms.locfileid: "49386652"
+ms.locfileid: "49363378"
 ---
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>Extensies voor virtuele machines en functies voor Linux
 
@@ -65,7 +65,7 @@ Bepaalde extensies worden niet ondersteund in alle besturingssystemen en verzend
 > [!IMPORTANT]
 > Als u toegang tot hebben geblokkeerd *168.63.129.1* met behulp van de Gast-firewall, extensies mislukt, ongeacht de bovenstaande.
 
-Agents kunnen alleen worden gebruikt voor het downloaden van extensiepakketten en rapporteringsstatus. Bijvoorbeeld, als een extensie installeren moet een script downloaden vanuit GitHub (aangepast Script) of moet toegang tot Azure Storage (Azure Backup), klikt u vervolgens aanvullende firewall/Network Security Group-poorten moeten worden geopend. Verschillende extensies hebben verschillende vereisten, omdat ze toepassingen in hun eigen rechts. Voor uitbreidingen waarvoor toegang tot Azure Storage, kunt u toegang met behulp van Azure NSG servicetags voor [opslag](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
+Agents kunnen alleen worden gebruikt voor het downloaden van extensiepakketten en rapporteringsstatus. Bijvoorbeeld, als een extensie installeren moet een script downloaden vanuit GitHub (aangepast Script) of moet toegang tot Azure Storage (Azure Backup), klikt u vervolgens aanvullende firewall/Network Security Group-poorten moeten worden geopend. Verschillende extensies hebben verschillende vereisten, omdat ze toepassingen in hun eigen rechts. Voor uitbreidingen waarvoor toegang tot Azure Storage, kunt u toegang met behulp van Azure NSG servicetags voor [opslag](https://docs.microsoft.com/en-us/azure/virtual-network/security-overview#service-tags).
 
 De Linux-Agent heeft om te leiden verkeer agentaanvragen, ondersteuning voor proxyserver. Ondersteuning voor deze proxyserver geldt echter niet extensies. U moet elke afzonderlijke extensie om te werken met een proxy configureren.
 
@@ -259,7 +259,7 @@ In het voorgaande van de voorbeelduitvoer is de bovenliggende of 'pakket geïmpl
 
 De 'doel status agent' is de versie van de update automatisch.
 
-Het is raadzaam dat u altijd automatisch bijwerken voor de agent hebt [AutoUpdate.Enabled=y](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent). Niet dat u hoeft dit ingeschakelde betekent dat die u wilt houden handmatig bijwerken van de agent, en oplossingen voor bugs en beveiliging niet ophalen.
+Het is raadzaam dat u altijd automatisch bijwerken voor de agent hebt [AutoUpdate.Enabled=y](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/update-agent). Niet dat u hoeft dit ingeschakelde betekent dat die u wilt houden handmatig bijwerken van de agent, en oplossingen voor bugs en beveiliging niet ophalen.
 
 #### <a name="extension-updates"></a>Extensie-updates
 

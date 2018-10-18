@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 10/16/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: cb659a79f374b7a48cd3cc29f9f46bc6598c04dc
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 17f06a08388720c4483ef1c187edf20ec8359121
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/17/2018
-ms.locfileid: "49366629"
+ms.locfileid: "49386380"
 ---
 # <a name="tutorial-offer-highly-available-sql-databases"></a>Zelfstudie: SQL-databases met hoge beschikbaarheid bieden
 
@@ -123,7 +123,7 @@ Op de secundaire SQL-exemplaren (< availability_group_name > vervangen door de n
 >  ![Secundaire SQL-exemplaar-script](./media/azure-stack-tutorial-sqlrp/sql2.png)
 
 ### <a name="configure-contained-database-authentication"></a>Ingesloten database-verificatie configureren
-Voordat u een ingesloten database aan een beschikbaarheidsgroep toevoegt, zorg ervoor dat de ingesloten database authentication server-optie is ingesteld op 1 op elke serverexemplaar dat als host fungeert voor een beschikbaarheidsreplica voor de beschikbaarheidsgroep. Zie voor meer informatie, [databaseverificatie](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/contained-database-authentication-server-configuration-option?view=sql-server-2017).
+Voordat u een ingesloten database aan een beschikbaarheidsgroep toevoegt, zorg ervoor dat de ingesloten database authentication server-optie is ingesteld op 1 op elke serverexemplaar dat als host fungeert voor een beschikbaarheidsreplica voor de beschikbaarheidsgroep. Zie voor meer informatie, [databaseverificatie](https://docs.microsoft.com/sql/database-engine/configure-windows/contained-database-authentication-server-configuration-option?view=sql-server-2017).
 
 Deze opdrachten gebruiken om in te stellen van de ingesloten database-server-optie voor verificatie voor elk exemplaar van SQL Server in de beschikbaarheidsgroep:
 

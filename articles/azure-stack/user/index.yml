@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: e10dbc5ef0899134a1d629a058412b1eb36df335
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 88bc55bfcf1fef825ab7475f6008d49ed274d534
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47163406"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49393215"
 documentType: LandingData
 title: Documentatie voor Azure Stack-gebruiker
 metadata:
@@ -18,7 +18,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 09/25/2018
+  ms.date: 10/16/2018
   ms.author: jeffgilb
 abstract:
   description: Azure Stack is een hybride cloudplatform waarmee u Azure-services kunt gebruiken vanuit het datacenter van uw bedrijf of serviceprovider. Als ontwikkelaar kunt u apps bouwen in Azure Stack. U kunt deze vervolgens implementeren naar Azure Stack of naar Azure, of u kunt volledig hybride apps bouwen die gebruikmaken van de connectiviteit tussen een Azure Stack-cloud en Azure. Ontdek met onze snelstartgidsen en zelfstudies hoe u resources maakt en apps implementeert.<br/><br/>Als u Azure Stack-operators die u beheert de infrastructuur en -services biedt, raadpleegt u onze <a href="/azure/azure-stack/">operator documentatie</a>.<br/><br/>Als u Azure Stack-operators geïnteresseerd in de Azure Stack Development Kit (ASDK), een implementatie van één knooppunt van de Azure-Stack die u kunt downloaden en gratis gebruiken, raadpleegt u onze <a href="/azure/azure-stack/asdk">ASDK documentatie</a>.
@@ -73,8 +73,6 @@ sections:
     - html: <a href="/azure/azure-stack/user/azure-stack-solution-staged-data-analytics">Een gefaseerde data analytics-oplossing maken met Azure en Azure Stack </a>
     - html: <a href="/azure/azure-stack/user/azure-stack-solution-cloud-burst">Cross-cloud vergroten/verkleinen oplossingen maken met Azure</a>
     - html: <a href="/azure/azure-stack/user/azure-stack-solution-geo-distributed">Een geografisch gedistribueerde app-oplossing maken met Azure en Azure Stack</a>
-    - html: <a href="/azure/azure-stack/user/azure-stack-tutorial-sql">Maximaal beschikbare SQL-databases maken</a>
-    - html: <a href="/azure/azure-stack/user/azure-stack-tutorial-mysql">MySQL-databases met hoge beschikbaarheid maken</a>
 - title: Referentie
   items:
   - type: list

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 10/16/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: 2197d197e68528866c892cc51323bc61a208bcc0
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: ea3e6c2e616f2618200c1e3904786abd72bbd75d
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/17/2018
-ms.locfileid: "49366636"
+ms.locfileid: "49376802"
 ---
 # <a name="tutorial-offer-highly-available-mysql-databases"></a>Zelfstudie: MySQL-databases met hoge beschikbaarheid bieden
 
@@ -198,4 +198,4 @@ In deze zelfstudie hebt u het volgende geleerd:
 
 Ga verder met de volgende zelfstudie voor meer informatie over het:
 > [!div class="nextstepaction"]
-> [Aanbieding WebApps](/azure-stack-tutorial-app-service.md)
+> [Aanbieding WebApps](azure-stack-tutorial-app-service.md)
