@@ -1,0 +1,93 @@
+---
+title: Azure Data Box Gateway-gebruikers beheren | Microsoft Docs
+description: Beschrijft hoe u Azure Portal gebruikt om gebruikers te beheren in uw Azure Data Box Gateway.
+services: databox-edge-gateway
+documentationcenter: NA
+author: alkohli
+manager: twooley
+editor: ''
+ms.assetid: ''
+ms.service: databox
+ms.devlang: NA
+ms.topic: overview
+ms.custom: ''
+ms.tgt_pltfrm: NA
+ms.workload: TBD
+ms.date: 10/09/2018
+ms.author: alkohli
+ms.openlocfilehash: 3bd368cf19edf1370aaeef54d3ba0e4fd26ac239
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49070439"
+---
+# <a name="use-the-azure-portal-to-manage-users-on-your-azure-data-box-gateway"></a>Azure Portal gebruiken om gebruikers te beheren in uw Azure Data Box Gateway 
+
+Dit artikel beschrijft hoe u gebruikers beheert in uw Azure Data Box Gateway. U kunt de Azure Data Box Gateway beheren via Azure Portal of via de lokale webinterface. Gebruik Azure Portal om gebruikers toe te voegen, te wijzigen of te verwijderen.
+
+> [!IMPORTANT]
+> - Data Box Gateway verkeert in de preview-fase. Lees de [Gebruiksvoorwaarden voor de preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voordat u deze oplossing bestelt en implementeert.
+
+In dit artikel leert u het volgende:
+
+> [!div class="checklist"]
+> * Een gebruiker toevoegen
+> * Gebruiker wijzigen
+> * Een gebruiker verwijderen 
+
+## <a name="about-users"></a>Over gebruikers
+
+Gebruikers kunnen het recht alleen-lezen of volledige bevoegdheid hebben. Zoals de naam al aangeeft, kunnen gebruikers met het recht alleen-lezen de sharegegevens alleen weergeven. Gebruikers met volledige bevoegdheid kunnen sharegegevens lezen, schrijven, wijzigen of verwijderen. 
+
+ - **Gebruiker met volledige bevoegdheden** - een lokale gebruiker met volledige toegang. 
+ - **Alleen-lezengebruiker** - een lokale gebruiker met alleen-lezentoegang. Deze gebruikers zijn gekoppeld aan shares waarmee alleen-lezenbewerkingen mogelijk zijn.
+
+De gebruikersmachtigingen worden eerst gedefinieerd wanneer de gebruiker wordt gemaakt tijdens het maken van de share. Wanneer de machtigingen voor een gebruiker zijn gedefinieerd, kunnen deze worden gewijzigd via Windows Verkenner. 
+
+
+## <a name="add-a-user"></a>Een gebruiker toevoegen
+
+Voer in Azure Portal de volgende stappen uit om een gebruiker toe te voegen.
+
+1. Ga in Azure Portal naar uw Data Box Gateway-resource en navigeer vervolgens naar **Overzicht**. Klik in de opdrachtbalk op **+ Gebruiker toevoegen**.
+
+    ![Klikken op Gebruiker toevoegen](media/data-box-gateway-manage-users/add-user-1.png)
+
+2. Geef de gebruikersnaam en het wachtwoord op voor de gebruiker die u wilt toevoegen. Bevestig het wachtwoord en klik op **Toevoegen**.
+
+    ![Klikken op Gebruiker toevoegen](media/data-box-gateway-manage-users/add-user-2.png)
+
+    > [!IMPORTANT] 
+    > Deze gebruikers zijn gereserveerd door het systeem en moeten niet worden gebruikt: Administrator, EdgeUser, EdgeSupport, HcsSetupUser, WDAGUtilityAccount, CLIUSR, DefaultAccount, Guest.  
+
+3. U krijgt een melding wanneer het maken van de gebruiker wordt gestart en is voltooid. Wanneer de gebruiker is gemaakt, klikt u in de opdrachtbalk op **Vernieuwen** om de bijgewerkte lijst met gebruikers weer te geven.
+
+
+## <a name="modify-user"></a>Gebruiker wijzigen
+
+U kunt het wachtwoord dat is gekoppeld aan een gebruiker, wijzigen wanneer de gebruiker is gemaakt. Selecteer en klik in de lijst met gebruikers. Geef het nieuwe wachtwoord op en bevestig het. Sla de wijzigingen op.
+ 
+![Gebruiker wijzigen](media/data-box-gateway-manage-users/modify-user-1.png)
+
+
+## <a name="delete-a-user"></a>Een gebruiker verwijderen
+
+Voer in Azure Portal de volgende stappen uit om een gebruiker te verwijderen.
+
+1. Selecteer een gebruiker door erop te klikken in de lijst met gebruikers en klik vervolgens op **Verwijderen**.  
+
+   ![Een gebruiker verwijderen](media/data-box-gateway-manage-users/delete-user-1.png)
+
+2. Bevestig de verwijdering als u daarom wordt gevraagd. 
+
+   ![Een gebruiker verwijderen](media/data-box-gateway-manage-users/delete-user-2.png)
+
+De lijst met gebruikers wordt bijgewerkt en de verwijderde gebruiker wordt niet meer weergegeven.
+
+![Een gebruiker verwijderen](media/data-box-gateway-manage-users/delete-user-3.png)
+
+
+## <a name="next-steps"></a>Volgende stappen
+
+- Meer informatie over [Bandbreedte beheren](data-box-gateway-manage-bandwidth-schedules.md).
