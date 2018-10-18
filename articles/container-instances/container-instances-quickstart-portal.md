@@ -1,26 +1,25 @@
 ---
-title: 'Quickstart: uw eerste Azure Container Instances-container maken met behulp van Azure Portal'
-description: In deze snelstart gebruikt u de Azure-portal om een container in Azure Container Instances te implementeren
+title: Snelstart - Een toepassing uitvoeren in Azure Container Instances
+description: In deze snelstart gebruikt u Azure Portal om een toepassing in een Docker-container te implementeren in Azure Container Instances
 services: container-instances
-author: mmacy
-manager: jeconnoc
+author: dlepow
 ms.service: container-instances
 ms.topic: quickstart
-ms.date: 05/11/2018
-ms.author: marsma
+ms.date: 10/02/2018
+ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 6aa6fb27b2aa7c8b9614e5812fadc629b1e185f8
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 6ab7680559400c0a270142563ecf7e251c2cd1b8
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34076235"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48857717"
 ---
-# <a name="quickstart-create-your-first-container-in-azure-container-instances"></a>Snelstart: Uw eerste container maken in Azure Container Instances
+# <a name="quickstart-run-an-application-in-azure-container-instances"></a>Snelstart - Een toepassing uitvoeren in Azure Container Instances
 
-Met Azure Container Instances kunt u gemakkelijk Docker-containers in Azure maken en beheren, zonder virtuele machines te hoeven inrichten of een service op een hoger niveau te moeten gebruiken. In deze snelstart maakt u een container in Azure Portal en publiceert u deze op internet via een FQDN (Fully Qualified Domain Name). Na het configureren van enkele instellingen, ziet u dit in uw browser:
+Gebruik Azure Container Instances om Docker-containers in Azure snel en eenvoudig uit te voeren. U hoeft geen virtuele machines te implementeren en u hoeft geen volledig container-indelingsplatform zoals Kubernetes te gebruiken. In deze snelstart gebruikt u Azure Portal om een container te maken in Azure en maakt u de bijbehorende toepassing beschikbaar met een FQDN (Fully Qualified Domain Name). Na het configureren van een paar instellingen en de implementatie van de container kunt u bladeren naar de toepassing die wordt uitgevoerd:
 
-![App die is geïmplementeerd met Azure Container Instances, weergegeven in de browser][aci-portal-07]
+![App die is geïmplementeerd in Azure Container Instances, weergegeven in de browser][aci-portal-07]
 
 ## <a name="sign-in-to-azure"></a>Aanmelden bij Azure
 
@@ -38,7 +37,7 @@ Voer de waarden voor de volgende tekstvakken in: **Containernaam**, **Containeri
 
 * Containernaam: `mycontainer`
 * Containerinstallatiekopie: `microsoft/aci-helloworld`
-* Resourcegroep: `myResourceGroup`
+* Resourcegroep: **Nieuwe maken** > `myResourceGroup`
 
 ![Basisinstellingen configureren voor een nieuwe containerinstantie in Azure Portal][aci-portal-03]
 
@@ -54,11 +53,11 @@ Wanneer de validatie is voltooid, ziet u een overzicht van de containerinstellin
 
 ![Overzicht van de instellingen voor een nieuwe containerinstantie in Azure Portal][aci-portal-05]
 
-Wanneer de implementatie is gestart, verschijnt er een tegel op uw portaldashboard waarop de voortgang van de implementatie wordt weergegeven. Zodra deze is geïmplementeerd, wordt uw nieuwe container-instantie in de tegel weergegeven.
+Wanneer de implementatie is gestart, wordt een melding weergegeven dat de implementatie wordt uitgevoerd. Er wordt nog een melding weergegeven wanneer de containergroep is geïmplementeerd.
 
 ![Voortgang van het maken van een nieuwe containerinstantie in Azure Portal][aci-portal-08]
 
-Selecteer de container-instantie **mycontainer** om de eigenschappen ervan weer te geven. Noteer de **FQDN** (de FQDN-naam) van de container-instantie, evenals de **Status**.
+Open het overzicht voor de containergroep door te navigeren naar **Resourcegroepen** > **myResourceGroup** > **mycontainer**. Noteer de **FQDN** (de FQDN-naam) van de container-instantie, evenals de **Status**.
 
 ![Overzicht van containergroepen in Azure Portal][aci-portal-06]
 
@@ -66,13 +65,13 @@ Wanneer de **Status** eenmaal *Uitvoeren* is, gaat u naar de FQDN van de contain
 
 ![App die is geïmplementeerd met Azure Container Instances, weergegeven in de browser][aci-portal-07]
 
-Gefeliciteerd. Als u slechts enkele instellingen configureert, hebt u een openbaar toegankelijke toepassing in Azure Container Instances geïmplementeerd.
+Gefeliciteerd! Als u slechts enkele instellingen configureert, hebt u een openbaar toegankelijke toepassing in Azure Container Instances geïmplementeerd.
 
 ## <a name="view-container-logs"></a>Containerlogbestanden bekijken
 
 Het weergeven van de logboeken voor een exemplaar van de container is handig bij het oplossen van problemen met de container of de toepassing die wordt uitgevoerd.
 
-Selecteer om de container-logboeken weer te geven onder **INSTELLINGEN** de optie **Containers** en vervolgens **Logboeken**. De HTTP GET-aanvraag wordt als het goed is gegenereerd wanneer u de toepassing in uw browser hebt bekeken.
+Selecteer om de container-logboeken weer te geven onder **Instellingen** de optie **Containers** en vervolgens **Logboeken**. De HTTP GET-aanvraag wordt als het goed is gegenereerd wanneer u de toepassing in uw browser hebt bekeken.
 
 ![Container-logboeken in Azure Portal][aci-portal-11]
 
@@ -88,7 +87,7 @@ Selecteer **Ja** als het bevestigingsvenster verschijnt.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze snelstart hebt u een Azure-containerinstantie van een installatiekopie gemaakt in een openbare Docker Hub-opslagplaats. Als u zelf een container wilt bouwen en deze wilt implementeren in Azure Container Instances met behulp van Azure Container Registry, gaat u verder met de zelfstudie voor Azure Container Instances.
+In deze snelstart hebt u een Azure-containerinstantie van een installatiekopie gemaakt in een openbare Docker Hub-opslagplaats. Als u zelf een containerinstallatiekopie wilt bouwen en deze wilt implementeren met behulp van een privé Azure Container-register, gaat u verder met de zelfstudie voor Azure Container Instances.
 
 > [!div class="nextstepaction"]
 > [Zelfstudie voor Azure Container Instances](./container-instances-tutorial-prepare-app.md)

@@ -1,53 +1,54 @@
 ---
-title: Akoestische-walkthrough voor voorbeeld - Cognitive Services-project
-description: In dit scenario beschrijft de scène Unity-voorbeeld voor Project akoestische, met inbegrip van de implementatie van het bureaublad en VR.
+title: 'Voorbeeld: Project Acoustics'
+titlesuffix: Azure Cognitive Services
+description: In deze handleiding wordt de Unity-voorbeeldscène voor Project Acoustics beschreven, met inbegrip van de implementatie naar het bureaublad en VR.
 services: cognitive-services
 author: kegodin
-manager: noelc
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: acoustics
-ms.topic: article
+ms.topic: sample
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: eaf7ff9f7f791fd6d04e6b76d256b4987c50cd13
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
-ms.translationtype: MT
+ms.openlocfilehash: f5ea565e68579dfad601d1037daeb4113e3daa43
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434089"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48901155"
 ---
-# <a name="unity-sample-walkthrough"></a>Walkthrough voor voorbeeld van Unity
-Dit is een overzicht van het Project akoestische-voorbeeld. Voor meer informatie over welke akoestische Project is, bekijk de [Inleiding tot Project akoestische](what-is-acoustics.md). Als u hulp nodig hebt in het Project akoestische-pakket toe te voegen aan een bestaande Unity-project, gebruikt de [introductiehandleiding](getting-started.md).
+# <a name="unity-sample-walkthrough"></a>Handleiding voor het Unity-voorbeeld
+Dit is een handleiding voor het Project Acoustics-voorbeeld. Voor meer informatie over wat Acoustics Project is, bekijkt u de [Inleiding op Project Acoustics](what-is-acoustics.md). Als u hulp nodig hebt bij het toevoegen van het Project Acoustics-pakket aan een bestaand Unity-project, bekijkt u de handleiding [Aan de slag](getting-started.md).
 
 ## <a name="requirements-for-running-the-sample-project"></a>Vereisten voor het uitvoeren van het voorbeeldproject
-* Unity 2018.2 +, met behulp van .NET 4.x scripting runtime-versie
+* Unity 2018.2+, met .NET 4.x Scripting Runtime Version
 * Windows 64-bits Unity Editor
-* Het voorbeeld biedt ondersteuning voor Windows-bureaublad, UWP en Android-doelen, met inbegrip van beeldschermen head gekoppeld (HMDs)
-* Azure Batch-abonnement nodig voor bake proces
+* Het voorbeeld biedt ondersteuning voor Windows-bureaublad en UWP- en Android-doelen, met inbegrip van head-mounted displays (HMD‘s)
+* Azure Batch-abonnement vereist voor het proces
 
-## <a name="sample-project-setup"></a>Instellen van het project
-Download en importeer het **MicrosoftAcoustics.Sample.unitypackage**. Tijdens het importeren, projectinstellingen inclusief **ruimtelijk** en **runtimeversie Scripting** worden bijgewerkt om te voldoen aan de vereisten van de invoegtoepassing. Wanneer dit voltooid is, ziet u een fout in de Unity-console van **AcousticsGeometry.cs** over het wijzigen van de Runtime-versie uitvoeren van scripts op **.NET 4.x Equivalent**. Deze wijziging van de instellingen wordt uitgevoerd als onderdeel van het importeren van het pakket, maar vereist een herstart Unity moet zijn van kracht. Unity nu opnieuw opstarten.
+## <a name="sample-project-setup"></a>Het voorbeeldproject instellen
+Download en importeer **MicrosoftAcoustics.Sample.unitypackage**. Tijdens het importeren worden de projectinstellingen, inclusief **Spatializer** en **Scripting Runtime Version** bijgewerkt om te voldoen aan de vereisten van de invoegtoepassing. Wanneer dit is voltooid, ziet u in de Unity-console een fout van **AcousticsGeometry.cs** over het wijzigen van de Scripting Runtime Version in **.NET 4.x Equivalent**. Deze wijziging van de instellingen wordt uitgevoerd als onderdeel van het importeren van het pakket, maar er is een herstart nodig voordat Unity effectief is. Start Unity nu opnieuw op.
 
 ## <a name="running-the-sample"></a>Het voorbeeld uitvoeren
-Het voorbeeld bevat een scène demo **Assets/AcousticsDemo/ProjectAcousticsDemo.unity**. Deze scène heeft drie geluid bronnen. Standaard, slechts één bron van geluid wordt afgespeeld en de andere twee zijn onderbroken. Deze bevinden zich in **geluid bronnen** in de **hiërarchie**. Als u een algemene navigatie-script, wordt de Camera van het hoofdvenster een onderliggend element van het object CameraHolder. 
+Het voorbeeld bevat een voorbeeldscène **Assets/AcousticsDemo/ProjectAcousticsDemo.unity**. Deze scène heeft drie geluidsbronnen. Standaard wordt slechts één geluidsbron afgespeeld en de andere twee zijn onderbroken. Deze bevinden zich in **Geluidsbronnen** in de **hiërarchie**. Om u te helpen een algemeen navigatiescript te maken, is de hoofdcamera een onderliggend element van het object CameraHolder. 
 
-![Hiërarchie weergeven](media/SampleHierarchyView.png)
+![Hiërarchieweergave](media/SampleHierarchyView.png)
 
-De scène al is sparen en een ACE-bestand is gekoppeld aan de **MicrosoftAcoustics** prefab in de **hiërarchie**. 
+Dit scène is al voltooid en er is een ACE-bestand gekoppeld aan de **MicrosoftAcoustics**-prefab in de **hiërarchie**. 
 
-Luister naar hoe de scène geluiden door te klikken op de knop afspelen in de Unity-editor. Gebruik op het bureaublad, W, A, S, D en de muis om te navigeren. Als u wilt vergelijken hoe de scène met en zonder akoestische klinkt, drukt u op de **R** knop totdat de overlaytekst verandert in rood en zegt "akoestische: uitgeschakeld." Als u wilt zien sneltoetsen voor meer besturingselementen, drukt u op **F1**. Alle besturingselementen zijn ook bruikbaar met de rechtermuisknop te klikken om te selecteren van de actie uit te voeren, vervolgens links te klikken op als de bewerking wilt uitvoeren.
+Luister naar het geluid van de scène door te klikken op de knop Afspelen in de Unity-editor. Gebruik op het bureaublad W, A, S, D en de muis om te navigeren. Als u wilt vergelijken hoe de scène met en zonder Acoustics klinkt, drukt u op **R** totdat de overlaytekst rood wordt en zegt "Acoustics: Disabled". Als u sneltoetsen wilt zien voor meer besturingselementen, drukt u op **F1**. Alle besturingselementen zijn ook bruikbaar door met de rechtermuisknop te klikken om de actie te selecteren die u wilt uitvoeren. Vervolgens klikt u met de linkermuisknop om de actie uit te voeren.
 
-## <a name="targeting-other-platforms"></a>Die gericht is op andere platforms
-Het voorbeeld bevat de instellingen uit te voeren op Windows-bureaublad-, UWP-, Windows Mixed Reality-, Android- en Oculus Go. Het project is standaard geconfigureerd voor Windows-bureaublad. Als u wilt een VR-platform als doel, gaat u naar de player-instellingen (**bewerken > Projectinstellingen > Player**), vinden de **XR instellingen**, en controleer de **Virtual Reality ondersteund** selectievakje.
+## <a name="targeting-other-platforms"></a>Scenario voor andere platformen
+Het voorbeeld bevat instellingen om uit te voeren op Windows-bureaublad, UWP, Windows Mixed Reality, Android en Oculus Go. Het project is standaard geconfigureerd voor Windows-bureaublad. Als u een VR-platform als doel hebt, gaat u naar de player-instellingen (**Bewerken > Projectinstellingen > Player**), zoekt u **XR-instellingen** en schakelt u het selectievakje **Virtual Reality ondersteund** in.
 
 ![VR inschakelen](media/VRSupport.png)  
 
-Verbinding maken met een hoofdtelefoon VR tot uw PC. Ga naar **bestand > Build Settings**, en klikt u op **bouwen en uitvoeren** het voorbeeld implementeren in uw hoofdtelefoon VR. Navigeer door de scène met behulp van de bewegingscontrollers voor uw hoofdtelefoon of gebruik W, A-Z, D op het toetsenbord.    
-Als u wilt richten op Android- en Oculus Go, kiest u Android van de **Build Settings** menu. Klik op **overschakelen doel**, klikt u vervolgens **bouwen en uitvoeren**. Hierdoor wordt de voorbeeld-scène geïmplementeerd naar uw verbonden Android-apparaat. Zie voor meer informatie over het ontwikkelen van Unity voor Android [documentatie voor Unity](https://docs.unity3d.com/Manual/android-GettingStarted.html).
+Sluit een VR-headset aan op uw pc. Ga naar **Bestand > Build-instellingen** en klik op **Bouwen en uitvoeren** om het voorbeeld te implementeren in uw VR-headset. Navigeer door de scène met behulp van de bewegingscontrollers voor uw headset of gebruik W, A, S, D op het toetsenbord.    
+Als u Android en Oculus Go als doel hebt, kiest u Android in het menu **Build-instellingen**. Klik op **Doel wisselen** en klik vervolgens op **Bouwen en uitvoeren**. Hierdoor wordt de voorbeeldscène geïmplementeerd in uw verbonden Android-apparaat. Zie de [Unity-documentatie](https://docs.unity3d.com/Manual/android-GettingStarted.html) voor meer informatie over Unity-ontwikkeling voor Android.
 
-![Doel-Android](media/TargetAndroid.png)  
+![Android als doel](media/TargetAndroid.png)  
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Maak een Azure-account](create-azure-account.md) voor uw eigen gebouwd
-* Verken de [proces ontwerpen](design-process.md)
+* [Een Azure-account maken](create-azure-account.md) voor uw eigen processen
+* Het [ontwerpproces](design-process.md) verkennen
 

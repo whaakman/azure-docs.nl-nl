@@ -5,15 +5,15 @@ services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: include
-ms.date: 08/20/2018
+ms.date: 10/01/2018
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: ac6b53926ca6c44c8ec1e71db67321366aacb00e
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: 4b209953e957d0c2892bc5c6bca7a577992c5dee
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42617605"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48843606"
 ---
 ## <a name="prerequisites"></a>Vereisten
 
@@ -21,18 +21,26 @@ ms.locfileid: "42617605"
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/) aan voordat u begint.
 
 ### <a name="azure-roles"></a>Azure-rollen
-Als u Data Factory-exemplaren wilt maken, moet het gebruikersaccount waarmee u zich bij Azure aanmeldt, lid zijn van de rol *Inzender* of *Eigenaar*, of moet dit een *beheerder* van het Azure-abonnement zijn. Als u de machtigingen die u in het abonnement hebt, wilt bekijken, gaat u naar Azure Portal, selecteert u rechtsboven uw gebruikersnaam en selecteert u vervolgens **Machtigingen**. Als u toegang tot meerdere abonnementen hebt, moet u het juiste abonnement selecteren. Zie het artikel [Rollen toevoegen](../articles/billing/billing-add-change-azure-subscription-administrator.md) voor voorbeelden van instructies voor het toevoegen van een gebruiker aan een rol.
+Als u Data Factory-exemplaren wilt maken, moet het gebruikersaccount waarmee u zich bij Azure aanmeldt, lid zijn van de rol *Inzender* of *Eigenaar*, of moet dit een *beheerder* van het Azure-abonnement zijn. Als u de machtigingen die u in het abonnement hebt, wilt bekijken, gaat u naar Azure Portal, selecteert u rechtsboven uw gebruikersnaam en selecteert u vervolgens **Machtigingen**. Als u toegang tot meerdere abonnementen hebt, moet u het juiste abonnement selecteren. 
 
-Als u onderliggende resources wilt maken en beheren (inclusief gegevenssets, gekoppelde services, pijplijnen, triggers en integratie-runtimes) voor Data Factory via de Author & Monitor UI in de Azure Portal, moet u de rol **Data Factory-inzender** hebben. Voor het maken en beheren van onderliggende resources met Powershell of de SDK is de rol **Inzender** voldoende.
+Als u onderliggende resources wilt maken en beheren voor Data Factory, waaronder gegevenssets, gekoppelde services, pijplijnen, triggers en integratieruntimes, zijn de volgende vereisten van toepassing:
+- Als u onderliggende resources in Azure Portal wilt maken en beheren, moet u de rol **Data Factory-inzender** op minimaal het niveau van de resourcegroep hebben.
+- Voor het maken en beheren van onderliggende resources met PowerShell of de SDK is de rol **Inzender** op minimaal het resourceniveau voldoende.
+
+Zie het artikel [Rollen toevoegen](../articles/billing/billing-add-change-azure-subscription-administrator.md) voor voorbeelden van instructies voor het toevoegen van een gebruiker aan een rol.
+
+Raadpleeg voor meer informatie de volgende artikelen:
+- [Rol Data Factory-inzender](../articles/role-based-access-control/built-in-roles.md#data-factory-contributor)
+- [Rollen en machtigingen voor Azure Data Factory](../articles/data-factory/concepts-roles-permissions.md)
 
 ### <a name="azure-storage-account"></a>Azure Storage-account
 In deze Snelstart gaat u een algemeen Azure Storage-account (en dan met name voor Blob Storage) gebruiken als zowel *bron-* als *doel*gegevensarchieven. Zie het artikel [Een opslagaccount maken](../articles/storage/common/storage-quickstart-create-account.md) als u geen Azure Storage-account hebt voor algemene doeleinden en er een wilt maken. 
 
 #### <a name="get-the-storage-account-name-and-account-key"></a>De naam en sleutel van een opslagaccount ophalen
-In deze QuickStart gaat u de naam en sleutel van uw Azure Storage-account gebruiken. De volgende procedure bevat stappen waarmee u de naam en sleutel van uw opslagaccount kunt ophalen: 
+In deze snelstart gaat u de naam en sleutel van uw Azure Storage-account gebruiken. De volgende procedure bevat stappen waarmee u de naam en sleutel van uw opslagaccount kunt ophalen: 
 
 1. Ga in een webbrowser naar [Azure Portal](https://portal.azure.com). Meld u aan met de gebruikersnaam en het wachtwoord van Azure. 
-2. Selecteer **Meer services** in het menu links, filter op het trefwoord **Opslag** en selecteer **Opslagaccounts**.
+2. Selecteer **Alle services** in het menu links, filter op het trefwoord **Opslag** en selecteer **Opslagaccounts**.
 
    ![Zoeken naar een opslagaccount](media/data-factory-quickstart-prerequisites/search-storage-account.png)
 3. Filter in de lijst met opslagaccounts op uw opslagaccount (indien nodig) en selecteer vervolgens uw opslagaccount. 
@@ -56,7 +64,7 @@ In deze sectie maakt u in Azure Blob Storage een blobcontainer met de naam **adf
 4. Selecteer **adftutorial** in de lijst met containers. 
 
    ![De container selecteren](media/data-factory-quickstart-prerequisites/seelct-adftutorial-container.png)
-1. Selecteer op de pagina **Container** in de werkbalk de optie **Uploaden**.  
+5. Selecteer op de pagina **Container** in de werkbalk de optie **Uploaden**.  
 
    ![Knop Uploaden](media/data-factory-quickstart-prerequisites/upload-toolbar-button.png)
 6. Selecteer op de pagina **Blob uploaden** de optie **Geavanceerd**.

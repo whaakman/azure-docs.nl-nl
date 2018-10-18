@@ -11,19 +11,19 @@ ms.workload: data-services
 ms.topic: quickstart
 ms.date: 06/20/2018
 ms.author: jingwang
-ms.openlocfilehash: 0638aaa9165bcf760dabca330f6ee396807e4597
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: fc4b1dce1b01d9294cf422c910f39d68cbd49c87
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43087951"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48018244"
 ---
 # <a name="create-a-data-factory-by-using-the-azure-data-factory-ui"></a>Een gegevensfactory maken met de Azure Data Factory-UI
 > [!div class="op_single_selector" title1="Select the version of Data Factory service that you are using:"]
 > * [Versie 1:](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Huidige versie](quickstart-create-data-factory-portal.md)
 
-In deze quickstart wordt beschreven hoe u de Azure Data Factory-UI kunt gebruiken om een Azure-gegevensfactory te maken en te controleren. Met de pijplijn die u in deze data factory maakt, worden gegevens *gekopieerd* van één map naar een andere map in een Azure Blob-opslag. Zie [Zelfstudie: Gegevens transformeren met Spark](tutorial-transform-data-spark-portal.md) voor meer informatie over het *transformeren* van gegevens met Azure Data Factory. 
+In deze quickstart wordt beschreven hoe u de Azure Data Factory-UI kunt gebruiken om een Azure-gegevensfactory te maken en te controleren. Met de pijplijn die u in deze data factory maakt, worden gegevens *gekopieerd* van één map naar een andere map in een Azure Blob-opslag. Zie [Zelfstudie: Gegevens transformeren met Spark](tutorial-transform-data-spark-portal.md) voor meer informatie over het *transformeren* van gegevens met Azure Data Factory.
 
 > [!NOTE]
 > Als u niet bekend bent met Azure Data Factory, raadpleegt u eerst de [Inleiding voor Azure Data Factory](data-factory-introduction.md) voordat u deze quickstart uitvoert. 
@@ -38,7 +38,7 @@ Bekijk deze video voor een beter begrip van de Data Factory-UI:
 
 1. Start de webbrowser **Microsoft Edge** of **Google Chrome**. Op dit moment wordt de Data Factory-gebruikersinterface alleen ondersteund in de webbrowsers Microsoft Edge en Google Chrome.
 1. Ga naar de [Azure Portal](https://portal.azure.com). 
-1. Selecteer **Nieuw** in het menu links, selecteer **Gegevens en analyses** en selecteer vervolgens **Data Factory**. 
+1. Selecteer **Een resource maken** in het menu links, selecteer **Analyse** en selecteer vervolgens **Data Factory**. 
    
    ![Selectie van Data Factory in het deelvenster Nieuw](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
 1. Voer op de pagina **Nieuwe data factory** **ADFTutorialDataFactory** in als **naam**. 
@@ -58,12 +58,10 @@ Bekijk deze video voor een beter begrip van de Data Factory-UI:
 1. Selecteer **V2** als **Versie**.
 1. Selecteer voor **Locatie** een locatie voor de data factory.
 
-   In de lijst worden alleen locaties getoond die door Data Factory worden ondersteund. De gegevensarchieven (zoals Azure Storage en Azure SQL Database) en berekeningen (zoals Azure HDInsight) die Data Factory gebruikt, kunnen zich in andere locaties bevinden.
-1. Selecteer **Vastmaken aan dashboard**.     
-1. Selecteer **Maken**.
-1. Op het dashboard ziet u de volgende tegel met de status: **Data Factory implementeren**: 
+   De lijst bevat alleen locaties die worden ondersteund door Data Factory en waar uw Azure Data Factory-metagegevens worden opgeslagen. Let op: de bijbehorende gegevensarchieven (zoals Azure Storage en Azure SQL Database) en berekeningen (zoals Azure HDInsight) die Data Factory gebruikt, kunnen in andere regio's worden uitgevoerd.
 
-   ![Tegel Data Factory implementeren](media//quickstart-create-data-factory-portal/deploying-data-factory.png)
+1. Selecteer **Maken**.
+
 1. Wanneer het maken is voltooid, ziet u de pagina **Data Factory**. Selecteer de tegel **Maken en controleren** om de gebruikersinterface (UI) van Azure Data Factory te openen op een afzonderlijk tabblad.
    
    ![Startpagina van Data Factory, met de tegel Maken en controleren](./media/quickstart-create-data-factory-portal/data-factory-home-page.png)
@@ -88,7 +86,7 @@ In deze procedure maakt u een gekoppelde service om uw Azure Storage-account te 
 
    c. Selecteer **Verbinding testen** om te bevestigen dat de Data Factory-service verbinding mag maken met het opslagaccount. 
 
-   d. Selecteer **Opslaan** om de gekoppelde service op te slaan. 
+   d. Selecteer **Voltooien** om de gekoppelde service op te slaan. 
 
    ![Instellingen voor gekoppelde Azure Storage-service](./media/quickstart-create-data-factory-portal/azure-storage-linked-service.png) 
 
@@ -128,7 +126,7 @@ In de instellingen voor de gekoppelde service hebt u het Azure Storage-account o
 
    c. Geef in de tabel **Algemeen** **OutputDataset** op als de naam.
 
-   d. Selecteer op het tabblad **Verbinding** **AzureStorageLinkedService** als gekoppelde service en voer **adftutorial/output** voor de map in. Als de map **output**niet bestaat, wordt deze in runtime gemaakt door de kopieeractiviteit.
+   d. Selecteer op het tabblad **Verbinding** **AzureStorageLinkedService** als gekoppelde service en voer in het mapveld **adftutorial/output** voor de map in. Als de map **output**niet bestaat, wordt deze in runtime gemaakt door de kopieeractiviteit.
 
 ## <a name="create-a-pipeline"></a>Een pijplijn maken 
 In deze procedure maakt en valideert u een pijplijn via een kopieeractiviteit die gebruikmaakt van de invoer- en uitvoergegevenssets. Met de kopieeractiviteit worden gegevens uit het bestand dat is opgegeven bij de instellingen voor de invoergegevensset gekopieerd naar het bestand dat is opgegeven in de instellingen voor de uitvoergegevensset. Als in de invoergegevensset alleen een map is opgegeven (en geen bestandsnaam), worden met de kopieeractiviteit alle bestanden in de bronmap gekopieerd naar de bestemming. 
@@ -138,7 +136,7 @@ In deze procedure maakt en valideert u een pijplijn via een kopieeractiviteit di
    ![Menu om een nieuwe pijplijn te maken](./media/quickstart-create-data-factory-portal/new-pipeline-menu.png)
 1. Geef op het tabblad **Algemeen** **CopyPipeline** op als **Naam**. 
 
-1. Vouw in de werkset **Activiteiten** **Gegevensstroom** uit. Sleep de activiteit **Kopiëren** vanuit de werkset **Activities** naar het ontwerpoppervlak voor pijplijnen. U kunt ook zoeken naar activiteiten in de werkset **Activiteiten**. Geef **CopyFromBlobToBlob** op bij **Naam**.
+1. Open de werkset **Activiteiten** en vouw **Verplaatsen en transformeren** uit. Sleep de activiteit **Kopiëren** vanuit de werkset **Activities** naar het ontwerpoppervlak voor pijplijnen. U kunt ook zoeken naar activiteiten in de werkset **Activiteiten**. Geef **CopyFromBlobToBlob** op bij **Naam**.
 
    ![Algemene instellingen voor de kopieeractiviteit](./media/quickstart-create-data-factory-portal/copy-activity-general-settings.png)
 1. Ga naar het tabblad **Bron** in de instellingen voor de kopieeractiviteit en selecteer **InputDataset** als de **brongegevensset**.
@@ -205,7 +203,7 @@ Deze procedure is optioneel in deze zelfstudie. U kunt een *Scheduler-trigger* m
    Bekijk de waarden in de kolom **Geactiveerd door**. De handmatige triggeruitvoering is afkomstig uit de stap (**Nu activeren**) die u eerder hebt uitgevoerd. 
 
    ![Lijst met geactiveerde uitvoeringen](./media/quickstart-create-data-factory-portal/monitor-triggered-runs.png)
-1. Selecteer de pijl-omlaag naast **Pijplijnuitvoeringen** om naar de weergave **Triggeruitvoeringen** te gaan. 
+1. Schakel naar de weergave **Triggeruitvoeringen**. 
 
    ![Naar de weergave Triggeruitvoeringen](./media/quickstart-create-data-factory-portal/monitor-trigger-runs.png)    
 1. Controleer of er tot de opgegeven datum en tijd voor elke pijplijnuitvoering een uitvoerbestand is gemaakt in de **uitvoermap**. 

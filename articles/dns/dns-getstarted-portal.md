@@ -8,12 +8,12 @@ ms.service: dns
 ms.topic: quickstart
 ms.date: 6/13/2018
 ms.author: victorh
-ms.openlocfilehash: 3ec2c44c168b47fd66d1ffa9a0c8d0069600ecb0
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0acb5bf18c078d8b7eb6a5c14a61fcef622f9f2d
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46958098"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48831124"
 ---
 # <a name="quickstart-configure-azure-dns-for-name-resolution-using-the-azure-portal"></a>Snelstart: Azure DNS configureren voor naamomzetting met behulp van Azure Portal
 
@@ -21,7 +21,7 @@ ms.locfileid: "46958098"
 
 In deze snelstart maakt u een testdomein en maakt u vervolgens een adresrecord met de naam 'www' dat wordt omgezet naar het IP-adres 10.10.10.10.
 
-Het is belangrijk te weten dat de namen en IP-adressen die worden gebruikt in deze snelstart slechts voorbeelden zijn, en niet bedoeld zijn om een werkelijk scenario voor te stellen. Waar van toepassing worden echter ook werkelijke scenario's beschreven.
+Het is belangrijk te weten dat de namen en IP-adressen die worden gebruikt in deze snelstart, slechts voorbeelden zijn, en niet bedoeld zijn om een werkelijk scenario voor te stellen. Waar van toepassing worden echter ook werkelijke scenario's beschreven.
 
 <!---
 You can also perform these steps using [Azure PowerShell](dns-getstarted-powershell.md) or the cross-platform [Azure CLI](dns-getstarted-cli.md).
@@ -38,12 +38,12 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 
     ![DNS-zone](./media/dns-getstarted-portal/openzone650.png)
 
-4. Voer op de pagina **DNS-zone maken** de volgende waarden in en klik op **Maken**:
+4. Voer op de pagina **DNS-zone maken** de volgende waarden in en klik vervolgens op **Maken**:
 
 
    | **Instelling** | **Waarde** | **Details** |
    |---|---|---|
-   |**Naam**|contoso.xyz|De naam van de DNS-zone voor dit voorbeeld. U kunt elke gewenste waarde gebruiken voor deze snelstart, zolang deze nog niet is geconfigureerd op de Azure DNS-servers. Een werkelijke waarde zou een domein zijn dat u hebt gekocht via een domeinnaamregistrar.|
+   |**Naam**|contoso.xyz|In deze snelstart kunt u elke gewenste waarde gebruiken voor de naam van de DNS-zone, zolang deze nog niet is geconfigureerd op de Azure DNS-servers. Een werkelijke waarde zou een domein zijn dat u hebt gekocht via een domeinnaamregistrar.|
    |**Abonnement**|[Uw abonnement]|Selecteer een abonnement waarin de DNS-zone moet worden gemaakt.|
    |**Resourcegroep**|**Nieuwe maken:** dns-test|Maak een resourcegroep. De naam van de resourcegroep moet uniek zijn binnen het abonnement dat u hebt geselecteerd. |
    |**Locatie**|US - oost||
@@ -74,7 +74,7 @@ Omdat u in deze snelstart geen echte domeinnaam aanschaft, hoeft u Azure DNS nie
 
 ## <a name="test-the-name-resolution"></a>De naamomzetting testen
 
-Nu je een testzone hebt met daarin een A-record, kunt u de naamomzetting testen met het hulpprogramma nslookup. 
+Nu u een testzone hebt met daarin een A-record, kunt u de naamomzetting testen met het hulpprogramma *nslookup*. 
 
 1. Eerst moet u de Azure DNS-naamservers noteren die u met nslookup wilt gebruiken. 
 

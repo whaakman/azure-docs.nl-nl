@@ -1,6 +1,6 @@
 ---
-title: Wat is er gebeurd met Azure Machine Learning Workbench? | Microsoft Docs
-description: Meer informatie over wat er met de Workbench-toepassing is gebeurd, wat er in Azure Machine Learning is veranderd en wat de ondersteuningstijdlijn is.
+title: Wat gebeurd er met Azure Machine Learning Workbench? | Microsoft Docs
+description: Meer informatie over wat er met de Workbench-toepassing gebeurt, wat er in Azure Machine Learning is veranderd en wat de ondersteuningstijdlijn is.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -9,28 +9,28 @@ ms.reviewer: jmartens
 author: j-martens
 ms.author: jmartens
 ms.date: 09/24/2018
-ms.openlocfilehash: 620d8b370b050a4d91ee6d94cba2c133b4313aed
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 88e7dad15a7080c4132a6983d949f9451ad5ce69
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47159981"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48239253"
 ---
-# <a name="what-happened-to-workbench-in-azure-machine-learning-preview"></a>Wat is er gebeurd met Workbench in Azure Machine Learning (preview)?
+# <a name="what-is-happening-to-workbench-in-azure-machine-learning-preview"></a>Wat gebeurt er met Workbench in Azure Machine Learning (preview)?
 
-De Workbench-toepassing en een aantal andere vroege functies zijn afgeschaft in de versie van september 2018 om plaats te maken voor een verbeterde [architectuur](concept-azure-machine-learning-architecture.md). De nieuwe versie bevat veel belangrijke updates op basis van feedback van klanten om uw ervaring te verbeteren. De kernfunctionaliteit voor experimentele uitvoeringen tot modelimplementatie is niet gewijzigd, maar nu kunt u de robuuste <a href="http://aka.ms/aml-sdk" target="_blank">SDK</a> en [CLI](reference-azure-machine-learning-cli.md) gebruiken om uw machine learning-taken en -pijplijnen uit te voeren.  
+De Workbench-toepassing en een aantal andere vroege functies zijn vervangen in de versie van september 2018 om plaats te maken voor een verbeterde [architectuur](concept-azure-machine-learning-architecture.md). De nieuwe versie bevat veel belangrijke updates op basis van feedback van klanten om uw ervaring te verbeteren. De kernfunctionaliteit voor experimentele uitvoeringen tot modelimplementatie is niet gewijzigd, maar nu kunt u de robuuste <a href="http://aka.ms/aml-sdk" target="_blank">SDK</a> en [CLI](reference-azure-machine-learning-cli.md) gebruiken om uw machine learning-taken en -pijplijnen uit te voeren.  
 
 In dit artikel ontdek u wat er is veranderd en hoe dit van invloed is op uw bestaande werk met de Azure Machine Learning service.
 
 ## <a name="what-changed"></a>Wat is er veranderd?
 
-De meest recente versie van Azure Machine Learning bevat:
+De meest recente versie van Azure Machine Learning-service bevat:
 + Een [vereenvoudigd model voor Azure-resources](concept-azure-machine-learning-architecture.md)
 + [Een nieuwe gebruikersinterface in de portal](how-to-track-experiments.md) voor het beheren van uw experimenten en compute-doelen
 + Een nieuwe, uitgebreidere Python <a href="http://aka.ms/aml-sdk" target="_blank">SDK</a>
 + Een nieuwe, uitgebreide [Azure CLI-extensie](reference-azure-machine-learning-cli.md) voor machine learning
 
-De [architectuur](concept-azure-machine-learning-architecture.md) is vernieuwd voor meer gebruiksgemak. In plaats van meerdere Azure-resources en -accounts, hebt u alleen een [Azure Machine Learning-werkruimte](concept-azure-machine-learning-architecture.md#workspace) nodig.  U kunt snel werkruimten maken in de [Azure-portal](quickstart-get-started.md).  Een werkruimte kan door meerdere gebruikers worden gebruikt voor het opslaan van compute-doelen voor training en implementatie, modelexperimenten, Docker-installatiekopieën, geïmplementeerde modellen enzovoort.
+De [architectuur](concept-azure-machine-learning-architecture.md) is vernieuwd voor meer gebruiksgemak. In plaats van meerdere Azure-resources en -accounts hebt u alleen een [werkruimte voor Azure Machine Learning service](concept-azure-machine-learning-architecture.md#workspace) nodig.  U kunt snel werkruimten maken in de [Azure-portal](quickstart-get-started.md).  Een werkruimte kan door meerdere gebruikers worden gebruikt voor het opslaan van compute-doelen voor training en implementatie, modelexperimenten, Docker-installatiekopieën, geïmplementeerde modellen enzovoort.
 
 De huidige versie bevat nieuwe en verbeterde CLI- en SDK-clients, maar de Workbench-desktoptoepassing zelf is afgeschaft. U kunt uw experimenten nu controleren in het [werkruimtedashboard in de Azure-webportaal](how-to-track-experiments.md#view-the-experiment-in-the-azure-portal). Gebruik het dashboard om uw experimentgeschiedenis op te halen, de compute-doelen die zijn gekoppeld aan uw werkruimte te beheren, uw modellen en Docker-installatiekopieën te beheren en zelfs om webservices te implementeren.
 
@@ -73,7 +73,7 @@ U kunt dezelfde <a href="http://aka.ms/aml-sdk" target="_blank">SDK</a> gebruike
 
 ## <a name="will-projects-persist"></a>Blijven projecten behouden?
 
-U verliest geen code of werk. Projecten zijn in de oudere versie cloudentiteiten met een lokale map. In de nieuwste versie kunt u lokale mappen koppelen aan de Azure Machine Learning-werkruimte met behulp van een lokaal configuratiebestand. [Bekijk een diagram van de meest recente architectuur](concept-azure-machine-learning-architecture.md).
+U verliest geen code of werk. Projecten zijn in de oudere versie cloudentiteiten met een lokale map. In de nieuwste versie kunt u lokale mappen koppelen aan de werkruimte van Azure Machine Learning service met behulp van een lokaal configuratiebestand. [Bekijk een diagram van de meest recente architectuur](concept-azure-machine-learning-architecture.md).
 
 Aangezien veel van de projectinhoud al op uw lokale computer staat, hoeft u alleen een configuratiebestand in die map te maken en ernaar te verwijzen in uw code om het aan uw werkruimte te koppelen. [Informatie over het migreren van uw bestaande projecten.](how-to-migrate.md#projects)
 
