@@ -2,18 +2,18 @@
 title: 'Quickstart: Gegevens uit Event Hub opnemen in Azure Data Explorer'
 description: In deze quickstart leert u hoe u gegevens uit Event Hub kunt opnemen (laden) in Azure Data Explorer.
 services: data-explorer
-author: mgblythe
-ms.author: mblythe
+author: orspod
+ms.author: v-orspod
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: acc18b6414e62a1f8239562158b4b80219c5d7c1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: efaf551d134d339205d40966cb84f41b408559bd
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46976819"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394175"
 ---
 # <a name="quickstart-ingest-data-from-event-hub-into-azure-data-explorer"></a>Quickstart: Gegevens uit Event Hub opnemen in Azure Data Explorer
 
@@ -23,7 +23,7 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis Azure-account](htt
 
 ## <a name="prerequisites"></a>Vereisten
 
-Naast een Azure-abonnement hebt u het volgende nodig om deze quickstart te voltooien:
+Naast een Azure-abonnement hebt u het volgende nodig om deze snelstart te voltooien:
 
 * [Een cluster en database voor testdoeleinden](create-cluster-database-portal.md)
 
@@ -61,7 +61,7 @@ In deze quickstart genereert u voorbeeldgegevens en verzendt u deze naar een Eve
     |---|---|---|
     | Abonnement | Uw abonnement | Selecteer het Azure-abonnement dat u wilt gebruiken voor de Event Hub.|
     | Resourcegroep | *test-hub-rg* | Maak een nieuwe resourcegroep. |
-    | Locatie | *US - west* | Selecteer *US - west* voor deze quickstart. Selecteer voor een productiesysteem de regio die het beste voldoet aan uw behoeften.
+    | Locatie | *US - west* | Selecteer *US - west* voor deze snelstart. Selecteer voor een productiesysteem de regio die het beste voldoet aan uw behoeften.
     | Naam van naamruimte | Een unieke naam voor de naamruimte | Kies een unieke naam waarmee de naamruimte kan worden geïdentificeerd. Bijvoorbeeld *mijntestnaamruimte*. De domeinnaam *servicebus.windows.net* wordt toegevoegd aan de naam die u opgeeft. De naam mag alleen letters, cijfers en afbreekstreepjes bevatten. De naam moet beginnen met een letter en moet eindigen met een letter of een cijfer. De waarde moet minimaal 6 en maximaal 50 tekens lang zijn.
     | Naam van Event Hub | *test-hub* | De Event Hub bevindt zich onder de naamruimte, wat een unieke bereikcontainer biedt. De naam van de Event Hub moet uniek zijn binnen de naamruimte. |
     | Naam van consumentengroep | *test-group* | Met consumentengroepen kunnen meerdere gebruikstoepassingen elk een afzonderlijke weergave van de gebeurtenisstroom hebben. |
@@ -196,4 +196,4 @@ Als u niet van plan bent de Event Hub opnieuw te gebruiken, wist u de **test-hub
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Quickstart: Gegevens doorzoeken in Azure Data Explorer](web-query-data.md)
+> [Snelstart: query’s uitvoeren op gegevens in Azure Data Explorer](web-query-data.md)

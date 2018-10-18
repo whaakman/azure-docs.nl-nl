@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/15/2018
 ms.author: juliako
-ms.openlocfilehash: 860d28aa37f37ed24346e2fba635b9436684114c
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 531cdf9a69e0ecfa2d2d8ae02f8f88fd5f400479
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353779"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49378938"
 ---
 # <a name="azure-media-services-release-notes"></a>Opmerkingen bij de release Azure Media Services
 Deze opmerkingen bij de release voor Azure Media Services wijzigingen ten opzichte van vorige versies en bekende problemen samenvatten.
@@ -44,6 +44,16 @@ Deze opmerkingen bij de release voor Azure Media Services wijzigingen ten opzich
 
 ## <a name="a-idrestversionhistoryrest-api-version-history"></a><a id="rest_version_history"/>Versiegeschiedenis van REST-API
 Zie voor meer informatie over de geschiedenis van Media Services REST API-versie, de [Azure Media Services REST API-naslaginformatie].
+
+## <a name="october-2018"></a>Oktober 2018
+
+### <a name="cmaf-support"></a>Ondersteuning voor CMAF
+
+Ondersteuning voor Apple HLS (iOS 11 +) en MPEG-DASH CMAF en 'cbcs' spelers die ondersteuning bieden voor CMAF.
+
+### <a name="web-vtt-thumbnail-sprites"></a>Web VTT miniaturen sprites
+
+U kunt Media Services nu gebruiken voor het genereren van miniaturen Web VTT-sprites met behulp van onze API's van v2. Zie voor meer informatie, [genereren van een miniatuur sprite](generate-thumbnail-sprite.md).
 
 ## <a name="july-2018"></a>Juli 2018
 

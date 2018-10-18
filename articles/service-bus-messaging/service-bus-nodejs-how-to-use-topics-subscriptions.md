@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 08/10/2018
+ms.date: 10/16/2018
 ms.author: spelluru
-ms.openlocfilehash: f13e46b310f4f9048b38ab50ce0241d1b2b3161b
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 00ae254a9e9d40ec88802f2f46666aff72cb242a
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47395692"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49377630"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-nodejs"></a>Gebruik Service Bus-onderwerpen en abonnementen met behulp van Node.js
 
@@ -61,7 +61,7 @@ Download het Node.js-Azure-pakket voor het gebruik van Service Bus. Dit pakket b
    ├── xml2js@0.2.7 (sax@0.5.2)
    └── request@2.21.0 (json-stringify-safe@4.0.0, forever-agent@0.5.0, aws-sign@0.3.0, tunnel-agent@0.3.0, oauth-sign@0.3.0, qs@0.6.5, cookie-jar@0.3.0, node-uuid@1.4.0, http-signature@0.9.11, form-data@0.0.8, hawk@0.13.1)
    ```
-3. U kunt handmatig uitvoeren de **ls** opdracht uit om te controleren of een **knooppunt\_modules** map is gemaakt. In deze map vinden de **azure** , dit pakket de bibliotheken die u nodig hebt bevat voor toegang tot Service Bus-onderwerpen.
+3. U kunt handmatig uitvoeren de **ls** opdracht uit om te controleren of een **knooppunt\_modules** map is gemaakt. In deze map, vinden de **azure** , dit pakket de bibliotheken die u nodig hebt bevat voor toegang tot Service Bus-onderwerpen.
 
 ### <a name="import-the-module"></a>De module importeren
 In Kladblok of een andere teksteditor en voeg het volgende toe aan het begin van de **server.js** -bestand van de toepassing:
@@ -73,7 +73,7 @@ var azure = require('azure');
 ### <a name="set-up-a-service-bus-connection"></a>Instellen van een Service Bus-verbinding
 De Azure-module leest de omgevingsvariabele `AZURE_SERVICEBUS_CONNECTION_STRING` voor de verbindingsreeks die u uit de vorige stap hebt verkregen, ' de referenties ophalen." Als deze omgevingsvariabele is niet ingesteld, moet u de accountgegevens opgeven bij het aanroepen van `createServiceBusService`.
 
-Zie voor een voorbeeld van de omgevingsvariabelen instellen voor een Azure-Cloudservice, [Node.js-Cloudservice met opslag][Node.js Cloud Service with Storage].
+Zie voor een voorbeeld van de omgevingsvariabelen instellen voor een Azure-Cloudservice, [omgevingsvariabelen instellen](../container-instances/container-instances-environment-variables.md#azure-cli-example).
 
 
 
@@ -242,7 +242,7 @@ Voor het verzenden van een bericht naar een Service Bus-onderwerp, uw toepassing
 Berichten verzonden naar Service Bus-onderwerpen zijn **BrokeredMessage** objecten.
 **BrokeredMessage** objecten hebben een aantal standaardeigenschappen (zoals `Label` en `TimeToLive`), een woordenlijst die wordt gebruikt om aangepaste toepassingsspecifieke eigenschappen te bewaren en een hoofdtekst met tekenreeksen. Een toepassing de hoofdtekst van het bericht worden ingesteld door door te geven van een string-waarde voor de `sendTopicMessage` en alle vereiste standaardeigenschappen zijn gevuld met standaardwaarden.
 
-Het volgende voorbeeld ziet u hoe u voor het verzenden van vijf testberichten naar `MyTopic`. De `messagenumber` eigenschapswaarde van elk bericht varieert op de herhaling van de lus (deze bepaalt welke abonnementen ontvangen):
+Het volgende voorbeeld ziet u hoe u voor het verzenden van vijf testberichten naar `MyTopic`. De `messagenumber` eigenschapswaarde van elk bericht varieert op de herhaling van de lus (deze eigenschap bepaalt welke abonnementen ontvangen):
 
 ```javascript
 var message = {
@@ -268,7 +268,7 @@ Service Bus-onderwerpen ondersteunen een maximale grootte van 256 kB in de [Stan
 ## <a name="receive-messages-from-a-subscription"></a>Berichten ontvangen van een abonnement
 Berichten worden ontvangen van een abonnement met de `receiveSubscriptionMessage` methode voor het **ServiceBusService** object. Standaard worden berichten verwijderd uit het abonnement zoals ze worden gelezen. U kunt echter de optionele parameter instellen `isPeekLock` naar **waar** (peek) lezen en vergrendelen van het bericht zonder deze te verwijderen uit het abonnement.
 
-Het standaardgedrag van lezen en verwijderen van het bericht als onderdeel van de ontvangstbewerking, is het eenvoudigste model en werkt het beste voor scenario's waarin een toepassing kan tolereren niet verwerken van een bericht bij een storing. Voor meer informatie over dit probleem, u hebt een scenario waarin de consument problemen met de aanvraag ontvangen en vervolgens vastloopt voordat deze wordt verwerkt. Omdat Service Bus kan het bericht als verbruikt heeft gemarkeerd, klikt u vervolgens ontbreekt wanneer de toepassing opnieuw wordt opgestart en het verbruik van berichten opnieuw begint het het bericht dat voor het vastlopen is verbruikt.
+Het standaardgedrag van lezen en verwijderen van het bericht als onderdeel van de ontvangstbewerking, is het eenvoudigste model en werkt het beste voor scenario's waarin een toepassing niet verwerken van een bericht tolereren kan wanneer er een fout. Voor meer informatie over dit probleem, u hebt een scenario waarin de consument problemen met de aanvraag ontvangen en vervolgens vastloopt voordat deze wordt verwerkt. Omdat Service Bus kan het bericht als verbruikt heeft gemarkeerd, klikt u vervolgens ontbreekt wanneer de toepassing opnieuw wordt opgestart en het verbruik van berichten opnieuw begint het het bericht dat voor het vastlopen is verbruikt.
 
 Als de `isPeekLock` parameter is ingesteld op **waar**, wordt de ontvangst een bewerking met twee fasen, waardoor er toepassingen kunnen worden ondersteund die geen ontbrekende berichten kunnen tolereren. Wanneer Service Bus een aanvraag ontvangt, deze vindt het volgende bericht te gebruiken, wordt vergrendeld om te voorkomen dat andere consumenten het ontvangen en geeft dit terug aan de toepassing.
 Nadat de toepassing het bericht verwerkt (of deze op betrouwbare wijze voor toekomstige verwerking slaat), is de tweede fase van het ontvangstproces voltooid door het aanroepen van **deleteMessage** methode, en wordt het bericht te verwijderen als parameter doorgegeven. De **deleteMessage** methode wordt het bericht gemarkeerd als verbruikt en wordt deze verwijderd uit het abonnement.

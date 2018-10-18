@@ -3,8 +3,8 @@ title: Wat is een netwerk voor contentlevering (CDN)? - Azure | Microsoft Docs
 description: Leer wat een netwerk voor contentlevering (CDN) is en hoe u het kunt gebruiken voor het leveren van inhoud met hoge bandbreedte.
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: akucer
+author: mdgattuso
+manager: danielgi
 editor: ''
 ms.assetid: 866e0c30-1f33-43a5-91f0-d22f033b16c6
 ms.service: cdn
@@ -12,14 +12,15 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 04/20/2018
-ms.author: v-deasim
+ms.date: 05/09/2018
+ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 36de1011e48f274759c0aeebde74bd26c6604e19
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: bdc98a87a71dc7f8552f4bf869ec035409e0535e
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49091535"
 ---
 # <a name="what-is-a-content-delivery-network-on-azure"></a>Wat is een netwerk voor contentlevering in Azure?
 Een netwerk voor contentlevering (CDN) is een gedistribueerd netwerk van servers dat webinhoud efficiënt aan gebruikers kan leveren. In CDN's wordt gecachede inhoud opgeslagen op randservers in aanwezigheidspunt (POP)-locaties in de buurt van eindgebruikers om de latentie zo klein mogelijk te maken. 
@@ -50,7 +51,7 @@ Zie [Azure CDN POP-locaties](cdn-pop-locations.md) om een lijst met de huidige C
 6. Als de TTL voor het bestand niet is verlopen, retourneert de POP-randserver het bestand rechtstreeks vanuit de cache. Dit proces resulteert in een snellere, responsievere gebruikerservaring.
 
 ## <a name="requirements"></a>Vereisten
-Als u Azure CDN wilt gebruiken, dient u ten minste één Azure-abonnement te hebben. U dient ook ten minste één CDN-profiel te maken. Dit is een verzameling CDN-eindpunten. Elk CDN-eindpunt stelt een specifieke configuratie voor van het gedrag van en de toegang tot contentlevering. U kunt meerdere profielen gebruiken om de CDN-eindpunten te ordenen op basis van het internetdomein, de webtoepassing of andere criteria. [Prijsstelling van Azure CDN](https://azure.microsoft.com/pricing/details/cdn/) wordt toegepast op het niveau van het CDN-profiel, dus u dient meerdere CDN-profielen te maken als u een combinatie van prijscategorieën wilt gebruiken. Zie [Understanding Azure CDN billing](cdn-billing.md) (Facturering voor Azure CDN begrijpen) voor meer informatie over de factureringsstructuur van Azure CDN.
+Als u Azure CDN wilt gebruiken, moet u minstens één Azure-abonnement hebben. U dient ook ten minste één CDN-profiel te maken. Dit is een verzameling CDN-eindpunten. Elk CDN-eindpunt stelt een specifieke configuratie voor van het gedrag van en de toegang tot contentlevering. U kunt meerdere profielen gebruiken om de CDN-eindpunten te ordenen op basis van het internetdomein, de webtoepassing of andere criteria. [Prijsstelling van Azure CDN](https://azure.microsoft.com/pricing/details/cdn/) wordt toegepast op het niveau van het CDN-profiel, dus u dient meerdere CDN-profielen te maken als u een combinatie van prijscategorieën wilt gebruiken. Zie [Understanding Azure CDN billing](cdn-billing.md) (Facturering voor Azure CDN begrijpen) voor meer informatie over de factureringsstructuur van Azure CDN.
 
 ### <a name="limitations"></a>Beperkingen
 Elk Azure-abonnement kent standaardlimieten voor de volgende resources:
@@ -70,7 +71,7 @@ Azure CDN biedt de volgende belangrijke functies:
 - [Bestandscompressie](cdn-improve-performance.md)
 - [Geofilters](cdn-restrict-access-by-country.md)
 
-Zie [Azure CDN-producteigenschappen](cdn-features.md) voor een complete lijst met eigenschappen waarvoor elk Azure CDN-product ondersteuning biedt.
+Zie [Azure CDN-producteigenschappen vergelijken](cdn-features.md) voor een complete lijst met eigenschappen waarvoor elk Azure CDN-product ondersteuning biedt.
 
 ## <a name="next-steps"></a>Volgende stappen
 - Zie [Aan de slag met Azure CDN](cdn-create-new-endpoint.md) om aan de slag te gaan met CDN.

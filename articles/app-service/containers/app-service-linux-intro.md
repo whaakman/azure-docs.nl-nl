@@ -13,15 +13,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 02/16/2017
+ms.date: 10/09/2018
 ms.author: wesmc
 ms.custom: mvc
-ms.openlocfilehash: 8645443e5f41fd36b3439a6a7d49407eb0ccf6f8
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 9efa6dc8427c58c82702fd5b3449fcd4805bf9e3
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46366570"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902090"
 ---
 # <a name="introduction-to-azure-app-service-on-linux"></a>Inleiding tot App Service onder Linux
 
@@ -36,9 +36,9 @@ App Service onder Linux ondersteunt een aantal ingebouwde installatiekopieën om
 | Node.js | 4.4, 4.5, 4.8, 6.2, 6.6, 6.9, 6.10, 6.11, 8.0, 8.1, 8.2, 8.8, 8.9, 8.11, 9.4, 10.1 |
 | Java * | 8.0 |
 | PHP | 5.6, 7.0, 7.2 |
+| Python (Preview) | 3.7 |
 | .NET Core | 1.0, 1.1, 2.0 |
 | Ruby | 2.3 |
-| Aan de slag | 1.0 |
 | Apache Tomcat | 8.5, 9.0 |
 
 Zie [Een Java-web-app maken in Azure App Service op Linux](https://docs.microsoft.com/azure/app-service/containers/quickstart-java) voor meer informatie.
@@ -91,15 +91,25 @@ U hebt toegang tot de SCM-site via **Geavanceerde hulpmiddelen** in het menu **O
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie de volgende koppelingen om aan de slag te gaan met App Service onder Linux. Vragen kunt u posten op [ons forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
+De volgende artikelen helpen u om aan de slag te gaan met App Service op Linux met web-apps die zijn geschreven in verschillende talen:
 
-* [Een aangepaste Docker-installatiekopie uitvoeren voor Web App for Containers](quickstart-docker-go.md)
-* [.NET Core gebruiken in Azure App Service onder Linux](quickstart-dotnetcore.md)
-* [Ruby gebruiken in Azure App Service onder Linux](quickstart-ruby.md)
-* [Web App for Containers van Azure App Service: veelgestelde vragen](app-service-linux-faq.md)
-* [SSH-ondersteuning voor Azure App Service onder Linux](app-service-linux-ssh-support.md)
-* [Faseringsomgevingen in Azure App Service instellen](../../app-service/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
-* [Continue implementatie van Docker Hub met Web App for Containers](./app-service-linux-ci-cd.md)
+* [.NET Core](quickstart-dotnetcore.md)
+* [PHP](quickstart-dotnetcore.md)
+* [Node.js](quickstart-nodejs.md)
+* [Java](quickstart-java.md)
+* [Python](quickstart-python.md)
+* [Ruby](quickstart-ruby.md)
+* [Go](quickstart-docker-go.md)
+* [App met meerdere containers](quickstart-multi-container.md)
+
+Zie ook de volgende artikelen voor meer informatie over App Service op Linux:
+
+* [Veelgestelde vragen over App Service voor Linux](app-service-linux-faq.md)
+* [SSH-ondersteuning voor App Service op Linux](app-service-linux-ssh-support.md)
+* [Faseringsomgevingen in App Service instellen](../../app-service/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
+* [Doorlopende implementatie met Docker Hub](app-service-linux-ci-cd.md)
+
+Vragen kunt u posten op [ons forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
 
 <!--Image references-->
 [1]: ./media/app-service-linux-intro/kudu-docker-logs.png

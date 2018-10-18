@@ -1,75 +1,76 @@
 ---
-title: Detectie van afwijkingen Javascript-app - Microsoft Cognitive Services | Microsoft Docs
-description: Verken een Javascript-Web-app die gebruikmaakt van de API voor Afwijkingsdetectie in Microsoft Cognitive Services. Oorspronkelijke gegevenspunten verzenden naar API en de verwachte waarde en anomaliedetectie punten.
+title: 'Zelfstudie: Anomaliedetectie met Javascript'
+titlesuffix: Azure Cognitive Services
+description: Maak kennis met een Javascript-web-app die gebruikmaakt van de Anomaliedetectie-API. Verzend oorspronkelijke gegevenspunten naar de API en haal de verwachte waarde en anomaliepunten op.
 services: cognitive-services
 author: wenya
 manager: bix
 ms.service: cognitive-services
-ms.technology: anomaly-detection
-ms.topic: article
+ms.component: anomaly-detection
+ms.topic: tutorial
 ms.date: 05/01/2018
 ms.author: wenya
-ms.openlocfilehash: 5bb123648a683454597b0561f9f82dffb70eab04
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
-ms.translationtype: MT
+ms.openlocfilehash: cd65a5275fac651968197c9000b2d4cd3962693b
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48248360"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48883700"
 ---
-# <a name="anomaly-detection-javascript-application"></a>Detectie van Javascript-toepassing voor anomaliedetectie
+# <a name="tutorial-anomaly-detection-with-javascript-application"></a>Zelfstudie: Anomaliedetectie met Javascript-toepassing
 
 [!INCLUDE [PrivatePreviewNote](../../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
 
-Een webtoepassing die gebruikmaakt van de REST API voor Afwijkingsdetectie voor het detecteren van een anomalie verkennen. Het voorbeeld verzendt de time series-gegevens naar de API voor Afwijkingsdetectie met uw abonnementssleutel en vervolgens worden alle punten in de anomaliedetectie en de verwachte waarde opgehaald voor elk gegevenspunt van de API.
+Maak kennis met een webtoepassing die gebruikmaakt van de REST API voor Anomaliedetectie om een anomalie te detecteren. In het voorbeeld worden de gegevens van de tijdreeks naar de Anomaliedetectie-API verzonden met uw abonnementssleutel en worden alle anomaliepunten en de verwachte waarde voor elk gegevenspunt uit de API opgehaald.
 
 ## <a name="prerequisites"></a>Vereisten
 
 ### <a name="platform-requirements"></a>Platformvereisten
 
-In deze zelfstudie is ontwikkeld met behulp van een eenvoudige teksteditor.
+Deze zelfstudie is ontwikkeld met een eenvoudige teksteditor.
 
-### <a name="subscribe-to-anomaly-detection-and-get-a-subscription-key"></a>Abonneer u op de detectie van afwijkingen en de abonnementssleutel van een ophalen 
+### <a name="subscribe-to-anomaly-detection-and-get-a-subscription-key"></a>Abonneer u op Anomaliedetectie en haal een abonnementssleutel op 
 
 [!INCLUDE [GetSubscriptionKey](../includes/get-subscription-key.md)]
 
-## <a name="get-and-use-the-example"></a>Halen en gebruik het voorbeeld
+## <a name="get-and-use-the-example"></a>Het voorbeeld downloaden en gebruiken
 
-Deze zelfstudie bevat twee scenario's voor afwijkingsdetectie voor time series-gegevens. Laten we beginnen.
+Deze zelfstudie bevat twee scenario's voor anomaliedetectie voor tijdreeksgegevens. Aan de slag.
 
 <a name="Step1"></a> 
 ### <a name="download-the-tutorial-project"></a>Het zelfstudieproject downloaden
 
-Kloon de [Cognitive Services JavaScript Anomaly Detection zelfstudie](https://github.com/MicrosoftAnomalyDetection/javascript-sample), of het ZIP-bestand downloaden en uitpakken naar een lege map.
+Kloon de [zelfstudie Cognitive Services JavaScript Anomaliedetectie](https://github.com/MicrosoftAnomalyDetection/javascript-sample) of download het zipbestand en pak het uit in een lege map.
 
 <a name="Step2"></a>
 ### <a name="run-the-example"></a>Het voorbeeld uitvoeren
 
-Er zijn twee scenario's kunt u proberen het voorbeeld.
-1. Plaats uw **abonnementssleutel** detecteren functie op anomalydetection.html in het veld Abonnementssleutel op.
-2. Plaats anomaly detection-API-eindpunt en controleer of u de juiste regio in de regio van het abonnement.
-3. Open de **anomalydetection.html** bestand in een webbrowser.
+Er zijn twee scenario's die u kunt proberen als voorbeeld.
+1. Stel uw **abonnementssleutel** in het veld Abonnementssleutel voor de detectiefunctie in op anomalydetection.html.
+2. Geef het eindpunt van de Anomaliedetectie-API op en controleer of u de juiste regio gebruikt in Abonnementsregio.
+3. Open het bestand **anomalydetection.html** in een webbrowser.
 
-**Scenario 1 analyse wekelijkse time series-gegevens**
-1. Voer in het veld periode periode **7**. 
-2. De voorbeeldgegevens vervangen door uw wekelijkse tijd gegevenspunten in reeks (Json) in het veld punten of rechtstreeks gebruik van de voorbeeldgegevens.
-3. Klik op de knop Anomaliedetectie en controleer of het resultaat in het juiste antwoord tekstvak in.
+**Scenario 1: Wekelijkse tijdreeksgegevens detecteren**
+1. Geef **7** op als periode in het vel Periode. 
+2. Vervang de voorbeeldgegevens in het veld Punten door uw wekelijkse tijdreeksgegevenspunten (Json) of gebruik direct de voorbeeldgegevens.
+3. Klik op de knop Anomaliedetectie en controleer het resultaat in het tekstvak Antwoord aan de rechterkant.
 
-**Scenario 2 detecteren, de time series-gegevens zonder een periode**
-1. Laat de periode die leeg zijn in de periode is ingediend, wordt ervan uitgegaan dat u niet weet wat de periode van de tijdreeks.
-2. Met behulp van de dezelfde time series-gegevens als het scenario 1.
-3. Klik op de knop Anomaliedetectie en controleer of het veld periode in het juiste antwoord tekstvak in.
+**Scenario 2: De tijdreeksgegevens detecteren zonder periode** 
+1. Laat de periode leeg in het veld Periode, alsof u niet weet wat de periode van de tijdreeks is.
+2. Maak gebruik van dezelfde tijdreeksgegevens als in scenario 1.
+3. Klik op de knop Anomaliedetectie en controleer het veld Periode in het tekstvak Antwoord aan de rechterkant.
 
 <a name="Step3"></a>
-### <a name="read-the-result"></a>Het resultaat lezen
+### <a name="read-the-result"></a>De resultaten lezen
 
 [!INCLUDE [diagrams](../includes/diagrams.md)]
 
 <a name="Review"></a>
-### <a name="review-and-learn"></a>Controleer en meer
+### <a name="review-and-learn"></a>Bekijken en leren
 
-U krijgt nu een toepassing die wordt uitgevoerd. Laten we bekijken hoe de voorbeeld-app kan worden geïntegreerd met Cognitive Services-technologie. Deze stap maakt het eenvoudiger om te blijven ontwikkelen op deze app of uw eigen app ontwikkelen met Microsoft-Anomaliedetectie.
-Deze voorbeeldapp maakt gebruik van de Restful API voor Afwijkingsdetectie eindpunt.
-Bekijk hoe de Restful-API wordt gebruikt in het voorbeeld van de toepassing en we kijken naar een codefragment van anomalydetection.html.
+U hebt nu een toepassing die wordt uitgevoerd. Nu gaan we kijken hoe de voorbeeld-app kan worden geïntegreerd met Cognitive Services-technologie. Deze stap maakt het eenvoudiger om door te gaan met bouwen aan deze app of om uw eigen app te ontwikkelen met Anomaliedetectie van Microsoft.
+Deze voorbeeld-app maakt gebruik van het Restful-API-eindpunt van Anomaliedetectie.
+Laten we een codefragment uit anomalydetection.html gebruiken om te zien hoe de Restful-API wordt gebruikt in de voorbeeldtoepassing.
 ```JavaScript
 function anomalyDetection(url, subscriptionKey, points, period) {
     var obj = new Object();

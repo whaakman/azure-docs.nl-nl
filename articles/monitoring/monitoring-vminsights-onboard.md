@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/03/2018
+ms.date: 10/16/2018
 ms.author: magoedte
-ms.openlocfilehash: 0e23f5ac8dcce940389f62097fef7de36abe2387
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 33d16e211667edc6c082ab8c101e69ee5875efb8
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48269203"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49390241"
 ---
 # <a name="how-to-onboard-the-azure-monitor-for-vms"></a>Hoe zorgen voor onboarding Azure controleren voor virtuele machines 
 In dit artikel wordt beschreven hoe het instellen van Azure Monitor voor virtuele machines om te controleren van de status van het besturingssysteem van uw Azure virtual machines en detecteren en afhankelijkheden voor toepassingen die kunnen worden gehost op deze worden toegewezen.  
@@ -43,6 +43,10 @@ Een Log Analytics-werkruimte in de volgende regio's wordt momenteel ondersteund:
   - Zuidoost-Azië<sup>1</sup>  
 
 <sup>1</sup> deze regio biedt momenteel geen ondersteuning de Health-functie van Azure Monitor voor virtuele machines   
+
+>[!NOTE]
+>Virtuele machines van Azure kan toegevoegd van andere regio's en zijn niet beperkt tot de ondersteunde regio's voor de Log Analytics-werkruimte.
+>
 
 Als u een werkruimte hebt, kunt u het maken via [Azure CLI](../log-analytics/log-analytics-quick-create-workspace-cli.md), tot en met [PowerShell](../log-analytics/log-analytics-quick-create-workspace-posh.md), in de [Azure-portal](../log-analytics/log-analytics-quick-create-workspace.md), of met [Azure Resource Manager](../log-analytics/log-analytics-template-workspace-configuration.md).  Als u voor een enkele Azure-VM vanuit de Azure-portal bewaken inschakelen wilt, hebt u de optie voor het maken van een werkruimte tijdens dit proces.  
 

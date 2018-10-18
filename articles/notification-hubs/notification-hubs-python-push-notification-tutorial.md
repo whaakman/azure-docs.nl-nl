@@ -14,12 +14,12 @@ ms.devlang: php
 ms.topic: article
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: 339029f14c4fd9a0158f2b7a4fb80bf03bd83cf3
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: b0aa61c86b08a4fe2eddb5eb1fb5b33c4cb901a0
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42055469"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49386584"
 ---
 # <a name="how-to-use-notification-hubs-from-python"></a>Hoe u Notification Hubs gebruiken vanuit Python
 [!INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
@@ -49,7 +49,7 @@ U kunt volgen de [zelfstudie aan de slag](notification-hubs-windows-store-dotnet
 ## <a name="client-interface"></a>Client-interface
 De belangrijkste clientinterface kan bieden dezelfde methoden die beschikbaar zijn in de [.NET Notification Hubs SDK](http://msdn.microsoft.com/library/jj933431.aspx). Deze interface kunt u de zelfstudies en voorbeelden die momenteel beschikbaar zijn op deze site rechtstreeks te vertalen en bijgedragen door de community op het internet.
 
-U vindt de code die zijn beschikbaar in de [Python REST-wrapper voorbeeld].
+U vindt de code die zijn beschikbaar in de [Voorbeeld van Python-REST-wrapper].
 
 Als u bijvoorbeeld om een client te maken:
 
@@ -261,7 +261,7 @@ Met deze klasse schrijven verzenden Meldingsmethoden in de **NotificationHub** k
 Deze methoden wordt een HTTP POST-aanvraag verzenden naar het eindpunt /messages van uw notification hub, met de juiste instantie en -koppen om de melding te verzenden.
 
 ### <a name="using-debug-property-to-enable-detailed-logging"></a>Met behulp van de eigenschap debug gedetailleerde logboekregistratie inschakelen
-De eigenschap inschakelen debug tijdens het initialiseren van de Notification Hub schrijft gedetailleerde logboekregistratie informatie over de HTTP-aanvraag en antwoord dump, evenals gedetailleerde melding verzenden resultaat. De [Notification Hubs TestZenden eigenschap](https://docs.microsoft.com/en-us/previous-versions/azure/reference/dn495827(v=azure.100)) retourneert gedetailleerde informatie over de uitkomst van de melding verzenden. Gebruik deze-initialiseren met de volgende code:
+De eigenschap inschakelen debug tijdens het initialiseren van de Notification Hub schrijft gedetailleerde logboekregistratie informatie over de HTTP-aanvraag en antwoord dump, evenals gedetailleerde melding verzenden resultaat. De [Notification Hubs TestZenden eigenschap](https://docs.microsoft.com/previous-versions/azure/reference/dn495827(v=azure.100)) retourneert gedetailleerde informatie over de uitkomst van de melding verzenden. Gebruik deze-initialiseren met de volgende code:
 
     hub = NotificationHub("myConnectionString", "myNotificationHubName", isDebug)
 
@@ -374,15 +374,15 @@ U ziet dat de indeling HTTP-header wordt gewijzigd en de hoofdtekst van de netto
 ## <a name="next-steps"></a>Volgende stappen
 In dit artikel hebt u geleerd hoe u een Python-REST-client voor Notification Hubs maakt. Hier kunt u het volgende doen:
 
-* Download de volledige [Python REST-wrapper voorbeeld], die de code in dit artikel bevat.
+* Download de volledige [Voorbeeld van Python-REST-wrapper], die de code in dit artikel bevat.
 * Leren over Notification Hubs taggingfunctie in de [belangrijke nieuws-zelfstudie]
-* Meer informatie over de functie Notification Hubs sjablonen in de [lokaliseren nieuws-zelfstudie]
+* Meer informatie over de functie Notification Hubs sjablonen in de [Zelfstudie voor nieuws te lokaliseren]
 
 <!-- URLs -->
-[Python REST-wrapper voorbeeld]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/notificationhubs-rest-python
+[Voorbeeld van Python-REST-wrapper]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/notificationhubs-rest-python
 [Zelfstudie Aan de slag]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
 [Belangrijke nieuws-zelfstudie]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/
-[lokaliseren nieuws-zelfstudie]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-send-localized-breaking-news/
+[Zelfstudie voor nieuws te lokaliseren]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-send-localized-breaking-news/
 
 <!-- Images. -->
 [1]: ./media/notification-hubs-python-backend-how-to/DetailedLoggingInfo.png

@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 07/31/2018
 ms.author: tarcher
 ms.custom: jenkins
-ms.openlocfilehash: cfe67fbed61b4af9b4a4f5b490397ca1a6e1d752
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 4e91c0287bfe50b297b9a3ef118ececb67909f21
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44299488"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49388479"
 ---
 # <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-with-using-jenkins-and-azure-devops-services"></a>Zelfstudie: Uw app implementeren voor Linux Virtual Machines in Azure met Jenkins en Azure DevOps Services
 
@@ -26,7 +26,7 @@ Continue integratie en continue implementatie vormen een pijplijn waarmee u uw c
 
 In deze zelfstudie gebruikt u Jenkins om een Node.js-web-app te maken. Vervolgens gebruikt u Azure DevOps om deze te implementeren
 
-naar een [implementatiegroep](https://docs.microsoft.com/en-us/azure/devops/pipelines/release/deployment-groups/index?view=vsts) die virtuele Linux-machines (VM's) bevat. In deze zelfstudie leert u procedures om het volgende te doen:
+naar een [implementatiegroep](https://docs.microsoft.com/azure/devops/pipelines/release/deployment-groups/index?view=vsts) die virtuele Linux-machines (VM's) bevat. In deze zelfstudie leert u procedures om het volgende te doen:
 
 > [!div class="checklist"]
 > * De voorbeeld-app downloaden.
@@ -50,7 +50,7 @@ naar een [implementatiegroep](https://docs.microsoft.com/en-us/azure/devops/pipe
 
 *  U hebt een virtuele Linux-machine nodig voor een implementatiedoel.  Zie [Virtuele Linux-machines maken en beheren met de Azure CLI](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm) voor meer informatie.
 
-*  Open de binnenkomende poort 80 voor uw virtuele machine. Zie [Netwerkbeveiligingsgroepen maken met de Azure-portal](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic) voor meer informatie.
+*  Open de binnenkomende poort 80 voor uw virtuele machine. Zie [Netwerkbeveiligingsgroepen maken met Azure Portal](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic) voor meer informatie.
 
 ## <a name="get-the-sample-app"></a>De voorbeeld-app downloaden
 

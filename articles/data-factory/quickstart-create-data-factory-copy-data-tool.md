@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: quickstart
 ms.date: 06/20/2018
 ms.author: jingwang
-ms.openlocfilehash: d314c04a40155fccc99660bacdb9f646ce77b22f
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: a4e41408a3af2e6bb68c14f2e34bf1141bf349c1
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43107585"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48017804"
 ---
 # <a name="use-the-copy-data-tool-to-copy-data"></a>Het hulpprogramma Copy Data gebruiken om gegevens te kopiëren 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service that you are using:"]
@@ -52,13 +52,9 @@ In deze snelstart gebruikt u Azure Portal voor het maken van een data factory. G
 1. Selecteer **V2** als **Versie**.
 1. Selecteer voor **Locatie** een locatie voor de data factory. 
 
-   In de lijst worden alleen ondersteunde locaties getoond. De gegevensarchieven (zoals Azure Storage en Azure SQL Database) en -berekeningen (zoals Azure HDInsight) die Data Factory gebruikt, kunnen zich in andere locaties of regio's bevinden.
+   De lijst bevat alleen locaties die worden ondersteund door Data Factory en waar uw Azure Data Factory-metagegevens worden opgeslagen. Let op: de bijbehorende gegevensarchieven (zoals Azure Storage en Azure SQL Database) en berekeningen (zoals Azure HDInsight) die Data Factory gebruikt, kunnen in andere regio's worden uitgevoerd.
 
-1. Selecteer **Vastmaken aan dashboard**.     
 1. Selecteer **Maken**.
-1. Op het dashboard ziet u de volgende tegel met de status: **Data Factory implementeren**: 
-
-    ![Tegel Data Factory implementeren](media/quickstart-create-data-factory-copy-data-tool/deploying-data-factory.png)
 1. Wanneer het maken is voltooid, ziet u de pagina **Data Factory**. Selecteer de tegel **Maken en controleren** om de gebruikersinterface (UI) van Azure Data Factory te openen op een afzonderlijk tabblad.
    
    ![Startpagina van Data Factory, met de tegel Maken en controleren](./media/quickstart-create-data-factory-copy-data-tool/data-factory-home-page.png)

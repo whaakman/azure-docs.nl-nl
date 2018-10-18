@@ -9,12 +9,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 06/04/2018
-ms.openlocfilehash: 9b6a7187827622443c3cb29566dfb5eef840d595
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 7ae97274b03dda4dcf5150c8faacc7d406dad9fd
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43666192"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389612"
 ---
 # <a name="use-terraform-to-create-an-azure-virtual-machine-scale-set"></a>Terraform gebruiken om een virtuele-machineschaalset te maken in Azure
 
@@ -38,7 +38,7 @@ In deze zelfstudie leert u hoe u [Azure Cloud Shell](/azure/cloud-shell/overview
 
 - **Terraform installeren**: volg de aanwijzingen in het artikel [Terraform en toegang tot Azure configureren](/azure/virtual-machines/linux/terraform-install-configure)
 
-- **Een SSH-sleutelpaar maken**: als u nog geen SSH-sleutelpaar hebt, volgt u de instructies in het artikel [Een sleutelpaar met een openbare en persoonlijke SSH-sleutel voor virtuele Linux-machines maken en gebruiken](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/mac-create-ssh-keys).
+- **Een SSH-sleutelpaar maken**: als u nog geen SSH-sleutelpaar hebt, volgt u de instructies in het artikel [Een sleutelpaar met een openbare en persoonlijke SSH-sleutel voor virtuele Linux-machines maken en gebruiken](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys).
 
 ## <a name="create-the-directory-structure"></a>De directorystructuur maken
 
@@ -48,7 +48,7 @@ In deze zelfstudie leert u hoe u [Azure Cloud Shell](/azure/cloud-shell/overview
 
     ![Cloud Shell-prompt](./media/terraform-create-vm-scaleset-network-disks-hcl/azure-portal-cloud-shell-button-min.png)
 
-1. Maak `clouddrive` de actieve directory.
+1. Ga naar de map `clouddrive`.
 
     ```bash
     cd clouddrive
@@ -568,6 +568,6 @@ Het vernietigingsproces kan enkele minuten in beslag nemen.
 In dit artikel hebt u geleerd Terraform te gebruiken om een virtuele-machineschaalset te maken in Azure. Hier volgen enkele aanvullende resources met meer informatie over Terraform in Azure: 
 
  [Terraform Hub in Microsoft.com](https://docs.microsoft.com/azure/terraform/)  
- [Documentatie voor Terraform Azure-providers](http://aka.ms/terraform)  
- [Gegevensbron voor Terraform Azure-providers](http://aka.ms/tfgit)  
+ [Terraform Azure-documentatie voor providers](http://aka.ms/terraform)  
+ [Terraform Azure-gegevensbron voor providers](http://aka.ms/tfgit)  
  [Terraform Azure-modules](http://aka.ms/tfmodules)

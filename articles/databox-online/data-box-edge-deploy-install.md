@@ -1,27 +1,20 @@
 ---
 title: Zelfstudie over installeren van fysiek Azure Data Box Edge-apparaat | Microsoft Docs
 description: De tweede zelfstudie over het installeren van Azure Data Box Edge gaat over het uitpakken, in een rek monteren en het bekabelen van het fysieke apparaat.
-services: databox-edge-gateway
-documentationcenter: NA
+services: databox
 author: alkohli
-manager: twooley
-editor: ''
-ms.assetid: ''
-ms.service: databox-edge-gateway
-ms.devlang: NA
+ms.service: databox
+ms.subservice: edge
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 10/08/2018
 ms.author: alkohli
-ms.custom: ''
 Customer intent: As an IT admin, I need to understand how to install Data Box Edge in datacenter so I can use it to transfer data to Azure.
-ms.openlocfilehash: 17602abd9dab590c806c33779cf127f9a5305f64
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: 21ac3de793f5ce559c3a03de2a09f11ccb86b12a
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48832650"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49167355"
 ---
 # <a name="tutorial-install-azure-data-box-edge-preview"></a>Zelfstudie: Azure Data Box Edge (preview-versie) installeren
 

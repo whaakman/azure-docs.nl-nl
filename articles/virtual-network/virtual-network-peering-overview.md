@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: jdial
-ms.openlocfilehash: c20375d42786b817f677be22dee8f4e71e710bc5
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: 493beb254852464765d506c61c7ae6ce3b3835d3
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41918472"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49362888"
 ---
 # <a name="virtual-network-peering"></a>Peering op virtueel netwerk
 
@@ -92,7 +92,7 @@ Zie [Machtigingen voor peering op een virtueel netwerk](virtual-network-manage-p
 
 Er wordt een nominaal bedrag in rekening gebracht voor inkomend en uitgaand verkeer dat gebruikmaakt van een verbinding voor virtueel netwerk-peering. Zie de [pagina met prijzen](https://azure.microsoft.com/pricing/details/virtual-network) voor meer informatie over prijzen voor VNet-peering en wereldwijde VNet-peering.
 
-Gatewayoverdracht is een peeringeigenschap die zorgt dat een virtueel netwerk een VPN-gateway in een als peer ingesteld virtuele netwerk kan gebruiken voor cross-premises- of VNet-naar-VNet-connectiviteit. Verkeer dat in dit scenario via een externe gateway passeert, is onderworpen aan [VPN-gateway kosten](https://azure.microsoft.com/en-us/pricing/details/vpn-gateway/) en hiervoor worden geen kosten in rekening gebracht voor [VNet-peering.](https://azure.microsoft.com/pricing/details/virtual-network) Als VNetA bijvoorbeeld een VPN-gateway heeft voor on-premises-connectiviteit en VNetB is gekoppeld aan VNetA met de gewenste geconfigureerde eigenschappen, worden voor verkeer van VNetB naar on-premises alleen kosten voor uitgaand verkeer in rekening gebracht volgens VPN-gatewaytarieven. Er zijn geen kosten voor VNet-peering van toepassing. Lees hoe u [VPN-gatewayoverdracht kunt configureren voor peering voor virtuele netwerken.](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+Gatewayoverdracht is een peeringeigenschap die zorgt dat een virtueel netwerk een VPN-gateway in een als peer ingesteld virtuele netwerk kan gebruiken voor cross-premises- of VNet-naar-VNet-connectiviteit. Verkeer dat in dit scenario via een externe gateway passeert, is onderworpen aan [VPN-gateway kosten](https://azure.microsoft.com/pricing/details/vpn-gateway/) en hiervoor worden geen kosten in rekening gebracht voor [VNet-peering.](https://azure.microsoft.com/pricing/details/virtual-network) Als VNetA bijvoorbeeld een VPN-gateway heeft voor on-premises-connectiviteit en VNetB is gekoppeld aan VNetA met de gewenste geconfigureerde eigenschappen, worden voor verkeer van VNetB naar on-premises alleen kosten voor uitgaand verkeer in rekening gebracht volgens VPN-gatewaytarieven. Er zijn geen kosten voor VNet-peering van toepassing. Lees hoe u [VPN-gatewayoverdracht kunt configureren voor peering voor virtuele netwerken.](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 
 ## <a name="next-steps"></a>Volgende stappen
 

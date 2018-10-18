@@ -7,14 +7,14 @@ author: wolfma61
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: quickstart
-ms.date: 09/24/2018
+ms.date: 10/12/2018
 ms.author: wolfma
-ms.openlocfilehash: 2cb89606986645d567136655d5ab3f07223ba70d
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 04cdfd487036e79eccbb4fb879902a12e077d104
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434769"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49341647"
 ---
 # <a name="quickstart-recognize-speech-in-c-under-net-core-on-windows-by-using-the-speech-sdk"></a>Snelstart: gesproken tekst herkennen in C# onder .NET Core op Windows met behulp van de Speech SDK
 
@@ -25,14 +25,14 @@ In dit artikel maakt u een C#-consoletoepassing voor .NET Core op Windows met be
 > [!NOTE]
 > .NET Core is een open-source, platformoverschrijdend .NET-platform waarmee de [.NET Standard](https://docs.microsoft.com/dotnet/standard/net-standard)-specificatie wordt geïmplementeerd.
 
-U hebt een abonnementssleutel voor de Speech-service nodig om deze snelstart uit te voeren. U kunt gratis een downloaden. Zie [Speech Service gratis uitproberen](get-started.md) voor meer informatie.
+U hebt een abonnementssleutel voor de Speech-service nodig om deze snelstart uit te voeren. U kunt er gratis een krijgen. Zie [Speech-service gratis uitproberen](get-started.md) voor meer informatie.
 
 
 ## <a name="create-a-visual-studio-project"></a>Een Visual Studio-project maken
 
-1. Open Visual Studio 2017.
+1. Start Visual Studio 2017.
 
-1. Zorg ervoor dat de workload voor **.NET platformoverschrijdende ontwikkeling** beschikbaar is. Kies **Extra** > **Hulpmiddelen en onderdelen ophalen** in de menubalk van Visual Studio om het installatieprogramma voor Visual Studio te openen. Als de workload al is ingeschakeld, sluit u het dialoogvenster.
+1. Zorg ervoor dat de workload voor **.NET platformoverschrijdende ontwikkeling** beschikbaar is. Kies **Extra** > **Hulpmiddelen en onderdelen ophalen** in de menubalk van Visual Studio om het installatieprogramma voor Visual Studio te openen. Als deze workload al is ingeschakeld, sluit u het dialoogvenster.
 
     ![Schermopname van het Visual Studio-installatieprogramma met het tabblad Workloads gemarkeerd](media/sdk/vs-enable-net-core-workload.png)
 
@@ -48,9 +48,9 @@ U hebt een abonnementssleutel voor de Speech-service nodig om deze snelstart uit
 
 1. In de rechterbovenhoek selecteert u in het veld **Pakketbron** de optie **nuget.org**. Zoek het pakket `Microsoft.CognitiveServices.Speech` en installeer het in het project **helloworld**.
 
-    ![Schermafbeelding van het dialoogvenster Pakketten beheren voor oplossing](media/sdk/qs-csharp-dotnetcore-windows-03-nuget-install-1.0.0.png "NuGet-pakket installeren")
+    ![Schermafbeelding van het dialoogvenster Manage Packages for Solution](media/sdk/qs-csharp-dotnetcore-windows-03-nuget-install-1.0.0.png "NuGet-pakket installeren")
 
-1. Accepteer de weergegeven licentie om te beginnen met het installeren van het NuGet-pakket.
+1. Ga akkoord met de weergegeven licentie om te beginnen met het installeren van het NuGet-pakket.
 
     ![Schermafbeelding van het dialoogvenster voor akkoord gaan met licentie](media/sdk/qs-csharp-dotnetcore-windows-04-nuget-license.png "Licentie accepteren")
 
@@ -61,17 +61,17 @@ Wanneer het pakket is geïnstalleerd, wordt er een bevestiging weergegeven in de
 
 1. Open `Program.cs` en vervang daarin alle code door het volgende.
 
-    [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/csharp-dotnetcore-windows/helloworld/Program.cs#code)]
+    [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/csharp-dotnetcore/helloworld/Program.cs#code)]
 
 1. Vervang in hetzelfde bestand de tekenreeks `YourSubscriptionKey` door uw abonnementssleutel.
 
 1. Vervang ook de tekenreeks `YourServiceRegion` door de [regio](regions.md) die is gekoppeld aan uw abonnement (bijvoorbeeld `westus` voor het gratis proefabonnement).
 
-1. Sla de wijzigingen aan het project op.
+1. Sla de wijzigingen in het project op.
 
 ## <a name="build-and-run-the-app"></a>De app bouwen en uitvoeren
 
-1. Bouw de toepassing. Selecteer in de menubalk **Bouwen** > **Oplossing bouwen**. De code moet zonder fouten worden gecompileerd.
+1. Compileer de toepassing. Kies in de menubalk **Build** > **Build Solution**. De code moet zonder fouten worden gecompileerd.
 
     ![Schermafbeelding van Visual Studio-toepassing met de optie Oplossing bouwen gemarkeerd](media/sdk/qs-csharp-dotnetcore-windows-05-build.png "Geslaagde build")
 

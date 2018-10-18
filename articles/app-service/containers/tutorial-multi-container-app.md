@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: msangapu
 ms.custom: mvc
-ms.openlocfilehash: ff3659bd0f4001424ce27484f08a645f364c2ef6
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: c8002b10e2c7c0823cd59bf300283d04fca5ce2e
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44054635"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49390207"
 ---
 # <a name="tutorial-create-a-multi-container-preview-app-in-web-app-for-containers"></a>Zelfstudie: Een app met meerdere containers (preview) maken in Web App for Containers
 
@@ -235,7 +235,7 @@ Wanneer de database is gemaakt, wordt in Cloud Shell informatie weergegeven die 
 
 ### <a name="configure-database-variables-in-wordpress"></a>Databasevariabelen in WordPress configureren
 
-Als u de WordPress-app wilt verbinden met deze nieuwe MySQL-server, configureert u een aantal specifieke WordPress-omgevingsvariabelen, inclusief het SSL CA-pad dat is gedefinieerd door `MYSQL_SSL_CA`. Hieronder vindt u [Baltimore CyberTrust Root](https://www.digicert.com/digicert-root-certificates.htm) van [DigiCert](http://www.digicert.com/) in de [aangepaste installatiekopie](https://docs.microsoft.com/en-us/azure/app-service/containers/tutorial-multi-container-app#use-a-custom-image-for-mysql-ssl-and-other-configurations).
+Als u de WordPress-app wilt verbinden met deze nieuwe MySQL-server, configureert u een aantal specifieke WordPress-omgevingsvariabelen, inclusief het SSL CA-pad dat is gedefinieerd door `MYSQL_SSL_CA`. Hieronder vindt u [Baltimore CyberTrust Root](https://www.digicert.com/digicert-root-certificates.htm) van [DigiCert](http://www.digicert.com/) in de [aangepaste installatiekopie](https://docs.microsoft.com/azure/app-service/containers/tutorial-multi-container-app#use-a-custom-image-for-mysql-ssl-and-other-configurations).
 
 Als u deze wijzigingen wilt aanbrengen, gebruikt u de opdracht [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) in Cloud Shell. App-instellingen zijn hoofdlettergevoelig en door spaties gescheiden.
 

@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/20/2018
 ms.author: danoble
-ms.openlocfilehash: a5481f9b2b443a0860ce0df5643427f357e1c294
-ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
+ms.openlocfilehash: ce42d30b816599f7eaf90ce5a92164c6b85cfa36
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48785368"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49094170"
 ---
 # <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>De Azure Cosmos DB Emulator gebruiken voor lokaal ontwikkelen en testen
 
@@ -35,7 +35,9 @@ ms.locfileid: "48785368"
 </tr>
 </table>
   
-De Azure Cosmos DB Emulator is een lokale omgeving waarin de Azure Cosmos DB-service wordt geëmuleerd voor ontwikkelingsdoeleinden. Met behulp van de Azure Cosmos DB Emulator kunt u uw toepassing lokaal ontwikkelen en testen, kosteloos en zonder een Azure-abonnement te maken. Als u tevreden bent over hoe uw toepassing in de Azure Cosmos DB Emulator werkt, kunt u overstappen naar een Azure Cosmos DB-account in de cloud. U kunt de Azure Cosmos DB-emulator gebruiken met alle API's - SQL, MongoDB, Cassandra, Gremlin en Table.
+De Azure Cosmos DB Emulator is een lokale omgeving waarin de Azure Cosmos DB-service wordt geëmuleerd voor ontwikkelingsdoeleinden. Met behulp van de Azure Cosmos DB Emulator kunt u uw toepassing lokaal ontwikkelen en testen, kosteloos en zonder een Azure-abonnement te maken. Als u tevreden bent over hoe uw toepassing in de Azure Cosmos DB Emulator werkt, kunt u overstappen naar een Azure Cosmos DB-account in de cloud. 
+
+Op dit moment biedt de Data Explorer in de emulator alleen volledige ondersteuning voor SQL API-verzamelingen en MongoDB-verzamelingen. Tabel-, grafiek- en Cassandra-containers worden niet volledig ondersteund. 
 
 Dit artikel behandelt de volgende taken: 
 

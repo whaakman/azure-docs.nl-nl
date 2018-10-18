@@ -10,16 +10,17 @@ ms.component: translator-speech
 ms.topic: quickstart
 ms.date: 3/5/2018
 ms.author: v-jaswel
-ROBOTS: NOINDEX
-ms.openlocfilehash: 533faeca37f021beb86148a4f11a0f04c631a30a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 3db4e242ad630949533823c22a16587daa4f9786
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46954582"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389697"
 ---
 # <a name="quickstart-translator-speech-api-with-nodejs"></a>Snelstart: Translator Speech-API met Node.js 
 <a name="HOLTop"></a>
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-translator-speech-deprecation-note.md)]
 
 In dit artikel leest u hoe de Translator Speech-API gebruikt voor het vertalen van gesproken woorden in een WAV-bestand.
 
@@ -29,7 +30,7 @@ U hebt [Node.js 6](https://nodejs.org/en/download/) nodig om deze code uit te vo
 
 U moet het [Websocket-pakket](https://www.npmjs.com/package/websocket) voor Node.js installeren.
 
-In de map met het uitvoerbare bestand dat u hebt gemaakt op basis van de volgende code moet ook een WAV-bestand staan met de naam 'speak.wav'. Dit WAV-bestand moet de standaardindeling hebben: PCM, 16-bits, 16 kHz, mono. U kunt dit WAV-bestand verkrijgen via de [Text to Speech-API](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/rest-apis#text-to-speech).
+In de map met het uitvoerbare bestand dat u hebt gemaakt op basis van de volgende code moet ook een WAV-bestand staan met de naam 'speak.wav'. Dit WAV-bestand moet de standaardindeling hebben: PCM, 16-bits, 16 kHz, mono. U kunt dit WAV-bestand verkrijgen via de [Text to Speech-API](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech).
 
 U moet beschikken over een [account voor de Cognitive Services-API](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) en de **Microsoft Translator Speech-API**. U hebt een betaalde abonnementssleutel nodig uit uw [Azure-dashboard](https://portal.azure.com/#create/Microsoft.CognitiveServices).
 
@@ -67,7 +68,7 @@ let uri = host + path + params;
 
 /* The input .wav file is in PCM 16bit, 16kHz, mono format.
 You can obtain such a .wav file using the Text to Speech API. See:
-https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/rest-apis#text-to-speech
+https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech
 */
 let input_path = 'speak.wav';
 

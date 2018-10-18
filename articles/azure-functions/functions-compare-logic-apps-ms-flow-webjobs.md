@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 04/09/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 789b572a1d3b049bcfd9a739182c49c4da27fc96
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: e449703dd8d012037af9540397ecd3b7bc0c7e7f
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48817004"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49114633"
 ---
 # <a name="compare-flow-logic-apps-functions-and-webjobs"></a>Flow, Logic Apps, Functions en WebJobs vergelijken
 
@@ -84,7 +84,7 @@ Azure Functions is gebaseerd op de WebJobs SDK en deelt daarom veel triggers en 
 
 |  | Functions | WebJobs met WebJobs SDK |
 | --- | --- | --- |
-|[App-model zonder server](https://azure.microsoft.com/overview/serverless-computing/) met [automatisch schalen](functions-scale.md#how-the-consumption-plan-works)|✔||
+|[App-model zonder server](https://azure.microsoft.com/solutions/serverless/) met [automatisch schalen](functions-scale.md#how-the-consumption-plan-works)|✔||
 |[Ontwikkelen en testen in de browser](functions-create-first-azure-function.md) |✔||
 |[Betalen per gebruik](functions-scale.md#consumption-plan)|✔||
 |[Integratie met Logic Apps](functions-twitter-email.md)|✔||

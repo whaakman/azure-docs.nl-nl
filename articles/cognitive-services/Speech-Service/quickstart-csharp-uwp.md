@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: quickstart
 ms.date: 09/24/2018
 ms.author: wolfma
-ms.openlocfilehash: 2eb6bda7066a01e5532fe7c0e20b0ee13f4289b6
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: d9a90869e060d2f8f1a1c522a4528e74841caada
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47432984"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49339611"
 ---
 # <a name="quickstart-recognize-speech-in-a-uwp-app-by-using-the-speech-sdk"></a>Snelstartgids: Gesproken tekst herkennen in een UWP-app met behulp van de Speech SDK
 
@@ -27,7 +27,7 @@ In dit artikel maakt u in C# een UWP-app (Universal Windows Platform) met behulp
 
 ## <a name="prerequisites"></a>Vereisten
 
-U hebt een abonnementssleutel voor de Speech-service nodig om deze snelstartgids uit te voeren. U kunt er een gratis downloaden. Zie [Speech-service gratis uitproberen](get-started.md) voor meer informatie.
+U hebt een abonnementssleutel voor de Speech-service nodig om deze snelstartgids te doorlopen. U kunt er gratis een krijgen. Zie [Speech-service gratis uitproberen](get-started.md) voor meer informatie.
 
 ## <a name="create-a-visual-studio-project"></a>Een Visual Studio-project maken
 
@@ -69,7 +69,7 @@ U hebt een abonnementssleutel voor de Speech-service nodig om deze snelstartgids
 1. De volgende regel wordt uitgevoerd in de Package Manager Console.
 
    ```text
-   Successfully installed 'Microsoft.CognitiveServices.Speech 1.0.0' to helloworld
+   Successfully installed 'Microsoft.CognitiveServices.Speech 1.0.1' to helloworld
    ```
 
 1. Omdat de toepassing de microfoon gebruikt voor spraakinvoer, voegt u **Microphone** toe aan het project. Dubbelklik in Solution Explorer op **Package.appxmanifest** om het manifest van uw toepassing te bewerken. Ga vervolgens naar het tabblad **Capabilities**, selecteer het selectievakje bij **Microphone** en sla de wijzigingen op.
