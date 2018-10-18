@@ -11,19 +11,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 10/12/2018
+ms.date: 10/16/2018
 ms.author: raiye
-ms.openlocfilehash: b37600fe8d0616454264b67553149223746318d8
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 7540f12f888108ed7091cece575b6d25131ef47b
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49322019"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49377511"
 ---
 # <a name="azure-guest-os"></a>Azure-Gastbesturingssysteem
 De volgende tabellen tonen de updates van de Microsoft Security Response Center (MSRC) toegepast op de Azure-Gastbesturingssysteem. Zoeken in dit artikel om te bepalen als een bepaalde update van toepassing op de Gast-besturingssysteem dat u gebruikt. Updates altijd overdragen voor de betreffende [familie] [ family-explain] ze zijn geïntroduceerd in.
 
-## <a name="september-guest-os"></a>September-Gastbesturingssysteem
+## <a name="september-2018-guest-os"></a>Het Gastbesturingssysteem september 2018
 | Productcategorie | Bovenliggende KB-artikel | Beschrijving van beveiligingsproblemen | Gastbesturingssysteem | Datum voor het eerst geïntroduceerd |
 | --- | --- | --- | --- | --- |
 | Rel 18-09 | [4457131] | Windows 10-beveiliging | 5.23 | 11 september 2018 |
@@ -45,7 +45,7 @@ De volgende tabellen tonen de updates van de Microsoft Security Response Center 
 | N/A | [4344153] | Augustus niet voor beveiliging .NET 3.5-updatepakket | 4,58 | 14 augustus 2018 |
 | N/A | [4344147] | Augustus niet voor beveiliging .NET 4 x rollup | 4,58 | 14 augustus 2018 |
 
-## <a name="august-guest-os"></a>Augustus Guest OS
+## <a name="august-2018-guest-os"></a>Augustus 2018-Gastbesturingssysteem
 | Productcategorie | Bovenliggende KB-artikel | Beschrijving van beveiligingsproblemen | Gastbesturingssysteem | Datum voor het eerst geïntroduceerd |
 | --- | --- | --- | --- | --- |
 | Rel 18-08 | [4343887] | Windows 10-beveiliging | 5.22 | 14 augustus 2018 |
@@ -68,7 +68,7 @@ De volgende tabellen tonen de updates van de Microsoft Security Response Center 
 | N/A | [4338424] |Juli niet voor beveiliging .NET 3.5-updatepakket |3.64 | 10 juli 2018 |
 | N/A | [4338415] |Juli niet voor beveiliging .NET 4 x rollup |3.64 | 10 juli 2018 |
 
-## <a name="july-guest-os"></a>Juli Guest OS
+## <a name="july-2018-guest-os"></a>Juli 2018-Gastbesturingssysteem
 | Productcategorie | Bovenliggende KB-artikel | Beschrijving van beveiligingsproblemen | Gastbesturingssysteem | Datum voor het eerst geïntroduceerd |
 | --- | --- | --- | --- | --- |
 | Rel 18-07 | [4338814] |Windows 10-beveiliging |5.21 |10 juli 2018 |
@@ -88,7 +88,7 @@ De volgende tabellen tonen de updates van de Microsoft Security Response Center 
 | N/A | [4284855] |Totalisering van de niet-beveiligde juni |3,63 |12 juni 2018 |
 | N/A | [4284815] |Totalisering van de niet-beveiligde juni |4,56 |12 juni 2018 |
 
-## <a name="june-guest-os"></a>Juni als gast-OS
+## <a name="june-2018-guest-os"></a>Juni 2018-Gastbesturingssysteem
 | Productcategorie | Bovenliggende KB-artikel | Beschrijving van beveiligingsproblemen | Gastbesturingssysteem | Datum voor het eerst geïntroduceerd |
 | --- | --- | --- | --- | --- |
 | Rel 18-06 | [4284880] |Windows 10-beveiliging |5.20 |12 juni 2018 |
@@ -113,7 +113,7 @@ De volgende tabellen tonen de updates van de Microsoft Security Response Center 
 | N/A | [4096417] |Kan .NET 4.5 x niet-security-release |4.55 |8 mei 2018 |
 | N/A | [4132216] |Mogelijk is |5.20 |8 mei 2018 |
 
-## <a name="may-guest-os"></a>Kan gastbesturingssystemen
+## <a name="may-2018-guest-os"></a>Het Gastbesturingssysteem mei 2018
 | Productcategorie | Bovenliggende KB-artikel | Beschrijving van beveiligingsproblemen | Gastbesturingssysteem | Datum voor het eerst geïntroduceerd |
 | --- | --- | --- | --- | --- |
 | Rel 18-05 | [4103721], [4103727], [4103723] |Windows 10-beveiliging |5.19 |8 mei 2018 |
@@ -133,7 +133,7 @@ De volgende tabellen tonen de updates van de Microsoft Security Response Center 
 | N/A | [4093753] |Tijdzone-update |2.74, 3.61, 4,74 |10 april 2018 |
 
 
-## <a name="april-guest-os"></a>April als gast-OS
+## <a name="april-2018-guest-os"></a>Het Gastbesturingssysteem april 2018
 | Productcategorie | Bovenliggende KB-artikel | Beschrijving van beveiligingsproblemen | Gastbesturingssysteem | Datum voor het eerst geïntroduceerd |
 | --- | --- | --- | --- | --- |
 | Rel 18-04 | [4093119] |Windows 10-beveiliging |punt 5.18 |10 april 2018 |
@@ -147,7 +147,7 @@ De volgende tabellen tonen de updates van de Microsoft Security Response Center 
 | N/A | [4088877] |Totalisering van maart niet voor beveiliging |3.60 |13 maart 2018 |
 | N/A | [4088876] |Totalisering van maart niet voor beveiliging |4,53 |13 maart 2018 |
 
-## <a name="march-guest-os"></a>Gastbesturingssysteem maart
+## <a name="march-2018-guest-os"></a>Het Gastbesturingssysteem maart 2018
 | Productcategorie | Bovenliggende KB-artikel | Beschrijving van beveiligingsproblemen | Gastbesturingssysteem | Datum voor het eerst geïntroduceerd |
 | --- | --- | --- | --- | --- |
 | Rel 18: 03 | [4088787], [4088776] |Windows 10-beveiliging |5,17 |13 maart 2018 |
@@ -160,7 +160,7 @@ De volgende tabellen tonen de updates van de Microsoft Security Response Center 
 | N/A | [4074837] |Tijdzone-update |2.72, 3.59, 4.52 zijn |13 februari 2018 |
 
 
-## <a name="february-guest-os"></a>Februari Guest OS
+## <a name="february-2018-guest-os"></a>Het Gastbesturingssysteem februari 2018
 | Productcategorie | Bovenliggende KB-artikel | Beschrijving van beveiligingsproblemen | Gastbesturingssysteem | Datum voor het eerst geïntroduceerd |
 | --- | --- | --- | --- | --- |
 | Rel 18-02 | [4074590], [4074588] |Windows 10-beveiliging |5.16 |13 februari 2018 |
@@ -174,7 +174,7 @@ De volgende tabellen tonen de updates van de Microsoft Security Response Center 
 | N/A | [4054175], [4054171] |Januari .NET samenvouwen |3,58 |4 januari 2018 |
 | N/A | [4054177], [4054170] |Januari .NET samenvouwen |4,51 |4 januari 2018 |
 
-## <a name="january-guest-os"></a>Januari Guest OS
+## <a name="january-2018-guest-os"></a>Het Gastbesturingssysteem januari 2018
 | Productcategorie | Bovenliggende KB-artikel | Beschrijving van beveiligingsproblemen | Gastbesturingssysteem | Datum voor het eerst geïntroduceerd |
 | --- | --- | --- | --- | --- |
 | Rel 18-01 | [4056898], [4056897], [4056899] |Alleen Windows-beveiliging |2.70, 3.57, 4.50 |3 januari 2018 |
@@ -186,7 +186,7 @@ De volgende tabellen tonen de updates van de Microsoft Security Response Center 
 
 
 
-## <a name="december-guest-os"></a>December Guest OS
+## <a name="december-2017-guest-os"></a>Het Gastbesturingssysteem december 2017
 | Productcategorie | Bovenliggende KB-artikel | Beschrijving van beveiligingsproblemen | Gastbesturingssysteem | Datum voor het eerst geïntroduceerd |
 | --- | --- | --- | --- | --- |
 | Rel 17-12 | [4053579], [4054517] |Windows 10-beveiligingsupdates |4.49, 5.14 |12 december 2017 |
@@ -198,7 +198,7 @@ De volgende tabellen tonen de updates van de Microsoft Security Response Center 
 | N/A | [4048958] |Updatepakket van november niet voor beveiliging |4.49 |14 november 2017 |
 | N/A | [4049068] |Update van december tijdzone |2.69, 3.56, 4.49 |12 december 2017 |
 
-## <a name="november-guest-os"></a>November Guest OS
+## <a name="november-2017-guest-os"></a>Het Gastbesturingssysteem november 2017
 | Productcategorie | Bovenliggende KB-artikel | Beschrijving van beveiligingsproblemen | Gastbesturingssysteem | Datum voor het eerst geïntroduceerd |
 | --- | --- | --- | --- | --- |
 | Rel 17-11 | [4048953] |Windows 10-updates |5.13 |14 november 2017 |
@@ -212,7 +212,7 @@ De volgende tabellen tonen de updates van de Microsoft Security Response Center 
 | N/A | [3191565] |Update voor Windows Management Framework 5.1  |3.55 |14 november 2017 |
 | N/A | [3191564] |Update voor Windows Management Framework 5.1  |4.48 |14 november 2017 |
 
-## <a name="october-guest-os"></a>Oktober Guest OS
+## <a name="october-2017-guest-os"></a>Het Gastbesturingssysteem oktober 2017
 | Productcategorie | Bovenliggende KB-artikel | Beschrijving van beveiligingsproblemen | Gastbesturingssysteem | Datum voor het eerst geïntroduceerd |
 | --- | --- | --- | --- | --- |
 | Rel 17-10 | [4041691] |Windows 10-updates |5.12 |10 oktober 2017 |
@@ -226,7 +226,7 @@ De volgende tabellen tonen de updates van de Microsoft Security Response Center 
 | N/A | [4040979] |Totalisering van de niet-beveiligde september .NET |3.54 |Op 12 september 2017 |
 | N/A | [4040981] |Totalisering van de niet-beveiligde september .NET |4.47 |Op 12 september 2017 |
 
-## <a name="september-guest-os"></a>September-Gastbesturingssysteem
+## <a name="september-2017-guest-os"></a>Het Gastbesturingssysteem september 2017
 | Productcategorie | Bovenliggende KB-artikel | Beschrijving van beveiligingsproblemen | Gastbesturingssysteem | Datum voor het eerst geïntroduceerd |
 | --- | --- | --- | --- | --- |
 | Rel 17-09 | [4038782] |Windows 10-updates |5.11 |Op 12 september 2017 |
@@ -238,7 +238,7 @@ De volgende tabellen tonen de updates van de Microsoft Security Response Center 
 | N/A | [4034665] |Totalisering van de niet-beveiligde augustus |5.11 |8 augustus 2017 |
 | N/A | [4034681] |Totalisering van de niet-beveiligde augustus |4.46 |8 augustus 2017 |
 
-## <a name="august-guest-os"></a>Augustus Guest OS
+## <a name="august-2017-guest-os"></a>Het Gastbesturingssysteem augustus 2017
 | Productcategorie | Bovenliggende KB-artikel | Beschrijving van beveiligingsproblemen | Gastbesturingssysteem | Datum voor het eerst geïntroduceerd |
 | --- | --- | --- | --- | --- |
 | Rel 17-07 | [4034658] |Windows 10-updates |5.10 |8 augustus 2017 |
@@ -252,7 +252,7 @@ De volgende tabellen tonen de updates van de Microsoft Security Response Center 
 | Rel 17-07 | [4025331] |Totalisering van de niet-beveiligde juli |3.52 |Op 11 juli 2017 |
 | Rel 17-07 | [4025336] |Totalisering van de niet-beveiligde juli |4.45 |Op 11 juli 2017 |
 
-## <a name="july-guest-os"></a>Juli Guest OS
+## <a name="july-2017-guest-os"></a>Het Gastbesturingssysteem juli 2017
 | Productcategorie | Bovenliggende KB-artikel | Beschrijving van beveiligingsproblemen | Gastbesturingssysteem | Datum voor het eerst geïntroduceerd |
 | --- | --- | --- | --- | --- |
 | Rel 17-07 | [4025339] |Windows 10-updates |5.9 |Op 11 juli 2017 |
@@ -266,7 +266,7 @@ De volgende tabellen tonen de updates van de Microsoft Security Response Center 
 | N/A | [4022724] |Totalisering van de niet-beveiligde juni |3.51 |13 juni 2017 |
 | N/A | [4022726] |Totalisering van de niet-beveiligde juni |4.44 |13 juni 2017 |
 
-## <a name="june-guest-os"></a>Juni als gast-OS
+## <a name="june-2017-guest-os"></a>Het Gastbesturingssysteem juni 2017
 | Productcategorie | Bovenliggende KB-artikel | Beschrijving van beveiligingsproblemen | Gastbesturingssysteem | Datum voor het eerst geïntroduceerd |
 | --- | --- | --- | --- | --- |
 | Rel 17-06 | [4019472] |WS 2016 OS kwaliteitsverbeteringen op het gebied |5.8 |9 mei 2017 |
@@ -294,7 +294,7 @@ De volgende tabellen tonen de updates van de Microsoft Security Response Center 
 | N/A | [4014510] |Kan .NET niet-beveiligde samenvouwen |4.43 |9 mei 2017 |
 | N/A | [4014512] |Kan .NET niet-beveiligde samenvouwen |4.43 |9 mei 2017 |
 
-## <a name="may-guest-os"></a>Kan gastbesturingssystemen
+## <a name="may-2017-guest-os"></a>Het Gastbesturingssysteem mei 2017
 | Productcategorie | Bovenliggende KB-artikel | Beschrijving van beveiligingsproblemen | Gastbesturingssysteem | Datum voor het eerst geïntroduceerd |
 | --- | --- | --- | --- | --- |
 | Rel 17-05 | [4019472] |WS 2016 OS kwaliteitsverbeteringen op het gebied |5.7 | 9 mei 2017 |
@@ -322,7 +322,7 @@ De volgende tabellen tonen de updates van de Microsoft Security Response Center 
 | N/A | [4015550] |Totalisering van de niet-beveiligde april |4.42 | 11 april 2017 |
 | N/A | [4013418] |Servicing Stack Update |5.7 | 14 maart 2017 |
 
-## <a name="april-guest-os"></a>April als gast-OS
+## <a name="april-2017-guest-os"></a>Het Gastbesturingssysteem april 2017
 | Productcategorie | Bovenliggende KB-artikel | Beschrijving van beveiligingsproblemen | Gastbesturingssysteem | Datum voor het eerst geïntroduceerd |
 | --- | --- | --- | --- | --- |
 | Rel 17-04 |  [4015217]  |WS 2016 OS kwaliteitsverbeteringen op het gebied | 5.6 | 11 april 2017 |
@@ -342,7 +342,7 @@ De volgende tabellen tonen de updates van de Microsoft Security Response Center 
 | Rel 17-04 |  [4012217]  |Maart 2017 Security maandelijkse kwaliteit updatepakket voor WindowsServer 2012 |3.48 | 11 april 2017 |
 | Rel 17-04 |  [4012216]  |Maart 2017 Security maandelijkse kwaliteit updatepakket voor Windows 8.1 en Windows Server 2012 R2 |4.41 | 11 april 2017 |
 
-## <a name="march-guest-os"></a>Gastbesturingssysteem maart
+## <a name="march-2017-guest-os"></a>Maart 2017-Gastbesturingssysteem
 | Productcategorie | Bovenliggende KB-artikel | Beschrijving van beveiligingsproblemen | Gastbesturingssysteem | Datum voor het eerst geïntroduceerd |
 | --- | --- | --- | --- | --- |
 | Rel 17-03 |  [4013429] |Verbeteringen en oplossingen | 5.5 | 14 maart 2017 |
@@ -356,12 +356,12 @@ De volgende tabellen tonen de updates van de Microsoft Security Response Center 
 | N/A |  [3205401] |December 2016 Security maandelijkse kwaliteit updatepakket voor Windows 8.1 en Windows Server 2012 R2 |4.40 |14 maart 2017 |
 | N/A |  [3211320] |Servicing stack update voor Windows 10 versie 1607 en Windows Server 2016: 24 januari 2017 |5.5 |14 maart 2017 |
 
-## <a name="january-guest-os"></a>Januari Guest OS
+## <a name="january-2017-guest-os"></a>Het Gastbesturingssysteem januari 2017
 | Bulletin-ID | Bovenliggende KB-artikel | Beschrijving van beveiligingsproblemen | Gastbesturingssysteem | Datum voor het eerst geïntroduceerd |
 | --- | --- | --- | --- | --- |
 | MS17-004 | [3216771] |Beveiligingsupdate voor Local Security Authority Subsystem Service |2.59 |10 januari 2017 |
 
-## <a name="december-guest-os"></a>December Guest OS
+## <a name="december-2016-guest-os"></a>December 2016-Gastbesturingssystemen
 | Bulletin-ID | Bovenliggende KB-artikel | Beschrijving van beveiligingsproblemen | Gastbesturingssysteem | Datum voor het eerst geïntroduceerd |
 | --- | --- | --- | --- | --- |
 | MS16-144 |[3204059] |Cumulatieve beveiligingsupdate voor Internet Explorer |2.58, 3.46, 4.39 |13 december 2016 |
@@ -378,7 +378,7 @@ De volgende tabellen tonen de updates van de Microsoft Security Response Center 
 | N/A |[3197877] |November 2016 Security maandelijkse kwaliteit updatepakket voor WindowsServer 2012 |3.46 |13 december 2016 |
 | N/A |[3197874] |November 2016 Security maandelijkse kwaliteit updatepakket voor Windows 8.1 en Windows Server 2012 R2 |4.39 |13 december 2016 |
 
-## <a name="november-guest-os"></a>November Guest OS
+## <a name="november-2016-guest-os"></a>November 2016-Gastbesturingssystemen
 | Bulletin-ID | Bovenliggende KB-artikel | Beschrijving van beveiligingsproblemen | Gastbesturingssysteem | Datum voor het eerst geïntroduceerd |
 | --- | --- | --- | --- | --- |
 | MS16-129 |[3199057] |Cumulatieve beveiligingsupdate voor Microsoft Edge |5.3 |8 november 2016 |
@@ -403,7 +403,7 @@ De volgende tabellen tonen de updates van de Microsoft Security Response Center 
 | N/A |[3199986] |Servicing stack update voor Windows 10 versie 1607: 27 oktober 2016 |5.3 |8 november 2016 |
 | N/A |[3197954] |Cumulatieve Update voor Windows 10 versie 1607 en WindowsServer 2016: 27 oktober 2016 |5.3 |8 november 2016 |
 
-## <a name="october-guest-os"></a>Oktober Guest OS
+## <a name="october-2016-guest-os"></a>Oktober 2016-Gastbesturingssystemen
 | Bulletin-ID | Bovenliggende KB-artikel | Beschrijving van beveiligingsproblemen | Gastbesturingssysteem | Datum voor het eerst geïntroduceerd |
 | --- | --- | --- | --- | --- |
 | MS16-118 |[3192887] |Cumulatieve beveiligingsupdate voor Internet Explorer |4.37, 3.44, 2.56 |11 oktober 2016 |
@@ -418,7 +418,7 @@ De volgende tabellen tonen de updates van de Microsoft Security Response Center 
 | N/A |[3185279] |September 2016 updatepakket voor Windows 8.1 en Windows Server 2012 R2 |4.37 |11 oktober 2016 |
 | N/A |[3194798] |Cumulatieve update voor Windows 10 versie 1607 en Windows Server 2016 |5.2 |11 oktober 2016 |
 
-## <a name="september-guest-os"></a>September-Gastbesturingssysteem
+## <a name="september-2016-guest-os"></a>September 2016-Gastbesturingssystemen
 | Bulletin-ID | Bovenliggende KB-artikel | Beschrijving van beveiligingsproblemen | Gastbesturingssysteem | Datum voor het eerst geïntroduceerd |
 | --- | --- | --- | --- | --- |
 | MS16-104 |[3183038] |Cumulatieve beveiligingsupdate voor Internet Explorer |4.36, 3.43, 2.55 |13 september 2016 |
@@ -435,7 +435,7 @@ De volgende tabellen tonen de updates van de Microsoft Security Response Center 
 | N/A |[3179575] |Augustus 2016 updatepakket voor Windows Server 2012 |3.43 |13 september 2016 |
 | N/A |[3179574] |Augustus 2016 updatepakket voor Windows RT 8.1, Windows 8.1 en Windows Server 2012 R2 |4.36 |13 september 2016 |
 
-## <a name="august-guest-os"></a>Augustus Guest OS
+## <a name="august-2016-guest-os"></a>Augustus 2016-Gastbesturingssystemen
 | Bulletin-ID | Bovenliggende KB-artikel | Beschrijving van beveiligingsproblemen | Gastbesturingssysteem | Datum voor het eerst geïntroduceerd |
 | --- | --- | --- | --- | --- |
 | MS16-095 |[3177356] |Cumulatieve beveiligingsupdate voor Internet Explorer |4.35, 3.42, 2.54 |9 augustus 2016 |
@@ -449,7 +449,7 @@ De volgende tabellen tonen de updates van de Microsoft Security Response Center 
 | N/A |[3172615] |Juli 2016 updatepakket voor Windows Server 2012 |3.42 |9 augustus 2016 |
 | N/A |[3172614] |Juli 2016 updatepakket voor Windows RT 8.1, Windows 8.1 en Windows Server 2012 R2 |4.35 |9 augustus 2016 |
 
-## <a name="july-guest-os"></a>Juli Guest OS
+## <a name="july-2016-guest-os"></a>Juli 2016-Gastbesturingssystemen
 | Bulletin-ID | Bovenliggende KB-artikel | Beschrijving van beveiligingsproblemen | Gastbesturingssysteem | Datum voor het eerst geïntroduceerd |
 | --- | --- | --- | --- | --- |
 | MS16-084 |[3169991] |Cumulatieve beveiligingsupdate voor Internet Explorer |4.34, 3.41, 2.53 |12 juli 2016 |
@@ -465,7 +465,7 @@ De volgende tabellen tonen de updates van de Microsoft Security Response Center 
 | N/A |[3161606] |Juni 2016 updatepakket voor Windows RT 8.1, Windows 8.1 en Windows Server 2012 R2 |4.34 |12 juli 2016 |
 | N/A |[3139923] |Herstellen van Windows installer (MSI) werkt niet wanneer de MSI-pakket is geïnstalleerd op een HTTP delen in Windows |4.34 |12 juli 2016 |
 
-## <a name="june-guest-os"></a>Juni als gast-OS
+## <a name="june-2016-guest-os"></a>Juni 2016-Gastbesturingssystemen
 | Bulletin-ID | Bovenliggende KB-artikel | Beschrijving van beveiligingsproblemen | Gastbesturingssysteem | Datum voor het eerst geïntroduceerd |
 | --- | --- | --- | --- | --- |
 | MS16-035 |[3141780] |Beveiligingsupdate voor .NET Framework om de beveiliging functie overslaan |4.33, 3.40, 2.52 |14 juni 2016 |
@@ -492,7 +492,7 @@ De volgende tabellen tonen de updates van de Microsoft Security Response Center 
 | N/A |[3156418] |Mei 2016 updatepakket voor Windows RT 8.1, Windows 8.1 en Windows Server 2012 R2 |4.33 |14 juni 2016 |
 | N/A |[3153731] |Update van mei 2016 DST voor Azerbeidzjan, Chili, Haïti en Marokko in Windows |4.33, 3.40, 2.52 |14 juni 2016 |
 
-## <a name="may-guest-os"></a>Kan gastbesturingssystemen
+## <a name="may-2016-guest-os"></a>Mei 2016-Gastbesturingssystemen
 | Bulletin-ID | Bovenliggende KB-artikel | Beschrijving van beveiligingsproblemen | Gastbesturingssysteem | Datum voor het eerst geïntroduceerd |
 | --- | --- | --- | --- | --- |
 | MS16-051 |[3155533] |Cumulatieve beveiligingsupdate voor Internet Explorer |4.32, 3.39, 2.51 |10 mei 2016 |
@@ -510,7 +510,7 @@ De volgende tabellen tonen de updates van de Microsoft Security Response Center 
 | N/A |[3123245] |Update verbetert de poort uitputting identificatie in Windows Server 2012 R2  |4.32 |10 mei 2016 |
 | N/A |[RC4 uitschakelen] | Microsoft-beveiligingsadvies: bijwerken voor het uitschakelen van RC4  |4.32, 3.39, 2.51 |10 mei 2016 |
 
-## <a name="april-guest-os"></a>April als gast-OS
+## <a name="april-2016-guest-os"></a>April 2016-Gastbesturingssystemen
 | Bulletin-ID | Bovenliggende KB-artikel | Beschrijving van beveiligingsproblemen | Gastbesturingssysteem | Datum voor het eerst geïntroduceerd |
 | --- | --- | --- | --- | --- |
 | MS16-037 |[3148531] |Cumulatieve beveiligingsupdate voor Internet Explorer |4.31, 3.38, 2.50 |12 april 2016 |
@@ -521,7 +521,7 @@ De volgende tabellen tonen de updates van de Microsoft Security Response Center 
 | MS16-047 |[3148527] |Beveiligingsupdate voor Security Account Manager Remote Protocol |4.31, 3.38, 2.50 |12 april 2016 |
 | MS16-048 |[3148528] |Beveiligingsupdate voor CSRSS |4.31, 3.38 |12 april 2016 |
 
-## <a name="march-guest-os"></a>Gastbesturingssysteem maart
+## <a name="march-2016-guest-os"></a>Maart 2016-Gastbesturingssystemen
 | Bulletin-ID | Bovenliggende KB-artikel | Beschrijving van beveiligingsproblemen | Gastbesturingssysteem | Datum voor het eerst geïntroduceerd |
 | --- | --- | --- | --- | --- |
 | MS16-023 |[3142015] |Cumulatieve beveiligingsupdate voor Internet Explorer |4.30, 3.37, 2.49 |8 maart 2016 |
@@ -534,7 +534,7 @@ De volgende tabellen tonen de updates van de Microsoft Security Response Center 
 | MS16-033 |[3143142] |Beveiligingsupdate voor USB-massaopslag klassestuurprogramma om misbruik van bevoegdheden |4.30, 3.37, 2.49 |8 maart 2016 |
 | MS16-034 |[3143145] |Beveiligingsupdates voor kernelmodus stuurprogramma naar adres tot misbruik van bevoegdheden |4.30, 3.37, 2.49 |8 maart 2016 |
 
-## <a name="february-guest-os"></a>Februari Guest OS
+## <a name="february-2016-guest-os"></a>Het Gastbesturingssysteem februari 2016
 | Bulletin-ID | Bovenliggende KB-artikel | Beschrijving van beveiligingsproblemen | Gastbesturingssysteem | Datum voor het eerst geïntroduceerd |
 | --- | --- | --- | --- | --- |
 | MS16-009 |[3134220] |Cumulatieve beveiligingsupdate voor Internet Explorer |4.29, 3.36, 2.48 |9 februari 2016 |
@@ -549,7 +549,7 @@ De volgende tabellen tonen de updates van de Microsoft Security Response Center 
 | Nieuwe Release-MS15-118 |[3104507] |Beveiligingsupdates voor .NET Framework om misbruik van bevoegdheden |4.29, 3.36, 2.48 |9 februari 2016 |
 | Nieuwe Release-MS15-128 |[3104503] |Beveiligingsupdates voor Microsoft-afbeeldingen onderdeel om de uitvoering van externe Code |4.29, 3.36, 2.48 |9 februari 2016 |
 
-## <a name="january-guest-os"></a>Januari Guest OS
+## <a name="january-2016-guest-os"></a>Januari 2016-Gastbesturingssystemen
 | Bulletin-ID | Bovenliggende KB-artikel | Beschrijving van beveiligingsproblemen | Gastbesturingssysteem | Datum voor het eerst geïntroduceerd |
 | --- | --- | --- | --- | --- |
 | MS16-001 |[3124903] |Cumulatieve beveiligingsupdate voor Internet Explorer |4.28, 3.35, 2.47 |12 januari 2016 |
@@ -562,7 +562,7 @@ De volgende tabellen tonen de updates van de Microsoft Security Response Center 
 | Microsoft-beveiligingsadvies |[3123479] |Afschaffing van SHA-1-hash-algoritme voor het Microsoft Root Certificate Program |4.28, 3.35, 2.47 |12 januari 2016 |
 | Microsoft-beveiligingsadvies |[2736233] |Updates voor ActiveX-Kill-Bits |4.28, 3.35, 2.47 |12 januari 2016 |
 
-## <a name="december-guest-os"></a>December Guest OS
+## <a name="december-2015-guest-os"></a>Het Gastbesturingssysteem december 2015
 | Bulletin-ID | Bovenliggende KB-artikel | Beschrijving van beveiligingsproblemen | Gastbesturingssysteem | Datum voor het eerst geïntroduceerd |
 | --- | --- | --- | --- | --- |
 | MS15-124 |[3116180] |Cumulatieve beveiligingsupdate voor Internet Explorer |4.27, 3.34, 2.46 |8 december 2015 |
@@ -574,7 +574,7 @@ De volgende tabellen tonen de updates van de Microsoft Security Response Center 
 | MS15-134 |[3108669] |Beveiligingsupdate voor Windows Media Center om de uitvoering van externe Code |4.27, 3.34, 2.46 |8 december 2015 |
 | MS15-135 |[3119075] |Beveiligingsupdate voor Windows-Kernel-modus stuurprogramma's om misbruik van bevoegdheden |4.27, 3.34, 2.46 |8 december 2015 |
 
-## <a name="november-guest-os"></a>November Guest OS
+## <a name="november-2015-guest-os"></a>November 2015-Gastbesturingssysteem
 | Bulletin-ID | Bovenliggende KB-artikel | Beschrijving van beveiligingsproblemen | Gastbesturingssysteem | Datum voor het eerst geïntroduceerd |
 | --- | --- | --- | --- | --- |
 | MS15-112 |[3104517] |Cumulatieve beveiligingsupdate voor Internet Explorer |4.26, 3.33, 2.45 |10 november 2015 |
@@ -588,7 +588,7 @@ De volgende tabellen tonen de updates van de Microsoft Security Response Center 
 | MS15-122 |[3105256] |Beveiligingsupdate voor Kerberos om de beveiliging functie overslaan |4.26, 3.33, 2.45 |10 november 2015 |
 | Microsoft-beveiligingsadvies |[3097966] |Per ongeluk vermeld digitale certificaten kan leiden tot spoofing |4.26, 3.33, 2.45 |10 november 2015 |
 
-## <a name="october-guest-os"></a>Oktober Guest OS
+## <a name="october-2015-guest-os"></a>Het Gastbesturingssysteem oktober 2015
 | Bulletin-ID | Bovenliggende KB-artikel | Beschrijving van beveiligingsproblemen | Gastbesturingssysteem | Datum voor het eerst geïntroduceerd |
 | --- | --- | --- | --- | --- |
 | MS15-106 |[3096441] |Cumulatieve beveiligingsupdate voor Internet Explorer |4.25, 3.32, 2.44 |13 oktober 2015 |
@@ -597,7 +597,7 @@ De volgende tabellen tonen de updates van de Microsoft Security Response Center 
 | MS15-111 |[3096447] |Beveiligingsupdate voor Windows-Kernel om misbruik van bevoegdheden |4.25, 3.32, 2.44 |13 oktober 2015 |
 | Microsoft-beveiligingsadvies |[3092627] |Update van september 2015 om op te lossen Windows of de toepassing vastloopt na installatie van beveiligingsupdate 3076895 |4.25, 3.32, 2.44 |13 oktober 2015 |
 
-## <a name="september-guest-os"></a>September-Gastbesturingssysteem
+## <a name="september-2015-guest-os"></a>Het Gastbesturingssysteem september 2015
 | Bulletin-ID | Bovenliggende KB-artikel | Beschrijving van beveiligingsproblemen | Gastbesturingssysteem | Datum voor het eerst geïntroduceerd |
 | --- | --- | --- | --- | --- |
 | MS15-093 |[3088903] |Beveiligingsupdate voor Internet Explorer |4.24, 3.31, 2.43 |Vanaf 8 september 2015 |
@@ -609,7 +609,7 @@ De volgende tabellen tonen de updates van de Microsoft Security Response Center 
 | MS15-102 |[3089657] |Beveiligingslekken in Windows Taakbeheer kunnen leiden tot misbruik van bevoegdheden |4.24, 3.31, 2.43 |Vanaf 8 september 2015 |
 | MS15-105 |[3091287] |Beveiligingslek in Windows Hyper-V kan Security functie Bypass leiden |4.24 |Vanaf 8 september 2015 |
 
-## <a name="august-guest-os"></a>Augustus Guest OS
+## <a name="august-2015-guest-os"></a>Augustus 2015-Gastbesturingssysteem
 | Bulletin-ID | Bovenliggende KB-artikel | Beschrijving van beveiligingsproblemen | Gastbesturingssysteem | Datum voor het eerst geïntroduceerd |
 | --- | --- | --- | --- | --- |
 | MS15-079 |[3082442] |Cumulatieve beveiligingsupdate voor Internet Explorer |4.23, 3.30, 2.42 |11 augustus 2015 |
@@ -621,7 +621,7 @@ De volgende tabellen tonen de updates van de Microsoft Security Response Center 
 | MS15-089 |[3060716] |Beveiligingslekken in Microsoft Windows kunnen leiden tot misbruik van bevoegdheden |4.23, 3.30, 2.42 |11 augustus 2015 |
 | MS15-090 |[3076949] |Beveiligingslek in WebDAV kan leiden tot vrijgeven van informatie |4.23, 3.30, 2.42 |11 augustus 2015 |
 
-## <a name="july-guest-os"></a>Juli Guest OS
+## <a name="july-2015-guest-os"></a>Juli 2015-Gastbesturingssysteem
 | Bulletin-ID | Bovenliggende KB-artikel | Beschrijving van beveiligingsproblemen | Gastbesturingssysteem | Datum voor het eerst geïntroduceerd |
 | --- | --- | --- | --- | --- |
 | MS15-065 |[3076321] |Cumulatieve beveiligingsupdate voor Internet Explorer |4.22, 3.29, 2.41 |14 juli 2015 |
@@ -638,7 +638,7 @@ De volgende tabellen tonen de updates van de Microsoft Security Response Center 
 | MS15-077 |[3077657] |Beveiligingslek in ATM-lettertype stuurprogramma kan leiden tot misbruik van bevoegdheden |4.22, 3.29, 2.41 |14 juli 2015 |
 | N.v.t. |[3057154] |Update voor het gebruik van DES-versleuteling beperken |4.22, 3.29, 2.41 |14 juli 2015 |
 
-## <a name="june-guest-os"></a>Juni als gast-OS
+## <a name="june-2015-guest-os"></a>Het Gastbesturingssysteem juni 2015
 | Bulletin-ID | Bovenliggende KB-artikel | Beschrijving van beveiligingsproblemen | Gastbesturingssysteem | Datum voor het eerst geïntroduceerd |
 | --- | --- | --- | --- | --- |
 | MS15-056 |[3058515] |Cumulatieve beveiligingsupdate voor Internet Explorer |4.21, 3.28, 2.40 |9 juni 2015 |
@@ -648,7 +648,7 @@ De volgende tabellen tonen de updates van de Microsoft Security Response Center 
 | MS15-062 |[3062577] |Beveiligingslek in Active Directory Federatieservices kan leiden tot misbruik van bevoegdheden |4.21, 3.28, 2.40 |9 juni 2015 |
 | MS15-063 |[3063858] |Beveiligingslek in Windows Kernel kan leiden tot misbruik van bevoegdheden |4.21, 3.28, 2.40 |9 juni 2015 |
 
-## <a name="may-guest-os"></a>Kan gastbesturingssystemen
+## <a name="may-2015-guest-os"></a>Het Gastbesturingssysteem mei 2015
 | Bulletin-ID | Bovenliggende KB-artikel | Beschrijving van beveiligingsproblemen | Gastbesturingssysteem | Datum voor het eerst geïntroduceerd |
 | --- | --- | --- | --- | --- |
 | MS15-043 |[3049563] |Cumulatieve beveiligingsupdate voor Internet Explorer |4.20, 3.27, 2.39 |12 mei 2015 |
@@ -671,12 +671,12 @@ De volgende tabellen tonen de updates van de Microsoft Security Response Center 
 | MS15-042 |[3047234] |Beveiligingslek in Windows Hyper-V kan leiden tot Denial of Service |4.20, 3.27, 2.39 |17 april 2015 |
 | N.v.t. |[3045755] |Update voor het verbeteren van PKU2U-verificatie |4.20, 3.27, 2.39 |17 april 2015 |
 
-## <a name="april-guest-os"></a>April als gast-OS
+## <a name="april-2015-guest-os"></a>April 2015-Gastbesturingssysteem
 | Bulletin-ID | Bovenliggende KB-artikel | Beschrijving van beveiligingsproblemen | Gastbesturingssysteem | Datum voor het eerst geïntroduceerd |
 | --- | --- | --- | --- | --- |
 | [MS15-034] |[3042553] |Door een beveiligingslek in HTTP.sys kan leiden tot uitvoering van externe code |4.19, 3.26, 2.38 |17 april 2015 |
 
-## <a name="march-guest-os"></a>Gastbesturingssysteem maart
+## <a name="march-2015-guest-os"></a>Maart 2015-Gastbesturingssysteem
 | Bulletin-ID | Bovenliggende KB-artikel | Beschrijving van beveiligingsproblemen | Gastbesturingssysteem | Datum voor het eerst geïntroduceerd |
 | --- | --- | --- | --- | --- |
 | MS15-018 |[3032359] |Cumulatieve beveiligingsupdate voor Internet Explorer |4.18, 3.25, 2.37 |N/A |
@@ -696,7 +696,7 @@ De volgende tabellen tonen de updates van de Microsoft Security Response Center 
 >
 >
 
-## <a name="february-guest-os"></a>Februari Guest OS
+## <a name="february-2015-guest-os"></a>Het Gastbesturingssysteem februari 2015
 | Bulletin-ID | Bovenliggende KB-artikel | Beschrijving van beveiligingsproblemen | Gastbesturingssysteem | Datum voor het eerst geïntroduceerd |
 | --- | --- | --- | --- | --- |
 | MS15-009 |[3034682] |Beveiligingsupdate voor Internet Explorer |4.17, 3.24, 2.36 |N/A |
@@ -707,7 +707,7 @@ De volgende tabellen tonen de updates van de Microsoft Security Response Center 
 | MS15-016 |[3029944] |Beveiligingslek in Microsoft grafische onderdeel kan leiden tot vrijgeven van informatie |4.17, 3.24, 2.36 |N/A |
 | N/A |[3004375] |Update voor het verbeteren van Windows Command Line controleren<p/>**Houd er rekening mee**: dit is geïnstalleerd, maar de registersleutel voor het inschakelen is uitgeschakeld |4.17, 3.24, 2.36 |N/A |
 
-## <a name="january-guest-os"></a>Januari Guest OS
+## <a name="january-2015-guest-os"></a>Januari 2015-Gastbesturingssysteem
 | Bulletin-ID | Bovenliggende KB-artikel | Beschrijving van beveiligingsproblemen | Gastbesturingssysteem | Datum voor het eerst geïntroduceerd |
 | --- | --- | --- | --- | --- |
 | MS15-001 |[3023266] |Beveiligingslek in Windows AppCompatCache kan leiden tot misbruik van bevoegdheden |4.16, 3.23, 2.35 |Jan 19 2015 |
@@ -723,7 +723,7 @@ De volgende tabellen tonen de updates van de Microsoft Security Response Center 
 | MS15-002 |[3020393] |Door een beveiligingslek in Telnet-Windows-Service kan leiden tot uitvoering van externe Code |4.16, 3.23, 2.35 |Jan 19 2015 |
 
 
-## <a name="december-guest-os"></a>December Guest OS
+## <a name="december-2014-guest-os"></a>Het Gastbesturingssysteem december 2014
 | Bulletin-ID | Bovenliggende KB-artikel | Beschrijving van beveiligingsproblemen | Gastbesturingssysteem | Datum voor het eerst geïntroduceerd |
 | --- | --- | --- | --- | --- |
 | N/A |[3013776] |Systeem loopt vast wanneer u een domeinaccount gebruiken om een toepassing te starten |4.15, 3.22, 2.34 |Jan 13, 2015 |
