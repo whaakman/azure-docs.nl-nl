@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 09/27/2018
 ms.author: cephalin;msangapu
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 05dd53fdfda5446cf848a7b8503a09bc5e5c2d20
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 347fc291fc7357481bfdc88c9019c3d688925c2f
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47433460"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49067514"
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>Een Node.js-web-app maken in Azure
 
@@ -46,10 +46,15 @@ Dit zijn de vereisten voor het voltooien van deze snelstart:
 
 Download het Node.js-voorbeeldproject in [https://github.com/Azure-Samples/nodejs-docs-hello-world/archive/master.zip](https://github.com/Azure-Samples/nodejs-docs-hello-world/archive/master.zip) en pak het ZIP-archief uit.
 
-Navigeer in een terminalvenster naar de hoofdmap van het Node.js-voorbeeldproject (de map die _index.js_ bevat).
+Open _index.js_ en zoek de volgende regel:
 
-> [!NOTE]
-> U hoeft onze voorbeeldtoepassing niet te gebruiken, u kunt als u wilt uw eigen Node-code gebruiken. Wees u er echter wel van bewust dat de POORT voor uw toepassing wordt ingesteld tijdens de uitvoering door Azure en beschikbaar is als `process.env.PORT`. Als u gebruikmaakt van express, zorg er dan voor dat u bij het opstarten (`app.listen`) controleert op `process.env.PORT || 3000`. Als u dat niet doet en uw poort komt niet overeen met wat er tijdens de uitvoering is ingesteld door Azure, ziet u een `Service Unavailable`-melding. 
+```javascript
+var port = process.env.PORT || 1337;
+```
+
+App Service injecteert process.env.PORT in uw toepassing, zodat de code de variabele gebruikt om te weten naar welke poort moet worden geluisterd. 
+
+Navigeer in een terminalvenster naar de hoofdmap van het Node.js-voorbeeldproject (de map die _index.js_ bevat).
 
 ## <a name="run-the-app-locally"></a>De app lokaal uitvoeren
 
@@ -68,7 +73,7 @@ Het bericht **Hello World** uit de voorbeeld-app wordt weergegeven op de pagina.
 Druk in uw terminalvenster op **Ctrl + C** om de webserver af te sluiten.
 
 > [!NOTE]
-> In Azure App Service wordt de app uitgevoerd in IIS met [iisnode](https://github.com/tjanczuk/iisnode). Voor het uitvoeren van de app met iisnode staat er een web.config-bestand in de hoofdmap van de app. Dit bestand kan worden gelezen door IIS en de instellingen voor iisnode zijn beschreven in [de GitHub-opslagplaats voor iisnode](https://github.com/tjanczuk/iisnode/blob/master/src/samples/configuration/web.config).
+> In Azure App Service wordt de app uitgevoerd in IIS met [iisnode](https://github.com/Azure/iisnode). Voor het uitvoeren van de app met iisnode staat er een web.config-bestand in de hoofdmap van de app. Dit bestand kan worden gelezen door IIS en de instellingen voor iisnode zijn beschreven in [de GitHub-opslagplaats voor iisnode](https://github.com/Azure/iisnode/blob/master/src/samples/configuration/web.config).
 
 [!INCLUDE [Create ZIP file](../../includes/app-service-web-create-zip.md)]
 
