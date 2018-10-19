@@ -12,14 +12,14 @@ ms.topic: get-started-article
 ms.date: 09/18/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 1fdfea3ac6b84088002521700e1d50d17398be31
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 04d950b0a8001fd76e3754b73a9d7c4c5fe2893d
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46303091"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49318636"
 ---
-#<a name="azure-ad-connect-and-azure-ad-connect-health-installation-roadmap"></a>Installatieprocedure voor Azure AD Connect en Azure AD Connect Health
+# <a name="azure-ad-connect-and-azure-ad-connect-health-installation-roadmap"></a>Installatieprocedure voor Azure AD Connect en Azure AD Connect Health
 
 ## <a name="install-azure-ad-connect"></a>Azure AD Connect installeren
 
@@ -169,7 +169,6 @@ In de portal voor Azure AD Connect Health kunt u waarschuwingen weergeven, de pr
 
 ## <a name="next-steps"></a>Volgende stappen
 
-
 - [Hardware en vereisten](how-to-connect-install-prerequisites.md) 
 - [Snelle instellingen](how-to-connect-install-express.md)
 - [Aangepaste instellingen](how-to-connect-install-custom.md)
@@ -178,6 +177,3 @@ In de portal voor Azure AD Connect Health kunt u waarschuwingen weergeven, de pr
 - [Azure AD Connect en federatie](how-to-connect-fed-whatis.md)
 - [Azure AD Connect Health-agents installeren](how-to-connect-health-agent-install.md) 
 - [Azure AD Connect-synchronisatie](how-to-connect-sync-whatis.md)
-
-
-
