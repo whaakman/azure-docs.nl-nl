@@ -1,51 +1,52 @@
 ---
-title: Computer Vision-API voor Microsoft Cognitive Services | Microsoft Docs
-description: Met geavanceerde algoritmen in de Computer Vision-API kunt u afbeeldingen verwerken en geeft u informatie in Microsoft Cognitive Services.
+title: Wat is de Computer Vision-API?
+titlesuffix: Azure Cognitive Services
+description: De Computer Vision-API geeft ontwikkelaars toegang tot geavanceerde algoritmen voor het verwerken van afbeeldingen en het retourneren van informatie.
 services: cognitive-services
 author: KellyDF
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
-ms.topic: article
+ms.topic: overview
 ms.date: 08/10/2017
 ms.author: kefre
-ms.openlocfilehash: 84d931ad79bf32b39a4d771f6afd1c9a05ad2395
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
-ms.translationtype: MT
+ms.openlocfilehash: e2f3a5655b2fbedf3ad80d555421599e26225196
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44714816"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45982079"
 ---
-# <a name="what-is-computer-vision-api-version-10"></a>Wat is de Computer Vision-API versie 1.0?
+# <a name="what-is-computer-vision-api-version-10"></a>Wat is Computer Vision API versie 1.0?
 
 > [!IMPORTANT]
-> Een nieuwe versie van de Computer Vision-API is nu beschikbaar, Zie:
+> Een nieuwe versie van de Computer Vision-API is nu beschikbaar, zie:
 >- [Overzicht](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home)
->- [Computer Vision-API-versie 2.0](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)
+>- [Computer Vision API versie 2.0](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)
 
-De cloud-gebaseerde Computer Vision-API geeft ontwikkelaars toegang tot geavanceerde algoritmen voor het verwerken van afbeeldingen en het retourneren van informatie. Door een afbeelding te uploaden of een afbeeldings-URL op te geven, kan visuele inhoud door Microsoft Computer Vision-algoritmen op verschillende manieren worden geanalyseerd op basis van invoer en gebruikersopties. Met de Computer Vision-API kunnen gebruikers afbeeldingen te analyseren:
-* [Tag-installatiekopieën op basis van inhoud.](#Tagging)
-* [Categoriseer installatiekopieën.](#Categorizing)
-* [Identificeer het type en de kwaliteit van afbeeldingen.](#Identifying)
-* [Detecteer menselijke gezichten en hun coördinaten retourneren. ](#Faces)
+De cloud-gebaseerde Computer Vision-API geeft ontwikkelaars toegang tot geavanceerde algoritmen voor het verwerken van afbeeldingen en het retourneren van informatie. Door een afbeelding te uploaden of een afbeeldings-URL op te geven, kan visuele inhoud door Microsoft Computer Vision-algoritmen op verschillende manieren worden geanalyseerd op basis van invoer en gebruikersopties. Met de Computer Vision-API kunnen gebruikers afbeeldingen analyseren voor de volgende doeleinden:
+* [Afbeeldingen taggen op basis van inhoud.](#Tagging)
+* [Afbeeldingen categoriseren.](#Categorizing)
+* [Het type en de kwaliteit van afbeeldingen identificeren.](#Identifying)
+* [Menselijke gezichten detecteren en hun coördinaten retourneren. ](#Faces)
 * [Domeinspecifieke inhoud herkennen.](#Domain-Specific)
-* [Beschrijvingen van de inhoud worden gegenereerd.](#Descriptions)
-* [Gebruik optical character recognition gedrukte tekst in afbeeldingen identificeren.](#OCR)
-* [Handgeschreven tekst worden herkend.](#RecognizeText)
-* [Onderscheid tussen kleurenschema's.](#Color)
+* [Beschrijvingen van de inhoud genereren.](#Descriptions)
+* [Optische tekenherkenning gebruiken om gedrukte tekst in afbeeldingen te identificeren.](#OCR)
+* [Handgeschreven tekst herkennen.](#RecognizeText)
+* [Onderscheid maken tussen kleurenschema's.](#Color)
 * [Inhoud voor volwassenen markeren.](#Adult)
-* [Foto's bijsnijden moet worden gebruikt als miniatuurafbeeldingen.](#Thumbnails)
+* [Foto's bijsnijden voor gebruik als miniaturen.](#Thumbnails)
 
 ## <a name="requirements"></a>Vereisten
-* Invoermethoden ondersteund: Raw image binaire in de vorm van een toepassing/octet-stream of de afbeelding-URL.
-* Ondersteunde afbeeldingsindelingen voor: JPEG, PNG-, GIF-, BMP.
-* Bestand Afbeeldingsgrootte: minder dan 4 MB.
-* De installatiekopie van dimensie: groter is dan 50 x 50 pixels.
+* Ondersteunde invoermethoden: binaire gegevens over onbewerkte afbeeldingen in de vorm van een toepassings-/octetstream of afbeeldings-URL.
+* Ondersteunde afbeeldingsindelingen: JPEG, PNG, GIF, BMP.
+* Bestandsgrootte van afbeeldingen: minder dan 4 MB.
+* Afmetingen van afbeeldingen: meer dan 50 x 50 pixels.
 
-## <a name="tagging-images"></a>Installatiekopieën taggen
-Computer Vision-API retourneert tags op basis van meer dan 2000 herkenbare objecten, levende wezens, landschappen en acties. Wanneer tags zijn ambigu of niet algemeen bekend, biedt de API-reactie "tips" voor het verduidelijken van de betekenis van de code in de context van een bekende instelling. Tags zijn niet ingedeeld als een taxonomie en er zijn geen overnamehiërarchieën aanwezig is. Een verzameling van inhoud labels vormt de basis vormt voor een afbeelding 'description', weergegeven als een mens leesbaar taal opgemaakt in volledige zinnen. Houd er rekening mee dat op dit moment Engels is de enige ondersteunde taal voor de beschrijving bij afbeelding.
+## <a name="tagging-images"></a>Afbeeldingen taggen
+Computer Vision-API retourneert tags op basis van meer dan 2000 herkenbare objecten, levende wezens, landschappen en acties. Wanneer tags ambigu of niet algemeen bekend zijn, geeft de API-reactie tips om de betekenis van de tag in de context van een bekende situatie te verduidelijken. Tags zijn niet ingedeeld als taxonomie en er bestaan geen overnamehiërarchieën. Een verzameling inhoudstags vormt de basis voor een 'beschrijving van de afbeelding, weergegeven als voor mensen leesbare taal opgemaakt in volledige zinnen. Houd er rekening mee dat Engels op dit moment de enige ondersteunde taal is voor de beschrijving van afbeeldingen.
 
-Computer Vision-API van algoritmen uitvoer na het uploaden van een afbeelding of een afbeeldings-URL op te geven, tags op basis van de objecten, levende wezens en acties die zijn geïdentificeerd in de afbeelding. Tags is niet beperkt tot de belangrijkste onderwerp, zoals een persoon op de voorgrond is geplaatst, maar bevat ook de instelling (binnen of buiten), meubels, hulpprogramma's, fabrieken, dieren, accessoires, gadgets enzovoort.
+Wanneer een afbeelding is geüpload of een afbeeldings-URL is opgegeven, worden door de algoritmen van de Computer Vision-API tags gegenereerd op basis van de objecten, levende wezens en acties die in de afbeelding zijn geïdentificeerd. U kunt tagging niet alleen gebruiken voor het hoofdonderwerp, zoals een persoon op de voorgrond, maar ook voor de omgeving (binnen of buiten), meubels, gereedschap, planten, dieren, accessoires, gadgets enzovoort.
 
 ### <a name="example"></a>Voorbeeld
 ![House_Yard](./Images/house_yard.png) '
@@ -89,77 +90,77 @@ Returned Json
    ],
 }
 ```
-## <a name="categorizing-images"></a>Het categoriseren van beelden
-Computer Vision-API retourneert naast de labels en beschrijvingen, de taxonomie op basis van categorieën die in eerdere versies zijn gedefinieerd. Deze categorieën zijn ingedeeld als een taxonomie met bovenliggende/onderliggende erfelijke hiërarchieën. Alle categorieën zijn in het Engels. Ze kunnen worden gebruikt alleen of met onze nieuwe modellen.
+## <a name="categorizing-images"></a>Afbeeldingen categoriseren
+Behalve tags en beschrijvingen retourneert de Computer Vision-API ook de op taxonomie gebaseerde categorieën die in eerdere versies zijn gedefinieerd. Deze categorieën zijn ingedeeld als taxonomie met bovenliggende/onderliggende overdraagbare hiërarchieën. Alle categorieën zijn in het Engels. Ze kunnen zelfstandig worden gebruikt of in combinatie met onze nieuwe modellen.
 
-### <a name="the-86-category-concept"></a>Het concept 86-categorie
-Op basis van een lijst met 86 concepten die worden weergegeven in het volgende diagram, kunnen visuele kenmerken gevonden in een afbeelding worden gecategoriseerd variërend van groot tot specifieke. Zie voor de volledige taxonomie in tekstindeling, [Categorietaxonomie](https://docs.microsoft.com/azure/cognitive-services/computer-vision/category-taxonomy).
+### <a name="the-86-category-concept"></a>Het concept van de 86 categorieën
+Op basis van een lijst met 86 concepten die worden weergegeven in het volgende diagram, kunnen visuele kenmerken in een afbeelding worden gecategoriseerd, variërend van algemeen tot specifiek. Zie [Categorietaxonomie](https://docs.microsoft.com/azure/cognitive-services/computer-vision/category-taxonomy) voor de volledige taxonomie in tekstindeling.
 
 ![Categorieën analyseren](./Images/analyze_categories.png)
 
 Installatiekopie                                                  | Antwoord
 ------------------------------------------------------ | ----------------
-![Vrouw plafond](./Images/woman_roof.png)                 | personen
-![Familie foto](./Images/family_photo.png)             | people_crowd
-![Schattige hond](./Images/cute_dog.png)                     | animal_dog
-![Outdoor Mountain](./Images/mountain_vista.png)       | outdoor_mountain
-![Vision Food brood analyseren](./Images/bread.png)       | food_bread
+![Vrouw op dak](./Images/woman_roof.png)                 | people
+![Familiefoto](./Images/family_photo.png)             | people_crowd
+![Leuke hond](./Images/cute_dog.png)                     | animal_dog
+![Berglandschap](./Images/mountain_vista.png)       | outdoor_mountain
+![Vision-analyse Voedsel en brood](./Images/bread.png)       | food_bread
 
-## <a name="identifying-image-types"></a>Identificeren van afbeeldingstypen
-Er zijn verschillende manieren voor het categoriseren van afbeeldingen. Computer Vision-API kan een Booleaanse vlag die aangeeft of een installatiekopie van een zwart-wit of kleur is ingesteld. Het kan ook een markering om aan te geven of een afbeelding een lijntekening of niet is instellen. Het kan ook duiden of een afbeelding illustraties of niet is en geven de kwaliteit daarom op een schaal van 0-3.
+## <a name="identifying-image-types"></a>Afbeeldingstypen identificeren
+U kunt afbeeldingen op verschillende manieren categoriseren. Computer Vision-API kan een Booleaanse vlag instellen die aangeeft of een afbeelding zwart-wit of gekleurd is. De API kan ook een vlag instellen om aan te geven of een afbeelding een lijntekening is. De API kan ook aangeven of een afbeelding een illustratie is en de kwaliteit ervan aangeven op een schaal van 0-3.
 
-### <a name="clip-art-type"></a>Illustraties type
-Detecteert of de installatiekopie van een illustratie of niet is.  
+### <a name="clip-art-type"></a>Type illustratie
+Detecteert of een afbeelding een illustratie is.  
 
 Waarde | Betekenis
 ----- | --------------
-0     | Niet-illustraties
-1     | niet-eenduidige
-2     | Normaal illustraties
-3     | goede illustraties
+0     | Non-clip-art (geen illustratie)
+1     | ambiguous (dubbelzinnig)
+2     | normal-clip-art (normale illustratie)
+3     | good-clip-art (goede illustratie)
 
 Installatiekopie|Antwoord
 ----|----
-![Vision kaas illustraties analyseren](./Images/cheese_clipart.png)|3 goed--illustraties
-![Vision House Yard analyseren](./Images/house_yard.png)|0 niet--illustraties
+![Vision-analyse Kaas-illustratie](./Images/cheese_clipart.png)|3 goede illustratie
+![Vision-analyse Huis met tuin](./Images/house_yard.png)|0 geen illustratie
 
 ### <a name="line-drawing-type"></a>Type lijntekening
-Detecteert of een afbeelding een lijntekening of niet is.
+Detecteert of een afbeelding een lijntekening is.
 
 Installatiekopie|Antwoord
 ----|----
-![Vision Lion tekening analyseren](./Images/lion_drawing.png)|True
-![Vision bloem analyseren](./Images/flower.png)|False
+![Vision-analyse Leeuw-tekening](./Images/lion_drawing.png)|True
+![Vision-analyse Bloem](./Images/flower.png)|False
 
 ### <a name="faces"></a>Gezichten
-Detecteert menselijke gezichten op een afbeelding en genereert de face-coördinaten, de rechthoek voor de face-, geslacht en leeftijd. Deze visuele kenmerken vormen een subset van metagegevens voor face gegenereerd. Gebruik de Face-API voor meer uitgebreide metagegevens worden gegenereerd voor gezichten (gezichtsherkenning-id, houding detectie en meer).  
+Detecteert menselijke gezichten in een afbeelding en genereert de gezichtscoördinaten, de rechthoek voor het gezicht, geslacht en leeftijd. Deze visuele kenmerken vormen een subset metagegevens die worden gegenereerd voor gezicht. Gebruik de Face-API om meer uitgebreide metagegevens te genereren voor gezichten (gezichtsherkenning, houdingdetectie en meer).  
 
 Installatiekopie|Antwoord
 ----|----
-![Vision vrouw plafond Face analyseren](./Images/woman_roof_face.png) | [{"leeftijd": 23, "geslacht": "Vrouwelijke", "faceRectangle": {"links": 1379, 'top': 320, "width": 310, "hoogte": 310}}]
-![Vision Mom dochter Face analyseren](./Images/mom_daughter_face.png) | [{"leeftijd": 28 "geslacht": "Vrouwelijke", "faceRectangle": {"links": 447, 'top': 195, "width": 162, "hoogte": 162}}, {"leeftijd": 10, "geslacht':"Man","faceRectangle": {"links": 355, 'top': 87,"width": 143,"hoogte": 143}}]
-![Vision familie foto Face analyseren](./Images/family_photo_face.png) | [{"leeftijd": 11 "geslacht':"Man","faceRectangle": {"links": 113 'top': 314,"width": 222,"hoogte": 222}}, {"leeftijd": 11"geslacht":"Vrouwelijke","faceRectangle": {"links": 1200, 'top': 632,"width": 215,"hoogte": 215}}, {"leeftijd": 41,"geslacht': "Man", " faceRectangle": {"links": 514, 'top': 223,"width": 205,"hoogte": 205}}, {"leeftijd": 37,"geslacht":"Vrouwelijke","faceRectangle": {"links": 1008, 'top': 277,"width": 201,"hoogte": 201}}]
+![Vision-analyse Vrouw op dak-gezicht](./Images/woman_roof_face.png) | [ { "leeftijd": 23, "geslacht": "vrouw", "faceRectangle": { "links": 1379, "boven": 320, "breedte": 310, "hoogte": 310 } } ]
+![Vision-analyse Moeder en dochter-gezicht](./Images/mom_daughter_face.png) | [ { "leeftijd": 28, "geslacht": "vrouw", "faceRectangle": { "links": 447, "boven": 195, "breedte": 162, "hoogte": 162 } }, { "leeftijd": 10, "geslacht": "man", "faceRectangle": { "links": 355, "boven": 87, "breedte": 143, "hoogte": 143 } } ]
+![Vision-analyse Familiefoto-gezicht](./Images/family_photo_face.png) | [ { "leeftijd": 11, "geslacht": "man", "faceRectangle": { "links": 113, "boven": 314, "breedte": 222, "hoogte": 222 } }, { "leeftijd": 11, "geslacht": "vrouw", "faceRectangle": { "links": 1200, "boven": 632, "breedte": 215, "hoogte": 215 } }, { "leeftijd": 41, "geslacht": "man", "faceRectangle": { "links": 514, "boven": 223, "breedte": 205, "hoogte": 205 } }, { "leeftijd": 37, "geslacht": "vrouw", "faceRectangle": { "links": 1008, "boven": 277, "breedte": 201, "hoogte": 201 } } ]
 
 
-## <a name="domain-specific-content"></a>Domein-specifieke inhoud
+## <a name="domain-specific-content"></a>Domeinspecifieke inhoud detecteren
 
-Daarnaast categorisatie tagging en op het hoogste niveau, Computer Vision-API biedt ook ondersteuning voor gespecialiseerde (of domeinspecifieke) informatie. Specifieke informatie kan worden geïmplementeerd als zelfstandige methode of met de classificatie op hoog niveau. Het fungeert als een manier om verder te verfijnen 86 categorietaxonomie door toevoeging van domeinspecifieke modellen.
+Computer Vision-API biedt, naast tagging en categorisatie op het hoogste niveau, ook ondersteuning voor gespecialiseerde (of domeinspecifieke) informatie. Gespecialiseerde informatie kan worden geïmplementeerd als zelfstandige methode of met de categorisatie op hoog niveau. Dit fungeert als een manier om de taxonomie van de 86 categorieën verder te verfijnen door toevoeging van domeinspecifieke modellen.
 
-Op dit moment zijn de enige gespecialiseerde informatie ondersteund herkenning van beroemdheden en oriëntatiepunten herkenning. Ze zijn domeinspecifieke verfijningen voor de mensen en categorieën van personen en oriëntatiepunten over de hele wereld.
+De enige gespecialiseerde informatie die op dit moment wordt ondersteund, is herkenning van beroemdheden en herkenning van oriëntatiepunten. Dit zijn domeinspecifieke verfijningen van de categorieën people (mensen) en people group (groep mensen), en landmarks (oriëntatiepunten) over de hele wereld.
 
 Er zijn twee opties voor het gebruik van de domeinspecifieke modellen:
 
-### <a name="option-one---scoped-analysis"></a>Optie One - Scoped-analyse
-Alleen een gekozen model analyseren door het aanroepen van een HTTP POST-aanroep. Voor deze optie als u welk model u wilt gebruiken weet, u de naam van het model opgeven en u krijgt alleen informatie relevant zijn voor dit model. Bijvoorbeeld, kunt u deze optie alleen gezocht naar herkenning van beroemdheden. Het antwoord bevat een lijst met mogelijkheden die overeenkomt met beroemdheden, vergezeld gaan van hun scores vertrouwen.
+### <a name="option-one---scoped-analysis"></a>Eerste optie - Analyse met bereik
+Alleen een gekozen model analyseren via een HTTP POST-aanroep. Als u deze optie gebruikt en weet welk model u wilt gebruiken, geeft u de naam van het model op en krijgt u alleen informatie die relevant is voor dit model. U kunt deze optie bijvoorbeeld gebruiken als u alleen herkenning van beroemdheden wilt. Het antwoord bevat een lijst met mogelijke overeenkomsten met beroemdheden, samen met de betrouwbaarheidsscores.
 
-### <a name="option-two---enhanced-analysis"></a>Optie 2 - uitgebreide analyse
-Analyseren om aanvullende informatie met betrekking tot categorieën van de 86-categorietaxonomie te leveren. Deze optie is beschikbaar voor gebruik in toepassingen waar gebruikers wilt analyse van de installatiekopie van het algemene gedetailleerde gegevens ophalen uit een of meer domeinspecifieke modellen. Wanneer deze methode wordt aangeroepen, wordt eerst de classificatie 86 categorietaxonomie genoemd. Als een van de categorieën die overeenkomen met bekende/modellen overeenkomen, volgt een tweede fase van de classificatie-aanroepen. Bijvoorbeeld, als ' details = all' of 'details' 'beroemdheden' bevatten, de methode roept de classificatie beroemdheden nadat de classificatie 86 categorie wordt genoemd. Het resultaat bevat tags die met 'people_'.
+### <a name="option-two---enhanced-analysis"></a>Tweede optie - Uitgebreide analyse
+Gebruik analyse om aanvullende informatie voor de categorieën van de 86-categorieëntaxonomie op te geven. Deze optie is beschikbaar voor toepassingen waarbij gebruikers een algemene afbeeldingsanalyse willen ophalen naast details uit één of meer domeinspecifieke modellen. Wanneer deze methode wordt aangeroepen, wordt eerst de classificatie van de 86-categorieëntaxonomie aangeroepen. Als een van de categorieën overeenkomt met de categorie van een bekend/overeenkomstig model, wordt een tweede ronde van classificatieaanroepen uitgevoerd. Als u bijvoorbeeld 'details = alles' of 'details' inclusief 'beroemdheden' gebruikt, roept de methode na de classificatie van 86 categorieën eerst de classificatie van beroemdheden aan. Het resultaat bevat tags die beginnen met 'people_'.
 
-## <a name="generating-descriptions"></a>Beschrijvingen van genereren 
-Computer Vision-API van algoritmen analyseren de inhoud in een afbeelding. Deze analyse vormt de basis vormt voor een 'description', weergegeven als leesbare taal in volledige zinnen. De beschrijving bevat een overzicht van wat er in de afbeelding is gevonden. Algoritmen voor computer Vision-API's genereren verschillende beschrijvingen op basis van de objecten die zijn geïdentificeerd in de afbeelding. De beschrijvingen worden geëvalueerd en hiervoor wordt een betrouwbaarheidsscore gegenereerd. Vervolgens wordt er een lijst geretourneerd die is geordend van de hoogste naar de laagste betrouwbaarheidsscore. Een voorbeeld van een bot die gebruikmaakt van deze technologie voor het genereren van afbeelding bijschriften vindt [hier](https://github.com/Microsoft/BotBuilder-Samples/tree/master/CSharp/intelligence-ImageCaption).  
+## <a name="generating-descriptions"></a>Beschrijvingen genereren 
+De algoritmen van Computer Vision-API analyseren de inhoud in een afbeelding. Deze analyse vormt de basis voor een 'beschrijving‘ die wordt weergegeven als voor mensen leesbare taal opgemaakt in volledige zinnen. De beschrijving bevat een overzicht van wat er in de afbeelding is gevonden. Met de algoritmen van de Computer Vision-API worden verschillende beschrijvingen gegenereerd op basis van de objecten die zijn geïdentificeerd in de afbeelding. De beschrijvingen worden geëvalueerd en hiervoor wordt een betrouwbaarheidsscore gegenereerd. Vervolgens wordt er een lijst geretourneerd die is geordend van de hoogste naar de laagste betrouwbaarheidsscore. Een voorbeeld van een bot die gebruikmaakt van deze technologie voor het genereren van afbeeldingsbijschriften, vindt u [hier](https://github.com/Microsoft/BotBuilder-Samples/tree/master/CSharp/intelligence-ImageCaption).  
 
-### <a name="example-description-generation"></a>Voorbeeld van de beschrijving genereren
-![B & W gebouwen](./Images/bw_buildings.png) '
+### <a name="example-description-generation"></a>Voorbeeldbeschrijving genereren
+![Z&W Gebouwen](./Images/bw_buildings.png) '
 ```json
  Returned Json
 
@@ -197,81 +198,81 @@ Computer Vision-API van algoritmen analyseren de inhoud in een afbeelding. Deze 
 }
 ```
 
-## <a name="perceiving-color-schemes"></a>Perceiving kleurenschema 's
-De Computer Vision-algoritme extraheert kleuren uit een afbeelding. De kleuren worden in drie verschillende contexten geanalyseerd: voorgrond, achtergrond en geheel. Ze worden in 12 dominante Accentkleuren gegroepeerd. Deze Accentkleuren zijn zwart, blauw, brown, grijs, groen, oranje, roze, paars, rood, groenblauwe, wit en geel. Afhankelijk van de kleuren in een afbeelding, kunnen de eenvoudige zwart-wit of Accentkleuren in hexadecimale kleurcodes worden geretourneerd.
+## <a name="perceiving-color-schemes"></a>Kleurenschema’s waarnemen
+De Computer Vision-algoritme extraheert kleuren uit een afbeelding. De kleuren worden in drie verschillende contexten geanalyseerd: voorgrond, achtergrond en geheel. Ze worden in 12 dominante accentkleuren gegroepeerd. Deze accentkleuren zijn zwart, blauw, bruin, grijs, groen, oranje, roze, paars, rood, groenblauw, wit en geel. Afhankelijk van de kleuren in een afbeelding kunnen ofwel gewoon zwart-wit ofwel accentkleuren worden geretourneerd in hexadecimale kleurcodes.
 
-Installatiekopie                                                       | voorgrond |Achtergrond| Kleuren
+Installatiekopie                                                       | Voorgrond |Achtergrond| Kleuren
 ----------------------------------------------------------- | --------- | ------- | ------
-![Outdoor Mountain](./Images/mountain_vista.png)            | Zwart     | Zwart   | Wit
-![Vision bloem analyseren](./Images/flower.png)               | Zwart     | Wit   | Groen-wit, zwart,
-![Vision Station van de trein analyseren](./Images/train_station.png) | Zwart     | Zwart   | Zwart
+![Berglandschap](./Images/mountain_vista.png)            | Zwart     | Zwart   | Wit
+![Vision-analyse Bloem](./Images/flower.png)               | Zwart     | Wit   | Wit, zwart, groen
+![Vision-analyse Treinstation](./Images/train_station.png) | Zwart     | Zwart   | Zwart
 
 ### <a name="accent-color"></a>Accentkleur
-Kleur van een installatiekopie die is ontworpen om weer te geven van de meest verbluffende kleur aan gebruikers via een combinatie van dominante kleuren en de verzadiging hebt uitgepakt.
+Kleur geëxtraheerd uit een afbeelding, bedoeld om de meest opvallende kleur weer te geven voor gebruikers via een combinatie van dominante kleuren en de verzadiging.
 
 Installatiekopie                                                       | Antwoord
 ----------------------------------------------------------- | ----
-![Outdoor Mountain](./Images/mountain_vista.png)            | #BC6F0F
-![Vision bloem analyseren](./Images/flower.png)               | #CAA501
-![Vision Station van de trein analyseren](./Images/train_station.png) | #484B83
+![Berglandschap](./Images/mountain_vista.png)            | #BC6F0F
+![Vision-analyse Bloem](./Images/flower.png)               | #CAA501
+![Vision-analyse Treinstation](./Images/train_station.png) | #484B83
 
 
 ### <a name="black--white"></a>Zwart- wit
-Booleaanse vlag die aangeeft of een installatiekopie van een zwart- wit of niet.
+Booleaanse vlag die aangeeft of een afbeelding zwart-wit is.
 
 Installatiekopie                                                      | Antwoord
 ---------------------------------------------------------- | ----
-![Visie ontwikkelen analyseren](./Images/bw_buildings.png)      | True
-![Vision House Yard analyseren](./Images/house_yard.png)      | False
+![Vision-analyse Gebouw](./Images/bw_buildings.png)      | True
+![Vision-analyse Huis met tuin](./Images/house_yard.png)      | False
 
-## <a name="flagging-adult-content"></a>Markeren van inhoud voor volwassenen
-Is de groep erotische en ongepaste, schakelt u het detecteren van volwassenen materialen en Hiermee beperkt u de weergave van afbeeldingen die seksuele inhoud bevat over de verschillende categorieën van de visual. Het filter voor de detectie van erotische en ongepaste inhoud kan worden ingesteld op een schaal van de schuifregelaar om voorkeur van de gebruiker mogelijk te maken.
+## <a name="flagging-adult-content"></a>Inhoud voor volwassenen markeren
+De groep met inhoud van voor volwassenen en ongepaste inhoud is een van de visuele categorieën. Met deze categorie wordt inhoud voor volwassenen gedetecteerd en de weergave van afbeeldingen met seksuele inhoud beperkt. Het filter voor de detectie van inhoud voor volwassenen en ongepaste inhoud kan worden ingesteld met een glijdende schaal waarmee gebruikers hun voorkeuren kunnen aangeven.
 
 ## <a name="optical-character-recognition-ocr"></a>Optische tekenherkenning (OCR)
-OCR-technologie detecteert tekstinhoud in een afbeelding en worden de herkende tekst naar een machinaal leesbare tekenstroom geëxtraheerd. U kunt het resultaat voor zoeken en talloze andere doeleinden, zoals medische dossiers, beveiliging en bankieren. Hij detecteert de taal automatisch. OCR bespaart tijd en biedt gebruikers gemak door ze om foto's van tekst in plaats van de tekst te transcriberen.
+OCR-technologie detecteert tekstinhoud in een afbeelding en extraheert de herkende tekst naar een machinaal leesbare tekenstroom. U kunt het resultaat gebruiken voor zoekopdrachten en talloze andere doeleinden, zoals medische dossiers, beveiliging en bankieren. Taal wordt automatisch gedetecteerd. Met OCR besparen gebruikers tijd en kunnen ze eenvoudig foto’s van tekst maken in plaats van deze over te schrijven.
 
-OCR 25 talen worden ondersteund. Deze talen zijn: Arabisch, vereenvoudigd Chinees, traditioneel Chinees, Tsjechisch, Deens, Nederlands, Engels, Fins, Frans, Duits, Grieks, Hongaars, Italiaans, Japans, Koreaans, Noors, Pools, Portugees, Roemeens, Russisch, Servisch (Cyrillisch en Latijns) Slowaaks, Spaans, Zweeds en Turks.
+OCR ondersteunt 25 talen. Ondersteunde talen zijn: Arabisch, Chinees (traditioneel), Chinees (vereenvoudigd), Deens, Duits, Engels, Fins, Frans, Grieks, Hongaars, Italiaans, Japans, Koreaans, Nederlands, Noors, Pools, Portugees, Roemeens, Russisch, Servisch (Cyrillisch en Latijns) Slowaaks, Spaans, Tsjechisch, Turks en Zweeds.
 
-Indien nodig, corrigeert OCR de rotatie van de herkende tekst, in graden rond de afbeelding van de horizontale as. OCR biedt het frame-coördinaten van elk woord, zoals weergegeven in onderstaande afbeelding.
+Via OCR wordt zo nodig de draaiing van de herkende tekst gecorrigeerd, in graden, rond de horizontale as van de afbeelding. OCR biedt de framecoördinaten van elk woord, zoals weergegeven in onderstaande afbeelding.
 
-![Overzicht van OCR](./Images/vision-overview-ocr.png) vereisten voor OCR:
-- De grootte van de afbeelding moet liggen tussen 40, 40 en 3200 x 3200 pixels.
+![Overzicht van OCR](./Images/vision-overview-ocr.png) Vereisten voor OCR:
+- De grootte van de ingevoerde afbeelding moet tussen de 40 x 40 en 3200 x 3200 pixels zijn.
 - De afbeelding kan niet groter zijn dan 10 megapixels.
 
-Afbeelding kan worden gedraaid door meerdere van 90 graden plus een kleine hoek van maximaal ' 40 graden.
+De ingevoerde afbeelding kan worden gedraaid met meervouden van 90 graden plus een kleine hoek van maximaal 40 graden.
 
-De nauwkeurigheid van de tekstherkenning, is afhankelijk van de kwaliteit van de installatiekopie. Een lezen onnauwkeurige kan worden veroorzaakt door de volgende situaties:
-- Fuzzy afbeeldingen.
+De nauwkeurigheid van de tekstherkenning is afhankelijk van de kwaliteit van de afbeelding. Een onnauwkeurige aflezing kan worden veroorzaakt door de volgende situaties:
+- Wazige afbeeldingen.
 - Handgeschreven of cursieve tekst.
 - Artistieke lettertypestijlen.
-- Kleine tekengrootte.
-- Complexe achtergronden, schaduwen of schitterende via vervorming van tekst of een perspectief.
-- Ontbreekt of grote hoofdletters aan het begin van woorden
+- Kleine lettergrootte.
+- Complexe achtergronden, schaduwen of schittering op de tekst of vervorming van het perspectief.
+- Te grote of geen hoofdletter aan het begin van woorden
 - Subscript, superscript of doorgehaalde tekst.
 
-De volgende beperkingen: Op de foto's waarin tekst dominante wordt, fout-positieven kunnen afkomstig zijn van gedeeltelijk herkende woorden. Precisie kan op sommige foto's, met name foto's zonder tekst, veel variëren afhankelijk van het type afbeelding.
+Beperkingen: op bepaalde foto's waarin tekst het dominante element is, kunnen fout-positieven worden veroorzaakt door gedeeltelijk herkende woorden. Precisie kan op sommige foto's, met name foto's zonder tekst, sterk variëren afhankelijk van het type afbeelding.
 
-## <a name="recognize-handwritten-text"></a>Handgeschreven tekstherkenning
-Deze technologie kunt u om te detecteren en extraheer handgeschreven tekst uit notities, brieven, essays, whiteboards, formulieren, enzovoort. Deze technologie kan worden gebruikt voor verschillende oppervlakken en achtergronden, zoals wit papier, gele plaknotities en whiteboards.
+## <a name="recognize-handwritten-text"></a>Handgeschreven tekst herkennen
+Met deze technologie kunt u handgeschreven tekst detecteren en extraheren uit notities, brieven, essays, whiteboards, formulieren enzovoort. Deze technologie kan worden gebruikt voor verschillende oppervlakken en achtergronden, zoals wit papier, gele plaknotities en whiteboards.
 
-Met handgeschreven tekstherkenning bespaart u tijd en moeite. U kunt productiever werken door afbeeldingen van tekst te maken in plaats van dat u deze moet transcriberen. U kunt hiermee u notities digitaliseren. Deze digitalisering kunt u snel en eenvoudig zoekfuncties moeten worden geïmplementeerd. Bovendien verspilt u minder papier.
+Met handgeschreven tekstherkenning bespaart u tijd en moeite. U kunt productiever werken door afbeeldingen van tekst te maken in plaats van dat u deze moet transcriberen. U kunt hiermee notities digitaliseren. Door deze digitalisering kunt u snel en eenvoudig zoekfuncties implementeren. Bovendien verspilt u minder papier.
 
 Vereisten voor invoer:
-- Ondersteunde afbeeldingsindelingen voor: JPEG, PNG, en BMP.
-- Installatiekopie-bestandsgrootte moet minder dan 4 MB.
-- Afbeeldingsgrootte moet ten minste 40, 40, maximaal 3200 x 3200.
+- Ondersteunde afbeeldingsindelingen: JPEG, PNG en BMP.
+- Maximale grootte van afbeeldingsbestand: 4 MB.
+- Afmetingen van de afbeelding: minimaal 40 x 40, maximaal 3200 x 3200.
 
-Opmerking: deze technologie bevindt zich in de preview-fase en is alleen beschikbaar voor Engelse tekst.
+Opmerking: deze technologie is nog in de preview-fase en is alleen beschikbaar voor Engelse tekst.
 
 ## <a name="generating-thumbnails"></a>Miniaturen genereren
-Een miniatuur is een kleine weergave van een afbeelding op volledige grootte. Uiteenlopende apparaten zoals telefoons, tablets en pc's maakt u een andere gebruiker gebruikerservaring (UX)-indelingen en miniatuurweergaven nodig. Met slim bijsnijden, kunt deze Computer Vision-API-functie u het probleem is opgelost.
+Een miniatuur is een kleine weergave van een afbeelding op volledige grootte. Verschillende indelingen en miniatuurweergaven zijn vereist voor de gebruikerservaring (UX) op uiteenlopende apparaten, zoals telefoons, tablets en pc's. De functie voor slim bijsnijden van de Computer Vision-API helpt dit probleem op te lossen.
 
-Nadat het uploaden van een afbeelding, een miniatuur van hoge kwaliteit wordt gegenereerd en de algoritme van de Computer Vision-API analyseert de objecten binnen de installatiekopie. Deze vervolgens de installatiekopie aan de behoeften van de 'regio van belang zijn' snijdt (ROI). De uitvoer wordt weergegeven in een speciale framework zoals weergegeven in onderstaande afbeelding. De miniatuur van het gegenereerde kan met behulp van een aspect hoeveelheid die verschilt van de hoogte-breedteverhouding van de oorspronkelijke afbeelding om aan de behoeften van een gebruiker te worden weergegeven.
+Wanneer een afbeelding is geüpload, wordt een miniatuur van hoge kwaliteit gegenereerd en de algoritme van de Computer Vision-API analyseert de objecten in de afbeelding. De afbeelding wordt vervolgens aangepast aan de vereisten van het 'interessegebied'. De uitvoer wordt weergegeven in een speciaal frame, zoals weergegeven in onderstaande afbeelding. De gegenereerde miniatuur kan worden weergegeven met een andere hoogte-breedteverhouding dan wordt gebruikt in de oorspronkelijke afbeelding, afhankelijk van wat de gebruiker nodig heeft.
 
-De miniaturen algoritme werkt als volgt:
+De miniaturenalgoritme werkt als volgt:
 
-1. Hiermee verwijdert u storende elementen van de afbeelding en herkent het object, de 'regio van belang zijn' (ROI).
-2. Snijdt de afbeelding op basis van het geïdentificeerde regio van belang zijn.
-3. Hiermee wijzigt u de hoogte-breedteverhouding aanpassen aan de grootte van het doel miniatuur.
+1. Storende elementen worden verwijderd uit de afbeelding en het hoofdobject, ofwel het 'interessegebied', wordt herkend.
+2. De afbeelding wordt bijgesneden op basis van het geïdentificeerde interessegebied.
+3. De hoogte-breedteverhouding wordt aangepast aan de afmetingen van de beoogde miniatuur.
 
 ![Miniaturen](./Images/thumbnail-demo.png)
