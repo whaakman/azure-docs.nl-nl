@@ -1,4 +1,0 @@
-U kunt virtuele machines (VM's) in Azure maken en deze beschikbaar maakt voor het openbare Internet met behulp van een openbaar IP-adres. Standaard, openbare IP-adressen zijn dynamisch en het adres dat is gekoppeld aan hen kan worden gewijzigd wanneer de virtuele machine wordt verwijderd of gestopt/de toewijzing ongedaan gemaakt. Om ervoor te zorgen dat de virtuele machine altijd hetzelfde openbare IP-adres gebruikt, moet u een statisch openbaar IP-adres maken. 
-
-Voordat u statische openbare IP-adressen in virtuele machines implementeert kunt, is het nodig zijn om te begrijpen als kunt u statische openbare IP-adressen, en hoe ze worden gebruikt. Lees de [IP-adressering overzicht](../articles/virtual-network/virtual-network-ip-addresses-overview-arm.md) voor meer informatie over het IP-adressen in Azure.
-
