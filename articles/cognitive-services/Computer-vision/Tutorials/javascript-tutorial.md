@@ -1,28 +1,29 @@
 ---
-title: Computer Vision-API JavaScript-zelfstudie | Microsoft Docs
-description: Gebruik een eenvoudige JavaScript-app die gebruikmaakt van de Computer Vision-API in cognitieve Microsoft-Services. OCR uitvoeren, miniaturen en werken met de visual functies in een afbeelding.
+title: 'Zelfstudie: Computer Vision-API met JavaScript'
+titlesuffix: Azure Cognitive Services
+description: Verken een eenvoudige JavaScript-app die gebruikmaakt van de Computer Vision-API in Azure Cognitive Services. Voer OCR uit, maak miniaturen en werk met visuele kenmerken in een afbeelding.
 services: cognitive-services
 author: KellyDF
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
-ms.topic: article
+ms.topic: tutorial
 ms.date: 09/19/2017
 ms.author: kefre
-ms.openlocfilehash: 89bdc0524e07c1cb6a1473e0a52791fe20271e06
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.openlocfilehash: 6dc6eec729fc1be3f0a859834597bf2d5785d9bc
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35344584"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45984921"
 ---
-# <a name="computer-vision-api-javascript-tutorial"></a>Computer Vision-API JavaScript-zelfstudie
+# <a name="tutorial-computer-vision-api-javascript"></a>Zelfstudie: Computer Vision-API met JavaScript
 
-Deze zelfstudie ziet de functies van de Microsoft cognitieve Services Computer Vision REST-API.
+In deze zelfstudie leert u de functies van de Computer Vision-REST API in Azure Cognitive Services.
 
-Verken een JavaScript-toepassing die gebruikmaakt van de Computer Vision REST-API (optische tekenherkenning) uitvoeren, smartcard bijgesneden miniaturen maken plus detecteren, categoriseren, tag en beschrijven visual functies, zoals vlakken, in een afbeelding. In dit voorbeeld kunt u een afbeeldings-URL voor analyse en verwerking verzenden. U kunt in dit voorbeeld open-source als een sjabloon voor het bouwen van uw eigen app in JavaScript Computer Vision REST API gebruiken.
+Verken een JavaScript-toepassing die de Computer Vision-REST API gebruikt om optische tekenherkenning (OCR) uit te voeren, slim bijgesneden miniaturen te maken en visuele kenmerken, inclusief gezichten, in een afbeelding te detecteren, categoriseren, labelen en beschrijven. In dit voorbeeld kunt u een afbeeldings-URL verzenden voor analyse en verwerking. U kunt dit open source-voorbeeld gebruiken als sjabloon voor het bouwen van uw eigen app in JavaScript voor gebruik met de Computer Vision-REST API.
 
-De JavaScript-formulier-toepassing is al geschreven, maar heeft geen Computer Vision-functionaliteit. In deze zelfstudie kunt u de specifieke code toevoegen aan de Computer Vision REST-API voor het voltooien van de functionaliteit van de toepassing.
+De JavaScript-formuliertoepassing is al geschreven, maar heeft geen Computer Vision-functionaliteit. In deze zelfstudie kunt u de specifieke code toevoegen aan de Computer Vision-REST API om de functionaliteit van de toepassing te voltooien.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -30,35 +31,35 @@ De JavaScript-formulier-toepassing is al geschreven, maar heeft geen Computer Vi
 
 Deze zelfstudie is ontwikkeld met een eenvoudige teksteditor.
 
-### <a name="subscribe-to-computer-vision-api-and-get-a-subscription-key"></a>Abonneer u op de Computer Vision-API en de abonnementssleutel voor een ophalen 
+### <a name="subscribe-to-computer-vision-api-and-get-a-subscription-key"></a>Abonneren op Computer Vision-API en een abonnementssleutel ophalen 
 
-Voordat u het voorbeeld maakt, moet u zich abonneren op de Computer Vision-API die deel uitmaakt van de cognitieve Microsoft-Services. Zie voor abonnement en sleutelbeheer details [abonnementen](https://azure.microsoft.com/try/cognitive-services/). De primaire en secundaire sleutels zijn geldig voor gebruik in deze zelfstudie. 
+Voordat u het voorbeeld maakt, moet u zich abonneren op de Computer Vision-API, die deel uitmaakt van Azure Cognitive Services. Zie [Abonnementen](https://azure.microsoft.com/try/cognitive-services/) voor gedetailleerde informatie over het abonnement en sleutelbeheer. In deze zelfstudie kan zowel de primaire als de secundaire sleutel worden gebruikt. 
 
-## <a name="download-the-tutorial-project"></a>De zelfstudie project downloaden
+## <a name="download-the-tutorial-project"></a>Het zelfstudieproject downloaden
 
-Kloon de [cognitieve Services JavaScript Computer Vision-zelfstudie](https://github.com/Azure-Samples/cognitive-services-javascript-computer-vision-tutorial), of het ZIP-bestand downloaden en pak het een lege map.
+Kloon de [zelfstudie Cognitive Services JavaScript Computer Vision](https://github.com/Azure-Samples/cognitive-services-javascript-computer-vision-tutorial) of download het zipbestand en pak het uit in een lege map.
 
-Als u liever gebruiken de zelfstudie klaar met alle zelfstudie code toegevoegd, kunt u de bestanden in de **voltooid** map.
+Als u liever de voltooide zelfstudie met alle codes van de zelfstudie wilt gebruiken, kunt u de bestanden in de map **Voltooid** gebruiken.
 
-## <a name="add-the-tutorial-code"></a>Voeg de code van de zelfstudie
+## <a name="add-the-tutorial-code"></a>De code van de zelfstudie toevoegen
 
-De JavaScript-toepassing is ingesteld met zes HTML-bestanden, één voor elke functie. Elk bestand ziet u een andere functie van visie op Computer (analyseren, OCR, enzovoort). De zes zelfstudie secties beschikt niet over de afhankelijkheden, zodat u de zelfstudie code aan een bestand, alle zes bestanden of een aantal bestanden toevoegen kunt is. En u kunt de zelfstudie code toevoegen aan de bestanden in willekeurige volgorde.
+De JavaScript-toepassing is ingesteld met zes HTML-bestanden, één voor elke functie. Elk bestand toont een andere functie van Computer Vision (analyseren, OCR, enzovoort). De zes secties van de zelfstudie zijn onafhankelijk van elkaar, dus u kunt de codes van de zelfstudie toevoegen aan een bestand, aan alle zes bestanden of aan een aantal bestanden. En u kunt de code van de zelfstudie in een willekeurige volgorde toevoegen.
 
 Aan de slag.
 
-## <a name="analyze-an-image"></a>Analyseer een afbeelding
+## <a name="analyze-an-image"></a>Een afbeelding analyseren
 
-De functie analyseren van Computer Vision analyseert een afbeelding voor meer dan 2.000 herkenbare objecten, levende wezens achtergrond en acties. Zodra de analyse voltooid is, retourneert analyseren een JSON-object dat de installatiekopie met de beschrijvende labels, analyse van kleur en bijschriften beschrijft.
+De functie Analyseren van Computer Vision analyseert een afbeelding op meer dan 2.000 herkenbare objecten, levende wezens, landschappen en acties. Zodra de analyse is voltooid, retourneert Analyseren een JSON-object dat de afbeelding beschrijft met labels, kleuranalyse, bijschriften en meer.
 
-Als u de functie analyseren van de zelfstudie toepassing, moet u de volgende stappen uitvoeren:
+Gebruik de volgende stappen uit om de functie Analyseren van de zelfstudietoepassing uit te voeren:
 
-### <a name="analyze-step-1-add-the-event-handler-code-for-the-form-button"></a>Analyseren van stap 1: de code van de gebeurtenis-handler voor de formulierknop toevoegen
+### <a name="analyze-step-1-add-the-event-handler-code-for-the-form-button"></a>Analyseren, stap 1: de code van de gebeurtenis-handler toevoegen voor de formulierknop
 
-Open de **analyze.html** bestand in een teksteditor en zoek de **analyzeButtonClick** functie aan de onderkant van het bestand.
+Open het bestand **analyze.html** in een teksteditor en zoek de functie **analyzeButtonClick** onderaan het bestand.
 
-De **analyzeButtonClick** gebeurtenishandlerfunctie-handler het formulier wordt gewist, wordt weergegeven in de URL opgegeven installatiekopie van het roept vervolgens de **AnalyzeImage** functie voor het analyseren van de installatiekopie.
+Met de gebeurtenis-handlerfunctie **analyzeButtonClick** wordt het formulier gewist, en vervolgens wordt de afbeelding weergegeven die is opgegeven in de URL en de functie **AnalyzeImage** aangeroepen voor analyse van de afbeelding.
 
-Kopieer en plak de volgende code naar de **analyzeButtonClick** functie.
+Kopieer en plak de volgende code in de functie **analyzeButtonClick**.
 
 ```javascript
 function analyzeButtonClick() {
@@ -76,11 +77,11 @@ function analyzeButtonClick() {
 }
 ```
 
-### <a name="analyze-step-2-add-the-wrapper-for-the-rest-api-call"></a>Analyseren van stap 2: de wrapper voor de REST-API-aanroep toevoegen
+### <a name="analyze-step-2-add-the-wrapper-for-the-rest-api-call"></a>Analyseren, stap 2: de wrapper voor de REST-API-aanroep toevoegen
 
-De **AnalyzeImage** functie loopt de REST-API-aanroep voor het analyseren van een installatiekopie. Na een geslaagde retour de opgemaakte JSON-analyse wordt weergegeven in de opgegeven textarea en het bijschrift wordt weergegeven in het opgegeven bereik.
+Met de functie **AnalyzeImage** wordt de REST-API-aanroep voor analyse van de afbeelding verpakt. Nadat de analyseresultaten zijn geretourneerd, wordt de opgemaakte JSON-analyse weergegeven in de opgegeven textarea en het bijschrift wordt weergegeven in de opgegeven span.
 
-Kopieer en plak de **AnalyzeImage** werken code alleen onder de **analyzeButtonClick** functie.
+Kopieer de **AnalyzeImage**-functiecode en plak deze direct onder de functie **analyzeButtonClick**.
 
 ```javascript
 /* Analyze the image at the specified URL by using Microsoft Cognitive Services Analyze Image API.
@@ -150,23 +151,23 @@ function AnalyzeImage(sourceImageUrl, responseTextArea, captionSpan) {
 }
 ```
 
-### <a name="analyze-step-3-run-the-application"></a>Analyseren van stap 3: de toepassing uitvoeren
+### <a name="analyze-step-3-run-the-application"></a>Analyseren, stap 3: de toepassing uitvoeren
 
-Sla de **analyze.html** bestand en open het in een webbrowser. Plaatst de abonnementssleutel van uw in de **Abonnementssleutel** veld en controleer of u de juiste regio in **abonnement regio**. Voer een URL naar een installatiekopie te analyseren en klik vervolgens op de **analyseren installatiekopie** knop voor het analyseren van een installatiekopie en het resultaat te bekijken.
+Sla het bestand **analyze.html** op en open het in een webbrowser. Plaats uw abonnementssleutel in het veld **Abonnementssleutel** en controleer in **Abonnementregio** of u de juiste regio gebruikt. Voer een URL in naar een afbeelding die u wilt analyseren en klik vervolgens op de knop **Afbeelding analyseren** om de afbeelding te analyseren en het resultaat te bekijken.
 
-## <a name="recognize-a-landmark"></a>Een kenmerkende herkennen
+## <a name="recognize-a-landmark"></a>Een oriëntatiepunten herkennen
 
-De functie kenmerkende van Computer Vision analyseert een afbeelding voor natuurlijke en kunstmatige monumenten, zoals bergen of beroemdheid gebouwen. Zodra de analyse voltooid is, retourneert kenmerkende een JSON-object waarmee de monumenten gevonden in de installatiekopie.
+Met de functie Oriëntatiepunten van Computer Vision wordt een afbeelding geanalyseerd op natuurlijke en kunstmatige oriëntatiepunten, zoals bergen of beroemde gebouwen. Wanneer de analyse is voltooid, retourneert de functie Oriëntatiepunt een JSON-object waarin de in de afbeelding gevonden oriëntatiepunten zijn geïdentificeerd.
 
-Om te voltooien kenmerkende-functie van de zelfstudie toepassing, moet u de volgende stappen uitvoeren:
+Gebruik de volgende stappen uit om de functie Oriëntatiepunten van de zelfstudietoepassing uit te voeren:
 
-### <a name="landmark-step-1-add-the-event-handler-code-for-the-form-button"></a>Kenmerkende stap 1: de code van de gebeurtenis-handler voor de formulierknop toevoegen
+### <a name="landmark-step-1-add-the-event-handler-code-for-the-form-button"></a>Oriëntatiepunten, stap 1: de code van de gebeurtenis-handler toevoegen voor de formulierknop
 
-Open de **landmark.html** bestand in een teksteditor en zoek de **landmarkButtonClick** functie aan de onderkant van het bestand.
+Open het bestand **landmark.html** in een teksteditor en zoek de functie **landmarkButtonClick** onderaan het bestand.
 
-De **landmarkButtonClick** gebeurtenishandlerfunctie-handler het formulier wordt gewist, wordt weergegeven in de URL opgegeven installatiekopie van het roept vervolgens de **IdentifyLandmarks** functie voor het analyseren van de installatiekopie.
+Met de gebeurtenis-handlerfunctie **landmarkButtonClick** wordt het formulier gewist, en vervolgens wordt de afbeelding weergegeven die is opgegeven in de URL en de functie **IdentifyLandmarks** aangeroepen voor analyse van de afbeelding.
 
-Kopieer en plak de volgende code naar de **landmarkButtonClick** functie.
+Kopieer en plak de volgende code in de functie **landmarkButtonClick**.
 
 ```javascript
 function landmarkButtonClick() {
@@ -184,11 +185,11 @@ function landmarkButtonClick() {
 }
 ```
 
-### <a name="landmark-step-2-add-the-wrapper-for-the-rest-api-call"></a>Kenmerkende stap 2: de wrapper voor de REST-API-aanroep toevoegen
+### <a name="landmark-step-2-add-the-wrapper-for-the-rest-api-call"></a>Oriëntatiepunten, stap 2: de wrapper voor de REST-API-aanroep toevoegen
 
-De **IdentifyLandmarks** functie loopt de REST-API-aanroep voor het analyseren van een installatiekopie. Na een geslaagde retour de opgemaakte JSON-analyse wordt weergegeven in de opgegeven textarea en het bijschrift wordt weergegeven in het opgegeven bereik.
+Met de functie **IdentifyLandmarks** wordt de REST-API-aanroep voor analyse van de afbeelding verpakt. Nadat de analyseresultaten zijn geretourneerd, wordt de opgemaakte JSON-analyse weergegeven in de opgegeven textarea en het bijschrift wordt weergegeven in de opgegeven span.
 
-Kopieer en plak de **IdentifyLandmarks** werken code alleen onder de **landmarkButtonClick** functie.
+Kopieer de **IdentifyLandmarks**-functiecode en plak deze direct onder de functie **landmarkButtonClick**.
 
 ```javascript
 /* Identify landmarks in the image at the specified URL by using Microsoft Cognitive Services 
@@ -257,23 +258,23 @@ function IdentifyLandmarks(sourceImageUrl, responseTextArea, captionSpan) {
 }
 ```
 
-### <a name="landmark-step-3-run-the-application"></a>Kenmerkende stap 3: de toepassing uitvoeren
+### <a name="landmark-step-3-run-the-application"></a>Oriëntatiepunt, stap 3: de toepassing uitvoeren
 
-Sla de **landmark.html** bestand en open het in een webbrowser. Plaatst de abonnementssleutel van uw in de **Abonnementssleutel** veld en controleer of u de juiste regio in **abonnement regio**. Voer een URL naar een installatiekopie te analyseren en klik vervolgens op de **analyseren installatiekopie** knop voor het analyseren van een installatiekopie en het resultaat te bekijken.
+Sla het bestand **landmark.html** op en open het in een webbrowser. Plaats uw abonnementssleutel in het veld **Abonnementssleutel** en controleer in **Abonnementregio** of u de juiste regio gebruikt. Voer een URL in naar een afbeelding die u wilt analyseren en klik vervolgens op de knop **Afbeelding analyseren** om de afbeelding te analyseren en het resultaat te bekijken.
 
 ## <a name="recognize-celebrities"></a>Beroemdheden herkennen
 
-Een installatiekopie van analyseert het onderdeel beroemdheden van Computer Vision voor beroemdheden. Zodra de analyse is voltooid, retourneert beroemdheden een JSON-object waarmee de beroemdheden gevonden in de installatiekopie.
+De functie Beroemdheden van de Computer Vision analyseert een afbeelding op beroemde mensen. Wanneer de analyse is voltooid, retourneert de functie Beroemdheden een JSON-object waarin de in de afbeelding gevonden beroemdheden zijn geïdentificeerd.
 
-Als u de functie beroemdheden van de zelfstudie toepassing, moet u de volgende stappen uitvoeren:
+Gebruik de volgende stappen uit om de functie Beroemdheden van de zelfstudietoepassing uit te voeren:
 
-### <a name="celebrities-step-1-add-the-event-handler-code-for-the-form-button"></a>Beroemdheden stap 1: de code van de gebeurtenis-handler voor de formulierknop toevoegen
+### <a name="celebrities-step-1-add-the-event-handler-code-for-the-form-button"></a>Beroemdheden, stap 1: de code van de gebeurtenis-handler toevoegen voor de formulierknop
 
-Open de **celebrities.html** bestand in een teksteditor en zoek de **celebritiesButtonClick** functie aan de onderkant van het bestand.
+Open het bestand **celebrities.html** in een teksteditor en zoek de functie **celebritiesButtonClick** onderaan het bestand.
 
-De **celebritiesButtonClick** gebeurtenishandlerfunctie-handler het formulier wordt gewist, wordt weergegeven in de URL opgegeven installatiekopie van het roept vervolgens de **IdentifyCelebrities** functie voor het analyseren van de installatiekopie.
+Met de gebeurtenis-handlerfunctie **celebritiesButtonClick** wordt het formulier gewist, en vervolgens wordt de afbeelding weergegeven die is opgegeven in de URL en de functie **IdentifyCelebrities** aangeroepen voor analyse van de afbeelding.
 
-Kopieer en plak de volgende code naar de **celebritiesButtonClick** functie.
+Kopieer en plak de volgende code in de functie **celebritiesButtonClick**.
 
 ```javascript
 function celebritiesButtonClick() {
@@ -291,7 +292,7 @@ function celebritiesButtonClick() {
 }
 ```
 
-### <a name="celebrities-step-2-add-the-wrapper-for-the-rest-api-call"></a>Beroemdheden stap 2: de wrapper voor de REST-API-aanroep toevoegen
+### <a name="celebrities-step-2-add-the-wrapper-for-the-rest-api-call"></a>Beroemdheden, stap 2: de wrapper voor de REST-API-aanroep toevoegen
 
 ```javascript
 /* Identify celebrities in the image at the specified URL by using Microsoft Cognitive Services 
@@ -360,23 +361,23 @@ function IdentifyCelebrities(sourceImageUrl, responseTextArea, captionSpan) {
 }
 ```
 
-### <a name="celebrities-step-3-run-the-application"></a>Beroemdheden stap 3: de toepassing uitvoeren
+### <a name="celebrities-step-3-run-the-application"></a>B, stap 3: de toepassing uitvoeren
 
-Sla de **celebrities.html** bestand en open het in een webbrowser. Plaatst de abonnementssleutel van uw in de **Abonnementssleutel** veld en controleer of u de juiste regio in **abonnement regio**. Voer een URL naar een installatiekopie te analyseren en klik vervolgens op de **analyseren installatiekopie** knop voor het analyseren van een installatiekopie en het resultaat te bekijken.
+Sla het bestand **celebrities.html** op en open het in een webbrowser. Plaats uw abonnementssleutel in het veld **Abonnementssleutel** en controleer in **Abonnementregio** of u de juiste regio gebruikt. Voer een URL in naar een afbeelding die u wilt analyseren en klik vervolgens op de knop **Afbeelding analyseren** om de afbeelding te analyseren en het resultaat te bekijken.
 
-## <a name="intelligently-generate-a-thumbnail"></a>Een miniatuur op intelligente wijze maken
+## <a name="intelligently-generate-a-thumbnail"></a>Intelligent een miniatuur genereren
 
-De functie voor de miniatuur van Computer Vision genereert een miniatuur van een installatiekopie. Met behulp van de **Smart bijsnijden** functie, de functie miniatuur identificeert het interessegebied in een installatiekopie en de miniatuur op dit gebied, voor het genereren van meer fraai resultaat miniatuurafbeeldingen.
+Met de functie Miniatuur van Computer Vision wordt een miniatuur van een afbeelding gegenereerd. De functie Miniatuur identificeert het interessantste gebied in een afbeelding en centreert de miniatuur op dit gebied. Vervolgens wordt de functie **Slim bijsnijden** gebruikt om een zo fraai mogelijke miniatuurafbeelding te genereren.
 
-Als u wilt de miniatuur-functie van de toepassing van de zelfstudie hebt voltooid, moet u de volgende stappen uitvoeren:
+Gebruik de volgende stappen uit om de functie Miniatuur van de zelfstudietoepassing uit te voeren:
 
-### <a name="thumbnail-step-1-add-the-event-handler-code-for-the-form-button"></a>Miniaturen stap 1: de code van de gebeurtenis-handler voor de formulierknop toevoegen
+### <a name="thumbnail-step-1-add-the-event-handler-code-for-the-form-button"></a>Miniatuur, stap 1: de code van de gebeurtenis-handler toevoegen voor de formulierknop
 
-Open de **thumbnail.html** bestand in een teksteditor en zoek de **thumbnailButtonClick** functie aan de onderkant van het bestand.
+Open het bestand **thumbnail.html** in een teksteditor en zoek de functie **thumbnailButtonClick** onderaan het bestand.
 
-De **thumbnailButtonClick** gebeurtenishandlerfunctie-handler het formulier wordt gewist, wordt weergegeven in de URL opgegeven installatiekopie van het roept vervolgens de **getThumbnail** functie tweemaal voor het maken van twee miniaturen, een smartcard bijgesneden en een zonder slimme bijsnijden.
+Met de gebeurtenis-handlerfunctie **thumbnailButtonClick** wordt het formulier gewist, en vervolgens wordt de afbeelding weergegeven die is opgegeven in de URL en de functie **getThumbnail** aangeroepen. Deze functie wordt twee keer aangeroepen voor het maken van twee miniaturen, een die is gemaakt met slim bijsnijden en een zonder.
 
-Kopieer en plak de volgende code naar de **thumbnailButtonClick** functie.
+Kopieer de volgende code en plak deze in de functie **thumbnailButtonClick**.
 
 ```javascript
 function thumbnailButtonClick() {
@@ -402,11 +403,11 @@ function thumbnailButtonClick() {
 }
 ```
 
-### <a name="thumbnail-step-2-add-the-wrapper-for-the-rest-api-call"></a>Miniaturen stap 2: de wrapper voor de REST-API-aanroep toevoegen
+### <a name="thumbnail-step-2-add-the-wrapper-for-the-rest-api-call"></a>Miniatuur, stap 2: de wrapper voor de REST-API-aanroep toevoegen
 
-De **getThumbnail** functie loopt de REST-API-aanroep voor het analyseren van een installatiekopie. Na een geslaagde retour wordt de miniatuur weergegeven in het opgegeven img-element.
+Met de functie **getThumbnail** wordt de REST-API-aanroep voor analyse van de afbeelding verpakt. Nadat de analyseresultaten zijn geretourneerd, wordt de miniatuur weergegeven in het opgegeven img-element.
 
-Kopieer en plak de volgende **getThumbnail** functie naar net onder de **thumbnailButtonClick** functie.
+Kopieer de volgende **getThumbnail**-functie en plak deze direct onder de functie **thumbnailButtonClick**.
 
 ```javascript
 /* Get a thumbnail of the image at the specified URL by using Microsoft Cognitive Services
@@ -481,23 +482,23 @@ function getThumbnail (sourceImageUrl, smartCropping, imageElement, responseText
 }
 ```
 
-### <a name="thumbnail-step-3-run-the-application"></a>Miniaturen stap 3: de toepassing uitvoeren
+### <a name="thumbnail-step-3-run-the-application"></a>Miniatuur, stap 3: de toepassing uitvoeren
 
-Sla de **thumbnail.html** bestand en open het in een webbrowser. Plaatst de abonnementssleutel van uw in de **Abonnementssleutel** veld en controleer of u de juiste regio in **abonnement regio**. Voer een URL naar een installatiekopie te analyseren en klik vervolgens op de **genereren miniaturen** knop voor het analyseren van een installatiekopie en het resultaat te bekijken.
+Sla het bestand **thumbnail.html** op en open het in een webbrowser. Plaats uw abonnementssleutel in het veld **Abonnementssleutel** en controleer in **Abonnementregio** of u de juiste regio gebruikt. Voer een URL in naar een afbeelding die u wilt analyseren en klik vervolgens op de knop **Miniaturen analyseren** om de afbeelding te analyseren en het resultaat te bekijken.
 
-## <a name="read-printed-text-ocr"></a>Lees afgedrukte tekst (OCR)
+## <a name="read-printed-text-ocr"></a>Gedrukte tekst lezen (OCR)
 
-De functie OCR (OCR) van de Computer Vision analyseert een image bevatten van afgedrukte tekst. Nadat de analyse voltooid is, retourneert OCR een JSON-object met de tekst en de locatie van de tekst in de installatiekopie.
+De functie voor optische tekenherkenning (OCR) van Computer Vision analyseert een afbeelding van gedrukte tekst. Nadat de analyse is voltooid is, retourneert OCR een JSON-object met de tekst en de locatie van de tekst in de afbeelding.
 
-Als u de functie OCR van de zelfstudie toepassing, moet u de volgende stappen uitvoeren:
+Gebruik de volgende stappen uit om de functie OCR van de zelfstudietoepassing uit te voeren:
 
-### <a name="ocr-step-1-add-the-event-handler-code-for-the-form-button"></a>OCR stap 1: de code van de gebeurtenis-handler voor de formulierknop toevoegen
+### <a name="ocr-step-1-add-the-event-handler-code-for-the-form-button"></a>OCR, stap 1: de code van de gebeurtenis-handler toevoegen voor de formulierknop
 
-Open de **ocr.html** bestand in een teksteditor en zoek de **ocrButtonClick** functie aan de onderkant van het bestand.
+Open het bestand **ocr.html** in een teksteditor en zoek de functie **ocrButtonClick** onderaan het bestand.
 
-De **ocrButtonClick** gebeurtenishandlerfunctie-handler het formulier wordt gewist, wordt weergegeven in de URL opgegeven installatiekopie van het roept vervolgens de **ReadOcrImage** functie voor het analyseren van de installatiekopie.
+Met de gebeurtenis-handlerfunctie **ocrButtonClick** wordt het formulier gewist, en vervolgens wordt de afbeelding weergegeven die is opgegeven in de URL en de functie **ReadOcrImage** aangeroepen voor analyse van de afbeelding.
 
-Kopieer en plak de volgende code naar de **ocrButtonClick** functie.
+Kopieer en plak de volgende code in de functie **ocrButtonClick**.
 
 ```javascript
 function ocrButtonClick() {
@@ -515,11 +516,11 @@ function ocrButtonClick() {
 }
 ```
 
-### <a name="ocr-step-2-add-the-wrapper-for-the-rest-api-call"></a>OCR stap 2: de wrapper voor de REST-API-aanroep toevoegen
+### <a name="ocr-step-2-add-the-wrapper-for-the-rest-api-call"></a>OCR, stap 2: de wrapper voor de REST-API-aanroep toevoegen
 
-De **ReadOcrImage** functie loopt de REST-API-aanroep voor het analyseren van een installatiekopie. Na een geslaagde retourneren, de opgemaakte JSON met een beschrijving van de tekst en de locatie van de tekst wordt weergegeven in de opgegeven textarea.
+Met de functie **ReadOcrImage** wordt de REST-API-aanroep voor analyse van de afbeelding verpakt. Nadat de analyseresultaten zijn geretourneerd, wordt de opgemaakte JSON met de tekst en de locatie van de tekst weergegeven in de opgegeven textarea.
 
-Kopieer en plak de volgende **ReadOcrImage** functie naar net onder de **ocrButtonClick** functie.
+Kopieer de volgende **ReadOcrImage**-functie en plak deze direct onder de functie **ocrButtonClick**.
 
 ```javascript
 /* Recognize and read printed text in an image at the specified URL by using Microsoft Cognitive 
@@ -576,23 +577,23 @@ function ReadOcrImage(sourceImageUrl, responseTextArea) {
 }
 ```
 
-### <a name="ocr-step-3-run-the-application"></a>OCR stap 3: de toepassing uitvoeren
+### <a name="ocr-step-3-run-the-application"></a>OCR, stap 3: de toepassing uitvoeren
 
-Sla de **ocr.html** bestand en open het in een webbrowser. Plaatst de abonnementssleutel van uw in de **Abonnementssleutel** veld en controleer of u de juiste regio in **abonnement regio**. Voer een URL naar een afbeelding van tekst te lezen en klik vervolgens op de **lezen installatiekopie** knop voor het analyseren van een installatiekopie en het resultaat te bekijken.
+Sla het bestand **ocr.html** op en open het in een webbrowser. Plaats uw abonnementssleutel in het veld **Abonnementssleutel** en controleer in **Abonnementregio** of u de juiste regio gebruikt. Voer een URL in naar een afbeelding van tekst die moet worden gelezen en klik vervolgens op de knop **Afbeelding lezen** om de afbeelding te analyseren en het resultaat te bekijken.
 
-## <a name="read-handwritten-text-handwriting-recognition"></a>Lees geschreven tekst (handschriftherkenning)
+## <a name="read-handwritten-text-handwriting-recognition"></a>Handgeschreven tekst lezen (handschriftherkenning)
 
-De functie handschriftherkenning van Computer Vision analyseert een image bevatten van de hand geschreven. Nadat de analyse voltooid is, retourneert handschriftherkenning een JSON-object met de tekst en de locatie van de tekst in de installatiekopie.
+De functie Handschriftherkenning van Computer Vision analyseert een afbeelding van handgeschreven tekst. Nadat de analyse is voltooid is, retourneert Handschriftherkenning een JSON-object met de tekst en de locatie van de tekst in de afbeelding.
 
-Als u de functie handschriftherkenning van de zelfstudie toepassing, moet u de volgende stappen uitvoeren:
+Gebruik de volgende stappen uit om de functie Handschriftherkenning van de zelfstudietoepassing uit te voeren:
 
-### <a name="handwriting-recognition-step-1-add-the-event-handler-code-for-the-form-button"></a>Handschriftherkenning erkenning stap 1: de code van de gebeurtenis-handler voor de formulierknop toevoegen
+### <a name="handwriting-recognition-step-1-add-the-event-handler-code-for-the-form-button"></a>Handschriftherkenning, stap 1: de code van de gebeurtenis-handler toevoegen voor de formulierknop
 
-Open de **handwriting.html** bestand in een teksteditor en zoek de **handwritingButtonClick** functie aan de onderkant van het bestand.
+Open het bestand **handwriting.html** in een teksteditor en zoek de functie **handwritingButtonClick** onderaan het bestand.
 
-De **handwritingButtonClick** gebeurtenishandlerfunctie-handler het formulier wordt gewist, wordt weergegeven in de URL opgegeven installatiekopie van het roept vervolgens de **HandwritingImage** functie voor het analyseren van de installatiekopie.
+Met de gebeurtenis-handlerfunctie **handwritingButtonClick** wordt het formulier gewist, en vervolgens wordt de afbeelding weergegeven die is opgegeven in de URL en de functie **HandwritingImage** aangeroepen voor analyse van de afbeelding.
 
-Kopieer en plak de volgende code naar de **handwritingButtonClick** functie.
+Kopieer en plak de volgende code in de functie **handwritingButtonClick**.
 
 ```javascript
 function handwritingButtonClick() {
@@ -609,13 +610,13 @@ function handwritingButtonClick() {
 }
 ```
 
-### <a name="handwriting-recognition-step-2-add-the-wrapper-for-the-rest-api-call"></a>Handschriftherkenning erkenning stap 2: de wrapper voor de REST-API-aanroep toevoegen
+### <a name="handwriting-recognition-step-2-add-the-wrapper-for-the-rest-api-call"></a>Handschriftherkenning, stap 2: de wrapper voor de REST-API-aanroep toevoegen
 
-De **ReadHandwrittenImage** functie loopt de twee REST-API-aanroepen die nodig zijn voor het analyseren van een installatiekopie. Omdat handschriftherkenning een tijdrovend proces zijn is, worden twee stappen wordt gebruikt. De eerste aanroep verzendt de afbeelding voor de verwerking; de tweede aanroep gedetecteerde tekst opgehaald bij de verwerking voltooid is.
+Met de funnctie **ReadHandwrittenImage** worden de twee REST API-aanroepen voor analyse van de afbeelding verpakt. Aangezien handschriftherkenning een tijdrovend proces is, wordt het proces in twee stappen uitgevoerd. Bij de eerste aanroep wordt de afbeelding verzonden voor verwerking en bij de tweede aanroep wordt de gedetecteerde tekst opgehaald wanneer de verwerking is voltooid.
 
-Nadat de tekst die is opgehaald, worden de opgemaakte JSON met een beschrijving van de tekst en de locatie van de tekst wordt weergegeven in de opgegeven textarea.
+Nadat de tekst is opgehaald, wordt de opgemaakte JSON met de tekst en de locatie van de tekst weergegeven in de opgegeven textarea.
 
-Kopieer en plak de volgende **ReadHandwrittenImage** functie naar net onder de **handwritingButtonClick** functie.
+Kopieer de volgende **ReadHandwrittenImage**-functie en plak deze direct onder de functie **handwritingButtonClick**.
 
 ```javascript
 /* Recognize and read text from an image of handwriting at the specified URL by using Microsoft 
@@ -735,11 +736,11 @@ function ReadHandwrittenImage(sourceImageUrl, responseTextArea) {
 }
 ```
 
-### <a name="handwriting-recognition-step-3-run-the-application"></a>Handschriftherkenning erkenning stap 3: de toepassing uitvoeren
+### <a name="handwriting-recognition-step-3-run-the-application"></a>Handschriftherkenning, stap 3: de toepassing uitvoeren
 
-Sla de **handwriting.html** bestand en open het in een webbrowser. Plaatst de abonnementssleutel van uw in de **Abonnementssleutel** veld en controleer of u de juiste regio in **abonnement regio**. Voer een URL naar een afbeelding van tekst te lezen en klik vervolgens op de **lezen installatiekopie** knop voor het analyseren van een installatiekopie en het resultaat te bekijken.
+Sla het bestand **handwriting.html** op en open het in een webbrowser. Plaats uw abonnementssleutel in het veld **Abonnementssleutel** en controleer in **Abonnementregio** of u de juiste regio gebruikt. Voer een URL in naar een afbeelding van tekst die moet worden gelezen en klik vervolgens op de knop **Afbeelding lezen** om de afbeelding te analyseren en het resultaat te bekijken.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Computer Vision-API C&#35; zelfstudie](CSharpTutorial.md)
-- [Computer Vision-API Python-zelfstudie](PythonTutorial.md)
+- [Zelfstudie voor Computer Vision API C&#35;](CSharpTutorial.md)
+- [Zelfstudie voor de Computer Vision-API met Python](PythonTutorial.md)

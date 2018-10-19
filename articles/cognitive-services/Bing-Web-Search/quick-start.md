@@ -1,53 +1,54 @@
 ---
-title: Web-API van zoekservice snel aan de slag | Microsoft Docs
-description: Laat zien hoe u aan de slag met de Bing Web zoeken-API.
+title: Snel starten met de Bing Webzoekopdrachten-API
+titleSuffix: Azure Cognitive Services
+description: Lees hoe u aan de slag gaat met de Bing Webzoekopdrachten-API.
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
+manager: cgronlun
 ms.assetid: 27B4B51A-D017-44C8-8E4E-9684DC553886
 ms.service: cognitive-services
 ms.component: bing-web-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: 0b8c4678a518985a4be3ee426a85b0a85dd2365d
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.openlocfilehash: af32abe1c61c44b14d0f70033aee54aa7eba7c8b
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35344529"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46126238"
 ---
-# <a name="your-first-bing-search-query"></a>De eerste Bing-zoekquery
+# <a name="your-first-bing-search-query"></a>Uw eerste Bing-zoekquery
 
-Voordat u uw eerste aanroep aanbrengen kunt, moet u een abonnement cognitieve Services code. Als u een sleutel, Zie [cognitieve Services probeer](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api).
+Voordat u uw eerste aanroep kunt versturen, moet u een abonnementssleutel van Cognitive Services opvragen. Zie [Cognitive Services proberen](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) voor meer informatie.
 
-Als u de zoekresultaten, zou u een GET-aanvraag verzenden naar het volgende eindpunt:  
-  
+Om webzoekresultaten te krijgen, verstuurt u een GET-aanvraag naar het volgende eindpunt:  
+
 ```
 https://api.cognitive.microsoft.com/bing/v7.0/search
 ```  
 
-De aanvraag moet de HTTPS-protocol gebruiken.
+In de aanvraag moet u het HTTPS-protocol gebruiken.
 
-We raden aan dat alle aanvragen zijn afkomstig uit een server. Het distribueren van de sleutel als onderdeel van een clienttoepassing biedt meer mogelijkheden om een schadelijke van derden om deze te openen. Het aanroepen van een server biedt ook een centraal punt voor de upgrade voor toekomstige versies van de API.  
-  
-De aanvraag moet opgeven de [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#query) queryparameter waarin de gebruiker zoekterm. Hoewel dit optioneel is, geef de aanvraag ook de [mkt](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#mkt) queryparameter waarmee de markt waar u de resultaten uit te komen. Query voor een lijst met optionele parameters zoals `responseFilter` en `textDecorations`, Zie [queryparameters](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#query-parameters). Alle parameterwaarden moet URL zijn gecodeerd.  
-  
-De aanvraag moet opgeven de [Ocp-Apim-Subscription-Key](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#subscriptionkey) header. Hoewel dit optioneel, wordt u aangeraden ook de volgende headers opgeven:  
-  
--   [Gebruikersagent](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#useragent)  
+Het is raadzaam dat alle aanvragen afkomstig zijn van een server. Het distribueren van de sleutel als onderdeel van een clienttoepassing biedt een kwaadwillende gebruiker namelijk meer mogelijkheden om de sleutel te onderscheppen. Als u ervoor kiest om alle aanroepen via een server te laten lopen, beschikt u bovendien over een centraal upgradepunt voor toekomstige versies van de API.  
+
+De aanvraag moet de parameter [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#query) bevatten, met daarin de zoekterm van de gebruiker. Hoewel dit optioneel is, moet de aanvraag ook de queryparameter [mkt](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#mkt) bevatten. Hiermee geeft u de markt aan waarvan de resultaten afkomstig moeten zijn. Zie [Queryparameters](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#query-parameters) voor een lijst met optionele queryparameters, zoals `responseFilter` en `textDecorations`. Alle waarden van queryparameter moeten als een URL zijn gecodeerd.  
+
+De aanvraag moet de header [Ocp-Apim-Subscription-Key](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#subscriptionkey) bevatten. Hoewel dit optioneel is, wordt u aangeraden ook altijd deze headers op te geven:  
+
+-   [User-Agent](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#useragent)  
 -   [X-MSEdge-ClientID](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#clientid)  
--   [X-Search-client-IP](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#clientip)  
--   [X-Search-locatie](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#location)  
+-   [X-Search-ClientIP](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#clientip)  
+-   [X-Search-Location](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#location)  
 
-De client-IP-adres en de locatie-headers zijn belangrijk voor het retourneren van locatie op de hoogte inhoud. Bijvoorbeeld, als de gebruiker query *varen + uitkomsten*, ze waarschijnlijk geïnteresseerd bent in uitkomsten zich bevinden in de buurt van hun locatie. Als u wilt dat de resultaten bevatten uitkomsten die beschikbaar zijn in de buurt van de locatie van de gebruiker, moet u de locatieheader en eventueel de client-IP-header op te nemen. Dit is minder belangrijk als de zoekterm expliciet een locatie (bijvoorbeeld varen + uitkomsten florida + sleutels noemt). 
+De headers ClientIP en Location zijn belangrijk voor het retourneren van locatiespecifieke inhoud. Als de query van de gebruiker bijvoorbeeld *varen+lessen* is, is de gebruiker waarschijnlijk geïnteresseerd in lessen in de eigen buurt. Als u wilt dat de resultaten lessen bevatten die beschikbaar zijn in de buurt van de locatie van de gebruiker, moet u de locatie-header en (optioneel) de client-IP-header opnemen. Het is minder belangrijk als de zoekterm expliciet een locatie (bijvoorbeeld: varen+lessen+ waddeneilanden) noemt.
 
-Zie voor een lijst van alle aanvraag- en reactieheaders [Headers](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#headers).
+Zie [Headers](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#headers) voor een lijst met alle aanvraag- en antwoordheaders.
 
 ## <a name="the-request"></a>De aanvraag
 
-Hieronder ziet u een zoekaanvraag met alle voorgestelde queryparameters en -koppen. Als dit de eerste keer aanroepen van een van de Bing-API's, bevatten geen koptekst van de client-ID. Alleen de client-ID bevatten als u eerder een Bing-API hebt genoemd en Bing een client-ID voor de gebruiker en apparaat combinatie geretourneerd. 
-  
+Hieronder ziet u een zoekaanvraag waarin alle voorgestelde queryparameters en headers zijn opgenomen. Als dit de eerste keer is van u een van de Bing-API's aanroept, moet u de header met de client-id weglaten. Voeg de client-id alleen toe als u eerder een Bing-API hebt aangeroepen en Bing een client-id heeft geretourneerd voor de combinatie van gebruiker en apparaat.
+
 ```  
 GET https://api.cognitive.microsoft.com/bing/v7.0/search?q=sailing+lessons+seattle&mkt=en-us HTTP/1.1  
 Ocp-Apim-Subscription-Key: 123456789ABCDE  
@@ -57,7 +58,7 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com  
 ```  
 
-Hieronder ziet u het antwoord op de vorige aanvraag. Het voorbeeld ziet ook de Bing-specifieke antwoordheaders.
+Hieronder ziet u het antwoord op de vorige aanvraag. Het voorbeeld bevat ook de Bing-specifieke antwoordheaders.
 
 ```
 BingAPIs-TraceId: 76DD2C2549B94F9FB55B4BD6FEB6AC
@@ -265,6 +266,6 @@ BingAPIs-Market: en-US
 
 ## <a name="next-steps"></a>Volgende stappen
 
-De API uitproberen. Ga naar [webconsole Search API testen](https://dev.cognitive.microsoft.com/docs/services/56b43eeccf5ff8098cef3807/operations/56b4447dcf5ff8098cef380d). 
+Probeer de API uit. Ga naar [Testconsole voor Bing Webzoekopdrachten-API](https://dev.cognitive.microsoft.com/docs/services/56b43eeccf5ff8098cef3807/operations/56b4447dcf5ff8098cef380d).
 
-Zie voor meer informatie over het gebruiken van de objecten antwoord [zoeken op het Web](./search-the-web.md).
+Zie [Searching the Web](./search-the-web.md) (Zoeken op het web) voor meer informatie over het gebruik van de antwoordobjecten.

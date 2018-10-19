@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 07/16/2018
+ms.date: 09/12/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: bc04483c35162c0b461fd03c63aaa894b1bc199a
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: bd41244192efa1333bc90bec8c00f38aaaa7f612
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39070674"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44714986"
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>On-premises machines migreren naar Azure
 
@@ -40,10 +40,7 @@ Voordat u begint, is het handig om de architectuur voor noodherstel van [VMware]
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Apparaten die zijn geëxporteerd door geparavirtualiseerde stuurprogramma's worden niet ondersteund.
- 
-> [!WARNING]
-> Het is mogelijk om virtuele machines op andere virtualisatieplatforms te migreren (met uitzondering van VMware, Hyper-V), zoals XenServer, door de virtuele machines als fysieke servers te behandelen. Deze benadering is echter nog niet getest en gevalideerd door Microsoft en werkt mogelijk niet. Virtuele machines die worden uitgevoerd op het XenServer-platform worden bijvoorbeeld mogelijk niet uitgevoerd in Azure, tenzij XenServer-hulpprogramma's en para-gevirtualiseerde opslag- en netwerkstuurprogramma's van de virtuele machine zijn verwijderd voordat u met de migratie begint.
+Apparaten die zijn geëxporteerd door geparavirtualiseerde stuurprogramma's worden niet ondersteund.
 
 
 ## <a name="create-a-recovery-services-vault"></a>Een Recovery Services-kluis maken
@@ -124,10 +121,43 @@ Een failover uitvoeren voor de machines die u wilt migreren.
 
 In sommige scenario's vereist de failover extra verwerking die circa acht tot tien minuten duurt. U zou langere failover-tijden kunnen waarnemen voor fysieke servers, VMware Linux-computers, VMware VM's waarop de DHCP-service niet is ingeschakeld, en VMware VM's die niet de volgende opstartstuurprogramma’s hebben: storvsc, vmbus, storflt, intelide, atapi.
 
+## <a name="after-migration"></a>Na de migratie
+
+Wanneer machines zijn gemigreerd naar Azure, zijn er nog een aantal stappen die u moet voltooien.
+
+Enkele stappen kunnen worden geautomatiseerd als onderdeel van het migratieproces met behulp van de ingebouwde automation-scripts voor [herstelplannen]( https://docs.microsoft.com/azure/site-recovery/site-recovery-runbook-automation)   
+
+
+### <a name="post-migration-steps-in-azure"></a>Stappen na de migratie in Azure
+
+- Voer correcties van de app uit na de migratie, zoals updates van de databaseverbindingsreeksen en webserverconfiguraties. 
+- Voer acceptatietesten van de toepassing en de migratie uit op de gemigreerde toepassing die nu wordt uitgevoerd in Azure.
+- De [Azure VM-agent](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) beheert de interactie van de VM met de Azure-Infrastructuurcontroller. Dit is vereist voor sommige Azure-services, zoals Azure Backup, Azure Site Recovery en Azure-beveiliging.
+    - Als u VMware-machines en fysieke servers wilt migreren, installeert het installatieprogramma van de Mobility-service de beschikbaar Azure VM-agent op Windows-machines. Voor Linux VM‘s raden we u aan om de agent te installeren na failover. a
+    - Als u Azure VM's migreert naar een secundaire regio, moet de Azure VM-agent vóór de migratie worden ingericht op de virtuele machine.
+    - Als u Hyper-V VM‘s naar Azure migreert, installeert u de Azure VM-agent na de migratie op de Azure VM.
+- Verwijder eventuele Site Recovery-providers/agenten handmatig van de VM. Als u VMware VM‘s of fysieke servers migreert, [moet u de Mobility-service][vmware-azure-install-mobility-service.md#uninstall-mobility-service-on-a-windows-server-computer] van de Azure VM verwijderen.
+- Voor grotere flexibiliteit:
+    - Houd uw gegevens veilig door back-ups van virtuele Azure VM‘s te maken met behulp van de Azure Backup-service. [Meer informatie]( https://docs.microsoft.com/azure/backup/quick-backup-vm-portal).
+    - Houd workloads continu beschikbaar door Azure VM‘s naar een secundaire regio te repliceren met Site Recovery. [Meer informatie](azure-to-azure-quickstart.md).
+- Voor betere beveiliging:
+    - De toegang van binnenkomend verkeer vergrendelen en beperken met [Just-in-time-beheer]( https://docs.microsoft.com/azure/security-center/security-center-just-in-time) van Azure Security Center
+    - Beperk het netwerkverkeer naar beheereindpunten met [Netwerkbeveiligingsgroepen](https://docs.microsoft.com/azure/virtual-network/security-overview).
+    - Implementeer [Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-overview) om schijven te beveiligen en gegevens te beschermen tegen diefstal en onbevoegde toegang.
+    - Lees meer informatie over [IaaS-resources beveiligen]( https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/ ) en bezoek het [Azure Security Center](https://azure.microsoft.com/services/security-center/ ).
+- Voor controle en beheer:
+    - Overweeg de implementatie van [Azure Cost Management](https://docs.microsoft.com/azure/cost-management/overview) om uw resourcegebruik en uitgaven te bewaken.
+
+### <a name="post-migration-steps-on-premises"></a>Stappen om na de migratie on-premises uit te voeren
+
+- Leid appverkeer via de app die wordt uitgevoerd op het gemigreerde Azure VM-exemplaar.
+- Verwijder de on-premises VM's uit uw lokale VM-inventaris.
+- Verwijder de on-premises VM's uit de lokale back-ups.
+- Werk eventuele interne documentatie bij met de nieuwe locatie en het nieuwe IP-adres van de Azure VM's.
+
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie hebt u on-premises virtuele machines naar virtuele Azure-machines gemigreerd. Nu u virtuele machines hebt gemigreerd, kunt u het volgende doen:
-- [Herstel na noodgeval instellen](azure-to-azure-replicate-after-migration.md) voor de gemigreerde machines.
-- Profiteren van de mogelijkheden van de [veilige en goed beheerde cloud](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/) van Azure voor het beheren van uw virtuele machines in Azure.
+In deze zelfstudie hebt u on-premises virtuele machines naar virtuele Azure-machines gemigreerd. U kunt nu [noodherstel instellen](azure-to-azure-replicate-after-migration.md) voor een secundaire Azure-regio voor de Azure VM's.
+
   
