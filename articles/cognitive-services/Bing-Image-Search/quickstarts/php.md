@@ -1,44 +1,44 @@
 ---
-title: "Snelstartgids: Verzenden zoekquery's met de Bing afbeeldingen zoeken-API en PHP"
+title: 'Snelstart: Afbeeldingen zoeken met PHP - Bing Afbeeldingen zoeken-API'
 titleSuffix: Azure Cognitive Services
-description: Gebruik deze Quick Start om te zoeken en -installatiekopieën zoeken op Internet met behulp van de Bing webzoekopdrachten-API.
+description: Gebruik deze snelstart om voor het eerst de Bing Afbeeldingen zoeken-API aan te roepen en een JSON-antwoord te ontvangen. De eenvoudige toepassing in dit artikel stuurt een zoekquery en toont de onbewerkte resultaten.
 services: cognitive-services
 documentationcenter: ''
 author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-image-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 9/07/2018
 ms.author: aahi
-ms.openlocfilehash: ebf8c0269e070c9047d730e58b8e2d3824124e1a
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
-ms.translationtype: MT
+ms.openlocfilehash: ac3de25773249119535ac6f3bd063ff6b9b7831e
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45574195"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46295517"
 ---
-# <a name="quickstart-send-search-queries-using-the-bing-image-search-rest-api-and-php"></a>Snelstartgids: Verzenden zoekquery's met behulp van de Bing afbeeldingen zoeken-REST-API en PHP
+# <a name="quickstart-send-search-queries-using-the-bing-image-search-rest-api-and-php"></a>Snelstart: Zoekquery's verzenden met behulp van de Bing Afbeeldingen zoeken-REST API en PHP
 
-Gebruik deze Quick Start voor het maken van de eerste aanroep van de Bing afbeeldingen zoeken-API en een JSON-antwoord ontvangen. De eenvoudige toepassing in dit artikel verzendt een zoekquery en geeft de onbewerkte resultaten weer.
+Gebruik deze snelstart om voor het eerst de Bing Afbeeldingen zoeken-API aan te roepen en een JSON-antwoord te ontvangen. De eenvoudige toepassing in dit artikel stuurt een zoekquery en toont de onbewerkte resultaten.
 
-Terwijl deze toepassing is geschreven in PHP, de API is een RESTful-Web-compatibel is met elke programmeertaal die HTTP-aanvragen te parseren van JSON.
+Hoewel deze toepassing in PHP is geschreven, is de API een RESTful-webservice die compatibel is met elke programmeertaal die HTTP-aanvragen kan doen en JSON kan parseren.
 
 De broncode voor dit voorbeeld is beschikbaar [op GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingImageSearchv7.java).
 
 ## <a name="prerequisites"></a>Vereisten
 
-* [PHP 5.6.x of hoger](http://php.net/downloads.php).
+* [PHP 5.6.x of later](http://php.net/downloads.php).
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
-## <a name="create-and-initialize-the-application"></a>Maken en initialiseren van de toepassing
+## <a name="create-and-initialize-the-application"></a>De toepassing maken en initialiseren
 
-Volg deze stappen om uit te voeren deze toepassing.
+Volg deze stappen om deze toepassing uit te voeren.
 
-1. Zorg ervoor dat beveiligde HTTP-ondersteuning is ingeschakeld in uw `php.ini` bestand. Op Windows, dit bestand bevindt zich `C:\windows`.
-2. Maak een nieuwe PHP-project in uw favoriete IDE of editor.
-3. Definieer het API-eindpunt, uw abonnementssleutel en zoekterm.
+1. Zorg ervoor dat beveiligde HTTP-ondersteuning is ingeschakeld in uw `php.ini`-bestand. In Windows bevindt dit bestand zich in `C:\windows`.
+2. Maak een nieuw PHP-project in uw favoriete IDE of editor.
+3. maak variabelen voor uw API-eindpunt, uw abonnementssleutel en zoekterm.
 
     ```php
     $endpoint = 'https://api.cognitive.microsoft.com/bing/v7.0/images/search';
@@ -46,9 +46,9 @@ Volg deze stappen om uit te voeren deze toepassing.
     $accessKey = 'enter key here';
     $term = 'tropical ocean';
     ```
-## <a name="construct-and-perform-a-http-request"></a>Bouwen en uitvoeren van een HTTP-aanvraag
+## <a name="construct-and-perform-a-http-request"></a>Een HTTP-aanvraag compileren en uitvoeren
 
-1. De variabelen in de vorige stap gebruiken om voor te bereiden van een HTTP-aanvraag naar de afbeeldingen zoeken-API.
+1. Gebruik de variabelen in de vorige stap om een HTTP-aanvraag naar de Bing Image Search-API voor te bereiden.
 
     ```php
     $headers = "Ocp-Apim-Subscription-Key: $key\r\n";
@@ -56,16 +56,16 @@ Volg deze stappen om uit te voeren deze toepassing.
                             'header' => $headers,
                             'method' => 'GET' ));
     ```
-2. Uitvoeren van de webaanvraag en ophalen van het JSON-antwoord.
+2. Voer de webaanvraag uit en haal het JSON-antwoord op.
 
     ```php
     $context = stream_context_create($options);
     $result = file_get_contents($url . "?q=" . urlencode($query), false, $context);
     ```
 
-## <a name="process-and-print-the-json"></a>Verwerken en de JSON afdrukken
+## <a name="process-and-print-the-json"></a>De JSON verwerken en afdrukken
 
-Verwerk en afdrukken van het geretourneerde JSON-antwoord.
+Verwerk en druk het geretourneerde JSON-antwoord af.
 
     ```php
     $headers = array();
@@ -78,9 +78,9 @@ Verwerk en afdrukken van het geretourneerde JSON-antwoord.
         return array($headers, $result);
     ```
 
-## <a name="sample-json-response"></a>Voorbeeld van JSON-antwoord
+## <a name="sample-json-response"></a>Voorbeeld van een JSON-antwoord
 
-Antwoorden van de Bing afbeeldingen zoeken-API worden geretourneerd als JSON. Dit voorbeeldantwoord is ingekort zodat één resultaat wordt weergegeven.
+Antwoorden die afkomstig zijn van de Bing Afbeeldingen zoeken-API worden geretourneerd in de JSON-indeling. Dit voorbeeldantwoord is ingekort zodat één resultaat wordt weergegeven.
 
 ```json
 {
@@ -129,12 +129,12 @@ Antwoorden van de Bing afbeeldingen zoeken-API worden geretourneerd als JSON. Di
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Zelfstudie voor Bing afbeeldingen zoeken-app met één pagina](../tutorial-bing-image-search-single-page-app.md)
+> [Zelfstudie voor app met één pagina voor Bing Image Search](../tutorial-bing-image-search-single-page-app.md)
 
-## <a name="see-also"></a>Zie ook 
+## <a name="see-also"></a>Zie ook
 
-* [Wat is de Bing afbeeldingen zoeken?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
-* [Probeer een online interactieve demo](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
-* [Een gratis Cognitive Services-toegangssleutel ophalen](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
-* [Documentatie voor Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services)
-* [Bing afbeeldingen zoeken-API-verwijzing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)
+* [Wat is Bing Image Search?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
+* [Online interactieve demo proberen](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
+* [Gratis Cognitive Services-toegangssleutel ophalen](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
+* [Documentatie van Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services)
+* [Naslag voor Bing Afbeeldingen zoeken-API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)

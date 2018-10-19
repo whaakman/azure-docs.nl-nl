@@ -1,48 +1,48 @@
 ---
-title: "Snelstartgids: Verzenden zoekquery's met de Bing afbeeldingen zoeken-API met behulp van Node.js"
+title: 'Snelstart: Afbeeldingen zoeken met Node.js - Bing Afbeeldingen zoeken-API'
 titleSuffix: Azure Cognitive Services
-description: Gebruik deze Quick Start om te zoeken en -installatiekopieën zoeken op Internet met behulp van de Bing webzoekopdrachten-API.
+description: Gebruik deze snelstart om voor het eerst de Bing Afbeeldingen zoeken-API aan te roepen en een JSON-antwoord te ontvangen. Deze eenvoudige JavaScript-toepassing stuurt een zoekquery naar de API en toont de onbewerkte resultaten.
 services: cognitive-services
 documentationcenter: ''
 author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-image-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 8/20/2018
 ms.author: aahi
-ms.openlocfilehash: 43f0cfec6aa2d4263b6a627736c2a432b2943145
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
-ms.translationtype: MT
+ms.openlocfilehash: 1584b3e0a1e1c560d42b5f8320d0e15ad6242918
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45576643"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46294591"
 ---
-# <a name="quickstart-send-search-queries-using-the-bing-image-search-rest-api-and-nodejs"></a>Snelstartgids: Verzenden zoekquery's met behulp van de Bing afbeeldingen zoeken-REST-API en Node.js
+# <a name="quickstart-send-search-queries-using-the-bing-image-search-rest-api-and-nodejs"></a>Snelstart: Zoekquery's verzenden met behulp van de Bing Afbeeldingen zoeken-REST API en Node.js
 
-Gebruik deze Quick Start voor het maken van de eerste aanroep van de Bing afbeeldingen zoeken-API en een JSON-antwoord ontvangen. Deze eenvoudige JavaScript-toepassing een zoekquery verzendt naar de API en de onbewerkte resultaten worden weergegeven.
+Gebruik deze snelstart om voor het eerst de Bing Afbeeldingen zoeken-API aan te roepen en een JSON-antwoord te ontvangen. Deze eenvoudige JavaScript-toepassing stuurt een zoekquery naar de API en toont de onbewerkte resultaten.
 
-Terwijl deze toepassing is geschreven in JavaScript en wordt uitgevoerd in Node.js, de API is een RESTful-Web-service compatibel is met de meeste moderne programmeertalen.
+Hoewel deze toepassing in JavaScript is geschreven en wordt uitgevoerd in Node.js, is de API een RESTful-webservice die compatibel is met vrijwel elke programmeertaal.
 
-De broncode voor dit voorbeeld is beschikbaar [op GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingImageSearchv7Quickstart.js) met extra foutafhandeling en code-aantekeningen.
+De broncode voor dit voorbeeld is beschikbaar [op GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingImageSearchv7Quickstart.js) met extra foutafhandeling en codeaantekeningen.
 
 ## <a name="prerequisites"></a>Vereisten
 
-* De nieuwste versie van [Node.js](https://nodejs.org/en/download/).
+* Nieuwste versie van [Node.js](https://nodejs.org/en/download/).
 
-* De [aanvraag van de JavaScript-bibliotheek](https://github.com/request/request)
+* De [JavaScript-aanvragenbibliotheek](https://github.com/request/request)
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
-## <a name="create-and-initialize-the-application"></a>Maken en initialiseren van de toepassing
+## <a name="create-and-initialize-the-application"></a>De toepassing maken en initialiseren
 
-1. Maak een nieuwe JavaScript-bestand in uw favoriete IDE of editor, en stel de vereisten voor strikte regels en https.
+1. Maak een nieuw JavaScript-bestand in uw favoriete IDE of editor, en stel de vereisten voor striktheid en https in.
 
     ```javascript
     'use strict';
     let https = require('https');
     ```
 
-2. Variabelen voor de API-eindpunt, zoekpad afbeeldings-API, uw abonnementssleutel maken en zoekterm.
+2. Maak variabelen voor het API-eindpunt, het zoekpad voor de afbeeldings-API, uw abonnementssleutel en de zoekterm.
     ```javascript
     let subscriptionKey = 'enter key here';
     let host = 'api.cognitive.microsoft.com';
@@ -50,9 +50,9 @@ De broncode voor dit voorbeeld is beschikbaar [op GitHub](https://github.com/Azu
     let term = 'tropical ocean';
     ```
 
-## <a name="construct-the-search-request-and-query"></a>De zoekopdracht en een query bouwen.
+## <a name="construct-the-search-request-and-query"></a>Compileer de zoekopdracht en een query.
 
-1. Gebruik de variabelen in de vorige stap om een URL zoeken voor de API-aanvraag. Houd er rekening mee dat uw zoekterm URL-gecodeerd moet zijn voordat het wordt verzonden naar de API.
+1. Gebruik de variabelen uit de laatste stap om een zoek-URL voor de API-aanvraag te formatteren. Houd er rekening mee dat uw zoekterm URL-gecodeerd moet zijn voordat deze wordt verzonden naar de API.
 
     ```javascript
     let request_params = {
@@ -65,32 +65,32 @@ De broncode voor dit voorbeeld is beschikbaar [op GitHub](https://github.com/Azu
     };
     ```
 
-2. De aanvraag-bibliotheek voor het verzenden van uw query aan de API gebruiken. `response_handler` in de volgende sectie worden gedefinieerd.
+2. Gebruik de aanvraagbibliotheek om uw query naar de API te verzenden. `response_handler` wordt gedefinieerd in de volgende sectie.
     ```javascript
     let req = https.request(request_params, response_handler);
     req.end();
     ```
 
-## <a name="handle-and-parse-the-response"></a>Verwerken en parseren van het antwoord
+## <a name="handle-and-parse-the-response"></a>Het antwoord verwerken en parseren
 
-1. een functie met de naam definiëren `response_handler` die een HTTP-aanroep duurt `response`, als een parameter. in deze functie kunt u de volgende stappen uitvoeren:
-    
-    1. Definieer een variabele bevatten de hoofdtekst van het JSON-antwoord.  
+1. definieer een functie met de naam `response_handler` en als parameter de HTTP-aanroep `response`. voer binnen deze functie de volgende stappen uit:
+
+    1. Definieer een variabele voor de hoofdtekst van het JSON-antwoord.  
         ```javascript
         let response_handler = function (response) {
             let body = '';
         };
         ```
 
-    2. De hoofdtekst van het antwoord Store wanneer de **gegevens** vlag wordt aangeroepen 
+    2. De hoofdtekst van het antwoord opslaan wanneer de **gegevens**vlag wordt aangeroepen
         ```javascript
         response.on('data', function (d) {
             body += d;
         });
         ```
 
-    3. Wanneer een **end** vlag is heeft, de JSON kan worden verwerkt en URL voor de installatiekopie kan worden afgedrukt, samen met het totale aantal geretourneerde installatiekopieën.
-    
+    3. Wanneer een **eind**vlag wordt gesignaleerd, kan de JSON worden verwerkt en kan de URL voor de afbeelding worden afgedrukt samen met het totale aantal geretourneerde afbeeldingen.
+
         ```javascript
         response.on('end', function () {
             let firstImageResult = imageResults.value[0];
@@ -102,7 +102,7 @@ De broncode voor dit voorbeeld is beschikbaar [op GitHub](https://github.com/Azu
 
 ## <a name="json-response"></a>JSON-antwoord
 
-Antwoorden van de Bing afbeeldingen zoeken-API worden geretourneerd als JSON. Dit voorbeeldantwoord is ingekort zodat één resultaat wordt weergegeven.
+Antwoorden die afkomstig zijn van de Bing Afbeeldingen zoeken-API worden geretourneerd in de JSON-indeling. Dit voorbeeldantwoord is ingekort zodat één resultaat wordt weergegeven.
 
 ```json
 {
@@ -151,12 +151,12 @@ Antwoorden van de Bing afbeeldingen zoeken-API worden geretourneerd als JSON. Di
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Zelfstudie voor Bing afbeeldingen zoeken-app met één pagina](../tutorial-bing-image-search-single-page-app.md)
+> [Zelfstudie voor app met één pagina voor Bing Image Search](../tutorial-bing-image-search-single-page-app.md)
 
-## <a name="see-also"></a>Zie ook 
+## <a name="see-also"></a>Zie ook
 
-* [Wat is de Bing afbeeldingen zoeken?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
-* [Probeer een online interactieve demo](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
-* [Een gratis Cognitive Services-toegangssleutel ophalen](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
-* [Documentatie voor Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services)
-* [Bing afbeeldingen zoeken-API-verwijzing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)
+* [Wat is Bing Image Search?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
+* [Online interactieve demo proberen](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
+* [Gratis Cognitive Services-toegangssleutel ophalen](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
+* [Documentatie van Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services)
+* [Naslag voor Bing Afbeeldingen zoeken-API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)
