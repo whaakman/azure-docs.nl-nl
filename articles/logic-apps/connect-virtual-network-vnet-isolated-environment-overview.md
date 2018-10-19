@@ -1,6 +1,6 @@
 ---
-title: Toegang tot Azure-netwerken van Azure Logic Apps
-description: In dit overzicht ziet u hoe geïsoleerde logic apps kunnen verbinden met Azure-netwerken van integratie van service-omgevingen (ISEs) die gebruikmaken van particuliere en toegewezen resources
+title: Toegang tot Azure-netwerken van Azure Logic Apps met integratie van service-omgevingen (ISEs)
+description: In dit overzicht wordt beschreven hoe logische apps toegang krijgen tot virtuele netwerken van Azure helpen bij het integration service-omgevingen (ISEs)
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -9,19 +9,19 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 09/24/2018
-ms.openlocfilehash: 9546b8ca33ef7da2d570b547446858e2a4099234
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: f21af23cf0b7b121441b1433f382db60ef7f13fe
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393135"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49408656"
 ---
-# <a name="access-to-azure-virtual-network-resources-from-isolated-azure-logic-apps"></a>Toegang tot resources van Azure Virtual Network van geïsoleerde Azure Logic Apps
+# <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>Toegang tot resources van Azure Virtual Network van Azure Logic Apps met behulp van de integratie van service-omgevingen (ISEs)
 
 > [!NOTE]
 > Deze mogelijkheid is in *privépreview*. Om te vragen tot, [maken van uw aanvraag voor deelname aan hier](https://aka.ms/iseprivatepreview).
 
-Soms moeten toegang tot beveiligde resources, zoals virtuele machines (VM's) en andere systemen of -services in uw logic apps en integratieaccounts een [virtueel Azure-netwerk](../virtual-network/virtual-networks-overview.md). Dit om toegang te bieden, kunt u [maken een *integratieserviceomgeving* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment.md) als de locatie voor het maken van uw logic apps en integratieaccounts. 
+Soms moeten toegang tot beveiligde resources, zoals virtuele machines (VM's) en andere systemen of -services in uw logic apps en integratieaccounts een [virtueel Azure-netwerk](../virtual-network/virtual-networks-overview.md). Als u deze toegang instelt, kunt u [maken een *integratieserviceomgeving* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment.md) die u gebruikt als de locatie voor uw logic apps en integratieaccounts. 
 
 ![Integratie van service-omgeving selecteren](./media/connect-virtual-network-vnet-isolated-environment-overview/select-logic-app-integration-service-environment.png)
 

@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: billgib
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 60139915e8d8dca382f4ef62b5129f1a84e7e80d
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: b207af3bed40f6287f60b25638f3091fa187aa6f
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056706"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405069"
 ---
 # <a name="set-up-and-use-log-analytics-with-a-multitenant-sql-database-saas-app"></a>Instellen en Log Analytics gebruiken met een SQL Database SaaS-app voor meerdere tenants
 
@@ -32,7 +32,7 @@ In deze zelfstudie leert u het volgende:
 U kunt deze zelfstudie alleen voltooien als aan de volgende vereisten wordt voldaan:
 
 * De Wingtip Tickets SaaS-database-per-tenant-app wordt geïmplementeerd. Als u wilt implementeren in minder dan vijf minuten, Zie [implementeren en verkennen van de toepassing Wingtip Tickets SaaS-database-per-tenant](saas-dbpertenant-get-started-deploy.md).
-* Azure PowerShell is geïnstalleerd. Zie voor meer informatie, [aan de slag met Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
+* Azure PowerShell is geïnstalleerd. Zie [Aan de slag met Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps) voor meer informatie.
 
 Zie de [zelfstudie voor het beheer en bewaking van prestaties](saas-dbpertenant-performance-monitoring.md) voor een beschrijving van de SaaS-scenario's en patronen en hoe ze van invloed op de vereisten voor een oplossing voor bewaking.
 
@@ -42,7 +42,7 @@ Bewaking en waarschuwingen is beschikbaar voor databases en pools in Azure porta
 
 Voor scenario's met hoge volumes, kunt u Log Analytics gebruiken voor bewaking en waarschuwingen. Log Analytics is een afzonderlijke Azure-service waarmee analytics van diagnostische logboeken en telemetrie die mogelijk veel services in een werkruimte worden verzameld. Log Analytics biedt een ingebouwde query querytaal en visualisatiehulpmiddelen waarmee operationele gegevens analytics. De oplossing SQL Analytics biedt verschillende vooraf gedefinieerde elastische pool en database controleren en meldingen weergaven en query's. Log Analytics biedt ook een aangepaste weergave-ontwerper.
 
-Log Analytics-werkruimten en analyse-oplossingen openen in Azure portal en in Operations Management Suite. De Azure-portal is het nieuwere toegangspunt, maar kan het zijn achter de Operations Management Suite-portal in bepaalde gebieden.
+OMS-werkruimten worden nu aangeduid als Log Analytics-werkruimten. Log Analytics-werkruimten en analyse-oplossingen openen in de Azure-portal. De Azure-portal is het nieuwere toegangspunt, maar is het mogelijk wat er achter de Operations Management Suite-portal in bepaalde gebieden.
 
 ### <a name="create-performance-diagnostic-data-by-simulating-a-workload-on-your-tenants"></a>Diagnostische gegevens voor prestaties door te simuleren van een werkbelasting op uw tenants maken 
 
@@ -70,12 +70,12 @@ Log Analytics is een afzonderlijke service die moet worden geconfigureerd. Log A
 1. Open in de PowerShell ISE *... \\WingtipTicketsSaaS-MultiTenantDb-master\\Learning Modules\\Performance Monitoring and Management\\Log Analytics\\Demo-LogAnalytics.ps1*.
 1. Druk op F5 om het script uitvoert.
 
-U kunt nu Log Analytics openen in de Azure portal of de Operations Management Suite-portal. Het duurt een paar minuten voor het verzamelen van telemetrie in de Log Analytics-werkruimte en deze zichtbaar te maken. Hoe langer laat u het systeem verzamelen van diagnostische gegevens, hoe interessanter de ervaring is. 
+U kunt nu Log Analytics openen in Azure portal. Het duurt een paar minuten voor het verzamelen van telemetrie in de Log Analytics-werkruimte en deze zichtbaar te maken. Hoe langer laat u het systeem verzamelen van diagnostische gegevens, hoe interessanter de ervaring is. 
 
 ## <a name="use-log-analytics-and-the-sql-analytics-solution-to-monitor-pools-and-databases"></a>Pools en databases bewaken met Log Analytics en de SQL Analytics-oplossing
 
 
-In deze oefening opent u Log Analytics en de Operations Management Suite-portal om te kijken naar de telemetrie die is verzameld voor de databases en pools.
+In deze oefening opent u Log Analytics in Azure portal om te kijken naar de telemetrie die is verzameld voor de databases en pools.
 
 1. Blader naar de [Azure-portal](https://portal.azure.com). Selecteer **alle services** Log Analytics te openen. Zoek vervolgens naar Log Analytics.
 
@@ -127,9 +127,9 @@ In deze oefening opent u Log Analytics en de Operations Management Suite-portal 
 
 1. Selecteer terug in de Log Analytics-werkruimte **OMS-Portal** om er de werkruimte te openen.
 
-    ![Operations Management Suite-Portal-tegel](media/saas-dbpertenant-log-analytics/log-analytics-workspace-oms-portal.png)
+    ![Log Analytics-werkruimte](media/saas-dbpertenant-log-analytics/log-analytics-workspace-oms-portal.png)
 
-U kunt het logboek- en metrische gegevens in de werkruimte verder verkennen in de Operations Management Suite-portal. 
+U kunt de logboek- en metrische gegevens verder verkennen in de Log Analytics-werkruimte. 
 
 Bewaking en waarschuwingen in Log Analytics zijn gebaseerd op query's voor de gegevens in de werkruimte, in tegenstelling tot de waarschuwingen op elke resource in de Azure-portal gedefinieerd. Waarschuwingen gebaseerd op query's, kunt u een afzonderlijke waarschuwing die voor alle databases in plaats van definiëren een per-database. Query's zijn beperkt tot alleen de gegevens die beschikbaar zijn in de werkruimte.
 

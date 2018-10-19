@@ -12,12 +12,12 @@ ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: bd40faf8a77a8940dc78375ec516c39742540231
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: b18f7efa09b33def2851967b5fc78bb1ddbc61e6
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49352834"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49404916"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Aan de slag met SQL Database Auditing
 
@@ -79,7 +79,7 @@ Het volgende gedeelte bevat de configuratie van de controle met Azure portal.
 
     ![Navigatievenster][3]
 
-5. **Nieuwe** -u hebt nu meerdere opties voor het configureren van waarnaar de auditlogboeken worden geschreven. U kunt Logboeken schrijven naar een Azure storage-account, aan een OMS-werkruimte voor gebruik door Log Analytics of naar event hub voor gebruik met behulp van event hub. U kunt een willekeurige combinatie van deze opties configureren en auditlogboeken worden geschreven naar elk.
+5. **Nieuwe** -u hebt nu meerdere opties voor het configureren van waarnaar de auditlogboeken worden geschreven. U kunt Logboeken schrijven naar een Azure storage-account, een Log Analytics-werkruimte voor gebruik door Log Analytics of naar event hub voor gebruik met behulp van event hub. U kunt een willekeurige combinatie van deze opties configureren en auditlogboeken worden geschreven naar elk.
 
     ![Opties voor opslag](./media/sql-database-auditing-get-started/auditing-select-destination.png)
 
@@ -87,9 +87,9 @@ Het volgende gedeelte bevat de configuratie van de controle met Azure portal.
 
     ![opslagaccount](./media/sql-database-auditing-get-started/auditing_select_storage.png)
 
-7. Om te schrijven controle configureren meldt u zich bij een OMS-werkruimte en selecteer **Log Analytics (Preview)** en open **Log Analytics-gegevens**. Selecteer of maak de OMS-werkruimte waar logboeken worden geschreven en klik vervolgens op **OK**.
+7. Om te schrijven controle configureren vastgelegd in een Log Analytics-werkruimte en selecteer **Log Analytics (Preview)** en open **Log Analytics-gegevens**. Selecteer of maak de Log Analytics-werkruimte waar logboeken worden geschreven en klik vervolgens op **OK**.
 
-    ![OMS](./media/sql-database-auditing-get-started/auditing_select_oms.png)
+    ![Log Analytics](./media/sql-database-auditing-get-started/auditing_select_oms.png)
 
 8. Logboeken om te schrijven controle configureren naar een event hub, selecteer **Event Hub (Preview)** en open **details van Event Hub**. Selecteer de event hub waar logboeken worden geschreven en klik vervolgens op **OK**. Zorg ervoor dat de event hub in dezelfde regio als uw database en de server.
 
@@ -109,10 +109,10 @@ Als u ervoor hebt gekozen auditlogboeken schrijven naar Log Analytics:
 
 - Vervolgens te klikken op **openen in OMS** aan de bovenkant van de **controlerecords** pagina te openen de weergave van de logboeken in Log Analytics, waar u het tijdsbereik en de zoekopdracht kunt aanpassen.
 
-    ![Open in OMS](./media/sql-database-auditing-get-started/auditing_open_in_oms.png)
+    ![Open in Log Analytics](./media/sql-database-auditing-get-started/auditing_open_in_oms.png)
 
 - U kunt ook u kunt ook toegang tot de auditlogboeken van Log Analytics-blade. Open uw Log Analytics-werkruimte en klik vervolgens onder **algemene** sectie, klikt u op **logboeken**. U kunt beginnen met een eenvoudige query, zoals: *zoeken naar "SQLSecurityAuditEvents"* om weer te geven van de audit-Logboeken.
-    Hier kunt u ook kunt gebruiken [Operations Management Suite (OMS) Log Analytics](../log-analytics/log-analytics-log-search.md) geavanceerde zoekopdrachten uitvoeren op uw logboekgegevens audit. Log Analytics biedt u realtime operationele inzichten met behulp van geïntegreerde Zoek- en aangepaste dashboards voor het analyseren van miljoenen records gemakkelijk in uw werkbelastingen en servers. Zie voor meer nuttige informatie over opdrachten en OMS Log Analytics-zoektaal, [Log Analytics zoeken verwijzing](../log-analytics/log-analytics-log-search.md).
+    Hier kunt u ook kunt gebruiken [Log Analytics](../log-analytics/log-analytics-log-search.md) geavanceerde zoekopdrachten uitvoeren op uw logboekgegevens audit. Log Analytics biedt u realtime operationele inzichten met behulp van geïntegreerde Zoek- en aangepaste dashboards voor het analyseren van miljoenen records gemakkelijk in uw werkbelastingen en servers. Zie voor meer nuttige informatie over opdrachten en Log Analytics-zoektaal, [Log Analytics zoeken verwijzing](../log-analytics/log-analytics-log-search.md).
 
 Als u ervoor hebt gekozen auditlogboeken naar Event Hub schrijven:
 

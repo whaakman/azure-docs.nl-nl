@@ -1,52 +1,52 @@
 ---
 title: Azure Blob Storage met Azure Search indexeren
-description: Informatie over het indexeren van Azure Blob Storage en haal de tekst uit documenten met Azure Search
-author: chaosrealm
-manager: jlembicz
+description: Leer hoe u Azure Blob Storage indexeren en haal de tekst van documenten met Azure Search
+ms.date: 10/17/2018
+author: mgottein
+manager: cgronlun
+ms.author: magottei
 services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.date: 04/20/2018
-ms.author: eugenesh
-ms.openlocfilehash: b2660a98139068a8472c018de5cfbd29d6867c5a
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: d2706d4b10303cb62066f0381f9a69b553c05cb4
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33778491"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406963"
 ---
-# <a name="indexing-documents-in-azure-blob-storage-with-azure-search"></a>Documenten in Azure Blob Storage met Azure Search indexeren
-Dit artikel laat zien hoe u met Azure Search index documenten (zoals PDF-bestanden, Microsoft Office-documenten en enkele andere algemene indelingen) opgeslagen in Azure Blob storage. Eerst wordt de basisprincipes van instellen en configureren van een blob-indexeerfunctie uitgelegd. Vervolgens biedt een meer gedetailleerde uitleg van problemen en scenario's bent u waarschijnlijk tegenkomen.
+# <a name="indexing-documents-in-azure-blob-storage-with-azure-search"></a>Documenten in Azure Blob-opslag met Azure Search indexeren
+Dit artikel wordt beschreven hoe u met Azure Search index documenten (zoals PDF-bestanden en Microsoft Office-documenten en enkele andere algemene indelingen) die zijn opgeslagen in Azure Blob-opslag. Eerst wordt de basisbeginselen van het instellen en configureren van een blob-indexeerfunctie uitgelegd. Vervolgens, biedt een diepergaand onderzoek van problemen en scenario's kunt u waarschijnlijk optreden.
 
 ## <a name="supported-document-formats"></a>Ondersteunde documentindelingen voor
-De indexeerfunctie blob kan tekst ophalen uit de volgende documentindelingen voor het:
+De blob-indexeerfunctie kunt tekst extraheren uit de opmaak van de volgende documenten:
 
 [!INCLUDE [search-blob-data-sources](../../includes/search-blob-data-sources.md)]
 
-## <a name="setting-up-blob-indexing"></a>Instellen van de blob-indexering
-U kunt instellen dat een Azure Blob Storage indexeerfunctie gebruiken:
+## <a name="setting-up-blob-indexing"></a>Instellen van blob-indexering
+U kunt instellen dat een Azure Blob Storage-indexeerfunctie gebruiken:
 
 * [Azure Portal](https://ms.portal.azure.com)
 * Azure Search [REST-API](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations)
 * Azure Search [.NET SDK](https://aka.ms/search-sdk)
 
 > [!NOTE]
-> Sommige functies (bijvoorbeeld een veld-verwijzingen) nog niet beschikbaar in de portal en programmatisch worden gebruikt.
+> Sommige functies (bijvoorbeeld veldtoewijzingen) zijn nog niet beschikbaar in de portal, en moeten worden gebruikt via een programma.
 >
 >
 
-Hier ziet u de stroom met de REST API.
+Hier ziet de stroom met behulp van de REST-API.
 
 ### <a name="step-1-create-a-data-source"></a>Stap 1: een gegevensbron maken
-Een gegevensbron geeft aan welke gegevens worden indexeren, referenties die nodig zijn voor toegang tot de gegevens en beleidsregels efficiënt om wijzigingen te bepalen in de gegevens (nieuwe, gewijzigde of verwijderde rijen). Een gegevensbron kan worden gebruikt door meerdere indexeerfuncties in de dezelfde search-service.
+Een gegevensbron bevat gegevens die u wilt indexeren, referenties die nodig zijn voor toegang tot de gegevens en beleidsregels efficiënt om wijzigingen te bepalen in de gegevens (nieuwe, gewijzigde of verwijderde rijen). Een gegevensbron kan worden gebruikt door meerdere indexeerfuncties in de dezelfde search-service.
 
-De gegevensbron moet de volgende vereiste eigenschappen zijn voor blob-indexering:
+Voor blob-indexering, moet de gegevensbron de volgende vereiste eigenschappen hebben:
 
-* **naam** is de unieke naam van de gegevensbron in uw zoekservice.
+* **naam** is de unieke naam van de gegevensbron in uw search-service.
 * **type** moet `azureblob`.
-* **referenties** voorziet in de verbindingsreeks voor opslag account als de `credentials.connectionString` parameter. Zie [het opgeven van referenties](#Credentials) hieronder voor meer informatie.
-* **container** Hiermee geeft u een container in uw opslagaccount. Standaard zijn alle blobs in de container worden opgehaald. Als u alleen index blobs in een bepaalde virtuele map wilt, kunt u de map met de optionele opgeven **query** parameter.
+* **referenties** biedt de verbindingsreeks van de storage-account als de `credentials.connectionString` parameter. Zie [opgeven van referenties](#Credentials) hieronder voor meer informatie.
+* **container** Hiermee geeft u een container in uw storage-account. Standaard zijn alle blobs in de container worden opgehaald. Als u wilt dat alleen index blobs in een bepaalde virtuele map, kunt u die map met de optionele **query** parameter.
 
 Een gegevensbron maken:
 
@@ -61,26 +61,26 @@ Een gegevensbron maken:
         "container" : { "name" : "my-container", "query" : "<optional-virtual-directory-name>" }
     }   
 
-Zie voor meer informatie over de API-gegevensbron maken [Datasource maken](https://docs.microsoft.com/rest/api/searchservice/create-data-source).
+Zie voor meer informatie over de gegevensbron maken API's [maken Datasource](https://docs.microsoft.com/rest/api/searchservice/create-data-source).
 
 <a name="Credentials"></a>
-#### <a name="how-to-specify-credentials"></a>Het opgeven van referenties ####
+#### <a name="how-to-specify-credentials"></a>Hoe u referenties opgeven ####
 
 U kunt de referenties opgeven voor de blob-container in een van de volgende manieren:
 
-- **Volledige toegang account opslagverbindingsreeks**: `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>`. De verbindingsreeks kunt u krijgen via de Azure-portal door te navigeren naar de blade opslagaccount > Instellingen > sleutels (voor klassieke opslagaccounts) of instellingen > toegangssleutels (voor Azure Resource Manager storage-accounts).
-- **Shared access signature voor Storage account** (SAS)-verbindingsreeks: `BlobEndpoint=https://<your account>.blob.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=b&sp=rl` de SAS moet de lijst en leesrechten op containers en objecten (blobs in dit geval).
--  **Shared access signature voor containers**: `ContainerSharedAccessUri=https://<your storage account>.blob.core.windows.net/<container name>?sv=2016-05-31&sr=c&sig=<the signature>&se=<the validity end time>&sp=rl` de SAS moet de lijst en leesrechten op de container.
+- **Tekenreeks opslagaccountverbinding volledige toegang tot de**: `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>`. U kunt de verbindingsreeks ophalen uit de Azure-portal door te navigeren naar de blade opslagaccount > Instellingen > sleutels (voor klassieke opslagaccounts) of instellingen > toegangssleutels (voor opslagaccounts van Azure Resource Manager).
+- **Storage-account gedeelde-toegangshandtekening** (SAS)-verbindingsreeks: `BlobEndpoint=https://<your account>.blob.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=b&sp=rl` de SAS moet de lijst en lezen-machtigingen voor containers en objecten (in dit geval blobs).
+-  **Shared access signature voor containers**: `ContainerSharedAccessUri=https://<your storage account>.blob.core.windows.net/<container name>?sv=2016-05-31&sr=c&sig=<the signature>&se=<the validity end time>&sp=rl` de SAS moet de lijst en lezen-machtigingen voor de container.
 
-Toegang tot de handtekeningen voor meer informatie over gedeelde opslag, Zie [handtekeningen voor gedeelde toegang met behulp van](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
+Voor meer informatie over storage gedeelde toegangshandtekeningen, Zie [handtekeningen voor gedeelde toegang met behulp van](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
 
 > [!NOTE]
-> Als u SAS-referenties van gebruikt, moet u de referenties voor gegevensbron regelmatig bijgewerkt met vernieuwde handtekeningen om te voorkomen dat ze zijn verlopen. Als de SAS-referenties is verlopen, de indexeerfunctie mislukt met een foutbericht weergegeven dat vergelijkbaar is met `Credentials provided in the connection string are invalid or have expired.`.  
+> Als u SAS-referenties gebruikt, moet u de referenties voor gegevensbron regelmatig bijgewerkt met de vernieuwde handtekeningen om te voorkomen dat ze zijn verlopen. Als de referenties van de SAS is verlopen, wordt de indexeerfunctie mislukken met een foutbericht weergegeven die vergelijkbaar is met `Credentials provided in the connection string are invalid or have expired.`.  
 
 ### <a name="step-2-create-an-index"></a>Stap 2: een index maken
-De index geeft de velden in een document, kenmerken, en andere constructies die de vorm van de zoekopdracht ervaring.
+De index Hiermee geeft u de velden in een document, kenmerken, en andere constructies die de vorm van de zoekopdracht ervaring.
 
-Hier volgt een index maken met een doorzoekbare `content` veld voor het opslaan van de tekst opgehaald uit de BLOB's:   
+Hier wordt beschreven hoe u een index maken met een doorzoekbare `content` veld voor het opslaan van de tekst die is geëxtraheerd uit blobs:   
 
     POST https://[service name].search.windows.net/indexes?api-version=2017-11-11
     Content-Type: application/json
@@ -96,10 +96,10 @@ Hier volgt een index maken met een doorzoekbare `content` veld voor het opslaan 
 
 Zie voor meer informatie over het maken van indexen [Index maken](https://docs.microsoft.com/rest/api/searchservice/create-index)
 
-### <a name="step-3-create-an-indexer"></a>Stap 3: Maak een indexeerfunctie
-Een indexeerfunctie een gegevensbron is verbonden met een doel search-index en vindt u een planning voor het automatiseren van de gegevens te vernieuwen.
+### <a name="step-3-create-an-indexer"></a>Stap 3: Een indexeerfunctie maken
+Een indexeerfunctie verbindt een gegevensbron met een doelzoekindex en biedt een schema voor het automatiseren van het vernieuwen van gegevens.
 
-Als de index en gegevensbron hebt gemaakt, bent u klaar voor het maken van de indexeerfunctie:
+Zodra de index en gegevensbron zijn gemaakt, bent u klaar om te maken van de indexeerfunctie:
 
     POST https://[service name].search.windows.net/indexers?api-version=2017-11-11
     Content-Type: application/json
@@ -112,65 +112,65 @@ Als de index en gegevensbron hebt gemaakt, bent u klaar voor het maken van de in
       "schedule" : { "interval" : "PT2H" }
     }
 
-Deze indexeerfunctie wordt elke twee uur (schema-interval is ingesteld op 'PT2H') worden uitgevoerd. Als u wilt uitvoeren met een indexeerfunctie elke 30 minuten, stelt u het interval voor 'PT30M'. De kortste interval is 5 minuten. Het schema is optioneel - als u dit weglaat, een indexeerfunctie slechts één keer is uitgevoerd wanneer deze gemaakt. U kunt echter een indexeerfunctie op aanvraag uitvoeren op elk gewenst moment.   
+Deze indexeerfunctie wordt elke twee uur (schema-interval is ingesteld op 'PT2H') worden uitgevoerd. Als u wilt een indexeerfunctie om de 30 minuten uitvoeren, moet u het interval aan 'PT30M' instellen. Het kortste ondersteunde interval is 5 minuten. Het schema is optioneel: als u dit weglaat, een indexeerfunctie wordt uitgevoerd slechts eenmaal wanneer deze gemaakt. U kunt echter een indexeerfunctie op aanvraag uitvoeren op elk gewenst moment.   
 
 Bekijk voor meer informatie over de indexeerfunctie maken API [indexeerfunctie maken](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
 
-## <a name="how-azure-search-indexes-blobs"></a>Hoe Azure Search indexeert blobs
+## <a name="how-azure-search-indexes-blobs"></a>Hoe blobs worden geïndexeerd in Azure Search
 
-Afhankelijk van de [indexeerfunctie configuratie](#PartsOfBlobToIndex), de indexeerfunctie blob storage bestaan alleen uit metagegevens kunt indexeren (is nuttig wanneer u alleen de metagegevens interesseren en hoeven niet te indexeren van de inhoud van BLOB's), opslag en inhoud metagegevens of beide metagegevens en tekstinhoud. Standaard wordt de indexeerfunctie haalt metagegevens en de inhoud.
+Afhankelijk van de [configuratie van de indexeerfunctie](#PartsOfBlobToIndex), de blob-indexeerfunctie kunt u alleen de opslagmetagegevens indexeren (dit is nuttig wanneer u alleen de metagegevens van de interessante en hoeft niet te indexeren van de inhoud van blobs), opslag en metagegevens, of beide metagegevens en tekstuele inhoud. Standaard haalt de indexeerfunctie zowel de metagegevens als de inhoud.
 
 > [!NOTE]
-> Standaard worden de blobs met gestructureerde inhoud, zoals de JSON- of CSV geïndexeerd als een enkel deel van de tekst. Als u wilt een index van een JSON- en CSV blobs gestructureerd, Zie [indexeren JSON-blobs](search-howto-index-json-blobs.md) en [indexeren CSV blobs](search-howto-index-csv-blobs.md) preview-functies.
+> Standaard worden de blobs met gestructureerde inhoud, zoals JSON- of CSV geïndexeerd als één segment van de tekst. Als u wilt om te indexeren van JSON en CSV-blobs in een gestructureerd, Zie [indexeren van JSON-blobs](search-howto-index-json-blobs.md) en [indexeren van CSV-blobs](search-howto-index-csv-blobs.md) preview-functies.
 >
-> Een samengestelde of ingesloten document (zoals een ZIP-archief of een Word-document met ingesloten Outlook e-mail met bijlagen) worden ook geïndexeerd als één document.
+> Een document samengestelde of ingesloten (zoals een ZIP-archief of een Word-document met ingesloten Outlook e-mail met bijlagen) worden ook geïndexeerd als één document.
 
 * De tekstinhoud van het document wordt geëxtraheerd in een tekenreeksveld met de naam `content`.
 
 > [!NOTE]
-> Azure Search beperkt hoeveel tekst pakt deze afhankelijk van de prijscategorie: 32.000 tekens gratis laag, 64.000 voor Basic en 4 miljoen voor Standard-, Standard S2- en Standard-S3 lagen. Een waarschuwing is opgenomen in het statusantwoord indexeerfunctie voor ingekorte documenten.  
+> Azure Search beperkt hoeveel tekst pakt deze afhankelijk van de prijscategorie: 32.000 tekens gratis laag, 64.000 voor Basic en 4 miljoen voor de lagen Standard-, Standard S2- en Standard S3. Een waarschuwing is opgenomen in het antwoord van de status van indexeerfunctie voor afgekapte documenten.  
 
-* De eigenschappen van de gebruiker opgegeven metagegevens is aanwezig op de blob zijn indien aanwezig, uitgepakt woordelijk.
-* Eigenschappen van de standaard blob-metagegevens worden uitgepakt in de volgende velden:
+* Door gebruiker opgegeven metagegevenseigenschappen aanwezig zijn op de blob, worden indien van toepassing, geëxtraheerd bewoordingen.
+* Eigenschappen van de standaard blob-metagegevens zijn uitgepakt in de volgende velden:
 
-  * **metagegevens\_opslag\_naam** (Edm.String) - de bestandsnaam van de blob. Bijvoorbeeld, als u een blob-/my-container/my-folder/subfolder/resume.pdf hebt, de waarde van dit veld is `resume.pdf`.
-  * **metagegevens\_opslag\_pad** (Edm.String) - de volledige URI van de blob, met inbegrip van het opslagaccount. Bijvoorbeeld: `https://myaccount.blob.core.windows.net/my-container/my-folder/subfolder/resume.pdf`
-  * **metagegevens\_opslag\_inhoud\_type** (Edm.String) - inhoudstype zoals opgegeven door de code die u gebruikt voor het uploaden van de blob. Bijvoorbeeld `application/octet-stream`.
-  * **metagegevens\_opslag\_laatste\_gewijzigd** (Edm.DateTimeOffset) - laatst gewijzigd tijdstempel voor de blob. Azure Search gebruikt dit tijdstempel gewijzigde blobs, om te voorkomen dat alles na de eerste indexering indexeren identificeren.
+  * **metagegevens\_opslag\_naam** (Edm.String) - de naam van de blob. Bijvoorbeeld, hebt u een blob-/my-container/my-folder/subfolder/resume.pdf, de waarde van dit veld is `resume.pdf`.
+  * **metagegevens\_opslag\_pad** (Edm.String) - de volledige URI van de blob, met inbegrip van het storage-account. Bijvoorbeeld: `https://myaccount.blob.core.windows.net/my-container/my-folder/subfolder/resume.pdf`
+  * **metagegevens\_opslag\_inhoud\_type** (Edm.String) - inhoudstype zoals opgegeven door de code die u hebt gebruikt voor het uploaden van de blob. Bijvoorbeeld `application/octet-stream`.
+  * **metagegevens\_opslag\_laatste\_gewijzigd** (Edm.DateTimeOffset) - tijdstempel voor de blob voor het laatst gewijzigd. Azure Search gebruikt deze timestamp om te identificeren van gewijzigde blobs, om te voorkomen dat alles indexeren na de eerste indexering.
   * **metagegevens\_opslag\_grootte** (Edm.Int64) - blob-grootte in bytes.
-  * **metagegevens\_opslag\_inhoud\_md5** (Edm.String) - MD5-hash van de blob-inhoud, indien beschikbaar.
-* Eigenschappen van metagegevens is specifiek voor elke documentindeling worden uitgepakt in de velden die worden vermeld [hier](#ContentSpecificMetadata).
+  * **metagegevens\_opslag\_inhoud\_md5** (Edm.String) - MD5-hash van de inhoud van de blob, indien beschikbaar.
+* Eigenschappen van metagegevens specifiek zijn voor elk documentindeling zijn uitgepakt in de velden die worden vermeld [hier](#ContentSpecificMetadata).
 
-U hoeft niet te definiëren van velden voor elk van de bovenstaande eigenschappen in uw zoekindex - alleen vastleggen van de eigenschappen die u nodig hebt voor uw toepassing.
+U hoeft niet te definiëren van velden voor alle van de bovenstaande eigenschappen in uw search-index: alleen vastleggen van de eigenschappen die u nodig hebt voor uw toepassing.
 
 > [!NOTE]
-> De veldnamen in uw bestaande index worden vaak, verschilt van de veldnamen die zijn gegenereerd tijdens het uitpakken van het document. U kunt **veld toewijzingen** toewijzen van de namen van de eigenschappen die door Azure Search aan de veldnamen in uw search-index. Hier ziet u een voorbeeld van een veld toewijzingen hieronder gebruiken.
+> De veldnamen in uw bestaande index is vaak het geval is, anders dan de veldnamen die zijn gegenereerd tijdens de extractie van document. U kunt **veldtoewijzingen** om toe te wijzen de namen van eigenschappen die door Azure Search de veldnamen in uw search-index. Hier ziet u een voorbeeld van het veld toewijzingen hieronder gebruiken.
 >
 >
 
 <a name="DocumentKeys"></a>
-### <a name="defining-document-keys-and-field-mappings"></a>Document sleutels en veldtoewijzingen definiëren
-In Azure Search identificatie de documentsleutel unieke van een document. Elke search-index moet exact één sleutelveld van het type Edm.String hebben. Het sleutelveld is vereist voor elk document dat wordt toegevoegd aan de index (dit is feitelijk de enige vereiste veld).  
+### <a name="defining-document-keys-and-field-mappings"></a>Document-sleutels en veldtoewijzingen definiëren
+In Azure Search identificatie de documentsleutel unieke van een document. Elke search-index moet exact één sleutelveld van het type Edm.String. Het veld met de sleutel is vereist voor elk document dat wordt toegevoegd aan de index (dit is eigenlijk de enige vereiste veld).  
 
 U moet zorgvuldig overwegen welke uitgepakte veld moet worden toegewezen aan een veld met de sleutel voor de index. De kandidaten zijn:
 
-* **metagegevens\_opslag\_naam** : dit wordt mogelijk een handige kandidaat, maar opmerking dat (1) de namen mogelijk niet uniek zijn, zoals u blobs met dezelfde naam in andere mappen en 2) de naam wellicht mag bevatten ongeldige tekens ongeldig document-sleutels, zoals streepjes. U kunt maken met ongeldige tekens met behulp van de `base64Encode` [veld toewijzing functie](search-indexer-field-mappings.md#base64EncodeFunction) : als u dit doet, voor het coderen van document sleutels wanneer deze worden doorgegeven in de API zoals Lookup aanroept onthouden. (Bijvoorbeeld in .NET kunt u de [UrlTokenEncode methode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokenencode.aspx) daarvoor).
-* **metagegevens\_opslag\_pad** - uniekheid gebruik van het volledige pad zorgt, maar het pad bevat zeker `/` tekens [ongeldig in een documentsleutel](https://docs.microsoft.com/rest/api/searchservice/naming-rules).  Zoals hierboven, hebt u de optie voor het coderen van de sleutels die met behulp van de `base64Encode` [functie](search-indexer-field-mappings.md#base64EncodeFunction).
-* Als geen van de bovenstaande opties voor u werkt, kunt u een aangepaste metagegevenseigenschap toevoegen aan de blobs. Deze optie is, maar uw proces voor het uploaden van blob die metagegevenseigenschap toevoegen aan alle blobs vereist. Omdat de sleutel een vereiste eigenschap is, worden alle blobs waarvoor geen die eigenschap niet worden geïndexeerd.
+* **metagegevens\_opslag\_naam** : dit is mogelijk een geschikte kandidaat, maar houd er rekening mee dat (1) de namen mogelijk niet uniek is, als er blobs met dezelfde naam in verschillende mappen, en (2) de naam tekens kan bevatten ongeldig document-sleutels, zoals streepjes bevatten. U kunt omgaan met ongeldige tekens met behulp van de `base64Encode` [veld toewijzing functie](search-indexer-field-mappings.md#base64EncodeFunction) : als u dit doet, houd er rekening mee document sleutels coderen wanneer deze worden doorgegeven in de API-, zoals opzoeken aanroepen. (Bijvoorbeeld in .NET kunt u de [UrlTokenEncode methode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokenencode.aspx) voor dat doel).
+* **metagegevens\_opslag\_pad** : het volledige pad, zorgt u ervoor uniekheid, maar het pad bevat zeker `/` tekens [ongeldig in een documentsleutel](https://docs.microsoft.com/rest/api/searchservice/naming-rules).  Zoals hierboven, hebt u de optie voor het coderen van de sleutels met behulp van de `base64Encode` [functie](search-indexer-field-mappings.md#base64EncodeFunction).
+* Als geen van de bovenstaande opties voor u werkt, kunt u een aangepaste metagegevenseigenschap toevoegen aan de blobs. Deze optie is, maar het proces voor het uploaden van blob die metagegevenseigenschap toevoegen aan alle blobs vereist. Omdat de sleutel een vereiste eigenschap is, mislukken alle blobs waarvoor deze eigenschap niet te indexeren.
 
 > [!IMPORTANT]
-> Als er geen expliciete toewijzing voor het sleutelveld in de index is, gebruikt Azure Search automatisch `metadata_storage_path` als de sleutel en de base 64-gecodeerd sleutelwaarden (de tweede optie hierboven).
+> Als er geen expliciete toewijzing voor een veld met de sleutel in de index is, gebruikt Azure Search automatisch `metadata_storage_path` als de sleutel en het base-64 gecodeerd sleutelwaarden (de tweede optie hierboven).
 >
 >
 
-In dit voorbeeld we kiezen de `metadata_storage_name` veld als de documentsleutel. We gaan ook wordt ervan uitgegaan dat uw index heeft een sleutelveld `key` en een veld `fileSize` voor het opslaan van de grootte van het document. Geef de volgende veldtoewijzingen bij het maken of bijwerken van de indexeerfunctie voor proces gewenste wire:
+In dit voorbeeld gaan we kiezen de `metadata_storage_name` veld als de documentsleutel. We gaan ook wordt ervan uitgegaan dat de index is een sleutelveld met de naam `key` en een veld `fileSize` voor het opslaan van de grootte van het document. Om te dingen die u naar wens wire, geeft u de volgende veldtoewijzingen bij het maken of bijwerken van de indexeerfunctie:
 
     "fieldMappings" : [
       { "sourceFieldName" : "metadata_storage_name", "targetFieldName" : "key", "mappingFunction" : { "name" : "base64Encode" } },
       { "sourceFieldName" : "metadata_storage_size", "targetFieldName" : "fileSize" }
     ]
 
-Om dit allemaal samen, hier wordt het veldtoewijzingen toevoegen en base 64-codering met sleutels voor een bestaande indexeerfunctie inschakelen:
+Om dit allemaal bij elkaar, dit is het toevoegen van veldtoewijzingen en Base64-codering van sleutels voor een bestaande indexeerfunctie:
 
     PUT https://[service name].search.windows.net/indexers/blob-indexer?api-version=2017-11-11
     Content-Type: application/json
@@ -187,16 +187,16 @@ Om dit allemaal samen, hier wordt het veldtoewijzingen toevoegen en base 64-code
     }
 
 > [!NOTE]
-> Zie voor meer informatie over het toewijzen van veld, [in dit artikel](search-indexer-field-mappings.md).
+> Zie voor meer informatie over veldtoewijzingen [in dit artikel](search-indexer-field-mappings.md).
 >
 >
 
 <a name="WhichBlobsAreIndexed"></a>
-## <a name="controlling-which-blobs-are-indexed"></a>Beheren welke blobs zijn geïndexeerd.
+## <a name="controlling-which-blobs-are-indexed"></a>Beheren welke blobs worden geïndexeerd.
 U kunt bepalen welke blobs worden geïndexeerd en die zijn overgeslagen.
 
 ### <a name="index-only-the-blobs-with-specific-file-extensions"></a>Alleen de blobs met specifieke extensies indexeren
-U kunt alleen de blobs met de bestandsnaamextensies die u via opgeeft de index de `indexedFileNameExtensions` configuratieparameter indexeerfunctie. De waarde is een tekenreeks met een door komma's gescheiden lijst met bestandsextensies (met een voorafgaande punt). Bijvoorbeeld, naar de index alleen de. PDF en. DOCX blobs, doen dit:
+U kunt alleen de blobs met de bestandsnaamextensies die u met behulp van opgeeft de index de `indexedFileNameExtensions` configuratieparameter indexeerfunctie. De waarde is een tekenreeks met een door komma's gescheiden lijst met bestandsextensies (met een toonaangevende punt). Bijvoorbeeld, voor index alleen de. PDF-bestand en. Blobs, DOCX, doen dit:
 
     PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2017-11-11
     Content-Type: application/json
@@ -207,8 +207,8 @@ U kunt alleen de blobs met de bestandsnaamextensies die u via opgeeft de index d
       "parameters" : { "configuration" : { "indexedFileNameExtensions" : ".pdf,.docx" } }
     }
 
-### <a name="exclude-blobs-with-specific-file-extensions"></a>BLOB's met bepaalde bestandsextensies uitsluiten
-U kunt BLOB's met specifieke bestandsnaamextensies uitsluiten van het indexeren met behulp van de `excludedFileNameExtensions` configuratieparameter. De waarde is een tekenreeks met een door komma's gescheiden lijst met bestandsextensies (met een voorafgaande punt). Bijvoorbeeld naar index alle blobs, behalve de pakketten met de. PNG en. JPEG-extensies doen dit:
+### <a name="exclude-blobs-with-specific-file-extensions"></a>Blobs met bepaalde bestandsextensies uitsluiten
+U kunt blobs met specifieke bestandsnaamextensies uitsluiten van het indexeren met behulp van de `excludedFileNameExtensions` configuratieparameter. De waarde is een tekenreeks met een door komma's gescheiden lijst met bestandsextensies (met een toonaangevende punt). Bijvoorbeeld, voor de index alle blobs met uitzondering van die met de. PNG en. JPEG-extensies, doen dit:
 
     PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2017-11-11
     Content-Type: application/json
@@ -219,18 +219,18 @@ U kunt BLOB's met specifieke bestandsnaamextensies uitsluiten van het indexeren 
       "parameters" : { "configuration" : { "excludedFileNameExtensions" : ".png,.jpeg" } }
     }
 
-Als beide `indexedFileNameExtensions` en `excludedFileNameExtensions` parameters aanwezig zijn, Azure Search eerst kijkt `indexedFileNameExtensions`, klikt u vervolgens op `excludedFileNameExtensions`. Dit betekent dat als dezelfde bestandsextensie in beide lijsten aanwezig is, wordt uitgesloten van het indexeren.
+Als beide `indexedFileNameExtensions` en `excludedFileNameExtensions` parameters aanwezig zijn, Azure Search eerst gekeken `indexedFileNameExtensions`, klikt u vervolgens op `excludedFileNameExtensions`. Dit betekent dat als dezelfde bestandsextensie in beide lijsten aanwezig is, het, worden uitgesloten van indexeren.
 
 <a name="PartsOfBlobToIndex"></a>
-## <a name="controlling-which-parts-of-the-blob-are-indexed"></a>Bepalen welke onderdelen van de blob zijn geïndexeerd.
+## <a name="controlling-which-parts-of-the-blob-are-indexed"></a>Bepalen welke onderdelen van de blob worden geïndexeerd.
 
-U kunt bepalen welke onderdelen van de blobs zijn geïndexeerd met behulp van de `dataToExtract` configuratieparameter. Het kan duren voordat de volgende waarden:
+U kunt bepalen welke onderdelen van de blobs worden geïndexeerd met behulp van de `dataToExtract` configuratieparameter. Het kan duren voordat de volgende waarden:
 
-* `storageMetadata` -Geeft aan dat alleen de [standaard blob-eigenschappen en metagegevens gebruiker opgegeven](../storage/blobs/storage-properties-metadata.md) zijn geïndexeerd.
-* `allMetadata` -Hiermee geeft u de opslag metagegevens en de [inhoudstype specifieke metagegevens](#ContentSpecificMetadata) opgehaald van de blob inhoud worden geïndexeerd.
-* `contentAndMetadata` -Geeft aan dat alle metagegevens en tekstinhoud opgehaald uit de blob worden geïndexeerd. Dit is de standaardwaarde.
+* `storageMetadata` -Hiermee geeft u op dat alleen de [standaard blob-eigenschappen en metagegevens door gebruiker opgegeven](../storage/blobs/storage-properties-metadata.md) worden geïndexeerd.
+* `allMetadata` -Hiermee geeft u de opslagmetagegevens van deze en de [inhoudstype specifieke metagegevens](#ContentSpecificMetadata) geëxtraheerd uit de blob-inhoud zijn geïndexeerd.
+* `contentAndMetadata` -Hiermee geeft u aan dat alle metagegevens en tekstuele inhoud opgehaald uit de blob worden geïndexeerd. Dit is de standaardwaarde.
 
-Bijvoorbeeld alleen de metagegevens van de opslag indexeert, gebruiken:
+Bijvoorbeeld: als u alleen de opslagmetagegevens indexeren, wilt gebruiken:
 
     PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2017-11-11
     Content-Type: application/json
@@ -241,19 +241,19 @@ Bijvoorbeeld alleen de metagegevens van de opslag indexeert, gebruiken:
       "parameters" : { "configuration" : { "dataToExtract" : "storageMetadata" } }
     }
 
-### <a name="using-blob-metadata-to-control-how-blobs-are-indexed"></a>Met behulp van de blobmetagegevens van de om te bepalen hoe blobs worden geïndexeerd
+### <a name="using-blob-metadata-to-control-how-blobs-are-indexed"></a>Met behulp van de metagegevens van de blob om te bepalen hoe blobs worden geïndexeerd
 
-De hierboven beschreven configuratieparameters van toepassing op alle blobs. Soms moet u mogelijk wilt bepalen hoe *afzonderlijke blobs* zijn geïndexeerd. U kunt dit doen door de volgende eigenschappen van de blob-metagegevens en -waarden toe te voegen:
+De configuratieparameters die hierboven worden beschreven van toepassing op alle blobs. Soms, kunt u om te bepalen hoe *afzonderlijke blobs* worden geïndexeerd. U kunt dit doen door de volgende eigenschappen van de blob-metagegevens en de waarden toe te voegen:
 
-| De naam van eigenschap | Waarde van eigenschap | Uitleg |
+| Naam van eigenschap | Waarde van eigenschap | Uitleg |
 | --- | --- | --- |
-| AzureSearch_Skip |"true" |Hiermee geeft u de indexeerfunctie blob volledig kunt overslaan van de blob. Uitpakken van metagegevens noch inhoud wordt uitgevoerd. Dit is handig wanneer een bepaalde blob herhaaldelijk mislukt en het indexing-proces wordt onderbroken. |
-| AzureSearch_SkipContent |"true" |Dit is het equivalent van `"dataToExtract" : "allMetadata"` instelling beschreven [hierboven](#PartsOfBlobToIndex) binnen het bereik van een bepaalde blob. |
+| AzureSearch_Skip |"true" |Hiermee geeft u de blob-indexeerfunctie volledig kunt overslaan van de blob. Extractie van metagegevens noch inhoud wordt uitgevoerd. Dit is handig wanneer een bepaalde blob herhaaldelijk mislukt en onderbroken door het indexeringsproces worden geautomatiseerd. |
+| AzureSearch_SkipContent |"true" |Dit is het equivalent van `"dataToExtract" : "allMetadata"` instellen beschreven [hierboven](#PartsOfBlobToIndex) binnen het bereik van een specifieke blob. |
 
 <a name="DealingWithErrors"></a>
 ## <a name="dealing-with-errors"></a>Omgaan met fouten
 
-Standaard de blob-indexeerfunctie stopt zodra er een blob met een niet-ondersteunde inhoudstype (bijvoorbeeld een afbeelding) aangetroffen. U kunt uiteraard de `excludedFileNameExtensions` -parameter voor het overslaan van bepaalde typen inhoud. Echter mogelijk moet u index blobs zonder alle mogelijke inhoudstypen van tevoren weten. Om door te gaan wanneer een niet-ondersteund type inhoud is opgetreden indexeren ingesteld de `failOnUnsupportedContentType` configuratieparameter naar `false`:
+Standaard stopt de blob-indexeerfunctie zodra er een blob met een niet-ondersteund inhoudstype (bijvoorbeeld een afbeelding). U kunt natuurlijk de `excludedFileNameExtensions` parameter om over te slaan, bepaalde inhoudstypen. Maar mogelijk moet u index blobs zonder dat alle mogelijke inhoudstypen vooraf bekend. Instellen als u wilt doorgaan met het indexeren als een niet-ondersteund inhoudstype is aangetroffen, de `failOnUnsupportedContentType` configuratieparameter op `false`:
 
     PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2017-11-11
     Content-Type: application/json
@@ -264,15 +264,15 @@ Standaard de blob-indexeerfunctie stopt zodra er een blob met een niet-ondersteu
       "parameters" : { "configuration" : { "failOnUnsupportedContentType" : false } }
     }
 
-Voor sommige blobs Azure Search kan niet bepalen van het type inhoud is of kan niet worden verwerkt een document van anders ondersteund type inhoud. Als u wilt dat deze fout-modus, stel de `failOnUnprocessableDocument` configuratieparameter op false:
+Voor sommige blobs, Azure Search kan niet bepalen van het type inhoud is of niet kan verwerken van een document van anders ondersteund inhoudstype. Instellen als u wilt deze foutmodus negeren, de `failOnUnprocessableDocument` configuratieparameter op false:
 
       "parameters" : { "configuration" : { "failOnUnprocessableDocument" : false } }
 
-Azure Search beperkt de grootte van de blobs die zijn geïndexeerd. Deze limieten zijn gedocumenteerd in [Servicelimieten in Azure Search](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity). Grote BLOB's worden behandeld als fouten standaard. Echter, u kunt nog steeds index metagegevens van de opslag van grote blobs als u instelt `indexStorageMetadataOnlyForOversizedDocuments` configuratieparameter op true: 
+Azure Search beperkt de grootte van blobs die zijn geïndexeerd. Deze limieten zijn gedocumenteerd in [Servicelimieten in Azure Search](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity). Grote blobs worden behandeld als fouten standaard. Echter, u kunt nog steeds de opslagmetagegevens indexeren van grote blobs als u instelt `indexStorageMetadataOnlyForOversizedDocuments` configuratieparameter op ' True ': 
 
     "parameters" : { "configuration" : { "indexStorageMetadataOnlyForOversizedDocuments" : true } }
 
-U kunt ook doorwerken indexeren als er fouten optreden op elk gewenst moment wordt verwerkt, tijdens het parseren van blobs of tijdens het toevoegen van documenten naar een index. Als u wilt een bepaald aantal fouten negeren, stelt de `maxFailedItems` en `maxFailedItemsPerBatch` configuratieparameters voor de gewenste waarden. Bijvoorbeeld:
+U kunt ook blijven indexeren als er fouten optreden op elk gewenst moment van de verwerking, tijdens het parseren van blobs of tijdens het toevoegen van documenten naar een index. Voor een bepaald aantal fouten negeren, stel de `maxFailedItems` en `maxFailedItemsPerBatch` parameters voor de configuratie op de gewenste waarden. Bijvoorbeeld:
 
     {
       ... other parts of indexer definition
@@ -280,18 +280,18 @@ U kunt ook doorwerken indexeren als er fouten optreden op elk gewenst moment wor
     }
 
 ## <a name="incremental-indexing-and-deletion-detection"></a>Detectie van incrementele indexeren en verwijderen
-Bij het instellen van een blob-indexeerfunctie worden uitgevoerd op een planning wordt alleen de gewijzigde blobs, zoals wordt bepaald door de blob reindexes `LastModified` timestamp.
+Bij het instellen van een blob-indexeerfunctie om uit te voeren volgens een schema wordt alleen de gewijzigde blobs, zoals wordt bepaald door een van de blob reindexes `LastModified` timestamp.
 
 > [!NOTE]
-> U hoeft niet te geven van een detectie wijzigingsbeleid – incrementele indexeren automatisch voor u is ingeschakeld.
+> U hoeft niet te geven van een detectiebeleid voor wijzigingen – incrementele indexeren automatisch voor u is ingeschakeld.
 
-Gebruik een benadering 'soft delete' ter ondersteuning van documenten verwijderen. Als u de blobs rechtstreekse verwijdert, worden overeenkomstige documenten uit de search-index niet worden verwijderd. Gebruik in plaats daarvan de volgende stappen:  
+Ter ondersteuning van verwijderen van documenten, een 'voorlopig verwijderen'-aanpak te gebruiken. Als u de blobs aanschaffen verwijdert, wordt overeenkomende documenten niet worden verwijderd uit de search-index. Gebruik in plaats daarvan de volgende stappen uit:  
 
-1. De eigenschap van een aangepaste metagegevens toevoegen aan de blob om aan te geven naar Azure Search logisch wordt verwijderd
-2. Een beleid voor voorlopig verwijderen op de gegevensbron configureren
+1. Een aangepaste metagegevenseigenschap toevoegen aan de blob om aan te geven naar Azure Search logisch wordt verwijderd
+2. Een beleid voor voorlopig verwijderen detectie op de gegevensbron configureren
 3. Wanneer de indexeerfunctie is verwerkt de blob (zoals weergegeven door de status van de indexeerfunctie API), kunt u fysiek de blob verwijderen
 
-Bijvoorbeeld, het volgende beleid overweegt een blob worden verwijderd als er een eigenschap metadata `IsDeleted` met de waarde `true`:
+Bijvoorbeeld, het volgende beleid rekening gehouden met een blob moet worden verwijderd als er een eigenschap metadata `IsDeleted` met de waarde `true`:
 
     PUT https://[service name].search.windows.net/datasources/blob-datasource?api-version=2017-11-11
     Content-Type: application/json
@@ -311,10 +311,10 @@ Bijvoorbeeld, het volgende beleid overweegt een blob worden verwijderd als er ee
 
 ## <a name="indexing-large-datasets"></a>Indexeren van grote gegevenssets
 
-Indexeren van blobs, kan een tijdrovend proces zijn. In gevallen waar u miljoenen blobs index hebt, kunt u sneller indexeren door het partitioneren van uw gegevens en het gebruik van meerdere indexeerfuncties om de gegevens parallel te verwerken. Hier ziet u hoe u kunt dit instellen:
+Indexeren van blobs, kan een tijdrovend proces zijn. In gevallen waarin u werkt met miljoenen blobs indexeren, kunt u sneller indexering door uw gegevens partitioneren en meerdere indexeerfuncties gebruiken om de gegevens parallel te verwerken. Hier ziet hoe u kunt dit instellen:
 
-- Partitioneren van uw gegevens in meerdere blob-containers of virtuele mappen
-- Instellen van meerdere Azure Search gegevensbronnen, één per container of de map. Om te verwijzen naar een blob-map, gebruiken de `query` parameter:
+- Uw gegevens partitioneren in meerdere blob-containers of virtuele mappen
+- Instellen van meerdere Azure Search-gegevensbronnen, één per container of de map. Als u wilt verwijzen naar een blob-map, gebruikt u de `query` parameter:
 
     ```
     {
@@ -325,20 +325,20 @@ Indexeren van blobs, kan een tijdrovend proces zijn. In gevallen waar u miljoene
     }
     ```
 
-- Maak een bijbehorende indexeerfunctie voor elke gegevensbron. Alle Indexeerfuncties kunnen verwijzen naar hetzelfde doel-search-index.  
+- Maak een bijbehorende indexeerfunctie voor elke gegevensbron. Alle Indexeerfuncties kunnen verwijzen naar de hetzelfde doel search-index.  
 
-- Een zoekeenheid in uw service kan een indexeerfunctie worden uitgevoerd op elk moment. Maken van meerdere indexeerfuncties zoals hierboven beschreven, is alleen nuttig als ze daadwerkelijk parallel worden uitgevoerd. Als u wilt meerdere indexeerfuncties parallel worden uitgevoerd, worden uitgebreid uw search-service door het maken van een geschikt aantal partities en replica's. Bijvoorbeeld, als uw search-service heeft 6 search-eenheden (bijvoorbeeld 2 partities x 3 replica's), vervolgens 6 Indexeerfuncties kunnen tegelijkertijd worden uitgevoerd, wat resulteert in een six-fold toename in doorvoer voor indexering. Zie voor meer informatie over schaalbaarheid en capaciteitsplanning, [schalen niveaus van de bron voor query's en workloads in Azure Search indexeren](search-capacity-planning.md).
+- Een zoekeenheid in uw service kan een indexeerfunctie uitvoeren op een bepaald moment. Het maken van meerdere indexeerfuncties zoals hierboven beschreven, is alleen nuttig als ze daadwerkelijk parallel worden uitgevoerd. Als u wilt meerdere indexeerfuncties parallel worden uitgevoerd, de schaal vergroten uw search-service door het maken van een geschikt aantal partities en replica's. Bijvoorbeeld, als uw search-service heeft 6 search-eenheden (bijvoorbeeld 2 partities x 3 replica's), vervolgens 6 Indexeerfuncties kunnen tegelijkertijd worden uitgevoerd, wat resulteert in een six-fold toename van de doorvoer voor indexering. Zie voor meer informatie over het schalen en plannen van capaciteit, [schalen resource niveaus voor query's en workloads in Azure Search indexeren](search-capacity-planning.md).
 
-## <a name="indexing-documents-along-with-related-data"></a>Indexeren van documenten samen met verwante gegevens
+## <a name="indexing-documents-along-with-related-data"></a>Documenten samen met verwante gegevens indexeren
 
-U kunt "samenstellen' documenten uit meerdere bronnen in uw index. U wilt bijvoorbeeld tekst uit blobs samenvoegen met andere metagegevens die zijn opgeslagen in Cosmos-database. U kunt zelfs de API te indexeren samen met verschillende indexeerfuncties push gebruiken om op te bouwen documenten zoeken uit meerdere delen. 
+U wilt 'samenstellen' documenten uit meerdere bronnen in uw index. U wilt bijvoorbeeld tekst van blobs samenvoegen met andere metagegevens die zijn opgeslagen in Cosmos DB. U kunt zelfs de push API indexeren, samen met verschillende indexeerfuncties gebruiken om op te bouwen documenten zoeken uit meerdere delen. 
 
-Dit werkt, moeten alle Indexeerfuncties en andere onderdelen te stemmen op de documentsleutel. Zie voor een gedetailleerde procedure in dit artikel externe: [documenten worden gecombineerd met andere gegevens in Azure Search ](http://blog.lytzen.name/2017/01/combine-documents-with-other-data-in.html).
+Om dit te werken, moeten alle Indexeerfuncties en andere onderdelen te stemmen op de documentsleutel. Zie dit externe artikel voor een gedetailleerd overzicht: [documenten worden gecombineerd met andere gegevens in Azure Search ](http://blog.lytzen.name/2017/01/combine-documents-with-other-data-in.html).
 
 <a name="IndexingPlainText"></a>
 ## <a name="indexing-plain-text"></a>Indexering als tekst zonder opmaak 
 
-Als alle BLOB's tekst zonder opmaak in dezelfde codering bevatten, kunt u indexering prestaties aanzienlijk verbeteren met behulp van **modus voor het parseren van tekst**. Met de modus voor het parseren van tekst, stelt de `parsingMode` configuratie-eigenschap voor `text`:
+Als alle blobs in uw tekst zonder opmaak in dezelfde codering bevatten, kunt u indexering prestaties aanzienlijk verbeteren met behulp van **modus voor het parseren van tekst**. Voor het gebruik van modus voor het parseren van tekst, stel de `parsingMode` configuratie-eigenschap op `text`:
 
     PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2017-11-11
     Content-Type: application/json
@@ -349,7 +349,7 @@ Als alle BLOB's tekst zonder opmaak in dezelfde codering bevatten, kunt u indexe
       "parameters" : { "configuration" : { "parsingMode" : "text" } }
     }
 
-Standaard de `UTF-8` codering wordt verondersteld. Een andere codering, gebruikt u de `encoding` configuratie-eigenschap: 
+Standaard de `UTF-8` encoding wordt uitgegaan. Als u wilt een andere codering opgeven, gebruikt u de `encoding` configuratie-eigenschap: 
 
     {
       ... other parts of indexer definition
@@ -359,26 +359,26 @@ Standaard de `UTF-8` codering wordt verondersteld. Een andere codering, gebruikt
 
 <a name="ContentSpecificMetadata"></a>
 ## <a name="content-type-specific-metadata-properties"></a>Eigenschappen voor typespecifieke metagegevens van inhoud
-De volgende tabel geeft een overzicht van de verwerking wordt uitgevoerd voor elke documentindeling en beschrijft de eigenschappen van de metagegevens die door Azure Search hebt uitgepakt.
+De volgende tabel geeft een overzicht van de verwerking die worden uitgevoerd voor elk documentindeling en beschrijft de eigenschappen van metagegevens geëxtraheerd met Azure Search.
 
-| Documentindeling / type inhoud | Eigenschappen van de specifieke metagegevens inhoudstype | Verwerkingsgegevens |
+| Documentindeling / type inhoud | Eigenschappen van inhoudstype specifieke metagegevens | Details verwerken |
 | --- | --- | --- |
 | HTML-CODE (`text/html`) |`metadata_content_encoding`<br/>`metadata_content_type`<br/>`metadata_language`<br/>`metadata_description`<br/>`metadata_keywords`<br/>`metadata_title` |HTML-opmaak van strook / en haal de tekst |
-| PDF (`application/pdf`) |`metadata_content_type`<br/>`metadata_language`<br/>`metadata_author`<br/>`metadata_title` |Haal de tekst, inclusief ingesloten documenten (met uitzondering van installatiekopieën) |
-| DOCX (application/vnd.openxmlformats-officedocument.wordprocessingml.document) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_character_count`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_page_count`<br/>`metadata_word_count` |Haal de tekst, inclusief ingesloten documenten |
-| DOC (application/msword) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_character_count`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_page_count`<br/>`metadata_word_count` |Haal de tekst, inclusief ingesloten documenten |
-| XLSX (application/vnd.openxmlformats-officedocument.spreadsheetml.sheet) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified` |Haal de tekst, inclusief ingesloten documenten |
-| XLS (toepassing/vnd.ms-excel) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified` |Haal de tekst, inclusief ingesloten documenten |
-| PPTX (application/vnd.openxmlformats-officedocument.presentationml.presentation) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_slide_count`<br/>`metadata_title` |Haal de tekst, inclusief ingesloten documenten |
-| PPT (vnd.ms-toepassing-powerpoint) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_slide_count`<br/>`metadata_title` |Haal de tekst, inclusief ingesloten documenten |
-| Bericht (vnd.ms-toepassing-outlook) |`metadata_content_type`<br/>`metadata_message_from`<br/>`metadata_message_to`<br/>`metadata_message_cc`<br/>`metadata_message_bcc`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_subject` |Haal de tekst, met inbegrip van bijlagen |
+| PDF (`application/pdf`) |`metadata_content_type`<br/>`metadata_language`<br/>`metadata_author`<br/>`metadata_title` |Haal de tekst, met inbegrip van ingesloten documenten (met uitzondering van installatiekopieën) |
+| DOCX (application/vnd.openxmlformats-officedocument.wordprocessingml.document) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_character_count`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_page_count`<br/>`metadata_word_count` |Haal de tekst, met inbegrip van ingesloten documenten |
+| Doc-bestand (toepassing/msword) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_character_count`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_page_count`<br/>`metadata_word_count` |Haal de tekst, met inbegrip van ingesloten documenten |
+| XLSX (application/vnd.openxmlformats-officedocument.spreadsheetml.sheet) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified` |Haal de tekst, met inbegrip van ingesloten documenten |
+| XLS (toepassing/vnd.ms-excel) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified` |Haal de tekst, met inbegrip van ingesloten documenten |
+| PPTX (application/vnd.openxmlformats-officedocument.presentationml.presentation) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_slide_count`<br/>`metadata_title` |Haal de tekst, met inbegrip van ingesloten documenten |
+| PPT (toepassing/vnd.ms-powerpoint) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_slide_count`<br/>`metadata_title` |Haal de tekst, met inbegrip van ingesloten documenten |
+| MSG (toepassing/vnd.ms-outlook) |`metadata_content_type`<br/>`metadata_message_from`<br/>`metadata_message_to`<br/>`metadata_message_cc`<br/>`metadata_message_bcc`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_subject` |Haal de tekst, met inbegrip van bijlagen |
 | ZIP (toepassing/zip) |`metadata_content_type` |Haal de tekst uit alle documenten in het archief |
 | XML (application/xml) |`metadata_content_type`</br>`metadata_content_encoding`</br> |XML-opmaak van strook / en haal de tekst |
-| JSON (application/json) |`metadata_content_type`</br>`metadata_content_encoding` |Haal de tekst<br/>Opmerking: Als u meerdere documentvelden extraheren uit een JSON-blob wilt, Zie [indexeren JSON-blobs](search-howto-index-json-blobs.md) voor meer informatie |
+| JSON (application/json) |`metadata_content_type`</br>`metadata_content_encoding` |Tekst extraheren<br/>Opmerking: Als u nodig hebt om op te halen van meerdere documentvelden van een JSON-blob, raadpleegt u [indexeren van JSON-blobs](search-howto-index-json-blobs.md) voor meer informatie |
 | EML (bericht/rfc822) |`metadata_content_type`<br/>`metadata_message_from`<br/>`metadata_message_to`<br/>`metadata_message_cc`<br/>`metadata_creation_date`<br/>`metadata_subject` |Haal de tekst, met inbegrip van bijlagen |
-| RTF-indeling (toepassing/rtf) |`metadata_content_type`</br>`metadata_author`</br>`metadata_character_count`</br>`metadata_creation_date`</br>`metadata_page_count`</br>`metadata_word_count`</br> | Haal de tekst|
-| Tekst zonder opmaak (text/plain) |`metadata_content_type`</br>`metadata_content_encoding`</br> | Haal de tekst|
+| RTF (toepassing/rtf) |`metadata_content_type`</br>`metadata_author`</br>`metadata_character_count`</br>`metadata_creation_date`</br>`metadata_page_count`</br>`metadata_word_count`</br> | Tekst extraheren|
+| Tekst zonder opmaak (text/plain) |`metadata_content_type`</br>`metadata_content_encoding`</br> | Tekst extraheren|
 
 
-## <a name="help-us-make-azure-search-better"></a>Help ons Azure Search te verbeteren
-Als u functieaanvragen of suggesties voor verbeteringen hebt, laat ons weten op onze [UserVoice site](https://feedback.azure.com/forums/263029-azure-search/).
+## <a name="help-us-make-azure-search-better"></a>Help ons Azure Search verbeteren
+Als u functieverzoeken heeft of suggesties voor verbeteringen hebt, laat het ons weten op onze [UserVoice-site](https://feedback.azure.com/forums/263029-azure-search/).

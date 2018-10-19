@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/02/2018
+ms.date: 10/18/2018
 ms.author: shvija
-ms.openlocfilehash: 32f99b43a37277e70d209f1f315dcb398c2b5931
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 12d8f3764dc52d8e76c3fb4599f6913fc8791f73
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40004789"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49426129"
 ---
 # <a name="automatically-scale-up-azure-event-hubs-throughput-units"></a>Automatisch schalen van Azure Event Hubs-doorvoereenheden
 
@@ -27,6 +27,8 @@ Azure Event Hubs is een uiterst schaalbaar platform voor gegevensstromen. Gebrui
 
 * Inkomend verkeer gegevenstarieven groter zijn dan set-doorvoereenheden.
 * Gegevens uitgaande aanvraag snelheid groter zijn dan de set-doorvoereenheden.
+
+De Event Hubs-service verhoogt de doorvoer wanneer de belasting toeneemt dan de minimale drempelwaarde, zonder dat alle aanvragen waarbij ServerBusy-fouten.
 
 ## <a name="how-auto-inflate-works"></a>Automatisch vergroten werking
 
@@ -54,6 +56,10 @@ Met deze optie is ingeschakeld, kunt u met uw doorvoereenheden klein beginnen en
 U kunt ook inschakelen voor automatisch vergroten met behulp van de **schaal** optie in het deelvenster instellingen in de portal:
  
 ![](./media/event-hubs-auto-inflate/event-hubs-auto-inflate2.png)
+
+
+> [!NOTE]
+> Bij het toepassen van de configuratie om te verhogen doorvoereenheden automatisch vergroten, de Event Hubs-service verzendt diagnostische logboeken waarmee u informatie over waarom en wanneer de doorvoer is verhoogd. 
 
 ### <a name="enable-auto-inflate-using-an-azure-resource-manager-template"></a>Automatisch vergroten met behulp van een Azure Resource Manager-sjabloon inschakelen
 
@@ -101,6 +107,7 @@ U kunt automatisch vergroten inschakelen tijdens de sjabloonimplementatie van ee
 ```
 
 Zie voor de volledige sjabloon, de [maken Event Hubs-naamruimte en schakelt u vergroten](https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-namespace-and-enable-inflate) sjabloon op GitHub.
+
 
 ## <a name="next-steps"></a>Volgende stappen
 

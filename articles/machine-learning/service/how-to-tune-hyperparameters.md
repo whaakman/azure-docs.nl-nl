@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 950d985ca87cce484edeb7930ca1bda34d812f33
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 13820dd511d31217b79385e893edbb55a3a57693
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49344129"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49430015"
 ---
 # <a name="tune-hyperparameters-for-your-model"></a>Afstemmen van hyperparameters voor uw model
 
@@ -141,8 +141,9 @@ param_sampling = BayesianParameterSampling( {
 ```
 
 > [!NOTE]
-> Bayesiaanse steekproeven biedt geen ondersteuning voor vroegtijdige beëindiging beleid (Zie [opgeven van een beleid voor vroegtijdige beëindiging](#specify-an-early-termination-policy)). Wanneer u Bayesiaanse parameter steekproeven, stelt `early_termination_policy = None`, of laat het veld uit de `early_termination_policy` parameter.
-`
+> Bayesiaanse steekproeven biedt geen ondersteuning voor vroegtijdige beëindiging beleid (Zie [opgeven van een beleid voor vroegtijdige beëindiging](#specify-early-termination-policy)). Wanneer u Bayesiaanse parameter steekproeven, stelt `early_termination_policy = None`, of laat het veld uit de `early_termination_policy` parameter.
+
+<a name='specify-primary-metric-to-optimize'/>
 
 ## <a name="specify-primary-metric"></a>Primaire metrische gegevens opgeven
 
@@ -158,9 +159,11 @@ primary_metric_goal=PrimaryMetricGoal.MAXIMIZE
 
 Optimaliseer de wordt uitgevoerd voor maximale 'nauwkeurigheid'.  Zorg ervoor dat u deze waarde in uw trainingsscript aanmelden.
 
+<a name='log-metrics-for-hyperparameter-tuning'/>
+
 ### <a name="log-metrics-for-hyperparameter-tuning"></a>Logboek metrische gegevens voor het afstemmen van hyperparameter
 
-Het trainingsscript voor het model moet zich aanmelden van de relevante metrische gegevens tijdens het trainen van het model. Wanneer u de hyperparameter afstemmen configureert, geeft u de primaire metriek moet worden gebruikt voor het evalueren van prestaties uitvoeren. (Zie [opgeven van een primaire metrische waarde voor het Optimaliseer](#specify-a-primary-metric-to-optimize).)  U moet zich aanmelden met deze metriek, zodat deze beschikbaar is om het proces afstemmen hyperparameter in uw trainingsscript.
+Het trainingsscript voor het model moet zich aanmelden van de relevante metrische gegevens tijdens het trainen van het model. Wanneer u de hyperparameter afstemmen configureert, geeft u de primaire metriek moet worden gebruikt voor het evalueren van prestaties uitvoeren. (Zie [opgeven van een primaire metrische waarde voor het Optimaliseer](#specify-primary-metric-to-optimize).)  U moet zich aanmelden met deze metriek, zodat deze beschikbaar is om het proces afstemmen hyperparameter in uw trainingsscript.
 
 Meld u met deze metriek in uw trainingsscript met het volgende voorbeeld-fragment:
 
@@ -171,6 +174,8 @@ run_logger.log("accuracy", float(val_accuracy))
 ```
 
 Het trainingsscript berekent de `val_accuracy` en registreert u deze als 'nauwkeurig', die wordt gebruikt als de primaire metrische gegevens. Telkens wanneer die de metriek wordt vastgelegd wordt die door de hyperparameter afstemmen van de service ontvangen. Het is aan de ontwikkelaar model om te bepalen hoe vaak deze metrische gegevens rapporteren.
+
+<a name='specify-early-termination-policy'/>
 
 ## <a name="specify-early-termination-policy"></a>Beleid voor vroegtijdige beëindiging opgeven
 
@@ -297,7 +302,7 @@ experiment = Experiment(workspace, experiment_name)
 hyperdrive_run = experiment.submit(hyperdrive_run_config)
 ```
 
-`experiment_name` de naam die u toewijst aan uw hyperparameter experiment, afstemmen en `workspace` is de werkruimte waarin u wilt maken van het experiment (Zie voor meer informatie over experimenten [hoe werkt Azure Machine Learning-service?](/concept-azure-machine-learning-architecture.md))
+`experiment_name` de naam die u toewijst aan uw hyperparameter experiment, afstemmen en `workspace` is de werkruimte waarin u wilt maken van het experiment (Zie voor meer informatie over experimenten [hoe werkt Azure Machine Learning-service?](concept-azure-machine-learning-architecture.md))
 
 ## <a name="visualize-experiment"></a>Experiment visualiseren
 
@@ -320,7 +325,7 @@ Bovendien kunt u de correlatie tussen prestaties en de waarden van afzonderlijke
 
 ![hyperparameter parallelle coördinaten afstemmen](media/how-to-tune-hyperparameters/HyperparameterTuningParallelCoordinates.png)
 
-U kunt alle uw hyperparameter afstemmen wordt uitgevoerd in de Azure-web-portal kunt visualiseren. Zie voor meer informatie over het weergeven van een experiment in de webportal [expirements bijhouden](/how-to-track-experiments.md/#view-the-experiment-in-the-web-portal).
+U kunt alle uw hyperparameter afstemmen wordt uitgevoerd in de Azure-web-portal kunt visualiseren. Zie voor meer informatie over het weergeven van een experiment in de webportal [bijhouden experimenten](how-to-track-experiments.md#view-the-experiment-in-the-web-portal).
 
 ![hyperparameter afstemmen portal](media/how-to-tune-hyperparameters/HyperparameterTuningPortal.png)
 

@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 10/18/2018
 ms.author: diberry
-ms.openlocfilehash: f27716cc416b162a5b2df5542d709058f3b3e903
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: 362c5e2e7216d584a9858ace5fb607dc0ee126d5
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47182028"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49426084"
 ---
 # <a name="train-your-luis-app-version"></a>Uw LUIS-app-versie trainen
 
@@ -26,8 +26,11 @@ When you train a LUIS app by example, LUIS generalizes from the examples you hav
 
 Training en [testen](luis-concept-test.md) een app is een iteratief proces. Nadat u uw LUIS-app trainen, kunt u deze testen met voorbeeldgegevens uitingen om te controleren of de intenties en entiteiten correct worden herkend. Als ze niet zijn, moet u opnieuw updates voor de LUIS-app, trainen en testen. 
 
-## <a name="how-to-train"></a>Hoe u met het trainen van
-Voor het starten van de iteratief proces, moet u eerst uw LUIS-app ten minste één keer te trainen. Zorg ervoor dat elke bedoeling heeft ten minste één utterance voordat een training.
+Training wordt toegepast op de actieve versie in de LUIS-portal. 
+
+## <a name="how-to-train-interactively"></a>Hoe u met het trainen van interactief
+
+De iteratief proces gestart in de [LUIS portal](https://www.luis.ai), moet u eerst uw LUIS-app ten minste één keer te trainen. Zorg ervoor dat elke bedoeling heeft ten minste één utterance voordat een training.
 
 1. Toegang tot uw app door het selecteren van de naam ervan op de **mijn Apps** pagina. 
 
@@ -41,7 +44,18 @@ Voor het starten van de iteratief proces, moet u eerst uw LUIS-app ten minste é
 >Als u een of meer intents in uw app die geen voorbeeld uitingen bevatten hebt, kunt u uw app kan niet trainen. Utterances voor alle uw intents toevoegen. Zie voor meer informatie, [voorbeeld utterances toevoegen](luis-how-to-add-example-utterances.md).
 
 ## <a name="train-with-all-data"></a>Met alle gegevens van de trein
-Training maakt gebruik van een klein percentage van het negatieve samplen bijhouden. Als u wilt dat alle gegevens gebruiken in plaats van de kleine negatieve steekproeven, gebruikt u de [versie instellingen API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) met de `UseAllTrainingData` is ingesteld op waar deze functie uitschakelen. 
+
+Training maakt gebruik van een klein percentage van het negatieve samplen bijhouden. Als u wilt dat alle gegevens gebruiken in plaats van de kleine negatieve steekproeven, gebruikt u de [versie instellingen API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) met de `UseAllTrainingData` ingesteld op waar deze functie uitschakelen. 
+
+## <a name="unnecessary-training"></a>Onnodige training
+
+U hoeft niet te trainen na elke één wijziging. Training moet worden uitgevoerd nadat een groep van de wijzigingen worden toegepast op het model en de volgende stap die u wilt doen, is te testen of te publiceren. Als u niet hoeft te testen of te publiceren, training niet nodig. 
+
+## <a name="training-with-the-rest-apis"></a>Training met de REST API 's
+
+Training in de portal LUIS bestaat uit één stap van de te drukken de **Train** knop. Training met de REST API's is een proces in twee stappen. De eerste [aanvragen training](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c45) met HTTP POST. Vraag de [trainingsstatus](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c46) met HTTP Get. 
+
+Als u wilt weten wanneer de training is voltooid, moet u de status te peilen totdat alle modellen met succes zijn getraind. 
 
 ## <a name="next-steps"></a>Volgende stappen
 

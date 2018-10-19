@@ -1,5 +1,5 @@
 ---
-title: Azure Event Hubs-IP-verbindingsfilters | Microsoft Docs
+title: Azure Event Hubs-IP-filters | Microsoft Docs
 description: Gebruik van IP-filtering om verbindingen te blokkeren van bepaalde IP-adressen naar Azure Event Hubs.
 services: event-hubs
 documentationcenter: ''
@@ -10,20 +10,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: spelluru
-ms.openlocfilehash: c229a6f84096ecca892b74f7ce65cb831fa50be3
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: d0114821b5239146f64dde0b01652dc320994585
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48886174"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49408146"
 ---
 # <a name="use-ip-filters"></a>IP-filters gebruiken
 
-Voor scenario's waarin Azure Event Hubs alleen toegankelijk zijn van bepaalde bekende sites is, de *IP-filter* functie kunt u regels voor weigeren of verkeer dat afkomstig is van de specifieke IPv4-adressen te configureren. Bijvoorbeeld, kunnen deze adressen die van een zakelijke NAT-gateway zijn.
+Voor scenario's waarin Azure Event Hubs toegankelijk alleen van bepaalde bekende sites zijn moet, de *IP-filter* functie kunt u regels voor weigeren of verkeer dat afkomstig is van de specifieke IPv4-adressen te configureren. Bijvoorbeeld, kunnen deze adressen die van een zakelijke NAT-gateway zijn.
 
 ## <a name="when-to-use"></a>Wanneer gebruikt u dit?
 
-Twee belangrijke gevallen waarin het is nuttig om het blokkeren van Event Hubs-eindpunten voor bepaalde IP-adressen als volgt zijn gebruiken:
+Twee belangrijke gevallen waarin het is nuttig om het blokkeren van Event Hubs voor bepaalde IP-adressen als volgt zijn gebruiken:
 
 - Uw eventhubs moeten ontvangen verkeer alleen vanaf een opgegeven bereik van IP-adressen en alle andere afwijzen. Bijvoorbeeld, gebruikt u Event Hubs met [Azure Express Route] [ express-route] particuliere verbindingen met uw on-premises infrastructuur te maken. 
 - U moet verkeer van IP-adressen die zijn geïdentificeerd als verdacht door de beheerder van de Event Hubs afwijzen.
@@ -47,12 +47,12 @@ Als u adressen in het bereik 70.37.104.0/24 accepteren en weigeren alle andere w
 > [!NOTE]
 > IP-adressen weigeren kunt voorkomen dat andere Azure-services (zoals Azure Stream Analytics, Azure Virtual Machines of het Device Explorer in de portal) interactie met Event Hubs.
 
-### <a name="creating-a-virtual-network-rule-with-azure-resource-manager-templates"></a>Het maken van een regel voor virtuele netwerken met Azure Resource Manager-sjablonen
+### <a name="creating-an-ip-filter-rule-with-azure-resource-manager-templates"></a>Het maken van een IP-filter rule met Azure Resource Manager-sjablonen
 
 > [!IMPORTANT]
 > Virtuele netwerken worden ondersteund **standard** en **toegewezen** lagen van Event Hubs. Het wordt niet ondersteund in de basic-laag. 
 
-De volgende Resource Manager-sjabloon kunt een regel voor virtuele netwerken toe te voegen aan een bestaande Event Hubs-naamruimte.
+De volgende Resource Manager-sjabloon kunt een regel voor IP-filter toe te voegen aan een bestaande Event Hubs-naamruimte.
 
 Sjabloonparameters:
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/30/2018
 ms.author: yzheng
 ms.component: common
-ms.openlocfilehash: 25e6fba6ac8aa34c0c30fd61f5fe297b94720439
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 05e7a7e3c2824a9b47ff723e91103611871d7ed2
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46983664"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49429555"
 ---
 # <a name="managing-the-azure-blob-storage-lifecycle-preview"></a>Beheer van de levenscyclus van Azure Blob Storage (Preview)
 
@@ -37,7 +37,7 @@ Levenscyclusbeheerbeleid is beschikbaar bij zowel algemeen gebruik v2 (GPv2)-acc
 Functie voor het beheer van levenscyclus is gratis in preview. Klanten betalen voor de bewerkingskosten van de normale voor de [Blobs weergeven](https://docs.microsoft.com/rest/api/storageservices/list-blobs) en [Blob-laag instellen](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier) API-aanroepen. Zie [prijzen voor blok-Blob](https://azure.microsoft.com/pricing/details/storage/blobs/) voor meer informatie over prijzen.
 
 ## <a name="register-for-preview"></a>Registreren voor de Preview-versie 
-Als u wilt registreren in openbare preview-versie, moet u een aanvraag indient bij het registreren van deze functie kunt u uw abonnement. Nadat uw aanvraag is goedgekeurd (binnen een paar dagen), is alle bestaande en nieuwe GPv2 of Blob Storage-account in VS-West 2, West-Centraal VS en West-Europa, heeft de functie is ingeschakeld. Tijdens de preview, wordt alleen blok-blob ondersteund. Net als bij de meeste Preview-versies, mag deze functie niet worden gebruikt voor werkbelastingen voor productie totdat het bereikt die algemene beschikbaarheid.
+Als u wilt registreren in openbare preview-versie, moet u een aanvraag indient bij het registreren van deze functie kunt u uw abonnement. Nadat uw aanvraag is goedgekeurd (binnen een paar dagen), is alle bestaande en nieuwe GPv2 of Blob Storage-account in VS-West 2, West-Centraal VS, VS-Oost 2 en West-Europa, heeft de functie is ingeschakeld. Tijdens de preview, wordt alleen blok-blob ondersteund. Net als bij de meeste Preview-versies, mag deze functie niet worden gebruikt voor werkbelastingen voor productie totdat het bereikt die algemene beschikbaarheid.
 
 Als u wilt een aanvraag indient, voer de volgende PowerShell of CLI-opdrachten.
 
@@ -69,7 +69,7 @@ Als de functie is goedgekeurd en juist is geregistreerd, kunt u de status 'Regis
 
 ## <a name="add-or-remove-policies"></a>Beleidsregels toevoegen of verwijderen 
 
-U kunt toevoegen, bewerken of verwijderen van een beleid met behulp van Azure portal, [PowerShell](https://www.powershellgallery.com/packages/AzureRM.Storage/5.0.3-preview), [REST-API's](https://docs.microsoft.com/rest/api/storagerp/storageaccounts/createorupdatemanagementpolicies), of clienthulpprogramma's in de volgende talen: [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/8.0.0-preview), [Python](https://pypi.org/project/azure-mgmt-storage/2.0.0rc3/), [Node.js]( https://www.npmjs.com/package/azure-arm-storage/v/5.0.0), [Ruby](   https://rubygems.org/gems/azure_mgmt_storage/versions/0.16.2). 
+U kunt toevoegen, bewerken of verwijderen van een beleid met behulp van Azure portal, [PowerShell](https://www.powershellgallery.com/packages/AzureRM.Storage/5.0.3-preview), [REST-API's](https://docs.microsoft.com/rest/api/storagerp/managementpolicies/managementpolicies_createorupdate), of clienthulpprogramma's in de volgende talen: [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/8.0.0-preview), [Python](https://pypi.org/project/azure-mgmt-storage/2.0.0rc3/), [Node.js]( https://www.npmjs.com/package/azure-arm-storage/v/5.0.0), [Ruby](   https://rubygems.org/gems/azure_mgmt_storage/versions/0.16.2). 
 
 ### <a name="azure-portal"></a>Azure Portal
 
@@ -316,6 +316,10 @@ Voor gegevens die is gewijzigd en gedurende hun levensduur regelmatig geopend, w
   ]
 }
 ```
+## <a name="faq"></a>Veelgestelde vragen
+### <a name="i-created-a-new-policy-why-are-the-actions-specified-not-executed-immediately"></a>Ik heb een nieuw beleid, waarom worden de acties opgegeven niet onmiddellijk wordt uitgevoerd gemaakt? 
+
+Lifecycle-beleid wordt eenmaal per dag worden uitgevoerd door het platform. Zodra een nieuw beleid is ingesteld, duurt het tot 24 uur voor acties, zoals opslaglagen of verwijderen om te worden gestart en worden uitgevoerd.  
 
 ## <a name="next-steps"></a>Volgende stappen
 

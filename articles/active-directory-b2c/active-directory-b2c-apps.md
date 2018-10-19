@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/13/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: e42bc63b0c2b6edf4dc0de204bbac5fe90071a67
-ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
+ms.openlocfilehash: 7410dadabf9fda2eb36531991d1d7ff3c3747e2c
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39480509"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406514"
 ---
 # <a name="applications-types-that-can-be-used-in-active-directory-b2c"></a>Typen toepassingen die kunnen worden gebruikt in Active Directory B2C
 
@@ -88,11 +88,6 @@ Accept: application/json
 
 De web-API kan het token vervolgens gebruiken om de identiteit van de API-aanroeper te verifiëren en om informatie over de aanroeper af te leiden uit de claims die in het token zijn gecodeerd. In de [Naslaginformatie over Azure AD B2C-tokens](active-directory-b2c-reference-tokens.md) vindt u meer informatie over de typen tokens en claims die beschikbaar zijn voor een app.
 
-> [!NOTE]
-> Op dit moment ondersteunt Azure AD B2C alleen web-API's die worden gebruikt door hun eigen bekende clients. De voltooide app omvat bijvoorbeeld een iOS-toepassing, een Android-toepassing en een back-end web-API. Deze architectuur wordt volledig ondersteund. Zodat een partner-client, zoals een ander iOS-toepassing, voor toegang tot de dezelfde web die API is momenteel niet ondersteund. Alle onderdelen van de volledige toepassing moet een enkele toepassing-id delen.
->
->
-
 Een web-API kan tokens ontvangen van tal van clients, waaronder webtoepassingen, desktop en mobiele toepassingen, één pagina toepassingen, server-side-daemons en andere web-API's. Hier volgt een voorbeeld van de volledige stroom voor een webtoepassing die een web-API aanroept:
 
 1. De web-App wordt uitgevoerd een beleid en de gebruikerservaring door de gebruiker is voltooid.
@@ -114,11 +109,6 @@ Voor meer informatie over het beveiligen van een web-API met behulp van Azure AD
 Toepassingen die zijn geïnstalleerd op apparaten, zoals toepassingen voor mobiele en desktop, is vaak nodig voor toegang tot back-endservices of web-API's namens gebruikers. U kunt aangepaste ervaringen voor identiteitsbeheer aan uw eigen toepassingen toevoegen en veilig back-endservices aanroepen met behulp van Azure AD B2C en de [OAuth 2.0-autorisatiecodestroom](active-directory-b2c-reference-oauth-code.md).  
 
 In deze stroom voert de toepassing wordt uitgevoerd [beleid](active-directory-b2c-reference-policies.md) en ontvangt een `authorization_code` van Azure AD wanneer de gebruiker het beleid is voltooid. De `authorization_code` vertegenwoordigt van de toepassing toestemming om aan te roepen back-end-services namens de gebruiker die momenteel is aangemeld. De toepassing vervolgens kan uitwisselen de `authorization_code` op de achtergrond voor een `id_token` en een `refresh_token`.  De toepassingen kunnen gebruikmaken van de `id_token` om een back-end-web-API in HTTP-aanvragen te verifiëren. Het `refresh_token` kan ook worden gebruikt om nieuwe `id_token` te verkrijgen wanneer de oudere zijn verlopen.
-
-> [!NOTE]
-> Azure AD B2C ondersteunt momenteel alleen tokens die worden gebruikt voor toegang tot een toepassing uit eigen back-end-webservice. De volledige toepassing omvat bijvoorbeeld een iOS-toepassing, een Android-toepassing en een back-end web-API. Deze architectuur wordt volledig ondersteund. Uw iOS-toepassing voor toegang tot een web-API van de partner met behulp van OAuth 2.0-toegangstokens zodat wordt momenteel niet ondersteund. Alle onderdelen van de volledige toepassing moet een enkele toepassing-id delen.
->
->
 
 ## <a name="current-limitations"></a>Huidige beperkingen
 

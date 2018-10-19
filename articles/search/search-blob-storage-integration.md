@@ -1,55 +1,55 @@
 ---
-title: Toevoegen van Azure Search naar Blob Storage | Microsoft Docs
+title: Azure Search toevoegen aan Blob-opslag | Microsoft Docs
 description: Een index in code maken met behulp van de Azure Search HTTP REST-API.
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 05/04/2017
-author: chaosrealm
-manager: jlembicz
-ms.author: eugenesh
-ms.openlocfilehash: 71e43920f0e6a64beb7cdb28d0707dd30502bf05
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.date: 10/17/2018
+author: mgottein
+manager: cgronlun
+ms.author: magottei
+ms.openlocfilehash: 4f8099bbd5af250e58441eb0e202d4674f0671fe
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31790777"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49403218"
 ---
 # <a name="searching-blob-storage-with-azure-search"></a>Blob-opslag doorzoeken met Azure Search
 
-Zoeken in de verschillende typen inhoud opgeslagen in Azure Blob storage mag een moeilijk probleem kunt oplossen. U kunt echter indexeren en de inhoud van uw BLOB's zoeken in een paar muisklikken met behulp van Azure Search. Zoeken in de Blob-opslag is vereist voor het inrichten van een Azure Search-service. De verschillende Servicelimieten en Prijscategorieën van Azure Search kunnen u vinden op de [pagina met prijzen](https://aka.ms/azspricing).
+Doorzoeken op de verschillende typen inhoud die zijn opgeslagen in Azure Blob-opslag is een probleem lastig om op te lossen. U kunt echter indexeren en zoeken van de inhoud van uw Blobs in een paar klikken met behulp van Azure Search. Zoeken in Blob-opslag is vereist voor het inrichten van een Azure Search-service. De verschillende Servicelimieten en -Prijscategorieën van Azure Search kunnen u vinden op de [pagina met prijzen](https://aka.ms/azspricing).
 
 ## <a name="what-is-azure-search"></a>Wat is Azure Search?
-[Azure Search](https://aka.ms/whatisazsearch) is een search-service waarmee u gemakkelijk voor ontwikkelaars om toe te voegen optreedt robuuste zoekopdracht in volledige tekst voor webtoepassingen en mobiele toepassingen. Als een service, Azure Search verwijdert de behoefte om een infrastructuur zoeken bij aanbieding te beheren een [uptime van 99,9% SLA](https://aka.ms/azuresearchsla).
+[Azure Search](https://aka.ms/whatisazsearch) is een search-service waarmee u eenvoudig voor ontwikkelaars om toe te voegen robuuste zoeken in volledige tekst ervaringen voor web- en mobiele toepassingen. Een service, Azure Search elimineert u de noodzaak voor het beheren van een zoekinfrastructuur bij aanbieding een [uptime van 99,9% SLA](https://aka.ms/azuresearchsla).
 
-## <a name="index-and-search-enterprise-document-formats"></a>Index en zoek de opmaak van de enterprise-documenten
-Met ondersteuning voor [extractie document](https://aka.ms/azsblobindexer) in Azure Blob storage, kunt u de volgende inhoud indexeren:
+## <a name="index-and-search-enterprise-document-formats"></a>Indexeren en zoeken in de opmaak van de enterprise-documenten
+Met ondersteuning voor [document extractie](https://aka.ms/azsblobindexer) in Azure Blob-opslag, kunt u de volgende inhoud indexeren:
 
 [!INCLUDE [search-blob-data-sources](../../includes/search-blob-data-sources.md)]
 
-Door de tekst en metagegevens extraheren uit deze bestandstypen, kunt u meerdere indelingen met één query doorzoeken. 
+Door de tekst en metagegevens extraheren uit deze bestandstypen, kunt u zoeken in meerdere indelingen met een eenvoudige query uitvoeren. 
 
-## <a name="search-through-your-blob-metadata"></a>Het doorzoeken van de blobmetagegevens
-Een veelvoorkomend scenario waarmee u gemakkelijk te sorteren via blobs van elk type inhoud is om te indexeren zowel aangepaste metagegevens en eigenschappen voor elke blob. Op deze manier wordt de informatie voor alle blobs ongeacht documenttype geïndexeerd. Vervolgens kunt u doorgaan met sorteren, te filteren en facet over alle inhoud van de Blob-opslag.
+## <a name="search-through-your-blob-metadata"></a>De blobmetagegevens doorzoeken
+Een veelvoorkomend scenario waarmee u eenvoudig om te sorteren via blobs van elk type inhoud is om te indexeren van zowel de aangepaste metagegevens als de eigenschappen voor elke blob. Op deze manier wordt informatie voor alle blobs worden geïndexeerd, ongeacht het documenttype. Vervolgens kunt u doorgaan om te sorteren, filteren en facet voor alle inhoud van de Blob-opslag.
 
 [Meer dat informatie over het indexeren van blob-metagegevens.](https://aka.ms/azsblobmetadataindexing)
 
-## <a name="image-search"></a>Zoeken naar afbeelding
-Zoekopdracht in volledige tekst, meervoudige navigatie en sorteren mogelijkheden van Azure Search kunnen nu worden toegepast op de metagegevens van de installatiekopieën die zijn opgeslagen in blobs.
+## <a name="image-search"></a>Afbeeldingen zoeken
+Zoeken in volledige tekst, meervoudige navigatie en sorteren mogelijkheden van Azure Search kunnen nu worden toegepast op de metagegevens van de installatiekopieën die zijn opgeslagen in blobs.
 
-Als deze installatiekopieën vooraf worden verwerkt met behulp van de [Computer Vision-API](https://www.microsoft.com/cognitive-services/computer-vision-api) van cognitieve Services van Microsoft, is het mogelijk om de visual inhoud gevonden in elke installatiekopie inclusief OCR en handschriftherkenning te indexeren. We werken over het toevoegen van OCR en andere mogelijkheden voor de verwerking van de installatiekopie rechtstreeks naar Azure Search, als u geïnteresseerd in deze mogelijkheden kunnen bent een aanvraag indienen op onze [UserVoice](https://aka.ms/azsuv) of [Stuur ons een e-mail](mailto:azscustquestions@microsoft.com).
+Als deze installatiekopieën vooraf zijn verwerkt met behulp van de [Computer Vision-API](https://www.microsoft.com/cognitive-services/computer-vision-api) van Cognitive Services van Microsoft, is het mogelijk om te indexeren van de visuele inhoud die is gevonden in elke installatiekopie met inbegrip van OCR-en handschriftherkenning. Er wordt gewerkt aan toe te voegen OCR en andere mogelijkheden voor de verwerking van afbeelding rechtstreeks naar Azure Search, als u geïnteresseerd in deze mogelijkheden bent, een aanvraag indienen op onze [UserVoice](https://aka.ms/azsuv) of [Stuur ons een e-mail](mailto:azscustquestions@microsoft.com).
 
 ## <a name="index-and-search-through-json-blobs"></a>Index en zoek via JSON-blobs
-Azure Search kan worden geconfigureerd voor het uitpakken van gestructureerde inhoud gevonden in de blobs die JSON bevatten. Azure Search kunt lezen JSON-blobs en de inhoud van het gestructureerde geparseerd in de juiste velden van een Azure Search-document. Azure Search kunt ook rekening houden met blobs die een matrix met JSON-objecten bevatten en elke element toewijzen aan een afzonderlijke Azure Search-document.
+Azure Search kan worden geconfigureerd om uit te pakken gestructureerde inhoud gevonden in de blobs die JSON bevatten. Azure Search kan lezen JSON-blobs en parseren van de gestructureerde inhoud naar de juiste velden van een Azure Search-document. Azure Search kan ook rekening houden met blobs die een matrix met JSON-objecten bevatten en toewijzen van elk element in een afzonderlijk Azure Search-document.
 
-Bij het parseren van JSON kan niet op dit moment worden geconfigureerd via de portal. [Meer informatie over de JSON parseren in Azure Search.](https://aka.ms/azsjsonblobindexing)
+JSON parseren is niet op dit moment worden geconfigureerd via de portal. [Meer informatie over JSON parseren in Azure Search.](https://aka.ms/azsjsonblobindexing)
 
 ## <a name="quick-start"></a>Snel starten
-Azure Search kan worden toegevoegd aan BLOB's rechtstreeks vanuit de portal Blob-opslag-pagina.
+Azure Search kan worden toegevoegd aan BLOB's rechtstreeks vanuit de portal Blob storage-pagina.
 
 ![](./media/search-blob-storage-integration/blob-blade.png)
 
-Klik op **toevoegen Azure Search** starten van een stroom kunt u een bestaande Azure Search-service selecteren of een nieuwe service maken. Als u een nieuwe service maakt, wordt u genavigeerd buiten portal ervaring voor uw opslagaccount. U kunt Ga terug naar de portal opslag-pagina en selecteer nogmaals het **toevoegen Azure Search** optie, waarin u de bestaande service kunt selecteren.
+Klik op **Azure Search toevoegen** om te starten van een stroom kunt u een bestaande Azure Search-service selecteren of een nieuwe service maken. Als u een nieuwe service maakt, wordt u genavigeerd buiten uw Storage-account-portal-ervaring. U kunt Ga terug naar de portal op de pagina opslag en opnieuw selecteren de **Azure Search toevoegen** optie, waarin u de bestaande service kunt selecteren.
 
 ### <a name="next-steps"></a>Volgende stappen
-Meer informatie over de Azure Blob-indexering voor zoeken in de volledige [documentatie](https://aka.ms/azsblobindexer).
+Meer informatie over de indexeerfunctie Azure Search Blob in de volledige [documentatie](https://aka.ms/azsblobindexer).

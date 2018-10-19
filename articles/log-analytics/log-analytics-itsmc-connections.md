@@ -1,6 +1,6 @@
 ---
 title: Verbindingen met de IT Service Management-Connector wordt ondersteund in Azure Log Analytics | Microsoft Docs
-description: In dit artikel bevat informatie over het verbinden van uw ITSM-producten en services met de IT Service Management Connector (ITSMC) in OMS Log Analytics centraal bewaken en beheren van de ITSM-werkitems.
+description: In dit artikel bevat informatie over het verbinden van uw ITSM-producten en services met de IT Service Management Connector (ITSMC) in Azure Monitor centraal bewaken en beheren van de ITSM-werkitems.
 documentationcenter: ''
 author: jyothirmaisuri
 manager: riyazp
@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
 ms.component: ''
-ms.openlocfilehash: 50ab09d39fc0c224a97b6cf0c758c55026ac8ce7
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 190e173e035716431c92533e42ded97e147f21a7
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48042838"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49409200"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Verbinding maken met ITSM-producten en services met IT Service Management-Connector
 In dit artikel bevat informatie over het configureren van de verbinding tussen uw ITSM-product/service en de IT Service Management-Connector (ITSMC) in Log Analytics om uw werkitems centraal te beheren. Zie voor meer informatie over ITSMC [overzicht](log-analytics-itsmc-overview.md).
@@ -76,7 +76,7 @@ Gebruik de volgende procedure verbinding maken met uw exemplaar van System Cente
 | **Clientgeheim**   | Typ het clientgeheim gegenereerd voor deze ID.   |
 | **Bereik voor gegevenssynchronisatie**   | Selecteer de Service Manager-werkitems die u wilt synchroniseren via ITSMC.  Deze items worden geïmporteerd in Log Analytics werk. **Opties:** incidenten, wijzigingsaanvragen.|
 | **Gegevens synchroniseren** | Typ het aantal afgelopen dagen die u wilt dat de gegevens uit. **Maximumlimiet**: 120 dagen. |
-| **Nieuwe configuratie-item maken in de ITSM-oplossing** | Selecteer deze optie als u wilt maken van de configuratie-items in de ITSM-product. Als u selecteert, maakt OMS de betrokken configuratie-items als configuratie-items (in het geval van niet-bestaande configuratie-items) in de ondersteunde ITSM-systeem. **Standaard**: uitgeschakeld. |
+| **Nieuwe configuratie-item maken in de ITSM-oplossing** | Selecteer deze optie als u wilt maken van de configuratie-items in de ITSM-product. Als u selecteert, maakt Log Analytics de betrokken configuratie-items als configuratie-items (in het geval van niet-bestaande configuratie-items) in de ondersteunde ITSM-systeem. **Standaard**: uitgeschakeld. |
 
 ![Service manager-verbinding](./media/log-analytics-itsmc/service-manager-connection.png)
 
@@ -199,7 +199,7 @@ Zorg ervoor dat de volgende vereisten wordt voldaan:
     - [Instellen van OAuth voor Geneva](https://docs.servicenow.com/bundle/geneva-servicenow-platform/page/administer/security/task/t_SettingUpOAuth.html)
 
 
-- Installeer de App gebruiker voor de integratie met Microsoft OMS (ServiceNow-app). [Meer informatie](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.1 ).
+- Installeer de gebruikers-App voor Microsoft Log Analytics-integratie (ServiceNow-app). [Meer informatie](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.1 ).
 - Maak integratie van de rol van de gebruiker naar de gebruiker geïnstalleerd. Informatie over het maken van de gebruikersrol integratie [hier](#create-integration-user-role-in-servicenow-app).
 
 ### <a name="connection-procedure"></a>**-Verbindingsprocedure**
@@ -221,7 +221,7 @@ Gebruik de volgende procedure om een ServiceNow-verbinding te maken:
 
 | **Veld** | **Beschrijving** |
 | --- | --- |
-| **Verbindingsnaam**   | Typ een naam voor het ServiceNow-exemplaar dat u wilt verbinden met ITSMC.  U gebruikt deze naam later in OMS wanneer u configuratie-items in deze ITSM configureren / gedetailleerd logboek analytics weergeven. |
+| **Verbindingsnaam**   | Typ een naam voor het ServiceNow-exemplaar dat u wilt verbinden met ITSMC.  U kunt deze naam later in Log Analytics gebruiken wanneer u configuratie-items in deze ITSM configureren / gedetailleerd logboek analytics weergeven. |
 | **Partnertype**   | Selecteer **ServiceNow**. |
 | **Gebruikersnaam**   | Typ de naam van de integratie-gebruiker die u hebt gemaakt in de ServiceNow-app voor de ondersteuning van de verbinding met ITSMC. Meer informatie: [gebruikersrol maken tussen ServiceNow-app](#create-integration-user-role-in-servicenow-app).|
 | **Wachtwoord**   | Typ het wachtwoord dat is gekoppeld aan deze gebruikersnaam. **Houd er rekening mee**: gebruikersnaam en wachtwoord worden gebruikt voor het genereren van verificatietokens alleen en worden niet overal opgeslagen in de ITSMC-service.  |
@@ -247,6 +247,9 @@ Meer informatie: [maken ITSM-werkitems van Azure-waarschuwingen](log-analytics-i
 Gebruiker met de volgende procedure:
 
 1.  Ga naar de [ServiceNow store](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.1) en installeer de **gebruiker-App voor ServiceNow en Microsoft OMS Integration** in uw ServiceNow-exemplaar.
+   
+   >[!NOTE]
+   >Als onderdeel van de lopende overgang van Microsoft Operations Management Suite (OMS) naar Azure Monitor, wordt OMS nu aangeduid als Log Analytics.     
 2.  Na de installatie, gaat u naar de linker navigatiebalk van het ServiceNow-exemplaar, zoeken en selecteer Microsoft OMS integrator.  
 3.  Klik op **controlelijst voor de installatie**.
 

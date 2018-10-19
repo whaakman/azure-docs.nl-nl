@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2017
 ms.author: bwren;dairwin
-ms.openlocfilehash: 5aca1400ddfe1522cd9dc8d68d8cba8a222e4d21
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 6fc6afa9c0ccbddcfa408556dee92618fe63c8fb
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44095195"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49407109"
 ---
 # <a name="service-map-integration-with-system-center-operations-manager"></a>Serviceoverzicht integratie met System Center Operations Manager
   > [!NOTE]
@@ -45,6 +45,9 @@ U kunt de integratie tussen Operations Manager en Service Map inschakelen door h
 
 ## <a name="configure-the-service-map-integration"></a>De Serviceoverzicht-integratie configureren
 Nadat u het Serviceoverzicht management pack, een nieuw knooppunt **Serviceoverzicht**, wordt weergegeven onder **Operations Management Suite** in de **beheer** deelvenster. 
+
+>[!NOTE]
+>[Operations Management Suite is een verzameling van services](https://github.com/MicrosoftDocs/azure-docs-pr/pull/azure-monitor/azure-monitor-rebrand.md#retirement-of-operations-management-suite-brand) die opgenomen Log Analytics, die nu deel uitmaakt van [Azure Monitor](https://github.com/MicrosoftDocs/azure-docs-pr/pull/azure-monitor/overview.md).
 
 Serviceoverzicht om integratie te configureren, het volgende doen:
 
@@ -104,7 +107,12 @@ De Serviceoverzicht-map bevat vier knooppunten:
     ![Een diagram van de Operations Manager gedistribueerde toepassing](media/monitoring-service-map/scom-dad.png)
 
 ## <a name="edit-or-delete-the-workspace"></a>Bewerken of verwijderen van de werkruimte
-U kunt bewerken of verwijderen van de geconfigureerde werkruimte via de **Service kaart overzicht** deelvenster (**beheer** deelvenster > **Operations Management Suite**  >  **Service kaart**). Nu kunt u slechts één Log Analytics-werkruimte configureren.
+U kunt bewerken of verwijderen van de geconfigureerde werkruimte via de **Service kaart overzicht** deelvenster (**beheer** deelvenster > **Operations Management Suite**  >  **Service kaart**).
+
+>[!NOTE]
+>[Operations Management Suite is een verzameling van services](https://github.com/MicrosoftDocs/azure-docs-pr/pull/azure-monitor/azure-monitor-rebrand.md#retirement-of-operations-management-suite-brand) die opgenomen Log Analytics, die nu deel uitmaakt van [Azure Monitor](https://github.com/MicrosoftDocs/azure-docs-pr/pull/azure-monitor/overview.md).
+
+Nu kunt u slechts één Log Analytics-werkruimte configureren.
 
 ![De werkruimte van Operations Manager-bewerken](media/monitoring-service-map/scom-edit-workspace.png)
 

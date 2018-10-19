@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: ramankum
 ms.custom: include file
-ms.openlocfilehash: a05d0c623c1abdb5713c1d49b0b577298c1d6c7d
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 97e4e670d5db646cea28cb30e9ca95633cea2a8a
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49347076"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49437069"
 ---
 # <a name="high-performance-premium-storage-and-managed-disks-for-vms"></a>Krachtige Premium Storage en beheerde schijven voor virtuele machines
 
@@ -151,7 +151,11 @@ Als u premium storage-accounts voor niet-beheerde schijven gebruikt en uw toepas
 ### <a name="premium-storage-disk-limits"></a>Limieten voor Premium Storage-schijf
 Als u een premium-opslagschijf inricht, wordt de grootte van de schijf bepaalt de maximale IOPS en doorvoer (bandbreedte). Azure biedt acht GA typen premium-opslagschijven: P4 (beheerde schijven alleen), P6 (beheerde schijven alleen), P10, P15 (beheerde schijven alleen), P20, P30 of P40 of P50. Ook drie schijfgrootten preview: P60 P70 en P80. Elke schijftype voor premium storage heeft bepaalde limieten voor IOPS en doorvoer. Limieten voor de schijftypen worden beschreven in de volgende tabel:
 
-| Premium-schijven Type | P4 | P6 | P10 | P15 | P20 | P30 | P40 | P50 | P60 | P70 | P80 | |---|---|---|---|---|---|---|---|---|| -------|| -------|| -------| | Schijfgrootte | 32 giB | 64 giB | 128 giB | 256 GB | 512 giB | 1024 giB (1 TiB) | 2048 giB (2 TiB) | 4095 giB (4 TiB) | 8192 giB (8 TiB) | 16.384 giB (16 TiB) | 32.767 giB (32 TiB) || IOP's per schijf | 120 | 240 | 500 | 1100 | 2300 | 5000 | 7500 | 7500 | 12.500 | 15.000 | 20.000 || Doorvoer per schijf | 25 MB per seconde | 50 MB per seconde | 100 MB per seconde | 125 MB per seconde | 150 MB per seconde | 200 MB per seconde | 250 MB per seconde | 250 MB per seconde | 480 MB per seconde | 750 MB per seconde | 750 MB per seconde |
+| Schijftype voor Premium-schijven  | P4    | P6    | P10    | P15    | P20    | P30              | P40             | P50             | P60             | P70                | P80                |
+|---------------------|-------|-------|--------|--------|--------|------------------|-----------------|-----------------|-----------------|--------------------|--------------------|
+| Schijfgrootte           | 32 GiB| 64 GiB| 128 GiB| 256 GiB| 512 GiB| 1024 GiB (1 TiB) | 2048 GiB (2 TiB)| 4095 GiB (4 TiB)| 8192 giB (8 TiB)| 16.384 giB (16 TiB)| 32.767 giB (32 TiB)|
+| IOP's per schijf       | 120   | 240   | 500    | 1100   | 2300   | 5000             | 7500            | 7500            | 12.500          | 15.000             | 20,000             |
+| Doorvoer per schijf | 25 MB per seconde | 50 MB per seconde | 100 MB per seconde | 125 MB per seconde | 150 MB per seconde | 200 MB per seconde | 250 MB per seconde | 250 MB per seconde | 480 MB per seconde | 750 MB per seconde | 750 MB per seconde |
 
 > [!NOTE]
 > Zorg ervoor dat voldoende bandbreedte is beschikbaar op de virtuele machine op station schijfverkeer, zoals beschreven in [Premium Storage-ondersteunde VM's](#premium-storage-supported-vms). Anders wordt is de doorvoer van schijfgegevens en IOP's beperkt tot het lagere waarden. Maximale doorvoer en IOPS zijn gebaseerd op de VM-limieten, niet op de schijflimieten die worden beschreven in de voorgaande tabel.  

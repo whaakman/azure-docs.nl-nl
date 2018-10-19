@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 09/27/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: d9cf46a1fd28985d9ca98d173bbef17380b7de21
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: f3f5b656b4c90c3b39fc317160eea7ce8fea25ff
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49354390"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49409727"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Azure Resource Manager-resourceproviderbewerkingen
 
@@ -3938,16 +3938,16 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > [!div class="mx-tdCol2BreakAll"]
 > | Actietype | Bewerking | Beschrijving |
 > | --- | --- | --- |
-> | Bewerking | Microsoft.OperationsManagement/managementAssociations/delete | Bestaande beheerkoppeling verwijderen |
-> | Bewerking | Microsoft.OperationsManagement/managementAssociations/read | Bestaande beheerkoppeling ophalen |
-> | Bewerking | Microsoft.OperationsManagement/managementAssociations/write | Een nieuwe beheerkoppeling maken |
-> | Bewerking | Microsoft.OperationsManagement/managementConfigurations/delete | Bestaande beheerconfiguratie verwijderen |
-> | Bewerking | Microsoft.OperationsManagement/managementConfigurations/read | Bestaande beheerconfiguratie ophalen |
-> | Bewerking | Microsoft.OperationsManagement/managementConfigurations/write | Een nieuwe beheerconfiguratie maken |
+> | Bewerking | Microsoft.OperationsManagement/managementAssociations/delete | Bestaande beheerkoppeling verwijderen. |
+> | Bewerking | Microsoft.OperationsManagement/managementAssociations/read | Bestaande beheerkoppeling ophalen. |
+> | Bewerking | Microsoft.OperationsManagement/managementAssociations/write | Een nieuwe beheerkoppeling maken. |
+> | Bewerking | Microsoft.OperationsManagement/managementConfigurations/delete | Bestaande beheerconfiguratie verwijderen. |
+> | Bewerking | Microsoft.OperationsManagement/managementConfigurations/read | Bestaande beheerconfiguratie ophalen. |
+> | Bewerking | Microsoft.OperationsManagement/managementConfigurations/write | Een nieuwe beheerconfiguratie maken. |
 > | Bewerking | Microsoft.OperationsManagement/register/action | Een abonnement bij een resourceprovider registreren. |
-> | Bewerking | Microsoft.OperationsManagement/solutions/delete | Bestaande OMS-oplossing verwijderen |
-> | Bewerking | Microsoft.OperationsManagement/solutions/read | Bestaande OMS-oplossing ophalen |
-> | Bewerking | Microsoft.OperationsManagement/solutions/write | Nieuwe OMS-oplossing maken |
+> | Bewerking | Microsoft.OperationsManagement/solutions/delete | Verwijder de bestaande oplossing voor de controle. |
+> | Bewerking | Microsoft.OperationsManagement/solutions/read | Get-oplossing voor controle wordt afgesloten. |
+> | Bewerking | Microsoft.OperationsManagement/solutions/write | Maak nieuwe oplossing voor controle. |
 
 ## <a name="microsoftpolicyinsights"></a>Microsoft.PolicyInsights
 

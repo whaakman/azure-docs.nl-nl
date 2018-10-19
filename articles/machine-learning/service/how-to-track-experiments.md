@@ -9,12 +9,12 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/24/2018
-ms.openlocfilehash: b3e1fd5331b97fc2120819b17f7fbba57dadf7b1
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 4d8b913c9e77254eb4d232e6bf5add136204b842
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49345047"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49427753"
 ---
 # <a name="track-experiments-and-training-metrics-in-azure-machine-learning"></a>Bijhouden van experimenten en training metrische gegevens in Azure Machine Learning
 
@@ -235,6 +235,7 @@ Model trainen en bewaking optreden op de achtergrond, zodat u andere taken uitvo
 
 U kunt de metrische gegevens van het gebruik van een getraind model weergeven ```run.get_metrics()```. U kunt nu alle van de metrische gegevens die zijn geregistreerd in het voorbeeld hierboven om te bepalen van het beste model krijgen.
 
+<a name='view-the-experiment-in-the-web-portal'/>
 ## <a name="view-the-experiment-in-the-azure-portal"></a>Het experiment in Azure portal bekijken
 
 Wanneer een experiment is voltooid, kunt u bladeren naar de vastgelegde experiment record worden uitgevoerd. U kunt dit op twee manieren doen:

@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 05/14/2018
 ms.author: jomolesk
-ms.openlocfilehash: b4f40dfced7060dd01df7410d07ac5b7cfdf3176
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: f744a1126e12766980727e31d5c50ce4aa17934c
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45580698"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49408775"
 ---
 # <a name="azure-security-and-compliance-blueprint-analytics-for-gdpr"></a>Azure-beveiliging en naleving blauwdruk: Analytics Avg
 
@@ -43,7 +43,7 @@ Wanneer gegevens worden geüpload naar de Azure SQL Database en getraind door Az
 
 De volledige oplossing is gebouwd op Azure-opslag, waarmee klanten vanuit de Azure portal configureren. Azure Storage worden alle gegevens met Storage Service Encryption voor het onderhouden van de vertrouwelijkheid van gegevens in rust versleuteld. Geografisch redundante opslag (GRS) zorgt ervoor dat een negatieve gebeurtenis in het primaire datacenter van de klant niet in een verlies van gegevens resulteren zal als een tweede exemplaar worden opgeslagen op een afzonderlijke locatie honderden van mijl weg.
 
-Deze architectuur beheert voor een betere beveiliging resources met Azure Active Directory en Azure Key Vault. Status van het bestandssysteem wordt bewaakt met Operations Management Suite (OMS) en Azure Monitor. Klanten configureren beide bewakingsservices voor het vastleggen van Logboeken en status van het bestandssysteem in een enkele, eenvoudig navigeerbaar dashboard weer te geven.
+Deze architectuur beheert voor een betere beveiliging resources met Azure Active Directory en Azure Key Vault. Status van het bestandssysteem wordt bewaakt met Log Analytics en Azure Monitor. Klanten configureren beide bewakingsservices voor het vastleggen van Logboeken en status van het bestandssysteem in een enkele, eenvoudig navigeerbaar dashboard weer te geven.
 
 Azure SQL-Database wordt meestal beheerd via SQL Server Management Studio (SSMS), die wordt uitgevoerd op een lokale machine is geconfigureerd voor toegang tot de Azure SQL Database via een beveiligde VPN of ExpressRoute-verbinding. **Azure aanbevolen configureren van een VPN of ExpressRoute-verbinding voor het beheer en gegevens importeren in de resourcegroep van de referentie-architectuur**.
 
@@ -56,7 +56,7 @@ Deze oplossing maakt gebruik van de volgende Azure-services. Informatie van de i
 - Azure Machine Learning
 - Azure Active Directory
 - Azure Key Vault
-- Operations Management Suite (OMS)
+- Log Analytics
 - Azure Monitor
 - Azure Storage
 - Power BI Dashboard
@@ -89,7 +89,7 @@ Deze referentiearchitectuur definieert een persoonlijke VNet met een adresruimte
 
 Elk van de nsg's zijn bepaalde poorten en protocollen openen, zodat de oplossing kunt veilig en goed werken. Bovendien zijn de volgende configuraties voor elke NSG ingeschakeld:
   - [Diagnostische logboeken en gebeurtenissen](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log) zijn ingeschakeld en die zijn opgeslagen in een storage-account
-  - OMS Log Analytics is verbonden met de [NSG van diagnostische gegevens](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json)
+  - Log Analytics is verbonden met de [NSG van diagnostische gegevens](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json)
 
 **Subnetten**: elk subnet is gekoppeld aan de bijbehorende NSG.
 
@@ -138,12 +138,12 @@ De volgende technologieën bieden mogelijkheden voor het beheren van toegang tot
 
 ### <a name="logging-and-auditing"></a>Logboekregistratie en controle
 
-[Operations Management Suite (OMS)](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) biedt uitgebreide logboekregistratie van het systeem- en gebruikersactiviteit, evenals de status van het bestandssysteem. De OMS [Log Analytics](https://azure.microsoft.com/services/log-analytics/) oplossing verzamelt en analyseert gegevens gegenereerd door resources in Azure en on-premises omgevingen.
+[Log Analytics](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) biedt uitgebreide logboekregistratie van het systeem- en gebruikersactiviteit, evenals de status van het bestandssysteem. De [Log Analytics](https://azure.microsoft.com/services/log-analytics/) oplossing verzamelt en analyseert gegevens gegenereerd door resources in Azure en on-premises omgevingen.
 - **Activiteitenlogboeken**: [activiteitenlogboeken](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) bieden inzicht in bewerkingen die worden uitgevoerd op resources in een abonnement. Activiteitenlogboeken kunnen u eenvoudiger bepalen van een bewerking initiator, tijdstip van de gebeurtenis en status.
 - **Diagnostische logboeken**: [diagnostische logboeken](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) bevatten alle logboeken die zijn gegenereerd door elke resource. Deze logboeken bevatten de logboeken voor Windows-systeem en Azure Blob-opslag, tabellen en wachtrijlogboeken.
 - **Logboek archiveren**: alle logboeken met diagnostische gegevens schrijven naar een gecentraliseerd en versleutelde Azure storage-account voor archivering met een gedefinieerde bewaarperiode van twee dagen. Deze logboeken verbinding maken met Azure Log Analytics voor verwerking, opslag en -dashboardrapporten.
 
-Bovendien is de volgende OMS-oplossingen, opgenomen als onderdeel van deze architectuur:
+Bovendien is de volgende bewakingsoplossingen, opgenomen als onderdeel van deze architectuur:
 -   [AD-evaluatie](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment): het Active Directory statuscontrole oplossing beoordeelt het risico en de gezondheid van server-omgevingen op een vast interval en biedt een geprioriteerde lijst met aanbevelingen die specifiek zijn voor de geïmplementeerde serverinfrastructuur.
 -   [Antimalware-evaluatie](https://docs.microsoft.com/azure/log-analytics/log-analytics-malware): de antimalwareoplossing rapporten over malware, bedreigingen en bescherming van de status.
 -   [Azure Automation](https://docs.microsoft.com/azure/automation/automation-hybrid-runbook-worker): de Azure Automation-oplossing worden opgeslagen, wordt uitgevoerd runbooks worden beheerd.

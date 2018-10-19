@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: 7682a733c5630c16d9684ec3cb9e7757b03a8b1b
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: f6e8ed1725b7ba2a0cba8523ae03c0306337aba0
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855932"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49402504"
 ---
 # <a name="azure-database-security-checklist"></a>Controlelijst voor de beveiliging van Azure-database
 
@@ -46,7 +46,7 @@ Het is raadzaam dat u leest de [Best Practices voor beveiliging op Azure-Databas
 |Controlelijst voor categorie| Beschrijving|
 | ------------ | -------- |
 |**Gegevens beveiligen**||
-| <br> Versleuteling in beweging/doorvoer| <ul><li>[Transport Layer Security](https://docs.microsoft.com/windows-server/security/tls/transport-layer-security-protocol), voor gegevensversleuteling bij het verplaatsen van gegevens naar de netwerken.</li><li>Database is vereist voor veilige communicatie van clients op basis van de [TDS (Tabular Data Stream)](https://msdn.microsoft.com/en-in/library/dd357628.aspx) protocol via TLS (Transport Layer Security).</li></ul> |
+| <br> Versleuteling in beweging/doorvoer| <ul><li>[Transport Layer Security](https://docs.microsoft.com/windows-server/security/tls/transport-layer-security-protocol), voor gegevensversleuteling bij het verplaatsen van gegevens naar de netwerken.</li><li>Database is vereist voor veilige communicatie van clients op basis van de [TDS (Tabular Data Stream)](https://msdn.microsoft.com/library/dd357628.aspx) protocol via TLS (Transport Layer Security).</li></ul> |
 |<br>Versleuteling 'at rest'| <ul><li>[De Transparent Data Encryption](http://go.microsoft.com/fwlink/?LinkId=526242)als inactieve gegevens fysiek worden opgeslagen in een digitale vorm.</li></ul>|
 |**Toegang beheren**||  
 |<br> Toegang tot de database | <ul><li>[Verificatie](https://docs.microsoft.com/azure/sql-database/sql-database-control-access) (Azure Active Directory-verificatie) AD-verificatie wordt gebruikt voor identiteiten die worden beheerd door Azure Active Directory.</li><li>[Autorisatie](https://docs.microsoft.com/azure/sql-database/sql-database-control-access) gebruikers de minimaal benodigde bevoegdheden verlenen.</li></ul> |

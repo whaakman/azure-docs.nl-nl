@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 433914bc4501b13ba65015d15b0c513a38bf1273
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 9a2193d78d564ad4a8c175a5116fa7dc9ebda256
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041659"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49408741"
 ---
 # <a name="connect-configuration-manager-to-log-analytics"></a>Configuration Manager koppelen aan Log Analytics
 U kunt uw System Center Configuration Manager-omgeving koppelen aan Azure Log Analytics apparaat verzameling om gegevens te synchroniseren en verwijzen naar deze verzamelingen in Log Analytics en Azure Automation.  
@@ -40,7 +40,7 @@ De volgende stappen geven een overzicht van de stappen voor het configureren van
 6. In Log Analytics, [verzamelingen importeren uit Configuration Manager](#import-collections) als computergroepen.
 7. Weergeven in Log Analytics, gegevens uit Configuration Manager als [computergroepen](log-analytics-computer-groups.md).
 
-U kunt meer lezen over het verbinden van Configuration Manager met OMS op [synchroniseren van gegevens uit Configuration Manager met de Microsoft Operations Management Suite](https://technet.microsoft.com/library/mt757374.aspx).
+U kunt meer lezen over het verbinden van Configuration Manager met logboekanalyse op [synchroniseren van gegevens uit Configuration Manager met de Microsoft Log Analytics](https://technet.microsoft.com/library/mt757374.aspx).
 
 ## <a name="grant-configuration-manager-with-permissions-to-log-analytics"></a>Verleen Configuration Manager met machtigingen voor Log Analytics
 In de volgende procedure, verleent u de *Inzender* rol in uw Log Analytics-werkruimte aan de Active Directory-toepassing en service-principal die u eerder hebt gemaakt voor Configuration Manager.  Als u een werkruimte niet al hebt, raadpleegt u [een werkruimte maken in Azure Log Analytics](log-analytics-quick-create-workspace.md) voordat u doorgaat.  Hiermee kunt Configuration Manager om te verifiëren en verbinding maken met uw Log Analytics-werkruimte.  
@@ -59,20 +59,24 @@ In de volgende procedure, verleent u de *Inzender* rol in uw Log Analytics-werkr
 ## <a name="download-and-install-the-agent"></a>De agent downloaden en installeren
 Lees het artikel [verbinding maken met Windows-computers naar de Log Analytics-service in Azure](log-analytics-agent-windows.md) om te begrijpen van de methoden die beschikbaar zijn voor het installeren van de Microsoft Monitoring Agent op de computer die als host fungeert de service van Configuration Manager verbinding sitesysteemrol.  
 
-## <a name="add-an-oms-connection-to-configuration-manager"></a>Een OMS-verbinding toevoegen aan Configuration Manager
-Als u wilt toevoegen een OMS-verbinding, uw Configuration Manager-omgeving moet hebben een [serviceaansluitpunt](https://technet.microsoft.com/library/mt627781.aspx) geconfigureerd voor de onlinemodus bevindt.
+## <a name="add-a-log-analytics-connection-to-configuration-manager"></a>Een verbinding met Log Analytics toevoegen aan Configuration Manager
+Als u wilt toevoegen van Log Analytics-verbinding, uw Configuration Manager-omgeving moet hebben een [serviceaansluitpunt](https://technet.microsoft.com/library/mt627781.aspx) geconfigureerd voor de onlinemodus bevindt.
 
-1. In de **beheer** werkruimte van Configuration Manager, selecteer **OMS-Connector**. Hiermee opent u de **Wizard voor OMS-verbinding toevoegen**. Selecteer **Volgende**.
+1. In de **beheer** werkruimte van Configuration Manager, selecteer **OMS-Connector**. Hiermee opent u de **Log Analytics Verbindingswizard toevoegen**. Selecteer **Volgende**.
+
+   >[!NOTE]
+   >OMS wordt nu aangeduid als Log Analytics.
+   
 2. Op de **algemene** scherm, bevestigt u dat u de volgende acties hebt uitgevoerd en dat u details voor elk item hebben, en selecteer vervolgens **volgende**.
 
    1. In Azure portal kunt u Configuration Manager als een webtoepassing en/of Web-API-app hebt geregistreerd, en dat u hebt de [client-ID van de registratie](../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md).
    2. U kunt een geheime sleutel van de app voor de geregistreerde app in Azure Active Directory hebt gemaakt in de Azure-portal.  
-   3. In de Azure-portal, kunt u de geregistreerde web-app hebt opgegeven met de machtiging voor toegang tot OMS.  
-      ![Verbinding met OMS Wizard algemene pagina](./media/log-analytics-sccm/sccm-console-general01.png)
+   3. In de Azure-portal, kunt u de geregistreerde web-app hebt opgegeven met de machtiging voor toegang tot Log Analytics.  
+      ![Verbinding met Log Analytics Wizard algemene pagina](./media/log-analytics-sccm/sccm-console-general01.png)
 3. Op de **Azure Active Directory** scherm, instellingen voor de verbinding met Log Analytics configureren door te geven uw **Tenant**, **Client-ID**, en **Client Geheime sleutel**en selecteer vervolgens **volgende**.  
-   ![Verbinding met OMS Wizard Azure Active Directory-pagina](./media/log-analytics-sccm/sccm-wizard-tenant-filled03.png)
+   ![Verbinding met Log Analytics Wizard Azure Active Directory-pagina](./media/log-analytics-sccm/sccm-wizard-tenant-filled03.png)
 4. Als u bereikt de procedures is, klikt u vervolgens de informatie op de **OMS verbindingsconfiguratie** scherm wordt automatisch weergegeven op deze pagina. Informatie over de instellingen van de verbinding moet worden weergegeven voor uw **Azure-abonnement**, **Azure-resourcegroep**, en **Operations Management Suite-werkruimte**.  
-   ![Verbinding met de pagina met OMS Wizard OMS te verbinden](./media/log-analytics-sccm/sccm-wizard-configure04.png)
+   ![Verbinding met de verbinding van Log Analytics Wizard Log Analytics-pagina](./media/log-analytics-sccm/sccm-wizard-configure04.png)
 5. De wizard maakt verbinding met de Log Analytics-service met behulp van de gegevens die u hebt ingevoerd. Selecteer de apparaatverzamelingen die u wilt synchroniseren met de service en klik vervolgens op **toevoegen**.  
    ![Verzamelingen selecteren](./media/log-analytics-sccm/sccm-wizard-add-collections05.png)
 6. Controleer de verbindingsinstellingen op de **samenvatting** scherm en selecteer vervolgens **volgende**. De **voortgang** scherm ziet u de status van de verbinding en vervolgens moet **voltooid**.
@@ -91,7 +95,7 @@ Als een wachtwoord of de client geheime sleutel ooit is verlopen of verloren gaa
 2. Op deze pagina, klikt u op de **Azure Active Directory** tabblad om uw **Tenant**, **Client-ID**, **Client geheime sleutel verloopt**. **Controleer of** uw **geheime sleutel van de Client** als deze is verlopen.
 
 ## <a name="import-collections"></a>Verzamelingen importeren
-Nadat u hebt toegevoegd een OMS-verbinding naar Configuration Manager en de agent hebt geïnstalleerd op de computer met de verbinding met de Configuration Manager punt sitesysteemrol, de volgende stap is het verzamelingen importeren uit Configuration Manager in Log Analytics als computergroepen.
+Nadat u hebt toegevoegd een Log Analytics-verbinding naar Configuration Manager en de agent hebt geïnstalleerd op de computer met de verbinding met de Configuration Manager punt sitesysteemrol, de volgende stap is het verzamelingen importeren uit Configuration Manager in logboek Analytics als computergroepen.
 
 Nadat u de eerste configuratie voor het apparaatverzamelingen importeren uit uw hiërarchie hebt voltooid, wordt het lidmaatschap Verzamelingsgegevens elke drie uur om het lidmaatschap van de huidige opgehaald. U kunt dit op elk moment uitschakelen.
 
@@ -103,7 +107,7 @@ Nadat u de eerste configuratie voor het apparaatverzamelingen importeren uit uw 
    ![Computergroepen - SCCM-tabblad](./media/log-analytics-sccm/sccm-computer-groups01.png)
 
 ## <a name="view-data-from-configuration-manager"></a>Gegevens weergeven uit Configuration Manager
-Nadat u hebt toegevoegd een OMS-verbinding naar Configuration Manager en de agent op de computer met de Configuration Manager service connection point sitesysteemrol hebt geïnstalleerd, worden gegevens van de agent wordt verzonden naar Log Analytics. In Log Analytics, uw Configuration Manager-verzamelingen worden weergegeven als [computergroepen](log-analytics-computer-groups.md). U vindt de groepen van de **Configuration Manager** pagina onder **Settings\Computer groepen**.
+Nadat u hebt toegevoegd een Log Analytics-verbinding naar Configuration Manager en de agent op de computer met de Configuration Manager service connection point sitesysteemrol hebt geïnstalleerd, worden gegevens van de agent wordt verzonden naar Log Analytics. In Log Analytics, uw Configuration Manager-verzamelingen worden weergegeven als [computergroepen](log-analytics-computer-groups.md). U vindt de groepen van de **Configuration Manager** pagina onder **Settings\Computer groepen**.
 
 Nadat de verzamelingen die zijn geïmporteerd, kunt u zien hoeveel computers met verzamelingslidmaatschappen gedetecteerd. U ziet ook het aantal verzamelingen die zijn geïmporteerd.
 

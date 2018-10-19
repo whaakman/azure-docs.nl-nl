@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: b287e7f3846de4391de02cce2cedd6a5df3cbc4a
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: ac7cc404998fed6897de1bed4b6bd31fca43e820
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167644"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405817"
 ---
 # <a name="date-claims-transformations"></a>Datum claims transformaties
 
@@ -25,12 +25,12 @@ In dit artikel biedt voorbeelden voor het gebruik van de gegevenstransformaties 
 
 ## <a name="assertdatetimeisgreaterthan"></a>AssertDateTimeIsGreaterThan 
 
-Controleert of een datum en tijd claim (tekenreeksgegevenstype) groter is dan een tweede datum en tijd claim (tekenreeksgegevenstype) en een uitzondering genereert.
+Controleert of een datum en tijd claim (tekenreeksgegevenstype) is hoger dan een tweede datum en tijd claim (gegevenstype string) en een uitzondering genereert.
 
 | Item | TransformationClaimType | Gegevenstype | Opmerkingen |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | leftOperand | tekenreeks | Eerste claim-type, dat groter zijn dan het tweede verzoek moet kan worden gebruikt. |
-| InputClaim | rightOperand | tekenreeks | Tweede claim type, dat moet kleiner zijn dan de eerste claim. |
+| InputClaim | leftOperand | tekenreeks | Eerste claim-type moet later zijn dan het tweede argument. |
+| InputClaim | rightOperand | tekenreeks | Tweede van de claim type, dat eerder zijn dan de eerste claim moet. |
 | Invoerparameters | AssertIfEqualTo | booleaans | Hiermee geeft u op of deze verklaring moet worden verwerkt als de linkeroperand gelijk aan de rechteroperand is. |
 | Invoerparameters | AssertIfRightOperandIsNotPresent | booleaans | Hiermee geeft u op of deze verklaring moet worden verwerkt als de rechteroperand ontbreekt. |
 | Invoerparameters | TreatAsEqualIfWithinMillseconds | int | Hiermee geeft u het aantal milliseconden om toe te staan tussen de twee datums en tijden die rekening houden met de tijden gelijk moet zijn (bijvoorbeeld aan een account voor tijdsverschil). |
@@ -39,7 +39,7 @@ De **AssertDateTimeIsGreaterThan** claimtransformatie wordt altijd uitgevoerd va
 
 ![AssertStringClaimsAreEqual uitvoering](./media/date-transformations/assert-execution.png)
 
-Het volgende voorbeeld vergelijkt de `currentDateTime` claim met de `approvedDateTime` claim. Er is een fout gegenereerd als `currentDateTime` groter is dan `approvedDateTime`. De transformatie worden waarden als gelijk als ze binnen 5 minuten (30000 in milliseconden) verschil behandeld.
+Het volgende voorbeeld vergelijkt de `currentDateTime` claim met de `approvedDateTime` claim. Er is een fout gegenereerd als `currentDateTime` is hoger dan `approvedDateTime`. De transformatie worden waarden als gelijk als ze binnen 5 minuten (30000 in milliseconden) verschil behandeld.
 
 ```XML
 <ClaimsTransformation Id="AssertApprovedDateTimeLaterThanCurrentDateTime" TransformationMethod="AssertDateTimeIsGreaterThan">
@@ -138,17 +138,17 @@ Ophalen van de huidige UTC-datum en tijd en de waarde toevoegen aan een ClaimTyp
 
 ## <a name="datetimecomparison"></a>DateTimeComparison
 
-Bepaalt of een datum/tijd groter, kleiner of gelijk zijn aan een andere is. Het resultaat is een nieuwe Booleaanse ClaimType Boole-waarde met de waarde waar of ONWAAR.
+Bepalen of een datum/tijd later, eerder of gelijk zijn aan een andere. Het resultaat is een nieuwe Booleaanse ClaimType Boole-waarde met een waarde van `true` of `false`.
 
 | Item | TransformationClaimType | Gegevenstype | Opmerkingen |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | firstDateTime | Datum/tijd | De eerste datum en tijd om te vergelijken. Null-waarde is een uitzondering genereert. |
-| InputClaim | secondDateTime | Datum/tijd | De tweede datum en tijd om te voltooien. Null-waarde wordt beschouwd als de huidige datetTime. |
+| InputClaim | firstDateTime | Datum/tijd | De eerste datum en tijd om te vergelijken of eerder of later zijn dan de tweede datum/tijd. Null-waarde is een uitzondering genereert. |
+| InputClaim | secondDateTime | Datum/tijd | De tweede datum en tijd om te vergelijken of eerder of later zijn dan de eerste datum/tijd. Null-waarde wordt beschouwd als de huidige datetTime. |
 | Invoerparameters | Operator | tekenreeks | Een van de volgende waarden: dezelfde, later zijn dan of ouder is dan. |
 | Invoerparameters | timeSpanInSeconds | int | De timespan toevoegen aan de eerste datum/tijd. |
 | outputClaim | Resultaat | booleaans | Het ClaimType dat wordt gegenereerd nadat deze ClaimsTransformation is aangeroepen. |
 
-Gebruik die deze transformatie om te bepalen of twee ClaimTypes gelijk, groter of kleiner van elkaar zijn vorderingen. U kunt bijvoorbeeld de laatste keer dat een gebruiker de voorwaarden van de services (TOS) geaccepteerd opslaan. Na 3 maanden, kunt u de gebruiker om de TOS opnieuw toegang te vragen.
+Gebruik die deze transformatie om te bepalen of twee ClaimTypes gelijk, later of ouder is dan alle andere zijn vorderingen. U kunt bijvoorbeeld de laatste keer dat een gebruiker de voorwaarden van de services (TOS) geaccepteerd opslaan. Na 3 maanden, kunt u de gebruiker om de TOS opnieuw toegang te vragen.
 Als u wilt de claimtransformatie uitvoeren, moet u eerst om op te halen van de huidige datum/tijd en de laatste tijd gebruiker accepteert ook de instructies.
 
 ```XML

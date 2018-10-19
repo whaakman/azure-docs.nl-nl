@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/17/2018
 ms.author: jingwang
-ms.openlocfilehash: 4da56b275c2b224d56b8296dd480e638a27a03a1
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: bc98fc2465c280c41a77823de239a5572c5d27e4
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49379091"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49409574"
 ---
 # <a name="copy-data-from-and-to-salesforce-by-using-azure-data-factory"></a>Gegevens kopiëren van en naar Salesforce met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -186,7 +186,7 @@ Voor het kopiëren van gegevens uit Salesforce, stelt u het brontype in de kopie
 | Eigenschap | Beschrijving | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type van de bron voor kopiëren-activiteit moet worden ingesteld op **SalesforceSource**. | Ja |
-| query |De aangepaste query gebruiken om gegevens te lezen. U kunt [Salesforce Object Query Language (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) query of 92 SQL-query. Bekijk meer tips in [tips query](#query-tips) sectie. | Nee (als de 'tableName' in de gegevensset is opgegeven) |
+| query |De aangepaste query gebruiken om gegevens te lezen. U kunt [Salesforce Object Query Language (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) query of 92 SQL-query. Bekijk meer tips in [tips query](#query-tips) sectie. Als de query is niet opgegeven, worden alle gegevens van de Salesforce-object dat is opgegeven in 'objectApiName' in de gegevensset worden opgehaald. | Nee (als 'objectApiName' in de gegevensset is opgegeven) |
 | readBehavior | Hiermee wordt aangegeven of de records van bestaande query, of query alle records ook verwijderd die zijn. Indien niet opgegeven, is het standaardgedrag is het eerste. <br>Toegestane waarden: **query** (standaard), **queryAll**.  | Nee |
 
 > [!IMPORTANT]

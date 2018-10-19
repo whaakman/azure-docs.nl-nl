@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: dd68b65825c9c22453e0191d42a0fcce3b65ca64
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 2e01f61ff915a8fe4327aa78c8867d666dc36fda
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35236083"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45983215"
 ---
 # <a name="tutorial-add-a-real-device-to-your-azure-iot-central-application"></a>Zelfstudie: een nieuw apparaat toevoegen aan uw Azure IoT Central-toepassing
 
@@ -56,7 +56,7 @@ Als u een echt apparaat aan uw toepassing wilt toevoegen, gebruikt u de apparaat
 
    ![Nieuwe, verbonden airco toevoegen](media/tutorial-add-device/newreal.png)
 
-3. Optioneel kunt u het nieuwe apparaat een andere naam geven door de apparaatnaam te kiezen en de waarde te bewerken:
+3. Voer de apparaat-id in (**in kleine letters**) of gebruik de voorgestelde apparaat-id. U kunt ook de naam voor uw nieuwe apparaat invoeren.  
 
    ![Naam van apparaat wijzigen](media/tutorial-add-device/rename.png)
 
@@ -68,23 +68,36 @@ Het echte apparaat wordt gemaakt van de apparaatsjabloon **Connected Air Conditi
 
     ![Instellingen vertonen synchronisatie](media/tutorial-add-device/settingssyncing.png)
 
-2. Op de pagina **Eigenschappen** van de echte, verbonden airco, stelt u **Serienummer** in op **rcac0010** en **Firmwareversie** op 9,75. Kies vervolgens **Opslaan**:
+2. Op de pagina **Eigenschappen** van de nieuwe, echte verbonden airco stelt u **Serienummer** in op **10001** en **Firmwareversie** op 9.75. Kies vervolgens **Opslaan**:
 
     ![Eigenschappen instellen voor echte apparaat](media/tutorial-add-device/setproperties.png)
 
 3. Als maker kunt u de pagina's **Metingen**, **Regels** en **Dashboard** voor het echte apparaat weergeven.
 
-## <a name="get-connection-string-for-real-device-from-application"></a>Verbindingsreeks voor echte apparaat vanuit toepassing ophalen
+## <a name="get-connection-details-for-real-device-from-application"></a>Verbindingsreeksdetails voor echte apparaat ophalen vanuit toepassing
 
-Een apparaatontwikkelaar dient de *verbindingsreeks* voor het echte apparaat in te sluiten in de code die op het apparaat wordt uitgevoerd. Dankzij de verbindingsreeks kan het apparaat veilig verbinding maken met de Azure IoT Central-toepassing. Elk exemplaar van een apparaat heeft een unieke verbindingsreeks. In de volgende stappen leert u hoe u de verbindingsreeks voor een apparaatexemplaar in de toepassing kunt vinden:
+Een apparaatontwikkelaar dient de *verbindingsreeksdetails* voor het echte apparaat in te sluiten in de code die op het apparaat wordt uitgevoerd. Dankzij de verbindingsreeks kan het apparaat veilig verbinding maken met de Azure IoT Central-toepassing. In de volgende stappen leert u hoe u de verbindingsreeks voor een apparaatexemplaar in de toepassing kunt vinden:
 
 1. Kies op het scherm **Apparaat** voor de echte, verbonden airco de optie **Connect this device**:
 
     ![Apparaatpagina met koppeling voor het weergeven van verbindingsgegevens](media/tutorial-add-device/connectionlink.png)
 
-2. Op de pagina **Verbinding maken** kopieert u **Primaire verbindingsreeks** en slaat u deze op. U gebruikt deze waarde in de tweede helft van deze zelfstudie. Een apparaatontwikkelaar gebruikt deze waarde in de clienttoepassing die op het apparaat wordt uitgevoerd:
+2. Op de pagina **Verbinding maken** kopieert u **Bereik-id, Apparaat-id en Primaire sleutel**, en slaat u deze op.
 
-    ![Waarden van verbindingsreeks](media/tutorial-add-device/connectionstring.png)
+   ![Verbindingsdetails](media/tutorial-add-device/device-connect.PNG)
+
+   Het onderstaande opdrachtregelhulpprogramma gebruiken om de verbindingsreeks van het apparaat op te halen  
+
+    ```cmd/sh
+    npm i -g dps-keygen
+    ```
+    **Gebruik**
+    
+    Als u een verbindingsreeks wilt maken, zoekt u uw binaire bestand onder bin/ folder
+    ```cmd/sh
+    dps_cstr <scope_id> <device_id> <Primary Key(for device)>
+    ```
+    Meer informatie over het [opdrachtregelprogramma hier](https://www.npmjs.com/package/dps-keygen).
 
 ## <a name="prepare-the-client-code"></a>Clientcode voorbereiden
 
@@ -130,14 +143,17 @@ In de volgende stappen ziet u hoe u het [Node.js](https://nodejs.org/)-voorbeeld
 
 8. Voeg de volgende variabelendeclaraties aan het bestand toe:
 
+ 
+
    ```javascript
    var connectionString = '{your device connection string}';
    var targetTemperature = 0;
    var client = clientFromConnectionString(connectionString);
    ```
+   
 
    > [!NOTE]
-   > De tijdelijke aanduiding `{your device connection string}` werkt u in een volgende stap bij.
+   > De tijdelijke aanduiding `{your device connection string}` werkt u in een volgende stap bij. 
 
 9. Sla de wijzigingen op die u tot nu toe hebt gemaakt, maar houd het bestand open.
 
@@ -248,8 +264,7 @@ In de vorige sectie hebt u een opzet gemaakt van een Node.js-project voor een to
 
 ## <a name="configure-client-code-for-the-real-device"></a>Clientcode voor echt apparaat configureren
 
-<!-- Add the connection string to the sample code, build, and run -->
-Als u de clientcode wilt configureren zodat verbinding kan worden gemaakt met de Azure IoT Central-toepassing, dan dient u de verbindingsreeks voor het echte apparaat dat u eerder in deze zelfstudie hebt genoteerd, toe te voegen.
+<!-- Add the connection string to the sample code, build, and run --> Als u de clientcode wilt configureren zodat verbinding kan worden gemaakt met de Azure IoT Central-toepassing, dan dient u de verbindingsreeks voor het echte apparaat dat u eerder in deze zelfstudie hebt genoteerd, toe te voegen.
 
 1. Zoek in bestand **ConnectedAirConditioner.js** de volgende regel met code:
 

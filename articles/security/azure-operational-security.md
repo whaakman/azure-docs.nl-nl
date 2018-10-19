@@ -1,6 +1,6 @@
 ---
 title: Operationele beveiliging in Azure | Microsoft Docs
-description: Meer informatie over Microsoft Operations Management Suite (OMS), de services en hoe het werkt.
+description: Meer informatie over Microsoft Azure Log Analytics, de services en hoe het werkt.
 services: security
 documentationcenter: na
 author: UnifyCloud
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 60260d7bcff07a9ce2d680c84119d11271579e7d
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 2ae2ea14bc712563867f32b83eddbd9d4129ac1d
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37342266"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49409489"
 ---
 # <a name="azure-operational-security"></a>Azure operationele beveiliging
 ## <a name="introduction"></a>Inleiding
@@ -40,7 +40,7 @@ De opslaginfrastructuur van Azure van de faciliteit is zo ontworpen toepassingen
 Azure operationele beveiliging verwijst naar de services, besturingselementen en functies die beschikbaar zijn voor gebruikers voor het beveiligen van hun gegevens, toepassingen en andere items in Microsoft Azure. Operationele beveiliging in Azure is gebouwd op een framework waarin de kennis opgedaan uit verschillende mogelijkheden die uniek voor Microsoft zijn, met inbegrip van de Microsoft Security Development Lifecycle (SDL), het programma Microsoft Security Response Center en een diep besef van het landschap van cyberveiligheidsbedreigingen.
 
 Dit technische document geeft een overzicht van de Microsoft-benadering tot operationele beveiliging van Azure binnen de Microsoft Azure-cloud-platform en omvat de volgende services:
-1.  [Azure Operations Management Suite](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview)
+1.  [Azure Monitor](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview)
 
 2.  [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)
 
@@ -53,17 +53,17 @@ Dit technische document geeft een overzicht van de Microsoft-benadering tot oper
 6.  [Azure Active directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis)
 
 
-## <a name="microsoft-operations-management-suite"></a>Microsoft Operations Management Suite
+## <a name="microsoft-azure-log-analytics"></a>Microsoft Azure-logboekanalyse
 
-Microsoft Operations Management Suite (OMS) is de IT-beheeroplossing voor de hybride cloud. Alleen wordt gebruikt of om uit te breiden van uw bestaande System Center-implementatie, OMS, zodat u de maximale flexibiliteit en controle voor cloud-gebaseerd beheer van uw infrastructuur.
+Microsoft Azure Log Analytics is de IT-beheeroplossing voor de hybride cloud. Alleen wordt gebruikt of om uit te breiden van uw bestaande System Center-implementatie, Log Analytics, zodat u de maximale flexibiliteit en controle voor cloud-gebaseerd beheer van uw infrastructuur.
 
-![Microsoft Operations Management Suite](./media/azure-operational-security/azure-operational-security-fig1.png)
+![Log Analytics](./media/azure-operational-security/azure-operational-security-fig1.png)
 
-Met OMS, kunt u een instantie in elke cloud, met inbegrip van on-premises, Azure, AWS, Windows Server, Linux, VMware en OpenStack, tegen lagere kosten dan concurrerende, door oplossingen te beheren. OMS is ontwikkeld voor de cloudgeoriënteerde wereld en biedt een nieuwe benadering voor het beheren van uw onderneming dat wil zeggen de snelste en meest rendabele manier om te voldoen aan de nieuwe zakelijke uitdagingen en geschikt voor de nieuwe werkbelastingen, toepassingen en cloudomgevingen.
+Met Log Analytics, kunt u een instantie in elke cloud, met inbegrip van on-premises, Azure, AWS, Windows Server, Linux, VMware en OpenStack, tegen lagere kosten dan concurrerende, door oplossingen te beheren. Log Analytics is gebouwd voor de cloudgeoriënteerde wereld, biedt een nieuwe benadering voor het beheren van uw bedrijf dat is de snelste en meest rendabele manier om te voldoen aan de nieuwe zakelijke uitdagingen en geschikt voor de nieuwe werkbelastingen, toepassingen en cloudomgevingen.
 
-### <a name="oms-services"></a>OMS-services
+### <a name="log-analytics-services"></a>Log Analytics-services
 
-De kernfunctionaliteit van OMS wordt geleverd door een reeks services die in Azure worden uitgevoerd. Elke service biedt een specifieke beheerfunctie. U kunt services combineren om verschillende beheerscenario's te bewerkstelligen.
+De kernfunctionaliteit van Log Analytics wordt geboden door een set met services die worden uitgevoerd in Azure. Elke service biedt een specifieke beheerfunctie. U kunt services combineren om verschillende beheerscenario's te bewerkstelligen.
 
 | Service  | Beschrijving|
 | :------------- | :-------------|
@@ -74,7 +74,7 @@ De kernfunctionaliteit van OMS wordt geleverd door een reeks services die in Azu
 
 ### <a name="log-analytics"></a>Log Analytics
 
-[Log Analytics](http://azure.microsoft.com/documentation/services/log-analytics) biedt bewakingsservices voor OMS door in een centrale opslagplaats gegevens te verzamelen van beheerde resources. Deze gegevens kunnen gebeurtenissen, prestatiegegevens en aangepaste gegevens omvatten die via de API worden geleverd. Na verzameling zijn de gegevens beschikbaar voor waarschuwingen, analyse en export.
+[Log Analytics](http://azure.microsoft.com/documentation/services/log-analytics) bewakingsservices biedt door het verzamelen van gegevens van beheerde resources in een centrale opslagplaats. Deze gegevens kunnen gebeurtenissen, prestatiegegevens en aangepaste gegevens omvatten die via de API worden geleverd. Na verzameling zijn de gegevens beschikbaar voor waarschuwingen, analyse en export.
 
 
 Deze methode kunt u gegevens uit verschillende bronnen consolideren, zodat u kunt combineren gegevens uit uw Azure-services met uw bestaande on-premises omgeving. De methode maakt ook een duidelijk onderscheid tussen het verzamelen van gegevens en het bewerken hiervan. Zo zijn alle bewerkingen beschikbaar voor alle soorten gegevens.
@@ -92,17 +92,17 @@ De service Log Analytics beheert uw cloud-gebaseerde gegevens veilig met behulp 
 
 ### <a name="azure-backup"></a>Azure Backup
 
-[Azure Backup](http://azure.microsoft.com/documentation/services/backup) biedt gegevens back-up en herstellen van services en maakt deel uit van de OMS suite van producten en services.
+[Azure Backup](http://azure.microsoft.com/documentation/services/backup) biedt gegevens back-up en herstellen van services en maakt deel uit van de Log Analytics-suite met producten en services.
 Het beschermt uw toepassingsgegevens en bewaart deze jarenlang, zonder dat u grote investeringen hoeft te doen en met een minimum aan operationele kosten. Back-up kan gegevens van fysieke en virtuele Windows-servers en werkbelastingen van toepassingen zoals SQL Server en SharePoint. Kan ook worden gebruikt door [System Center Data Protection Manager (DPM)](https://en.wikipedia.org/wiki/System_Center_Data_Protection_Manager) beveiligde om gegevens te repliceren naar Azure voor redundantie en opslag op lange termijn.
 
 
 Beveiligde gegevens in Azure Backup worden opgeslagen in een back-upkluis in een bepaalde geografische regio. De gegevens binnen dezelfde regio gerepliceerd en, afhankelijk van het type kluis, kan ook worden gerepliceerd naar een andere regio voor meer flexibiliteit.
 
 ### <a name="management-solutions"></a>Beheeroplossingen
-[Microsoft Operations Management Suite (OMS)](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started) is van Microsoft cloud-gebaseerde IT-beheeroplossing waarmee u beheren kunt en beveiligen van uw on-premises en cloudinfrastructuur.
+[Log Analytics](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started) is van Microsoft cloud-gebaseerde IT-beheeroplossing waarmee u beheren kunt en beveiligen van uw on-premises en cloudinfrastructuur.
 
 
-[Beheeroplossingen](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-solutions) zijn voorverpakte sets met logics die een bepaald beheerscenario met behulp van een of meer OMS-services te implementeren. Er zijn verschillende oplossingen beschikbaar van Microsoft en partners die u gemakkelijk kunt toevoegen aan uw Azure-abonnement om de waarde van uw investering in OMS te vergroten. Als partner kunt u uw eigen oplossingen voor het ondersteunen van uw toepassingen en services en ze aanbieden aan gebruikers via de Azure Marketplace of snel starten-sjablonen maken.
+[Beheeroplossingen](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-solutions) zijn voorverpakte sets met logics die een bepaald beheerscenario met behulp van een of meer Log Analytics-services te implementeren. Er zijn verschillende oplossingen beschikbaar van Microsoft en partners die u kunt eenvoudig toevoegen aan uw Azure-abonnement te verhogen van de waarde van uw investering in Log Analytics. Als partner kunt u uw eigen oplossingen voor het ondersteunen van uw toepassingen en services en ze aanbieden aan gebruikers via de Azure Marketplace of snel starten-sjablonen maken.
 
 
 ![Beheeroplossingen](./media/azure-operational-security/azure-operational-security-fig4.png)
@@ -164,7 +164,7 @@ Azure Security Center verzamelt tijdelijke kopieën van uw crashdumpbestanden en
 
 ## <a name="azure-monitor"></a>Azure Monitor
 
-De [OMS Security](https://docs.microsoft.com/azure/operations-management-suite/oms-security-monitoring-resources) en controle-oplossing kunnen IT-actief Controleer alle resources, waarmee het effect van beveiligingsincidenten minimaliseren. OMS beveiliging en controle hebt beveiligingsdomeinen die kunnen worden gebruikt voor het bewaken van resources. Het beveiligingsdomein biedt snel toegang tot de opties, voor de beveiligingsbewaking de volgende domeinen worden behandeld in meer informatie:
+De [Log Analytics Security](https://docs.microsoft.com/azure/operations-management-suite/oms-security-monitoring-resources) en controle-oplossing kunnen IT-actief Controleer alle resources, waarmee het effect van beveiligingsincidenten minimaliseren. Log Analytics-beveiliging en controle hebt beveiligingsdomeinen die kunnen worden gebruikt voor het bewaken van resources. Het beveiligingsdomein biedt snel toegang tot de opties, voor de beveiligingsbewaking de volgende domeinen worden behandeld in meer informatie:
 
 -   Malware-evaluatie
 -   Update-evaluatie
@@ -312,7 +312,7 @@ In dit artikel samenvattingen van de bescherming van uw privacy en beveiliging v
 
 Dit artikel wordt uitgelegd
 
--   Hoe data wordt verzameld, verwerkt en beveiligd in de Operations Management Suite (OMS).
+-   Hoe data wordt verzameld, verwerkt en beveiligd in de Log Analytics-suite.
 
 -   Analyseer snel gebeurtenissen in meerdere gegevensbronnen. Identificeer beveiligingsrisico's en wees op de hoogte van de omvang en impact van bedreigingen en aanvallen om schade na inbreuk op de beveiliging te voorkomen.
 
@@ -335,7 +335,7 @@ Dit artikel wordt uitgelegd
 
 De services en software van Microsoft worden wordt met beveiliging in gedachten om ervoor te zorgen dat de cloudinfrastructuur flexibel en beveiligd tegen aanvallen is.
 
-- [Operations Management Suite | Beveiliging en naleving](https://www.microsoft.com/cloud-platform/security-and-compliance)
+- [Log Analytics | Beveiliging en naleving](https://www.microsoft.com/cloud-platform/security-and-compliance)
 
 Gebruik Microsoft beveiligingsgegevens en -analyse uit te voeren van intelligente en effectieve bedreigingsdetectie.
 

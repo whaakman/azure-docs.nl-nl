@@ -1,6 +1,6 @@
 ---
 title: Verzamelen van Log Analytics-gegevens met een runbook in Azure Automation | Microsoft Docs
-description: Stapsgewijze zelfstudie die helpt bij het maken van een runbook in Azure Automation voor het verzamelen van gegevens in de OMS-opslagplaats voor analyse door Log Analytics.
+description: Stapsgewijze zelfstudie die helpt bij het maken van een runbook in Azure Automation voor het verzamelen van gegevens in de opslagplaats voor analyse door Log Analytics.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/27/2017
 ms.author: bwren
-ms.openlocfilehash: d3e8e876a6c01123d65c1e8df13328bdd5fad71f
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: f1a106a4f99c09134b8784e98ca547db51ce0eae
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37346985"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49409506"
 ---
 # <a name="collect-data-in-log-analytics-with-an-azure-automation-runbook"></a>Gegevens verzamelen in Log Analytics met een Azure Automation-runbook
 U kunt een aanzienlijke hoeveelheid gegevens in Log Analytics verzamelt uit diverse bronnen, zoals [gegevensbronnen](../log-analytics/log-analytics-data-sources.md) op agents en ook [gegevens verzameld van Azure](../log-analytics/log-analytics-azure-storage.md).  Er zijn een's al waar moet u het verzamelen van gegevens die niet worden geopend via deze standaard bronnen.  In dergelijke gevallen kunt u de [HTTP Data Collector API](../log-analytics/log-analytics-data-collector-api.md) gegevens schrijven naar Log Analytics vanuit elke client REST-API.  Een veelgebruikte methode voor het uitvoeren van deze gegevensverzameling wordt met behulp van een runbook in Azure Automation.   
@@ -56,7 +56,7 @@ De PowerShell Gallery kunt u echter een snelle optie voor het implementeren van 
 
 
 ## <a name="2-create-automation-variables"></a>2. Automation-variabelen maken
-[Automation-variabelen](..\automation\automation-variables.md) bevatten waarden die kunnen worden gebruikt door alle runbooks in uw Automation-account.  Ze maken runbooks meer flexibiliteit doordat u deze waarden wijzigen zonder de werkelijke runbook bewerken. Elke aanvraag vanuit de API HTTP Data Collector vereist de ID en sleutel van de OMS-werkruimte en variabele assets zijn ideaal voor het opslaan van deze informatie.  
+[Automation-variabelen](..\automation\automation-variables.md) bevatten waarden die kunnen worden gebruikt door alle runbooks in uw Automation-account.  Ze maken runbooks meer flexibiliteit doordat u deze waarden wijzigen zonder de werkelijke runbook bewerken. Elke aanvraag vanuit de API HTTP Data Collector vereist de ID en sleutel van de Log Analytics-werkruimte en variabele assets zijn ideaal voor het opslaan van deze informatie.  
 
 ![Variabelen](media/monitoring-runbook-datacollect/variables.png)
 

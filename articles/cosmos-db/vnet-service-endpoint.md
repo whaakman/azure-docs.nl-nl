@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: govindk
-ms.openlocfilehash: 868f465cc651043d3ef4b1735b4b528252572dbb
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: cc64bc1af6eee505ccf3d38e214c49ffb7e3304c
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49378082"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49404457"
 ---
 # <a name="secure-access-to-an-azure-cosmos-db-account-by-using-azure-virtual-network-service-endpoint"></a>Toegang tot een Azure Cosmos DB-account beveiligen met behulp van Azure Virtual Network service-eindpunt
 
@@ -56,8 +56,8 @@ Uw Azure Cosmos DB-account kunnen nu alleen verkeer van dit subnet gekozen. Als 
 
 1. Van **alle resources** blade zoeken naar de Azure Cosmos DB account dat u wilt beveiligen.  
 
-> [!NOTE]
-> Als u een bestaande IP-firewall is geconfigureerd voor uw Azure Cosmos DB-account hebt, houd er rekening mee de firewallconfiguratie, verwijderen van de IP-firewall en schakel vervolgens het Service-eindpunt. Als u het Service-eindpunt zonder disbling de firewall inschakelt, wordt het verkeer van deze ip-adresbereik de identiteit van de virtuele IP-gaan verloren en wordt deze verwijderd met een foutbericht van de IP-filter. Dus u moet de firewall-regels altijd uitschakelen om te voorkomen dat deze fout, kopiëren, service-eindpunt van het subnet en ten slotte op het subnet van Cosmos DB-ACL inschakelen. Nadat u service-eindpunt configureren en de ACL toevoegen kunt u opnieuw de IP-firewall opnieuw inschakelen indien nodig.
+   > [!NOTE]
+   > Als u een bestaande IP-firewall is geconfigureerd voor uw Azure Cosmos DB-account hebt, houd er rekening mee de firewallconfiguratie, verwijderen van de IP-firewall en schakel vervolgens het Service-eindpunt. Als u het Service-eindpunt zonder disbling de firewall inschakelt, wordt het verkeer van deze ip-adresbereik de identiteit van de virtuele IP-gaan verloren en wordt deze verwijderd met een foutbericht van de IP-filter. Dus u moet de firewall-regels altijd uitschakelen om te voorkomen dat deze fout, kopiëren, service-eindpunt van het subnet en ten slotte op het subnet van Cosmos DB-ACL inschakelen. Nadat u service-eindpunt configureren en de ACL toevoegen kunt u opnieuw de IP-firewall opnieuw inschakelen indien nodig.
 
 2. Voordat u service-eindpunt voor virtueel netwerk is ingeschakeld, kopieert u de IP-firewall-informatie die is gekoppeld aan uw Azure Cosmos DB-account voor toekomstig gebruik. U kunt IP-firewall opnieuw inschakelen na de configuratie van service-eindpunt.  
 
@@ -97,9 +97,8 @@ Gebruik de volgende stappen uit Service-eindpunt voor een Azure Cosmos DB-accoun
 
 1. Installeer de meest recente [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) en [aanmelding](https://docs.microsoft.com/powershell/azure/authenticate-azureps).  Zorg ervoor dat u Houd er rekening mee de IP-firewall-instellingen en de IP-firewall verwijderen voordat u Service-eindpunt voor het account inschakelt.
 
-
-> [!NOTE]
-> Als u een bestaande IP-firewall is geconfigureerd voor uw Azure Cosmos DB-account hebt, houd er rekening mee de firewallconfiguratie, verwijderen van de IP-firewall en schakel vervolgens het Service-eindpunt. Als u het Service-eindpunt zonder disbling de firewall inschakelt, wordt het verkeer van deze ip-adresbereik de identiteit van de virtuele IP-gaan verloren en wordt deze verwijderd met een foutbericht van de IP-filter. Dus u moet de firewall-regels altijd uitschakelen om te voorkomen dat deze fout, kopiëren, service-eindpunt van het subnet en ten slotte op het subnet van Cosmos DB-ACL inschakelen. Nadat u service-eindpunt configureren en de ACL toevoegen kunt u opnieuw de IP-firewall opnieuw inschakelen indien nodig.
+  > [!NOTE]
+  > Als u een bestaande IP-firewall is geconfigureerd voor uw Azure Cosmos DB-account hebt, houd er rekening mee de firewallconfiguratie, verwijderen van de IP-firewall en schakel vervolgens het Service-eindpunt. Als u het Service-eindpunt zonder disbling de firewall inschakelt, wordt het verkeer van deze ip-adresbereik de identiteit van de virtuele IP-gaan verloren en wordt deze verwijderd met een foutbericht van de IP-filter. Dus u moet de firewall-regels altijd uitschakelen om te voorkomen dat deze fout, kopiëren, service-eindpunt van het subnet en ten slotte op het subnet van Cosmos DB-ACL inschakelen. Nadat u service-eindpunt configureren en de ACL toevoegen kunt u opnieuw de IP-firewall opnieuw inschakelen indien nodig.
 
 2. Voordat u service-eindpunt voor virtueel netwerk is ingeschakeld, kopieert u de IP-firewall-informatie die is gekoppeld aan uw Azure Cosmos DB-account voor toekomstig gebruik. U kunt IP-firewall opnieuw na het configureren van service-eindpunt.  
 
@@ -270,7 +269,7 @@ Wanneer service-eindpunten zijn ingeschakeld, wordt de bron-IP-adressen van reso
 
 Azure Cosmos DB is een service met meerdere tenants met een openbaar IP-adres. Wanneer u de toegang tot een subnet van een virtueel Azure-netwerk beperken met behulp van de functie van de service-eindpunt, zijn toegang is niet toegestaan voor uw Azure Cosmos DB-account via het opgegeven Azure-netwerk en het subnet ervan bevindt.  Azure Cosmos DB-account bevindt zich niet in dit Virtueelnetwerk van Azure. 
 
-### <a name="what-if-anything-will-be-logged-in-log-analyticsoms-if-it-is-enabled"></a>Wat gebeurt er als wordt vastgelegd in Log Analytics/OMS als deze is ingeschakeld?  
+### <a name="what-if-anything-will-be-logged-in-log-analytics-if-it-is-enabled"></a>Wat gebeurt er als worden geregistreerd in Log Analytics als deze is ingeschakeld?  
 
 Azure Cosmos DB kunt u logboeken met IP-adres (zonder het laatste achttal werd) met de status 403 voor aanvraag geblokkeerd door de ACL verzenden.  
 

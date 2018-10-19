@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: ninarn, carlrab
 manager: craigg
-ms.date: 09/14/2018
-ms.openlocfilehash: 71269b4888d1b5c9724248ac91f0818d7f8f5bf5
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 10/15/2018
+ms.openlocfilehash: c89fa6614afec6b67f4d6445db49efa1e2248cfb
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47162352"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49430048"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>Elastische pools kunt u beheren en schalen van meerdere Azure SQL-databases
 
@@ -108,8 +108,6 @@ De aanbevolen grootte voor een groep is afhankelijk van de cumulatieve resources
 * De maximum opslag in bytes die door alle databases in de groep wordt gebruikt.
 
 Zie voor de beschikbare service-lagen voor elke resourcemodel, de [DTU gebaseerde aankoopmodel](sql-database-service-tiers-dtu.md) of de [vCore gebaseerde aankoopmodel](sql-database-service-tiers-vcore.md).
-
-SQL Database evalueert automatisch het historisch resourcegebruik van databases in een bestaande SQL Database-server en op basis daarvan wordt de juiste poolconfiguratie in de Azure-portal aanbevolen. Naast de aanbevelingen wordt met een geïntegreerde functie het eDTU-gebruik voor een aangepaste groep databases op de server geschat. Hiermee kunt u een 'wat als'-analyse uitvoeren door interactief databases aan de groep toe te voegen of uit de groep te verwijderen, om zo een analyse van het resourcegebruik en formaatadvies te krijgen voordat u uw wijzigingen doorvoert. Zie [Monitor, manage, and size an elastic pool](#monitor-an-elastic-pool-and-its-databases) (Een elastische groep bewaken, beheren en van formaat wijzigen) voor instructies.
 
 Als u het hulpprogramma niet kunt gebruiken, kunnen de volgende stappen u helpen om te schatten of een groep rendabeler is dan individuele databases:
 

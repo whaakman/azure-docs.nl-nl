@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/25/2017
 ms.author: cbrooks
 ms.component: common
-ms.openlocfilehash: bcb772185f0a16183b8a6c9674419781ef41be3e
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 98972b0c52470e6a404090d993c21a47b11cd660
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49068533"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49427142"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Azure Storage-Firewalls en virtuele netwerken configureren
 Azure Storage biedt een gelaagd beveiligingsmodel waarmee u uw storage-accounts naar een specifieke set toegestane netwerken beveiligen.  Als network-regels zijn geconfigureerd, kunnen alleen de toepassingen van toegestane netwerken toegang krijgen tot een storage-account.  Bij het aanroepen van een toegestane netwerk, blijven toepassingen juiste autorisatie (een geldige toegangssleutel of SAS-token) voor toegang tot het opslagaccount nodig.
@@ -188,7 +188,9 @@ Toegestane adresbereiken van internet kunnen worden opgegeven met behulp van [CI
 > Kleine adresbereiken met behulp van '/ 31' of '/ 32' voorvoegsel grootten worden niet ondersteund.  Deze bereiken moeten worden geconfigureerd met behulp van afzonderlijke regels voor IP-adres.
 >
 
-IP-netwerkregels zijn alleen toegestaan voor **openbare internet** IP-adressen.  IP-adresbereiken is gereserveerd voor particuliere netwerken (zoals gedefinieerd in RFC 1918) zijn niet toegestaan in IP-regels.  Particuliere netwerken bevatten adressen die met beginnen *10.\** , *172.16.\** , en *192.168.\** .
+IP-netwerkregels zijn alleen toegestaan voor **openbare internet** IP-adressen.  IP-adresbereiken die zijn gereserveerd voor particuliere netwerken (zoals gedefinieerd in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) zijn niet toegestaan in de IP-regels.  Particuliere netwerken bevatten adressen die met beginnen *10.\** , *172.16.\**   -  *172.31.\**, en *192.168.\** .
+
+Houd er rekening mee dat regels voor IP-netwerk heeft geen effect op aanvragen die afkomstig zijn van dezelfde Azure-regio als het opslagaccount.  Gebruik virtual network-regels waarmee aanvragen voor dezelfde regio.
 
 Alleen IPV4-adressen worden ondersteund op dit moment.
 

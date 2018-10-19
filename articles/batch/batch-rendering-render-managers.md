@@ -6,12 +6,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: 798b2b457016856662f392af25d987788f73c242
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 066aab598628701bf7a60b0f4f20d996348fa5ce
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40034738"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406718"
 ---
 # <a name="using-azure-batch-with-render-farm-managers"></a>Met behulp van Azure Batch met render farm managers
 
@@ -33,7 +33,7 @@ Scripts en instructies voor het inschakelen van Azure Batch pool van virtuele ma
 
 Royal Render heeft ingebouwde, integratie van Azure en Azure Batch zodat u kunt om uit te breiden een renderfarm met virtuele machines op basis van Azure. Zie voor een overzicht [de help-bestanden](http://www.royalrender.de/help8/index.html?Cloudrendering.html).
 
-Zie voor een voorbeeld van een klant Royal renderen met behulp van de integratie van Azure, de [Jellyfish Pictures klantverhaal](https://customers.microsoft.com/en-gb/story/jellyfishpictures).
+Zie voor een voorbeeld van een klant Royal renderen met behulp van de integratie van Azure, de [Jellyfish Pictures klantverhaal](https://customers.microsoft.com/story/jellyfishpictures).
 
 ## <a name="using-azure-with-thinkbox-deadline"></a>Gebruik van Azure met Thinkbox Deadline
 

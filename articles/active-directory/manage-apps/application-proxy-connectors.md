@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/28/2018
+ms.date: 10/17/2018
 ms.author: barbkess
-ms.reviewer: harshja
+ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: 23bf9d5fb26ee3a0f224f7a8acc2b0539a5c1607
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: c9c21b9beb891a685d7e264ec55817c0045455bc
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39364607"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406274"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Meer informatie over Azure AD Application Proxy connectors
 
@@ -79,7 +79,7 @@ Terwijl connectors wordt automatisch taakverdeling binnen een connectorgroep, is
 |4|16|320|1150|
 |8|32|270|1190|
 |16|64|245|1200*|
-\* Deze computer heeft een limiet voor verbindingen van 800. Voor alle andere machines hebben we de standaardlimiet van 200 verbinding gebruikt.
+\* Deze machine gebruikt een aangepaste instelling om te verheffen enkele van de standaardlimieten voor de verbinding dan de aanbevolen instellingen voor .net. Het is raadzaam om een test uitgevoerd met de standaardinstellingen voor het contact opnemen met ondersteuning om deze limiet voor uw tenant is gewijzigd.
  
 >[!NOTE]
 >Er is veel prioriteitsbereik bij met de maximale TPS 4, 8 en 16 kernen-machines. Het belangrijkste verschil tussen die zich in de verwachte latentie.  

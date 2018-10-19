@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: ba6bfe8240c758806c4ff3e46ab08fdacad83db9
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: e205fce8b718e68200face33447e37cd3317298f
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48242348"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405481"
 ---
 # <a name="azure-blockchain-workbench-troubleshooting"></a>Azure Blockchain Workbench oplossen van problemen
 
@@ -24,7 +24,7 @@ Een PowerShell-script is beschikbaar voor ondersteuning bij foutopsporing ontwik
 * Blockchain-netwerk, zoals Ethereum
 * Blockchain Workbench microservices
 * Application Insights
-* Azure Monitoring (OMS)
+* Azure Monitoring (Log Analytics)
 
 U kunt de informatie gebruiken om te bepalen van de volgende stappen en bepaalt de hoofdoorzaak van problemen. 
 
@@ -52,9 +52,9 @@ Het script accepteert de volgende parameters:
 | ResourceGroupName | De naam van de Azure-resourcegroep wanneer Blockchain Workbench is geïmplementeerd. | Ja |
 | Sleutelbestandpad | Pad voor het maken van de uitvoer. ZIP-bestand. Als niet is opgegeven, kunt u standaard naar de huidige map. | Nee |
 | LookbackHours | Het aantal uren moet worden gebruikt bij het ophalen van telemetrie. Standaardwaarde is 24 uur. De maximumwaarde is 90 uur | Nee |
-| OmsSubscriptionId | De abonnements-ID waarop OMS wordt geïmplementeerd. Geef deze parameter alleen als de OMS voor het netwerk blockchain buiten de resourcegroep van de Blockchain Workbench wordt geïmplementeerd.| Nee |
-| OmsResourceGroup |De resourcegroep waarop OMS wordt geïmplementeerd. Geef deze parameter alleen als de OMS voor het netwerk blockchain buiten de resourcegroep van de Blockchain Workbench wordt geïmplementeerd.| Nee |
-| OmsWorkspaceName | De naam van de OMS-werkruimte. Alleen deze parameter doorgeven als de OMS voor het netwerk blockchain wordt geïmplementeerd buiten de resourcegroep van de Blockchain Workbench | Nee |
+| OmsSubscriptionId | De abonnements-ID waarop Log Analytics wordt geïmplementeerd. Geef deze parameter alleen als de met Log Analytics voor het netwerk blockchain buiten de resourcegroep van de Blockchain Workbench wordt geïmplementeerd.| Nee |
+| OmsResourceGroup |De resourcegroep waar de Log Analytics is geïmplementeerd. Geef deze parameter alleen als de met Log Analytics voor het netwerk blockchain buiten de resourcegroep van de Blockchain Workbench wordt geïmplementeerd.| Nee |
+| OmsWorkspaceName | De naam van de Log Analytics-werkruimte. Alleen deze parameter doorgeven als de met Log Analytics voor het netwerk blockchain wordt geïmplementeerd buiten de resourcegroep van de Blockchain Workbench | Nee |
 
 ## <a name="what-is-collected"></a>Wat wordt er verzameld?
 

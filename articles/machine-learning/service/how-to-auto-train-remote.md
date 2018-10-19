@@ -10,12 +10,12 @@ ms.component: core
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 1297881373943143578695490531d147d7f5523d
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 798960f30ae13f42c0198cf4bf63412192edc63e
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49115319"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49429827"
 ---
 # <a name="train-models-with-automated-machine-learning-in-the-cloud"></a>Trainen van modellen met geautomatiseerde machine learning in de cloud
 
@@ -110,7 +110,7 @@ def get_data():
 
 ## <a name="configure-experiment"></a>Configureren van experiment
 
-Geef de instellingen voor `AutoMLConfig`.  (Zie een [volledige lijst met parameters]() en hun mogelijke waarden.)
+Geef de instellingen voor `AutoMLConfig`.  (Zie een [volledige lijst met parameters](how-to-configure-auto-train.md#configure-experiment) en hun mogelijke waarden.)
 
 In de instellingen voor `run_configuration` is ingesteld op de `run_config` object, dat de instellingen en configuratie voor de DSVM bevat.  
 
@@ -141,7 +141,7 @@ automl_config = AutoMLConfig(task='classification',
 
 ## <a name="submit-training-experiment"></a>Trainingsexperiment verzenden
 
-Nu de configuratie voor het automatisch selecteren van het algoritme, de hyper-parameters indienen en het model te trainen. (Meer [meer informatie over instellingen]() voor de `submit` methode.)
+Nu de configuratie voor het automatisch selecteren van het algoritme, de hyper-parameters indienen en het model te trainen.
 
 ```python
 from azureml.core.experiment import Experiment

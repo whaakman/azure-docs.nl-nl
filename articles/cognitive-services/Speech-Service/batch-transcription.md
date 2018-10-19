@@ -8,20 +8,26 @@ ms.component: Speech
 ms.topic: article
 ms.date: 04/26/2018
 ms.author: panosper
-ms.openlocfilehash: 8f9a033ebf9cdfdb96ae8511b14202e49ec0a85e
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: c6912b45bc62ce9492e8e33bd1ffd8e7147b9d17
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48884456"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49427784"
 ---
 # <a name="batch-transcription"></a>Batchtranscriptie
 
-Batch transcriptie is ideaal als u grote hoeveelheden van audio. U kunt verwijzen naar audio bestanden door de URI en transcripties teruggaan in asynchrone modus wordt uitgevoerd.
+Batch transcriptie is ideaal als u grote hoeveelheden audio in storage hebt. Met behulp van de Rest-API, kunt u verwijzen naar audio bestanden door de SAS-URI en asynchroon ontvangen transcripties.
 
 ## <a name="batch-transcription-api"></a>Batch transcriptie API
 
-De Batch-transcriptie API biedt asynchrone spraak naar tekst transcriptie, samen met extra functies.
+De Batch-transcriptie API biedt asynchrone spraak naar tekst transcriptie, samen met extra functies. Er is een REST-API blootstellen van methoden voor:
+
+1. Het maken van batch verwerken van aanvragen
+
+2. Querystatus 
+
+3. Trnascriptions downloaden
 
 > [!NOTE]
 > De Batch-API voor transcriptie is ideaal voor callcenters, die meestal worden verzameld duizenden uur aan audio. De API wordt geleid door een 'geactiveerd en vergeten' filosofie, waardoor u gemakkelijk grote hoeveelheid audio-opnamen transcriberen.
@@ -95,78 +101,77 @@ Pas de volgende voorbeeldcode met een abonnementssleutel en een API-sleutel. Hie
         }
 ```
 
-Nadat u het token verkregen, moet u de SAS-URI die verwijst naar het audiobestand transcriptie vereisen. De rest van de code doorloopt de status en het resultaat wordt weergegeven.
+Nadat u het token verkregen, moet u de SAS-URI die verwijst naar het audiobestand transcriptie vereisen. De rest van de code doorloopt de status en het resultaat wordt weergegeven. In eerste instantie stelt een van de sleutel, regio, modellen en het gebruik en de SA. zoals weergegeven in het onderstaande codefragment. Dit wordt gevolgd door de instantie van de client en de POST-aanvraag. 
 
 ```cs
-   static async Task TranscribeAsync()
-        { 
             private const string SubscriptionKey = "<your Speech subscription key>";
             private const string HostName = "westus.cris.ai";
             private const int Port = 443;
     
+            // SAS URI 
+            private const string RecordingsBlobUri = "some SAS URI";
+
+            // adapted model Ids
+            private static Guid AdaptedAcousticId = new Guid("some guid");
+            private static Guid AdaptedLanguageId = new Guid("some guid");
+
             // Creating a Batch transcription API Client
             var client = CrisClient.CreateApiV2Client(SubscriptionKey, HostName, Port);
             
-            var transcriptions = await client.GetTranscriptionAsync().ConfigureAwait(false);
-
             var transcriptionLocation = await client.PostTranscriptionAsync(Name, Description, Locale, new Uri(RecordingsBlobUri), new[] { AdaptedAcousticId, AdaptedLanguageId }).ConfigureAwait(false);
+```
 
-            // get the transcription Id from the location URI
-            var createdTranscriptions = new List<Guid>();
-            createdTranscriptions.Add(new Guid(transcriptionLocation.ToString().Split('/').LastOrDefault()))
+Nu dat de aanvraag is gedaan de gebruiker kan uitvoeren en gegevens downloaden transcriptie resultaten als de code codefragment wordt getoond.
 
-            while (true)
+```cs
+  
+            // get all transcriptions for the user
+            transcriptions = await client.GetTranscriptionAsync().ConfigureAwait(false);
+
+            // for each transcription in the list we check the status
+            foreach (var transcription in transcriptions)
             {
-                // get all transcriptions for the user
-                transcriptions = await client.GetTranscriptionAsync().ConfigureAwait(false);
-                completed = 0; running = 0; notStarted = 0;
-
-                // for each transcription in the list we check the status
-                foreach (var transcription in transcriptions)
+                switch(transcription.Status)
                 {
-                    switch(transcription.Status)
-                    {
-                        case "Failed":
-                        case "Succeeded":
+                    case "Failed":
+                    case "Succeeded":
 
                             // we check to see if it was one of the transcriptions we created from this client.
-                            if (!createdTranscriptions.Contains(transcription.Id))
-                            {
-                                // not creted form here, continue
-                                continue;
-                            }
+                        if (!createdTranscriptions.Contains(transcription.Id))
+                        {
+                            // not creted form here, continue
+                            continue;
+                        }
                             
-                            completed++;
+                        completed++;
                             
-                            // if the transcription was successfull, check the results
-                            if (transcription.Status == "Succeeded")
-                            {
-                                var resultsUri = transcription.ResultsUrls["channel_0"];
-                                WebClient webClient = new WebClient();
-                                var filename = Path.GetTempFileName();
-                                webClient.DownloadFile(resultsUri, filename);
-                                var results = File.ReadAllText(filename);
-                                Console.WriteLine("Transcription succedded. Results: ");
-                                Console.WriteLine(results);
-                            }
-                            break;
-                        case "Running":
-                            running++;
-                            break;
-                        case "NotStarted":
-                            notStarted++;
-                            break;
+                        // if the transcription was successfull, check the results
+                        if (transcription.Status == "Succeeded")
+                        {
+                            var resultsUri = transcription.ResultsUrls["channel_0"];
+                            WebClient webClient = new WebClient();
+                            var filename = Path.GetTempFileName();
+                            webClient.DownloadFile(resultsUri, filename);
+                            var results = File.ReadAllText(filename);
+                            Console.WriteLine("Transcription succedded. Results: ");
+                            Console.WriteLine(results);
+                        }
+                    
+                    break;
+                    case "Running":
+                    running++;
+                     break;
+                    case "NotStarted":
+                    notStarted++;
+                    break;
+                    
                     }
                 }
-
-                Console.WriteLine(string.Format("Transcriptions status: {0} completed, {1} running, {2} not started yet", completed, running, notStarted));
-
-                await Task.Delay(TimeSpan.FromSeconds(5)).ConfigureAwait(false);
             }
-
-            Console.WriteLine("Press any key...");
         }
 ```
+
+Onze [Swagger-document](https://westus.cris.ai/swagger/ui/index) biedt volledige informatie over het aanroepen van de bovenstaande. Het volledige voorbeeld dat hier wordt weergegeven is op [GitHub](https://github.com/PanosPeriorellis/Speech_Service-BatchTranscriptionAPI).
 
 > [!NOTE]
 > In de bovenstaande code wordt de abonnementssleutel is van de spraak-resource die u in Azure portal maakt. Sleutels die zijn verkregen van de resource Custom Speech Service werken niet.

@@ -14,23 +14,23 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/16/2018
 ms.author: srrengar
-ms.openlocfilehash: 21c9441e2b3d3ad54d491834e6de097a8880b5b7
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: cc051e1ba0bbea68bb1e888168883351bf4f730f
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49311113"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406208"
 ---
 # <a name="performance-monitoring-with-log-analytics"></a>Prestatiebewaking met Log Analytics
 
-In dit artikel bevat informatie over de stappen voor het toevoegen van de Log Analytics-Agent als een virtuele-machineschaalset extensie met uw cluster instellen en deze verbinden met uw bestaande Azure Log Analytics-werkruimte. Hierdoor kunnen verzamelen van diagnostische gegevens over containers, toepassingen en bewaking van toepassingsprestaties. Door deze toe te voegen als een uitbreiding op de virtuele machine scale set-resource, Azure Resource Manager zorgt ervoor dat deze wordt geïnstalleerd op elk knooppunt, zelfs wanneer schalen van het cluster.
+In dit artikel bevat informatie over de stappen voor het toevoegen van de Log Analytics-agent als een virtuele-machineschaalset extensie met uw cluster instellen en deze verbinden met uw bestaande Azure Log Analytics-werkruimte. Hierdoor kunnen verzamelen van diagnostische gegevens over containers, toepassingen en bewaking van toepassingsprestaties. Door deze toe te voegen als een uitbreiding op de virtuele machine scale set-resource, Azure Resource Manager zorgt ervoor dat deze wordt geïnstalleerd op elk knooppunt, zelfs wanneer schalen van het cluster.
 
 > [!NOTE]
 > In dit artikel wordt ervan uitgegaan dat u een Azure Log Analytics-werkruimte al ingesteld hebt. Als u dit niet doet, Ga naar [Azure Log Analytics instellen](service-fabric-diagnostics-oms-setup.md)
 
 ## <a name="add-the-agent-extension-via-azure-cli"></a>Toevoegen van de agent-extensie via Azure CLI
 
-De beste manier om de Log Analytics-Agent toevoegen aan uw cluster is via de virtuele-machineschaalset API's die beschikbaar zijn met de Azure CLI ingesteld. Als u Azure CLI instellen van nog niet hebt, Ga naar Azure portal en maak een [Cloud Shell](../cloud-shell/overview.md) -exemplaar of [Azure CLI installeren](https://docs.microsoft.com/cli/azure/install-azure-cli).
+De beste manier om de Log Analytics-agent toevoegen aan uw cluster is via de virtuele-machineschaalset API's die beschikbaar zijn met de Azure CLI ingesteld. Als u Azure CLI instellen van nog niet hebt, Ga naar Azure portal en maak een [Cloud Shell](../cloud-shell/overview.md) -exemplaar of [Azure CLI installeren](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 1. Zodra uw Cloud Shell is aangevraagd, zorg er dan voor dat u werkt in hetzelfde abonnement als uw resource. Schakel deze optie met `az account show` en zorg ervoor dat de waarde "naam" komt overeen met die van het abonnement van uw cluster.
 
@@ -54,7 +54,7 @@ De beste manier om de Log Analytics-Agent toevoegen aan uw cluster is via de vir
     az vmss extension set --name OmsAgentForLinux --publisher Microsoft.EnterpriseCloud.Monitoring --resource-group <nameOfResourceGroup> --vmss-name <nameOfNodeType> --settings "{'workspaceId':'<Log AnalyticsworkspaceId>'}" --protected-settings "{'workspaceKey':'<Log AnalyticsworkspaceKey>'}"
     ```
 
-    Hier volgt een voorbeeld van de Log Analytics-Agent wordt toegevoegd aan een Windows-cluster.
+    Hier volgt een voorbeeld van de Log Analytics-agent wordt toegevoegd aan een Windows-cluster.
 
     ![Meld u Analytics-agent cli-opdracht](media/service-fabric-diagnostics-oms-agent/cli-command.png)
  

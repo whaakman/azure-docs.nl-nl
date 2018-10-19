@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: daseidma;bwren
-ms.openlocfilehash: a68c35ba2f740720e3d7940d6fafa2dcfe183589
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 70cf6fe1e2256ba2ed58d020111669e59d9db56b
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47064370"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405511"
 ---
 # <a name="configure-service-map-in-azure"></a>Serviceoverzicht configureren in Azure
 Serviceoverzicht ontdekt automatisch toepassingsonderdelen op Windows- en Linux-systemen en wijst de communicatie tussen services toe. U kunt deze gebruiken om weer te geven van uw servers beschouwen zoals u ze--onderling verbonden systemen die kritieke services verlenen. Servicetoewijzing toont verbindingen tussen servers, processen en poorten in alle via TCP verbonden architectuur zonder configuratie vereist, dan een agent geïnstalleerd.
@@ -138,22 +138,22 @@ Serviceoverzicht worden de gegevens uit de agent voor Microsoft Dependency opgeh
 | Beheergroep System Center Operations Manager | Ja | Serviceoverzicht analyseert en verzamelt gegevens van Windows en Linux-agents in een verbonden [System Center Operations Manager-beheergroep](../log-analytics/log-analytics-om-agents.md). <br><br>Er is een directe verbinding van de System Center Operations Manager-agentcomputer naar Log Analytics vereist. |
 | Azure Storage-account | Nee | Serviceoverzicht verzamelt gegevens van agentcomputers, dus er zijn geen gegevens te verzamelen over Azure Storage. |
 
-Op Windows, Microsoft Monitoring Agent (MMA) wordt gebruikt door zowel de System Center Operations Manager en de Log Analytics om te verzamelen en verzenden door gegevens te controleren. (Deze agent heet de System Center Operations Manager-agent, OMS-Agent, Log Analytics-agent, MMA of Direct Agent, afhankelijk van de context.) System Center Operations Manager en de Log Analytics bieden verschillende kant-en-klare versies van de MMA. Deze versies kunnen beide rapporteren aan System Center Operations Manager, aan Log Analytics of aan beide.  
+Op Windows, Microsoft Monitoring Agent (MMA) wordt gebruikt door zowel de System Center Operations Manager en de Log Analytics om te verzamelen en verzenden door gegevens te controleren. (Deze agent heet de System Center Operations Manager-agent, de Log Analytics-agent, de MMA of de Agent toewijzen, afhankelijk van de context.) System Center Operations Manager en de Log Analytics bieden verschillende kant-en-klare versies van de MMA. Deze versies kunnen beide rapporteren aan System Center Operations Manager, aan Log Analytics of aan beide.  
 
 Op Linux, de Log Analytics-agent voor Linux verzamelt en verzendt gegevens naar Log Analytics te controleren. U kunt Service Map gebruiken op servers met Log Analytics-agents die rechtstreeks verbonden met de service of die rapporteren aan een Operations Manager-beheergroep is geïntegreerd met Log Analytics.  
 
 In dit artikel, verwijzen we naar alle agents of Linux- of Windows met een beheergroep van System Center Operations Manager of rechtstreeks met Log Analytics, als verbonden de *Log Analytics-agent*. 
 
-De Serviceoverzicht-agent wordt niet verzonden gegevens zelf, en hoeven er geen wijzigingen in de firewalls en poorten. De gegevens in het Serviceoverzicht worden altijd verzonden door de Log Analytics-agent naar de service Log Analytics, rechtstreeks of via de OMS-Gateway.
+De Serviceoverzicht-agent wordt niet verzonden gegevens zelf, en hoeven er geen wijzigingen in de firewalls en poorten. De gegevens in het Serviceoverzicht worden altijd verzonden door de Log Analytics-agent naar de service Log Analytics, rechtstreeks of via de gateway van Log Analytics.
 
 ![Serviceoverzicht agents](media/monitoring-service-map/agents.png)
 
 Als u een System Center Operations Manager-klant bent met een beheergroep die is verbonden met Log Analytics:
 
 - Als de System Center Operations Manager-agents toegang heeft tot het Internet verbinding maken met Log Analytics, is geen aanvullende configuratie vereist.  
-- Als de System Center Operations Manager-agents geen toegang Log Analytics via Internet tot, moet u de OMS-Gateway om te werken met System Center Operations Manager configureren.
+- Als de System Center Operations Manager-agents geen toegang Log Analytics via Internet tot, moet u de Log Analytics-gateway om te werken met System Center Operations Manager configureren.
   
-Als uw Windows- of Linux-computers kunnen niet rechtstreeks verbinding met de service maken, moet u de Log Analytics-agent te koppelen aan Log Analytics met behulp van de OMS-Gateway configureren. Zie voor meer informatie over het implementeren en configureren van de OMS-Gateway [verbinding maken met computers zonder toegang tot het Internet met behulp van de OMS-Gateway](../log-analytics/log-analytics-oms-gateway.md).  
+Als uw Windows- of Linux-computers kunnen niet rechtstreeks verbinding met de service maken, moet u de Log Analytics-agent verbinding maken met de Log Analytics-werkruimte met behulp van de gateway configureren. Zie voor meer informatie over het implementeren en configureren van de Log Analytics-gateway [verbinding maken met computers zonder toegang tot het Internet met behulp van de Log Analytics-gateway](../log-analytics/log-analytics-oms-gateway.md).  
 
 ### <a name="management-packs"></a>Management packs
 Als Service Map in een Log Analytics-werkruimte is geactiveerd, wordt een 300 KB managementpack wordt doorgestuurd naar de Windows-servers in deze werkruimte. Als u System Center Operations Manager-agents in een [verbonden beheergroep](../log-analytics/log-analytics-om-agents.md), het Serviceoverzicht managementpack van System Center Operations Manager is geïmplementeerd. 

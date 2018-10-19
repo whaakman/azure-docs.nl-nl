@@ -15,33 +15,33 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/14/2017
 ms.author: roiyz
-ms.openlocfilehash: 02fa19cad56f1a31ad60c597df1b004710cb5b50
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 12f7c52f916f385ddf95cf16aa89c4848ab7c118
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452085"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406599"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-windows"></a>Log Analytics VM-extensie voor Windows
 
-Log Analytics biedt mogelijkheden voor bewaking in de cloud en on-premises activa. De extensie voor de Log Analytics-Agent van een virtuele machine voor Windows is gepubliceerd en ondersteund door Microsoft. De extensie voor de Log Analytics-agent geïnstalleerd op virtuele Azure-machines en virtuele machines voor een bestaande Log Analytics-werkruimte worden ingeschreven. In dit document worden de ondersteunde platforms, configuraties en implementatie-opties voor de extensie van de Log Analytics-virtuele machine voor Windows.
+Log Analytics biedt mogelijkheden voor bewaking in de cloud en on-premises activa. De extensie van Log Analytics-agent virtuele machine voor Windows is gepubliceerd en ondersteund door Microsoft. De extensie voor de Log Analytics-agent geïnstalleerd op virtuele Azure-machines en virtuele machines voor een bestaande Log Analytics-werkruimte worden ingeschreven. In dit document worden de ondersteunde platforms, configuraties en implementatie-opties voor de extensie van de Log Analytics-virtuele machine voor Windows.
 
 ## <a name="prerequisites"></a>Vereisten
 
 ### <a name="operating-system"></a>Besturingssysteem
 
-De Log Analytics-Agent-extensie versies voor Windows kan worden uitgevoerd op basis van Windows Server 2008 R2, 2012, 2012 R2 en 2016.
+De Log Analytics-agent-extensie versies voor Windows kan worden uitgevoerd op basis van Windows Server 2008 R2, 2012, 2012 R2 en 2016.
 
 ### <a name="azure-security-center"></a>Azure Security Center
 
 Azure Security Center wordt automatisch bepalingen van de Log Analytics-agent en verbindt u deze met de standaard log analytics-werkruimte van de Azure-abonnement. Als u van Azure Security Center gebruikmaakt, niet uitgevoerd door de stappen in dit document. In dat geval wordt de geconfigureerde werkruimte en het einde van de verbinding met Azure Security Center overschreven.
 
 ### <a name="internet-connectivity"></a>Internetconnectiviteit
-De Log Analytics-Agent-extensie voor Windows is vereist dat de virtuele doelmachine is verbonden met internet. 
+De Log Analytics-agent-extensie voor Windows is vereist dat de virtuele doelmachine is verbonden met internet. 
 
 ## <a name="extension-schema"></a>Extensieschema
 
-De volgende JSON ziet u het schema voor de Log Analytics-Agent-extensie. De extensie is vereist voor de werkruimte-Id en werkruimtesleutel van de doel-Log Analytics-werkruimte. Deze kunnen worden gevonden in de instellingen voor de werkruimte in de Azure-portal. Omdat de sleutel van de werkruimte moet worden behandeld als gevoelige gegevens, moet deze worden opgeslagen in de instellingsconfiguratie van een beveiligde. Azure-VM-extensie beveiligde instellingsgegevens versleuteld en alleen op de virtuele doelmachine worden ontsleuteld. Houd er rekening mee dat **workspaceId** en **workspaceKey** zijn hoofdlettergevoelig.
+De volgende JSON ziet u het schema voor de Log Analytics-agent-extensie. De extensie is vereist voor de werkruimte-Id en werkruimtesleutel van de doel-Log Analytics-werkruimte. Deze kunnen worden gevonden in de instellingen voor de werkruimte in de Azure-portal. Omdat de sleutel van de werkruimte moet worden behandeld als gevoelige gegevens, moet deze worden opgeslagen in de instellingsconfiguratie van een beveiligde. Azure-VM-extensie beveiligde instellingsgegevens versleuteld en alleen op de virtuele doelmachine worden ontsleuteld. Houd er rekening mee dat **workspaceId** en **workspaceKey** zijn hoofdlettergevoelig.
 
 ```json
 {
@@ -81,7 +81,7 @@ De volgende JSON ziet u het schema voor de Log Analytics-Agent-extensie. De exte
 
 ## <a name="template-deployment"></a>Sjabloonimplementatie
 
-Azure VM-extensies kunnen worden geïmplementeerd met Azure Resource Manager-sjablonen. De JSON-schema in de vorige sectie beschreven kan worden gebruikt in een Azure Resource Manager-sjabloon om uit te voeren van de Log Analytics-Agent-extensie tijdens de sjabloonimplementatie van een Azure Resource Manager. Een voorbeeldsjabloon met de Log Analytics-Agent-VM-extensie kunt u vinden op de [Azure Quick Start-galerie](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-windows-vm). 
+Azure VM-extensies kunnen worden geïmplementeerd met Azure Resource Manager-sjablonen. De JSON-schema in de vorige sectie beschreven kan worden gebruikt in een Azure Resource Manager-sjabloon om uit te voeren van de Log Analytics-agent-extensie tijdens de sjabloonimplementatie van een Azure Resource Manager. Een voorbeeldsjabloon met de Log Analytics-agent VM-extensie kunt u vinden op de [Azure Quick Start-galerie](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-windows-vm). 
 
 De JSON voor de extensie van een virtuele machine kan worden genest in de bron van de virtuele machine of geplaatst op de hoofdmap of het hoogste niveau van een Resource Manager JSON-sjabloon. De plaatsing van de JSON is van invloed op de waarde van de resourcenaam en het type. Zie voor meer informatie, [naam en type voor de onderliggende resources instellen](../../azure-resource-manager/resource-manager-templates-resources.md#child-resources). 
 
@@ -140,7 +140,7 @@ Bij het plaatsen van de JSON-extensie in de hoofdmap van de sjabloon, naam van d
 
 ## <a name="powershell-deployment"></a>PowerShell-implementatie
 
-De `Set-AzureRmVMExtension` opdracht kan worden gebruikt voor het implementeren van de virtuele machine-extensie van Log Analytics-Agent op een bestaande virtuele machine. Voordat u de opdracht uitvoert, moeten de openbare en privé-configuraties worden opgeslagen in een PowerShell-hash-tabel. 
+De `Set-AzureRmVMExtension` opdracht kan worden gebruikt voor het implementeren van de virtuele machine-extensie van Log Analytics-agent op een bestaande virtuele machine. Voordat u de opdracht uitvoert, moeten de openbare en privé-configuraties worden opgeslagen in een PowerShell-hash-tabel. 
 
 ```powershell
 $PublicSettings = @{"workspaceId" = "myWorkspaceId"}

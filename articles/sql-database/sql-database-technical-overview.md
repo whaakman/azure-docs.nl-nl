@@ -13,12 +13,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: 9f65537da2b32eee0a6870d22f7c444605ee56b1
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 1ae68e8eac3baca53cda603769a89bc6a84fd468
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49364877"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405920"
 ---
 # <a name="the-azure-sql-database-service"></a>De service Azure SQL Database
 
@@ -95,7 +95,7 @@ Daarnaast kan SQL Database [metrische gegevens en diagnostische logboeken verzen
 
 - **Azure Storage**: voor het archiveren van grote hoeveelheden telemetriegegevens voor een lage prijs
 - **Azure Event Hub**: voor het integreren van SQL Database-telemetrie in uw eigen bewakingsoplossing of actieve pijplijnen
-- **Azure Log Analytics**: voor een ingebouwde bewakingsoplossing met functionaliteit voor rapportages, waarschuwingen en risicobeperking. Azure Log Analytics is een functie van de [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md)
+- **Azure Log Analytics**: voor een ingebouwde bewakingsoplossing met functionaliteit voor rapportages, waarschuwingen en risicobeperking.
 
     ![architectuur](./media/sql-database-metrics-diag-logging/architecture.png)
 

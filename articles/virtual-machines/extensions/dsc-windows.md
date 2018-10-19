@@ -14,12 +14,12 @@ ms.tgt_pltfrm: windows
 ms.workload: ''
 ms.date: 03/26/2018
 ms.author: robreed
-ms.openlocfilehash: b9e96473a6f66dcbc675da1553deaed4ad61b249
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 1d65238115ca57a3fcc8047a27c8161aaa144ce4
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45630922"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49407704"
 ---
 # <a name="powershell-dsc-extension"></a>PowerShell DSC-extensie
 
@@ -100,7 +100,7 @@ De volgende JSON ziet u het schema voor het gedeelte instellingen van de DSC-ext
 
 | Naam | Waarde / voorbeeld | Gegevenstype |
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | datum |
+| apiVersion | 2015-06-15 | date |
 | Uitgever | Microsoft.Powershell.DSC | tekenreeks |
 | type | DSC | tekenreeks |
 | typeHandlerVersion | 2,73 | int |
@@ -130,7 +130,7 @@ De volgende JSON ziet u het schema voor het gedeelte instellingen van de DSC-ext
 
 ## <a name="template-deployment"></a>Sjabloonimplementatie
 
-Azure VM-extensies kunnen worden geïmplementeerd met Azure Resource Manager-sjablonen. Sjablonen zijn ideaal bij het implementeren van een of meer virtuele machines waarvoor de post-implementatieconfiguratie. Een voorbeeld van Resource Manager-sjabloon met de OMS-Agent-VM-extensie kunt u vinden op de [Azure Quick Start-galerie](https://github.com/Azure/azure-quickstart-templates/tree/052db5feeba11f85d57f170d8202123511f72044/dsc-extension-iis-server-windows-vm). 
+Azure VM-extensies kunnen worden geïmplementeerd met Azure Resource Manager-sjablonen. Sjablonen zijn ideaal bij het implementeren van een of meer virtuele machines waarvoor de post-implementatieconfiguratie. Een voorbeeld van Resource Manager-sjabloon met de Log Analytics-agent VM-extensie kunt u vinden op de [Azure Quick Start-galerie](https://github.com/Azure/azure-quickstart-templates/tree/052db5feeba11f85d57f170d8202123511f72044/dsc-extension-iis-server-windows-vm). 
 
 De JSON-configuratie voor een VM-extensie worden genest in de bron van de virtuele machine of geplaatst op de hoofdmap of het hoogste niveau van een Resource Manager JSON-sjabloon. De plaatsing van de JSON-configuratie is van invloed op de waarde van de resourcenaam en het type. 
 
@@ -139,7 +139,7 @@ Wanneer het nesten van de extensie-resource, de JSON wordt geplaatst in de `"res
 
 ## <a name="azure-cli-deployment"></a>Azure CLI-implementatie
 
-De Azure CLI kan worden gebruikt om de OMS-Agent-VM-extensie om een bestaande virtuele machine te implementeren. Vervangen door de OMS-sleutel en de OMS-ID van uw OMS-werkruimte. 
+De Azure CLI kan worden gebruikt om de VM-extensie van Log Analytics-agent implementeren op een bestaande virtuele machine. De sleutel van Log Analytics en Log Analytics-ID vervangen door die van uw Log Analytics-werkruimte. 
 
 ```azurecli
 az vm extension set \

@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: annaba
-ms.openlocfilehash: ea65dcca3e5de06d1bc966b3e7cb6b608260a053
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 27febb01b04bd8ac82b8cd428afce78dc57f8b8d
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48803956"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49403559"
 ---
 # <a name="get-started-with-certificate-based-authentication-in-azure-active-directory"></a>Aan de slag met verificatie op basis van certificaten in Azure Active Directory
 
@@ -37,7 +37,7 @@ Als u wilt configureren op certificaten gebaseerde verificatie, moeten de volgen
 
 - Certificaten gebaseerde verificatie wordt alleen ondersteund voor federatieve omgevingen voor browser- of systeemeigen clients met moderne verificatie (ADAL). De enige uitzondering hierop is Exchange Active Sync (EAS) voor Exchange Online (EXO), die kan worden gebruikt voor federatieve en beheerde accounts.
 - De basiscertificeringsinstantie en tussenliggende certificeringsinstanties moeten worden geconfigureerd in Azure Active Directory.
-- Elke CA moet een certificaatintrekkingslijst (CRL) via de URL van een internetgerichte kan worden verwezen.
+- Elke CA moet een certificaatintrekkingslijst (CRL) die kan worden verwezen via de URL van een internetverbinding hebben.
 - U moet ten minste één certificeringsinstantie geconfigureerd in Azure Active Directory hebben. U vindt gerelateerde stappen in de [configureren van de certificeringsinstanties](#step-2-configure-the-certificate-authorities) sectie.
 - Voor Exchange ActiveSync-clients moet het clientcertificaat routeerbaar e-mailadres van de gebruiker in Exchange online in de Principal-naam of de waarde RFC822-naam van het veld alternatieve naam voor onderwerp. Azure Active Directory wordt de waarde RFC822 toegewezen aan het kenmerk Proxy-adres in de map.
 - Uw client-apparaat moet toegang hebben tot ten minste één certificeringsinstantie die certificaten uitgeeft.
@@ -60,7 +60,7 @@ De gerelateerde gegevens bestaat voor de volgende apparaatplatformen:
 Als u wilt configureren van uw certificaat uploaden instanties in Azure Active Directory, voor elke certificeringsinstantie, het volgende:
 
 * Het openbare gedeelte van het certificaat in *.cer* indeling
-* De internetgerichte URL's waarop de certificaatintrekkingslijsten (CRL's) zich bevinden
+* De internetgerichte-URL's waarop de certificaatintrekkingslijsten (CRL's) zich bevinden
 
 Het schema voor een certificeringsinstantie ziet er als volgt uit:
 
@@ -178,7 +178,7 @@ Als de aanmelding geslaagd is, weet u dat:
 
 1. Installeer een mobiele Office-toepassing (bijvoorbeeld OneDrive) op uw testapparaat.
 3. Start de toepassing.
-4. Voer uw gebruikersnaam in en selecteer vervolgens het gebruikerscertificaat dat u wilt gebruiken.
+4. Voer uw gebruikersnaam en selecteer vervolgens het gebruikerscertificaat dat u wilt gebruiken.
 
 U moet worden aangemeld.
 

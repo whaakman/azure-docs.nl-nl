@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 04/05/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: 98bd088d4995bd1444b059531dc5b19d0283f551
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0c045d82e47d2554c2767e6f52491c780618abc2
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46965526"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49409523"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Batch metrische gegevens, waarschuwingen en logboeken voor diagnostische evaluatie en bewaking
 
@@ -39,7 +39,7 @@ Metrische gegevens zijn:
 * Elke minuut gegenereerd
 * Niet permanent automatisch, maar beschikken over een 30-daagse rolling overzicht. U kunt metrische gegevens van activiteiten behouden als onderdeel van [registratie in diagnoselogboek](#work-with-diagnostic-logs).
 
-### <a name="view-metrics"></a>Metrische gegevens weergeven
+### <a name="view-metrics"></a>Metrische gegevens bekijken
 
 Bekijk metrische gegevens voor uw Batch-account in Azure portal. De **overzicht** pagina voor het account standaard ziet u het knooppunt, core en taak metrische gegevens. 
 
@@ -85,7 +85,7 @@ Andere optionele bestemmingen voor diagnostische logboeken:
 
 * Stream gebeurtenissen uit batches met diagnostische logboeken naar een [Azure Event Hub](../event-hubs/event-hubs-what-is-event-hubs.md). Eventhubs kunnen miljoenen gebeurtenissen per seconde, die u kunt vervolgens transformeren en opslaan met elke gewenste realtime analyseprovider opnemen. 
 
-* Verzenden van diagnostische logboeken naar [Azure Log Analytics](../log-analytics/log-analytics-overview.md), kunt u ze in de portal voor Operations Management Suite (OMS) te analyseren, of ze voor analyse in Power BI of Excel exporteren.
+* Verzenden van diagnostische logboeken naar [Azure Log Analytics](../log-analytics/log-analytics-overview.md), kunt u ze analyseren of voor analyse in Power BI of Excel exporteren.
 
 > [!NOTE]
 > Er worden mogelijk extra kosten als u wilt opslaan of verwerken van diagnostische gegevens van een met Azure-services. 

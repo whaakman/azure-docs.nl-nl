@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 01/08/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 9fd06a8680a52ac0002f20da88d563ad1cbdb79a
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 845bc46ec56bfd6681c4fb318a57de19f66c0edf
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041336"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49403864"
 ---
 # <a name="troubleshooting-the-log-analytics-vm-extension"></a>Het oplossen van de Log Analytics VM-extensie
 Dit artikel bevat informatie over het oplossen van fouten die u mogelijk ondervindt met de Log Analytics VM-extensie voor Windows en Linux virtuele machines die worden uitgevoerd op Microsoft Azure en duidt op mogelijke oplossingen om op te lossen.
@@ -61,16 +61,17 @@ Als de *Microsoft Monitoring Agent* VM-extensie is niet geïnstalleerd of rappor
 Zie voor meer informatie, [Windows-extensies oplossen](../virtual-machines/windows/extensions-oms.md).
 
 ## <a name="troubleshooting-linux-vm-extension"></a>Linux VM-extensie oplossen
-Als de *OMS-Agent voor Linux* VM-extensie is niet geïnstalleerd of rapportage, kunt u de volgende stappen uit om het probleem oplossen uitvoeren.
+[!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)] 
+Als de *Log Analytics-agent voor Linux* VM-extensie is niet geïnstalleerd of rapportage, kunt u de volgende stappen uit om het probleem oplossen uitvoeren.
 
 1. Als de status van de extensie *onbekende* Controleer of de Azure VM-agent is geïnstalleerd en correct werkt aan de hand van het logboekbestand van de VM-agent `/var/log/waagent.log`
    * Als het logboek niet bestaat, wordt de VM-agent is niet geïnstalleerd.
    * [De Azure VM-Agent installeren op virtuele Linux-machines](log-analytics-quick-collect-azurevm.md#enable-the-log-analytics-vm-extension)
-2. Voor andere niet in orde statussen, raadpleegt u de OMS-Agent voor Linux VM-extensie de logboekbestanden worden opgeslagen `/var/log/azure/Microsoft.EnterpriseCloud.Monitoring.OmsAgentForLinux/*/extension.log` en `/var/log/azure/Microsoft.EnterpriseCloud.Monitoring.OmsAgentForLinux/*/CommandExecution.log`
-3. Als de status van de extensie in orde is, maar gegevens is niet geüpload. Controleer de OMS-Agent voor Linux-logboekbestanden in `/var/opt/microsoft/omsagent/log/omsagent.log`
+2. Raadpleeg voor andere slechte status, de Log Analytics-agent voor Linux VM-extensie de logboekbestanden worden opgeslagen `/var/log/azure/Microsoft.EnterpriseCloud.Monitoring.OmsAgentForLinux/*/extension.log` en `/var/log/azure/Microsoft.EnterpriseCloud.Monitoring.OmsAgentForLinux/*/CommandExecution.log`
+3. Als de status van de extensie in orde is, maar gegevens is niet geüpload. Controleer de Log Analytics-agent voor Linux-logboekbestanden in `/var/opt/microsoft/omsagent/log/omsagent.log`
 
 Zie voor meer informatie, [Linux-extensies oplossen](../virtual-machines/linux/extensions-oms.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Aanvullende richtlijnen voor probleemoplossing met betrekking tot de OMS-Agent voor Linux die op computers buiten Azure worden gehost, Zie [oplossen Azure Log Analytics Linux Agent](log-analytics-agent-linux-support.md).  
+Aanvullende richtlijnen voor probleemoplossing met betrekking tot de Log Analytics-agent voor Linux die op computers buiten Azure worden gehost, Zie [oplossen Azure Log Analytics Linux Agent](log-analytics-agent-linux-support.md).  

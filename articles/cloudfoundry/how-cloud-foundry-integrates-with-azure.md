@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/11/2018
 ms.author: ningk
-ms.openlocfilehash: 689730edcc98a23c82373ae8d36c3b831b33c076
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: a9f5f22cbd6e7cb39e1abb2ef712ffcfc27f55a4
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39627437"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406140"
 ---
 # <a name="integrate-cloud-foundry-with-azure"></a>Cloud Foundry integreren met Azure
 
@@ -70,9 +70,9 @@ Azure service broker biedt een consistente interface voor het beheren van de toe
 
 ## <a name="6-metrics-and-logging"></a>6. Metrische gegevens en logboekregistratie
 De Azure Log Analytics-pijp is een onderdeel Cloud Foundry, stuurt metrische gegevens van de [Cloud Foundry loggregator firehose](https://docs.cloudfoundry.org/loggregator/architecture.html) naar [Azure Log Analytics](https://azure.microsoft.com/services/log-analytics/). Met de Nozzle, kunt u verzamelen, weergeven en analyseren van uw CF system status en prestaties van metrische gegevens over meerdere implementaties.
-Klik op [hier](https://docs.microsoft.com/azure/cloudfoundry/cloudfoundry-oms-nozzle) voor informatie over het implementeren van de Azure Log Analytics-pijp voor Open Source- en Pivotal Cloud Foundry-omgeving en vervolgens toegang tot de gegevens uit de Azure Log Analytics OMS-console. 
+Klik op [hier](https://docs.microsoft.com/azure/cloudfoundry/cloudfoundry-oms-nozzle) voor informatie over het implementeren van de Azure Log Analytics-pijp voor Open Source- en Pivotal Cloud Foundry-omgeving en vervolgens toegang tot de gegevens uit de Azure Log Analytics-console. 
 > [!NOTE]
-> PCF 2.0, metrische gegevens over gezondheid BOSH voor virtuele machines worden doorgestuurd naar de Loggregator Firehose standaard en zijn geïntegreerd in Azure Log Analytics OMS-console.
+> PCF 2.0, metrische gegevens over gezondheid BOSH voor virtuele machines worden doorgestuurd naar de Loggregator Firehose standaard en zijn geïntegreerd in Azure Log Analytics-console.
 
 ## <a name="7-cost-saving"></a>7. Kosten opslaan
 ### <a name="cost-saving-for-devtest-environments"></a>Geld besparen voor Dev/Test-omgevingen

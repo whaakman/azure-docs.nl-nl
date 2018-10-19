@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 10/03/2018
 ms.author: celested
 ms.reviewer: jlu, annaba, hirsin
-ms.openlocfilehash: 3e4b4e904fd4615458e8d873baa1bf30588fe81d
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 4fd7617bf45608cdae15919a40920ea0d214acb8
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48249431"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49407468"
 ---
 # <a name="how-to-migrate-from-the-azure-access-control-service"></a>Hoe: migreren vanuit de Azure Access Control-service
 
@@ -210,7 +210,7 @@ Op hoog niveau, *Azure Active Directory is waarschijnlijk de beste keuze voor uw
 | Aanpasbare thuisdomein detectie/account-opname-UI | Downloadbare code die kan worden opgenomen in apps | Niet ondersteund |
 | Aangepaste certificaten voor token-ondertekening uploaden | Ondersteund | Ondersteund |
 | Claims in tokens aanpassen |-Passeren invoerclaims van id-providers<br />-Toegangstoken ophalen uit de id-provider als een claim<br />-Uitvoerclaims op basis van waarden van invoer claims uitgeven<br />-Uitvoerclaims uitgeven met constante waarden |-Niet worden doorgegeven via de claims van federatieve id-providers<br />-Kan geen toegangstoken ophalen uit de id-provider als een claim<br />-Kan geen uitvoerclaims op basis van waarden van invoer claims uitgeven<br />-Kunnen uitvoerclaims worden uitgegeven met constante waarden<br />-Uitvoerclaims op basis van eigenschappen van gebruikers die zijn gesynchroniseerd met Azure AD kunnen geven |
-| **Automatisering** | | |
+| **Automation** | | |
 | Configuratie en beheer taken automatiseren | Ondersteund via Access Control Management-Service | Ondersteund via Microsoft Graph en Azure AD Graph API |
 
 Als u besluit dat Azure AD de beste migratiepad voor uw toepassingen en services is, moet u rekening houden met twee manieren om uw app integreren met Azure AD.
@@ -225,7 +225,7 @@ Als u WS-Federation of WIF wilt integreren met Azure AD, wordt aangeraden de ben
 
 Een alternatieve methode is om te volgen [dit codevoorbeeld](https://github.com/Azure-Samples/active-directory-dotnet-webapp-wsfederation), waardoor enigszins instructies voor het instellen van WS-Federation. Dit codevoorbeeld maakt geen gebruik WIF, maar in plaats daarvan de ASP.NET 4.5 OWIN-middleware. Echter, de instructies voor het app-registratie geldig zijn voor apps met behulp van WIF en vereisen een Azure AD Premium-licentie. 
 
-Als u deze aanpak kiest, moet u begrijpen [ondertekening van sleutelrollover in Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-signing-key-rollover). Deze methode maakt gebruik van de Azure AD globaal ondertekeningssleutel voor probleem-tokens. Standaard geeft WIF ondersteuningssleutels niet automatisch vernieuwd. Wanneer Azure AD de globale ondersteuningssleutels draait, moet uw toepassing met WIF worden voorbereid om de wijzigingen te accepteren. Zie voor meer informatie, [belangrijke informatie over het ondertekenen van sleutelrollover in Azure AD](https://msdn.microsoft.com/en-us/library/azure/dn641920.aspx).
+Als u deze aanpak kiest, moet u begrijpen [ondertekening van sleutelrollover in Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-signing-key-rollover). Deze methode maakt gebruik van de Azure AD globaal ondertekeningssleutel voor probleem-tokens. Standaard geeft WIF ondersteuningssleutels niet automatisch vernieuwd. Wanneer Azure AD de globale ondersteuningssleutels draait, moet uw toepassing met WIF worden voorbereid om de wijzigingen te accepteren. Zie voor meer informatie, [belangrijke informatie over het ondertekenen van sleutelrollover in Azure AD](https://msdn.microsoft.com/library/azure/dn641920.aspx).
 
 Als u met Azure AD via de OpenID Connect of OAuth-protocollen integreren kunt, raden wij in dat geval. We hebben uitgebreide documentatie en richtlijnen over hoe u Azure AD integreren in uw web-App die beschikbaar zijn in onze [ontwikkelaarsgids van Azure AD](https://aka.ms/aaddev).
 
@@ -261,7 +261,7 @@ De volgende tabel vergelijkt de functies van Access Control die relevant zijn vo
 | Aanpasbare thuisdomein detectie/account-opname-UI | Downloadbare code die kan worden opgenomen in apps | Volledig aanpasbare gebruikersinterface via aangepaste CSS |
 | Aangepaste certificaten voor token-ondertekening uploaden | Ondersteund | Aangepaste ondertekeningssleutels, certificaten, ondersteund via aangepaste beleidsregels |
 | Claims in tokens aanpassen |-Passeren invoerclaims van id-providers<br />-Toegangstoken ophalen uit de id-provider als een claim<br />-Uitvoerclaims op basis van waarden van invoer claims uitgeven<br />-Uitvoerclaims uitgeven met constante waarden |-Claims van id-providers, kunnen doorgeven aangepaste beleidsregels die zijn vereist voor sommige claims<br />-Kan geen toegangstoken ophalen uit de id-provider als een claim<br />-Uitvoerclaims op basis van waarden van invoerclaims via aangepaste beleidsregels kunnen geven<br />-Kunnen uitvoerclaims worden uitgegeven met constante waarden via aangepaste beleidsregels |
-| **Automatisering** | | |
+| **Automation** | | |
 | Configuratie en beheer taken automatiseren | Ondersteund via Access Control Management-Service |-Het maken van gebruikers die zijn toegestaan via de Azure AD Graph API<br />-Kan geen maken B2C-tenants, toepassingen of beleid via een programma |
 
 Als u besluit dat Azure AD B2C de beste migratiepad voor uw toepassingen en services is, kunt u beginnen met de volgende bronnen:

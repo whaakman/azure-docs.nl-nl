@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2018
 ms.author: shvija
-ms.openlocfilehash: 603a5dfcf2137c15ae19ea248f3e0f4f136c22f1
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 91263d7f6e8c0c2774df560a45eeff9efc672343
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42056639"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49408421"
 ---
 # <a name="azure-event-hubs-capture"></a>Azure Event Hubs vastleggen
 
@@ -104,6 +104,10 @@ Apache Avro is voltooid aan de slag-handleidingen voor [Java] [ Java] en [Python
 ## <a name="how-event-hubs-capture-is-charged"></a>Hoe Event Hubs Capture wordt in rekening gebracht
 
 Op dezelfde manier naar Event Hubs Capture is gebruik in eenheden gegevensdoorvoer: als een uurtarief. De kosten is rechtstreeks in verhouding met het aantal doorvoereenheden hebt aangeschaft voor de naamruimte. Als doorvoereenheden worden verhoogd of verlaagd, wordt Event Hubs Capture meters verhogen en verlagen om overeenkomende prestaties te bieden. De meters die zich voordoen in combinatie. Zie voor prijsgegevens [prijzen van Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs/). 
+
+## <a name="integration-with-event-grid"></a>Integratie met Event Grid 
+U kunt een Azure Event Grid-abonnement maken met een Event Hubs-naamruimte als de bron. De volgende zelfstudie leert u hoe u een Event Grid-abonnement maken met een event hub als een bron en een Azure Functions-app als een sink: [proces en de vastgelegde gegevens van Event Hubs migreren naar een SQL Data Warehouse met behulp van Event Grid en Azure Functions](store-captured-data-data-warehouse.md).
+
 
 ## <a name="next-steps"></a>Volgende stappen
 

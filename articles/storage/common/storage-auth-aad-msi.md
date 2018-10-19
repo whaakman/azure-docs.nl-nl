@@ -5,19 +5,19 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 10/15/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: c06dc83f8b460e6215448fbc9e4ac42c749b5922
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: d8382cac86abb112018195695340ed12663a2333
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353999"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49427413"
 ---
 # <a name="authenticate-access-to-blobs-and-queues-with-managed-identities-for-azure-resources-preview"></a>Verifiëren van toegang tot blobs en wachtrijen met beheerde identiteiten voor Azure-Resources (Preview)
 
-Azure Blob en Queue storage ondersteuning voor verificatie met Azure Active Directory (Azure AD) [beheerde identiteiten voor een Azure-resources](../../active-directory/managed-identities-azure-resources/overview.md). U kunt beheerde identiteiten voor Azure-resources gebruiken om te verifiëren van toegang tot blobs en wachtrijen van toepassingen die worden uitgevoerd in virtuele Azure-machines (VM's), functie-apps, virtuele-machineschaalsets en anderen. Met behulp van beheerde identiteiten voor Azure-resources en gebruik te maken van de kracht van Azure AD-verificatie, kunt u voorkomen dat opslaan van referenties op met uw toepassingen die worden uitgevoerd in de cloud.  
+Azure Blob en Queue storage ondersteuning voor verificatie met Azure Active Directory (Azure AD) [beheerde identiteiten voor een Azure-resources](../../active-directory/managed-identities-azure-resources/overview.md). Beheerde identiteiten voor Azure-resources van toegang tot blobs verifiëren kunnen en wachtrijen met Azure AD-referenties van de toepassingen die worden uitgevoerd in virtuele Azure-machines (VM's), functie-apps, virtuele-machineschaalsets en anderen. Met behulp van beheerde identiteiten voor Azure-resources en gebruik te maken van de kracht van Azure AD-verificatie, kunt u voorkomen dat opslaan van referenties op met uw toepassingen die worden uitgevoerd in de cloud.  
 
 Om machtigingen te verlenen aan een beheerde identiteit aan een blob-container of een wachtrij, kunt u de rol van een op basis van de rol beheer (RBAC) toewijzen aan de beheerde identiteit die machtigingen voor de resource op het juiste bereik omvat. Zie voor meer informatie over RBAC-rollen in de opslag, [beheren-toegangsrechten aan opslag van gegevens met RBAC (Preview)](storage-auth-aad-rbac.md). 
 
@@ -34,6 +34,10 @@ Voordat u beheerde identiteiten voor Azure-Resources gebruiken kunt om te verifi
 - [Azure-CLI](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md)
 - [Azure Resource Manager-sjabloon](../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)
 - [Azure SDK 's](../../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md)
+
+## <a name="assign-an-rbac-role-to-an-azure-ad-managed-identity"></a>Een RBAC-rol toewijzen aan een Azure AD beheerde identiteit
+
+Als u wilt een beheerde identiteit van uw Azure Storage-toepassing verifiëren, moet u eerst op basis van rollen (RBAC) instellingen voor toegangsbeheer voor die beheerde identiteit configureren. Azure Storage definieert RBAC-rollen die machtigingen voor containers en wachtrijen omvatten. Wanneer de RBAC-rol is toegewezen aan een beheerde identiteit, die de beheerde identiteit krijgt toegang tot die resource. Zie voor meer informatie, [beheren toegangsrechten tot Azure BLOB Storage en Queue gegevens met RBAC (Preview)](storage-auth-aad-rbac.md).
 
 ## <a name="get-a-managed-identity-access-token"></a>Een beheerde identiteit toegangstoken ophalen
 

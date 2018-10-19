@@ -14,18 +14,18 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 08/24/2018
 ms.author: mahender,cephalin
-ms.openlocfilehash: 46f8602583329a0516edb9af59e53754ca349555
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 6aa7f8c3b9d21d9c55aee3ce49f2bc140769a855
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43336801"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49408061"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service"></a>Verificatie en autorisatie in Azure App Service
 
 Azure App Service biedt ingebouwde verificatie en autorisatie ondersteunen, zodat u kunt gebruikers aanmelden en toegang gegevens via het schrijven van minimale of geen code in uw web-app, API en mobiele back-end tot, en ook [Azure Functions](../azure-functions/functions-overview.md). Dit artikel wordt beschreven hoe App Service helpt bij het vereenvoudigen van verificatie en autorisatie voor uw app. 
 
-Verificatie en autorisatie vereist grondige kennis van beveiliging, met inbegrip van Federatie, versleuteling, [JSON webtokens (JWT)](https://wikipedia.org/wiki/JSON_Web_Token) management, [toezeggingstypen](https://oauth.net/2/grant-types/), enzovoort. App Service biedt deze hulpprogramma's die u besteden kunt meer tijd en energie bedrijfswaarde voor uw klant.
+Veilige verificatie en autorisatie vereist grondige kennis van beveiliging, met inbegrip van Federatie, versleuteling, [JSON webtokens (JWT)](https://wikipedia.org/wiki/JSON_Web_Token) management, [toezeggingstypen](https://oauth.net/2/grant-types/), enzovoort. App Service biedt deze hulpprogramma's die u besteden kunt meer tijd en energie bedrijfswaarde voor uw klant.
 
 > [!NOTE]
 > Bent u niet vereist voor het gebruik van App Service voor verificatie en autorisatie. Veel web-frameworks worden gebundeld met beveiligingsfuncties, en kunt u deze als u dit wilt gebruiken. Als u meer flexibiliteit biedt dan de App Service biedt, kunt u ook uw eigen hulpprogramma's voor schrijven.  
@@ -63,9 +63,9 @@ App Service biedt een ingebouwde tokenopslag, dit is een opslagplaats van tokens
 - op de geverifieerde gebruiker Facebook-tijdlijn plaatsen
 - lezen van de gebruiker bedrijfsgegevens vanuit de Azure Active Directory Graph API of zelfs Microsoft Graph
 
-De id-tokens, toegangstokens en vernieuwen van tokens in de cache opgeslagen voor de geverifieerde sessie en ze zijn alleen toegankelijk is voor de gebruiker is gekoppeld.  
-
 Normaal gesproken moet u code voor het verzamelen, opslaan en vernieuwen van deze tokens in uw toepassing schrijven. Met de token store die u zojuist hebt [ophalen van de tokens](app-service-authentication-how-to.md#retrieve-tokens-in-app-code) wanneer u ze nodig hebt en [zien van App Service, zodat ze vernieuwen](app-service-authentication-how-to.md#refresh-access-tokens) wanneer ze ongeldig geworden. 
+
+De id-tokens, toegangstokens en vernieuwen van tokens in de cache opgeslagen voor de geverifieerde sessie en ze zijn alleen toegankelijk is voor de gebruiker is gekoppeld.  
 
 Als u niet nodig hebt om te werken met tokens in uw app, kunt u de tokenopslag uitschakelen.
 
@@ -80,7 +80,7 @@ App Service gebruikt [federatieve identiteit](https://en.wikipedia.org/wiki/Fede
 | Provider | Aanmelden-eindpunt |
 | - | - |
 | [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) | `/.auth/login/aad` |
-| [Microsoft-account](../active-directory/develop/active-directory-appmodel-v2-overview.md) | `/.auth/login/microsoftaccount` |
+| [Microsoft-account](../active-directory/develop/v2-overview.md) | `/.auth/login/microsoftaccount` |
 | [Facebook](https://developers.facebook.com/docs/facebook-login) | `/.auth/login/facebook` |
 | [Google](https://developers.google.com/+/web/api/rest/oauth) | `/.auth/login/google` |
 | [Twitter](https://developer.twitter.com/en/docs/basics/authentication) | `/.auth/login/twitter` |
@@ -121,7 +121,7 @@ De volgende rubrieken beschrijven de opties.
 
 ### <a name="allow-all-requests-default"></a>Toestaan dat alle aanvragen (standaard)
 
-Verificatie en autorisatie wordt niet beheerd door App Service (uitgeschakeld). 
+Verificatie en autorisatie worden niet beheerd door App Service (uitgeschakeld). 
 
 Kies deze optie als u hoeft verificatie en autorisatie, of als u wilt uw eigen verificatie en autorisatie-code te schrijven.
 

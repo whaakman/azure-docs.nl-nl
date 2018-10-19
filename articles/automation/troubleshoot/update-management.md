@@ -4,20 +4,20 @@ description: Meer informatie over het oplossen van problemen met updatebeheer
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 08/08/2018
+ms.date: 10/17/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 2e47320d5ad88edfa8ea6122f3a0abd104230974
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
+ms.openlocfilehash: 41883fd677d276f8f26721fdccc3ded020c3278b
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42055062"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405222"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>Oplossen van problemen met updatebeheer
 
-Dit artikel worden oplossingen voor het oplossen van problemen die optreden kunnen bij het gebruik van updatebeheer.
+Dit artikel worden oplossingen voor het oplossen van problemen die worden uitgevoerd op bij het gebruik van updatebeheer.
 
 ## <a name="general"></a>Algemeen
 
@@ -36,7 +36,7 @@ The components for the 'Update Management' solution have been enabled, and now t
 Deze fout kan worden veroorzaakt door de volgende redenen:
 
 1. Communicatie terug naar het Automation-Account wordt geblokkeerd.
-2. De virtuele machine wordt onboarding mogelijk afkomstig zijn uit een gekloonde machine dat nog niet Sysprep met de Microsoft Monitoring Agent is geïnstalleerd is.
+2. De virtuele machine onboarding wordt uitgevoerd kan afkomstig zijn uit een gekloonde machine die niet Sysprep met de Microsoft Monitoring Agent is geïnstalleerd is.
 
 #### <a name="resolution"></a>Oplossing
 
@@ -87,7 +87,7 @@ The certificate presented by the service <wsid>.oms.opinsights.azure.com was not
 
 #### <a name="cause"></a>Oorzaak
 
-Mogelijk zijn er een proxy, de gateway of de firewall blokkeert de netwerkcommunicatie.
+Er zijn mogelijk een proxy, de gateway of de firewall blokkeert de netwerkcommunicatie.
 
 #### <a name="resolution"></a>Oplossing
 
@@ -105,11 +105,33 @@ Unable to Register Machine for Patch Management, Registration Failed with Except
 
 #### <a name="cause"></a>Oorzaak
 
-De Hybrid Runbook Worker kan niet voor het genereren van een zelfondertekend certificaat
+De Hybrid Runbook Worker is niet een zelfondertekend certificaat genereren
 
 #### <a name="resolution"></a>Oplossing
 
 Controleer of systeemaccount leestoegang heeft tot map **C:\ProgramData\Microsoft\Crypto\RSA** en probeer het opnieuw.
+
+### <a name="hresult"></a>Scenario: Machine wordt niet beoordeeld en ziet u een uitzondering van HResult
+
+#### <a name="issue"></a>Probleem
+
+U machines hebt die als **niet beoordeeld** onder **naleving**, en u ziet een bericht van uitzondering eronder.
+
+#### <a name="cause"></a>Oorzaak
+
+Windows update is niet juist geconfigureerd op de machine.
+
+#### <a name="resolution"></a>Oplossing
+
+Dubbelklik op de uitzondering in rood om te zien van de gehele uitzonderingsbericht weergegeven. Bekijk de volgende tabel voor mogelijke oplossingen of acties te ondernemen:
+
+|Uitzondering  |Oplossing of actie  |
+|---------|---------|
+|`Exception from HRESULT: 0x……C`     | Zoeken naar de relevante foutcode in [Windows update code foutenlijst](https://support.microsoft.com/help/938205/windows-update-error-code-list) naar aanvullende informatie vinden over de oorzaak van de uitzondering.        |
+|`0x8024402C` of `0x8024401C`     | Deze fouten zijn problemen met de netwerkverbinding. Zorg ervoor dat uw computer de juiste netwerkverbinding met updatebeheer heeft. Zie de sectie over [netwerkplanning](../automation-update-management.md#ports) voor een lijst met poorten en -adressen die vereist zijn.        |
+|`0x8024402C`     | Als u van een WSUS-server gebruikmaakt, controleert u of de registerwaarden voor `WUServer` en `WUStatusServer` onder de registersleutel `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate` hebt u de juiste WSUS-server.        |
+|`The service cannot be started, either because it is disabled or because it has no enabled devices associated with it. (Exception from HRESULT: 0x80070422)`     | Zorg ervoor dat de Windows Update-service (wuauserv) wordt uitgevoerd en niet is uitgeschakeld.        |
+|Andere algemene uitzondering     | Voer een zoekopdracht uit op het internet voor de mogelijke oplossingen en werken met uw lokale IT-ondersteuning.         |
 
 ## <a name="linux"></a>Linux
 
@@ -159,7 +181,7 @@ Als u een probleem met een patch niet kunt oplossen, maakt u een kopie van het v
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Als u het probleem niet wordt gezien of kan niet aan het oplossen van uw probleem, gaat u naar een van de volgende kanalen voor ondersteuning van meer:
+Als u uw probleem niet zien of u niet kunt oplossen van uw probleem, gaat u naar een van de volgende kanalen voor ondersteuning van meer:
 
 * Krijg antwoorden van Azure-experts op [Azure-Forums](https://azure.microsoft.com/support/forums/)
 * Maak verbinding met [@AzureSupport](https://twitter.com/azuresupport), het officiële Microsoft Azure-account voor het verbeteren van de gebruikerservaring door de Azure-community in contact te brengen met de juiste resources: antwoorden, ondersteuning en experts.

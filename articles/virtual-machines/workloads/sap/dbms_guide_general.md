@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 09/06/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e46503f8dc97f58db1cd5acfd2122e2895fb15b0
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 3948c226f13f0ff358f9ca467f19cf0e48795911
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44162305"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49429880"
 ---
 # <a name="considerations-for-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Overwegingen voor Azure Virtual Machines DBMS-implementatie voor de werkbelasting van SAP
 [1114181]:https://launchpad.support.sap.com/#/notes/1114181
@@ -216,7 +216,7 @@ Voor implementaties van de M-serie, is het raadzaam gebruik van Azure Write Acce
 
 
 ### <a name="azure-non-persistent-disks"></a>Niet-permanente schijven van Azure
-Azure-VM's bieden een niet-permanente schijven na de implementatie van een virtuele machine. In het geval van een VM opnieuw wordt opgestart, wordt alle inhoud op deze schijven worden gewist. Het is dus een gezien het feit dat de gegevensbestanden en log/opnieuw bestanden van databases onder geen enkele omstandigheid zich op deze schijven niet-persistente bevinden moeten. Mogelijk zijn er uitzonderingen voor enkele van de databases, waar deze stations niet-persistente mogelijk geschikt voor tempdb en tijdelijke tabelruimten. Echter Vermijd het gebruik van deze schijven voor virtuele machines uit de A-serie, omdat deze niet-persistente schijven zijn beperkt in doorvoer met deze VM-reeks. Lees voor meer informatie het artikel [inzicht krijgen in het tijdelijke station op Windows Azure Virtual Machines](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/)
+Azure-VM's bieden een niet-permanente schijven na de implementatie van een virtuele machine. In het geval van een VM opnieuw wordt opgestart, wordt alle inhoud op deze schijven worden gewist. Het is dus een gezien het feit dat de gegevensbestanden en log/opnieuw bestanden van databases onder geen enkele omstandigheid zich op deze schijven niet-persistente bevinden moeten. Mogelijk zijn er uitzonderingen voor enkele van de databases, waar deze stations niet-persistente mogelijk geschikt voor tempdb en tijdelijke tabelruimten. Echter Vermijd het gebruik van deze schijven voor virtuele machines uit de A-serie, omdat deze niet-persistente schijven zijn beperkt in doorvoer met deze VM-reeks. Lees voor meer informatie het artikel [inzicht krijgen in het tijdelijke station op Windows-VM's in Azure](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/)
 
 - - -
 > ![Windows][Logo_Windows] Windows

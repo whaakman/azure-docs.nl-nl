@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/03/2018
 ms.author: yurid
-ms.openlocfilehash: 73ed6976450ef89fb87dd054147325c8b250d1a7
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 099d3fcac5d7574f744ab1bb00dd636b8d867fa9
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44161506"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49408438"
 ---
 # <a name="azure-security-center-readiness-roadmap"></a>Roadmap naar Azure Security Center-gereedheid
 Dit document bevat een roadmap naar gereedheid die u helpt aan de slag te gaan met Azure Security Center.
@@ -118,7 +118,7 @@ Artikelen
 * [Aanbevolen procedures voor netwerkbeveiliging](https://docs.microsoft.com/azure/security/azure-security-network-security-best-practices)
 * [PaaS-aanbevelingen](https://docs.microsoft.com/azure/security/security-paas-deployments)
 * [Naleving](https://www.microsoft.com/en-us/trustcenter/compliance/due-diligence-checklist)
-* [OMS-klanten kunnen nu Azure Security Center gebruiken om hun hybride cloud-workloads te beschermen](https://blogs.technet.microsoft.com/msoms/2017/09/25/oms-customers-can-now-use-azure-security-center-to-protect-their-hybrid-cloud-workloads/)
+* [Log Analytics-klanten kunnen nu Azure Security Center gebruiken om hun hybride cloud-workloads te beschermen](https://blogs.technet.microsoft.com/msoms/2017/09/25/oms-customers-can-now-use-azure-security-center-to-protect-their-hybrid-cloud-workloads/)
 
 ## <a name="community-resources"></a>Communitybronnen
 

@@ -1,6 +1,6 @@
 ---
-title: Problemen oplossen met fouten voorbereiding, updatebeheer, bijhouden en inventarisatie
-description: Meer informatie over het voorbereiden op fouten met de Update Management, bijhouden en oplossingen voor inventarisatie oplossen
+title: Oplossen van fouten onboarding updatebeheer, wijzigingen bijhouden en inventaris
+description: Meer informatie over het oplossen van fouten met de updatebeheer, wijzigingen bijhouden en inventaris oplossingen onboarding
 services: automation
 author: georgewallace
 ms.author: gwallace
@@ -8,16 +8,16 @@ ms.date: 06/19/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 044cb56b8991a1eb2dd6a1d35be621f2ffab3250
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 40a1955e88b23ecfb86412b388413b920dd2eb1a
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37063810"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49407602"
 ---
-# <a name="troubleshoot-errors-when-onboarding-solutions"></a>Fouten oplossen wanneer onboarding oplossingen
+# <a name="troubleshoot-errors-when-onboarding-solutions"></a>Problemen oplossen bij het onboarding-oplossingen
 
-Er kan fouten optreden bij onboarding oplossingen zoals updatebeheer of bijhouden en inventaris. In dit artikel beschrijft de verschillende fouten die optreden en hoe deze op te lossen.
+Fouten kunnen optreden tijdens het onboarding-oplossingen zoals updatebeheer of wijzigingen bijhouden en inventaris. In dit artikel beschrijft de verschillende fouten die optreden en hoe ze op te lossen.
 
 ## <a name="general-errors"></a>Algemene fouten
 
@@ -25,15 +25,15 @@ Er kan fouten optreden bij onboarding oplossingen zoals updatebeheer of bijhoude
 
 #### <a name="issue"></a>Probleem
 
-Deze foutcode betekent dat de opgeslagen zoekopdracht computer groepsquery gebruikt voor het doel van de oplossing is niet de juiste indeling. 
+Deze foutcode betekent dat de opgeslagen zoekopdracht computer groepsquery gebruikt om u te richten op de oplossing is niet juist opgemaakt. 
 
 #### <a name="cause"></a>Oorzaak
 
-U hebt de query gewijzigd, of door het systeem is gewijzigd.
+U hebt de query gewijzigd, of door het systeem zijn gewijzigd.
 
 #### <a name="resolution"></a>Oplossing
 
-U kunt de query voor deze oplossing en de oplossing wordt de query reonboard verwijderen. De query kan worden gevonden in uw werkruimte onder **opgeslagen zoekopdrachten**. De naam van de query is **MicrosoftDefaultComputerGroup**, en de categorie van de query is de naam van de oplossing die is gekoppeld aan deze query. Als meerdere oplossingen zijn ingeschakeld, de **MicrosoftDefaultComputerGroup** ziet u meerdere keren onder **opgeslagen zoekacties**.
+U kunt de query voor deze oplossing en de oplossing, wordt de query reonboard verwijderen. De query worden gevonden in uw werkruimte onder **opgeslagen zoekopdrachten**. De naam van de query is **MicrosoftDefaultComputerGroup**, en de categorie van de query is de naam van de oplossing die is gekoppeld aan deze query. Als meerdere oplossingen zijn ingeschakeld, de **MicrosoftDefaultComputerGroup** meerdere keren weergegeven onder **opgeslagen zoekopdrachten**.
 
 ### <a name="policy-violation"></a>Scenario: PolicyViolation
 
@@ -47,27 +47,29 @@ Een beleid is dat wordt geblokkeerd door de bewerking niet voltooien.
 
 #### <a name="resolution"></a>Oplossing
 
-Om de oplossing implementeren, moet u rekening houden met het opgegeven beleid wijzigen. De specifieke wijzigingen die zijn vereist als er veel verschillende typen beleidsregels die kunnen worden gedefinieerd zijn, zijn afhankelijk van het beleid dat is geschonden. Bijvoorbeeld als een beleid is gedefinieerd voor een resourcegroep die geen toegang tot de inhoud van bepaalde soorten resources in die resourcegroep wijzigen, kunt u bijvoorbeeld doen het volgende:
+De oplossing implementeren, moet u rekening houden met het wijzigen van het opgegeven beleid. Er zijn veel verschillende soorten beleid die kunnen worden gedefinieerd, is de specifieke wijzigingen nodig zijn afhankelijk van het beleid dat is geschonden. Bijvoorbeeld, als er een beleid is gedefinieerd in een resourcegroep die geen toestemming hebben voor het wijzigen van de inhoud van bepaalde typen resources in die resourcegroep, kunt u bijvoorbeeld doen van de volgende:
 
-* Het beleid helemaal verwijderen.
-* Probeer om vrij te geven naar een andere resourcegroep.
-* Herzien het beleid door, bijvoorbeeld:
-  * Opnieuw als doel het beleid op een specifieke bron (bijvoorbeeld een specifieke Automation-account).
-  * Wijzigen van de set van resources die het beleid is geconfigureerd om te weigeren.
+* Verwijder het beleid kan worden overgeslagen.
+* Probeer te onboarden naar een andere resourcegroep.
+* Wijzig het beleid door, bijvoorbeeld:
+  * Opnieuw die gericht is op het beleid op een specifieke bron (bijvoorbeeld bij een specifieke Automation-account).
+  * Wijzigen van de set van resources dat beleid is geconfigureerd om te weigeren.
 
-Controleer de meldingen in de rechterbovenhoek van de Azure portal of navigeer naar de resourcegroep waarin uw automation-account en selecteer **implementaties** onder **instellingen** om de mislukte weer te geven de implementatie. Voor meer informatie over Azure beleid bezoek: [overzicht van Azure beleid](../../azure-policy/azure-policy-introduction.md?toc=%2fazure%2fautomation%2ftoc.json).
+Controleer de meldingen in de rechterbovenhoek van de Azure-portal of Ga naar de resourcegroep waarin uw automation-account en selecteer **implementaties** onder **instellingen** om de mislukte weer te geven de implementatie. Voor meer informatie over Azure Policy bezoek: [overzicht van Azure Policy](../../azure-policy/azure-policy-introduction.md?toc=%2fazure%2fautomation%2ftoc.json).
 
-## <a name="mma-extension-failures"></a>De extensie MMA fouten
+## <a name="mma-extension-failures"></a>MMA-extensies oplossen
 
-Bij het implementeren van een oplossing voor tal van gerelateerde resources worden geïmplementeerd. Een van deze resources is de extensie van Microsoft Monitoring Agent of de OMS-Agent voor Linux. Dit zijn extensies van virtuele Machine is geïnstalleerd door de virtuele machine Guest-Agent die verantwoordelijk is voor communicatie met de geconfigureerde werkruimte Operations Management Suite (OMS) omwille van de latere coördinatie van het downloaden van de binaire bestanden en andere bestanden die de oplossing zijn van onboarding afhankelijk eenmaal wordt uitgevoerd.
-U doorgaans waarnemen eerst MMA of OMS-Agent voor Linux-installatiefouten vanaf een melding weergegeven in de Hub meldingen. Te klikken op deze kennisgeving biedt meer informatie over de specifieke fout. Navigatie naar de resourcegroepen resource en vervolgens naar het element implementaties binnen het biedt ook informatie over de fouten bij de implementatie die is opgetreden.
-Installatie van de MMA of OMS-Agent voor Linux kan om diverse redenen mislukken en de stappen voor het oplossen van deze oorzaken variëren, afhankelijk van het probleem. Specifieke stappen volgt.
+[!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)] 
 
-De volgende sectie worden verschillende problemen die optreden kunnen bij het voorbereiden die ertoe leiden dat een fout opgetreden bij de implementatie van de extensie MMA.
+Bij het implementeren van een oplossing voor een verscheidenheid aan gerelateerde resources worden geïmplementeerd. Een van deze resources is de Microsoft Monitoring Agent-extensie of Log Analytics-agent voor Linux. Dit zijn geïnstalleerd door de virtuele machine-Gastagent die verantwoordelijk is voor communicatie met de geconfigureerde Log Analytics-werkruimte, ten behoeve van hoger coördinatie van het downloaden van de binaire bestanden extensies voor virtuele machines en andere bestanden die de oplossing voor u onboarding zijn afhankelijk van nadat deze uitvoering is begonnen.
+U doorgaans eerst op de hoogte van de MMA of Log Analytics-agent voor Linux-installatiefouten vanaf een melding wordt weergegeven in Notification hubs. Te klikken op de melding dat biedt meer informatie over de specifieke fout. Navigatie naar de resource resourcegroepen, en vervolgens naar het element implementaties binnen het bevat ook informatie over de fouten bij de implementatie die zijn opgetreden.
+Installatie van de MMA of Log Analytics-agent voor Linux kan om verschillende redenen mislukken en de stappen voor het oplossen van deze fouten zijn afhankelijk van het probleem. Specifieke stappen volgt.
 
-### <a name="webclient-exception"></a>Scenario: Een uitzondering opgetreden tijdens een WebClient-aanvraag
+Het volgende gedeelte bevat verschillende problemen die optreden kunnen wanneer onboarding die leiden een fout opgetreden bij de implementatie van de MMA-extensie tot.
 
-De extensie MMA op de virtuele machine is kan niet communiceren met externe bronnen en de implementatie mislukt.
+### <a name="webclient-exception"></a>Scenario: Een uitzondering is opgetreden tijdens een WebClient-aanvraag
+
+De MMA-extensie op de virtuele machine is kan niet communiceren met externe bronnen en de implementatie mislukt.
 
 #### <a name="issue"></a>Probleem
 
@@ -83,19 +85,19 @@ Please verify the VM has a running VM agent, and can establish outbound connecti
 
 #### <a name="cause"></a>Oorzaak
 
-Enkele mogelijke oorzaken voor deze fout zijn:
+Er zijn enkele mogelijke oorzaken voor deze fout:
 
 * Er is een proxy is geconfigureerd in de virtuele machine, waarmee alleen bepaalde poorten.
 
-* Een firewallinstelling is toegang tot de vereiste poorten en adressen geblokkeerd.
+* Een firewallinstelling is toegang tot de vereiste poorten en -adressen geblokkeerd.
 
 #### <a name="resolution"></a>Oplossing
 
-Zorg ervoor dat u de juiste poorten hebt en adressen voor communicatie open. Zie voor een lijst met poorten en adressen [plannen van uw netwerk](../automation-hybrid-runbook-worker.md#network-planning).
+Zorg ervoor dat u de juiste poorten hebt en adressen voor communicatie openen. Zie voor een lijst met poorten en -adressen, [plannen van uw netwerk](../automation-hybrid-runbook-worker.md#network-planning).
 
-### <a name="transient-environment-issue"></a>Scenario: De installatie is mislukt vanwege omgevingsproblemen met de tijdelijke
+### <a name="transient-environment-issue"></a>Scenario: De installatie is mislukt vanwege problemen met de tijdelijke omgeving
 
-De installatie van de uitbreiding voor Microsoft Monitoring Agent is mislukt tijdens de implementatie als gevolg van een andere installatie of blokkeren van de installatie van de actie
+De installatie van de Microsoft Monitoring Agent-extensie is mislukt tijdens de implementatie vanwege een andere installatie of blokkeren van de installatie van de actie
 
 #### <a name="issue"></a>Probleem
 
@@ -115,22 +117,22 @@ The Microsoft Monitoring Agent failed to install on this machine. Please try to 
 
 #### <a name="cause"></a>Oorzaak
 
-Enkele mogelijke oorzaken voor deze fout zijn:
+Er zijn enkele mogelijke oorzaken voor deze fout:
 
 * Een andere installatie wordt uitgevoerd
-* Het systeem opnieuw opstarten tijdens de sjabloonimplementatie van de is geactiveerd
+* Het systeem opnieuw opstarten tijdens de sjabloonimplementatie is geactiveerd
 
 #### <a name="resolution"></a>Oplossing
 
-Deze fout is een tijdelijke fout in aard. Probeer de implementatie voor het installeren van de extensie.
+Deze fout is een tijdelijke fout in de natuur. De implementatie voor het installeren van de extensie opnieuw probeert.
 
-### <a name="installation-timeout"></a>Scenario: Installatie time-out
+### <a name="installation-timeout"></a>Scenario: Installatie van time-out
 
 De installatie van de MMA-extensie is niet voltooid vanwege een time-out.
 
 #### <a name="issue"></a>Probleem
 
-Hier volgt een voorbeeld van een foutmelding die kan worden geretourneerd:
+Hier volgt een voorbeeld van een foutbericht die kan worden geretourneerd:
 
 ```
 Install failed for plugin (name: Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent, version 1.0.11081.4) with exception Command C:\Packages\Plugins\Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent\1.0.11081.4\MMAExtensionInstall.exe of Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent has exited with Exit code: 15614
@@ -138,16 +140,16 @@ Install failed for plugin (name: Microsoft.EnterpriseCloud.Monitoring.MicrosoftM
 
 #### <a name="cause"></a>Oorzaak
 
-Dit is een fout omdat de virtuele machine wordt onder een zware belasting tijdens de installatie.
+Deze fout is omdat de virtuele machine wordt zwaar belast tijdens de installatie.
 
 ### <a name="resolution"></a>Oplossing
 
-Probeert te installeren van de extensie MMA wanneer de virtuele machine een lagere belast is.
+Poging tot de MMA-extensie installeren wanneer de virtuele machine minder belast wordt.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Als u hebt uw probleem niet wordt weergegeven of niet uw probleem kunt oplossen, gaat u naar een van de volgende kanalen voor meer ondersteuning:
+Als u het probleem niet wordt gezien of kan niet aan het oplossen van uw probleem, gaat u naar een van de volgende kanalen voor ondersteuning van meer:
 
 * Krijg antwoorden van Azure-experts op [Azure-Forums](https://azure.microsoft.com/support/forums/)
 * Maak verbinding met [@AzureSupport](https://twitter.com/azuresupport), het officiële Microsoft Azure-account voor het verbeteren van de gebruikerservaring door de Azure-community in contact te brengen met de juiste resources: antwoorden, ondersteuning en experts.
-* Als u meer hulp nodig hebt, kunt u een incident voor ondersteuning van Azure kunt opslaan. Ga naar de [ondersteuning van Azure site](https://azure.microsoft.com/support/options/) en selecteer **ophalen ondersteunen**.
+* Als u meer hulp nodig hebt, kunt u een Azure-ondersteuning-incident indienen. Ga naar de [ondersteuning van Azure site](https://azure.microsoft.com/support/options/) en selecteer **ophalen ondersteunen**.

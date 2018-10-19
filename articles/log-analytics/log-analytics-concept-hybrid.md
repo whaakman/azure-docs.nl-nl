@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 10/15/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 9decd861ff20a45939f700eef99245b6555829f8
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 03133c6d6518444f8e6fb15cfa425969dbafdedc
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49319741"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406871"
 ---
 # <a name="collect-data-in-a-hybrid-environment-with-log-analytics-agent"></a>Gegevens verzamelen in een hybride omgeving met Log Analytics-agent
 
@@ -38,7 +38,7 @@ Computers die worden gehost in uw omgeving kunnen rechtstreeks worden verbonden 
 
 Voordat u analyseren en uitvoeren van de verzamelde gegevens, moet u eerst installeren en verbinden-agents voor alle computers die u wilt gegevens verzenden naar de Log Analytics-service. U kunt agents installeren op uw on-premises computers met Setup, vanaf de opdrachtregel, of met Desired State Configuration (DSC) in Azure Automation. 
 
-De agent voor Linux en Windows uitgaande met de Log Analytics-service communiceert via TCP-poort 443, en als de computer verbinding maakt met een firewall of proxy-server om te communiceren via Internet, raadpleegt u onderstaande voorwaarden om te begrijpen van de netwerkconfiguratie Vereist.  Als uw IT-beveiligingsbeleid niet computers op het netwerk verbinding maken met Internet toestaat, kunt u instellen een [OMS-Gateway](log-analytics-oms-gateway.md) en configureer vervolgens de agent verbinding maken via de gateway naar Log Analytics. De agent vervolgens configuratie-informatie ontvangen en verzenden van gegevens die zijn verzameld, afhankelijk van welke regels voor het verzamelen van gegevens en de oplossingen die u hebt ingeschakeld. 
+De agent voor Linux en Windows uitgaande met de Log Analytics-service communiceert via TCP-poort 443, en als de computer verbinding maakt met een firewall of proxy-server om te communiceren via Internet, raadpleegt u onderstaande voorwaarden om te begrijpen van de netwerkconfiguratie Vereist.  Als uw IT-beveiligingsbeleid niet computers op het netwerk verbinding maken met Internet toestaat, kunt u instellen een [Log Analytics gateway](log-analytics-oms-gateway.md) en configureer vervolgens de agent verbinding maken via de gateway naar Log Analytics. De agent vervolgens configuratie-informatie ontvangen en verzenden van gegevens die zijn verzameld, afhankelijk van welke regels voor het verzamelen van gegevens en de oplossingen die u hebt ingeschakeld. 
 
 Als u de computer met System Center Operations Manager 2012 R2 of hoger worden bewaakt, kan zijn bij de Log Analytics-service voor het verzamelen van gegevens en door te sturen naar de service en nog steeds worden bewaakt door multihomed [Operations Manager](log-analytics-om-agents.md). Linux-computers bewaakt door een Operations Manager-beheergroep is geïntegreerd met Log Analytics wordt geen configuratie voor gegevensbronnen en vooruit verzamelde gegevens via de beheergroep. De Windows-agent kan rapporteren dat maximaal vier werkruimten, terwijl de Linux-agent biedt alleen ondersteuning voor rapportage aan één werkruimte.  
 
@@ -92,7 +92,7 @@ Gegevens van de onderstaande lijst de proxy- en firewallinstellingen configurati
 
 Als u van plan bent de Hybrid Runbook Worker voor Azure Automation gebruiken om te verbinden en registreren bij de service Automation runbooks gebruiken in uw omgeving, moet er toegang tot het poortnummer en de URL's die worden beschreven in [het netwerk configureren voor de Hybrid Runbook Worker](../automation/automation-hybrid-runbook-worker.md#network-planning). 
 
-De Windows- en Linux-agent ondersteunt communiceren via een proxyserver of de OMS-Gateway bij de Log Analytics-service met behulp van het HTTPS-protocol.  Zowel eenvoudige als anonieme verificatie (gebruikersnaam en wachtwoord) worden ondersteund.  Voor de Windows-agent rechtstreeks verbonden met de service, de configuratie van de proxy is opgegeven tijdens de installatie of [na de implementatie](log-analytics-agent-manage.md#update-proxy-settings) via het Configuratiescherm of met PowerShell.  
+De Windows- en Linux-agent ondersteunt communiceren via een proxyserver of de Log Analytics-gateway bij de Log Analytics-service met behulp van het HTTPS-protocol.  Zowel eenvoudige als anonieme verificatie (gebruikersnaam en wachtwoord) worden ondersteund.  Voor de Windows-agent rechtstreeks verbonden met de service, de configuratie van de proxy is opgegeven tijdens de installatie of [na de implementatie](log-analytics-agent-manage.md#update-proxy-settings) via het Configuratiescherm of met PowerShell.  
 
 Voor de Linux-agent de proxyserver wordt opgegeven tijdens de installatie of [na de installatie](log-analytics-agent-manage.md#update-proxy-settings) door het wijzigen van het configuratiebestand proxy.conf.  Waarde voor de Linux-agent proxyconfiguratie heeft de volgende syntaxis:
 
@@ -106,8 +106,8 @@ Voor de Linux-agent de proxyserver wordt opgegeven tijdens de installatie of [na
 |Protocol | https |
 |Gebruiker | Optioneel de gebruikersnaam voor proxy-verificatie |
 |wachtwoord | Optionele wachtwoord voor proxy-verificatie |
-|proxyhost | Adres of FQDN-naam van de proxy-server/OMS-Gateway |
-|poort | Optionele poortnummer voor de proxy-server/OMS-Gateway |
+|proxyhost | Adres of FQDN-naam van de proxy-server/Log Analytics-gateway |
+|poort | Optionele poortnummer voor de proxy-server/Log Analytics-gateway |
 
 Bijvoorbeeld: `https://user01:password@proxy01.contoso.com:30443`
 
@@ -129,4 +129,4 @@ Verbinden van uw on-premises computers rechtstreeks met Log Analytics kan worden
 
 * Meer informatie over [zoekopdrachten](log-analytics-log-searches.md) om de gegevens die worden verzameld van gegevensbronnen en oplossingen te analyseren. 
 
-* Meer informatie over [oplossingen](log-analytics-add-solutions.md) die functionaliteit toevoegen aan Log Analytics en ook gegevens verzamelen in de OMS-opslagplaats.
+* Meer informatie over [oplossingen](log-analytics-add-solutions.md) die functionaliteit toevoegen aan Log Analytics en ook gegevens verzamelen in Log Analytics-werkruimte.

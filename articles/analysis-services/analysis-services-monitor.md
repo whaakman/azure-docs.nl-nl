@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 10/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 608323c467e0106af816c3432dec24090a9a9599
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: d10e9d3d2b6fe339b04d3c0754290313312bc2b7
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37442930"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49427277"
 ---
 # <a name="monitor-server-metrics"></a>Metrische servergegevens bewaken
 
@@ -36,7 +36,7 @@ Als u meer gedetailleerde diagnostische gegevens, prestaties, bijhouden en trend
 ## <a name="server-metrics"></a>Metrische servergegevens
 Deze tabel gebruiken om te bepalen welke metrische gegevens voor uw bewaking scenario het meest geschikt zijn. Metrische gegevens van dezelfde eenheid kan worden weergegeven op de dezelfde grafiek.
 
-|Gegevens|De naam van de metrische gegevens weergeven|Eenheid|Type samenvoeging geselecteerd|Beschrijving|
+|Gegevens|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Beschrijving|
 |---|---|---|---|---|
 |CommandPoolJobQueueLength|Lengte van taakwachtrij Pool opdracht|Count|Gemiddeld|Het aantal taken in de wachtrij van de opdrachtthreadpool.|
 |CurrentConnections|Verbinding: Huidige verbindingen|Count|Gemiddeld|Huidig aantal clientverbindingen dat tot stand gebracht.|

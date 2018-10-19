@@ -1,6 +1,6 @@
 ---
-title: Met behulp van OMS Log Analytics Alert REST API
-description: De Log Analytics Alert REST API kunt u waarschuwingen in Log Analytics die deel uitmaakt van de Operations Management Suite (OMS) maken en beheren.  Dit artikel bevat informatie over de API en enkele voorbeelden voor het uitvoeren van verschillende bewerkingen.
+title: Met behulp van Log Analytics Alert REST API
+description: De Log Analytics Alert REST API kunt u waarschuwingen in Log Analytics die deel uitmaakt van Log Analytics maken en beheren.  Dit artikel bevat informatie over de API en enkele voorbeelden voor het uitvoeren van verschillende bewerkingen.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -15,17 +15,17 @@ ms.workload: infrastructure-services
 ms.date: 04/10/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: b178744911d03547509de58e35be5cd99e046391
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 85cf55b4117208266e247316b1050e3988a2ce23
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49079052"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49409149"
 ---
 # <a name="create-and-manage-alert-rules-in-log-analytics-with-rest-api"></a>Maken en beheren van regels voor waarschuwingen in Log Analytics met REST-API
-De Log Analytics Alert REST API kunt u waarschuwingen in Operations Management Suite (OMS) maken en beheren.  Dit artikel bevat informatie over de API en enkele voorbeelden voor het uitvoeren van verschillende bewerkingen.
+De Log Analytics Alert REST API kunt u waarschuwingen in Log Analytics maken en beheren.  Dit artikel bevat informatie over de API en enkele voorbeelden voor het uitvoeren van verschillende bewerkingen.
 
-De Log Analytics Search REST-API is RESTful en zijn toegankelijk via de Azure Resource Manager REST API. In dit document vindt u voorbeelden waarin de API is toegankelijk vanuit een PowerShell-opdrachtregel met [ARMClient](https://github.com/projectkudu/ARMClient), een open-source-opdrachtregelprogramma dat vereenvoudigt het aanroepen van de Azure Resource Manager-API. Het gebruik van ARMClient en PowerShell is een van de vele opties voor toegang tot de Log Analytics Search-API. Met deze hulpprogramma's, kunt u gebruikmaken van de RESTful API van Azure Resource Manager om aanroepen naar de OMS-werkruimten en zoeken in opdrachten in deze uitvoeren. De API uitvoer zoekresultaten aan u in JSON-indeling, zodat u kunt de lijst met zoekresultaten via een programma op veel verschillende manieren gebruiken.
+De Log Analytics Search REST-API is RESTful en zijn toegankelijk via de Azure Resource Manager REST API. In dit document vindt u voorbeelden waarin de API is toegankelijk vanuit een PowerShell-opdrachtregel met [ARMClient](https://github.com/projectkudu/ARMClient), een open-source-opdrachtregelprogramma dat vereenvoudigt het aanroepen van de Azure Resource Manager-API. Het gebruik van ARMClient en PowerShell is een van de vele opties voor toegang tot de Log Analytics Search-API. Met deze hulpprogramma's, kunt u gebruikmaken van de RESTful API van Azure Resource Manager om aanroepen naar Log Analytics-werkruimten en zoeken in opdrachten in deze uitvoeren. De API uitvoer zoekresultaten aan u in JSON-indeling, zodat u kunt de lijst met zoekresultaten via een programma op veel verschillende manieren gebruiken.
 
 ## <a name="prerequisites"></a>Vereisten
 Waarschuwingen kunnen op dit moment alleen worden gemaakt met een opgeslagen zoekopdracht in Log Analytics.  U kunt verwijzen naar de [Log Search REST-API](log-analytics-log-search-api.md) voor meer informatie.
@@ -67,7 +67,7 @@ Hieronder volgt een voorbeeldantwoord voor een schema.
 ```
 
 ### <a name="creating-a-schedule"></a>Het maken van een planning
-Gebruik de Put-methode met de ID van een uniek schema een nieuw schema maken.  Houd er rekening mee dat twee schema's kunnen niet dezelfde ID, zelfs als ze gekoppeld aan verschillende zijn opgeslagen zoekopdrachten.  Wanneer u een planning in de OMS-console maakt, wordt een GUID gemaakt voor de schema-ID.
+Gebruik de Put-methode met de ID van een uniek schema een nieuw schema maken.  Houd er rekening mee dat twee schema's kunnen niet dezelfde ID, zelfs als ze gekoppeld aan verschillende zijn opgeslagen zoekopdrachten.  Wanneer u een planning in de Log Analytics-console maakt, wordt een GUID gemaakt voor de schema-ID.
 
 > [!NOTE]
 > De naam voor alle opgeslagen zoekacties, schema's en acties die zijn gemaakt met de Log Analytics-API moet in kleine letters.
@@ -102,7 +102,7 @@ Alle acties hebben de eigenschappen in de volgende tabel.  Verschillende typen w
 ### <a name="retrieving-actions"></a>Bij het ophalen van acties
 
 > [!NOTE]
-> Vanaf 14 mei 2018 worden wordt alle waarschuwingen in een openbare Azure-cloud-exemplaar van Log Analytics-werkruimte automatisch uitgebreid naar Azure. Een gebruiker kunt vrijwillig uitbreiding van waarschuwingen naar Azure initiëren vóór 14 mei 2018. Zie voor meer informatie, [waarschuwingen uitbreiden naar Azure OMS](../monitoring-and-diagnostics/monitoring-alerts-extend.md). Voor gebruikers die waarschuwingen naar Azure uitbreiden, worden de acties nu beheerd in Azure-Actiegroepen. Wanneer een werkruimte en de waarschuwingen worden uitgebreid naar Azure, kunt u ophalen of acties toevoegen met behulp van de [actie groep API](https://docs.microsoft.com/rest/api/monitor/actiongroups).
+> Vanaf 14 mei 2018 worden wordt alle waarschuwingen in een openbare Azure-cloud-exemplaar van Log Analytics-werkruimte automatisch uitgebreid naar Azure. Een gebruiker kunt vrijwillig uitbreiding van waarschuwingen naar Azure initiëren vóór 14 mei 2018. Zie voor meer informatie, [waarschuwingen uitbreiden naar Azure Log Analytics](../monitoring-and-diagnostics/monitoring-alerts-extend.md). Voor gebruikers die waarschuwingen naar Azure uitbreiden, worden de acties nu beheerd in Azure-Actiegroepen. Wanneer een werkruimte en de waarschuwingen worden uitgebreid naar Azure, kunt u ophalen of acties toevoegen met behulp van de [actie groep API](https://docs.microsoft.com/rest/api/monitor/actiongroups).
 
 De Get-methode gebruiken om op te halen van alle acties voor een schema.
 
@@ -113,7 +113,7 @@ Gebruik de Get-methode met de actie-ID ophalen van een bepaalde actie voor een s
     armclient get /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Subscription ID}/schedules/{Schedule ID}/actions/{Action ID}?api-version=2015-03-20
 
 ### <a name="creating-or-editing-actions"></a>Het maken of bewerken van acties
-De Put-methode gebruiken met een actie-ID die uniek is voor de planning te maken van een nieuwe actie.  Wanneer u een actie in de OMS-console maakt, wordt een GUID wordt voor de actie-ID.
+De Put-methode gebruiken met een actie-ID die uniek is voor de planning te maken van een nieuwe actie.  Wanneer u een actie in de Log Analytics-console maakt, wordt een GUID wordt voor de actie-ID.
 
 > [!NOTE]
 > De naam voor alle opgeslagen zoekacties, schema's en acties die zijn gemaakt met de Log Analytics-API moet in kleine letters.
@@ -125,7 +125,7 @@ De indeling van de aanvraag voor het maken van een nieuwe actie verschilt per ac
 ### <a name="deleting-actions"></a>Acties verwijderen
 
 > [!NOTE]
-> Vanaf 14 mei 2018 worden wordt alle waarschuwingen in een openbare Azure-cloud-exemplaar van Log Analytics-werkruimte automatisch uitgebreid naar Azure. Een gebruiker kunt vrijwillig uitbreiding van waarschuwingen naar Azure initiëren vóór 14 mei 2018. Zie voor meer informatie, [waarschuwingen uitbreiden naar Azure OMS](../monitoring-and-diagnostics/monitoring-alerts-extend.md). Voor gebruikers die waarschuwingen naar Azure uitbreiden, worden de acties nu beheerd in Azure-Actiegroepen. Wanneer een werkruimte en de waarschuwingen worden uitgebreid naar Azure, kunt u ophalen of acties toevoegen met behulp van de [actie groep API](https://docs.microsoft.com/rest/api/monitor/actiongroups).
+> Vanaf 14 mei 2018 worden wordt alle waarschuwingen in een openbare Azure-cloud-exemplaar van Log Analytics-werkruimte automatisch uitgebreid naar Azure. Een gebruiker kunt vrijwillig uitbreiding van waarschuwingen naar Azure initiëren vóór 14 mei 2018. Zie voor meer informatie, [waarschuwingen uitbreiden naar Azure Log Analytics](../monitoring-and-diagnostics/monitoring-alerts-extend.md). Voor gebruikers die waarschuwingen naar Azure uitbreiden, worden de acties nu beheerd in Azure-Actiegroepen. Wanneer een werkruimte en de waarschuwingen worden uitgebreid naar Azure, kunt u ophalen of acties toevoegen met behulp van de [actie groep API](https://docs.microsoft.com/rest/api/monitor/actiongroups).
 
 Gebruik de Delete-methode met de actie-ID om te verwijderen van een actie.
 
@@ -146,7 +146,7 @@ Een planning moet slechts één actie bij waarschuwing hebben.  Waarschuwingsact
 | Webhookacties | Gegevens van waarschuwingen, pushen naar gewenste service als JSON |Niet vereist als de waarschuwingen worden uitgebreid naar Azure|
 
 > [!NOTE]
-> Vanaf 14 mei 2018 worden wordt alle waarschuwingen in een openbare Azure-cloud-exemplaar van Log Analytics-werkruimte automatisch uitgebreid naar Azure. Een gebruiker kunt vrijwillig uitbreiding van waarschuwingen naar Azure initiëren vóór 14 mei 2018. Zie voor meer informatie, [waarschuwingen uitbreiden naar Azure OMS](../monitoring-and-diagnostics/monitoring-alerts-extend.md).
+> Vanaf 14 mei 2018 worden wordt alle waarschuwingen in een openbare Azure-cloud-exemplaar van Log Analytics-werkruimte automatisch uitgebreid naar Azure. Een gebruiker kunt vrijwillig uitbreiding van waarschuwingen naar Azure initiëren vóór 14 mei 2018. Zie voor meer informatie, [waarschuwingen uitbreiden naar Azure Log Analytics](../monitoring-and-diagnostics/monitoring-alerts-extend.md).
 
 #### <a name="thresholds"></a>Drempelwaarden
 Een actie bij waarschuwing mag slechts één drempelwaarde hebben.  Als de resultaten van een opgeslagen zoekopdracht overeenkomen met de drempelwaarde in een actie die is gekoppeld aan die zoekopdracht, worden alle andere processen in die actie uitgevoerd.  Een actie kan ook alleen een drempelwaarde bevatten, zodat deze kan worden gebruikt met de acties die van andere typen die geen drempelwaarden bevatten.
@@ -355,7 +355,7 @@ Gebruik de Put-methode met de ID van een bestaande actie om een actiegroep die i
 E-mailmeldingen verzenden e-mail naar een of meer ontvangers.  Ze bevatten de eigenschappen in de volgende tabel.
 
 > [!NOTE]
-> Vanaf 14 mei 2018 worden wordt alle waarschuwingen in een openbare Azure-cloud-exemplaar van Log Analytics-werkruimte automatisch uitgebreid naar Azure. Een gebruiker kunt vrijwillig uitbreiding van waarschuwingen naar Azure initiëren vóór 14 mei 2018. Zie voor meer informatie, [waarschuwingen uitbreiden naar Azure OMS](../monitoring-and-diagnostics/monitoring-alerts-extend.md). Voor gebruikers die waarschuwingen naar Azure uitbreiden, worden de acties zoals e-mailmelding nu beheerd in Azure-Actiegroepen. Wanneer een werkruimte en de waarschuwingen worden uitgebreid naar Azure, kunt u ophalen of acties toevoegen met behulp van de [actie groep API](https://docs.microsoft.com/rest/api/monitor/actiongroups).
+> Vanaf 14 mei 2018 worden wordt alle waarschuwingen in een openbare Azure-cloud-exemplaar van Log Analytics-werkruimte automatisch uitgebreid naar Azure. Een gebruiker kunt vrijwillig uitbreiding van waarschuwingen naar Azure initiëren vóór 14 mei 2018. Zie voor meer informatie, [waarschuwingen uitbreiden naar Azure Log Analytics](../monitoring-and-diagnostics/monitoring-alerts-extend.md). Voor gebruikers die waarschuwingen naar Azure uitbreiden, worden de acties zoals e-mailmelding nu beheerd in Azure-Actiegroepen. Wanneer een werkruimte en de waarschuwingen worden uitgebreid naar Azure, kunt u ophalen of acties toevoegen met behulp van de [actie groep API](https://docs.microsoft.com/rest/api/monitor/actiongroups).
    
 
 | Eigenschap | Beschrijving |
@@ -396,16 +396,16 @@ Gebruik de Put-methode met de ID van een bestaande actie om een e-mailactie voor
     armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myemailaction?api-version=2015-03-20 $emailJson
 
 #### <a name="remediation-actions"></a>Herstelacties
-Herstel een runbook te starten in Azure Automation waarmee wordt geprobeerd om het probleem geïdentificeerd door de waarschuwing te verhelpen.  U moet maken van een webhook voor het runbook uit een herstelactie en geeft u de URI in de eigenschap WebhookUri.  Wanneer u deze actie met behulp van de OMS-console maakt, wordt automatisch een nieuwe webhook gemaakt voor het runbook.
+Herstel een runbook te starten in Azure Automation waarmee wordt geprobeerd om het probleem geïdentificeerd door de waarschuwing te verhelpen.  U moet maken van een webhook voor het runbook uit een herstelactie en geeft u de URI in de eigenschap WebhookUri.  Wanneer u deze actie met behulp van Azure portal maakt, wordt automatisch een nieuwe webhook gemaakt voor het runbook.
 
 > [!NOTE]
-> Vanaf 14 mei 2018 worden wordt alle waarschuwingen in een openbare Azure-cloud-exemplaar van Log Analytics-werkruimte automatisch uitgebreid naar Azure. Een gebruiker kunt vrijwillig uitbreiding van waarschuwingen naar Azure initiëren vóór 14 mei 2018. Zie voor meer informatie, [waarschuwingen uitbreiden naar Azure OMS](../monitoring-and-diagnostics/monitoring-alerts-extend.md). Voor gebruikers die waarschuwingen naar Azure uitbreiden, worden de acties, zoals herstel met behulp van runbook nu beheerd in Azure-Actiegroepen. Wanneer een werkruimte en de waarschuwingen worden uitgebreid naar Azure, kunt u ophalen of acties toevoegen met behulp van de [actie groep API](https://docs.microsoft.com/rest/api/monitor/actiongroups).
+> Vanaf 14 mei 2018 worden wordt alle waarschuwingen in een openbare Azure-cloud-exemplaar van Log Analytics-werkruimte automatisch uitgebreid naar Azure. Een gebruiker kunt vrijwillig uitbreiding van waarschuwingen naar Azure initiëren vóór 14 mei 2018. Zie voor meer informatie, [waarschuwingen uitbreiden naar Azure Log Analytics](../monitoring-and-diagnostics/monitoring-alerts-extend.md). Voor gebruikers die waarschuwingen naar Azure uitbreiden, worden de acties, zoals herstel met behulp van runbook nu beheerd in Azure-Actiegroepen. Wanneer een werkruimte en de waarschuwingen worden uitgebreid naar Azure, kunt u ophalen of acties toevoegen met behulp van de [actie groep API](https://docs.microsoft.com/rest/api/monitor/actiongroups).
 
 De eigenschappen bevatten herstelbewerkingen in de volgende tabel.
 
 | Eigenschap | Beschrijving |
 |:--- |:--- |
-| RunbookName |De naam van het runbook. Dit moet overeenkomen met een gepubliceerd runbook in het automation-account dat is geconfigureerd in de oplossing voor automatisering in uw OMS-werkruimte. |
+| RunbookName |De naam van het runbook. Dit moet overeenkomen met een gepubliceerd runbook in het automation-account dat is geconfigureerd in de oplossing voor automatisering in uw Log Analytics-werkruimte. |
 | WebhookUri |De URI van de webhook. |
 | Vervaldatum |De vervaldatum en -tijd van de webhook.  Als de webhook niet beschikt over een verlopen, kan dit een geldige datum in de toekomst zijn. |
 
@@ -458,7 +458,7 @@ Hieronder volgt een compleet voorbeeld om te maken van een nieuw e-mailmelding. 
 Webhookacties start een proces doordat aanroepen van een URL en eventueel een nettolading wordt verzonden.  Ze zijn vergelijkbaar met herstelacties tenzij ze zijn bedoeld voor webhooks die processen dan Azure Automation-runbooks kunnen aanroepen.  Ze bieden ook de aanvullende mogelijkheid van het leveren van een payload moet worden geleverd aan het extern proces.
 
 > [!NOTE]
-> Vanaf 14 mei 2018 worden wordt alle waarschuwingen in een openbare Azure-cloud-exemplaar van Log Analytics-werkruimte automatisch uitgebreid naar Azure. Een gebruiker kunt vrijwillig uitbreiding van waarschuwingen naar Azure initiëren vóór 14 mei 2018. Zie voor meer informatie, [waarschuwingen uitbreiden naar Azure OMS](../monitoring-and-diagnostics/monitoring-alerts-extend.md). Voor gebruikers die waarschuwingen naar Azure uitbreiden, worden acties zoals Webhook nu beheerd in Azure-Actiegroepen. Wanneer een werkruimte en de waarschuwingen worden uitgebreid naar Azure, kunt u ophalen of acties toevoegen met behulp van de [actie groep API](https://docs.microsoft.com/rest/api/monitor/actiongroups).
+> Vanaf 14 mei 2018 worden wordt alle waarschuwingen in een openbare Azure-cloud-exemplaar van Log Analytics-werkruimte automatisch uitgebreid naar Azure. Een gebruiker kunt vrijwillig uitbreiding van waarschuwingen naar Azure initiëren vóór 14 mei 2018. Zie voor meer informatie, [waarschuwingen uitbreiden naar Azure Log Analytics](../monitoring-and-diagnostics/monitoring-alerts-extend.md). Voor gebruikers die waarschuwingen naar Azure uitbreiden, worden acties zoals Webhook nu beheerd in Azure-Actiegroepen. Wanneer een werkruimte en de waarschuwingen worden uitgebreid naar Azure, kunt u ophalen of acties toevoegen met behulp van de [actie groep API](https://docs.microsoft.com/rest/api/monitor/actiongroups).
 
 
 Webhookacties hoeven niet een drempelwaarde, maar in plaats daarvan moeten worden toegevoegd aan een schema dat een actie bij waarschuwing met een drempelwaarde is.  

@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 06/01/2018
 ms.author: jomolesk
-ms.openlocfilehash: eb8db75a8ff5af11b98ee2c61628f923a8422153
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: bad808455ebb35523a04e07edd22f4e6ce9473e6
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44299930"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49407296"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-for-fedramp"></a>Azure-beveiliging en naleving blauwdruk: PaaS-webtoepassing voor FedRAMP
 
@@ -26,7 +26,7 @@ Deze referentiearchitectuur, bijbehorende besturingselement implementatiehandlei
 - Klanten zijn verantwoordelijk voor het uitvoeren van de juiste beveiliging en naleving evaluaties van een oplossing die is gebouwd met behulp van deze architectuur als vereisten kunnen variëren op basis van de details van de uitvoering van elke klant.
 
 ## <a name="architecture-diagram-and-components"></a>Diagram van architectuur en onderdelen
-Deze oplossing biedt een referentiearchitectuur voor een PaaS-webtoepassing met een Azure SQL Database-back-end. De web-App wordt gehost in een geïsoleerde Azure App Service Environment, dit een exclusieve privéomgeving in een Azure-datacenter is. De omgeving verdeelt verkeer voor de web-App voor virtuele machines die worden beheerd door Azure. Deze architectuur bevat ook netwerkbeveiligingsgroepen, een Application Gateway, Azure DNS en Load Balancer. Operations Management Suite biedt bovendien realtime analyses van systeemstatus en -beveiliging. **Azure wordt aanbevolen voor het configureren van een VPN of ExpressRoute-verbinding voor beheer en de gegevens importeren in het subnet van referentie-architectuur.**
+Deze oplossing biedt een referentiearchitectuur voor een PaaS-webtoepassing met een Azure SQL Database-back-end. De web-App wordt gehost in een geïsoleerde Azure App Service Environment, dit een exclusieve privéomgeving in een Azure-datacenter is. De omgeving verdeelt verkeer voor de web-App voor virtuele machines die worden beheerd door Azure. Deze architectuur bevat ook netwerkbeveiligingsgroepen, een Application Gateway, Azure DNS en Load Balancer. Bovendien biedt Azure Monitor realtime analyses van de systeemstatus. **Azure wordt aanbevolen voor het configureren van een VPN of ExpressRoute-verbinding voor beheer en de gegevens importeren in het subnet van referentie-architectuur.**
 
 ![PaaS-webtoepassing voor FedRAMP verwijzing Architectuurdiagram](images/fedramp-paaswa-architecture.png?raw=true "PaaS-webtoepassing voor Architectuurdiagram van FedRAMP-verwijzing")
 
@@ -35,7 +35,7 @@ Deze oplossing maakt gebruik van de volgende Azure-services. Details van de impl
 - Azure Active Directory
 - Azure Key Vault
 - Azure SQL Database
-- Toepassingsgateway
+- Application Gateway
     - (1) web Application Firewall
         - Firewallmodus: preventie
         - Regelset: OWASP 3.0
@@ -44,7 +44,6 @@ Deze oplossing maakt gebruik van de volgende Azure-services. Details van de impl
 - Netwerkbeveiligingsgroepen
 - Azure DNS
 - Azure Storage
-- Operations Management Suite
 - Azure Monitor
 - App Service Environment v2
 - Azure Load Balancer
@@ -73,7 +72,7 @@ Gebruik van de as-omgevingen voor deze architectuur zijn toegestaan voor de volg
 
 De [richtlijnen en aanbevelingen](#guidance-and-recommendations) sectie bevat aanvullende informatie over as-omgevingen.
 
-**Azure-Web-App**: [Azure Web Apps](https://docs.microsoft.com/azure/app-service/) kunnen klanten bouwen en hosten van webtoepassingen in de programmeertaal van hun keuze zonder het beheren van infrastructuur. Het biedt automatisch schalen en hoge beschikbaarheid, ondersteuning voor zowel Windows als Linux, en maakt automatische implementaties vanuit GitHub, Azure DevOps of een willekeurige Git-repo mogelijk.
+**Azure-Web-App**: [Azure Web Apps](https://docs.microsoft.com/azure/app-service/) kunnen klanten bouwen en hosten van webtoepassingen in de programmeertaal van hun keuze zonder het beheren van infrastructuur. Het biedt automatisch schalen en een hoge beschikbaarheid, ondersteuning voor zowel Windows als Linux en maakt automatische implementaties mogelijk vanuit GitHub, Azure DevOps of een willekeurige Git-repo.
 
 ### <a name="virtual-network"></a>Virtual Network
 De architectuur definieert een particulier virtueel netwerk met een adresruimte van 10.200.0.0/16.
@@ -85,7 +84,7 @@ De architectuur definieert een particulier virtueel netwerk met een adresruimte 
 
 Elk van de nsg's zijn bepaalde poorten en protocollen openen, zodat de oplossing kunt veilig en goed werken. Bovendien zijn de volgende configuraties voor elke NSG ingeschakeld:
   - [Diagnostische logboeken en gebeurtenissen](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log) zijn ingeschakeld en die zijn opgeslagen in een storage-account
-  - OMS Log Analytics is verbonden met de [NSG van diagnostische gegevens](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json)
+  - Log Analytics is verbonden met de [NSG van diagnostische gegevens](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json)
 
 **Subnetten**: elk subnet is gekoppeld aan de bijbehorende NSG.
 
@@ -143,12 +142,12 @@ De volgende technologieën bieden identiteit beheermogelijkheden in de Azure-omg
 - [Azure Security Center](https://azure.microsoft.com/services/security-center) en [Azure Advisor](https://docs.microsoft.com/azure/advisor/advisor-security-recommendations) bieden extra beveiliging en meldingen. Azure Security Center biedt ook een reputatie-systeem.
 
 ### <a name="logging-and-auditing"></a>Logboekregistratie en controle
-Operations Management suite biedt uitgebreide logboekregistratie van het systeem- en gebruikersactiviteit, evenals de status van het bestandssysteem. De Operations Management suite [Log Analytics](https://azure.microsoft.com/services/log-analytics/) oplossing verzamelt en analyseert gegevens gegenereerd door resources in Azure en on-premises omgevingen.
+Azure Monitor biedt uitgebreide logboekregistratie van het systeem- en gebruikersactiviteit, evenals de status van het bestandssysteem. Deze verzamelt en analyseert gegevens gegenereerd door resources in Azure en on-premises omgevingen.
 - **Activiteitenlogboeken**: [activiteitenlogboeken](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) bieden inzicht in bewerkingen die worden uitgevoerd op resources in een abonnement. Activiteitenlogboeken kunnen u eenvoudiger bepalen van een bewerking initiator, tijdstip van de gebeurtenis en status.
 - **Diagnostische logboeken**: [diagnostische logboeken](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) bevatten alle logboeken die zijn gegenereerd door elke resource. Deze logboeken bevatten de logboeken voor Windows-systeem, Azure Storage-Logboeken, Key Vault-auditlogboeken en Application Gateway toegangs- en firewall-Logboeken.
 - **Logboek archiveren**: alle logboeken met diagnostische gegevens schrijven naar een gecentraliseerd en versleutelde Azure storage-account voor archivering. De bewaarperiode is om te voldoen aan vereisten voor de bewaarperiode van de organisatie-specifieke gebruiker-configureren, tot maximaal 730 dagen. Deze logboeken verbinding maken met Azure Log Analytics voor verwerking, opslag en -dashboardrapporten.
 
-Bovendien is de volgende Operations Management suite-oplossingen, opgenomen als onderdeel van deze architectuur:
+Bovendien is de volgende bewakingsoplossingen, opgenomen als onderdeel van deze architectuur:
 -   [Active directory-evaluatie](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment): het Active Directory statuscontrole oplossing beoordeelt het risico en de gezondheid van server-omgevingen op een vast interval en biedt een geprioriteerde lijst met aanbevelingen die specifiek zijn voor de geïmplementeerde serverinfrastructuur.
 -   [Antimalware-evaluatie](https://docs.microsoft.com/azure/log-analytics/log-analytics-malware): de antimalwareoplossing rapporten over malware, bedreigingen en bescherming van de status.
 -   [Azure Automation](https://docs.microsoft.com/azure/automation/automation-hybrid-runbook-worker): de Azure Automation-oplossing worden opgeslagen, wordt uitgevoerd runbooks worden beheerd. In deze oplossing te runbooks verzamelen van Logboeken van Application Insights en Azure SQL Database.

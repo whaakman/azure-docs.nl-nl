@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 06/29/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 4157b812fbb17b524a21814f41e0e4ec43e39e70
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 7c6d91da0634e7f847af01d1c057607ab095cdf6
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48042084"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49408205"
 ---
 # <a name="application-insights-connector-management-solution-preview"></a>Application Insights-Connector-beheeroplossing (Preview)
 
@@ -58,8 +58,8 @@ Gegevens niet in tegenstelling tot de meeste andere Log Analytics-oplossingen, d
 ## <a name="configuration"></a>Configuratie
 
 1. Inschakelen van de oplossing Azure Web Apps-analyse van de [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ApplicationInsights?tab=Overview) of met behulp van de procedure beschreven in [toevoegen Log Analytics-oplossingen uit de galerie van oplossingen](log-analytics-add-solutions.md).
-2. Klik in de OMS-portal op **instellingen** &gt; **gegevens** &gt; **Application Insights**.
-3. Onder **Selecteer een abonnement**, selecteert u een abonnement met Application Insights-resources en klik vervolgens onder **toepassingsnaam**, selecteer een of meer toepassingen.
+2. Blader naar de [Azure-portal](https://portal.azure.com). Selecteer **alle services** Application Insights openen. Zoek vervolgens naar Application Insights. 
+3. Onder **abonnementen**, selecteert u een abonnement met Application Insights-resources en klik vervolgens onder **naam**, selecteer een of meer toepassingen.
 4. Klik op **Opslaan**.
 
 Gegevens beschikbaar in ongeveer 30 minuten, en de Application Insights-tegel wordt bijgewerkt met gegevens, zoals de volgende afbeelding:
@@ -133,7 +133,7 @@ Perspectief onderdelen zijn bijgewerkt, afhankelijk van de zoekquery. Dit beteke
 
 ### <a name="pivot-to-an-app-in-the-azure-portal"></a>Schakel over naar een app in Azure portal
 
-Application Insights-Connector blades zijn ontworpen om te kunnen Schakel over naar de geselecteerde Application Insights-app *bij het gebruik van de OMS-portal*. U kunt de oplossing gebruiken als een platform voor het controleren van hoog niveau waarmee u een app op te lossen. Als u een potentieel probleem in een van uw verbonden toepassingen ziet, kunt u een van beide Zoom in op deze in Log Analytics search of u kunt draaien rechtstreeks naar de Application Insights-app.
+Application Insights-Connector blades zijn ontworpen om te kunnen Schakel over naar de geselecteerde Application Insights-app *bij het gebruik van de Azure-portal*. U kunt de oplossing gebruiken als een platform voor het controleren van hoog niveau waarmee u een app op te lossen. Als u een potentieel probleem in een van uw verbonden toepassingen ziet, kunt u een van beide Zoom in op deze in Log Analytics search of u kunt draaien rechtstreeks naar de Application Insights-app.
 
 Draaitabel, klikt u op de weglatingstekens (**...** ) die aan het einde van elke regel wordt weergegeven, en selecteer **openen in Application Insights**.
 

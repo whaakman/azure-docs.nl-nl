@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2018
+ms.date: 10/18/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 3843898ba2d7cdd3697236a9f4cc19070c6f07c3
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 1ca305ab88e30c911bbded1e5ff97162e12f7652
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49395170"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49429062"
 ---
 # <a name="azure-stack-1808-update"></a>Azure Stack 1808 update
 
@@ -158,7 +158,7 @@ Deze update bevat ook de oplossing voor het speculatieve uitvoering kant kanaal 
 
 ### <a name="post-update-steps"></a>Stappen na het bijwerken
 Na de installatie van deze update toepasselijke Hotfixes te installeren. Raadpleeg voor meer informatie de volgende knowledge base-artikelen, evenals onze [beleid onderhoud](azure-stack-servicing-policy.md). 
-- [KB 4467062 – Azure Stack Hotfix Azure Stack Hotfix 1.1808.4.108](https://support.microsoft.com/help/4467062/)
+- [KB 4468920 – Azure Stack Hotfix Azure Stack Hotfix 1.1808.5.110](https://support.microsoft.com/help/4468920/)
 
 
 ## <a name="known-issues-post-installation"></a>Bekende problemen (na de installatie)
@@ -259,7 +259,7 @@ Hier volgen na de installatie bekende problemen voor deze buildversie.
       1. Ga in de tenantportal naar **abonnementen** en zoek het abonnement. Klik op **Resourceproviders**, klikt u vervolgens op **Microsoft.Compute**, en klik vervolgens op **opnieuw registreren**.
       2. Onder hetzelfde abonnement, gaat u naar **Access Control (IAM)**, en Controleer **Azure Stack – beheerde schijf** wordt vermeld.
    2. Als u een omgeving met meerdere tenants hebt geconfigureerd, mislukken virtuele machines implementeren in een abonnement dat is gekoppeld aan een gast-map met een interne fout. U kunt de fout oplossen door de volgende stappen uit:
-      1. Van toepassing de [1808 Azure Stack-Hotfix](https://support.microsoft.com/help/4467062/).
+      1. Van toepassing de [1808 Azure Stack-Hotfix](https://support.microsoft.com/help/4468920/).
       2. Volg de stappen in [in dit artikel](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) opnieuw configureren van elk van de Gast-mappen.
       
 <!-- 3179561 - IS --> 

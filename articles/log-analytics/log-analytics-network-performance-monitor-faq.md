@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2018
 ms.author: vinynigam
-ms.openlocfilehash: 008eac235cd6b75c4c1d95b64e91923dad5a5106
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 2821f3fa07d8d9ada02da212084639c93e469d0b
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49355456"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49408877"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>Veelgestelde vragen over het netwerk Prestatiemeter-oplossing
 
@@ -28,7 +28,7 @@ In dit artikel bevat de antwoorden op veelgestelde vragen over (Netwerkprestatie
 
 [Netwerkprestatiemeter](/azure/networking/network-monitoring-overview) is een cloud-gebaseerde [hybride netwerkbewaking](log-analytics-network-performance-monitor-performance-monitor.md) oplossing waarmee u netwerkprestaties tussen verschillende punten in uw netwerkinfrastructuur te bewaken. Ook kunt u verbinding met het netwerk te bewaken [service en toepassing eindpunten](log-analytics-network-performance-monitor-service-endpoint.md) en [de prestaties van Azure ExpressRoute controleren](log-analytics-network-performance-monitor-expressroute.md). 
 
-Network Performance Monitor detecteert netwerkproblemen, zoals verkeer blackholing, routering fouten en problemen die controlemethoden conventionele netwerk niet kan detecteren. De oplossing genereert waarschuwingen en waarschuwt u als een drempelwaarde voor een netwerkverbinding is geschonden. Daarnaast zorgt ervoor dat tijdige detectie van problemen met de netwerkprestaties en de oorzaak van het probleem op een bepaald netwerksegment of het apparaat is vertaald. 
+Network Performance Monitor detecteert netwerkproblemen, zoals verkeer blackholing, routering fouten en problemen die controlemethoden conventionele netwerk niet kan detecteren. De oplossing genereert waarschuwingen en waarschuwt u als een drempelwaarde voor een netwerkverbinding wordt overschreden. Bovendien worden problemen met de netwerkprestaties tijdig gedetecteerd en wordt de oorzaak van het probleem op een bepaald netwerksegment of apparaat opgespoord. 
 
 Meer informatie over de verschillende mogelijkheden ondersteund door [Network Performance Monitor](https://docs.microsoft.com/azure/networking/network-monitoring-overview) is online beschikbaar.
 
@@ -61,7 +61,7 @@ U kunt meer informatie krijgen over de relatieve voordelen van elk protocol [hie
 ### <a name="how-can-i-configure-a-node-to-support-monitoring-using-tcp-protocol"></a>Hoe configureer ik een knooppunt om te controleren met behulp van TCP-protocol ondersteunen?
 Voor het knooppunt voor de ondersteuning van bewaking met TCP-protocol: 
 * Zorg ervoor dat het platform knooppunt Windows Server (2008 SP1 of hoger).
-* Voer [EnableRules.ps1](https://aka.ms/npmpowershellscript) Powershell-script op het knooppunt. Zie [instructies](log-analytics-network-performance-monitor.md#configure-operations-management-suite-agents-for-monitoring) voor meer informatie.
+* Voer [EnableRules.ps1](https://aka.ms/npmpowershellscript) Powershell-script op het knooppunt. Zie [instructies](log-analytics-network-performance-monitor.md#configure-log-analytics-agents-for-monitoring) voor meer informatie.
 
 
 ### <a name="how-can-i-change-the-tcp-port-being-used-by-npm-for-monitoring"></a>Hoe kan ik de TCP-poort wordt gebruikt door NPM voor het bewaken van wijzigen?

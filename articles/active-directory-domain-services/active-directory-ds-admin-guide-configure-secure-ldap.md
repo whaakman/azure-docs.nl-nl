@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: maheshu
-ms.openlocfilehash: 22c97da35416ba1ff593dfa5e41f557ea2ab1cc0
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: 42c27df658ae810ac31813ffb94f397a0070933f
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47182243"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49429130"
 ---
 # <a name="configure-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>Veilige LDAP (LDAPS) voor een beheerd domein van Azure AD Domain Services configureren
 Dit artikel wordt beschreven hoe u beveiligde Lightweight Directory Access Protocol (LDAPS) kunt inschakelen voor uw Azure AD Domain Services beheerde domein. Secure LDAP wordt ook wel bekend als ' Lightweight Directory Access Protocol (LDAP) via Secure Sockets Layer (SSL) / Transport Layer Security (TLS)'.
@@ -86,7 +86,7 @@ New-SelfSignedCertificate -Subject contoso100.com `
   -Type SSLServerAuthentication -DnsName *.contoso100.com
 ```
 
-Vervang in het voorgaande voorbeeld '*. contoso100.com' met de DNS-domeinnaam van uw beheerde domein. For example, als u een beheerd domein met de naam 'contoso100.onmicrosoft.com' gemaakt, vervangt u '*. contoso100.com' in het vorige script met ' *. contoso100.onmicrosoft.com').
+In het voorgaande voorbeeld, kunt u 'contoso100.com' vervangen door de DNS-domeinnaam van uw beheerde domein. Bijvoorbeeld, als u een beheerd domein met de naam 'contoso100.onmicrosoft.com' gemaakt, vervangen door 'contoso100.com' in het kenmerk onderwerp 'contoso100.onmicrosoft.com' en '*. contoso100.com' in het kenmerk van de DNS-naam met '*. contoso100.onmicrosoft.com').
 
 ![Azure AD-directory selecteren](./media/active-directory-domain-services-admin-guide/secure-ldap-powershell-create-self-signed-cert.png)
 

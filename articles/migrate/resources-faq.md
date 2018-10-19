@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 09/21/2018
 ms.author: snehaa
-ms.openlocfilehash: 2b704edee55f7d15da1b59d8f8b357b9ba7ca8f3
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: e39cf260cc4931fc0dddc4922479522cb521d08e
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48239214"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49407058"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure Migrate - Asked Frequently Questions (FAQ)
 
@@ -62,7 +62,7 @@ Extra onderdelen (zoals antivirusprogramma's) kunnen worden toegevoegd aan de. O
 
 ### <a name="what-data-is-collected-by-azure-migrate"></a>Welke gegevens worden verzameld door Azure Migrate?
 
-Azure Migrate ondersteunt twee soorten detectie, detectie op basis van een apparaat en op basis van een agent.
+Azure Migrate biedt ondersteuning voor twee detectiemethoden: op apparaten gebaseerde detectie en op agents gebaseerde detectie.
 De detectie op basis van een apparaat verzamelt metagegevens over de on-premises VM's, de volledige lijst met metagegevens die zijn verzameld door het apparaat vindt u hieronder:
 
 **Configuratiegegevens van de virtuele machine**
@@ -86,7 +86,7 @@ De detectie op basis van een apparaat verzamelt metagegevens over de on-premises
   - Het netwerk
   - Netwerk-uitgaand
 
-De detectie op basis van een agent is een optie die beschikbaar zijn op de detectie op basis van een apparaat en helpt klanten [afhankelijkheden visualiseren](how-to-create-group-machine-dependencies.md) van de on-premises virtuele machines. De agents afhankelijkheid verzamelen van gegevens, zoals besturingssysteem, FQDN-naam-IP-adres, MAC-adres, processen die op de virtuele machine en de inkomende/uitgaande TCP-verbindingen van de virtuele machine. De detectie op basis van een agent is optioneel en u kunt de agents niet te installeren als u niet wilt visualiseren van de afhankelijkheden van de virtuele machines.
+De op agents gebaseerde detectie is een optie die beschikbaar is naast de op apparaten gebaseerde detectie, en helpt klanten om [afhankelijkheden van de on-premises VM's te visualiseren](how-to-create-group-machine-dependencies.md). Met de afhankelijkheidsagents worden details verzameld zoals FQDN, besturingssysteem, IP-adres, MAC-adres, processen die worden uitgevoerd op de VM, en de binnenkomende/uitgaande TCP-verbindingen van de VM. De detectie op basis van een agent is optioneel en u kunt de agents niet te installeren als u niet wilt visualiseren van de afhankelijkheden van de virtuele machines.
 
 ### <a name="would-there-be-any-performance-impact-on-the-analyzed-esxi-host-environment"></a>Zou er prestatie-invloed op de geanalyseerde ESXi-host-omgeving?
 
@@ -98,7 +98,7 @@ Geïntroduceerd continue profileren van prestatiegegevens (dat zich in preview).
 
 De gegevens die zijn verzameld door de collector-apparaat is opgeslagen in de Azure-locatie die u opgeeft tijdens het maken van het migratieproject. De gegevens worden veilig opgeslagen in een Microsoft-abonnement en wordt verwijderd wanneer de gebruiker wordt verwijderd van de Azure Migrate-project.
 
-Als u agents op de virtuele machines installeren, wordt de gegevens die zijn verzameld door de agents van de afhankelijkheid voor visualisatie van afhankelijkheden opgeslagen in de Verenigde Staten in een OMS-werkruimte hebt gemaakt in het abonnement van de gebruiker. Deze gegevens worden verwijderd wanneer u de OMS-werkruimte in uw abonnement verwijdert. [Meer informatie](https://docs.microsoft.com/azure/migrate/concepts-dependency-visualization).
+Als u agents op de virtuele machines installeren, wordt de gegevens die zijn verzameld door de agents van de afhankelijkheid voor visualisatie van afhankelijkheden opgeslagen in de Verenigde Staten in een Log Analytics-werkruimte hebt gemaakt in het abonnement van de gebruiker. Deze gegevens worden verwijderd wanneer u de Log Analytics-werkruimte in uw abonnement verwijdert. [Meer informatie](https://docs.microsoft.com/azure/migrate/concepts-dependency-visualization).
 
 ### <a name="is-the-data-encrypted-at-rest-and-while-in-transit"></a>De gegevens worden versleuteld in rust en onderweg zijn?
 

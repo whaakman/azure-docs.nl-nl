@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 10/01/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 95dac6804f3226cac23bce95a1b09b2907d084b0
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: bc918d0ee3b3b435905546507287dc655f68e8c9
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49395628"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49429776"
 ---
 # <a name="integrate-azure-ad-logs-with-log-analytics-using-azure-monitor-preview"></a>Azure AD-logboeken integreren met Log Analytics met Azure Monitor (preview)
 
@@ -30,7 +30,11 @@ Log Analytics kunt u om gegevens te doorzoeken op specifieke gebeurtenissen te z
  * Vergelijk uw Azure AD aanmelden logboeken tegen beveiligingslogboeken gepubliceerd door Azure Security Center
 
  * Problemen met knelpunten op de aanmeldingspagina van uw toepassing door de toepassing de prestatiegegevens van Azure Application Insights.  
- 
+
+De volgende video van een Ignite-sessie ziet u de voordelen van het gebruik van Log Analytics voor Azure AD-Logboeken in scenario's met praktische gebruiker.
+
+> [!VIDEO https://www.youtube.com/embed/MP5IaCTwkQg?start=1894]
+
 In dit artikel leert u hoe u Azure Active Directory (Azure AD)-logboeken integreren met Log Analytics met Azure Monitor.
 
 ## <a name="supported-reports"></a>Ondersteunde rapporten

@@ -17,12 +17,12 @@ ms.date: 06/06/2017
 ms.author: celested
 ms.reviewer: hirsin, nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: cf62d961d7bd2b6ff2cb03ee577368f2ee7b8452
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: f795b58be760bae0743b05d2827c0e9f8bdb10c6
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49318823"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49430082"
 ---
 # <a name="service-to-service-calls-using-delegated-user-identity-in-the-on-behalf-of-flow"></a>Service-serviceaanroepen met behulp van gedelegeerde gebruikersidentiteit in de On-Behalf-Of-stroom
 De OAuth 2.0 namens (OBO) stroom fungeert de use-case waar een toepassing wordt aangeroepen met een service of web-API, dat op zijn beurt vereist is voor het aanroepen van een andere service of web-API. Het idee is dat de gemachtigde gebruiker identiteits- en machtigingen via de aanvraagketen doorgegeven. Voor de middelste laag service voor geverifieerde aanvragen versturen naar de downstream-service, moet deze voor het beveiligen van een toegangstoken van Azure Active Directory (Azure AD), namens de gebruiker.
@@ -43,6 +43,9 @@ De volgende stappen de stroom op-andere gebruikers-Of vormen en met behulp van h
 3. Het eindpunt van de Azure AD-token-uitgifte van de A-API-referenties met een token valideert en problemen met het toegangstoken voor API-B (token B).
 4. De B-token is ingesteld in de autorisatie-header van de aanvraag voor API B.
 5. Gegevens van de beveiligde resource wordt geretourneerd door API B.
+
+>[!NOTE]
+>De claim doelgroep in een toegangstoken dat wordt gebruikt voor het aanvragen van een token voor een downstream-service moet de id van de service die de aanvraag OBO en het token moet worden ondertekend met de Azure Active Directory algemene ondertekeningssleutel (dit is de standaardinstelling voor toepassingen die zijn geregistreerd via **App-registraties** in de portal)
 
 ## <a name="register-the-application-and-service-in-azure-ad"></a>De toepassing en de service in Azure AD registreren
 Zowel de clienttoepassing en de middelste laag service registreren in Azure AD.
@@ -82,8 +85,8 @@ Wanneer u een gedeeld geheim, bevat een tokenaanvraag voor de service-naar-servi
 
 | Parameter |  | Beschrijving |
 | --- | --- | --- |
-| grant_type |vereist | Het type van het token aan te vragen. Voor een aanvraag met behulp van een JWT, de waarde moet **urn: ietf:params:oauth:grant-type: jwt-bearer**. |
-| bevestiging |vereist | De waarde van het token wordt gebruikt in de aanvraag. |
+| grant_type |vereist | Het type van het token aan te vragen. Omdat een OBO-aanvraag maakt gebruik van een JWT-toegangstoken, de waarde moet **urn: ietf:params:oauth:grant-type: jwt-bearer**. |
+| bevestiging |vereist | De waarde van het toegangstoken wordt gebruikt in de aanvraag. |
 | client_id |vereist | De App-ID die wordt toegewezen aan de aanroepende service tijdens de registratie met Azure AD. U kunt de App-ID vinden in de Azure Management Portal op **Active Directory**, klikt u op de map en klik vervolgens op de naam van de toepassing. |
 | client_secret |vereist | De sleutel geregistreerd voor de aanroepende service in Azure AD. Deze waarde moet zijn vermeld op het moment van inschrijving. |
 | Bron |vereist | De App-ID-URI van de ontvangende service (beveiligde resource). U kunt de URI van de App-ID vinden in de Azure Management Portal op **Active Directory**, klikt u op de map, klikt u op de naam van de toepassing, klikt u op **alle instellingen** en klik vervolgens op **eigenschappen**. |
@@ -114,7 +117,7 @@ Een service-naar-service toegangstokenaanvraag met een certificaat bevat de volg
 
 | Parameter |  | Beschrijving |
 | --- | --- | --- |
-| grant_type |vereist | Het type van het token aan te vragen. Voor een aanvraag met behulp van een JWT, de waarde moet **urn: ietf:params:oauth:grant-type: jwt-bearer**. |
+| grant_type |vereist | Het type van het token aan te vragen. Omdat een OBO-aanvraag maakt gebruik van een JWT-toegangstoken, de waarde moet **urn: ietf:params:oauth:grant-type: jwt-bearer**. |
 | bevestiging |vereist | De waarde van het token wordt gebruikt in de aanvraag. |
 | client_id |vereist | De App-ID die wordt toegewezen aan de aanroepende service tijdens de registratie met Azure AD. U kunt de App-ID vinden in de Azure Management Portal op **Active Directory**, klikt u op de map en klik vervolgens op de naam van de toepassing. |
 | client_assertion_type |vereist |De waarde moet liggen `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
@@ -201,8 +204,54 @@ GET /me?api-version=2013-11-08 HTTP/1.1
 Host: graph.windows.net
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6InowMzl6ZHNGdWl6cEJmQlZLMVRuMjVRSFlPMCIsImtpZCI6InowMzl6ZHNGdWl6cEJmQlZLMVRuMjVRSFlPMCJ9.eyJhdWQiOiJodHRwczovL2dyYXBoLndpbmRvd3MubmV0IiwiaXNzIjoiaHR0cHM6Ly9zdHMud2luZG93cy5uZXQvMjYwMzljY2UtNDg5ZC00MDAyLTgyOTMtNWIwYzUxMzRlYWNiLyIsImlhdCI6MTQ5MzQyMzE2OCwibmJmIjoxNDkzNDIzMTY4LCJleHAiOjE0OTM0NjY5NTEsImFjciI6IjEiLCJhaW8iOiJBU1FBMi84REFBQUE1NnZGVmp0WlNjNWdBVWwrY1Z0VFpyM0VvV2NvZEoveWV1S2ZqcTZRdC9NPSIsImFtciI6WyJwd2QiXSwiYXBwaWQiOiI2MjUzOTFhZi1jNjc1LTQzZTUtOGU0NC1lZGQzZTMwY2ViMTUiLCJhcHBpZGFjciI6IjEiLCJlX2V4cCI6MzAyNjgzLCJmYW1pbHlfbmFtZSI6IlRlc3QiLCJnaXZlbl9uYW1lIjoiTmF2eWEiLCJpcGFkZHIiOiIxNjcuMjIwLjEuMTc3IiwibmFtZSI6Ik5hdnlhIFRlc3QiLCJvaWQiOiIxY2Q0YmNhYy1iODA4LTQyM2EtOWUyZi04MjdmYmIxYmI3MzkiLCJwbGF0ZiI6IjMiLCJwdWlkIjoiMTAwMzNGRkZBMTJFRDdGRSIsInNjcCI6IlVzZXIuUmVhZCIsInN1YiI6IjNKTUlaSWJlYTc1R2hfWHdDN2ZzX0JDc3kxa1l1ekZKLTUyVm1Zd0JuM3ciLCJ0aWQiOiIyNjAzOWNjZS00ODlkLTQwMDItODI5My01YjBjNTEzNGVhY2IiLCJ1bmlxdWVfbmFtZSI6Im5hdnlhQGRkb2JhbGlhbm91dGxvb2sub25taWNyb3NvZnQuY29tIiwidXBuIjoibmF2eWFAZGRvYmFsaWFub3V0bG9vay5vbm1pY3Jvc29mdC5jb20iLCJ1dGkiOiJ4Q3dmemhhLVAwV0pRT0x4Q0dnS0FBIiwidmVyIjoiMS4wIn0.cqmUVjfVbqWsxJLUI1Z4FRx1mNQAHP-L0F4EMN09r8FY9bIKeO-0q1eTdP11Nkj_k4BmtaZsTcK_mUygdMqEp9AfyVyA1HYvokcgGCW_Z6DMlVGqlIU4ssEkL9abgl1REHElPhpwBFFBBenOk9iHddD1GddTn6vJbKC3qAaNM5VarjSPu50bVvCrqKNvFixTb5bbdnSz-Qr6n6ACiEimiI1aNOPR2DeKUyWBPaQcU5EAK0ef5IsVJC1yaYDlAcUYIILMDLCD9ebjsy0t9pj_7lvjzUSrbMdSCCdzCqez_MSNxrk1Nu9AecugkBYp3UVUZOIyythVrj6-sVvLZKUutQ
 ```
+## <a name="service-to-service-calls-using-a-saml-assertion-obtained-with-an-oauth20-on-behalf-of-flow"></a>Service-to-Service aanroepen met behulp van een SAML-verklaring verkregen met een OAuth 2.0 op namens-stroom
+
+Sommige OAuth op basis van web services nodig voor toegang tot andere webservice-API's die SAML-asserties ondertekend in niet-interactieve stromen accepteren.  Azure Active Directory biedt een SAML-verklaring in reactie op een stroom op-andere gebruikers-of met een op SAML gebaseerde webservice als een doelbron. 
+
+>[!NOTE] 
+>Dit is een uitbreiding van de OAuth 2.0-namens-stroom waarmee op basis van OAuth2-toepassing met toegang tot web service API-eindpunten die SAML-tokens gebruiken die niet-standaard.  
+
+>[!TIP]
+>Als u een beveiligd SAML-webservice uit een front-endwebtoepassing aanroept, kunt u gewoon de API aanroepen en starten van een stroom normale interactieve verificatie dat door de gebruikers wordt gebruikt bestaande sessie.  U hoeft alleen te overwegen om een stroom OBO wanneer de aanroep van een service-to-service is vereist voor een SAML-token voor gebruikerscontext.
+
+### <a name="obtain-a-saml-token-using-an-obo-request-with-a-shared-secret"></a>Een SAML-token met behulp van een OBO-aanvraag met een gedeeld geheim ophalen
+Een service-naar-service-aanvraag voor het verkrijgen van een SAML-verklaring bevat de volgende parameters:
+
+| Parameter |  | Beschrijving |
+| --- | --- | --- |
+| grant_type |vereist | Het type van het token aan te vragen. Voor een aanvraag met behulp van een JWT, de waarde moet **urn: ietf:params:oauth:grant-type: jwt-bearer**. |
+| bevestiging |vereist | De waarde van het toegangstoken wordt gebruikt in de aanvraag.|
+| client_id |vereist | De App-ID die wordt toegewezen aan de aanroepende service tijdens de registratie met Azure AD. U kunt de App-ID vinden in de Azure Management Portal op **Active Directory**, klikt u op de map en klik vervolgens op de naam van de toepassing. |
+| client_secret |vereist | De sleutel geregistreerd voor de aanroepende service in Azure AD. Deze waarde moet zijn vermeld op het moment van inschrijving. |
+| Bron |vereist | De App-ID-URI van de ontvangende service (beveiligde resource). Dit is de resource die de doelgroep van het SAML-token.  U kunt de URI van de App-ID vinden in de Azure Management Portal op **Active Directory**, klikt u op de map, klikt u op de naam van de toepassing, klikt u op **alle instellingen** en klik vervolgens op **eigenschappen**. |
+| requested_token_use |vereist | Hiermee geeft u op hoe de aanvraag moet worden verwerkt. In de stroom op-andere gebruikers-Of de waarde moet **on_behalf_of**. |
+| requested_token_type | vereist | Hiermee geeft u het type token dat is aangevraagd.  De waarde kan zijn ' urn: ietf:params:oauth:token-type: saml2 "of" urn: ietf:params:oauth:token-type: saml1 ", afhankelijk van de vereisten van de bron waartoe toegang wordt verkregen. |
+
+
+Het antwoord bevat een UTF8 en Base64url gecodeerd SAML token. 
+
+SubjectConfirmationData voor een SAML-verklaring afkomstig is van een aanroep van OBO: als de doeltoepassing is een waarde van de ontvanger in SubjectConfirmationData vereist, wordt deze moet worden ingesteld als een niet-jokertekens antwoord-URL in de configuratie van de resource-toepassing.
+
+Het knooppunt SubjectConfirmationData mag niet een kenmerk InResponseTo bevatten, omdat het geen deel uit van een SAML-antwoord.  De toepassing die is ontvangen van de SAML-token moet worden geaccepteerd van de SAML-verklaring zonder een kenmerk InResponseTo.
+
+Toestemming: Als u wilt een SAML-token met gebruikersgegevens op een OAuth-stroom ontvangen, toestemming moet hebben gekregen.  Raadpleeg https://docs.microsoft.com/azure/active-directory/develop/v1-permissions-and-consent voor informatie over machtigingen en het verkrijgen van goedgekeurd door een beheerder.
+
+### <a name="response-with-saml-assertion"></a>Antwoord met SAML-verklaring
+
+| Parameter | Beschrijving |
+| --- | --- |
+| token_type |Geeft aan dat de waarde van het token. Het enige type dat Azure AD ondersteunt **Bearer**. Zie voor meer informatie over bearer-tokens, de [OAuth 2.0 machtiging Framework: Bearer Token gebruik (RFC 6750)](http://www.rfc-editor.org/rfc/rfc6750.txt). |
+| scope |Het bereik van de toegang is verleend in het token. |
+| expires_in |De hoeveelheid tijd die het toegangstoken ongeldig (in seconden is). |
+| expires_on |De tijd wanneer het toegangstoken is verlopen. De datum wordt weergegeven als het aantal seconden vanaf 1970-01-01T0:0:0Z UTC tot de vervaltijd. Deze waarde wordt gebruikt om te bepalen van de levensduur van tokens in de cache. |
+| Bron |De App-ID-URI van de ontvangende service (beveiligde resource). |
+| access_token |De SAML-verklaring wordt geretourneerd in de access_token-parameter. |
+| refresh_token |Het vernieuwingstoken. De aanroepende service kunt u dit token gebruiken om aan te vragen van een andere toegangstoken nadat de huidige SAML-verklaring is verlopen. |
+
+token_type: Bearer expires_in:3296 ext_expires_in:0 expires_on:1529627844 resource:https://api.contoso.com access_token: <Saml assertion> issued_token_type:urn:ietf:params:oauth:token-type: saml2 refresh_token: <Refresh token>
+
 ## <a name="client-limitations"></a>Clientbeperkingen
-Openbare clients met jokertekens antwoord-URL's niet gebruiken een `id_token` voor OBO stromen. Echter nog steeds een vertrouwelijke client kunt inwisselen **toegang** tokens die zijn verkregen via de impliciete stroom, zelfs als de openbare-client een jokerteken heeft omleidings-URI die zijn geregistreerd.
+Openbare clients met jokertekens antwoord-URL's niet gebruiken een `id_token` voor OBO stromen. Een vertrouwelijke client kan echter nog steeds inwisselen toegangstokens die zijn verkregen via de impliciete stroom, zelfs als de openbare-client heeft een jokerteken redirect die URI geregistreerd.
 
 ## <a name="next-steps"></a>Volgende stappen
 Meer informatie over het OAuth 2.0-protocol en een andere manier voor het uitvoeren van service-to-service-verificatie met behulp van clientreferenties.

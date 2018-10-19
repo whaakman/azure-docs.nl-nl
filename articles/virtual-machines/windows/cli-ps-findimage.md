@@ -1,6 +1,6 @@
 ---
 title: Selecteer Windows-VM-installatiekopieën in Azure | Microsoft Docs
-description: Leer hoe u Azure PowerShell gebruiken om te bepalen van de uitgever, aanbieding, SKU en versie voor Marketplace-VM-installatiekopieën.
+description: Azure PowerShell gebruiken om te bepalen van de uitgever, aanbieding, SKU en versie voor Marketplace-VM-installatiekopieën.
 services: virtual-machines-windows
 documentationcenter: ''
 author: dlepow
@@ -13,22 +13,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 09/28/2018
+ms.date: 10/08/2018
 ms.author: danlep
-ms.openlocfilehash: 4fb718eb7247bddd8869b8973479377e3baebdda
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 5934e955d2a18d111c625670bced134df37ef045
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48017175"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49409591"
 ---
-# <a name="how-to-find-windows-vm-images-in-the-azure-marketplace-with-azure-powershell"></a>Windows-VM-installatiekopieën zoeken in de Azure Marketplace met Azure PowerShell
+# <a name="find-windows-vm-images-in-the-azure-marketplace-with-azure-powershell"></a>Windows-VM-installatiekopieën zoeken in de Azure Marketplace met Azure PowerShell
 
-In dit artikel wordt beschreven hoe u Azure PowerShell gebruiken voor het VM-installatiekopieën zoeken in de Azure Marketplace. Deze informatie gebruiken om een Marketplace-installatiekopie opgeven wanneer u een virtuele machine via een programma met PowerShell maken, Resource Manager-sjablonen of andere hulpprogramma's.
+In dit artikel wordt beschreven hoe u Azure PowerShell gebruiken voor het VM-installatiekopieën zoeken in de Azure Marketplace. U kunt vervolgens een Marketplace-installatiekopie opgeven wanneer u een virtuele machine via een programma met PowerShell maken, Resource Manager-sjablonen of andere hulpprogramma's.
 
-Ook bladeren beschikbare installatiekopieën en aanbiedingen met behulp van de [Azure Marketplace](https://azuremarketplace.microsoft.com/) winkel, de [Azure-portal](https://portal.azure.com), of de [Azure CLI](../linux/cli-ps-findimage.md). 
+U kunt ook bladeren beschikbare installatiekopieën en aanbiedingen met behulp van de [Azure Marketplace](https://azuremarketplace.microsoft.com/) winkel, de [Azure-portal](https://portal.azure.com), of de [Azure CLI](../linux/cli-ps-findimage.md). 
 
-Zorg ervoor dat u geïnstalleerd en geconfigureerd, de meest recente [Azure PowerShell-module](/powershell/azure/install-azurerm-ps).
+Zorg ervoor dat u hebt geïnstalleerd en geconfigureerd, de meest recente [Azure PowerShell-module](/powershell/azure/install-azurerm-ps).
 
 [!INCLUDE [virtual-machines-common-image-terms](../../../includes/virtual-machines-common-image-terms.md)]
 
@@ -48,7 +48,7 @@ Zorg ervoor dat u geïnstalleerd en geconfigureerd, de meest recente [Azure Powe
 
 ## <a name="navigate-the-images"></a>De installatiekopieën doorzoeken
 
-Een andere manier om te zoeken van een installatiekopie op een locatie is om uit te voeren de [Get-AzureRMVMImagePublisher](/powershell/module/azurerm.compute/get-azurermvmimagepublisher), [Get-AzureRMVMImageOffer](/powershell/module/azurerm.compute/get-azurermvmimageoffer), en [Get-AzureRMVMImageSku](/powershell/module/azurerm.compute/get-azurermvmimagesku) cmdlets in de reeks. Met deze opdrachten, moet u deze waarden bepalen:
+Eén manier om het vinden van een installatiekopie op een locatie is het uitvoeren van de [Get-AzureRMVMImagePublisher](/powershell/module/azurerm.compute/get-azurermvmimagepublisher), [Get-AzureRMVMImageOffer](/powershell/module/azurerm.compute/get-azurermvmimageoffer), en [Get-AzureRMVMImageSku](/powershell/module/azurerm.compute/get-azurermvmimagesku) cmdlets in volgorde:
 
 1. Geef de uitgevers van installatiekopieën weer.
 2. Geef de aanbiedingen voor een bepaalde uitgever weer.
@@ -56,42 +56,41 @@ Een andere manier om te zoeken van een installatiekopie op een locatie is om uit
 
 Voer vervolgens voor een geselecteerde SKU [Get-AzureRMVMImage](/powershell/module/azurerm.compute/get-azurermvmimage) om te implementeren in de versies weer te geven.
 
-Geef eerst de uitgevers weer met de volgende opdrachten:
+1. De uitgevers weer:
 
-```powershell
-$locName="<Azure location, such as West US>"
-Get-AzureRMVMImagePublisher -Location $locName | Select PublisherName
-```
+    ```powershell
+    $locName="<Azure location, such as West US>"
+    Get-AzureRMVMImagePublisher -Location $locName | Select PublisherName
+    ```
 
-Vul de naam van de gewenste uitgever in en voer de volgende opdrachten uit:
+2. Vul de naam van uw gewenste uitgever en de aanbiedingen te vermelden:
 
-```powershell
-$pubName="<publisher>"
-Get-AzureRMVMImageOffer -Location $locName -Publisher $pubName | Select Offer
-```
+    ```powershell
+    $pubName="<publisher>"
+    Get-AzureRMVMImageOffer -Location $locName -Publisher $pubName | Select Offer
+    ```
 
-Vul de naam van de gewenste aanbieding in en voer de volgende opdrachten uit:
+3. Vul de naam van de gewenste aanbieding in en lijst van de SKU's:
 
-```powershell
-$offerName="<offer>"
-Get-AzureRMVMImageSku -Location $locName -Publisher $pubName -Offer $offerName | Select Skus
-```
+    ```powershell
+    $offerName="<offer>"
+    Get-AzureRMVMImageSku -Location $locName -Publisher $pubName -Offer $offerName | Select Skus
+    ```
+    
+4. Vul de naam van uw gekozen SKU en versie van de installatiekopie ophalen:
 
-Vul de naam van uw gekozen SKU en voer de volgende opdrachten uit:
-
-```powershell
-$skuName="<SKU>"
-Get-AzureRMVMImage -Location $locName -Publisher $pubName -Offer $offerName -Sku $skuName | Select Version
-```
-
+    ```powershell
+    $skuName="<SKU>"
+    Get-AzureRMVMImage -Location $locName -Publisher $pubName -Offer $offerName -Sku $skuName | Select Version
+    ```
+    
 Uit de uitvoer van de `Get-AzureRMVMImage` opdracht, kunt u een versie-installatiekopie naar een nieuwe virtuele machine implementeren.
 
-De volgende opdrachten weergeven een compleet voorbeeld:
+Het volgende voorbeeld ziet u de volledige reeks opdrachten en de uitvoer:
 
 ```powershell
 $locName="West US"
 Get-AzureRMVMImagePublisher -Location $locName | Select PublisherName
-
 ```
 
 Gedeeltelijke uitvoer:
@@ -163,9 +162,9 @@ $skuName="2016-Datacenter"
 Get-AzureRMVMImage -Location $locName -Publisher $pubName -Offer $offerName -Sku $skuName | Select Version
 ```
 
-Nu u de geselecteerde uitgever, aanbieding, SKU en versie in een URN combineren kunt (waarden worden gescheiden door:). Doorgeven van deze URN met de `--image` parameter bij het maken van een virtuele machine met de [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm) cmdlet. Houd er rekening mee dat u eventueel het versienummer in de URN door 'nieuwste vervangen kunt'. Deze versie is altijd de meest recente versie van de installatiekopie.
+Nu u de geselecteerde uitgever, aanbieding, SKU en versie in een URN combineren kunt (waarden worden gescheiden door:). Doorgeven van deze URN met de `--image` parameter bij het maken van een virtuele machine met de [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm) cmdlet. U kunt eventueel het versienummer in de URN vervangen door 'nieuwste', om op te halen van de meest recente versie van de installatiekopie.
 
-Als u een virtuele machine met een Resource Manager-sjabloon implementeert, u instellen van de parameters van de afbeelding afzonderlijk in de `imageReference` eigenschappen. Zie de [sjabloonverwijzing](/azure/templates/microsoft.compute/virtualmachines).
+Als u een VM met Resource Manager-sjabloon implementeren, wordt afzonderlijk in stelt u de parameters van de installatiekopie van het `imageReference` eigenschappen. Zie de [sjabloonverwijzing](/azure/templates/microsoft.compute/virtualmachines).
 
 [!INCLUDE [virtual-machines-common-marketplace-plan](../../../includes/virtual-machines-common-marketplace-plan.md)]
 
@@ -173,7 +172,7 @@ Als u een virtuele machine met een Resource Manager-sjabloon implementeert, u in
 
 Als u wilt weergeven van een installatiekopie aankoop plangegevens, voer de `Get-AzureRMVMImage` cmdlet. Als de `PurchasePlan` eigenschap in de uitvoer is niet `null`, de installatiekopie heeft voorwaarden moet u accepteren voordat u programmatische implementatie.  
 
-Bijvoorbeeld, de installatiekopie van het Windows Server 2016 Datacenter geen aanvullende voorwaarden, omdat de `PurchasePlan` informatie `null`:
+Bijvoorbeeld, de *Windows Server 2016 Datacenter* installatiekopie bevat geen aanvullende voorwaarden, dus de `PurchasePlan` informatie is `null`:
 
 ```powershell
 $version = "2016.127.20170406"
@@ -200,7 +199,7 @@ DataDiskImages   : []
 
 ```
 
-Uitvoeren van een vergelijkbare opdracht voor de virtuele Machine voor Datatechnologie - Windows 2016 afbeelding ziet u de volgende `PurchasePlan` eigenschappen: `name`, `product`, en `publisher`. (Sommige afbeeldingen hebben ook een `promotion code` eigenschap.) Zie de volgende secties aan de voorwaarden accepteren en programmatische implementatie inschakelen voor het implementeren van deze installatiekopie.
+Het volgende voorbeeld ziet u een vergelijkbare opdracht voor het *Data Science Virtual Machine - Windows 2016* installatiekopie, die de volgende `PurchasePlan` eigenschappen: `name`, `product`, en `publisher`. Sommige installatiekopieën zijn ook een `promotion code` eigenschap. Zie de volgende secties om de voorwaarden te accepteren en programmatische implementatie moet worden ingeschakeld voor het implementeren van deze installatiekopie.
 
 ```powershell
 Get-AzureRMVMImage -Location "westus" -Publisher "microsoft-ads" -Offer "windows-data-science-vm" -Skus "windows2016" -Version "0.2.02"
@@ -232,7 +231,7 @@ DataDiskImages   : []
 
 ### <a name="accept-the-terms"></a>De voorwaarden accepteren
 
-Als u de licentievoorwaarden, gebruikt u de [Get-AzureRmMarketplaceterms](/powershell/module/azurerm.marketplaceordering/get-azurermmarketplaceterms) cmdlet en geeft u de aankoop van plan bent parameters. De uitvoer bevat een koppeling naar de voorwaarden voor de Marketplace-installatiekopie en laat zien of u eerder de voorwaarden geaccepteerd. Zorg ervoor dat alleen kleine letters gebruiken in de parameterwaarden. Bijvoorbeeld:
+Als u de licentievoorwaarden, gebruikt u de [Get-AzureRmMarketplaceterms](/powershell/module/azurerm.marketplaceordering/get-azurermmarketplaceterms) cmdlet en geeft u de aankoop van plan bent parameters. De uitvoer bevat een koppeling naar de voorwaarden voor de Marketplace-installatiekopie en laat zien of u eerder de voorwaarden geaccepteerd. Zorg ervoor dat alleen kleine letters gebruiken in de parameterwaarden.
 
 ```powershell
 Get-AzureRmMarketplaceterms -Publisher "microsoft-ads" -Product "windows-data-science-vm" -Name "windows2016"
@@ -252,14 +251,12 @@ Accepted          : False
 Signdate          : 2/23/2018 7:43:00 PM
 ```
 
-Gebruik de [Set AzureRmMarketplaceterms](/powershell/module/azurerm.marketplaceordering/set-azurermmarketplaceterms) cmdlet om te accepteren of weigeren van de voorwaarden. U hoeft alleen te accepteren één keer per abonnement voor de installatiekopie. Zorg ervoor dat alleen kleine letters gebruiken in de parameterwaarden. Bijvoorbeeld:
+Gebruik de [Set AzureRmMarketplaceterms](/powershell/module/azurerm.marketplaceordering/set-azurermmarketplaceterms) cmdlet om te accepteren of weigeren van de voorwaarden. U hoeft alleen te accepteren één keer per abonnement voor de installatiekopie. Zorg ervoor dat alleen kleine letters gebruiken in de parameterwaarden. 
 
 ```powershell
-
 $agreementTerms=Get-AzureRmMarketplaceterms -Publisher "microsoft-ads" -Product "windows-data-science-vm" -Name "windows2016"
 
 Set-AzureRmMarketplaceTerms -Publisher "microsoft-ads" -Product "windows-data-science-vm" -Name "windows2016" -Terms $agreementTerms -Accept
-
 ```
 
 Uitvoer:
@@ -278,7 +275,7 @@ Signdate          : 2/23/2018 7:49:31 PM
 
 ### <a name="deploy-using-purchase-plan-parameters"></a>Implementeren met behulp van aankoop planning parameters
 
-Na de voorwaarden voor de installatiekopie te accepteren, kunt u een virtuele machine in het abonnement implementeren. Zoals u in het volgende codefragment, gebruikt u de [Set AzureRmVMPlan](/powershell/module/azurerm.compute/set-azurermvmplan) cmdlet om in te stellen de plangegevens van Marketplace voor de VM-object. Zie voor een volledige script netwerkinstellingen voor de virtuele machine maken en uitvoeren van de implementatie, de [PowerShell-scriptvoorbeelden](powershell-samples.md).
+Na de voorwaarden van een installatiekopie te accepteren, kunt u een virtuele machine in het desbetreffende abonnement implementeren. Zoals u in het volgende codefragment, gebruikt u de [Set AzureRmVMPlan](/powershell/module/azurerm.compute/set-azurermvmplan) cmdlet om in te stellen de plangegevens van Marketplace voor de VM-object. Zie voor een volledige script netwerkinstellingen voor de virtuele machine maken en uitvoeren van de implementatie, de [PowerShell-scriptvoorbeelden](powershell-samples.md).
 
 ```powershell
 ...
@@ -310,10 +307,10 @@ $version = "0.2.02"
 $vmConfig = Set-AzureRmVMSourceImage -VM $vmConfig -PublisherName $publisherName -Offer $offerName -Skus $skuName -Version $version
 ...
 ```
-U geeft u de configuratie van de virtuele machine samen met het netwerk configuratie-objecten naar de `New-AzureRmVM` cmdlet.
+U zult geeft u de configuratie van de virtuele machine samen met het netwerk configuratie-objecten naar de `New-AzureRmVM` cmdlet.
 
 ## <a name="next-steps"></a>Volgende stappen
-Het maken van een virtuele machine snel met `New-AzureRmVM` met behulp van basic-installatiekopie informatie, Zie [een Windows-machine maken met PowerShell](quick-create-powershell.md).
+Het maken van een virtuele machine snel met de `New-AzureRmVM` cmdlet met behulp van informatie van de basic-installatiekopie, Zie [een Windows-machine maken met PowerShell](quick-create-powershell.md).
 
 Een PowerShell-voorbeeldscript om te zien [maken van een volledig geconfigureerde virtuele machine](../scripts/virtual-machines-windows-powershell-sample-create-vm.md).
 

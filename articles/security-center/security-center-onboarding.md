@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/02/2018
 ms.author: rkarlin
-ms.openlocfilehash: 50055befaa0a5f0bb03bda18e01edfb751e49369
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: d5a4cfa3a91b82aa0f5b1725f86c732fecf632d4
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44379992"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405443"
 ---
 # <a name="onboarding-to-azure-security-center-standard-for-enhanced-security"></a>Onboarding van Azure Security Center Standard voor verbeterde beveiliging
 Upgrade uitvoeren naar Security Center Standard om te profiteren van verbeterde beveiligingsbeheer en bedreigingsbeveiliging voor uw hybride cloudworkloads.  U kunt standaard 60 dagen gratis uitproberen. Zie het Security Center [pagina met prijzen](https://azure.microsoft.com/pricing/details/security-center/) voor meer informatie.
@@ -42,13 +42,13 @@ U kunt een hele Azure-abonnement upgraden naar de Standard-laag, die is overgeno
 
 ## <a name="upgrade-an-azure-subscription-or-workspace"></a>Een Azure-abonnement of de werkruimte een upgrade uitvoert
 Een abonnement of een werkruimte upgraden naar Standard:
-1. Selecteer in het hoofdmenu van Security Center de optie **aan de slag**.
+1. Selecteer in het hoofdmenu van Security Center de optie **Aan de slag**.
   ![Aan de slag](./media/security-center-onboarding/get-started.png)
-2. Onder **Upgrade**, Security Center een lijst met abonnementen en werkruimten die in aanmerking komen voor onboarding. 
-   - U kunt klikken op de uitbreidbare **toepassen van uw proefversie** voor een overzicht van alle abonnementen en werkruimten met hun status proefversie in aanmerking te komen.
-   -    U kunt abonnementen en werkruimten die niet in aanmerking voor proefversie upgraden.
-   -    U kunt in aanmerking komende werkruimten en abonnementen voor uw proefversie starten selecteren.
-3.  Klik op **proefversie starten** uw proefversie starten op de geselecteerde abonnementen.
+2. Onder **Upgrade** vermeldt Security Center abonnementen en werkruimten die in aanmerking komen voor onboarding. 
+   - U kunt op het uitvouwbare **Uw proefversie toepassen** klikken om een lijst met alle abonnementen en werkruimten te bekijken met de status voor een proefversie.
+   -    U kunt abonnementen en werkruimten upgraden die niet in aanmerking komen voor een proefversie.
+   -    U kunt in aanmerking komende werkruimten en abonnementen selecteren om uw proefversie te beginnen.
+3.  Klik op **Proefversie beginnen** om uw proefversie van de geselecteerde abonnementen te beginnen.
   ![abonnement selecteren](./media/security-center-onboarding/select-subscription.png)
 
 
@@ -63,11 +63,11 @@ Security Center kan de beveiligingsstatus van uw niet-Azure-computers controlere
 ### <a name="add-new-non-azure-computers-from-getting-started"></a>Toevoegen van nieuwe niet-Azure-computers vanuit **aan de slag**
 
 1. Ga terug naar **aan de slag**.   
-2. Selecteer de **aan de slag** tabblad.
+2. Selecteer het tabblad **Aan de slag**.
 
   ![Niet-Azure](./media/security-center-onboarding/non-azure.png)
 
-3. Klik op **configureren** onder **nieuwe niet-Azure-computers toevoegen**. Een lijst met uw Log Analytics-werkruimten weergegeven. De lijst bevat, indien van toepassing, de standaardwerkruimte die is gemaakt door Security Center toen automatisch inrichten werd ingeschakeld. Selecteer deze werkruimte of een andere werkruimte die u wilt gebruiken.
+3. Klik op **Configureren** onder **Nieuwe niet-Azure-computers toevoegen**. Een lijst met uw Log Analytics-werkruimten wordt weergegeven. De lijst bevat, indien van toepassing, de standaardwerkruimte die is gemaakt door Security Center toen automatisch inrichten werd ingeschakeld. Selecteer deze werkruimte of een andere werkruimte die u wilt gebruiken.
 
   ![Niet-Azure-computer toevoegen][7]
 
@@ -82,6 +82,8 @@ Als u bestaande werkruimten hebt, worden deze weergegeven onder **nieuwe niet-Az
    ![Een nieuwe werkruimte toevoegen][4]
 
 2. Onder **beveiliging en controle**, selecteer **OMS-werkruimte** om een nieuwe werkruimte te maken.
+> [!NOTE]
+> OMS-werkruimten worden nu aangeduid als Log Analytics-werkruimten.
 3. Onder **OMS-werkruimte**, voer de gegevens voor uw werkruimte.
 4. Onder **OMS-werkruimte**, selecteer **OK**.  Nadat u OK kiest, ontvangt u een koppeling voor het downloaden van een Windows- of Linux-agent en de sleutels voor uw werkruimte-ID te gebruiken bij het configureren van de agent.
 5. Onder **beveiliging en controle**, selecteer **OK**.

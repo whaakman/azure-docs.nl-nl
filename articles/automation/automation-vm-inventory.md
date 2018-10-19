@@ -10,12 +10,12 @@ ms.author: jehunte
 ms.date: 03/30/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 30569c3a89de320769d433b5b3a4af9cf4e08e66
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 761bb1a6974afd5e7b851efb0c60101ab7d8958b
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47091403"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49403607"
 ---
 # <a name="manage-an-azure-virtual-machine-with-inventory-collection"></a>Een virtuele Azure-machine met inventarisverzameling beheren
 
@@ -114,6 +114,10 @@ Ga als volgt te werk om uw virtuele machine te verwijderen uit inventarisbeheer:
 1. Selecteer in het linkermenu van de Azure-portal de optie **Log Analytics** en selecteer de werkruimte die u hebt gebruikt tijdens de onboarding van de virtuele machine.
 2. Selecteer in het venster **Log Analytics** in het menu **Resource** de optie **Virtuele machines** in de categorie **Gegevensresources voor werkruimte**.
 3. Selecteer in de lijst de virtuele machine die u wilt loskoppelen. De virtuele machine heeft een groen vinkje naast de tekst **Deze werkruimte** in de kolom **OMS-verbinding**.
+
+   >[!NOTE]
+   >OMS wordt nu aangeduid als Log Analytics.
+   
 4. Selecteer bovenaan de volgende pagina de optie **Verbinding verbreken**.
 5. Selecteer **Ja** in het bevestigingsvenster.
     Met deze actie wordt de virtuele machine losgekoppeld van beheer.

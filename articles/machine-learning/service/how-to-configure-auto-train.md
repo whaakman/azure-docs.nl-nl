@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 33126c094a55bc57edd49a54fbc4f5acd7401998
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 1aeb1315cfafbcdf3507a6e49d71e1f1e69b537c
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49079001"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49430184"
 ---
 # <a name="configure-your-automated-machine-learning-experiment"></a>Configureren van uw geautomatiseerde machine learning-experiment
 
@@ -147,7 +147,7 @@ Ondersteunde COMPUTE-opties zijn:
 2.  Een externe computer in de cloud, [Azure Data Science Virtual Machine](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/) waarop Linux – u een grote gegevensset hebt en wilt opschalen naar een grote virtuele machine die beschikbaar is in de Azure-Cloud. 
 3.  Azure Batch AI-cluster: een beheerd cluster dat u instellen kunt voor uitschalen en geautomatiseerde ML iteraties parallel worden uitgevoerd. 
 
-
+<a name='configure-experiment'/>
 ## <a name="configure-your-experiment-settings"></a>Uw experiment-instellingen configureren
 
 Er zijn enkele knoppen die u gebruiken kunt om te configureren van uw geautomatiseerde ML-experiment. Deze parameters zijn ingesteld door het instantiëren van een `AutoMLConfig` object.

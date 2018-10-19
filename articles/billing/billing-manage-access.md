@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/22/2017
 ms.author: cwatson
-ms.openlocfilehash: 623856f05eed44eca3752d56f047f9bb282bdc8e
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 38cfd354f11ef3d888ad70e71549868d398495f5
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47392076"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49429640"
 ---
 # <a name="manage-access-to-billing-information-for-azure-using-role-based-access-control"></a>Toegang tot factureringsgegevens voor Azure met behulp van op rollen gebaseerd toegangsbeheer beheren
 
@@ -67,7 +67,7 @@ De rol factureren voor lezer heeft alleen-lezen toegang tot factureringsgegevens
     ![Schermopname die laat zien wat de factureren voor lezer kan zien in Azure portal](./media/billing-manage-access/billing-reader-view.png)
 
 > [!NOTE]
-> De functie factureren voor lezer is in preview en biedt nog geen ondersteuning enterprise (EA)-abonnementen of niet-globale clouds.
+> De functie factureren voor lezer is in preview en biedt niet-globale clouds nog geen ondersteuning. Enterprise-abonnementen kunnen kosten weergeven als de enterprise-beheerder kosten weergeven is ingeschakeld.
 
 ## <a name="adding-users-to-other-roles"></a>Gebruikers toevoegen aan andere rollen
 

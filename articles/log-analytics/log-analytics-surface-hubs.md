@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: b38ce59a80d3fa78449892c8a76ed70b4dc698d3
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: f7fe7cee39468558ce503c050d5574e4be15ebf5
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041474"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49407160"
 ---
 # <a name="monitor-surface-hubs-with-log-analytics-to-track-their-health"></a>Surface Hubs met Log Analytics voor het bijhouden van hun status controleren
 
@@ -51,7 +51,7 @@ Intune is een Microsoft-product waarmee u de Log Analytics-configuratie-instelli
 1. Aanmelden bij Intune.
 2. Navigeer naar **instellingen** > **verbonden bronnen**.
 3. Maken of bewerken van een beleid op basis van de Surface Hub-sjabloon.
-4. Ga naar de sectie OMS (Azure Operational Insights) van het beleid en de Log Analytics toevoegen *werkruimte-ID* en *Werkruimtesleutel* aan het beleid.
+4. Ga naar de Azure Operational Insights-sectie van het beleid en de Log Analytics toevoegen *werkruimte-ID* en *Werkruimtesleutel* aan het beleid.
 5. Sla het beleid.
 6. Beleid koppelen aan de juiste groep van apparaten.
 
@@ -66,9 +66,9 @@ Als u Intune niet gebruikt om uw omgeving te beheren, kunt u handmatig via appar
 
 1. Open in de Surface Hub, **instellingen**.
 2. Voer de referenties van de beheerder apparaat wanneer u hierom wordt gevraagd.
-3. Klik op **dit apparaat**, en de onder **bewaking**, klikt u op **OMS-instellingen configureren**.
+3. Klik op **dit apparaat**, en de onder **bewaking**, klikt u op **logboekanalyse-instellingen configureren**.
 4. Selecteer **bewaking inschakelen**.
-5. Typ in het dialoogvenster van de instellingen voor OMS Log Analytics **werkruimte-ID** en typt u de **Werkruimtesleutel**.  
+5. Typ in het dialoogvenster van de instellingen voor Log Analytics de met Log Analytics **werkruimte-ID** en typt u de **Werkruimtesleutel**.  
    ![Instellingen](./media/log-analytics-surface-hubs/settings.png)
 6. Klik op **OK** om de configuratie te voltooien.
 

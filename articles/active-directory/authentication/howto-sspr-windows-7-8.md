@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: ae2fab560ca9579860aeba91f9322c6521a83de1
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 1465ba23f6fed85f0d4164f8e3fdc8c38be43ad3
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47167911"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49427724"
 ---
 # <a name="how-to-enable-password-reset-from-windows-7-8-and-81"></a>Hoe: inschakelen voor wachtwoord opnieuw instellen van Windows 7, 8 en 8.1
 
@@ -76,6 +76,8 @@ HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Authentication\Credential Provide
 
 * Voor uitgebreide logboekregistratie inschakelen, maakt u een REG_DWORD: 'EnableLogging', en stel deze in op 1.
 * Voor uitgebreide logboekregistratie uitschakelen, wijzigt u de REG_DWORD "EnableLogging" in 0.
+
+Als uw Windows 7, 8 en 8.1 machines achter een proxyserver of firewall, moet de HTTPS-verkeer (443) naar passwordreset.microsoftonline.com worden toegestaan.
 
 ## <a name="next-steps"></a>Volgende stappen
 

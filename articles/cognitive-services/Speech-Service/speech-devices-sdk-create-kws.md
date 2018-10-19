@@ -9,12 +9,12 @@ ms.component: speech
 ms.topic: article
 ms.date: 04/28/2018
 ms.author: erhopf
-ms.openlocfilehash: ab2bc9a83feadd9ece8876559e730e7bc955908a
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 93fbf33ee35c49e7afc36bf5afbae1da0fe1c56f
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49165467"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49430201"
 ---
 # <a name="create-a-custom-wake-word-by-using-the-speech-service"></a>Een aangepaste wake-woord maken met behulp van de Speech-service
 
@@ -52,10 +52,6 @@ Voordat u een aangepaste wake word met uw apparaat gebruiken kunt, moet u het wo
 1. Een nieuw account maken met het e-mailadres waarmee u de uitnodiging voor Azure Active Directory ontvangen. 
 
     ![Een nieuw account maken](media/speech-devices-sdk/wake-word-1.png)
- 
-1.  Nadat u zich hebt aangemeld, vul het formulier in en selecteer vervolgens **Start Mijn reis**.
-
-    ![aangemeld](media/speech-devices-sdk/wake-word-3.png)
  
 1. De **aangepaste Wake Word** pagina is niet beschikbaar voor het publiek, dus er is geen directe koppeling waarmee u er gaat. De functie voor aangepaste spraak vereist een Azure-abonnementen, maar de functie aangepaste Wake Word niet. Als u de **geen abonnementen gevonden.** foutpagina, alleen vervangen de **"abonnementen? errorMessage = geen % 20Subscriptions % 20found"** met '**customkws**' in de URL en op ENTER. De URL moet een van de volgende: https://westus.cris.ai/customkws, https://eastasia.cris.ai/customkws of https://northeurope.cris.ai/customkws, afhankelijk van waar uw regio is.
 

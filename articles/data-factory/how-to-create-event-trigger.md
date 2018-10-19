@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/11/2018
+ms.date: 10/18/2018
 ms.author: douglasl
-ms.openlocfilehash: 20ee69654a6b19365c9b7c46e1fa11e102168365
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: f744e379521fe62f4b3fbbad0cc524ccb3e1b18d
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49309344"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49429385"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-in-response-to-an-event"></a>Een trigger die een pijplijn in reactie op een gebeurtenis wordt uitgevoerd
 
@@ -71,23 +71,26 @@ De volgende tabel bevat een overzicht van de schema-elementen die betrekking op 
 | **JSON-Element** | **Beschrijving** | **Type** | **Toegestane waarden** | **Vereist** |
 | ---------------- | --------------- | -------- | ------------------ | ------------ |
 | **Bereik** | De Azure Resource Manager-resource-ID van het Opslagaccount. | Reeks | Azure Resource Manager-ID | Ja |
-| **gebeurtenissen** | Het type gebeurtenissen die ervoor zorgen dat deze trigger wordt geactiveerd. | Matrix    | Microsoft.Storage.BlobCreated, Microsoft.Storage.BlobDeleted | Ja, een combinatie. |
-| **blobPathBeginsWith** | De blobpad moet beginnen met het patroon dat is opgegeven voor de trigger wordt geactiveerd. Bijvoorbeeld, '/ records/blobs/december /' wordt alleen wordt geactiveerd de trigger voor blobs in de map december onder de container records. | Reeks   | | Er moet ten minste één van deze eigenschappen worden opgegeven: blobPathBeginsWith, blobPathEndsWith. |
-| **blobPathEndsWith** | De blobpad moet eindigen met het patroon dat is opgegeven voor de trigger wordt geactiveerd. Bijvoorbeeld wordt 'december/boxes.csv' alleen de trigger voor blobs met de naam van de vakken in een map december gestart. | Reeks   | | Er moet ten minste één van deze eigenschappen worden opgegeven: blobPathBeginsWith, blobPathEndsWith. |
+| **gebeurtenissen** | Het type gebeurtenissen die ervoor zorgen dat deze trigger wordt geactiveerd. | Matrix    | Microsoft.Storage.BlobCreated, Microsoft.Storage.BlobDeleted | Ja, een combinatie van deze waarden. |
+| **blobPathBeginsWith** | De blobpad moet beginnen met het patroon dat is opgegeven voor de trigger wordt geactiveerd. Bijvoorbeeld, `/records/blobs/december/` alleen wordt gegeven van de trigger voor blobs in de `december` map onder de `records` container. | Reeks   | | U moet een waarde opgeven voor ten minste één van deze eigenschappen: `blobPathBeginsWith` of `blobPathEndsWith`. |
+| **blobPathEndsWith** | De blobpad moet eindigen met het patroon dat is opgegeven voor de trigger wordt geactiveerd. Bijvoorbeeld, `december/boxes.csv` alleen wordt gegeven van de trigger voor blobs met de naam `boxes` in een `december` map. | Reeks   | | U moet een waarde opgeven voor ten minste één van deze eigenschappen: `blobPathBeginsWith` of `blobPathEndsWith`. |
 
 ## <a name="examples-of-event-based-triggers"></a>Voorbeelden van triggers op basis van gebeurtenissen
 
 Deze sectie bevat voorbeelden van triggerinstellingen voor de op basis van gebeurtenissen.
 
--   **Blobpad begint met**('/ containername /'), ontvangt u gebeurtenissen voor elke blob in de container.
--   **Blobpad begint met**('/ containername/blobs/mapnaam'), ontvangt u gebeurtenissen voor alle blobs in de containername container en de mapnaam map. U kunt ook verwijzen naar een submap. bijvoorbeeld, ' / containername/blobs/mapnaam/submapnaam /'.
--   **Blobpad begint met**('/ containername/blobs/foldername/file.txt') – gebeurtenissen voor een blob met de naam bestand.txt in de map mapnaam onder de container containername ontvangt.
--   **Het pad naar eindigt met**('bestand.txt') – Receive-opdrachten gebeurtenissen voor een blob met de naam bestand.txt op elk pad.
--   **Het pad naar eindigt met**('/ containername/blobs/file.txt') – gebeurtenissen voor een blob met de naam bestand.txt onder container containername ontvangt.
--   **Het pad naar eindigt met**('foldername/file.txt') – Receive-opdrachten gebeurtenissen voor een blob met de naam bestand.txt in mapnaam map onder elke container.
+> [!IMPORTANT]
+> U moet nemen de `/blobs/` segment van het pad, zoals wordt weergegeven in de volgende voorbeelden wordt telkens wanneer u de container en map, container bestand of de container, map en en bestand.
 
-> [!NOTE]
-> U moet nemen de `/blobs/` segment van het pad wanneer u de container en map, container bestand of de container, map en en bestand.
+| Eigenschap | Voorbeeld | Beschrijving |
+|---|---|---|
+| **Blobpad begint met** | `/containername/` | Gebeurtenissen voor elke blob ontvangt in de container. |
+| **Blobpad begint met** | `/containername/blobs/foldername/` | Ontvangt u gebeurtenissen voor alle blobs in de `containername` container en `foldername` map. |
+| **Blobpad begint met** | `/containername/blobs/foldername/subfoldername/` | U kunt ook verwijzen naar een submap. |
+| **Blobpad begint met** | `/containername/blobs/foldername/file.txt` | Gebeurtenissen voor een blob met de naam ontvangt `file.txt` in de `foldername` map onder de `containername` container. |
+| **Het pad naar eindigt met** | `file.txt` | Gebeurtenissen voor een blob met de naam ontvangt `file.txt` ik een pad. |
+| **Het pad naar eindigt met** | `/containername/blobs/file.txt` | Gebeurtenissen voor een blob met de naam ontvangt `file.txt` onder de container `containername`. |
+| **Het pad naar eindigt met** | `foldername/file.txt` | Gebeurtenissen voor een blob met de naam ontvangt `file.txt` in `foldername` map onder elke container. |
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie voor meer informatie over triggers [pijplijnen uitvoeren en triggers](concepts-pipeline-execution-triggers.md#triggers).

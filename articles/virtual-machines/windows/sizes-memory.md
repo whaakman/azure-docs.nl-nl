@@ -1,5 +1,5 @@
 ---
-title: Windows Azure VM-grootten - geheugen | Microsoft Docs
+title: Azure VM-grootten voor Windows - geheugen | Microsoft Docs
 description: Geeft een lijst van de verschillende geoptimaliseerd voor geheugen-grootten beschikbaar voor Windows virtuele machines in Azure. Bevat informatie over het aantal vcpu's, gegevensschijven en NIC's, evenals opslag en doorvoer netwerkbandbreedte voor grootten die in deze reeks.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/06/2018
 ms.author: jonbeck
-ms.openlocfilehash: 0ac25520e6de0208664e6c61ff21a988ebbd8f75
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: a81ce010e2d31a9852ca24a0ac45f6b4f60ab480
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37903783"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49428195"
 ---
 # <a name="memory-optimized-virtual-machine-sizes"></a>Grootten van virtuele machines geoptimaliseerd voor geheugen
 

@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 09/21/2018
 ms.author: raynew
-ms.openlocfilehash: ac1cf5a30dee29f2737a05133aed774e86f78932
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: de093976a318b2658ff4009f4c5e314851f66b81
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47163423"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49403805"
 ---
 # <a name="group-machines-using-machine-dependency-mapping"></a>Machines groeperen met behulp van machine-afhankelijkheidstoewijzing
 
@@ -35,7 +35,7 @@ Als u wilt gebruikmaken van de visualisatie van afhankelijkheden, moet u een Log
 > U kunt de werkruimte die is gekoppeld aan een migratieproject niet wijzigen.
 
 ### <a name="download-and-install-the-vm-agents"></a>De VM-agents downloaden en installeren
-Wanneer u een werkruimte configureert, moet u om te downloaden en installeren van agents op elke on-premises computer die u wilt evalueren. Bovendien, als u computers geen verbinding met internet hebt, moet u om te downloaden en installeren [OMS-gateway](../log-analytics/log-analytics-oms-gateway.md) hierop.
+Wanneer u een werkruimte configureert, moet u om te downloaden en installeren van agents op elke on-premises computer die u wilt evalueren. Bovendien, als u computers geen verbinding met internet hebt, moet u om te downloaden en installeren [Log Analytics gateway](../log-analytics/log-analytics-oms-gateway.md) hierop.
 
 1. In **overzicht**, klikt u op **beheren** > **Machines**, en selecteer de vereiste machine.
 2. In de **afhankelijkheden** kolom, klikt u op **agents installeren**.

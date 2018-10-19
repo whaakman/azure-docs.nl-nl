@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/22/2017
 ms.author: ningk
-ms.openlocfilehash: c58c2b255d269aef7e8b3fea62d003ad0c16ef0a
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 0039536caf917a051f0ddabd6be7cf2b1be90ba2
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38971245"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49404899"
 ---
 # <a name="deploy-azure-log-analytics-nozzle-for-cloud-foundry-system-monitoring"></a>Azure Log Analytics-pijp voor Cloud Foundry systeemcontrole implementeren
 
@@ -56,14 +56,14 @@ Voordat u de opdrachtregelclient UAA instelt, zorg dat Rubygems is geïnstalleer
 
 ### <a name="3-create-a-log-analytics-workspace-in-azure"></a>3. Een Log Analytics-werkruimte maken in Azure
 
-U kunt de Log Analytics-werkruimte maken handmatig of met behulp van een sjabloon. De sjabloon implementeert een installatie van de vooraf geconfigureerde OMS KPI-weergaven en waarschuwingen voor de OMS-console. 
+U kunt de Log Analytics-werkruimte maken handmatig of met behulp van een sjabloon. De sjabloon implementeert een installatie van de vooraf geconfigureerde KPI-weergaven en waarschuwingen voor de Log Analytics-console. 
 
 #### <a name="to-create-the-workspace-manually"></a>De werkruimte handmatig maken:
 
 1. In de Azure-portal zoeken in de lijst met services in de Azure Marketplace en selecteer vervolgens Log Analytics.
 2. Selecteer **maken**, en selecteer vervolgens de opties voor de volgende items:
 
-   * **OMS-werkruimte**: Typ een naam voor uw werkruimte.
+   * **Log Analytics-werkruimte**: Typ een naam voor uw werkruimte.
    * **Abonnement**: als u meerdere abonnementen hebt, kiest u de optie die gelijk is aan uw CF-implementatie.
    * **Resourcegroep**: U kunt een nieuwe resourcegroep maken of hetzelfde account gebruiken met uw CF-implementatie.
    * **Locatie**: Geef de locatie.
@@ -71,19 +71,19 @@ U kunt de Log Analytics-werkruimte maken handmatig of met behulp van een sjabloo
 
 Zie voor meer informatie, [aan de slag met Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started).
 
-#### <a name="to-create-the-oms-workspace-through-the-oms-monitoring-template-from-azure-market-place"></a>De OMS-werkruimte via de OMS monitoring-sjabloon maken vanuit Azure Marketplace:
+#### <a name="to-create-the-log-analytics-workspace-through-the-monitoring-template-from-azure-market-place"></a>De Log Analytics-werkruimte via de monitoring-sjabloon maken vanuit Azure Marketplace:
 
 1. Open Azure portal.
 2. Klik op het teken '+' of 'Een resource maken' in de linkerbovenhoek.
-3. 'Cloud Foundry' typt in het zoekvenster, selecteert u 'OMS Cloud Foundry bewaking oplossing'.
-4. De OMS-Cloud Foundry oplossing sjabloon front pagina is geladen, klikt u op 'Maken' naar de blade sjabloon geopend.
+3. 'Cloud Foundry' typt in het zoekvenster, selecteert u 'Cloud Foundry bewaking oplossing'.
+4. De Cloud Foundry oplossing sjabloon front pagina is geladen, klikt u op 'Maken' naar de blade sjabloon geopend.
 5. Voer de vereiste parameters:
-    * **Abonnement**: Selecteer een Azure-abonnement voor de OMS-werkruimte, meestal hetzelfde met Cloud Foundry-implementatie.
-    * **Resourcegroep**: Selecteer een bestaande resourcegroep of maak een nieuwe voor de OMS-werkruimte.
+    * **Abonnement**: Selecteer een Azure-abonnement voor de Log Analytics-werkruimte, meestal hetzelfde met Cloud Foundry-implementatie.
+    * **Resourcegroep**: Selecteer een bestaande resourcegroep of maak een nieuwe voor de Log Analytics-werkruimte.
     * **Locatie van de resourcegroep**: Selecteer de locatie van de resourcegroep.
     * **OMS_Workspace_Name**: Voer de naam van een werkruimte, als de werkruimte niet bestaat, de sjabloon wordt een nieuwe maken.
     * **OMS_Workspace_Region**: Selecteer de locatie voor de werkruimte.
-    * **OMS_Workspace_Pricing_Tier**: Selecteer de SKU van de OMS-werkruimte. Zie de [prijsinformatie](https://azure.microsoft.com/pricing/details/log-analytics/) ter referentie.
+    * **OMS_Workspace_Pricing_Tier**: Selecteer de SKU van de Log Analytics-werkruimte. Zie de [prijsinformatie](https://azure.microsoft.com/pricing/details/log-analytics/) ter referentie.
     * **Juridische voorwaarden**: klik op aan juridische voorwaarden, klik vervolgens op 'Maken' de juridische term accepteren.
 - Nadat alle parameters zijn opgegeven, klikt u op 'Maken' om de sjabloon te implementeren. Wanneer de implementatie is voltooid, wordt de status op het tabblad melding weergegeven.
 
@@ -137,8 +137,8 @@ cd oms-log-analytics-firehose-nozzle
 U kunt nu omgevingsvariabelen instellen in het bestand manifest.yml in uw huidige map. Hieronder ziet u het app-manifest voor de Nozzle. Waarden vervangen door uw specifieke gegevens van de Log Analytics-werkruimte.
 
 ```
-OMS_WORKSPACE             : Log Analytics workspace ID: open OMS portal from your Log Analytics workspace, select Settings, and select connected sources.
-OMS_KEY                   : OMS key: open OMS portal from your Log Analytics workspace, select Settings, and select connected sources.
+OMS_WORKSPACE             : Log Analytics workspace ID: Open your Log Analytics workspace in the Azure portal, select **Advanced settings**, select **Connected Sources**, and select **Windows Servers**.
+OMS_KEY                   : OMS key: Open your Log Analytics workspace in the Azure portal, select **Advanced settings**, select **Connected Sources**, and select **Windows Servers**.
 OMS_POST_TIMEOUT          : HTTP post timeout for sending events to Log Analytics. The default is 10 seconds.
 OMS_BATCH_TIME            : Interval for posting a batch to Log Analytics. The default is 10 seconds.
 OMS_MAX_MSG_NUM_PER_BATCH : The maximum number of messages in a batch to Log Analytics. The default is 1000.
@@ -177,11 +177,11 @@ cf apps
 ```
 Zorg ervoor dat de toepassing OMS Nozzle wordt uitgevoerd.
 
-## <a name="view-the-data-in-the-oms-portal"></a>De gegevens bekijken in de OMS-portal
+## <a name="view-the-data-in-the-azure-portal"></a>De gegevens bekijken in de Azure-portal
 
-Als u de OMS-controle van de oplossing hebt geïmplementeerd wordt de sjabloon markt, gaat u naar Azure portal en zich de OMS-oplossing. U kunt de oplossing vinden in de resourcegroep die u hebt opgegeven in de sjabloon. Klik op de oplossing, blader naar de 'OMS Console', de vooraf geconfigureerde weergaven worden weergegeven, met de hoogste Cloud Foundry system-KPI's, toepassingsgegevens, waarschuwingen en statusmetrieken van de virtuele machine. 
+Als u de oplossing voor controle via de Marketplace-sjabloon hebt geïmplementeerd, gaat u naar Azure portal en zoek de oplossing. U kunt de oplossing vinden in de resourcegroep die u hebt opgegeven in de sjabloon. Klik op de oplossing, blader naar de "Log Analytics-Console', de vooraf geconfigureerde weergaven worden weergegeven, met de hoogste Cloud Foundry system-KPI's, toepassingsgegevens, waarschuwingen en statusmetrieken van de virtuele machine. 
 
-Als u de OMS-werkruimte handmatig hebt gemaakt, volgt u onderstaande stappen voor het maken van de weergaven en waarschuwingen:
+Als u de Log Analytics-werkruimte handmatig hebt gemaakt, volgt u onderstaande stappen voor het maken van de weergaven en waarschuwingen:
 
 ### <a name="1-import-the-oms-view"></a>1. Importeren van de OMS-weergave
 
@@ -246,6 +246,6 @@ Azure Log Analytics-pijp is open source. Stuur uw vragen en feedback aan de [Git
 
 ## <a name="next-step"></a>Volgende stap
 
-Maatstaven voor prestaties van virtuele machine zijn van PCF2.0, overgebracht naar Azure log analytics-pijp door systeem metrische gegevens doorstuurserver en geïntegreerd in de OMS-werkruimte. U hoeft niet meer de OMS-agent voor de VM-maatstaven voor prestaties. U kunt echter nog steeds de OMS-agent gebruiken om Syslog-gegevens te verzamelen. De OMS-agent is geïnstalleerd als een invoegtoepassing Bosh voor uw CF VM's. 
+Maatstaven voor prestaties van virtuele machine zijn van PCF2.0, overgebracht naar Azure log analytics-pijp door systeem metrische gegevens doorstuurserver en geïntegreerd in de Log Analytics-werkruimte. U hoeft niet meer de Log Analytics-agent voor de VM-maatstaven voor prestaties. U kunt echter nog steeds de Log Analytics-agent gebruiken om Syslog-gegevens te verzamelen. De Log Analytics-agent is geïnstalleerd als een invoegtoepassing Bosh voor uw CF VM's. 
 
-Zie voor meer informatie, [implementeren OMS-agent op uw implementatie en Cloud Foundry](https://github.com/Azure/oms-agent-for-linux-boshrelease).
+Zie voor meer informatie, [implementeren Log Analytics-agent op uw implementatie en Cloud Foundry](https://github.com/Azure/oms-agent-for-linux-boshrelease).

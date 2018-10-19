@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 10/12/2018
 ms.author: wolfma
-ms.openlocfilehash: 3a9da3b0f2165dadd99691c6dc9e41cbf3d48620
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 7f637014c5f3e246d67ae051f9304e2f2536d725
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49339998"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49427379"
 ---
 # <a name="release-notes"></a>Releaseopmerkingen
 
@@ -22,12 +22,12 @@ ms.locfileid: "49339998"
 
 Verbeteringen van de betrouwbaarheid en oplossingen voor problemen:
 
-* Los mogelijke fatale fout vanwege een racevoorwaarde in herkenning wordt verwijderd
-* Los de mogelijke fatale fout in het geval van niet-ingestelde eigenschappen.
-* Aanvullende fout en het controleren van de parameter.
-* Objective-c oplossen mogelijk fatale fout wordt veroorzaakt door de naam in NSString te overschrijven.
-* Objectice C: aanpassen zichtbaarheid van de API
-* JavaScript: problemen met betrekking tot de gebeurtenissen en de nuttige informatie.
+* Vaste mogelijke fatale fout vanwege een racevoorwaarde in herkenning wordt verwijderd
+* Vaste mogelijke fatale fout in het geval van niet-ingestelde eigenschappen.
+* Toegevoegde extra fout en controleren van de parameter.
+* Objective-c vaste mogelijk fatale fout veroorzaakt door de naam in NSString overschrijven.
+* Objective-c aangepast zichtbaarheid van de API
+* JavaScript: Vaste met betrekking tot de gebeurtenissen en de nuttige informatie.
 * Verbeteringen in de documentatie bij.
 
 In onze [voorbeeldopslagplaats](https://aka.ms/csspeech/samples), een nieuwe steekproef voor JavaScript is toegevoegd.

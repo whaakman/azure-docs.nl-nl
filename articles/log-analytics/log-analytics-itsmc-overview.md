@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
 ms.component: ''
-ms.openlocfilehash: 5f5b03090f374f936e03d487596ca0462feea348
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: b99c14e6022fa34d41caaa02bfc9feecb3c840ce
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48042425"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49407500"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Azure verbinden met ITSM-hulpprogramma's met behulp van IT Service Management-Connector
 
@@ -63,9 +63,13 @@ Voordat u een verbinding maken kunt, moet u de oplossing voor ITSM-Connector toe
     ![ITSMC oplossing toevoegen](./media/log-analytics-itsmc/add-itsmc-solution.png)
 
 3.  In de **OMS-werkruimte** sectie, selecteer de Azure Log Analytics-werkruimte waar u wilt installeren van de oplossing.
+   >[!NOTE]
+   >Als onderdeel van de lopende overgang van Microsoft Operations Management Suite (OMS) naar Azure Monitor, worden OMS-werkruimten nu aangeduid als Log Analytics-werkruimten.
 4.  In de **instellingen van de OMS-werkruimte** sectie, selecteer de resourcegroep waar u om de bron van de oplossing te maken.
 
     ![ITSMC werkruimte](./media/log-analytics-itsmc/itsmc-solution-workspace.png)
+    >[!NOTE]
+    >Als onderdeel van de lopende overgang van Microsoft Operations Management Suite (OMS) naar Azure Monitor, worden OMS-werkruimten nu aangeduid als Log Analytics-werkruimten.
 
 5.  Klik op **Create**.
 
@@ -290,7 +294,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
     - Zorg ervoor dat de Web-app is geïmplementeerd en hybride verbinding wordt gemaakt. Als u wilt controleren of de verbinding is tot stand gebracht met de Service Manager on-premises machine, gaat u naar de URL van de Web-app zoals beschreven in de documentatie voor het maken van de [hybride verbinding](log-analytics-itsmc-connections.md#configure-the-hybrid-connection).  
 
 2.  Als u niet ophalen van gegevens van ServiceNow is gesynchroniseerd met Log Analytics, zorg ervoor dat het ServiceNow exemplaar niet in de slaapstand staat. Exemplaren van ServiceNow Dev gaat soms u naar de slaapstand als niet-actieve gedurende een lange periode. Anders, meld u het probleem.
-3.  Als de OMS-waarschuwingen worden geactiveerd, maar werkt items worden niet gemaakt in de ITSM-product of configuratie-items zijn niet gemaakt/gekoppeld aan werkitems of voor andere algemene informatie, zoekt u in de volgende locaties:
+3.  Als Log Analytics-waarschuwingen worden geactiveerd, maar werkt items worden niet gemaakt in de ITSM-product of configuratie-items zijn niet gemaakt/gekoppeld aan werkitems of voor andere algemene informatie, zoekt u in de volgende locaties:
  -  ITSMC: De oplossing bevat een overzicht van verbindingen/zakelijke items/computers enzovoort. Klik op de tegel weergegeven **Connector-Status**, die gaat u naar **zoeken in logboeken** met de relevante query. Bekijk de records in logboek registreren met LogType_S als fout voor meer informatie.
  - **Zoeken in logboeken** pagina: Bekijk de fouten/gerelateerde informatie rechtstreeks met behulp van de query `*`ServiceDeskLog_CL`*`.
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: bwren
-ms.openlocfilehash: e3620bbf92cab926d56c4de0817f833b61cf2b03
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: d1fdec8e3a959aaeb68d4b63a1c71d6ef1ddd054
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46125082"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406318"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Office 365-oplossing in Azure (Preview)
 
@@ -37,7 +37,7 @@ Het volgende is vereist voordat u deze oplossing wordt geïnstalleerd en geconfi
 
 - Organisatie Office 365-abonnement.
 - Referenties voor een gebruikersaccount dat een globale beheerder.
-- Voor het ontvangen van audit-gegevens, moet u [controle configureren](https://support.office.com/en-us/article/Search-the-audit-log-in-the-Office-365-Security-Compliance-Center-0d4d0f35-390b-4518-800e-0c7ec95e946c?ui=en-US&rs=en-US&ad=US#PickTab=Before_you_begin) in uw Office 365-abonnement.  Houd er rekening mee dat [Postvakcontrole](https://technet.microsoft.com/library/dn879651.aspx) wordt afzonderlijk geconfigureerd.  U kunt nog steeds installeren van de oplossing en andere gegevens verzamelen als controle is niet geconfigureerd.
+- Voor het ontvangen van audit-gegevens, moet u [controle configureren](https://support.office.com/article/Search-the-audit-log-in-the-Office-365-Security-Compliance-Center-0d4d0f35-390b-4518-800e-0c7ec95e946c?ui=en-US&rs=en-US&ad=US#PickTab=Before_you_begin) in uw Office 365-abonnement.  Houd er rekening mee dat [Postvakcontrole](https://technet.microsoft.com/library/dn879651.aspx) wordt afzonderlijk geconfigureerd.  U kunt nog steeds installeren van de oplossing en andere gegevens verzamelen als controle is niet geconfigureerd.
  
 
 ## <a name="management-packs"></a>Management packs
@@ -477,7 +477,7 @@ U kunt de oplossing voor het beheer van Office 365 met behulp van het proces in 
 
 ## <a name="data-collection"></a>Gegevensverzameling
 ### <a name="supported-agents"></a>Ondersteunde agents
-De Office 365-oplossing niet ophalen van gegevens uit een van de [OMS-agents](../log-analytics/log-analytics-data-sources.md).  Deze ophaalt gegevens rechtstreeks vanuit de Office 365.
+De Office 365-oplossing niet ophalen van gegevens uit een van de [Log Analytics-agents](../log-analytics/log-analytics-data-sources.md).  Deze ophaalt gegevens rechtstreeks vanuit de Office 365.
 
 ### <a name="collection-frequency"></a>Verzamelingsfrequentie
 Het duurt een paar uur gegevens zijn in eerste instantie worden verzameld. Zodra deze wordt gestart met het verzamelen van Office 365 verzendt een [webhook melding](https://msdn.microsoft.com/office-365/office-365-management-activity-api-reference#receiving-notifications) met gedetailleerde gegevens naar Log Analytics telkens wanneer een record wordt gemaakt. Deze record is beschikbaar in Log Analytics binnen een paar minuten nadat u hebt ontvangen.
@@ -518,7 +518,7 @@ De volgende eigenschappen gelden voor alle Office 365-records.
 | OrganizationId | De GUID voor Office 365-tenant van uw organisatie. Deze waarde is altijd hetzelfde zijn voor uw organisatie, ongeacht de Office 365-service waarin dit zich voordoet. |
 | RecordType | Het type van de bewerking die wordt uitgevoerd. |
 | ResultStatus | Geeft aan of de actie (opgegeven in de eigenschap Operation) geslaagd of mislukt is. Mogelijke waarden zijn Succeeded, partiallysucceded en Failed. Voor een beheeractiviteit voor Exchange, is de waarde True of False. |
-| UserId | De UPN (User Principal Name) van de gebruiker die de actie die heeft geresulteerd in de record is vastgelegd, heeft uitgevoerd bijvoorbeeld, my_name@my_domain_name. Houd er rekening mee dat records voor de activiteit uitgevoerd door systeemaccounts (zoals SHAREPOINT\system of NTAUTHORITY\SYSTEM) ook opgenomen worden. | 
+| Gebruikers-id | De UPN (User Principal Name) van de gebruiker die de actie die heeft geresulteerd in de record is vastgelegd, heeft uitgevoerd bijvoorbeeld, my_name@my_domain_name. Houd er rekening mee dat records voor de activiteit uitgevoerd door systeemaccounts (zoals SHAREPOINT\system of NTAUTHORITY\SYSTEM) ook opgenomen worden. | 
 | UserKey | Een alternatieve ID voor de gebruiker die u in de eigenschap gebruikers-id.  Bijvoorbeeld: deze eigenschap wordt gevuld met de unieke ID voor passport (PUID) voor gebeurtenissen die worden uitgevoerd door gebruikers in SharePoint, OneDrive voor bedrijven en Exchange. Deze eigenschap kan ook dezelfde waarde opgeven als de gebruikers-id-eigenschap voor gebeurtenissen in andere services en gebeurtenissen die worden uitgevoerd door systeemaccounts|
 | UserType | Het type van de gebruiker die de bewerking heeft uitgevoerd.<br><br>Gemeente<br>Toepassing<br>DcAdmin<br>Reguliere<br>Gereserveerd<br>Service-Principal<br>Systeem |
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: 481fcb869004a6fca83fdf19c32c41010057de32
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: aa68bb0cb2e404072ef359591ce9309f8c27b631
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39008192"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49403982"
 ---
 # <a name="azure-operational-security-checklist"></a>Controlelijst voor Azure operationele beveiliging
 Implementeren van een toepassing op Azure is een snelle, eenvoudige en kosteneffectieve. Voordat u cloudtoepassing in productie is handig om een controlelijst om u te helpen bij het evalueren van uw toepassing meer veiligheid tegen een lijst van operationele beveiliging van essentiële en aanbevolen acties u moet denken implementeert.
@@ -51,8 +51,7 @@ Deze controlelijst is bedoeld om u te helpen ondernemingen met verschillende ope
 Veel organisaties hebt geïmplementeerd en beheerd hun cloudtoepassingen op Azure. De opgegeven controlelijsten markeert u meerdere controlelijsten die essentieel is en helpen u om de kans van geslaagde implementaties en bewerkingen frustraties gratis te vergroten. Wij raden deze overwegingen voor operationele en strategische voor uw bestaande en nieuwe implementaties van toepassingen op Azure.
 
 ## <a name="next-steps"></a>Volgende stappen
-In dit document hebt u kennis gemaakt met de oplossing Beveiliging en controle van OMS. Raadpleeg de volgende artikelen voor meer informatie over OMS Beveiliging:
+Zie voor meer informatie over de beveiliging van de volgende artikelen:
 
-- [Overzicht van operations Management Suite (OMS)](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview).
 - [Ontwerp en operationele beveiliging](https://www.microsoft.com/trustcenter/security/designopsecurity).
 - [Azure Security Center plannings- en](https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide).

@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/31/2018
 ms.author: jomolesk
-ms.openlocfilehash: e65369546715a679de19fb1aa44dd221fb4de04e
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 78c92f8d738dd675ac20c31bd8171bd4370a56f6
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47408433"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406242"
 ---
 # <a name="azure-security-and-compliance-blueprint---iaas-web-application-for-nist-sp-800-171"></a>Azure-beveiliging en naleving blauwdruk - IaaS-webtoepassing voor SP NIST 800-171
 
@@ -167,7 +167,7 @@ Azure-services zich uitgebreid systeem en activiteit van gebruikers, evenals sys
 - **Activiteitenlogboeken**: [activiteitenlogboeken](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) bieden inzicht in bewerkingen die worden uitgevoerd op resources in een abonnement. Activiteitenlogboeken kunnen u eenvoudiger bepalen van een bewerking initiator, tijdstip van de gebeurtenis en status.
 - **Diagnostische logboeken**: [diagnostische logboeken](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) bevatten alle logboeken die zijn gegenereerd door elke resource. Deze logboeken bevatten de logboeken voor Windows-systeem, opslaglogboeken, Key Vault-auditlogboeken en Application Gateway toegangs- en firewall-Logboeken. Alle logboeken met diagnostische gegevens schrijven naar een gecentraliseerd en versleutelde Azure storage-account voor archivering. Gebruikers kunnen de bewaartermijn maximaal configureren tot 730 dagen, om te voldoen aan hun specifieke wensen.
 
-**Log Analytics**: deze logboeken worden geconsolideerd [Log Analytics](https://azure.microsoft.com/services/log-analytics/) voor verwerking, opslag en -dashboardrapporten. Nadat gegevens zijn verzameld, onderverdeeld in afzonderlijke tabellen voor elk gegevenstype in Operations Management Suite-werkruimten. Op deze manier kunnen alle gegevens samen kunnen worden geanalyseerd, ongeacht de oorspronkelijke bron. Security Center kan worden geïntegreerd met Log Analytics. Klanten kunnen Log Analytics-query's gebruiken voor toegang tot hun beveiligingsgegevens voor de gebeurtenis en combineren met gegevens van andere services.
+**Log Analytics**: deze logboeken worden geconsolideerd [Log Analytics](https://azure.microsoft.com/services/log-analytics/) voor verwerking, opslag en -dashboardrapporten. Nadat gegevens zijn verzameld, onderverdeeld in afzonderlijke tabellen voor elk gegevenstype in Log Analytics-werkruimten. Op deze manier kunnen alle gegevens samen kunnen worden geanalyseerd, ongeacht de oorspronkelijke bron. Security Center kan worden geïntegreerd met Log Analytics. Klanten kunnen Log Analytics-query's gebruiken voor toegang tot hun beveiligingsgegevens voor de gebeurtenis en combineren met gegevens van andere services.
 
 De volgende Log Analytics [beheeroplossingen](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions) zijn opgenomen als onderdeel van deze architectuur:
 -   [Active Directory-evaluatie](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment): het Active Directory statuscontrole oplossing beoordeelt het risico en de gezondheid van server-omgevingen op een vast interval. Het biedt een geprioriteerde lijst met aanbevelingen die specifiek zijn voor de geïmplementeerde serverinfrastructuur.

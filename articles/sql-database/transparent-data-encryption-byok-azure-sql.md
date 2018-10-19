@@ -12,12 +12,12 @@ ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
 ms.date: 10/05/2018
-ms.openlocfilehash: aff1d59000a95f2b8f029b9db30ff1facb2f8ba6
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 32d1956741f739234a3fdea7034f2f1e33a4c082
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49114665"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49408222"
 ---
 # <a name="azure-sql-transparent-data-encryption-bring-your-own-key-support"></a>Azure SQL Transparent Data Encryption: Bring Your Own Key-ondersteuning
 
@@ -67,8 +67,6 @@ Wanneer TDE is eerst geconfigureerd voor gebruik van een TDE-beveiliging uit Key
   > Als de Azure AD Identity **per ongeluk is verwijderd of de machtigingen van de server worden ingetrokken** met behulp van de key vault-toegangsbeleid, de server verliest de toegang tot de key vault en TDE versleuteld databases binnen 24 uur zijn verwijderd.
 
 - Als u firewalls en virtuele netwerken voor Azure Key Vault, moet u het volgende configureren: 
-  - Zodat toegang vanaf 'Geselecteerde netwerken' 
-  - Bestaande virtuele netwerken toevoegen en selecteer het SQL-Database-netwerk, indien van toepassing (dit is optioneel voor singleton-databases en vereist is voor beheerde exemplaren) 
   - Vertrouwde Microsoft-services om over te slaan van de firewall toestaan: Ja gekozen 
          
     > [!NOTE] 

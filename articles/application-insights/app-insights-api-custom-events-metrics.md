@@ -13,12 +13,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/16/2018
 ms.author: mbullwin
-ms.openlocfilehash: 3de3a7b15f2ebef549f925f6604956ca16f4551b
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 4e44a82969b0b91b04174d8643cf136abf14a575
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49388089"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405237"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>Application Insights-API voor aangepaste gebeurtenissen en metrische gegevens
 
@@ -154,7 +154,7 @@ telemetry.trackEvent({name: "WinGame"});
 
 De telemetrie is beschikbaar in de `customEvents` in tabel [Application Insights Analytics](app-insights-analytics.md). Elke rij vertegenwoordigt een aanroep van `trackEvent(..)` in uw app.
 
-Als [steekproeven](app-insights-sampling.md) worden uitgevoerd, de eigenschap itemCount geeft een waarde groter dan 1. Voor voorbeeld itemCount == 10 betekent dat van 10 aanroepen van trackEvent(), het proces steekproeven alleen een van beide overgedragen. Als u het juiste aantal aangepaste gebeurtenissen, moet u daarom code gebruiken zoals `customEvent | summarize sum(itemCount)`.
+Als [steekproeven](app-insights-sampling.md) worden uitgevoerd, de eigenschap itemCount geeft een waarde groter dan 1. Voor voorbeeld itemCount == 10 betekent dat van 10 aanroepen van trackEvent(), het proces steekproeven alleen een van beide overgedragen. Als u het juiste aantal aangepaste gebeurtenissen, moet u daarom code gebruiken zoals `customEvents | summarize sum(itemCount)`.
 
 ## <a name="getmetric"></a>GetMetric
 

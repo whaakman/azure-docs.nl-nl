@@ -1,6 +1,6 @@
 ---
-title: Verzamelen van Nagios en Zabbix-waarschuwingen in OMS Log Analytics | Microsoft Docs
-description: Nagios en Zabbix zijn open-source hulpprogramma's voor controle. U kunt waarschuwingen van deze hulpprogramma's verzamelen in Log Analytics om ze te analyseren en met waarschuwingen van andere bronnen.  In dit artikel wordt beschreven hoe u de OMS-Agent voor Linux voor het verzamelen van waarschuwingen van deze systemen configureren.
+title: Verzamelen van Nagios en Zabbix-waarschuwingen in Log Analytics | Microsoft Docs
+description: Nagios en Zabbix zijn open-source hulpprogramma's voor controle. U kunt waarschuwingen van deze hulpprogramma's verzamelen in Log Analytics om ze te analyseren en met waarschuwingen van andere bronnen.  In dit artikel wordt beschreven hoe u de Log Analytics-agent voor Linux voor het verzamelen van waarschuwingen van deze systemen configureren.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -15,18 +15,19 @@ ms.workload: infrastructure-services
 ms.date: 04/13/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: e668b2e989571d911c967d08d8012b11adaebd4d
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: eb129ebe6d63396934cbcda509d711cc63a5ee1b
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041030"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49402937"
 ---
-# <a name="collect-alerts-from-nagios-and-zabbix-in-log-analytics-from-oms-agent-for-linux"></a>Waarschuwingen verzamelen van Nagios en Zabbix in Log Analytics in OMS-Agent voor Linux 
-[Nagios](https://www.nagios.org/) en [Zabbix](http://www.zabbix.com/) zijn open-source hulpprogramma's voor controle. U kunt waarschuwingen van deze hulpprogramma's verzamelen in Log Analytics om te kunnen analyseren ze samen met [waarschuwingen uit andere bronnen](log-analytics-alerts.md).  In dit artikel wordt beschreven hoe u de OMS-Agent voor Linux voor het verzamelen van waarschuwingen van deze systemen configureren.
+# <a name="collect-alerts-from-nagios-and-zabbix-in-log-analytics-from-log-analytics-agent-for-linux"></a>Waarschuwingen verzamelen van Nagios en Zabbix in Log Analytics van Log Analytics-agent voor Linux 
+[!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)]
+[Nagios](https://www.nagios.org/) en [Zabbix](http://www.zabbix.com/) zijn open-source hulpprogramma's voor controle. U kunt waarschuwingen van deze hulpprogramma's verzamelen in Log Analytics om te kunnen analyseren ze samen met [waarschuwingen uit andere bronnen](log-analytics-alerts.md).  In dit artikel wordt beschreven hoe u de Log Analytics-agent voor Linux voor het verzamelen van waarschuwingen van deze systemen configureren.
  
 ## <a name="prerequisites"></a>Vereisten
-De OMS-Agent voor Linux ondersteunt verzamelen meldingen van Nagios tot versie 4.2.x en Zabbix maximaal versie 2.x.
+De Log Analytics-agent voor Linux ondersteunt verzamelen meldingen van Nagios tot versie 4.2.x en Zabbix maximaal versie 2.x.
 
 ## <a name="configure-alert-collection"></a>Verzamelen van waarschuwingen configureren
 

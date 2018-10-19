@@ -14,23 +14,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: 706e946e61f7d5f48ce5071e90d724af717449d9
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 724603fdb80e6fce7d5b8756655d23a6c32d5558
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45575215"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405460"
 ---
 # <a name="azure-operational-security-overview"></a>Overzicht van Azure operationele beveiliging
 [Azure operational security](https://docs.microsoft.com/azure/security/azure-operational-security) verwijst naar de services, besturingselementen en functies die beschikbaar zijn voor gebruikers voor het beveiligen van hun gegevens, toepassingen en andere items in Microsoft Azure. Er is een structuur waarin de kennis opgedaan uit een verscheidenheid aan functies die uniek voor Microsoft zijn. Deze mogelijkheden omvatten de Microsoft Security Development Lifecycle (SDL), het programma Microsoft Security Response Center en diep besef van het landschap van cyberveiligheidsbedreigingen.
 
-## <a name="operations-management-suite"></a>Operations Management Suite
+##  <a name="azure-management-services"></a>Azure-beheerservices
 IT operations-teams is verantwoordelijk voor het beheren van datacenter-infrastructuur, toepassingen en gegevens, inclusief de stabiliteit en beveiliging van deze systemen. Verkrijgen van beveiligingsinzichten op in complexe IT-omgevingen vaak verhogen vereist echter organisaties cobble samen gegevens van meerdere systemen voor beveiliging en beheer.
 
-[Microsoft Operations Management Suite](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) is een cloudgebaseerde IT-beheeroplossing waarmee u beheren kunt en beveiligen van uw on-premises en cloudinfrastructuur. De kernfunctionaliteit wordt geleverd door de volgende services die worden uitgevoerd in Azure. Elke service biedt een specifieke beheerfunctie. U kunt services voor het bereiken van verschillende beheerscenario combineren. 
+[Microsoft Log Analytics](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) is een cloudgebaseerde IT-beheeroplossing waarmee u beheren kunt en beveiligen van uw on-premises en cloudinfrastructuur. De kernfunctionaliteit wordt geleverd door de volgende services die worden uitgevoerd in Azure. Azure bevat meerdere services die u helpen beheren en beveiligen van uw on-premises en cloudinfrastructuur. Elke service biedt een specifieke beheerfunctie. U kunt services voor het bereiken van verschillende beheerscenario combineren. 
 
-### <a name="log-analytics"></a>Log Analytics
-[Azure Log Analytics](http://azure.microsoft.com/documentation/services/log-analytics) bewakingsservices voor Operations Management Suite biedt door het verzamelen van gegevens van beheerde resources in een centrale opslagplaats. Deze gegevens kunnen bevatten gebeurtenissen, prestatiegegevens of aangepaste gegevens die worden geleverd via de API. Nadat de gegevens zijn verzameld, is het beschikbaar voor waarschuwingen, analyse en export. 
+### <a name="azure-monitor"></a>Azure Monitor
+[Azure Monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/overview) verzamelt gegevens van beheerde sourcesa in centrale gegevensopslag. Deze gegevens kunnen bevatten gebeurtenissen, prestatiegegevens of aangepaste gegevens die worden geleverd via de API. Nadat de gegevens zijn verzameld, is het beschikbaar voor waarschuwingen, analyse en export. 
 
 U kunt gegevens uit een groot aantal bronnen consolideren en gegevens uit uw Azure-services combineren met uw bestaande on-premises omgeving. Log Analytics ook duidelijk het verzamelen van de gegevens worden gescheiden van de actie wordt uitgevoerd op die gegevens, zodat alle acties beschikbaar voor alle soorten gegevens zijn.
 
@@ -85,7 +85,7 @@ Security Center beoordeelt de configuratie van uw resources om beveiligingsprobl
 >[!Note]
 >Voor meer informatie over rollen en toegestane acties in Security Center, Zie [machtigingen in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-permissions).
 
-Security Center maakt gebruik van de Microsoft Monitoring Agent. Dit is dezelfde agent die gebruikmaken van Operations Management Suite en de Log Analytics-service. Gegevens die worden verzameld van deze agent worden opgeslagen in een bestaande Log Analytics [werkruimte](https://docs.microsoft.com/azure/log-analytics/log-analytics-manage-access) die zijn gekoppeld aan uw Azure-abonnement of een nieuwe werkruimte, rekening houdend met de geolocatie van de virtuele machine.
+Security Center maakt gebruik van de Microsoft Monitoring Agent. Dit is dezelfde agent die gebruikmaakt van de service Log Analytics. Gegevens die worden verzameld van deze agent worden opgeslagen in een bestaande Log Analytics [werkruimte](https://docs.microsoft.com/azure/log-analytics/log-analytics-manage-access) die zijn gekoppeld aan uw Azure-abonnement of een nieuwe werkruimte, rekening houdend met de geolocatie van de virtuele machine.
 
 ## <a name="azure-monitor"></a>Azure Monitor
 Prestatieproblemen in uw cloud-app kunnen invloed hebben op uw bedrijf. Degradations kan met meerdere onderdelen onderling verbonden en regelmatige versies, op elk gewenst moment gebeuren. En als u een app ontwikkelt, uw gebruikers gewoonlijk detecteren van problemen die u niet hebt gevonden in de testfase. U moet weten over deze problemen onmiddellijk en hebt u hulpprogramma's voor het vaststellen en oplossen van de problemen.
@@ -155,8 +155,8 @@ Goed ontwikkelde DevOps-adepten vast aantal van de volgende procedures. Deze pro
 -   [Microservices](https://www.visualstudio.com/learn/what-are-microservices/) architectuur wordt gebruikt voor het isoleren van zakelijke gebruiksvoorbeelden in kleine herbruikbare services.  Deze architectuur kunt u schaalbaarheid en efficiëntie.
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie voor meer informatie over de Operations Management Suite Security and Audit-oplossing, de volgende artikelen:
+Zie voor meer informatie over de oplossing beveiliging en controle, de volgende artikelen:
 
 - [Beveiliging en naleving](https://www.microsoft.com/cloud-platform/security-and-compliance)
-- [Lezen en reageren op beveiligingswaarschuwingen in de Operations Management Suite Security and Audit-oplossing](https://docs.microsoft.com/azure/operations-management-suite/oms-security-responding-alerts)
-- [Bewaken van resources in de Operations Management Suite Security and Audit-oplossing](https://docs.microsoft.com/azure/operations-management-suite/oms-security-monitoring-resources)
+- [Azure Security Center](https://docs.microsoft.com/en-us/azure/security-center/security-center-intro)
+- [Azure Monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/overview)

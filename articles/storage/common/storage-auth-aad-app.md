@@ -1,21 +1,21 @@
 ---
 title: Verifiëren met Azure Active Directory voor toegang tot blob- en wachtrijservices gegevens uit uw toepassingen (Preview) | Microsoft Docs
-description: Gebruik Azure Active Directory om te verifiëren vanaf binnen een toepassing en autorisatie van aanvragen voor Azure Storage-resources (Preview).
+description: Gebruik Azure Active Directory om te verifiëren vanaf binnen een toepassing en autorisatie van aanvragen voor blobs en wachtrijen (Preview).
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 09/07/2018
+ms.date: 10/15/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 6a0b7139fd8d216397090154a4324c8e4305a939
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: d249753dd954ba610a757a88060c6c0f7c58ad95
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48816375"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49427090"
 ---
-# <a name="authenticate-with-azure-active-directory-from-an-azure-storage-application-preview"></a>Verifiëren met Azure Active Directory vanaf een Azure Storage-toepassing (Preview)
+# <a name="authenticate-with-azure-active-directory-from-an-application-for-access-to-blobs-and-queues-preview"></a>Verifiëren met Azure Active Directory vanaf een aanvraag voor toegang tot blobs en wachtrijen (Preview)
 
 Een groot voordeel van het gebruik van Azure Active Directory (Azure AD) met Azure Storage is dat uw referenties niet meer nodig hebt om te worden opgeslagen in uw code. U kunt in plaats daarvan een OAuth 2.0-toegangstoken aanvragen bij Azure AD. Azure AD de verificatie van de beveiligings-principal (een gebruiker, groep of service-principal) wordt de toepassing wordt uitgevoerd. Als de verificatie slaagt, Azure AD retourneert het toegangstoken voor de toepassing en de toepassing vervolgens het toegangstoken kunt gebruiken om aanvragen naar Azure Storage te autoriseren.
 
@@ -26,6 +26,10 @@ Voordat u een beveiligings-principal van uw Azure Storage-toepassing verifiëren
 Zie voor een overzicht van de OAuth 2.0-stroom voor het verlenen van code, [autoriseren de toegang tot Azure Active Directory web-apps met behulp van de OAuth 2.0-code verlenen stroom](../../active-directory/develop/v1-protocols-oauth-code.md).
 
 [!INCLUDE [storage-auth-aad-note-include](../../../includes/storage-auth-aad-note-include.md)]
+
+## <a name="assign-an-rbac-role-to-an-azure-ad-security-principal"></a>Een RBAC-rol toewijzen aan een beveiligings-principal voor Azure AD
+
+Als u wilt een beveiligings-principal van uw Azure Storage-toepassing verifiëren, moet u eerst op basis van rollen (RBAC) instellingen voor toegangsbeheer voor deze beveiligings-principal configureren. Azure Storage definieert RBAC-rollen die machtigingen voor containers en wachtrijen omvatten. Wanneer de RBAC-rol is toegewezen aan een beveiligings-principal, krijgt deze beveiligings-principal toegang tot die resource. Zie voor meer informatie, [beheren toegangsrechten tot Azure BLOB Storage en Queue gegevens met RBAC (Preview)](storage-auth-aad-rbac.md).
 
 ## <a name="register-your-application-with-an-azure-ad-tenant"></a>Uw toepassing registreren bij een Azure AD-tenant
 

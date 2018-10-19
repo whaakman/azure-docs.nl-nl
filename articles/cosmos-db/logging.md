@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/07/2018
 ms.author: sngun
-ms.openlocfilehash: 68eb567235897641d5d4027160f62c5aa6e7e4f9
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 26500f3e557a27046edc5c833b8c8d88ae266e68
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46963386"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49408996"
 ---
 # <a name="azure-cosmos-db-diagnostic-logging"></a>Azure Cosmos DB-diagnostische logboeken
 
@@ -356,11 +356,14 @@ Logboeken met diagnostische gegevens zijn beschikbaar in uw account gedurende tw
 
 Als u hebt geselecteerd de **verzenden naar Log Analytics** optie bij het inschakelen van diagnostische gegevens vastleggen, diagnostische gegevens van de container wordt doorgestuurd naar Log Analytics binnen twee uur. Wanneer u Log Analytics bekijkt onmiddellijk nadat u logboekregistratie inschakelt, kunt u de gegevens niet zien. Slechts twee uur wacht en probeer het opnieuw. 
 
-Voordat u uw logboeken bekijken, controleren en zien als uw werkruimte voor logboekanalyse is bijgewerkt naar de nieuwe querytaal van Log Analytics gebruiken. Als u wilt controleren, opent u de [Azure-portal](https://portal.azure.com), selecteer **Log Analytics** uiterst links, selecteer vervolgens de naam van de werkruimte zoals weergegeven in de volgende afbeelding. De **OMS-werkruimte** pagina wordt weergegeven:
+Voordat u uw logboeken bekijken, controleren en zien als uw werkruimte voor logboekanalyse is bijgewerkt naar de nieuwe querytaal van Log Analytics gebruiken. Als u wilt controleren, opent u de [Azure-portal](https://portal.azure.com), selecteer **Log Analytics** uiterst links, selecteer vervolgens de naam van de werkruimte zoals weergegeven in de volgende afbeelding. De **Log Analytics-werkruimte** pagina wordt weergegeven:
 
 ![Log Analytics in Azure portal](./media/logging/azure-portal.png)
 
-Als u het volgende bericht wordt weergegeven op de **OMS-werkruimte** pagina uw werkruimte is niet bijgewerkt voor het gebruik van de nieuwe taal. Zie voor meer informatie over het upgraden naar de nieuwe querytaal [uw Azure Log Analytics-werkruimte upgraden voor nieuwe zoekopdrachten](../log-analytics/log-analytics-log-search-upgrade.md). 
+>[!NOTE]
+>OMS-werkruimten worden nu aangeduid als Log Analytics-werkruimten.  
+
+Als u het volgende bericht wordt weergegeven op de **Log Analytics-werkruimte** pagina uw werkruimte is niet bijgewerkt voor het gebruik van de nieuwe taal. Zie voor meer informatie over het upgraden naar de nieuwe querytaal [uw Azure Log Analytics-werkruimte upgraden voor nieuwe zoekopdrachten](../log-analytics/log-analytics-log-search-upgrade.md). 
 
 ![Log Analytics-upgrade bericht](./media/logging/upgrade-notification.png)
 

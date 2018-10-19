@@ -9,12 +9,12 @@ ms.workload: core
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: shvija
-ms.openlocfilehash: 27052759ccc4664ea95ea19cb52bebeec6fec5ae
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 6d5b52c8a5dd0306a349cac5e67eecc809005c6f
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48803355"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49429181"
 ---
 # <a name="receive-events-from-azure-event-hubs-using-nodejs"></a>Gebeurtenissen ontvangen van Azure Event Hubs met behulp van Node.js
 
@@ -57,7 +57,7 @@ De SDK die u hebt gekloond bevat meerdere voorbeelden die laten zien u hoe gebeu
 
 1. Open het project in Visual Studio Code. 
 2. Maak een bestand met de naam **.env** onder de **processor** map. Kopieer en plak de omgevingsvariabelen voorbeeld van de **sample.env** in de hoofdmap.
-3. Uw event hub-verbindingsreeks, de event hub-naam en de storage-eindpunt configureren. U kunt de verbindingsreeks kopiëren voor uw event hub uit **verbinding verbindingsreeks-primaire** key onder **RootManageSharedAccessKey** op de Event Hub-pagina in de Azure-portal. Zie voor gedetailleerde stappen [-verbindingsreeks ophalen](event-hubs-quickstart-portal.md#create-an-event-hubs-namespace).
+3. Uw event hub-verbindingsreeks, de event hub-naam en de storage-eindpunt configureren. U kunt de verbindingsreeks kopiëren voor uw event hub uit **verbinding verbindingsreeks-primaire** key onder **RootManageSharedAccessKey** op de Event Hub-pagina in de Azure-portal. Zie voor gedetailleerde stappen [-verbindingsreeks ophalen](event-hubs-create.md#create-an-event-hubs-namespace).
 4. Op uw Azure-CLI, gaat u naar de **processor** mappad. Knooppunt-pakketten installeren en bouw het project door het uitvoeren van de volgende opdrachten:
 
     ```nodejs

@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 09/19/2018
 ms.author: tamram
-ms.openlocfilehash: d599b54fe828b88edd3d04d6cd66a4baf36c2c1a
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: 1962a3237fb54409d17fefa314605bafa91c3e9c
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48831548"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49427634"
 ---
 # <a name="overview-of-azure-active-directory-authentication-over-smb-for-azure-files-preview"></a>Overzicht van Azure Active Directory-verificatie via SMB voor Azure Files (preview)
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -50,7 +50,7 @@ Azure AD via SMB voor Azure Files biedt verschillende voordelen boven het gebrui
 -   **Back-up van ACL's samen met uw gegevens**  
     Azure Files kunt u back-up van uw bestaande on-premises bestandsshares. Azure Files bewaart de ACL's samen met uw gegevens wanneer u maakt u een back-up van een bestand deelt naar Azure Files via SMB.
 
-## <a name="how-it-works"></a>Hoe het werkt
+## <a name="how-it-works"></a>Hoe werkt het?
 Azure Files maakt gebruik van Azure AD Domain Services voor de ondersteuning van Kerberos-verificatie met Azure AD-referenties van een domein VM's. Voordat u Azure AD met Azure Files gebruiken kunt, moet u Azure AD Domain Services inschakelen en toegevoegd aan het domein van de virtuele machines van waaruit u plant voor toegang tot gegevens uit een bestand. Uw domein-virtuele machine moet zich bevinden in hetzelfde virtuele netwerk (VNET) als Azure AD Domain Services. 
 
 Wanneer een identiteit die is gekoppeld aan een toepassing die wordt uitgevoerd op een virtuele machine probeert te krijgen tot gegevens in Azure Files, wordt de aanvraag verzonden naar Azure AD Domain Services de identiteit verifiëren. Als verificatie is geslaagd, wordt in Azure AD Domain Services een Kerberos-token retourneert. De toepassing verzendt een aanvraag met het Kerberos-token en Azure Files maakt gebruik van dit token te autoriseren van de aanvraag. Azure Files ontvangt alleen het token en Azure AD-referenties niet bewaard is gebleven.
@@ -58,7 +58,7 @@ Wanneer een identiteit die is gekoppeld aan een toepassing die wordt uitgevoerd 
 ![Schermopname die laat zien diagram van Azure AD-verificatie via SMB](media/storage-files-active-directory-overview/azure-active-directory-over-smb-for-files-overview.png)
 
 ### <a name="enable-azure-ad-authentication-over-smb"></a>Azure Active Directory-verificatie via SMB inschakelen
-U kunt Azure AD-verificatie via SMB inschakelen voor Azure-bestanden op uw nieuwe en bestaande opslagaccounts die zijn gemaakt na 29 augustus 2018. 
+U kunt Azure AD-verificatie via SMB inschakelen voor Azure-bestanden op uw nieuwe en bestaande opslagaccounts die zijn gemaakt na 24 September 2018. 
 
 Controleer of dat Azure AD Domain Services is geïmplementeerd voor de primaire voordat u Azure AD-verificatie inschakelt via SMB, Azure AD-tenant die aan uw storage-account gekoppeld is. Als u nog geen Azure AD Domain Services hebt ingesteld, volgt u de stapsgewijze richtlijnen van [inschakelen Azure Active Directory Domain Services met behulp van de Azure-portal](../../active-directory-domain-services/active-directory-ds-getting-started.md).
 

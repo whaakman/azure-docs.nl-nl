@@ -12,12 +12,12 @@ ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/14/2018
-ms.openlocfilehash: 803bab4f0b91e2612abceedfa09baedaaea2a55e
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: bbcd5de0d6c2b43b220d5010093eccc1c9a76269
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49377934"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406291"
 ---
 # <a name="manage-file-space-in-azure-sql-database"></a>Ruimte in Azure SQL Database beheren
 Dit artikel beschrijft de verschillende typen opslagruimte in Azure SQL Database en de stappen die kunnen worden uitgevoerd wanneer de bestandsruimte voor databases toegewezen en elastische pools moet expliciet worden beheerd.
@@ -216,7 +216,7 @@ Zie voor meer informatie over deze opdracht [SHRINKDATABASE](https://docs.micros
 
 ### <a name="auto-shrink"></a>Automatisch verkleind
 
-U kunt ook kan automatisch verkleind worden ingeschakeld voor een database.  Automatisch verkleind vermindert de complexiteit van de bestand-beheer en is minder impact hebben op prestaties van de database dan SHRINKDATABASE of SHRINKFILE.  Automatische verkleining kan met name handig voor het beheren van elastische pools met veel databases worden gemaakt.  Automatische verkleining is echter minder effectief in het vrijmaken van ruimte dan SHRINKDATABASE en SHRINKFILE.
+U kunt ook kan automatisch verkleind worden ingeschakeld voor een database.  Automatisch verkleind vermindert de complexiteit van de bestand-beheer en is minder impact hebben op prestaties van de database dan SHRINKDATABASE of SHRINKFILE.  Automatische verkleining kan met name handig voor het beheren van elastische pools met veel databases worden gemaakt.  Automatische verkleining kan echter wel minder effectief in het vrijmaken van ruimte dan SHRINKDATABASE en SHRINKFILE.
 Wijzig de naam van de database in de volgende opdracht uit zodat automatisch verkleind.
 
 

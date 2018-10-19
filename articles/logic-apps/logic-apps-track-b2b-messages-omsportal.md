@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: bb7d9432-b697-44db-aa88-bd16ddfad23f
 ms.date: 06/19/2018
-ms.openlocfilehash: 5bf5385824eb9b711a2fee547c29d24d7ef5a01d
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 666c998a781f13ea2a26ccfc0b94aeead0308f5b
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43125765"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405681"
 ---
 # <a name="track-b2b-communication-with-azure-log-analytics"></a>Bijhouden van de B2B-communicatie met Azure Log Analytics
 
@@ -40,9 +40,9 @@ Na het instellen van B2B-communicatie tussen twee met zakelijke processen of toe
 >  
 > Als u een Log Analytics-werkruimte hebt, krijgt u informatie [over het maken van een Log Analytics-werkruimte](../log-analytics/log-analytics-quick-create-workspace.md).
 
-## <a name="add-the-logic-apps-b2b-solution-to-log-analytics"></a>De Logic Apps B2B-oplossing toevoegen aan Log Analytics
+## <a name="add-the-logic-apps-b2b-solution-to-azure"></a>Toevoegen van de Logic Apps B2B-oplossing naar Azure
 
-Als u Log Analytics voor uw logische app B2B-berichten bijhouden, moet u toevoegen de **Logic Apps B2B** oplossing naar de OMS-portal. Meer informatie over [oplossingen toe te voegen aan Log Analytics](../log-analytics/log-analytics-quick-create-workspace.md).
+Als u Log Analytics voor uw logische app B2B-berichten bijhouden, moet u toevoegen de **Logic Apps B2B** oplossing naar Log Analytics. Meer informatie over [oplossingen toe te voegen aan Log Analytics](../log-analytics/log-analytics-quick-create-workspace.md).
 
 1. In de [Azure-portal](https://portal.azure.com), kiest u **alle Services**. Zoek naar "log analytics" en kies vervolgens **Log Analytics** zoals hier wordt weergegeven:
 
@@ -52,7 +52,7 @@ Als u Log Analytics voor uw logische app B2B-berichten bijhouden, moet u toevoeg
 
    ![Selecteer uw Log Analytics-werkruimte](media/logic-apps-track-b2b-messages-omsportal/selectla.png)
 
-3. Onder **Management**, kiest u **overzicht**.
+3. Onder **Management**, kiest u **werkruimte overzicht**.
 
    ![Kies de Log Analytics-portal](media/logic-apps-track-b2b-messages-omsportal/omsportalpage.png)
 

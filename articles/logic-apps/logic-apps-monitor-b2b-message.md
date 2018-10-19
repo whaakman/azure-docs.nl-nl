@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: bb7d9432-b697-44db-aa88-bd16ddfad23f
 ms.date: 07/21/2017
-ms.openlocfilehash: fd48dfaf7b863ab026da1758751509d9911ae01e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 63aa455851633d1e49fd1b26861aaac8a670ef15
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46948006"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49404781"
 ---
 # <a name="monitor-b2b-messages-and-set-up-logging-for-integration-accounts-in-azure-logic-apps"></a>B2B-berichten bewaken en het instellen van logboekregistratie voor integratieaccounts in Azure Logic Apps
 
@@ -58,7 +58,9 @@ U kunt inschakelen logboekregistratie rechtstreeks vanaf uw integratie-account o
 
    1. Selecteer **verzenden naar Log Analytics**. 
    2. Onder **Log Analytics**, kiest u **configureren**. 
-   3. Onder **OMS-werkruimten**, selecteert u de Log Analytics-werkruimte moet worden gebruikt voor logboekregistratie.
+   3. Onder **OMS-werkruimten**, selecteert u de Log Analytics-werkruimte moet worden gebruikt voor logboekregistratie. 
+   > [!NOTE]
+   > OMS-werkruimten worden nu aangeduid als Log Analytics-werkruimten. 
    4. Onder **Log**, selecteer de **IntegrationAccountTrackingEvents** categorie.
    5. Kies **Opslaan**.
 
@@ -93,6 +95,8 @@ U kunt inschakelen logboekregistratie rechtstreeks vanaf uw integratie-account o
    1. Selecteer **verzenden naar Log Analytics**. 
    2. Onder **Log Analytics**, kiest u **configureren**. 
    3. Onder **OMS-werkruimten**, selecteert u de Log Analytics-werkruimte moet worden gebruikt voor logboekregistratie.
+   > [!NOTE]
+   > OMS-werkruimten worden nu aangeduid als Log Analytics-werkruimten.
    4. Onder **Log**, selecteer de **IntegrationAccountTrackingEvents** categorie.
    5. Als u bent klaar, kiest u **Opslaan**.
 
@@ -129,6 +133,6 @@ Azure biedt ondersteuning voor deze tracering schematypen waarin alle schema's m
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [B2B-berichten bijhouden in Log Analytics](../logic-apps/logic-apps-track-b2b-messages-omsportal.md "bijhouden B2B-berichten in OMS")
+* [B2B-berichten bijhouden in Azure Log Analytics](../logic-apps/logic-apps-track-b2b-messages-omsportal.md "bijhouden B2B-berichten in Azure Log Analytics")
 * [Meer informatie over het Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "meer informatie over Enterprise Integration Pack")
 

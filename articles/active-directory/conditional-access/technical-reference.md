@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 04/11/2018
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: e44b68a2ed2786b449e2680ca4a8ca531058b85c
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 445611338b0b2895d83626e8cf450dc8d1cb27a6
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47432791"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406396"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Azure Active Directory-instellingen voor voorwaardelijke toegang verwijst naar
 
@@ -182,8 +182,8 @@ Deze instelling heeft een invloed op een poging toegang van de volgende mobiele 
 |Agenda-e-mail/mensen app, Outlook 2016, Outlook 2013 (met moderne verificatie)|Office 365 Exchange Online|Windows 10|
 |Beleid voor meervoudige verificatie en locatiebeleid voor apps. Op basis van apparaatbeleid wordt niet ondersteund. |Elke mijn Apps van appservice|Android en iOS|
 |Microsoft Teams-Services: Hiermee bepaalt u alle services die ondersteuning bieden voor Microsoft Teams en alle bijbehorende Client-Apps - Windows-bureaublad, iOS, Android, WP en webclient|Microsoft Teams|Windows 10, Windows 8.1, Windows 7, iOS, Android en macOS |
-|Apps van Office 2016, Office 2013 (met moderne verificatie), OneDrive synchroniseren client (Zie [opmerkingen bij de](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e))|Office 365 SharePoint Online|Windows 8.1, Windows 7|
-|Apps van Office 2016, universele Office-apps, Office 2013 (met moderne verificatie), OneDrive-synchronisatieclient (Zie [opmerkingen bij de](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)), ondersteuning voor Office-groepen is gepland voor de toekomst, ondersteuning voor SharePoint-app is gepland voor de toekomst|Office 365 SharePoint Online|Windows 10|
+|Apps van Office 2016, Office 2013 (met moderne verificatie), OneDrive synchroniseren client (Zie [opmerkingen bij de](https://support.office.com/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e))|Office 365 SharePoint Online|Windows 8.1, Windows 7|
+|Apps van Office 2016, universele Office-apps, Office 2013 (met moderne verificatie), OneDrive-synchronisatieclient (Zie [opmerkingen bij de](https://support.office.com/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)), ondersteuning voor Office-groepen is gepland voor de toekomst, ondersteuning voor SharePoint-app is gepland voor de toekomst|Office 365 SharePoint Online|Windows 10|
 |Office 2016 voor Mac OS (Word, Excel, PowerPoint, OneNote alleen). OneDrive voor bedrijven ondersteuning voor de toekomst worden gepland|Office 365 SharePoint Online|Mac OS X|
 |Mobiele Office-apps|Office 365 SharePoint Online|Android, iOS|
 |Office Yammer-app|Office 365 Yammer|Windows 10, iOS, Android|

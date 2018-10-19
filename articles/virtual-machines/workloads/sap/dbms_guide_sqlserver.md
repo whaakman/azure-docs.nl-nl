@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 09/26/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3cefecdf0f87483a1fb544d1eb4e3e514e388259
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 90b4bc17de60baa59d6c159105674468a63d10f9
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47406912"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49430167"
 ---
 # <a name="sql-server-azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>SQL Server Azure virtuele Machines DBMS-implementatie voor SAP NetWeaver
 
@@ -418,7 +418,7 @@ De tweede methode dichter bij in het artikel wordt beschreven [SQL Server back-u
 
 
 ### <a name="automated-backup-for-sql-server"></a>Automatische back-up voor SQL Server
-Automatische back-up biedt een automatische back-upservice voor SQL Server Standard en Enterprise-edities die worden uitgevoerd in een Windows Azure-VM. Deze service wordt geleverd door de [SQL Server IaaS Agent-extensie](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension), die automatisch is geïnstalleerd op SQL Server Windows-installatiekopieën voor virtuele machines in Azure portal. Als u uw eigen installatiekopieën van het besturingssysteem met SQL Server is geïnstalleerd implementeert, moet u de VM-extensies afzonderlijk installeren. De stappen die nodig zijn, worden beschreven in deze [artikel](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension).
+Automatische back-up biedt een automatische back-upservice voor SQL Server Standard en Enterprise-edities die worden uitgevoerd in een Windows-VM in Azure. Deze service wordt geleverd door de [SQL Server IaaS Agent-extensie](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension), die automatisch is geïnstalleerd op SQL Server Windows-installatiekopieën voor virtuele machines in Azure portal. Als u uw eigen installatiekopieën van het besturingssysteem met SQL Server is geïnstalleerd implementeert, moet u de VM-extensies afzonderlijk installeren. De stappen die nodig zijn, worden beschreven in deze [artikel](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension).
 
 Meer informatie over de mogelijkheden van deze methode kunnen worden gevonden in deze artikelen:
 

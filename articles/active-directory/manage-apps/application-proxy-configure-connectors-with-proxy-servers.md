@@ -15,12 +15,12 @@ ms.date: 09/12/2018
 ms.author: barbkess
 ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: e67428116c66c05d83efbb217d7ec81f75124051
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: 06df705aabce06c37f04de3fb5046d822f9f981e
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45540835"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49404950"
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>Werken met bestaande on-premises proxy-servers
 
@@ -120,7 +120,7 @@ Voor de eerste registratie toestaan toegang tot de volgende eindpunten:
 Als u kunt geen kunt u met FQDN-naam en moet in plaats daarvan IP-adresbereiken opgeven, gebruikt u deze opties:
 
 * De connector uitgaande toegang geven tot alle bestemmingen.
-* Toestaan dat de connector uitgaande toegang tot alle van de [Azure datacenter IP-adresbereiken](https://www.microsoft.com/en-gb/download/details.aspx?id=41653). De uitdaging bij het gebruik van de lijst met IP-adresbereiken Azure datacenter wordt wekelijks bijgewerkt. U moet een proces opstellen om ervoor te zorgen dat uw toegangsregels dienovereenkomstig worden bijgewerkt. Alleen met behulp van een subset van de IP-adressen, kan dit ertoe leiden dat uw configuratie te verbreken.
+* Toestaan dat de connector uitgaande toegang tot alle van de [Azure datacenter IP-adresbereiken](https://www.microsoft.com//download/details.aspx?id=41653). De uitdaging bij het gebruik van de lijst met IP-adresbereiken Azure datacenter wordt wekelijks bijgewerkt. U moet een proces opstellen om ervoor te zorgen dat uw toegangsregels dienovereenkomstig worden bijgewerkt. Alleen met behulp van een subset van de IP-adressen, kan dit ertoe leiden dat uw configuratie te verbreken.
 
 #### <a name="proxy-authentication"></a>Proxy-verificatie
 

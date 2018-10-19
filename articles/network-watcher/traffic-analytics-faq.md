@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: debefb329304235818b7b441122b90ae9a2834a9
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 69d2d80e40400cc7fa40aeb5a163dce5036905ab
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45578307"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49402757"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Veelgestelde vragen over Traffic analytics
 
@@ -77,9 +77,9 @@ Ja.
 
 Ja. Als u een bestaande werkruimte selecteert, zorg ervoor dat deze is gemigreerd naar de nieuwe querytaal. Als u niet bijwerken van de werkruimte wilt, moet u een nieuwe maken. Zie voor meer informatie over de nieuwe querytaal [Azure Log Analytics upgraden voor nieuwe zoekopdrachten](../log-analytics/log-analytics-log-search-upgrade.md).
 
-## <a name="can-my-azure-storage-account-be-in-one-subscription-and-my-operations-management-suite-workspace-be-in-a-different-subscription"></a>Kan mijn Azure-Opslagaccount zich in één abonnement en de Operations Management Suite-werkruimte zich in een ander abonnement?
+## <a name="can-my-azure-storage-account-be-in-one-subscription-and-my-log-analytics-workspace-be-in-a-different-subscription"></a>Kan mijn Azure-Opslagaccount zich in één abonnement en de Log Analytics-werkruimte zich in een ander abonnement?
 
-Ja, uw Azure Storage-account kan worden in één abonnement en uw Operations Management Suite-werkruimte kan zich in een ander abonnement.
+Ja, uw Azure Storage-account kan worden in één abonnement en uw Log Analytics-werkruimte kan zich in een ander abonnement.
 
 ## <a name="can-i-store-raw-logs-in-a-different-subscription"></a>Kan ik onbewerkte Logboeken opslaan in een ander abonnement?
 
@@ -115,7 +115,7 @@ Als de problemen zich blijven voordoen, verhoogt u opmerkingen kunnen in de [-ge
 
 U ziet dit bericht omdat:
 - Verkeersanalyse onlangs is ingeschakeld en kan niet nog samengevoegde hebben voldoende gegevens voor het afleiden van betekenisvolle inzichten.
-- Gebruik de gratis versie van de Operations Management Suite-werkruimte en de quotumlimiet is overschreden. Mogelijk moet u een werkruimte gebruiken met een grotere capaciteit.
+- Gebruik de gratis versie van de Log Analytics-werkruimte en de quotumlimiet is overschreden. Mogelijk moet u een werkruimte gebruiken met een grotere capaciteit.
     
 Als de problemen zich blijven voordoen, verhoogt u opmerkingen kunnen in de [-gebruikersforum stem](https://feedback.azure.com/forums/217313-networking?category_id=195844).
     

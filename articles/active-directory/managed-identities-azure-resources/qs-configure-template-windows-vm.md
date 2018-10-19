@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
 ms.author: daveba
-ms.openlocfilehash: f50714538cdfd1a0bd258a3b78d0885e3c7beed1
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 06d78c9a9754638054a07c15ef67bfc703dd77ca
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48018482"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49428757"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-a-templates"></a>Configureren van beheerde identiteiten voor Azure-resources op een Azure-VM met behulp van een sjablonen
 
@@ -72,7 +72,7 @@ In deze sectie maakt u inschakelen en uitschakelen van een systeem toegewezen be
 3. (Optioneel) Toevoegen van de identiteit van de VM beheerd voor uitbreiding van de Azure-resources als een `resources` element. Deze stap is optioneel als u het eindpunt van de identiteit Azure Instance Metadata Service (IMDS) gebruiken kunt voor het ophalen en tokens.  Gebruik de volgende syntaxis:
 
    >[!NOTE] 
-   > Het volgende voorbeeld wordt ervan uitgegaan dat een Windows VM-extensie (`ManagedIdentityExtensionForWindows`) wordt geïmplementeerd. U kunt ook configureren voor Linux met behulp van `ManagedIdentityExtensionForLinux` in plaats daarvan voor de `"name"` en `"type"` elementen. De VM-extensie is gepland voor de afschaffing in januari 2019.
+   > De volgende voorbeelden wordt ervan uitgegaan dat een Windows VM-extensie (`ManagedIdentityExtensionForWindows`) wordt geïmplementeerd. U kunt ook configureren voor Linux met behulp van `ManagedIdentityExtensionForLinux` in plaats daarvan voor de `"name"` en `"type"` elementen. De VM-extensie is gepland voor de afschaffing in januari 2019.
    >
 
    ```JSON
@@ -113,7 +113,7 @@ In deze sectie maakt u inschakelen en uitschakelen van een systeem toegewezen be
             },
             {
             "type": "Microsoft.Compute/virtualMachines/extensions",
-            "name": "[concat(variables('vmName'),'/ManagedIdentityExtensionForLinux')]",
+            "name": "[concat(variables('vmName'),'/ManagedIdentityExtensionForWindows')]",
             "apiVersion": "2018-06-01",
             "location": "[resourceGroup().location]",
             "dependsOn": [
@@ -298,7 +298,7 @@ In deze sectie maakt u een gebruiker toegewezen beheerde identiteit met een Azur
         },
         {
             "type": "Microsoft.Compute/virtualMachines/extensions",
-            "name": "[concat(variables('vmName'),'/ManagedIdentityExtensionForLinux')]",
+            "name": "[concat(variables('vmName'),'/ManagedIdentityExtensionForWindows')]",
             "apiVersion": "2018-06-01-preview",
             "location": "[resourceGroup().location]",
             "dependsOn": [
@@ -335,7 +335,7 @@ In deze sectie maakt u een gebruiker toegewezen beheerde identiteit met een Azur
         },
         {
             "type": "Microsoft.Compute/virtualMachines/extensions",
-            "name": "[concat(variables('vmName'),'/ManagedIdentityExtensionForLinux')]",
+            "name": "[concat(variables('vmName'),'/ManagedIdentityExtensionForWindows')]",
             "apiVersion": "2015-05-01-preview",
             "location": "[resourceGroup().location]",
             "dependsOn": [

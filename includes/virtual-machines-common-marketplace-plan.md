@@ -5,21 +5,21 @@ services: virtual-machines-windows, virtual-machines-linux
 author: dlepow
 ms.service: multiple
 ms.topic: include
-ms.date: 09/28/2018
+ms.date: 10/09/2018
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: f9974aae1e5996ffeaa6cde690a5e10ccba4cc32
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 4d2235eaea457c89d01a632afa5dd5a862bec344
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48019009"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49437093"
 ---
 ## <a name="deploy-an-image-with-marketplace-terms"></a>Een installatiekopie implementeren met de voorwaarden van Marketplace
 
-Bepaalde VM-installatiekopieën in de Azure Marketplace zijn extra licentie en aankoop voorwaarden die u accepteren moet voordat u ze via een programma kunt implementeren.  
+Enkele VM-installatiekopieën in de Azure Marketplace zijn extra licentie en aankoop voorwaarden die u accepteren moet voordat u ze via een programma kunt implementeren.  
 
-Voor het implementeren van een virtuele machine uit een dergelijke afbeelding, moet u akkoord met de voorwaarden van de installatiekopie en programmatische implementatie inschakelen. U hoeft te doen dit één keer in uw abonnement. Vervolgens, telkens wanneer u een virtuele machine via een programma uit de afbeelding, implementeert u moet ook opgeven *abonnement aanschaffen* parameters.
+Voor het implementeren van een virtuele machine uit een dergelijke afbeelding, moet u akkoord met de voorwaarden van de afbeelding zowel programmatische implementatie inschakelen. U hoeft alleen te doen dit maar eenmaal per abonnement. Daarna wordt telkens wanneer u een virtuele machine implementeren via een programma uit de afbeelding die u ook moet om op te geven *abonnement aanschaffen* parameters.
 
 De volgende secties tonen hoe u:
 

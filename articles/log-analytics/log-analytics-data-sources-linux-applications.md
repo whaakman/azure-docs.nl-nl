@@ -1,6 +1,6 @@
 ---
-title: Verzamelen van prestaties van de Linux-toepassingen in OMS Log Analytics | Microsoft Docs
-description: Dit artikel bevat informatie voor het configureren van de OMS-Agent voor Linux voor het verzamelen van prestatiemeteritems voor MySQL en Apache HTTP-Server.
+title: Verzamelen van prestaties van de Linux-toepassingen in Log Analytics | Microsoft Docs
+description: Dit artikel bevat informatie voor het configureren van de Log Analytics-agent voor Linux voor het verzamelen van prestatiemeteritems voor MySQL en Apache HTTP-Server.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -15,26 +15,27 @@ ms.workload: infrastructure-services
 ms.date: 05/04/2017
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 5120fa869d9c3fe28630b189b84b9c3e3f5577e2
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: df5e55c2c03fec13ada258be91f0d98b7ce70d94
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48044566"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406157"
 ---
 # <a name="collect-performance-counters-for-linux-applications-in-log-analytics"></a>Verzamelen van prestatiemeteritems voor Linux-toepassingen in Log Analytics 
-Dit artikel bevat informatie voor het configureren van de [OMS-Agent voor Linux](https://github.com/Microsoft/OMS-Agent-for-Linux) voor het verzamelen van prestatiemeteritems voor specifieke toepassingen.  De toepassingen die zijn opgenomen in dit artikel zijn:  
+[!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)]
+Dit artikel bevat informatie voor het configureren van de [Log Analytics-agent voor Linux](https://github.com/Microsoft/OMS-Agent-for-Linux) voor het verzamelen van prestatiemeteritems voor specifieke toepassingen.  De toepassingen die zijn opgenomen in dit artikel zijn:  
 
 - [MySQL](#MySQL)
 - [Apache HTTP-Server](#apache-http-server)
 
 ## <a name="mysql"></a>MySQL
-Als de MySQL-Server of MariaDB-Server wordt gedetecteerd op de computer wanneer de OMS-agent is geïnstalleerd, wordt een provider voor MySQL-Server voor prestatiebewaking automatisch geïnstalleerd. Deze provider maakt verbinding met de lokale MySQL/MariaDB-server om beschikbaar te stellen van statistieken over de prestaties. De referenties van de MySQL-gebruiker moeten worden geconfigureerd zodat de provider toegang heeft tot de MySQL-Server.
+Als de MySQL-Server of MariaDB-Server wordt gedetecteerd op de computer wanneer de Log Analytics-agent is geïnstalleerd, wordt een provider voor MySQL-Server voor prestatiebewaking automatisch geïnstalleerd. Deze provider maakt verbinding met de lokale MySQL/MariaDB-server om beschikbaar te stellen van statistieken over de prestaties. De referenties van de MySQL-gebruiker moeten worden geconfigureerd zodat de provider toegang heeft tot de MySQL-Server.
 
 ### <a name="configure-mysql-credentials"></a>MySQL-referenties configureren
 De MySQL OMI-provider vereist dat een vooraf geconfigureerde MySQL-gebruiker en MySQL-clientbibliotheken geïnstalleerd om een query uitvoeren op de prestaties en statusgegevens van de MySQL-exemplaar.  Deze referenties worden opgeslagen in een verificatiebestand dat opgeslagen op de Linux-agent.  Het verificatiebestand geeft aan welke bind-adres en poort van de MySQL-exemplaar luistert op en welke referenties te gebruiken voor het verzamelen van metrische gegevens.  
 
-Tijdens de installatie van de OMS-Agent voor Linux de OMI MySQL provider scant MySQL my.cnf-configuratiebestanden (standaardlocaties) voor binding-adres en poort en de OMI MySQL gedeeltelijk verificatiebestand instellen.
+Tijdens de installatie van de Log Analytics-agent voor Linux de OMI MySQL provider scant MySQL my.cnf-configuratiebestanden (standaardlocaties) voor binding-adres en poort en het verificatiebestand MySQL OMI gedeeltelijk instellen.
 
 De MySQL-verificatie-bestand is opgeslagen op `/var/opt/microsoft/mysql-cimprov/auth/omsagent/mysql-auth`.
 
@@ -115,7 +116,7 @@ Deze rechten kunnen worden verleend door het uitvoeren van de volgende opdrachte
 
 ### <a name="define-performance-counters"></a>Prestatiemeteritems definiëren
 
-Nadat u de OMS-Agent voor Linux om gegevens te verzenden naar Log Analytics configureren, moet u de prestatiemeteritems voor het verzamelen van configureren.  Gebruik de procedure in [Windows en Linux-gegevensbronnen van de prestaties die u in Log Analytics](log-analytics-data-sources-windows-events.md) met de items in de volgende tabel.
+Nadat u de Log Analytics-agent voor Linux om gegevens te verzenden naar Log Analytics configureren, moet u de prestatiemeteritems voor het verzamelen van configureren.  Gebruik de procedure in [Windows en Linux-gegevensbronnen van de prestaties die u in Log Analytics](log-analytics-data-sources-windows-events.md) met de items in de volgende tabel.
 
 | Objectnaam | Naam van teller |
 |:--|:--|
@@ -151,7 +152,7 @@ sudo /opt/microsoft/apache-cimprov/bin/apache_config.sh -u
 
 ### <a name="define-performance-counters"></a>Prestatiemeteritems definiëren
 
-Nadat u de OMS-Agent voor Linux om gegevens te verzenden naar Log Analytics configureren, moet u de prestatiemeteritems voor het verzamelen van configureren.  Gebruik de procedure in [Windows en Linux-gegevensbronnen van de prestaties die u in Log Analytics](log-analytics-data-sources-windows-events.md) met de items in de volgende tabel.
+Nadat u de Log Analytics-agent voor Linux om gegevens te verzenden naar Log Analytics configureren, moet u de prestatiemeteritems voor het verzamelen van configureren.  Gebruik de procedure in [Windows en Linux-gegevensbronnen van de prestaties die u in Log Analytics](log-analytics-data-sources-windows-events.md) met de items in de volgende tabel.
 
 | Objectnaam | Naam van teller |
 |:--|:--|

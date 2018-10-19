@@ -1,20 +1,20 @@
 ---
 title: Veldtoewijzingen in indexeerfuncties in Azure Search
 description: Azure Search-indexeerfunctie veldtoewijzingen voor verschillen in de veldnamen en gegevensweergaven configureren
-author: chaosrealm
-manager: jlembicz
+ms.date: 10/17/2018
+author: mgottein
+manager: cgronlun
+ms.author: magottei
 services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.date: 08/30/2017
-ms.author: eugenesh
-ms.openlocfilehash: 51fa689030c4a8ce4e900ecd600cdd0524aa13d9
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
+ms.openlocfilehash: 01edc7001ec463cb16d8b6c715794b0028508143
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42060142"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49404715"
 ---
 # <a name="field-mappings-in-azure-search-indexers"></a>Veldtoewijzingen in indexeerfuncties in Azure Search
 Bij het gebruik van Azure Search-indexeerfuncties vindt van tijd tot tijd u uzelf in situaties waarin de invoergegevens niet helemaal overeen met het schema van de doelindex. In deze gevallen kunt u **veldtoewijzingen** het transformeren van uw gegevens in de gewenste vorm.

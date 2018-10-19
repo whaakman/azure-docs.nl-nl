@@ -5,21 +5,23 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 09/07/2018
+ms.date: 10/15/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: c26eee05a59a10036138f81086b3f6a9e0de6d5d
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 5da34e8e79c0df88cfad0b398aa8e1c22f158489
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45737291"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49428875"
 ---
-# <a name="manage-access-rights-to-azure-storage-data-with-rbac-preview"></a>Beheer van rechten voor het Azure Storage-gegevens met RBAC (Preview)
+# <a name="manage-access-rights-to-azure-blob-and-queue-data-with-rbac-preview"></a>Beheer van rechten voor het Azure Blob- en wachtrijgegevens met RBAC (Preview)
 
 Azure Active Directory (Azure AD) machtigt toegangsrechten tot beveiligde bronnen via [op rollen gebaseerd toegangsbeheer (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview). Azure Storage definieert een aantal ingebouwde RBAC-rollen die algemene sets machtigingen die wordt gebruikt voor toegang tot containers of wachtrijen omvatten. Wanneer een RBAC-rol is toegewezen aan een Azure AD-identiteit die identiteit krijgt toegang tot deze resources, op basis van het opgegeven bereik. Toegang kan worden gericht op het niveau van het abonnement, de resourcegroep, de storage-account of een afzonderlijke container of de wachtrij. Hier kunt u toegangsrechten voor Azure Storage-resources met behulp van de Azure portal, opdrachtregelprogramma's van Azure en Azure Management-API's. 
 
 Een Azure AD-identiteit is mogelijk een gebruiker, groep of toepassingsservice-principal of een beheerde identiteit voor Azure-resources kan zijn. Een beveiligings-principal kan een gebruiker, groep of service-principal van toepassing zijn. Een [beheerde identiteit voor de Azure-resources](../../active-directory/managed-identities-azure-resources/overview.md) is automatisch beheerde identiteit gebruikt voor het verifiëren van toepassingen die worden uitgevoerd in virtuele machines van Azure, functie-apps, virtuele-machineschaalsets en anderen. Zie voor een overzicht van identiteit in Azure AD, [over Azure-identiteitsoplossingen](https://docs.microsoft.com/azure/active-directory/understand-azure-identity-solutions).
+
+[!INCLUDE [storage-auth-aad-note-include](../../../includes/storage-auth-aad-note-include.md)]
 
 ## <a name="rbac-roles-for-blobs-and-queues"></a>RBAC-rollen voor blobs en wachtrijen
 

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 07/26/2018
 ms.author: iainfou
-ms.openlocfilehash: 011654dcbad21c3e8cea51d6ab98eeca461e4685
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 7caa98b65b35d1eb1a000f1e9099fbf8eb3f8861
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49068822"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406038"
 ---
 # <a name="enable-and-review-kubernetes-master-node-logs-in-azure-kubernetes-service-aks"></a>Inschakelen en controleren van Kubernetes-hoofdknooppunt in Azure Kubernetes Service (AKS registreert)
 
@@ -37,9 +37,12 @@ Log Analytics is ingeschakeld en beheerd in Azure portal. Om in te schakelen log
 1. In de lijst met beschikbare logboeken, selecteert u de logboeken die u inschakelen wilt, zoals *kube-apiserver*, *kube-controller-manager*, en *kube-scheduler*. U kunt retourneren en de verzamelde Logboeken niet wijzigen wanneer de Log Analytics zijn ingeschakeld.
 1. Wanneer u klaar bent, selecteert u **opslaan** om van de geselecteerde logboeken te verzamelen.
 
-Het volgende voorbeeld schermafbeelding van de portal wordt de *diagnostische instellingen* venster en vervolgens de optie voor het maken van een OMS-werkruimte:
+Het volgende voorbeeld schermafbeelding van de portal wordt de *diagnostische instellingen* venster en vervolgens de optie voor het maken van een Log Analytics-werkruimte:
 
-![Inschakelen van de OMS-werkruimte voor Log Analytics van AKS-cluster](media/view-master-logs/enable-oms-log-analytics.png)
+![Inschakelen van Log Analytics-werkruimte voor Log Analytics van AKS-cluster](media/view-master-logs/enable-oms-log-analytics.png)
+
+>[!NOTE]
+>OMS-werkruimten worden nu aangeduid als Log Analytics-werkruimten. 
 
 ## <a name="schedule-a-test-pod-on-the-aks-cluster"></a>Een test-schil op het AKS-cluster plannen
 
@@ -75,7 +78,7 @@ pod/nginx created
 
 ## <a name="view-collected-logs"></a>Verzamelde logboeken bekijken
 
-Het duurt een paar minuten voor de diagnostische logboeken om te worden ingeschakeld en worden weergegeven in de OMS-werkruimte. Selecteer in de Azure-portal, de resourcegroep voor uw Log Analytics-werkruimte, zoals *myResourceGroup*, kiest u uw Log Analytics-resource, zoals *myAKSLogs*.
+Het duurt een paar minuten voor de diagnostische logboeken om te worden ingeschakeld en worden weergegeven in de Log Analytics-werkruimte. Selecteer in de Azure-portal, de resourcegroep voor uw Log Analytics-werkruimte, zoals *myResourceGroup*, kiest u uw Log Analytics-resource, zoals *myAKSLogs*.
 
 ![Selecteer de Log Analytics-werkruimte voor uw AKS-cluster](media/view-master-logs/select-log-analytics-workspace.png)
 

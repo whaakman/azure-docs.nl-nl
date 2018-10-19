@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
-ms.openlocfilehash: ae2458b6fc650961c63da2f7644dbd54d27fc2a8
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: d93fc81241053418ea2ff0576d50cbaefa0df9fb
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452102"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49428552"
 ---
 # <a name="azure-virtual-machine-agent-overview"></a>Overzicht van Azure Virtual Machine Agent
 De Microsoft Azure Virtual Machine Agent (VM-Agent) is een veilige, lichte proces waarmee tussenkomst van de virtuele machine (VM) met de Azure-Infrastructuurcontroller wordt beheerd. De VM-Agent heeft een primaire rol bij het inschakelen en uitvoeren van de virtuele machine van Azure-extensies. VM-extensies inschakelen na de implementatie-configuratie van virtuele machine, zoals het installeren en configureren van software. VM-extensies worden ook recovery functies zoals het opnieuw instellen van het beheerderswachtwoord van een virtuele machine inschakelen. Zonder de Azure VM-Agent kunnen geen VM-extensies worden uitgevoerd.
@@ -100,7 +100,8 @@ foreach ($vm in $vms) {
 ```
 
 ### <a name="manual-detection"></a>Handmatige detectie
-Wanneer u aangemeld bij een Windows Azure-VM, kan Taakbeheer om te onderzoeken, actieve processen worden gebruikt. Om te controleren of de Azure VM-Agent, opent u Taakbeheer, klikt u op de *Details* tabblad en zoek naar een procesnaam **WindowsAzureGuestAgent.exe**. De aanwezigheid van dit proces geeft aan dat de VM-agent is geïnstalleerd.
+
+Wanneer u aangemeld bij een Windows-VM, kan Taakbeheer om te onderzoeken, actieve processen worden gebruikt. Om te controleren of de Azure VM-Agent, opent u Taakbeheer, klikt u op de *Details* tabblad en zoek naar een procesnaam **WindowsAzureGuestAgent.exe**. De aanwezigheid van dit proces geeft aan dat de VM-agent is geïnstalleerd.
 
 
 ## <a name="upgrade-the-vm-agent"></a>Upgrade van de VM-Agent

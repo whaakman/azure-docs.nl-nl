@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: v-jansko
-ms.openlocfilehash: eaf65bef28110d73378c213ae4781a409b86e1bd
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 74fcfa0e1474d7d2a25d0bf9d0476fb1bb870334
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46128176"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49429504"
 ---
 # <a name="translator-text-api-v2-to-v3-migration"></a>Translator Text-API V2 naar V3-migratie
 
@@ -32,23 +32,23 @@ Het einde van dit document bevat nuttige koppelingen voor meer informatie.
 * Transliteratie: een methode transliterate is toegevoegd aan de API. Deze methode wordt woorden en zinnen in één script (bijvoorbeeld converteren Arabisch) in een ander script (bijvoorbeeld Latijns).
 * Talen, een nieuwe 'talen'-methode levert taalinformatie, in JSON-indeling, voor gebruik met de 'vertalen', 'woordenlijst' en 'transliteratie' methoden.
 * Nieuwe vertalen - er zijn nieuwe mogelijkheden toegevoegd aan de methode 'vertalen' voor de ondersteuning van enkele van de functies die in de V2-API als afzonderlijke methoden zijn. Een voorbeeld is TranslateArray.
-* Methode spreken - tekst-naar-spraak-functionaliteit wordt niet meer ondersteund in de Microsoft Translator-API. Tekst naar spraak-functionaliteit is beschikbaar in de Azure Cognitive services-Bing Speech-API.
+* Methode spreken - tekst-naar-spraak-functionaliteit wordt niet meer ondersteund in de Microsoft Translator-API. Tekst naar spraak-functionaliteit is beschikbaar in [Microsoft Speech Service](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech).
 
 De volgende lijst met methoden V2 en V3 identificeert de API's waarmee u de functionaliteit die is geleverd met V2 en V3-methoden.
 
 | V2-API-methode   | V3 API-compatibiliteit |
 |:----------- |:-------------|
-| Vertalen     | Vertalen          |
-| TranslateArray      | Vertalen          |
-| GetLanguageNames      | Talen          |
-| GetLanguagesForTranslate     | Talen        |
-| GetLanguagesForSpeak      | Cognitive Services Speech-API         |
-| Spreken     | Cognitive Services Speech-API          |
-| Detecteren     | Detecteren         |
-| DetectArray     | Detecteren         |
-| AddTranslation     | HUB-API van Microsoft Translator         |
-| AddTranslationArray    | HUB-API van Microsoft Translator          |
-| BreakSentences      | BreakSentence         |
+| Vertalen     | [Vertalen](reference/v3-0-translate.md)          |
+| TranslateArray      | [Vertalen](reference/v3-0-translate.md)        |
+| GetLanguageNames      | [Talen](reference/v3-0-languages.md)         |
+| GetLanguagesForTranslate     | [Talen](reference/v3-0-languages.md)       |
+| GetLanguagesForSpeak      | [Microsoft Speech-Service](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#text-to-speech)         |
+| Spreken     | [Microsoft Speech-Service](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech)          |
+| Detecteren     | [Detecteren](reference/v3-0-detect.md)         |
+| DetectArray     | [Detecteren](reference/v3-0-detect.md)         |
+| AddTranslation     | [Hub van Microsoft Translator-API](https://hub.microsofttranslator.com/Help/Download/Microsoft%20Translator%20Hub%20API%20Guide.pdf)         |
+| AddTranslationArray    | [Hub van Microsoft Translator-API](https://hub.microsofttranslator.com/Help/Download/Microsoft%20Translator%20Hub%20API%20Guide.pdf)          |
+| BreakSentences      | [BreakSentence](reference/v3-0-break-sentence.md)       |
 | GetTranslations      | Functie is niet meer ondersteund.         |
 | GetTranslationsArray      | Functie is niet meer ondersteund.         |
 

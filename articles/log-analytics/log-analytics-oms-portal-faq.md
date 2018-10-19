@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/25/2018
+ms.date: 10/18/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: d1ad629ff5c6909256baa94573d045a8c2c09fb5
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 49aed496d8c125da8c2269186b569693c794d290
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47223828"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49404559"
 ---
 # <a name="common-questions-for-transition-from-oms-portal-to-azure-portal-for-log-analytics-users"></a>Veelgestelde vragen voor overgang van OMS-portal naar Azure-portal voor Log Analytics-gebruikers
 Log Analytics gebruikt een eigen portal met de OMS-portal de naam in eerste instantie de configuratie ervan beheren en analyseren van verzamelde gegevens.  Alle functionaliteit van deze portal is verplaatst naar de Azure-portal waar deze blijft op worden ontwikkeld.
@@ -113,7 +113,7 @@ In de OMS-portal installeert oplossingen voor het beheer van de galerie van oplo
 Regels voor waarschuwingen op basis van Log Analytics-query's worden nu beheerd de [geïntegreerde ervaring waarschuwingen](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md). Zie [voor het uitbreiden van waarschuwingen van Log Analytics in Azure-waarschuwingen](../monitoring-and-diagnostics/monitoring-alerts-extend-tool.md) voor meer informatie over het configureren en gebruiken van waarschuwingen in Azure portal.
 
 ## <a name="how-do-i-access-my-dashboards"></a>Hoe krijg ik toegang tot Mijn dashboards?
-[Dashboards](../log-analytics/log-analytics-dashboards.md) in Log Analytics, zijn afgeschaft.  U kunt gegevens visualiseren in met behulp van Log Analytics [Weergaveontwerper](../log-analytics/log-analytics-view-designer.md) die is voorzien aanvullende functionaliteit en query vastmaken en weergaven voor het Azure-dashboards.
+De [mijn Dashboard](../log-analytics/log-analytics-dashboards.md) functie in Log Analytics is afgeschaft. Deze functie u hebt een persoonlijke verzameling van onderdelen van de Weergaveontwerper toegestaan en wordt vervangen door de ingebouwde functionaliteit voor Azure-Dashboard. U kunt doorgaan met het visualiseren van gegevens in Log Analytics met behulp van [Weergaveontwerper](../log-analytics/log-analytics-view-designer.md) voor gedeelde weergaven. U kunt ook visualisaties uit deze weergaven of voor vastmaken [afzonderlijke query's](../log-analytics/log-analytics-tutorial-dashboards.md) aan Azure-Dashboards.
 
 ## <a name="how-do-i-check-my-usage"></a>Hoe kan ik mijn gebruik controleren?
 U kunt nu eenvoudig bekijken en beheren van uw gebruik en kosten van Log Analytics door te selecteren **gebruik en geraamde kosten** in uw werkruimte.

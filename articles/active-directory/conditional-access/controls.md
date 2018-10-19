@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/28/2018
+ms.date: 10/18/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 6f66deff9052b79265222f052bebb8439a95d269
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 065eee57b78ea10d5e8079de3a938dc00dd60ee2
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49352741"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406769"
 ---
 # <a name="what-are-access-controls-in-azure-active-directory-conditional-access"></a>Wat zijn besturingselementen voor toegang in Azure Active Directory voor voorwaardelijke toegang? 
 
@@ -105,7 +105,7 @@ Met goedgekeurde client-apps, u kunt vereisen dat een client-app die u probeert 
 U kunt vereisen dat een gebruiker in uw tenant akkoord gaan met de gebruiksvoorwaarden voordat toegang tot een resource wordt verleend. U kunt als beheerder, configureren en aanpassen van gebruiksvoorwaarden door te uploaden, een PDF-document. Als een gebruiker valt wordt bereik van dit besturingselement voor toegang tot een toepassing alleen verleend als de gebruiksvoorwaarden zijn vastgesteld. 
 
 
-### <a name="custom-controls"></a>Aangepaste besturingselementen 
+### <a name="custom-controls-preview"></a>Aangepaste besturingselementen (preview-versie) 
 
 U kunt aangepaste besturingselementen maken voor de voorwaardelijke toegang die uw gebruikers omleiden naar een compatibele service voor verdere buiten Azure Active Directory-vereisten. Hiermee kunt u bepaalde externe verificatie met meerdere factoren en verificatie providers gebruiken om af te dwingen van regels voor voorwaardelijke toegang of om uw eigen aangepaste service. Vereist verificatie of validatie-activiteiten wordt uitgevoerd en wordt vervolgens keert u terug naar Azure Active Directory om te voldoen aan dit besturingselement, de browser van een gebruiker wordt omgeleid naar de externe service. Als de gebruiker is geverifieerd of gevalideerd, wordt de gebruiker blijft in de stroom voor voorwaardelijke toegang. 
 

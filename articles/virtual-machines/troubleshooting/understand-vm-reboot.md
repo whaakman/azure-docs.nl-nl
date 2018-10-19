@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: dd9a2c6a5b2183d4909b6bcfd24dc1fae401c785
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: fa316ee47e6fdabacf22e1e419bfd501620dd83d
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47413669"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49429147"
 ---
 # <a name="understand-a-system-reboot-for-azure-vm"></a>Meer informatie over een systeem opnieuw is opgestart voor de virtuele machine van Azure
 
@@ -73,7 +73,7 @@ Andere scenario's die doorgaans ertoe leiden dat de virtuele machine opnieuw op 
 ### <a name="azure-security-center-and-windows-update"></a>Azure Security Center en Windows Update
 Azure Security Center bewaakt dagelijkse Windows en Linux-VM's voor het besturingssysteem updates ontbreken. Security Center wordt een lijst met beschikbare beveiligingsupdates en essentiële updates opgehaald van Windows Update of Windows Server Update Services (WSUS), afhankelijk van welke service is geconfigureerd op een Windows-VM. Security Center controleert ook of de meest recente updates voor Linux-systemen. Als uw virtuele machine het bijwerken van een systeem ontbreekt, wordt door Security Center adviseert systeemupdates toe te passen. De toepassing van deze systeemupdates wordt geregeld via de Security Center in Azure portal. Nadat u voor sommige updates toepast, is het mogelijk dat virtuele machine opnieuw opstarten vereist. Zie voor meer informatie, [systeemupdates in Azure Security Center toepassen](../../security-center/security-center-apply-system-updates.md).
 
-Zoals on-premises servers, biedt Azure geen updates pushen vanaf Windows Update naar Windows Azure VM's, omdat deze machines zijn bedoeld om te worden beheerd door de gebruikers. U bent echter aangemoedigd om de instelling voor automatisch Windows Update ingeschakeld laten. Automatische installatie van updates via Windows Update kan ook leiden tot opnieuw wordt opgestart plaatsvindt nadat de updates worden toegepast. Zie voor meer informatie, [Veelgestelde vragen over de Windows Update](https://support.microsoft.com/help/12373/windows-update-faq).
+Zoals on-premises servers, biedt Azure niet updates pushen vanaf Windows Update voor Windows-VM's, omdat deze machines zijn bedoeld om te worden beheerd door de gebruikers. U bent echter aangemoedigd om de instelling voor automatisch Windows Update ingeschakeld laten. Automatische installatie van updates via Windows Update kan ook leiden tot opnieuw wordt opgestart plaatsvindt nadat de updates worden toegepast. Zie voor meer informatie, [Veelgestelde vragen over de Windows Update](https://support.microsoft.com/help/12373/windows-update-faq).
 
 ### <a name="other-situations-affecting-the-availability-of-your-vm"></a>Andere situaties die betrekking hebben op de beschikbaarheid van uw virtuele machine
 Er zijn andere gevallen waarin Azure actief wordt het gebruik van een virtuele machine mogelijk onderbreken. U ontvangt e-mailmeldingen voordat deze actie wordt ondernomen, dus een kans hebt u om de onderliggende problemen oplossen. Voorbeelden van problemen die invloed hebben op de VM-beschikbaarheid zijn schendingen van de beveiliging en de vervaldatum van de betalingswijzen.

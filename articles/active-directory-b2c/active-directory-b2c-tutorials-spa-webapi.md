@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.component: B2C
-ms.openlocfilehash: 54ddafbf0e4fe02bfc1445aad23ac3e20b42acb0
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: efe975fa4f89a262faef82df3cc79820d393b60e
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43339383"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45605756"
 ---
 # <a name="tutorial-grant-access-to-an-aspnet-core-web-api-from-a-single-page-app-using-azure-active-directory-b2c"></a>Zelfstudie: toegang verlenen aan een web-API van ASP.NET Core vanuit een app met één pagina met behulp van Azure Active Directory B2C
 
@@ -46,9 +46,9 @@ Meld u als globale beheerder van de Azure AD B2C-tenant aan bij [Azure Portal](h
 
 [!INCLUDE [active-directory-b2c-switch-b2c-tenant](../../includes/active-directory-b2c-switch-b2c-tenant.md)]
 
-1. Selecteer **Azure AD B2C** in de lijst met services in Azure Portal.
+1. Kies **Alle services** linksboven in de Azure Portal, zoek **Azure AD B2C** en selecteer deze. U gebruikt nu de tenant die u hebt gemaakt in de vorige zelfstudie.
 
-2. Klik in de B2C-instellingen op **Toepassingen** en klik vervolgens op **Toevoegen**.
+2. Selecteer **Toepassingen** en vervolgens **Toevoegen**.
 
     Gebruik de volgende instellingen voor het registreren van de voorbeeld-web-API in uw tenant.
     
@@ -59,7 +59,7 @@ Meld u als globale beheerder van de Azure AD B2C-tenant aan bij [Azure Portal](h
     | **Naam** | Hello Core API | Voer een **naam** in die uw web-API aan ontwikkelaars beschrijft. |
     | **Web-app / web-API opnemen** | Ja | Selecteer **Ja** voor een web-API. |
     | **Impliciete stroom toestaan** | Ja | Selecteer **Ja** omdat de API gebruikmaakt van [aanmelding via OpenID Connect](active-directory-b2c-reference-oidc.md). |
-    | **Antwoord-URL** | `http://localhost:44332` | Antwoord-URL's zijn eindpunten waarop Azure AD B2C tokens retourneert die worden aangevraagd door uw API. In deze zelfstudie wordt de voorbeeld-web-API lokaal (localhost) uitgevoerd en luistert deze op poort 5000. |
+    | **Antwoord-URL** | `http://localhost:5000` | Antwoord-URL's zijn eindpunten waarop Azure AD B2C tokens retourneert die worden aangevraagd door uw API. In deze zelfstudie wordt de voorbeeld-web-API lokaal (localhost) uitgevoerd en luistert deze op poort 5000 (wanneer deze later in deze zelfstudie is geconfigureerd). |
     | **App-id-URI** | HelloCoreAPI | De URI is een unieke identificatie van de API in de tenant. Hierdoor kunt u meerdere API's per tenant registreren. [Bereiken](../active-directory/develop/developer-glossary.md#scopes) bepalen de toegang tot de beveiligde API-resource en worden per app-id-URI gedefinieerd. |
     | **Systeemeigen client** | Nee | Aangezien dit een web-API en geen systeemeigen client is, moet u Nee selecteren. |
     
@@ -111,7 +111,7 @@ Als u een beveiligde web-API wilt aanroepen vanuit een app, moet u uw app machti
 
 5. Klik op **OK**.
 
-Uw **Mijn voorbeeld-app met één pagina** is geregistreerd om de beveiligde **Hello Core API** te kunnen aanroepen. Een gebruiker [voert een verificatie uit](../active-directory/develop/developer-glossary.md#authentication) met Azure AD B2C om de WPF-desktop-app te kunnen gebruiken. De desktop-app verkrijgt een [authorisatietoekenning](../active-directory/develop/developer-glossary.md#authorization-grant) van Azure AD B2C voor toegang tot de beveiligde web-API.
+Uw **Mijn voorbeeld-app met één pagina** is geregistreerd om de beveiligde **Hello Core API** te kunnen aanroepen. Een gebruiker [voert een verificatie uit](../active-directory/develop/developer-glossary.md#authentication) bij Azure AD B2C om de app met één pagina te kunnen gebruiken. De app met één pagina verkrijgt een [authorisatietoekenning](../active-directory/develop/developer-glossary.md#authorization-grant) van Azure AD B2C voor toegang tot de beveiligde web-API.
 
 ## <a name="update-code"></a>Code bijwerken
 
@@ -158,7 +158,7 @@ Om uw app met één pagina toe te staan de web-API van ASP.NET Core aan te roepe
         builder.WithOrigins("http://localhost:6420").AllowAnyHeader().AllowAnyMethod());
     ```
 
-3. Open het bestand **launchSettings.json** onder **Eigenschappen**, zoek de instelling voor *applicationURL* en registreer de waarde voor gebruik in de volgende sectie.
+3. Open het bestand **launchSettings.json** onder **Eigenschappen**, zoek de instelling **iisSettings** *applicationURL* en stel het poortnummer in op het nummer dat is geregistreerd voor antwoord-URL van de API`http://localhost:5000`.
 
 ### <a name="configure-the-single-page-app"></a>Configureer de app met één pagina
 
@@ -174,7 +174,7 @@ De app-instellingen wijzigen:
         clientID: '<Application ID for your SPA obtained from portal app registration>',
         authority: "https://<your-tenant-name>.b2clogin.com/tfp/<your-tenant-name>.onmicrosoft.com/B2C_1_SiUpIn",
         b2cScopes: ["https://<Your tenant name>.onmicrosoft.com/HelloCoreAPI/demo.read"],
-        webApi: 'http://localhost:64791/api/values',
+        webApi: 'http://localhost:5000/api/values',
     };
     ```
 

@@ -15,18 +15,21 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: roiyz
-ms.openlocfilehash: bab579b540dbeed8ecbff8925547509edb1d78c9
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: dc0d7857dbbbdc862878201ba9d47632d2b5affd
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49352373"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49404848"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-linux"></a>Log Analytics VM-extensie voor Linux
 
 ## <a name="overview"></a>Overzicht
 
 Log Analytics biedt mogelijkheden voor bewaking, waarschuwingen en meldingen herstel zowel in de cloud en on-premises activa. De extensie voor de Log Analytics-Agent van een virtuele machine voor Linux is gepubliceerd en ondersteund door Microsoft. De extensie voor de Log Analytics-agent geïnstalleerd op virtuele Azure-machines en virtuele machines voor een bestaande Log Analytics-werkruimte worden ingeschreven. In dit document worden de ondersteunde platforms, configuraties en implementatie-opties voor de extensie van de Log Analytics-virtuele machine voor Linux.
+
+>[!NOTE]
+>Als onderdeel van de lopende overgang van Microsoft Operations Management Suite (OMS) naar Azure Monitor, wordt de OMS-Agent voor Windows of Linux worden aangeduid als de Log Analytics-agent voor Windows en de Log Analytics-agent voor Linux.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -49,7 +52,7 @@ De Log Analytics-Agent-extensie kan voor deze Linux-distributies worden uitgevoe
 >
 
 ### <a name="agent-and-vm-extension-version"></a>Versie agent en VM-extensie
-De volgende tabel bevat een toewijzing van de versie van de Log Analytics VM-extensie en de bundel voor elke versie van de Log Analytics-Agent. Een koppeling naar de opmerkingen bij de release voor de versie van Log Analytics-agent-bundel is opgenomen. Opmerkingen bij de release bevatten informatie over oplossingen voor problemen en nieuwe functies die beschikbaar zijn voor een opgegeven agent-release.  
+De volgende tabel bevat een toewijzing van de versie van de Log Analytics VM-extensie en bundel van Log Analytics-agent voor elke versie. Een koppeling naar de opmerkingen bij de release voor de versie van Log Analytics-agent-bundel is opgenomen. Opmerkingen bij de release bevatten informatie over oplossingen voor problemen en nieuwe functies die beschikbaar zijn voor een opgegeven agent-release.  
 
 | Versie van de extensie log Analytics virtuele Linux-machine | Log Analytics-Agent bundelversie krijgt | 
 |--------------------------------|--------------------------|
@@ -210,13 +213,13 @@ Extensie uitvoering uitvoer wordt vastgelegd in het volgende bestand:
 | 9 | Met de naam voortijdig inschakelen | [De Azure Linux Agent bijwerken](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent) naar de meest recente beschikbare versie. |
 | 10 | Virtuele machine is al verbonden met een Log Analytics-werkruimte | StopOnMultipleConnections ingesteld op false in de openbare-instellingen voor de virtuele machine verbinding met de werkruimte die is opgegeven in het extensieschema, of verwijder deze eigenschap. Deze virtuele machine in rekening gebracht wanneer er voor elke werkruimte is verbonden met. |
 | 11 | Ongeldige configuratie opgegeven voor de extensie | Volg de voorgaande voorbeelden om in te stellen alle eigenschapswaarden die nodig zijn voor implementatie. |
-| 17 | Fout tijdens de installatie van de OMS-pakket | 
+| 17 | Meld u Analytics-pakket-installatiefout | 
 | 19 | Fout tijdens de installatie van de OMI-pakket | 
 | 20 | Fout tijdens de installatie van de SCX-pakket |
 | 51 | Deze extensie wordt niet ondersteund voor besturingssysteem van de virtuele machine | |
-| 55 | Kan geen verbinding maken naar de OMS-service of de vereiste pakketten ontbreken of het dpkg pakket manager is vergrendeld| Controleer of het systeem heeft toegang tot Internet of dat een geldige HTTP-proxy is opgegeven. Bovendien Controleer de juistheid van de werkruimte-ID en controleer of curl en tar-hulpprogramma's zijn geïnstalleerd. |
+| 55 | Kan geen verbinding maken met de Log Analytics-service of vereiste pakketten ontbreken of dpkg Pakketbeheer is vergrendeld| Controleer of het systeem heeft toegang tot Internet of dat een geldige HTTP-proxy is opgegeven. Bovendien Controleer de juistheid van de werkruimte-ID en controleer of curl en tar-hulpprogramma's zijn geïnstalleerd. |
 
-Als u meer informatie over probleemoplossing vindt u op de [OMS-Agent voor Linux Troubleshooting Guide](../../log-analytics/log-analytics-azure-vmext-troubleshoot.md).
+Als u meer informatie over probleemoplossing vindt u op de [Log Analytics-Agent voor Linux Troubleshooting Guide](../../log-analytics/log-analytics-azure-vmext-troubleshoot.md).
 
 ### <a name="support"></a>Ondersteuning
 

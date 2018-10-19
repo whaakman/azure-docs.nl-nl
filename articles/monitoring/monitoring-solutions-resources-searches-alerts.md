@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 06/18/2018
 ms.author: bwren, vinagara
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8f5dba7ba1c21e33f23cf8917c93e478eadf5f88
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 06c01a7c87c43931a27c03b2014995be6c2678eb
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48269522"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49409064"
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>Toevoegen van Log Analytics opgeslagen zoekopdrachten en waarschuwingen in management-oplossing (Preview)
 
@@ -54,7 +54,7 @@ De volgende tabel bevat de API-versie voor de resource die in dit voorbeeld word
 
 
 ## <a name="saved-searches"></a>Opgeslagen zoekopdrachten
-Opnemen [opgeslagen zoekopdrachten](../log-analytics/log-analytics-log-searches.md) in een oplossing waarmee gebruikers query uitvoeren op gegevens die door uw oplossing worden verzameld.  Opgeslagen zoekopdrachten worden weergegeven onder **Favorieten** in de OMS-portal en **opgeslagen zoekopdrachten** in Azure portal.  Een opgeslagen zoekopdracht is ook vereist voor elke waarschuwing.   
+Opnemen [opgeslagen zoekopdrachten](../log-analytics/log-analytics-log-searches.md) in een oplossing waarmee gebruikers query uitvoeren op gegevens die door uw oplossing worden verzameld.  Opgeslagen zoekopdrachten worden weergegeven onder **opgeslagen zoekopdrachten** in Azure portal.  Een opgeslagen zoekopdracht is ook vereist voor elke waarschuwing.   
 
 [Log Analytics opgeslagen zoekopdracht](../log-analytics/log-analytics-log-searches.md) resources zijn een type `Microsoft.OperationalInsights/workspaces/savedSearches` en hebben de volgende structuur.  Dit omvat de algemene variabelen en parameters zodat u kunt kopiëren en plak dit codefragment in uw oplossingsbestand en wijzig de namen van parameters. 
 
@@ -90,7 +90,7 @@ Elke eigenschap van een opgeslagen zoekopdracht wordt in de volgende tabel besch
 [Waarschuwingen voor Azure](../monitoring-and-diagnostics/monitor-alerts-unified-log.md) zijn gemaakt door Azure waarschuwingsregels die opgegeven logboeken-query's met regelmatige tussenpozen uitvoeren.  Als de resultaten van de query aan opgegeven criteria voldoen, wordt een waarschuwingsrecord gemaakt en een of meer acties worden uitgevoerd met behulp van [actiegroepen](../monitoring-and-diagnostics/monitoring-action-groups.md).  
 
 > [!NOTE]
-> Alle waarschuwingen in een openbare Azure-cloud-exemplaar van Log Analytics-werkruimte, dat is vanaf 14 mei 2018, wordt automatisch gestart om uit te breiden naar Azure. Een gebruiker kunt vrijwillig uitbreiding van waarschuwingen naar Azure initiëren vóór 14 mei 2018. Zie voor meer informatie, [waarschuwingen uitbreiden naar Azure OMS](../monitoring-and-diagnostics/monitoring-alerts-extend.md). Voor gebruikers die waarschuwingen naar Azure uitbreiden, worden de acties nu beheerd in Azure-Actiegroepen. Wanneer een werkruimte en de waarschuwingen worden uitgebreid naar Azure, kunt u ophalen of acties toevoegen met behulp van de [actiegroep - Azure Resource Manager-sjabloon](../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md).
+> Vanaf 14 mei 2018 worden alle waarschuwingen in een openbare Azure-cloud-exemplaar van Log Analytics-werkruimte is begonnen om uit te breiden naar Azure. Zie voor meer informatie, [waarschuwingen uitbreiden naar Azure](../monitoring-and-diagnostics/monitoring-alerts-extend.md). Voor gebruikers die waarschuwingen naar Azure uitbreiden, worden de acties nu beheerd in Azure-Actiegroepen. Wanneer een werkruimte en de waarschuwingen worden uitgebreid naar Azure, kunt u ophalen of acties toevoegen met behulp van de [actiegroep - Azure Resource Manager-sjabloon](../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md).
 
 Waarschuwingsregels in een oplossing voor bestaan uit de volgende drie verschillende bronnen.
 
@@ -146,7 +146,7 @@ Een planning kan meerdere acties hebben. Een actie kan definiëren een of meer p
 Acties kunnen worden gedefinieerd met behulp van [actiegroep] of actie bron.
 
 > [!NOTE]
-> Alle waarschuwingen in een openbare Azure-cloud-exemplaar van Log Analytics-werkruimte, dat is vanaf 14 mei 2018, wordt automatisch gestart om uit te breiden naar Azure. Een gebruiker kunt vrijwillig uitbreiding van waarschuwingen naar Azure initiëren vóór 14 mei 2018. Zie voor meer informatie, [waarschuwingen uitbreiden naar Azure OMS](../monitoring-and-diagnostics/monitoring-alerts-extend.md). Voor gebruikers die waarschuwingen naar Azure uitbreiden, worden de acties nu beheerd in Azure-Actiegroepen. Wanneer een werkruimte en de waarschuwingen worden uitgebreid naar Azure, kunt u ophalen of acties toevoegen met behulp van de [actiegroep - Azure Resource Manager-sjabloon](../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md).
+> Vanaf 14 mei 2018 worden is alle waarschuwingen in een openbare Azure-cloud-exemplaar van Log Analytics-werkruimte automatisch uitgebreid naar Azure. Zie voor meer informatie, [waarschuwingen uitbreiden naar Azure](../monitoring-and-diagnostics/monitoring-alerts-extend.md). Voor gebruikers die waarschuwingen naar Azure uitbreiden, worden de acties nu beheerd in Azure-Actiegroepen. Wanneer een werkruimte en de waarschuwingen worden uitgebreid naar Azure, kunt u ophalen of acties toevoegen met behulp van de [actiegroep - Azure Resource Manager-sjabloon](../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md).
 
 
 Er zijn twee soorten actie resource die is opgegeven door de **Type** eigenschap.  Een planning vereist een **waarschuwing** actie, waarin de details van de waarschuwingsregel en welke acties worden uitgevoerd wanneer een waarschuwing wordt gemaakt. Actie resources zijn een type `Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions`.  
@@ -242,7 +242,7 @@ Voor gebruikers die hun waarschuwingen hebt uitgebreid naar Azure, hebt een plan
 Elke planning heeft een **waarschuwing** actie.  Hiermee definieert u de details van de waarschuwing en (optioneel) de melding en herstel.  Een melding verzendt een e-mailbericht naar een of meer adressen.  Een herstel wordt een runbook in Azure Automation om te proberen het gedetecteerde probleem herstellen gestart.
 
 > [!NOTE]
-> Alle waarschuwingen in een openbare Azure-cloud-exemplaar van Log Analytics-werkruimte, dat is vanaf 14 mei 2018, wordt automatisch gestart om uit te breiden naar Azure. Een gebruiker kunt vrijwillig uitbreiding van waarschuwingen naar Azure initiëren vóór 14 mei 2018. Zie voor meer informatie, [waarschuwingen uitbreiden naar Azure OMS](../monitoring-and-diagnostics/monitoring-alerts-extend.md). Voor gebruikers die waarschuwingen naar Azure uitbreiden, worden de acties nu beheerd in Azure-Actiegroepen. Wanneer een werkruimte en de waarschuwingen worden uitgebreid naar Azure, kunt u ophalen of acties toevoegen met behulp van de [actiegroep - Azure Resource Manager-sjabloon](../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md).
+> Vanaf 14 mei 2018 worden is alle waarschuwingen in een openbare Azure-cloud-exemplaar van Log Analytics-werkruimte automatisch uitgebreid naar Azure. Zie voor meer informatie, [waarschuwingen uitbreiden naar Azure](../monitoring-and-diagnostics/monitoring-alerts-extend.md). Voor gebruikers die waarschuwingen naar Azure uitbreiden, worden de acties nu beheerd in Azure-Actiegroepen. Wanneer een werkruimte en de waarschuwingen worden uitgebreid naar Azure, kunt u ophalen of acties toevoegen met behulp van de [actiegroep - Azure Resource Manager-sjabloon](../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md).
 
 ##### <a name="emailnotification"></a>EmailNotification
  Deze sectie is optioneel als u de melding om e-mail te verzenden naar een of meer ontvangers wilt opnemen.

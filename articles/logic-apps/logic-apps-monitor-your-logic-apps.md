@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: 5c1b1e15-3b6c-49dc-98a6-bdbe7cb75339
 ms.date: 07/21/2017
-ms.openlocfilehash: a08cd6289fc85b79ccec731126a33a9549d60546
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: c2e487f421d2dfc875efde82c078f557f7bd03d2
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43123530"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405732"
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>Status controleren, instellen van logboekregistratie van diagnostische gegevens en waarschuwingen inschakelen voor Azure Logic Apps
 
@@ -90,7 +90,9 @@ Voordat u begint, moet u een Log Analytics-werkruimte. Informatie over [over het
 
    1. Selecteer **verzenden naar Log Analytics**. 
    2. Onder **Log Analytics**, kiest u **configureren**. 
-   3. Onder **OMS-werkruimten**, selecteert u de Log Analytics-werkruimte moet worden gebruikt voor logboekregistratie.
+   3. Onder **OMS-werkruimten**, selecteert u de werkruimte moet worden gebruikt voor logboekregistratie.
+   > [!NOTE]
+   > OMS-werkruimten worden nu aangeduid als Log Analytics-werkruimten.
    4. Onder **Log**, selecteer de **WorkflowRuntime** categorie.
    5. Kies het interval voor metrische gegevens.
    6. Als u bent klaar, kiest u **Opslaan**.

@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 10/11/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 67a987d9b491ba6813e900c293529ed677c45757
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: c89d312f7a667a279ff2f17b38b612a90c7bcddb
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167678"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406055"
 ---
 # <a name="update-management-solution-in-azure"></a>Oplossing voor updatebeheer in Azure
 
@@ -212,7 +212,7 @@ Voor het maken van een nieuwe update-implementatie selecteert **update-implement
 | Groepen om bij te werken (preview)|Definieer een query op basis van een combinatie van het abonnement, resourcegroepen, locaties en tags aan het bouwen van een dynamische groep virtuele Azure-machines om op te nemen in uw implementatie. Zie voor meer informatie, [dynamische groepen](automation-update-management.md#using-dynamic-groups)|
 | Bij te werken computers |Selecteer een opgeslagen zoekopdracht, geïmporteerd groep, of Machine kiezen in de vervolgkeuzelijst en selecteer afzonderlijke computers. Als u **Computers** selecteert, wordt de gereedheid van de computer weergegeven in de kolom **GEREEDHEID VOOR UPDATE-AGENT**.</br> Zie [Computergroepen in Log Analytics](../log-analytics/log-analytics-computer-groups.md) voor meer informatie over de verschillende manieren waarop u computergroepen kunt maken in Log Analytics |
 |Updateclassificaties|Selecteer de updateclassificaties die u nodig hebt|
-|Updates opnemen/uitsluiten|Hiermee opent u de **opnemen/uitsluiten** pagina. Er zijn updates moeten worden opgenomen of uitgesloten op een afzonderlijk tabblad. Zie voor meer informatie over hoe de insluiting wordt verwerkt, [opgenomen gedrag](automation-update-management.md#inclusion-behavior) |
+|Updates opnemen/uitsluiten|Hiermee opent u de **opnemen/uitsluiten** pagina. Updates die moeten worden opgenomen of uitgesloten, worden op afzonderlijke tabbladen weergegeven. Zie voor meer informatie over hoe de insluiting wordt verwerkt, [opgenomen gedrag](automation-update-management.md#inclusion-behavior) |
 |Planningsinstellingen|Selecteer de tijd om te starten, en selecteer een van beide eenmaal of terugkerende voor het terugkeerpatroon|
 | Scripts die voorafgaan aan en scripts die volgen|Selecteer de scripts worden uitgevoerd vóór en na de implementatie|
 | Onderhoudsvenster |Het aantal minuten instellen voor updates. De waarde mag niet kleiner zijn dan 30 minuten en niet meer dan 6 uur |
@@ -264,7 +264,7 @@ sudo yum -q --security check-update
 
 Er is momenteel geen ondersteunde methode waarmee de beschikbaarheid van de systeemeigen classificatie-gegevens op CentOS. Op dit moment worden alleen best-effort-ondersteuning is beschikbaar voor klanten die mogelijk zijn ingeschakeld deze op hun eigen.
 
-## <a name="ports"></a>Poorten
+##<a name="ports"></a>Netwerken plannen
 
 De volgende adressen zijn vereist voor het beheer van updates. Communicatie met deze adressen vindt plaats via poort 443.
 

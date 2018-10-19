@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: a5792998654ed1d334e514591da3bef9805a5e79
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 712c729a214cdab66961fb399c9d797a758fcf7b
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47163355"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49409676"
 ---
 # <a name="monitor-sql-data-sync-with-log-analytics"></a>SQL Data Sync bewaken met Log Analytics 
 
@@ -97,7 +97,7 @@ Zie voor meer informatie over het maken van een runbook [Mijn eerste PowerShell-
 
     2.  Groep voor synchronisatie met gegevens.
 
-    3.  Gegevens van OMS. Deze informatie vinden op de OMS-Portal | Instellingen | Verbonden bronnen. Zie voor meer informatie over het verzenden van gegevens naar Log Analytics [gegevens verzenden naar Log Analytics met de HTTP Data Collector-API (preview)](../log-analytics/log-analytics-data-collector-api.md).
+    3.  Meld u Analytics-gegevens. Deze informatie vinden in Azure Portal | Instellingen | Verbonden bronnen. Zie voor meer informatie over het verzenden van gegevens naar Log Analytics, [gegevens verzenden naar Log Analytics met de HTTP Data Collector-API (preview)](../log-analytics/log-analytics-data-collector-api.md).
 
 11. Het runbook uitvoeren in het deelvenster. Controleer of dat deze is voltooid.
 
@@ -117,7 +117,7 @@ Het runbook plannen:
 
 4.  Selecteer **een nieuw schema maken.**
 
-5.  Stel **terugkeerpatroon** terugkerend en stel het interval u wilt gebruiken. Gebruik hetzelfde interval, in het script en in OMS.
+5.  Stel **terugkeerpatroon** terugkerend en stel het interval u wilt gebruiken. Gebruik hetzelfde interval, in het script en in Log Analytics.
 
 6.  Selecteer **Maken**.
 
@@ -129,7 +129,7 @@ Om te controleren of uw automation wordt uitgevoerd zoals verwacht, onder **over
 
 Als u wilt een waarschuwing maken die gebruikmaakt van Log Analytics, doe dan het volgende. Als een vereiste moet u Log Analytics is gekoppeld met een Log Analytics-werkruimte hebben.
 
-1.  Selecteer in de OMS-portal **zoeken in logboeken**.
+1.  Selecteer in de Azure portal, **zoeken in logboeken**.
 
 2.  Maak een query voor het selecteren van de fouten en waarschuwingen door synchronisatiegroep binnen het interval dat u hebt geselecteerd. Bijvoorbeeld:
 
@@ -147,9 +147,9 @@ Als u wilt een waarschuwing maken die gebruikmaakt van Log Analytics, doe dan he
 
 6.  Klik op **Opslaan**. De opgegeven ontvangers wordt nu een e-mailmeldingen ontvangen wanneer er fouten optreden.
 
-## <a name="create-an-oms-view-for-monitoring"></a>Een OMS-weergave maken voor het bewaken van
+## <a name="create-a-log-analytics-view-for-monitoring"></a>Een Log Analytics-weergave maken voor het bewaken van
 
-Deze stap maakt u een OMS-weergave voor de opgegeven synchronisatiegroepen visueel te controleren. De weergave bevat verschillende onderdelen:
+Deze stap maakt u een Log Analytics-weergave voor de opgegeven synchronisatiegroepen visueel te controleren. De weergave bevat verschillende onderdelen:
 
 -   Een overzichtstegel ziet u hoeveel fouten, voltooide bewerkingen en waarschuwingen voor alle synchronisatiegroepen hebben.
 
@@ -157,9 +157,9 @@ Deze stap maakt u een OMS-weergave voor de opgegeven synchronisatiegroepen visue
 
 -   Een tegel voor elke groep voor synchronisatie, waarin het aantal fouten, is voltooid, en waarschuwingen en de recente foutberichten worden weergegeven.
 
-Voor het configureren van de OMS-weergave, moet u de volgende dingen doen:
+Voor het configureren van de Log Analytics-weergave, moet u de volgende dingen doen:
 
-1.  Selecteer het plusteken aan de linkerkant om te openen op de startpagina van de OMS de **weergaveontwerper**.
+1.  Selecteer het plusteken aan de linkerkant om te openen op de startpagina van Log Analytics de **weergaveontwerper**.
 
 2.  Selecteer **importeren** op de bovenste balk van de ontwerper. Selecteer vervolgens het voorbeeldbestand 'DataSyncLogOMSView'.
 

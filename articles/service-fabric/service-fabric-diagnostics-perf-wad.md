@@ -14,16 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/26/2018
 ms.author: srrengar
-ms.openlocfilehash: f99206fe673f69c78bf130026207ed58344ccea5
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: 68e0192756db539767dd808d0f0d408e77c2ae1b
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39324422"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405647"
 ---
 # <a name="performance-monitoring-with-the-windows-azure-diagnostics-extension"></a>Prestatiebewaking met de Windows Azure Diagnostics-extensie
 
-In dit document bevat informatie over de stappen die nodig zijn voor het instellen van het verzamelen van prestatiemeteritems via de Windows Azure Diagnostics (WAD)-extensie voor Windows-clusters. Voor Linux-clusters, stelt u de [OMS-Agent](service-fabric-diagnostics-oms-agent.md) voor het verzamelen van prestatiemeteritems voor uw knooppunten. 
+In dit document bevat informatie over de stappen die nodig zijn voor het instellen van het verzamelen van prestatiemeteritems via de Windows Azure Diagnostics (WAD)-extensie voor Windows-clusters. Voor Linux-clusters, stelt u de [Log Analytics-agent](service-fabric-diagnostics-oms-agent.md) voor het verzamelen van prestatiemeteritems voor uw knooppunten. 
 
  > [!NOTE]
 > De extensie WAD moet worden geïmplementeerd in uw cluster voor deze stappen voor het werk voor u. Als deze is niet ingesteld, Ga naar [gebeurtenis aggregatie en verzameling met Windows Azure Diagnostics](service-fabric-diagnostics-event-aggregation-wad.md).  

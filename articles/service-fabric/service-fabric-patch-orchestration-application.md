@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/22/2018
 ms.author: nachandr
-ms.openlocfilehash: f43715b9c419aab1f5b95e140eac72642ef74198
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: a8b2070b6f5b10cb60c6658aefc8cc90331ecfd9
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42746894"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49409353"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Patch uitvoeren voor het Windows-besturingssysteem in uw Service Fabric-cluster
 
@@ -29,7 +29,9 @@ ms.locfileid: "42746894"
 >
 >
 
-De patch orchestration-toepassing is een Azure Service Fabric-toepassing waarmee het besturingssysteem op een Service Fabric-cluster zonder uitvaltijd patches worden geautomatiseerd.
+[Afbeelding van automatische besturingssysteemupgrades schaalset van virtuele machine van Azure](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) is de aanbevolen procedure voor uw besturingssystemen gevuld in Azure bewaren en de Patch Orchestration-toepassing (POA) is een wrapper rond Service Fabrics RepairManager systemen service waarmee configuratie op basis van OS patch plannen voor niet-Azure gehoste clusters. POA is niet vereist voor niet-Azure gehoste clusters, maar het patchinstallatie door de domeinen bijwerken plannen is vereist voor het vullen van Service Fabric-clusters hosts zonder uitvaltijd.
+
+POA is een Azure Service Fabric-toepassing waarmee het besturingssysteem op een Service Fabric-cluster zonder uitvaltijd patches worden geautomatiseerd.
 
 De patch orchestration-app biedt de volgende functies:
 

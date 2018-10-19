@@ -12,15 +12,15 @@ ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
-ms.date: 02/28/2018
+ms.topic: article
+ms.date: 10/17/2018
 ms.author: ergreenl
-ms.openlocfilehash: 6be67a92c95ccf1161ffeeb636ee4f998c65fa05
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 0eb028e419f05843da308c824d79a8f4e1883fb2
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39503686"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49429742"
 ---
 # <a name="azure-ad-domain-services---troubleshoot-alerts"></a>Azure AD Domain Services - waarschuwingen oplossen
 Dit artikel bevat de handleidingen voor probleemoplossing voor alle waarschuwingen die op uw beheerde domein optreden kunnen.
@@ -39,7 +39,7 @@ Kies de stappen voor probleemoplossing die overeenkomen met de ID of het bericht
 | AADDS105 | *De service-principal met de toepassings-ID "d87dcbc6-a371-462e-88e3-28ad15ec4e64" is verwijderd en vervolgens opnieuw gemaakt. De recreatie blijven achter inconsistent machtigingen op Azure AD Domain Services-resources die nodig zijn om uw beheerde domein te behouden. Synchronisatie van wachtwoorden in uw beheerde domein kan worden beïnvloed.* | [De toepassing van de synchronisatie van wachtwoord is verlopen](active-directory-ds-troubleshoot-service-principals.md#alert-aadds105-password-synchronization-application-is-out-of-date) |
 | AADDS500 | *Het beheerde domein voor het laatst is gesynchroniseerd met Azure AD op [datum]. Het is mogelijk dat gebruikers kan zich niet aanmelden bij het beheerde domein of groepslidmaatschappen kunnen niet worden gesynchroniseerd met Azure AD.* | [Synchronisatie nog niet heeft plaatsgevonden sinds langere tijd](#aadds500-synchronization-has-not-completed-in-a-while) |
 | AADDS501 | *Het beheerde domein is laatste back-ups op [datum].* | [Een back-up nog niet is gemaakt in een tijdje](#aadds501-a-backup-has-not-been-taken-in-a-while) |
-| AADDS502 | *Het certificaat voor secure LDAP voor het beheerde domein verloopt op [datum]].* | [Certificaat voor secure LDAP verloopt](active-directory-ds-troubleshoot-ldaps.md#aadds502-secure-ldap-certificate-expiring) |
+| AADDS502 | *Het certificaat voor secure LDAP voor het beheerde domein verloopt op [datum].* | [Certificaat voor secure LDAP verloopt](active-directory-ds-troubleshoot-ldaps.md#aadds502-secure-ldap-certificate-expiring) |
 | AADDS503 | *Het beheerde domein is onderbroken omdat de Azure-abonnement dat is gekoppeld aan het domein niet actief is.* | [Onderbreking vanwege een uitgeschakeld abonnement](#aadds503-suspension-due-to-disabled-subscription) |
 | AADDS504 | *Het beheerde domein is onderbroken vanwege een ongeldige configuratie. De service is te beheren, patch, of bijwerken van de domeincontrollers voor uw beheerde domein gedurende een lange periode.* | [Onderbreking vanwege een ongeldige configuratie](#aadds504-suspension-due-to-an-invalid-configuration) |
 

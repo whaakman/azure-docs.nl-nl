@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: bwren
-ms.openlocfilehash: 3154a2f8b283f68ec3e10ba621ccba3ee6d77de2
-ms.sourcegitcommit: 465ae78cc22eeafb5dfafe4da4b8b2138daf5082
+ms.openlocfilehash: 82cfa9e62dcc6b3a72dcb1ccf97f1f52a88a75c4
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44324747"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49404100"
 ---
 # <a name="data-collection-details-for-management-solutions-in-azure"></a>Details van de verzameling gegevens voor de beheeroplossingen in Azure
 In dit artikel bevat een lijst met [beheeroplossingen](monitoring-solutions.md) beschikbaar van Microsoft met koppelingen naar de gedetailleerde documentatie.  Het bevat ook informatie over hun methode en de frequentie van verzamelen van gegevens in Log Analytics.  Gebruik de informatie in dit artikel om te identificeren van de verschillende oplossingen beschikbaar en om te begrijpen van de stroom en verbinding eisen voor verschillende oplossingen. 
@@ -34,7 +34,7 @@ Uitleg van de kolommen zijn als volgt:
 - **Operations Manager** -identieke agent als Microsoft monitoring agent. In deze configuratie heeft [verbonden met een Operations Manager-beheergroep](../log-analytics/log-analytics-om-agents.md) die verbonden met Log Analytics. 
 -  **Azure Storage** -oplossing verzamelt gegevens uit een Azure storage-account. 
 - **Operations Manager vereist?** -Een verbonden beheergroep van Operations Manager is vereist voor het verzamelen van gegevens door de MDM-oplossing. 
-- **Operations Manager-agent gegevens verzonden via de beheergroep** - als de agent [verbonden met een SCOM-beheergroep](../log-analytics/log-analytics-om-agents.md), en vervolgens gegevens naar Log Analytics worden verzonden vanaf de beheerserver. In dit geval moet de agent niet rechtstreeks verbinding maken met Log Analytics. Als dit selectievakje niet is geselecteerd, wordt klikt u vervolgens gegevens verzonden vanaf de agent rechtstreeks met Log Analytics, zelfs als de agent is verbonden met een SCOM-beheergroep. Deze moet kunnen communiceren met Log Analytics gebruikt via een [OMS-gateway](../log-analytics/log-analytics-oms-gateway.md).
+- **Operations Manager-agent gegevens verzonden via de beheergroep** - als de agent [verbonden met een SCOM-beheergroep](../log-analytics/log-analytics-om-agents.md), en vervolgens gegevens naar Log Analytics worden verzonden vanaf de beheerserver. In dit geval moet de agent niet rechtstreeks verbinding maken met Log Analytics. Als dit selectievakje niet is geselecteerd, wordt klikt u vervolgens gegevens verzonden vanaf de agent rechtstreeks met Log Analytics, zelfs als de agent is verbonden met een SCOM-beheergroep. Deze moet kunnen communiceren met Log Analytics gebruikt via de [Log Analytics gateway](../log-analytics/log-analytics-oms-gateway.md).
 - **Verzamelingsfrequentie** -Hiermee geeft u de frequentie dat gegevens worden verzameld door de oplossing voor beheer. 
 
 
@@ -48,9 +48,9 @@ Uitleg van de kolommen zijn als volgt:
 | [Ontvang een waarschuwing Management](../log-analytics/log-analytics-solution-alert-management.md) (Nagios) |Linux |&#8226; | | | | |bij ontvangst |
 | [Ontvang een waarschuwing Management](../log-analytics/log-analytics-solution-alert-management.md) (Zabbix) |Linux |&#8226; | | | | |1 minuut |
 | [Ontvang een waarschuwing Management](../log-analytics/log-analytics-solution-alert-management.md) (Operations Manager) |Windows | |&#8226; | |&#8226; |&#8226; |3 minuten |
-| [Azure Site Recovery](../site-recovery/site-recovery-overview.md) | Azure | | | | | | niet van toepassing |
+| [Azure Site Recovery](../site-recovery/site-recovery-overview.md) | Azure | | | | | | N.v.t. |
 | [Application Insights-Connector (Preview)](../log-analytics/log-analytics-app-insights-connector.md) | Azure | | | |  |  | op de melding |
-| [Hybrid Worker voor Automation](../automation/automation-hybrid-runbook-worker.md) | Windows | &#8226; | &#8226; |  |  |  | niet van toepassing |
+| [Hybrid Worker voor Automation](../automation/automation-hybrid-runbook-worker.md) | Windows | &#8226; | &#8226; |  |  |  | N.v.t. |
 | [Azure Application Gateway Analytics](../log-analytics/log-analytics-azure-networking-analytics.md) | Azure |  |  |  |  |  | op de melding |
 | **Oplossing voor het beheer** | **Platform** | **Microsoft monitoring agent** | **Operations Manager-agent** | **Azure Storage** | **Operations Manager vereist?** | **Operations Manager-agent gegevens verzonden via de beheergroep** | **Verzamelingsfrequentie** |
 | [Azure Network Security Group Analytics (afgeschaft)](../log-analytics/log-analytics-azure-networking-analytics.md) | Azure |  |  |  |  |  | op de melding |

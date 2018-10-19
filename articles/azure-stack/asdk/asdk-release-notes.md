@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/02/2018
+ms.date: 10/18/2018
 ms.author: sethm
 ms.reviewer: misainat
-ms.openlocfilehash: d7e379033cc64b9715ccc7e8c9cbe5fe75e0e5b1
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 378617e331a5539fca3d993410325ef187816137
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48869071"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49430303"
 ---
 # <a name="azure-stack-development-kit-release-notes"></a>Releaseopmerkingen voor Azure Stack Development Kit  
 In dit artikel bevat informatie over verbeteringen, correcties en bekende problemen in Azure Stack Development Kit. Als u niet zeker weet welke versie u uitvoert, kunt u [de portal gebruiken om te controleren](.\.\azure-stack-updates.md#determine-the-current-version).
@@ -107,7 +107,7 @@ Zie voor meer informatie, [Azure Stack syslog doorsturen](../azure-stack-integra
       1. Ga in de tenantportal naar **abonnementen** en zoek het abonnement. Klik op **Resourceproviders**, klikt u vervolgens op **Microsoft.Compute**, en klik vervolgens op **opnieuw registreren**.
       2. Onder hetzelfde abonnement, gaat u naar **Access Control (IAM)**, en Controleer **Azure Stack – beheerde schijf** wordt vermeld.
    2. Als u een omgeving met meerdere tenants hebt geconfigureerd, mislukken virtuele machines implementeren in een abonnement dat is gekoppeld aan een gast-map met een interne fout. U kunt de fout oplossen door de volgende stappen uit:
-      1. Van toepassing de [1808 Azure Stack-Hotfix](https://support.microsoft.com/help/4465859).
+      1. Van toepassing de [1808 Azure Stack-Hotfix](https://support.microsoft.com/help/4468920).
       2. Volg de stappen in [in dit artikel](../azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) opnieuw configureren van elk van de Gast-mappen.
 
 <!-- 2869209 – IS, ASDK --> 

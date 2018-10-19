@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 06/11/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: f1cf38dd5687e14b0183de03b8eda41fe39808e3
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: a715c300cc5490eef9dbe7971dabe1733fd47f49
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041371"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49402213"
 ---
 # <a name="manage-log-analytics-using-azure-resource-manager-templates"></a>Log Analytics beheren met Azure Resource Manager-sjablonen
 U kunt [Azure Resource Manager-sjablonen](../azure-resource-manager/resource-group-authoring-templates.md) maken en configureren van Log Analytics-werkruimten. Voorbeelden van de taken die u met sjablonen uitvoeren kunt zijn:
@@ -178,7 +178,7 @@ De volgende sjabloon voorbeeld ziet u hoe u:
       "minValue": 7,
       "maxValue": 730,
       "metadata": {
-        "description": "Number of days of retention. Free plans can only have 7 days, Standalone and OMS plans include 30 days for free"
+        "description": "Number of days of retention. Free plans can only have 7 days, Standalone and Log Analytics plans include 30 days for free"
       }
     },
     "location": {
@@ -518,7 +518,7 @@ De galerie van Azure-quickstart-sjabloon bevat verschillende sjablonen voor Log 
 * [Implementeer een virtuele machine waarop Linux wordt uitgevoerd met de Log Analytics VM-extensie](https://azure.microsoft.com/documentation/templates/201-oms-extension-ubuntu-vm/)
 * [Monitor voor Azure Site Recovery met behulp van een bestaande Log Analytics-werkruimte](https://azure.microsoft.com/documentation/templates/asr-oms-monitoring/)
 * [Monitor voor Azure Web Apps met behulp van een bestaande Log Analytics-werkruimte](https://azure.microsoft.com/documentation/templates/101-webappazure-oms-monitoring/)
-* [Een bestaand opslagaccount toevoegen aan OMS](https://azure.microsoft.com/resources/templates/oms-existing-storage-account/)
+* [Een bestaand opslagaccount toevoegen aan Log Analytics](https://azure.microsoft.com/resources/templates/oms-existing-storage-account/)
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Windows-agent implementeren op virtuele Azure-machines met behulp van Resource Manager-sjabloon](../virtual-machines/windows/extensions-oms.md).

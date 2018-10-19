@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: jasonh
-ms.openlocfilehash: 9550468e8bc9b93216fd4c1ecf144415badfc7dc
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 18ee51e54c1e44ba3affd6ca49bed5360211fa9c
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43103654"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49408165"
 ---
 # <a name="query-azure-log-analytics-to-monitor-hdinsight-clusters"></a>Query uitvoeren op Azure Log Analytics voor het bewaken van HDInsight-clusters
 
@@ -32,7 +32,7 @@ Leer enkele algemene scenario's voor het gebruik van Azure Log Analytics voor he
 
 Informatie over het zoeken naar specifieke metrische gegevens voor uw HDInsight-cluster.
 
-1. Open de OMS-werkruimte die is gekoppeld aan uw HDInsight-cluster in Azure portal.
+1. Open de Log Analytics-werkruimte die is gekoppeld aan uw HDInsight-cluster in Azure portal.
 2. Selecteer de **zoeken in logboeken** tegel.
 3. Typ de volgende query in het zoekvak om te zoeken naar alle metrische gegevens voor alle beschikbare metrische gegevens voor alle HDInsight clusters die zijn geconfigureerd voor het gebruik van Azure Log Analytics en selecteer vervolgens **uitvoeren**.
 
@@ -65,7 +65,7 @@ Informatie over het zoeken naar specifieke metrische gegevens voor uw HDInsight-
 
 Leer hoe u om te controleren of er foutberichten tijdens een bepaalde periode. De stappen die hier zijn slechts een voorbeeld van hoe u kunt er uitziet het foutbericht dat u bent geïnteresseerd. U kunt een eigenschap die beschikbaar is om te zoeken naar de fouten die u wilt zoeken.
 
-1. Open de OMS-werkruimte die is gekoppeld aan uw HDInsight-cluster in Azure portal.
+1. Open de Log Analytics-werkruimte die is gekoppeld aan uw HDInsight-cluster in Azure portal.
 2. Selecteer de **zoeken in logboeken** tegel.
 3. Typ het volgende om te zoeken naar alle foutberichten voor alle HDInsight clusters die zijn geconfigureerd voor het gebruik van Azure Log Analytics en selecteer vervolgens **uitvoeren**. 
 
@@ -117,7 +117,7 @@ Om te bewerken of verwijderen van een bestaande waarschuwing:
 3. Selecteer de waarschuwing die u wilt bewerken of verwijderen.
 4. U hebt de volgende opties: **opslaan**, **negeren**, **uitschakelen**, en **verwijderen**.
 
-    ![HDInsight Log Analytics OMS waarschuwingen verwijderen bewerken](media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-edit-alert.png)
+    ![HDInsight Log Analytics alert delete bewerken](media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-edit-alert.png)
 
 Zie voor meer informatie, [werken met regels voor waarschuwingen in Log Analytics](../log-analytics/log-analytics-alerts-creating.md).
 

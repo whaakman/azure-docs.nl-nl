@@ -1,5 +1,5 @@
 ---
-title: Azure CLI-voorbeelden | Microsoft Docs
+title: Voorbeelden van Azure CLI | Microsoft Docs
 description: Azure CLI-voorbeelden
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/08/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: ca9823a76064e504ee04bf5896f1362b5187bc34
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 8d573b5a0dafaab5eea98f05163ff99e7ccd3760
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48042033"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49409081"
 ---
 # <a name="azure-cli-samples-for-linux-virtual-machines"></a>Azure CLI-voorbeelden voor virtuele Linux-machines
 
@@ -49,7 +49,7 @@ De volgende tabel bevat koppelingen naar bash-scripts die zijn gebouwd met behul
 |**Virtuele machines beveiligen**||
 | [Een virtuele machine en de gegevensschijven versleutelen](./../scripts/virtual-machines-linux-cli-sample-encrypt-vm.md?toc=%2fcli%2fazure%2ftoc.json) | Hiermee maakt u een Azure Key Vault, de versleutelingssleutel en de service-principal, en vervolgens versleutelt van een virtuele machine. |
 |**Virtuele machines bewaken**||
-| [Een virtuele machine met Operations Management Suite bewaken](./../scripts/virtual-machines-linux-cli-sample-create-vm-oms.md?toc=%2fcli%2fazure%2ftoc.json) | Hiermee maakt u een virtuele machine, de Operations Management Suite-agent wordt geïnstalleerd en geregistreerd van de virtuele machine in een OMS-werkruimte.  |
+| [Een virtuele machine met Azure Log Analytics bewaken](./../scripts/virtual-machines-linux-cli-sample-create-vm-oms.md?toc=%2fcli%2fazure%2ftoc.json) | Hiermee maakt u een virtuele machine, de Log Analytics-agent wordt geïnstalleerd en geregistreerd van de virtuele machine in een Log Analytics-werkruimte.  |
 |**Virtuele machines oplossen**||
 | [De besturingssysteemschijf van een VM's oplossen](./../scripts/virtual-machines-linux-cli-sample-mount-os-disk.md?toc=%2fcli%2fazure%2ftoc.json) | Koppelt de besturingssysteemschijf van een virtuele machine als gegevensschijf op een tweede virtuele machine. |
 | | |

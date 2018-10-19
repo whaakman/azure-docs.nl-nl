@@ -7,22 +7,22 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 09/21/2018
 ms.author: cherylmc
-ms.openlocfilehash: c33bec76fe17336221c873778c2993d75fec81e8
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ce4bc88f6b599bb3f5f760b2ba83c81f2b6acc5f
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46962222"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405175"
 ---
 # <a name="about-expressroute-direct-preview"></a>Over ExpressRoute Direct (Preview)
 
-ExpressRoute Direct biedt klanten de mogelijkheid om rechtstreeks in het wereldwijde netwerk van Microsoft op peeringlocaties strategisch verdeeld over de hele wereld verbinding te maken. ExpressRoute Direct biedt twee 100Gbps connectiviteit, die ondersteuning biedt voor actief/actief-verbindingen op schaal. 
+ExpressRoute Direct biedt klanten de mogelijkheid om rechtstreeks verbinding te maken met het wereldwijde netwerk van Microsoft op peeringlocaties die zich strategisch verdeeld over de hele wereld bevinden. ExpressRoute Direct biedt twee 100 Gbps-connectiviteit, die ondersteuning biedt voor actief/actief-verbindingen op schaal. 
 
-Belangrijke functies van ExpressRoute Direct bevatten, maar zijn niet beperkt tot:
+Belangrijke functies van ExpressRoute Direct bevatten, maar niet beperkt tot:
 
-* Massale opname van gegevens in, zoals opslag en Cosmos DB 
-* Fysieke isolatie voor branches die worden geregeld en vereist toegewezen en geïsoleerd connectiviteit, zoals: bankieren-, overheids- en detailhandel 
-* Nauwkeurige controle van circuit distributie op basis van een zakelijke eenheid
+* Massale gegevensopname in services als Storage en Cosmos DB 
+* Fysieke isolatie voor branches waarvoor bepaalde wettelijke regels gelden waardoor speciale en geïsoleerde verbindingen een vereiste zijn, zoals het bankwezen, de overheid en de detailhandel 
+* Gedetailleerde controle van circuitdistributie op basis van bedrijfsonderdelen
 
 > [!IMPORTANT]
 > ExpressRoute Direct is momenteel in Preview.
@@ -31,20 +31,20 @@ Belangrijke functies van ExpressRoute Direct bevatten, maar zijn niet beperkt to
 
 ## <a name="enroll-in-the-preview"></a>Registreren voor de preview-versie
 
-Voordat u ExpressRoute direct gebruiken kunt, moet u eerst uw abonnement in de Preview-versie te registreren. Als u zich wilt inschrijven, stuurt u een e-mail met uw abonnements-id naar <ExpressRouteDirect@microsoft.com>. ExpressRoute Direct is een geavanceerde functie. Geef aanvullende informatie op:
+Voordat u ExpressRoute direct gebruikt, moet u eerst uw abonnement in de Preview-versie worden geregistreerd. Als u zich wilt inschrijven, stuurt u een e-mail met uw abonnements-id naar <ExpressRouteDirect@microsoft.com>. ExpressRoute Direct is een geavanceerde functie. Geef aanvullende informatie op:
 
-* Scenario's die u uitvoeren wilt met **ExpressRoute Direct**
+* Scenario's die u nodig hebt om uit te voeren met **ExpressRoute Direct**
 * Voorkeuren voor locatie - Zie [Partners en peeringlocaties](expressroute-locations-providers.md) voor een volledige lijst van alle locaties
 * Tijdlijn voor implementatie
-* Vragen met betrekking tot de services
+* Andere vragen
 
 ## <a name="expressroute-using-a-service-provider-and-expressroute-direct"></a>ExpressRoute met behulp van een serviceprovider en ExpressRoute Direct
 
 | **ExpressRoute met behulp van een serviceprovider** | **ExpressRoute Direct** | 
 | --- | --- | 
-| Maakt gebruik van serviceprovider om in te schakelen voor snelle onboarding en connectiviteit in bestaande infrastructuur | 100Gbps infrastructuur en het volledige beheer van alle lagen
+| Maakt gebruik van serviceprovider om in te schakelen voor snelle onboarding en connectiviteit in bestaande infrastructuur | 100 en Gbps-infrastructuur het volledige beheer van alle lagen
 | Kan worden geïntegreerd met honderden van met inbegrip van Ethernet- en MPLS-providers | Direct/toegewezen capaciteit voor gereguleerde industrieën en enorme gegevensopname | 
-| Circuits SKU's van 50 Mbps-10 Gbps | Circuits SKU's van 1 Gbps naar 100Gbps
+| Circuits SKU's van 50 Mbps-10 Gbps | Circuits SKU's van 5 Gbps tot 100 Gbps (5 Gbps, 10 Gbps, 40 Gbps, 100 Gbps)
 | Geoptimaliseerd voor één tenant | Geoptimaliseerd voor één tenant/Cloud serviceproviders / meerdere bedrijfseenheden
 
 ## <a name="expressroute-direct-circuits"></a>ExpressRoute Direct-circuits
@@ -57,7 +57,7 @@ De functionaliteit in de meeste gevallen is gelijk aan-circuits die gebruikmaken
 
 ## <a name="circuit-skus"></a>Circuit-SKU 's
 
-ExpressRoute Direct biedt ondersteuning voor scenario's voor het opnemen van enorme gegevens in Azure storage en andere services big data. ExpressRoute circuits op ExpressRoute Direct nu ook ondersteuning voor **40 GB** en **100G** circuit SKU's. 
+ExpressRoute Direct biedt ondersteuning voor scenario's voor het opnemen van enorme gegevens in Azure storage en andere services big data. ExpressRoute circuits op ExpressRoute Direct nu ook ondersteuning voor **40 Gbps** en **100 Gbps** circuit SKU's. 
 
 ## <a name="vlan-tagging"></a>VLAN-Tagging
 

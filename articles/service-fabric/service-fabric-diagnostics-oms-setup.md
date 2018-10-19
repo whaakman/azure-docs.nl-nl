@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/11/2018
 ms.author: srrengar
-ms.openlocfilehash: a73a288852eea713623b65324853761e10fad282
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 68374cd1675f76555ff313b42e35bdf2aed96874
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47220463"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49408078"
 ---
 # <a name="set-up-log-analytics-for-a-cluster"></a>Log Analytics instellen voor een cluster
 
@@ -51,7 +51,7 @@ Als u Windows gebruikt, gaat u verder met de volgende stappen uit om te verbinde
 
 ### <a name="connect-the-log-analytics-workspace-to-your-cluster"></a>Verbinding maken met de Log Analytics-werkruimte in uw cluster 
 
-1. De werkruimte moet worden verbonden met de diagnostische gegevens die afkomstig zijn van uw cluster. Ga naar de resourcegroep waarin u de Service Fabric-analyse-oplossing hebt gemaakt. Selecteer **ServiceFabric\<Naam_werkruimte\>**  en Ga naar de overzichtspagina. U kunt daar Oplossingsinstellingen, instellingen van de werkruimte en toegang tot de Log Analytics-werkruimte wijzigen.
+1. De werkruimte moet worden verbonden met de diagnostische gegevens die afkomstig zijn van uw cluster. Ga naar de resourcegroep waarin u de Service Fabric-analyse-oplossing hebt gemaakt. Selecteer **ServiceFabric\<Naam_werkruimte\>**  en Ga naar de overzichtspagina. U kunt daar Oplossingsinstellingen, werkruimte-instellingen wijzigen en toegang tot de Log Analytics-werkruimte.
 
 2. In het navigatiemenu links, onder **gegevensbronnen voor werkruimte**, selecteer **logboeken voor opslagaccounts**.
 
@@ -80,7 +80,7 @@ U kunt gebruiken en wijzigen [deze voorbeeldsjabloon](https://github.com/Azure-S
 
 * Hiermee maakt u een Service Fabric-cluster 5 knooppunten
 * Hiermee maakt u een Log Analytics-werkruimte en een Service Fabric-oplossing
-* Hiermee configureert u de OMS-Agent voor het verzamelen en verzenden van 2 voorbeeld-prestatiemeteritems in de werkruimte
+* Hiermee configureert u de Log Analytics-agent voor het verzamelen en verzenden van 2 voorbeeld-prestatiemeteritems in de werkruimte
 * Hiermee configureert u WAD voor het verzamelen van Service Fabric en stuurt deze naar Azure storage-tabellen (WADServiceFabric * EventTable)
 * Hiermee configureert u de Log Analytics-werkruimte als u wilt de gebeurtenissen kan lezen uit deze tabellen
 
@@ -126,6 +126,6 @@ Wanneer u klaar bent, volg de stappen in de voorgaande sectie Log Analytics verb
 U kunt ook andere oplossingen toevoegen of andere wijzigingen aanbrengen in uw Log Analytics-werkruimte met behulp van PowerShell. Zie voor meer informatie, [Log Analytics beheren met behulp van PowerShell](../log-analytics/log-analytics-powershell-workspace-configuration.md).
 
 ## <a name="next-steps"></a>Volgende stappen
-* [De Log Analytics-Agent implementeren](service-fabric-diagnostics-oms-agent.md) naar uw knooppunten om te verzamelen prestatiemeteritems en verzamelen van Logboeken voor uw containers en docker-statistieken
+* [De Log Analytics-agent implementeren](service-fabric-diagnostics-oms-agent.md) naar uw knooppunten om te verzamelen prestatiemeteritems en verzamelen van Logboeken voor uw containers en docker-statistieken
 * Familiarized ophalen met de [zoeken en uitvoeren van query's](../log-analytics/log-analytics-log-searches.md) functies die worden aangeboden als onderdeel van Log Analytics
 * [Weergaveontwerper gebruiken om te maken van aangepaste weergaven in Log Analytics](../log-analytics/log-analytics-view-designer.md)

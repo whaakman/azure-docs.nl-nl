@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: eab55f6e2bf909ccdbdb30a8ced34dbc58d3954a
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 862143aec0ac54abb3c62677c5a1ab1c15007edb
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44721325"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405562"
 ---
 # <a name="azure-security-technical-capabilities"></a>Technische mogelijkheden van Azure-beveiliging
 
@@ -398,17 +398,17 @@ Daarnaast kunnen de Controlelijst:
 
 Operationele beveiliging in Azure is gebouwd op een framework waarin de kennis opgedaan uit een diverse mogelijkheden die uniek voor Microsoft zijn, met inbegrip van de Microsoft Security Development Lifecycle (SDL), het programma Microsoft Security Response Center , en een diep besef van het landschap van cyberveiligheidsbedreigingen.
 
-### <a name="microsoft-operations-management-suiteoms"></a>Microsoft operations management Suite (OMS)
+### <a name="microsoft-azure-log-analytics"></a>Microsoft Azure-logboekanalyse
 
-[Microsoft Operations Management Suite (OMS)](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) is de IT-beheeroplossing voor de hybride cloud. Alleen wordt gebruikt of om uit te breiden van uw bestaande System Center-implementatie, OMS, zodat u de maximale flexibiliteit en controle voor cloud-gebaseerd beheer van uw infrastructuur.
+[Log Analytics](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) is de IT-beheeroplossing voor de hybride cloud. Alleen wordt gebruikt of om uit te breiden van uw bestaande System Center-implementatie, Log Analytics, zodat u de maximale flexibiliteit en controle voor cloud-gebaseerd beheer van uw infrastructuur.
 
-![Microsoft operations management Suite (OMS)](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig8.png)
+![Log Analytics](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig8.png)
 
-Met OMS, kunt u een instantie in elke cloud, met inbegrip van on-premises, Azure, AWS, Windows Server, Linux, VMware en OpenStack, tegen lagere kosten dan concurrerende, door oplossingen te beheren. OMS is ontwikkeld voor de cloudgeoriënteerde wereld en biedt een nieuwe benadering voor het beheren van uw onderneming dat wil zeggen de snelste en meest rendabele manier om te voldoen aan de nieuwe zakelijke uitdagingen en geschikt voor de nieuwe werkbelastingen, toepassingen en cloudomgevingen.
+Met Log Analytics, kunt u een instantie in elke cloud, met inbegrip van on-premises, Azure, AWS, Windows Server, Linux, VMware en OpenStack, tegen lagere kosten dan concurrerende, door oplossingen te beheren. Log Analytics is gebouwd voor de cloudgeoriënteerde wereld, biedt een nieuwe benadering voor het beheren van uw bedrijf dat is de snelste en meest rendabele manier om te voldoen aan de nieuwe zakelijke uitdagingen en geschikt voor de nieuwe werkbelastingen, toepassingen en cloudomgevingen.
 
 ### <a name="log-analytics"></a>Log Analytics
 
-[Log Analytics](http://azure.microsoft.com/documentation/services/log-analytics) biedt bewakingsservices voor OMS door in een centrale opslagplaats gegevens te verzamelen van beheerde resources. Deze gegevens kunnen gebeurtenissen, prestatiegegevens en aangepaste gegevens omvatten die via de API worden geleverd. Na verzameling zijn de gegevens beschikbaar voor waarschuwingen, analyse en export.
+[Log Analytics](http://azure.microsoft.com/documentation/services/log-analytics) bewakingsservices biedt door het verzamelen van gegevens van beheerde resources in een centrale opslagplaats. Deze gegevens kunnen gebeurtenissen, prestatiegegevens en aangepaste gegevens omvatten die via de API worden geleverd. Na verzameling zijn de gegevens beschikbaar voor waarschuwingen, analyse en export.
 
 ![Log Analytics](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig9.png)
 

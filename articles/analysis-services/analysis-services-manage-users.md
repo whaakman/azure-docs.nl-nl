@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 10/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: a629c598c94e44713f8990871c46272dc48b1359
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 6280544a42d0d5012b01446ec8c3bc386ef861dd
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46296274"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49428416"
 ---
 # <a name="authentication-and-user-permissions"></a>Verificatie en gebruikersmachtigingen
 Azure Analysis Services gebruikt Azure Active Directory (Azure AD) voor beheer en verificatie. Een gebruiker maken, beheren of verbinding maken met een Azure Analysis Services server moet een geldige gebruikers-id een [Azure AD-tenant](../active-directory/fundamentals/active-directory-administer.md) in hetzelfde abonnement.
@@ -27,7 +27,7 @@ Alle client-toepassingen en hulpprogramma's gebruiken een of meer van de Analysi
 
 Alle drie deze clientbibliotheken ondersteuning voor Azure AD interactieve stroom en niet-interactieve verificatiemethoden. De twee methoden voor het niet-interactieve, de Active Directory-wachtwoord en de Active Directory Integrated Authentication methoden kunnen worden gebruikt in toepassingen die gebruikmaken van AMOMD en MSOLAP. Deze twee methoden worden nooit pop-dialoogvensters leiden.
 
-Clienttoepassingen, zoals Excel en Power BI Desktop en hulpprogramma's zoals SSMS en SSDT installeren de nieuwste versies van de bibliotheken wanneer bijgewerkt naar de meest recente versie. Power BI Desktop, SSMS en SSDT wordt maandelijks bijgewerkt. Excel is [bijgewerkt met Office 365](https://support.office.com/en-us/article/When-do-I-get-the-newest-features-in-Office-2016-for-Office-365-da36192c-58b9-4bc9-8d51-bb6eed468516). Office 365-updates zijn minder frequent optreden, en sommige organisaties gebruiken het uitgestelde kanaal, betekenis worden uitgesteld van drie maanden.
+Clienttoepassingen, zoals Excel en Power BI Desktop en hulpprogramma's zoals SSMS en SSDT installeren de nieuwste versies van de bibliotheken wanneer bijgewerkt naar de meest recente versie. Power BI Desktop, SSMS en SSDT wordt maandelijks bijgewerkt. Excel is [bijgewerkt met Office 365](https://support.office.com/article/When-do-I-get-the-newest-features-in-Office-2016-for-Office-365-da36192c-58b9-4bc9-8d51-bb6eed468516). Office 365-updates zijn minder frequent optreden, en sommige organisaties gebruiken het uitgestelde kanaal, betekenis worden uitgesteld van drie maanden.
 
 Afhankelijk van de clienttoepassing of -hulpprogramma dat u wilt gebruiken, kan het type verificatie en hoe u zich aanmeldt afwijken. Elke toepassing kan ondersteuning voor verschillende functies voor verbinding met cloudservices zoals Azure Analysis Services.
 

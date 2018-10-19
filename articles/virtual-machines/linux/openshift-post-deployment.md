@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: ''
+ms.date: 05/09/2018
 ms.author: haroldw
-ms.openlocfilehash: d400512c2e96e0e24bbf965b2e201adf92ccbb0f
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 39febceff58127fb9777ace6e3063fbe41605b79
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434888"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49426444"
 ---
 # <a name="post-deployment-tasks"></a>Taken na de implementatie
 
@@ -82,7 +82,7 @@ In Azure Portal:
 
   ![App-registratie](media/openshift-post-deployment/app-registration.png)
 
-6.  Klik op stap 1: Selecteer API en klik vervolgens op **Windows Azure Active Directory (Microsoft.Azure.ActiveDirectory)**. Klik op **Selecteer** aan de onderkant.
+6.  Klik op stap 1: Selecteer API en klik vervolgens op **Azure Active Directory (Microsoft.Azure.ActiveDirectory)**. Klik op **Selecteer** aan de onderkant.
 
   ![Selecteer API App-registratie](media/openshift-post-deployment/app-registration-select-api.png)
 
@@ -174,7 +174,7 @@ In de console van OpenShift ziet u nu twee opties voor verificatie: htpasswd_aut
 
 ## <a name="monitor-openshift-with-log-analytics"></a>OpenShift bewaken met Log Analytics
 
-Voor het controleren van OpenShift met Log Analytics, kunt u een van twee opties: de installatie van de OMS-Agent op de VM-host of OMS-Container. In dit artikel vindt u instructies voor het implementeren van de OMS-Container.
+Voor het controleren van OpenShift met Log Analytics, kunt u een van twee opties: installatie van de Log Analytics-agent op de VM-host of Log Analytics-container. In dit artikel vindt u instructies voor het implementeren van de Log Analytics-container.
 
 ## <a name="create-an-openshift-project-for-log-analytics-and-set-user-access"></a>Een OpenShift-project maken voor Log Analytics en gebruikerstoegang instellen
 
@@ -276,7 +276,7 @@ Het geheime bestand implementeren:
 oc create -f ocp-secret.yml
 ```
 
-De OMS-Agent-daemon set implementeren:
+De daemon-set van Log Analytics-Agent implementeren:
 
 ```bash
 oc create -f ocp-omsagent.yml

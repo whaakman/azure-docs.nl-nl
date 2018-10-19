@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: d7c006ca0be5e8db4b7ab02974ff029d3fe738e3
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 0340a4d527023c050e2c776d31c02b59161a1316
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48042339"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49429460"
 ---
 # <a name="analyze-log-analytics-data-in-azure-monitor"></a>Analyseren van Log Analytics-gegevens in Azure Monitor
 
@@ -57,34 +57,42 @@ De basisstructuur van een query is een brontabel gevolgd door een reeks van oper
 
 Stel bijvoorbeeld dat u wilt de top tien van computers met de meeste gebeurtenissen op foutniveau vinden in de afgelopen dag.
 
-    Event
-    | where (EventLevelName == "Error")
-    | where (TimeGenerated > ago(1days))
-    | summarize ErrorCount = count() by Computer
-    | top 10 by ErrorCount desc
+```Kusto
+Event
+| where (EventLevelName == "Error")
+| where (TimeGenerated > ago(1days))
+| summarize ErrorCount = count() by Computer
+| top 10 by ErrorCount desc
+```
 
 Of misschien wilt u computers waarop een heartbeat in de laatste dag dit nog niet hebt gevonden.
 
-    Heartbeat
-    | where TimeGenerated > ago(7d)
-    | summarize max(TimeGenerated) by Computer
-    | where max_TimeGenerated < ago(1d)  
+```Kusto
+Heartbeat
+| where TimeGenerated > ago(7d)
+| summarize max(TimeGenerated) by Computer
+| where max_TimeGenerated < ago(1d)  
+```
 
 Hoe zit een lijndiagram met het processorgebruik voor elke computer in de afgelopen week?
 
-    Perf
-    | where ObjectName == "Processor" and CounterName == "% Processor Time"
-    | where TimeGenerated  between (startofweek(ago(7d)) .. endofweek(ago(7d)) )
-    | summarize avg(CounterValue) by Computer, bin(TimeGenerated, 5min)
-    | render timechart    
+```Kusto
+Perf
+| where ObjectName == "Processor" and CounterName == "% Processor Time"
+| where TimeGenerated  between (startofweek(ago(7d)) .. endofweek(ago(7d)) )
+| summarize avg(CounterValue) by Computer, bin(TimeGenerated, 5min)
+| render timechart    
+```
 
 U kunt in deze snelle voorbeelden zien dat, ongeacht het soort gegevens waarmee u werkt met de structuur van de query vergelijkbaar is.  U kunt splitsen in afzonderlijke stappen waarbij de resulterende gegevens uit één opdracht via de pijplijn wordt verzonden naar de volgende opdracht.
 
 U kunt ook gegevens op te vragen over Log Analytics-werkruimten binnen uw abonnement.
 
-    union Update, workspace("contoso-workspace").Update
-    | where TimeGenerated >= ago(1h)
-    | summarize dcount(Computer) by Classification 
+```Kusto
+union Update, workspace("contoso-workspace").Update
+| where TimeGenerated >= ago(1h)
+| summarize dcount(Computer) by Classification 
+```
 
 ## <a name="how-log-analytics-data-is-organized"></a>De rangschikking van Log Analytics-gegevens
 Wanneer u een query bouwen, start u door te bepalen welke tabellen bevatten de gegevens die u zoekt. Verschillende soorten gegevens zijn onderverdeeld in specifieke tabellen in elk [Log Analytics-werkruimte](log-analytics-quick-create-workspace.md).  Documentatie voor verschillende gegevensbronnen bevat de naam van het gegevenstype dat wordt gemaakt en een beschrijving van elk van de bijbehorende eigenschappen.  Veel query's worden alleen gegevens uit een enkele tabellen vereist, maar andere gebruiken misschien een verscheidenheid aan opties om op te nemen van gegevens uit meerdere tabellen.

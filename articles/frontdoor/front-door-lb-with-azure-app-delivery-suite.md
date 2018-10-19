@@ -11,14 +11,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 253ec8c0d1d6725e6ae5c47c79882284c633d6e9
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 05f77665352ee306f5684d5c7a09b27d4fe17650
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46984463"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49426803"
 ---
-# <a name="load-balancing-with-azures-application-delivery-suite"></a>Taakverdeling met de Azure-toepassing levering suite
+# <a name="load-balancing-with-azures-application-delivery-suite"></a>Taakverdeling realiseren met de Azure-suite voor toepassingslevering
 
 ## <a name="introduction"></a>Inleiding
 Microsoft Azure biedt verschillende globale en regionale services voor het beheren van hoe uw netwerkverkeer wordt verdeeld en taakverdeling: Traffic Manager, voordeur Service Application-Gateway en Load Balancer.  Samen met veel van de Azure-regio's en zonegebonden, architectuur, samen met behulp van deze services kunt u om robuuste, schaalbare krachtige toepassingen te bouwen.
@@ -36,7 +36,7 @@ Globale en regionale services in uw toepassing combineren biedt een end-to-end b
 - Prestaties van routering voor het verzenden van de aanvrager naar de dichtstbijzijnde back-end in termen van latentie.
 - Prioriteit routering om al het verkeer naar een back-end, met andere back-ends als back up.
 - Gewogen round robin routering, die verdeelt het verkeer op basis van het gewicht dat is toegewezen aan elke back-end.
-- De geografische routering om ervoor te zorgen dat aanvragers in specifieke geografische regio's worden omgeleid naar de back-ends toegewezen aan deze regio's (bijvoorbeeld alle aanvragen van Spanje moeten worden omgeleid naar de regio VS-Oost Azure)
+- De geografische routering om ervoor te zorgen dat aanvragers in specifieke geografische regio's worden omgeleid naar de back-ends toegewezen aan deze regio's (bijvoorbeeld alle aanvragen van Spanje moeten worden omgeleid naar de Frankrijk centraal Azure-regio)
 - Back-ends subnet routering waarmee u IP-adres toewijzen bereiken zodat aanvragen die afkomstig zijn van de referenties die worden verzonden naar de opgegeven back-end (bijvoorbeeld alle gebruikers die verbinding maakt vanaf uw hoofdkantoor zakelijke IP-adresbereik moeten krijgen verschillende webinhoud dan de algemene gebruikers)
 
 De client maakt rechtstreeks verbinding met deze back-end. Met Azure Traffic Manager detecteert wanneer een back-end niet in orde is en vervolgens de clients omgeleid naar een ander exemplaar van de in orde. Raadpleeg [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md) documentatie voor meer informatie over de service.
@@ -83,8 +83,8 @@ Het volgende diagram toont de architectuur van dit scenario:
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Meer informatie over het [maken van een voordeur](quickstart-create-front-door.md).
-- Informatie over [de werking van de voordeur](front-door-routing-architecture.md).
+- Lees hoe u [een Front Door maakt](quickstart-create-front-door.md).
+- Lees [hoe Front Door werkt](front-door-routing-architecture.md).
 
 <!--Image references-->
 [1]: ./media/front-door-lb-with-azure-app-delivery-suite/application-delivery-figure1.png

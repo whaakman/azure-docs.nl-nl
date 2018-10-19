@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/05/2017
 ms.author: fryu
 ms.component: common
-ms.openlocfilehash: 8fe4fdfa88a5aea4b8df49d9c00fa7f6b1768209
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: fea6ece6e40d869aea7e52718fbf07bede34e1a5
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49363432"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406701"
 ---
 # <a name="azure-storage-metrics-in-azure-monitor"></a>Metrische gegevens van Azure Storage in Azure Monitor
 
@@ -23,7 +23,7 @@ Azure Monitor biedt een uniforme gebruikersinterfaces voor het bewaken van alle 
 
 ## <a name="access-metrics"></a>Toegang tot metrische gegevens
 
-Azure Monitor biedt meerdere manieren voor toegang tot metrische gegevens. U kunt krijgen van de [Azure-portal](https://portal.azure.com), de Azure Monitor API's (REST en .net) en analyse-oplossingen, zoals de operations Management Suite en Event Hubs. Zie voor meer informatie, [Azure Monitor Metrics](../../monitoring-and-diagnostics/monitoring-overview-metrics.md).
+Azure Monitor biedt meerdere manieren voor toegang tot metrische gegevens. U kunt krijgen van de [Azure-portal](https://portal.azure.com), de Azure Monitor API's (REST en .net) en analyse-oplossingen, zoals Event Hubs. Zie voor meer informatie, [Azure Monitor Metrics](../../monitoring-and-diagnostics/monitoring-overview-metrics.md).
 
 Metrische gegevens zijn standaard ingeschakeld en u hebt toegang tot gegevens van de afgelopen 93 dagen. Als u behouden van gegevens voor een langere periode wilt, kunt u metrische gegevens om een Azure Storage-account te archiveren. Dit is geconfigureerd in [diagnostische instellingen](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) in Azure Monitor.
 

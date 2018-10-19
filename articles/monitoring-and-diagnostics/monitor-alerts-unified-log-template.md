@@ -8,21 +8,21 @@ ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 6096833381db7ef0d2f011d517aaad4ae63ce4d6
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 6ec07d02e61d50aa588d75ba7337eb9237e11207
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45576864"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49402894"
 ---
 # <a name="create-a-log-alert-with-a-resource-manager-template"></a>Een waarschuwing voor een logboek maken met een Resource Manager-sjabloon
 Dit artikel wordt beschreven hoe u kunt beheren [waarschuwingen voor activiteitenlogboeken](monitor-alerts-unified-log.md) via een programma op schaal in Azure met [Azure Resource Manager-sjabloon](..//azure-resource-manager/resource-group-authoring-templates.md) via [Azure Powershell](../azure-resource-manager/resource-group-template-deploy.md) en [Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md). Momenteel Azure-waarschuwingen ondersteunt waarschuwingen voor activiteitenlogboeken op query's uit de [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) en [Azure Application Insights](../application-insights/app-insights-analytics-tour.md).
 
 ## <a name="managing-log-alert-on-log-analytics"></a>Waarschuwing in Log Analytics beheren
-Waarschuwing voor [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) is geïntegreerd in de [waarschuwingen voor nieuwe Azure-ervaring](monitoring-overview-unified-alerts.md); terwijl deze nog steeds wordt uitgevoerd uit Log Analytics-API's en compatibiliteit met schema eerder hebt gebruikt voor het beheren van blijft[waarschuwingen in OMS-portal](..//log-analytics/log-analytics-alerts-creating.md).
+Waarschuwing voor [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) is geïntegreerd in de [waarschuwingen voor nieuwe Azure-ervaring](monitoring-overview-unified-alerts.md); terwijl er nog steeds wordt uitgevoerd uit Log Analytics-API's en compatibile met het schema dat u eerder hebt gebruikt blijft.
 
 > [!NOTE]
-> Alle waarschuwingen in een werkruimte, dat is vanaf 14 mei 2018, wordt automatisch gestart om uit te breiden naar Azure. Een gebruiker kunt vrijwillig uitbreiding van waarschuwingen naar Azure initiëren vóór 14 mei 2018. Zie voor meer informatie, [waarschuwingen uitbreiden naar Azure OMS](monitoring-alerts-extend.md). 
+> Vanaf 14 mei 2018 worden is alle waarschuwingen in een werkruimte automatisch uitgebreid naar Azure. Zie voor meer informatie, [waarschuwingen uitbreiden naar Azure](monitoring-alerts-extend.md). 
 
 ### <a name="using-azure-resource-manager-template"></a>Met behulp van Azure Resource Manager-sjabloon
 Waarschuwingen voor logboeken voor Log Analytics worden gemaakt door waarschuwingsregels die een opgeslagen zoekopdracht op een vast interval uitvoert. Als de resultaten van de query overeenkomen met criteria opgegeven, wordt een waarschuwingsrecord gemaakt en een of meer acties worden uitgevoerd. 

@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2018
 ms.author: shvija
-ms.openlocfilehash: ff0ebbb140627caaaa71c5d09d0a4078eca86055
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 29b5f877065029dc271e49c1afd6d547def58a6e
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48888073"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49408129"
 ---
 # <a name="use-virtual-network-service-endpoints-with-azure-event-hubs"></a>Service-eindpunten voor Virtueelnetwerk gebruiken met Azure Event Hubs
 
@@ -24,7 +24,7 @@ De integratie van Event Hubs met [Service-eindpunten voor Virtueelnetwerk (VNet)
 > [!IMPORTANT]
 > Virtuele netwerken worden ondersteund **standard** en **toegewezen** lagen van Event Hubs. Het wordt niet ondersteund in de basic-laag. 
 
-Eenmaal is geconfigureerd om te worden gekoppeld aan ten minste één virtueel netwerk subnet service-eindpunt, wordt de respectieve Event Hubs-naamruimte niet meer accepteert verkeer vanaf elke locatie maar geautoriseerd virtuele netwerken. Vanuit het perspectief virtueel netwerk met de binding van een Event Hubs-naamruimte met een service-eindpunt configureert een geïsoleerde netwerken tunnel vanuit het subnet van het virtuele netwerk naar de messaging-service.
+Eenmaal is geconfigureerd om te worden gekoppeld aan ten minste één virtueel netwerk subnet service-eindpunt, wordt de respectieve Event Hubs-naamruimte niet meer accepteert verkeer vanaf elke locatie maar geautoriseerd subnetten in virtuele netwerken. Vanuit het perspectief virtueel netwerk met de binding van een Event Hubs-naamruimte met een service-eindpunt configureert een geïsoleerde netwerken tunnel vanuit het subnet van het virtuele netwerk naar de messaging-service.
 
 Het resultaat is een privé- en geïsoleerd relatie tussen de werkbelastingen die zijn gebonden aan het subnet en de respectieve Event Hubs-naamruimte, ondanks het waarneembare netwerkadres van de berichten service eindpunt wordt in een openbare IP-adresbereik.
 
@@ -38,7 +38,7 @@ Dit betekent dat de beveiliging van uw gevoelige cloudoplossingen niet alleen to
 
 ## <a name="bind-event-hubs-to-virtual-networks"></a>Eventhubs koppelen aan virtuele netwerken
 
-*Regels voor virtueel netwerk* zijn van de firewall beveiligingsfunctie die bepaalt of de server van uw Azure Event Hubs-verbindingen van een bepaald virtueel netwerksubnet accepteert.
+*Regels voor virtueel netwerk* zijn van de firewall beveiligingsfunctie die bepaalt of de Azure Event Hubs-naamruimte verbindingen van het subnet van een bepaalde virtuele netwerk aanvaardt.
 
 Een Event Hubs-naamruimte binden aan een virtueel netwerk is een proces in twee stappen. U moet eerst maken een **service-eindpunt voor Virtueelnetwerk** op een Virtueelnetwerk, subnet en inschakelen voor "Microsoft.EventHub" als beschreven in de [overzicht van service-eindpunt] [ vnet-sep]. Nadat u het service-eindpunt hebt toegevoegd, verbindt u de Event Hubs-naamruimte toe met een *regel voor virtuele netwerken*.
 

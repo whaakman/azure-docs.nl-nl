@@ -15,21 +15,21 @@ ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
 ms.component: ''
-ms.openlocfilehash: 634958265193a1dedb7c860c34f712160e4120d2
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: bf10226b1d3b2153e0e17d4126c35402d096a857
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353288"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49409234"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Prestatiemeter-oplossing in Azure-netwerk
 
 ![Network Performance Monitor symbool](./media/log-analytics-network-performance-monitor/npm-symbol.png)
 
 
-Network Performance Monitor is een hybride cloud-gebaseerde Netwerkcontrole-oplossing die helpt u bij het bewaken van prestaties van het netwerk tussen verschillende punten in uw netwerkinfrastructuur. Hiermee kunt u het bewaken van de netwerkverbinding met de service en toepassingseindpunten en monitor ook de prestaties van Azure ExpressRoute. 
+Network Performance Monitor is een hybride cloud-gebaseerde Netwerkcontrole-oplossing die helpt u bij het bewaken van prestaties van het netwerk tussen verschillende punten in uw netwerkinfrastructuur. Daarnaast kunt u hiermee de netwerkverbinding met de service en toepassingseindpunten bewaken, evenals de prestaties van Azure ExpressRoute. 
 
-Network Performance Monitor detecteert netwerkproblemen, zoals verkeer blackholing, routering fouten en problemen die controlemethoden conventionele netwerk niet kan detecteren. De oplossing genereert waarschuwingen en waarschuwt u als een drempelwaarde voor een netwerkverbinding is geschonden. Daarnaast zorgt ervoor dat tijdige detectie van problemen met de netwerkprestaties en de oorzaak van het probleem op een bepaald netwerksegment of het apparaat is vertaald. 
+Network Performance Monitor detecteert netwerkproblemen, zoals verkeer blackholing, routering fouten en problemen die controlemethoden conventionele netwerk niet kan detecteren. De oplossing genereert waarschuwingen en waarschuwt u als een drempelwaarde voor een netwerkverbinding wordt overschreden. Bovendien worden problemen met de netwerkprestaties tijdig gedetecteerd en wordt de oorzaak van het probleem op een bepaald netwerksegment of apparaat opgespoord. 
 
 Network Performance Monitor biedt drie brede mogelijkheden: 
 
@@ -65,17 +65,17 @@ Gebruik de basic-processen voor het installeren van agents op [verbinding maken 
 
 ### <a name="where-to-install-the-agents"></a>Waar u de agents te installeren 
 
-* **Prestatiemeter**: installatie van Operations Management Suite-agents op ten minste één knooppunt is verbonden met elk subnet van waaruit u wilt bewaken van de netwerkverbinding met andere subnetwerken.
+* **Prestatiemeter**: installatie van Log Analytics-agents op ten minste één knooppunt is verbonden met elk subnet van waaruit u wilt bewaken van de netwerkverbinding met andere subnetwerken.
 
     Voor het controleren van een netwerkverbinding, agents te installeren op beide eindpunten van de koppeling. Als u over de topologie van uw netwerk twijfelt, moet u de agents installeren op servers met essentiële workloads tussen wie u wilt bewaken van de prestaties van het netwerk. Bijvoorbeeld, als u controleren van de netwerkverbinding tussen een webserver en een server met SQL wilt, een agent installeren op beide servers. Agents bewaken netwerkverbinding (koppelingen) tussen de hosts, niet de hosts zelf. 
 
-* **Connectiviteitsmonitor voor service**: een Operations Management Suite-agent installeren op elk knooppunt van waaruit u wilt bewaken van de netwerkverbinding met het service-eindpunt. Een voorbeeld is als u wilt bewaken van verbinding met het netwerk op Office 365 van uw office-sites met het label O1, O2 en O3. Installeer de Operations Management Suite-agent op ten minste één knooppunt in O1, O2 en O3. 
+* **Connectiviteitsmonitor voor service**: een Log Analytics-agent installeren op elk knooppunt van waaruit u wilt bewaken van de netwerkverbinding met het service-eindpunt. Een voorbeeld is als u wilt bewaken van verbinding met het netwerk op Office 365 van uw office-sites met het label O1, O2 en O3. De Log Analytics-agent installeren op ten minste één knooppunt in O1, O2 en O3. 
 
-* **ExpressRoute Monitor**: ten minste één Operations Management Suite-agent installeren in uw Azure-netwerk. Ten minste één agent ook installeren in uw on-premises subnetwerk die is verbonden via ExpressRoute-privépeering.  
+* **ExpressRoute Monitor**: ten minste één Log Analytics-agent installeren in uw Azure-netwerk. Ten minste één agent ook installeren in uw on-premises subnetwerk die is verbonden via ExpressRoute-privépeering.  
 
-### <a name="configure-operations-management-suite-agents-for-monitoring"></a>Operations Management Suite-agents voor bewaking configureren 
+### <a name="configure-log-analytics-agents-for-monitoring"></a>Log Analytics-agents configureren voor bewaking 
 
-Network Performance Monitor maakt gebruik van synthetische transacties voor het bewaken van prestaties van het netwerk tussen de bron- en agents. U kunt kiezen tussen TCP- en ICMP als protocol voor de bewaking in Prestatiemeter en Connectiviteitsmonitor voor Service-mogelijkheden. Alleen TCP is beschikbaar als het controle-protocol voor ExpressRoute-bewaking. Zorg ervoor dat de firewall communicatie tussen de Operations Management Suite-agents die worden gebruikt voor het bewaken van het protocol dat u toestaat. 
+Network Performance Monitor maakt gebruik van synthetische transacties voor het bewaken van prestaties van het netwerk tussen de bron- en agents. U kunt kiezen tussen TCP- en ICMP als protocol voor de bewaking in Prestatiemeter en Connectiviteitsmonitor voor Service-mogelijkheden. Alleen TCP is beschikbaar als het controle-protocol voor ExpressRoute-bewaking. Zorg ervoor dat de firewall communicatie tussen de Log Analytics-agents die worden gebruikt voor het bewaken van het protocol dat u toestaat. 
 
 * **TCP-protocol**: als u TCP als protocol voor bewaking, opent u de firewallpoort voor agents die worden gebruikt voor Network Performance Monitor en ExpressRoute-bewaking om ervoor te zorgen dat de agents met elkaar kunnen verbinden. Uitvoeren als u wilt de poort te openen, de [EnableRules.ps1](https://aka.ms/npmpowershellscript) PowerShell-script zonder parameters in een PowerShell-venster met beheerdersbevoegdheden.
 
@@ -109,7 +109,7 @@ Network Performance Monitor maakt gebruik van synthetische transacties voor het 
 
    ![Network Performance Monitor tegel](media/log-analytics-network-performance-monitor/npm-config.png)
 
-4. Op de **Setup** pagina, ziet u de optie voor Operations Management Suite-agents installeren en configureren van de agents voor bewaking in de **algemene instellingen die u** weergeven. Als eerder uiteengezet, als u geïnstalleerd en deze agents voor Operations Management Suite geconfigureerd, selecteer de **Setup** weergeven om te configureren, de mogelijkheid die u wilt gebruiken. 
+4. Op de **Setup** pagina, ziet u de optie voor Log Analytics-agents installeren en configureren van de agents voor bewaking in de **algemene instellingen die u** weergeven. Als eerder uiteengezet, als u geïnstalleerd en geconfigureerd Log Analytics-agents, selecteert u de **Setup** weergeven om te configureren, de mogelijkheid die u wilt gebruiken. 
 
    **Prestatiemeter**: Kies het protocol wilt gebruiken voor synthetische transacties in de **standaard** Prestatiemeter regel en selecteer **opslaan en doorgaan**. Deze Protocolselectie bevat alleen voor de standaardregel voor het systeem gegenereerde. U moet kiezen het protocol telkens wanneer die u een regel Prestatiemeter expliciet maken. U kunt altijd verplaatsen naar de **standaard** regel instellingen op de **Prestatiemeter** tabblad (dit wordt weergegeven na het voltooien van de configuratie van de dag 0) en wijzig het protocol later opnieuw. Als u de rPerfomance Monitor mogelijkheid niet wilt, kunt u de standaardregel van uitschakelen de **standaard** regel instellingen op de **Prestatiemeter** tabblad.
 
@@ -135,7 +135,7 @@ Network Performance Monitor maakt gebruik van synthetische transacties voor het 
     
 De bewaking voor deze peerings is in eerste instantie een uitgeschakelde status. Selecteer elke peering die u wilt bewaken en controle voor deze uit de detailweergave aan de rechterkant configureren. Selecteer **opslaan** aan de configuratie op te slaan. Zie het artikel "Configureren ExpressRoute-controle" voor meer informatie. 
 
-Nadat de installatie is voltooid, wordt het 30 minuten duurt een uur voor de gegevens om in te vullen. Terwijl de oplossing gegevens van uw netwerk verzamelt, ziet u het bericht *oplossing is aanvullende configuratie vereist* op de Network Performance Monitor **overzicht** tegel. Nadat de gegevens worden verzameld en in een index, de **overzicht** tegel wordt gewijzigd en informeert u over de netwerkstatus van uw in een samenvatting. Vervolgens kunt u de bewaking van de knooppunten op welke Operations Management Suite-agents zijn geïnstalleerd, evenals de subnetten van uw omgeving gedetecteerd.
+Nadat de installatie is voltooid, wordt het 30 minuten duurt een uur voor de gegevens om in te vullen. Terwijl de oplossing gegevens van uw netwerk verzamelt, ziet u het bericht *oplossing is aanvullende configuratie vereist* op de Network Performance Monitor **overzicht** tegel. Nadat de gegevens worden verzameld en in een index, de **overzicht** tegel wordt gewijzigd en informeert u over de netwerkstatus van uw in een samenvatting. Vervolgens kunt u de bewaking van de knooppunten op welke Log Analytics-agents zijn geïnstalleerd, evenals de subnetten van uw omgeving gedetecteerd.
 
 #### <a name="edit-monitoring-settings-for-subnets-and-nodes"></a>Controle-instellingen voor subnetten en knooppunten bewerken 
 
@@ -176,7 +176,7 @@ De volgende tabel bevat de methoden voor het verzamelen van gegevens en andere i
  
 
  
-De oplossing maakt gebruik van synthetische transacties om de status van het netwerk te beoordelen. Operations Management Suite-agents geïnstalleerd op verschillende momenten in de netwerkpakketten exchange TCP of ICMP Echo met elkaar. Of de agents pakketten TCP of ICMP Echo gebruiken, is afhankelijk van het protocol dat u hebt geselecteerd voor bewaking. In het proces meer agents traject tijd en pakket verlies, indien van toepassing. Elke agent voert ook periodiek een route traceren naar andere agents op de verschillende routes vinden in het netwerk dat moet worden getest. Met deze gegevens, kunnen de agents deduceren de netwerklatentie en pakket verliescijfers. De tests worden herhaald om de vijf seconden. Gegevens worden samengevoegd voor ongeveer drie minuten door de agents vóór deze geüpload naar de Log Analytics-service.
+De oplossing maakt gebruik van synthetische transacties om de status van het netwerk te beoordelen. Log Analytics-agents geïnstalleerd op verschillende momenten in de netwerkpakketten exchange TCP of ICMP Echo met elkaar. Of de agents pakketten TCP of ICMP Echo gebruiken, is afhankelijk van het protocol dat u hebt geselecteerd voor bewaking. In het proces meer agents traject tijd en pakket verlies, indien van toepassing. Elke agent voert ook periodiek een route traceren naar andere agents op de verschillende routes vinden in het netwerk dat moet worden getest. Met deze gegevens, kunnen de agents deduceren de netwerklatentie en pakket verliescijfers. De tests worden herhaald om de vijf seconden. Gegevens worden samengevoegd voor ongeveer drie minuten door de agents vóór deze geüpload naar de Log Analytics-service.
 
 
 
@@ -259,7 +259,7 @@ Network Performance Monitor maakt gebruik van de waarschuwingen mogelijkheden va
 
 Dit betekent dat alle meldingen worden beheerd met behulp van [actiegroepen](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups#overview).  
 
-Als u een NPM-gebruiker die het maken van een waarschuwing via OMS: 
+Als u een NPM-gebruiker die het maken van een waarschuwing via Log Analytics: 
 1. Hier ziet u een koppeling waarmee u wordt omgeleid naar Azure-Portal. Klik hierop om de toegang tot de portal.
 2. Klik op de tegel Network Performance Monitor. 
 3. Ga om te configureren.  

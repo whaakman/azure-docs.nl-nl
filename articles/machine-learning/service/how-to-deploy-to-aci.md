@@ -9,12 +9,12 @@ ms.author: raymondl
 author: raymondlaghaeian
 ms.reviewer: sgilley
 ms.date: 09/24/2018
-ms.openlocfilehash: e796feaf8ef25eaa91b7db810a11a67da13e9df1
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 8a736516a598eee051b416834d2b737211e66b96
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48237174"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49429454"
 ---
 # <a name="deploy-web-services-to-azure-container-instances"></a>Webservices implementeren in Azure Container Instances 
 
@@ -82,10 +82,10 @@ aciconfig = AciWebservice.deploy_configuration(cpu_cores = 1,
 
 > Deze vereiste overslaan als u [implementeren vanaf een modelbestand](#deploy-from-model-file) (`Webservice.deploy()`).
 
-Registreren van een model te gebruiken [ `Webservice.deploy_from_model` ](#deploy-from-registered-model) of [ `Webservice.deploy_from_image` ](#deploy-from-image). Of als u al een geregistreerde model, moet u deze nu ophalen.
+Registreren van een model te gebruiken [Webservice.deploy_from_model](#deploy-from-registered-model) of [Webservice.deploy_from_image](#deploy-from-image). Of als u al een geregistreerde model, moet u deze nu ophalen.
 
 ### <a name="retrieve-a-registered-model"></a>Ophalen van een geregistreerde model
-Als u uw model te trainen met Azure Machine Learning, kan het model al zijn geregistreerd in uw werkruimte.  Bijvoorbeeld, de laatste stap van de [een model te trainen](tutorial-train-models-with-aml.md) zelfstudie] het model geregistreerd.  U vervolgens het geregistreerde model implementeren opgehaald.
+Als u uw model te trainen met Azure Machine Learning, kan het model al zijn geregistreerd in uw werkruimte.  Bijvoorbeeld, de laatste stap van de [zelfstudie: een model trainen](tutorial-train-models-with-aml.md) geregistreerd van het model.  U vervolgens het geregistreerde model implementeren opgehaald.
 
 ```python
 from azureml.core.model import Model
@@ -109,7 +109,7 @@ model = Model.register(model_path = "sklearn_mnist_model.pkl",
                         workspace = ws)
 ```
 
-
+<a name='deploy-from-model-file'/>
 ## <a name="option-1-deploy-from-model-file"></a>Optie 1: Implementatie van modelbestand
 
 De optie voor het implementeren van een modelbestand is de minimale hoeveelheid code te schrijven, maar biedt controle over de naamgeving van onderdelen zo min mogelijk vereist. Deze optie wordt gestart met een modelbestand en registreert deze in de werkruimte voor u.  U kan echter naam van het model of tags of een beschrijving voor het koppelen.  
@@ -148,6 +148,7 @@ Deze optie maakt gebruik van de SDK-methode Webservice.deploy().
 
 1. U kunt nu [testen van de webservice](#test-web-service).
 
+<a name='deploy-from-registered-model'/>
 ## <a name="option-2-deploy-from-registered-model"></a>Optie 2: Uit geregistreerde model implementeren
 
 De optie voor het implementeren van een geregistreerde modelbestand duurt een paar regels code en kan sommige controle over de naamgeving van uitvoer. Deze optie is een handige manier voor het implementeren van een geregistreerde model dat u al hebt.  U kunt de Docker-installatiekopie echter kan niet naam.  
@@ -173,6 +174,7 @@ Deze optie maakt gebruik van de SDK-methode Webservice.deploy_from_model().
 
 1. U kunt nu [testen van de webservice](#test-web-service).
 
+<a name='deploy-from-image'/>
 ## <a name="option-3-deploy-from-image"></a>Optie 3: Implementatie van installatiekopie
 
 Implementeren van een geregistreerde model (`model`) met behulp van `Webservice.deploy_from_image()`. Deze methode kunt u de Docker-installatiekopie afzonderlijk maken en vervolgens implementeren van die installatiekopie.
@@ -215,6 +217,7 @@ Deze methode biedt u de meeste controle over het maken en de namen van de onderd
 
 U kunt de webservice nu testen.
 
+<a name='test-web-service'/>
 ## <a name="test-the-web-service"></a>De webservice testen
 
 De webservice is hetzelfde, ongeacht welke methode is gebruikt.  Voor voorspellingen, gebruikt de `run` methode van de service.  

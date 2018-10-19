@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/11/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 61a64981d13c49a6245cc3cf494a78a777cf6d9c
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: d750ac7a5ac847a8c1eb5a9c91bb42804c2eebe0
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40045291"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49437158"
 ---
 Wanneer u een virtuele Azure-machine maakt, moet u een [virtueel netwerk](../articles/virtual-network/virtual-networks-overview.md) (VNet) maken of een bestaand VNet gebruiken. U moet ook bepalen hoe uw virtuele machines kunnen worden geopend via de VNet. Het is belangrijk om [een planning te maken voordat u resources maakt](../articles/virtual-network/virtual-network-vnet-plan-design-arm.md) en ervoor te zorgen dat u op de hoogte bent van de [limieten van netwerkresources](../articles/azure-subscription-service-limits.md#networking-limits).
 
@@ -79,7 +79,7 @@ Nadat u een openbaar IP-adres hebt gemaakt, kunt u dit aan een virtuele machine 
 
 Een subnet is een bereik met IP-adressen in de VNet. U kunt u een VNET onderverdelen in meerdere subnetten voor organisatie- en beveiligingsdoeleinden. Elke NIC in een virtuele machine is verbonden met één subnet in één VNet. NIC’s die verbonden zijn met (dezelfde of verschillende) subnetten binnen een VNET kunnen met elkaar communiceren zonder extra configuratie.
 
-Wanneer u een VNet instelt, geeft u de topologie op, met inbegrip van de beschikbare adresruimten en subnetten. Als de VNet moet worden verbonden met andere VNets of on-premises netwerken, moet u adresbereiken selecteren die elkaar niet overlappen. De IP-adressen zijn privé en kunnen niet worden geopend via internet. Dit gold alleen voor de niet-routeerbare IP-adressen zoals 10.0.0.0/8, 172.16.0.0/12 of 192.168.0.0/16. Azure behandelt elk adresbereik nu als onderdeel van de privé VNet IP-adresruimte die alleen bereikbaar is binnen de VNet, binnen onderling verbonden VNets en vanaf uw on-premises locatie. 
+Wanneer u een VNet instelt, geeft u de topologie op, met inbegrip van de beschikbare adresruimten en subnetten. Als de VNet moet worden verbonden met andere VNets of on-premises netwerken, moet u adresbereiken selecteren die elkaar niet overlappen. De IP-adressen zijn privé en kunnen niet worden geopend via Internet, die alleen voor de niet-routeerbare IP-adressen zoals 10.0.0.0/8, 172.16.0.0/12 of 192.168.0.0/16. Azure behandelt elk adresbereik nu als onderdeel van de privé VNet IP-adresruimte die alleen bereikbaar is binnen de VNet, binnen onderling verbonden VNets en vanaf uw on-premises locatie. 
 
 Als u binnen een organisatie werkt waarin iemand anders verantwoordelijk is voor de interne netwerken, moet u voordat u uw adresruimte selecteert met die persoon overleggen. Zorg ervoor dat er geen overlap is en laat deze persoon weten welke ruimte u wilt gebruiken, zodat deze niet probeert hetzelfde bereik met IP-adressen te gebruiken. 
 

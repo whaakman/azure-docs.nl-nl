@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 81eb23a0955bbc6a5f9dcd95c6874f0c5a8c286c
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: ce2b4304ea53be7e9a7be42b8a7fb30f713d85f8
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434027"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405205"
 ---
 # <a name="introduction-to-azure-security"></a>Inleiding tot Azure-beveiliging
 ## <a name="overview"></a>Overzicht
@@ -74,10 +74,10 @@ De ingebouwde mogelijkheden zijn ingedeeld in modules zes (6): bewerkingen, toep
 ## <a name="operations"></a>Bewerkingen
 Deze sectie bevat meer informatie over belangrijke functies in beveiligingsbewerkingen en algemene informatie over deze mogelijkheden.
 
-### <a name="operations-management-suite-security-and-audit-dashboard"></a>Operations Management Suite Security and Audit-Dashboard
-De [oplossing OMS beveiliging en controle](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started) biedt een uitgebreid overzicht van uw organisatie de beveiligingspostuur IT met [ingebouwde zoekquery's](https://blogs.technet.microsoft.com/msoms/2016/01/21/easy-microsoft-operations-management-suite-search-queries/) voor belangrijke problemen die uw aandacht nodig hebben. Het dashboard [Beveiliging en controle](https://technet.microsoft.com/library/mt484091.aspx) is het startscherm voor alles wat betrekking heeft op beveiliging in OMS. Dit zorgt voor hoogwaardig inzicht in de beveiligingsstatus van uw computers. Ook kunnen op het startscherm alle gebeurtenissen van de afgelopen 24 uur, 7 dagen of een ander tijdsbestek worden weergegeven.
+### <a name="security-and-audit-dashboard"></a>Beveiliging en controle-Dashboard
+De [oplossing beveiliging en controle](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started) biedt een uitgebreid overzicht van uw organisatie de beveiligingspostuur IT met [ingebouwde zoekquery's](https://blogs.technet.microsoft.com/msoms/2016/01/21/easy-microsoft-operations-management-suite-search-queries/) voor belangrijke problemen die uw aandacht nodig hebben. De [beveiliging en controle](https://technet.microsoft.com/library/mt484091.aspx) dashboard is het startscherm voor alles met betrekking tot beveiliging in Log Analytics. Dit zorgt voor hoogwaardig inzicht in de beveiligingsstatus van uw computers. Ook kunnen op het startscherm alle gebeurtenissen van de afgelopen 24 uur, 7 dagen of een ander tijdsbestek worden weergegeven.
 
-Bovendien kunt u OMS beveiliging en naleving van [automatisch bepaalde acties uitvoeren](https://blogs.technet.microsoft.com/robdavies/2016/04/20/simple-look-at-oms-alert-remediation-with-runbooks-part-1/) wanneer een bepaalde gebeurtenis wordt gedetecteerd.
+U kunt bovendien configureren beveiliging en naleving van [automatisch bepaalde acties uitvoeren](https://blogs.technet.microsoft.com/robdavies/2016/04/20/simple-look-at-oms-alert-remediation-with-runbooks-part-1/) wanneer een bepaalde gebeurtenis wordt gedetecteerd.
 
 ### <a name="azure-resource-manager"></a>Azure Resource Manager
 [Azure Resource Manager ](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model) kunt u werken met de resources in uw oplossing als een groep. U kunt alle resources voor uw oplossing implementeren, bijwerken of verwijderen in een enkele, gecoördineerde bewerking. U gebruikt een [Azure Resource Manager-sjabloon](https://blogs.technet.microsoft.com/canitpro/2015/06/29/devops-basics-infrastructure-as-code-arm-templates/) voor implementatie en deze sjabloon voor verschillende omgevingen, zoals testen, fasering en productie werken kunnen. Resource Manager biedt beveiliging, controle en tagfuncties die u na de implementatie helpen bij het beheren van uw resources.
@@ -95,7 +95,7 @@ Als er crashes, fouten of prestatieproblemen, kunt u zoeken via de telemetrische
 [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) biedt visualisatie, query, routering, waarschuwingen, automatisch schalen en automatisering van gegevens, zowel van de Azure-infrastructuur ([activiteitenlogboek](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)) en elke afzonderlijke Azure-resource ([diagnostische Registreert](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)). U kunt Azure Monitor gebruiken om te waarschuwen wanneer u beveiligingsgerelateerde gebeurtenissen die worden gegenereerd in Logboeken in Azure.
 
 ### <a name="log-analytics"></a>Log Analytics
-[Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) deel uitmaakt van [Operations Management Suite](https://www.microsoft.com/cloud-platform/operations-management-suite) : een IT-beheeroplossing biedt voor zowel on-premises en van derden cloud gebaseerde infrastructuur hebben (zoals AWS) naast de Azure-resources. Gegevens van Azure Monitor kunnen rechtstreeks met Log Analytics worden gerouteerd, zodat u metrische gegevens en logboeken voor uw gehele omgeving op één plek kunt zien.
+[Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) : een IT-beheeroplossing biedt voor zowel on-premises en van derden cloud gebaseerde infrastructuur hebben (zoals AWS) naast de Azure-resources. Gegevens van Azure Monitor kunnen rechtstreeks met Log Analytics worden gerouteerd, zodat u metrische gegevens en logboeken voor uw gehele omgeving op één plek kunt zien.
 
 Log Analytics is een handig hulpmiddel in forensische en andere beveiligingsanalyse, zoals het hulpprogramma kunt u snel zoeken in grote hoeveelheden beveiliging gerelateerde items met een flexibele querymogelijkheden benadering. Bovendien on-premises [firewall en proxy logboeken kunnen worden geëxporteerd naar Azure en beschikbaar gesteld voor analyse met behulp van Log Analytics.](https://docs.microsoft.com/azure/log-analytics/log-analytics-proxy-firewall)
 

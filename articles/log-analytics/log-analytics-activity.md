@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: dab2dd2b1d020a7619b18f330640b7f555a1f8c1
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: dd404bf8766082148a2c5a1ae55189f5f82f9021
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48044379"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49404066"
 ---
 # <a name="collect-and-analyze-azure-activity-logs-in-log-analytics"></a>Verzamelen en analyseren van Azure-activiteitenlogboeken in Log Analytics
 
@@ -75,8 +75,7 @@ Voer de volgende stappen uit voor het configureren van de oplossing Activity Log
     3. In de *SubscriptionName* blade, klikt u op **Connect**.  
         ![Verbinding maken met abonnement](./media/log-analytics-activity/subscription-connect.png)
 
-Als u de oplossing met behulp van de OMS-portal hebt toegevoegd, ziet u de volgende tegel. Meld u bij Azure portal een Azure-abonnement verbinden met uw werkruimte.  
-![prestatie-evaluatie](./media/log-analytics-activity/tile-performing-assessment.png)
+Meld u bij Azure portal een Azure-abonnement verbinden met uw werkruimte.  
 
 ## <a name="using-the-solution"></a>De oplossing gebruiken
 

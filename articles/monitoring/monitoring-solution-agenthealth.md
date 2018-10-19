@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2017
 ms.author: magoedte
-ms.openlocfilehash: f0737c6a6ff228b92a030242faf7f4d634bdd9f2
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: e9ac4b7f7a0900f8b49f95c0db9ba5e9c962fa0e
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45733177"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49404032"
 ---
 #  <a name="agent-health-solution-in-azure"></a>Oplossing status van agent in Azure
 De oplossing status van Agent in Azure kunt u meer informatie over voor alle van de agents die rapporteren rechtstreeks verbonden met Log Analytics, dat niet meer reageert zijn op de Log Analytics-werkruimte of vanuit een System Center Operations Manager-beheergroep en het verzenden van operationele de gegevens.  U kunt ook bijhouden hoeveel agents er zijn geïmplementeerd en waar deze zich geografisch gezien bevinden. Bovendien kunt u query's uitvoeren om op de hoogte te blijven van de verdeling van agents over Azure, andere cloudomgevingen of on-premises.    
@@ -85,7 +85,7 @@ Er wordt een record van het type **Heartbeat** gemaakt.  Deze records hebben de 
 | OSMinorVersion | De secundaire versie van het besturingssysteem.|
 | Versie | Log Analytics-Agent of Operations Manager-Agent-versie.|
 | SCAgentChannel | De waarde is *Direct* en/of *SCManagementServer*.|
-| IsGatewayInstalled | Als Log Analytics Gateway is geïnstalleerd, wordt de waarde is *waar*, anders wordt de waarde is *false*.|
+| IsGatewayInstalled | Als Log Analytics gateway is geïnstalleerd, is waarde *waar*, anders wordt de waarde is *false*.|
 | ComputerIP | Het IP-adres van de computer.|
 | RemoteIPCountry | De geografische locatie waar de computer is geïmplementeerd.|
 | ManagementGroupName | De naam van de beheergroep van Operations Manager.|
