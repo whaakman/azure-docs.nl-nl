@@ -8,17 +8,17 @@ ms.topic: include
 ms.date: 7/30/2018
 ms.author: victorh
 ms.custom: include file
-ms.openlocfilehash: 0a4a66543b323b1dbe56158851dafcb1dfe695f0
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: f1fd32fc02bee47d229093680166e6a13a5ba721
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47186096"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "49458830"
 ---
 | Resource | Standaardlimiet |
 | --- | --- |
 | Verwerkte gegevens |1000 TB/firewall/maand <sup>1</sup> |
-|Regels|10 k toepassing regels, 10 k-netwerkregels|
+|Regels|10k - regel alle typen gecombineerd|
 |VNet-peering|Maximum van 50 knooppunt VNETs voor de hub en spoke-implementaties.|
 |Wereldwijde peering|Wordt niet ondersteund. U moet ten minste één firewall implementatie per regio hebben.|
 |Maximum aantal poorten in een enkele regel|15<br>Een bereik van poorten (bijvoorbeeld: 2 tot 10) wordt geteld als twee.

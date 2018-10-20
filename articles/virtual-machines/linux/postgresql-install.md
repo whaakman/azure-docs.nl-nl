@@ -3,7 +3,7 @@ title: Instellen van PostgreSQL op een Linux-VM | Microsoft Docs
 description: Meer informatie over het installeren en configureren van PostgreSQL op een virtuele Linux-machine in Azure
 services: virtual-machines-linux
 documentationcenter: ''
-author: cynthn
+author: zr-msft
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager,azure-service-management
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
-ms.author: cynthn
-ms.openlocfilehash: 903e94cfa932ddd93a931caa8888d93f1bdfe365
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.author: zarhoads
+ms.openlocfilehash: dc7bb0eab9004b9c818a4a7cbbf6102f01b24f45
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37932728"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49465223"
 ---
 # <a name="install-and-configure-postgresql-on-azure"></a>PostgreSQL installeren en configureren op Azure
 PostgreSQL is een geavanceerde open-source-database die vergelijkbaar is met Oracle en DB2. Het bevat enterprise-ready-functies zoals volledige ACID naleving, betrouwbare transactionele verwerking en gelijktijdigheidsbeheer voor meerdere versies. Het biedt ook ondersteuning voor standaarden, zoals ANSI SQL en SQL/MED (met inbegrip van externe gegevens wrappers voor Oracle, MySQL, MongoDB en nog veel meer). Het is maximaal worden uitgebreid met ondersteuning voor meer dan 12 procedurele talen GIN en basisvertalingen indexen, ruimtelijke gegevens en ondersteuning meerdere NoSQL-achtige functies voor JSON of toepassingen op basis van sleutel-waarde.
@@ -125,7 +125,7 @@ Verbinding maken met de Linux VM die u hebt gemaakt via PuTTY. Als dit de eerste
    
     U ontvangt de volgende uitvoer:
 
-![installatiekopie](./media/postgresql-install/no1.png)
+![image](./media/postgresql-install/no1.png)
 
 ## <a name="set-up-postgresql"></a>Instellen van PostgreSQL
 <!--    [postgres@ test ~]$ exit -->
@@ -142,7 +142,7 @@ Wijzig de twee variabelen in het bestand /etc/init.d/postgresql. Het voorvoegsel
 
     # sed -i '35s#usr/local/pgsql/data#opt/pgsql_data#' /etc/init.d/postgresql
 
-![installatiekopie](./media/postgresql-install/no2.png)
+![image](./media/postgresql-install/no2.png)
 
 Het bestand zodat het uitvoerbare bestand wijzigt:
 
@@ -156,9 +156,9 @@ Controleer of het eindpunt van de PostgreSQL op:
 
     # netstat -tunlp|grep 1999
 
-Hier ziet u de volgende uitvoer:
+In dat geval moet de volgende uitvoer worden weergegeven:
 
-![installatiekopie](./media/postgresql-install/no3.png)
+![image](./media/postgresql-install/no3.png)
 
 ## <a name="connect-to-the-postgres-database"></a>Verbinding maken met de database voor Postgres
 Overschakelen naar de gebruiker postgres opnieuw:
@@ -189,11 +189,11 @@ U hebt nu een tabel met vier kolommen met de volgende kolomnamen en -beperkingen
 
 U ziet het volgende als de tabel is gemaakt:
 
-![installatiekopie](./media/postgresql-install/no4.png)
+![image](./media/postgresql-install/no4.png)
 
 U kunt ook de tabelstructuur controleren met behulp van de volgende opdracht uit:
 
-![installatiekopie](./media/postgresql-install/no5.png)
+![image](./media/postgresql-install/no5.png)
 
 ### <a name="add-data-to-a-table"></a>Gegevens toevoegen aan een tabel
 Eerst, gegevens invoegen in een rij:
@@ -202,7 +202,7 @@ Eerst, gegevens invoegen in een rij:
 
 U ziet deze uitvoer:
 
-![installatiekopie](./media/postgresql-install/no6.png)
+![image](./media/postgresql-install/no6.png)
 
 U kunt een aantal meer mensen toevoegen aan de tabel ook. Hier zijn enkele opties of kunt u uw eigen maken:
 
@@ -219,7 +219,7 @@ Gebruik de volgende opdracht om een tabel weer te geven:
 
 De uitvoer is:
 
-![installatiekopie](./media/postgresql-install/no7.png)
+![image](./media/postgresql-install/no7.png)
 
 ### <a name="delete-data-in-a-table"></a>Gegevens in een tabel verwijderen
 Gebruik de volgende opdracht uit om gegevens in een tabel te verwijderen:
@@ -228,7 +228,7 @@ Gebruik de volgende opdracht uit om gegevens in een tabel te verwijderen:
 
 Hiermee verwijdert u alle informatie in de rij 'John'. De uitvoer is:
 
-![installatiekopie](./media/postgresql-install/no8.png)
+![image](./media/postgresql-install/no8.png)
 
 ### <a name="update-data-in-a-table"></a>Gegevens in een tabel bijwerken
 Gebruik de volgende opdracht uit om gegevens in een tabel te werken. Voor deze een heeft Sandy bevestigd dat ze bijwonen, zodat we haar RSVP van "N" naar "Y" wijzigen:

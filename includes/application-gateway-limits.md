@@ -15,8 +15,9 @@
 | Maximale time-out aanvraag |24 uur | |
 | Aantal sites |20 |1 per HTTP-listener |
 | URL Maps per listener |1 | |
+| Gelijktijdige WebSocket-verbindingen |5000| |
 |Maximale URL-lengte|8000|
 | Maximale bestandsgrootte voor uploaden Standard |2 GB | |
-| Maximale upload grootte WAF |100 MB| |
+| Maximale upload grootte WAF |Gemiddeld WAF-Gateways, 100 MB<br>Grote WAF Gateways - 500 MB| |
 |WAF hoofdtekst van de maximale grootte (zonder-bestanden)|128 KB|
 

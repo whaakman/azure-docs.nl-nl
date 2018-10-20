@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 54804867cfaf38965b3dbf5ceb51e08a731d4dd8
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 73ff58148ac68b7aeb782b77385f9f971e02edb5
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46966536"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49457388"
 ---
 # <a name="how-to-provision-for-multitenancy"></a>Inrichten voor multitenancy 
 
@@ -220,7 +220,7 @@ In deze sectie wordt u de Azure IoT C SDK op elke virtuele machine klonen. De SD
 1. Voor beide VM's, voert u de volgende opdracht maakt die een versie van de SDK die specifiek zijn voor uw clientplatform voor ontwikkeling. 
 
     ```bash
-    cmake -Duse_prov_client:BOOL=ON ..
+    cmake -Dhsm_type_symm_key:BOOL=ON ..
     ```
 
     Zodra het bouwen is voltooid, zijn de laatste paar uitvoerregels vergelijkbaar met de volgende uitvoer:
@@ -334,7 +334,7 @@ De voorbeeldcode simuleert de opstartvolgorde van een apparaat waarmee de aanvra
      vi ~/azure-iot-sdk-c/provisioning_client/adapters/hsm_client_key.c
     ```
 
-1. Zoek de declaratie van de `REGISTRATION_NAME` en `SYMMETRIC_KEY_VALUE` constanten. De volgende wijzigingen aanbrengen in de bestanden op beide regionale VM's en sla de bestanden.
+1. Zoek de declaratie van de constanten `REGISTRATION_NAME` en `SYMMETRIC_KEY_VALUE`. De volgende wijzigingen aanbrengen in de bestanden op beide regionale VM's en sla de bestanden.
 
     Werk de waarde van de `REGISTRATION_NAME` constante met de **unieke registratie-ID voor uw apparaat**.
     

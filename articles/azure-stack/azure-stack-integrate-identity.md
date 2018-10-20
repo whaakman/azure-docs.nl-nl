@@ -6,16 +6,16 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 10/02/2018
+ms.date: 10/19/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords: ''
-ms.openlocfilehash: 4ba890f4763fc77981917d9311cf2bf6c97ec80f
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 6548693b91283665704be8fc83a483a9d20dc41b
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902440"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49470543"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Datacenter-integratie Azure Stack - identiteit
 U kunt Azure Stack met behulp van Azure Active Directory (Azure AD) of Active Directory Federation Services (AD FS) implementeren als de id-providers. Voordat u Azure Stack implementeren, moet u de keuze maken. Implementatie met behulp van AD FS is ook aangeduid als Azure Stack implementeren in de niet-verbonden modus.
@@ -70,6 +70,17 @@ De volgende informatie is vereist als invoer voor de automation-parameters:
 |---------|---------|---------|
 |CustomADGlobalCatalog|FQDN-naam van het doel van Active Directory-forest<br>dat u integreren wilt met|Contoso.com|
 |CustomADAdminCredentials|Een gebruiker met de machtiging lezen voor LDAP|YOURDOMAIN\graphservice|
+
+### <a name="configure-active-directory-sites"></a>Active Directory-Sites configureren
+
+Voor Active Directory-implementaties met meerdere sites, configureert u de dichtstbijzijnde Active Directory-Site naar uw Azure Stack-implementatie. De configuratie zo voorkomt u dat de Azure Stack Graph-service oplossen van query's met behulp van een globale catalogus-Server vanaf een externe site.
+
+Toevoegen van de Azure Stack [openbare VIP-netwerk](azure-stack-network.md#public-vip-network) subnet met de Azure AD-Site die het dichtst bij Azure Stack. Bijvoorbeeld, als uw Active Directory twee sites Seattle en Redmond met Azure Stack geïmplementeerd op de site Seattle heeft, zou u toevoegen het subnet van het Azure Stack openbare VIP-netwerk met de Azure AD-site voor Seattle.
+
+Zie voor meer informatie over Active Directory-Sites [de sitetopologie ontwerpen](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/designing-the-site-topology).
+
+> [!Note]  
+> Als uw Active Directory bestaan uit een enkele Site kunt u deze stap overslaan. U hebt een catch-all-subnet geconfigureerd valideren dat behoort het subnet van het Azure Stack openbare VIP-netwerk niet tot deze.
 
 ### <a name="create-user-account-in-the-existing-active-directory-optional"></a>Maak gebruikersaccount in de bestaande Active Directory (optioneel)
 

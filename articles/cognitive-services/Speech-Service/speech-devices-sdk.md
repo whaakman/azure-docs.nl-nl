@@ -1,24 +1,25 @@
 ---
 title: Informatie over de apparaten van de spraak-SDK
-description: Maak kennis met de SDK van de apparaten spraak.
 titleSuffix: Azure Cognitive Services
+description: Maak kennis met de SDK van de apparaten spraak.
 services: cognitive-services
 author: erhopf
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: speech
-ms.topic: article
+ms.component: speech-service
+ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: erhopf
-ms.openlocfilehash: ba91d5fd556cdc189f6303ac216c8fdd9495c74b
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: eac3542059f1bc5d32a91ef871e5185fad1d2798
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49165417"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49464094"
 ---
 # <a name="about-the-speech-devices-sdk-preview"></a>Informatie over de apparaten van de spraakherkenning SDK (Preview)
 
-De [Microsoft Speech service](overview.md) werkt met een groot aantal apparaten en audio-bronnen. Nu kunt u uw spraaktoepassingen-naar een hoger niveau met overeenkomende hardware en software uitvoeren. De spraak-apparaten-SDK is een pretuned bibliotheek die gekoppeld met speciaal ontwikkelde, microfoon SDK in de matrix. 
+De [Spraakservice](overview.md) werkt met een groot aantal apparaten en audio-bronnen. Nu kunt u uw spraaktoepassingen-naar een hoger niveau met overeenkomende hardware en software uitvoeren. De spraak-apparaten-SDK is een pretuned bibliotheek die gekoppeld met speciaal ontwikkelde, microfoon SDK in de matrix. 
 
 De SDK van de apparaten spraak kan u helpen:
 * Snel test nieuwe stem-scenario's.

@@ -11,13 +11,13 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/15/2018
-ms.openlocfilehash: 15518d8122f66c2e6f4ab398e0c69563fe0c79e0
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.date: 10/19/2018
+ms.openlocfilehash: d3de6afff1c417b28be04ef8b04024756c378e20
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49354052"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49465760"
 ---
 # <a name="resource-limits-for-single-databases-using-the-dtu-based-purchasing-model"></a>Resourcelimieten voor individuele databases met behulp van het op DTU gebaseerde aankoopmodel
 
@@ -86,12 +86,12 @@ Voor individuele databases in de volgende tabellen tonen de beschikbare resource
 ## <a name="single-database-change-storage-size"></a>Individuele database: opslaggrootte wijzigen
 
 - De prijs voor DTU voor een individuele database bevat een bepaalde hoeveelheid opslagruimte zonder extra kosten. Extra opslagruimte bovenop de inbegrepen hoeveelheid worden ingezet er gelden aanvullende kosten tot de maximale grootte is bereikt in stappen van 250 GB tot 1 TB, en klik vervolgens in stappen van 256 GB dan 1 TB. Zie voor de hoeveelheid inbegrepen opslag en limieten voor de maximale berichtgrootte [individuele database: opslaggrootte en compute-grootten](#single-database-storage-sizes-and-compute-sizes).
-- Extra opslag voor een individuele database kan worden ingericht met de toename van het gebruik van de maximale grootte van de [Azure-portal](sql-database-single-databases-manage.md#azure-portal-manage-logical-servers-and-databases), [Transact-SQL](/sql/t-sql/statements/alter-database-azure-sql-database#examples), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase), wordt de [Azure CLI](/cli/azure/sql/db#az-sql-db-update), of de [REST-API](https://docs.microsoft.com/rest/api/sql/databases/databases_update).
+- Extra opslag voor een individuele database kan worden ingericht met de toename van het gebruik van de maximale grootte van de [Azure-portal](sql-database-single-databases-manage.md#azure-portal-manage-logical-servers-and-databases), [Transact-SQL](/sql/t-sql/statements/alter-database-azure-sql-database#examples), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase), wordt de [Azure CLI](/cli/azure/sql/db#az-sql-db-update), of de [REST-API](https://docs.microsoft.com/rest/api/sql/databases/update).
 - De prijs voor extra opslagruimte voor een individuele database is de hoeveelheid extra opslagruimte vermenigvuldigd met de prijs voor extra opslagruimte per eenheid van de servicelaag. Zie voor meer informatie over de prijs van extra opslagruimte [prijzen van SQL Database](https://azure.microsoft.com/pricing/details/sql-database/).
 
 ## <a name="single-database-change-dtus"></a>Individuele database: dtu's wijzigen
 
-Wanneer u hebt gekozen een servicelaag, rekencapaciteit en hoeveelheid opslagruimte, u kunt een individuele database omhoog of omlaag schalen dynamisch op basis van het feitelijke gebruik met behulp van de [Azure-portal](sql-database-single-databases-manage.md#azure-portal-manage-logical-servers-and-databases), [Transact-SQL](/sql/t-sql/statements/alter-database-azure-sql-database#examples), [ PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase), wordt de [Azure CLI](/cli/azure/sql/db#az-sql-db-update), of de [REST-API](https://docs.microsoft.com/rest/api/sql/databases/databases_update).
+Wanneer u hebt gekozen een servicelaag, rekencapaciteit en hoeveelheid opslagruimte, u kunt een individuele database omhoog of omlaag schalen dynamisch op basis van het feitelijke gebruik met behulp van de [Azure-portal](sql-database-single-databases-manage.md#azure-portal-manage-logical-servers-and-databases), [Transact-SQL](/sql/t-sql/statements/alter-database-azure-sql-database#examples), [ PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase), wordt de [Azure CLI](/cli/azure/sql/db#az-sql-db-update), of de [REST-API](https://docs.microsoft.com/rest/api/sql/databases/update).
 
 De volgende video ziet u dynamisch wijzigen van de service-laag en het berekenen van de grootte verhogen beschikbaar dtu's voor één database.
 
@@ -103,7 +103,7 @@ Wijzigen van de service tier en/of grootte van een database maakt u een replica 
 De duur van het volledige proces voor omhoog schalen is afhankelijk van de grootte en de servicelaag van de database vóór en na de wijziging. Een 250 GB-database die wordt gewijzigd naar, vanuit of binnen een serviceniveau Standard, zou bijvoorbeeld binnen zes uur voltooid. Voor een database de dezelfde grootte die van compute-grootten in de Premium-servicelaag, zou de scale-up binnen drie uur voltooid.
 
 > [!TIP]
-> Als u wilt bewaken in voortgang van bewerkingen, Zie: [beheren met behulp van de REST-API voor SQL operations](https://docs.microsoft.com/rest/api/sql/databaseoperations/databaseoperations_listbydatabase
+> Als u wilt bewaken in voortgang van bewerkingen, Zie: [beheren met behulp van de REST-API voor SQL operations](https://docs.microsoft.com/rest/api/sql/databaseoperations/listbydatabase
 ), [bewerkingen met behulp van CLI beheren](/cli/azure/sql/db/op), [bewaken van bewerkingen met behulp van T-SQL](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) en deze twee PowerShell-opdrachten: [Get-AzureRmSqlDatabaseActivity](/powershell/module/azurerm.sql/get-azurermsqldatabaseactivity) en [Stop AzureRmSqlDatabaseActivity](/powershell/module/azurerm.sql/stop-azurermsqldatabaseactivity).
 
 - Als u een upgrade naar een hogere servicelaag uitvoert of grootte van compute, wordt de maximale grootte van de database niet verhogen, tenzij u expliciet een groter formaat (maxsize) opgeeft.

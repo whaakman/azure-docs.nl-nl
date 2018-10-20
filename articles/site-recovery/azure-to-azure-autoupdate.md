@@ -6,14 +6,14 @@ author: rajani-janaki-ram
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 10/19/2018
 ms.author: rajanaki
-ms.openlocfilehash: 9f0a299fb8221554a3b0c9a19a616d5ba7613a67
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 06a7e23eb16cf6296a8997273ea8d554851600c3
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45574399"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49456487"
 ---
 # <a name="automatic-update-of-the-mobility-service-in-azure-to-azure-replication"></a>Automatische update van de Mobility-Service in Azure naar Azure-replicatie
 
@@ -61,6 +61,19 @@ Wanneer u replicatie inschakelt voor een virtuele machine te beginnen [uit de we
 
 > [!Note] 
 > Zowel de opties ontvangt een melding van het automation-account dat wordt gebruikt voor het beheren van de updates. Als u deze functie voor het eerst in een kluis inschakelen wilt, kunt u een nieuw automation-account wordt gemaakt. Alle volgende inschakelen replicaties in dezelfde kluis gebruikt het eerder gemaakte document.
+
+### <a name="manage-manually"></a>Handmatig beheren
+
+1. Als er nieuwe updates beschikbaar voor de Mobility-Service geïnstalleerd op uw Azure Virtual machines zijn, ziet u een melding die leest "de nieuwe agent bijwerken van Azure Site recovery-replicatie is beschikbaar. Klik om te installeren."
+
+     ![Venster gerepliceerde items](.\media\vmware-azure-install-mobility-service\replicated-item-notif.png)
+3. Selecteer de melding om de virtuele machine selectie pagina te openen.
+4. Selecteer de virtuele machines die u wilt upgraden van de mobility-service op en selecteer **OK**.
+
+     ![Lijst met items voor VM gerepliceerd](.\media\vmware-azure-install-mobility-service\update-okpng.png)
+
+De Mobility-Service-Update-taak wordt gestart voor elk van de geselecteerde virtuele machines.
+
 
 ## <a name="common-issues--troubleshooting"></a>Veelvoorkomende problemen en probleemoplossing
 

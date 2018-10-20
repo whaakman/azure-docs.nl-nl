@@ -1,26 +1,18 @@
 ---
 title: 'Maken van een op route gebaseerde VPN-gateway: Azure portal | Microsoft Docs'
-description: Maak snel een op route gebaseerde VPN-Gateway met behulp van de Azure portal
+description: Een op route gebaseerde VPN-Gateway maken met behulp van de Azure portal
 services: vpn-gateway
-documentationcenter: na
 author: cherylmc
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 04/04/2018
+ms.date: 10/18/2018
 ms.author: cherylmc
-ms.openlocfilehash: fe05ab36f971105cf72342b8df5e2a82de7fc2b8
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 7139b2de79b4e092ca761a4e51061c233e6031b5
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391790"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49470299"
 ---
 # <a name="create-a-route-based-vpn-gateway-using-the-azure-portal"></a>Een op route gebaseerde VPN-gateway maken met behulp van de Azure portal
 
@@ -74,33 +66,19 @@ Het gatewaysubnet bevat de gereserveerde IP-adressen die de virtuele-netwerkgate
   - **SKU**: VpnGw1
   - **Locatie**: VS-Oost
   - **Virtueel netwerk**: klik op **virtuele-netwerk/een virtueel netwerk kiezen** openen de **een virtueel netwerk kiezen** pagina. Selecteer **VNet1**.
+  - **Openbaar IP-adres**: deze instelling geeft het object van het openbare IP-adres aan dat wordt gekoppeld aan de VPN-gateway. Het openbare IP-adres wordt dynamisch toegewezen aan dit object wanneer de VPN-gateway wordt gemaakt. VPN Gateway ondersteunt momenteel alleen *dynamische* toewijzing van openbare IP-adressen. Dit betekent echter niet dat het IP-adres wordt gewijzigd nadat het aan uw VPN Gateway is toegewezen. Het openbare IP-adres verandert alleen wanneer de gateway wordt verwijderd en opnieuw wordt gemaakt. Het verandert niet wanneer de grootte van uw VPN Gateway verandert, wanneer deze gateway opnieuw wordt ingesteld of wanneer andere interne onderhoudswerkzaamheden of upgrades worden uitgevoerd.
 
-  ![Gateway-instellingen configureren](./media/create-routebased-vpn-gateway-portal/configure-gateway.png "gateway-instellingen configureren")
+    - Laat **Nieuwe maken** geselecteerd.
+    - Typ in het tekstvak een **naam** voor uw openbare IP-adres. Voor deze oefening gebruikt u **VNet1GWIP**.<br>
 
-## <a name="pip"></a>Een openbaar IP-adres maken
-
-Een VPN-gateway moet een dynamisch toegewezen openbare IP-adres hebben. Wanneer u een verbinding met een VPN-gateway maakt, is dit het IP-adres waarmee uw on-premises apparaat verbinding maakt.
-
-1. Selecteer **IP-configuratie voor eerste IP-configuratie maken gateway** om aan te vragen van een openbaar IP-adres.
-
-  ![Eerste IP-configuratie](./media/create-routebased-vpn-gateway-portal/add-public-ip-address.png "eerste IP-configuratie")
-2. Op de **het openbare IP-pagina kiezen**, klikt u op **+ nieuwe maken** openen de **openbare IP-adres maken** pagina.
-3. Configureer de instellingen met de volgende waarden:
-
-  - **Naam**: **VNet1GWIP**
-  - **SKU**: **Basic**
-
-  ![Openbaar IP maken](./media/create-routebased-vpn-gateway-portal/public-ip-address-name.png "PIP maken")
-4. Klik op **OK** onderaan deze pagina uw wijzigingen op te slaan.
+    ![Gateway-instellingen configureren](./media/create-routebased-vpn-gateway-portal/gw.png "gateway-instellingen configureren")
 
 ## <a name="creategw"></a>De VPN-gateway maken
 
 1. Controleer de instellingen op de **virtuele netwerkgateway maken** pagina. Waarden aanpassen indien nodig.
-
-  ![VPN-gateway maken](./media/create-routebased-vpn-gateway-portal/create-vpn-gateway.png "maken VPN-gateway")
 2. Klik op **maken** aan de onderkant van de pagina.
 
-Nadat u op **maken**, de instellingen worden gevalideerd en de **implementeren van virtuele netwerkgateway** tegel wordt weergegeven op het dashboard. Een VPN-gateway kan tot 45 minuten duren. U moet mogelijk uw portal-pagina vernieuwen om de voltooide status te kunnen zien.
+  Nadat u op **maken**, de instellingen worden gevalideerd en de **implementeren van virtuele netwerkgateway** tegel wordt weergegeven op het dashboard. Een VPN-gateway kan tot 45 minuten duren. U moet mogelijk uw portal-pagina vernieuwen om de voltooide status te kunnen zien.
 
 ## <a name="viewgw"></a>De VPN-gateway weergeven
 

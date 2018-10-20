@@ -12,12 +12,12 @@ ms.author: aliceku
 ms.reviewer: vanto, carlrab, ronitr
 manager: craigg
 ms.date: 10/11/2018
-ms.openlocfilehash: b8bb9cbf53b297d8dca1ac67bae8765edcc2c9f4
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: 7cabf1f0020e2f72dae138c7b7b79e69ce2fc677
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49311198"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49456980"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Een overzicht van de mogelijkheden van Azure SQL Database-beveiliging
 
@@ -32,7 +32,11 @@ Zie het [Beveiligingscentrum voor SQL Server Database Engine en Azure SQL Databa
 Uw gegevens worden beveiligd met SQL Database via gegevensversleuteling. Voor gegevens die in beweging zijn, wordt [Transport Layer Security](https://support.microsoft.com/kb/3135244) gebruikt, voor data-at-rest [Transparent Data Encryption](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) en voor gebruikte gegevens [Altijd versleuteld](https://msdn.microsoft.com/library/mt163865.aspx).
 
 > [!IMPORTANT]
-> Alle verbindingen met Azure SQL Database vereisen te allen tijde versleuteling (SSL/TLS) wanneer gegevens naar en vanuit de database worden verzonden. In de verbindingsreeks van uw toepassing, moet u parameters voor het versleutelen van de verbinding opgeven en *niet* vertrouwen het servercertificaat (dit doet u als u de verbindingsreeks buiten de Azure-portal kopieert), anders de verbinding controleert niet of de identiteit van de server en is vatbaar voor 'man-in-the-middle'-aanvallen. Voor het stuurprogramma ADO.NET zijn deze verbindingsreeksparameters bijvoorbeeld **Encrypt=True** en **TrustServerCertificate=False**. Zie voor meer informatie over de TLS- en -connectiviteit [TLS-overwegingen](sql-database-connect-query.md#tls-considerations-for-sql-database-connectivity)
+> Azure SQL-Database wordt afgedwongen versleuteling (SSL/TLS) op alle tijden voor alle verbindingen die garandeert dat alle gegevens worden versleuteld 'in transit' tussen de database en de client. Dit gebeurt, ongeacht de instelling van **versleutelen** of **TrustServerCertificate** in de verbindingsreeks.
+>
+> In dat geval in de verbindingsreeks van uw toepassing **niet** een versleutelde verbinding opgeven en in het *niet* het servercertificaat vertrouwen (dit is voor de ADO.NET-stuurprogramma **Encrypt = True**en **TrustServerCertificate = False**), uw toepassing kunt vatbaar zijn naar een man in de middelste aanval, vanwege de toepassing niet wordt geverifieerd de server of het afdwingen van versleuteling. Als u de verbindingsreeks ophalen met de Azure-portal heeft dit de juiste instellingen
+>
+> Zie voor meer informatie over de TLS- en -connectiviteit [TLS-overwegingen](sql-database-connect-query.md#tls-considerations-for-sql-database-connectivity)
 
 Andere manieren om uw gegevens te versleutelen die u kunt overwegen:
 

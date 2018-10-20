@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
 ms.component: common
-ms.openlocfilehash: eb72d92496addacd82e4d30df625b4f9c0c823e5
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: ffb355b4471bd8455f67e657d9557c3f372c3f4e
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39521027"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49470317"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Probleemoplossingsgids voor Azure Storage Explorer
 
@@ -74,7 +74,7 @@ De Mac OS Keychain krijgt soms in een status die ervoor zorgt problemen met de S
 7. Probeert aan te melden.
 
 ### <a name="general-sign-in-troubleshooting-steps"></a>Algemene aanmelden stappen voor probleemoplossing
-* Als u zich op Mac OS en het venster aanmelden is nooit wordt weergegeven in het dialoogvenster 'Wachten op verificatie...', probeer het vervolgens [stappen](#Mac-Keychain-Errors)
+* Als u zich op Mac OS en het venster aanmelden is nooit wordt weergegeven in het dialoogvenster 'Wachten op verificatie...', probeer het vervolgens [stappen](#mac-keychain-errors)
 * Start u Opslagverkenner opnieuw
 * Als het verificatievenster leeg is, wacht u minstens één minuut voordat de verificatie-dialoogvenster wordt gesloten.
 * Zorg ervoor dat uw proxy en de instellingen juist zijn geconfigureerd voor uw computer en de Storage Explorer-certificaat.

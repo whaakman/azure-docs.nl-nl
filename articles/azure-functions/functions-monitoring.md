@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/15/2017
 ms.author: glenga
-ms.openlocfilehash: 66d04ca93a79f4d9cdd9f162c6cd3210ae35f4d2
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: e317a9c3cea800e05fbf3d2df73c124d2e7ffd23
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902702"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49457660"
 ---
 # <a name="monitor-azure-functions"></a>Azure Functions controleren
 
@@ -211,6 +211,7 @@ Meld u niveau `None` in de volgende sectie wordt uitgelegd.
 
 De *host.json* bestand configureert hoeveel logboekregistratie een functie-app wordt verzonden naar Application Insights. Voor elke categorie, geeft u aan het minimale logboek-niveau te verzenden. Hier volgt een voorbeeld:
 
+#### <a name="functions-version-1"></a>Functies versie 1 
 ```json
 {
   "logger": {
@@ -226,6 +227,22 @@ De *host.json* bestand configureert hoeveel logboekregistratie een functie-app w
 }
 ```
 
+#### <a name="functions-version-2"></a>Functies versie 2 
+Functies van v2 nu gebruikt de [.NET Core logboekregistratie filterhiërarchie](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering). 
+```json
+{
+  "logging": {
+    "fileLoggingMode": "always",
+    "logLevel": {
+      "default": "Information",
+      "Host.Results": "Error",
+      "Function": "Error",
+      "Host.Aggregator": "Trace"
+    }
+  }
+}
+```
+
 In dit voorbeeld stelt u de volgende regels:
 
 1. Voor logboeken met categorie 'Host.Results' of 'Functie' alleen verzenden `Error` niveau en van boven naar Application Insights. De logboeken voor `Warning` niveau en hieronder worden genegeerd.
@@ -236,6 +253,7 @@ De categoriewaarde in *host.json* bepaalt de logboekregistratie voor alle catego
 
 Als *host.json* omvat meerdere categorieën die met de dezelfde tekenreeks beginnen langer die eerst worden vergeleken. Stel bijvoorbeeld dat u wilt dat alles, van de runtime, behalve 'Host.Aggregator' om aan te melden bij `Error` niveau, maar u wilt dat 'Host.Aggregator' om aan te melden bij de `Information` niveau:
 
+#### <a name="functions-version-1"></a>Functies versie 1 
 ```json
 {
   "logger": {
@@ -246,6 +264,21 @@ Als *host.json* omvat meerdere categorieën die met de dezelfde tekenreeks begin
         "Function": "Error",
         "Host.Aggregator": "Information"
       }
+    }
+  }
+}
+```
+
+#### <a name="functions-version-2"></a>Functies versie 2 
+```json
+{
+  "logging": {
+    "fileLoggingMode": "always",
+    "logLevel": {
+      "default": "Information",
+      "Host": "Error",
+      "Function": "Error",
+      "Host.Aggregator": "Information"
     }
   }
 }

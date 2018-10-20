@@ -1,19 +1,21 @@
 ---
-title: Uitspraak van met de Speech Services in Azure Cognitive Services aanpassen
-description: Informatie over het aanpassen van de uitspraak met de Speech Services in Azure Cognitive Services.
+title: Uitspraak van met Spraakservice aanpassen
+titlesuffix: Azure Cognitive Services
+description: Informatie over het aanpassen van de uitspraak met de Speech-Service.
 services: cognitive-services
 author: PanosPeriorellis
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: custom-speech
-ms.topic: article
+ms.component: speech-service
+ms.topic: conceptual
 ms.date: 07/02/2018
 ms.author: panosper
-ms.openlocfilehash: a608d1e48112fbb2adb56191eeb7f168de507e77
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: 93c8d3302444c7d764849fe41d529bc06696243f
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47423201"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49466168"
 ---
 # <a name="enable-custom-pronunciation"></a>Aangepaste uitspraak inschakelen
 U kunt met behulp van aangepaste uitspraak van de fonetische vorm en de weergave van een woord of een term definiëren. Dit is handig voor het verwerken van aangepaste voorwaarden, zoals productnamen of afkortingen. Alles wat u nodig is een uitspraak van bestand (een eenvoudige txt-bestand).

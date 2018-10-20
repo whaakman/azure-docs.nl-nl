@@ -1,22 +1,23 @@
 ---
-title: Tekst naar spraak met behulp van spraakservices gebruiken
+title: Tekst naar spraak in de Speech-Service gebruiken
+titleSuffix: Azure Cognitive Services
 description: Informatie over het gebruik van tekst naar spraak in de Speech-service.
-titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: erhopf
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/08/2018
 ms.author: erhopf
-ms.openlocfilehash: 774425d19101e4d326f0d6435d56aff1b37a31f7
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 162b690d4b371cfe76738cd83ce484a3062d139f
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49165042"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49469910"
 ---
-# <a name="use-text-to-speech-in-speech-service"></a>'Tekst naar spraak' in de spraak-service gebruiken
+# <a name="use-text-to-speech-in-speech-service"></a>'Tekst naar spraak' in de Spraakservice gebruiken
 
 De spraak-service biedt de functionaliteit van tekst naar spraak via een eenvoudige HTTP-aanvraag. U `POST` de tekst die moet worden gesproken naar het juiste eindpunt en de service retourneert een geluidsbestand (`.wav`) spraak die worden gemaakt. Uw toepassing kunt vervolgens deze audio gebruiken, zoals het leuk vinden.
 
@@ -97,5 +98,5 @@ Zie voor meer informatie over de tekst naar spraak REST-API, [REST-API's](rest-a
 
 - [Uw proefabonnement voor Speech ophalen](https://azure.microsoft.com/try/cognitive-services/)
 - [Water in C++](quickstart-cpp-windows.md)
-- [Water in C#](quickstart-csharp-dotnet-windows.md)
+- [Spraak herkennen in C#](quickstart-csharp-dotnet-windows.md)
 - [Water in Java](quickstart-java-android.md)

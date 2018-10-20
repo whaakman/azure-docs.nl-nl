@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 10/15/2018
-ms.openlocfilehash: f74577a5f8042a7b373d1ff1944088036a0c94f5
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.date: 10/19/2018
+ms.openlocfilehash: ac3ce8a417a63ce0a91339c38c2a5ae8b3013228
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49354203"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49466780"
 ---
 # <a name="create-and-manage-logical-servers-and-single-databases-in-azure-sql-database"></a>Logische servers en individuele databases in Azure SQL Database maken en beheren
 
@@ -142,22 +142,22 @@ Als u wilt maken en beheren van Azure SQL-server, databases en firewalls, gebrui
 
 | Opdracht | Beschrijving |
 | --- | --- |
-|[Servers - maken of bijwerken](https://docs.microsoft.com/rest/api/sql/servers/servers_createorupdate/rest/api)|Hiermee of een nieuwe server bijgewerkt.|
-|[Servers - verwijderen](https://docs.microsoft.com/rest/api/sql/servers/servers_delete)|Hiermee verwijdert u een SQL-server.|
-|[Servers - Get](https://docs.microsoft.com/rest/api/sql/servers/servers_get)|Hiermee haalt u een server.|
-|[Servers - lijst](https://docs.microsoft.com/rest/api/sql/servers/servers_list)|Retourneert een lijst met servers.|
-|[Servers - lijst per groep](https://docs.microsoft.com/rest/api/sql/servers/servers_listbyresourcegroup)|Retourneert een lijst met servers in een resourcegroep.|
-|[Servers - Update](https://docs.microsoft.com/rest/api/sql/servers/servers_update)|Een bestaande server worden bijgewerkt.|
-|[Databases - maken of bijwerken](https://docs.microsoft.com/rest/api/sql/databases/databases_createorupdate)|Maakt een nieuwe database gemaakt of bijgewerkt van een bestaande database.|
-|[Databases - verwijderen](https://docs.microsoft.com/rest/api/sql/databases/databases_delete)|Hiermee verwijdert u een database.|
-|[Databases - Get](https://docs.microsoft.com/rest/api/sql/databases/databases_get)|Hiermee haalt u een database.|
-|[Databases - lijst op de elastische Pool](https://docs.microsoft.com/rest/api/sql/databases/databases_listbyelasticpool)|Retourneert een lijst met databases in een elastische pool.|
-|[Databases - lijst met door de Server](https://docs.microsoft.com/rest/api/sql/databases/databases_listbyserver)|Retourneert een lijst met databases in een server.|
-|[Databases - Update](https://docs.microsoft.com/rest/api/sql/databases/databases_update)|Werkt een bestaande database.|
-|[Firewall-regels - maken of bijwerken](https://docs.microsoft.com/rest/api/sql/firewallrules/firewallrules_createorupdate)|Hiermee of een firewall-regel bijgewerkt.|
-|[Firewall-regels - verwijderen](https://docs.microsoft.com/rest/api/sql/firewallrules/firewallrules_delete)|Hiermee verwijdert u een firewallregel.|
-|[Firewall-regels - Get](https://docs.microsoft.com/rest/api/sql/firewallrules/firewallrules_get)|Hiermee haalt u een firewallregel.|
-|[Firewall-regels - lijst met door de Server](https://docs.microsoft.com/rest/api/sql/firewallrules/firewallrules_listbyserver)|Retourneert een lijst van firewall-regels.|
+|[Servers - maken of bijwerken](https://docs.microsoft.com/rest/api/sql/servers/createorupdate)|Hiermee of een nieuwe server bijgewerkt.|
+|[Servers - verwijderen](https://docs.microsoft.com/rest/api/sql/servers/delete)|Hiermee verwijdert u een SQL-server.|
+|[Servers - Get](https://docs.microsoft.com/rest/api/sql/servers/get)|Hiermee haalt u een server.|
+|[Servers - lijst](https://docs.microsoft.com/rest/api/sql/servers/list)|Retourneert een lijst met servers.|
+|[Servers - lijst per groep](https://docs.microsoft.com/rest/api/sql/servers/listbyresourcegroup)|Retourneert een lijst met servers in een resourcegroep.|
+|[Servers - Update](https://docs.microsoft.com/rest/api/sql/servers/update)|Een bestaande server worden bijgewerkt.|
+|[Databases - maken of bijwerken](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)|Maakt een nieuwe database gemaakt of bijgewerkt van een bestaande database.|
+|[Databases - verwijderen](https://docs.microsoft.com/rest/api/sql/databases/delete)|Hiermee verwijdert u een database.|
+|[Databases - Get](https://docs.microsoft.com/rest/api/sql/databases/get)|Hiermee haalt u een database.|
+|[Databases - lijst op de elastische Pool](https://docs.microsoft.com/rest/api/sql/databases/listbyelasticpool)|Retourneert een lijst met databases in een elastische pool.|
+|[Databases - lijst met door de Server](https://docs.microsoft.com/rest/api/sql/databases/listbyserver)|Retourneert een lijst met databases in een server.|
+|[Databases - Update](https://docs.microsoft.com/rest/api/sql/databases/update)|Werkt een bestaande database.|
+|[Firewall-regels - maken of bijwerken](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate)|Hiermee of een firewall-regel bijgewerkt.|
+|[Firewall-regels - verwijderen](https://docs.microsoft.com/rest/api/sql/firewallrules/delete)|Hiermee verwijdert u een firewallregel.|
+|[Firewall-regels - Get](https://docs.microsoft.com/rest/api/sql/firewallrules/get)|Hiermee haalt u een firewallregel.|
+|[Firewall-regels - lijst met door de Server](https://docs.microsoft.com/rest/api/sql/firewallrules/listbyserver)|Retourneert een lijst van firewall-regels.|
 
 ## <a name="next-steps"></a>Volgende stappen
 

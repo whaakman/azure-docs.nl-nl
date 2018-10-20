@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/11/2018
+ms.date: 10/20/2018
 ms.author: celested
-ms.reviewer: jeedes
+ms.reviewer: luleon, jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 5633dfbf59396e79226b196c2b699981409092ab
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 4e80f5cb85a53281da9ec50a02d089f46e97dfde
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902022"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49466713"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Hoe: in het SAML-token voor bedrijfstoepassingen uitgegeven claims aanpassen
 
@@ -49,21 +49,38 @@ U kunt ook verwijderen (met uitzondering van NameIdentifier) met behulp van clai
 ![Gebruikerskenmerk bewerken][3]
 
 ## <a name="editing-the-nameidentifier-claim"></a>De claim NameIdentifier bewerken
-Voor het probleem waarbij de toepassing is geïmplementeerd met behulp van een andere gebruikersnaam, klikt u op de **gebruikers-id** vervolgkeuzelijst de **gebruikerskenmerken** sectie. Deze actie wordt een dialoogvenster met verschillende opties:
+
+Voor het probleem waarbij de toepassing is geïmplementeerd met behulp van een andere gebruikersnaam, selecteert u in de **gebruikers-id** vervolgkeuzelijst de **gebruikerskenmerken** sectie. Deze actie wordt een dialoogvenster met verschillende opties:
 
 ![Gebruikerskenmerk bewerken][4]
 
-Selecteer in de vervolgkeuzelijst **user.mail** om in te stellen van de claim NameIdentifier e-mailadres van de gebruiker in de map. Of selecteer **user.onpremisessamaccountname** om in te stellen voor de gebruiker de SAM-accountnaam die zijn gesynchroniseerd van on-premises Azure AD.
+### <a name="attributes"></a>Kenmerken
 
-U kunt ook de speciale **ExtractMailPrefix()** functie voor het verwijderen van het domeinachtervoegsel van het e-mailadres, SAM-accountnaam of de user principal name. Alleen het eerste deel van de naam van de gebruiker wordt doorgegeven via geëxtraheerd (bijvoorbeeld 'joe_smith' in plaats van joe_smith@contoso.com).
+Selecteer de gewenste bron voor de `NameIdentifier` (of NameID) claim. U kunt kiezen uit de volgende opties.
 
-![Gebruikerskenmerk bewerken][5]
+| Naam | Beschrijving |
+|------|-------------|
+| Email | Het e-mailadres van de gebruiker |
+| userprincipalName | De user principal name (UPN) van de gebruiker |
+| onpremisessamaccount | SAM-accountnaam die zijn gesynchroniseerd van on-premises Azure AD |
+| Object-id | De object-id van de gebruiker in Azure AD |
+| Werknemer-id | De werknemer-id van de gebruiker |
+| Uitbreidingen van de directory | Mapextensies [vanuit on-premises Active Directory met behulp van Azure AD Connect Sync gesynchroniseerd](../hybrid/how-to-connect-sync-feature-directory-extensions.md) |
+| Extensiekenmerken 1-15 | On-premises extensiekenmerken gebruikt de Azure AD-schema uit te breiden |
 
-We hebben nu ook toegevoegd de **join()** functie aan het geverifieerde domein met de gebruikers-id-waarde. Wanneer u de functie join() in selecteert de **gebruikers-id** selecteert u eerst de gebruikers-id, zoals e-mailadres of gebruikersnaam principal-naam en selecteer vervolgens uw geverifieerde domein in de tweede vervolgkeuzelijst. Als u het e-mailadres met het geverifieerde domein selecteert, wordt Azure AD de gebruikersnaam geëxtraheerd uit de eerste waarde joe_smith van joe_smith@contoso.com en voegt deze toe met contoso.onmicrosoft.com. Zie het volgende voorbeeld:
+### <a name="transformations"></a>Transformaties
 
-![Gebruikerskenmerk bewerken][6]
+U kunt ook de speciale claims transformaties-functies gebruiken.
+
+| Functie | Beschrijving |
+|----------|-------------|
+| **ExtractMailPrefix()** | Hiermee verwijdert u het domeinachtervoegsel van het e-mailadres, SAM-accountnaam of de user principal name. Alleen het eerste deel van de naam van de gebruiker wordt doorgegeven via geëxtraheerd (bijvoorbeeld 'joe_smith' in plaats van joe_smith@contoso.com). |
+| **join()** | Lid wordt van een kenmerk met een geverifieerd domein. Als de geselecteerde gebruiker-id-waarde een domein heeft, wordt deze de gebruikersnaam voor het toevoegen van het geverifieerde domein voor geselecteerde extraheren. Bijvoorbeeld, als u het e-mailbericht (joe_smith@contoso.com) als de waarde van de gebruiker-id en selecteer contoso.onmicrosoft.com als het geverifieerde domein voor, resulteert dit in joe_smith@contoso.onmicrosoft.com. |
+| **ToLower()** | Zet de tekens van het geselecteerde kenmerk in kleine letters. |
+| **ToUpper()** | Zet de tekens van het geselecteerde kenmerk in hoofdletters. |
 
 ## <a name="adding-claims"></a>Claims toevoegen
+
 Wanneer een claim toevoegen, kunt u de naam van het kenmerk (die strikt hoeft niet te volgen een patroon URI aan de hand van de SAML-specificatie) opgeven. Stel de waarde op elk gebruikerskenmerk die zijn opgeslagen in de map.
 
 ![Gebruikerskenmerk toevoegen][7]
@@ -133,7 +150,7 @@ Er zijn enkele beperkingen claims in SAML. Als u deze claims toevoegt, klikt u v
 
 * [Toepassingsbeheer in Azure AD](../manage-apps/what-is-application-management.md)
 * [Configureren van eenmalige aanmelding voor toepassingen die zich niet in de Azure AD-toepassingsgalerie](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)
-* [Oplossen van problemen met SAML gebaseerde eenmalige aanmelding](howto-v1-debug-saml-sso-issues.md)
+* [Oplossen van SAML gebaseerde eenmalige aanmelding](howto-v1-debug-saml-sso-issues.md)
 
 <!--Image references-->
 [1]: ./media/active-directory-saml-claims-customization/user-attribute-section.png

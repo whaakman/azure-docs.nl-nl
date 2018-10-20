@@ -8,14 +8,14 @@ tags: billing
 ms.assetid: 60d848f9-ff26-496e-a5ec-ccf92ad7d125
 ms.service: billing
 ms.topic: article
-ms.date: 09/11/2018
+ms.date: 10/19/2018
 ms.author: byvinyal
-ms.openlocfilehash: 0b78c7c94f5dc6d7c427188ac4ffd807a06a867e
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: c22f3dbc06dd43a31bf43634437c7f377dac8813
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47585489"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49457303"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure-abonnement en servicelimieten, quota's en beperkingen
 In dit document vindt u enkele van de meest algemene Microsoft Azure-limieten, die soms ook wel quotums genoemd. Dit document niet op dit moment betrekking hebben op alle Azure-services. Na verloop van tijd, wordt de lijst worden uitgebreid en bijgewerkt in verband met betrekking hebben op meer van het platform.
@@ -46,7 +46,7 @@ In de onderstaande grenzen, is een nieuwe tabel toegevoegd om weer te geven van 
 * [App Service](#app-service-limits)
 * [Application Gateway](#application-gateway-limits)
 * [Application Insights](#application-insights-limits)
-* [Automatisering](#automation-limits)
+* [Automation](#automation-limits)
 * [Azure Cosmos DB](#azure-cosmos-db-limits)
 * [Azure Database for MySQL](#azure-database-for-mysql)
 * [Azure Database for PostgreSQL](#azure-database-for-postgresql)
@@ -108,7 +108,7 @@ In de onderstaande grenzen, is een nieuwe tabel toegevoegd om weer te geven van 
 #### <a name="subscription-limits---azure-resource-manager"></a>Limieten voor een abonnement - Azure Resource Manager
 De volgende beperkingen gelden bij het gebruik van de Azure Resource Manager en Azure-resourcegroepen. Grenzen die niet zijn gewijzigd met de Azure Resource Manager worden hieronder niet wordt vermeld. Raadpleeg de vorige tabel voor deze limieten.
 
-Zie voor meer informatie over het verwerken van beperkingen met betrekking tot de Resource Manager-aanvragen [beperking Resource Manager-aanvragen](resource-manager-request-limits.md).
+Voor informatie over het Resource Manager-API lezen en schrijven van grenzen, Zie [beperking Resource Manager-aanvragen](resource-manager-request-limits.md).
 
 [!INCLUDE [azure-subscription-limits-azure-resource-manager](../includes/azure-subscription-limits-azure-resource-manager.md)]
 

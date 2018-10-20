@@ -3,7 +3,7 @@ title: Docker Compose gebruiken op een virtuele Linux-machine in Azure | Microso
 description: Het gebruik van Docker en Compose op Linux-machines met de Azure CLI
 services: virtual-machines-linux
 documentationcenter: ''
-author: cynthn
+author: zr-msft
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 12/18/2017
-ms.author: cynthn
-ms.openlocfilehash: 227e6b87e5a131147ffebdeac045b9b27ab20dc8
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.author: zarhoads
+ms.openlocfilehash: c0dddb5ff96c0dea3c2c33cbd67fce247e3161a5
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46991314"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49467126"
 ---
 # <a name="get-started-with-docker-and-compose-to-define-and-run-a-multi-container-application-in-azure"></a>Aan de slag met Docker en Compose om te definiëren en uitvoeren van een toepassing met meerdere containers in Azure
 Met [opstellen](http://github.com/docker/compose), u een eenvoudig tekstbestand gebruiken voor het definiëren van een toepassing die bestaat uit meerdere Docker-containers. U instellen uw toepassing in één opdracht dat alles is voor het implementeren van uw omgeving gedefinieerde vervolgens. Bijvoorbeeld: in dit artikel wordt beschreven hoe u snel een WordPress-blog met een back-end MariaDB SQL-database op een Ubuntu-VM instellen. U kunt ook opstellen voor het instellen van complexere toepassingen gebruiken.

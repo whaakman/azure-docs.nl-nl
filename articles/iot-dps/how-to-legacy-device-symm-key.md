@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 51fea4fa1973fbe92242f1995d892cd5b038a29b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 9553d1dd5dd8d8ff11ea480618b471b9898985e3
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46991637"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49456555"
 ---
 # <a name="how-to-provision-legacy-devices-using-symmetric-keys"></a>Over het inrichten van verouderde apparaten met behulp van symmetrische sleutels
 
@@ -26,7 +26,7 @@ In dit artikel wordt ervan uitgegaan dat geen van beide een HSM, of een certific
 
 In dit artikel wordt ook van uitgegaan dat de update vindt plaats in een beveiligde omgeving om te voorkomen dat onbevoegde toegang tot de groepssleutel van de master-of de afgeleide apparaat.
 
-Dit artikel is gericht op een Windows-werkstation. U kunt echter de procedures uitvoeren op Linux. Zie voor een voorbeeld van Linux [inrichten voor multitenancy](how-to-provision-multitenant.md).
+Dit artikel is gericht op een Windows-gebaseerd werkstation. U kunt de procedures echter ook uitvoeren op Linux. Zie [Inrichten voor multitenancy](how-to-provision-multitenant.md) voor een Linux-voorbeeld.
 
 
 ## <a name="overview"></a>Overzicht
@@ -47,13 +47,13 @@ De apparaatcode gedemonstreerd in dit artikel volgen hetzelfde patroon als het [
 * Meest recente versie van [Git](https://git-scm.com/download/) geïnstalleerd.
 
 
-## <a name="prepare-an-azure-iot-c-sdk-development-environment"></a>Een Azure IoT C SDK-ontwikkelomgeving voorbereiden
+## <a name="prepare-an-azure-iot-c-sdk-development-environment"></a>Een ontwikkelomgeving voorbereiden voor de Azure IoT C-SDK
 
-In deze sectie maakt u een ontwikkelomgeving die is gebruikt voor het bouwen bereidt de [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c). 
+In deze sectie bereidt u een ontwikkelomgeving voor die wordt gebruikt om de [Azure IoT C-SDK](https://github.com/Azure/azure-iot-sdk-c) te bouwen. 
 
-De SDK bevat de voorbeeldcode voor het gesimuleerde apparaat. Dit gesimuleerde apparaat probeert tijdens de opstartvolgorde van het apparaat wordt ingericht.
+De SDK bevat de voorbeeldcode voor het gesimuleerde apparaat. Dit gesimuleerde apparaat probeert de inrichting uit te voeren tijdens de opstartprocedure van het apparaat.
 
-1. Download de versie 3.11.4 van de [CMake-bouwsysteem](https://cmake.org/download/). Controleer het gedownloade binaire bestand met behulp van de bijbehorende cryptografische hash-waarde. In het volgende voorbeeld is Windows PowerShell gebruikt om de cryptografische hash te controleren voor versie 3.11.4 van de x64 MSI-distributie:
+1. Download versie 3.11.4 van het [CMake-buildsysteem](https://cmake.org/download/). Controleer het gedownloade binaire bestand met behulp van de bijbehorende cryptografische hash-waarde. In het volgende voorbeeld is Windows PowerShell gebruikt om de cryptografische hash te controleren voor versie 3.11.4 van de x64 MSI-distributie:
 
     ```PowerShell
     PS C:\Downloads> $hash = get-filehash .\cmake-3.11.4-win64-x64.msi
@@ -61,7 +61,7 @@ De SDK bevat de voorbeeldcode voor het gesimuleerde apparaat. Dit gesimuleerde a
     True
     ```
     
-    De volgende hashwaarden voor versie 3.11.4 zijn vermeld op de CMake-site op het moment van schrijven:
+    De volgende hash-waarden voor versie 3.11.4 werden vermeld op de CMake-site ten tijde van dit schrijven:
 
     ```
     6dab016a6b82082b8bcd0f4d1e53418d6372015dd983d29367b9153f1a376435  cmake-3.11.4-Linux-x86_64.tar.gz
@@ -71,7 +71,7 @@ De SDK bevat de voorbeeldcode voor het gesimuleerde apparaat. Dit gesimuleerde a
 
     Het is belangrijk dat de vereisten voor Visual Studio met (Visual Studio en de workload Desktopontwikkeling met C++) op uw computer zijn geïnstalleerd **voordat** de `CMake`-installatie wordt gestart. Zodra aan de vereisten is voldaan en de download is geverifieerd, installeert u het CMake-bouwsysteem.
 
-2. Open een opdrachtprompt of Git Bash-shell. Voer de volgende opdracht uit om de Azure IoT C SDK GitHub-opslagplaats te klonen:
+2. Open een opdrachtprompt of Git Bash-shell. Voer de volgende opdracht uit voor het klonen van de GitHub-opslagplaats voor de Azure IoT C-SDK:
     
     ```cmd/sh
     git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
@@ -87,10 +87,10 @@ De SDK bevat de voorbeeldcode voor het gesimuleerde apparaat. Dit gesimuleerde a
     cd cmake
     ```
 
-4. Voer de volgende opdracht uit, bouwt een versie van de SDK die specifiek zijn voor uw clientplatform voor ontwikkeling. Er wordt een Visual Studio-oplossing voor het gesimuleerde apparaat gegenereerd in de map `cmake`. 
+4. Voer de volgende opdracht uit om een versie van de SDK te bouwen die specifiek is voor uw clientplatform voor ontwikkeling. Er wordt een Visual Studio-oplossing voor het gesimuleerde apparaat gegenereerd in de map `cmake`. 
 
     ```cmd
-    cmake -Duse_prov_client:BOOL=ON ..
+    cmake -Dhsm_type_symm_key:BOOL=ON ..
     ```
     
     Als `cmake` uw C++-compiler niet kan vinden, kunnen er fouten in de build optreden tijdens het uitvoeren van de bovenstaande opdracht. Als dit gebeurt, voert u deze opdracht uit bij de [Visual Studio-opdrachtprompt](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs). 
@@ -98,7 +98,7 @@ De SDK bevat de voorbeeldcode voor het gesimuleerde apparaat. Dit gesimuleerde a
     Zodra het bouwen is voltooid, zijn de laatste paar uitvoerregels vergelijkbaar met de volgende uitvoer:
 
     ```cmd/sh
-    $ cmake -Duse_prov_client:BOOL=ON ..
+    $ cmake -Dhsm_type_symm_key:BOOL=ON ..
     -- Building for: Visual Studio 15 2017
     -- Selecting Windows SDK version 10.0.16299.0 to target Windows 10.0.17134.
     -- The C compiler identification is MSVC 19.12.25835.0
@@ -124,7 +124,7 @@ De SDK bevat de voorbeeldcode voor het gesimuleerde apparaat. Dit gesimuleerde a
 
     - **Type Attestation**: Selecteer **symmetrische sleutel**.
 
-    - **Automatisch sleutels genereren**: Schakel dit selectievakje in.
+    - **Automatisch sleutels genereren**: schakel dit selectievakje in.
 
     - **Selecteer de gewenste apparaten toewijzen aan hubs**: Selecteer **statische configuratie** , zodat u aan een specifieke hub toewijzen kunt.
 
@@ -132,9 +132,9 @@ De SDK bevat de voorbeeldcode voor het gesimuleerde apparaat. Dit gesimuleerde a
 
     ![Registratiegroep voor attestation-symmetrische sleutel toevoegen](./media/how-to-legacy-device-symm-key/symm-key-enrollment-group.png)
 
-4. Nadat u uw inschrijving opgeslagen de **primaire sleutel** en **secundaire sleutel** worden gegenereerd en toegevoegd aan de vermelding voor apparaatinschrijving. De symmetrische sleutel inschrijvingsgroep wordt weergegeven als **mylegacydevices** onder de *groepsnaam* kolom in de *Registratiegroepen* tabblad. 
+4. Zodra u uw inschrijving hebt opgeslagen, worden de **primaire sleutel** en **secundaire sleutel** gegenereerd en aan de inschrijvingsvermelding toegevoegd. De symmetrische sleutel inschrijvingsgroep wordt weergegeven als **mylegacydevices** onder de *groepsnaam* kolom in de *Registratiegroepen* tabblad. 
 
-    Open de inschrijving en kopieer de waarde van de gegenereerde **primaire sleutel**. Deze sleutel is de groepssleutel van uw hoofd.
+    Open de inschrijving en kopieer de waarde van uw gegenereerde **primaire sleutel**. Deze sleutel is de groepssleutel van uw hoofd.
 
 
 ## <a name="choose-a-unique-registration-id-for-the-device"></a>Kies een unieke registratie-ID voor het apparaat
@@ -216,7 +216,7 @@ Deze voorbeeldcode simuleert de opstartvolgorde van een apparaat waarmee de aanv
 
     ![Device Provisioning Service-eindpuntgegevens uit de portalblade extraheren](./media/quick-create-simulated-device-x509/extract-dps-endpoints.png) 
 
-2. Open in Visual Studio, de **azure_iot_sdks.sln** oplossingsbestand dat is gegenereerd door eerdere CMake uitgevoerd. Het oplossingsbestand moet in de volgende locatie:
+2. Open in Visual Studio, de **azure_iot_sdks.sln** oplossingsbestand dat is gegenereerd door eerdere CMake uitgevoerd. Het oplossingsbestand bevindt zich als het goed is op de volgende locatie:
 
     ```
     \azure-iot-sdk-c\cmake\azure_iot_sdks.sln
@@ -230,7 +230,7 @@ Deze voorbeeldcode simuleert de opstartvolgorde van een apparaat waarmee de aanv
     static const char* id_scope = "0ne00002193";
     ```
 
-5. Zoek de definitie voor de functie `main()` op in hetzelfde bestand. Zorg ervoor dat de `hsm_type` variabele is ingesteld op `SECURE_DEVICE_TYPE_SYMMETRIC_KEY` zoals hieronder wordt weergegeven:
+5. Zoek de definitie voor de functie `main()` op in hetzelfde bestand. Zorg ervoor dat de variabele `hsm_type` is ingesteld op `SECURE_DEVICE_TYPE_SYMMETRIC_KEY`, zoals hieronder wordt weergegeven:
 
     ```c
     SECURE_DEVICE_TYPE hsm_type;
@@ -241,9 +241,9 @@ Deze voorbeeldcode simuleert de opstartvolgorde van een apparaat waarmee de aanv
 
 6. Klik met de rechtermuisknop op het **prov\_dev\_client\_sample**-project en selecteer **Set as Startup Project**. 
 
-7. In Visual Studio *Solution Explorer* venster, gaat u naar de **hsm\_security\_client** project en vouw dit uit. Vouw **bronbestanden**, en open **hsm\_client\_key.c**. 
+7. Navigeer in het venster *Solution Explorer* in Visual Studio naar het **hsm\_security\_client**-project en vouw het uit. Vouw **Bronfiles** uit en open **hsm\_client\_key.c**. 
 
-    Zoek de declaratie van de `REGISTRATION_NAME` en `SYMMETRIC_KEY_VALUE` constanten. De volgende wijzigingen aanbrengen aan het bestand en sla het bestand.
+    Zoek de declaratie van de constanten `REGISTRATION_NAME` en `SYMMETRIC_KEY_VALUE`. Breng de volgende wijzigingen aan in het bestand en sla het op.
 
     Werk de waarde van de `REGISTRATION_NAME` constante met de **unieke registratie-ID voor uw apparaat**.
     
@@ -256,7 +256,7 @@ Deze voorbeeldcode simuleert de opstartvolgorde van een apparaat waarmee de aanv
 
 7. Selecteer in het menu van Visual Studio de optie **Debug** > **Start without debugging** om de oplossing uit te voeren. Klik in de prompt om het project opnieuw te bouwen op **Yes** om het project opnieuw te bouwen voordat het wordt uitgevoerd.
 
-    De volgende uitvoer is een voorbeeld van het gesimuleerde apparaat is opgestart en verbinding maken met de provisioning Service-exemplaar moet worden toegewezen aan een IoT-hub:
+    De volgende output is een voorbeeld waarbij het gesimuleerde apparaat met succes opstart en verbinding maakt met het inrichtingsservice-exemplaar voor toewijzing aan een IoT-hub:
 
     ```cmd
     Provisioning API Version: 1.2.8
@@ -273,7 +273,7 @@ Deze voorbeeldcode simuleert de opstartvolgorde van een apparaat waarmee de aanv
     Press enter key to exit:
     ```
 
-8. Navigeer in de portal naar de IoT-hub die uw gesimuleerde apparaat is toegewezen aan en klik op de **IoT-apparaten** tabblad. Geslaagde inrichten van de gesimuleerde naar de hub, de apparaat-ID wordt weergegeven op de **IoT-apparaten** blade met *STATUS* als **ingeschakeld**. U moet mogelijk klikken op de **vernieuwen** bovenaan op de knop. 
+8. Navigeer in de portal naar de IoT-hub waaraan uw gesimuleerd apparaat is toegewezen, en klik op het tabblad **IoT-apparaten**. Wanneer de inrichting van het gesimuleerde apparaat voor de hub is geslaagd, wordt de betreffende apparaat-ID weergegeven op de blade **IoT-apparaten** met de *STATUS* op **ingeschakeld**. Mogelijk moet u bovenaan op de knop **Vernieuwen** klikken. 
 
     ![Apparaat wordt geregistreerd voor de IoT-hub](./media/how-to-legacy-device-symm-key/hub-registration.png) 
 

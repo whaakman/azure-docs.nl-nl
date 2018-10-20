@@ -1,21 +1,22 @@
 ---
-title: Spraakservice REST-API 's
-description: Naslaginformatie voor REST-API's voor de Speech-service.
+title: Speech Service REST API 's
+description: Naslaginformatie voor REST-API's voor de Speech-Service.
 services: cognitive-services
 author: erhopf
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: speech
-ms.topic: article
+ms.component: speech-service
+ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: erhopf
-ms.openlocfilehash: f8b27277cbf3ea6d53a8f02e550beae67fc50741
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 0cc278cdb59bfbb53578eae0f51c9b54204d7d12
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167619"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49466270"
 ---
-# <a name="speech-service-rest-apis"></a>Spraakservice REST-API 's
+# <a name="speech-service-rest-apis"></a>Speech Service REST API 's
 
 De REST-API's van de service Azure Cognitive Services Speech zijn vergelijkbaar met de API's uit de [Bing Speech-API](https://docs.microsoft.com/azure/cognitive-services/Speech). De eindpunten afwijken van de eindpunten die worden gebruikt door de Bing Speech-service. Regionale eindpunten beschikbaar zijn en moet u een abonnementssleutel die overeenkomt met het eindpunt dat u gebruikt.
 

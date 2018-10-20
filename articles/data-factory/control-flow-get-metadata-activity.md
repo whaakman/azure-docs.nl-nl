@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 10/19/2018
 ms.author: shlo
-ms.openlocfilehash: c24bec7366ea62b3dd8f7a301c9d2d62c6dd6c7d
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: f61399a3a6cb5c67343e28e4364d8d796ffbc066
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37859275"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49457041"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Activiteit metagegevens ophalen in Azure Data Factory
 De GET metadata activity kan worden gebruikt om op te halen **metagegevens** van gegevens in Azure Data Factory. Deze activiteit kan worden gebruikt in de volgende scenario's:
@@ -61,6 +61,7 @@ De activiteit GetMetadata duurt een gegevensset als een vereiste invoer en uitvo
 | Connector/metagegevens | structuur | aantal kolommen | Er bestaat |
 |:--- |:--- |:--- |:--- |
 | Azure SQL Database | √ | √ | √ |
+| Azure SQL Database Managed Instance | √ | √ | √ |
 | Azure SQL Data Warehouse | √ | √ | √ |
 | SQL Server | √ | √ | √ |
 
@@ -131,7 +132,7 @@ De activiteit GetMetadata kan momenteel de volgende typen metagegevens worden op
 Eigenschap | Beschrijving | Vereist
 -------- | ----------- | --------
 Veldenlijst | Bevat de soorten metagegevens die zijn vereist. Zie voor meer informatie [opties voor metagegevens](#metadata-options) gedeelte over ondersteunde metagegevens. | Ja 
-gegevensset | De verwijzing gegevensset waarvan de metagegevens van de activiteit moet worden opgehaald door de activiteit GetMetadata is. Zie [ondersteunde mogelijkheden](#supported-capabilities) sectie op ondersteunde connectors en verwijzen naar het onderwerp van de connector op de details van de syntaxis van de gegevensset. | Ja
+Gegevensset | De verwijzing gegevensset waarvan de metagegevens van de activiteit moet worden opgehaald door de activiteit GetMetadata is. Zie [ondersteunde mogelijkheden](#supported-capabilities) sectie op ondersteunde connectors en verwijzen naar het onderwerp van de connector op de details van de syntaxis van de gegevensset. | Ja
 
 ## <a name="sample-output"></a>Voorbeelduitvoer
 

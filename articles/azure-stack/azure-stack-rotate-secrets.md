@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 09/06/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: cc7b1b9e96e32b090c0ec9ec9ab029588e5ec4ce
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 418b23f0783341ff7e5aaf7e2bbb2e869eb7dc45
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49166964"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49466151"
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>Geheimen in Azure Stack draaien
 
@@ -81,15 +81,18 @@ Geheime rotatie met behulp van de onderstaande instructies uitgevoerd, wordt dez
 
    > [!IMPORTANT]  
    > Zorg ervoor dat de geheime rotatie is nog niet is uitgevoerd op uw omgeving. Als de geheime rotatie is al uitgevoerd, moet u Azure Stack bijwerken naar versie 1807 of hoger voordat u geheime rotatie uitvoert. 
+
 1.  Operators mogelijk waarschuwingen openen en sluiten van automatisch tijdens het draaien van geheimen met Azure Stack.  Dit is verwacht gedrag en de waarschuwingen kunnen worden genegeerd.  Operators kunnen de geldigheid van deze waarschuwingen controleren door het uitvoeren van Test-AzureStack.  Voor operators SCOM gebruiken voor het bewaken van Azure Stack-systemen, plaatsen van een systeem in de onderhoudsmodus wordt voorkomen dat deze waarschuwingen hun ITSM-systemen is bereikt, maar blijft het een waarschuwing als door het Azure Stack-systeem niet meer bereikbaar is. 
 2. Informeer de gebruikers van elke onderhoudsbewerkingen. Normale onderhoudsvensters, zo veel mogelijk tijdens de kantooruren plannen. Onderhoudsbewerkingen mogelijk van invloed op zowel de werkbelastingen van de gebruiker en de portal bewerkingen.
     > [!note]  
     > De volgende stappen zijn alleen van toepassing wanneer u externe geheimen voor Azure Stack.
-3. Bereid een nieuwe set vervanging externe certificaten. De nieuwe set komt overeen met de certificaat-specificaties die worden beschreven in de [Azure Stack PKI-certificaatvereisten](https://docs.microsoft.com/azure/azure-stack/azure-stack-pki-certs).
-4.  Een back-up naar de certificaten gebruikt voor draaien op een veilige locatie van de back-Store. Als uw rotatie wordt uitgevoerd en mislukt, vervangt u de certificaten in de bestandsshare met de back-ups voordat u de draaihoek van het opnieuw uitvoeren. Houd er rekening mee, back-ups behouden in de veilige back-uplocatie.
-5.  Maak een bestandsshare die u vanaf de ERCS virtuele machines openen kunt. De bestandsshare moet leesbaar en beschrijfbaar zijn voor de **CloudAdmin** identiteit.
-6.  Open een PowerShell ISE-console op een computer waar u toegang tot de bestandsshare hebt. Navigeer naar de bestandsshare. 
-7.  Voer **[CertDirectoryMaker.ps1](http://www.aka.ms/azssecretrotationhelper)** om de vereiste mappen voor uw externe certificaten te maken.
+
+3. Voer **[Test AzureStack](https://docs.microsoft.com/azure/azure-stack/azure-stack-diagnostic-test)** en controleer of alle test uitvoer in orde zijn voordat het draaien van geheimen.
+4. Bereid een nieuwe set vervanging externe certificaten. De nieuwe set komt overeen met de certificaat-specificaties die worden beschreven in de [Azure Stack PKI-certificaatvereisten](https://docs.microsoft.com/azure/azure-stack/azure-stack-pki-certs).
+5.  Een back-up naar de certificaten gebruikt voor draaien op een veilige locatie van de back-Store. Als uw rotatie wordt uitgevoerd en mislukt, vervangt u de certificaten in de bestandsshare met de back-ups voordat u de draaihoek van het opnieuw uitvoeren. Houd er rekening mee, back-ups behouden in de veilige back-uplocatie.
+6.  Maak een bestandsshare die u vanaf de ERCS virtuele machines openen kunt. De bestandsshare moet leesbaar en beschrijfbaar zijn voor de **CloudAdmin** identiteit.
+7.  Open een PowerShell ISE-console op een computer waar u toegang tot de bestandsshare hebt. Navigeer naar de bestandsshare. 
+8.  Voer **[CertDirectoryMaker.ps1](http://www.aka.ms/azssecretrotationhelper)** om de vereiste mappen voor uw externe certificaten te maken.
 
 ## <a name="rotating-external-and-internal-secrets"></a>Externe en interne geheimen draaien
 

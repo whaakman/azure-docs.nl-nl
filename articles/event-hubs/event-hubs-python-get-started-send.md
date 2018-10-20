@@ -7,34 +7,33 @@ manager: femila
 ms.service: event-hubs
 ms.workload: core
 ms.topic: article
-ms.date: 07/26/2018
+ms.date: 10/16/2018
 ms.author: sethm
-ms.openlocfilehash: 762e21cfc7d16b614eb637c569f8bfc5b6115db1
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: bb77ed69ae8f2229cbd62afa545cac9f048689e8
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43703649"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49458000"
 ---
 # <a name="send-events-to-event-hubs-using-python"></a>Gebeurtenissen verzenden naar Event Hubs met behulp van Python
 
-Azure Event Hubs is een uiterst schaalbare gebeurtenissen beheersysteem dat miljoenen verwerken kan gebeurtenissen per seconde, zodat toepassingen om te verwerken en analyseren van enorme hoeveelheden gegevens die worden geproduceerd door verbonden apparaten en andere systemen. Zodra de verzameld in een event hub, u kunt ontvangen en verwerken van gebeurtenissen met in-process-handlers of doorsturen naar andere systemen analytics.
+Azure Event Hubs is een big data-platform voor het streamen van gegevens en een gebeurtenisopneemservice die miljoenen gebeurtenissen per seconde kan opnemen en verwerken. Event Hubs kan gebeurtenissen, gegevens of telemetrie die wordt geproduceerd door gedistribueerde software en apparaten verwerken en opslaan. Gegevens die naar een Event Hub worden verzonden, kunnen worden omgezet en opgeslagen via een provider voor realtime analytische gegevens of batchverwerking/opslagadapters. Zie voor een gedetailleerd overzicht van Event Hubs [overzicht van Event Hubs](event-hubs-about.md) en [functies van Event Hubs](event-hubs-features.md).
 
-Zie voor meer informatie over Event Hubs, de [overzicht van Event Hubs][Event Hubs overview].
+Deze zelfstudie wordt beschreven hoe u gebeurtenissen naar een event hub verzendt vanuit een toepassing die is geschreven in Python. 
 
-Deze zelfstudie wordt beschreven hoe u gebeurtenissen naar een event hub verzendt vanuit een toepassing die is geschreven in Python. Zie voor het ontvangen van gebeurtenissen, [de betreffende ontvangen artikel](event-hubs-python-get-started-receive.md).
-
-Code in deze zelfstudie is afkomstig uit [deze GitHub-voorbeelden](https://github.com/Azure/azure-event-hubs-python/tree/master/examples), die u kunt controleren om te zien van de volledige werkende toepassing, met inbegrip van importinstructies en variabelendeclaraties. Andere voorbeelden zijn beschikbaar in de map van GitHub.
+> [!NOTE]
+> U kunt deze snelstartgids downloaden als een voorbeeld van de [GitHub](https://github.com/Azure/azure-event-hubs-python/tree/master/examples), Vervang `EventHubConnectionString` en `EventHubName` tekenreeksen door uw event hub-waarden en voer deze uit. U kunt ook kunt u de stappen in deze zelfstudie om te maken van uw eigen volgen.
 
 ## <a name="prerequisites"></a>Vereisten
 
 Voor het voltooien van deze zelfstudie moet aan de volgende vereisten worden voldaan:
 
 - Python 3.4 of hoger.
-- Een bestaande Event Hubs-naamruimte en event hub. U kunt deze entiteiten maken door de instructies in [in dit artikel](event-hubs-create.md). 
 
-[!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
+## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>Een Event Hubs-naamruimte en een Event Hub maken
+In de eerste stap gebruikt u [Azure Portal](https://portal.azure.com) om een naamruimte van het type Event Hubs te maken en de beheerreferenties te verkrijgen die de toepassing nodig heeft om met de Event Hub te communiceren. Als u wilt een naamruimte en een event hub maken, volgt u de procedure in [in dit artikel](event-hubs-create.md), gaat u verder met de volgende stappen in deze zelfstudie.
 
 ## <a name="install-python-package"></a>Python-pakket installeren
 
@@ -98,23 +97,18 @@ except KeyboardInterrupt:
     pass
 ```
 
-## <a name="send-events"></a>Gebeurtenissen verzenden
+## <a name="run-application-to-send-events"></a>Voer de toepassing voor het verzenden van gebeurtenissen
 
 Voer het script uit, open een opdrachtprompt met Python in het pad en voer vervolgens deze opdracht uit:
 
 ```bash
 start python send.py
 ```
+
+Gefeliciteerd! U hebt nu berichten verzonden naar een Event Hub.
  
 ## <a name="next-steps"></a>Volgende stappen
-
-Nu dat u gebeurtenissen naar een event hub met behulp van Python verzonden hebt, voor het ontvangen van gebeurtenissen ziet [de betreffende ontvangen artikel](event-hubs-python-get-started-receive.md).
-
-Ga naar de volgende pagina's voor meer informatie over Event Hubs:
-
-* [Event Hubs-overzicht][Event Hubs overview]
-* [Een Event Hub maken](event-hubs-create.md)
-* [Veelgestelde vragen over Event Hubs](event-hubs-faq.md)
+In deze snelstartgids hebt u berichten verzonden naar een event hub met behulp van Python. Zie voor meer informatie over gebeurtenissen ontvangen van een event hub met behulp van Python, [ontvangen van gebeurtenissen van event hub - Python](event-hubs-python-get-started-receive.md).
 
 <!-- Links -->
 [Event Hubs overview]: event-hubs-about.md

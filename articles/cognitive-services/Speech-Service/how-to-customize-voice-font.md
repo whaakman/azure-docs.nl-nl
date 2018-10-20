@@ -1,22 +1,25 @@
 ---
-title: Wat is aangepaste spraak? -Azure Cognitive Services
-description: In dit artikel wordt een overzicht van Microsoft tekst naar spraak stem aanpassing, waarmee u een stem te herkennen, één van een soort merk maken.
+title: Over het maken van een aangepaste spraakstijl
+titlesuffix: Azure Cognitive Services
+description: In dit artikel wordt een overzicht van tekst naar spraak stem aanpassing, waarmee u een stem te herkennen, één van een soort merk maken.
 services: cognitive-services
-author: noellelacharite
+author: PanosPeriorellis
+manager: cgronlun
 ms.service: cognitive-services
-ms.topic: article
+ms.component: speech-service
+ms.topic: conceptual
 ms.date: 05/07/2018
-ms.author: nolach
-ms.openlocfilehash: 21b37d2b61af81e6481de4c5e7537a3382d895b6
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.author: panosper
+ms.openlocfilehash: bf06042d3b820e61d1f5b316a8b7b26d1a366388
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49113917"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49467715"
 ---
 # <a name="creating-custom-voice-fonts"></a>Het maken van aangepaste spraakstijlen
 
-Microsoft Text to Speech (Text-to-Speech) gesproken aanpassingen kunt u een herkenbare, één van een unieke stem voor uw merk maken: een *spraakstijl.* 
+Spraak gesproken aanpassingen kunt u een herkenbare, één van een unieke stem voor uw merk maken: een *spraakstijl.* 
 
 Voor het maken van uw spraakstijl, moet u een studio-opname maken en uploaden van de bijbehorende scripts als de trainingsgegevens. De service maakt vervolgens een unieke stem-model dat is afgestemd op de opname. U kunt deze spraakstijl gebruiken om na te bootsen spraak. 
 

@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/25/2018
+ms.date: 10/18/2018
 ms.author: srrengar
-ms.openlocfilehash: a607f560b5e74071f5ee15d03e615138f25a3aef
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 5fc2674a145be99fb8867c5cf1b1f65ba860db80
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406803"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49457830"
 ---
 # <a name="monitoring-and-diagnostics-for-azure-service-fabric"></a>Bewaking en diagnose voor Azure Service Fabric
 
@@ -71,7 +71,7 @@ Naast het meest recente statusrapporten in SFX ervaart, is elk rapport ook besch
 
 ## <a name="other-logging-solutions"></a>Andere oplossingen voor logboekregistratie
 
-Hoewel de twee oplossingen die we aanbevolen, [Azure Log Analytics](service-fabric-diagnostics-event-analysis-oms.md) en [Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md) hebt gebouwd in integratie met Service Fabric, veel gebeurtenissen worden geschreven via etw-providers en zijn uit te breiden met andere oplossingen voor logboekregistratie. U moet ook zoeken in de [Elastic Stack](https://www.elastic.co/products) (met name als u een cluster uitvoert in een offline-omgeving overweegt), [Splunk](https://www.splunk.com/), [Dynatrace](https://www.dynatrace.com/), of andere platform van uw voorkeur. 
+Hoewel de twee oplossingen die we aanbevolen, [Azure Log Analytics](service-fabric-diagnostics-event-analysis-oms.md) en [Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md) hebt gebouwd in integratie met Service Fabric, veel gebeurtenissen worden geschreven via ETW-providers en zijn uit te breiden met andere oplossingen voor logboekregistratie. U moet ook zoeken in de [Elastic Stack](https://www.elastic.co/products) (met name als u een cluster uitvoert in een offline-omgeving overweegt), [Dynatrace](https://www.dynatrace.com/), of elk ander platform van uw voorkeur. We hebben een lijst met geïntegreerde partners beschikbaar [hier](service-fabric-diagnostics-partners.md).
 
 De belangrijkste punten voor elk platform dat u kiest moeten zijn opgenomen hoe vertrouwd bent met de gebruikersinterface en opvragen van opties voor de mogelijkheid om te visualiseren en makkelijk leesbare dashboards en de extra hulpprogramma's die ze bieden ter verbetering van de bewaking, maken zoals automatische waarschuwingen.
 
@@ -80,5 +80,7 @@ De belangrijkste punten voor elk platform dat u kiest moeten zijn opgenomen hoe 
 * Zie voor het aan de slag met het instrumenteren van uw toepassingen, [toepassing niveau gebeurtenis- en logboekbestanden genereren](service-fabric-diagnostics-event-generation-app.md).
 * Meer informatie over het controleren van het platform en de Service Fabric biedt voor u op gebeurtenissen [Platform op gebeurtenis- en logboekbestanden genereren](service-fabric-diagnostics-event-generation-infra.md).
 * Doorloop de stappen voor het instellen van AI voor uw toepassing met [bewaken en diagnosticeren van een ASP.NET Core-toepassing in Service Fabric](service-fabric-tutorial-monitoring-aspnet.md).
-* Meer informatie over het instellen van Azure Log Analytics voor het bewaken van containers- [bewaking en diagnostische gegevens voor Windows-Containers in Azure Service Fabric](service-fabric-tutorial-monitoring-wincontainers.md).
+* Meer informatie over het instellen van OMS Log Analytics voor het bewaken van containers- [bewaking en diagnostische gegevens voor Windows-Containers in Azure Service Fabric](service-fabric-tutorial-monitoring-wincontainers.md).
+* Zie het voorbeeld van de diagnostische gegevens over problemen en oplossingen met Service Fabric in [oplossen van veelvoorkomende scenario's](service-fabric-diagnostics-common-scenarios.md)
+* Bekijk andere producten van diagnostische gegevens die kunnen worden geïntegreerd met Service Fabric in [diagnostische Service Fabric-partners](service-fabric-diagnostics-partners.md)
 * Meer informatie over algemene aanbevelingen voor bewaking voor Azure-resources - [Best Practices - bewaking en diagnose](https://docs.microsoft.com/azure/architecture/best-practices/monitoring). 

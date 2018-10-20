@@ -3,7 +3,7 @@ title: Overzicht van automatisch schalen met Azure virtual machine scale sets | 
 description: Meer informatie over de verschillende manieren waarop u kunt de schaal van een virtuele Azure-machine ingesteld op basis van prestaties of op een vast schema automatisch schalen
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: cynthn
+author: zr-msft
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
-ms.author: cynthn
+ms.author: zarhoads
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7e6a897ed0606d8844f66e318b93449d7790e2be
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 7c50e78fc7f4f5b6f779b696a3d16520d3ffccd5
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46963423"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49465318"
 ---
 # <a name="overview-of-autoscale-with-azure-virtual-machine-scale-sets"></a>Overzicht van automatisch schalen met Azure VM-schaalset wordt ingesteld
 Een schaalset voor virtuele machine van Azure kan automatisch vergroten of verkleinen van het aantal VM-exemplaren die uw toepassing wordt uitgevoerd. Dit gedrag van automatische en flexibele vermindert de overhead voor het bewaken en optimaliseren van de prestaties van uw toepassing. U maakt regels die de aanvaardbare prestaties voor een positieve gebruikerservaring bepalen. Wanneer de gedefinieerde drempelwaarden wordt voldaan, maatregelen regels voor automatisch schalen om aan te passen van de capaciteit van uw schaalset. U kunt ook gebeurtenissen automatisch te vergroten of verkleinen, de capaciteit van uw schaalset op tijden vaste plannen. Dit artikel bevat een overzicht van welke prestaties metrische gegevens beschikbaar zijn en welke acties voor automatisch schalen kan uitvoeren.

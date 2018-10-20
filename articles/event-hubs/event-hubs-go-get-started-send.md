@@ -7,34 +7,33 @@ manager: kamalb
 ms.service: event-hubs
 ms.workload: core
 ms.topic: article
-ms.date: 07/23/2018
+ms.date: 10/18/2018
 ms.author: shvija
-ms.openlocfilehash: 40b3aa82c3e9e8ab9a30362c0a41998877655725
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: f5e30a103b09613caee8e9912a89a5bc2d390f65
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40005594"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49458085"
 ---
 # <a name="send-events-to-event-hubs-using-go"></a>Gebeurtenissen verzenden naar Event Hubs met behulp van Go
 
-Azure Event Hubs is een uiterst schaalbare gebeurtenissen beheersysteem dat miljoenen verwerken kan gebeurtenissen per seconde, zodat toepassingen om te verwerken en analyseren van enorme hoeveelheden gegevens die worden geproduceerd door verbonden apparaten en andere systemen. Zodra de verzameld in een event hub, u kunt ontvangen en verwerken van gebeurtenissen met in-process-handlers of doorsturen naar andere systemen analytics.
+Azure Event Hubs is een big data-platform voor het streamen van gegevens en een gebeurtenisopneemservice die miljoenen gebeurtenissen per seconde kan opnemen en verwerken. Event Hubs kan gebeurtenissen, gegevens of telemetrie die wordt geproduceerd door gedistribueerde software en apparaten verwerken en opslaan. Gegevens die naar een Event Hub worden verzonden, kunnen worden omgezet en opgeslagen via een provider voor realtime analytische gegevens of batchverwerking/opslagadapters. Zie voor een gedetailleerd overzicht van Event Hubs [overzicht van Event Hubs](event-hubs-about.md) en [functies van Event Hubs](event-hubs-features.md).
 
-Zie voor meer informatie over Event Hubs, de [overzicht van Event Hubs][Event Hubs overview].
+Deze zelfstudie wordt beschreven hoe u gebeurtenissen naar een event hub verzendt vanuit een toepassing die is geschreven in Go. 
 
-Deze zelfstudie wordt beschreven hoe u gebeurtenissen naar een event hub verzendt vanuit een toepassing die is geschreven in Go. Om gebeurtenissen te ontvangen, gebruiken de **eph gaat** (Event Processor Host)-pakket, zoals beschreven in [de betreffende ontvangen artikel](event-hubs-go-get-started-receive-eph.md).
-
-Code in deze zelfstudie is afkomstig uit [deze GitHub-voorbeelden](https://github.com/Azure-Samples/azure-sdk-for-go-samples/tree/master/eventhubs), die u kunt controleren om te zien van de volledige werkende toepassing, met inbegrip van importinstructies en variabelendeclaraties.
-
-Andere voorbeelden zijn beschikbaar [in de Event Hubs opslagplaats pakket](https://github.com/Azure/azure-event-hubs-go/tree/master/_examples).
+> [!NOTE]
+> U kunt deze snelstartgids downloaden als een voorbeeld van de [GitHub](https://github.com/Azure-Samples/azure-sdk-for-go-samples/tree/master/eventhubs), Vervang `EventHubConnectionString` en `EventHubName` tekenreeksen door uw event hub-waarden en voer deze uit. U kunt ook kunt u de stappen in deze zelfstudie om te maken van uw eigen volgen.
 
 ## <a name="prerequisites"></a>Vereisten
 
 Voor het voltooien van deze zelfstudie moet aan de volgende vereisten worden voldaan:
 
 * Ga lokaal is geïnstalleerd. Ga als volgt [deze instructies](https://golang.org/doc/install) indien nodig.
-* Een actief Azure-account. Als u nog geen abonnement op Azure hebt, maak dan een [gratis account][] aan voordat u begint.
 * Een bestaande Event Hubs-naamruimte en event hub. U kunt deze entiteiten maken door de instructies in [in dit artikel](event-hubs-create.md).
+
+## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>Een Event Hubs-naamruimte en een Event Hub maken
+In de eerste stap gebruikt u [Azure Portal](https://portal.azure.com) om een naamruimte van het type Event Hubs te maken en de beheerreferenties te verkrijgen die de toepassing nodig heeft om met de Event Hub te communiceren. Als u wilt een naamruimte en een event hub maken, volgt u de procedure in [in dit artikel](event-hubs-create.md), gaat u verder met de volgende stappen in deze zelfstudie.
 
 ## <a name="install-go-package"></a>Go-pakket installeren
 
@@ -125,15 +124,13 @@ if err != nil {
 log.Printf("got partition IDs: %s\n, info.PartitionIDs)
 ```
 
+Voer de toepassing voor het verzenden van gebeurtenissen naar de event hub. 
+
+Gefeliciteerd! U hebt nu berichten verzonden naar een Event Hub.
+
 ## <a name="next-steps"></a>Volgende stappen
-
-Ga naar de volgende pagina's voor meer informatie over Event Hubs:
-
-* [Gebeurtenissen ontvangen met EventProcessorHost](event-hubs-go-get-started-receive-eph.md)
-* [Event Hubs-overzicht][Event Hubs overview]
-* [Een Event Hub maken](event-hubs-create.md)
-* [Veelgestelde vragen over Event Hubs](event-hubs-faq.md)
+In deze snelstartgids hebt u berichten verzonden naar een event hub met behulp van Go. Zie voor meer informatie over gebeurtenissen ontvangen van een event hub met behulp van Go, [ontvangen van gebeurtenissen van event hub - Go](event-hubs-go-get-started-receive-eph.md).
 
 <!-- Links -->
 [Event Hubs overview]: event-hubs-about.md
-[gratis account]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
+[free account]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio

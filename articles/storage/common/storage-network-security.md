@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/25/2017
 ms.author: cbrooks
 ms.component: common
-ms.openlocfilehash: 98972b0c52470e6a404090d993c21a47b11cd660
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 7c01940c41067029bc3d47d19c2ded1d710cc2c6
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/19/2018
-ms.locfileid: "49427142"
+ms.locfileid: "49470061"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Azure Storage-Firewalls en virtuele netwerken configureren
 Azure Storage biedt een gelaagd beveiligingsmodel waarmee u uw storage-accounts naar een specifieke set toegestane netwerken beveiligen.  Als network-regels zijn geconfigureerd, kunnen alleen de toepassingen van toegestane netwerken toegang krijgen tot een storage-account.  Bij het aanroepen van een toegestane netwerk, blijven toepassingen juiste autorisatie (een geldige toegangssleutel of SAS-token) voor toegang tot het opslagaccount nodig.
@@ -86,7 +86,7 @@ az storage account update --name "mystorageaccount" --resource-group "myresource
 az storage account update --name "mystorageaccount" --resource-group "myresourcegroup" --default-action Allow
 ```
 
-## <a name="grant-access-from-a-virtual-network"></a>Toegang verlenen vanuit een virtueel netwerk
+## <a name="grant-access-from-a-virtual-network"></a>Toegang verlenen vanuit een Virtueelnetwerk
 Storage-accounts kunnen worden geconfigureerd zodat toegang alleen vanaf specifieke Azure Virtual Networks. 
 
 Doordat een [Service-eindpunt](/azure/virtual-network/virtual-network-service-endpoints-overview) voor Azure Storage in het Virtueelnetwerk, verkeer een optimale route naar de Azure Storage-service is gewaarborgd. De identiteit van het virtuele netwerk en het subnet worden ook verzonden bij elke aanvraag.  Beheerders kunnen vervolgens netwerkregels voor het opslagaccount waarmee aanvragen worden ontvangen van specifieke subnetten in het Virtueelnetwerk configureren.  Clients krijgen toegang via deze netwerkregels moet blijven om te voldoen aan de autorisatievereisten van het Storage-account voor toegang tot de gegevens.
@@ -190,11 +190,13 @@ Toegestane adresbereiken van internet kunnen worden opgegeven met behulp van [CI
 
 IP-netwerkregels zijn alleen toegestaan voor **openbare internet** IP-adressen.  IP-adresbereiken die zijn gereserveerd voor particuliere netwerken (zoals gedefinieerd in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) zijn niet toegestaan in de IP-regels.  Particuliere netwerken bevatten adressen die met beginnen *10.\** , *172.16.\**   -  *172.31.\**, en *192.168.\** .
 
-Houd er rekening mee dat regels voor IP-netwerk heeft geen effect op aanvragen die afkomstig zijn van dezelfde Azure-regio als het opslagaccount.  Gebruik virtual network-regels waarmee aanvragen voor dezelfde regio.
+> [!NOTE]
+> Regels voor IP-netwerk heeft geen effect op aanvragen die afkomstig zijn van dezelfde Azure-regio als het opslagaccount.  Gebruik [virtuele netwerkregels](#grant-access-from-a-virtual-network) waarmee aanvragen voor dezelfde regio.
+>
 
 Alleen IPV4-adressen worden ondersteund op dit moment.
 
-Elk opslagaccount kan ondersteunen maximaal 100 IP-netwerkregels die kunnen worden gecombineerd met [Virtual Network-regels](#grant-access-from-a-virtual-network)
+Elk opslagaccount kan ondersteunen maximaal 100 IP-netwerkregels die kunnen worden gecombineerd met [virtuele netwerkregels](#grant-access-from-a-virtual-network).
 
 ### <a name="configuring-access-from-on-premises-networks"></a>Toegang vanaf on-premises netwerken configureren
 Als u wilt toegang verlenen vanuit uw on-premises netwerken aan uw storage-account met een regel voor IP-netwerk, moet u het internetgerichte IP-adressen die worden gebruikt door uw netwerk te identificeren.  Neem contact op met de netwerkbeheerder voor hulp.

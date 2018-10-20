@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/05/2018
 ms.author: celested
-ms.reviewer: hirsin
+ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
-ms.openlocfilehash: c42e8978a94730669f3c3f879d1d26c4426bd9da
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 784213531c061912dded8e7776e79bea5adb217b
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49079126"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49466049"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app-public-preview"></a>Hoe: geef optioneel claims voor uw Azure AD-app (Preview-versie)
 
@@ -215,7 +215,7 @@ Er zijn meerdere opties beschikbaar voor het bijwerken van de eigenschappen van 
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 1. Nadat u hebt geverifieerd, kiest u uw Azure AD-tenant door deze te selecteren in de rechterbovenhoek van de pagina.
-1. Selecteer **Azure AD-extensie** in het linkernavigatievenster en klik op **App-registraties**.
+1. Selecteer **App-registraties** vanaf de linkerzijde.
 1. De toepassing die u wilt configureren van optionele claims voor in de lijst en klik op het niet vinden.
 1. Klik op de toepassingspagina **Manifest** om het manifest inline-editor te openen. 
 1. U kunt het manifest met behulp van deze editor rechtstreeks bewerken. Het manifest volgt het schema voor de [Toepassingsentiteit](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity), en het manifest één keer opgeslagen automatische-indelingen. Nieuwe elementen worden toegevoegd aan de `OptionalClaims` eigenschap.

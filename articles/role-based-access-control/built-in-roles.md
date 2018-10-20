@@ -11,16 +11,16 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 09/27/2018
+ms.date: 10/19/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 88667749d9cdf5239be33f3aca52d1a614556a41
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: b0dc41959902bda4e61e8ce6a25f94163a562b12
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48816600"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49466849"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Ingebouwde rollen voor Azure-resources
 [Op rollen gebaseerd toegangsbeheer (RBAC)](overview.md) heeft diverse ingebouwde roldefinities die u aan gebruikers, groepen en service-principals toewijzen kunt. Roltoewijzingen zijn de manier waarop u de toegang tot resources in Azure. Als de ingebouwde rollen niet voldoen aan de specifieke behoeften van uw organisatie, kunt u uw eigen [aangepaste rollen](custom-roles.md) maken.
@@ -147,8 +147,8 @@ De volgende tabel bevat korte beschrijvingen van de ingebouwde rollen. Klik op d
 > | Microsoft.Authorization/*/Delete | Functies en roltoewijzingen verwijderen niet |
 > | Microsoft.Authorization/*/Write | Kan de rollen en roltoewijzingen niet maken |
 > | Microsoft.Authorization/elevateAccess/Action | Hiermee wordt oproepende functie de rechten van Administrator voor gebruikerstoegang gegeven voor het tenantbereik |
-> | Microsoft.Blueprint/blueprintAssignments/write |  |
-> | Microsoft.Blueprint/blueprintAssignments/delete |  |
+> | Microsoft.Blueprint/blueprintAssignments/write | Alle blauwdrukartefacten maken of bijwerken |
+> | Microsoft.Blueprint/blueprintAssignments/delete | Alle blauwdrukartefacten verwijderen |
 
 ## <a name="reader"></a>Lezer
 > [!div class="mx-tableFixed"]
@@ -297,7 +297,7 @@ De volgende tabel bevat korte beschrijvingen van de ingebouwde rollen. Klik op d
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hiermee kunt u resourcegroepen ophalen of opnemen in een lijst. |
 > | Microsoft.Support/* | Maken en ondersteuningstickets beheren |
 
-## <a name="automation-operator"></a>Operator voor Automation
+## <a name="automation-operator"></a>Automation-operator
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -379,10 +379,9 @@ De volgende tabel bevat korte beschrijvingen van de ingebouwde rollen. Klik op d
 > | Microsoft.Authorization/*/read | Meer functies en roltoewijzingen |
 > | Microsoft.Network/virtualNetworks/read | De definitie van het virtuele netwerk ophalen |
 > | Microsoft.RecoveryServices/locations/* |  |
-> | Microsoft.RecoveryServices/locations/allocatedStamp/read | GetAllocatedStamp is een interne bewerking die wordt gebruikt door de service |
-> | Microsoft.RecoveryServices/Vaults/backupconfig/vaultconfig/* |  |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/operationResults/* | Resultaten van de bewerking op de back-upbeheer beheren |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/* | Back-containers in de back-fabrics van Recovery Services-kluis maken en beheren |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/refreshContainers/action | Hiermee vernieuwt u de containerlijst |
 > | Microsoft.RecoveryServices/Vaults/backupJobs/* | Maken en beheren van back-uptaken |
 > | Microsoft.RecoveryServices/Vaults/backupJobsExport/action | Taken exporteren |
 > | Microsoft.RecoveryServices/Vaults/backupJobsExport/operationResults/read | Retourneert het resultaat van Exporttaakbewerking. |
@@ -399,13 +398,26 @@ De volgende tabel bevat korte beschrijvingen van de ingebouwde rollen. Klik op d
 > | Microsoft.RecoveryServices/Vaults/monitoringAlerts/read | Hiermee haalt de waarschuwingen voor de Recovery services-kluis. |
 > | Microsoft.RecoveryServices/Vaults/monitoringConfigurations/* |  |
 > | Microsoft.RecoveryServices/Vaults/read | De bewerking kluis ophalen wordt een object waarmee de Azure-resource van het type 'kluis' |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/refreshContainers/action | Hiermee vernieuwt u de containerlijst |
 > | Microsoft.RecoveryServices/Vaults/registeredIdentities/* | Maken en beheren van geregistreerde identiteiten |
-> | Microsoft.RecoveryServices/Vaults/storageConfig/* |  |
 > | Microsoft.RecoveryServices/Vaults/usages/* | Maken en beheren van het gebruik van Recovery Services-kluis |
 > | Microsoft.Resources/deployments/* | Maken en beheren van brongroepimplementaties |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hiermee kunt u resourcegroepen ophalen of opnemen in een lijst. |
 > | Microsoft.Storage/storageAccounts/read | Hiermee retourneert u een lijst met opslagaccounts of haalt u de eigenschappen op voor het opgegeven opslagaccount. |
+> | Microsoft.RecoveryServices/Vaults/backupstorageconfig/* |  |
+> | Microsoft.RecoveryServices/Vaults/backupconfig/* |  |
+> | Microsoft.RecoveryServices/Vaults/backupValidateOperation/action | Bewerking op de beveiligde Item valideren |
+> | Microsoft.RecoveryServices/Vaults/write | Met de bewerking Kluis maken wordt een Azure-resource van het type vault gemaakt. |
+> | Microsoft.RecoveryServices/Vaults/backupOperations/read | Retourneert de back-upbewerking Status voor de Recovery Services-kluis. |
+> | Microsoft.RecoveryServices/Vaults/backupEngines/read | Hiermee worden alle servers voor back-upbeheer geretourneerd die in de kluis zijn geregistreerd. |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/* |  |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectableContainers/read | Alle beveiligbare containers ophalen |
+> | Microsoft.RecoveryServices/locations/backupStatus/action | Controleer back-upstatus voor Recovery Services-kluizen |
+> | Microsoft.RecoveryServices/locations/backupPreValidateProtection/action |  |
+> | Microsoft.RecoveryServices/locations/backupValidateFeatures/action | Functies valideren |
+> | Microsoft.RecoveryServices/Vaults/monitoringAlerts/write | Oplossing voor de waarschuwing. |
+> | Microsoft.RecoveryServices/operations/read | Bewerking wordt de lijst met bewerkingen voor een Resourceprovider geretourneerd |
+> | Microsoft.RecoveryServices/locations/operationStatus/read | Status van de bewerking voor een bepaalde bewerking opgehaald |
+> | Microsoft.RecoveryServices/Vaults/backupProtectionIntents/read | Lijst van alle back-up Protection Intents |
 > | Microsoft.Support/* | Maken en ondersteuningstickets beheren |
 
 ## <a name="backup-operator"></a>Back-upoperator
@@ -417,8 +429,6 @@ De volgende tabel bevat korte beschrijvingen van de ingebouwde rollen. Klik op d
 > | **Acties** |  |
 > | Microsoft.Authorization/*/read | Meer functies en roltoewijzingen |
 > | Microsoft.Network/virtualNetworks/read | De definitie van het virtuele netwerk ophalen |
-> | Microsoft.RecoveryServices/locations/allocatedStamp/read | GetAllocatedStamp is een interne bewerking die wordt gebruikt door de service |
-> | Microsoft.RecoveryServices/Vaults/backupconfig/vaultconfig/* |  |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/operationResults/read | Status van de bewerking geretourneerd |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/operationResults/read | Hiermee wordt het resultaat opgehaald van de bewerking die is uitgevoerd op de beveiligde container. |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/backup/action | Hiermee wordt een back-up van het beveiligde item gemaakt. |
@@ -431,19 +441,15 @@ De volgende tabel bevat korte beschrijvingen van de ingebouwde rollen. Klik op d
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/revokeInstantItemRecovery/action | Direct Itemherstel intrekken voor beveiligd Item |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/write | Een beveiligd back-upitem maken |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/read | Retourneert alle geregistreerde containers |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/refreshContainers/action | Hiermee vernieuwt u de containerlijst |
 > | Microsoft.RecoveryServices/Vaults/backupJobs/* | Maken en beheren van back-uptaken |
-> | Microsoft.RecoveryServices/Vaults/backupJobs/cancel/action | De taak annuleren |
-> | Microsoft.RecoveryServices/Vaults/backupJobs/operationResults/read | Hiermee wordt het resultaat van de taakbewerking geretourneerd. |
-> | Microsoft.RecoveryServices/Vaults/backupJobs/read | Alle taakobjecten geretourneerd |
 > | Microsoft.RecoveryServices/Vaults/backupJobsExport/action | Taken exporteren |
 > | Microsoft.RecoveryServices/Vaults/backupJobsExport/operationResults/read | Retourneert het resultaat van Exporttaakbewerking. |
 > | Microsoft.RecoveryServices/Vaults/backupManagementMetaData/read | Hiermee worden de metagegevens van back-upbeheer voor een Recovery Services-kluis geretourneerd. |
 > | Microsoft.RecoveryServices/Vaults/backupOperationResults/* | Maken en beheren van de resultaten van back-upbeheer bewerkingen |
 > | Microsoft.RecoveryServices/Vaults/backupPolicies/operationResults/read | Hiermee worden de resultaten van de beleidsbewerking opgehaald. |
-> | Microsoft.RecoveryServices/Vaults/backupPolicies/operationStatus/read |  |
 > | Microsoft.RecoveryServices/Vaults/backupPolicies/read | Retourneert alle beveiligingsbeleid voor apps |
 > | Microsoft.RecoveryServices/Vaults/backupProtectableItems/* | Artikelen die u kunnen een back-up maken en beheren |
-> | Microsoft.RecoveryServices/Vaults/backupProtectableItems/read | Hiermee wordt een lijst met alle beveiligbare items opgehaald. |
 > | Microsoft.RecoveryServices/Vaults/backupProtectedItems/read | Hiermee wordt de lijst met alle beveiligde items geretourneerd. |
 > | Microsoft.RecoveryServices/Vaults/backupProtectionContainers/read | Retourneert alle containers van het abonnement |
 > | Microsoft.RecoveryServices/Vaults/backupUsageSummaries/read | Hiermee retourneert u overzichten van beschermde Items en beschermde Servers van Recovery Services. |
@@ -453,15 +459,31 @@ De volgende tabel bevat korte beschrijvingen van de ingebouwde rollen. Klik op d
 > | Microsoft.RecoveryServices/Vaults/monitoringAlerts/read | Hiermee haalt de waarschuwingen voor de Recovery services-kluis. |
 > | Microsoft.RecoveryServices/Vaults/monitoringConfigurations/* |  |
 > | Microsoft.RecoveryServices/Vaults/read | De bewerking kluis ophalen wordt een object waarmee de Azure-resource van het type 'kluis' |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/refreshContainers/action | Hiermee vernieuwt u de containerlijst |
 > | Microsoft.RecoveryServices/Vaults/registeredIdentities/operationResults/read | De bewerking ophalen resultaten bewerking kan worden gebruikt ophalen de bewerkingsstatus en het resultaat van de asynchroon ingediende bewerking |
 > | Microsoft.RecoveryServices/Vaults/registeredIdentities/read | De Containers ophalen op de bewerking kan worden gebruikt. Haal de containers die zijn geregistreerd voor een resource. |
 > | Microsoft.RecoveryServices/Vaults/registeredIdentities/write | De bewerking servicecontainer registreren kan worden gebruikt voor het registreren van een container met de Recovery-Service. |
-> | Microsoft.RecoveryServices/Vaults/storageConfig/* |  |
 > | Microsoft.RecoveryServices/Vaults/usages/read | Hiermee worden de gebruiksgegevens voor een Recovery Services-kluis geretourneerd. |
 > | Microsoft.Resources/deployments/* | Maken en beheren van brongroepimplementaties |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hiermee kunt u resourcegroepen ophalen of opnemen in een lijst. |
 > | Microsoft.Storage/storageAccounts/read | Hiermee retourneert u een lijst met opslagaccounts of haalt u de eigenschappen op voor het opgegeven opslagaccount. |
+> | Microsoft.RecoveryServices/Vaults/backupstorageconfig/* |  |
+> | Microsoft.RecoveryServices/Vaults/backupValidateOperation/action | Bewerking op de beveiligde Item valideren |
+> | Microsoft.RecoveryServices/Vaults/backupOperations/read | Retourneert de back-upbewerking Status voor de Recovery Services-kluis. |
+> | Microsoft.RecoveryServices/Vaults/backupPolicies/operations/read | Status van de beleidsbewerking ophalen. |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/write | Hiermee maakt u een geregistreerde container |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/inquire/action | Workloads in een container navragen |
+> | Microsoft.RecoveryServices/Vaults/backupEngines/read | Hiermee worden alle servers voor back-upbeheer geretourneerd die in de kluis zijn geregistreerd. |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/write | Een back-Upbeveiligingsintentie maken |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/read | Een back-Upbeveiligingsintentie ophalen |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectableContainers/read | Alle beveiligbare containers ophalen |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/items/read | Alle items in een container ophalen |
+> | Microsoft.RecoveryServices/locations/backupStatus/action | Controleer back-upstatus voor Recovery Services-kluizen |
+> | Microsoft.RecoveryServices/locations/backupPreValidateProtection/action |  |
+> | Microsoft.RecoveryServices/locations/backupValidateFeatures/action | Functies valideren |
+> | Microsoft.RecoveryServices/Vaults/monitoringAlerts/write | Oplossing voor de waarschuwing. |
+> | Microsoft.RecoveryServices/operations/read | Bewerking wordt de lijst met bewerkingen voor een Resourceprovider geretourneerd |
+> | Microsoft.RecoveryServices/locations/operationStatus/read | Status van de bewerking voor een bepaalde bewerking opgehaald |
+> | Microsoft.RecoveryServices/Vaults/backupProtectionIntents/read | Lijst van alle back-up Protection Intents |
 > | Microsoft.Support/* | Maken en ondersteuningstickets beheren |
 
 ## <a name="backup-reader"></a>Back-uplezer
@@ -472,15 +494,18 @@ De volgende tabel bevat korte beschrijvingen van de ingebouwde rollen. Klik op d
 > | **Id** | a795c7a0-d4a2-40c1-ae25-d81f01202912 |
 > | **Acties** |  |
 > | Microsoft.Authorization/*/read | Meer functies en roltoewijzingen |
+> | Microsoft.RecoveryServices/locations/allocatedStamp/read | GetAllocatedStamp is een interne bewerking die wordt gebruikt door de service |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/operationResults/read | Status van de bewerking geretourneerd |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/operationResults/read | Hiermee wordt het resultaat opgehaald van de bewerking die is uitgevoerd op de beveiligde container. |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/operationResults/read | Hiermee wordt het resultaat opgehaald van de bewerking die is uitgevoerd op beveiligde items. |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/operationsStatus/read | Hiermee wordt de status geretourneerd van de bewerking die is uitgevoerd op beveiligde items. |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/read | Retourneert de objectgegevens van het beveiligde Item |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/read | Herstelpunten voor beveiligde items ophalen. |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/read | Retourneert alle geregistreerde containers |
 > | Microsoft.RecoveryServices/Vaults/backupJobs/operationResults/read | Hiermee wordt het resultaat van de taakbewerking geretourneerd. |
 > | Microsoft.RecoveryServices/Vaults/backupJobs/read | Alle taakobjecten geretourneerd |
 > | Microsoft.RecoveryServices/Vaults/backupJobsExport/action | Taken exporteren |
+> | Microsoft.RecoveryServices/Vaults/backupJobsExport/operationResults/read | Retourneert het resultaat van Exporttaakbewerking. |
 > | Microsoft.RecoveryServices/Vaults/backupManagementMetaData/read | Hiermee worden de metagegevens van back-upbeheer voor een Recovery Services-kluis geretourneerd. |
 > | Microsoft.RecoveryServices/Vaults/backupOperationResults/read | Hiermee wordt het resultaat van de back-upbewerking voor een Recovery Services-kluis geretourneerd. |
 > | Microsoft.RecoveryServices/Vaults/backupPolicies/operationResults/read | Hiermee worden de resultaten van de beleidsbewerking opgehaald. |
@@ -489,20 +514,26 @@ De volgende tabel bevat korte beschrijvingen van de ingebouwde rollen. Klik op d
 > | Microsoft.RecoveryServices/Vaults/backupProtectionContainers/read | Retourneert alle containers van het abonnement |
 > | Microsoft.RecoveryServices/Vaults/backupUsageSummaries/read | Hiermee retourneert u overzichten van beschermde Items en beschermde Servers van Recovery Services. |
 > | Microsoft.RecoveryServices/Vaults/extendedInformation/read | Met de bewerking Uitgebreide informatie ophalen wordt de uitgebreide informatie opgehaald van een object dat de Azure-resource van het type ?vault? vertegenwoordigt |
+> | Microsoft.RecoveryServices/Vaults/monitoringAlerts/read | Hiermee haalt de waarschuwingen voor de Recovery services-kluis. |
 > | Microsoft.RecoveryServices/Vaults/read | De bewerking kluis ophalen wordt een object waarmee de Azure-resource van het type 'kluis' |
-> | Microsoft.RecoveryServices/Vaults/refreshContainers/read |  |
 > | Microsoft.RecoveryServices/Vaults/registeredIdentities/operationResults/read | De bewerking ophalen resultaten bewerking kan worden gebruikt ophalen de bewerkingsstatus en het resultaat van de asynchroon ingediende bewerking |
 > | Microsoft.RecoveryServices/Vaults/registeredIdentities/read | De Containers ophalen op de bewerking kan worden gebruikt. Haal de containers die zijn geregistreerd voor een resource. |
-> | Microsoft.RecoveryServices/locations/allocatedStamp/read | GetAllocatedStamp is een interne bewerking die wordt gebruikt door de service |
-> | Microsoft.RecoveryServices/Vaults/monitoringConfigurations/notificationConfiguration/read |  |
-> | Microsoft.RecoveryServices/Vaults/monitoringAlerts/read | Hiermee haalt de waarschuwingen voor de Recovery services-kluis. |
-> | Microsoft.RecoveryServices/Vaults/storageConfig/read |  |
-> | Microsoft.RecoveryServices/Vaults/backupconfig/vaultconfig/read |  |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/read | Herstelpunten voor beveiligde items ophalen. |
-> | Microsoft.RecoveryServices/Vaults/backupJobsExport/operationResults/read | Retourneert het resultaat van Exporttaakbewerking. |
+> | Microsoft.RecoveryServices/Vaults/backupstorageconfig/read | Retourneert de opslagconfiguratie voor Recovery Services-kluis. |
+> | Microsoft.RecoveryServices/Vaults/backupconfig/read | Retourneert-configuratie voor de Recovery Services-kluis. |
+> | Microsoft.RecoveryServices/Vaults/backupOperations/read | Retourneert de back-upbewerking Status voor de Recovery Services-kluis. |
+> | Microsoft.RecoveryServices/Vaults/backupPolicies/operations/read | Status van de beleidsbewerking ophalen. |
+> | Microsoft.RecoveryServices/Vaults/backupEngines/read | Hiermee worden alle servers voor back-upbeheer geretourneerd die in de kluis zijn geregistreerd. |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/read | Een back-Upbeveiligingsintentie ophalen |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/items/read | Alle items in een container ophalen |
+> | Microsoft.RecoveryServices/locations/backupStatus/action | Controleer back-upstatus voor Recovery Services-kluizen |
+> | Microsoft.RecoveryServices/Vaults/monitoringConfigurations/* |  |
+> | Microsoft.RecoveryServices/Vaults/monitoringAlerts/write | Oplossing voor de waarschuwing. |
+> | Microsoft.RecoveryServices/operations/read | Bewerking wordt de lijst met bewerkingen voor een Resourceprovider geretourneerd |
+> | Microsoft.RecoveryServices/locations/operationStatus/read | Status van de bewerking voor een bepaalde bewerking opgehaald |
+> | Microsoft.RecoveryServices/Vaults/backupProtectionIntents/read | Lijst van alle back-up Protection Intents |
 > | Microsoft.RecoveryServices/Vaults/usages/read | Hiermee worden de gebruiksgegevens voor een Recovery Services-kluis geretourneerd. |
 
-## <a name="billing-reader"></a>Facturering voor lezer
+## <a name="billing-reader"></a>Lezer voor facturering
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -786,14 +817,14 @@ De volgende tabel bevat korte beschrijvingen van de ingebouwde rollen. Klik op d
 > | **Beschrijving** | Hiermee beheert u data factory's, maar kunt u niet de toegang tot de data factory's beheren. |
 > | **Id** | 673868aa-7521-48A0-acc6-0f60742d39f5 |
 > | **Acties** |  |
-> | Microsoft.Authorization/*/read | Rollen en roltoewijzingen lezen. |
+> | Microsoft.Authorization/*/read | Meer functies en rollen toewijzingen |
 > | Microsoft.DataFactory/dataFactories/* | Maken en beheren van data factory's en onderliggende resources hierin. |
 > | Microsoft.DataFactory/factories/* | Maken en beheren van data factory's en onderliggende resources hierin. |
-> | Microsoft.Insights/alertRules/* | Maken en beheren van regels voor waarschuwingen. |
-> | Microsoft.ResourceHealth/availabilityStatuses/read | De beschikbaarheidsstatus ophalen voor alle resources in het opgegeven bereik. |
-> | Microsoft.Resources/deployments/* | Maken en beheren van implementaties van resource-groep. |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | Ophalen of weergeven van resourcegroepen. |
-> | Microsoft.Support/* | Maak en ondersteuningstickets beheren. |
+> | Microsoft.Insights/alertRules/* | Maken en beheren van regels voor waarschuwingen |
+> | Microsoft.ResourceHealth/availabilityStatuses/read | De beschikbaarheidsstatus ophalen voor alle resources binnen het opgegeven bereik |
+> | Microsoft.Resources/deployments/* | Maken en beheren van brongroepimplementaties |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | Hiermee kunt u resourcegroepen ophalen of opnemen in een lijst. |
+> | Microsoft.Support/* | Maken en ondersteuningstickets beheren |
 
 ## <a name="data-lake-analytics-developer"></a>Ontwikkelaar voor Data Lake Analytics
 > [!div class="mx-tableFixed"]
@@ -1510,6 +1541,8 @@ De volgende tabel bevat korte beschrijvingen van de ingebouwde rollen. Klik op d
 > | Microsoft.Sql/servers/databases/* | SQL-databases maken en beheren |
 > | Microsoft.Sql/servers/read | Retourneert de lijst met servers of haalt de eigenschappen voor de opgegeven server. |
 > | Microsoft.Support/* | Maken en ondersteuningstickets beheren |
+> | Microsoft.Insights/metrics/read | De metrische gegevens lezen |
+> | Microsoft.Insights/metricDefinitions/read | Metrische definities lezen |
 > | **notActions** |  |
 > | Microsoft.Sql/managedInstances/databases/vulnerabilityAssessments/* |  |
 > | Microsoft.Sql/servers/databases/auditingPolicies/* | Auditbeleid kan niet worden bewerkt. |
@@ -1578,6 +1611,8 @@ De volgende tabel bevat korte beschrijvingen van de ingebouwde rollen. Klik op d
 > | Microsoft.Sql/locations/*/read |  |
 > | Microsoft.Sql/servers/* | Maken en beheren van de SQL-servers |
 > | Microsoft.Support/* | Maken en ondersteuningstickets beheren |
+> | Microsoft.Insights/metrics/read | De metrische gegevens lezen |
+> | Microsoft.Insights/metricDefinitions/read | Metrische definities lezen |
 > | **notActions** |  |
 > | Microsoft.Sql/managedInstances/databases/vulnerabilityAssessments/* |  |
 > | Microsoft.Sql/servers/auditingPolicies/* | SQL server audit beleid kan niet worden bewerkt. |
@@ -1703,7 +1738,7 @@ De volgende tabel bevat korte beschrijvingen van de ingebouwde rollen. Klik op d
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hiermee kunt u resourcegroepen ophalen of opnemen in een lijst. |
 > | Microsoft.Support/* | Maken en ondersteuningstickets beheren |
 
-## <a name="user-access-administrator"></a>Administrator voor gebruikerstoegang
+## <a name="user-access-administrator"></a>Beheerder van gebruikerstoegang
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |

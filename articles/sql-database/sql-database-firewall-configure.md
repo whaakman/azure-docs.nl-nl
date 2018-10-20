@@ -11,13 +11,13 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/15/2018
-ms.openlocfilehash: 4f6c98533a2ab1289ca5f1da25c44fe1a77a983c
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.date: 10/19/2018
+ms.openlocfilehash: 18cd0ea4b6804edc11fc4f57c4327ef9d9a6f51e
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353662"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49466730"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-firewall-rules"></a>Azure SQL-Database en SQL Data Warehouse firewall-regels
 
@@ -80,7 +80,7 @@ Azure-verbindingen moeten zijn ingeschakeld opdat toepassingen vanuit Azure verb
 
 ## <a name="creating-and-managing-firewall-rules"></a>Het maken en beheren van firewall-regels
 
-De eerste firewallinstelling op serverniveau kan worden gemaakt met de [Azure-portal](https://portal.azure.com/) of programmatisch met [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql), [Azure CLI](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create), of de [ REST-API](https://docs.microsoft.com/rest/api/sql/firewallrules/firewallrules_createorupdate). Volgende firewallregels op serverniveau kunt u maken en beheren met deze methoden en via Transact-SQL.
+De eerste firewallinstelling op serverniveau kan worden gemaakt met de [Azure-portal](https://portal.azure.com/) of programmatisch met [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql), [Azure CLI](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create), of de [ REST-API](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate). Volgende firewallregels op serverniveau kunt u maken en beheren met deze methoden en via Transact-SQL.
 
 > [!IMPORTANT]
 > Firewallregels op databaseniveau kunnen alleen worden gemaakt en beheerd met behulp van Transact-SQL.
@@ -189,10 +189,10 @@ az sql server firewall-rule create --resource-group myResourceGroup --server $se
 
 | API | Niveau | Beschrijving |
 | --- | --- | --- |
-| [List Firewall Rules](https://docs.microsoft.com/rest/api/sql/firewallrules/firewallrules_listbyserver) (Lijst met firewallregels) |Server |Geeft de huidige firewallregels op serverniveau weer |
-| [Firewallregels maken of bijwerken](https://docs.microsoft.com/rest/api/sql/firewallrules/firewallrules_createorupdate) |Server |Hiermee worden de firewallregels op serverniveau gemaakt of bijgewerkt |
-| [Delete Firewall Rule](https://docs.microsoft.com/rest/api/sql/firewallrules/firewallrules_delete) (Firewallregel verwijderen) |Server |Verwijdert firewallregels op serverniveau |
-| [Firewallregels ophalen](https://docs.microsoft.com/rest/api/sql/firewallrules/firewallrules_get) | Server | Firewallregels op serverniveau opgehaald |
+| [List Firewall Rules](https://docs.microsoft.com/rest/api/sql/firewallrules/listbyserver) (Lijst met firewallregels) |Server |Geeft de huidige firewallregels op serverniveau weer |
+| [Firewallregels maken of bijwerken](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate) |Server |Hiermee worden de firewallregels op serverniveau gemaakt of bijgewerkt |
+| [Delete Firewall Rule](https://docs.microsoft.com/rest/api/sql/firewallrules/delete) (Firewallregel verwijderen) |Server |Verwijdert firewallregels op serverniveau |
+| [Firewallregels ophalen](https://docs.microsoft.com/rest/api/sql/firewallrules/get) | Server | Firewallregels op serverniveau opgehaald |
 
 ## <a name="server-level-firewall-rule-versus-a-database-level-firewall-rule"></a>Firewallregel op serverniveau ten opzichte van een firewallregel op databaseniveau
 

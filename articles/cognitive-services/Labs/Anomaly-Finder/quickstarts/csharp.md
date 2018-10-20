@@ -5,16 +5,16 @@ services: cognitive-services
 author: chliang
 manager: bix
 ms.service: cognitive-services
-ms.technology: anomaly-detection
+ms.component: anomaly-detection
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: chliang
-ms.openlocfilehash: 3ae3d85e8e37fbf896405948f9bc7042bcdaca7b
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 26653d03b8d96cca0674685d2b20ac1d1a35ea85
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48246445"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49457864"
 ---
 # <a name="use-the-anomaly-finder-api-with-c"></a>Gebruik de API voor Afwijkingsdetectie met C#
 
@@ -39,7 +39,7 @@ Het voorbeeld van de tijd gegevenspunten van reeks is als volgt.
 
 De stappen van het gebruik van het voorbeeld zijn er als volgt uit.
 
-1. Maak een nieuwe Console-oplossing in Visual Studio.
+1. Maak een nieuwe console-oplossing in Visual Studio.
 2. Vervang Program.cs door de volgende code en voeg de verwijzing naar System.Net.Http.
 3. Vervang `[YOUR_SUBSCRIPTION_KEY]` waarde door de sleutel geldig abonnement.
 4. Vervang `[REPLACE_WITH_THE_EXAMPLE_OR_YOUR_OWN_DATA_POINTS]` met uw gegevenspunten.

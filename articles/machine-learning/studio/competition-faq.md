@@ -1,6 +1,6 @@
 ---
-title: Cortana Intelligence wedstrijden Veelgestelde vragen | Microsoft Docs
-description: Veelgestelde vragen over Microsoft Cortana Intelligence wedstrijden.
+title: Veelgestelde vragen over Cortana Intelligence-wedstrijden | Microsoft Docs
+description: Veelgestelde vragen over Microsoft Cortana Intelligence-wedstrijden.
 services: machine-learning
 documentationcenter: ''
 author: hning86
@@ -15,104 +15,104 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
-ms.openlocfilehash: 1db1b8ee7ba3611f8d1d69f711f1ec72308c7d06
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 15d46f16c78b8fa757d7810542b3d6bfa9a95f3c
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34833325"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49465624"
 ---
 # <a name="microsoft-cortana-intelligence-competitions-faq"></a>Veelgestelde vragen over Microsoft Cortana Intelligence-wedstrijden
-**Wat is de Cortana Intelligence wedstrijden?**
+**Wat is Cortana Intelligence-wedstrijden?**
 
-De Microsoft Cortana Intelligence wedstrijden koppelt zijn netwerk van een wereldwijde community van gegevens houden door gezamenlijk enkele van de wereld meest complexe gegevens wetenschappelijke problemen op te lossen. Cortana Intelligence wedstrijden kunt houden van gegevens over de hele wereld concurreren en wetenschappelijke met maximaal nauwkeurige en intelligente gegevensmodellen bouwen. Deze gehoste wedstrijden zijn gebaseerd op unieke gegevenssets die beschikbaar zijn gesteld openbaar voor de eerste keer. Deelnemers kunnen win voordelen of erkenning via de top 10 smal openbare horizontaal ophalen. U toegang hebt tot de introductiepagina wedstrijden op [aka.ms/CIComp](http://aka.ms/CIComp).
+De Microsoft Cortana Intelligence-wedstrijden koppelt zijn netwerk van een wereldwijde community van liefhebbers van gezamenlijk het oplossen van enkele van's werelds meest complexe data science problemen. Cortana Intelligence-wedstrijden kunt liefhebbers van over de hele wereld te concurreren en zeer nauwkeurige en intelligente wetenschappelijk gegevensmodellen te bouwen. Deze gehoste competities zijn gebaseerd op de unieke gegevenssets die beschikbaar zijn gesteld openbaar voor de eerste keer. Deelnemers kunnen winnen beloningen of erkenning via de bovenste 10 openbare leaderboard ophalen. U kunt toegang tot de startpagina competities op [aka.ms/CIComp](http://aka.ms/CIComp).
 
-**Hoe vaak brengt Microsoft nieuwe wedstrijden**
+**Hoe vaak brengt Microsoft nieuwe competities?**
 
-We wilt starten 1e van derden, die eigendom zijn van Microsoft wedstrijden regelmatig een ongeveer elke 8 tot 12 weken. 
+We wilt starten 1e van derden, eigendom van Microsoft competities regelmatig, ongeveer elke 8 tot 12 weken. 
 
-**Waar kan ik algemene vragen over gegevenswetenschap stellen?**
+**Waar kan ik algemene vragen stellen over data science?**
 
-Voor algemene vragen kunt u de [Microsoft Azure Machine Learning-forum](https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning).
+Voor algemene vragen, kunt u de [Microsoft Azure Machine Learning-forum](https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning).
 
-**Hoe voer ik een concurrentie?**
+**Hoe voer ik een competitie?**
 
-Toegang tot de [wedstrijden](https://gallery.cortanaintelligence.com/competitions) startpagina in de [AI-galerie van Azure](https://gallery.cortanaintelligence.com/), of Ga naar [ http://aka.ms/CIComp ](http://aka.ms/CIComp). De startpagina geeft een lijst van alle wedstrijden die momenteel worden uitgevoerd. Elke concurrentie heeft gedetailleerde instructies en deelname regels, prijzen en duur van de aanmeldingspagina.
+Toegang tot de [competities](https://gallery.cortanaintelligence.com/competitions) startpagina in de [Azure AI Gallery](https://gallery.cortanaintelligence.com/), of Ga naar [ http://aka.ms/CIComp ](http://aka.ms/CIComp). De startpagina geeft een lijst van alle competities die momenteel worden uitgevoerd. Elke competitie bevat gedetailleerde instructies en regels voor deelname, prijzen en duur van de pagina voor het registreren.
 
-1. Zoek de concurrentie die u wilt deelnemen, lees de instructies en bekijk de video van de zelfstudie. Klik vervolgens op de **Voer concurrentie** knop en kopieert u het Experiment Starter naar uw bestaande Azure Machine Learning-werkruimte. Als u geen al toegang tot een werkruimte, moet u een vooraf. Voer het Experiment Starter, zien de metriek prestaties en uw creativiteit gebruiken om de prestaties van het model te verbeteren. U zult waarschijnlijk te besteden aan het merendeel van de tijd in deze stap.   
+1. Zoek de competitie waarvoor die u wilt deelnemen, lees alle instructies en kunt u de video bekijken. Klik vervolgens op de **Voer competitie** knop en het Experiment Starter in uw bestaande Azure Machine Learning-werkruimte te kopiëren. Als u nog toegang tot een werkruimte hebt, moet u een vooraf. Voer het Experiment Starter, bekijk de metrische gegevens voor prestaties en uw creativiteit de vrije gebruiken om de prestaties van het model te verbeteren. U zult waarschijnlijk het merendeel van de tijd in deze stap.   
 
-2. Maak een Voorspellend Experiment met het getrainde model buiten uw Experiment Starter. Vervolgens zorgvuldig past u de invoer en uitvoer van schema van de web-service zodat deze voldoen aan de vereisten die zijn opgegeven in de documentatie van concurrentie. De zelfstudie document heeft doorgaans gedetailleerde instructies hiervoor. U kunt ook de zelfstudie video bekijken, indien beschikbaar.   
+2. Maak een Voorspellend Experiment met het getrainde model buiten uw Starter-Experiment. Vervolgens zorgvuldig past u de invoer en uitvoer van schema van de webservice om te controleren of dat ze voldoen aan de vereisten die zijn opgegeven in de documentatie van de concurrentie. De zelfstudie document heeft in het algemeen gedetailleerde instructies voor deze. U kunt ook de video met zelfstudie bekijken, indien beschikbaar.   
 
-3. Implementeer een webservice buiten uw Voorspellend Experiment. Test uw service met de **Test** knop of de Excel-sjabloon automatisch gemaakt zodat deze correct werkt.   
+3. Een webservice buiten uw Voorspellend Experiment implementeren. Test uw service met de **Test** knop of de Excel-sjabloon automatisch gemaakt voor u om ervoor te zorgen dat deze correct werkt.   
 
-4. Verzenden van uw web-service als de vermelding concurrentie en uw openbare score in de galerie van Azure AI concurrentie pagina zien. En als u deze naar de Smal horizontaal vier!  
+4. Indienen van uw web-service als de vermelding van de concurrentie en Zie uw openbare score op de pagina met Azure AI Gallery competitie. En als u de slicer op de leaderboard vieren.  
 
-Nadat u een vermelding is ingediend, kunt u teruggaan naar de gekopieerde Starter-Experiment. Vervolgens herhalen uw Voorspellend Experiment bijwerken, de webservice bijwerken en verzenden van een nieuwe vermelding.   
+Nadat u een vermelding is ingediend, kunt u terugkeren naar de gekopieerde Starter-Experiment. Vervolgens herhalen en bijwerken van uw Voorspellend Experiment bijwerken van de webservice en een nieuw item verzenden.   
 
 **Kan ik open-source hulpprogramma's voor uw deelname aan deze wedstrijden gebruiken?**
 
-Azure Machine Learning Studio, een cloudservice in Cortana Intelligence Suite de deelnemers concurrentie gebruiken voor de ontwikkeling van de wetenschap gegevensmodellen concurrentie vermeldingen voor de verzending van maken. Machine Learning Studio biedt niet alleen een GUI-interface voor het maken van machine learning-experimenten, ook kunt u uw eigen R en/of Python-scripts voor systeemeigen uitvoering. De R- en Python runtimes in Studio worden geleverd met een groot aantal open source R/Python-pakketten. U kunt uw eigen pakketten als onderdeel van het experiment ook importeren. Studio beschikt ook over een ingebouwde service Jupyter-Notebook kunt gratis gegevensverkenning stijl. Natuurlijk kunt u altijd de gegevenssets die wordt gebruikt in de concurrentie downloaden en deze in uw favoriete hulpprogramma buiten Machine Learning Studio verkennen. 
+Azure Machine Learning Studio, een cloud-gebaseerde service van Cortana Intelligence Suite, de deelnemers competitie gebruiken voor ontwikkeling van de data science-modellen en om concurrentie vermeldingen voor het indienen van te maken. Machine Learning Studio biedt niet alleen een GUI-interface voor het maken van machine learning-experimenten, ook kunt u uw eigen R-en/of Python-scripts voor de systeemeigen uitvoering. De R- en Python-runtimes in Studio worden geleverd met een grote verscheidenheid aan open-source R/Python-pakketten. U kunt uw eigen pakketten als onderdeel van het experiment ook importeren. Studio heeft ook een ingebouwde Jupyter-Notebook-service voor u doen gratis stijl gegevens verkennen. U kunt natuurlijk altijd downloaden van de gegevenssets die worden gebruikt in de concurrentie en bekijk het in uw favoriete hulpprogramma buiten Machine Learning Studio. 
 
-**Heb ik nodig om te worden van een wetenschappelijk gegevens in te voeren?**
+**Heb ik nodig om te worden van een gegevenswetenschapper in te voeren?**
 
-Nee. In feite, raden we gegevens houden, iedereen meer wilt weten over gegevenswetenschap en andere gegevenswetenschappers waar onze wedstrijd invoeren. We zijn ondersteunende documenten iedereen concurreren te laten ontworpen. De doelgroep is:
+Nee. In feite wordt aangeraden liefhebbers, iedereen meer wilt weten over data science en andere astronauten gegevenswetenschappers voor onze wedstrijd. We hebben ontworpen bewijsstukken iedereen kan meedoen. De doelgroep bestaat uit:
 
-* **Gegevens ontwikkelaars**, **Gegevenswetenschappers**, **BI** en **Analytics Professionals**: degenen die verantwoordelijk zijn voor het maken van gegevens en analyse inhoud voor anderen gebruiken
-* **Gegevens Stewards**: degenen die de kennis over de gegevens, wat het betekent en hoe het is bedoeld om te worden gebruikt en voor welk doel hebben
-* **Studenten** & **onderzoekers:** degenen die zijn leren en krijgt gegevens gerelateerd vaardigheden via academic-programma's in universiteiten of deelnemers aan de enorme Open onlinecursussen (MOOCs)
+* **Ontwikkelaars kunnen**, **Data Scientists**, **BI** en **Analytics Professionals**: degenen die verantwoordelijk zijn voor het produceren van gegevens en analyses inhoud voor anderen gebruiken
+* **Gegevens Stewards**: gebruikers die beschikken over de kennis over de gegevens, wat het betekent en hoe deze is bedoeld om te worden gebruikt en voor welk doel
+* **Studenten** en **onderzoekers:** die leren gebruiken en vaardigheden via academische programma's in universiteiten of deelnemers aan de Massive Open onlinecursussen (MOOCs) met betrekking tot gegevens krijgen
 
-**Kan ik invoeren met mijn collega's als team?**
+**Kan ik deelnemen met mijn collega's als team?**
 
-Het platform concurrentie momenteel biedt geen ondersteuning voor deelname team. Elk item concurrentie is gekoppeld aan de identiteit van een enkele gebruiker. 
+De competitie-platform op dit moment biedt geen ondersteuning voor deelname aan team. Elk item competitie is gekoppeld aan een enkele gebruikers-id. 
 
-**Heb ik nodig om te betalen om deel te nemen in een concurrentie?**
+**Moet ik betalen voor deelname aan een competitie?**
 
-Wedstrijden zijn gratis deelnemen. Dit doet, moet u echter toegang tot een Azure Machine Learning-werkruimte om deel te nemen. U kunt een gratis werkruimte zonder creditcard maken door gewoon zich heeft aangemeld met een geldig Microsoft-account of een Office 365-account. Als u al een Azure- of Cortana Intelligence Suite-klant bent, kunt u maken en gebruiken van een standaard werkruimte onder dezelfde Azure-abonnement. Als u een Azure-abonnement aanschaffen wilt, gaat u naar de [Azure-prijzen](https://azure.microsoft.com/pricing) pagina. Houd er rekening mee dat de standaardtarieven wordt toegepast wanneer een standaard werkruimte gebruiken om te experimenten te maken. Zie voor meer informatie [Azure Machine Learning prijsgegevens](https://azure.microsoft.com/pricing/details/machine-learning/). 
+Competities zijn gratis deelnemen aan. Dit doet, moet u echter de toegang tot een Azure Machine Learning-werkruimte om deel te nemen. U kunt een gratis werkruimte zonder een creditcard is geregistreerd door gewoon zich heeft aangemeld met een geldig Microsoft-account of een Office 365-account maken. Als u al een Azure- of Cortana Intelligence Suite-klant bent, kunt u maken en gebruiken van een Standard-werkruimte onder hetzelfde Azure-abonnement. Als u een Azure-abonnement kopen wilt, gaat u naar de [Azure-prijzen](https://azure.microsoft.com/pricing) pagina. Houd er rekening mee dat de standaardtarieven toepast bij het gebruik van een Standard-werkruimte te experimenten te maken. Zie voor meer informatie, [informatie over de prijzen van Azure Machine Learning](https://azure.microsoft.com/pricing/details/machine-learning/). 
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
-**Wat zijn de openbare en persoonlijke scores?**
+**Wat zijn openbare en persoonlijke scores?**
 
-In de meeste wedstrijden, zult u merken dat u een openbare score elke verzenden die u aanbrengt ontvangt, meestal binnen 10-20 minuten. Maar nadat de concurrentie is beëindigd, ontvangt u een persoonlijke score dat wordt gebruikt voor de laatste positie. 
+In de meeste competities, zult u merken dat u een openbare score voor elke inzending die u aanbrengt ontvangt, meestal binnen 10 tot 20 minuten. Maar na afloop van de concurrentie, ontvangt u een persoonlijke score die wordt gebruikt voor de laatste positie. 
 
 Dit is wat er gebeurt:
 
-* De volledige gegevensset gebruikt in de concurrentie wordt willekeurig met de indeling in trainings- en gegevens (de resterende) testen gesplitst. De toepassing van de willekeurige splitsing is stratificatie om ervoor te zorgen dat de distributie van de labels in zowel trainings- en testdoeleinden gegevens consistent zijn.
+* De volledige gegevensset gebruikt in de concurrentie is willekeurig splitsen met indeling trainings-en gegevens testen (de resterende). De toepassing van de willekeurige splitsing is stratificatie om ervoor te zorgen dat de verdeling van de labels in zowel trainings- en testdoeleinden gegevens consistent zijn.
 * De trainingsgegevens is geüpload en dat u als onderdeel van het Starter-Experiment in de configuratie van de module gegevens importeren.
-* De testgegevens openbare en persoonlijke testgegevens, met behulp van de dezelfde indeling verdere opgesplitst.
-* De openbare testgegevens wordt gebruikt voor de eerste ronde van score berekenen. Het resultaat wordt aangeduid als de openbare score. Het is wat u ziet in de geschiedenis van uw inzending bij het verzenden van uw invoer. Deze score wordt berekend voor elke vermelding die u verzendt. Deze openbare score wordt gebruikt om u op de openbare Smal horizontaal rangschikken.
-* De persoonlijke gegevens van de test wordt gebruikt voor de laatste ronde scores na afloop van de concurrentie. Dit wordt aangeduid als persoonlijke score. 
-* Voor elke deelnemer een vast aantal vermeldingen met de hoogste openbare scores automatisch geselecteerd om in te voeren van de persoonlijke scoreprofiel ronde (dit nummer, kan variëren afhankelijk van de concurrentie). Het item met de hoogste persoonlijke score vervolgens geselecteerd om in te voeren van de laatste positie die uiteindelijk de winnaars prijs bepaalt.  
+* De testgegevens wordt verder gesplitst in openbare en persoonlijke testen gegevens, met behulp van de dezelfde indeling.
+* De openbare testgegevens wordt gebruikt voor de eerste ronde van scores. Het resultaat wordt aangeduid als de openbare score. Het is wat u ziet in de geschiedenis van uw indiening bij het indienen van uw inzending. Deze score wordt berekend voor elke vermelding die u hebt ingediend. Deze openbare score wordt gebruikt om u op de openbare leaderboard rangschikken.
+* De persoonlijke testgegevens wordt gebruikt voor de laatste ronde van scores na afloop van de concurrentie. Dit wordt aangeduid als persoonlijke score. 
+* Voor iedere deelnemer een vast aantal items met de hoogste openbare scores automatisch geselecteerd om in te voeren van de persoonlijke scoring ronde (dit nummer kan variëren, afhankelijk van de concurrentie). De vermelding met de hoogste score persoonlijke is vervolgens om in te voeren van de laatste positie, die uiteindelijk de winnaars van de prijs bepaalt geselecteerd.  
 
-**Biedt klanten een concurrentie op ons platform?**
+**Kunnen klanten een competitie op ons platform voor hosten?**
 
-Welkom 3rd derden organisaties partner en openbare en persoonlijke wedstrijden op ons platform hosten. We hebben een concurrentie voorbereidingsteam die u kunnen bespreken van het voorbereidingsproces voor dergelijke wedstrijden.  Neem Neem contact op met ons op [ compsupport@microsoft.com ](mailto:compsupport@microsoft.com) voor meer informatie. 
+3rd derden organisaties om samen met ons en openbare en persoonlijke competities op ons platform voor hosten van harte welkom. We hebben een competitie onboarding-team die u kunnen bespreken van het onboarding-proces voor dergelijke competities.  Neemt u contact met ons op [ compsupport@microsoft.com ](mailto:compsupport@microsoft.com) voor meer informatie. 
 
 **Wat zijn de beperkingen voor inzendingen?**
 
-Een typische concurrentie kan kiezen om het aantal items die u kunt verzenden in een periode van 24 uur (UTC-tijd 00:00:00 voor 23:59:59) en het totale aantal vermeldingen die u via de duur van de concurrentie versturen kunt te beperken. U ontvangt foutberichten weergegeven wanneer een beperking is overschreden. 
+Een typische competitie besluiten om het aantal vermeldingen die kunt u indienen in een periode van 24 uur per dag (UTC-tijd 00:00:00 op 23:59:59) en het totale aantal vermeldingen die u in de loop van de concurrentie indienen kunt te beperken. U ontvangt foutbericht verzonden wanneer een beperking wordt overschreden. 
 
-**Wat gebeurt er als ik een concurrentie win?**
+**Wat gebeurt er als ik een wedstrijd winnen?**
 
-Microsoft controleert of de resultaten van de persoonlijke Smal horizontaal en vervolgens we contact met u zult opnemen. Controleer of uw e-mailadres in uw profiel is bijgewerkt.
+Microsoft controleert of u de resultaten van de persoonlijke leaderboard en er wordt contact met u. Zorg ervoor dat uw e-mailadres van uw gebruikersprofiel bijgewerkt is.
 
-**Hoe krijg ik de prijs geld als ik een concurrentie win?**
+**Hoe krijg ik het geld prijs als ik een wedstrijd winnen?**
 
-Als u concurrentie winnaar bent, moet u een verklaring van in aanmerking komt, licentie en release uit te ondertekenen. Dit formulier herhaalt de concurrentie-regels. Winnaars moeten een formulier invullen om ons btw W-9 of een formulier W-8BEN als ze niet VS degenen. Er wordt contact met alle winnaars als onderdeel van de voordelen leveranciersvoorschotten proces met behulp van hun e-mail registratie. Raadpleeg onze [voorwaarden en bepalingen](http://aka.ms/comptermsandconditions) voor meer informatie.
+Als u een competitie winnaar bent, moet u een verklaring van geschiktheid, licentie en release van te ondertekenen. Dit formulier herhaalt de Competitieregels. Winnaars moeten een formulier invullen om ons belasting W-9 of een formulier W-8BEN als ze niet VS belastingbetalers. Wij nemen contact met alle winnaars als onderdeel van de beloningen overboeking proces met behulp van de registratie-e-mailbericht. Raadpleeg onze [voorwaarden en bepalingen](http://aka.ms/comptermsandconditions) voor meer informatie.
 
 **Wat gebeurt er als meer dan één melding ontvangt de dezelfde score?**
 
-De benodigde tijd is de beslissen. De vermelding eerder verzonden outranks de vermelding die later wordt verzonden.
+De benodigde tijd is de beslissen. De vermelding die eerder verzonden outranks de vermelding die later wordt verzonden.
 
-**Kan ik deelnemen met gast werkruimte?**
+**Kan ik deelnemen met behulp van Gast-werkruimte?**
 
-Nee. U moet een Free of een standaard werkruimte gebruiken om deel te nemen. U kunt het starter concurrentie experiment openen in een gast-werkruimte, maar u zult geen geldige invoer voor de verzending van die werkruimte maken. 
+Nee. U moet een gratis of Standard-werkruimte gebruiken om deel te nemen. U kunt de concurrentie starter experiment openen in een gast-werkruimte, maar u zult niet heeft een geldige vermelding voor het indienen van deze werkruimte. 
 
-**Kan ik deelnemen in een Azure-regio met behulp van een werkruimte?**
+**Kan ik deelnemen met behulp van een werkruimte in een Azure-regio?**
 
-Het platform concurrentie ondersteunt momenteel alleen vermeldingen die zijn ingediend vanaf een werkruimte in de **Zuid-centraal VS** Azure-regio. Alle gratis werkruimten zich bevinden in Zuid-centraal VS, zodat u een item in een gratis werkruimte kunt verzenden. Als u gebruiken een Standard-werkruimte wilt, net Zorg dat deze zich bevindt in Zuid-centraal ons Azure-regio, anders uw inzending won't slagen. 
+De competitie platform ondersteunt momenteel alleen vermeldingen die zijn ingediend vanaf een werkruimte in de **Zuid-centraal VS** Azure-regio. Alle gratis werkruimten zich bevinden in Zuid-centraal VS, zodat u een item in een gratis werkruimte kunt indienen. Als u ervoor een Standard-werkruimte gebruiken kiest, zorg dat deze zich bevindt in de regio Zuid-centraal VS Azure, anders uw inzending wordt niet voltooid. 
 
-**Houd er wedstrijden oplossingen en -vermeldingen van gebruikers?**
+**Houd we oplossingen voor competities en vermeldingen van gebruikers?**
 
-Gebruikersvermeldingen worden alleen voor evaluatiedoeleinden gebruikt voor het identificeren van de bekroonde oplossingen bewaard. Raadpleeg onze [voorwaarden en bepalingen](http://aka.ms/comptermsandconditions) voor details.
+Gebruikersvermeldingen worden alleen voor evaluatiedoeleinden gebruikt voor het identificeren van de winnende oplossingen bewaard. Raadpleeg onze [voorwaarden en bepalingen](http://aka.ms/comptermsandconditions) voor meer informatie.
 

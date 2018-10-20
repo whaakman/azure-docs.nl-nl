@@ -12,12 +12,12 @@ ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: 94a3a502d5756d57cfebdf6698a4435dc1e19948
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 0d5b7e484024294eb5c95b632dbef85c377b717e
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353019"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49469024"
 ---
 # <a name="transparent-data-encryption-for-sql-database-and-data-warehouse"></a>Transparante gegevensversleuteling voor SQL-Database en Data Warehouse
 
@@ -113,17 +113,17 @@ Voor het configureren van transparante gegevensversleuteling via de REST-API moe
 
 | Opdracht | Beschrijving |
 | --- | --- |
-|[Maken of bijwerken van de Server](https://docs.microsoft.com/rest/api/sql/servers/servers_createorupdate)|Voegt een Azure Active Directory-identiteit toe aan een SQL Server-exemplaar (die wordt gebruikt om toegang te verlenen tot Key Vault)|
-|[Maken of bijwerken van de serversleutel](https://docs.microsoft.com/rest/api/sql/serverkeys/serverkeys_createorupdate)|Voegt een Key Vault-sleutel toe aan een SQL Server-exemplaar|
-|[Serversleutel verwijderen](https://docs.microsoft.com/rest/api/sql/serverkeys/serverkeys_delete)|Hiermee verwijdert u een Key Vault-sleutel van een SQL Server-exemplaar|
-|[Serversleutels ophalen](https://docs.microsoft.com/rest/api/sql/serverkeys/serverkeys_get)|Een specifieke Key Vault-sleutel opgehaald uit een SQL Server-exemplaar|
-|[Een lijst met serversleutels door Server](https://docs.microsoft.com/rest/api/sql/serverkeys/serverkeys_listbyserver)|Haalt de Key Vault sleutels voor een SQL Server-exemplaar |
-|[Maken of bijwerken van Encryption Protector](https://docs.microsoft.com/rest/api/sql/encryptionprotectors/encryptionprotectors_createorupdate)|Hiermee stelt u de transparent data encryption-beveiliging voor een SQL Server-exemplaar|
-|[Encryption Protector ophalen](https://docs.microsoft.com/rest/api/sql/encryptionprotectors/encryptionprotectors_get)|Hiermee haalt u de transparent data encryption-beveiliging voor een SQL Server-exemplaar|
-|[Lijst met versleuteling beveiligingstoepassingen door Server](https://docs.microsoft.com/rest/api/sql/encryptionprotectors/encryptionprotectors_listbyserver)|Hiermee haalt u de transparent data encryption protector voor een SQL Server-exemplaar |
-|[Maken of bijwerken van Transparent Data Encryption-configuratie](https://docs.microsoft.com/rest/api/sql/transparentdataencryptions/transparentdataencryptions_createorupdate)|Hiermee schakelt transparante gegevensversleuteling voor een database of uit|
-|[Transparent Data Encryption-configuratie ophalen](https://docs.microsoft.com/rest/api/sql/transparentdataencryptions/transparentdataencryptions_get)|Hiermee wordt de transparent data encryption-configuratie voor een database opgehaald|
-|[Lijst met Transparent Data Encryption Configuratieresultaten](https://docs.microsoft.com/rest/api/sql/transparentdataencryptionactivities/transparentdataencryptionactivities_listbyconfiguration)|Hiermee haalt u het resultaat van de versleuteling voor een database|
+|[Maken of bijwerken van de Server](https://docs.microsoft.com/rest/api/sql/servers/createorupdate)|Voegt een Azure Active Directory-identiteit toe aan een SQL Server-exemplaar (die wordt gebruikt om toegang te verlenen tot Key Vault)|
+|[Maken of bijwerken van de serversleutel](https://docs.microsoft.com/rest/api/sql/serverkeys/createorupdate)|Voegt een Key Vault-sleutel toe aan een SQL Server-exemplaar|
+|[Serversleutel verwijderen](https://docs.microsoft.com/rest/api/sql/serverkeys/delete)|Hiermee verwijdert u een Key Vault-sleutel van een SQL Server-exemplaar|
+|[Serversleutels ophalen](https://docs.microsoft.com/rest/api/sql/serverkeys/get)|Een specifieke Key Vault-sleutel opgehaald uit een SQL Server-exemplaar|
+|[Een lijst met serversleutels door Server](https://docs.microsoft.com/rest/api/sql/serverkeys/listbyserver)|Haalt de Key Vault sleutels voor een SQL Server-exemplaar |
+|[Maken of bijwerken van Encryption Protector](https://docs.microsoft.com/rest/api/sql/encryptionprotectors/createorupdate)|Hiermee stelt u de transparent data encryption-beveiliging voor een SQL Server-exemplaar|
+|[Encryption Protector ophalen](https://docs.microsoft.com/rest/api/sql/encryptionprotectors/get)|Hiermee haalt u de transparent data encryption-beveiliging voor een SQL Server-exemplaar|
+|[Lijst met versleuteling beveiligingstoepassingen door Server](https://docs.microsoft.com/rest/api/sql/encryptionprotectors/listbyserver)|Hiermee haalt u de transparent data encryption protector voor een SQL Server-exemplaar |
+|[Maken of bijwerken van Transparent Data Encryption-configuratie](https://docs.microsoft.com/rest/api/sql/transparentdataencryptions/createorupdate)|Hiermee schakelt transparante gegevensversleuteling voor een database of uit|
+|[Transparent Data Encryption-configuratie ophalen](https://docs.microsoft.com/rest/api/sql/transparentdataencryptions/get)|Hiermee wordt de transparent data encryption-configuratie voor een database opgehaald|
+|[Lijst met Transparent Data Encryption Configuratieresultaten](https://docs.microsoft.com/rest/api/sql/transparentdataencryptionactivities/listbyconfiguration)|Hiermee haalt u het resultaat van de versleuteling voor een database|
 
 ## <a name="next-steps"></a>Volgende stappen
 

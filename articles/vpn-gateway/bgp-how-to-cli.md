@@ -3,24 +3,17 @@ title: 'BGP configureren op een Azure VPN-gateway: Resource Manager en CLI | Mic
 description: In dit artikel begeleidt u bij het configureren van BGP met een Azure VPN-gateway met behulp van Azure Resource Manager en CLI.
 services: vpn-gateway
 documentationcenter: na
-author: cherylmc
-manager: timlt
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
+author: yushwang
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 09/25/2017
-ms.author: cherylmc
-ms.openlocfilehash: 657cad69fff66aaaeba9819569442981d229f644
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 09/25/2018
+ms.author: yushwang
+ms.openlocfilehash: f0367a360de97d3935c7fa8de9f3dafa6555811e
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46971124"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49471353"
 ---
 # <a name="how-to-configure-bgp-on-an-azure-vpn-gateway-by-using-cli"></a>BGP op een Azure VPN-gateway configureren met behulp van CLI
 
@@ -55,7 +48,7 @@ In deze sectie is vereist voordat u een van de stappen in de andere twee configu
 
 ### <a name="before-you-begin"></a>Voordat u begint
 
-Installeer de nieuwste versie van de CLI-opdrachten (2.0 of hoger). Zie voor meer informatie over het installeren van de CLI-opdrachten [Azure CLI installeren](/cli/azure/install-azure-cli) en [aan de slag met Azure CLI](/cli/azure/get-started-with-azure-cli).
+Installeer de nieuwste versie van de CLI-opdrachten (2.0 of hoger). Zie [Azure CLI installeren](/cli/azure/install-azure-cli) en [Aan de slag met Azure CLI](/cli/azure/get-started-with-azure-cli) voor meer informatie over de CLI-opdrachten.
 
 ### <a name="step-1-create-and-configure-testvnet1"></a>Stap 1: TestVNet1 maken en configureren
 

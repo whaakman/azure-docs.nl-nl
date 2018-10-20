@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/15/2018
-ms.openlocfilehash: 6c43e5bf311d94ff2e5b5c31217c5071ea26746c
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.date: 10/19/2018
+ms.openlocfilehash: 0c939956a8f3336b5071748a8c2bdf8840b749ad
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49351859"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49466066"
 ---
 # <a name="create-and-manage-elastic-pools-in-azure-sql-database"></a>Elastische pools in Azure SQL Database maken en beheren
 
@@ -106,11 +106,11 @@ Als u wilt maken en beheren van SQL Database elastische pools en gepoolde databa
 |[Elastische pools - Update](https://docs.microsoft.com/rest/api/sql/elasticpools/elasticpools_listbyserver)|Een bestaande elastische pool-updates.|
 |[Elastische pool activiteiten](https://docs.microsoft.com/rest/api/sql/elasticpoolactivities)|Retourneert de elastische groep activiteiten.|
 |[Elastische pool Database-activiteiten](https://docs.microsoft.com/rest/api/sql/elasticpooldatabaseactivities)|Retourneert de activiteit voor databases binnen een elastische pool.|
-|[Databases - maken of bijwerken](https://docs.microsoft.com/rest/api/sql/databases/databases_createorupdate)|Maakt een nieuwe database gemaakt of bijgewerkt van een bestaande database.|
-|[Databases - Get](https://docs.microsoft.com/rest/api/sql/databases/databases_get)|Hiermee haalt u een database.|
-|[Databases - lijst op de elastische Pool](https://docs.microsoft.com/rest/api/sql/databases/databases_listbyelasticpool)|Retourneert een lijst met databases in een elastische pool.|
-|[Databases - lijst met door de Server](https://docs.microsoft.com/rest/api/sql/databases/databases_listbyserver)|Retourneert een lijst met databases in een server.|
-|[Databases - Update](https://docs.microsoft.com/rest/api/sql/databases/databases_update)|Werkt een bestaande database.|
+|[Databases - maken of bijwerken](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)|Maakt een nieuwe database gemaakt of bijgewerkt van een bestaande database.|
+|[Databases - Get](https://docs.microsoft.com/rest/api/sql/databases/get)|Hiermee haalt u een database.|
+|[Databases - lijst op de elastische Pool](https://docs.microsoft.com/rest/api/sql/databases/listbyelasticpool)|Retourneert een lijst met databases in een elastische pool.|
+|[Databases - lijst met door de Server](https://docs.microsoft.com/rest/api/sql/databases/listbyserver)|Retourneert een lijst met databases in een server.|
+|[Databases - Update](https://docs.microsoft.com/rest/api/sql/databases/update)|Werkt een bestaande database.|
 
 ## <a name="next-steps"></a>Volgende stappen
 

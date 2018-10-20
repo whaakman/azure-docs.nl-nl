@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 86e2f328968cb5e45b9aec71aac8e8ac9e6d656b
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 112940dbacf0bfdaff735eb0abd79e177cf5c9c5
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49403897"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49456999"
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Azure Stack-certificaatvereisten voor openbare-sleutelinfrastructuur
 
@@ -40,8 +40,9 @@ De volgende lijst beschrijft de vereisten voor certificaten die nodig zijn voor 
 - Wanneer u certificaten, moeten certificaten dat een uitgegeven door de dezelfde interne certificeringsinstantie gebruikt voor het ondertekenen van certificaten op de implementatie of een openbare certificeringsinstantie van bovenstaande
 - Het gebruik van zelfondertekende certificaten worden niet ondersteund.
 - Voor implementatie en rotatie kunt u één certificaat die betrekking hebben op alle naamruimten in de naam van het onderwerp en SAN Subject Alternative Name () velden van het certificaat gebruiken of kunt u afzonderlijke-certificaten van elk van de naamruimten hieronder die de Azure Stack Services die u van plan bent om te gebruiken is vereist. Beide benaderingen vereisen het gebruik van jokertekens voor eindpunten, waar ze zijn vereist, zoals **KeyVault** en **KeyVaultInternal**. 
-- Het certificaat handtekeningalgoritme moet 3DES. Het algoritme mag niet SHA1, zoals het moet sterkere. 
+- De handtekeningalgoritme mag niet SHA1, zoals het moet sterkere. 
 - Opmaak van het certificaat moet PFX, als de openbare en persoonlijke sleutels vereist voor Azure Stack-installatie zijn. 
+- De PFX-versleuteling moet 3DES (dit is standaard bij het exporteren van een client voor Windows 10 of Windows Server 2016-certificaatarchief).
 - De certificaat-pfx-bestanden moeten een waarde 'Digitale handtekening' en 'Keyencipherment-bit' in het veld 'Sleutelgebruik' hebben.
 - De certificaat-pfx-bestanden moeten de waarden "Serververificatie (1.3.6.1.5.5.7.3.1)" en 'Clientverificatie (1.3.6.1.5.5.7.3.2)' in het veld 'Enhanced Key Usage' hebben.
 - Van het certificaat "verleend aan:" veld mag niet zijn hetzelfde als de ' dat is uitgegeven door: "veld.
@@ -63,7 +64,7 @@ Certificaten met de juiste DNS-namen voor elk eindpunt van de infrastructuur voo
 Voor uw implementatie, de [regio] en [externalfqdn] waarden moeten overeenkomen met de regio en externe domeinnamen die u hebt gekozen voor uw Azure Stack-systeem. Een voorbeeld: als de regionaam van de is *Redmond* en naam van het externe domein is *contoso.com*, de DNS-namen zou hebben de indeling *&lt;voorvoegsel >. redmond.contoso.com*. De  *&lt;voorvoegsel >* waarden zijn vooraf bepaalde door Microsoft om te beschrijven van het eindpunt dat is beveiligd door het certificaat. Bovendien de  *&lt;voorvoegsel >* waarden van de infrastructuur voor externe eindpunten, is afhankelijk van de Azure Stack-service die gebruikmaakt van het specifieke eindpunt. 
 
 > [!note]  
-> Certificaten kunnen worden opgegeven als een certificaat met één jokerteken die betrekking hebben op alle naamruimten in de velden onderwerp en SAN Subject Alternative Name (), gekopieerd naar alle mappen of als afzonderlijke certificaten voor elk eindpunt gekopieerd naar de bijbehorende map. Vergeet niet dat beide opties moeten u jokertekens-certificaten gebruiken voor eindpunten, zoals **acs** en Key Vault, waar ze vereist zijn. 
+> Voor de productie-omgevingen raden wij afzonderlijke certificaten worden gegenereerd voor elk eindpunt en gekopieerd naar de bijbehorende map. Voor ontwikkeling-omgevingen, kunnen de certificaten worden opgegeven als een certificaat met één jokerteken die betrekking hebben op alle naamruimten in de velden onderwerp en SAN Subject Alternative Name (), gekopieerd naar alle mappen. Één certificaat die betrekking hebben op alle eindpunten en services is een onbeveiligde houding daarom alleen-ontwikkeling. Vergeet niet dat beide opties moeten u jokertekens-certificaten gebruiken voor eindpunten, zoals **acs** en Key Vault, waar ze vereist zijn. 
 
 | Implementatiemap | Vereiste certificaatonderwerp en alternatieve namen voor onderwerpen (SAN) | Bereik (per regio) | Subdomein naamruimte |
 |-------------------------------|------------------------------------------------------------------|----------------------------------|-----------------------------|

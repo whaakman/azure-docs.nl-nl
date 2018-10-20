@@ -6,16 +6,16 @@ services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: project-url-preview
+ms.component: url-preview
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: rosh
-ms.openlocfilehash: 3416fd9bc63c48e976d0b00f42ec9f8119a40eb8
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 2e4c5e6337c7fb222d18efada6ea9167e58aa024
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48870805"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49471404"
 ---
 # <a name="project-url-preview-v7-reference"></a>Naslaggids voor project URL-voorbeeld voor Bing versie 7
 
@@ -62,13 +62,13 @@ Zie voor meer informatie over het toegestane gebruik en weergave van resultaten 
 ## <a name="headers"></a>Headers  
 Hier volgen de headers die bijvoorbeeld een aanvraag en antwoord bevatten.  
   
-|Koptekst|Beschrijving|  
+|Header|Beschrijving|  
 |------------|-----------------|   
-|<a name="market" />BingAPIs-market te versnellen|Antwoordheader.<br /><br /> De markt die worden gebruikt door de aanvraag. Het formulier is \<languageCode\>-\<countryCode\>. Bijvoorbeeld: nl-nl.|  
-|<a name="traceid" />BingAPIs TraceId|Antwoordheader.<br /><br /> De ID van de vermelding die de details van de aanvraag bevat. Wanneer er een fout optreedt, vastleggen van deze ID. Als u niet kunt bepalen en los het probleem, zijn deze ID samen met de andere informatie die het ondersteuningsteam op te geven.|  
-|<a name="subscriptionkey" />OCP-Apim-Subscription-Key|De aanvraagheader is vereist.<br /><br /> De abonnementssleutel die u hebt ontvangen toen u zich hebt geregistreerd voor deze service in [Cognitive Services](https://www.microsoft.com/cognitive-services/).|  
-|<a name="clientid" />X-MSEdge-ClientID|Optionele aanvraag en antwoord-header.<br /><br /> Bing maakt gebruik van deze header voor gebruikers met een consistent gedrag voor Bing-API-aanroepen. Bing vluchten vaak nieuwe functies en verbeteringen en gebruikt de client-ID als een sleutel voor het toewijzen van verkeer op verschillende vluchten. Als u gebruik niet dezelfde client-ID voor een gebruiker met meerdere aanvragen, kunnen Bing kan de gebruiker toewijzen aan meerdere conflicterende vluchten. Wordt toegewezen aan meerdere conflicterende vluchten kan leiden tot een inconsistente gebruikerservaring. Bijvoorbeeld, als de tweede aanvraag de toewijzing van een andere vlucht dan de eerste heeft, de ervaring mogelijk onverwachte. Bing kunt ook de client-ID gebruiken om aan te passen webresultaten voor deze client id zoekgeschiedenis, bieden een rijkere ervaring voor de gebruiker.<br /><br /> Bing gebruikt ook deze header om het resultaat classificaties verbeteren door het analyseren van de activiteit die is gegenereerd door een client-ID. Verbeteringen in de volgorde van relevantie helpen met hogere kwaliteit van de resultaten die worden geleverd door Bing-API's en op zijn beurt hoger kunnen via klikken tarieven voor de API-consument.<br /><br />Hier volgen de basisgebruik regels die betrekking hebben op deze header.<br /><ul><li>Elke gebruiker die gebruikmaakt van uw toepassing op het apparaat moet een unieke, Bing gegenereerde client-ID.<br /><br/>Als u deze header in de aanvraag niet opgeeft, wordt Bing een ID gegenereerd en in de header X-MSEdge-ClientID-antwoord geretourneerd. De enige keer dat u moet niet deze header bevatten in een aanvraag is de eerste keer dat de gebruiker maakt gebruik van uw app op het apparaat.<br /><br/></li><li>De client-ID gebruiken voor elke API voor Bing-aanvraag die uw app voor deze gebruiker op het apparaat maakt.<br /><br/></li><li>**Let op:** moet u ervoor zorgen dat deze Client-ID niet gerelateerd aan een authenticatable gebruikersaccountgegevens is.</li><br/><li>Behouden van de client-ID. Om te blijven behouden de ID in een browser-app, gebruikt u een permanente HTTP-cookie om te controleren of dat de ID wordt gebruikt in alle sessies. Gebruik een sessiecookie niet. Voor andere apps, zoals mobiele apps, gebruikt u de permanente opslag van het apparaat om vast te leggen van de ID.<br /><br/>De volgende keer dat de gebruiker maakt gebruik van uw app op het apparaat, krijgen de client-ID die u wilt behouden.</li></ul><br /> **Opmerking:** Bing antwoorden kunnen of kan niet deze header bevatten. Als het antwoord deze header bevat, vastleggen van de client-ID en deze gebruiken voor alle volgende Bing-aanvragen voor de gebruiker op het apparaat.<br /><br /> **Opmerking:** als u de X-MSEdge-ClientID opneemt, moet u cookies niet opnemen in de aanvraag.|  
-|<a name="clientip" />X-MSEdge-client-IP|De aanvraagheader is optioneel.<br /><br /> Het IPv4- of IPv6-adres van het clientapparaat. Het IP-adres wordt gebruikt voor het detecteren van de locatie van de gebruiker. De locatie-informatie Bing gebruikt om veilige zoekgedrag te bepalen.<br /><br />  Onleesbaar niet het adres maakt (bijvoorbeeld door het laatste achttal werd wijzigen in 0). Obfuscating de adres-resultaten op de locatie niet wordt overal in de buurt van de werkelijke locatie van het apparaat, die kan leiden tot onjuiste resultaten voor Bing.|  
+|<a name="market" />BingAPIs-Market|Antwoordheader.<br /><br /> De markt die wordt gebruikt door de aanvraag. De notatie is \<languageCode\>-\<countryCode\>. Bijvoorbeeld: nl-NL.|  
+|<a name="traceid" />BingAPIs-TraceId|Antwoordheader.<br /><br /> De id van de logboekvermelding die de details van de aanvraag bevat. Registreer deze id wanneer er een fout optreedt. Als u het probleem niet kunt vaststellen en oplossen, neemt u deze id op bij de andere informatie die u aan het ondersteuningsteam verstrekt.|  
+|<a name="subscriptionkey" />Ocp-Apim-Subscription-Key|Vereiste aanvraagheader.<br /><br /> De abonnementssleutel die u hebt ontvangen toen u zich hebt geregistreerd voor deze service in [Cognitive Services](https://www.microsoft.com/cognitive-services/).|  
+|<a name="clientid" />X-MSEdge-ClientID|Optionele aanvraag- en antwoord-header.<br /><br /> Bing gebruikt deze header om gebruikers consistent gedrag te bieden bij Bing API-aanroepen. Bing introduceert nieuwe functies en verbeteringen vaak in flights, en gebruikt de client-ID als sleutel voor het toewijzen van verkeer aan verschillende flights. Als u niet dezelfde client-id gebruikt voor een gebruiker voor meerdere aanvragen, kan Bing de gebruiker toewijzen aan meerdere conflicterende flights. Toewijzing aan meerdere conflicterende flights kan leiden tot een inconsistente gebruikerservaring. Als de tweede aanvraag bijvoorbeeld een andere flighttoewijzing heeft dan de eerste, kan de ervaring onverwacht zijn. Bing kan de client-id ook gebruiken om webresultaten aan te passen aan de zoekgeschiedenis van die client-id, waardoor de gebruiker een rijkere ervaring krijgt.<br /><br /> Bing gebruikt deze header ook om de rangschikking van resultaten te verbeteren door de activiteit te analyseren die wordt gegenereerd door een client-id. De relevantie-verbeteringen helpen de kwaliteit van de resultaten die door Bing-API's worden geleverd te verbeteren, en maken op hun beurt hogere doorklikpercentages mogelijk voor de API-consument.<br /><br />Hieronder volgen de basisgebruiksregels die van toepassing zijn op deze header.<br /><ul><li>Elke gebruiker die uw toepassing op het apparaat gebruikt, moet een unieke door Bing gegenereerde client-id hebben.<br /><br/>Als u deze header niet in de aanvraag opneemt, genereert Bing een id en retourneert deze in de X-MSEdge-ClientID-antwoordheader. De enige keer dat u deze header NIET in een aanvraag moet opnemen, is de eerste keer dat de gebruiker uw app op dat apparaat gebruikt.<br /><br/></li><li>Gebruik de client-id voor elke Bing-API-aanvraag die uw app voor deze gebruiker op het apparaat doet.<br /><br/></li><li>**Let op:** moet u ervoor zorgen dat deze Client-ID niet gerelateerd aan een authenticatable gebruikersaccountgegevens is.</li><br/><li>Maak de client-id persistent. Gebruik in een browser-app een persistent HTTP-cookie om ervoor te zorgen dat de id in alle sessies wordt gebruikt. Gebruik geen sessiecookie. Voor andere apps, zoals mobiele apps, gebruikt u de persistente opslag van het apparaat om de id persistent te maken.<br /><br/>De volgende keer dat de gebruiker uw app op dat apparaat gebruikt, haalt u de client-id op die u persistent hebt gemaakt.</li></ul><br /> **OPMERKING:** Bing-antwoorden kunnen deze header al dan niet bevatten. Als het antwoord deze header bevat, registreert u de client-id en gebruikt u deze voor alle volgende Bing-aanvragen voor de gebruiker op dat apparaat.<br /><br /> **OPMERKING:** als u de X-MSEdge-ClientID opneemt, moet u geen cookies opnemen in de aanvraag.|  
+|<a name="clientip" />X-MSEdge-ClientIP|Optionele aanvraagheader.<br /><br /> Het IPv4- of IPv6-adres van het clientapparaat. Het IP-adres wordt gebruikt voor het detecteren van de locatie van de gebruiker. Bing gebruikt de locatie-informatie om het gedrag van Veilig Zoeken te bepalen.<br /><br />  Verdoezel het adres niet (bijvoorbeeld door het laatste octet te wijzigen in 0). Wanneer u het adres verdoezelt, is de locatie totaal niet in de buurt van de werkelijke locatie van het apparaat, wat ertoe kan leiden dat Bing onjuiste resultaten geeft.|  
 <br /><br /></li></ul>   
 
 ## <a name="query-parameters"></a>Queryparameters  
@@ -77,10 +77,10 @@ De aanvraag kan de volgende queryparameters bevatten. Zie de vereiste kolom voor
   
 |Naam|Waarde|Type|Vereist|  
 |----------|-----------|----------|--------------|  
-|<a name="mkt" />Mkt|De markt waarin de resultaten afkomstig zijn uit. <br /><br />Zie voor een lijst van mogelijke waarden van de markt, [markt Codes](#market-codes).<br /><br /> **Opmerking:** de URL van Preview-API ondersteunt momenteel alleen Amerikaanse Geografie en Engelse taal.<br /><br />|Reeks|Ja|  
+|<a name="mkt" />mkt|De markt waaruit de resultaten afkomstig zijn. <br /><br />Zie voor een lijst van mogelijke waarden van de markt, [markt Codes](#market-codes).<br /><br /> **Opmerking:** de URL van Preview-API ondersteunt momenteel alleen Amerikaanse Geografie en Engelse taal.<br /><br />|Reeks|Ja|  
 |<a name="query" />q|De URL om een voorbeeld van|Reeks|Ja|  
 |<a name="responseformat" />responseFormat|Het mediatype dat als u wilt gebruiken voor het antwoord. De volgende zijn waarden mogelijk niet hoofdlettergevoelig.<br /><ul><li>JSON</li><li>JSONLD</li></ul><br /> De standaardwaarde is JSON. Zie voor meer informatie over de JSON-objecten dat het antwoord bevat, [Antwoordobjecten](#response-objects).<br /><br />  Als u JsonLd opgeeft, bevat de antwoordtekst JSON-LD objecten met de lijst met zoekresultaten. Zie voor meer informatie over de JSON-LD [JSON-LD](http://json-ld.org/).|Reeks|Nee|
-|<a name="safesearch"/>veilig zoeken|Ongeldige inhoud voor volwassenen, of illegale inhoud, is geblokkeerd met foutcode 400, en de *isFamilyFriendly* vlag wordt niet geretourneerd. <p>Voor juridische inhoud voor volwassenen, ziet hieronder u het gedrag. Statuscode 200 wordt geretourneerd en de *isFamilyFriendly* vlag is ingesteld op false.<ul><li>veilig zoeken = strikte: titel, beschrijving, URL en afbeelding wordt niet geretourneerd.</li><li>veilig zoeken = gemiddeld; Titel, URL en beschrijving, maar niet de beschrijvende afbeelding ophalen</li><li>veilig zoeken = uit; Krijg alle antwoord objecten/elementen: titel, URL, beschrijving en afbeelding.</li></ul> |Reeks|Niet vereist. </br> Standaard ingesteld op safeSearch = strikte.| 
+|<a name="safesearch"/>safeSearch|Ongeldige inhoud voor volwassenen, of illegale inhoud, is geblokkeerd met foutcode 400, en de *isFamilyFriendly* vlag wordt niet geretourneerd. <p>Voor juridische inhoud voor volwassenen, ziet hieronder u het gedrag. Statuscode 200 wordt geretourneerd en de *isFamilyFriendly* vlag is ingesteld op false.<ul><li>veilig zoeken = strikte: titel, beschrijving, URL en afbeelding wordt niet geretourneerd.</li><li>veilig zoeken = gemiddeld; Titel, URL en beschrijving, maar niet de beschrijvende afbeelding ophalen</li><li>veilig zoeken = uit; Krijg alle antwoord objecten/elementen: titel, URL, beschrijving en afbeelding.</li></ul> |Reeks|Niet vereist. </br> Standaard ingesteld op safeSearch = strikte.| 
 
 ## <a name="response-objects"></a>Antwoordobjecten  
 Het antwoordschema is ofwel een [webpagina] of ErrorResponse, zoals in de webzoekopdrachten-API. Als de aanvraag mislukt, wordt het object op het hoogste niveau is het [ErrorResponse](#errorresponse) object.
@@ -187,9 +187,9 @@ Hier volgen de mogelijke fout code en de onderliggende fout code-waarden.
 |InsufficientAuthorization|AuthorizationDisabled<br/>AuthorizationExpired|Bing retourneert InsufficientAuthorization wanneer de oproepende functie heeft geen machtigingen voor toegang tot de resource. Dit kan gebeuren als de abonnementssleutel is uitgeschakeld of is verlopen. <br/><br/>Als de fout InsufficientAuthorization is, is de HTTP-statuscode 403.
 
 ## <a name="next-steps"></a>Volgende stappen
-- [Snelstartgids voor C#](csharp.md)
-- [Snelstartgids voor Java](java-quickstart.md)
-- [Snelstartgids voor JavaScript](javascript.md)
-- [Knooppunt-snelstartgids](node-quickstart.md)
-- [Snelstartgids voor Python](python-quickstart.md)
+- [Snelstart voor C#](csharp.md)
+- [Snelstart voor Java](java-quickstart.md)
+- [Snelstart voor JavaScript](javascript.md)
+- [Snelstart voor Node](node-quickstart.md)
+- [Snelstart voor Python](python-quickstart.md)
 

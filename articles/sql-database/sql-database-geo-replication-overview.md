@@ -1,6 +1,6 @@
 ---
 title: Failover-groepen en actieve geo-replicatie - Azure SQL Database | Microsoft Docs
-description: Gebruik van automatische failovergroepen met actieve geo-replicatie en failover autoomatic na een storing.
+description: Gebruik automatische failover-groepen met actieve geo-replicatie en automatische failover inschakelen na een storing.
 services: sql-database
 ms.service: sql-database
 ms.subservice: operations
@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/15/2018
-ms.openlocfilehash: 6e77d24c31401051d82501ca8064d02201bf218e
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.date: 10/19/2018
+ms.openlocfilehash: 9332bcb5849deacde13d67e4a18ea19af8af2977
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49354271"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49471472"
 ---
 # <a name="overview-active-geo-replication-and-auto-failover-groups"></a>Overzicht: Actieve geo-replicatie en automatische failover-groepen
 
@@ -279,8 +279,8 @@ Zoals eerder besproken automatische failover-groepen en actieve kan geo-replicat
 
 | API | Beschrijving |
 | --- | --- |
-| [Maken of bijwerken-Database (createMode = herstellen)](https://docs.microsoft.com/rest/api/sql/databases/databases_createorupdate) |Gemaakt, bijgewerkt of hersteld van een primaire of secundaire database. |
-| [Get maken of bijwerken van de Status van Database](https://docs.microsoft.com/rest/api/sql/databases/databases_createorupdate) |Retourneert de status tijdens een bewerking voor maken. |
+| [Maken of bijwerken-Database (createMode = herstellen)](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) |Gemaakt, bijgewerkt of hersteld van een primaire of secundaire database. |
+| [Get maken of bijwerken van de Status van Database](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) |Retourneert de status tijdens een bewerking voor maken. |
 | [Stel de secundaire Database als primaire (geplande Failover)](https://docs.microsoft.com/rest/api/sql/replicationlinks/replicationlinks_failover) |Sets die replica-database primaire door failover wordt uitgevoerd vanuit de huidige primaire replica-database is. |
 | [Stel de secundaire Database als primaire (niet-geplande Failover)](https://docs.microsoft.com/rest/api/sql/replicationlinks/replicationlinks_failoverallowdataloss) |Sets die replica-database primaire door failover wordt uitgevoerd vanuit de huidige primaire replica-database is. Met deze bewerking kan leiden tot verlies van gegevens. |
 | [Ophalen van replicatiekoppeling](https://docs.microsoft.com/rest/api/sql/replicationlinks/replicationlinks_get) |Hiermee haalt een bepaalde replicatiekoppeling voor een bepaalde SQL-database in een partnerschap geo-replicatie. Het ophalen van de informatie in de catalogusweergave sys.geo_replication_links zichtbaar. |

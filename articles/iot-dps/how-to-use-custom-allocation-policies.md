@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 89cb44366d4752052d990a1506482c9108cde103
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: f2c9194b07774443a70eef8e879d895efeb338e9
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161696"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49458187"
 ---
 # <a name="how-to-use-custom-allocation-policies"></a>Het gebruik van aangepaste toewijzingsbeleid
 
@@ -345,15 +345,15 @@ De gesimuleerde apparaten worden de apparaatsleutels afgeleide gebruiken met elk
 
 
 
-## <a name="prepare-an-azure-iot-c-sdk-development-environment"></a>Een Azure IoT C SDK-ontwikkelomgeving voorbereiden
+## <a name="prepare-an-azure-iot-c-sdk-development-environment"></a>Een ontwikkelomgeving voorbereiden voor de Azure IoT C-SDK
 
-In deze sectie maakt u een ontwikkelomgeving die is gebruikt voor het bouwen bereidt de [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c). De SDK bevat de voorbeeldcode voor het gesimuleerde apparaat. Dit gesimuleerde apparaat probeert tijdens de opstartvolgorde van het apparaat wordt ingericht.
+In deze sectie bereidt u een ontwikkelomgeving voor die wordt gebruikt om de [Azure IoT C-SDK](https://github.com/Azure/azure-iot-sdk-c) te bouwen. De SDK bevat de voorbeeldcode voor het gesimuleerde apparaat. Dit gesimuleerde apparaat probeert de inrichting uit te voeren tijdens de opstartprocedure van het apparaat.
 
 Deze sectie is gericht op een Windows-werkstation. Zie voor een voorbeeld van een Linux, de configuratie van de virtuele machines in [inrichten voor multitenancy](how-to-provision-multitenant.md).
 
 
 
-1. Download de versie 3.11.4 van de [CMake-bouwsysteem](https://cmake.org/download/). Controleer het gedownloade binaire bestand met behulp van de bijbehorende cryptografische hash-waarde. In het volgende voorbeeld is Windows PowerShell gebruikt om de cryptografische hash te controleren voor versie 3.11.4 van de x64 MSI-distributie:
+1. Download versie 3.11.4 van het [CMake-buildsysteem](https://cmake.org/download/). Controleer het gedownloade binaire bestand met behulp van de bijbehorende cryptografische hash-waarde. In het volgende voorbeeld is Windows PowerShell gebruikt om de cryptografische hash te controleren voor versie 3.11.4 van de x64 MSI-distributie:
 
     ```PowerShell
     PS C:\Downloads> $hash = get-filehash .\cmake-3.11.4-win64-x64.msi
@@ -361,7 +361,7 @@ Deze sectie is gericht op een Windows-werkstation. Zie voor een voorbeeld van ee
     True
     ```
     
-    De volgende hashwaarden voor versie 3.11.4 zijn vermeld op de CMake-site op het moment van schrijven:
+    De volgende hash-waarden voor versie 3.11.4 werden vermeld op de CMake-site ten tijde van dit schrijven:
 
     ```
     6dab016a6b82082b8bcd0f4d1e53418d6372015dd983d29367b9153f1a376435  cmake-3.11.4-Linux-x86_64.tar.gz
@@ -371,7 +371,7 @@ Deze sectie is gericht op een Windows-werkstation. Zie voor een voorbeeld van ee
 
     Het is belangrijk dat de vereisten voor Visual Studio met (Visual Studio en de workload Desktopontwikkeling met C++) op uw computer zijn geïnstalleerd **voordat** de `CMake`-installatie wordt gestart. Zodra aan de vereisten is voldaan en de download is geverifieerd, installeert u het CMake-bouwsysteem.
 
-2. Open een opdrachtprompt of Git Bash-shell. Voer de volgende opdracht uit om de Azure IoT C SDK GitHub-opslagplaats te klonen:
+2. Open een opdrachtprompt of Git Bash-shell. Voer de volgende opdracht uit voor het klonen van de GitHub-opslagplaats voor de Azure IoT C-SDK:
     
     ```cmd/sh
     git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
@@ -387,10 +387,10 @@ Deze sectie is gericht op een Windows-werkstation. Zie voor een voorbeeld van ee
     cd cmake
     ```
 
-4. Voer de volgende opdracht uit, bouwt een versie van de SDK die specifiek zijn voor uw clientplatform voor ontwikkeling. Er wordt een Visual Studio-oplossing voor het gesimuleerde apparaat gegenereerd in de map `cmake`. 
+4. Voer de volgende opdracht uit om een versie van de SDK te bouwen die specifiek is voor uw clientplatform voor ontwikkeling. Er wordt een Visual Studio-oplossing voor het gesimuleerde apparaat gegenereerd in de map `cmake`. 
 
     ```cmd
-    cmake -Duse_prov_client:BOOL=ON ..
+    cmake -Dhsm_type_symm_key:BOOL=ON ..
     ```
     
     Als `cmake` uw C++-compiler niet kan vinden, kunnen er fouten in de build optreden tijdens het uitvoeren van de bovenstaande opdracht. Als dit gebeurt, voert u deze opdracht uit bij de [Visual Studio-opdrachtprompt](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs). 
@@ -398,7 +398,7 @@ Deze sectie is gericht op een Windows-werkstation. Zie voor een voorbeeld van ee
     Zodra het bouwen is voltooid, zijn de laatste paar uitvoerregels vergelijkbaar met de volgende uitvoer:
 
     ```cmd/sh
-    $ cmake -Duse_prov_client:BOOL=ON ..
+    $ cmake -Dhsm_type_symm_key:BOOL=ON ..
     -- Building for: Visual Studio 15 2017
     -- Selecting Windows SDK version 10.0.16299.0 to target Windows 10.0.17134.
     -- The C compiler identification is MSVC 19.12.25835.0
@@ -424,7 +424,7 @@ Deze voorbeeldcode simuleert de opstartvolgorde van een apparaat waarmee de aanv
 
     ![Device Provisioning Service-eindpuntgegevens uit de portalblade extraheren](./media/quick-create-simulated-device-x509/extract-dps-endpoints.png) 
 
-2. Open in Visual Studio, de **azure_iot_sdks.sln** oplossingsbestand dat is gegenereerd door eerdere CMake uitgevoerd. Het oplossingsbestand moet in de volgende locatie:
+2. Open in Visual Studio, de **azure_iot_sdks.sln** oplossingsbestand dat is gegenereerd door eerdere CMake uitgevoerd. Het oplossingsbestand bevindt zich als het goed is op de volgende locatie:
 
     ```
     \azure-iot-sdk-c\cmake\azure_iot_sdks.sln
@@ -438,7 +438,7 @@ Deze voorbeeldcode simuleert de opstartvolgorde van een apparaat waarmee de aanv
     static const char* id_scope = "0ne00002193";
     ```
 
-5. Zoek de definitie voor de functie `main()` op in hetzelfde bestand. Zorg ervoor dat de `hsm_type` variabele is ingesteld op `SECURE_DEVICE_TYPE_SYMMETRIC_KEY` zoals hieronder wordt weergegeven:
+5. Zoek de definitie voor de functie `main()` op in hetzelfde bestand. Zorg ervoor dat de variabele `hsm_type` is ingesteld op `SECURE_DEVICE_TYPE_SYMMETRIC_KEY`, zoals hieronder wordt weergegeven:
 
     ```c
     SECURE_DEVICE_TYPE hsm_type;
@@ -451,9 +451,9 @@ Deze voorbeeldcode simuleert de opstartvolgorde van een apparaat waarmee de aanv
 
 #### <a name="simulate-the-contoso-toaster-device"></a>Het Contoso toaster-apparaat simuleren
 
-1. In Visual Studio *Solution Explorer* venster, gaat u naar de **hsm\_security\_client** project en vouw dit uit. Vouw **bronbestanden**, en open **hsm\_client\_key.c**. 
+1. Navigeer in het venster *Solution Explorer* in Visual Studio naar het **hsm\_security\_client**-project en vouw het uit. Vouw **Bronfiles** uit en open **hsm\_client\_key.c**. 
 
-    Zoek de declaratie van de `REGISTRATION_NAME` en `SYMMETRIC_KEY_VALUE` constanten. De volgende wijzigingen aanbrengen aan het bestand en sla het bestand.
+    Zoek de declaratie van de constanten `REGISTRATION_NAME` en `SYMMETRIC_KEY_VALUE`. Breng de volgende wijzigingen aan in het bestand en sla het op.
 
     Werk de waarde van de `REGISTRATION_NAME` constante met de registratie-ID voor het apparaat toaster **breakroom499-contoso-tstrsd-007**.
     
@@ -485,9 +485,9 @@ Deze voorbeeldcode simuleert de opstartvolgorde van een apparaat waarmee de aanv
 
 #### <a name="simulate-the-contoso-heat-pump-device"></a>Het Contoso heatmap pomp-apparaat simuleren
 
-1. Terug in Visual Studio *Solution Explorer* venster, gaat u naar de **hsm\_security\_client** project en vouw dit uit. Vouw **bronbestanden**, en open **hsm\_client\_key.c**. 
+1. Terug in Visual Studio *Solution Explorer* venster, gaat u naar de **hsm\_security\_client** project en vouw dit uit. Vouw **Bronfiles** uit en open **hsm\_client\_key.c**. 
 
-    Zoek de declaratie van de `REGISTRATION_NAME` en `SYMMETRIC_KEY_VALUE` constanten. De volgende wijzigingen aanbrengen aan het bestand en sla het bestand.
+    Zoek de declaratie van de constanten `REGISTRATION_NAME` en `SYMMETRIC_KEY_VALUE`. Breng de volgende wijzigingen aan in het bestand en sla het op.
 
     Werk de waarde van de `REGISTRATION_NAME` constante met de registratie-ID voor het apparaat van de heatmap pomp **mainbuilding167-contoso-hpsd-088**.
     

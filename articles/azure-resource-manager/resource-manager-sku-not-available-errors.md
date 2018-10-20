@@ -1,6 +1,6 @@
 ---
-title: Azure SKU niet beschikbaar fouten | Microsoft Docs
-description: Hierin wordt beschreven hoe u problemen met de SKU niet beschikbaar-fout tijdens de implementatie.
+title: Azure-SKU niet beschikbaar '-fouten | Microsoft Docs
+description: Beschrijft hoe u om op te lossen van de SKU niet beschikbaar-fout tijdens de implementatie.
 services: azure-resource-manager
 documentationcenter: ''
 author: tfitzmac
@@ -11,22 +11,23 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 03/09/2018
+ms.date: 10/19/2018
 ms.author: tomfitz
-ms.openlocfilehash: 490c912a6abd6570c9bc74de8b86a516a8e6f807
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: d1279b5319ddd52ff2f3f6b4e696b73e8fe67607
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34358758"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49468684"
 ---
 # <a name="resolve-errors-for-sku-not-available"></a>Los de fouten voor de SKU is niet beschikbaar
 
-Dit artikel wordt beschreven voor het oplossen van de **SkuNotAvailable** fout.
+In dit artikel wordt beschreven hoe u om op te lossen de **SkuNotAvailable** fout. Als u bent niet een geschikte SKU gevonden in deze regio of een andere regio die voldoet aan uw bedrijf nodig heeft, dien een [SKU aanvraag](https://aka.ms/skurestriction) tot Azure Support.
+
 
 ## <a name="symptom"></a>Symptoom
 
-Bij het implementeren van een resource (meestal een virtuele machine), wordt de volgende foutcode en een foutbericht weergegeven:
+Bij het implementeren van een resource (doorgaans een virtuele machine), ontvangt u de volgende code en het volgende foutbericht:
 
 ```
 Code: SkuNotAvailable
@@ -38,58 +39,59 @@ for subscription '<subscriptionID>'. Please try another tier or deploy to a diff
 
 U ontvangt deze foutmelding wanneer de SKU die u hebt geselecteerd (zoals VM-grootte) van de resource is niet beschikbaar voor de locatie die u hebt geselecteerd.
 
-## <a name="solution-1---powershell"></a>Oplossing 1 - PowerShell
+## <a name="solution-1---powershell"></a>Oplossing 1: PowerShell
 
-Om te bepalen die SKU's beschikbaar zijn in een regio, gebruikt de [Get-AzureRmComputeResourceSku](/powershell/module/azurerm.compute/get-azurermcomputeresourcesku) opdracht. Filter de resultaten worden op locatie. U kunt de nieuwste versie van PowerShell voor deze opdracht moet hebben.
+Om te bepalen welke SKU's zijn beschikbaar in een regio, gebruikt u de [Get-AzureRmComputeResourceSku](/powershell/module/azurerm.compute/get-azurermcomputeresourcesku) opdracht. Filter de resultaten per locatie. U kunt de meest recente versie van PowerShell voor deze opdracht moet hebben.
+
+```azurepowershell-interactive
+Get-AzureRmComputeResourceSku | where {$_.Locations -icontains "centralus"}
+```
+
+De resultaten bevatten een lijst van SKU's voor de locatie en beperkingen voor deze SKU. U ziet dat een SKU kan worden weergegeven als `NotAvailableForSubscription`.
 
 ```powershell
-Get-AzureRmComputeResourceSku | where {$_.Locations -icontains "southcentralus"}
+ResourceType          Name        Locations   Restriction                      Capability           Value
+------------          ----        ---------   -----------                      ----------           -----
+virtualMachines       Standard_A0 centralus   NotAvailableForSubscription      MaxResourceVolumeMB   20480
+virtualMachines       Standard_A1 centralus   NotAvailableForSubscription      MaxResourceVolumeMB   71680
+virtualMachines       Standard_A2 centralus   NotAvailableForSubscription      MaxResourceVolumeMB  138240
 ```
 
-De resultaten bevatten een lijst van SKU's voor de locatie en beperkingen voor deze SKU.
+## <a name="solution-2---azure-cli"></a>Oplossing 2 - Azure CLI
 
-```powershell
-ResourceType                Name      Locations Restriction                      Capability Value
-------------                ----      --------- -----------                      ---------- -----
-availabilitySets         Classic southcentralus             MaximumPlatformFaultDomainCount     3
-availabilitySets         Aligned southcentralus             MaximumPlatformFaultDomainCount     3
-virtualMachines      Standard_A0 southcentralus
-virtualMachines      Standard_A1 southcentralus
-virtualMachines      Standard_A2 southcentralus
+Om te bepalen welke SKU's zijn beschikbaar in een regio, gebruikt u de `az vm list-skus` opdracht. Gebruik de `--location` parameter voor het filteren van uitvoer naar de locatie die u gebruikt. Gebruik de `--size` parameter om te zoeken door de groottenaam van een gedeeltelijke.
+
+```azurecli-interactive
+az vm list-skus --location southcentralus --size Standard_F --output table
 ```
 
-## <a name="solution-2---azure-cli"></a>Oplossing 2: Azure CLI
+De opdracht retourneert resultaten, zoals:
 
-Om te bepalen die SKU's beschikbaar zijn in een regio, gebruikt de `az vm list-skus` opdracht. Vervolgens kunt u `grep` of een vergelijkbaar hulpprogramma voor het filteren van de uitvoer.
-
-```bash
-$ az vm list-skus --output table
-ResourceType      Locations           Name                    Capabilities                       Tier      Size           Restrictions
-----------------  ------------------  ----------------------  ---------------------------------  --------  -------------  ---------------------------
-availabilitySets  eastus              Classic                 MaximumPlatformFaultDomainCount=3
-avilabilitySets   eastus              Aligned                 MaximumPlatformFaultDomainCount=3
-availabilitySets  eastus2             Classic                 MaximumPlatformFaultDomainCount=3
-availabilitySets  eastus2             Aligned                 MaximumPlatformFaultDomainCount=3
-availabilitySets  westus              Classic                 MaximumPlatformFaultDomainCount=3
-availabilitySets  westus              Aligned                 MaximumPlatformFaultDomainCount=3
-availabilitySets  centralus           Classic                 MaximumPlatformFaultDomainCount=3
-availabilitySets  centralus           Aligned                 MaximumPlatformFaultDomainCount=3
+```azurecli
+ResourceType     Locations       Name              Zones    Capabilities    Restrictions
+---------------  --------------  ----------------  -------  --------------  --------------
+virtualMachines  southcentralus  Standard_F1                ...             None
+virtualMachines  southcentralus  Standard_F2                ...             None
+virtualMachines  southcentralus  Standard_F4                ...             None
+...
 ```
 
-## <a name="solution-3---azure-portal"></a>Oplossing 3 - Azure-portal
 
-Om te bepalen die SKU's beschikbaar zijn in een regio, gebruikt de [portal](https://portal.azure.com). Aanmelden bij de portal en voeg een bron via de interface. Als u de waarden instelt, ziet u de beschikbare SKU's voor die bron. U hoeft niet om de implementatie te vervolledigen.
+## <a name="solution-3---azure-portal"></a>Oplossing 3 - Azure portal
 
-![beschikbare SKU 's](./media/resource-manager-sku-not-available-errors/view-sku.png)
+Om te bepalen welke SKU's zijn beschikbaar in een regio, gebruikt u de [portal](https://portal.azure.com). Aanmelden bij de portal en voeg een resource via de interface toe. Als u de waarden hebt ingesteld, ziet u de beschikbare SKU's voor die bron. U hoeft niet te voltooien van de implementatie.
 
-## <a name="solution-4---rest"></a>4 - REST-oplossing
+Bijvoorbeeld: het proces voor het maken van een virtuele machine starten. Andere beschikbare grootte Selecteer **grootte wijzigen**.
 
-Om te bepalen die SKU's beschikbaar zijn in een regio, gebruikt u de REST-API voor virtuele machines. De volgende aanvraag verzenden:
+![VM maken](./media/resource-manager-sku-not-available-errors/create-vm.png)
 
-```HTTP 
-GET
-https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.Compute/skus?api-version=2016-03-30
-```
+U kunt filteren en blader door de beschikbare grootten.
+
+![Beschikbare SKU 's](./media/resource-manager-sku-not-available-errors/available-sizes.png)
+
+## <a name="solution-4---rest"></a>Oplossing 4 - REST
+
+Om te bepalen welke SKU's zijn beschikbaar in een regio, gebruikt u de [Resource-SKU's - lijst](/rest/api/compute/resourceskus/list) bewerking.
 
 Deze retourneert beschikbare SKU's en regio's in de volgende indeling:
 
@@ -121,4 +123,3 @@ Deze retourneert beschikbare SKU's en regio's in de volgende indeling:
 }
 ```
 
-Als u niet een geschikte SKU gevonden in deze regio of een alternatieve regio die voldoet aan uw bedrijf moet, dienen een [SKU aanvraag](https://aka.ms/skurestriction) voor ondersteuning van Azure.

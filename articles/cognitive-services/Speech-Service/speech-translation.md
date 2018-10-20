@@ -1,26 +1,27 @@
 ---
 title: Over Spraakomzetting
+titlesuffix: Azure Cognitive Services
 description: Een overzicht van de mogelijkheden van de vertaling van gesproken tekst
-titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: erhopf
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/28/2018
 ms.author: erhopf
-ms.openlocfilehash: f3c22589270ccee2c60ca5ea5b15047d9c81fabe
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: af363a45ab113d89c7aad7a38c6e10d335bc6035
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49165434"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49469132"
 ---
 # <a name="about-the-speech-translation-api"></a>Over de Spraakomzettings-API
 
-De Microsoft Speech-API kunt u end-to-end-, realtime, meerdere talen vertaling van spraak toevoegen aan uw toepassingen, hulpprogramma's en apparaten. Dezelfde API kan worden gebruikt voor zowel spraak-naar-spraak- en spraak naar tekst converteren.
+De spraak-API-Service kunt u end-to-end-, realtime, meerdere talen vertaling van spraak toevoegen aan uw toepassingen, hulpprogramma's en apparaten. Dezelfde API kan worden gebruikt voor zowel spraak-naar-spraak- en spraak naar tekst converteren.
 
-Met de Microsoft Translator Speech-API clienttoepassingen streamen gesproken audio naar de service en het ontvangen van een stream van resultaten. Deze resultaten opnemen de herkende tekst in de source-taal en de vertaling in de doel-taal. Tijdelijke vertalingen kunnen worden opgegeven voordat een utterance voltooid is, op dat moment een laatste omzetting wordt opgegeven.
+Met de spraak-API van Translator clienttoepassingen streamen gesproken audio naar de service en het ontvangen van een stream van resultaten. Deze resultaten opnemen de herkende tekst in de source-taal en de vertaling in de doel-taal. Tijdelijke vertalingen kunnen worden opgegeven voordat een utterance voltooid is, op dat moment een laatste omzetting wordt opgegeven.
 
 (Optioneel) een kunstmatige audioversie van de laatste vertaling voor te bereiden, waar spraak-naar-spraak-omzetting inschakelen.
 

@@ -3,7 +3,7 @@ title: 'Zelfstudie: een CI/CD-pijplijn te maken in Azure met Azure DevOps-Servic
 description: In deze zelfstudie leert u over het maken van een Azure-Services voor DevOps-pijplijn voor continue integratie en levering waarmee een web-app in IIS op een Windows-VM in Azure wordt geïmplementeerd.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: cynthn
+author: zr-msft
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 05/12/2017
-ms.author: cynthn
+ms.author: zarhoads
 ms.custom: mvc
-ms.openlocfilehash: d4edf0d22ce04eb2cb865d80c2b70f1bcc2169df
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 4b4d514ec8bfd78b303a7f51c2a4072507da5be9
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44301895"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49471455"
 ---
 # <a name="tutorial-create-a-continuous-integration-pipeline-with-azure-devops-services-and-iis"></a>Zelfstudie: Een pijplijn voor continue integratie met Azure DevOps-Services en IIS maken
 Voor het automatiseren van de build-, test- en implementatiefasen van toepassingsontwikkeling, kunt u een continue integratie en implementatie (CI/CD)-pijplijn. In deze zelfstudie maakt u een CI/CD-pijplijn met behulp van Azure DevOps-Services en een Windows virtuele machine (VM) in Azure waarop IIS wordt uitgevoerd. In deze zelfstudie leert u procedures om het volgende te doen:

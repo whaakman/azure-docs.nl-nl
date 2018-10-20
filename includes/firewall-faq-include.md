@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: ''
 ms.topic: include
-ms.date: 10/15/2018
+ms.date: 10/20/2018
 ms.author: victorh
 ms.custom: include file
-ms.openlocfilehash: 1d52c9b3b9b91873bd6f34443f162c74d724a65c
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: e4d698b8b9c3f9e304780ee49bd4243a76e69138
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49367131"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49471527"
 ---
 ### <a name="what-is-azure-firewall"></a>Wat is Azure Firewall?
 
@@ -30,13 +30,6 @@ Azure Firewall is een beheerde, cloudgebaseerde netwerkbeveiligingsservice die u
 * Ondersteuning voor inkomende DNAT
 * Centraal maken, afdwingen en meld u beleid van toepassing en netwerk connectiviteit tussen Azure-abonnementen en VNETs
 * Volledig geïntegreerd met Azure Monitor voor registratie en analyses
-
-### <a name="what-is-the-pricing-for-azure-firewall"></a>Wat zijn de prijzen voor de Firewall van Azure?
-
-Firewall van Azure heeft een vaste prijs + variabele kosten:
-
-* Vaste kosten: $1.25/firewall/hour
-* Variabel tarief: $ 0,03/GB verwerkt door de firewall (inkomend of uitgaand verkeer)
 
 ### <a name="what-is-the-typical-deployment-model-for-azure-firewall"></a>Wat is het typische implementatiemodel voor de Firewall van Azure?
 
@@ -78,6 +71,17 @@ De Firewall van de Azure-service is een aanvulling op network security group fun
 ### <a name="how-do-i-set-up-azure-firewall-with-my-service-endpoints"></a>Hoe stel ik Azure-Firewall in met de service-eindpunten?
 
 Voor beveiligde toegang tot PaaS-services raden wij service-eindpunten. U kunt de service-eindpunten in de Firewall van Azure-subnet inschakelen en uitschakelen verbonden spoke-netwerken. Op deze manier die u profiteren van functies, service-eindpunt beveiligings- en centrale logboekregistratie voor al het verkeer.
+
+### <a name="what-is-the-pricing-for-azure-firewall"></a>Wat zijn de prijzen voor de Firewall van Azure?
+
+Firewall van Azure heeft een vaste prijs + variabele kosten:
+
+* Vaste kosten: $1.25/firewall/hour
+* Variabel tarief: $ 0,03/GB verwerkt door de firewall (inkomend of uitgaand verkeer)
+
+Er zijn geen kosten voor de firewall van een toewijzing ongedaan gemaakt.
+
+Zie voor meer informatie, [prijzen van Azure-Firewall](https://azure.microsoft.com/pricing/details/azure-firewall/).
 
 ### <a name="how-can-i-stop-and-start-azure-firewall"></a>Hoe kan ik stoppen en starten van de Firewall van Azure?
 

@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/22/2018
 ms.author: glenga
-ms.openlocfilehash: ec309bc5484c0ac96d1323c56670c147737e7c64
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 2eb736891b12c07441bc8828ca07dd0b9fa13d98
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49377860"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49458119"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Naslaginformatie over App-instellingen voor Azure Functions
 
@@ -82,11 +82,11 @@ Het pad naar de hoofdmap waarin de *host.json* bestands- en functie mappen zich 
 
 ## <a name="azurewebjobssecretstoragetype"></a>AzureWebJobsSecretStorageType
 
-Hiermee geeft u de opslagplaats of de provider moet worden gebruikt voor opslag van sleutels. Op dit moment zijn de ondersteunde opslagplaatsen blob ('Blob') en het bestandssysteem ("uitgeschakeld"). De standaardwaarde is bestandssysteem ("uitgeschakeld").
+Hiermee geeft u de opslagplaats of de provider moet worden gebruikt voor opslag van sleutels. De ondersteunde opslagplaatsen zijn momenteel blob-opslag ('Blob') en het lokale bestandssysteem ('Files'). De standaardwaarde is een blob in versie 1 en het bestandssysteem in versie 2. Houd er rekening mee dat in versie 1 bestandssysteem werkt alleen voor functies die worden uitgevoerd in een app service-plan.
 
 |Sleutel|Voorbeeldwaarde|
 |---|------------|
-|AzureWebJobsSecretStorageType|uitgeschakeld|
+|AzureWebJobsSecretStorageType|Bestanden|
 
 ## <a name="azurewebjobsstorage"></a>AzureWebJobsStorage
 

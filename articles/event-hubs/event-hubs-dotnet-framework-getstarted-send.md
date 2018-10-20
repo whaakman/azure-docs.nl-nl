@@ -12,101 +12,98 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/03/2018
+ms.date: 10/18/2018
 ms.author: shvija
-ms.openlocfilehash: 7b5a4298ee4c67f0300bd4aabb7fc6373d8edba0
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: ae5d89aab4ce1bd599ed9a50dc46336f8a96a2f5
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40005287"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49456215"
 ---
 # <a name="send-events-to-azure-event-hubs-using-the-net-framework"></a>Gebeurtenissen verzenden naar Azure Event Hubs met behulp van .NET Framework
+Azure Event Hubs is een big data-platform voor het streamen van gegevens en een gebeurtenisopneemservice die miljoenen gebeurtenissen per seconde kan opnemen en verwerken. Event Hubs kan gebeurtenissen, gegevens of telemetrie die wordt geproduceerd door gedistribueerde software en apparaten verwerken en opslaan. Gegevens die naar een Event Hub worden verzonden, kunnen worden omgezet en opgeslagen via een provider voor realtime analytische gegevens of batchverwerking/opslagadapters. Zie voor een gedetailleerd overzicht van Event Hubs [overzicht van Event Hubs](event-hubs-about.md) en [functies van Event Hubs](event-hubs-features.md).
 
-Event Hubs is een service die grote hoeveelheden gebeurtenisgegevens (telemetrie) van verbonden apparaten en toepassingen verwerkt. Nadat u gegevens in Event Hubs hebt verzameld, kunt u de gegevens opslaan met behulp van een opslagcluster of transformeren met een provider van realtime-analyses. Deze functie voor grootschalige gebeurtenisverzameling en -verwerking is een belangrijk onderdeel van de architectuur van moderne toepassingen, met inbegrip van het Internet der dingen (IoT).
+In deze zelfstudie laat zien hoe gebeurtenissen verzenden naar een event hub met een consoletoepassing die is geschreven in C# met behulp van .NET Framework. 
 
-In deze zelfstudie kunt u zien hoe u [Azure Portal](https://portal.azure.com) gebruikt om een Event Hub te maken. U leert ook hoe u gebeurtenissen met .NET Framework naar een Event Hub verzendt via een in C# geschreven consoletoepassing. Zie het artikel [Gebeurtenissen ontvangen met .NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md) of klik op de juiste taal voor ontvangst in de tabel links om gebeurtenissen te ontvangen via .NET Framework.
-
+## <a name="prerequisites"></a>Vereisten
 Voor het voltooien van deze zelfstudie moet aan de volgende vereisten worden voldaan:
 
 * [Microsoft Visual Studio 2017 of hoger](http://visualstudio.com).
-* Een actief Azure-account. Als u geen Azure-account hebt, kunt u binnen een paar minuten een gratis account maken. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/free/) voor meer informatie.
 
 ## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>Een Event Hubs-naamruimte en een Event Hub maken
+In de eerste stap gebruikt u [Azure Portal](https://portal.azure.com) om een naamruimte van het type Event Hubs te maken en de beheerreferenties te verkrijgen die de toepassing nodig heeft om met de Event Hub te communiceren. Als u wilt een naamruimte en een event hub maken, volgt u de procedure in [in dit artikel](event-hubs-create.md), gaat u verder met de volgende stappen in deze zelfstudie.
 
-In de eerste stap gebruikt u [Azure Portal](https://portal.azure.com) om een naamruimte van het type Event Hubs te maken en de beheerreferenties te verkrijgen die de toepassing nodig heeft om met de Event Hub te communiceren. Volg de procedure in [dit artikel](event-hubs-create.md) om een naamruimte en Event Hub te maken en ga daarna verder met de volgende stappen in deze zelfstudie.
+## <a name="create-a-console-application"></a>Een consoletoepassing maken
 
-## <a name="create-a-sender-console-application"></a>Een consoletoepassing voor afzenders maken
-
-In deze sectie schrijft u een Windows-consoletoepassing die gebeurtenissen naar uw event hub verzendt.
-
-1. Maak in Visual Studio een nieuw Visual C# bureaublad-app-project met behulp van de projectsjabloon**Consoletoepassing**. Noem het project **Afzender**.
+Maak in Visual Studio een nieuw Visual C# bureaublad-app-project met behulp van de projectsjabloon**Consoletoepassing**. Noem het project **Afzender**.
    
-    ![](./media/event-hubs-dotnet-framework-getstarted-send/create-sender-csharp1.png)
-2. Klik in Solution Explorer met de rechtermuisknop op het project **Afzender** en klik op **NuGet-pakketten beheren voor oplossing**. 
-3. Klik op het tabblad **Bladeren** en zoek vervolgens naar `WindowsAzure.ServiceBus`. Klik op **Installeren** en accepteer de gebruiksvoorwaarden. 
+![](./media/event-hubs-dotnet-framework-getstarted-send/create-sender-csharp1.png)
+
+## <a name="add-the-event-hubs-nuget-package"></a>Het Event Hubs NuGet-pakket toevoegen
+
+1. Klik in Solution Explorer met de rechtermuisknop op het project **Afzender** en klik op **NuGet-pakketten beheren voor oplossing**. 
+2. Klik op het tabblad **Bladeren** en zoek vervolgens naar `WindowsAzure.ServiceBus`. Klik op **Installeren** en accepteer de gebruiksvoorwaarden. 
    
     ![](./media/event-hubs-dotnet-framework-getstarted-send/create-sender-csharp2.png)
    
     Er wordt door Visual Studio een verwijzing naar het [ NuGet-pakket Azure Service Bus-bibliotheek](https://www.nuget.org/packages/WindowsAzure.ServiceBus) gedownload, geïnstalleerd en toegevoegd.
-4. Voeg aan het begin van het bestand **Program.cs** de volgende `using` instructies toe:
+
+## <a name="write-code-to-send-messages-to-the-event-hub"></a>Schrijf code voor het verzenden van berichten naar de event hub
+
+1. Voeg aan het begin van het bestand **Program.cs** de volgende `using` instructies toe:
    
-  ```csharp
-  using System.Threading;
-  using Microsoft.ServiceBus.Messaging;
-  ```
-5. Voeg de volgende velden toe aan de klasse **Program**, waarbij u de waarden van de tijdelijke aanduiding vervangt door de naam van de Event Hub die u in de vorige sectie hebt gemaakt, en de verbindingsreeks op naamruimteniveau die u eerder hebt opgeslagen.
+      ```csharp
+      using System.Threading;
+      using Microsoft.ServiceBus.Messaging;
+      ```
+2. Voeg de volgende velden toe aan de klasse **Program**, waarbij u de waarden van de tijdelijke aanduiding vervangt door de naam van de Event Hub die u in de vorige sectie hebt gemaakt, en de verbindingsreeks op naamruimteniveau die u eerder hebt opgeslagen.
    
-  ```csharp
-  static string eventHubName = "Your Event Hub name";
-  static string connectionString = "namespace connection string";
-  ```
-6. Voeg de volgende methode toe aan de klasse **Program**:
+        ```csharp
+        static string eventHubName = "Your Event Hub name";
+        static string connectionString = "namespace connection string";
+        ```
+3. Voeg de volgende methode toe aan de klasse **Program**:
    
-  ```csharp
-  static void SendingRandomMessages()
-  {
-      var eventHubClient = EventHubClient.CreateFromConnectionString(connectionString, eventHubName);
-      while (true)
+      ```csharp
+      static void SendingRandomMessages()
       {
-          try
+          var eventHubClient = EventHubClient.CreateFromConnectionString(connectionString, eventHubName);
+          while (true)
           {
-              var message = Guid.NewGuid().ToString();
-              Console.WriteLine("{0} > Sending message: {1}", DateTime.Now, message);
-              eventHubClient.Send(new EventData(Encoding.UTF8.GetBytes(message)));
+              try
+              {
+                  var message = Guid.NewGuid().ToString();
+                  Console.WriteLine("{0} > Sending message: {1}", DateTime.Now, message);
+                  eventHubClient.Send(new EventData(Encoding.UTF8.GetBytes(message)));
+              }
+              catch (Exception exception)
+              {
+                  Console.ForegroundColor = ConsoleColor.Red;
+                  Console.WriteLine("{0} > Exception: {1}", DateTime.Now, exception.Message);
+                  Console.ResetColor();
+              }
+       
+              Thread.Sleep(200);
           }
-          catch (Exception exception)
-          {
-              Console.ForegroundColor = ConsoleColor.Red;
-              Console.WriteLine("{0} > Exception: {1}", DateTime.Now, exception.Message);
-              Console.ResetColor();
-          }
-   
-          Thread.Sleep(200);
       }
-  }
-  ```
+      ```
    
-  Met deze methode worden er continu gebeurtenissen naar uw Event Hub verzonden, met een vertraging van 200 ms.
-7. Voeg tot slot de volgende regels toe aan de methode **Main**:
+      Met deze methode worden er continu gebeurtenissen naar uw Event Hub verzonden, met een vertraging van 200 ms.
+4. Voeg tot slot de volgende regels toe aan de methode **Main**:
    
-  ```csharp
-  Console.WriteLine("Press Ctrl-C to stop the sender process");
-  Console.WriteLine("Press Enter to start now");
-  Console.ReadLine();
-  SendingRandomMessages();
-  ```
-8. Voer het programma uit en controleer of er geen fouten zijn.
+      ```csharp
+      Console.WriteLine("Press Ctrl-C to stop the sender process");
+      Console.WriteLine("Press Enter to start now");
+      Console.ReadLine();
+      SendingRandomMessages();
+      ```
+5. Voer het programma uit en controleer of er geen fouten zijn.
   
 Gefeliciteerd. U hebt nu berichten verzonden naar een Event Hub.
 
 ## <a name="next-steps"></a>Volgende stappen
-
-Nu u een werkende toepassing hebt gebouwd die een Event Hub maakt en gegevens verzendt, kunt u naar de volgende scenario's gaan:
-
-* [Gebeurtenissen ontvangen met de gebeurtenisprocessorhost](event-hubs-dotnet-framework-getstarted-receive-eph.md)
-* [Documentatie over de gebeurtenisprocessorhost](/dotnet/api/microsoft.servicebus.messaging.eventprocessorhost)
-* [Event Hubs-overzicht](event-hubs-what-is-event-hubs.md)
+In deze snelstartgids hebt u berichten verzonden naar een event hub met behulp van .NET Framework. Zie voor meer informatie over gebeurtenissen ontvangen van een event hub met behulp van .NET Framework, [ontvangen van gebeurtenissen van event hub - .NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md).
 
 <!-- Images. -->
 [19]: ./media/event-hubs-csharp-ephcs-getstarted/create-eh-proj1.png

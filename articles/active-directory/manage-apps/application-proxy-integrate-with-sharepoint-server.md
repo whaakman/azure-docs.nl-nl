@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/06/2017
+ms.date: 10/19/2018
 ms.author: barbkess
-ms.reviewer: harshja
+ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: fcd02e264d5e85b1bef7e75d2a6375d6bf5e18c0
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: ad0ab8790c9d66dbba87d466e9661ef8cf33eef3
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39363946"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49456895"
 ---
 # <a name="enable-remote-access-to-sharepoint-with-azure-ad-application-proxy"></a>Externe toegang tot SharePoint met Azure AD-toepassingsproxy inschakelen
 
@@ -194,7 +194,7 @@ De laatste stap is om ervoor te zorgen dat SharePoint met de site op basis van d
 
 3. In de vervolgkeuzelijst naast **alternatieve toegang toewijzen verzameling**, selecteer **wijziging alternatieve toegang toewijzen verzameling**.
 4. Selecteer uw site--bijvoorbeeld **SharePoint - 80**.
-5. U kunt de gepubliceerde URL toevoegen als een interne URL of een openbare URL. Dit voorbeeld wordt een openbare URL als het extranet.
+5. U kunt de gepubliceerde URL toevoegen als een interne URL of een openbare URL. Dit voorbeeld wordt een openbare URL als het extranet. Als u een aangepaste poort-Zorg ervoor dat u uw aangepaste poort in de URL bevatten.
 6. Klik op **openbare URL's bewerken** in de **Extranet** pad, en voer vervolgens de externe URL die is gemaakt toen u de toepassing hebt gepubliceerd. Voer bijvoorbeeld **https://sharepoint-iddemo.msappproxy.net**.
 
   ![Het pad invoeren](./media/application-proxy-integrate-with-sharepoint-server/alternate-access3.png)

@@ -1,6 +1,6 @@
 ---
 title: 'Azure Functions F # referentie voor ontwikkelaars | Microsoft Docs'
-description: 'Lees hoe u voor het ontwikkelen van Azure Functions met F #.'
+description: 'Lees hoe u voor het ontwikkelen van Azure Functions met F #-script.'
 services: functions
 documentationcenter: fsharp
 author: sylvanc
@@ -10,18 +10,21 @@ ms.assetid: e60226e5-2630-41d7-9e5b-9f9e5acc8e50
 ms.service: azure-functions
 ms.devlang: fsharp
 ms.topic: reference
-ms.date: 09/09/2016
+ms.date: 10/09/2018
 ms.author: syclebsc
-ms.openlocfilehash: 5593f76511f43106d6743a158b051e118ef2a4a6
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 772b2dae016e093f2c3833374378c0e884dbe835
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46125252"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49456943"
 ---
 # <a name="azure-functions-f-developer-reference"></a>Naslaginformatie voor F #-ontwikkelaars van Azure Functions
 
-F # voor Azure Functions is een oplossing voor het eenvoudig uitvoeren van kleine stukjes code, ofwel 'functies' in de cloud. Gegevens worden overgebracht naar uw F #-functie via argumenten voor de functie. Argumentnamen zijn opgegeven in `function.json`, en er zijn vooraf gedefinieerde namen voor toegang tot items zoals de functie logger en annulering tokens.
+F # voor Azure Functions is een oplossing voor het eenvoudig uitvoeren van kleine stukjes code, ofwel 'functies' in de cloud. Gegevens worden overgebracht naar uw F #-functie via argumenten voor de functie. Argumentnamen zijn opgegeven in `function.json`, en er zijn vooraf gedefinieerde namen voor toegang tot items zoals de functie logger en annulering tokens. 
+
+>[!IMPORTANT]
+>F #-script (.fsx) wordt alleen ondersteund door [versie 1.x](functions-versions.md#creating-1x-apps) van de Azure Functions-runtime. Als u wilt het gebruik van F # met de runtime versie 2.x, moet u een vooraf gecompileerde F #-klassebibliotheekproject (.fs). Maken, beheren en publiceren van een F #-klassebibliotheekproject met Visual Studio, net als een [C#-klassebibliotheekproject](functions-dotnet-class-library.md). Zie voor meer informatie over de versies van functies, [overzicht van de versies van de Azure Functions runtime](functions-versions.md).
 
 In dit artikel wordt ervan uitgegaan dat u al hebt gelezen de [referentie voor ontwikkelaars van Azure Functions](functions-reference.md).
 

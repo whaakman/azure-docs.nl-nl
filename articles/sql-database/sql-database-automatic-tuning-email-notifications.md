@@ -12,18 +12,18 @@ ms.author: v-daljep
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: 1177703dc67e81e537d7682dcf9bbeb475748315
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: eaeb0d7f77b6d8ab6a3e12febba33c995a10ec3f
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353931"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49466541"
 ---
 # <a name="email-notifications-for-automatic-tuning"></a>E-mailmeldingen voor automatisch afstemmen
 
 SQL Database aanbevelingen voor afstemming worden gegenereerd door Azure SQL Database [automatisch afstemmen](sql-database-automatic-tuning.md). Deze oplossing wordt continu bewaakt en analyseert workloads van het leveren van de SQL-Databases aangepaste aanbevelingen voor elke afzonderlijke database met betrekking tot het maken van een index, index verwijderen en optimalisatie van de query-uitvoering plannen voor het afstemmen.
 
-SQL Database automatisch afstemmen aanbevelingen kunnen worden weergegeven in de [Azure-portal](sql-database-advisor-portal.md), met de opgehaalde [REST-API](https://docs.microsoft.com/rest/api/sql/databaserecommendedactions/databaserecommendedactions_listbydatabaseadvisor) aanroept, of met behulp van [T-SQL](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management/) en [ PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabaserecommendedaction) opdrachten. In dit artikel is gebaseerd op een PowerShell-script gebruiken om op te halen van de aanbevelingen voor automatische afstemming.
+SQL Database automatisch afstemmen aanbevelingen kunnen worden weergegeven in de [Azure-portal](sql-database-advisor-portal.md), met de opgehaalde [REST-API](https://docs.microsoft.com/rest/api/sql/databaserecommendedactions/listbydatabaseadvisor) aanroept, of met behulp van [T-SQL](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management/) en [ PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabaserecommendedaction) opdrachten. In dit artikel is gebaseerd op een PowerShell-script gebruiken om op te halen van de aanbevelingen voor automatische afstemming.
 
 ## <a name="automate-email-notifications-for-automatic-tuning-recommendations"></a>E-mailmeldingen voor aanbevelingen voor automatische afstemming automatiseren
 

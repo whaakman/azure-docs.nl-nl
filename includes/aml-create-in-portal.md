@@ -9,12 +9,12 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 09/24/2018
-ms.openlocfilehash: 99c31293168fd5ff3e6b95a70dc481e01e4ac8b4
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 0b95441fd2805308c601509f1afc477f72bde321
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49400156"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49476354"
 ---
 Aanmelden bij de [Azure-portal](https://portal.azure.com/) met behulp van de referenties voor het Azure-abonnement u gebruikt. Als u nog geen abonnement op Azure hebt, maak dan nu een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -39,7 +39,7 @@ In de **ML-werkruimte in service** in het deelvenster voor het configureren van 
    Veld|Beschrijving
    ---|---
    Naam van de werkruimte |Voer een unieke naam ter identificatie van uw werkruimte. Hier gebruiken we de docs-ws. Namen moeten uniek zijn in de resourcegroep. Gebruik een naam die gemakkelijk te trekken en onderscheiden van werkruimten die door anderen zijn gemaakt.  
-   Abonnement |Selecteer het Azure-abonnement dat u wilt gebruiken. Als u meer dan één abonnement hebt, selecteert u het abonnement dat wordt gebruikt voor facturering.
+   Abonnement |Selecteer het Azure-abonnement dat u wilt gebruiken.
    Resourcegroep | Een bestaande resourcegroep gebruiken in uw abonnement, of voer een naam in om een nieuwe resourcegroep te maken. Een resourcegroep is een container met gerelateerde resources voor een Azure-oplossing. Hier gebruiken we de docs-aml. 
    Locatie | Selecteer de locatie die het dichtst bij uw gebruikers en de gegevensresources. Deze locatie is waar de werkruimte is gemaakt.
 

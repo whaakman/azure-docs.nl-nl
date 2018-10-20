@@ -4,17 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Informatie over de verschillen tussen Bing Speech en de Spraakservice developer vanuit het oogpunt van en migratie van uw toepassing met de spraak-Service.
 services: cognitive-services
 author: wsturman
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: Speech
-ms.topic: article
+ms.component: speech-service
+ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: gracez
-ms.openlocfilehash: e72cf547ac911b22a03cae6032351c8c0f22de8e
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: baf9b9cd9b3f57c1d708dd404d59c036df6c169f
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48884846"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49466644"
 ---
 # <a name="migrate-from-bing-speech-to-the-speech-service"></a>Migreren van Bing Speech naar de Speech-Service
 
@@ -22,12 +23,12 @@ Gebruik dit artikel voor het migreren van uw toepassingen uit de Bing Speech-API
 
 In dit artikel bevat een overzicht van de verschillen tussen de Bing Speech-API's en de Speech-Service en stelt strategieën voor het migreren van uw toepassingen. Uw abonnementssleutel Bing Speech-API wordt niet geaccepteerd door de Spraakservice; u moet een nieuw Speech Service-abonnement.
 
-Een enkele Speech Service-abonnementssleutel verleent toegang tot de volgende functies. Elk wordt afzonderlijk gemeten, zodat u betaalt alleen voor de functies die u gebruikt.
+Een enkele abonnementssleutel voor de Speech-service verleent toegang tot de volgende functies. Elk wordt afzonderlijk gemeten, zodat u alleen betaalt voor de functies die u gebruikt.
 
-* [Spraak-naar-tekst](speech-to-text.md)
-* [Aangepaste spraak-naar-tekst](https://cris.ai)
+* [Spraak naar tekst](speech-to-text.md)
+* [Aangepaste spraak naar tekst ](https://cris.ai)
 * [Tekst naar spraak](text-to-speech.md)
-* [Aangepaste spraak stemmen](how-to-customize-voice-font.md)
+* [Aangepaste tekst naar spraak](how-to-customize-voice-font.md)
 * [Spraakomzetting](speech-translation.md) (bevat geen [tekstomzetting](../translator/translator-info-overview.md))
 
 De [spraak SDK](speech-sdk.md) is een functionele vervanging voor de Bing Speech-clientbibliotheken, maar een andere API gebruikt.
@@ -56,7 +57,7 @@ WebSockets-protocollen | : heavy_check_mark: | : heavy_check_mark: | Spraak-API 
 Service-naar-service API-aanroepen | : heavy_check_mark: | : heavy_minus_sign: | Opgegeven in de Bing Speech via de C# Service-bibliotheek. 
 Open-source SDK | : heavy_check_mark: | : heavy_minus_sign: |
 
-De spraak-Service maakt gebruik van een prijsmodel op basis van tijd (in plaats van een model op basis van een transactie). Zie [Spraakservice prijzen](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) voor meer informatie.
+De spraak-Service maakt gebruik van een prijsmodel op basis van tijd (in plaats van een model op basis van een transactie). Zie [Prijzen van de Speech-service](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) voor meer informatie.
 
 ## <a name="migration-strategies"></a>Migratiestrategieën
 

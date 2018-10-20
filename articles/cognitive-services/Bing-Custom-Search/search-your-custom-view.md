@@ -9,20 +9,20 @@ ms.service: cognitive-services
 ms.component: bing-custom-search
 ms.topic: conceptual
 ms.date: 09/28/2017
-ms.author: v-brapel
-ms.openlocfilehash: 235062c1b3e54843b5e64f4ef16091ae5d630894
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.author: maheshb
+ms.openlocfilehash: 15c5b3c58c4f3617111707ed82d031b67b6ad4c1
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48814352"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49465132"
 ---
 # <a name="call-your-custom-search"></a>Aanroepen van uw aangepaste zoekopdrachten
 
 Voordat u de eerste aanroep van de Custom Search-API om op te halen van zoekresultaten voor uw exemplaar, moet u een code van Cognitive Services-abonnement. Als u een sleutel voor Custom Search-API, Zie [Cognitive Services proberen](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search).
 
 
-## <a name="try-it-out"></a>Uitproberen
+## <a name="try-it-out"></a>Probeer het
 
 Nadat u uw aangepaste zoekervaring hebt geconfigureerd, kunt u de configuratie van binnen de portal zoeken in aangepaste testen. 
 

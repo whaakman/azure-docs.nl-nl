@@ -1,6 +1,6 @@
 ---
-title: Azure Cosmos DB tabel API voor Node.js | Microsoft Docs
-description: Meer informatie over de Azure Cosmos DB tabel API met inbegrip van release datums, buiten gebruik stellen datums en wijzigingen die zijn aangebracht tussen elke versie.
+title: Azure Cosmos DB Table-API voor Node.js | Microsoft Docs
+description: Meer informatie over de Azure Cosmos DB Table-API met inbegrip van release datums, buiten gebruik stellen datums en wijzigingen die zijn aangebracht tussen elke versie.
 services: cosmos-db
 author: yarong
 manager: kfile
@@ -12,16 +12,17 @@ ms.topic: reference
 ms.date: 11/20/2017
 ms.author: yaronyg
 ms.custom: ''
-ms.openlocfilehash: 6cb784ea774127f3dab0240a52e551b2c8b6e34e
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 4bdcb7c587ef05ced3c163136c52c81433a98cf4
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34797954"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49468701"
 ---
-# <a name="azure-cosmos-db-table-api-for-nodejs-release-notes-and-resources"></a>Azure Cosmos DB tabel API voor Node.js: releaseopmerkingen en resources
+# <a name="azure-cosmos-db-table-api-for-nodejs-release-notes-and-resources"></a>Azure Cosmos DB Table-API voor Node.js: releaseopmerkingen en resources
 > [!div class="op_single_selector"]
 > * [.NET](table-sdk-dotnet.md)
+> * [.NET Standard](table-sdk-dotnet-standard.md)
 > * [Java](table-sdk-java.md)
 > * [Node.js](table-sdk-nodejs.md)
 > * [Python](table-sdk-python.md)
@@ -30,7 +31,7 @@ ms.locfileid: "34797954"
 |   |   |
 |---|---|
 |**SDK downloaden**|[NPM](https://www.npmjs.com/package/azure-storage)|
-|**API-documentatie**|[Node.js-API-naslagdocumentatie](http://azure.github.io/azure-storage-node/)|
+|**API-documentatie**|[Node.js-API-referentiedocumentatie](http://azure.github.io/azure-storage-node/)|
 |**Bijdragen aan de SDK**|[GitHub](https://github.com/Azure/azure-storage-node#contribute)|
 
 > [!IMPORTANT]
@@ -40,12 +41,12 @@ ms.locfileid: "34797954"
 ## <a name="release-notes"></a>Releaseopmerkingen
 
 ### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
-* Algemene beschikbaarheid release
+* Versie met algemene beschikbaarheid
 
 ## <a name="release-and-retirement-dates"></a>Release-en buiten gebruik stellen
-Microsoft biedt melding ten minste **12 maanden** voordat het buiten gebruik stellen van een SDK om de overgang naar een nieuwere/ondersteunde versie vloeiend.
+Microsoft biedt melding ten minste **12 maanden** voorafgaand aan buiten gebruik stellen van een SDK soepel te verwerken de overgang naar een nieuwere/ondersteunde versie.
 
-Nieuwe functies en functionaliteit en optimalisaties alleen zijn toegevoegd aan de huidige SDK, als zodanig wordt aanbevolen dat u altijd een upgrade uitvoert naar de nieuwste SDK versie zo snel mogelijk. 
+Nieuwe functies en functionaliteit en -optimalisatie worden alleen toegevoegd aan de huidige SDK, daarom is het raadzaam dat u altijd een upgrade uitvoert naar de nieuwste SDK versie zo vroeg mogelijk. 
 
 | Versie | Releasedatum | Vervaldatum |
 | --- | --- | --- |
@@ -55,5 +56,5 @@ Nieuwe functies en functionaliteit en optimalisaties alleen zijn toegevoegd aan 
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
 ## <a name="see-also"></a>Zie ook
-Zie voor meer informatie over Cosmos DB, [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) pagina van de service. 
+Zie voor meer informatie over Cosmos DB, [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) servicepagina. 
 

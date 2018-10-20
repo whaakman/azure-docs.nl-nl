@@ -12,12 +12,12 @@ ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: 36269392db785e7d2d203f032a84cccc8a6c62e0
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 32b60a53581a0f372a7d994cfa260ebd7bcb27b2
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49352965"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49467038"
 ---
 # <a name="azure-sql-database-data-discovery-and-classification"></a>Azure SQL-databasegegevens detectie en classificatie
 
@@ -140,10 +140,10 @@ T-SQL kunt u kolomclassificaties toevoegen/verwijderen, evenals alle classificat
 
 U kunt ook REST-API's gebruiken voor het programmatisch beheren van classificaties. De gepubliceerde REST-API's ondersteunen de volgende bewerkingen:
 
-- [Maken of bijwerken](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/sensitivitylabels_createorupdate) - Hiermee maken of bijwerken van het gevoeligheidslabel van de van een bepaalde kolom
-- [Verwijder](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/sensitivitylabels_delete) -Hiermee verwijdert u de gevoeligheid, label van een bepaalde kolom
-- [Ophalen](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/sensitivitylabels_get) -haalt de gevoeligheid, label van een bepaalde kolom
-- [Lijst met door Database](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/sensitivitylabels_listbydatabase) -opgehaald van de gevoeligheidslabels van een bepaalde database
+- [Maken of bijwerken](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/createorupdate) - Hiermee maken of bijwerken van het gevoeligheidslabel van de van een bepaalde kolom
+- [Verwijder](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/delete) -Hiermee verwijdert u de gevoeligheid, label van een bepaalde kolom
+- [Ophalen](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/get) -haalt de gevoeligheid, label van een bepaalde kolom
+- [Lijst met door Database](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listbydatabase) -opgehaald van de gevoeligheidslabels van een bepaalde database
 
 ## <a id="subheading-5"></a>Volgende stappen
 

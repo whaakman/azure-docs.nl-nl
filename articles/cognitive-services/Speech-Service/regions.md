@@ -1,23 +1,25 @@
 ---
-title: Spraak-service-regio 's
-description: Verwijzing voor regio's van de spraak-service.
+title: Spraak-Service-regio 's
+titlesuffix: Azure Cognitive Services
+description: Verwijzing voor regio's van de Speech-Service.
 services: cognitive-services
 author: mahilleb-msft
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: speech
-ms.topic: article
+ms.component: speech-service
+ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: mahilleb
-ms.openlocfilehash: 01c76d80d6b2fd64165b126df01c391d7e18292f
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: a5fce6f9547a96da3ce482ce388e5ba2093f2af4
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48887544"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49468123"
 ---
-# <a name="regions-of-the-speech-service"></a>Regio's van de spraak-service
+# <a name="regions-of-the-speech-service"></a>Regio's van de Spraakservice
 
-De spraak-service is beschikbaar in verschillende regio's.
+De spraak-Service is beschikbaar in verschillende regio's.
 Wanneer u een abonnement maakt, kunt u een beschikbare regio op basis van uw behoeften.
 
 Wanneer u uw abonnement, moet u rekening voor de regio die u hebt geselecteerd.
@@ -29,7 +31,7 @@ Zie [REST-API's](rest-apis.md) voor meer informatie.
 
 ## <a name="speech-sdk"></a>Speech-SDK
 
-In de [spraak SDK](speech-sdk.md), regio's zijn opgegeven als een tekenreeks (bijvoorbeeld, als een parameter voor `SpeechConfig.FromSubscription` in de spraak-SDK voor C#).
+In de [Speech Service SDK](speech-sdk.md), regio's zijn opgegeven als een tekenreeks (bijvoorbeeld, als een parameter voor `SpeechConfig.FromSubscription` in de spraak-SDK voor C#).
 
 ### <a name="regions-for-speech-recognition-and-translation"></a>Regio's voor spraakherkenning en vertaling
 

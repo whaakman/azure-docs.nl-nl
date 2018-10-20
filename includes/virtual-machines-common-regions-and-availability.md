@@ -2,18 +2,18 @@
 title: bestand opnemen
 description: bestand opnemen
 services: virtual-machines
-author: iainfoulds
+author: zr-msft
 ms.service: virtual-machines
 ms.topic: include
 ms.date: 03/27/2018
-ms.author: iainfou
+ms.author: zarhoads
 ms.custom: include file
-ms.openlocfilehash: 7ab67e878e7cf08fe983ab172731209328b1a474
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 231dcee1a9b330b2f8721283c39c71002a75fcac
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47454439"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49476310"
 ---
 # <a name="regions-and-availability-for-virtual-machines-in-azure"></a>Regio's en beschikbaarheid voor virtuele machines in Azure
 Azure werkt vanuit diverse datacentra, op locaties overal wereld. Deze datacenters worden gegroepeerd in geografische regio's, waardoor u flexibiliteit heeft bij het kiezen waar u uw toepassingen ontwikkelt. Het is belangrijk om inzicht te hebben in hoe en waar uw virtuele machines (VM's) in Azure werken, evenals in wat uw mogelijkheden zijn om de prestaties, beschikbaarheid en redundantie te maximaliseren. Dit artikel biedt een overzicht van de mogelijkheden van Azure op het gebied van beschikbaarheid en redundantie.

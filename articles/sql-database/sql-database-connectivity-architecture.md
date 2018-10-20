@@ -1,34 +1,33 @@
 ---
 title: Azure SQL-Database connectivity-architectuur | Microsoft Docs
-description: Dit document wordt uitgelegd dat de Azure-SQLDB connectiviteitsarchitectuur uit in Azure of van buiten Azure.
+description: Dit document wordt uitgelegd dat de Azure SQL Database connectiviteitsarchitectuur uit in Azure of van buiten Azure.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: DhruvMsft
-ms.author: dhruv
+author: oslake
+ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/24/2018
-ms.openlocfilehash: 66f558db713ab951864fe694f27f2e60d52e875a
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 82bc76b47f8073e07163e7f827b900a59cf3ad7f
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47064127"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49470572"
 ---
-# <a name="azure-sql-database-connectivity-architecture"></a>Azure SQL Database Connectivity-architectuur 
+# <a name="azure-sql-database-connectivity-architecture"></a>Azure SQL Database Connectivity-architectuur
 
-Dit artikel worden de architectuur van Azure SQL Database-connectiviteit en wordt uitgelegd hoe de verschillende onderdelen functie voor het verkeer naar uw exemplaar van Azure SQL Database. Onderdelen functie van deze Azure SQL Database-verbinding om te leiden van netwerkverkeer naar de Azure-database met clients die verbinding maken vanuit Azure en met clients die verbinding maakt vanaf buiten Azure. Dit artikel bevat ook voorbeelden van scripts om te wijzigen hoe de verbinding plaatsvindt, evenals de overwegingen met betrekking tot het wijzigen van de standaardinstellingen van de verbinding. 
+Dit artikel worden de architectuur van Azure SQL Database-connectiviteit en wordt uitgelegd hoe de verschillende onderdelen functie voor het verkeer naar uw exemplaar van Azure SQL Database. Onderdelen functie van deze Azure SQL Database-verbinding om te leiden van netwerkverkeer naar de Azure-database met clients die verbinding maken vanuit Azure en met clients die verbinding maakt vanaf buiten Azure. Dit artikel bevat ook voorbeelden van scripts om te wijzigen hoe de verbinding plaatsvindt, evenals de overwegingen met betrekking tot het wijzigen van de standaardinstellingen van de verbinding.
 
 ## <a name="connectivity-architecture"></a>Connectiviteitsarchitectuur
 
 Het volgende diagram biedt een overzicht op hoog niveau van de architectuur van Azure SQL Database-connectiviteit.
 
 ![overzicht van netwerkarchitectuur](./media/sql-database-connectivity-architecture/architecture-overview.png)
-
 
 De volgende stappen wordt beschreven hoe een verbinding met een Azure SQL-database via de Azure SQL Database-software load balancer (SLB) en de gateway van Azure SQL Database tot stand is gebracht.
 
@@ -39,7 +38,6 @@ De volgende stappen wordt beschreven hoe een verbinding met een Azure SQL-databa
 
 > [!IMPORTANT]
 > Elk van deze onderdelen is denial-of-service (DDoS) beveiliging ingebouwde op het netwerk en de app-laag gedistribueerd.
->
 
 ## <a name="connectivity-from-within-azure"></a>Connectiviteit van in Azure
 
@@ -54,7 +52,9 @@ Als u verbinding vanaf buiten Azure maakt, uw verbindingen hebben een verbinding
 ![overzicht van netwerkarchitectuur](./media/sql-database-connectivity-architecture/connectivity-from-outside-azure.png)
 
 > [!IMPORTANT]
-> Wanneer u service-eindpunten met Azure SQL Database is het uw beleid **Proxy** standaard. Als u wilt inschakelen in uw VNet verbinding, moet u uitgaande verbindingen naar de Azure SQL Database-Gateway-IP-adressen die is opgegeven in de onderstaande lijst toestaan. Bij het gebruik van service-eindpunten is het raadzaam het verbindingsbeleid naar wijzigen **omleiden** voor betere prestaties. Als u het verbindingsbeleid naar wijzigt **omleiden** dient niet voldoende zijn voor uitgaand verkeer toestaan op uw NSG aan Azure-SQLDB-gateway IP-adressen die hieronder worden vermeld, moet u toestaan uitgaand naar alle Azure SQLDB IP-adressen. Dit kan worden bewerkstelligd met behulp van de servicetags NSG (Netwerkbeveiligingsgroepen). Zie voor meer informatie, [servicetags](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
+> Wanneer u service-eindpunten met Azure SQL Database is het uw beleid **Proxy** standaard. Als u wilt inschakelen in uw VNet verbinding, moet u uitgaande verbindingen naar de Azure SQL Database-Gateway-IP-adressen die is opgegeven in de onderstaande lijst toestaan.
+
+Bij het gebruik van service-eindpunten is het raadzaam het verbindingsbeleid naar wijzigen **omleiden** voor betere prestaties. Als u het verbindingsbeleid naar wijzigt **omleiden** dient niet voldoende zijn voor uitgaand verkeer toestaan op uw NSG naar Azure SQL Database-gateway IP-adressen die hieronder worden vermeld, moet u toestaan uitgaande voor alle Azure SQL Database-IP's. Dit kan worden bewerkstelligd met behulp van de servicetags NSG (Netwerkbeveiligingsgroepen). Zie voor meer informatie, [servicetags](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
 
 ## <a name="azure-sql-database-gateway-ip-addresses"></a>Azure SQL Database-gateway-IP-adressen
 
@@ -76,8 +76,8 @@ De volgende tabel geeft een lijst van de primaire en secundaire IP-adressen van 
 | Azië - oost | 191.234.2.139 | 52.175.33.150 |
 | VS-Oost 1 | 191.238.6.43 | 40.121.158.30 |
 | US - oost 2 | 191.239.224.107 | 40.79.84.180 * |
-| India - centraal | 104.211.96.159  | |
-| India - zuid | 104.211.224.146  | |
+| India - centraal | 104.211.96.159 | |
+| India - zuid | 104.211.224.146 | |
 | India - west | 104.211.160.80 | |
 | Japan - oost | 191.237.240.43 | 13.78.61.196 |
 | Japan - west | 191.238.68.11 | 104.214.148.156 |
@@ -90,11 +90,11 @@ De volgende tabel geeft een lijst van de primaire en secundaire IP-adressen van 
 | VK, noord | 13.87.97.210 | |
 | UK-Zuid 1 | 51.140.184.11 | |
 | VK, zuid 2 | 13.87.34.7 | |
-| Verenigd Koninkrijk West | 51.141.8.11  | |
+| Verenigd Koninkrijk West | 51.141.8.11 | |
 | US - west-centraal | 13.78.145.25 | |
 | Europa -west | 191.237.232.75 | 40.68.37.158 |
 | VS-West 1 | 23.99.34.75 | 104.42.238.205 |
-| US - west 2 | 13.66.226.202  | |
+| US - west 2 | 13.66.226.202 | |
 ||||
 
 \* **Opmerking:** *VS-Oost 2* heeft ook een tertiaire IP-adres van `52.167.104.0`.
@@ -170,10 +170,10 @@ Invoke-RestMethod -Uri "https://management.azure.com/subscriptions/$subscription
 
 > [!IMPORTANT]
 > Dit script moet de [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
->
 
 De volgende CLI-script laat zien hoe het verbindingsbeleid wijzigen.
 
+```azurecli-interactive
 <pre>
 # Get SQL Server ID
 sqlserverid=$(az sql server show -n <b>sql-server-name</b> -g <b>sql-server-group</b> --query 'id' -o tsv)
@@ -181,13 +181,14 @@ sqlserverid=$(az sql server show -n <b>sql-server-name</b> -g <b>sql-server-grou
 # Set URI
 id="$sqlserverid/connectionPolicies/Default"
 
-# Get current connection policy 
+# Get current connection policy
 az resource show --ids $id
 
-# Update connection policy 
+# Update connection policy
 az resource update --ids $id --set properties.connectionType=Proxy
 
 </pre>
+```
 
 ## <a name="next-steps"></a>Volgende stappen
 

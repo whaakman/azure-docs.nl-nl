@@ -3,7 +3,7 @@ title: Een toepassing implementeren in een schaalset voor virtuele Azure-machine
 description: Meer informatie over het implementeren van toepassingen voor Linux en Windows VM-exemplaren in een schaalset
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: cynthn
+author: zr-msft
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
-ms.author: cynthn
-ms.openlocfilehash: 86bb231a4eb9468ccc92c182b099714950b2a81c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.author: zarhoads
+ms.openlocfilehash: 22e035be27f16e7b73e545d75eb9cd108a919114
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46979433"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49471200"
 ---
 # <a name="deploy-your-application-on-virtual-machine-scale-sets"></a>Implementeer uw toepassing op virtuele-machineschaalsets
 Als u toepassingen wilt uitvoeren op de exemplaren van een virtuele machine (VM) in een schaalset, moet u eerst de toepassingsonderdelen en de vereiste bestanden installeren. Dit artikel bevat manieren voor het maken van een aangepaste VM-installatiekopie voor exemplaren in een schaalset instellen of installatiescripts op bestaande VM-exemplaren automatisch wordt uitgevoerd. U leert ook hoe u voor het beheren van toepassingen of updates van het besturingssysteem in een schaalset.

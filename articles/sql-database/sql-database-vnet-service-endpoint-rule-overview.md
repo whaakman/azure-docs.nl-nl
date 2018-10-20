@@ -7,17 +7,17 @@ ms.subservice: development
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: DhruvMsft
-ms.author: dmalik
+author: oslake
+ms.author: moslake
 ms.reviewer: vanto, genemi
 manager: craigg
 ms.date: 09/18/2018
-ms.openlocfilehash: 3cfff932834682471990236c9e96b499e20d33f1
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 2500d0c67eda5bb91eed8214c161fcce29907abb
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092555"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49466236"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database-and-sql-data-warehouse"></a>Gebruik Virtual Network-service-eindpunten en regels voor Azure SQL Database en SQL Data Warehouse
 
@@ -28,14 +28,9 @@ ms.locfileid: "49092555"
 
 Het maken van een regel voor virtuele netwerken, er moet eerst worden een [service-eindpunt voor virtueel netwerk] [ vm-virtual-network-service-endpoints-overview-649d] voor de regel om te verwijzen naar.
 
-#### <a name="how-to-create-a-virtual-network-rule"></a>Over het maken van een regel voor virtuele netwerken
+## <a name="how-to-create-a-virtual-network-rule"></a>Over het maken van een regel voor virtuele netwerken
 
 Als u alleen een regel voor virtuele netwerken maakt, kunt u verder naar de stappen en uitleg [verderop in dit artikel](#anchor-how-to-by-using-firewall-portal-59j).
-
-
-
-
-
 
 <a name="anch-terminology-and-description-82f" />
 
@@ -51,23 +46,17 @@ Als u alleen een regel voor virtuele netwerken maakt, kunt u verder naar de stap
 
 Een regel voor virtuele netwerken wordt aan uw SQL Database-server om communicatie van elk knooppunt dat zich op het subnet te accepteren.
 
-
-
-
-
-
-
 <a name="anch-benefits-of-a-vnet-rule-68b" />
 
 ## <a name="benefits-of-a-virtual-network-rule"></a>Voordelen van een regel voor virtuele netwerken
 
 Totdat u actie onderneemt, wordt de virtuele machines op de subnetten van het niet kunnen communiceren met uw SQL-Database. Een actie die de communicatie is het maken van een regel voor virtuele netwerken. De logica voor het kiezen van de aanpak van de VNet-regel wordt een vergelijken en contrast bespreking met betrekking tot de concurrerende beveiligingsopties die worden aangeboden door de firewall.
 
-#### <a name="a-allow-access-to-azure-services"></a>A. Toegang tot Azure-services toestaan
+### <a name="a-allow-access-to-azure-services"></a>A. Toegang tot Azure-services toestaan
 
 Het deelvenster firewall heeft een **aan/uit** knop die is aangeduid als **toegang tot Azure-services toestaan**. De **ON** instelling kan communicatie van alle Azure-IP-adressen en subnetten voor alle Azure. Deze Azure-IP-adressen of subnetten worden niet beheerd door u. Dit **ON** instelling is waarschijnlijk meer open dan u wilt dat uw SQL-Database te zijn. De functie van de regel virtueel netwerk maakt veel betere resultaten nauwkeurig beheer mogelijk.
 
-#### <a name="b-ip-rules"></a>B. IP-regels
+### <a name="b-ip-rules"></a>B. IP-regels
 
 De SQL Database-firewall kunt u IP-adresbereiken waaruit communicatie naar SQL Database worden geaccepteerd. Deze aanpak is prima voor stabiele IP-adressen die zich buiten het particuliere netwerk van Azure. Maar veel knooppunten in het particuliere netwerk van Azure zijn geconfigureerd met *dynamische* IP-adressen. Dynamische IP-adressen kunnen wijzigen, zoals wanneer uw virtuele machine opnieuw wordt opgestart. Het zou fraai om op te geven van een dynamisch IP-adres in een firewallregel in een productieomgeving zijn.
 
@@ -75,16 +64,11 @@ U kunt de IP-optie restwaarde door het verkrijgen van een *statische* IP-adres v
 
 Echter, de statische IP-aanpak kan het lastig om te beheren, en is kostbare wanneer u klaar bent op schaal. Virtual network-regels zijn gemakkelijker te maken en te beheren.
 
-#### <a name="c-cannot-yet-have-sql-database-on-a-subnet"></a>C. Kan niet nog SQL-Database op een subnet
+### <a name="c-cannot-yet-have-sql-database-on-a-subnet"></a>C. Kan niet nog SQL-Database op een subnet
 
 Als uw Azure SQL Database-server een knooppunt in een subnet van het virtuele netwerk is, worden alle knooppunten in het virtuele netwerk kunnen communiceren met uw SQL-Database. In dit geval kunnen uw virtuele machines communiceren met de SQL-Database zonder dat u hoeft geen virtueel netwerkregels of IP-regels.
 
 Vanaf September 2017, de Azure SQL Database-service is echter niet nog tussen de services die kunnen worden toegewezen aan een subnet.
-
-
-
-
-
 
 <a name="anch-details-about-vnet-rules-38q" />
 
@@ -92,19 +76,19 @@ Vanaf September 2017, de Azure SQL Database-service is echter niet nog tussen de
 
 Deze sectie beschrijft de verschillende details over virtual network-regels.
 
-#### <a name="only-one-geographic-region"></a>Slechts één geografische regio
+### <a name="only-one-geographic-region"></a>Slechts één geografische regio
 
 Alle service-eindpunten voor Virtueelnetwerk is van toepassing op slechts één Azure-regio. Het eindpunt is niet ingeschakeld voor andere regio's communicatie accepteert van het subnet.
 
 Een regel voor virtuele netwerken is beperkt tot de regio waarin het onderliggende eindpunt is van toepassing op.
 
-#### <a name="server-level-not-database-level"></a>Niveau van de server, niet op databaseniveau
+### <a name="server-level-not-database-level"></a>Niveau van de server, niet op databaseniveau
 
 Elke regel van het virtuele netwerk is van toepassing op uw hele Azure SQL Database-server, niet alleen op een bepaalde database op de server. Met andere woorden, virtueel netwerk-regel wordt toegepast op de server-niveau, niet op niveau van de database.
 
 - IP-regels kunnen daarentegen van toepassing op het niveau van een van beide.
 
-#### <a name="security-administration-roles"></a>Beveiligingsrollen voor beheer
+### <a name="security-administration-roles"></a>Beveiligingsrollen voor beheer
 
 Er is een scheiding van beveiligingsrollen in het beheer van service-eindpunten. Actie is vereist van elk van de volgende rollen:
 
@@ -135,18 +119,18 @@ De functie van de regels voor virtueel netwerk heeft voor Azure SQL Database, de
 - Virtual network-regels gelden alleen voor virtuele netwerken van Azure Resource Manager; en niet op [klassieke implementatiemodel] [ arm-deployment-model-568f] netwerken.
 
 - Inschakelen van service-eindpunten naar Azure SQL Database kunt ook de eindpunten voor de MySQL en PostgreSQL-Azure-services. Echter met eindpunten op verbinding maken tussen de eindpunten en uw MySQL- of PostgreSQL-instanties, mislukken pogingen tot.
-    - De onderliggende reden is dat MySQL en PostgreSQL momenteel geen ACLing ondersteunen.
-
+  - De onderliggende reden is dat MySQL en PostgreSQL momenteel geen ACLing ondersteunen.
 - Op de firewall, IP-adresbereiken zijn van toepassing op de volgende items voor netwerken, maar regels voor virtueel netwerk dat niet doen:
-    - [Site-naar-Site (S2S) virtueel particulier netwerk (VPN)][vpn-gateway-indexmd-608y]
-    - On-premises via [ExpressRoute][expressroute-indexmd-744v]
+  - [Site-naar-Site (S2S) virtueel particulier netwerk (VPN)][vpn-gateway-indexmd-608y]
+  - On-premises via [ExpressRoute][expressroute-indexmd-744v]
 
-#### <a name="considerations-when-using-service-endpoints"></a>Overwegingen bij het gebruik van Service-eindpunten
+### <a name="considerations-when-using-service-endpoints"></a>Overwegingen bij het gebruik van Service-eindpunten
+
 Wanneer u service-eindpunten voor Azure SQL Database, bekijk de volgende punten:
 
 - **Uitgaand naar Azure SQL Database openbare IP-adressen is vereist**: Netwerkbeveiligingsgroepen (nsg's) naar Azure SQL Database IPs waarmee verbinding moet worden geopend. U kunt dit doen met behulp van NSG [servicetags](../virtual-network/security-overview.md#service-tags) voor Azure SQL Database.
 
-#### <a name="expressroute"></a>ExpressRoute
+### <a name="expressroute"></a>ExpressRoute
 
 Als u [ExpressRoute](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) vanuit uw on-premises voor openbare peering of Microsoft-peering, moet u de NAT IP-adressen die worden gebruikt. Voor openbare peering gebruikt elk ExpressRoute-circuit standaard twee NAT IP-adressen. Deze worden toegepast op Azure-serviceverkeer wanneer het verkeer het Microsoft Azure-backbone-netwerk binnenkomt. Voor Microsoft-peering worden de NAT IP-adressen die worden gebruikt opgegeven door de klant of de serviceprovider. Voor toegang tot uw serviceresources moet u deze openbare IP-adressen toestaan in de instelling voor IP-firewall voor de resource. Wanneer u op zoek bent naar de IP-adressen van uw ExpressRoute-circuit, opent u [een ondersteuningsticket met ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) via de Azure Portal. Meer informatie over [NAT voor openbare peering en Microsoft-peering met ExpressRoute.](../expressroute/expressroute-nat.md?toc=%2fazure%2fvirtual-network%2ftoc.json#nat-requirements-for-azure-public-peering)
   
@@ -160,31 +144,37 @@ When searching for blogs about ASM, you probably need to use this old and now-fo
 ## <a name="impact-of-removing-allow-azure-services-to-access-server"></a>Gevolgen van het toestaan van Azure-services voor toegang tot server verwijderen
 
 Veel gebruikers wilt verwijderen **kunnen Azure-services tot server** van hun Azure SQL-Servers en vervang deze door een VNet-firewallregel.
-Echter verwijderen van dit van invloed op de volgende Azure-SQLDB-functies:
+Echter verwijderen van dit van invloed op de volgende functies van Azure SQL Database:
 
-#### <a name="import-export-service"></a>Import Export-Service
-Azure SQLDB Import Export-Service wordt uitgevoerd op virtuele machines in Azure. Deze VM's zijn niet in uw VNet en daarom een Azure-IP-adres ophalen bij het verbinden met uw database. Over het verwijderen van **kunnen Azure-services tot server** deze VM's niet mogelijk toegang tot uw databases.
+### <a name="import-export-service"></a>Import Export-Service
+
+Azure SQL-Database importeren exporteren Service wordt uitgevoerd op virtuele machines in Azure. Deze VM's zijn niet in uw VNet en daarom een Azure-IP-adres ophalen bij het verbinden met uw database. Over het verwijderen van **kunnen Azure-services tot server** deze VM's niet mogelijk toegang tot uw databases.
 U kunt het probleem omzeilen. Uitvoeren van het BACPAC-importeren of exporteren rechtstreeks in uw code met behulp van de DACFx-API. Zorg ervoor dat deze is geïmplementeerd in een virtuele machine die zich in de VNet-subnet waarvoor u de firewallregel hebt ingesteld.
 
-#### <a name="sql-database-query-editor"></a>SQL Database Query-Editor
+### <a name="sql-database-query-editor"></a>SQL Database Query-Editor
+
 De Azure SQL Database Query-Editor wordt geïmplementeerd op virtuele machines in Azure. Deze VM's zijn niet in uw VNet. Daarom wordt bij de virtuele machines een Azure IP-adres ophalen bij het verbinden met uw database. Over het verwijderen van **kunnen Azure-services tot server**, deze VM's niet mogelijk toegang tot uw databases.
 
-#### <a name="table-auditing"></a>Tabel controleren
+### <a name="table-auditing"></a>Tabel controleren
+
 Op dit moment zijn er twee manieren om te controleren voor uw SQL-Database inschakelen. Tabelcontrole niet lukt nadat u service-eindpunten op uw Azure SQL-Server hebt ingeschakeld. Risicobeperking hier is om te verplaatsen naar de controlefunctie voor blobs.
 
-#### <a name="impact-on-data-sync"></a>Gevolgen voor gegevenssynchronisatie
-Azure SQLDB heeft de gegevenssynchronisatie-functie die verbinding maakt met uw databases met behulp van Azure-IP-adressen. Wanneer u service-eindpunten gebruikt, is het waarschijnlijk dat u wordt uitgeschakeld **kunnen Azure-services tot server** toegang tot uw logische server. Hierdoor wordt de functie Data Sync.
+### <a name="impact-on-data-sync"></a>Gevolgen voor gegevenssynchronisatie
+
+Azure SQL-Database heeft de gegevenssynchronisatie-functie die verbinding maakt met uw databases met behulp van Azure-IP-adressen. Wanneer u service-eindpunten gebruikt, is het waarschijnlijk dat u wordt uitgeschakeld **kunnen Azure-services tot server** toegang tot uw logische server. Hierdoor wordt de functie Data Sync.
 
 ## <a name="impact-of-using-vnet-service-endpoints-with-azure-storage"></a>Gevolgen van het gebruik van VNet-Service-eindpunten met Azure storage
 
 Azure Storage is de dezelfde functie waarmee u verbinding met uw Storage-account beperken geïmplementeerd.
-Als u ervoor kiest deze functie wilt gebruiken met een opslagaccount dat wordt gebruikt door een Azure SQL-Server, kunt u problemen ondervindt. Vervolgens wordt een lijst met en een beschrijving van de Azure-SQLDB-functies die worden beïnvloed door dit.
+Als u ervoor kiest deze functie wilt gebruiken met een opslagaccount dat wordt gebruikt door een Azure SQL-Server, kunt u problemen ondervindt. Vervolgens wordt een lijst met en een beschrijving van de Azure SQL Database-functies die worden beïnvloed door dit.
 
-#### <a name="azure-sqldw-polybase"></a>Azure RESOURCEKLASSE PolyBase
-PolyBase wordt meestal gebruikt om gegevens te laden in Azure RESOURCEKLASSE van Storage-accounts. Als het opslagaccount dat u het laden van gegevens van alleen toegang tot een set van VNet-subnetten limieten, wordt verbinding hebben met PolyBase aan het Account verbroken. Er is een beperking voor deze en kunt u contact opnemen met Microsoft ondersteuning voor meer informatie.
+### <a name="azure-sql-data-warehouse-polybase"></a>Azure SQL datawarehouse PolyBase
 
-#### <a name="azure-sqldb-blob-auditing"></a>Azure SQLDB Blob Auditing
-Auditlogboeken controlefunctie voor BLOBs worden verstuurd naar uw eigen opslagaccount. Connectiviteit van Azure SQLDB naar het opslagaccount dat wordt verbroken als u dit storage-account maakt gebruik van de functie voor de VNet-Service-eindpunten.
+PolyBase wordt meestal gebruikt om gegevens te laden in Azure SQL Data Warehouse van Storage-accounts. Als het opslagaccount dat u het laden van gegevens van alleen toegang tot een set van VNet-subnetten limieten, wordt verbinding hebben met PolyBase aan het Account verbroken. Er is een beperking voor deze en kunt u contact opnemen met Microsoft ondersteuning voor meer informatie.
+
+### <a name="azure-sql-database-blob-auditing"></a>Controlefunctie voor Azure SQL Database
+
+Auditlogboeken controlefunctie voor BLOBs worden verstuurd naar uw eigen opslagaccount. Connectiviteit van Azure SQL Database naar het opslagaccount dat wordt verbroken als u dit storage-account maakt gebruik van de functie voor de VNet-Service-eindpunten.
 
 ## <a name="adding-a-vnet-firewall-rule-to-your-server-without-turning-on-vnet-service-endpoints"></a>Een VNet-firewallregel toevoegen aan uw server zonder in te schakelen op VNet-Service-eindpunten
 
@@ -194,12 +184,11 @@ Alleen instelling een firewallregel niet om de server beveiligen. U moet ook VNe
 
 U kunt instellen dat de **IgnoreMissingServiceEndpoint** vlag met behulp van PowerShell. Zie voor meer informatie, [PowerShell voor het maken van een service-eindpunt voor Virtueelnetwerk en een regel voor Azure SQL Database][sql-db-vnet-service-endpoint-rule-powershell-md-52d].
 
-
 ## <a name="errors-40914-and-40615"></a>Fouten 40914 en 40615
 
 Er is een verbindingsfout 40914 gekoppeld aan *virtuele netwerkregels*, zoals opgegeven in het deelvenster Firewall in Azure portal. Fout 40615 is vergelijkbaar, behalve deze zich tot verhoudt *IP-adresregels* op de Firewall.
 
-#### <a name="error-40914"></a>Fout 40914
+### <a name="error-40914"></a>Fout 40914
 
 *Berichttekst:* server kan niet worden geopend '*[servernaam]* is aangevraagd door de aanmelding. Client is niet toegestaan voor toegang tot de server.
 
@@ -207,7 +196,7 @@ Er is een verbindingsfout 40914 gekoppeld aan *virtuele netwerkregels*, zoals op
 
 *Fout bij het probleem zou moeten:* op de Firewall in de Azure portal, gebruik invloed hebben op de regels voor virtueel netwerk aan [een regel voor het virtuele netwerk toevoegen](#anchor-how-to-by-using-firewall-portal-59j) voor het subnet.
 
-#### <a name="error-40615"></a>Fout 40615
+### <a name="error-40615"></a>Fout 40615
 
 *Berichttekst:* server kan niet worden geopend '{0}' aangevraagd door de aanmelding. De client met IP-adres{1}' is niet toegestaan voor toegang tot de server.
 
@@ -215,12 +204,7 @@ Er is een verbindingsfout 40914 gekoppeld aan *virtuele netwerkregels*, zoals op
 
 *Fout bij het probleem zou moeten:* IP-adres van de client opgeven als een IP-regel. Dit doen met behulp van het deelvenster Firewall in Azure portal.
 
-
 Een lijst met foutberichten voor verschillende SQL-Database wordt gedocumenteerd [hier][sql-database-develop-error-messages-419g].
-
-
-
-
 
 <a name="anchor-how-to-by-using-firewall-portal-59j" />
 
@@ -233,17 +217,17 @@ Deze sectie wordt beschreven hoe u kunt de [Azure-portal] [ http-azure-portal-li
 >
 > Als service-eindpunten zijn niet ingeschakeld voor het subnet, de portal u wordt gevraagd in te schakelen. Klik op de **inschakelen** knop op de dezelfde blade waarop u de regel toevoegen.
 
-#### <a name="powershell-alternative"></a>Alternatieve van PowerShell
+## <a name="powershell-alternative"></a>Alternatieve van PowerShell
 
 Een PowerShell-script kunt ook regels voor virtueel netwerk maken. De essentiële cmdlet **New-azurermsqlservervirtualnetworkrule toegevoegd om**. Als u nodig hebt, Zie [PowerShell voor het maken van een service-eindpunt voor Virtueelnetwerk en een regel voor Azure SQL Database][sql-db-vnet-service-endpoint-rule-powershell-md-52d].
 
-#### <a name="rest-api-alternative"></a>Alternatieve REST-API
+## <a name="rest-api-alternative"></a>Alternatieve REST-API
 
 Intern maakt aanroept de PowerShell-cmdlets voor acties van de SQL-VNet REST API's. U kunt de REST API's rechtstreeks aanroepen.
 
 - [Regels voor virtueel netwerk: bewerkingen][rest-api-virtual-network-rules-operations-862r]
 
-#### <a name="prerequisites"></a>Vereisten
+## <a name="prerequisites"></a>Vereisten
 
 U moet al een subnet dat is gemarkeerd met het specifieke service-eindpunt voor Virtueelnetwerk hebben *typenaam* relevant zijn voor Azure SQL Database.
 
@@ -252,7 +236,7 @@ U moet al een subnet dat is gemarkeerd met het specifieke service-eindpunt voor 
 
 <a name="a-portal-steps-for-vnet-rule-200" />
 
-### <a name="azure-portal-steps"></a>Stappen voor Azure portal
+## <a name="azure-portal-steps"></a>Stappen voor Azure portal
 
 1. Meld u aan bij [Azure Portal][http-azure-portal-link-ref-477t].
 
@@ -277,10 +261,9 @@ U moet al een subnet dat is gemarkeerd met het specifieke service-eindpunt voor 
 
 6. Klik op de **OK** knop aan de onderkant van het deelvenster.
 
-7.  Zie de regel voor de resulterende virtuele netwerken in het deelvenster firewall.
+7. Zie de regel voor de resulterende virtuele netwerken in het deelvenster firewall.
 
     ![Zie de nieuwe regel in het deelvenster firewall.][image-portal-firewall-vnet-result-rule-30-png]
-
 
 > [!NOTE]
 > De volgende statussen of statussen van toepassing op de regels:
@@ -288,7 +271,6 @@ U moet al een subnet dat is gemarkeerd met het specifieke service-eindpunt voor 
 > - **Is mislukt:** geeft aan dat de bewerking die u hebt gestart is mislukt.
 > - **Verwijderd:** alleen van toepassing op de Delete-bewerking, en geeft aan dat de regel is verwijderd en niet langer van toepassing.
 > - **InProgress:** geeft aan dat de bewerking uitgevoerd wordt. De oude regel van toepassing is terwijl de bewerking in deze status is.
-
 
 <a name="anchor-how-to-links-60h" />
 
@@ -304,8 +286,6 @@ De functie van de regel virtueel netwerk voor Azure SQL Database is beschikbaar 
 - [PowerShell gebruiken voor het maken van een service-eindpunt voor virtueel netwerk en vervolgens een regel voor virtuele netwerken voor Azure SQL Database.][sql-db-vnet-service-endpoint-rule-powershell-md-52d]
 - [Regels voor virtueel netwerk: Bewerkingen] [ rest-api-virtual-network-rules-operations-862r] met REST-API's
 
-
-
 <!-- Link references, to images. -->
 
 [image-portal-firewall-vnet-add-existing-10-png]: media/sql-database-vnet-service-endpoint-rule-overview/portal-firewall-vnet-add-existing-10.png
@@ -313,8 +293,6 @@ De functie van de regel virtueel netwerk voor Azure SQL Database is beschikbaar 
 [image-portal-firewall-create-update-vnet-rule-20-png]: media/sql-database-vnet-service-endpoint-rule-overview/portal-firewall-create-update-vnet-rule-20.png
 
 [image-portal-firewall-vnet-result-rule-30-png]: media/sql-database-vnet-service-endpoint-rule-overview/portal-firewall-vnet-result-rule-30.png
-
-
 
 <!-- Link references, to text, Within this same Github repo. -->
 
@@ -338,15 +316,11 @@ De functie van de regel virtueel netwerk voor Azure SQL Database is beschikbaar 
 
 [vpn-gateway-indexmd-608y]: ../vpn-gateway/index.yml
 
-
-
 <!-- Link references, to text, Outside this Github repo (HTTP). -->
 
 [http-azure-portal-link-ref-477t]: https://portal.azure.com/
 
 [rest-api-virtual-network-rules-operations-862r]: https://docs.microsoft.com/rest/api/sql/virtualnetworkrules
-
-
 
 <!-- ??2
 #### Syntax related articles

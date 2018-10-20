@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 10/17/2018
-ms.openlocfilehash: 3b2359564020eeeb209a7eb78d81782a675f125d
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.date: 10/19/2018
+ms.openlocfilehash: 9dc993b6ba9b90dfa61660df004ef7dae8b93fa7
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49379284"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49470947"
 ---
 # <a name="azure-sql-database-purchasing-models"></a>Azure SQL Database aanschaffen van modellen
 
@@ -33,21 +33,21 @@ De volgende tabel en de grafiek vergelijken en deze twee aankopen modellen contr
 
 |**Aankopen model**|**Beschrijving**|**Het meest geschikt voor**|
 |---|---|---|
-|Model op basis van DTU|Dit model is gebaseerd op een gecombineerde meting van compute, opslag- en i/o-resources. COMPUTE-grootten worden uitgedrukt in termen van Database Transaction Units (dtu's) voor individuele databases en elastische Database Transaction Units (edtu's) voor elastische pools. Zie voor meer informatie over dtu's en Edtu's [wat zijn dtu's en edtu's](sql-database-service-tiers.md#dtu-based-purchasing-model)?|Bij beste voor klanten die eenvoudige, vooraf geconfigureerde opties willen.| 
+|Model op basis van DTU|Dit model is gebaseerd op een gecombineerde meting van compute, opslag- en i/o-resources. COMPUTE-grootten worden uitgedrukt in termen van Database Transaction Units (dtu's) voor individuele databases en elastische Database Transaction Units (edtu's) voor elastische pools. Zie voor meer informatie over dtu's en Edtu's [wat zijn dtu's en edtu's](sql-database-service-tiers.md#dtu-based-purchasing-model)?|Bij beste voor klanten die eenvoudige, vooraf geconfigureerde opties willen.|
 |Model op basis van vCore|Dit model kunt u reken- en opslagresources onafhankelijk van elkaar te kiezen. Ook kunt u Azure Hybrid Benefit voor SQL Server gebruiken om te krijgen van kosten te besparen.|Bij beste voor klanten die flexibiliteit, controle en transparantie waarde.|
 ||||  
 
 ![prijsmodel](./media/sql-database-service-tiers/pricing-model.png)
 
-## <a name="vcore-based-purchasing-model"></a>Op vCore gebaseerd aanschafmodel 
+## <a name="vcore-based-purchasing-model"></a>Op vCore gebaseerd aanschafmodel
 
 Een virtuele kern staat voor de logische CPU met een optie te kiezen tussen verschillende hardwaregeneraties en fysieke kenmerken van hardware (bijvoorbeeld aantal kernen, geheugen, opslagruimte). De vCore-aanschafmodel biedt de flexibiliteit, controle, transparantie van afzonderlijke resources en een eenvoudige manier te vertalen on-premises vereisten workloads naar de cloud. Dit model kunt u rekenkracht, geheugen en opslag op basis van hun behoeften workload kiezen. In het op vCore gebaseerde aankoopmodel, kunt u kiezen tussen [algemeen](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability) en [bedrijfskritiek](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability) Servicelagen voor zowel [enkelvoudige databases](sql-database-single-database-scale.md), [ beheerde exemplaren](sql-database-managed-instance.md), en [elastische pools](sql-database-elastic-pool.md). Voor individuele databases, u kunt ook de [grootschalige (preview)](sql-database-service-tier-hyperscale.md) servicelaag.
 
 Het op vCore gebaseerde aankoopmodel kunt u onafhankelijk reken- en opslagresources kiest, overeenkomt met de on-premises prestaties en optimaliseren van de prijs. In het op vCore gebaseerde aankoopmodel betalen klanten voor:
 
 - COMPUTE (servicelaag + aantal vCores en de hoeveelheid geheugen en de generatie van de hardware)
-- Type en de hoeveelheid opslag van gegevens en logboekbestanden 
-- Back-upopslag (RA-GRS) 
+- Type en de hoeveelheid opslag van gegevens en logboekbestanden
+- Back-upopslag (RA-GRS)
 
 > [!IMPORTANT]
 > Reken-, IOs-, gegevens en opslaan van Logboeken worden in rekening gebracht per database of elastische pool. Back-ups opslag wordt in rekening gebracht per elke database. Raadpleeg voor meer informatie van Managed Instance kosten [Azure SQL Database Managed Instance](sql-database-managed-instance.md).
@@ -75,9 +75,7 @@ Gebruiken om te krijgen van inzicht in het gebruik van resources (DTU) van uw we
 
 ### <a name="elastic-database-transaction-units-edtus"></a>Elastic Database Transaction Units (edtu's)
 
-Dan bieden een toegewezen set met resources (dtu's) die mogelijk niet altijd nodig zijn voor een SQL-Database die altijd beschikbaar is, kunt u in plaats van databases plaats een [elastische pool](sql-database-elastic-pool.md) op een SQL-Database-server die een groep resources tussen deelt Deze databases. De gedeelde bronnen in een elastische pool worden gemeten op basis van elastische Database Transaction Units of edtu's. Elastische pools bieden een eenvoudige en kosteneffectieve oplossing voor het beheren van de prestatiedoelen voor meerdere databases met breed uiteenlopende en onvoorspelbare gebruikspatronen. Een elastische pool garandeert resources kunnen niet worden gebruikt door een database in de pool, terwijl altijd ervoor te zorgen dat elke database in de pool een minimale hoeveelheid benodigde bronnen beschikbaar heeft. 
-
-![Inleiding tot SQL Database: eDTU's per laag en niveau](./media/sql-database-what-is-a-dtu/sqldb_elastic_pools.png)
+Dan bieden een toegewezen set met resources (dtu's) die mogelijk niet altijd nodig zijn voor een SQL-Database die altijd beschikbaar is, kunt u in plaats van databases plaats een [elastische pool](sql-database-elastic-pool.md) op een SQL-Database-server die een groep resources tussen deelt Deze databases. De gedeelde bronnen in een elastische pool worden gemeten op basis van elastische Database Transaction Units of edtu's. Elastische pools bieden een eenvoudige en kosteneffectieve oplossing voor het beheren van de prestatiedoelen voor meerdere databases met breed uiteenlopende en onvoorspelbare gebruikspatronen. Een elastische pool garandeert resources kunnen niet worden gebruikt door een database in de pool, terwijl altijd ervoor te zorgen dat elke database in de pool een minimale hoeveelheid benodigde bronnen beschikbaar heeft.
 
 Een pool krijgt een bepaald aantal edtu's voor een vaste prijs. Binnen de elastische pool hebben afzonderlijke databases de flexibiliteit om de schaal automatisch aan te passen binnen de geconfigureerde grenzen. Een database zwaarder belast verbruiken meer edtu's om te voldoen aan de vraag. Databases bij lichter belasting wordt minder edtu's verbruiken. Databases met geen belasting verbruiken geen edtu's. Door de inrichting van resources voor de hele pool, in plaats van per database, worden beheertaken vereenvoudigd, bieden een voorspelbaar budget voor de pool.
 

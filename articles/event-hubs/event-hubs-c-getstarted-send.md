@@ -12,31 +12,29 @@ ms.workload: na
 ms.tgt_pltfrm: c
 ms.devlang: csharp
 ms.topic: article
-ms.date: 08/16/2018
+ms.date: 10/16/2018
 ms.author: shvija
-ms.openlocfilehash: 262f274541f486f5457ef8eae6fd4f60fb34824e
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 32345b0f064aa78dbf1cbb84cb2309138e7bf4f7
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42060583"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49455382"
 ---
 # <a name="send-events-to-azure-event-hubs-using-c"></a>Gebeurtenissen verzenden naar Azure Event Hubs met c#
 
 ## <a name="introduction"></a>Inleiding
-Eventhubs is een zeer schaalbare opname-systeem dat kan miljoenen gebeurtenissen per seconde opnemen, zodat een toepassing te verwerken en analyseren van de enorme hoeveelheden gegevens die worden geproduceerd door uw verbonden apparaten en toepassingen. Zodra de verzameld in een event hub, kunt u deze kunt transformeren en opslaan van gegevens met behulp van een realtime analytics-provider of opslagcluster.
+Azure Event Hubs is een big data-platform voor het streamen van gegevens en een gebeurtenisopneemservice die miljoenen gebeurtenissen per seconde kan opnemen en verwerken. Event Hubs kan gebeurtenissen, gegevens of telemetrie die wordt geproduceerd door gedistribueerde software en apparaten verwerken en opslaan. Gegevens die naar een Event Hub worden verzonden, kunnen worden omgezet en opgeslagen via een provider voor realtime analytische gegevens of batchverwerking/opslagadapters. Zie voor een gedetailleerd overzicht van Event Hubs [overzicht van Event Hubs](event-hubs-about.md) en [functies van Event Hubs](event-hubs-features.md).
 
-Zie voor meer informatie de [Event Hubs-overzicht](https://docs.microsoft.com/azure/event-hubs/event-hubs-overview).
+In deze zelfstudie wordt beschreven hoe u voor het verzenden van gebeurtenissen naar een event hub met een consoletoepassing in c 
 
-In deze zelfstudie wordt beschreven hoe u voor het verzenden van gebeurtenissen naar een event hub met een consoletoepassing in c Voor meer informatie over het ontvangen van gebeurtenissen, klikt u op de juiste taal voor ontvangst in de linker inhoudsopgave.
-
+## <a name="prerequisites"></a>Vereisten
 Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 
 * Een C-ontwikkelomgeving. In deze zelfstudie wordt ervan uitgegaan dat de gcc-stack op een virtuele Azure Linux-machine met Ubuntu 14.04.
 * [Microsoft Visual Studio](https://www.visualstudio.com/).
-* Een actief Azure-account. Als u geen account hebt, kunt u binnen een paar minuten een gratis proefaccount maken. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/) voor meer informatie.
 
-## <a name="send-messages-to-event-hubs"></a>Berichten verzenden naar Event Hubs
+## <a name="write-code-to-send-messages-to-event-hubs"></a>Schrijf code om berichten te verzenden naar Event Hubs
 In deze sectie wordt beschreven hoe een App C voor het verzenden van gebeurtenissen naar uw event hub. De code wordt gebruikgemaakt van de bibliotheek Proton AMQP uit de [Apache Qpid project](http://qpid.apache.org/). Dit is vergelijkbaar met het gebruik van Service Bus-wachtrijen en onderwerpen met AMQP from C zoals [in dit voorbeeld](https://code.msdn.microsoft.com/Using-Apache-Qpid-Proton-C-afd76504). Zie voor meer informatie de [Qpid Proton documentatie](http://qpid.apache.org/proton/index.html).
 
 1. Uit de [Qpid AMQP Messenger pagina](https://qpid.apache.org/proton/messenger.html), volg de instructies voor het installeren van Qpid Proton, afhankelijk van uw omgeving.
@@ -150,12 +148,13 @@ In deze sectie wordt beschreven hoe een App C voor het verzenden van gebeurtenis
     > [!NOTE]
     > Deze code gebruikt een uitgaande 1-venster om af te dwingen de berichten uit zo snel mogelijk. Het verdient aanbeveling dat uw toepassing probeert te batchberichten om doorvoer te vergroten. Zie de [Qpid AMQP Messenger pagina](https://qpid.apache.org/proton/messenger.html) voor informatie over het gebruik van de bibliotheek Qpid Proton in deze en andere omgevingen, en vanaf het platform waarvoor bindingen zijn opgegeven (momenteel Perl, PHP, Python en Ruby).
 
+Voer de toepassing berichten te verzenden naar de event hub. 
+
+Gefeliciteerd! U hebt nu berichten verzonden naar een Event Hub.
 
 ## <a name="next-steps"></a>Volgende stappen
-U kunt meer informatie over Event Hubs vinden via de volgende koppelingen:
+Voor meer informatie over het ontvangen van gebeurtenissen uit de event hub, klikt u op de juiste taal voor ontvangst onder **gebeurtenissen ontvangen van een event hub** knooppunt in de inhoudsopgave.
 
-* [Event Hubs-overzicht](event-hubs-what-is-event-hubs.md)
-* [Veelgestelde vragen over Event Hubs](event-hubs-faq.md)
 
 <!-- Images. -->
 [21]: ./media/event-hubs-c-ephcs-getstarted/run-csharp-ephcs1.png

@@ -12,14 +12,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: AzurePortal
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/26/2018
+ms.date: 10/19/2018
 ms.author: tomfitz
-ms.openlocfilehash: 82a48c902b72b5aca546c45032a13e831533f9ee
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: b6386f4a23a0ca6d0134f8c4e298a3f7100cc1d6
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393465"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49466950"
 ---
 # <a name="use-tags-to-organize-your-azure-resources"></a>Tags gebruiken om uw Azure-resources te organiseren
 
@@ -264,13 +264,11 @@ De Azure portal en PowerShell gebruik van de [Resource Manager REST API](https:/
 
 ## <a name="tags-and-billing"></a>Tags en facturering
 
-U kunt tags gebruiken voor het groeperen van uw factureringsgegevens. Bijvoorbeeld als u meerdere VM's voor verschillende organisaties zijn uitgevoerd, gebruikt u de tags aan het gebruik van de groep door kostenplaats. U kunt ook tags gebruiken voor het categoriseren van kosten door de runtimeomgeving, zoals het gebruik van de facturering voor virtuele machines die worden uitgevoerd in de productie-omgeving.
+U kunt tags gebruiken voor het groeperen van uw factureringsgegevens. Bijvoorbeeld, als u meerdere VM's voor verschillende organisaties uitvoert, gebruikt u de tags aan het gebruik van de groep door kostenplaats. U kunt ook tags gebruiken voor het categoriseren van kosten door de runtimeomgeving, zoals het gebruik van de facturering voor virtuele machines die worden uitgevoerd in de productie-omgeving.
 
-U kunt informatie over tags via ophalen de [gebruik van Azure-resources en RateCard APIs](../billing/billing-usage-rate-card-overview.md) of het gebruik door komma's gescheiden waarden (CSV)-bestand. Downloaden van het gebruiksbestand van de [Azure accountportal](https://account.windowsazure.com/) of [EA-portal](https://ea.azure.com). Zie voor meer informatie over programmatische toegang tot factureringsgegevens [inzicht in het gebruik van de Microsoft Azure-resources](../billing/billing-usage-rate-card-overview.md). Zie voor REST API-bewerkingen, [Azure Billing REST API-verwijzing](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c).
+U kunt informatie over tags via ophalen de [gebruik van Azure-resources en RateCard APIs](../billing/billing-usage-rate-card-overview.md) of het gebruik door komma's gescheiden waarden (CSV)-bestand. Downloaden van het gebruiksbestand van de [Azure-Accountcentrum](https://account.azure.com/Subscriptions) of Azure-portal. Zie voor meer informatie, [downloaden of weergeven van uw Azure-factuur en de dagelijkse gebruiksgegevens](../billing/billing-download-azure-invoice-daily-usage-date.md). Bij het downloaden van het gebruiksbestand van het Azure-Accountcentrum, selecteer **versie 2**. Voor services die ondersteuning bieden voor tags met facturering, de labels worden weergegeven in de **Tags** kolom.
 
-Wanneer u het gebruik van CSV voor services die ondersteuning bieden voor tags met facturering downloadt, de labels worden weergegeven in de **Tags** kolom. Zie voor meer informatie, [meer informatie over uw factuur voor Microsoft Azure](../billing/billing-understand-your-bill.md).
-
-![Zie tags facturering](./media/resource-group-using-tags/billing_csv.png)
+Zie voor REST API-bewerkingen, [Azure Billing REST API-verwijzing](/rest/api/billing/).
 
 ## <a name="next-steps"></a>Volgende stappen
 

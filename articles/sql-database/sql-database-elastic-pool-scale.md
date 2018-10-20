@@ -12,12 +12,12 @@ ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: b659a7b49eadee59f2eee09320a35a0cf3fab225
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 707304e6901002a58fe24a4b3a88be3f82ad320e
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353065"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49469245"
 ---
 # <a name="scale-elastic-pool-resources-in-azure-sql-database"></a>Resources voor elastische pool schalen in Azure SQL Database
 
@@ -37,7 +37,7 @@ In dit artikel wordt beschreven hoe u de reken- en opslagresources die beschikba
 
 ## <a name="vcore-based-purchasing-model-change-elastic-pool-compute-resources-vcores"></a>op vCore gebaseerde aankoopmodel: rekenresources (vCores) voor de elastische pool wijzigen
 
-U kunt vergroten of verkleinen van de compute-grootte aan een elastische pool op basis van de resource moet met behulp van de [Azure-portal](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqlelasticpool), wordt de [Azure CLI](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update), of de [ REST-API](https://docs.microsoft.com/rest/api/sql/elasticpools/elasticpools_update).
+U kunt vergroten of verkleinen van de compute-grootte aan een elastische pool op basis van de resource moet met behulp van de [Azure-portal](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqlelasticpool), wordt de [Azure CLI](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update), of de [ REST-API](https://docs.microsoft.com/rest/api/sql/elasticpools/update).
 
 - Wanneer schaling aanpassen vCores in een elastische pool, databaseverbindingen kort verwijderd. Dit gedrag is hetzelfde gedrag die wordt uitgevoerd wanneer schaling dtu's aanpassen voor een individuele database. Zie voor meer informatie over de duur en de impact van verbroken verbindingen voor een database tijdens de bewerkingen voor opnieuw schalen, [wijziging compute-resources (dtu's)](sql-database-single-database-scale.md#dtu-based-purchasing-model-change-compute-resources-dtus).
 - De duur op de oorspronkelijke groep vCores kan afhankelijk van de totale hoeveelheid opslagruimte die wordt gebruikt door alle databases in de groep. In het algemeen de opnieuw schalen latentie gemiddelde 90 minuten of minder per 100 GB. Bijvoorbeeld, als de totale ruimte wordt gebruikt door alle databases in de groep is 200 GB en de verwachte latentie voor schaling aanpassen van de groep is 3 uur of minder. In sommige gevallen binnen de Standard- of Basic-laag mag de opnieuw schalen latentie van minder dan vijf minuten, ongeacht de hoeveelheid ruimte die wordt gebruikt.
@@ -47,7 +47,7 @@ U kunt vergroten of verkleinen van de compute-grootte aan een elastische pool op
 ## <a name="dtu-based-purchasing-model-change-elastic-pool-storage-size"></a>DTU gebaseerde aankoopmodel: opslaggrootte van de elastische pool wijzigen
 
 - De prijs eDTU voor een elastische pool is inclusief een bepaalde hoeveelheid opslagruimte zonder extra kosten. Extra opslagruimte bovenop de inbegrepen hoeveelheid worden ingezet er gelden aanvullende kosten tot de maximale grootte is bereikt in stappen van 250 GB tot 1 TB, en klik vervolgens in stappen van 256 GB dan 1 TB. Zie voor de hoeveelheid inbegrepen opslag en limieten voor de maximale berichtgrootte [elastische pool: opslaggrootte en compute-grootten](sql-database-dtu-resource-limits-elastic-pools.md#elastic-pool-storage-sizes-and-compute-sizes).
-- Extra opslag voor een elastische pool kan worden ingericht met de toename van het gebruik van de maximale grootte van de [Azure-portal](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqlelasticpool), wordt de [Azure CLI](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update), of de [REST-API ](https://docs.microsoft.com/rest/api/sql/elasticpools/elasticpools_update).
+- Extra opslag voor een elastische pool kan worden ingericht met de toename van het gebruik van de maximale grootte van de [Azure-portal](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqlelasticpool), wordt de [Azure CLI](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update), of de [REST-API ](https://docs.microsoft.com/rest/api/sql/elasticpools/update).
 - De prijs voor extra opslagruimte voor een elastische pool is de hoeveelheid extra opslagruimte vermenigvuldigd met de prijs voor extra opslagruimte per eenheid van de servicelaag. Zie voor meer informatie over de prijs van extra opslagruimte [prijzen van SQL Database](https://azure.microsoft.com/pricing/details/sql-database/).
 
 > [!IMPORTANT]
@@ -55,7 +55,7 @@ U kunt vergroten of verkleinen van de compute-grootte aan een elastische pool op
 
 ## <a name="dtu-based-purchasing-model-change-elastic-pool-compute-resources-edtus"></a>DTU gebaseerde aankoopmodel: rekenresources (edtu's) voor de elastische pool wijzigen
 
-U kunt vergroten of verkleinen van de beschikbare resources voor een elastische pool op basis van de resource moet met behulp van de [Azure-portal](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqlelasticpool), wordt de [Azure CLI](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update), of de [ REST-API](https://docs.microsoft.com/rest/api/sql/elasticpools/elasticpools_update).
+U kunt vergroten of verkleinen van de beschikbare resources voor een elastische pool op basis van de resource moet met behulp van de [Azure-portal](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqlelasticpool), wordt de [Azure CLI](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update), of de [ REST-API](https://docs.microsoft.com/rest/api/sql/elasticpools/update).
 
 - Wanneer schaling met het aanpassen van de edtu's, zijn kort databaseverbindingen verwijderd. Dit gedrag is hetzelfde gedrag die wordt uitgevoerd wanneer schaling dtu's aanpassen voor een individuele database. Zie voor meer informatie over de duur en de impact van verbroken verbindingen voor een database tijdens de bewerkingen voor opnieuw schalen, [wijziging compute-resources (dtu's)](sql-database-single-database-scale.md#dtu-based-purchasing-model-change-compute-resources-dtus).
 - De duur van oorspronkelijke Edtu kan afhankelijk van de totale hoeveelheid opslagruimte die wordt gebruikt door alle databases in de groep. In het algemeen de opnieuw schalen latentie gemiddelde 90 minuten of minder per 100 GB. Bijvoorbeeld, als de totale ruimte wordt gebruikt door alle databases in de groep is 200 GB en de verwachte latentie voor schaling aanpassen van de groep is 3 uur of minder. In sommige gevallen binnen de Standard- of Basic-laag mag de opnieuw schalen latentie van minder dan vijf minuten, ongeacht de hoeveelheid ruimte die wordt gebruikt.

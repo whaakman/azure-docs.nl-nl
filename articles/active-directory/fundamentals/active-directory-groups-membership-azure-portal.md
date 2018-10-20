@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals
 ms.topic: conceptual
-ms.date: 08/28/2018
+ms.date: 10/19/2018
 ms.author: lizross
 ms.custom: it-pro
 ms.reviewer: krbain
-ms.openlocfilehash: c28fe5ef226fac993fde221b16bfa875ba4845ca
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 09e023d1d562ea53d9927adf609335beac38a2d7
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45579765"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49468023"
 ---
 # <a name="how-to-add-or-remove-a-group-from-another-group-using-azure-active-directory"></a>Hoe: toevoegen of verwijderen van een groep uit een andere groep met behulp van Azure Active Directory
 In dit artikel helpt u bij het toevoegen en verwijderen van een groep van een andere groep met behulp van Azure Active Directory.
@@ -25,12 +25,15 @@ In dit artikel helpt u bij het toevoegen en verwijderen van een groep van een an
 >[!Note]
 >Als u probeert te verwijderen van de bovenliggende groep, Zie [bijwerken of verwijderen van een groep en de bijbehorende leden](active-directory-groups-delete-group.md).
 
-## <a name="add-a-group-as-a-member-to-another-group"></a>Een groep als een lid toevoegen aan een andere groep
-U kunt een bestaande groep toevoegen aan een andere bestaande groep, het maken van een lid van groep (subgroep) en een bovenliggende groep. De lid-groep neemt de kenmerken en eigenschappen van de bovenliggende groep, zodat u de configuratie.
+## <a name="add-a-group-to-another-group"></a>Een groep toevoegen aan een andere groep
+U kunt een bestaande beveiligingsgroep op een andere bestaande beveiligingsgroep (ook wel bekend als geneste groepen), het maken van een lid van groep (subgroep) en een bovenliggende groep toevoegen. De lid-groep neemt de kenmerken en eigenschappen van de bovenliggende groep, zodat u de configuratie.
 
-### <a name="to-add-a-group-as-a-member-to-another-group"></a>Een groep als een lid toevoegen aan een andere groep
+>[!Important]
+>Wordt momenteel niet ondersteund:<ul><li>Beveiligingsgroepen toevoegen aan Office 365-groepen</li><li>Office 365-groepen toe te voegen aan beveiligingsgroepen of andere Office 365-groepen</li><li>Apps toewijzen aan geneste groepen</li><li>Licenties toe te passen op geneste groepen</li></ul>
 
-1. Aanmelden bij de [Azure-portal](https://portal.azure.com) met behulp van een globale beheerdersaccount voor de map.
+### <a name="to-add-a-group-as-a-member-of-another-group"></a>Een groep toevoegen als een lid van een andere groep
+
+1. Meld u aan bij de [Azure Portal](https://portal.azure.com) met het account van een globale administrator voor de map.
 
 2. Selecteer **Azure Active Directory**, en selecteer vervolgens **groepen**.
 
@@ -55,8 +58,8 @@ U kunt een bestaande groep toevoegen aan een andere bestaande groep, het maken v
 
     ![Pagina van het lidmaatschap van zowel het lid en de Groepsdetails](media/active-directory-groups-membership-azure-portal/group-membership-review.png)
 
-## <a name="remove-a-member-group-from-another-group"></a>Een groep lid verwijderen uit een andere groep
-U kunt een bestaande groep voor lid verwijderen uit een andere groep. Echter, het lidmaatschap ook verwijdert alle overgenomen kenmerken en de eigenschappen voor uw gebruikers.
+## <a name="remove-a-group-from-another-group"></a>Een groep verwijderen uit een andere groep
+U kunt een bestaande beveiligingsgroep verwijderen uit een andere beveiligingsgroep. Echter, de groep ook verwijdert, alle overgenomen kenmerken en de eigenschappen voor de leden.
 
 ### <a name="to-remove-a-member-group-from-another-group"></a>Een lid van groep te verwijderen uit een andere groep
 1. Op de **groepen - alle groepen** pagina, zoek en selecteer de groep die moet worden verwijderd als een lid van een andere groep. Voor deze oefening opnieuw gebruiken we de **MDM-beleid - West** groep.
@@ -73,7 +76,7 @@ U kunt een bestaande groep voor lid verwijderen uit een andere groep. Echter, he
 ## <a name="additional-information"></a>Aanvullende informatie
 Deze artikelen bevatten aanvullende informatie over Azure Active Directory.
 
-- [Uw groepen en leden weergeven](active-directory-groups-view-azure-portal.md)
+- [Groepen en leden weergeven](active-directory-groups-view-azure-portal.md)
 
 - [Een basisgroep maken en leden toevoegen](active-directory-groups-create-azure-portal.md)
 
@@ -81,4 +84,6 @@ Deze artikelen bevatten aanvullende informatie over Azure Active Directory.
 
 - [Instellingen van uw groep bewerken](active-directory-groups-settings-azure-portal.md)
 
-- [Licenties toewijzen aan gebruikers per groep](../users-groups-roles/licensing-groups-assign.md)
+- [Toegang tot SaaS-toepassingen beheren met behulp van een groep](../users-groups-roles/groups-saasapps.md)
+
+- [Scenario's, beperkingen en bekende problemen met behulp van groepen beheren in Azure Active Directory-licentieverlening](../users-groups-roles/licensing-group-advanced.md#limitations-and-known-issues)

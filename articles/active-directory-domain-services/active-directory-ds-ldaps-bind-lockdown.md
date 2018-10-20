@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/01/2018
 ms.author: maheshu
-ms.openlocfilehash: 9728d42710ce44226363ea4954d83fcc3efbfb75
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: d3fbefd002f0b2774578d24cf2e3145a21a5e1f3
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39502949"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49456402"
 ---
 # <a name="bind-to-an-azure-ad-domain-services-managed-domain-using-secure-ldap-ldaps"></a>Verbinding maken met een Azure AD Domain Services beheerde domein met behulp van veilige LDAP (LDAPS)
 
@@ -38,8 +38,8 @@ Vervolgens verbinding maken met het beheerde domein. Klik op **verbinding** en k
 Selecteer **weergave**, en selecteer vervolgens **structuur** in het menu. De Base DN-veld leeg laat, en klik op OK. Navigeer naar de container die u wilt zoeken en selecteer zoeken met de rechtermuisknop op de container.
 
 > [!TIP]
-> - Gebruikers en groepen die zijn gesynchroniseerd van Azure AD worden opgeslagen in de **AADDC gebruikers** container. Het zoekpad voor deze container ziet eruit als ```CN=AADDC\ Users,DC=CONTOSO100,DC=COM```.
-> - Computeraccounts voor computers die zijn gekoppeld aan het beheerde domein worden opgeslagen in de **AADDC Computers** container. Het zoekpad voor deze container ziet eruit als ```CN=AADDC\ Computers,DC=CONTOSO100,DC=COM```.
+> - Gebruikers en groepen die zijn gesynchroniseerd van Azure AD worden opgeslagen in de **AADDC gebruikers** organisatie-eenheid. Het zoekpad voor deze organisatie-eenheid ziet eruit als ```OU=AADDC Users,DC=CONTOSO100,DC=COM```.
+> - Computeraccounts voor computers die zijn gekoppeld aan het beheerde domein worden opgeslagen in de **AADDC Computers** organisatie-eenheid. Het zoekpad voor deze organisatie-eenheid ziet eruit als ```OU=AADDC Computers,DC=CONTOSO100,DC=COM```.
 >
 >
 

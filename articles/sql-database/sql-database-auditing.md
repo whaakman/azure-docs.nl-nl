@@ -12,12 +12,12 @@ ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: b18f7efa09b33def2851967b5fc78bb1ddbc61e6
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 2a0bacaf0405a5223afedcd3897e2a1514f7128b
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49404916"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49466678"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Aan de slag met SQL Database Auditing
 
@@ -222,17 +222,17 @@ Zie voor een voorbeeldscript [controle en detectie van bedreigingen met behulp v
 
 **REST-API - controlefunctie voor blobs**:
 
-- [Maken of bijwerken van de Database Blob controlebeleid](https://docs.microsoft.com/rest/api/sql/database%20auditing%20settings/databaseblobauditingpolicies_createorupdate)
-- [Maken of bijwerken van de Server Blob controlebeleid](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/serverblobauditingpolicies_createorupdate)
-- [Database-Blob controlebeleid ophalen](https://docs.microsoft.com/rest/api/sql/database%20auditing%20settings/databaseblobauditingpolicies_get)
-- [Ophalen van Server Blob controlebeleid](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/serverblobauditingpolicies_get)
+- [Maken of bijwerken van de Database Blob controlebeleid](https://docs.microsoft.com/rest/api/sql/database%20auditing%20settings/createorupdate)
+- [Maken of bijwerken van de Server Blob controlebeleid](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/createorupdate)
+- [Database-Blob controlebeleid ophalen](https://docs.microsoft.com/rest/api/sql/database%20auditing%20settings/get)
+- [Ophalen van Server Blob controlebeleid](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/get)
 
 Uitgebreide beleid met waar component ondersteuning voor aanvullende filters:
 
-- [Maken of bijwerken van de Database *uitgebreid* controlebeleid voor Blob](https://docs.microsoft.com/rest/api/sql/database%20extended%20auditing%20settings/extendeddatabaseblobauditingpolicies_createorupdate)
-- [Maken of bijwerken van de Server *uitgebreid* controlebeleid voor Blob](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/serverblobauditingpolicies_createorupdate)
-- [Database ophalen *uitgebreid* controlebeleid voor Blob](https://docs.microsoft.com/rest/api/sql/database%20extended%20auditing%20settings/extendeddatabaseblobauditingpolicies_get)
-- [Ophalen van Server *uitgebreid* controlebeleid voor Blob](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/serverblobauditingpolicies_get)
+- [Maken of bijwerken van de Database *uitgebreid* controlebeleid voor Blob](https://docs.microsoft.com/rest/api/sql/database%20extended%20auditing%20settings/createorupdate)
+- [Maken of bijwerken van de Server *uitgebreid* controlebeleid voor Blob](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/createorupdate)
+- [Database ophalen *uitgebreid* controlebeleid voor Blob](https://docs.microsoft.com/rest/api/sql/database%20extended%20auditing%20settings/get)
+- [Ophalen van Server *uitgebreid* controlebeleid voor Blob](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/get)
 
 <!--Anchors-->
 [Azure SQL Database Auditing overview]: #subheading-1

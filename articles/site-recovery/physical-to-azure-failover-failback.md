@@ -5,14 +5,14 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 09/11/2018
+ms.date: 10/19/2018
 ms.author: raynew
-ms.openlocfilehash: 4036ab6e62f4738f4b2906eb7571dc5d0e972988
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 1a818d37efd370ce0b3e27bff73a153544763ebb
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391144"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49456623"
 ---
 # <a name="fail-over-and-fail-back-physical-servers-replicated-to-azure"></a>Failover en failback van fysieke servers gerepliceerd naar Azure
 
@@ -44,7 +44,7 @@ Controleer de servereigenschappen van de en zorg ervoor dat het voldoet aan [Azu
 
 1. Klik in **Instellingen** > **Gerepliceerde items** op de machine > **Failover**.
 2. Selecteer in **Failover** een **Herstelpunt** waarnaar u de failover wilt uitvoeren. U kunt een van de volgende opties gebruiken:
-   - **Meest recente**: deze optie eerst verwerkt de gegevens die zijn verzonden naar Site Recovery. Dit biedt het laagste RPO (Recovery Point Objective), omdat de na de failover gemaakte Azure-VM alle gegevens heeft die naar Site Recovery is gerepliceerd toen de failover werd geactiveerd.
+   - **Laatste**: met deze optie worden eerst alle gegevens naar Site Recovery verzonden gegevens verwerkt. Dit biedt het laagste RPO (Recovery Point Objective), omdat de na de failover gemaakte Azure-VM alle gegevens heeft die naar Site Recovery is gerepliceerd toen de failover werd geactiveerd.
    - **Laatst verwerkte**: deze optie wordt er via de machine naar de meest recente herstelpunt dat is verwerkt door Site Recovery. Deze optie heeft een lage RTO (Recovery Time Objective), omdat er geen tijd wordt besteed aan het verwerken van niet-verwerkte gegevens.
    - **Laatste toepassingsconsistente**: deze optie wordt er via de machine naar de meest recente app-consistente herstelpunt verwerkt door Site Recovery.
    - **Aangepast**: geef een herstelpunt op.
@@ -59,9 +59,9 @@ Controleer de servereigenschappen van de en zorg ervoor dat het voldoet aan [Azu
 
 ## <a name="prepare-to-connect-to-azure-vms-after-failover"></a>Voorbereiden op het verbinden met virtuele Azure-machines na een failover
 
-Als u verbinding maken met virtuele Azure-machines met behulp van RDP/SSH na een failover wilt, volgt u de vereisten die worden samengevat in de tabel [hier](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover).
+Als u na een failover verbinding wilt maken met virtuele Azure-machines met behulp van RDP/SSH, volgt u de procedure die [hier](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover) wordt beschreven.
 
-Volg de stappen [hier](site-recovery-failover-to-azure-troubleshoot.md) oplossen met connectiviteit problemen na een failover.
+Volg de stappen die [hier](site-recovery-failover-to-azure-troubleshoot.md) worden beschreven om eventuele verbindingsproblemen na een failover op te lossen.
 
 ## <a name="create-a-process-server-in-azure"></a>Een processerver maken in Azure
 
