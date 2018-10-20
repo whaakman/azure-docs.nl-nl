@@ -1,42 +1,42 @@
 ---
-title: "Snelstartgids: Verzenden zoekquery's met de Bing afbeeldingen zoeken-API en Java"
+title: 'Snelstart: Afbeeldingen zoeken met Java - Bing Afbeeldingen zoeken-API'
 titleSuffix: Azure Cognitive Services
-description: Gebruik deze Quick Start om te zoeken en -installatiekopieën zoeken op Internet met behulp van de Bing webzoekopdrachten-API.
+description: Gebruik deze snelstart om voor het eerst de Bing Afbeeldingen zoeken-API aan te roepen en een JSON-antwoord te ontvangen. Deze eenvoudige Java-toepassing stuurt een zoekquery naar de API en toont de onbewerkte resultaten.
 services: cognitive-services
 documentationcenter: ''
 author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-image-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 8/20/2018
 ms.author: aahi
-ms.openlocfilehash: 519667af255e3c1b39d336e7a399ba215803daa5
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
-ms.translationtype: MT
+ms.openlocfilehash: 5e002de273d50de9095c6e58b8e1a9fb9a05ed4f
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45577476"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46295339"
 ---
-# <a name="quickstart-send-search-queries-using-the-bing-image-search-rest-api-and-java"></a>Snelstartgids: Verzenden zoekquery's met behulp van de Bing afbeeldingen zoeken-REST-API en Java
+# <a name="quickstart-send-search-queries-using-the-bing-image-search-rest-api-and-java"></a>Snelstart: Zoekquery's verzenden met behulp van de Bing Afbeeldingen zoeken-REST API en Java
 
-Gebruik deze Quick Start voor het maken van de eerste aanroep van de Bing afbeeldingen zoeken-API en een JSON-antwoord ontvangen. Deze eenvoudige Java-toepassing een zoekquery verzendt naar de API en de onbewerkte resultaten worden weergegeven.
+Gebruik deze snelstart om voor het eerst de Bing Afbeeldingen zoeken-API aan te roepen en een JSON-antwoord te ontvangen. Deze eenvoudige Java-toepassing stuurt een zoekquery naar de API en toont de onbewerkte resultaten.
 
-Terwijl deze toepassing is geschreven in Java, de API is een RESTful-Web-compatibel is met de meeste moderne programmeertalen.
+Hoewel deze toepassing in Java is geschreven, is de API een RESTful-webservice die compatibel is met vrijwel elke programmeertaal.
 
-De broncode voor dit voorbeeld is beschikbaar [op GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingImageSearchv7Quickstart.java) met extra foutafhandeling en code-aantekeningen.
+De broncode voor dit voorbeeld is beschikbaar [op GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingImageSearchv7Quickstart.java) met extra foutafhandeling en codeaantekeningen.
 
 ## <a name="prerequisites"></a>Vereisten
 
-* De [Java Development Kit(JDK) 7 of 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) 
+* De [Java Development Kit(JDK) 7 of 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 
 * De [Gson-bibliotheek](https://github.com/google/gson)
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
-## <a name="create-and-initialize-a-project"></a>Maken en een project initialiseren
+## <a name="create-and-initialize-a-project"></a>Een project maken en initialiseren
 
-1. Maak een nieuwe Java-project in uw favoriete IDE of editor en importeer de volgende bibliotheken.
+1. Maak een nieuw Java-project in uw favoriete IDE of editor en importeer de volgende bibliotheken.
 
     ```java
     import java.net.*;
@@ -49,7 +49,7 @@ De broncode voor dit voorbeeld is beschikbaar [op GitHub](https://github.com/Azu
     import com.google.gson.JsonParser;
     ```
 
-2. Variabelen voor de API-eindpunt, uw abonnementssleutel maken en zoekterm.
+2. Maak variabelen voor het API-eindpunt, uw abonnementssleutel en zoekterm.
 
     ```java
     static String subscriptionKey = "enter key here";
@@ -58,9 +58,9 @@ De broncode voor dit voorbeeld is beschikbaar [op GitHub](https://github.com/Azu
     static String searchTerm = "tropical ocean";
     ```
 
-## <a name="construct-the-search-request-and-query"></a>De zoekopdracht en een query maken
+## <a name="construct-the-search-request-and-query"></a>De zoekopdracht en query compileren
 
-1. Gebruik de variabelen in de vorige stap om een URL zoeken voor de API-aanvraag. Houd er rekening mee dat de zoekterm URL gecodeerd moet voordat het wordt toegevoegd aan de aanvraag.
+1. Gebruik de variabelen uit de laatste stap om een zoek-URL voor de API-aanvraag te formatteren. Houd er rekening mee dat uw zoekterm URL-gecodeerd moet zijn voordat deze wordt toegevoegd aan de aanvraag.
 
     ```java
     // construct the search request URL (in the form of endpoint + query string)
@@ -69,9 +69,9 @@ De broncode voor dit voorbeeld is beschikbaar [op GitHub](https://github.com/Azu
     connection.setRequestProperty("Ocp-Apim-Subscription-Key", subscriptionKey);
     ```
 
-## <a name="receive-and-process-the-json-response"></a>Ontvangen en verwerken van het JSON-antwoord
+## <a name="receive-and-process-the-json-response"></a>Het JSON-antwoord ontvangen en verwerken
 
-1. De JSON-antwoord ontvangen van de Bing afbeeldingen zoeken-API, en bouw het resultaatobject.
+1. Ontvang het JSON-antwoord van de Bing Afbeeldingen zoeken-API, en bouw het resultaatobject.
 
     ```java
     // receive JSON body
@@ -80,7 +80,7 @@ De broncode voor dit voorbeeld is beschikbaar [op GitHub](https://github.com/Azu
     // construct result object for return
     SearchResults results = new SearchResults(new HashMap<String, String>(), response);
     ```
-2. De Bing-gerelateerde HTTP-headers te scheiden van de JSON-hoofdtekst
+2. De Bing-gerelateerde HTTP-headers scheiden van de JSON-hoofdtekst
     ```java
     // extract Bing-related HTTP headers
     Map<String, List<String>> headers = connection.getHeaderFields();
@@ -92,24 +92,24 @@ De broncode voor dit voorbeeld is beschikbaar [op GitHub](https://github.com/Azu
     }
     ```
 
-3. Sluit de stroom en parseren van het antwoord. Ophalen van het totale aantal geretourneerde zoekresultaten en de miniatuur url naar de eerste afbeelding-resultaat. 
+3. Sluit de stroom en parseer het antwoord. Haal het totale aantal geretourneerde zoekresultaten en de URL van de miniatuur op voor het eerste afbeeldingsresultaat.
 
     ```java
     stream.close();
     JsonParser parser = new JsonParser();
     JsonObject json = parser.parse(result.jsonResponse).getAsJsonObject();
-    //get the first image result from the JSON object, along with the total 
-    //number of images returned by the Bing Image Search API. 
+    //get the first image result from the JSON object, along with the total
+    //number of images returned by the Bing Image Search API.
     String total = json.get("totalEstimatedMatches").getAsString();
     JsonArray results = json.getAsJsonArray("value");
     JsonObject first_result = (JsonObject)results.get(0);
     String resultURL = first_result.get("thumbnailUrl").getAsString();
     ```
-4. Vergeet niet uw abonnementssleutel verwijderen uit de toepassingscode.
+4. Vergeet niet uw abonnementssleutel te verwijderen uit de toepassingscode.
 
 ## <a name="json-response"></a>JSON-antwoord
 
-Antwoorden van de Bing afbeeldingen zoeken-API worden geretourneerd als JSON. Dit voorbeeldantwoord is ingekort zodat één resultaat wordt weergegeven.
+Antwoorden die afkomstig zijn van de Bing Afbeeldingen zoeken-API, worden geretourneerd in de JSON-indeling. Dit voorbeeldantwoord is ingekort zodat één resultaat wordt weergegeven.
 
 ```json
 {
@@ -158,12 +158,12 @@ Antwoorden van de Bing afbeeldingen zoeken-API worden geretourneerd als JSON. Di
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Zelfstudie voor Bing afbeeldingen zoeken-app met één pagina](../tutorial-bing-image-search-single-page-app.md)
+> [Zelfstudie voor app met één pagina voor Bing Image Search](../tutorial-bing-image-search-single-page-app.md)
 
-## <a name="see-also"></a>Zie ook 
+## <a name="see-also"></a>Zie ook
 
-* [Wat is de Bing afbeeldingen zoeken?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
-* [Probeer een online interactieve demo](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
-* [Een gratis Cognitive Services-toegangssleutel ophalen](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
-* [Documentatie voor Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services)
-* [Bing afbeeldingen zoeken-API-verwijzing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)
+* [Wat is Bing Image Search?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
+* [Online interactieve demo proberen](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
+* [Gratis Cognitive Services-toegangssleutel ophalen](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
+* [Documentatie van Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services)
+* [Naslag voor Bing Afbeeldingen zoeken-API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)
