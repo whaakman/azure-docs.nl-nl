@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 09/20/2018
 ms.author: mtillman
-ms.openlocfilehash: 3be7c42b52f6af36451a79ea8592e983cc98f42b
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 864240e45a616aa8c2e7f2d6b65f5c7550f0e50e
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49354356"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49466406"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -106,14 +106,14 @@ ms.locfileid: "49354356"
                                                             <a href="authentication/concept-registration-mfa-sspr-converged.md">Geconvergeerde registratie voor MFA en SSPR</a>
                                                         </p>
                                                         <br><br>
-                                                        <h3><a href="b2b/index.yml">Business to business (B2B)</a></h3>
+                                                        <h3><a href="b2b/index.yml">Business-to-business (B2B)</a></h3>
                                                         <p>
                                                             <a href="b2b/b2b-quickstart-add-guest-users-portal.md">Gastgebruikers toevoegen in de portal</a><br>
                                                             <a href="b2b/b2b-tutorial-bulk-invite.md">Gastgebruikers bulksgewijs uitnodigen</a><br>
                                                             <a href="b2b/b2b-tutorial-require-mfa.md">MFA vereisen voor gastgebruikers</a>
                                                         </p>
                                                         <br><br>
-                                                        <h3><a href="/azure/active-directory-b2c/index">Business to consumer (B2C)</a></h3>
+                                                        <h3><a href="/azure/active-directory-b2c/index">Business-to-customer (B2C)</a></h3>
                                                         <p>
                                                             <a href="/azure/active-directory-b2c/tutorial-create-tenant">Een Azure AD B2C-tenant maken</a><br>
                                                             <a href="/azure/active-directory-b2c/active-directory-b2c-tutorials-web-app">Een web-app voor verificatie inschakelen</a><br>

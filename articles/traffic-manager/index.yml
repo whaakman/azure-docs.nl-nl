@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: d7f1c1d523bc9c9d717accf7667c8bd7402bbc72
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: ecfb8cff995d471a480226bc44164107b50eda84
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49388368"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49458017"
 documentType: LandingData
 title: Traffic Manager
 metadata:
@@ -19,7 +19,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 04/26/2018
+  ms.date: 10/15/2018
   ms.author: kumud
 abstract:
   description: Informatie over het gebruik van Azure Traffic Manager. Met behulp van snelstarts, zelfstudies, voorbeelden en meer wordt uitgelegd hoe u binnenkomend verkeer kunt beheren voor optimale toepassingsprestaties. Ook vindt u hier informatie over hoe u verkeer naar Azure of naar externe service-eindpunten kunt distribueren.
@@ -43,10 +43,11 @@ sections:
     style: unordered
     items:
     - html: <a href="/azure/traffic-manager/traffic-manager-configure-geographic-routing-method">Verkeer routeren op basis van de geografische locatie van het eindpunt</a>
-    - html: <a href="/azure/traffic-manager/traffic-manager-configure-performance-routing-method">Verkeer routeren voor lage latentie</a>
+    - html: <a href="/azure/traffic-manager/tutorial-traffic-manager-improve-website-response">Verkeer routeren voor lage latentie</a>
     - html: <a href="/azure/traffic-manager/traffic-manager-configure-weighted-routing-method">Verkeer naar een set eindpunten distribueren</a>
     - html: <a href="/azure/traffic-manager/traffic-manager-configure-priority-routing-method">Verkeer routeren naar een prioriteitseindpunt</a>
-    - html: <a href="/azure/traffic-manager/traffic-manager-configure-priority-routing-method">Verkeer routeren op basis van het subnet van de gebruiker</a>
+    - html: <a href="/azure/traffic-manager/tutorial-traffic-manager-weighted-endpoint-routing">Verkeer beheren met gewogen eindpunten</a>
+    - html: <a href="/azure/traffic-manager/tutorial-traffic-manager-subnet-routing">Verkeer routeren op basis van het subnet van de gebruiker</a>
 - title: Gratis Pluralsight-videotraining
   items:
   - type: list
