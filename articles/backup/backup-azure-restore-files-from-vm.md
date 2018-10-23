@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/22/2018
 ms.author: pullabhk
-ms.openlocfilehash: 1f3b81c31dc566e5e3011167eee00145f6791cb1
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: d38da87bae07dadb10894593dd41ded22f5f162d
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42616906"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49638304"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Bestanden herstellen vanuit back-up van virtuele Azure-machine
 
@@ -45,7 +45,7 @@ Als u bestanden of mappen herstellen vanaf het herstelpunt, gaat u naar de virtu
 
 4. Uit de **herstelpunt selecteren** vervolgkeuzelijst, selecteer het herstelpunt dat u de gewenste bestanden bevat. Het laatste herstelpunt is standaard al geselecteerd.
 
-5. Voor het downloaden van de software die wordt gebruikt om te kopiëren van bestanden vanaf het herstelpunt, klikt u op **uitvoerbaar bestand downloaden** (voor Windows Azure VM) of **downloadscript** (voor virtuele Azure Linux-machine).
+5. Voor het downloaden van de software die wordt gebruikt om te kopiëren van bestanden vanaf het herstelpunt, klikt u op **uitvoerbaar bestand downloaden** (voor Windows Azure VM) of **downloadscript** (voor virtuele Azure Linux-machine, een python-script is gegenereerd).
 
     ![Gegenereerd wachtwoord](./media/backup-azure-restore-files-from-vm/download-executable.png)
 

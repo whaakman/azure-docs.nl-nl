@@ -8,99 +8,52 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/06/2018
+ms.date: 10/18/2018
 ms.author: diberry
-ms.openlocfilehash: e3bd203c9ab1d6daaae04866cf195b3ca28c3078
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 2f7c724b14efd569a5993f9a9319c9004874bc43
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47041554"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49647592"
 ---
 # <a name="prebuilt-entities-to-recognize-common-data-types"></a>Vooraf gemaakte entiteiten voor het herkennen van veelvoorkomende gegevenstypen
 
-LUIS bevat een set met vooraf gemaakte entiteiten voor het herkennen van algemene typen gegevens, zoals datums, tijden, getallen, metingen en valuta. Ondersteuning voor vooraf gedefinieerde entiteit is afhankelijk van de cultuur van uw LUIS-app. Zie voor een volledige lijst van de vooraf gemaakte entiteiten die LUIS worden ondersteund, met inbegrip van ondersteuning door cultuur, de [verwijzing naar de vooraf gedefinieerde entiteit](./luis-reference-prebuilt-entities.md).
-
-> [!NOTE]
-> **Builtin.DateTime** is afgeschaft. Deze is vervangen door [ **builtin.datetimeV2**](luis-reference-prebuilt-datetimev2.md), waarmee u erkenning van datum en tijd bereiken, evenals verbeterde herkenning van niet-eenduidige datums en tijden.
+LUIS bevat een set met vooraf gemaakte entiteiten voor het herkennen van algemene typen gegevens, zoals datums, tijden, getallen, metingen en valuta. 
 
 ## <a name="add-a-prebuilt-entity"></a>Een vooraf gedefinieerde entiteit toevoegen
 
 1. Open uw app door te klikken op de naam ervan op **mijn Apps** pagina en klik vervolgens op **entiteiten** in aan de linkerkant. 
-2. Op de **entiteiten** pagina, klikt u op **vooraf gemaakte entiteiten beheren**.
 
-3. In **vooraf gemaakte entiteiten toevoegen** dialoogvenster vak, klikt u op de vooraf gedefinieerde entiteit die u wilt toevoegen (bijvoorbeeld 'datetimeV2'). Klik vervolgens op **Opslaan**.
+1. Op de **entiteiten** pagina, klikt u op **vooraf gemaakte entiteiten beheren**.
+
+1. In **vooraf gemaakte entiteiten toevoegen** dialoogvenster Selecteer de datetimeV2 vooraf gedefinieerde entiteit. 
 
     ![In het dialoogvenster van vooraf gedefinieerde entiteit toevoegen](./media/luis-use-prebuilt-entity/add-prebuilt-entity-dialog.png)
 
-## <a name="use-a-prebuilt-number-entity"></a>Een vooraf gedefinieerde numerieke entiteit gebruiken
-Wanneer een vooraf gedefinieerde entiteit is opgenomen in uw toepassing, wordt de voorspellingen zijn opgenomen in uw gepubliceerde toepassing. Het gedrag van vooraf gemaakte entiteiten is vooraf getrainde en **kan geen** worden gewijzigd. Volg deze stappen om te zien hoe een vooraf gedefinieerde entiteit werkt:
+1. Selecteer **Done**.
 
-1. Voeg een **getal** entiteit aan uw app, klikt u vervolgens [Train](luis-interactive-test.md) en [publiceren](luis-how-to-publish-app.md) de app.
-2. Klik op de eindpunt-URL in de **App publiceren** pagina de LUIS-eindpunt in een webbrowser geopend. 
-3. Een utterance toevoegen aan de URL die een numerieke expressie bevat. Bijvoorbeeld, u kunt typen `buy two plane ticktets`, en om te zien die LUIS identificeert `two` als een `builtin.number` entiteit, en identificeert `2` als de waarde in de `resolution` veld. De `resolution` veld helpt u bij het omzetten van getallen en datums in een canonieke vorm die is het eenvoudiger voor uw clienttoepassing te gebruiken. 
+## <a name="publish-the-app"></a>Publiceer de app
 
-    ![utterance in browser met een aantal entiteit](./media/luis-use-prebuilt-entity/browser-query.png)
+De eenvoudigste manier om de waarde van een vooraf gedefinieerde entiteit weer te geven is voor query van het gepubliceerde-eindpunt. 
 
-LUIS herkent op intelligente wijze nummers die zich niet in niet-standaard formulier. Probeer andere numerieke expressies in uw uitingen en Zie wat LUIS retourneert.
+1. Selecteer in de bovenste werkbalk **publiceren**. Publiceren naar **productie**. 
 
-Het volgende voorbeeld ziet een JSON-antwoord van LUIS, die de resolutie van de waarde van 24 uur per dag, voor de utterance "tientallen" bevat.
+1. Wanneer de melding groen geslaagd wordt weergegeven, selecteert u de **verwijzen naar de lijst met eindpunten** koppeling naar de eindpunten.
 
-```json
-{
-  "query": "order two dozen tickets for group travel",
-  "topScoringIntent": {
-    "intent": "BookFlight",
-    "score": 0.905443209
-  },
-  "entities": [
-    {
-      "entity": "two dozen",
-      "type": "builtin.number",
-      "startIndex": 6,
-      "endIndex": 14,
-      "resolution": {
-        "value": "24"
-      }
-    }
-  ]
-}
-```
-## <a name="use-a-prebuilt-datetimev2-entity"></a>Een vooraf gedefinieerde datetimeV2 entiteit gebruiken
-De **datetimeV2** vooraf gedefinieerde entiteit herkent datums, tijden, datumbereiken en tijdsduren. Volg deze stappen om te zien hoe de `datetimeV2` vooraf gedefinieerde entiteit werkt:
+1. Selecteer een eindpunt. Er wordt een nieuw browsertabblad geopend naar dit eindpunt. Houd het browsertabblad geopend en Ga door met de **Test** sectie.
 
-1. Voeg een **datetimeV2** entiteit aan uw app, klikt u vervolgens [Train](luis-interactive-test.md) en [publiceren](luis-how-to-publish-app.md) de app.
-2. Klik op de eindpunt-URL in de **App publiceren** pagina de LUIS-eindpunt in een webbrowser geopend. 
-3. Een utterance toevoegen aan de URL die een bepaalde periode bevat. Bijvoorbeeld, u kunt typen `book a flight tomorrow`, en om te zien die LUIS identificeert `tomorrow` als een `builtin.datetimeV2.date` entiteit, en identificeert de datum van morgen als de waarde in de `resolution` veld. 
+## <a name="test"></a>Testen
+Nadat de entiteit is toegevoegd, hoeft u niet met het trainen van de app. 
 
-Het volgende voorbeeld ziet wat de JSON-antwoord van LUIS eruitziet als de datum van vandaag en met 31 oktober 2017.
+Test de nieuwe doel op het eindpunt toegevoegd door een waarde voor de **q** parameter. Gebruik de volgende tabel voor voorgestelde uitingen voor **q**:
 
-```json
-{
-  "query": "book a flight tomorrow",
-  "topScoringIntent": {
-    "intent": "BookFlight",
-    "score": 0.9063408
-  },
-  "entities": [
-    {
-      "entity": "tomorrow",
-      "type": "builtin.datetimeV2.date",
-      "startIndex": 14,
-      "endIndex": 21,
-      "resolution": {
-        "values": [
-          {
-            "timex": "2017-11-01",
-            "type": "date",
-            "value": "2017-11-01"
-          }
-        ]
-      }
-    }
-  ]
-}
-```
+|Test utterance|Entiteitswaarde|
+|--|:--|
+|Boek een vlucht morgen|19-10-2018|
+|de afspraak op 3 maart annuleren|LUIS de meest recente 3 maart in het verleden geretourneerd (2018-03-03) en 3 maart in de toekomst (03-03-2019) omdat de utterance hebt opgegeven een jaar.|
+|Een vergadering om 10 uur plannen|10:00:00|
+
 
 ## <a name="next-steps"></a>Volgende stappen
 > [!div class="nextstepaction"]

@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: ganesr
-ms.openlocfilehash: 525d75264ecb54d42d920cacb0712397f4d8c3a8
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 35644912da2b75009ba2b16f4a188011ba1f813e
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43304354"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49650125"
 ---
 # <a name="expressroute-routing-requirements"></a>Routeringsvereisten voor ExpressRoute
 Als u ExpressRoute wilt gebruiken om verbinding te maken met Microsoft Cloud-services, moet u routering instellen en beheren. Sommige connectiviteitsproviders bieden het instellen en beheren van routering aan als een beheerde service. Neem contact op met uw connectiviteitsprovider om na te gaan of ze deze service leveren. Als dat niet het geval is, moet u voldoen aan de volgende vereisten:
@@ -211,7 +211,11 @@ Daarnaast worden voorvoegsels door Microsoft gemarkeerd op basis van de service 
 | SharePoint Online | 12076:5020 |
 | Skype voor Bedrijven Online | 12076:5030 |
 | Dynamics 365 | 12076:5040 |
+| Azure Global Services * | 12076:5050 |
 | Andere online services van Office 365 | 12076:5100 |
+
+***Azure Global Services bevat Azure DevOps**
+
 
 > [!NOTE]
 > BGP-communitywaarden die u instelt op de routes die worden geadverteerd naar Microsoft, worden niet door Microsoft erkend.

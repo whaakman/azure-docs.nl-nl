@@ -1,23 +1,23 @@
 ---
-title: 'Snelstart: Java voor de QnA Maker-API (v4)'
+title: REST-API (V4) - Java - QnA Maker
 titleSuffix: Azure Cognitive Services
-description: Verkrijg informatie en codevoorbeelden om u te helpen snel aan de slag te gaan met de Microsoft Translator Text-API in Microsoft Cognitive Services in Azure.
+description: REST-gebaseerde informatie en voorbeelden van code om u te helpen snel aan de slag met behulp van de Microsoft Translator Text-API in Microsoft Cognitive Services op Azure.
 services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
-ms.topic: quickstart
-ms.date: 09/12/2018
+ms.topic: article
+ms.date: 10/19/2018
 ms.author: diberry
-ms.openlocfilehash: 464860b94d0524cded48934e7684f5c78e595a7c
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
-ms.translationtype: HT
+ms.openlocfilehash: c92addcbb6a4071022474c5c157c498364ebf0f6
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389340"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49647932"
 ---
-# <a name="quickstart-for-microsoft-qna-maker-api-with-java"></a>Snelstart voor de Microsoft QnA Maker-API met Java 
+# <a name="qna-maker-rest-api-with-java"></a>QnA Maker REST-API met Java 
 <a name="HOLTop"></a>
 
 In dit artikel leest u hoe u de [Microsoft QnA Maker-API](../Overview/overview.md) met Java gebruikt om de volgende zaken te doen.

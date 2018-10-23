@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/05/2017
 ms.author: fryu
 ms.component: common
-ms.openlocfilehash: fea6ece6e40d869aea7e52718fbf07bede34e1a5
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: b9b6c67930e251302f397e199c65f949997a25cf
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406701"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49637954"
 ---
 # <a name="azure-storage-metrics-in-azure-monitor"></a>Metrische gegevens van Azure Storage in Azure Monitor
 
@@ -29,7 +29,7 @@ Metrische gegevens zijn standaard ingeschakeld en u hebt toegang tot gegevens va
 
 ### <a name="access-metrics-in-the-azure-portal"></a>Toegang tot metrische gegevens in Azure portal
 
-U kunt metrische gegevens controleren na verloop van tijd in de Azure-portal. Het volgende voorbeeld laat zien hoe om weer te geven **UsedCapacity** op accountniveau.
+U kunt metrische gegevens controleren na verloop van tijd in de Azure-portal. Het volgende voorbeeld laat zien hoe om weer te geven **transacties** op accountniveau.
 
 ![Schermafbeelding van de toegang tot metrische gegevens in Azure portal](./media/storage-metrics-in-azure-monitor/access-metrics-in-portal.png)
 

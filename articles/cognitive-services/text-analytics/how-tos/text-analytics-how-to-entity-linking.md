@@ -10,12 +10,12 @@ ms.component: text-analytics
 ms.topic: article
 ms.date: 10/01/2018
 ms.author: ashmaka
-ms.openlocfilehash: b2916e5c414562c55c35c9c5e7ab378963e004be
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 42e1704df315c754b2b506a0470d128b7666c280
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48248064"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49645794"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics-preview"></a>Herkenning van entiteit met de naam gebruiken in Text Analytics (Preview)
 
@@ -26,14 +26,14 @@ De [entiteit Recognition-API](https://westus.dev.cognitive.microsoft.com/docs/se
 De Text Analytics `entities` eindpunt supprts, beide met de naam van entiteit recognition (NER) en het koppelen van de entiteit.
 
 ### <a name="entity-linking"></a>Entiteiten koppelen
-Entiteiten koppelen is de mogelijkheid om te bepalen en dubbelzinnigheid van de identiteit van een entiteit in de tekst (bijvoorbeeld bepalen of de "Mars ' wordt gebruikt als de planeet of als de Roman overmacht van war) gevonden. Dit proces vereist de aanwezigheid van een knowledge base die herkend entiteiten zijn gekoppeld: Wikipedia wordt gebruikt als de knowledge base voor de `entities` eindpunt Text Analytics.
+Entiteiten koppelen, is de mogelijkheid om te bepalen en dubbelzinnigheid van de identiteit van een entiteit in de tekst (bijvoorbeeld, waarmee wordt bepaald of de "Mars ' wordt gebruikt als de planeet of als de Roman overmacht van war) gevonden. Dit proces vereist de aanwezigheid van een knowledge base die herkend entiteiten zijn gekoppeld: Wikipedia wordt gebruikt als de knowledge base voor de `entities` eindpunt Text Analytics.
 
-In de Text Analytics [versie 2.1-Preview](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634)alleen entiteiten koppelen is beschikbaar.
+In de Text Analytics [versie 2.0](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634)alleen entiteiten koppelen is beschikbaar.
 
 ### <a name="named-entity-recognition-ner"></a>Herkenning van benoemde entiteiten (NER)
 Met de naam van entiteit recognition is (NER) de mogelijkheid om te bepalen van de verschillende entiteiten in de tekst en verdeel ze in categorieën in de vooraf gedefinieerde klassen. De ondersteunde klassen van entiteiten worden hieronder vermeld.
 
-Text Analytics versie 2.1 Preview-versie (`https://[region].api.cognitive.microsoft.com/text/analytics/v2.1-preview/entities`), entiteiten koppelen en herkenning van benoemde entiteiten (NER) beschikbaar zijn.
+In de Text Analytics [versie 2.1-Preview](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634), entiteiten koppelen en herkenning van benoemde entiteiten (NER) beschikbaar zijn.
 
 ### <a name="language-support"></a>Taalondersteuning
 
@@ -56,7 +56,7 @@ Entiteiten koppelen in verschillende talen, moet met behulp van een betreffende 
 | Hoeveelheid      | Temperatuur   | "32 graden"    |
 | DateTime      | N.V.T.\*         | "6:30 PM 4 februari 2012"      | 
 | DateTime      | Date          | "Mei 2e 2017", "05/02/2017"   | 
-| Datum tijd     | Time          | "8 am", "8:00"  | 
+| Datum en tijd     | Time          | "8 am", "8:00"  | 
 | DateTime      | DateRange     | "Mei 2e op 5 mei"    | 
 | DateTime      | timeRange     | "18: 00 uur tot 19: 00"     | 
 | DateTime      | Duur      | '1 minuut en 45 seconden'   | 
@@ -70,11 +70,11 @@ Entiteiten koppelen in verschillende talen, moet met behulp van een betreffende 
 
 ## <a name="preparation"></a>Voorbereiding
 
-Moet u de JSON-documenten in deze indeling hebben:-id, tekst, taal
+U moet JSON-documenten in deze indeling hebben: id, tekst, taal
 
 Zie voor ondersteunde talen, [deze lijst](../text-analytics-supported-languages.md).
 
-De documentgrootte van het moet onder maximaal 5000 tekens per document, en u kunt maximaal 1000 hebben items (id's) per verzameling. De verzameling is in de hoofdtekst van de aanvraag ingediend. Het volgende voorbeeld wordt een afbeelding van inhoud die u naar de gekoppelde entiteit-end verzenden kan.
+De documentgrootte moet onder maximaal 5000 tekens per document zijn, en u kunt maximaal 1000 items (id's) per verzameling hebben. De verzameling is in de hoofdtekst van de aanvraag ingediend. Het volgende voorbeeld wordt een afbeelding van inhoud die u naar de gekoppelde entiteit-end verzenden kan.
 
 ```
 {"documents": [{"id": "1",
@@ -91,30 +91,30 @@ De documentgrootte van het moet onder maximaal 5000 tekens per document, en u ku
     
 ## <a name="step-1-structure-the-request"></a>Stap 1: Structuur van de aanvraag
 
-Meer informatie over de definitie van de aanvraag kunnen u vinden in [over het aanroepen van de Tekstanalyse-API](text-analytics-how-to-call-api.md). De volgende punten worden aangepast om u te helpen:
+Meer informatie over de definitie van de aanvraag kunt u vinden in [De Text Analytics-API aanroepen](text-analytics-how-to-call-api.md). De volgende punten zijn voor uw gemak opnieuw geformuleerd:
 
-+ Maak een **POST** aanvraag. Controleer de API-documentatie voor deze aanvraag: [Entity Linking-API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634)
++ Maak een **POST**-aanvraag. Controleer de API-documentatie voor deze aanvraag: [Entity Linking-API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634)
 
-+ Stel de HTTP-eindpunt voor de extractie van cruciale frasen. Het omvat de `/entities` resource: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1-preview/entities`
++ Stel het HTTP-eindpunt in voor sleuteltermextractie. Deze moet de `/entities`-resource: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1-preview/entities` bevatten
 
-+ Stel een aanvraagheader om op te nemen van de toegangssleutel voor de Text Analytics-bewerkingen. Zie voor meer informatie, [over het zoeken van eindpunten en toegangssleutels](text-analytics-how-to-access-key.md).
++ Stel een aanvraagheader in om de toegangssleutel voor de Text Analytics-bewerkingen op te nemen. Zie voor meer informatie [Eindpunten en toegangssleutels zoeken](text-analytics-how-to-access-key.md).
 
-+ In de hoofdtekst van de aanvraag, bieden de JSON-documenten-verzameling die u hebt voorbereid voor deze analyse
++ Verstrek in de hoofdtekst van de aanvraag de JSON-documentenverzameling die u hebt voorbereid voor deze analyse
 
 > [!Tip]
-> Gebruik [Postman](text-analytics-how-to-call-api.md) of open de **API testconsole** in de [documentatie](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634) structureren van een aanvraag en PLAATST deze in de service.
+> Gebruik [Postman](text-analytics-how-to-call-api.md) of open de **API-testconsole** in de [documentatie](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634) om de aanvraag te structureren en POST deze in de service.
 
-## <a name="step-2-post-the-request"></a>Stap 2: De aanvraag plaatsen
+## <a name="step-2-post-the-request"></a>Stap 2: De aanvraag posten
 
 Analyse wordt uitgevoerd na ontvangst van de aanvraag. De service accepteert maximaal 100 aanvragen per minuut. Elke aanvraag kan maximaal 1 MB zijn.
 
-Intrekken dat de service staatloos is. Er zijn geen gegevens worden opgeslagen in uw account. Resultaten worden onmiddellijk in het antwoord geretourneerd.
+Terughalen als de service staatloos is. Er worden geen gegevens opgeslagen in uw account. Resultaten worden onmiddellijk in het antwoord geretourneerd.
 
 ## <a name="step-3-view-results"></a>Stap 3: Resultaten weergeven
 
-Alle POST-verzoeken retourneert een JSON-antwoord met de id's ingedeeld en eigenschappen gedetecteerd.
+Alle POST-verzoeken retourneren een ingedeeld JSON-antwoord met de id's en gedetecteerde eigenschappen.
 
-Uitvoer wordt onmiddellijk geretourneerd. U kunt de resultaten naar een toepassing die JSON accepteert streamen of sla de uitvoer naar een bestand op het lokale systeem en vervolgens importeren in een toepassing waarmee u kunt sorteren, zoeken en de gegevens te manipuleren.
+Uitvoer wordt onmiddellijk geretourneerd. U kunt de resultaten streamen naar een toepassing die JSON accepteert of u kunt de uitvoer opslaan als lokaal bestand en vervolgens importeren in een toepassing waarmee u kunt sorteren, zoeken en de gegevens kunt manipuleren.
 
 Een voorbeeld van de uitvoer voor entiteiten koppelen wordt volgende weergegeven:
 
@@ -277,11 +277,11 @@ Een voorbeeld van de uitvoer voor entiteiten koppelen wordt volgende weergegeven
 
 ## <a name="summary"></a>Samenvatting
 
-In dit artikel hebt u geleerd werkstroom voor entiteiten koppelen met behulp van de Text Analytics in Cognitive Services en concepten. Kortom:
+In dit artikel hebt u geleerd werkstroom voor entiteiten koppelen met behulp van de Text Analytics in Cognitive Services en concepten. Samenvatting:
 
 + [Entiteiten API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634) is beschikbaar voor de geselecteerde talen.
-+ JSON-documenten in de aanvraagtekst omvatten een code-id, tekst en taal.
-+ POST-aanvraag is een `/entities` eindpunt, met behulp van een persoonlijk [toegang krijgen tot de sleutel en een eindpunt](text-analytics-how-to-access-key.md) die geldig is voor uw abonnement.
++ JSON-documenten in de aanvraagbody omvatten een id, tekst en taalcode.
++ POST-aanvraag is een `/entities`-eindpunt die een persoonlijke [toegangssleutel en een eindpunt](text-analytics-how-to-access-key.md) gebruikt die geldig zijn voor uw abonnement.
 + Antwoorduitvoer, die uit de gekoppelde entiteiten bestaat (met inbegrip van vertrouwen scores verschuivingen en webkoppelingen, voor elk document-ID) kan worden gebruikt in een toepassing
 
 ## <a name="see-also"></a>Zie ook 
@@ -293,4 +293,4 @@ In dit artikel hebt u geleerd werkstroom voor entiteiten koppelen met behulp van
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Tekstanalyse-API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634)
+> [Text Analytics-API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634)

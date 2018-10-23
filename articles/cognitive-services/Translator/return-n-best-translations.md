@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: v-jansko
-ms.openlocfilehash: e1d310cecb41de00c1d3e3986fe715d1519ceeff
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: a0f4e4dd5cea9c3ea7b682e6372d2ffa8726e6ef
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46123450"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49646470"
 ---
 # <a name="how-to-return-n-best-translations"></a>Hoe N-beste vertalingen worden geretourneerd
 
@@ -37,7 +37,7 @@ De handtekening is:
 
 | Parameter | Beschrijving |
 |:---|:---|
-| toepassings-id | **Vereiste** als de autorisatie-header wordt gebruikt, laat het veld appid leeg anders geeft u een tekenreeks met "Bearer" + "" + toegangstoken.|
+| appId | **Vereiste** als de autorisatie-header wordt gebruikt, laat het veld appid leeg anders geeft u een tekenreeks met "Bearer" + "" + toegangstoken.|
 | tekst | **Vereiste** een tekenreeks voor de tekst te vertalen. De grootte van de tekst mag niet groter zijn dan 10000 tekens.|
 | uit | **Vereiste** een tekenreeks voor de taalcode van de tekst te vertalen. |
 | tot | **Vereiste** een tekenreeks voor de taalcode voor de omzetting van de tekst in. |

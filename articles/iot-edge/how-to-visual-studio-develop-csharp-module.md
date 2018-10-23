@@ -9,12 +9,12 @@ ms.author: xshi
 ms.date: 09/24/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 768ff899ca2c71cb32fe29bdd5d58654d8f7d431
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: ab4dd1186715fde51fbf188ace902c8092d192d0
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394745"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49647184"
 ---
 # <a name="use-visual-studio-2017-to-develop-and-debug-c-modules-for-azure-iot-edge-preview"></a>Visual Studio 2017 gebruiken om te ontwikkelen en fouten opsporen in C#-modules voor Azure IoT Edge (Preview)
 
@@ -36,7 +36,7 @@ Omdat in dit artikel wordt Visual Studio 2017 als de belangrijkste ontwikkeltool
 
 Nadat uw Visual Studio 2017 klaar is, moet u ook:
 
-- Download en installeer [Azure IoT Edge-extensie](https://marketplace.visualstudio.com/items?itemName=vsc-iot.azureiotedgetools) van Visual Studio marketplace om IoT Edge-project in Visual Studio 2017.
+- Download en installeer [Azure IoT Edge-extensie](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) van Visual Studio marketplace om IoT Edge-project in Visual Studio 2017.
 - [Docker Community Edition](https://docs.docker.com/install/) op uw ontwikkelmachine wilt bouwen en uitvoeren van uw module-installatiekopieën. U moet de Docker CE in Linux-container of Windows-container modus uitgevoerd correct ingesteld.
 - Als u lokale ontwikkelomgeving, zodat fouten opsporen, uitvoeren en testen van uw IoT Edge-oplossing instelt, moet u [Azure IoT EdgeHub ontwikkeltool](https://pypi.org/project/iotedgehubdev/). Installeer [Python (2.7/3.6) en Pip](https://www.python.org/). Installeer vervolgens **iotedgehubdev** onderstaande opdracht in de terminal service wordt uitgevoerd. Zorg ervoor dat uw versie van het Azure IoT EdgeHub Dev hulpprogramma is groter dan 0.3.0.
 

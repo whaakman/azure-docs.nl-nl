@@ -15,18 +15,18 @@ ms.topic: conceptual
 ms.date: 05/03/2018
 ms.author: v-daljep
 ms.component: ''
-ms.openlocfilehash: d16f9add2cd31eb5a8db650798c241c3dcf2610f
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: ea289abff7a40b0528f4cb88402594879ba6c437
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49379301"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49649649"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Azure SQL Database controleren met Azure SQL Analytics (Preview)
 
 ![Azure SQL Analytics-symbool](./media/log-analytics-azure-sql/azure-sql-symbol.png)
 
-Azure SQL Analytics is een cloud voor het bewaken van de prestaties van Azure SQL-databases, elastische pools en beheerde instanties op schaal en voor meerdere abonnementen voor controle. Er worden verzameld en worden gevisualiseerd met belangrijke metrische gegevens voor Azure SQL Database-prestaties met ingebouwde intelligentie voor het oplossen van prestaties.
+Azure SQL Analytics is een cloud voor controle voor het bewaken van de prestaties van Azure SQL-databases, elastische pools en beheerde instanties op schaal en voor meerdere abonnementen via één venster inzicht bedrijfsanalyses. Er worden verzameld en worden gevisualiseerd met belangrijke metrische gegevens voor Azure SQL Database-prestaties met ingebouwde intelligentie voor het oplossen van prestaties.
 
 Metrische gegevens die u hebt verzameld met de oplossing gebruikt, kunt u aangepaste regels voor bewaking en waarschuwingen kunt maken. De oplossing helpt u bij het identificeren van problemen in elke laag van uw toepassingsstack. Deze metrische gegevens voor Azure-diagnose en weergaven van Log Analytics gebruikt om gegevens over alle uw Azure SQL-databases, elastische pools en databases die aanwezig zijn in beheerde instanties in één Log Analytics-werkruimte. Log Analytics helpt u bij het verzamelen, afstemmen en visualiseren van gestructureerde en ongestructureerde gegevens.
 
@@ -66,23 +66,11 @@ De volgende stappen uitvoeren om de Azure SQL Analytics-oplossing toevoegt aan u
 
 ### <a name="configure-azure-sql-databases-elastic-pools-and-managed-instances-to-stream-diagnostics-telemetry"></a>Azure SQL-Databases, elastische pools en beheerde instanties tot stream diagnostische gegevens telemetrie configureren
 
-Nadat u Azure SQL Analytics-oplossing in uw werkruimte hebt gemaakt, als u wilt bewaken van prestaties van Azure SQL-databases, beheerd exemplaar voor databases en elastische pools, moet u **elk configureren** van deze resources die u wilt Monitor voor het streamen van de diagnostische gegevens telemetrie aan de oplossing.
+Nadat u Azure SQL Analytics-oplossing in uw werkruimte hebt gemaakt, als u wilt bewaken van prestaties van Azure SQL-databases, -databases in de Managed Instance-databases en elastische pools, moet u **elk configureren** hiervan resources die u wilt bewaken om te streamen van de diagnostische gegevens telemetrie aan de oplossing. Volg de gedetailleerde instructies op deze pagina:
 
 - Azure Diagnostics inschakelt voor uw Azure SQL Database Managed Instance-databases en elastische pools voor [streamen van diagnostische gegevens telemetrie naar Azure SQL Analytics](../sql-database/sql-database-metrics-diag-logging.md).
 
-### <a name="to-configure-multiple-azure-subscriptions"></a>Het configureren van meerdere Azure-abonnementen
- 
-Ter ondersteuning van meerdere abonnementen, gebruikt u de PowerShell-script uit [inschakelen Azure resource metrische gegevens vastleggen met behulp van PowerShell](https://blogs.technet.microsoft.com/msoms/2017/01/17/enable-azure-resource-metrics-logging-using-powershell/). Geef de werkruimte-ID als parameter bij het uitvoeren van het script voor het verzenden van diagnostische gegevens van resources in één Azure-abonnement aan een werkruimte in een andere Azure-abonnement.
-
-**Voorbeeld**
-
-```
-PS C:\> $WSID = "/subscriptions/<subID>/resourcegroups/oms/providers/microsoft.operationalinsights/workspaces/omsws"
-```
-
-```
-PS C:\> .\Enable-AzureRMDiagnostics.ps1 -WSID $WSID
-```
+De bovenstaande pagina bevat ook instructies over het inschakelen van ondersteuning voor het bewaken van meerdere Azure-abonnementen van één Azure SQL Analytics-werkruimte als een enkel glazen.
 
 ## <a name="using-the-solution"></a>De oplossing gebruiken
 

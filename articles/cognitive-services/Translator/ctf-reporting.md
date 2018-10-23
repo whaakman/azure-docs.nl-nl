@@ -1,5 +1,5 @@
 ---
-title: Collaborative Translation Framework (CTF) rapportage - Translator tekst
+title: Collaborative Translation Framework (CTF) rapportage - Translator Text-API
 titlesuffix: Azure Cognitive Services
 description: Het gebruik Collaborative Translation Framework (CTF) rapportage.
 services: cognitive-services
@@ -10,19 +10,19 @@ ms.component: translator-text
 ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: v-jansko
-ms.openlocfilehash: 9b3ac6e6d10fb0e70549cadfd7bf65220deb8f33
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: aa59ce89bf8c2c4b31d85c572dcdfb3645f06884
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46126918"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49646005"
 ---
 # <a name="how-to-use-collaborative-translation-framework-ctf-reporting"></a>CTF-rapportage (Collaborative Translation Framework) gebruiken
 
 > [!NOTE]
 > Deze methode is afgeschaft. Het is niet beschikbaar in V3.0 van de Translator Text-API.
 
-> De gezamenlijke vertalingen Framework (CTF), eerder beschikbaar was voor V2.0 van de Translator Text-API is afgeschaft vanaf 1 februari 2018. De functies AddTranslation en AddTranslationArray toestaan dat gebruikers correcties via Collaborative Translation Framework inschakelen. Na 31 januari 2018 nieuwe zin inzendingen heeft niet geaccepteerd door deze twee functies en ontvangen gebruikers een foutbericht weergegeven. Deze functies zijn buiten gebruik gesteld en worden niet vervangen. 
+> De gezamenlijke vertalingen Framework (CTF), eerder beschikbaar was voor V2.0 van de Translator Text-API is afgeschaft vanaf 1 februari 2018. De functies AddTranslation en AddTranslationArray toestaan dat gebruikers correcties via Collaborative Translation Framework inschakelen. Na 31 januari 2018 nieuwe zin inzendingen heeft niet geaccepteerd door deze twee functies en ontvangen gebruikers een foutbericht weergegeven. Deze functies zijn buiten gebruik gesteld en worden niet vervangen.
 
 >Vergelijkbare functionaliteit is beschikbaar in de Hub API van Translator, zodat u kunt een aangepaste vertaalsysteem met uw terminologie en stijl, bouwen en kunt u met behulp van de categorie-ID in de Translator Text-API aanroepen. Translator-Hub: [ https://hub.microsofttranslator.com ](https://hub.microsofttranslator.com). Translator Hub API: [ https://hub.microsofttranslator.com/swagger ](https://hub.microsofttranslator.com/swagger).
 
@@ -33,7 +33,7 @@ De Collaborative Translation Framework (CTF) rapportage-API retourneert statisti
 
 ## <a name="endpoint"></a>Eindpunt
 Het eindpunt van de CTF rapportage-API http://api.microsofttranslator.com/v2/beta/ctfreporting.svc
-                        
+
 
 ## <a name="methods"></a>Methoden
 | Naam |    Beschrijving|
@@ -64,7 +64,7 @@ UserTranslationCount[]GetUserTranslationCounts(
            string to,
            int? minRating,
            int? maxRating,
-           string user, 
+           string user,
            string category
            DateTime? minDateUtc,
            DateTime? maxDateUtc,
@@ -76,7 +76,7 @@ UserTranslationCount[]GetUserTranslationCounts(
 
 | Parameter | Beschrijving |
 |:---|:---|
-| toepassings-id | **Vereiste** als de autorisatie-header wordt gebruikt, laat het veld appid leeg anders geeft u een tekenreeks met "Bearer" + "" + toegangstoken.|
+| appId | **Vereiste** als de autorisatie-header wordt gebruikt, laat het veld appid leeg anders geeft u een tekenreeks met "Bearer" + "" + toegangstoken.|
 | uriPrefix | **Optionele** een tekenreeks met het voorvoegsel van de URI van de vertaling.|
 | uit | **Optionele** een tekenreeks voor de taalcode van de vertaalde tekst. |
 | tot | **Optionele** een tekenreeks voor de taalcode voor de omzetting van de tekst in.|
@@ -135,27 +135,27 @@ UserTranslation[] GetUserTranslations (
             string to,
             int? minRating,
             int? maxRating,
-            string user, 
+            string user,
             string category
             DateTime? minDateUtc,
             DateTime? maxDateUtc,
             int? skip,
-            int? take); 
+            int? take);
 ```
 
 **Parameters**
 
 | Parameter | Beschrijving |
 |:---|:---|
-| toepassings-id | **Vereiste** als de autorisatie-header wordt gebruikt, laat het veld appid leeg anders geeft u een tekenreeks met "Bearer" + "" + toegangstoken.|
+| appId | **Vereiste** als de autorisatie-header wordt gebruikt, laat het veld appid leeg anders geeft u een tekenreeks met "Bearer" + "" + toegangstoken.|
 | uriPrefix| **Optionele** een tekenreeks met het voorvoegsel van de URI van de vertaling.|
 | uit| **Optionele** een tekenreeks voor de taalcode van de vertaalde tekst.|
 | tot| **Optionele** een tekenreeks voor de taalcode voor de omzetting van de tekst in.|
 | minRating| **Optionele** een integerwaarde voor de beoordeling van de minimale kwaliteit voor de vertaalde tekst. Er is een geldige waarde tussen 10 en 10. De standaardwaarde is 1.|
 | maxRating| **Optionele** een integerwaarde voor de beoordeling van de hoogste kwaliteit voor de vertaalde tekst. Er is een geldige waarde tussen 10 en 10. De standaardwaarde is 1.|
 | Gebruiker| **Optioneel. Een tekenreeks is die wordt gebruikt voor het filteren van het resultaat op basis van de afzender van het verzenden van de**|
-| category| **Optionele** een tekenreeks met de categorie of het domein van de vertaling. Deze parameter ondersteunt alleen de standaardoptie algemeen.| 
-| minDateUtc| **Optionele** de datum uit als u wilt ophalen van de vertalingen. De datum moet zich in de UTC-notatie.| 
+| category| **Optionele** een tekenreeks met de categorie of het domein van de vertaling. Deze parameter ondersteunt alleen de standaardoptie algemeen.|
+| minDateUtc| **Optionele** de datum uit als u wilt ophalen van de vertalingen. De datum moet zich in de UTC-notatie.|
 | maxDateUtc| **Optionele** de datum tot wanneer u wilt ophalen van de vertalingen. De datum moet zich in de UTC-notatie.|
 | overslaan| **Optionele** het aantal resultaten die u wilt overslaan op een pagina. Als u de overslaan op de eerste 20 rijen van de resultaten en de weergave in de 21e resultaatrecord wilt, bijvoorbeeld 20 voor deze parameter opgeven. De standaardwaarde voor deze parameter is 0.|
 | toets maken| **Optionele** het aantal resultaten dat u wilt ophalen. Het maximumaantal van elke aanvraag is 100. De standaardwaarde is 50.|
@@ -192,21 +192,3 @@ De resultatenset bevat een matrix van de **UserTranslation**. Elke UserTranslati
 **Codevoorbeelden voor weergave op GitHib**
 * [C#](https://github.com/MicrosoftTranslator/Documentation-Code-TextAPI/blob/master/ctf/ctf-getusertranslations-example-csharp.md)
 * [PHP](https://github.com/MicrosoftTranslator/Documentation-Code-TextAPI/blob/master/ctf/ctf-getusertranslations-example-php.md)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

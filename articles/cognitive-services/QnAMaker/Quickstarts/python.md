@@ -1,5 +1,5 @@
 ---
-title: 'Snelstart: Python voor de QnA Maker-API (V4)'
+title: REST-API (V4) - Python - QnA Maker
 titleSuffix: Azure Cognitive Services
 description: Verkrijg informatie en codevoorbeelden om u te helpen snel aan de slag te gaan met de Microsoft Translator Text-API in Microsoft Cognitive Services in Azure.
 services: cognitive-services
@@ -7,17 +7,17 @@ author: diberry
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
-ms.topic: quickstart
-ms.date: 09/12/2018
+ms.topic: article
+ms.date: 10/19/2018
 ms.author: diberry
-ms.openlocfilehash: ac871aebd1b78750a5a3712d40486d4f7d3c3de7
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
-ms.translationtype: HT
+ms.openlocfilehash: 595eee6a10192d877aa77f4849bac494dff05808
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49388072"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49650006"
 ---
-# <a name="quickstart-for-microsoft-qna-maker-api-with-python"></a>Snelstart voor de Microsoft QnA Maker-API met Python 
+# <a name="qna-maker-rest-api-with-python"></a>QnA Maker REST-API met Python
 <a name="HOLTop"></a>
 
 In dit artikel leest u hoe u de [Microsoft QnA Maker-API](../Overview/overview.md) met Python gebruikt om het volgende te doen.

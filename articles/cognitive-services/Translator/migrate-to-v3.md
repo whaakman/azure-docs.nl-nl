@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: v-jansko
-ms.openlocfilehash: 74fcfa0e1474d7d2a25d0bf9d0476fb1bb870334
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: e0654d6a4696e6f02939cad51a715412fdcfb61a
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49429504"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49645231"
 ---
 # <a name="translator-text-api-v2-to-v3-migration"></a>Translator Text-API V2 naar V3-migratie
 
@@ -54,7 +54,7 @@ De volgende lijst met methoden V2 en V3 identificeert de API's waarmee u de func
 
 ## <a name="move-to-json-format"></a>Verplaatsen naar JSON-indeling
 
-Microsoft Translator tekst vertalen V2 geaccepteerd en geretourneerd van gegevens in XML-indeling. Alle gegevens verzonden en ontvangen met behulp van de API wordt in V3 in JSON-indeling. XML wordt niet meer worden geaccepteerd of die worden geretourneerd in V3. 
+Microsoft Translator tekst vertalen V2 geaccepteerd en geretourneerd van gegevens in XML-indeling. Alle gegevens verzonden en ontvangen met behulp van de API wordt in V3 in JSON-indeling. XML wordt niet meer worden geaccepteerd of die worden geretourneerd in V3.
 
 Deze wijziging heeft invloed op verschillende aspecten van een toepassing die is geschreven voor de V2 tekst Spraakomzettings-API. Als een voorbeeld: talen om de API retourneert informatie over de taal voor tekstvertaling vele methoden, en de twee woordenlijst. U kunt alle taalinformatie voor alle methoden in één aanroep aanvragen of ze afzonderlijk aanvraagt.
 

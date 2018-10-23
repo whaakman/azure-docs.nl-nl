@@ -1,5 +1,5 @@
 ---
-title: LVM configureren op een virtuele machine met Linux | Microsoft Docs
+title: LVM configureren op een virtuele machine waarop Linux wordt uitgevoerd | Microsoft Docs
 description: Informatie over het configureren van LVM op Linux in Azure.
 services: virtual-machines-linux
 documentationcenter: na
@@ -13,27 +13,27 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 02/02/2017
+ms.date: 09/27/2018
 ms.author: szark
-ms.openlocfilehash: 9a22426d0422585714cb78d541a84d55d2fce6e0
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 81ee7957c0b26440c064b7f39bc4cfb32b2abd15
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30912226"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49648329"
 ---
 # <a name="configure-lvm-on-a-linux-vm-in-azure"></a>LVM configureren op een virtuele Linux-machine in Azure
-Dit document wordt uitgelegd hoe het configureren van logische Volume Manager (LVM) in uw virtuele machine van Azure. Het is mogelijk LVM configureren op elke schijf die is gekoppeld aan de virtuele machine, standaard de meeste cloud afbeeldingen geen LVM geconfigureerd op de schijf met het besturingssysteem. Dit is om problemen te voorkomen met groepen dubbele volume als de besturingssysteemschijf is ooit gekoppeld aan een andere virtuele machine van de dezelfde distributie en het type, dat wil zeggen tijdens een scenario voor herstel. Daarom is het aanbevolen alleen voor LVM gebruiken op de gegevensschijven.
+Dit document wordt uitgelegd hoe u kunt logische Volume Manager (LVM) configureren in uw Azure virtual machine. LVM kan worden gebruikt op de besturingssysteemschijf en gegevensschijven in Azure VM's, maar standaard de meeste cloud-afbeeldingen niet LVM geconfigureerd op de besturingssysteemschijf. De onderstaande stappen wordt de nadruk gelegd op het LVM configureren voor uw data-schijven.
 
 ## <a name="linear-vs-striped-logical-volumes"></a>Lineaire versus striped logische volumes
-LVM kan worden gebruikt om een aantal fysieke schijven samenvoegen tot één opslagvolume. Standaard wordt LVM meestal gemaakt lineaire logische volumes, wat betekent dat de fysieke opslag samengevoegd. In dit geval wordt lees-/ schrijfbewerkingen doorgaans alleen worden verzonden voor één schijf. We kunnen daarentegen ook striped logische volumes waar de lees- en schrijfbewerkingen worden gedistribueerd naar meerdere schijven die zijn opgenomen in de groep volume (dat wil zeggen vergelijkbaar met RAID 0) maken. Voor betere prestaties is het waarschijnlijk wilt u uw logische volumes stripe zodat lees- en schrijfbewerkingen gebruikmaken van alle schijven in de bijgesloten gegevens.
+LVM kan worden gebruikt om een aantal fysieke schijven samenvoegen tot één opslagvolume. Standaard LVM wordt meestal lineaire logische volumes maken, wat betekent dat de fysieke opslag is samengevoegd. In dit geval wordt bewerkingen voor lezen/schrijven doorgaans alleen worden verzonden naar één schijf. Daarentegen, kunnen we ook striped logische volumes waar lees- en schrijfbewerkingen worden gedistribueerd naar meerdere schijven die zijn opgenomen in de volumegroep (vergelijkbaar met RAID 0) maken. Voor betere prestaties is het waarschijnlijk wilt u uw logische volumes stripe zodat lees- en schrijfbewerkingen gebruikmaken van uw gekoppelde gegevensschijven.
 
-Dit document wordt beschreven hoe u verschillende gegevensschijven combineren in een groep één volume en maak vervolgens logische striped volumes. De onderstaande stappen zijn enigszins gegeneraliseerd om te werken met de meeste distributies. In de meeste gevallen zijn de hulpprogramma's en werkstromen voor het beheren van LVM in Azure niet fundamenteel anders dan andere omgevingen. Gebruikelijke ook Raadpleeg de leverancier van uw Linux voor documentatie en aanbevolen procedures voor het gebruik van LVM met uw bepaalde distributiepunt.
+Dit document wordt beschreven hoe u verschillende gegevensschijven combineren in een groep één volume en maak vervolgens logische striped volumes. De volgende stappen uit zijn om te werken met de meeste distributies gegeneraliseerd. In de meeste gevallen zijn de hulpprogramma's en werkstromen voor het beheren van LVM in Azure niet fundamenteel anders dan andere omgevingen. Zoals gewoonlijk ook raadpleegt u uw Linux-leverancier voor documentatie en aanbevolen procedures voor het gebruik van LVM met uw specifieke distributie.
 
-## <a name="attaching-data-disks"></a>Gegevensschijven koppelen
-Een wilt meestal beginnen met twee of meer gegevensschijven zijn leeg bij gebruik van LVM. Op basis van uw i/o-behoeften, kunt u schijven die zijn opgeslagen in de Standard-opslag, met maximaal 500 i/o/ps per schijf of onze Premium-opslag met maximaal 5000 i/o/ps per schijf koppelen. In dit artikel gaat niet informatie over het inrichten en gegevensschijven koppelen aan een virtuele Linux-machine. Zie het artikel van Microsoft Azure [een schijf koppelen](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) voor gedetailleerde instructies over hoe u een lege gegevensschijf koppelen aan een virtuele Linux-machine in Azure.
+## <a name="attaching-data-disks"></a>Gekoppelde gegevensschijven
+Een wilt meestal beginnen met twee of meer lege gegevensschijven bij het gebruik van LVM. Op basis van uw i/o-behoeften, kunt u schijven die zijn opgeslagen in de Standard-opslag, met maximaal 500 i/o/ps per schijf of onze Premium-opslag met maximaal 5000 i/o/ps per schijf koppelt. In dit artikel gaat niet informatie over het inrichten en gegevensschijven koppelen aan een virtuele Linux-machine. Zie het artikel van Microsoft Azure [een schijf koppelen](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) voor gedetailleerde instructies over hoe u een lege gegevensschijf koppelen aan een virtuele Linux-machine in Azure.
 
-## <a name="install-the-lvm-utilities"></a>De hulpprogramma's voor LVM installeren
+## <a name="install-the-lvm-utilities"></a>De LVM-hulpprogramma's installeren
 * **Ubuntu**
 
     ```bash  
@@ -59,16 +59,16 @@ Een wilt meestal beginnen met twee of meer gegevensschijven zijn leeg bij gebrui
     sudo zypper install lvm2
     ```
 
-    Op SLES11 moet u ook bewerken `/etc/sysconfig/lvm` en stel `LVM_ACTIVATED_ON_DISCOVERED` naar 'inschakelen':
+    Op SLES11, moet u ook bewerken `/etc/sysconfig/lvm` en stel `LVM_ACTIVATED_ON_DISCOVERED` ' inschakelen ':
 
     ```sh   
     LVM_ACTIVATED_ON_DISCOVERED="enable" 
     ```
 
 ## <a name="configure-lvm"></a>LVM configureren
-In deze handleiding wordt ervan uitgegaan hebt u drie gegevensschijven die we naar als verwijzen gekoppeld `/dev/sdc`, `/dev/sdd` en `/dev/sde`. Houd er rekening mee dat deze altijd mogelijk niet hetzelfde padnamen in uw virtuele machine. U kunt uitvoeren '`sudo fdisk -l`' of een vergelijkbare opdracht om een lijst van uw beschikbare schijven.
+In deze handleiding wordt ervan uitgegaan hebt u drie gegevensschijven, die we naar als verwijzen gekoppeld `/dev/sdc`, `/dev/sdd` en `/dev/sde`. Deze paden mogelijk niet overeenkomt met de namen van de schijf-pad in uw virtuele machine. U kunt uitvoeren '`sudo fdisk -l`' of vergelijkbare-opdracht uit om de beschikbare schijven weer te geven.
 
-1. Bereid de fysieke volumes:
+1. Het voorbereiden van de fysieke volumes:
 
     ```bash    
     sudo pvcreate /dev/sd[cde]
@@ -77,40 +77,40 @@ In deze handleiding wordt ervan uitgegaan hebt u drie gegevensschijven die we na
     Physical volume "/dev/sde" successfully created
     ```
 
-2. Een volume-groep maken. In dit voorbeeld wordt de groep volume belt `data-vg01`:
+2. Maak een volumegroep. In dit voorbeeld zijn we aanroepen van de volumegroep `data-vg01`:
 
     ```bash    
     sudo vgcreate data-vg01 /dev/sd[cde]
     Volume group "data-vg01" successfully created
     ```
 
-3. De logische volumes maken. De onderstaande opdracht we één logische volume aangeroepen maakt `data-lv01` span van de groep van het gehele volume, maar houd er rekening mee dat het is ook mogelijk meerdere logische om volumes te maken in de groep volume.
+3. De logische volumes maken. De onderstaande opdracht we maakt u één logische volume met de naam `data-lv01` omvatten het gehele volume-groep, maar houd er rekening mee dat het is ook mogelijk meerdere logische om volumes te maken in de volumegroep.
 
     ```bash   
     sudo lvcreate --extents 100%FREE --stripes 3 --name data-lv01 data-vg01
     Logical volume "data-lv01" created.
     ```
 
-4. Het logische volume formatteren
+4. De logische volume formatteren
 
     ```bash  
     sudo mkfs -t ext4 /dev/data-vg01/data-lv01
     ```
    
    > [!NOTE]
-   > Bij gebruik van SLES11 `-t ext3` in plaats van ext4. SLES11 ondersteunt alleen alleen-lezen toegang tot ext4 bestandssystemen.
+   > Met SLES11 gebruik `-t ext3` in plaats van ext4. SLES11 biedt alleen ondersteuning voor alleen-lezen toegang tot ext4 bestandssystemen.
 
-## <a name="add-the-new-file-system-to-etcfstab"></a>Het nieuwe bestandssysteem aan /etc/fstab toevoegen
+## <a name="add-the-new-file-system-to-etcfstab"></a>Het nieuwe bestandssysteem aan/etc/fstab toevoegen
 > [!IMPORTANT]
-> Onjuist bewerken van de `/etc/fstab` bestand kan leiden tot een systeem opgestart. Als u niet zeker, raadpleeg dan de distributie-documentatie voor informatie over het correct dit bestand te bewerken. Het is ook aanbevolen een back-up van de `/etc/fstab` bestand is gemaakt voordat u kunt bewerken.
+> Onjuist bewerken van de `/etc/fstab` bestand kan leiden tot een systeem opgestart. Als u niet zeker, verwijzen naar de distributie van documentatie voor meer informatie over hoe u dit bestand goed te bewerken. Het is ook raadzaam een back-up van de `/etc/fstab` bestand is gemaakt voordat u bewerkt.
 
-1. Maak de gewenste koppelpunt voor het nieuwe bestandssysteem, bijvoorbeeld:
+1. Maak de gewenste koppelpunt voor uw nieuwe file system, bijvoorbeeld:
 
     ```bash  
     sudo mkdir /data
     ```
 
-2. Zoek het logische pad naar het
+2. Ga naar het Volumepad van de logische
 
     ```bash    
     lvdisplay
@@ -126,13 +126,13 @@ In deze handleiding wordt ervan uitgegaan hebt u drie gegevensschijven die we na
     ```   
     Vervolgens opslaan en sluiten `/etc/fstab`.
 
-4. Testen of de `/etc/fstab` invoer correct is:
+4. Testen of de `/etc/fstab` invoer juist is:
 
     ```bash    
     sudo mount -a
     ```
 
-    Als u deze opdracht resulteert in een foutbericht Controleer de syntaxis de `/etc/fstab` bestand.
+    Als deze opdracht in een foutbericht resulteert Controleer de syntaxis van de in de `/etc/fstab` bestand.
    
     Voer vervolgens de `mount` opdracht om te controleren of het bestandssysteem is gekoppeld:
 
@@ -142,9 +142,9 @@ In deze handleiding wordt ervan uitgegaan hebt u drie gegevensschijven die we na
     /dev/mapper/data--vg01-data--lv01 on /data type ext4 (rw)
     ```
 
-5. (Optioneel) Opstartparameters failsafe in `/etc/fstab`
+5. (Optioneel) Failsafe boot parameters in `/etc/fstab`
    
-    Groot aantal distributies bevat de `nobootwait` of `nofail` koppelen van de parameters die kunnen worden toegevoegd aan de `/etc/fstab` bestand. Deze parameters toestaan voor fouten bij het koppelen van een bepaald bestandssysteem en dat het Linux-systeem om door te gaan om op te starten, zelfs als deze niet correct koppelen het RAID-bestandssysteem. Raadpleeg de distributie-documentatie voor meer informatie over deze parameters.
+    Groot aantal distributies bevat de `nobootwait` of `nofail` koppelen van de parameters die kunnen worden toegevoegd aan de `/etc/fstab` bestand. Deze parameters toestaan voor fouten bij het koppelen van een bepaalde bestandssysteem en de Linux-systeem om door te gaan om op te starten, zelfs als dit is niet juist de RAID-bestandssysteem te koppelen. Raadpleeg de documentatie van uw distributie voor meer informatie over deze parameters.
    
     Voorbeeld (Ubuntu):
 
@@ -152,18 +152,18 @@ In deze handleiding wordt ervan uitgegaan hebt u drie gegevensschijven die we na
     /dev/data-vg01/data-lv01  /data  ext4  defaults,nobootwait  0  2
     ```
 
-## <a name="trimunmap-support"></a>TRIM/UNMAP-ondersteuning
-Sommige kernels Linux ondersteuning TRIM/UNMAP bewerkingen voor het negeren van niet-gebruikte blokken op de schijf. Deze bewerkingen zijn voornamelijk nuttig in standard-opslag om te informeren over Azure die verwijderde pagina's zijn niet langer geldig en kan worden verwijderd. 'S te verwijderen kunt kosten besparen, als u grote bestanden maken en deze vervolgens te verwijderen.
+## <a name="trimunmap-support"></a>TRIM/UNMAP ondersteuning
+Sommige Linux kernels ondersteund TRIM/UNMAP bewerkingen voor het negeren van niet-gebruikte blokken op de schijf. Deze bewerkingen zijn vooral nuttig in de standard-opslag om te informeren over Azure die pagina's verwijderd niet langer geldig zijn en kunnen worden verwijderd. 'S te verwijderen kunt kosten besparen als u grote bestanden maken en ze vervolgens te verwijderen.
 
-Er zijn twee manieren om in te schakelen TRIM ondersteunen in uw Linux-VM. Raadpleeg uw distributiepunt gebruikelijke voor de aanbevolen aanpak:
+Er zijn twee manieren om in te schakelen TRIM ondersteuning in uw Linux-VM. Raadpleeg uw distributie zoals gewoonlijk voor de aanbevolen aanpak:
 
-- Gebruik de `discard` koppelen optie in `/etc/fstab`, bijvoorbeeld:
+- Gebruik de `discard` koppelen in de optie `/etc/fstab`, bijvoorbeeld:
 
     ```bash 
     /dev/data-vg01/data-lv01  /data  ext4  defaults,discard  0  2
     ```
 
-- In sommige gevallen de `discard` optie prestaties gevolgen kan hebben. U kunt ook uitvoeren de `fstrim` opdracht handmatig vanaf de opdrachtregel of toe te voegen aan uw crontab regelmatig wordt uitgevoerd:
+- In sommige gevallen de `discard` optie prestaties gevolgen kan hebben. U kunt ook uitvoeren de `fstrim` handmatig vanaf de opdrachtregel de opdracht of toe te voegen aan uw crontab regelmatig wordt uitgevoerd:
 
     **Ubuntu**
 

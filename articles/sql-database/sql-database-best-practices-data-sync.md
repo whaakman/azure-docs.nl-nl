@@ -11,13 +11,13 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: ''
 manager: craigg
-ms.date: 08/20/2018
-ms.openlocfilehash: 1d292007b06e12b6be28e053bc6def3b12c7befe
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.date: 10/22/2018
+ms.openlocfilehash: 4bc655f1e9da00a42c60e1ab763c5503b393d4a1
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47063645"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49646295"
 ---
 # <a name="best-practices-for-sql-data-sync"></a>Aanbevolen procedures voor SQL Data Sync 
 
@@ -70,6 +70,10 @@ U hebt geen om op te nemen van alle tabellen die zich in een database in een syn
 Elke tabel in een groep voor synchronisatie moet een primaire sleutel hebben. Een tabel die geen primaire sleutel kan niet worden gesynchroniseerd met de SQL Data Sync-service.
 
 Voordat u SQL Data Sync in productie, initiële en lopende synchronisatie prestaties te testen.
+
+#### <a name="empty-tables-provide-the-best-performance"></a>Lege tabellen bieden de beste prestaties
+
+Lege tabellen bieden de beste prestaties bij het initialiseren. Als de doeltabel leeg is, wordt Data Sync bulksgewijs invoegen gebruikt om de gegevens te laden. Anders wordt Data Sync een vergelijking van de rij en invoegen om te controleren op conflicten. Als prestaties niet belangrijk is, maar kunt u synchronisatie instellen tussen tabellen die al gegevens bevatten.
 
 ### <a name="provisioning-destination-databases"></a> Bestemming databases inrichten
 

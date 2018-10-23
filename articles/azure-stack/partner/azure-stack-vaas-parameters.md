@@ -1,6 +1,6 @@
 ---
-title: Werkstroom algemene parameters in de Azure Stack-validatie als een service | Microsoft Docs
-description: Werkstroom algemene parameters voor Azure Stack-validatie als een service
+title: Werkstroom algemene parameters in de Azure Stack-validatie als een Service | Microsoft Docs
+description: Werkstroom algemene parameters voor Azure Stack-validatie als een Service
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -10,53 +10,82 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/24/2018
+ms.date: 10/19/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: c50e4b5c9eb81c9386e2cb0db96a88de70dcb9e9
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 25c93560b24b2915ef9a9077b5bca0d15286b0e3
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44157800"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49646776"
 ---
-# <a name="workflow-common-parameters-for-azure-stack-validation-as-a-service"></a>Werkstroom algemene parameters voor Azure Stack-validatie als een service
+# <a name="workflow-common-parameters-for-azure-stack-validation-as-a-service"></a>Werkstroom algemene parameters voor Azure Stack-validatie als een Service
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
-Algemene parameters bevatten waarden zoals omgevingsvariabelen en de gebruiker referenties vereist voor alle tests in de validatie als een service (VaaS). U definiëren deze waarden op het werkstroomniveau van de. U kunt de waarden opslaan wanneer u maakt of wijzigt een werkstroom. Bij de geplande tijd worden de werkstroom de waarden voor de test. 
+Algemene parameters bevatten waarden zoals omgevingsvariabelen en de gebruiker referenties vereist voor alle tests in de validatie als een Service (VaaS). Deze waarden worden gedefinieerd op het werkstroomniveau van de bij het maken of wijzigen van een werkstroom. Bij het plannen van tests, worden deze waarden als parameters doorgegeven aan elke test in de werkstroom.
+
+> [!NOTE]
+> Elke test een eigen set parameters gedefinieerd. Op tijd plannen, een test mogelijk wanneer u een waarde onafhankelijk van de algemene parameters in te voeren, of kunt u de waarde van de algemene parameter overschrijven.
 
 ## <a name="environment-parameters"></a>Omgeving parameters
 
-Omgeving parameters beschrijven de Azure Stack-omgeving onder belasting. Deze waarden moeten door te genereren en uploaden van het configuratiebestand van de stempel worden opgegeven `&lt;link&gt;. [How to get the stamp info link].`
+Omgeving parameters beschrijven de Azure Stack-omgeving onder belasting. Deze waarden moeten worden opgegeven door te genereren en uploaden van een Azure Stack stempel bestand voor het specifieke exemplaar dat u wilt testen.
 
-| Parameternaam | Vereist | Type | Beschrijving |
-|----------------------------------|----------|------|---------------------------------------------------------------------------------------------------------------------------------|
-| Azure Stack-build | Vereist |  | Build-nummer van de Azure Stack-implementatie (bijvoorbeeld 1.0.170330.9) |
-| OEM-versie | Ja |  | Versienummer van de OEM-pakket wordt gebruikt tijdens de implementatie van Azure Stack. |
-| OEM-handtekening | Ja |  | De handtekening van de OEM-pakket wordt gebruikt tijdens de implementatie van Azure Stack. |
-| AAD-tenant-ID | Vereist |  | Azure Active Directory-tenant GUID die is opgegeven tijdens de implementatie van Azure Stack.|
-| Regio | Vereist |  | Azure Stack-implementatie-regio. |
-| Tenant Resource Manager-eindpunt | Vereist |  | Eindpunt voor de tenant Azure resourcemanager-bewerkingen (bijvoorbeeld https://management.<ExternalFqdn>) |
-| Beheerder Resource Manager-eindpunt | Ja |  | Eindpunt voor de Tenant Azure Resource Manager-bewerkingen (bijvoorbeeld https://adminmanagement.<ExternalFqdn>) |
-| Externe FQDN-naam | Ja |  | Externe FQDN-naam gebruikt als het achtervoegsel voor eindpunten. (bijvoorbeeld local.azurestack.external of redmond.contoso.com). |
-| Aantal knooppunten | Ja |  | Het aantal knooppunten op de implementatie. |
+> [!NOTE]
+> In de officiële validatie werkstromen, worden niet omgeving parameters gewijzigd nadat de werkstroom is gemaakt.
+
+### <a name="generate-the-stamp-information-file"></a>Het stempel bestand genereren
+
+1. Meld u aan bij de DVM of computers die toegang tot de Azure Stack-omgeving heeft.
+2. Voer de volgende opdrachten uit in een PowerShell-venster met verhoogde bevoegdheid:
+    ```PowerShell
+    $CloudAdminUser = "<cloud admin username>"
+    $stampInfoPass = ConvertTo-SecureString "<cloud admin password>" -AsPlainText -Force
+    $stampInfoCreds = New-Object System.Management.Automation.PSCredential($CloudAdminUser, $stampInfoPass)
+    $params = Invoke-RestMethod -Method Get -Uri 'https://ASAppGateway:4443/ServiceTypeId/4dde37cc-6ee0-4d75-9444-7061e156507f/CloudDefinition/GetStampInformation'
+    ConvertTo-Json $params > stampinfoproperties.json
+    ```
+
+### <a name="locate-values-in-the-ece-configuration-file"></a>Waarden vinden in het configuratiebestand EEG
+
+Omgeving parameterwaarden kunnen ook handmatig aanwezig zijn in de **EEG configuratiebestand** dat zich bevindt in `C:\EceStore\403314e1-d945-9558-fad2-42ba21985248\80e0921f-56b5-17d3-29f5-cd41bf862787` op de DVM.
 
 ## <a name="test-parameters"></a>Testparameters
 
-Algemene testparameters gevoelige informatie die niet opgeslagen in configuratiebestanden bevatten en moeten handmatig worden opgegeven.
+Algemene testparameters gevoelige gegevens bevatten die in configuratiebestanden kan niet worden opgeslagen. Dit moeten handmatig opgegeven.
 
-| Parameternaam | Vereist | Type | Beschrijving |
-|--------------------------------|------------------------------------------------------------------------------|------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Gebruikersnaam van de tenant | Vereist |  | Azure Active Directory-Tenant-beheerder die ofwel al is ingericht of moet worden ingericht met de servicebeheerder in de AAD-Directory. Zie voor meer informatie over het inrichten van tenantaccount [aan de slag met Azure AD](https://docs.microsoft.com/azure/active-directory/get-started-azure-ad). Deze waarde wordt gebruikt door de test tenant niveau bewerkingen zoals het implementeren van sjablonen voor het inrichten van resources uit te voeren (virtuele machines, opslagaccounts enzovoort) en workloads uit te voeren. Deze waarde wordt gebruikt door de test tenant niveau bewerkingen zoals het implementeren van sjablonen voor het inrichten van resources uit te voeren (virtuele machines, opslagaccounts enzovoort) en workloads uit te voeren. |
-| Tenant-wachtwoord | Vereist |  | Wachtwoord voor de tenant-gebruiker. |
-| Gebruikersnaam voor de Service-beheerder | Vereist: Oplossing validatie, validatie van het pakket<br>Niet vereist: Test geslaagd |  | Azure Active Directory-beheerder van de AAD-Directory-Tenant opgegeven tijdens de implementatie van Azure Stack. |
-| Service Administrator-wachtwoord | Vereist: Oplossing validatie, validatie van het pakket<br>Niet vereist: Test geslaagd |  | Wachtwoord voor de Service-beheerder-gebruiker. |
-| De gebruikersnaam van beheerder van de cloud | Vereist |  | Azure Stack-domein administrator-account (bijvoorbeeld contoso\cloudadmin). Zoeken naar gebruikersrol = "CloudAdmin' in het configuratiebestand en selecteert u de waarde in de code van de gebruikersnaam in het configuratiebestand. |
-| Cloud-Administrator-wachtwoord | Vereist |  | Wachtwoord voor de beheerder van Cloud-gebruiker. |
-| Verbindingsreeks voor diagnostische gegevens | Vereist |  | Een SAS-URI naar een Azure Storage-Account op welke diagnostische logboeken moeten worden gekopieerd tijdens het uitvoeren van de test. Instructies voor het genereren van de SAS-URI zich bevinden [instellen van een blob storage-account](azure-stack-vaas-set-up-account.md). |
+Parameter    | Beschrijving
+-------------|-----------------
+Tenant-beheerder                            | Azure Active Directory Tenant-beheerder die is ingericht met de servicebeheerder in de AAD-directory. Deze gebruiker wordt uitgevoerd op tenantniveau acties, zoals sjablonen voor het instellen van resources (virtuele machines, opslagaccounts, enz.) implementeren en uitvoeren van workloads. Zie voor meer informatie over het inrichten van de tenantaccount [toevoegen van een nieuwe Azure Stack-tenant](https://docs.microsoft.com/azure/azure-stack/azure-stack-add-new-user-aad).
+Service-beheerder             | Azure Active Directory Administrator van de AAD-Directory-Tenant opgegeven tijdens de implementatie van Azure Stack. Zoeken naar `AADTenant` in de configuratie van EEG-bestand en selecteer de waarde in de `UniqueName` element.
+De beheerder van cloud-gebruiker               | Azure Stack-domein administrator-account (bijvoorbeeld `contoso\cloudadmin`). Zoeken naar `User Role="CloudAdmin"` in de configuratie van EEG-bestand en selecteer de waarde in de `UserName` element.
+Verbindingsreeks voor diagnostische gegevens          | Een SAS-URL naar een Azure Storage-Account op welke diagnostische logboeken moeten worden gekopieerd tijdens het uitvoeren van de test. Zie voor instructies over het genereren van de SAS-URL [genereren van de verbindingsreeks van diagnostische gegevens over](#generate-the-diagnostics-connection-string). |
 
+> [!IMPORTANT]
+> De **diagnostics verbindingsreeks** moet geldig zijn voordat u doorgaat.
+
+### <a name="generate-the-diagnostics-connection-string"></a>De verbindingsreeks van diagnostische gegevens genereren
+
+De verbindingsreeks van diagnostische gegevens is vereist voor het opslaan van logboeken met diagnostische gegevens tijdens het uitvoeren van de test. Gebruik de Azure Storage-Account gemaakt tijdens de installatie (Zie [instellen dat uw gevalideerd als een serviceresources](azure-stack-vaas-set-up-resources.md)) te maken van een shared access signature (SAS)-URL waarmee u VaaS toegang om Logboeken te uploaden naar uw opslagaccount.
+
+1. [!INCLUDE [azure-stack-vaas-sas-step_navigate](includes/azure-stack-vaas-sas-step_navigate.md)]
+
+1. Selecteer **Blob** van **toegestane Services opties**. Schakel alle overige opties uit.
+
+1. Selecteer **Service**, **Container**, en **Object** van **toegestane resourcetypen**.
+
+1. Selecteer **lezen**, **schrijven**, **lijst**, **toevoegen**, **maken** van **toegestaan machtigingen**. Schakel alle overige opties uit.
+
+1. Stel **begintijd** op de huidige tijd en **eindtijd** tot drie maanden vanaf de huidige tijd.
+
+1. [!INCLUDE [azure-stack-vaas-sas-step_generate](includes/azure-stack-vaas-sas-step_generate.md)]
+
+> [!NOTE]  
+> De SAS-URL is verlopen op de eindtijd opgegeven wanneer de URL is gegenereerd.  
+Bij het plannen van tests, zorg ervoor dat de URL geldig voor ten minste 30 dagen is plus de tijd die nodig is voor de testuitvoering van de (de drie maanden wordt aanbevolen).
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Voor meer informatie over [Azure Stack-validatie als een service](https://docs.microsoft.com/azure/azure-stack/partner).
+- Meer informatie over [validatie uit als een Service-belangrijkste concepten](azure-stack-vaas-key-concepts.md)

@@ -8,14 +8,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 10/10/2018
+ms.date: 10/19/2018
 ms.author: diberry
-ms.openlocfilehash: b5433ea0a92635b5bf9c2a4887451f1e64ec62e6
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: db8fc0b6926930521f11285dc56c886c10c42fc2
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49067757"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49649309"
 ---
 # <a name="language-understanding-faq"></a>Veelgestelde vragen over de Language Understanding
 
@@ -157,11 +157,9 @@ Als u van het logboek voor de voorspelling analyse gebruikmaakt, test-uitingen i
 * U kunt uitingen verwijderen uit de lijst met gebruikers-uitingen die LUIS voorgesteld in de **bekijken eindpunt uitingen** pagina. Uitingen verwijderen uit deze lijst voorkomt dat deze wordt voorgesteld, maar niet verwijderd van Logboeken.
 * Als u een account verwijdert, worden alle apps verwijderd, samen met hun voorbeeld uitingen en Logboeken. De gegevens worden bewaard op de servers gedurende 60 dagen voordat deze worden definitief verwijderd.
 
-### <a name="does-microsoft-access-my-luis-app-data-for-its-own-purposes-for-example-to-enhance-luis-or-microsoft-in-general"></a>Microsoft toegang tot mijn LUIS-app-gegevens voor een eigen doeleinden, bijvoorbeeld, ter verbetering van de LUIS of Microsoft in het algemeen?
+### <a name="how-does-microsoft-manage-data-i-send-to-luis"></a>Hoe beheert Microsoft gegevens die kan ik naar LUIS verzenden?
 
-Nee. Het gegevensmodel van de LUIS-app wordt niet gebruikt door LUIS voor het verbeteren van LUIS als een platform of gebruikt door Microsoft op geen enkele manier. De gegevens van elke app staat los en eigendom zijn alleen door de gebruiker en de deelnemers.
-
-Meer informatie over [gebruikersprivacy](luis-user-privacy.md), [extra beveiliging, naleving](luis-concept-security.md#security-compliance), en [gegevensopslag](luis-concept-data-storage.md).
+De [Trust Center](https://www.microsoft.com/trustcenter) wordt uitgelegd van onze verplichtingen en uw opties voor gegevensbeheer- en toegangsbeheer in Azure-Services.
 
 ## <a name="language-and-translation-support"></a>Ondersteuning voor taal en vertaling
 

@@ -12,39 +12,39 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 12/13/2017
+ms.date: 10/15/2018
 ms.author: rogarana
-ms.openlocfilehash: 0c2d4d1413b6cfd0b5e457e720b59c6c7b575092
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 62057d3041aa83e0097b688b48386b80f5c4f87e
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46974541"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49637286"
 ---
-# <a name="how-to-expand-virtual-hard-disks-on-a-linux-vm-with-the-azure-cli"></a>Over het uitbreiden van virtuele harde schijven op een Linux-VM met de Azure CLI
+# <a name="expand-virtual-hard-disks-on-a-linux-vm-with-the-azure-cli"></a>Vouw de virtuele harde schijven op een Linux-VM met de Azure CLI
 
-De standaardgrootte van de virtuele harde schijf voor het besturingssysteem (OS) is doorgaans 30 GB op een Linux-machine (VM) in Azure. U kunt [gegevensschijven toevoegen](add-disk.md) voor voor extra opslagruimte nodig, maar u kunt ook meer aan een bestaande gegevensschijf uitbreiden. Dit artikel wordt uitgelegd hoe u beheerde schijven worden uitgebreid voor een Linux-VM met de Azure CLI. 
+In dit artikel wordt beschreven hoe u beheerde schijven voor een Linux-machine (VM) met de Azure CLI uitbreiden. U kunt [gegevensschijven toevoegen](add-disk.md) te voorzien in extra opslag ruimte, en u kunt ook een bestaande gegevensschijf uitbreiden. De standaardgrootte van de virtuele harde schijf voor het besturingssysteem (OS) is doorgaans 30 GB op een Linux-VM in Azure. 
 
 > [!WARNING]
 > Zorg ervoor dat altijd dat u maakt u een back-up van uw gegevens voordat u de schijf uitvoert de grootte van bewerkingen. Zie voor meer informatie, [maakt u een Back-up van virtuele Linux-machines in Azure](tutorial-backup-vms.md).
 
-## <a name="expand-azure-managed-disk"></a>Azure beheerde schijf uitbreiden
-Zorg ervoor dat u de meest recente [Azure CLI](/cli/azure/install-az-cli2) geïnstalleerd en aangemeld bij een Azure-account met [az login](/cli/azure/reference-index#az_login).
+## <a name="expand-an-azure-managed-disk"></a>Een Azure beheerde schijf uitbreiden
+Zorg ervoor dat u de meest recente [Azure CLI](/cli/azure/install-az-cli2) geïnstalleerd en bent aangemeld bij een Azure-account met behulp van [az login](/cli/azure/reference-index#az-login).
 
 Dit artikel gebruikmaken van een bestaande virtuele machine in Azure met ten minste één gegevensschijf die is gekoppeld en voorbereid. Als u nog geen een virtuele machine die u kunt gebruiken, raadpleegt u [maken en een virtuele machine met gegevensschijven voorbereiden](tutorial-manage-disks.md#create-and-attach-disks).
 
-In de volgende voorbeelden kunt u voorbeeldnamen parameter vervangen door uw eigen waarden. Voorbeeld-parameternamen bevatten *myResourceGroup* en *myVM*.
+Vervang in de volgende voorbeelden voorbeeld parameternamen zoals *myResourceGroup* en *myVM* door uw eigen waarden.
 
-1. Bewerkingen op virtuele harde schijven kunnen niet worden uitgevoerd met de VM wordt uitgevoerd. Toewijzing ongedaan maken van uw virtuele machine met [az vm deallocate](/cli/azure/vm#az_vm_deallocate). Het volgende voorbeeld wordt de virtuele machine met de naam de toewijzing ingetrokken *myVM* in de resourcegroep met de naam *myResourceGroup*:
+1. Bewerkingen op virtuele harde schijven kunnen niet worden uitgevoerd met de VM wordt uitgevoerd. Toewijzing ongedaan maken van uw virtuele machine met [az vm deallocate](/cli/azure/vm#az-vm-deallocate). Het volgende voorbeeld wordt de virtuele machine met de naam de toewijzing ingetrokken *myVM* in de resourcegroep met de naam *myResourceGroup*:
 
     ```azurecli
     az vm deallocate --resource-group myResourceGroup --name myVM
     ```
 
     > [!NOTE]
-    > De virtuele machine moet ongedaan worden gemaakt om uit te breiden van de virtuele harde schijf. `az vm stop` biedt de compute-resources niet vrijgeven. Release van compute-resources, gebruikt `az vm deallocate`.
+    > De virtuele machine moet ongedaan worden gemaakt om uit te breiden van de virtuele harde schijf. Stoppen van de virtuele machine met `az vm stop` heeft niet de rekenresources die zijn uitgebracht. Release van compute-resources, gebruikt `az vm deallocate`.
 
-1. Een lijst met beheerde schijven weergeven in een resourcegroep met [az Schijflijst](/cli/azure/disk#az_disk_list). Het volgende voorbeeld wordt een lijst met beheerde schijven in de resourcegroep met de naam *myResourceGroup*:
+1. Een lijst met beheerde schijven weergeven in een resourcegroep met [az Schijflijst](/cli/azure/disk#az-disk-list). Het volgende voorbeeld wordt een lijst met beheerde schijven in de resourcegroep met de naam *myResourceGroup*:
 
     ```azurecli
     az disk list \
@@ -53,7 +53,7 @@ In de volgende voorbeelden kunt u voorbeeldnamen parameter vervangen door uw eig
         --output table
     ```
 
-    Vouw de benodigde schijfruimte met [az disk update](/cli/azure/disk#az_disk_update). Het volgende voorbeeld wordt de beheerde schijf met de naam *myDataDisk* moet *200*Gb groot:
+    Vouw de benodigde schijfruimte met [az disk update](/cli/azure/disk#az-disk-update). Het volgende voorbeeld wordt de beheerde schijf met de naam *myDataDisk* naar *200* GB:
 
     ```azurecli
     az disk update \
@@ -63,27 +63,27 @@ In de volgende voorbeelden kunt u voorbeeldnamen parameter vervangen door uw eig
     ```
 
     > [!NOTE]
-    > Wanneer u een beheerde schijf uitbreidt, worden de bijgewerkte grootte is toegewezen aan de dichtstbijzijnde grootte van de beheerde schijf. Zie voor een tabel van de grootte van de beschikbare beheerde schijf en lagen [Azure overzicht van Managed Disks - prijzen en facturering](../windows/managed-disks-overview.md#pricing-and-billing).
+    > Als u een beheerde schijf uitbreidt, wordt de grootte van de bijgewerkte naar boven afgerond naar de dichtstbijzijnde beheerde schijf. Zie voor een tabel van de grootte van de beschikbare beheerde schijf en lagen [Azure overzicht van Managed Disks - prijzen en facturering](../windows/managed-disks-overview.md#pricing-and-billing).
 
-1. Start de virtuele machine met [az vm start](/cli/azure/vm#az_vm_start). Het volgende voorbeeld wordt de virtuele machine met de naam *myVM* in de resourcegroep met de naam *myResourceGroup*:
+1. Start de virtuele machine met [az vm start](/cli/azure/vm#az-vm-start). Het volgende voorbeeld wordt de virtuele machine met de naam *myVM* in de resourcegroep met de naam *myResourceGroup*:
 
     ```azurecli
     az vm start --resource-group myResourceGroup --name myVM
     ```
 
 
-## <a name="expand-disk-partition-and-filesystem"></a>Vouw partitie en bestandssysteem
-Voor het gebruik van de uitgebreide schijf, moet u de onderliggende partitie en bestandssysteem uitbreiden.
+## <a name="expand-a-disk-partition-and-filesystem"></a>Vouw een partitie en bestandssysteem
+Vouw de onderliggende partitie en bestandssysteem voor het gebruik van een uitgebreide schijf.
 
-1. SSH naar uw virtuele machine met de juiste referenties. U vindt het openbare IP-adres van uw virtuele machine met [az vm show](/cli/azure/vm#az_vm_show):
+1. SSH naar uw virtuele machine met de juiste referenties. U kunt zien dat het openbare IP-adres van uw virtuele machine met [az vm show](/cli/azure/vm#az-vm-show):
 
     ```azurecli
     az vm show --resource-group myResourceGroup --name myVM -d --query [publicIps] --o tsv
     ```
 
-1. Voor het gebruik van de uitgebreide schijf, moet u de onderliggende partitie en bestandssysteem uitbreiden.
+1. Vouw de onderliggende partitie en bestandssysteem.
 
-    a. Als al is gekoppeld, ontkoppelt u de schijf:
+    a. Als de schijf al is gekoppeld, deze ontkoppelen:
 
     ```bash
     sudo umount /dev/sdc1
@@ -95,7 +95,7 @@ Voor het gebruik van de uitgebreide schijf, moet u de onderliggende partitie en 
     sudo parted /dev/sdc
     ```
 
-    Informatie weergeven over de bestaande partitie-indeling met `print`. De uitvoer is vergelijkbaar met het volgende voorbeeld, waarin dat de onderliggende schijf 215Gb groot is:
+    Informatie weergeven over de bestaande partitie-indeling met `print`. De uitvoer is vergelijkbaar met het volgende voorbeeld, waarin dat de onderliggende schijf is 215 GB:
 
     ```bash
     GNU Parted 3.2
@@ -120,7 +120,7 @@ Voor het gebruik van de uitgebreide schijf, moet u de onderliggende partitie en 
     End?  [107GB]? 215GB
     ```
 
-    d. Als u wilt afsluiten, invoeren `quit`
+    d. Als u wilt afsluiten, voer `quit`.
 
 1. Met de partitie is gewijzigd, controleert u of de consistentie van de partitie met `e2fsck`:
 
@@ -128,7 +128,7 @@ Voor het gebruik van de uitgebreide schijf, moet u de onderliggende partitie en 
     sudo e2fsck -f /dev/sdc1
     ```
 
-1. Nu het formaat van het bestandssysteem met `resize2fs`:
+1. Formaat van het bestandssysteem met `resize2fs`:
 
     ```bash
     sudo resize2fs /dev/sdc1
@@ -140,7 +140,7 @@ Voor het gebruik van de uitgebreide schijf, moet u de onderliggende partitie en 
     sudo mount /dev/sdc1 /datadrive
     ```
 
-1. Gebruiken om te controleren of de besturingssysteemschijf is gewijzigd, `df -h`. De volgende voorbeelduitvoer ziet u het gegevensstation */dev/sdc1*, is nu 200 GB:
+1. Gebruiken om te controleren of de besturingssysteemschijf is gewijzigd, `df -h`. De volgende voorbeelduitvoer ziet u het gegevensstation */dev/sdc1* is nu 200 GB:
 
     ```bash
     Filesystem      Size   Used  Avail Use% Mounted on
@@ -148,4 +148,5 @@ Voor het gebruik van de uitgebreide schijf, moet u de onderliggende partitie en 
     ```
 
 ## <a name="next-steps"></a>Volgende stappen
-Als u extra opslag, moet u ook [gegevensschijven toevoegen aan een Linux-VM](add-disk.md). Zie voor meer informatie over schijfversleuteling [schijven op een Linux-VM met de Azure CLI versleutelen](encrypt-disks.md).
+* Als u extra opslag nodig hebt, kunt u ook [gegevensschijven toevoegen aan een Linux-VM](add-disk.md). 
+* Zie voor meer informatie over schijfversleuteling [schijven op een Linux-VM met de Azure CLI versleutelen](encrypt-disks.md).

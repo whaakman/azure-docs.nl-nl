@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/06/2018
+ms.date: 10/10/2018
 ms.author: diberry
-ms.openlocfilehash: adb44dcc8c41b1a7846ff346d141dc0c4b028e96
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 6a3edfd426fcdce83bd60332ba2b1ff6224dae1a
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48888285"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49645556"
 ---
 # <a name="add-example-utterances-and-label-with-entities"></a>Voorbeeld-uitingen en label met entiteiten toevoegen
 
@@ -159,6 +159,36 @@ In de utterance `Book 2 tickets from Seattle to Cairo`, Seattle, is de verzendin
     >Namen van de onderliggende entiteiten moeten uniek zijn in alle entiteiten in een enkele app. Twee entiteiten met verschillende hiërarchische mag geen onderliggende entiteiten met dezelfde naam bevatten. 
 
     Zie [gegevensextractie](luis-concept-data-extraction.md#hierarchical-entity-data) voor meer informatie over het uitpakken van de hiërarchische entiteit van het eindpunt JSON-query-antwoord. Probeer de hiërarchische entiteit [snelstartgids](luis-quickstart-intent-and-hier-entity.md) voor meer informatie over het gebruik van een hiërarchische entiteit.
+
+## <a name="entity-status-predictions"></a>Entiteit status voorspellingen
+
+Wanneer u een nieuwe utterance in de portal LUIS invoert, kan de utterance entiteit voorspelling fouten hebben. De fout voorspelling is een verschil tussen hoe een entiteit wordt aangeduid in vergelijking met hoe LUIS de entiteit heeft voorspeld. 
+
+Dit verschil wordt visueel weergegeven in de portal LUIS met een rood onderstreept in de utterance. De rode lijn weergegeven tussen vierkante haken entiteit of buiten de vierkante haken. 
+
+![Schermafbeelding van de entiteit status voorspelling discrepantie](./media/luis-how-to-add-example-utterances/entity-prediction-error.png)
+
+Selecteer de woorden die zijn onderstreept in rood in de utterance. 
+
+Het van de entiteit wordt weergegeven de **entiteit status** met een rood uitroepteken als er een discrepantie voorspelling. De status van de entiteit met informatie over het verschil tussen entiteiten met het label en voorspelde Selecteer **entiteit status** Selecteer vervolgens het item aan de rechterkant.
+
+![Schermafbeelding van de entiteit status voorspelling discrepantie](./media/luis-how-to-add-example-utterances/entity-status.png)
+
+De rode-regel kan worden weergegeven op een van de volgende tijden:
+
+    * Wanneer een utterance wordt ingevoerd, maar voordat u wordt de entiteit aangeduid
+    * Wanneer de entiteit-label wordt toegepast
+    * Als het label van de entiteit wordt verwijderd
+    * Als meer dan één entiteit label voor de tekst wordt voorspeld 
+
+De volgende oplossingen helpen bij het oplossen van de entiteit voorspelling afwijking:
+
+|Entiteit|Visuele indicator|voorspelling|Oplossing|
+|--|--|--|--|
+|Utterance hebt ingevoerd, entiteit is niet nog gelabeld.|rode lijn|Voorspelling is juist.|De entiteit met de voorspelde waarde van label.|
+|Niet-gelabelde tekst|rode lijn|Onjuiste voorspelling|De huidige uitingen met behulp van deze onjuist entiteit moeten worden gecontroleerd via alle intents. De huidige uitingen hebt LUIS mistaught dat deze tekst de voorspelde entiteit is.
+|Correct gelabelde tekst|blauwe entiteit wilt markeren, rood onderstreept|Onjuiste voorspelling|Geef meer uitingen aan de correct gelabelde entiteit op verschillende locaties en het gebruik. De huidige uitingen zijn niet voldoende is om te leren van LUIS dat dit is de entiteit is of vergelijkbare entiteiten worden weergegeven in de context. Vergelijkbare entiteit moet worden gecombineerd in één enkele entiteit zodat LUIS is niet worden verward. Een andere oplossing is het toevoegen van een woordgroepenlijst om te verbeteren van de betekenis van de woorden. |
+|Onjuist gelabelde tekst|blauwe entiteit wilt markeren, rood onderstreept|Juiste voorspelling| Geef meer uitingen aan de correct gelabelde entiteit op verschillende locaties en het gebruik. 
 
 
 ## <a name="remove-entity-labels-from-utterances"></a>Entiteit verwijderen van uitingen

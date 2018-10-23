@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: iainfou
-ms.openlocfilehash: f04b4015e201d272fa624b1de265792564ac14cd
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 140d663524696f19844fea8906b181f468b7d157
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47047677"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49647000"
 ---
 # <a name="use-azure-container-registry-as-a-helm-repository-for-your-application-charts"></a>Azure Container Registry gebruiken als een Helm-opslagplaats voor uw toepassing grafieken
 
@@ -30,7 +30,7 @@ In dit artikel leest u hoe u een Helm-grafiek opslagplaats opgeslagen in Azure C
 Als u wilt de stappen in dit artikel hebt voltooid, moeten de volgende vereisten worden voldaan:
 
 - **Azure Container Registry** -een containerregister maken in uw Azure-abonnement. Gebruik bijvoorbeeld de [Azure-portal](container-registry-get-started-portal.md) of de [Azure CLI](container-registry-get-started-azure-cli.md).
-- **Helm client** om te zoeken en installeren van grafieken. U moet ook een Helm-server (Tiller) geïnitialiseerd in een Kubernetes-cluster. Indien nodig, kunt u [maken van een cluster Azure Kubernetes Service][aks-quickstart]. Zie voor meer informatie over het installeren en gebruiken van Helm [Helm installeren][helm-install].
+- **Helm-clientversie 2.11.0 (niet een RC-versie) of hoger** - uitvoeren `helm version` om uw huidige versie te vinden. U moet ook een Helm-server (Tiller) geïnitialiseerd in een Kubernetes-cluster. Indien nodig, kunt u [maken van een cluster Azure Kubernetes Service][aks-quickstart]. Zie voor meer informatie over het installeren en upgraden van Helm [Helm installeren][helm-install].
 - **Azure CLI versie 2.0.46 of hoger** - uitvoeren `az --version` de versie te vinden. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren][azure-cli-install].
 
 ## <a name="add-a-repository-to-helm-client"></a>Een opslagplaats voor Helm-client toevoegen

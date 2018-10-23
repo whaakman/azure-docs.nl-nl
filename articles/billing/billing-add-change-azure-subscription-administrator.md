@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/14/2018
+ms.date: 10/19/2018
 ms.author: cwatson
-ms.openlocfilehash: 821d263856f21897915ba7954487b4d029cc4ed0
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: d6e99c2d57baa5fc62f3894abc9d04635f81f5aa
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47395242"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49638049"
 ---
 # <a name="add-or-change-azure-subscription-administrators"></a>Toevoegen of wijzigen van de beheerders van Azure-abonnement
 
@@ -41,9 +41,9 @@ Als u iemand wilt toevoegen als een beheerder voor een Azure-abonnement, geeft u
 
 1. Ga naar [ **abonnementen** in Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
 2. Selecteer het abonnement waarvoor u toegang wilt verlenen.
-3. Selecteer **Toevoegen**.
+3. Selecteer **Toegangsbeheer (IAM)** in de lijst.
+4. Selecteer **Toevoegen**.
    (Als de knop Toevoegen ontbreekt, bent u niet gemachtigd om machtigingen toe te voegen.)
-4. Selecteer **Toegangsbeheer (IAM)** in de lijst.
 5. Selecteer **Eigenaar** in de lijst **Rol**. 
 6. Selecteer **Azure AD-gebruiker, -groep of -toepassing** in de lijst **Toegang toewijzen aan**. 
 7. Typ in het vak **Selecteer** het e-mailadres van de gebruiker die u als eigenaar wilt toevoegen. Selecteer de gebruiker en selecteer vervolgens **Opslaan**.
@@ -67,6 +67,19 @@ Alleen een [eigenaar](../role-based-access-control/built-in-roles.md#owner) kan 
     De machtiging CO-beheerder verwijderen **met de rechtermuisknop op** het CO-beheerder-gebruiker en selecteer vervolgens **CO-beheerder verwijderen**.
 
     ![Schermafbeelding van CO-beheerder wordt verwijderd](./media/billing-add-change-azure-subscription-administrator/remove-coadmin.png)
+
+### <a name="adding-a-guest-user-as-a-co-administrator"></a>Een gastgebruiker toevoegen als een CO-beheerder
+
+Gastgebruikers die zijn toegewezen aan de rol CO-beheerder ziet mogelijk enkele verschillen in vergelijking met gebruikers met de rol CO-beheerder. Houd rekening met het volgende scenario:
+
+- Gebruiker A met een Azure AD-werk- of School-account is een servicebeheerder voor een Azure-abonnement.
+- Gebruiker B heeft een Microsoft-account.
+- Gebruiker A wijst de rol CO-beheerder voor gebruiker b
+- Gebruiker B kan bijna alles doen, maar kan niet registreren van toepassingen of gebruikers in de Azure AD-directory opzoeken.
+
+U zou verwachten dat de gebruiker B kan alles beheren. De reden voor dit verschil is dat het Microsoft-account wordt toegevoegd aan het abonnement als gastgebruiker in plaats van een gebruiker lid. Gastgebruikers hebben verschillende standaardmachtigingen in Azure AD in vergelijking met gebruikers. Bijvoorbeeld lidgebruikers andere gebruikers in Azure AD kunnen lezen en gastgebruikers kunnen niet. Lidgebruikers nieuwe service-principals in Azure AD kunnen registreren en gastgebruikers kunnen niet. Als een gastgebruiker kunnen deze taken uit te voeren moet, een mogelijke oplossing bestaat uit het toewijzen van de specifieke Azure AD-beheerdersrollen de gastgebruiker moet. Bijvoorbeeld, in het voorgaande scenario kan u toewijzen de [Adreslijstlezers](../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) rol andere gebruikers maken en toewijzen de [toepassingsontwikkelaar](../active-directory/users-groups-roles/directory-assign-admin-roles.md#application-developer) rol mogelijk te maken van service-principals. Zie voor meer informatie over lid en gastgebruikers en hun machtigingen [wat zijn de standaardmachtigingen van de gebruiker in Azure Active Directory?](../active-directory/fundamentals/users-default-permissions.md).
+
+Houd er rekening mee dat de [ingebouwde rollen voor Azure-resources](../role-based-access-control/built-in-roles.md) zijn anders dan de [Azure AD-beheerdersrollen](../active-directory/users-groups-roles/directory-assign-admin-roles.md). De ingebouwde rollen verlenen geen toegang aan Azure AD. Zie voor meer informatie, [inzicht in de verschillende rollen](../role-based-access-control/rbac-and-directory-admin-roles.md).
 
 <a name="change-service-administrator-for-a-subscription"></a>
 

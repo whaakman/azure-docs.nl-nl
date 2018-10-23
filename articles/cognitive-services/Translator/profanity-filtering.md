@@ -10,20 +10,20 @@ ms.component: translator-text
 ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: v-jansko
-ms.openlocfilehash: 87814571e6f1c20b219020651eb798fa49a28deb
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 4154950cf8d8b6ec2e47a9f8100cb7983ac127bf
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46127925"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49648034"
 ---
 # <a name="add-profanity-filtering-with-the-translator-text-api"></a>Grof taalgebruik filteren met de Translator Text-API toevoegen
 
 Normaal gesproken de Translator-service wordt bewaard, grof taalgebruik dat aanwezig is in de bron in de vertaling. De mate van grof taalgebruik en de context waarmee woorden grof verschillen tussen culturen. De mate van grof taalgebruik in de doeltaal mogelijk als gevolg hiervan worden versterkt of worden verlaagd.
 
-Als u wilt om te voorkomen dat grof taalgebruik in de vertaling (zelfs als grof taalgebruik is aanwezig in de brontekst), gebruikt u de grof taalgebruik optie in de methode Translate() filteren. Deze optie kunt u kiezen of u wilt zien grof taalgebruik verwijderd of gemarkeerd met de juiste tags of geen actie ondernomen.
+Als u wilt om te voorkomen dat grof taalgebruik in de vertaling, zelfs als grof taalgebruik in de brontekst aanwezig is, gebruikt u de optie die beschikbaar is in de methode Translate() filteren scheldwoorden. Deze optie kunt u kiezen of u zien grof taalgebruik verwijderd wilt, gemarkeerd met de juiste tags, of geen actie ondernomen.
 
-De methode Translate() heeft een parameter 'opties', waarin het nieuwe element 'ProfanityAction'. De geaccepteerde waarden van ProfanityAction zijn "NoAction", "Gemarkeerd" en "Verwijderd."
+De methode Translate() neemt de parameter 'opties', waarin het nieuwe element 'ProfanityAction'. De geaccepteerde waarden van ProfanityAction zijn "NoAction", "Gemarkeerd" en "Verwijderd."
 
 ## <a name="accepted-values-of-profanityaction-and-examples"></a>Geaccepteerde waarden van ProfanityAction en voorbeelden
 |ProfanityAction waarde | Bewerking | Voorbeeld: Bron - Japans | Voorbeeld: Target - Engels|
@@ -35,4 +35,3 @@ De methode Translate() heeft een parameter 'opties', waarin het nieuwe element '
 ## <a name="next-steps"></a>Volgende stappen
 > [!div class="nextstepaction"]
 > [Grof taalgebruik filteren met de Translator-API-aanroep van toepassing](reference/v3-0-translate.md)
-

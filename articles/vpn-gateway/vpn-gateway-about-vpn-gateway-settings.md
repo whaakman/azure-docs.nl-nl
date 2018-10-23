@@ -2,25 +2,17 @@
 title: Instellingen voor VPN-gateway voor cross-premises Azure-verbindingen | Microsoft Docs
 description: Meer informatie over VPN-Gateway-instellingen voor virtuele netwerkgateways van Azure.
 services: vpn-gateway
-documentationcenter: na
 author: cherylmc
-manager: jpconnock
-editor: ''
-tags: azure-resource-manager,azure-service-management
-ms.assetid: ae665bc5-0089-45d0-a0d5-bc0ab4e79899
 ms.service: vpn-gateway
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 03/20/2018
+ms.topic: conceptual
+ms.date: 10/22/2018
 ms.author: cherylmc
-ms.openlocfilehash: 60cdc7bbe08df7816560e9720f96edc51769c342
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 30edc7308ad2d01d5245f8cd1073a7def674b74d
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38618218"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49649836"
 ---
 # <a name="about-vpn-gateway-configuration-settings"></a>Over VPN-Gateway-instellingen
 
@@ -29,10 +21,11 @@ Een VPN-gateway is een type virtuele netwerkgateway waarmee versleuteld verkeer 
 Een VPN-gatewayverbinding is afhankelijk van de configuratie van meerdere resources, die elk configureerbare instellingen bevat. De secties in dit artikel worden de resources en de instellingen die betrekking op een VPN-gateway voor een virtueel netwerk hebt gemaakt in Resource Manager-implementatiemodel hebben. U vindt beschrijvingen en topologiediagrammen voor elke oplossing verbinding in de [over VPN-Gateway](vpn-gateway-about-vpngateways.md) artikel.
 
 >[!NOTE]
-> De waarden in dit artikel zijn van toepassing op virtuele netwerkgateways die gebruikmaken van het GatewayType 'Vpn'. Dit is de reden waarom deze bepaalde virtuele netwerkgateways worden aangeduid als VPN-gateways. De waarden voor ExpressRoute-gateways zijn niet dezelfde waarden die u voor VPN-gateways gebruikt.
+> De waarden in dit artikel zijn van toepassing VPN-gateways (virtuele netwerkgateways die - GatewayType Vpn gebruikt). In dit artikel omvat niet alle soorten gateways of zone-redundante gateways.
 >
->Zie voor waarden die betrekking hebben op - GatewayType 'ExpressRoute' [virtuele netwerkgateways voor ExpressRoute](../expressroute/expressroute-about-virtual-network-gateways.md).
->
+>* Zie voor waarden die betrekking hebben op - GatewayType 'ExpressRoute' [virtuele netwerkgateways voor ExpressRoute](../expressroute/expressroute-about-virtual-network-gateways.md).
+>* Zie voor de zone-redundante gateways [over zone-redundante gateways](about-zone-redundant-vnet-gateways.md).
+>* Zie voor virtuele WAN [over virtuele WAN](../virtual-wan/virtual-wan-about.md). 
 >
 
 ## <a name="gwtype"></a>Gatewaytypen

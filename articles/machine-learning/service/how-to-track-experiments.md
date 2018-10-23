@@ -9,12 +9,12 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/24/2018
-ms.openlocfilehash: 4d8b913c9e77254eb4d232e6bf5add136204b842
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 054cd54827dc11e57f249a270542ff81ff670912
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49427753"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49649989"
 ---
 # <a name="track-experiments-and-training-metrics-in-azure-machine-learning"></a>Bijhouden van experimenten en training metrische gegevens in Azure Machine Learning
 
@@ -25,7 +25,7 @@ U kunt in de Azure Machine Learning-service uw experimenten volgen en controlere
 
 ## <a name="list-of-training-metrics"></a>Overzicht van metrische gegevens voor training 
 
-De volgende metrische gegevens kunnen worden toegevoegd aan een run tijdens het trainen van een experiment. Voor een meer gedetailleerd overzicht van wat er op een uitvoering kunnen worden bijgehouden, raadpleegt u de [SDK-referentiedocumentatie](https://docs.microsoft.com/python/api/overview/azure/azure-ml-sdk-overview?view=azure-ml-py).
+De volgende metrische gegevens kunnen worden toegevoegd aan een run tijdens het trainen van een experiment. Voor een meer gedetailleerd overzicht van wat er op een uitvoering kunnen worden bijgehouden, raadpleegt u de [SDK-referentiedocumentatie](https://aka.ms/aml-sdk).
 
 |Type| Funkce Pythonu | Voorbeeld | Opmerkingen|
 |----|:----|:----|:----|

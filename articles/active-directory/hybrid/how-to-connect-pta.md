@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2018
+ms.date: 10/21/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 4ae84ff481b25f1e91a29c067dea74ba25f924aa
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 899aeeb994ca5c9bf30dfca876dff61c1ccf3ea7
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49320319"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49637576"
 ---
 # <a name="user-sign-in-with-azure-active-directory-pass-through-authentication"></a>Aanmelden van gebruikers met Azure Active Directory Pass through-verificatie
 
@@ -48,8 +48,9 @@ U kunt combineren Pass through-verificatie met de [naadloze eenmalige aanmelding
   - Er is geen beheer-overhead. De agent krijgt automatisch verbeteringen en oplossingen voor problemen.
 - *Beveiligen*
   - On-premises wachtwoorden worden nooit opgeslagen in de cloud in welke vorm.
-  - De agent maakt alleen uitgaande verbindingen in uw netwerk. Daarom is er geen vereiste voor het installeren van de agent in een perimeternetwerk, ook wel een DMZ.
   - Beschermt u uw gebruikersaccounts te werken naadloos met [Azure AD voorwaardelijke toegangsbeleid](../active-directory-conditional-access-azure-portal.md), met inbegrip van multi-factor Authentication (MFA), [blokkeren van verouderde](../conditional-access/conditions.md) en door [ gefilterd op wachtwoord beveiligingsaanvallen](../authentication/howto-password-smart-lockout.md).
+  - De agent maakt alleen uitgaande verbindingen in uw netwerk. Daarom is er geen vereiste voor het installeren van de agent in een perimeternetwerk, ook wel een DMZ.
+  - De communicatie tussen een agent en de Azure AD wordt beveiligd met behulp van verificatie op basis van certificaten. Deze certificaten worden jaarlijks automatisch elke paar maanden vernieuwd door Azure AD.
 - *Hoge beschikbaarheid*
   - Extra agents kunnen worden geïnstalleerd op meerdere on-premises servers voor maximale beschikbaarheid van aanmeldingsaanvragen.
 

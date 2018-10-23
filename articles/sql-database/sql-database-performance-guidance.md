@@ -1,6 +1,6 @@
 ---
 title: Azure SQL Database-prestaties afstemmen richtlijnen | Microsoft Docs
-description: Meer informatie over het gebruik van aanbevelingen voor het verbeteren van de prestaties van Azure SQL Database-query's.
+description: Meer informatie over het gebruik van aanbevelingen om af te stemmen handmatig de prestaties van uw Azure SQL Database-query's.
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance
@@ -11,46 +11,26 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 10/05/2018
-ms.openlocfilehash: 9af699dca5aab26f0bf24b4609bef14558236523
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.date: 10/22/2018
+ms.openlocfilehash: 95e09532616b4aff05dad7440dcda6872fd27484
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854810"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49645521"
 ---
-# <a name="tuning-performance-in-azure-sql-database"></a>Afstemmen van prestaties in Azure SQL Database
+# <a name="manual-tune-query-performance-in-azure-sql-database"></a>Handmatig de queryprestaties in Azure SQL Database
 
-Azure SQL Database biedt [aanbevelingen](sql-database-advisor.md) dat u gebruiken kunt om de prestaties van uw database te verbeteren, of u Azure SQL Database kunt [automatisch kan worden aangepast aan uw toepassing](sql-database-automatic-tuning.md) en wijzigingen toepassen die worden de prestaties van uw workload.
+Wanneer u een prestatieprobleem dat u met SQL Database ondervindt hebt geïdentificeerd, wordt dit artikel is bedoeld om u te helpen:
 
-U geen toepasselijke aanbevelingen, en u hebt nog steeds problemen met prestaties, u kunt de volgende methoden gebruiken om prestaties te verbeteren:
-
-- Vergroten van de service-lagen in uw [DTU gebaseerde aankoopmodel](sql-database-service-tiers-dtu.md) of uw [vCore gebaseerde aankoopmodel](sql-database-service-tiers-vcore.md) om meer resources met uw database te leveren.
 - Uw toepassing af en enkele aanbevolen procedures die u kunnen de prestaties verbeteren van toepassing.
 - De database afstemmen door indexen en query's efficiënter werken met gegevens te wijzigen.
 
-Dit zijn handmatige methodes omdat u nodig hebt om te bepalen van de hoeveelheid resources voldoen aan uw behoeften. Anders moet u voor het herschrijven van de toepassing of databasecode en de wijzigingen implementeren.
-
-## <a name="increasing-service-tier-of-your-database"></a>Vergroten van de servicelaag van de database
-
-Azure SQL Database biedt [twee aankopen modellen](sql-database-service-tiers.md), een [DTU gebaseerde aankoopmodel](sql-database-service-tiers-dtu.md) en een [vCore gebaseerde aankoopmodel](sql-database-service-tiers-vcore.md) die u kunt kiezen uit. Elke servicelaag isoleert alleen de resources die uw SQL-database gebruiken kunt en voorspelbare prestaties voor dat serviceniveau waarborgt. In dit artikel bieden wij richtlijnen waarmee u de servicelaag voor uw toepassing kiezen. We bespreken ook manieren dat u uw toepassing het meeste halen uit Azure SQL Database kunt afstemmen. Elke servicelaag heeft een eigen [resourcelimieten](sql-database-resource-limits.md). Zie voor meer informatie, [vCore gebaseerde resourcelimieten](sql-database-vcore-resource-limits-single-databases.md) en [DTU gebaseerde resourcelimieten](sql-database-dtu-resource-limits-single-databases.md).
-
-> [!NOTE]
-> In dit artikel richt zich op informatie over de prestaties voor individuele databases in Azure SQL Database. Zie voor instructies prestaties met betrekking tot elastische pools [prijs- en Prestatieoverwegingen voor elastische pools](sql-database-elastic-pool-guidance.md). Houd er rekening mee, maar u kunt veel van de aanbevelingen voor afstemming in dit artikel zijn van toepassing op databases in een elastische pool en vergelijkbare prestatievoordelen ophalen.
-
-De servicelaag die u nodig hebt voor uw SQL-database, is afhankelijk van de vereisten voor het laden van piek voor elke resourcedimensie. Sommige toepassingen een trivial bedrag van één resource gebruiken, maar belangrijke vereisten voor andere resources.
-
-### <a name="service-tier-capabilities-and-limits"></a>Service tier mogelijkheden en beperkingen
-
-Op elke servicelaag instelt u de compute-grootte, zodat u de flexibiliteit om te betalen alleen voor de capaciteit die u nodig hebt. U kunt [capaciteit aanpassen](sql-database-single-database-scale.md), omhoog of omlaag, als de workload wordt gewijzigd. Als de werkbelasting van uw database tijdens de back-naar-school winkelwagen seizoen hoog is, kunt u de compute-grootte voor de database verhogen voor een bepaalde tijd, juli tot en met September. U kunt deze beperken wanneer uw seizoen piek is beëindigd. U betaalt door het optimaliseren van uw cloudomgeving de periodieke variatie van uw bedrijf, kunt u minimaliseren. Dit model werkt ook goed voor introductiecycli voor software-product. Een testteam kan capaciteit toewijzen tijdens deze wordt uitgevoerd test en laat u deze capaciteit wanneer ze klaar bent met testen. In een model van de aanvraag capaciteit betaalt u voor capaciteit als u dit nodig hebt, en besparen op specifieke resources die u zelden gebruikt.
-
-### <a name="the-purpose-of-service-tiers"></a>Het doel van service-lagen
-
-Hoewel elke databaseworkload van een verschillen kan, is het doel van service-lagen voor voorspelbare prestaties op verschillende compute-grootten. Klanten met grootschalige database resourcevereisten kunnen werken in een meer specifieke omgeving.
+In dit artikel wordt ervan uitgegaan dat u al hebt gewerkt via de Azure SQL Database [aanbevelingen van advisor-database](sql-database-advisor.md) en de Azure SQL Database [aanbevelingen voor het automatisch afstemmen](sql-database-automatic-tuning.md). Ook wordt ervan uitgegaan dat u hebt bekeken [een overzicht van bewaking en afstemming](sql-database-monitor-tune-overview.md) en verwante artikelen die betrekking hebben op het oplossen van prestatieproblemen. Bovendien, in dit artikel wordt ervan uitgegaan dat u geen een CPU-resources, die wordt uitgevoerd met betrekking tot prestatieprobleem dat kan worden opgelost door het compute vergroten of servicelaag om meer resources met uw database te leveren.
 
 ## <a name="tune-your-application"></a>Uw toepassing af te stemmen
 
-In traditionele on-premises SQL Server, is het proces van het eerste capaciteitsplanning vaak gescheiden van het proces van het uitvoeren van een toepassing in productie. Hardware- en productinformatie licenties eerst worden aangeschaft en het afstemmen van prestaties later wordt uitgevoerd. Wanneer u Azure SQL Database gebruikt, is het een goed idee om het proces van het uitvoeren van een toepassing en het afstemmen interweave. Met het model van betalen voor capaciteit op aanvraag, kunt u uw toepassing voor het gebruik van de minimaal benodigde nu, in plaats van de capaciteit in te richten op hardware gebaseerd op goed van toekomstige groeiplannen voor een toepassing, die vaak onjuist zijn bronnen afstemmen. Sommige klanten kunnen ervoor kiezen niet om af te stemmen van een toepassing, maar in plaats daarvan hardware van resources. Deze aanpak is wellicht een goed idee als u niet wilt wijzigen van een sleutel toepassing gedurende een periode van bezet. Maar afstemmen van een toepassing kunt minimaliseren resourcevereisten en maandelijkse rekeningen te verlagen wanneer u de service-lagen in Azure SQL Database.
+In traditionele on-premises SQL Server, is het proces van het eerste capaciteitsplanning vaak gescheiden van het proces van het uitvoeren van een toepassing in productie. Hardware- en productinformatie licenties eerst worden aangeschaft en het afstemmen van prestaties later wordt uitgevoerd. Wanneer u Azure SQL Database gebruikt, is het een goed idee om het proces van het uitvoeren van een toepassing en het afstemmen interweave. Met het model van betalen voor capaciteit op aanvraag, kunt u uw toepassing voor het gebruik van de minimaal benodigde nu, in plaats van de capaciteit in te richten op hardware gebaseerd op goed van toekomstige groeiplannen voor een toepassing, die vaak onjuist zijn bronnen afstemmen. Sommige klanten mogelijk niet om af te stemmen van een toepassing kiezen en in plaats daarvan kiezen voor het inrichten van te veel hardwarebronnen. Deze aanpak is wellicht een goed idee als u niet wilt wijzigen van een sleutel toepassing gedurende een periode van bezet. Maar afstemmen van een toepassing kunt minimaliseren resourcevereisten en maandelijkse rekeningen te verlagen wanneer u de service-lagen in Azure SQL Database.
 
 ### <a name="application-characteristics"></a>Kenmerken van toepassingen
 
@@ -75,17 +55,6 @@ Hoewel Azure SQL Database-Servicelagen zijn ontworpen om de stabiliteit van de p
 ## <a name="tune-your-database"></a>Uw database af te stemmen
 
 In deze sectie kijken we enkele technieken die u gebruiken kunt om af te stemmen, Azure SQL-Database voor de beste prestaties voor uw toepassing en voer deze uit op de laagste mogelijke compute-grootte. Sommige van de volgende manieren overeenkomen met traditionele SQL Server best practices voor afstemmen, maar andere zijn specifiek voor Azure SQL Database. In sommige gevallen kunt u de verbruikte resources voor een database om te zoeken gebieden verder afstemmen en uitbreiden van traditionele SQL Server-technieken om te werken in Azure SQL Database controleren.
-
-### <a name="identify-performance-issues-using-azure-portal"></a>Identificeren van prestatieproblemen met Azure portal
-
-De volgende hulpprogramma's in Azure portal kunt u analyseren en oplossen van prestatieproblemen met uw SQL-database:
-
-- [Inzicht in queryprestaties](sql-database-query-performance.md)
-- [SQL Database Advisor](sql-database-advisor.md)
-
-De Azure-portal bevat meer informatie over beide van deze hulpprogramma's en het gebruik ervan. Voor het efficiënt opsporen en corrigeren van problemen, is het raadzaam dat u de hulpprogramma's in Azure portal eerst. U wordt aangeraden dat u de handmatige benaderingen die we vervolgens bespreken om ontbrekende indexen en query afstemmen, in bijzondere gevallen afstemmen.
-
-Meer informatie over het identificeren van problemen in Azure SQL Database op [bewaking van toepassingsprestaties in de Azure-portal](sql-database-monitor-tune-overview.md) en [databases bewaken via DMV's](sql-database-monitoring-with-dmvs.md) artikelen.
 
 ### <a name="identifying-and-adding-missing-indexes"></a>Identificeren en toe te voegen ontbrekende indexen
 

@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/4/2018
+ms.date: 10/19/2018
 ms.author: kumud
-ms.openlocfilehash: 57bb3fea9ad8128520b5d186bd7a27483308e606
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 0ba7ed902c6ecb7a328aa6db3d3855b88bed2813
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48802794"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49637559"
 ---
 # <a name="load-balancer-outbound-rules"></a>Load Balancer-regels voor uitgaand
 
@@ -47,7 +47,7 @@ Regels voor uitgaand verkeer, zoals alle Load Balancer-regels, Ga als volgt deze
 
 Een uitgaande regel configureert uitgaande NAT voor _alle virtuele machines geïdentificeerd door de back-endpool_ moeten worden omgezet in de _frontend_.  En _parameters_ meer fijnmazige controle bieden over de uitgaande NAT-algoritme.
 
-API-versie '2018-08-01' kan de definitie van een uitgaande regel als volgt zijn gestructureerd:
+API-versie '2018-07-01' kan de definitie van een uitgaande regel als volgt zijn gestructureerd:
 
 ```json
       "outboundRules": [
@@ -84,7 +84,7 @@ Gebruik de volgende parameter toe te wijzen 10.000 SNAT poorten per VM (NIC IP-c
 
           "allocatedOutboundPorts": 10000
 
-Elke openbaar IP-adres van alle front-ends van een regel voor uitgaande draagt bij tot maar liefst 64.000 kortstondige poorten voor ons als SNAT poorten.  Load Balancer wijst SNAT poorten in veelvouden van 8. Als u een waarde niet deelbaar is door 8 opgeeft, wordt de configuratiebewerking is afgewezen.  Als u probeert meer SNAT toewijzen poorten dan beschikbaar zijn op basis van het aantal openbare IP-adressen, is de configuratiebewerking afgewezen.  Bijvoorbeeld, als u toewijst 10.000 poorten per VM en 7 VM's in een back-end pool een enkel openbaar IP-adres wilt delen, de configuratie is afgewezen (7 x 10,0000 SNAT poorten > 64.000 SNAT poorten).  U kunt meer openbare IP-adressen toevoegen aan de front-end van de regel voor uitgaande om in te schakelen van het scenario.
+Elke openbaar IP-adres van alle front-ends van een regel voor uitgaande draagt bij tot maar liefst 64.000 kortstondige poorten voor gebruik als SNAT poorten.  Load Balancer wijst SNAT poorten in veelvouden van 8. Als u een waarde niet deelbaar is door 8 opgeeft, wordt de configuratiebewerking is afgewezen.  Als u probeert meer SNAT toewijzen poorten dan beschikbaar zijn op basis van het aantal openbare IP-adressen, is de configuratiebewerking afgewezen.  Bijvoorbeeld, als u toewijst 10.000 poorten per VM en 7 VM's in een back-end pool een enkel openbaar IP-adres wilt delen, de configuratie is afgewezen (7 x 10,0000 SNAT poorten > 64.000 SNAT poorten).  U kunt meer openbare IP-adressen toevoegen aan de front-end van de regel voor uitgaande om in te schakelen van het scenario.
 
 U kunt terugkeren naar [automatische SNAT poorttoewijzing op basis van de grootte van de back-end](load-balancer-outbound-connections.md#preallocatedports) door 0 voor het aantal poorten op te geven.
 

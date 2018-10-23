@@ -10,19 +10,19 @@ ms.component: translator-text
 ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: v-jansko
-ms.openlocfilehash: e5061e322b4f0edb416f321cefef73776b9165ff
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: ccef55d56286cde47d23dbf2703c15fcf375e266
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46123943"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49646946"
 ---
 # <a name="how-to-use-the-transformtext-method"></a>Het gebruik van de methode TransformText
 
 > [!NOTE]
 > Deze methode is afgeschaft. Het is niet beschikbaar in V3.0 van de Translator Text-API.
 
-De methode TransformText is een functie voor het normaliseren van tekst voor sociale media, die resulteert in een gestandaardiseerde vorm van de invoer. De methode kan worden gebruikt als een voorverwerking stap in machinevertalingen of andere toepassingen die de schone invoertekst die doorgaans niet is gevonden in sociale media of door gebruikers gegenereerde inhoud verwachten. De functie wordt momenteel werkt alleen met Engels invoer. 
+De methode TransformText is een functie voor het normaliseren van tekst voor sociale media, die resulteert in een gestandaardiseerde vorm van de invoer. De methode kan worden gebruikt als een voorverwerking stap in machinevertalingen of andere toepassingen die de schone invoertekst die doorgaans niet is gevonden in sociale media of door gebruikers gegenereerde inhoud verwachten. De functie wordt momenteel werkt alleen met Engels invoer.
 
 De methode is een RESTful-service met behulp van GET via HTTP. Het ondersteunt eenvoudige XML en JSON-serialisatie.
 
@@ -31,7 +31,7 @@ De methode is een RESTful-service met behulp van GET via HTTP. Het ondersteunt e
 | Parameter | Beschrijving |
 |:---|:---|
 | Autorisatieheader | **Vereiste** HTTP-header wordt gebruikt om de toepassing te identificeren. Sleutel gebruiken: 'Autorisatie' en de waarde: "Bearer" + "" + toegangstoken. Ga hier voor meer informatie.|
-| Taal | **Vereiste** een tekenreeks voor de taal. Deze parameter ondersteunt alleen Engels met **en** als naam van de taal.|
+| language | **Vereiste** een tekenreeks voor de taal. Deze parameter ondersteunt alleen Engels met **en** als naam van de taal.|
 | category | **Optionele** een tekenreeks met de categorie of het domein van de vertaling. Deze parameter ondersteunt alleen de standaardoptie **algemene**.|
 | zin | **Vereiste** een zin die u wilt corrigeren. |
 
@@ -44,12 +44,12 @@ De geretourneerde waarde bevat de getransformeerde zin.
 GetTranslationsResponse Microsoft.Translator.GetTranslations(appId, text, from, to, maxTranslations, options); TransformTextResponse
 {
 int ec;            // A positive number representing an error condition
-string em;         // A descriptive error message 
+string em;         // A descriptive error message
 string sentence;   // transformed text
 }
 ```
 
-## <a name="example"></a>Voorbeeld 
+## <a name="example"></a>Voorbeeld
 
 ```csharp
 using System;
@@ -72,9 +72,9 @@ namespace MicrosoftTranslatorSdk.HttpSamples
             AdmAccessToken admToken;
             string headerValue;
             //Get Client Id and Client Secret from https://datamarket.azure.com/developer/applications/
-            //Refer obtaining AccessToken (http://msdn.microsoft.com/library/hh454950.aspx) 
+            //Refer obtaining AccessToken (http://msdn.microsoft.com/library/hh454950.aspx)
             AdmAuthentication admAuth = new AdmAuthentication("clientID", "client secret");
-            
+
             try
             {
                 admToken = admAuth.GetAccessToken();
@@ -216,7 +216,7 @@ namespace MicrosoftTranslatorSdk.HttpSamples
         }
         private AdmAccessToken HttpPost(string DatamarketAccessUri, string requestDetails)
         {
-            //Prepare OAuth request 
+            //Prepare OAuth request
             WebRequest webRequest = WebRequest.Create(DatamarketAccessUri);
             webRequest.ContentType = "application/x-www-form-urlencoded";
             webRequest.Method = "POST";
@@ -235,6 +235,6 @@ namespace MicrosoftTranslatorSdk.HttpSamples
             }
         }
     }
-} 
+}
 
 ```

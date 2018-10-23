@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/30/2018
 ms.author: fryu
 ms.component: common
-ms.openlocfilehash: fc11e29b03df617c4b5bb6f4fbb43cd478001d42
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 3f2ebb82f5affa3c41f237edcc039eb6214c7a4c
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39521418"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49649292"
 ---
 # <a name="azure-storage-metrics-migration"></a>Azure Storage-metrische gegevens over migratie
 
@@ -25,7 +25,7 @@ Dit artikel leest u hoe het migreren van de oude metrische gegevens naar de nieu
 
 Azure Storage oude metrische waarden, verzamelt en maakt een aggregatie en slaat ze op in tabellen $Metric binnen hetzelfde opslagaccount. U kunt de Azure-portal gebruiken voor het instellen van een controle grafiek. U kunt ook de Azure Storage-SDK's gebruiken om te lezen van de gegevens uit $Metric tabellen die zijn gebaseerd op het schema. Zie voor meer informatie, [Opslaganalyse](./storage-analytics.md).
 
-Metrische gegevens over capaciteit bieden oude metrische gegevens alleen op Azure Blob-opslag. Oude metrische gegevens bieden transactie metrische gegevens over Blob storage, Table storage, Azure Files en Queue storage. 
+Metrische gegevens over capaciteit bieden oude metrische gegevens alleen op Azure Blob-opslag. Oude metrische gegevens bieden transactie metrische gegevens over Blob storage, Table storage, Azure Files en Queue storage.
 
 Oude metrische gegevens zijn in een vast schema ontworpen. Het ontwerp resulteert in de metrische waarde nul wanneer u niet over de verkeerspatronen van de metrische gegevens wordt geactiveerd. Bijvoorbeeld, de **ServerTimeoutError** waarde is ingesteld op 0 in $Metric tabellen, zelfs wanneer u geen serverfouten voor time-out voor van de live-verkeer naar een storage-account ontvangen.
 
@@ -65,14 +65,14 @@ De volgende metrische gegevens zijn nieuwe aanbiedingen, bieden geen ondersteuni
 
 | Oude metrische gegevens | Nieuwe metrische gegevens |
 | ------------------- | ----------------- |
-| **AnonymousAuthorizationError** | Transacties met de dimensie **ResponseType** gelijk zijn aan **AuthorizationError** |
-| **AnonymousClientOtherError** | Transacties met de dimensie **ResponseType** gelijk zijn aan **ClientOtherError** |
-| **AnonymousClientTimeoutError** | Transacties met de dimensie **ResponseType** gelijk zijn aan **ClientTimeoutError** |
-| **AnonymousNetworkError** | Transacties met de dimensie **ResponseType** gelijk zijn aan **NetworkError** |
-| **AnonymousServerOtherError** | Transacties met de dimensie **ResponseType** gelijk zijn aan **ServerOtherError** |
-| **AnonymousServerTimeoutError** | Transacties met de dimensie **ResponseType** gelijk zijn aan **ServerTimeoutError** |
-| **AnonymousSuccess** | Transacties met de dimensie **ResponseType** gelijk zijn aan **geslaagd** |
-| **AnonymousThrottlingError** | Transacties met de dimensie **ResponseType** gelijk zijn aan **ClientThrottlingError** of **ServerBusyError** |
+| **AnonymousAuthorizationError** | Transacties met de dimensie **ResponseType** gelijk zijn aan **AuthorizationError** - en dimensietabellen **verificatie** gelijk zijn aan **anonieme verificatie** |
+| **AnonymousClientOtherError** | Transacties met de dimensie **ResponseType** gelijk zijn aan **ClientOtherError** - en dimensietabellen **verificatie** gelijk zijn aan **anonieme verificatie** |
+| **AnonymousClientTimeoutError** | Transacties met de dimensie **ResponseType** gelijk zijn aan **ClientTimeoutError** - en dimensietabellen **verificatie** gelijk zijn aan **anonieme verificatie** |
+| **AnonymousNetworkError** | Transacties met de dimensie **ResponseType** gelijk zijn aan **NetworkError** - en dimensietabellen **verificatie** gelijk zijn aan **anonieme verificatie** |
+| **AnonymousServerOtherError** | Transacties met de dimensie **ResponseType** gelijk zijn aan **ServerOtherError** - en dimensietabellen **verificatie** gelijk zijn aan **anonieme verificatie** |
+| **AnonymousServerTimeoutError** | Transacties met de dimensie **ResponseType** gelijk zijn aan **ServerTimeoutError** - en dimensietabellen **verificatie** gelijk zijn aan **anonieme verificatie** |
+| **AnonymousSuccess** | Transacties met de dimensie **ResponseType** gelijk zijn aan **succes** - en dimensietabellen **verificatie** gelijk zijn aan **anonieme verificatie** |
+| **AnonymousThrottlingError** | Transacties met de dimensie **ResponseType** gelijk zijn aan **ClientThrottlingError** of **ServerBusyError** - en dimensietabellen **verificatie** gelijk zijn aan **anonieme verificatie** |
 | **AuthorizationError** | Transacties met de dimensie **ResponseType** gelijk zijn aan **AuthorizationError** |
 | **Beschikbaarheid** | **Beschikbaarheid** |
 | **AverageE2ELatency** | **SuccessE2ELatency** |
@@ -87,14 +87,14 @@ De volgende metrische gegevens zijn nieuwe aanbiedingen, bieden geen ondersteuni
 | **PercentSuccess** | Transacties met de dimensie **ResponseType** gelijk zijn aan **geslaagd** |
 | **Percentthrottlingerror aan** | Transacties met de dimensie **ResponseType** gelijk zijn aan **ClientThrottlingError** of **ServerBusyError** |
 | **Percenttimeouterror aan** | Transacties met de dimensie **ResponseType** gelijk zijn aan **ServerTimeoutError** of **ResponseType** gelijk zijn aan **ClientTimeoutError** |
-| **SASAuthorizationError** | Transacties met de dimensie **ResponseType** gelijk zijn aan **AuthorizationError** |
-| **SASClientOtherError** | Transacties met de dimensie **ResponseType** gelijk zijn aan **ClientOtherError** |
-| **SASClientTimeoutError** | Transacties met de dimensie **ResponseType** gelijk zijn aan **ClientTimeoutError** |
-| **SASNetworkError** | Transacties met de dimensie **ResponseType** gelijk zijn aan **NetworkError** |
-| **SASServerOtherError** | Transacties met de dimensie **ResponseType** gelijk zijn aan **ServerOtherError** |
-| **SASServerTimeoutError** | Transacties met de dimensie **ResponseType** gelijk zijn aan **ServerTimeoutError** |
-| **SASSuccess** | Transacties met de dimensie **ResponseType** gelijk zijn aan **geslaagd** |
-| **SASThrottlingError** | Transacties met de dimensie **ResponseType** gelijk zijn aan **ClientThrottlingError** of **ServerBusyError** |
+| **SASAuthorizationError** | Transacties met de dimensie **ResponseType** gelijk zijn aan **AuthorizationError** - en dimensietabellen **verificatie** gelijk zijn aan **SAS** |
+| **SASClientOtherError** | Transacties met de dimensie **ResponseType** gelijk zijn aan **ClientOtherError** - en dimensietabellen **verificatie** gelijk zijn aan **SAS** |
+| **SASClientTimeoutError** | Transacties met de dimensie **ResponseType** gelijk zijn aan **ClientTimeoutError** - en dimensietabellen **verificatie** gelijk zijn aan **SAS** |
+| **SASNetworkError** | Transacties met de dimensie **ResponseType** gelijk zijn aan **NetworkError** - en dimensietabellen **verificatie** gelijk zijn aan **SAS** |
+| **SASServerOtherError** | Transacties met de dimensie **ResponseType** gelijk zijn aan **ServerOtherError** - en dimensietabellen **verificatie** gelijk zijn aan **SAS** |
+| **SASServerTimeoutError** | Transacties met de dimensie **ResponseType** gelijk zijn aan **ServerTimeoutError** - en dimensietabellen **verificatie** gelijk zijn aan **SAS** |
+| **SASSuccess** | Transacties met de dimensie **ResponseType** gelijk zijn aan **succes** - en dimensietabellen **verificatie** gelijk zijn aan **SAS** |
+| **SASThrottlingError** | Transacties met de dimensie **ResponseType** gelijk zijn aan **ClientThrottlingError** of **ServerBusyError** - en dimensietabellen **verificatie** gelijk zijn aan **SAS** |
 | **ServerOtherError** | Transacties met de dimensie **ResponseType** gelijk zijn aan **ServerOtherError** |
 | **ServerTimeoutError** | Transacties met de dimensie **ResponseType** gelijk zijn aan **ServerTimeoutError** |
 | **Geslaagd** | Transacties met de dimensie **ResponseType** gelijk zijn aan **geslaagd** |

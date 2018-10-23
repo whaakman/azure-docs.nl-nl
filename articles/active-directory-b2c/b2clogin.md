@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/04/2018
+ms.date: 10/22/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 8e06cf1a443d4fd158e29ef4b53206a83800dfe9
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 36025bf8460d690aab3b3617ad3341dfe7005e9e
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48803049"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49649264"
 ---
 # <a name="set-redirect-urls-to-b2clogincom-for-azure-active-directory-b2c"></a>Set Omleidings-URL's op b2clogin.com voor Azure Active Directory B2C
 
@@ -26,7 +26,12 @@ Met b2clogin.com biedt extra voordelen, zoals:
 - Cookies worden niet langer worden gedeeld met andere Microsoft-services.
 - De URL's zijn niet langer een verwijzing naar Microsoft. Bijvoorbeeld `https://your-tenant-name.b2clogin.com/tfp/your-tenant-ID/policyname/v2.0/.well-known/openid-configuration`.
 
-Met b2clogin.com, stelt de omleidings-URL's in uw toepassingen identity provider b2clogin.com gebruiken. U ook instellen uw Azure AD B2C-toepassing met b2clogin.com voor beleid verwijst naar en token-eindpunten. Als u MSAL gebruikt, moet u instellen de **ValidateAuthority** eigenschap `false`.
+Houd rekening met deze instellingen die nodig hebt mogelijk bij het gebruik van b2clogin.com wijzigen:
+
+- Instellen van de omleidings-URL's in uw toepassingen identity provider b2clogin.com gebruiken. 
+- Uw Azure AD B2C-toepassing met b2clogin.com voor beleid verwijst naar en token-eindpunten instellen. 
+- Als u MSAL gebruikt, moet u instellen de **ValidateAuthority** eigenschap `false`.
+- Zorg ervoor dat u een wijzigen **oorsprongen toegestaan** die u hebt gedefinieerd in de CORS-instellingen voor [aanpassingen van de gebruiker-gebruikersinterface](active-directory-b2c-ui-customization-custom-dynamic.md).  
 
 ## <a name="change-redirect-urls"></a>Wijziging Omleidings-URL's
 

@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 6c41890922e2235190d8844a573522846b42c779
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 92328ffd8b6dbbb2be82bc70352e19f3097eb2a7
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434497"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49637728"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
 
@@ -50,7 +50,7 @@ De **ClaimType** element bevat de volgende elementen:
 
 | Element | Gevallen | Beschrijving |
 | ------- | ----------- | ----------- |
-| Weergavenaam | 0:1 | De titel die wordt weergegeven voor gebruikers op verschillende schermen. De waarde kan zijn [gelokaliseerde](localization.md). |
+| DisplayName | 0:1 | De titel die wordt weergegeven voor gebruikers op verschillende schermen. De waarde kan zijn [gelokaliseerde](localization.md). |
 | Gegevenstype | 0:1 | Het type van de claim. De gegevenstypen van Booleaanse waarde, datum, datum/tijd, int, long, string, stringCollection, alternativeSecurityIdCollection kan worden gebruikt. |
 | DefaultPartnerClaimTypes | 0:1 | De standaardwaarde partner claim typen om te gebruiken voor een opgegeven protocol. De waarde kan worden overschreven de **PartnerClaimType** opgegeven in de **InputClaim** of **OutputClaim** elementen. Dit element gebruiken om op te geven van de standaardnaam voor een protocol.  |
 | Masker | 0:1 | Een optionele tekenreeks van het maskeren van tekens die kunnen worden toegepast bij het weergeven van de claim. Het aantal 324-232-4343 telefoon kan bijvoorbeeld als XXX-XXX-4343 worden gemaskeerd. |
@@ -88,7 +88,7 @@ In het volgende voorbeeld, wanneer de Identity-Ervaringsframework met een SAML2-
 </ClaimType>
 ```
 
-De JWT-token dat is uitgegeven door Azure AD B2C, als gevolg hiervan wordt weggelaten de `family_name` in plaats van ClaimType naam **achternaam**.
+Als gevolg hiervan de JWT-token dat is uitgegeven door Azure AD B2C, verzendt de `family_name` in plaats van ClaimType naam **achternaam**.
  
 ```JSON
 {

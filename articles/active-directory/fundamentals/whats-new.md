@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: lizross
 ms.reviewer: dhanyahk
-ms.openlocfilehash: d39cfddc42ea0e03f6b0f6c8d1c0160839742518
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 98edf224ebbd15f6acafdfeb28769eecb4edff40
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393907"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49638106"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Wat is er nieuw in Azure Active Directory?
 
@@ -131,7 +131,7 @@ Zie voor meer informatie over het gebruik van aangepaste extensie-eigenschappen 
 **Service-categorie:** voorwaardelijke toegang  
 **Product-mogelijkheid:** identiteit, beveiliging en bescherming
 
-De volgende apps zijn in de lijst met [goedgekeurde client-apps](https://docs.microsoft.com/azure/active-directory/conditional-access/technical-reference.md#approved-client-app-requirement):
+De volgende apps zijn in de lijst met [goedgekeurde client-apps](https://docs.microsoft.com/azure/active-directory/conditional-access/technical-reference#approved-client-app-requirement):
 
 - Microsoft To-Do
 
@@ -393,7 +393,7 @@ Zie onze blog voor meer informatie over deze nieuwe mogelijkheden, [Azure AD-act
 
 ---
 
-### <a name="conditional-access-information-added-to-the-azure-ad-sign-ins-report"></a>Er is informatie over voorwaardelijke toegang toegevoegd aan het rapport Azure AD-aanmeldingen
+### <a name="conditional-access-information-added-to-the-azure-ad-sign-ins-report"></a>Voorwaardelijke toegang tot informatie toegevoegd aan het rapport van Azure AD-aanmeldingen
 
 **Type:** nieuwe functie  
 **Service-categorie:** rapportage  
@@ -413,7 +413,7 @@ Dankzij de introductie van de **Client-App** veld in de activiteit aanmelden zic
 
 ---
 
-### <a name="new-federated-apps-available-in-azure-ad-app-gallery---july-2018"></a>Er zijn nieuwe federatieve apps beschikbaar in de galerie met apps van Azure AD - juli 2018
+### <a name="new-federated-apps-available-in-azure-ad-app-gallery---july-2018"></a>Nieuwe federatieve Apps beschikbaar in de galerie van Azure AD-app - juli 2018
 
 **Type:** nieuwe functie  
 **Service-categorie:** zakelijke Apps  
@@ -427,7 +427,7 @@ Zie voor meer informatie over de apps [SaaS-toepassing-integratie met Azure Acti
 
 ---
  
-### <a name="new-user-provisioning-saas-app-integrations---july-2018"></a>Nieuwe SaaS-app-integraties voor het inrichten van gebruikers - juli 2018
+### <a name="new-user-provisioning-saas-app-integrations---july-2018"></a>Nieuwe gebruiker integraties in de SaaS-app - juli 2018 wordt ingericht
 
 **Type:** nieuwe functie  
 **Service-categorie:** App-inrichting  
@@ -445,7 +445,7 @@ Zie voor een lijst van alle toepassingen die ondersteuning bieden voor het inric
 
 ---
 
-### <a name="connect-health-for-sync---an-easier-way-to-fix-orphaned-and-duplicate-attribute-sync-errors"></a>Connect Health voor synchronisatie - een eenvoudigere manier om synchronisatiefouten met zwevende en dubbele kenmerken te herstellen
+### <a name="connect-health-for-sync---an-easier-way-to-fix-orphaned-and-duplicate-attribute-sync-errors"></a>Connect Health for Sync - een eenvoudigere manier om op te lossen zwevende en dubbele kenmerk synchronisatiefouten
 
 **Type:** nieuwe functie  
 **Service-categorie:** AD Connect  
@@ -463,7 +463,7 @@ Zie voor meer informatie, [vaststellen en herstellen van de synchronisatiefouten
 
 ---
 
-### <a name="visual-updates-to-the-azure-ad-and-msa-sign-in-experiences"></a>Visualupdates voor de aanmeldingservaring van Azure AD en van MSA
+### <a name="visual-updates-to-the-azure-ad-and-msa-sign-in-experiences"></a>Visueel element wordt bijgewerkt naar de Azure AD en ervaringen van aanmelding bij beheerde Serviceaccounts
 
 **Type:** gewijzigde functie  
 **Service-categorie:** Azure AD  
@@ -473,7 +473,7 @@ We hebben de gebruikersinterface voor de ervaring van Microsoft online services 
 
 ---
 
-### <a name="new-release-of-azure-ad-connect---july-2018"></a>Nieuwe versie van Azure AD Connect - juli 2018
+### <a name="new-release-of-azure-ad-connect---july-2018"></a>Nieuwe release van Azure AD Connect - juli 2018
 
 **Type:** gewijzigde functie  
 **Service-categorie:** App-inrichting  
@@ -491,7 +491,7 @@ Zie voor meer informatie over deze update [Azure AD Connect: releasegeschiedenis
 
 ---
 
-### <a name="updates-to-the-terms-of-use-tou-end-user-ui"></a>Updates voor de gebruiksvoorwaarden voor de gebruikersinterface van de eindgebruiker
+### <a name="updates-to-the-terms-of-use-tou-end-user-ui"></a>Updates voor de gebruikersinterface van de eindgebruiker gebruiksvoorwaarden (gebruiksvoorwaarden)
 
 **Type:** gewijzigde functie  
 **Service-categorie:** gebruiksvoorwaarden  
@@ -525,7 +525,7 @@ Nu Pass through-verificatie biedt ondersteuning voor verouderde protocollen en -
 
 ---
  
-### <a name="converged-security-info-management-for-self-service-password-reset-and-multi-factor-authentication"></a>Geconvergeerd beveiligingsinformatiebeheer voor selfservice voor wachtwoordherstel en Multi-Factor Authentication
+### <a name="converged-security-info-management-for-self-service-password-reset-and-multi-factor-authentication"></a>Geconvergeerde beveiligingsbeheer beveiligingsgegevens voor selfservice voor wachtwoordherstel en multi-factor Authentication
 
 **Type:** nieuwe functie  
 **Service-categorie:** SSPR  
@@ -731,7 +731,7 @@ Als u moet echter ook doorgaan met toegewezen circuits, moet u om te communicere
  
 ---
 
-### <a name="microsoft-graph-apis-for-administrative-scenarios-for-tou"></a>Microsoft Graph API's voor beheerscenario's voor gebruiksvoorwaarden
+### <a name="microsoft-graph-apis-for-administrative-scenarios-for-tou"></a>Microsoft Graph-API's voor beheerscenario's voor de gebruiksvoorwaarden
 
 **Type:** nieuwe functie  
 **Service-categorie:** gebruiksvoorwaarden  
@@ -861,13 +861,13 @@ Problemen met het vinden van uw toepassingen / service-principals? We hebben de 
 
 ---
  
-### <a name="the-may-release-of-aadconnect-contains-a-public-preview-of-the-integration-with-pingfederate-important-security-updates-many-bug-fixes-and-new-great-new-troubleshooting-tools"></a>De in mei uitgegeven versie van AADConnect bevat een openbare preview van de integratie met PingFederate, belangrijke beveiligingsupdates, veel oplossingen voor problemen en nieuwe hulpprogramma's voor probleemoplossing. 
+### <a name="the-may-release-of-aadconnect-contains-a-public-preview-of-the-integration-with-pingfederate-important-security-updates-many-bug-fixes-and-new-great-new-troubleshooting-tools"></a>De versie van AADConnect een openbare preview-versie van de integratie met PingFederate bevat, mei belangrijke beveiligingsupdates, veel oplossingen voor problemen en nieuwe geweldige nieuwe hulpprogramma's voor probleemoplossing. 
 
 **Type:** gewijzigde functie  
 **Service-categorie:** AD Connect  
 **Product-mogelijkheid:** beheer van Identiteitslevenscycli
  
-De in mei uitgegeven versie van AADConnect bevat een openbare preview van de integratie met PingFederate, belangrijke beveiligingsupdates, veel oplossingen voor problemen en nieuwe hulpprogramma's voor probleemoplossing. U vindt de opmerkingen bij de release [hier](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history#118190).
+De versie van AADConnect een openbare preview-versie van de integratie met PingFederate bevat, mei belangrijke beveiligingsupdates, veel oplossingen voor problemen en nieuwe geweldige nieuwe hulpprogramma's voor probleemoplossing. U vindt de opmerkingen bij de release [hier](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history#118190).
 
 ---
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 4b13d2d277721d37a6b96f6640377c875f0b5c0f
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: b22d18408d040d564d6220e74e8b8a893fe41ae9
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44161574"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49646242"
 ---
 # <a name="disaster-recovery-in-azure-service-fabric"></a>Herstel na noodgevallen in Azure Service Fabric
 Een belangrijk onderdeel van het leveren van hoge beschikbaarheid is ervoor te zorgen dat services verschillende typen fouten meer storingen kunnen doorstaan. Dit is vooral belangrijk voor fouten die niet-geplande zijn en buiten het besturingselement. Dit artikel worden enkele algemene foutmodi die mogelijk rampen als dat niet gemodelleerd en goed beheerd. Zij bespreken ook oplossingen en acties moet uitvoeren als er een ramp toch opgetreden. Het doel is om te beperken of de kans op downtime of gegevensverlies voorkomen wanneer ze zich voordoen met fouten, gepland of anders optreden.
@@ -133,7 +133,7 @@ Er is twee verschillende strategieën voor functionerende van de fout permanent 
 ### <a name="random-failures-leading-to-cluster-failures"></a>Willekeurige fouten leiden tot fouten van cluster
 Service Fabric is het concept van Seed-knooppunten. Dit zijn de knooppunten die de beschikbaarheid van het onderliggende cluster. Deze knooppunten ervoor zorgen dat het cluster blijft van tot stand brengen van leases met andere knooppunten en fungeren als tiebreakers tijdens bepaalde soorten netwerkfouten. Als willekeurig mislukken een meerderheid van de seed-knooppunten in het cluster verwijderen en ze niet terug worden gebracht, wordt het cluster automatisch uitgeschakeld. In Azure, Seed-knooppunten automatisch worden beheerd: ze zijn verdeeld over de beschikbare domeinen en upgradedomeinen, en als een enkel seed-knooppunt wordt verwijderd uit het cluster een andere naam in plaats daarvan wordt gemaakt. 
 
-In zowel zelfstandige Service Fabric-clusters en Azure is 'Primaire knooppunttype' degene die de seeds wordt uitgevoerd. Bij het definiëren van een primaire knooppunttype, wordt Service Fabric automatisch profiteren van het aantal knooppunten dat is geleverd door het maken van maximaal 9 seed-knooppunten en 9 replica's van elk van de systeemservices. Als een set van willekeurige fouten van het grootste deel van deze system service-replica's tegelijk, voer de systeemservices quorumverlies, zoals we hierboven is beschreven. Als een meerderheid van de seed-knooppunten kwijtgeraakt zijn, het cluster snel na afgesloten.
+In zowel zelfstandige Service Fabric-clusters en Azure is 'Primaire knooppunttype' degene die de seeds wordt uitgevoerd. Bij het definiëren van een primaire knooppunttype, wordt Service Fabric automatisch profiteren van het aantal knooppunten dat is geleverd door het maken van maximaal 9 seed-knooppunten en 7 replica's van elk van de systeemservices. Als een set van willekeurige fouten van het grootste deel van deze system service-replica's tegelijk, voer de systeemservices quorumverlies, zoals we hierboven is beschreven. Als een meerderheid van de seed-knooppunten kwijtgeraakt zijn, het cluster snel na afgesloten.
 
 ## <a name="next-steps"></a>Volgende stappen
 - Leer hoe u verschillende storingen simuleren met de [testbaarheid framework](service-fabric-testability-overview.md)

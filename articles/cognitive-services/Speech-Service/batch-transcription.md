@@ -4,17 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Voorbeelden voor grote hoeveelheden audio-inhoud te transcriberen.
 services: cognitive-services
 author: PanosPeriorellis
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: panosper
-ms.openlocfilehash: 14dca44e5b0fd5062ac2bffa44980049bad974ba
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: e7523bf97d6252422ebb853b818453c935640f50
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49471370"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49648799"
 ---
 # <a name="batch-transcription"></a>Batchtranscriptie
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/27/2018
 ms.author: bwren
-ms.openlocfilehash: 19a611ca88310f06503bea2b8606699fe3e1c709
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 8d3e0874637bc3f13905c6038349b34c18b5fe56
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47406037"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49637794"
 ---
 # <a name="monitoring-data-collected-by-azure-monitor"></a>Door gegevens te controleren die worden verzameld door Azure Monitor
 [Azure Monitor](../azure-monitor/overview.md) is een service waarmee u uw toepassingen en de resources die ze erop dat vertrouwen bewaken. Centrale op deze functie is opslag van Telemetrie en andere gegevens van bewaakte resources. Dit artikel bevat een volledige beschrijving van hoe deze gegevens worden opgeslagen en gebruikt door Azure Monitor.
@@ -108,7 +108,7 @@ Taken die u met metrische gegevens uitvoeren kunt omvatten het volgende:
 
 
 ### <a name="viewing-metrics"></a>Metrische gegevens weergeven
-Metrische gegevens in Azure worden verzameld in de Azure Monitor metrics-store. Dit is een tijdreeks database die zijn geoptimaliseerd voor het snel ophalen en winkels metrische waarden voor 93 dagen. Kopieer metrische gegevens naar Log Analytics voor de lange termijn analyse en trends.
+Metrische gegevens in Azure worden verzameld in de database van Azure Monitor metrische gegevens. Dit is een tijdreeks database die zijn geoptimaliseerd voor het snel ophalen en winkels metrische waarden voor 93 dagen. Kopieer metrische gegevens naar Log Analytics voor de lange termijn analyse en trends.
 
 Metrische gegevens wordt gebruikt in verschillende manieren, zoals hierboven is beschreven. Gebruik [Metrics explorer](../monitoring-and-diagnostics/monitoring-metric-charts.md) om rechtstreeks analyseren van de gegevens in uw metrische store en de waarden van meerdere metrische gegevens gedurende een periode van grafiek. U kunt de grafieken interactief weergeven of vastmaken aan een dashboard om deze met andere visualisaties weer te geven. U kunt ook metrische gegevens ophalen met behulp van de [Azure REST-API bewaken](../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md).
 
@@ -173,7 +173,7 @@ U kunt metrische gegevens kopiëren naar Log Analytics om uit te voeren complexe
 Informatie voor het verzamelen van metrische gegevens van Azure-resources op [Azure verzamelen van Logboeken en metrische gegevens voor gebruik in Log Analytics](../log-analytics/log-analytics-azure-storage.md). Begeleiding voor het verzamelen van metrische gegevens voor resources van Azure PaaS-resources op [verzamelen van metrische gegevens voor Azure PaaS-resources configureren met Log Analytics](../log-analytics/log-analytics-collect-azurepass-posh.md).
 
 ### <a name="logs-to-metrics"></a>Logboeken naar metrische gegevens
-Zoals hierboven beschreven, zijn metrische gegevens sneller reageren dan Logboeken, zodat u waarschuwingen met een lagere latentie en tegen lagere kosten maken kunt. Log Analytics verzamelt een aanzienlijke hoeveelheid numerieke gegevens die zijn geschikt voor metrische gegevens, maar niet zijn opgeslagen in de metrische gegevens van Azure store.  Een veelvoorkomend voorbeeld is de prestatiegegevens die worden verzameld van agents en oplossingen voor beheer. Sommige van deze waarden kunnen worden gekopieerd naar het archief van metrische gegevens, waar ze beschikbaar voor waarschuwingen en voor analyse met Metrics explorer zijn.
+Zoals hierboven beschreven, zijn metrische gegevens sneller reageren dan Logboeken, zodat u waarschuwingen met een lagere latentie en tegen lagere kosten maken kunt. Log Analytics verzamelt een aanzienlijke hoeveelheid numerieke gegevens die zijn geschikt voor metrische gegevens, maar wordt niet opgeslagen in de metrische gegevens van Azure-database.  Een veelvoorkomend voorbeeld is de prestatiegegevens die worden verzameld van agents en oplossingen voor beheer. Sommige van deze waarden kunnen worden gekopieerd naar de database van metrische gegevens, waar ze beschikbaar voor waarschuwingen en voor analyse met Metrics explorer zijn.
 
 De uitleg van deze functie is beschikbaar op [metrische waarschuwingen maken voor logboeken in Azure Monitor](../monitoring-and-diagnostics/monitoring-metric-alerts-logs.md). De lijst met waarden ondersteuning is beschikbaar op [ondersteunde metrische gegevens met Azure Monitor](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftoperationalinsightsworkspaces).
 

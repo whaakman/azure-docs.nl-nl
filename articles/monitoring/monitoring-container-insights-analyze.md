@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/14/2018
+ms.date: 10/19/2018
 ms.author: magoedte
-ms.openlocfilehash: 6df7d42bc291713a815cac9f719f53136ed35b19
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 430145119721ac947162d3b661377290a0ae2c11
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46956652"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49637980"
 ---
-## <a name="understand-aks-cluster-performance-with-azure-monitor-for-containers"></a>Inzicht in prestaties in een AKS-cluster met Azure Monitor voor containers
+# <a name="understand-aks-cluster-performance-with-azure-monitor-for-containers"></a>Inzicht in prestaties in een AKS-cluster met Azure Monitor voor containers
 Weergeven van de prestaties van uw Azure Kubernetes Service (AKS) clusters kunnen worden waargenomen vanuit twee perspectieven met Azure Monitor voor containers, rechtstreeks vanuit een AKS-cluster of weergeven van alle AKS-clusters in een abonnement van Azure Monitor. 
 
 Dit artikel krijgt u inzicht in de ervaring tussen de twee perspectieven en hoe u snel beoordelen, onderzoeken en oplossen van problemen die zijn gedetecteerd.
@@ -109,6 +109,10 @@ Schakel over naar de **knooppunten** tabblad en de hiërarchie rij volgt het Kub
 
 ![Voorbeeld van de Kubernetes-knooppunt-hiërarchie in de weergave van agentprestaties](./media/monitoring-container-insights-analyze/containers-nodes-view.png)
 
+In een uitgevouwen knooppunt, u kunt inzoomen op uit de schil of de container die wordt uitgevoerd op het knooppunt naar de controller om prestatiegegevens gefilterd voor controller weer te geven. Klik op de waarde onder de **Controller** kolom voor het specifieke knooppunt.   
+
+![Voorbeeld van inzoomen naar controller in de weergave van agentprestaties](./media/monitoring-container-insights-analyze/drill-down-node-controller.png)
+
 U kunt selecteren controllers of containers aan de bovenkant van de pagina en het gebruik van de status en resource voor die objecten bekijken.  Als in plaats daarvan u bekijken geheugengebruik wilt, in de **Metric** vervolgkeuzelijst, selecteer **geheugen RSS** of **geheugenwerkset**. **Geheugen RSS** wordt alleen ondersteund voor Kubernetes versie 1.8 en hoger. Anders wordt het weergeven van waarden voor **Min&nbsp; %**  als *NaN&nbsp;%*, dit is een waarde voor het type van numerieke gegevens die een niet-gedefinieerde vertegenwoordigt of Sjabloontaal waarde. 
 
 ![Prestatieweergave container-knooppunten](./media/monitoring-container-insights-analyze/containers-node-metric-dropdown.png)
@@ -144,7 +148,9 @@ Hier vindt u de prestatiestatus van uw domeincontrollers.
 
 ![< naam > controllers Prestatieweergave](./media/monitoring-container-insights-analyze/containers-controllers-view.png)
 
-De hiërarchie van de rij wordt gestart met een domeincontroller en breidt de controller. U weergeven een of meer containers. Vouw een schil en de laatste rij geeft de container de schil gegroepeerd.  
+De hiërarchie van de rij wordt gestart met een domeincontroller en wanneer u een domeincontroller wilt uitbreiden, u een of meer pods weergeven.  Pod uitvouwen en de laatste rij geeft de container de schil gegroepeerd. Uit een uitgebreide controller, u kunt inzoomen op naar het knooppunt waarop het wordt uitgevoerd om prestatiegegevens gefilterd voor dat knooppunt weer te geven. Klik op de waarde onder de **knooppunt** kolom voor de specifieke controller.   
+
+![Voorbeeld van inzoomen naar controller in de weergave van agentprestaties](./media/monitoring-container-insights-analyze/drill-down-controller-node.png)
 
 De informatie die wordt weergegeven wanneer u de controllers weergeven wordt in de volgende tabel beschreven:
 
@@ -178,6 +184,10 @@ Selecteer in de lijst met **Containers**.
 Hier vindt u de prestatiestatus van uw Azure Kubernetes-containers.  
 
 ![< naam > controllers Prestatieweergave](./media/monitoring-container-insights-analyze/containers-containers-view.png)
+
+Uit een container, u kunt inzoomen op een pod of het knooppunt om prestatiegegevens gefilterd voor dat object weer te geven. Klik op de waarde onder de **Pod** of **knooppunt** kolom voor de specifieke container.   
+
+![Voorbeeld van inzoomen naar controller in de weergave van agentprestaties](./media/monitoring-container-insights-analyze/drill-down-controller-node.png)
 
 De informatie die wordt weergegeven wanneer u containers weergeven wordt in de volgende tabel beschreven:
 

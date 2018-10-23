@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/25/2018
-ms.openlocfilehash: 4a84e8f7460d3a339be783be6a12353770ced1b8
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 219fe9e8f91f9b02e64b3b44ab4301f77820561f
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43665820"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49648952"
 ---
 # <a name="understand-inputs-for-azure-stream-analytics"></a>Meer informatie over invoer voor Azure Stream Analytics
 
@@ -38,7 +38,7 @@ Een gegevensstroom is een niet-gebonden reeks gebeurtenissen na verloop van tijd
 Zie voor meer informatie over de gegevensinvoer streamen [Stream gegevens als invoer in Stream Analytics](stream-analytics-define-inputs.md)
 
 ### <a name="reference-data-input"></a>Referentie-invoer voor gegevens
-Stream Analytics ondersteunt ook bekend als invoer *verwijzen naar gegevens*. Referentiegegevens is een volledig statische of langzaam wordt gewijzigd. Dit wordt meestal gebruikt om uit te voeren van de correlatie en zoekacties. U kan bijvoorbeeld gegevens in de invoer van de gegevens stream met gegevens in de referentiegegevens, samenvoegen, net als u een SQL-join om te controleren of statische waarden wilt uitvoeren. Azure Blob-opslag is momenteel de enige ondersteunde invoerbron voor referentiegegevens. Bron referentiegegevens-blobs zijn beperkt tot 100 MB in grootte.
+Stream Analytics ondersteunt ook bekend als invoer *verwijzen naar gegevens*. Referentiegegevens is een volledig statische of langzaam wordt gewijzigd. Dit wordt meestal gebruikt om uit te voeren van de correlatie en zoekacties. U kan bijvoorbeeld gegevens in de invoer van de gegevens stream met gegevens in de referentiegegevens, samenvoegen, net als u een SQL-join om te controleren of statische waarden wilt uitvoeren. Azure Blob-opslag is momenteel de enige ondersteunde invoerbron voor referentiegegevens. Referentiegegevens-blobs bron hebben een limiet van 300 MB in grootte, afhankelijk van de complexiteit van de query en Streaming-eenheden toegewezen.
 
 Zie voor meer informatie over het verwijzen naar gegevensinvoer [met referentiegegevens voor zoekacties in Stream Analytics](stream-analytics-use-reference-data.md)
 

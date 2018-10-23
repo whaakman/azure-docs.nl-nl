@@ -6,15 +6,15 @@ author: markgalioto
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 9/10/2018
+ms.date: 10/20/2018
 ms.author: markgal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 19dd385effbdea0d9cd4209ec79f7582c0943e0c
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: c29a91a40df34ecd9270d5805209d361cf990754
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44720035"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49638032"
 ---
 # <a name="use-powershell-to-back-up-and-restore-virtual-machines"></a>PowerShell gebruiken voor back-up en herstellen van virtuele machines
 
@@ -350,8 +350,24 @@ De schijven en configuratie-informatie terugzetten:
 $restorejob = Restore-AzureRmRecoveryServicesBackupItem -RecoveryPoint $rp[0] -StorageAccountName "DestAccount" -StorageAccountResourceGroupName "DestRG"
 $restorejob
 ```
-De uitvoer lijkt op die in het volgende voorbeeld:
+#### <a name="restore-managed-disks"></a>Beheerde schijven terugzetten
 
+> [!NOTE]
+> Als de back-ups virtuele machine schijven beheerde er en u wilt deze als beheerde schijven terugzetten, hebben we de mogelijkheid van Azure Powershell v 6.7.0 geïntroduceerd. en hoger
+>
+>
+
+Geef een extra parameter **TargetResourceGroupName** om op te geven van de RG waarmee beheerde schijven wordt hersteld.
+
+
+```powershell
+$restorejob = Restore-AzureRmRecoveryServicesBackupItem -RecoveryPoint $rp[0] -StorageAccountName "DestAccount" -StorageAccountResourceGroupName "DestRG" -TargetResourceGroupName "DestRGforManagedDisks"
+```
+
+De **VMConfig.JSON** bestand wordt hersteld naar het opslagaccount en de beheerde schijven worden hersteld met het opgegeven doel-RG.
+
+
+De uitvoer lijkt op die in het volgende voorbeeld:
 ```
 WorkloadName     Operation          Status               StartTime                 EndTime            JobID
 ------------     ---------          ------               ---------                 -------          ----------
@@ -457,73 +473,17 @@ Nadat u de schijven herstellen, gebruikt u de volgende stappen uit te maken en c
       Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $RG -VMName $vm -AadClientID $aadClientID -AadClientSecret $aadClientSecret -DiskEncryptionKeyVaultUrl $dekUrl -DiskEncryptionKeyVaultId $dekUrl -KeyEncryptionKeyUrl $kekUrl -KeyEncryptionKeyVaultId $keyVaultId -VolumeType Data
       ```
 
-   * **Beheerde en niet-versleutelde VM's** -voor beheerde niet-versleutelde VM's, moet u voor het maken van beheerde schijven van blob-opslag en koppelt u de schijven. Voor gedetailleerde informatie, Zie het artikel [een gegevensschijf koppelen aan een Windows-VM met behulp van PowerShell](../virtual-machines/windows/attach-disk-ps.md). De volgende voorbeeldcode laat zien hoe u de gegevensschijven koppelen voor beheerde niet-versleutelde VM's.
+   * **Beheerde en niet-versleutelde VM's** - voor beheerde niet-versleutelde virtuele machines en koppel de herstelde beheerde schijven. Voor gedetailleerde informatie, Zie het artikel [een gegevensschijf koppelen aan een Windows-VM met behulp van PowerShell](../virtual-machines/windows/attach-disk-ps.md).
 
-      ```powershell
-      $storageType = "StandardLRS"
-      $osDiskName = $vm.Name + "_osdisk"
-      $osVhdUri = $obj.'properties.storageProfile'.osDisk.vhd.uri
-      $diskConfig = New-AzureRmDiskConfig -AccountType $storageType -Location "West US" -CreateOption Import -SourceUri $osVhdUri
-      $osDisk = New-AzureRmDisk -DiskName $osDiskName -Disk $diskConfig -ResourceGroupName "test"
-      Set-AzureRmVMOSDisk -VM $vm -ManagedDiskId $osDisk.Id -CreateOption "Attach" -Windows
-      foreach($dd in $obj.'properties.storageProfile'.dataDisks)
-       {
-       $dataDiskName = $vm.Name + $dd.name ;
-       $dataVhdUri = $dd.vhd.uri ;
-       $dataDiskConfig = New-AzureRmDiskConfig -AccountType $storageType -Location "West US" -CreateOption Import -SourceUri $dataVhdUri ;
-       $dataDisk2 = New-AzureRmDisk -DiskName $dataDiskName -Disk $dataDiskConfig -ResourceGroupName "test" ;
-       Add-AzureRmVMDataDisk -VM $vm -Name $dataDiskName -ManagedDiskId $dataDisk2.Id -Lun $dd.Lun -CreateOption "Attach"
-       }
-      ```
-
-   * **Beheerd en versleutelde virtuele machines (alleen BEK)** -voor beheerde versleutelde virtuele machines (versleuteld met behulp van de BEK alleen), moet u voor het maken van beheerde schijven van blob-opslag en koppelt u de schijven. Voor gedetailleerde informatie, Zie het artikel [een gegevensschijf koppelen aan een Windows-VM met behulp van PowerShell](../virtual-machines/windows/attach-disk-ps.md). De volgende voorbeeldcode laat zien hoe u de gegevensschijven koppelen voor beheerde versleutelde virtuele machines.
-
-      ```powershell
-      $dekUrl = "https://ContosoKeyVault.vault.azure.net:443/secrets/ContosoSecret007/xx000000xx0849999f3xx30000003163"
-      $keyVaultId = "/subscriptions/abcdedf007-4xyz-1a2b-0000-12a2b345675c/resourceGroups/ContosoRG108/providers/Microsoft.KeyVault/vaults/ContosoKeyVault"
-      $storageType = "StandardLRS"
-      $osDiskName = $vm.Name + "_osdisk"
-      $osVhdUri = $obj.'properties.storageProfile'.osDisk.vhd.uri
-      $diskConfig = New-AzureRmDiskConfig -AccountType $storageType -Location "West US" -CreateOption Import -SourceUri $osVhdUri
-      $osDisk = New-AzureRmDisk -DiskName $osDiskName -Disk $diskConfig -ResourceGroupName "test"
-      Set-AzureRmVMOSDisk -VM $vm -ManagedDiskId $osDisk.Id -DiskEncryptionKeyUrl $dekUrl -DiskEncryptionKeyVaultId $keyVaultId -CreateOption "Attach" -Windows
-      foreach($dd in $obj.'properties.storageProfile'.dataDisks)
-       {
-       $dataDiskName = $vm.Name + $dd.name ;
-       $dataVhdUri = $dd.vhd.uri ;
-       $dataDiskConfig = New-AzureRmDiskConfig -AccountType $storageType -Location "West US" -CreateOption Import -SourceUri $dataVhdUri ;
-       $dataDisk2 = New-AzureRmDisk -DiskName $dataDiskName -Disk $dataDiskConfig -ResourceGroupName "test" ;
-       Add-AzureRmVMDataDisk -VM $vm -Name $dataDiskName -ManagedDiskId $dataDisk2.Id -Lun $dd.Lun -CreateOption "Attach"
-       }
-      ```
-
-       Gebruik de volgende opdracht aan de versleuteling voor de gegevensschijven handmatig in te schakelen.
+   * **Beheerd en versleutelde virtuele machines (alleen BEK)** - voor beheerde versleutelde virtuele machines (versleuteld met behulp van de BEK alleen), koppel de herstelde beheerde schijven. Voor gedetailleerde informatie, Zie het artikel [een gegevensschijf koppelen aan een Windows-VM met behulp van PowerShell](../virtual-machines/windows/attach-disk-ps.md).
+   
+      Gebruik de volgende opdracht aan de versleuteling voor de gegevensschijven handmatig in te schakelen.
 
        ```powershell
        Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $RG -VMName $vm -AadClientID $aadClientID -AadClientSecret $aadClientSecret -DiskEncryptionKeyVaultUrl $dekUrl -DiskEncryptionKeyVaultId $keyVaultId -VolumeType Data
        ```
 
-   * **Beheerd en versleutelde virtuele machines (BEK en KEK)** -voor beheerde versleutelde virtuele machines (versleuteld met behulp van (bek) en KEK), moet u voor het maken van beheerde schijven van blob-opslag en koppelt u de schijven. Voor gedetailleerde informatie, Zie het artikel [een gegevensschijf koppelen aan een Windows-VM met behulp van PowerShell](../virtual-machines/windows/attach-disk-ps.md). De volgende voorbeeldcode laat zien hoe u de gegevensschijven koppelen voor beheerde versleutelde virtuele machines.
-
-      ```powershell
-      $dekUrl = "https://ContosoKeyVault.vault.azure.net:443/secrets/ContosoSecret007/xx000000xx0849999f3xx30000003163"
-      $kekUrl = "https://ContosoKeyVault.vault.azure.net:443/keys/ContosoKey007/x9xxx00000x0000x9b9949999xx0x006"
-      $keyVaultId = "/subscriptions/abcdedf007-4xyz-1a2b-0000-12a2b345675c/resourceGroups/ContosoRG108/providers/Microsoft.KeyVault/vaults/ContosoKeyVault"
-      $storageType = "StandardLRS"
-      $osDiskName = $vm.Name + "_osdisk"
-      $osVhdUri = $obj.'properties.storageProfile'.osDisk.vhd.uri
-      $diskConfig = New-AzureRmDiskConfig -AccountType $storageType -Location "West US" -CreateOption Import -SourceUri $osVhdUri
-      $osDisk = New-AzureRmDisk -DiskName $osDiskName -Disk $diskConfig -ResourceGroupName "test"
-      Set-AzureRmVMOSDisk -VM $vm -ManagedDiskId $osDisk.Id -DiskEncryptionKeyUrl $dekUrl -DiskEncryptionKeyVaultId $keyVaultId -KeyEncryptionKeyUrl $kekUrl -KeyEncryptionKeyVaultId $keyVaultId -CreateOption "Attach" -Windows
-      foreach($dd in $obj.'properties.storageProfile'.dataDisks)
-       {
-       $dataDiskName = $vm.Name + $dd.name ;
-       $dataVhdUri = $dd.vhd.uri ;
-       $dataDiskConfig = New-AzureRmDiskConfig -AccountType $storageType -Location "West US" -CreateOption Import -SourceUri $dataVhdUri ;
-       $dataDisk2 = New-AzureRmDisk -DiskName $dataDiskName -Disk $dataDiskConfig -ResourceGroupName "test" ;
-       Add-AzureRmVMDataDisk -VM $vm -Name $dataDiskName -ManagedDiskId $dataDisk2.Id -Lun $dd.Lun -CreateOption "Attach"
-       }
-      ```
+   * **Beheerd en versleutelde virtuele machines (BEK en KEK)** - voor beheerde versleutelde virtuele machines (versleuteld met (bek) en KEK), koppel de herstelde beheerde schijven. Voor gedetailleerde informatie, Zie het artikel [een gegevensschijf koppelen aan een Windows-VM met behulp van PowerShell](../virtual-machines/windows/attach-disk-ps.md). 
 
       Gebruik de volgende opdracht aan de versleuteling voor de gegevensschijven handmatig in te schakelen.
 

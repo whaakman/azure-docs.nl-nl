@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: b936b42671c15a77a901f321ed3c51f1ba3639cd
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 57742d72c8be0dcd999bc8b73f6d598263429c12
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47036589"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49646572"
 ---
 # <a name="api-v2-migration-guide"></a>Migratiehandleiding voor API-versie 2
 De versie 1 [eindpunt](https://aka.ms/v1-endpoint-api-docs) en [ontwerpen](https://aka.ms/v1-authoring-api-docs) API's wordt afgeschaft. Gebruik deze handleiding voor meer informatie over het migreren naar versie 2 [eindpunt](https://aka.ms/luis-endpoint-apis) en [ontwerpen](https://aka.ms/luis-authoring-apis) API's. 
@@ -155,7 +155,7 @@ LUIS stelt uitingen van bestaande [eindpunt uitingen](luis-how-to-review-endoint
 De geëxporteerde 1.x van app-JSON heeft bepaalde gebieden die u nodig hebt om te wijzigen voordat u importeert in [LUIS] [ LUIS] 2.0. 
 
 ### <a name="prebuilt-entities"></a>Vooraf gemaakte entiteiten 
-De [vooraf gemaakte entiteiten](luis-prebuilt-entities.md) zijn gewijzigd. Zorg ervoor dat u met behulp van de V2 vooraf gemaakte entiteiten. Dit omvat het gebruik [datetimeV2](luis-prebuilt-entities.md#use-a-prebuilt-datetimev2-entity), in plaats van datum/tijd. 
+De [vooraf gemaakte entiteiten](luis-prebuilt-entities.md) zijn gewijzigd. Zorg ervoor dat u met behulp van de V2 vooraf gemaakte entiteiten. Dit omvat het gebruik [datetimeV2](luis-reference-prebuilt-datetimev2.md), in plaats van datum/tijd. 
 
 ### <a name="actions"></a>Acties
 De eigenschap actions is niet meer geldig. Deze moet leeg zijn 

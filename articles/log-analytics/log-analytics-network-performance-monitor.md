@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
 ms.component: ''
-ms.openlocfilehash: bf10226b1d3b2153e0e17d4126c35402d096a857
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: fc5ab802b39597d72f01f756c9bdb16597862e3c
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49409234"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49638193"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Prestatiemeter-oplossing in Azure-netwerk
 
@@ -144,7 +144,7 @@ Alle subnetten waarop ten minste één agent is geïnstalleerd, worden vermeld o
 
 Inschakelen of uitschakelen van de bewaking van bepaalde subnetwerken:
 
-1. Selecteer of schakel het selectievakje in naast de **subnetwerk-ID**. Zorg ervoor dat **gebruiken voor bewaking** is ingeschakeld of uitgeschakeld, indien van toepassing. U kunt selecteren of wissen van meerdere subnetten. Als uitgeschakeld, subnetwerken zijn niet bewaakt en de agents worden bijgewerkt om te stoppen met het pingen van andere agents. 
+1. Selecteer of schakel het selectievakje in naast de **subnetwerk-ID**. Zorg ervoor dat **gebruiken voor bewaking** is ingeschakeld of uitgeschakeld, indien van toepassing. U kunt selecteren of wissen van meerdere subnetten. Als uitgeschakeld, subnetwerken zijn niet bewaakt en de agents worden bijgewerkt om te stoppen met het pingen van andere agents. 
 2. Kies de knooppunten die u wilt bewaken in een bepaald subnet. Selecteer het subnet in de lijst en de vereiste knooppunten verplaatsen tussen de lijsten die niet-beheerde en bewaakte knooppunten bevatten. U kunt een aangepaste beschrijving toevoegen aan het subnet.
 3. Selecteer **opslaan** aan de configuratie op te slaan. 
 

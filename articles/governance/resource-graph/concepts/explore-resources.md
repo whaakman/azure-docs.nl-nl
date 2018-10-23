@@ -1,5 +1,5 @@
 ---
-title: Verken uw Azure-resources met Graph-Resource
+title: Azure-resources verkennen met Resource Graph
 description: Informatie over het gebruik van de querytaal van Resource-grafiek aan uw resources verkennen en ontdekken hoe ze zijn verbonden.
 services: resource-graph
 author: DCtheGeek
@@ -8,14 +8,14 @@ ms.date: 09/18/2018
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: d793b67b4af314c6c5ce53bedce19fa90bddc060
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: f488dfad8a38bbfab3b5b74e5b504463af09c089
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47220159"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49645929"
 ---
-# <a name="explore-your-azure-resources-with-resource-graph"></a>Verken uw Azure-resources met Graph-Resource
+# <a name="explore-your-azure-resources-with-resource-graph"></a>Azure-resources verkennen met Resource Graph
 
 Azure Resource Graph biedt de mogelijkheid om te verkennen en detecteren van uw Azure-resources, snel en op schaal. Gebouwd voor snelle antwoorden, is een uitstekende manier om meer informatie over uw omgeving en ook over de eigenschappen van uw Azure-resources.
 
@@ -36,7 +36,7 @@ where type =~ 'Microsoft.Compute/virtualMachines'
 az graph query -q "where type =~ 'Microsoft.Compute/virtualMachines' | limit 1"
 ```
 
-```powershell
+```azurepowershell-interactive
 Search-AzureRmGraph -Query "where type =~ 'Microsoft.Compute/virtualMachines' | limit 1"
 ```
 
@@ -172,7 +172,7 @@ where type =~ 'Microsoft.Compute/virtualMachines'
 az graph query -q "where type =~ 'Microsoft.Compute/virtualMachines' | summarize count() by location"
 ```
 
-```powershell
+```azurepowershell-interactive
 Search-AzureRmGraph -Query "where type =~ 'Microsoft.Compute/virtualMachines' | summarize count() by location"
 ```
 
@@ -210,7 +210,7 @@ where type =~ 'Microsoft.Compute/virtualMachines' and properties.hardwareProfile
 az graph query -q "where type =~ 'Microsoft.Compute/virtualMachines' and properties.hardwareProfile.vmSize == 'Standard_B2s' | project name, resourceGroup"
 ```
 
-```powershell
+```azurepowershell-interactive
 Search-AzureRmGraph -Query "where type =~ 'Microsoft.Compute/virtualMachines' and properties.hardwareProfile.vmSize == 'Standard_B2s' | project name, resourceGroup"
 ```
 
@@ -232,7 +232,7 @@ where type =~ 'Microsoft.Compute/virtualmachines' and properties.hardwareProfile
 az graph query -q "where type =~ 'Microsoft.Compute/virtualmachines' and properties.hardwareProfile.vmSize == 'Standard_B2s' | extend disk = properties.storageProfile.osDisk.managedDisk | where disk.storageAccountType == 'Premium_LRS' | project disk.id"
 ```
 
-```powershell
+```azurepowershell-interactive
 Search-AzureRmGraph -Query "where type =~ 'Microsoft.Compute/virtualmachines' and properties.hardwareProfile.vmSize == 'Standard_B2s' | extend disk = properties.storageProfile.osDisk.managedDisk | where disk.storageAccountType == 'Premium_LRS' | project disk.id"
 ```
 
@@ -266,7 +266,7 @@ Als u de volledige ID bekijkt, ziet u **/providers/Microsoft.Compute/disks/** al
 az graph query -q "where type =~ 'Microsoft.Compute/disks' and id == '/subscriptions/<subscriptionId>/resourceGroups/MyResourceGroup/providers/Microsoft.Compute/disks/ContosoVM1_OsDisk_1_9676b7e1b3c44e2cb672338ebe6f5166'"
 ```
 
-```powershell
+```azurepowershell-interactive
 Search-AzureRmGraph -Query "where type =~ 'Microsoft.Compute/disks' and id == '/subscriptions/<subscriptionId>/resourceGroups/MyResourceGroup/providers/Microsoft.Compute/disks/ContosoVM1_OsDisk_1_9676b7e1b3c44e2cb672338ebe6f5166'"
 ```
 

@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 08/07/2018
+ms.date: 09/27/2018
 ms.author: szark
-ms.openlocfilehash: f5bce08bfc61d5b9b17e9500c002c3b870384c7b
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 43253423e3a27a61000c3f93868dd8b42809b7ae
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39618655"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49650159"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure"></a>Een op Red Hat gebaseerde virtuele machine voor Azure voorbereiden
 In dit artikel leert u hoe u een virtuele machine van Red Hat Enterprise Linux (RHEL) voorbereidt voor gebruik in Azure. De versies van RHEL die worden beschreven in dit artikel zijn 6.7 + en 7.1 +. De hypervisors voor voorbereiding die worden beschreven in dit artikel zijn Hyper-V, op basis van een kernel virtuele machine (KVM) en VMware. Zie voor meer informatie over vereisten voor geschiktheid voor uw deelname aan het Red Hat Cloud Access programma [van Red Hat Cloud Access website](http://www.redhat.com/en/technologies/cloud-computing/cloud-access) en [RHEL uitgevoerd op Azure](https://access.redhat.com/ecosystem/ccsp/microsoft-azure).
@@ -35,7 +35,7 @@ In deze sectie wordt ervan uitgegaan dat u hebt al een ISO-bestand vanaf de webs
 * Azure biedt geen ondersteuning voor VHDX-indeling. Azure ondersteunt alleen vaste VHD. U kunt Hyper-V Manager gebruiken voor de schijf converteren naar VHD-indeling of kunt u de cmdlet convert-vhd. Als u VirtualBox gebruiken, selecteert u **vaste grootte** in plaats van de standaard dynamisch toegewezen optie bij het maken van de schijf.
 * Azure ondersteunt alleen virtuele machines van generatie 1. U kunt een virtuele machine generatie 1 converteren van VHDX, zodat de VHD-indeling en dynamisch uit te breiden naar een schijf met vaste grootte. U kunt een virtuele machine generatie niet wijzigen. Zie voor meer informatie, [zou ik een generatie 1 of 2 virtuele machine in Hyper-V maken?](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
 * De maximale grootte die toegestaan voor de VHD is 1023 GB.
-* Wanneer u de Linux-besturingssysteem installeert, raden wij aan dat u standaard partities in plaats van logische Volume Manager (LVM), dit is vaak de standaardwaarde voor vele installaties. Met deze procedure vermijdt LVM naam conflicteert met de gekloonde virtuele machines, met name als u ooit een besturingssysteemschijf koppelen aan een andere identieke virtuele machine moet voor probleemoplossing. [LVM](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) of [RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) op gegevensschijven kunnen worden gebruikt.
+* Logische Volume Manager (LVM) wordt ondersteund en kan worden gebruikt op de besturingssysteemschijf en gegevensschijven in virtuele machines van Azure. In het algemeen wordt het echter aanbevolen standaard partities op de besturingssysteemschijf in plaats van LVM gebruiken. Met deze procedure vermijdt LVM naam conflicteert met de gekloonde virtuele machines, met name als u ooit een besturingssysteemschijf koppelen aan een andere identieke virtuele machine moet voor probleemoplossing. Zie ook [LVM](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) en [RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) documentatie.
 * Kernel-ondersteuning voor het koppelen van bestandssystemen Universal Disk Format (UDF's) is vereist. Op de eerste keer opstarten op Azure geeft de UDF-indeling media die is gekoppeld aan de Gast de inrichtingsconfiguratie aan de virtuele Linux-machine. De Azure Linux Agent moet u mogelijk de UDF-bestandssysteem om te lezen van de configuratie en het inrichten van de virtuele machine koppelen.
 * Stel een swap-partitie niet op de besturingssysteemschijf. De Linux-Agent kan worden geconfigureerd voor het maken van een wisselbestand op de tijdelijke schijf.  Meer informatie hierover vindt u in de volgende stappen uit.
 * Alle VHD's op Azure beschikken over een virtuele grootte die is afgestemd op 1MB. Bij het converteren van een onbewerkte schijf naar de VHD moet u ervoor zorgen dat de onbewerkte schijfgrootte een veelvoud van 1MB vóór de conversie is. Meer informatie vindt u in de onderstaande stappen. Zie ook [opmerkingen bij de installatie van Linux](create-upload-generic.md#general-linux-installation-notes) voor meer informatie.

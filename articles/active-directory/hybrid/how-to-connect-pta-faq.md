@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 10/21/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 4f2ceae349c921ce0d83fb7401e3b18404722763
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 025202d25d3057f3db7d015faba349a1fe642d4c
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49362905"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49637862"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Azure Active Directory Pass through-verificatie: Veelgestelde vragen
 
@@ -83,6 +83,10 @@ Ja. Als Web Proxy Auto-Discovery (WPAD) is ingeschakeld in uw on-premises-omgevi
 ## <a name="can-i-install-two-or-more-pass-through-authentication-agents-on-the-same-server"></a>Kan ik twee of meer Pass through-verificatie-Agents installeren op dezelfde server?
 
 Nee, kunt u alleen een Pass through-verificatie-Agent installeren op één server. Als u wilt configureren van Pass-through-verificatie voor hoge beschikbaarheid, [Volg de instructies hier](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability).
+
+## <a name="do-i-have-to-manually-renew-certificates-used-by-pass-through-authentication-agents"></a>Heb ik handmatig vernieuwen van certificaten die worden gebruikt door Pass through-verificatie-Agents?
+
+De communicatie tussen de Agent voor Pass through-verificatie en Azure AD wordt beveiligd met behulp van verificatie op basis van certificaten. Deze [certificaten worden jaarlijks automatisch vernieuwd om de paar maanden door Azure AD](how-to-connect-pta-security-deep-dive.md#operational-security-of -the-authentication-agents). Er is geen nodig om deze certificaten handmatig te vernieuwen. U kunt opschonen van oudere verlopen certificaten zoals vereist.
 
 ## <a name="how-do-i-remove-a-pass-through-authentication-agent"></a>Hoe kan ik een Pass through-verificatie-Agent verwijderen?
 

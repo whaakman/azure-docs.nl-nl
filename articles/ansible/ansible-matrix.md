@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.date: 09/22/2018
 ms.topic: article
-ms.openlocfilehash: f574203f31a21f945115296693f04cff649614c6
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: a71f28413028efe3547df7c464ec852fe2161f63
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47165633"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49649938"
 ---
 # <a name="ansible-module-and-version-matrix"></a>Ansible-module en versie matrix
 
@@ -128,7 +128,7 @@ In dit artikel geeft een lijst van de Ansible-modules voor Azure die Azure-cloud
 | azure_rm_autoscale_facts            | -            | -                         | -          | Ja          | Ja                                 | 
 
 ## <a name="introduction-to-playbook-role-for-azure"></a>Inleiding tot de rol van de playbook voor Azure
-De [azure_preview_module playbook rol](https://galaxy.ansible.com/Azure/azure_preview_modules/) is de meest volledige rol en bevat alle de meest recente Azure-modules. De updates en oplossingen voor problemen bent tijdig meer dan de officiële release van Ansible klaar. Als u Ansible voor Azure-resource doeleinden wordt ingericht gebruikt, bent u aangeraden de functie azure_preview_module installeren.
+De [azure_preview_module playbook rol](https://galaxy.ansible.com/Azure/azure_preview_modules/) is de meest volledige rol en bevat alle de meest recente Azure-modules. De updates en oplossingen voor problemen bent tijdig meer dan de officiële release van Ansible klaar. Als u Ansible voor Azure-resource doeleinden wordt ingericht gebruikt, bent u aangeraden de azure_preview_module playbook-functie installeren.
 
 De rol van de playbook azure_preview_module wordt elke drie weken vrijgegeven.
 

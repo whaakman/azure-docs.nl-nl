@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/26/2018
+ms.date: 10/22/2018
 ms.author: shlo
-ms.openlocfilehash: 8132f89423883422d70981edd3ddaf86147830e2
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 71ed5988b4a529d38a47f6cf04afcaa937121135
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47394415"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49645987"
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Visueel ontwerpen in Azure Data Factory
 De Azure Data Factory gebruikersinterface gebruikerservaring (UX) kunt u visueel ontwerpen en resources van uw gegevensfactory implementeren zonder code te schrijven. U kunt slepen van activiteiten op een pijplijncanvas, testuitvoeringen uitvoeren, iteratief, fouten en implementeren en uw pijplijnuitvoeringen controleren. Er zijn twee benaderingen voor het gebruik van de UX om uit te voeren visueel ontwerpen:
@@ -80,6 +80,22 @@ Een configuratie-deelvenster wordt weergegeven. Zie voor meer informatie over de
 ## <a name="use-a-different-azure-active-directory-tenant"></a>Gebruik een andere Azure Active Directory-tenant
 
 U kunt een Azure-opslagplaatsen Git-repo maken in een andere Azure Active Directory-tenant. Om op te geven van een andere Azure AD-tenant die u hebt beheerdersmachtigingen voor de Azure-abonnement dat u gebruikt.
+
+## <a name="use-your-personal-microsoft-account"></a>Gebruik uw persoonlijke Microsoft-account
+
+Als u wilt gebruiken een persoonlijk Microsoft-account voor Git-integratie, kunt u uw persoonlijke Azure-opslagplaats kunt koppelen aan de Active Directory van uw organisatie.
+
+1. Uw persoonlijke Microsoft-account toevoegen aan Active Directory van uw organisatie als gast. Raadpleeg voor meer informatie de volgende artikelen:
+
+    - [Verbinding maken met uw organisatie Azure DevOps met Azure Active Directory](/azure/devops/organizations/accounts/connect-organization-to-azure-ad)
+
+    - [Gebruikers van Azure Active Directory B2B-samenwerking toevoegen in Azure portal](../active-directory/b2b/add-users-administrator.md)
+
+2. Meld u aan bij de Azure Portal met uw persoonlijke Microsoft-account. Ga vervolgens naar de Active Directory van uw organisatie.
+
+3. Ga naar de sectie Azure DevOps, waar u uw persoonlijke opslagplaats nu zien. Selecteer de opslagplaats en maak verbinding met Active Directory.
+
+Na deze configuratiestappen, uw persoonlijke opslagplaats is beschikbaar bij het instellen van de Git-integratie in de gebruikersinterface van Data Factory.
 
 ## <a name="switch-to-a-different-git-repo"></a>Schakel over naar een andere Git-opslagplaats
 

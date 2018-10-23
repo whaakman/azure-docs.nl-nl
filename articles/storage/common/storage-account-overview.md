@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/13/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 0b2bf8cdb1af85e5ddbd3b18dd6dfa47bcb835b4
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: d7dbb808205c78b53277c6d916f5166a41c7e93d
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47432882"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49638423"
 ---
 # <a name="azure-storage-account-overview"></a>Overzicht van Azure storage-account
 
@@ -25,9 +25,9 @@ Zie voor meer informatie over het maken van een Azure storage-account, [een opsl
 
 Azure Storage biedt drie typen opslagaccounts. Elk type biedt ondersteuning voor verschillende functies en heeft een eigen prijsmodel. Houd rekening met deze verschillen voordat u een opslagaccount om te bepalen welk type account dat wordt aanbevolen voor uw toepassingen kunt maken. De typen opslagaccounts zijn:
 
-* **Algemeen gebruik v2** accounts (aanbevolen voor de meeste scenario's)
-* **Algemeen gebruik v1** accounts
-* **Blob Storage**-accounts
+* **[Voor algemeen gebruik v2-accounts](#general-purpose-v2-accounts)**  (aanbevolen voor de meeste scenario's)
+* **[Voor algemeen gebruik v1-accounts](#general-purpose-v1-accounts)**
+* **[BLOB storage-accounts](#blob-storage-accounts)** 
 
 De volgende tabel beschrijft de soorten opslagaccounts en de bijbehorende mogelijkheden:
 
@@ -41,7 +41,7 @@ De volgende tabel beschrijft de soorten opslagaccounts en de bijbehorende mogeli
 
 <sup>2</sup>alle opslagaccounts zijn versleuteld met behulp van Storage Service Encryption (SSE) voor data-at-rest. Zie voor meer informatie, [Azure Storage-Serviceversleuteling voor Data-at-Rest](storage-service-encryption.md).
 
-<sup>3</sup>de archive-laag is beschikbaar op het niveau van een afzonderlijke blob alleen, niet op het niveau van de storage-account. Alleen blok-blobs en toevoeg-blobs kunnen worden gearchiveerd. Zie voor meer informatie, [Azure Blob storage: Hot, cool en archive storage-lagen](../blobs/storage-blob-storage-tiers.md).
+<sup>3</sup>de Archive-laag is beschikbaar op het niveau van een afzonderlijke blob alleen, niet op het niveau van de storage-account. Alleen blok-blobs en toevoeg-blobs kunnen worden gearchiveerd. Zie voor meer informatie, [Azure Blob storage: Hot, Cool, en Archiefopslaglaag](../blobs/storage-blob-storage-tiers.md).
 
 <sup>4</sup>zone-redundante opslag (ZRS) is alleen beschikbaar voor algemeen gebruik v2 standard storage-accounts. Zie voor meer informatie over ZRS [Zone-redundante opslag (ZRS): toepassingen met hoge beschikbaarheid Azure Storage](storage-redundancy-zrs.md). Zie voor meer informatie over andere opties voor gegevensreplicatie [Azure Storage-replicatie](storage-redundancy.md).
 
@@ -49,13 +49,16 @@ De volgende tabel beschrijft de soorten opslagaccounts en de bijbehorende mogeli
 
 Opslagaccounts voor algemeen gebruik v2 ondersteuning voor de nieuwste opslagfuncties van Azure en alle functionaliteit van voor algemeen gebruik v1 en Blob storage-accounts. Voor algemeen gebruik v2-accounts bieden de laagste per GB capaciteit prijzen voor Azure Storage, evenals de bedrijfstak van concurrerende transactieprijzen in. Algemeen gebruik v2-opslagaccounts bieden ondersteuning voor deze Azure Storage-services:
 
-- BLOBs (alle typen)
+- BLOBs (alle typen: blok, toevoegen, pagina)
 - Bestanden
 - Disks
 - Wachtrijen
 - Tabellen
 
-Microsoft raadt u aan met behulp van een opslagaccount voor algemeen gebruik v2 voor de meeste scenario's. U kunt gemakkelijk een voor algemeen gebruik v1- of Blob storage-account upgraden naar een algemeen gebruik v2-account geen downtime of toepassing regeneraties en zonder de noodzaak om gegevens te kopiëren. Zie voor meer informatie over het bijwerken naar een account voor algemeen gebruik v2 [upgraden naar een opslagaccount voor algemeen gebruik v2](storage-account-upgrade.md). 
+> [!NOTE]
+> Microsoft raadt u aan met behulp van een opslagaccount voor algemeen gebruik v2 voor de meeste scenario's. U kunt gemakkelijk een voor algemeen gebruik v1- of Blob storage-account upgraden naar een algemeen gebruik v2-account zonder uitvaltijd en zonder de noodzaak om gegevens te kopiëren.
+>
+> Zie voor meer informatie over het bijwerken naar een account voor algemeen gebruik v2 [upgraden naar een opslagaccount voor algemeen gebruik v2](storage-account-upgrade.md). 
 
 Opslagaccounts voor algemeen gebruik v2 bieden meerdere toegangslagen voor het opslaan van gegevens op basis van uw gebruikspatronen. Zie voor meer informatie, [toegangslagen voor blok-blobgegevens](#access-tiers-for-block-blob-data).
 
@@ -103,19 +106,20 @@ Azure Storage biedt verschillende opties voor toegang tot blok-blobgegevens op b
 
 De laag beschikbaar zijn:
 
-* De **hot** toegangslaag, die is geoptimaliseerd voor frequente toegang krijgen tot objecten in de storage-account. Toegang tot gegevens in de warme laag is meest rendabele, terwijl de kosten voor opslag enigszins hoger zijn. Nieuwe storage-accounts worden gemaakt in de warme laag standaard.
-* De **cool** toegangslaag, die is geoptimaliseerd voor het opslaan van grote hoeveelheden gegevens die niet vaak worden geraadpleegd en die gedurende ten minste 30 dagen worden opgeslagen. Opslaan van gegevens in de koude laag rendabeler is, maar toegang tot die gegevens mogelijk iets duurder dan de toegang tot gegevens in de warme laag.
-* De **archief** laag, die alleen beschikbaar voor afzonderlijke blok-blobs is. De archive-laag is geoptimaliseerd voor gegevens die enkele uren latentie bij het ophalen kan tolereren en blijven in de archive-laag voor ten minste 180 dagen. De archive-laag is de meest voordelige optie zijn voor het opslaan van gegevens, maar toegang tot die gegevens is duurder dan de toegang tot gegevens in de warme als koude opslaglagen. 
-
 > [!NOTE]
 > De [Premium-laag voor access](../blobs/storage-blob-storage-tiers.md#premium-access-tier) beperkte Preview-versie beschikbaar is als een account voor lokaal redundante opslag (LRS) in de regio's Noord-Europa, VS Oost 2, VS-centraal en VS-West. Zie voor meer informatie over het registreren voor de Preview-versie, [Maak kennis met blobopslag van Azure Premium](http://aka.ms/premiumblob).
 
-Als er een wijziging in het gebruikspatroon van uw gegevens is, kunt u schakelen tussen deze toegangslagen op elk gewenst moment. 
+* De **warm** toegangslaag, die is geoptimaliseerd voor frequente toegang krijgen tot objecten in de storage-account. Toegang tot gegevens in de warme laag is meest rendabele, terwijl de kosten voor opslag enigszins hoger zijn. Nieuwe storage-accounts worden gemaakt in de warme laag standaard.
+* De **Cool** toegangslaag, die is geoptimaliseerd voor het opslaan van grote hoeveelheden gegevens die niet vaak worden geraadpleegd en die gedurende ten minste 30 dagen worden opgeslagen. Opslaan van gegevens in de koude laag rendabeler is, maar toegang tot die gegevens mogelijk iets duurder dan de toegang tot gegevens in de warme laag.
+* De **archief** laag, die alleen beschikbaar voor afzonderlijke blok-blobs is. De Archive-laag is geoptimaliseerd voor gegevens die enkele uren latentie bij het ophalen kan tolereren en blijven in de Archive-laag voor ten minste 180 dagen. De Archive-laag is de meest voordelige optie zijn voor het opslaan van gegevens, maar toegang tot die gegevens is duurder dan de toegang tot gegevens in de warme of koude laag. 
+
+
+Als er een wijziging in het gebruikspatroon van uw gegevens is, kunt u schakelen tussen deze toegangslagen op elk gewenst moment. Zie voor meer informatie over de toegangslagen, [Azure Blob-opslag: Premium (preview), dynamische, statische en Archiefopslaglaag](../blobs/storage-blob-storage-tiers.md).
 
 > [!IMPORTANT]
-> Wijzigen van de toegangslaag voor een bestaand opslagaccount of blob kan leiden tot extra kosten in rekening gebracht.
+> Wijzigen van de toegangslaag voor een bestaand opslagaccount of blob kan leiden tot extra kosten in rekening gebracht. Zie voor meer informatie de [opslagaccount facturering](#storage-account-billing).
 
-Zie voor meer informatie over de toegangslagen, [Azure Blob-opslag: Premium (preview), dynamische, statische en archiefopslaglaag](../blobs/storage-blob-storage-tiers.md).
+
 
 ## <a name="replication"></a>Replicatie
 

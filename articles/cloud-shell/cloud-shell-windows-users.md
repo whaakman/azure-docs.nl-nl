@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2018
 ms.author: damaerte
-ms.openlocfilehash: aad474195060c01a3f9d85e6f9037b568b0c16ad
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 4fc4f6523eb19294cabdf6b5b910dd346a877502
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39630383"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49645012"
 ---
 # <a name="powershell-in-azure-cloud-shell-for-windows-users"></a>PowerShell in Azure Cloud Shell voor Windows-gebruikers
 
@@ -54,7 +54,7 @@ Hieronder vindt u de algemene aliassen die zijn verwijderd, evenals hun gelijkwa
 ## <a name="persisting-home"></a>Permanente $HOME
 
 Eerdere gebruikers kunnen alleen behouden scripts en andere bestanden in hun Cloud-station.
-$HOME-map van de gebruiker is nu ook nu blijven behouden tussen sessies.
+$HOME-map van de gebruiker is nu ook blijven behouden tussen sessies.
 
 ## <a name="powershell-profile"></a>PowerShell-profiel
 

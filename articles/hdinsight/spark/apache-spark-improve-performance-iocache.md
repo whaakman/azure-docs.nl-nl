@@ -7,16 +7,16 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.topic: conceptual
 ms.date: 10/15/2018
-ms.openlocfilehash: cbb19ab831e242a48532bedef37157455c9fb583
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 8cfa6493a565a8ed3b059e1da752da5115d0731d
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49430865"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49649853"
 ---
 # <a name="improve-performance-of-apache-spark-workloads-using-azure-hdinsight-io-cache-preview"></a>Prestaties van Apache Spark-workloads met Azure HDInsight i/o-Cache (Preview)
 
-I/o-Cache is een service voor Azure HDInsight, waardoor de prestaties van Apache Spark-taken voor het opslaan in cache van gegevens. I/o-Cache maakt gebruik van een open-source-component opslaan in cache RubiX genoemd. RubiX is een lokale schijf-cache voor gebruik met big data analytics-engines met toegang gegevens van cloudopslagsystemen tot. RubiX is uniek zijn in de cache-systemen, omdat hierbij Solid-State stations (SSD's) in plaats van de operationele geheugen reserveren voor cachedoeleinden. De i/o-Cache-service wordt gestart en RubiX metagegevens Servers op elke worker-knooppunt van het cluster beheert. Het ook configureert alle services van het cluster voor transparante gebruik van RubiX cache.
+I/o-Cache is een service voor Azure HDInsight, waardoor de prestaties van Apache Spark-taken voor het opslaan in cache van gegevens. I/o-Cache werkt ook met Tez en Hive-workloads, die kunnen worden uitgevoerd op Spark-clusters. I/o-Cache maakt gebruik van een open-source-component opslaan in cache RubiX genoemd. RubiX is een lokale schijf-cache voor gebruik met big data analytics-engines met toegang gegevens van cloudopslagsystemen tot. RubiX is uniek zijn in de cache-systemen, omdat hierbij Solid-State stations (SSD's) in plaats van de operationele geheugen reserveren voor cachedoeleinden. De i/o-Cache-service wordt gestart en RubiX metagegevens Servers op elke worker-knooppunt van het cluster beheert. Het ook configureert alle services van het cluster voor transparante gebruik van RubiX cache.
 
 De meeste SSD's bieden meer dan 1 GB per seconde van de bandbreedte. Deze bandbreedte, aangevuld met de besturingssysteem-bestand in-memory-cache, biedt voldoende bandbreedte voor het laden van big compute verwerking gegevensengines, zoals Apache Spark. Het operationele geheugen is beschikbaar voor Apache Spark voor het verwerken van veel geheugen-afhankelijke taken, zoals shuffles van links. Exclusief gebruik van het besturingssysteem van geheugen met kunt Apache Spark voor optimaal Resourcegebruik.  
 
@@ -25,7 +25,7 @@ De meeste SSD's bieden meer dan 1 GB per seconde van de bandbreedte. Deze bandbr
 
 ## <a name="benefits-of-azure-hdinsight-io-cache"></a>Voordelen van Azure HDInsight i/o-Cache
 
-Opslaan in cache, biedt een toename van de prestaties voor taken die gegevens vanuit de externe cloudopslag lezen.
+Gebruik van i/o-Cache, biedt een toename van de prestaties voor taken die gegevens uit Azure Blob Storage lezen.
 
 U hebt geen wijzigingen aanbrengen in uw Spark-taken om te zien van prestaties bij het gebruik van i/o-Cache. Als i/o-Cache is uitgeschakeld, deze Spark-code zou lezen van gegevens op afstand van Azure Blob Storage: `spark.read.load('wasbs:///myfolder/data.parquet').count()`. Als i/o-Cache is geactiveerd, wordt de dezelfde regel code in de cache lezen via de i/o-Cache. Op de volgende leest de gegevens lokaal gelezen uit SSD. Worker-knooppunten op HDInsight-cluster zijn uitgerust met lokaal aangesloten, toegewezen SSD-stations. HDInsight i/o-Cache gebruikt deze lokale SSD's voor de cache, biedt de laagste niveau van de latentie en maximaliseert de bandbreedte.
 
@@ -46,7 +46,7 @@ Azure HDInsight i/o-Cache is standaard ingeschakeld in de Preview-versie gedeact
 1. Controleer of de betrokken services op het cluster opnieuw gestart.
 
 >[!NOTE] 
-> Hoewel de voortgangsbalk geactiveerd wordt, wordt niet daadwerkelijk i/o-Cache ingeschakeld totdat u de service opnieuw starten.
+> Hoewel de voortgangsbalk geactiveerd wordt, wordt niet daadwerkelijk i/o-Cache ingeschakeld totdat u de betrokken services opnieuw starten.
 
 ## <a name="troubleshooting"></a>Problemen oplossen
   
@@ -75,3 +75,7 @@ U krijgt mogelijk ruimte schijffouten Spark taken uitgevoerd na het inschakelen 
 1. Selecteer **opnieuw starten bevestigen alle**.
 
 Als dit niet werkt, schakelt u i/o-Cache.
+
+## <a name="next-steps"></a>Volgende stappen
+
+- Meer informatie over i/o-Cache, met inbegrip van prestatiestandaarden in dit blogbericht: [Apache Spark-taken toegang tot 9 x versnellen met HDInsight i/o-Cache](https://azure.microsoft.com/en-us/blog/apache-spark-speedup-with-hdinsight-io-cache/)

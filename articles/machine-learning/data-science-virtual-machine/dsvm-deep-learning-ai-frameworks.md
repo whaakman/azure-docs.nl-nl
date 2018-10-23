@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: gokuma
-ms.openlocfilehash: 891059a440189112c834f3402725781a6b4a3960
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 234e9233e69877c9afe79a5a053a4310d013a9ab
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37952821"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49646107"
 ---
 # <a name="deep-learning-and-ai-frameworks"></a>Deep Learning en AI-frameworks
 De [Data Science Virtual Machine](http://aka.ms/dsvm) (DSVM) en de [Deep Learning VM](http://aka.ms/dsvm/deeplearning) ondersteunt een aantal frameworks voor deep learning bij het opbouwen van kunstmatige intelligentie (AI)-toepassingen met Voorspellend en cognitieve functionaliteit, zoals afbeeldingen en language understanding. 
@@ -174,7 +174,7 @@ Meld u aan bij de virtuele machine met X2Go. Start de service op een terminal:
 
     sudo systemctl start digits
 
-De service duurt ongeveer een minuut om te starten. Start een webbrowser en navigeer naar `http://localhost:5000`.
+De service duurt ongeveer een minuut om te starten. Start een webbrowser en navigeer naar `http://localhost:5000`. Houd er rekening mee dat cijfers biedt een beveiligde aanmelding en niet buiten de virtuele machine moet worden blootgesteld.
 
 
 

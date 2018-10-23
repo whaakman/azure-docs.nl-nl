@@ -7,16 +7,16 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: iainfou
-ms.openlocfilehash: e42601646474ba986e75632af41d500e18b64021
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: fb428e63be54688744bcdb022ba276a957f8aee1
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49393895"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49648765"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Kubernetes-belangrijkste concepten voor Azure Kubernetes Service (AKS)
 
-Als de ontwikkeling van toepassingen is verplaatst naar een benadering op basis van die zijn opgenomen, wordt de noodzaak om te coördineren en beheren van de onderling verbonden bronnen belangrijk. Kubernetes is het toonaangevende platform waarmee u de mogelijkheid te bieden betrouwbare planning van fouttolerantie toepassingsworkloads. Azure Kubernetes Service (AKS) is een beheerde Kubernetes-aanbieding die verder vereenvoudigt de implementatie van toepassing op basis van een container en beheer.
+Als de ontwikkeling van toepassingen is verplaatst naar een benadering op basis van een container, wordt de noodzaak om te coördineren en beheren van de onderling verbonden bronnen belangrijk. Kubernetes is het toonaangevende platform waarmee u de mogelijkheid te bieden betrouwbare planning van fouttolerantie toepassingsworkloads. Azure Kubernetes Service (AKS) is een beheerde Kubernetes-aanbieding die verder vereenvoudigt de implementatie van toepassing op basis van een container en beheer.
 
 Dit artikel bevat de basisonderdelen van de Kubernetes-infrastructuur, zoals de *cluster master*, *knooppunten*, en *knooppuntgroepen*. Workload-resources zoals *schillen*, *implementaties*, en *ingesteld* ook geïntroduceerd, samen met het om resources te groeperen in *naamruimten*.
 

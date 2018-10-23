@@ -11,12 +11,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/11/2018
-ms.openlocfilehash: ad9ef7aa56cde9dd2ae644b97570b3bcfb727516
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 49ef31996cb9c55ed244202a85e123faf52fbd2a
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49355450"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49649763"
 ---
 # <a name="accelerated-database-recovery-preview"></a>Versneld databaseherstel (preview)
 
@@ -108,7 +108,7 @@ Er zijn vier belangrijke onderdelen van de ADR:
   sLog is een secundaire in-memory-logboekstream dat winkels zich registreert voor niet-samengestelde bewerkingen (zoals metagegevens invalidatie, vergrendeling overnames, enzovoort). De sLog is:
 
   - Laag volume en in het geheugen
-  - Opgeslagen op schijf door is geserialiseerd tijdens het controlepunt
+  - Opgeslagen op schijf door tijdens het Controlepuntproces wordt geserialiseerd
   - Periodiek worden afgekapt als transacties doorvoeren
   - Versnelt opnieuw en ongedaan maken door het verwerken van alleen de niet-samengestelde bewerkingen  
   - Schakelt de logboekafkapping agressief transactie door alleen de vereiste logboekrecords te behouden
@@ -127,4 +127,4 @@ De volgende typen klanten moeten rekening houden met ADR inschakelen:
 
 ## <a name="to-enable-adr-during-this-preview-period"></a>Om in te schakelen ADR tijdens deze preview-periode
 
-Tijdens de preview-periode voor deze functie, stuur een e-mail naar [ mailto:adr@microsoft.com ](mailto:adr@microsoft.com) voor meer informatie en probeer het uit versnelde Database Recovery (ADR). In het e-mailbericht, moet u de naam van de logische server (voor individuele databases, elastische pools en Azure Data Warehouse) bevatten. Omdat dit een preview-functie, moet uw testserver een niet-productie-server.
+Tijdens de preview-periode voor deze functie, stuur een e-mail naar [ adr@microsoft.com ](mailto:adr@microsoft.com) voor meer informatie en probeer het uit versnelde Database Recovery (ADR). In het e-mailbericht, moet u de naam van de logische server (voor individuele databases, elastische pools en Azure Data Warehouse) bevatten. Omdat dit een preview-functie, moet uw testserver een niet-productie-server.

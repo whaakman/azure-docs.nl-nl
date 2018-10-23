@@ -5,20 +5,20 @@ services: application-gateway
 author: amsriva
 ms.service: application-gateway
 ms.topic: article
-ms.date: 8/6/2018
+ms.date: 10/23/2018
 ms.author: amsriva
-ms.openlocfilehash: 4575bed18697a5661d58dc350c24a9497f7c46ff
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 626db07a81c6482a689329b8cddc9f40b464bb7e
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39578810"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49649071"
 ---
 # <a name="overview-of-end-to-end-ssl-with-application-gateway"></a>Overzicht van end-to-end SSL met Application Gateway
 
 Application Gateway ondersteunt SSL-beëindiging op de gateway, na welk verkeer normaal gesproken onversleuteld naar de back-endservers. Met deze functie voorkomt u prijzige overhead voor het versleutelen en ontsleutelen voor uw webservers. Voor sommige gebruikers is onversleutelde communicatie met de back-endserververs echter onacceptabel. Deze onversleutelde communicatie kan het gevolg zijn van de beveiligings- of nalevingsvereisten of misschien kan de toepassing alleen worden gebruikt via een beveiligde verbinding. Voor zulke toepassingen ondersteunt Application Gateway end-to-end SSL-versleuteling.
 
-Met end-to-end SSL kunt u veilig gevoelige gegevens versleuteld verzenden naar de back-endserver, terwijl u gebruik blijft maken van de voordelen van de Layer 7-taakverdelingsfuncties die Application Gateway te bieden heeft. Voorbeelden van deze functies zijn: sessieaffiniteit op basis van cookies, routering op basis van een URL, ondersteuning voor routering op basis van sites en de mogelijkheid om X-Forwarded-\*-headers in te voegen.
+End-to-end SSL kunt u veilig gevoelige gegevens verzenden naar de back-end versleuteld terwijl nog steeds profiteren van de voordelen van de Layer 7 load balancing-functies die application gateway biedt. Voorbeelden van deze functies zijn: sessieaffiniteit op basis van cookies, routering op basis van een URL, ondersteuning voor routering op basis van sites en de mogelijkheid om X-Forwarded-\*-headers in te voegen.
 
 Wanneer Application Gateway is geconfigureerd met de communicatiemodus voor end-to-end SSL, worden door Application Gateway de SSL-sessies op de gateway beëindigd en wordt het gebruikersverkeer ontsleuteld. Vervolgens worden de geconfigureerde regels toegepast voor het selecteren van het juiste exemplaar van de back-endgroep waarnaar het verkeer moet worden doorgeleid. Application Gateway initieert vervolgens een nieuwe SSL-verbinding met de back-endserver en versleutelt de gegevens opnieuw met het openbare-sleutelcertificaat van de back-endserver, voordat de aanvraag naar de back-endserver wordt verstuurd. End-to-end SSL wordt ingeschakeld door de protocolinstelling **BackendHTTPSetting** naar HTTPS, die wordt vervolgens toegepast op een back-endpool. Elke back-endserver in de back-endgroep waarvoor end-to-end SSL is ingeschakeld, moet worden geconfigureerd met een certificaat zodat beveiligde communicatie mogelijk is.
 
@@ -32,6 +32,18 @@ Application Gateway communiceert alleen met bekende back-endexemplaren waarvan h
 
 > [!NOTE]
 > Certificaatinstallatie verificatie is niet vereist voor betrouwbare Azure-services zoals Azure Web Apps.
+
+## <a name="end-to-end-ssl-with-the-v2-sku"></a>End-to-end SSL met de v2-SKU
+
+Certificaten voor serververificatie zijn afgeschaft en vervangen door vertrouwde basiscertificaten is opgenomen in de Application Gateway v2-SKU. Ze werken op dezelfde manier voor verificatie van certificaten met enkele belangrijke verschillen:
+
+- Certificaten die zijn ondertekend door bekende CA instanties waarvan CN komt overeen met de hostnaam van de in de back-end-HTTP-instellingen hoeven niet een extra stap voor end-to-end SSL om te werken. 
+
+   Bijvoorbeeld, als de back-end-certificaten zijn uitgegeven door een bekende Certificeringsinstantie en heeft een algemene naam van contoso.com en de back-end-http-instelling host veld ook is ingesteld op contoso.com, zijn klikt u vervolgens geen extra stappen vereist. U kunt instellen dat de back-end-http protocol stellen op HTTPS en beide de health-test- en de pad SSL is ingeschakeld. Als u van Azure Web Apps of andere Azure-web-services als uw back-end gebruikmaakt, dit zijn ook impliciet worden vertrouwd en er is geen verdere stappen nodig zijn voor end-to-end SSL.
+- Als het certificaat zelfondertekend is of ondertekend door onbekende tussenpersonen, moeten klikt u vervolgens om in te schakelen van end-to-end SSL in v2 SKU voor een vertrouwd basiscertificaat worden gedefinieerd. Application Gateway communiceert alleen met back-ends voor het basiscertificaat waarvan servercertificaat komt overeen met een van de lijst met vertrouwde basiscertificaten in de back-end-http-instelling die is gekoppeld aan de groep.
+- Naast de basis-certificaat overeenkomen valideert Application Gateway ook als de Host die is opgegeven in de back-end-http-instelling komt overeen met die van de algemene naam (CN) aangeboden door de back-endserver SSL-certificaat. Bij een poging tot stand brengen van een SSL-verbinding met de back-end, wordt de Server Name Indication (SNI)-extensie in Application Gateway ingesteld op de Host die is opgegeven in de back-end-http-instelling.
+- Als **kiezen hostnaam van de back-endadres** in plaats van de Host-veld in de back-end-http-instelling is gekozen, en vervolgens de SNI-header is altijd ingesteld op de back-endpool FQDN-naam en de algemene naam van de back-endserver SSL certificaat moet overeenkomen met de FQDN-naam. Back-endpoolleden met IP-adressen worden niet ondersteund in dit scenario.
+- Het basiscertificaat is een met base64 gecodeerde basiscertificaat van de back-end-servercertificaten.
 
 ## <a name="next-steps"></a>Volgende stappen
 

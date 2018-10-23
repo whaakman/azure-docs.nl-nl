@@ -8,12 +8,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 10/02/2018
 ms.author: lyrana
-ms.openlocfilehash: ef7838c41bb479da273123c2eb3def8e12802390
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: dc5570b188bfdc0e1be78aa2bd5c5d92e884f377
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49351299"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49638015"
 ---
 # <a name="connect-and-authenticate-to-apis"></a>Verbinding maken en te verifiëren voor API 's
 
@@ -46,6 +46,7 @@ Om aan de slag met de digitale Twins-API's kunt u een client, zoals Postman gebr
 1. Navigeer naar https://www.getpostman.com/ om de app te downloaden
 1. Volg de stappen [hier](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad) om een Azure Active Directory-toepassing te maken (of u kunt kiezen om een bestaande registratie opnieuw te gebruiken). 
 1. Onder de vereiste machtigingen toevoegen 'Azure digitale dubbels' en selecteer gedelegeerde machtigingen. Vergeet niet om op machtigingen verlenen om te voltooien.
+1. Open het toepassingsmanifest en oauth2AllowImplicitFlow ingesteld op true
 1. Configureren van een antwoord-url met [ https://www.getpostman.com/oauth2/callback ](https://www.getpostman.com/oauth2/callback).
 1. Selecteer de **autorisatie tabblad**, klikt u op **OAuth 2.0**, en selecteer **nieuwe Access Token ophalen**.
 
