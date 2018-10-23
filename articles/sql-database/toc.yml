@@ -323,8 +323,10 @@ items:
         href: sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md
   - name: Vergelijking van SQL-functies
     href: sql-database-features.md
-  - name: Prestaties en bewaking
+  - name: Prestaties bewaken en afstemmen
     items:
+    - name: Overzicht van bewaking en afstemming
+      href: sql-database-monitor-tune-overview.md
     - name: Intelligente prestaties
       items:
       - name: Uitvoeren van query's
@@ -335,8 +337,6 @@ items:
           href: https://docs.microsoft.com/sql/relational-databases/performance/adaptive-query-processing?toc=/azure/sql-database/toc.json
       - name: Bewaking en afstemming
         items:
-        - name: Overzicht van bewaking en afstemming
-          href: sql-database-monitor-tune-overview.md
         - name: Prestatieaanbevelingen van Database Advisor
           href: sql-database-advisor.md
         - name: Acties en aanbevelingen afstemmen
@@ -351,11 +351,11 @@ items:
           href: sql-database-metrics-diag-logging.md
         - name: Het diagnostische logboek gebruiken
           href: sql-database-intelligent-insights-use-diagnostics-log.md
+        - name: Inzicht in queryprestaties
+          href: sql-database-query-performance.md
         - name: Probleemoplossing voor prestaties
           href: sql-database-intelligent-insights-troubleshoot-performance.md
-      - name: Inzicht in queryprestaties
-        href: sql-database-query-performance.md
-      - name: Automatische afstemming van prestaties
+      - name: Automatisch instellen
         items:
         - name: Overzicht van automatische afstemming
           href: sql-database-automatic-tuning.md
@@ -634,9 +634,9 @@ items:
     href: /azure/architecture/
   - name: Verhalen van klanten
     href: http://customers.microsoft.com/en-us/search?sq=%22Azure%20SQL%20Database%22&ff=&p=0&so=story_publish_date%20desc
-ms.openlocfilehash: 38a8ec13b8a5e50d60ed46d1bd4d71af933d61f0
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 416f74c395f331de6af749f3de1d3a3e966b8b35
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49470368"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49650057"

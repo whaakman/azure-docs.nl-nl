@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: v-jansko
-ms.openlocfilehash: 16334dbcb4631bd927069620e73c1c4474ff99fa
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 15b2d96cdf1794ae0f72c087ef95055da7c0964e
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46126255"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49646368"
 ---
 # <a name="how-to-receive-word-alignment-information"></a>Hoe word uitlijning van de informatie te ontvangen
 
@@ -25,7 +25,7 @@ Van de uitlijningsgegevens ontvangen, gebruikt u de methode vertalen en de optio
 ## <a name="alignment-information-format"></a>Uitlijning van de gegevens opmaken
 Uitlijning wordt geretourneerd als een string-waarde van de volgende indeling voor elk woord in de bron. De gegevens van elk woord wordt gescheiden door een spatie, met inbegrip van niet-een door spaties gescheiden talen (scripts) zoals Chinees:
 
-[[SourceTextStartIndex]: [SourceTextEndIndex]: [TgtTextStartIndex]: [TgtTextEndIndex]] *
+[[SourceTextStartIndex]:[SourceTextEndIndex]:[TgtTextStartIndex]:[TgtTextEndIndex]] *
 
 Voorbeeld van de uitlijning van de tekenreeks: ' 0:0-7:10 1:2-11:20 3:4-0:3 3:4-4:6 5:5-21:21 '.
 

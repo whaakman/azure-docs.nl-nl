@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 749dc6c2d329ae7055ee0a6adc429c378de51871
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 26c0353bddb9455b1bda8961f3c05e0f6c7cc176
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "40235263"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49647711"
 documentType: LandingData
 title: Documentatie over Azure Stack-partner
 metadata:
@@ -22,19 +22,19 @@ metadata:
   ms.author: mabrigg
   ms.reviewer: John.Haskin
 abstract:
-  description: U kunt de validatie gebruiken als een service om te controleren of uw hardware voor gebruik met Azure Stack. De service is een systeemeigen Azure-service die is ontworpen voor gebruik met oplossingspartners die naast elkaar worden engineering-aanbiedingen met Microsoft Azure Stack.
+  description: U kunt validatie gebruiken als een Service om te controleren of uw hardware voor gebruik met Azure Stack. De service is een systeemeigen Azure-service die is ontworpen voor gebruik met oplossingspartners die naast elkaar worden engineering-aanbiedingen met Microsoft Azure Stack.
 sections:
-- title: Quickstart van 5 minuten
+- title: Snelstart van 5 minuten
   items:
   - type: paragraph
-    text: Meer informatie over hoe u voor uw VM's en computers onboarding uitvoert voor Security Center en hoe u verbinding maakt met uw beveiligingsoplossingen.
+    text: Meer informatie over het gebruik van de validatie als een serviceportal om te testen op uw hardware te plannen.
   - type: list
     style: icon48
     items:
     - image:
         src: media/i_account-management.svg
       text: De validatie gebruiken als een serviceportal voor het plannen van uw eerste test
-      href: /azure/azure-stack/partner/azure-stack-vaas-schedule-your-first-test
+      href: /azure/azure-stack/partner/azure-stack-vaas-schedule-test-pass
 - title: Zelfstudies met stapsgewijze instructies
   items:
   - type: paragraph
@@ -42,16 +42,6 @@ sections:
   - type: list
     style: unordered
     items:
-    - html: <a href="/azure/azure-stack/partner/azure-stack-vaas-test-vm">De lokale agent en test virtuele machine implementeren</a>
-    - html: <a href="/azure/azure-stack/partner/azure-stack-vaas-automate-with-powershell">Azure Stack-validatie met PowerShell automatiseren</a>
     - html: <a href="/azure/azure-stack/partner/azure-stack-vaas-validate-solution-new">Een nieuwe Azure Stack-oplossing te valideren</a>
     - html: <a href="/azure/azure-stack/partner/azure-stack-vaas-validate-oem-package">OEM-pakketten valideren</a>
     - html: <a href="/azure/azure-stack/partner/azure-stack-vaas-validate-microsoft-updates">Valideren van software-updates van Microsoft</a>
-- title: Referentie
-  items:
-  - type: list
-    style: cards
-    className: cardsD
-    items:
-    - title: Validatie uit als een service
-      html: <a href="/azure/azure-stack/partner/azure-stack-vaas-parameters">Validatie-configuratiebestand</a>

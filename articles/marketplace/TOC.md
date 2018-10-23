@@ -35,28 +35,26 @@
 
 # [Cloud Partner-portal](./cloud-partner-portal-orig/cloud-partner-portal-getting-started-with-the-cloud-partner-portal.md) 
 
-<!-- remove comment markers after toc gets published with iot edge section  -->
-<!-- 
-## [Virtual machine offer](./cloud-partner-portal/virtual-machine/cpp-virtual-machine-offer.md)
-### [Prerequisites](./cloud-partner-portal/virtual-machine/cpp-prerequisites.md)
-### [Create VM offer](./cloud-partner-portal/virtual-machine/cpp-create-offer.md)
-#### [Offer Settings tab](./cloud-partner-portal/virtual-machine/cpp-offer-settings-tab.md)
-#### [SKUs tab](./cloud-partner-portal/virtual-machine/cpp-skus-tab.md)
-#### [Test Drive tab](./cloud-partner-portal/virtual-machine/cpp-test-drive-tab.md)
-#### [Marketplace tab](./cloud-partner-portal/virtual-machine/cpp-marketplace-tab.md)
-#### [Support tab](./cloud-partner-portal/virtual-machine/cpp-support-tab.md)
-### [Create VM technical assets](./cloud-partner-portal/virtual-machine/cpp-create-technical-assets.md)
-#### [Create VHD](./cloud-partner-portal/virtual-machine/cpp-create-vhd.md)
-#### [Common VHD creation issues](./cloud-partner-portal/virtual-machine/cpp-common-vhd-creation-issues.md)
-#### [Connect to VM](./cloud-partner-portal/virtual-machine/cpp-connect-vm.md)
-#### [Configure VM](./cloud-partner-portal/virtual-machine/cpp-configure-vm.md)
-#### [Deploy VM from VHDs](./cloud-partner-portal/virtual-machine/cpp-deploy-vm-vhd.md)
-##### [VHD Deployment Template (JSON)](./cpp-deploy-json-template.md)
-#### [Certify VM image](./cloud-partner-portal/virtual-machine/cpp-certify-vm.md)
-#### [Get SAS URI](./cloud-partner-portal/virtual-machine/cpp-get-sas-uri.md)
-#### [Common SAS URL issues](./cloud-partner-portal/virtual-machine/cpp-common-sas-url-issues.md)
-### [Publish VM offer](./cloud-partner-portal/virtual-machine/cpp-publish-offer.md)
-### [Update existing offer](./cloud-partner-portal/virtual-machine/cpp-update-existing-offer.md) -->
+## [Virtuele-machineaanbieding](./cloud-partner-portal/virtual-machine/cpp-virtual-machine-offer.md)
+### [Vereisten](./cloud-partner-portal/virtual-machine/cpp-prerequisites.md)
+### [VM-aanbieding maken](./cloud-partner-portal/virtual-machine/cpp-create-offer.md)
+#### [Tabblad voor aanbiedingsinstellingen](./cloud-partner-portal/virtual-machine/cpp-offer-settings-tab.md)
+#### [Tabblad voor SKU's](./cloud-partner-portal/virtual-machine/cpp-skus-tab.md)
+#### [Tabblad voor Test Drive](./cloud-partner-portal/virtual-machine/cpp-test-drive-tab.md)
+#### [Tabblad voor Marketplace](./cloud-partner-portal/virtual-machine/cpp-marketplace-tab.md)
+#### [Tabblad voor ondersteuning](./cloud-partner-portal/virtual-machine/cpp-support-tab.md)
+### [Technische assets voor de VM maken](./cloud-partner-portal/virtual-machine/cpp-create-technical-assets.md)
+#### [VHD maken](./cloud-partner-portal/virtual-machine/cpp-create-vhd.md)
+#### [Algemene problemen bij het maken van VHD's](./cloud-partner-portal/virtual-machine/cpp-common-vhd-creation-issues.md)
+#### [Verbinding maken met de VM](./cloud-partner-portal/virtual-machine/cpp-connect-vm.md)
+#### [De VM configureren](./cloud-partner-portal/virtual-machine/cpp-configure-vm.md)
+#### [De VM implementeren vanaf VHD's](./cloud-partner-portal/virtual-machine/cpp-deploy-vm-vhd.md)
+##### [VHD-implementatiesjabloon (JSON)](./cloud-partner-portal/virtual-machine/cpp-deploy-json-template.md)
+#### [VM-installatiekopie certificeren](./cloud-partner-portal/virtual-machine/cpp-certify-vm.md)
+#### [SAS-URI ophalen](./cloud-partner-portal/virtual-machine/cpp-get-sas-uri.md)
+#### [Veelvoorkomende problemen met SAS-URL](./cloud-partner-portal/virtual-machine/cpp-common-sas-url-issues.md)
+### [VM-aanbieding publiceren](./cloud-partner-portal/virtual-machine/cpp-publish-offer.md)
+### [Bestaande aanbieding bijwerken](./cloud-partner-portal/virtual-machine/cpp-update-existing-offer.md)
 
 <!-- Following legacy VM section was replaced.  -->
 <!-- 

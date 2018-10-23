@@ -10,74 +10,87 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 07/24/2018
+ms.date: 10/19/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: 1cb4b1a7cfd72ea302676244a53af58e77215aa9
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 82a1d86f31bfb49ff97ec9928dd7ee946144a359
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "40235251"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49650040"
 ---
-# <a name="automate-azure-stack-validation-with-powershell"></a>Azure Stack-validatie met PowerShell automatiseren 
+# <a name="automate-azure-stack-validation-with-powershell"></a>Azure Stack-validatie met PowerShell automatiseren
 
-Validatie uit als een service (VaaS) biedt de mogelijkheid voor het automatiseren van het uitvoeren van tests met behulp van de **LaunchVaaSTests.ps1** script.
+Validatie uit als een Service (VaaS) biedt de mogelijkheid voor het automatiseren van het uitvoeren van tests met behulp van de **LaunchVaaSTests.ps1** script.
 
 U kunt PowerShell gebruiken voor de volgende werkstroom:
 
-- Testronde werkstroom
+- Testronde
 
-Met dit script omvat de vier onderdelen van een werkstroom:
+In deze zelfstudie leert u hoe u aan het maken van een script dat:
 
-- Vereiste onderdelen installeert.
-- Installeert en de lokale agent te starten.
-- Hiermee start u een categorie van tests, zoals integratie, functionele, betrouwbaarheid.
-- Rapporten elke test doorgeven resultaat voor het bewaken en rapporteren genereren van het bestand.
+Met dit script worden de volgende acties uitgevoerd:
 
-## <a name="launch-the-test-pass-workflow"></a>Starten van de werkstroom test-pass
+> [!div class="checklist"]
+> * Vereiste onderdelen worden geïnstalleerd
+> * Installeert en start u de lokale agent
+> * Een categorie van tests, waaronder integratie, functionele, betrouwbaarheid wordt gestart
+> * Testresultaten van rapporten
+
+## <a name="launch-the-test-pass-workflow"></a>De werkstroom testronde starten
 
 1. Open een verhoogde PowerShell-prompt.
 
 2. Voer het volgende script voor het downloaden van het automatiseringsscript:
 
-    ````PowerShell  
+    ```PowerShell
     New-Item -ItemType Directory -Path <VaaSLaunchDirectory>
     Set-Location <VaaSLaunchDirectory>
-    Invoke-WebRequest -Uri https://vaastestpacksprodeastus.blob.core.windows.net/packages/Microsoft.VaaS.Scripts.3.0.0.nupkg -OutFile "LaunchVaaS.zip"
+    Invoke-WebRequest -Uri https://storage.azurestackvalidation.com/packages/Microsoft.VaaS.Scripts.latest.nupkg -OutFile "LaunchVaaS.zip"
     Expand-Archive -Path ".\LaunchVaaS.zip" -DestinationPath .\ -Force
-    ````
+    ```
 
-3. Voer het volgende script met de waarden:
+3. Voer het volgende script met de juiste parameterwaarden:
 
-    ````PowerShell  
-    $VaaSAccountCreds = New-Object System.Management.Automation.PSCredential "<VaaSUserId>", (ConvertTo-SecureString "<VaaSUserPassword>"  -AsPlainText -Force)
-    $ServiceAdminCreds = New-Object System.Management.Automation.PSCredential "<ServiceAdminUser>", (ConvertTo-SecureString "<ServiceAdminPassword>" -AsPlainText -Force)
-    $TenantAdminCreds = New-Object System.Management.Automation.PSCredential "<TenantAdminUser>", (ConvertTo-SecureString "<TenantAdminPassword>" -AsPlainText -Force)
+    ```PowerShell
+    $VaaSAccountCreds = New-Object System.Management.Automation.PSCredential "<VaaSUserId>", (ConvertTo-SecureString "<VaaSUserPassword>" -AsPlainText -Force)
     .\LaunchVaaSTests.ps1 -VaaSAccountCreds $VaaSAccountCreds `
-        -VaaSAccountTenantId <VaaSAccountTenantId> `
-        -VaaSSolutionName <VaaSSolutionName> `
-        -VaaSTestPassName <VaaSTestPassName> `
-        -VaaSTestCategories Integration,Functional `
-        -MaxScriptWaitTimeInHours 12 `
-        -ServiceAdminCreds $ServiceAdminCreds `
-    ````
+                          -VaaSAccountTenantId <VaaSAccountTenantId> `
+                          -VaaSSolutionName <VaaSSolutionName> `
+                          -VaaSTestPassName <VaaSTestPassName> `
+                          -VaaSTestCategories Integration,Functional `
+                          -MaxScriptWaitTimeInHours 12 `
+                          -ServiceAdminUserName <AzSServiceAdminUser> `
+                          -ServiceAdminUserPassword <AzSServiceAdminPassword> `
+                          -TenantAdminUserName <AzSTenantAdminUser> `
+                          -TenantAdminUserPassword <AzSTenantAdminPassword> `
+                          -CloudAdminUserName <AzSCloudAdminUser> `
+                          -CloudAdminUserPassword <AzSCloudAdminPassword>
+    ```
 
     **Parameters**
 
     | Parameter | Beschrijving |
     | --- | --- |
-    | VaaSUserld | Uw VaaS gebruikers-ID. | 
+    | VaaSUserld | Uw VaaS gebruikers-ID. |
     | VaaSUserPassword | Uw wachtwoord VaaS. |
-    | ServiceAdminUser | Uw Azure Stack-account voor service-beheerder.  |
+    | VaaSAccountTenantId | Uw tenant VaaS GUID. |
+    | VaaSSolutionName | De naam van de VaaS-oplossing waarmee het doorgeven van de test wordt uitgevoerd. |
+    | VaaSTestPassName | De naam van de test VaaS doorgeven werkstroom te maken. |
+    | VaaSTestCategories | `Integration`, `Functional`, of. `Reliability`. Als u meerdere waarden gebruikt, scheidt u elke waarde door een komma.  |
+    | ServiceAdminUserName | Uw Azure Stack-account voor service-beheerder.  |
     | ServiceAdminPassword | Het wachtwoord van de Azure Stack-service.  |
-    | TenantAdminUser | De beheerder voor de primaire tenant.  |
+    | TenantAdminUserName | De beheerder voor de primaire tenant.  |
     | TenantAdminPassword | Het wachtwoord voor de primaire tenant.  |
-    | FunctionalCategory| Integratie, functionele, of. Betrouwbaarheid. Als u meerdere waarden gebruikt, scheidt u elke waarde door een komma.  |
+    | CloudAdminUserName | De gebruikersnaam van de cloud-beheerder.  |
+    | CloudAdminPassword | Het wachtwoord voor de beheerder van de cloud.  |
 
-4. Bekijk de resultaten van uw test. Zie voor meer informatie over het lezen van de testresultaten [bewaken tests](azure-stack-vaas-monitor-test.md).
+4. Bekijk de resultaten van uw test. Zie voor andere opties [bewaken en beheren van tests in de portal VaaS](azure-stack-vaas-monitor-test.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 
- - Voor meer informatie over [Azure Stack-validatie als een service](https://docs.microsoft.com/azure/azure-stack/partner).
- - Zie voor meer informatie over PowerShell in Azure Stack, de [Azure Stack-Module](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.3.0) verwijzing.
+Bekijk de meest recente modules voor meer informatie over PowerShell in Azure Stack.
+
+> [!div class="nextstepaction"]
+> [Azure Stack-Module](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.5.0)

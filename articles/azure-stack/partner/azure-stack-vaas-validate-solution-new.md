@@ -1,6 +1,6 @@
 ---
 title: Een nieuwe Azure Stack-oplossing te valideren | Microsoft Docs
-description: Leer hoe u een nieuwe Azure Stack-oplossing met validatie als een service te valideren.
+description: Leer hoe u een nieuwe Azure Stack-oplossing met validatie als een Service te valideren.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -10,93 +10,60 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 07/24/2018
+ms.date: 10/19/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: 1e908a8cf5576ce3bc3d58d1ef6f29d596ebc58b
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 777609b89bc08cd61489d2c3a3669ec07ccbc372
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44158174"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49647003"
 ---
 # <a name="validate-a-new-azure-stack-solution"></a>Een nieuwe Azure Stack-oplossing te valideren
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
-Leer hoe u kunt de werkstroom van de validatie van oplossing voor externe certificerende nieuwe oplossingen voor Azure Stack.
+Meer informatie over het gebruik van de **oplossing validatie** werkstroom voor het certificeren van nieuwe oplossingen voor Azure Stack.
 
-Een oplossing voor Azure Stack is een hardware stuklijst (BoM) die gezamenlijk akkoord gaat met Microsoft en het logo Windows Server certificeringsvereisten is verstreken. U kunt ook de werkstroom van de oplossing validatie gebruiken wanneer er een wijziging in de hardware stuklijst die kan leiden dat een oplossing om te worden geclassificeerd is ertoe als *nieuwe*. Als er vragen over wat zouden activeren een **nieuwe** of **certificering** van een oplossing contact op met op [ vaashelp@microsoft.com ](mailto:vaashelp@microsoft.com).
+Een oplossing voor Azure Stack is een hardware stuklijst (BoM) die gezamenlijk tussen Microsoft en de partner overeengekomen is als u aan de certificeringsvereisten voor Windows Server-logo. Een oplossing moet worden recertified wanneer er een wijziging in de hardware stuklijst is. Voor meer informatie over wanneer opnieuw certificeren oplossingen, neem contact op met het team via [ vaashelp@microsoft.com ](mailto:vaashelp@microsoft.com).
 
-Als u wilt certificeren van uw oplossing, moet u de werkstroom tweemaal uitgevoerd. Voer één keer voor de *minimaal* configuratie ondersteund. Uitvoeren in deze een tweede keer voor de *maximale* configuratie. Microsoft verklaart de oplossing als beide configuraties slagen voor alle tests.
+Als u wilt certificeren van uw oplossing, de werkstroom voor validatie van de oplossing twee keer worden uitgevoerd. Voer één keer voor de *minimaal* configuratie ondersteund. Uitvoeren als een tweede keer voor de *bewaartemperatuur* configuratie ondersteund. Microsoft verklaart de oplossing als beide configuraties slagen voor alle tests.
 
-In deze Quick Start kunt u het proces van het toevoegen van uw oplossing en -tests uitvoert aan de hand.
+[!INCLUDE [azure-stack-vaas-workflow-validation-completion](includes/azure-stack-vaas-workflow-validation-completion.md)]
 
-## <a name="add-a-new-solution"></a>Een nieuwe oplossing toevoegen
+## <a name="create-a-solution-validation-workflow"></a>Een werkstroom voor validatie van de oplossing maken
 
-1. Aanmelden bij de [validatie portal](https://azurestackvalidation.com).
-2. Selecteer **nieuwe oplossing**.
-3. Voer een naam voor de oplossing en selecteer **opslaan**.
+1. [!INCLUDE [azure-stack-vaas-workflow-step_select-solution](includes/azure-stack-vaas-workflow-step_select-solution.md)]
+2. Selecteer **Start** op de **oplossing validaties** tegel.
 
-## <a name="create-a-solution-validation-workflow"></a>Een oplossing voor validatie-werkstroom maken
+    ![Werkstroom van de tegel validaties](media/tile_validation-solution.png)
 
-1. Selecteer de naam van de oplossing.
-2. Selecteer **beheren** op de **oplossing validaties** tegel.
+3. [!INCLUDE [azure-stack-vaas-workflow-step_naming](includes/azure-stack-vaas-workflow-step_naming.md)]
+4. Selecteer de **oplossingsconfiguratie**.
+    - **Minimale**: de oplossing is geconfigureerd met de minimale ondersteunde aantal knooppunten.
+    - **Maximale**: de oplossing is geconfigureerd met de maximale ondersteunde aantal knooppunten.
+5. [!INCLUDE [azure-stack-vaas-workflow-step_upload-stampinfo](includes/azure-stack-vaas-workflow-step_upload-stampinfo.md)]
 
-    ![Oplossing voor validaties](media/image2.png)
+    ![Oplossing validatie-informatie](media/workflow_validation-solution_info.png)
 
-## <a name="create-a-solution-workflow"></a>Een werkstroom van de oplossing maken
+6. [!INCLUDE [azure-stack-vaas-workflow-step_test-params](includes/azure-stack-vaas-workflow-step_test-params.md)]
 
-1. Selecteer **nieuwe oplossing validatie**.
-2. Typ de naam van de validatie.
-3. Selecteer **Minimum** of **maximale**.  
-    - **Minimum**  
-    De oplossing is geconfigureerd met de minimale ondersteunde aantal knooppunten.  
-    - **Maximaal**  
-    De oplossing is geconfigureerd met de maximale ondersteunde aantal knooppunten.
-4. Selecteer **uploaden** en voeg uw configuratiebestand voor implementatie. Dit is een optionele stap. U kunt ook uw testparameters toevoegen met de volgende stappen in de volgende sectie.
+    > [!NOTE]
+    > Omgeving parameters kunnen niet worden gewijzigd na het maken van een werkstroom.
 
-    > [!note]  
-    > U kunt uw configuratiebestand maken door de parameters in de omgeving parameters toe te voegen een algemene secties van de test-parameters in de interface. U kunt het bestand dat is gegenereerd door de service uit de Azure Stack-implementatie wordt gevalideerd ophalen. Zie voor instructies [werkstroom algemene parameters voor Azure Stack-validatie als een service](azure-stack-vaas-parameters.md).
+7. [!INCLUDE [azure-stack-vaas-workflow-step_tags](includes/azure-stack-vaas-workflow-step_tags.md)]
+8. [!INCLUDE [azure-stack-vaas-workflow-step_submit](includes/azure-stack-vaas-workflow-step_submit.md)]
+    U wordt omgeleid naar de pagina overzicht van tests.
 
-5. Uw omgeving parameters toevoegen. Zie voor meer informatie, [uitwerking parameters toevoegen](#add-environmental-parameters).
-6. Toevoegen van uw algemene testparameters. Zie voor meer informatie, [toevoegen van algemene testparameters](#add-common-test-parameters).
+## <a name="execute-solution-validation-tests"></a>Oplossing validatietests uitvoeren
 
-    De test-, afhankelijk van de definitie van de test mogelijk wanneer u een waarde onafhankelijk van de algemene parameters in te voeren, of kunt u de waarde van de algemene parameter overschrijven.
+In de **oplossing tests Validatieoverzicht** pagina, ziet u een lijst van de tests voor het voltooien van de validatie is vereist.
 
-7. Klik op **indienen** voor het plannen van de test.
+[!INCLUDE [azure-stack-vaas-workflow-validation-section_schedule](includes/azure-stack-vaas-workflow-validation-section_schedule.md)]
 
-## <a name="add-environmental-parameters"></a>Uitwerking parameters toevoegen
-
-De volgende uitwerking parameters toevoegen:
-
-| Test pass informatie | Vereist | Beschrijving |
-| --- | --- | --- | --- |
-| Azure Stack-build | Vereist | Azure Stack-build nummer (bijvoorbeeld 20170501.1) waarde een geldig Azure Stack build moet-nummer of versie, bijvoorbeeld 1.0.170330.9 |
-| Tenant-id | Vereist | Active Directory-Tenant-ID. Dit moet een GUID (bijvoorbeeld ECA23256-6BA0-4F27-8E4D-AFB02F088363) |
-| Regio | Vereist | Azure Stack-implementatieregio |
-| Tenant Resource Manager-eindpunt | Vereist | Eindpunt voor de Tenant Azure Resource Manager-bewerkingen (bijvoorbeeld https://management.loc-ext.domain.com) |
-| Beheerder Resource Manager-eindpunt | Niet vereist | Eindpunt voor de Tenant Azure Resource Manager-bewerkingen (bijvoorbeeld https://management.loc-ext.domain.com) |
-| Externe FQDN-naam | Niet vereist | Externe FQDN-naam gebruikt als het achtervoegsel voor eindpunten. (bijvoorbeeld local.azurestack.external of redmond.contoso.com) |
-| Aantal knooppunten | Vereist | Het aantal knooppunten in uw oplossing. |
-
-## <a name="add-common-test-parameters"></a>Algemene testparameters toevoegen
-
-De volgende algemene testparameters toevoegen:
-
-| Test pass informatie | Vereist | Beschrijving |
-| --- | --- | --- |
-| Gebruikersnaam van de tenant | Vereist | Tenant-gebruikersnaam (bijvoorbeeld tenant@contoso.onmicrosoft.com) |
-| Tenant-wachtwoord | Vereist | Het wachtwoord voor de tenant. |
-| Gebruikersnaam voor de Service-beheerder | Niet vereist | Tenant-gebruikersnaam (bijvoorbeeld tenant@contoso.onmicrosoft.com) |
-| Service Administrator-wachtwoord | Niet vereist | Gebruikersnaam voor de Service-beheerder (bijvoorbeeld serviceadmin@contoso.onmicrosoft.com) |
-| De gebruikersnaam van beheerder van de cloud | Niet vereist | Azure Stack-domein administrator-account (bijvoorbeeld contoso\cloudadmin) |
-| Cloud-Administrator-wachtwoord | Niet vereist | |
-|  Verbindingsreeks voor diagnostische gegevens | Niet vereist | SAS-URI naar een Azure Storage-Account op welke diagnostische logboeken moeten worden gekopieerd tijdens het uitvoeren van de test. Zie [maken van een Azure storage-blob voor het opslaan van logboeken](azure-stack-vaas-set-up-account.md#create-an-azure-storage-blob-to-store-logs). <br><br>De waarde van de **Diagnostics verbindingsreeks** algemene parameter worden opgeslagen door de service en opgegeven tijdens de planning voor alle tests in de werkstroom die gebruikmaken van deze parameter. Wanneer de SAS-URL binnen 30 dagen na verlopen wordt, wordt u gevraagd voor een nieuwe SAS-URL op de pagina met algemene parameters. |
-| Tag - naam | Niet vereist |  Beschrijvende labels kunnen worden ingevoerd als u de naam van de werkstroom. Dit is de naam van de tag. |
-| Tag - waarde | Niet vereist | Beschrijvende labels kunnen worden ingevoerd als u de naam van de werkstroom. Dit is de waarde van de tag. |
+![Validatietest van schema-oplossing](media/workflow_validation-solution_schedule-test.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Opnieuw inplannen of annuleren van een test](azure-stack-vaas-monitor-test.md#reschedule-a-test)
-- Voor meer informatie over [Azure Stack-validatie als een service](https://docs.microsoft.com/azure/azure-stack/partner).
+- [Controleren en beheren van tests in de portal VaaS](azure-stack-vaas-monitor-test.md)

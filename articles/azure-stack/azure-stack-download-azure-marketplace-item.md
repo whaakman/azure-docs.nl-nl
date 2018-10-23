@@ -12,21 +12,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/09/2018
+ms.date: 10/19/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: cf6bc980f6fd821056a987d0c830863bd15ba779
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: b5c2c51429e37eea2473ae5966b1f41295875cb6
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902005"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49638168"
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Marketplace-items van Azure naar Azure Stack downloaden
 
 *Is van toepassing op: geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
 
-Als een cloud-operator, items downloaden van de Azure Marketplace en stel ze beschikbaar in Azure Stack. Er zijn de items die u kunt kiezen uit een gecureerde lijst van de Azure Marketplace-items die zijn getest en worden ondersteund als u wilt werken met Azure Stack. Aanvullende items worden regelmatig toegevoegd aan deze lijst, dus kom later terug voor nieuwe inhoud blijven. 
+Als een cloud-operator, kunt u items downloaden van de Azure Marketplace en stel ze beschikbaar in Azure Stack. Er zijn de items die u kunt kiezen uit een gecureerde lijst van de Azure Marketplace-items die zijn getest en worden ondersteund als u wilt werken met Azure Stack. Aanvullende items worden regelmatig toegevoegd aan deze lijst, dus kom later terug voor nieuwe inhoud blijven. 
 
 Er zijn twee scenario's voor het verbinden met de Azure Marketplace: 
 
@@ -49,20 +49,20 @@ Uw Azure Stack-implementatie moet over een internetverbinding beschikt, en worde
 
     Om te controleren van beschikbare ruimte **regiobeheer** selecteert u de regio die u wilt verkennen en ga vervolgens naar **Resourceproviders** > **opslag**.
 
-    ![De opslagruimte controleren](media/azure-stack-download-azure-marketplace-item/storage.png)  
+    [ ![Bekijk opslagruimte](media/azure-stack-download-azure-marketplace-item/storagesm.png "opslagruimte controleren") ](media/azure-stack-download-azure-marketplace-item/storage.png#lightbox)
 
     
 3. Open de Azure Stack Marketplace en verbinding maken met Azure. Om dit te doen, selecteert u **Marketplace management**, en selecteer vervolgens **toevoegen vanuit Azure**.
 
-    ![Toevoegen van Azure](media/azure-stack-download-azure-marketplace-item/marketplace.png)
+    [ ![Toevoegen van Azure](media/azure-stack-download-azure-marketplace-item/marketplacesm.png "toevoegen van Azure") ](media/azure-stack-download-azure-marketplace-item/marketplace.png#lightbox)
 
     De portal wordt weergegeven de lijst met items die beschikbaar zijn voor het downloaden vanuit de Azure Marketplace. U kunt klikken op elk item om de beschrijving en aanvullende informatie over het, onder andere de downloadgrootte weer te geven. 
 
-    ![Marketplace-lijst](media/azure-stack-download-azure-marketplace-item/image03.png)
+    [ ![Lijst met Marketplace](media/azure-stack-download-azure-marketplace-item/image03sm.png "Marketplace-lijst") ](media/azure-stack-download-azure-marketplace-item/image03.png#lightbox)
 
 4. Selecteer het item dat u wilt en selecteer vervolgens **downloaden**. Downloadtijden variëren.
 
-    ![Bericht downloaden](media/azure-stack-download-azure-marketplace-item/image04.png)
+    [ ![Bericht downloaden](media/azure-stack-download-azure-marketplace-item/image04.png "downloaden van bericht") ](media/azure-stack-download-azure-marketplace-item/image04.png#lightbox)
 
     Nadat het downloaden is voltooid, kunt u de nieuwe marketplace-item als een Azure Stack-operators of een gebruiker kunt implementeren.
 
@@ -128,24 +128,24 @@ Er zijn twee onderdelen voor dit scenario:
 
    Sync-AzSOfflineMarketplaceItem 
       -Destination "Destination folder path in quotes" `
-      -AzureTenantID $AzureContext.Tenant.TenantId `
+      -AzureTenantID $AzureContext.Tenant.TenantId ` 
       -AzureSubscriptionId $AzureContext.Subscription.Id 
    ```
 
-6. Wanneer het hulpprogramma wordt uitgevoerd, wordt u gevraagd de referenties van uw Azure-account in te voeren. Meld u aan bij de Azure-account die u hebt gebruikt voor het registreren van Azure Stack. Nadat de aanmelding is geslaagd, ziet u een scherm zoals de volgende afbeelding, met de lijst met beschikbare marketplace-items.  
+6. Wanneer het hulpprogramma wordt uitgevoerd, ziet u een scherm dat vergelijkbaar is met de volgende afbeelding, met de lijst met beschikbare marketplace-items:
 
-   ![Azure Marketplace-items pop](media/azure-stack-download-azure-marketplace-item/image05.png)
+   [ ![Azure Marketplace-items pop](media/azure-stack-download-azure-marketplace-item/image05.png "items voor de Azure Marketplace") ](media/azure-stack-download-azure-marketplace-item/image05.png#lightbox)
 
-7. Selecteer het item dat u wilt downloaden en noteer de *versie*. (Als u houdt de *Ctrl* sleutel meerdere installatiekopieën selecteren.) U moet verwijzen naar de *versie* wanneer het importeren van het item in de volgende procedure. 
+7. Selecteer het item dat u wilt downloaden en noteer de *versie*. U houdt de *Ctrl* sleutel te selecteren van meerdere installatiekopieën. U verwijst naar de *versie* wanneer het importeren van het item in de volgende procedure. 
    
    U kunt ook de lijst met installatiekopieën filteren met behulp van de **criteria toevoegen** optie.
 
 8. Selecteer **OK**, en controleer en accepteer de juridische bepalingen. 
 
-9. De tijd die het downloaden duurt, is afhankelijk van de grootte van het item. Nadat het downloaden is voltooid, is het item is beschikbaar in de map die u hebt opgegeven in het script. De download bevat onder andere een VHD-bestand (voor virtuele machines) of een. ZIP-bestand (voor extensies van virtuele machines). Dit omvat ook een galerijpakket in de *.azpkg* indeling. (A *.azpkg* pakket is een *.zip* bestand.)
- 
+9. De tijd die het downloaden duurt, is afhankelijk van de grootte van het item. Nadat het downloaden is voltooid, is het item is beschikbaar in de map die u hebt opgegeven in het script. De download bevat onder andere een VHD-bestand (voor virtuele machines) of een ZIP-bestand (voor extensies van virtuele machines). Een galerijpakket in deze ook advies inwinnen de *.azpkg* -indeling, dit gewoon een zipbestand is.
 
 ### <a name="import-the-download-and-publish-to-azure-stack-marketplace"></a>Het downloaden van het importeren en publiceren op Azure Stack Marketplace
+
 1. De bestanden voor installatiekopieën van virtuele machines of sjablonen voor oplossingen die u hebt [eerder gedownloade](#use-the-marketplace-syndication-tool-to-download-marketplace-items) moeten lokaal beschikbaar zijn voor uw Azure Stack-omgeving worden gemaakt.  
 
 2. De beheerportal de marketplace-item-pakket (de .azpkg-bestand) en de installatiekopie van virtuele harde schijf (.vhd-bestand) uploaden naar Azure Stack-Blob-opslag gebruiken. Het uploaden van het pakket en schijf-bestanden maakt ze beschikbaar voor Azure Stack, zodat u kunt het item later publiceren naar de Azure Stack Marketplace.
@@ -154,16 +154,15 @@ Er zijn twee onderdelen voor dit scenario:
    1. In de Azure Stack-beheerportal, gaat u naar **alle services** en klik vervolgens onder de **gegevens en opslag** categorie, selecteer **opslagaccounts**.  
    
    2. Selecteer een opslagaccount van uw abonnement en klik vervolgens onder **BLOB-SERVICE**, selecteer **Containers**.  
-      ![BLOB-service](media/azure-stack-download-azure-marketplace-item/blob-service.png)  
+      [ ![BLOB-service](media/azure-stack-download-azure-marketplace-item/blob-service.png "Blob-service") ](media/azure-stack-download-azure-marketplace-item/blob-service.png#lightbox)  
    
    3. Selecteer de container die u wilt gebruiken en selecteer vervolgens **uploaden** openen de **blob uploaden** deelvenster.  
-      ![Container](media/azure-stack-download-azure-marketplace-item/container.png)  
+      [ ![Container](media/azure-stack-download-azure-marketplace-item/container.png "Container") ](media/azure-stack-download-azure-marketplace-item/container.png#lightbox)  
    
-   4. Blader in het deelvenster van de blob uploaden naar de pakket- en schijf-bestanden wilt laden in opslag en selecteer vervolgens **uploaden**.  
-      ![upload](media/azure-stack-download-azure-marketplace-item/upload.png)  
+   4. Blader in het deelvenster van de blob uploaden naar de pakket- en schijf-bestanden wilt laden in opslag en selecteer vervolgens **uploaden**: [ ![uploaden](media/azure-stack-download-azure-marketplace-item/uploadsm.png "uploaden") ](media/azure-stack-download-azure-marketplace-item/upload.png#lightbox)  
 
    5. Bestanden die u uploadt, worden weergegeven in het deelvenster van de container. Selecteer een bestand en kopieer vervolgens de URL van de **Blob-eigenschappen** deelvenster. U gebruikt deze URL in de volgende stap bij het importeren van de marketplace-item in Azure Stack.  In de volgende afbeelding is de container is *blob-opslag-testen* en het bestand is *Microsoft.WindowsServer2016DatacenterServerCore ARM.1.0.801.azpkg*.  Het bestand dat de URL is *https://testblobstorage1.blob.local.azurestack.external/blob-test-storage/Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.801.azpkg*.  
-      ![BLOB-eigenschappen](media/azure-stack-download-azure-marketplace-item/blob-storage.png)  
+      [ ![BLOB-eigenschappen](media/azure-stack-download-azure-marketplace-item/blob-storagesm.png "Blob-eigenschappen") ](media/azure-stack-download-azure-marketplace-item/blob-storage.png#lightbox)  
 
 3. De VHD-installatiekopie importeren naar Azure Stack met behulp van de **toevoegen AzsPlatformimage** cmdlet. Wanneer u deze cmdlet gebruikt, vervangen door de *publisher*, *bieden*, en andere parameterwaarden met de waarden van de installatiekopie die u wilt importeren. 
 
@@ -199,16 +198,14 @@ Er zijn twee onderdelen voor dit scenario:
      –Verbose
     ```
 5. Nadat u een galerij-item hebt gepubliceerd, is het nu beschikbaar voor gebruik. Om te bevestigen dat het galerie-item wordt gepubliceerd, gaat u naar **alle services**, en klik vervolgens onder de **algemene** categorie, selecteer **Marketplace**.  Als uw download een oplossingssjabloon is, zorg er dan voor dat u eventuele afhankelijke VHD-installatiekopie voor deze oplossingssjabloon toevoegen.  
-  ![Weergave marketplace](media/azure-stack-download-azure-marketplace-item/view-marketplace.png)  
+  [ ![Weergave marketplace](media/azure-stack-download-azure-marketplace-item/view-marketplacesm.png "marketplace weergeven") ](media/azure-stack-download-azure-marketplace-item/view-marketplace.png#lightbox)  
 
-> [!NOTE]
-> U kunt nu extensies voor virtuele machines met de versie van PowerShell voor Azure Stack 1.3.0 toevoegen.
-
-Bijvoorbeeld:
+U kunt nu extensies voor virtuele machines met de versie van PowerShell voor Azure Stack 1.3.0 toevoegen. Bijvoorbeeld:
 
 ````PowerShell
 Add-AzsVMExtension -Publisher "Microsoft" -Type "MicroExtension" -Version "0.1.0" -ComputeRole "IaaS" -SourceBlob "https://github.com/Microsoft/PowerShell-DSC-for-Linux/archive/v1.1.1-294.zip" -SupportMultipleExtensions -VmOsType "Linux"
 ````
 
 ## <a name="next-steps"></a>Volgende stappen
+
 [Een Marketplace-item maken en publiceren](azure-stack-create-and-publish-marketplace-item.md)
