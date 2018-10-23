@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 10/21/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: d7906323da8e9ee1571efe908084ae1433884e61
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 8cfe8c309c11eb24bc6e7af9fc3ba3eef0422c35
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47405985"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49638197"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Azure Active Directory naadloze eenmalige aanmelding: snel starten
 
@@ -57,6 +57,9 @@ Zorg ervoor dat de volgende vereisten voldaan is:
 ## <a name="step-2-enable-the-feature"></a>Stap 2: De functie inschakelen
 
 Naadloze eenmalige aanmelding via inschakelen [Azure AD Connect](whatis-hybrid-identity.md).
+
+>[!NOTE]
+> U kunt ook [inschakelen naadloze eenmalige aanmelding met behulp van PowerShell](tshoot-connect-sso.md#manual-reset-of-the-feature) als Azure AD Connect niet voldoet aan uw vereisten. Gebruik deze optie als u meer dan één domein per Active Directory-forest hebt, en u wilt meer over het domein dat u wilt inschakelen, naadloze eenmalige aanmelding voor zijn gericht.
 
 Als u een nieuwe installatie van Azure AD Connect uitvoert, kiest u de [aangepaste installatiepad](how-to-connect-install-custom.md). Op de **aanmelden van gebruikers** weergeeft, schakelt de **eenmalige aanmelding inschakelen** optie.
 

@@ -1,23 +1,23 @@
 ---
-title: 'Snelstart: Go voor de QnA Maker-API (V4)'
+title: REST API (V4) - Ga - QnA Maker
 titleSuffix: Azure Cognitive Services
-description: Verkrijg informatie en codevoorbeelden om snel aan de slag te gaan met de Microsoft Translator Text-API in Microsoft Cognitive Services in Azure.
+description: REST-gebaseerde informatie en voorbeelden van code om u te helpen snel aan de slag met behulp van de Microsoft Translator Text-API in Microsoft Cognitive Services op Azure.
 services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
-ms.topic: quickstart
-ms.date: 09/12/2018
+ms.topic: article
+ms.date: 10/19/2018
 ms.author: diberry
-ms.openlocfilehash: b34574ed7d94873a9a01222c944e1b4033848f91
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
-ms.translationtype: HT
+ms.openlocfilehash: 1b4f4c50c8c3fbdc2cc556705bdd446cb360ef2c
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48887503"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49650227"
 ---
-# <a name="quickstart-for-microsoft-qna-maker-api-with-go"></a>Snelstart voor de Microsoft QnA Maker-API met Go 
+# <a name="qna-maker-rest-api-with-go"></a>QnA Maker REST-API met Go 
 <a name="HOLTop"></a>
 
 In dit artikel leest u hoe u de [Microsoft QnA Maker-API](../Overview/overview.md) met Go gebruikt om het volgende te doen.
@@ -141,8 +141,8 @@ var req string = `{
     }
   ],
   "urls": [
-    "https://docs.microsoft.com/en-in/azure/cognitive-services/qnamaker/faqs",
-    "https://docs.microsoft.com/en-us/bot-framework/resources-bot-framework-faq"
+    "https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs",
+    "https://docs.microsoft.com/bot-framework/resources-bot-framework-faq"
   ],
   "files": []
 }`;
@@ -317,7 +317,7 @@ var req string = `{
       }
     ],
     'urls': [
-      'https://docs.microsoft.com/en-us/azure/cognitive-services/Emotion/FAQ'
+      'https://docs.microsoft.com/azure/cognitive-services/Emotion/FAQ'
     ]
   },
   'update' : {
@@ -699,7 +699,7 @@ Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u kunt zien
     {
       "id": 2,
       "answer": "QnA Maker provides an FAQ data source that you can query from your bot or application. Although developers will find this useful, content owners will especially benefit from this tool. QnA Maker is a completely no-code way of managing the content that powers your bot or application.",
-      "source": "https://docs.microsoft.com/en-in/azure/cognitive-services/qnamaker/faqs",
+      "source": "https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs",
       "questions": [
         "Who is the target audience for the QnA Maker tool?"
       ],
@@ -803,7 +803,7 @@ Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u kunt zien
       "answer": "Yes. However, shadow copies made prior to enabling BitLocker will be automatically deleted when BitLocker is enabled on software-encrypted drives. If you are using a hardware encrypted drive, the shadow copies are retained.",
       "score": 17.3,
       "id": 62,
-      "source": "https://docs.microsoft.com/en-us/windows/security/information-protection/bitlocker/bitlocker-frequently-asked-questions",
+      "source": "https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-frequently-asked-questions",
       "metadata": []
     },
 ...
@@ -894,8 +894,8 @@ Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u kunt zien
   "name": "QnA Maker FAQ",
   "userId": "2280ef5917bb4ebfa1aae41fb1cebb4a",
   "urls": [
-    "https://docs.microsoft.com/en-in/azure/cognitive-services/qnamaker/faqs",
-    "https://docs.microsoft.com/en-us/bot-framework/resources-bot-framework-faq"
+    "https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs",
+    "https://docs.microsoft.com/bot-framework/resources-bot-framework-faq"
   ],
   "sources": [
     "Custom Editorial"
@@ -995,8 +995,8 @@ Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u kunt zien
       "name": "QnA Maker FAQ",
       "userId": "2280ef5917bb4ebfa1aae41fb1cebb4a",
       "urls": [
-        "https://docs.microsoft.com/en-in/azure/cognitive-services/qnamaker/faqs",
-        "https://docs.microsoft.com/en-us/bot-framework/resources-bot-framework-faq"
+        "https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs",
+        "https://docs.microsoft.com/bot-framework/resources-bot-framework-faq"
       ],
       "sources": [
         "Custom Editorial"
