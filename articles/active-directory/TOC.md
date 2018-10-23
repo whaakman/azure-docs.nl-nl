@@ -244,7 +244,6 @@
 
 #### Voorwaardelijke toegang
 ##### [Klant voldeed niet aan voorvereisten voor apparaatregistratie](active-directory-conditional-access.md)
-##### [De tenant wordt geblokkeerd vanwege verkeerd ingestelde beleidsregels voor voorwaardelijke toegang](active-directory-conditional-access-device-remediation.md)
 ##### [Hoe en wanneer worden regels buiten het bedrijfsnetwerk actief?](https://aka.ms/calocation)
 ##### [Hoe kan ik het aantal apparaten die een gebruiker mag registreren in Azure AD verhogen?](active-directory-azureadjoin-setup.md)
 ##### [Hoe kan ik voorwaardelijke toegang instellen voor Exchange Online?](https://aka.ms/csforexchange)
