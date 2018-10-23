@@ -3,19 +3,19 @@ title: 'Snelstart: Gedrukte tekst extraheren (OCR) - REST, Node.js - Computer Vi
 titleSuffix: Azure Cognitive Services
 description: In deze snelstart extraheert u tekst uit een afbeelding met behulp van de Computer Vision-API met Node.js.
 services: cognitive-services
-author: noellelacharite
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
-ms.author: v-deken
-ms.openlocfilehash: af22b17d52b654438ae52c1eb85e523dbaf638fa
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.author: pafarley
+ms.openlocfilehash: 02ff205f2408fed19d7831e7a1344eac2bc6f261
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45628910"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49344265"
 ---
 # <a name="quickstart-extract-printed-text-ocr-using-the-rest-api-and-nodejs-in-computer-vision"></a>Snelstart: Gedrukte tekst extraheren (OCR) met behulp van de REST API en Node.js in Computer Vision
 
@@ -201,7 +201,7 @@ Een geslaagd antwoord wordt geretourneerd in JSON-indeling. Het voorbeeld parsee
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Verwijder het bestand wanneer u het niet meer nodig hebt en verwijder vervolgens het pakket npm `request`. Voer de volgende stappen uit om het pakket te verwijderen:
+Verwijder het bestand wanneer u het niet meer nodig hebt en verwijder vervolgens het npm-pakket `request`. Voer de volgende stappen uit om het pakket te verwijderen:
 
 1. Open een opdrachtpromptvenster als beheerder.
 2. Voer de volgende opdracht uit:

@@ -3,19 +3,19 @@ title: 'Snelstart: Gedrukte tekst extraheren (OCR) - REST, C# - Computer Vision'
 titleSuffix: Azure Cognitive Services
 description: In deze snelstart extraheert u tekst uit een afbeelding met behulp van de Computer Vision-API met C#.
 services: cognitive-services
-author: noellelacharite
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 09/10/2018
-ms.author: v-deken
-ms.openlocfilehash: d3074b9c5b62ea41aa0ee4c577a18b9f582dc80a
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.author: pafarley
+ms.openlocfilehash: 83abf15e638ab8caf867126361d81198aa3ad7e2
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45631528"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49340219"
 ---
 # <a name="quickstart-extract-printed-text-ocr-using-the-rest-api-and-c35-in-computer-vision"></a>Snelstart: Gedrukte tekst extraheren (OCR) met behulp van de REST API en C# in Computer Vision
 

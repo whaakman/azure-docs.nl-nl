@@ -3,19 +3,19 @@ title: 'Snelstart: Een externe afbeelding analyseren - REST, Node.js - Computer 
 titleSuffix: Azure Cognitive Services
 description: In deze snelstart analyseert u een afbeelding met behulp van de Computer Vision-API met Node.js.
 services: cognitive-services
-author: noellelacharite
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
-ms.author: v-deken
-ms.openlocfilehash: 76174a14720502a444fb86a337445caf1910ff78
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.author: pafarley
+ms.openlocfilehash: 22497d07133a9ab717d319524c3e2825c832ddaa
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45631580"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49342583"
 ---
 # <a name="quickstart-analyze-a-remote-image-using-the-rest-api-with-nodejs-in-computer-vision"></a>Snelstart: Een externe afbeelding analyseren met behulp van de REST-API met Node.js in Computer Vision
 

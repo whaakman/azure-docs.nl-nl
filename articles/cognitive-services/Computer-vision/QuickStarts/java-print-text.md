@@ -3,19 +3,19 @@ title: 'Snelstart: Gedrukte tekst extraheren (OCR) - REST, Java - Computer Visio
 titleSuffix: Azure Cognitive Services
 description: In deze snelstart extraheert u tekst uit een afbeelding met behulp van de Computer Vision-API met Java.
 services: cognitive-services
-author: noellelacharite
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
-ms.author: v-deken
-ms.openlocfilehash: a0b5967e8796f494e14dde3728c785191c2882d5
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.author: pafarley
+ms.openlocfilehash: 83675a146d6d43ce5bc25b24809924d7be1331dd
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45632497"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49339964"
 ---
 # <a name="quickstart-extract-printed-text-ocr-using-the-rest-api-and-java-in-computer-vision"></a>Snelstart: Gedrukte tekst extraheren (OCR) met behulp van de REST API en Java in Computer Vision
 

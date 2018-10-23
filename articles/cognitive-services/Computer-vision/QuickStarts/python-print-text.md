@@ -3,19 +3,19 @@ title: 'Snelstart: Gedrukte tekst extraheren (OCR) - REST, Python - Computer Vis
 titleSuffix: Azure Cognitive Services
 description: In deze snelstart extraheert u tekst uit een afbeelding met behulp van de Computer Vision-API met Python.
 services: cognitive-services
-author: noellelacharite
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
-ms.author: v-deken
-ms.openlocfilehash: b02a3f382dd0049b635ca2ca99c2e102d364a1f6
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.author: pafarley
+ms.openlocfilehash: e206f3e716bed558c8041b5714433cecbf9500ac
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45629365"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49345110"
 ---
 # <a name="quickstart-extract-printed-text-ocr-using-the-rest-api-and-python-in-computer-vision"></a>Snelstart: Gedrukte tekst extraheren (OCR) met behulp van de REST API en Python in Computer Vision
 
