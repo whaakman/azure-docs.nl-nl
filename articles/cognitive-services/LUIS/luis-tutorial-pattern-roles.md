@@ -1,118 +1,118 @@
 ---
-title: 'Zelfstudie 4: Patroon rollen voor de context van de bijbehorende gegevens'
+title: 'Zelfstudie 4: Rolpatronen maken voor contextgerelateerde gegevens'
 titleSuffix: Azure Cognitive Services
-description: Een patroon gebruiken om gegevens te extraheren uit een juist opgemaakte sjabloon utterance. De sjabloon utterance maakt gebruik van een enkele entiteit en rollen om gerelateerde gegevens zoals de oorspronkelijke locatie- en doellocatie te extraheren.
+description: Gebruik een patroon om gegevens te extraheren uit een correct opgemaakte sjabloon-utterance. De sjabloon-utterance maakt gebruik van een enkele entiteit en rollen om verwante gegevens, zoals de locatie van de oorsprong en die van het doel, te extraheren.
 services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
-ms.technology: language-understanding
-ms.topic: article
+ms.component: language-understanding
+ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 2c3705d28d6496c3d20999231de98572bc26e3be
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
-ms.translationtype: MT
+ms.openlocfilehash: c7e7b100242d6ceb35172b872f2fb6ff7f4b402b
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47160244"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48886157"
 ---
-# <a name="tutorial-4-extract-contextually-related-patterns"></a>Zelfstudie 4: Contextueel-gerelateerde patronen extraheren
+# <a name="tutorial-4-extract-contextually-related-patterns"></a>Zelfstudie 4: Contextgerelateerde patronen extraheren
 
-In deze zelfstudie moet u een patroon gebruiken om gegevens te extraheren uit een juist opgemaakte sjabloon utterance. De sjabloon utterance maakt gebruik van een enkele entiteit en rollen om gerelateerde gegevens zoals de oorspronkelijke locatie- en doellocatie te extraheren.  Wanneer u patronen gebruikt, zijn minder voorbeeld uitingen nodig voor het doel.
+In deze zelfstudie gebruikt u een patroon om gegevens te extraheren uit een correct opgemaakte sjabloon-utterance. De sjabloon-utterance maakt gebruik van een enkele entiteit en rollen om verwante gegevens, zoals de locatie van de oorsprong en die van het doel, te extraheren.  Met patronen zijn er minder voorbeeld-utterances nodig voor de intentie.
 
-Het doel van de rollen is om op te halen van context-gerelateerde entiteiten in een utterance. In de utterance `Move new employee Robert Williams from Sacramento and San Francisco`, wordt de oorspronkelijke plaats en plaats van bestemming waarden aan elkaar zijn gerelateerd en algemene taal gebruiken om aan te duiden elke locatie. 
+Rollen zijn bedoeld om contextgerelateerde entiteiten in een utterance te extraheren. In de utterance `Move new employee Robert Williams from Sacramento and San Francisco` zijn de waarden voor de plaats van de oorsprong en de plaats van de bestemming aan elkaar gerelateerd en wordt algemene taal gebruikt om elke locatie op te geven. 
 
 
-De naam van de nieuwe werknemer, Billy Patterson, maakt geen deel uit van de entiteit lijst **werknemer** nog. De naam van de nieuwe werknemer wordt eerst opgehaald om de naam van de verzenden naar een extern systeem te maken van de bedrijfsreferenties. Nadat de bedrijfsreferenties zijn gemaakt, de referenties van de werknemer zijn toegevoegd aan de lijst met entiteit **werknemer**.
+De naam van de nieuwe werknemer, Billy Patterson, maakt nog geen deel uit van de lijstentiteit **Werknemer**. De naam van de nieuwe werknemer wordt eerst geëxtraheerd om de naam te kunnen verzenden naar een extern systeem dat de bedrijfsreferenties maakt. Nadat de bedrijfsreferenties zijn gemaakt, worden de referenties van de werknemer toegevoegd aan de lijstentiteit **Werknemer**.
 
-De nieuwe werknemer en familie moeten worden verplaatst van de huidige plaats naar een plaats waar het fictieve bedrijf gevestigd is. Omdat een nieuwe medewerker afkomstig van een stad zijn kan, moeten de locaties worden gedetecteerd. Een lijst met instellen, zoals een lijst met entiteit werkt niet omdat alleen de plaatsen in de lijst met zou worden geëxtraheerd.
+De nieuwe werknemer en zijn gezin moeten verhuizen van hun huidige woonplaats naar een plaats waar het fictieve bedrijf is gevestigd. Omdat een nieuwe medewerker uit willekeurig welke plaats kan komen, moeten de locaties worden gedetecteerd. Een ingestelde lijst, zoals een lijstentititeit, werkt in dit geval niet omdat alleen de plaatsen in de lijst zouden worden geëxtraheerd.
 
-De rolnamen die is gekoppeld aan de bron en doel steden moeten uniek zijn in alle entiteiten. Er is een eenvoudige manier om te controleren of dat de rollen die uniek zijn om ze te koppelen aan de containerentiteit via een naamgeving. De **NewEmployeeRelocation** entiteit is een eenvoudige entiteit met twee rollen: **NewEmployeeReloOrigin** en **NewEmployeeReloDestination**. Relo is kort voor gegevensverplaatsing.
+De rolnamen die zijn gekoppeld aan de plaats van oorsprong en de plaats van bestemming moeten uniek zijn binnen alle entiteiten. Een eenvoudige manier om ervoor te zorgen dat de rollen uniek zijn, is door ze met behulp van een naamgevingsstrategie binden aan de containerentiteit. De entiteit **NewEmployeeRelocation** is een enkele entiteit met twee rollen: **NewEmployeeReloOrigin** en **NewEmployeeReloDestination**. Relo is de afkorting van relocation (verhuizing).
 
-Omdat de voorbeeld-utterance `Move new employee Robert Williams from Sacramento and San Francisco` heeft alleen machine geleerde entiteiten, het is belangrijk om voldoende uitingen voorbeeld met de intent bieden, zodat de entiteiten worden gedetecteerd.  
+Omdat de voorbeeld-utterance `Move new employee Robert Williams from Sacramento and San Francisco` alleen door de computer aangeleerde entiteiten bevat, is het belangrijk om voldoende utterances voor de intentie te verstrekken, zodat de entiteiten worden gedetecteerd.  
 
-**Terwijl patronen u minder voorbeeld uitingen kunnen, als de entiteiten niet worden gedetecteerd, wordt het patroon komt niet overeen.**
+**Hoewel u voor patronen minder voorbeeld-utterances hoeft op te geven, komt het patroon niet overeen als de entiteiten niet worden gedetecteerd.**
 
-Als u problemen met detectie van eenvoudige entiteit hebt omdat deze een naam, bijvoorbeeld een stad, kunt u overwegen een woordgroepenlijst met vergelijkbare waarden. Hiermee wordt de detectie van de naam van de stad door middel van LUIS een extra signaal over dit type woord of woordgroep. Het patroon te woordgroep lijsten alleen helpen met detectie van de entiteit, die nodig voor het patroon is voor de overeenkomst. 
+Als u problemen ondervindt met de detectie van een enkele entiteit omdat het een naam van bijvoorbeeld een stad is, kunt u overwegen om een frasenlijst met vergelijkbare waarden toe te voegen. Dit bevordert de detectie van de plaatsnaam door LUIS (Language Understanding-API) een extra signaal te geven over dat type woord of die frasen. Frasen zijn alleen bevorderlijk voor het patroon omdat ze helpen met de entiteitsdetectie, die nodig is om een overeenkomstig patroon te vinden. 
 
-**In deze zelfstudie leert u hoe u:**
+**In deze zelfstudie leert u het volgende:**
 
 > [!div class="checklist"]
-> * Gebruik bestaande zelfstudie-app
+> * Bestaande zelfstudie-app gebruiken
 > * Nieuwe entiteiten maken
-> * Nieuwe doel maken
+> * Nieuwe intentie maken
 > * Trainen
 > * Publiceren
 > * Intenties en entiteiten ophalen van eindpunt
-> * Patroon met rollen maken
-> * Woordgroepenlijst van steden maken
+> * Patroon maken met rollen
+> * Frasenlijst van steden maken
 > * Intenties en entiteiten ophalen van eindpunt
 
 [!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## <a name="use-existing-app"></a>Gebruik bestaande app
-Ga door met de app hebt gemaakt in de laatste zelfstudie, met de naam **Personeelszaken**. 
+## <a name="use-existing-app"></a>Bestaande app gebruiken
+Ga door met de in de laatste zelfstudie gemaakt app, **Human Resources**. 
 
-Als u de app Personeelszaken uit de vorige zelfstudie hebt, gebruikt u de volgende stappen uit:
+Als u niet over de app Human Resources uit de vorige zelfstudie beschikt, voert u de volgende stappen uit:
 
-1.  Download en sla [app JSON-bestand](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-patterns-HumanResources-v2.json).
+1.  Download het [JSON-bestand van de app](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-patterns-HumanResources-v2.json) en sla het op.
 
-2. De JSON importeren in een nieuwe app.
+2. Importeer de JSON in een nieuwe app.
 
-3. Uit de **beheren** sectie, op de **versies** tabblad en noem het klonen van de versie `roles`. Klonen is een uitstekende manier om te experimenteren met verschillende functies van LUIS zonder dat de oorspronkelijke versie wordt gewijzigd. Omdat de versienaam van de wordt gebruikt als onderdeel van de URL-route, kan niet de naam van de tekens die niet toegestaan in een URL zijn bevatten.
+3. Ga naar het gedeelte **Beheren**, open het tabblad **Versies**, kloon de versie en noem deze `roles`. Klonen is een uitstekende manier om te experimenteren met verschillende functies van LUIS zonder dat de oorspronkelijke versie wordt gewijzigd. Omdat de versienaam wordt gebruikt als onderdeel van de URL-route, kan de naam geen tekens bevatten die niet zijn toegestaan in een URL.
 
 ## <a name="create-new-entities"></a>Nieuwe entiteiten maken
 
 1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
-2. Selecteer **entiteiten** in de linkernavigatiebalk. 
+2. Selecteer **Entities** in de linkernavigatie. 
 
 3. Selecteer **Create new intent**.
 
-4. Voer in het pop-upvenster `NewEmployee` als een **eenvoudige** entiteit.
+4. Voer in het pop-upvenster `NewEmployee` in als een **Enkele** entiteit.
 
 5. Selecteer **Create new intent**.
 
-6. Voer in het pop-upvenster `NewEmployeeRelocation` als een **eenvoudige** entiteit.
+6. Voer in het pop-upvenster `NewEmployeeRelocation` in als een **Enkele** entiteit.
 
-7. Selecteer **NewEmployeeRelocation** uit de lijst met entiteiten. 
+7. Selecteer **NewEmployeeRelocation** in de lijst met entiteiten. 
 
-8. Voer de eerste rol als `NewEmployeeReloOrigin` en voert u selecteert.
+8. Voer `NewEmployeeReloOrigin` in als de eerste rol en selecteer Enter.
 
-9. Voer de tweede rol als `NewEmployeeReloDestination` en voert u selecteert.
+9. Voer `NewEmployeeReloDestination` in als de tweede rol en selecteer Enter.
 
-## <a name="create-new-intent"></a>Nieuwe doel maken
-Labels van de entiteiten in deze stappen is mogelijk beter als de vooraf gedefinieerde keyPhrase-entiteit wordt verwijderd voordat u begint vervolgens terug nadat u klaar bent met de stappen in deze sectie worden toegevoegd. 
+## <a name="create-new-intent"></a>Nieuwe intentie maken
+Het labelen van de entiteiten in deze stappen is misschien eenvoudiger als u de vooraf gedefinieerde keyPhrase-entiteit verwijdert voordat u begint en vervolgens weer toevoegt wanneer u klaar bent met de stappen in deze sectie. 
 
-1. Selecteer **Intents** in de linkernavigatiebalk.
+1. Selecteer **Intents** in de linkernavigatie.
 
 2. Selecteer **Create new intent**. 
 
-3. Voer `NewEmployeeRelocationProcess` als de naam van de intentie in het pop-updialoogvenster.
+3. Voer in het pop-updialoogvenster `NewEmployeeRelocationProcess` in als de naam van de intentie.
 
-4. Voer het volgende voorbeeld-uitingen labels van de nieuwe entiteiten. De entiteits- en functie van waarden zijn vet weergegeven. Houd er rekening mee om te schakelen naar de **Tokens weergave** als u het label van de tekst gemakkelijker vinden. 
+4. Voer de volgende voorbeeld-utterances in om de nieuwe entiteiten te labelen. De entiteits- en rolwaarden worden vet weergegeven. Denk eraan dat u naar de **Tokenweergave** kunt schakelen als u het gemakkelijker vindt om tekst te labelen. 
 
-    U kunt de rol van de entiteit niet opgeven als labels in het doel. Doet u dat later bij het maken van het patroon. 
+    U geeft tijdens het labelen van de intentie niet de rol van de entiteit op. Dat doet u later bij het maken van het patroon. 
 
     |Utterance|NewEmployee|NewEmployeeRelocation|
     |--|--|--|
-    |Verplaats **Bob Jones** van **Seattle** naar **Los Colinas**|Bob Jones|Seattle, Los Colinas|
-    |Verplaats **Dave C. Cooper** van **Redmond** naar **New York City**|Dave C. Cooper|Redmond, New York City|
-    |Verplaats **Jim Paul Smith** van **Toronto** naar **West Vancouver**|Jim Paul Smith|Amsterdam, West-Vancouver|
-    |Verplaats **J. Benson** van **Boston** naar **Staines bij Thames**|"J". Benson|Boston, Staines bij Thames|
-    |Verplaats **Travis "Trav" Hinton** van **Castelo Branco** naar **Orlando**|Travis "Trav" Hinton|Castelo Branco, Orlando|
-    |Verplaats **Trevor Nottington III** van **Aranda de Duero** naar **Boise**|Trevor Nottington III|Aranda de Duero, Boise|
-    |Verplaats **herstel na noodgevallen. Greg Williams** van **Orlando** naar **Ellicott stad**|Dr. Greg Williams|Orlando, Ellicott stad|
-    |Verplaats **Robert "Berend" Gregson** van **Kansas City** naar **San Juan Capistrano**|Robert "Berend" Gregson|Kansas City, San Juan Capistrano|
-    |Verplaats **Patti Owens** van **Bellevue** naar **Rockford**|Patti Owens|Bellevue, Rockford|
-    |Verplaats **Janet Bartlet** van **Tuscan** naar **Rome**|Janet Bartlet|Tuscan, Rome|
+    |Verhuis **Bob Jones** van **Seattle** naar **Los Colinas**|Bob Jones|Seattle, Los Colinas|
+    |Verhuis **Dave C. Cooper** van **Redmond** naar **New York City**|Dave C. Cooper|Redmond, New York City|
+    |Verhuis **Jim Paul Smith** van **Toronto** naar **West Vancouver**|Jim Paul Smith|Toronto, West Vancouver|
+    |Verhuis **J. Benson** van **Boston** naar **Staines-upon-Thames**|J. Benson|Boston, Staines-upon-Thames|
+    |Verhuis **Travis "Trav" Hinton** van **Castelo Branco** naar **Orlando**|Travis "Trav" Hinton|Castelo Branco, Orlando|
+    |Verhuis **Trevor Nottington III** van **Aranda de Duero** naar **Boise**|Trevor Nottington III|Aranda de Duero, Boise|
+    |Verhuis **Dr. Greg Williams** van **Orlando** naar **Ellicott City**|Dr. Greg Williams|Orlando, Ellicott City|
+    |Verhuis **Robert "Bobby" Gregson** van **Kansas City** naar **San Juan Capistrano**|Robert "Bobby" Gregson|Kansas City, San Juan Capistrano|
+    |Verhuis **Patti Owens** van **Bellevue** naar **Rockford**|Patti Owens|Bellevue, Rockford|
+    |Verhuis **Janet Bartlet** van **Toscane** naar **Santa Fe**|Janet Bartlet|Toscane, Santa Fe|
 
-    Naam van de werknemer heeft een aantal voorvoegsel, aantal woorden, syntaxis en achtervoegsel. Dit is belangrijk voor LUIS om te begrijpen van de variaties van de naam van een nieuwe werknemer. De namen van steden hebben ook verschillende woordentelling en syntaxis. Deze verschillende is het belangrijk om te leren van LUIS hoe deze entiteiten in utterance van een gebruiker kunnen worden weergegeven. 
+    Het voorvoegsel, het aantal woorden, de syntaxis en het achtervoegsel van een werknemer kunnen verschillen. Dit is belangrijk voor LUIS om de variaties van de naam van een nieuwe werknemer te kunnen begrijpen. Het aantal woorden en de syntaxis van plaatsnamen kunnen ook verschillen. Deze variëteit is belangrijk om LUIS te leren hoe deze entiteiten kunnen voorkomen in de utterance van een gebruiker. 
     
-    Als een van de entiteiten van de dezelfde woordentelling en geen andere variaties waren, zou u LUIS leren dat deze entiteit alleen die woordentelling en geen andere wijzigingen heeft aan te geven. LUIS zou niet mogelijk om goed te voorspellen een bredere set van variaties omdat dit een niet werd weergegeven. 
+    Als een van de entiteiten eenzelfde aantal woorden heeft, zonder variaties, moet u LUIS leren dat deze entiteit alleen dat aantal woorden heeft, zonder mogelijke variaties. LUIS is niet in staat om correct een bredere set van variaties te voorspellen, omdat deze nergens is weergegeven. 
 
-    Als u de entiteit keyPhrase verwijderd, opnieuw toevoegen aan de app nu.
+    Als u de entiteit keyPhrase hebt verwijderd, voegt u deze nu weer toe aan de app.
 
 ## <a name="train"></a>Trainen
 
@@ -122,7 +122,7 @@ Labels van de entiteiten in deze stappen is mogelijk beter als de vooraf gedefin
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## <a name="get-intent-and-entities-from-endpoint"></a>Doel en entiteiten ophalen van eindpunt
+## <a name="get-intent-and-entities-from-endpoint"></a>Intenties en entiteiten ophalen van eindpunt
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)] 
 
@@ -212,32 +212,32 @@ Labels van de entiteiten in deze stappen is mogelijk beter als de vooraf gedefin
     }  
     ```
 
-De score intentie voorspelling is alleen ongeveer 50%. Als uw clienttoepassing een hogere waarde vereist, wordt dit moet worden hersteld. De entiteiten zijn niet een voorspeld.
+De intentievoorspellingsscore is slechts ongeveer 50%. Als uw clienttoepassing een hogere score vereist, moet dit worden hersteld. De entiteiten zijn eveneens niet voorspeld.
 
-Een van de locaties is uitgepakt, maar is niet de andere locatie. 
+Een van de locaties is geëxtraheerd, maar de andere locatie niet. 
 
-Patronen helpt de voorspelling score, maar de entiteiten die moeten worden correct voorspeld voordat het patroon overeenkomt met de utterance. 
+Patronen verbeteren de voorspellingsscore, maar entiteiten moeten correct worden voorspeld voordat het patroon overeenkomt met de utterance. 
 
 ## <a name="pattern-with-roles"></a>Patroon met rollen
 
-1. Selecteer **bouwen** in de bovenste navigatiebalk.
+1. Selecteer **Build** in de bovenste navigatie.
 
-2. Selecteer **patronen** in het linkernavigatievenster.
+2. Selecteer **Patterns** in de linkernavigatie.
 
-3. Selecteer **NewEmployeeRelocationProcess** uit de **een doel selecteren** vervolgkeuzelijst. 
+3. Selecteer **NewEmployeeRelocationProcess** in de vervolgkeuzelijst **Een intentie selecteren**. 
 
-4. Voer in het volgende patroon: `move {NewEmployee} from {NewEmployeeRelocation:NewEmployeeReloOrigin} to {NewEmployeeRelocation:NewEmployeeReloDestination}[.]`
+4. Voer het volgende patroon in: `move {NewEmployee} from {NewEmployeeRelocation:NewEmployeeReloOrigin} to {NewEmployeeRelocation:NewEmployeeReloDestination}[.]`
 
-    Als u trainen, publiceren en het eindpunt van de query, kunt u mogelijk doen om te zien dat de entiteiten niet zijn gevonden, zodat het patroon is niet overeenkomen, dus de voorspelling niet verbeteren. Dit is een gevolg van onvoldoende uitingen voorbeeld met gelabelde entiteiten. In plaats van het toevoegen van meer voorbeelden, een woordgroepenlijst u lost dit probleem wilt toevoegen.
+    Als u het eindpunt traint, publiceert en opvraagt, bent u mogelijk teleurgesteld wanneer u ziet dat er geen entiteiten worden gevonden. Het patroon kwam dus niet overeen en de voorspelling werd niet verbeterd. Dat komt omdat er onvoldoende voorbeeld-utterances zijn met gelabelde entiteiten. In plaats van meer voorbeelden toe te voegen, kunt u een frasenlijst toevoegen om dit probleem op te lossen.
 
-## <a name="cities-phrase-list"></a>Lijst met steden woordgroep
-Steden, zoals de namen van personen zijn moeilijk in dat ze elke combinatie van woorden en leestekens worden kunnen. Het plaatsen van de regio en de hele wereld bekend zijn, dus LUIS moet een woordgroepenlijst plaatsen om te beginnen met leren. 
+## <a name="cities-phrase-list"></a>Frasenlijst van plaatsnamen
+Plaatsnamen zijn net als persoonsnamen erg lastig omdat ze uit een combinatie van woorden en leestekens kunnen bestaan. De plaatsen uit de regio en de wereld zijn bekend, dus LUIS heeft een frasenlijst van plaatsnamen nodig om te beginnen met leren. 
 
-1. Selecteer **woordgroepenlijst** uit de **verbeterde app-prestaties** gedeelte van het menu links. 
+1. Selecteer **Phrase list** in de sectie **Improve app performance** van het menu aan de linkerkant. 
 
-2. Naam van de lijst met `Cities` en voeg de volgende `values` voor de lijst:
+2. Noem de lijst `Cities` en voeg de volgende `values` toe voor de lijst:
 
-    |Waarden van de woordgroepenlijst met|
+    |Waarden van frasenlijst|
     |--|
     |Seattle|
     |San Diego|
@@ -248,11 +248,11 @@ Steden, zoals de namen van personen zijn moeilijk in dat ze elke combinatie van 
     |Miami|
     |Dallas|
 
-    Voeg geen elke plaats in de hele wereld of zelfs elke plaats in de regio. LUIS moet kunnen om te generaliseren wat een plaats in de lijst is. Zorg ervoor dat u houden **deze waarden zijn verwisselbaar** geselecteerde. Deze instelling betekent de woorden in de lijst op behandeld als synoniemen. 
+    Voeg niet elke plaats in de hele wereld en zelfs niet elke plaats in de regio toe. LUIS moet op basis van de lijst kunnen generaliseren wat een plaats is. Zorg dat **These values are interchangeable** (Deze waarden zijn onderling uitwisselbaar) blijft ingeschakeld. Deze instelling betekent dat de woorden in de lijst worden behandeld als synoniemen. 
 
-3. Trainen en publiceren van de app.
+3. Train en publiceer de app.
 
-## <a name="get-intent-and-entities-from-endpoint"></a>Doel en entiteiten ophalen van eindpunt
+## <a name="get-intent-and-entities-from-endpoint"></a>Intenties en entiteiten ophalen van eindpunt
 
 1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
@@ -368,18 +368,18 @@ Steden, zoals de namen van personen zijn moeilijk in dat ze elke combinatie van 
 }
     ```
 
-De intentie score is nu veel hoger en de rolnamen van de maken deel uit van het antwoord van de entiteit.
+De intentiescore is nu veel hoger en de rolnamen maken deel uit van het antwoord van de entiteit.
 
-## <a name="hierarchical-entities-versus-roles"></a>Hiërarchische entiteiten ten opzichte van rollen
+## <a name="hierarchical-entities-versus-roles"></a>Hiërarchische entiteiten versus rollen
 
-In de [hiërarchische zelfstudie](luis-quickstart-intent-and-hier-entity.md), wordt de **MoveEmployee** bedoeling gedetecteerd wanneer een bestaande werknemer van een gebouw en office verplaatsen naar een andere. De voorbeeld-uitingen bron en doel-locaties heeft maar rollen niet hebt gebruikt. In plaats daarvan zijn de bron en doel onderliggende items van de hiërarchische entiteit. 
+In de [hiërarchische zelfstudie](luis-quickstart-intent-and-hier-entity.md) wordt de intentie **MoveEmployee** gedetecteerd wanneer een bestaande werknemer van het ene gebouw en kantoor moet verhuizen naar een andere locatie. De voorbeeld-utterances hadden een locatie van oorsprong en bestemming maar gebruikten geen rollen. In plaats daarvan waren de oorsprong en bestemming onderliggende elementen van de hiërarchische entiteit. 
 
-In deze zelfstudie detecteert de Human Resources-app uitingen over het verplaatsen van nieuwe werknemers vanaf één plaats naar een andere. Deze twee soorten uitingen zijn hetzelfde, maar ze worden opgelost met verschillende LUIS-mogelijkheden.
+In deze zelfstudie detecteert de app Human Resources utterances over de verhuizing van nieuwe werknemers van de ene plaats naar een andere. Deze twee soorten utterances zijn hetzelfde, maar ze worden opgelost met verschillende LUIS-mogelijkheden.
 
-|Zelfstudie|Voorbeeld utterance|Bron en doel-locaties|
+|Zelfstudie|Voorbeeld van een utterance|Locatie van oorsprong en bestemming|
 |--|--|--|
-|[Hiërarchisch (Er zijn geen rollen)](luis-quickstart-intent-and-hier-entity.md)|MV Jill Jones van **a-2349** naar **b-1298**|a-2349, b-1298|
-|In deze zelfstudie (met functies)|Verplaatsen van Billy Patterson van **Yuma** naar **Denver**.|Yuma, Denver|
+|[Hiërarchisch (geen rollen)](luis-quickstart-intent-and-hier-entity.md)|Verhuis Jill Jones van **a-2349** naar **b-1298**|a-2349, b-1298|
+|Deze zelfstudie (met rollen)|Verhuis Billy Patterson van **Yuma** naar **Denver**.|Yuma, Denver|
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
@@ -387,7 +387,7 @@ In deze zelfstudie detecteert de Human Resources-app uitingen over het verplaats
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie een entiteit met de rollen en een doel met voorbeeld uitingen toegevoegd. Het eerste eindpunt voorspellen met behulp van de entiteit juist voorspeld de bedoeling, maar met een lage betrouwbaarheidsscore. Slechts één van de twee entiteiten is gedetecteerd. De zelfstudie toegevoegd vervolgens een patroon dat de entiteit-rollen en een woordgroepenlijst met gebruikt om de waarde van de namen van steden in de uitingen te verbeteren. De tweede eindpunt voorspelling geretourneerd van de score van een hoge betrouwbaarheid en beide rollen entiteit gevonden. 
+In deze zelfstudie zijn een entiteit met rollen en een intentie met voorbeeld-utterances toegevoegd. De eerste eindpuntvoorspelling met behulp van de entiteit heeft de intentie correct voorspeld, maar met een lage betrouwbaarheidsscore. Slechts een van de twee entiteiten is gedetecteerd. Vervolgens is in de zelfstudie een patroon toegevoegd dat de entiteitrollen heeft gebruikt, en is een frasenlijst toegevoegd om de waarde van de plaatsnamen in de utterances te verbeteren. De tweede eindpuntvoorspelling heeft een hoge betrouwbaarheidsscore geretourneerd en beide entiteitsrollen zijn gevonden. 
 
 > [!div class="nextstepaction"]
-> [Informatie over aanbevolen procedures voor LUIS-apps](luis-concept-best-practices.md)
+> [Best practices voor LUIS-apps](luis-concept-best-practices.md)

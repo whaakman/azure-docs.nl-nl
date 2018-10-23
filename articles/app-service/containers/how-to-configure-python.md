@@ -1,6 +1,6 @@
 ---
-title: Ingebouwde Python-installatiekopie configureren in Azure App Service
-description: Deze zelfstudie beschrijft opties voor het schrijven en configureren van een Python-toepassing op Azure App Service, met de ingebouwde Python-installatiekopie.
+title: Python-apps configureren voor Azure App Service met Linux
+description: Deze zelfstudie beschrijft opties voor het schrijven en configureren van Python-apps voor Azure App Service met Linux.
 services: app-service\web
 documentationcenter: ''
 author: cephalin
@@ -12,70 +12,103 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 09/25/2018
-ms.author: astay;cephalin
+ms.date: 10/09/2018
+ms.author: astay;cephalin;kraigb
 ms.custom: mvc
-ms.openlocfilehash: 9316805993b81e4d2511e833e0cc8f240807a1f9
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 71cbf0bb31a72e3b257f25c159d9d9eea31dbfbb
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47228545"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48901615"
 ---
-# <a name="configure-built-in-python-image-in-azure-app-service-preview"></a>Ingebouwde Python-installatiekopie configureren in Azure App Service (preview)
+# <a name="configure-your-python-app-for-the-azure-app-service-on-linux"></a>Een Python-app configureren voor Azure App Service met Linux
 
-Dit artikel laat zien hoe u de ingebouwde installatiekopie van Python in [App Service op Linux](app-service-linux-intro.md) kunt configureren om uw Python-toepassingen uit te voeren.
+In dit artikel wordt beschreven hoe Python-apps worden uitgevoerd in [Azure App Service in Linux](app-service-linux-intro.md) en hoe u het gedrag van Azure App Service zo nodig kunt aanpassen.
 
-## <a name="python-version"></a>Python-versie
+## <a name="container-characteristics"></a>Containerkenmerken
 
-De Python-runtime in de App-service op Linux gebruikt versie `python-3.7.0`.
+Python-apps die zijn geïmplementeerd in App Service met Linux worden uitgevoerd binnen een Docker-container die is gedefinieerd in de GitHub-opslagplaats [Azure-App-Service/python-container](https://github.com/Azure-App-Service/python/tree/master/3.7.0).
 
-## <a name="supported-frameworks"></a>Ondersteunde frameworks
+Deze container heeft de volgende kenmerken:
 
-Alle webframeworks die voldoen aan de Web Server Gateway Interface (WSGI) en die compatibel zijn met de `python-3.7`-runtime, worden ondersteund.
+- De basisinstallatiekopie van de container is `python-3.7.0-slim-stretch`. Dat betekent dat apps worden uitgevoerd met Python 3.7. Als u een andere versie van Python nodig hebt, moet u in plaats daarvan uw eigen containerinstallatiekopie bouwen en implementeren. Voor meer informatie raadpleegt u [Een aangepaste Docker-installatiekopie voor Web App for Containers gebruiken](tutorial-custom-docker-image.md).
 
-## <a name="package-management"></a>Pakketbeheer
+- Apps worden uitgevoerd met behulp van de [WSGI HTTP-server Gunicorn](http://gunicorn.org/), met de aanvullende argumenten `--bind=0.0.0.0 --timeout 600`.
 
-Tijdens Git-publicatie zoekt de Kudu-engine naar [requirements.txt](https://pip.pypa.io/en/stable/user_guide/#requirements-files) in de hoofdmap van de opslagplaats en installeert de pakketten automatisch in Azure met behulp van `pip`.
+- Standaard bevat de basisinstallatiekopie het Flask-webframework, maar de container ondersteunt andere frameworks die voldoen aan WSGI en compatibel zijn met Python 3.7, zoals Django.
 
-Voor het genereren van dit bestand voordat u publiceert, gaat u naar de hoofdmap van de opslagplaats en voer de volgende opdracht uit in uw Python-omgeving:
+- Voor het installeren van extra pakketten, zoals Django, maakt u met `pip freeze > requirements.txt` een bestand [*requirements.txt*](https://pip.pypa.io/en/stable/user_guide/#requirements-files) in de hoofdmap van uw project. Daarna publiceert u het project naar App Service met Git-implementatie. `pip install -r requirements.txt` wordt dan automatisch uitgevoerd in de container om de afhankelijkheden van uw app te installeren.
 
-```bash
-pip freeze > requirements.txt
-```
+## <a name="container-startup-process-and-customizations"></a>Opstartprocessen en aanpassingen van container
 
-## <a name="configure-your-python-app"></a>Uw Python-app configureren
+Tijdens het opstarten voert de App Service met Linux-container de volgende stappen uit:
 
-De ingebouwde Python-installatiekopie in de App-service gebruikt de [Gunicorn](http://gunicorn.org/)-server om uw Python toepassing uit te voeren. Gunicorn is een Python WSGI HTTP-server voor UNIX. App Service configureert Gunicorn automatisch voor Django en Flask-projecten.
+1. Controleer of er een aangepast opstartproces is en pas het in dat geval toe.
+1. Controleer of er een *wsgi.py*-bestand voor de Django-app bestaat, en start Gunicorn in dat geval op met dat bestand.
+1. Controleer of er een bestand is met de naam *application.py* en zo ja, start Gunicorn dan met `application:app`, ervan uitgaande dat het een Flask-app is.
+1. Als er geen andere app wordt gevonden, start u een standaard-app die is ingebouwd in de container.
+
+De volgende secties bevatten aanvullende informatie voor elke optie.
 
 ### <a name="django-app"></a>Django-app
 
-Als u een Django-project publiceert dat een `wsgi.py`-module bevat, roept Azure automatisch Gunicorn aan met behulp van de volgende opdracht:
+Voor Django-apps zoekt App Service in uw app-code naar een bestand met de naam `wsgi.py`. Daarna wordt Gunicorn uitgevoerd met de volgende opdracht:
 
 ```bash
-gunicorn <path_to_wsgi>
+# <module> is the path to the folder containing wsgi.py
+gunicorn --bind=0.0.0.0 --timeout 600 <module>.wsgi
 ```
+
+Voor gedetailleerde controle over de opstartopdracht gebruikt u een [aangepaste opstartopdracht](#custom-startup-command) en vervangt u `<module>` door de naam van de module die *wsgi.py* bevat.
 
 ### <a name="flask-app"></a>Flask-app
 
-Als u een Flask-app publiceert en het invoerpunt zich in een `application.py`- of `app.py`-module bevindt, roept Azure automatisch Gunicorn aan met een van de volgende opdrachten, respectievelijk:
+Voor Flask zoekt App Service naar een bestand met de naam *application.py* en wordt Gunicorn als volgt gestart:
 
 ```bash
-gunicorn application:app
+gunicorn --bind=0.0.0.0 --timeout 600 application:app
 ```
 
-of 
+Als de hoofdmodule van de app in een ander bestand is opgenomen, gebruikt u een andere naam voor het app-object. Als u aanvullende argumenten wilt doorgeven aan Gunicorn, gebruikt u een [aangepaste opstartopdracht](#custom-startup-command). Deze sectie bevat een voorbeeld van Flask met toegangscode in *hello.py* en een Flask-app-object met de naam `myapp`.
+
+### <a name="custom-startup-command"></a>Aangepaste opstartopdracht
+
+U kunt het opstartgedrag van de container sturen door een aangepaste Gunicorn-opstartopdracht te geven. Als u bijvoorbeeld een Flask-app hebt waarvan de hoofdmodule *hello.py* is en het Flask-app-object `myapp` heet, ziet de opdracht er als volgt uit:
 
 ```bash
-gunicorn app:app
+gunicorn --bind=0.0.0.0 --timeout 600 hello:myapp
 ```
 
-### <a name="customize-start-up"></a>Opstarten aanpassen
+U kunt ook aanvullende argumenten voor Gunicorn aan de opdracht toevoegen, zoals `--workers=4`. Zie voor meer informatie [Running Gunicorn](http://docs.gunicorn.org/en/stable/run.html) (Gunicorn uitvoeren, docs.gunicorn.org).
 
-Als u een aangepast invoerpunt voor uw app wilt definiëren, maakt u eerst een _.txt_-bestand met een aangepaste Gunicorn opdracht en plaatst u dit in de hoofdmap van uw project. Als u bijvoorbeeld de server wilt starten met de module _helloworld.py_ en de variabele `app`, maakt u een _startup.txt_ met de volgende inhoud:
+Voer de volgende stappen uit als u een aangepaste opdracht wilt opgeven:
 
-```bash
-gunicorn helloworld:app
-```
+1. Navigeer naar de pagina [Toepassingsinstellingen](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) in de Azure Portal.
 
-Op de pagina [Toepassingsinstellingen](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) kiest u **Python|3.7** als **runtimestack** en geeft u de naam van uw **opstartbestand** uit de vorige stap op. Bijvoorbeeld _startup.txt_.
+1. In de **Runtime**-instellingen stelt u de optie **Stack** in op **Python 3.7** en voert u de opdracht rechtstreeks in het **Opstartbestand** in.
+
+    U kunt de opdracht ook opslaan in een tekstbestand in de hoofdmap van uw project, bijvoorbeeld met de naam als *startup.txt*. Implementeer dat bestand vervolgens in App Service en geef nu in het veld **Opstartbestand** de bestandsnaam op. Met deze optie kunt u de opdracht beheren in de opslagplaats van de broncode in plaats van via de Azure Portal.
+
+1. Selecteer **Opslaan**. De App Service wordt automatisch opnieuw opgestart en na een paar seconden ziet u dat de aangepaste opstartopdracht is toegepast.
+
+> [!Note]
+> App Service negeert eventuele fouten die optreden tijdens de verwerking van een bestand met een aangepaste opstartopdracht en vervolgt het opstartproces door te zoeken naar Django- en Flask-apps. Als u het verwachte gedrag niet ziet, controleer dan of uw opstartbestand is toegepast op App Service en of het geen fouten bevat.
+
+### <a name="default-behavior"></a>Standaardgedrag
+
+Als de App Service geen aangepaste opdracht, Django-app of Flask-app vindt, wordt er een standaard alleen-lezen-app uitgevoerd. Deze bevindt zich in de map _opt/defaultsite_. De standaard-app wordt als volgt weergegeven:
+
+![Standaard App Service op Linux-webpagina](media/how-to-configure-python/default-python-app.png)
+
+## <a name="troubleshooting"></a>Problemen oplossen
+
+- **U ziet de standaard-app nadat de code van uw eigen app is toegepast.**  De standaard-app wordt weergegeven omdat u de code van uw eigen app niet daadwerkelijk hebt toegepast op App Service, of omdat App Service uw app-code niet heeft kunnen vinden en daarom de standaard-app heeft uitgevoerd.
+  - Start de App Service opnieuw op en wacht 15-20 seconden voordat u de app opnieuw controleert.
+  - Gebruik SSH of de Kudu-console om rechtstreeks verbinding te maken met de App Service en controleer of uw bestanden in *site/wwwroot* staan. Als uw bestanden niet bestaan, controleert u uw implementatieproces en implementeert u de app opnieuw.
+  - Als uw bestanden bestaan, heeft App Service uw specifieke opstartbestand niet kunnen identificeren. Controleer of de app is gestructureerd zoals App Service dat verwacht voor [Django](#django-app) of [Flask](#flask-app), of gebruik een [aangepast opstartopdracht](#custom-startup-command).
+
+- **U ziet het bericht 'Service niet beschikbaar' in de browser.** De browser heeft een time-out gegenereerd in afwachting van een reactie van App Service. Dat betekent dat de App Service de Gunicorn-server heeft gestart, maar dat de argumenten die de app-code opgeeft onjuist zijn.
+  - Vernieuw de browser, met name als u gebruikmaakt van de laagste prijscategorieën in uw App Service-plan. Het is bijvoorbeeld mogelijk dat het opstarten van de app langer duurt wanneer gebruik wordt gemaakt van de gratis prijscategorie en reageert na het vernieuwen van de browser.
+  - Controleer of de app is gestructureerd zoals App Service dat verwacht voor [Django](#django-app) of [Flask](#flask-app), of gebruik een [aangepast opstartopdracht](#custom-startup-command).
+  - Gebruik SSH of de Kudu-console om verbinding te maken met de App Service en bestudeer vervolgens de logboeken met diagnostische gegevens die zijn opgeslagen in de map *LogFiles*. Voor meer informatie over logboekregistratie raadpleegt u [Diagnostische logboekregistratie voor web-apps inschakelen in Azure App Service](../web-sites-enable-diagnostic-log.md).

@@ -1,5 +1,5 @@
 ---
-title: Wat is Azure Machine Learning-service?
+title: Wat is de Azure Machine Learning-service?
 description: Verklaart de basisconcepten van machine learning in de cloud, beschrijft waarvoor u dit kunt gebruiken en definieert termen voor machine learning. Overzicht van Azure Machine Learning, een geïntegreerde end-to-end gegevenswetenschapoplossing die professionele gegevenswetenschappers in staat stelt geavanceerde analyseapplicaties te ontwikkelen, hiermee te experimenteren en deze op cloudschaal te implementeren.
 services: machine-learning
 ms.service: machine-learning
@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 author: garyericson
 ms.author: garye
 ms.date: 09/24/2018
-ms.openlocfilehash: 6e0294f99d1c2291e84bf2ac5d5b1f771222b551
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 660e5515b765e133d5bc9309be5439209b957353
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47433409"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48238504"
 ---
 # <a name="what-is-azure-machine-learning-service-preview"></a>Wat is Azure Machine Learning-service (preview)?
 
@@ -48,7 +48,7 @@ U kunt de geïmplementeerde modellen beheren en meerdere uitvoeringen volgen ter
 Azure Machine Learning-service kan voor u automatisch een model genereren en het automatisch afstemmen.
 Zie [Zelfstudie: Automatisch een classificatiemodel trainen met Azure Automated Machine Learning](tutorial-auto-train-models.md) voor een voorbeeld.
 
-Of, u kunt zelf met de Azure Machine Learning <a href="http://aka.ms/aml-sdk" target="_blank">SDK</a> voor Python, samen met open-source Python-pakketten uiterst nauwkeurige machine learning- en deep learning-modellen bouwen en trainen in Azure Machine Learning-werkruimte.
+Of met de Azure Machine Learning <a href="http://aka.ms/aml-sdk" target="_blank">SDK</a> voor Python kunt u samen met open-source Python-pakketten uiterst nauwkeurige machine learning- en deep learning-modellen bouwen en trainen in een Azure Machine Learning-servicewerkruimte.
 U kunt kiezen uit veel machine learning-componenten die beschikbaar zijn in open-source Python-pakketten, zoals de volgende:
 
 - <a href="http://scikit-learn.org/stable/" target="_blank">Scikit-learn</a>
@@ -80,7 +80,7 @@ Als u geen abonnee bent, kunt u [gratis een Azure-account openen](https://azure.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Met het artikel [Azure Portal gebruiken om te beginnen](quickstart-get-started.md) een machine learning-werkruimte maken
+- Een machine learning-servicewerkruimte maken met het artikel [Azure Portal gebruiken om te beginnen](quickstart-get-started.md)
  
 - Volg de volledige zelfstudie, [Train een installatiekopieclassificeringsmodel met Azure Machine Learning](tutorial-train-models-with-aml.md) om te leren hoe u modellen traint en implementeert met Azure Machine Learning-service
 

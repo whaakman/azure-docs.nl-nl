@@ -1,26 +1,25 @@
 ---
-title: 'Quickstart: uw eerste Azure Container Instances-container maken met PowerShell'
-description: In deze snelstart gebruikt u PowerShell om een Windows-container in Azure Container Instances te implementeren
+title: Snelstart - Een toepassing uitvoeren in Azure Container Instances
+description: In deze snelstart gebruikt u Azure PowerShell om een toepassing in een Docker-container te implementeren in Azure Container Instances
 services: container-instances
-author: mmacy
-manager: jeconnoc
+author: dlepow
 ms.service: container-instances
 ms.topic: quickstart
-ms.date: 05/11/2018
-ms.author: marsma
+ms.date: 10/02/2018
+ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 4a1d338304dbd5e2845768b7bf0273eed23af0ec
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 33444e810a2deebee11e535c73ce3e249f42b340
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38453563"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48854640"
 ---
-# <a name="quickstart-create-your-first-container-in-azure-container-instances"></a>Snelstart: Uw eerste container maken in Azure Container Instances
+# <a name="quickstart-run-an-application-in-azure-container-instances"></a>Snelstart - Een toepassing uitvoeren in Azure Container Instances
 
-Met Azure Container Instances kunt u gemakkelijk Docker-containers in Azure maken en beheren, zonder virtuele machines te hoeven inrichten of een service op een hoger niveau te moeten gebruiken. In deze snelstart maakt u een Windows-container in Azure en publiceert u deze op internet met een FQDN (Fully Qualified Domain Name). Deze bewerking wordt uitgevoerd in één opdracht. Binnen enkele ogenblikken wordt de toepassing uitgevoerd in de browser:
+Gebruik Azure Container Instances om Docker-containers in Azure snel en eenvoudig uit te voeren. U hoeft geen virtuele machines te implementeren en u hoeft geen volledig container-indelingsplatform zoals Kubernetes te gebruiken. In deze snelstart gebruikt u Azure Portal om een Windows-container te maken in Azure en maakt u de bijbehorende toepassing beschikbaar met een FQDN (Fully Qualified Domain Name). Een paar seconden nadat u één implementatieopdracht hebt uitgevoerd, kunt u bladeren naar de toepassing die wordt uitgevoerd:
 
-![App die is geïmplementeerd met Azure Container Instances, weergegeven in de browser][qs-powershell-01]
+![App die is geïmplementeerd in Azure Container Instances, weergegeven in de browser][qs-powershell-01]
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/) aan voordat u begint.
 
@@ -30,7 +29,9 @@ Als u PowerShell lokaal wilt installeren en gebruiken, is voor deze zelfstudie v
 
 ## <a name="create-a-resource-group"></a>Een resourcegroep maken
 
-Maak een Azure-resourcegroep met behulp van de opdracht [New-AzureRmResourceGroup][New-AzureRmResourceGroup]. Een resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd.
+Azure Container Instances moeten, zoals alle Azure-resources, worden geïmplementeerd in een resourcegroep. Met resourcegroepen kunt u gerelateerde Azure-resources organiseren en beheren.
+
+Maak eerst een resourcegroep met de naam *myResourceGroup* op de locatie *eastus* met behulp van de volgende opdracht [New-AzureRmResourceGroup][New-AzureRmResourceGroup]:
 
  ```azurepowershell-interactive
 New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
@@ -38,15 +39,15 @@ New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
 
 ## <a name="create-a-container"></a>Een container maken
 
-U kunt een container maken door een naam, een Docker-installatiekopie en een Azure-resourcegroep op te geven met de cmdlet [New-AzureRmContainerGroup][New-AzureRmContainerGroup]. U kunt de container desgewenst beschikbaar maken op internet met een DNS-naamlabel.
+Nu u een resourcegroep hebt, kunt u een container in Azure uitvoeren. Als u een containerinstantie wilt maken met Azure PowerShell, geeft u de naam van een resourcegroep, de naam van een containerinstantie en een Docker-containerinstallatiekopie op voor de cmndlet [New-AzureRmContainerGroup][New-AzureRmContainerGroup]. Als u uw containers beschikbaar wilt maken op internet, moet u een of meer poorten om te openen of een DNS-naamlabel opgeven, of beide. In deze snelstart implementeert u een container met een DNS-naamlabel die als host fungeert voor Internet Information Services (IIS), uitgevoerd in Nano Server.
 
-Voer de volgende opdracht uit om een Nano Server-container te starten waarin IIS (Internet Information Services) wordt uitgevoerd. De waarde `-DnsNameLabel` moet uniek zijn binnen de Azure-regio waar u het exemplaar maakt, dus u zult deze waarde mogelijk moeten wijzigen om ervoor te zorgen dat deze uniek is.
+Voer de volgende opdracht uit om een exemplaar van de container te starten. De waarde `-DnsNameLabel` moet uniek zijn voor de Azure-regio waar u het exemplaar maakt. Als u een foutbericht 'DNS-naamlabel niet beschikbaar' ontvangt, probeert u een ander DNS-naamlabel.
 
  ```azurepowershell-interactive
 New-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer -Image microsoft/iis:nanoserver -OsType Windows -DnsNameLabel aci-demo-win
 ```
 
-U ontvangt binnen een paar seconden een reactie op uw aanvraag. De container heeft in eerste instantie de status **Creating**, maar zou binnen een of twee minuten moeten worden gestart. U kunt de implementatiestatus controleren met behulp van de cmdlet [Get-AzureRmContainerGroup][Get-AzureRmContainerGroup]:
+U ontvangt binnen enkele seconden een reactie van Azure. De `ProvisioningState` van de container is in eerste instantie **Maken**, maar moet binnen twee minuten veranderen in **Geslaagd**. Controleer de implementatiestatus met behulp van de cmdlet [Get-AzureRmContainerGroup][Get-AzureRmContainerGroup]:
 
  ```azurepowershell-interactive
 Get-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer
@@ -78,7 +79,7 @@ State                    : Pending
 Events                   : {}
 ```
 
-Nadat de container **ProvisioningState** naar `Succeeded` is verplaatst, navigeert u in uw browser naar de `Fqdn` ervan:
+Wanneer `ProvisioningState` van de container **Geslaagd** is, gaat u naar de `Fqdn` ervan in de browser. U moet nu een webpagina zien die lijkt op de volgende. U hebt een toepassing geïmplementeerd die wordt uitgevoerd in een Docker-container voor Azure.
 
 ![IIS geïmplementeerd via Azure Container Instances, weergegeven in de browser][qs-powershell-01]
 
@@ -92,7 +93,7 @@ Remove-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontaine
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze snelstart hebt u een Azure-containerinstantie van een installatiekopie gemaakt in een openbare Docker Hub-opslagplaats. Als u zelf een containerinstallatiekopie wilt bouwen en deze wilt implementeren in Azure Container Instances met behulp van privé Azure Container Registry, gaat u verder met de zelfstudie voor Azure Container Instances.
+In deze snelstart hebt u een Azure-containerinstantie van een installatiekopie gemaakt in een openbare Docker Hub-opslagplaats. Als u zelf een containerinstallatiekopie wilt bouwen en deze wilt implementeren met behulp van een privé Azure Container-register, gaat u verder met de zelfstudie voor Azure Container Instances.
 
 > [!div class="nextstepaction"]
 > [Zelfstudie voor Azure Container Instances](./container-instances-tutorial-prepare-app.md)

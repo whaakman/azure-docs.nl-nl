@@ -12,15 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 09/13/2018
+ms.date: 10/09/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: c3089ad11dc951d3105b25b6857b7697f8c38d1a
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 52429d44c41d990fb0de4c01c63d4af9fe5863d4
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47432064"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902889"
 ---
 # <a name="create-a-python-web-app-in-azure-app-service-on-linux-preview"></a>Een Python-web-app maken in Azure App Service op Linux (preview)
 
@@ -172,13 +172,13 @@ Het linkermenu bevat een aantal pagina's voor het configureren van uw app.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-De ingebouwde Python-installatiekopie in App Service onder Linux is momenteel in preview. U kunt in plaats daarvan productie-Python-apps maken met behulp van een aangepaste container.
+De Python-installatiekopie die in App Service onder Linux is ingebouwd, is momenteel in preview. U kunt de opdracht voor het opstarten van uw app aanpassen. U kunt ook in plaats daarvan productie-Python-apps maken met behulp van een aangepaste container.
 
 > [!div class="nextstepaction"]
 > [Python met PostgreSQL](tutorial-python-postgresql-app.md)
 
 > [!div class="nextstepaction"]
-> [Ingebouwde Python-installatiekopie configureren](how-to-configure-python.md)
+> [Een aangepaste opstartopdracht configureren](how-to-configure-python.md#custom-startup-command)
 
 > [!div class="nextstepaction"]
 > [Aangepaste installatiekopieën gebruiken](tutorial-custom-docker-image.md)

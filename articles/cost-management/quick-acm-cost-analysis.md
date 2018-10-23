@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/21/2018s
+ms.date: 10/10/2018
 ms.topic: quickstart
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 9092629c7bef46cdb7c464fca5e22d4aea0da9fc
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 12b7a605350b07565660e9e4d1334b286aa5ac00
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47041537"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49079103"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>Snelstart, de kosten van Azure verkennen en analyseren met Kostenanalyse
 
@@ -34,13 +34,21 @@ In deze snelstart leert u de volgende zaken:
 
 Kostenanalyse is beschikbaar voor alle klanten met een [Enterprise Overeenkomst (EO)](https://azure.microsoft.com/pricing/enterprise-agreement/). U moet minimaal leestoegang hebben tot een of meer van de volgende bereiken om kostengegevens te kunnen bekijken.
 
-- Factureringsaccount
-- Afdeling
-- Inschrijvingsaccount
-- Beheergroep
-- Abonnement
-- Resourcegroep
+- Het bereik van het *factureringsaccount* is opgegeven in https://ea.azure.com en vereist toegang op het niveau van Enterprise-beheerder. Er is geen EA-instelling vereist. Factureringsgegevens in kostenanalyse worden samengevoegd voor alle abonnementen in de Enterprise Overeenkomst. Een factureringsaccount wordt vaak aangeduid als de *Enterprise Overeenkomst* of *Inschrijving*.
 
+- Het bereik van de *afdeling* is opgegeven in https://ea.azure.com en vereist toegang op het niveau van Afdelingsbeheerder. De instelling **DA-kosten weergeven** moet zijn ingeschakeld in de EA-portal. Factureringsgegevens in kostenanalyse worden samengevoegd voor alle abonnementen die behoren tot het inschrijvingsaccount dat is gekoppeld aan de afdeling.
+
+- Het bereik van het *inschrijvingsaccount* is opgegeven in https://ea.azure.com en vereist toegang op het niveau van Accounteigenaar. De instelling **AO-kosten weergeven** moet zijn ingeschakeld in de EA-portal. Factureringsgegevens in kostenanalyse worden samengevoegd voor alle abonnementen die behoren tot het inschrijvingsaccount. Het inschrijvingsaccount wordt vaak aangeduid als de *accounteigenaar*.
+
+- Het bereik van de *beheergroep* wordt opgegeven in https://portal.azure.com en vereist toegang op het niveau van Lezer Cost Management(of Lezer). De instelling **AO-kosten weergeven** moet zijn ingeschakeld in de EA-portal. Factureringsgegevens in kostenanalyse worden samengevoegd voor alle abonnementen onder de beheergroep.
+
+- Het bereik van het *abonnement* wordt opgegeven in https://portal.azure.com en vereist toegang op het niveau van Lezer Cost Management (of Lezer). De instelling **AO-kosten weergeven** moet zijn ingeschakeld in de EA-portal. Factureringsgegevens in kostenanalyse worden samengevoegd voor alle resources en resourcegroepen in het abonnement.
+
+- Het bereik van de *resourcegroep* wordt opgegeven in https://portal.azure.com en vereist toegang op het niveau van Lezer Cost Management (of Lezer). De instelling **AO-kosten weergeven** moet zijn ingeschakeld in de EA-portal. Factureringsgegevens in kostenanalyse worden samengevoegd voor alle resources in de resourcegroep.
+
+
+
+Voor meer informatie over de configuratie van de instellingen **DA-kosten weergeven** en **AO-kosten weergeven** raadpleegt u [Toegang tot kosten inschakelen](../billing/billing-enterprise-mgmt-grp-troubleshoot-cost-view.md#enabling-access-to-costs).
 
 ## <a name="sign-in-to-azure"></a>Aanmelden bij Azure
 
@@ -94,6 +102,11 @@ Draaigrafieken onder het totaaloverzicht bovenaan tonen weergaven voor verschill
 ![Alle gegevens voor de huidige weergave](./media/quick-acm-cost-analysis/full-data-set.png)
 
 De voorgaande afbeelding toont de resourcegroepnamen. Er zijn geen weergavecodes beschikbaar voor de bronnen in de kostenanalyseweergaven, -filters of -groeperingen.
+
+Als u kosten groepeert op een specifiek kenmerk, worden de bovenste tien kostenposten van hoog naar laag weergegeven. Als er meer dan tien groepen zijn, worden de negen grootste kostenposten weergegeven, evenals een groep **Overige**, waaronder alle overige groepen vallen.
+
+*Klassiek*: virtuele ASM-machines (Azure Service Management), netwerken en opslagresources delen geen gedetailleerde factureringsgegevens. Ze worden samengevoegd als **Klassieke services** wanneer kosten worden gegroepeerd.
+
 
 ## <a name="download-cost-analysis-data"></a>Gegevens van kostenanalyse downloaden
 

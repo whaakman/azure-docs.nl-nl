@@ -8,14 +8,14 @@ ms.service: application-gateway
 ms.topic: overview
 ms.custom: mvc
 ms.workload: infrastructure-services
-ms.date: 5/15/2018
+ms.date: 10/11/2018
 ms.author: victorh
-ms.openlocfilehash: 045443637c06745472458dd9e33670875a33352b
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 8352a95fa0701f6d2a0261d8d2fe2431971eccef
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34193064"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49068092"
 ---
 # <a name="what-is-azure-application-gateway"></a>Wat is Azure Application Gateway?
 
@@ -27,7 +27,38 @@ Traditionele load balancers werken op de transportlaag (OSI-laag 4 - TCP en UDP)
 
 Dit type routering staat bekend al taakverdeling op de toepassingslaag (OSI-laag 7). Azure Application Gateway kan URL-gebaseerde routering en meer uitvoeren. 
 
-Azure Application Gateway bevat de volgende functies: 
+Azure Application Gateway bevat de volgende functies:
+
+## <a name="autoscaling-public-preview"></a>Openbare preview van Automatisch schalen
+
+Behalve de functies die in dit artikel worden beschreven, biedt Application Gateway ook een openbare preview van een nieuwe SKU [Standard_V2] die automatisch schalen en andere belangrijke prestatieverbeteringen levert.
+
+- **Automatisch schalen**: met Application Gateway- of WAF-implementaties van de SKU van Automatische schalen kunt u omhoog of omlaag schalen op basis van veranderende verkeerbelastingspatronen. Automatisch schalen heft ook de vereiste op om tijdens het inrichten een implementatiegrootte of het aantal instanties te kiezen. 
+
+- **Zoneredundantie**: een Application Gateway- of WAF-implementatie kan meerdere Azure-beschikbaarheidszones overbruggen, waardoor het niet nodig is om afzonderlijke Application Gateway-instanties in elke zone in te richten en te implementeren met een Traffic Manager.
+
+- **Statische VIP**: de Application Gateway-VIP biedt nu exclusief ondersteuning voor het VIP-type. Dit zorgt ervoor dat het VIP-adres dat aan Application Gateway is gekoppeld niet verandert, zelfs niet nadat het systeem opnieuw is opgestart.
+
+- **Snellere implementatie en update** in vergelijking met de algemeen beschikbare SKU. 
+
+- **5 keer betere prestaties voor SSL-offload** in vergelijking met de algemeen beschikbare SKU.
+
+Meer informatie over de preview-functies van de openbare preview van Application Gateway raadpleegt u [Automatisch schalen en zoneredundantie voor Application Gateway (openbare preview)](application-gateway-autoscaling-zone-redundant.md).
+
+## <a name="azure-kubernetes-service-aks-ingress-controller-preview"></a>Ingangscontroller van Azure Kubernetes Service (AKS) (preview) 
+
+De ingangscontroller van Application Gateway wordt uitgevoerd als een pod binnen het AKS-cluster en zorgt ervoor dat de Gateway-toepassing kan fungeren als ingang voor een AKS-cluster. 
+
+Zie [Azure Application Gateway Ingress Controller](https://azure.github.io/application-gateway-kubernetes-ingress/) voor meer informatie.
+
+## <a name="connection-draining"></a>Verwerkingsstop voor verbindingen
+
+Verwerkingsstop voor verbindingen helpt u om back-endgroepsleden zonder problemen te verwijderen tijdens geplande service-updates. Deze instelling wordt ingeschakeld via de HTTP-instelling van de back-end en kan tijdens het maken van de regel worden toegepast op alle leden van een back-endgroep. Wanneer de instelling is ingeschakeld, zorgt Application Gateway ervoor dat alle exemplaren die worden uitgeschreven bij een back-endgroep geen nieuwe aanvraag ontvangen en dat bestaande aanvragen binnen een geconfigureerde tijdslimiet worden voltooid. Dit geldt voor zowel back-endexemplaren die door een API-aanroep expliciet uit de back-endgroep worden verwijderd als voor back-endexemplaren die door de statuscontroles worden gerapporteerd als beschadigd.
+
+## <a name="custom-error-pages"></a>Aangepaste foutpagina's
+Met Application Gateway kunt u aangepaste foutpagina's maken in plaats van standaardfoutpagina's weer te geven. U kunt uw eigen huisstijl en lay-out hanteren door een aangepaste foutpagina te gebruiken.
+
+Zie voor meer informatie [Aangepaste foutpagina's maken voor Application Gateway](custom-error.md).
 
 ## <a name="secure-sockets-layer-ssl-termination"></a>SSL-beëindiging (Secure Sockets Layer)
 

@@ -1,75 +1,75 @@
 ---
-title: 'QuickStart: Maken van een KB - QnA Maker'
+title: 'Snelstart: Een KB maken - QnA Maker'
 titleSuffix: Azure Cognitive Services
-description: U kunt een QnA Maker knowledge base (KB) van uw eigen inhoud, zoals veelgestelde vragen over of producthandleidingen maken. De QnA Maker KB in dit voorbeeld is gemaakt op basis van een eenvoudige Veelgestelde vragen over webpagina om te beantwoorden vragen over herstel van BitLocker-sleutels.
+description: U kunt een QnA Maker-knowledge base (KB) maken van uw eigen inhoud, zoals veelgestelde vragen of producthandleidingen. De QnA Maker-KB in dit voorbeeld is gemaakt op basis van een eenvoudige webpagina met veelgestelde vragen waarop vragen worden beantwoord over het herstel van BitLocker-sleutels.
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
-ms.topic: article
+ms.topic: quickstart
 ms.date: 09/12/2018
 ms.author: diberry
-ms.openlocfilehash: f7af86687a8a61fb7aed028d2868752faaa8045a
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
-ms.translationtype: MT
+ms.openlocfilehash: 85b4630492d5f5b3fb71d563b0947d8a72ae4e1d
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47030251"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48886530"
 ---
-# <a name="create-train-and-publish-your-knowledge-base"></a>Maken, trainen en publiceren van uw knowledge base
+# <a name="quickstart-create-train-and-publish-your-knowledge-base"></a>Snelstart: Een knowledge base maken, trainen en publiceren
 
-U kunt een QnA Maker knowledge base (KB) van uw eigen inhoud, zoals veelgestelde vragen over of producthandleidingen maken. De QnA Maker KB in dit voorbeeld is gemaakt op basis van een eenvoudige Veelgestelde vragen over webpagina om te beantwoorden vragen over herstel van BitLocker-sleutels.
+U kunt een QnA Maker-knowledge base (KB) maken van uw eigen inhoud, zoals veelgestelde vragen of producthandleidingen. De QnA Maker-KB in dit voorbeeld is gemaakt op basis van een eenvoudige webpagina met veelgestelde vragen waarop vragen worden beantwoord over het herstel van BitLocker-sleutels.
 
 ## <a name="prerequisite"></a>Vereiste
 
 > [!div class="checklist"]
 > * Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
-## <a name="create-a-qna-maker-knowledge-base"></a>Maken van een kennisdatabase QnA Maker
+## <a name="create-a-qna-maker-knowledge-base"></a>Een QnA Maker-knowledge base maken
 
-1. Meld u aan QnAMaker.ai met uw Azure-referenties.
+1. Meld u met uw Azure-referenties aan bij QnAMaker.ai.
 
-2. Selecteer op de website QnA Maker **maken van een kennisdatabase**.
+2. Selecteer op de website van QnA Maker de optie **Een knowledge base maken**.
 
-   ![Maken van nieuwe KB](../media/qna-maker-create-kb.png)
+   ![Nieuwe KB maken](../media/qna-maker-create-kb.png)
 
-3. Op de **maken** pagina, klikt u in stap 1, selecteer **maken van een service QnA**. U bent omgeleid naar de [Azure-portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) voor het instellen van een QnA Maker-service in uw abonnement. Als er is een time-out opgetreden voor de Azure-portal, selecteert u **probeer het opnieuw** op de site. Nadat u verbinding maakt, wordt uw Azure-dashboard weergegeven.
+3. Selecteer op de pagina **Create** (Maken) in stap 1 de optie **Create a QnA service** (Een QnA-service maken). U wordt omgeleid naar de [Azure Portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) om een QnA Maker-service in te stellen in uw abonnement. Als er een time-out optreedt in de Azure Portal, selecteert u **Opnieuw proberen** op de site. Wanneer de verbinding is gemaakt, wordt uw Azure-dashboard weergegeven.
 
-4. Nadat u een nieuwe QnA Maker-service is gemaakt in Azure, kunt u terugkeren naar qnamaker.ai/create. Selecteer de QnA-service in de vervolgkeuzelijsten in stap 2. Als u een nieuwe Writer-service hebt gemaakt, moet u de pagina te vernieuwen.
+4. Nadat u een nieuwe QnA Maker-service hebt gemaakt in Azure, gaat u terug naar qnamaker.ai/create. Selecteer de QnA-service in de vervolgkeuzelijsten in stap 2. Als u een nieuwe QnA-service hebt gemaakt, moet u de pagina vernieuwen.
 
-   ![Selecteer een service QnA KB](../media/qnamaker-quickstart-kb/qnaservice-selection.png)
+   ![Een QnA-service-KB selecteren](../media/qnamaker-quickstart-kb/qnaservice-selection.png)
 
-5. In stap 3, naam op voor uw KB **mijn voorbeeld QnA KB**.
+5. Noem uw KB in stap 3**Mijn voorbeeld-QnA-KB**.
 
-6. Inhoud toevoegen aan uw KB, selecteert u drie soorten gegevensbronnen. In stap 4, onder **vullen uw KB**, toevoegen de [Veelgestelde vragen over het BitLocker-herstel](https://docs.microsoft.com/en-us/windows/security/information-protection/bitlocker/bitlocker-overview-and-requirements-faq) in de URL van de **URL** vak.
+6. Selecteert drie soorten gegevensbronnen om inhoud toe te voegen aan de KB. Voeg in stap 4, onder **Populate your KB** (De KB vullen), de URL [Veelgestelde vragen over BitLocker-herstel](https://docs.microsoft.com/en-us/windows/security/information-protection/bitlocker/bitlocker-overview-and-requirements-faq) toe in het vak **URL**.
 
-   ![Selecteer een service QnA KB](../media/qnamaker-quickstart-kb/add-datasources.png)
+   ![Een QnA-service-KB selecteren](../media/qnamaker-quickstart-kb/add-datasources.png)
 
-7. Selecteer in stap 5 **maken uw KB**.
+7. Selecteer in stap 5 **Create your KB** (De KB maken).
 
-8. Terwijl de KB wordt gemaakt, wordt er een pop-upvenster weergegeven. De extractie-proces duurt enkele minuten voor het lezen van de HTML-pagina en identificeren van vragen en antwoorden.
+8. Terwijl de KB wordt gemaakt, wordt er een pop-upvenster weergegeven. Tijdens het extractieproces, dat enkele minuten duurt, wordt de HTML-pagina gelezen en worden de vragen en antwoorden geïdentificeerd.
 
-9. Nadat de KB is gemaakt, de **Knowledge base** pagina wordt geopend. U kunt de inhoud van de KB op deze pagina kunt bewerken.
+9. Wanneer de KB is gemaakt, wordt de pagina **Knowledge base** geopend. U kunt de inhoud van de KB op deze pagina bewerken.
 
-10. Selecteer in de rechterbovenhoek **QnA toevoegen paar** om toe te voegen een nieuwe rij in de **redactionele** sectie van de KB. Onder **vraag**, voer **Hallo.** Onder **antwoord**, voer **Hello. Stel mij bitlocker vragen.**
+10. Selecteer in de rechterbovenhoek **Add QnA pair** (QnA-set toevoegen) om een nieuwe rij toe te voegen in de sectie **Editorial** (Redactioneel) van de KB. Typ onder **Question** (Vraag) **Hoi.** Typ onder **Answer** (Antwoord) **Hallo. Wat wil je weten over Bitlocker?**
 
-   ![Een set QnA toevoegen](../media/qnamaker-quickstart-kb/add-qna-pair.png)
+   ![Een QnA-set toevoegen](../media/qnamaker-quickstart-kb/add-qna-pair.png)
 
-11. Selecteer in de rechterbovenhoek **opslaan en trainen** en de wijzigingen opslaan voor de QnA Maker-model te trainen. Bewerkingen worden niet bewaard, tenzij ze worden opgeslagen.
+11. Selecteer in de rechterbovenhoek **Save and train** (Opslaan en trainen) om de wijzigingen op te slaan en het QnA Maker-model te trainen. Bewerkingen worden alleen bewaard als ze worden opgeslagen.
 
    ![Opslaan en trainen](../media/qnamaker-quickstart-kb/add-qna-pair2.png)
 
-12. Selecteer in de rechterbovenhoek **testen** om te testen of de wijzigingen van kracht. ENTER **Hallo er** in het vak en drukt u op Enter. U ziet het antwoord dat u hebt gemaakt als een antwoord.
+12. Selecteer in de rechterbovenhoek **Test** (Testen) om te testen of de wijzigingen worden toegepast. Typ **Hoi** in het vak en druk op Enter. Als het goed is, ziet u nu het antwoord dat u hebt gemaakt.
 
-13. Selecteer **inspecteren** om te controleren van het antwoord in meer detail. Het testvenster wordt gebruikt om uw wijzigingen in de KB testen voordat ze worden gepubliceerd.
+13. Selecteer **Inspect** (Inspecteren) om het antwoord gedetailleerder te onderzoeken. Het testvenster wordt gebruikt om uw wijzigingen in de KB te testen voordat ze worden gepubliceerd.
 
-   ![Test-Configuratiescherm](../media/qnamaker-quickstart-kb/inspect-panel.png)
+   ![Testvenster](../media/qnamaker-quickstart-kb/inspect-panel.png)
 
-14. Selecteer **Test** opnieuw uit te sluiten de **Test** pop-upvenster.
+14. Selecteer **Test** (Testen) nogmaals om de pop-up **Test** te sluiten.
 
-15. In het menu naast **bewerken**, selecteer **publiceren**. Selecteer vervolgens het volgende om te bevestigen, **publiceren** op de pagina.
+15. Selecteer in het menu naast **Edit** (Bewerken) de optie **Publish** (Publiceren). Selecteer vervolgens **Publish** (Publiceren) op de pagina om te bevestigen.
 
-16. De QnA Maker-service is nu heeft gepubliceerd. U kunt het eindpunt in uw toepassing of bot code kunt gebruiken.
+16. De QnA Maker-service is nu gepubliceerd. U kunt het eindpunt in uw toepassing of botcode gebruiken.
 
    ![Publiceren](../media/qnamaker-quickstart-kb/publish-sucess.png)
 

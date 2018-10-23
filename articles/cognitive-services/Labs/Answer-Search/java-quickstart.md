@@ -1,33 +1,34 @@
 ---
-title: Antwoord zoeken Java snel starten - cognitieve Services van Microsoft Project | Microsoft Docs
-description: Start met behulp van Project antwoord Search in Java.
+title: 'Snelstart: Project Answer Search, Java'
+titlesuffix: Azure Cognitive Services
+description: Aan de slag met Project Answer Search in Java.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: project-answer-search
-ms.topic: article
+ms.component: project-answer-search
+ms.topic: quickstart
 ms.date: 04/13/2018
-ms.author: rosh, v-gedod
-ms.openlocfilehash: 4e1f606e1564981589e638e0e51a8b42633ca7b0
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.author: rosh
+ms.openlocfilehash: 1e10ecf685aaf5b60b94a5e9e0d8e118f45e5168
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35345260"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48867022"
 ---
-# <a name="project-answer-search-query-in-java"></a>Project antwoord zoekopdracht in Java
-In dit artikel maakt gebruik van Java ter illustratie van de Bing antwoord Search API, onderdeel van Microsoft cognitieve Services in Azure. De API is een REST-webservice compatibel is met elke programmeertaal die kunt maken van HTTP-aanvragen en parseren van JSON.
+# <a name="quickstart-project-answer-search-query-in-java"></a>Snelstart: Project Answer Search-query in Java
+In dit artikel wordt Java gebruikt om te laten zien hoe u de Bing Answer Search-API gebruikt, die onderdeel is van Microsoft Cognitive Services in Azure. De API is een REST-webservice die compatibel is met elke programmeertaal die HTTP-aanvragen kan doen en JSON kan parseren.
  
-De voorbeeldcode maakt gebruik van Java met minimale externe afhankelijkheden.  U kunt deze ook uitvoeren op Linux- of Mac OS X Mono gebruiken.
+De voorbeeldcode maakt gebruik van Java met minimale externe afhankelijkheden.  U kunt deze ook uitvoeren op Linux of Mac OS X met Mono.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Ophalen van een toegangssleutel voor de gratis proefversie [cognitieve Services Labs](https://aka.ms/answersearchsubscription)
+Vraag een toegangssleutel aan voor de gratis proefversie van [Cognitive Services Labs](https://aka.ms/answersearchsubscription)
 
 ## <a name="request"></a>Aanvraag 
 
-De volgende code maakt een `WebRequest`, wordt de koptekst van de toegang wordt ingesteld en wordt een querytekenreeks voor 'Gibraltar' toegevoegd.  Vervolgens stuurt de aanvraag en wijst het antwoord op een tekenreeks op voor de JSON-tekst bevatten.
+Met de volgende code wordt een `WebRequest` gemaakt, de koptekst van de toegangssleutel ingesteld en een query-tekenreeks toegevoegd voor 'Gibraltar'.  Vervolgens wordt de aanvraag verzonden en het antwoord toegewezen aan een tekenreeks die de JSON-tekst moet bevatten.
 
 ````
     static String host = "https://api.labs.cognitive.microsoft.com";
@@ -49,12 +50,12 @@ De volgende code maakt een `WebRequest`, wordt de koptekst van de toegang wordt 
 
 ## <a name="complete-code"></a>Volledige code
 
-De Bing antwoord zoeken-API retourneert resultaten van de zoekmachine Bing.
-1. Downloaden en installeren van de bibliotheek gson.
-2. Maak een nieuwe Java-project in uw favoriete IDE of -editor.
-3. Voeg de code hieronder.
-4. De waarde subscriptionKey vervangen door een geldig toegangssleutel voor uw abonnement.
-5. Voer het programma.
+Met de Bing Answer Search-API worden resultaten geretourneerd uit de Bing-zoekmachine.
+1. Download of installeer de gson-bibliotheek.
+2. Maak een nieuw Java-project in uw favoriete IDE of editor.
+3. Voeg de onderstaande code toe.
+4. Vervang de waarde van subscriptionKey door een geldige toegangssleutel voor uw abonnement.
+5. Voer het programma uit.
 
 ````
 package knowledgeAPI;
@@ -150,6 +151,6 @@ public class KnowledgeSrch {
 ````
 
 ## <a name="next-steps"></a>Volgende stappen
-- [Quick Start C#](c-sharp-quickstart.md)
-- [Java-Quick Start](java-quickstart.md)
-- [Knooppunt Quick Start](node-quickstart.md)
+- [Snelstart voor C#](c-sharp-quickstart.md)
+- [Snelstart voor Java](java-quickstart.md)
+- [Snelstart voor Node](node-quickstart.md)

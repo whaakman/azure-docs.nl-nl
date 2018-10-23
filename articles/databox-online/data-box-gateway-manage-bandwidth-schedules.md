@@ -1,0 +1,97 @@
+---
+title: De Azure Portal gebruiken om gebruikers te beheren in Azure Data Box Gateway | Microsoft Docs
+description: Beschrijft hoe u de Azure Portal gebruikt om bandbreedteschema's te beheren in uw Azure Data Box Gateway.
+services: databox-edge-gateway
+documentationcenter: NA
+author: alkohli
+manager: twooley
+editor: ''
+ms.assetid: ''
+ms.service: databox
+ms.devlang: NA
+ms.topic: overview
+ms.custom: ''
+ms.tgt_pltfrm: NA
+ms.workload: TBD
+ms.date: 10/09/2018
+ms.author: alkohli
+ms.openlocfilehash: d1049ef66ad02987c6523e4b5ec5dd9959e0fa47
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49070362"
+---
+# <a name="use-the-azure-portal-to-manage-bandwidth-schedules-on-your-azure-data-box-gateway"></a>De Azure Portal gebruiken om bandbreedteschema's te beheren in uw Azure Data Box Gateway  
+
+Dit artikel beschrijft hoe u gebruikers beheert in uw Azure Data Box Gateway. Met bandbreedteschema's kunt u het gebruik van netwerkbandbreedte beheren over schema's voor meerdere tijdstippen. Deze schema's kunnen worden toegepast op upload- en downloadbewerkingen van uw apparaat naar de cloud. 
+
+U kunt de bandbreedteschema's voor uw Data Box Gateway toevoegen, wijzigen of verwijderen via de Azure Portal.
+
+> [!IMPORTANT]
+> - Data Box Gateway verkeert in de preview-fase. Lees de [Gebruiksvoorwaarden voor de preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voordat u deze oplossing bestelt en implementeert.
+
+In dit artikel leert u het volgende:
+
+> [!div class="checklist"]
+> * Een schema toevoegen
+> * Een schema wijzigen
+> * Een schema verwijderen 
+
+
+## <a name="add-a-schedule"></a>Een schema toevoegen
+
+Voer in Azure Portal de volgende stappen uit om een gebruiker toe te voegen.
+
+1. Ga in de Azure Portal voor uw Data Box Gateway naar **Bandbreedte**.
+2. Klik in het rechterdeelvenster op **+ Schema toevoegen**.
+
+    ![Klikken op Gebruiker toevoegen](media/data-box-gateway-manage-bandwidth-schedules/add-schedule-1.png)
+
+3. Doe het volgende in **Schema toevoegen**: 
+
+    1. Geef de **Eerste dag**, **Laatste dag**, **Begintijd** en **Eindtijd** van de planning op. 
+    2. Als dit schema de hele dag wordt uitgevoerd, kunt u de optie **Hele dag** inschakelen. 
+    3. **Bandbreedtesnelheid** is de bandbreedte in Megabits per seconde (Mbps) die door uw apparaat wordt gebruikt bij bewerkingen die betrekking hebben op de cloud (uploaden en downloaden). Geef voor dit veld een waarde op tussen 1 en 1000. 
+    4. Schakel **Onbeperkte** bandbreedte in als u de datumupload en -download niet wilt regelen. 
+    5. Klik op **Add**.
+
+    ![Klikken op Gebruiker toevoegen](media/data-box-gateway-manage-bandwidth-schedules/add-schedule-2.png)
+
+3. Er wordt een schema gemaakt met de opgegeven parameters. Dit schema wordt vervolgens weergegeven in de lijst van bandbreedteschema's in de portal.
+
+
+## <a name="edit-schedule"></a>Schema bewerken
+
+Voer de volgende stappen uit als u een bandbreedteschema wilt bewerken. 
+
+1. Ga in de Azure Portal naar uw Data Box Gateway-resource en vervolgens naar Bandbreedte. 
+2. Klik in de lijst met bandbreedteschema's op een schema dat u wilt wijzigen.
+    ![Gebruiker wijzigen](media/data-box-gateway-manage-bandwidth-schedules/modify-schedule-1.png)
+
+3. Breng de gewenste wijzigingen aan en sla de wijzigingen op.
+
+    ![Gebruiker wijzigen](media/data-box-gateway-manage-bandwidth-schedules/modify-schedule-2.png)
+
+4. Wanneer het schema is gewijzigd, wordt de lijst met schema's bijgewerkt met het gewijzigde schema.
+
+    ![Gebruiker wijzigen](media/data-box-gateway-manage-bandwidth-schedules/modify-schedule-3.png)
+
+
+## <a name="delete-a-schedule"></a>Een schema verwijderen
+
+Voer de volgende stappen uit als u een bandbreedteschema wilt verwijderen dat is gekoppeld aan uw Data Box Gateway-apparaat.
+
+1. Ga in de Azure Portal naar uw Data Box Gateway-resource en vervolgens naar **Bandbreedte**.  
+
+2. Selecteer in de lijst met bandbreedteschema's een schema dat u wilt verwijderen. Klik met de rechtermuisknop om het contextmenu weer te geven en klik op **Verwijderen**. 
+
+   ![Een gebruiker verwijderen](media/data-box-gateway-manage-bandwidth-schedules/delete-schedule-1.png)
+
+3.  Wanneer de planning is verwijderd, wordt de lijst met schema's bijgewerkt.
+
+
+
+## <a name="next-steps"></a>Volgende stappen
+
+- Meer informatie over [Bandbreedte beheren](data-box-gateway-manage-bandwidth-schedules.md).

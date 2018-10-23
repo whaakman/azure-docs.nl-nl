@@ -5,20 +5,23 @@ services: service-fabric-mesh
 keywords: ''
 author: rwike77
 ms.author: ryanwi
-ms.date: 06/27/2018
+ms.date: 10/1/2018
 ms.topic: overview
 ms.service: service-fabric-mesh
 manager: timlt
-ms.openlocfilehash: 65a9b1afcc0e1e6d4fcbb60a38ab0764e6fe2f18
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 361e742b3d9b7a5d2d12aafd15233077c967b825
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39226441"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48888190"
 ---
 # <a name="what-is-service-fabric-mesh"></a>Wat is Service Fabric?
 
-Azure Service Fabric Mesh is een volledig beheerde service waarmee ontwikkelaars microservices-toepassingen kunnen implementeren zonder virtuele machines, opslag of netwerken hoeven te beheren. U kunt toepassingen die worden gehost in Service Fabric Mesh uitvoeren en schalen zonder u zorgen te maken over de infrastructuur die dit mogelijk maakt.  Service Fabric Mesh bestaat uit clusters met duizenden machines.  Alle clusterbewerkingen zijn verborgen voor de ontwikkelaar. Upload eenvoudigweg uw code en geef de bronnen, vereisten voor beschikbaarheid en resourcelimieten op.  Service Fabric Mesh wijst automatisch de infrastructuur toe die is aangevraagd door uw toepassingsimplementatie en handelt ook problemen met de infrastructuur af en zorgt er zo voor dat uw toepassingen maximaal beschikbaar zijn. U hoeft zich alleen bezig te houden met de status en de reactietijd van uw toepassing, niet de infrastructuur.  
+Deze video geeft een kort overzicht van Service Fabric Mesh.
+> [!VIDEO https://www.youtube.com/embed/7qWeVGzAid0]
+
+Azure Service Fabric Mesh is een volledig beheerde service waarmee ontwikkelaars microservices-toepassingen kunnen implementeren zonder virtuele machines, opslag of netwerken hoeven te beheren. U kunt toepassingen die worden gehost in Service Fabric Mesh uitvoeren en schalen zonder u zorgen te maken over de infrastructuur die dit mogelijk maakt.  Service Fabric Mesh bestaat uit clusters met duizenden machines.  Alle clusterbewerkingen zijn verborgen voor de ontwikkelaar. Upload eenvoudigweg uw code en geef de bronnen, vereisten voor beschikbaarheid en resourcelimieten op.  Service Fabric Mesh wijst automatisch de infrastructuur toe en handelt problemen met de infrastructuur af, waarbij ervoor wordt gezorgd dat uw toepassingen maximaal beschikbaar zijn. U hoeft zich alleen bezig te houden met de status en de reactietijd van uw toepassing, niet met de infrastructuur.  
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
 
@@ -30,7 +33,7 @@ Service Fabric Mesh ondersteunt alle programmeertalen en frameworks die kunnen w
 
 Met Service Fabric Mesh kunt u het volgende:
 
-- Bestaande toepassingen via 'lift and shift' verplaatsen naar containers om uw huidige toepassingen te moderniseren en op schaal uit te voeren. 
+- Bestaande toepassingen via 'lift and shift' verplaatsen naar containers om uw huidige toepassingen te moderniseren en op schaal uit te voeren.
 - Nieuwe microservices-toepassingen op schaal bouwen en implementeren in Azure.  Integreren met andere Azure-services of bestaande toepassingen die in containers worden uitgevoerd. Elke microservice maakt deel uit van een veilige, geïsoleerde netwerktoepassing met beleid voor resourcebeheer dat is gedefinieerd voor CPU-kernen, geheugen, schijfruimte en meer.
 - Integreren en uitbreiden van bestaande toepassingen zonder wijzigingen aan te brengen in deze toepassingen. Uw eigen virtuele netwerk gebruiken om bestaande toepassingen met de nieuwe toepassing te verbinden.  
 - Uw bestaande Cloud Services-toepassingen moderniseren door te migreren naar Service Fabric Mesh.  
@@ -43,13 +46,10 @@ Met Service Fabric Mesh kunt u het volgende:
 
 - Implementeren en beheren van toepassingen zonder expliciete inrichting en beheer van de infrastructuur.  Door Service Fabric Mesh wordt de onderliggende infrastructuur voor u ingericht, bijgewerkt en van patches voorzien.
 - Continue integratie instellen met behulp van de geïntegreerde hulpprogramma's om toepassingen gemakkelijk te verpakken en te implementeren.
-- Gebruikmaken van alle functies van Azure Resource Manager-resources (bijvoorbeeld audittrail en [op rollen gebaseerd toegangsbeheer (RBAC)](/azure/role-based-access-control/overview)) omdat alle resources (zoals toepassingen, services, geheimen enzovoort) die u implementeert in de SF Mesh-service in Azure, Azure Resource Manager-resources zijn. 
+- Maak gebruik van alle functies van Azure Resource Manager-resources (bijvoorbeeld audittrail en [op rollen gebaseerd toegangsbeheer](/azure/role-based-access-control/overview)) omdat alle resources, zoals toepassingen, services, geheimen enzovoort, die u implementeert in de Service Fabric Mesh-service in Azure Azure Resource Manager-resources zijn.
 - Implementeren en beheren van resources met behulp van [Azure Portal](https://portal.azure.com), Resource Manager-sjablonen of Azure CLI/PowerShell-bibliotheken.
-- Instellen van operationele bewaking en waarschuwingen met behulp van [Application Insights](/azure/application-insights/) (of een hulpprogramma naar keuze) om de operationele en diagnostische traceringen van het platform vast te leggen. 
+- Instellen van operationele bewaking en waarschuwingen met behulp van [Application Insights](/azure/application-insights/) (of een hulpprogramma naar keuze) om de operationele en diagnostische traceringen van het platform vast te leggen.
 - Toegang krijgen tot diagnostische gegevens van de toepassing die afkomstig zijn uit het toepassingmodel via [Application Insights](/azure/application-insights/) of een hulpprogramma naar keuze.
-- Optimaliseren van resourcegebruik door regels voor automatisch schalen voor de services op te geven in de definitie van de toepassing.  (binnenkort beschikbaar)
-- Creëren van netwerkisolatie en beveiligingsgrenzen voor toepassingen, een krachtige functie in combinatie met Hyper-V-containers. Het netwerkverkeer naar en van de services isoleren met behulp van meerdere IP-adressen per service en geïsoleerde virtuele netwerken per toepassing.  (binnenkort beschikbaar) 
-
 
 ## <a name="mission-critical-platform-capabilities"></a>Bedrijfskritieke platformmogelijkheden
 

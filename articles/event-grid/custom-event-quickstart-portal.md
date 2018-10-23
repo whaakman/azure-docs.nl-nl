@@ -5,19 +5,23 @@ services: event-grid
 keywords: ''
 author: tfitzmac
 ms.author: tomfitz
-ms.date: 07/05/2018
+ms.date: 10/02/2018
 ms.topic: quickstart
 ms.service: event-grid
-ms.openlocfilehash: ec85a866279412232aa23fad8f975d1642525772
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: 630130bde0440a8a5f51589386f42214f27af59a
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42023426"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48040623"
 ---
 # <a name="create-and-route-custom-events-with-the-azure-portal-and-event-grid"></a>Aangepaste gebeurtenissen maken en routeren met behulp van Azure Portal en Event Grid
 
-Azure Event Grid is een gebeurtenisservice voor de cloud. In dit artikel gebruikt u Azure Portal om een aangepast onderwerp te maken, u op het onderwerp te abonneren, en de gebeurtenis te activeren om het resultaat weer te geven. U verzendt de gebeurtenis naar een Azure-functie die de gegevens van de gebeurtenis registreert. Wanneer u klaar bent, ziet u dat de gebeurtenisgegevens naar een eindpunt zijn verzonden en zijn geregistreerd.
+Azure Event Grid is een gebeurtenisservice voor de cloud. In dit artikel gebruikt u Azure Portal om een aangepast onderwerp te maken, u op het aangepaste onderwerp te abonneren, en de gebeurtenis te activeren om het resultaat weer te geven. Normaal gesproken verzendt u gebeurtenissen naar een eindpunt dat de gebeurtenisgegevens verwerkt en vervolgens in actie komt. Ter vereenvoudiging van dit artikel stuurt u hier de gebeurtenissen echter naar een web-app die de berichten verzamelt en weergeeft.
+
+Wanneer u klaar bent, ziet u dat de gebeurtenisgegevens naar de web-app zijn verzonden.
+
+![Resultaten weergeven](./media/custom-event-quickstart-portal/view-result.png)
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
@@ -27,7 +31,7 @@ Azure Event Grid is een gebeurtenisservice voor de cloud. In dit artikel gebruik
 
 Een Event Grid-onderwerp biedt een door de gebruiker gedefinieerd eindpunt waarop u de gebeurtenissen kunt posten. 
 
-1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
+1. Meld u aan bij de [Azure-portal](https://portal.azure.com/).
 
 1. Selecteer **Een resource maken** om een aangepast onderwerp te maken. 
 
@@ -61,77 +65,61 @@ Een Event Grid-onderwerp biedt een door de gebruiker gedefinieerd eindpunt waaro
 
    ![Naamconflict](./media/custom-event-quickstart-portal/name-conflict.png)
 
-## <a name="create-an-azure-function"></a>Een Azure-functie maken
+## <a name="create-a-message-endpoint"></a>Het eindpunt van een bericht maken
 
-Voordat u zich abonneert op het onderwerp, gaan we het eindpunt voor het gebeurtenisbericht maken. In dit artikel gebruikt u Azure Functions om een functie-app voor het eindpunt te maken.
+Voordat u zich abonneert op het aangepaste onderwerp, gaan we het eindpunt voor het gebeurtenisbericht maken. Het eindpunt onderneemt normaal gesproken actie op basis van de gebeurtenisgegevens. Ter vereenvoudiging van deze snelstart gaat u een [vooraf gebouwde web-app](https://github.com/Azure-Samples/azure-event-grid-viewer) implementeren waarmee de gebeurtenisberichten worden weergegeven. De geïmplementeerde oplossing omvat een App Service-plan, een App Service-web-app en broncode van GitHub.
 
-1. Selecteer **Een resource maken** om een functie te maken.
+1. Selecteer **Implementeren in Azure** om de oplossing voor uw abonnement te implementeren. Geef in Azure Portal waarden op voor de parameters.
 
-   ![Een resource maken](./media/custom-event-quickstart-portal/create-resource-small.png)
+   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
 
-1. Selecteer **Compute** en **Functie-app**.
+1. De implementatie kan enkele minuten duren. Controleer of uw web-app wordt uitgevoerd nadat de implementatie is voltooid. Navigeer in een webbrowser naar: `https://<your-site-name>.azurewebsites.net`
 
-   ![Functie maken](./media/custom-event-quickstart-portal/create-function.png)
+1. De site wordt weergegeven, maar er zijn nog geen gebeurtenissen op gepubliceerd.
 
-1. Geef een unieke naam op voor de Azure-functie. Gebruik niet de naam die in de afbeelding wordt weergegeven. Selecteer de resourcegroep die u in dit artikel hebt gemaakt. Gebruik **Verbruiksabonnement** voor het hostingabonnement. Gebruik het voorgestelde nieuwe opslagaccount. U kunt Application Insights uitschakelen. Nadat u de waarden hebt opgegeven, selecteert u **Maken**.
+   ![Nieuwe site weergeven](./media/custom-event-quickstart-portal/view-site.png)
 
-   ![Geef waarden voor de functie op](./media/custom-event-quickstart-portal/provide-function-values.png)
+## <a name="subscribe-to-custom-topic"></a>Abonneren op aangepast onderwerp
 
-1. Wanneer de implementatie is voltooid, selecteert u **Ga naar resource**.
+U abonneert u op een Event Grid-onderwerp om Event Grid te laten weten welke gebeurtenissen u wilt traceren en waar de gebeurtenissen naartoe moeten worden gestuurd.
 
-   ![Ga naar resource](./media/custom-event-quickstart-portal/go-to-resource.png)
+1. Selecteer het aangepaste onderwerp in de portal.
 
-1. Bij **Functies** selecteert u **+**.
+   ![Aangepaste onderwerp selecteren](./media/custom-event-quickstart-portal/select-custom-topic.png)
 
-   ![Functie toevoegen](./media/custom-event-quickstart-portal/add-function.png)
+1. Selecteer **+ Gebeurtenisabonnement**.
 
-1. Selecteer **Aangepaste functie** in de beschikbare opties.
+   ![Gebeurtenisabonnement toevoegen](./media/custom-event-quickstart-portal/new-event-subscription.png)
 
-   ![Aangepaste functie](./media/custom-event-quickstart-portal/select-custom-function.png)
+1. Selecteer **Webhook** voor het eindpunttype. Geef een naam op voor het gebeurtenisabonnement.
 
-1. Schuif omlaag totdat u **Trigger gebeurtenisraster** ziet. Selecteer **C#**.
+   ![Waarden opgeven voor gebeurtenisabonnement](./media/custom-event-quickstart-portal/provide-subscription-values.png)
 
-   ![Trigger gebeurtenisraster selecteren](./media/custom-event-quickstart-portal/select-event-grid-trigger.png)
+1. Selecteer **Select an endpoint** (Een eindpunt selecteren). 
 
-1. Accepteer de standaardwaarden en selecteer **Maken**.
+1. Voor het webhookeindpunt geeft u de URL van uw web-app op en voegt u `api/updates` toe aan de URL van de startpagina. Selecteer **Confirm Selection** (Selectie bevestigen).
 
-   ![Nieuwe functie](./media/custom-event-quickstart-portal/new-function.png)
+   ![Eindpunt-URL opgeven](./media/custom-event-quickstart-portal/provide-endpoint.png)
 
-Uw functie is nu gereed voor het ontvangen van gebeurtenissen.
+1. Wanneer u klaar bent het opgeven van de waarden voor het gebeurtenisabonnement, selecteert u **Create** (Maken).
 
-## <a name="subscribe-to-a-topic"></a>Abonneren op een onderwerp
+Bekijk opnieuw uw web-app en u zult zien dat er een validatiegebeurtenis voor een abonnement naartoe is verzonden. Selecteer het oogpictogram om de gebeurtenisgegevens uit te breiden. Via Event Grid wordt de validatiegebeurtenis verzonden zodat het eindpunt kan controleren of de gebeurtenisgegevens in aanmerking komen om ontvangen te worden. De web-app bevat code waarmee het abonnement kan worden gevalideerd.
 
-U abonneert u op een onderwerp om Event Grid te laten weten welke gebeurtenissen u wilt traceren en waar de gebeurtenissen naartoe moeten worden gestuurd.
-
-1. Selecteer **Event Grid-abonnement toevoegen** in uw Azure-functie.
-
-   ![Event Grid-abonnement toevoegen](./media/custom-event-quickstart-portal/add-event-grid-subscription.png)
-
-1. Geef waarden op voor het abonnement. Selecteer **Event Grid-onderwerpen** als onderwerptype. Selecteer voor het abonnement en de resourcegroep het abonnement en de resourcegroep waar u uw aangepaste onderwerp hebt gemaakt. Selecteer bijvoorbeeld de naam van uw aangepast onderwerp. Het abonnee-eindpunt is vooraf ingevuld met de URL voor de functie.
-
-   ![Abonnementswaarden opgeven](./media/custom-event-quickstart-portal/provide-subscription-values.png)
-
-1. Voordat u de gebeurtenis activeert, opent u de logboeken voor de functie zodat u de gebeurtenisgegevens kunt zien wanneer deze worden verzonden. Selecteer **Logboeken** onderaan uw Azure-functie.
-
-   ![Logboeken selecteren](./media/custom-event-quickstart-portal/select-logs.png)
-
-Nu gaan we een gebeurtenis activeren om te zien hoe het bericht via Event Grid naar het eindpunt wordt gedistribueerd. Gebruik ter vereenvoudiging van dit artikel Cloud Shell om voorbeeldgebeurtenisgegevens naar het aangepaste onderwerp te verzenden. Meestal worden de gebeurtenisgegevens verzonden via een toepassing of Azure-service.
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+![Een abonnementgebeurtenis weergeven](./media/custom-event-quickstart-portal/view-subscription-event.png)
 
 ## <a name="send-an-event-to-your-topic"></a>Een gebeurtenis verzenden naar het onderwerp
 
-Gebruik Azure CLI of PowerShell om een testgebeurtenis te verzenden naar uw aangepaste onderwerp.
+Nu gaan we een gebeurtenis activeren om te zien hoe het bericht via Event Grid naar het eindpunt wordt gedistribueerd. Gebruik Azure CLI of PowerShell om een testgebeurtenis te verzenden naar uw aangepaste onderwerp. Meestal worden de gebeurtenisgegevens verzonden via een toepassing of Azure-service.
 
-Het eerste voorbeeld maakt gebruik van Azure CLI. In dit voorbeeld worden de URL en de sleutel voor het onderwerp, plus de voorbeeldgegevens van de gebeurtenis opgehaald. Gebruik de onderwerpnaam voor `<topic_name>`. Als u de volledige gebeurtenis wilt weergeven, gebruikt u `echo "$body"`. Het element `data` van de JSON is de nettolading van de gebeurtenis. Elke juist opgemaakte JSON kan in dit veld worden ingevoerd. U kunt het onderwerpveld ook gebruiken voor geavanceerd routeren en filteren. CURL is een hulpprogramma waarmee HTTP-aanvragen worden verzonden.
+Het eerste voorbeeld maakt gebruik van Azure CLI. In dit voorbeeld worden de URL en de sleutel voor het aangepaste onderwerp, plus de voorbeeldgegevens van de gebeurtenis opgehaald. Gebruik de naam van het aangepaste onderwerp voor `<topic_name>`. Hiermee worden voorbeeldgebeurtenisgegevens gemaakt. Het element `data` van de JSON is de nettolading van de gebeurtenis. Elke juist opgemaakte JSON kan in dit veld worden ingevoerd. U kunt het onderwerpveld ook gebruiken voor geavanceerd routeren en filteren. CURL is een hulpprogramma waarmee HTTP-aanvragen worden verzonden.
 
 ```azurecli-interactive
 endpoint=$(az eventgrid topic show --name <topic_name> -g myResourceGroup --query "endpoint" --output tsv)
 key=$(az eventgrid topic key list --name <topic_name> -g myResourceGroup --query "key1" --output tsv)
 
-body=$(eval echo "'$(curl https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/event-grid/customevent.json)'")
+event='[ {"id": "'"$RANDOM"'", "eventType": "recordInserted", "subject": "myapp/vehicles/motorcycles", "eventTime": "'`date +%Y-%m-%dT%H:%M:%S%z`'", "data":{ "make": "Ducati", "model": "Monster"},"dataVersion": "1.0"} ]'
 
-curl -X POST -H "aeg-sas-key: $key" -d "$body" $endpoint
+curl -X POST -H "aeg-sas-key: $key" -d "$event" $endpoint
 ```
 
 In het tweede voorbeeld wordt PowerShell gebruikt om gelijksoortige stappen uit te voeren.
@@ -165,9 +153,25 @@ $body = "["+(ConvertTo-Json $htbody)+"]"
 Invoke-WebRequest -Uri $endpoint -Method POST -Body $body -Headers @{"aeg-sas-key" = $keys.Key1}
 ```
 
-U hebt de gebeurtenis geactiveerd en Event Grid heeft het bericht verzonden naar het eindpunt dat u hebt geconfigureerd toen u zich abonneerde. Bekijk de logboeken voor de gebeurtenisgegevens.
+U hebt de gebeurtenis geactiveerd en Event Grid heeft het bericht verzonden naar het eindpunt dat u hebt geconfigureerd toen u zich abonneerde. Bekijk uw web-app om de gebeurtenis te zien die u zojuist hebt verzonden.
 
-![Logboeken weergeven](./media/custom-event-quickstart-portal/view-log-entry.png)
+```json
+[{
+  "id": "1807",
+  "eventType": "recordInserted",
+  "subject": "myapp/vehicles/motorcycles",
+  "eventTime": "2017-08-10T21:03:07+00:00",
+  "data": {
+    "make": "Ducati",
+    "model": "Monster"
+  },
+  "dataVersion": "1.0",
+  "metadataVersion": "1",
+  "topic": "/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.EventGrid/topics/{topic}"
+}]
+```
+
+
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 

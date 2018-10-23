@@ -1,47 +1,47 @@
 ---
-title: 'Snelstartgids: Node.js voor QnA Maker-API (V4)'
+title: 'Snelstart: Node.js voor QnA Maker-API (V4)'
 titleSuffix: Azure Cognitive Services
-description: Get-informatie en codevoorbeelden om u te helpen snel aan de slag met behulp van de Microsoft Translator Text-API in Microsoft Cognitive Services op Azure.
+description: Verkrijg informatie en codevoorbeelden om snel aan de slag te gaan met de Microsoft Translator Text-API in Microsoft Cognitive Services in Azure.
 services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
-ms.technology: qna-maker
-ms.topic: article
+ms.component: qna-maker
+ms.topic: quickstart
 ms.date: 09/12/2018
 ms.author: diberry
-ms.openlocfilehash: 05a15ddf8d7668896052c38afc549bc7b3cb056a
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
-ms.translationtype: MT
+ms.openlocfilehash: 1bdaa2cd67e6ee772085fd8c3b60c55a74a8df16
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434327"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48884896"
 ---
-# <a name="quickstart-for-microsoft-qna-maker-api-with-nodejs"></a>Snelstartgids voor Microsoft QnA Maker-API met Node.js 
+# <a name="quickstart-for-microsoft-qna-maker-api-with-nodejs"></a>Snelstart voor Microsoft QnA Maker-API met Node.js 
 <a name="HOLTop"></a>
 
-In dit artikel leest u hoe u de [QnA Maker-API van Microsoft](../Overview/overview.md) met behulp van Node.js om het volgende te doen.
+In dit artikel leest u hoe u de [Microsoft QnA Maker-API](../Overview/overview.md) met Node.js gebruikt om het volgende te doen.
 
-- [Maak een nieuwe knowledge base.](#Create)
-- [Een bestaande kennisdatabase bijwerken.](#Update)
-- [Haal de status van een aanvraag maken of bijwerken van een kennisdatabase.](#Status)
-- [Een bestaande kennisdatabase publiceren.](#Publish)
-- [Vervang de inhoud van een bestaande knowledge base.](#Replace)
-- [Download de inhoud van een kennisdatabase.](#GetQnA)
-- [Vind antwoorden op een vraag met behulp van een kennisdatabase.](#GetAnswers)
+- [Een nieuwe knowledge base maken.](#Create)
+- [Een bestaande knowledge base bijwerken.](#Update)
+- [De status van een aanvraag ophalen om een knowledge base te maken of bij te werken.](#Status)
+- [Een bestaande knowledge base publiceren.](#Publish)
+- [De inhoud van een bestaande knowledge base vervangen.](#Replace)
+- [De inhoud van een knowledge base downloaden.](#GetQnA)
+- [Antwoorden vinden op vragen met behulp van een knowledge base.](#GetAnswers)
 - [Informatie ophalen over een knowledge base.](#GetKB)
-- [Informatie ophalen over alle knowledge bases die behoren tot de opgegeven gebruiker.](#GetKBsByUser)
-- [Een kennisdatabase verwijderen.](#Delete)
-- [De huidige endpoint-sleutels ophalen.](#GetKeys)
-- [De huidige endpoint-sleutels opnieuw genereren.](#PutKeys)
-- [De huidige set word wijzigingen ophalen.](#GetAlterations)
-- [Vervang de huidige reeks word wijzigingen.](#PutAlterations)
+- [Informatie ophalen over alle knowledge bases van de opgegeven gebruiker.](#GetKBsByUser)
+- [Een knowledge base verwijderen.](#Delete)
+- [De huidige eindpuntsleutels ophalen.](#GetKeys)
+- [De huidige eindpuntsleutels opnieuw genereren.](#PutKeys)
+- [De huidige set woordwijzigingen ophalen.](#GetAlterations)
+- [De huidige set woordwijzigingen vervangen.](#PutAlterations)
 
 [!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-nodejs-repo-note.md)]
 
 ## <a name="prerequisites"></a>Vereisten
 
-U moet [Node.js 6](https://nodejs.org/en/download/) deze code uit te voeren.
+U hebt [Node.js 6](https://nodejs.org/en/download/) nodig om deze code uit te voeren.
 
 U moet beschikken over een [account voor Cognitive Services-API](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met **Microsoft QnA Maker-API**. U hebt een betaalde abonnementssleutel nodig op het [Azure-dashboard](https://portal.azure.com/#create/Microsoft.CognitiveServices).
 
@@ -208,7 +208,7 @@ create_kb (path, content, function (result) {
 });
 ```
 
-**Antwoord kennisdatabase maken**
+**Antwoord van methode Create knowledge base**
 
 Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u kunt zien in het volgende voorbeeld: 
 
@@ -243,7 +243,7 @@ Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u kunt zien
 
 <a name="Update"></a>
 
-## <a name="update-knowledge-base"></a>Kennisdatabase bijwerken
+## <a name="update-knowledge-base"></a>Knowledge base bijwerken
 
 Met de volgende code wordt een bestaande knowledge base bijgewerkt met behulp van de methode [Update](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600).
 
@@ -408,7 +408,7 @@ update_kb (path, content, function (result) {
 });
 ```
 
-**Antwoord kennisdatabase bijwerken**
+**Antwoord van methode Update knowledge base**
 
 Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u kunt zien in het volgende voorbeeld: 
 
@@ -444,7 +444,7 @@ U kunt de methode [Operation](https://westus.dev.cognitive.microsoft.com/docs/se
 
 <a name="Publish"></a>
 
-## <a name="publish-knowledge-base"></a>Kennisdatabase publiceren
+## <a name="publish-knowledge-base"></a>Knowledge base publiceren
 
 Met de volgende code wordt een bestaande knowledge base gepubliceerd met behulp van de methode [Publish](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fe).
 
@@ -542,7 +542,7 @@ publish_kb (path, '', function (result) {
 });
 ```
 
-**Antwoord kennisdatabase publiceren**
+**Knowledge base-antwoord publiceren**
 
 Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u kunt zien in het volgende voorbeeld: 
 
@@ -556,9 +556,9 @@ Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u kunt zien
 
 <a name="Replace"></a>
 
-## <a name="replace-knowledge-base"></a>Vervang kennisdatabase
+## <a name="replace-knowledge-base"></a>Knowledge base vervangen
 
-De volgende code wordt vervangen door de inhoud van de opgegeven knowledge base, met behulp van de [vervangen](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_publish) methode.
+Met de volgende code wordt de inhoud van de opgegeven knowledge base vervangen. Hierbij wordt gebruikgemaakt van de methode [Replace](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_publish).
 
 1. Maak een nieuw Node.js-project in uw favoriete IDE.
 2. Voeg de onderstaande code toe.
@@ -675,7 +675,7 @@ replace_kb (path, content, function (result) {
 });
 ```
 
-**Knowledge base-antwoord vervangen**
+**Antwoord van methode Replace knowledge base**
 
 Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u kunt zien in het volgende voorbeeld: 
 
@@ -689,9 +689,9 @@ Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u kunt zien
 
 <a name="GetQnA"></a>
 
-## <a name="download-the-contents-of-a-knowledge-base"></a>De inhoud van een kennisdatabase downloaden
+## <a name="download-the-contents-of-a-knowledge-base"></a>De inhoud van een knowledge base downloaden
 
-De volgende code wordt gedownload van de inhoud van de opgegeven knowledge base, met behulp van de [downloaden kennisdatabase](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_download) methode.
+Met de volgende code wordt de inhoud van de opgegeven knowledge base gedownload. Hierbij wordt gebruikgemaakt van de methode [Download knowledge base](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_download).
 
 1. Maak een nieuw Node.js-project in uw favoriete IDE.
 2. Voeg de onderstaande code toe.
@@ -781,7 +781,7 @@ get_qna (path, function (result) {
 });
 ```
 
-**Downloaden van knowledge base-antwoord**
+**Antwoord van methode Download knowledge base**
 
 Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u kunt zien in het volgende voorbeeld: 
 
@@ -820,15 +820,15 @@ Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u kunt zien
 
 <a name="GetAnswers"></a>
 
-## <a name="get-answers-to-a-question-using-a-knowledge-base"></a>Vind antwoorden op een vraag met behulp van een kennisdatabase
+## <a name="get-answers-to-a-question-using-a-knowledge-base"></a>Antwoorden vinden op vragen met behulp van een knowledge base
 
-De volgende code verkrijgt u antwoorden op een vraag met behulp van de opgegeven knowledge base, met behulp van de **antwoorden genereren** methode.
+Met de volgende code worden antwoorden op een vraag opgehaald uit de opgegeven knowledge base. Hiervoor wordt gebruikgemaakt van de methode **Generate answers**.
 
 1. Maak een nieuw Node.js-project in uw favoriete IDE.
 1. Voeg de onderstaande code toe.
-1. Vervang de `host` waarde met de naam van de Website voor uw abonnement QnA Maker. Zie voor meer informatie [een QnA Maker-service maken](../How-To/set-up-qnamaker-service-azure.md).
-1. Vervang de `endpoint_key` waarde met een sleutel geldig eindpunt voor uw abonnement. Let op: dit is niet hetzelfde als de abonnementssleutel van uw. Krijgt u uw eindpunt-sleutels met behulp van de [endpoint-sleutels ophalen](#GetKeys) methode.
-1. Vervang de `kb` waarde met de ID van de knowledge base die u wilt zoeken naar antwoorden. Houd er rekening mee deze kennisdatabase moet al zijn gepubliceerd met behulp van de [publiceren](#Publish) methode.
+1. Vervang de waarde `host` door de websitenaam voor uw QnA Maker-abonnement. Zie [Een QnA Maker-service maken](../How-To/set-up-qnamaker-service-azure.md) voor meer informatie.
+1. Vervang de waarde `endpoint_key` door een geldige eindpuntsleutel voor uw abonnement. Deze sleutel is niet hetzelfde als uw abonnementssleutel. U kunt uw eindpuntsleutels ophalen met de methode [Get endpoint keys](#GetKeys).
+1. Vervang de waarde `kb` door de id van de knowledge base waaruit u antwoorden wilt ophalen. Deze knowledge base moet al zijn gepubliceerd met behulp van de methode [Publish](#Publish).
 1. Voer het programma uit.
 
 ```nodejs
@@ -925,7 +925,7 @@ get_answers (method, content, function (result) {
 });
 ```
 
-**Antwoorden antwoord ophalen**
+**Antwoord van methode Get answers**
 
 Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u kunt zien in het volgende voorbeeld: 
 
@@ -951,9 +951,9 @@ Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u kunt zien
 
 <a name="GetKB"></a>
 
-## <a name="get-information-about-a-knowledge-base"></a>Informatie ophalen over een kennisdatabase
+## <a name="get-information-about-a-knowledge-base"></a>Informatie ophalen over een knowledge base
 
-De volgende code haalt informatie over de opgegeven knowledge base, met behulp van de [kennisdatabase informatie](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_getknowledgebasedetails) methode.
+Met de volgende code wordt informatie over de opgegeven knowledge base opgehaald. Hiervoor wordt gebruikgemaakt van de methode [Get knowledge base details](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_getknowledgebasedetails).
 
 1. Maak een nieuw Node.js-project in uw favoriete IDE.
 2. Voeg de onderstaande code toe.
@@ -1040,7 +1040,7 @@ get_kb (path, function (result) {
 });
 ```
 
-**Kennisdatabase details antwoord ophalen**
+**Antwoord van methode Get knowledge base Details**
 
 Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u kunt zien in het volgende voorbeeld: 
 
@@ -1066,9 +1066,9 @@ Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u kunt zien
 
 <a name="GetKBsByUser"></a>
 
-## <a name="get-all-knowledge-bases-for-a-user"></a>Alle knowledge bases voor een gebruiker ophalen
+## <a name="get-all-knowledge-bases-for-a-user"></a>Alle knowledge bases van een gebruiker ophalen
 
-De volgende code haalt informatie over alle knowledge bases voor een opgegeven gebruiker, met behulp van de [knowledge bases voor gebruiker ophalen](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_getknowledgebasesforuser) methode.
+Met de volgende code wordt informatie over alle knowledge bases van een opgegeven gebruiker opgehaald. Hierbij wordt gebruikgemaakt van de methode [Get knowledge bases for user](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_getknowledgebasesforuser).
 
 1. Maak een nieuw Node.js-project in uw favoriete IDE.
 2. Voeg de onderstaande code toe.
@@ -1152,7 +1152,7 @@ get_kbs (path, function (result) {
 });
 ```
 
-**Knowledge bases reactie van gebruiker ophalen**
+**Antwoord Get knowledge bases for user**
 
 Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u kunt zien in het volgende voorbeeld: 
 
@@ -1194,9 +1194,9 @@ Press any key to continue.
 
 <a name="Delete"></a>
 
-## <a name="delete-a-knowledge-base"></a>Een kennisdatabase verwijderen
+## <a name="delete-a-knowledge-base"></a>Een knowledge base verwijderen
 
-De volgende code verwijdert de opgegeven knowledge base, met behulp van de [verwijderen kennisdatabase](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_delete) methode.
+Met de volgende code wordt de opgegeven knowledge base verwijderd. Hierbij wordt gebruikgemaakt van de methode [Delete knowledge base](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_delete).
 
 1. Maak een nieuw Node.js-project in uw favoriete IDE.
 2. Voeg de onderstaande code toe.
@@ -1292,7 +1292,7 @@ delete_kb (path, '', function (result) {
 });
 ```
 
-**Knowledge base-antwoord verwijderen**
+**Antwoord van methode Delete knowledge base**
 
 Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u kunt zien in het volgende voorbeeld: 
 
@@ -1306,9 +1306,9 @@ Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u kunt zien
 
 <a name="GetKeys"></a>
 
-## <a name="get-endpoint-keys"></a>Eindpunt-sleutels ophalen
+## <a name="get-endpoint-keys"></a>Eindpuntsleutels ophalen
 
-De volgende code verkrijgt de huidige sleutels van het eindpunt met behulp van de [endpoint-sleutels ophalen](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/endpointkeys_getendpointkeys) methode.
+Met de volgende code worden de huidige eindpuntsleutels opgehaald. Hierbij wordt gebruikgemaakt van de methode [Get endpoint keys](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/endpointkeys_getendpointkeys).
 
 1. Maak een nieuw Node.js-project in uw favoriete IDE.
 2. Voeg de onderstaande code toe.
@@ -1392,7 +1392,7 @@ get_keys (path, function (result) {
 });
 ```
 
-**Eindpunt sleutels antwoord ophalen**
+**Antwoord van methode Get endpoint keys**
 
 Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u kunt zien in het volgende voorbeeld: 
 
@@ -1407,9 +1407,9 @@ Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u kunt zien
 
 <a name="PutKeys"></a>
 
-## <a name="refresh-endpoint-keys"></a>Eindpunt-sleutels vernieuwen
+## <a name="refresh-endpoint-keys"></a>Eindpuntsleutels vernieuwen
 
-De volgende code worden opnieuw gegenereerd door de huidige sleutels van het eindpunt met behulp van de [eindpunt sleutels vernieuwen](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/endpointkeys_refreshendpointkeys) methode.
+Met de volgende code worden de huidige eindpuntsleutels opnieuw gegenereerd. Hierbij wordt gebruikgemaakt van de methode [Refresh endpoint keys](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/endpointkeys_refreshendpointkeys).
 
 1. Maak een nieuw Node.js-project in uw favoriete IDE.
 2. Voeg de onderstaande code toe.
@@ -1518,7 +1518,7 @@ refresh_keys (path, content, function (result) {
 });
 ```
 
-**Eindpunt sleutels antwoord vernieuwen**
+**Antwoord van methode Refresh endpoint keys**
 
 Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u kunt zien in het volgende voorbeeld: 
 
@@ -1533,9 +1533,9 @@ Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u kunt zien
 
 <a name="GetAlterations"></a>
 
-## <a name="get-word-alterations"></a>Word wijzigingen ophalen
+## <a name="get-word-alterations"></a>Woordwijzigingen ophalen
 
-De volgende code verkrijgt de huidige wijzigingen van word, met behulp van de [downloaden wijzigingen](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fc) methode.
+Met de volgende code worden de huidige woordwijzigingen opgehaald. Hierbij wordt gebruikgemaakt van de methode [Download alterations](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fc).
 
 1. Maak een nieuw Node.js-project in uw favoriete IDE.
 2. Voeg de onderstaande code toe.
@@ -1619,7 +1619,7 @@ get_alterations (path, function (result) {
 });
 ```
 
-**Word wijzigingen antwoord ophalen**
+**Antwoord van methode Get word alterations**
 
 Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u kunt zien in het volgende voorbeeld: 
 
@@ -1640,9 +1640,9 @@ Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u kunt zien
 
 <a name="PutAlterations"></a>
 
-## <a name="replace-word-alterations"></a>Word wijzigingen vervangen
+## <a name="replace-word-alterations"></a>Woordwijzigingen vervangen
 
-De volgende code wordt vervangen door de huidige wijzigingen van word, met behulp van de [vervangen wijzigingen](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fd) methode.
+Met de volgende code worden de huidige woordwijzigingen vervangen. Hierbij wordt gebruikgemaakt van de methode [Replace alterations](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fd).
 
 1. Maak een nieuw Node.js-project in uw favoriete IDE.
 2. Voeg de onderstaande code toe.
@@ -1748,7 +1748,7 @@ put_alterations (path, content, function (result) {
 });
 ```
 
-**Word wijzigingen antwoord vervangen**
+**Antwoord van methode Replace word alterations**
 
 Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u kunt zien in het volgende voorbeeld: 
 

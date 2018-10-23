@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 03/30/2018
 ms.author: dech
 ms.custom: mvc
-ms.openlocfilehash: 771c4a33603ddf262df3b35992d318d34de6c2dc
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: af6faa6abcc54ef11e066d3a348dac28b23c7af4
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43698108"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49079086"
 ---
 # <a name="use-data-migration-tool-to-migrate-your-data-to-azure-cosmos-db"></a>Hulpprogramma voor gegevensmigratie gebruiken voor het migreren van uw gegevens naar Azure Cosmos DB 
 
@@ -42,7 +42,9 @@ Voordat u de instructies in dit artikel uitvoert, moet het volgende zijn geïnst
 
 * [Microsoft .NET Framework 4.51](https://www.microsoft.com/download/developer-tools.aspx) of hoger.
 
-* Verhoog de doorvoer: de duur van de gegevensmigratie is afhankelijk van de hoeveelheid doorvoer die u voor een afzonderlijke verzameling of een reeks verzamelingen instelt. Verhoog de doorvoer voor grotere gegevensmigraties. Nadat u de migratie hebt voltooid, verlaagt u de doorvoer om kosten te besparen. Zie Prestatieniveaus en prijscategorieën in Azure Cosmos DB voor meer informatie over het verhogen van de doorvoer in Azure Portal.
+* **Verhoog de doorvoer:** de duur van de gegevensmigratie is afhankelijk van de hoeveelheid doorvoer die u voor een afzonderlijke verzameling of een reeks verzamelingen instelt. Verhoog de doorvoer voor grotere gegevensmigraties. Nadat u de migratie hebt voltooid, verlaagt u de doorvoer om kosten te besparen. Zie Prestatieniveaus en prijscategorieën in Azure Cosmos DB voor meer informatie over het verhogen van de doorvoer in Azure Portal.
+
+* **Maak Azure Cosmos DB-resources**: voordat u gegevens gaat migreren, maakt u vooraf alle tabellen vanuit Azure Portal. Als u migreert naar een Azure Cosmos DB-account dat doorvoer op databaseniveau heeft, moet u een partitiesleutel opgeven wanneer u de Azure Cosmos DB-verzamelingen maakt.
 
 ## <a id="Overviewl"></a>Overzicht
 Het hulpprogramma voor gegevensmigratie is een open source-oplossing waarmee gegevens worden geïmporteerd naar Azure Cosmos DB vanuit diverse bronnen, zoals:
@@ -171,7 +173,7 @@ Deze retourneert de volgende (gedeeltelijke) waarden:
 
 ![Schermafbeelding van SQL-queryresultaten](./media/import-data/sqlqueryresults.png)
 
-Let op de aliassen zoals Address.AddressType en Address.Location.StateProvinceName. Door het geneste scheidingsteken '.' op te geven, maakt het importprogramma Address- en Address.Location-subdocumenten tijdens het importeren. Hier volgt een voorbeeld van een resulterend document in Azure Cosmos DB:
+Let op de aliassen zoals Address.AddressType en Address.Location.StateProvinceName. Door een scheidingsteken voor nesten '.' op te geven, maakt het importprogramma Address- en Address.Location-subdocumenten tijdens het importeren. Hier volgt een voorbeeld van een resulterend document in Azure Cosmos DB:
 
 *{ "id": "956", "Name": "Finer Sales and Service", "Address": { "AddressType": "Main Office", "AddressLine1": "#500-75 O'Connor Street", "Location": { "City": "Ottawa", "StateProvinceName": "Ontario" }, "PostalCode": "K4B 1S2", "CountryRegionName": "Canada" } }*
 
@@ -192,7 +194,7 @@ Vergelijkbaar met de SQL-bron kan de eigenschap van het type geneste scheidingst
 
 ![Schermopname van CSV-voorbeeldrecords - CSV naar JSON](./media/import-data/csvsample.png)
 
-Let op de aliassen zoals DomainInfo.Domain_Name en RedirectInfo.Redirecting. Door het geneste scheidingsteken '.' op te geven, maakt het importprogramma DomainInfo- en RedirectInfo-subdocumenten tijdens het importeren. Hier volgt een voorbeeld van een resulterend document in Azure Cosmos DB:
+Let op de aliassen zoals DomainInfo.Domain_Name en RedirectInfo.Redirecting. Door een scheidingsteken voor nesten '.' op te geven, maakt het importprogramma DomainInfo- en RedirectInfo-subdocumenten tijdens het importeren. Hier volgt een voorbeeld van een resulterend document in Azure Cosmos DB:
 
 *{ "DomainInfo": { "Domain_Name": "ACUS.GOV", "Domain_Name_Address": "http://www.ACUS.GOV" }, "Federal Agency": "Administrative Conference of the United States", "RedirectInfo": { "Redirecting": "0", "Redirect_Destination": "" }, "id": "9cc565c5-ebcd-1c03-ebd3-cc3e2ecd814d" }*
 
@@ -201,7 +203,7 @@ Het importprogramma probeert type-informatie af te leiden voor waarden zonder aa
 Er zijn nog twee dingen op te merken over CSV-import:
 
 1. Standaard worden waarden zonder aanhalingstekens altijd afgekapt voor tabs en spaties; waarden tussen aanhalingstekens blijven behouden zoals ze zijn. Dit gedrag kan worden overschreven met het selectievakje Waarden tussen aanhalingstekens afkappen of de opdrachtregeloptie /s.TrimQuoted.
-2. Standaard wordt een null zonder aanhalingstekens beschouwd als een null-waarde. Dit gedrag kan worden overschreven (dat wil zeggen een null zonder aanhalingstekens behandelen als een ‘null’-tekenreeks) met het selectievakje NULL als tekenreeks behandelen of de opdrachtregeloptie /s.NoUnquotedNulls.
+2. Standaard wordt een null zonder aanhalingstekens beschouwd als een null-waarde. Dit gedrag kan worden overschreven (dat wil zeggen een null zonder aanhalingstekens behandelen als een 'null'-tekenreeks) met het selectievakje NULL als tekenreeks behandelen of de opdrachtregeloptie /s.NoUnquotedNulls.
 
 Hier volgt een voorbeeld van een opdrachtregel voor CSV-import:
 
@@ -522,6 +524,14 @@ U kunt eventueel de resulterende JSON opschonen waarmee het resulterende documen
       }
     ]
     }]
+
+Hier volgt een opdrachtregelvoorbeeld om het JSON-bestand te exporteren naar Azure Blob-opslag:
+
+```
+dt.exe /ErrorDetails:All /s:DocumentDB /s.ConnectionString:"AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB database_name>" /s.Collection:<CosmosDB collection_name>
+/t:JsonFile /t.File:"blobs://<Storage account key>@<Storage account name>.blob.core.windows.net:443/<Container_name>/<Blob_name>"
+/t.Overwrite
+```
 
 ## <a name="advanced-configuration"></a>Geavanceerde configuratie
 In het scherm Geavanceerde configuratie geeft u de locatie op van het logboekbestand waarnaar eventuele fouten moeten worden geschreven. De volgende regels zijn van toepassing op deze pagina:
