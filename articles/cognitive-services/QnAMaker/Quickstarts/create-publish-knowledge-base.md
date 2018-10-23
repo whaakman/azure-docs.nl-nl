@@ -9,12 +9,12 @@ ms.component: qna-maker
 ms.topic: quickstart
 ms.date: 09/12/2018
 ms.author: diberry
-ms.openlocfilehash: 85b4630492d5f5b3fb71d563b0947d8a72ae4e1d
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 99f9259c9fa73a9ba4842b2684cde8a44f73145a
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48886530"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389663"
 ---
 # <a name="quickstart-create-train-and-publish-your-knowledge-base"></a>Snelstart: Een knowledge base maken, trainen en publiceren
 
@@ -41,7 +41,7 @@ U kunt een QnA Maker-knowledge base (KB) maken van uw eigen inhoud, zoals veelge
 
 5. Noem uw KB in stap 3**Mijn voorbeeld-QnA-KB**.
 
-6. Selecteert drie soorten gegevensbronnen om inhoud toe te voegen aan de KB. Voeg in stap 4, onder **Populate your KB** (De KB vullen), de URL [Veelgestelde vragen over BitLocker-herstel](https://docs.microsoft.com/en-us/windows/security/information-protection/bitlocker/bitlocker-overview-and-requirements-faq) toe in het vak **URL**.
+6. Selecteert drie soorten gegevensbronnen om inhoud toe te voegen aan de KB. Voeg in stap 4, onder **Populate your KB** (De KB vullen), de URL [Veelgestelde vragen over BitLocker-herstel](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview-and-requirements-faq) toe in het vak **URL**.
 
    ![Een QnA-service-KB selecteren](../media/qnamaker-quickstart-kb/add-datasources.png)
 
@@ -51,7 +51,7 @@ U kunt een QnA Maker-knowledge base (KB) maken van uw eigen inhoud, zoals veelge
 
 9. Wanneer de KB is gemaakt, wordt de pagina **Knowledge base** geopend. U kunt de inhoud van de KB op deze pagina bewerken.
 
-10. Selecteer in de rechterbovenhoek **Add QnA pair** (QnA-set toevoegen) om een nieuwe rij toe te voegen in de sectie **Editorial** (Redactioneel) van de KB. Typ onder **Question** (Vraag) **Hoi.** Typ onder **Answer** (Antwoord) **Hallo. Wat wil je weten over Bitlocker?**
+10. Selecteer in de rechterbovenhoek **Add QnA pair** (QnA-set toevoegen) om een nieuwe rij toe te voegen in de sectie **Editorial** (Redactioneel) van de KB. Typ onder **Question** (Vraag) **Hoi.** Typ onder **Answer** (Antwoord) **Hallo. Stel mij vragen over bitlocker.**
 
    ![Een QnA-set toevoegen](../media/qnamaker-quickstart-kb/add-qna-pair.png)
 

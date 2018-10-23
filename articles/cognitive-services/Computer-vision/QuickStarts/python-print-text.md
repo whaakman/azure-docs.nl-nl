@@ -1,49 +1,49 @@
 ---
-title: Snelstart voor OCR met behulp van de Computer Vision-API met Python | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: In deze snelstart extraheert u afgedrukte tekst uit een afbeelding met behulp van Computer Vision met Python in Cognitive Services.
+title: 'Snelstart: Gedrukte tekst extraheren (OCR) - REST, Python - Computer Vision'
+titleSuffix: Azure Cognitive Services
+description: In deze snelstart extraheert u tekst uit een afbeelding met behulp van de Computer Vision-API met Python.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: v-deken
-ms.openlocfilehash: 60d0435083bdb38b3aee4ff8a8f022e76d06407f
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: b02a3f382dd0049b635ca2ca99c2e102d364a1f6
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43770091"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45629365"
 ---
-# <a name="quickstart-extract-printed-text-ocr---rest-python"></a>Snelstart: Gedrukte tekst extraheren (OCR) - REST, Python
+# <a name="quickstart-extract-printed-text-ocr-using-the-rest-api-and-python-in-computer-vision"></a>Snelstart: Gedrukte tekst extraheren (OCR) met behulp van de REST API en Python in Computer Vision
 
-In deze snelstart gebruikt u Computer Vision om afgedrukte tekst uit een afbeelding te extraheren. Dit wordt optische tekenherkenning of OCR genoemd (optical character recognition).
+In deze snelstart gebruikt u OCR (optical character recognition) om tekst uit een afbeelding te extraheren met behulp van de REST API van Computer Vision. Met de [OCR-methode](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) kunt u tekst in een afbeelding detecteren en de herkende tekens naar een machinaal leesbare tekenstroom extraheren.
 
-U kunt deze snelstart stapsgewijs uitvoeren met behulp van een Jupyter-notitieblok op [MyBinder](https://mybinder.org). Selecteer de volgende knop om Binder te starten:
+U kunt deze snelstart stapsgewijs uitvoeren met behulp van een Jupyter Notebook op [MyBinder](https://mybinder.org). Selecteer de volgende knop om Binder te starten:
 
 [![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=VisionAPI.ipynb)
 
+Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) aan voordat u begint.
+
 ## <a name="prerequisites"></a>Vereisten
 
-Als u Computer Vision wilt gebruiken, moet u een abonnementssleutel hebben. Zie [Abonnementssleutels verkrijgen](../Vision-API-How-to-Topics/HowToSubscribe.md).
+- [Python](https://www.python.org/downloads/) moet geïnstalleerd zijn als u het voorbeeld lokaal wilt uitvoeren.
+- U moet beschikken over een abonnementssleutel voor Computer Vision. Zie [Abonnementssleutels verkrijgen](../Vision-API-How-to-Topics/HowToSubscribe.md) voor meer informatie over het verkrijgen van een abonnementssleutel.
 
-## <a name="extract-printed-text"></a>Afgedrukte tekst extraheren
+## <a name="create-and-run-the-sample"></a>Het voorbeeld maken en uitvoeren
 
-Met de [OCR-methode](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) kunt u tekst in een afbeelding detecteren en de herkende tekens naar een machinaal leesbare tekenstroom extraheren.
+U kunt het voorbeeld maken en uitvoeren aan de hand van de volgende stappen:
 
-U kunt het voorbeeld uitvoeren aan de hand van de volgende stappen:
-
-1. Kopieer de volgende code naar een nieuw Python-scriptbestand.
-1. Vervang `<Subscription Key>` door uw geldige abonnementssleutel.
-1. Wijzig indien nodig de `vision_base_url`-waarde in de locatie waar u uw abonnementssleutels hebt verkregen.
-1. Wijzig eventueel de waarde `image_url` in een andere afbeelding.
-1. Voer het script uit.
-
-In de volgende code wordt de Python `requests`-bibliotheek gebruikt om de Computer Vision Analyze Image API aan te roepen. De resultaten worden geretourneerd als JSON-object. De API-sleutel wordt doorgegeven via de `headers`-woordenlijst.
-
-## <a name="ocr-request"></a>OCR-aanvraag
+1. Kopieer de volgende code in een teksteditor.
+1. Breng waar nodig de volgende wijzigingen in code aan:
+    1. Vervang de waarde van `subscription_key` door uw abonnementssleutel.
+    1. Vervang de waarde van `vision_base_url` door de eindpunt-URL voor de Computer Vision-bron in de Azure-regio waar u uw abonnementssleutels hebt verkregen (indien nodig).
+    1. Vervang optioneel de waarde van `image_url` door de URL van een andere afbeelding waaruit u gedrukte tekst wilt extraheren.
+1. Sla de code op als een bestand met de extensie `.py`. Bijvoorbeeld `get-printed-text.py`.
+1. Open een opdrachtpromptvenster.
+1. Typ bij de prompt de opdracht `python` om het voorbeeld uit te voeren. Bijvoorbeeld `python get-printed-text.py`.
 
 ```python
 import requests
@@ -104,9 +104,9 @@ for word in word_infos:
 plt.axis("off")
 ```
 
-## <a name="ocr-response"></a>OCR-antwoord
+## <a name="examine-the-response"></a>Het antwoord bekijken
 
-Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, bijvoorbeeld:
+Een geslaagd antwoord wordt geretourneerd in JSON-indeling. De voorbeeldwebpagina parseert en geeft een geslaagd antwoord weer in het opdrachtpromptvenster dat vergelijkbaar is met het volgende voorbeeld:
 
 ```json
 {
@@ -207,9 +207,13 @@ Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, bijvoorbeeld:
 }
 ```
 
+## <a name="clean-up-resources"></a>Resources opschonen
+
+Wanneer u het bestand niet meer nodig hebt, kunt u het verwijderen.
+
 ## <a name="next-steps"></a>Volgende stappen
 
-Een Python-toepassing verkennen die Computer Vision gebruikt om optische tekenherkenning (OCR) uit te voeren; slim bijgesneden miniaturen maken; plus visuele kenmerken, inclusief gezichten, in een afbeelding detecteren, categoriseren, labelen en beschrijven. Als u snel wilt experimenteren met de Computer Vision-API's, probeert u de [Open API-testconsole](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+Een Python-toepassing verkennen die Computer Vision gebruikt om optische tekenherkenning (OCR) uit te voeren; slim bijgesneden miniaturen maken; plus visuele kenmerken, inclusief gezichten, in een afbeelding detecteren, categoriseren, labelen en beschrijven. Als u snel wilt experimenteren met de Computer Vision-API, gebruikt u de [Open API-testconsole](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
 
 > [!div class="nextstepaction"]
 > [Zelfstudie voor de Computer Vision-API met Python](../Tutorials/PythonTutorial.md)

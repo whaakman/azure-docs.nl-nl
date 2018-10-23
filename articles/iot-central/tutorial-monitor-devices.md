@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 9a3b7383651d679b079818fb32bd8f98160d0a4c
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 91a4fceaf5a3e573964919d365a67519b26278ca
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35235478"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49310621"
 ---
 # <a name="tutorial-use-azure-iot-central-to-monitor-your-devices"></a>Zelfstudie: Azure IoT Central gebruiken om uw apparaten te bewaken
 
@@ -61,7 +61,7 @@ De grafiek op het dashboard toont een grafische voorstelling van de temperatuur 
 
 Gebruik de pagina **Instellingen** om de doeltemperatuur van het apparaat te wijzigen:
 
-1. Kies **Instellingen**. Wijzig **Temperatuur instellen** in 38. Kies **Update** om de nieuwe doeltemperatuur naar het apparaat te verzenden. Wanneer het apparaat de instellingswijziging bevestigt, verandert de status van de instelling in **Gesynchroniseerd**:
+1. Kies **Instellingen**. Wijzig **Temperatuur instellen** in 75. Kies **Update** om de nieuwe doeltemperatuur naar het apparaat te verzenden. Wanneer het apparaat de instellingswijziging bevestigt, verandert de status van de instelling in **Gesynchroniseerd**:
 
     ![Instellingen bijwerken](media/tutorial-monitor-devices/change_settings.png)
 

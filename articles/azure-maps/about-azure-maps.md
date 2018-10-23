@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: e68050e4902183b899bf3fee31bef088b1a0faf2
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 4db494de87993a6434eaf5dbf441094578d72ea4
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45576065"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49165961"
 ---
 # <a name="what-is-azure-maps"></a>Wat is Azure Maps?
 
@@ -23,6 +23,14 @@ Azure Maps is een verzameling georuimtelijke services die wordt ondersteund door
 In de volgende video wordt Azure Maps in detail uitgelegd:
 
 <iframe src="https://channel9.msdn.com/Shows/Azure-Friday/Azure-Location-Based-Services/player" width="960" height="540" allowFullScreen frameBorder="0"></iframe>
+
+## <a name="map-controls"></a>Kaartbesturingselementen
+
+### <a name="web-control"></a>Webbesturingselement
+
+Met het Azure Maps-webbesturingselement kunt u interactieve kaarten aanpassen met uw eigen inhoud en beeldmateriaal om weer te geven in uw web- of mobiele toepassingen. Dit besturingselement maakt gebruik van WebGL, zodat u grote gegevenssets kunt weergeven met hoge prestaties. Ontwikkel met het besturingselement met behulp van JavaScript of TypeScript.
+
+![Azure Maps-webbesturingselement](media/about-azure-maps/Introduction_WebMapControl.png)
 
 ## <a name="services-in-azure-maps"></a>Services in Azure Maps
 

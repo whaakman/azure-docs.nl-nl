@@ -1,6 +1,6 @@
 ---
-title: Een Azure Marketplace-installatiekopie gebruiken om een virtuele Terraform Linux-machine te maken met Managed Service Identity
-description: Gebruik de Marketplace-installatiekopie om een virtuele Terraform Linux-machine met Managed Service Identity en Remote State Management te maken om eenvoudig resources in Azure te implementeren.
+title: Een Microsoft Azure Marketplace-installatiekopie gebruiken om een virtuele Terraform Linux-machine te maken met een beheerde identiteit
+description: Gebruik de Marketplace-installatiekopie om een virtuele Terraform Linux-machine met een beheerde identiteit en Remote State Management te maken om eenvoudig resources in Azure te implementeren.
 services: terraform
 ms.service: terraform
 keywords: terraform, devops, MSI, virtuele machine, remote state, azure
@@ -9,16 +9,16 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 3/12/2018
-ms.openlocfilehash: 0136966576e3fbb22855d74cc1866e48b4ac24c9
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 1ec6228993c516ce2974c64bfa5b6dcdf63e7f91
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43669384"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49343823"
 ---
-# <a name="use-an-azure-marketplace-image-to-create-a-terraform-linux-virtual-machine-with-managed-service-identity"></a>Een Azure Marketplace-installatiekopie gebruiken om een virtuele Terraform Linux-machine te maken met Managed Service Identity
+# <a name="use-an-azure-marketplace-image-to-create-a-terraform-linux-virtual-machine-with-managed-identities-for-azure-resources"></a>Een Microsoft Azure Marketplace-installatiekopie gebruiken om een virtuele Terraform Linux-machine te maken met een beheerde identiteit voor Azure-resources
 
-In dit artikel leest u hoe u een [Terraform Marketplace-installatiekopie](https://azuremarketplace.microsoft.com/marketplace/apps/azure-oss.terraform?tab=Overview) gebruikt om een Ubuntu Linux VM (16.04 LTS) te maken met de nieuwste [Terraform](https://www.terraform.io/intro/index.html)-versie geïnstalleerd en geconfigureerd met behulp van [Managed Service Identity (MSI)](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview). Met deze installatiekopie wordt tevens een externe back-end geconfigureerd om beheer van de [remote state](https://www.terraform.io/docs/state/remote.html) met behulp van Terraform in te schakelen. 
+In dit artikel leest u hoe u een [Terraform Marketplace-installatiekopie](https://azuremarketplace.microsoft.com/marketplace/apps/azure-oss.terraform?tab=Overview) gebruikt om een Ubuntu Linux VM (16.04 LTS) te maken met de nieuwste [Terraform](https://www.terraform.io/intro/index.html)-versie geïnstalleerd en geconfigureerd met behulp van [beheerde identiteiten voor Azure-resources](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview). Met deze installatiekopie wordt tevens een externe back-end geconfigureerd om beheer van de [remote state](https://www.terraform.io/docs/state/remote.html) met behulp van Terraform in te schakelen. 
 
 Met de Terraform Marketplace-installatiekopie kunt u eenvoudig Terraform in Azure gaan gebruiken, zonder Terraform handmatig te hoeven installeren en te configureren. 
 
@@ -79,13 +79,13 @@ De installatiekopie van de virtuele Terraform-machine voert de volgende stappen 
 
 Nadat u de virtuele machine hebt gemaakt, kunt u zich met behulp van SSH aanmelden bij deze VM. Gebruik de accountreferenties die u in het gedeelte 'Basisbeginselen' van stap 3 voor de tekstshell-interface hebt gemaakt. In Windows kunt u een SSH-clienthulpprogramma zoals [Putty](http://www.putty.org/) downloaden.
 
-Nadat u met SSH verbinding met de virtuele machine hebt gemaakt, moet u Managed Service Identity op de virtuele machine inzendermachtigingen voor het hele abonnement geven. 
+Nadat u met SSH verbinding met de virtuele machine hebt gemaakt, moet u beheerde identiteiten voor Azure-resources op de virtuele machine inzendermachtigingen voor het hele abonnement geven. 
 
 Met inzendermachtigingen kan MSI op de virtuele machine Terraform gebruiken om resources buiten de VM-resourcegroep te maken. U kunt deze actie eenvoudig bereiken door eenmalig een script uit te voeren. Gebruik de volgende opdracht:
 
 `. ~/tfEnv.sh`
 
-In het vorige script werd het mechanisme [AZ CLI v 2.0 interactive log-in](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest#interactive-log-in) gebruikt voor verificatie bij Azure en de toewijzing van de inzendermachtiging voor Managed Service Identity van de virtuele machine op het hele abonnement. 
+In het vorige script werd het mechanisme [AZ CLI v 2.0 interactive log-in](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest#interactive-log-in) gebruikt voor verificatie bij Azure en de toewijzing van de inzendermachtiging voor beheerde identiteiten van de virtuele machine op het hele abonnement. 
 
  De virtuele machine heeft een Terraform-back-end met externe status. U kunt deze in uw Terraform-inrichting inschakelen door het bestand remoteState.tf in de map tfTemplate naar de hoofdmap van de Terraform-scripts te kopiëren.  
 
@@ -97,8 +97,8 @@ In het vorige script werd het mechanisme [AZ CLI v 2.0 interactive log-in](https
 In dit artikel hebt u geleerd hoe u een virtuele Terraform Linux-machine in Azure instelt. Hier volgen een aantal aanvullende resources voor meer informatie over Terraform in Azure: 
 
  [Terraform Hub in Microsoft.com](https://docs.microsoft.com/azure/terraform/)  
- [Documentatie Terraform Azure-provider](http://aka.ms/terraform)  
- [Bron Terraform Azure-provider](http://aka.ms/tfgit)  
+ [Terraform Azure-documentatie voor providers](http://aka.ms/terraform)  
+ [Terraform Azure-gegevensbron voor providers](http://aka.ms/tfgit)  
  [Terraform Azure-modules](http://aka.ms/tfmodules)
  
 

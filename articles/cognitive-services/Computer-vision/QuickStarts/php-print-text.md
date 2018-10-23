@@ -1,44 +1,56 @@
 ---
-title: Snelstart voor OCR met behulp van de Computer Vision-API met PHP | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: In deze snelstart extraheert u afgedrukte tekst uit een afbeelding met behulp van Computer Vision met PHP in Cognitive Services.
+title: 'Snelstart: Gedrukte tekst extraheren (OCR) - REST, PHP - Computer Vision'
+titleSuffix: Azure Cognitive Services
+description: In deze snelstart extraheert u tekst uit een afbeelding met behulp van de Computer Vision-API met PHP.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: v-deken
-ms.openlocfilehash: 85df021357c76330be21ceff77d79491edcc23b0
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 14c03f2079e695fcd3cac8535b2888d71f41c913
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43770136"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45633228"
 ---
-# <a name="quickstart-extract-printed-text-ocr---rest-php"></a>Snelstart: Afgedrukte tekst extraheren (OCR) - REST, PHP
+# <a name="quickstart-extract-printed-text-ocr-using-the-rest-api-and-php-in-computer-vision"></a>Snelstart: Gedrukte tekst extraheren (OCR) met behulp van de REST API en PHP in Computer Vision
 
-In deze snelstart gebruikt u Computer Vision om afgedrukte tekst uit een afbeelding te extraheren. Dit wordt optische tekenherkenning of OCR genoemd (optical character recognition).
+In deze snelstart gebruikt u OCR (optical character recognition) om tekst uit een afbeelding te extraheren met behulp van de REST API van Computer Vision. Met de [OCR-methode](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) kunt u tekst in een afbeelding detecteren en de herkende tekens naar een machinaal leesbare tekenstroom extraheren.
+
+Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) aan voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Als u Computer Vision wilt gebruiken, moet u een abonnementssleutel hebben. Zie [Abonnementssleutels verkrijgen](../Vision-API-How-to-Topics/HowToSubscribe.md).
+- U moet [PHP](https://secure.php.net/downloads.php) hebben geïnstalleerd.
+- U moet [Pear](https://pear.php.net) hebben geïnstalleerd.
+- U moet beschikken over een abonnementssleutel voor Computer Vision. Zie [Abonnementssleutels verkrijgen](../Vision-API-How-to-Topics/HowToSubscribe.md) voor meer informatie over het verkrijgen van een abonnementssleutel.
 
-## <a name="ocr-request"></a>OCR-aanvraag
+## <a name="create-and-run-the-sample"></a>Het voorbeeld maken en uitvoeren
 
-Met de [OCR-methode](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) kunt u tekst in een afbeelding detecteren en de herkende tekens naar een machinaal leesbare tekenstroom extraheren.
+U kunt het voorbeeld maken en uitvoeren aan de hand van de volgende stappen:
 
-U kunt het voorbeeld uitvoeren aan de hand van de volgende stappen:
+1. Installeer het PHP5-pakket [`HTTP_Request2`](http://pear.php.net/package/HTTP_Request2).
+   1. Open een opdrachtpromptvenster als beheerder.
+   1. Voer de volgende opdracht uit:
 
-1. Kopieer de volgende code naar een editor.
-1. Vervang `<Subscription Key>` door uw geldige abonnementssleutel.
-1. Wijzig zo nodig `uriBase` in de locatie waar u de abonnementssleutels hebt verkregen.
-1. Stel `imageUrl` eventueel in op de afbeelding die u wilt analyseren.
-1. Sla het bestand op met de extensie `.php`.
-1. Open het bestand in een browservenster met PHP-ondersteuning.
+      ```console
+      pear install HTTP_Request2
+      ```
 
-In dit voorbeeld wordt gebruikgemaakt van het PHP5 [HTTP_Request2](http://pear.php.net/package/HTTP_Request2)-pakket.
+   1. Sluit het opdrachtpromptvenster nadat het pakket is geïnstalleerd.
+
+1. Kopieer de volgende code naar een teksteditor.
+1. Breng waar nodig de volgende wijzigingen in code aan:
+    1. Vervang de waarde van `subscriptionKey` door uw abonnementssleutel.
+    1. Vervang de waarde van `uriBase` door de eindpunt-URL voor de [OCR-methode](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) uit de Azure-regio waar u uw abonnementssleutels hebt verkregen (indien nodig).
+    1. Vervang optioneel de waarde van `imageUrl` door de URL van een andere afbeelding waaruit u gedrukte tekst wilt extraheren.
+1. Sla de code op als een bestand met de extensie `.php`. Bijvoorbeeld `get-printed-text.php`.
+1. Open een browservenster met PHP-ondersteuning.
+1. Sleep het bestand naar het browservenster.
 
 ```php
 <?php
@@ -101,9 +113,9 @@ catch (HttpException $ex)
 </html>
 ```
 
-## <a name="ocr-response"></a>OCR-antwoord
+## <a name="examine-the-response"></a>Het antwoord bekijken
 
-Als dit met succes is voltooid, bevatten de geretourneerde OCR-resultaten tekst, begrenzingsvakken voor regio's, lijnen en woorden, bijvoorbeeld:
+Een geslaagd antwoord wordt geretourneerd in JSON-indeling. De voorbeeldwebsite parseert en geeft een geslaagd antwoord weer in het browservenster dat vergelijkbaar is met het volgende voorbeeld:
 
 ```json
 {
@@ -204,9 +216,22 @@ Als dit met succes is voltooid, bevatten de geretourneerde OCR-resultaten tekst,
 }
 ```
 
+## <a name="clean-up-resources"></a>Resources opschonen
+
+Verwijder het bestand wanneer u het niet meer nodig hebt en verwijder het PHP5-pakket `HTTP_Request2`. Voer de volgende stappen uit om het pakket te verwijderen:
+
+1. Open een opdrachtpromptvenster als beheerder.
+2. Voer de volgende opdracht uit:
+
+   ```console
+   pear uninstall HTTP_Request2
+   ```
+
+3. Sluit het opdrachtpromptvenster nadat het pakket is verwijderd.
+
 ## <a name="next-steps"></a>Volgende stappen
 
-Bekijk de Computer Vision-API's die worden gebruikt om een afbeelding te analyseren, beroemdheden en oriëntatiepunten te detecteren, een miniatuur te maken en gedrukte en handgeschreven tekst te verkrijgen. Als u snel wilt experimenteren met de Computer Vision-API's, probeert u de [Open API-testconsole](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+Bekijk de Computer Vision-API die wordt gebruikt om een afbeelding te analyseren, beroemdheden en oriëntatiepunten te detecteren, een miniatuur te maken en gedrukte en handgeschreven tekst te verkrijgen. Als u snel wilt experimenteren met de Computer Vision-API, gebruikt u de [Open API-testconsole](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
 
 > [!div class="nextstepaction"]
-> [De Computer Vision-API's bekijken](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)
+> [De Computer Vision-API verkennen](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)

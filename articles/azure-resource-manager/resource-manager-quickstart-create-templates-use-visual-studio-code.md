@@ -10,19 +10,19 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 09/07/2018
+ms.date: 10/17/2018
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: a2b4c4824960c21011876a7c0adf029fc56d93d2
-ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
+ms.openlocfilehash: 69a24dba752e4aa374e03e57ce197ae882647373
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47419114"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49378683"
 ---
 # <a name="quickstart-create-azure-resource-manager-templates-by-using-visual-studio-code"></a>Snelstart: Azure Resource Manager-sjablonen maken met Visual Studio Code
 
-Leer hoe u Azure Resource Manager-sjablonen maakt met behulp van Visual Studio Code en de extensie voor Azure Resource Manager-hulpprogramma's. U kunt Resource Manager-sjablonen maken in Visual Studio Code zonder de extensie, maar de extensie biedt opties voor automatisch aanvullen die het ontwikkelen van sjablonen eenvoudiger maken. Zie [Overzicht van Azure Resource Manager](resource-group-overview.md) voor inzicht in de concepten die gerelateerd zijn aan het implementeren en beheren van uw Azure-oplossingen.
+Leer hoe u Visual Studio Code en de Azure Resource Manager Tools-extensie gebruikt om Azure Resource Manager-sjablonen te maken en te bewerken. U kunt Resource Manager-sjablonen maken in Visual Studio Code zonder de extensie, maar de extensie biedt opties voor automatisch aanvullen die het ontwikkelen van sjablonen eenvoudiger maken. Zie [Overzicht van Azure Resource Manager](resource-group-overview.md) voor inzicht in de concepten die gerelateerd zijn aan het implementeren en beheren van uw Azure-oplossingen.
 
 Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
@@ -55,9 +55,14 @@ De in deze snelstart gebruikte sjabloon wordt [Create a standard storage account
 
 ## <a name="edit-the-template"></a>De sjabloon bewerken
 
-Als u wilt weten hoe u een sjabloon met behulp van Visual Studio Code bewerkt, voegt u een extra element toe aan de uitvoersectie.
+Als u wilt weten hoe u een sjabloon met behulp van Visual Studio Code bewerkt, voegt u een extra element toe aan de sectie `outputs`.
 
-1. Voeg in Visual Studio Code een extra uitvoer toe aan de geëxporteerde sjabloon:
+1. Controleer vanuit Visual Studio Code de waarde van **type**. Als de waarde **opslag** is, werkt u de waarde bij in **StorageV2**.
+
+    ```json
+    "kind": "StorageV2",
+    ```
+2. Voeg één extra uitvoer toe aan de geëxporteerde sjabloon:
 
     ```json
     "storageUri": {
@@ -85,25 +90,17 @@ Als u wilt weten hoe u een sjabloon met behulp van Visual Studio Code bewerkt, v
 
     ![Visual Studio Code-intellisense van Resource Manager-sjabloon](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/resource-manager-templates-visual-studio-code-intellisense.png)
 
-2. Selecteer **Bestand**>**Opslaan** om het bestand op te slaan.
+3. Selecteer **Bestand**>**Opslaan** om het bestand op te slaan.
 
 ## <a name="deploy-the-template"></a>De sjabloon implementeren
 
-Er bestaan meerdere methoden voor het implementeren van sjablonen.  In deze snelstart gebruikt u Azure Cloud Shell van Azure Portal. Cloud Shell ondersteunt zowel Azure CLI als Azure PowerShell. 
+Er bestaan meerdere methoden voor het implementeren van sjablonen.  In deze snelstart gebruikt u Azure Cloud Shell. Cloud Shell ondersteunt zowel Azure CLI als Azure PowerShell. 
 
-1. Meld u aan bij [Azure Portal](https://portal.azure.com)
-2. Selecteer **Cloud Shell** in de rechterbovenhoek, zoals weergegeven in de volgende afbeelding:
-
-    ![Cloud Shell in Azure Portal](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell.png)
-
-    Cloud Shell wordt geopend onderaan het venster.
-
-3. Linksboven in Cloud Shell wordt **PowerShell** of **Bash** weergegeven. Als u CLI wilt gebruiken, moet u een Bash-sessie openen. Als u PowerShell wilt uitvoeren, moet u een PowerShell-sessie openen. Selecteer de pijl-omlaag om te schakelen tussen de Bash en PowerShell. In de volgende afbeelding wordt het overschakelen van PowerShell naar Bash weergegeven.
+1. Meld u aan bij [Azure Cloud Shell](https://shell.azure.com)
 
     ![Cloud Shell CLI in Azure Portal](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-choose-cli.png)
-
-    U moet de shell opnieuw starten wanneer u overschakelt.
-4. Selecteer **Upload/download files** en selecteer **Uploaden**.
+2. Linksboven in Cloud Shell wordt **PowerShell** of **Bash** weergegeven. Als u CLI wilt gebruiken, moet u een Bash-sessie openen. Als u PowerShell wilt uitvoeren, moet u een PowerShell-sessie openen. Selecteer de pijl-omlaag om te schakelen tussen de Bash en PowerShell. Zie de vorige schermafbeelding. U moet de shell opnieuw starten wanneer u overschakelt.
+3. Selecteer **Upload/download files** en selecteer **Uploaden**.
 
     # <a name="clitabcli"></a>[CLI](#tab/CLI)
 
@@ -116,7 +113,7 @@ Er bestaan meerdere methoden voor het implementeren van sjablonen.  In deze snel
     ---
 
     U moet het sjabloonbestand uploaden voordat u het vanuit de shell kunt implementeren.
-5. Selecteer het bestand dat u eerder in de snelstart hebt opgeslagen. De standaardnaam is **azuredeploy.json**.
+5. Selecteer het bestand dat u in de vorige sectie hebt opgeslagen. De standaardnaam is **azuredeploy.json**.
 6. Voer vanaf Cloud Shell de opdracht **ls** uit om te verifiëren of het bestand is geüpload. U kunt de opdracht **cat** gebruiken om de sjablooninhoud te verifiëren. In de volgende afbeelding ziet u dat de opdracht wordt uitgevoerd vanuit Bash.  U gebruikt dezelfde opdrachten van een PowerShell-sessie.
 
     # <a name="clitabcli"></a>[CLI](#tab/CLI)
@@ -132,20 +129,30 @@ Er bestaan meerdere methoden voor het implementeren van sjablonen.  In deze snel
 
     # <a name="clitabcli"></a>[CLI](#tab/CLI)
     ```cli
-    az group create --name <ResourceGroupName> --location <AzureLocation>
-
-    az group deployment create --name <DeploymentName> --resource-group <ResourceGroupName> --template-file <TemplateFileName>
+    echo "Enter the Resource Group name:" &&
+    read resourceGroupName &&
+    echo "Enter the name for this deployment:" &&
+    read deploymentName &&
+    echo "Enter the location (i.e. centralus):" &&
+    read location &&
+    az group create --name $resourceGroupName --location $location &&
+    az group deployment create --name $deploymentName --resource-group $resourceGroupName --template-file "azuredeploy.json"
     ```
    
     # <a name="powershelltabpowershell"></a>[PowerShell](#tab/PowerShell)
     
     ```powershell
-    New-AzureRmResourceGroup -Name <ResourceGroupName> -Location <AzureLocation>
-
-    New-AzureRmResourceGroupDeployment -ResourceGroupName <ResourceGroupName> -TemplateFile <TemplateFileName>
+    $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
+    $deploymentName = Read-Host -Prompt "Enter the name for this deployment"
+    $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
+    
+    New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
+    New-AzureRmResourceGroupDeployment -Name $deploymentName -ResourceGroupName $resourceGroupName -TemplateFile "azuredeploy.json"
     ```
     
     ---
+
+    Werk de naam van de sjabloon bij als u het bestand met een andere naam dan **azuredeploy.json** opslaat.
 
     In de volgende schermafbeelding ziet u een voorbeeldimplementatie:
 
@@ -159,26 +166,25 @@ Er bestaan meerdere methoden voor het implementeren van sjablonen.  In deze snel
     
     ---
 
-    In de schermafbeelding worden de volgende waarden gebruikt:
-
-    - **&lt;ResourceGroupName>**: myresourcegroup0709. De parameter komt tweemaal voor.  Zorg ervoor dat u dezelfde waarde gebruikt.
-    - **&lt;AzureLocation>**: eastus2
-    - **&lt;DeployName>**: mydeployment0709
-    - **&lt;TemplateFile>**: azuredeploy.json
-
-    In de uitvoer op de schermafbeelding ziet u dat de naam van het opslagaccount *3tqebj3slyfyestandardsa* is. 
+    De naam van het opslagaccount en de URL van de opslag in de uitvoersectie zijn gemarkeerd op de schermafbeelding. U hebt de naam van het opslagaccount nodig in de volgende stap.
 
 7. Voer de volgende CLI- of PowerShell-opdracht uit om het nieuwe opslagaccount weer te geven:
 
     # <a name="clitabcli"></a>[CLI](#tab/CLI)
     ```cli
-    az storage account show --resource-group <ResourceGroupName> --name <StorageAccountName>
+    echo "Enter the Resource Group name:" &&
+    read resourceGroupName &&
+    echo "Enter the Storage Account name:" &&
+    read storageAccountName &&
+    az storage account show --resource-group $resourceGroupName --name $storageAccountName
     ```
    
     # <a name="powershelltabpowershell"></a>[PowerShell](#tab/PowerShell)
     
     ```powershell
-    Get-AzureRmStorageAccount -ResourceGroupName <ResourceGroupName> -Name <StorageAccountName>
+    $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
+    $storageAccountName = Read-Host -Prompt "Enter the Storage Account name"
+    Get-AzureRmStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName
     ```
     
     ---

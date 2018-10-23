@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 06/12/2018
 ms.author: kgremban
 ms.custom: mvc
-ms.openlocfilehash: 6e3571fb54f12ef3bb5519f572b8af5bf9247e7d
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 107852bd2c4ec0b932008b498dde4ea77f8071a3
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37032694"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49116333"
 ---
 # <a name="what-is-azure-iot-edge"></a>Wat is Azure IoT Edge?
 
@@ -55,7 +55,7 @@ De Azure IoT Edge-runtime maakt aangepaste en cloudlogica op IoT Edge-apparaten 
 * Vergemakkelijkt de communicatie tussen modules op het IoT Edge-apparaat.
 * Vergemakkelijkt de communicatie tussen het IoT Edge-apparaat en de cloud.
 
-![IoT Edge-runtime verzendt inzichten en rapportages naar IoT Hub][1]
+![IoT Edge-runtime verzendt inzichten en rapportages naar IoT Hub](./media/about-iot-edge/runtime.png)
 
 Hoe u een Azure IoT Edge-apparaat gebruikt, is volledig aan u. De runtime wordt vaak gebruikt voor de implementatie van AI in gateways die gegevens van meerdere andere lokale apparaten aggregeren en verwerken. Dit is echter slechts één optie. Leaf-apparaten kunnen ook Azure IoT Edge-apparaten zijn, ongeacht of ze zijn aangesloten op een gateway of rechtstreeks verbonden zijn met de cloud.
 
@@ -71,15 +71,10 @@ Azure IoT Edge integreert naadloos met Azure IoT-oplossingsversnellers en biedt 
 * een workload verzenden naar een reeks apparaten;
 * workloads bewaken die worden uitgevoerd op apparaten in het veld.
 
-![Telemetrie, inzichten en acties van apparaten worden gecoördineerd met de cloud][2]
+![Telemetrie, inzichten en acties van apparaten worden gecoördineerd met de cloud](./media/about-iot-edge/cloud-interface.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Probeer deze concepten door [IoT Edge op een gesimuleerd apparaat te implementeren][lnk-quickstart].
+Probeer deze concepten uit door [IoT Edge te implementeren op een gesimuleerd apparaat](quickstart.md).
 
-<!-- Images -->
-[1]: ./media/about-iot-edge/runtime.png
-[2]: ./media/about-iot-edge/cloud-interface.png
-
-<!-- Links -->
-[lnk-quickstart]: quickstart.md
+ 

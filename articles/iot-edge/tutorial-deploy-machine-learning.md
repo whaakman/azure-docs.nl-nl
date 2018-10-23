@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 188e3c0e8b9a9d421b40e142e534aca2741fee56
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 0af63c7beef0f5268ba078d517556fc64ac7bf87
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48248876"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49116350"
 ---
 # <a name="tutorial-deploy-azure-machine-learning-as-an-iot-edge-module-preview"></a>Zelfstudie: Azure Machine Learning implementeren als een IoT Edge-module (preview)
 
@@ -45,7 +45,7 @@ Een Azure IoT Edge-apparaat:
 
 Cloudresources:
 
-* Een gratis [IoT Hub](../iot-hub/iot-hub-create-through-portal.md)-laag in Azure. 
+* Een gratis of reguliere [IoT Hub](../iot-hub/iot-hub-create-through-portal.md)-laag in Azure. 
 * Een Azure Machine Learning-werkruimte. Volg de instructies in [Voorbereidingen voor het implementeren van modellen in IoT Edge](../machine-learning/service/how-to-deploy-to-iot.md) om er een te maken.
 
 

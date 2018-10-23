@@ -1,44 +1,46 @@
 ---
-title: Snelstartgids voor het maken van een miniatuur met de Computer Vision-API met Go | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: In deze snelstartgids maakt u een miniatuur van een afbeelding met behulp van Computer Vision met Go in Cognitive Services.
+title: 'Snelstart: Een miniatuur genereren - REST, Go - Computer Vision'
+titleSuffix: Azure Cognitive Services
+description: In deze snelstart maakt u een miniatuur van een afbeelding met behulp van de Computer Vision-API en Go.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: v-deken
-ms.openlocfilehash: 02ac30d295b0637b97187dbb7e1fbb1b10a2972b
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: e49c664fc17750d427d33fbb49b3af9ea10002ad
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43770288"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45629540"
 ---
-# <a name="quickstart-generate-a-thumbnail---rest-go"></a>Snelstartgids: een miniatuur maken - REST, Go
+# <a name="quickstart-generate-a-thumbnail-using-the-rest-api-and-go-in-computer-vision"></a>Snelstart: Een miniatuur maken met de REST API en Go in Computer Vision
 
-In deze snelstartgids maakt u een miniatuur van een afbeelding met behulp van Computer Vision.
+In deze snelstart maakt u een miniatuur van een afbeelding met behulp van de REST API van Computer Vision. Met de methode [Get Thumbnail](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) kunt u een miniatuur van een afbeelding genereren. U geeft de hoogte en breedte op. Deze waarden mogen afwijken van de hoogte-breedteverhouding van de invoerafbeelding. Computer Vision maakt gebruik van slim bijsnijden om op intelligente wijze het interessegebied te bepalen en coördinaten voor het bijsnijden te genereren op basis van dat gebied.
+
+Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) aan voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Als u Computer Vision wilt gebruiken, moet u een abonnementssleutel hebben. Zie [Abonnementssleutels verkrijgen](../Vision-API-How-to-Topics/HowToSubscribe.md).
+- U moet [Go](https://golang.org/dl/) hebben geïnstalleerd.
+- U moet beschikken over een abonnementssleutel voor Computer Vision. Zie [Abonnementssleutels verkrijgen](../Vision-API-How-to-Topics/HowToSubscribe.md) voor meer informatie over het verkrijgen van een abonnementssleutel.
 
-## <a name="get-thumbnail-request"></a>Aanvraag voor Get Thumbnail
+## <a name="create-and-run-the-sample"></a>Het voorbeeld maken en uitvoeren
 
-Met de [methode Get Thumbnail](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) kunt u een miniatuur maken van een afbeelding. U geeft de hoogte en breedte op. Deze kan afwijken van de hoogte-breedteverhouding van de ingevoerde afbeelding. Computer Vision maakt gebruik van slim bijsnijden om op intelligente wijze het belangrijke gebied te bepalen en coördinaten voor het bijsnijden te genereren op basis van dat gebied.
+U kunt het voorbeeld maken en uitvoeren aan de hand van de volgende stappen:
 
-U kunt het voorbeeld uitvoeren aan de hand van de volgende stappen:
-
-1. Kopieer de volgende code naar een editor.
-1. Vervang `<Subscription Key>` door uw geldige abonnementssleutel.
-1. Wijzig zo nodig de waarde `uriBase` in de locatie waar u de abonnementssleutels hebt verkregen.
-1. Stel de waarde `imageUrl` eventueel in op de afbeelding die u wilt analyseren.
-1. Sla het bestand op met de extensie `.go`.
-1. Open een opdrachtprompt op een computer waarop Go is geïnstalleerd.
-1. Maak het bestand, bijvoorbeeld: `go build get-thumbnail.go`.
-1. Voer het bestand uit, bijvoorbeeld: `get-thumbnail`.
+1. Kopieer de volgende code in een teksteditor.
+1. Breng waar nodig de volgende wijzigingen in code aan:
+    1. Vervang de waarde van `subscriptionKey` door uw abonnementssleutel.
+    1. Vervang de waarde van `uriBase` door de eindpunt-URL van de methode [Miniatuur ophalen](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) uit de Azure-regio waar u uw abonnementssleutels hebt verkregen (indien nodig).
+    1. Vervang eventueel de waarde van `imageUrl` door de URL van een andere afbeelding van waaruit u een miniatuur van wilt maken.
+1. Sla de code op als een bestand met de extensie `.go`. Bijvoorbeeld `get-thumbnail.go`.
+1. Open een opdrachtpromptvenster.
+1. Voer bij de prompt de `go build`-opdracht uit om het pakket uit het bestand samen te stellen. Bijvoorbeeld `go build get-thumbnail.go`.
+1. Voer bij de prompt het samengestelde pakket uit. Bijvoorbeeld `get-thumbnail`.
 
 ```go
 package main
@@ -53,12 +55,17 @@ import (
 )
 
 func main() {
-    // For example, subscriptionKey = "0123456789abcdef0123456789ABCDEF"
+    // Replace <Subscription Key> with your valid subscription key.
     const subscriptionKey = "<Subscription Key>"
 
-    // You must use the same location in your REST call as you used to get your
-    // subscription keys. For example, if you got your subscription keys from
-    // westus, replace "westcentralus" in the URL below with "westus".
+    // You must use the same Azure region in your REST API method as you used to
+    // get your subscription keys. For example, if you got your subscription keys
+    // from the West US region, replace "westcentralus" in the URL
+    // below with "westus".
+    //
+    // Free trial subscription keys are generated in the West Central US region.
+    // If you use a free trial subscription key, you shouldn't need to change
+    // this region.
     const uriBase =
         "https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/generateThumbnail"
     const imageUrl =
@@ -70,12 +77,12 @@ func main() {
 
     reader := strings.NewReader(imageUrlEnc)
 
-    // Create the Http client
+    // Create the HTTP client
     client := &http.Client{
         Timeout: time.Second * 2,
     }
 
-    // Create the Post request, passing the image URL in the request body
+    // Create the POST request, passing the image URL in the request body
     req, err := http.NewRequest("POST", uri, reader)
     if err != nil {
         panic(err)
@@ -100,23 +107,27 @@ func main() {
         panic(err)
     }
 
-    // Parse the Json data
+    // Parse the JSON data
     var f interface{}
     json.Unmarshal(data, &f)
 
-    // Format and display the Json result
+    // Format and display the JSON result
     jsonFormatted, _ := json.MarshalIndent(f, "", "  ")
     fmt.Println(string(jsonFormatted))
 }
 ```
 
-## <a name="get-thumbnail-response"></a>Antwoord voor Get Thumbnail
+## <a name="examine-the-response"></a>Het antwoord bekijken
 
-Een geslaagd antwoord bevat de binaire waarde voor de miniatuurafbeelding. Als de aanvraag mislukt, bevat het antwoord een foutcode en een bericht zodat bepaald kan worden wat er mis ging.
+Een geslaagd antwoord bevat de binaire gegevens van de miniatuurafbeelding. Als de aanvraag mislukt, bevat het antwoord een foutcode en een bericht om u te helpen bepalen wat er mis is gegaan.
+
+## <a name="clean-up-resources"></a>Resources opschonen
+
+Wanneer u het samengestelde pakket en het bestand waaruit het pakket is samengesteld niet langer nodig hebt, verwijdert u deze en sluit u het opdrachtpromptvenster en de teksteditor.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Bekijk de Computer Vision-API's die worden gebruikt om een afbeelding te analyseren, beroemdheden en oriëntatiepunten te detecteren, een miniatuur te maken en gedrukte en handgeschreven tekst te verkrijgen. Als u snel wilt experimenteren met de Computer Vision-API's, probeert u de [Open API-testconsole](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+Bekijk de Computer Vision-API die wordt gebruikt om een afbeelding te analyseren, beroemdheden en oriëntatiepunten te detecteren, een miniatuur te maken en gedrukte en handgeschreven tekst te verkrijgen. Als u snel wilt experimenteren met de Computer Vision-API, gebruikt u de [Open API-testconsole](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
 
 > [!div class="nextstepaction"]
-> [De Computer Vision-API's bekijken](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)
+> [De Computer Vision-API verkennen](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)

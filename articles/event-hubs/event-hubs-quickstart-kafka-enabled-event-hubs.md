@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/01/2018
 ms.author: bahariri
-ms.openlocfilehash: 2fbca7179d8bc64a92f79f6eaced8d4f1666c530
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 4b78cef29c64c5c4c522ad5c751c10bbf6a7057c
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49069213"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49363415"
 ---
 # <a name="stream-into-event-hubs-for-the-apache-kafka"></a>Streamen naar Event Hubs voor Apache Kafka
 Deze snelstart laat zien hoe u kunt streamen naar Event Hubs waarvoor Kafka is ingeschakeld zonder uw protocolclients te wijzigen of uw eigen clusters uit te voeren. U leert hoe u uw producenten kunt gebruiken en consumenten met Event Hubs waarvoor Kafka is ingeschakeld, kunnen praten met slechts een configuratiewijziging in uw toepassingen. Azure Event Hubs ondersteunt [Apache Kafka versie 1.0.](https://kafka.apache.org/10/documentation.html)
 
 > [!NOTE]
-> Dit voorbeeld is beschikbaar op [GitHub](https://github.com/Azure/azure-event-hubs)
+> Dit voorbeeld is beschikbaar op [GitHub](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/quickstart/java)
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -63,9 +63,9 @@ U kunt nu gebeurtenissen vanaf uw toepassing, waarbij gebruikgemaakt wordt van h
 
 ## <a name="send-and-receive-messages-with-kafka-in-event-hubs"></a>Berichten verzenden en ontvangen met Kafka in Event Hubs
 
-1. Kloon de [Azure Event Hubs-opslagplaats](https://github.com/Azure/azure-event-hubs).
+1. Kloon de [Azure Event Hubs for Kafka-opslagplaats](https://github.com/Azure/azure-event-hubs-for-kafka).
 
-2. Navigeer naar `azure-event-hubs/samples/kafka/quickstart/producer`.
+2. Navigeer naar `azure-event-hubs-for-kafka/quickstart/java/producer`.
 
 3. Werk de configuratiegegevens voor de producent in `src/main/resources/producer.config` als volgt bij:
 
@@ -83,7 +83,7 @@ U kunt nu gebeurtenissen vanaf uw toepassing, waarbij gebruikgemaakt wordt van h
     mvn exec:java -Dexec.mainClass="TestProducer"                                    
     ```
     
-5. Navigeer naar `azure-event-hubs/samples/kafka/quickstart/consumer`.
+5. Navigeer naar `azure-event-hubs-for-kafka/quickstart/java/consumer`.
 
 6. Werk de configuratiegegevens voor de consument in `src/main/resources/consumer.config` als volgt bij:
    
@@ -106,5 +106,8 @@ Als uw Event Hubs Kafka-cluster gebeurtenissen heeft, moet u deze nu ontvangen v
 ## <a name="next-steps"></a>Volgende stappen
 In dit artikel hebt u geleerd u hoe u kunt streamen naar Event Hubs waarvoor Kafka is ingeschakeld zonder uw protocolclients te wijzigen of uw eigen clusters uit te voeren. Ga verder met de volgende zelfstudie voor meer informatie:
 
-> [!div class="nextstepaction"]
-> [Apache Kafka MirrorMaker met Event Hubs gebruiken](event-hubs-kafka-mirror-maker-tutorial.md)
+* [Meer informatie over Event Hubs](event-hubs-what-is-event-hubs.md)
+* [Meer informatie over Event Hubs for Kafka](event-hubs-for-kafka-ecosystem-overview.md)
+* [Meer voorbeelden van de Event Hubs for Kafka-GitHub verkennen](https://github.com/Azure/azure-event-hubs-for-kafka)
+* Gebruik [MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) om [gebeurtenissen van Kafka on-premises te streamen naar Event Hubs waarvoor Kafka is ingeschakeld in de cloud](event-hubs-kafka-mirror-maker-tutorial.md).
+* Meer informatie over streamen naar Kafka waarvoor Event Hubs is ingeschakeld, met behulp van [Apache Flink](event-hubs-kafka-flink-tutorial.md) of [Akka Streams](event-hubs-kafka-akka-streams-tutorial.md)

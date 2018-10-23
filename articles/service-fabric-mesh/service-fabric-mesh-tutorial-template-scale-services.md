@@ -15,16 +15,16 @@ ms.workload: NA
 ms.date: 09/18/2018
 ms.author: ryanwi
 ms.custom: mvc, devcenter
-ms.openlocfilehash: bf0b38c8c2d465abe9f2e129110df41c349c3d07
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 4d6839fea3ce0eb74cdf87396716cdc69c0cd1a0
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47055370"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49165978"
 ---
 # <a name="tutorial-scale-an-application-running-in-service-fabric-mesh"></a>Zelfstudie: Een toepassing schalen die wordt uitgevoerd in Service Fabric Mesh
 
-Deze zelfstudie is deel twee van een serie. Leer hier hoe u handmatig het aantal service-instanties schaalt van een toepassing die [eerder is geïmplementeerd naar Service Fabric Mesh](service-fabric-mesh-tutorial-template-deploy-app.md).  Wanneer u klaar bent, hebt u.
+Deze zelfstudie is deel twee van een serie. Leer hier hoe u handmatig het aantal service-instanties schaalt van een toepassing die [eerder is geïmplementeerd naar Service Fabric Mesh](service-fabric-mesh-tutorial-template-deploy-app.md). Wanneer u klaar bent, hebt u een front-end service met drie instanties en een gegevensservice met twee instanties.
 
 In deel twee van de serie leert u het volgende:
 
@@ -34,7 +34,7 @@ In deel twee van de serie leert u het volgende:
 
 In deze zelfstudiereeks leert u het volgende:
 > [!div class="checklist"]
-> * [Een toepassing implementeren naar Service Fabric Mesh met behulp van een sjabloon](service-fabric-mesh-tutorial-template-deploy-app.md)
+> * [Een toepassing implementeren in Service Fabric Mesh met behulp van een sjabloon](service-fabric-mesh-tutorial-template-deploy-app.md)
 > * Een toepassing schalen die wordt uitgevoerd in Service Fabric Mesh
 > * [Een toepassing upgraden die wordt uitgevoerd in Service Fabric Mesh](service-fabric-mesh-tutorial-template-upgrade-app.md)
 > * [Een app verwijderen](service-fabric-mesh-tutorial-template-remove-app.md)
@@ -69,7 +69,7 @@ In de implementatiesjabloon voor de toepassingsresource heeft elke service een e
 
 ### <a name="modify-the-deployment-template-parameters"></a>Parameters van implementatiesjabloon wijzigen
 
-Wanneer de sjabloon waarden bevat die naar verwachting zullen wijzigen nadat de toepassing is geïmplementeerd, of als u de mogelijkheid wilt hebben om de waarden per implementatie aan te passen (als u van plan bent om deze sjabloon te hergebruiken voor andere implementaties), is de aanbevolen procedure om de waarden door te geven via parameters.
+Wanneer de sjabloon waarden bevat die naar verwachting zullen wijzigen nadat de toepassing is geïmplementeerd, of als u de mogelijkheid wilt hebben om de waarden per implementatie aan te passen (als u van plan bent om deze sjabloon opnieuw te gebruiken voor andere implementaties), is de aanbevolen procedure om de waarden door te geven via parameters.
 
 Eerder werd de toepassing geïmplementeerd via de bestanden [mesh_rp.windows.json deployment template](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/todolist/mesh_rp.windows.json) en [mesh_rp.windows.parameter.json parameters](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/todolist/mesh_rp.windows.parameters.json).
 

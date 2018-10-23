@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/18/2018
+ms.date: 10/17/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: ''
 manager: dougeby
-ms.openlocfilehash: c50259f0df955c3a22edc979dfebc8bfb2059e16
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e705a0f57b598eb60932ca1056131cedc1416ffc
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46987752"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394443"
 ---
 <!-- Intent: As a cloud-consuming administrator, I need to ensure that my reserved instances are optimized for cost and usage
 -->
@@ -125,7 +125,7 @@ Wanneer u een reservering koopt, verricht u een eenmalige betaling. Er zijn twee
 
 In de rapporten met de werkelijke kostenanalyse en analyse gedurende een periode wordt het volledige bedrag weergegeven dat u hebt betaald voor de reservering, met ingang van de maand van aankoop. Zo kunt u uw werkelijke uitgaven gedurende een periode bekijken.
 
-Navigeer naar **Cost** > **Cost Analysis** > in de Cloudyn-portal en selecteer vervolgens **Actual Cost Analysis** of **Actual Cost Over Time**. Stel daarna de filters in. U kunt bijvoorbeeld alleen filteren op Azure/VM-service en groeperen op resourcetype en prijsmodel. Zie de volgende afbeelding:
+Navigeer naar **Costs** > **Cost Analysis** > in de Cloudyn-portal en selecteer vervolgens **Actual Cost Analysis** of **Actual Cost Over Time**. Stel daarna de filters in. U kunt bijvoorbeeld alleen filteren op Azure/VM-service en groeperen op resourcetype en prijsmodel. Zie de volgende afbeelding:
 
 ![Werkelijke kosten van gereserveerde instantie](./media/tutorial-optimize-reserved-instances/azure05.png)
 
@@ -143,7 +143,7 @@ De afgeschreven kosten van de gereserveerde instantie worden berekend door de ee
 
 In het rapport met werkelijke kosten hebt u een piek voor een aanschaf van een gereserveerde instantie gezien van $ 747 op 16 november. In het rapport met afgeschreven kosten (zie de volgende afbeelding), zijn er kosten voor een deel van de dag op 16 november. Vanaf 17 november ziet u de afgeschreven kosten voor de gereserveerde instantie van $ 747/365 = $ 2,05. U ziet ook dat de aangeschafte reservering incidenteel niet wordt gebruikt, zodat u deze kunt optimaliseren door over te schakelen naar een andere VM-grootte.
 
-Om deze te bekijken, gaat u naar **Cost** > **Cost Analysis** > en selecteert u vervolgens **Amortized Cost Analysis** of **Amortized Cost Over Time**.
+Om deze te bekijken, gaat u naar **Costs** > **Cost Analysis** > en selecteert u vervolgens **Amortized Cost Analysis** of **Amortized Cost Over Time**.
 
 ![Afgeschreven kosten gereserveerde instanties](./media/tutorial-optimize-reserved-instances/azure07.png)
 

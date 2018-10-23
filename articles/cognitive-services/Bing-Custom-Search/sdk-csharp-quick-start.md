@@ -10,12 +10,12 @@ ms.component: bing-custom-search
 ms.topic: quickstart
 ms.date: 09/06/2018
 ms.author: scottwhi
-ms.openlocfilehash: 5abf1027059bed9c685e0eb44f17ab41dfabf655
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 6dc10bc2dedfe99573b5ad646461e66827c6df9e
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48816766"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49320166"
 ---
 # <a name="quickstart-using-the-bing-custom-search-sdk-with-c"></a>Snelstartgids: Bing Custom Search SDK gebruiken met C#
 
@@ -42,6 +42,9 @@ Met de installatie van het NuGet-pakket Custom Search worden ook de volgende ass
 
 
 ## <a name="run-the-code"></a>De code uitvoeren
+
+> [!TIP]
+> Krijg de nieuwste code als een Visual Studio-oplossing van [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingCustomWebSearch).
 
 Volg deze stappen om het voorbeeld uit te voeren:
 

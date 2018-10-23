@@ -10,18 +10,16 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/15/2018
 ms.author: nolachar
-ms.openlocfilehash: e60b2a9ea7c56352a1b4dfb65537ba6dc57fcb68
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 2b524591f3af32e566b0ca364626daf7aaf4ace2
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46365958"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49318449"
 ---
 # <a name="quickstart-translate-text-with-c35"></a>Snelstart: Tekst vertalen met C&#35;
 
 In deze snelstartgids vertaalt u tekst vanuit één taal naar een andere taal met de Translator Text-API.
-
-De broncode voor dit voorbeeld is beschikbaar op [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-C-Sharp).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -31,7 +29,10 @@ Als u de Translator Text-API wilt gebruiken, moet u ook een abonnementssleutel h
 
 ## <a name="translate-request"></a>Translate-aanvraag
 
-Met de volgende code wordt brontekst vertaald vanuit één taal naar een andere taal met behulp van de methode [Translate](./reference/v3-0-translate.md).
+> [!TIP]
+> Haal de laatste nieuwe code op uit [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-C-Sharp).
+
+Met de volgende code wordt brontekst vertaald vanuit één taal naar een andere taal met de methode [Translate](./reference/v3-0-translate.md).
 
 1. Maak een nieuw C#-project in uw favoriete IDE.
 2. Voeg de onderstaande code toe.

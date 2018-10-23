@@ -9,28 +9,16 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: af06766d89804b2f3d0aaf061494fb836f6ec262
-ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
+ms.openlocfilehash: 0199efbc1456206c67efb846b4381cae333e3749
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46465602"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49309039"
 ---
 # <a name="create-an-azure-iot-central-application"></a>Een Azure IoT Central-toepassing maken
 
-Als _maker_ gebruikt u de gebruikersinterface van Azure IoT Central om uw Microsoft Azure IoT Central-toepassing te definiëren. In deze snelstartgids leert u het volgende:
-
-- Een Azure IoT Central-toepassing maken die een voorbeeld-_apparaatsjabloon_ en gesimuleerde _apparaten_ bevat.
-- De kenmerken van de apparaatsjabloon **Gekoelde verkoopautomaat** bekijken in uw toepassing.
-- De telemetrie en analyse van uw gesimuleerde **Koelapparaten** bekijken.
-
-In deze snelstart bekijkt u een gesimuleerd **Koelapparaat** van een apparaatsjabloon. Het gesimuleerde apparaat:
-
-* Verzendt telemetrie, zoals temperatuur en druk, naar uw toepassing.
-* Geeft apparaateigenschapswaarden, zoals een bewegingswaarschuwing, door aan uw toepassing.
-* Heeft apparaatinstellingen, zoals ventilatorsnelheid, die u kunt instellen in de toepassing.
-
-Wanneer u een gesimuleerd apparaat maakt op basis van een apparaatsjabloon in een Azure IoT Central-toepassing, kunt u met het gesimuleerde apparaat uw toepassing testen voordat u een echt apparaat aansluit.
+Als _maker_ gebruikt u de gebruikersinterface van Azure IoT Central om uw Microsoft Azure IoT Central-toepassing te definiëren. In deze snelstart ziet u hoe u een Azure IoT Central-toepassing maakt die een voorbeeld_apparaatsjabloon_ en gesimuleerde _apparaten_ bevat.
 
 ## <a name="create-the-application"></a>De toepassing maken
 

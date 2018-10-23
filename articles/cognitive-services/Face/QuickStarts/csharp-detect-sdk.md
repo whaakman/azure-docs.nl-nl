@@ -3,33 +3,34 @@ title: 'Snelstart: gezichten in een afbeelding detecteren - SDK, C#'
 titleSuffix: Azure Cognitive Services
 description: In deze snelstart detecteert u gezichten in een afbeelding met behulp van de Face Windows C# clientbibliotheek in Cognitive Services.
 services: cognitive-services
-author: noellelacharite
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: face-api
 ms.topic: quickstart
 ms.date: 09/14/2018
-ms.author: nolachar
-ms.openlocfilehash: a9a7efd89f8e7462812064615d07acf12acbc3a3
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.author: pafarley
+ms.openlocfilehash: b5fd10aaab28303079d3eef9c4c5c25207bb672e
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364095"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49344979"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-c35---face"></a>Snelstart: gezichten in een afbeelding detecteren met C&#35; - Gezicht
 
 In deze snelstart detecteert u menselijke gezichten in een afbeelding met behulp van de Face Windows clientbibliotheek.
 
-De broncode voor dit voorbeeld is beschikbaar op [GitHub](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/Face).
-
 ## <a name="prerequisites"></a>Vereisten
 
 * U hebt een abonnementssleutel nodig om het voorbeeld uit te voeren. U kunt abonnementssleutels voor een gratis proefversie downloaden op [Cognitive Services proberen](https://azure.microsoft.com/try/cognitive-services/?api=face-api).
-* Eender welke versie van [Visual Studio 2017](https://www.visualstudio.com/downloads/).
+* Elke versie van [Visual Studio 2017](https://www.visualstudio.com/downloads/).
 * Het NuGet-pakket van de [Microsoft.Azure.CognitiveServices.Vision.Face 2.2.0-preview](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.2.0-preview)-clientbibliotheek. U hoeft het pakket niet te downloaden. Hieronder vindt u de installatie-instructies.
 
 ## <a name="detectwithurlasync-method"></a>Methode DetectWithUrlAsync
+
+> [!TIP]
+> Haal de nieuwste code als Visual Studio-oplossing op uit [GitHub](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/Face).
 
 De methoden `DetectWithUrlAsync` en `DetectWithStreamAsync` verpakken de [Face - Detect API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) voor respectievelijk externe en lokale afbeeldingen. Gebruik deze methoden om gezichten te herkennen in een afbeelding en gezichtskenmerken te retourneren, waaronder:
 

@@ -11,19 +11,23 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 04/17/2018
+ms.date: 10/24/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 3125db03dc13f70524fd094736f50b563ef712a4
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 6a3bb5511828d9f8ea7168ffa4748b141484299f
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44379924"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49376427"
 ---
 # <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>Zelfstudie: De Azure SQL Database-verbinding vanuit App Service beveiligen met een beheerde identiteit
 
 [App Servicex](app-service-web-overview.md) biedt een uiterst schaalbare webhostingservice met self-patchfunctie in Azure. De service bevat ook een [beheerde identiteit](app-service-managed-service-identity.md) voor uw app. Dit is een gebruiksklare oplossing voor het beveiligen van toegang tot [Azure SQL Database](/azure/sql-database/) en andere Azure-services. Beheerde identiteiten in App Service maken uw app veiliger doordat geheimen in uw app, zoals referenties in de verbindingsreeksen, worden verwijderd. In deze zelfstudie voegt u een beheerde identiteit toe aan het voorbeeld van de AS.NET-web-app dat u hebt gemaakt in [Zelfstudie: Een ASP.NET-app in Azure bouwen met behulp van SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md). Wanneer u klaar bent, maakt uw voorbeeld-app veilig verbinding met SQL Database zonder dat een gebruikersnaam en wachtwoorden zijn vereist.
+
+> [!NOTE]
+> Dit scenario wordt momenteel ondersteund door .NET Framework 4.6 en hoger, maar niet door [.NET Core 2.1](https://www.microsoft.com/net/learn/get-started/windows). [.NET core 2.2](https://www.microsoft.com/net/download/dotnet-core/2.2) biedt weliswaar ondersteuning voor het scenario, maar is nog niet opgenomen in de standaardinstallatiekopieën in App Service. 
+>
 
 U leert het volgende:
 
@@ -95,6 +99,7 @@ In uw **DotNetAppSqlDb**-project in Visual Studio opent u _packages.config_ en v
 
 ```xml
 <package id="Microsoft.Azure.Services.AppAuthentication" version="1.1.0-preview" targetFramework="net461" />
+<package id="Microsoft.IdentityModel.Clients.ActiveDirectory" version="3.14.2" targetFramework="net461" />
 ```
 
 Open _Models\MyDatabaseContext.cs_ en voeg de volgende `using`-instructies toe aan het begin van het bestand:
@@ -122,7 +127,7 @@ public MyDatabaseContext(SqlConnection conn) : base(conn, true)
 Deze constructor configureert een aangepast SqlConnection-object voor gebruik van een toegangstoken voor Azure SQL Database vanuit App Service. Met het toegangstoken verifieert uw App Service-app Azure SQL Database met de beheerde identiteit. Zie [Tokens voor Azure-resources verkrijgen](app-service-managed-service-identity.md#obtaining-tokens-for-azure-resources) voor meer informatie. De `if`-instructie laat u doorgaan met het lokaal testen van uw app met LocalDB.
 
 > [!NOTE]
-> `SqlConnection.AccessToken` wordt momenteel alleen ondersteund in .NET Framework 4.6 en hoger, niet in [.NET Core](https://www.microsoft.com/net/learn/get-started/windows).
+> `SqlConnection.AccessToken` wordt momenteel alleen ondersteund in .NET Framework 4.6 en hoger, evenals in [.NET Core 2.2](https://www.microsoft.com/net/download/dotnet-core/2.2), maar niet in [.NET Core 2.1](https://www.microsoft.com/net/learn/get-started/windows).
 >
 
 Voor het gebruik van deze nieuwe constructor opent u `Controllers\TodosController.cs` en zoekt u de regel `private MyDatabaseContext db = new MyDatabaseContext();`. De bestaande code gebruikt de standaard `MyDatabaseContext`-controller om een database te maken met behulp van de standaardverbindingsreeks die een gebruikersnaam en wachtwoord in ongecodeerde tekst had voordat [u deze wijzigde](#modify-connection-string).
@@ -130,7 +135,7 @@ Voor het gebruik van deze nieuwe constructor opent u `Controllers\TodosControlle
 Vervang de gehele regel door de volgende code:
 
 ```csharp
-private MyDatabaseContext db = new MyDatabaseContext(new SqlConnection());
+private MyDatabaseContext db = new MyDatabaseContext(new System.Data.SqlClient.SqlConnection());
 ```
 
 ### <a name="publish-your-changes"></a>Uw wijzigingen publiceren
@@ -172,32 +177,23 @@ Voorheen wees u de beheerde identiteit toe als de Azure AD-beheerder voor uw SQL
 
 ### <a name="grant-permissions-to-azure-active-directory-group"></a>Machtigingen verlenen voor Azure Active Directory-groep
 
-Meld u in de Cloud Shell aan bij SQL Database met behulp van de SQLCMD-opdracht. Vervang _\<servername>_ door uw SQL Database-servernaam en vervang _\<AADusername>_ en _\<AADpassword>_ door de referenties van uw Azure AD-gebruiker.
-
-```azurecli-interactive
-sqlcmd -S <server_name>.database.windows.net -U <AADuser_name> -P "<AADpassword>" -G -l 30
-```
-
-Voer bij de SQL-prompt de volgende opdrachten uit, waarmee de Azure Active Directory-groep wordt toegevoegd die u eerder als gebruiker hebt gemaakt.
-
-```sql
-CREATE USER [myAzureSQLDBAccessGroup] FROM EXTERNAL PROVIDER;
-GO
-```
-
-Typ `EXIT` om terug te keren naar de Cloud Shell-prompt. Vervolgens voert u SQLCMD opnieuw uit, maar geeft u de naam van de database op in _\<dbname>_.
+Meld u in de Cloud Shell aan bij SQL Database met behulp van de SQLCMD-opdracht. Vervang _\<server\_name>_ door uw SQL Database-servernaam, _\<db\_name>_ door de databasenaam die door uw app wordt gebruikt en vervang _\<AADuser\_name>_ en _\<AADpassword>_ door de referenties van uw Azure AD-gebruiker.
 
 ```azurecli-interactive
 sqlcmd -S <server_name>.database.windows.net -d <db_name> -U <AADuser_name> -P "<AADpassword>" -G -l 30
 ```
 
-Voer bij de SQL-prompt voor de gewenste database de volgende opdrachten uit om lees- en schrijfmachtigingen te verlenen aan de Azure Active Directory-groep.
+Voer bij de SQL-prompt voor de gewenste database de volgende opdrachten uit om de Azure Active Directory-groep die u eerder hebt gemaakt, toe te voegen en om de benodigde machtigingen aan uw app toe te wijzen. Bijvoorbeeld: 
 
 ```sql
+CREATE USER [myAzureSQLDBAccessGroup] FROM EXTERNAL PROVIDER;
 ALTER ROLE db_datareader ADD MEMBER [myAzureSQLDBAccessGroup];
 ALTER ROLE db_datawriter ADD MEMBER [myAzureSQLDBAccessGroup];
+ALTER ROLE db_ddladmin ADD MEMBER [myAzureSQLDBAccessGroup];
 GO
 ```
+
+Typ `EXIT` om terug te keren naar de Cloud Shell-prompt. 
 
 ## <a name="next-steps"></a>Volgende stappen
 

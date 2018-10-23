@@ -1,47 +1,57 @@
 ---
-title: Snelstart voor een domeinmodel met behulp van de Computer Vision-API met PHP | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: In deze snelstart gebruikt u een domeinmodel om oriëntatiepunten in een afbeelding te identificeren met behulp van Computer Vision met PHP in Cognitive Services.
+title: 'Snelstart: Een domeinmodel gebruiken - REST, PHP - Computer Vision'
+titleSuffix: Azure Cognitive Services
+description: In deze snelstart gebruikt u een domeinmodel om oriëntatiepunten in een afbeelding te identificeren met behulp van de Computer Vision-API en PHP.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: v-deken
-ms.openlocfilehash: 335065b45781dd2712f5416fb03a2f8726182472
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 40a4fa90442a5771f6b221a25ddca46d3ebc4f5c
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43770291"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45629488"
 ---
-# <a name="quickstart-use-a-domain-model---rest-php"></a>Snelstart: een domeinmodel gebruiken - REST, PHP
+# <a name="quickstart-use-a-domain-model-using-the-rest-api-and-php-in-computer-vision"></a>Snelstart: Een domeinmodel gebruiken met de REST-API en PHP in Computer Vision
 
-In deze snelstart gebruikt u een domeinmodel om oriëntatiepunten of beroemdheden in een afbeelding te identificeren met behulp van Computer Vision.
+In deze snelstart gebruikt u een domeinmodel om oriëntatiepunten, of eventueel beroemdheden, in een extern opgeslagen afbeelding te identificeren met behulp van de REST API van Computer Vision. Met de methode [Domeinspecifieke inhoud herkennen](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e200) past u een domeinspecifiek model toe om inhoud in een afbeelding te herkennen.
+
+Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) aan voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Als u Computer Vision wilt gebruiken, moet u een abonnementssleutel hebben. Zie [Abonnementssleutels verkrijgen](../Vision-API-How-to-Topics/HowToSubscribe.md).
+- U moet [PHP](https://secure.php.net/downloads.php) hebben geïnstalleerd.
+- U moet [Pear](https://pear.php.net) hebben geïnstalleerd.
+- U moet beschikken over een abonnementssleutel voor Computer Vision. Zie [Abonnementssleutels verkrijgen](../Vision-API-How-to-Topics/HowToSubscribe.md) voor meer informatie over het verkrijgen van een abonnementssleutel.
 
-## <a name="recognize-landmark-request"></a>Recognize Landmark-aanvraag
+## <a name="create-and-run-the-sample"></a>Het voorbeeld maken en uitvoeren
 
-Met de methode [Domain Specific Content](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e200) kunt u een specifieke set objecten in een afbeelding identificeren. De twee domeinspecifieke modellen die momenteel beschikbaar zijn, zijn _beroemdheden_ en _oriëntatiepunten_.
+U kunt het voorbeeld maken en uitvoeren aan de hand van de volgende stappen:
 
-U kunt het voorbeeld uitvoeren aan de hand van de volgende stappen:
+1. Installeer het PHP5-pakket [`HTTP_Request2`](http://pear.php.net/package/HTTP_Request2).
+   1. Open een opdrachtpromptvenster als beheerder.
+   1. Voer de volgende opdracht uit:
 
-1. Kopieer de volgende code in een editor.
-1. Vervang `<Subscription Key>` door uw geldige abonnementssleutel.
-1. Wijzig zo nodig `uriBase` om de locatie te gebruiken waar u de abonnementssleutels hebt verkregen.
-1. Stel `imageUrl` desgewenst in op de afbeelding die u wilt analyseren.
-1. Stel `domain` desgewenst in op `celebrities` om gebruik te maken van het beroemdhedenmodel.
-1. Sla het bestand op met de extensie `.php`.
-1. Open het bestand in een browservenster met PHP-ondersteuning.
+      ```console
+      pear install HTTP_Request2
+      ```
 
-In het volgende voorbeeld wordt een oriëntatiepunt in een afbeelding geïdentificeerd.
+   1. Sluit het opdrachtpromptvenster nadat het pakket is geïnstalleerd.
 
-In dit voorbeeld wordt gebruikgemaakt van het PHP5 [HTTP_Request2](http://pear.php.net/package/HTTP_Request2)-pakket.
+1. Kopieer de volgende code naar een teksteditor.
+1. Breng waar nodig de volgende wijzigingen in code aan:
+    1. Vervang de waarde van `subscriptionKey` door uw abonnementssleutel.
+    1. Vervang de waarde van `uriBase` door de eindpunt-URL van de methode [Domeinspecifieke inhoud herkennen](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e200) uit de Azure-regio waar u uw abonnementssleutels hebt verkregen (indien nodig).
+    1. Vervang eventueel de waarde van `imageUrl` door de URL van een andere afbeelding die u wilt analyseren.
+    1. Vervang eventueel de waarde van de aanvraagparameter `domain` door `celebrites` als u het domeinmodel `celebrities` wilt gebruiken in plaats van het domeinmodel `landmarks`.
+1. Sla de code op als een bestand met de extensie `.php`. Bijvoorbeeld `use-domain-model.php`.
+1. Open een browservenster met PHP-ondersteuning.
+1. Sleep het bestand naar het browservenster.
 
 ```php
 <html>
@@ -105,9 +115,9 @@ catch (HttpException $ex)
 </html>
 ```
 
-## <a name="recognize-landmark-response"></a>Recognize Landmark-antwoord
+## <a name="examine-the-response"></a>Het antwoord bekijken
 
-Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, bijvoorbeeld:
+Een geslaagd antwoord wordt geretourneerd in JSON-indeling. De voorbeeldwebsite parseert en geeft een geslaagd antwoord weer in het browservenster dat vergelijkbaar is met het volgende voorbeeld:
 
 ```json
 {
@@ -128,9 +138,22 @@ Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, bijvoorbeeld:
 }
 ```
 
+## <a name="clean-up-resources"></a>Resources opschonen
+
+Verwijder het bestand wanneer u het niet meer nodig hebt en verwijder het PHP5-pakket `HTTP_Request2`. Voer de volgende stappen uit om het pakket te verwijderen:
+
+1. Open een opdrachtpromptvenster als beheerder.
+2. Voer de volgende opdracht uit:
+
+   ```console
+   pear uninstall HTTP_Request2
+   ```
+
+3. Sluit het opdrachtpromptvenster nadat het pakket is verwijderd.
+
 ## <a name="next-steps"></a>Volgende stappen
 
-Bekijk de Computer Vision-API's die worden gebruikt om een afbeelding te analyseren, beroemdheden en oriëntatiepunten te detecteren, een miniatuur te maken en gedrukte en handgeschreven tekst te verkrijgen. Als u snel wilt experimenteren met de Computer Vision-API's, probeert u de [Open API-testconsole](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+Bekijk de Computer Vision-API die wordt gebruikt om een afbeelding te analyseren, beroemdheden en oriëntatiepunten te detecteren, een miniatuur te maken en gedrukte en handgeschreven tekst te verkrijgen. Als u snel wilt experimenteren met de Computer Vision-API, gebruikt u de [Open API-testconsole](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
 
 > [!div class="nextstepaction"]
-> [De Computer Vision-API's bekijken](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)
+> [De Computer Vision-API verkennen](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)

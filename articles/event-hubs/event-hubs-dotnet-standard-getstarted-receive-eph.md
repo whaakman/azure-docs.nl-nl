@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/16/2018
 ms.author: shvija
-ms.openlocfilehash: 03acd63ff00f0a3017297d1998289c8e68f0f290
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: 5abb2447fa90ea5900afb86746cc17eff62c2d2e
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "41917940"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49166273"
 ---
 # <a name="get-started-receiving-messages-with-the-event-processor-host-in-net-standard"></a>Aan de slag met het ontvangen van berichten met de Event Processor Host in .NET Standard
 
@@ -43,13 +43,18 @@ In de eerste stap gebruikt u [Azure Portal](https://portal.azure.com) om een naa
 ## <a name="create-an-azure-storage-account"></a>Een Azure Storage-account maken  
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).  
-2. Klik in het linkernavigatievenster van de portal achtereenvolgens op **Een nieuwe resource maken**, **Opslag** en **Opslagaccount**.  
-3. Vul de velden in het opslagaccountvenster en klik vervolgens op **Maken**.
+2. Selecteer in het navigatievenster links in de portal **Een resource maken**, selecteer **Opslag** als categorie en selecteer vervolgens **Opslagaccount - blob, bestand, tabel, wachtrij**.  
+3. Vul de velden in het venster **Opslagaccount maken** in en selecteer vervolgens **Beoordelen en maken**. 
 
     ![Een opslagaccount maken][1]
 
-4. Als u het bericht **Implementaties voltooid** ziet, klikt u op de naam van de nieuwe opslagaccount. Klik in het venster **Essentials** op **Blobs**. Wanneer het dialoogvenster **Blob service** wordt geopend, klikt u op **+ Container** bovenaan. Geef een naam op voor de container en sluit **Blob service**.  
-5. Klik op **Toegangssleutels** in het venster links en kopieer de naam van de opslagcontainer, de opslagaccount en de waarde van **key1**. Plak deze waarde in Kladblok of een andere tijdelijke locatie.  
+4. Selecteer op de pagina **Beoordelen en maken** de optie **Maken** nadat u de waarden voor de velden hebt gecontroleerd. 
+5. Als u het bericht **Implementaties voltooid** ziet, selecteert u de naam van het nieuwe opslagaccount. 
+6. Selecteer in het venster **Essentials** de optie **Blobs**. 
+7. Selecteer **+ Container** boven aan. Geef een naam op voor de container.  
+8. Klik op **Toegangssleutels** in het linkervenster en kopieer de naam van de opslagcontainer, het opslagaccount en de waarde van **key1**. 
+
+    Plak deze waarde in Kladblok of een andere tijdelijke locatie.
 
 ## <a name="create-a-console-application"></a>Een consoletoepassing maken
 

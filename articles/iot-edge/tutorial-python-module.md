@@ -9,12 +9,12 @@ ms.date: 09/21/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 0a32f925aa1ff4066a893fb107f4d785bd1fd8f8
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: 1316dcaf32b709dbc7c07f7d82388082d8d6e6a9
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47423558"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319639"
 ---
 # <a name="tutorial-develop-and-deploy-a-python-iot-edge-module-to-your-simulated-device"></a>Zelfstudie: een Python IoT Edge-module maken en implementeren op een gesimuleerd apparaat
 
@@ -41,7 +41,7 @@ Een Azure IoT Edge-apparaat:
 
 Cloudresources:
 
-* Een gratis [IoT Hub](../iot-hub/iot-hub-create-through-portal.md)-laag in Azure. 
+* Een gratis of standaard [IoT Hub](../iot-hub/iot-hub-create-through-portal.md)-laag in Azure. 
 
 Ontwikkelingsresources:
 
@@ -82,7 +82,7 @@ Gebruik het Python-pakket **cookiecutter** om een Python-oplossingssjabloon te m
     pip install --upgrade --user cookiecutter
     ```
    >[!Note]
-   >Zorg ervoor dat de map waar cookiecutter wordt geïnstalleerd zich in het `Path` van uw omgeving bevindt, zodat het mogelijk is deze vanaf een opdrachtprompt aan te roepen.
+   >Zorg ervoor dat de map waar cookiecutter wordt geïnstalleerd zich in het `Path` van uw omgeving bevindt, zodat het mogelijk is deze vanaf een opdrachtprompt aan te roepen. In Windows voegt u `%APPDATA%\Python\PythonVersion\Scripts` gewoonlijk toe waar uw versie van Python zich bevindt in plaats van PythonVersion.
 
 3. Selecteer **View** > **Command Palette** om het VS Code-opdrachtpalet te openen. 
 
@@ -236,6 +236,16 @@ In dit snelstartartikel voor het instellen van uw IoT Edge-apparaat hebt u een m
 6. Klik op de knop Vernieuwen. U ziet nu dat de nieuwe **PythonModule** wordt uitgevoerd, samen met de module **TempSensor** en de **$edgeAgent** en **$edgeHub**. 
 
 ## <a name="view-generated-data"></a>Gegenereerde gegevens weergeven
+
+Als u het implementatiemanifest op uw IoT Edge-apparaat toepast, verzamelt de IoT Edge-runtime op het apparaat de informatie over de nieuwe implementatie en wordt deze uitgevoerd. Modules die worden uitgevoerd op het apparaat en die niet zijn opgenomen in het implementatiemanifest, worden gestopt. Alle modules die ontbreken op het apparaat worden gestart. 
+
+U kunt de status van uw IoT Edge-apparaat bekijken via de sectie **Azure IoT Hub Devices** van de Visual Studio Code explorer. Vouw de details van uw apparaat uit voor een overzicht van de modules die worden geïmplementeerd en uitgevoerd. 
+
+Op het IoT Edge-apparaat kunt u de status van uw implementatiemodules bekijken met behulp van de opdracht `iotedge list`. U moet vier modules zien: de twee modules van de IoT Edge-runtime, tempSensor en de aangepaste module die u in deze zelfstudie hebt gemaakt. Het kan een paar minuten duren voordat alle modules zijn gestart, dus voer de opdracht opnieuw uit als u ze in eerste instantie niet allemaal ziet. 
+
+Als u de berichten die worden gegenereerd door een module wilt weergeven, gebruikt u de opdracht `iotedge logs <module name>`. 
+
+U kunt de berichten weergeven wanneer ze binnenkomen op uw IoT-hub met behulp van Visual Studio Code. 
 
 1. Klik op het weglatingsteken (**...**) en selecteer **Controle D2C-berichten starten** om de gegevens te controleren die binnenkomen bij de IoT-hub.
 2. Als u de D2C-berichten voor een specifiek apparaat wilt controleren, klikt u met de rechtermuisknop op dit apparaat in de lijst en selecteert u **Controle D2C-berichten starten**.

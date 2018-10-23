@@ -1,5 +1,5 @@
 ---
-title: Een echte apparaat toevoegen aan een Azure IoT Central-toepassing | Microsoft Docs
+title: Een echt apparaat toevoegen aan een Azure IoT Central-toepassing | Microsoft Docs
 description: Als operator kunt u een nieuw apparaat toevoegen aan uw Azure IoT Central-toepassing.
 author: sandeeppujar
 ms.author: sandeepu
@@ -9,16 +9,16 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 2e01f61ff915a8fe4327aa78c8867d666dc36fda
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 984457968de5ef5e43b15201dac213cd96b4b0e2
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45983215"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49309753"
 ---
 # <a name="tutorial-add-a-real-device-to-your-azure-iot-central-application"></a>Zelfstudie: een nieuw apparaat toevoegen aan uw Azure IoT Central-toepassing
 
-In deze zelfstudie wordt getoond hoe u en echt apparaat aan uw Microsoft Azure IoT Central-toepassing kunt toevoegen en het kunt configureren.
+In deze zelfstudie wordt getoond hoe u een echt apparaat aan uw Microsoft Azure IoT Central-toepassing kunt toevoegen en het kunt configureren.
 
 Deze zelfstudie bestaat uit twee delen:
 
@@ -29,7 +29,7 @@ In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
 > * Een nieuw echt apparaat toevoegen
-> * Nieuwe apparaat configureren
+> * Het echte apparaat configureren
 > * Verbindingsreeks voor echt apparaat vanuit de toepassing ophalen
 > * Leren hoe clientcode aan toepassing wordt toegewezen
 > * Clientcode voor echt apparaat configureren
@@ -56,48 +56,29 @@ Als u een echt apparaat aan uw toepassing wilt toevoegen, gebruikt u de apparaat
 
    ![Nieuwe, verbonden airco toevoegen](media/tutorial-add-device/newreal.png)
 
-3. Voer de apparaat-id in (**in kleine letters**) of gebruik de voorgestelde apparaat-id. U kunt ook de naam voor uw nieuwe apparaat invoeren.  
+3. Voer de apparaat-id in (**in kleine letters**) of gebruik de voorgestelde apparaat-id. U kunt ook de naam voor uw nieuwe apparaat invoeren en **Maken** selecteren.  
 
    ![Naam van apparaat wijzigen](media/tutorial-add-device/rename.png)
 
+
+
 ## <a name="configure-a-real-device"></a>Echt apparaat configureren
 
-Het echte apparaat wordt gemaakt van de apparaatsjabloon **Connected Air Conditioner**. Als maker kunt u via **Instellingen** het apparaat configureren en eigenschapswaarden instellen om informatie over het apparaat te registreren.
+Het echte apparaat wordt gemaakt van de apparaatsjabloon **Connected Air Conditioner**. U kunt via **Instellingen** het apparaat configureren en eigenschapswaarden instellen om informatie over het apparaat te registreren.
 
-1. Op de pagina **Instellingen** ziet u dat de status van de instelling **Set Temperature** **no update** is. Deze status blijft bestaan totdat het echte apparaat verbinding maakt en bevestigt dat er actie is uitgevoerd op de instelling:
+1. Op de pagina **Instellingen** ziet u dat de status van de instelling **Set Temperature** **no update** is. Deze status blijft bestaan totdat het echte apparaat verbinding maakt met de toepassing en bevestigt dat er actie op de instelling is uitgevoerd. 
 
     ![Instellingen vertonen synchronisatie](media/tutorial-add-device/settingssyncing.png)
 
-2. Op de pagina **Eigenschappen** van de nieuwe, echte verbonden airco stelt u **Serienummer** in op **10001** en **Firmwareversie** op 9.75. Kies vervolgens **Opslaan**:
+2. Op de pagina **Eigenschappen** van uw nieuwe, echte verbonden airconditioningsapparaat zijn de eigenschappen voor de servicelocatie en laatste servicedatum beide bewerkbaar. De velden voor het serienummer en de firmwareversie blijven leeg totdat het apparaat is verbonden met de toepassing. Dit zijn alleen-lezen waarden die vanaf het apparaat worden verzonden. U kunt deze waarden niet bewerken.
 
-    ![Eigenschappen instellen voor echte apparaat](media/tutorial-add-device/setproperties.png)
+    ![Apparaateigenschappen van het echte apparaat](media/tutorial-add-device/setproperties1.png)
 
-3. Als maker kunt u de pagina's **Metingen**, **Regels** en **Dashboard** voor het echte apparaat weergeven.
+3. U kunt de pagina's **Metingen**, **Regels** en **Dashboard** voor het echte apparaat weergeven.
 
-## <a name="get-connection-details-for-real-device-from-application"></a>Verbindingsreeksdetails voor echte apparaat ophalen vanuit toepassing
+## <a name="generate-connection-string-for-real-device-from-application"></a>Verbindingsreeks voor het echte apparaat genereren via de toepassing
 
-Een apparaatontwikkelaar dient de *verbindingsreeksdetails* voor het echte apparaat in te sluiten in de code die op het apparaat wordt uitgevoerd. Dankzij de verbindingsreeks kan het apparaat veilig verbinding maken met de Azure IoT Central-toepassing. In de volgende stappen leert u hoe u de verbindingsreeks voor een apparaatexemplaar in de toepassing kunt vinden:
-
-1. Kies op het scherm **Apparaat** voor de echte, verbonden airco de optie **Connect this device**:
-
-    ![Apparaatpagina met koppeling voor het weergeven van verbindingsgegevens](media/tutorial-add-device/connectionlink.png)
-
-2. Op de pagina **Verbinding maken** kopieert u **Bereik-id, Apparaat-id en Primaire sleutel**, en slaat u deze op.
-
-   ![Verbindingsdetails](media/tutorial-add-device/device-connect.PNG)
-
-   Het onderstaande opdrachtregelhulpprogramma gebruiken om de verbindingsreeks van het apparaat op te halen  
-
-    ```cmd/sh
-    npm i -g dps-keygen
-    ```
-    **Gebruik**
-    
-    Als u een verbindingsreeks wilt maken, zoekt u uw binaire bestand onder bin/ folder
-    ```cmd/sh
-    dps_cstr <scope_id> <device_id> <Primary Key(for device)>
-    ```
-    Meer informatie over het [opdrachtregelprogramma hier](https://www.npmjs.com/package/dps-keygen).
+Een apparaatontwikkelaar dient de *verbindingsreeks* voor het echte apparaat in te sluiten in de code die op het apparaat wordt uitgevoerd. Dankzij de verbindingsreeks kan het apparaat veilig verbinding maken met de Azure IoT Central-toepassing. U genereert de verbindingsreeks wanneer u de clientcode in Node.js voorbereidt in de volgende stappen. De Node.js-toepassing vertegenwoordigt de echte verbonden airconditioning. 
 
 ## <a name="prepare-the-client-code"></a>Clientcode voorbereiden
 
@@ -105,7 +86,10 @@ De voorbeeldcode in dit artikel is geschreven in [Node.js](https://nodejs.org/) 
 
 * Verbinding te maken als een apparaat met uw Azure IoT Central-toepassing.
 * Temperatuurtelemetrie te verzenden als verbonden airco.
+* Apparaateigenschappen naar uw Azure IoT Central-toepassing te verzenden.
 * Te reageren op een operator die de instelling **Set Temperature** gebruikt.
+* De echo-opdracht van uw Azure IoT Central-toepassing te verwerken.
+
 
 In de artikelen met praktijkvoorbeelden waarnaar in de sectie [Volgende stappen](#next-steps) wordt verwezen, bieden meer complete voorbeelden en laten het gebruik zien van andere programmeertalen. Zie het artikel [Device connectivity](concepts-connectivity.md) (Apparaatconnectiviteit) voor meer informatie over hoe apparaten verbinding maken met Azure IoT Central.
 
@@ -113,25 +97,56 @@ In de volgende stappen ziet u hoe u het [Node.js](https://nodejs.org/)-voorbeeld
 
 1. Installeer [Node.js](https://nodejs.org/) versie 4.0.x of nieuwer op uw computer. Node.js is beschikbaar voor een groot aantal verschillende besturingssystemen.
 
-2. Maak de map `connectedairconditioner` op uw computer.
+1. Maak de map `connectedairconditioner` op uw computer.
 
-3. Ga in uw opdrachtregelprogramma naar de map `connectedairconditioner` die u hebt gemaakt.
+1. Ga in uw opdrachtregelprogramma naar de map `connectedairconditioner` die u hebt gemaakt.
 
-4. Voor het initialiseren van het Node.js-project, voert u de volgende opdracht uit, waarbij u alle standaardwaarden overneemt:
+1. Installeer de DPS-sleutelgenerator met behulp van de volgende opdracht:
+    
+    ```cmd/sh
+    npm i -g dps-keygen
+    ```
+
+   Meer informatie over het [opdrachtregelprogramma hier](https://www.npmjs.com/package/dps-keygen).
+
+1. Het hulpprogramma dps_cstr downloaden en uitpakken vanaf [GitHub](https://github.com/Azure/dps-keygen/tree/master/bin) (Windows)
+
+    Zorg ervoor dat u het bestand kiest dat overeenkomt met uw platform. Als u bijvoorbeeld Windows gebruikt, moeten dps_cstr.exe en de dll-bestanden nu beschikbaar zijn in uw map. 
+
+1. De verbindingsreeks voor een apparaatinstantie in uw toepassing wordt gegenereerd op basis van apparaatinformatie die wordt verstrekt door IoT Central.
+
+   Ga terug naar de IoT Central-portal. Kies op het apparaatscherm voor uw echte, verbonden airconditioning de optie **Verbinding maken**.
+
+   ![Apparaatpagina met koppeling voor het weergeven van verbindingsgegevens](media/tutorial-add-device/connectionlink.png)
+
+
+1. Kopieer op de pagina Apparaatverbinding de bereik-id, apparaat-id en primaire sleutel en plak deze in een teksteditor. Sla deze waarden vervolgens op. U gaat ze in de volgende stap gebruiken.
+
+   ![Verbindingsdetails](media/tutorial-add-device/device-connect.PNG)
+
+1. Ga terug naar de opdrachtregelomgeving en genereer uw verbindingsreeks door het volgende uit te voeren:
 
    ```cmd/sh
-   npm init
+   dps_cstr <scope_id> <device_id> <Primary Key>
+   ```
+   
+   Kopieer de uitvoer en sla deze op in een nieuw bestand (bijvoorbeeld verbinding.txt).
+
+1. Voor het initialiseren van het Node.js-project, voert u de volgende opdracht uit, waarbij u alle standaardwaarden overneemt:
+
+   ```cmd/sh
+    npm init
    ```
 
-5. Voor het installeren van de benodigde pakketten, voert u de volgende opdracht uit:
+1. Voor het installeren van de benodigde pakketten, voert u de volgende opdracht uit:
 
    ```cmd/sh
    npm install azure-iot-device azure-iot-device-mqtt --save
    ```
 
-6. Maak in een teksteditor een bestand met de naam **ConnectedAirConditioner.js** in de map `connectedairconditioner`.
+1. Maak in een teksteditor een bestand met de naam **ConnectedAirConditioner.js** in de map `connectedairconditioner`.
 
-7. Voeg de volgende `require`-instructies toe aan het begin van het bestand **ConnectedAirConditioner.js**:
+1. Voeg de volgende `require`-instructies toe aan het begin van het bestand **ConnectedAirConditioner.js**:
 
    ```javascript
    'use strict';
@@ -141,29 +156,28 @@ In de volgende stappen ziet u hoe u het [Node.js](https://nodejs.org/)-voorbeeld
    var ConnectionString = require('azure-iot-device').ConnectionString;
    ```
 
-8. Voeg de volgende variabelendeclaraties aan het bestand toe:
-
- 
+1. Voeg de volgende variabelendeclaraties aan het bestand toe:
 
    ```javascript
    var connectionString = '{your device connection string}';
    var targetTemperature = 0;
    var client = clientFromConnectionString(connectionString);
    ```
-   
-
    > [!NOTE]
    > De tijdelijke aanduiding `{your device connection string}` werkt u in een volgende stap bij. 
 
-9. Sla de wijzigingen op die u tot nu toe hebt gemaakt, maar houd het bestand open.
+1. Sla de wijzigingen op die u tot nu toe hebt gemaakt, maar houd het bestand open.
 
 ## <a name="understand-how-client-code-maps-to-the-application"></a>Leren hoe clientcode aan toepassing wordt toegewezen
 
-In de vorige sectie hebt u een opzet gemaakt van een Node.js-project voor een toepassing waarmee u verbinding kunt maken met uw Azure IoT Central-toepassing. In deze sectie voert u de code toe om:
+In de vorige sectie hebt u een opzet gemaakt van een Node.js-project voor een toepassing waarmee u verbinding kunt maken met uw Azure IoT Central-toepassing. In deze sectie voegt u de code toe om:
 
 * Verbinding te maken met uw Azure IoT Central-toepassing.
 * Telemetrie te verzenden naar uw Azure IoT Central-toepassing.
+* Apparaateigenschappen naar uw Azure IoT Central-toepassing te verzenden.
 * Instellingen te ontvangen van uw Azure IoT Central-toepassing.
+* De echo-opdracht van uw Azure IoT Central-toepassing te verwerken.
+
 
 1. Als u telemetrie over de temperatuur wilt verzenden naar uw Azure IoT Central-toepassing, voegt u de volgende code toe aan het bestand **ConnectedAirConditioner.js**:
 
@@ -181,7 +195,22 @@ In de vorige sectie hebt u een opzet gemaakt van een Node.js-project voor een to
 
    De naam van het veld in de JSON die u verzendt, moet overeenkomen met de naam van het veld dat u hebt opgegeven voor temperatuurtelemetrie in de sjabloon voor het apparaat. In dit voorbeeld is **temperature** de naam van het veld.
 
-2. Als u de instellingen die door uw apparaat worden ondersteund (bijvoorbeeld **setTemperature**), wilt definiëren, voegt u de volgende definitie toe:
+
+1. Als u apparaateigenschappen zoals **firmwareVersion** en **serialNumber** wilt verzenden, voegt u de volgende definitie toe:
+
+   ```javascript
+   // Send device properties
+   function sendDeviceProperties(twin) {
+     var properties = {
+       firmwareVersion: "9.75",
+       serialNumber: "10001"
+     };
+     twin.properties.reported.update(properties, (errorMessage) => 
+       console.log(` * Sent device properties ` + (errorMessage ? `Error: ${errorMessage.toString()}` : `(success)`)));
+   }
+   ```
+
+1. Als u de instellingen die door uw apparaat worden ondersteund (bijvoorbeeld **setTemperature**), wilt definiëren, voegt u de volgende definitie toe:
 
    ```javascript
    // Add any settings your device supports
@@ -201,7 +230,7 @@ In de vorige sectie hebt u een opzet gemaakt van een Node.js-project voor een to
    };
    ```
 
-3. Voor het afhandelen van instellingen die vanaf Azure IoT Central zijn verzonden, voegt u de volgende functie toe (hiermee wordt de juiste apparaatcode gelokaliseerd en uitgevoerd):
+1. Voor het afhandelen van instellingen die vanaf Azure IoT Central zijn verzonden, voegt u de volgende functie toe (hiermee wordt de juiste apparaatcode gelokaliseerd en uitgevoerd):
 
    ```javascript
    // Handle settings changes that come from Azure IoT Central via the device twin.
@@ -234,7 +263,19 @@ In de vorige sectie hebt u een opzet gemaakt van een Node.js-project voor een to
     * Lokaliseert de juiste functie om ervoor te zorgen dat de wijziging in de instelling wordt verwerkt.
     * Stuurt een bevestiging terug naar de Azure IoT Central-toepassing.
 
-4. Voeg de volgende code toe voor het voltooien van de verbinding met Azure IoT Central en het aansluiten van de functies in de clientcode:
+1. Als u wilt reageren op een opdracht zoals **echo** vanuit uw Azure IoT Central-toepassing, voegt u de volgende definitie toe:
+
+   ```javascript
+   // Respond to the echo command
+   function onCommandEcho(request, response) {
+     // Display console info
+     console.log(' * Echo command received');
+     // Respond
+     response.send(10, 'Success', function (errorMessage) {});
+   }
+   ```
+
+1. Voeg de volgende code toe voor het voltooien van de verbinding met Azure IoT Central en het aansluiten van de functies in de clientcode:
 
    ```javascript
    // Handle device connection to Azure IoT Central.
@@ -243,13 +284,17 @@ In de vorige sectie hebt u een opzet gemaakt van een Node.js-project voor een to
        console.log(`Device could not connect to Azure IoT Central: ${err.toString()}`);
      } else {
        console.log('Device successfully connected to Azure IoT Central');
-        // Send telemetry measurements to Azure IoT Central every 1 second.
+       // Send telemetry measurements to Azure IoT Central every 1 second.
        setInterval(sendTelemetry, 1000);
-        // Get device twin from Azure IoT Central.
+       // Setup device command callbacks
+       client.onDeviceMethod('echo', onCommandEcho);
+       // Get device twin from Azure IoT Central.
        client.getTwin((err, twin) => {
          if (err) {
            console.log(`Error getting device twin: ${err.toString()}`);
          } else {
+           // Send device properties once on device start up
+           sendDeviceProperties(twin);
            // Apply device settings and handle changes to device settings.
            handleSettings(twin);
          }
@@ -260,7 +305,7 @@ In de vorige sectie hebt u een opzet gemaakt van een Node.js-project voor een to
    client.open(connectCallback);
    ```
 
-5. Sla de wijzigingen op die u tot nu toe hebt gemaakt, maar houd het bestand open.
+1. Sla de wijzigingen op die u tot nu toe hebt gemaakt, maar houd het bestand open.
 
 ## <a name="configure-client-code-for-the-real-device"></a>Clientcode voor echt apparaat configureren
 
@@ -272,11 +317,11 @@ In de vorige sectie hebt u een opzet gemaakt van een Node.js-project voor een to
    var connectionString = '{your device connection string}';
    ```
 
-2. Vervang `{your device connection string}` door de verbindingsreeks van het echte apparaat. Aan het eind van de sectie Verbindingsreeks voor echte apparaat vanuit toepassing ophalen hebt u een notitie gemaakt van de verbindingsreeks.
+1. Vervang `{your device connection string}` door de verbindingsreeks van het echte apparaat. U hebt de verbindingsreeks eerder opgeslagen in een teksteditor.
 
-3. Sla de wijzigingen op in het bestand **ConnectedAirConditioner.js**.
+1. Sla de wijzigingen op in het bestand **ConnectedAirConditioner.js**.
 
-4. Als u het voorbeeld wilt uitvoeren, voert u de volgende opdracht uit in uw opdrachtregelprogramma:
+1. Als u het voorbeeld wilt uitvoeren, voert u de volgende opdracht uit in uw opdrachtregelprogramma:
 
    ```cmd/sh
    node ConnectedAirConditioner.js
@@ -285,19 +330,19 @@ In de vorige sectie hebt u een opzet gemaakt van een Node.js-project voor een to
    > [!NOTE]
    > Zorg ervoor dat u zich in de map `connectedairconditioner` bevindt als u deze opdracht uitvoert.
 
-5. Uitvoer wordt naar de console afgedrukt:
+1. Uitvoer wordt naar de console afgedrukt:
 
    ![Uitvoer van clienttoepassing](media/tutorial-add-device/output.png)
 
-6. Na circa dertig seconden ziet u de telemetrie op de pagina **Metingen** van het apparaat:
+1. Na circa dertig seconden ziet u de telemetrie op de pagina **Metingen** van het apparaat:
 
    ![Echte telemetrie](media/tutorial-add-device/realtelemetry.png)
 
-7. Op de pagina **Instellingen** ziet u dat de instelling nu wordt gesynchroniseerd. Toen het apparaat voor het eerst verbinding maakte, werd de instellingswaarde ontvangen en de wijziging bevestigd:
+1. Op de pagina **Instellingen** ziet u dat de instelling nu wordt gesynchroniseerd. Toen het apparaat voor het eerst verbinding maakte, werd de instellingswaarde ontvangen en de wijziging bevestigd:
 
    ![Instelling gesynchroniseerd](media/tutorial-add-device/settingsynced.png)
 
-8. Stel op de pagina **Instellingen** de apparaattemperatuur in op **95** en kies **Update device**. De voorbeeldtoepassing ontvangt deze wijziging en verwerkt deze:
+1. Stel op de pagina **Instellingen** de apparaattemperatuur in op **95** en kies **Update device**. De voorbeeldtoepassing ontvangt deze wijziging en verwerkt deze:
 
    ![Instelling ontvangen en verwerken](media/tutorial-add-device/receivesetting.png)
 
@@ -332,3 +377,7 @@ Als apparaatontwikkelaar, leert u het volgende:
 * [DevKit voorbereiden en verbinden](howto-connect-devkit.md)
 * [Raspberry Pi voorbereiden en verbinden](howto-connect-raspberry-pi-python.md)
 * [Een generieke Node.js-client verbinden met uw Azure IoT Central-toepassing](howto-connect-nodejs.md)
+* [Uw code aanpassen][lnk-nodejs-device-ref]
+
+
+[lnk-nodejs-device-ref]: /javascript/api/azure-iot-device/?view=azure-iot-typescript-latest

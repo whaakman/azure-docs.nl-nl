@@ -1,36 +1,37 @@
 ---
-title: Computer Vision-API Python-zelfstudie | Microsoft Docs
-description: Informatie over het gebruik van de Computer Vision-API met behulp van Python via Jupyter-notebooks in cognitieve Microsoft-Services. De resultaten met populaire bibliotheken visualiseren.
+title: 'Zelfstudie: Computer Vision-API met Python'
+titlesuffix: Azure Cognitive Services
+description: Informatie over het gebruik van de Computer Vision-API met Python met behulp van Jupyter-notebooks. Visualiseer uw resultaten met behulp van populaire bibliotheken.
 services: cognitive-services
 author: KellyDF
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
-ms.topic: article
+ms.topic: tutorial
 ms.date: 02/25/2017
 ms.author: kefre
-ms.openlocfilehash: a093c2d066e70a8daf1fe1cd33ccf794ecb196af
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.openlocfilehash: 59e88ecb253bc6da803ddf34a4a02229b99e259d
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35344739"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45981708"
 ---
-# <a name="computer-vision-api-python-tutorial"></a>Computer Vision-API Python-zelfstudie
+# <a name="tutorial-computer-vision-api-python"></a>Zelfstudie: Computer Vision-API met Python
 
-Deze zelfstudie ziet u hoe u de Computer Vision-API in Python en hoe de resultaten met behulp van sommige populaire bibliotheken visualiseren. Jupyter gebruiken de zelfstudie uitvoeren. Als u wilt weten hoe u aan de slag met interactieve Jupyter-notebooks, Raadpleeg: [Jupyter Documementation](http://jupyter.readthedocs.io/en/latest/index.html). 
+Deze zelfstudie laat zien hoe u de Computer Vision-API in Python gebruikt en hoe u de resultaten kunt visualiseren met behulp van populaire bibliotheken. Gebruik Jupyter om de zelfstudie uit te voeren. Raadpleeg de [documentatie bij Jupyter](http://jupyter.readthedocs.io/en/latest/index.html) om te leren hoe u aan de slag kunt gaan met interactieve Jupyter-notitieblokken. 
 
-### <a name="opening-the-tutorial-notebook-in-jupyter"></a>Openen van de zelfstudie Notebook in Jupyter 
+### <a name="opening-the-tutorial-notebook-in-jupyter"></a>De zelfstudie-notebook openen in Jupyter 
 
-1. Navigeer naar de [zelfstudie laptop in GitHub](https://github.com/Microsoft/Cognitive-Vision-Python). 
-2. Klik op de groene knop klonen of downloaden van de zelfstudie. 
-3. Open een opdrachtprompt en Ga naar de map _Cognitive, visie, Python, master\Jupyter Notebook_. 
-4. Voer de opdracht **jupyter-notebook** vanaf de opdrachtprompt. Hiermee wordt de Jupyter gestart.
-5. Klik in het venster Jupyter op _Computer Vision-API Example.ipynb_ openen van de zelfstudie notebook 
+1. Ga naar de [zelfstudie-notebook in Github](https://github.com/Microsoft/Cognitive-Vision-Python). 
+2. Klik op de groene knop om de zelfstudie te klonen of downloaden. 
+3. Open een opdrachtprompt en ga naar de map _Cognitive-Vision-Python-master\Jupyter Notebook_. 
+4. Voer de opdracht **jupyter notebook** uit vanaf de opdrachtprompt. Hiermee wordt Jupyter gestart.
+5. Klik in het venster van Jupyter op _Computer Vision API Example.ipynb_ om zelfstudie-notebook te openen. 
 
-### <a name="running-the-tutorial"></a>Uitvoeren van de zelfstudie
+### <a name="running-the-tutorial"></a>De zelfstudie uitvoeren
 
-Voor het gebruik van deze laptop, moet u een abonnementssleutel voor de Computer Vision-API. Ga naar de [abonnementpagina](https://azure.microsoft.com/try/cognitive-services/) aan te melden. Op de pagina 'Aanmelden' gebruik je Microsoft-account aan te melden en u zich abonneren en gratis sleutels ophalen. Na het voltooien van het aanmeldingsproces, plak uw sleutel in het gedeelte variabelen van de laptop (hieronder). De primaire of secundaire sleutel werkt. Zorg ervoor dat de sleutel plaats tussen aanhalingstekens zodat deze een tekenreeks.
+Als u dit notebook wilt gebruiken, moet u een abonnementssleutel voor de Computer Vision-API hebben. Ga naar de [pagina Abonnement](https://azure.microsoft.com/try/cognitive-services/) om u aan te melden. Gebruik op de pagina 'Aanmelden' uw Microsoft-account om u aan te melden. U kunt zich dan abonneren en gratis sleutels ophalen. Nadat u het aanmeldingsproces hebt voltooid, plakt u uw sleutel in de sectie met variabelen van het notitieblok (hieronder weergegeven). De primaire of de secundaire sleutel werkt. Zet de sleutel tussen aanhalingstekens om er een tekenreeks van te maken.
 
 ```python
 # Variables

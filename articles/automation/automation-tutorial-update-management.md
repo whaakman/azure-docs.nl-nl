@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/18/2018
 ms.author: zachal
 ms.custom: mvc
-ms.openlocfilehash: 4d504e0488d35c5c606468faa35bece1318503b4
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.openlocfilehash: bc1b52b97897cb1c635fb16e6ef9692de1ca8a44
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46498518"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49167253"
 ---
 # <a name="manage-windows-updates-by-using-azure-automation"></a>Windows-updates beheren met behulp van Azure Automation
 
@@ -116,7 +116,8 @@ Voer onder **Waarschuwingslogica** voor **Drempelwaarde** in: **1**. Wanneer u k
 
 #### <a name="runbook-alert"></a>Runbook-melding
 
-Als u een melding wilt ontvangen van mislukte implementaties via de masteruitvoering, gaat u in het Azure-portal naar **Controle** en selecteert u **Waarschuwing maken**.
+Voor mislukte implementaties moet u een waarschuwing maken over de fout van het master-runbook.
+Ga in Azure Portal naar **Monitor** en selecteer vervolgens **Waarschuwing maken**.
 
 Klik onder **1. Meldingsvoorwaarde maken** op **Doel selecteren**. Selecteer onder **Filteren op resourcetype** de optie **Automation-accounts**. Selecteer uw Automation-account en selecteer **Gereed**.
 

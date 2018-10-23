@@ -1,51 +1,49 @@
 ---
-title: Snelstart voor een domeinmodel met Computer Vision met Python | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: In deze snelstart gebruikt u domeinmodellen om beroemdheden en oriëntatiepunten in een afbeelding te identificeren met behulp van Computer Vision met Python in Cognitive Services.
+title: 'Snelstart: Een domeinmodel gebruiken - REST, Python - Computer Vision'
+titleSuffix: Azure Cognitive Services
+description: In deze snelstart gebruikt u domeinmodellen om beroemdheden en oriëntatiepunten in een afbeelding te identificeren met behulp van de Computer Vision-API met Python.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: v-deken
-ms.openlocfilehash: 357cab72c0a6c9a2254350c84cda91c366ac685a
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 93027e2f9cd3a9b0e9c6ef261b8af876022632a4
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43770107"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45632446"
 ---
-# <a name="quickstart-use-a-domain-model---rest-python"></a>Snelstart: een domeinmodel gebruiken - REST, Python
+# <a name="quickstart-use-a-domain-model-using-the-rest-api-and-python-in-computer-vision"></a>Snelstart: Een externe domeinmodel gebruiken met de REST-API en Python in Computer Vision
 
-In deze snelstart gebruikt u domeinmodellen om beroemdheden en oriëntatiepunten in een afbeelding te identificeren met behulp van Computer Vision.
+In deze snelstart gebruikt u een domeinmodel om oriëntatiepunten, of eventueel beroemdheden, in een extern opgeslagen afbeelding te identificeren met behulp van de REST API van Computer Vision. Met de methode [Domeinspecifieke inhoud herkennen](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e200) past u een domeinspecifiek model toe om inhoud in een afbeelding te herkennen.
 
-U kunt deze snelstart stapsgewijs uitvoeren met behulp van een Jupyter-notitieblok op [MyBinder](https://mybinder.org). Selecteer de volgende knop om Binder te starten:
+U kunt deze snelstart stapsgewijs uitvoeren met behulp van een Jupyter Notebook op [MyBinder](https://mybinder.org). Selecteer de volgende knop om Binder te starten:
 
 [![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=VisionAPI.ipynb)
 
+Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) aan voordat u begint.
+
 ## <a name="prerequisites"></a>Vereisten
 
-Als u Computer Vision wilt gebruiken, moet u een abonnementssleutel hebben. Zie [Abonnementssleutels verkrijgen](../Vision-API-How-to-Topics/HowToSubscribe.md).
+- [Python](https://www.python.org/downloads/) moet geïnstalleerd zijn als u het voorbeeld lokaal wilt uitvoeren.
+- U moet beschikken over een abonnementssleutel voor Computer Vision. Zie [Abonnementssleutels verkrijgen](../Vision-API-How-to-Topics/HowToSubscribe.md) voor meer informatie over het verkrijgen van een abonnementssleutel.
 
-## <a name="identify-celebrities-and-landmarks"></a>Beroemdheden en oriëntatiepunten identificeren
+## <a name="create-and-run-the-landmarks-sample"></a>Het voorbeeld met oriëntatiepunten maken en uitvoeren
 
-Met de [methode Recognize Domain Specific Content](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e200) (domeinspecifieke inhoud herkennen) kunt u een specifieke set objecten in een afbeelding identificeren. De twee domeinspecifieke modellen die momenteel beschikbaar zijn, zijn _beroemdheden_ en _oriëntatiepunten_.
+U kunt het voorbeeld met oriëntatiepunten maken en uitvoeren aan de hand van de volgende stappen:
 
-U kunt het voorbeeld uitvoeren aan de hand van de volgende stappen:
-
-1. Kopieer de volgende code naar een nieuw Python-scriptbestand.
-1. Vervang `<Subscription Key>` door uw geldige abonnementssleutel.
-1. Wijzig indien nodig de `vision_base_url`-waarde in de locatie waar u uw abonnementssleutels hebt verkregen.
-1. Wijzig eventueel de waarde `image_url` in een andere afbeelding.
-1. Voer het script uit.
-
-In de volgende code wordt de Python `requests`-bibliotheek gebruikt om de Computer Vision Analyze Image API aan te roepen. De resultaten worden geretourneerd als JSON-object. De API-sleutel wordt doorgegeven via de `headers`-woordenlijst. Het te gebruiken model wordt doorgegeven via de `params`-woordenlijst.
-
-## <a name="landmark-identification"></a>Identificatie van oriëntatiepunten
-
-### <a name="recognize-landmark-request"></a>Recognize Landmark-aanvraag
+1. Kopieer de volgende code naar een teksteditor.
+1. Breng waar nodig de volgende wijzigingen in code aan:
+    1. Vervang de waarde van `subscription_key` door uw abonnementssleutel.
+    1. Vervang de waarde van `vision_base_url` door de eindpunt-URL voor de Computer Vision-bron in de Azure-regio waar u uw abonnementssleutels hebt verkregen (indien nodig).
+    1. Vervang eventueel de waarde van `image_url` door de URL van een andere afbeelding waarin u oriëntatiepunten wilt herkennen.
+1. Sla de code op als een bestand met de extensie `.py`. Bijvoorbeeld `get-landmarks.py`.
+1. Open een opdrachtpromptvenster.
+1. Typ bij de prompt de opdracht `python` om het voorbeeld uit te voeren. Bijvoorbeeld `python get-landmarks.py`.
 
 ```python
 import requests
@@ -95,9 +93,9 @@ plt.axis("off")
 _ = plt.title(landmark_name, size="x-large", y=-0.1)
 ```
 
-### <a name="recognize-landmark-response"></a>Recognize Landmark-antwoord
+## <a name="examine-the-response-for-the-landmarks-sample"></a>Het antwoord voor het voorbeeld met de oriëntatiepunten bekijken
 
-Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, bijvoorbeeld:
+Een geslaagd antwoord wordt geretourneerd in JSON-indeling. De voorbeeldwebpagina parseert en geeft een geslaagd antwoord weer in het opdrachtpromptvenster dat vergelijkbaar is met het volgende voorbeeld:
 
 ```json
 {
@@ -118,9 +116,18 @@ Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, bijvoorbeeld:
 }
 ```
 
-## <a name="celebrity-identification"></a>Identificatie van beroemdheden
+## <a name="create-and-run-the-celebrities-sample"></a>Het voorbeeld met beroemdheden maken en uitvoeren
 
-### <a name="recognize-celebrity-request"></a>Recognize Celebrity-aanvraag
+U kunt het voorbeeld met oriëntatiepunten maken en uitvoeren aan de hand van de volgende stappen:
+
+1. Kopieer de volgende code naar een teksteditor.
+1. Breng waar nodig de volgende wijzigingen in code aan:
+    1. Vervang de waarde van `subscription_key` door uw abonnementssleutel.
+    1. Vervang de waarde van `vision_base_url` door de eindpunt-URL voor de Computer Vision-bron in de Azure-regio waar u uw abonnementssleutels hebt verkregen (indien nodig).
+    1. Vervang eventueel de waarde van `image_url` door de URL van een andere afbeelding waarin u beroemdheden wilt herkennen.
+1. Sla de code op als een bestand met de extensie `.py`. Bijvoorbeeld `get-celebrities.py`.
+1. Open een opdrachtpromptvenster.
+1. Typ bij de prompt de opdracht `python` om het voorbeeld uit te voeren. Bijvoorbeeld `python get-celebrities.py`.
 
 ```python
 import requests
@@ -163,9 +170,10 @@ plt.axis("off")
 _ = plt.title(celebrity_name, size="x-large", y=-0.1)
 ```
 
-### <a name="recognize-celebrity-response"></a>Recognize Celebrity-antwoord
+## <a name="examine-the-response-for-the-celebrities-sample"></a>Het antwoord voor het voorbeeld met de beroemdheden bekijken
 
-Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, bijvoorbeeld:
+Een geslaagd antwoord wordt geretourneerd in JSON-indeling. De voorbeeldwebpagina parseert en geeft een geslaagd antwoord weer in het opdrachtpromptvenster dat vergelijkbaar is met het volgende voorbeeld:
+
 
 ```json
 {
@@ -192,9 +200,13 @@ Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, bijvoorbeeld:
 }
 ```
 
+## <a name="clean-up-resources"></a>Resources opschonen
+
+Verwijder de bestanden van beide voorbeelden wanneer u deze niet meer nodig hebt.
+
 ## <a name="next-steps"></a>Volgende stappen
 
-Een Python-toepassing verkennen die Computer Vision gebruikt om optische tekenherkenning (OCR) uit te voeren; slim bijgesneden miniaturen maken; plus visuele kenmerken, inclusief gezichten, in een afbeelding detecteren, categoriseren, labelen en beschrijven. Als u snel wilt experimenteren met de Computer Vision-API's, probeert u de [Open API-testconsole](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+Een Python-toepassing verkennen die Computer Vision gebruikt om optische tekenherkenning (OCR) uit te voeren; slim bijgesneden miniaturen maken; plus visuele kenmerken, inclusief gezichten, in een afbeelding detecteren, categoriseren, labelen en beschrijven. Als u snel wilt experimenteren met de Computer Vision-API, gebruikt u de [Open API-testconsole](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
 
 > [!div class="nextstepaction"]
 > [Zelfstudie voor de Computer Vision-API met Python](../Tutorials/PythonTutorial.md)

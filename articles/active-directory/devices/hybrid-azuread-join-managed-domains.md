@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/25/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: b3a3baaf22fa9c382bb45a5b2a2065ef7678faf5
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: c3c0d9bb6da00272cc7da0ad9f4fae978552c39b
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855949"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49352607"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Zelfstudie: Hybride Azure Active Directory-koppeling configureren voor beheerde domeinen
 
@@ -172,7 +172,7 @@ Wanneer u de cmdlet **Get-MSolDevice** gebruikt om de servicedetails te controle
 
 - Moet er een object bestaan met de **apparaat-id** die overeenkomt met de id op de Windows-client.
 - Moet de waarde voor **DeviceTrustType** op **Toegevoegd aan domein** zijn ingesteld. Dit is equivalent aan de status **Toegevoegd aan hybride Azure AD** op de pagina Apparaten in de Azure AD-portal.
-- Moet de waarde voor **Ingeschakeld** op **Waar** zijn ingesteld voor apparaten die worden gebruikt met voorwaardelijke toegang. 
+- De waarde voor **Ingeschakeld** moet op **Waar** zijn ingesteld en **DeviceTrustLevel** moet **Beheerd** zijn voor apparaten die voor voorwaardelijke toegang worden gebruikt. 
 
 
 **Ga als volgt te werk om de servicedetails te controleren:**

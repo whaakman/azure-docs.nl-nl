@@ -1,42 +1,45 @@
 ---
-title: Snelstart voor OCR met behulp van de Computer Vision-API met Ruby | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: In deze snelstart extraheert u afgedrukte tekst uit een afbeelding met behulp van Computer Vision met Ruby in Cognitive Services.
+title: 'Snelstart: Gedrukte tekst extraheren (OCR) - REST, Ruby - Computer Vision'
+titleSuffix: Azure Cognitive Services
+description: In deze snelstart extraheert u tekst uit een afbeelding met behulp van de Computer Vision-API met Ruby.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: v-deken
-ms.openlocfilehash: 4f381444401718906bb352860aec525d73da1eb2
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: d222615e3c6a884fa77f34dd1f87c3211f631c39
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43770376"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45629523"
 ---
-# <a name="quickstart-extract-printed-text-ocr---rest-ruby"></a>Snelstart: Afgedrukte tekst extraheren (OCR) - REST, Ruby
+# <a name="quickstart-extract-printed-text-ocr-using-the-rest-api-and-ruby-in-computer-vision"></a>Snelstart: Gedrukte tekst extraheren (OCR) met behulp van de REST API en Ruby in Computer Vision
 
-In deze snelstart gebruikt u Computer Vision om afgedrukte tekst uit een afbeelding te extraheren. Dit wordt optische tekenherkenning of OCR genoemd (Optical Character Recognition).
+In deze snelstart gebruikt u OCR (optical character recognition) om tekst uit een afbeelding te extraheren met behulp van de REST API van Computer Vision. Met de [OCR-methode](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) kunt u tekst in een afbeelding detecteren en de herkende tekens naar een machinaal leesbare tekenstroom extraheren.
+
+Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) aan voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Als u Computer Vision wilt gebruiken, moet u een abonnementssleutel hebben. Zie [Abonnementssleutels verkrijgen](../Vision-API-How-to-Topics/HowToSubscribe.md).
+- U moet [Ruby](https://www.ruby-lang.org/en/downloads/) 2.4.x of later hebben geïnstalleerd.
+- U moet beschikken over een abonnementssleutel voor Computer Vision. Zie [Abonnementssleutels verkrijgen](../Vision-API-How-to-Topics/HowToSubscribe.md) voor meer informatie over het verkrijgen van een abonnementssleutel.
 
-## <a name="ocr-request"></a>OCR-aanvraag
+## <a name="create-and-run-the-sample"></a>Het voorbeeld maken en uitvoeren
 
-Met de [OCR-methode](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) kunt u tekst in een afbeelding detecteren en de herkende tekens naar een machinaal leesbare tekenstroom extraheren.
+U kunt het voorbeeld maken en uitvoeren aan de hand van de volgende stappen:
 
-U kunt het voorbeeld uitvoeren aan de hand van de volgende stappen:
-
-1. Kopieer de volgende code naar een editor.
-1. Vervang `<Subscription Key>` door uw geldige abonnementssleutel.
-1. Wijzig indien nodig de `uri`-waarde in de locatie waar u uw abonnementssleutels hebt verkregen.
-1. Wijzig eventueel de te analyseren afbeelding (`{\"url\":\"...`).
-1. Sla het bestand op met de extensie `.rb`.
-1. Open de Ruby-opdrachtprompt en voer het bestand uit, bijvoorbeeld: `ruby myfile.rb`.
+1. Kopieer de volgende code in een teksteditor.
+1. Breng waar nodig de volgende wijzigingen in code aan:
+    1. Vervang `<Subscription Key>` door uw abonnementssleutel.
+    1. Vervang `https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/ocr` door de eindpunt-URL van de [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc)-methode in de Azure-regio waar u uw abonnementssleutels hebt verkregen (indien nodig).
+    1. Vervang optioneel `https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Atomist_quote_from_Democritus.png/338px-Atomist_quote_from_Democritus.png\` door de URL van een andere afbeelding waaruit u gedrukte tekst wilt extraheren.
+1. Sla de code op als een bestand met de extensie `.rb`. Bijvoorbeeld `get-printed-text.rb`.
+1. Open een opdrachtpromptvenster.
+1. Typ bij de prompt de opdracht `ruby` om het voorbeeld uit te voeren. Bijvoorbeeld `ruby get-printed-text.rb`.
 
 ```ruby
 require 'net/http'
@@ -69,9 +72,9 @@ end
 puts response.body
 ```
 
-## <a name="ocr-response"></a>OCR-antwoord
+## <a name="examine-the-response"></a>Het antwoord bekijken
 
-Als dit met succes is voltooid, bevatten de geretourneerde OCR-resultaten tekst, begrenzingsvakken voor regio's, lijnen en woorden, bijvoorbeeld:
+Een geslaagd antwoord wordt geretourneerd in JSON-indeling. Het voorbeeld parseert en geeft een geslaagd antwoord weer in het opdrachtpromptvenster dat vergelijkbaar is met het volgende voorbeeld:
 
 ```json
 {
@@ -139,9 +142,13 @@ Als dit met succes is voltooid, bevatten de geretourneerde OCR-resultaten tekst,
 }
 ```
 
+## <a name="clean-up-resources"></a>Resources opschonen
+
+Wanneer u het bestand niet meer nodig hebt, kunt u het verwijderen.
+
 ## <a name="next-steps"></a>Volgende stappen
 
-Bekijk de Computer Vision-API's die worden gebruikt om een afbeelding te analyseren, beroemdheden en oriëntatiepunten te detecteren, een miniatuur te maken en gedrukte en handgeschreven tekst te verkrijgen. Als u snel wilt experimenteren met de Computer Vision-API's, probeert u de [Open API-testconsole](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+Bekijk de Computer Vision-API die wordt gebruikt om een afbeelding te analyseren, beroemdheden en oriëntatiepunten te detecteren, een miniatuur te maken en gedrukte en handgeschreven tekst te verkrijgen. Als u snel wilt experimenteren met de Computer Vision-API, gebruikt u de [Open API-testconsole](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
 
 > [!div class="nextstepaction"]
-> [De Computer Vision-API's bekijken](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)
+> [De Computer Vision-API verkennen](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)

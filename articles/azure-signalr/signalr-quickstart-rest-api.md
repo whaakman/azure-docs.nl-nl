@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ASP.NET
 ms.workload: tbd
 ms.date: 06/13/2018
 ms.author: zhshang
-ms.openlocfilehash: 93c1198ecfba6db809228ed6dcd99c705f53926c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 40d5a02f83188330facc82701abdfb950585781c
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46972756"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49310382"
 ---
 # <a name="quickstart-broadcast-real-time-messages-from-console-app"></a>Snelstartgids: Realtimeberichten verzenden via de console-app
 
@@ -29,7 +29,7 @@ In deze snelstartgids leert u hoe u in C# berichten via een opdrachtregel-app ku
 
 ## <a name="prerequisites"></a>Vereisten
 
-Deze snelstartgids kan worden uitgevoerd op macOS, Windows of Linux.
+Deze quickstart kan worden uitgevoerd op macOS, Windows of Linux.
 * [.NET Core-SDK](https://www.microsoft.com/net/download/core)
 * Een teksteditor of code-editor naar keuze.
 
@@ -120,5 +120,51 @@ broadcast
 
 U kunt meerdere clients met verschillende clientnamen starten.
 
+## <a name="usage"> </a> Integratie met services van derden
+Met behulp van de Azure SignalR-service kunt services van derden integreren met het systeem.
+### <a name="usage"> </a> Definitie van technische specificaties
+In de volgende tabel worden alle versies van de ondersteunde REST-API's weergegeven op datum. U kunt er ook het definitiebestand voor elke specifieke versie vinden
+Versie | API-status | Door | Specifiek
+--- | --- | --- | ---
+`1.0-preview` | Beschikbaar | 5002 | [Swagger] (https://github.com/Azure/azure-signalr/tree/dev/docs/swagger/v1-preview.json)
+`1.0` | Beschikbaar | Standard | [Swagger] (https://github.com/Azure/azure-signalr/tree/dev/docs/swagger/v1.json)
+De lijst met beschikbare API's voor elke specifieke versie is beschikbaar in de volgende lijst.
+API | `1.0-preview` | `1.0`
+--- | --- | ---
+[Uitzenden naar alle] (# broadcast) | : heavy_check_mark: | : Heavy_check_mark:
+[Uitzenden naar een groep] (# broadcast-groep) | : heavy_check_mark: | : Heavy_check_mark:
+Uitzenden naar bepaalde groepen | : heavy_check_mark: (afgeschaft) | `N / A`
+[Verzenden naar specifieke gebruikers] (# verzenden-gebruiker) | : heavy_check_mark: | : Heavy_check_mark:
+Verzenden naar bepaalde gebruikers | : heavy_check_mark: (afgeschaft) | `N / A`
+[Een gebruiker aan een groep toevoegen] (# gebruiker-toevoegen-aan-groep) | `N / A` | : Heavy_check_mark:
+[Een gebruiker uit een groep verwijderen] (# gebruiker-verwijderen-uit-groep) | `N / A` | : Heavy_check_mark:
+<a name="broadcast"> </a>
+### <a name="broadcast-to-everyone"></a>Uitzenden naar iedereen
+Versie | API HTTP-methode | Aanvraag-URL | Aanvraagbody
+--- | --- | --- | ---
+`1.0-preview` | `POST` | `https: // <instance-name> .service.signalr.net: 5002 / api / v1-preview / hub / <hub-name>` | `{" target ":" <method-name> "," arguments ": [...]}`
+`1.0` | `POST` | `https: // <instance-name> .service.signalr.net / api / v1 / hubs / <hub-name>` | Zoals hierboven
+<a name="broadcast-group"> </a>
+### <a name="broadcast-to-a-group"></a>Uitzenden naar een groep
+Versie | API HTTP-methode | Aanvraag-URL | Aanvraagbody
+--- | --- | --- | ---
+`1.0-preview` | `POST` | `https: // <instance-name> .service.signalr.net: 5002 / api / v1-preview / hub / <hub-name> / group / <group-name>` | `{" target ":" <method-name> "," arguments ": [...]}`
+`1.0` | `POST` | `https: // <instance-name> .service.signalr.net / api / v1 / hubs / <hub-name> / groups / <group-name>` | Hetzelfde als hierboven
+<a name="send-user"> </a>
+### <a name="sending-to-specific-users"></a>Verzenden naar specifieke gebruikers
+Versie | API HTTP-methode | Aanvraag-URL | Aanvraagbody
+--- | --- | --- | ---
+`1.0-preview` | `POST` | `https: // <instance-name> .service.signalr.net: 5002 / api / v1-preview / hub / <hub-name> / user / <user-id>` | `{" target ":" <method-name> "," arguments ": [...]}`
+`1.0` | `POST` | `https: // <instance-name> .service.signalr.net / api / v1 / hubs / <hub-name> / users / <user-id>` | Hetzelfde als hierboven
+<a name="add-user-to-group"> </a>
+### <a name="adding-a-user-to-a-group"></a>Een gebruiker aan een groep toevoegen
+Versie | API HTTP-methode | Aanvraag-URL
+--- | --- | ---
+`1.0` | `PUT` | `Https: // <instance-name> .service.signalr.net / api / v1 / hubs / <hub-name> / groups / <group-name> / users / <userid>`
+<a name="remove-user-from-group"> </a>
+### <a name="removing-a-user-from-a-group"></a>Een gebruiker uit een groep verwijderen
+Versie | API HTTP-methode | Aanvraag-URL
+--- | --- | ---
+`1.0` | `DELETE` | `Https: // <instance-name> .service.signalr.net / api / v1 / hubs / <hub-name> / groups / <group-name> / users / <userid>`
 
 [!INCLUDE [Cleanup](includes/signalr-quickstart-cleanup.md)]

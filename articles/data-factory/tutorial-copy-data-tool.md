@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
-ms.date: 06/21/2018
+ms.date: 09/11/2018
 ms.author: jingwang
-ms.openlocfilehash: 1be4769a8a07ac5d4a968ed5aa15ed2e0a2b6db2
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: c1f94c04db69ad44203ef1ada1c3b9fa3df2d779
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43086823"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44718082"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-the-copy-data-tool"></a>Gegevens kopiëren van Azure Blob Storage naar een SQL-database met behulp van het hulpprogramma Copy Data
 > [!div class="op_single_selector" title1="Select the version of the Data Factory service that you're using:"]
@@ -72,13 +72,7 @@ Bereid uw Blob-opslag en de SQL-database voor voor gebruik tijdens de zelfstudie
     CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
     ```
 
-1. Geef Azure-services toegang tot de SQL-server. Controleer of de instelling **Toegang tot Azure-services toestaan** is ingeschakeld voor de server waarop SQL Server wordt uitgevoerd. Met behulp van deze instelling kan Data Factory gegevens naar uw SQL Server-exemplaar schrijven. Voer de volgende stappen uit om dit te controleren en de instelling in te schakelen:
-
-    a. Selecteer aan de linkerkant **Meer services** en selecteer vervolgens **SQL-servers**.
-
-    b. Selecteer uw server en selecteer vervolgens **Instellingen** > **Firewall**.
-
-    c. Stel op de pagina **Firewallinstellingen** de optie **Toegang tot Azure-services toestaan** in op **AAN**.
+2. Geef Azure-services toegang tot de SQL-server. Controleer of de instelling **Toegang tot Azure-services toestaan** is ingeschakeld voor uw server waarop SQL Database wordt uitgevoerd. Met deze instelling kan Data Factory gegevens naar uw database-instantie schrijven. Om deze instelling te controleren en in te schakelen, gaat u naar uw Azure SQL-server > **Beveiliging** > **Firewalls en virtuele netwerken** > zet **Toegang tot Azure-services toestaan** op **AAN**.
 
 ## <a name="create-a-data-factory"></a>Een gegevensfactory maken
 

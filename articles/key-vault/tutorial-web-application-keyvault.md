@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 09/05/2018
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: d1776fc2347eb1a1f03a834b6a5f847ef5c551e4
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 521b6423550bf3e2d0bc90212b7e3fe0cbeddfc4
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46948880"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49167066"
 ---
 # <a name="tutorial-configure-an-azure-web-application-to-read-a-secret-from-key-vault"></a>Zelfstudie: Een Azure-webtoepassing configureren voor het lezen van een geheim uit Key Vault
 
@@ -126,10 +126,11 @@ Er zijn twee NuGet-pakketten die moeten zijn geïnstalleerd voor uw webtoepassin
 1. Klik in Solution Explorer met de rechtermuisknop op de naam van uw website.
 2. Selecteer **Manage NuGet packages for solution...**
 3. Schakel het selectievakje naast het zoekvak in, **Include prerelease**.
-4. Zoek naar de twee onderstaande NuGet-pakketten en accepteer ze, zodat ze kunnen worden toegevoegd aan uw oplossing:
+4. Zoek naar de drie onderstaande NuGet-pakketten en accepteer ze, zodat ze kunnen worden toegevoegd aan uw oplossing:
 
     * [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) - hiermee kunt u eenvoudig toegangstokens ophalen voor verificatiescenario's voor Service-naar-Azure-service. 
     * [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault) - bevat methoden voor interactie met Key Vault.
+    * [Microsoft.Extensions.Configuration.AzureKeyVault](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.AzureKeyVault/): bevat `IConfiguration`-extensies voor Azure Key Vault
 
 5. Gebruik Solution Explorer om `Program.cs` te openen en vervang de inhoud van het bestand Program.cs met de volgende code. Vervang ```<YourKeyVaultName>``` door de naam van de sleutelkluis:
 
@@ -230,7 +231,7 @@ az webapp identity assign --name "WebKeyVault" --resource-group "ContosoResource
 ```
 
 >[!NOTE]
->U kunt dit ook doen door naar de portal te gaan en de instelling **Identity/System assigned** op **On** te zetten in de eigenschappen van de webtoepassing.
+>U kunt dit ook doen door naar de portal te gaan en de instelling **Identity/System assigned** op **Aan** te zetten in de eigenschappen van de webtoepassing.
 
 ## <a name="grant-rights-to-the-application-identity"></a>Rechten verlenen aan de toepassings-id
 

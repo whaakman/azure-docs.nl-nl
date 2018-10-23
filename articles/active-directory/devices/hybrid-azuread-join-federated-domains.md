@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/25/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 2f020bdf79811c959e07d753231fc133fe597861
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: c7396d7322958442fab51417eb350f26f7ada78e
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855172"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49352657"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-federated-domains"></a>Zelfstudie: Hybride Azure Active Directory-koppeling configureren voor federatieve domeinen
 
@@ -124,7 +124,7 @@ Voor het configureren van een hybride Azure AD-koppeling via Azure AD Connect he
 
     a. Selecteer de forest.
 
-    b. Selecteer de verificatieservice. U moet AD FS-server selecteren tenzij uw organisatie uitsluitend Windows 10-clients gebruikt.
+    b. Selecteer de verificatieservice. U moet AD FS-server selecteren tenzij uw organisatie alleen maar Windows 10-clients heeft en u de synchronisatie van computers/apparaten hebt geconfigureerd, of als uw organisatie van SeamlessSSO gebruikmaakt.
 
     c. Klik op **Toevoegen** om de referenties van een ondernemingsbeheerder in te voeren.
 
@@ -194,7 +194,7 @@ Wanneer u de cmdlet **Get-MSolDevice** gebruikt om de servicedetails te controle
 
 - Moet er een object bestaan met de **apparaat-id** die overeenkomt met de id op de Windows-client.
 - Moet de waarde voor **DeviceTrustType** op **Toegevoegd aan domein** zijn ingesteld. Dit is equivalent aan de status **Toegevoegd aan hybride Azure AD** op de pagina Apparaten in de Azure AD-portal.
-- Moet de waarde voor **Ingeschakeld** op **Waar** zijn ingesteld voor apparaten die worden gebruikt met voorwaardelijke toegang. 
+- De waarde voor **Ingeschakeld** moet op **Waar** zijn ingesteld en **DeviceTrustLevel** moet **Beheerd** zijn voor apparaten die voor voorwaardelijke toegang worden gebruikt. 
 
 
 **Ga als volgt te werk om de servicedetails te controleren:**

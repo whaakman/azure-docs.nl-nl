@@ -1,40 +1,39 @@
 ---
-title: Bing Web Search SDK-voorbeelden
-titleSuffix: Microsoft Cognitive Services
-description: Gebruik de Bing Web Search SDK zoekfuncties toevoegen aan uw toepassing Python, Node.js, C# of Java.
+title: Voorbeelden van de Bing Webzoekopdrachten-SDK
+titleSuffix: Azure Cognitive Services
+description: Gebruik de Bing Webzoekopdrachten-SDK om zoekmogelijkheden toe te voegen aan uw toepassing in Python, Node.js, C# of Java.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
-ms.assetid: ''
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-web-search
-ms.topic: article
+ms.topic: sample
 ms.date: 08/16/2018
 ms.author: erhopf
-ms.openlocfilehash: 0f82d40611dde69eb8ab63f49d6fd337e34cb8cc
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
-ms.translationtype: MT
+ms.openlocfilehash: b15f4000d30b7b6c6f8055d596b9ab5336d173c5
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43191283"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46126017"
 ---
-# <a name="bing-web-search-sdk-samples"></a>Bing Web Search SDK-voorbeelden
+# <a name="bing-web-search-sdk-samples"></a>Voorbeelden van de Bing Webzoekopdrachten-SDK
 
-De Bing Web Search SDK is beschikbaar in Python, Node.js, C# en Java. Voorbeelden van code, vereisten en build instructies vindt u op GitHub. De volgende scenario's worden behandeld:
+De Bing Webzoekopdrachten-SDK is beschikbaar voor Python, Node.js, C# en Java. Op GitHub vindt u codevoorbeelden, vereisten en bouwinstructies. De volgende scenario's worden behandeld:
 
-* Query uitvoeren op één woord en de naam en de URL van het eerste resultaat voor webpagina's, afbeeldingen, nieuws en video's af te drukken.
-* Query uitvoeren op een zin, Controleer of het aantal resultaten en de naam en de URL van de eerste resultaat tekstvenster.
-* Een zoekterm in query's uitvoeren met antwoordfilters ingesteld op `news` en de details van resultaten voor nieuws afdrukken.
-* Query uitvoeren op een zoekterm met `answerCount` en `promote` parameters, details van de resultaten vervolgens afdrukt.
+* Een afzonderlijk woord opvragen en zowel de naam als de URL van het eerste resultaat afdrukken voor webpagina's, afbeeldingen, nieuwsartikelen en video's.
+* Een zin opvragen, het aantal resultaten controleren en zowel de naam als de URL van het eerste videoresultaat afdrukken.
+* Een zoekterm opvragen met antwoordfilters ingesteld op `news` en details van nieuwsresultaten afdrukken.
+* Een zoekterm opvragen met de parameters `answerCount` en `promote`, en vervolgens details van de resultaten afdrukken.
 
-## <a name="sdks-and-libraries"></a>SDK's en bibliotheken
+## <a name="sdks-and-libraries"></a>SDK’s en bibliotheken
 
 Gebruik deze koppelingen voor toegang tot de SDK voor de taal van uw voorkeur.
 
-* Aan de slag met [voorbeelden van Python](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)
+* Aan de slag met [Python-voorbeelden](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)
   * Zie ook [Python-bibliotheken](https://github.com/Azure/azure-sdk-for-python/tree/master/azure-cognitiveservices-search-websearch) voor definities en afhankelijkheden.
 * Aan de slag met [Node.js-voorbeelden](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples)
-  * Zie ook [Node.js clientbibliotheken](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/webSearch) voor definities en afhankelijkheden.
+  * Zie ook [Node.js-bibliotheken](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/webSearch) voor definities en afhankelijkheden.
 * Aan de slag met [.NET-voorbeelden](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7)
   * [NuGet-pakket](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.WebSearch/1.2.0)
   * Zie ook [.NET-bibliotheken](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/CognitiveServices/dataPlane/Search/BingWebSearch) voor definities en afhankelijkheden.

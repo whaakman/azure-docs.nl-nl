@@ -1,52 +1,49 @@
 ---
-title: Snelstart voor het analyseren van een lokale afbeelding met behulp van Computer Vision met Python | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: In deze snelstart analyseert u een lokale afbeelding met behulp van Computer Vision met Python in Cognitive Services.
+title: 'Snelstart: Een lokale afbeelding analyseren - REST, Python - Computer Vision'
+titleSuffix: Azure Cognitive Services
+description: In deze snelstart analyseert u een lokale afbeelding met behulp van de Computer Vision-API met Python.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: v-deken
-ms.openlocfilehash: a1f3fce5a547f143f7c4884c6642e78f53d160e9
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 48a6602c9f3029cc008f3db7d4701499c14e7ce1
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43770096"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45633857"
 ---
-# <a name="quickstart-analyze-a-local-image---rest-python"></a>Snelstart: Een lokale afbeelding analyseren - REST, Python
+# <a name="quickstart-analyze-a-local-image-using-the-rest-api-and-python-in-computer-vision"></a>Snelstart: Een lokale afbeelding analyseren met de REST-API en Python in Computer Vision
 
-In deze snelstart analyseert u een lokale afbeelding met behulp van Computer Vision. Zie voor het analyseren van een externe afbeelding [Een externe afbeelding analyseren met Python](python-analyze.md).
+In deze snelstart analyseert u een lokaal opgeslagen afbeelding om visuele kenmerken te verkrijgen met behulp van de REST-API van Computer Vision. Met de [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa)-methode kunt u visuele kenmerken verkrijgen op basis van de afbeeldingsinhoud.
 
-U kunt deze snelstart stapsgewijs uitvoeren met behulp van een Jupyter-notitieblok op [MyBinder](https://mybinder.org). Selecteer de volgende knop om Binder te starten:
+U kunt deze snelstart stapsgewijs uitvoeren met behulp van een Jupyter Notebook op [MyBinder](https://mybinder.org). Selecteer de volgende knop om Binder te starten:
 
 [![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=VisionAPI.ipynb)
 
+Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) aan voordat u begint.
+
 ## <a name="prerequisites"></a>Vereisten
 
-Als u Computer Vision wilt gebruiken, moet u een abonnementssleutel hebben. Zie [Abonnementssleutels verkrijgen](../Vision-API-How-to-Topics/HowToSubscribe.md).
+- [Python](https://www.python.org/downloads/) moet geïnstalleerd zijn als u het voorbeeld lokaal wilt uitvoeren.
+- U moet beschikken over een abonnementssleutel voor Computer Vision. Zie [Abonnementssleutels verkrijgen](../Vision-API-How-to-Topics/HowToSubscribe.md) voor meer informatie over het verkrijgen van een abonnementssleutel.
 
-## <a name="analyze-a-local-image"></a>Een lokale afbeelding analyseren
+## <a name="create-and-run-the-sample"></a>Het voorbeeld maken en uitvoeren
 
-Dit voorbeeld is vergelijkbaar met [Een externe afbeelding analyseren met Python ](python-analyze.md), behalve dat de te analyseren afbeelding lokaal wordt gelezen vanaf schijf. Er zijn twee wijzigingen nodig:
+U kunt het voorbeeld maken en uitvoeren aan de hand van de volgende stappen:
 
-- Voeg een `{"Content-Type": "application/octet-stream"}`-header toe aan de aanvraag.
-- Voeg de afbeeldingsgegevens (bytematrix) toe aan de hoofdtekst van de aanvraag.
-
-U kunt het voorbeeld uitvoeren aan de hand van de volgende stappen:
-
-1. Kopieer de volgende code naar een nieuw Python-scriptbestand.
-1. Vervang `<Subscription Key>` door uw geldige abonnementssleutel.
-1. Wijzig indien nodig de `vision_base_url`-waarde in de locatie waar u uw abonnementssleutels hebt verkregen.
-1. Wijzig de waarde `image_path` in het pad van een lokale afbeelding.
-1. Voer het script uit.
-
-In de volgende code wordt de Python `requests`-bibliotheek gebruikt om de Computer Vision Analyze Image API aan te roepen. De resultaten worden geretourneerd als JSON-object. De API-sleutel wordt doorgegeven via de `headers`-woordenlijst. De typen te herkennen kenmerken worden doorgegeven via de `params`-woordenlijst. De binaire gegevens worden aan `requests.post`doorgegeven via de parameter `data`.
-
-## <a name="analyze-image-request"></a>Analyze Image-aanvraag
+1. Kopieer de volgende code in een teksteditor.
+1. Breng waar nodig de volgende wijzigingen in code aan:
+    1. Vervang de waarde van `subscription_key` door uw abonnementssleutel.
+    1. Vervang de waarde van `vision_base_url` door de eindpunt-URL voor de Computer Vision-bron in de Azure-regio waar u uw abonnementssleutels hebt verkregen (indien nodig).
+    1. Vervang eventueel de waarde van `image_path` door het bestandspad en de bestandsnaam van een andere afbeelding die u wilt analyseren.
+1. Sla de code op als een bestand met de extensie `.py`. Bijvoorbeeld `analyze-local-image.py`.
+1. Open een opdrachtpromptvenster.
+1. Typ bij de prompt de opdracht `python` om het voorbeeld uit te voeren. Bijvoorbeeld `python analyze-local-image.py`.
 
 ```python
 import requests
@@ -96,9 +93,9 @@ plt.axis("off")
 _ = plt.title(image_caption, size="x-large", y=-0.1)
 ```
 
-## <a name="analyze-image-response"></a>Analyze Image-antwoord
+## <a name="examine-the-response"></a>Het antwoord bekijken
 
-Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, bijvoorbeeld:
+Een geslaagd antwoord wordt geretourneerd in JSON-indeling. De voorbeeldwebpagina parseert en geeft een geslaagd antwoord weer in het opdrachtpromptvenster dat vergelijkbaar is met het volgende voorbeeld:
 
 ```json
 {
@@ -172,9 +169,13 @@ Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, bijvoorbeeld:
 }
 ```
 
+## <a name="clean-up-resources"></a>Resources opschonen
+
+Wanneer u het bestand niet meer nodig hebt, kunt u het verwijderen.
+
 ## <a name="next-steps"></a>Volgende stappen
 
-Een Python-toepassing verkennen die Computer Vision gebruikt om optische tekenherkenning (OCR) uit te voeren; slim bijgesneden miniaturen maken; plus visuele kenmerken, inclusief gezichten, in een afbeelding detecteren, categoriseren, labelen en beschrijven. Als u snel wilt experimenteren met de Computer Vision-API's, probeert u de [Open API-testconsole](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+Een Python-toepassing verkennen die Computer Vision gebruikt om optische tekenherkenning (OCR) uit te voeren; slim bijgesneden miniaturen maken; plus visuele kenmerken, inclusief gezichten, in een afbeelding detecteren, categoriseren, labelen en beschrijven. Als u snel wilt experimenteren met de Computer Vision-API, gebruikt u de [Open API-testconsole](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
 
 > [!div class="nextstepaction"]
 > [Zelfstudie voor de Computer Vision-API met Python](../Tutorials/PythonTutorial.md)

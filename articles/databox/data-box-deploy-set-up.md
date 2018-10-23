@@ -2,24 +2,18 @@
 title: De Azure Data Box instellen | Microsoft Docs
 description: Leer hoe u de Azure Data Box bekabelt en aansluit
 services: databox
-documentationcenter: NA
 author: alkohli
-manager: twooley
-editor: ''
-ms.assetid: ''
 ms.service: databox
-ms.devlang: NA
+ms.subservice: pod
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 10/03/2018
+ms.date: 10/17/2018
 ms.author: alkohli
-ms.openlocfilehash: f9671e3acdb71affe2187258582254561785780e
-ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
+ms.openlocfilehash: c3766713c87dd721f7e4c9a90624192cdb402be9
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48785629"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49393827"
 ---
 # <a name="tutorial-cable-and-connect-to-your-azure-data-box"></a>Zelfstudie: De Azure Data Box bekabelen en aansluiten
 
@@ -92,7 +86,9 @@ Voer de volgende stappen uit om uw apparaat in te stellen met behulp van de loka
 
     ![Apparaatdashboard](media/data-box-deploy-set-up/data-box-dashboard-1.png)
 
-Zodra de installatie van het apparaat is voltooid, kunt u verbinding maken met de apparaat-shares en de gegevens van uw computer naar het apparaat kopiëren. 
+Zodra de gegevensnetwerkinterfaces zijn geconfigureerd, kunt u ook het IP-adres van de DATA 1- tot DATA 3-interfaces gebruiken voor toegang tot de lokale webgebruikersinterface (via `https://<IP address of a data network interface>`). 
+
+Zodra de installatie van het apparaat is voltooid, kunt u verbinding maken met de apparaatshares en de gegevens van uw computer naar het apparaat kopiëren. 
 
 ## <a name="next-steps"></a>Volgende stappen
 

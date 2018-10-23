@@ -1,58 +1,53 @@
 ---
-title: Snelstart voor het analyseren van een lokale afbeelding met behulp van de Computer Vision-API met cURL | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: In deze snelstart analyseert u een lokale afbeelding met behulp van Computer Vision met cURL in Cognitive Services.
+title: 'Snelstart: Een lokale afbeelding analyseren - REST, cURL - Computer Vision'
+titleSuffix: Azure Cognitive Services
+description: In deze snelstart analyseert u een lokale afbeelding met behulp van de Computer Vision-API met cURL.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
-ms.date: 08/28/2018
+ms.date: 09/10/2018
 ms.author: v-deken
-ms.openlocfilehash: 93ca3ea6eee3743dfd0c25c9514375ae63a531ee
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 1952d0045550362a242ce1c105c58bd65c815ea6
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43770379"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45631239"
 ---
-# <a name="quickstart-analyze-a-local-image---rest-curl"></a>Snelstart: Een lokale afbeelding analyseren - REST, cURL
+# <a name="quickstart-analyze-a-local-image-using-the-rest-api-and-curl-in-computer-vision"></a>Snelstart: Een lokale afbeelding analyseren met behulp van de REST-API en cURL in Computer Vision
 
-In deze snelstart analyseert u een lokale afbeelding om visuele kenmerken te extraheren met behulp van Computer Vision. Zie voor het analyseren van een externe afbeelding [Een externe afbeelding analyseren met cURL](curl-analyze.md).
+In deze snelstart analyseert u een lokaal opgeslagen afbeelding om visuele kenmerken te verkrijgen met behulp van de REST-API van Computer Vision. Met de [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa)-methode kunt u visuele kenmerken verkrijgen op basis van de afbeeldingsinhoud.
+
+Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) aan voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Als u Computer Vision wilt gebruiken, moet u een abonnementssleutel hebben. Zie [Abonnementssleutels verkrijgen](../Vision-API-How-to-Topics/HowToSubscribe.md).
+- U moet [cURL](https://curl.haxx.se/windows) hebben.
+- U moet beschikken over een abonnementssleutel voor Computer Vision. Zie [Abonnementssleutels verkrijgen](../Vision-API-How-to-Topics/HowToSubscribe.md) voor meer informatie over het verkrijgen van een abonnementssleutel.
 
-## <a name="analyze-a-local-image"></a>Een lokale afbeelding analyseren
+## <a name="create-and-run-the-sample-command"></a>Een voorbeeldopdracht maken en uitvoeren
 
-Dit voorbeeld is vergelijkbaar met [Een externe afbeelding analyseren met cURL ](curl-analyze.md), behalve dat de te analyseren afbeelding lokaal wordt gelezen vanaf schijf. Er zijn drie wijzigingen nodig:
+U kunt het voorbeeld maken en uitvoeren aan de hand van de volgende stappen:
 
-- Wijzigen van het inhoudstype in `"Content-Type: application/octet-stream"`.
-- Wijzigen van de schakeloptie `-d` in `--data-binary`.
-- Geef de afbeelding die u wilt analyseren op met behulp van de volgende syntaxis: `@C:/Pictures/ImageToAnalyze.jpg`.
+1. Kopieer de volgende opdracht naar een teksteditor.
+1. Breng waar nodig de volgende wijzigingen in de opdracht aan:
+    1. Vervang de waarde van `<subscriptionKey>` door uw abonnementssleutel.
+    1. Vervang de aanvraag-URL (`https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/analyze`) door de eindpunt-URL van de methode [Afbeelding analyseren](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) uit de Azure-regio waar u uw abonnementssleutels hebt verkregen (indien nodig).
+    1. Vervang de waarde van `<localImage>` door het volledige pad en de bestandsnaam van de afbeelding die u wilt analyseren. Bijvoorbeeld `@C:/Pictures/ImageToAnalyze.jpg`.
+    1. Wijzig eventueel de taalparameter van de aanvraag-URL (`language=en`) om een andere ondersteunde taal te gebruiken.
+1. Open een opdrachtpromptvenster.
+1. Plak de opdracht van de teksteditor in het opdrachtpromptvenster en voer de opdracht uit.
 
-U kunt het voorbeeld uitvoeren aan de hand van de volgende stappen:
-
-1. Kopieer de volgende code naar een editor.
-1. Vervang `<Subscription Key>` door uw geldige abonnementssleutel.
-1. Wijzig zo nodig aanvraag-URL (`https://westcentralus.api.cognitive.microsoft.com/vision/v2.0`) in de locatie waar u de abonnementssleutels hebt verkregen.
-1. Vervang `<Image To Analyze>` door de lokale afbeelding die u wilt analyseren.
-1. Wijzig eventueel de taal voor het antwoord (`language=en`).
-1. Open een opdrachtvenster op een computer waarop cURL is geïnstalleerd.
-1. Plak de code in het venster en voer de opdracht uit.
-
->[!NOTE]
->U moet in uw REST-aanroep dezelfde locatie gebruiken waar u uw abonnementssleutels hebt verkregen. Als u bijvoorbeeld uw abonnementssleutels van 'westus' hebt verkregen, vervangt u 'westcentralus' in de onderstaande URL door 'westus'.
-
-```json
-curl -H "Ocp-Apim-Subscription-Key: <Subscription Key>" -H "Content-Type: application/octet-stream" "https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/analyze?visualFeatures=Categories,Description&details=Landmarks&language=en" --data-binary <Image To Analyze>
+```console
+curl -H "Ocp-Apim-Subscription-Key: <Subscription Key>" -H "Content-Type: application/octet-stream" "https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/analyze?visualFeatures=Categories,Description&details=Landmarks&language=en" --data-binary "<localImage>"
 ```
 
-## <a name="analyze-image-response"></a>Analyze Image-antwoord
+## <a name="examine-the-response"></a>Het antwoord bekijken
 
-Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, bijvoorbeeld:
+Een geslaagd antwoord wordt geretourneerd in JSON-indeling. De voorbeeldtoepassing parseert en geeft een geslaagd antwoord weer in het opdrachtpromptvenster dat vergelijkbaar is met het volgende voorbeeld:
 
 ```json
 {
@@ -110,9 +105,13 @@ Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, bijvoorbeeld:
 }
 ```
 
+## <a name="clean-up-resources"></a>Resources opschonen
+
+Sluit het opdrachtpromptvenster en de teksteditor wanneer deze niet meer nodig zijn.
+
 ## <a name="next-steps"></a>Volgende stappen
 
-Bekijk de Computer Vision-API's die worden gebruikt om een afbeelding te analyseren, beroemdheden en oriëntatiepunten te detecteren, een miniatuur te maken en gedrukte en handgeschreven tekst te verkrijgen. Als u snel wilt experimenteren met de Computer Vision-API's, probeert u de [Open API-testconsole](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+Bekijk de Computer Vision-API die wordt gebruikt om een afbeelding te analyseren, beroemdheden en oriëntatiepunten te detecteren, een miniatuur te maken en gedrukte en handgeschreven tekst te verkrijgen. Als u snel wilt experimenteren met de Computer Vision-API, gebruikt u de [Open API-testconsole](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
 
 > [!div class="nextstepaction"]
-> [De Computer Vision-API's bekijken](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)
+> [De Computer Vision-API verkennen](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)

@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 09/22/2018
 ms.custom: mvc
 ms.author: spelluru
-ms.openlocfilehash: 08295ceeb2ebe94a96eaade0a6443f0f59212d60
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 870cfcf8712cc5bee2674b82d5292e4241433386
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47394026"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49342204"
 ---
 # <a name="what-is-azure-service-bus"></a>Wat is Azure Service Bus?
 
@@ -95,9 +95,9 @@ Abonnees kunnen definiëren welke berichten ze willen ontvangen van een onderwer
 
 Als er een fout optreedt die tot gevolg heeft dat er bij de client twijfel is over de uitkomst van een verzendbewerking, neemt [duplicaatdetectie](duplicate-detection.md) deze twijfel weg door de afzender in staat te stellen hetzelfde bericht nogmaals te verzenden. Eventuele dubbele exemplaren worden hierbij verwijdert door de wachtrij of het onderwerp.
 
-### <a name="sas-rbac-and-msi"></a>SAS, RBAC en MSI
+### <a name="sas-rbac-and-managed-identities-for-azure-resources"></a>SAS, RBAC en beheerde identiteiten voor Azure-resources
 
-Service Bus biedt ondersteuning voor beveiligingsprotocollen zoals [SAS](service-bus-sas.md) (Shared Access Signatures), [RBAC](service-bus-role-based-access-control.md) (op rollen gebaseerd toegangsbeheer) en [MSI](service-bus-managed-service-identity.md) (Managed Service Identity).
+Service Bus biedt ondersteuning voor beveiligingsprotocollen zoals [SAS](service-bus-sas.md) (Shared Access Signatures), [RBAC](service-bus-role-based-access-control.md) (op rollen gebaseerd toegangsbeheer) en [MSI](service-bus-managed-service-identity.md) (Managed Service Identity) voor Azure-resources.
 
 ### <a name="geo-disaster-recovery"></a>Geo-noodherstel
 

@@ -1,55 +1,56 @@
 ---
-title: Gebruik de een Custom Vision Service REST API - Azure Cognitive Services | Microsoft Docs
-description: De REST-API gebruiken om te maken, trainen, testen en exporteren van een aangepaste vision-model.
+title: 'Zelfstudie: De REST API van de Custom Vision Service gebruiken'
+titlesuffix: Azure Cognitive Services
+description: Gebruik de REST API voor het maken, trainen, testen en exporteren van een aangepast Vision-model.
 services: cognitive-services
 author: blackmist
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
-ms.topic: article
+ms.topic: tutorial
 ms.date: 08/07/2018
 ms.author: larryfr
-ms.openlocfilehash: 44fa4d45c33f3064c089724ee761a70d0a8421ab
-ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
-ms.translationtype: MT
+ms.openlocfilehash: a38f737b5281903328a53d6552b1666ca4f58d80
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "40250261"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46364955"
 ---
-# <a name="tutorial-use-the-custom-vision-rest-api"></a>Zelfstudie: De Custom Vision REST-API gebruiken
+# <a name="tutorial-use-the-custom-vision-rest-api"></a>Zelfstudie: De Custom Vision REST API gebruiken
 
-Informatie over het gebruik van de aangepaste Vision REST-API te maken, trainen, testen en exporteren van een model.
+Leer de REST API van de Custom Vision Service gebruiken om een model te maken, te trainen, te testen en te exporteren.
 
-De informatie in dit document laat zien hoe u een REST-client gebruiken om te werken met de REST-API voor het trainen van de Custom Vision service. De voorbeelden laten zien hoe u gebruik van de API kunnen doen met de `curl` hulpprogramma vanuit een bash-omgeving en `Invoke-WebRequest` vanuit Windows PowerShell.
+De informatie in dit document laat zien hoe u een REST-client kunt gebruiken om met behulp van de REST API de Custom Vision Service te trainen. De voorbeelden laten zien hoe u de API gebruikt met het `curl`-hulpprogramma vanuit een bash-omgeving en `Invoke-WebRequest` vanuit Windows PowerShell.
 
 > [!div class="checklist"]
 > * Sleutels ophalen
 > * Een project maken
-> * -Tags maken
+> * Tags maken
 > * Afbeeldingen toevoegen
-> * Trainen en testen van het model
-> * Exporteer het model
+> * Het model trainen en testen
+> * Het model exporteren
 
 ## <a name="prerequisites"></a>Vereisten
 
-* Een elementaire kennis met Representational State Transfer (REST). Dit document gaat niet verder in op details op zoals HTTP-termen, JSON of andere dingen die doorgaans gebruikt voor de REST.
+* Een elementaire kennis van Representational State Transfer (REST). Dit document gaat niet verder in op details zoals HTTP-woorden, JSON of andere elementen die doorgaans gebruikt worden met REST.
 
-* Een van beide een bash (Bourne opnieuw Shell) met de [curl](https://curl.haxx.se) hulpprogramma of Windows PowerShell 3.0 (of hoger).
+* Een bash (Bourne Again Shell) met het [curl](https://curl.haxx.se)-hulpprogramma of Windows PowerShell 3.0 (of hoger).
 
-* Een aangepaste Vision-account. Zie voor meer informatie de [een classificatie maken](getting-started-build-a-classifier.md) document.
+* Een Custom Vision-account. Zie het document[Een classificatie maken](getting-started-build-a-classifier.md) voor meer informatie.
 
 ## <a name="get-keys"></a>Sleutels ophalen
 
-Wanneer u de REST-API gebruikt, moet u verifiëren met behulp van een sleutel. Bij het uitvoeren van beheer of trainingsbewerkingen die, gebruikt u de __training sleutel__. Wanneer u het model om voorspellingen te doen, gebruikt u de __voorspelling sleutel__.
+Bij gebruik van de REST API moet u verificatie uitvoeren met behulp van een sleutel. Bij het uitvoeren van beheer- of trainingsbewerkingen gebruikt u de __trainingssleutel__. Wanneer u het model gebruikt om voorspellingen te doen, gebruikt u de __voorspellingssleutel__.
 
-Wanneer een aanvraag, wordt de sleutel als een aanvraagheader verzonden.
+Wanneer u een aanvraag indient, wordt de sleutel als aanvraagheader verzonden.
 
-Als u de sleutels voor uw account, gaat u naar de [Custom Vision webpagina](https://customvision.ai) en selecteer de __tandwielpictogram__ in de rechterbovenhoek. In de __Accounts__ sectie, Kopieer de waarden van de __Training sleutel__ en __voorspelling sleutel__ velden.
+Als u de sleutels voor uw account wilt ophalen, gaat u naar de [Custom Vision-webpagina](https://customvision.ai) en selecteert u het __tandwielpictogram__ in de rechterbovenhoek. In de sectie __Accounts__ kopieert u de waarden uit de velden __Trainingssleutel__ en __Voorspellingssleutel__.
 
-![Afbeelding van de gebruikersinterface van de sleutels](./media/rest-api-tutorial/training-prediction-keys.png)
+![Installatiekopie van de gebruikersinterface van de sleutels](./media/rest-api-tutorial/training-prediction-keys.png)
 
 > [!IMPORTANT]
-> Omdat de sleutels worden gebruikt voor het verifiëren van elke aanvraag, de voorbeelden in dit document wordt ervan uitgegaan dat de sleutelwaarden zijn opgenomen in de omgevingsvariabelen. Gebruik de volgende opdrachten voor het opslaan van de sleutels voor omgevingsvariabelen voordat u een andere codefragmenten in dit document:
+> Omdat de sleutels worden gebruikt om elke aanvraag te verifiëren, wordt in de voorbeelden in dit document ervan uitgegaan dat de sleutelwaarden zijn opgenomen in de omgevingsvariabelen. Gebruik de volgende opdrachten om de sleutels op te slaan in omgevingsvariabelen voordat u andere codefragmenten in dit document gebruikt:
 >
 > ```bash
 > read -p "Enter the training key: " TRAININGKEY
@@ -63,7 +64,7 @@ Als u de sleutels voor uw account, gaat u naar de [Custom Vision webpagina](http
 
 ## <a name="create-a-new-project"></a>Een nieuw project maken
 
-De volgende voorbeelden maken van een nieuw project met de naam `myproject` in uw aangepaste Vision service-exemplaar. Deze service standaard ingesteld op de `General` domein:
+Met de volgende voorbeelden wordt een nieuw project met de naam `myproject` in uw Custom Vision Service-exemplaar gemaakt. Deze service is standaard ingesteld op het domein `General`:
 
 ```bash
 curl -X POST "https://southcentralus.api.cognitive.microsoft.com/customvision/v2.0/Training/projects?name=myproject" -H "Training-Key: $TRAININGKEY" --data-ascii ""
@@ -77,7 +78,7 @@ $resp = Invoke-WebRequest -Method 'POST' `
 $resp.Content
 ```
 
-Het antwoord op de aanvraag is vergelijkbaar met de volgende JSON-document:
+Het antwoord op de aanvraag is vergelijkbaar met het volgende JSON-document:
 
 ```json
 {
@@ -97,13 +98,13 @@ Het antwoord op de aanvraag is vergelijkbaar met de volgende JSON-document:
 ```
 
 > [!TIP]
-> De `id` vermelding in het antwoord is de ID van het nieuwe project. Dit wordt gebruikt in andere voorbeelden verderop in dit document.
+> De `id`-vermelding in het antwoord is de ID van het nieuwe project. Deze wordt gebruikt in andere voorbeelden verderop in dit document.
 
-Zie voor meer informatie over deze aanvraag [CreateProject](https://southcentralus.dev.cognitive.microsoft.com/docs/services/d0e77c63c39c4259a298830c15188310/operations/5a59953940d86a0f3c7a8290).
+Zie [CreateProject](https://southcentralus.dev.cognitive.microsoft.com/docs/services/d0e77c63c39c4259a298830c15188310/operations/5a59953940d86a0f3c7a8290) voor meer informatie over deze aanvraag.
 
 ### <a name="specific-domains"></a>Specifieke domeinen
 
-Voor het maken van een project voor een specifiek domein, kunt u opgeven de __domein-ID__ als een optionele parameter. De volgende voorbeelden ziet hoe u een lijst met beschikbare domeinen op te halen:
+Als u een project voor een specifiek domein wilt maken, kunt u de __domein-ID__ opgeven als een optionele parameter. In de volgende voorbeelden ziet hoe u een lijst met beschikbare domeinen kunt ophalen:
 
 ```bash
 curl -X GET "https://southcentralus.api.cognitive.microsoft.com/customvision/v2.0/Training/domains" -H "Training-Key: $TRAININGKEY" --data-ascii ""
@@ -117,7 +118,7 @@ $resp = Invoke-WebRequest -Method 'GET' `
 $resp.Content
 ```
 
-Het antwoord op de aanvraag is vergelijkbaar met de volgende JSON-document:
+Het antwoord op de aanvraag is vergelijkbaar met het volgende JSON-document:
 
 ```json
 [
@@ -146,9 +147,9 @@ Het antwoord op de aanvraag is vergelijkbaar met de volgende JSON-document:
 ]
 ```
 
-Zie voor meer informatie over deze aanvraag [GetDomains](https://southcentralus.dev.cognitive.microsoft.com/docs/services/d0e77c63c39c4259a298830c15188310/operations/5a59953940d86a0f3c7a827d).
+Zie [GetDomains](https://southcentralus.dev.cognitive.microsoft.com/docs/services/d0e77c63c39c4259a298830c15188310/operations/5a59953940d86a0f3c7a827d) voor meer informatie over deze aanvraag.
 
-Het volgende voorbeeld ziet u een nieuw project maken dat gebruikmaakt van de __oriëntatiepunten__ domein:
+Het volgende voorbeeld laat zien hoe een nieuw project wordt gemaakt dat gebruikmaakt van het domein __Landmarks__:
 
 ```bash
 curl -X POST "https://southcentralus.api.cognitive.microsoft.com/customvision/v2.0/Training/projects?name=myproject&domainId=ca455789-012d-4b50-9fec-5bb63841c793" -H "Training-Key: $TRAININGKEY" --data-ascii ""
@@ -162,9 +163,9 @@ $resp = Invoke-WebRequest -Method 'POST' `
 $resp.Content
 ```
 
-## <a name="create-tags"></a>-Tags maken
+## <a name="create-tags"></a>Tags maken
 
-Tag-afbeeldingen, moet u een label-ID. Het volgende voorbeeld ziet u hoe u het maken van een nieuwe tag met de naam `cat` en ophalen van een label-ID. Vervang `{projectId}` met de ID van uw project. Gebruik de `name=` parameter opgeven voor de naam van de tag:
+Om afbeeldingen te taggen – of labelen – moet u een tag-ID gebruiken. Het volgende voorbeeld laat zien hoe u een nieuwe tag met de naam `cat` kunt maken en een tag-ID kunt ophalen. Vervang `{projectId}` door de ID van het project. Gebruik de parameter `name=` om de naam van de tag op te geven:
 
 ```bash
 curl -X POST "https://southcentralus.api.cognitive.microsoft.com/customvision/v2.0/Training/projects/{projectId}/tags?name=cat" -H "Training-Key: $TRAININGKEY" --data-ascii ""
@@ -184,13 +185,13 @@ Het antwoord op de aanvraag is vergelijkbaar met het JSON-document:
 {"id":"ed6f7ab6-5132-47ad-8649-3ec42ee62d43","name":"cat","description":null,"imageCount":0}
 ```
 
-Sla de `id` waarde heeft, zoals deze wordt gebruikt bij het labelen van afbeeldingen.
+Sla de waarde `id` op omdat deze wordt gebruikt bij het taggen van afbeeldingen.
 
-Zie voor meer informatie over deze aanvraag [CreateTag](https://southcentralus.dev.cognitive.microsoft.com/docs/services/d0e77c63c39c4259a298830c15188310/operations/5a59953940d86a0f3c7a829d).
+Zie [CreateTag](https://southcentralus.dev.cognitive.microsoft.com/docs/services/d0e77c63c39c4259a298830c15188310/operations/5a59953940d86a0f3c7a829d) voor meer informatie over deze aanvraag.
 
 ## <a name="add-images"></a>Afbeeldingen toevoegen
 
-De volgende voorbeelden ziet een bestand toe te voegen uit URL. Vervang `{projectId}` met de ID van uw project. Vervang `{tagId}` met de ID van de code voor de installatiekopie:
+In de voorbeelden hieronder wordt een bestand toegevoegd vanuit een URL. Vervang `{projectId}` door de ID van het project. Vervang `{tagId}` door de ID van de tag voor de afbeelding:
 
 ```bash
 curl -X POST "https://southcentralus.api.cognitive.microsoft.com/customvision/v2.0/Training/projects/{projectId}/images/urls" -H "Training-Key: $TRAININGKEY" -H "Content-Type: application/json" --data-ascii '{"images": [{"url": "http://myimages/cat.jpg","tagIds": ["{tagId}"],"regions": [{"tagId": "{tagId}","left": 119.0,"top": 94.0,"width": 240.0,"height": 140.0}]}], "tagIds": ["{tagId}"]}'
@@ -205,7 +206,7 @@ $resp = Invoke-WebRequest -Method 'POST' `
 $resp.Content
 ```
 
-Het antwoord op de aanvraag is vergelijkbaar met de volgende JSON-document:
+Het antwoord op de aanvraag is vergelijkbaar met het volgende JSON-document:
 
 ```json
 {
@@ -246,11 +247,11 @@ Het antwoord op de aanvraag is vergelijkbaar met de volgende JSON-document:
 }
 ```
 
-Zie voor meer informatie over deze aanvraag [CreateImagesFromUrls](https://southcentralus.dev.cognitive.microsoft.com/docs/services/d0e77c63c39c4259a298830c15188310/operations/5a59953940d86a0f3c7a8287).
+Zie [CreateImagesFromUrls](https://southcentralus.dev.cognitive.microsoft.com/docs/services/d0e77c63c39c4259a298830c15188310/operations/5a59953940d86a0f3c7a8287) voor meer informatie over deze aanvraag.
 
 ## <a name="train-the-model"></a>Het model trainen
 
-De volgende voorbeelden laten zien hoe u het model te trainen. Vervang `{projectId}` met de ID van uw project:
+De volgende voorbeelden laten zien hoe het model wordt getraind. Vervang `{projectId}` door de ID van het project:
 
 ```bash
 curl -X POST "https://southcentralus.api.cognitive.microsoft.com/customvision/v2.0/Training/projects/{projectId}/train" -H "Training-Key: $TRAININGKEY" -H "Content-Type: application/json" --data-ascii ""
@@ -264,7 +265,7 @@ $resp = Invoke-WebRequest -Method 'POST' `
 $resp.Content
 ```
 
-Het antwoord op de aanvraag is vergelijkbaar met de volgende JSON-document:
+Het antwoord op de aanvraag is vergelijkbaar met het volgende JSON-document:
 
 ```json
 {
@@ -280,13 +281,13 @@ Het antwoord op de aanvraag is vergelijkbaar met de volgende JSON-document:
 }
 ```
 
-Sla de `id` waarde, zoals het wordt gebruikt om te testen en exporteer het model.
+Sla de waarde `id` op omdat deze wordt gebruikt om het model te testen en exporteren.
 
-Zie voor meer informatie, [TrainProject](https://southcentralus.dev.cognitive.microsoft.com/docs/services/d0e77c63c39c4259a298830c15188310/operations/5a59953940d86a0f3c7a8294).
+Zie [TrainProject](https://southcentralus.dev.cognitive.microsoft.com/docs/services/d0e77c63c39c4259a298830c15188310/operations/5a59953940d86a0f3c7a8294) voor meer informatie.
 
 ## <a name="test-the-model"></a>Het model testen
 
-De volgende voorbeelden laten zien hoe u een test van het model uitvoeren. Vervang `{projectId}` met de ID van uw project. Vervang `{iterationId}` met de ID die wordt geretourneerd van het model te trainen. Vervang `https://linktotestimage` met het pad naar de testinstallatiekopie van de.
+De volgende voorbeelden laten zien hoe het model wordt getest. Vervang `{projectId}` door de ID van het project. Vervang `{iterationId}` door de ID die wordt geretourneerd door het model te trainen. Vervang `https://linktotestimage` door het pad naar de testafbeelding.
 
 ```bash
 curl -X POST "https://southcentralus.api.cognitive.microsoft.com/customvision/v2.0/Training/projects/{projectId}/quicktest/url?iterationId={iterationId}" -H "Training-Key: $TRAININGKEY" -H "Content-Type: application/json" --data-ascii '{"url":"https://linktotestimage"}'
@@ -301,7 +302,7 @@ $resp = Invoke-WebRequest -Method 'POST' `
 $resp.Content
 ```
 
-Het antwoord op de aanvraag is vergelijkbaar met de volgende JSON-document:
+Het antwoord op de aanvraag is vergelijkbaar met het volgende JSON-document:
 
 ```json
 {
@@ -319,15 +320,15 @@ Het antwoord op de aanvraag is vergelijkbaar met de volgende JSON-document:
 }
 ```
 
-Zie voor meer informatie, [QuickTestImageUrl](https://southcentralus.dev.cognitive.microsoft.com/docs/services/d0e77c63c39c4259a298830c15188310/operations/5a59953940d86a0f3c7a828d).
+Zie [QuickTestImageUrl](https://southcentralus.dev.cognitive.microsoft.com/docs/services/d0e77c63c39c4259a298830c15188310/operations/5a59953940d86a0f3c7a828d) voor meer informatie.
 
-## <a name="export-the-model"></a>Exporteer het model
+## <a name="export-the-model"></a>Het model exporteren
 
-Exporteren van een model is een proces in twee stappen. U moet eerst de model-indeling opgeven en vervolgens de URL voor het geëxporteerde model aanvragen.
+Het exporteren van een model behelst een proces in twee stappen. U moet eerst de modelindeling opgeven en vervolgens de URL voor het geëxporteerde model aanvragen.
 
-### <a name="request-a-model-export"></a>Aanvraag voor een Modelexporteren
+### <a name="request-a-model-export"></a>Exporteren van een model aanvragen
 
-De volgende voorbeelden laten zien hoe u voor het exporteren van een `coreml` model. Vervang `{projectId}` met de ID van uw project. Vervang `{iterationId}` met de ID die wordt geretourneerd van het model te trainen.
+De volgende voorbeelden laten zien hoe een model `coreml` wordt geëxporteerd. Vervang `{projectId}` door de ID van het project. Vervang `{iterationId}` door de ID die wordt geretourneerd door het model te trainen.
 
 ```bash
 curl -X POST "https://southcentralus.api.cognitive.microsoft.com/customvision/v2.0/Training/projects/{projectId}/iterations/{iterationId}/export?platform=coreml" -H "Training-Key: $TRAININGKEY" -H "Content-Type: application/json" --data-ascii ''
@@ -341,7 +342,7 @@ $resp = Invoke-WebRequest -Method 'POST' `
 $resp.Content
 ```
 
-Het antwoord op de aanvraag is vergelijkbaar met de volgende JSON-document:
+Het antwoord op de aanvraag is vergelijkbaar met het volgende JSON-document:
 
 ```json
 {
@@ -352,11 +353,11 @@ Het antwoord op de aanvraag is vergelijkbaar met de volgende JSON-document:
 }
 ```
 
-Zie voor meer informatie, [ExportIteration](https://southcentralus.dev.cognitive.microsoft.com/docs/services/d0e77c63c39c4259a298830c15188310/operations/5a59953940d86a0f3c7a829b).
+Zie [ExportIteration](https://southcentralus.dev.cognitive.microsoft.com/docs/services/d0e77c63c39c4259a298830c15188310/operations/5a59953940d86a0f3c7a829b) voor meer informatie.
 
-### <a name="download-the-exported-model"></a>Downloaden van het geëxporteerde model
+### <a name="download-the-exported-model"></a>Het geëxporteerde model downloaden
 
-De volgende voorbeelden laten zien hoe u de URL van het geëxporteerde model niet ophalen. Vervang `{projectId}` met de ID van uw project. Vervang `{iterationId}` met de ID die wordt geretourneerd van het model te trainen.
+De volgende voorbeelden laten zien hoe u de URL van het geëxporteerde model kunt ophalen. Vervang `{projectId}` door de ID van het project. Vervang `{iterationId}` door de ID die wordt geretourneerd door het model te trainen.
 
 ```bash
 curl -X GET "https://southcentralus.api.cognitive.microsoft.com/customvision/v2.0/Training/projects/{projectId}/iterations/{iterationId}/export" -H "Training-Key: $TRAININGKEY" -H "Content-Type: application/json" --data-ascii ''
@@ -370,7 +371,7 @@ $resp = Invoke-WebRequest -Method 'GET' `
 $resp.Content
 ```
 
-Het antwoord op de aanvraag is vergelijkbaar met de volgende JSON-document:
+Het antwoord op de aanvraag is vergelijkbaar met het volgende JSON-document:
 
 ```json
 [
@@ -383,4 +384,4 @@ Het antwoord op de aanvraag is vergelijkbaar met de volgende JSON-document:
 ]
 ```
 
-Zie voor meer informatie, [GetExports](https://southcentralus.dev.cognitive.microsoft.com/docs/services/d0e77c63c39c4259a298830c15188310/operations/5a59953940d86a0f3c7a829a).
+Zie [GetExports](https://southcentralus.dev.cognitive.microsoft.com/docs/services/d0e77c63c39c4259a298830c15188310/operations/5a59953940d86a0f3c7a829a) voor meer informatie.

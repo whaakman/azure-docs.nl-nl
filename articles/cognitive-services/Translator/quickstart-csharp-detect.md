@@ -10,18 +10,16 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/15/2018
 ms.author: nolachar
-ms.openlocfilehash: b10072e01391da3845567c16fa7cc312ed23ceb2
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: b9a5dbdc1e7950400597c76359b8eee4268af6d0
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46368049"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49320370"
 ---
 # <a name="quickstart-identify-language-from-text-with-c35"></a>Snelstart: Taal bepalen op basis van tekst met C&#35;
 
 In deze snelstartgids bepaalt u de taal van de brontekst met behulp van de Translator Text-API.
-
-De broncode voor dit voorbeeld is beschikbaar op [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-C-Sharp).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -31,7 +29,10 @@ Als u de Translator Text-API wilt gebruiken, moet u ook een abonnementssleutel h
 
 ## <a name="detect-request"></a>Detect-aanvraag
 
-Met de volgende code bepaalt u de taal van de brontekst met behulp van de methode [Detect](./reference/v3-0-detect.md).
+> [!TIP]
+> Haal de nieuwste code op uit [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-C-Sharp).
+
+Met de volgende code bepaalt u de taal van de brontekst met de methode [Detect](./reference/v3-0-detect.md).
 
 1. Maak een nieuw C#-project in uw favoriete IDE.
 2. Voeg de onderstaande code toe.

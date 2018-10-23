@@ -7,12 +7,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: tutorial
 ms.date: 09/24/2018
-ms.openlocfilehash: 2e4d625cd123583baa30fde8e9826f5b57da49fe
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: ef8809afa2da36f44384d784e32532b7b121e3a9
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393584"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49379141"
 ---
 # <a name="tutorial-monitor-and-tune-azure-database-for-postgresql"></a>Zelfstudie: Azure Database for PostgreSQL bewaken en afstemmen
 
@@ -28,7 +28,7 @@ Azure Database for PostgreSQL bevat functies die u helpen om inzicht te krijgen 
 U hebt een Azure Database for PostgreSQL-server met PostgreSQL versie 9.6 of 10 nodig. U kunt de stappen in de zelfstudie [Maken](tutorial-design-database-using-azure-portal.md) volgen als u een server wilt maken.
 
 > [!IMPORTANT]
-> **Query Store**, **Query Performance Insight** en **Prestatieaanbeveling** bevinden zich in een beperkt aantal regio's in openbare preview.
+> **Query Store**, **Query Performance Insight** en **Prestatieaanbeveling** bevinden zich in openbare preview.
 
 ## <a name="enabling-data-collection"></a>Gegevensverzameling inschakelen
 [Query Store](concepts-query-store.md) legt de geschiedenis van query's en wachtstatistieken op uw server vast en slaat deze op in de database **azure_sys** database op uw server. Het is een optionele functie. U schakelt deze als volgt in:

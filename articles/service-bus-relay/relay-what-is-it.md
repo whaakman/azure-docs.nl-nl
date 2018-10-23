@@ -13,12 +13,12 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.date: 10/08/2018
 ms.author: spelluru
-ms.openlocfilehash: 46a9045cdf422ed4f14e5588b3342e8bfde2e4c8
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 3cc87c0acbed317cccaccec687f27c23a1d32cf0
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48888081"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319333"
 ---
 # <a name="what-is-azure-relay"></a>Wat is Azure Relay?
 De Azure Relay-service stelt u in staat om services die worden uitgevoerd in uw bedrijfsnetwerk op een veilige manier aan te bieden aan de openbare cloud. U kunt dit doen zonder een firewallverbinding te openen of de infrastructuur van het bedrijfsnetwerk ingrijpend te wijzigen. 
@@ -81,10 +81,9 @@ Het volgende diagram laat zien hoe binnenkomende relay-aanvragen worden verwerkt
 4. De gateway die de aanvraag ontvangt, zoekt de relay in de gateway-store. 
 5. De gateway stuurt de aanvraag voor verbinding door naar de juiste gateway vermeld in de gateway-store. 
 6. De gateway stuurt een aanvraag naar de luisterende client voor het opzetten van een tijdelijk kanaal naar het gatewayknooppunt dat zich het dichtst bij de verzendende client bevindt. 
-7. De luisterende client maakt nu een tijdelijk kanaal en stuurt een antwoordbericht naar de gateway die zich het dichtst bij de verzendende client bevindt.
-8. De gateway stuurt het antwoordbericht door naar de verzendende client. 
-
-Wanneer de relay-verbinding tot stand is gebracht, kunnen de clients berichten uitwisselen via het gateway-knooppunt dat wordt gebruikt voor de ontmoeting.
+7. De luisterende client maakt een tijdelijk kanaal naar de gateway die zich het dichtst bij de verzendende client bevindt. Nu er via een gateway verbinding is gemaakt tussen de clients, kunnen de clients berichten met elkaar uitwisselen. 
+8. De gateway stuurt berichten van de luisterende client door naar de verzendende client. 
+9. De gateway stuurt berichten van de verzendende client door naar de luisterende client.  
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Aan de slag met .NET Websockets](relay-hybrid-connections-dotnet-get-started.md)

@@ -10,18 +10,16 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/15/2018
 ms.author: nolachar
-ms.openlocfilehash: 328f5996a9b830ea6c2ff4b4a535d5311f39e08e
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 35903b0da707e5167781c3a7595c3be938a4fc07
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46365253"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49321341"
 ---
 # <a name="quickstart-find-alternate-translations-and-usage-with-c35"></a>Snelstart: alternatieve vertalingen zoeken en gebruiken met C&#35;
 
 In deze snelstartgids zoekt u details van mogelijke alternatieve vertalingen voor een term plus gebruiksvoorbeelden van deze alternatieve vertalingen met behulp van de Translator Text-API.
-
-De broncode voor dit voorbeeld is beschikbaar op [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-C-Sharp).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -30,6 +28,9 @@ U hebt [Visual Studio 2017](https://www.visualstudio.com/downloads/) nodig om de
 Als u de Translator Text-API wilt gebruiken, moet u ook een abonnementssleutel hebben. Zie [Hoe u zich registreert voor de Translator Text-API](translator-text-how-to-signup.md).
 
 ## <a name="dictionary-lookup-request"></a>Dictionary Lookup-aanvraag
+
+> [!TIP]
+> Haal de laatste nieuwe code op uit [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-C-Sharp).
 
 Met het volgende haalt u alternatieve vertalingen voor een woord op met behulp van de methode [Dictionary Lookup](./reference/v3-0-dictionary-lookup.md).
 

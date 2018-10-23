@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: d99b76faf618439e51735d5f1096fd4f1cfd2364
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 9b8293196114f55f633e67cf19cd0c9e60f6398e
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47038286"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49309457"
 ---
 # <a name="tutorial-customize-the-azure-iot-central-operators-view"></a>Zelfstudie: de operatorweergave van Azure IoT Central aanpassen
 
@@ -56,7 +56,7 @@ Als systeembouwer kunt u bepalen welke informatie in een apparaatdashboard wordt
 
     ![Dashboardpagina apparaatsjabloon](media/tutorial-customize-operator/dashboard.png)
 
-4. Als u een KPI-tegel wilt toevoegen aan het dashboard, kiest u **KPI**:
+4. Als u een KPI-tegel (Key Performance Indicator) wilt toevoegen aan het dashboard, kiest u **KPI**:
 
     ![KPI toevoegen](media/tutorial-customize-operator/addkpi.png)
 
@@ -81,7 +81,7 @@ Als systeembouwer kunt u bepalen welke informatie in een apparaatdashboard wordt
 
 ## <a name="configure-your-settings-layout"></a>De indeling van uw instellingen configureren
 
-Als systeembouwer kunt u ook de operatorweergave van de apparaatinstellingen configureren. Een operator gebruikt de pagina met apparaatinstellingen om een apparaat te configureren. Een operator gebruikt de instellingenpagina bijvoorbeeld om de doeltemperatuur voor het koelapparaat in te stellen.
+Als systeembouwer kunt u ook de operatorweergave van de apparaatinstellingen configureren. Een operator gebruikt de pagina met apparaatinstellingen om een apparaat te configureren. Een operator gebruikt de instellingenpagina bijvoorbeeld om de doeltemperatuur voor het verbonden airco-apparaat in te stellen.
 
 1. Als u de indeling van de instellingen voor het verbonden airco-apparaat wilt bewerken, kiest u **Instellingen** en vervolgens **Sjabloon bewerken**:
 
@@ -117,7 +117,7 @@ Naast het dashboard en instellingen kunt u ook de operatorweergave van de appara
 
 In de modus **Sjabloon bewerken** kunt u de pagina's van het dashboard, de instellingen en de eigenschappen voor een operator aanpassen. Buiten de modus **Sjabloon bewerken** kunt u de toepassing bekijken als een operator.
 
-1. Als u het verbonden airco-apparaat als een operator wilt bekijken, moet u op **Gereed** klikken om de modus Sjabloon bewerken uit te schakelen. Hiermee gaat u terug naar de operatorweergave van het apparaat.
+1. Als u het verbonden airco-apparaat als een operator wilt bekijken, moet u op **Gereed** klikken om te stoppen met het bewerken van de sjabloon en teruggaan naar de operatorweergave van het apparaat.
 
 2. Als u de locatie van dit apparaat wilt bijwerken, bewerkt u de waarde in de tegel Locatie en kiest u **Opslaan**:
 

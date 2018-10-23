@@ -12,12 +12,12 @@ ms.date: 09/07/2017
 ms.author: lizross
 ms.reviewer: piotrci
 ms.custom: it-pro
-ms.openlocfilehash: bce7a060908e8043390fdce729161cad48a644be
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: a0a992e62e7b1e375ff2591aa82bdc7733e9d26f
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45731067"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394694"
 ---
 # <a name="how-to-sign-up-for-azure-active-directory-premium"></a>Hoe registreren voor Azure Active Directory Premium
 U kunt Azure Active Directory (Azure AD) Premium kopen en deze koppelen aan uw Azure-abonnement. Als u een nieuw Azure-abonnement moet maken, moet u ook uw licentieabonnement en toegang tot de Azure AD-service activeren.
@@ -27,11 +27,11 @@ U kunt Azure Active Directory (Azure AD) Premium kopen en deze koppelen aan uw A
 
 Voordat u zich aanmeldt voor Active Directory Premium 1 of Premium 2, moet u eerst bepalen welke van uw bestaande abonnement of plan te gebruiken:
 
-    - Via uw bestaande Azure of Office 365-abonnement
+- Via uw bestaande Azure of Office 365-abonnement
 
-    - Via uw Enterprise Mobility + Security-licentieplan
+- Via uw Enterprise Mobility + Security-licentieplan
 
-    - Via een Microsoft Volume-licentieplan
+- Via een Microsoft Volume-licentieplan
 
 Aanmelden met uw Azure-abonnement met de Azure AD-licenties die eerder werden gekocht en geactiveerd, activeert automatisch de licenties in dezelfde map. Als dat niet het geval is, moet u nog steeds uw licentieplan en uw Azure AD-toegang activeren. Zie voor meer informatie over het activeren van uw licentieplan [Uw nieuwe licentieplan activeren](#activate-your-new-license-plan). Zie voor meer informatie over het activeren van de Azure AD-toegang [De Azure AD-toegang activeren](#activate-your-azure-ad-access). 
 
@@ -43,20 +43,20 @@ Enterprise Mobility + Security is een suite, bestaande uit een Azure AD Premium,
 
 Zie de [Enterprise Mobility + Security website ](https://www.microsoft.com/cloud-platform/enterprise-mobility-security) voor meer informatie over EMS.
 
-    - EMS uitproberen met een gratis [proefabonnement voor Enterprise Mobility + Security E5](https://signup.microsoft.com/Signup?OfferId=87dd2714-d452-48a0-a809-d2f58c4f68b7&ali=1)
+- EMS uitproberen met een gratis [proefabonnement voor Enterprise Mobility + Security E5](https://signup.microsoft.com/Signup?OfferId=87dd2714-d452-48a0-a809-d2f58c4f68b7&ali=1)
 
-    - [Enterprise Mobility + Security E5-licenties](https://signup.microsoft.com/Signup?OfferId=e6de2192-536a-4dc3-afdc-9e2602b6c790&ali=1) kopen
+- [Enterprise Mobility + Security E5-licenties](https://signup.microsoft.com/Signup?OfferId=e6de2192-536a-4dc3-afdc-9e2602b6c790&ali=1) kopen
 
-    - [Enterprise Mobility + Security E3-licenties](https://signup.microsoft.com/Signup?OfferId=4BBA281F-95E8-4136-8B0F-037D6062F54C&ali=1) kopen
+- [Enterprise Mobility + Security E3-licenties](https://signup.microsoft.com/Signup?OfferId=4BBA281F-95E8-4136-8B0F-037D6062F54C&ali=1) kopen
 
 ## <a name="sign-up-using-your-microsoft-volume-licensing-plan"></a>Aanmelden met behulp van uw Microsoft Volume-licentieplan
 Via uw Microsoft Volume Licensing-plan kunt u zich registreren voor Azure AD Premium met een van deze twee programma's, op basis van het aantal licenties dat u wilt ophalen:
 
-    - **Voor 250 of meer licenties.** [Microsoft Enterprise Agreement](https://www.microsoft.com/en-us/licensing/licensing-programs/enterprise.aspx)
+- **Voor 250 of meer licenties.** [Microsoft Enterprise Agreement](https://www.microsoft.com/en-us/licensing/licensing-programs/enterprise.aspx)
 
-    - **Voor 5-250 licenties.** [Open** Volume License](https://www.microsoft.com/en-us/licensing/licensing-programs/open-license.aspx)
+- **Voor 5-250 licenties.** [Open Volume License](https://www.microsoft.com/en-us/licensing/licensing-programs/open-license.aspx)
 
-    Ga naar de pagina [Een licentie kopen via Volume Licensing](https://www.microsoft.com/en-us/licensing/how-to-buy/how-to-buy.aspx) voor meer informatie over de opties voor het kopen van volumelicenties.
+Ga naar de pagina [Een licentie kopen via Volume Licensing](https://www.microsoft.com/en-us/licensing/how-to-buy/how-to-buy.aspx) voor meer informatie over de opties voor het kopen van volumelicenties.
 
 ## <a name="activate-your-new-license-plan"></a>Uw nieuw licentieplan activeren
 Als u zich hebt aangemeld met behulp van een nieuw Azure AD-licentieplan, moet u deze activeren voor uw organisatie, met behulp van de bevestigingse-mail verzonden na de aankoop.

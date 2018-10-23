@@ -7,18 +7,20 @@ services: iot-fundamentals
 ms.topic: overview
 ms.date: 10/09/2018
 ms.author: robinsh
-ms.openlocfilehash: 6a44c36b5dd87c28db3de34a6858e29fb5730117
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 6834ad6c6915ceb3306284ea738d76027e2c9479
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49067331"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49365353"
 ---
 # <a name="azure-iot-technologies-and-solutions-paas-and-saas"></a>Azure IoT-technologieën en -oplossingen: PaaS en SaaS
 
 Microsoft heeft een portfolio gebouwd die ondersteuning biedt voor de behoeften van alle klanten, waardoor iedereen toegang heeft tot de voordelen van digitale transformatie. De Azure IoT-productportofolio is een overzicht van de beschikbare PaaS-/SaaS-technologieën en -oplossingen. Het geeft twee beschikbare paden weer voor het bouwen van uw eigen oplossing:
 
-- PaaS (Platform as a Service): bouw de toepassing met behulp van de [Azure IoT-oplossingsversnellers](https://www.azureiotsolutions.com/). Dit is een verzameling vooraf geconfigureerde oplossingen op bedrijfsniveau die u in staat stellen de ontwikkeling van aangepaste IoT-oplossingen te versnellen.
+- Platform as a Service (PaaS): uw toepassing ontwikkelen met een van de volgende services.
+    - [Azure IoT-oplossingsverbeteringen](https://www.azureiotsolutions.com/), een verzameling van vooraf geconfigureerde oplossingen van ondernemingsklasse, stellen u in staat om de ontwikkeling van aangepaste IoT-oplossingen te versnellen, of 
+    - [Azure Digital Twins](https://azure.microsoft.com/services/digital-twins/), een service waarmee u de fysieke omgeving kunt gebruiken om contextbewuste IoT-oplossingen te maken aan de hand van een grafiek op basis van ruimtelijke intelligence en domeinspecifieke objectmodellen.
 
 - SaaS (Software as a Service): ga snel aan de slag met [Azure IoT Central](https://azure.microsoft.com/services/iot-central/), de nieuwe SaaS-oplossing voor het ontwikkelen van IoT-toepassingen, zonder de complexiteit van de IoT-oplossing. Als uw organisatie niet beschikt over de resources voor het bouwen van uw eigen IoT-oplossing, is Azure IoT Central de beste keuze. Dit is een IoT-oplossing zonder code waarmee u in enkele minuten modellen, dashboards en regels kunt maken.
 
@@ -95,7 +97,10 @@ Verbind al uw apparaten met Azure IoT met behulp van de open-source [apparaat-SD
 [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) is een volledig beheerde service die betrouwbare en beveiligde bidirectionele communicatie mogelijk maakt tussen miljoenen IoT-apparaten en een oplossings-back-end. De Azure IoT Hub Device Provisioning Service is een Helper-service voor IoT Hub die Just-In-Time-inrichting naar de juiste IoT-hub mogelijk maakt zonder tussenkomst van de gebruiker, zodat klanten miljoenen apparaten op een veilige en schaalbare manier kunnen inrichten.
 
 ### <a name="edge"></a>Edge
-[Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/) is een IoT-service (Internet of Things). Deze service is bedoeld voor klanten die ook gegevens willen analyseren op apparaten, oftewel ‘naar de marge’. Door delen van uw werkbelasting naar de marge te verplaatsen, is er sprake van een verminderde redundantie en kunt u offlinescenario’s gebruiken.
+[Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/) is een IoT-service. Deze service is bedoeld voor klanten die ook gegevens willen analyseren op apparaten, oftewel ‘naar de marge’. Door delen van uw werkbelasting naar de marge te verplaatsen, is er sprake van een verminderde redundantie en kunt u offlinescenario’s gebruiken.
+
+### <a name="spatial-intelligence"></a>Ruimtelijke intelligentie
+[Azure Digital Twins](https://azure.microsoft.com/services/digital-twins/) is een IoT-service waarmee u een model van een fysieke omgeving kunt maken. U krijgt toegang tot een grafiek op basis van ruimtelijke intelligence om de relaties tussen mensen, ruimten en apparaten te modelleren. Door gegevens uit de digitale en fysieke wereld te correleren, kunt u contextbewuste oplossingen maken.  
 
 ### <a name="data-and-analytics"></a>Gegevens en analyse
 Maak gebruik van een breed scala aan PaaS-voordelen voor Azure-gegevens en -analyses in uw IoT-oplossing: van slimme cloudfuncties in de marge met Azure Machine Learning, tot het op een kostenbesparende manier opslaan van IoT-apparaatgegevens met Azure Data lake, en het visualiseren van een groot aantal gegevens van IoT-apparaten met [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/).

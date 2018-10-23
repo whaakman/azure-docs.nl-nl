@@ -13,14 +13,14 @@ ms.devlang: na
 ms.date: 10/04/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: ae0d37dd8df9b076e72959e9036ba35d322e4e63
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 5d18a1f86e1d870db64199c575450dd475590b55
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48803712"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394451"
 ---
-# <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-public-preview"></a>Zelfstudie: Azure Deployment Manager gebruiken met Resource Manager-sjablonen (openbare preview)
+# <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-private-preview"></a>Zelfstudie: Azure Deployment Manager gebruiken met Resource Manager-sjablonen (beperkte preview)
 
 Meer informatie over het gebruik van [Azure Deployment Manager](./deployment-manager-overview.md) om uw toepassingen in meerdere regio's te implementeren. Als u Deployment Manager wilt gebruiken, moet u twee sjablonen maken:
 
@@ -48,7 +48,7 @@ Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.
 Als u dit artikel wilt voltooien, hebt u het volgende nodig:
 
 * Enige ervaring met het ontwikkelen van [Azure Resource Manager-sjablonen](./resource-group-overview.md).
-* Azure Deployment Manager bevindt zich in openbare preview. Als u zich wilt aanmelden met behulp van Azure Deployment Manager, vult u het [aanmeldingsformulier](https://aka.ms/admsignup) in. 
+* Azure Deployment Manager bevindt zich in beperkte preview. Als u zich wilt aanmelden met behulp van Azure Deployment Manager, vult u het [aanmeldingsformulier](https://aka.ms/admsignup) in. 
 * Azure PowerShell. Zie [Aan de slag met Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps) voor meer informatie.
 * Deployment Manager-cmdlets. Als u deze prerelease-cmdlets wilt installeren, hebt u de nieuwste versie van PowerShellGet nodig. Zie [PowerShellGet installeren](/powershell/gallery/installing-psget) voor informatie over het ophalen van de nieuwste versie. Nadat u PowerShellGet hebt geïnstalleerd, sluit u het PowerShell-venster. Open een nieuw PowerShell-venster en gebruik de volgende opdracht:
 

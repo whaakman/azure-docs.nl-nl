@@ -1,33 +1,33 @@
 ---
-title: 'Snelstartgids: Zoeken voor afbeeldingen met behulp van de Bing afbeeldingen zoeken-SDK en Java'
-description: Gebruik deze Quick Start om te zoeken en -installatiekopieën zoeken op Internet met behulp van de Bing afbeeldingen zoeken-SDK en Java.
+title: 'Snelstart: Zoeken naar afbeeldingen met de Bing Afbeeldingen zoeken-SDK en Java'
+description: Gebruik deze snelstart om voor de eerste keer afbeeldingen te zoeken met behulp van de Bing Afbeeldingen zoeken-SDK, wat een wrapper is voor de API en die dus dezelfde functies bevat. Deze eenvoudige Java-toepassing verzendt een zoekquery voor afbeeldingen, parseert het JSON-antwoord en geeft de URL weer van de eerst geretourneerde afbeelding.
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-image-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: aahi
-ms.openlocfilehash: 12bd6f9a9a0b43b4571a7e0311ffbea54c7b9054
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
-ms.translationtype: MT
+ms.openlocfilehash: 36f59e1c405ef9e5cf69a19e49d69a3adfdc4636
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45574058"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46298180"
 ---
-# <a name="quickstart-search-for-images-with-the-bing-image-search-sdk-and-java"></a>Snelstartgids: Zoeken voor afbeeldingen met de Bing afbeeldingen zoeken-SDK en Java
+# <a name="quickstart-search-for-images-with-the-bing-image-search-sdk-and-java"></a>Snelstart: Zoeken naar afbeeldingen met de Bing Afbeeldingen zoeken-SDK en Java
 
-Met deze Quick Start kunt u uw eerste afbeeldingen zoeken met behulp van de Bing afbeeldingen zoeken SDK, die een wrapper voor de API en bevat de dezelfde functies. Deze eenvoudige Java-toepassing verzendt een zoekquery afbeelding, parseert de JSON-antwoord en Hiermee geeft u de URL van de eerste afbeelding geretourneerd.
+Gebruik deze snelstart om voor de eerste keer afbeeldingen te zoeken met behulp van de Bing Afbeeldingen zoeken-SDK, wat een wrapper is voor de API en die dus dezelfde functies bevat. Deze eenvoudige Java-toepassing verzendt een zoekquery voor afbeeldingen, parseert het JSON-antwoord en geeft de URL weer van de eerst geretourneerde afbeelding.
 
-De broncode voor dit voorbeeld is beschikbaar [op GitHub](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingImageSearch/Quickstart) met extra foutafhandeling en aantekeningen. 
+De broncode voor dit voorbeeld is beschikbaar op [GitHub](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingImageSearch/Quickstart) met extra foutafhandeling en aantekeningen.
 
-## <a name="prerequisites"></a>Vereisten 
+## <a name="prerequisites"></a>Vereisten
 
-De nieuwste versie van de [Java Development Kit](http://www.oracle.com/technetwork/java/javase/downloads/index.html) (JDK)
+De nieuwste versie van de [Java Development Kit (JDK)](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
 
-Installeer de Bing afbeeldingen zoeken-SDK-afhankelijkheden met behulp van Maven of Gradle, een ander systeem voor Afhankelijkheidsbeheer. Het Maven POM-bestand moet de declaratie van het volgende:
+Installeer de afhankelijkheden van de Bing Afbeeldingen zoeken-SDK met behulp van Maven, Gradle of een ander systeem voor afhankelijkheidsbeheer. Het Maven-POM-bestand vereist de volgende declaratie:
 
 ```xml
  <dependencies>
@@ -36,14 +36,14 @@ Installeer de Bing afbeeldingen zoeken-SDK-afhankelijkheden met behulp van Maven
       <artifactId>azure-cognitiveservices-imagesearch</artifactId>
       <version>0.0.1-beta-SNAPSHOT</version>
     </dependency>
- </dependencies> 
+ </dependencies>
 ```
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
-## <a name="create-and-initialize-the-application"></a>Maken en initialiseren van de toepassing
+## <a name="create-and-initialize-the-application"></a>De toepassing maken en initialiseren
 
-1. Maak een nieuwe Java-project in uw favoriete IDE of editor, en voeg de volgende import toe aan uw klasse implimentation:
+1. Maak een nieuw Java-project in uw favoriete IDE of editor en importeer het volgende in uw klasse-implementatie:
 
     ```java
     import com.microsoft.azure.cognitiveservices.search.imagesearch.BingImageSearchAPI;
@@ -52,7 +52,7 @@ Installeer de Bing afbeeldingen zoeken-SDK-afhankelijkheden met behulp van Maven
     import com.microsoft.azure.cognitiveservices.search.imagesearch.models.ImagesModel;
     ```
 
-2. Variabelen voor de abonnementssleutel van uw maken in uw belangrijkste methode en zoekterm. Vervolgens exemplaar maken van de Bing afbeeldingen zoeken-client.
+2. Maak in uw hoofdmethode variabelen voor uw abonnementssleutel en zoekterm. Maak vervolgens de Bing Afbeeldingen zoeken-client.
 
     ```java
     final String subscriptionKey = "COPY_YOUR_KEY_HERE";
@@ -61,9 +61,9 @@ Installeer de Bing afbeeldingen zoeken-SDK-afhankelijkheden met behulp van Maven
     BingImageSearchAPI client = BingImageSearchManager.authenticate(subscriptionKey);
     ```
 
-## <a name="send-a-search-request-to-the-bing-image-search-api"></a>Een search-aanvraag verzenden naar de Bing afbeeldingen zoeken-API
+## <a name="send-a-search-request-to-the-bing-image-search-api"></a>Verzend een zoekopdracht naar de Bing Afbeeldingen zoeken-API
 
-1. Met behulp van `bingImages().search()`, verzenden van de HTTP-aanvraag met de zoekquery. Sla het antwoord als een `ImagesModel`.
+1. Verzend met behulp van `bingImages().search()` de HTTP-aanvraag die de zoekquery bevat. Sla de reactie op als een `ImagesModel`.
     ```java
     ImagesModel imageResults = client.bingImages().search()
                 .withQuery(searchTerm)
@@ -71,10 +71,10 @@ Installeer de Bing afbeeldingen zoeken-SDK-afhankelijkheden met behulp van Maven
                 .execute();
     ```
 
-## <a name="parse-and-view-the-result"></a>Parseren en het resultaat weer te geven
+## <a name="parse-and-view-the-result"></a>Het resultaat parseren en weergeven
 
-Parseren van de afbeeldingsresultaten in het antwoord geretourneerd.
-Als het antwoord bevat een lijst met zoekresultaten, het eerste resultaat opslaan en afdrukken van de details, zoals een miniatuur-URL, wordt de oorspronkelijke URL, samen met het totale aantal installatiekopieën geretourneerd.  
+Parseer de afbeeldingsresultaten die in het antwoord zijn geretourneerd.
+Als het antwoord zoekresultaten bevat, wordt het eerste resultaat opgeslagen en worden de bijbehorende gegevens weergegeven, zoals een miniatuur-URL en de oorspronkelijke URL, samen met het totale aantal geretourneerde afbeeldingen.  
 
 ```java
 if (imageResults != null && imageResults.value().size() > 0) {
@@ -94,13 +94,13 @@ else {
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Zelfstudie voor Bing afbeeldingen zoeken-app met één pagina](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/tutorial-bing-image-search-single-page-app)
+> [Zelfstudie voor app met één pagina voor Bing Image Search](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/tutorial-bing-image-search-single-page-app)
 
-## <a name="see-also"></a>Zie ook 
+## <a name="see-also"></a>Zie ook
 
-* [Wat is de Bing afbeeldingen zoeken?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
-* [Probeer een online interactieve demo](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
-* [Een gratis Cognitive Services-toegangssleutel ophalen](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api) 
-* [Java-voorbeelden voor de SDK van Azure Cognitive Services](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples) 
-* [Documentatie voor Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services)
-* [Bing afbeeldingen zoeken-API-verwijzing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)
+* [Wat is Bing Image Search?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
+* [Online interactieve demo proberen](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
+* [Gratis Cognitive Services-toegangssleutel ophalen](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)
+* [Java-voorbeelden voor de Azure Cognitive Services-SDK](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples)
+* [Documentatie van Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services)
+* [Naslag voor Bing Afbeeldingen zoeken-API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)

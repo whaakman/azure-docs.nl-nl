@@ -1,51 +1,46 @@
 ---
-title: Snelstart voor het analyseren van afbeeldingen met behulp van de Computer Vision-API met Ruby | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: In deze snelstart analyseert u een afbeelding met behulp van Computer Vision met Ruby in Cognitive Services.
+title: 'Snelstart: Een externe afbeelding analyseren - REST, Ruby - Computer Vision'
+titleSuffix: Azure Cognitive Services
+description: In deze snelstart analyseert u een afbeelding met behulp van de Computer Vision-API met Ruby.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: v-deken
-ms.openlocfilehash: 3ce89bf29cc7f1f436e54d398e458f559b79a425
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: bf17e8213ad2bbdc793f979471d9861578cac8e2
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43770139"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45628859"
 ---
-# <a name="quickstart-analyze-a-remote-image---rest-ruby"></a>Snelstart: Een externe afbeelding analyseren - REST, Ruby
+# <a name="quickstart-analyze-a-remote-image-using-the-rest-api-and-ruby-in-computer-vision"></a>Snelstart: Een externe afbeelding analyseren met behulp van de REST-API en Ruby in Computer Vision
 
-In deze snelstart analyseert u een afbeelding om visuele kenmerken te extraheren met behulp van Computer Vision.
+In deze snelstart analyseert u een extern opgeslagen afbeelding om visuele kenmerken te verkrijgen met behulp van de REST-API van Computer Vision. Met de [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa)-methode kunt u visuele kenmerken verkrijgen op basis van de afbeeldingsinhoud.
+
+Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) aan voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Als u Computer Vision wilt gebruiken, moet u een abonnementssleutel hebben. Zie [Abonnementssleutels verkrijgen](../Vision-API-How-to-Topics/HowToSubscribe.md).
+- U moet [Ruby](https://www.ruby-lang.org/en/downloads/) 2.4.x of later hebben geïnstalleerd.
+- U moet beschikken over een abonnementssleutel voor Computer Vision. Zie [Abonnementssleutels verkrijgen](../Vision-API-How-to-Topics/HowToSubscribe.md) voor meer informatie over het verkrijgen van een abonnementssleutel.
 
-## <a name="analyze-image-request"></a>Analyze Image-aanvraag
+## <a name="create-and-run-the-sample"></a>Het voorbeeld maken en uitvoeren
 
-Met de [methode Analyze Image](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) kunt u visuele kenmerken verkrijgen op basis van de afbeeldingsinhoud. U kunt een afbeelding uploaden of een afbeeldings-URL opgeven en kiezen welke kenmerken moeten worden geretourneerd, zoals:
+U kunt het voorbeeld maken en uitvoeren aan de hand van de volgende stappen:
 
-* Een gedetailleerde lijst met tags die betrekking hebben op de afbeeldingsinhoud.
-* Een beschrijving van de afbeeldingsinhoud in een volledige zin.
-* De coördinaten, het geslacht en de leeftijd die bij de gezichten horen die in de afbeelding voorkomen.
-* Het type afbeelding (illustratie of een lijntekening).
-* De overheersende kleur, de accentkleur en of een afbeelding in zwart-wit is.
-* De categorie die is gedefinieerd in deze [taxonomie](../Category-Taxonomy.md).
-* Bevat de afbeelding erotische of seksueel suggestieve inhoud?
-
-U kunt het voorbeeld uitvoeren aan de hand van de volgende stappen:
-
-1. Kopieer de volgende code naar een editor.
-1. Vervang `<Subscription Key>` door uw geldige abonnementssleutel.
-1. Wijzig indien nodig de `uri`-waarde in de locatie waar u uw abonnementssleutels hebt verkregen.
-1. Wijzig eventueel de taal voor het antwoord (`'language' => 'en'`).
-1. Wijzig eventueel de te analyseren afbeelding (`{\"url\":\"...`).
-1. Sla het bestand op met de extensie `.rb`.
-1. Open de Ruby-opdrachtprompt en voer het bestand uit, bijvoorbeeld: `ruby myfile.rb`.
+1. Kopieer de volgende code in een teksteditor.
+1. Breng waar nodig de volgende wijzigingen in code aan:
+    1. Vervang `<Subscription Key>` door uw abonnementssleutel.
+    1. Vervang `https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/analyze` door de eindpunt-URL van de methode [Afbeelding analyseren](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) in de Azure-regio waar u uw abonnementssleutels hebt verkregen (indien nodig).
+    1. Vervang eventueel de waarde van de aanvraagparameter `language` door een andere taal. 
+    1. Vervang eventueel `http://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg\` door de URL van een andere afbeelding die u wilt analyseren.
+1. Sla de code op als een bestand met de extensie `.rb`. Bijvoorbeeld `analyze-image.rb`.
+1. Open een opdrachtpromptvenster.
+1. Typ bij de prompt de opdracht `ruby` om het voorbeeld uit te voeren. Bijvoorbeeld `ruby analyze-image.rb`.
 
 ```ruby
 require 'net/http'
@@ -78,9 +73,9 @@ end
 puts response.body
 ```
 
-## <a name="analyze-image-response"></a>Analyze Image-antwoord
+## <a name="examine-the-response"></a>Het antwoord bekijken
 
-Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, bijvoorbeeld:
+Een geslaagd antwoord wordt geretourneerd in JSON-indeling. Het voorbeeld parseert en geeft een geslaagd antwoord weer in het opdrachtpromptvenster dat vergelijkbaar is met het volgende voorbeeld:
 
 ```json
 {
@@ -183,9 +178,13 @@ Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, bijvoorbeeld:
 
 ```
 
+## <a name="clean-up-resources"></a>Resources opschonen
+
+Wanneer u het bestand niet meer nodig hebt, kunt u het verwijderen.
+
 ## <a name="next-steps"></a>Volgende stappen
 
-Bekijk de Computer Vision-API's die worden gebruikt om een afbeelding te analyseren, beroemdheden en oriëntatiepunten te detecteren, een miniatuur te maken en gedrukte en handgeschreven tekst te verkrijgen. Als u snel wilt experimenteren met de Computer Vision-API's, probeert u de [Open API-testconsole](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+Bekijk de Computer Vision-API die wordt gebruikt om een afbeelding te analyseren, beroemdheden en oriëntatiepunten te detecteren, een miniatuur te maken en gedrukte en handgeschreven tekst te verkrijgen. Als u snel wilt experimenteren met de Computer Vision-API, gebruikt u de [Open API-testconsole](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
 
 > [!div class="nextstepaction"]
-> [De Computer Vision-API's bekijken](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)
+> [De Computer Vision-API verkennen](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)

@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: ce1586e472e1d1ea5ddd9ca5a426b1bea2b5b931
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 5533dacc4a782cbdb6026c4a4d5c5bed9e39147a
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42024239"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49320149"
 ---
 # <a name="set-up-the-iot-hub-device-provisioning-service-with-the-azure-portal"></a>IoT Hub Device Provisioning Service instellen met Azure Portal
 
@@ -40,12 +40,12 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
     * **Abonnement**: kies het abonnement dat u wilt gebruiken om deze instantie van de Device Provisioning Service te maken.
     * **Resourcegroep:** dit veld kunt u gebruiken om een nieuwe resourcegroep te maken of het nieuwe exemplaar aan een bestaande resourcegroep toe te voegen. Kies dezelfde resourcegroep als die de IoT-hub bevat die u hierboven hebt gemaakt, zoals **TestResources**. Door alle gerelateerde resources samen in een groep te plaatsen, kunt u ze samen beheren. Als u bijvoorbeeld de resourcegroep verwijdert, worden alle resources verwijderd die deze groep bevat. Zie [Resourcegroepen gebruiken om Azure-resources te beheren](../azure-resource-manager/resource-group-portal.md) voor meer informatie.
     * **Locatie**: selecteer de locatie die het dichtst bij uw apparaten in de buurt is.
-    * **Vastmaken aan dashboard:** selecteer deze optie om het exemplaar vast te maken aan uw dashboard, zodat u het exemplaar eenvoudiger kunt vinden.
 
     ![Basisinformatie over uw Device Provisioning Service-exemplaar invoeren op de portalblade](./media/quick-setup-auto-provision/create-iot-dps-portal.png)  
 
-4. Zodra de service is geïmplementeerd, wordt de blade samenvatting automatisch geopend.
+4. Klik op de meldingsknop om het maken van de resource-instantie te bewaken. Wanneer de service is geïmplementeerd, klikt u op **Vastmaken aan dashboard** en vervolgens op **Naar de resource gaan**.
 
+    ![De implementatiemelding bewaken](./media/quick-setup-auto-provision/pin-to-dashboard.png)
 
 ## <a name="link-the-iot-hub-and-your-device-provisioning-service"></a>De IoT-hub en uw Device Provisioning Service koppelen
 

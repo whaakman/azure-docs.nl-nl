@@ -10,18 +10,16 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/15/2018
 ms.author: nolachar
-ms.openlocfilehash: 967e978518debb5aef071807b1482d6f225c062f
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 82e051895bd5ba8542fa32aa147b050a25c43c84
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46367709"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49318387"
 ---
 # <a name="quickstart-get-supported-languages-with-c35"></a>Snelstart: Ondersteunde talen ophalen met C&#35;
 
 In deze snelstartgids haalt u een lijst met ondersteunde talen op voor vertaling, transliteratie en opzoeken in woordenlijsten en voorbeelden met behulp van de Translator Text-API.
-
-De broncode voor dit voorbeeld is beschikbaar op [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-C-Sharp).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -30,6 +28,9 @@ U hebt [Visual Studio 2017](https://www.visualstudio.com/downloads/) nodig om de
 Als u de Translator Text-API wilt gebruiken, moet u ook een abonnementssleutel hebben. Zie [Hoe u zich registreert voor de Translator Text-API](translator-text-how-to-signup.md).
 
 ## <a name="languages-request"></a>Languages-aanvraag
+
+> [!TIP]
+> Haal de laatste nieuwe code op uit [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-C-Sharp).
 
 Met de volgende code wordt een lijst opgehaald met ondersteunde talen voor vertaling, transliteratie en opzoeken in woordenlijsten en voorbeelden met behulp van de methode [Languages](./reference/v3-0-languages.md).
 

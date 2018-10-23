@@ -3,25 +3,23 @@ title: 'Quickstart: Een miniatuur genereren - SDK, C# - Computer Vision'
 titleSuffix: Azure Cognitive Services
 description: In deze snelstart maakt u een miniatuur van een afbeelding met behulp van de Computer Vision Windows C#-clientbibliotheek.
 services: cognitive-services
-author: noellelacharite
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 09/14/2018
-ms.author: nolachar
-ms.openlocfilehash: 8fdbcf5bfe4d4fe60a2858b34b38c01d66e75d99
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.author: pafarley
+ms.openlocfilehash: 758021a9428672789923d1774f51fd319fe9885f
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47054809"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49343109"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-sdk-and-c"></a>Quickstart: Een miniatuur genereren met de Computer Vision SDK en C#
 
-In deze quickstart maakt u een miniatuur van een afbeelding met behulp van de Computer Vision Windows-clientbibliotheek.
-
-De broncode voor dit voorbeeld is beschikbaar op [GitHub](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/ComputerVision).
+In deze snelstart maakt u een miniatuur van een afbeelding met behulp van de Computer Vision Windows-clientbibliotheek.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -30,6 +28,9 @@ De broncode voor dit voorbeeld is beschikbaar op [GitHub](https://github.com/Azu
 * Het NuGet-pakket van de [Microsoft.Azure.CognitiveServices.Vision.ComputerVision](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.ComputerVision)-clientbibliotheek. U hoeft het pakket niet te downloaden. Hieronder vindt u de installatie-instructies.
 
 ## <a name="generatethumbnailasync-method"></a>Methode GenerateThumbnailAsync
+
+> [!TIP]
+> Haal de nieuwste code als Visual Studio-oplossing op uit [GitHub](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/ComputerVision).
 
 De methoden `GenerateThumbnailAsync` en `GenerateThumbnailInStreamAsync` verpakken de [Get Thumbnail-API](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) voor respectievelijk externe en lokale afbeeldingen.  U kunt deze methoden gebruiken om een miniatuur van een afbeelding te genereren. U geeft de hoogte en breedte op. Deze mag afwijken van de hoogte-breedteverhouding van de ingevoerde afbeelding. Computer Vision maakt gebruik van slim bijsnijden om op intelligente wijze het interessegebied te bepalen en coördinaten voor het bijsnijden te genereren op basis van dat gebied.
 

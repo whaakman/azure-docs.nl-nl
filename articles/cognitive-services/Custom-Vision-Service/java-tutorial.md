@@ -1,56 +1,57 @@
 ---
-title: Maken van een zelfstudie voor Custom Vision Service Java - Azure Cognitive Services | Microsoft Docs
-description: Verken een eenvoudige Java-app die gebruikmaakt van de aangepaste Vision-API in Microsoft Cognitive Services. Een project maakt, tags toevoegen, afbeeldingen uploaden, trainen van uw project en een voorspelling met behulp van de standaardeindpunt.
+title: 'Zelfstudie: Een afbeeldingsclassificatieproject maken: Custom Vision Service, Java'
+titlesuffix: Azure Cognitive Services
+description: Maak een project, voeg tags toe, upload afbeeldingen, train uw project en doe een voorspelling met behulp van het standaardeindpunt.
 services: cognitive-services
 author: areddish
-manager: chbuehle
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
-ms.topic: article
+ms.topic: tutorial
 ms.date: 08/28/2018
 ms.author: areddish
-ms.openlocfilehash: a83a2f5cac9281a4cd79c1a0cead0f2af82d73df
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
-ms.translationtype: MT
+ms.openlocfilehash: 9a7f50e0eb33016d6a2d8f28be047b327135c51f
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44305701"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46367352"
 ---
-# <a name="use-custom-vision-api-to-build-an-image-classification-project-with-java"></a>Custom Vision-API gebruiken om een installatiekopie van classificatie-project met behulp van Java te bouwen
+# <a name="tutorial-build-an-image-classification-project-with-java"></a>Zelfstudie: Een afbeeldingsclassificatieproject maken met Java
 
-Informatie over het maken van een installatiekopie van classificatie-project met de Custom Vision Service met behulp van Java. Nadat deze gemaakt, kunt u labels toevoegen, afbeeldingen uploaden, trainen van het project, van het project standaard voorspelling eindpunt-URL ophalen en gebruiken om te testen via een programma van een installatiekopie. In dit voorbeeld open-source als sjabloon gebruiken voor het bouwen van uw eigen app met behulp van de aangepaste Vision-API.
+Lees hoe u een afbeeldingsclassificatieproject kunt maken met behulp van de Custom Vision Service en Java. Wanneer u het project hebt gemaakt, kunt u tags toevoegen, afbeeldingen uploaden, het project trainen, de standaardeindpunt-URL voor voorspellingen ophalen en deze gebruiken om afbeeldingen programmatisch te testen. Gebruik dit open-sourcevoorbeeld als sjabloon voor het bouwen van uw eigen app met behulp van de Custom Vision-API.
 
-## <a name="prerequisites"></a>Vereiste onderdelen
+## <a name="prerequisites"></a>Vereisten
 
 - JDK 7 of 8 is geïnstalleerd.
 - Maven is geïnstalleerd.
 
-## <a name="get-the-training-and-prediction-keys"></a>Ophalen van de sleutels trainen en voorspellen
+## <a name="get-the-training-and-prediction-keys"></a>De training en voorspellingssleutels ophalen
 
-Als u de sleutels in dit voorbeeld gebruikt, gaat u naar de [Custom Vision webpagina](https://customvision.ai) en selecteer de __tandwielpictogram__ in de rechterbovenhoek. In de __Accounts__ sectie, Kopieer de waarden van de __Training sleutel__ en __voorspelling sleutel__ velden.
+Als u de sleutels wilt ophalen die in dit voorbeeld worden gebruikt, gaat u naar de [Custom Vision-webpagina](https://customvision.ai) en selecteert u het __tandwielpictogram__ in de rechterbovenhoek. In het sectie __Accounts__ kopieert u de waarden uit de velden __Trainingssleutel__ en __Voorspellingssleutel__.
 
 ![Afbeelding van de gebruikersinterface van de sleutels](./media/python-tutorial/training-prediction-keys.png)
 
-## <a name="install-the-custom-vision-service-sdk"></a>De Custom Vision Service SDK installeren
+## <a name="install-the-custom-vision-service-sdk"></a>De Custom Vision Service-SDK installeren
 
-U kunt de aangepaste Vision-SDK installeren vanaf maven centrale opslagplaats:
-* [Training SDK](https://mvnrepository.com/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-customvision-training)
-* [Voorspelling SDK](https://mvnrepository.com/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-customvision-prediction)
+U kunt de Custom Vision-SDK uit de centrale maven-opslagplaats installeren:
+* [Training-SDK](https://mvnrepository.com/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-customvision-training)
+* [Voorspelling-SDK](https://mvnrepository.com/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-customvision-prediction)
 
 ## <a name="understand-the-code"></a>De code begrijpen
 
-Het volledige project, met inbegrip van afbeeldingen, is beschikbaar via de [Custom Vision Azure-voorbeelden voor Java-opslagplaats](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master). 
+Het volledige project, inclusief afbeeldingen, is beschikbaar bij de [Custom Vision Azure-voorbeelden voor Java-opslagplaats](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master). 
 
-Uw favoriete IDE voor Java gebruiken om te openen de `Vision/CustomVision` project. 
+Gebruik uw favoriete Java IDE om het `Vision/CustomVision`-project te openen. 
 
-Deze toepassing maakt gebruik van de training-sleutel die u eerder hebt opgehaald voor het maken van een nieuw project met de naam __Java-voorbeeldproject__. Deze uploadt vervolgens trainen en testen van een classificatie van afbeeldingen. De classificatie geeft aan of een boomstructuur is een __Hemlock__ of een __Japanse Cherry__.
+Deze toepassing gebruikt de trainingssleutel die u eerder hebt opgehaald om een nieuw project met de naam __Sample Java Project__ te maken. Vervolgens worden afbeeldingen geüpload om een classificatie te trainen en te testen. De classificatie identificeert of een boom een __Hemlockspar__ of een __Japanse kers__ is.
 
-De volgende codefragmenten implementeren van de primaire functie van dit voorbeeld:
+Met de volgende codefragmenten implementeert u de primaire functionaliteit van dit voorbeeld:
 
-## <a name="create-a-custom-vision-service-project"></a>Maak een project Custom Vision Service
+## <a name="create-a-custom-vision-service-project"></a>Een Custom Vision Service-project maken
 
 > [!IMPORTANT]
-> Stel de `trainingApiKey` aan de training-sleutelwaarde die u eerder hebt opgehaald.
+> Stel de `trainingApiKey` in op de trainingssleutelwaarde die u eerder hebt opgehaald.
 
 ```java
 final String trainingApiKey = "insert your training key here";
@@ -82,7 +83,7 @@ Tag cherryTag = trainer.createTag()
 
 ## <a name="upload-images-to-the-project"></a>Afbeeldingen uploaden naar het project
 
-Het voorbeeld is ingesteld om op te nemen van de afbeeldingen in het definitieve pakket. Afbeeldingen worden gelezen uit de sectie met resources van de jar en geüpload naar de service.
+Het voorbeeld is zodanig opgezet dat de afbeeldingen worden opgenomen in het definitieve pakket. Afbeeldingen worden gelezen uit de sectie met resources van de jar en geüpload naar de service.
 
 ```java
 System.out.println("Adding images...");
@@ -99,7 +100,7 @@ for (int i = 1; i <= 10; i++) {
 }
 ```
 
-De code van de vorige fragment maakt gebruik van twee hulpfuncties die de afbeeldingen als resource stromen ophalen en ze uploaden naar de service.
+De vorige fragmentcode maakt gebruik van twee hulpfuncties die de afbeeldingen als resourcestreams ophalen en ze naar de service uploaden.
 
 ```java
 private static void AddImageToProject(Trainings trainer, Project project, String fileName, byte[] contents, UUID tag)
@@ -133,7 +134,7 @@ private static byte[] GetImage(String folder, String fileName)
 
 ## <a name="train-the-project"></a>Het project trainen
 
-Hiermee maakt u de eerste versie in het project en markeert deze herhaling als de standaard-iteratie. 
+Hiermee wordt de eerste iteratie in het project gemaakt en wordt deze iteratie gemarkeerd als de standaarditeratie. 
 
 ```java
 System.out.println("Training...");
@@ -150,10 +151,10 @@ System.out.println("Training Status: "+ iteration.status());
 trainer.updateIteration(project.id(), iteration.id(), iteration.withIsDefault(true));
 ```
 
-## <a name="get-and-use-the-default-prediction-endpoint"></a>Het standaardeindpunt voor de voorspelling gebruiken
+## <a name="get-and-use-the-default-prediction-endpoint"></a>Het standaardeindpunt voor voorspellingen ophalen en gebruiken
 
 > [!IMPORTANT]
-> Stel de `predictionApiKey` voor de voorspelling-sleutelwaarde die u eerder hebt opgehaald.
+> Stel de `predictionApiKey` in op de voorspellingssleutelwaarde die u eerder hebt opgehaald.
 
 ```java
 final String predictionApiKey = "insert your prediction key here";
@@ -183,7 +184,7 @@ for (Prediction prediction: results.predictions())
 
 ## <a name="run-the-example"></a>Het voorbeeld uitvoeren
 
-Compileren en uitvoeren van de oplossing met behulp van maven:
+U kunt de oplossing als volgt compileren en uitvoeren met maven:
 
 ```
 mvn compile exec:java

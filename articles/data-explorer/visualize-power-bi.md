@@ -2,18 +2,18 @@
 title: 'Zelfstudie: gegevens visualiseren van Azure Data Explorer in Power BI'
 description: In deze zelfstudie leert u hoe u verbinding met Azure Data Explorer kunt maken in Power BI om uw gegevens te visualiseren.
 services: data-explorer
-author: mgblythe
-ms.author: mblythe
+author: orspod
+ms.author: v-orspod
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: tutorial
 ms.date: 09/24/2018
-ms.openlocfilehash: 938d8d6e291ca432ef3f642a0aaec74d5dcf5bf5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: fc2d96c4dc8184ba26001fd77732ce7c45253d5a
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46977142"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49393709"
 ---
 # <a name="tutorial-visualize-data-from-azure-data-explorer-in-power-bi"></a>Zelfstudie: gegevens visualiseren van Azure Data Explorer in Power BI
 
@@ -108,7 +108,7 @@ Nu u een verbinding met Azure Data Explorer hebt, kunt u de gegevens bewerken in
 
     ![Kolom filteren](media/visualize-power-bi/filter-column.png)
 
-1. Selecteer het pijltje bij de kolom **BeginLat**, schakel het selectievakje **null** uit en selecteer daarna **OK**.
+1. Klik met de rechtermuisknop op de kolomkop **StormSummary** en selecteer vervolgens **Verwijderen**.
 
     ![Kolom verwijderen](media/visualize-power-bi/remove-column.png)
 

@@ -1,5 +1,5 @@
 ---
-title: "Voorbeeld: video's uploaden en indexeren met Video Indexer"
+title: Video's uploaden en indexeren met Video Indexer
 titlesuffix: Azure Cognitive Services
 description: In dit onderwerp ziet u hoe u API's gebruikt om uw video's te uploaden en indexeren met Video Indexer.
 services: cognitive services
@@ -10,14 +10,14 @@ ms.component: video-indexer
 ms.topic: sample
 ms.date: 09/15/2018
 ms.author: juliako
-ms.openlocfilehash: f3889d1cddce92cbdd3049d4421bfdffc69da41e
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 53dc65c3d2c56308dd298f33bb78047904810ae5
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48884303"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49377827"
 ---
-# <a name="example-upload-and-index-your-videos"></a>Voorbeeld: uw video's uploaden en indexeren  
+# <a name="upload-and-index-your-videos"></a>Uw video's uploaden en indexeren  
 
 In dit artikel leest u hoe u een video uploadt met Azure Video Indexer. De Video Indexer API biedt twee opties voor uploaden: 
 

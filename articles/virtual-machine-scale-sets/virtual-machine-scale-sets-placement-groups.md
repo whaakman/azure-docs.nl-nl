@@ -3,7 +3,7 @@ title: Werken met grote Azure Virtual Machine Scale Sets | Microsoft Docs
 description: Wat u moet weten wanneer u grote Azure-virtuele-machineschaalsets wilt gaan gebruiken
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: gatneil
+author: rajsqr
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/9/2017
-ms.author: negat
-ms.openlocfilehash: 17c8fdd0bc85b9d1a4e1b50cf422b28f32862a7e
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.author: rajraj
+ms.openlocfilehash: f45b78f1c30119f5e892287719c9c2edfae57ce6
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33941125"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49364211"
 ---
 # <a name="working-with-large-virtual-machine-scale-sets"></a>Werken met grote virtuele-machineschaalsets
 U kunt nu Azure-[virtuele-machineschaalsets](/azure/virtual-machine-scale-sets/) maken met een capaciteit van maximaal 1000 virtuele machines. In dit document wordt een _grote virtuele-machineschaalset_ gedefinieerd als een schaalset waarmee u kunt schalen tot meer dan 100 virtuele machines. Deze mogelijkheid wordt ingesteld met een schaalseteigenschap (_singlePlacementGroup=False_). 
@@ -35,18 +35,18 @@ Wat een _grote_ schaalset zo bijzonder maakt, is niet het aantal virtuele machin
 ## <a name="checklist-for-using-large-scale-sets"></a>Controlelijst voor het gebruik van grote schaalsets
 Overweeg de volgende vereisten voordat u beslist of uw toepassing doeltreffend gebruik kan maken van grootschalige sets:
 
+- Als u een groot aantal VM’s wilt implementeren, moeten de quotumlimieten voor uw reken-vCPU’s mogelijk worden verhoogd. 
 - Grote schaalsets vereisen Azure Managed Disks. Voor schaalsets die niet worden gemaakt met Managed Disks zijn meerdere opslagaccounts vereist (één voor elke 20 virtuele machines). Grote schaalsets zijn ontworpen om exclusief met Managed Disks te werken om de overhead voor opslagbeheer te beperken en om het risico te vermijden dat u met abonnementslimieten van opslagaccounts wordt geconfronteerd. Als u niet met Managed Disks werkt, is uw schaalset beperkt tot 100 virtuele machines.
 - Schaalsets die vanuit Azure Marketplace zijn gemaakt, kunnen worden geschaald tot maximaal 1000 virtuele machines.
-- Schaalsets die vanuit aangepaste installatiekopieën (VM-installatiekopieën die u zelf maakt en uploadt) zijn gemaakt, kunnen op dit moment worden geschaald tot maximaal 300 virtuele machines.
+- Schaalsets die vanuit aangepaste installatiekopieën (VM-installatiekopieën die u zelf maakt en uploadt) zijn gemaakt, kunnen op dit moment worden geschaald tot maximaal 600 VM’s.
 - Laag-4 taakverdeling met schaalsets die uit meerdere plaatsingsgroepen bestaan vereist [Azure Load Balancer standaard-SKU](../load-balancer/load-balancer-standard-overview.md). De Load Balancer standaard-SKU biedt extra voordelen, zoals de mogelijkheid om taken te verdelen tussen meerdere schaalsets. Standaard-SKU vereist ook dat er een netwerkbeveiligingsgroep is gekoppeld aan de schaalset, anders werken de NAT-pools niet correct. Als u de Azure Load Balancer basis-SKU moet gebruiken, zorgt u dat de schaalset is geconfigureerd voor het gebruik van één plaatsingsgroep. Dit is de standaardinstelling.
 - Laag-7 taakverdeling met de Azure Application Gateway wordt voor alle schaalsets ondersteund.
 - Een schaalset wordt gedefinieerd met één subnet. Zorg dat het subnet een adresruimte heeft die groot genoeg is voor alle virtuele machines die u nodig hebt. Standaard wordt een schaalset te groot ingericht (dat wil zeggen dat er tijdens de implementatie of bij het uitschalen extra virtuele machines worden gemaakt, waarvoor u niet hoeft te betalen), om de betrouwbaarheid en prestaties van de implementatie te verbeteren. Zorg daarom voor een adresruimte die 20% groter is dan het aantal virtuele machines waarnaar u wilt gaan schalen.
-- Als u veel virtuele machines wilt gaan implementeren, moeten de quotumlimieten voor uw reken-vCPU’s mogelijk worden verhoogd.
 - Fout- en upgradedomeinen zijn alleen consistent binnen een plaatsingsgroep. Deze architectuur verandert niet de algemene beschikbaarheid van een schaalset, omdat virtuele machines evenredig worden verdeeld over verschillende fysieke hardware. Als u moet garanderen dat twee virtuele machines zich op verschillende hardware bevinden, betekent dit echter wel dat u ervoor moet zorgen dat ze zich in verschillende foutdomeinen in dezelfde plaatsingsgroep bevinden. Het foutdomein en de id van de plaatsingsgroep worden weergegeven in de _exemplaarweergave_  van een schaalset-VM. U kunt de exemplaarweergave van een schaalset-VM bekijken in de [Azure Resource Explorer](https://resources.azure.com/).
 
 
 ## <a name="creating-a-large-scale-set"></a>Een grote schaalset maken
-Wanneer u in Azure Portal een schaalset maakt, kunt u schaling naar meerdere plaatsingsgroepen toestaan door de optie _Limit to a single placement group_ (Beperken tot één plaatsingsgroep) op de blade _Basics_ (Basisinformatie) in te stellen op _False_. Als u deze optie instelt op _False_, kunt u de waarde van _Instance count_ (Aantal exemplaren) instellen op maximaal 1000.
+Als u een schaalset maakt in de Azure-portal, hoeft u alleen maar de waarde bij het *aantal exemplaren* van maximaal 1.000 in te vullen. Als het om meer dan 100 exemplaren gaat, wordt *Schalen naar meer dan 100 exemplaren inschakelen* ingesteld op *Ja*. Hierdoor kan de schaal worden aangepast naar meerdere plaatsingsgroepen. 
 
 ![](./media/virtual-machine-scale-sets-placement-groups/portal-large-scale.png)
 

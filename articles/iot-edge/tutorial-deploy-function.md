@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 66dcb3347741c4826fc62cc258c67b85f3939ff7
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: f2b1c394f561b87baf2be261728a1ac39b1f7835
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47422759"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49116049"
 ---
 # <a name="tutorial-deploy-azure-functions-as-iot-edge-modules-preview"></a>Zelfstudie: Azure-functies implementeren als IoT Edge-modules (preview)
 
@@ -45,7 +45,7 @@ Een Azure IoT Edge-apparaat:
 
 Cloudresources:
 
-* Een gratis [IoT Hub](../iot-hub/iot-hub-create-through-portal.md)-laag in Azure. 
+* Een gratis of standaard [IoT Hub](../iot-hub/iot-hub-create-through-portal.md)-laag in Azure. 
 
 Ontwikkelingsresources:
 
@@ -61,7 +61,7 @@ In deze zelfstudie gebruikt u de Azure IoT Edge-extensie voor VS Code om een mod
 
 Voor deze zelfstudie kunt u elk register gebruiken dat compatibel is met Docker. Twee populaire Docker-registerservices die beschikbaar zijn in de cloud zijn [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) en [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags). In deze zelfstudie wordt Azure Container Registry gebruikt. 
 
-1. Selecteer in de [Azure-portal](https://portal.azure.com) de optie **Een resource maken** > **Containers** > **Container Registry**.
+1. Selecteer in [Azure Portal](https://portal.azure.com) de optie **Een resource maken** > **Containers** > **Container Registry**.
 
     ![Een containerregister maken](./media/tutorial-deploy-function/create-container-registry.png)
 

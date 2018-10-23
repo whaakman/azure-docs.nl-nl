@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/25/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 4155ea7c24746f9d3381f2d1e4a1e08a7a56206a
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 4e3b7aff97cbcebe34e6af4755900e8888c5e57d
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43049934"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49352795"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>Zelfstudie: Hybride Azure Active Directory-gekoppelde apparaten handmatig configureren 
 
@@ -92,6 +92,8 @@ Als uw organisatie van plan is naadloze eenmalige aanmelding te gebruiken, moete
 Als uw organisatie beheerde (niet-federatieve) installatie met on-premises AD gebruikt en niet ADFS gebruikt om te federeren met Azure AD, is hybride Azure AD-koppeling op Windows 10 afhankelijk van de synchronisatie van computerobjecten in AD met Azure AD. Zorg ervoor dat organisatie-eenheden (OE’s) die de computerobjecten bevatten die hybride Azure AD-gekoppeld moeten worden, zijn ingeschakeld voor synchronisatie in de Azure AD Connect-synchronisatieconfiguratie.
 
 Voor Windows 10-apparaten met versie 1703 of eerder: als uw organisatie internettoegang via een uitgaande proxy vereist, moet u Web Proxy Auto-Discovery (WPAD) implementeren om Windows 10-computers in staat te stellen apparaten te registreren met Azure AD. 
+
+Vanaf Windows 10 1803 probeert het apparaat het koppelen van de hybride Azure AD te voltooien via de gesynchroniseerde computer of het gesynchroniseerde apparaat, zelfs als het via AD FS koppelen van de hybride Azure AD wordt uitgevoerd vanaf een apparaat in een federatief domein mislukt en Azure AD Connect is geconfigureerd om de computer-/apparaatobjecten te synchroniseren met Azure AD.
 
 ## <a name="configuration-steps"></a>Configuratiestappen
 
@@ -561,7 +563,7 @@ De uitvoer van deze cmdlet toont apparaten die zijn geregistreerd en gekoppeld m
 
 ## <a name="troubleshoot-your-implementation"></a>Problemen met uw implementatie oplossen
 
-Als u problemen ondervindt met het voltooien van hybride Azure AD-koppeling voor domein-gekoppelde Windows-apparaten, raadpleegt u:
+Als u problemen ondervindt met het voltooien van de hybride Azure AD-koppeling voor domein-gekoppelde Windows-apparaten, raadpleegt u:
 
 - [Problemen met hybride Azure AD-koppeling oplossen voor actuele Windows-apparaten](troubleshoot-hybrid-join-windows-current.md)
 - [Problemen met hybride Azure AD-koppeling oplossen voor downlevel Windows-apparaten](troubleshoot-hybrid-join-windows-legacy.md)

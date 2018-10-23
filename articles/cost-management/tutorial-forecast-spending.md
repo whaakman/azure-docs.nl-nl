@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.service: cost-management
 ms.custom: ''
 manager: dougeby
-ms.openlocfilehash: 587459be69fe250b3e73fb9eb9d5cd08cf2e7a42
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e1954ae9fcbb010c66e8a812e3e34477ac2bfc29
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46953681"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49395221"
 ---
 # <a name="tutorial-forecast-future-spending"></a>Zelfstudie: toekomstige uitgaven voorspellen
 
@@ -35,7 +35,7 @@ Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://az
 
 Cloudyn bevat rapporten voor kostenschatting om u helpen bij het voorspellen van uitgaven op basis van uw gebruik in de loop der tijd. Het hoofddoel van de rapporten is ervoor te zorgen dat uw kostentrends niet de verwachtingen van uw organisatie overschrijden. U gebruikt hiervoor de rapporten Current Month Projected Cost en Annual Projected Cost. Beide rapporten tonen de verwachte toekomstige uitgaven als uw gebruik relatief gelijk blijft met het gebruik over de 30 laatste dagen.
 
-Het rapport Current Month Projected Cost toont de kosten van uw services. De geschatte kosten worden bepaald aan de hand van de kosten aan het begin van de maand en van de vorige maand. Klik in het menu Reports boven aan de portal op **Cost** > **Projection and Budget** > **Current Month Projected Cost**. In de volgende afbeelding ziet u een voorbeeld.
+Het rapport Current Month Projected Cost toont de kosten van uw services. De geschatte kosten worden bepaald aan de hand van de kosten aan het begin van de maand en van de vorige maand. Klik in het menu Reports boven aan de portal op **Costs** > **Projection and Budget** > **Current Month Projected Cost**. In de volgende afbeelding ziet u een voorbeeld.
 
 ![Geschatte kosten voor de huidige maand](./media/tutorial-forecast-spending/project-month01.png)
 
@@ -47,7 +47,7 @@ Volg dezelfde voorgaande basisstappen om te kijken naar de maandelijkse verwacht
 
 Het rapport Annual Projected Cost bevat de geëxtrapoleerde kosten van uw services voor de volgende twaalf maanden.
 
-Klik in het menu Reports boven aan de portal op **Cost** > **Projection and Budget** > **Annual Projected Cost**. In de volgende afbeelding ziet u een voorbeeld.
+Klik in het menu Reports boven aan de portal op **Costs** > **Projection and Budget** > **Annual Projected Cost**. In de volgende afbeelding ziet u een voorbeeld.
 
 ![Rapport met jaarlijkse geschatte kosten](./media/tutorial-forecast-spending/project-annual01.png)
 
