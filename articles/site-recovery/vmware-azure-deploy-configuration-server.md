@@ -67,7 +67,7 @@ Het certificaat dat is opgegeven met OVA-sjabloon is een geldig gedurende 180 da
 3. In **bron selecteren**, geef de locatie van de gedownloade OVF.
 4. In **Beoordelingsdetails**, selecteer **volgende**.
 5. In **naam en map selecteren** en **configuratie selecteren**, accepteer de standaardinstellingen.
-6. Selecteer in **Opslag selecteren****Thick Provision Eager Zeroed** in **Indeling virtuele schijf selecteren**.
+6. Selecteer in **Opslag selecteren** **Thick Provision Eager Zeroed** in **Indeling virtuele schijf selecteren**.
 7. Accepteer de standaardinstellingen in de rest van de wizardpagina’s.
 8. In **Klaar om te voltooien**:
 

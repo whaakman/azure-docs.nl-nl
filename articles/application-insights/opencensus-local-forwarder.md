@@ -35,7 +35,7 @@ Lokale doorstuurserver is een [open-SourceProject op GitHub](https://github.com/
 De eenvoudigste manier om lokale doorstuurserver die wordt uitgevoerd onder Windows is door het te installeren als een Windows-Service. De versie wordt geleverd met een Windows-Service kan worden uitgevoerd (*WindowsServiceHost/Microsoft.LocalForwarder.WindowsServiceHost.exe*) die eenvoudig kunnen worden geregistreerd met het besturingssysteem.
 
 > [!NOTE]
-> De lokale doorstuurserver minimaal .NET Framework 4.7 is vereist. Als u geen .NET Framework 4.7 de service wordt niet installeren, maar het gestart. Voor toegang tot de meest recente versie van .NET Framework ** [gaat u naar de downloadpagina van .NET Framework](
+> De lokale doorstuurserver minimaal .NET Framework 4.7 is vereist. Als u geen .NET Framework 4.7 de service wordt niet installeren, maar het gestart. Voor toegang tot de meest recente versie van .NET Framework **[gaat u naar de downloadpagina van .NET Framework](
 https://www.microsoft.com/net/download/dotnet-framework-runtime/net472?utm_source=getdotnet&utm_medium=referral)**.
 
 1. Download de LF. WindowsServiceHost.zip-bestand van de [lokale doorstuurserver release pagina](https://github.com/Microsoft/ApplicationInsights-LocalForwarder/releases) op GitHub.

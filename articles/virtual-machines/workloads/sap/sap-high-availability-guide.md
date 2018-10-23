@@ -1269,7 +1269,7 @@ Een testpoort toevoegen:
   }
   ```
 
-  Nadat u de **SAP <*SID* >**  cluster online rol, Controleer **ProbePort** is ingesteld op de nieuwe waarde.
+  Nadat u de **SAP <*SID*>** cluster online rol, Controleer **ProbePort** is ingesteld op de nieuwe waarde.
 
   ```PowerShell
   $SAPSID = "PR1"     # SAP <SID>

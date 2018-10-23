@@ -1,24 +1,24 @@
 ---
-title: 'Zelfstudie: een akoestisch model maken - Custom Speech Service'
-titlesuffix: Azure Cognitive Services
-description: In deze zelfstudie leert u hoe u een akoestisch model maakt met de Custom Speech Service.
+title: Zelfstudie voor het maken van een akoestisch model met Custom Speech Service - Microsoft Cognitive Services | Microsoft Docs
+description: In deze zelfstudie leert u hoe u een akoestisch model maakt met de Custom Speech Service in Microsoft Cognitive Services.
 services: cognitive-services
 author: PanosPeriorellis
-manager: cgronlun
+manager: onano
 ms.service: cognitive-services
 ms.component: custom-speech
 ms.topic: tutorial
 ms.date: 05/03/2017
 ms.author: panosper
-ROBOTS: NOINDEX
-ms.openlocfilehash: 72c5a0dfb8f33f273ba850378c1fefeef82b4d7a
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 53e93a08782ba66e69b903c32c4c3c7417e5a801
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47220212"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49344571"
 ---
 # <a name="tutorial-create-a-custom-acoustic-model"></a>Zelfstudie: een aangepast akoestisch model maken
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-custom-speech-deprecation-note.md)]
 
 In deze zelfstudie maakt u een aangepast akoestisch model voor spraakgegevens dat u uw toepassing verwacht te herkennen. Het maken van een aangepast akoestisch model is handig als uw toepassing is bedoeld voor gebruik in een bepaalde omgeving, zoals een lawaaierige fabriek, of door een bepaalde gebruikerspopulatie.
 
@@ -34,9 +34,9 @@ Als u nog geen Cognitive Services-account hebt, maakt u een [gratis account](htt
 
 Zorg ervoor dat uw Cognitive Services-account is gekoppeld aan een abonnement door de pagina met [Cognitive Services-abonnementen](https://cris.ai/Subscriptions) te openen.
 
-Als er geen abonnementen worden vermeld, kunt u Cognitive Services een account voor u laten maken door te klikken op de knop **Gratis abonnement ophalen**. Of u kunt verbinding maken met een Custom Search Service-abonnement dat is gemaakt in de Azure-portal door te klikken op de knop **Verbinding maken met bestaand abonnement**.
+Als er geen abonnementen worden vermeld, kunt u Cognitive Services een account voor u laten maken door te klikken op de knop **Gratis abonnement ophalen**. Of u kunt verbinding maken met een Custom Search Service-abonnement dat is gemaakt in Azure Portal door te klikken op de knop **Verbinding maken met bestaand abonnement**.
 
-Zie [Een Cognitive Services-API's-account maken in de Azure-portal](../../cognitive-services-apis-create-account.md) voor meer informatie over het maken van een Custom Search Service-abonnement in de Azure-portal.
+Zie [Een Cognitive Services-API's-account maken in de Azure portal](../../cognitive-services-apis-create-account.md) voor meer informatie over het maken van een Custom Search Service-abonnement in Azure Portal.
 
 ## <a name="prepare-the-data"></a>De gegevens voorbereiden
 
@@ -140,4 +140,4 @@ U ziet nu een nieuw item in de tabel met akoestische modellen dat overeenkomt me
 In deze zelfstudie hebt u een aangepast akoestisch model ontwikkeld voor gebruik met audiobestanden en transcripties. Als u een aangepast taalbestand wilt maken voor gebruik met tekstbestanden, gaat u verder met de zelfstudie voor het maken van een aangepast taalmodel.
 
 > [!div class="nextstepaction"]
-> [Een aangepast akoestisch model maken](cognitive-services-custom-speech-create-language-model.md)
+> [Een aangepast taalmodel maken](cognitive-services-custom-speech-create-language-model.md)

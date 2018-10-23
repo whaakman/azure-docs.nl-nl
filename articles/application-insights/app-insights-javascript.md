@@ -121,7 +121,7 @@ Open de blade Browsers om cumulatieve prestatiegegevens weer te geven van de bro
 
 ![Open de resource van uw app in portal.azure.com en klik op Instellingen, Browser](./media/app-insights-javascript/03.png)
 
-Nog geen gegevens? Klik boven aan de pagina op **Vernieuwen. Ziet u nog steeds niets? Zie [Probleemoplossing](app-insights-troubleshoot-faq.md).
+Nog geen gegevens? Klik boven aan de pagina op **Vernieuwen**. Ziet u nog steeds niets? Zie [Probleemoplossing](app-insights-troubleshoot-faq.md).
 
 De blade Browser is een [Metrics Explorer-blade](app-insights-metrics-explorer.md) met vooraf ingestelde filters en grafiekselecties. U kunt het tijdbereik, de filters en configuratie van de grafiek bewerken, en desgewenst het resultaat als favoriet opslaan. Klik op **Standaardwaarden herstellen** om de oorspronkelijke bladeconfiguratie terug te zetten.
 

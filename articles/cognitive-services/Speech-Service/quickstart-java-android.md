@@ -7,21 +7,21 @@ author: fmegen
 ms.service: cognitive-services
 ms.component: Speech
 ms.topic: quickstart
-ms.date: 09/24/2018
-ms.author: fmegen
-ms.openlocfilehash: 6428dbaabfe176e8d741818ee338bbc2a6bc70bb
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.date: 10/12/2018
+ms.author: wolfma
+ms.openlocfilehash: f2d5ca467777b8b351b2cf51abe71a003374bcf7
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48883870"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49344215"
 ---
 # <a name="quickstart-recognize-speech-in-java-on-android-by-using-the-speech-sdk"></a>Snelstartgids: Gesproken tekst herkennen in Java onder Android met behulp van de Speech SDK
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 In dit artikel leert u hoe u een Java-toepassing voor Android maakt met behulp van de Cognitive Services Speech SDK om spraak om te zetten in tekst.
-De toepassing is gebaseerd op het Microsoft Cognitive Services Speech SDK Maven-pakket, versie 1.0.0 en Android Studio 3.1.
+De toepassing is gebaseerd op het Microsoft Cognitive Services Speech SDK Maven-pakket, versie 1.0.1 en Android Studio 3.1.
 De Speech SDK is op dit moment compatibel met Android-apparaten met 32-bits of 64-bits ARM-processors.
 
 > [!NOTE]
@@ -57,7 +57,7 @@ Android Studio heeft even de tijd nodig om het nieuwe Android-project voor te be
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-De huidige versie van de Speech SDK van Cognitive Services is `1.0.0`.
+De huidige versie van de Speech SDK van Cognitive Services is `1.0.1`.
 
 De Speech SDK voor Android wordt aangeboden als een [AAR (Android Library)](https://developer.android.com/studio/projects/android-library) die de vereiste bibliotheken bevat, evenals de vereiste Android-machtigingen voor het gebruik ervan.
 De SDK wordt gehost in een Maven-opslagplaats op https://csspeechstorage.blob.core.windows.net/maven/.
@@ -72,7 +72,7 @@ Stel uw project in voor gebruik van de Speech SDK. Open het venster Project Stru
 
    ![Schermafbeelding van het venster Project Structure](media/sdk/qs-java-android-07-add-module-dependency.png)
 
-1. Voer in het venster dat verschijnt de naam en versie van onze Speech SDK voor Android in, `com.microsoft.cognitiveservices.speech:client-sdk:1.0.0`. Selecteer vervolgens **OK**.
+1. Voer in het venster dat verschijnt de naam en versie van onze Speech SDK voor Android in, `com.microsoft.cognitiveservices.speech:client-sdk:1.0.1`. Selecteer vervolgens **OK**.
    De Speech SDK moet nu worden toegevoegd aan de lijst met afhankelijkheden, zoals hieronder wordt weergegeven:
 
    ![Schermafbeelding van het venster Project Structure](media/sdk/qs-java-android-08-dependency-added-1.0.0.png)
