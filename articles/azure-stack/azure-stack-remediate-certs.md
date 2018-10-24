@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 05/08/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: 5e96c731496d79ca081091e2059a35545f963bd6
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 0ebf69dd3436a6b1010d4184b2063317d14547dd
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078629"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49957630"
 ---
 # <a name="remediate-common-issues-for-azure-stack-pki-certificates"></a>Oplossen van veelvoorkomende problemen met de Azure Stack PKI-certificaten
 De informatie in dit artikel kunt u te begrijpen en oplossen van veelvoorkomende problemen met de Azure Stack PKI-certificaten. U kunt problemen detecteren wanneer u Azure Stack gereedheid van de Registercontrole [valideren van Azure Stack PKI-certificaten](azure-stack-validate-pki-certs.md). Het hulpprogramma controleert om ervoor te zorgen dat de certificaten te voldoen aan de vereisten voor PKI van een Azure Stack-implementatie en Azure Stack-geheim rotatie en registreert de resultaten in een [report.json bestand](azure-stack-validation-report.md).  
@@ -69,12 +69,13 @@ De informatie in dit artikel kunt u te begrijpen en oplossen van veelvoorkomende
 **Herstel** -opnieuw Exporteer het certificaat met behulp van de stappen in [voorbereiden Azure Stack PKI-certificaten voor de implementatie van](azure-stack-prepare-pki-certs.md), en selecteer de optie **indien mogelijk alle certificaten in het certificeringspad opnemen.** Zorg ervoor dat alleen het leaf-certificaat is geselecteerd voor het exporteren.
 
 ## <a name="fix-common-packaging-issues"></a>Veelvoorkomende verpakking problemen oplossen
-De AzsReadinessChecker kunt importeren en exporteren van een PFX-bestand voor het oplossen van veelvoorkomende problemen van pakketten, met inbegrip van: 
+De AzsReadinessChecker bevat een helper-cmdlet Repair-AzsPfxCertificate die u kunt importeren en exporteren van een PFX-bestand voor het oplossen van veelvoorkomende problemen van pakketten, met inbegrip van: 
  - *PFX-codering* is niet TripleDES SHA1
  - *Persoonlijke sleutel* lokale Machine-kenmerk ontbreekt.
  - *Certificaatketen* is onvolledig of onjuist. (De lokale computer moet bevatten de certificaatketen als het PFX-pakket niet bestaat.) 
  - *Andere certificaten*.
-De AzsReadinessChecker kan echter niet helpen als u wilt een nieuw CSR niet genereren en voer opnieuw een certificaat. 
+ 
+Herstellen-AzsPfxCertificate helpen niet als u wilt een nieuw CSR niet genereren en voer opnieuw een certificaat. 
 
 ### <a name="prerequisites"></a>Vereisten
 De volgende vereisten moeten worden voldaan op de computer waarop het hulpprogramma wordt uitgevoerd: 
@@ -96,9 +97,20 @@ De volgende vereisten moeten worden voldaan op de computer waarop het hulpprogra
    - Voor *- PfxPath*, geef het pad op naar het PFX-bestand dat u met werkt.  In het volgende voorbeeld wordt het pad is *.\certificates\ssl.pfx*.
    - Voor *- ExportPFXPath*, geef de locatie en naam van het PFX-bestand voor uitvoer.  In het volgende voorbeeld wordt het pad is *.\certificates\ssl_new.pfx*
 
-   > `Start-AzsReadinessChecker -PfxPassword $password -PfxPath .\certificates\ssl.pfx -ExportPFXPath .\certificates\ssl_new.pfx`  
+   > `Repair-AzsPfxCertificate -PfxPassword $password -PfxPath .\certificates\ssl.pfx -ExportPFXPath .\certificates\ssl_new.pfx`  
 
-4. Nadat het hulpprogramma is voltooid, Controleer de uitvoer voor geslaagd: ![resultaten](./media/azure-stack-remediate-certs/remediate-results.png)
+4. Nadat het hulpprogramma is voltooid, bekijkt u de uitvoer voor geslaagd: 
+````PowerShell
+Repair-AzsPfxCertificate v1.1809.1005.1 started.
+Starting Azure Stack Certificate Import/Export
+Importing PFX .\certificates\ssl.pfx into Local Machine Store
+Exporting certificate to .\certificates\ssl_new.pfx
+Export complete. Removing certificate from the local machine store.
+Removal complete.
+
+Log location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessChecker.log
+Repair-AzsPfxCertificate Completed
+````
 
 ## <a name="next-steps"></a>Volgende stappen
 [Meer informatie over Azure Stack-beveiliging](azure-stack-rotate-secrets.md)

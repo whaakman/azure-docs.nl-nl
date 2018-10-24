@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 05/08/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: 156b84e4941363716721b5cee6c19333ffe7594c
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: a3285c5f6f2d50d3188f8e103c68ae702e8804e7
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49079443"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49952999"
 ---
 # <a name="azure-stack-validation-report"></a>Azure Stack-validatierapport
 Het hulpprogramma Azure Stack-gereedheid van de Registercontrole voor validaties die ondersteuning bieden voor implementatie en het onderhoud van een Azure Stack-omgeving gebruiken. Het hulpprogramma schrijft de resultaten naar een .json-rapportbestand. Het rapport bevat gedetailleerde en samengevatte gegevens over de status van de vereisten voor de implementatie van Azure Stack. Het rapport bevat ook informatie over geheimen, rotatie voor bestaande Azure Stack-implementaties.  
@@ -40,19 +40,81 @@ Standaard beide bestanden worden geschreven naar *C:\Users\<gebruikersnaam > \Ap
 Als u wilt het rapport weergeven in PowerShell, het pad naar het rapport als een waarde voor opgeven **- ReportPath**. Met deze opdracht wordt de inhoud van het rapport weergegeven en identificeert validaties waarvoor nog geen resultaten.
 
 Bijvoorbeeld: als u wilt weergeven van het rapport vanuit een PowerShell-prompt die is geopend op de locatie van het rapport, uitvoeren: 
-   > `Start-AzsReadinessChecker -ReportPath .\AzsReadinessReport.json` 
+   > `Read-AzsReadinessReport -ReportPath .\AzsReadinessReport.json` 
 
-De uitvoer lijkt op de volgende afbeelding:
+De uitvoer lijkt op het volgende:
 
-![rapport weergeven](./media/azure-stack-validation-report/view-report.png)
+````PowerShell
+Reading All Validation(s) from Report C:\Contoso-AzsReadinessCheckerReport.json
+
+############### Certificate Validation Summary ###############
+
+Certificate Validation results not available.
+
+############### Registration Validation Summary ###############
+
+Azure Registration Validation results not available.
+
+############### Azure Identity Results ###############
+
+Test                          : ServiceAdministrator
+Result                        : OK
+AAD Service Admin             : admin@contoso.onmicrosoft.com
+Azure Environment             : AzureCloud
+Azure Active Directory Tenant : contoso.onmicrosoft.com
+Error Details                 : 
+
+############### Azure Identity Validation Summary ###############
+
+    Azure Identity Validation found no errors or warnings.
+
+############### Azure Stack Graph Validation Summary ###############
+
+Azure Stack Graph Validation results not available.
+
+############### Azure Stack ADFS Validation Summary ###############
+
+Azure Stack ADFS Validation results not available.
+
+############### AzsReadiness Job Summary ###############
+
+Index             : 0
+Operations        : 
+StartTime         : 2018/10/22 14:24:16
+EndTime           : 2018/10/22 14:24:19
+Duration          : 3
+PSBoundParameters : 
+````
 
 ## <a name="view-the-report-summary"></a>Het rapport wordt een samenvatting weergeven
 Als u een overzicht van het rapport, kunt u toevoegen de **-samenvatting** overschakelen naar het einde van de PowerShell-opdrachtregel. Bijvoorbeeld: 
- > `Start-AzsReadinessChecker -ReportPath .\AzsReadinessReport.json -summary`  
+ > `Read-AzsReadinessReport -ReportPath .\Contoso-AzsReadinessReport.json -summary`  
 
-De samenvatting validaties waarvoor geen resultaten bevat en wordt aangegeven geslaagd of niet voor validaties die voltooid zijn. De uitvoer lijkt op de volgende afbeelding:
+De samenvatting validaties waarvoor geen resultaten bevat en wordt aangegeven geslaagd of niet voor validaties die voltooid zijn. De uitvoer lijkt op het volgende:
 
-![rapport-overzicht](./media/azure-stack-validation-report/report-summary.png)
+````PowerShell
+Reading All Validation(s) from Report C:\Contoso-AzsReadinessCheckerReport.json
+
+############### Certificate Validation Summary ###############
+
+    Certificate Validation found no errors or warnings.
+    
+############### Registration Validation Summary ###############
+
+    Registration Validation found no errors or warnings.
+
+############### Azure Identity Validation Summary ###############
+
+    Azure Identity Validation found no errors or warnings.
+
+############### Azure Stack Graph Validation Summary ###############
+
+Azure Stack Graph Validation results not available.
+
+############### Azure Stack ADFS Validation Summary ###############
+
+Azure Stack ADFS Validation results not available.
+````
 
 
 ## <a name="view-a-filtered-report"></a>Een gefilterd rapport weergeven
@@ -60,12 +122,13 @@ Als u wilt een rapport dat wordt gefilterd op één type validatie weergeven, ge
 - Certificaat
 - AzureRegistration
 - Azure-identiteit
+- Graph
+- ADFS
 - Taken   
-- Alles  
+- Alle  
 
 Bijvoorbeeld, om het rapport weer te geven samenvatting voor certificaten alleen, gebruik de volgende PowerShell-opdrachtregel: 
- > `Start-AzsReadinessChecker -ReportPath .\AzsReadinessReport.json -ReportSections Certificate – Summary`
+ > `Read-AzsReadinessReport -ReportPath .\Contoso-AzsReadinessReport.json -ReportSections Certificate – Summary`
 
 
 ## <a name="see-also"></a>Zie ook
-[Start-AzsReadinessChecker cmdlet-verwijzing](azure-stack-azsreadiness-cmdlet.md)

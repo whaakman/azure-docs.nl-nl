@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/16/2018
+ms.date: 10/23/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: 17f06a08388720c4483ef1c187edf20ec8359121
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 50f5662fa574b512ab607e17dbdfcf1861e2f5c6
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49386380"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954892"
 ---
 # <a name="tutorial-offer-highly-available-sql-databases"></a>Zelfstudie: SQL-databases met hoge beschikbaarheid bieden
 
@@ -63,30 +63,28 @@ Gebruik de stappen in deze sectie voor het implementeren van de SQL Server Alway
 - Een VM zijn geconfigureerd als de bestandsshare-witness voor het cluster (Windows Server 2016)
 - Een beschikbaarheidsset met de SQL- en bestandsshare-witness VM 's  
 
-1. Aanmelden bij de beheerportal:
-    - Voor de implementatie van een geïntegreerd systeem, wordt de portal-adres variëren, afhankelijk van de regio en externe domeinnaam van uw oplossing. Dit is in de indeling van https://adminportal.&lt; *regio*&gt;.&lt; *FQDN*&gt;.
-    - Als u de Azure Stack Development Kit (ASDK), wordt de gebruiker portal adres [ https://adminportal.local.azurestack.external ](https://portal.local.azurestack.external).
+1. 
+[!INCLUDE [azs-admin-portal](../../includes/azs-admin-portal.md)]
 
 2. Selecteer **\+** **een resource maken** > **aangepaste**, en vervolgens **sjabloonimplementatie**.
 
-   ![Implementatie van de aangepaste sjabloon](media/azure-stack-tutorial-sqlrp/custom-deployment.png)
+   ![Implementatie van de aangepaste sjabloon](media/azure-stack-tutorial-sqlrp/1.png)
 
 
 3. Op de **aangepaste implementatie** Selecteer **template bewerken** > **Quickstart-sjabloon** en vervolgens de vervolgkeuzelijst met beschikbare aangepaste sjablonen te gebruiken Selecteer de **sqlalwayson-2016** sjabloon, klikt u op **OK**, en vervolgens **opslaan**.
 
-   ![Quickstart-sjabloon selecteren](./media/azure-stack-tutorial-sqlrp/quickstart-template.png)
-
+   [![](media/azure-stack-tutorial-sqlrp/2-sm.PNG "Quickstart-sjabloon selecteren")](media/azure-stack-tutorial-sqlrp/2-lg.PNG#lightbox)
 
 4. Op de **aangepaste implementatie** Selecteer **parameters bewerken** en bekijk de standaardwaarden. Wijzig de waarden die nodig is voor de vereiste parameterinformatie te verstrekken en klik vervolgens op **OK**.<br><br> Ten minste:
 
     - Complexe wachtwoorden voor de parameters ADMINPASSWORD SQLSERVERSERVICEACCOUNTPASSWORD en SQLAUTHPASSWORD opgeven.
     - Voer het DNS-achtervoegsel voor reverse lookup in kleine letters voor de parameter DNSSUFFIX (**azurestack.external** voor installaties ASDK).
     
-    ![Aangepaste implementatie-parameters](./media/azure-stack-tutorial-sqlrp/edit-parameters.png)
+   [![](media/azure-stack-tutorial-sqlrp/3-sm.PNG "Aangepaste implementatieparameters bewerken")](media/azure-stack-tutorial-sqlrp/3-lg.PNG#lightbox)
 
 5. Op de **aangepaste implementatie** blade, kiest u het abonnement te gebruiken en maak een nieuwe resourcegroep of Selecteer een bestaande resourcegroep voor de aangepaste implementatie.<br><br> Selecteer vervolgens de locatie van de resourcegroep (**lokale** voor installaties ASDK) en klik vervolgens op **maken**. De aangepaste implementatie-instellingen worden gevalideerd en vervolgens de implementatie wordt gestart.
 
-    ![Aangepaste implementatie-parameters](./media/azure-stack-tutorial-sqlrp/create-deployment.png)
+    [![](media/azure-stack-tutorial-sqlrp/4-sm.PNG "Aangepaste implementatie maken")](media/azure-stack-tutorial-sqlrp/4-lg.PNG#lightbox)
 
 
 6. Selecteer in de beheerportal **resourcegroepen** en vervolgens de naam van de resourcegroep waarin u hebt gemaakt voor de aangepaste implementatie (**resourcegroep** voor dit voorbeeld). Bekijk de status van de implementatie om te controleren of dat alle implementaties zijn voltooid.<br><br>Vervolgens bekijkt u de resource-group-items en selecteer de **SQLPIPsql\<groepsnaam voor accountresources\>**  openbaar IP-adres-item. Noteer het openbare IP-adres en de volledige FQDN-naam van de load balancer openbaar IP-adres. U moet dit aan een Azure Stack-Operator bieden, zodat ze een SQL-hostserver gebruik te maken van dit SQL AlwaysOn-beschikbaarheidsgroep kunnen maken.
@@ -94,16 +92,16 @@ Gebruik de stappen in deze sectie voor het implementeren van de SQL Server Alway
    > [!NOTE]
    > De sjabloonimplementatie duurt enkele uren.
 
-   ![Aangepaste implementatie-parameters](./media/azure-stack-tutorial-sqlrp/deployment-complete.png)
+   ![Aangepaste implementatie voltooid](./media/azure-stack-tutorial-sqlrp/5.png)
 
 ### <a name="enable-automatic-seeding"></a>Automatische seeding inschakelen
 Nadat de sjabloon is geconfigureerd de SQL AlwaysON-beschikbaarheidsgroep en is geïmplementeerd, moet u inschakelen [automatische seeding](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/automatically-initialize-always-on-availability-group) op elk exemplaar van SQL Server in de beschikbaarheidsgroep. 
 
 Wanneer u een beschikbaarheidsgroep maakt met automatische seeding, maakt SQL Server automatisch de secundaire replica's voor elke database in de groep zonder andere handmatige interventie nodig zijn om te zorgen voor hoge beschikbaarheid van AlwaysOn-databases.
 
-Deze SQL-opdrachten gebruiken voor het configureren van automatische seeding voor de AlwaysOn-beschikbaarheidsgroep.
+Deze SQL-opdrachten gebruiken voor het configureren van automatische seeding voor de AlwaysOn-beschikbaarheidsgroep. Vervang \<InstanceName\> met het primaire exemplaar van SQL Server-naam en < availability_group_name > met de naam van de AlwaysOn beschikbaarheid indien nodig. 
 
-Op het primaire SQL-exemplaar (Vervang <InstanceName> met de naam van het primaire exemplaar SQL Server):
+Op het primaire SQL-exemplaar:
 
   ```sql
   ALTER AVAILABILITY GROUP [<availability_group_name>]
@@ -114,7 +112,7 @@ Op het primaire SQL-exemplaar (Vervang <InstanceName> met de naam van het primai
 
 >  ![Primaire exemplaar van SQL-script](./media/azure-stack-tutorial-sqlrp/sql1.png)
 
-Op de secundaire SQL-exemplaren (< availability_group_name > vervangen door de naam van de beschikbaarheidsgroep AlwaysOn):
+Op de secundaire SQL-exemplaren:
 
   ```sql
   ALTER AVAILABILITY GROUP [<availability_group_name>] GRANT CREATE ANY DATABASE
@@ -156,9 +154,8 @@ Nadat de SQL AlwaysOn-beschikbaarheidsgroep is gemaakt, geconfigureerd en toegev
 > [!NOTE]
 > Deze stappen van de gebruikersportal van Azure Stack uitgevoerd als een tenant-gebruiker met een abonnement van mogelijkheden voor SQL Server (Microsoft.SQLAdapter service).
 
-1. Meld u aan bij de gebruikersportal aanmeldt:
-    - Voor de implementatie van een geïntegreerd systeem, wordt de portal-adres variëren, afhankelijk van de regio en externe domeinnaam van uw oplossing. Dit is in de indeling van https://portal.&lt; *regio*&gt;.&lt; *FQDN*&gt;.
-    - Als u de Azure Stack Development Kit (ASDK), wordt de gebruiker portal adres [ https://portal.local.azurestack.external ](https://portal.local.azurestack.external).
+1. 
+[!INCLUDE [azs-user-portal](../../includes/azs-user-portal.md)]
 
 2. Selecteer **\+** **een resource maken** > **gegevens \+ opslag**, en vervolgens **SQL-Database**.<br><br>Geef de vereiste database eigenschapsgegevens zoals naam, sortering maximale grootte en het abonnement, resourcegroep en locatie moet worden gebruikt voor de implementatie. 
 

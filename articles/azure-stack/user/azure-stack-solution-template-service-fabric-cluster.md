@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/12/2018
-ms.author: mattbriggs
+ms.date: 10/22/2018
+ms.author: mabrigg
 ms.reviewer: shnatara
-ms.openlocfilehash: d402b2bcd5187cbb6ece78d7e981068c279c1f75
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 0b5f7442604dd31f730b0105d19231407e2b6f1a
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48804426"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49946110"
 ---
 # <a name="deploy-a-service-fabric-cluster-in-azure-stack"></a>Een Service Fabric-cluster in Azure Stack implementeren
 
@@ -48,7 +48,7 @@ Het volgende is vereist om de Service Fabric-cluster te implementeren:
 
 
 ## <a name="add-a-secret-to-key-vault"></a>Een geheim toevoegen aan Key Vault
-Voor het implementeren van een Service Fabric-cluster, moet u de juiste KeyVault *geheim id* of de URL voor de Service Fabric-cluster. De Azure Resource Manager-sjabloon wordt een Key Vault als invoer en haalt vervolgens het Clustercertificaat dat tijdens de installatie van de Service Fabric-cluster. 
+Voor het implementeren van een Service Fabric-cluster, moet u de juiste KeyVault *geheim id* of de URL voor de Service Fabric-cluster. De Azure Resource Manager-sjabloon wordt een Key Vault gebruikt als invoer. De sjabloon worden vervolgens het Clustercertificaat dat is opgehaald bij de installatie van de Service Fabric-cluster.
 
 > [!IMPORTANT]  
 > U moet PowerShell gebruiken voor een geheim toevoegen aan Key Vault voor gebruik met Service Fabric. Gebruik niet de portal.  
@@ -139,7 +139,7 @@ Zie voor meer informatie, [KeyVault beheren in Azure Stack met PowerShell](https
    - Bron Key Vault: Geef hele *Key Vault-id* tekenreeks in de scriptresultaten. 
    - Cluster-URL voor certificaat: Geef de volledige URL van de *geheim Id* in de scriptresultaten. 
    - Cluster van de vingerafdruk van certificaat: Geef de *Cluster de vingerafdruk van certificaat* uit de scriptresultaten.
-   - Beheerclient Certificaatvingerafdrukken: Geef de *Admin-Client de vingerafdruk van certificaat* u hebt gemaakt in de vereisten. 
+   - Beheerclient Certificaatvingerafdrukken: Geef de *Admin-Client de vingerafdruk van certificaat* hebt gemaakt in de vereisten. 
 
    ![Scriptuitvoer](media/azure-stack-solution-template-service-fabric-cluster/image5.png)
 
@@ -184,7 +184,7 @@ U kunt toegang tot de Service Fabric-cluster met behulp van de Service Fabric Ex
 1. Ga in uw browser naar https://*FQDN*: 19080. Vervang *FQDN* met de FQDN van uw Service Fabric-cluster uit stap 2.   
    Als u een zelfondertekend certificaat hebt gebruikt, krijgt u een waarschuwing dat de verbinding is niet beveiligd. Selecteer om door te gaan naar de website, **meer informatie**, en vervolgens **gaat u naar de webpagina**. 
 
-1. U moet een certificaat selecteren om te verifiëren naar de site. Selecteer **meer opties**, kies het juiste certificaat en klik vervolgens op **OK** verbinding maken met de Service Fabric Explorer. 
+1. Als u wilt verifiëren aan de site, moet u een certificaat wilt gebruiken. Selecteer **meer opties**, kies het juiste certificaat en klik vervolgens op **OK** verbinding maken met de Service Fabric Explorer. 
 
    ![Verifiëren](media/azure-stack-solution-template-service-fabric-cluster/image14.png)
 

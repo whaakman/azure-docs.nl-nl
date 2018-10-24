@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 06/08/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: d6835f05666d66cc4f6aa937c4b85047ce3c2e93
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 51753a5324bbbcbf4e951628a42dd3bf425354af
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49077066"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49957579"
 ---
 # <a name="validate-azure-registration"></a>Valideren van de registratie van Azure 
 Gebruik het hulpprogramma Azure Stack gereedheid van de Registercontrole (AzsReadinessChecker) om te valideren dat uw Azure-abonnement klaar is voor gebruik met Azure Stack. Registratie valideert voordat u begint met een Azure Stack-implementatie. De gereedheid van vereisten wordt gevalideerd:
@@ -62,10 +62,17 @@ De volgende vereisten moeten worden voldaan.
    - Geef de waarde voor Azure-omgeving als *AzureCloud*, *AzureGermanCloud*, of *AzureChinaCloud*.  
    - Geef uw Azure Active Directory-beheerder en de naam van uw Azure Active Directory-Tenant. 
 
-   > `Start-AzsReadinessChecker -RegistrationAccount $registrationCredential -AzureEnvironment AzureCloud -RegistrationSubscriptionID $subscriptionID`
+   > `Invoke-AzsRegistrationValidation -RegistrationAccount $registrationCredential -AzureEnvironment AzureCloud -RegistrationSubscriptionID $subscriptionID`
 
-5. Nadat het hulpprogramma wordt uitgevoerd, Controleer de uitvoer. Controleer of de status OK voor aanmelding en de vereisten voor apparaatregistratie. Een succesvolle validatie wordt weergegeven zoals in de volgende afbeelding:  
-![Run-validatie](./media/azure-stack-validate-registration/registration-validation.png)
+5. Nadat het hulpprogramma wordt uitgevoerd, Controleer de uitvoer. Controleer of de status OK voor aanmelding en de vereisten voor apparaatregistratie. Een succesvolle validatie wordt weergegeven als volgt uit:  
+````PowerShell
+Invoke-AzsRegistrationValidation v1.1809.1005.1 started.
+Checking Registration Requirements: OK
+
+Log location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessChecker.log
+Report location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json
+Invoke-AzsRegistrationValidation Completed
+````
 
 
 ## <a name="report-and-log-file"></a>Rapport en een logboekbestand
@@ -83,15 +90,38 @@ Als een validatiecontrole mislukt, wordt informatie over de fout weergegeven in 
 De volgende voorbeelden geven richtlijnen op algemene validatiefouten.
 
 ### <a name="user-must-be-an-owner-of-the-subscription"></a>Gebruiker moet een eigenaar van het abonnement   
-![eigenaar van het abonnement](./media/azure-stack-validate-registration/subscription-owner.png)
-**oorzaak** -het account is niet een beheerder van het Azure-abonnement.   
+````PowerShell
+Invoke-AzsRegistrationValidation v1.1809.1005.1 started.
+Checking Registration Requirements: Fail 
+Error Details for registration account admin@contoso.onmicrosoft.com:
+The user admin@contoso.onmicrosoft.com is role(s) Reader for subscription 3f961d1c-d1fb-40c3-99ba-44524b56df2d. User must be an owner of the subscription to be used for registration.
+Additional help URL https://aka.ms/AzsRemediateRegistration
+
+Log location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessChecker.log
+Report location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json
+Invoke-AzsRegistrationValidation Completed
+````
+**Oorzaak** -het account is niet een beheerder van het Azure-abonnement.   
 
 **Resolutie** -een account dat een beheerder van de Azure-abonnement dat wordt gefactureerd voor gebruik van de Azure Stack-implementatie gebruiken.
 
 
 ### <a name="expired-or-temporary-password"></a>Verlopen of tijdelijk wachtwoord 
-![verlopen wachtwoord](./media/azure-stack-validate-registration/expired-password.png)
-**oorzaak** -het account kan niet aanmelden omdat het wachtwoord is verlopen of tijdelijk is.     
+````PowerShell
+Invoke-AzsRegistrationValidation v1.1809.1005.1 started.
+Checking Registration Requirements: Fail 
+Error Details for registration account admin@contoso.onmicrosoft.com:
+Checking Registration failed with: Retrieving TenantId for subscription 3f961d1c-d1fb-40c3-99ba-44524b56df2d using account admin@contoso.onmicrosoft.com failed with AADSTS50055: Force Change P
+assword.
+Trace ID: 48fe06f5-a5b4-4961-ad45-a86964689900
+Correlation ID: 3dd1c9b2-72fb-46a0-819d-058f7562cb1f
+Timestamp: 2018-10-22 11:16:56Z: The remote server returned an error: (401) Unauthorized.
+
+Log location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessChecker.log
+Report location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json
+Invoke-AzsRegistrationValidation Completed
+````
+**Oorzaak** -het account kan niet aanmelden omdat het wachtwoord is verlopen of tijdelijk is.     
 
 **Resolutie** - In PowerShell, uitvoeren en volg de aanwijzingen voor het wachtwoord opnieuw instellen. 
   > `Login-AzureRMAccount` 
@@ -99,16 +129,19 @@ De volgende voorbeelden geven richtlijnen op algemene validatiefouten.
 U kunt ook, meld u aan bij https://portal.azure.com als het account en de gebruiker gedwongen om het wachtwoord te wijzigen.
 
 
-### <a name="microsoft-accounts-are-not-supported-for-registration"></a>Microsoft-accounts worden niet ondersteund voor registratie  
-![niet-ondersteund account](./media/azure-stack-validate-registration/unsupported-account.png)
-**oorzaak** -A-Microsoft-account (zoals Outlook.com of Hotmail.com) is opgegeven.  Deze accounts worden niet ondersteund.
-
-**Resolutie** -gebruik een account en abonnement op een Cloud Service Provider (CSP) of een Enterprise Agreement (EA). 
-
-
 ### <a name="unknown-user-type"></a>Onbekende gebruikerstype  
-![Onbekende gebruiker](./media/azure-stack-validate-registration/unknown-user.png)
-**oorzaak** -het account zich niet aanmelden bij de opgegeven Azure Active Directory-omgeving. In dit voorbeeld *AzureChinaCloud* is opgegeven als de *AzureEnvironment*.  
+````PowerShell
+Invoke-AzsRegistrationValidation v1.1809.1005.1 started.
+Checking Registration Requirements: Fail 
+Error Details for registration account admin@contoso.onmicrosoft.com:
+Checking Registration failed with: Retrieving TenantId for subscription 3f961d1c-d1fb-40c3-99ba-44524b56df2d using account admin@contoso.onmicrosoft.com failed with unknown_user_type: Unknown Us
+er Type
+
+Log location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessChecker.log
+Report location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json
+Invoke-AzsRegistrationValidation Completed
+````
+**Oorzaak** -het account zich niet aanmelden bij de opgegeven Azure Active Directory-omgeving. In dit voorbeeld *AzureChinaCloud* is opgegeven als de *AzureEnvironment*.  
 
 **Resolutie** -bevestigen dat het account geldig voor de opgegeven Azure-omgeving is. Voer in PowerShell het volgende om te controleren of dat het account is geldig voor een specifieke omgeving.     
   > `Login-AzureRmAccount -EnvironmentName AzureChinaCloud`
