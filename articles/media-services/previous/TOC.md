@@ -9,12 +9,12 @@
 ## [Uw ontwikkelaarsomgeving instellen](media-services-set-up-computer.md)
 ### [.NET](media-services-dotnet-how-to-use.md)
 ### [REST](media-services-rest-how-to-use.md)  
-## [AAD-verificatie gebruiken voor toegang tot API](media-services-use-aad-auth-to-access-ams-api.md)
-### [Portal gebruiken voor het beheren van AAD-verificatie](media-services-portal-get-started-with-aad.md)
+## [Azure AD-verificatie gebruiken voor toegang tot API](media-services-use-aad-auth-to-access-ams-api.md)
+### [Portal gebruiken om Azure AD-verificatie te beheren](media-services-portal-get-started-with-aad.md)
 ### [Toegang tot API met .NET](media-services-dotnet-get-started-with-aad.md)
 ### [Toegang tot API met REST](media-services-rest-connect-with-aad.md)
-### [Azure CLI gebruiken om een AAD-app te maken en configureren](media-services-cli-create-and-configure-aad-app.md)
-### [Azure PowerShell gebruiken om een AAD-app te maken en configureren](media-services-powershell-create-and-configure-aad-app.md)
+### [Azure CLI gebruiken om een Azure AD-app te maken en configureren](media-services-cli-create-and-configure-aad-app.md)
+### [Azure PowerShell gebruiken om een Azure AD-app te maken en configureren](media-services-powershell-create-and-configure-aad-app.md)
 
 ## Video op aanvraag leveren
 ### [Azure Portal](media-services-portal-vod-get-started.md)

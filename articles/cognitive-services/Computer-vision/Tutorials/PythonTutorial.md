@@ -10,18 +10,18 @@ ms.component: computer-vision
 ms.topic: tutorial
 ms.date: 02/25/2017
 ms.author: kefre
-ms.openlocfilehash: 59e88ecb253bc6da803ddf34a4a02229b99e259d
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 046250d3d2142badaac35490eff27bcac220fea9
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45981708"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49344894"
 ---
 # <a name="tutorial-computer-vision-api-python"></a>Zelfstudie: Computer Vision-API met Python
 
 Deze zelfstudie laat zien hoe u de Computer Vision-API in Python gebruikt en hoe u de resultaten kunt visualiseren met behulp van populaire bibliotheken. Gebruik Jupyter om de zelfstudie uit te voeren. Raadpleeg de [documentatie bij Jupyter](http://jupyter.readthedocs.io/en/latest/index.html) om te leren hoe u aan de slag kunt gaan met interactieve Jupyter-notitieblokken. 
 
-### <a name="opening-the-tutorial-notebook-in-jupyter"></a>De zelfstudie-notebook openen in Jupyter 
+## <a name="open-the-tutorial-notebook-in-jupyter"></a>De zelfstudie-notebook openen in Jupyter 
 
 1. Ga naar de [zelfstudie-notebook in Github](https://github.com/Microsoft/Cognitive-Vision-Python). 
 2. Klik op de groene knop om de zelfstudie te klonen of downloaden. 
@@ -29,7 +29,7 @@ Deze zelfstudie laat zien hoe u de Computer Vision-API in Python gebruikt en hoe
 4. Voer de opdracht **jupyter notebook** uit vanaf de opdrachtprompt. Hiermee wordt Jupyter gestart.
 5. Klik in het venster van Jupyter op _Computer Vision API Example.ipynb_ om zelfstudie-notebook te openen. 
 
-### <a name="running-the-tutorial"></a>De zelfstudie uitvoeren
+## <a name="run-the-tutorial"></a>De zelfstudie uitvoeren
 
 Als u dit notebook wilt gebruiken, moet u een abonnementssleutel voor de Computer Vision-API hebben. Ga naar de [pagina Abonnement](https://azure.microsoft.com/try/cognitive-services/) om u aan te melden. Gebruik op de pagina 'Aanmelden' uw Microsoft-account om u aan te melden. U kunt zich dan abonneren en gratis sleutels ophalen. Nadat u het aanmeldingsproces hebt voltooid, plakt u uw sleutel in de sectie met variabelen van het notitieblok (hieronder weergegeven). De primaire of de secundaire sleutel werkt. Zet de sleutel tussen aanhalingstekens om er een tekenreeks van te maken.
 

@@ -8,7 +8,7 @@ items:
   items:
   - name: Aan de slag met Content Moderator
     href: quick-start.md
-  - name: .NET SDK gebruiken
+  - name: De .NET SDK gebruiken
     items:
     - name: Afbeeldingsinhoud bekijken
       href: image-moderation-quickstart-dotnet.md
@@ -16,12 +16,6 @@ items:
       href: text-moderation-quickstart-dotnet.md
     - name: Video-inhoud bekijken
       href: video-moderation-api.md
-- name: Voorbeelden
-  items:
-  - name: .NET SDK-voorbeelden
-    href: samples-dotnet.md
-  - name: REST API-voorbeelden in C#
-    href: samples-rest.md
 - name: Concepten
   items:
   - name: Beheer van afbeeldingen
@@ -36,48 +30,48 @@ items:
     href: workflow-api.md
 - name: Handleidingen
   items:
-  - name: Content Moderator proberen
+  - name: De toezichtsservices gebruiken
     items:
     - name: Beheer-API's
       items:
-      - name: Afbeeldingen - API-console
-        href: try-image-api.md
-      - name: Installatiekopieën vergelijken met aangepaste lijsten
-        href: image-lists-quickstart-dotnet.md
-      - name: Aangepaste afbeeldingen - API-console
-        href: try-image-list-api.md
-      - name: Tekst - API-console
-        href: try-text-api.md
-      - name: Tekst vergelijken met aangepaste voorwaarden
-        href: term-lists-quickstart-dotnet.md
-      - name: Aangepaste voorwaarden - API-console
-        href: try-terms-list-api.md
+      - name: De .NET SDK gebruiken
+        items:
+        - name: Installatiekopieën vergelijken met aangepaste lijsten
+          href: image-lists-quickstart-dotnet.md
+        - name: Tekst vergelijken met aangepaste voorwaarden
+          href: term-lists-quickstart-dotnet.md
+      - name: REST API's gebruiken
+        items:
+        - name: Afbeeldingen - API-console
+          href: try-image-api.md
+        - name: Aangepaste afbeeldingen - API-console
+          href: try-image-list-api.md
+        - name: Tekst - API-console
+          href: try-text-api.md
+        - name: Aangepaste voorwaarden - API-console
+          href: try-terms-list-api.md
+  - name: Het beoordelingsprogramma gebruiken
+    items:
     - name: Beoordelings-API's
       items:
-      - name: Taken - API-console
-        href: try-review-api-job.md
-      - name: Taken - .NET
-        href: moderation-jobs-quickstart-dotnet.md
-      - name: Beoordelingen - API-console
-        href: try-review-api-review.md
-      - name: Beoordelingen - .NET
-        href: moderation-reviews-quickstart-dotnet.md
-      - name: Videobeoordelingen - .NET
-        href: video-reviews-quickstart-dotnet.md
-      - name: Videotranscriptiebeoordelingen - .NET
-        href: video-transcript-reviews-quickstart-dotnet.md
-      - name: Werkstromen - API-console
-        href: try-review-api-workflow.md
-  - name: Eerste Content Moderator-apps
-    items:
-    - name: Beheer van Facebook-inhoud
-      href: facebook-post-moderation.md
-    - name: Beheer van eCommerce-afbeeldingen
-      href: ecommerce-retail-catalog-moderation.md
-    - name: Beheer van video's en transcripties
-      href: video-transcript-moderation-review-tutorial-dotnet.md
-  - name: Beoordelingsprogramma
-    items:
+      - name: De .NET SDK gebruiken
+        items:
+        - name: Taken - .NET
+          href: moderation-jobs-quickstart-dotnet.md
+        - name: Beoordelingen - .NET
+          href: moderation-reviews-quickstart-dotnet.md
+        - name: Videobeoordelingen - .NET
+          href: video-reviews-quickstart-dotnet.md
+        - name: Videotranscriptiebeoordelingen - .NET
+          href: video-transcript-reviews-quickstart-dotnet.md
+      - name: REST API's gebruiken
+        items:
+        - name: Taken - API-console
+          href: try-review-api-job.md
+        - name: Beoordelingen - API-console
+          href: try-review-api-review.md
+        - name: Werkstromen - API-console
+          href: try-review-api-workflow.md
     - name: Human-in-the-loop
       href: Review-Tool-User-Guide/human-in-the-loop.md
     - name: Instellingen gebruiken
@@ -98,6 +92,20 @@ items:
       href: Review-Tool-User-Guide/Workflows.md
     - name: Dashboard weergeven
       href: Review-Tool-User-Guide/View-Dashboard.md
+  - name: Eerste Content Moderator-apps
+    items:
+    - name: Beheer van Facebook-inhoud
+      href: facebook-post-moderation.md
+    - name: Beheer van eCommerce-afbeeldingen
+      href: ecommerce-retail-catalog-moderation.md
+    - name: Beheer van video's en transcripties
+      href: video-transcript-moderation-review-tutorial-dotnet.md
+- name: Voorbeelden
+  items:
+  - name: .NET SDK-voorbeelden
+    href: samples-dotnet.md
+  - name: REST API-voorbeelden in C#
+    href: samples-rest.md
 - name: Naslaginformatie
   items:
   - name: Content Moderator-API
@@ -134,9 +142,9 @@ items:
     href: https://azure.microsoft.com/roadmap/?category=ai-machine-learning
   - name: Webinar op aanvraag
     href: https://info.microsoft.com/cognitive-services-content-moderator-ondemand.html
-ms.openlocfilehash: a6e9e2908a6365c1749e8a5d061779ebc37764e0
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: d162bcaefdde1aceb171d2ad83b5386e54cea890
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49428960"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49944152"

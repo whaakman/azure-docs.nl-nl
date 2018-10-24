@@ -10,12 +10,12 @@ ms.component: computer-vision
 ms.topic: tutorial
 ms.author: kefre
 ms.date: 09/21/2017
-ms.openlocfilehash: cca35d031e860e014c8fd84b0daf6b4d60d18046
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 36a8a49ee49636d186ca217ae223b1eebf9bb54b
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985844"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49340253"
 ---
 # <a name="tutorial-computer-vision-api-java"></a>Zelfstudie: Computer Vision-API voor Java
 
@@ -45,7 +45,9 @@ Deze zelfstudie is ontwikkeld met de NetBeans-IDE. Hierbij gaat het om precies t
 
 Voordat u het voorbeeld maakt, moet u zich abonneren op de Computer Vision-API, die deel uitmaakt van Azure Cognitive Services. Zie [Abonnementen](https://azure.microsoft.com/try/cognitive-services/) voor gedetailleerde informatie over het abonnement en sleutelbeheer. In deze zelfstudie kan zowel de primaire als de secundaire sleutel worden gebruikt. 
 
-## <a name="download-the-tutorial-project"></a>Het zelfstudieproject downloaden
+## <a name="acquire-the-incomplete-tutorial-project"></a>Het onvolledige zelfstudieproject verkrijgen
+
+### <a name="download-the-tutorial-project"></a>Het zelfstudieproject downloaden
 
 1. Ga naar de opslagplaats [Cognitive Services Java Computer Vision Tutorial](https://github.com/Azure-Samples/cognitive-services-java-computer-vision-tutorial).
 1. Klik op de knop **Klonen of Downloaden**.
@@ -53,7 +55,7 @@ Voordat u het voorbeeld maakt, moet u zich abonneren op de Computer Vision-API, 
 
 Het is niet nodig om de inhoud van het ZIP-bestand uit te pakken omdat NetBeans het project vanuit het ZIP-bestand importeert.
 
-## <a name="import-the-tutorial-project"></a>Het zelfstudieproject importeren
+### <a name="import-the-tutorial-project"></a>Het zelfstudieproject importeren
 
 Importeer het bestand **cognitive-services-java-computer-vision-tutorial-master.zip** in NetBeans.
 
@@ -65,29 +67,27 @@ Importeer het bestand **cognitive-services-java-computer-vision-tutorial-master.
 1. Dubbelklik op **MainFrame.java** om het bestand in de NetBeans-editor te laden. Het tabblad **Ontwerpen** van het bestand **MainFrame.java** verschijnt.
 1. Klik op het tabblad **Bron** om de Java-broncode te bekijken.
 
-## <a name="build-and-run-the-tutorial-project"></a>Het zelfstudieproject compileren en uitvoeren
+### <a name="build-and-run-the-tutorial-project"></a>Het zelfstudieproject compileren en uitvoeren
 
 1. Druk op **F6** om de zelfstudietoepassing te compileren en uit te voeren.
 
     Klik in de zelfstudietoepassing op een tabblad om het deelvenster voor de bijbehorende functie te openen. De knoppen hebben lege methoden, dus ze doen niets.
 
-    Onderaan het venster staan de velden **Abonnementssleutel** en **Abonnementsregio**. Deze velden moeten worden ingevuld met een geldige abonnementssleutel en de juiste regio voor de betreffende abonnementssleutel. Als u een abonnementssleutel wilt ontvangen, gaat u naar [Abonnementen](https://azure.microsoft.com/try/cognitive-services/). Als u uw abonnementssleutel hebt ontvangen via de gratis proefversie onder bovenstaande koppeling, gebruik dan **westcentralus** als bijbehorende regio.
+    Onderaan het venster staan de velden **Abonnementssleutel** en **Abonnementsregio**. Deze velden moeten worden ingevuld met een geldige abonnementssleutel en de juiste regio voor de betreffende abonnementssleutel. Als u een abonnementssleutel wilt ontvangen, gaat u naar [Abonnementen](https://azure.microsoft.com/try/cognitive-services/). Als u uw abonnementssleutel hebt ontvangen via de gratis proefversie onder bovenstaande koppeling, is de standaardregio **westcentralus** de juiste regio voor uw abonnementssleutels.
 
 1. Sluit de zelfstudietoepassing af.
 
-## <a name="add-the-tutorial-code"></a>De code van de zelfstudie toevoegen
+## <a name="add-the-tutorial-code-to-the-project"></a>De code van de zelfstudie toevoegen aan het project
 
-De Java Swing-toepassing bestaat uit zes tabbladen. Elk tabblad toont een andere functie van Computer Vision (analyse, OCR, etc.). De zes zelfstudiesecties zijn niet onderling afhankelijk, dus u kunt één sectie, alle zes de secties of slechts enkele secties toevoegen. Ook kunt u de secties in elke gewenste volgorde toevoegen.
+De Java Swing-toepassing bestaat uit zes tabbladen. Elk tabblad toont een andere functie van Computer Vision (analyse, OCR, enzovoort). De zes zelfstudiesecties zijn niet onderling afhankelijk, dus u kunt één sectie, alle zes de secties of een subset toevoegen. U kunt de secties in elke gewenste volgorde toevoegen.
 
-Aan de slag.
+### <a name="analyze-an-image"></a>Een afbeelding analyseren
 
-## <a name="analyze-an-image"></a>Een afbeelding analyseren
-
-De functie Analyseren van Computer Vision analyseert een afbeelding op meer dan 2.000 herkenbare objecten, levende wezens, landschappen en acties. Zodra de analyse is voltooid, retourneert Analyseren een JSON-object dat de afbeelding beschrijft met labels, kleuranalyse, bijschriften en meer.
+De functie Analyseren van Computer Vision scant een afbeelding op meer dan 2000 herkenbare objecten, levende wezens, landschappen en acties. Zodra de analyse is voltooid, retourneert Analyseren een JSON-object dat de afbeelding beschrijft met labels, kleuranalyse, bijschriften en meer.
 
 Gebruik de volgende stappen uit om de functie Analyseren van de zelfstudietoepassing uit te voeren:
 
-### <a name="analyze-step-1-add-the-event-handler-code-for-the-form-button"></a>Analyseren, stap 1: de code van de gebeurtenis-handler toevoegen voor de formulierknop
+#### <a name="add-the-event-handler-code-for-the-form-button"></a>De code van de gebeurtenis-handler toevoegen voor de formulierknop
 
 De gebeurtenis-handlermethode **analyzeImageButtonActionPerformed** wist het formulier, geeft de in de URL opgegeven afbeelding weer en roept vervolgens de methode **AnalyzeImage** aan om de afbeelding te analyseren. Wanneer **AnalyzeImage** terugkeert, geeft de methode het opgemaakte JSON-antwoord weer in het tekstgebied **Antwoord**. De methode haalt vervolgens het eerste bijschrift uit het **JSONObject** en geeft het bijschrift weer, samen met het betrouwbaarheidskans dat het bijschrift juist is.
 
@@ -140,7 +140,7 @@ Kopieer en plak de volgende code in de methode **analyzeImageButtonActionPerform
     }
 ```
 
-### <a name="analyze-step-2-add-the-wrapper-for-the-rest-api-call"></a>Analyseren, stap 2: de wrapper voor de REST-API-aanroep toevoegen
+#### <a name="add-the-wrapper-for-the-rest-api-call"></a>De wrapper voor de REST API-aanroep toevoegen
 
 De methode **AnalyzeImage** verpakt de REST-API-aanroep om een afbeelding te analyseren. De methode retourneert een **JSONObject** met een beschrijving van de afbeelding, of **null** als er een fout is opgetreden.
 
@@ -201,17 +201,17 @@ Kopieer en plak de methode **AnalyzeImage** naar een positie net onder de method
     }
  ```
 
-### <a name="analyze-step-3-run-the-application"></a>Analyseren, stap 3: de toepassing uitvoeren
+#### <a name="run-the-application"></a>De toepassing uitvoeren
 
 Druk op **F6** om de toepassing uit te voeren. Plaats uw abonnementssleutel in het veld **Abonnementssleutel** en controleer in **Abonnementregio** of u de juiste regio gebruikt. Voer een URL in naar een afbeelding die u wilt analyseren en klik vervolgens op de knop **Afbeelding analyseren** om de afbeelding te analyseren en het resultaat te bekijken.
 
-## <a name="recognize-a-landmark"></a>Een oriëntatiepunten herkennen
+### <a name="recognize-a-landmark"></a>Een oriëntatiepunten herkennen
 
 Met de functie Oriëntatiepunten van Computer Vision wordt een afbeelding geanalyseerd op natuurlijke en kunstmatige oriëntatiepunten, zoals bergen of beroemde gebouwen. Wanneer de analyse is voltooid, retourneert de functie Oriëntatiepunt een JSON-object waarin de in de afbeelding gevonden oriëntatiepunten zijn geïdentificeerd.
 
 Gebruik de volgende stappen uit om de functie Oriëntatiepunten van de zelfstudietoepassing uit te voeren:
 
-### <a name="landmark-step-1-add-the-event-handler-code-for-the-form-button"></a>Oriëntatiepunten, stap 1: de code van de gebeurtenis-handler toevoegen voor de formulierknop
+#### <a name="add-the-event-handler-code-for-the-form-button"></a>De code van de gebeurtenis-handler toevoegen voor de formulierknop
 
 De gebeurtenis-handlermethode **landmarkImageButtonActionPerformed** wist het formulier, geeft de in de URL opgegeven afbeelding weer en roept vervolgens de methode **LandmarkImage** aan om de afbeelding te analyseren. Wanneer **LandmarkImage** terugkeert, geeft de methode het opgemaakte JSON-antwoord weer in het tekstgebied **Antwoord** weer. De methode haalt vervolgens de eerste naam van een oriëntatiepunt uit het **JSONObject** en toont deze in het venster, samen met het betrouwbaarheidskans dat het oriëntatiepunt correct is geïdentificeerd.
 
@@ -264,7 +264,7 @@ Kopieer en plak de volgende code in de methode **landmarkImageButtonActionPerfor
     }
 ```
 
-### <a name="landmark-step-2-add-the-wrapper-for-the-rest-api-call"></a>Oriëntatiepunten, stap 2: de wrapper voor de REST-API-aanroep toevoegen
+#### <a name="add-the-wrapper-for-the-rest-api-call"></a>De wrapper voor de REST API-aanroep toevoegen
 
 De methode **LandmarkImage** verpakt de REST-API-aanroep om een afbeelding te analyseren. De methode retourneert een **JSONObject** met een beschrijving van de gevonden oriëntatiepunten in de afbeelding, of **null** als er een fout is opgetreden.
 
@@ -325,17 +325,17 @@ Kopieer en plak de methode **LandmarkImage** naar een positie net onder de metho
     }
 ```
 
-### <a name="landmark-step-3-run-the-application"></a>Oriëntatiepunt, stap 3: de toepassing uitvoeren
+#### <a name="run-the-application"></a>De toepassing uitvoeren
 
 Druk op **F6** om de toepassing uit te voeren. Plaats uw abonnementssleutel in het veld **Abonnementssleutel** en controleer in **Abonnementregio** of u de juiste regio gebruikt. Klik op het tabblad **Oriëntatiepunt**, voer een URL naar een afbeelding van een oriëntatiepunt in, klik vervolgens op de knop **afbeelding analyseren** om een afbeelding te analyseren, en bekijk het resultaat.
 
-## <a name="recognize-celebrities"></a>Beroemdheden herkennen
+### <a name="recognize-celebrities"></a>Beroemdheden herkennen
 
 De functie Beroemdheden van de Computer Vision analyseert een afbeelding op beroemde mensen. Wanneer de analyse is voltooid, retourneert de functie Beroemdheden een JSON-object waarin de in de afbeelding gevonden beroemdheden zijn geïdentificeerd.
 
 Gebruik de volgende stappen uit om de functie Beroemdheden van de zelfstudietoepassing uit te voeren:
 
-### <a name="celebrities-step-1-add-the-event-handler-code-for-the-form-button"></a>Beroemdheden, stap 1: de code van de gebeurtenis-handler toevoegen voor de formulierknop
+#### <a name="add-the-event-handler-code-for-the-form-button"></a>De code van de gebeurtenis-handler toevoegen voor de formulierknop
 
 De gebeurtenis-handlermethode **celebritiesImageButtonActionPerformed** wist het formulier, geeft de in de URL opgegeven afbeelding weer en roept vervolgens de methode **CelebritiesImage** aan om de afbeelding te analyseren. Wanneer **CelebritiesImage** terugkeert, geeft de methode het opgemaakte JSON-antwoord weer in het tekstgebied **Antwoord** weer. De methode haalt vervolgens de eerste naam van een beroemdheid uit het **JSONObject** en toont deze in het venster, samen met het betrouwbaarheidskans dat de beroemdheid correct is geïdentificeerd.
 
@@ -388,7 +388,7 @@ Kopieer en plak de volgende code in de methode **celebritiesImageButtonActionPer
     }
 ```
 
-### <a name="celebrities-step-2-add-the-wrapper-for-the-rest-api-call"></a>Beroemdheden, stap 2: de wrapper voor de REST-API-aanroep toevoegen
+#### <a name="add-the-wrapper-for-the-rest-api-call"></a>De wrapper voor de REST API-aanroep toevoegen
 
 De methode **CelebritiesImage** verpakt de REST-API-aanroep om een afbeelding te analyseren. De methode retourneert een **JSONObject** met een beschrijving van de gevonden beroemdheden in de afbeelding, of **null** als er een fout is opgetreden.
 
@@ -449,17 +449,17 @@ Kopieer en plak de methode **CelebritiesImage** naar een positie net onder de me
     }
 ```
 
-### <a name="celebrities-step-3-run-the-application"></a>B, stap 3: de toepassing uitvoeren
+#### <a name="run-the-application"></a>De toepassing uitvoeren
 
 Druk op **F6** om de toepassing uit te voeren. Plaats uw abonnementssleutel in het veld **Abonnementssleutel** en controleer in **Abonnementregio** of u de juiste regio gebruikt. Klik op het tabblad **Beroemdheden**, voer een URL naar een afbeelding van een beroemdheid in, klik vervolgens op de knop **Afbeelding analyseren** om een afbeelding te analyseren, en bekijk het resultaat.
 
-## <a name="intelligently-generate-a-thumbnail"></a>Intelligent een miniatuur genereren
+### <a name="intelligently-generate-a-thumbnail"></a>Intelligent een miniatuur genereren
 
 De Miniatuur-functie in Computer Vision genereert een miniatuur op basis van een afbeelding. De Miniatuur-functie identificeert met behulp van de functie **Slim bijsnijden** het meest interessante gebied in een afbeelding en centreert de miniatuur op dit gebied om een zo fraai mogelijke miniatuurafbeelding te genereren.
 
 Gebruik de volgende stappen uit om de functie Miniatuur van de zelfstudietoepassing uit te voeren:
 
-### <a name="thumbnail-step-1-add-the-event-handler-code-for-the-form-button"></a>Miniatuur, stap 1: de code van de gebeurtenis-handler toevoegen voor de formulierknop
+#### <a name="add-the-event-handler-code-for-the-form-button"></a>De code van de gebeurtenis-handler toevoegen voor de formulierknop
 
 De gebeurtenis-handlermethode **thumbnailImageButtonActionPerformed** wist het formulier, geeft de in de URL opgegeven afbeelding weer en roept vervolgens de methode **getThumbnailImage** aan om de miniatuur te maken. Wanneer **getThumbnailImage** terugkeert, geeft de methode de gegenereerde miniatuur weer.
 
@@ -505,7 +505,7 @@ Kopieer en plak de volgende code in de methode **thumbnailImageButtonActionPerfo
     }
 ```
 
-### <a name="thumbnail-step-2-add-the-wrapper-for-the-rest-api-call"></a>Miniatuur, stap 2: de wrapper voor de REST-API-aanroep toevoegen
+#### <a name="add-the-wrapper-for-the-rest-api-call"></a>De wrapper voor de REST API-aanroep toevoegen
 
 De methode **getThumbnailImage** verpakt de REST-API-aanroep om een afbeelding te analyseren. De methode retourneert een **BufferedImage** die de miniatuur bevat, of **null** als er een fout is opgetreden. De foutmelding wordt geretourneerd in het eerste element van de **jsonError**-tekenreeksmatrix.
 
@@ -572,17 +572,17 @@ Kopieer en plak de volgende methode **getThumbnailImage** naar een positie net o
     }
 ```
 
-### <a name="thumbnail-step-3-run-the-application"></a>Miniatuur, stap 3: de toepassing uitvoeren
+#### <a name="run-the-application"></a>De toepassing uitvoeren
 
 Druk op **F6** om de toepassing uit te voeren. Plaats uw abonnementssleutel in het veld **Abonnementssleutel** en controleer in **Abonnementregio** of u de juiste regio gebruikt. Klik op het tabblad **Miniatuur**, voer een URL in naar een afbeelding, klik vervolgens op de knop **Miniatuur genereren** om een afbeelding te analyseren, en bekijk het resultaat.
 
-## <a name="read-printed-text-ocr"></a>Gedrukte tekst lezen (OCR)
+### <a name="read-printed-text-ocr"></a>Gedrukte tekst lezen (OCR)
 
 De functie voor optische tekenherkenning (OCR) van Computer Vision analyseert een afbeelding van gedrukte tekst. Nadat de analyse is voltooid is, retourneert OCR een JSON-object met de tekst en de locatie van de tekst in de afbeelding.
 
 Gebruik de volgende stappen uit om de functie OCR van de zelfstudietoepassing uit te voeren:
 
-### <a name="ocr-step-1-add-the-event-handler-code-for-the-form-button"></a>OCR, stap 1: de code van de gebeurtenis-handler toevoegen voor de formulierknop
+#### <a name="add-the-event-handler-code-for-the-form-button"></a>De code van de gebeurtenis-handler toevoegen voor de formulierknop
 
 De gebeurtenis-handlermethode **ocrImageButtonActionPerformed** wist het formulier, geeft de in de URL opgegeven afbeelding weer en roept vervolgens de methode **OcrImage** aan om de afbeelding te analyseren. Wanneer **OcrImage** terugkeert, geeft de methode de herkende tekst weer als opgemaakte JSON in het tekstgebied **Antwoord**.
 
@@ -622,7 +622,7 @@ Kopieer en plak de volgende code in de methode **ocrImageButtonActionPerformed**
     }
 ```
 
-### <a name="ocr-step-2-add-the-wrapper-for-the-rest-api-call"></a>OCR, stap 2: de wrapper voor de REST-API-aanroep toevoegen
+#### <a name="add-the-wrapper-for-the-rest-api-call"></a>De wrapper voor de REST API-aanroep toevoegen
 
 De methode **OcrImage** verpakt de REST-API-aanroep om een afbeelding te analyseren. De methode retourneert een **JSONObject** van de JSON-gegevens die op basis van de oproep zijn geretourneerd, of **null** als er een fout is opgetreden.
 
@@ -683,17 +683,17 @@ Kopieer en plak de volgende methode **OcrImage** naar een positie net onder de m
     }
 ```
 
-### <a name="ocr-step-3-run-the-application"></a>OCR, stap 3: de toepassing uitvoeren
+#### <a name="run-the-application"></a>De toepassing uitvoeren
 
 Druk op **F6** om de toepassing uit te voeren. Plaats uw abonnementssleutel in het veld **Abonnementssleutel** en controleer in **Abonnementregio** of u de juiste regio gebruikt. Klik op het tabblad **OCR**, voer een URL in naar een afbeelding van gedrukte tekst, klik vervolgens op de knop **Afbeelding lezen** om de afbeelding te analyseren, en bekijk het resultaat.
 
-## <a name="read-handwritten-text-handwriting-recognition"></a>Handgeschreven tekst lezen (handschriftherkenning)
+### <a name="read-handwritten-text-handwriting-recognition"></a>Handgeschreven tekst lezen (handschriftherkenning)
 
 De functie Handschriftherkenning van Computer Vision analyseert een afbeelding van handgeschreven tekst. Nadat de analyse is voltooid is, retourneert Handschriftherkenning een JSON-object met de tekst en de locatie van de tekst in de afbeelding.
 
 Gebruik de volgende stappen uit om de functie Handschriftherkenning van de zelfstudietoepassing uit te voeren:
 
-### <a name="handwriting-recognition-step-1-add-the-event-handler-code-for-the-form-button"></a>Handschriftherkenning, stap 1: de code van de gebeurtenis-handler toevoegen voor de formulierknop
+#### <a name="add-the-event-handler-code-for-the-form-button"></a>De code van de gebeurtenis-handler toevoegen voor de formulierknop
 
 De gebeurtenis-handlermethode **handwritingImageButtonActionPerformed** wist het formulier, geeft de in de URL opgegeven afbeelding weer en roept vervolgens de methode **HandwritingImage** aan om de afbeelding te analyseren. Wanneer **HandwritingImage** terugkeert, geeft de methode de herkende tekst weer als opgemaakte JSON in het tekstgebied **Antwoord**.
 
@@ -733,7 +733,7 @@ Kopieer en plak de volgende code in de methode **handwritingImageButtonActionPer
     }
 ```
 
-### <a name="handwriting-recognition-step-2-add-the-wrapper-for-the-rest-api-call"></a>Handschriftherkenning, stap 2: de wrapper voor de REST-API-aanroep toevoegen
+#### <a name="add-the-wrapper-for-the-rest-api-call"></a>De wrapper voor de REST API-aanroep toevoegen
 
 De methode **HandwritingImage** verpakt de twee REST API-aanroepen die nodig zijn om een afbeelding te analyseren. Aangezien handschriftherkenning een tijdrovend proces is, wordt het proces in twee stappen uitgevoerd. Bij de eerste aanroep wordt de afbeelding verzonden voor verwerking en bij de tweede aanroep wordt de gedetecteerde tekst opgehaald wanneer de verwerking is voltooid.
 
@@ -841,7 +841,7 @@ Kopieer en plak de volgende methode **HandwritingImage** naar een positie net on
     }
 ```
 
-### <a name="handwriting-recognition-step-3-run-the-application"></a>Handschriftherkenning, stap 3: de toepassing uitvoeren
+#### <a name="run-the-application"></a>De toepassing uitvoeren
 
 Druk op **F6** om de toepassing uit te voeren. Plaats uw abonnementssleutel in het veld **Abonnementssleutel** en controleer in **Abonnementregio** of u de juiste regio gebruikt. Klik op het tabblad **Handgeschreven tekst lezen**, voer een URL in naar een afbeelding van handgeschreven tekst, klik vervolgens op de knop **Afbeelding lezen** om een afbeelding te analyseren, en bekijk het resultaat.
 
