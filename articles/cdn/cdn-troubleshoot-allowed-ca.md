@@ -12,15 +12,15 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/17/2018
+ms.date: 10/18/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: e9d9f5b053537b3d6881763bcb39d7894ba78869
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 79b8cfa061bafb43cbcf2ec8a43638fd14c2fcd0
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46969498"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954029"
 ---
 # <a name="allowed-certificate-authorities-for-enabling-custom-https-on-azure-cdn"></a>Certificeringsinstanties toegestaan voor het inschakelen van de aangepaste HTTPS voor Azure CDN
 
@@ -70,27 +70,6 @@ De volgende CA's zijn toegestaan bij het maken van uw eigen certificaat:
 - GlobalSign basis-CA
 - Go Daddy-basiscertificeringsinstantie - G2
 - Go Daddy beveiligde certificeringsinstantie - G2
-- Microsoft Authenticode (TM) basis-CA
-- Microsoft Exchange-Services CA 2015
-- Microsoft interne zakelijke basis
-- Microsoft IT Tevredenheid SSL CA 1
-- Microsoft IT SSL SHA1
-- Microsoft IT SSL SHA2
-- Microsoft IT TLS CA 1
-- Microsoft IT TLS CA 2
-- Microsoft IT TLS CA 4
-- Microsoft IT TLS CA 5
-- Microsoft-basis-CA
-- Microsoft basiscertificeringsinstantie
-- Microsoft Root Certificate Authority 2010
-- Microsoft Root Certificate Authority 2011
-- Microsoft-beveiligde Server CA 2011
-- Hoofdmap voor Services van Microsoft-Partner
-- Microsoft Time tijdstempel Service hoofdmap
-- Microsoft Windows hardwarecompatibiliteit
-- MSIT CA Z2
-- MSIT CA voor ondernemingen 1
-- MSIT CA voor ondernemingen 3
 - RapidSSL RSA CA 2018
 - Basis-instantie
 - Symantec-klasse 3 VW SSL CA - G3
@@ -102,12 +81,11 @@ De volgende CA's zijn toegestaan bij het maken van uw eigen certificaat:
 - Thawte RSA CA 2018
 - Thawte Timestamping CA
 - TrustAsia TLS RSA CA
-- UTN-USERFirst-Object
 - VeriSign klasse 3 uitgebreide validatie SSL CA
 - VeriSign klasse 3 uitgebreide validatie SSL SGC CA
 - VeriSign klasse 3 openbare primaire certificeringsinstantie - G5
 - VeriSign International Server CA - klasse 3
 - VeriSign tijd tijdstempel Service hoofdmap
 - VeriSign Universal basiscertificeringsinstantie
-- WMSvc-SHA2-DALEDGE1008
+
 

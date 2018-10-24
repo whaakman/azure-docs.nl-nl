@@ -12,12 +12,12 @@ ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/14/2018
-ms.openlocfilehash: bbcd5de0d6c2b43b220d5010093eccc1c9a76269
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 306e541ad67d6b44d2d3cc4cd2f73aa09d629d0c
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406291"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954746"
 ---
 # <a name="manage-file-space-in-azure-sql-database"></a>Ruimte in Azure SQL Database beheren
 Dit artikel beschrijft de verschillende typen opslagruimte in Azure SQL Database en de stappen die kunnen worden uitgevoerd wanneer de bestandsruimte voor databases toegewezen en elastische pools moet expliciet worden beheerd.
@@ -225,7 +225,7 @@ Wijzig de naam van de database in de volgende opdracht uit zodat automatisch ver
 ALTER DATABASE [db1] SET AUTO_SHRINK ON
 ```
 
-Zie voor meer informatie over deze opdracht [DATABASE ingesteld](https://docs.microsoft.com/en-us/sql/t-sql/statements/alter-database-transact-sql-set-options?view=sql-server-2017) opties. 
+Zie voor meer informatie over deze opdracht [DATABASE ingesteld](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=sql-server-2017) opties. 
 
 ### <a name="rebuild-indexes"></a>Indexen opnieuw samenstellen
 

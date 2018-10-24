@@ -17,12 +17,12 @@ ms.date: 09/27/2018
 ms.author: andret
 ms.reviewer: hirsin, andret
 ms.custom: aaddev
-ms.openlocfilehash: b75b31ddfc77be5ed651e7b8484e41a4ae73d8d8
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: e393851535c36eb604d57cc4d7c7561a3ebb201b
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47406529"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955418"
 ---
 # <a name="comparing-the-azure-ad-v20-endpoint-with-the-v10-endpoint"></a>Vergelijking van de Azure AD v2.0-eindpunt met het eindpunt v1.0
 
@@ -133,7 +133,7 @@ Dit is een vereenvoudigde aanbeveling voor ontwikkelaars op dit moment:
 
 * Als in uw toepassing, u persoonlijke Microsoft-accounts ondersteunen moet, gebruikt u versie 2.0. Maar voordat u dit doet, moet u dat u begrijpt dat de beperkingen die in dit artikel worden besproken.
 
-* Als uw toepassing alleen moet ondersteuning voor Microsoft werk en schoolaccounts, hoeft u versie 2.0. In plaats daarvan verwijzen naar de [v1.0 handleiding](azure-ad-developers-guide.md).
+* Als uw toepassing alleen moet ondersteuning voor Microsoft werk en schoolaccounts, hoeft u versie 2.0. In plaats daarvan verwijzen naar de [v1.0 handleiding](v1-overview.md).
 
 Het v2.0-eindpunt wordt aangepast om te voorkomen van de beperkingen die hier worden vermeld, zodat u alleen ooit moet het v2.0-eindpunt gebruiken. In de tussentijd Gebruik dit artikel om te bepalen of het v2.0-eindpunt bij u past. We blijven om bij te werken in dit artikel om de huidige status van het v2.0-eindpunt weer te geven. Controleer terug Evalueer uw vereisten op basis van v2.0-mogelijkheden.
 

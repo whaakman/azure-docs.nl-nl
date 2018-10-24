@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 28bed3578c653c8081868b3d950ab6332879784a
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: b81916de0940aa56eda97df94527fa6adc208285
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46124318"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955827"
 ---
 # <a name="create-hdinsight-clusters-with-azure-data-lake-storage-gen1-by-using-the-azure-portal"></a>HDInsight-clusters maken met Azure Data Lake Storage Gen1 met behulp van Azure portal
 > [!div class="op_single_selector"]
@@ -38,7 +38,7 @@ Voordat u deze zelfstudie begint, zorg ervoor dat u hebt voldaan aan de volgende
 * **Een Azure Active Directory-service-principal**. In deze zelfstudie vindt u instructies voor het maken van een service principal in Azure Active Directory (Azure AD). Voor het maken van een service-principal, moet u echter een Azure AD-beheerder zijn. Als u een beheerder bent, kunt u deze vereiste overslaan en doorgaan met de zelfstudie.
 
     >[!NOTE]
-    >U kunt een service-principal maken alleen als u een Azure AD-beheerder. Uw Azure AD-beheerder moet een service-principal maken voordat u een HDInsight-cluster met Data Lake Storage Gen1 kunt maken. Ook de service-principal moet worden gemaakt met een certificaat, zoals beschreven op [een service-principal maken met certificaat](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-self-signed-certificate).
+    >U kunt een service-principal maken alleen als u een Azure AD-beheerder. Uw Azure AD-beheerder moet een service-principal maken voordat u een HDInsight-cluster met Data Lake Storage Gen1 kunt maken. Ook de service-principal moet worden gemaakt met een certificaat, zoals beschreven op [een service-principal maken met certificaat](../active-directory/develop/howto-authenticate-service-principal-powershell.md#create-service-principal-with-self-signed-certificate).
     >
 
 ## <a name="create-an-hdinsight-cluster"></a>Een HDInsight-cluster maken
@@ -55,7 +55,7 @@ In deze sectie maakt u een HDInsight-cluster met Data Lake Storage Gen1 accounts
 
     ![Service-principal toevoegen aan HDInsight-cluster](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.1.adls.storage.png "service-principal toevoegen aan HDInsight-cluster")
 
-    - **Selecteer Data Lake Store-account**: Selecteer een bestaand Data Lake Storage Gen1-account. Een bestaand Data Lake Storage Gen1-account is vereist.  Zie [vereisten](#prerequisites).
+    - **Selecteer Data Lake Store-account**: Selecteer een bestaand Data Lake Storage Gen1-account. Een bestaand Data Lake Storage Gen1-account is vereist.  Zie [Vereisten](#prerequisites).
     - **Het pad naar hoofdmap**: Geef een pad op de cluster-specifieke-bestanden die moeten worden opgeslagen. Op de schermafbeelding is het __/clusters/myhdiadlcluster/__, waarin de __/clusters__ map moet aanwezig zijn, en de Portal maakt *myhdicluster* map.  De *myhdicluster* is de naam van het cluster.
     - **Data Lake Store-toegang**: de toegang tussen de Gen1 van Data Lake Storage-account en het HDInsight-cluster configureren. Zie voor instructies [configureren Data Lake Storage Gen1 toegang](#configure-data-lake-store-access).
     - **Extra opslagaccounts**: Voeg Azure storage-accounts als extra opslagaccounts voor het cluster. Als u wilt toevoegen van extra Gen1 van Data Lake Storage-accounts wordt gedaan door te geven van de cluster-machtigingen op gegevens in meer Gen1 van Data Lake Storage-accounts tijdens het configureren van een Data Lake Storage Gen1-account als de primaire opslag. Zie [configureren Data Lake Storage Gen1 toegang](#configure-data-lake-store-access).

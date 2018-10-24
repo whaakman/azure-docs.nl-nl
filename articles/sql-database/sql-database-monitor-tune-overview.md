@@ -11,15 +11,15 @@ author: danimir
 ms.author: v-daljep
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/22/2018
-ms.openlocfilehash: 60f60b9ef055ea38a2036c4f9c5b6aa2c1f6526d
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.date: 10/23/2018
+ms.openlocfilehash: 0d728d81a29c5520938c8553c026727c0f94cc43
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49648051"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49957000"
 ---
-# <a name="monitoring-and-performance-tuning"></a>Bewaking en prestatieafstemming
+# <a name="monitoring-and-performance-tuning"></a>Prestaties bewaken en afstemmen
 
 Azure SQL-Database wordt automatisch beheerd en flexibele gegevensservice waar u kunt eenvoudig gebruik te bewaken, toevoegen of verwijderen resources (CPU, geheugen, i/o), aanbevelingen die kunnen verbeteren de prestaties van uw database of database aan te passen aan uw workload kunt vinden en automatisch optimaliseren.
 
@@ -34,7 +34,7 @@ U hebt de volgende opties voor controle en probleemoplossing van de prestaties v
 - Gebruik [SQL Database Advisor](sql-database-advisor-portal.md) om aanbevelingen voor het maken en verwijderen van indexen, parametriseren query's en schema-problemen oplossen weer te geven.
 - Gebruik [Intelligent Insights van Azure SQL](sql-database-intelligent-insights.md) voor de automatische bewaking van de databaseprestaties van uw. Zodra een prestatieprobleem wordt gedetecteerd, wordt een diagnostisch logboek gegenereerd met de details en Root oorzaak Analysis (RCA) van het probleem. Prestaties verbetering aanbeveling wordt geleverd, indien mogelijk.
 - [Automatisch instellen inschakelen](sql-database-automatic-tuning-enable.md) en laat Azure SQL database automatisch correctie geïdentificeerd prestatieproblemen kunnen voordoen.
-- Gebruik [dynamische beheerweergave (DMV's)](sql-database-monitoring-with-dmvs.md), [uitgebreid gebeurtenissen](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-xevent-db-diff-from-svr), en de [Query Store](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) voor meer het oplossen van prestatieproblemen.
+- Gebruik [dynamische beheerweergave (DMV's)](sql-database-monitoring-with-dmvs.md), [uitgebreid gebeurtenissen](https://docs.microsoft.com/azure/sql-database/sql-database-xevent-db-diff-from-svr), en de [Query Store](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) voor meer het oplossen van prestatieproblemen.
 
 > [!TIP]
 > Zie [prestatierichtlijnen](sql-database-performance-guidance.md) technieken die u gebruiken kunt voor het verbeteren van de prestaties van Azure SQL Database na het identificeren van het prestatieprobleem met behulp van een of meer van de bovenstaande manieren vinden.

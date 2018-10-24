@@ -4,14 +4,14 @@ description: Biedt een overzicht van bekende problemen in de Azure Migrate-servi
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/28/2018
+ms.date: 10/23/2018
 ms.author: raynew
-ms.openlocfilehash: 906c6e56b670dfc26b5905a453fd43a3c72086c3
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: a41a27f2a87a67ea51bcbe110ac77f7908c44e7a
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47433494"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945515"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Problemen met Azure Migrate oplossen
 
@@ -40,6 +40,14 @@ Om het verzamelen van prestatiegegevens voor schijven en het netwerk mogelijk, w
 Gaat u naar de **Essentials** sectie de **overzicht** pagina van het project voor het identificeren van de exacte locatie waar de metagegevens worden opgeslagen. De locatie wordt willekeurig geselecteerd binnen het geografische gebied Azure Migrate en u het pas wijzigen. Als u een project maken in een bepaalde regio wilt, kunt u de REST API's te maken van het migratieproject doorgeven van de gewenste regio.
 
    ![Projectlocatie](./media/troubleshooting-general/geography-location.png)
+
+### <a name="i-am-using-the-continuous-discovery-ova-but-vms-that-are-deleted-in-my-on-premises-environment-are-still-being-shown-in-the-portal"></a>Ik ben met behulp van de continue detectie OVA, maar virtuele machines die zijn verwijderd in mijn on-premises-omgeving worden nog steeds wordt weergegeven in de portal.
+
+Het apparaat voor continue detectie toestel verzamelt alleen prestatiegegevens continu, detecteert niet elke configuratiewijziging in de on-premises-omgeving (dat wil zeggen VM toevoegen, verwijderen en schijf toevoegen, enz.). Als er een configuratiewijziging in de on-premises-omgeving, kunt u het volgende om de wijzigingen in de portal weer te doen:
+
+1. Het toevoegen van items (virtuele machines, schijven, kernen enz.): als gevolg van deze wijzigingen in de Azure-portal, kunt u de detectie van het toestel stopt en start het opnieuw. Dit zorgt ervoor dat de wijzigingen in de Azure Migrate-project worden bijgewerkt.
+
+2. Het verwijderen van virtuele machines: vanwege de manier waarop het apparaat is ontworpen, verwijderen van virtuele machines wordt niet weergegeven, zelfs als u stopt en de detectie start. Dit komt doordat gegevens uit de volgende detecties zijn toegevoegd aan de oudere detecties en niet worden genegeerd. In dit geval kunt u de virtuele machine in de portal, gewoon negeren door verwijderen uit de groep en de evaluatie te berekenen.
 
 ## <a name="collector-errors"></a>Fouten in de logboekverzamelaar
 
@@ -100,7 +108,7 @@ Dit probleem kan optreden vanwege een probleem met de installatie van VMware Pow
 
 ### <a name="error-unabletoconnecttoserver"></a>Fout UnableToConnectToServer
 
-Kan geen verbinding maken met vCenter-Server 'Servernaam.com:9443' vanwege fout: Er is geen eindpunt dat luistert op https://Servername.com:9443/sdk die het bericht kan accepteren.
+Kan geen verbinding maken met vCenter-server 'Servernaam.com:9443' vanwege een fout: Er is geen eindpunt dat luistert op https://Servername.com:9443/sdk waarop het bericht kan worden geaccepteerd.
 
 Als u de nieuwste versie van het collector-apparaat worden uitgevoerd, zo niet, upgrade van het apparaat kan controleren de [meest recente versie](https://docs.microsoft.com/azure/migrate/concepts-collector#how-to-upgrade-collector).
 
@@ -214,8 +222,8 @@ Voor het verzamelen van Event Tracing voor Windows, het volgende doen:
 | 754       | NoPerfDataAvaialable           | De prestatiegegevens zijn niet beschikbaar.                                               | Niveau van de statistieken in vCenter-Server controleren. Het moet worden ingesteld op 3 om prestatiegegevens beschikbaar. | Wijzig het statistiekniveau naar 3 (voor een duur van 5 minuten, 30 minuten en 2 uur) en probeer het na ten minste een dag opnieuw.                   |
 | 756       | NullInstanceUUID               | Er is een machine met null InstanceUUID aangetroffen                                  | vCenter-server bevat mogelijk een onjuist object.                                                      | Los het probleem op en probeer het opnieuw.                                                                                                           |
 | 757       | VMNotFound                     | Kan de virtuele machine niet vinden                                                  | Virtuele machines kunnen worden verwijderd: %VMID;                                                                | Zorg ervoor dat de virtuele machines zijn geselecteerd en er een bereik voor de vCenter-voorraad bestaat tijdens de detectie                                      |
-| 758       | GetPerfDataTimeout             | Er is een time-out opgetreden voor de VCenter-aanvraag. Bericht % Message;                                  | Referenties van de vCenter-server zijn onjuist                                                              | Controleer de vCenter-serverreferenties en zorg ervoor dat de vCenter-Server bereikbaar is. De bewerking opnieuw proberen. Als het probleem zich blijft voordoen, neem dan contact op met ondersteuning. |
-| 759       | VmwareDllNotFound              | Kan het DLL-bestand voor VMWare.Vim niet vinden.                                                     | PowerCLI is niet juist geïnstalleerd.                                                                   | Controleer of PowerCLI juist is geïnstalleerd. De bewerking opnieuw proberen. Als het probleem zich blijft voordoen, neem dan contact op met ondersteuning.                               |
+| 758       | GetPerfDataTimeout             | Er is een time-out opgetreden voor de VCenter-aanvraag. Bericht % Message;                                  | Referenties van de vCenter-server zijn onjuist                                                              | Controleer de vCenter-serverreferenties en zorg ervoor dat de vCenter-Server bereikbaar is. De bewerking opnieuw proberen. Neem contact op met de ondersteuning als het probleem zich blijft voordoen. |
+| 759       | VmwareDllNotFound              | Kan het DLL-bestand voor VMWare.Vim niet vinden.                                                     | PowerCLI is niet juist geïnstalleerd.                                                                   | Controleer of PowerCLI juist is geïnstalleerd. De bewerking opnieuw proberen. Neem contact op met de ondersteuning als het probleem zich blijft voordoen.                               |
 | 800       | ServiceError                   | De Azure Migrate Collector-service wordt niet uitgevoerd.                               | De Azure Migrate Collector-service wordt niet uitgevoerd.                                                       | Gebruik services.msc om de service te starten en voer de bewerking opnieuw uit.                                                                             |
 | 801       | PowerCLIError                  | Installatie van VMware PowerCLI is mislukt.                                          | Installatie van VMware PowerCLI is mislukt.                                                                  | De bewerking opnieuw proberen. Als het probleem zich blijft voordoen, installeer handmatig en voer de bewerking opnieuw uit.                                                   |
 | 802       | TimeSyncError                  | De tijd is niet gesynchroniseerd met de tijdserver op internet.                            | De tijd is niet gesynchroniseerd met de tijdserver op internet.                                                    | Zorg ervoor dat de tijd op de computer juist is ingesteld voor de tijdzone van de computer en voer de bewerking opnieuw uit.                                 |

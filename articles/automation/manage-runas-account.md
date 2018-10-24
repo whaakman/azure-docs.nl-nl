@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/12/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d2023d30cdb86a218d27024c8ccf0f397a7a5d09
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 569efa7fbbd111937f00ba3b1e28219c163e2221
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48816601"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958156"
 ---
 # <a name="manage-azure-automation-run-as-accounts"></a>Azure Automation uitvoeren als-accounts beheren
 
@@ -50,7 +50,7 @@ Als u wilt maken of bijwerken van een uitvoeren als-account, moet u de specifiek
 |Maken of verwijderen van een Automation-verbinding|[New-AzureRmAutomationConnection](/powershell/module/AzureRM.Automation/New-AzureRmAutomationConnection)</br>[Remove-AzureRmAutomationConnection](/powershell/module/AzureRM.Automation/Remove-AzureRmAutomationConnection)|Inzender voor resourcegroep |
 
 * Een AD-gebruikersaccount met machtigingen heeft die equivalent zijn aan de rol Inzender voor Microsoft.Automation-resources, zoals wordt beschreven in artikel [rollen gebaseerd toegangsbeheer in Azure Automation](automation-role-based-access-control.md#contributor).  
-* Gebruikers zonder beheerdersrechten in uw Azure AD-tenant kunnen [AD-toepassingen registreren](../azure-resource-manager/resource-group-create-service-principal-portal.md#check-azure-subscription-permissions) als de optie **Gebruikers kunnen toepassingen registreren** van de Azure AD-tenant op de pagina **Gebruikersinstellingen** is ingesteld op **Ja**. Als de app-registratie-instelling is ingesteld op **Nee**, moet de gebruiker die deze actie uitvoert een globale beheerder zijn in Azure AD.
+* Gebruikers zonder beheerdersrechten in uw Azure AD-tenant kunnen [AD-toepassingen registreren](../active-directory/develop/howto-create-service-principal-portal.md#check-azure-subscription-permissions) als de optie **Gebruikers kunnen toepassingen registreren** van de Azure AD-tenant op de pagina **Gebruikersinstellingen** is ingesteld op **Ja**. Als de app-registratie-instelling is ingesteld op **Nee**, moet de gebruiker die deze actie uitvoert een globale beheerder zijn in Azure AD.
 
 Als u niet lid zijn van Active Directory-exemplaar van het abonnement voordat u bent toegevoegd aan de globale beheerder/medebeheerder rol van het abonnement, bent u als Gast toegevoegd. In dit geval ontvangt u een `You do not have permissions to create…` waarschuwing op de **Automation-Account toevoegen** pagina. Gebruikers die zijn toegevoegd aan de rol van globale beheerder/medebeheerder, kunnen worden verwijderd uit het Active Directory-exemplaar van het abonnement en opnieuw worden toegevoegd, zodat ze een volledige gebruiker worden in Active Directory. U kunt deze situatie controleren door in het deelvenster **Azure Active Directory** van Azure Portal **Gebruikers en groepen** te selecteren. Selecteer vervolgens **Alle gebruikers**, de specifieke gebruiker en **Profiel**. De waarde van het kenmerk **Gebruikerstype** onder het gebruikersprofiel mag niet gelijk zijn aan **Gast**.
 
@@ -67,7 +67,7 @@ In deze sectie voert u de volgende stappen uit om uw Azure Automation-account bi
 
 ## <a name="create-run-as-account-using-powershell"></a>Uitvoeren als-account maken met behulp van PowerShell
 
-## <a name="prerequisites"></a>Vereiste onderdelen
+## <a name="prerequisites"></a>Vereisten
 
 De volgende lijst bevat de vereisten voor het uitvoeren als-account maken in PowerShell:
 

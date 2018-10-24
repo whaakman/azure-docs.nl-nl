@@ -4,7 +4,6 @@ description: Hiermee geeft u inzicht in de verschillende verkeersrouteringsmetho
 services: traffic-manager
 documentationcenter: ''
 author: KumudD
-manager: jpconnock
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
@@ -12,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: kumud
-ms.openlocfilehash: be429e7d3ae847eec6dc4fd5ad6b9c3e5d76d5b5
-ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
+ms.openlocfilehash: eb43b59a26bc9c1b514921a7b6dfa4b920a8fe5f
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48785406"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955215"
 ---
 # <a name="traffic-manager-routing-methods"></a>Methoden voor het doorsturen van Traffic Manager
 
@@ -129,8 +128,11 @@ Zoals uitgelegd in [hoe Traffic Manager werkt](traffic-manager-how-it-works.md),
 De **met meerdere waarden** verkeersrouteringsmethode kunt u meerdere eindpunten in orde in één DNS-query-antwoord. Hierdoor kunnen voor oproepende functie om te doen aan de clientzijde nieuwe pogingen met andere eindpunten in het geval van een geretourneerde-eindpunt wordt niet meer reageert. Dit patroon kan vergroten de beschikbaarheid van een service en verminder de latentie die is gekoppeld aan een nieuwe DNS-query om op te halen van een gezond eindpunt. Routeringsmethode voor met meerdere waarden werkt alleen als de eindpunten van het type 'Extern' en worden opgegeven als IPv4- of IPv6-adressen. Wanneer een query wordt ontvangen voor dit profiel, wordt alle eindpunten in orde worden geretourneerd en zijn onderworpen aan een configureerbare maximum aantal geretourneerde exemplaren.
 
 ## <a name = "subnet"></a>Verkeersrouteringsmethode van subnet
-De **Subnet** verkeersrouteringsmethode kunt u een set van eindgebruiker IP-adresbereiken worden toegewezen aan specifieke eindpunten in een profiel. Hierna als Traffic Manager een DNS-query voor dat profiel, ontvangt deze wordt controleren de bron IP-adres van het verzoek (in de meeste gevallen dit de uitgaande IP-adres van de DNS-resolver die worden gebruikt door de aanroeper is) te bepalen welk eindpunt het wordt toegewezen aan en retourneert t Hat eindpunt in het queryantwoord. Het IP-adres worden toegewezen aan een eindpunt kan worden opgegeven als CIDR-bereiken (bijvoorbeeld 1.2.3.0/24) of als een adresbereik in (bijvoorbeeld 1.2.3.4-5.6.7.8). De IP-adresbereiken die zijn gekoppeld aan een eindpunt moeten uniek zijn binnen dit profiel en kunnen niet een overlapping met de set IP-adres van een ander eindpunt niet in hetzelfde profiel hebben.
-Als er geen eindpunten waarop dat IP-adres kan worden toegewezen, stuurt Traffic Manager een NODATA-antwoord. Het is daarom raadzaam dat u of alle mogelijke IP-bereiken die zijn opgegeven voor uw eindpunten.
+De **Subnet** verkeersrouteringsmethode kunt u een set van eindgebruiker IP-adresbereiken worden toegewezen aan specifieke eindpunten in een profiel. Hierna als Traffic Manager een DNS-query voor dat profiel, ontvangt deze wordt controleren de bron IP-adres van het verzoek (in de meeste gevallen dit de uitgaande IP-adres van de DNS-resolver die worden gebruikt door de aanroeper is) te bepalen welk eindpunt het wordt toegewezen aan en retourneert t Hat eindpunt in het queryantwoord. 
+
+Het IP-adres worden toegewezen aan een eindpunt kan worden opgegeven als CIDR-bereiken (bijvoorbeeld 1.2.3.0/24) of als een adresbereik in (bijvoorbeeld 1.2.3.4-5.6.7.8). De IP-adresbereiken die zijn gekoppeld aan een eindpunt moeten uniek zijn binnen dit profiel en kunnen niet een overlapping met de set IP-adres van een ander eindpunt niet in hetzelfde profiel hebben.
+Als u een eindpunt met niet-adresbereik, dat als een terugval en los het verkeer van eventuele resterende subnetten fungeert definiëren. Als er geen terugval eindpunt opgenomen is, stuurt Traffic Manager een antwoord GEENGEGEVENS voor een niet-gedefinieerde bereiken. Het is daarom raadzaam dat u ofwel een fallback-eindpunt definiëren, anders ervoor te zorgen dat alle mogelijke IP-adresbereiken voor uw eindpunten worden opgegeven.
+
 Subnet routering kan worden gebruikt om een andere ervaring voor gebruikers die verbinding maakt vanaf een specifiek IP-adresruimte te leveren. Bijvoorbeeld, kan met behulp van subnet routering, een klant moet u alle aanvragen van hun hoofdkantoor worden doorgestuurd naar een ander eindpunt waar ze een interne alleen versie van de app kunnen testen. Een ander scenario is als u wilt een andere ervaring bieden aan gebruikers die verbinding maken via een specifieke Internetprovider (bijvoorbeeld voorkomen dat gebruikers een bepaalde provider).
 
 ## <a name="next-steps"></a>Volgende stappen

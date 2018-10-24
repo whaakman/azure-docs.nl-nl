@@ -7,12 +7,12 @@ ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
 ms.date: 10/12/2018
-ms.openlocfilehash: 8b0f682e481ef73019d3371af2b84f6270e021ee
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 54aef992e95454387ee2fda1d1b34d6dcae3e21e
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49341885"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49959108"
 ---
 # <a name="azure-disk-encryption-prerequisites-previous-release"></a>Vereisten voor Azure Disk Encryption (vorige versie)
 
@@ -242,12 +242,12 @@ U kunt uw service-principals met Azure CLI met beheren de [az ad sp](/cli/azure/
 3.  De toepassings-id geretourneerd aan de ClientID van Azure AD wordt gebruikt in andere opdrachten. Het is ook de SPN die u voor az keyvault-beleid instellen gebruikt. Het wachtwoord is het clientgeheim die u later gebruiken moet om Azure Disk Encryption inschakelen. Het clientgeheim van de Azure AD op de juiste manier beveiligen.
  
 ### <a name="bkmk_ADappRM"></a> Instellen van een Azure AD-app en service principal via de Azure-portal
-Gebruik de stappen bij het [portal gebruiken voor het maken van een Azure Active Directory-toepassing en service-principal die toegang hebben tot resources](../azure-resource-manager/resource-group-create-service-principal-portal.md) artikel te maken van een Azure AD-toepassing. Elke stap hieronder gaat u rechtstreeks naar de sectie om te voltooien. 
+Gebruik de stappen bij het [portal gebruiken voor het maken van een Azure Active Directory-toepassing en service-principal die toegang hebben tot resources](../active-directory/develop/howto-create-service-principal-portal.md) artikel te maken van een Azure AD-toepassing. Elke stap hieronder gaat u rechtstreeks naar de sectie om te voltooien. 
 
-1. [Controleer of de vereiste machtigingen](../azure-resource-manager/resource-group-create-service-principal-portal.md#required-permissions)
-2. [Een Azure Active Directory-toepassing maken](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application) 
+1. [Controleer of de vereiste machtigingen](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)
+2. [Een Azure Active Directory-toepassing maken](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) 
      - U kunt een willekeurige naam gebruiken en aanmeldings-URL die u dat wilt bij het maken van de toepassing.
-3. [De toepassings-ID en de verificatiesleutel](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key). 
+3. [De toepassings-ID en de verificatiesleutel](../active-directory/develop/howto-create-service-principal-portal.md#get-application-id-and-authentication-key). 
      - De verificatiesleutel is het clientgeheim en wordt gebruikt als de AadClientSecret voor Set-AzureRmVMDiskEncryptionExtension. 
         - De verificatiesleutel wordt gebruikt door de toepassing als een referentie zich aanmeldt bij Azure AD. Dit geheim wordt aangeroepen sleutels in de Azure-portal, maar heeft geen relatie tot sleutelkluizen. Dit geheim op de juiste manier beveiligen. 
      - De toepassings-ID wordt later gebruikt als de AadClientId voor Set-AzureRmVMDiskEncryptionExtension en als de ServicePrincipalName voor Set-AzureRmKeyVaultAccessPolicy. 

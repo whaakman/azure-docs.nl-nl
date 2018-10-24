@@ -16,12 +16,12 @@ ms.workload: Identity
 ms.date: 08/10/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: f85726f7058c783b6e369126532e40ceecc3c846
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: bf5384333504df023e98650934c77192f23f9f71
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46313556"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945991"
 ---
 # <a name="azure-ad-connect-design-concepts"></a>Azure AD Connect: Ontwerpconcepten
 Het doel van dit document is om te beschrijven van de gebieden die moeten worden beschouwd door tijdens het implementatieontwerp van de van Azure AD Connect. Dit document is een gedetailleerde informatie over bepaalde gebieden en deze concepten worden kort beschreven in andere documenten.
@@ -91,7 +91,7 @@ Voor deze functie te gebruiken, moet de machtiging schrijven naar het kenmerk ms
 U kunt het gebruik van ConsistencyGuid as sourceAnchor inschakelen tijdens de installatie van nieuwe. In deze sectie bevat informatie over zowel Express en aangepaste installatie in details.
 
   >[!NOTE]
-  > Alleen nieuwere versies van Azure AD Connect (1.1.524.0 en hoger en na) ondersteunt het gebruik van ConsistencyGuid as sourceAnchor tijdens de installatie van nieuwe.
+  > Alleen nieuwere versies van Azure AD Connect (1.1.524.0 en hoger en na) ondersteuning voor het gebruik van ConsistencyGuid as sourceAnchor tijdens de installatie van nieuwe.
 
 ### <a name="how-to-enable-the-consistencyguid-feature"></a>De functie ConsistencyGuid inschakelen
 De functie kan op dit moment alleen tijdens de nieuwe Azure AD Connect-installatie alleen worden ingeschakeld.
@@ -102,7 +102,7 @@ Bij het installeren van Azure AD Connect met Express-modus, bepaalt de Azure AD 
 * De Azure AD Connect-wizard vraagt eerst uw Azure AD-tenant om op te halen van de AD-kenmerk dat wordt gebruikt als het kenmerk sourceAnchor in de vorige installatie van Azure AD Connect (indien aanwezig). Als deze informatie beschikbaar is, wordt in Azure AD Connect maakt gebruik van hetzelfde AD-kenmerk.
 
   >[!NOTE]
-  > Alleen nieuwere versies van Azure AD Connect (1.1.524.0 en hoger en na) informatie over het kenmerk sourceAnchor stores in uw Azure AD-tenant die tijdens de installatie wordt gebruikt. Oudere versies van Azure AD Connect niet.
+  > Alleen nieuwere versies van Azure AD Connect (1.1.524.0 en hoger en na) informatie over het kenmerk sourceAnchor store in uw Azure AD-tenant die tijdens de installatie wordt gebruikt. Oudere versies van Azure AD Connect niet.
 
 * Als u informatie over het kenmerk sourceAnchor gebruikt niet beschikbaar is, controleert de wizard de status van het kenmerk ms-DS-ConsistencyGuid in uw on-premises Active Directory. Als het kenmerk is niet geconfigureerd op een object in de directory, gebruikt de wizard ms-DS-ConsistencyGuid als het kenmerk sourceAnchor. Als het kenmerk is geconfigureerd op een of meer objecten in de map, wordt de wizard is het kenmerk wordt gebruikt door andere toepassingen en is niet geschikt als sourceAnchor-kenmerk...
 
@@ -128,7 +128,7 @@ Als u Azure AD Connect installeert met de aangepaste modus, biedt de Azure AD Co
 Hebt u een bestaande Azure AD Connect-implementatie die objectGUID als het kenmerk Bronanker wordt gebruikt, kunt u het overstappen naar ConsistencyGuid in plaats daarvan.
 
 >[!NOTE]
-> Alleen nieuwere versies van Azure AD Connect (1.1.552.0 en na) ondersteunt overschakelen van ObjectGuid naar ConsistencyGuid als het kenmerk Bronanker.
+> Alleen nieuwere versies van Azure AD Connect (1.1.552.0 en na) ondersteunen overschakelen van ObjectGuid naar ConsistencyGuid als het kenmerk Bronanker.
 
 Overschakelen van objectGUID naar ConsistencyGuid als het kenmerk Bronanker:
 

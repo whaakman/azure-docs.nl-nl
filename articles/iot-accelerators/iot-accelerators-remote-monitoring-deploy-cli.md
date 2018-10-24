@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 09/12/2018
 ms.topic: conceptual
-ms.openlocfilehash: 56f233afed8c403d19c9b668e98ecfec45470b64
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: ddb0b5b1a0847200caa7d8d04ecdc9dab4c41d14
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44721616"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49956694"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-using-the-cli"></a>De oplossingsversnellers bewaking op afstand met behulp van de CLI implementeren
 
@@ -70,7 +70,7 @@ Het maken van een eenvoudige oplossing zal leiden tot de volgende Azure-services
 | 1     | [Virtuele Linux-Machine](https://azure.microsoft.com/services/virtual-machines/) | Standard D1 V2  | Microservices die als host fungeert |
 | 1     | [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/)                  | S1, Standard-laag | Beheer van apparaten en communicatie |
 | 1     | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)              | Standard        | Opslaan van configuratiegegevens, regels, waarschuwingen en andere koude opslag |  
-| 1     | [Azure Storage-Account](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts)  | Standard        | Opslag voor virtuele machine en de controlepunten streaming |
+| 1     | [Azure Storage-account](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts)  | Standard        | Opslag voor virtuele machine en de controlepunten streaming |
 | 1     | [Web-App](https://azure.microsoft.com/services/app-service/web/)        |                 | Front-endwebtoepassing die als host fungeert |
 | 1     | [Azure Active Directory](https://azure.microsoft.com/services/active-directory/)        |                 | Het beheren van identiteiten en beveiliging |
 | 1     | [Azure Maps](https://azure.microsoft.com/services/azure-maps/)        | Standard                | Asset-locaties weergeven |
@@ -81,14 +81,14 @@ Het maken van een eenvoudige oplossing zal leiden tot de volgende Azure-services
 
 
 ### <a name="standard"></a>Standard
-De standaardimplementatie is een gereed is voor productie-implementatie een ontwikkelaar kunt aanpassen en uitbreiden om te voldoen aan hun behoeften. Voor de betrouwbaarheid en schaal toepassing microservices worden gebouwd als Docker-containers en geïmplementeerd met behulp van een orchestrator ([Kubernetes](https://kubernetes.io/) standaard). De orchestrator is verantwoordelijk voor de implementatie, schaling en beheer van de toepassing.
+De standaardimplementatie is een gereed is voor productie-implementatie een ontwikkelaar kunt aanpassen en uitbreiden om te voldoen aan hun behoeften. De optie standaard-implementatie moet worden gebruikt wanneer u klaar bent om aan te passen van een architectuur gereed is voor productie, die is gebouwd voor schaal en uitbreidbaarheid. Microservices voor toepassingen worden gebouwd als Docker-containers en geïmplementeerd met behulp van Azure Kubernetes Service (AKS). De orchestrator is verantwoordelijk voor de implementatie, schaling en beheer van de toepassing.
+
 
 Het maken van een standaardoplossing zal leiden tot de volgende Azure-services ingericht in uw Azure-abonnement, kosten:
 
 | Count | Resource                                     | SKU / grootte      | Gebruikt voor |
 |-------|----------------------------------------------|-----------------|----------|
-| 4     | [Virtuele Linux-machines](https://azure.microsoft.com/services/virtual-machines/)   | Standard D2 V2  | 1 master en 3 agents voor het hosten van microservices met redundantie |
-| 1     | [Azure Container Service](https://azure.microsoft.com/services/container-service/) |                 | [Kubernetes](https://kubernetes.io) orchestrator |
+| 1     | [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service)| Gebruik een volledig beheerde Kubernetes-container orchestration-service, standaard ingesteld op 3 agents|
 | 1     | [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/)                     | S2-Standard-laag | Beheer van apparaten, de opdracht en controle |
 | 1     | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)                 | Standard        | Opslaan van configuratiegegevens en telemetrie van apparaten, zoals regels, waarschuwingen en berichten |
 | 5     | [Azure Storage-Accounts](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts)    | Standard        | 4 voor VM-opslag en 1 voor de streaming controlepunten |

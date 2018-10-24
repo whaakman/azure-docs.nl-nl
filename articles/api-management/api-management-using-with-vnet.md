@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: c94d4d4beea22e68a581cd208a25f915e4217614
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 843b03ce33d1897e2e985ac832f883e1fae12960
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48870873"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49959040"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Azure API Management gebruiken met virtuele netwerken
 Azure-netwerken (VNETs) kunt u een van uw Azure-resources in een niet-internet routeerbare netwerk dat u toegang tot te plaatsen. Deze netwerken kunnen vervolgens worden verbonden met uw on-premises netwerken met behulp van verschillende VPN-technologieën. Voor meer informatie over Azure Virtual Networks beginnen met de informatie hier: [Azure Virtual Network Overview](../virtual-network/virtual-networks-overview.md).
@@ -106,16 +106,17 @@ Hieronder volgt een lijst met veelvoorkomende configuratiefouten die optreden ku
 
 Wanneer een exemplaar van API Management-service wordt gehost in een VNET, worden de poorten in de volgende tabel worden gebruikt.
 
-| Bron / doelpoort(en) | Richting          | Transportprotocol | Bron / bestemming                  | Doel (*)                                                 | Type virtuele netwerk |
+| Bron / doelpoort(en) | Richting          | Transportprotocol |   [Servicetags](../virtual-network/security-overview.md#service-tags) <br> Bron / bestemming   | Doel (*)                                                 | Type virtuele netwerk |
 |------------------------------|--------------------|--------------------|---------------------------------------|-------------------------------------------------------------|----------------------|
 | * / 80, 443                  | Inkomend            | TCP                | INTERNET / VIRTUAL_NETWORK            | Communicatie van clients met API Management                      | Extern             |
-| * / 3443                     | Inkomend            | TCP                | APIMANAGEMENT / VIRTUAL_NETWORK       | Beheereindpunt voor Azure-portal en Powershell         | Externe en interne  |
+| * / 3443                     | Inkomend            | TCP                | ApiManagement / VIRTUAL_NETWORK       | Beheereindpunt voor Azure-portal en Powershell         | Externe en interne  |
 | * / 80, 443                  | Uitgaand           | TCP                | VIRTUAL_NETWORK / opslag             | **Afhankelijkheid van Azure Storage**                             | Externe en interne  |
-| * / 80, 443                  | Uitgaand           | TCP                | VIRTUAL_NETWORK / INTERNET            | Azure Active Directory (indien van toepassing)                   | Externe en interne  |
+| * / 80, 443                  | Uitgaand           | TCP                | VIRTUAL_NETWORK / AzureActiveDirectory | Azure Active Directory (indien van toepassing)                   | Externe en interne  |
 | * / 1433                     | Uitgaand           | TCP                | VIRTUAL_NETWORK / SQL                 | **Toegang tot Azure SQL-eindpunten**                           | Externe en interne  |
 | * / 5672                     | Uitgaand           | TCP                | VIRTUAL_NETWORK / EventHub            | Afhankelijkheid voor logboek naar Event Hub-beleid en de monitoring agent | Externe en interne  |
 | * / 445                      | Uitgaand           | TCP                | VIRTUAL_NETWORK / opslag             | Afhankelijkheid van Azure-bestandsshare voor GIT                      | Externe en interne  |
 | * / 1886                     | Uitgaand           | TCP                | VIRTUAL_NETWORK / INTERNET            | Die nodig zijn voor het publiceren van de Integriteitsstatus van de op Resource Health          | Externe en interne  |
+| * / 443                     | Uitgaand           | TCP                | VIRTUAL_NETWORK / AzureMonitor         | Publiceren van diagnostische logboeken en metrische gegevens                        | Externe en interne  |
 | * / 25                       | Uitgaand           | TCP                | VIRTUAL_NETWORK / INTERNET            | Verbinding maken met de SMTP-Relay voor het verzenden van e-mailberichten                    | Externe en interne  |
 | * / 587                      | Uitgaand           | TCP                | VIRTUAL_NETWORK / INTERNET            | Verbinding maken met de SMTP-Relay voor het verzenden van e-mailberichten                    | Externe en interne  |
 | * / 25028                    | Uitgaand           | TCP                | VIRTUAL_NETWORK / INTERNET            | Verbinding maken met de SMTP-Relay voor het verzenden van e-mailberichten                    | Externe en interne  |

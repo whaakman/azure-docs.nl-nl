@@ -9,12 +9,12 @@ ms.author: jmartens
 author: j-martens
 ms.reviewer: jmartens
 ms.date: 10/1/2018
-ms.openlocfilehash: f573dba2e7580d58c295d204fc75e2403c0d033c
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: a2f37cffb37ce7008c3e372763784240e0d4250b
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48242612"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945549"
 ---
 # <a name="vs-code-tools-for-ai-get-started-with-azure-machine-learning-from-visual-studio-code"></a>VS Code-hulpprogramma's voor AI: aan de slag met Azure Machine Learning van Visual Studio Code
 
@@ -34,7 +34,7 @@ Gebruik de hulpprogramma's voor AI-extensie in Visual Studio code de Azure Machi
 
 Wanneer u installeert de **hulpprogramma's voor AI** extensie, twee meer uitbreidingen worden automatisch geïnstalleerd (als u toegang tot internet hebt). Ze zijn het [Azure-Account](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) extensie en de [Microsoft Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python) extensie
 
-Als u wilt werken met Azure Machine Learning, moeten we VS Code omzetten in een Python IDE. Werken met [Python in Visual Studio Code](https://code.visualstudio.com/docs/languages/python), vereist de Microsoft Python-extensie, die wordt geïnstalleerd met hulpprogramma's voor AI automatisch. De extensie voor VS Code maakt een uitstekende IDE, en werkt in elk besturingssysteem met tal van Python-interpreters van. Het maakt gebruik van alle van de kracht van VS Code voor het automatisch aanvullen en IntelliSense, linten, foutopsporing en Eenheidstesten, naast de mogelijkheid om eenvoudig schakelen tussen de Python-omgevingen, met inbegrip van virtuele en conda-omgevingen. Bekijk deze rondleiding door bewerkt, wordt uitgevoerd, en Python-code opsporen van fouten, Zie de [Python Hello World-zelfstudie](https://code.visualstudio.com/docs/languages/python/docs/python/python-tutorial)
+Als u wilt werken met Azure Machine Learning, moeten we VS Code omzetten in een Python IDE. Werken met [Python in Visual Studio Code](https://code.visualstudio.com/docs/languages/python), vereist de Microsoft Python-extensie, die wordt geïnstalleerd met hulpprogramma's voor AI automatisch. De extensie voor VS Code maakt een uitstekende IDE, en werkt in elk besturingssysteem met tal van Python-interpreters van. Het maakt gebruik van alle van de kracht van VS Code voor het automatisch aanvullen en IntelliSense, linten, foutopsporing en Eenheidstesten, naast de mogelijkheid om eenvoudig schakelen tussen de Python-omgevingen, met inbegrip van virtuele en conda-omgevingen. Bekijk deze rondleiding door bewerkt, wordt uitgevoerd, en Python-code opsporen van fouten, Zie de [Python Hello World-zelfstudie](https://code.visualstudio.com/docs/python/python-tutorial)
 
 **De hulpprogramma's voor AI-extensie installeren:**
 

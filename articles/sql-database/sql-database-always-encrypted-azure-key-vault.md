@@ -13,12 +13,12 @@ ms.author: vanto
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/05/2018
-ms.openlocfilehash: 44fc04d4788c4381a4922f1335c393e03045900e
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: e0971b6b9b8460447d383d238843d4bdddc912f7
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49352390"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958972"
 ---
 # <a name="always-encrypted-protect-sensitive-data-and-store-encryption-keys-in-azure-key-vault"></a>Altijd versleuteld: Bescherming van gevoelige gegevens en opslag van versleutelingssleutels in Azure Key Vault
 
@@ -48,7 +48,7 @@ Voor deze zelfstudie hebt u het volgende nodig:
 ## <a name="enable-your-client-application-to-access-the-sql-database-service"></a>Uw clienttoepassing toegang krijgt tot de SQL Database-service inschakelen
 U moet zorgen dat uw clienttoepassing toegang tot de SQL-Database-service door het instellen van een Azure Active Directory (AAD)-toepassing en het kopiëren van de *toepassings-ID* en *sleutel* die u moet verifiëren van uw toepassing.
 
-Aan de *toepassings-ID* en *sleutel*, volg de stappen in [maken van een Azure Active Directory-toepassing en service-principal die toegang hebben tot resources](../azure-resource-manager/resource-group-create-service-principal-portal.md).
+Aan de *toepassings-ID* en *sleutel*, volg de stappen in [maken van een Azure Active Directory-toepassing en service-principal die toegang hebben tot resources](../active-directory/develop/howto-create-service-principal-portal.md).
 
 ## <a name="create-a-key-vault-to-store-your-keys"></a>Een key vault voor het opslaan van uw sleutels maken
 Nu dat uw client-app is geconfigureerd en u de toepassings-ID hebt, is het tijd om te maken van een key vault en de toegangsbeleid configureren zodat u en uw toepassing toegang heeft tot een van de kluis geheimen (de sleutels altijd versleuteld). De *maken*, *ophalen*, *lijst*, *aanmelding*, *controleren*, *wrapKey*, en *unwrapKey* machtigingen zijn vereist voor het maken van een nieuwe hoofdsleutel voor de kolom en voor het instellen van versleuteling met SQL Server Management Studio.

@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/11/2017
+ms.date: 10/23/2018
 ms.author: cherylmc
-ms.openlocfilehash: cd7a6c43cb791ed607a763f10e781794ef513500
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 7ffe51077c7152c52b9becd2318fa33eea055c20
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46950400"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49956853"
 ---
 # <a name="create-and-modify-routing-for-an-expressroute-circuit-using-cli"></a>Routering voor een ExpressRoute-circuit met behulp van CLI maken en wijzigen
 
@@ -38,7 +38,7 @@ Dit artikel helpt u bij het maken en beheren van routeringsconfiguratie voor een
 
 ## <a name="configuration-prerequisites"></a>Configuratievereisten
 
-* Installeer eerst de meest recente versie van de CLI-opdrachten (2.0 of hoger). Zie voor meer informatie over het installeren van de CLI-opdrachten [Azure CLI installeren](/cli/azure/install-azure-cli).
+* Installeer eerst de meest recente versie van de CLI-opdrachten (2.0 of hoger). Zie [Azure CLI 2.0 installeren](/cli/azure/install-azure-cli) voor meer informatie over het installeren van de CLI-opdrachten.
 * Zorg ervoor dat u hebt bekeken de [vereisten](expressroute-prerequisites.md), [routeringsvereisten](expressroute-routing.md), en [werkstroom](expressroute-workflows.md) voordat u begint met de configuratie-pagina's.
 * U moet een actief ExpressRoute-circuit hebben. Volg de instructies voor het [maken van een ExpressRoute-circuit](howto-circuit-cli.md) en laat het circuit inschakelen door de connectiviteitsprovider voordat u verder gaat. Het ExpressRoute-circuit moet zich in een status ingericht en zijn ingeschakeld om te kunnen uitvoeren van de opdrachten in dit artikel.
 
@@ -318,7 +318,7 @@ az network express-route peering update --vlan-id 500 -g ExpressRouteResourceGro
 U kunt de peeringconfiguratie verwijderen door het volgende voorbeeld uitvoert:
 
 > [!WARNING]
-> U moet ervoor zorgen dat alle virtuele netwerken losgekoppeld van het ExpressRoute-circuit zijn voordat u het volgende voorbeeld uitvoert. 
+> U moet ervoor zorgen dat alle virtuele netwerken en globale bereiken ExpressRoute-verbindingen worden verwijderd voordat u het volgende voorbeeld uitvoert. 
 > 
 > 
 

@@ -15,12 +15,12 @@ ms.date: 10/19/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: b0dc41959902bda4e61e8ce6a25f94163a562b12
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 72a8a09d04dc009598dafc35b65304662b7b8915
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49466849"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955909"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Ingebouwde rollen voor Azure-resources
 [Op rollen gebaseerd toegangsbeheer (RBAC)](overview.md) heeft diverse ingebouwde roldefinities die u aan gebruikers, groepen en service-principals toewijzen kunt. Roltoewijzingen zijn de manier waarop u de toegang tot resources in Azure. Als de ingebouwde rollen niet voldoen aan de specifieke behoeften van uw organisatie, kunt u uw eigen [aangepaste rollen](custom-roles.md) maken.
@@ -95,7 +95,6 @@ De volgende tabel bevat korte beschrijvingen van de ingebouwde rollen. Klik op d
 | [Controlelezer](#monitoring-reader) | Kan alle controlegegevens lezen (metrische gegevens, Logboeken, enz.). Zie ook [aan de slag met rollen, machtigingen en beveiliging met Azure Monitor](../monitoring-and-diagnostics/monitoring-roles-permissions-security.md#built-in-monitoring-roles). |
 | [Inzender voor netwerken](#network-contributor) | Hiermee beheert u netwerken, maar kunt u niet de toegang tot de netwerken beheren. |
 | [Nieuwe Relic APM-Account Inzender](#new-relic-apm-account-contributor) | Hiermee beheert u New Relic Application Performance Management-accounts en -toepassingen, maar kunt u niet de toegang tot de accounts en toepassingen beheren. |
-| [PowerApps-beheerder Test](#powerapps-administrator-test) | Hiermee kunt u DNS-zones en recordsets beheren in Azure DNS, maar kunt u niet bepalen wie toegang heeft. |
 | [Lezer en toegang tot gegevens](#reader-and-data-access) | Hiermee kunt u Alles weergeven, maar kunt u verwijderen of te maken van een storage-account of een ingesloten resource niet. Er kunnen ook toegang tot alle gegevens in een opslagaccount verleend via toegang tot opslagaccountsleutels lezen/schrijven. |
 | [Redis-Cache-Inzender](#redis-cache-contributor) | Hiermee beheert u exemplaren van Redis-cache, maar kunt u niet de toegang tot de exemplaren beheren. |
 | [Inzender voor Resourcebeleid (Preview)](#resource-policy-contributor-preview) | (Preview) Gebruikers gevuld vanuit EA, met rechten voor het maken/wijzigen voor resourcebeleid, supportticket maken en het lezen van resources/hiërarchie. |
@@ -1241,21 +1240,6 @@ De volgende tabel bevat korte beschrijvingen van de ingebouwde rollen. Klik op d
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hiermee kunt u resourcegroepen ophalen of opnemen in een lijst. |
 > | Microsoft.Support/* | Maken en ondersteuningstickets beheren |
 > | NewRelic.APM/accounts/* |  |
-
-## <a name="powerapps-administrator-test"></a>PowerApps-beheerder Test
-> [!div class="mx-tableFixed"]
-> | | |
-> | --- | --- |
-> | **Beschrijving** | Hiermee kunt u DNS-zones en recordsets beheren in Azure DNS, maar kunt u niet bepalen wie toegang heeft. |
-> | **Id** | befefa01-2a29-4897-83a8-272ff33ce314 |
-> | **Acties** |  |
-> | Microsoft.Authorization/*/read | Meer functies en roltoewijzingen |
-> | Microsoft.Insights/alertRules/* | Maken en beheren van inzicht waarschuwingsregels |
-> | Microsoft.Network/dnsZones/* |  |
-> | Microsoft.ResourceHealth/availabilityStatuses/read | De beschikbaarheidsstatus ophalen voor alle resources binnen het opgegeven bereik |
-> | Microsoft.Resources/deployments/* | Maken en beheren van brongroepimplementaties |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | Hiermee kunt u resourcegroepen ophalen of opnemen in een lijst. |
-> | Microsoft.Support/* | Maken en ondersteuningstickets beheren |
 
 ## <a name="reader-and-data-access"></a>Lezer- en gegevenstoegang
 > [!div class="mx-tableFixed"]

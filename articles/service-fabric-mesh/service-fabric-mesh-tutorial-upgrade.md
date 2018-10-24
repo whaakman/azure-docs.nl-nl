@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/18/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter
-ms.openlocfilehash: c23646bca6109d27e57b2f928363e65c83c634eb
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 7985c8e9e26126040d842ded998a953281daa2ae
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47031149"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49953549"
 ---
 # <a name="tutorial-learn-how-to-upgrade-a-service-fabric-application-using-visual-studio"></a>Zelfstudie: Meer informatie over het upgraden van een Service Fabric-toepassing met Visual Studio
 
@@ -32,11 +32,11 @@ In deze zelfstudie leert u het volgende:
 
 In deze zelfstudiereeks leert u het volgende:
 > [!div class="checklist"]
-> * [Maken van een Service Fabric-NET-app in Visual Studio](service-fabric-mesh-tutorial-create-dotnetcore.md)
-> * [Fouten opsporen in een Service Fabric-NET-app die wordt uitgevoerd in het lokale ontwikkelingscluster wijzigen](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md)
-> * [Implementeren van een Service Fabric-NET app](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md)
+> * [Een Service Fabric Mesh-app maken in Visual Studio](service-fabric-mesh-tutorial-create-dotnetcore.md)
+> * [Fouten opsporen in een Service Fabric Mesh-app die wordt uitgevoerd in uw lokale ontwikkelcluster](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md)
+> * [Een Service Fabric Mesh-app implementeren](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md)
 > * Upgrade van een Service Fabric-NET app
-> * [Service Fabric NET resources opschonen](service-fabric-mesh-tutorial-cleanup-resources.md)
+> * [Service Fabric Mesh-bronnen opschonen](service-fabric-mesh-tutorial-cleanup-resources.md)
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
 
@@ -44,7 +44,7 @@ In deze zelfstudiereeks leert u het volgende:
 
 Voor u met deze zelfstudie begint:
 
-* Als u de to-do-app hebt geïmplementeerd, volg de instructies in [publiceren van een Service Fabric-NET-webtoepassing](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md).
+* Als u de to-do-app nog niet hebt geïmplementeerd, volgt u de instructies in [Zelfstudie: een Service Fabric Mesh-webtoepassing implementeren](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md).
 
 ## <a name="upgrade-a-service-fabric-mesh-service-by-using-visual-studio"></a>Een Service Fabric-NET-service upgraden met behulp van Visual Studio
 
@@ -156,8 +156,8 @@ Open een webbrowser en navigeer naar de URL om de website in Azure uitgevoerd te
 
 In dit deel van de zelfstudie hebt u het volgende geleerd:
 > [!div class="checklist"]
-> * Upgrade uitvoeren van een Service Fabric chaos-app met behulp van Visual Studio
+> * Upgrade uitvoeren van een Service Fabric-NET-app met behulp van Visual Studio
 
 Ga door naar de volgende zelfstudie:
 > [!div class="nextstepaction"]
-> [Service Fabric NET resources opschonen](service-fabric-mesh-tutorial-cleanup-resources.md)
+> [Service Fabric Mesh-bronnen opschonen](service-fabric-mesh-tutorial-cleanup-resources.md)

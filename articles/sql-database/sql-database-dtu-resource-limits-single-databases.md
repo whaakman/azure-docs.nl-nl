@@ -11,13 +11,13 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/19/2018
-ms.openlocfilehash: d3de6afff1c417b28be04ef8b04024756c378e20
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.date: 10/22/2018
+ms.openlocfilehash: 8c5274db69831aaaeaaed2b81627bbb4aeb8cd75
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465760"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954931"
 ---
 # <a name="resource-limits-for-single-databases-using-the-dtu-based-purchasing-model"></a>Resourcelimieten voor individuele databases met behulp van het op DTU gebaseerde aankoopmodel
 
@@ -80,8 +80,8 @@ Voor individuele databases in de volgende tabellen tonen de beschikbare resource
 | Maximaal aantal gelijktijdige sessies | 30.000 | 30.000 | 30.000 | 30.000 | 30.000 | 30.000 |
 |||||||
 
-> [!IMPORTANT]
-> Meer dan 1 TB aan opslag in de Premium-laag is momenteel beschikbaar in alle regio's behalve het volgende: West-Centraal VS, China-Oost, USDoDCentral, Duitsland-centraal, USDoDEast, VS (overheid)-zuidwesten, Duitsland-Noordoost, USGovIowa, China-Noord. In andere regio’s is de maximale opslagruimte in de Premium-laag beperkt tot 1 TB. Zie [P11-P15: huidige beperkingen](#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+> [!IMPORTANT] 
+> Meer dan 1 TB aan opslag in de Premium-laag is momenteel beschikbaar in alle volgende regio's behalve de volgende China-Oost, China-Noord, Duitsland-centraal, Duitsland-Noordoost, UK-Noord, UK-Zuid, VS DOD-centraal, VS DOD-Oost, VS regering centraal en West-Centraal VS: In deze regio's, de maximale opslagruimte in de Premium-laag is beperkt tot 1 TB. Zie [P11-P15: huidige beperkingen](#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
 
 ## <a name="single-database-change-storage-size"></a>Individuele database: opslaggrootte wijzigen
 
@@ -116,7 +116,7 @@ De duur van het volledige proces voor omhoog schalen is afhankelijk van de groot
 
 ## <a name="single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb"></a>Individuele database: beperkingen van P11 en P15 wanneer de maximale grootte van meer dan 1 TB
 
-Een maximale grootte die groter zijn dan 1 TB voor P11 en P15-database wordt ondersteund in de volgende regio's: Australië-Oost, Australië-Zuidoost, Brazilië-Zuid, Canada-centraal, Canada-Oost, VS-midden, Frankrijk-centraal, Duitsland-centraal, Japan-Oost, Japan-West, Korea-centraal, Noord-centraal VS, Noord-Europa, Zuid-centraal VS, Zuidoost-Azië, UK-Zuid, UK-West, VS-oost2, VS-West, VS (overheid) Virginia, en West-Europa. De volgende overwegingen en beperkingen van toepassing op P11 en P15-databases met een maximale grootte die groter zijn dan 1 TB:
+De volgende overwegingen en beperkingen van toepassing op P11 en P15-databases met een maximale grootte die groter zijn dan 1 TB:
 
 - Als u ervoor kiest een maximale grootte die groter zijn dan 1 TB bij het maken van een database (met behulp van een waarde van 4 TB of 4096 GB), wordt de opdracht create mislukt met een fout als de database is ingericht in een niet-ondersteunde regio.
 - Voor bestaande P11 en P15-databases zich bevinden in een van de ondersteunde regio's, kunt u de maximale opslag voor de dan 1 TB in stappen van 256 GB verhogen tot 4 TB. Als u wilt zien als een groter formaat wordt ondersteund in uw regio, gebruikt u de [DATABASEPROPERTYEX](/sql/t-sql/functions/databasepropertyex-transact-sql) functie of de grootte van de database in Azure portal controleren. Upgraden van een bestaande P11 of P15 kan database alleen worden uitgevoerd door een principal-aanmelding op serverniveau of leden van de databaserol dbmanager.

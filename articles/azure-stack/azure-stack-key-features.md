@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 10/23/2018
 ms.author: jeffgilb
 ms.reviewer: ''
-ms.openlocfilehash: 16c908dabd313cd9d64ce5be9b7d0299423a7675
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 38120b2be2ab7789946a4ad2fe688954e6212189
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49344682"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49959023"
 ---
 # <a name="key-features-and-concepts-in-azure-stack"></a>Belangrijke functies en concepten in Azure Stack
 Als u geen ervaring met Microsoft Azure Stack, kunnen deze voorwaarden en beschrijvingen van functies in kwestie nuttig zijn.
@@ -154,14 +154,6 @@ Azure RBAC heeft drie fundamentele rollen die betrekking hebben op alle resource
 
 ## <a name="usage-data"></a>Gebruiksgegevens
 Microsoft Azure Stack verzamelt en verzamelt gebruiksgegevens over alle resourceproviders en verzendt naar Azure voor verwerking door Azure commerce. De gebruiksgegevens worden verzameld in Azure Stack kan worden weergegeven via een REST-API. Er is een Azure-consistente Tenant-API, evenals Provider en gedelegeerd Provider API's om gegevens over gebruik voor alle abonnementen van de tenant. Deze gegevens kunnen worden gebruikt om te integreren met een extern hulpprogramma of de service voor facturering of chargeback. Wanneer gebruik is verwerkt door Azure commerce, kan deze worden weergegeven in de Azure-factureringsportal.
-
-## <a name="in-development-build-of-azure-stack-development-kit"></a>In ontwikkeling build van Azure Stack Development Kit
-In ontwikkeling builds kunnen vroege gebruikers evalueren van de meest recente versie van de Azure Stack Development Kit. Ze incrementele builds op basis van de meest recente primaire versie. Terwijl primaire versies blijft elke paar maanden worden vrijgegeven, wordt de builds in ontwikkeling met tussenpozen tussen de primaire versies brengt.
-
-In ontwikkeling builds biedt de volgende voordelen:
-- Opgeloste fouten
-- Nieuwe functies
-- Andere verbeteringen
 
 ## <a name="next-steps"></a>Volgende stappen
 [Basisprincipes van beheer](azure-stack-manage-basics.md)

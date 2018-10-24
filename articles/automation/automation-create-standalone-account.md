@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/15/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 581e9d052738b8e1976a766ea6e3525ecf76d741
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: dc369f5bc3d80a476e45d46cfe25541216484b1c
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49426427"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958802"
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>Een zelfstandig Azure Automation-account maken
 
@@ -37,7 +37,7 @@ Met deze accounts voor u gemaakt, kunt u snel starten het bouwen en implementere
 Maken of bijwerken van een Automation-account en de taken die worden beschreven in dit artikel, moet u de volgende rechten en machtigingen hebben:
 
 * Voor het maken van een Automation-account, moet uw Azure AD-gebruikersaccount worden toegevoegd aan een rol die machtigingen heeft die equivalent zijn aan de rol eigenaar voor **Microsoft. Automation** resources. Zie voor meer informatie, [toegangsbeheer op basis van rollen in Azure Automation](automation-role-based-access-control.md).
-* In de Azure-portal onder **Azure Active Directory** > **beheren** > **App-registraties**als **App-registraties**  is ingesteld op **Ja**, kunnen gebruikers niet-beheerders in uw Azure AD-tenant [Active Directory-toepassingen registreren](../azure-resource-manager/resource-group-create-service-principal-portal.md#check-azure-subscription-permissions). Als **App-registraties** is ingesteld op **Nee**, moet de gebruiker die deze actie uitvoert een globale beheerder zijn in Azure AD.
+* In de Azure-portal onder **Azure Active Directory** > **beheren** > **App-registraties**als **App-registraties**  is ingesteld op **Ja**, kunnen gebruikers niet-beheerders in uw Azure AD-tenant [Active Directory-toepassingen registreren](../active-directory/develop/howto-create-service-principal-portal.md#check-azure-subscription-permissions). Als **App-registraties** is ingesteld op **Nee**, moet de gebruiker die deze actie uitvoert een globale beheerder zijn in Azure AD.
 
 Als u niet lid zijn van Active Directory-exemplaar van het abonnement voordat u wordt toegevoegd aan de rol van globale beheerder/CO-beheerder van het abonnement, wordt u als Gast toegevoegd aan Active Directory. In dit scenario ziet u dit bericht op de **Automation-Account toevoegen** pagina: "U bent niet gemachtigd om te maken."
 

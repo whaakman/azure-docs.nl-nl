@@ -11,24 +11,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/15/2018
+ms.date: 10/22/2018
 ms.author: jingwang
-ms.openlocfilehash: c9252380581e77049e9464316ca77cc135f784b6
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 82fb2241b5988bae9587807c03e7bec50e7c1677
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49377586"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955372"
 ---
 # <a name="copy-data-from-office-365-into-azure-using-azure-data-factory-preview"></a>Gegevens uit Office 365 kopiëren naar Azure met behulp van Azure Data Factory (Preview) 
 
 Azure Data Factory kunt u de uitgebreide gegevens van de organisatie in uw Office 365-tenant in Azure op een schaalbare manier en bouwen van toepassingen voor gegevensanalyse en inzichten op basis van deze waardevolle activa. Integratie met Privileged Access Management biedt beveiligd toegangsbeheer voor de waardevolle gegevens in Office 365.  Voor meer informatie over Microsoft Graph-gegevens verbinden, Raadpleeg [deze koppeling](https://github.com/OfficeDev/ManagedAccessMSGraph/wiki).
 
 In dit artikel bevat een overzicht over het gebruik van de Kopieeractiviteit in Azure Data Factory om gegevens te kopiëren van Office 365. Dit is gebaseerd op de [overzicht kopieeractiviteit](copy-activity-overview.md) artikel met daarin een algemeen overzicht van de kopieeractiviteit.
-
-Bekijk de volgende video voor een 9 minuten durende inleiding en demonstratie over Data Factory verbinding te maken met Office 365-gegevens:
-
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Get-cloud-scale-analytics-of-Office-365-data-with-Azure-Data-Factory/player]
 
 ## <a name="supported-capabilities"></a>Ondersteunde mogelijkheden
 
@@ -45,10 +41,10 @@ Op dit moment binnen een enkel kopieeractiviteit kunt u alleen **gegevens kopië
 Als u wilt gegevens uit Office 365 kopiëren naar Azure, moet u de volgende vereiste stappen uit:
 
 - Uw Office 365-tenantbeheerder bepalen acties moet uitvoeren, zoals wordt beschreven [hier](https://github.com/OfficeDev/ManagedAccessMSGraph/wiki/On-boarding).
-- Maken en configureren van een Azure AD-webtoepassing in Azure Active Directory.  Zie voor instructies [maken van een Azure AD-toepassing](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application).
+- Maken en configureren van een Azure AD-webtoepassing in Azure Active Directory.  Zie voor instructies [maken van een Azure AD-toepassing](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application).
 - Noteer de volgende waarden, die u gebruiken wilt voor het definiëren van de gekoppelde service voor Office 365:
-    - Tenant-ID.  Zie voor instructies [tenant-ID ophalen](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-tenant-id).
-    - Toepassings-ID en de toepassing de sleutel.  Zie voor instructies [Get-ID en -verificatie Toepassingssleutel](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key).
+    - Tenant-ID.  Zie voor instructies [tenant-ID ophalen](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-id).
+    - Toepassings-ID en de toepassing de sleutel.  Zie voor instructies [Get-ID en -verificatie Toepassingssleutel](../active-directory/develop/howto-create-service-principal-portal.md#get-application-id-and-authentication-key).
 - De identiteit van de gebruiker die de aanvraag voor de toegang tot gegevens als eigenaar van de Azure AD-webtoepassing brengen zullen toevoegen (van de Azure AD-webtoepassing > Instellingen > eigenaren > eigenaar toevoegen).
 
 ## <a name="approving-new-data-access-requests"></a>Toegang aanvragen goedkeuren van nieuwe gegevens

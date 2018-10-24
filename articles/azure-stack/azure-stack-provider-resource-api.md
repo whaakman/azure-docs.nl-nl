@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/24/2018
+ms.date: 10/22/2018
 ms.author: mabrigg
 ms.reviewer: alfredop
-ms.openlocfilehash: aedaa729ec51d7b60b2c242239935f7b3e41794f
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: c6f17fd4cc225b7d4ce60d38bf2abcabf12a40c5
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42918184"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945583"
 ---
 # <a name="provider-resource-usage-api"></a>Resourcegebruik-API voor providers
 De term *provider* geldt voor de servicebeheerder en voor elke gedelegeerde providers. Azure Stack-operators en gedelegeerde providers kunnen u de API voor het providergebruik gebruiken om het gebruik van hun directe tenants weer te geven. Bijvoorbeeld, zoals weergegeven in het diagram, P0 de API voor het ophalen van informatie over het gebruik van de P1-provider kan aanroepen en rechtstreeks gebruik van P2 en P1 voor informatie over het gebruik van P3 en P4 kunt aanroepen.
@@ -27,7 +27,7 @@ De term *provider* geldt voor de servicebeheerder en voor elke gedelegeerde prov
 ![Conceptuele model van de provider-hiërarchie](media/azure-stack-provider-resource-api/image1.png)
 
 ## <a name="api-call-reference"></a>Naslaginformatie over API-aanroep
-### <a name="request"></a>Aanvragen
+### <a name="request"></a>Aanvraag
 De aanvraag haalt de details van het verbruik voor de aangevraagde abonnementen en voor het aangevraagde tijdsbestek. Er is geen aanvraagtekst.
 
 Dit gebruik API is een serviceprovider-API, zodat de aanroeper een eigenaar, bijdrager of lezer rol bij het abonnement van de provider moet worden toegewezen.
@@ -48,7 +48,7 @@ Dit gebruik API is een serviceprovider-API, zodat de aanroeper een eigenaar, bij
 | *API-versie* |De versie van het protocol dat wordt gebruikt om deze aanvraag te doen. Deze waarde is ingesteld op *2015-06-01-preview*. |
 | *continuationToken* |Token opgehaald van de laatste aanroep aan de gebruiks-API-provider. Dit token is vereist wanneer een antwoord groter dan 1000 regels is en het fungeert als een bladwijzer voor de voortgang. Als het token niet aanwezig is, de gegevens worden opgehaald vanaf het begin van de dag of uur, op basis van de granulatie doorgegeven. |
 
-### <a name="response"></a>Reactie
+### <a name="response"></a>Antwoord
 HAAL /subscriptions/sub1/providers/Microsoft.Commerce.Admin/subscriberUsageAggregates?reportedStartTime=reportedStartTime=2014-05-01T00%3a00%3a00%2b00%3a00 en reportedEndTime = 2015-06-01T00% 3a00% 3a00% 2b00% 3a00 & aggregationGranularity = dagelijks & subscriberId = sub1.1 & api-versie 1.0 =
 
 ```json
@@ -103,7 +103,7 @@ Voor het genereren van gegevens over gebruik, moet u de resources die worden uit
 ```powershell
 Get-UsageAggregates -ReportedStartTime "<Start time for usage reporting>" -ReportedEndTime "<end time for usage reporting>" -AggregationGranularity <Hourly or Daily>
 ```
-### <a name="rest-api"></a>REST API
+### <a name="rest-api"></a>REST-API
 
 U kunt informatie over het gebruik voor abonnementen verwijderd door het aanroepen van de service Microsoft.Commerce.Admin verzamelen. 
 

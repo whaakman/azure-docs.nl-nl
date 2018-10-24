@@ -1,6 +1,6 @@
 ---
-title: On-premises AD FS-apps naar Azure migreren. | Microsoft Docs
-description: Dit artikel is bedoeld ter ondersteuning van organisaties bij het migreren van on-premises toepassingen naar Azure AD, waarbij de focus op federatieve SaaS-toepassingen ligt.
+title: Apps van AD FS verplaatsen naar Azure AD. | Microsoft Docs
+description: In dit artikel is bedoeld ter ondersteuning van organisaties bij het verplaatsen van toepassingen naar Azure AD, met een focus op federatieve SaaS-toepassingen.
 services: active-directory
 author: barbkess
 manager: mtillman
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 03/02/2018
 ms.author: barbkess
-ms.openlocfilehash: fa19c932a18102107068303e1474abd992df3161
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: b799a3947770b44752b599dbb2c47cbf1cfbcda2
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48903025"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49959057"
 ---
-# <a name="migrate-ad-fs-on-premises-apps-to-azure"></a>On-premises AD FS-apps naar Azure migreren 
+# <a name="move-applications-from-ad-fs-to-azure-ad"></a>Toepassingen van AD FS verplaatsen naar Azure AD 
 
-Het doel van dit artikel is u te helpen begrijpen hoe u on-premises toepassingen kunt migreren naar Azure Active Directory (Azure AD). De focus ligt hierbij op federatieve SaaS-toepassingen. 
+Dit artikel helpt u begrijpen hoe u toepassingen verplaatsen van AD FS met Azure Active Directory (Azure AD). De focus ligt hierbij op federatieve SaaS-toepassingen. 
 
 In dit document wordt geen stapsgewijze begeleiding gegeven. Het biedt wel theoretische richtlijnen voor de migratie door de vertaling van on-premises configuraties naar Azure AD inzichtelijk te maken. Er worden ook enkele veelvoorkomende scenario's behandeld.
 
@@ -31,7 +31,7 @@ Als u een on-premises map met gebruikersaccounts hebt, dan is de kans groot dat 
 
 En net als vele andere organisatie bent u waarschijnlijk al bezig over te stappen op cloudtoepassingen en -identiteiten. Mogelijk maakt u al gebruik van Office 365 en Azure AD Connect. Misschien hebt u SaaS-cloudtoepassingen ingesteld voor enkele belangrijke werkbelastingen, maar nog niet voor alle.  
 
-Veel organisaties beschikken over SaaS- of line-of-business (LOB)-apps die rechtstreeks zijn gefedereerd met een on-premises aanmeldingsservice, zoals Active Directory Federation Services (AD FS), in combinatie met Office 365- en Azure AD-apps. In deze migratiehandleiding wordt beschreven waarom en hoe u on-premises toepassingen naar Azure AD migreert.
+Veel organisaties beschikken over SaaS- of line-of-business (LOB)-apps die rechtstreeks zijn gefedereerd met een on-premises aanmeldingsservice, zoals Active Directory Federation Services (AD FS), in combinatie met Office 365- en Azure AD-apps. Deze handleiding wordt beschreven waarom en hoe u uw toepassingen naar Azure AD.
 
 >[!NOTE]
 >De handleiding biedt uitgebreide informatie over de configuratie en migratie van SaaS-apps, met belangrijke informatie over aangepaste LOB-apps. Meer gedetailleerde richtlijnen voor LOB-apps staan voor later gepland.
@@ -40,9 +40,9 @@ Veel organisaties beschikken over SaaS- of line-of-business (LOB)-apps die recht
 
 ![Apps die via Azure AD zijn gefedereerd](media/migrate-adfs-apps-to-azure/migrate2.png)
 
-## <a name="reasons-for-migrating-apps-to-azure-ad"></a>Redenen voor het migreren van apps naar Azure AD
+## <a name="reasons-for-moving-apps-to-azure-ad"></a>Redenen voor het verplaatsen van apps naar Azure AD
 
-Voor een organisatie die al gebruikmaakt van AD FS, Ping of een andere on-premises verificatieprovider, biedt het migreren van apps naar Azure AD de volgende voordelen:
+Voor een organisatie die al gebruikmaakt van AD FS, Ping of een andere on-premises verificatieprovider, kunt apps verplaatsen naar Azure AD de volgende voordelen:
 
 **Veiliger toegang**
 - Gedetailleerde besturingselementen voor toegang per toepassing, waaronder Azure Multi-Factor Authentication, met behulp van [Voorwaardelijke toegang voor Azure AD](../active-directory-conditional-access-azure-portal.md). Het beleid kan worden toegepast op SaaS- en aangepaste apps op dezelfde manier als u voor Office 365 zou doen.
@@ -61,7 +61,7 @@ Voor een organisatie die al gebruikmaakt van AD FS, Ping of een andere on-premi
 - Terwijl u de voordelen van Azure AD krijgt, kunt u uw on-premises-oplossing voor verificatie blijven gebruiken. Op die manier blijven voordelen zoals on-premises oplossingen voor meervoudige verificatie, logging en controle intact. 
 
 **Hulp bij buiten gebruik stellen van de on-premises id-provider**
-- Organisaties die het on-premises verificatieproduct buiten bedrijf willen stellen, kunnen dankzij het migreren van apps naar Azure AD hun overgang vlotter laten verlopen door een deel van het werk uit de weg te ruimen. 
+- Voor organisaties die gebruik wilt stellen van de on-premises verificatie-product, kan apps verplaatsen naar Azure AD een eenvoudigere overgang door deel van het werk uit de weg. 
 
 ## <a name="mapping-types-of-apps-on-premises-to-types-of-apps-in-azure-ad"></a>App-typen on-premises toewijzen aan app-typen in Azure AD
 De meeste apps kunnen in enkele categorieën worden ondergebracht op basis van het type aanmelding dat ze gebruiken. Deze categorieën bepalen hoe de app in Azure AD wordt gerepresenteerd.
@@ -126,8 +126,8 @@ De volgende tabel beschrijft de belangrijkste IdP-configuratie-elementen voor he
 |Id/</br>'verlener'|Id van de IdP vanuit het perspectief van de app (ook wel 'uitgever-ID' genoemd).</br></br>In het SAML-token wordt de waarde weergegeven als het element **Verlener**.|De id voor AD FS is meestal de federatieservice-id in AD FS-beheer onder **Service** > **Eigenschappen van de Federation Service bewerken**. Bijvoorbeeld: http&#58;//fs.contoso.com/adfs/services/trust|De overeenkomstige waarde voor Azure AD volgt het patroon waarbij de waarde voor {tenant-id} wordt vervangen door de tenant-id. Te vinden in de Azure-portal onder **Azure Active Directory** > **Eigenschappen** als **Map-ID**: https&#58;//sts.windows.net/{tenant-id}/|
 |IdP </br>federatie- </br>metagegevens|Locatie van de openbaar beschikbare federatiemetagegevens van de IdP. (Sommige apps gebruiken federatiemetagegevens als alternatief voor het afzonderlijk door de beheerder configureren van URL's, id en tokenhandtekeningcertificaat.)|U vindt de URL van de AD FS-federatiemetagegevens in AD FS-beheer onder **Service** > **Eindpunten** > **Metagegevens**  >   **Type: Federatiemetagegevens**. Bijvoorbeeld: https&#58;//fs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml|De overeenkomstige waarde voor Azure AD volgt het patroon https&#58;//login.microsoftonline.com/{TenantDomainName}/FederationMetadata/2007-06/FederationMetadata.xml. De waarde voor {TenantDomainName} wordt vervangen door de naam van uw tenant in de notatie "contoso.onmicrosoft.com". </br></br>Zie voor meer informatie [Federatiemetagegevens](../develop/azure-ad-federation-metadata.md).
 
-## <a name="migrating-saas-apps"></a>SaaS-apps migreren
-Het migreren van SaaS-apps van AD FS of een andere id-provider naar Azure AD is vandaag de dag een handmatig proces. Zie de [lijst met zelfstudies voor het integreren van SaaS-apps in de Marketplace](../saas-apps/tutorial-list.md) voor app-specifieke richtlijnen.
+## <a name="moving-saas-apps"></a>SaaS-apps verplaatsen
+Vandaag is een handmatig proces verplaatsen SaaS-apps van AD FS of een andere id-provider naar Azure AD. Zie de [lijst met zelfstudies voor het integreren van SaaS-apps in de Marketplace](../saas-apps/tutorial-list.md) voor app-specifieke richtlijnen.
 
 Bij de integratiezelfstudies wordt ervan uitgegaan dat u een geheel nieuwe integratie uitvoert. Bij het plannen, beoordelen, configureren en overzetten van uw apps moet u rekening houden met een paar belangrijke concepten die specifiek zijn voor migratie:  
 - Sommige apps kunnen eenvoudig worden gemigreerd. Voor apps met complexere vereisten, zoals aangepaste claims, is mogelijk aanvullende configuratie in Azure AD en/of Azure AD Connect vereist.
@@ -135,7 +135,7 @@ Bij de integratiezelfstudies wordt ervan uitgegaan dat u een geheel nieuwe integ
 - Nadat u hebt vastgesteld dat er extra claims vereist zijn, moet u ervoor zorgen dat ze beschikbaar zijn in Azure AD. Controleer de synchronisatieconfiguratie van Azure AD Connect om u ervan te verzekeren dat een vereist attribuut - bijvoorbeeld **samAccountName**- gesynchroniseerd wordt met Azure AD.
 - Nadat de kenmerken beschikbaar zijn in Azure AD, kunt u claimuitgifteregels toevoegen in Azure AD om die kenmerken op te nemen als claims in uitgegeven tokens. U voegt deze regels toe in de eigenschappen voor **eenmalige aanmelding** van de app in Azure AD.
 
-### <a name="assess-what-can-be-migrated"></a>Beoordelen wat kan worden gemigreerd
+### <a name="assess-what-can-be-moved"></a>Beoordelen wat kan worden verplaatst
 SAML 2.0-toepassingen kunnen worden geïntegreerd met Azure AD via de Azure AD-toepassingsgalerie in de Marketplace of als niet-Marketplace-toepassingen.  
 
 Voor sommige configuraties zijn extra stappen vereist om te configureren in Azure AD, en sommige configuraties worden vandaag de dag niet ondersteund. Om te bepalen wat u kunt verplaatsen, bekijkt u de huidige configuratie van elk van uw apps. Kijk in het bijzonder naar:
@@ -144,8 +144,8 @@ Voor sommige configuraties zijn extra stappen vereist om te configureren in Azur
 - Uitgegeven SAML-tokenversies.
 - Andere configuraties, zoals regels voor uitgifteautorisatie of het beleid voor toegangsbeheer en regels voor meervoudige verificatie (aanvullende verificatie).
 
-#### <a name="what-can-be-migrated-today"></a>Wat er momenteel kan worden gemigreerd
-Apps die u vandaag gemakkelijk kunt migreren zijn SAML 2.0 apps die gebruikmaken van de standaardset van configuratie-elementen en claims. Deze apps kunnen bestaan uit:
+#### <a name="what-can-be-moved-today"></a>Wat vandaag nog kunnen worden verplaatst
+Apps die u vandaag gemakkelijk kunt verplaatsen zijn SAML 2.0-apps die gebruikmaken van de standaardset van configuratie-elementen en claims. Deze apps kunnen bestaan uit:
 - User principal name.
 - E-mailadres.
 - Voornaam.

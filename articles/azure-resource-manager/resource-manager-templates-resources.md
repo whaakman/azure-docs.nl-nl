@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/11/2018
+ms.date: 10/22/2018
 ms.author: tomfitz
-ms.openlocfilehash: 6723cf8cc18637c157b295361425357e1c47ec2e
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: eea12a0a31d11065ebdc2cbef556b84df1ace750
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39007158"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945192"
 ---
 # <a name="resources-section-of-azure-resource-manager-templates"></a>Sectie met resources van Azure Resource Manager-sjablonen
 
@@ -100,7 +100,9 @@ Definieert u resources met de volgende structuur:
 
 ## <a name="condition"></a>Voorwaarde
 
-Wanneer u tijdens de implementatie van al dan niet om een resource te maken beslissen moet, gebruikt u de `condition` element. De waarde voor dit element wordt omgezet in waar of ONWAAR. Wanneer de waarde true is, kunt u de resource wordt gemaakt. Wanneer de waarde false is, wordt de resource niet worden gemaakt. Meestal gebruikt u deze waarde als u wilt maken van een nieuwe resource of gebruik een bestaande resourcegroep. Bijvoorbeeld, om op te geven of een nieuw opslagaccount wordt geïmplementeerd of een bestaand opslagaccount wordt gebruikt, gebruikt u het:
+Wanneer u tijdens de implementatie van al dan niet om een resource te maken beslissen moet, gebruikt u de `condition` element. De waarde voor dit element wordt omgezet in waar of ONWAAR. Wanneer de waarde true is, wordt de resource is gemaakt. Wanneer de waarde false is, wordt de resource is niet gemaakt. De waarde kan alleen worden toegepast op de hele resource.
+
+Meestal gebruikt u deze waarde als u wilt maken van een nieuwe resource of gebruik een bestaande resourcegroep. Bijvoorbeeld, om op te geven of een nieuw opslagaccount wordt geïmplementeerd of een bestaand opslagaccount wordt gebruikt, gebruikt u het:
 
 ```json
 {
@@ -156,7 +158,7 @@ Bij het instellen van de naam, u kunt handmatig maken van een unieke naam of geb
 ```
 
 ### <a name="resource-names-for-identification"></a>Namen van voorbeeldresources voor de identificatie
-Sommige resourcetypen die kunt u de naam, maar hun namen hoeft niet uniek te zijn. U kunt een naam ter identificatie van zowel de bron-context en het resourcetype opgeven voor deze resourcetypen.
+Sommige resourcetypen die kunt u de naam, maar hun namen niet moeten uniek zijn. U kunt een naam ter identificatie van zowel de bron-context en het resourcetype opgeven voor deze resourcetypen.
 
 ```json
 "parameters": {

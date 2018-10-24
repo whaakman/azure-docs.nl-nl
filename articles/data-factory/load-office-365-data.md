@@ -9,22 +9,18 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 10/08/2018
+ms.date: 10/22/2018
 ms.author: jingwang
-ms.openlocfilehash: e2b441e0266ac397226b783c66df4ca54e0b3f71
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 72b2c630c514190d2c63e3dd7faa29b0b3abab19
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48870159"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49944558"
 ---
 # <a name="load-data-from-office-365-by-using-azure-data-factory"></a>Gegevens laden van Office 365 met behulp van Azure Data Factory
 
 Dit artikel laat u het gebruik van de Data Factory _gegevens uit Office 365 laden in Azure Blob-opslag_. U kunt dezelfde stappen om gegevens te kopiëren naar Azure Data Lake Gen1 of Gen2. Raadpleeg [Office 365-connector artikel](connector-office-365.md) voor het kopiëren van gegevens in het algemeen van Office 365.
-
-Bekijk de volgende video voor een 9 minuten durende inleiding en demonstratie over Data Factory verbinding te maken met Office 365-gegevens:
-
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Get-cloud-scale-analytics-of-Office-365-data-with-Azure-Data-Factory/player]
 
 ## <a name="create-a-data-factory"></a>Een gegevensfactory maken
 

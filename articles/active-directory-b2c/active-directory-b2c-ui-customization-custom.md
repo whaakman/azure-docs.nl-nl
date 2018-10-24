@@ -1,23 +1,23 @@
 ---
-title: Een gebruikersinterface aanpassen met behulp van aangepaste beleidsregels in Azure Active Directory B2C | Microsoft Docs
-description: Meer informatie over het aanpassen van een gebruikersinterface (UI) tijdens het gebruik van aangepaste beleidsregels in Azure AD B2C.
+title: Aanpassen van de gebruikersinterface van uw toepassing met behulp van een aangepast beleid in Azure Active Directory B2C | Microsoft Docs
+description: Meer informatie over het aanpassen van een gebruikersinterface met behulp van een aangepast beleid in Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/04/2017
+ms.date: 10/23/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 9908a7cf96c56e414e0a8d7faea0352b60214ea4
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: f36d08a397836f17ec25a61e77cb1db5ce10b9d4
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37446160"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945057"
 ---
-# <a name="azure-active-directory-b2c-configure-ui-customization-in-a-custom-policy"></a>Azure Active Directory B2C: UI-aanpassing in een aangepast beleid configureren
+# <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>De gebruikersinterface van uw toepassing met behulp van een aangepast beleid in Azure Active Directory B2C aanpassen
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
@@ -25,13 +25,13 @@ Nadat u dit artikel hebt voltooid, hebt u een aangepast beleid voor registreren 
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voordat u begint, moet u [aan de slag met aangepaste beleidsregels](active-directory-b2c-get-started-custom.md). U hebt een aangepast beleid werkt voor registratie en aanmelding met lokale accounts.
+Voer de stappen in [aan de slag met aangepaste beleidsregels](active-directory-b2c-get-started-custom.md). U hebt een aangepast beleid werkt voor registratie en aanmelding met lokale accounts.
 
 ## <a name="page-ui-customization"></a>De gebruikersinterface van de pagina aanpassen
 
-U kunt het uiterlijk van een aangepast beleid aanpassen met behulp van de pagina-functie voor het aanpassen van de gebruikersinterface. U kunt ook onderhouden merk en visuele consistentie tussen uw toepassing en Azure AD B2C.
+U kunt het uiterlijk van een aangepast beleid aanpassen met behulp van de pagina-functie voor het aanpassen van de gebruikersinterface. U kunt er ook voor zorgen dat er visuele en merkconsistentie is tussen uw toepassing en Azure AD B2C.
 
-Hoe het werkt als volgt: Azure AD B2C wordt uitgevoerd de code in de browser van uw klant en maakt gebruik van een moderne manier met de naam [Cross-Origin Resource Sharing (CORS)](http://www.w3.org/TR/cors/). U kunt eerst een URL opgeven in het aangepaste beleid met aangepaste HTML-inhoud. Azure AD B2C worden samengevoegd UI-elementen met de HTML-inhoud die wordt geladen vanaf uw URL en klikt u vervolgens de pagina wordt weergegeven aan de klant.
+Hoe het werkt als volgt: Azure AD B2C wordt uitgevoerd de code in de browser van uw klant en maakt gebruik van een moderne manier met de naam [Cross-Origin Resource Sharing (CORS)](http://www.w3.org/TR/cors/). U kunt eerst een URL opgeven in het aangepaste beleid met aangepaste HTML-inhoud. Azure AD B2C combineert elementen van de gebruikersinterface met de HTML-inhoud die vanaf de URL wordt geladen en geeft vervolgens de pagina weer aan de klant.
 
 ## <a name="create-your-html5-content"></a>Uw HTML5 inhoud maken
 
@@ -119,27 +119,44 @@ Valideren dat u klaar bent, door het volgende te doen:
 2. Klik op **aanvraag verzenden**.  
     Als u een foutbericht ontvangt, controleert u of uw [CORS-instellingen](#configure-cors) juist zijn. Mogelijk moet u ook uw browsercache wissen of een InPrivate-browsersessie openen door op Ctrl + Shift + P te drukken.
 
-## <a name="modify-your-sign-up-or-sign-in-custom-policy"></a>Wijzigen van het aangepaste beleid registreren of aanmelden
+## <a name="modify-the-extensions-file"></a>Het extensiebestand wijzigen
 
-Onder de hoogste *\<TrustFrameworkPolicy\>* code, vindt u *\<BuildingBlocks\>* tag. Binnen de *\<BuildingBlocks\>* tags toevoegen een *\<ContentDefinitions\>* tag door te kopiëren van het volgende voorbeeld. Vervang *your_storage_account* met de naam van uw opslagaccount.
+Als u wilt configureren voor UI-aanpassing, kopieert u de **ContentDefinition** en de onderliggende elementen uit het basis-bestand naar het extensiebestand.
 
-  ```xml
-  <BuildingBlocks>
-    <ContentDefinitions>
-      <ContentDefinition Id="api.idpselections">
-        <LoadUri>https://{your_storage_account}.blob.core.windows.net/customize-ui.html</LoadUri>
-        <DataUri>urn:com:microsoft:aad:b2c:elements:idpselection:1.0.0</DataUri>
-      </ContentDefinition>
-    </ContentDefinitions>
-  </BuildingBlocks>
-  ```
+1. Open het bestand basis van uw beleid. Bijvoorbeeld, *TrustFrameworkBase.xml*.
+2. Zoek en kopieer de gehele inhoud van de **ContentDefinitions** element.
+3. Open het extensiebestand. Bijvoorbeeld, *TrustFrameworkExtensions.xml*. Zoek de **BuildingBlocks** element. Als het element niet bestaat, deze toevoegen.
+4. Plak de volledige inhoud van de **ContentDefinitions** element dat u hebt gekopieerd als onderliggende site van de **BuildingBlocks** element. 
+5. Zoek de **ContentDefinition** element bevat `Id="api.signuporsignin"` in het XML-bestand dat u hebt gekopieerd.
+6. Wijzig de waarde van **LoadUri** naar de URL van het HTML-bestand dat u hebt geüpload naar de opslag. Bijvoorbeeld 'https://mystore1.azurewebsites.net/b2c/customize-ui.html.
+    
+    Het aangepaste beleid ziet er als volgt uit:
+
+    ```xml
+    <BuildingBlocks>
+      <ContentDefinitions>
+        <ContentDefinition Id="api.signuporsignin">
+          <LoadUri>https://your-storage-account.blob.core.windows.net/your-container/customize-ui.html</LoadUri>
+          <RecoveryUri>~/common/default_page_error.html</RecoveryUri>
+          <DataUri>urn:com:microsoft:aad:b2c:elements:unifiedssp:1.0.0</DataUri>
+          <Metadata>
+            <Item Key="DisplayName">Signin and Signup</Item>
+          </Metadata>
+        </ContentDefinition>
+      </ContentDefinitions>
+    </BuildingBlocks>
+    ```
+
+7. Sla het extensiebestand.
 
 ## <a name="upload-your-updated-custom-policy"></a>Uploaden van uw bijgewerkte aangepast beleid
 
-1. In de [Azure-portal](https://portal.azure.com), [overschakelen naar de context van uw Azure AD B2C-tenant](active-directory-b2c-navigate-to-b2c-context.md), en open vervolgens de **Azure AD B2C** blade.
+1. Zorg ervoor dat u de map met uw Azure AD B2C-tenant door te klikken op de **map- en abonnementsfilter** in het bovenste menu en de map waarin uw tenant te kiezen.
+3. Kies **alle services** in de linkerbovenhoek van de Azure portal en vervolgens zoeken naar en selecteer **Azure AD B2C**.
+4. Selecteer **Identity-Ervaringsframework**.
 2. Klik op **alle beleidsregels**.
 3. Klik op **beleid uploaden**.
-4. Uploaden `SignUpOrSignin.xml` met de *\<ContentDefinitions\>* tag die u eerder hebt toegevoegd.
+4. Upload het extensiebestand die u eerder hebt gewijzigd.
 
 ## <a name="test-the-custom-policy-by-using-run-now"></a>Het aangepaste beleid testen met behulp van **nu uitvoeren**
 

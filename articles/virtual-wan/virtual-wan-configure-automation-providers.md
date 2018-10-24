@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/04/2018
 ms.author: cherylmc
 Customer intent: As a Virtual WAN software-defined connectivity provider, I want to set up a provisioning environment.
-ms.openlocfilehash: 0ea1b69b788255b1d8d24e17fcc1409d35a4fd36
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: a4664e628af5824b7b197cbdb5c5af602a3a4476
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48814318"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958683"
 ---
 # <a name="virtual-wan-partners"></a>Virtuele WAN-partners
 
@@ -46,7 +46,7 @@ Een dashboard controller/apparaat een vertakking-apparaat (een klant on-premises
 
 ###  <a name="access"></a>Toegangsbeheer
 
-Klanten moeten kunnen juiste toegangsbeheer voor virtuele WAN instellen in de gebruikersinterface van het apparaat. Dit wordt aanbevolen met behulp van een Service-Principal voor Azure. Toegang tot service-principal op basis van bevat het juiste apparaat controller-verificatie als u wilt uploaden vertakking informatie. Zie voor meer informatie, [service-principal maken](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application). Deze functionaliteit is buiten de Azure virtuele WAN aanbieding, wij in de lijst hieronder de gebruikelijke stappen voor het instellen van toegang in Azure, waarna de relevante gegevens in het dashboard voor beheer worden ingevoerde
+Klanten moeten kunnen juiste toegangsbeheer voor virtuele WAN instellen in de gebruikersinterface van het apparaat. Dit wordt aanbevolen met behulp van een Service-Principal voor Azure. Toegang tot service-principal op basis van bevat het juiste apparaat controller-verificatie als u wilt uploaden vertakking informatie. Zie voor meer informatie, [service-principal maken](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application). Deze functionaliteit is buiten de Azure virtuele WAN aanbieding, wij in de lijst hieronder de gebruikelijke stappen voor het instellen van toegang in Azure, waarna de relevante gegevens in het dashboard voor beheer worden ingevoerde
 
 * Maak een Azure Active Directory-toepassing voor uw on-premises apparaatcontroller.
 * Toepassing-ID en verificatiesleutel sleutel ophalen

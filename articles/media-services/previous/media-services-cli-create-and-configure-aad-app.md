@@ -4,23 +4,23 @@ description: In dit onderwerp laat zien hoe de Azure CLI gebruiken voor een Azur
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/17/2017
+ms.date: 10/22/2018
 ms.author: juliako
-ms.openlocfilehash: fcd0ea10bd39f9e7252e114e8d6401a4fe0ecadb
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 33d3454e50cb6eeb0e48b52f01923c8a344620eb
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47096545"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49944121"
 ---
-# <a name="use-azure-cli-to-create-an-aad-app-and-configure-it-to-access-azure-media-services-api"></a>Azure CLI gebruiken voor een AAD-app maken en configureren voor toegang tot Azure Media Services API
+# <a name="use-azure-cli-to-create-an-azure-ad-app-and-configure-it-to-access-azure-media-services-api"></a>Azure CLI gebruiken voor een Azure AD-app maken en configureren voor toegang tot Azure Media Services API
 
 Dit onderwerp ziet u hoe de Azure CLI gebruiken om te maken van een Azure Active Directory (Azure AD)-toepassing en service-principal toegang krijgen tot bronnen van Azure Media Services. 
 

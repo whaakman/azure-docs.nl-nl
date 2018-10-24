@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/14/2018
+ms.date: 10/22/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 1f59f2ce6e3bf8d34ce225aa93da76ad523775e0
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: f299cca57e3eaddd2a9d4868f3bae822392e45a0
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42054044"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49944933"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack"></a>Knooppunt-eenheidacties schalen in Azure Stack
 
@@ -31,7 +31,7 @@ Dit artikel wordt beschreven hoe u om de status van een schaaleenheid en de bijb
 > Alle knooppunt-acties die worden beschreven in dit artikel moeten alleen doel één knooppunt tegelijk.
 
 
-## <a name="view-the-status-of-a-scale-unit-and-its-nodes"></a>De status van een schaaleenheid en de knooppunten ervan weergeven
+## <a name="view-the-node-status"></a>De knooppuntstatus weergeven
 
 In de beheerdersportal voor de, kunt u eenvoudig de status van een schaaleenheid en de bijbehorende knooppunten weergeven.
 
@@ -47,15 +47,15 @@ Hier vindt u de volgende informatie:
 - type van systeem
 - Totaal aantal logische kerngeheugens
 - Totaal geheugen
-- de lijst met afzonderlijke knooppunten en hun status; een van beide **met** of **gestopt**.
+- De lijst met afzonderlijke knooppunten en hun status; een van beide **met** of **gestopt**
 
 ![Schaal eenheid tegel weer met de status actief heeft voor elk knooppunt](media/azure-stack-node-actions/ScaleUnitStatus.PNG)
 
-## <a name="view-information-about-a-scale-unit-node"></a>Informatie weergeven over een scale unit-knooppunt
+## <a name="view-node-information"></a>Knooppunt-informatie weergeven
 
 Als u een afzonderlijke knooppunt selecteert, kunt u de volgende informatie bekijken:
 
-- regionaam
+- Regionaam
 - server-model
 - IP-adres van de BMC (baseboard management controller)
 - operationele status

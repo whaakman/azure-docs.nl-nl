@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/18/2018
 ms.author: danlep
-ms.openlocfilehash: 1347d3aac01c62040c164eee22c7a905b07e8236
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 67f8b49cd2205403dec8843beebb92c9f41f6e37
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48816956"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955793"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Verificatie van oplossingen van Batch-service met Active Directory
 
@@ -374,7 +374,7 @@ De referenties voor de service-principal gebruiken om te openen een **BatchServi
 
 * Zie voor meer informatie over Azure Active Directory, de [documentatie voor Azure Active Directory](https://docs.microsoft.com/azure/active-directory/). Gedetailleerde voorbeelden die laten zien hoe u het gebruik van ADAL zijn beschikbaar in de [Azure-codevoorbeelden](https://azure.microsoft.com/resources/samples/?service=active-directory) bibliotheek.
 
-* Zie voor meer informatie over service-principals, [toepassing en service-principalobjecten in Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md). Zie voor het maken van een service-principal met behulp van de Azure portal, [portal gebruiken voor het maken van Active Directory toepassing en service-principal die toegang hebben tot resources](../resource-group-create-service-principal-portal.md). U kunt ook een service-principal maken met PowerShell of Azure CLI.
+* Zie voor meer informatie over service-principals, [toepassing en service-principalobjecten in Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md). Zie voor het maken van een service-principal met behulp van de Azure portal, [portal gebruiken voor het maken van Active Directory toepassing en service-principal die toegang hebben tot resources](../active-directory/develop/howto-create-service-principal-portal.md). U kunt ook een service-principal maken met PowerShell of Azure CLI.
 
 * Als u wilt verifiëren Batch Management-toepassingen met behulp van Azure AD, Zie [verifiëren Batch Management-oplossingen met Active Directory](batch-aad-auth-management.md).
 

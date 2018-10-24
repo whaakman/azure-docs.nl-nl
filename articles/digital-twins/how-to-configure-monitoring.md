@@ -6,14 +6,14 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 10/22/2018
 ms.author: adgera
-ms.openlocfilehash: 8efb3dc1d312f42e990d4f7a2410ba8f684375c1
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 1c8f1931a29ae9769f7d8ad57a184e3240105a1a
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/23/2018
-ms.locfileid: "49651448"
+ms.locfileid: "49945810"
 ---
 # <a name="how-to-configure-monitoring-in-azure-digital-twins"></a>Bewaking in Azure, digitale dubbels configureren
 
@@ -107,6 +107,9 @@ Zodra uw **Log Analytics** exemplaar is ingericht, mag u krachtige query's naar 
    ![Logboekbeheer][8]
 
 Zie voor meer informatie over krachtige querybewerkingen [aan de slag met query's](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries).
+
+> [!NOTE]
+> Een vertraging van 5 minuten kunnen optreden bij het verzenden van gebeurtenissen naar **Log Analytics** voor de eerste keer.
 
 Azure Log Analytics biedt ook krachtige fout en waarschuwingsmeldingen services, dat kunnen worden weergegeven door te klikken op **vaststellen en oplossen van problemen met**:
 

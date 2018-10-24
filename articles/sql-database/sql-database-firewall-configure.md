@@ -12,19 +12,22 @@ ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/19/2018
-ms.openlocfilehash: 18cd0ea4b6804edc11fc4f57c4327ef9d9a6f51e
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 6de91e28ebced1d41e128cec1180839e4b353020
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49466730"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945464"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-firewall-rules"></a>Azure SQL-Database en SQL Data Warehouse firewall-regels
 
 Microsoft Azure [SQL-Database](sql-database-technical-overview.md) en [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) een relationele databaseservice voor Azure en andere toepassingen op basis van het Internet. Om uw gegevens te beschermen, verhinderen firewalls alle toegang tot de databaseserver totdat u opgeeft welke computers zijn gemachtigd. De firewall verleent toegang tot databases op basis van het IP-adres waar de aanvraag vandaan komt.
 
 > [!NOTE]
-> Dit onderwerp is van toepassing op Azure SQL-servers en op SQL Database- en SQL Data Warehouse-databases die op deze Azure SQL-servers worden gemaakt. Voor het gemak wordt de term 'SQL Database' gebruikt wanneer er wordt verwezen naar zowel SQL Database als SQL Data Warehouse.
+> In dit artikel is van toepassing op Azure SQL-server en op zowel SQL Database en SQL Data Warehouse-databases die zijn gemaakt op de Azure SQL-server. Voor het gemak wordt de term 'SQL Database' gebruikt wanneer er wordt verwezen naar zowel SQL Database als SQL Data Warehouse. 
+
+> [!IMPORTANT]
+> In dit artikel biedt *niet* zijn van toepassing op **Azure SQL Database Managed Instance**. Raadpleeg het volgende artikel over [verbinding te maken met een beheerd exemplaar](sql-database-managed-instance-connect-app.md) voor meer informatie over welke netwerkconfiguratie is vereist.
 
 ## <a name="virtual-network-rules-as-alternatives-to-ip-rules"></a>Regels voor virtueel netwerk als alternatief voor IP-regels
 

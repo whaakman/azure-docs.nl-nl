@@ -5,14 +5,14 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 10/23/2018
 ms.author: cherylmc
-ms.openlocfilehash: 101dec93713983e5f2082a59103288fcda346740
-ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
+ms.openlocfilehash: 6b4cce641556a290111db530c0089e4da0a351c8
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47419301"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958417"
 ---
 # <a name="expressroute-faq"></a>Veelgestelde vragen ExpressRoute
 
@@ -246,7 +246,7 @@ U kunt de bandbreedte van het ExpressRoute-circuit met de REST API of PowerShell
 ExpressRoute premium is een verzameling van de volgende functies:
 
 * Verhoogd routering tabellimiet van 4000 routes tot 10.000 routes voor persoonlijke peering.
-* Een hoger aantal vnet's die kunnen worden verbonden met het ExpressRoute-circuit (de standaardwaarde is 10). Zie voor meer informatie de [limieten voor ExpressRoute](#limits) tabel.
+* Een hoger aantal vnet's en globale bereiken ExpressRoute-verbindingen die kunnen worden ingeschakeld op een ExpressRoute-circuit (de standaardwaarde is 10). Zie voor meer informatie de [limieten voor ExpressRoute](#limits) tabel.
 * Verbinding met Office 365 en Dynamics 365.
 * Globale connectiviteit via de Microsoft core-netwerk. U kunt nu een VNet in een geopolitieke regio met een ExpressRoute-circuit in een andere regio koppelen.<br>
     **Voorbeelden:**
@@ -255,9 +255,9 @@ ExpressRoute premium is een verzameling van de volgende functies:
     *  Op de Microsoft-peering, worden de voorvoegsels van andere geopolitieke regio's worden geadverteerd, zodat u verbinding, bijvoorbeeld SQL Azure in Europa (West) vanuit een circuit in Silicon Valley maken kunt.
 
 
-### <a name="limits"></a>Het aantal vnet's kan ik koppelen aan een ExpressRoute-circuit als ik ExpressRoute premium ingeschakeld?
+### <a name="limits"></a>Het aantal verbindingen voor vnet's en ExpressRoute globaal bereik kan ik inschakelen op een ExpressRoute-circuit als ik ExpressRoute premium ingeschakeld?
 
-De volgende tabellen tonen de limieten voor ExpressRoute en het aantal vnet's per ExpressRoute-circuit:
+De volgende tabellen tonen de limieten voor ExpressRoute en het aantal vnet's en globale bereiken ExpressRoute-verbindingen per ExpressRoute-circuit:
 
 [!INCLUDE [ExpressRoute limits](../../includes/expressroute-limits.md)]
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/06/2018
 ms.author: sethm
-ms.openlocfilehash: 65fa9593b35af45ee9b8568bac5e4886909314e1
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 96137b95f46f24bca6a4ee6a39d93a490a03c431
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44092540"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958445"
 ---
 # <a name="provide-applications-access-to-azure-stack"></a>Toepassingen toegang geven tot Azure Stack
 
@@ -40,7 +40,7 @@ Afhankelijk van hoe u Azure Stack hebt geïmplementeerd, begint u met een servic
 
 ## <a name="create-service-principal-for-azure-ad"></a>Service-principal maken voor Azure AD
 
-Als u Azure Stack met Azure AD als de identiteitsarchief hebt geïmplementeerd, kunt u service-principals net zoals u zou voor Azure doen maken. Deze sectie leest u hoe u de stappen via de portal uitvoert. Controleer of u hebt de [vereist Azure AD-machtigingen](../azure-resource-manager/resource-group-create-service-principal-portal.md#required-permissions) voordat u begint.
+Als u Azure Stack met Azure AD als de identiteitsarchief hebt geïmplementeerd, kunt u service-principals net zoals u zou voor Azure doen maken. Deze sectie leest u hoe u de stappen via de portal uitvoert. Controleer of u hebt de [vereist Azure AD-machtigingen](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions) voordat u begint.
 
 ### <a name="create-service-principal"></a>Een service-principal maken
 In deze sectie maakt u een toepassing (service-principal) in Azure AD die staat voor uw toepassing.

@@ -6,14 +6,14 @@ manager: deshner
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/15/2018
+ms.date: 10/22/2018
 ms.author: stefanmsft
-ms.openlocfilehash: faf4df8085c4a4f014caf1c6e276800dcf480ebf
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 852b2d35ae605f5529d162d52655fd258ca07c5a
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/23/2018
-ms.locfileid: "49651394"
+ms.locfileid: "49946093"
 ---
 # <a name="how-to-debug-issues-with-user-defined-functions-in-azure-digital-twins"></a>Fouten opsporen in problemen met de gebruiker gedefinieerde functies in Azure, digitale dubbels
 
@@ -198,3 +198,7 @@ Als u diagnostische instellingen inschakelen, kunt u deze algemene uitzonderinge
 1. **Gegevens niet gevonden**: als de gebruiker gedefinieerde functie probeert te krijgen tot metagegevens die niet bestaat, zal de bewerking mislukken.
 
 1. **Niet gemachtigd**: als de gebruiker gedefinieerde functie beschikt niet over een roltoewijzing instellen of beschikt niet over voldoende machtigingen voor toegang tot bepaalde metagegevens van de topologie, zal de bewerking mislukken.
+
+## <a name="next-steps"></a>Volgende stappen
+
+Meer informatie over het inschakelen [bewaking en logboeken](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) in digitale dubbels van Azure.

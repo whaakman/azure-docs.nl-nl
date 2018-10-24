@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2018
 ms.author: sujayt
-ms.openlocfilehash: 86d6c77dab817cf755c34bdd699ee1158e852f37
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 040ace1eab4062c011ed82a59e7f5bfb789c256b
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42054645"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945736"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Problemen met Azure-naar-Azure-VM-replicatie oplossen
 
@@ -158,8 +158,8 @@ Voor Site Recovery-replicatie met werk, uitgaande connectiviteit voor bepaalde U
 
 - **Resolutie**
    - Als u firewallproxy gebruikt voor het beheren van uitgaande netwerkverbindingen op de virtuele machine, zorg ervoor dat de vereiste URL's of IP-datacenterbereiken in de whitelist opgenomen. Zie voor meer informatie, [firewall-proxy richtlijnen](https://aka.ms/a2a-firewall-proxy-guidance).
-   - Als u NSG-regels voor het beheren van uitgaande netwerkverbindingen op de virtuele machine gebruikt, zorg ervoor dat de vereiste datacenter-IP-adresbereiken in de whitelist opgenomen. Zie voor meer informatie, [network security group richtlijnen](https://aka.ms/a2a-nsg-guidance).
-   - Aan lijst met geaccepteerde [de vereiste URL's](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) of de [vereiste IP-adresbereiken](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges), volg de stappen in de [netwerken document met richtlijnen](site-recovery-azure-to-azure-networking-guidance.md).
+   - Als u NSG-regels voor het beheren van uitgaande netwerkverbindingen op de virtuele machine gebruikt, zorg ervoor dat de vereiste datacenter-IP-adresbereiken in de whitelist opgenomen. Zie voor meer informatie, [network security group richtlijnen](azure-to-azure-about-networking.md).
+   - Aan lijst met geaccepteerde [de vereiste URL's](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) of de [vereiste IP-adresbereiken](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges), volg de stappen in de [netwerken document met richtlijnen](azure-to-azure-about-networking.md).
 
 ### <a name="issue-2-site-recovery-configuration-failed-151072"></a>Probleem 2: De configuratie van Site Recovery is mislukt (151072)
 - **Mogelijke oorzaak** </br>

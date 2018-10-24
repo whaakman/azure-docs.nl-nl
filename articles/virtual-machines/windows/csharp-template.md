@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: zarhoads
-ms.openlocfilehash: a91d8452d7b85d3e7ff21dc523429be42d34336b
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: f3d83fa8ba5a78c7aacc7014e9ec50fb447bb1c6
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49468888"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49953685"
 ---
 # <a name="deploy-an-azure-virtual-machine-using-c-and-a-resource-manager-template"></a>Een Azure-Machine met behulp van C# en Resource Manager-sjabloon implementeren
 Dit artikel ziet u hoe u een Azure Resource Manager-sjabloon met C# implementeren. De sjabloon die u maakt implementeert een enkele virtuele machine met Windows Server in een nieuw virtueel netwerk met één subnet.
@@ -185,7 +185,7 @@ Waarden voor de resourceparameters die zijn gedefinieerd in de sjabloon wilt opg
 
 ### <a name="create-the-authorization-file"></a>Het bestand met autorisatieregels maken
 
-Voordat u een sjabloon implementeren kunt, moet u ervoor dat u toegang tot hebt een [Active Directory service-principal](../../resource-group-authenticate-service-principal.md). U ophalen een token voor het verifiëren van aanvragen naar Azure Resource Manager uit de service-principal. U moet ook de toepassings-ID, de verificatiesleutel en de tenant-ID die u nodig hebt in het bestand met autorisatieregels vastleggen.
+Voordat u een sjabloon implementeren kunt, moet u ervoor dat u toegang tot hebt een [Active Directory service-principal](../../active-directory/develop/howto-authenticate-service-principal-powershell.md). U ophalen een token voor het verifiëren van aanvragen naar Azure Resource Manager uit de service-principal. U moet ook de toepassings-ID, de verificatiesleutel en de tenant-ID die u nodig hebt in het bestand met autorisatieregels vastleggen.
 
 1. Klik in Solution Explorer met de rechtermuisknop op *myDotnetProject* > **toevoegen** > **Nieuw Item**, en selecteer vervolgens **tekstbestand** in *Visual C#-Items*. Noem het bestand *azureauth.properties*, en klik vervolgens op **toevoegen**.
 2. Voeg deze eigenschappen autorisatie:

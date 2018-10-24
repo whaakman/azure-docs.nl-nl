@@ -12,21 +12,21 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/30/2018
+ms.date: 10/22/2018
 ms.author: tomfitz
-ms.openlocfilehash: 1b982bddc951e710ba3bfa5fe8621d6595b95a52
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 28ef94113c76cd70e12a9682e1c523afc3f0a233
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49405341"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945872"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Informatie over de structuur en de syntaxis van Azure Resource Manager-sjablonen
 Dit artikel beschrijft de structuur van een Azure Resource Manager-sjabloon. Deze geeft de verschillende secties van een sjabloon en de eigenschappen die beschikbaar in deze secties zijn. De sjabloon bestaat uit JSON en uitdrukkingen die u gebruiken kunt om waarden voor uw implementatie samen te stellen. Zie voor een stapsgewijze zelfstudie over het maken van een sjabloon, [uw eerste Azure Resource Manager-sjabloon maken](resource-manager-create-first-template.md).
 
 ## <a name="quickstarts-and-tutorials"></a>Snelstartgidsen en zelfstudies
 
-Gebruik de volgende snelstartgidsen en zelfstudies voor meer informatie over het ontwikkelen van resource manager-sjablonen:
+Gebruik de volgende snelstartgidsen en zelfstudies voor meer informatie over het ontwikkelen van Resource Manager-sjablonen:
 
 - Snelstartgidsen
 
@@ -304,7 +304,7 @@ In de sectie resources definieert u de resources die worden geïmplementeerd of 
 ],
 ```
 
-Zie voor meer informatie, [bronnensectie van Azure Resource Manager-sjablonen](resource-manager-templates-resources.md).
+Voorwaardelijk opnemen of uitsluiten van een resource tijdens de implementatie, gebruikt u de [voorwaarde element](resource-manager-templates-resources.md#condition). Zie voor meer informatie over de sectie met resources [bronnensectie van Azure Resource Manager-sjablonen](resource-manager-templates-resources.md).
 
 ## <a name="outputs"></a>Uitvoer
 In de sectie uitvoer geeft u waarden die zijn geretourneerd na de implementatie. U kunt bijvoorbeeld de URI voor toegang tot een geïmplementeerde resource retourneren.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: 724603fdb80e6fce7d5b8756655d23a6c32d5558
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 4305afff1e35e9e05f1b2314f8fb9d5a96383e9f
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49405460"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955640"
 ---
 # <a name="azure-operational-security-overview"></a>Overzicht van Azure operationele beveiliging
 [Azure operational security](https://docs.microsoft.com/azure/security/azure-operational-security) verwijst naar de services, besturingselementen en functies die beschikbaar zijn voor gebruikers voor het beveiligen van hun gegevens, toepassingen en andere items in Microsoft Azure. Er is een structuur waarin de kennis opgedaan uit een verscheidenheid aan functies die uniek voor Microsoft zijn. Deze mogelijkheden omvatten de Microsoft Security Development Lifecycle (SDL), het programma Microsoft Security Response Center en diep besef van het landschap van cyberveiligheidsbedreigingen.
@@ -30,7 +30,7 @@ IT operations-teams is verantwoordelijk voor het beheren van datacenter-infrastr
 [Microsoft Log Analytics](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) is een cloudgebaseerde IT-beheeroplossing waarmee u beheren kunt en beveiligen van uw on-premises en cloudinfrastructuur. De kernfunctionaliteit wordt geleverd door de volgende services die worden uitgevoerd in Azure. Azure bevat meerdere services die u helpen beheren en beveiligen van uw on-premises en cloudinfrastructuur. Elke service biedt een specifieke beheerfunctie. U kunt services voor het bereiken van verschillende beheerscenario combineren. 
 
 ### <a name="azure-monitor"></a>Azure Monitor
-[Azure Monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/overview) verzamelt gegevens van beheerde sourcesa in centrale gegevensopslag. Deze gegevens kunnen bevatten gebeurtenissen, prestatiegegevens of aangepaste gegevens die worden geleverd via de API. Nadat de gegevens zijn verzameld, is het beschikbaar voor waarschuwingen, analyse en export. 
+[Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) verzamelt gegevens van beheerde sourcesa in centrale gegevensopslag. Deze gegevens kunnen bevatten gebeurtenissen, prestatiegegevens of aangepaste gegevens die worden geleverd via de API. Nadat de gegevens zijn verzameld, is het beschikbaar voor waarschuwingen, analyse en export. 
 
 U kunt gegevens uit een groot aantal bronnen consolideren en gegevens uit uw Azure-services combineren met uw bestaande on-premises omgeving. Log Analytics ook duidelijk het verzamelen van de gegevens worden gescheiden van de actie wordt uitgevoerd op die gegevens, zodat alle acties beschikbaar voor alle soorten gegevens zijn.
 
@@ -158,5 +158,5 @@ Goed ontwikkelde DevOps-adepten vast aantal van de volgende procedures. Deze pro
 Zie voor meer informatie over de oplossing beveiliging en controle, de volgende artikelen:
 
 - [Beveiliging en naleving](https://www.microsoft.com/cloud-platform/security-and-compliance)
-- [Azure Security Center](https://docs.microsoft.com/en-us/azure/security-center/security-center-intro)
-- [Azure Monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/overview)
+- [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)
+- [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview)

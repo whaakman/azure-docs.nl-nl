@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: mabrigg
-ms.openlocfilehash: 0cd8d309cfbf72a05c83c2a536d754e9cbc6e008
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: a9849b5c96b38fbfe6fa8ef4a69a1a2d4d6e6f2f
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44022656"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958071"
 ---
 # <a name="supported-metrics-with-azure-monitor-on-azure-stack"></a>Ondersteunde metrische gegevens met Azure Monitor in Azure Stack
 
 *Is van toepassing op: geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
 
-U kunt uw metrische gegevens ophalen uit Azure monitor in Azure Stack in hetzelfde als de globale Azure. U kunt uw metingen in de portal, de REST-API ophalen of query's voor uitvoert met PowerShell of CLI.
+U kunt uw metrische gegevens ophalen uit Azure monitor in Azure Stack in hetzelfde als de globale Azure. U kunt uw metingen maken in de portal, de REST-API ophalen of query's voor uitvoert met PowerShell of CLI.
 
 De volgende tabellen worden de metrische gegevens beschikbaar met metrische gegevens van Azure Monitor-pijplijn in Azure Stack. Als u wilt opvragen en toegang tot deze metrische gegevens, moet u de **2018-01-01** api-versie van de API-profiel. Zie voor meer informatie over API-profielen en Azure Stack [beheren API-versieprofielen in Azure Stack](azure-stack-version-profiles.md).
 
@@ -40,7 +40,7 @@ De volgende tabellen worden de metrische gegevens beschikbaar met metrische gege
 |----------------------|------------------------|--------------|------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------|
 | UsedCapacity | Gebruikte capaciteit | Bytes | Gemiddeld | Gebruikte capaciteit van account | Er zijn geen dimensies |
 | Transacties | Transacties | Count | Totaal | Het aantal aanvragen voor een opslagservice of de opgegeven API-bewerking. Dit is inclusief geslaagde en mislukte aanvragen evenals aanvragen die tot fouten. Gebruik de ResponseType-dimensie voor het aantal verschillende type reactie. | De ResponseType, GeoType, ApiName |
-| Binnenkomend | Binnenkomend | Bytes | Totaal | De hoeveelheid inkomende gegevens in bytes. Hieronder vallen de inkomende gegevens van een externe client in Azure Storage evenals de inkomende gegevens binnen Azure. | GeoType, ApiName |
+| Inkomend verkeer | Inkomend verkeer | Bytes | Totaal | De hoeveelheid inkomende gegevens in bytes. Hieronder vallen de inkomende gegevens van een externe client in Azure Storage evenals de inkomende gegevens binnen Azure. | GeoType, ApiName |
 | Uitgaand verkeer | Uitgaand verkeer | Bytes | Totaal | De hoeveelheid uitgaande gegevens in bytes. Hieronder vallen de uitgaande gegevens van een externe client in Azure Storage evenals de uitgaande gegevens binnen Azure. Daarom geeft deze hoeveelheid niet de factureerbare uitgaande gegevens weer. | GeoType, ApiName |
 | SuccessServerLatency | Geslaagde serverlatentie | Milliseconden | Gemiddeld | De gemiddelde latentie die wordt gebruikt door Azure Storage voor het verwerken van een aanvraag is gelukt, in milliseconden. Deze waarde omvat niet de netwerklatentie die in AverageE2ELatency is opgegeven. | GeoType, ApiName |
 | SuccessE2ELatency | Geslaagde E2E-latentie | Milliseconden | Gemiddeld | De gemiddelde end-to-end latentie van geslaagde aanvragen voor een opslagservice of de opgegeven API-bewerking, in milliseconden. Deze waarde bevat de vereiste verwerkingstijd in Azure Storage die nodig is om de aanvraag te lezen, het antwoord te verzenden en bevestiging van het antwoord te ontvangen. | GeoType, ApiName |
@@ -54,7 +54,7 @@ De volgende tabellen worden de metrische gegevens beschikbaar met metrische gege
 | BlobCount | Aantal blobs | Count | Totaal | Het aantal blobs in de Blob-service van het opslagaccount. | BlobType |
 | ContainerCount | Aantal blobcontainers | Count | Gemiddeld | Het aantal containers in de Blob-service van het opslagaccount. | Er zijn geen dimensies |
 | Transacties | Transacties | Count | Totaal | Het aantal aanvragen voor een opslagservice of de opgegeven API-bewerking. Dit is inclusief geslaagde en mislukte aanvragen evenals aanvragen die tot fouten. Gebruik de ResponseType-dimensie voor het aantal verschillende type reactie. | De ResponseType, GeoType, ApiName |
-| Binnenkomend | Binnenkomend | Bytes | Totaal | De hoeveelheid inkomende gegevens in bytes. Hieronder vallen de inkomende gegevens van een externe client in Azure Storage evenals de inkomende gegevens binnen Azure. | GeoType, ApiName |
+| Inkomend verkeer | Inkomend verkeer | Bytes | Totaal | De hoeveelheid inkomende gegevens in bytes. Hieronder vallen de inkomende gegevens van een externe client in Azure Storage evenals de inkomende gegevens binnen Azure. | GeoType, ApiName |
 | Uitgaand verkeer | Uitgaand verkeer | Bytes | Totaal | De hoeveelheid uitgaande gegevens in bytes. Hieronder vallen de uitgaande gegevens van een externe client in Azure Storage evenals de uitgaande gegevens binnen Azure. Daarom geeft deze hoeveelheid niet de factureerbare uitgaande gegevens weer. | GeoType, ApiName |
 | SuccessServerLatency | Geslaagde serverlatentie | Milliseconden | Gemiddeld | De gemiddelde latentie die wordt gebruikt door Azure Storage voor het verwerken van een aanvraag is gelukt, in milliseconden. Deze waarde omvat niet de netwerklatentie die in AverageE2ELatency is opgegeven. | GeoType, ApiName |
 | SuccessE2ELatency | Geslaagde E2E-latentie | Milliseconden | Gemiddeld | De gemiddelde end-to-end latentie van geslaagde aanvragen voor een opslagservice of de opgegeven API-bewerking, in milliseconden. Deze waarde bevat de vereiste verwerkingstijd in Azure Storage die nodig is om de aanvraag te lezen, het antwoord te verzenden en bevestiging van het antwoord te ontvangen. | GeoType, ApiName |
@@ -68,7 +68,7 @@ De volgende tabellen worden de metrische gegevens beschikbaar met metrische gege
 | TableCount | Aantal tabellen | Count | Gemiddeld | Het aantal tabellen in de Table-service van het opslagaccount. | Er zijn geen dimensies |
 | TableEntityCount | Aantal tabelentiteiten | Count | Gemiddeld | Het aantal tabelentiteiten in de Table-service van het opslagaccount. | Er zijn geen dimensies |
 | Transacties | Transacties | Count | Totaal | Het aantal aanvragen voor een opslagservice of de opgegeven API-bewerking. Dit is inclusief geslaagde en mislukte aanvragen evenals aanvragen die tot fouten. Gebruik de ResponseType-dimensie voor het aantal verschillende type reactie. | De ResponseType, GeoType, ApiName |
-| Binnenkomend | Binnenkomend | Bytes | Totaal | De hoeveelheid inkomende gegevens in bytes. Hieronder vallen de inkomende gegevens van een externe client in Azure Storage evenals de inkomende gegevens binnen Azure. | GeoType, ApiName |
+| Inkomend verkeer | Inkomend verkeer | Bytes | Totaal | De hoeveelheid inkomende gegevens in bytes. Hieronder vallen de inkomende gegevens van een externe client in Azure Storage evenals de inkomende gegevens binnen Azure. | GeoType, ApiName |
 | Uitgaand verkeer | Uitgaand verkeer | Bytes | Totaal | De hoeveelheid uitgaande gegevens in bytes. Hieronder vallen de uitgaande gegevens van een externe client in Azure Storage evenals de uitgaande gegevens binnen Azure. Daarom geeft deze hoeveelheid niet de factureerbare uitgaande gegevens weer. | GeoType, ApiName |
 | SuccessServerLatency | Geslaagde serverlatentie | Milliseconden | Gemiddeld | De gemiddelde latentie die wordt gebruikt door Azure Storage voor het verwerken van een aanvraag is gelukt, in milliseconden. Deze waarde omvat niet de netwerklatentie die in AverageE2ELatency is opgegeven. | GeoType, ApiName |
 | SuccessE2ELatency | Geslaagde E2E-latentie | Milliseconden | Gemiddeld | De gemiddelde end-to-end latentie van geslaagde aanvragen voor een opslagservice of de opgegeven API-bewerking, in milliseconden. Deze waarde bevat de vereiste verwerkingstijd in Azure Storage die nodig is om de aanvraag te lezen, het antwoord te verzenden en bevestiging van het antwoord te ontvangen. | GeoType, ApiName |
@@ -82,7 +82,7 @@ De volgende tabellen worden de metrische gegevens beschikbaar met metrische gege
 | QueueCount | Aantal wachtrijen | Count | Gemiddeld | Het aantal wachtrijen in de Queue-service van het opslagaccount. | Er zijn geen dimensies |
 | QueueMessageCount | Aantal wachtrijberichten | Count | Gemiddeld | Het geschatte aantal wachtrijberichten in de Queue-service van het opslagaccount. | Er zijn geen dimensies |
 | Transacties | Transacties | Count | Totaal | Het aantal aanvragen voor een opslagservice of de opgegeven API-bewerking. Dit is inclusief geslaagde en mislukte aanvragen evenals aanvragen die tot fouten. Gebruik de ResponseType-dimensie voor het aantal verschillende type reactie. | De ResponseType, GeoType, ApiName |
-| Binnenkomend | Binnenkomend | Bytes | Totaal | De hoeveelheid inkomende gegevens in bytes. Hieronder vallen de inkomende gegevens van een externe client in Azure Storage evenals de inkomende gegevens binnen Azure. | GeoType, ApiName |
+| Inkomend verkeer | Inkomend verkeer | Bytes | Totaal | De hoeveelheid inkomende gegevens in bytes. Hieronder vallen de inkomende gegevens van een externe client in Azure Storage evenals de inkomende gegevens binnen Azure. | GeoType, ApiName |
 | Uitgaand verkeer | Uitgaand verkeer | Bytes | Totaal | De hoeveelheid uitgaande gegevens in bytes. Hieronder vallen de uitgaande gegevens van een externe client in Azure Storage evenals de uitgaande gegevens binnen Azure. Daarom geeft deze hoeveelheid niet de factureerbare uitgaande gegevens weer. | GeoType, ApiName |
 | SuccessServerLatency | Geslaagde serverlatentie | Milliseconden | Gemiddeld | De gemiddelde latentie die wordt gebruikt door Azure Storage voor het verwerken van een aanvraag is gelukt, in milliseconden. Deze waarde omvat niet de netwerklatentie die in AverageE2ELatency is opgegeven. | GeoType, ApiName |
 | SuccessE2ELatency | Geslaagde E2E-latentie | Milliseconden | Gemiddeld | De gemiddelde end-to-end latentie van geslaagde aanvragen voor een opslagservice of de opgegeven API-bewerking, in milliseconden. Deze waarde bevat de vereiste verwerkingstijd in Azure Storage die nodig is om de aanvraag te lezen, het antwoord te verzenden en bevestiging van het antwoord te ontvangen. | GeoType, ApiName |

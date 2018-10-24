@@ -8,12 +8,12 @@ ms.date: 10/17/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: b8c6b82af1a71f5e2df7dd555c7ceb91b8ccd292
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 33c2bd48084c3d0e73fe2f4a1ce922e7a66b944f
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394541"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955412"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Fouten met runbooks oplossen
 
@@ -122,7 +122,7 @@ Als u MFA op uw Azure-account hebt, kunt u een Azure Active Directory-gebruiker 
 
 #### <a name="resolution"></a>Oplossing
 
-Raadpleeg voor het gebruik van een certificaat met de klassieke Azure-implementatie-cmdlets voor model, [maken en toevoegen van een certificaat voor het beheren van Azure-services.](http://blogs.technet.com/b/orchestrator/archive/2014/04/11/managing-azure-services-with-the-microsoft-azure-automation-preview-service.aspx) Voor het gebruik van een service-principal met Azure Resource Manager-cmdlets, raadpleegt u [service-principal met behulp van Azure portal maken](../../azure-resource-manager/resource-group-create-service-principal-portal.md) en [verifiëren van een service-principal met Azure Resource Manager.](../../azure-resource-manager/resource-group-authenticate-service-principal.md)
+Raadpleeg voor het gebruik van een certificaat met de klassieke Azure-implementatie-cmdlets voor model, [maken en toevoegen van een certificaat voor het beheren van Azure-services.](http://blogs.technet.com/b/orchestrator/archive/2014/04/11/managing-azure-services-with-the-microsoft-azure-automation-preview-service.aspx) Voor het gebruik van een service-principal met Azure Resource Manager-cmdlets, raadpleegt u [service-principal met behulp van Azure portal maken](../../active-directory/develop/howto-create-service-principal-portal.md) en [verifiëren van een service-principal met Azure Resource Manager.](../../active-directory/develop/howto-authenticate-service-principal-powershell.md)
 
 ## <a name="common-errors-when-working-with-runbooks"></a>Veelvoorkomende fouten bij het werken met runbooks
 

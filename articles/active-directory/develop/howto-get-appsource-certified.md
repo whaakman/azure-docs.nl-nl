@@ -17,12 +17,12 @@ ms.date: 08/21/2018
 ms.author: celested
 ms.reviewer: andret
 ms.custom: aaddev
-ms.openlocfilehash: a2876ccdfe073a3c642304a1381faf77ae4a7d90
-ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
+ms.openlocfilehash: 603da0add9efba4e68088bf0eb6ab919ec9988e2
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42054125"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955484"
 ---
 # <a name="how-to-get-appsource-certified-for-azure-active-directory"></a>Over het verkrijgen van AppSource-gecertificeerd voor Azure Active Directory
 
@@ -32,7 +32,7 @@ Als u een zelfstandige SaaS-toepassing op AppSource, moet uw toepassing accepter
 
 ## <a name="guides-and-code-samples"></a>Handleidingen en codevoorbeelden
 
-Als u wilt meer informatie over het integreren van uw toepassing met Azure AD met behulp van Open ID verbinden, volgt u onze richtlijnen en codevoorbeelden in de [ontwikkelaarsgids van Azure Active Directory](azure-ad-developers-guide.md#get-started "aan de slag met Azure AD ontwikkelaars").
+Als u wilt meer informatie over het integreren van uw toepassing met Azure AD met behulp van Open ID verbinden, volgt u onze richtlijnen en codevoorbeelden in de [ontwikkelaarsgids van Azure Active Directory](v1-overview.md#get-started "aan de slag met Azure AD ontwikkelaars").
 
 ## <a name="multi-tenant-applications"></a>Toepassingen met meerdere tenants
 
@@ -127,9 +127,9 @@ Gebruik de volgende sectie met opmerkingen uw feedback en help ons verfijnen en 
 <!--Reference style links -->
 [AAD-Auth-Scenarios]:authentication-scenarios.md
 [AAD-Auth-Scenarios-Browser-To-WebApp]:authentication-scenarios.md#web-browser-to-web-application
-[AAD-Dev-Guide]: azure-ad-developers-guide.md
+[AAD-Dev-Guide]: v1-overview.md
 [AAD-Howto-Multitenant-Overview]: howto-convert-app-to-be-multi-tenant.md
-[AAD-QuickStart-Web-Apps]: azure-ad-developers-guide.md#get-started
+[AAD-QuickStart-Web-Apps]: v1-overview.md#get-started
 
 
 <!--Image references-->

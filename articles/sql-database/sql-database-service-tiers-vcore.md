@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: sashan, moslake
 manager: craigg
-ms.date: 10/17/2018
-ms.openlocfilehash: ddb9e36775a815c07d40cecd61360c3e5b9c2611
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.date: 10/22/2018
+ms.openlocfilehash: c74d71f0ca8faec587cb36a789ed0328f9b24711
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49378768"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954690"
 ---
 # <a name="vcore-service-tiers-azure-hybrid-benefit-and-migration"></a>vCore-servicelaag, Azure Hybrid Benefit en migratie
 
@@ -48,6 +48,9 @@ De volgende tabel kunt u weten wat de verschillen tussen deze twee lagen:
 |Back-ups|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7 en 35 dagen (7 dagen standaard)|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7 en 35 dagen (7 dagen standaard)|back-up op basis van een momentopname in Azure, externe opslag en herstelt u deze momentopnamen gebruiken voor snel herstel. Back-ups zijn onmiddellijk en niet van invloed op de i/o-prestaties van de rekencapaciteit. Herstelbewerkingen zijn zeer snel en niet een grootte van gegevensbewerking (waarbij minuten in plaats van uren of dagen).|
 |In het geheugen|Niet ondersteund|Ondersteund|Niet ondersteund|
 |||
+
+> [!NOTE]
+> U krijgt een gratis Azure SQL-database op de basis-servicelaag in combinatie met een gratis Azure-account om Azure te verkennen. Zie voor meer informatie, [maken van een beheerde clouddatabase met uw gratis Azure-account](https://azure.microsoft.com/free/services/sql-database/).
 
 - Zie voor meer informatie, [vCore resourcelimieten in één database](sql-database-vcore-resource-limits-single-databases.md) en [resourcelimieten vCore in het beheerde exemplaar](sql-database-managed-instance.md#vcore-based-purchasing-model).
 - Zie voor meer informatie over de Servicelagen voor algemeen gebruik en bedrijfskritiek [Servicelagen voor algemeen gebruik en bedrijfskritiek](sql-database-service-tiers-general-purpose-business-critical.md).

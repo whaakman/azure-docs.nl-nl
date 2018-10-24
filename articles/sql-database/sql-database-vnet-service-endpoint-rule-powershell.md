@@ -12,19 +12,19 @@ ms.author: moslake
 ms.reviewer: genemi, vanto
 manager: craigg
 ms.date: 10/05/2018
-ms.openlocfilehash: 4540e5a0381bfbae65e4679878ec549f3169caf5
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: b841f985c758cb1e354d3c3537c532a253e81d92
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49467239"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945923"
 ---
 # <a name="powershell--create-a-virtual-service-endpoint-and-vnet-rule-for-sql"></a>PowerShell: Een virtuele Service-eindpunt en de VNet-regel maken voor SQL
 
 Zowel Azure [SQL-Database](sql-database-technical-overview.md) en [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) bieden ondersteuning voor virtuele-Service-eindpunten.
 
 > [!NOTE]
-> Dit onderwerp is van toepassing op Azure SQL-servers en op SQL Database- en SQL Data Warehouse-databases die op deze Azure SQL-servers worden gemaakt. Voor het gemak wordt de term 'SQL Database' gebruikt wanneer er wordt verwezen naar zowel SQL Database als SQL Data Warehouse.
+> In dit artikel is van toepassing op Azure SQL-server en op zowel SQL Database en SQL Data Warehouse-databases die zijn gemaakt op de Azure SQL-server. Voor het gemak wordt de term 'SQL Database' gebruikt wanneer er wordt verwezen naar zowel SQL Database als SQL Data Warehouse. In dit artikel biedt *niet* zijn van toepassing op **Azure SQL Database Managed Instance** als u een service-eindpunt dat is gekoppeld aan een Managed Instance-subnet geen hebt.
 
 In dit artikel biedt en legt uit een PowerShell-script dat de volgende acties uitgevoerd:
 

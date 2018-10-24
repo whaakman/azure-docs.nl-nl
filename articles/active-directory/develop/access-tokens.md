@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/02/2018
+ms.date: 10/23/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: f184c18e97144f7efb30d61ebd024344510f3f5c
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 3a3768e796284895b25eb62d00a58b20ca811540
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078763"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958938"
 ---
 # <a name="azure-active-directory-access-tokens"></a>Azure Active Directory-toegangstokens
 
@@ -136,7 +136,7 @@ Microsoft-identiteiten kunnen verifiëren in tal van manieren, die mogelijk rele
 | Waarde | Beschrijving |
 |-----|-------------|
 | `pwd` | Wachtwoordverificatie, Microsoft-wachtwoord van een gebruiker of het clientgeheim van een app. |
-| `rsa` | Verificatie is op basis van de POC-fase van een RSA-sleutel, bijvoorbeeld met de [Microsoft Authenticator pp](https://aka.ms/AA2kvvu). Dit omvat als verificatie is uitgevoerd door een zelf-ondertekend JWT met een service die eigendom zijn X509 certificaat. |
+| `rsa` | Verificatie is op basis van de POC-fase van een RSA-sleutel, bijvoorbeeld met de [Microsoft Authenticator-app](https://aka.ms/AA2kvvu). Dit omvat als verificatie is uitgevoerd door een zelf-ondertekend JWT met een service die eigendom zijn X509 certificaat. |
 | `otp` | Eenmalige wachtwoordcode met behulp van een e-mailbericht of een SMS-bericht. |
 | `fed` | Een verklaring van federatieve verificatie (zoals JWT of SAML) is gebruikt. |
 | `wia` | Geïntegreerde Windows-verificatie |
@@ -179,7 +179,7 @@ https://login.microsoftonline.com/common/.well-known/openid-configuration
 ```
 
 > [!TIP]
-> Probeer deze URL in een browser.
+> Probeer dit [URL](https://login.microsoftonline.com/common/.well-known/openid-configuration) in een browser.
 
 Dit metagegevensdocument:
 
@@ -187,7 +187,7 @@ Dit metagegevensdocument:
 * Bevat een `jwks_uri`, waardoor de locatie van de set met openbare sleutels die worden gebruikt voor het ondertekenen van tokens. Het JSON-document dat zich bevindt in de `jwks_uri` bevat alle gegevens van de openbare sleutel wordt gebruikt op een bepaald tijdstip. Uw app kan gebruiken de `kid` claim in de JWT-header te selecteren welke openbare sleutel in dit document is gebruikt voor het ondertekenen van een bepaalde token. Validatie van de handtekening met behulp van de juiste openbare sleutel en het opgegeven algoritme kan vervolgens uitvoeren.
 
 > [!NOTE]
-> Het eindpunt v1.0 retourneert zowel de `x5t` en `kid` claims. De `x5t` claim ontbreekt in v2.0-tokens. Het v2.0-eindpunt reageert met de `kid` claim. Voortaan, wordt u aangeraden de `kid` claim uw token te valideren.
+> Het eindpunt v1.0 retourneert zowel de `x5t` en `kid` claims, terwijl het v2.0-eindpunt met alleen reageert de `kid` claim. Voortaan, wordt u aangeraden de `kid` claim uw token te valideren.
 
 Het valideren van de handtekening is buiten het bereik van dit document: Er zijn veel open-source-bibliotheken beschikbaar voor u doen indien nodig te helpen.
 
@@ -202,7 +202,7 @@ Deze stap worden bepaald door de bedrijfslogica van uw toepassing, hieronder enk
 * Controleer of de `tid` komt overeen met een tenant die is toegestaan voor het aanroepen van uw API.
 * Gebruik de `acr` claim om te controleren of de gebruiker MFA is uitgevoerd. Houd er rekening mee dat deze moet worden afgedwongen met behulp van [voorwaardelijke toegang](https://docs.microsoft.com/azure/active-directory/conditional-access/overview).
 * Als u hebt aangevraagd de `roles` of `groups` claims in het toegangstoken controleren of de gebruiker in de groep mag deze actie uit te voeren.
-  * Voor tokens opgehaald met behulp van de impliciete stroom, waarschijnlijk moet u om op te vragen de [Graph](https://developer.microsoft.com/graph/) voor deze gegevens, zoals deze is vaak te groot voor in het token. 
+  * Voor tokens opgehaald met behulp van de impliciete stroom, waarschijnlijk moet u om op te vragen de [Microsoft Graph](https://developer.microsoft.com/graph/) voor deze gegevens, zoals deze is vaak te groot voor in het token. 
 
 ## <a name="user-and-application-tokens"></a>Gebruikers en toepassingen-tokens
 

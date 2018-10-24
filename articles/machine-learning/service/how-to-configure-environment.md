@@ -10,49 +10,47 @@ ms.reviewer: larryfr
 manager: cgronlun
 ms.topic: conceptual
 ms.date: 8/6/2018
-ms.openlocfilehash: 9938772618e9a85f7d85678c4ddde3147cbc40dd
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 657a762874f7c2fb40553552ef6c17d9b5b6da0f
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091847"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958615"
 ---
-# <a name="configure-a-development-environment-for-the-azure-machine-learning-service"></a>Een ontwikkelomgeving voor de Azure Machine Learning-service configureren
+# <a name="configure-a-development-environment-for-azure-machine-learning"></a>Een ontwikkelomgeving configureren voor Azure Machine Learning
 
-Informatie over het configureren van uw ontwikkelomgeving, zodat het werken met de Azure Machine Learning-service. U leert hoe u een configuratiebestand dat uw omgeving worden gekoppeld aan een werkruimte van Azure Machine Learning-service maken. Ook leert u hoe u de volgende ontwikkelomgevingen configureren:
+In dit artikel leert u hoe u het configureren van een ontwikkelomgeving, zodat het werken met de Azure Machine Learning-service, met inbegrip van:
 
-* Jupyter-Notebooks in uw eigen computer
-* Visual Studio Code
-* Code-editor van uw keuze
-
-De aanbevolen aanpak is het gebruik van Zorgcontinuüm Anaconda [conda virtuele omgevingen](https://conda.io/docs/user-guide/tasks/manage-environments.html) voor het isoleren van uw werkomgeving om het voorkomen van conflicten tussen pakketten afhankelijkheid. In dit artikel bevat instructies voor het instellen van een conda-omgeving en deze gebruiken voor Azure Machine Learning.
-
+- Het maken van een configuratiebestand dat uw omgeving worden gekoppeld aan een werkruimte van Azure Machine Learning-service.
+- Het configureren van de volgende ontwikkelomgevingen:
+  - Jupyter Notebooks op uw computer
+  - Visual Studio Code
+  - Aangepaste code-editor
+- Over het instellen van een [conda virtuele omgeving](https://conda.io/docs/user-guide/tasks/manage-environments.html) en deze gebruiken voor Azure Machine Learning. We adviseren Zorgcontinuüm Anaconda gebruiken voor het isoleren van uw werkomgeving om conflicten tussen pakketten afhankelijkheid te voorkomen.
 
 ## <a name="prerequisites"></a>Vereisten
 
-* Een werkruimte van Azure Machine Learning-service. Als u wilt maken van een gebruikt u de stappen in de [aan de slag met Azure Machine Learning-service](quickstart-get-started.md) document.
-
-* [Anaconda zorgcontinuüm](https://www.anaconda.com/download/) of [Miniconda](https://conda.io/miniconda.html) Pakketbeheer.
-
- * Voor Visual Studio Code-omgeving, de [Python-extensie](https://code.visualstudio.com/docs/python/python-tutorial).
+- Instellen van een werkruimte van Azure Machine Learning-service. Volg de stappen in [aan de slag met Azure Machine Learning-service](quickstart-get-started.md).
+- Installeer de [Zorgcontinuüm Anaconda](https://www.anaconda.com/download/) of [Miniconda](https://conda.io/miniconda.html) Pakketbeheer.
+- Als u Visual Studio Code, krijgt de [Python-extensie](https://code.visualstudio.com/docs/python/python-tutorial).
 
 > [!NOTE]
-> Shell-opdrachten gebruikt in dit document worden getest met bash op Linux en macOS. De opdrachten zijn ook getest met cmd.exe op Windows.
+> U kunt de shell-opdrachten die in dit artikel worden weergegeven met behulp van bash (in Linux en Mac OS) testen of opdrachtprompt (in Windows).
 
-## <a name="create-workspace-configuration-file"></a>Werkruimte-configuratiebestand maken
+## <a name="create-a-workspace-configuration-file"></a>Het configuratiebestand van een werkruimte maken
 
-Het configuratiebestand van de werkruimte wordt gebruikt door de SDK om te communiceren met uw werkruimte van Azure Machine Learning-service.  Er zijn twee manieren om dit bestand:
+De Azure Machine Learning-SDK maakt gebruik van het configuratiebestand van de werkruimte om te communiceren met uw werkruimte van Azure Machine Learning-service.
 
-* Voltooi de [snelstartgids](quickstart-get-started.md) een werkruimte en de configuratie-bestand te maken. Het bestand `config.json` wordt voor u gemaakt in Azure-notitieblokken.  Dit bestand bevat de configuratiegegevens voor uw werkruimte.  Download of kopieer deze in dezelfde map als de scripts of laptops die ernaar verwijzen.
+- Voor het maken van het configuratiebestand, voltooi de [Azure Machine Learning-snelstartgids](quickstart-get-started.md).
+  - De Quick Start-proces maakt een `config.json` bestand in Azure-notitieblokken. Dit bestand bevat de configuratiegegevens voor uw werkruimte.
+  - Download of kopieer de `config.json` in dezelfde map als de scripts of laptops die ernaar verwijzen.
 
-
-* Het configuratiebestand zelf maken met de volgende stappen uit:
+- U kunt het bestand ook handmatig maken door de volgende stappen:
 
     1. Open de werkruimte in de [Azure-portal](https://portal.azure.com). Kopieer de __Werkruimtenaam__, __resourcegroep__, en __abonnements-ID__. Deze waarden worden gebruikt om te maken van het configuratiebestand.
+        ![Azure Portal](./media/how-to-configure-environment/configure.png)
 
-        ![Azure Portal](./media/how-to-configure-environment/configure.png) 
-    
-    1. Maak het bestand met deze code voor Python. Voer de code uit in dezelfde map als de scripts of laptops die verwijzen naar de werkruimte:
+    1. Het bestand met de volgende code voor Python maken en zorg ervoor dat u de code uitvoeren in dezelfde map als de scripts of laptops die verwijzen naar de werkruimte:
 
         ```python
         from azureml.core import Workspace
@@ -60,7 +58,7 @@ Het configuratiebestand van de werkruimte wordt gebruikt door de SDK om te commu
         subscription_id ='<subscription-id>'
         resource_group ='<resource-group>'
         workspace_name = '<workspace-name>'
-        
+
         try:
            ws = Workspace(subscription_id = subscription_id, resource_group = resource_group, workspace_name = workspace_name)
            ws.write_config()
@@ -68,8 +66,8 @@ Het configuratiebestand van de werkruimte wordt gebruikt door de SDK om te commu
         except:
            print('Workspace not found')
         ```
-        Hiermee schrijft u de volgende `aml_config/config.json` bestand: 
-    
+        De code schrijft het volgende `aml_config/config.json` bestand:
+
         ```json
         {
         "subscription_id": "<subscription-id>",
@@ -79,63 +77,66 @@ Het configuratiebestand van de werkruimte wordt gebruikt door de SDK om te commu
         ```
         U kunt kopiëren de `aml_config` directory of alleen `config.json` -bestand in een andere adreslijst die verwijst naar de werkruimte.
 
->[!NOTE] 
->Andere scripts of notitieblokken in dezelfde map of onder wordt de werkruimte met geladen `ws=Workspace.from_config()`
+       > [!NOTE]
+       > Andere scripts of notitieblokken in dezelfde map of lager laden van de werkruimte met `ws=Workspace.from_config()`.
 
-## <a name="azure-notebooks-and-data-science-virtual-machine"></a>Azure-notitieblokken en -virtuele Machine voor Datatechnologie
+## <a name="azure-notebooks-and-data-science-virtual-machines"></a>Azure-notitieblokken en -virtuele Machines voor Datatechnologie
 
-Azure-notitieblokken en Azure Data Science Virtual Machines (DSVM) zijn vooraf geconfigureerd voor samenwerking met de Azure Machine Learning-service. Vereiste onderdelen, zoals de SDK van Azure Machine Learning, zijn vooraf geïnstalleerd in deze omgevingen.
+Azure-notitieblokken en Azure Data Science Virtual Machines (Dsvm) zijn geconfigureerd voor samenwerking met de Azure Machine Learning-service. Deze omgevingen zijn vereiste onderdelen, zoals de Azure Machine Learning-SDK.
 
-Azure-laptops is een Jupyter-Notebook-service in de Azure-cloud. De Data Science Virtual Machine is een VM-installatiekopie die is vooraf geconfigureerd voor data science werk. De virtuele machine bevat populaire hulpprogramma's, IDE's en pakketten, zoals Jupyter Notebooks, PyCharm en Tensorflow.
+- Azure-laptops is een Jupyter-Notebook-service in de Azure-cloud.
+- De Data Science Virtual Machine is een aangepaste virtuele machine (VM)-installatiekopie is ontworpen voor data science werk. Het bevat:
+  - Populaire hulpprogramma 's
+  - Geïntegreerde ontwikkelingsomgevingen (IDE's)
+  - Pakketten, zoals Jupyter Notebooks, PyCharm en Tensorflow
+- U moet nog steeds een configuratiebestand voor de werkruimte te gebruiken van deze omgevingen.
 
-U moet wel een configuratiebestand voor de werkruimte te gebruiken van deze omgevingen.
+Zie voor een voorbeeld van het gebruik van Azure-notitieblokken met de service Azure Machine Learning, [aan de slag met Azure Machine Learning-service](quickstart-get-started.md).
 
-Zie voor meer informatie over de virtuele Machines voor Datatechnologie, [virtuele Machines voor Datatechnologie](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/) documentatie.
+Zie voor meer informatie over de virtuele Machines voor Datatechnologie, [virtuele Machines voor Datatechnologie](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/).
 
-Zie voor een voorbeeld van het gebruik van Azure-notitieblokken met de Azure Machine Learning-service, de [aan de slag met Azure Machine Learning-service](quickstart-get-started.md) document.
-
-## <a name="configure-jupyter-notebooks-on-your-own-computer"></a>Jupyter-Notebooks op uw eigen computer configureren
+## <a name="configure-jupyter-notebooks-on-your-computer"></a>Jupyter-Notebooks op uw computer configureren
 
 1. Open een opdrachtprompt of de shell.
 
-2. Gebruik de volgende opdrachten voor het maken van een conda-omgeving:
+1. Een conda-omgeving maken met de volgende opdrachten:
 
     ```shell
-    # create a new conda environment with Python 3.6, numpy and cython
+    # create a new conda environment with Python 3.6, numpy, and cython
     conda create -n myenv Python=3.6 cython numpy
 
     # activate the conda environment
     conda activate myenv
 
-    # If you are running Mac OS you should run
+    # On Mac OS run
     source activate myenv
     ```
 
-    Het kan enkele minuten om te maken van de omgeving, duren als Python 3.6 en andere onderdelen mogelijk moeten worden gedownload.
+    Het duurt enkele minuten om te maken van de omgeving als Python 3.6 en andere onderdelen moeten worden gedownload.
 
-3. Voor het installeren van Azure Machine Learning-SDK met notebook extra's, gebruik de volgende opdracht:
+1. Installeer de SDK van Azure Machine Learning met extra's laptop en de SDK van de voorbereiding van gegevens met behulp van de volgende opdracht uit:
 
      ```shell
-    pip install --upgrade azureml-sdk[notebooks,automl]
+    pip install --upgrade azureml-sdk[notebooks,automl] azureml-dataprep
     ```
 
     > [!NOTE]
-    > Als u een bericht ontvangt dat `PyYAML` kan niet worden verwijderd, gebruik de volgende opdracht uit in plaats daarvan:
-    > 
-    > `pip install --upgrade azureml-sdk[notebooks,automl] --ignore-installed PyYAML` 
+    > Als u een bericht dat krijgt `PyYAML` kan niet worden verwijderd, gebruik de volgende opdracht uit in plaats daarvan:
+    >
+    > `pip install --upgrade azureml-sdk[notebooks,automl] azureml-dataprep --ignore-installed PyYAML`
 
-    Het kan enkele minuten voor het installeren van de SDK duren.
+    Het duurt enkele minuten de SDK te installeren.
 
-4. Gebruik de volgende opdracht om pakketten te installeren voor uw machine learning experimenten, en vervang `<new package>` aan het pakket dat u wilt installeren:
+1. Voor uw machine learning experimenten-pakketten installeren. Gebruik de volgende opdracht en vervangen `<new package>` aan het pakket dat u wilt installeren:
 
     ```shell
     conda install <new package>
     ```
 
-5. Als u wilt een conda-bewuste Jupyter-Notebook-server installeren en inschakelen van experiment widgets (uitvoeren om informatie te bekijken), gebruik de volgende opdrachten:
+1. Een conda-bewuste Jupyter-Notebook-server installeren en inschakelen van experiment widgets (uitvoeren om informatie te bekijken). Gebruik de volgende opdrachten:
 
     ```shell
-    # install Jupyter 
+    # install Jupyter
     conda install nb_conda
 
     # install experiment widget
@@ -145,13 +146,13 @@ Zie voor een voorbeeld van het gebruik van Azure-notitieblokken met de Azure Mac
     jupyter nbextension enable --py --user azureml.train.widgets
     ```
 
-6. Als u wilt Jupyter-Notebook start, moet u de volgende opdracht gebruiken:
+1. Jupyter Notebook openen met de volgende opdracht:
 
     ```shell
     jupyter notebook
     ```
 
-7. Een nieuwe notebook openen en selecteer 'myenv' als de kernel. Controleer vervolgens of dat u Azure Machine Learning SDK is geïnstalleerd door het uitvoeren van de volgende opdracht in een cel notebook hebt:
+1. Open een nieuwe notebook, 'myenv' als de kernel selecteren en vervolgens te valideren dat u Azure Machine Learning SDK is geïnstalleerd hebt. Voer de volgende opdracht in een cel laptop:
 
     ```python
     import azureml.core
@@ -162,7 +163,7 @@ Zie voor een voorbeeld van het gebruik van Azure-notitieblokken met de Azure Mac
 
 1. Open een opdrachtprompt of de shell.
 
-2. Gebruik de volgende opdrachten voor het maken van een conda-omgeving:
+1. Een conda-omgeving maken met de volgende opdrachten:
 
     ```shell
     # create a new conda environment with Python 3.6, numpy and cython
@@ -175,36 +176,39 @@ Zie voor een voorbeeld van het gebruik van Azure-notitieblokken met de Azure Mac
     source activate myenv
     ```
 
-2. Gebruik de volgende opdracht voor het installeren van de SDK van Azure Machine Learning:
- 
+1. De SDK van Azure Machine Learning en Data Preparation SDK installeren met de volgende opdracht:
+
     ```shell
-    pip install --upgrade azureml-sdk[automl]
+    pip install --upgrade azureml-sdk[automl] azureml-dataprep
     ```
 
-4. Zie de Visual Studio marketplace-vermelding voor installeren van de Visual Studio code-hulpprogramma's voor AI [hulpprogramma's voor AI](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai). 
+1. Installeer het Visual Studio code-hulpprogramma's voor AI-extensie. Zie [hulpprogramma's voor AI](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai).
 
-5. Gebruik de volgende opdracht om pakketten te installeren voor uw machine learning experimenten, en vervang `<new package>` aan het pakket dat u wilt installeren:
+1. Voor uw machine learning experimenten-pakketten installeren. Gebruik de volgende opdracht, vervangt `<new package>` aan het pakket dat u wilt installeren:
 
     ```shell
     conda install <new package>
     ```
 
-6. Start Visual Studio Code, en gebruik vervolgens __CTRL-SHIFT-P__ voor Windows of __opdracht-SHIFT-P__ voor Mac om op te halen de __Command Palette__. Voer *Python: Select Interpreter*, en selecteer het conda-omgeving die u hebt gemaakt.
+1. Open Visual Studio Code, en gebruik vervolgens **CTRL-SHIFT-P** (in Windows) of **opdracht-SHIFT-P** (in Mac OS) om op te halen de **Command Palette**. Voer _Python: Select Interpreter_ en selecteer het conda-omgeving die u hebt gemaakt.
 
-    > [!NOTE]
-    > Visual Studio Code is automatisch op de hoogte van conda-omgevingen op uw computer. Zie voor meer informatie, [documentatie voor Visual Studio code](https://code.visualstudio.com/docs/python/environments#_conda-environments).
+   > [!NOTE]
+   > Visual Studio Code is automatisch op de hoogte van conda-omgevingen op uw computer. Zie voor meer informatie, [documentatie voor Visual Studio code](https://code.visualstudio.com/docs/python/environments#_conda-environments).
 
-7. Voor het valideren van de configuratie van de Visual Studio Code te gebruiken op een nieuwe Python-scriptbestand maken met de volgende code en voer het vervolgens uit:
+1. De configuratie valideren met behulp van Visual Studio Code naar een nieuwe Python-scriptbestand maken met de volgende code en voer het vervolgens uit:
 
     ```python
     import azureml.core
     azureml.core.VERSION
     ```
 
-## <a name="configure-code-editor-of-your-choice"></a>Code-editor van uw keuze configureren
+## <a name="configure-a-custom-code-editor"></a>Configureren van een aangepaste code-editor
 
-Voor het gebruik van een aangepaste code-editor met Azure Machine Learning-SDK, eerst maken conda-omgeving, zoals hierboven beschreven. Volg de instructies voor elke editor die u wilt de conda-omgeving gebruiken. Bijvoorbeeld, de instructies voor het PyCharm bevinden zich op [ https://www.jetbrains.com/help/pycharm/2018.2/conda-support-creating-conda-virtual-environment.html ](https://www.jetbrains.com/help/pycharm/2018.2/conda-support-creating-conda-virtual-environment.html).
- 
+Met de SDK van Azure Machine Learning kunt u een code-editor van uw keuze.
+
+1. Uw conda-omgeving maken, zoals beschreven in stap 2 van [Visual Studio-Code configureren](#configure-visual-studio-code) hierboven.
+1. Volg de instructies voor elke editor die u wilt de conda-omgeving gebruiken. U kunt bijvoorbeeld als volgt de [PyCharm instructies](https://www.jetbrains.com/help/pycharm/2018.2/conda-support-creating-conda-virtual-environment.html).
+
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Een model trainen op Azure Machine Learning met de MNIST-gegevensset](tutorial-train-models-with-aml.md)
+- [Een model trainen op Azure Machine Learning met de MNIST-gegevensset](tutorial-train-models-with-aml.md)

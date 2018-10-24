@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 345741a027317ed0ec347bc15334daeb11a9828c
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 6100a77d3c0bd1ac5e012651f1e7d359c4c67443
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46123977"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954450"
 ---
 # <a name="create-hdinsight-clusters-with-azure-data-lake-storage-gen1-as-default-storage-by-using-powershell"></a>HDInsight-clusters maken met Azure Data Lake Storage Gen1 als standaardopslag met behulp van PowerShell
 
@@ -47,7 +47,7 @@ Voordat u deze zelfstudie begint, zorg ervoor dat u voldoet aan de volgende vere
 * **Service-principal voor Azure Active Directory**: in deze zelfstudie wordt beschreven hoe u een service-principal maken in Azure Active Directory (Azure AD). Voor het maken van een service-principal, moet u echter een Azure AD-beheerder zijn. Als u een beheerder bent, kunt u deze vereiste overslaan en doorgaan met de zelfstudie.
 
     >[!NOTE]
-    >U kunt een service-principal maken alleen als u een Azure AD-beheerder. Uw Azure AD-beheerder moet een service-principal maken voordat u een HDInsight-cluster met Data Lake Storage Gen1 kunt maken. De service-principal moet worden gemaakt met een certificaat, zoals beschreven in [een service-principal maken met certificaat](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-certificate-from-certificate-authority).
+    >U kunt een service-principal maken alleen als u een Azure AD-beheerder. Uw Azure AD-beheerder moet een service-principal maken voordat u een HDInsight-cluster met Data Lake Storage Gen1 kunt maken. De service-principal moet worden gemaakt met een certificaat, zoals beschreven in [een service-principal maken met certificaat](../active-directory/develop/howto-authenticate-service-principal-powershell.md#create-service-principal-with-certificate-from-certificate-authority).
     >
 
 ## <a name="create-a-data-lake-storage-gen1-account"></a>Een Data Lake Storage Gen1-account maken

@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 10/22/2018
 ms.author: juliako
-ms.openlocfilehash: 10bd2101839e1b6d1dbdc1e53c31693ab0be98fd
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: db68f979239a5783338d99360209ae231a75c936
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/23/2018
-ms.locfileid: "49647762"
+ms.locfileid: "49945032"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Azure Media Services v3 release-opmerkingen 
 
@@ -35,10 +35,6 @@ Deze sectie beschrijft de updates van oktober van Azure Media Services (AMS).
 ### <a name="rest-v3-ga-release"></a>REST v3 GA-versie
 
 De [REST v3 GA-versie](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01) bevat meer API's voor Live, filters op niveau manifest van Account/Asset en DRM-ondersteuning.
-
-#### <a name="azure-cli-20"></a>Azure CLI 2.0
- 
-De Azure CLI 2.0-module bevat momenteel bewerkingen op Live, inhoudsbeleid voor sleutels, Streaming beleidsregels. Zie voor meer informatie, [plannen voor wijzigingen](#plans-for-changes).
 
 #### <a name="azure-resource-management"></a>Azure Resources Management 
 
@@ -95,7 +91,9 @@ Video Indexer-GA-versie is in augustus is aangekondigd. Zie voor nieuwe informat
 
 ### <a name="plans-for-changes"></a>Plannen voor wijzigingen
 
-De Azure CLI-versie wordt binnenkort op 06/11/2018.
+#### <a name="azure-cli-20"></a>Azure CLI 2.0
+ 
+De Azure CLI 2.0-module die heeft ook betrekking op alle functies (met inbegrip van Live, inhoudsbeleid voor sleutels, Account/Asset Filters, Streaming-beleid) is binnenkort beschikbaar. 
 
 ### <a name="known-issues"></a>Bekende problemen
 

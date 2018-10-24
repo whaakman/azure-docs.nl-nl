@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/22/2018
-ms.openlocfilehash: 1b96cb0531778b03ddf6adf15988755359e19562
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: c19e5dbcba334a100198708237cc814258a20053
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49649758"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49957691"
 ---
 # <a name="monitoring-azure-sql-database-using-dynamic-management-views"></a>Bewaking van Azure SQL-database met behulp van de dynamische beheerweergave
 
@@ -50,7 +50,7 @@ Als hoger dan 80% CPU-verbruik gedurende langere tijd wordt opgelost is, kunt u 
 
 Als het probleem nu optreedt, zijn er twee mogelijke scenario's:
 
-#### <a name="there-are-many-queries-that-individually-run-quickly-but-cumulatively-consume-high-cpu"></a>Er zijn veel query's die afzonderlijk snel worden uitgevoerd, maar cumulatief hoge CPU gebruiken
+#### <a name="many-individual-queries-that-cumulatively-consume-high-cpu"></a>Veel afzonderlijke query's die hoge CPU cumulatief gebruiken
 
 Gebruik de volgende query uit om te identificeren van de belangrijkste query-hashes:
 
@@ -65,7 +65,7 @@ FROM(SELECT query_stats.query_hash, SUM(query_stats.cpu_time) 'Total_Request_Cpu
 ORDER BY Total_Request_Cpu_Time_Ms DESC;
 ```
 
-#### <a name="some-long-running-queries-that-consume-cpu-are-still-running"></a>Sommige langlopende query's die CPU verbruikt nog steeds worden uitgevoerd
+#### <a name="long-running-queries-that-consume-cpu-are-still-running"></a>Langlopende query's die CPU verbruikt nog steeds worden uitgevoerd
 
 Gebruik de volgende query uit om te identificeren van deze query's:
 
@@ -117,7 +117,9 @@ Bij het identificeren van problemen met de i/o-prestaties, wordt de bovenste wai
 
 ### <a name="if-the-io-issue-is-occurring-right-now"></a>Als het probleem i/o-nu zich voordoet
 
-Gebruik de [sys.dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) of [sys.dm_os_waiting_tasks](https://docs.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-views/sys-dm-os-waiting-tasks-transact-sql) om te zien de `wait_type` en `wait_time`.
+Gebruik de [sys.dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) of [sys.dm_os_waiting_tasks](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-waiting-tasks-transact-sql) om te zien de `wait_type` en `wait_time`.
+
+#### <a name="identify-data-and-log-io-usage"></a>Gegevens identificeren en i/o-gebruik
 
 Gebruik de volgende query om te bepalen van gegevens en i/o-gebruik. Als de gegevens of logboek-IO hoger is dan 80%, betekent dat gebruikers de beschikbare i/o hebt gebruikt voor de SQL-database-servicelaag.
 
@@ -132,9 +134,11 @@ Als de i/o-limiet is bereikt, hebt u twee opties:
 - Optie 1: Upgrade uitvoeren voor de compute-grootte of servicelaag
 - Optie 2: Identificeer en afstemmen van de query's de meeste i/o verbruikt.
 
-Optie 2, kunt u de volgende query uit op basis van de Query Store buffer-gerelateerde IO (ziet er in de afgelopen twee uur van de activiteit die wordt bijgehouden):
+#### <a name="view-buffer-related-io-using-the-query-store"></a>Weergave buffer met betrekking tot i/o met behulp van de Query Store
 
-```SQL
+Voor optie 2, kunt u de volgende query uit op basis van de Query Store voor i/o-buffer-gerelateerde gebruiken om de laatste twee uren van bijgehouden activiteit weer te geven:
+
+```sql
 -- top queries that waited on buffer
 -- note these are finished queries
 WITH Aggregated AS (SELECT q.query_hash, SUM(total_query_wait_time_ms) total_wait_time_ms, SUM(total_query_wait_time_ms / avg_query_wait_time_ms) AS total_executions, MIN(qt.query_sql_text) AS sampled_query_text, MIN(wait_category_desc) AS wait_category_desc
@@ -153,6 +157,85 @@ ORDER BY total_wait_time_ms DESC;
 GO
 ```
 
+#### <a name="view-total-log-io-for-writelog-waits"></a>Totaal aantal logboek weergeven i/o-voor WRITELOG wacht
+
+Als het type wacht `WRITELOG`, gebruik de volgende query om totale logboek-IO voor instructie weer te geven:
+
+```sql
+-- Top transaction log consumers
+-- Adjust the time window by changing
+-- rsi.start_time >= DATEADD(hour, -2, GETUTCDATE())
+WITH AggregatedLogUsed
+AS (SELECT q.query_hash,
+           SUM(count_executions * avg_cpu_time / 1000.0) AS total_cpu_millisec,
+           SUM(count_executions * avg_cpu_time / 1000.0) / SUM(count_executions) AS avg_cpu_millisec,
+           SUM(count_executions * avg_log_bytes_used) AS total_log_bytes_used,
+           MAX(rs.max_cpu_time / 1000.00) AS max_cpu_millisec,
+           MAX(max_logical_io_reads) max_logical_reads,
+           COUNT(DISTINCT p.plan_id) AS number_of_distinct_plans,
+           COUNT(DISTINCT p.query_id) AS number_of_distinct_query_ids,
+           SUM(   CASE
+                      WHEN rs.execution_type_desc = 'Aborted' THEN
+                          count_executions
+                      ELSE
+                          0
+                  END
+              ) AS Aborted_Execution_Count,
+           SUM(   CASE
+                      WHEN rs.execution_type_desc = 'Regular' THEN
+                          count_executions
+                      ELSE
+                          0
+                  END
+              ) AS Regular_Execution_Count,
+           SUM(   CASE
+                      WHEN rs.execution_type_desc = 'Exception' THEN
+                          count_executions
+                      ELSE
+                          0
+                  END
+              ) AS Exception_Execution_Count,
+           SUM(count_executions) AS total_executions,
+           MIN(qt.query_sql_text) AS sampled_query_text
+    FROM sys.query_store_query_text AS qt
+        JOIN sys.query_store_query AS q
+            ON qt.query_text_id = q.query_text_id
+        JOIN sys.query_store_plan AS p
+            ON q.query_id = p.query_id
+        JOIN sys.query_store_runtime_stats AS rs
+            ON rs.plan_id = p.plan_id
+        JOIN sys.query_store_runtime_stats_interval AS rsi
+            ON rsi.runtime_stats_interval_id = rs.runtime_stats_interval_id
+    WHERE rs.execution_type_desc IN ( 'Regular', 'Aborted', 'Exception' )
+          AND rsi.start_time >= DATEADD(HOUR, -2, GETUTCDATE())
+    GROUP BY q.query_hash),
+     OrderedLogUsed
+AS (SELECT query_hash,
+           total_log_bytes_used,
+           number_of_distinct_plans,
+           number_of_distinct_query_ids,
+           total_executions,
+           Aborted_Execution_Count,
+           Regular_Execution_Count,
+           Exception_Execution_Count,
+           sampled_query_text,
+           ROW_NUMBER() OVER (ORDER BY total_log_bytes_used DESC, query_hash ASC) AS RN
+    FROM AggregatedLogUsed)
+SELECT OD.total_log_bytes_used,
+       OD.number_of_distinct_plans,
+       OD.number_of_distinct_query_ids,
+       OD.total_executions,
+       OD.Aborted_Execution_Count,
+       OD.Regular_Execution_Count,
+       OD.Exception_Execution_Count,
+       OD.sampled_query_text,
+       OD.RN
+FROM OrderedLogUsed AS OD
+WHERE OD.RN <= 15
+ORDER BY total_log_bytes_used DESC;
+GO
+```
+
 ## <a name="identify-tempdb-performance-issues"></a>Identificeer `tempdb` prestatieproblemen
 
 Bij het identificeren van problemen met de i/o-prestaties, de bovenkant typen die zijn gekoppeld aan wacht `tempdb` problemen is `PAGELATCH_*` (niet `PAGEIOLATCH_*`). Echter, `PAGELATCH_*` wacht altijd betekenen niet hebt `tempdb` conflicten.  Deze wachttijd kan ook betekenen dat u hebt gebruikersobject gegevens pagina conflicten vanwege gelijktijdige aanvragen die gericht is op de pagina met dezelfde gegevens. Om verder te bevestigen `tempdb` conflicten, gebruik [sys.dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) om te bevestigen dat de waarde wait_resource met begint `2:x:y` waar 2 is `tempdb` is de databaseid `x` is de bestands-id en `y` is de pagina-id.  
@@ -164,6 +247,8 @@ Voor tempdb conflicten, een veelgebruikte methode is om te beperken of opnieuw S
 - Tabelgewaardeerde parameters
 - Versie store gebruik (specifiek gekoppeld aan langlopende transacties)
 - Query's waarop query's die gebruikmaken van sorteert, hash-joins en afdrukwachtrij geplaatst
+
+### <a name="top-queries-that-use-table-variables-and-temporary-tables"></a>Populairste query's die gebruikmaken van tabelvariabelen en tijdelijke tabellen
 
 Gebruik de volgende query uit om te identificeren van de populairste query's die gebruikmaken van tabelvariabelen en tijdelijke tabellen:
 
@@ -187,6 +272,8 @@ FROM(SELECT DISTINCT plan_handle, [Database], [Schema], [table]
      WHERE [table] LIKE '%@%' OR [table] LIKE '%#%') AS t
     JOIN #tmpPlan AS t2 ON t.plan_handle=t2.plan_handle;
 ```
+
+### <a name="identify-long-running-transactions"></a>Langlopende transacties identificeren
 
 Gebruik de volgende query uit om te identificeren lang transacties uitgevoerd. Langlopende transacties te voorkomen dat de versie-archief opschonen.
 
@@ -454,7 +541,7 @@ FROM sys.dm_exec_requests AS r
 ORDER BY mg.granted_memory_kb DESC;
 ```
 
-## <a name="calculating-database-size"></a>Berekenen van de grootte van de database
+## <a name="calculating-database-and-objects-sizes"></a>Berekenen van de database en de objecten grootten
 
 De volgende query retourneert de grootte van uw database (in MB):
 

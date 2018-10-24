@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/12/2018
 ms.author: jingwang
-ms.openlocfilehash: e50d1696fdc22916f5ac4699bd17ddc21a82a148
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: a4de054926339985b77f110bd00f77c5c8f7d705
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48815865"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49957986"
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>Gegevens kopiëren naar of van Azure SQL Database met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you use:"]
@@ -96,7 +96,7 @@ Verwijzen respectievelijk naar de volgende secties over de vereisten en JSON-voo
 
 Volg deze stappen voor het gebruik van een tokenverificatie voor service-principal op basis van Azure AD-toepassing:
 
-1. **[Maak een Azure Active Directory-toepassing](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application)**  vanuit Azure portal. Noteer de naam van de toepassing en de volgende waarden voor het definiëren van de gekoppelde service:
+1. **[Maak een Azure Active Directory-toepassing](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application)**  vanuit Azure portal. Noteer de naam van de toepassing en de volgende waarden voor het definiëren van de gekoppelde service:
 
     - Toepassings-id
     - Toepassingssleutel
@@ -344,7 +344,7 @@ Instellen om gegevens te kopiëren naar Azure SQL Database, de **type** sink-eig
 | Eigenschap | Beschrijving | Vereist |
 |:--- |:--- |:--- |
 | type | De **type** eigenschap van de Copy-activiteit-sink moet zijn ingesteld op **SqlSink**. | Ja |
-| WriteBatchSize | Voegt de gegevens in de SQL-tabel wanneer de buffergrootte bereikt **writeBatchSize**.<br/> De toegestane waarde is **geheel getal** (aantal rijen). | Nr. De standaardwaarde is 10000. |
+| WriteBatchSize | Voegt de gegevens in de SQL-tabel wanneer de buffergrootte bereikt **writeBatchSize**.<br/> De toegestane waarde is **geheel getal** (aantal rijen). | Nee. De standaardwaarde is 10000. |
 | writeBatchTimeout | De wachttijd voor de batch invoegen bewerking is voltooid voordat er een optreedt time-out.<br/> De toegestane waarde is **timespan**. Voorbeeld: "00: 30:00 ' (30 minuten). | Nee |
 | preCopyScript | Geef een SQL-query voor de Kopieeractiviteit om uit te voeren voordat het schrijven van gegevens in Azure SQL Database. Deze wordt slechts één keer aangeroepen per exemplaar uitvoeren. Gebruik deze eigenschap voor het opschonen van de vooraf geladen gegevens. | Nee |
 | sqlWriterStoredProcedureName | De naam van de opgeslagen procedure die over het toepassen van gegevens in een doeltabel definieert. Een voorbeeld is upsert-bewerking of transformeren met behulp van uw eigen bedrijfslogica. <br/><br/>Deze opgeslagen procedure is **per batch aangeroepen**. Voor bewerkingen die slechts één keer uitgevoerd en hebben niets te doen met de brongegevens, gebruikt u de `preCopyScript` eigenschap. Voorbeeld van de bewerkingen zijn verwijderen en afkappen. | Nee |
@@ -580,15 +580,15 @@ Wanneer u gegevens van of naar Azure SQL Database kopieert, worden de volgende t
 |:--- |:--- |
 | bigint |Int64 |
 | binaire bestanden |Byte[] |
-| bits |Boole-waarde |
+| bits |Booleaans |
 | CHAR |Tekenreeks, Char] |
-| datum |Datum en tijd |
-| Datum en tijd |Datum en tijd |
-| datetime2 |Datum en tijd |
+| date |DateTime |
+| Datum en tijd |DateTime |
+| datetime2 |DateTime |
 | Datetimeoffset |DateTimeOffset |
 | decimaal |decimaal |
 | FILESTREAM-kenmerk (varbinary(max)) |Byte[] |
-| Float |Double-waarde |
+| drijvende komma |Double-waarde |
 | image |Byte[] |
 | int |Int32 |
 | geld |decimaal |
@@ -598,7 +598,7 @@ Wanneer u gegevens van of naar Azure SQL Database kopieert, worden de volgende t
 | nvarchar |Tekenreeks, Char] |
 | echte |Enkelvoudig |
 | ROWVERSION |Byte[] |
-| smalldatetime |Datum en tijd |
+| smalldatetime |DateTime |
 | smallint |Int16 |
 | smallmoney |decimaal |
 | sql_variant |Object * |

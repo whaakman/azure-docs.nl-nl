@@ -17,12 +17,12 @@ ms.workload: identity
 ms.date: 08/08/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 6ee89aa901c9553d22470a0481909e9cd62d60cf
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: e7e92c2f3564591133816baaaf758d72b083330b
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49345127"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958547"
 ---
 # <a name="what-is-baseline-protection-preview"></a>Wat is basislijn protection (preview)?  
 
@@ -86,7 +86,7 @@ Tijdens het beheren van beleid voor aangepaste voorwaardelijke toegang vereist e
 
 De directory-rollen die zijn opgenomen in het Basisbeleid zijn de meeste bevoegdheden Azure AD-rollen. 
 
-Als u accounts die worden gebruikt in uw scripts uitgebreide, vervangt u deze met [beheerde identiteiten voor een Azure-resources](../managed-identities-azure-resources/overview.md) of [service-principals met certificaten](../../azure-resource-manager/resource-group-authenticate-service-principal.md). Als tijdelijke oplossing, kunt u specifieke gebruikersaccounts uitsluiten van het Basisbeleid. 
+Als u accounts die worden gebruikt in uw scripts uitgebreide, vervangt u deze met [beheerde identiteiten voor een Azure-resources](../managed-identities-azure-resources/overview.md) of [service-principals met certificaten](../develop/howto-authenticate-service-principal-powershell.md). Als tijdelijke oplossing, kunt u specifieke gebruikersaccounts uitsluiten van het Basisbeleid. 
 
 Basislijn-beleid van toepassing op verouderde verificatiestromen zoals POP, IMAP, oudere Office-bureaublad-client. 
 

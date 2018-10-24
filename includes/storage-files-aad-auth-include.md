@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: include
-ms.date: 10/04/2018
+ms.date: 10/22/2018
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: ec687580eb86db9df77a657dedc4feec1dbb2b2f
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: b7682b83ca415ebff2be1c9dbb5581e8da1bb7fb
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49430379"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49805059"
 ---
 [Azure Files](../articles/storage/files/storage-files-introduction.md) biedt ondersteuning voor verificatie op basis van identiteit via SMB (Server Message Block) (preview) via [Azure Active Directory (Azure AD) Domain Services](../articles/active-directory-domain-services/active-directory-ds-overview.md). Uw domein Windows virtuele machines (VM's) kunnen toegang krijgen tot Azure-bestandsshares met behulp van [Azure AD](../articles/active-directory/fundamentals/active-directory-whatis.md) referenties. 
 
@@ -23,5 +23,5 @@ Als onderdeel van de Preview-versie, Azure Files biedt ook ondersteuning te beho
 
 > [!NOTE]
 > - Azure AD-verificatie via SMB wordt niet ondersteund voor virtuele Linux-machines voor de preview-versie. Alleen Windows Server VM's worden ondersteund.
-> - Azure AD-verificatie via SMB wordt niet ondersteund voor on-premises machines toegang tot Azure Files met behulp van een van beide AD of AAD-referenties.
+> - Azure AD-verificatie via SMB wordt niet ondersteund voor on-premises computers toegang tot Azure Files.
 > - Azure AD-verificatie is alleen beschikbaar voor opslagaccounts die zijn gemaakt na 24 September 2018.

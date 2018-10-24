@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: 07830b36-2fe3-4809-a846-129cf67b6a9e
 ms.topic: conceptual
 ms.date: 06/18/2017
-ms.openlocfilehash: 938b3776f320b7556394fff9aa070eee0c44ee88
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 6a5d01ed1b3d60ce138fe5c4c5a60812961d9dfd
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43047083"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49953726"
 ---
 # <a name="manage-azure-data-lake-analytics-using-a-java-app"></a>Azure Data Lake Analytics met behulp van een Java-app beheren
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
@@ -24,7 +24,7 @@ Dit artikel wordt beschreven hoe u voor het beheren van Azure Data Lake Analytic
 ## <a name="prerequisites"></a>Vereisten
 * **Java Development Kit (JDK) 8** (met behulp van Java-versie 1.8).
 * **IntelliJ** of een andere geschikte Java-ontwikkelomgeving. De instructies in dit document wordt IntelliJ gebruikt.
-* Maak een Azure Active Directory (AAD)-toepassing en haal de **Client-ID**, **Tenant-ID**, en **sleutel** ervan op. Zie [Create Active Directory application and service principal using portal](../azure-resource-manager/resource-group-create-service-principal-portal.md) (Een Active Directory-toepassing en service-principal maken met de portal) voor meer informatie over AAD-toepassingen en instructies voor het verkrijgen van een client-ID. De antwoord-URI en sleutel is beschikbaar via de portal zodra u hebt de toepassing hebt gemaakt en de sleutel die is gegenereerd.
+* Maak een Azure Active Directory (AAD)-toepassing en haal de **Client-ID**, **Tenant-ID**, en **sleutel** ervan op. Zie [Create Active Directory application and service principal using portal](../active-directory/develop/howto-create-service-principal-portal.md) (Een Active Directory-toepassing en service-principal maken met de portal) voor meer informatie over AAD-toepassingen en instructies voor het verkrijgen van een client-ID. De antwoord-URI en sleutel is beschikbaar via de portal zodra u hebt de toepassing hebt gemaakt en de sleutel die is gegenereerd.
 
 ## <a name="authenticating-using-azure-active-directory"></a>Verificatie met Azure Active Directory
 
@@ -210,7 +210,7 @@ Vervang de tijdelijke aanduidingen voor:
 * `TENANT-ID`
 * `SUBSCRIPTION-ID`
 
-## <a name="helper-functions"></a>Ondersteunende functies
+## <a name="helper-functions"></a>Helperfuncties
 
 ### <a name="setup-clients"></a>Setup-clients
 

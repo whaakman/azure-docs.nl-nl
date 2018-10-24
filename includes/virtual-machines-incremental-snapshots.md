@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/15/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 88a9348ea7d6282b7410d5a323fd482dc82416c6
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 06e6e491fa1e9a047527efb78149855b125771ef
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45979593"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49960188"
 ---
 # <a name="back-up-azure-unmanaged-vm-disks-with-incremental-snapshots"></a>Back-up van Azure niet-beheerde VM-schijven met incrementele momentopnamen
 ## <a name="overview"></a>Overzicht
@@ -66,7 +66,7 @@ Wanneer u een aangepaste back-upstrategie met momentopnamen hebt, de momentopnam
 U kunt de momentopname van de incrementele kopie implementeren door het volgende te doen
 
 * Een momentopname van het gebruik van de basis blob [momentopname maken van Blob](https://docs.microsoft.com/rest/api/storageservices/Snapshot-Blob).
-* Kopiëren van de momentopname naar de doel-back-upopslag-account met behulp [kopiëren van de Blob](https://docs.microsoft.com/rest/api/storageservices/Copy-Blob). Dit is de back-pagina-blob. Een momentopname van de back-pagina-blob en op te slaan in de back-account.
+* De momentopname van het kopiëren naar de back-up doelopslagaccount in dezelfde of een andere Azure-regio met behulp van [kopiëren van de Blob](https://docs.microsoft.com/rest/api/storageservices/Copy-Blob). Dit is de back-pagina-blob. Een momentopname van de back-pagina-blob en op te slaan in de back-account.
 * Maak nog een momentopname van de basis-blob met behulp van de Blob-momentopname.
 * Het verschil tussen de eerste en tweede momentopnamen van het gebruik van de basis blob ophalen [GetPageRanges](https://docs.microsoft.com/rest/api/storageservices/Get-Page-Ranges). Gebruik de nieuwe parameter **prevsnapshot**, de datum/tijd-waarde van de momentopname die u wilt ophalen van het verschil met op te geven. Wanneer deze parameter aanwezig is, betekent dit dat het REST-antwoord alleen op de pagina's die zijn gewijzigd tussen doel momentopname en eerdere momentopname, inclusief wissen's bevat.
 * Gebruik [PutPage](https://docs.microsoft.com/rest/api/storageservices/Put-Page) deze wijzigingen toepassen op de back-pagina-blob.

@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/2/2018
 ms.author: markgal
-ms.openlocfilehash: 2151733a5d91fb17c69fa1f4f6aac64a70928824
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: dd0059f8d4714603568577d0a3c977ce7b27d44c
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49364299"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945838"
 ---
 # <a name="questions-about-the-azure-backup-service"></a>Vragen over de Azure Backup-service
 In dit artikel vindt u antwoorden op veelgestelde vragen over de Azure Backup-onderdelen. Sommige antwoorden bevatten koppelingen naar artikelen met uitgebreide informatie over het onderwerp. U kunt via **Opmerkingen** (aan de rechterkant) vragen stellen over Azure Backup. De opmerkingen worden onder aan dit artikel weergegeven. U kunt ook in het [discussieforum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup) vragen over de Azure Backup-service plaatsen.
@@ -82,6 +82,9 @@ Ja. Echter voor het gebruik van Azure Backup met System Center Data Protection M
 
 ### <a name="can-i-use-dpm-to-back-up-apps-in-azure-stack"></a>Kan ik DPM back-up-apps in Azure Stack gebruiken?
 Nee. Hoewel u Azure Backup gebruiken kunt om te beveiligen van Azure Stack, biedt Azure Backup momenteel geen ondersteuning met behulp van DPM back-up-apps in Azure Stack.
+
+### <a name="can-i-do-an-ilr-item-level-restore-for-vms-backed-up-to-the-online-vault-azure"></a>Kan ik een ILR (Item niveau herstellen) voor back-ups op de Online kluis (Azure)-VM's?
+Nee, Item-Level herstellen (ILR) is niet beschikbaar voor virtuele machines back-ups op de Site Recovery Services-kluis.
 
 ## <a name="how-azure-backup-works"></a>De werking van Azure Backup
 ### <a name="if-i-cancel-a-backup-job-once-it-has-started-is-the-transferred-backup-data-deleted-br"></a>Als ik een back-uptaak annuleer nadat deze is gestart, worden de overgedragen back-upgegevens dan verwijderd? <br/>

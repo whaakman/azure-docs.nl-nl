@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/08/2018
 ms.author: barbkess
-ms.openlocfilehash: f24be44b00f9c4e789e8d4797f6a0516dcfe940f
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: f9cd761080bc5098d0500841e7327ac8ce9f9a2d
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39494054"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49957925"
 ---
 # <a name="configure-azure-active-directory-sign-in-behavior-for-an-application-by-using-a-home-realm-discovery-policy"></a>Azure Active Directory-aanmelding in gedrag voor een toepassing met behulp van een Thuisrealmdetectie-beleid configureren
 
 Het volgende document bevat een inleiding tot Azure Active Directory-verificatiegedrag voor federatieve gebruikers configureren.   Het bevat informatie over de configuratie van automatische-versnelling en verificatie beperkingen voor gebruikers in federatieve domeinen.
 
-## <a name="home-realm-discovery"></a>Detectie van thuisrealm
+## <a name="home-realm-discovery"></a>Home Realm Discovery
 Thuis Realm detectie (HRD) is het proces waarmee Azure Active Directory (Azure AD) om te bepalen wanneer een gebruiker moet worden geverifieerd tijdens het aanmelden.  Wanneer een gebruiker zich aanmeldt met een Azure AD-tenant voor toegang tot een resource, of naar de Azure AD algemene aanmelden pagina, typt u de naam van een gebruiker (UPN). Azure AD gebruikt om te ontdekken waar de gebruiker moet zich aanmelden. 
 
 De gebruiker moet mogelijk worden uitgevoerd op een van de volgende locaties worden geverifieerd:
@@ -150,7 +150,7 @@ We gebruiken Azure AD PowerShell-cmdlets om te zien hoe een aantal scenario's, w
 - Lijst met de toepassingen waarvoor een beleid is geconfigureerd.
 
 
-### <a name="prerequisites"></a>Vereiste onderdelen
+### <a name="prerequisites"></a>Vereisten
 In de volgende voorbeelden u maken, bijwerken, koppelen en verwijderen van beleidsregels op de toepassingsservice-principals in Azure AD.
 
 1.  Download de nieuwste preview voor Azure AD PowerShell-cmdlet om te beginnen. 
@@ -263,4 +263,4 @@ Get-AzureADPolicyAppliedObject -ObjectId <ObjectId of the Policy>
 ## <a name="next-steps"></a>Volgende stappen
 - Zie voor meer informatie over de werking van verificatie in Azure AD [Verificatiescenario's voor Azure AD](../develop/authentication-scenarios.md).
 - Zie voor meer informatie over eenmalige gebruikersaanmelding [toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](configure-single-sign-on-portal.md).
-- Ga naar de [Ontwikkelaarshandleiding voor Active Directory](../develop/azure-ad-developers-guide.md) voor een overzicht van alle inhoud die relevant zijn voor ontwikkelaars.
+- Ga naar de [Ontwikkelaarshandleiding voor Active Directory](../develop/v1-overview.md) voor een overzicht van alle inhoud die relevant zijn voor ontwikkelaars.

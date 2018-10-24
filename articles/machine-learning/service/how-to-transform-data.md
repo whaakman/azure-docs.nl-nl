@@ -10,24 +10,25 @@ author: cforbe
 manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 09/24/2018
-ms.openlocfilehash: 388957fc5dac5cdab5bee34a4431eaa524e76a48
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 06e7d227511a9b651a905df3172f59a191acce01
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46999899"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945668"
 ---
 # <a name="transform-data-with-the-azure-machine-learning-data-prep-sdk"></a>Gegevens transformeren met de Azure Machine Learning Data Prep SDK
 
 De [SDK van Azure Machine Learning Data Prep](https://docs.microsoft.com/python/api/overview/azure/dataprep?view=azure-dataprep-py) biedt andere transformatie methoden om uw gegevens opruimen. Deze methoden kunnen u eenvoudig aan kolommen toevoegen, filteren ongewenste rijen of kolommen en rekenen ontbrekende waarden.
 
 Momenteel zijn er methoden voor de volgende taken:
-- [Met behulp van een expressie kolom toevoegen](#add-column-using-expression)
+- [Met behulp van een expressie kolom toevoegen](#column)
 - [Ontbrekende waarden worden toegerekend](#impute-missing-values)
 - [Kolom afleiden per voorbeeld](#derive-column-by-example)
 - [Filteren](#filtering)
 - [Aangepaste Python-transformaties](#custom-python-transforms)
 
+<a name=column>
 ## <a name="add-column-using-an-expression"></a>Met behulp van een expressie kolom toevoegen
 
 De Azure Machine Learning Data Prep SDK bevat `substring` expressies die u kunt gebruiken om een waarde uit bestaande kolommen te berekenen en vervolgens samengesteld die waarde in een nieuwe kolom. In dit voorbeeld we gegevens laden en probeer kolommen toevoegen aan die invoergegevens.

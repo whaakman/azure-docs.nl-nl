@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/12/2018
 ms.author: dugill
-ms.openlocfilehash: b841a1104a0cc1e74d9ab1f16ef39d3892ba7d55
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 69127702a7d8e7027e78a8e04a4e8e1bc3e36b65
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46996686"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49956337"
 ---
 # <a name="use-resource-manager-authentication-api-to-access-subscriptions"></a>Gebruik Resource Manager verificatie-API voor toegang tot abonnementen
 ## <a name="introduction"></a>Inleiding
@@ -94,7 +94,7 @@ De resultaten bevatten de AppId, die u nodig hebt bij het verifiëren als de toe
 ### <a name="optional-configuration---certificate-credential"></a>Optionele configuratie - certificaatreferentie
 Azure AD biedt ook ondersteuning voor referenties van het computercertificaat voor toepassingen: maken van een zelf-ondertekend certificaat, blijven de persoonlijke sleutel en de openbare sleutel toevoegen aan de registratie van uw Azure AD-toepassing. Uw toepassing verzendt een kleine nettolading met Azure AD ondertekend met behulp van uw persoonlijke sleutel voor verificatie en Azure AD valideert de handtekening met behulp van de openbare sleutel die u hebt geregistreerd.
 
-Zie voor meer informatie over het maken van een AD-app met een certificaat [gebruik Azure PowerShell voor het maken van een service-principal toegang krijgen tot bronnen](resource-group-authenticate-service-principal.md#create-service-principal-with-certificate-from-certificate-authority) of [gebruik Azure CLI voor het maken van een service-principal toegang krijgen tot bronnen](resource-group-authenticate-service-principal-cli.md) .
+Zie voor meer informatie over het maken van een AD-app met een certificaat [gebruik Azure PowerShell voor het maken van een service-principal toegang krijgen tot bronnen](../active-directory/develop/howto-authenticate-service-principal-powershell.md#create-service-principal-with-certificate-from-certificate-authority) of [gebruik Azure CLI voor het maken van een service-principal toegang krijgen tot bronnen](resource-group-authenticate-service-principal-cli.md) .
 
 ## <a name="get-tenant-id-from-subscription-id"></a>Haal de tenant-ID van abonnement-ID
 Om aan te vragen een token dat kan worden gebruikt voor het aanroepen van Resource Manager, moet uw toepassing weet wat de tenant-ID van de Azure AD-tenant die als host fungeert voor de Azure-abonnement. Zeer waarschijnlijk dat uw gebruikers weten dan hun abonnement-id's, maar ze mogelijk niet weet wat hun tenant id's voor Azure Active Directory. Als u de tenant-ID van de gebruiker, vraagt u de gebruiker voor de abonnements-ID. Bieden van dat abonnement-ID bij het verzenden van een aanvraag over het abonnement:
@@ -106,7 +106,7 @@ De aanvraag is mislukt omdat de gebruiker heeft geen nog aangemeld, maar u de te
 ## <a name="get-user--app-access-token"></a>Voor gebruikers en app-toegangstoken ophalen
 Uw toepassing wordt de gebruiker omgeleid naar Azure AD met een OAuth 2.0 autoriseren aanvraag - referenties van de gebruiker worden geverifieerd, waarna een autorisatiecode. Uw toepassing maakt gebruik van de autorisatiecode voor een toegangstoken ophalen voor Resource Manager. De [ConnectSubscription](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/Controllers/HomeController.cs#L42) methode maakt u de autorisatieaanvraag.
 
-Dit artikel laat de REST-API-aanvragen voor het verifiëren van de gebruiker. U kunt ook helper bibliotheken gebruiken voor het uitvoeren van verificatie in uw code. Zie voor meer informatie over deze bibliotheken [Azure Active Directory Authentication Libraries](../active-directory/active-directory-authentication-libraries.md). Zie voor instructies over het integreren van identiteitsbeheer in een toepassing [ontwikkelaarsgids van Azure Active Directory](../active-directory/develop/azure-ad-developers-guide.md).
+Dit artikel laat de REST-API-aanvragen voor het verifiëren van de gebruiker. U kunt ook helper bibliotheken gebruiken voor het uitvoeren van verificatie in uw code. Zie voor meer informatie over deze bibliotheken [Azure Active Directory Authentication Libraries](../active-directory/active-directory-authentication-libraries.md). Zie voor instructies over het integreren van identiteitsbeheer in een toepassing [ontwikkelaarsgids van Azure Active Directory](../active-directory/develop/v1-overview.md).
 
 ### <a name="auth-request-oauth-20"></a>Aanvraag voor verificatie (OAuth 2.0)
 Geef een Open ID Connect/OAuth 2.0 autoriseren aanvragen naar het Azure AD-geautoriseerde eindpunt:

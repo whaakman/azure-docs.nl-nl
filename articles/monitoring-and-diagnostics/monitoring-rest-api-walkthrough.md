@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/19/2018
 ms.author: mcollier
 ms.component: ''
-ms.openlocfilehash: 9524d471388e69166191b6197fb295532b068092
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 59e7ac5e2da733724c047f6842561ce87fb495bb
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39390551"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955300"
 ---
 # <a name="azure-monitoring-rest-api-walkthrough"></a>Azure Monitoring REST-API-overzicht
 In dit artikel laat zien hoe verificatie uitvoeren zodat uw code kunt u de [Microsoft Azure Monitor REST API-verwijzing](https://msdn.microsoft.com/library/azure/dn931943.aspx).         
@@ -25,7 +25,7 @@ Naast het werken met verschillende metrische gegevenspunten, maakt de API van de
 ## <a name="authenticating-azure-monitor-requests"></a>Verificatie van Azure Monitor-aanvragen
 De eerste stap is om te verifiëren van de aanvraag.
 
-Alle taken die worden uitgevoerd voor de API van Azure Monitor gebruiken de Azure Resource Manager-verificatiemodel. Daarom moeten alle aanvragen worden geverifieerd bij Azure Active Directory (Azure AD). Eén mogelijke benadering voor het verifiëren van de clienttoepassing is op een Azure AD-service-principal maken en op te halen van het verificatietoken (JWT). Het script in het volgende voorbeeld ziet u een Azure AD-service-principal via PowerShell maken. Voor meer gedetailleerde stapsgewijze instructies, Raadpleeg de documentatie op [met Azure PowerShell om te maken van een service-principal toegang krijgen tot bronnen](https://docs.microsoft.com/powershell/azure/create-azure-service-principal-azureps). Het is ook mogelijk om te [maken van een service-principal via de Azure-portal](../azure-resource-manager/resource-group-create-service-principal-portal.md).
+Alle taken die worden uitgevoerd voor de API van Azure Monitor gebruiken de Azure Resource Manager-verificatiemodel. Daarom moeten alle aanvragen worden geverifieerd bij Azure Active Directory (Azure AD). Eén mogelijke benadering voor het verifiëren van de clienttoepassing is op een Azure AD-service-principal maken en op te halen van het verificatietoken (JWT). Het script in het volgende voorbeeld ziet u een Azure AD-service-principal via PowerShell maken. Voor meer gedetailleerde stapsgewijze instructies, Raadpleeg de documentatie op [met Azure PowerShell om te maken van een service-principal toegang krijgen tot bronnen](https://docs.microsoft.com/powershell/azure/create-azure-service-principal-azureps). Het is ook mogelijk om te [maken van een service-principal via de Azure-portal](../active-directory/develop/howto-create-service-principal-portal.md).
 
 ```PowerShell
 $subscriptionId = "{azure-subscription-id}"

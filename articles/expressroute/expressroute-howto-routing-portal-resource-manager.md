@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/12/2018
+ms.date: 10/23/2018
 ms.author: cherylmc
-ms.openlocfilehash: 9b96417140bea581aeb106e45c3c93a19858dfe7
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: 7acfb71dd3edd798095472b8f863a658dccaa51b
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49310878"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955181"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit"></a>Peering voor een ExpressRoute-circuit maken en wijzigen
 
@@ -156,6 +156,11 @@ U kunt de rij voor peering selecteren en de eigenschappen van de peering wijzige
 ### <a name="deleteprivate"></a>Persoonlijke Azure-peering verwijderen
 
 U kunt de peeringconfiguratie verwijderen door het verwijderingspictogram te selecteren zoals wordt weergegeven in de volgende afbeelding:
+
+> [!WARNING]
+> U moet ervoor zorgen dat alle virtuele netwerken en globale bereiken ExpressRoute-verbindingen worden verwijderd voordat u het volgende voorbeeld uitvoert. 
+> 
+> 
 
 ![privé-peering verwijderen](./media/expressroute-howto-routing-portal-resource-manager/rprivate4.png)
 

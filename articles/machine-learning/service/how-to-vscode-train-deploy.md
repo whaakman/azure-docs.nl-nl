@@ -9,12 +9,12 @@ ms.author: jmartens
 author: j-martens
 ms.reviewer: jmartens
 ms.date: 10/1/2018
-ms.openlocfilehash: 3a5ee8795dabcbf9e35e16a8ba0f9c0eb5490ead
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 6372aada8c3d380f8d3cefb0479e45bbd7c63898
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48242606"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945243"
 ---
 # <a name="vs-code-tools-for-ai-train-and-deploy-ml-models-from-vs-code"></a>VS Code-hulpprogramma's voor AI: trainen en implementeren van ML-modellen van VS Code
 In dit artikel leert u hoe u de **VS Code-hulpprogramma's voor AI** extensie te trainen en implementeren van machine learning en deep learning-modellen met Azure Machine Learning-service in VS Code.
@@ -196,4 +196,4 @@ Hier volgt een voorbeeld van Azure Container Instances: [ ![Azure Container Inst
 
 Lees voor een overzicht van training met Machine Learning buiten de VS Code, [zelfstudie: trainen van modellen met Azure Machine Learning](tutorial-train-models-with-aml.md).
 
-Voor stapsgewijze instructies voor bewerken, uitvoeren en debuggen van code lokaal, Zie de [Python Hello World-zelfstudie](https://code.visualstudio.com/docs/languages/python/docs/python/python-tutorial)
+Voor stapsgewijze instructies voor bewerken, uitvoeren en debuggen van code lokaal, Zie de [Python Hello World-zelfstudie](https://code.visualstudio.com/docs/python/python-tutorial)

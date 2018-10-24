@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/08/2018
-ms.openlocfilehash: 6455322a1a1cf392c16aba708ce8445f8c80c3df
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 5ee249aee5d95f22f2e1f52d6356f09ea41ccd68
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49363840"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945753"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Azure HDInsight met behulp van een Azure-netwerk uitbreiden
 
@@ -173,7 +173,7 @@ Zie voor meer informatie de [naamomzetting voor VM's en Rolexemplaren](../virtua
 
 ## <a name="directly-connect-to-hadoop-services"></a>Rechtstreeks verbinding maken met Hadoop-services
 
-U kunt verbinding maken met het cluster op https://CLUSTERNAME.azurehdinsight.net. Dit adres maakt gebruik van een openbaar IP-adres, die niet toegankelijk als u nsg's of udr's hebt gebruikt om te beperken van inkomend verkeer van internet. Bovendien wanneer u het cluster in een VNet implementeert u het kunt openen met behulp van de persoonlijke eindpunt https://CLUSTERNAME-internal.azurehdinsight.net. Dit eindpunt wordt omgezet naar een privé IP-adres binnen het VNet voor toegang tot het cluster.
+U kunt verbinding maken met het cluster op https://CLUSTERNAME.azurehdinsight.net. Dit adres maakt gebruik van een openbaar IP-adres, die niet toegankelijk als u nsg's of udr's hebt gebruikt om te beperken van inkomend verkeer van internet. Bovendien wanneer u het cluster in een VNet implementeert u het kunt openen met behulp van de persoonlijke eindpunt https://CLUSTERNAME-int.azurehdinsight.net. Dit eindpunt wordt omgezet naar een privé IP-adres binnen het VNet voor toegang tot het cluster.
 
 Voor verbinding met Ambari en andere webpagina's met het virtuele netwerk, gebruikt u de volgende stappen uit:
 

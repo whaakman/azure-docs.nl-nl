@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 65672d5dc42ae1e584a36bcc72c16911f6c1f6e2
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 206dddd70ae9063782b7dc8dfaf1214f53d5fac8
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46122822"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955691"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-net-sdk"></a>Verificatie van de eindgebruiker met Azure Data Lake Storage Gen1 met .NET SDK
 > [!div class="op_single_selector"]
@@ -82,7 +82,7 @@ In dit artikel leert u over het gebruik van de .NET SDK doet eindgebruikersverif
 ## <a name="end-user-authentication"></a>Verificatie van de eindgebruiker
 Dit codefragment in uw .NET-client-toepassing toevoegen. Vervang de tijdelijke aanduiding door de waarden die zijn opgehaald uit een systeemeigen Azure AD-toepassing (weergegeven als vereiste). Dit codefragment kunt u verifiëren van uw toepassing **interactief** met Data Lake Storage Gen1, wat betekent dat u wordt gevraagd uw Azure-referenties in te voeren.
 
-Voor het gebruiksgemak gebruikt gebruikt het volgende codefragment standaardwaarden voor de client-ID en omleidings-URI die geldig zijn voor alle Azure-abonnement. In het volgende codefragment hoeft u alleen voor de waarde voor uw tenant-ID. U kunt met behulp van de instructies op de Tenant-ID ophalen [ophalen van de tenant-ID](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-tenant-id).
+Voor het gebruiksgemak gebruikt gebruikt het volgende codefragment standaardwaarden voor de client-ID en omleidings-URI die geldig zijn voor alle Azure-abonnement. In het volgende codefragment hoeft u alleen voor de waarde voor uw tenant-ID. U kunt met behulp van de instructies op de Tenant-ID ophalen [ophalen van de tenant-ID](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-id).
     
 - De functie Main() vervangen door de volgende code:
 

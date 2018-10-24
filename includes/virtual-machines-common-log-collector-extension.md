@@ -1,41 +1,41 @@
 
-Oplossen van problemen met een Microsoft Azure cloudservice vereist dat de logboekbestanden van de service op virtuele machines verzamelen als de problemen optreden. U kunt de AzureLogCollector-extensie op aanvraag uitvoeren van eenmalige verzamelen van Logboeken vanaf een of meer Cloud Service virtuele machines (van webrollen en werkrollen) en de verzamelde bestanden overbrengen naar Azure storage-account – zonder het op afstand aan te melden bij een van de virtuele machines.
+Oplossen van problemen met een cloudservice van Microsoft Azure, moet de logboekbestanden van de service op virtuele machines verzamelen als de problemen optreden. U kunt de AzureLogCollector-extensie op aanvraag voor het uitvoeren van eenmalige verzamelen van Logboeken van een of meer Cloud-Service-VM's (van webrollen en werkrollen) en de verzamelde bestanden overbrengen naar Azure storage-account – zonder extern aanmelden bij een van de virtuele machines.
 
 > [!NOTE]
-> Beschrijving voor het merendeel van de geregistreerde gegevens kunnen worden gevonden op http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.asp.
+> Beschrijvingen voor de meeste van de geregistreerde gegevens kunnen worden gevonden op http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.asp.
 > 
 > 
 
-Er zijn twee modi van verzameling afhankelijk van de typen bestanden moeten worden verzameld.
+Er zijn twee modi van verzameling afhankelijk van de typen bestanden die worden verzameld.
 
-* **Azure Guest Agent logboeken alleen (GA)**. Deze modus verzameling bevat alle logboeken die betrekking hebben op Azure Gast agents en andere Azure-onderdelen.
-* **Alle logboeken (volledig)**. Deze verzameling modus verzamelt alle bestanden in de modus van NH plus:
+* **Azure Guest Agent-logboeken alleen (GA)**. In deze modus verzameling bevat alle logboeken met betrekking tot Azure-gastagents en andere Azure-onderdelen.
+* **Alle logboeken (volledig)**. In deze modus verzameling verzamelt alle bestanden in de modus voor algemene beschikbaarheid plus:
   
   * systeem- en gebeurtenislogboeken
-  * HTTP-foutlogboeken
+  * HTTP-fout-Logboeken
   * IIS-logboeken
   * Setup-logboeken
   * andere systeemlogboeken
 
 In beide modi verzameling kunnen aanvullende gegevens verzamelingsmappen worden opgegeven met behulp van een verzameling van de volgende structuur:
 
-* **Naam**: de naam van de verzameling, gebruikt als de naam van de submap binnen het zip-bestand met de verzamelde bestanden.
-* **Locatie**: het pad naar de map op de virtuele machine waarbij bestanden moeten worden verzameld.
-* **SearchPattern**: het patroon van de namen van bestanden moeten worden verzameld. Standaardwaarde is "\*"
+* **Naam**: de naam van de verzameling, die wordt gebruikt als de naam van de submap in het zip-bestand met de verzamelde bestanden.
+* **Locatie**: het pad naar de map op de virtuele machine waar de bestanden moeten worden verzameld zich bevinden.
+* **SearchPattern**: het patroon van de namen van bestanden moeten worden verzameld. De standaardwaarde is "\*"
 * **Recursieve**: als de bestanden moeten worden verzameld bevindt recursief onder de opgegeven locatie.
 
 ## <a name="prerequisites"></a>Vereisten
-* Opslagaccount hebt voor uitbreiding gegenereerde zip-bestanden op te slaan.
-* Gebruik Azure PowerShell-Cmdlets v0.8.0 of hoger. Zie voor meer informatie [Azure downloadt](https://azure.microsoft.com/downloads/).
+* Een opslagaccount voor de uitbreiding voor het opslaan van de gegenereerde zip-bestanden hebben.
+* Gebruik Azure PowerShell-Cmdlets v0.8.0 of hoger. Zie voor meer informatie, [Azure Downloads](https://azure.microsoft.com/downloads/).
 
 ## <a name="add-the-extension"></a>De extensie toevoegen
-U kunt [Microsoft Azure PowerShell](https://msdn.microsoft.com/library/dn495240.aspx) cmdlets of [Service REST-API's](https://msdn.microsoft.com/library/ee460799.aspx) de uitbreiding AzureLogCollector toevoegen.
+U kunt [Microsoft Azure PowerShell](https://msdn.microsoft.com/library/dn495240.aspx) cmdlets of [Service Management REST API's](https://msdn.microsoft.com/library/ee460799.aspx) om toe te voegen van de extensie AzureLogCollector.
 
-Voor Cloud-Services, de bestaande Azure Powershell-cmdlet **Set AzureServiceExtension**, kunnen worden gebruikt voor de uitbreiding voor rolinstanties Service in de Cloud inschakelen. Elke keer dat deze extensie via deze cmdlet is ingeschakeld, wordt op de geselecteerde rol-exemplaren van de geselecteerde rollen logboekverzameling geactiveerd.
+Voor Cloud Services, de bestaande Azure Powershell-cmdlet **Set AzureServiceExtension**, kan worden gebruikt voor het inschakelen van de extensie op instanties van de Service in de Cloud. Telkens wanneer deze uitbreiding tot en met deze cmdlet is ingeschakeld, wordt op de geselecteerde rol-instanties van de geselecteerde rollen logboekverzameling geactiveerd.
 
-Voor virtuele Machines, de bestaande Azure Powershell-cmdlet **Set AzureVMExtension**, kunnen worden gebruikt voor het inschakelen van de extensie op virtuele Machines. Elke keer dat deze uitbreiding is ingeschakeld via de cmdlets, wordt op elk exemplaar logboekverzameling geactiveerd.
+Voor virtuele Machines, de bestaande Azure Powershell-cmdlet **Set AzureVMExtension**, kan worden gebruikt voor het inschakelen van de uitbreiding van virtuele Machines. Telkens wanneer deze uitbreiding is ingeschakeld via de cmdlets, wordt op elk exemplaar logboekverzameling geactiveerd.
 
-Deze uitbreiding gebruikt intern, de JSON-indeling PublicConfiguration en PrivateConfiguration. Hieronder vindt u de indeling van een voorbeeld van JSON voor openbare en persoonlijke configuratie.
+Intern, deze extensie gebruikmaakt van JSON-indeling PublicConfiguration en PrivateConfiguration. Hier volgt de indeling van een voorbeeld-JSON voor openbare en persoonlijke configuratie.
 
 ### <a name="publicconfiguration"></a>PublicConfiguration
 
@@ -71,15 +71,15 @@ Deze uitbreiding gebruikt intern, de JSON-indeling PublicConfiguration en Privat
 ```
 
 > [!NOTE]
-> Deze extensie niet hoeft **privateConfiguration**. U kunt geeft u alleen een lege structuur voor de **– PrivateConfiguration** argument.
+> Deze extensie hoeven niet **privateConfiguration**. U kunt alleen een lege structuur voor opgeven de **– PrivateConfiguration** argument.
 > 
 > 
 
-U kunt een van de twee volgende stappen uit de AzureLogCollector toevoegen aan een of meer exemplaren van een Cloudservice of virtuele Machine van de geselecteerde functies die de verzamelingen op elke virtuele machine worden uitgevoerd en de verzamelde bestanden verzenden naar Azure-account opgegeven activeert volgen.
+U kunt een van de twee volgende stappen uit de AzureLogCollector toevoegen aan een of meer exemplaren van een Cloudservice of virtuele Machine van de geselecteerde rollen die de verzamelingen op elke virtuele machine worden uitgevoerd en de verzamelde bestanden verzenden naar Azure-account opgegeven activeert volgen.
 
-## <a name="adding-as-a-service-extension"></a>Als een extensie toe te voegen
+## <a name="adding-as-a-service-extension"></a>Als een Service-extensie toe te voegen
 1. Volg de instructies voor het verbinden van Azure PowerShell aan uw abonnement.
-2. Geef de service-naam, sleuf, rollen en functie-exemplaren die u wilt toevoegen en de extensie AzureLogCollector inschakelen.
+2. Geef de naam, sleuf, rollen en functie van exemplaren van service die u wilt toevoegen en de extensie AzureLogCollector inschakelen.
 
   ```powershell
   #Specify your cloud service name
@@ -114,23 +114,23 @@ U kunt een van de twee volgende stappen uit de AzureLogCollector toevoegen aan e
   ```
 
    > [!NOTE]
-   > U kunt token `%roleroot%` om op te geven van het basisstation van de rol, omdat deze geen gebruik maakt van een vast station.
+   > U kunt token `%roleroot%` om op te geven van het basisstation van de rol, omdat deze geen gebruik maakt van een vaste schijf.
    > 
    > 
-4. Geef de naam van het Azure-opslagaccount en de sleutel waarnaar de verzamelde bestanden worden geüpload.
+4. Geef de Azure storage-accountnaam en de sleutel waarnaar de verzamelde bestanden worden geüpload.
 
   ```powershell
   $StorageAccountName = 'YourStorageAccountName'
   $StorageAccountKey  = 'YourStorageAccountKey'
   ```
 
-5. Roep de SetAzureServiceLogCollector.ps1 (geleverd aan het einde van het artikel) als volgt de AzureLogCollector als extensie wilt inschakelen voor een Cloudservice. Als de uitvoering is voltooid, kunt u het geüploade bestand onder vinden `https://YourStorageAccountName.blob.core.windows.net/vmlogs`
+5. Roep de SetAzureServiceLogCollector.ps1 (opgenomen aan het einde van het artikel) als volgt om in te schakelen van de extensie AzureLogCollector voor een Cloudservice. Als de uitvoering is voltooid, kunt u het geüploade bestand onder vinden `https://YourStorageAccountName.blob.core.windows.net/vmlogs`
 
   ```powershell
   .\SetAzureServiceLogCollector.ps1 -ServiceName YourCloudServiceName  -Roles $roles  -Instances $instances –Mode $mode -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey -AdditionDataLocationList $AdditionalDataList
   ```
 
-Hieronder volgt de definitie van de parameters doorgegeven aan het script. (Deze wordt gekopieerd lager dan ook.)
+Hier volgt de definitie van de parameters doorgegeven aan het script. (Dit wordt hieronder ook gekopieerd.)
 
 ```powershell
 [CmdletBinding(SupportsShouldProcess = $true)]
@@ -164,12 +164,12 @@ param (
 
 * **ServiceName**: de naam van uw cloud-service.
 * **Rollen**: een lijst met functies, zoals 'WebRole1' of 'WorkerRole1'.
-* **Exemplaren**: een lijst met de namen van de rolinstanties gescheiden door komma--de jokertekenreeks gebruiken (' * ') voor alle rolexemplaren.
-* **Sleuf**: naam van de site. 'Productie' of 'Fasering'.
+* **Exemplaren**: een lijst met de namen van de rolinstanties gescheiden door komma's, gebruikt u de jokerteken-tekenreeks ("*") voor alle rolinstanties.
+* **Sleuf**: de naam van de site. 'Productie' of "" Staging".
 * **Modus**: Verzamelmodus. 'Volledige' of 'GA'.
-* **StorageAccountName**: naam van Azure storage-account voor het opslaan van gegevens verzameld.
-* **StorageAccountKey**: naam van de Azure-opslagsleutel-account.
-* **AdditionalDataLocationList**: een lijst met de volgende structuur:
+* **StorageAccountName**: de naam van de Azure storage-account voor het opslaan van verzamelde gegevens.
+* **StorageAccountKey**: de naam van de Azure storage-accountsleutel.
+* **AdditionalDataLocationList**: een lijst van de volgende structuur:
 
   ```powershell
   {
@@ -180,10 +180,10 @@ param (
   }
   ```
 
-## <a name="adding-as-a-vm-extension"></a>Toe te voegen als een VM-extensie
+## <a name="adding-as-a-vm-extension"></a>Als een VM-extensie toe te voegen
 Volg de instructies voor het verbinden van Azure PowerShell aan uw abonnement.
 
-1. Geef de naam van de service, VM en modus van de collectie.
+1. Geef de naam van de virtuele machine en de modus voor het verzamelen.
 
   ```powershell
   #Specify your cloud service name
@@ -209,16 +209,16 @@ Volg de instructies voor het verbinden van Azure PowerShell aan uw abonnement.
         #more locations can be added....
   ```
   
-2. Geef de naam van het Azure-opslagaccount en de sleutel waarnaar de verzamelde bestanden worden geüpload.
+2. Geef de Azure storage-accountnaam en de sleutel waarnaar de verzamelde bestanden worden geüpload.
 
   ```powershell
   $StorageAccountName = 'YourStorageAccountName'
   $StorageAccountKey  = 'YourStorageAccountKey'
   ```
 
-3. Roep de SetAzureVMLogCollector.ps1 (geleverd aan het einde van het artikel) als volgt de AzureLogCollector als extensie wilt inschakelen voor een Cloudservice. Als de uitvoering is voltooid, kunt u het geüploade bestand onder vinden `https://YourStorageAccountName.blob.core.windows.net/vmlogs`
+3. Roep de SetAzureVMLogCollector.ps1 (opgenomen aan het einde van het artikel) als volgt om in te schakelen van de extensie AzureLogCollector voor een Cloudservice. Als de uitvoering is voltooid, kunt u het geüploade bestand onder vinden `https://YourStorageAccountName.blob.core.windows.net/vmlogs`
 
-Hieronder volgt de definitie van de parameters doorgegeven aan het script. (Deze wordt gekopieerd lager dan ook.)
+Hier volgt de definitie van de parameters doorgegeven aan het script. (Dit wordt hieronder ook gekopieerd.)
 
 ```powershell
 [CmdletBinding(SupportsShouldProcess = $true)]
@@ -247,9 +247,9 @@ param (
 * **ServiceName**: de naam van uw cloud-service.
 * **VMName**: de naam van de virtuele machine.
 * **Modus**: Verzamelmodus. 'Volledige' of 'GA'.
-* **StorageAccountName**: naam van Azure storage-account voor het opslaan van gegevens verzameld.
-* **StorageAccountKey**: naam van de Azure-opslagsleutel-account.
-* **AdditionalDataLocationList**: een lijst met de volgende structuur:
+* **StorageAccountName**: de naam van de Azure storage-account voor het opslaan van verzamelde gegevens.
+* **StorageAccountKey**: de naam van de Azure storage-accountsleutel.
+* **AdditionalDataLocationList**: een lijst van de volgende structuur:
 
   ```
   {
@@ -260,7 +260,7 @@ param (
   }
   ```
 
-## <a name="extention-powershell-script-files"></a>Extensie PowerShell-Script bestanden
+## <a name="extention-powershell-script-files"></a>Extensie PowerShell-Script-bestanden
 ### <a name="setazureservicelogcollectorps1"></a>SetAzureServiceLogCollector.ps1
 
 ```powershell
@@ -437,7 +437,7 @@ if ($AdditionDataLocationList -ne $null )
 #
 $publicConfigJSON = $publicConfig | ConvertTo-Json
 
-Write-Output "PublicConfigurtion is: \r\n$publicConfigJSON"
+Write-Output "PublicConfiguration is: \r\n$publicConfigJSON"
 
 #
 #we just provide a empty privateConfig object
@@ -512,5 +512,5 @@ else
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-U kunt nu controleren of de logboeken van de ene eenvoudige locatie kopiëren.
+Nu kunt u controleren of uw logboeken van de ene eenvoudige locatie kopiëren.
 

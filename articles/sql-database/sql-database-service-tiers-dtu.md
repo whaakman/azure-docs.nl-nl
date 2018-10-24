@@ -11,13 +11,13 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/04/2018
-ms.openlocfilehash: a9e274cea7543fc3361b1f2d0a60fc18176b6248
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.date: 10/22/2018
+ms.openlocfilehash: 00e5a77bdf8554d473194b2e84947d7adb10df90
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48831310"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955250"
 ---
 # <a name="dtu-based-service-tiers"></a>Servicelagen op basis van DTU
 
@@ -25,32 +25,34 @@ Servicelagen op basis van DTU van elkaar worden onderscheiden door een bereik va
 
 > [!IMPORTANT]
 > SQL Database Managed Instance, ondersteunt momenteel in openbare preview-versie geen een op DTU gebaseerde aankoopmodel. Zie voor meer informatie, [Azure SQL Database Managed Instance](sql-database-managed-instance.md).
-
 > [!NOTE]
 > Zie voor meer informatie over Servicelagen op vCore gebaseerde [vCore-gebaseerde service-lagen](sql-database-service-tiers-vcore.md). Zie voor meer informatie over Servicelagen op basis van DTU en vCore-gebaseerde service-lagen differentiëren [modellen aanschaffen van Azure SQL Database](sql-database-service-tiers.md).
 
 ## <a name="compare-the-dtu-based-service-tiers"></a>De DTU-gebaseerde service-lagen vergelijken
 
 Een servicelaag kiezen afhankelijk is voornamelijk van zakelijke continuïteit-, opslag- en prestatievereisten.
-||Basis|Standard|Premium|
-| :-- | --: |--:| --:| --:| 
+||Basic|Standard|Premium|
+| :-- | --: |--:| --:| --:|
 |Specifieke workload|Ontwikkeling en productie|Ontwikkeling en productie|Ontwikkeling en productie||
 |SLA voor actieve tijdsduur|99,99%|99,99%|99,99%|N.V.T. Preview-versie|
-|Back-upretentie|7 dagen|35 dagen|35 dagen|
+|Retentie van back-ups|7 dagen|35 dagen|35 dagen|
 |CPU|Laag|Laag, Gemiddeld, hoog|Gemiddeld, hoog|
 |I/o-doorvoer (bij benadering) |2.5 IOP's per DTU| 2.5 IOP's per DTU | 48 IOP's per DTU|
 |I/o-latentie (bij benadering)|5 ms (lezen), 10 ms (schrijven)|5 ms (lezen), 10 ms (schrijven)|2 ms (lezen/schrijven)|
-|Columnstore-indexering |N.v.t.|S3 en hoger|Ondersteund|
-|In-memory OLTP|N.v.t.|N.v.t.|Ondersteund|
+|Columnstore-indexering |N/A|S3 en hoger|Ondersteund|
+|In-memory OLTP|N/A|N/A|Ondersteund|
 |||||
+
+> [!NOTE]
+> U krijgt een gratis Azure SQL-database op de basis-servicelaag in combinatie met een gratis Azure-account om Azure te verkennen. Zie voor meer informatie, [maken van een beheerde clouddatabase met uw gratis Azure-account](https://azure.microsoft.com/free/services/sql-database/).
 
 ## <a name="single-database-dtu-and-storage-limits"></a>DTU- en opslaglimieten van individuele database
 
 COMPUTE-grootten worden uitgedrukt in termen van Database Transaction Units (dtu's) voor individuele databases en elastische Database Transaction Units (edtu's) voor elastische pools. Zie voor meer informatie over dtu's en Edtu's [DTU gebaseerde aankoopmodel](sql-database-service-tiers.md#dtu-based-purchasing-model)?
 
-||Basis|Standard|Premium|
+||Basic|Standard|Premium|
 | :-- | --: | --: | --: | --: |
-| Maximale opslagruimte | 2 GB | 1 TB | 4 TB  | 
+| Maximale opslagruimte | 2 GB | 1 TB | 4 TB  |
 | Maximum aantal dtu 's | 5 | 3000 | 4000 | |
 ||||||
 
@@ -59,18 +61,17 @@ COMPUTE-grootten worden uitgedrukt in termen van Database Transaction Units (dtu
 
 ## <a name="elastic-pool-edtu-storage-and-pooled-database-limits"></a>Elastische pool-eDTU-, opslag- en limieten voor gegroepeerde databases
 
-| | **Basic** | **Standard** | **Premium** | 
+| | **Basic** | **Standard** | **Premium** |
 | :-- | --: | --: | --: | --: |
-| Maximale opslagruimte per database  | 2 GB | 1 TB | 1 TB | 
-| Maximale opslagruimte per groep | 156 GB | 4 TB | 4 TB | 
-| Maximum aantal edtu's per database | 5 | 3000 | 4000 | 
-| Maximum aantal edtu's per groep | 1600 | 3000 | 4000 | 
-| Maximum aantal databases per pool | 500  | 500 | 100 | 
+| Maximale opslagruimte per database  | 2 GB | 1 TB | 1 TB |
+| Maximale opslagruimte per groep | 156 GB | 4 TB | 4 TB |
+| Maximum aantal edtu's per database | 5 | 3000 | 4000 |
+| Maximum aantal edtu's per groep | 1600 | 3000 | 4000 |
+| Maximum aantal databases per pool | 500  | 500 | 100 |
 ||||||
 
 > [!IMPORTANT]
 > Meer dan 1 TB aan opslag in de Premium-laag is momenteel beschikbaar in alle regio's behalve het volgende: West-Centraal VS, China-Oost, USDoDCentral, Duitsland-centraal, USDoDEast, VS (overheid)-zuidwesten, USGov Iowa, Duitsland-Noordoost, China-Noord. In andere regio’s is de maximale opslagruimte in de Premium-laag beperkt tot 1 TB. Zie [P11-P15: huidige beperkingen](sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
-
 > [!IMPORTANT]
 > In sommige gevallen is het wellicht voor het verkleinen van een database voor het vrijmaken van ongebruikte ruimte. Zie voor meer informatie, [bestandsruimte in Azure SQL Database beheren](sql-database-file-space-management.md).
 
@@ -154,7 +155,7 @@ Bijvoorbeeld, een scale-factor van 500 (SF = 500) database heeft 100 gebruikers 
 
 Een geldige benchmark uitvoeren vereist een stabiele status meting duur van ten minste één uur.
 
-### <a name="metrics"></a>Metrieken
+### <a name="metrics"></a>Metrische gegevens
 
 De belangrijkste metrische gegevens in de benchmark zijn doorvoer en reactietijd.
 
@@ -165,7 +166,7 @@ De belangrijkste metrische gegevens in de benchmark zijn doorvoer en reactietijd
 | --- | --- | --- |
 | Premium |Transacties per seconde |95e percentiel op 0,5 seconden |
 | Standard |Transacties per minuut |90e percentiel op 1.0 seconden |
-| Basis |Transacties per uur |80e percentiel op 2.0 seconden |
+| Basic |Transacties per uur |80e percentiel op 2.0 seconden |
 
 ## <a name="next-steps"></a>Volgende stappen
 

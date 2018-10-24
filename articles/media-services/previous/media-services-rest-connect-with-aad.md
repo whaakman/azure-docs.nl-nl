@@ -3,22 +3,22 @@ title: Gebruik Azure AD-verificatie voor toegang tot Azure Media Services API me
 description: Informatie over het openen van Azure Media Services API met Azure Active Directory-verificatie met behulp van REST.
 services: media-services
 documentationcenter: ''
-author: willzhan
-manager: cfowler
+author: juliako
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/26/2017
+ms.date: 10/22/2018
 ms.author: willzhan;juliako;johndeu
-ms.openlocfilehash: b44c5b29f41f08ac5c1d5e6aa3c37f8c15ae7c54
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: d9d1fa7d8cf25057339e560c371deb939997b578
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45984654"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945074"
 ---
 # <a name="use-azure-ad-authentication-to-access-the-azure-media-services-api-with-rest"></a>Azure AD-verificatie gebruiken voor toegang tot de Azure Media Services API met REST
 
@@ -47,7 +47,7 @@ In deze zelfstudie leert u het volgende:
 
 - Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) aan voordat u begint.
 - [Een Azure Media Services-account maken met de Azure-portal](media-services-portal-create-account.md).
-- Controleer de [toegang tot Azure Media Services API met AAD-verificatieoverzicht](media-services-use-aad-auth-to-access-ams-api.md) artikel.
+- Controleer de [toegang tot Azure Media Services API met Azure AD-verificatieoverzicht](media-services-use-aad-auth-to-access-ams-api.md) artikel.
 - Installeer de [Postman](https://www.getpostman.com/) REST-client voor het uitvoeren van de REST-API's die in dit artikel worden weergegeven. 
 
     In deze zelfstudie worden durende **Postman** maar een REST-hulpprogramma zou geschikt. Andere alternatieven zijn: **Visual Studio Code** met de REST-invoegtoepassing of **Telerik Fiddler**. 
@@ -60,7 +60,7 @@ Voor toegang tot API van Media Services, moet u de volgende gegevenspunten te ve
 
 |Instelling|Voorbeeld|Beschrijving|
 |---|-------|-----|
-|Azure Active Directory-tenantdomein|microsoft.onmicrosoft.com|Azure AD als een Secure Token Service (STS)-eindpunt is gemaakt met de volgende notatie: https://login.microsoftonline.com/{your-aad-tenant-name.onmicrosoft.com}/oauth2/token. Azure AD geeft een JWT voor toegang tot resources (een toegangstoken).|
+|Azure Active Directory-tenantdomein|microsoft.onmicrosoft.com|Azure AD als een Secure Token Service (STS)-eindpunt is gemaakt met de volgende notatie: https://login.microsoftonline.com/{your-ad-tenant-name.onmicrosoft.com}/oauth2/token. Azure AD geeft een JWT voor toegang tot resources (een toegangstoken).|
 |REST API-eindpunt|https://amshelloworld.restv2.westus.media.azure.net/api/|Dit is het eindpunt waarvoor alle Media Services REST-API-aanroepen in uw toepassing worden gemaakt.|
 |Client-ID (toepassings-ID)|f7fbbb29-a02d-4d91-bbc6-59a2579259d2|ID Azure AD-toepassing (client). De client-ID is vereist voor het ophalen van het toegangstoken. |
 |Clientgeheim|+mUERiNzVMoJGggD6aV1etzFGa1n6KeSlLjIq+Dbim0=|Azure AD-toepassingssleutels (clientgeheim). Het clientgeheim is vereist voor het ophalen van het toegangstoken.|
@@ -144,8 +144,8 @@ In deze sectie ziet u hoe u **Postman** voor het uitvoeren van een REST-API waar
     U kunt ook op **bulksgewijs bewerken** aan de rechterkant van de Postman-venster en plak de volgende instantie (Vervang de client-ID en geheime waarden):
 
         grant_type:client_credentials
-        client_id:{Your Client ID that you got from your AAD Application}
-        client_secret:{Your client secret that you got from your AAD Application's Keys}
+        client_id:{Your Client ID that you got from your Azure AD Application}
+        client_secret:{Your client secret that you got from your Azure AD Application's Keys}
         resource:https://rest.media.azure.net
 
 8. Druk op **Verzenden**.

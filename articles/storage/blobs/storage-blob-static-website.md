@@ -8,15 +8,15 @@ ms.topic: article
 ms.date: 10/19/18
 ms.author: tamram
 ms.component: blobs
-ms.openlocfilehash: 7dff6f7438c3bb9fc09803bbaa58895f89f88d71
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: ddc85cb7c9bd4488295b22e687d199a73d23922c
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49649819"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955623"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Statische website hosting in Azure Storage
-Azure Storage-accounts kunnen u statische inhoud (HTML, CSS, JavaScript en afbeeldingsbestanden) rechtstreeks vanuit een storage-container met de naam *$web*. U profiteert van hosten in Azure Storage kunt u gebruikmaken van serverloze architecturen, met inbegrip van [Azure Functions](/azure/azure-functions/functions-overview) en andere PaaS-services.
+Azure Storage GPv2-accounts kunt u statische inhoud (HTML, CSS, JavaScript en afbeeldingsbestanden) rechtstreeks vanuit een storage-container met de naam *$web*. U profiteert van hosten in Azure Storage kunt u gebruikmaken van serverloze architecturen, met inbegrip van [Azure Functions](/azure/azure-functions/functions-overview) en andere PaaS-services.
 
 In tegenstelling tot de statische website hosting, dynamische websites die afhankelijk van de servercode zijn beste worden gehost met behulp van [Azure Web Apps](/azure/app-service/app-service-web-overview).
 
@@ -62,7 +62,7 @@ Statische website hosting wordt geleverd zonder extra kosten. Bekijk voor meer i
 ## <a name="quickstart"></a>Snelstartgids
 
 ### <a name="azure-portal"></a>Azure Portal
-Beginnen met het openen van de Azure portal op https://portal.azure.com en doorloopt u de volgende stappen uit:
+Beginnen met het openen van de Azure portal op https://portal.azure.com en doorloopt u de volgende stappen uit op uw GPv2-opslagaccount:
 
 1. Klik op **instellingen**
 2. Klik op **statische website**
@@ -71,7 +71,7 @@ Beginnen met het openen van de Azure portal op https://portal.azure.com en doorl
 
 ![](media/storage-blob-static-website/storage-blob-static-website-portal-config.PNG)
 
-Upload vervolgens uw items naar de *$web* container via de Azure Portal of met de [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) hele mappen uploaden. Zorg ervoor dat u een bestand dat overeenkomt met de *naam van het Indexdocument* u hebt geselecteerd bij het inschakelen van de functie.
+Upload vervolgens uw items naar de *$web* container via de Azure portal of met de [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) hele mappen uploaden. Zorg ervoor dat u een bestand dat overeenkomt met de *naam van het Indexdocument* u hebt geselecteerd bij het inschakelen van de functie.
 
 Tot slot gaat u naar uw webeindpunt voor het testen van uw website.
 
@@ -80,6 +80,11 @@ De uitbreiding voor de opslag van Preview-versie installeren:
 
 ```azurecli-interactive
 az extension add --name storage-preview
+```
+Stel uw CLI aan het abonnement van het GPv2-opslagaccount dat u wilt inschakelen in het geval van meerdere abonnementen:
+
+```azurecli-interactive
+az account set --subscription <SUBSCRIPTION_ID>
 ```
 De functie inschakelen. Zorg ervoor dat alle tijdelijke aanduiding voor waarden, inclusief punthaken door uw eigen waarden vervangt:
 
@@ -92,10 +97,10 @@ Query voor de eindpunt-URL:
 az storage account show -n <ACCOUNT_NAME> -g <RESOURCE_GROUP> --query "primaryEndpoints.web" --output tsv
 ```
 
-Uploaden van objecten die u wilt de *$web* container:
+Uploaden van objecten die u wilt de *$web* container uit een bronmap:
 
 ```azurecli-interactive
-az storage blob upload-batch -s <SOURCE> -d $web --account-name <ACCOUNT_NAME>
+az storage blob upload-batch -s <SOURCE_PATH> -d $web --account-name <ACCOUNT_NAME>
 ```
 
 ## <a name="deployment"></a>Implementatie
@@ -115,7 +120,7 @@ Om in te schakelen metrische gegevens over uw statische website's, klikt u op **
 
 Metrische gegevens worden gegenereerd door het Inhaken op verschillende metrische gegevens over API's. API-leden die wordt gebruikt binnen een bepaalde periode om te kunnen alleen richten op de leden die als resultaat de gegevens alleen worden weergegeven in de portal. Om ervoor te zorgen, selecteer een lid van de benodigde API kunt u, is de eerste stap om uit te breiden het tijdsbestek.
 
-Klik op de knop tijdsbestek en selecteer **afgelopen 24 uur** en klik vervolgens op **toepassen** om ervoor te zorgen dat de gebruikersinterface biedt u toegang tot de gewenste API.
+Klik op de knop tijdsbestek en selecteer **afgelopen 24 uur** en klik vervolgens op **toepassen** 
 
 ![Metrische gegevens van Azure Storage statische websites tijdsbereik](./media/storage-blob-static-website/storage-blob-static-website-metrics-time-range.png)
 

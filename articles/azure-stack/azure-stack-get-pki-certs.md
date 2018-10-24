@@ -5,22 +5,20 @@ services: azure-stack
 documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: ''
-ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 10/22/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 698e044aea6bbd78847cb209160c1fa6b2edcdbf
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 9f88e71df7697156e0745aeaf6b989548bcc223f
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44023416"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945108"
 ---
 # <a name="azure-stack-certificates-signing-request-generation"></a>Azure Stack-certificaten genereren van de aanvraag ondertekenen
 
@@ -46,7 +44,7 @@ Uw systeem moet voldoen aan de volgende vereisten vóór het genereren van de CS
     - Onderwerp
  - Windows 10 of Windows Server 2016
  
-  > [!NOTE]
+  > [!NOTE]  
   > Wanneer u ontvangt uw certificaten back-ups maken van uw certificeringsinstantie de stappen in [voorbereiden Azure Stack PKI-certificaten](azure-stack-prepare-pki-certs.md) moet worden uitgevoerd op hetzelfde systeem!
 
 ## <a name="generate-certificate-signing-requests"></a>Aanvragen voor Certificaatondertekening genereren
@@ -72,7 +70,7 @@ Volg deze stappen voor het voorbereiden en valideren van de Azure Stack PKI-cert
     ````PowerShell  
     $outputDirectory = "$ENV:USERPROFILE\Documents\AzureStackCSR"
     ````
-4.  Declareer system identificeren
+4.  Identiteitssysteem declareren
 
     Azure Active Directory
 
@@ -99,38 +97,35 @@ Volg deze stappen voor het voorbereiden en valideren van de Azure Stack PKI-cert
 6. Aanvragen voor elke DNS-naam voor Certificaatondertekening genereren:
 
     ```PowerShell  
-    Start-AzsReadinessChecker -RegionName $regionName -FQDN $externalFQDN -subject $subjectHash -OutputRequestPath $OutputDirectory -IdentitySystem $IdentitySystem
+    New-AzsCertificateSigningRequest -RegionName $regionName -FQDN $externalFQDN -subject $subjectHash -OutputRequestPath $OutputDirectory -IdentitySystem $IdentitySystem
     ````
 
-    Als u wilt opnemen opgeven PaaS-Services de switch ```-IncludePaaS```
+    Als u wilt opnemen PaaS-Services, geef de switch ```-IncludePaaS```
 
 7. U kunt ook voor Dev/Test-omgevingen. Voor het genereren van een enkele aanvraag met meerdere onderwerp alternatieve namen toevoegen **- RequestType SingleCSR** parameter en de waarde (**niet** aanbevolen voor productie-omgevingen):
 
     ```PowerShell  
-    Start-AzsReadinessChecker -RegionName $regionName -FQDN $externalFQDN -subject $subjectHash -RequestType SingleCSR -OutputRequestPath $OutputDirectory -IdentitySystem $IdentitySystem
+    New-AzsCertificateSigningRequest -RegionName $regionName -FQDN $externalFQDN -subject $subjectHash -RequestType SingleCSR -OutputRequestPath $OutputDirectory -IdentitySystem $IdentitySystem
     ````
 
-    Als u wilt opnemen opgeven PaaS-Services de switch ```-IncludePaaS```
+    Als u wilt opnemen PaaS-Services, geef de switch ```-IncludePaaS```
     
 8. Controleer de uitvoer:
 
     ````PowerShell  
-    AzsReadinessChecker v1.1803.405.3 started
-    Starting Certificate Request Generation
-
+    New-AzsCertificateSigningRequest v1.1809.1005.1 started.
+    
     CSR generating for following SAN(s): dns=*.east.azurestack.contoso.com&dns=*.blob.east.azurestack.contoso.com&dns=*.queue.east.azurestack.contoso.com&dns=*.table.east.azurestack.cont
     oso.com&dns=*.vault.east.azurestack.contoso.com&dns=*.adminvault.east.azurestack.contoso.com&dns=portal.east.azurestack.contoso.com&dns=adminportal.east.azurestack.contoso.com&dns=ma
     nagement.east.azurestack.contoso.com&dns=adminmanagement.east.azurestack.contoso.com*dn2=*.adminhosting.east.azurestack.contoso.com@dns=*.hosting.east.azurestack.contoso.com
     Present this CSR to your Certificate Authority for Certificate Generation: C:\Users\username\Documents\AzureStackCSR\wildcard_east_azurestack_contoso_com_CertRequest_20180405233530.req
     Certreq.exe output: CertReq: Request Created
 
-    Finished Certificate Request Generation
-
-    AzsReadinessChecker Log location: C:\Program Files\WindowsPowerShell\Modules\Microsoft.AzureStack.ReadinessChecker\1.1803.405.3\AzsReadinessChecker.log
-    AzsReadinessChecker Completed
+    Log location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessChecker.log
+    New-AzsCertificateSigningRequest Completed
     ````
 
-9.  Dien de **. Door de No** bestand gegenereerd op de Certificeringsinstantie (intern of openbaar).  De uitvoermap van **Start AzsReadinessChecker** bevat de CSR(s) die nodig zijn bij een certificeringsinstantie in te dienen.  Het bevat ook een onderliggende map met de INF-bestanden die tijdens de aanvraag genereren van het certificaat, als uitgangspunt gebruikt. Zorg dat uw CA genereert met behulp van uw verzoek gegenereerde certificaten die voldoen aan de [vereisten voor Azure Stack PKI](azure-stack-pki-certs.md).
+9.  Dien de **. Door de No** bestand gegenereerd op de Certificeringsinstantie (intern of openbaar).  De uitvoermap van **New-AzsCertificateSigningRequest** bevat de CSR(s) die nodig zijn bij een certificeringsinstantie in te dienen.  De map bevat ook, ter referentie, een onderliggende map met de INF-bestanden die tijdens het genereren van de aanvraag certificaat wordt gebruikt. Zorg dat uw CA genereert met behulp van uw verzoek gegenereerde certificaten die voldoen aan de [vereisten voor Azure Stack PKI](azure-stack-pki-certs.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 

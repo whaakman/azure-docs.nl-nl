@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 10/17/2018
-ms.openlocfilehash: 61950a1afda1fefdfab95f6d63420387dc2e2ac7
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.date: 10/22/2018
+ms.openlocfilehash: 88bea87c752563e1c19332121eb568b0bd329d03
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49378632"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954140"
 ---
 # <a name="sql-database-frequently-asked-questions-faq"></a>Veelgestelde vragen (FAQ) SQL-Database
 
@@ -35,7 +35,7 @@ Nee. De gevolgen van het toepassen van patches is doorgaans niet opvallen als u 
 
 ## <a name="what-is-the-new-vcore-based-purchasing-model-for-azure-sql-database"></a>Wat is de nieuwe vCore gebaseerde aankoopmodel voor Azure SQL Database
 
-Het nieuwe aanschafmodel is een aanvulling op het bestaande DTU-model. Het vCore-model is ontworpen om klanten flexibiliteit, controle, transparantie, en een eenvoudige manier te vertalen on-premises vereisten workloads naar de cloud. Ook kunnen klanten hun reken- en rsources op basis van hun werkbelasting schalen. Individuele databases en elastische pool-opties met behulp van het vCore-model zijn ook in aanmerking komen voor van 30 procent besparen met de [Azure Hybrid Benefit voor SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md). Zie [DTU gebaseerde aankoopmodel](sql-database-service-tiers-dtu.md) en [vCore gebaseerde aankoopmodel](sql-database-service-tiers-vcore.md) voor meer informatie.
+Het nieuwe aanschafmodel is een aanvulling op het bestaande DTU-model. Het vCore-model is ontworpen om klanten flexibiliteit, controle, transparantie, en een eenvoudige manier te vertalen on-premises vereisten workloads naar de cloud. Ook kunnen klanten hun reken- en rsources op basis van hun werkbelasting schalen. Individuele databases en elastische pool-opties met behulp van het vCore-model zijn ook in aanmerking komen voor van 30 procent besparen met de [Azure Hybrid Benefit voor SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/#services). Zie [DTU gebaseerde aankoopmodel](sql-database-service-tiers-dtu.md) en [vCore gebaseerde aankoopmodel](sql-database-service-tiers-vcore.md) voor meer informatie.
 
 ## <a name="what-is-a-vcore"></a>Wat is een vCore
 

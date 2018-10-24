@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2016
 ms.author: victorh
-ms.openlocfilehash: 7acc0fa4c3654c96ac0f8f1baed7ea5b7b306376
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: a814c543b9f4bfe6717e639342d82ed13dac35b0
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48829766"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954603"
 ---
 # <a name="create-dns-zones-and-record-sets-using-the-net-sdk"></a>Maken van DNS-zones en -recordsets met de .NET SDK
 
@@ -28,7 +28,7 @@ U kunt de bewerkingen maken, verwijderen of de DNS-zones, recordsets en records 
 
 Programmatische toegang tot Azure-resources wordt normaal gesproken verleend via een toegewezen account in plaats van uw eigen gebruikersreferenties. Deze speciale accounts zijn accounts 'service-principal' genoemd. Voor het gebruik van het voorbeeldproject Azure DNS-SDK, moet u eerst een service-principal-account maken en hieraan de juiste machtigingen.
 
-1. Ga als volgt [deze instructies](../azure-resource-manager/resource-group-authenticate-service-principal.md) te maken van een service principal-account (het voorbeeldproject Azure DNS-SDK wordt ervan uitgegaan dat de verificatie op basis van wachtwoorden.)
+1. Ga als volgt [deze instructies](../active-directory/develop/howto-authenticate-service-principal-powershell.md) te maken van een service principal-account (het voorbeeldproject Azure DNS-SDK wordt ervan uitgegaan dat de verificatie op basis van wachtwoorden.)
 2. Een resourcegroep maken ([als volgt hoe](../azure-resource-manager/resource-group-template-deploy-portal.md)).
 3. Azure RBAC gebruiken de service-principalaccount 'Inzender voor DNS-Zone' om machtigingen te verlenen tot de resourcegroep ([als volgt hoe](../role-based-access-control/role-assignments-portal.md).)
 4. Als het DNS-SDK van Azure-voorbeeldproject, bewerkt u het bestand 'program.cs' als volgt:

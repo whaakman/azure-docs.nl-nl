@@ -12,19 +12,29 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: compliance
-ms.date: 09/04/2018
+ms.date: 10/19/2018
 ms.author: rolyon
-ms.openlocfilehash: b6cc81a49875739a61aa397a65eb70c6b4f082ef
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: be00f6fb41572c0a9599f7005f2cdd1d6587f15a
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49393980"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49944138"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Functie Azure Active Directory Gebruiksrechtovereenkomst
-Azure AD Gebruiksrechtovereenkomst is een eenvoudige methode waarmee organisaties informatie kunnen presenteren aan eindgebruikers. Deze presentatie zorgt ervoor dat gebruikers relevante disclaimers voor juridische vereisten of nalevingsvereisten te zien krijgen. In dit artikel wordt beschreven hoe u aan de slag kunt gaan met Azure AD Gebruiksrechtovereenkomst.
+Azure AD Gebruiksrechtovereenkomst is een eenvoudige methode waarmee organisaties informatie kunnen presenteren aan eindgebruikers. Deze presentatie zorgt ervoor dat gebruikers relevante disclaimers voor juridische vereisten of nalevingsvereisten te zien krijgen. In dit artikel wordt beschreven hoe u aan de slag met de gebruiksvoorwaarden.
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
+
+## <a name="overview-videos"></a>Overzicht van video 's
+
+De volgende video biedt een kort overzicht van de gebruiksvoorwaarden.
+
+>[!VIDEO https://www.youtube.com/embed/tj-LK0abNao]
+
+Zie voor aanvullende video's:
+- [Gebruiksvoorwaarden in Azure Active Directory implementeren](https://www.youtube.com/embed/N4vgqHO2tgY)
+- [Hoe implementeer gebruiksvoorwaarden in Azure Active Directory](https://www.youtube.com/embed/t_hA4y9luCY)
 
 ## <a name="what-can-i-do-with-terms-of-use"></a>Wat kan ik doen met Gebruiksrechtovereenkomst?
 Met Azure AD Gebruiksrechtovereenkomst kunt u het volgende doen:
@@ -33,8 +43,9 @@ Met Azure AD Gebruiksrechtovereenkomst kunt u het volgende doen:
 - Specifieke gebruiksvoorwaarden presenteren op basis van gebruikerskenmerken (bijvoorbeeld artsen versus verpleegkundigen of binnenlandse werknemers versus werknemers in het buitenland) met behulp van [dynamische groepen](../users-groups-roles/groups-dynamic-membership.md).
 - Specifieke gebruiksrechtovereenkomsten presenteren bij toegang tot toepassingen met grote bedrijfsimpact, zoals Salesforce.
 - Aanwezig gebruiksvoorwaarden presenteren in verschillende talen.
+- Helpen bij het voldoen aan de regels.
 - Een lijst maken met personen die wel of niet akkoord zijn gegaan met uw Gebruiksrechtovereenkomst.
-- Een controlelogboek weergeven van Gebruiksrechtovereenkomst-activiteiten.
+- Een logboek van de voorwaarden van de activiteit gebruiken voor naleving en audits weergegeven.
 
 ## <a name="prerequisites"></a>Vereisten
 U moet over het volgende beschikken om Azure AD Gebruiksrechtovereenkomst te gebruiken en te configureren:

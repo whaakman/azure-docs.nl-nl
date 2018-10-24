@@ -11,12 +11,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 04/15/2018
 ms.author: ghogen
-ms.openlocfilehash: 9cf49ae97da3bf67300bdc222c86bb712aeaed37
-ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
+ms.openlocfilehash: c90ef26c0170db67b1d422701b6969ca3f9c9e38
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46465789"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958510"
 ---
 # <a name="add-key-vault-to-your-web-application-by-using-visual-studio-connected-services"></a>Key Vault toevoegen aan uw web-App met behulp van Visual Studio verbonden Services
 
@@ -27,19 +27,19 @@ Zie voor meer informatie over de wijzigingen Connected Services voor het inschak
 ## <a name="prerequisites"></a>Vereisten
 
 - **Een Azure-abonnement**. Als u nog geen abonnement hebt, kunt u zich aanmelden voor een [gratis account](https://azure.microsoft.com/pricing/free-trial/).
-- **Visual Studio 2017 versie 15,7** met de **webontwikkeling** werkbelasting geïnstalleerd. [Nu downloaden](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
+- **Visual Studio 2017 versie 15.7** met de workload **Webontwikkeling** geïnstalleerd. [Download nu](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
 - Voor ASP.NET (niet-Core) moet u de .NET Framework 4.7.1 ontwikkelhulpprogramma's, die niet standaard worden geïnstalleerd. Als u wilt installeren, start het installatieprogramma van Visual Studio, kiest u **wijzigen**, en kies vervolgens **afzonderlijke onderdelen**, vouw vervolgens aan de rechterkant **ASP.NET en webontwikkeling**, en kies **.NET Framework 4.7.1 ontwikkelprogramma's**.
 - Een ASP.NET 4.7.1 of ASP.NET Core 2.0 webproject openen.
 
 ## <a name="add-key-vault-support-to-your-project"></a>Key Vault-ondersteuning aan uw project toevoegen
 
-1. In **Solution Explorer**, kiest u **toevoegen** > **Connected Service**.
-   De Connected Service-pagina wordt weergegeven met services die u aan uw project toevoegen kunt.
+1. In **Solution Explorer** kiest u **Connected Service** > **Toevoegen**.
+   De Connected Service-pagina wordt weergegeven met services die u aan uw project kunt toevoegen.
 1. Kies in het menu van de beschikbare services, **beveiligde geheimen met Azure Key Vault**.
 
    ![Kies "Beveiligde geheimen met Azure Key Vault"](media/vs-key-vault-add-connected-service/KeyVaultConnectedService1.PNG)
 
-   Als u bent aangemeld bij Visual Studio en Azure-abonnement dat is gekoppeld aan uw account hebt, wordt een pagina weergegeven met een vervolgkeuzelijst met uw abonnementen. Zorg ervoor dat u bent aangemeld bij Visual Studio, en dat het account dat u bent aangemeld met hetzelfde account dat u voor uw Azure-abonnement gebruiken.
+   Als u bent aangemeld bij Visual Studio en een Azure-abonnement hebt dat is gekoppeld aan uw account, wordt een pagina weergegeven met een vervolgkeuzelijst met uw abonnementen. Zorg ervoor dat u bent aangemeld bij Visual Studio, en dat het account dat u bent aangemeld met hetzelfde account dat u voor uw Azure-abonnement gebruiken.
 
 1. Selecteer het abonnement dat u wilt gebruiken, en kies vervolgens een nieuwe of bestaande Key Vault of kies de koppeling bewerken om te wijzigen van de automatisch gegenereerde naam.
 
@@ -138,11 +138,33 @@ Voor toegang tot uw geheimen:
       <h3>@ViewBag.Secret2</h3>
    ```
 
-Gefeliciteerd, u hebt nu bevestigd dat uw web-app Key Vault kunt gebruiken voor toegang tot geheimen veilig opgeslagen.
+1. Uitvoeren van uw app lokaal om te controleren of dat u de geheime waarde die u hebt ingevoerd in de Azure-portal, niet de dummy-waarde uit het configuratiebestand kan lezen.
+
+Vervolgens moet u uw app publiceren in Azure.
+
+## <a name="publish-to-azure-app-service"></a>Publiceren naar Azure App Service
+
+1. Met de rechtermuisknop op het projectknooppunt en kies **publiceren**. Een scherm wordt weergegeven waarin wordt gemeld **Kies een doel publiceren**. Aan de linkerkant, kies **App Service**, en vervolgens **nieuw**.
+
+   ![Publiceren naar App Service](media/vs-key-vault-add-connected-service/AppServicePublish1.PNG)
+
+1. Op de **Create App Service** scherm, zorg ervoor dat het abonnement en resourcegroep worden dezelfde zijn als die u hebt gemaakt van de Key Vault in en kies **maken**.
+
+   ![App Service maken](media/vs-key-vault-add-connected-service/AppServicePublish2.PNG)
+
+1. Nadat uw web-App is gemaakt, de **publiceren** scherm wordt weergegeven. Houd er rekening mee de URL voor de gepubliceerde webtoepassing, die wordt gehost in Azure. Als u ziet **geen** naast **Key Vault**, u hebt nog steeds vertellen dat welke Key Vault verbinding maken met App Service. Kies de **toevoegen Key Vault** koppelen en kies de Sleutelkluis die u hebt gemaakt.
+
+   ![Key Vault toevoegen](media/vs-key-vault-add-connected-service/AppServicePublish3.PNG)
+
+   Als u ziet **Key Vault beheren**, klikt u op dat als u wilt de huidige instellingen van machtigingen voor bewerken, weergeven of wijzigingen aanbrengen in uw geheimen in de Azure Portal.
+
+1. Kies nu de Site-URL-koppeling gaat u naar uw web-App in de browser. Controleer of dat u ziet dat de juiste waarde uit de Key Vault.
+
+Gefeliciteerd, u hebt bevestigd dat uw web-app Key Vault kunt gebruiken voor toegang tot veilig opgeslagen geheimen bij het uitvoeren in Azure.
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Wanneer u niet meer nodig hebt, verwijdert u de resourcegroep. Hiermee verwijdert u de Key Vault en de gerelateerde resources. De resourcegroep verwijderen via de portal:
+Verwijder de resourcegroep als u deze niet meer nodig hebt. Hiermee verwijdert u de Key Vault en de gerelateerde resources. De resourcegroep verwijderen via de portal:
 
 1. Voer de naam van uw resourcegroep in het vak Zoeken bovenaan de portal in. Wanneer u de in deze snelstart gebruikte resourcegroep in de zoekresultaten ziet, selecteert u deze.
 2. Selecteer **Resourcegroep verwijderen**.

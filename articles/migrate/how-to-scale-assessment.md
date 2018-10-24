@@ -4,20 +4,20 @@ description: Hierin wordt beschreven hoe u grote aantallen on-premises virtuele 
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/10/2018
+ms.date: 10/23/2018
 ms.author: raynew
-ms.openlocfilehash: 5f02393e6c8d5e094443e418b3fe7439d73ff837
-ms.sourcegitcommit: 465ae78cc22eeafb5dfafe4da4b8b2138daf5082
+ms.openlocfilehash: 6809c0e56fe55c7962ae273db0b5ac4335089df1
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44325019"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945855"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Een grote VMware-omgeving ontdekken en beoordelen
 
 Azure Migrate heeft een limiet van 1500 machines per project, in dit artikel wordt beschreven hoe u voor de beoordeling van grote aantallen on-premises virtuele machines (VM's) met behulp van [Azure Migrate](migrate-overview.md).   
 
-## <a name="prerequisites"></a>Vereiste onderdelen
+## <a name="prerequisites"></a>Vereisten
 
 - **VMware**: VM's die u wilt migreren, moet worden beheerd door vCenter-Server versie 5.5, 6.0 of 6.5. Daarnaast moet u één ESXi-host met versie 5.0 of hoger voor het implementeren van de collector-VM.
 - **vCenter-account**: U hebt een alleen-lezen-account voor toegang tot de vCenter-Server nodig. Azure Migrate gebruikt dit account om de on-premises virtuele machines te detecteren.
@@ -31,7 +31,7 @@ Azure Migrate heeft toegang nodig tot de VMware-servers, zodat de virtuele machi
 - Gebruikerstype: ten minste een alleen-lezen-gebruiker
 - Machtigingen: Datacentrumobject –> Doorgeven naar onderliggend object, rol=Alleen-lezen
 - Details: gebruiker wordt toegewezen op datacentrumniveau, en heeft toegang tot alle objecten in het datacentrum.
-- Toewijzen om toegang te beperken, de rol geen toegang met de doorgeven naar onderliggend object, aan de onderliggende objecten (vSphere-hosts, gegevensopslag, VM's en netwerken).
+- Wijs om de toegang te beperken de rol Geen toegang met het object Doorgeven naar onderliggend object toe aan de onderliggende objecten (vSphere-hosts, gegevensopslag, VM's en netwerken).
 
 Als u in een omgeving met tenants implementeert, als volgt één manier om in te stellen deze:
 
@@ -60,7 +60,7 @@ Plan uw detecties en evaluaties op basis van de volgende beperkingen:
 | ---------- | ----------------- |
 | Project    | 1,500             |
 | Detectie  | 1,500             |
-| Beoordeling | 1,500             |
+| Evaluatie | 1,500             |
 
 Houd rekening met deze overwegingen bij het plannen:
 
@@ -120,11 +120,11 @@ Azure Migrate maakt een on-premises virtuele machine die het collector-apparaat 
 Als u meerdere projecten hebt, moet u het collector-apparaat slechts één keer downloaden met vCenter-Server. Na het downloaden en instellen van het apparaat, u deze voor elk project uitvoeren en u de unieke project-ID en sleutel opgeven.
 
 1. Klik in het Azure Migrate-project op **Aan de slag** > **Detecteren en evalueren** > **Machines detecteren**.
-2. In **machines detecteren**, er zijn twee opties beschikbaar zijn voor het apparaat, klikt u op **downloaden** voor het downloaden van het juiste apparaat op basis van uw voorkeur.
+2. In **Machines detecteren** zijn er twee opties beschikbaar voor het apparaat. Klik op **Downloaden** om het juiste apparaat te downloaden op basis van uw voorkeur.
 
-    a. **Eenmalige detectie:** het apparaat voor dit model communiceert met de vCenter-Server voor het verzamelen van metagegevens over de virtuele machines. Voor het verzamelen van prestatiegegevens van de virtuele machines, het is afhankelijk van de van historische prestatiegegevens die zijn opgeslagen in de vCenter-Server en de prestatiegeschiedenis van de laatste maand verzamelt. In dit model, Azure Migrate verzamelt gemiddelde meteritem (versus piek teller) voor alle gegevens, [meer informatie] (https://docs.microsoft.com/azure/migrate/concepts-collector#what-data-is-collected). Omdat dit een eenmalige detectie, worden wijzigingen in de on-premises omgeving niet weergegeven wanneer de detectie voltooid is. Als u wilt dat de wijzigingen om weer te geven, die u moet een nieuwe detectie van dezelfde omgeving hetzelfde project doen.
+    a. **Eenmalige detectie:** het apparaat voor dit model communiceert met de vCenter Server om metagegevens over de virtuele machines te verzamelen. Voor het verzamelen van prestatiegegevens van de virtuele machines baseert het apparaat zich op de historische prestatiegegevens die zijn opgeslagen in de vCenter Server en worden de prestatiegeschiedenis van de laatste maand verzameld. In dit model verzamelt Azure Migrate het gemiddelde meteritem (versus piektellers) voor alle metrische gegevens, [meer informatie] (https://docs.microsoft.com/azure/migrate/concepts-collector#what-data-is-collected). Omdat dit een eenmalige detectie, worden wijzigingen in de on-premises omgeving niet weergegeven wanneer de detectie voltooid is. Als u wilt dat de wijzigingen worden weergegeven, moet u opnieuw een detectie van dezelfde omgeving uitvoeren voor hetzelfde project.
 
-    b. **Continue detectie:** het apparaat voor dit model profielen continu de on-premises omgeving voor het verzamelen van gegevens over het gebruik van realtime voor elke virtuele machine. In dit model worden piek prestatiemeteritems verzameld voor elke metrische gegevens (CPU-gebruik, geheugengebruik enz.). Dit model is niet afhankelijk van de instellingen voor statistieken in vCenter Server voor het verzamelen van prestatiegegevens. U kunt de continue profilering stoppen op elk gewenst moment van het apparaat.
+    b. **Continue detectie:** het apparaat voor dit model profileert continu de on-premises omgeving om realtime gebruiksgegevens voor elke virtuele machine te verzamelen. In dit model worden piektellers verzameld voor elk metrisch gegeven (CPU-gebruik, geheugengebruik enzovoort). Dit model is voor het verzamelen van prestatiegegevens niet afhankelijk van de instellingen voor statistieken in vCenter Server. U kunt de continue profilering op elk gewenst moment stoppen vanaf het apparaat.
 
     > [!NOTE]
     > De functionaliteit van de continue detectie is in preview.
@@ -148,7 +148,17 @@ Controleer dat het OVA-bestand beveiligd is voordat u deze implementeert:
 
 #### <a name="one-time-discovery"></a>Eenmalige detectie
 
-Voor OVA-versie 1.0.9.14
+<<<<<<< HEAD voor OVA versie 1.0.9.15 (vrijgegeven op 23-10-2018)
+
+ <a name="algorithm--hash-value"></a>**Algoritme** | **hash-waarde**
+=======
+Voor OVA-versie 1.0.9.15
+
+**Algoritme** | **hash-waarde**
+>>>>>>> 20dc93529e7c0a4d17f2f4524752b5e2bead4e37---| ---MD5 | e9ef16b0c837638c506b5fc0ef75ebfa SHA1 | 37b4b1e92b3c6ac2782ff5258450df6686c89864 SHA256 | 8a86fc17f69b69968eb20a5c4c288c194cdcffb4ee6568d85ae5ba96835559ba
+
+<<<<<<< HEAD voor OVA versie 1.0.9.14 (vrijgegeven op 8/24/2018) === voor OVA versie 1.0.9.14
+>>>>>>> 20dc93529e7c0a4d17f2f4524752b5e2bead4e37
 
 **Algoritme** | **Hash-waarde**
 --- | ---
@@ -233,8 +243,8 @@ Voor continue detectie de dezelfde prestatiemeteritems worden verzameld in realt
 
 |Teller                                  |Niveau    |Het niveau van per apparaat  |Evaluatie van de impact                               |
 |-----------------------------------------|---------|------------------|------------------------------------------------|
-|CPU.Usage.Average                        | 1       |N.V.T.                |Aanbevolen VM-grootte en kosten                    |
-|Mem.Usage.Average                        | 1       |N.V.T.                |Aanbevolen VM-grootte en kosten                    |
+|CPU.Usage.Average                        | 1       |N.v.t.                |Aanbevolen VM-grootte en kosten                    |
+|Mem.Usage.Average                        | 1       |N.v.t.                |Aanbevolen VM-grootte en kosten                    |
 |virtualDisk.read.average                 | 2       |2                 |Grootte van de schijf, opslagkosten en VM-grootte         |
 |virtualDisk.write.average                | 2       |2                 |Grootte van de schijf, opslagkosten en VM-grootte         |
 |virtualDisk.numberReadAveraged.average   | 1       |3                 |Grootte van de schijf, opslagkosten en VM-grootte         |
@@ -275,11 +285,11 @@ Voor elke detectie die u nodig hebt om uit te voeren, moet u de collector voor h
 
 #### <a name="verify-vms-in-the-portal"></a>VM's verifiëren in de portal
 
-Voor de detectie van eenmalige, de detectietijd is afhankelijk van hoeveel virtuele machines worden gedetecteerd. Normaal gesproken duurt voor 100 virtuele machines, nadat de collector is uitgevoerd, ongeveer een uur om de configuratie- en gegevens te verzamelen om te voltooien. U kunt een evaluatie maken (op basis van prestaties en als on-premises-evaluaties) direct na de detectie wordt uitgevoerd.
+Voor eenmalige detectie is de detectietijd afhankelijk van het aantal virtuele machines dat u detecteert. Normaal gesproken duurt voor 100 virtuele machines, nadat de collector is uitgevoerd, ongeveer een uur om de configuratie- en gegevens te verzamelen om te voltooien. U kunt direct nadat de detectie is uitgevoerd een evaluatie maken (zowel op basis van prestaties als on-premises-evaluaties).
 
-Voor continue discovery (in preview), de collector wordt continu profiel van de on-premises omgeving en worden de prestatiegegevens blijven verzenden met een interval dat uur. U kunt de machines in de portal controleren na een uur van de detectie begon. Het is raadzaam om te wachten op ten minste een dag voor het maken van alle evaluaties op basis van prestaties voor de virtuele machines.
+Voor continue detectie (in preview) zal de collector continu de on-premises omgeving profileren en worden er met een interval van een uur voortdurend prestatiegegevens verzonden. U kunt de machines in de portal controleren vanaf een uur nadat de detectie is gestart. Het is raadzaam om ten minste een dag te wachten met het maken van evaluaties op basis van prestaties voor de virtuele machines.
 
-1. Klik in het migratieproject **beheren** > **Machines**.
+1. Klik in het migratieproject op **Beheren** > **Machines**.
 2. Controleer of de virtuele machines die u wilt detecteren in de portal worden weergegeven.
 
 

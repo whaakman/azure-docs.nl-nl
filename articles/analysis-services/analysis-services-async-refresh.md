@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: e30f02fb7f250b32cb3c7bb5205f58ca658a8f2a
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: e797f1faf249a1ad1eebbd46984829de5f087936
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49426739"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958666"
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>Asynchrone vernieuwing met de REST-API
 Met behulp van elke programmeertaal die REST-aanroepen ondersteunt, kunt u gegevensvernieuwing asynchrone bewerkingen op uw modellen in tabelvorm Azure Analysis Services uitvoeren. Dit omvat de synchronisatie van alleen-lezen replica's voor query's worden uitgeschaald. 
@@ -236,7 +236,7 @@ Deze vorm van verificatie vereist een Azure-toepassing worden gemaakt met de ver
 
 #### <a name="service-principal"></a>Service-principal
 
-Zie [service-principal - Azure portal maken](../azure-resource-manager/resource-group-create-service-principal-portal.md) en [een service-principal toevoegen aan de serverbeheerdersrol](analysis-services-addservprinc-admins.md) voor meer informatie over het instellen van een service-principal en de benodigde machtiging in Azure als toewijzen . Nadat u de stappen hebt gevolgd, moet u de volgende aanvullende stappen uitvoeren:
+Zie [service-principal - Azure portal maken](../active-directory/develop/howto-create-service-principal-portal.md) en [een service-principal toevoegen aan de serverbeheerdersrol](analysis-services-addservprinc-admins.md) voor meer informatie over het instellen van een service-principal en de benodigde machtiging in Azure als toewijzen . Nadat u de stappen hebt gevolgd, moet u de volgende aanvullende stappen uitvoeren:
 
 1.  Zoek in het codevoorbeeld **tekenreeks autoriteit =...** , Vervang **algemene** met uw organisatie tenant-ID.
 2.  Opmerking/Verwijder de opmerking bij, zodat de ClientCredential-klasse wordt gebruikt om de Ref-object te maken. Zorg ervoor dat de \<App-ID > en \<App-sleutel > waarden in een veilige manier worden geopend of verificatie op basis van certificaten gebruikt voor service-principals.

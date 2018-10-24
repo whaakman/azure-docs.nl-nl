@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/16/2018
 ms.author: shvija
-ms.openlocfilehash: a2b6fbae4a7b49c5596d5f2a6f9305181a0717d3
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 02336d9f4d041d4c8d5ba973cf8802692ddad914
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46979961"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49946008"
 ---
 # <a name="azure-event-hubs-metrics-in-azure-monitor-preview"></a>Metrische gegevens van Azure Event Hubs in Azure Monitor (preview)
 
@@ -66,7 +66,6 @@ Telt het aantal aanvragen voor beheer van gegevens en bewerkingen.
 | Geslaagde aanvragen (preview)   | Het aantal geslaagde aanvragen voor de Azure Event Hubs-service gedurende een bepaalde periode. <br/><br/> Eenheid: aantal <br/> Aggregatietype: totaal <br/> Dimensie: EntityName |
 | Server-fouten (preview) | Het aantal aanvragen die niet worden verwerkt vanwege een fout in de Azure Event Hubs-service gedurende een bepaalde periode. <br/><br/>Eenheid: aantal <br/> Aggregatietype: totaal <br/> Dimensie: EntityName |
 |Gebruikersfouten (preview)|Het aantal aanvragen die niet worden verwerkt wegens gebruikersfouten gedurende een bepaalde periode.<br/><br/> Eenheid: aantal <br/> Aggregatietype: totaal <br/> Dimensie: EntityName|
-|Beperkte aanvragen (preview)|Het aantal aanvragen die zijn beperkt omdat het gebruik van de eenheid doorvoer is overschreden.<br/><br/> Eenheid: aantal <br/> Aggregatietype: totaal <br/> Dimensie: EntityName|
 |Quotum overschreden fouten (preview)|Het aantal aanvragen van overschreden het beschikbare quotum. Zie [in dit artikel](event-hubs-quotas.md) voor meer informatie over Event Hubs-quota.<br/><br/> Eenheid: aantal <br/> Aggregatietype: totaal <br/> Dimensie: EntityName|
 
 ## <a name="throughput-metrics"></a>Metrische gegevens over doorvoer

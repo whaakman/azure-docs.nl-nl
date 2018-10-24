@@ -17,12 +17,12 @@ ms.date: 10/04/2018
 ms.author: celested
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 8c25e07d9844b077de80ae39b81a4e5823b0d344
-ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
+ms.openlocfilehash: 8c1edd33432480932573bce43ae6335bc334194c
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48785053"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958921"
 ---
 # <a name="azure-active-directory-authentication-libraries"></a>Azure Active Directory-Verificatiebibliotheken
 
@@ -83,6 +83,6 @@ In dit scenario heeft een ontwikkelaar een webtoepassing die wordt uitgevoerd op
 
 ## <a name="see-also"></a>Zie ook
 
-- [De Azure Active Directory developer's guide](azure-ad-developers-guide.md)
+- [De Azure Active Directory developer's guide](v1-overview.md)
 - [Verificatiescenario's voor Azure Active directory](authentication-scenarios.md)
 - [Azure Active Directory-codevoorbeelden](sample-v1-code.md)

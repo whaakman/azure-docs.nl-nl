@@ -2,18 +2,19 @@
 title: bestand opnemen
 description: bestand opnemen
 services: backup
-author: markgalioto
+author: rayne-wiselman
+manager: carmonm
 ms.service: backup
 ms.topic: include
-ms.date: 5/14/2018
-ms.author: markgal
+ms.date: 10/18/2018
+ms.author: raynew
 ms.custom: include file
-ms.openlocfilehash: 0ff9bf829e2dbe1bca078360ccded94bad63d9a6
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 74fe531c07aa871b06b5d0773f7e8fb0ade80be4
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39249458"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49946212"
 ---
 ## <a name="create-a-recovery-services-vault"></a>Een Recovery Services-kluis maken
 Een Recovery Services-kluis is een entiteit die de back-ups en herstelpunten die zijn gemaakt na verloop van tijd worden opgeslagen. De Recovery Services-kluis bevat ook het back-upbeleid die gekoppeld aan de beveiligde virtuele machines zijn.

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: bryanla
-ms.openlocfilehash: 1d6f84612dd2bac34c238ad7eaf323dc7fa00ba3
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: d93ad4185be3d4875c5747fd10359baab69af95d
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49311351"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958649"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>Over sleutels, geheimen en certificaten
 
@@ -101,7 +101,7 @@ Key Vault ondersteunt RSA- en elliptische-sleutels.
 -   **RSA**: 'Soft' RSA-sleutel.
 -   **RSA-HSM**: "Vaste" RSA-sleutel.
 
-Key Vault ondersteunt RSA-sleutels van de grootte 2048, 3072 en 4096. Key Vault ondersteunt Elliptic Curve sleutel van het type P-256, p-384, p-521 en P - 256 kB.
+Key Vault ondersteunt RSA-sleutels van de grootte 2048, 3072 en 4096. Key Vault ondersteunt Elliptic Curve sleutel van het type P-256, p-384, p-521 en P-256_K (SECP256K1).
 
 ### <a name="cryptographic-protection"></a>Cryptografische beveiliging
 
@@ -110,12 +110,19 @@ De cryptografische modules die Key Vault gebruikt, of HSM of software zijn geval
 ###  <a name="ec-algorithms"></a>EG algoritmen
  De volgende algoritme-id's worden ondersteund met de EG en EG-HSM-sleutels in Key Vault. 
 
+#### <a name="curve-types"></a>Curve-typen
+
+-   **P-256** -curve van het NIST p-256, gedefinieerd op [DSS FIPS PUB 186-4](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-4.pdf).
+-   **P-256_K** -de seconde curve SECP256K1, gedefinieerd op [SEC 2: Elliptic Curve domeinparameters aanbevolen](http://www.secg.org/sec2-v2.pdf).
+-   **P-384** -curve van het NIST P-384, gedefinieerd op [DSS FIPS PUB 186-4](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-4.pdf).
+-   **P-521** -curve van het NIST p-521 gedefinieerd op [DSS FIPS PUB 186-4](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-4.pdf).
+
 #### <a name="signverify"></a>AANMELDING/CONTROLEREN
 
--   **ES256** - verwerkingen ECDSA voor SHA-256 en sleutels die zijn gemaakt met de curve p-256. Dit algoritme wordt beschreven op [RFC7518].
+-   **ES256** - verwerkingen ECDSA voor SHA-256 en sleutels die zijn gemaakt met de curve p-256. Dit algoritme wordt beschreven op [RFC7518](https://tools.ietf.org/html/rfc7518).
 -   **ES256K** - verwerkingen ECDSA voor SHA-256 en sleutels die zijn gemaakt met de curve P-256_K. Dit algoritme is in behandeling zijnde standaardisatie.
--   **ES384** - verwerkingen ECDSA voor SHA-384 en sleutels die zijn gemaakt met de curve P-384. Dit algoritme wordt beschreven op [RFC7518].
--   **ES512** - ECDSA voor SHA-512 verwerkingen en sleutels die zijn gemaakt met de curve p-521. Dit algoritme wordt beschreven op [RFC7518].
+-   **ES384** - verwerkingen ECDSA voor SHA-384 en sleutels die zijn gemaakt met de curve P-384. Dit algoritme wordt beschreven op [RFC7518](https://tools.ietf.org/html/rfc7518).
+-   **ES512** - ECDSA voor SHA-512 verwerkingen en sleutels die zijn gemaakt met de curve p-521. Dit algoritme wordt beschreven op [RFC7518](https://tools.ietf.org/html/rfc7518).
 
 ###  <a name="rsa-algorithms"></a>RSA-algoritmen  
  De volgende algoritme-id's worden ondersteund met de RSA- en RSA-HSM-sleutels in Key Vault.  

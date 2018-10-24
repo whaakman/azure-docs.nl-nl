@@ -10,12 +10,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 08/15/2016
 ms.author: heidist
-ms.openlocfilehash: 1d0024af3bbf9edfe8c43032878a8b61e35cea9c
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: bae9e2dcb4320c1da4f1d8e3c6ad50ce90195544
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39000987"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958564"
 ---
 # <a name="manage-your-azure-search-service-with-powershell"></a>Uw Azure Search-service met PowerShell beheren
 > [!div class="op_single_selector"]
@@ -37,7 +37,7 @@ Eerst moet u aanmelden bij Azure met de volgende opdracht:
 
 Geef het e-mailadres van uw Azure-account en het bijbehorende wachtwoord in het dialoogvenster voor aanmelding van Microsoft Azure.
 
-U kunt ook [Meld u aan niet-interactief met een service-principal](../azure-resource-manager/resource-group-authenticate-service-principal.md).
+U kunt ook [Meld u aan niet-interactief met een service-principal](../active-directory/develop/howto-authenticate-service-principal-powershell.md).
 
 Als u meerdere Azure-abonnementen hebt, moet u uw Azure-abonnement instellen. Een lijst van uw huidige abonnementen wilt bekijken, moet u deze opdracht uitvoeren.
 

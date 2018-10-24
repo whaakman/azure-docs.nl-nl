@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/2017
+ms.date: 10/23/2018
 ms.author: dstefan
-ms.openlocfilehash: c8517114f51b5aed8f8e31a19b672721b109775e
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: db6778bdea2e3e133535bf28b3c2297cdb65599d
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46298299"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958904"
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Azure Active Directory bewijs van concept playbook: bouwstenen
 
@@ -150,7 +150,7 @@ Geschatte tijd om te voltooien: 60 minuten
 | De zelfstudie voor alle actoren van Microsoft Documentation delen  | [Zelfstudie: Azure Active Directory-integratie met ServiceNow](saas-apps/servicenow-tutorial.md) |
 | Stel een vergadering werken en volg de stappen in de zelfstudie met elke acteur. | [Zelfstudie: Azure Active Directory-integratie met ServiceNow](saas-apps/servicenow-tutorial.md) |
 | De app toewijzen aan de groep die is geïdentificeerd in de vereisten. Als de POC voor voorwaardelijke toegang in het bereik bevat, kunt u dat later terugkeren naar en MFA, toevoegen en dergelijke. <br/>Houd er rekening mee dat hiermee in het inrichtingsproces wordt gestart (indien geconfigureerd) |  [Een gebruiker of groep toewijzen aan een enterprise-app in Azure Active Directory](manage-apps/assign-user-or-group-access-portal.md) <br/>[Een groep maken en leden toevoegen in Azure Active Directory](fundamentals/active-directory-groups-create-azure-portal.md) |
-| Beheer van Azure AD Portal gebruiken om toe te voegen ServiceNow-toepassing vanuit galerie| [Beheer van Azure AD Portal: zakelijke toepassingen](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/Overview) <br/>[Wat is er nieuw in Enterprise Application management in Azure Active Directory](active-directory-enterprise-apps-whats-new-azure-portal.md) |
+| Beheer van Azure AD Portal gebruiken om toe te voegen ServiceNow-toepassing vanuit galerie| [Beheer van Azure AD Portal: zakelijke toepassingen](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/Overview) <br/>[Zelfstudie: Azure Active Directory-integratie met ServiceNow](saas-apps/servicenow-tutorial.md) |
 | In de blade 'Single sign-on' van het ServiceNow-App ' SAML gebaseerde aanmelding inschakelen " |  |
 | Vul 'Meld u op URL' en 'Id' velden met uw ServiceNow-URL<br/>Schakel het selectievakje ' als u wilt nieuw certificaat activeren "<br/>en instellingen opslaan |  |
 | Open 'ServiceNow configureren' blade aan de onderkant van het paneel om aangepaste instructies voor het configureren van ServiceNow weer te geven |  |
@@ -163,8 +163,7 @@ Geschatte tijd om te voltooien: 60 minuten
 
 ### <a name="considerations"></a>Overwegingen
 
-1. Hierboven [zelfstudie](saas-apps/servicenow-tutorial.md) verwijst naar de oude Azure AD-beheerervaring. Maar PoC is gebaseerd op [snelstartgids](active-directory-enterprise-apps-whats-new-azure-portal.md#quickstart-get-going-with-your-new-application-right-away) optreden.
-2. Als de doeltoepassing niet aanwezig in de galerie is, kunt klikt u vervolgens u 'Bring your own app'. Meer informatie: [wat is er nieuw in Enterprise Application management in Azure Active Directory: het toevoegen van aangepaste toepassingen vanaf één plek](active-directory-enterprise-apps-whats-new-azure-portal.md#add-custom-applications-from-one-place)
+1. Als de doeltoepassing niet aanwezig in de galerie is, kunt klikt u vervolgens u 'Bring your own app'. Meer informatie: [configureren van toepassingen die zich niet in de Azure AD-toepassingsgalerie](manage-apps/configure-single-sign-on-non-gallery-applications.md).
 
 ## <a name="saas-password-sso-configuration"></a>SaaS-wachtwoord SSO-configuratie
 
@@ -184,7 +183,7 @@ Geschatte tijd om te voltooien: 15 minuten
 | Stap | Resources |
 | --- | --- |
 | De browserextensie installeren | [Deelvenster-extensie voor toegang voor Internet Explorer](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)<br/>[Deelvenster-extensie voor toegang voor Chrome](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)<br/>[Deelvenster-extensie voor toegang voor Firefox](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409) |
-| Configureren van de toepassing van de galerie | [Wat is er nieuw in Enterprise Application management in Azure Active Directory: de nieuwe en verbeterde toepassingsgalerie](active-directory-enterprise-apps-whats-new-azure-portal.md#improvements-to-the-azure-active-directory-application-gallery) |
+| Configureren van de toepassing van de galerie | [Zelfstudie: SAML gebaseerde eenmalige aanmelding configureren](manage-apps/configure-single-sign-on-portal.md) |
 | Configureren van SSO-wachtwoord | [Beheren van eenmalige aanmelding voor zakelijke apps in de nieuwe Azure portal: wachtwoord gebaseerde aanmelding](manage-apps/what-is-single-sign-on.md#how-does-single-sign-on-with-azure-active-directory-work).|
 | De app toewijzen aan de groep in de vereisten zijn geïdentificeerd | [Een gebruiker of groep toewijzen aan een enterprise-app in Azure Active Directory](manage-apps/assign-user-or-group-access-portal.md) |
 | Meld u aan bij https://myapps.microsoft.com/ als een testgebruiker die toegang heeft |  |
@@ -195,10 +194,10 @@ Geschatte tijd om te voltooien: 15 minuten
 
 ### <a name="considerations"></a>Overwegingen
 
-Als de doeltoepassing niet aanwezig in de galerie is, kunt klikt u vervolgens u 'Bring your own app'. Meer informatie: [wat is er nieuw in Enterprise Application management in Azure Active Directory: het toevoegen van aangepaste toepassingen vanaf één plek](active-directory-enterprise-apps-whats-new-azure-portal.md#add-custom-applications-from-one-place)
+Als de doeltoepassing niet aanwezig in de galerie is, kunt klikt u vervolgens u 'Bring your own app'. Meer informatie: [configureren van toepassingen die zich niet in de Azure AD-toepassingsgalerie](manage-apps/configure-single-sign-on-non-gallery-applications.md)
 
  Houd rekening met de volgende vereisten:
-   * Toepassing moet een bekende aanmeldings-URL
+   * Toepassing moet een bekende aanmeldings-URL hebben.
    * De aanmeldingspagina moet een HTML-formulier met een meer tekstvelden die de browser-extensies kunnen automatisch invullen bevatten. Ten minste, moet gebruikersnaam en het wachtwoord bevatten.
 
 ## <a name="saas-shared-accounts-configuration"></a>SaaS-configuratie voor gedeelde Accounts
@@ -219,7 +218,7 @@ Geschatte tijd om te voltooien: 30 minuten
 | Stap | Resources |
 | --- | --- |
 | De browserextensie installeren | [Deelvenster-extensie voor toegang voor Internet Explorer](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)<br/>[Deelvenster-extensie voor toegang voor Chrome](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)<br/>[Deelvenster-extensie voor toegang voor Firefox](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409) |
-| Configureren van de toepassing van de galerie | [Wat is er nieuw in Enterprise Application management in Azure Active Directory: de nieuwe en verbeterde toepassingsgalerie](active-directory-enterprise-apps-whats-new-azure-portal.md#improvements-to-the-azure-active-directory-application-gallery) |
+| Configureren van de toepassing van de galerie | [Zelfstudie: SAML gebaseerde eenmalige aanmelding voor een toepassing configureren](manage-apps/configure-single-sign-on-portal.md) |
 | Configureren van SSO-wachtwoord | [Beheren van eenmalige aanmelding voor zakelijke apps in de nieuwe Azure portal: wachtwoord gebaseerde aanmelding](manage-apps/what-is-single-sign-on.md#how-does-single-sign-on-with-azure-active-directory-work).|
 | De app toewijzen aan de groep die is geïdentificeerd in de vereisten bij het toewijzen van referenties | [Een gebruiker of groep toewijzen aan een enterprise-app in Azure Active Directory](manage-apps/assign-user-or-group-access-portal.md) |
 | Aanmelden als andere gebruikers toegang tot de app als de **hetzelfde gedeelde account.**  |  |
@@ -228,7 +227,7 @@ Geschatte tijd om te voltooien: 30 minuten
 
 ### <a name="considerations"></a>Overwegingen
 
-Als de doeltoepassing niet aanwezig in de galerie is, kunt klikt u vervolgens u 'Bring your own app'. Meer informatie: [wat is er nieuw in Enterprise Application management in Azure Active Directory: het toevoegen van aangepaste toepassingen vanaf één plek](active-directory-enterprise-apps-whats-new-azure-portal.md#add-custom-applications-from-one-place)
+Als de doeltoepassing niet aanwezig in de galerie is, kunt klikt u vervolgens u 'Bring your own app'. Meer informatie: [configureren van eenmalige aanmelding voor toepassingen die zich niet in de Azure AD-toepassingsgalerie](manage-apps/configure-single-sign-on-non-gallery-applications.md)
 
  Houd rekening met de volgende vereisten:
    * Toepassing moet een bekende aanmeldings-URL
@@ -364,7 +363,7 @@ Geschatte tijd om te voltooien: 10 minuten
 | Stap | Resources |
 | --- | --- |
 | Ga naar de blade voor bedrijfstoepassingen in Azure AD-beheerportal | [Azure AD-beheerportal: Zakelijke toepassingen](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/) |
-| De toepassing van de vereisten met selfservice configureren | [Wat is er nieuw in Enterprise Application management in Azure Active Directory: toegang tot Self-servicetoepassingen configureren](active-directory-enterprise-apps-whats-new-azure-portal.md#configure-self-service-application-access) |
+| De toepassing van de vereisten met selfservice configureren | [Toegang tot Self-servicetoepassingen configureren](manage-apps/manage-self-service-access.md) |
 | Meld u aan als de Informatiemedewerker naar Mijn apps-portal | http://myapps.microsoft.com |
 | U ziet ' + app toevoegen ' knop in op de pagina. Gebruik dit rapport toegang tot de app voor |  |
 
@@ -480,7 +479,7 @@ Geschatte tijd om te voltooien: 15 minuten
 | Meld u aan bij https://portal.azure.com als een globale beheerder (GA) en een bootstrap de PIM-blade. De globale beheerder, waarmee u deze stap is gemaakt als de beveiligingsbeheerder van de.  Noemen we deze actor GA1 | [Met behulp van de beveiligingswizard in Azure AD Privileged Identity Management](privileged-identity-management/pim-security-wizard.md) |
 | Identificeren van de globale beheerder en ze verplaatsen van permanente naar in aanmerking komt. Dit moet een afzonderlijke admin van de die werd gebruikt in stap 1 voor de duidelijkheid zijn. Noemen we deze actor GA2 | [Azure AD Privileged Identity Management: Het toevoegen of verwijderen van een gebruikersrol](privileged-identity-management/pim-how-to-add-role-to-user.md)<br/>[Wat is Azure AD Privileged Identity Management?: Configureer de instellingen voor rolactivering](privileged-identity-management/pim-configure.md#configure-the-role-activation-settings)  |
 | Nu aanmelden als GA2 naar https://portal.azure.com en wijzig 'gebruikersinstellingen'. U ziet een aantal opties zijn niet beschikbaar. | |
-| In een nieuw tabblad en in dezelfde sessie als stap 3, gaat u nu naar https://portal.azure.com en de PIM-blade toevoegen aan het dashboard. | [PIM gebruiken](privileged-identity-management/pim-getting-started.md) |
+| In een nieuw tabblad en in dezelfde sessie als stap 3, gaat u nu naar https://portal.azure.com en de PIM-blade toevoegen aan het dashboard. | [Beginnen met PIM](privileged-identity-management/pim-getting-started.md) |
 | Activering van de aanvraag aan de rol globale beheerder | [Activeren of deactiveren van rollen in Azure AD Privileged Identity Management: een rol activeren](privileged-identity-management/pim-how-to-activate-role.md#activate-a-role) |
 | Houd er rekening mee dat als GA2 nooit geregistreerd voor MFA, registratie voor Azure MFA niet nodig |  |
 | Ga terug naar het oorspronkelijke tabblad in stap 3 en klik op de vernieuwknop in de browser. Houd er rekening mee dat u nu toegang hebt tot het wijzigen van "Gebruikersinstellingen" | |

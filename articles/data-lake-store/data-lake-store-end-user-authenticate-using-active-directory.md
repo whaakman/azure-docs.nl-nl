@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 2f0638b2449bfd582cb68e26d2043b7bc85342b6
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 6f7b812f32eda0c671b1ad1101b13a1290df0482
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46125949"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954769"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-azure-active-directory"></a>Eindgebruikersverificatie met Azure Data Lake Storage Gen1 met behulp van Azure Active Directory
 > [!div class="op_single_selector"]
@@ -45,7 +45,7 @@ In dit artikel wordt besproken hoe u maakt een **systeemeigen Azure AD-toepassin
   
     ![AAD-domein ophalen](./media/data-lake-store-end-user-authenticate-using-active-directory/get-aad-domain.png)
 
-* Uw Azure-tenant-ID. Zie voor instructies over het ophalen van de tenant-ID [ophalen van de tenant-ID](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-tenant-id).
+* Uw Azure-tenant-ID. Zie voor instructies over het ophalen van de tenant-ID [ophalen van de tenant-ID](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-id).
 
 ## <a name="end-user-authentication"></a>Verificatie van de eindgebruiker
 Dit verificatiemechanisme is de aanbevolen methode als u wilt dat een eindgebruiker zich aanmelden bij uw toepassing via Azure AD. Uw toepassing is vervolgens toegang krijgen tot Azure-resources met hetzelfde niveau van toegang als de gebruiker die in het logboek geregistreerd. De eindgebruiker moet naar hun referenties periodiek in volgorde voor uw toepassing om toegang te behouden.
@@ -74,7 +74,7 @@ Uw toepassing kan rechtstreeks gebruikersreferenties bieden aan Azure AD. Deze m
 
 ## <a name="step-1-create-an-active-directory-native-application"></a>Stap 1: Een systeemeigen Active Directory-toepassing maken
 
-Maken en configureren van een systeemeigen Azure AD-toepassing voor eindgebruikersverificatie met Data Lake Storage Gen1 met behulp van Azure Active Directory. Zie voor instructies [maken van een Azure AD-toepassing](../azure-resource-manager/resource-group-create-service-principal-portal.md).
+Maken en configureren van een systeemeigen Azure AD-toepassing voor eindgebruikersverificatie met Data Lake Storage Gen1 met behulp van Azure Active Directory. Zie voor instructies [maken van een Azure AD-toepassing](../active-directory/develop/howto-create-service-principal-portal.md).
 
 Zorg ervoor dat u selecteert bij de instructies in de koppeling te volgen, **systeemeigen** voor het type van de toepassing, zoals wordt weergegeven in de volgende schermafbeelding:
 
@@ -82,7 +82,7 @@ Zorg ervoor dat u selecteert bij de instructies in de koppeling te volgen, **sys
 
 ## <a name="step-2-get-application-id-and-redirect-uri"></a>Stap 2: Ophalen van toepassings-ID en omleidings-URI
 
-Zie [de toepassings-ID ophalen](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key) om op te halen van de toepassings-ID.
+Zie [de toepassings-ID ophalen](../active-directory/develop/howto-create-service-principal-portal.md#get-application-id-and-authentication-key) om op te halen van de toepassings-ID.
 
 Als u wilt de omleidings-URI ophalen, moet u de volgende stappen uitvoeren.
 

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 10/23/2018
 ms.author: amsriva
-ms.openlocfilehash: 626db07a81c6482a689329b8cddc9f40b464bb7e
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: e7020ef5c1f7411c7226e7a2db489112ee6bf0a4
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/23/2018
-ms.locfileid: "49649071"
+ms.locfileid: "49945498"
 ---
 # <a name="overview-of-end-to-end-ssl-with-application-gateway"></a>Overzicht van end-to-end SSL met Application Gateway
 
@@ -47,7 +47,7 @@ Certificaten voor serververificatie zijn afgeschaft en vervangen door vertrouwde
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Wanneer u meer te weten bent gekomen over end-to-end SSL, gaat u naar [Een toepassingsgateway configureren met behulp van Azure Portal](create-ssl-portal.md) om een toepassingsgateway te maken met end-to-end SSL.
+Nadat u meer over end-to-end SSL, gaat u naar [end-to-end SSL configureren met behulp van Application Gateway met PowerShell](application-gateway-end-to-end-ssl-powershell.md) te maken van een toepassingsgateway met behulp van end-to-end SSL.
 
 <!--Image references-->
 

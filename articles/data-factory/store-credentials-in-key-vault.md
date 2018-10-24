@@ -1,6 +1,6 @@
 ---
-title: Referenties opslaan in Azure Sleutelkluis | Microsoft Docs
-description: Informatie over het opslaan van referenties voor gegevensopslag gebruikt in een Azure sleutelkluis die Azure Data Factory automatisch tijdens runtime ophalen kunnen.
+title: Referenties Store in Azure Key Vault | Microsoft Docs
+description: Informatie over het opslaan van referenties voor gegevens die worden gebruikt in een Azure-sleutelkluis die Azure Data Factory automatisch in runtime kunnen ophalen.
 services: data-factory
 author: linda33wj
 manager: craigg
@@ -10,55 +10,55 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/25/2017
+ms.date: 10/22/2017
 ms.author: jingwang
-ms.openlocfilehash: e1be16ec6a7536cedf3a27ffacb9c4dffe42bbef
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 3428fb5034435d9f3444347329171d803136177c
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37052412"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49944665"
 ---
-# <a name="store-credential-in-azure-key-vault"></a>Opslaan van referenties in Azure Sleutelkluis
+# <a name="store-credential-in-azure-key-vault"></a>Store-referentie in Azure Key Vault
 
-Slaat u referenties voor gegevensopslag en computers in een [Azure Key Vault](../key-vault/key-vault-whatis.md). Azure Data Factory haalt de referenties bij het uitvoeren van een activiteit die gebruikmaakt van het gegevensarchief/rekenservices er gegevens.
+Slaat u referenties op voor gegevensarchieven en COMPUTE in een [Azure Key Vault](../key-vault/key-vault-whatis.md). Azure Data Factory worden opgehaald van de referenties bij het uitvoeren van een activiteit die gebruikmaakt van het gegevensarchief/rekenservices er gegevens.
 
-Deze functie wordt op dit moment wordt ondersteund door alle activiteitstypen, met uitzondering van aangepaste activiteit. Voor de connectorconfiguratie van de Controleer met name de sectie 'gekoppelde service-eigenschappen' [elk onderwerp connector](copy-activity-overview.md#supported-data-stores-and-formats) voor meer informatie.
+Deze functie wordt op dit moment ondersteund door alle activiteitstypen, met uitzondering van aangepaste activiteit. Voor de connectorconfiguratie van de Controleer met name de sectie 'gekoppelde service-eigenschappen' [elk onderwerp connector](copy-activity-overview.md#supported-data-stores-and-formats) voor meer informatie.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Deze functie is afhankelijk van de data factory-service-identiteit. Meer informatie over hoe het werkt van [Data factory-service-identiteit](data-factory-service-identity.md) en controleert u of uw gegevensfactory een gekoppeld.
+Deze functie is afhankelijk van de data factory-service-identiteit. Ontdek hoe het werkt vanuit [Data factory-service-identiteit](data-factory-service-identity.md) en zorg ervoor dat uw data factory hebben een gekoppeld.
 
 >[!TIP]
->In Azure Sleutelkluis, bij het maken van een geheim **put (bijvoorbeeld verbinding wachtwoord-tekenreeks-service principal sleutel/enz.) om de volledige waarde van een geheime eigenschap dat ADF service gekoppelde vraagt**. Bijvoorbeeld: voor Azure Storage gekoppelde service plaatst `DefaultEndpointsProtocol=http;AccountName=myAccount;AccountKey=myKey;` plaatsen als Azure Sleutelkluis geheim en vervolgens een verwijzing in het veld 'connectionString' van de ADF; voor de gekoppelde service Dynamics, `myPassword` als Azure Sleutelkluis-geheim vervolgens verwijzen naar in het veld van ADF 'Clientservice voor'. Raadpleeg elk artikel connector/rekenservices er bij de eigenschapdetails van de ondersteunde.
+>In Azure Key Vault, bij het maken van een geheim **put de gehele waarde van een geheime eigenschap dat ADF service gekoppelde vraagt om (bijvoorbeeld connection string/wachtwoord/service principal sleutel/enz.)**. Bijvoorbeeld, voor Azure Storage gekoppelde service plaatsen `DefaultEndpointsProtocol=http;AccountName=myAccount;AccountKey=myKey;` plaatsen als AKV geheim, en vervolgens een verwijzing naar in "connectionString"-veld van ADF; voor de gekoppelde service van Dynamics, `myPassword` als AKV geheim, vervolgens verwijzen naar 'wachtwoord'-veld in ADF. Verwijzen naar elk artikel connector/rekenservices er bij de eigenschapdetails van de ondersteunde.
 
 ## <a name="steps"></a>Stappen
 
-Om te verwijzen naar een referentie die zijn opgeslagen in Azure Sleutelkluis, moet u:
+Als u wilt verwijzen naar een referenties die zijn opgeslagen in Azure Key Vault, moet u naar:
 
-1. **Ophalen van de data factory-service-identiteit** door de waarde van 'SERVICE identiteit TOEPASSINGS-ID gegenereerd samen met uw gegevensfactory. Als u ADF UI ontwerpen, wordt de identity-service-ID weergegeven in het venster Azure Key Vault gekoppelde service maken; u kunt het ook ophalen vanuit Azure-portal verwijzen naar [ophalen van de data factory-service-identiteit](data-factory-service-identity.md#retrieve-service-identity).
-2. **De service-identiteit toegang verlenen aan uw Azure Sleutelkluis.** In de sleutelkluis -> toegang beleid -> toevoegen nieuw -> Zoek deze servicetoepassing identity-ID toe te kennen **ophalen** machtiging in de vervolgkeuzelijst geheime machtigingen. Hierdoor kan de aangewezen fabriek voor toegang tot geheim in de sleutelkluis.
-3. **Maak een gekoppelde service verwijst naar uw Azure Sleutelkluis.** Raadpleeg [gekoppelde service van Azure Sleutelkluis](#azure-key-vault-linked-service).
-4. **Gegevens store gekoppelde service, in welke verwijzing naar de bijbehorende opgeslagen in geheime sleutel-kluis maken.** Raadpleeg [verwijzing geheim sleutelkluis opgeslagen](#reference-secret-stored-in-key-vault).
+1. **Ophalen van data factory-service-identiteit** door de waarde van "SERVICE-identiteit TOEPASSINGS-ID gegenereerd samen met uw factory kopiëren. Als u gebruikmaakt van ADF ontwerpen van de service-identiteit ID wordt weergegeven in het venster van Azure Key Vault gekoppelde service maken;-gebruikersinterface u kunt ook het ophalen van Azure-portal verwijzen naar [ophalen van data factory-service-identiteit](data-factory-service-identity.md#retrieve-service-identity).
+2. **De service-identiteit toegang verlenen aan uw Azure Key Vault.** In uw key vault -> beleid -> toegang toevoegen -> nieuwe zoekopdracht deze servicetoepassing voor identiteit-ID te verlenen **ophalen** machtiging in de vervolgkeuzelijst geheime machtigingen. Hiermee kunt deze aangewezen factory voor toegang tot geheim in de sleutelkluis.
+3. **Een gekoppelde service die verwijst naar uw Azure Key Vault maken.** Raadpleeg [gekoppelde service van Azure Key Vault](#azure-key-vault-linked-service).
+4. **Data store gekoppelde service, in welke verwijzing naar de bijbehorende geheime sleutel opgeslagen in kluis maken.** Raadpleeg [verwijzing geheim is opgeslagen in key vault](#reference-secret-stored-in-key-vault).
 
-## <a name="azure-key-vault-linked-service"></a>Azure Sleutelkluis gekoppelde service
+## <a name="azure-key-vault-linked-service"></a>Azure Key Vault gekoppelde service
 
-De volgende eigenschappen worden ondersteund voor Azure Sleutelkluis gekoppelde service:
+De volgende eigenschappen worden ondersteund voor Azure Key Vault gekoppelde service:
 
 | Eigenschap | Beschrijving | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type moet worden ingesteld op: **AzureKeyVault**. | Ja |
-| baseUrl | Geef de URL van Azure Sleutelkluis. | Ja |
+| baseUrl | De Azure Key Vault-URL opgeven. | Ja |
 
 **Met behulp van gebruikersinterface ontwerpen:**
 
-Klik op **verbindingen** -> **gekoppelde Services** -> **+ nieuw** -> Zoek naar 'Azure Key Vault':
+Klik op **verbindingen** -> **gekoppelde Services** -> **+ nieuw** -zoek naar "Azure Key Vault" >:
 
-![Azure Sleutelkluis zoeken](media/store-credentials-in-key-vault/search-akv.png)
+![Zoeken in Azure Sleutelkluis](media/store-credentials-in-key-vault/search-akv.png)
 
-Selecteer de ingerichte Azure Sleutelkluis waar uw referenties worden opgeslagen. U kunt doen **testverbinding** om te controleren of uw Azure Sleutelkluis verbinding is geldig. 
+Selecteer de ingerichte Azure Key Vault waarin uw referenties worden opgeslagen. U kunt doen **testverbinding** om te controleren of uw AKV verbinding is geldig. 
 
-![Azure Sleutelkluis configureren](media/store-credentials-in-key-vault/configure-akv.png)
+![Configureren van Azure Sleutelkluis](media/store-credentials-in-key-vault/configure-akv.png)
 
 **JSON-voorbeeld:**
 
@@ -74,24 +74,24 @@ Selecteer de ingerichte Azure Sleutelkluis waar uw referenties worden opgeslagen
 }
 ```
 
-## <a name="reference-secret-stored-in-key-vault"></a>Verwijzing geheim sleutelkluis opgeslagen
+## <a name="reference-secret-stored-in-key-vault"></a>Naslaginformatie over geheim is opgeslagen in key vault
 
-De volgende eigenschappen worden ondersteund wanneer u een veld in de gekoppelde service verwijst naar een geheim sleutelkluis configureren:
+De volgende eigenschappen worden ondersteund wanneer u een veld in de gekoppelde service verwijst naar een key vault-geheim configureren:
 
 | Eigenschap | Beschrijving | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type van het veld moet worden ingesteld op: **AzureKeyVaultSecret**. | Ja |
-| secretName | De naam van het geheim in azure sleutelkluis. | Ja |
-| secretVersion | De versie van het geheim in azure sleutelkluis.<br/>Als niet wordt opgegeven, gebruikt deze altijd de nieuwste versie van het geheim.<br/>Indien opgegeven, klikt u vervolgens blijven deze hangen naar de opgegeven versie.| Nee |
-| opslaan | Verwijst naar een Azure Key Vault gekoppelde service die u gebruikt voor het opslaan van de referentie. | Ja |
+| secretName | De naam van het geheim in azure key vault. | Ja |
+| secretVersion | De versie van het geheim in azure key vault.<br/>Indien niet opgegeven, gebruikt deze altijd de nieuwste versie van de geheime sleutel.<br/>Als u opgeeft, klikt u vervolgens vastprikken het naar de opgegeven versie.| Nee |
+| Store | Verwijst naar een Azure Key Vault gekoppelde service die u gebruikt voor het opslaan van de referentie. | Ja |
 
 **Met behulp van gebruikersinterface ontwerpen:**
 
-Selecteer **Azure Key Vault** voor geheime velden tijdens het maken van de verbinding met uw gegevensarchief/rekenservices er gegevens. Selecteer de ingerichte Azure Key Vault gekoppelde Service en geef de **geheime naam**. U kunt eventueel ook een geheime versie opgeven. 
+Selecteer **Azure Key Vault** voor geheime velden tijdens het maken van de verbinding met uw gegevens gegevensarchief/rekenservices. Selecteer de ingerichte Azure Key Vault gekoppelde Service en geef de **geheime naam**. U kunt eventueel ook een geheime versie opgeven. 
 
-![Azure Sleutelkluis geheim configureren](media/store-credentials-in-key-vault/configure-akv-secret.png)
+![AKV geheim configureren](media/store-credentials-in-key-vault/configure-akv-secret.png)
 
-**JSON-voorbeeld: (Zie de sectie 'password')**
+**JSON-voorbeeld: (Zie de sectie 'wachtwoord')**
 
 ```json
 {
@@ -117,4 +117,4 @@ Selecteer **Azure Key Vault** voor geheime velden tijdens het maken van de verbi
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie voor een lijst met gegevensarchieven als bronnen en put wordt ondersteund door de kopieeractiviteit in Azure Data Factory, [ondersteunde gegevensarchieven](copy-activity-overview.md#supported-data-stores-and-formats).
+Zie voor een lijst met gegevensarchieven die worden ondersteund als bronnen en sinks door de kopieeractiviteit in Azure Data Factory, [ondersteunde gegevensarchieven](copy-activity-overview.md#supported-data-stores-and-formats).

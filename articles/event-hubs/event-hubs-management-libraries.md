@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/13/2018
 ms.author: shvija
-ms.openlocfilehash: 79cddcac4d469753bc39107e6db2d8ce901111d1
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: d9685d5c5a673b0ec27e973bbbfd327547c63652
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42746413"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955351"
 ---
 # <a name="event-hubs-management-libraries"></a>Event Hubs-beheerbibliotheken
 
@@ -30,8 +30,8 @@ U kunt de Azure Event Hubs-beheerbibliotheken om u te richten op dynamische wijz
 
 Om te beginnen met behulp van de Event Hubs-beheerbibliotheken, moet u verifiëren met Azure Active Directory (AAD). AAD is vereist dat u een verificatie uitvoeren als een service-principal, waarmee u toegang hebt tot uw Azure-resources. Zie een van de volgende artikelen voor informatie over het maken van een service principal:  
 
-* [De Azure portal gebruiken voor het maken van Active Directory-toepassing en service-principal die toegang hebben tot resources](../azure-resource-manager/resource-group-create-service-principal-portal.md)
-* [Azure PowerShell gebruiken om een service-principal te maken voor toegang tot resources](../azure-resource-manager/resource-group-authenticate-service-principal.md)
+* [De Azure portal gebruiken voor het maken van Active Directory-toepassing en service-principal die toegang hebben tot resources](../active-directory/develop/howto-create-service-principal-portal.md)
+* [Azure PowerShell gebruiken om een service-principal te maken voor toegang tot resources](../active-directory/develop/howto-authenticate-service-principal-powershell.md)
 * [Azure CLI gebruiken om een service-principal te maken voor toegang tot resources](../azure-resource-manager/resource-group-authenticate-service-principal-cli.md)
 
 Deze zelfstudie beschikt u over een `AppId` (Client-ID), `TenantId`, en `ClientSecret` (verificatiesleutel), die allemaal worden gebruikt voor verificatie via de management-bibliotheken. U moet hebben **eigenaar** machtigingen voor de resourcegroep die u wilt uitvoeren.

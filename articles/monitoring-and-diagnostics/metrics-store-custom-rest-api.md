@@ -8,12 +8,12 @@ ms.topic: howto
 ms.date: 09/24/2018
 ms.author: ancav
 ms.component: metrics
-ms.openlocfilehash: c01440437eae3cb076627ab9f2221e33b833f472
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d36697e6b5765ecf35ed9b3add45cff6c33823a5
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46977229"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958215"
 ---
 # <a name="send-custom-metrics-for-an-azure-resource-to-the-azure-monitor-metric-store-using-a-rest-api"></a>Aangepaste metrische gegevens voor een Azure-resource in de Azure Monitor-metriek opslaan met een REST-API's verzenden
 
@@ -25,7 +25,7 @@ In dit artikel wordt beschreven hoe u aangepaste metrische gegevens voor Azure-r
 
 ## <a name="create-and-authorize-a-service-principal-to-emit-metrics"></a>Maken en een service-principal te verzenden van metrische gegevens 
 
-Een service-principal maken in uw Azure Active Directory-tenant met behulp van de instructies op [maken van een service-principal](../azure-resource-manager/resource-group-create-service-principal-portal.md). 
+Een service-principal maken in uw Azure Active Directory-tenant met behulp van de instructies op [maken van een service-principal](../active-directory/develop/howto-create-service-principal-portal.md). 
 
 Let op het volgende tijdens dit proces te doorlopen: 
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/21/2018
 ms.author: magattus
-ms.openlocfilehash: 7180e51a6ac1392e4a3f072097b1aeef3648c605
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 57891bcce289c30d7dce1cd00c301064aa9b97cc
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093286"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955232"
 ---
 # <a name="using-azure-cdn-with-sas"></a>Azure CDN gebruiken met SAS
 
@@ -71,28 +71,28 @@ Deze optie is de eenvoudigste en maakt gebruik van een enkele SAS-token die vanu
  
 Deze optie is alleen beschikbaar voor **Azure CDN Premium van Verizon** profielen. Met deze optie kunt u de blob-opslag op de oorspronkelijke server beveiligen. U wilt gebruiken met deze optie als u geen specifieke beperkingen voor het bestand hoeft, maar u wilt voorkomen dat gebruikers toegang hebben tot de opslag-oorsprong rechtstreeks ter verbetering van Azure CDN-offload tijden. De SAS-token voor de gebruiker onbekend is, is vereist voor iedereen toegang tot bestanden in de opgegeven container van de oorspronkelijke server. Echter, vanwege de regel herschrijven van URL's, het SAS-token is niet vereist op het CDN-eindpunt.
  
-1. Gebruik de [regels-engine](cdn-rules-engine.md) om een regel herschrijven van URL's te maken. Nieuwe regels duren over tien minuten worden doorgegeven.
+1. Gebruik de [regels-engine](cdn-rules-engine.md) om een regel herschrijven van URL's te maken. Nieuwe regels worden vier uur worden doorgegeven.
 
    ![Knop CDN beheren](./media/cdn-sas-storage-support/cdn-manage-btn.png)
 
    ![Knop voor CDN regels-engine](./media/cdn-sas-storage-support/cdn-rules-engine-btn.png)
 
-   Het volgende voorbeeld herschrijven van URL's-regel maakt gebruik van een reguliere-expressiepatroon met een groep vastleggen en een eindpunt met de naam *storagedemo*:
+   Het volgende voorbeeld herschrijven van URL's-regel maakt gebruik van een reguliere-expressiepatroon met een groep vastleggen en een eindpunt met de naam *sasstoragedemo*:
    
    Bron:   
-   `(\/container1\/.*)`
+   `(container1\/.*)`
    
    Bestemming:   
    ```
    $1?sv=2017-07-29&ss=b&srt=c&sp=r&se=2027-12-19T17:35:58Z&st=2017-12-19T09:35:58Z&spr=https&sig=kquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
    ```
    ![CDN URL Rewrite regel - links](./media/cdn-sas-storage-support/cdn-url-rewrite-rule.png)
-   ![regel CDN URL Rewrite - rechts](./media/cdn-sas-storage-support/cdn-url-rewrite-rule-option-2.png)
+   ![regel CDN URL Rewrite - rechts](./media/cdn-sas-storage-support/cdn-url-rewrite-rule-option-4.png)
 
 2. Nadat de nieuwe regel geactiveerd wordt, kan iedereen toegang krijgen tot de bestanden in de opgegeven container op het CDN-eindpunt, ongeacht of dat een SAS-token wordt gebruikt in de URL. Hier volgt de indeling: `https://<endpoint hostname>.azureedge.net/<container>/<file>`
  
    Bijvoorbeeld:   
-   `https://demoendpoint.azureedge.net/container1/demo.jpg`
+   `https://sasstoragedemo.azureedge.net/container1/demo.jpg`
        
 
 3. De Cacheduur verfijnen met behulp van regels voor opslaan in cache of door toe te voegen `Cache-Control` headers op de oorspronkelijke server. Omdat Azure CDN het SAS-token als een gewone queryreeks behandelt, als een best practice moet u instellen een Cacheduur die op of vóór de verlooptijd van de SAS is verlopen. Anders als een bestand wordt opgeslagen in de cache gedurende een langere periode dan de SAS actief is, het bestand mogelijk toegankelijk is vanaf de server van Azure CDN origin nadat de verlooptijd van de SAS is verstreken. Als deze situatie doet zich voor, en u ervoor dat uw bestand in de cache niet toegankelijk, kunt u een bewerking opschonen van Logboeken op het bestand om het uit de cache wissen moet uitvoeren. Zie voor meer informatie over het instellen van de Cacheduur van de op Azure CDN [Control Azure CDN caching-gedrag met regels voor caching](cdn-caching-rules.md).
@@ -108,24 +108,24 @@ Azure CDN security token om verificatie te gebruiken, hebt u een **Azure CDN Pre
  
    Bijvoorbeeld:   
    ```
-   https://demoendpoint.azureedge.net/container1/demo.jpg?a4fbc3710fd3449a7c99986bkquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
+   https://sasstoragedemo.azureedge.net/container1/demo.jpg?a4fbc3710fd3449a7c99986bkquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
    ```
        
    De parameteropties voor een token beveiligingsverificatie zijn anders dan de parameteropties voor een SAS-token. Als u ervoor een verlooptijd bij het maken van een beveiligingstoken te gebruiken kiest, moet u deze ingesteld op dezelfde waarde als de verlooptijd van het SAS-token. Hiermee zorgt u ervoor dat de verlooptijd voorspelbare is. 
  
-2. Gebruik de [regels-engine](cdn-rules-engine.md) om een regel herschrijven van URL's voor SAS-token toegang tot alle blobs in de container te maken. Nieuwe regels duren over tien minuten worden doorgegeven.
+2. Gebruik de [regels-engine](cdn-rules-engine.md) om een regel herschrijven van URL's voor SAS-token toegang tot alle blobs in de container te maken. Nieuwe regels worden vier uur worden doorgegeven.
 
-   Het volgende voorbeeld herschrijven van URL's-regel maakt gebruik van een reguliere-expressiepatroon met een groep vastleggen en een eindpunt met de naam *storagedemo*:
+   Het volgende voorbeeld herschrijven van URL's-regel maakt gebruik van een reguliere-expressiepatroon met een groep vastleggen en een eindpunt met de naam *sasstoragedemo*:
    
    Bron:   
-   `(\/container1\/.*)`
+   `(container1\/.*)`
    
    Bestemming:   
    ```
    $1&sv=2017-07-29&ss=b&srt=c&sp=r&se=2027-12-19T17:35:58Z&st=2017-12-19T09:35:58Z&spr=https&sig=kquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
    ```
    ![CDN URL Rewrite regel - links](./media/cdn-sas-storage-support/cdn-url-rewrite-rule.png)
-   ![regel CDN URL Rewrite - rechts](./media/cdn-sas-storage-support/cdn-url-rewrite-rule-option-3.png)
+   ![regel CDN URL Rewrite - rechts](./media/cdn-sas-storage-support/cdn-url-rewrite-rule-option-4.png)
 
 3. Als u de SAS vernieuwt, zorgt u ervoor dat u de regel herschrijven van Url's met de nieuwe SAS-token bijwerken. 
 

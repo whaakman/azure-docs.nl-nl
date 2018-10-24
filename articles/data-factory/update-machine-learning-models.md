@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: shlo
-ms.openlocfilehash: 4eed11b312bce27dc0cd98daa3e2599a28fcabbd
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: aed816dadcced36946d6e173ca259a6c0f373727
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39524427"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49957460"
 ---
 # <a name="update-azure-machine-learning-models-by-using-update-resource-activity"></a>Bijwerken van Azure Machine Learning-modellen met behulp van de activiteit resources bijwerken
 In dit artikel is een aanvulling op de belangrijkste versie van Azure Data Factory - artikel voor Azure Machine Learning-integratie: [voorspellende pijplijnen maken met Azure Machine Learning en Azure Data Factory](transform-data-using-machine-learning.md). Als u dit nog niet hebt gedaan, lees dan het belangrijkste artikel voordat u lezen in dit artikel. 
@@ -98,7 +98,7 @@ https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{reso
 
 U kunt waarden ophalen voor de tijdelijke aanduidingen in de URL bij het opvragen van de webservice op de [Azure Machine Learning Web Services-Portal](https://services.azureml.net/). 
 
-Het nieuwe type update resource-eindpunt vereist verificatie van service-principal. Service-principal verificatie gebruiken, de Toepassingsentiteit van een registreren in Azure Active Directory (Azure AD) en het geven de **Inzender** of **eigenaar** rol van het abonnement of de groep waar de webservice behoort. De Zie [service-principal maken en toewijzen van machtigingen voor het beheren van Azure-resource](../azure-resource-manager/resource-group-create-service-principal-portal.md). Noteer de volgende waarden, die u gebruikt voor het definiëren van de gekoppelde service:
+Het nieuwe type update resource-eindpunt vereist verificatie van service-principal. Service-principal verificatie gebruiken, de Toepassingsentiteit van een registreren in Azure Active Directory (Azure AD) en het geven de **Inzender** of **eigenaar** rol van het abonnement of de groep waar de webservice behoort. De Zie [service-principal maken en toewijzen van machtigingen voor het beheren van Azure-resource](../active-directory/develop/howto-create-service-principal-portal.md). Noteer de volgende waarden, die u gebruikt voor het definiëren van de gekoppelde service:
 
 - Toepassings-id
 - Toepassingssleutel 

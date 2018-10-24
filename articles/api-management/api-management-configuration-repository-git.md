@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: apimpm
-ms.openlocfilehash: ce4ff33a8af9cf864ad4902599a0ab18b2b27182
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: d359ad0e619e4d7784d763e70599ce784aa852cd
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387222"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945806"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Het opslaan en het configureren van de configuratie van uw API Management-service met behulp van Git
 
@@ -84,7 +84,7 @@ De volgende voorbeelden gebruiken de Git Bash-hulpprogramma van [Git voor Window
 Open uw Git-hulpprogramma in de gewenste map en voer de volgende opdracht voor het klonen van de git-opslagplaats naar uw lokale computer, met de opdracht die is geleverd door de Azure-portal.
 
 ```
-git clone https://bugbashdev4.scm.azure-api.net/
+git clone https://{name}.scm.azure-api.net/
 ```
 
 Geef de gebruikersnaam en wachtwoord wanneer hierom wordt gevraagd.
@@ -92,7 +92,7 @@ Geef de gebruikersnaam en wachtwoord wanneer hierom wordt gevraagd.
 Als u eventuele fouten ontvangt, probeert u het wijzigen van uw `git clone` opdracht om op te nemen van de gebruikersnaam en wachtwoord, zoals wordt weergegeven in het volgende voorbeeld.
 
 ```
-git clone https://username:password@bugbashdev4.scm.azure-api.net/
+git clone https://username:password@{name}.scm.azure-api.net/
 ```
 
 Als dit een fout opgetreden, probeer het URL-codering van de wachtwoordgedeelte van de opdracht. Een snelle manier om dit te doen is Visual Studio opent, en geef de volgende opdracht uit in de **venster direct**. Om te openen de **venster direct**, een oplossing of project openen in Visual Studio (of maak een nieuwe toepassing in de lege console), en kies **Windows**, **direct** vanuit de **Debug** menu.
@@ -104,7 +104,7 @@ Als dit een fout opgetreden, probeer het URL-codering van de wachtwoordgedeelte 
 Gebruik het gecodeerde wachtwoord samen met de locatie van de naam en de opslagplaats te maken van de git-opdracht.
 
 ```
-git clone https://username:url encoded password@bugbashdev4.scm.azure-api.net/
+git clone https://username:url encoded password@{name}.scm.azure-api.net/
 ```
 
 Zodra de opslagplaats hebt gekloond, kunt u bekijken en ermee te werken in uw lokale bestandssysteem. Zie voor meer informatie, [bestands- en structuur van verwijzing van lokale Git-opslagplaats](#file-and-folder-structure-reference-of-local-git-repository).
@@ -120,7 +120,7 @@ git pull
 Voordat u `git pull` Zorg ervoor dat u in de map voor uw lokale opslagplaats. Als u hebt zojuist de `git clone` opdracht, en vervolgens u de map in uw opslagplaats wijzigen moet door het uitvoeren van een opdracht als volgt.
 
 ```
-cd bugbashdev4.scm.azure-api.net/
+cd {name}.scm.azure-api.net/
 ```
 
 ## <a name="to-push-changes-from-your-local-repo-to-the-server-repo"></a>Wijzigingen uit uw lokale opslagplaats naar de opslagplaats van de server pushen

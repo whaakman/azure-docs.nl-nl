@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: ae1fdb6239b7d04dc366d023a26d1307cbae68f3
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 2ec5d469ba0708288881be3d905b492aa8aa4da6
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46123722"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49956607"
 ---
 # <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-azure-active-directory"></a>Service-naar-serviceverificatie met Azure Data Lake Storage Gen1 met behulp van Azure Active Directory
 > [!div class="op_single_selector"]
@@ -39,7 +39,7 @@ In dit artikel wordt besproken hoe u maakt een **Azure AD-webtoepassing voor ser
 
 ## <a name="step-1-create-an-active-directory-web-application"></a>Stap 1: Een Active Directory-webtoepassing maken
 
-Maken en configureren van een Azure AD-webtoepassing voor verificatie van de service-naar-service met Azure Data Lake Storage Gen1 met behulp van Azure Active Directory. Zie voor instructies [maken van een Azure AD-toepassing](../azure-resource-manager/resource-group-create-service-principal-portal.md).
+Maken en configureren van een Azure AD-webtoepassing voor verificatie van de service-naar-service met Azure Data Lake Storage Gen1 met behulp van Azure Active Directory. Zie voor instructies [maken van een Azure AD-toepassing](../active-directory/develop/howto-create-service-principal-portal.md).
 
 Zorg ervoor dat u selecteert bij de instructies in de vorige koppeling te volgen, **Web-App / API** voor het type van de toepassing, zoals wordt weergegeven in de volgende schermafbeelding:
 
@@ -48,9 +48,9 @@ Zorg ervoor dat u selecteert bij de instructies in de vorige koppeling te volgen
 ## <a name="step-2-get-application-id-authentication-key-and-tenant-id"></a>Stap 2: Toepassings-ID, de verificatiesleutel en de tenant-ID ophalen
 Wanneer u zich programmatisch aanmeldt, moet u de ID voor uw toepassing. Als de toepassing wordt uitgevoerd onder een eigen referenties, moet u ook een verificatiesleutel nodig.
 
-* Zie voor instructies over het ophalen van de toepassing-ID en verificatiesleutel-sleutel (ook wel het clientgeheim) voor uw toepassing [Get-ID en -verificatie Toepassingssleutel](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key).
+* Zie voor instructies over het ophalen van de toepassing-ID en verificatiesleutel-sleutel (ook wel het clientgeheim) voor uw toepassing [Get-ID en -verificatie Toepassingssleutel](../active-directory/develop/howto-create-service-principal-portal.md#get-application-id-and-authentication-key).
 
-* Zie voor instructies over het ophalen van de tenant-ID [tenant-ID ophalen](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-tenant-id).
+* Zie voor instructies over het ophalen van de tenant-ID [tenant-ID ophalen](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-id).
 
 ## <a name="step-3-assign-the-azure-ad-application-to-the-azure-data-lake-storage-gen1-account-file-or-folder"></a>Stap 3: De Azure AD-toepassing naar het Azure Data Lake Storage Gen1 accountbestand of map toewijzen
 

@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 09/22/2017
-ms.openlocfilehash: b329fb1416d28b0732e7b9ea4612f5bac8580b3a
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 62f71f29f813cd30c7d8e3c7f37f41677cf07364
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43133053"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49956371"
 ---
 # <a name="secure-calls-to-custom-apis-from-azure-logic-apps"></a>Beveiligde aanroepen naar aangepaste API's van Azure Logic Apps
 
@@ -104,7 +104,7 @@ U kunt deze taak via Azure Resource Manager met PowerShell uitvoeren. Voer deze 
 
 4. Zorg ervoor dat u kopieert de **Tenant-ID** (GUID voor uw Azure AD-tenant), de **toepassings-ID**, en het wachtwoord die u hebt gebruikt.
 
-Informatie voor meer informatie over hoe u [een service-principal maken met PowerShell voor toegang tot resources](../azure-resource-manager/resource-group-authenticate-service-principal.md).
+Informatie voor meer informatie over hoe u [een service-principal maken met PowerShell voor toegang tot resources](../active-directory/develop/howto-authenticate-service-principal-powershell.md).
 
 #### <a name="part-2-create-an-azure-ad-application-identity-for-your-web-app-or-api-app"></a>Deel 2: Een Azure AD-toepassing-id voor uw web-app of API-app maken
 

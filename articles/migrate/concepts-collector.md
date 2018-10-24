@@ -4,15 +4,15 @@ description: Bevat informatie over het Collector-apparaat in Azure Migrate.
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/28/2018
+ms.date: 10/23/2018
 ms.author: snehaa
 services: azure-migrate
-ms.openlocfilehash: b79045e54b9c2ee4846f2216704a419e0ff85501
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 3c40fd97540d8529c95c7d18d2c3155dd37717e9
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434429"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945413"
 ---
 # <a name="about-the-collector-appliance"></a>Over het Collector-apparaat
 
@@ -179,17 +179,23 @@ De Collector communiceert via een eenmalig met vCenter-Server voor het verzamele
 - Voor deze detectiemethode moet u de instellingen voor statistieken in vCenter-Server op niveau 3 ingesteld.
 - Na het instellen van het niveau van de drie, gaat u naar een dag voor het genereren van de prestatiemeteritems. Daarom raden we aan dat u de detectie uitgevoerd na een dag.
 - Het apparaat tijdens het verzamelen van prestatiegegevens voor een virtuele machine, zijn afhankelijk van de van historische prestatiegegevens die zijn opgeslagen in de vCenter-Server. Geschiedenis van geheugenprestaties worden verzameld voor de afgelopen maand.
-- Azure Migrate verzamelt een gemiddeld item (in plaats van een piek teller) voor elke metrische gegevens.
+- Azure Migrate verzamelt gemiddelde items (in plaats van piek teller) voor alle gegevens die leiden te voorzichtige grootte tot kan.
 
 ### <a name="continuous-discovery"></a>Continue detectie
 
-Het Collector-apparaat is voortdurend verbonden met het Azure Migrate-project.
+Het Collector-apparaat continu is verbonden met het Azure Migrate-project en continu verzamelt prestatiegegevens van virtuele machines.
 
 - De Collector profielen continu de on-premises omgeving voor het verzamelen van gegevens over het gebruik van realtime elke 20 seconden.
 - Dit model afhankelijk niet van de instellingen voor statistieken vCenter-Server om prestatiegegevens te verzamelen.
 - Het toestel totaliseert de voorbeelden 20 seconden en maakt u één gegevenspunt om de 15 minuten.
 - Punt het apparaat de hoogste waarde selecteert in de voorbeelden 20 seconden en verzendt dit naar Azure te maken van de gegevens.
 - U kunt stoppen continue profilering op elk gewenst moment van de Collector.
+
+Houd er rekening mee dat het apparaat verzamelt alleen prestatiegegevens continu, detecteert niet elke configuratiewijziging in de on-premises-omgeving (dat wil zeggen VM toevoegen, verwijderen en schijf toevoegen, enz.). Als er een configuratiewijziging in de on-premises-omgeving, kunt u het volgende om de wijzigingen in de portal weer te doen:
+
+1. Het toevoegen van items (virtuele machines, schijven, kernen enz.): als gevolg van deze wijzigingen in de Azure-portal, kunt u de detectie van het toestel stopt en start het opnieuw. Dit zorgt ervoor dat de wijzigingen in de Azure Migrate-project worden bijgewerkt.
+
+2. Het verwijderen van virtuele machines: vanwege de manier waarop het apparaat is ontworpen, verwijderen van virtuele machines wordt niet weergegeven, zelfs als u stopt en de detectie start. Dit komt doordat gegevens uit de volgende detecties zijn toegevoegd aan de oudere detecties en niet worden genegeerd. In dit geval kunt u de virtuele machine in de portal, gewoon negeren door verwijderen uit de groep en de evaluatie te berekenen.
 
 > [!NOTE]
 > De functionaliteit van continue detectie is in preview. Als de instellingen voor statistieken van vCenter-Server is ingesteld op niveau 3, wordt u aangeraden dat u deze methode gebruikt.
@@ -241,8 +247,8 @@ virtualDisk.read.average | 2 | 2 | Berekent de grootte van de schijf, de kosten 
 virtualDisk.write.average | 2 | 2  | Berekent de grootte van de schijf, de kosten voor gegevensopslag, VM-grootte
 virtualDisk.numberReadAveraged.average | 1 | 3 |  Berekent de grootte van de schijf, de kosten voor gegevensopslag, VM-grootte
 virtualDisk.numberWriteAveraged.average | 1 | 3 |   Berekent de grootte van de schijf, de kosten voor gegevensopslag, VM-grootte
-NET.Received.Average | 2 | 3 |  VM-grootte en netwerk kosten worden berekend                        |
-NET.transmitted.Average | 2 | 3 | VM-grootte en netwerk kosten worden berekend    
+NET.Received.Average | 2 | 3 |  Berekent de VM-grootte                          |
+NET.transmitted.Average | 2 | 3 | Berekent de VM-grootte     
 
 ## <a name="next-steps"></a>Volgende stappen
 

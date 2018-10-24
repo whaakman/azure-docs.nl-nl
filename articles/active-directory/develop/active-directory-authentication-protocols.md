@@ -17,12 +17,12 @@ ms.date: 04/27/2017
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: hirsin
-ms.openlocfilehash: 04cdba261d67e20762fd4bb4835568f763124fef
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 312b1f7accee47c07c5fb0507061253fda5044f6
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39578470"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958037"
 ---
 # <a name="azure-active-directory-authentication-protocols"></a>Azure Active Directory-verificatieprotocollen
 Azure Active Directory (Azure AD) biedt ondersteuning voor diverse van de meest gebruikte protocollen voor verificatie en autorisatie. De onderwerpen in deze sectie beschrijven de ondersteunde protocollen en hun implementatie in Azure AD. De onderwerpen een overzicht van ondersteunde claimtypen, een inleiding tot het gebruik van federatiemetagegevens opgenomen, gedetailleerde OAuth 2.0. en naslagdocumentatie van SAML 2.0-protocol, en een gedeelte voor probleemoplossing.
@@ -38,6 +38,6 @@ Azure Active Directory (Azure AD) biedt ondersteuning voor diverse van de meest 
 * [Naslaginformatie over de SAML-Protocol](active-directory-saml-protocol-reference.md) -meer informatie over de profielen Single Sign-On en SAML voor eenmalige afmelding van Azure AD.
 
 ## <a name="see-also"></a>Zie ook
-[Ontwikkelaarshandleiding voor Azure Active Directory](azure-ad-developers-guide.md)
+[Ontwikkelaarshandleiding voor Azure Active Directory](v1-overview.md)
 
 [Active Directory-codevoorbeelden](sample-v1-code.md)

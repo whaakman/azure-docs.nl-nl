@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/17/2018
 ms.author: renash
 ms.component: files
-ms.openlocfilehash: 03280f87b4b49b3e42091c6b1572a7f050afb336
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 7f03af0fc338299da9b989d46e7bbfb83f3babeb
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45983140"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945702"
 ---
 # <a name="overview-of-share-snapshots-for-azure-files"></a>Overzicht van share-momentopnamen voor Azure Files 
 Azure Files biedt de mogelijkheid voor share-momentopnamen van bestandsshares. Momentopnamen vastleggen van de status van de share op dat punt in tijd delen. In dit artikel wordt beschreven welke mogelijkheden bieden voor momentopnamen van shares en hoe u kunt profiteren van deze in uw aangepaste situatie.
@@ -85,8 +85,7 @@ Momentopnamen van shares bieden alleen op bestandsniveau beveiliging. Momentopna
 
 ## <a name="next-steps"></a>Volgende stappen
 - Werken met momentopnamen van shares in:
-    - [Portal](storage-how-to-use-files-portal.md#create-and-modify-share-snapshots)
-    - [PowerShell](storage-how-to-use-files-powershell.md#create-and-modify-share-snapshots)
-    - [CLI](storage-how-to-use-files-cli.md#create-and-modify-share-snapshots)
+    - [PowerShell](storage-how-to-use-files-powershell.md)
+    - [CLI](storage-how-to-use-files-cli.md)
     - [Windows](storage-how-to-use-files-windows.md#accessing-share-snapshots-from-windows)
 - [Veelgestelde vragen over momentopname delen](storage-files-faq.md#share-snapshots)

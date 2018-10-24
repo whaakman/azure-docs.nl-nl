@@ -9,13 +9,13 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.devlang: azure-cli
 ms.topic: article
-ms.date: 08/15/2018
-ms.openlocfilehash: 6f69c412aa7322326205e32b5df35aed2faa4649
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 10/23/2018
+ms.openlocfilehash: a0dfd40785e8a3ef9f8c29bacdb08f93f7867197
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46971515"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955408"
 ---
 # <a name="create-and-manage-azure-database-for-postgresql-vnet-service-endpoints-using-azure-cli"></a>Maken en beheren van Azure Database voor PostgreSQL-VNet-service-eindpunten met behulp van Azure CLI
 Virtueel netwerk (VNet) services-eindpunten en regels uitbreiden privé-adresruimte van een Virtueelnetwerk met uw Azure Database for PostgreSQL-server. Met behulp van handige opdrachten van Azure-opdrachtregelinterface (CLI), kunt u maken, bijwerken, verwijderen, lijst en VNet-service-eindpunten en regels voor het beheren van uw server weergeven. Zie voor een overzicht van Azure Database voor PostgreSQL-VNet-service-eindpunten, met inbegrip van beperkingen, [Azure Database for PostgreSQL-Server VNet-service-eindpunten](concepts-data-access-and-security-vnet.md). VNet-service-eindpunten zijn beschikbaar in alle ondersteunde regio's voor Azure Database for PostgreSQL.
@@ -48,7 +48,7 @@ Als u meerdere abonnementen hebt, kiest u het juiste abonnement waarin de resour
 
 Service-eindpunten kunnen afzonderlijk worden geconfigureerd op de virtuele netwerken, door een gebruiker met schrijftoegang tot het virtuele netwerk.
 
-Als u Azure-serviceresources naar een VNet wilt beveiligen, moet u machtigingen hebben voor Microsoft.Network/JoinServicetoaSubnet voor de subnetten die worden toegevoegd. Deze machtiging is standaard opgenomen in de ingebouwde service-beheerdersrollen en kan worden gewijzigd door aangepaste rollen te maken.
+Voor het Azure-serviceresources aan een VNet, moet de gebruiker machtiging voor 'Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/' voor de subnetten die worden toegevoegd. Deze machtiging is standaard opgenomen in de ingebouwde service-beheerdersrollen en kan worden gewijzigd door aangepaste rollen te maken.
 
 Meer informatie over [ingebouwde rollen](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles) en het toewijzen van specifieke machtigingen voor [aangepaste rollen](https://docs.microsoft.com/azure/active-directory/role-based-access-control-custom-roles).
 

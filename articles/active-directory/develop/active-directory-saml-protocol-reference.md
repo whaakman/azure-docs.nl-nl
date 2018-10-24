@@ -17,12 +17,12 @@ ms.date: 10/05/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: hirsin
-ms.openlocfilehash: b9ae7cf9d6fd383c7cdfa3957b5d9b94c7207d50
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 5c560218bebd5399c85b9cebe11c7342e8d15a59
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48900652"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945685"
 ---
 # <a name="how-azure-ad-uses-the-saml-protocol"></a>Hoe Azure AD het SAML-protocol gebruikt
 
@@ -32,7 +32,7 @@ SAML-Protocol is vereist voor de id-provider (Azure AD) en de serviceprovider (d
 
 Wanneer een toepassing wordt geregistreerd bij Azure AD, wordt de app-ontwikkelaar federation-gerelateerde informatie geregistreerd bij Azure AD. Deze informatie omvat de **omleidings-URI** en **Metadata URI** van de toepassing.
 
-Azure AD maakt gebruik van de cloudservice **Metadata URI** om op te halen van de ondertekeningssleutel en de URI van de afmelding. Als de toepassing biedt geen ondersteuning voor een metagegevens URI, de ontwikkelaar moet Neem contact op met Microsoft ondersteuning voor de afmelding URI en de handtekeningsleutel.
+Azure AD maakt gebruik van de cloudservice **Metadata URI** om op te halen van de ondertekeningssleutel en de URI van de afmelding. Klanten kan openen in de app **Azure AD-App-registratie >** en klik vervolgens in **instellingen -> eigenschappen**, de afmeldings-URL kan worden bijgewerkt. Op deze manier Azure AD kan het antwoord op de correcte URL te verzenden. 
 
 Azure Active Directory wordt aangegeven dat tenant-specifieke en algemene (tenant-onafhankelijk) single sign-on en één afmelding eindpunten. Deze URL's adresseerbaar locaties vertegenwoordigen--ze zijn niet alleen id's, zodat u kunt gaan met het eindpunt te lezen van de metagegevens.
 

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: jasonh
-ms.openlocfilehash: 567bac8a12a841eed2df1467b94a2a91c86ff7b4
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 9e21c49e7a472830c19f61388739c35aac17c3ff
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43666148"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955606"
 ---
 # <a name="tutorial-create-on-demand-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>Zelfstudie: On-demand Hadoop-clusters in HDInsight met behulp van Azure Data Factory maken
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -39,7 +39,7 @@ Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.
 
 - Azure PowerShell. Zie voor instructies [installeren en configureren van Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.7.0).
 
-- Een Azure Active Directory-service-principal. Als u de service-principal hebt gemaakt, moet u om op te halen de **toepassings-ID** en **verificatiesleutel** met behulp van de instructies in het gekoppelde artikel. U hebt deze waarden later in deze zelfstudie nodig. Controleer ook of de service-principal is lid van de *Inzender* rol van het abonnement of de resourcegroep waarin het cluster is gemaakt. Zie voor instructies voor het ophalen van de vereiste waarden en de juiste rollen toewijzen [maken van een Azure Active Directory service-principal](../azure-resource-manager/resource-group-create-service-principal-portal.md).
+- Een Azure Active Directory-service-principal. Als u de service-principal hebt gemaakt, moet u om op te halen de **toepassings-ID** en **verificatiesleutel** met behulp van de instructies in het gekoppelde artikel. U hebt deze waarden later in deze zelfstudie nodig. Controleer ook of de service-principal is lid van de *Inzender* rol van het abonnement of de resourcegroep waarin het cluster is gemaakt. Zie voor instructies voor het ophalen van de vereiste waarden en de juiste rollen toewijzen [maken van een Azure Active Directory service-principal](../active-directory/develop/howto-create-service-principal-portal.md).
 
 ## <a name="create-an-azure-storage-account"></a>Een Azure-opslagaccount maken
 

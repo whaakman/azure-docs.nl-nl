@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/28/2018
 ms.author: barclayn
-ms.openlocfilehash: ba39ba2d4206fa86ed32bddf0538a2e997a79339
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 16b5aed4d034d989bf34b92975b2a743b82903b0
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47220564"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954331"
 ---
 # <a name="manage-key-vault-using-the-azure-cli"></a>Key Vault met de Azure CLI beheren 
 
@@ -65,7 +65,7 @@ az account set -h
 
 U kunt ook de volgende artikelen om vertrouwd te raken met Azure Resource Manager in Azure platformoverschrijdende opdrachtregelinterface lezen:
 
-* [Azure CLI installeren](/cli/azure/install-azure-cli)
+* [Azure-CLI installeren](/cli/azure/install-azure-cli)
 * [Aan de slag met Azure CLI](/cli/azure/get-started-with-azure-cli)
 
 ## <a name="how-to-create-a-hardened-container-a-vault-in-azure"></a>Over het maken van een geharde container (een kluis) in Azure
@@ -199,7 +199,7 @@ Toepassingen die gebruikmaken van een sleutelkluis moeten een token van Azure Ac
 
 De toepassing moet beide waarden aan Azure Active Directory verstrekken om een token te verkrijgen. Hoe een toepassing is geconfigureerd voor een token verkrijgen afhankelijk van de toepassing. In de [Key Vault-voorbeeldtoepassing](https://www.microsoft.com/download/details.aspx?id=45343) moet de eigenaar van de toepassing deze waarden instellen in het bestand app.config.
 
-Voor gedetailleerde stappen voor het registreren van een toepassing met Azure Active Directory moet u de artikelen met de titel controleren [toepassingen integreren met Azure Active Directory](../active-directory/develop/active-directory-integrating-applications.md), [portal gebruiken om te maken van een Azure-Active Directory-toepassing en service-principal die toegang hebben tot resources](../azure-resource-manager/resource-group-create-service-principal-portal.md), en [een Azure-service-principal maken met de Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli).
+Voor gedetailleerde stappen voor het registreren van een toepassing met Azure Active Directory moet u de artikelen met de titel controleren [toepassingen integreren met Azure Active Directory](../active-directory/develop/active-directory-integrating-applications.md), [portal gebruiken om te maken van een Azure-Active Directory-toepassing en service-principal die toegang hebben tot resources](../active-directory/develop/howto-create-service-principal-portal.md), en [een Azure-service-principal maken met de Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli).
 
 Het registreren van een toepassing in Azure Active Directory:
 

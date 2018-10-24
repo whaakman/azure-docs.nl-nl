@@ -6,14 +6,14 @@ author: adigan
 manager: Nkolli1
 ms.service: backup
 ms.topic: conceptual
-ms.date: 09/29/2016
+ms.date: 10/18/2018
 ms.author: adigan
-ms.openlocfilehash: 7331b1c99425500b58d186cedab1e83dd20e3684
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: b3b4d42d9a48d02639019f815cbf4fca15060771
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389816"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49946042"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure"></a>Een back-up maken in Azure van een SharePoint-farm
 U back-up van een SharePoint-farm naar Microsoft Azure met behulp van System Center Data Protection Manager (DPM) op ongeveer dezelfde manier dat u back-up van gegevens van andere bronnen. Azure Backup biedt flexibiliteit in de back-upschema maken het dagelijkse, wekelijkse, maandelijkse of jaarlijkse back-up verwijst en biedt u de bewaarperiode beleidsopties voor verschillende back-uppunten. DPM biedt de mogelijkheid voor het opslaan van kopieën van de lokale schijf voor snelle doelstellingen voor hersteltijd (RTO) en voor het opslaan van kopieën naar Azure voor het bewaren van voordelige, op de lange termijn.
@@ -29,7 +29,7 @@ Azure Backup voor DPM ondersteunt de volgende scenario's:
 Er zijn enkele dingen die u nodig hebt om te bevestigen voordat u back-up van een SharePoint-farm naar Azure.
 
 ### <a name="prerequisites"></a>Vereisten
-Voordat u doorgaat, zorgt u ervoor dat u voldoet aan alle de [vereisten voor het gebruik van Microsoft Azure Backup](backup-azure-dpm-introduction.md#prerequisites) om workloads te beschermen. Sommige taken voor vereisten zijn: een back-upkluis maken, download de kluisreferenties, Azure Backup Agent installeren en DPM/Azure Backup-Server registreren bij de kluis.
+Voordat u doorgaat, zorgt u ervoor dat u voldoet aan alle de [vereisten voor het gebruik van Microsoft Azure Backup](backup-azure-dpm-introduction.md#prerequisites-and-limitations) om workloads te beschermen. Sommige taken voor vereisten zijn: een back-upkluis maken, download de kluisreferenties, Azure Backup Agent installeren en DPM/Azure Backup-Server registreren bij de kluis.
 
 ### <a name="dpm-agent"></a>DPM-agent
 De DPM-beveiligingsagent moet zijn geïnstalleerd op de server die wordt uitgevoerd, SharePoint, de servers waarop SQL Server en alle andere servers die deel van de SharePoint-farm uitmaken. Zie voor meer informatie over het instellen van de beveiligingsagent [Setup-beveiligingsagent](https://technet.microsoft.com/library/hh758034\(v=sc.12\).aspx).  De enige uitzondering hierop is dat u de agent op een server één web-front-end (WFE installeren). DPM moet de agent op één WFE-server alleen om te fungeren als toegangspunt voor de beveiliging.

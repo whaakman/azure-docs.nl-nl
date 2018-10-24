@@ -1,5 +1,5 @@
 ---
-title: Beheer .NET SDK voor Azure Stream Analytics
+title: Management .NET-SDK voor Azure Stream Analytics
 description: Aan de slag met Stream Analytics Management .NET SDK. Informatie over het instellen en analytics-taken uitvoeren. Maak een project, invoer, uitvoer en transformaties.
 services: stream-analytics
 author: jseb225
@@ -9,29 +9,29 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/06/2017
-ms.openlocfilehash: b57e22b979d0e47d294a89d41a945a665beacdc0
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 796da53718a56fa9d5788a0f4319dfe4e7e6b19d
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31525298"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955657"
 ---
-# <a name="management-net-sdk-set-up-and-run-analytics-jobs-using-the-azure-stream-analytics-api-for-net"></a>Beheer van de .NET SDK: Instellen en uitvoeren van analytics-taken met de Azure Stream Analytics-API voor .NET
-Informatie over het instellen en uitvoeren met behulp van de Stream Analytics-API voor .NET met de Management .NET SDK analytics-taken. Instellen van een project, invoer en uitvoer bronnen, transformaties en start maken en taken stoppen. U kunt gegevens uit Blob-opslag of van een event hub streamen voor uw analytics-taken.
+# <a name="management-net-sdk-set-up-and-run-analytics-jobs-using-the-azure-stream-analytics-api-for-net"></a>Management .NET SDK: Instellen en uitvoeren van analysetaken met behulp van de Azure Stream Analytics-API voor .NET
+Informatie over het instellen en uitvoeren van analysetaken met behulp van de Stream Analytics-API voor .NET met behulp van de Management .NET-SDK. Instellen van een project, invoer en uitvoer bronnen, transformaties en start maken en taken stoppen. Voor de analytics-taken, kunt u gegevens uit Blob storage of van een event hub streamen.
 
-Zie de [management-naslagdocumentatie voor de Stream Analytics-API voor .NET](https://msdn.microsoft.com/library/azure/dn889315.aspx).
+Zie de [management referentiedocumentatie voor de Stream Analytics-API voor .NET](https://msdn.microsoft.com/library/azure/dn889315.aspx).
 
-Azure Stream Analytics is een volledig beheerde service die de verwerking van gebeurtenissen met lage latentie, maximaal beschikbare, schaalbare, complexe geven via het streamen van gegevens in de cloud. Stream Analytics kan klanten voor het instellen van het streaming-taken voor het analyseren van gegevensstromen en kan ze bijna realtime analyses station.  
+Azure Stream Analytics is een volledig beheerde service met lage latentie, maximaal beschikbare, schaalbare, complexe gebeurtenisverwerking bieden over het streamen van gegevens in de cloud. Stream Analytics kan klanten voor het instellen van streamingtaken gegevensstromen te analyseren, en kan ze om bijna realtime analyses te stimuleren.  
 
 > [!NOTE]
-> De voorbeeldcode in dit artikel hebt met Azure Stream Analytics Management .NET SDK v2.x versie is bijgewerkt. Zie voor een voorbeeld van code met behulp van de SDK-versie van het lagecy (1.x) gebruikt, [de v1.x Management .NET SDK gebruiken voor Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-dotnet-management-sdk-v1).
+> We hebben de voorbeeldcode in dit artikel bijgewerkt met Azure Stream Analytics Management .NET SDK v2.x versie. Zie voor voorbeelden van code met behulp van de gebruikt lagecy (1.x) SDK-versie kunt [de v1.x Management .NET SDK gebruiken voor Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-dotnet-management-sdk-v1).
 
 ## <a name="prerequisites"></a>Vereisten
 Voordat u dit artikel gaat lezen, moet u beschikken over het volgende:
 
 * Installeer Visual Studio 2017 of 2015.
 * Download en installeer [Azure .NET SDK](https://azure.microsoft.com/downloads/).
-* Maak een Azure-resourcegroep in uw abonnement. Hier volgt een voorbeeld Azure PowerShell-script. Zie voor informatie Azure PowerShell [installeren en configureren van Azure PowerShell](/powershell/azure/overview);  
+* Maak een Azure-resourcegroep in uw abonnement. Hier volgt een voorbeeld van Azure PowerShell-script. Zie voor meer informatie voor Azure PowerShell, [installeren en configureren van Azure PowerShell](/powershell/azure/overview);  
 
         # Log in to your Azure account
         Add-AzureAccount
@@ -46,13 +46,13 @@ Voordat u dit artikel gaat lezen, moet u beschikken over het volgende:
         New-AzureResourceGroup -Name <YOUR RESOURCE GROUP NAME> -Location <LOCATION>
 
 
-* Een invoerbron en uitvoerdoel voor de taak verbinding maken met instellen.
+* Instellen van een invoer bron en bestemming voor uitvoer voor de taak verbinding maken met.
 
-## <a name="set-up-a-project"></a>Instellen van een project
-U maakt met een analytics-taak de Stream Analytics-API voor .NET, Stel eerst uw project.
+## <a name="set-up-a-project"></a>Een project instellen
+Voor het maken van een analytics-taak gebruik van de Stream Analytics-API voor .NET, eerst instellen van uw project.
 
 1. Maak een Visual Studio C# .NET-consoletoepassing.
-2. Voer de volgende opdrachten om de NuGet-pakketten te installeren in de Package Manager-Console. De eerste is de Azure Stream Analytics Management .NET SDK. Het tweede is voor Azure clientverificatie.
+2. Voer de volgende opdrachten om de NuGet-pakketten te installeren in de Package Manager-Console. De eerste is de Azure Stream Analytics Management .NET SDK. De tweede waarde is voor verificatie van Azure.
    
         Install-Package Microsoft.Azure.Management.StreamAnalytics -Version 2.0.0
         Install-Package Microsoft.Rest.ClientRuntime.Azure.Authentication -Version 2.3.1
@@ -65,7 +65,7 @@ U maakt met een analytics-taak de Stream Analytics-API voor .NET, Stel eerst uw 
           <add key="ActiveDirectoryTenantId" value="YOUR TENANT ID" />
         </appSettings>
 
-    Vervang de waarden voor **SubscriptionId** en **ActiveDirectoryTenantId** met uw Azure-abonnement en tenant-id. U kunt deze waarden krijgen door de volgende Azure PowerShell-cmdlet:
+    Vervang de waarden in **SubscriptionId** en **ActiveDirectoryTenantId** met uw Azure-abonnement en tenant-id. U kunt deze waarden kunt krijgen door de volgende Azure PowerShell-cmdlet:
 
         Get-AzureAccount
 
@@ -73,7 +73,7 @@ U maakt met een analytics-taak de Stream Analytics-API voor .NET, Stel eerst uw 
 
         <Reference Include="System.Configuration" />
 
-5. Voeg de volgende **met** instructies naar het bronbestand (Program.cs) in het project:
+5. Voeg de volgende **met behulp van** instructies toe aan het bronbestand (Program.cs) in het project:
    
         using System;
         using System.Collections.Generic;
@@ -97,7 +97,7 @@ U maakt met een analytics-taak de Stream Analytics-API voor .NET, Stel eerst uw 
     }
    ```
 
-## <a name="create-a-stream-analytics-management-client"></a>Maken van een Stream Analytics management-client
+## <a name="create-a-stream-analytics-management-client"></a>Een Stream Analytics management-client maken
 Een **StreamAnalyticsManagementClient** object kunt u voor het beheren van de taak en de onderdelen van de taak, zoals invoer, uitvoer en transformatie.
 
 Voeg de volgende code toe aan het begin van de **Main** methode:
@@ -121,14 +121,14 @@ Voeg de volgende code toe aan het begin van de **Main** methode:
     };
    ```
 
-De **resourceGroupName** de waarde van variabele moet hetzelfde zijn als de naam van de resourcegroep die u hebt gemaakt of opgenomen in de vereiste stappen.
+De **resourceGroupName** van de variabele waarde moet gelijk zijn aan de naam van de resourcegroep die u hebt gemaakt of opgenomen in de vereiste stappen.
 
-Raadpleeg voor het automatiseren van de referentie presentatie aspect van het maken van de taak [verifiëren van een service-principal met Azure Resource Manager](../azure-resource-manager/resource-group-authenticate-service-principal.md).
+Voor het automatiseren van de referentie-presentatie aspect van de taak te maken, Raadpleeg [verifiëren van een service-principal met Azure Resource Manager](../active-directory/develop/howto-authenticate-service-principal-powershell.md).
 
-De resterende secties van dit artikel wordt ervan uitgegaan dat deze code aan het begin van de **Main** methode.
+De rest van dit artikel wordt ervan uitgegaan dat deze code aan het begin van de **Main** methode.
 
 ## <a name="create-a-stream-analytics-job"></a>Een Stream Analytics-taak maken
-De volgende code maakt een Stream Analytics-taak onder de resourcegroep die u hebt gedefinieerd. Aan de job wordt u een invoer, uitvoer en transformatie later toevoegen.
+De volgende code maakt u een Stream Analytics-taak onder de resourcegroep die u hebt gedefinieerd. Aan de job wordt u een invoer, uitvoer en transformatie later toevoegen.
 
    ```
    // Create a streaming job
@@ -154,8 +154,8 @@ De volgende code maakt een Stream Analytics-taak onder de resourcegroep die u he
    StreamingJob createStreamingJobResult = streamAnalyticsManagementClient.StreamingJobs.CreateOrReplace(streamingJob, resourceGroupName, streamingJobName);
    ```
 
-## <a name="create-a-stream-analytics-input-source"></a>Maken van een Stream Analytics-invoerbron
-De volgende code maakt een Stream Analytics-invoerbron blob-invoerbron type en met de CSV-serialisatie. Gebruik voor het maken van een event hub-invoerbron **EventHubStreamInputDataSource** in plaats van **BlobStreamInputDataSource**. Op deze manier kunt u het serialisatietype van de invoerbron aanpassen.
+## <a name="create-a-stream-analytics-input-source"></a>Een Stream Analytics-invoerbron maken
+De volgende code maakt een Stream Analytics-invoerbron met de blob-invoerbron type en de CSV-serialisatie. Gebruik voor het maken van een event hub-invoerbron **EventHubStreamInputDataSource** in plaats van **BlobStreamInputDataSource**. Op deze manier kunt u het serialisatietype van de invoerbron aanpassen.
 
    ```
    // Create an input
@@ -187,20 +187,20 @@ De volgende code maakt een Stream Analytics-invoerbron blob-invoerbron type en m
    Input createInputResult = streamAnalyticsManagementClient.Inputs.CreateOrReplace(input, resourceGroupName, streamingJobName, inputName);
    ```
 
-Invoermethoden, zijn van Blob-opslag of een event hub, gekoppeld aan een specifieke taak. Voor het gebruik van dezelfde bron voor invoer voor andere taken, moet u Roep de methode opnieuw en geef een andere taaknaam.
+Invoerbronnen, zijn hetzij van Blob-opslag of een event hub, gekoppeld aan een specifieke taak. U moet voor het gebruik van de dezelfde invoerbron voor verschillende taken, roept u de methode opnieuw en geef een andere taaknaam.
 
 ## <a name="test-a-stream-analytics-input-source"></a>Een Stream Analytics-invoerbron testen
-De **TestConnection** methode wordt gecontroleerd of de Stream Analytics-taak is geen verbinding maken met de invoerbron evenals andere aspecten die specifiek zijn voor het type van de invoerbron. Bijvoorbeeld, in de blob-invoerbron die u in een eerdere stap hebt gemaakt, wordt de methode gecontroleerd dat de naam van het Opslagaccount en een sleutelpaar kan worden gebruikt voor verbinding maken met de Storage-account, evenals te controleren of de opgegeven container bestaat.
+De **TestConnection** methode wordt gecontroleerd of de Stream Analytics-taak is geen verbinding maken met de invoerbron, evenals andere aspecten die specifiek zijn voor het type invoerbron. Bijvoorbeeld, in de blob-invoerbron die u in een eerdere stap hebt gemaakt, wordt de methode gecontroleerd dat de Storage-accountnaam en het sleutelpaar kunnen worden gebruikt voor verbinding maken met de Storage-account, evenals controleren of de opgegeven container bestaat.
 
    ```
    // Test the connection to the input
    ResourceTestStatus testInputResult = streamAnalyticsManagementClient.Inputs.Test(resourceGroupName, streamingJobName, inputName);
    ```
 
-## <a name="create-a-stream-analytics-output-target"></a>Maken van een Stream Analytics-uitvoer-doel
-Maken van een uitvoerdoel is vergelijkbaar met het maken van een Stream Analytics-invoerbron. Uitvoer doelen zijn zoals invoermethoden gekoppeld aan een specifieke taak. Als u hetzelfde uitvoerdoel voor andere taken, moet u Roep de methode opnieuw en geef een andere taaknaam.
+## <a name="create-a-stream-analytics-output-target"></a>Maak het doel van een Stream Analytics-uitvoer
+Het maken van een bestemming voor uitvoer is vergelijkbaar met het maken van een Stream Analytics-invoerbron. Uitvoer doelen zijn, zoals invoerbronnen gekoppeld aan een specifieke taak. U moet voor het gebruik van de dezelfde bestemming voor uitvoer voor verschillende taken, roept u de methode opnieuw en geef een andere taaknaam.
 
-De volgende code maakt een uitvoerdoel (Azure SQL database). U kunt aanpassen van het uitvoerdoel-gegevenstype en/of serialisatietype.
+De volgende code maakt een bestemming voor uitvoer (Azure SQL database). U kunt het gegevenstype van het uitvoerdoel en/of dit serialisatietype aanpassen.
 
    ```
    // Create an output
@@ -218,8 +218,8 @@ De volgende code maakt een uitvoerdoel (Azure SQL database). U kunt aanpassen va
    Output createOutputResult = streamAnalyticsManagementClient.Outputs.CreateOrReplace(output, resourceGroupName, streamingJobName, outputName);
    ```
 
-## <a name="test-a-stream-analytics-output-target"></a>Testen van een Stream Analytics-uitvoer-doel
-Een doel van de uitvoer Stream Analytics heeft ook de **TestConnection** methode voor het testen van verbindingen.
+## <a name="test-a-stream-analytics-output-target"></a>Een Stream Analytics-bestemming voor uitvoer testen
+Een Stream Analytics-bestemming voor uitvoer heeft ook de **TestConnection** methode voor het testen van verbindingen.
 
    ```
    // Test the connection to the output
@@ -227,7 +227,7 @@ Een doel van de uitvoer Stream Analytics heeft ook de **TestConnection** methode
    ```
 
 ## <a name="create-a-stream-analytics-transformation"></a>Maken van een Stream Analytics-transformatie
-De volgende code maakt een Stream Analytics-transformatie met de query ' Selecteer * uit invoer ' en Hiermee geeft u op één streaming-eenheid toewijzen voor de Stream Analytics-taak. Zie voor meer informatie over het aanpassen van streaming-eenheden [Scale Azure Stream Analytics-taken](stream-analytics-scale-jobs.md).
+De volgende code maakt u een Stream Analytics-transformatie met de query ' Selecteer * uit invoer ' en geeft u voor het toewijzen van één streaming-eenheid voor de Stream Analytics-taak. Zie voor meer informatie over het aanpassen van streaming-eenheden [Scale Azure Stream Analytics-taken](stream-analytics-scale-jobs.md).
 
    ```
    // Create a transformation
@@ -241,10 +241,10 @@ De volgende code maakt een Stream Analytics-transformatie met de query ' Selecte
 
 Net als invoer en uitvoer, is ook een transformatie gekoppeld aan de specifieke Stream Analytics-taak die is gemaakt onder.
 
-## <a name="start-a-stream-analytics-job"></a>Start een Stream Analytics-taak
-Nadat een Stream Analytics-taak en de input(s), uitvoer en transformatie is gemaakt, kunt u de taak starten door het aanroepen van de **Start** methode.
+## <a name="start-a-stream-analytics-job"></a>Een Stream Analytics-taak starten
+Na het maken van een Stream Analytics-taak en de invoerwaarde(n), output(s) en -transformatie, kunt u de taak starten door het aanroepen van de **Start** methode.
 
-De volgende code wordt gestart een Stream Analytics-taak met een begintijd aangepaste uitvoer ingesteld op 12 December 2012 12:12:12 steekproef UTC:
+Voorbeeld van de volgende code wordt gestart een Stream Analytics-taak met een begintijd aangepaste uitvoer ingesteld op 12 December 2012 12:12:12 UTC:
 
    ```
    // Start a streaming job
@@ -264,8 +264,8 @@ U kunt een actieve Stream Analytics-taak stoppen door het aanroepen van de **sto
    streamAnalyticsManagementClient.StreamingJobs.Stop(resourceGroupName, streamingJobName);
    ```
 
-## <a name="delete-a-stream-analytics-job"></a>Verwijderen van een Stream Analytics-taak
-De **verwijderen** methode verwijdert de taak, evenals de onderliggende submappen resources, zoals input(s), uitvoer en transformatie van de taak.
+## <a name="delete-a-stream-analytics-job"></a>Een Stream Analytics-taak verwijderen
+De **verwijderen** methode de taak, evenals de onderliggende onderliggende resources, met inbegrip van invoerwaarde(n) output(s) en transformatie van de taak wordt verwijderd.
 
    ```
    // Delete a streaming job
@@ -273,10 +273,10 @@ De **verwijderen** methode verwijdert de taak, evenals de onderliggende submappe
    ```
 
 ## <a name="get-support"></a>Ondersteuning krijgen
-Voor verdere hulp kunt u proberen onze [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
+Voor verdere ondersteuning kunt u proberen onze [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Volgende stappen
-U hebt de basisbeginselen van het gebruik van een .NET SDK maken en analytics-taken uitvoeren. Raadpleeg de volgende onderwerpen voor meer informatie:
+De basisbeginselen van het gebruik van een .NET-SDK maken en uitvoeren van analysetaken, hebt u geleerd. Raadpleeg de volgende onderwerpen voor meer informatie:
 
 * [Inleiding tot Azure Stream Analytics](stream-analytics-introduction.md)
 * [Aan de slag met Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)

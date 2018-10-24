@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 10/17/2018
 ms.author: cherylmc
-ms.openlocfilehash: 588692ad4c7c95a06d33b67b76bb8feff6b4ed53
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 5f133af5ec077821607bf3e942c8a931808d34fc
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49457167"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49953584"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-powershell"></a>Virtuele netwerken van verschillende implementatiemodellen verbinden met PowerShell
 
@@ -34,7 +34,7 @@ De volgende stappen helpen u bij de instellingen die nodig zijn voor het configu
 
 ### <a name="pre"></a>Vereisten
 
-* Beide VNets zijn al gemaakt. Als u maken van een virtueel netwerk van resource manager wilt, raadpleegt u [maken van een virtueel netwerk](../virtual-network/quick-create-powershell.md#create-a-virtual-network). Zie voor het maken van een klassiek virtueel netwerk, [maken van een klassiek VNet](https://docs.microsoft.com/en-us/azure/virtual-network/create-virtual-network-classic).
+* Beide VNets zijn al gemaakt. Als u maken van een virtueel netwerk van resource manager wilt, raadpleegt u [maken van een virtueel netwerk](../virtual-network/quick-create-powershell.md#create-a-virtual-network). Zie voor het maken van een klassiek virtueel netwerk, [maken van een klassiek VNet](https://docs.microsoft.com/azure/virtual-network/create-virtual-network-classic).
 * De adresbereiken voor de VNets niet met elkaar overlappen of overlapt met een van de bereiken voor andere verbindingen die de gateways kunnen worden verbonden met.
 * U kunt de meest recente PowerShell-cmdlets hebben geïnstalleerd. Zie [hoe u Azure PowerShell installeren en configureren](/powershell/azure/overview) voor meer informatie. Zorg ervoor dat u zowel de SM (Service Management) en de Resource Manager (DB)-cmdlets installeren. 
 

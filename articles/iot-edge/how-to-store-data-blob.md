@@ -9,16 +9,18 @@ ms.date: 10/03/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 6fdfc1002528fa48145e577dfee3eac935f31fcd
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 4b86f73302d9f5d07cd1e6e8c7801de56a988cc7
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49344843"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955273"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge-preview"></a>Gegevens aan de rand met Azure Blob Storage Store op IoT Edge (preview)
 
-Azure BLOB-opslag op IoT Edge biedt een block blob storage-oplossing aan de rand. Een blob storage-module op uw IoT Edge-apparaat zich gedraagt als een Azure blob-service, maar de blok-blobs worden lokaal opgeslagen op uw IoT Edge-apparaat. U kunt toegang tot uw blobs met behulp van de methodes SDK van Azure storage of blob API-aanroepen die u al hebt gebruikt om te blokkeren. 
+Azure Blob-opslag op IoT Edge biedt een [blok-blob](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-block-blobs) opslagoplossing aan de rand. Een blob storage-module op uw IoT Edge-apparaat zich gedraagt als een Azure blok-blob-service, maar de blok-blobs worden lokaal opgeslagen op uw IoT Edge-apparaat. U kunt toegang tot uw blobs met behulp van de methodes SDK van Azure storage of blob API-aanroepen die u al hebt gebruikt om te blokkeren. 
+
+Scenario's waarbij gegevens zoals video's, afbeeldingen, financiële gegevens, ziekenhuis gegevens of gegevens die moeten worden bewaard lokaal, later die kan worden lokaal verwerkt of verzonden naar de cloud zijn goede voorbeelden het gebruik van deze module.
 
 In dit artikel vindt u instructies voor het implementeren van een Azure Blob-opslag op IoT Edge-container die wordt uitgevoerd van een blob-service op uw IoT Edge-apparaat. 
 
@@ -48,21 +50,33 @@ Cloudresources:
 
 ## <a name="deploy-blob-storage-to-your-device"></a>Blob-opslag op uw apparaat implementeren
 
-Azure Blob-opslag op IoT Edge biedt drie standard containerinstallatiekopieën, twee voor Linux-containers (AMD64 en ARM32 architecturen) en één voor Windows-containers (AMD64). Wanneer u een van deze module-installatiekopieën implementeren van blob-opslag in uw IoT Edge-apparaat gebruikt, geeft u drie soorten informatie het configureren van de module-exemplaar voor uw apparaat:
-
-* Een **accountnaam** en **accountsleutel**. Om te blijven consistent met de Azure-opslag, gebruik blob storage-modules accountnamen en accountsleutels om toegang te beheren. Accountnamen moet drie naar 24 tekens lang zijn en kleine letters en cijfers. Accountsleutels moeten met base64 gecodeerde en 64 bytes lang zijn. U kunt een sleutel met de hulpprogramma's zoals genereren [GeneratePlus](https://generate.plus/en/base64).
-* Een **lokale-opslagoptie**. De blob storage-module blobs worden lokaal opgeslagen op het IoT Edge-apparaat, zodat de blobs behouden als de module service is gestopt of opnieuw wordt opgestart. Declareer een bestaande [volume](https://docs.docker.com/storage/volumes
-) of pad naar lokale map waarin de blobs moeten worden opgeslagen op uw apparaat. 
-
 Er zijn verschillende manieren om te implementeren van modules voor een IoT Edge-apparaat, en ze allemaal werken voor Azure Blob Storage in IoT Edge-modules. De twee meest eenvoudige methoden zijn de Azure portal of Visual Studio Code-sjablonen te gebruiken. 
 
 ### <a name="azure-portal"></a>Azure Portal
 
-Volg de stappen in voor het implementeren van blob storage via Azure portal, [implementeren Azure IoT Edge-modules van de Azure-portal](how-to-deploy-modules-portal.md). Ga naar de module implementeren, Kopieer de URI van de installatiekopie en voorbereiden van de container maken voordat u opties op basis van het besturingssysteem van de container. Gebruik deze waarden in de **configureren van een implementatie-manifest** gedeelte van het artikel implementatie. 
+#### <a name="find-the-module"></a>De module niet vinden
 
-Geef de URI van de installatiekopie voor de blob storage-module: **mcr.microsoft.com/azure-blob-storage:latest**. 
-   
-Gebruik de volgende JSON-sjabloon voor de **Container maken opties** veld. Configureer de JSON met uw storage-accountnaam, de opslagaccountsleutel en de opslag directory verbindt.  
+Kies een van de twee manieren om te zoeken van de blob storage-module:
+
+1. In Azure Portal zoeken naar 'Azure Blob-opslag op IoT Edge'. En **Selecteer** de resultaat-zoekitem
+2. Ga naar Marketplace in Azure Portal en klik op 'Internet of Things'. Selecteer onder de sectie "IoT Edge-Modules" 'Azure Blob-opslag op IoT Edge'. En klikt u op **maken**
+
+#### <a name="steps-to-deploy"></a>Stappen voor het implementeren
+
+**Apparaten voor IoT Edge-Module**
+
+1. Selecteer het 'abonnement', waar uw IoT-Hub is geïmplementeerd.
+2. Selecteer uw 'IoT-Hub'.
+3. Geef de 'IoT Edge-apparaatnaam"waar u wilt implementeren in deze module. U kunt 'Apparaat vinden' gebruiken om te vinden van uw apparaat.
+4. Klik op **Create**.
+
+**Modules instellen**
+
+1. In de sectie 'Modules toevoegen' onder 'Implementatie Modules' vindt u dat die module al wordt weergegeven met de naam die begint met 'AzureBlobStorageonIoTEdge'. 
+2. **Selecteer** de blob storage-module uit de lijst met 'Implementatie Modules'. Zijpaneel 'IoT Edge-aangepaste Modules' wordt geopend.
+3. **Naam**: U kunt de naam van de module hier wijzigen
+4. **URI installatiekopie**: de URI die moet worden vervangen **mcr.microsoft.com/azure-blob-storage:latest**
+5. **Container maken opties**: de onderstaande JSON met uw waarden bewerken en vervang deze door de JSON in de Portal-pagina:
    
    ```json
    {
@@ -81,17 +95,23 @@ Gebruik de volgende JSON-sjabloon voor de **Container maken opties** veld. Confi
    }
    ```   
    
-Werk in de opties voor het maken JSON, `\<your storage account name\>` met een willekeurige naam. Update `\<your storage account key\>` met een 64-byte base64-sleutel. U kunt een sleutel met de hulpprogramma's zoals genereren [GeneratePlus](https://generate.plus/en/base64?gp_base64_base[length]=64) waarmee u de lengte in bytes. U gebruikt deze referenties voor toegang tot de blob-opslag van andere modules.
+    * Update `<your storage account name>`. Accountnamen moet drie naar 24 tekens lang zijn en kleine letters en cijfers.
+    * Update `<your storage account key>` met een 64-byte base64-sleutel. U kunt een sleutel met de hulpprogramma's zoals genereren [GeneratePlus](https://generate.plus/en/base64?gp_base64_base[length]=64). U gebruikt deze referenties voor toegang tot de blob-opslag van andere modules.
+    * Update `<storage directory bind>`. Afhankelijk van het besturingssysteem van de container. Geef de naam van een [volume](https://docs.docker.com/storage/volumes/) of het absolute pad naar een map op uw IoT Edge-apparaat dat is waar u de blob-module voor het opslaan van de gegevens.  
 
-Werk in de opties voor het maken JSON, `<storage directory bind>` afhankelijk van uw besturingssysteem voor de container. Geef de naam van een [volume](https://docs.docker.com/storage/volumes/) of het absolute pad naar een map op uw IoT Edge-apparaat dat is waar u de blob-module voor het opslaan van de gegevens.  
-
-   * Linux-containers:  **\<opslagpad >: / blobroot**. Bijvoorbeeld: / srv/containerdata: / blobroot. Of, in mijn volume: / blobroot. 
-   * Windows-containers:  **\<opslagpad >: C: / BlobRoot**. Bijvoorbeeld: C: / ContainerData:C: / BlobRoot. Of, Mijn-volume: C: / blobroot.
+       * Linux-containers:  **\<opslagpad >: / blobroot**. Bijvoorbeeld: / srv/containerdata: / blobroot. Of, in mijn volume: / blobroot. 
+       * Windows-containers:  **\<opslagpad >: C: / BlobRoot**. Bijvoorbeeld: C: / ContainerData:C: / BlobRoot. Of, Mijn-volume: C: / blobroot.
    
    > [!CAUTION]
    > Wijzig niet de "/ blobroot ' voor Linux en" C:/BlobRoot' voor Windows, voor  **\<Storage directory binden >** waarden.
 
-U hoeft niet registerreferenties voor toegang tot Azure Blob-opslag op IoT Edge op te geven en u hoeft niet te declareren van routes voor uw implementatie. 
+    ![Waarden van de Module bijwerken](./media/how-to-store-data-blob/edit-module.png)
+
+6. **Sla** de waarden in "IoT Edge-aangepaste Modules"
+7. Klik op **volgende** in de sectie "Modules instellen"
+8. Klik op **volgende** in de sectie 'Routes opgeven'
+9. Nadat u hebt bekeken, klikt u op **indienen** in de sectie "Controleren implementatie".
+10. Controleer of in uw IoT-Hub of de blob storage-module door het apparaat wordt uitgevoerd 
 
 ### <a name="visual-studio-code-templates"></a>Visual Studio Code-sjablonen
 
@@ -150,7 +170,7 @@ Sjabloon van de oplossing maakt een manifest implementatiesjabloon die uw blob s
    STORAGE_ACCOUNT_KEY=
    ```
 
-8. Geef een naam op voor naam van het opslagaccount en een 64-byte base64 sleutel opgeven voor de opslagaccountsleutel. U kunt een sleutel met de hulpprogramma's zoals genereren [GeneratePlus](https://generate.plus/en/base64?gp_base64_base[length]=64). U gebruikt deze referenties voor toegang tot de blob-opslag van andere modules. 
+8. Geef de waarde voor `STORAGE_ACCOUNT_NAME`, namen van drie naar 24 tekens lang zijn en kleine letters en cijfers moeten zijn. En geef een 64-byte base64-sleutel voor de `STORAGE_ACCOUNT_KEY`. U kunt een sleutel met de hulpprogramma's zoals genereren [GeneratePlus](https://generate.plus/en/base64?gp_base64_base[length]=64). U gebruikt deze referenties voor toegang tot de blob-opslag van andere modules. 
 
 9. Sla **.env**. 
 

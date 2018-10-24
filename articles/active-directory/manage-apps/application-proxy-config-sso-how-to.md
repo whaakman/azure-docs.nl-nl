@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/21/2018
+ms.date: 10/22/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 9c353c9b34c3d4a2b21093cc0ae82e638f5ddd01
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 91bbbf6cced8dc3ade4906961d68a99f810d9fd9
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44356498"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49956983"
 ---
 # <a name="how-to-configure-single-sign-on-to-an-application-proxy-application"></a>Single sign-on bij een toepassing Application Proxy configureren
 
@@ -36,7 +36,7 @@ Zie voor meer informatie over de methoden voor verificatie vooraf, stap 4 van de
 ## <a name="configuring-single-sign-on-modes-for-application-proxy-applications"></a>Modi voor eenmalige aanmelding configureren voor Application Proxy-toepassingen
 Het specifieke type van eenmalige aanmelding configureren. De aanmeldings-methoden zijn ingedeeld op basis van de back-endtoepassing maakt gebruik van welk type verificatie. App-Proxy toepassingen ondersteuning bieden voor drie typen van aanmelding:
 
--   **Op basis van wachtwoorden Sign-On**: wachtwoord gebaseerde aanmelding kan worden gebruikt voor elke toepassing die gebruikmaakt van velden gebruikersnaam en wachtwoord aan te melden. Configuratiestappen zijn de [wachtwoord-SSO-configuratiedocumentatie](../active-directory-enterprise-apps-whats-new-azure-portal.md#bring-your-own-password-sso-applications).
+-   **Op basis van wachtwoorden Sign-On**: wachtwoord gebaseerde aanmelding kan worden gebruikt voor elke toepassing die gebruikmaakt van velden gebruikersnaam en wachtwoord aan te melden. Configuratiestappen zijn [wachtwoord eenmalige aanmelding configureren voor een toepassing in Azure AD-galerie](configure-password-single-sign-on-gallery-applications.md).
 
 -   **Geïntegreerde Windows-authenticatie**: voor toepassingen met behulp van geïntegreerde Windows-verificatie (IWA), eenmalige aanmelding is ingeschakeld via Kerberos-beperkte delegatie (KCD). Deze methode biedt machtiging Toepassingsproxyconnectors in Active Directory te imiteren van gebruikers, en voor het verzenden en ontvangen van tokens in hun naam. Informatie over het configureren van KCD kunnen u vinden in de [eenmalige aanmelding met KCD documentatie](application-proxy-configure-single-sign-on-with-kcd.md).
 
