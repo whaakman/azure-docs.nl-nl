@@ -100,7 +100,7 @@ De verbindingsreeks voor opslag instellen:
 
 De bindingen die worden gebruikt door de functie worden in de vooraf gecompileerde functies gedefinieerd door het toepassen van kenmerken in de code. Wanneer u de Azure Functions-hulpprogramma's om te maken van uw functies van de opgegeven sjablonen gebruikt, worden deze kenmerken worden toegepast voor u. 
 
-1. Klik in **Solution Explorer** met de rechtermuisknop op het projectknooppunt en selecteer  > **Nieuw item****Toevoegen**. Selecteer **Azure Function**, typ een **naam** voor de klasse en klik op **toevoegen**.
+1. Klik in **Solution Explorer** met de rechtermuisknop op het projectknooppunt en selecteer  > **Nieuw item** **Toevoegen**. Selecteer **Azure Function**, typ een **naam** voor de klasse en klik op **toevoegen**.
 
 2. Kies de trigger, stelt u de bindingeigenschappen en klikt u op **maken**. Het volgende voorbeeld ziet de instellingen bij het maken van een Queue storage functie geactiveerde. 
 

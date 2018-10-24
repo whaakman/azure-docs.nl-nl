@@ -4,12 +4,12 @@ ms.author: yashar
 ms.service: virtual-machines-windows
 ms.topic: include
 ms.date: 09-05-2018
-ms.openlocfilehash: 065ac0855fc47b23b434287f9f4406bd641f01ae
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 4b51631e8b7d3f53edd1afdba76de3031b112254
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47454461"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49805093"
 ---
 # <a name="prepay-for-virtual-machines-with-azure-reserved-vm-instances"></a>Vooruitbetalen voor virtuele Machines met Azure gereserveerde VM-instanties
 
@@ -35,7 +35,7 @@ Gereserveerde VM-instanties zijn beschikbaar voor de meeste VM-grootten met enke
   - Beperkte vCPU-grootten
   - VM-Series: A-serie, Av2-serie of uit de G-serie
   - Virtuele machines in de Preview-versie: een VM-reeks of de grootte die in de Preview-versie
-- Clouds: Reserveringen zijn niet beschikbaar voor aankoop in de regio's Azure US Government, Duitsland en China.
+- Clouds: Reserveringen niet verkrijgbaar in Duitsland en China-regio's.
 - Onvoldoende quotum: een reservering die is afgestemd op één abonnement vCPU-quotum is beschikbaar in het abonnement voor de nieuwe gereserveerde instantie moet hebben. Bijvoorbeeld, als het doelabonnement een limiet van 10 vcpu's voor uit de D-serie heeft, kan niet klikt u vervolgens u kopen een reservering voor 11 Standard_D1 exemplaren. De controle van het quotum voor reserveringen bevat de virtuele machines die al zijn geïmplementeerd in het abonnement. Bijvoorbeeld, als het abonnement een quotum van 10 vcpu's voor uit de D-serie heeft en twee standard_D1 instanties zijn geïmplementeerd, kunt klikt u vervolgens u kopen een reservering voor 10 standard_D1-exemplaren in dit abonnement. 
 - Capaciteitsbeperkingen voor: In zeldzame gevallen kan Azure beperkt de aanschaf van nieuwe reserveringen voor een subset van de VM-grootten, vanwege onvoldoende capaciteit in een regio.
 
@@ -67,9 +67,9 @@ Gereserveerde VM-instanties zijn beschikbaar voor de meeste VM-grootten met enke
 
 ## <a name="cancellations-and-exchanges"></a>Annuleringen en uitwisselingen
 
-Als u annuleren van uw reservering wilt, is er mogelijk een kosten voor vroegtijdige beëindiging van 12%. Restituties zijn gebaseerd op de laagste prijzen van uw aankoopprijs of de huidige prijs van de reservering. Restituties zijn beperkt tot 50.000 per jaar. U ontvangt restitutie is het resterende bedrag naar rato minus de kosten voor vroegtijdige beëindiging van 12%. Om aan te vragen bij een annulering, gaat u naar de reservering in de Azure portal en selecteer **gerestitueerd** een ondersteuningsaanvraag wilt maken.
+Als u uw reservering wilt annuleren, worden er mogelijk kosten voor vroegtijdige beëindiging van 12% in rekening gebracht. Restituties worden gebaseerd op de laagste prijs, zijnde de aankoopprijs of de huidige prijs van de reservering, welke het laagste is. Restituties zijn beperkt tot $ 50.000 per jaar. De restitutie die u ontvangt, is het resterende bedrag naar rato saldo minus de kosten voor vroegtijdige beëindiging van 12%. Om aan te vragen bij een annulering, gaat u naar de reservering in de Azure portal en selecteer **gerestitueerd** een ondersteuningsaanvraag wilt maken.
 
-Als u wijzigen van de reservering gereserveerde VM-instanties naar een andere regio, groep voor VM-grootte of term wilt, kunt u het uitwisselen voor een andere reservering van gelijke of grotere waarde. De begindatum van de termijn voor de nieuwe reservering niet meegenomen in de reservering uitgewisseld. De 1 of 3 jaar term wordt gestart wanneer u de nieuwe reservering maakt. Om aan te vragen bij een uitwisseling, gaat u naar de reservering in Azure portal en selecteer **Exchange** een ondersteuningsaanvraag wilt maken.
+Als u de reservering van gereserveerde VM-instanties wilt wijzigen in een andere regio, groep voor VM-grootte of periode, kunt u de reservering uitwisselen voor een andere reservering van gelijke of grotere waarde. De begindatum van de periode voor de nieuwe reservering wordt niet meegenomen naar de uitgewisselde reservering. De periode van één of drie jaar start vanaf het moment dat u de nieuwe reservering maakt. Om aan te vragen bij een uitwisseling, gaat u naar de reservering in Azure portal en selecteer **Exchange** een ondersteuningsaanvraag wilt maken.
 
 ## <a name="next-steps"></a>Volgende stappen
 

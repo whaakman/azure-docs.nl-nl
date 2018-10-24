@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/01/2016
 ms.author: mlearned
-ms.openlocfilehash: f44bb7bd95ef405c65bb259a6d104475c2e283bd
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: a3dfca48b52af39e7a536b3012a3f4cdac4e9a94
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44297839"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955164"
 ---
 # <a name="continuous-integration-in-azure-devops-services-using-azure-resource-group-deployment-projects"></a>Continue integratie in Azure DevOps-Services met behulp van Azure Resource Group deployment projecten
 Voor het implementeren van een Azure-sjabloon, u taken kunt uitvoeren in verschillende stadia: bouw, Test, kopiëren naar Azure (ook wel "Staging"), en implementeren van sjablonen. Er zijn twee verschillende manieren om sjablonen te implementeren met Azure DevOps-Services. Beide methoden bieden dezelfde resultaten, daarom kiest die het beste past bij uw werkstroom.
@@ -77,7 +77,7 @@ De volgende procedures helpen u bij de benodigde stappen voor het configureren v
    5. Voeg de informatie over uw Azure-abonnement toe de **Azure-abonnement toevoegen** in het dialoogvenster. U moet opgeven van de volgende items:
       
       * Abonnements-id
-      * Naam van abonnement
+      * Abonnementsnaam
       * Service-Principal-Id
       * Service-Principal-sleutel
       * Tenant-id
@@ -92,7 +92,7 @@ De volgende procedures helpen u bij de benodigde stappen voor het configureren v
       Gebruik voor Azure CLI:
       
       `azure account show`
-   8. Ophalen van een Service-Principal-ID, Service-Principal-sleutel en Tenant-ID, volg de procedure in [een Active Directory-toepassing en serviceprincipal maken met portal](resource-group-create-service-principal-portal.md) of [verifiëren van een service-principal met Azure Resource Manager](resource-group-authenticate-service-principal.md).
+   8. Ophalen van een Service-Principal-ID, Service-Principal-sleutel en Tenant-ID, volg de procedure in [een Active Directory-toepassing en serviceprincipal maken met portal](active-directory/develop/howto-create-service-principal-portal.md) of [verifiëren van een service-principal met Azure Resource Manager](active-directory/develop/howto-authenticate-service-principal-powershell.md).
    9. De Service-Principal-ID, Service-Principal-sleutel en Tenant-ID Voeg waarden toe aan de **Azure-abonnement toevoegen** dialoogvenster vak en kies vervolgens de **OK** knop.
       
       U hebt nu een geldige Service-Principal gebruiken de Azure PowerShell-script uit te voeren.
