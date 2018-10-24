@@ -336,7 +336,7 @@ U moet de volgende informatie om een gedetecteerde virtuele machine te beveilige
 
 * Het beveiligbare item dat moet worden gerepliceerd.
 * Het opslagaccount voor het repliceren van de virtuele machine. Bovendien is een logboekopslag vereist voor het beveiligen van virtuele machines naar een premium storage-account.
-* De processerver moet worden gebruikt voor replicatie. De lijst met beschikbare processervers zijn opgehaald en opgeslagen in de ***$ProcessServers [0]****(ScaleOut-surrogaatbestand)* en ***$ProcessServers [1]*** *(ConfigurationServer)* variabelen.  
+* De processerver moet worden gebruikt voor replicatie. De lijst met beschikbare processervers zijn opgehaald en opgeslagen in de ***$ProcessServers [0]***  *(ScaleOut-surrogaatbestand)* en ***$ProcessServers [1]*** *(ConfigurationServer)* variabelen.
 * Het account moet worden gebruikt voor de software voor de Mobility-service op de machines push-installatie. De lijst met beschikbare accounts zijn opgehaald en opgeslagen de ***$AccountHandles*** variabele.
 * De toewijzing van beveiligingscontainer voor het replicatiebeleid moet worden gebruikt voor replicatie.
 * De resourcegroep waarin de virtuele machines bij failover moet worden gemaakt.

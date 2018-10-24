@@ -27,7 +27,7 @@ Vier secundaire versies van Kubernetes biedt ondersteuning voor AKS:
 - De huidige secundaire versie die is uitgebracht upstream (n)
 - Drie vorige secundaire versies. Elke ondersteunde secundaire versie biedt ook ondersteuning voor twee stabiel patches.
 
-Bijvoorbeeld, als u AKS introduceert *1.11.x* vandaag de dag wordt ook ondersteund voor *1.10.a* + *1.10.b*, *1.9.c*  +  *1,9 d*, *1.8.e* + *1.8F* (waarbij de versies van de letters patch twee nieuwste stabiele builds zijn).
+Bijvoorbeeld, als u AKS introduceert *1.11.x* vandaag de dag wordt ook ondersteund voor *1.10.a* + *1.10.b*, *1.9.c* + *1,9 d*, *1.8.e* + *1.8F* (waarbij de versies van de letters patch twee nieuwste stabiele builds zijn).
 
 Wanneer een nieuwe secundaire versie is geïntroduceerd, zijn de oudste secundaire versie en patch-versies ondersteund buiten gebruik gesteld. 15 dagen vóór de release van de nieuwe secundaire versie en de komende versie buiten gebruik stellen, wordt een aankondiging gemaakt via de Azure-update-kanalen. In het voorbeeld hierboven waar *1.11.x* is uitgebracht, de buiten gebruik gestelde versies zijn *1.7.g* + *1.7.h*.
 
