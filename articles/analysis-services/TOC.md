@@ -38,8 +38,8 @@
 ### [Een server beheren](analysis-services-manage.md)
 ### [Metrische servergegevens bewaken](analysis-services-monitor.md)
 ### [Registratie in diagnoselogboek instellen](analysis-services-logging.md)
-### [Service-principal maken - Azure Portal](../azure-resource-manager/resource-group-create-service-principal-portal.md)
-### [Service-principal maken - PowerShell](../azure-resource-manager/resource-group-authenticate-service-principal.md)
+### [Service-principal maken - Azure Portal](../active-directory/develop/howto-create-service-principal-portal.md)
+### [Service-principal maken - PowerShell](../active-directory/develop/howto-authenticate-service-principal-powershell.md)
 ### [Een service-principal toevoegen aan serverbeheerdersrol](analysis-services-addservprinc-admins.md)
 
 ## Model
