@@ -87,7 +87,7 @@ Voer de volgende stappen uit voor het migreren van de Windows-bestandsshare die 
     Sla deze stap over en gaat u naar de volgende stap als u een andere Windows Server-host. Als u de dezelfde Windows-bestandsserver voor AFS, wordt u nu een paar minuten uitvaltijd ondervindt. 
     - **Downtime Start** -verwijderen van het eindpunt van de server die u hebt gemaakt in *1F stap*. 
     - Maak een nieuw servereindpunt met het pad waar u de gegevens zich bevinden vooruit gaan.
-    - Wanneer het servereindpunt wordt weergegeven als in orde (dit kan enkele minuten duren), ziet u de gegevens in deze nieuwe locatie. U kunt nu uw Windows Server-host om van dienst van bestanden van dit nieuwe locatie te configureren. - **Downtime eindigt**.
+    - Wanneer het servereindpunt wordt weergegeven als in orde (dit kan enkele minuten duren), ziet u de gegevens in deze nieuwe locatie. U kunt nu uw Windows Server-host om van dienst van bestanden van dit nieuwe locatie te configureren. -  **Downtime eindigt**.
 5.  Als u een andere Windows-bestandsserver voor Azure File Sync gebruikt, wordt u niet uitvaltijd ondervindt. 
     - Een andere servereindpunt met het pad van de lokale opslag die u bereid bent te gebruiken als een cache in plaats van het StorSimple-apparaat toevoegen. 
     - U kunt zich de bestanden in de nieuwe server te zien in enkele minuten. U bent om de overschakeling van uw StorSimple-apparaat naar deze nieuwe locatie op de host op elk gewenst moment.
