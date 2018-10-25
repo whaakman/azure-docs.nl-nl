@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/16/2018
+ms.date: 10/23/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: ea3e6c2e616f2618200c1e3904786abd72bbd75d
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 84aaa5534c629554074544b4bb56ae8da8825397
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49376802"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49986444"
 ---
 # <a name="tutorial-offer-highly-available-mysql-databases"></a>Zelfstudie: MySQL-databases met hoge beschikbaarheid bieden
 
@@ -65,16 +65,15 @@ Gebruik de stappen in deze sectie voor het implementeren van de MySQL-Server-clu
 - Een openbaar IP-adres (voor de primaire MySQL cluster VM)
 - Drie Linux-VM's voor het hosten van de MySQL-cluster
 
-1. Aanmelden bij de beheerportal:
-    - Voor de implementatie van een geïntegreerd systeem, wordt de portal-adres variëren, afhankelijk van de regio en externe domeinnaam van uw oplossing. Dit is in de indeling van https://adminportal.&lt; *regio*&gt;.&lt; *FQDN*&gt;.
-    - Als u de Azure Stack Development Kit (ASDK), wordt de portal adres [ https://adminportal.local.azurestack.external ](https://adminportal.local.azurestack.external).
+1. 
+[!INCLUDE [azs-admin-portal](../../includes/azs-admin-portal.md)]
 
 2. Selecteer **\+** **een resource maken** > **Compute**, en vervolgens **MySQL met replicatie**.
 
-   ![Implementatie van de aangepaste sjabloon](media/azure-stack-tutorial-mysqlrp/createcluster1.png)
+   ![Implementatie van de aangepaste sjabloon](media/azure-stack-tutorial-mysqlrp/1.png)
 
 3. Eenvoudige implementatie-informatie bieden over de **basisbeginselen** pagina. Controleer de standaardwaarden en indien nodig wijzigen en klik op **OK**.<br><br>Ten minste bieden het volgende:
-   - Naam van de implementatie (de standaardinstelling is mysql)
+   - Naam van de implementatie (de standaardinstelling is mymysql)
    - Hoofdwachtwoord van de toepassing. Geef een alfanumerieke wachtwoord 12 tekens met **geen speciale tekens**
    - Toepassingsnaam-database (de standaardinstelling is bitnami)
    - Aantal replica virtuele machines te maken van de MySQL-database (de standaardwaarde is 2)
@@ -82,22 +81,22 @@ Gebruik de stappen in deze sectie voor het implementeren van de MySQL-Server-clu
    - Selecteer de resourcegroep te gebruiken of een nieuw wachtwoord maken
    - Selecteer de locatie (de standaardinstelling is lokaal voor ASDK)
 
-   ![Grondbeginselen van implementatie](media/azure-stack-tutorial-mysqlrp/createcluster2.png)
+   [![](media/azure-stack-tutorial-mysqlrp/2-sm.PNG "Grondbeginselen van implementatie")](media/azure-stack-tutorial-mysqlrp/2-lg.PNG#lightbox)
 
 4. Op de **configuratie omgeving** pagina, geef de volgende informatie en klik vervolgens op **OK**: 
    - Wachtwoord of SSH openbare sleutel te gebruiken voor verificatie van SSH (secure shell). Als u een wachtwoord gebruikt, moet deze letters, cijfers bevatten en **kunt** speciale tekens bevatten
    - VM-grootte (de standaardinstelling is Standard D1 v2 VM's)
    - Gegevens schijfgrootte in GB Klik **OK**
 
-   ![Configuratie van omgeving](media/azure-stack-tutorial-mysqlrp/createcluster3.png)
+   [![](media/azure-stack-tutorial-mysqlrp/3-sm.PNG "Configuratie van omgeving")](media/azure-stack-tutorial-mysqlrp/3-lg.PNG#lightbox)
 
 5. Controleer de implementatie **samenvatting**. (Optioneel) u kunt de aangepaste sjabloon en parameters downloaden, en klik vervolgens op **OK**.
 
-   ![Samenvatting](media/azure-stack-tutorial-mysqlrp/createcluster4.png)
+   [![](media/azure-stack-tutorial-mysqlrp/4-sm.PNG "Samenvatting")](media/azure-stack-tutorial-mysqlrp/4-lg.PNG#lightbox)
 
 6. Klik op **maken** op de **kopen** pagina om de implementatie te starten.
 
-   ![Kopen](media/azure-stack-tutorial-mysqlrp/createcluster4.png)
+   ![Kopen](media/azure-stack-tutorial-mysqlrp/5.png)
 
     > [!NOTE]
     > De implementatie duurt ongeveer een uur. Zorg ervoor dat de implementatie is voltooid en de MySQL-cluster volledig is geconfigureerd voordat u doorgaat. 
@@ -110,11 +109,11 @@ Er zijn geen openbare toegang is standaard geconfigureerd voor MySQL in de host-
 
 1. In de beheerdersportal voor de, gaat u naar de resourcegroep hebt gemaakt bij het implementeren van de MySQL-cluster en selecteert u de netwerkbeveiligingsgroep (**standaard-subnet-sg**):
 
-   ![open](media/azure-stack-tutorial-mysqlrp/nsg1.png)
+   ![open](media/azure-stack-tutorial-mysqlrp/6.png)
 
 2. Selecteer **inkomende beveiligingsregels** en klik vervolgens op **toevoegen**.<br><br>Voer **3306** in de **doelpoortbereik** en geef eventueel een beschrijving in de **naam** en **beschrijving** velden. Klik op toevoegen om de inkomende regel dialoogvenster te sluiten.
 
-   ![open](media/azure-stack-tutorial-mysqlrp/nsg2.png)
+   ![open](media/azure-stack-tutorial-mysqlrp/7.png)
 
 ### <a name="configure-external-access-to-the-mysql-cluster"></a>Externe toegang tot de MySQL-cluster configureren
 Voordat de MySQL-cluster kan worden toegevoegd als een Azure Stack MySQL Server-host, moet externe toegang worden ingeschakeld.
@@ -167,9 +166,8 @@ Nadat de MySQL-cluster is gemaakt, geconfigureerd, en toegevoegd als een Azure S
 > [!NOTE]
 > Deze stappen van de gebruikersportal van Azure Stack uitgevoerd als een tenant-gebruiker met een abonnement van mogelijkheden voor MySQL-Server (Microsoft.MySQLAdapter service).
 
-1. Meld u aan bij de gebruikersportal aanmeldt:
-    - Voor de implementatie van een geïntegreerd systeem, wordt de portal-adres variëren, afhankelijk van de regio en externe domeinnaam van uw oplossing. Dit is in de indeling van https://portal.&lt; *regio*&gt;.&lt; *FQDN*&gt;.
-    - Als u de Azure Stack Development Kit (ASDK), wordt de gebruiker portal adres [ https://portal.local.azurestack.external ](https://portal.local.azurestack.external).
+1. 
+[!INCLUDE [azs-user-portal](../../includes/azs-user-portal.md)]
 
 2. Selecteer **\+** **een resource maken** > **gegevens \+ opslag**, en vervolgens **MySQL-Database** .<br><br>Geef de vereiste database-eigenschapsgegevens zoals naam, sortering, het abonnement dat u wilt gebruiken en de locatie waar u wilt gebruiken voor de implementatie. 
 
