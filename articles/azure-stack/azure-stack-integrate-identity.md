@@ -6,16 +6,16 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 10/19/2018
+ms.date: 10/22/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords: ''
-ms.openlocfilehash: 6548693b91283665704be8fc83a483a9d20dc41b
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 8a33d4edb4107b936c36a744bb082c02b7830868
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49470543"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024440"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Datacenter-integratie Azure Stack - identiteit
 U kunt Azure Stack met behulp van Azure Active Directory (Azure AD) of Active Directory Federation Services (AD FS) implementeren als de id-providers. Voordat u Azure Stack implementeren, moet u de keuze maken. Implementatie met behulp van AD FS is ook aangeduid als Azure Stack implementeren in de niet-verbonden modus.
@@ -53,7 +53,6 @@ Voor de laatste stap is een nieuwe eigenaar voor het abonnement van de provider 
 
 Vereisten:
 
-
 |Onderdeel|Vereiste|
 |---------|---------|
 |Graph|Microsoft Active Directory 2012/2012 R2/2016|
@@ -64,7 +63,6 @@ Vereisten:
 Grafiek biedt alleen ondersteuning voor integratie met één Active Directory-forest. Als meerdere forests bestaat, wordt alleen het forest die zijn opgegeven in de configuratie worden gebruikt voor het ophalen van gebruikers en groepen.
 
 De volgende informatie is vereist als invoer voor de automation-parameters:
-
 
 |Parameter|Beschrijving|Voorbeeld|
 |---------|---------|---------|
@@ -96,14 +94,14 @@ U kunt eventueel een account voor de Graph-service maken in de bestaande Active 
 
 Voor deze procedure gebruikt u een computer in uw netwerk van datacenters die met de bevoorrechte eindpunt in Azure Stack communiceren kan.
 
-2. Open een verhoogde Windows PowerShell-sessie (als administrator uitvoeren) en verbinding maken met het IP-adres van de bevoegde eindpunt. Gebruik de referenties voor **CloudAdmin** om te verifiëren.
+1. Open een verhoogde Windows PowerShell-sessie (als administrator uitvoeren) en verbinding maken met het IP-adres van de bevoegde eindpunt. Gebruik de referenties voor **CloudAdmin** om te verifiëren.
 
    ```PowerShell  
    $creds = Get-Credential
    Enter-PSSession -ComputerName <IP Address of ERCS> -ConfigurationName PrivilegedEndpoint -Credential $creds
    ```
 
-3. Nu dat u met het bevoorrechte eindpunt verbonden bent, voert u de volgende opdracht uit: 
+2. Nu dat u met het bevoorrechte eindpunt verbonden bent, voert u de volgende opdracht uit: 
 
    ```PowerShell  
    Register-DirectoryService -CustomADGlobalCatalog contoso.com
@@ -210,6 +208,9 @@ Voor deze procedure gebruikt u een computer die kan communiceren met de bevoorre
    Set-ServiceAdminOwner -ServiceAdminOwnerUpn "administrator@contoso.com"
    ```
 
+   > [!Note]  
+   > Wanneer u het certificaat op de bestaande AD FS (account STS) roteert moet u de integratie van AD FS opnieuw instellen. Zelfs als het eindpunt voor metagegevens bereikbaar is of deze is geconfigureerd door op te geven van het bestand met metagegevens moet u de integratie instellen.
+
 ## <a name="configure-relying-party-on-existing-ad-fs-deployment-account-sts"></a>Relying party configureren op de bestaande AD FS-implementatie (account STS)
 
 Microsoft biedt een script waarmee de relying party-trust, met inbegrip van de claimregels transformatie worden geconfigureerd. Gebruik het script is optioneel als u de opdrachten handmatig kunt uitvoeren.
@@ -274,7 +275,7 @@ Als u besluit de opdrachten handmatig uitvoeren, volgt u deze stappen:
    Add-ADFSRelyingPartyTrust -Name AzureStack -MetadataUrl "https://YourAzureStackADFSEndpoint/FederationMetadata/2007-06/FederationMetadata.xml" -IssuanceTransformRulesFile "C:\ClaimIssuanceRules.txt" -AutoUpdateEnabled:$true -MonitoringEnabled:$true -enabled:$true -TokenLifeTime 1440
    ```
 
-   > [!IMPORTANT]
+   > [!IMPORTANT]  
    > De AD FS MMC-module moet u de regels voor Uitgifteautorisatie configureren bij gebruik van Windows Server 2012 of 2012 R2 AD FS.
 
 4. Wanneer u Internet Explorer of de Edge-browser gebruikt voor toegang tot Azure Stack, moet u de token bindingen negeren. Anders mislukt de aanmeldingspogingen. Op uw exemplaar van AD FS of een Farmlid, moet u de volgende opdracht uitvoeren:

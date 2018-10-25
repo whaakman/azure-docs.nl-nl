@@ -1,48 +1,46 @@
 ---
-title: Azure AD v2 UWP aan de slag | Microsoft Docs
-description: Hoe Universal Windows Platform-toepassingen (UWP) een API die tokens voor toegang door de Azure Active Directory v2-eindpunt vereist kunnen aanroepen
+title: Azure AD v2.0 UWP aan de slag | Microsoft Docs
+description: Hoe Universal Windows Platform-toepassingen (UWP) een API die tokens voor toegang door de Azure Active Directory v2.0-eindpunt vereist kunnen aanroepen
 services: active-directory
 documentationcenter: dev-center-name
 author: andretms
 manager: mtillman
 editor: ''
-ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.component: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/20/2018
+ms.date: 10/24/2018
 ms.author: andret
 ms.custom: aaddev
-ms.openlocfilehash: 4afd4ce5b8a0ab4c076ebc3c587605dfe1204b8a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4ba4e844ed6bb01204b7a0adf5020aec255147dd
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46966381"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49986539"
 ---
 # <a name="call-microsoft-graph-api-from-a-universal-windows-platform-application-xaml"></a>Microsoft Graph API aanroepen vanuit een Universal Windows Platform-toepassing (XAML)
-
 
 > [!div renderon="docs"]
 > [!INCLUDE [active-directory-develop-applies-v2-msal](../../../includes/active-directory-develop-applies-v2-msal.md)]
 
-Deze handleiding wordt uitgelegd hoe een systeemeigen Universal Windows Platform (UWP)-toepassing kan aanvragen van een toegangstoken en roep vervolgens Microsoft Graph API. De handleiding geldt ook voor andere API's waarvoor toegangstokens van het Azure Active Directory v2-eindpunt.
+Deze handleiding wordt uitgelegd hoe een systeemeigen Universal Windows Platform (UWP)-toepassing kan aanvragen van een toegangstoken en roep vervolgens Microsoft Graph API. De handleiding geldt ook voor andere API's waarvoor access tokens van het Azure Active Directory v2.0-eindpunt.
 
 Aan het einde van deze handleiding, worden in uw toepassing een beveiligde API aanroept met behulp van persoonlijke accounts. Voorbeelden zijn outlook.com, live.com en anderen. Werk-en schoolaccounts aanroepen uw toepassing ook van een bedrijf of organisatie die Azure Active Directory heeft.
 
 >[!NOTE]
 > Deze handleiding moet Visual Studio 2017 met Universal Windows Platform-ontwikkeling die zijn geïnstalleerd. Zie [instellen](https://docs.microsoft.com/windows/uwp/get-started/get-set-up) voor instructies voor het downloaden en configureren van Visual Studio voor het ontwikkelen van Universal Windows Platform-apps.
 
-### <a name="how-this-guide-works"></a>De werking van deze handleiding
+## <a name="how-this-guide-works"></a>De werking van deze handleiding
 
 ![De werking van deze handleiding op grafiek](./media/tutorial-v2-windows-uwp/uwp-intro.png)
 
-Deze handleiding UWP met een voorbeeldtoepassing die query's van Microsoft Graph API of een Web-API die tokens van het Azure Active Directory v2-eindpunt accepteert gemaakt. Voor dit scenario wordt een token toegevoegd aan de HTTP-aanvragen via de autorisatie-header. Microsoft Authentication Library (MSAL) wordt gebruikt voor token-aankopen en vernieuwingen.
+Deze handleiding UWP met een voorbeeldtoepassing die query's van Microsoft Graph API of een Web-API die tokens van het Azure Active Directory v2.0-eindpunt accepteert gemaakt. Voor dit scenario wordt een token toegevoegd aan de HTTP-aanvragen via de autorisatie-header. Microsoft Authentication Library (MSAL) wordt gebruikt voor token-aankopen en vernieuwingen.
 
-### <a name="nuget-packages"></a>NuGet-pakketten
+## <a name="nuget-packages"></a>NuGet-pakketten
 
 Deze handleiding maakt gebruik van de volgende NuGet-pakketten:
 
@@ -50,18 +48,18 @@ Deze handleiding maakt gebruik van de volgende NuGet-pakketten:
 |---|---|
 |[Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client)|Microsoft Authentication Library|
 
-
 ## <a name="set-up-your-project"></a>Instellen van uw project
 
 In deze sectie biedt stapsgewijze instructies voor het integreren van een Windows Desktop .NET-toepassing (XAML) *aanmelden met Microsoft*. Vervolgens kan deze Web-API's waarvoor een token, zoals Microsoft Graph API opvragen.
 
 Deze handleiding wordt gemaakt van een toepassing die wordt weergegeven een knop die query's Graph API, een knop Afmelden en tekstvakken die de resultaten van de aanroepen weergeven.
 
->[!NOTE]
+> [!NOTE]
 > Wilt u dit voorbeeld van Visual Studio-project in plaats daarvan downloaden? [Een project hebt gedownload](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/master.zip) en gaat u naar de [toepassingsregistratie](#register-your-application "toepassing registratiestap") stap voor het configureren van de voorbeeldcode voordat deze wordt uitgevoerd.
 
 
 ### <a name="create-your-application"></a>Uw toepassing maken
+
 1. Selecteer in Visual Studio, **bestand** > **nieuw** > **Project**.
 2. Onder **sjablonen**, selecteer **Visual C#**.
 3. Selecteer **Lege app (Universal Windows)**.
@@ -71,7 +69,7 @@ Deze handleiding wordt gemaakt van een toepassing die wordt weergegeven een knop
     >![Minimum- en doel-versies](./media/tutorial-v2-windows-uwp/vs-minimum-target.png)
 
 ## <a name="add-microsoft-authentication-library-to-your-project"></a>Microsoft Authentication Library toevoegen aan uw project
-1. Selecteer in Visual Studio, **extra** > **NuGet Package Manager** > **Package Manager Console**.
+1. Selecteer in Visual Studio **Tools** > **NuGet Package Manager** > **Package Manager Console**.
 2. Kopieer en plak de volgende opdracht in de **Package Manager Console** venster:
 
     ```powershell
@@ -79,7 +77,7 @@ Deze handleiding wordt gemaakt van een toepassing die wordt weergegeven een knop
     ```
 
 > [!NOTE]
-> Met deze opdracht installeert [Microsoft Authentication Library](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet). MSAL verkrijgt, in de cache opgeslagen en wordt vernieuwd gebruikerstokens die toegang API's die zijn beveiligd door Azure Active Directory v2 tot.
+> Met deze opdracht installeert [Microsoft Authentication Library](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet). MSAL verkrijgt, in de cache opslaat en toegang API's die zijn beveiligd door Azure Active Directory v2.0 tot gebruikerstokens wordt vernieuwd.
 
 > [!NOTE]
 > In deze zelfstudie niet gebruikt, maar de meest recente versie van MSAL.NET, maar er wordt gewerkt aan het bijwerken.
@@ -193,10 +191,13 @@ In deze sectie ziet u hoe u MSAL om op te halen van een token voor Microsoft Gra
     ```
 
 ### <a name="more-information"></a>Meer informatie
-#### <a name="get-a-user-token-interactively"></a>Een gebruiker interactief token ophalen
+
+#### <a name="get-a-user-token-interactively"></a>Een gebruikerstoken interactief ophalen
+
 Een aanroep naar de `AcquireTokenAsync` methode resulteert in een venster waarin gebruikers zich aanmelden. Toepassingen vereisen meestal gebruikers zich interactief aanmelden de eerste keer dat ze nodig hebben voor toegang tot een beveiligde bron. Ze kunnen ook moet zich aanmelden als een bewerking op de achtergrond is een token ophalen is mislukt. Een voorbeeld daarvan is wanneer het wachtwoord van een gebruiker is verlopen.
 
-#### <a name="get-a-user-token-silently"></a>Een gebruiker op de achtergrond token ophalen
+#### <a name="get-a-user-token-silently"></a>Een gebruikerstoken op de achtergrond ophalen
+
 De `AcquireTokenSilentAsync` methode wordt gebruikt voor token-aankopen en vernieuwingen zonder tussenkomst van de gebruiker. Na `AcquireTokenAsync` voor de eerste keer wordt uitgevoerd en de gebruiker wordt gevraagd om referenties, het `AcquireTokenSilentAsync` methode moet worden gebruikt voor het aanvragen van tokens voor volgende aanroepen omdat het verkrijgen van tokens op de achtergrond. MSAL wordt afgehandeld tokencache en verlenging.
 
 Uiteindelijk de `AcquireTokenSilentAsync` methode mislukt. Oorzaak van de fout kunnen zijn dat gebruikers hebt zich afgemeld of het wachtwoord op een ander apparaat gewijzigd. Wanneer MSAL detecteert dat het probleem kan worden omgezet door verlangen dat ze een interactieve actie, wordt deze gebeurtenis wordt gestart een `MsalUiRequiredException` uitzondering. Uw toepassing kan verwerken deze uitzondering op twee manieren:
@@ -303,8 +304,8 @@ ID-tokens die zijn verkregen **OpenID Connect** bevatten ook een kleine subset v
 ## <a name="register-your-application"></a>Uw toepassing registreren
 
 Nu moet u uw toepassing registreren in de Portal voor Appregistratie Microsoft:
-1. Ga naar de [Portal voor Appregistratie Microsoft](https://apps.dev.microsoft.com/portal/register-app) om een toepassing te registreren.
-2. Voer een naam voor uw toepassing.
+1. Ga naar de [Microsoft-portal voor app-registratie](https://apps.dev.microsoft.com/portal/register-app) om een toepassing te registreren.
+2. Voer een naam in voor de toepassing.
 3. Zorg ervoor dat de optie voor **begeleide installatie** is *niet geselecteerd*.
 4. Selecteer **Platforms toevoegen**, selecteer **systeemeigen toepassing**, en selecteer vervolgens **opslaan**.
 5. Kopieer de GUID in **toepassings-ID**, gaat u terug naar Visual Studio, open **App.xaml.cs**, en vervang `your_client_id_here` met de toepassings-ID die u zojuist hebt geregistreerd:
@@ -332,7 +333,6 @@ Om in te schakelen geïntegreerde Windows-verificatie als deze wordt gebruikt me
 
 > [!IMPORTANT]
 > Geïntegreerde Windows-verificatie is niet geconfigureerd voor dit voorbeeld standaard. Toepassingen die aanvragen *Ondernemingsverificatie* of *gedeelde gebruikerscertificaten* mogelijkheden vereisen een hoger niveau van controle door de Windows Store. Niet alle ontwikkelaars willen ook het hogere niveau van controle uitvoeren. Schakel deze instelling alleen als u geïntegreerde Windows-verificatie met een federatieve Azure Active Directory-domein.
-
 
 ## <a name="test-your-code"></a>Testen van uw code
 
@@ -369,7 +369,7 @@ De waarde in (optioneel) kopiëren **toegangstoken** en plak deze in https://jwt
 
 Microsoft Graph API vereist de *user.read* scope om te lezen van het gebruikersprofiel. Dit bereik wordt automatisch toegevoegd in elke toepassing die geregistreerd in de Portal voor Appregistratie standaard. Andere API's voor Microsoft Graph en de aangepaste API's voor uw back-endserver, mogelijk extra scopes. Microsoft Graph API vereist de *Calendars.Read* bereik om agenda's van de gebruiker weer te geven.
 
-Voor toegang tot agenda's van de gebruiker in de context van een toepassing moet toevoegen de *Calendars.Read* overgedragen machtigingen voor de registratiegegevens van de toepassing. Voeg de *Calendars.Read* bereik instellen op de `acquireTokenSilent` aanroepen. 
+Voor toegang tot agenda's van de gebruiker in de context van een toepassing moet toevoegen de *Calendars.Read* overgedragen machtigingen voor de registratiegegevens van de toepassing. Voeg de *Calendars.Read* bereik instellen op de `acquireTokenSilent` aanroepen.
 
 > [!NOTE]
 > Gebruikers mogelijk gevraagd extra toestemmingen als u het aantal bereiken verhogen.
@@ -392,3 +392,5 @@ U hebt ingeschakeld [geïntegreerde verificatie op federatieve domeinen](#enable
 **Oorzaak:** dit probleem is een bekende beperking van de webauthenticatiebroker in UWP-toepassingen die worden uitgevoerd op Windows 10 desktop. Het werkt prima op Windows 10 Mobile.
 
 **Tijdelijke oplossing:** Selecteer **Meld u aan met andere opties**. Selecteer vervolgens **Meld u aan met een gebruikersnaam en wachtwoord**. Selecteer **geeft u uw wachtwoord**. Ga via de telefoon verificatieproces uit.
+
+[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]

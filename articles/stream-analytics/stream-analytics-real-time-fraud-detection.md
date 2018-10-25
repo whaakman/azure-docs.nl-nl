@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/28/2017
-ms.openlocfilehash: e0d430ced1dbddbfca79806591c83c33e732eefd
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 43202e88482933aed7952f6cc97dcaf1e0dcb5e7
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37901711"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49986029"
 ---
 # <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Aan de slag met Azure Stream Analytics: fraudebewaking in realtime
 
@@ -39,7 +39,7 @@ In deze zelfstudie hebt u gegevens van telefoongesprekken simuleren met behulp v
 Zorg ervoor dat u het volgende hebt voordat u begint:
 
 * Een Azure-account.
-* De gebeurtenis gesprek generator-app, [TelcoGenerator.zip](http://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip), die kan worden gedownload vanaf het Microsoft Download Center. Pak dit pakket naar een map op uw computer. Als u zien van de bron wilt-code en de app uitvoeren in een debugger, krijgt u de broncode van de app uit de [GitHub](https://aka.ms/azure-stream-analytics-telcogenerator). 
+* De gebeurtenis gesprek generator-app, [TelcoGenerator.zip](https://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip), die kan worden gedownload vanaf het Microsoft Download Center. Pak dit pakket naar een map op uw computer. Als u zien van de bron wilt-code en de app uitvoeren in een debugger, krijgt u de broncode van de app uit de [GitHub](https://aka.ms/azure-stream-analytics-telcogenerator). 
 
     >[!NOTE]
     >Windows blokkeren mogelijk het gedownloade ZIP-bestand. Als u deze kan niet uitpakken, met de rechtermuisknop op het bestand en selecteert u **eigenschappen**. Als u het bericht 'dit bestand afkomstig is van een andere computer en ter bescherming van deze computer kan worden geblokkeerd' ziet, selecteert u de **opheffen van blokkeringen** optie en klik vervolgens op **toepassen**.
@@ -138,7 +138,7 @@ Voordat u de app TelcoGenerator start, moet u deze configureren zodat gespreksre
     De parameters zijn: 
 
     * Aantal CDR per uur. 
-    * SIM-kaart fraude kans: Hoe vaak als een percentage van alle aanroepen, dat de app een frauduleus gesprek moet simuleren. De waarde 0.2 betekent dat ongeveer 20% van de gespreksrecords er frauduleus uitziet.
+    * SIM-kaart fraude kans: Hoe vaak als een percentage van alle aanroepen, dat de app een frauduleus gesprek moet simuleren. Een waarde van 0.2 betekent dat ongeveer 20% van de gespreksrecords er frauduleus uitziet.
     * Duur in uren. Het aantal uren dat de app moet worden uitgevoerd. U kunt ook de app elk gewenst moment stoppen door op Ctrl + C te drukken op de opdrachtregel.
 
     Na enkele seconden begint de app met het weergeven van telefoongesprekrecords op het scherm wanneer deze naar de event hub worden gestuurd.
@@ -186,7 +186,7 @@ Nu dat u een stream van gesprekgebeurtenissen hebt, kunt u een Stream Analytics-
    |---------|---------|---------|
    |Invoeralias  |  CallStream   |  Voer een unieke naam in voor de invoer van de taak.   |
    |Abonnement   |  \<Uw abonnement\> |  Selecteer het Azure-abonnement waaraan de Event Hub die u hebt gemaakt.   |
-   |Event Hub-naamruimte  |  asa-eh-ns-demo |  Voer de naam van de Event Hub-naamruimte.   |
+   |Event hub-naamruimte  |  asa-eh-ns-demo |  Voer de naam van de Event Hub-naamruimte.   |
    |Event Hub-naam  | asa-eh-frauddetection-demo | Selecteer de naam van uw Event Hub.   |
    |Naam van het Event Hub-beleid  | asa-beleid-beheren-demo | Selecteer het beleid dat u eerder hebt gemaakt.   |
     </br>

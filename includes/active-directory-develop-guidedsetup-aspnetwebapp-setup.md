@@ -14,16 +14,16 @@ ms.workload: identity
 ms.date: 09/17/2018
 ms.author: andret
 ms.custom: include file
-ms.openlocfilehash: 99eabd8f9c9b3ab86c348350e8924cea0eb668ba
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: ac8e678d8ca006fc5b0ab52f007590ac4e334bf7
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48843455"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49988512"
 ---
 ## <a name="set-up-your-project"></a>Instellen van uw project
 
-In deze sectie bevat de stappen voor het installeren en configureren van de verificatiepijplijn via OWIN-middleware op een ASP.NET-project met behulp van OpenID Connect. 
+In deze sectie bevat de stappen voor het installeren en configureren van de verificatiepijplijn via OWIN-middleware op een ASP.NET-project met behulp van OpenID Connect.
 
 > Voorkeur voor het downloaden van dit voorbeeld Visual Studio-project in plaats daarvan? [Een project hebt gedownload](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/master.zip) en gaat u naar de [configuratiestap](#register-your-application) het codevoorbeeld configureren voordat u uitvoert.
 
@@ -47,7 +47,7 @@ In deze sectie bevat de stappen voor het installeren en configureren van de veri
 
 <!--start-collapse-->
 > ### <a name="about-these-libraries"></a>Over deze bibliotheken
->De bovenstaande bibliotheken maken SSO (eenmalige aanmelding) met behulp van OpenID Connect mogelijk via verificatie op basis van cookies. Nadat de verificatie is voltooid en het token dat de gebruiker vertegenwoordigt, is verzonden naar de toepassing, wordt met OWIN-middleware een sessiecookie gemaakt. De browser vervolgens deze cookie wordt gebruikt bij volgende aanvragen, zodat de gebruiker hoeft niet te Typ nogmaals het wachtwoord en er zijn geen aanvullende verificatie nodig is.
+> De bovenstaande bibliotheken maken SSO (eenmalige aanmelding) met behulp van OpenID Connect mogelijk via verificatie op basis van cookies. Nadat de verificatie is voltooid en het token dat de gebruiker vertegenwoordigt, is verzonden naar de toepassing, wordt met OWIN-middleware een sessiecookie gemaakt. De browser vervolgens deze cookie wordt gebruikt bij volgende aanvragen, zodat de gebruiker hoeft niet te Typ nogmaals het wachtwoord en er zijn geen aanvullende verificatie nodig is.
 <!--end-collapse-->
 
 ## <a name="configure-the-authentication-pipeline"></a>De verificatiepijplijn configureren
@@ -87,7 +87,7 @@ De onderstaande stappen worden gebruikt voor het maken van een OWIN-middleware-O
         // Tenant is the tenant ID (e.g. contoso.onmicrosoft.com, or 'common' for multi-tenant)
         static string tenant = System.Configuration.ConfigurationManager.AppSettings["Tenant"];
 
-        // Authority is the URL for authority, composed by Azure Active Directory v2 endpoint and the tenant name (e.g. https://login.microsoftonline.com/contoso.onmicrosoft.com/v2.0)
+        // Authority is the URL for authority, composed by Azure Active Directory v2.0 endpoint and the tenant name (e.g. https://login.microsoftonline.com/contoso.onmicrosoft.com/v2.0)
         string authority = String.Format(System.Globalization.CultureInfo.InvariantCulture, System.Configuration.ConfigurationManager.AppSettings["Authority"], tenant);
 
         /// <summary>
@@ -145,4 +145,3 @@ De onderstaande stappen worden gebruikt voor het maken van een OWIN-middleware-O
 > ### <a name="more-information"></a>Meer informatie
 > De parameters die u opgeeft in *OpenIDConnectAuthenticationOptions*, dienen als coördinaten waarmee de toepassing kan communiceren met Azure AD. Omdat de middleware OpenID Connect maakt gebruik van cookies op de achtergrond, moet u ook het instellen van de cookie-verificatie als de code hierboven wordt weergegeven. De waarde *ValidateIssuer* zorgt ervoor dat de toegang via OpenIdConnect niet wordt beperkt tot één specifieke organisatie.
 <!--end-collapse-->
-

@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 06/18/2018
 ms.author: bwren, vinagara
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 06c01a7c87c43931a27c03b2014995be6c2678eb
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 8ec5f1cef3f9ca82953093d2086b615087db1a7f
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49409064"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024757"
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>Toevoegen van Log Analytics opgeslagen zoekopdrachten en waarschuwingen in management-oplossing (Preview)
 
@@ -297,7 +297,7 @@ De eigenschappen voor Webhook actie resources worden in de volgende tabellen bes
 
 ## <a name="sample"></a>Voorbeeld
 
-Hieronder volgt een voorbeeld van een oplossing die met de volgende bronnen:
+Hieronder volgt een voorbeeld van een oplossing met de volgende bronnen:
 
 - Opgeslagen zoekopdracht
 - Planning

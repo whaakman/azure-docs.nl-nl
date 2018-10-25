@@ -3,8 +3,7 @@ title: Routeringsmethode voor verkeer met meerdere waarden configureren in Azure
 description: In dit artikel wordt uitgelegd hoe u Traffic Manager configureren om verkeer te routeren naar A/AAAA-eindpunten.
 services: traffic-manager
 documentationcenter: ''
-author: kumudd
-manager: jeconnoc
+author: KumudD
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
@@ -12,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: kumud
-ms.openlocfilehash: 1fae1147c941ed28d23a478a0e809b2dffba7a35
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: d9a0342332c2483b859e916b50fd05c9cb1e3395
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46131362"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49986760"
 ---
 # <a name="configure-multivalue-routing-method-in-traffic-manager"></a>Routeringsmethode voor met meerdere waarden configureren in Traffic Manager
 
@@ -42,7 +41,7 @@ Maak een Traffic Manager-profiel met gebruikersverkeer verwezen door deze te ver
 2. In **Traffic Manager-profiel**, invoeren of selecteren, de volgende informatie, accepteer de standaardwaarden voor de overige instellingen en selecteer vervolgens **maken**:
     | Instelling                 | Waarde                                              |
     | ---                     | ---                                                |
-    | Naam                   | Deze naam moet uniek zijn binnen de zone trafficmanager.net en de resultaten in de DNS-naam, trafficmanager.net, die wordt gebruikt voor toegang tot uw Traffic Manager-profiel.                                   |
+    | Naam                   | Deze naam moet uniek zijn binnen de zone trafficmanager.net en resulteert in de DNS-naam, trafficmanager.net, die wordt gebruikt voor het openen van uw Traffic Manager-profiel.                                   |
     | Routeringsmethode          | Selecteer de **met meerdere waarden** routeringsmethode.                                       |
     | Abonnement            | Selecteer uw abonnement.                          |
     | Resourcegroep          | Selecteer *myResourceGroupTM1*. |
@@ -73,9 +72,9 @@ Twee IP-adressen als externe eindpunten toevoegen aan meerdere waarden Traffic M
  
 ## <a name="next-steps"></a>Volgende stappen
 
-- Meer informatie over [verkeersrouteringsmethode gewogen](traffic-manager-configure-weighted-routing-method.md).
-- Meer informatie over [prioriteit routeringsmethode](traffic-manager-configure-priority-routing-method.md).
+- Meer informatie over [gewogen verkeersrouteringsmethode](traffic-manager-configure-weighted-routing-method.md).
+- Meer informatie over [de routeringsmethode met prioriteit](traffic-manager-configure-priority-routing-method.md).
 - Meer informatie over [routeringsmethode voor prestaties](traffic-manager-configure-performance-routing-method.md)
-- Meer informatie over [geografische routeringsmethode](traffic-manager-configure-geographic-routing-method.md).
+- Meer informatie over [geografische verkeersrouteringsmethode](traffic-manager-configure-geographic-routing-method.md).
 
 

@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 09/19/2018
 ms.reviewer: mbullwin
 ms.author: daviste
-ms.openlocfilehash: 7e0a68efc93d0f907edfb38dbc548ac95a35b3e1
-ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
+ms.openlocfilehash: 4b24ab406cc9cdbc3ce03ee203ec034843d5630a
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46465806"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49986420"
 ---
 # <a name="monitor-resource-groups-with-azure-monitor-preview"></a>Resourcegroepen bewaken met Azure Monitor (preview)
 
@@ -113,7 +113,12 @@ In dit geval, als u bewerken selecteert ziet u dat deze set visualisaties wordt 
 ## <a name="troubleshooting"></a>Problemen oplossen
 
 ### <a name="enabling-access-to-alerts"></a>Toegang tot waarschuwingen inschakelen
-Azure Monitor voor resourcegroepen moet bepaalde machtigingen voor toegang tot de status van de waarschuwing van de resources in uw resourcegroep. Als u een foutbericht weergegeven ziet bij het laden van waarschuwingen, hebt u voldoende machtigingen. Vraag uw beheerder om een machtiging de **eigenaar** of **Inzender** rol voor het abonnement met de resourcegroep.
+
+Om waarschuwingen te bekijken in Azure Monitor voor resourcegroepen, moet iemand met een eigenaar of de rol Inzender voor dit abonnement Azure Monitor openen voor resourcegroepen voor elke willekeurige resourcegroep in het abonnement. Hierdoor kan iedereen met toegang lezen om waarschuwingen te zien in Azure Monitor voor resourcegroepen voor alle van de resourcegroepen in het abonnement. Hebt u een rol eigenaar of bijdrager, vernieuw deze pagina in een paar minuten.
+
+Azure Monitor voor resourcegroepen, is afhankelijk van het systeem beheer van Azure Monitor-waarschuwingen om op te halen van de status van waarschuwing. Waarschuwingen Management is niet standaard geconfigureerd voor elke resourcegroep en het abonnement en kan alleen worden ingeschakeld door iemand met een rol eigenaar of Bijdrager. Kan het zijn ingeschakeld door:
+* Azure Monitor openen voor resourcegroepen voor elke willekeurige resourcegroep in het abonnement.
+* Of door te gaan naar het abonnement, te klikken op **Resourceproviders**, vervolgens te klikken op **registreren voor Alerts.Management**.
 
 ## <a name="next-steps"></a>Volgende stappen
 

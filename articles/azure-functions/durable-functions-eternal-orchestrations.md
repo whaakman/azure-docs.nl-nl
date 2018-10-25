@@ -2,20 +2,20 @@
 title: Oneindige indelingen in duurzame functies - Azure
 description: Informatie over het implementeren van oneindige indelingen met behulp van de extensie duurzame functies voor Azure Functions.
 services: functions
-author: cgillum
+author: kashimiz
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 09/29/2017
+ms.date: 10/23/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 98504534332b6faa7a7019aea9ab7b534d4c3faa
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 0e3a3476c3fca6329634c87f933f895ec582f364
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44094437"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49987515"
 ---
 # <a name="eternal-orchestrations-in-durable-functions-azure-functions"></a>Oneindige indelingen in duurzame functies (Azure Functions)
 
@@ -34,12 +34,11 @@ Wanneer `ContinueAsNew` wordt aangeroepen, de enqueues exemplaar van een bericht
 > [!NOTE]
 > Het duurzame taak Framework onderhoudt de dezelfde exemplaar-ID, maar intern maakt u een nieuwe *uitvoerings-ID* voor de orchestrator-functie die opnieuw wordt ingesteld door `ContinueAsNew`. Deze uitvoerings-ID in het algemeen niet beschikbaar is extern, maar mogelijk handig om te weten over het opsporen van fouten in indeling kan worden uitgevoerd.
 
-> [!NOTE]
-> De `ContinueAsNew` methode is nog niet beschikbaar in JavaScript.
-
 ## <a name="periodic-work-example"></a>Voorbeeld van de periodieke werk
 
 Een use-case voor oneindige indelingen is code die moet periodiek om werk te doen voor onbepaalde tijd.
+
+#### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("Periodic_Cleanup_Loop")]
@@ -54,6 +53,23 @@ public static async Task Run(
 
     context.ContinueAsNew(null);
 }
+```
+
+#### <a name="javascript-functions-v2-only"></a>JavaScript (alleen functies v2)
+
+```javascript
+const df = require("durable-functions");
+const moment = require("moment");
+
+module.exports = df.orchestrator(function*(context) {
+    yield context.df.callActivity("DoCleanup");
+
+    // sleep for one hour between cleanups
+    const nextCleanup = moment.utc(context.df.currentUtcDateTime).add(1, "h");
+    yield context.df.createTimer(nextCleanup);
+
+    context.df.continueAsNew(undefined);
+});
 ```
 
 Het verschil tussen het volgende voorbeeld en een timer geactiveerde-functie is dat opschonen trigger tijden hier niet zijn gebaseerd op een schema. Bijvoorbeeld een CRON-planning die wordt uitgevoerd van een functie elk uur wordt uitgevoerd om 1:00 uur, 2:00 uur, 3:00 enz. en kan mogelijk overlappende problemen ondervindt. In dit voorbeeld, echter, als het opruimen van de 30 minuten in beslag neemt vervolgens wordt gepland om 1:00 uur, 2:30, 4:00, enz. en er is geen kans van elkaar overlappen.

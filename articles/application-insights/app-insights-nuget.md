@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 10/16/2018
 ms.author: mbullwin
-ms.openlocfilehash: 96c9628807d2aae257e27432ea8d27a7d9325de0
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: b6188bbf89d9aee842d7f8e232a820b59c4d9e31
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49380978"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50023250"
 ---
 # <a name="application-insights-nuget-packages"></a>Application Insights NuGet-pakketten
 
@@ -30,7 +30,7 @@ Hieronder volgt de huidige lijst van stabiele versie van NuGet-pakketten voor Ap
 |Microsoft.ApplicationInsights.Agent.Intercept | 2.4.0 | Hiermee worden onderschept methodeaanroepen | [Het pakket downloaden](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Agent.Intercept/) |
 | Microsoft.ApplicationInsights.DependencyCollector | 2.8.0 | Application Insights-afhankelijkheid Collector voor .NET-toepassingen. Dit is een afhankelijk pakket voor Application Insights platform-specifieke pakketten en biedt automatisch verzamelen van afhankelijkheidstelemetrie. | [Het pakket downloaden](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector/) |
 | Microsoft.ApplicationInsights.PerfCounterCollector | 2.8.0 | Application Insights prestaties tellers Collector kunt u voor het verzenden van gegevens die door de prestatiemeteritems zijn verzameld met Application Insights. | [Het pakket downloaden](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector/) |
-| Microsoft.ApplicationInsights.Web | 2.8.0 | Application Insights voor .NET-webtoepassingen | [Downloadpakket] (https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/) |
+| Microsoft.ApplicationInsights.Web | 2.8.0 | Application Insights voor .NET-webtoepassingen | [Het pakket downloaden](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/) |
 | Microsoft.ApplicationInsights.WindowsServer | 2.8.0 | Application Insights Windows Server NuGet-pakket biedt automatisch verzamelen van telemetrie van application insights voor .NET-toepassingen. Dit pakket kan worden gebruikt als een afhankelijk pakket voor Application Insights platform-specifieke pakketten of als een zelfstandige pakket voor .NET-toepassingen die niet worden gedekt door platform-specifieke pakketten (zoals voor .NET-werkrollen). | [Het pakket downloaden](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer/)  
 | Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel | 2.8.0 | Biedt een kanaal telemetrie naar Application Insights Windows Server-SDK die telemetrie in offlinescenario's blijft behouden. | [Het pakket downloaden](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel/) |
 

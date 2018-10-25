@@ -1,6 +1,6 @@
 ---
-title: Realtime-gebeurtenissen verwerken met behulp van de verwerking van de Azure Stream Analytics-gebeurtenissen
-description: In dit artikel beschrijft de architectuur van de verwijzing naar een realtime gebeurtenisverwerking en analytics met Azure Stream Analytics.
+title: Gebeurtenissen in realtime verwerken met behulp van Azure Stream Analytics-gebeurtenisverwerking
+description: Dit artikel beschrijft de referentiearchitectuur voor het bereiken van gebeurtenissen in realtime-verwerking en analyse met behulp van Azure Stream Analytics.
 services: stream-analytics
 author: jseb225
 ms.author: jeanb
@@ -9,44 +9,44 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/24/2017
-ms.openlocfilehash: 8a5d426d67916e010c7fff048eebdc77b93c5c38
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 08ad2d853ab909ea859ffd1230dd651aa6661500
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30902579"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49987627"
 ---
-# <a name="reference-architecture-real-time-event-processing-with-microsoft-azure-stream-analytics"></a>Verwijzen naar architectuur: realtime-gebeurtenissen verwerken met Microsoft Azure Stream Analytics
-De referentiearchitectuur voor realtime-gebeurtenissen verwerken met Azure Stream Analytics is bedoeld voor een algemene blauwdruk voor het implementeren van een realtime platform als een oplossing voor de stroom-de verwerking van service (PaaS) met Microsoft Azure.
+# <a name="reference-architecture-real-time-event-processing-with-microsoft-azure-stream-analytics"></a>Referentie-architectuur: gebeurtenissen verwerken met Microsoft Azure Stream Analytics in realtime
+De referentiearchitectuur voor realtime-gebeurtenissen verwerken met Azure Stream Analytics is een algemene blauwdruk bedoeld voor het implementeren van een realtime platform als een oplossing voor het verwerken van streams van service (PaaS) met Microsoft Azure.
 
 ## <a name="summary"></a>Samenvatting
-Traditioneel zijn analytics-oplossingen gebaseerd op de mogelijkheden, zoals ETL (extract, transform, load) en datawarehousing, waar gegevens worden opgeslagen voordat de analyse. Veranderende vereisten, met inbegrip van meer snel binnenkomende gegevens, zijn dit bestaande model om de limiet te pushen. De mogelijkheid voor het analyseren van gegevens binnen het verplaatsen van streams voorafgaand aan de opslag is een oplossing en terwijl het is niet een nieuwe mogelijkheid, de methode niet algemeen is vastgesteld tussen alle bedrijfstak verticalen. 
+Traditioneel zijn analytics-oplossingen gebaseerd op de mogelijkheden, zoals ETL (extract, transform, load) en datawarehousing, waar gegevens worden opgeslagen voordat de analyse. Veranderende eisen, met inbegrip van meer snel binnenkomende gegevens, zijn deze bestaande model pushen met de limiet. De mogelijkheid voor het analyseren van gegevens binnen streams voordat u opslag verplaatsen van een oplossing is en het is niet een nieuwe functie, de aanpak niet breed is vastgesteld in alle branche verticalen. 
 
-Microsoft Azure biedt een uitgebreide catalogus analytics-technologieën die u kunnen ondersteunen een matrix van de oplossing voor verschillende scenario's en vereisten. Selecteren welke Azure-services te implementeren voor een end-to-end-oplossing, kan een gegeven van de breedte van de offerings uitdaging zijn. Dit artikel is ontworpen om de mogelijkheden en de interoperabiliteit van de verschillende Azure-services die ondersteuning bieden voor een gebeurtenis streaming-oplossing te beschrijven. Hierin wordt uitgelegd sommige scenario's waarin klanten van dit type benadering profiteren kunnen.
+Microsoft Azure biedt een uitgebreide catalogus van analytics-technologieën die geschikt voor het zijn ondersteunen van een matrix van de oplossing voor verschillende scenario's en vereisten. Selecteren welke Azure-services te implementeren voor een end-to-end-oplossing kan lastig zijn gegeven van de breedte van de aanbiedingen. Dit document is ontworpen om de mogelijkheden en maken tussen verschillende Azure-services die ondersteuning bieden voor een gebeurtenis-streaming-oplossing te beschrijven. Hierin wordt uitgelegd enkele van de scenario's waarin klanten van dit soort aanpak profiteren kunnen.
 
 ## <a name="contents"></a>Inhoud
-* Managementsamenvatting
-* Inleiding tot realtime-analyses
+* Uitvoeringssamenvatting
+* Inleiding tot realtime analyses
 * Toegevoegde waarde van realtime-gegevens in Azure
-* Algemene scenario's voor realtime-analyses
+* Algemene scenario's voor analyse in realtime
 * Architectuur en onderdelen
   * Gegevensbronnen
   * Gegevensintegratie laag
-  * Realtime-analyses laag
-  * Data Storage Layer
-  * Presentatie / laag-verbruik
+  * Realtime analyses laag
+  * Opslaglaag voor gegevens
+  * Presentatie / verbruik laag
 * Conclusie
 
-**Auteur:** Jeroen Feddersen, Solution Architect Datacenter Insights van uitmuntende Microsoft Corporation
+**Auteur:** Charles Feddersen, Solution Architect, Datacenter inzichten van hoogwaardige zakelijke prestaties, Microsoft Corporation
 
 **Gepubliceerd:** januari 2015
 
-**Revision:** 1.0
+**Revisie:** 1.0
 
-**Download:** [realtime-gebeurtenissen verwerken met Microsoft Azure Stream Analytics](http://download.microsoft.com/download/6/2/3/623924DE-B083-4561-9624-C1AB62B5F82B/real-time-event-processing-with-microsoft-azure-stream-analytics.pdf)
+**Download:** [realtime-gebeurtenissen verwerken met Microsoft Azure Stream Analytics](https://download.microsoft.com/download/6/2/3/623924DE-B083-4561-9624-C1AB62B5F82B/real-time-event-processing-with-microsoft-azure-stream-analytics.pdf)
 
 ## <a name="get-help"></a>Help opvragen
-Voor verdere hulp kunt u proberen de [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)
+Voor verdere ondersteuning kunt u proberen de [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Inleiding tot Azure Stream Analytics](stream-analytics-introduction.md)

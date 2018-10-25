@@ -6,14 +6,14 @@ author: cherylmc
 tags: azure-resource-manager
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 09/06/2018
+ms.date: 10/24/2018
 ms.author: cherylmc
-ms.openlocfilehash: d524555330653a90f52505c22f50f4d677ab6632
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 3254f0c26e21bc7ba71fc23362f263cb126ea3b0
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387256"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50026361"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-azure-portal"></a>Een point-to-site-verbinding naar een VNet configureren met behulp van systeemeigen Azure-certificaatverificatie: Azure Portal
 
@@ -73,7 +73,7 @@ Nadat u uw virtuele netwerk hebt gemaakt, kunt u het IP-adres van een DNS-server
 [!INCLUDE [create-gateway](../../includes/vpn-gateway-add-gw-p2s-rm-portal-include.md)]
 
 >[!NOTE]
->De basis-SKU biedt geen ondersteuning voor IKEv2- of RADIUS-verificatie.
+>De basis-SKU biedt geen ondersteuning voor IKEv2- of RADIUS-verificatie. Als u van plan bent op de Mac-clients verbinding met uw virtuele netwerk maken dat gebruik niet de basis-SKU.
 >
 
 ## <a name="generatecert"></a>5. Certificaten genereren
@@ -172,7 +172,7 @@ De configuratiebestanden van de VPN-clients bevatten de instellingen voor het co
 
 Zoek in het dialoogvenster Netwerk het clientprofiel dat u wilt gebruiken, geef de instellingen uit het bestand [VpnSettings.xml](point-to-site-vpn-client-configuration-azure-cert.md#installmac) op, en klik op **Verbinding maken**.
 
-Zie [Installeren - Mac (OS X)](https://docs.microsoft.com/azure/vpn-gateway/point-to-site-vpn-client-configuration-azure-cert#installmac) voor gedetailleerde instructies.
+Controleer [installeren - Mac (OS X)](https://docs.microsoft.com/azure/vpn-gateway/point-to-site-vpn-client-configuration-azure-cert#installmac) voor gedetailleerde instructies. Als u ondervindt, controleert u of dat de virtuele netwerkgateway geen gebruik van een basis-SKU maakt. Basis-SKU wordt niet ondersteund voor Mac-clients.
 
   ![Mac-verbinding](./media/vpn-gateway-howto-point-to-site-rm-ps/applyconnect.png)
 

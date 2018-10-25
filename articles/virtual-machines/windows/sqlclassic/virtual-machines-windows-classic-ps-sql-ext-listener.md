@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: mikeray
-ms.openlocfilehash: 58ec400faee04f8624822bbcb5325fca7006c578
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 10b4fec92752e44048454e8b63e90fd9b7fecba0
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38698631"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50023182"
 ---
 # <a name="configure-an-external-listener-for-always-on-availability-groups-in-azure"></a>Een externe listener configureren voor Always On Availability Groups in Azure
 > [!div class="op_single_selector"]
@@ -37,7 +37,7 @@ In dit onderwerp ziet u hoe het configureren van een listener voor een AlwaysOn-
 De beschikbaarheidsgroep kunnen bevatten replica's die alleen, on-premises zijn Azure alleen, of zowel on-premises en Azure omvatten voor hybride configuraties. Azure replica's kunnen zich binnen dezelfde regio of in meerdere regio's met behulp van meerdere virtuele netwerken (VNets). De onderstaande stappen wordt ervan uitgegaan dat u al hebt [geconfigureerd een beschikbaarheidsgroep](../classic/portal-sql-alwayson-availability-groups.md) , maar niet een listener hebt geconfigureerd.
 
 ## <a name="guidelines-and-limitations-for-external-listeners"></a>Richtlijnen en beperkingen voor externe listeners
-Houd rekening met de volgende richtlijnen over de beschikbaarheidsgroeplistener in Azure wanneer u implementeert met behulp van de cloud service symphysis VIP-adres:
+Houd rekening met de volgende richtlijnen over de beschikbaarheidsgroeplistener in Azure wanneer u implementeert met behulp van het openbare VIP-adres van cloud-service:
 
 * De beschikbaarheidsgroep-listener wordt ondersteund op Windows Server 2008 R2, Windows Server 2012 en Windows Server 2012 R2.
 * De clienttoepassing moet zich bevinden op een andere cloudservice dan de versie die uw virtuele machines van de beschikbaarheidsgroep bevat. Azure biedt geen ondersteuning voor directe server geretourneerd met de client en server in dezelfde cloudservice.

@@ -14,30 +14,34 @@ ms.workload: identity
 ms.date: 09/19/2018
 ms.author: brandwe
 ms.custom: include file
-ms.openlocfilehash: 331d16df55e26df5d49555c636b307499dd052af
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 1604b7c9ee9888375e65aa679803c6e996e13b14
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48843127"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49988239"
 ---
 ## <a name="register-your-application"></a>Uw toepassing registreren
+
 U kunt uw toepassing registreren op twee manieren, zoals beschreven in de volgende twee secties.
 
 ### <a name="option-1-express-mode"></a>Optie 1: Snelle modus
+
 Nu moet u uw toepassing registreren in de *Portal voor Appregistratie Microsoft*:
-1. Registreren van uw toepassing via de [Portal voor Appregistratie Microsoft](https://apps.dev.microsoft.com/portal/register-app?appType=mobileAndDesktopApp&appTech=ios&step=configure)
-2.  Voer een naam voor uw toepassing en uw e-mailadres
-3.  Zorg ervoor dat de optie voor begeleide instelling is ingeschakeld
-4.  Volg de instructies voor het verkrijgen van de toepassings-ID en plak deze in uw code
+
+1. Registreren van uw toepassing via de [Portal voor Appregistratie Microsoft](https://apps.dev.microsoft.com/portal/register-app?appType=mobileAndDesktopApp&appTech=ios&step=configure).
+2. Voer een naam voor uw toepassing en uw e-mailadres.
+3. Zorg ervoor dat de optie voor begeleide instelling is ingeschakeld.
+4. Volg de instructies voor het verkrijgen van de toepassings-ID en plak deze in uw code.
 
 ### <a name="option-2-advanced-mode"></a>Optie 2: Geavanceerde modus
 
-1.  Ga naar [Portal voor registratie van Microsoft-toepassing](https://apps.dev.microsoft.com/portal/register-app)
-2.  Voer een naam in voor uw toepassing
-3.  Zorg ervoor dat de optie voor begeleide instelling is uitgeschakeld
-4.  Klik op `Add Platform`en selecteer vervolgens `Native Application` en klikt u op `Save`
-5.  Ga terug naar Xcode. In `ViewController.swift`, vervang de regel die begint met '`let kClientID`' met de toepassings-ID die u zojuist hebt geregistreerd:
+1. Ga naar [Microsoft Portal voor Appregistratie](https://apps.dev.microsoft.com/portal/register-app).
+2. Voer een naam in voor de toepassing.
+3. Zorg ervoor dat de optie voor begeleide instelling is uitgeschakeld.
+4. Selecteer `Add Platform` en selecteer vervolgens `Native Application`.
+5. Selecteer `Save`.
+6. Ga terug naar Xcode. In `ViewController.swift`, vervang de regel die begint met '`let kClientID`' met de toepassings-ID die u zojuist hebt geregistreerd:
 
 ```swift
 let kClientID = "Your_Application_Id_Here"

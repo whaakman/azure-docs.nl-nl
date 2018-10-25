@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: raynew
-ms.openlocfilehash: 6809c0e56fe55c7962ae273db0b5ac4335089df1
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 32bed3a60c40b93471b75b9d54dccd822ccc3be8
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945855"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025870"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Een grote VMware-omgeving ontdekken en beoordelen
 
@@ -122,7 +122,7 @@ Als u meerdere projecten hebt, moet u het collector-apparaat slechts één keer 
 1. Klik in het Azure Migrate-project op **Aan de slag** > **Detecteren en evalueren** > **Machines detecteren**.
 2. In **Machines detecteren** zijn er twee opties beschikbaar voor het apparaat. Klik op **Downloaden** om het juiste apparaat te downloaden op basis van uw voorkeur.
 
-    a. **Eenmalige detectie:** het apparaat voor dit model communiceert met de vCenter Server om metagegevens over de virtuele machines te verzamelen. Voor het verzamelen van prestatiegegevens van de virtuele machines baseert het apparaat zich op de historische prestatiegegevens die zijn opgeslagen in de vCenter Server en worden de prestatiegeschiedenis van de laatste maand verzameld. In dit model verzamelt Azure Migrate het gemiddelde meteritem (versus piektellers) voor alle metrische gegevens, [meer informatie] (https://docs.microsoft.com/azure/migrate/concepts-collector#what-data-is-collected). Omdat dit een eenmalige detectie, worden wijzigingen in de on-premises omgeving niet weergegeven wanneer de detectie voltooid is. Als u wilt dat de wijzigingen worden weergegeven, moet u opnieuw een detectie van dezelfde omgeving uitvoeren voor hetzelfde project.
+    a. **Eenmalige detectie:** het apparaat voor dit model communiceert met de vCenter Server om metagegevens over de virtuele machines te verzamelen. Voor het verzamelen van prestatiegegevens van de virtuele machines baseert het apparaat zich op de historische prestatiegegevens die zijn opgeslagen in de vCenter Server en worden de prestatiegeschiedenis van de laatste maand verzameld. In dit model, gemiddelde teller (versus piek teller) voor elke meetwaarde, Azure Migrate verzamelt [meer](https://docs.microsoft.com/azure/migrate/concepts-collector#what-data-is-collected). Omdat dit een eenmalige detectie, worden wijzigingen in de on-premises omgeving niet weergegeven wanneer de detectie voltooid is. Als u wilt dat de wijzigingen worden weergegeven, moet u opnieuw een detectie van dezelfde omgeving uitvoeren voor hetzelfde project.
 
     b. **Continue detectie:** het apparaat voor dit model profileert continu de on-premises omgeving om realtime gebruiksgegevens voor elke virtuele machine te verzamelen. In dit model worden piektellers verzameld voor elk metrisch gegeven (CPU-gebruik, geheugengebruik enzovoort). Dit model is voor het verzamelen van prestatiegegevens niet afhankelijk van de instellingen voor statistieken in vCenter Server. U kunt de continue profilering op elk gewenst moment stoppen vanaf het apparaat.
 

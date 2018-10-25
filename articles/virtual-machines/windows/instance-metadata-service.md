@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/10/2017
 ms.author: harijayms
-ms.openlocfilehash: 0ea9fbf8042c4d6ab3f9462c77ec5cf5106d1021
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 331ec4bd7e91e8283f6a44b0fd440a9d73e28710
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389533"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024168"
 ---
 # <a name="azure-instance-metadata-service"></a>Azure Instance Metadata service
 
@@ -299,7 +299,7 @@ subscriptionId | Azure-abonnement voor de virtuele Machine | 2017-08-01
 tags | [Tags](../../azure-resource-manager/resource-group-using-tags.md) voor uw virtuele Machine  | 2017-08-01
 resourceGroupName | [Resourcegroep](../../azure-resource-manager/resource-group-overview.md) voor uw virtuele Machine | 2017-08-01
 placementGroupId | [Plaatsingsgroep](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) instellen van uw virtuele-machineschaalset | 2017-08-01
-plan | [Abonnement] (https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) voor een virtuele machine in het is een Azure Marketplace-installatiekopie, bevat de naam, product en uitgever | 2017-04-02
+plan | [Plan](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) voor een virtuele machine in het is een Azure Marketplace-installatiekopie, bevat de naam, product en uitgever | 2017-04-02
 publicKeys | Verzameling van openbare sleutels [https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#sshpublickey] toegewezen aan de virtuele machine en de paden | 2017-04-02
 vmScaleSetName | [Naam van de virtuele Machine ScaleSet](../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) instellen van uw virtuele-machineschaalset | 2017-12-01
 zone | [Binnen een Beschikbaarheidszone](../../availability-zones/az-overview.md) van uw virtuele machine | 2017-12-01 

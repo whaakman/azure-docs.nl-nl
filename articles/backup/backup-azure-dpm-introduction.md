@@ -1,5 +1,5 @@
 ---
-title: Prepeare de DPM-server back-up workloads naar Azure
+title: Voorbereiden van de DPM-server back-up workloads naar Azure
 description: Een inleiding tot de back-ups van DPM-gegevens naar een Azure Recovery Services-kluis.
 services: backup
 author: adigan
@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: adigan
-ms.openlocfilehash: 3efe2f02666c69ff648eaab39fbc1dfe9dc5e3e7
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: ac89f0f2e2f86fa34fc754ee23e9b67329560fa4
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945430"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024474"
 ---
 # <a name="prepare-to-back-up-workloads-to-azure-with-system-center-dpm"></a>Voorbereiden op back-up van workloads naar Azure met System Center DPM
 
@@ -39,7 +39,7 @@ Dit artikel bevat:
 De zakelijke voordelen van het back-ups van DPM-servers naar Azure zijn:
 
 * Voor on-premises DPM biedt Azure Backup een alternatief voor de implementatie van op de lange termijn op tape.
-* Voor DPM uit te voeren op een Azure VM, kunt Azure Backup u voor de offload van de Azure disk-opslag. Opslaan van oudere gegevens in een kluis back-upkluis, kunt u uw bedrijf kan worden uitgebreid door nieuwe gegevens naar schijf te slaan.
+* Voor DPM uit te voeren op een Azure VM, kunt Azure Backup u voor de offload van de Azure disk-opslag. Opslaan van oudere gegevens in een Backup-kluis kunt u uw bedrijf kan worden uitgebreid door nieuwe gegevens naar schijf te slaan.
 
 ## <a name="prerequisites-and-limitations"></a>Vereisten en beperkingen
 
@@ -160,7 +160,7 @@ Alle machines die een back-up Azure back-up moeten hebben de backup-agent (ook w
 
     - Azure Backup gebruikt deze locatie als een tijdelijke wachtruimte voor de herstelde gegevens.
     - Azure Backup wordt na het voltooien gegevensherstel opschonen van de gegevens op dit gebied.
-    - De locatie moet voldoende ruimte voor het opslaan van items die u verwacht te herstellen in paralle hebben.
+    - De locatie moet voldoende ruimte voor het opslaan van items die u verwacht te herstellen parallel hebben.
 
     ![Instelling van de map herstel](../../includes/media/backup-install-agent/DPM_SetupOnlineBackup_RecoveryFolder.png)
 

@@ -6,16 +6,16 @@ services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: project-url-preview
+ms.component: url-preview
 ms.topic: quickstart
 ms.date: 03/16/2018
 ms.author: rosh
-ms.openlocfilehash: 8d31d3a83f9873ce550b9c78626eea0d96ac39bb
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 93dd376d94065c0e99dffe53bbfa2763d0a25b2c
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48867439"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49470622"
 ---
 # <a name="quickstart-url-preview-query-in-c"></a>Snelstart: query voor URL-previews in C#
 
@@ -25,7 +25,7 @@ In het volgende C#-voorbeeld wordt een URL-preview gemaakt voor de SwiftKey-webs
 
 U hebt [Visual Studio 2017](https://www.visualstudio.com/downloads/) nodig om deze code uit te voeren in Windows. (De gratis Community-editie volstaat.)
 
-Vraag een toegangssleutel aan voor de gratis proefversie van [Cognitive Services Labs](https://aka.ms/answersearchsubscription).
+Vraag een toegangssleutel aan voor de gratis proefversie van [Cognitive Services Labs](https://aka.ms/answersearchsubscription)
 
 ## <a name="code-scenario"></a>Codescenario
 
@@ -166,4 +166,4 @@ De toepassing uitvoeren:
 - [Snelstart voor Java](java-quickstart.md)
 - [Snelstart voor JavaScript](javascript.md)
 - [Snelstart voor Node](node-quickstart.md)
-- [Snelstart voor Python](python-quickstart.md)
+- [Snelstartgids voor Python](python-quickstart.md)

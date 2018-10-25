@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/19/2016
 ms.author: stewu
-ms.openlocfilehash: e9d0ad0398dfc238d48060247cdb6f29b0f34a60
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 433c6b7d70cea9406b67d65e23cc357939cb5aa0
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46123331"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024287"
 ---
 # <a name="performance-tuning-guidance-for-hive-on-hdinsight-and-azure-data-lake-storage-gen1"></a>Richtlijnen voor Hive in HDInsight en Azure Data Lake Storage Gen1 afstemmen van prestaties
 
@@ -28,7 +28,7 @@ De standaardinstellingen zijn voor goede prestaties voor veel verschillende use 
 * **Een Azure-abonnement**. Zie [Gratis proefversie van Azure ophalen](https://azure.microsoft.com/pricing/free-trial/).
 * **De account van een Data Lake Storage Gen1**. Zie voor instructies over het maken van een [aan de slag met Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md)
 * **Azure HDInsight-cluster** met toegang tot een Gen1 van Data Lake Storage-account. Zie [een HDInsight-cluster maken met Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md). Zorg ervoor dat u extern bureaublad inschakelen voor het cluster.
-* **Uitvoeren van Hive in HDInsight**.  Zie voor meer informatie over het uitvoeren van Hive-taken in HDInsight, () [op HDInsight Hive gebruiken]https://docs.microsoft.com/azure/hdinsight/hdinsight-use-hive)
+* **Uitvoeren van Hive in HDInsight**.  Zie voor meer informatie over het uitvoeren van Hive-taken in HDInsight, [Hive in HDInsight gebruiken](https://docs.microsoft.com/azure/hdinsight/hdinsight-use-hive)
 * **Richtlijnen voor het Data Lake Storage Gen1 afstemmen van prestaties**.  Zie voor de prestaties van de algemene concepten, [Data Lake Storage Gen1 prestaties afstemmen-richtlijnen](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-performance-tuning-guidance)
 
 ## <a name="parameters"></a>Parameters

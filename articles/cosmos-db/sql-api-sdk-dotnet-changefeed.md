@@ -8,14 +8,14 @@ ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 05/21/2018
+ms.date: 10/24/2018
 ms.author: maquaran
-ms.openlocfilehash: 553917a29b3564fff71d6ab994ec199891cbaae7
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: f09430aeb38e6762729167494a23096c7bc5ca85
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49409098"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50023948"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET change Feed Processor SDK: Downloaden en opmerkingen bij de release
 > [!div class="op_single_selector"]
@@ -43,11 +43,13 @@ ms.locfileid: "49409098"
 
 ### <a name="v2-builds"></a>v2-builds
 
+### <a name="a-name221221"></a><a name="2.2.1"/>2.2.1
+* De berekening van het vaste Estimator voor meerdere model-accounts en nieuwe sessie Token indeling.
+
 ### <a name="a-name220220"></a><a name="2.2.0"/>2.2.0
 * Er is ondersteuning toegevoegd voor lease gepartitioneerde verzamelingen. De partitiesleutel moet worden gedefinieerd als /id.
 * Secundaire belangrijke wijziging: de methoden van de interface IChangeFeedDocumentClient en de klasse ChangeFeedDocumentClient om op te nemen RequestOptions en CancellationToken-parameters zijn gewijzigd. IChangeFeedDocumentClient is een geavanceerde uitbreidbaarheid-punt waarmee u aangepaste implementatie van de Document-Client voor gebruik met Change Feed Processor, bijvoorbeeld DocumentClient opmaken en onderschept alle aanroepen naar deze extra tracering doen foutafhandeling , enzovoort. Met deze update moet de code die IChangeFeedDocumentClient implementeren om op te nemen van nieuwe parameters in de implementatie worden gewijzigd.
 * Diagnostische gegevens van kleine verbeteringen.
-
 
 ### <a name="a-name210210"></a><a name="2.1.0"/>2.1.0
 * Nieuwe API, taak toegevoegd&lt;IReadOnlyList&lt;RemainingPartitionWork&gt; &gt; IRemainingWorkEstimator.GetEstimatedRemainingWorkPerPartitionAsync(). Dit kan worden gebruikt om hun werk uit geschatte voor elke partitie.
@@ -140,6 +142,7 @@ Een aanvraag voor het Cosmos DB met behulp van een buiten gebruik gestelde SDK w
 
 | Versie | Releasedatum | Vervaldatum |
 | --- | --- | --- |
+| [2.2.1](#2.2.1) |24 oktober 2018 |--- |
 | [1.3.3](#1.3.3) |08 mei 2018 |--- |
 | [1.3.2](#1.3.2) |18 april 2018 |--- |
 | [1.3.1](#1.3.1) |13 maart 2018 |--- |

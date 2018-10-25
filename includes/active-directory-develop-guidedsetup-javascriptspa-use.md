@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 09/17/2018
 ms.author: nacanuma
 ms.custom: include file
-ms.openlocfilehash: 77400453e455ff2ebf20f59f888a3e3d641bcf07
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: e42c678f3c6d030be13e40197a06e73b62581902
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48843432"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49988402"
 ---
 ## <a name="use-the-microsoft-authentication-library-msal-to-sign-in-the-user"></a>Gebruik de Microsoft Authentication Library (MSAL) aan te melden bij de gebruiker
 
@@ -127,24 +127,26 @@ else {
 <!--start-collapse-->
 ### <a name="more-information"></a>Meer informatie
 
-Nadat een gebruiker op de *'Aanmelden'* knop voor het eerst `signIn` methodeaanroepen `loginPopup` aan te melden bij de gebruiker. Resultaat van deze methode is bij het openen van een pop-upvenster met de *Microsoft Azure Active Directory v2-eindpunt* te vragen en referenties van de gebruiker te valideren. Als gevolg van een geslaagde aanmelding wordt de gebruiker wordt omgeleid naar de oorspronkelijke *index.html* pagina en een token wordt ontvangen, verwerkt door `msal.js` en de informatie in het token in de cache is opgeslagen. Dit token wordt ook wel de *ID-token* en bevat algemene informatie over de gebruiker, zoals de naam van de gebruiker weergegeven. Als u alle gegevens die door dit token voor andere doeleinden gebruiken wilt, moet u om ervoor te zorgen dat dit token wordt gevalideerd door uw back-endserver om te waarborgen dat het token is uitgegeven voor een geldige gebruiker voor uw toepassing.
+Nadat een gebruiker op de **aanmelden** knop voor het eerst de `signIn` methodeaanroepen `loginPopup` aan te melden bij de gebruiker. Resultaat van deze methode is bij het openen van een pop-upvenster met de *Microsoft Azure Active Directory v2.0-eindpunt* te vragen en referenties van de gebruiker te valideren. Als gevolg van een geslaagde aanmelding wordt de gebruiker wordt omgeleid naar de oorspronkelijke *index.html* pagina en een token wordt ontvangen, verwerkt door `msal.js` en de informatie in het token in de cache is opgeslagen. Dit token wordt ook wel de *ID-token* en bevat algemene informatie over de gebruiker, zoals de naam van de gebruiker weergegeven. Als u alle gegevens die door dit token voor andere doeleinden gebruiken wilt, moet u om ervoor te zorgen dat dit token wordt gevalideerd door uw back-endserver om te waarborgen dat het token is uitgegeven voor een geldige gebruiker voor uw toepassing.
 
 De beveiligd-WACHTWOORDVERIFICATIE die worden gegenereerd door deze handleiding aanroepen `acquireTokenSilent` en/of `acquireTokenPopup` aan te schaffen een *toegangstoken* gebruikt om te vragen van de Microsoft Graph-API voor profielgegevens van de gebruiker. Als u een voorbeeld waarin het ID-token valideert, kijk dan eens [dit](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2 "active-directory-javascript-singlepageapp-dotnet-webapi-v2 voorbeeld Github") voorbeeldtoepassing in GitHub – het voorbeeld maakt gebruik van een ASP .NET-web-API voor validatie van tokens.
 
 #### <a name="getting-a-user-token-interactively"></a>Een gebruikerstoken interactief ophalen
 
-Na de eerste aanmelding wordt u niet wilt gebruikers vragen om te verifiëren telkens wanneer ze nodig hebben om aan te vragen van een token te krijgen tot een resource – dus *acquireTokenSilent* de meeste gevallen moet worden gebruikt voor het verkrijgen van tokens. Er zijn echter situaties die u wilt afdwingen dat gebruikers om te communiceren met Azure Active Directory v2-eindpunt: enkele voorbeelden zijn:
+Na de eerste aanmelding wordt u niet wilt gebruikers vragen om te verifiëren telkens wanneer ze nodig hebben om aan te vragen van een token te krijgen tot een resource – dus *acquireTokenSilent* de meeste gevallen moet worden gebruikt voor het verkrijgen van tokens. Er zijn echter situaties die u wilt afdwingen dat gebruikers om te communiceren met Azure Active Directory v2.0-eindpunt: enkele voorbeelden zijn:
+
 - Gebruikers moeten mogelijk hun referenties opnieuw opgeven omdat het wachtwoord is verlopen
 - Uw toepassing vraagt toegang tot een resource waarvoor de gebruiker toestemming moet geven
 - Wanneer verificatie in twee stappen is vereist
 
-Aanroepen van de *acquireTokenPopup(scope)* resulteert in een pop-upvenster (of *acquireTokenRedirect(scope)* leidt gebruikers omleiden naar de Azure Active Directory v2-eindpunt) waar gebruikers moeten communiceren door hun referenties bevestigen, de toestemming verlenen aan de vereiste resource of voltooien van de verificatie met twee factoren.
+Aanroepen van de *acquireTokenPopup(scope)* resulteert in een pop-upvenster (of *acquireTokenRedirect(scope)* leidt gebruikers omleiden naar de Azure Active Directory v2.0-eindpunt) waar gebruikers moeten communiceren door hun referenties bevestigen, de toestemming verlenen aan de vereiste resource of voltooien van de verificatie met twee factoren.
 
 #### <a name="getting-a-user-token-silently"></a>Een gebruikerstoken op de achtergrond ophalen
+
 De ` acquireTokenSilent` methode wordt gebruikt voor token-aankopen en verlenging zonder tussenkomst van de gebruiker. Na `loginPopup` (of `loginRedirect`) wordt uitgevoerd voor de eerste keer `acquireTokenSilent` is de methode die vaak worden gebruikt om te verkrijgen van tokens gebruikt voor toegang tot beveiligde resources voor volgende aanroepen - aanroepen aan te vragen of vernieuwen van tokens op de achtergrond worden gemaakt.
 `acquireTokenSilent` mislukken in sommige gevallen, bijvoorbeeld van de gebruiker het wachtwoord is verlopen. Uw toepassing kan verwerken deze uitzondering op twee manieren:
 
-1.  Aanroepen van `acquireTokenPopup` onmiddellijk, wat ertoe leidt dat u wordt gevraagd de gebruiker zich aanmeldt. Dit patroon wordt vaak gebruikt in online toepassingen waarbij er geen niet-geverifieerde inhoud in de toepassing beschikbaar voor de gebruiker. Dit patroon maakt gebruik van de steekproef die worden gegenereerd door deze Begeleide installatie.
+1. Aanroepen van `acquireTokenPopup` onmiddellijk, wat ertoe leidt dat u wordt gevraagd de gebruiker zich aanmeldt. Dit patroon wordt vaak gebruikt in online toepassingen waarbij er geen niet-geverifieerde inhoud in de toepassing beschikbaar voor de gebruiker. Dit patroon maakt gebruik van de steekproef die worden gegenereerd door deze Begeleide installatie.
 
 2. Toepassingen kunnen ook een visuele indicatie maken voor de gebruiker dat een interactief aanmelden is vereist, zodat de gebruiker kan het juiste moment aan te melden bij selecteren, of de toepassing opnieuw kunt `acquireTokenSilent` op een later tijdstip. Dit wordt meestal gebruikt wanneer de gebruiker andere functionaliteit van de toepassing gebruiken kunt zonder onderbroken: er bijvoorbeeld niet-geverifieerde inhoud beschikbaar in de toepassing is. In dit geval kan de gebruiker beslissen wanneer ze willen Meld u aan voor toegang tot de beveiligde bron of om de verouderde gegevens te vernieuwen.
 

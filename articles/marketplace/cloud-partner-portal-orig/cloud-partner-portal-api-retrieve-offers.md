@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: reference
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 3429917fcee520ae932253f1fdfead4ffb6535e6
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: cf6e2fa296d3d9f152edf22685b930586b4de524
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48809438"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024803"
 ---
 <a name="retrieve-offers"></a>Biedt ophalen
 ===============
@@ -39,7 +39,7 @@ Hiermee haalt een overzicht van aanbiedingen onder een publisher-naamruimte.
 |  |  |
 
 
-<a name="header"></a>Koptekst
+<a name="header"></a>Header
 ------
 
 |  **Naam**        |         **Waarde**       |
@@ -79,8 +79,8 @@ Hiermee haalt een overzicht van aanbiedingen onder een publisher-naamruimte.
 |  publisherId    | ID die een unieke identificatie van de uitgever                                                                      |
 |  status         | De status van de aanbieding. Zie voor een lijst van mogelijke waarden, [status van het voorstel](#offer-status) hieronder.                         |
 |  id             | De GUID die de aanbieding in de naamruimte van de uitgever wordt aangeduid.                                                    |
-|  version        | Huidige versie van het product. De versie-eigenschap kan niet worden gewijzigd door de client. Het wordt verhoogd na elke publiceren. |
-|  definitie     | Bevat een overzichtsweergave van de werkelijke definitie van de werkbelasting. Als u een uitgebreide definitie, gebruikt u de [ophalen specifieke aanbiedings] (. / cloud-partner-portal-api-retrieve-specific-offer.md) API. |
+|  versie        | Huidige versie van het product. De versie-eigenschap kan niet worden gewijzigd door de client. Het wordt verhoogd na elke publiceren. |
+|  definitie     | Bevat een overzichtsweergave van de werkelijke definitie van de werkbelasting. Als u een uitgebreide definitie, gebruikt de [ophalen specifieke aanbiedings](./cloud-partner-portal-api-retrieve-specific-offer.md) API. |
 |  changedTime    | UTC-tijd waarop de aanbieding voor het laatst is gewijzigd                                                                              |
 |  |  |
 

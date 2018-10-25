@@ -2,20 +2,20 @@
 title: Onderliggende indelingen voor duurzame functies - Azure
 description: Over het aanroepen van de indelingen van indelingen in de extensie duurzame functies voor Azure Functions.
 services: functions
-author: cgillum
+author: kashimiz
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 09/29/2017
+ms.date: 10/23/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 59e8eb41b7e9fe3d57196f6844d1a768c3ef598b
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 32f8872737fdf6dd766ae8df8ef3ed47692e2c9c
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44094429"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49984330"
 ---
 # <a name="sub-orchestrations-in-durable-functions-azure-functions"></a>Onderliggende indelingen in duurzame functies (Azure Functions)
 
@@ -31,6 +31,8 @@ Onderliggende orchestrator-functies werken net als bij activiteitsfuncties vanui
 ## <a name="example"></a>Voorbeeld
 
 Het volgende voorbeeld wordt een IoT ('Internet of Things")-scenario waarbij er meerdere apparaten die moeten worden ingericht. Er is een bepaalde indeling die moet worden opgestart voor elk van de apparaten, ziet er ongeveer als volgt uit:
+
+#### <a name="c"></a>C#
 
 ```csharp
 public static async Task DeviceProvisioningOrchestration(
@@ -51,9 +53,32 @@ public static async Task DeviceProvisioningOrchestration(
 }
 ```
 
-Deze functie orchestrator kan worden gebruikt als-is voor eenmalige apparaatinrichting of deel van een grotere orchestration uitmaken kunnen. In dat laatste geval, de bovenliggende orchestrator-functie kunt plannen dat exemplaren van `DeviceProvisioningOrchestration` met behulp van de `CallSubOrchestratorAsync` API.
+#### <a name="javascript-functions-v2-only"></a>JavaScript (alleen functies v2)
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df.orchestrator(function*(context) {
+    const deviceId = context.df.getInput();
+
+    // Step 1: Create an installation package in blob storage and return a SAS URL.
+    const sasUrl = yield context.df.callActivity("CreateInstallationPackage", deviceId);
+
+    // Step 2: Notify the device that the installation package is ready.
+    yield context.df.callActivity("SendPackageUrlToDevice", { id: deviceId, url: sasUrl });
+
+    // Step 3: Wait for the device to acknowledge that it has downloaded the new package.
+    yield context.df.waitForExternalEvent("DownloadCompletedAck");
+
+    // Step 4: ...
+});
+```
+
+Deze functie orchestrator kan worden gebruikt als-is voor eenmalige apparaatinrichting of deel van een grotere orchestration uitmaken kunnen. In dat laatste geval, de bovenliggende orchestrator-functie kunt plannen dat exemplaren van `DeviceProvisioningOrchestration` met behulp van de `CallSubOrchestratorAsync` (C#) of `callSubOrchestrator` (JS) API.
 
 Hier volgt een voorbeeld waarin wordt uitgelegd hoe u meerdere orchestrator-functies parallel worden uitgevoerd.
+
+#### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("ProvisionNewDevices")]
@@ -74,6 +99,27 @@ public static async Task ProvisionNewDevices(
 
     // ...
 }
+```
+
+#### <a name="javascript-functions-v2-only"></a>JavaScript (alleen functies v2)
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df.orchestrator(function*(context) {
+    const deviceIds = yield context.df.callActivity("GetNewDeviceIds");
+
+    // Run multiple device provisioning flows in parallel
+    const provisioningTasks = [];
+    for (const deviceId of deviceIds) {
+        const provisionTask = context.df.callSubOrchestrator("DeviceProvisioningOrchestration", deviceId);
+        provisioningTasks.push(provisionTask);
+    }
+
+    yield context.df.Task.all(provisioningTasks);
+
+    // ...
+});
 ```
 
 ## <a name="next-steps"></a>Volgende stappen

@@ -2,26 +2,25 @@
 title: 'Azure Backup: Voorbereiden op back-up van virtuele machines'
 description: Zorg ervoor dat uw omgeving is voorbereid voor de back-ups van virtuele machines in Azure.
 services: backup
-author: markgalioto
+author: rayne-wiselman
 manager: carmonm
 keywords: back-ups; back-ups van;
 ms.service: backup
 ms.topic: conceptual
-ms.date: 9/10/2018
-ms.author: markgal
-ms.openlocfilehash: 7ab88ce3565ccf79f20847a3a5e744c495d5fcb1
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.date: 10/23/2018
+ms.author: raynew
+ms.openlocfilehash: 30b35d38c30d3ee9410a85824c53001ca95cf30b
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48884930"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025936"
 ---
-# <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Uw omgeving voorbereiden op door Resource Manager geïmplementeerde virtuele machines
+# <a name="prepare-to-back-up-azure-vms"></a>Voorbereiden op back-up van virtuele Azure-machines
 
-In dit artikel bevat de stappen voor het voorbereiden van uw omgeving voor de back-up van een Azure Resource Manager geïmplementeerde virtuele machine (VM). De stappen die worden weergegeven in de procedures gebruikt de Azure portal. Wanneer u back-up van een virtuele machine, worden de back-upgegevens of herstelpunten, opgeslagen in een Recovery Services-kluis. Recovery Services-kluizen opslaan van back-upgegevens voor klassieke en Resource Manager geïmplementeerde virtuele machines.
+In dit artikel bevat de stappen voor het voorbereiden van uw omgeving voor de back-up van een Azure Resource Manager geïmplementeerde virtuele machine (VM). De stappen die worden weergegeven in de procedures gebruikt de Azure portal. Wanneer u back-up van een virtuele machine, worden de back-upgegevens of herstelpunten, opgeslagen in een Recovery Services back-upkluis. 
 
-> [!NOTE]
-> Azure heeft twee implementatiemodellen voor het maken van en werken met resources: [Resource Manager en klassieke](../azure-resource-manager/resource-manager-deployment-model.md).
+
 
 Voordat u beveiligen (of een back-up) een Resource Manager geïmplementeerde virtuele machine, zorg ervoor dat deze vereisten zijn:
 
@@ -47,7 +46,6 @@ Als deze voorwaarden al in uw omgeving bestaat, gaat u verder met de [maakt u ee
 Voordat u uw omgeving hebt voorbereid, moet u deze beperkingen begrijpt:
 
 * Back-ups van virtuele machines met meer dan 32 gegevensschijven wordt niet ondersteund.
-* Back-ups van virtuele machines met een gereserveerd IP-adres en geen gedefinieerde eindpunt wordt niet ondersteund.
 * Back-ups van virtuele Linux-machines versleuteld door middel van Linux Unified sleutel instellen (LUKS)-codering wordt niet ondersteund.
 * Wordt niet aanbevolen back-ups van virtuele machines met gedeelde clustervolumes (CSV) of Scale-Out bestandsserver. Als u klaar bent, wordt mislukken van CSV-schrijvers verwacht. Ze nodig hebben met betrekking tot alle virtuele machines die zijn opgenomen in de configuratie van het cluster tijdens de taak van een momentopname. Azure Backup biedt geen ondersteuning voor meerdere VM's.
 * Back-upgegevens bevat geen gekoppeld netwerkstations die zijn gekoppeld aan een virtuele machine.

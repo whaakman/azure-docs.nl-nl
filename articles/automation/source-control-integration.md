@@ -9,26 +9,26 @@ ms.author: gwallace
 ms.date: 09/26/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 9bbf3582da2664b6e6429677d47aad4d69a7c1bb
-ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
+ms.openlocfilehash: 5778c38d5a0c44e42b83fd139078be1f0bb45f7f
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48785321"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50023743"
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Integratie van broncodebeheer in Azure Automation
 
-Broncodebeheer kunt u uw runbooks behouden in uw Automation account zijn bijgewerkt met de scripts in uw GitHub- of Azure Dev Ops resourcebeheerbibliotheek. Broncodebeheer kunt u eenvoudig samenwerken met uw team, het bijhouden van wijzigingen en Ga terug naar de eerdere versies van uw runbooks. Broncodebeheer bijvoorbeeld, kunt u verschillende branches in broncodebeheer om uw ontwikkelings-, test- of productieomgeving Automation-accounts te synchroniseren. Hiermee kunt u eenvoudig ter bevordering van code die in uw ontwikkelomgeving, zodat uw productie-Automation-account is getest.
+Broncodebeheer kunt u uw runbooks behouden in uw Automation account zijn bijgewerkt met de scripts in uw GitHub- of Azure DevOps resourcebeheerbibliotheek. Broncodebeheer kunt u eenvoudig samenwerken met uw team, het bijhouden van wijzigingen en Ga terug naar de eerdere versies van uw runbooks. Broncodebeheer bijvoorbeeld, kunt u verschillende branches in broncodebeheer om uw ontwikkelings-, test- of productieomgeving Automation-accounts te synchroniseren. Hiermee kunt u eenvoudig ter bevordering van code die in uw ontwikkelomgeving, zodat uw productie-Automation-account is getest.
 
 Azure Automation biedt ondersteuning voor 3 soorten of broncodebeheer:
 
 * GitHub
-* Visual Studio teamservices (Git)
-* Visual Studio teamservices (TFVC)
+* Azure DevOps (Git)
+* Azure DevOps (TFVC)
 
 ## <a name="pre-requisites"></a>Vereisten
 
-* Een opslagplaats voor bronbeheer (GitHub of Visual Studio Team Services)
+* Een opslagplaats voor bronbeheer (GitHub of Azure DevOps)
 * De juiste [machtigingen](#personal-access-token-permissions) naar de opslagplaats voor bronbeheer
 * Een [Run-As Account en -verbinding](manage-runas-account.md)
 
@@ -50,7 +50,7 @@ Op de **samenvatting van de bron-besturingselement** pagina, vult u uw gegevens 
 |Eigenschap  |Beschrijving  |
 |---------|---------|
 |Naam van de bron-besturingselement     | Een beschrijvende naam voor broncodebeheer        |
-|Broncodebeheertype     | Het type van de bron van het besturingselement. De volgende opties zijn beschikbaar:</br> GitHub</br>Visual Studio teamservices (Git)</br> Visual Studio teamservices (TFVC)        |
+|Broncodebeheertype     | Het type van de bron van het besturingselement. De volgende opties zijn beschikbaar:</br> GitHub</br>Azure DevOps (Git)</br> Azure DevOps (TFVC)        |
 |Opslagplaats     | De naam van de opslagplaats of het project. Deze waarde wordt opgehaald uit de opslagplaats voor bronbeheer. Voorbeeld: $/ ContosoFinanceTFVCExample         |
 |Branche     | De vertakking voor het ophalen van de bronbestanden op uit. Vertakking die gericht is op is niet beschikbaar voor het type TFVC broncodebeheer.          |
 |Mappad     | De map met de runbooks om te synchroniseren. Voorbeeld: /Runbooks         |

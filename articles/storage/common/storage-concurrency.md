@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 05/11/2017
 ms.author: jasontang501
 ms.component: common
-ms.openlocfilehash: 9c36347db2d1678e79e5ad80cda491f77850c4a6
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 91eb9c12a8913c0a96ee7c3133dc5f982c42cad7
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39525236"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025294"
 ---
 # <a name="managing-concurrency-in-microsoft-azure-storage"></a>Gelijktijdigheid beheren in Microsoft Azure Storage
 ## <a name="overview"></a>Overzicht
@@ -50,29 +50,29 @@ De volgende C#-fragment (met behulp van de Storage-clientbibliotheek 4.2.0) toon
 ```csharp
 // Retrieve the ETag from the newly created blob
 // Etag is already populated as UploadText should cause a PUT Blob call
-// to storage blob service which returns the etag in response.
-string orignalETag = blockBlob.Properties.ETag;
+// to storage blob service which returns the ETag in response.
+string originalETag = blockBlob.Properties.ETag;
 
 // This code simulates an update by a third party.
 string helloText = "Blob updated by a third party.";
 
-// No etag, provided so orignal blob is overwritten (thus generating a new etag)
+// No ETag provided so original blob is overwritten (thus generating a new ETag)
 blockBlob.UploadText(helloText);
 Console.WriteLine("Blob updated. Updated ETag = {0}",
 blockBlob.Properties.ETag);
 
-// Now try to update the blob using the orignal ETag provided when the blob was created
+// Now try to update the blob using the original ETag provided when the blob was created
 try
 {
-    Console.WriteLine("Trying to update blob using orignal etag to generate if-match access condition");
+    Console.WriteLine("Trying to update blob using original ETag to generate if-match access condition");
     blockBlob.UploadText(helloText,accessCondition:
-    AccessCondition.GenerateIfMatchCondition(orignalETag));
+    AccessCondition.GenerateIfMatchCondition(originalETag));
 }
 catch (StorageException ex)
 {
     if (ex.RequestInformation.HttpStatusCode == (int)HttpStatusCode.PreconditionFailed)
     {
-        Console.WriteLine("Precondition failure as expected. Blob's orignal etag no longer matches");
+        Console.WriteLine("Precondition failure as expected. Blob's original ETag no longer matches");
         // TODO: client can decide on how it wants to handle the 3rd party updated content.
     }
     else
@@ -106,7 +106,7 @@ De volgende tabel geeft een overzicht van de blob-bewerkingen die voorwaardelijk
 | Blob ophalen |Ja |Ja |
 | Blobeigenschappen ophalen |Ja |Ja |
 | Blobeigenschappen instellen |Ja |Ja |
-| De metagegevens van de blob ophalen |Ja |Ja |
+| De Blobmetagegevens van de ophalen |Ja |Ja |
 | Instellen van de metagegevens van de Blob |Ja |Ja |
 | Lease-Blob (*) |Ja |Ja |
 | Momentopname maken van Blob |Ja |Ja |
@@ -240,10 +240,10 @@ De volgende tabel geeft een overzicht van hoe de entiteit tabelbewerkingen ETag 
 | Entiteiten opvragen |Ja |Nee |
 | Entiteit invoegen |Ja |Nee |
 | Een entiteit bijgewerkt |Ja |Ja |
-| Entiteit samenvoegen |Ja |Ja |
+| Samenvoegen van entiteit |Ja |Ja |
 | Entiteit verwijderen |Nee |Ja |
-| Entiteit invoegen of vervangen |Ja |Nee |
-| Entiteit invoegen of samenvoegen |Ja |Nee |
+| Invoegen of vervangen van entiteit |Ja |Nee |
+| Invoegen of samenvoegen van entiteit |Ja |Nee |
 
 Houd er rekening mee dat de **invoegen of vervangen entiteit** en **invoegen of samenvoegen entiteit** bewerkingen uitvoeren *niet* gelijktijdigheid controles niet uitvoeren omdat ze een ETag-waarde niet naar de tabel verzenden de service.  
 

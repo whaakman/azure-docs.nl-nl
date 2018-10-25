@@ -14,17 +14,19 @@ ms.workload: identity
 ms.date: 09/17/2018
 ms.author: nacanuma
 ms.custom: include file
-ms.openlocfilehash: 3cbcae9c02abaf11ded31304f97abdd74f905c6e
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 0c4908315bd7c0e4d83c7aba735cc4d102216a28
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48843623"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49988410"
 ---
 ## <a name="test-your-code"></a>Testen van uw code
 
 ### <a name="test-with-node"></a>Testen met Node
+
 Als u Visual Studio niet gebruikt, zorg er dan voor dat uw webserver is gestart.
+
 1. Configureer de server om te luisteren naar een TCP-poort die gebaseerd op de locatie van uw **index.html** bestand. Start de server om te luisteren naar de poort door te voeren van de volgende opdrachten op de opdrachtregel vanuit de map voor knooppunt:
 
     ```bash
@@ -36,15 +38,14 @@ Als u Visual Studio niet gebruikt, zorg er dan voor dat uw webserver is gestart.
 <p/><!-- -->
 
 ### <a name="test-with-visual-studio"></a>Testen met Visual Studio
-Als u Visual Studio, zorg ervoor dat u selecteert de project-oplossing en druk op **F5** om uit te voeren van uw project. De browser wordt geopend op de http://<span></span>localhost: {poort} locatie en u ziet de **aanmelden** knop.
 
+Als u Visual Studio, zorg ervoor dat u selecteert de project-oplossing en druk op **F5** om uit te voeren van uw project. De browser wordt geopend op de http://<span></span>localhost: {poort} locatie en u ziet de **aanmelden** knop.
 
 ## <a name="test-your-application"></a>Uw toepassing testen
 
 Nadat uw index.html-bestand in de browser geladen, klikt u op **aanmelden**. U wordt gevraagd zich aanmelden met het v2.0-eindpunt voor Microsoft Azure Active Directory (Azure AD):
 
 ![Aanmelden bij uw account beveiligd-WACHTWOORDVERIFICATIE JavaScript](media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptspascreenshot1.png)
-
 
 ### <a name="provide-consent-for-application-access"></a>Geef toestemming voor toegang tot toepassingen
 
@@ -53,6 +54,7 @@ De eerste keer dat u zich aanmelden bij uw toepassing, bent u gevraagd te geven 
 ![Geef uw toestemming voor toegang tot toepassingen](media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptspaconsent.png)
 
 ### <a name="view-application-results"></a>Resultaten van de toepassing weergeven
+
 Nadat u zich aanmeldt, u ziet gegevens van uw gebruikersprofiel geretourneerd in het Microsoft Graph API-antwoord weergegeven op de pagina zijn.
 
 ![Verwachte resultaten van Microsoft Graph API-aanroep](media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptsparesults.png)

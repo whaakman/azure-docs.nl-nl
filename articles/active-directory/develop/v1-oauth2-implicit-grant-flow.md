@@ -17,14 +17,16 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: acdc3417643484fa98b16c4be1b83a44a8b73fc6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ccc5aa116d2f01b601e6b6b9aad456110b764856
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46962996"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49985723"
 ---
 # <a name="understanding-the-oauth2-implicit-grant-flow-in-azure-active-directory-ad"></a>Informatie over de impliciete stroom voor OAuth2 in Azure Active Directory (AD)
+
+[!INCLUDE [active-directory-develop-applies-v1](../../../includes/active-directory-develop-applies-v1.md)]
 
 De impliciete goedkeuring voor oauth2 is algemeen wordt de toekenning met de langste lijst met beveiligingsproblemen in de OAuth2-specificatie. En nog, die de benadering die wordt geïmplementeerd door ADAL JS en het die wordt aangeraden bij het schrijven van toepassingen van de beveiligd-WACHTWOORDVERIFICATIE is. Wat biedt? Het is een kwestie van nadelen: en als het blijkt de impliciete toekenning is de beste benadering die u voor toepassingen die een Web-API via JavaScript vanuit een browser gebruiken kunt voortzetten.
 

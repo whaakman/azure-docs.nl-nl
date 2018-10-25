@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/07/2018
+ms.date: 10/22/2018
 ms.author: harijay
-ms.openlocfilehash: 29b045266836ace35aab12c51746b7e339cbb88f
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: facd9be037894932e516e8294e36b6b0e55374c8
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49354339"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024409"
 ---
 # <a name="virtual-machine-serial-console"></a>Seriële Console van virtuele Machine
 
@@ -41,7 +41,7 @@ Voor de seriële console-documentatie voor virtuele Linux-machines [Klik hier](s
     ![](../media/virtual-machines-serial-console/virtual-machine-serial-console-diagnostics-settings.png)
 
 * Het account met behulp van de seriële console moet hebben [rol van Inzender](../../role-based-access-control/built-in-roles.md) voor virtuele machine en de [diagnostische gegevens over opstarten](boot-diagnostics.md) storage-account. 
-* De virtuele machine waarvoor u de seriële console acessing zijn moet ook een account op basis van wachtwoorden hebben. U kunt maken met de [wachtwoord opnieuw instellen](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) functionaliteit van de toegang tot VM-extensie - Zie de onderstaande schermafbeelding.
+* De virtuele machine waarvoor u toegang de seriële console tot moet ook een account op basis van wachtwoorden hebben. U kunt maken met de [wachtwoord opnieuw instellen](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) functionaliteit van de toegang tot VM-extensie - Zie de onderstaande schermafbeelding.
 
     ![](../media/virtual-machines-serial-console/virtual-machine-serial-console-reset-password.png)
 
@@ -52,7 +52,6 @@ Seriële console voor virtuele machines is alleen toegankelijk via [Azure-portal
   2. Selecteer de virtuele machines in het menu links.
   3. Klik op de virtuele machine in de lijst. De overzichtspagina voor de virtuele machine wordt geopend.
   4. Schuif omlaag naar de ondersteuning en probleemoplossing sectie en klik op de optie 'Seriële console'. Een nieuw deelvenster met de seriële console opent en start de verbinding.
-
 
 ## <a name="enable-serial-console-in-custom-or-older-images"></a>Seriële Console inschakelen in aangepaste of oudere installatiekopieën
 Nieuwere Windows Server-installatiekopieën in Azure heeft [speciale beheerconsole](https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) (SAC) standaard ingeschakeld. SAC wordt ondersteund in serverversies van Windows, maar is niet beschikbaar is op clientversies (bijvoorbeeld Windows 10, Windows 8 of Windows 7). Als u wilt inschakelen voor Windows-machines die zijn gemaakt vóór februari 2018 de seriële console, gebruikt u de volgende stappen uit: 
@@ -74,7 +73,7 @@ Indien nodig, kan de SAC ook worden ingeschakeld offline:
 
 ### <a name="how-do-i-know-if-sac-is-enabled"></a>Hoe weet ik of SAC is ingeschakeld?
 
-Als [SAC] (https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) niet is ingeschakeld de seriële console wordt niet weergegeven voor de SAC-prompt. In sommige gevallen kan de VM-status gegevens worden weergegeven en in andere gevallen wordt het leeg zijn. Als u van een installatiekopie van Windows Server die zijn gemaakt vóór februari 2018 gebruikmaakt, wordt SAC waarschijnlijk niet worden ingeschakeld.
+Als [SAC](https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) niet is ingeschakeld de seriële console wordt niet weergegeven voor de SAC-prompt. In sommige gevallen kan de VM-status gegevens worden weergegeven en in andere gevallen wordt het leeg zijn. Als u van een installatiekopie van Windows Server die zijn gemaakt vóór februari 2018 gebruikmaakt, wordt SAC waarschijnlijk niet worden ingeschakeld.
 
 ## <a name="enable-the-windows-boot-menu-in-serial-console"></a>Het opstartmenu Windows in de seriële Console inschakelen 
 
@@ -99,6 +98,21 @@ De seriële Console kan worden gebruikt voor het verzenden van een NMI met een A
 
 Zie voor meer informatie over het configureren van Windows voor het maken van een crashdump wanneer deze een NMI ontvangt: [het genereren van een volledige crashdumpbestand of een kernel crashdumpbestand met behulp van een NMI op een Windows-systeem](https://support.microsoft.com/en-us/help/927069/how-to-generate-a-complete-crash-dump-file-or-a-kernel-crash-dump-file)
 
+## <a name="open-cmd-or-powershell-in-serial-console"></a>Open CMD of Powershell in de seriële Console
+
+1. Verbinding maken met de seriële Console. Als u is met de seriële Console verbonden, ziet u **SAC >** als de volgende schermafbeelding ziet:
+
+    ![Verbinding maken met SAC](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-connect-sac.png)
+
+3.  Type `cmd` om een kanaal waaraan een CMD-exemplaar te maken. 
+4.  Type `ch -si 1` om over te schakelen naar het kanaal dat de CMD-exemplaar wordt uitgevoerd. 
+5.  Druk op Enter en geef uw referenties voor clusteraanmelding die beheerdersrechten hebben.
+6.  Nadat u geldige referenties invoert, wordt het exemplaar CMD geopend.
+7.  Een PowerShell-sessie starten, typt `PowerShell` in de CMD-exemplaar en druk op Enter. 
+
+    ![Open PowerShell-exemplaar](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-powershell.png)
+
+
 ## <a name="disable-serial-console"></a>Seriële Console uitschakelen
 Standaard hebben alle abonnementen seriële console-toegang ingeschakeld voor alle virtuele machines. U kunt de seriële console van het abonnement of de VM-niveau uitschakelen.
 
@@ -110,7 +124,7 @@ Seriële Console kan worden uitgeschakeld voor een volledige abonnement door via
 
 ![](../media/virtual-machines-serial-console/virtual-machine-serial-console-rest-api-try-it.png)
 
-U kunt ook de reeks opdrachten hieronder gebruiken in Cloud Shell (bash-opdrachten die worden weergegeven) als wilt uitschakelen, inschakelen en weergeven van de met uitgeschakelde status van de seriële console voor een abonnement. 
+U kunt ook de reeks opdrachten hieronder gebruiken in Cloud Shell (bash-opdrachten die worden weergegeven) als wilt uitschakelen, inschakelen en weergeven van de uitgeschakelde status van de seriële console voor een abonnement. 
 
 * De uitgeschakelde status van de seriële console voor een abonnement ophalen:
     ```azurecli-interactive
@@ -196,7 +210,7 @@ We zijn ons bewust van enkele problemen met de seriële console. Hier volgt een 
 
 Probleem                             |   Oplossing 
 :---------------------------------|:--------------------------------------------|
-Nadat de banner van de verbinding wordt niet weergegeven voor een logboek in de prompt te maken met invoeren | Raadpleeg deze pagina: [Hitting invoeren, gebeurt er niets](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md). Dit kan gebeuren als u een aangepaste VM, beperkte toestel of de configuratie van een opstartinstallatiekopie die Windows causers als u wilt geen correct verbinding maken met de seriële poort. Dit wordt ook als u een Windows 10 client VM, gebeuren als Windows Server-VM's alleen worden geconfigureerd met EMS is ingeschakeld.
+Nadat de banner van de verbinding wordt niet weergegeven voor een logboek in de prompt te maken met invoeren | Deze pagina wordt weergegeven: [Hitting invoeren, gebeurt er niets](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md). Dit kan gebeuren als u een aangepaste VM, beperkte toestel of de configuratie van een opstartinstallatiekopie die Windows causers als u wilt geen correct verbinding maken met de seriële poort. Dit wordt ook als u een Windows 10 client VM, gebeuren als Windows Server-VM's alleen worden geconfigureerd met EMS is ingeschakeld.
 Kan niet naar het type op SAC vragen als kernelfoutopsporing is ingeschakeld | RDP-verbinding VM en voer `bcdedit /debug {current} off` vanaf een opdrachtprompt met verhoogde bevoegdheid. Als u niet de RDP-verbinding kunt u in plaats daarvan de besturingssysteemschijf koppelen aan een andere Azure-virtuele machine en wijzigen terwijl gekoppeld als een gegevens-schijf met `bcdedit /store <drive letter of data disk>:\boot\bcd /debug <identifier> off`, klikt u vervolgens wisselen de schijf weer.
 Als de oorspronkelijke inhoud had een herhalende teken in PowerShell te plakken in SAC resulteert in een derde teken | Een tijdelijke oplossing is verwijderd na de PSReadLine-module op basis van de huidige sessie. Voer `Remove-Module PSReadLine` te verwijderen van de module PSReadLine uit de huidige sessie - wordt dit niet verwijderen of de module verwijderen.
 Sommige invoer toetsenbord vreemd SAC uitvoer produceren (bijvoorbeeld `[A`, `[3~`) | [VT100](https://aka.ms/vtsequences) escapereeksen worden niet ondersteund door de SAC-prompt.

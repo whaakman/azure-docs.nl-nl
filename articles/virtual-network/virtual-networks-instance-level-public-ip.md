@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/03/2018
 ms.author: genli
-ms.openlocfilehash: 7d8325ce04a9fa7853fb622062022a6938375f96
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 2f6db23e02c836dea6d640757d12275b654ad468
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47430978"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024616"
 ---
 # <a name="instance-level-public-ip-classic-overview"></a>Openbare IP (klassiek) overzicht's op exemplaarniveau
 Een instantie level public IP (ILPIP) is een openbare IP-adres dat u rechtstreeks naar een exemplaar van de rol virtuele machine of Cloud Services, in plaats van met de cloudservice die uw rol of VM-exemplaar zich bevinden in kunt toewijzen. Een ILPIP ter niet vervanging van het virtuele IP (VIP) die is toegewezen aan uw cloudservice. Het is in plaats daarvan een extra IP-adres dat u kunt rechtstreeks verbinding maken met uw rol of VM-exemplaar.
@@ -47,7 +47,7 @@ Wanneer u een cloudservice in Azure maakt, worden bijbehorende DNS A-records aut
 ## <a name="why-would-i-request-an-ilpip"></a>Waarom zou ik een ILPIP vragen?
 Als u kunnen verbinding maken met uw rol of VM-exemplaar met een IP-adres toegewezen om er rechtstreeks wilt, in plaats van de cloud service VIP:&lt;poortnummer&gt;, een ILPIP aanvragen voor uw virtuele machine of uw rolinstantie.
 
-* **Actieve FTP** -door een ILPIP toewijzen aan een virtuele machine, kan ontvangen verkeer op een willekeurige poort. Eindpunten zijn niet vereist voor de virtuele machine om verkeer te ontvangen.  Zie [FTP-Protocol Overview] (https://en.wikipedia.org/wiki/File_Transfer_Protocol#Protocol_overview) voor meer informatie over het FTP-protocol.
+* **Actieve FTP** -door een ILPIP toewijzen aan een virtuele machine, kan ontvangen verkeer op een willekeurige poort. Eindpunten zijn niet vereist voor de virtuele machine om verkeer te ontvangen.  Zie [overzicht van de FTP-Protocol](https://en.wikipedia.org/wiki/File_Transfer_Protocol#Protocol_overview) voor meer informatie over het FTP-protocol.
 * **Uitgaande IP** : uitgaand verkeer dat afkomstig is van de virtuele machine is toegewezen aan de ILPIP als de bron en de ILPIP unieke identificatie van de virtuele machine naar externe entiteiten.
 
 > [!NOTE]

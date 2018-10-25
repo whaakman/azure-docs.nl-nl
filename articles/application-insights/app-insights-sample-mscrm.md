@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 03/16/2018
 ms.reviewer: mazhar
 ms.author: mbullwin
-ms.openlocfilehash: c9629611544efe248b1b343ac1ba26740b9ce7e0
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 2fa4242de6a953e82e3f81831c491125e9a7c3f3
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47091686"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50026225"
 ---
 # <a name="walkthrough-enabling-telemetry-for-microsoft-dynamics-crm-online-using-application-insights"></a>Walkthrough: Telemetrie inschakelen voor Microsoft Dynamics CRM Online met behulp van Application Insights
 Dit artikel leest u hoe u aan de telemetriegegevens van [Microsoft Dynamics CRM Online](https://www.dynamics.com/) met behulp van [Azure Application Insights](https://azure.microsoft.com/services/application-insights/). Behandelen we het complete proces van het Application Insights-script toevoegen aan uw toepassing, het vastleggen van gegevens en gegevensvisualisatie.
@@ -39,11 +39,7 @@ Voor het bewaken van uw toepassing, kunt u een Application Insights-SDK toevoege
     ![Klik op +, Ontwikkelaarsservices, Application Insights.](./media/app-insights-sample-mscrm/01.png)
 
     Kies ASP.NET als het toepassingstype.
-3. Open de pagina aan de slag en ' bewaken en diagnosticeren van client-side '.
-
-    ![Codefragment voor het invoegen in uw webpagina](./media/app-insights-sample-mscrm/03.png)
-
-**Houd de pagina geopend** terwijl u de volgende stap in een ander browservenster. U moet de code binnenkort. 
+3. Volg de instructies voor [verkrijgen van de JavaScript SDK-script voor uw app](app-insights-javascript.md#set-up-application-insights-for-your-web-page), Kopieer het JavaScript-fragment en zorg ervoor dat u de Instrumentatiesleutel vervangen door de juiste waarde voor uw Application Insights-resource.
 
 ### <a name="create-a-javascript-web-resource-in-microsoft-dynamics-crm"></a>Een JavaScript-webresource in Microsoft Dynamics CRM maken
 1. Open uw Online CRM-exemplaar en meld u aan met administratorbevoegdheden.
@@ -60,7 +56,7 @@ Voor het bewaken van uw toepassing, kunt u een Application Insights-SDK toevoege
     Geef deze een naam, selecteer **Script (JScript)** en open de teksteditor.
 
     ![Open de teksteditor](./media/app-insights-sample-mscrm/00004.png)
-2. Kopieer de code van Application Insights. Zorg dat u script-tags genegeerd tijdens het kopiëren. Raadpleeg de schermafbeelding hieronder:
+2. Kopieer de code uit de Application Insights JavaScript SDK waarin u de Instrumentatiesleutel voordat hebt geconfigureerd. Zorg dat u script-tags genegeerd tijdens het kopiëren. Raadpleeg de onderstaande schermafbeelding:
 
     ![Stel de instrumentatiesleutel](./media/app-insights-sample-mscrm/000005.png)
 

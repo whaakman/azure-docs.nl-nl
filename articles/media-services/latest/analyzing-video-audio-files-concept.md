@@ -9,20 +9,23 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 10/23/2018
 ms.author: juliako
-ms.openlocfilehash: 36c30e11e8b7bd8b3e8ae3e424649998dcfff5bb
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 90aa3551bb9e2d903fb0f66e3a9b464b0f4be928
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49380977"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49987610"
 ---
 # <a name="analyzing-video-and-audio-files"></a>Video-en audiobestanden analyseren
 
-Azure Media Services v3 kunt u voor het extraheren van inzichten uit uw video en audio bestanden met Video Indexer via AMS v3 analyzer voorinstellingen (beschreven in dit artikel). Als u meer gedetailleerde inzichten wilt, rechtstreeks Video Indexer gebruiken. Om te begrijpen wanneer u wilt gebruiken in plaats van Video Indexer. Voorinstellingen van Media Services analyzer, bekijk de [vergelijkingsdocument](../video-indexer/compare-video-indexer-with-media-services-presets.md).
+Azure Media Services v3 kunt u voor het extraheren van inzichten uit uw video en audio bestanden met Video Indexer via AMS v3 analyzer voorinstellingen (beschreven in dit artikel). Als u meer gedetailleerde inzichten wilt, gebruikt u Video Indexer rechtstreeks. Als u het verschil wilt weten tussen het gebruik van instellingen van Video Indexer en Media Services, raadpleegt u het [vergelijkingsdocument](../video-indexer/compare-video-indexer-with-media-services-presets.md).
 
 Voor het analyseren van uw inhoud met behulp van Media Services v3 voorinstellingen, maakt u een **transformeren** en het verzenden van een **taak** die gebruikmaakt van een van deze standaardinstellingen: **AudioAnalyzerPreset** of **VideoAnalyzerPreset**. Het volgende artikel ziet u hoe u **VideoAnalyzerPreset**: [zelfstudie: analyseren van video's met Azure Media Services](analyze-videos-tutorial-with-api.md).
+
+> [!NOTE]
+> Wanneer u een Video of Audio Analyzer voorinstellingen, gebruikt u de Azure portal om in te stellen van uw account 10 S3 gereserveerde Media-eenheden hebben. Zie voor meer informatie, [mediaverwerking schalen](../previous/media-services-scale-media-processing-overview.md).
 
 ## <a name="audioanalyzerpreset"></a>AudioAnalyzerPreset
 

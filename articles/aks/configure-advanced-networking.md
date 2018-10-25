@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 10/11/2018
 ms.author: iainfou
-ms.openlocfilehash: 87c3ab9624116e9c1c61041531fdf5d3b26117e1
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 4c60474c07a3853e409436359713578178b639fb
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49381024"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024851"
 ---
 # <a name="configure-advanced-networking-in-azure-kubernetes-service-aks"></a>Geavanceerde netwerken configureren in Azure Kubernetes Service (AKS)
 
@@ -23,7 +23,7 @@ Dit artikel leest u hoe geavanceerde netwerken gebruiken om te maken en gebruike
 ## <a name="prerequisites"></a>Vereisten
 
 * Het virtuele netwerk voor het AKS-cluster moet uitgaande internetverbinding toestaan.
-* Maak niet meer dan één AKS-cluster in hetzelfde subnet.
+* Niet meer dan één AKS-cluster maken in hetzelfde subnet.
 * AKS-clusters worden niet gebruikt `169.254.0.0/16`, `172.30.0.0/16`, of `172.31.0.0/16` voor het Kubernetes-service-adresbereik.
 * De service-principal die worden gebruikt door het AKS-cluster moet minimaal beschikken over [Inzender voor netwerken](../role-based-access-control/built-in-roles.md#network-contributor) machtigingen op het subnet binnen uw virtuele netwerk. Als u wilt definiëren een [aangepaste rol](../role-based-access-control/custom-roles.md) in plaats van de ingebouwde rol van inzender voor netwerken, de volgende machtigingen zijn vereist:
   * `Microsoft.Network/virtualNetworks/subnets/join/action`
@@ -31,25 +31,25 @@ Dit artikel leest u hoe geavanceerde netwerken gebruiken om te maken en gebruike
 
 ## <a name="plan-ip-addressing-for-your-cluster"></a>IP-adressen voor uw cluster plannen
 
-Clusters die zijn geconfigureerd met geavanceerde netwerken vereist extra planning. De grootte van het virtuele netwerk en een subnet moet geschikt zijn voor zowel het aantal schillen die u van plan bent om uit te voeren als het aantal knooppunten voor het cluster.
+Clusters die zijn geconfigureerd met geavanceerde netwerken vereist extra planning. De grootte van het virtuele netwerk en een subnet moet geschikt zijn voor het aantal schillen die u van plan bent om uit te voeren en het aantal knooppunten voor het cluster.
 
-IP-adressen voor het gehele product en de knooppunten van het cluster worden toegewezen uit het opgegeven subnet binnen het virtuele netwerk. Elk knooppunt is geconfigureerd met een primaire IP-adres, is het IP-adres van het knooppunt en 30 extra IP-adressen vooraf is geconfigureerd door Azure CNI die zijn toegewezen aan schillen gepland naar het knooppunt. Wanneer u uw cluster uitschalen, wordt elk knooppunt op dezelfde manier geconfigureerd met IP-adressen uit het subnet.
+IP-adressen voor het gehele product en de knooppunten van het cluster worden toegewezen uit het opgegeven subnet binnen het virtuele netwerk. Elk knooppunt is geconfigureerd met een primaire IP-adres. 30 extra IP-adressen worden standaard, vooraf geconfigureerd door Azure CNI die zijn toegewezen aan schillen gepland op het knooppunt. Wanneer u uw cluster uitschalen, wordt elk knooppunt op dezelfde manier geconfigureerd met IP-adressen uit het subnet. U kunt ook zien de [maximale schillen per knooppunt](#maximum-pods-per-node).
 
 Het IP-adres-plan voor een AKS-cluster bestaat uit een virtueel netwerk, ten minste één subnet voor de knooppunten en schillen en Kubernetes service adresbereik.
 
 | Adresbereik / Azure resource | Limieten en grootte |
 | --------- | ------------- |
 | Virtueel netwerk | Het Azure-netwerk zo groot is als/8 die kan worden, maar is beperkt tot 65.536 geconfigureerde IP-adressen. |
-| Subnet | Moet groot genoeg is voor de knooppunten, schillen en alle Kubernetes en Azure-resources die kunnen worden ingericht in het cluster. Als u een interne Load Balancer in Azure implementeert, kunt u voor de front-end-IP-adressen, worden toegewezen uit het subnet van het cluster, geen openbare IP-adressen. <p/>Voor het berekenen van *minimale* subnetgrootte: `(number of nodes) + (number of nodes * pods per node)` <p/>Voorbeeld voor een cluster met 50 knooppunten: `(50) + (50 * 30) = 1,550` (/ 21 of hoger) |
+| Subnet | Moet groot genoeg is voor de knooppunten, schillen en alle Kubernetes en Azure-resources die kunnen worden ingericht in het cluster. Als u een interne Load Balancer in Azure implementeert, kunt u voor de front-end-IP-adressen, worden toegewezen uit het subnet van het cluster, geen openbare IP-adressen. <p/>Voor het berekenen van *minimale* subnetgrootte: `(number of nodes) + (number of nodes * maximum pods per node that you configure)` <p/>Voorbeeld voor een cluster met 50 knooppunten: `(50) + (50 * 30 (default)) = 1,550` (/ 21 of hoger)<p>Als u geen een maximum aantal schillen per knooppunt opgeeft wanneer u uw cluster maakt, het maximum aantal schillen per knooppunt is ingesteld op *30*. Het minimale aantal vereiste IP-adressen is gebaseerd op die waarde. Als u de minimale vereisten van IP-adres op een andere maximale waarde berekenen, Zie [het configureren van het maximum aantal schillen per knooppunt](#configure-maximum---new-clusters) kunt u deze waarde instellen wanneer u uw cluster implementeert. |
 | Adresbereik van Kubernetes service | Dit bereik moet niet worden gebruikt door elk netwerkelement op of verbonden met dit virtuele netwerk. Adres van service CIDR moet kleiner zijn dan /12. |
 | IP-adres van Kubernetes DNS-service | IP-adres binnen het Kubernetes-service-adresbereik dat wordt gebruikt door clusterservicedetectie (kube-dns). |
 | Docker bridge-adres | IP-adres (in CIDR-notatie) gebruikt als de Docker bridge-IP-adres op knooppunten. De standaardwaarde van 172.17.0.1/16. |
 
 ## <a name="maximum-pods-per-node"></a>Maximale schillen per knooppunt
 
-Het standaard maximum aantal schillen per knooppunt in een AKS-cluster varieert tussen de basisopties en geavanceerde netwerken en de methode van implementatie van het cluster.
+Het maximum aantal schillen per knooppunt in een AKS-cluster is 110. De *standaard* maximum aantal schillen per knooppunt varieert tussen de basisopties en geavanceerde netwerken en de methode van implementatie van het cluster.
 
-| Implementatiemethode | Basic | Geavanceerd | Kan worden geconfigureerd tijdens de implementatie |
+| Implementatiemethode | Basic standaard | Geavanceerde standaard | Kan worden geconfigureerd tijdens de implementatie |
 | -- | :--: | :--: | -- |
 | Azure-CLI | 110 | 30 | Ja (maximaal 110) |
 | Resource Manager-sjabloon | 110 | 30 | Ja (maximaal 110) |

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
-ms.openlocfilehash: b4e2971b5bb4ed5add2e68c1aabbc82443a61160
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
-ms.translationtype: HT
+ms.openlocfilehash: 720b8584c201826e55099ad31667478b6aa57b27
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49363378"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024509"
 ---
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>Extensies voor virtuele machines en functies voor Linux
 
@@ -54,7 +54,8 @@ Als u wilt de best mogelijke ervaring bieden, zijn er minimaal vereiste versies 
 
 #### <a name="supported-oses"></a>Ondersteunde besturingssystemen
 
-De Linux-agent wordt uitgevoerd op meerdere besturingssystemen, maar het framework extensions een limiet voor de besturingssystemen die uitbreidingen heeft. Zie voor meer informatie [in dit artikel] (https://support.microsoft.com/en-us/help/4078134/azure-extension-supported-operating-systems ).
+De Linux-agent wordt uitgevoerd op meerdere besturingssystemen, maar het framework extensions een limiet voor de besturingssystemen die uitbreidingen heeft. Raadpleeg [dit artikel](https://support.microsoft.com/en-us/help/4078134/azure-extension-supported-operating-systems
+) voor meer informatie.
 
 Bepaalde extensies worden niet ondersteund in alle besturingssystemen en verzendt *fout Code 51, 'Niet-ondersteund besturingssysteem'*. Raadpleeg de documentatie van de afzonderlijke-extensie voor ondersteuning.
 
@@ -65,7 +66,7 @@ Bepaalde extensies worden niet ondersteund in alle besturingssystemen en verzend
 > [!IMPORTANT]
 > Als u toegang tot hebben geblokkeerd *168.63.129.1* met behulp van de Gast-firewall, extensies mislukt, ongeacht de bovenstaande.
 
-Agents kunnen alleen worden gebruikt voor het downloaden van extensiepakketten en rapporteringsstatus. Bijvoorbeeld, als een extensie installeren moet een script downloaden vanuit GitHub (aangepast Script) of moet toegang tot Azure Storage (Azure Backup), klikt u vervolgens aanvullende firewall/Network Security Group-poorten moeten worden geopend. Verschillende extensies hebben verschillende vereisten, omdat ze toepassingen in hun eigen rechts. Voor uitbreidingen waarvoor toegang tot Azure Storage, kunt u toegang met behulp van Azure NSG servicetags voor [opslag](https://docs.microsoft.com/en-us/azure/virtual-network/security-overview#service-tags).
+Agents kunnen alleen worden gebruikt voor het downloaden van extensiepakketten en rapporteringsstatus. Bijvoorbeeld, als een extensie installeren moet een script downloaden vanuit GitHub (aangepast Script) of moet toegang tot Azure Storage (Azure Backup), klikt u vervolgens aanvullende firewall/Network Security Group-poorten moeten worden geopend. Verschillende extensies hebben verschillende vereisten, omdat ze toepassingen in hun eigen rechts. Voor uitbreidingen waarvoor toegang tot Azure Storage, kunt u toegang met behulp van Azure NSG servicetags voor [opslag](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
 
 De Linux-Agent heeft om te leiden verkeer agentaanvragen, ondersteuning voor proxyserver. Ondersteuning voor deze proxyserver geldt echter niet extensies. U moet elke afzonderlijke extensie om te werken met een proxy configureren.
 
@@ -259,7 +260,7 @@ In het voorgaande van de voorbeelduitvoer is de bovenliggende of 'pakket geïmpl
 
 De 'doel status agent' is de versie van de update automatisch.
 
-Het is raadzaam dat u altijd automatisch bijwerken voor de agent hebt [AutoUpdate.Enabled=y](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/update-agent). Niet dat u hoeft dit ingeschakelde betekent dat die u wilt houden handmatig bijwerken van de agent, en oplossingen voor bugs en beveiliging niet ophalen.
+Het is raadzaam dat u altijd automatisch bijwerken voor de agent hebt [AutoUpdate.Enabled=y](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent). Niet dat u hoeft dit ingeschakelde betekent dat die u wilt houden handmatig bijwerken van de agent, en oplossingen voor bugs en beveiliging niet ophalen.
 
 #### <a name="extension-updates"></a>Extensie-updates
 

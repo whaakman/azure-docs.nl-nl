@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2018
 ms.author: shvija
-ms.openlocfilehash: bc4116bdb251ef6f3228b7394e5c8e0cdff67447
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 19525086b1bd41afcc730fb3860d7a01875e4832
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49470163"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49986998"
 ---
 # <a name="automatically-scale-up-azure-event-hubs-throughput-units"></a>Automatisch schalen van Azure Event Hubs-doorvoereenheden
 
@@ -59,7 +59,7 @@ U kunt ook inschakelen voor automatisch vergroten met behulp van de **schaal** o
 
 
 > [!NOTE]
-> Bij het toepassen van de configuratie om te verhogen doorvoereenheden automatisch vergroten, de Event Hubs-service verzendt diagnostische logboeken waarmee u informatie over waarom en wanneer de doorvoer is verhoogd. Als u Diagnostische logboekregistratie voor een event hub, schakelt **diagnostische instellingen** in het menu links op de Event Hub-pagina in de Azure-portal. 
+> Bij het toepassen van de configuratie om te verhogen doorvoereenheden automatisch vergroten, de Event Hubs-service verzendt diagnostische logboeken waarmee u informatie over waarom en wanneer de doorvoer is verhoogd. Als u Diagnostische logboekregistratie voor een event hub, schakelt **diagnostische instellingen** in het menu links op de Event Hub-pagina in de Azure-portal. Zie voor meer informatie, [instellen van diagnostische logboeken voor een Azure event hub](event-hubs-diagnostic-logs.md). 
 
 ### <a name="enable-auto-inflate-using-an-azure-resource-manager-template"></a>Automatisch vergroten met behulp van een Azure Resource Manager-sjabloon inschakelen
 

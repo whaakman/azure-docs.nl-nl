@@ -8,12 +8,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 09/06/2016
 ms.author: yizhon
-ms.openlocfilehash: 410ef936da7cf464dbef1698cf7019643cc1fb42
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 0a7e30be374ae5095e206ce0e519e51bb58f1f00
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48249312"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024855"
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-serializer"></a>Azure IoT device-SDK voor C: meer informatie over serialisatiefunctie
 
@@ -27,7 +27,7 @@ Ten slotte revisits het artikel enkele onderwerpen aan bod in de vorige artikele
 
 Alles dat wordt beschreven in dit artikel is gebaseerd op de **serializer** SDK-voorbeelden. Als u volgen wilt, raadpleegt u de **simplesample\_amqp** en **simplesample\_http** toepassingen die zijn opgenomen in de Azure IoT-device-SDK voor c
 
-U vindt de [ **Azure IoT device-SDK voor C** ](https://github.com/Azure/azure-iot-sdk-c) GitHub-opslagplaats en de weergave details van de API in de [C-API-verwijzing](https://azure.github.io/azure-iot-sdk-c/index.html).
+U vindt de [ **Azure IoT device-SDK voor C** ](https://github.com/Azure/azure-iot-sdk-c) GitHub-opslagplaats en de weergave details van de API in de [C-API-verwijzing](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/).
 
 ## <a name="the-modeling-language"></a>De modelleertaal
 
@@ -68,8 +68,8 @@ De volgende gegevenstypen worden ondersteund in modellen die zijn gemaakt met de
 | --- | --- |
 | double |dubbele precisiegetal met drijvende komma |
 | int |32-bits geheel getal zijn |
-| drijvend |enkele precisiegetal met drijvende komma |
-| lengte |lange geheel getal zijn |
+| float |enkele precisiegetal met drijvende komma |
+| lang |lange geheel getal zijn |
 | int8\_t |8-bits geheel getal zijn |
 | int16\_t |16-bits geheel getal zijn |
 | Int32\_t |32-bits geheel getal zijn |

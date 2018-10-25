@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 09/19/2018
 ms.author: andret
 ms.custom: include file
-ms.openlocfilehash: 248f2575e284ae456578b071013e1a5501329116
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 06da33b91ef9846204b33ba2cb3dea40c75d425d
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48843318"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49988245"
 ---
 ## <a name="use-the-microsoft-authentication-library-msal-to-get-a-token-for-the-microsoft-graph-api"></a>Microsoft Authentication Library (MSAL) gebruiken om op te halen van een token voor de Microsoft Graph API
 
@@ -29,17 +29,17 @@ Open `ViewController.swift` en vervang de code met:
 import UIKit
 import MSAL
 
-/// 😃 A View Controller that will respond to the events of the Storyboard.
+// A View Controller that will respond to the events of the Storyboard.
 class ViewController: UIViewController, UITextFieldDelegate, URLSessionDelegate {
-    
-    // Update the below to your client ID you received in the portal. The below is for running the demo only
+
+    // Replace Your_Application_Id_Here with the client ID you received in the portal. The below is for running the demo only.
     let kClientID = "Your_Application_Id_Here"
-    
+
     // These settings you don't need to edit unless you wish to attempt deeper scenarios with the app.
     let kGraphURI = "https://graph.microsoft.com/v1.0/me/"
     let kScopes: [String] = ["https://graph.microsoft.com/user.read"]
     let kAuthority = "https://login.microsoftonline.com/common"
-    
+
     var accessToken = String()
     var applicationContext : MSALPublicClientApplication?
 
@@ -87,7 +87,7 @@ class ViewController: UIViewController, UITextFieldDelegate, URLSessionDelegate 
         super.viewWillAppear(animated)
         signoutButton.isEnabled = !self.accessToken.isEmpty
     }
-    
+
     /**
      This button will invoke the authorization flow.
     */
@@ -204,17 +204,20 @@ class ViewController: UIViewController, UITextFieldDelegate, URLSessionDelegate 
 
 <!--start-collapse-->
 ### <a name="more-information"></a>Meer informatie
+
 #### <a name="getting-a-user-token-interactively"></a>Een gebruikerstoken interactief ophalen
+
 Aanroepen van de `acquireToken` methode resulteert in een browservenster geopend waarin wordt gevraagd de gebruiker zich aanmeldt. Toepassingen vereisen meestal dat een gebruiker zich interactief aanmelden de eerste keer dat ze nodig hebben voor toegang tot een beveiligde bron, of wanneer een bewerking op de achtergrond te verkrijgen van een token mislukt (bijvoorbeeld van de gebruiker het wachtwoord verlopen).
 
 #### <a name="getting-a-user-token-silently"></a>Een gebruikerstoken op de achtergrond ophalen
+
 De `acquireTokenSilent` methode wordt gebruikt voor token-aankopen en verlenging zonder tussenkomst van de gebruiker. Na `acquireToken` wordt uitgevoerd voor de eerste keer `acquireTokenSilent` is de methode die vaak worden gebruikt om te verkrijgen van tokens gebruikt voor toegang tot beveiligde resources voor volgende aanroepen - aanroepen aan te vragen of vernieuwen van tokens op de achtergrond worden gemaakt.
 
 Uiteindelijk `acquireTokenSilent` mislukken: bijv. de gebruiker heeft zich afgemeld, of het wachtwoord op een ander apparaat heeft gewijzigd. Wanneer MSAL detecteert dat het probleem kan worden omgezet door verlangen dat ze een interactieve actie, wordt deze gebeurtenis wordt gestart een `MSALErrorCode.interactionRequired` uitzondering. Uw toepassing kan verwerken deze uitzondering op twee manieren:
 
-1.  Aanroepen op basis van `acquireToken` onmiddellijk, wat ertoe leidt dat u wordt gevraagd de gebruiker zich aanmeldt. Dit patroon wordt meestal gebruikt in online toepassingen waarbij er geen offline inhoud in de toepassing beschikbaar is voor de gebruiker. De voorbeeldtoepassing die is gegenereerd door deze Begeleide instelling maakt gebruik van dit patroon: u kunt deze zien in actie de eerste keer dat u de toepassing uitvoert. Omdat er geen gebruiker heeft het ooit de toepassing gebruikt `applicationContext.allAccounts().first` bevat een null-waarde en een ` MSALErrorCode.interactionRequired ` uitzondering gegenereerd. De code in het voorbeeld de uitzondering wordt verwerkt door het aanroepen van `acquireToken` leidt de gebruiker zich aanmeldt.
+1. Aanroepen op basis van `acquireToken` onmiddellijk, wat ertoe leidt dat u wordt gevraagd de gebruiker zich aanmeldt. Dit patroon wordt meestal gebruikt in online toepassingen waarbij er geen offline inhoud in de toepassing beschikbaar is voor de gebruiker. De voorbeeldtoepassing die is gegenereerd door deze Begeleide instelling maakt gebruik van dit patroon: u kunt deze zien in actie de eerste keer dat u de toepassing uitvoert. Omdat er geen gebruiker heeft het ooit de toepassing gebruikt `applicationContext.allAccounts().first` bevat een null-waarde en een ` MSALErrorCode.interactionRequired ` uitzondering gegenereerd. De code in het voorbeeld de uitzondering wordt verwerkt door het aanroepen van `acquireToken` leidt de gebruiker zich aanmeldt.
 
-2.  Toepassingen kunnen ook een visuele indicatie maken voor de gebruiker dat een interactief aanmelden is vereist, zodat de gebruiker kan het juiste moment aan te melden bij selecteren, of de toepassing opnieuw kunt `acquireTokenSilent` op een later tijdstip. Dit wordt meestal gebruikt wanneer de gebruiker andere functionaliteit van de toepassing gebruiken kunt zonder onderbroken - bijvoorbeeld: er offline inhoud beschikbaar in de toepassing is. In dit geval de gebruiker kunt bepalen wanneer ze willen Meld u aan voor toegang tot de beveiligde bron of om de verouderde gegevens te vernieuwen of uw toepassing kunt bepalen om opnieuw te proberen `acquireTokenSilent` wanneer het netwerk is hersteld na een tijdelijk niet beschikbaar.
+2. Toepassingen kunnen ook een visuele indicatie maken voor de gebruiker dat een interactief aanmelden is vereist, zodat de gebruiker kan het juiste moment aan te melden bij selecteren, of de toepassing opnieuw kunt `acquireTokenSilent` op een later tijdstip. Dit wordt meestal gebruikt wanneer de gebruiker andere functionaliteit van de toepassing gebruiken kunt zonder onderbroken - bijvoorbeeld: er offline inhoud beschikbaar in de toepassing is. In dit geval de gebruiker kunt bepalen wanneer ze willen Meld u aan voor toegang tot de beveiligde bron of om de verouderde gegevens te vernieuwen of uw toepassing kunt bepalen om opnieuw te proberen `acquireTokenSilent` wanneer het netwerk is hersteld na een tijdelijk niet beschikbaar.
 
 <!--end-collapse-->
 
@@ -287,6 +290,7 @@ Voeg de volgende methode om te `ViewController.swift` afmelden van de gebruiker:
 
 }
 ```
+
 <!--start-collapse-->
 ### <a name="more-info-on-sign-out"></a>Meer informatie over het afmelden
 
@@ -299,11 +303,12 @@ Hoewel de toepassing in dit voorbeeld biedt ondersteuning voor één gebruiker, 
 
 Zodra de gebruiker zich verifieert, wordt de gebruiker omgeleid naar de toepassing van de browser. Volg de stappen hieronder om deze callback te registreren:
 
-1.  Open `AppDelegate.swift` en MSAL importeren:
+1. Open `AppDelegate.swift` en MSAL importeren:
 
 ```swift
 import MSAL
 ```
+
 <!-- Workaround for Docs conversion bug -->
 <ol start="2">
 <li>

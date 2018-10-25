@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/23/2018
 ms.author: dstefan
-ms.openlocfilehash: db6778bdea2e3e133535bf28b3c2297cdb65599d
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 7aa0f80b8a0b53d4c53cf633938765e820c641cf
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49958904"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025321"
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Azure Active Directory bewijs van concept playbook: bouwstenen
 
@@ -209,7 +209,7 @@ Geschatte tijd om te voltooien: 30 minuten
 | Vereiste | Resources |
 | --- | --- |
 | De lijst met doeltoepassingen en de exacte aanmelden URL tevoren. U kunt bijvoorbeeld Twitter. | [Twitter op Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/aad.twitter)<br/>[Aanmelden voor Twitter](https://twitter.com/signup?lang=en) |
-| Referentie voor deze SaaS-toepassing wordt gedeeld. | [Delen van accounts met behulp van Azure AD](active-directory-sharing-accounts.md)<br/>[Azure AD geautomatiseerde wachtwoord worden meegenomen Facebook, Twitter en LinkedIn nu in preview. -Enterprise Mobility and Security-Blog] (https://blogs.technet.microsoft.com/enterprisemobility/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview/ ) |
+| Referentie voor deze SaaS-toepassing wordt gedeeld. | [Delen van accounts met behulp van Azure AD](active-directory-sharing-accounts.md)<br/>[Azure AD geautomatiseerde wachtwoord worden meegenomen Facebook, Twitter en LinkedIn nu in preview. -Enterprise Mobility and Security-Blog](https://blogs.technet.microsoft.com/enterprisemobility/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview/ ) |
 | Referenties voor ten minste twee teamleden die van hetzelfde account gebruikmaken. Ze moeten deel uitmaken van een beveiligingsgroep. | [Een gebruiker of groep toewijzen aan een enterprise-app in Azure Active Directory](manage-apps/assign-user-or-group-access-portal.md) |
 | Lokale beheerderstoegang tot een computer voor het implementeren van het Configuratiescherm-extensie voor toegang voor Internet Explorer, Chrome of Firefox | [Deelvenster-extensie voor toegang voor Internet Explorer](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)<br/>[Deelvenster-extensie voor toegang voor Chrome](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)<br/>[Deelvenster-extensie voor toegang voor Firefox](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409) |
 

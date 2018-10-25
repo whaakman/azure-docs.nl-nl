@@ -6,16 +6,16 @@ services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: project-url-preview
+ms.component: url-preview
 ms.topic: quickstart
 ms.date: 03/16/2018
 ms.author: rosh
-ms.openlocfilehash: b10e33a0947057c35bb6227cc43f92c4f0a56ceb
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: f36609448819ed197cb92c0bc4d9cc0237fe6df8
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48869462"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49466933"
 ---
 # <a name="quickstart-url-preview-in-javascript"></a>Snelstartgids: URL-voorbeeld in JavaScript 
 
@@ -23,7 +23,7 @@ De volgende toepassing met één pagina gebruikt JavaScript om een URL-voorbeeld
 
 ## <a name="prerequisites"></a>Vereisten
 
-Vraag een toegangssleutel aan voor de gratis proefversie van [Cognitive Services Labs](https://labs.cognitive.microsoft.com/en-us/project-url-preview).
+Vraag een toegangssleutel aan voor de gratis proefversie van [Cognitive Services Labs](https://labs.cognitive.microsoft.com/en-us/project-url-preview)
 
 ## <a name="code-scenario"></a>Codescenario
 Het volgende JavaScript-voorbeeld bevat een object voor tekstvakinvoer waarin de gebruiker de URL invoert waarvan een voorbeeld moet worden weergegeven.  Wanneer de gebruiker op de knop **Preview** klikt, zorgt de onclick-methode voor omleiding naar `getPreview` waar code een webaanvraag genereert naar het eindpunt **UrlPreview**.
@@ -132,4 +132,4 @@ De toepassing uitvoeren:
 - [Snelstart voor C#](csharp.md)
 - [Snelstart voor Java](java-quickstart.md)
 - [Snelstart voor Node](node-quickstart.md)
-- [Snelstart voor Python](python-quickstart.md)
+- [Snelstartgids voor Python](python-quickstart.md)

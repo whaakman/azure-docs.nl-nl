@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: wesmc
-ms.openlocfilehash: c0d88f0eaacaadbb508519f2e6804b9b311408c2
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: c5a18a2e8d58553e49797da418f76fc3f251e003
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39259327"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50026038"
 ---
 # <a name="azure-redis-cache-faq"></a>Veelgestelde vragen over Azure Redis Cache
 Meer informatie over de antwoorden op veelgestelde vragen, patronen en best practices voor Azure Redis Cache.
@@ -136,7 +136,7 @@ We kunnen de volgende conclusies te trekken uit deze tabel:
 | Prijscategorie | Grootte | CPU-kernen | Beschikbare bandbreedte | De grootte van 1 KB | De grootte van 1 KB |
 | --- | --- | --- | --- | --- | --- |
 | **Standaard cachegrootte** | | |**Megabits per seconde (Mb/s) / MB per seconde (MB/s)** |**Aanvragen per seconde (RPS) niet-SSL** |**Aanvragen per seconde (RPS) SSL** |
-| C0 |250 MB |Gedeeld |100 / 12.5 |15,000 |7.500 |
+| C0 |250 MB |Gedeeld |100 / 12.5 |15.000 |7.500 |
 | C1 |1 GB |1 |500 / 62.5 |38.000 |20,720 |
 | C2 |2,5 GB |2 |500 / 62.5 |41,000 |37,000 |
 | C3 |6 GB |4 |1000 / 125 |100.000 |90,000 |
@@ -392,7 +392,7 @@ Hoe u deze instelling wilt configureren:
   > De waarde die is opgegeven in deze configuratie-element is een *per kern* instelling. Bijvoorbeeld, als u wilt dat uw instelling minIOThreads 200 tijdens runtime en een 4-core-machine hebt, gebruikt u `<processModel minIoThreads="50"/>`.
   >
 
-* Buiten ASP.NET en Azure WebSites global.asax, gebruikt u de [ThreadPool.SetMinThreads (...)] (https://msdn.microsoft.com/library/system.threading.threadpool.setminthreads.aspx) API.
+* Buiten ASP.NET en Azure WebSites global.asax, gebruikt u de [ThreadPool.SetMinThreads (...)](https://msdn.microsoft.com/library/system.threading.threadpool.setminthreads.aspx) DE API.
 
   > [!NOTE]
   > De waarde gespecificeerd door deze API is een algemene instelling, die betrekking hebben op het hele AppDomain. Als u een 4-core-machine hebt en wilt minWorkerThreads en minIOThreads ingesteld op 50 per CPU tijdens runtime, zou u ThreadPool.SetMinThreads (200, 200).

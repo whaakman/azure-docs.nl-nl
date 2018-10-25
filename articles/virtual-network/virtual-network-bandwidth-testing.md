@@ -1,6 +1,6 @@
 ---
-title: Test virtuele machine van Azure netwerkdoorvoer | Microsoft Docs
-description: Informatie over het testen van de netwerkdoorvoer van de virtuele machine van Azure.
+title: Testen netwerkdoorvoer van virtuele Azure-machine | Microsoft Docs
+description: Informatie over het testen van de netwerkdoorvoer van virtuele machine van Azure.
 services: virtual-network
 documentationcenter: na
 author: steveesp
@@ -14,105 +14,104 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/21/2017
 ms.author: steveesp
-ms.openlocfilehash: d65b86cc63a4fd39824a6421afd5ce9abb7fd270
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 45efaebb9539c4c0e2542966df6ab890b64d12ee
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2018
-ms.locfileid: "28200976"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50023817"
 ---
-# <a name="bandwidththroughput-testing-ntttcp"></a>Bandbreedte/doorvoer (NTTTCP) testen
+# <a name="bandwidththroughput-testing-ntttcp"></a>Bandbreedte/doorvoer testen (NTTTCP)
 
-Bij het testen van prestaties van de netwerkdoorvoer in Azure, is het raadzaam te gebruiken van een hulpprogramma dat gericht is op het netwerk voor het testen en het gebruik van andere bronnen die kan invloed hebben op prestaties geminimaliseerd. NTTTCP wordt aanbevolen.
+Wanneer u test de prestaties van de netwerkdoorvoer in Azure, is het raadzaam te gebruiken van een hulpprogramma dat is gericht op het netwerk voor het testen en minimaliseert het gebruik van andere bronnen die invloed kunnen hebben op prestaties. NTTTCP wordt aanbevolen.
 
-Kopieer het hulpprogramma naar twee Azure VM's van dezelfde grootte hebben. Een virtuele machine fungeert als de afzender en de andere als ontvanger.
+Het hulpprogramma voor kopiëren naar twee Azure-VM's van dezelfde grootte. Een virtuele machine fungeert als de afzender en de andere als ontvanger.
 
-#### <a name="deploying-vms-for-testing"></a>Implementeren van virtuele machines voor testdoeleinden
-Voor de doeleinden van deze test moet de twee virtuele machines in dezelfde Cloud Service of in dezelfde Beschikbaarheidsset zodat we kunnen hun interne IP-adressen gebruiken en de Load Balancers van de test uitsluiten. Het is mogelijk om te testen met het VIP, maar dit soort testen is buiten het bereik van dit document.
- 
-Maak een notitie van IP-adres van de ontvanger. We bellen die IP 'a.b.c.r'
+#### <a name="deploying-vms-for-testing"></a>Implementatie van VM's voor het testen
+Voor de toepassing van deze test moet de twee virtuele machines in dezelfde Cloudservice of in dezelfde Beschikbaarheidsset zodat we kunnen hun interne IP-adressen gebruiken en de Load Balancers van de test uitsluiten. Het is mogelijk om te testen met de VIP-adres, maar dit soort testen is buiten het bereik van dit document.
+ 
+Noteer de IP-adres van de ontvanger. Noemen we dat IP-adres "a.b.c.r"
 
-Noteer het aantal kernen op de virtuele machine. Laten we dit noemen '\#num\_kernen '
- 
-Voert de test NTTTCP voor 300 seconden (of 5 minuten) op de VM-verzender en ontvanger VM.
+Noteer het aantal kernen op de virtuele machine. Noemen we dit "\#num\_kernen"  
+De test NTTTCP voor 300 seconden (of 5 minuten) worden uitgevoerd op de afzender VM en de ontvanger VM.
 
-Tip: Als deze test voor de eerste keer instelt, probeer u mogelijk een kortere testperiode om feedback sneller. Zodra de tool werkt zoals verwacht, breid u de testperiode aan 300 seconden voor de meest nauwkeurige resultaten.
+Tip: Bij het instellen van deze test voor de eerste keer, kunt u een kortere testperiode om feedback eerder proberen. Nadat het hulpprogramma werkt zoals verwacht, breid de testperiode aan 300 seconden voor de meest nauwkeurige resultaten.
 
 > [!NOTE]
-> De afzender **en** ontvanger moet opgeven **dezelfde** testen duur van de parameter (-t).
+> De afzender **en** ontvanger moet opgeven **hetzelfde** duur van de parameter testen (-t).
 
 Voor het testen van één TCP-stroom voor 10 seconden:
 
 Ontvanger parameters: ntttcp - r -t 10 - P 1
 
-Parameters van de afzender: ntttcp-s10.27.33.7 -t 10 - n 1 -P 1
+Afzender parameters: ntttcp-s10.27.33.7 -t 10 - n 1 P - 1
 
 > [!NOTE]
-> Het vorige voorbeeld mag alleen worden gebruikt om te bevestigen dat de configuratie. Aantal voorbeelden van testen worden verderop in dit document besproken.
+> Het voorgaande voorbeeld mag alleen worden gebruikt om uw configuratie te bevestigen. Geldige voorbeelden van testen worden verderop in dit document besproken.
 
 ## <a name="testing-vms-running-windows"></a>Testen van virtuele machines waarop WINDOWS wordt uitgevoerd:
 
-#### <a name="get-ntttcp-onto-the-vms"></a>NTTTCP op de virtuele machines worden opgehaald.
+#### <a name="get-ntttcp-onto-the-vms"></a>Get-NTTTCP naar de virtuele machines.
 
 Download de nieuwste versie: <https://gallery.technet.microsoft.com/NTttcp-Version-528-Now-f8b12769>
 
-Of zoekt u het als verplaatst: <https://www.bing.com/search?q=ntttcp+download> \< --moet eerst worden bereikt
+Of zoek het als verplaatst: <https://www.bing.com/search?q=ntttcp+download> \< --moet eerst worden bereikt
 
-Overweeg NTTTCP plaatsen in een afzonderlijke map, zoals c:\\hulpprogramma's
+Houd rekening met NTTTCP plaatsen in een afzonderlijke map, zoals c:\\hulpprogramma's
 
 #### <a name="allow-ntttcp-through-the-windows-firewall"></a>NTTTCP toestaan via de Windows-firewall
-Maak een regel voor toestaan op de Windows Firewall zodat het verkeer NTTTCP moet worden uitgevoerd op de ontvanger. Het gemakkelijkst om toe te staan van het volledige NTTTCP programma met de naam in plaats van dat specifieke TCP-poorten inkomend.
+Maak een regel voor toestaan op de Windows Firewall zodat het verkeer NTTTCP aankomt op de ontvanger. Het gemakkelijkst om toe te staan van de gehele NTTTCP programma met de naam in plaats van dat specifieke TCP-poorten inkomend.
 
 Toestaan dat ntttcp via de Windows Firewall als volgt:
 
-Netsh advfirewall firewall regel programma toevoegen =\<pad\>\\ntttcp.exe name = "ntttcp" protocol eventuele dir = in actie = = toestaan inschakelen = yes profile = ANY
+Netsh advfirewall firewall regel programma toevoegen =\<pad\>\\ntttcp.exe naam = "ntttcp" protocol = alle dir = in actie = inschakelen toestaan = yes profile = ANY
 
-Bijvoorbeeld, als u hebt gekopieerd ntttcp.exe aan de ' c:\\extra ' map, zou dit de opdracht: 
+Bijvoorbeeld, als u hebt gekopieerd ntttcp.exe naar de "c:\\extra" map, zou dit de opdracht: 
 
-Netsh advfirewall firewall regel programma toevoegen = c:\\hulpprogramma's\\ntttcp.exe naam = 'ntttcp' protocol eventuele dir = in actie = = toestaan inschakelen = yes profile = ANY
+Netsh advfirewall firewall regel programma toevoegen = c:\\hulpprogramma's\\ntttcp.exe naam = "ntttcp" protocol = alle dir = in actie = inschakelen toestaan = yes profile = ANY
 
-#### <a name="running-ntttcp-tests"></a>NTTTCP tests die worden uitgevoerd
+#### <a name="running-ntttcp-tests"></a>Actieve NTTTCP tests
 
 NTTTCP starten op de ontvanger (**uitvoeren vanaf CMD**, niet vanuit PowerShell):
 
-ntttcp - r-m [2\*\#num\_kernen],\*, 300 a.b.c.r -t
+ntttcp - r – m [2\*\#num\_kernen],\*, 300 a.b.c.r -t
 
-Als de virtuele machine vier kernen en het IP-adres 10.0.0.4 heeft, wordt deze eruit als volgt:
+Als de virtuele machine vier kernen en het IP-adres 10.0.0.4 heeft, zou deze er als volgt:
 
 ntttcp - r – m 8,\*, 10.0.0.4 -t 300
 
 
 NTTTCP starten op de afzender (**uitvoeren vanaf CMD**, niet vanuit PowerShell):
 
-ntttcp -s-m 8,\*, 10.0.0.4 -t 300 
+ntttcp -s – m 8,\*, 10.0.0.4 -t 300 
 
-Wacht totdat de resultaten.
+Wacht tot de resultaten.
 
 
 ## <a name="testing-vms-running-linux"></a>Testen van virtuele machines waarop LINUX wordt uitgevoerd:
 
-Gebruik nttcp voor linux. Deze beschikbaar is via <https://github.com/Microsoft/ntttcp-for-linux>
+Gebruik nttcp voor linux. Het is beschikbaar via <https://github.com/Microsoft/ntttcp-for-linux>
 
-Op de virtuele Linux-machines (ZENDER en ontvanger), moet u deze opdrachten om voor te bereiden ntttcp voor linux op uw virtuele machines uitvoeren:
+Voer deze opdrachten om voor te bereiden ntttcp voor linux op uw virtuele machines op de virtuele Linux-machines (afzender en ontvanger):
 
-CentOS - Git installeren:
+CentOS - Installeer Git:
 ``` bash
-  yum install gcc -y  
-  yum install git -y
+  yum install gcc -y  
+  yum install git -y
 ```
-Ubuntu - Git installeren:
+Ubuntu - Installeer Git:
 ``` bash
- apt-get -y install build-essential  
- apt-get -y install git
+ apt-get -y install build-essential  
+ apt-get -y install git
 ```
 Maken en te installeren op beide:
 ``` bash
- git clone https://github.com/Microsoft/ntttcp-for-linux
- cd ntttcp-for-linux/src
- make && make install
+ git clone https://github.com/Microsoft/ntttcp-for-linux
+ cd ntttcp-for-linux/src
+ make && make install
 ```
 
-Zoals in het Windows-voorbeeld gaan we ervan uit dat IP-adres van de Linux-ontvanger is 10.0.0.4
+Zoals in het Windows-voorbeeld gaan we ervan uit dat van de ontvanger van de Linux-IP-adres 10.0.0.4 is
 
 Start NTTTCP voor Linux op de ontvanger:
 
@@ -120,19 +119,19 @@ Start NTTTCP voor Linux op de ontvanger:
 ntttcp -r -t 300
 ```
 
-En voer op de afzender:
+En op de afzender, worden uitgevoerd:
 
 ``` bash
 ntttcp -s10.0.0.4 -t 300
 ```
- 
-Test lengte van de standaardwaarde is 60 seconden als er is geen tijdsparameter is gegeven
+ 
+Test lengte standaard ingesteld op 60 seconden als u geen tijdsparameter is opgegeven
 
-## <a name="testing-between-vms-running-windows-and-linux"></a>Testen tussen VM's met Windows en LINUX:
+## <a name="testing-between-vms-running-windows-and-linux"></a>Testen tussen virtuele machines met Windows en LINUX:
 
-Op deze scenario's moeten we de Nee-sync-modus inschakelen zodat de test kunt uitvoeren. Dit wordt gedaan met behulp van de **-N vlag** voor Linux en **-ns vlag** voor Windows.
+Op deze scenario's moet we het nosync-modus inschakelen, zodat de test kunt uitvoeren. Dit wordt gedaan met behulp van de **-N vlag** voor Linux en **-ns vlag** voor Windows.
 
-#### <a name="from-linux-to-windows"></a>Van Linux bij Windows:
+#### <a name="from-linux-to-windows"></a>Van Linux en Windows:
 
 Ontvanger <Windows>:
 
@@ -146,7 +145,7 @@ Afzender <Linux> :
 ntttcp -s -m <2 x nr cores>,*,<Windows server IP> -N -t 300
 ```
 
-#### <a name="from-windows-to-linux"></a>Van Windows naar Linux:
+#### <a name="from-windows-to-linux"></a>Van Windows tot Linux:
 
 Ontvanger <Linux>:
 
@@ -159,8 +158,8 @@ Afzender <Windows>:
 ``` bash
 ntttcp -s -m <2 x nr cores>,*,<Linux  server IP> -ns -t 300
 ```
-## <a name="testing-cloud-service-instances"></a>Testen Cloud Service-exemplaren:
-U moet aan uw ServiceDefinition.csdef volgende sectie toevoegen
+## <a name="testing-cloud-service-instances"></a>Testen van Cloud Service-exemplaren:
+U moet toevoegen de volgende sectie in uw ServiceDefinition.csdef
 ```xml
 <Endpoints>
   <InternalEndpoint name="Endpoint3" protocol="any" />
@@ -168,6 +167,6 @@ U moet aan uw ServiceDefinition.csdef volgende sectie toevoegen
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-* Afhankelijk van de resultaten, kunnen er ruimte is om te [netwerk doorvoer machines optimaliseren](virtual-network-optimize-network-bandwidth.md) voor uw scenario.
-* Meer informatie over het [bandbreedte is toegewezen aan virtuele machines] (virtuele-machine-netwerk-throughput.md)
-* Klik hier als u meer wilt weten met [Azure Virtual Network Veelgestelde vragen (FAQ)](virtual-networks-faq.md)
+* Afhankelijk van resultaten, kunnen er ruimte [optimaliseren van doorvoer netwerkmachines](virtual-network-optimize-network-bandwidth.md) voor uw scenario.
+* Meer informatie over hoe u [bandbreedte is toegewezen aan virtuele machines](virtual-machine-network-throughput.md)
+* Leer meer met [Azure Virtual Network Veelgestelde vragen (FAQ)](virtual-networks-faq.md)

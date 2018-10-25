@@ -14,12 +14,12 @@ ms.date: 09/25/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 755b94b71fdaefb261741f4d4e756b90d8148280
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: cae0b6a316839f10636ff3d81b9e18729d03298e
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49116892"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49987865"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Rol beheerdersmachtigingen in Azure Active Directory
 
@@ -65,7 +65,7 @@ De volgende beheerdersrollen zijn beschikbaar:
 
 * **[Dynamics 365-servicebeheerder / CRM-servicebeheerder](#dynamics-365-service-administrator)**: gebruikers met deze rol hebben algemene machtigingen in Microsoft Dynamics 365 Online, wanneer de service aanwezig is, evenals de mogelijkheid ondersteuningstickets te beheren en servicestatus controleren. Meer informatie op [de rol admin gebruiken voor het beheren van uw tenant](https://docs.microsoft.com/dynamics365/customer-engagement/admin/use-service-admin-role-manage-tenant).
 
-* **[Exchange Service-beheerder](#exchange-service-administrator)**: gebruikers met deze rol hebben algemene machtigingen in Microsoft Exchange Online, wanneer de service aanwezig is. Meer informatie op [over Office 365-beheerdersrollen](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
+* **[Exchange Service-beheerder](#exchange-service-administrator)**: gebruikers met deze rol hebben algemene machtigingen in Microsoft Exchange Online, wanneer de service aanwezig is. evenals de mogelijkheid om alle Office 365-groepen maken en beheren, ondersteuningstickets beheren en servicestatus controleren. Meer informatie op [over Office 365-beheerdersrollen](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
 * **[Globale beheerder / bedrijfsbeheerder](#company-administrator)**: gebruikers met deze rol hebben toegang tot alle beheerfuncties in Azure Active Directory, evenals de services die gebruikmaken van Azure Active Directory-identiteiten, zoals Exchange Online SharePoint Online en Skype voor bedrijven Online. De persoon die zich aanmeldt voor de Azure Active Directory-tenant wordt globale beheerder. Alleen globale beheerders kunnen andere beheerdersrollen toewijzen. Er is meer dan één globale beheerder in uw bedrijf. Globale beheerders kunnen het wachtwoord voor elke gebruiker en alle andere beheerders opnieuw instellen.
 
@@ -94,6 +94,14 @@ De volgende beheerdersrollen zijn beschikbaar:
   * Helpdeskbeheerder
   * Berichtencentrum-lezer
   * Rapportenlezer
+  
+  <b>Belangrijke</b>: gebruikers met deze rol kunnen wachtwoorden wijzigen voor gebruikers die mogelijk toegang heeft tot gevoelige of persoonlijke gegevens of essentiële configuratie binnen en buiten Azure Active Directory. Wijzigen van het wachtwoord van een gebruiker kan betekenen dat de mogelijkheid om te wordt ervan uitgegaan dat de identiteit en de machtigingen van die gebruiker. Bijvoorbeeld:
+  * Registratie van toepassingen en zakelijke toepassing eigenaren, die de referenties van waarvan ze eigenaar apps kunnen beheren. Deze apps kunnen machtigingen in Azure AD privileged en ergens anders niet worden toegekend aan de Helpdesk-medewerkers. Via dit pad die een Helpdesk-beheerder kan mogelijk wordt ervan uitgegaan dat de identiteit van de eigenaar van een toepassing en vervolgens de identiteit aannemen van een bevoegde toepassing door bij te werken van de referenties voor de toepassing.
+  * Azure-abonnementseigenaren, die mogelijk toegang heeft tot gevoelige of persoonlijke gegevens of essentiële configuratie in Azure.
+  * Beveiligingsgroepen en Office 365-groep eigenaren, die het lidmaatschap kunnen beheren. Deze groepen kunnen toegang verlenen tot gevoelige of persoonlijke gegevens of essentiële configuratie in Azure AD en elders.
+  * Beheerders in de andere services buiten Azure AD, zoals Exchange Online, Office-beveiliging en Compliancecentrum en HR-systemen.
+  * Niet-beheerders, zoals leidinggevenden, juridische afdeling en werknemers van human resources die mogelijk toegang heeft tot gevoelige of persoonlijke informatie.
+
   
   > [!NOTE]
   > In Microsoft Graph API, Azure AD Graph API en Azure AD PowerShell, wordt deze rol aangeduid als 'Helpdesk-beheerder'. 'Wachtwoordbeheerder' is in de [Azure-portal](https://portal.azure.com/).
@@ -125,7 +133,7 @@ De volgende beheerdersrollen zijn beschikbaar:
 
 * **[De rol beheerder serviceondersteuning](#service-support-administrator)**: gebruikers met deze rol kunnen ondersteuningsaanvragen openen met Microsoft Azure en Office 365-services, weergaven en het servicedashboard en berichtencentrum weergeven in Azure portal en Office 365-beheerportal. Meer informatie op [over Office 365-beheerdersrollen](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
-* **[SharePoint-servicebeheerder](#sharepoint-service-administrator)**: gebruikers met deze rol hebben algemene machtigingen in Microsoft SharePoint Online, wanneer de service aanwezig is, evenals de mogelijkheid ondersteuningstickets beheren en servicestatus controleren. Meer informatie op [over Office 365-beheerdersrollen](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
+* **[SharePoint-servicebeheerder](#sharepoint-service-administrator)**: gebruikers met deze rol hebben algemene machtigingen in Microsoft SharePoint Online, wanneer de service aanwezig is, evenals de mogelijkheid om te maken en beheren van alle Office 365-groepen en ondersteuning beheren tickets en status van monitor-service. Meer informatie op [over Office 365-beheerdersrollen](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
 * **[Skype voor bedrijven / Lync-servicebeheerder](#lync-service-administrator)**: gebruikers met deze rol hebben algemene machtigingen in Microsoft Skype voor bedrijven, wanneer de service aanwezig is, evenals Skype-specifieke gebruikerskenmerken in Azure Active beheren De map. Deze rol hebben bovendien de mogelijkheid ondersteuningstickets beheren en servicestatus controleren en de toegang tot de Teams en Skype voor bedrijven-beheercentrum. Het account moet ook een licentie hebben voor Teams of Teams PowerShell-cmdlets kan niet worden uitgevoerd. Meer informatie op [over de Skype voor bedrijven-beheerdersrol](https://support.office.com/article/about-the-skype-for-business-admin-role-aeb35bda-93fc-49b1-ac2c-c74fbeb737b5) en Teams informatie over licenties op [Skype voor bedrijven en Microsoft Teams-Add-on-licentieverlening](https://docs.microsoft.com/skypeforbusiness/skype-for-business-and-microsoft-teams-add-on-licensing/skype-for-business-and-microsoft-teams-add-on-licensing)
 
@@ -140,7 +148,7 @@ De volgende beheerdersrollen zijn beschikbaar:
 
 * **[Communicatie ondersteuning voor gespecialiseerde teams](#teams-communications-support-specialist)**: gebruikers in deze rol kunnen oplossen van communicatieproblemen binnen Microsoft Teams en Skype voor bedrijven met behulp van de gebruiker de hulpprogramma's voor probleemoplossing in de Microsoft Teams en Skype voor aanroepen Business-beheercentrum. Gebruikers in deze rol kunnen alleen gebruikersgegevens weergeven in de aanroep voor de specifieke gebruiker dat ze hebt opgezocht.
 
-* **[Servicebeheerder teams](#teams-service-administrator)**: gebruikers in deze rol kunnen alle aspecten van de Microsoft Teams-werkbelasting via de Microsoft Teams en Skype voor bedrijven-beheercentrum en de bijbehorende PowerShell-modules beheren. Dit omvat onder andere gebieden, alle beheerprogramma's met betrekking tot de telefoon, chatberichten, vergaderingen en teams zelf. Deze rol hebben ook de mogelijkheid voor het beheren van Office 365-groepen.
+* **[Servicebeheerder teams](#teams-service-administrator)**: gebruikers in deze rol kunnen alle aspecten van de Microsoft Teams-werkbelasting via de Microsoft Teams en Skype voor bedrijven-beheercentrum en de bijbehorende PowerShell-modules beheren. Dit omvat onder andere gebieden, alle beheerprogramma's met betrekking tot de telefoon, chatberichten, vergaderingen en teams zelf. Deze rol hebben bovendien de mogelijkheid om te maken en beheren van alle Office 365-groepen, ondersteuningstickets beheren en servicestatus controleren.
 
 * **[Beheerder van gebruikersaccounts](#user-account-administrator)**: gebruikers met deze rol kunnen gebruikers maken en beheren van alle aspecten van gebruikers met enkele beperkingen (Zie hieronder). Gebruikers met deze rol kunnen bovendien maken en beheren van alle groepen. Deze rol omvat ook de mogelijkheid om te maken en beheren van gebruikersweergaven, ondersteuningstickets beheren en servicestatus controleren.
 
@@ -149,6 +157,13 @@ De volgende beheerdersrollen zijn beschikbaar:
   |Algemene machtigingen|<p>Gebruikers en groepen maken</p><p>Gebruikersweergaven maken en beheren</p><p>Office-ondersteuningstickets beheren|
   |<p>Op alle gebruikers, met inbegrip van alle beheerders</p>|<p>Licenties beheren</p><p>Eigenschappen van alle gebruikers, behalve de User Principal Name beheren</p>
   |Alleen op gebruikers die niet-beheerders of beperkte beheerdersrollen in het volgende:<ul><li>Adreslijstlezers<li>Gastuitnodiging<li>Helpdeskbeheerder<li>Berichtencentrum-lezer<li>Rapportenlezer<li>Beheerder van gebruikersaccounts|<p>Verwijderen en herstellen</p><p>Uitschakelen en inschakelen</p><p>Ongeldig vernieuwingstokens</p><p>Eigenschappen van alle gebruikers met inbegrip van de User Principal Name beheren</p><p>Wachtwoord opnieuw instellen</p><p>Apparaatsleutels (FIDO) bijwerken</p>
+  
+  <b>Belangrijke</b>: gebruikers met deze rol kunnen wachtwoorden wijzigen voor gebruikers die mogelijk toegang heeft tot gevoelige of persoonlijke gegevens of essentiële configuratie binnen en buiten Azure Active Directory. Wijzigen van het wachtwoord van een gebruiker kan betekenen dat de mogelijkheid om te wordt ervan uitgegaan dat de identiteit en de machtigingen van die gebruiker. Bijvoorbeeld:
+  * Registratie van toepassingen en zakelijke toepassing eigenaren, die de referenties van waarvan ze eigenaar apps kunnen beheren. Deze apps kunnen machtigingen in Azure AD privileged en ergens anders niet worden toegekend aan beheerders. Via dit pad voor de beheerder van een gebruiker kan mogelijk wordt ervan uitgegaan dat de identiteit van de eigenaar van een toepassing en vervolgens de identiteit aannemen van een bevoegde toepassing door bij te werken van de referenties voor de toepassing.
+  * Azure-abonnementseigenaren, die mogelijk toegang heeft tot gevoelige of persoonlijke gegevens of essentiële configuratie in Azure.
+  * Beveiligingsgroepen en Office 365-groep eigenaren, die het lidmaatschap kunnen beheren. Deze groepen kunnen toegang verlenen tot gevoelige of persoonlijke gegevens of essentiële configuratie in Azure AD en elders.
+  * Beheerders in de andere services buiten Azure AD, zoals Exchange Online, Office-beveiliging en Compliancecentrum en HR-systemen.
+  * Niet-beheerders, zoals leidinggevenden, juridische afdeling en werknemers van human resources die mogelijk toegang heeft tot gevoelige of persoonlijke informatie.
 
 De volgende tabellen beschrijven de specifieke machtigingen in Azure Active Directory die aan elke rol. Sommige functies mogelijk extra machtigingen in Microsoft-services buiten Azure Active Directory.
 
@@ -220,7 +235,7 @@ Kan algemene taken met betrekking tot facturering uitvoeren, zoals betalingsgege
   >
 
   > [!NOTE]
-  > Deze rol heeft aanvullende machtigingen buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
+  > Deze rol heeft machtigingen voor aanvullende buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
   >
   >
 
@@ -232,6 +247,28 @@ Kan algemene taken met betrekking tot facturering uitvoeren, zoals betalingsgege
 | microsoft.azure.serviceHealth/allEntities/allTasks | Lees en Azure Service Health configureren. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Maken en beheren van tickets van ondersteuning van Azure. |
 | microsoft.commerce.billing/allEntities/allTasks | Beheer alle aspecten van Office 365-facturering. |
+| Microsoft.Office365.serviceHealth/allEntities/allTasks | Lees en configureer de Office 365-servicestatus. |
+| Microsoft.Office365.supportTickets/allEntities/allTasks | Maak en beheer tickets voor Office 365-ondersteuning. |
+
+### <a name="desktop-analytics-administrator"></a>Desktop Analytics-Administrator
+Heeft toegang tot bureaubladbeheerhulpprogramma's en services en mag deze beheren, met inbegrip van Intune.
+
+  > [!NOTE]
+  > Deze rol de aanvullende machtigingen overneemt van de rol Adreslijstlezers toe.
+  >
+  >
+
+  > [!NOTE]
+  > Deze rol heeft machtigingen voor aanvullende buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
+  >
+  >
+
+| **Acties** | **Beschrijving** |
+| --- | --- |
+| microsoft.azure.accessService/allEntities/allTasks | Alle aspecten van de toegang tot Azure-service beheren. |
+| microsoft.azure.serviceHealth/allEntities/allTasks | Lees en Azure Service Health configureren. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Maken en beheren van tickets van ondersteuning van Azure. |
+| Microsoft.Office365.desktopAnalytics/allEntities/allTasks | Alle aspecten van bureaublad Analytics beheren. |
 | Microsoft.Office365.serviceHealth/allEntities/allTasks | Lees en configureer de Office 365-servicestatus. |
 | Microsoft.Office365.supportTickets/allEntities/allTasks | Maak en beheer tickets voor Office 365-ondersteuning. |
 
@@ -304,7 +341,7 @@ Kan alle aspecten beheren van Azure AD en Microsoft-services die Azure AD-identi
   >
 
   > [!NOTE]
-  > Deze rol heeft aanvullende machtigingen buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
+  > Deze rol heeft machtigingen voor aanvullende buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
   >
   >
 
@@ -349,6 +386,8 @@ Kan alle aspecten beheren van Azure AD en Microsoft-services die Azure AD-identi
 | Microsoft.Office365.complianceManager/allEntities/allTasks | Alle aspecten van Office 365-Nalevingsframework Manager beheren |
 | Microsoft.Office365.Exchange/allEntities/allTasks | Beheer alle aspecten van Exchange Online. |
 | Microsoft.Office365.lockbox/allEntities/allTasks | Alle aspecten van Office 365-klant Lockbox beheren |
+| Microsoft.Office365.messageCenter/messages/Read | Berichten in microsoft.office365.messageCenter lezen. |
+| Microsoft.Office365.messageCenter/securityMessages/Read | SecurityMessages in microsoft.office365.messageCenter lezen. |
 | microsoft.powerApps.powerBI/allEntities/allTasks | Beheer alle aspecten van Power BI. |
 | Microsoft.Office365.protectionCenter/allEntities/allTasks | Alle aspecten van Office 365 Protection Center beheren. |
 | Microsoft.Office365.serviceHealth/allEntities/allTasks | Lees en configureer de Office 365-servicestatus. |
@@ -366,7 +405,7 @@ Kan nalevingsconfiguratie en -rapporten lezen en beheren in Azure AD en Office 3
   >
 
   > [!NOTE]
-  > Deze rol heeft aanvullende machtigingen buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
+  > Deze rol heeft machtigingen voor aanvullende buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
   >
   >
 
@@ -409,7 +448,7 @@ Kan alle aspecten van het Dynamics 365-product beheren.
   >
 
   > [!NOTE]
-  > Deze rol heeft aanvullende machtigingen buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
+  > Deze rol heeft machtigingen voor aanvullende buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
   >
   >
 
@@ -431,7 +470,7 @@ Kan Microsoft-ondersteuningsaanvragen voor toegang tot bedrijfsgegevens van klan
   >
 
   > [!NOTE]
-  > Deze rol heeft aanvullende machtigingen buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
+  > Deze rol heeft machtigingen voor aanvullende buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
   >
   >
 
@@ -587,7 +626,7 @@ Kan alle aspecten van het product Exchange beheren.
   >
 
   > [!NOTE]
-  > Deze rol heeft aanvullende machtigingen buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
+  > Deze rol heeft machtigingen voor aanvullende buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
   >
   >
 
@@ -596,6 +635,11 @@ Kan alle aspecten van het product Exchange beheren.
 | microsoft.azure.accessService/allEntities/allTasks | Alle aspecten van de toegang tot Azure-service beheren. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Lees en Azure Service Health configureren. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Maken en beheren van tickets van ondersteuning van Azure. |
+| Microsoft.AAD.Directory/Groups/Unified/Create | Office 365-groepen maken. |
+| Microsoft.AAD.Directory/Groups/Unified/DELETE | Office 365-groepen verwijderen. |
+| Microsoft.AAD.Directory/Groups/Unified/Basic/update | Werk de basiseigenschappen van Office 365-groepen. |
+| Microsoft.AAD.Directory/Groups/Unified/Members/update | Lidmaatschap van Office 365-groepen bijwerken. |
+| Microsoft.AAD.Directory/Groups/Unified/Owners/update | Eigendom van Office 365-groepen bijwerken. |
 | Microsoft.Office365.Exchange/allEntities/allTasks | Beheer alle aspecten van Exchange Online. |
 | Microsoft.Office365.serviceHealth/allEntities/allTasks | Lees en configureer de Office 365-servicestatus. |
 | Microsoft.Office365.supportTickets/allEntities/allTasks | Maak en beheer tickets voor Office 365-ondersteuning. |
@@ -650,7 +694,7 @@ Kan alle aspecten van het product Azure Information Protection beheren.
   >
 
   > [!NOTE]
-  > Deze rol heeft aanvullende machtigingen buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
+  > Deze rol heeft machtigingen voor aanvullende buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
   >
   >
 
@@ -671,7 +715,7 @@ Kan alle aspecten van het product Intune beheren.
   >
 
   > [!NOTE]
-  > Deze rol heeft aanvullende machtigingen buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
+  > Deze rol heeft machtigingen voor aanvullende buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
   >
   >
 
@@ -727,7 +771,7 @@ Kan alle aspecten van het product Skype voor Bedrijven beheren.
   >
 
   > [!NOTE]
-  > Deze rol heeft aanvullende machtigingen buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
+  > Deze rol heeft machtigingen voor aanvullende buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
   >
   >
 
@@ -749,14 +793,14 @@ Kan berichten en updates voor hun organisatie alleen in het Office 365-berichten
   >
 
   > [!NOTE]
-  > Deze rol heeft aanvullende machtigingen buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
+  > Deze rol heeft machtigingen voor aanvullende buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
   >
   >
 
 | **Acties** | **Beschrijving** |
 | --- | --- |
-| microsoft.aad.accessmessagecenter/allEntities/allTasks | Maak en verwijder alle resources en lees de standaardeigenschappen in Berichtencentrum en werk deze bij. |
 | microsoft.azure.accessService/allEntities/allTasks | Alle aspecten van de toegang tot Azure-service beheren. |
+| Microsoft.Office365.messageCenter/messages/Read | Berichten in microsoft.office365.messageCenter lezen. |
 
 ### <a name="partner-tier1-support"></a>Laag1-ondersteuning voor partner
 Gebruik geen - niet bedoeld voor algemeen gebruik.
@@ -767,7 +811,7 @@ Gebruik geen - niet bedoeld voor algemeen gebruik.
   >
 
   > [!NOTE]
-  > Deze rol heeft aanvullende machtigingen buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
+  > Deze rol heeft machtigingen voor aanvullende buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
   >
   >
 
@@ -804,7 +848,7 @@ Gebruik geen - niet bedoeld voor algemeen gebruik.
   >
 
   > [!NOTE]
-  > Deze rol heeft aanvullende machtigingen buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
+  > Deze rol heeft machtigingen voor aanvullende buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
   >
   >
 
@@ -844,7 +888,7 @@ Kan alle aspecten van het Power BI-product beheren.
   >
 
   > [!NOTE]
-  > Deze rol heeft aanvullende machtigingen buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
+  > Deze rol heeft machtigingen voor aanvullende buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
   >
   >
 
@@ -866,7 +910,7 @@ Kan roltoewijzingen in Azure AD en alle aspecten van Privileged Identity Managem
   >
 
   > [!NOTE]
-  > Deze rol heeft aanvullende machtigingen buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
+  > Deze rol heeft machtigingen voor aanvullende buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
   >
   >
 
@@ -884,7 +928,7 @@ Kan rapporten met betrekking tot aanmeldingen en controles lezen.
   >
 
   > [!NOTE]
-  > Deze rol heeft aanvullende machtigingen buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
+  > Deze rol heeft machtigingen voor aanvullende buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
   >
   >
 
@@ -904,7 +948,7 @@ Kan beveiligingsgegevens en -rapporten lezen en configuratie beheren in Azure AD
   >
 
   > [!NOTE]
-  > Deze rol heeft aanvullende machtigingen buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
+  > Deze rol heeft machtigingen voor aanvullende buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
   >
   >
 
@@ -934,7 +978,7 @@ Kan beveiligingsgegevens en -rapporten lezen in Azure AD en Office 365.
   >
 
   > [!NOTE]
-  > Deze rol heeft aanvullende machtigingen buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
+  > Deze rol heeft machtigingen voor aanvullende buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
   >
   >
 
@@ -956,7 +1000,7 @@ Kan gegevens over de servicestatus lezen en ondersteuningstickets beheren.
   >
 
   > [!NOTE]
-  > Deze rol heeft aanvullende machtigingen buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
+  > Deze rol heeft machtigingen voor aanvullende buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
   >
   >
 
@@ -977,7 +1021,7 @@ Kan alle aspecten van de SharePoint-service beheren.
   >
 
   > [!NOTE]
-  > Deze rol heeft aanvullende machtigingen buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
+  > Deze rol heeft machtigingen voor aanvullende buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
   >
   >
 
@@ -986,6 +1030,10 @@ Kan alle aspecten van de SharePoint-service beheren.
 | microsoft.azure.accessService/allEntities/allTasks | Alle aspecten van de toegang tot Azure-service beheren. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Lees en Azure Service Health configureren. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Maken en beheren van tickets van ondersteuning van Azure. |
+| Microsoft.AAD.Directory/Groups/Unified/DELETE | Office 365-groepen verwijderen. |
+| Microsoft.AAD.Directory/Groups/Unified/Basic/update | Werk de basiseigenschappen van Office 365-groepen. |
+| Microsoft.AAD.Directory/Groups/Unified/Members/update | Lidmaatschap van Office 365-groepen bijwerken. |
+| Microsoft.AAD.Directory/Groups/Unified/Owners/update | Eigendom van Office 365-groepen bijwerken. |
 | Microsoft.Office365.serviceHealth/allEntities/allTasks | Lees en configureer de Office 365-servicestatus. |
 | Microsoft.Office365.SharePoint/allEntities/allTasks | Maken en verwijderen van alle resources en lezen en bijwerken van de standaardeigenschappen in microsoft.office365.sharepoint. |
 | Microsoft.Office365.supportTickets/allEntities/allTasks | Maak en beheer tickets voor Office 365-ondersteuning. |
@@ -999,7 +1047,7 @@ Kunnen aanroepen en functies in de service Microsoft Teams-vergaderingen beheren
   >
 
   > [!NOTE]
-  > Deze rol heeft aanvullende machtigingen buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
+  > Deze rol heeft machtigingen voor aanvullende buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
   >
   >
 
@@ -1022,7 +1070,7 @@ Problemen kunt communicatie binnen Teams met behulp van geavanceerde hulpprogram
   >
 
   > [!NOTE]
-  > Deze rol heeft aanvullende machtigingen buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
+  > Deze rol heeft machtigingen voor aanvullende buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
   >
   >
 
@@ -1042,7 +1090,7 @@ Problemen kunt communicatie binnen Teams met behulp van eenvoudige hulpprogramma
   >
 
   > [!NOTE]
-  > Deze rol heeft aanvullende machtigingen buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
+  > Deze rol heeft machtigingen voor aanvullende buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
   >
   >
 
@@ -1062,7 +1110,7 @@ Kan de service Microsoft Teams beheren.
   >
 
   > [!NOTE]
-  > Deze rol heeft aanvullende machtigingen buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
+  > Deze rol heeft machtigingen voor aanvullende buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
   >
   >
 
@@ -1070,6 +1118,10 @@ Kan de service Microsoft Teams beheren.
 | --- | --- |
 | microsoft.aad.directory/groups/hiddenMembers/read | Lezen groups.hiddenMembers in Azure Active Directory. |
 | Microsoft.AAD.Directory/Policies/Basic/Read | Lees de basiseigenschappen van beleidsregels in Azure Active Directory. |
+| Microsoft.AAD.Directory/Groups/Unified/DELETE | Office 365-groepen verwijderen. |
+| Microsoft.AAD.Directory/Groups/Unified/Basic/update | Werk de basiseigenschappen van Office 365-groepen. |
+| Microsoft.AAD.Directory/Groups/Unified/Members/update | Lidmaatschap van Office 365-groepen bijwerken. |
+| Microsoft.AAD.Directory/Groups/Unified/Owners/update | Eigendom van Office 365-groepen bijwerken. |
 | microsoft.azure.accessService/allEntities/allTasks | Alle aspecten van de toegang tot Azure-service beheren. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Lees en Azure Service Health configureren. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Maken en beheren van tickets van ondersteuning van Azure. |

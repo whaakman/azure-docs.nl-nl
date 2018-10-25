@@ -2,24 +2,27 @@
 title: Status van de aangepaste indeling in duurzame functies - Azure
 description: Informatie over het configureren en gebruiken van de status van aangepaste indeling voor duurzame functies.
 services: functions
-author: kadimitr
+author: kashimiz
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 04/24/2018
+ms.date: 10/23/2018
 ms.author: azfuncdf
-ms.openlocfilehash: c8eb2be6836e11ddbaed81970024ea7200ea819d
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: b8017288adb75c990113b0f2ff5ba29a1f1e0a18
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44093088"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49986660"
 ---
 # <a name="custom-orchestration-status-in-durable-functions-azure-functions"></a>Status van de aangepaste indeling in duurzame functies (Azure Functions)
 
 Status van aangepaste indeling kunt u een aangepaste statuswaarde instellen voor de orchestrator-functie. Deze status wordt geboden via de GetStatus HTTP-API of de `DurableOrchestrationClient.GetStatusAsync` API.
+
+> [!NOTE]
+> Status van de aangepaste indeling voor JavaScript zijn beschikbaar in een toekomstige release.
 
 ## <a name="sample-use-cases"></a>Voorbeelden van use cases 
 

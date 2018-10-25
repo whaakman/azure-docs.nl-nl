@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 04/19/2018
 ms.author: andret
 ms.custom: include file
-ms.openlocfilehash: 3a141bcde75872f2384aedf982ffef5cba9666a3
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: d3f2efc0ae3dcf9bdcae3f82258b28b761944487
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48843367"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49988511"
 ---
 ## <a name="test-your-code"></a>Testen van uw code
 
@@ -32,12 +32,15 @@ Wanneer u klaar bent om uw test uitvoert, een Microsoft Azure Active Directory (
 ![Meld u aan bij uw Microsoft-account](media/active-directory-develop-guidedsetup-aspnetwebapp-test/aspnetbrowsersignin2.png)
 
 #### <a name="view-application-results"></a>Resultaten van de toepassing weergeven
+
 Nadat u zich hebt aangemeld, wordt de gebruiker wordt omgeleid naar de startpagina van uw website. De startpagina wordt de HTTPS-URL die is opgegeven in de registratiegegevens van uw toepassing in de Portal voor App-registratie van Microsoft. De introductiepagina bevat een welkomstbericht *' Hello \<gebruiker >, "* een koppeling naar het afmelden, en een koppeling om claims van de gebruiker weer te geven. U gaat de koppeling voor claims van de gebruiker naar de *Claims* controller die u eerder hebt gemaakt.
 
 ### <a name="browse-to-see-the-users-claims"></a>Ga naar de claims van de gebruiker
+
 Als u wilt zien van de gebruiker claims, selecteer de koppeling om te bladeren naar de weergave van de domeincontroller die is alleen beschikbaar voor geverifieerde gebruikers.
 
 #### <a name="view-the-claims-results"></a>De claims-resultaten weergeven
+
 Nadat u naar de weergave van de controller bladert, ziet u een tabel met de belangrijkste eigenschappen voor de gebruiker:
 
 |Eigenschap |Waarde |Beschrijving |
@@ -49,13 +52,15 @@ Nadat u naar de weergave van de controller bladert, ziet u een tabel met de bela
 
 Bovendien ziet u een tabel met alle claims die zich in de verificatieaanvraag. Zie voor meer informatie de [lijst met claims die zich in een Azure AD-ID-Token](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims).
 
-
 ### <a name="test-access-to-a-method-that-has-an-authorize-attribute-optional"></a>Test de toegang tot een methode die een kenmerk autoriseren (optioneel)
+
 Voor het testen van toegang als een anonieme gebruiker naar een domeincontroller die is beveiligd met de `Authorize` kenmerk, als volgt te werk:
+
 1. Selecteer de koppeling naar de gebruiker afmelden en de afmelding proces te voltooien.
 2. Typ in de browser http://<span></span>localhost: {poort} / claims voor toegang tot uw domeincontroller die is beveiligd met de `Authorize` kenmerk.
 
 #### <a name="expected-results-after-access-to-a-protected-controller"></a>Verwachte resultaten na de toegang tot een beveiligde domeincontroller
+
 U wordt gevraagd om te verifiëren voor het gebruik van de weergave beveiligde domeincontroller.
 
 ## <a name="advanced-options"></a>Geavanceerde opties
@@ -70,6 +75,7 @@ GlobalFilters.Filters.Add(new AuthorizeAttribute());
 <!--end-collapse-->
 
 ### <a name="restrict-who-can-sign-in-to-your-application"></a>Beperken die kunnen zich aanmelden bij uw toepassing
+
 Standaard als u bij het maken van de toepassing hebt gemaakt in deze handleiding, uw toepassing accepteert aanmeldingen van persoonlijke accounts (waaronder outlook.com, live.com en andere) evenals werk en schoolaccounts zijn uit een bedrijf of organisatie die is geïntegreerd met Azure Active Directory. Dit is een aanbevolen optie voor SaaS-toepassingen.
 
 Gebruiker aanmelden om toegang te beperken voor uw toepassing, zijn er meerdere opties beschikbaar:
@@ -88,6 +94,7 @@ U kunt aanmelding toegang beperken tot alleen gebruikersaccounts die deel uitmaa
 2. Stel de waarde van de `ValidIssuers` parameter aan de lijst met toegestane organisaties.
 
 #### <a name="option-3-use-a-custom-method-to-validate-issuers"></a>Optie 3: Een aangepaste methode gebruiken om te valideren van uitgevers van certificaten
+
 U kunt implementeren om een aangepaste methode voor het valideren van uitgevers van certificaten met behulp van de **IssuerValidator** parameter. Lees voor meer informatie over het gebruik van deze parameter de [TokenValidationParameters klasse](https://msdn.microsoft.com/library/system.identitymodel.tokens.tokenvalidationparameters.aspx) op MSDN.
 
 [!INCLUDE [Help and support](./active-directory-develop-help-support-include.md)]

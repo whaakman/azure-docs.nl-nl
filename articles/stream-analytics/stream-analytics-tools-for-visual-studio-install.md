@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/22/2018
-ms.openlocfilehash: 54eef98d85337f14ff9e10837f97ccd28a58afdf
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 47bdbc2297fb1e1ef24f13710391b4e9d154d37c
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47223454"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49983819"
 ---
 # <a name="install-azure-stream-analytics-tools-for-visual-studio"></a>Azure Stream Analytics-hulpprogramma's voor Visual Studio installeren
 Azure Stream Analytics-hulpprogramma's ondersteunen Visual Studio 2017, 2015 en 2013. In dit artikel wordt beschreven hoe u het installeren en verwijderen van de hulpprogramma's.
@@ -40,7 +40,7 @@ Schakel de **Azure-ontwikkeling** workload zoals wordt weergegeven:
 
 ### <a name="visual-studio-2013-2015"></a>Visual Studio 2013, 2015
 * Visual Studio 2015 of Visual Studio 2013 Update 4 installeren. Enterprise- (Ultimate/Premium), Professional- en Community-edities worden ondersteund. De Express-editie wordt niet ondersteund. 
-* Installeer de Microsoft Azure SDK voor .NET versie 2.7.1 of hoger met behulp van de [Web platform installer](http://www.microsoft.com/web/downloads/platform.aspx).
+* Installeer de Microsoft Azure SDK voor .NET versie 2.7.1 of hoger met behulp van de [Web platform installer](https://www.microsoft.com/web/downloads/platform.aspx).
 * Installeer [Azure Stream Analytics-hulpprogramma's voor Visual Studio](https://www.microsoft.com/en-us/download/details.aspx?id=49504).
 
 ## <a name="update"></a>Update

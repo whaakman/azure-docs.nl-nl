@@ -17,20 +17,22 @@ ms.date: 06/06/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 8ff46246d46a6028bc83b8fdf9c984e87f5578a5
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: ad7bb3c3a7bd50521b968b7c1a4e21027fbe18f2
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49320302"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49986048"
 ---
 # <a name="azure-active-directory-v20-and-oauth-20-on-behalf-of-flow"></a>Azure Active Directory v2.0 en OAuth 2.0 namens-stroom
+
+[!INCLUDE [active-directory-develop-applies-v2](../../../includes/active-directory-develop-applies-v2.md)]
+
 De OAuth 2.0 namens-stroom fungeert de use-case waar een toepassing wordt aangeroepen met een service of web-API, dat op zijn beurt vereist is voor het aanroepen van een andere service of web-API. Het idee is dat de gemachtigde gebruiker identiteits- en machtigingen via de aanvraagketen doorgegeven. Voor de middelste laag service voor geverifieerde aanvragen versturen naar de downstream-service, moet deze voor het beveiligen van een toegangstoken van Azure Active Directory (Azure AD), namens de gebruiker.
 
 > [!NOTE]
 > Het v2.0-eindpunt biedt geen ondersteuning voor alle Azure Active Directory-scenario's en onderdelen. Om te bepalen of het v2.0-eindpunt moet worden gebruikt, lees meer over [v2.0 beperkingen](active-directory-v2-limitations.md).
 >
-
 
 > [!IMPORTANT]
 > Vanaf mei 2018, een `id_token` kan niet worden gebruikt voor de stroom op-andere gebruikers-Of - kuuroorden moeten slagen voor een **toegang** token gebruikt voor een middelste laag vertrouwelijke client om uit te voeren OBO stromen. Zie [beperkingen](#client-limitations) voor meer informatie waarop clients op-andere gebruikers-Of aanroepen kunnen uitvoeren.
@@ -67,12 +69,12 @@ Wanneer u een gedeeld geheim, bevat een tokenaanvraag voor de service-naar-servi
 
 | Parameter |  | Beschrijving |
 | --- | --- | --- |
-| grant_type |vereist | Het type van het token aan te vragen. Voor een aanvraag met behulp van een JWT, de waarde moet **urn: ietf:params:oauth:grant-type: jwt-bearer**. |
-| client_id |vereist | De aanvraag-ID die de [Portal voor Appregistratie](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) toegewezen aan uw app. |
-| client_secret |vereist | Het geheim van de toepassing die u hebt gegenereerd voor uw app in de Portal voor Appregistratie. |
-| bevestiging |vereist | De waarde van het token wordt gebruikt in de aanvraag. |
-| scope |vereist | Een spatie gescheiden lijst met bereiken voor het token aan te vragen. Zie voor meer informatie, [scopes](v2-permissions-and-consent.md).|
-| requested_token_use |vereist | Hiermee geeft u op hoe de aanvraag moet worden verwerkt. In de stroom op-andere gebruikers-Of de waarde moet **on_behalf_of**. |
+| grant_type |Vereist | Het type van het token aan te vragen. Voor een aanvraag met behulp van een JWT, de waarde moet **urn: ietf:params:oauth:grant-type: jwt-bearer**. |
+| client_id |Vereist | De aanvraag-ID die de [Portal voor Appregistratie](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) toegewezen aan uw app. |
+| client_secret |Vereist | Het geheim van de toepassing die u hebt gegenereerd voor uw app in de Portal voor Appregistratie. |
+| bevestiging |Vereist | De waarde van het token wordt gebruikt in de aanvraag. |
+| scope |Vereist | Een spatie gescheiden lijst met bereiken voor het token aan te vragen. Zie voor meer informatie, [scopes](v2-permissions-and-consent.md).|
+| requested_token_use |Vereist | Hiermee geeft u op hoe de aanvraag moet worden verwerkt. In de stroom op-andere gebruikers-Of de waarde moet **on_behalf_of**. |
 
 #### <a name="example"></a>Voorbeeld
 De volgende HTTP-POST vraagt een toegangstoken en een vernieuwingstoken met `user.read` voor het bereik van de https://graph.microsoft.com web-API.
@@ -97,13 +99,13 @@ Een service-naar-service toegangstokenaanvraag met een certificaat bevat de volg
 
 | Parameter |  | Beschrijving |
 | --- | --- | --- |
-| grant_type |vereist | Het type van het token aan te vragen. Voor een aanvraag met behulp van een JWT, de waarde moet **urn: ietf:params:oauth:grant-type: jwt-bearer**. |
-| client_id |vereist | De aanvraag-ID die de [Portal voor Appregistratie](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) toegewezen aan uw app. |
-| client_assertion_type |vereist |De waarde moet liggen `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
-| client_assertion |vereist | (Een JSON Web Token) een bewering die u wilt maken en te ondertekenen met het certificaat dat u geregistreerd als referenties voor uw toepassing. Meer informatie over [referenties van het certificaat](active-directory-certificate-credentials.md) voor informatie over het registreren van uw certificaat en de indeling van de verklaring.|
-| bevestiging |vereist | De waarde van het token wordt gebruikt in de aanvraag. |
-| requested_token_use |vereist | Hiermee geeft u op hoe de aanvraag moet worden verwerkt. In de stroom op-andere gebruikers-Of de waarde moet **on_behalf_of**. |
-| scope |vereist | Een spatie gescheiden lijst met bereiken voor het token aan te vragen. Zie voor meer informatie, [scopes](v2-permissions-and-consent.md).|
+| grant_type |Vereist | Het type van het token aan te vragen. Voor een aanvraag met behulp van een JWT, de waarde moet **urn: ietf:params:oauth:grant-type: jwt-bearer**. |
+| client_id |Vereist | De aanvraag-ID die de [Portal voor Appregistratie](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) toegewezen aan uw app. |
+| client_assertion_type |Vereist |De waarde moet liggen `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
+| client_assertion |Vereist | (Een JSON Web Token) een bewering die u wilt maken en te ondertekenen met het certificaat dat u geregistreerd als referenties voor uw toepassing. Meer informatie over [referenties van het certificaat](active-directory-certificate-credentials.md) voor informatie over het registreren van uw certificaat en de indeling van de verklaring.|
+| bevestiging |Vereist | De waarde van het token wordt gebruikt in de aanvraag. |
+| requested_token_use |Vereist | Hiermee geeft u op hoe de aanvraag moet worden verwerkt. In de stroom op-andere gebruikers-Of de waarde moet **on_behalf_of**. |
+| scope |Vereist | Een spatie gescheiden lijst met bereiken voor het token aan te vragen. Zie voor meer informatie, [scopes](v2-permissions-and-consent.md).|
 
 U ziet dat de parameters bijna hetzelfde als in het geval van de aanvraag van het gedeelde geheim zijn, behalve dat de waarde voor client_secret-parameter is vervangen door twee parameters: een client_assertion_type en client_assertion.
 

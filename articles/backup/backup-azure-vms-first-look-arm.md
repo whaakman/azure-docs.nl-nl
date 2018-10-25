@@ -11,12 +11,12 @@ ms.date: 08/01/2018
 ms.author: markgal
 ms.custom: H1Hack27Feb2017
 keywords: back-ups; VM-back-up
-ms.openlocfilehash: fee0e20e232621764ba10d714b7ddfe9c759dafc
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: a30b4081bf01a76c6d89e7557fbb1b40baa86fbc
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44717910"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49985878"
 ---
 # <a name="back-up-azure-virtual-machines-to-recovery-services-vault"></a>Back-up van virtuele Azure-machines naar Recovery Services-kluis
 
@@ -96,11 +96,11 @@ Gebruik de volgende stappen uit om te configureren van de back-uptaak in het men
 
   Zolang de eerste back-up nog niet is voltooid, wordt voor **Status van de laatste back-up** de tekst **Waarschuwing (eerste back-up in behandeling)** weergegeven. Om te zien wanneer de volgende geplande back-uptaak zich voordoet, onder **samenvatting** klikt u op de naam van het beleid. Het menu back-upbeleid wordt geopend en toont de tijd van de geplande back-up.
 
-10. Ter bescherming van de virtuele machine, klikt u op **back-up nu**. 
+10. Ter bescherming van de virtuele machine, klikt u op **back-up nu**.
 
   ![Op Nu back-up maken klikken om de eerste back-up uit te voeren](./media/backup-azure-vms-first-look-arm/backup-now-update.png)
 
-  Het menu Nu back-up maken wordt geopend. 
+  Het menu Nu back-up maken wordt geopend.
 
   ![toont de blade Nu back-up maken](./media/backup-azure-vms-first-look-arm/backup-now-blade-short.png)
 
@@ -185,7 +185,7 @@ De instelling voor opslagreplicatie bewerken:
   ![De opslagconfiguratie voor nieuwe kluis bekijken](./media/backup-try-azure-backup-in-10-mins/set-storage-configuration-update.png)
 
 2. In het menu voor het beheer van de nieuwe kluis gebruikt u de verticale dia bladert u omlaag naar het gedeelte beheer en klikt u op **back-upinfrastructuur** om het menu back-upinfrastructuur te openen.
- 
+
    ![De opslagconfiguratie voor nieuwe kluis instellen](./media/backup-try-azure-backup-in-10-mins/set-storage-config-bkup-infra.png)
 
 3. Klik in het menu back-upinfrastructuur **back-upconfiguratie** openen de **back-upconfiguratie** menu.
@@ -291,6 +291,11 @@ De eerste back-uptaak uitvoeren:
   ![de laatste dag instellen dat het herstelpunt van Nu back-up maken wordt bewaard](./media/backup-azure-vms-first-look-arm/backup-now-blade-calendar.png)
 
   Implementatiemeldingen laten u weten dat de back-uptaak is geactiveerd en dat u de voortgang van de taak op de pagina Back-uptaken kunt controleren. Afhankelijk van de grootte van de virtuele machine kan het maken van de eerste back-up even duren.
+
+  > [!NOTE]
+  > Alle de gegevens die worden ondersteund door Azure Backup is versleuteld in rust via [Storage Service Encryption (SSE)](../storage/common/storage-service-encryption.md).
+  >
+  >
 
 6. Als u de status van de eerste back-up wilt bekijken of volgen, klikt u op de tegel **Back-uptaken** van het kluisdashboard op **Bezig**.
 

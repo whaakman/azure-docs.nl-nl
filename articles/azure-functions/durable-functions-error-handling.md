@@ -2,20 +2,20 @@
 title: Afhandeling van fouten in duurzame functies - Azure
 description: Leer hoe u voor het afhandelen van fouten in de extensie duurzame functies voor Azure Functions.
 services: functions
-author: cgillum
+author: kashimiz
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 09/05/2018
+ms.date: 10/23/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 6bf9eb2cd2ebdf5f6d53e00923146bab49a142bf
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 61496d91c9ec2cd1dcf498df04d2dab6629e009c
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44377902"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49984125"
 ---
 # <a name="handling-errors-in-durable-functions-azure-functions"></a>Afhandeling van fouten in duurzame functies (Azure Functions)
 
@@ -26,6 +26,8 @@ Duurzame functie indelingen zijn geïmplementeerd in de code en de mogelijkheden
 Elke uitzondering die is gegenereerd in een functie van de activiteit is samengevoegd terug naar de orchestrator-functie en gegenereerd als een `FunctionFailedException`. U kunt schrijven voor de verwerking en compensatie foutcode die aansluit bij uw behoeften in de orchestrator-functie.
 
 Bijvoorbeeld, houd rekening met de volgende orchestrator-functie die wordt overgedragen middelen van één account naar een andere:
+
+#### <a name="c"></a>C#
 
 ```csharp
 #r "Microsoft.Azure.WebJobs.Extensions.DurableTask"
@@ -64,11 +66,49 @@ public static async Task Run(DurableOrchestrationContext context)
 }
 ```
 
+#### <a name="javascript-functions-v2-only"></a>JavaScript (alleen functies v2)
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df.orchestrator(function*(context) {
+    const transferDetails = context.df.getInput();
+
+    yield context.df.callActivity("DebitAccount",
+        {
+            account = transferDetails.sourceAccount,
+            amount = transferDetails.amount,
+        }
+    );
+
+    try {
+        yield context.df.callActivity("CreditAccount",
+            {
+                account = transferDetails.destinationAccount,
+                amount = transferDetails.amount,
+            }
+        );
+    }
+    catch (error) {
+        // Refund the source account.
+        // Another try/catch could be used here based on the needs of the application.
+        yield context.df.callActivity("CreditAccount",
+            {
+                account = transferDetails.sourceAccount,
+                amount = transferDetails.amount,
+            }
+        );
+    }
+});
+```
+
 Als de aanroep van de **CreditAccount** functie mislukt voor de doelaccount, de orchestrator-functie voor deze worden gecompenseerd door de bestaande fondsen creditering terug naar de bronaccount.
 
 ## <a name="automatic-retry-on-failure"></a>Automatische nieuwe pogingen bij fout
 
 Als u activiteitsfuncties of subquery orchestration functies aanroept, kunt u een beleid voor automatische opnieuw proberen. Het volgende voorbeeld roept een functie maximaal drie keer en wacht vijf seconden tussen nieuwe pogingen:
+
+#### <a name="c"></a>C#
 
 ```csharp
 public static async Task Run(DurableOrchestrationContext context)
@@ -83,7 +123,21 @@ public static async Task Run(DurableOrchestrationContext context)
 }
 ```
 
-De `CallActivityWithRetryAsync` API duurt een `RetryOptions` parameter. Suborchestration aanroept met behulp van de `CallSubOrchestratorWithRetryAsync` API kunt gebruiken deze dezelfde beleid voor opnieuw proberen.
+#### <a name="javascript-functions-v2-only"></a>JavaScript (alleen functies v2)
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df.orchestrator(function*(context) {
+    const retryOptions = new df.RetryOptions(5000, 3);
+    
+    yield context.df.callActivityWithRetry("FlakyFunction", retryOptions);
+
+    // ...
+});
+```
+
+De `CallActivityWithRetryAsync` (C#) of `callActivityWithRetry` (JS) API duurt een `RetryOptions` parameter. Suborchestration aanroept met behulp van de `CallSubOrchestratorWithRetryAsync` (C#) of `callSubOrchestratorWithRetry` (JS) API kunt gebruiken deze dezelfde beleid voor opnieuw proberen.
 
 Er zijn verschillende opties voor het aanpassen van het beleid voor automatische opnieuw proberen. Hieronder vallen de volgende landen:
 
@@ -97,6 +151,8 @@ Er zijn verschillende opties voor het aanpassen van het beleid voor automatische
 ## <a name="function-timeouts"></a>Functie time-outs
 
 Mogelijk wilt u een functieaanroep binnen een orchestrator-functie afbreken als duurt te lang om te voltooien. De juiste manier om dit te doen vandaag is door het maken van een [duurzame timer](durable-functions-timers.md) met behulp van `context.CreateTimer` in combinatie met `Task.WhenAny`, zoals in het volgende voorbeeld:
+
+#### <a name="c"></a>C#
 
 ```csharp
 public static async Task<bool> Run(DurableOrchestrationContext context)
@@ -125,10 +181,34 @@ public static async Task<bool> Run(DurableOrchestrationContext context)
 }
 ```
 
+#### <a name="javascript-functions-v2-only"></a>JavaScript (alleen functies v2)
+
+```javascript
+const df = require("durable-functions");
+const moment = require("moment");
+
+module.exports = df.orchestrator(function*(context) {
+    const deadline = moment.utc(context.df.currentUtcDateTime).add(30, "s");
+
+    const activityTask = context.df.callActivity("FlakyFunction");
+    const timeoutTask = context.df.createTimer(deadline.toDate());
+
+    const winner = yield context.df.Task.any([activityTask, timeoutTask]);
+    if (winner === activityTask) {
+        // success case
+        timeoutTask.cancel();
+        return true;
+    } else {
+        // timeout case
+        return false;
+    }
+});
+```
+
 > [!NOTE]
 > Dit mechanisme uitvoeren van de activiteit wordt uitgevoerd niet daadwerkelijk wordt beëindigd. In plaats daarvan kunt deze gewoon de orchestrator-functie voor het negeren van het resultaat en op verplaatsen. Zie voor meer informatie de [Timers](durable-functions-timers.md#usage-for-timeout) documentatie.
 
-## <a name="unhandled-exceptions"></a>Niet-verwerkte uitzonderingen
+## <a name="unhandled-exceptions"></a>Onverwerkte uitzonderingen
 
 Als een orchestrator-functie is mislukt met een niet-verwerkte uitzondering, de details van de uitzondering worden geregistreerd en het exemplaar is voltooid met een `Failed` status.
 

@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/12/2017
 ms.author: seguler
 ms.component: common
-ms.openlocfilehash: bdc25a7aeff88d058eaf3fddf6cec023edff3b9e
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 83080d1e73ddb06de9b454f106517ef230c4b25a
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39531057"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49984261"
 ---
 # <a name="azure-storage-samples-using-java"></a>Azure Storage-voorbeelden met behulp van Java
 
@@ -29,7 +29,7 @@ De volgende tabel bevat een overzicht van onze opslagplaats met voorbeelden en d
 <td><a href="https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobBasics.java">Aan de slag met Azure Blob-Service in Java</a></td> 
 </tr> 
 <tr> 
-<td>Blok-Blob</td>
+<td>Blok-blob</td>
 <td><a href="https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobBasics.java">Aan de slag met Azure Blob-Service in Java</a></td>
 </tr> 
 <tr> 
@@ -73,7 +73,7 @@ De volgende tabel bevat een overzicht van onze opslagplaats met voorbeelden en d
 <td><a href="https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobBasics.java">Aan de slag met Azure Blob-Service in Java</a></td>
 </tr> 
 <tr> 
-<td>Pagina-blobs</td>
+<td>Pagina-blob</td>
 <td><a href="https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobBasics.java">Aan de slag met Azure Blob-Service in Java</a></td>
 </tr>
 <tr> 
@@ -161,31 +161,31 @@ De volgende tabel bevat een overzicht van onze opslagplaats met voorbeelden en d
 <tr> 
 <td rowspan="7"><b>Tabel</b></td>
 <td>Tabel maken</td> 
-<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/TableBasics.java">Aan de slag met de Azure-tabelservice in Java</a></td> 
+<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java">Aan de slag met de Azure-tabelservice in Java</a></td> 
 </tr> 
 <tr> 
 <td>Entiteit/tabel verwijderen</td> 
-<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/TableBasics.java">Aan de slag met de Azure-tabelservice in Java</a></td> 
+<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java">Aan de slag met de Azure-tabelservice in Java</a></td> 
 </tr> 
 <tr> 
 <td>De entiteit invoegen/Merge/vervangen</td> 
-<td><a href="https://github.com/Azure/azure-storage-java/blob/master/microsoft-azure-storage-samples/src/com/microsoft/azure/storage/table/gettingtstarted/TableBasics.java">Voorbeelden van Storage Java-Client-bibliotheek</a></td> 
+<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java">Aan de slag met de Azure-tabelservice in Java</a></td> 
 </tr> 
 <tr> 
 <td>Entiteiten opvragen</td> 
-<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/TableBasics.java">Aan de slag met de Azure-tabelservice in Java</a></td> 
+<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java">Aan de slag met de Azure-tabelservice in Java</a></td> 
 </tr> 
 <tr> 
 <td>Querytabellen</td> 
-<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/TableBasics.java">Aan de slag met de Azure-tabelservice in Java</a></td> 
+<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java">Aan de slag met de Azure-tabelservice in Java</a></td> 
 </tr> 
 <tr> 
 <td>Tabeleigenschappen ACL</td> 
-<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/TableAdvanced.java">Aan de slag met de Azure-tabelservice in Java</a></td> 
+<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableAdvanced.java">Aan de slag met de Azure-tabelservice in Java</a></td> 
 </tr> 
 <tr> 
 <td>Een entiteit bijgewerkt</td> 
-<td><a href="https://github.com/Azure/azure-storage-java/blob/master/microsoft-azure-storage-samples/src/com/microsoft/azure/storage/table/gettingtstarted/TableBasics.java">Voorbeelden van Storage Java-Client-bibliotheek</a></td> 
+<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java">Aan de slag met de Azure-tabelservice in Java</a></td> 
 </tr> 
 </tbody> 
 </table>

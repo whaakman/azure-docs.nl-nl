@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/23/2018
 ms.author: sharadag
-ms.openlocfilehash: de709133099674a0aa0386113b6459f8bc05e378
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 5cf94079dcd68887d9725ffbe9124f9b6c897dd0
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47047399"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49984763"
 ---
 # <a name="allowed-certificate-authorities-for-enabling-custom-https-on-azure-front-door-service"></a>Certificeringsinstanties toegestaan voor het inschakelen van de aangepaste HTTPS op Azure voordeur Service
 
@@ -26,6 +26,10 @@ Voor een aangepast Azure voordeur Service-domein, wanneer u [de HTTPS-functie in
 De volgende CA's zijn toegestaan bij het maken van uw eigen certificaat:
 
 - AddTrust externe CA-basiscertificaat
+- AlphaSSL basis-CA
+- AAM Infra CA 01
+- AAM Infra CA 02
+- Ameroot
 - Azië en Stille Oceaan basis-CA
 - Azië en Stille Oceaan basiscertificeringsinstantie 2013
 - Azië en Stille Oceaan basiscertificeringsinstantie 2014
@@ -40,37 +44,26 @@ De volgende CA's zijn toegestaan bij het maken van uw eigen certificaat:
 - DigiCert globale basis-CA
 - DigiCert hoge zekerheid CA-3
 - DigiCert hoge zekerheid VW basis-CA
+- DigiCert SHA2 uitgebreide validatie Server CA
 - DigiCert SHA2 hoge zekerheid Server CA
 - DigiCert SHA2 beveiligde Server CA
+- Zomertijd basis-CA X3
+- D vertrouwde basis-CA van klasse 3 2 2009
+- Versleuteling overal DV TLS CA
+- Entrust basiscertificeringsinstantie
+- Basis-CA - G2 Entrust
+- Certificeringsinstantie (CA) Entrust.NET (2048)
 - Globale CA GeoTrust
 - Certificeringsinstantie (CA) GeoTrust primaire
 - Primaire GeoTrust certificeringsinstantie - G2
+- Geotrust RSA CA 2018
 - GlobalSign
 - Uitgebreide validatie van CA - SHA256 - G2 GlobalSign
 - Validatie van de organisatie GlobalSign CA - G2
 - GlobalSign basis-CA
 - Go Daddy-basiscertificeringsinstantie - G2
-- Microsoft Authenticode (TM) basis-CA
-- Microsoft Exchange-Services CA 2015
-- Microsoft interne zakelijke basis
-- Microsoft IT Tevredenheid SSL CA 1
-- Microsoft IT SSL SHA1
-- Microsoft IT SSL SHA2
-- Microsoft IT TLS CA 1
-- Microsoft IT TLS CA 2
-- Microsoft IT TLS CA 4
-- Microsoft IT TLS CA 5
-- Microsoft-basis-CA
-- Microsoft basiscertificeringsinstantie
-- Microsoft Root Certificate Authority 2010
-- Microsoft Root Certificate Authority 2011
-- Microsoft-beveiligde Server CA 2011
-- Hoofdmap voor Services van Microsoft-Partner
-- Microsoft Time tijdstempel Service hoofdmap
-- Microsoft Windows hardwarecompatibiliteit
-- MSIT CA Z2
-- MSIT CA voor ondernemingen 1
-- MSIT CA voor ondernemingen 3
+- Go Daddy beveiligde certificeringsinstantie - G2
+- RapidSSL RSA CA 2018
 - Basis-instantie
 - Symantec-klasse 3 VW SSL CA - G3
 - Symantec-klasse 3 beveiligde Server CA - G4
@@ -78,12 +71,12 @@ De volgende CA's zijn toegestaan bij het maken van uw eigen certificaat:
 - Primaire Thawte basis-CA
 - Primaire Thawte basis-CA - G2
 - Primaire Thawte basis-CA - G3
+- Thawte RSA CA 2018
 - Thawte Timestamping CA
-- UTN-USERFirst-Object
+- TrustAsia TLS RSA CA
 - VeriSign klasse 3 uitgebreide validatie SSL CA
 - VeriSign klasse 3 uitgebreide validatie SSL SGC CA
 - VeriSign klasse 3 openbare primaire certificeringsinstantie - G5
 - VeriSign International Server CA - klasse 3
 - VeriSign tijd tijdstempel Service hoofdmap
 - VeriSign Universal basiscertificeringsinstantie
-- WMSvc-SHA2-DALEDGE1008

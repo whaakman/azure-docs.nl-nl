@@ -3,7 +3,7 @@ title: Zelfstudie - Schijven voor schaalsets maken en gebruiken met Azure CLI | 
 description: Leer hoe u met Azure CLI beheerde schijven kunt maken en gebruiken met schaalsets voor virtuele machines, waaronder het toevoegen, voorbereiden, opvragen en loskoppelen van schijven.
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: cynthn
+author: zr-msft
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2018
-ms.author: cynthn
+ms.author: zarhoads
 ms.custom: mvc
-ms.openlocfilehash: ae26e851e60f654a502779fe2a8b41e13dc47915
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 35256a22265ca544975b2fead40b1a2be0d73ff1
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46993626"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49469381"
 ---
 # <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-the-azure-cli"></a>Zelfstudie - Schijven maken en gebruiken met schaalset voor virtuele machines met Azure CLI
 Schaalsets voor virtuele machines maken gebruik van schijven voor het opslaan van het besturingssysteem, toepassingen en gegevens van het VM-exemplaar. Bij het maken en beheren van een schaalset is het belangrijk dat u een schijfgrootte en configuratie kiest die geschikt zijn voor de verwachte werkbelasting. Deze zelfstudie bevat informatie over het maken en beheren van VM-schijven. In deze zelfstudie leert u het volgende:

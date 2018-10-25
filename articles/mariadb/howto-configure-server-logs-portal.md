@@ -8,12 +8,12 @@ services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 0784dffc48aeddc854aa540cba24f1834cd41827
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 566d5b047078b6e65b0c320027cc8c63c81a282b
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46952828"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49986591"
 ---
 # <a name="configure-and-access-server-logs-in-the-azure-portal"></a>Configureren en access-server beschikbaar zijn in Azure portal
 
@@ -26,7 +26,7 @@ Als u wilt in deze gebruiksaanwijzing kunt doorlopen, hebt u het volgende nodig:
 ## <a name="configure-logging"></a>Logboekregistratie configureren
 Configureer de toegang tot het logboek voor langzame query's. 
 
-1. Meld u aan bij [Azure Portal](http://portal.azure.com/).
+1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
 
 2. Selecteer uw Azure Database voor MariaDB-server.
 

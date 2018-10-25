@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 19e3141bf7d28c7f781be21aedf14222e35bfd6c
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 90c434a37d3209e0c11a04425c337ec6930cfd00
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48809963"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025256"
 ---
 <a name="azure-resource-manager-test-drive"></a>Azure Resource Manager-Test Drive
 =================================
@@ -190,7 +190,7 @@ Zorg ervoor dat u de parameter/variabele tekenreeksen (\'contosovm\') met een un
 
 Bijvoorbeeld, de meeste resourcenamen mag niet beginnen met een cijfer, maar unieke tekenreeksfunctie kan retourneren een tekenreeks, die met een cijfer begint. Dus als u een unieke tekenreeks van onbewerkte uitvoer gebruikt, uw implementaties mislukken. 
 
-U vindt meer informatie over naamgevingsregels voor resource- en -beperkingen in [in dit artikel] (https://docs.microsoft.com/azure/guidance/guidance-naming-conventions).
+U vindt meer informatie over resource naamgevingsregels en beperkingen in [in dit artikel](https://docs.microsoft.com/azure/guidance/guidance-naming-conventions).
 
 ### <a name="deployment-location"></a>Implementatielocatie
 
@@ -306,7 +306,7 @@ De volgende sectie om in te vullen is dat de informatie over uw Test Drive biedt
 
 ![Test Drive gedetailleerde informatie](./media/azure-resource-manager-test-drive/howtopub2.png)
 
-**Beschrijving -** *vereist* dit is waar u de beschrijving van de belangrijkste schrijven over wat er op uw Test Drive. De klant komt hier om te lezen welke scenario's voor uw Test Drive die betrekking over het product hebben wordt. 
+**Beschrijving -** *vereist* dit is waar u de beschrijving van de belangrijkste schrijven over wat er op uw Test Drive. De klant komt hier om te lezen welke scenario's voor uw Test Drive die betrekking over het product hebben wordt. 
 
 **Gebruikershandleiding -** *vereist* dit is de uitgebreide overzicht van uw Test Drive-ervaring. De klant dit wordt geopend en precies wat u wilt laten doen tijdens de proefrit kunt doorlopen. Het is belangrijk dat deze inhoud eenvoudig is te begrijpen en te volgen. (Dit moet een PDF-bestand zijn)
 

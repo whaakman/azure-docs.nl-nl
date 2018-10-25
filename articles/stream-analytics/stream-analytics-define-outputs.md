@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/22/2018
-ms.openlocfilehash: 9ea4028a49211e52ab9ba305df86b88e1437bdfc
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 92fcf1138a5a7d364c884128d3fc82559ffb15aa
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49648119"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49987882"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Inzicht in de uitvoer van Azure Stream Analytics
 Dit artikel beschrijft de verschillende typen uitvoer beschikbaar voor een Azure Stream Analytics-taak. Uitvoer kunnen u opslaan en sla de resultaten van de Stream Analytics-taak. De uitvoergegevens die worden gebruikt, kunt u doen verdere bedrijfsanalyses en datawarehousing van uw gegevens. 
@@ -116,7 +116,7 @@ Er zijn een aantal parameters die nodig zijn voor de Event Hub-gegevensstromen c
 | Naam van eigenschap | Beschrijving |
 | --- | --- |
 | Uitvoeralias | Een beschrijvende naam die wordt gebruikt in query's om de query-uitvoer naar deze Event Hub te regelen. |
-| Event Hub-naamruimte |Een Event Hub-naamruimte is een container voor een set berichtentiteiten. Wanneer u een nieuwe Event Hub hebt gemaakt, is ook een Event Hub-naamruimte gemaakt. |
+| Event hub-naamruimte |Een Event Hub-naamruimte is een container voor een set berichtentiteiten. Wanneer u een nieuwe Event Hub hebt gemaakt, is ook een Event Hub-naamruimte gemaakt. |
 | Event Hub-naam | De naam van de Event Hub-uitvoer. |
 | Naam van het Event Hub-beleid | Het beleid voor gedeelde toegang, die kan worden gemaakt op het tabblad configureren van Event Hub. Elk gedeeld toegangsbeleid heeft een naam, machtigingen die u instelt en toegangssleutels. |
 | Sleutel voor het Event Hub-beleid | De gedeelde toegangssleutel gebruikt voor het verifiëren van toegang tot de Event Hub-naamruimte. |
@@ -334,5 +334,5 @@ De volgende tabel worden enkele van de overwegingen voor de uitvoer batchverwerk
 [stream.analytics.scale.jobs]: stream-analytics-scale-jobs.md
 [stream.analytics.introduction]: stream-analytics-introduction.md
 [stream.analytics.get.started]: stream-analytics-real-time-fraud-detection.md
-[stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
-[stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
+[stream.analytics.query.language.reference]: https://go.microsoft.com/fwlink/?LinkID=513299
+[stream.analytics.rest.api.reference]: https://go.microsoft.com/fwlink/?LinkId=517301

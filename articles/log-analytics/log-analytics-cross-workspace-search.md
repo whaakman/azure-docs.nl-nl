@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: d3fb6557571042be7db1380010738bacd72e50f5
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: cc7bcefe43eed524f50fcad09d7fb31a80d22b83
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48869497"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025800"
 ---
 # <a name="perform-cross-resource-log-searches-in-log-analytics"></a>Uitvoeren van meerdere bronnen zoekopdrachten in Logboeken in Log Analytics  
 
@@ -29,7 +29,7 @@ Eerder met Azure Log Analytics, u kunt gegevens alleen analyseren in de huidige 
 U kunt nu een query niet alleen over meerdere Log Analytics-werkruimten, maar ook gegevens uit een specifieke Application Insights-app in dezelfde resourcegroep, een andere resourcegroep of een ander abonnement. Dit biedt u een systeembreed overzicht van uw gegevens.  U kunt alleen uitvoeren met deze typen query's in [Log Analytics](log-analytics-log-search-portals.md#log-analytics-page). Het aantal resources (Log Analytics-werkruimten en Application Insights-app) die u in één query opnemen kunt is beperkt tot 100. 
 
 ## <a name="querying-across-log-analytics-workspaces-and-from-application-insights"></a>Uitvoeren van query's in Log Analytics-werkruimten en Application Insights
-Om te verwijzen naar een andere werkruimte in uw query, gebruikt u de [ *werkruimte* ](https://docs.loganalytics.io/docs/Language-Reference/Scope-functions/workspace()) -id, en voor een app uit de Application Insights, gebruikt u de [ *app* ](https://docs.loganalytics.io/docs/Language-Reference/Scope-functions/app())id.  
+Om te verwijzen naar een andere werkruimte in uw query, gebruikt u de [ *werkruimte* ](https://docs.microsoft.com/azure/log-analytics/query-language/workspace-expression) -id, en voor een app uit de Application Insights, gebruikt u de [ *app* ](https://docs.microsoft.com/azure/log-analytics/query-language/app-expression)id.  
 
 ### <a name="identifying-workspace-resources"></a>Werkruimteresources identificeren
 De volgende voorbeelden ziet u query's in Log Analytics-werkruimten om terug te keren samengevatte tellingen van Logboeken van de tabel bijwerken in een werkruimte met de naam *contosoretail it*. 
@@ -104,4 +104,4 @@ union Update, workspace("contosoretail-it").Update, workspace("b459b4u5-912x-46d
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Controleer de [Log Analytics melden verwijzing naar de](https://docs.loganalytics.io/docs/Language-Reference) om alle van de query-syntaxis opties die beschikbaar zijn in Log Analytics weer te geven.    
+Controleer de [Log Analytics melden verwijzing naar de](https://docs.microsoft.com/azure/log-analytics/query-language/kusto) om alle van de query-syntaxis opties die beschikbaar zijn in Log Analytics weer te geven.    

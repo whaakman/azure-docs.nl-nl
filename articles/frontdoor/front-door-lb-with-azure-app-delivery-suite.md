@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 05f77665352ee306f5684d5c7a09b27d4fe17650
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 4c9f92481af1e69a111869cb6fc1305923bb0484
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49426803"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50026004"
 ---
 # <a name="load-balancing-with-azures-application-delivery-suite"></a>Taakverdeling realiseren met de Azure-suite voor toepassingslevering
 
@@ -60,7 +60,7 @@ Bij het kiezen van een globale load balancer tussen Traffic Manager en Azure voo
 | --------------- | ------------------------ |
 |**Elk protocol:** omdat Traffic Manager werkt op de DNS-laag, kunt u elk type netwerkverkeer; doorsturen HTTP-, TCP, UDP, enzovoort. | **HTTP-versnelling:** met voordeur verkeer wordt via proxy op de rand van het netwerk van Microsoft.  Als gevolg hiervan Zie HTTP (S) aanvragen latentie en doorvoer verbeteringen korte wachttijden voor SSL-onderhandeling en het gebruik van ' hot ' verbindingen van AFD naar uw toepassing.|
 |**On-premises routering:** met routering op het niveau van een DNS-verkeer altijd punt punt gaat.  Routering van het filiaal naar uw on-premises datacenter kan duren voordat een rechtstreeks pad. zelfs op uw eigen netwerk met Traffic Manager. | **Onafhankelijke schaalbaarheid:** omdat voordeur werkt met de HTTP-aanvraag, kunnen aanvragen naar verschillende URL-paden worden doorgestuurd naar verschillende back-end / regionale service pools (microservices) op basis van regels en de status van elke microservice toepassing.|
-|**Facturering-indeling:** facturering op basis van DNS kan worden geschaald met uw gebruikers en services met meer gebruikers, plateaus om te verlagen kosten van een hoger gebruik. |**Inline-beveiliging:** voordeur kunnen regels, zoals gelden enkele beperkingen en IP-ACL-ing beveiligen van uw back-ends voordat verkeer bereikt uw toepassing. 
+|**Facturering-indeling:** facturering op basis van DNS kan worden geschaald met uw gebruikers en services met meer gebruikers, om te verminderen van kosten op een hoger gebruik plateaus. |**Inline-beveiliging:** voordeur kunnen regels, zoals gelden enkele beperkingen en IP-ACL-ing beveiligen van uw back-ends voordat verkeer bereikt uw toepassing. 
 
 </br>Vanwege de prestaties ervan en de voordelen van beveiliging op http-workloads met voordeur, wordt het aangeraden klanten voordeur gebruiken voor de HTTP-workloads.    Traffic Manager en voordeur kunnen parallel worden gebruikt voor het bieden van al het verkeer voor uw toepassing. 
 

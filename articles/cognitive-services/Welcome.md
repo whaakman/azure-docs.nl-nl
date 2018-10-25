@@ -9,12 +9,12 @@ ms.component: ''
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: nitinme
-ms.openlocfilehash: 5fcd625edf913e6629bfedb7ce7a6b5fe204af28
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: f7a68aab4959c3793c7688504d73d2b539a26f83
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48901427"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025392"
 ---
 # <a name="what-are-azure-cognitive-services"></a>Wat is Azure Cognitive Services?
 
@@ -74,11 +74,11 @@ Azure Cognitive Services zijn API's, SDK's en services waarmee ontwikkelaars int
 
 ## <a name="use-free-trials"></a>Gebruik van gratis proefversies
 
-[Zich registreren voor gratis proefversies] (https://azure.microsoft.com/try/cognitive-services/ 'Aanmelden Help') duurt maar een e-mailbericht en een paar eenvoudige stappen. U moet een Microsoft-Account als u er nog geen hebt. U ontvangt een unieke combinatie van sleutel voor elke API aangevraagd. De tweede gebeurtenis wordt alleen een spare. Niet de geheime sleutels met iedereen delen. Proefversies hebben beide een tarief beperken, transacties per seconde of minuut en een maandelijkse bedrag voor gebruik. Een transactie is gewoon een API-aanroep. U kunt upgraden naar betaalde lagen voor het ontgrendelen van de beperkingen.
+[Zich registreren voor gratis proefversies](https://azure.microsoft.com/try/cognitive-services/ "aanmelden Help") duurt maar een e-mailbericht en een paar eenvoudige stappen. U moet een Microsoft-Account als u er nog geen hebt. U ontvangt een unieke combinatie van sleutel voor elke API aangevraagd. De tweede gebeurtenis wordt alleen een spare. Niet de geheime sleutels met iedereen delen. Proefversies hebben beide een tarief beperken, transacties per seconde of minuut en een maandelijkse bedrag voor gebruik. Een transactie is gewoon een API-aanroep. U kunt upgraden naar betaalde lagen voor het ontgrendelen van de beperkingen.
 
 ## <a name="subscription-management"></a>Abonnementsbeheer
 
-Nadat u zich hebt aangemeld met uw Microsoft-Account, kunt u toegang tot [Mijn abonnementen] (https://www.microsoft.com/cognitive-services/en-us/subscriptions 'Mijn abonnementen') om de producten die u gebruikt, het quotum resterende en de mogelijkheid om toe te voegen aanvullende producten aan uw abonnement weer te geven.
+Nadat u bent aangemeld met uw Microsoft-Account, kunt u toegang tot [Mijn abonnementen](https://www.microsoft.com/cognitive-services/en-us/subscriptions "Mijn abonnementen") om weer te geven van de producten die u gebruikt, de resterende van quotum en de mogelijkheid om toe te voegen aanvullende producten uw abonnement.
 
 ## <a name="upgrade-to-unlock-limits"></a>Upgrade voor het ontgrendelen van limieten
 

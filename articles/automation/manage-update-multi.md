@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/18/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 23f86581b5ecc5257ccb246c7199eef4246efb08
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.openlocfilehash: e51c0178691279d803e9a1afcd4147f1d6ed767e
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46498229"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49985247"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Updates voor meerdere machines beheren
 
@@ -127,7 +127,7 @@ In de **nieuwe update-implementatie** in het deelvenster de volgende informatie 
 
 - **Naam**: Voer een unieke naam voor het identificeren van de update-implementatie.
 - **Besturingssysteem**: Selecteer **Windows** of **Linux**.
-- **Groepen om bij te werken (preview)**: een query op basis van een combinatie van het abonnement, resourcegroepen, locaties en tags aan het bouwen van een dynamische groep virtuele Azure-machines om op te nemen in uw implementatie te definiëren. Voor meer informatie over meer Zie [dynamische groepen](automation-update-management.md#using-dynamic-groups)
+- **Groepen om bij te werken (preview)**: definieer een query op basis van een combinatie van abonnement, resourcegroepen, locaties en tags om een dynamische groep virtuele Azure-machines te bouwen voor opname in uw implementatie. Zie [Dynamische groepen](automation-update-management.md#using-dynamic-groups) voor meer informatie
 - **Bij te werken computers**: Selecteer een opgeslagen zoekopdracht, geïmporteerd groep, of selecteer Machines om te kiezen op de computers die u wilt bijwerken. Als u **Computers** selecteert, wordt de gereedheid van de computer weergegeven in de kolom **GEREEDHEID VOOR UPDATE-AGENT**. U ziet de status van de machine voordat u de update-implementatie plannen. Zie [Computergroepen in Log Analytics](../log-analytics/log-analytics-computer-groups.md) voor meer informatie over de verschillende manieren waarop u computergroepen kunt maken in Log Analytics
 
   ![Deelvenster met nieuwe update-implementatie](./media/manage-update-multi/update-select-computers.png)
@@ -142,7 +142,7 @@ In de **nieuwe update-implementatie** in het deelvenster de volgende informatie 
   - Hulpprogramma's
   - Updates
 
-- **Updates voor opnemen/uitsluiten** -Hiermee opent u de **opnemen/uitsluiten** pagina. Er zijn updates moeten worden opgenomen of uitgesloten op een afzonderlijk tabblad. Zie voor meer informatie over hoe de insluiting wordt verwerkt, [opgenomen gedrag](automation-update-management.md#inclusion-behavior)
+- **Updates om op te nemen/uit te sluiten**: hiermee opent u de pagina **Opnemen/uitsluiten**. Updates die moeten worden opgenomen of uitgesloten, worden op afzonderlijke tabbladen weergegeven. Zie [Werking van opname](automation-update-management.md#inclusion-behavior) voor meer informatie over hoe de opname wordt verwerkt
 
 - **Schema-instellingen**: U kunt de standaarddatum en -tijd accepteren (30 minuten na de huidige tijd). U kunt ook een andere tijd opgeven.
 
@@ -150,7 +150,7 @@ In de **nieuwe update-implementatie** in het deelvenster de volgende informatie 
 
    ![Dialoogvenster Schema-instellingen](./media/manage-update-multi/update-set-schedule.png)
 
-- **Vooraf scripts + na scripts**: Selecteer de scripts worden uitgevoerd vóór en na de implementatie. Zie voor meer informatie, [beheren vóór en na scripts](pre-post-scripts.md).
+- **Voorafgaande scripts en navolgende scripts**: selecteer de scripts die moeten worden uitgevoerd vóór en na de implementatie. Zie[Manage Pre and Post scripts](pre-post-scripts.md) (Voorafgaande en navolgende scripts beheren) voor meer informatie.
 - **Onderhoudsvenster (minuten)**: Geef de periode die u wilt dat de update-implementatie moet plaatsvinden. Met deze instelling zorgt u ervoor dat wijzigingen worden uitgevoerd binnen de gedefinieerde onderhoudsvensters.
 
 - **Opnieuw opstarten besturingselement** -deze instelling bepaalt hoe opnieuw wordt opgestart voor de update-implementatie worden verwerkt.
@@ -163,6 +163,9 @@ In de **nieuwe update-implementatie** in het deelvenster de volgende informatie 
    |Alleen opnieuw opstarten - updates worden niet geïnstalleerd|Deze optie wordt genegeerd installatie van updates en initieert alleen opnieuw worden opgestart.|
 
 Wanneer u klaar bent met het plannen, selecteert u de **maken** terug te keren naar het statusdashboard. De **geplande** tabel ziet u de implementatieplanning die u hebt gemaakt.
+
+> [!NOTE]
+> Updatebeheer biedt ondersteuning voor eerste updates van derden implementeren en vooraf downloaden van patches. Dit vereist wijzigingen in de systemen die wordt hersteld, Zie [eerste partij en vooraf downloaden ondersteuning](automation-update-management.md#firstparty-predownload) voor meer informatie over deze instellingen configureren op uw systemen.
 
 ## <a name="view-results-of-an-update-deployment"></a>Resultaten van een update-implementatie weergeven
 

@@ -12,12 +12,12 @@ ms.devlang: fsharp
 ms.topic: reference
 ms.date: 10/09/2018
 ms.author: syclebsc
-ms.openlocfilehash: 772b2dae016e093f2c3833374378c0e884dbe835
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: b7cb3a7094ef2c11df63c9e5595355d4076e2ccd
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49456943"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025426"
 ---
 # <a name="azure-functions-f-developer-reference"></a>Naslaginformatie voor F #-ontwikkelaars van Azure Functions
 
@@ -52,7 +52,7 @@ FunctionsProject
  | - bin
 ```
 
-Er is een gedeelde [host.json] (functions-host-json.md)-bestand dat kan worden gebruikt voor het configureren van de functie-app. Elke functie heeft een eigen codebestand (.fsx) en de binding-configuratiebestand (function.json).
+Er is een gedeelde [host.json](functions-host-json.md) -bestand dat kan worden gebruikt voor het configureren van de functie-app. Elke functie heeft een eigen codebestand (.fsx) en de binding-configuratiebestand (function.json).
 
 De binding-extensies vereist in [versie 2.x](functions-versions.md) van de functies runtime zijn gedefinieerd in de `extensions.csproj` bestand met de werkelijke dll-bestanden in de `bin` map. Als u lokaal ontwikkelt, moet u [bindinguitbreidingen registreren](functions-triggers-bindings.md#local-development-azure-functions-core-tools). Bij het ontwikkelen van functies in Azure portal, geldt deze registratie voor u.
 

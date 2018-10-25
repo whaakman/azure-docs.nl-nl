@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/29/2017
 ms.author: muralikk
 ms.component: common
-ms.openlocfilehash: 7fc3e68e9d714ca95a28a28b470b1e1fdbff2c47
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 0be0d6c9613b4160a6c4c5cc3b63336fcf67d5c2
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48870890"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025615"
 ---
 # <a name="preparing-hard-drives-for-an-import-job"></a>Harde schijven voorbereiden voor een importtaak
 
@@ -309,7 +309,7 @@ Als de gegevens groter dan de grootte van de schijf is, wordt het hulpprogramma 
 
 #### <a name="where-can-i-find-previous-version-of-waimportexport-tool"></a>Waar vind ik de vorige versie van WAImportExport hulpprogramma?
 
-WAImportExport hulpprogramma heeft alle functies waarop WAImportExport V1-hulpprogramma. WAImportExport hulpprogramma kan gebruikers meerdere bronnen opgeven en schrijven naar meerdere schijven. Bovendien kan een eenvoudig meerdere bronlocaties van waaruit de gegevens moeten worden gekopieerd in één CSV-bestand beheren. In geval moet u echter ondersteuning voor SAS- of wilt kopiëren van één bron naar één schijf, maar u kunt [WAImportExport V1 Tool downloaden] (http://go.microsoft.com/fwlink/?LinkID=301900&amp; clcid = 0x409) en verwijzen naar [WAImportExport V1 verwijzing](storage-import-export-tool-how-to-v1.md) voor hulp bij WAImportExport V1 het gebruik.
+WAImportExport hulpprogramma heeft alle functies waarop WAImportExport V1-hulpprogramma. WAImportExport hulpprogramma kan gebruikers meerdere bronnen opgeven en schrijven naar meerdere schijven. Bovendien kan een eenvoudig meerdere bronlocaties van waaruit de gegevens moeten worden gekopieerd in één CSV-bestand beheren. Als u ondersteuning voor SAS- of wilt kopiëren van één bron naar één schijf nodig hebt, u kunt echter [WAImportExport V1 Tool downloaden](http://go.microsoft.com/fwlink/?LinkID=301900&amp;clcid=0x409) en verwijzen naar [WAImportExport V1 verwijzing](storage-import-export-tool-how-to-v1.md) voor hulp bij het gebruik van WAImportExport V1 .
 
 #### <a name="what-is-a-session-id"></a>Wat is er een sessie-ID?
 
@@ -407,7 +407,7 @@ WAImportExport hulpprogramma leest en schrijft bestanden per partij, één batch
 * [Het hulpprogramma Azure Import/Export instellen](storage-import-export-tool-setup.md)
 * [Eigenschappen en metagegevens instellen tijdens het importproces](storage-import-export-tool-setting-properties-metadata-import.md)
 * [Voorbeeldwerkstroom voor het voorbereiden van harde schijven voor een importtaak](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow.md)
-* [Naslaggids voor veelgebruikte opdrachten](storage-import-export-tool-quick-reference.md) 
+* [Naslaggids voor veelgebruikte opdrachten](storage-import-export-tool-quick-reference.md) 
 * [De taakstatus controleren met kopielogboekbestanden](storage-import-export-tool-reviewing-job-status-v1.md)
 * [Een importtaak herstellen](storage-import-export-tool-repairing-an-import-job-v1.md)
 * [Een exporttaak herstellen](storage-import-export-tool-repairing-an-export-job-v1.md)

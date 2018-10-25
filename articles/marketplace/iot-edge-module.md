@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 09/22/2018
 ms.author: qianw211
-ms.openlocfilehash: ecc892a38d5e86a089085cd67a78ce7d00c86fd8
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: 46740e925a5d4e94c314105aba4920caf01532e7
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47181113"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49985605"
 ---
 # <a name="iot-edge-modules"></a>IoT Edge-modules
 
@@ -84,7 +84,7 @@ De primaire technische vereisten voor een IoT Edge-Module, om deze gecertificeer
 
 De volgende artikelen zijn beschikbaar wanneer u bent aangemeld bij de [Portal voor het publiceren van Cloud](https://cloudpartner.azure.com/):
 
-- [Maak een aanbieding van IoT Edge module](https://cloudpartner.azure.com/#documentation/create-iot-edge-module-offer) -– de stappen voor het publiceren van een nieuwe IoT Edge-module bieden met de Cloud-Portal voor publiceren.
+- [Maak een aanbieding van IoT Edge module](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/iot-edge-module/cpp-create-offer) -– de stappen voor het publiceren van een nieuwe IoT Edge-module bieden met de Cloud-Portal voor publiceren.
 - [IoT Edge-module-certificeringsproces](https://cloudpartner.azure.com/#documentation/iot-edge-module-certification-process) : een overzicht van de stappen en de vereisten voor het certificeren van een IoT Edge-module.
 - [IoT Edge-module Veelgestelde vragen over](https://cloudpartner.azure.com/#documentation/iot-edge-module-faq) :-een lijst met veelgestelde vragen met betrekking tot IoT Edge-modules.
 

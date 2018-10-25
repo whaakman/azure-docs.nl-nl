@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/13/2017
 ms.author: huishao
-ms.openlocfilehash: 0eab96d85aa9cc8bea8d30c5a36c8489b8ea652e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 9c3815f0083d049d9b4baed8e360f5927fcd3d69
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46974167"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025680"
 ---
 # <a name="introduction-to-freebsd-on-azure"></a>Inleiding tot FreeBSD op Azure
 Dit artikel bevat een overzicht van het uitvoeren van FreeBSD virtuele machines in Azure.
@@ -48,22 +48,22 @@ Een FreeBSD virtuele machine implementeert, is een eenvoudig proces met een inst
 ### <a name="create-a-freebsd-vm-through-azure-cli-on-freebsd"></a>Een FreeBSD virtuele machine via Azure CLI op FreeBSD maken
 U moet eerst installeren [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) al de volgende opdracht op een machine FreeBSD.
 
-```bash 
+```bash 
 curl -L https://aka.ms/InstallAzureCli | bash
 ```
 
-Als bash is niet geïnstalleerd op uw computer toegang tot FreeBSD, voert u de volgende opdracht voordat de installatie. 
+Als bash is niet geïnstalleerd op uw computer toegang tot FreeBSD, voert u de volgende opdracht voordat de installatie. 
 
 ```bash
 sudo pkg install bash
 ```
 
-Als python is niet geïnstalleerd op uw computer toegang tot FreeBSD, voert u de volgende opdrachten voordat de installatie. 
+Als python is niet geïnstalleerd op uw computer toegang tot FreeBSD, voert u de volgende opdrachten voordat de installatie. 
 
 ```bash
 sudo pkg install python35
-cd /usr/local/bin 
-sudo rm /usr/local/bin/python 
+cd /usr/local/bin 
+sudo rm /usr/local/bin/python 
 sudo ln -s /usr/local/bin/python3.5 /usr/local/bin/python
 ```
 
@@ -72,7 +72,7 @@ Tijdens de installatie wordt u gevraagd `Modify profile to update your $PATH and
 U kunt nu aanmelden bij Azure en maak uw FreeBSD-VM. Hieronder volgt een voorbeeld om een FreeBSD 11.0 VM te maken. U kunt ook de parameter toevoegen `--public-ip-address-dns-name` met een unieke DNS-naam voor een nieuwe openbare IP-adres. 
 
 ```azurecli
-az login 
+az login 
 az group create --name myResourceGroup --location eastus
 az vm create --name myFreeBSD11 \
     --resource-group myResourceGroup \
@@ -131,7 +131,7 @@ $ sudo <COMMAND>
 U kunt eventueel een shell hoofdmap verkrijgen met behulp van `sudo -s`.
 
 ## <a name="known-issues"></a>Bekende problemen
-De [Azure VM-Gastagent](https://github.com/Azure/WALinuxAgent/) versie 2.2.2 heeft een [bekend probleem] (https://github.com/Azure/WALinuxAgent/pull/517) dat ervoor zorgt dat de fout inrichten voor FreeBSD VM op Azure. De oplossing zijn vastgelegd door [Azure VM-Gastagent](https://github.com/Azure/WALinuxAgent/) versie 2.2.3 en latere versies. 
+De [Azure VM-Gastagent](https://github.com/Azure/WALinuxAgent/) versie 2.2.2 heeft een [bekende probleem](https://github.com/Azure/WALinuxAgent/pull/517) dat ervoor zorgt dat de fout inrichten voor FreeBSD VM op Azure. De oplossing zijn vastgelegd door [Azure VM-Gastagent](https://github.com/Azure/WALinuxAgent/) versie 2.2.3 en latere versies. 
 
 ## <a name="next-steps"></a>Volgende stappen
 * Ga naar [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.FreeBSD111) om een FreeBSD-VM te maken.

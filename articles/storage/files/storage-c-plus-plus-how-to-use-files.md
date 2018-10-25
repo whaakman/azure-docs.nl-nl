@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/19/2017
 ms.author: renashahmsft
 ms.component: files
-ms.openlocfilehash: 4543784c1de85cf86f3dfa912a33641541e0373a
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 698b2ca177535709d13c531d3ca2a82a8a970131
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39531101"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024578"
 ---
 # <a name="develop-for-azure-files-with-c"></a>Ontwikkelen voor Azure Files met C++
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
@@ -350,6 +350,6 @@ if (share.exists())
 Zie de volgende bronnen voor meer informatie over Azure Storage:
 
 * [Opslagclientbibliotheek voor C++](https://github.com/Azure/azure-storage-cpp)
-* [Azure Storage-Service bestandsvoorbeelden in C++] (https://github.com/Azure-Samples/storage-file-cpp-getting-started)
+* [Voorbeelden voor de Service van Azure Storage-bestand in C++](https://github.com/Azure-Samples/storage-file-cpp-getting-started)
 * [Azure-opslagverkenner](http://go.microsoft.com/fwlink/?LinkID=822673&clcid=0x409)
 * [Documentatie bij Azure Storage](https://azure.microsoft.com/documentation/services/storage/)

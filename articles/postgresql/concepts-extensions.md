@@ -9,18 +9,18 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 05/30/2018
-ms.openlocfilehash: f9216800f0e91d71f1da3f2bac16ecfcbf8b4850
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 67f5e6d4674f876b2cfd4d879ab40c5a5b12c0cc
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49376547"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49985043"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql"></a>PostgreSQL-extensies in Azure Database for PostgreSQL
-PostgreSQL biedt de mogelijkheid om uit te breiden de functionaliteit van uw database met behulp van extensies. Extensies bieden samen bundeling van meerdere verwante SQL-objecten in één pakket die kan worden geladen of verwijderd uit de database met slechts één opdracht. Extensies kunnen na worden geladen in de database, functioneren als ingebouwde functies. Zie voor meer informatie over de PostgreSQL-extensies, [verpakking verwante objecten in een extensie](https://www.postgresql.org/docs/9.6/static/extend-extensions.html).
+PostgreSQL biedt de mogelijkheid om uit te breiden de functionaliteit van uw database met behulp van extensies. Extensies bieden samen bundeling van meerdere verwante SQL-objecten in één pakket die kan worden geladen of verwijderd uit de database met slechts één opdracht. Extensies kunnen na worden geladen in de database, functioneren als ingebouwde functies. Zie voor meer informatie over de PostgreSQL-extensies, [verpakking verwante objecten in een extensie](https://www.postgresql.org/docs/9.6/static/extend-extensions.html).
 
 ## <a name="how-to-use-postgresql-extensions"></a>Het gebruik van de PostgreSQL-extensies
-PostgreSQL-extensies moeten worden geïnstalleerd in uw database voordat u ze kunt gebruiken. Voer voor het installeren van een bepaalde extensie de [EXTENSIE maken](https://www.postgresql.org/docs/9.6/static/sql-createextension.html) opdracht uit vanaf de psql-hulpprogramma voor het laden van de verpakte objecten in uw database.
+PostgreSQL-extensies moeten worden geïnstalleerd in uw database voordat u ze kunt gebruiken. Voer voor het installeren van een bepaalde extensie de [EXTENSIE maken](https://www.postgresql.org/docs/9.6/static/sql-createextension.html) opdracht uit vanaf de psql-hulpprogramma voor het laden van de verpakte objecten in uw database.
 
 Azure Database voor PostgreSQL ondersteunt momenteel een subset van de belangrijkste extensies zoals hieronder vermeld. Extensies dan de waarden worden niet ondersteund. u kunt uw eigen uitbreiding maken met Azure Database voor PostgreSQL-service.
 
@@ -97,7 +97,7 @@ De volgende tabellen worden de standaard PostgreSQL-extensies die momenteel word
 |---|---|
 | [PostGIS](http://www.postgis.net/), postgis\_topologie, postgis\_tiger\_geocoder, postgis\_sfcgal | Ruimtelijke en geografische objecten voor PostgreSQL. |
 | adres\_standardizer, adres\_standardizer\_gegevens\_ons | Gebruikt voor het parseren van een adres naar de bijbehorende elementen. Gebruikt ter ondersteuning van geocodering adres normalisering stap. |
-| [pgrouting](http://pgrouting.org/) | Breidt de PostGIS / PostgreSQL georuimtelijke database voor georuimtelijke functies routering. |
+| [pgrouting](https://pgrouting.org/) | Breidt de PostGIS / PostgreSQL georuimtelijke database voor georuimtelijke functies routering. |
 
 
 ### <a name="using-pgstatstatements"></a>Met behulp van pg_stat_statements

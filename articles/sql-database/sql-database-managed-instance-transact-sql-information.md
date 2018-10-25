@@ -11,13 +11,13 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlrab, bonova
 manager: craigg
-ms.date: 08/13/2018
-ms.openlocfilehash: 2f512c666555ca8bee58305b76573459f6e631e2
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 10/24/2018
+ms.openlocfilehash: fd63d0ce9ef335efdebf9759d52cf93312986d16
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166500"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025375"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Azure SQL Database Managed Instance T-SQL-verschillen van SQL Server 
 
@@ -103,7 +103,7 @@ Zie [certificaat maken](https://docs.microsoft.com/sql/t-sql/statements/create-c
 > ``` 
 CREATE CERTIFICATE  
  FROM BINARY = asn_encoded_certificate    
-WITH PRIVATE KEY ( <private_key_options> ) 
+WITH PRIVATE KEY (<private_key_options>) 
 >```   
  
 ### <a name="clr"></a>CLR 
@@ -333,21 +333,22 @@ Zie voor meer informatie over de Restore-instructies [herstellen instructies](ht
  - `remote proc trans` 
 - `sp_execute_external_scripts` wordt niet ondersteund. Zie [sp_execute_external_scripts](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql#examples).
 - `xp_cmdshell` wordt niet ondersteund. Zie [xp_cmdshell](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/xp-cmdshell-transact-sql).
-- `Extended stored procedures` worden niet ondersteund, met inbegrip van `sp_addextendedproc` en `sp_dropextendedproc`. Zie [uitgebreide opgeslagen procedures](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/general-extended-stored-procedures-transact-sql)
+- `Extended stored procedures` worden niet ondersteund, met inbegrip van `sp_addextendedproc`  en `sp_dropextendedproc`. Zie [uitgebreide opgeslagen procedures](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/general-extended-stored-procedures-transact-sql)
 - `sp_attach_db`, `sp_attach_single_file_db`, en `sp_detach_db` worden niet ondersteund. Zie [sp_attach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-db-transact-sql), [sp_attach_single_file_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-single-file-db-transact-sql), en [sp_detach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-detach-db-transact-sql).
 - `sp_renamedb` wordt niet ondersteund. Zie [sp_renamedb](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-renamedb-transact-sql).
 
 ### <a name="sql-server-agent"></a>SQL Server Agent
 
 - SQL Agent-instellingen zijn alleen-lezen. Procedure `sp_set_agent_properties` wordt niet ondersteund in het beheerde exemplaar.  
-- Taken - T-SQL-taakstappen worden momenteel ondersteund.
-- Andere typen taak stappen momenteel niet zijn ondersteund (meer stap typen worden toegevoegd tijdens de openbare preview).
-  - Replicatietaken niet ondersteund met inbegrip van:
+- Taken
+ - T-SQL-taakstappen worden ondersteund.
+ - De volgende replicatietaken worden ondersteund:
     - Transactie-log reader.  
     - Een momentopname.
-    - Distributor.  
-    - Samenvoegen.  
-  - SSIS is nog niet ondersteund. 
+    - Distributor.
+ - SSIS wordt ondersteund. 
+- Andere typen taakstappen worden momenteel niet ondersteund, met inbegrip van:
+  - Samenvoegen van stap in logboektaak replicatie wordt niet ondersteund.  
   - Lezer van de wachtrij wordt niet ondersteund.  
   - Opdrachtshell is nog niet ondersteund. 
   - Beheerd exemplaar heeft geen toegang tot externe bronnen (bijvoorbeeld netwerkshares via robocopy).  
@@ -411,7 +412,7 @@ In dit voorbeeld bestaande databases blijven werken en zonder problemen kan groe
 ### <a name="incorrect-configuration-of-sas-key-during-database-restore"></a>Onjuiste configuratie van de SAS-sleutel tijdens de database herstellen
 
 `RESTORE DATABASE` die leest .bak-bestand kan worden voortdurend opnieuw wordt geprobeerd om te lezen .bak-bestand en de geretourneerde fout na een lange periode als Shared Access Signature in `CREDENTIAL` is onjuist. UPSETS worden uitgevoerd vóór het herstellen van een database om er zeker van te zijn dat de SAS-sleutel juist is.
-Zorg ervoor dat u voorloopspaties verwijderen `?` van de SAS-sleutel gegenereerd met behulp van Azure portal.
+Zorg ervoor dat u de voorloopspaties verwijderen `?` van de SAS-sleutel die wordt gegenereerd met behulp van Azure portal.
 
 ### <a name="tooling"></a>Hulpprogramma 's
 

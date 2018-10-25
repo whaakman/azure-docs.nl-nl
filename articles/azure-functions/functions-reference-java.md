@@ -11,12 +11,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: routlaw
-ms.openlocfilehash: 9e07cddb9d446ea24143d3a6dec5e310d3ed6f1c
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 423661b8a459abf0b3028da92d6fd3ec885bb2c9
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48802114"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025019"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Azure Functions Java-handleiding voor ontwikkelaars
 
@@ -52,7 +52,7 @@ FunctionsProject
  | - pom.xml
 ```
 
-Er is een gedeelde [host.json] (functions-host-json.md)-bestand dat kan worden gebruikt voor het configureren van de functie-app. Elke functie heeft een eigen codebestand (startactiviteit) en de binding-configuratiebestand (function.json).
+Er is een gedeelde [host.json](functions-host-json.md) -bestand dat kan worden gebruikt voor het configureren van de functie-app. Elke functie heeft een eigen codebestand (startactiviteit) en de binding-configuratiebestand (function.json).
 
 U kunt meer dan één functie plaatsen in een project. Plaats uw functies in afzonderlijke JAR-bestanden. De FunctionApp in de doelmap is wat wordt geïmplementeerd naar uw functie-app in Azure.
 

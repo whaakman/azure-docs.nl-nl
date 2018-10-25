@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/08/2017
 ms.author: glenga
-ms.openlocfilehash: c99ad77bba60a4573faae1c857b3e6dc0203c4ab
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: d79a57db6f56264d4070debbca83de4192f7f503
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434684"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49987083"
 ---
 # <a name="azure-event-hubs-bindings-for-azure-functions"></a>Azure Event Hubs-bindingen voor Azure Functions
 
@@ -89,7 +89,7 @@ public static void Run([EventHubTrigger("samples-workitems", Connection = "Event
 }
 ```
 
-Toegang krijgen tot [gebeurtenis metagegevens](#trigger---event-metadata) in functiecode aan te geven, verbinding maken met een [EventData](/dotnet/api/microsoft.servicebus.messaging.eventdata) object (moet een instructie voor `Microsoft.ServiceBus.Messaging`). U kunt ook toegang tot dezelfde eigenschappen met behulp van de binding-expressies in de handtekening van de methode.  Het volgende voorbeeld ziet u beide manieren om dezelfde gegevens:
+Toegang krijgen tot [gebeurtenis metagegevens](#trigger---event-metadata) in functiecode aan te geven, verbinding maken met een [EventData](/dotnet/api/microsoft.servicebus.messaging.eventdata) object (moet een instructie voor `Microsoft.Azure.EventHubs`). U kunt ook toegang tot dezelfde eigenschappen met behulp van de binding-expressies in de handtekening van de methode.  Het volgende voorbeeld ziet u beide manieren om dezelfde gegevens:
 
 ```csharp
 [FunctionName("EventHubTriggerCSharp")]
@@ -100,27 +100,31 @@ public static void Run(
     string offset,
     TraceWriter log)
 {
-    log.Info($"Event: {Encoding.UTF8.GetString(myEventHubMessage.GetBytes())}");
+    log.Info($"Event: {Encoding.UTF8.GetString(myEventHubMessage.Body)}");
     // Metadata accessed by binding to EventData
-    log.Info($"EnqueuedTimeUtc={myEventHubMessage.EnqueuedTimeUtc}");
-    log.Info($"SequenceNumber={myEventHubMessage.SequenceNumber}");
-    log.Info($"Offset={myEventHubMessage.Offset}");
-    // Metadata accessed by using binding expressions
+    log.Info($"EnqueuedTimeUtc={myEventHubMessage.SystemProperties.EnqueuedTimeUtc}");
+    log.Info($"SequenceNumber={myEventHubMessage.SystemProperties.SequenceNumber}");
+    log.Info($"Offset={myEventHubMessage.SystemProperties.Offset}");
+    // Metadata accessed by using binding expressions in method parameters
     log.Info($"EnqueuedTimeUtc={enqueuedTimeUtc}");
     log.Info($"SequenceNumber={sequenceNumber}");
     log.Info($"Offset={offset}");
 }
 ```
 
-Zorg voor het ontvangen van gebeurtenissen in een batch, `string` of `EventData` een matrix:
+Zorg voor het ontvangen van gebeurtenissen in een batch, `string` of `EventData` een matrix.  
+
+> [!NOTE]
+> Tijdens het ontvangen in een batch met u kan geen binding met de methodeparameters, zoals in het bovenstaande voorbeeld met `DateTime enqueuedTimeUtc` en moet deze uit elke ontvangen `EventData` object  
 
 ```cs
 [FunctionName("EventHubTriggerCSharp")]
-public static void Run([EventHubTrigger("samples-workitems", Connection = "EventHubConnectionAppSetting")] string[] eventHubMessages, TraceWriter log)
+public static void Run([EventHubTrigger("samples-workitems", Connection = "EventHubConnectionAppSetting")] EventData[] eventHubMessages, TraceWriter log)
 {
     foreach (var message in eventHubMessages)
     {
-        log.Info($"C# Event Hub trigger function processed a message: {message}");
+        log.Info($"C# Event Hub trigger function processed a message: {Encoding.UTF8.GetString(message.Body)}");
+        log.Info($"EnqueuedTimeUtc={message.SystemProperties.EnqueuedTimeUtc}");
     }
 }
 ```
@@ -162,29 +166,30 @@ public static void Run(string myEventHubMessage, TraceWriter log)
 }
 ```
 
-Toegang krijgen tot [gebeurtenis metagegevens](#trigger---event-metadata) in functiecode aan te geven, verbinding maken met een [EventData](/dotnet/api/microsoft.servicebus.messaging.eventdata) object (moet een instructie voor `Microsoft.ServiceBus.Messaging`). U kunt ook toegang tot dezelfde eigenschappen met behulp van de binding-expressies in de handtekening van de methode.  Het volgende voorbeeld ziet u beide manieren om dezelfde gegevens:
+Toegang krijgen tot [gebeurtenis metagegevens](#trigger---event-metadata) in functiecode aan te geven, verbinding maken met een [EventData](/dotnet/api/microsoft.servicebus.messaging.eventdata) object (moet een instructie voor `Microsoft.Azure.EventHubs`). U kunt ook toegang tot dezelfde eigenschappen met behulp van de binding-expressies in de handtekening van de methode.  Het volgende voorbeeld ziet u beide manieren om dezelfde gegevens:
 
 ```cs
-#r "Microsoft.ServiceBus"
+#r "Microsoft.Azure.EventHubs"
+
 using System.Text;
 using System;
-using Microsoft.ServiceBus.Messaging;
+using Microsoft.Azure.EventHubs;
 
 public static void Run(EventData myEventHubMessage,
     DateTime enqueuedTimeUtc, 
     Int64 sequenceNumber,
     string offset,
-    TraceWriter log)
+    ILogger log)
 {
-    log.Info($"Event: {Encoding.UTF8.GetString(myEventHubMessage.GetBytes())}");
-    // Metadata accessed by binding to EventData
-    log.Info($"EnqueuedTimeUtc={myEventHubMessage.EnqueuedTimeUtc}");
-    log.Info($"SequenceNumber={myEventHubMessage.SequenceNumber}");
-    log.Info($"Offset={myEventHubMessage.Offset}");
+    log.LogInformation($"Event: {Encoding.UTF8.GetString(myEventHubMessage.Body)}");
+    log.LogInformation($"EnqueuedTimeUtc={myEventHubMessage.SystemProperties.EnqueuedTimeUtc}");
+    log.LogInformation($"SequenceNumber={myEventHubMessage.SystemProperties.SequenceNumber}");
+    log.LogInformation($"Offset={myEventHubMessage.SystemProperties.Offset}");
+
     // Metadata accessed by using binding expressions
-    log.Info($"EnqueuedTimeUtc={enqueuedTimeUtc}");
-    log.Info($"SequenceNumber={sequenceNumber}");
-    log.Info($"Offset={offset}");
+    log.LogInformation($"EnqueuedTimeUtc={enqueuedTimeUtc}");
+    log.LogInformation($"SequenceNumber={sequenceNumber}");
+    log.LogInformation($"Offset={offset}");
 }
 ```
 

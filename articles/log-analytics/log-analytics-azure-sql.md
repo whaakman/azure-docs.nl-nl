@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/03/2018
 ms.author: v-daljep
 ms.component: ''
-ms.openlocfilehash: ea289abff7a40b0528f4cb88402594879ba6c437
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 3c80007a8188fb239a13aaa0ccc9ef2237a2d8d1
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49649649"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025664"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Azure SQL Database controleren met Azure SQL Analytics (Preview)
 
@@ -124,7 +124,7 @@ De onderstaande tabel geeft een overzicht van perspectieven voor twee versies va
 | Time-outs | Biedt hiërarchische inzoomen in SQL-outs die hebben plaatsgevonden voor de databases. | Ja | Nee |
 | Blokkeringen | Biedt hiërarchische inzoomen in SQL-blockings die hebben plaatsgevonden voor de databases. | Ja | Nee |
 | Wachten op database | Biedt hiërarchische inzoomen in SQL wacht statistieken op het databaseniveau van de. Bevat overzichten van de totale wachttijd en de wachttijd per type wachten. |Ja | Ja |
-| Queryduur | Biedt hiërarchische inzoomen in de uitvoering van querystatistieken, zoals queryduur van de, CPU-gebruik, gegevens-IO en logboek-IO-gebruik. | Ja | Ja |
+| Queryduur van de | Biedt hiërarchische inzoomen in de uitvoering van querystatistieken, zoals queryduur van de, CPU-gebruik, gegevens-IO en logboek-IO-gebruik. | Ja | Ja |
 | Wachten op query | Biedt hiërarchische inzoomen in de wacht querystatistieken op categorie wachten. | Ja | Ja |
 
 ### <a name="intelligent-insights-report"></a>Intelligent Insights-rapport
@@ -147,11 +147,48 @@ Via de duur van de Query en de query wacht perspectieven, kunt u de prestaties v
 
 ![Azure SQL Analytics-query 's](./media/log-analytics-azure-sql/azure-sql-sol-queries.png)
 
-### <a name="pricing"></a>Prijzen
+## <a name="permissions"></a>Machtigingen
 
-De oplossing is gratis te gebruiken, gebruik van diagnostische gegevens telemetrie boven de gratis eenheden van gegevensopname die elke maand toegewezen van toepassing is, Zie [Log Analytics-prijzen](https://azure.microsoft.com/en-us/pricing/details/monitor). Gratis eenheden van de gegevensopname opgegeven gratis bewaking inschakelen van meerdere databases per maand. Houd er rekening mee dat meer actieve databases met zwaardere werkbelastingen zal worden gebruikt voor het opnemen van meer gegevens ten opzichte van niet-actieve databases. U kunt uw gegevensverbruik voor opname in de oplossing eenvoudig bewaken met OMS-werkruimte in het navigatiemenu van Azure SQL Analytics selecteren en vervolgens de optie gebruik en geschatte kosten.
+Voor het gebruik van Azure SQL Analytics gebruikers worden op minimaal moet de rol van lezer in Azure worden verleend. Deze rol wordt echter niet toestaan dat gebruikers de querytekst wilt zien of een functie automatisch afstemmen van acties uitvoeren. Meer vrije rollen in Azure die ervoor zorgen dat de oplossing gebruikt de eisen voor zover zijn eigenaar, Inzender, ' SQL DB Contributor ' of Inzender voor SQL Server. U kunt ook rekening houden met het maken van een aangepaste rol in de portal met specifieke machtigingen vereist alleen voor het gebruik van Azure SQL Analytics, en geen toegang tot andere resources beheren.
 
-### <a name="analyze-data-and-create-alerts"></a>Gegevens analyseren en waarschuwingen te maken
+### <a name="creating-a-custom-role-in-portal"></a>Het maken van een aangepaste rol in de portal
+
+Herkent dat sommige organisaties strikte machtiging besturingselementen in Azure afdwingen, vindt u de volgende PowerShell-script voor het inschakelen van het maken van een aangepaste rol 'SQL Analytics Toepassingsbewaking-Operator' in Azure portal met de minimale machtigingen lezen en schrijven Gebruik Azure SQL Analytics aan de eisen voor zover is vereist.
+
+Vervang de '{SubscriptionId}' het onderstaande script met de ID van uw Azure-abonnement, en voer het script dat is aangemeld als een eigenaar of de rol Inzender in Azure.
+
+   ```powershell
+    Connect-AzureRmAccount
+    Select-AzureRmSubscription {SubscriptionId}
+    $role = Get-AzureRmRoleDefinition -Name Reader
+    $role.Name = "SQL Analytics Monitoring Operator"
+    $role.Description = "Lets you monitor database performance with Azure SQL Analytics as a reader. Does not allow change of resources."
+    $role.IsCustom = $true
+    $role.Actions.Add("Microsoft.SQL/servers/databases/read");
+    $role.Actions.Add("Microsoft.SQL/servers/databases/topQueries/queryText/*");
+    $role.Actions.Add("Microsoft.Sql/servers/databases/advisors/read");
+    $role.Actions.Add("Microsoft.Sql/servers/databases/advisors/write");
+    $role.Actions.Add("Microsoft.Sql/servers/databases/advisors/recommendedActions/read");
+    $role.Actions.Add("Microsoft.Sql/servers/databases/advisors/recommendedActions/write");
+    $role.Actions.Add("Microsoft.Sql/servers/databases/automaticTuning/read");
+    $role.Actions.Add("Microsoft.Sql/servers/databases/automaticTuning/write");
+    $role.Actions.Add("Microsoft.Sql/servers/databases/*");
+    $role.Actions.Add("Microsoft.Sql/servers/advisors/read");
+    $role.Actions.Add("Microsoft.Sql/servers/advisors/write");
+    $role.Actions.Add("Microsoft.Sql/servers/advisors/recommendedActions/read");
+    $role.Actions.Add("Microsoft.Sql/servers/advisors/recommendedActions/write");
+    $role.Actions.Add("Microsoft.Resources/deployments/write");
+    $role.AssignableScopes = "/subscriptions/{SubscriptionId}"
+    New-AzureRmRoleDefinition $role
+   ```
+
+Zodra de nieuwe rol is gemaakt, moet u deze rol toewijzen aan elke gebruiker die u nodig hebt om aangepaste machtigingen voor het gebruik van Azure SQL Analytics te verlenen.
+
+## <a name="analyze-data-and-create-alerts"></a>Gegevens analyseren en waarschuwingen te maken
+
+Analyse van gegevens in Azure SQL Analytics is gebaseerd op [Log Analytics-taal](./query-language/get-started-queries.md) voor uw aangepaste uitvoeren van query's en rapportage. Raadpleeg voor beschrijving van de beschikbare gegevens die worden verzameld van de databaseresource voor aangepaste query's [metrische gegevens en logboeken beschikbaar](../sql-database/sql-database-metrics-diag-logging.md#metrics-and-logs-available).
+
+Geautomatiseerde waarschuwingen in de oplossing is gebaseerd op een Log Analytics-query die een alarm van een voorwaarde wordt voldaan aan het schrijven. Vindt u hieronder verschillende voorbeelden gegeven van de Log Analytics-query's bij welke waarschuwingen kunnen worden ingesteld in de oplossing.
 
 ### <a name="creating-alerts-for-azure-sql-database"></a>Het maken van waarschuwingen voor Azure SQL Database
 
@@ -245,6 +282,10 @@ AzureDiagnostics
 > [!NOTE]
 > - Vooraf vereiste van het instellen van deze waarschuwing is dat bewaakte beheerd exemplaar voor het streamen van ResourceUsageStats logboek is ingeschakeld op de oplossing.
 > - Deze query vereist een waarschuwingsregel om te worden ingesteld voor het uitschakelen van een waarschuwing wordt geactiveerd wanneer er resultaten (> 0 resultaten) van de query, die aangeeft of de voorwaarde op het beheerde exemplaar bestaat. De uitvoer is percentage het opslagverbruik van het beheerde exemplaar.
+
+### <a name="pricing"></a>Prijzen
+
+De oplossing is gratis te gebruiken, gebruik van diagnostische gegevens telemetrie boven de gratis eenheden van gegevensopname die elke maand toegewezen van toepassing is, Zie [Log Analytics-prijzen](https://azure.microsoft.com/en-us/pricing/details/monitor). Gratis eenheden van de gegevensopname opgegeven gratis bewaking inschakelen van meerdere databases per maand. Houd er rekening mee dat meer actieve databases met zwaardere werkbelastingen zal worden gebruikt voor het opnemen van meer gegevens ten opzichte van niet-actieve databases. U kunt uw gegevensverbruik voor opname in de oplossing eenvoudig bewaken met OMS-werkruimte in het navigatiemenu van Azure SQL Analytics selecteren en vervolgens de optie gebruik en geschatte kosten.
 
 ## <a name="next-steps"></a>Volgende stappen
 

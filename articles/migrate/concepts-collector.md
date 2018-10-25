@@ -4,15 +4,15 @@ description: Bevat informatie over het Collector-apparaat in Azure Migrate.
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 10/23/2018
+ms.date: 10/24/2018
 ms.author: snehaa
 services: azure-migrate
-ms.openlocfilehash: 3c40fd97540d8529c95c7d18d2c3155dd37717e9
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 006a246323e9f82ea9c9a6a2940ed624d7e44e13
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945413"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49986776"
 ---
 # <a name="about-the-collector-appliance"></a>Over het Collector-apparaat
 
@@ -198,7 +198,7 @@ Houd er rekening mee dat het apparaat verzamelt alleen prestatiegegevens continu
 2. Het verwijderen van virtuele machines: vanwege de manier waarop het apparaat is ontworpen, verwijderen van virtuele machines wordt niet weergegeven, zelfs als u stopt en de detectie start. Dit komt doordat gegevens uit de volgende detecties zijn toegevoegd aan de oudere detecties en niet worden genegeerd. In dit geval kunt u de virtuele machine in de portal, gewoon negeren door verwijderen uit de groep en de evaluatie te berekenen.
 
 > [!NOTE]
-> De functionaliteit van continue detectie is in preview. Als de instellingen voor statistieken van vCenter-Server is ingesteld op niveau 3, wordt u aangeraden dat u deze methode gebruikt.
+> De functionaliteit van continue detectie is in preview. We raden u aan het gebruik van deze methode als deze methode gedetailleerde prestatiegegevens verzamelt en in een nauwkeurige juiste groottebepaling resulteert.
 
 
 ## <a name="discovery-process"></a>Discovery-proces

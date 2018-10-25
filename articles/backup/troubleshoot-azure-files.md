@@ -3,17 +3,17 @@ title: Problemen met het maken van back-ups van Azure-bestandsshares oplossen
 description: Dit artikel gaat over het oplossen van problemen die optreden bij het beveiligen van uw Azure-bestandsshares.
 services: backup
 ms.service: backup
-author: markgalioto
-ms.author: markgal
-ms.date: 2/21/2018
+author: rayne-wiselman
+ms.author: raynew
+ms.date: 10/23/2018
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 334cea710d185a6774e28ea3459b3ca1ad9f846f
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
+ms.openlocfilehash: faf229d67a5b4a7a15774d6e01af1c5706d18058
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36959794"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50023148"
 ---
 # <a name="troubleshoot-problems-backing-up-azure-file-shares"></a>Problemen bij het maken van back-ups van Azure-bestanden oplossen
 U kunt met behulp van de informatie in de volgende tabellen problemen en fouten oplossen die optreden tijdens het maken van back-ups van Azure-bestandsshares.
@@ -30,7 +30,7 @@ Back-up voor Azure-bestandsshares is in preview. De volgende back-upscenario's w
 
 \*Azure-bestandsshares in opslagaccounts met replicatie via [geografisch redundante opslag met leestoegang](../storage/common/storage-redundancy-grs.md) (RA-GRS) werken als GRS en hiervoor worden GRS-prijzen in rekening gebracht.
 
-Back-up voor Azure-bestandsshares in opslagaccounts met replicatie via [zone-redundante opslag](../storage/common/storage-redundancy-zrs.md) (ZRS) is momenteel alleen beschikbaar in VS - centraal (CUS), VS - oost 2 (EUS2), Europa - noord (NE), Azië - zuidoost (SEA) en Europa - west (WE).
+Back-up voor Azure-bestandsshares in opslagaccounts met replicatie via [zone-redundante opslag](../storage/common/storage-redundancy-zrs.md) (ZRS) is momenteel alleen beschikbaar in US - centraal (CUS), US - oost 2 (EUS2), Europa - noord (NE), Azië - zuidoost (SEA) en Europa - west (WE).
 
 ## <a name="configuring-backup"></a>Back-up configureren
 De volgende tabel is bedoeld voor het configureren van de back-up:

@@ -9,14 +9,14 @@ tags: azure-resource-manager
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 01/26/2018
+ms.date: 10/25/2018
 ms.author: victorh
-ms.openlocfilehash: 7e8f06e2d1b489b79218514d8b115c389f057d56
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 0c59405cc6d46bcaffbab0e2a746467eec26de69
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39056123"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024117"
 ---
 # <a name="create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>Een toepassingsgateway maken met pad gebaseerde routering regels met behulp van de Azure portal
 
@@ -32,6 +32,8 @@ In dit artikel leert u het volgende:
 > * Een regel op pad gebaseerde routering maken
 
 ![Voorbeeld van URL-routering](./media/create-url-route-portal/scenario.png)
+
+Als u liever, u kunt deze zelfstudie volgen met behulp [Azure CLI](tutorial-url-route-cli.md) of [Azure PowerShell](tutorial-url-route-powershell.md).
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 

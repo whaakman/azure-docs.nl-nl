@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 10/11/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2bd1d52db88ca280b811898c173f66b2deee1649
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 6d2076a91bc7e7c0e2ca9d2fe6899cddec2f8d0b
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638140"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024491"
 ---
 # <a name="update-management-solution-in-azure"></a>Oplossing voor updatebeheer in Azure
 
@@ -39,7 +39,7 @@ Updatebeheer kan worden gebruikt om systeemeigen Onboarding van machines in meer
 
 Zodra een CVE release is, duurt het 2-3 uur voor de patch voor Linux-machines voor evaluatie wordt weergegeven.  Het duurt 15-12 uur voor de patch om weer te geven voor de beoordeling nadat deze is vrijgegeven voor Windows-machines.
 
-Nadat een computer is voltooid scannen voor Updatevereisten, stuurt de agent de informatie in bulk door naar Azure Log Analytics. Op een Windows-computer, is de nalevingsscan standaard elke 12 uur uitgevoerd.
+Nadat een computer is voltooid scannen voor Updatevereisten, stuurt de agent de informatie in bulk door naar Azure Log Analytics. Op een Windows-computer, de nalevingsscan standaard elke 12 uur uitgevoerd.
 
 Naast het schema voor scannen, wordt de scan voor naleving van updates binnen 15 minuten als de MMA opnieuw wordt opgestart, voordat de installatie van de update en na installatie van update gestart.
 
@@ -56,7 +56,7 @@ De geplande implementatie wordt gedefinieerd welke doelcomputers de updates word
 
 Updates worden geïnstalleerd door runbooks in Azure Automation. U kunt deze runbooks niet weergeven en de runbooks vereisen geen configuratie. Wanneer een update-implementatie wordt gemaakt, wordt een planning waarmee een masterupdate-runbook op de opgegeven tijd voor de opgenomen computers gestart door de update-implementatie gemaakt. De master-runbook start een onderliggend runbook op elke agent om de vereiste updates te installeren.
 
-Op de datum en tijd die is opgegeven in de update-implementatie, uitvoeren de doelcomputers de implementatie parallel. Vóór de installatie wordt een scan uitgevoerd om te controleren of de updates nog steeds vereist. Voor WSUS-clientcomputers, als de updates niet zijn goedgekeurd in WSUS, mislukt de update-implementatie.
+Op de datum en tijd die is opgegeven in de update-implementatie, uitvoeren de doelcomputers de implementatie parallel. Een scan wordt uitgevoerd vóór de installatie om te controleren of de updates nog steeds vereist. Voor WSUS-clientcomputers, als de updates niet zijn goedgekeurd in WSUS, mislukt de update-implementatie.
 
 Met een apparaat dat is geregistreerd voor updatebeheer in meer dan één Log Analytics-werkruimten (multihoming) wordt niet ondersteund.
 
@@ -264,7 +264,34 @@ sudo yum -q --security check-update
 
 Er is momenteel geen ondersteunde methode waarmee de beschikbaarheid van de systeemeigen classificatie-gegevens op CentOS. Op dit moment worden alleen best-effort-ondersteuning is beschikbaar voor klanten die mogelijk zijn ingeschakeld deze op hun eigen.
 
-##<a name="ports"></a>Netwerken plannen
+## <a name="firstparty-predownload"></a>Eerste partij toepassen van patches en vooraf downloaden
+
+Beheer van updates is afhankelijk van Windows Update voor Windows-Updates downloaden en installeren. Als gevolg hiervan respecteren we veel van de instellingen die door Windows Update. Als u instellingen voor niet-Windows-updates inschakelen, wordt deze updates ook updatebeheer kunnen beheren. Als u inschakelen updates downloaden wilt voordat er een update-implementatie optreedt, kunnen de update-implementaties gaat sneller en minder waarschijnlijk het onderhoudsvenster overschrijden.
+
+### <a name="pre-download-updates"></a>Pre-updates downloaden
+
+Als u wilt configureren updates automatisch downloaden in Groepsbeleid, kunt u instellen de [instelling Automatische Updates configureren](/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates#BKMK_comp5) naar **3**. Hierdoor downloadt de updates die nodig zijn op de achtergrond, maar wordt niet geïnstalleerd. Dit houdt u updatebeheer in beheer van schema's, maar toestaan van updates voor het downloaden van buiten het onderhoudsvenster voor updatebeheer. Dit kan verhinderen dat **onderhoudsvenster is overschreden** fouten in de Update Management.
+
+U kunt dit ook instellen met PowerShell, de volgende PowerShell ook uitvoeren op een systeem dat u de automatische download van updates wilt.
+
+```powershell
+$WUSettings = (New-Object -com "Microsoft.Update.AutoUpdate").Settings
+$WUSettings.NotificationLevel = 3
+$WUSettings.Save()
+```
+
+### <a name="enable-updates-for-other-microsoft-products"></a>Updates voor andere Microsoft-producten inschakelen
+
+Standaard biedt Windows Update alleen updates voor Windows. Als u inschakelt **updates ontvangen voor andere Microsoft-producten als ik Windows update**, u vindt met updates voor andere producten, met inbegrip van dergelijke dingen beveiligingspatches voor SQL Server of andere eerste software van derden. Deze optie kan niet worden geconfigureerd door Groepsbeleid. De volgende PowerShell ook uitvoeren op de systemen die u andere eerste partij patches inschakelen wilt op en beheer van updates wordt geacht deze instelling.
+
+```powershell
+$ServiceManager = (New-Object -com "Microsoft.Update.ServiceManager")
+$ServiceManager.Services
+$ServiceID = "7971f918-a847-4430-9279-4a52d1efe18d"
+$ServiceManager.AddService2($ServiceId,7,"")
+```
+
+## <a name="ports"></a>Netwerken plannen
 
 De volgende adressen zijn vereist voor het beheer van updates. Communicatie met deze adressen vindt plaats via poort 443.
 

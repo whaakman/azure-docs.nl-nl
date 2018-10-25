@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/20/2018
 ms.author: mbullwin
-ms.openlocfilehash: 31d7f0fd70edf7bbf05a3a180baa6cc078e02ba1
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: bc505aa9dc2258a8752d1986489957c401e4e4c4
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47585472"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50023494"
 ---
 # <a name="export-telemetry-from-application-insights"></a>Telemetrie exporteren vanuit Application Insights
 Wilt u uw telemetrie langer dan de standaard bewaarperiode houden? Of op een bepaalde gespecialiseerde manier te verwerken? Continue Export is ideaal voor dit. De gebeurtenissen die u in de Application Insights-portal ziet kunnen worden geëxporteerd naar de opslag in Microsoft Azure in JSON-indeling. Van daaruit kunt u uw gegevens downloaden en wat u code schrijven moet verwerken.  
@@ -39,7 +39,7 @@ Nadat de continue Export uw gegevens worden gekopieerd naar de opslag (waar deze
 
 2. Kies de telemetrie gegevenstypen die u wilt exporteren.
 
-3. Maak of Selecteer een [Azure storage-account] (.. / storage/common/storage-introduction.md) waar u de gegevens worden opgeslagen. Ga voor meer informatie over prijsopties opslag naar de [officiële pagina met prijzen](https://azure.microsoft.com/pricing/details/storage/).
+3. Maak of Selecteer een [Azure storage-account](../storage/common/storage-introduction.md) waar u de gegevens worden opgeslagen. Ga voor meer informatie over prijsopties opslag naar de [officiële pagina met prijzen](https://azure.microsoft.com/pricing/details/storage/).
 
     > [!Warning]
     > Standaard wordt de opslaglocatie worden ingesteld op dezelfde geografische regio als uw Application Insights-resource. Als u in een andere regio opslaat, worden er kosten voor gegevensoverdracht.

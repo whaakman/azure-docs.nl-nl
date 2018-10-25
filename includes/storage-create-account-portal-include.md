@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/18/2018
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: d59cb64e1499f703bf6913ab422d0f979caca324
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f21710354572c9b54dbf0e08d02809bb68a8e120
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47008725"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49805011"
 ---
 Als u een v2-opslagaccount voor algemeen gebruik wilt maken in de Azure Portal, volgt u deze stappen:
 
@@ -33,5 +33,6 @@ Als u een v2-opslagaccount voor algemeen gebruik wilt maken in de Azure Portal, 
     - De **toegangslaag** is standaard ingesteld op **Dynamisch**.
 
 1. Klik op **Beoordelen en maken** om uw opslagaccountinstellingen te bekijken en het account te maken.
+1. Klik op **Create**.
 
 Zie [Azure-opslagaccountoverzicht](https://docs.microsoft.com/azure/storage/common/storage-account-overview) voor meer informatie over typen opslagaccounts en andere opslagaccountinstellingen. Zie [Azure Resource Manager overview](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) (Overzicht van Azure Resource Manager) voor meer informatie over resourcegroepen. 

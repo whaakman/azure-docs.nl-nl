@@ -13,12 +13,12 @@ ms.custom: mvc
 ms.topic: article
 ms.date: 10/04/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 718f351ad4ce325f3585ebcbe7adfc4b5905e734
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 9688b9ba305a2eb59b80b02c0b41a7f4855dd051
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46998607"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024559"
 ---
 # <a name="scaling-the-cluster-to-manage-web-service-throughput"></a>Het cluster voor het beheren van web service doorvoer schalen
 
@@ -65,7 +65,7 @@ Het duurt enkele minuten voordat dit is voltooid. Zie voor meer informatie over 
 
 ### <a name="scaling-the-number-of-kubernetes-pod-replicas-in-a-cluster"></a>Het aantal Kubernetes pod-replica's schalen in een cluster
  
-U kunt het aantal schilreplica's die zijn toegewezen aan het cluster met behulp van de Azure Machine Learning CLI of de [Kubernetes-dashboard] schalen (https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/).
+U kunt het aantal schilreplica's die zijn toegewezen aan het cluster met behulp van de Azure Machine Learning CLI schalen of het [Kubernetes-dashboard](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/).
 
 Zie voor meer informatie over Kubernetes-schillen voor replica's de [Kubernetes-schillen](https://kubernetes.io/docs/concepts/workloads/pods/pod/) documentatie.
 

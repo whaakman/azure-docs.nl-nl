@@ -1,5 +1,5 @@
 ---
-title: Aan de slag met Content Moderator
+title: 'Snelstartgids: Aan de slag met Content Moderator'
 titlesuffix: Azure Cognitive Services
 description: Hoe u aan de slag met Content Moderator.
 services: cognitive-services
@@ -8,82 +8,66 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: conceptual
-ms.date: 01/15/2018
+ms.date: 10/10/2018
 ms.author: sajagtap
-ms.openlocfilehash: c2ac0ccd89b5f1436a151e3d69c5d7423090f244
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: f25434814a7fb3d0f49cab539b394970c9bcfb3b
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47225291"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50023437"
 ---
-# <a name="get-started-with-content-moderator"></a>Aan de slag met Content Moderator
+# <a name="quickstart-get-familiar-with-content-moderator"></a>Snelstartgids: Raken met Content Moderator
 
-U aan de slag met Content Moderator in de volgende manieren:
+In deze snelstartgids gebruikt u de online Content Moderator-controlehulpprogramma de basisfunctionaliteit van Content Moderator testen zonder code te schrijven. Als u deze service sneller integreren in uw app wilt, raadpleegt u de andere snelstarts in de [Vervolgstappen](#next-steps) sectie.
 
-- [Beginnen met het beoordelingsprogramma](#start-with-the-review-tool) voor het ophalen van de API-sleutel en een beoordelingsteam maken. Het voordeel is dat u de API-sleutel gebruiken kunt om aan te roepen van het afbeeldingstoezicht-API's voor het scannen van inhoud en de beoordelings-API's voor het genereren van beoordelingen, zonder extra stappen uitvoeren.
-- [Abonneren op Content Moderator](#start-with-the-apis) in Azure om op te halen van de API-sleutel. Bekijk de [API-verwijzing](api-reference.md) en de [SDK's](sdk-and-samples.md#sdks-for-python-java-nodejs-and-net). U moet wel voor het online aanmelden bij het maken van een beoordelingsteam.
-- [Gebruik de Flow-connector en sjablonen](https://flow.microsoft.com/connectors/shared_cognitiveservicescontentmoderator/content-moderator/) uitchecken van een breed scala aan integraties met een ontwerper eenvoudig te gebruiken.
+## <a name="prerequisites"></a>Vereisten
 
-Ongeacht welke optie u kiest, Zie de [Referentiebeheer](review-tool-user-guide/credentials.md) artikel om te zoeken van uw API-referenties.
+- Een webbrowser
 
-## <a name="start-with-the-review-tool"></a>Beginnen met het beoordelingsprogramma
-[Meld u](http://contentmoderator.cognitive.microsoft.com/) op de website Content Moderator revisie hulpprogramma.
+## <a name="set-up-the-review-tool"></a>Instellen van het beoordelingsprogramma
+De Content Moderator-controlehulpprogramma is een Webhulpprogramma waarmee menselijke revisoren de cognitive service bij het nemen van beslissingen. In deze handleiding gaat u door de korte proces van het instellen van het beoordelingsprogramma zodat u kunt zien hoe de Content Moderator-service werkt. Ga naar de [Content Moderator-controlehulpprogramma](http://contentmoderator.cognitive.microsoft.com/) site en zich registreren.
 
 ![Startpagina van inhoud Moderator](images/homepage.PNG)
 
-### <a name="create-a-review-team"></a>Een beoordelingsteam maken
-Geef een naam op van uw team. Als u uw collega's uitnodigen wilt, kunt u dit doen door in te voeren van hun e-mailadressen.
+## <a name="create-a-review-team"></a>Een beoordelingsteam maken
+
+Maak vervolgens een beoordelingsteam. Dit is in een werkende scenario, de groep van mensen die het beheer van beslissingen te nemen van de service handmatig controleren. Nu moet u alleen de naam van een team maken. Als u uitnodigen van collega's aan het team wilt, kunt u dit doen door in te voeren van hun e-mailadressen.
 
 ![Teamlid uitnodigen](images/QuickStart-2-small.png)
 
-### <a name="upload-images-or-enter-text"></a>Afbeeldingen uploaden of tekst invoeren
-Klik op **probeer > installatiekopie** of **probeer > tekst**. Uploaden van maximaal vijf voorbeeldafbeeldingen of geef een voorbeeldtekst voor beheer.
+## <a name="upload-sample-content"></a>Voorbeeldinhoud uploaden
+
+U bent nu klaar om te uploaden voorbeelden voor inhoud. Selecteer **probeer > installatiekopie**, **probeer > tekst**, of **probeer > Video**.
 
 ![Probeer afbeelding of het beheer van tekst](images/tryimagesortext.png)
 
-### <a name="submit-for-automated-moderation"></a>Indienen voor geautomatiseerd toezicht
-Dien uw inhoud voor geautomatiseerd toezicht. Het beoordelingsprogramma roept intern, de afbeeldingstoezicht-API's voor het scannen van uw inhoud. Nadat de scan voltooid is, ziet u een bericht over de resultaten wacht op uw Raadpleeg gemeld.
+Dien uw inhoud voor beheer. Het beoordelingsprogramma roept intern, de afbeeldingstoezicht-API's voor het scannen van uw inhoud. Nadat de scan voltooid is, ziet u een bericht gemeld dat er resultaten wacht op uw Raadpleeg zijn.
 
 ![Gemiddeld bestanden](images/submitted.png)
 
-### <a name="review-and-confirm-results"></a>Controleren en de resultaten bevestigen
-Bekijk de labels automatisch gecontroleerd, indien nodig, wijzigen en indienen met behulp van de **volgende** knop. Als uw business-toepassing-de Moderator-API's, de gecodeerde inhoud wordt gestart, queuing aanroepen kan worden gecontroleerd door de teams voor menselijke beoordeling. U grote hoeveelheden inhoud met behulp van deze benadering voor het snel bekijken.
+## <a name="review-moderation-tags"></a>Toezicht op tags bekijken
 
-![Resultaat controleren](images/reviewresults.png)
+Controleer de toegepaste toezicht-codes. U kunt zien welke labels zijn toegepast op uw inhoud en de score is in elke categorie.
 
-Informatie over het gebruik van alle de [Bekijk de functies van het hulpprogramma](Review-Tool-User-Guide/human-in-the-loop.md) of gaat u verder met de volgende sectie voor meer informatie over de API's. De registratie overslaan omdat u de API-sleutel voor u ingericht in het controlehulpprogramma, zoals wordt weergegeven in de [Referentiebeheer](review-tool-user-guide/credentials.md) artikel.
+![Resultaat controleren](images/reviewresults_text.png)
 
-### <a name="use-the-apis"></a>Gebruik de API 's
+In een project kunt u of uw beoordelingsteam wijzigen van deze tags of meer tags indien nodig toevoegen. U zult deze wijzigingen met verzenden de **volgende** knop. Als uw business-toepassing-de Moderator-API's aanroepen, wordt de gecodeerde inhoud in de wachtrij plaatsen hier, klaar om te worden gecontroleerd door de teams voor menselijke beoordeling. U kunt snel grote hoeveelheden inhoud met behulp van deze benadering bekijken.
 
-Meer informatie over het Content Moderator integreren met uw zakelijke toepassingen. Bekijk de [API-verwijzing](api-reference.md) en de [SDK's](sdk-and-samples.md#sdks-for-python-java-nodejs-and-net).
+Op dit moment hebt u de Content Moderator-controlehulpprogramma gebruikt om te zien wat de Content Moderator-service kunt doen. Volgende, u kunt ofwel meer informatie over het beoordelingsprogramma en het integreren met een softwareproject met behulp van de API bekijken, of kunt u doorgaan met de [Vervolgstappen](#next-steps) sectie voor informatie over het gebruik van de beheer-API's zelf in uw app.
 
-## <a name="subscribe-in-the-azure-portal"></a>Abonneer u in Azure portal
+## <a name="learn-more-about-the-review-tool"></a>Meer informatie over het beoordelingsprogramma
 
-[Abonneren op Content Moderator](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator) in Azure portal. Begin met een van de volgende API's:
-
-### <a name="image-moderation"></a>Beheer van afbeeldingen
-
-Beginnen met de [API-console](try-image-api.md) of gebruik de [Snelstartgids voor .NET](image-moderation-quickstart-dotnet.md) opgehaald om te scannen van installatiekopieën en detecteren van mogelijke erotische en ongepaste inhoud met behulp van tags, vertrouwen scores en andere informatie.
-
-### <a name="text-moderation"></a>Beheer van tekst
-
-Beginnen met de [API-console](try-text-api.md) of gebruik de [Snelstartgids voor .NET](text-moderation-quickstart-dotnet.md) om te scannen op tekstinhoud voor potentieel grof taalgebruik, ongewenste tekst geautomatiseerd classificatie (preview), en persoonlijk identificeerbare informatie (PII). 
-
-
-### <a name="video-moderation"></a>Beheer van video
-
-Beginnen met de [Snelstartgids voor .NET](video-moderation-api.md) om te scannen van video's en detecteren van mogelijke erotische en ongepaste inhoud. 
-
-
-### <a name="review-apis"></a>Beoordelings-API's
-
-Begin hier door te kiezen uit de taak, controle en werkstroom API's.
-
+Voor meer informatie over het gebruik van het hulpprogramma Content Moderator bekijken, bekijk de [Human-in-the-loop](Review-Tool-User-Guide/human-in-the-loop.md) begeleiden en de bekijken hulpprogramma-API's voor informatie over het afstemmen van de ervaring voor menselijke beoordeling Zie:
 - De [taak API](try-review-api-job.md) scant uw inhoud met behulp van de afbeeldingstoezicht-API's en beoordelingen worden gegenereerd in het beoordelingsprogramma. 
 - De [revisie API](try-review-api-review.md) rechtstreeks maakt op afbeeldingen, tekst of een video beoordelingen voor menselijke moderators zonder eerst de inhoud wordt gescand. 
 - De [werkstroom API](try-review-api-workflow.md) wordt gemaakt, bijgewerkt en krijgt u informatie over de aangepaste werkstromen die uw team maakt.
 
+Of Ga door met de volgende stappen aan de slag met behulp van de beheer-API's in uw code.
+
 ## <a name="next-steps"></a>Volgende stappen
 
-Bekijk de [API-verwijzing](api-reference.md) en de [SDK's](sdk-and-samples.md#sdks-for-python-java-nodejs-and-net). Aan de slag met uw integratie met de [SDK voor .NET-voorbeelden](sdk-and-samples.md#net-sdk-samples), [REST-API-voorbeelden in C#](https://github.com/sanjeev3/azure-docs-pr/blob/master/articles/cognitive-services/Content-Moderator/sdk-and-samples.md#rest-api-samples-in-c) en [zelfstudies](sdk-and-samples.md#tutorials).
+Informatie over het gebruik van de beheer-API's zelf in uw app.
+- Implementeren van afbeeldingen. Gebruik de [API-console](try-image-api.md) of de [ C# snelstartgids](image-moderation-quickstart-dotnet.md) opgehaald om te scannen van installatiekopieën en detecteren van mogelijke erotische en ongepaste inhoud met behulp van tags, vertrouwen scores en andere informatie.
+- Beheer van tekst implementeren. Gebruik de [API-console](try-text-api.md) of gebruik de [ C# snelstartgids](text-moderation-quickstart-dotnet.md) om te scannen op tekstinhoud voor potentieel grof taalgebruik, ongewenste tekst geautomatiseerd classificatie (preview), en persoonlijk identificeerbare informatie (PII). 
+- Videotoezicht implementeren. Gebruik de [ C# snelstartgids](video-moderation-api.md) om te scannen van video's en detecteren van mogelijke erotische en ongepaste inhoud. 

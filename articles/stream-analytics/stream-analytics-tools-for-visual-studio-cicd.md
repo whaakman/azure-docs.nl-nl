@@ -1,6 +1,6 @@
 ---
-title: Continu integreren en ontwikkelen met Stream Analytics-hulpprogramma 's
-description: Dit artikel wordt beschreven hoe u Visual Studio tools voor Azure Stream Analytics gebruikt voor het instellen van een continue integratie en het implementatieproces.
+title: Doorlopend integreren en ontwikkelen met hulpprogramma's voor Stream Analytics
+description: Dit artikel wordt beschreven hoe u Visual Studio-hulpprogramma's voor Azure Stream Analytics gebruikt voor het instellen van een continue integratie en implementatie.
 services: stream-analytics
 author: su-jie
 ms.author: sujie
@@ -8,33 +8,33 @@ manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 9/27/2017
-ms.openlocfilehash: e4e831c602255df66f4c86ffa17336f51d2b52f7
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.date: 09/27/2017
+ms.openlocfilehash: 567e2f850e2c51a6103dc24b91d139042d58acb3
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30906270"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49986822"
 ---
-# <a name="continuously-integrate-and-develop-with-stream-analytics-tools"></a>Continu integreren en ontwikkelen met Stream Analytics-hulpprogramma 's
-Dit artikel wordt beschreven hoe u met de Azure Stream Analytics-tools voor Visual Studio gebruiken voor het instellen van een continu proces voor de integratie en implementatie.
+# <a name="continuously-integrate-and-develop-with-stream-analytics-tools"></a>Doorlopend integreren en ontwikkelen met hulpprogramma's voor Stream Analytics
+In dit artikel wordt beschreven hoe u de Azure Stream Analytics-hulpprogramma's voor Visual Studio gebruiken voor het instellen van een continue integratie en implementatie-proces.
 
-Gebruik versie 2.3.0000.0 of hoger van [Stream Analytics-tools voor Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio) ondersteuning voor MSBuild krijgen.
+Gebruik versie 2.3.0000.0 of hoger van [Stream Analytics-hulpprogramma's voor Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio) ondersteuning voor MSBuild krijgen.
 
-Een NuGet-pakket beschikbaar is: [Microsoft.Azure.Stream Analytics.CICD](https://www.nuget.org/packages/Microsoft.Azure.StreamAnalytics.CICD/). Het biedt de MSBuild, lokale uitvoering en implementatiehulpmiddelen die ondersteuning bieden voor het continue proces voor de integratie en implementatie van Stream Analytics Visual Studio-projecten. 
+Een NuGet-pakket beschikbaar is: [Microsoft.Azure.Stream Analytics.CICD](https://www.nuget.org/packages/Microsoft.Azure.StreamAnalytics.CICD/). Dit bevat de tools voor MSBuild, lokaal uitvoeren en implementatie die ondersteuning bieden voor het continue integratie- en implementatieproces van Stream Analytics Visual Studio-projecten. 
 > [!NOTE] 
-Het NuGet-pakket kan alleen met de 2.3.0000.0 of hoger dan de versie van Stream Analytics-hulpprogramma's voor Visual Studio worden gebruikt. Als u gemaakt in eerdere versies van Visual Studio tools projecten hebt, alleen openen met de 2.3.0000.0 of hoger dan versie en opslaan. Vervolgens wordt de nieuwe mogelijkheden zijn ingeschakeld. 
+Het NuGet-pakket kan worden gebruikt alleen met de 2.3.0000.0 of hoger versie van Stream Analytics-hulpprogramma's voor Visual Studio. Hebt u projecten die zijn gemaakt in eerdere versies van Visual Studio-hulpprogramma's, alleen openen met de 2.3.0000.0 of hoger versie en opslaan. De nieuwe mogelijkheden zijn ingeschakeld. 
 
-Zie voor meer informatie [Stream Analytics-tools voor Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio).
+Zie voor meer informatie, [Stream Analytics-hulpprogramma's voor Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio).
 
 ## <a name="msbuild"></a>MSBuild
-Als de standaard Visual Studio MSBuild-ervaring als u wilt maken van een project hebt u twee opties. U kunt met de rechtermuisknop op het project en kies vervolgens **bouwen**. U kunt ook gebruiken **MSBuild** in het NuGet-pakket vanaf de opdrachtregel.
+Als de standaard Visual Studio MSBuild-ervaring voor het bouwen van een project hebt u twee opties. U kunt met de rechtermuisknop op het project en kies vervolgens **bouwen**. U kunt ook gebruiken **MSBuild** in het NuGet-pakket vanaf de opdrachtregel.
 ```
 ./build/msbuild /t:build [Your Project Full Path] /p:CompilerTaskAssemblyFile=Microsoft.WindowsAzure.StreamAnalytics.Common.CompileService.dll  /p:ASATargetsFilePath="[NuGet Package Local Path]\build\StreamAnalytics.targets"
 
 ```
 
-Wanneer een Stream Analytics Visual Studio-project is gebaseerd, worden er gegenereerd met de volgende twee Azure Resource Manager sjabloonbestanden onder de **bin / [foutopsporing/Retail] / implementeren** map: 
+Wanneer een Stream Analytics Visual Studio-project met succes wordt gemaakt, genereert de volgende twee Azure Resource Manager sjabloonbestanden onder de **bin / [foutopsporing of stenen] / implementeren** map: 
 
 *  Resource Manager-sjabloonbestand
 
@@ -44,25 +44,25 @@ Wanneer een Stream Analytics Visual Studio-project is gebaseerd, worden er gegen
 
        [ProjectName].JobTemplate.parameters.json   
 
-De standaardparameters in het bestand parameters.json zijn uit de instellingen in Visual Studio-project. Als u implementeren op een andere omgeving wilt, vervangt u de parameters dienovereenkomstig in.
+Er zijn de standaardparameters in het parameters.json-bestand van de instellingen in Visual Studio-project. Als u implementeren naar een andere omgeving wilt, vervang u de parameters daarvan.
 
 > [!NOTE] 
-De referenties voor de standaardwaarden zijn ingesteld op null. U bent *vereist* de waarden instellen voordat u naar de cloud implementeert.
+De referenties voor de standaardwaarden zijn ingesteld op null. U bent *vereist* de waarden instellen voordat u naar de cloud implementeren.
 
 ```json
 "Input_EntryStream_sharedAccessPolicyKey": {
       "value": null
     },
 ```
-Meer informatie over het [implementeren met een Resource Manager-sjabloonbestand en Azure PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy). Meer informatie over het [gebruik van een object als parameter voor Resource Manager-sjabloon](https://docs.microsoft.com/azure/architecture/building-blocks/extending-templates/objects-as-parameters).
+Meer informatie over het [implementeren met een Resource Manager-sjabloonbestand en Azure PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy). Meer informatie over het [een object gebruiken als een parameter in Resource Manager-sjabloon](https://docs.microsoft.com/azure/architecture/building-blocks/extending-templates/objects-as-parameters).
 
 
-## <a name="command-line-tool"></a>Opdrachtregelprogramma
+## <a name="command-line-tool"></a>Opdrachtregel-hulpprogramma
 
 ### <a name="build-the-project"></a>Het project bouwen
-Het NuGet-pakket is een opdrachtregelprogramma aangeroepen **SA.exe**. Het ondersteunt project bouwen en lokaal testen op een willekeurige machine, kunt u in uw continue integratie en continue levering proces. 
+Het NuGet-pakket is een opdrachtregelprogramma met de naam **SA.exe**. Het ondersteunt project bouwen en lokaal testen op een willekeurige computer, wat u in uw continue integratie en continue leveringsproces gebruiken kunt. 
 
-De implementatie-bestanden worden standaard in de huidige map geplaatst. U kunt het uitvoerpad opgeven met behulp van de volgende - OutputPath-parameter:
+De implementatiebestanden worden standaard in de huidige map geplaatst. U kunt het uitvoerpad opgeven met behulp van de volgende OutputPath - parameter:
 
 ```
 ./tools/SA.exe build -Project [Your Project Full Path] [-OutputPath <outputPath>] 
@@ -70,15 +70,15 @@ De implementatie-bestanden worden standaard in de huidige map geplaatst. U kunt 
 
 ### <a name="test-the-script-locally"></a>Het script lokaal testen
 
-Als uw project, lokale invoerbestanden in Visual Studio opgegeven heeft, kunt u een test geautomatiseerde scripts uitvoeren met behulp van de *localrun* opdracht. Het uitvoerresultaat wordt geplaatst in de huidige map.
+Als uw project, lokale invoerbestanden in Visual Studio opgegeven heeft, kunt u een geautomatiseerd script test uitvoeren met behulp van de *localrun* opdracht. Het resultaat van de uitvoer is geplaatst in de huidige map.
  
 ```
 localrun -Project [ProjectFullPath]
 ```
 
-### <a name="generate-a-job-definition-file-to-use-with-the-stream-analytics-powershell-api"></a>Een taakdefinitiebestand voor gebruik met de Stream Analytics PowerShell API genereren
+### <a name="generate-a-job-definition-file-to-use-with-the-stream-analytics-powershell-api"></a>Genereren van een taakdefinitiebestand voor gebruik met de PowerShell-API van Stream Analytics
 
-De *arm* opdracht gebruikt u de sjabloon en de taak parameter sjabloonbestanden gegenereerd via build als invoer. Vervolgens worden gecombineerd ze naar een taak definitie JSON-bestand dat kan worden gebruikt met de Stream Analytics PowerShell API.
+De *arm* opdracht gebruikt u de taaksjabloon en de taak sjabloon parameterbestanden die worden gegenereerd door build als invoer. Vervolgens combineert het ze in een taak definitie JSON-bestand dat kan worden gebruikt met de PowerShell-API van Stream Analytics.
 
 ```
 arm -JobTemplate <templateFilePath> -JobParameterFile <jobParameterFilePath> [-OutputFile <asaArmFilePath>]

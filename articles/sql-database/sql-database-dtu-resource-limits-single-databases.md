@@ -11,13 +11,13 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/22/2018
-ms.openlocfilehash: 8c5274db69831aaaeaaed2b81627bbb4aeb8cd75
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.date: 10/23/2018
+ms.openlocfilehash: 0a514cced50a2a05008c03dfb438cceefb332d17
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954931"
+ms.locfileid: "49987321"
 ---
 # <a name="resource-limits-for-single-databases-using-the-dtu-based-purchasing-model"></a>Resourcelimieten voor individuele databases met behulp van het op DTU gebaseerde aankoopmodel
 
@@ -80,8 +80,8 @@ Voor individuele databases in de volgende tabellen tonen de beschikbare resource
 | Maximaal aantal gelijktijdige sessies | 30.000 | 30.000 | 30.000 | 30.000 | 30.000 | 30.000 |
 |||||||
 
-> [!IMPORTANT] 
-> Meer dan 1 TB aan opslag in de Premium-laag is momenteel beschikbaar in alle volgende regio's behalve de volgende China-Oost, China-Noord, Duitsland-centraal, Duitsland-Noordoost, UK-Noord, UK-Zuid, VS DOD-centraal, VS DOD-Oost, VS regering centraal en West-Centraal VS: In deze regio's, de maximale opslagruimte in de Premium-laag is beperkt tot 1 TB. Zie [P11-P15: huidige beperkingen](#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+> [!IMPORTANT]
+> Meer dan 1 TB aan opslag in de Premium-laag is momenteel beschikbaar in alle regio's behalve het volgende: China-Oost, China-Noord, Duitsland-centraal, Duitsland-Noordoost, UK-Noord, UK-Zuid, VS DOD-centraal, VS DOD-Oost, VS regering centraal en West-Centraal VS.  In deze regio’s is de maximale opslagruimte in de Premium-laag beperkt tot 1 TB. Zie [P11-P15: huidige beperkingen](#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
 
 ## <a name="single-database-change-storage-size"></a>Individuele database: opslaggrootte wijzigen
 

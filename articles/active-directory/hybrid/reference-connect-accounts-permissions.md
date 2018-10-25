@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/12/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 03f096bf160c44f7a35f54a73cff6ea701b87d22
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 66585c495dfb46e51120ae3eef2685d634fd9606
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49352914"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024965"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: Accounts en machtigingen
 
@@ -82,11 +82,11 @@ De [Connector voor AD DS-account](#active-directory-account) is gemaakt voor het
 
 ![Snelle installatie](./media/reference-connect-accounts-permissions/express.png)
 
-Hier volgt een samenvatting van de snelle installlation wizardpagina's, de referenties die worden verzameld, en waarvoor ze worden gebruikt.
+Hier volgt een samenvatting van de snelle installatie wizardpagina's, de referenties die worden verzameld, en waarvoor ze worden gebruikt.
 
 | Wizardpagina | Referenties die worden verzameld | Machtigingen die vereist zijn | Gebruikt voor |
 | --- | --- | --- | --- |
-| N/A |Gebruiker met de installatiewizard |Beheerder van de lokale server |<li>Hiermee maakt u de [ADSync-Service-account](#azure-ad-connect-sync-service-account) account dat over het uitvoeren van de synchronisatieservice wordt gebruikt. |
+| N/A |Gebruiker met de installatiewizard |Beheerder van de lokale server |<li>Hiermee maakt u de [ADSync-serviceaccount](#azure-ad-connect-sync-service-account) account dat over het uitvoeren van de synchronisatieservice wordt gebruikt. |
 | Verbinding maken met Azure AD |Azure AD-directory-referenties |De rol globale beheerder in Azure AD |<li>Inschakelen van synchronisatie in de Azure AD-directory.</li>  <li>Het maken van de [Azure AD Connector-account](#azure-ad-service-account) die wordt gebruikt voor continue synchronisatiebewerkingen in Azure AD.</li> |
 | Verbinding maken met AD DS |On-premises Active Directory-referenties |Lid van de groep Ondernemingsadministrators (EA) in Active Directory |<li>Hiermee maakt u de [Connector voor AD DS-account](#active-directory-account) in Active Directory en machtigingen verlenen aan deze. Dit account hebt gemaakt wordt om te lezen en schrijven van directory-informatie tijdens de synchronisatie gebruikt.</li> |
 
@@ -97,7 +97,7 @@ Met de installatie van de aangepaste instellingen, de wizard biedt u meer keuzem
 
 ### <a name="custom-installation-wizard-summary"></a>Overzicht van de wizard Aangepaste installatie
 
-Hier volgt een samenvatting van de aangepaste installlation wizardpagina's, de referenties die worden verzameld, en waarvoor ze worden gebruikt.
+Hier volgt een samenvatting van de aangepaste installatie wizardpagina's, de referenties die worden verzameld, en waarvoor ze worden gebruikt.
 
 ![Snelle installatie](./media/reference-connect-accounts-permissions/customize.png)
 

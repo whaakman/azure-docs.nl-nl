@@ -14,60 +14,67 @@ ms.workload: identity
 ms.date: 09/17/2018
 ms.author: nacanuma
 ms.custom: include file
-ms.openlocfilehash: 038ea48bedeb31416627f99b38ebb083846747e4
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: b3d46e10facdef26b36c910a5c23b40a415a2894
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48843326"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49988409"
 ---
 ## <a name="register-your-application"></a>Uw toepassing registreren
 
-Er zijn meerdere manieren voor het maken van een toepassing, selecteert u een van deze:
+Er zijn meerdere manieren om een toepassing te registreren. Selecteer de optie die het beste past bij uw behoeften:
+* [Express-modus: de Snelstartgids voor beveiligd-WACHTWOORDVERIFICATIE gebruiken voor de app configureren](#option-1-register-your-application-express-mode)
+* [Geavanceerde modus - de app-instellingen handmatig configureren](#option-2-register-your-application-advanced-mode)
 
 ### <a name="option-1-register-your-application-express-mode"></a>Optie 1: Registreren van uw toepassing (snelle modus)
-Nu moet u uw toepassing registreren in de *Portal voor Appregistratie Microsoft*:
 
-1.  Registreren van uw toepassing via de [Portal voor Appregistratie Microsoft](https://apps.dev.microsoft.com/portal/register-app?appType=singlePageApp&appTech=javascriptSpa&step=configure).
-2.  Voer een naam voor uw toepassing en uw e-mailadres.
-3.  Zorg ervoor dat de optie voor **begeleide installatie** is ingeschakeld.
-4.  Volg de instructies voor het verkrijgen van de toepassings-ID en plak deze in uw code.
+1. Aanmelden bij de [Azure portal app-registratie (preview)](https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/JavascriptSpaQuickstartPage/sourceType/docs) om een toepassing te registreren.
+1. Op de **registreren van een toepassing** pagina, typ een naam voor uw toepassing.
+1. Onder **ondersteund accounttypen**, selecteer **Accounts in een organisatie-map en de persoonlijke Microsoft-accounts**.
+1. Wanneer u klaar bent, selecteert u **registreren**.
+1. Volg de instructies van de Snelstartgids om te downloaden en uw nieuwe toepassing voor u het automatisch configureren in één klik.
 
 ### <a name="option-2-register-your-application-advanced-mode"></a>Optie 2: Registreer uw toepassing (geavanceerde modus)
 
-1. Ga naar de [Microsoft-portal voor app-registratie](https://apps.dev.microsoft.com/portal/register-app) om een toepassing te registreren.
-2. Voer een naam voor uw toepassing en uw e-mailadres.
-3. Zorg ervoor dat de optie voor **begeleide installatie** is uitgeschakeld.
-4.  Klik op **Platform toevoegen**en selecteer vervolgens **Web**.
-5. Voeg de **Omleidings-URL** die overeenkomt met een URL van de toepassing op basis van uw webserver. Zie de secties hieronder voor instructies over het instellen en ophalen van de omleidings-URL in Visual Studio en het knooppunt.
-6. Selecteer **Opslaan**.
+1. Aanmelden bij de [Azure-portal](https://portal.azure.com/) om een toepassing te registreren.
+1. Als uw account u toegang tot meer dan één tenant hebt, selecteert u uw account in de rechterbovenhoek hoek en instellen van uw portal-sessie op de gewenste Azure AD-tenant.
+1. Selecteer in het navigatiedeelvenster links het **Azure Active Directory** service en selecteer vervolgens **App-registraties (Preview) > nieuwe registratie**.
+1. Wanneer de **registreren van een toepassing** pagina wordt weergegeven, voer een naam in voor uw toepassing.
+1. Onder **ondersteund accounttypen**, selecteer **Accounts in een organisatie-map en de persoonlijke Microsoft-accounts**.
+1. Onder de **omleidings-URI** sectie, selecteer de **Web** platform en stel de waarde in de URL van de toepassing op basis van uw webserver. Zie de secties hieronder voor instructies over het instellen en ophalen van de omleidings-URL in Visual Studio en het knooppunt.
+1. Wanneer u klaar bent, selecteert u **registreren**.
+1. Op de app **overzicht** pagina, noteer de **(client) toepassings-ID** waarde.
+1. Deze snelstartgids moet de [impliciet verlenen stroom](../articles/active-directory/develop/v2-oauth2-implicit-grant-flow.md) zijn ingeschakeld. Selecteer in het navigatiedeelvenster links van de geregistreerde toepassing, **verificatie**.
+1. In **geavanceerde instellingen**onder **impliciete**, schakel beide **ID-tokens** en **toegangstokens** selectievakjes. ID-tokens en toegangstokens zijn vereist, omdat deze app moet het aanmelden van gebruikers en aanroepen van een API.
+1. Selecteer **Opslaan**.
 
-> #### <a name="setting-redirect-url-for-node"></a>Instelling Omleidings-URL voor knooppunt
-> Voor Node.js, kunt u instellen de web server-poort de *server.js* bestand. Deze zelfstudie wordt de poort 30662 voor verwijzing, maar u kunt u een andere poort beschikbaar. In elk geval Volg de onderstaande instructies voor het instellen van een Omleidings-URL in de registratiegegevens van de toepassing:<br/>
-> - Ga terug naar de *Portal voor Appregistratie* en stel `http://localhost:30662/` als een `Redirect URL`, of gebruik `http://localhost:[port]/` als u een aangepaste TCP-poort (waarbij *[poort]* is de aangepaste TCP-poort getal) en klik op 'Opslaan'
+> #### <a name="setting-the-redirect-url-for-node"></a>De omleidings-URL voor knooppunt instellen
+> Voor Node.js, kunt u instellen de web server-poort de *server.js* bestand. In deze zelfstudie wordt de poort 30662 ter referentie, maar kunt u een beschikbare poort. Volg de onderstaande instructies voor het instellen van een Omleidings-URL in de registratiegegevens van de toepassing:<br/>
+> - Ga terug naar de *Toepassingsregistratie* en stel `http://localhost:30662/` als een `Redirect URL`, of gebruik `http://localhost:[port]/` als u een aangepaste TCP-poort (waar *[poort]* is de aangepaste TCP-poortnummer).
 
 <p/>
 
 > #### <a name="visual-studio-instructions-for-obtaining-the-redirect-url"></a>Visual Studio-instructies voor het verkrijgen van de omleidings-URL
 > Volg deze stappen voor het verkrijgen van de omleidings-URL:
-> 1.    In **Solution Explorer**, selecteert u het project en bekijk de **eigenschappen** venster. Als er geen een **eigenschappen** venster, drukt u op **F4**.
-> 2.    Kopieer de waarde van **URL** naar het Klembord:<br/> ![Projecteigenschappen](media/active-directory-develop-guidedsetup-javascriptspa-configure/vs-project-properties-screenshot.png)<br />
-> 3.    Ga terug naar de *Portal voor Appregistratie* en plak de waarde als een **Omleidings-URL** en selecteer **opslaan**
-
+> 1. In **Solution Explorer**, selecteert u het project en bekijk de **eigenschappen** venster. Als er geen een **eigenschappen** venster, drukt u op **F4**.
+> 2. Kopieer de waarde van **URL** naar het Klembord:<br/> ![Projecteigenschappen](media/active-directory-develop-guidedsetup-javascriptspa-configure/vs-project-properties-screenshot.png)<br />
+> 3. Ga terug naar de *Toepassingsregistratie* en stel de waarde als een **Omleidings-URL**.
 
 #### <a name="configure-your-javascript-spa"></a>Configureren van uw JavaScript-SPA
 
-1.  In de `index.html` bestand gemaakt tijdens het instellen van het project, de registratiegegevens van de toepassing toevoegen. Voeg de volgende code aan de bovenkant binnen de `<script></script>` tags in de hoofdtekst van uw `index.html` bestand:
+1. In de `index.html` bestand gemaakt tijdens het instellen van het project, de registratiegegevens van de toepassing toevoegen. Voeg de volgende code aan de bovenkant binnen de `<script></script>` tags in de hoofdtekst van uw `index.html` bestand:
 
-```javascript
-var applicationConfig = {
-    clientID: "[Enter the application Id here]",
-    graphScopes: ["user.read"],
-    graphEndpoint: "https://graph.microsoft.com/v1.0/me"
-};
-```
-<ol start="3">
+    ```javascript
+    var applicationConfig = {
+        clientID: "[Enter the application Id here]",
+        graphScopes: ["user.read"],
+        graphEndpoint: "https://graph.microsoft.com/v1.0/me"
+    };
+    ```
+
+<ol start="2">
 <li>
-Vervang <code>Enter the application Id here</code> met de toepassings-Id die u zojuist hebt geregistreerd.
+Vervang <code>Enter the application Id here</code> met de toepassings-ID die u zojuist hebt geregistreerd.
 </li>
 </ol>

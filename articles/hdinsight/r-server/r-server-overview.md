@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: ca596b2d33a6248dac94ddd7eef9a9c44daac3c8
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: af7a0d01fcf9df42da79a6529c8d4b0e31d73aa1
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49343737"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49985485"
 ---
 # <a name="introduction-to-ml-services-and-open-source-r-capabilities-on-hdinsight"></a>Inleiding tot ML-Services en mogelijkheden van de open-source R op HDInsight
 
@@ -102,7 +102,7 @@ Als u deze optie kiest, moet u alle modelobjecten ScaleR converteren naar gelijk
 
 ### <a name="score-on-premises"></a>Score on-premises
 
-Voor het scoren van on-premises na het maken van uw model, kunt u serialiseren van het model in R, downloaden, de serialisatie van het en vervolgens worden gebruikt voor het scoren van nieuwe gegevens. Beoordeling van nieuwe gegevens kunt u met behulp van de eerder beschreven in aanpak [Scoring in HDInsight](#scoring-in-hdinsight) of met behulp van [webservices](https://docs.microsoft.com/machine-learning-server/operationalize/concept-what-are-web-services).
+Voor het scoren van on-premises na het maken van uw model, kunt u serialiseren van het model in R, downloaden, de serialisatie van het en vervolgens worden gebruikt voor het scoren van nieuwe gegevens. Beoordeling van nieuwe gegevens kunt u met behulp van de eerder beschreven in aanpak [Score in HDInsight](#score-in-hdinsight) of met behulp van [webservices](https://docs.microsoft.com/machine-learning-server/operationalize/concept-what-are-web-services).
 
 ## <a name="maintain-the-cluster"></a>Het cluster beheren
 

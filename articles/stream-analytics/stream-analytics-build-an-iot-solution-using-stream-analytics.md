@@ -9,12 +9,12 @@ ms.reviewer: jasonh, sngun
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/21/2018
-ms.openlocfilehash: 1610e8173d90be3c0b50f05e64d0e84e1c21ad0e
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 88c58175f4886d4796ed4e32b41d030c9ee441fc
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43698040"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49986881"
 ---
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>Een IoT-oplossing bouwen met behulp van Stream Analytics
 
@@ -109,7 +109,7 @@ Hier volgt een korte beschrijving van de kolommen:
 | Vervallen |De registratiestatus van het voertuig: 0 of vehicle registratie actief is, 1 als de registratie is verlopen |
 
 ## <a name="set-up-the-environment-for-azure-stream-analytics"></a>Stel de omgeving voor Azure Stream Analytics
-Voor deze oplossing, hebt u een Microsoft Azure-abonnement nodig. Als u een Azure-account hebt, kunt u [aanvragen van een gratis proefversie](http://azure.microsoft.com/pricing/free-trial/).
+Voor deze oplossing, hebt u een Microsoft Azure-abonnement nodig. Als u een Azure-account hebt, kunt u [aanvragen van een gratis proefversie](https://azure.microsoft.com/pricing/free-trial/).
 
 Zorg ervoor dat de stappen in de sectie 'Opschonen van uw Azure-account' aan het einde van dit artikel zodat u kunt het beste gebruik van uw Azure-tegoed.
 

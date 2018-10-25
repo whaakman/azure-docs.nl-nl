@@ -2,20 +2,20 @@
 title: Installeer de extensie duurzame functies en -voorbeelden - Azure
 description: Informatie over het installeren van de extensie duurzame functies voor Azure Functions, voor de ontwikkeling van de portal of Visual Studio-ontwikkeling.
 services: functions
-author: cgillum
+author: kashimiz
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 08/31/2018
+ms.date: 10/23/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 2eb838bcb9d3f64d0bbf4657c516adb50d103223
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: 6bbf232fc17b9acfd4e8cd84a0cb1346ab8ea9b5
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47585302"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49986810"
 ---
 # <a name="install-the-durable-functions-extension-and-samples-azure-functions"></a>Installeer de extensie duurzame functies en voorbeelden (Azure Functions)
 
@@ -45,7 +45,7 @@ Visual Studio biedt momenteel de beste ervaring voor het ontwikkelen van apps di
 Volg de dezelfde richtlijnen als voor het beginnen met het voorbeeld, maar de volgende stappen uit in plaats van downloaden van de *.zip* bestand:
 
 1. Maak een functie-App-project.
-2. Zoeken naar de volgende NuGet pakket verwijzing met behulp van *NuGet-pakketten beheren* en voeg deze toe aan het project: Microsoft.Azure.WebJobs.Extensions.DurableTask v1.6.0
+2. Zoeken naar de volgende NuGet pakket verwijzing met behulp van *NuGet-pakketten beheren* en voeg deze toe aan het project: Microsoft.Azure.WebJobs.Extensions.DurableTask v1.6.2
    
 ## <a name="visual-studio-code"></a>Visual Studio Code
 
@@ -75,12 +75,12 @@ Visual Studio Code biedt een lokale ontwikkeling die betrekking hebben op alle g
 3. Azure Functions duurzame Extension installeren door te voeren van het volgende in een opdracht vragen / terminal-venster:
 
     ```bash
-    func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.6.0
+    func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.6.2
     ```
 4. Azure Functions Twilio Extension installeren door te voeren van het volgende in een opdracht vragen / terminal-venster:
 
     ```bash
-    func extensions install -p Microsoft.Azure.WebJobs.Extensions.Twilio -v 3.0.0-beta8
+    func extensions install -p Microsoft.Azure.WebJobs.Extensions.Twilio -v 3.0.0
     ```
 5. Voer Azure-Opslagemulator of update de *local.settings.json* -bestand met echte Azure Storage-verbindingsreeks.
 6. Open het project in Visual Studio Code. 
@@ -96,14 +96,14 @@ Visual Studio Code biedt een lokale ontwikkeling die betrekking hebben op alle g
 2. Navigeer op uw computer naar de [JavaScript map met voorbeelden](https://github.com/Azure/azure-functions-durable-extension/tree/master/samples/javascript). 
 3. Azure Functions duurzame Extension installeren door te voeren van het volgende in een opdracht vragen / terminal-venster
 
-    ```
+    ```bash
     func extensions install
     ```
     > [!NOTE] 
     > Hiervoor moet de [.NET Core SDK](https://www.microsoft.com/net/download) worden geïnstalleerd op de machine
 4. Herstellen van de npm-pakketten door het uitvoeren van de volgende in een opdracht vragen / terminal-venster:
     
-    ```
+    ```bash
     npm install
     ``` 
 5. Update de *local.settings.json* bestand met een verbindingsreeks vanuit Azure storage-account voor `AzureWebJobsStorage`.  Dit opslagaccount wordt gebruikt voor de Functiestatus van de duurzame.
@@ -119,13 +119,13 @@ Visual Studio Code biedt een lokale ontwikkeling die betrekking hebben op alle g
 1. Navigeer naar de map die als voor uw functie-app host in de opdracht vragen / terminal.
 3. Maak een functie-App-project met de volgende opdracht:
 
-    ```
+    ```bash
     func init
     ``` 
 4. Uitvoeren van Azure-Opslagemulator (alleen Windows) of update de *local.settings.json* -bestand met echte Azure Storage-verbindingsreeks voor `AzureWebJobsStorage`.
 5. Vervolgens een nieuwe functie maken die door de volgende opdracht uit en volg de stappen van de wizard:
 
-    ```
+    ```bash
     func new
     ```
     >[!IMPORTANT]

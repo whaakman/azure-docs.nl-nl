@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: erhopf
-ms.openlocfilehash: 0cc278cdb59bfbb53578eae0f51c9b54204d7d12
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 7f3daf71f4d94371af5f7d98c4e03761d7217a2a
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49466270"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025834"
 ---
 # <a name="speech-service-rest-apis"></a>Speech Service REST API 's
 
@@ -22,7 +22,7 @@ De REST-API's van de service Azure Cognitive Services Speech zijn vergelijkbaar 
 
 ## <a name="speech-to-text"></a>Spraak naar tekst
 
-De eindpunten voor de spraak-naar-tekst REST-API worden in de volgende tabel weergegeven. Gebruik de naam die overeenkomt met de regio van uw abonnement. 
+De eindpunten voor de spraak-naar-tekst REST-API worden in de volgende tabel weergegeven. Gebruik de naam die overeenkomt met de regio van uw abonnement.
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-speech-to-text.md)]
 
@@ -57,13 +57,13 @@ De volgende velden worden in de HTTP-aanvraagheader verzonden.
 
 ### <a name="audio-format"></a>Audio-indeling
 
-De audio wordt verzonden in de hoofdtekst van de HTTP `PUT` aanvraag. Deze moet 16-bits WAV-indeling met één PCM-kanaal (mono) op 16 KHz van de volgende indelingen/codering.
+De audio wordt verzonden in de hoofdtekst van de HTTP `POST` aanvraag. Deze moet 16-bits WAV-indeling met één PCM-kanaal (mono) op 16 KHz van de volgende indelingen/codering.
 
 * WAV-indeling met PCM codec
 * Indeling met OPUS codec OGG
 
 >[!NOTE]
->De bovenstaande indelingen worden ondersteund via REST-API en WebSocket in de Speech-Service. De [spraak SDK](/index.yml) momenteel alleen ondersteunt de WAV opmaken met PCM codec. 
+>De bovenstaande indelingen worden ondersteund via REST-API en WebSocket in de Speech-Service. De [spraak SDK](/index.yml) momenteel alleen ondersteunt de WAV opmaken met PCM codec.
 
 ### <a name="chunked-transfer"></a>Gesegmenteerde overdracht
 
@@ -145,7 +145,7 @@ De `RecognitionStatus` veld kan de volgende waarden bevatten.
 | `Error` | De opname-service is een interne fout opgetreden en kan niet worden voortgezet. Probeer het opnieuw, indien mogelijk. |
 
 > [!NOTE]
-> Als de audio alleen uit grof taalgebruik bestaat, en de `profanity` queryparameter is ingesteld op `remove`, de service heeft geen spraak resultaat geretourneerd. 
+> Als de audio alleen uit grof taalgebruik bestaat, en de `profanity` queryparameter is ingesteld op `remove`, de service heeft geen spraak resultaat geretourneerd.
 
 
 De `detailed` indeling bevat dezelfde velden als de `simple` opmaken, samen met een `NBest` veld. De `NBest` veld is een lijst met alternatieve een perfecte ervaring bij van de dezelfde spraak, geclassificeerd van meest waarschijnlijke te minste waarschijnlijk. De eerste vermelding is hetzelfde als de belangrijkste herkenningsresultaat. Elke vermelding bevat de volgende velden:
@@ -207,7 +207,7 @@ De spraak-service ondersteunt 24-KHz audio-uitvoer naast de 16-Khz uitvoer door 
 
 Landinstelling | Taal   | Geslacht | De toewijzing van service
 -------|------------|--------|------------
-nl-NL  | Amerikaans-Engels | Vrouw | "Microsoft Server spraak tekst en spraak, spraak (en-US, Jessa24kRUS)" 
+nl-NL  | Amerikaans-Engels | Vrouw | "Microsoft Server spraak tekst en spraak, spraak (en-US, Jessa24kRUS)"
 nl-NL  | Amerikaans-Engels | Man   | "Microsoft Server spraak tekst en spraak, spraak (en-US, Guy24kRUS)"
 
 Een volledige lijst met beschikbare stemmen is beschikbaar in [ondersteunde talen](language-support.md#text-to-speech).
@@ -235,9 +235,9 @@ De beschikbare audio uitvoerindelingen (`X-Microsoft-OutputFormat`) een bitsnelh
 `audio-24khz-96kbitrate-mono-mp3`  | `audio-24khz-48kbitrate-mono-mp3`
 
 > [!NOTE]
-> Als uw geselecteerde spraak- en de indeling van uitvoer hebt verschillende bitsnelheden, de audio nieuw voorbeeld wordt gemaakt zo nodig. Echter, 24khz stemmen bieden geen ondersteuning voor `audio-16khz-16kbps-mono-siren` en `riff-16khz-16kbps-mono-siren` uitvoerindelingen. 
+> Als uw geselecteerde spraak- en de indeling van uitvoer hebt verschillende bitsnelheden, de audio nieuw voorbeeld wordt gemaakt zo nodig. Echter, 24khz stemmen bieden geen ondersteuning voor `audio-16khz-16kbps-mono-siren` en `riff-16khz-16kbps-mono-siren` uitvoerindelingen.
 
-### <a name="request-body"></a>Aanvraagtekst
+### <a name="request-body"></a>Aanvraagbody
 
 De tekst die moet worden geconverteerd naar spraak wordt verzonden als de instantie van een HTTP `POST` aanvragen in een tekst zonder opmaak (ASCII- of UTF-8) of [spraak synthese Markup Language](speech-synthesis-markup.md) (SSML)-indeling (UTF-8). Tekst zonder opmaak aanvragen gebruiken de standaardstem en de taal van de service. SSML gebruik van een andere stem verzenden.
 
@@ -254,7 +254,7 @@ Host: westus.tts.speech.microsoft.com
 Content-Length: 225
 Authorization: Bearer [Base64 access_token]
 
-<speak version='1.0' xml:lang='en-US'><voice xml:lang='en-US' xml:gender='Female' 
+<speak version='1.0' xml:lang='en-US'><voice xml:lang='en-US' xml:gender='Female'
     name='Microsoft Server Speech Text to Speech Voice (en-US, ZiraRUS)'>
         Microsoft Speech Service Text-to-Speech API
 </voice></speak>
@@ -267,11 +267,11 @@ De HTTP-status van het antwoord geeft aan dat het slagen of algemene fouten.
 HTTP-code|Betekenis|Mogelijke oorzaak
 -|-|-|
 200|OK|De aanvraag is uitgevoerd. de antwoordtekst is een geluidsbestand.
-400 |Onjuiste aanvraag |Er ontbreekt een vereiste parameter ontbreekt, is leeg of null zijn. Of de waarde die wordt doorgegeven aan een vereiste of optionele parameter is ongeldig. Een veelvoorkomend probleem is een header die te lang is.
+400 |Ongeldige aanvraag |Er ontbreekt een vereiste parameter ontbreekt, is leeg of null zijn. Of de waarde die wordt doorgegeven aan een vereiste of optionele parameter is ongeldig. Een veelvoorkomend probleem is een header die te lang is.
 401|Niet geautoriseerd |De aanvraag is niet gemachtigd. Controleer of dat uw abonnementssleutel of token geldig is en in de juiste regio.
 413|Aanvraagentiteit te groot|De invoer SSML is langer dan 1024 tekens.
 429|Te veel aanvragen|U hebt het quotum of het aantal aanvragen dat is toegestaan voor uw abonnement overschreden.
-502|Ongeldige gateway | Netwerk- of serverzijde probleem. Kan ook duiden op ongeldige kopteksten.
+502|Ongeldige Gateway | Netwerk- of serverzijde probleem. Kan ook duiden op ongeldige kopteksten.
 
 Als de HTTP-status `200 OK`, de hoofdtekst van het antwoord bevat een audio-bestand in de gewenste indeling. Dit bestand kan worden afgespeeld, overgedragen of opgeslagen in een buffer of het bestand later afspelen of ander gebruik.
 
@@ -328,10 +328,10 @@ cURL is een opdrachtregelprogramma beschikbaar in Linux (en in de Windows-subsys
 > De opdracht wordt weergegeven op meerdere regels voor de leesbaarheid, maar deze invoeren op één regel op een shell-prompt.
 
 ```
-curl -v -X POST 
- "https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken" 
- -H "Content-type: application/x-www-form-urlencoded" 
- -H "Content-Length: 0" 
+curl -v -X POST
+ "https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken"
+ -H "Content-type: application/x-www-form-urlencoded"
+ -H "Content-Length: 0"
  -H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY"
 ```
 
@@ -411,7 +411,7 @@ Als voorheen, zorg ervoor dat de `FetchTokenUri` waarde komt overeen met de regi
     */
 public class Authentication
 {
-    public static readonly string FetchTokenUri = 
+    public static readonly string FetchTokenUri =
         "https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken";
     private string subscriptionKey;
     private string token;
@@ -486,4 +486,3 @@ public class Authentication
 - [Uw proefabonnement voor Speech ophalen](https://azure.microsoft.com/try/cognitive-services/)
 - [Akoestische modellen aanpassen](how-to-customize-acoustic-models.md)
 - [Taalmodellen aanpassen](how-to-customize-language-model.md)
-

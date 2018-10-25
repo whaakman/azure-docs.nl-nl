@@ -7,19 +7,19 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 08/13/2018
 ms.author: saudas
-ms.openlocfilehash: 9f082c5f198ebd7123058bd250d3fef55494d553
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 1fd8f7c8499b7f9223939b8d426f274e79fd190e
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43287536"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025332"
 ---
 # <a name="aks-troubleshooting"></a>Het oplossen van AKS
 Wanneer u maakt of manager AKS-clusters, kunnen soms problemen optreden. Dit artikel worden enkele veelvoorkomende problemen en stappen voor probleemoplossing.
 
 ### <a name="in-general-where-do-i-find-information-about-debugging-kubernetes-issues"></a>In het algemeen waar vind ik informatie over het opsporen van problemen van Kubernetes?
 
-[Hier] (https://kubernetes.io/docs/tasks/debug-application-cluster/troubleshooting/) is een officiële koppeling voor het oplossen van kubernetes-clusters.
+[Hier](https://kubernetes.io/docs/tasks/debug-application-cluster/troubleshooting/) is een officiële koppeling voor het oplossen van kubernetes-clusters.
 [Hier](https://github.com/feiskyer/kubernetes-handbook/blob/master/en/troubleshooting/index.md) is een koppeling naar een gids voor probleemoplossing gepubliceerd door een Microsoft-technicus rond het oplossen van problemen schillen, knooppunten, clusters, enzovoort.
 
 ### <a name="i-am-getting-a-quota-exceeded-error-during-create-or-upgrade-what-should-i-do"></a>Ik krijg een fout is overschreden tijdens het maken of bijwerken. Wat moet ik doen? 
@@ -59,7 +59,7 @@ Als u het kubernetes-dashboard niet ziet, controleert u of de schil kube-proxy w
 
 Zorg ervoor dat de standaard-NSG is niet gewijzigd en de poort 22 is geopend voor verbinding met de API-server. Controleer of de schil tunnelfront wordt uitgevoerd in de naamruimte kube-systeem. Als dat niet het geval is, het geforceerd verwijderen en deze zal opnieuw worden opgestart.
 
-### <a name="i-am-trying-to-upgrade-or-scale-and-am-getting-message-changing-property-imagereference-is-not-allowed-error--how-do-i-fix-this-issue"></a>Ik heb geprobeerd om te upgraden of schalen en krijg "message": "Wijzigen van de eigenschap 'imageReference' is niet toegestaan." Fout.  Hoe kan ik dit probleem oplossen?
+### <a name="i-am-trying-to-upgrade-or-scale-and-am-getting-message-changing-property-imagereference-is-not-allowed-error--how-do-i-fix-this-issue"></a>Ik heb geprobeerd om te upgraden of schalen en krijg "message": "Wijzigen van de eigenschap 'imageReference' is niet toegestaan." Fout bij.  Hoe kan ik dit probleem oplossen?
 
 Het is mogelijk dat u deze fout ontvangt omdat u de tags in de agentknooppunten binnen het AKS-cluster hebt gewijzigd. Wijzigen en verwijderen van tags en andere eigenschappen van bronnen in de resourcegroep MC_ * kunnen leiden tot onverwachte resultaten. Wijzigen van de resources onder de MC_ * in de AKS-cluster, verbreekt de Serviceniveaudoelstelling.
 
