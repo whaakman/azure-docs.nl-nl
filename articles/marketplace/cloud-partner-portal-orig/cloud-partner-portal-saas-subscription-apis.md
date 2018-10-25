@@ -89,7 +89,7 @@ HTTP-methode
 
 *Aanvraag-URL*
 
-**https://login.microsoftonline.com/*{tenant-id}*  /oauth2/token**
+**https://login.microsoftonline.com/*{tenant-id}*/oauth2/token**
 
 *URI-parameter*
 
@@ -225,7 +225,7 @@ Het eindpunt abonneren kan gebruikers een abonnement om een SaaS-service voor ee
 
 **PUT**
 
-**https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{subscriptionId}* ? api-version = 2017-04-15**
+**https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{subscriptionId}* ?api-version=2017-04-15**
 
 | **Parameternaam**  | **Beschrijving**                                       |
 |---------------------|-------------------------------------------------------|
@@ -290,7 +290,7 @@ Het eindpunt van de wijziging kan de gebruiker van een plan op dat moment geabon
 
 **PATCH**
 
-**https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{subscriptionId}* ? api-version = 2017-04-15**
+**https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{subscriptionId}* ?api-version=2017-04-15**
 
 | **Parameternaam**  | **Beschrijving**                                       |
 |---------------------|-------------------------------------------------------|
@@ -356,7 +356,7 @@ De Delete-bewerking op het eindpunt abonneren kan een gebruiker verwijderen van 
 
 **DELETE**
 
-**https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{subscriptionId}* ? api-version = 2017-04-15**
+**https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{subscriptionId}*?api-version=2017-04-15**
 
 | **Parameternaam**  | **Beschrijving**                                       |
 |---------------------|-------------------------------------------------------|
@@ -407,7 +407,7 @@ Dit eindpunt kan een gebruiker voor het bijhouden van de status van een geactive
 
 **GET**
 
-**https://marketplaceapi.microsoft.com/api/saas/operations/*{bewerkings-id}* ? api-version = 2017-04-15**
+**https://marketplaceapi.microsoft.com/api/saas/operations/*{bewerkings-id}*?api-version=2017-04-15**
 
 | **Parameternaam**  | **Beschrijving**                                       |
 |---------------------|-------------------------------------------------------|
@@ -477,7 +477,7 @@ De Get-actie op abonneren eindpunt kan een gebruiker een abonnement met een bepa
 
 **GET**
 
-**https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{subscriptionId}* ? api-version = 2017-04-15**
+**https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{subscriptionId}*?api-version=2017-04-15**
 
 | **Parameternaam**  | **Beschrijving**                                       |
 |---------------------|-------------------------------------------------------|
