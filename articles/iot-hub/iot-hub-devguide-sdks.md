@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: dobett
-ms.openlocfilehash: 1eeb0afdd5ffcbe00357914d6a98c8d0b3d452ec
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: d58c86c17cdab360f37a09b28bdf705cb781a620
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48017956"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50023815"
 ---
 # <a name="understand-and-use-azure-iot-hub-sdks"></a>Begrijpen en gebruiken van Azure IoT Hub SDK 's
 
@@ -44,7 +44,7 @@ Azure IoT Hub device-SDK voor C, die zijn geschreven in C ANSI (C99) voor portab
 
 * Installeren van [apt-get, MBED, Arduino IDE of Nuget](https://github.com/Azure/azure-iot-sdk-c/blob/master/readme.md)
 * [Broncode](https://github.com/Azure/azure-iot-sdk-c)
-* [API-naslaginformatie](https://azure.github.io/azure-iot-sdk-c/index.html)
+* [API-naslaginformatie](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/)
 * [Moduleverwijzing](https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/inc/iothub_module_client.h)
 
 Azure IoT Hub apparaat-SDK voor Java: 
@@ -65,13 +65,13 @@ Azure IoT Hub apparaat-SDK voor Python:
 
 * Installeren van [pip](https://pypi.python.org/pypi/azure-iothub-device-client/)
 * [Broncode](https://github.com/Azure/azure-iot-sdk-python)
-* API-verwijzing: Zie [C-API-verwijzing](https://azure.github.io/azure-iot-sdk-c/index.html)
+* API-verwijzing: Zie [C-API-verwijzing](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/)
 
 Azure IoT Hub apparaat-SDK voor iOS: 
 
 * Installeren van [CocoaPod](https://cocoapods.org/pods/AzureIoTHubClient)
 * [Voorbeelden](https://github.com/Azure-Samples/azure-iot-samples-ios)
-* API-verwijzing: Zie [C-API-verwijzing](https://azure.github.io/azure-iot-sdk-c/index.html)
+* API-verwijzing: Zie [C-API-verwijzing](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/)
 
 > [!NOTE]
 > Raadpleeg het Leesmij-bestanden in de GitHub-opslagplaatsen voor informatie over het gebruik van taal en platform-specifieke Pakketbeheer binaire bestanden en afhankelijkheden voor netwerkapparaten installeren op uw ontwikkelcomputer.

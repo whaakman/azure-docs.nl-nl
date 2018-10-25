@@ -11,12 +11,12 @@ ms.custom: mvc, devcenter
 ms.topic: quickstart
 ms.devlang: java
 ms.date: 02/28/2018
-ms.openlocfilehash: d22eb6c6b56e24c2699bed8ac0a71a8192f0804e
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 4532b920fe1d4b20eb34f09fac4cb3b30ad36e6a
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35265034"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49985385"
 ---
 # <a name="azure-database-for-mysql-use-java-to-connect-and-query-data"></a>Azure Database voor MySQL: Java gebruiken om verbinding te maken en gegevens op te vragen
 In deze quickstart ziet u hoe u verbinding maakt met Azure Database for MySQL met behulp van een Java-toepassing en het JDBC-stuurprogramma [MySQL Connector/J](https://dev.mysql.com/downloads/connector/j/). U ziet hier hoe u SQL-instructies gebruikt om gegevens in de database op te vragen, in te voegen, bij te werken en te verwijderen. In dit artikel wordt ervan uitgegaan dat u bekend bent met het ontwikkelen met behulp van Java, maar geen ervaring hebt met het werken met Azure Database voor MySQL.
@@ -31,8 +31,8 @@ Er zijn talrijke andere voorbeelden en voorbeeldcode op de [pagina met voorbeeld
 2. Zorg dat de beveiliging van uw Azure Database voor MySQL-verbinding is geconfigureerd met de firewall geopend en SSL-instellingen aangepast. Anders kan de toepassing geen maken.
 
 3. Haal de MySQL Connector/J connector op met een van de volgende methoden:
-   - Gebruik het Maven-pakket [mysql-connector-java](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22mysql%22%20AND%20a%3A%22mysql-connector-java%22) om de [mysql dependency](https://mvnrepository.com/artifact/mysql/mysql-connector-java/5.1.6) op te nemen in het POM-bestand voor uw project.
-   - Download het JDBC-stuurprogramma [MySQL Connector/J](https://dev.mysql.com/downloads/connector/j/) en neem het JDBC jar-bestand (bijvoorbeeld mysql-connector-java-5.1.42-bin.jar) op in het klassepad van uw toepassing. Als u problemen met klassepaden hebt, raadpleegt u de documentatie van uw omgeving voor informatie over de klassepaden, zoals [Apache Tomcat](https://tomcat.apache.org/tomcat-7.0-doc/class-loader-howto.html) of [Java SE](http://docs.oracle.com/javase/7/docs/technotes/tools/windows/classpath.html)
+   - Gebruik het Maven-pakket [mysql-connector-java](https://search.maven.org/#search%7Cga%7C1%7Cg%3A%22mysql%22%20AND%20a%3A%22mysql-connector-java%22) om de [mysql dependency](https://mvnrepository.com/artifact/mysql/mysql-connector-java/5.1.6) op te nemen in het POM-bestand voor uw project.
+   - Download het JDBC-stuurprogramma [MySQL Connector/J](https://dev.mysql.com/downloads/connector/j/) en neem het JDBC jar-bestand (bijvoorbeeld mysql-connector-java-5.1.42-bin.jar) op in het klassepad van uw toepassing. Als u problemen met klassepaden hebt, raadpleegt u de documentatie van uw omgeving voor informatie over de klassepaden, zoals [Apache Tomcat](https://tomcat.apache.org/tomcat-7.0-doc/class-loader-howto.html) of [Java SE](https://docs.oracle.com/javase/7/docs/technotes/tools/windows/classpath.html)
 
 ## <a name="get-connection-information"></a>Verbindingsgegevens ophalen
 Haal de verbindingsgegevens op die nodig zijn om verbinding te maken met de Azure Database voor MySQL. U hebt de volledig gekwalificeerde servernaam en aanmeldingsreferenties nodig.
@@ -233,7 +233,7 @@ public class ReadTable {
 ```
 
 ## <a name="update-data"></a>Gegevens bijwerken
-Gebruik de volgende code om de gegevens te wijzigen met de SQL-instructie **UPDATE**. De methode [getConnection()](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-usagenotes-connect-drivermanager.html) wordt gebruikt om verbinding te maken met MySQL. De methoden [prepareStatement()](http://docs.oracle.com/javase/tutorial/jdbc/basics/prepared.html) en executeUpdate() worden gebruikt om de UPDATE-instructie voor te bereiden en uit te voeren. 
+Gebruik de volgende code om de gegevens te wijzigen met de SQL-instructie **UPDATE**. De methode [getConnection()](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-usagenotes-connect-drivermanager.html) wordt gebruikt om verbinding te maken met MySQL. De methoden [prepareStatement()](https://docs.oracle.com/javase/tutorial/jdbc/basics/prepared.html) en executeUpdate() worden gebruikt om de UPDATE-instructie voor te bereiden en uit te voeren. 
 
 Vervang de parameters voor host, database, gebruiker en wachtwoord door de waarden die u hebt opgegeven tijdens het maken van uw eigen server en database.
 
@@ -314,7 +314,7 @@ public class UpdateTable {
 ```
 
 ## <a name="delete-data"></a>Gegevens verwijderen
-Gebruik de volgende code om de gegevens te verwijderen met de SQL-instructie **DELETE**. De methode [getConnection()](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-usagenotes-connect-drivermanager.html) wordt gebruikt om verbinding te maken met MySQL.  De methoden [prepareStatement()](http://docs.oracle.com/javase/tutorial/jdbc/basics/prepared.html) en executeUpdate() worden gebruikt om de UPDATE-instructie voor te bereiden en uit te voeren. 
+Gebruik de volgende code om de gegevens te verwijderen met de SQL-instructie **DELETE**. De methode [getConnection()](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-usagenotes-connect-drivermanager.html) wordt gebruikt om verbinding te maken met MySQL.  De methoden [prepareStatement()](https://docs.oracle.com/javase/tutorial/jdbc/basics/prepared.html) en executeUpdate() worden gebruikt om de UPDATE-instructie voor te bereiden en uit te voeren. 
 
 Vervang de parameters voor host, database, gebruiker en wachtwoord door de waarden die u hebt opgegeven tijdens het maken van uw eigen server en database.
 

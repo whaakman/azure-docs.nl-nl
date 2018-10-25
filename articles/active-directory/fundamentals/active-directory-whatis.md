@@ -12,12 +12,12 @@ ms.workload: identity
 ms.topic: overview
 ms.date: 09/13/2018
 ms.custom: it-pro
-ms.openlocfilehash: 08d32a99e2f1a77bcc7a5900b47e6771c33ec356
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 406baeac60c7c0cdf5f74876e5fc29ea23d3d6f6
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49393318"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49957544"
 ---
 # <a name="what-is-azure-active-directory"></a>What is Azure Active Directory? (Engelstalig)
 Azure Active Directory (Azure AD) is de multitenant map in de cloud en identiteitsbeheerservice van Microsoft. Azure AD combineert belangrijke adreslijstservices, toegangsbeheer voor toepassingen en identiteitsbeveiliging in één oplossing en biedt een op standaarden gebaseerd platform waarmee ze toegangsbeheer kunnen bieden aan hun apps, op basis van gecentraliseerd beleid en regels voor ontwikkelaars.
@@ -74,7 +74,7 @@ Om uw Azure AD-implementatie te verbeteren, kunt u ook betaalde mogelijkheden to
 Meld u aan voor een gratis proefversie van 30 dagen en implementeer uw eerste cloudoplossing, zie [Azure Active Directory Premium-proefversie](https://azure.microsoft.com/trial/get-started-active-directory/).
 
 ## <a name="as-a-developer-how-do-i-get-started"></a>Hoe ga ik als ontwikkelaar aan de slag?
-Meld u aan voor een gratis proefversie van 30 dagen en begin met de integratie van uw apps met Azure AD, zie [Azure Active Directory Premium-proefversie](https://azure.microsoft.com/trial/get-started-active-directory/). Voor meer informatie kunt u ook de [Handleiding voor ontwikkelaars](../develop/azure-ad-developers-guide.md) voor Azure Active Directory raadplegen.
+Meld u aan voor een gratis proefversie van 30 dagen en begin met de integratie van uw apps met Azure AD, zie [Azure Active Directory Premium-proefversie](https://azure.microsoft.com/trial/get-started-active-directory/). Voor meer informatie kunt u ook de [Handleiding voor ontwikkelaars](../develop/v1-overview.md) voor Azure Active Directory raadplegen.
 
 ## <a name="next-steps"></a>Volgende stappen
 - [Meer informatie over de grondbeginselen van identiteits- en toegangsbeheer met Azure](identity-fundamentals.md).

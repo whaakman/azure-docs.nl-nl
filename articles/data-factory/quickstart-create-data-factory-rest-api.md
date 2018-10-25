@@ -13,12 +13,12 @@ ms.devlang: rest-api
 ms.topic: quickstart
 ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: cd529b63a4683f866a8a94379b6da12bee7eb775
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: c221093caebca66f6d0b79951cb1a45b8933c5e9
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43088426"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954417"
 ---
 # <a name="create-an-azure-data-factory-and-pipeline-by-using-the-rest-api"></a>Een Azure data factory en pijplijn maken door de REST-API te gebruiken
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -37,7 +37,7 @@ Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure
 * **Een Azure Storage-account**. U gebruikt de blob-opslag als gegevensopslag voor **bron** en **sink**. Als u geen Azure-opslagaccount hebt, raadpleegt u het artikel [Een opslagaccount maken](../storage/common/storage-quickstart-create-account.md) om een account te maken.
 * Maak een **blob-container** in Blob Storage, maak een **invoermap** in de container en upload een aantal bestanden naar de map. U kunt hulpprogramma's zoals [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) gebruiken om verbinding te maken met Azure Blob Storage, een blob-container te maken, een invoerbestand te uploaden en het uitvoerbestand te controleren.
 * Installeer **Azure PowerShell**. Volg de instructies in [How to install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps) (Azure PowerShell installeren en configureren). Deze snelstartgids maakt gebruik van PowerShell om REST-API-aanroepen aan te roepen.
-* **Maak een toepassing in Azure Active Directory** aan de hand van [deze instructie](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application). Noteer de volgende waarden voor gebruik in latere stappen: **toepassings-id**, **verificatiesleutel** en **tenant-id**. Wijs de toepassing toe aan de rol '**Inzender**'.
+* **Maak een toepassing in Azure Active Directory** aan de hand van [deze instructie](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application). Noteer de volgende waarden voor gebruik in latere stappen: **toepassings-id**, **verificatiesleutel** en **tenant-id**. Wijs de toepassing toe aan de rol '**Inzender**'.
 
 ## <a name="set-global-variables"></a>Globale variabelen instellen
 

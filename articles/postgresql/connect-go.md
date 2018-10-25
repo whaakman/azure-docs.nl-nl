@@ -11,12 +11,12 @@ ms.custom: mvc
 ms.devlang: go
 ms.topic: quickstart
 ms.date: 02/28/2018
-ms.openlocfilehash: d3bcfb3369510bdbcf325eab41fb7eacf3e2a228
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: eef5d9b6878b46d402a91f3adbfd965c47493c25
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34166315"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49986474"
 ---
 # <a name="azure-database-for-postgresql-use-go-language-to-connect-and-query-data"></a>Azure Database voor PostgreSQL: Go-taal gebruiken om verbinding te maken en gegevens op te vragen
 In deze snelstartgids ziet u hoe u met behulp van code in de [Go](https://golang.org/)-taal (golang) verbinding maakt met een Azure-database voor PostgreSQL. U ziet hier hoe u SQL-instructies gebruikt om gegevens in de database op te vragen, in te voegen, bij te werken en te verwijderen. In dit artikel wordt ervan uitgegaan dat u bekend bent met het ontwikkelen met Go, maar geen ervaring hebt met het werken met Azure Database voor PostgreSQL.
@@ -98,9 +98,9 @@ Haal de verbindingsgegevens op die nodig zijn om verbinding te maken met de Azur
 ## <a name="connect-and-create-a-table"></a>Verbinding maken en een tabel maken
 Gebruik de volgende code om een tabel te verbinden en te maken met de SQL-instructie **CREATE TABLE**, gevolgd door **INSERT INTO**-instructies om rijen in de tabel toe te voegen.
 
-Met de code worden drie pakketten geïmporteerd: het [sql-pakket](https://golang.org/pkg/database/sql/), het [pq-pakket](http://godoc.org/github.com/lib/pq) als een stuurprogramma om te communiceren met de PostgresSQL-server, en het [fmt-pakket](https://golang.org/pkg/fmt/) voor de weergave van invoer en uitvoer op de opdrachtregel.
+Met de code worden drie pakketten geïmporteerd: het [sql-pakket](https://golang.org/pkg/database/sql/), het [pq-pakket](https://godoc.org/github.com/lib/pq) als een stuurprogramma om te communiceren met de PostgresSQL-server, en het [fmt-pakket](https://golang.org/pkg/fmt/) voor de weergave van invoer en uitvoer op de opdrachtregel.
 
-In de code wordt de methode [sql.Open()](http://godoc.org/github.com/lib/pq#Open) aangeroepen om verbinding te maken met de Azure Database for PostgreSQL-database, en wordt de verbinding gecontroleerd met de methode [db.Ping()](https://golang.org/pkg/database/sql/#DB.Ping). Er wordt telkens gebruikgemaakt van een [database-ingang](https://golang.org/pkg/database/sql/#DB), die de verbindingsgroep voor de databaseserver bevat. In de code wordt de methode [Exec()](https://golang.org/pkg/database/sql/#DB.Exec) meerdere keren aangeroepen om diverse SQL-opdrachten uit te voeren. Telkens wordt een aangepaste checkError()-methode gebruikt om te controleren of er fouten zijn opgetreden en om af te sluiten als er een fout is opgetreden.
+In de code wordt de methode [sql.Open()](https://godoc.org/github.com/lib/pq#Open) aangeroepen om verbinding te maken met de Azure Database for PostgreSQL-database, en wordt de verbinding gecontroleerd met de methode [db.Ping()](https://golang.org/pkg/database/sql/#DB.Ping). Er wordt telkens gebruikgemaakt van een [database-ingang](https://golang.org/pkg/database/sql/#DB), die de verbindingsgroep voor de databaseserver bevat. In de code wordt de methode [Exec()](https://golang.org/pkg/database/sql/#DB.Exec) meerdere keren aangeroepen om diverse SQL-opdrachten uit te voeren. Telkens wordt een aangepaste checkError()-methode gebruikt om te controleren of er fouten zijn opgetreden en om af te sluiten als er een fout is opgetreden.
 
 Vervang de parameters `HOST`, `DATABASE`, `USER` en `PASSWORD` door uw eigen waarden. 
 
@@ -164,9 +164,9 @@ func main() {
 ## <a name="read-data"></a>Gegevens lezen
 Gebruik de volgende code om verbinding te maken en de gegevens te lezen met de SQL-instructie **SELECT**. 
 
-Met de code worden drie pakketten geïmporteerd: het [sql-pakket](https://golang.org/pkg/database/sql/), het [pq-pakket](http://godoc.org/github.com/lib/pq) als een stuurprogramma om te communiceren met de PostgresSQL-server, en het [fmt-pakket](https://golang.org/pkg/fmt/) voor de weergave van invoer en uitvoer op de opdrachtregel.
+Met de code worden drie pakketten geïmporteerd: het [sql-pakket](https://golang.org/pkg/database/sql/), het [pq-pakket](https://godoc.org/github.com/lib/pq) als een stuurprogramma om te communiceren met de PostgresSQL-server, en het [fmt-pakket](https://golang.org/pkg/fmt/) voor de weergave van invoer en uitvoer op de opdrachtregel.
 
-In de code wordt de methode [sql.Open()](http://godoc.org/github.com/lib/pq#Open) aangeroepen om verbinding te maken met de Azure Database for PostgreSQL-database, en wordt de verbinding gecontroleerd met de methode [db.Ping()](https://golang.org/pkg/database/sql/#DB.Ping). Er wordt telkens gebruikgemaakt van een [database-ingang](https://golang.org/pkg/database/sql/#DB), die de verbindingsgroep voor de databaseserver bevat. De select-query wordt uitgevoerd door de methode [db.Query()](https://golang.org/pkg/database/sql/#DB.Query) aan te roepen, en de resulterende rijen worden bewaard in een variabele van het type [rows](https://golang.org/pkg/database/sql/#Rows). In de code worden de kolomgegevenswaarden in de huidige rij gelezen met de methode [rows.Scan()](https://golang.org/pkg/database/sql/#Rows.Scan) en de rijen worden helemaal doorlopen met behulp van de iterator [rows.Next()](https://golang.org/pkg/database/sql/#Rows.Next), totdat er geen rijen meer zijn. De kolomwaarden van elke rij worden weergegeven in de console. Telkens wordt een aangepaste checkError()-methode gebruikt om te controleren of er fouten zijn opgetreden en om af te sluiten als er een fout is opgetreden.
+In de code wordt de methode [sql.Open()](https://godoc.org/github.com/lib/pq#Open) aangeroepen om verbinding te maken met de Azure Database for PostgreSQL-database, en wordt de verbinding gecontroleerd met de methode [db.Ping()](https://golang.org/pkg/database/sql/#DB.Ping). Er wordt telkens gebruikgemaakt van een [database-ingang](https://golang.org/pkg/database/sql/#DB), die de verbindingsgroep voor de databaseserver bevat. De select-query wordt uitgevoerd door de methode [db.Query()](https://golang.org/pkg/database/sql/#DB.Query) aan te roepen, en de resulterende rijen worden bewaard in een variabele van het type [rows](https://golang.org/pkg/database/sql/#Rows). In de code worden de kolomgegevenswaarden in de huidige rij gelezen met de methode [rows.Scan()](https://golang.org/pkg/database/sql/#Rows.Scan) en de rijen worden helemaal doorlopen met behulp van de iterator [rows.Next()](https://golang.org/pkg/database/sql/#Rows.Next), totdat er geen rijen meer zijn. De kolomwaarden van elke rij worden weergegeven in de console. Telkens wordt een aangepaste checkError()-methode gebruikt om te controleren of er fouten zijn opgetreden en om af te sluiten als er een fout is opgetreden.
 
 Vervang de parameters `HOST`, `DATABASE`, `USER` en `PASSWORD` door uw eigen waarden. 
 
@@ -232,9 +232,9 @@ func main() {
 ## <a name="update-data"></a>Gegevens bijwerken
 Gebruik de volgende code om verbinding te maken en de gegevens bij te werken met een SQL-instructie **UPDATE**.
 
-Met de code worden drie pakketten geïmporteerd: het [sql-pakket](https://golang.org/pkg/database/sql/), het [pq-pakket](http://godoc.org/github.com/lib/pq) als een stuurprogramma om te communiceren met de Postgres-server, en het [fmt-pakket](https://golang.org/pkg/fmt/) voor de weergave van invoer en uitvoer op de opdrachtregel.
+Met de code worden drie pakketten geïmporteerd: het [sql-pakket](https://golang.org/pkg/database/sql/), het [pq-pakket](https://godoc.org/github.com/lib/pq) als een stuurprogramma om te communiceren met de Postgres-server, en het [fmt-pakket](https://golang.org/pkg/fmt/) voor de weergave van invoer en uitvoer op de opdrachtregel.
 
-In de code wordt de methode [sql.Open()](http://godoc.org/github.com/lib/pq#Open) aangeroepen om verbinding te maken met de Azure Database for PostgreSQL-database, en wordt de verbinding gecontroleerd met de methode [db.Ping()](https://golang.org/pkg/database/sql/#DB.Ping). Er wordt telkens gebruikgemaakt van een [database-ingang](https://golang.org/pkg/database/sql/#DB), die de verbindingsgroep voor de databaseserver bevat. In de code wordt de methode [Exec()](https://golang.org/pkg/database/sql/#DB.Exec) aangeroepen om de SQL-instructie uit te voeren waarmee de tabel wordt bijgewerkt. Er wordt een aangepaste checkError()-methode gebruikt om te controleren of er fouten zijn opgetreden en om af te sluiten als er een fout is opgetreden.
+In de code wordt de methode [sql.Open()](https://godoc.org/github.com/lib/pq#Open) aangeroepen om verbinding te maken met de Azure Database for PostgreSQL-database, en wordt de verbinding gecontroleerd met de methode [db.Ping()](https://golang.org/pkg/database/sql/#DB.Ping). Er wordt telkens gebruikgemaakt van een [database-ingang](https://golang.org/pkg/database/sql/#DB), die de verbindingsgroep voor de databaseserver bevat. In de code wordt de methode [Exec()](https://golang.org/pkg/database/sql/#DB.Exec) aangeroepen om de SQL-instructie uit te voeren waarmee de tabel wordt bijgewerkt. Er wordt een aangepaste checkError()-methode gebruikt om te controleren of er fouten zijn opgetreden en om af te sluiten als er een fout is opgetreden.
 
 Vervang de parameters `HOST`, `DATABASE`, `USER` en `PASSWORD` door uw eigen waarden. 
 ```go
@@ -285,9 +285,9 @@ func main() {
 ## <a name="delete-data"></a>Gegevens verwijderen
 Gebruik de volgende code om verbinding te maken en de gegevens te verwijderen met de SQL-instructie **DELETE**. 
 
-Met de code worden drie pakketten geïmporteerd: het [sql-pakket](https://golang.org/pkg/database/sql/), het [pq-pakket](http://godoc.org/github.com/lib/pq) als een stuurprogramma om te communiceren met de Postgres-server, en het [fmt-pakket](https://golang.org/pkg/fmt/) voor de weergave van invoer en uitvoer op de opdrachtregel.
+Met de code worden drie pakketten geïmporteerd: het [sql-pakket](https://golang.org/pkg/database/sql/), het [pq-pakket](https://godoc.org/github.com/lib/pq) als een stuurprogramma om te communiceren met de Postgres-server, en het [fmt-pakket](https://golang.org/pkg/fmt/) voor de weergave van invoer en uitvoer op de opdrachtregel.
 
-In de code wordt de methode [sql.Open()](http://godoc.org/github.com/lib/pq#Open) aangeroepen om verbinding te maken met de Azure Database for PostgreSQL-database, en wordt de verbinding gecontroleerd met de methode [db.Ping()](https://golang.org/pkg/database/sql/#DB.Ping). Er wordt telkens gebruikgemaakt van een [database-ingang](https://golang.org/pkg/database/sql/#DB), die de verbindingsgroep voor de databaseserver bevat. In de code wordt de methode [Exec()](https://golang.org/pkg/database/sql/#DB.Exec) aangeroepen om de SQL-instructie uit te voeren waarmee een rij uit de tabel wordt verwijderd. Er wordt een aangepaste checkError()-methode gebruikt om te controleren of er fouten zijn opgetreden en om af te sluiten als er een fout is opgetreden.
+In de code wordt de methode [sql.Open()](https://godoc.org/github.com/lib/pq#Open) aangeroepen om verbinding te maken met de Azure Database for PostgreSQL-database, en wordt de verbinding gecontroleerd met de methode [db.Ping()](https://golang.org/pkg/database/sql/#DB.Ping). Er wordt telkens gebruikgemaakt van een [database-ingang](https://golang.org/pkg/database/sql/#DB), die de verbindingsgroep voor de databaseserver bevat. In de code wordt de methode [Exec()](https://golang.org/pkg/database/sql/#DB.Exec) aangeroepen om de SQL-instructie uit te voeren waarmee een rij uit de tabel wordt verwijderd. Er wordt een aangepaste checkError()-methode gebruikt om te controleren of er fouten zijn opgetreden en om af te sluiten als er een fout is opgetreden.
 
 Vervang de parameters `HOST`, `DATABASE`, `USER` en `PASSWORD` door uw eigen waarden. 
 ```go

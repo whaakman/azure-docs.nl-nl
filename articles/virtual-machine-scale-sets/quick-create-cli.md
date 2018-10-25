@@ -3,7 +3,7 @@ title: Snelstart - Een schaalset voor virtuele machines maken met de Azure CLI |
 description: Leer hoe u snel een virtuele-machineschaalset kunt maken met Azure PowerShell
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: cynthn
+author: zr-msft
 manager: jeconnoc
 editor: ''
 tags: ''
@@ -15,13 +15,13 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/27/18
-ms.author: cynthn
-ms.openlocfilehash: 348074592da8465762b178b49af4713aadcc8c8d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.author: zarhoads
+ms.openlocfilehash: b306766a300af1b6b4d5b85c29ce8c06d1888222
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46970653"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49471064"
 ---
 # <a name="quickstart-create-a-virtual-machine-scale-set-with-the-azure-cli"></a>Snelstart: Een schaalset voor virtuele machines maken met de Azure CLI
 Met een virtuele-machineschaalset kunt u een reeks identieke virtuele machines met automatisch schalen implementeren en beheren. U kunt het aantal VM’s in de schaalset handmatig schalen of regels voor automatisch schalen definiëren op basis van resourcegebruik zoals CPU, vraag naar geheugen, of netwerkverkeer. Een Azure load balancer verdeelt het verkeer vervolgens naar de VM-exemplaren in de schaalset. In deze snelstart gebruikt u de Azure CLI om een schaalset voor virtuele machines te maken en een voorbeeldtoepassing te implementeren.

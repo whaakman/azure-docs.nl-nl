@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.date: 11/30/2017
-ms.openlocfilehash: 29b28b0d81314d062c1b334092979cc9bccbeb31
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: a6adf97a11821ff58c01d2450f06d07e7327fdfb
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43127656"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49957920"
 ---
 # <a name="monitor-virtual-machine-changes-with-azure-event-grid-and-logic-apps"></a>Wijzigingen in virtuele machines bewaken met Azure Event Grid en Logic Apps
 
@@ -90,7 +90,7 @@ U gaat eerst een logische app maken en een trigger voor Event Grid toevoegen die
    ![Aanmelden met uw Azure-referenties](./media/monitor-virtual-machine-changes-event-grid-logic-app/sign-in-event-grid.png)
 
    > [!NOTE]
-   > Als u zich aanmeldt met een persoonlijk Microsoft-account, zoals @outlook.com of @hotmail.com, wordt de trigger voor het gebeurtenisraster mogelijk niet juist weergegeven. Als tijdelijke oplossing kunt u [Verbinding maken met service-principal](../azure-resource-manager/resource-group-create-service-principal-portal.md) kiezen of verifiëren als een lid van de Azure Active Directory die is gekoppeld aan uw Azure-abonnement, bijvoorbeeld *gebruikersnaam*@emailoutlook.onmicrosoft.com.
+   > Als u zich aanmeldt met een persoonlijk Microsoft-account, zoals @outlook.com of @hotmail.com, wordt de trigger voor het gebeurtenisraster mogelijk niet juist weergegeven. Als tijdelijke oplossing kunt u [Verbinding maken met service-principal](../active-directory/develop/howto-create-service-principal-portal.md) kiezen of verifiëren als een lid van de Azure Active Directory die is gekoppeld aan uw Azure-abonnement, bijvoorbeeld *gebruikersnaam*@emailoutlook.onmicrosoft.com.
 
 8. U gaat de logische app nu abonneren op gepubliceerde gebeurtenissen. Geef de details voor uw gebeurtenisabonnement op zoals deze worden beschreven in de volgende tabel:
 

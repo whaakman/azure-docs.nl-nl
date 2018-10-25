@@ -3,7 +3,7 @@ title: Voorbeelden van Azure CLI - Schaalset met één zone | Microsoft Docs
 description: Azure CLI-voorbeelden
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: cynthn
+author: zr-msft
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2018
-ms.author: cynthn
+ms.author: zarhoads
 ms.custom: mvc
-ms.openlocfilehash: 4a46398b975f94ea4cff010273b7fe3471885e1a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e0975542be39bddae9fe21dd49bead98d17e9546
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46971889"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49469225"
 ---
 # <a name="create-a-single-zone-virtual-machine-scale-set-with-powershell"></a>Een virtuele-machineschaalset met één zone maken met PowerShell
 Met dit script maakt u een virtuele-machineschaalset met Ubuntu in één beschikbaarheidszone. Nadat het script is uitgevoerd, hebt u via RDP toegang tot de virtuele machine.

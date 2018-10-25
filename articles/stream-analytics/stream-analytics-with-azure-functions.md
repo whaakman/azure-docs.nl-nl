@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.date: 04/09/2018
 ms.author: jasonh
 ms.reviewer: jasonh
-ms.openlocfilehash: 0408ea6ead1ddf482ce0a07c21859af80ab6ca43
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 50ea4dafe7edfdeb851ad6d9cc42a7bca262e970
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43697812"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49985808"
 ---
 # <a name="run-azure-functions-from-azure-stream-analytics-jobs"></a>Azure Functions uitvoeren vanuit Azure Stream Analytics-taken 
 
@@ -40,11 +40,11 @@ In deze sectie ziet u hoe u een Stream Analytics-taak configureert om een functi
 ![Diagram van de relaties tussen de Azure-services](./media/stream-analytics-with-azure-functions/image1.png)
 
 Voor deze taak moeten de volgende stappen worden gezet:
-* [Een Stream Analytics-taak maken met Event Hubs als invoer](#create-stream-analytics-job-with-event-hub-as-input)  
-* [Een Azure Redis Cache-exemplaar maken](#create-an-azure-redis-cache)  
-* [Een functie in Azure Functions maken die gegevens naar de Azure Redis Cache schrijft](#create-an-azure-function-that-can-write-data-to-the-redis-cache)    
-* [De Stream Analytics-taak bijwerken met de functie als uitvoer](#update-the-stream-analytic-job-with-azure-function-as-output)  
-* [Azure Redis Cache controleren op resultaten](#check-redis-cache-for-results)  
+* [Een Stream Analytics-taak maken met Event Hubs als invoer](#create-a-stream-analytics-job-with-event-hubs-as-input)  
+* [Een Azure Redis Cache-exemplaar maken](#create-an-azure-redis-cache-instance)  
+* [Een functie in Azure Functions maken die gegevens naar de Azure Redis Cache schrijft](#create-a-function-in-azure-functions-that-can-write-data-to-azure-redis-cache)    
+* [De Stream Analytics-taak bijwerken met de functie als uitvoer](#update-the-stream-analytics-job-with-the-function-as-output)  
+* [Azure Redis Cache controleren op resultaten](#check-azure-redis-cache-for-results)  
 
 ## <a name="create-a-stream-analytics-job-with-event-hubs-as-input"></a>Een Stream Analytics-taak maken met Event Hubs als invoer
 

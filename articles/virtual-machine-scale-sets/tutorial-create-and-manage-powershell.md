@@ -3,7 +3,7 @@ title: Zelfstudie - Een schaalset voor virtuele Azure-machines maken en beheren 
 description: Ontdek hoe u met Azure PowerShell een schaalset met virtuele Azure-machines maakt. Leer daarnaast hoe u enkele veelvoorkomende beheertaken uitvoert, zoals het starten en stoppen van een exemplaar of het wijzigen van de capaciteit van de schaalset.
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: cynthn
+author: zr-msft
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/18/2018
-ms.author: cynthn
+ms.author: zarhoads
 ms.custom: mvc
-ms.openlocfilehash: 6e3262ffbf31c18611a82c8293c63e13e572e30c
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: f525603419149c42a4f979b11547222ad00fc74c
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38531559"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49465981"
 ---
 # <a name="tutorial-create-and-manage-a-virtual-machine-scale-set-with-azure-powershell"></a>Zelfstudie - Een schaalset met virtuele Azure-machines maken met Azure PowerShell
 Met een virtuele-machineschaalset kunt u een reeks identieke virtuele machines met automatisch schalen implementeren en beheren. Gedurende de levenscyclus van een schaalset voor virtuele machines moet u mogelijk een of meer beheertaken uitvoeren. In deze zelfstudie leert u het volgende:

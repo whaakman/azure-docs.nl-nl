@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/22/2017
 ms.author: bbenz
 ms.custom: mvc
-ms.openlocfilehash: 0baab86c0cb76bfeecb30cdb62c968a476e402b9
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: db1005bbce25b0fa3fec76e6f9428a4cdd6fa4aa
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44296768"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024362"
 ---
 # <a name="tutorial-build-a-java-and-mysql-web-app-in-azure"></a>Zelfstudie: een Java- en MySQL-web-app bouwen in Azure
 
@@ -28,7 +28,7 @@ ms.locfileid: "44296768"
 > In dit artikel gaat u een app implementeren in App Service onder Windows. Zie [Een beperkte Spring Boot-app implementeren in Azure](/java/azure/spring-framework/deploy-containerized-spring-boot-java-app-with-maven-plugin) voor de implementatie naar App Service op _Linux_.
 >
 
-In deze zelfstudie wordt getoond hoe u een Java-web-app in Azure maakt en deze verbinding laat maken met een MySQL-database. Wanneer u klaar bent, hebt u een [Spring Boot](https://projects.spring.io/spring-boot/)-toepassing die gegevens opslaat in [Azure Database for MySQL](https://docs.microsoft.com/azure/mysql/overview) en wordt uitgevoerd op [Azure App Service Web Apps](app-service-web-overview.md).
+In deze zelfstudie wordt getoond hoe u een Java-web-app in Azure maakt en deze verbinding laat maken met een MySQL-database. Wanneer u klaar bent, hebt u een [Spring Boot](https://projects.spring.io/spring-boot/)-toepassing die gegevens opslaat in [Azure Database for MySQL](../mysql/overview.md) en wordt uitgevoerd op [Azure App Service Web Apps](app-service-web-overview.md).
 
 ![Java-app uitgevoerd in Azure App Service](./media/app-service-web-tutorial-java-mysql/appservice-web-app.png)
 
@@ -40,7 +40,7 @@ In deze zelfstudie leert u het volgende:
 > * De app implementeren in Azure
 > * De app bijwerken en opnieuw implementeren
 > * Logboeken met diagnostische gegevens vanaf Azure streamen
-> * De app in de Azure-portal controleren
+> * De app in de Azure Portal controleren
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -122,7 +122,7 @@ Stop de toepassing door `Ctrl`+`C` te gebruiken in de terminal.
 
 ## <a name="create-an-azure-mysql-database"></a>Een Azure MySQL-database maken
 
-In deze stap maakt u een [Azure Database for MySQL](../mysql/quickstart-create-mysql-server-database-using-azure-cli.md)-instantie met de [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). U configureert de voorbeeldtoepassing later in de zelfstudie om deze database te gebruiken.
+In deze stap maakt u een [Azure Database for MySQL](../mysql/quickstart-create-mysql-server-database-using-azure-cli.md)-instantie met de [Azure CLI](/cli/azure/install-azure-cli). U configureert de voorbeeldtoepassing later in de zelfstudie om deze database te gebruiken.
 
 ### <a name="create-a-resource-group"></a>Een resourcegroep maken
 
@@ -282,7 +282,7 @@ az webapp config set --name <app_name> --resource-group myResourceGroup --java-v
 
 Voordat u de voorbeeld-app uitvoert, stelt u toepassingsinstellingen op de web-app in om de Azure MySQL-database te gebruiken die u in Azure hebt gemaakt. Deze eigenschappen worden als omgevingsvariabelen blootgesteld aan de webtoepassing en overschrijven de waarden in de application.properties binnen de verpakte web-app. 
 
-Stel in de Cloud Shell de toepassingsinstellingen in met [`az webapp config appsettings`](https://docs.microsoft.com/cli/azure/webapp/config/appsettings) in de CLI:
+Stel in de Cloud Shell de toepassingsinstellingen in met [`az webapp config appsettings`](/cli/azure/webapp/config/appsettings) in de CLI:
 
 ```azurecli-interactive
 az webapp config appsettings set --settings SPRING_DATASOURCE_URL="jdbc:mysql://<mysql_server_name>.mysql.database.azure.com:3306/tododb?verifyServerCertificate=true&useSSL=true&requireSSL=false" --resource-group myResourceGroup --name <app_name>
@@ -299,7 +299,7 @@ az webapp config appsettings set --settings SPRING_DATASOURCE_PASSWORD=Javaapp_p
 ### <a name="get-ftp-deployment-credentials"></a>FTP-implementatiereferenties verkrijgen 
 U kunt uw web-app op verschillende manieren in Azure App Service implementeren, zoals met FTP, lokale Git, GitHub, Azure DevOps en Bitbucket. In dit voorbeeld gebruikt u FTP voor het implementeren van het .WAR-bestand dat eerder op uw lokale machine in Azure App Service is gebouwd.
 
-Gebruik de opdracht [`az appservice web deployment list-publishing-profiles`](https://docs.microsoft.com/cli/azure/webapp/deployment#az-appservice-web-deployment-list-publishing-profiles) in de Cloud Shell om te bepalen welke referenties u door moet geven in een FTP-opdracht in de web-app: 
+Gebruik de opdracht [`az webapp deployment list-publishing-profiles`](/cli/azure/webapp/deployment#az-webapp-deployment-list-publishing-profiles) in de Cloud Shell om te bepalen welke referenties u door moet geven in een FTP-opdracht in de web-app: 
 
 ```azurecli-interactive
 az webapp deployment list-publishing-profiles --name <app_name> --resource-group myResourceGroup --query "[?publishMethod=='FTP'].{URL:publishUrl, Username:userName,Password:userPWD}" --output json
@@ -421,7 +421,7 @@ az webapp log tail --name <app_name> --resource-group myResourceGroup
 
 ## <a name="manage-your-azure-web-app"></a>Uw Azure-web-app beheren
 
-Ga naar de [Azure-portal](https://portal.azure.com) om de web-app te zien die u hebt gemaakt.
+Ga naar [Azure Portal](https://portal.azure.com) om de web-app te zien die u hebt gemaakt.
 
 Klik vanuit het linkermenu op **App Service** en klik op de naam van uw Azure-web-app.
 
@@ -429,7 +429,7 @@ Klik vanuit het linkermenu op **App Service** en klik op de naam van uw Azure-we
 
 Standaard toont de pagina van uw web-app de pagina **Overzicht**. Deze pagina geeft u een overzicht van hoe uw app presteert. Hier kunt u ook algemene beheertaken uitvoeren, zoals stoppen, starten, opnieuw opstarten en verwijderen. De tabbladen aan de linkerkant van de pagina tonen de verschillende configuratiepagina's die u kunt openen.
 
-![App Service-pagina in de Azure-portal](./media/app-service-web-tutorial-java-mysql/web-app-blade.png)
+![App Service-pagina in Azure Portal](./media/app-service-web-tutorial-java-mysql/web-app-blade.png)
 
 Deze tabbladen op de pagina bevatten de vele handige functies die u kunt toevoegen aan uw web-app. De volgende lijst bevat slechts enkele van de mogelijkheden:
 * Een aangepaste DNS-naam toewijzen
@@ -440,25 +440,25 @@ Deze tabbladen op de pagina bevatten de vele handige functies die u kunt toevoeg
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Als u deze resources niet voor een andere zelfstudie nodig hebt (zie [Volgende stappen](#next)), kunt u ze verwijderen door de volgende opdracht in de Cloud Shell uit te voeren: 
-  
+Als u deze resources niet voor een andere zelfstudie nodig hebt (zie [Volgende stappen](#next)), kunt u ze verwijderen door de volgende opdracht in de Cloud Shell uit te voeren: 
+  
 ```azurecli-interactive
-az group delete --name myResourceGroup 
-``` 
+az group delete --name myResourceGroup 
+``` 
 
 <a name="next"></a>
 
-## <a name="next-steps"></a>Volgende stappen
+## Next steps
 
 > [!div class="checklist"]
-> * Een MySQL-database in Azure maken
-> * Een voorbeeld Java-app verbinden met de MySQL
-> * De app implementeren in Azure
-> * De app bijwerken en opnieuw implementeren
-> * Logboeken met diagnostische gegevens vanaf Azure streamen
-> * De app in de Azure-portal beheren
+> * Create a MySQL database in Azure
+> * Connect a sample Java app to the MySQL
+> * Deploy the app to Azure
+> * Update and redeploy the app
+> * Stream diagnostic logs from Azure
+> * Manage the app in the Azure portal
 
-Ga door naar de volgende zelfstudie om te leren hoe u een aangepaste DNS-naam aan een web-app kunt toewijzen.
+Advance to the next tutorial to learn how to map a custom DNS name to the app.
 
 > [!div class="nextstepaction"] 
-> [Een bestaande aangepaste DNS-naam toewijzen aan Azure Web Apps](app-service-web-tutorial-custom-domain.md)
+> [Map an existing custom DNS name to Azure Web Apps](app-service-web-tutorial-custom-domain.md)

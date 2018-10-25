@@ -10,15 +10,15 @@ ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 02/28/2018
-ms.openlocfilehash: 1e919ddb063bcd96b0c6766a28762d1b474cb8a1
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 7fa9272a8609d933a3f12abb0f33e78c4bdc1b12
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42023816"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49984805"
 ---
 # <a name="azure-database-for-mysql-use-php-to-connect-and-query-data"></a>Azure Database voor MySQL: PHP gebruiken om verbinding te maken en gegevens op te vragen
-In deze snelstartgids ziet u hoe u met behulp van een [PHP](http://php.net/manual/intro-whatis.php)-toepassing verbinding maakt met een Azure Database voor MySQL. U ziet hier hoe u SQL-instructies gebruikt om gegevens in de database op te vragen, in te voegen, bij te werken en te verwijderen. In dit artikel wordt ervan uitgegaan dat u bekend bent met het ontwikkelen met behulp van PHP, maar geen ervaring hebt met het werken met Azure Database voor MySQL.
+In deze snelstartgids ziet u hoe u met behulp van een [PHP](https://secure.php.net/manual/intro-whatis.php)-toepassing verbinding maakt met een Azure Database voor MySQL. U ziet hier hoe u SQL-instructies gebruikt om gegevens in de database op te vragen, in te voegen, bij te werken en te verwijderen. In dit artikel wordt ervan uitgegaan dat u bekend bent met het ontwikkelen met behulp van PHP, maar geen ervaring hebt met het werken met Azure Database voor MySQL.
 
 ## <a name="prerequisites"></a>Vereisten
 In deze snelstartgids worden de resources die in een van deze handleidingen zijn gemaakt, als uitgangspunt gebruikt:
@@ -29,16 +29,16 @@ In deze snelstartgids worden de resources die in een van deze handleidingen zijn
 Installeer PHP op uw eigen server of maak een Azure-[web-app](../app-service/app-service-web-overview.md) die PHP omvat.
 
 ### <a name="macos"></a>MacOS
-- Download [PHP 7.1.4](http://php.net/downloads.php).
-- Installeer PHP en raadpleeg de [PHP-handleiding](http://php.net/manual/install.macosx.php) voor verdere configuratie.
+- Download [PHP 7.1.4](https://secure.php.net/downloads.php).
+- Installeer PHP en raadpleeg de [PHP-handleiding](https://secure.php.net/manual/install.macosx.php) voor verdere configuratie.
 
 ### <a name="linux-ubuntu"></a>Linux (Ubuntu)
-- Download [PHP 7.1.4 niet-thread-veilig (x64)](http://php.net/downloads.php).
-- Installeer PHP en raadpleeg de [PHP-handleiding](http://php.net/manual/install.unix.php) voor verdere configuratie.
+- Download [PHP 7.1.4 niet-thread-veilig (x64)](https://secure.php.net/downloads.php).
+- Installeer PHP en raadpleeg de [PHP-handleiding](https://secure.php.net/manual/install.unix.php) voor verdere configuratie.
 
 ### <a name="windows"></a>Windows
-- Download [PHP 7.1.4 niet-thread-veilig (x64)](http://windows.php.net/download#php-7.1).
-- Installeer PHP en raadpleeg de [PHP-handleiding](http://php.net/manual/install.windows.php) voor verdere configuratie.
+- Download [PHP 7.1.4 niet-thread-veilig (x64)](https://windows.php.net/download#php-7.1).
+- Installeer PHP en raadpleeg de [PHP-handleiding](https://secure.php.net/manual/install.windows.php) voor verdere configuratie.
 
 ## <a name="get-connection-information"></a>Verbindingsgegevens ophalen
 Haal de verbindingsgegevens op die nodig zijn om verbinding te maken met de Azure Database voor MySQL. U hebt de volledig gekwalificeerde servernaam en aanmeldingsreferenties nodig.
@@ -52,7 +52,7 @@ Haal de verbindingsgegevens op die nodig zijn om verbinding te maken met de Azur
 ## <a name="connect-and-create-a-table"></a>Verbinding maken en een tabel maken
 Gebruik de volgende code om verbinding te maken en een tabel te maken met behulp van de SQL-instructie **CREATE TABLE**. 
 
-Voor de code wordt gebruikgemaakt van de klasse **MySQL Improved extension** (mysqli) die deel uitmaakt van PHP. Met de code worden de methoden [mysqli_init](http://php.net/manual/mysqli.init.php) en [mysqli_real_connect](http://php.net/manual/mysqli.real-connect.php) aangeroepen om verbinding te maken met MySQL. Daarna wordt de methode [mysqli_query](http://php.net/manual/mysqli.query.php) aangeroepen op de query uit te voeren. Vervolgens wordt methode [mysqli_close](http://php.net/manual/mysqli.close.php) aangeroepen om de verbinding te sluiten.
+Voor de code wordt gebruikgemaakt van de klasse **MySQL Improved extension** (mysqli) die deel uitmaakt van PHP. Met de code worden de methoden [mysqli_init](https://secure.php.net/manual/mysqli.init.php) en [mysqli_real_connect](https://secure.php.net/manual/mysqli.real-connect.php) aangeroepen om verbinding te maken met MySQL. Daarna wordt de methode [mysqli_query](https://secure.php.net/manual/mysqli.query.php) aangeroepen op de query uit te voeren. Vervolgens wordt methode [mysqli_close](https://secure.php.net/manual/mysqli.close.php) aangeroepen om de verbinding te sluiten.
 
 Vervang de parameters Host, Gebruikersnaam, Wachtwoord en db_name door uw eigen waarden. 
 
@@ -91,7 +91,7 @@ mysqli_close($conn);
 ## <a name="insert-data"></a>Gegevens invoegen
 Gebruik de volgende code om verbinding te maken en de gegevens in te voegen met behulp van de SQL-instructie **INSERT**.
 
-Voor de code wordt gebruikgemaakt van de klasse **MySQL Improved extension** (mysqli) die deel uitmaakt van PHP. Met de code wordt gebruikgemaakt van de methode [mysqli_prepare](http://php.net/manual/mysqli.prepare.php) om een invoeginstructie te maken. Daarna worden de parameters van elke ingevoegde kolomwaarde verbonden met de methode [mysqli_stmt_bind_param](http://php.net/manual/mysqli-stmt.bind-param.php). Met de code wordt de instructie uitgevoerd via de methode [mysqli_stmt_execute](http://php.net/manual/mysqli-stmt.execute.php). Daarna wordt de instructie gesloten via de methode [mysqli_stmt_close](http://php.net/manual/mysqli-stmt.close.php).
+Voor de code wordt gebruikgemaakt van de klasse **MySQL Improved extension** (mysqli) die deel uitmaakt van PHP. Met de code wordt gebruikgemaakt van de methode [mysqli_prepare](https://secure.php.net/manual/mysqli.prepare.php) om een invoeginstructie te maken. Daarna worden de parameters van elke ingevoegde kolomwaarde verbonden met de methode [mysqli_stmt_bind_param](https://secure.php.net/manual/mysqli-stmt.bind-param.php). Met de code wordt de instructie uitgevoerd via de methode [mysqli_stmt_execute](https://secure.php.net/manual/mysqli-stmt.execute.php). Daarna wordt de instructie gesloten via de methode [mysqli_stmt_close](https://secure.php.net/manual/mysqli-stmt.close.php).
 
 Vervang de parameters Host, Gebruikersnaam, Wachtwoord en db_name door uw eigen waarden. 
 
@@ -126,7 +126,7 @@ mysqli_close($conn);
 ```
 
 ## <a name="read-data"></a>Gegevens lezen
-Gebruik de volgende code om verbinding te maken en de gegevens te lezen met behulp van de SQL-instructie **SELECT**.  Voor de code wordt gebruikgemaakt van de klasse **MySQL Improved extension** (mysqli) die deel uitmaakt van PHP. De code gebruikt de methode [mysqli_query](http://php.net/manual/mysqli.query.php) om de SQL-query uit te voeren en de methode [mysqli_fetch_assoc](http://php.net/manual/mysqli-result.fetch-assoc.php) om de resulterende rijen op te halen.
+Gebruik de volgende code om verbinding te maken en de gegevens te lezen met behulp van de SQL-instructie **SELECT**.  Voor de code wordt gebruikgemaakt van de klasse **MySQL Improved extension** (mysqli) die deel uitmaakt van PHP. De code gebruikt de methode [mysqli_query](https://secure.php.net/manual/mysqli.query.php) om de SQL-query uit te voeren en de methode [mysqli_fetch_assoc](https://secure.php.net/manual/mysqli-result.fetch-assoc.php) om de resulterende rijen op te halen.
 
 Vervang de parameters Host, Gebruikersnaam, Wachtwoord en db_name door uw eigen waarden. 
 
@@ -159,7 +159,7 @@ mysqli_close($conn);
 ## <a name="update-data"></a>Gegevens bijwerken
 Gebruik de volgende code om verbinding te maken en de gegevens bij te werken met behulp van de SQL-instructie **UPDATE**.
 
-Voor de code wordt gebruikgemaakt van de klasse **MySQL Improved extension** (mysqli) die deel uitmaakt van PHP. Met de code wordt gebruikgemaakt van de methode [mysqli_prepare](http://php.net/manual/mysqli.prepare.php) om een bijwerkinstructie te maken. Daarna worden de parameters van elke bijgewerkte kolomwaarde verbonden met de methode [mysqli_stmt_bind_param](http://php.net/manual/mysqli-stmt.bind-param.php). Met de code wordt de instructie uitgevoerd via de methode [mysqli_stmt_execute](http://php.net/manual/mysqli-stmt.execute.php). Daarna wordt de instructie gesloten via de methode [mysqli_stmt_close](http://php.net/manual/mysqli-stmt.close.php).
+Voor de code wordt gebruikgemaakt van de klasse **MySQL Improved extension** (mysqli) die deel uitmaakt van PHP. Met de code wordt gebruikgemaakt van de methode [mysqli_prepare](https://secure.php.net/manual/mysqli.prepare.php) om een bijwerkinstructie te maken. Daarna worden de parameters van elke bijgewerkte kolomwaarde verbonden met de methode [mysqli_stmt_bind_param](https://secure.php.net/manual/mysqli-stmt.bind-param.php). Met de code wordt de instructie uitgevoerd via de methode [mysqli_stmt_execute](https://secure.php.net/manual/mysqli-stmt.execute.php). Daarna wordt de instructie gesloten via de methode [mysqli_stmt_close](https://secure.php.net/manual/mysqli-stmt.close.php).
 
 Vervang de parameters Host, Gebruikersnaam, Wachtwoord en db_name door uw eigen waarden. 
 
@@ -197,7 +197,7 @@ mysqli_close($conn);
 ## <a name="delete-data"></a>Gegevens verwijderen
 Gebruik de volgende code om verbinding te maken en de gegevens te lezen met behulp van de SQL-instructie **DELETE**. 
 
-Voor de code wordt gebruikgemaakt van de klasse **MySQL Improved extension** (mysqli) die deel uitmaakt van PHP. Met de code wordt gebruikgemaakt van de methode [mysqli_prepare](http://php.net/manual/mysqli.prepare.php) om een verwijderinstructie te maken. Daarna worden de parameters verbonden voor het Where-component in de instructie. Hiervoor wordt de methode [mysqli_stmt_bind_param](http://php.net/manual/mysqli-stmt.bind-param.php) gebruikt. Met de code wordt de instructie uitgevoerd via de methode [mysqli_stmt_execute](http://php.net/manual/mysqli-stmt.execute.php). Daarna wordt de instructie gesloten via de methode [mysqli_stmt_close](http://php.net/manual/mysqli-stmt.close.php).
+Voor de code wordt gebruikgemaakt van de klasse **MySQL Improved extension** (mysqli) die deel uitmaakt van PHP. Met de code wordt gebruikgemaakt van de methode [mysqli_prepare](https://secure.php.net/manual/mysqli.prepare.php) om een verwijderinstructie te maken. Daarna worden de parameters verbonden voor het Where-component in de instructie. Hiervoor wordt de methode [mysqli_stmt_bind_param](https://secure.php.net/manual/mysqli-stmt.bind-param.php) gebruikt. Met de code wordt de instructie uitgevoerd via de methode [mysqli_stmt_execute](https://secure.php.net/manual/mysqli-stmt.execute.php). Daarna wordt de instructie gesloten via de methode [mysqli_stmt_close](https://secure.php.net/manual/mysqli-stmt.close.php).
 
 Vervang de parameters Host, Gebruikersnaam, Wachtwoord en db_name door uw eigen waarden. 
 

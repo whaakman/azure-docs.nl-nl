@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 5e18a27579c577f914709e25cab1549387a965f3
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 7b96ee362f6169d386a58ee48878e40a42fc9ede
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46966398"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49987593"
 ---
 # <a name="about-microsoft-identity-platform"></a>Over het Microsoft Identity Platform
 
@@ -37,7 +37,7 @@ Voor toepassingen die gebruikmaken van de nieuwste ADAL en MSAL kan eenmalige aa
 
 In het volgende schema wordt de gebruikerservaring met Microsoft Identity weergegeven op hoog niveau, inclusief de registratie van apps, SDK’s, eindpunten en ondersteunde identiteiten.
 
-![Het Microsoft Identity Platform vandaag](./media/about-microsoft-identity-platform/microsoft-identity-platform-today.png)
+![Het Microsoft Identity Platform vandaag](./media/about-microsoft-identity-platform/microsoft-identity-platform-preview.png)
 
 Het Microsoft Identity Platform heeft twee eindpunten (v1.0 en v2.0) en twee sets clientbibliotheken voor het afhandelen van deze eindpunten. Houd bij het ontwikkelen van nieuwe toepassing rekening met de voordelen en huidige status van de eindpunten en de verificatiebibliotheken. Houd ook rekening met het volgende:
 
@@ -61,5 +61,5 @@ Het Microsoft Identity Platform heeft twee eindpunten (v1.0 en v2.0) en twee set
 
 Meer informatie over v1.0 en v2.0.
 
-* [Over v1.0](azure-ad-developers-guide.md)
-* [Over v2.0](azure-ad-developers-guide.md)
+* [Over v1.0](v1-overview.md)
+* [Over v2.0](v2-overview.md)

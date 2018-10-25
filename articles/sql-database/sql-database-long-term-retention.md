@@ -11,25 +11,26 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 07/16/2018
-ms.openlocfilehash: 6110773ecaba0ad333e4cfc9f9cc6014bd29a7a6
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.date: 10/24/2018
+ms.openlocfilehash: 7fe34423e706054daf84eaa8baf45fe201a661c9
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48249516"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50026174"
 ---
 # <a name="store-azure-sql-database-backups-for-up-to-10-years"></a>Azure SQL Database-back-ups voor maximaal 10 jaar Store
 
 Veel toepassingen hebben regelgeving, naleving, of andere zakelijke doeleinden waarvoor u databaseback-ups langer dan de 7-35 dagen geleverd door Azure SQL Database behouden [automatische back-ups](sql-database-automated-backups.md). Met behulp van de functie voor lange bewaarperiode (LTR), kunt u opslaan opgegeven SQL-database volledige back-ups in [RA-GRS](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage) blob-opslag voor maximaal 10 jaar. Vervolgens kunt u een back-up herstellen als een nieuwe database.
 
 > [!NOTE]
-> LTR kan worden ingeschakeld op de databases die worden gehost in Azure SQL Database-logische Servers. Het is nog steeds niet beschikbaar zijn in beheerde instanties.
+> LTR kan worden ingeschakeld op de databases die worden gehost in Azure SQL Database-logische Servers. Het is nog niet beschikbaar voor databases die worden gehost in beheerde instanties.
 > 
 
 ## <a name="how-sql-database-long-term-retention-works"></a>De werking van de SQL-Database met een langetermijnbewaarperiode
 
-Langetermijnretentie van back-up maakt gebruik van de [automatische back-ups van SQL-Database](sql-database-automated-backups.md) duurt voor moment terugzetten (PITR) gemaakt. U kunt een bewaarbeleid voor de lange termijn voor elke SQL-database configureren en opgeven hoe vaak u wilt kopiëren van de back-ups naar de opslag op lange termijn. Om in te schakelen dat flexibiliteit kunt u het beleid met behulp van een combinatie van vier parameters definiëren: wekelijkse back-upretentie (S), maandelijkse back-upretentie (M), de jaarlijkse back-upretentie (Y) en de week van jaar (WeekOfYear). Als u opgeeft W, één back-up elke week worden gekopieerd naar de opslag op lange termijn. Als u M opgeeft, wordt één back-up tijdens de eerste week van elke maand worden gekopieerd naar de opslag op lange termijn. Als u Y opgeeft, wordt een back-up van de week is opgegeven door WeekOfYear worden gekopieerd naar de opslag op lange termijn. Elke back-up worden voor de periode die door deze parameters worden opgegeven in de opslag op lange termijn behouden. 
+Langetermijnretentie (LTR) maakt gebruik van de volledige databaseback-ups die zijn [automatisch gemaakte](sql-database-automated-backups.md) moment terugzetten (PITR) inschakelen. Deze back-ups worden gekopieerd naar de andere opslag-blobs als LTR-beleid is geconfigureerd.
+U kunt een LTR-beleid voor elke SQL-database configureren en opgeven hoe vaak u wilt kopiëren van de back-ups naar de lange termijn opslagblobs. Om in te schakelen dat flexibiliteit kunt u het beleid met behulp van een combinatie van vier parameters definiëren: wekelijkse back-upretentie (S), maandelijkse back-upretentie (M), de jaarlijkse back-upretentie (Y) en de week van jaar (WeekOfYear). Als u opgeeft W, één back-up elke week worden gekopieerd naar de opslag op lange termijn. Als u M opgeeft, wordt één back-up tijdens de eerste week van elke maand worden gekopieerd naar de opslag op lange termijn. Als u Y opgeeft, wordt een back-up van de week is opgegeven door WeekOfYear worden gekopieerd naar de opslag op lange termijn. Elke back-up worden voor de periode die door deze parameters worden opgegeven in de opslag op lange termijn behouden. 
 
 Voorbeelden:
 

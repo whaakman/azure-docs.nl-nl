@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 2e455845a145e07bc59378818b95e23e572cb577
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 07be154f05441c94e32b05fc8354f59b88713929
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47227094"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49456929"
 ---
 # <a name="quickstart-provision-a-simulated-device-with-symmetric-keys"></a>Snelstartgids: een gesimuleerd apparaat inrichten met symmetrische sleutels
 
@@ -46,12 +46,20 @@ In deze sectie bereidt u een ontwikkelomgeving voor die wordt gebruikt om de [Az
 
 De SDK bevat de voorbeeldcode voor een gesimuleerd apparaat. Dit gesimuleerde apparaat probeert de inrichting uit te voeren tijdens de opstartprocedure van het apparaat.
 
-1. Download de meest recente versie van het [CMake-bouwsysteem](https://cmake.org/download/). Zoek op dezelfde site de cryptografische hash op voor de versie van de binaire distributie die u hebt gekozen. Controleer het gedownloade binaire bestand met behulp van de bijbehorende cryptografische hash-waarde. In het volgende voorbeeld is Windows PowerShell gebruikt om de cryptografische hash te controleren voor versie 3.11.4 van de x64 MSI-distributie:
+1. Download versie 3.11.4 van het [CMake-buildsysteem](https://cmake.org/download/). Controleer het gedownloade binaire bestand met behulp van de bijbehorende cryptografische hash-waarde. In het volgende voorbeeld is Windows PowerShell gebruikt om de cryptografische hash te controleren voor versie 3.11.4 van de x64 MSI-distributie:
 
     ```PowerShell
-    PS C:\Users\wesmc\Downloads> $hash = get-filehash .\cmake-3.11.4-win64-x64.msi
-    PS C:\Users\wesmc\Downloads> $hash.Hash -eq "56e3605b8e49cd446f3487da88fcc38cb9c3e9e99a20f5d4bd63e54b7a35f869"
+    PS C:\Downloads> $hash = get-filehash .\cmake-3.11.4-win64-x64.msi
+    PS C:\Downloads> $hash.Hash -eq "56e3605b8e49cd446f3487da88fcc38cb9c3e9e99a20f5d4bd63e54b7a35f869"
     True
+    ```
+    
+    De volgende hash-waarden voor versie 3.11.4 werden vermeld op de CMake-site ten tijde van dit schrijven:
+
+    ```
+    6dab016a6b82082b8bcd0f4d1e53418d6372015dd983d29367b9153f1a376435  cmake-3.11.4-Linux-x86_64.tar.gz
+    72b3b82b6d2c2f3a375c0d2799c01819df8669dc55694c8b8daaf6232e873725  cmake-3.11.4-win32-x86.msi
+    56e3605b8e49cd446f3487da88fcc38cb9c3e9e99a20f5d4bd63e54b7a35f869  cmake-3.11.4-win64-x64.msi
     ```
 
     Het is belangrijk dat de vereisten voor Visual Studio met (Visual Studio en de workload Desktopontwikkeling met C++) op uw computer zijn geïnstalleerd **voordat** de `CMake`-installatie wordt gestart. Zodra aan de vereisten is voldaan en de download is geverifieerd, installeert u het CMake-bouwsysteem.
@@ -75,7 +83,7 @@ De SDK bevat de voorbeeldcode voor een gesimuleerd apparaat. Dit gesimuleerde ap
 4. Voer de volgende opdracht uit om een versie van de SDK te bouwen die specifiek is voor uw clientplatform voor ontwikkeling. Er wordt een Visual Studio-oplossing voor het gesimuleerde apparaat gegenereerd in de map `cmake`. 
 
     ```cmd
-    cmake -Duse_prov_client:BOOL=ON ..
+    cmake -Dhsm_type_symm_key:BOOL=ON ..
     ```
     
     Als `cmake` uw C++-compiler niet kan vinden, kunnen er fouten in de build optreden tijdens het uitvoeren van de bovenstaande opdracht. Als dit gebeurt, voert u deze opdracht uit bij de [Visual Studio-opdrachtprompt](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs). 
@@ -83,7 +91,7 @@ De SDK bevat de voorbeeldcode voor een gesimuleerd apparaat. Dit gesimuleerde ap
     Zodra het bouwen is voltooid, zijn de laatste paar uitvoerregels vergelijkbaar met de volgende uitvoer:
 
     ```cmd/sh
-    $ cmake -Duse_prov_client:BOOL=ON ..
+    $ cmake -Dhsm_type_symm_key:BOOL=ON ..
     -- Building for: Visual Studio 15 2017
     -- Selecting Windows SDK version 10.0.16299.0 to target Windows 10.0.17134.
     -- The C compiler identification is MSVC 19.12.25835.0

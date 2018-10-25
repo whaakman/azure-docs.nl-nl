@@ -3,7 +3,7 @@ title: Zelfstudie - Toepassingen installeren in een schaalset met Azure-sjablone
 description: Leer hoe u met behulp van sjablonen van Azure Resource Manager en de aangepaste scriptextensie toepassingen kunt installeren in schaalsets voor virtuele machines
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: cynthn
+author: zr-msft
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2018
-ms.author: cynthn
+ms.author: zarhoads
 ms.custom: mvc
-ms.openlocfilehash: 3204a7c281a825c5ee3d90b92960c470180b688f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: dddd8ba98e2825d0e0396963e0f8c23059b97c55
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46948829"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49468633"
 ---
 # <a name="tutorial-install-applications-in-virtual-machine-scale-sets-with-an-azure-template"></a>Zelfstudie: Toepassingen installeren in een schaalset met een Azure-sjabloon
 Als u toepassingen wilt uitvoeren op de exemplaren van een virtuele machine (VM) in een schaalset, moet u eerst de toepassingsonderdelen en de vereiste bestanden installeren. In een vorige zelfstudie hebt u geleerd om een aangepaste VM-installatiekopie te maken en te gebruiken voor het implementeren van uw VM-exemplaren. Deze aangepaste installatiekopie bevat handmatige installaties van toepassingen en configuraties. U kunt de installatie van toepassingen op een schaalset ook automatiseren nadat elk VM-exemplaar is geïmplementeerd. Bovendien kunt u toepassingen bijwerken die al worden uitgevoerd in een schaalset. In deze zelfstudie leert u het volgende:
@@ -41,7 +41,7 @@ Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor 
 ## <a name="what-is-the-azure-custom-script-extension"></a>Wat is de aangepaste scriptextensie van Azure?
 Met de aangepaste scriptextensie kunnen scripts worden gedownload en uitgevoerd op virtuele machines in Azure. Deze uitbreiding is handig voor post-implementatieconfiguraties, software-installaties of andere configuratie-/beheertaken. Scripts kunnen worden gedownload uit Azure Storage of GitHub, of worden geleverd in Azure Portal tijdens de uitvoering van extensies.
 
-De aangepaste scriptextensie kan worden geïntegreerd met Azure Resource Manager-sjablonen en ook worden uitgevoerd met Azure CLI, Azure PowerShell, Azure Portal of de REST API. Zie voor meer informatie het [overzicht van de aangepaste scriptextensie](../virtual-machines/linux/extensions-customscript.md).
+De aangepaste scriptextensie kan worden geïntegreerd met Azure Resource Manager-sjablonen en ook worden uitgevoerd met Azure CLI, Azure PowerShell, de Azure-portal of de REST API. Zie voor meer informatie het [overzicht van de aangepaste scriptextensie](../virtual-machines/linux/extensions-customscript.md).
 
 Als u de aangepaste scriptextensie in actie wilt zien, maakt u een schaalset die de IIS-webserver installeert en de hostnaam levert van het VM-exemplaar in de schaalset. Met de volgende definitie van de aangepaste scriptextensie wordt er een voorbeeldscript gedownload vanuit GitHub, waarna de vereiste pakketten worden geïnstalleerd en de hostnaam van het VM-exemplaar wordt weggeschreven naar een standaard-HTML-pagina.
 

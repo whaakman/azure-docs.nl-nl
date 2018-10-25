@@ -1,21 +1,21 @@
 ---
-title: Wat is de Translator Text API?
+title: Wat is de Translator Text-API?
 titlesuffix: Azure Cognitive Services
 description: Integreer de Translator Text-API in uw toepassingen, websites, hulpprogramma's en andere oplossingen om gebruikerservaringen in meerdere talen te bieden.
 services: cognitive-services
-author: noellelacharite
+author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: overview
 ms.date: 05/10/2018
-ms.author: nolachar
-ms.openlocfilehash: c0004960b7a234d374ec0ae1bdc2f6576b197705
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.author: erhopf
+ms.openlocfilehash: 6c89ff41531b130843eb288b98ffe7def1d8915e
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49385021"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49645019"
 ---
 # <a name="what-is-translator-text-api"></a>Wat is de Translator Text API?
 
@@ -35,7 +35,7 @@ Meer informatie over de [Microsoft Translator-service](https://www.microsoft.com
 
 Custom Translator is een uitbreiding op de Microsoft Translator-kernservice en kan samen met de Translator Text-API worden gebruikt om het neurale vertaalsysteem aan te passen en de vertalingen te verbeteren voor uw specifieke terminologie en stijl.
 
-Met Custom Translator kunt u vertaalsystemen maken waarin de terminologie wordt verwerkt die wordt gebruikt in uw bedrijf of sector. U kunt uw aangepaste vertaalsysteem vervolgens eenvoudig integreren in uw bestaande toepassingen, werkstromen en websites voor meerdere typen apparaten via de gewone Microsoft Translator Text-API, met behulp van de categorieparameter. 
+Met Custom Translator kunt u vertaalsystemen maken waarin de terminologie wordt verwerkt die wordt gebruikt in uw bedrijf of sector. U kunt uw aangepaste vertaalsysteem vervolgens eenvoudig integreren in uw bestaande toepassingen, werkstromen en websites voor meerdere typen apparaten via de gewone Microsoft Translator Text-API, met behulp van de categorieparameter.
 
 Meer informatie over [taalaanpassing](customization.md)
 
@@ -45,7 +45,7 @@ Neurale machinevertalingen (NMT) is de nieuwe standaard voor AI-machinevertaling
 
 NMT biedt betere vertalingen dan SMT, niet alleen op basis van de kwaliteitsscores van onbewerkte vertalingen, maar ook omdat deze soepeler en menselijker klinken. De belangrijkste reden hiervoor is dat NMT gebruikmaakt van de volledige context van een zin bij het vertalen van woorden. Bij SMT werd alleen gekeken naar de directe context van een paar woorden voor en na elk woord.
 
-NMT-modellen vormen de kern van de API en zijn niet zichtbaar voor eindgebruikers. Het enige merkbare verschil is de verbeterde vertaalkwaliteit, met name voor talen zoals Chinees, Japans en Arabisch. 
+NMT-modellen vormen de kern van de API en zijn niet zichtbaar voor eindgebruikers. Het enige merkbare verschil is de verbeterde vertaalkwaliteit, met name voor talen zoals Chinees, Japans en Arabisch.
 
 Meer informatie over [de werking van NMT](https://www.microsoft.com/en-us/translator/mt.aspx#nnt)
 

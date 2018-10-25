@@ -3,7 +3,7 @@ title: Voorbeelden van Azure PowerShell - Een volledige virtuele-machineschaalse
 description: Voorbeelden van Azure PowerShell
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: cynthn
+author: zr-msft
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/29/2018
-ms.author: cynthn
+ms.author: zarhoads
 ms.custom: mvc
-ms.openlocfilehash: c92b922adeb2e3cd80a271062704feb3bdb4c949
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 7466bebddd186bfe4e78d25cd8c4ccba84a1c390
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38652153"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49465301"
 ---
 # <a name="create-a-complete-virtual-machine-scale-set-with-powershell"></a>Een volledige virtuele-machineschaalset maken met PowerShell
 Met dit script maakt u een virtuele-machineschaalset waarop Windows Server 2016 wordt uitgevoerd. Afzonderlijke resources worden geconfigureerd en gemaakt; ze maken geen gebruik van de [ingebouwde opties voor het maken van resources die hier beschikbaar zijn in New-AzureRmVmss](powershell-sample-create-simple-scale-set.md). Nadat het script is uitgevoerd, hebt u via RDP toegang tot de virtuele machine.

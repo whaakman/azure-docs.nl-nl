@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/04/2018
-ms.openlocfilehash: 1955fc033e0351be9da89bbee11dc41d6281a63a
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: c29131720de8d6016d134fe7c0118fc3db9e22be
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47433987"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49985638"
 ---
 # <a name="create-a-stream-analytics-job-to-analyze-phone-call-data-and-visualize-results-in-a-power-bi-dashboard"></a>Een Stream Analytics-taak maken om gegevens van telefoongesprekken te analyseren en de resultaten te visualiseren in een Power BI-dashboard
  
@@ -37,7 +37,7 @@ Zorg ervoor dat u het volgende hebt voordat u begint:
 
 * Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) aan.  
 * Meld u aan bij [Azure Portal](https://portal.azure.com/).  
-* Download de app voor het genereren van telefoongesprekgebeurtenissen [TelcoGenerator.zip](http://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip) uit het Microsoft Downloadcentrum of haal de broncode op uit [GitHub](https://aka.ms/azure-stream-analytics-telcogenerator).  
+* Download de app voor het genereren van telefoongesprekgebeurtenissen [TelcoGenerator.zip](https://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip) uit het Microsoft Downloadcentrum of haal de broncode op uit [GitHub](https://aka.ms/azure-stream-analytics-telcogenerator).  
 
 ## <a name="create-an-azure-event-hub"></a>Een Azure Event Hub maken 
 
@@ -89,7 +89,7 @@ Voordat een toepassing gegevens naar Azure Event Hubs kan verzenden, moet de eve
 
 Voordat u de app TelcoGenerator start, moet u deze configureren voor het verzenden van gegevens naar de Azure Event Hubs die u eerder hebt gemaakt.
 
-1. Pak de inhoud van het bestand [TelcoGenerator.zip](http://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip) uit.  
+1. Pak de inhoud van het bestand [TelcoGenerator.zip](https://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip) uit.  
 2. Open het bestand `TelcoGenerator\TelcoGenerator\telcodatagen.exe.config` in een teksteditor van uw keuze (er is meer dan één .config-bestand, let er dus op dat u het juiste bestand opent).  
 
 3. Update het <appSettings>-element in het configuratiebestand met de volgende details:
@@ -260,7 +260,7 @@ U kunt een query testen vanuit de query-editor en u hebt daarvoor voorbeeldgegev
 
 ## <a name="embedding-your-powerbi-dashboard-in-a-web-application"></a>Uw Power BI-dashboard insluiten in een webtoepassing
 
-Voor dit gedeelte van de zelfstudie maakt u gebruik van een voorbeeld van een [ASP.NET](http://asp.net/)-webtoepassing die gemaakt is door het Power BI-team en waarmee u uw dashboard kunt insluiten. Zie het artikel [Insluiten met Power BI](https://docs.microsoft.com/power-bi/developer/embedding) voor meer informatie over het insluiten van dashboards.
+Voor dit gedeelte van de zelfstudie maakt u gebruik van een voorbeeld van een [ASP.NET](https://asp.net/)-webtoepassing die gemaakt is door het Power BI-team en waarmee u uw dashboard kunt insluiten. Zie het artikel [Insluiten met Power BI](https://docs.microsoft.com/power-bi/developer/embedding) voor meer informatie over het insluiten van dashboards.
 
 In deze zelfstudie volgen we de stappen voor de toepassing Gebruiker is eigenaar van gegevens. Stel de toepassing in door naar de Github-opslagplaats [Power BI-Developer-Samples](https://github.com/Microsoft/PowerBI-Developer-Samples) te gaan en volg de instructies in de sectie **Gebruiker is eigenaar van gegevens** (gebruik de omleidings- en startpagina-URL in de subsectie **integrate-dashboard-web-app**). Omdat we werken met het Dashboard-voorbeeld, gebruiken we de voorbeeldcode voor integrate-dashboard-web-app in de [GitHub-opslagplaats](https://github.com/Microsoft/PowerBI-Developer-Samples/tree/master/User%20Owns%20Data/integrate-dashboard-web-app).
 Zodra de toepassing in uw browser wordt uitgevoerd, volgt u deze stappen voor het insluiten van het dashboard dat u eerder in de webpagina hebt gemaakt:

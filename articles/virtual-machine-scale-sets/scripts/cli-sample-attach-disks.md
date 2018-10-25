@@ -3,7 +3,7 @@ title: Voorbeelden van Azure CLI - Gegevensschijven toevoegen en gebruiken | Mic
 description: Azure CLI-voorbeelden
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: cynthn
+author: zr-msft
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2018
-ms.author: cynthn
+ms.author: zarhoads
 ms.custom: mvc
-ms.openlocfilehash: 4dd87cf705d17700bf4903dcbc5e08aaf309a810
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 26ec45fd380c399f21d259b4f1d2c02c31d925c7
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46956855"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49465284"
 ---
 # <a name="attach-and-use-data-disks-with-a-virtual-machine-scale-set-with-the-azure-cli"></a>Gegevensschijven toevoegen en gebruiken met een virtuele-machineschaalset met Azure CLI
 Met dit script maakt u een virtuele-machineschaalset, koppelt u gegevensschijven en bereidt u deze voor.

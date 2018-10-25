@@ -8,13 +8,13 @@ manager: kfile
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: tutorial
-ms.date: 7/10/2018
-ms.openlocfilehash: adacbaf718c5ef293b4ee3fa833083704aa41f5c
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.date: 07/10/2018
+ms.openlocfilehash: 0f729725a04b19a513ca92953e997b51e4558884
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44297938"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49986262"
 ---
 # <a name="tutorial-deploy-an-azure-stream-analytics-job-with-cicd-using-azure-pipelines"></a>Zelfstudie: Een Azure Stream Analytics-taak met CI/CD implementeren met behulp van Azure Pipelines
 This tutorial descriIn deze zelfstudie wordt beschreven hoe u continue integratie en implementatie instelt voor een Azure Stream Analytics-taak met behulp van Azure Pipelines. 
@@ -154,7 +154,7 @@ Als u de wijzigingen naar Azure DevOps Services pusht, wordt er automatisch een 
 
 Wanneer u een resourcegroep niet meer nodig hebt, verwijdert u de resourcegroep, de streamingtaak en alle gerelateerde resources. Door de taak te verwijderen, voorkomt u dat de streaming-eenheden die door de taak worden verbruikt, in rekening worden gebracht. Als u denkt dat u de taak in de toekomst nog gaat gebruiken, kunt u deze stoppen en later opnieuw starten wanneer dat nodig is. Als u deze taak niet meer gaat gebruiken, verwijdert u alle resources die in deze zelfstudie zijn gemaakt. Daarvoor voert u de volgende stappen uit:
 
-1. Klik in het menu aan de linkerkant in de Azure-portal op **Resourcegroepen** en klik vervolgens op de resource die u hebt gemaakt.  
+1. Klik in het menu aan de linkerkant in Azure Portal op **Resourcegroepen** en klik vervolgens op de resource die u hebt gemaakt.  
 2. Klik op de pagina van uw resourcegroep op **Verwijderen**, typ de naam van de resource die u wilt verwijderen in het tekstvak en klik vervolgens op **Verwijderen**.
 
 ## <a name="next-steps"></a>Volgende stappen

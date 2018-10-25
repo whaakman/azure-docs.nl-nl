@@ -11,12 +11,12 @@ ms.devlang: azure-cli
 ms.topic: quickstart
 ms.date: 04/01/2018
 ms.custom: mvc
-ms.openlocfilehash: 6fedd7fbdbd4780a9a4e1103faae3ce6f402b893
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 99acf6fef8ed3981ccec551a558a0b306db8a15e
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47410116"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49987824"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-using-the-azure-cli"></a>Snelstart: een Azure Database for PostgreSQL maken via Azure CLI
 Azure Database voor PostgreSQL is een beheerde service waarmee u PostgreSQL-databases met hoge beschikbaarheid in de cloud kunt uitvoeren, beheren en schalen. De Azure CLI wordt gebruikt voor het maken en beheren van Azure-resources vanaf de opdrachtregel of in scripts. Deze Quick Start laat zien hoe u een Azure-database voor PostgreSQL-server kunt maken in een [Azure resourcegroep](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) met de Azure CLI.
@@ -59,7 +59,7 @@ geo-redundant-backup | Uitgeschakeld | Of geografisch redundante back-ups moeten
 location | westus | De Azure-locatie voor de server.
 ssl-enforcement | Ingeschakeld | Of ssl moet worden ingeschakeld voor deze server. Toegestane waarden: Ingeschakeld, Uitgeschakeld.
 storage-size | 51.200 | De opslagcapaciteit van de server (eenheid is MB). De minimale opslaggrootte is 5120 MB en deze kunt u ophogen in stappen van 1024 MB. Zie het document met [prijsinformatie](./concepts-pricing-tiers.md) voor meer informatie over de opslaglimieten. 
-version | 9.6 | De primaire versie van PostgreSQL.
+versie | 9.6 | De primaire versie van PostgreSQL.
 admin-user | myadmin | De gebruikersnaam voor aanmelding als beheerder. De aanmeldingsnaam van de beheerder mag niet **azure_superuser**, **admin**, **administrator**, **root**, **guest** of **public** zijn.
 admin-password | *veilig wachtwoord* | Het wachtwoord van het beheerdersaccount. Dit wachtwoord moet tussen 8 en 128 tekens bevatten. Het wachtwoord moet tekens bevatten uit drie van de volgende categorieën: hoofdletters, kleine letters, cijfers en niet-alfanumerieke tekens.
 
@@ -157,7 +157,7 @@ CREATE DATABASE mypgsqldb;
 
 ## <a name="connect-to-the-postgresql-server-using-pgadmin"></a>Verbinding maken met de PostgreSQL-server met behulp van pgAdmin
 
-pgAdmin is een open-source hulpprogramma voor PostgreSQL. U kunt pgAdmin installeren vanaf de [pgAdmin-website](http://www.pgadmin.org/). Mogelijk gebruikt u een andere versie van pgAdmin dan de versie in deze snelstart. Raadpleeg de documentatie van pgAdmin als u extra hulp nodig hebt.
+pgAdmin is een open-source hulpprogramma voor PostgreSQL. U kunt pgAdmin installeren vanaf de [pgAdmin-website](https://www.pgadmin.org/). Mogelijk gebruikt u een andere versie van pgAdmin dan de versie in deze snelstart. Raadpleeg de documentatie van pgAdmin als u extra hulp nodig hebt.
 
 1. Start de toepassing pgAdmin op uw clientcomputer.
 
@@ -173,7 +173,7 @@ pgAdmin is een open-source hulpprogramma voor PostgreSQL. U kunt pgAdmin install
 
     Parameter pgAdmin |Waarde|Beschrijving
     ---|---|---
-    Host name/address | Servernaam | De servernaam die u hebt gebruikt toen u eerder de Azure Database for PostgreSQL-server hebt gemaakt. De server in ons voorbeeld is **mydemoserver.postgres.database.azure.com**. Gebruik de FQDN (Fully Qualified Domain Name) (**\*. postgres.database.azure.com**) zoals weergegeven in het voorbeeld. Als u de servernaam niet meer weet, volgt u de stappen in de vorige sectie om de verbindingsgegevens op te halen. 
+    Host name/address | Servernaam | De servernaam die u hebt gebruikt toen u eerder de Azure Database for PostgreSQL-server hebt gemaakt. De server in ons voorbeeld is **mydemoserver.postgres.database.azure.com**. Gebruik de FQDN (Fully Qualified Domain Name) (**\*. postgres.database.azure.com) zoals weergegeven in het voorbeeld. Als u de servernaam niet meer weet, volgt u de stappen in de vorige sectie om de verbindingsgegevens op te halen. 
     Poort | 5432 | De poort die moet worden gebruikt wanneer u verbinding maakt met de Azure Database for PostgreSQL-server. 
     Onderhoudsdatabase | *postgres* | De door het systeem gegenereerde standaarddatabasenaam.
     Gebruikersnaam | Aanmeldingsnaam van serverbeheerder | De aanmeldingsnaam van de serverbeheerder die u hebt opgegeven toen u de Azure Database for PostgreSQL-server eerder hebt gemaakt. Als u de gebruikersnaam niet meer weet, volgt u de stappen in de vorige sectie om de verbindingsgegevens op te halen. De indeling is *username@servername*.

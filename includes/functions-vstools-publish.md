@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 08/26/2018
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: f0bcb2e7f99689d31be610f1523d2c57e332deb7
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: f3fa6c75fdaf30d13231bc3072bd671614c9a668
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43049746"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49650654"
 ---
 1. Klik in **Solution Explorer** met de rechtermuisknop op het project en selecteer **Publiceren**.
 
 2. Selecteer **Azure-functie-app**, kies **Nieuwe maken** en selecteer vervolgens **Publiceren**.
 
-    ![Kies een publicatiedoel](./media/functions-vstools-publish/functions-vstools-create-new-function-app.png)
+    ![Kies een publicatiedoel](./media/functions-vstools-publish/functions-visual-studio-publish-profile.png)
 
     Als u **Uitvoeren vanuit ZIP-bestand** activeert, wordt uw functie-app in Azure rechtstreeks vanuit het implementatiepakket uitgevoerd. Zie voor meer informatie [Uw Azure Functions uitvoeren vanuit een pakketbestand](../articles/azure-functions/run-functions-from-deployment-package.md).
 
@@ -27,7 +27,7 @@ ms.locfileid: "43049746"
 
 4. In het dialoogvenster **App-service maken** gebruikt u de **hosting**instellingen zoals weergegeven in de tabel onder de afbeelding:
 
-    ![Het dialoogvenster App Service maken](./media/functions-vstools-publish/functions-vstools-publish.png)
+    ![Het dialoogvenster App Service maken](./media/functions-vstools-publish/functions-visual-studio-publish.png)
 
     | Instelling      | Voorgestelde waarde  | Beschrijving                                |
     | ------------ |  ------- | -------------------------------------------------- |
@@ -41,4 +41,4 @@ ms.locfileid: "43049746"
 
 6. Noteer de **Site-URL** wanneer de implementatie is voltooid. Dit is het adres van uw functie-app in Azure.
 
-    ![Succesbericht publiceren](./media/functions-vstools-publish/functions-vstools-publish-profile.png)
+    ![Succesbericht publiceren](./media/functions-vstools-publish/functions-visual-studio-publish-complete.png)

@@ -6,16 +6,16 @@ services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: project-answer-search
+ms.component: answer-search
 ms.topic: overview
 ms.date: 04/13/2018
 ms.author: rosh
-ms.openlocfilehash: 5658054b3cc77db20edd64f6c560ee5d4a58eb46
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: b211ede7ef90fb1aef3a6d6e9a82e0d52397afd3
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48883717"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49465908"
 ---
 # <a name="what-is-project-answer-search"></a>Wat is Project Answer Search?
 De Project Answer Search-API maakt gebruik van het eindpunt van Bing versie 7 om antwoorden te zoeken voor query's in de vorm van vragen. Een vraag zoals 'What is the circumference of the earth?' (Wat is de omtrek van de aarde?) levert een antwoord op met feitelijke gegevens.  Een query naar een persoon, plaats of ding retourneert informatie over de entiteit die is geïdentificeerd door de query. Deze scenario's kunnen handig zijn in toepassingen zoals gespreks-bots, berichten-apps, schermlezers, enzovoort.  
@@ -337,4 +337,4 @@ Hieronder ziet u een voorbeeld met het veld `provider` van een afbeelding en con
 - [Snelstart voor C#](c-sharp-quickstart.md)
 - [Snelstart voor Java](java-quickstart.md)
 - [Snelstart voor Node](node-quickstart.md)
-- [Project Answer Search en Python](python-quickstart.md)
+- [Snelstartgids voor Python](python-quickstart.md)

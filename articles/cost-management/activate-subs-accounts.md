@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 304a52f5571790ea49587a5aeda433f003f0e0bd
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: a53ff5fdb256a46f42e7461bb46b6847d17ed230
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47423065"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958744"
 ---
 # <a name="activate-azure-subscriptions-and-accounts-with-cloudyn"></a>Azure-abonnementen en -accounts activeren met Cloudyn
 
@@ -64,7 +64,7 @@ Wanneer u een account updatet een abonnement toevoegt, verleent u Cloudyn toegan
     2. Selecteer in de Azure-portal **Azure Active Directory**.
     3. Haal de tenant-id op door **Eigenschappen** voor uw Azure AD-tenant te selecteren.
     4. Kopieer de map-id-GUID. Deze waarde is uw tenant-id.
-    Zie [Tenant-id ophalen](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-tenant-id) voor meer informatie.
+    Zie [Tenant-id ophalen](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-id) voor meer informatie.
 3. Selecteer, indien nodig, uw Tarief-id. Als u uw Tenant-id niet weet, gebruikt u de volgende stappen om die te vinden.
     1. Klik in de rechterbovenhoek van de Azure-portal op uw gebruikersgegevens en klik vervolgens op **Mijn factuur weergeven**.
     2. Onder **Factureringsaccount**, klikt u op **Abonnementen**.

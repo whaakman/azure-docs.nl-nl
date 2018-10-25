@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 03/28/2018
 ms.author: jingwang
-ms.openlocfilehash: a7916a434552cbcb999f1e69c7a5bc2419f517fb
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: a4f9e1111516d439f018e965883eb8268c83289c
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43094339"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954778"
 ---
 # <a name="create-a-data-factory-and-pipeline-using-net-sdk"></a>Een data factory en pijplijn maken met behulp van .NET SDK
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -41,7 +41,7 @@ De procedures in dit artikel zijn gebaseerd op Visual Studio 2017. U kunt ook Vi
 Download en installeer [Azure .NET SDK](http://azure.microsoft.com/downloads/) op uw computer.
 
 ## <a name="create-an-application-in-azure-active-directory"></a>Een toepassing maken in Azure Active Directory
-Volg de instructies in de secties van [dit artikel](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application) om het volgende te doen: 
+Volg de instructies in de secties van [dit artikel](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) om het volgende te doen: 
 
 1. **Een Azure Active Directory-toepassing maken**. Maak een toepassing in Azure Active Directory die staat voor de .NET-toepassing die u in deze zelfstudie maakt. Voor de aanmeldings-URL kunt u een dummy-URL opgeven, zoals wordt getoond in het artikel (`https://contoso.org/exampleapp`).
 2. Opvragen van de **toepassings-id** en de **verificatiesleutel** (deze waarden hebt u later in de zelfstudie nodig). 

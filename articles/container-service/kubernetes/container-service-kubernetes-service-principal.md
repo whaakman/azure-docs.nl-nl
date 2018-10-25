@@ -9,12 +9,12 @@ ms.topic: get-started-article
 ms.date: 02/26/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: e3e3a981daf1273b8b2387cb1c665317f860b1d2
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: c370d25ed5d70887c8beecae8fea3528a259a0ea
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46974864"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954569"
 ---
 # <a name="set-up-an-azure-ad-service-principal-for-a-kubernetes-cluster-in-container-service"></a>Een service-principal voor Azure AD voor een Kubernetes-cluster in Container Service instellen
 
@@ -37,14 +37,14 @@ U kunt een bestaande Azure AD-service-principal gebruiken die voldoet aan de vol
 * **Clientgeheim**: moet een wachtwoord zijn. U kunt momenteel geen service-principal gebruiken om verificatie via een certificaat in te stellen.
 
 > [!IMPORTANT]
-> Als u een service-principal wilt maken, moet u beschikken over machtigingen voor het registreren van een toepassing bij uw Azure AD-tenant. U moet ook machtigingen hebben om de toepassing aan een rol toe te wijzen in uw abonnement. [Open de portal](../../azure-resource-manager/resource-group-create-service-principal-portal.md#required-permissions) om te controleren of u over de vereiste machtigingen beschikt.
+> Als u een service-principal wilt maken, moet u beschikken over machtigingen voor het registreren van een toepassing bij uw Azure AD-tenant. U moet ook machtigingen hebben om de toepassing aan een rol toe te wijzen in uw abonnement. [Open de portal](../../active-directory/develop/howto-create-service-principal-portal.md#required-permissions) om te controleren of u over de vereiste machtigingen beschikt.
 >
 
 ## <a name="option-1-create-a-service-principal-in-azure-ad"></a>Optie 1: een service-principal maken in Azure AD
 
 Azure biedt verschillende methoden om een Azure AD-service-principal te maken voordat u het Kubernetes-cluster implementeert.
 
-In de volgende voorbeeldopdrachten ziet u hoe u dit kunt doen met de [Azure CLI](../../azure-resource-manager/resource-group-authenticate-service-principal-cli.md). U kunt ook een service-principal maken met behulp van [Azure PowerShell](../../azure-resource-manager/resource-group-authenticate-service-principal.md), de [klassieke portal](../../azure-resource-manager/resource-group-create-service-principal-portal.md) of een ander hulpmiddel.
+In de volgende voorbeeldopdrachten ziet u hoe u dit kunt doen met de [Azure CLI](../../azure-resource-manager/resource-group-authenticate-service-principal-cli.md). U kunt ook een service-principal maken met behulp van [Azure PowerShell](../../active-directory/develop/howto-authenticate-service-principal-powershell.md), de [klassieke portal](../../active-directory/develop/howto-create-service-principal-portal.md) of een ander hulpmiddel.
 
 ```azurecli
 az login

@@ -12,23 +12,23 @@ ms.author: genemi
 ms.reviewer: carlrab
 manager: craigg-msft
 ms.date: 06/07/2018
-ms.openlocfilehash: 65a9bde6fa086dc56809df9619ceee1c5b417e31
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 504fae03e06632f5960bfe0761cc0167b9e1d3fb
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47063298"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49465212"
 ---
 # <a name="design-an-azure-sql-database-and-connect-with-cx23-and-adonet"></a>Een Azure SQL-database ontwerpen en verbinding maken met C&#x23; en ADO.NET
 
-Azure SQL Database is een relationele DBaaS (database-as-a-service) in de Microsoft Cloud (Azure). In deze zelfstudie leert u hoe u Azure Portal en ADO.NET met Visual Studio gebruikt voor de volgende taken: 
+Azure SQL Database is een relationele DBaaS (database-as-a-service) in de Microsoft Cloud (Azure). In deze zelfstudie leert u hoe u Azure Portal en ADO.NET met Visual Studio gebruikt voor de volgende taken:
 
 > [!div class="checklist"]
 > * Een database maken in Azure Portal
 > * Een serverfirewallregel instellen in Azure Portal
 > * Verbinding maken met de database met ADO.NET en Visual Studio
 > * Tabellen maken met ADO.NET
-> * Gegevens invoegen, bijwerken en verwijderen met ADO.NET 
+> * Gegevens invoegen, bijwerken en verwijderen met ADO.NET
 > * Querygegevens ADO.NET
 
 Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
@@ -43,13 +43,11 @@ And it starts with a ## H2.
 
 [!INCLUDE [sql-database-tutorial-portal-create-firewall-connection-1](../../includes/sql-database-tutorial-portal-create-firewall-connection-1.md)]
 
-
 <!-- The following included .md, sql-database-csharp-adonet-create-query-2.md, is long.
 And it starts with a ## H2.
 -->
 
 [!INCLUDE [sql-database-csharp-adonet-create-query-2](../../includes/sql-database-csharp-adonet-create-query-2.md)]
-
 
 ## <a name="next-steps"></a>Volgende stappen
 
@@ -66,4 +64,3 @@ Ga naar de volgende zelfstudie voor meer informatie over het migreren van uw geg
 
 > [!div class="nextstepaction"]
 > [Uw SQL Server-database migreren naar Azure SQL Database](sql-database-migrate-your-sql-server-database.md)
-

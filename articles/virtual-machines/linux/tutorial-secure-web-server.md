@@ -3,7 +3,7 @@ title: 'Zelfstudie: Een Linux-webserver beveiligen met SSL-certificaten in Azure
 description: In deze zelfstudie leert u hoe u Azure CLI gebruikt om een virtuele Linux-machine waarop de NGINX-webserver wordt uitgevoerd, te beveiligen met SSL-certificaten die zijn opgeslagen in Azure Key Vault.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: cynthn
+author: zr-msft
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/30/2018
-ms.author: cynthn
+ms.author: zarhoads
 ms.custom: mvc
-ms.openlocfilehash: a0156167142e87ffb7935828de1000a302f12e31
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 1e072e81d2c7450ca087e9570994c6e0ce350108
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46981688"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49466763"
 ---
 # <a name="tutorial-secure-a-web-server-on-a-linux-virtual-machine-in-azure-with-ssl-certificates-stored-in-key-vault"></a>Zelfstudie: Een webserver op een virtuele Linux-machine in Azure beveiligen met SSL-certificaten die zijn opgeslagen in Key Vault
 Om webservers te beveiligen, kan een Secure Sockets Layer (SSL)-certificaat worden gebruikt voor het versleutelen van internetverkeer. Deze SSL-certificaten kunnen worden opgeslagen in Azure Key Vault en beveiligde implementaties van certificaten aan virtuele Linux-machines (VM's) in Azure toestaan. In deze zelfstudie leert u het volgende:

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/22/2017
 ms.author: apimpm
-ms.openlocfilehash: f5132215b1fda93c62c1fbea46c3266fcc44ec46
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: edef88694cc335a63ce279e96a204ed4b8fe7376
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38307276"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49469500"
 ---
 # <a name="import-an-openapi-specification"></a>Een OpenAPI-specificatie importeren
 
@@ -65,11 +65,11 @@ Lees de volgende snelstart: [Een Azure API Management-exemplaar maken](get-start
 
 Bewerkingen kunnen rechtstreeks vanuit Azure Portal worden aangeroepen. Dit is een handige manier om de bewerkingen van een API te bekijken en te testen.
 
+![API testen](./media/api-management-get-started/01-import-first-api-01.png)
+
 1. Selecteer de API die u in de vorige stap hebt gemaakt.
 2. Druk op het tabblad **Testen**.
-
-    ![API testen](./media/api-management-get-started/test-api.png)
-1. Klik op **GetSpeakers**.
+3. Klik op **GetSpeakers**.
 
     Op de pagina worden velden weergegeven voor queryparameters, maar in dit geval zijn er geen queryparameters. Op de pagina worden ook velden weergegeven voor de headers. Een van de headers is Ocp-Apim-Subscription-Key voor de abonnementssleutel van het product dat is gekoppeld aan deze API. Als u de APIM-instantie hebt gemaakt, bent u al een beheerder en wordt de sleutel automatisch ingevoerd.
 4. Druk op **Verzenden**.

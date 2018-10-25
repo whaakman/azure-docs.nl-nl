@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: douglasl
-ms.openlocfilehash: c01da1b667f5a57e9597b77e21dcd9cc95340cb1
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 21c2c9ab0300ed5eac9ceebbd88627ea091b3389
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43088223"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954467"
 ---
 # <a name="transform-data-in-the-cloud-by-using-spark-activity-in-azure-data-factory"></a>Gegevens transformeren in de cloud met behulp van Spark-activiteit in Azure Data Factory
 In deze zelfstudie gebruikt u Azure PowerShell om een Data Factory-pijplijn te maken waarmee gegevens worden getransformeerd met behulp van Spark-activiteit en een gekoppelde HDInsight-service op aanvraag. In deze zelfstudie voert u de volgende stappen uit:
@@ -135,7 +135,7 @@ Werk de waarden voor de volgende eigenschappen bij in de definitie van de gekopp
 
 - **hostSubscriptionId**. Vervang &lt;subscriptionID&gt; door de id van uw Azure-abonnement. Het HDInsight-cluster op aanvraag wordt gemaakt in dit abonnement. 
 - **tenant**. Vervang &lt;tenantID&gt; door de id van uw Azure-tenant. 
-- **servicePrincipalId**, **servicePrincipalKey**. Vervang &lt;servicePrincipalID&gt; en &lt;servicePrincipalKey&gt; door de id en de sleutel van de service-pincipal in de Azure Active-directory. Deze service-principal moet lid zijn van de rol Inzender van het abonnement of de resourcegroep waarin het cluster is gemaakt. Zie [Een Azure Active Directory-toepassing en service-principal maken](../azure-resource-manager/resource-group-create-service-principal-portal.md) voor details. 
+- **servicePrincipalId**, **servicePrincipalKey**. Vervang &lt;servicePrincipalID&gt; en &lt;servicePrincipalKey&gt; door de id en de sleutel van de service-pincipal in de Azure Active-directory. Deze service-principal moet lid zijn van de rol Inzender van het abonnement of de resourcegroep waarin het cluster is gemaakt. Zie [Een Azure Active Directory-toepassing en service-principal maken](../active-directory/develop/howto-create-service-principal-portal.md) voor details. 
 - **clusterResourceGroup**. Vervang &lt;resourceGroupOfHDICluster&gt; door de naam van de resourcegroep waarin de HDInsight-cluster moet worden gemaakt. 
 
 > [!NOTE]

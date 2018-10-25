@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 3bff6f00c67a2fa523113171855dce4e7b807f0b
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 4ce344292577dd286abcd7fbf9e067800da0e0b3
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45734451"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958987"
 ---
 # <a name="tutorial-use-rest-api-to-create-an-azure-data-factory-pipeline-to-copy-data"></a>Zelfstudie: REST-API gebruiken voor het maken van een Azure Data Factory-pijplijn 
 > [!div class="op_single_selector"]
@@ -52,7 +52,7 @@ Een pijplijn kan meer dan één activiteit hebben. Ook kunt u twee activiteiten 
 ## <a name="prerequisites"></a>Vereisten
 * Neem het artikel [Overzicht van de zelfstudie](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) door en voer de **vereiste** stappen uit.
 * Installeer [Curl](https://curl.haxx.se/dlwiz/) op uw computer. U kunt in het hulpprogramma Curl REST-opdrachten gebruiken om een gegevensfactory te maken. 
-* Volg de instructies in [dit artikel](../../azure-resource-manager/resource-group-create-service-principal-portal.md) voor het volgende: 
+* Volg de instructies in [dit artikel](../../active-directory/develop/howto-create-service-principal-portal.md) voor het volgende: 
   1. Maak een webtoepassing met de naam **ADFCopyTutorialApp** in Azure Active Directory.
   2. Haal de **client-id** en **geheime sleutel** op. 
   3. Haal de **tenant-id** op. 

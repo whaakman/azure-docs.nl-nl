@@ -3,7 +3,7 @@ title: Zelfstudie - Een schaalset voor virtuele Azure-machines maken en beheren 
 description: Ontdek hoe u met Azure CLI een schaalset voor virtuele Azure-machines maakt. Leer daarnaast hoe u enkele veelvoorkomende beheertaken uitvoert, zoals het starten en stoppen van een exemplaar of het wijzigen van de capaciteit van de schaalset.
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: cynthn
+author: zr-msft
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2018
-ms.author: cynthn
+ms.author: zarhoads
 ms.custom: mvc
-ms.openlocfilehash: f00f7934bfb78c16f9e93dc2fcd94025e5f806a1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 263a2ddd1cf42348678488a02ed0b97a7ed1304c
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46993276"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49466134"
 ---
 # <a name="tutorial-create-and-manage-a-virtual-machine-scale-set-with-the-azure-cli"></a>Zelfstudie: een schaalset voor virtuele Azure-machines maken en beheren met Azure CLI
 Met een virtuele-machineschaalset kunt u een reeks identieke virtuele machines met automatisch schalen implementeren en beheren. Gedurende de levenscyclus van een schaalset voor virtuele machines moet u mogelijk een of meer beheertaken uitvoeren. In deze zelfstudie leert u het volgende:
