@@ -11,12 +11,12 @@ ms.custom: mvc, devcenter
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 02/28/2018
-ms.openlocfilehash: 926b35f49169c5a87e82996ba714aad40ba5244c
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 557d4217819449cd0513d4a21e331e660e37037b
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2018
-ms.locfileid: "29687316"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49987678"
 ---
 # <a name="azure-database-for-postgresql-use-python-to-connect-and-query-data"></a>Azure Database voor PostgreSQL: Python gebruiken om verbinding te maken en gegevens op te vragen
 In deze snelstartgids ziet u hoe u met behulp van [Python](https://python.org) verbinding maakt met Azure Database PostgreSQL. U kunt ook zien hoe SQL-instructies worden gebruikt om gegevens in te voegen, bij te werken, te verwijderen en er query's op uit te voeren in de database vanaf Mac OS-, Ubuntu Linux- en Windows-platforms. In de stappen van dit artikel wordt ervan uitgegaan dat u bekend bent met het ontwikkelen met behulp van Python en geen ervaring hebt met het werken met Azure Database voor PostgreSQL.
@@ -31,7 +31,7 @@ U hebt ook het volgende nodig:
 - [pip](https://pip.pypa.io/en/stable/installing/)-pakket geïnstalleerd (pip is al geïnstalleerd als u werkt met binaire bestanden van Python 2 > =2.7.9 of Python 3 >=3.4 die zijn gedownload van [python.org](https://python.org).)
 
 ## <a name="install-the-python-connection-libraries-for-postgresql"></a>De Python-verbindingsbibliotheken voor PostgreSQL installeren
-Installeer het [psycopg2](http://initd.org/psycopg/docs/install.html)-pakket waarmee u verbinding kunt maken met de database en er query's op kunt uitvoeren. psycopg2 is [beschikbaar op PyPI](https://pypi.python.org/pypi/psycopg2/) als [wheel](http://pythonwheels.com/)-pakketten voor de meest voorkomende platformen (Linux, OS x, Windows). Gebruik de pip-installatie om de binaire versie van de module te krijgen, inclusief alle afhankelijkheden.
+Installeer het [psycopg2](http://initd.org/psycopg/docs/install.html)-pakket waarmee u verbinding kunt maken met de database en er query's op kunt uitvoeren. psycopg2 is [beschikbaar op PyPI](https://pypi.python.org/pypi/psycopg2/) als [wheel](https://pythonwheels.com/)-pakketten voor de meest voorkomende platformen (Linux, OS x, Windows). Gebruik de pip-installatie om de binaire versie van de module te krijgen, inclusief alle afhankelijkheden.
 
 1. Start op uw eigen computer een opdrachtregelinterface:
     - Op Linux start u de Bash-shell.

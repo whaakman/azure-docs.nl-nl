@@ -3,7 +3,7 @@ title: Zelfstudie - Een schaalset automatisch schalen met Azure PowerShell | Mic
 description: Leer hoe u met Azure PowerShell automatisch een schaalset met virtuele machines schaalt wanneer de vraag naar CPU toeneemt en afneemt.
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: cynthn
+author: zr-msft
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2018
-ms.author: cynthn
+ms.author: zarhoads
 ms.custom: mvc
-ms.openlocfilehash: 910faad143313ef68ed7ffbc08b8745c73340f23
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: d7b064ebc23f32f91fb9756e4566d33c85437b60
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38630307"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49466582"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-azure-powershell"></a>Zelfstudie: Een schaalset met virtuele machines automatisch schalen met Azure PowerShell
 Wanneer u een schaalset maakt, definieert u het aantal VM-exemplaren dat u wilt uitvoeren. Wanneer de vraag van de toepassing verandert, kunt u het aantal VM-exemplaren automatisch vergroten of verkleinen. De mogelijkheid van automatisch schalen stelt u in staat om altijd te voldoen aan de vraag van klanten houden of om gedurende de levenscyclus van uw app te reageren op wijzigingen in de prestaties van de toepassing. In deze zelfstudie leert u het volgende:
@@ -40,7 +40,7 @@ Als u PowerShell lokaal wilt installeren en gebruiken, is voor deze zelfstudie v
 
 
 ## <a name="create-a-scale-set"></a>Een schaalset maken
-Het is makkelijker om de regels voor automatisch schalen te maken als u eerst enkele variabelen definieert voor uw schaalset. In het volgende voorbeeld worden variabelen gedefinieerd voor de schaalset met de naam *myScaleSet* in de resourcegroep met de naam *myResourceGroup* in de regio *East US*. Uw abonnements-id kunt u opvragen met [Get-AzureRmSubscription](/powershell/module/azurerm.profile/get-azurermsubscription). Als er abonnementen aan uw account zijn gekoppeld, wordt alleen het eerste abonnement geretourneerd. Pas de namen en de abonnements-id als volgt aan:
+Het is makkelijker om de regels voor automatisch schalen te maken als u eerst enkele variabelen definieert voor uw schaalset. In het volgende voorbeeld worden variabelen gedefinieerd voor de schaalset met de naam *myScaleSet* in de resourcegroep met de naam *myResourceGroup* in de regio *US - oost*. Uw abonnements-id kunt u opvragen met [Get-AzureRmSubscription](/powershell/module/azurerm.profile/get-azurermsubscription). Als er abonnementen aan uw account zijn gekoppeld, wordt alleen het eerste abonnement geretourneerd. Pas de namen en de abonnements-id als volgt aan:
 
 ```azurepowershell-interactive
 $mySubscriptionId = (Get-AzureRmSubscription)[0].Id

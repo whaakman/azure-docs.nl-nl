@@ -3,7 +3,7 @@ title: Zelfstudie - Schijven voor schaalsets maken en gebruiken met Azure PowerS
 description: Leer hoe u met Azure PowerShell beheerde schijven kunt maken en gebruiken met schaalsets met virtuele machines, waaronder het toevoegen, voorbereiden, opvragen en loskoppelen van schijven.
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: cynthn
+author: zr-msft
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2018
-ms.author: cynthn
+ms.author: zarhoads
 ms.custom: mvc
-ms.openlocfilehash: 17f20ac2313ed4abd4f86bf10b65848a9870a688
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 1e1510c726ea0d97211f6fdd380da7cb493d32cc
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38606668"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49464876"
 ---
 # <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-azure-powershell"></a>Zelfstudie - Schijven maken en gebruiken met schaalset met virtuele machines met Azure PowerShell
 Schaalsets voor virtuele machines maken gebruik van schijven voor het opslaan van het besturingssysteem, toepassingen en gegevens van het VM-exemplaar. Bij het maken en beheren van een schaalset is het belangrijk dat u een schijfgrootte en configuratie kiest die geschikt zijn voor de verwachte werkbelasting. Deze zelfstudie bevat informatie over het maken en beheren van VM-schijven. In deze zelfstudie leert u het volgende:

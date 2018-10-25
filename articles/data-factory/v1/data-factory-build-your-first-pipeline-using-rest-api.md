@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 11/01/2017
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 91a85505eda34e11f0db9c5f3c46e33aad992ffe
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: caea4296bc0573141865aca27b04f9d9ee049e94
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45736696"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955583"
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-data-factory-rest-api"></a>Zelfstudie: uw eerste Azure-gegevensfactory bouwen met de Data Factory-REST API
 > [!div class="op_single_selector"]
@@ -49,7 +49,7 @@ De pijplijn in deze zelfstudie heeft één activiteit: **HDInsight-componentacti
 ## <a name="prerequisites"></a>Vereisten
 * Lees het artikel [Overzicht van de zelfstudie](data-factory-build-your-first-pipeline.md) en voer de **vereiste** stappen uit.
 * Installeer [Curl](https://curl.haxx.se/dlwiz/) op uw computer. U kunt in het hulpprogramma CURL REST-opdrachten gebruiken om een gegevensfactory te maken.
-* Volg de instructies in [dit artikel](../../azure-resource-manager/resource-group-create-service-principal-portal.md) voor het volgende:
+* Volg de instructies in [dit artikel](../../active-directory/develop/howto-create-service-principal-portal.md) voor het volgende:
   1. Maak een webtoepassing met de naam **ADFGetStartedApp** in Azure Active Directory.
   2. Haal de **client-id** en **geheime sleutel** op.
   3. Haal de **tenant-id** op.

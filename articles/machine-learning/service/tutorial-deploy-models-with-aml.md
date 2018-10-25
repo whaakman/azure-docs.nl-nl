@@ -9,12 +9,12 @@ author: hning86
 ms.author: haining
 ms.reviewer: sgilley
 ms.date: 09/24/2018
-ms.openlocfilehash: b1ae3fb5de3e28f44ef39731f49a33e2086255a1
-ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
+ms.openlocfilehash: ad6b296543cffedb215c87b1fc893a22b29a3052
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48785338"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49427345"
 ---
 # <a name="tutorial-2--deploy-an-image-classification-model-in-azure-container-instance-aci"></a>Zelfstudie 2: Een afbeeldingsclassificatiemodel implementeren in Azure Container Instance (ACI)
 
@@ -383,4 +383,4 @@ In deze zelfstudie over de Azure Machine Learning-service hebt u Python gebruikt
 > * Het model implementeren in ACI
 > * Het geïmplementeerde model testen
  
-U kunt ook de zelfstudie [Automatische selectie van algoritmen]() uitproberen om te zien hoe Azure Machine Learning automatisch het beste algoritme voor uw model selecteert en het daarop afstemt, en hoe het dat model voor u bouwt.
+U kunt ook de zelfstudie [Automatische selectie van algoritmen](tutorial-auto-train-models.md) uitproberen om te zien hoe Azure Machine Learning automatisch het beste algoritme voor uw model selecteert en het daarop afstemt, en hoe het dat model voor u bouwt.
