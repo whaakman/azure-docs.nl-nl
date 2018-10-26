@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 1f3dcc7da3e91d3805cae805422778978d0187c5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 68021d25e3deab1c6551d29b0febd9f07e144b57
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46971328"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50095335"
 ---
 # <a name="tutorial-create-cross-cloud-scaling-solutions-with-azure"></a>Zelfstudie: Cross-cloud vergroten/verkleinen oplossingen maken met Azure
 
@@ -101,7 +101,7 @@ Hybride continue integratie en continue implementatie (CI/CD) instellen voor Web
 
 ### <a name="add-code-to-visual-studio-team-services-project"></a>Voeg Code toe aan Visual Studio Team Services-Project
 
-1. Meld u aan Visual Studio Team Services (VSTS) met een account met rechten voor het project maken in VSTS~~.~~
+1. Meld u aan Visual Studio Team Services (VSTS) met een account met rechten voor het project maken in VSTS.
 
     Hybride CI/CD kunt toepassen op zowel de toepassingscode als de infrastructuurcode. Gebruik [Azure Resource Manager-sjablonen](https://azure.microsoft.com/resources/templates/) voor beide particuliere en gehoste cloudontwikkeling.
 

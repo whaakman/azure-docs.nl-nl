@@ -1,5 +1,5 @@
 ---
-title: Onboarding van Azure Monitor voor virtuele machines | Microsoft Docs
+title: Onboarding van Azure Monitor voor virtuele machines (Preview) | Microsoft Docs
 description: Dit artikel wordt beschreven hoe u met het voorbereiden en configureren van Azure Monitor voor virtuele machines, zodat u kunt inzicht krijgen in hoe uw gedistribueerde toepassing wordt uitgevoerd en welke statusproblemen zijn geïdentificeerd.
 services: azure-monitor
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/16/2018
+ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 33d16e211667edc6c082ab8c101e69ee5875efb8
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: f55f81d1e28a7626dfe00f6bea349bf74e3a1d24
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49390241"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50092771"
 ---
-# <a name="how-to-onboard-the-azure-monitor-for-vms"></a>Hoe zorgen voor onboarding Azure controleren voor virtuele machines 
+# <a name="how-to-onboard-the-azure-monitor-for-vms-preview"></a>Hoe zorgen voor onboarding Azure controleren voor virtuele machines (Preview)
 In dit artikel wordt beschreven hoe het instellen van Azure Monitor voor virtuele machines om te controleren van de status van het besturingssysteem van uw Azure virtual machines en detecteren en afhankelijkheden voor toepassingen die kunnen worden gehost op deze worden toegewezen.  
 
 Azure Monitor inschakelen voor virtuele machines wordt gerealiseerd met behulp van een van de volgende methoden en informatie over het gebruik van elke methode vindt u verderop in het artikel.  
@@ -31,7 +31,7 @@ Azure Monitor inschakelen voor virtuele machines wordt gerealiseerd met behulp v
 * Meerdere virtuele Azure-machines of virtuele machine-schaalsets voor een opgegeven abonnement of resourcegroep met behulp van PowerShell.
 
 ## <a name="prerequisites"></a>Vereisten
-Voordat u begint, zorg ervoor dat u de volgende hebt zoals beschreven in de volgende subsecties.
+Voordat u begint, controleert u dat u bekend bent met het volgende zoals beschreven in de volgende subsecties.
 
 ### <a name="log-analytics"></a>Log Analytics 
 

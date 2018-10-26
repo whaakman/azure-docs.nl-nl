@@ -13,12 +13,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: b2e0b65f210774f760ce2d0898c601115ab3a94d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: cda439973c584a57cadc30de7fb931732682de00
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46960155"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50092454"
 ---
 # <a name="run-an-ssis-package-with-the-execute-ssis-package-activity-in-azure-data-factory"></a>Voer een SSIS-pakket met de activiteit uitvoeren van SSIS-pakket in Azure Data Factory
 Dit artikel wordt beschreven hoe u een SSIS-pakket uitvoert in een Azure Data Factory-pijplijn met behulp van een activiteit uitvoeren van SSIS-pakket. 
@@ -91,9 +91,11 @@ In deze stap gebruikt u de gebruikersinterface van Data Factory om een pijplijn 
 
 ### <a name="optionally-parameterize-the-activity"></a>(Optioneel) parameter van de activiteit
 
-(Optioneel) waarden, expressies of functies, die naar Data Factory-systeemvariabelen verwijzen kunnen, toewijzen aan uw project of de pakket-parameters in JSON-indeling met behulp van de **weergave broncode** knop aan de onderkant van het uitvoeren van SSIS Pakket activiteitenvak, of de **Code** knop in de rechterbovenhoek van het gebied van de pijplijn. U kunt bijvoorbeeld een Data Factory-pijplijnparameters aan uw project SSIS of Pakketparameters zoals weergegeven in de volgende schermafbeeldingen toewijzen:
+(Optioneel) waarden, expressies of functies, die naar Data Factory-systeemvariabelen verwijzen kunnen, toewijzen aan uw project of de pakket-parameters in JSON-indeling met behulp van de knop 'Broncode weergeven' aan de onderkant van uw box van de activiteit uitvoeren van SSIS-pakket of de parameter "Code" knop in de rechterbovenhoek van het gebied van uw pijplijn. U kunt bijvoorbeeld een Data Factory-pijplijnparameters aan uw project SSIS of Pakketparameters zoals weergegeven in de volgende schermafbeeldingen toewijzen:
 
 ![JSON-script voor het uitvoeren van SSIS-pakket activiteit bewerken](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-parameters.png)
+
+![Voeg parameters toe aan de activiteit uitvoeren van SSIS-pakket](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-parameters2.png)
 
 ![Voeg parameters toe aan de activiteit uitvoeren van SSIS-pakket](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-parameters2.png)
 
@@ -204,9 +206,9 @@ In deze stap maakt maken u een pijplijn met een activiteit uitvoeren van SSIS-pa
                     "runtime": "x64",
                     "loggingLevel": "Basic",
                     "packageLocation": {
-                        "packagePath": "FolderName/ProjectName/PackageName.dtsx"            
+                        "packagePath": "FolderName/ProjectName/PackageName.dtsx"            
                     },
-                    "environmentPath":   "FolderName/EnvironmentName",
+                    "environmentPath":   "FolderName/EnvironmentName",
                     "projectParameters": {
                         "project_param_1": {
                             "value": "123"
@@ -244,7 +246,7 @@ In deze stap maakt maken u een pijplijn met een activiteit uitvoeren van SSIS-pa
                         }
                     },
                     "propertyOverrides": {
-                        "\\PackageName.dtsx\\MaxConcurrentExecutables ": {
+                        "\\PackageName.dtsx\\MaxConcurrentExecutables ": {
                             "value": 8,
                             "isSensitive": false
                         }

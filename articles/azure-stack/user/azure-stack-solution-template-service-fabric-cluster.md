@@ -14,18 +14,20 @@ ms.topic: tutorial
 ms.date: 10/22/2018
 ms.author: mabrigg
 ms.reviewer: shnatara
-ms.openlocfilehash: 0b5f7442604dd31f730b0105d19231407e2b6f1a
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: abb77f59e49a98c1195dcd2e7b622b2b8e3fd7b8
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49946110"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50087273"
 ---
 # <a name="deploy-a-service-fabric-cluster-in-azure-stack"></a>Een Service Fabric-cluster in Azure Stack implementeren
 
 Gebruik de **Service Fabric-Cluster** item uit de Azure Marketplace om een beveiligd Service Fabric-cluster in Azure Stack implementeren. 
 
 Zie voor meer informatie over het werken met Service Fabric [overzicht van Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview) en [Service Fabric-clusterbeveiligingsscenario's](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security), in de documentatie van Azure.
+
+De Service Fabric-cluster in Azure Stack is niet met behulp van de resourceprovider Microsoft.ServiceFabric. In plaats daarvan wordt de Service Fabric-cluster in Azure Stack, een virtuele-machineschaalset met vooraf geïnstalleerd software instellen met behulp van Desired State Configuration (DSC).
 
 ## <a name="prerequisites"></a>Vereisten
 
