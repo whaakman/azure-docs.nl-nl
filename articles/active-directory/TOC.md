@@ -266,7 +266,6 @@
 
 #### Machtigingen
 ##### [Machtigingen kiezen voor een API](develop/perms-for-given-api.md)
-##### [Machtigingen verlenen aan mijn app](develop/registration-config-grant-permissions-how-to.md)
 ##### [Gedelegeerde vs. toepassingsmachtigingen](develop/delegated-and-app-perms.md)
 ##### [Toepassingstoestemming](develop/consent-framework.md)
 
@@ -313,14 +312,6 @@
 ### Aangepaste domeinnamen
 #### [Snelstartgids](fundamentals/add-custom-domain.md)
 ### [Uw directory beheren](fundamentals/active-directory-administer.md)
-### [Enterprise State Roaming](active-directory-windows-enterprise-state-roaming-overview.md)
-#### [Inschakelen](active-directory-windows-enterprise-state-roaming-enable.md)
-#### [Instellingen voor groepsbeleid](active-directory-windows-enterprise-state-roaming-group-policy-settings.md)
-#### [Windows 10-instellingen](active-directory-windows-enterprise-state-roaming-windows-settings-reference.md)
-#### [Veelgestelde vragen](active-directory-windows-enterprise-state-roaming-faqs.md)
-#### [Problemen oplossen](active-directory-windows-enterprise-state-roaming-troubleshooting.md)
-
-
 ### [On-premises identiteiten integreren met Azure AD Connect](hybrid/whatis-hybrid-identity.md)
 
 ### [De levensduur van tokens configureren](develop/active-directory-configurable-token-lifetimes.md)
