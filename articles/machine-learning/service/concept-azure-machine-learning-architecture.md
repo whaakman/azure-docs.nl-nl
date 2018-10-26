@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.author: haining
 author: hning86
 ms.reviewer: larryfr
-ms.date: 09/24/2018
-ms.openlocfilehash: 64104fc70c7be1589c9332905f243a2e1e692eee
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.date: 10/24/2018
+ms.openlocfilehash: b00f72c987b6ce8c44796bd036af670ec39fa7a6
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48237973"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50093629"
 ---
-# <a name="architecture-and-concepts-how-does-azure-machine-learning-service-work"></a>Architectuur en -concepten: hoe werkt Azure Machine Learning-service? 
+# <a name="how-the-azure-machine-learning-service-works-architecture-and-concepts"></a>De werking van de service Azure Machine Learning: architectuur en concepten
 
 Dit document beschrijft de architectuur en concepten voor de Azure Machine Learning-service. Het volgende diagram ziet u de belangrijkste onderdelen van de service en de algemene werkstroom ziet u bij het gebruik van de service: 
 
@@ -156,6 +156,13 @@ Een experiment is een groepering van veel worden uitgevoerd op een bepaald scrip
 
 Zie voor een voorbeeld van het gebruik van een experiment, het [Snelstartgids: aan de slag met Azure Machine Learning-service](quickstart-get-started.md) document.
 
+
+## <a name="pipelines"></a>Pijplijnen
+
+Pijplijnen worden gebruikt voor het maken en beheren van de werkstromen die fasen geniet samen machine learning (ML), zoals gegevens voor te bereiden, modeltraining modelimplementatie en inferentietaken. Elke fase kan meerdere stappen, die kan worden uitgevoerd zonder toezicht in diverse compute-doelen omvatten.
+
+Zie het artikel voor meer informatie over machine learning-pijplijnen met deze service [pijplijnen en Azure Machine Learning](concept-ml-pipelines.md).
+
 ## <a name="compute-target"></a>COMPUTE-doel
 
 Een compute-doel is de compute-resource die is gebruikt om uw trainingsscript uitgevoerd of host voor de implementatie van uw web-service. De ondersteunde compute-doelen zijn: 
@@ -210,6 +217,6 @@ Activiteiten kunnen meldingen via de SDK of de Webgebruikersinterface bieden, zo
 
 Gebruik de volgende koppelingen aan de slag met Azure Machine Learning:
 
-* [Wat is Azure Machine Learning-service](overview-what-is-azure-ml.md)
-* [Snelstartgids: Een werkruimte maken met Python](quickstart-get-started.md)
-* [Zelfstudie: Een model te trainen](tutorial-train-models-with-aml.md)
+* [Wat is de Azure Machine Learning service](overview-what-is-azure-ml.md)
+* [Snelstart: een werkruimte maken met Python](quickstart-get-started.md)
+* [Zelfstudie: een model trainen](tutorial-train-models-with-aml.md)

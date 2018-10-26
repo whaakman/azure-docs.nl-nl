@@ -6,14 +6,14 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/10/2018
+ms.date: 10/25/2018
 ms.author: adgera
-ms.openlocfilehash: 28eb8b5dc0f75b5e031070803d35c8a1ceb1f000
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: a17fe8ed47384ed248b339643be11269b8b9cdc0
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49364335"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50092182"
 ---
 # <a name="security-best-practices"></a>Aanbevolen procedures voor beveiliging
 
@@ -33,8 +33,9 @@ Enkele belangrijke procedures voor het beveiligen van veilig uw IoT-apparaten zi
 > [!div class="checklist"]
 > * Elk apparaat dat verbonden met uw IoT-ruimte op een manier fraudebestendig beveiligen.
 > * De rol van elk apparaat, sensor en persoon binnen uw IoT-ruimte beperkt. Als ermee is geknoeid, wordt de impact geminimaliseerd.
-> * Potentieel gebruik van IP-adres filteren.
+> * Potentieel gebruik van apparaat-IP-adres filteren en het poortnummer beperking.
 > * Limiet voor i/o- en apparaat bandbreedte om prestaties te verbeteren. Frequentiebeperkende, kan de beveiliging verbeteren door het voorkomen van denial-of-service-aanvallen.
+> * Apparaatfirmware up-to-date te houden.
 
 Enkele belangrijke procedures voor het beveiligen van een IoT-ruimte veilig zijn onder andere:
 
@@ -55,7 +56,7 @@ Azure van digitale dubbels maakt gebruik van Azure Active Directory om te verifi
 
 > [!div class="checklist"]
 > * Zoals Azure Active Directory-app-geheimen en sleutels op een veilige locatie Store [Key Vault](https://azure.microsoft.com/services/key-vault/).
-> * Gebruik van een certificaat dat is uitgegeven door een vertrouwde [certificeringsinstanties](https://docs.microsoft.com/azure/active-directory/authentication/active-directory-certificate-based-authentication-get-started) in plaats van appgeheimen om te verifiëren.
+> * Gebruik van een certificaat dat is uitgegeven door een vertrouwde [certificeringsinstantie](https://docs.microsoft.com/azure/active-directory/authentication/active-directory-certificate-based-authentication-get-started) in plaats van appgeheimen om te verifiëren.
 > * OAuth 2.0-bereik van de toegang voor een token beperken.
 > * Controleer of de hoeveelheid tijd die een token geldig is en of u een token geldig blijft.
 > * Juiste lengte van de tijd die tokens geldig zijn voor ingesteld.

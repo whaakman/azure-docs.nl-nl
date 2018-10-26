@@ -9,12 +9,12 @@ ms.author: mattfarm
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 06/15/2018
-ms.openlocfilehash: 8fbc84b4016659b6d0d6ce9ec47c05a0b241c3d9
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 5b58f4b71d8d9f3ca91d8cefc6215073fd836765
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855371"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50093663"
 ---
 # <a name="enterprise-integration-architecture-with-queues-and-events"></a>Architectuur van de Enterprise-integratie met wachtrijen en -gebeurtenissen
 
@@ -26,7 +26,7 @@ Deze reeks wordt uitgelegd dat de herbruikbare onderdelen die van toepassing zij
 
 ## <a name="architecture-components"></a>Architectuur van onderdelen
 
-Deze architectuur is gebaseerd op de architectuur die worden beschreven in het artikel [architectuur verwijzing: eenvoudige bedrijfsintegratie](../logic-apps/logic-apps-architectures-simple-enterprise-integration.md). Die architectuur van [aanbevelingen](../logic-apps/logic-apps-architectures-simple-enterprise-integration.md#recommendations) zijn hier ook van toepassing, maar beknopt alternatief in dit artikel worden weggelaten de aanbevelingen van de [aanbevelingen](#recommendations) sectie. Deze enterprise integration-architectuur bevat de volgende onderdelen:
+Deze architectuur is gebaseerd op de architectuur die worden beschreven in het artikel [architectuur verwijzing: eenvoudige bedrijfsintegratie](/azure/architecture/reference-architectures/enterprise-integration/simple-enterprise-integration). Die architectuur van [aanbevelingen](/azure/architecture/reference-architectures/enterprise-integration/simple-enterprise-integration#recommendations) zijn hier ook van toepassing, maar beknopt alternatief in dit artikel worden weggelaten de aanbevelingen van de [aanbevelingen](#recommendations) sectie. Deze enterprise integration-architectuur bevat de volgende onderdelen:
 
 - **Resourcegroep**: A [resourcegroep](../azure-resource-manager/resource-group-overview.md) is een logische container voor Azure-resources.
 
@@ -143,4 +143,4 @@ De Event Grid-service beveiligt bezorging van gebeurtenissen via een code voor v
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Meer informatie over [eenvoudige bedrijfsintegratie](logic-apps-architectures-simple-enterprise-integration.md)
+* Meer informatie over [eenvoudige bedrijfsintegratie](/azure/architecture/reference-architectures/enterprise-integration/simple-enterprise-integration)

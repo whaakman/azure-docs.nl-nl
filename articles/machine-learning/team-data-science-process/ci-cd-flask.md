@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2018
 ms.author: jainr
-ms.openlocfilehash: b0368e742c990feed626a1c4982bfedc35785b49
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: fb162c45b8bd53fd4d994e0eb83a38438873d627
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44304285"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50094383"
 ---
 # <a name="devops-for-artificial-intelligence-ai-applications-creating-continuous-integration-pipeline-on-azure-using-docker-and-kubernetes"></a>DevOps voor kunstmatige intelligentie (AI)-toepassingen: het maken van de pijplijn voor continue integratie in Azure met behulp van Docker en Kubernetes
 Er zijn vaak twee stromen werkzaamheden, Data Scientists, het bouwen van machine learning-modellen en App-ontwikkelaars het bouwen van de toepassing en beschikbaar te maken voor eindgebruikers te gebruiken voor een toepassing AI. In dit artikel laten we zien hoe u voor het implementeren van een continue integratie (CI) / pijplijn voor continue levering (CD) voor een AI-toepassing. AI-toepassing is een combinatie van een model dat machine learning (ML) zijn ingebed toepassingscode. In dit artikel we bij het ophalen van een pretrained model vanuit een persoonlijke Azure-blob storage-account, wordt een AWS S3-account. Voor het artikel gebruiken we een eenvoudige python flask-toepassing.
@@ -38,12 +38,12 @@ Hier volgen de vereisten voor het volgen van de CI/CD-pijplijn die hieronder wor
 * [Azure DevOps-organisatie](https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization-msa-or-work-student)
 * [Azure-CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 * [Azure Container Service (AKS)-cluster met Kubernetes](https://docs.microsoft.com/azure/container-service/kubernetes/container-service-tutorial-kubernetes-deploy-cluster)
-* [Azure Container-register (ACR)-account](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-portal)
+* [Azure Container Registry (ACR)-account](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-portal)
 * [Kubectl voor het uitvoeren van opdrachten op basis van Kubernetes-cluster installeren.](https://kubernetes.io/docs/tasks/tools/install-kubectl/) We moeten deze configuratie ophalen uit ACS-cluster. 
 * Fork van de opslagplaats naar uw GitHub-account.
 
 ## <a name="description-of-the-cicd-pipeline"></a>Beschrijving van de CI/CD-pijplijn
-De pijplijn gang gezet voor elke nieuwe doorvoer, de suite test uitvoeren als de test-passen aan de nieuwste build-deze pakketten in een Docker-container. De container wordt vervolgens geïmplementeerd met behulp van Azure containerservice (ACS) en installatiekopieën worden veilig opgeslagen in Azure container registry (ACR). ACS Kubernetes voor het beheren van container-cluster wordt uitgevoerd, maar u kunt Docker Swarm of Mesos.
+De pijplijn gang gezet voor elke nieuwe doorvoer, de suite test uitvoeren als de test-passen aan de nieuwste build-deze pakketten in een Docker-container. De container wordt vervolgens geïmplementeerd met behulp van Azure Container Service (ACS) en installatiekopieën worden veilig opgeslagen in Azure Container Registry (ACR). ACS Kubernetes voor het beheren van container-cluster wordt uitgevoerd, maar u kunt Docker Swarm of Mesos.
 
 De toepassing haalt veilig het laatste model van een Azure Storage-account en pakketten die als onderdeel van de toepassing. De geïmplementeerde toepassing heeft de app-code en het ML-model geleverd als één container. Hiermee worden de app-ontwikkelaars en data scientists, om ervoor te zorgen dat de productie-app altijd de meest recente code wordt uitgevoerd met de meest recente ML-model losgekoppeld.
 
@@ -70,5 +70,5 @@ De pijplijn-architectuur wordt hieronder.
 ## <a name="references"></a>Verwijzingen
 * [Team Data Science Process (TDSP)](https://aka.ms/tdsp)
 * [Azure Machine Learning (AML)](https://docs.microsoft.com/azure/machine-learning/service/)
-* [Visual Studio teamservices (VSTS)](https://www.visualstudio.com/vso/)
+* [Azure DevOps](https://www.visualstudio.com/vso/)
 * [Azure Kubernetes-Services (AKS)](https://docs.microsoft.com/azure/aks/intro-kubernetes)

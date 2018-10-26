@@ -4,28 +4,28 @@ description: Hierin wordt beschreven hoe de querytaal van Azure Resource Graph w
 services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 10/22/2018
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: 6fcf3087feb7f208ea46d0e08824e965160a61d4
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 09bcedc5250755f06ba23b84a0ae90b4d43a23db
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48236447"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50086160"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>Inzicht krijgen in de querytaal van Azure Resource Graph
 
 De querytaal voor de Azure Resource Graph ondersteunt een aantal operators en -functies. Elk werken en uitvoeren op basis van [Azure Data Explorer](../../../data-explorer/data-explorer-overview.md).
 
-De beste manier om meer informatie over de querytaal die wordt gebruikt door Resource Graph is om te beginnen met de documentatie voor Azure Data Explorer [querytaal](/azure/kusto/query/index). Dit biedt een goed begrip over hoe de taal is opgebouwd en hoe de verschillende operators ondersteund en functies samenwerken.
+De beste manier om meer informatie over de querytaal die wordt gebruikt door Resource Graph is om te beginnen met de documentatie voor Azure Data Explorer [querytaal](/azure/kusto/query/index). Het biedt een goed begrip over hoe de taal is opgebouwd en hoe de verschillende operators ondersteund en functies samenwerken.
 
 ## <a name="supported-tabular-operators"></a>Ondersteunde in tabelvorm operators
 
 Hier volgt de lijst met ondersteunde in tabelvorm operators in Resource-grafiek:
 
-- [Aantal](/azure/kusto/query/countoperator)
+- [count](/azure/kusto/query/countoperator)
 - [Afzonderlijke](/azure/kusto/query/distinctoperator)
 - [Uitbreiden](/azure/kusto/query/extendoperator)
 - [Limiet](/azure/kusto/query/limitoperator)
@@ -56,4 +56,4 @@ Hier volgt de lijst met ondersteunde functies in Resource-grafiek:
 
 - Zie de taal die wordt gebruikt in [Starter query's](../samples/starter.md)
 - Maakt gebruik van geavanceerde Zie in [geavanceerde query's](../samples/advanced.md)
-- Meer informatie over het [resources verkennen](explore-resources.md)
+- [Resources verkennen](explore-resources.md)

@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 10/22/2018
 ms.author: juliako
-ms.openlocfilehash: 9a5ef8df9b1ca87430fb5e8d1da94f1899c4a856
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 24597c36ab6569abb53c7be331631556e2abfe66
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49985859"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50085951"
 ---
 # <a name="content-key-policies"></a>Beleid voor inhoudssleutels
 
@@ -28,16 +28,16 @@ In Azure Media Services v3 kunt beleid voor inhoud sleutels u om op te geven hoe
 
 De volgende tabel ziet u de eigenschappen van de ContentKeyPolicy en biedt de definities.
 
-|Naam|Type|Beschrijving|
-|---|---|---|
-|id|tekenreeks|Volledig gekwalificeerde resource-ID voor de resource.|
-|naam|tekenreeks|De naam van de resource.|
-|Properties.created |tekenreeks|De aanmaakdatum van het beleid|
-|Properties.Description |tekenreeks|Een beschrijving voor het beleid.|
-|properties.lastModified    |tekenreeks|De datum van laatste wijziging van het beleid|
-|Properties.Options |ContentKeyPolicyOption]|De sleutel beleidsopties.|
-|properties.policyId    |tekenreeks|De verouderde beleids-ID.|
-|type   |tekenreeks|Het type van de resource.|
+|Naam|Beschrijving|
+|---|---|
+|id|Volledig gekwalificeerde resource-ID voor de resource.|
+|naam|De naam van de resource.|
+|Properties.created |De aanmaakdatum van het beleid|
+|Properties.Description |Een beschrijving voor het beleid.|
+|properties.lastModified|De datum van laatste wijziging van het beleid|
+|Properties.Options |De sleutel beleidsopties.|
+|properties.policyId    |De verouderde beleids-ID.|
+|type   |Het type van de resource.|
 
 Zie voor de definitie van de volledige [Inhoudbeleidsregels sleutel](https://docs.microsoft.com/rest/api/media/contentkeypolicies).
 

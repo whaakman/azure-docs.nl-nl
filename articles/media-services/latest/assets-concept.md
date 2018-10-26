@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 10/24/2018
 ms.author: juliako
-ms.openlocfilehash: 62cc4634a0f76b0562d5b3c1355a7442fc5cf989
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: e7abdb568b11870fb467ee6d3759881ca337d3cc
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49985230"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50085785"
 ---
 # <a name="assets"></a>Assets
 
@@ -34,19 +34,19 @@ Lees ook over [storage-accounts in Media Services](storage-account-concept.md) e
 
 De volgende tabel ziet u de eigenschappen van de Asset en biedt de definities.
 
-|Naam|Type|Beschrijving|
-|---|---|---|
-|id|tekenreeks|Volledig gekwalificeerde resource-ID voor de resource.|
-|naam|tekenreeks|De naam van de resource.|
-|properties.alternateId |tekenreeks|De alternatieve ID van de Asset.|
-|properties.assetId |tekenreeks|De Asset-ID.|
-|Properties.container |tekenreeks|De naam van de asset blob-container.|
-|Properties.created |tekenreeks|De aanmaakdatum van de Asset.|
-|Properties.Description |tekenreeks|De beschrijving van de Asset.|
-|properties.lastModified |tekenreeks|Datum van de activa van de laatste wijziging.|
-|properties.storageAccountName |tekenreeks|De naam van het storage-account.|
-|properties.storageEncryptionFormat |AssetStorageEncryptionFormat |De coderingsindeling Asset. Een op None of MediaStorageEncryption.|
-|type|tekenreeks|Het type van de resource.|
+|Naam|Beschrijving|
+|---|---|
+|id|Volledig gekwalificeerde resource-ID voor de resource.|
+|naam|De naam van de resource.|
+|properties.alternateId |De alternatieve ID van de Asset.|
+|properties.assetId |De Asset-ID.|
+|Properties.container |De naam van de asset blob-container.|
+|Properties.created |De aanmaakdatum van de Asset.|
+|Properties.Description|De beschrijving van de Asset.|
+|properties.lastModified |Datum van de activa van de laatste wijziging.|
+|properties.storageAccountName |De naam van het storage-account.|
+|properties.storageEncryptionFormat |De coderingsindeling Asset. Een op None of MediaStorageEncryption.|
+|type|Het type van de resource.|
 
 Zie voor de definitie van de volledige [activa](https://docs.microsoft.com/rest/api/media/assets).
 

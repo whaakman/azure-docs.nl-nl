@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 09/22/2018
 ms.author: qianw211
-ms.openlocfilehash: 46740e925a5d4e94c314105aba4920caf01532e7
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 0468c41f0813277b6ba6d3be8ad89c3178dd1420
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49985605"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50094668"
 ---
 # <a name="iot-edge-modules"></a>IoT Edge-modules
 
@@ -78,15 +78,11 @@ Als u wilt een IoT Edge-module in de Azure Marketplace publiceren, moet u voldoe
 
 **Technische vereisten**
 
-De primaire technische vereisten voor een IoT Edge-Module, om deze gecertificeerd en gepubliceerd in de Azure Marketplace zijn uiteengezet in de [IoT Edge-Module-certificeringsproces](https://cloudpartner.azure.com/#documentation/iot-edge-module-certification-process) op de [Cloud publiceren Portal](https://cloudpartner.azure.com/).  
+De primaire technische vereisten voor een IoT Edge-Module, om deze gecertificeerd en gepubliceerd in de Azure Marketplace zijn uiteengezet in de [voorbereiden van uw IoT Edge-module technische zaken](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/iot-edge-module/cpp-create-technical-assets).  
 
 ## <a name="documentation-and-resources"></a>Documentatie en informatiebronnen
 
-De volgende artikelen zijn beschikbaar wanneer u bent aangemeld bij de [Portal voor het publiceren van Cloud](https://cloudpartner.azure.com/):
-
-- [Maak een aanbieding van IoT Edge module](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/iot-edge-module/cpp-create-offer) -– de stappen voor het publiceren van een nieuwe IoT Edge-module bieden met de Cloud-Portal voor publiceren.
-- [IoT Edge-module-certificeringsproces](https://cloudpartner.azure.com/#documentation/iot-edge-module-certification-process) : een overzicht van de stappen en de vereisten voor het certificeren van een IoT Edge-module.
-- [IoT Edge-module Veelgestelde vragen over](https://cloudpartner.azure.com/#documentation/iot-edge-module-faq) :-een lijst met veelgestelde vragen met betrekking tot IoT Edge-modules.
+[Maak een aanbieding van IoT Edge module](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/iot-edge-module/cpp-create-offer) -– de stappen voor het publiceren van een nieuwe IoT Edge-module bieden met de Cloud-Portal voor publiceren.
 
 ## <a name="next-steps"></a>Volgende stappen
 

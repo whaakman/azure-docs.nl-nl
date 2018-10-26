@@ -3,8 +3,8 @@ title: OpenShift in vereisten voor Azure | Microsoft Docs
 description: Vereisten voor het implementeren van OpenShift in Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: haroldw
-manager: najoshi
+author: haroldwongms
+manager: joraio
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -15,32 +15,32 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: ''
 ms.author: haroldw
-ms.openlocfilehash: 36271116d697e5ee6c6ed08d5fdc6063a511e820
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: fd20fe880ae77992e5eadb5f2b581d3f5b53f86e
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46984330"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50085856"
 ---
 # <a name="common-prerequisites-for-deploying-openshift-in-azure"></a>Algemene vereisten voor het implementeren van OpenShift in Azure
 
-Dit artikel worden algemene vereisten voor het implementeren van OpenShift Origin of OpenShift Container Platform in Azure.
+Dit artikel worden algemene vereisten voor het implementeren van OpenShift Container Platform of OKD in Azure.
 
 De installatie van OpenShift Ansible-playbooks gebruikt. Ansible maakt gebruik van Secure Shell (SSH) verbinding maken met alle clusterhosts stappen van de installatie te voltooien.
 
-Wanneer u de SSH-verbinding met de externe hosts hebt gestart, voert u kan niet een wachtwoord. Om deze reden, de persoonlijke sleutel die is gekoppeld aan het wachtwoord kan niet hebt of implementatie is mislukt.
+Wanneer u ansible initieert de SSH-verbinding met de externe hosts, niet kan deze een wachtwoord opgeven. Om deze reden, de persoonlijke sleutel kan geen een wachtwoord (wachtwoordzin) die zijn gekoppeld aan het of de implementatie mislukt.
 
 Omdat de virtuele machines (VM's) via Azure Resource Manager-sjablonen implementeren, wordt dezelfde openbare sleutel wordt gebruikt voor toegang tot alle virtuele machines. U moet de bijbehorende persoonlijke sleutel invoeren in de virtuele machine die wordt uitgevoerd ook alle playbooks. Om dit te doen veilig, kunt u een Azure key vault gebruiken om door te geven van de persoonlijke sleutel in de virtuele machine.
 
-Als er een nodig voor permanente opslag voor containers, klikt u vervolgens zijn persistent volumes vereist. OpenShift ondersteunt Azure virtuele harde schijven (VHD's) voor deze mogelijkheid, maar Azure moet eerst worden geconfigureerd als de cloudprovider. 
+Als er een nodig voor permanente opslag voor containers, klikt u vervolgens zijn persistent volumes vereist. OpenShift ondersteunt Azure virtuele harde schijven (VHD's) voor deze mogelijkheid, maar Azure moet eerst worden geconfigureerd als de cloudprovider.
 
 In dit model OpenShift:
 
-- Hiermee maakt u een VHD-object in een Azure Storage-account.
-- Hiermee koppelt u de VHD naar een virtuele machine en het volume-indeling.
+- Hiermee maakt u een VHD-object in een Azure Storage-account of een beheerde schijf.
+- Hiermee koppelt u de VHD naar een virtuele machine en het volume geformatteerd.
 - Hiermee wordt het volume voor de schil gekoppeld.
 
-Voor deze configuratie werkt, moet OpenShift machtigingen voor het uitvoeren van de voorgaande taken in Azure. U doen dit met een service-principal. De service-principal is een security-account in Azure Active Directory waaraan machtigingen voor resources is verleend.
+Voor deze configuratie werkt, moet OpenShift toegangsmachtigingen voor deze taken kunnen uitvoeren in Azure. U doen dit met een service-principal. De service-principal is een security-account in Azure Active Directory waaraan machtigingen voor resources is verleend.
 
 De service-principal moet toegang hebben tot de storage-accounts en virtuele machines die gezamenlijk het cluster. Als alle OpenShift-clusterresources voor een enkele resourcegroep implementeert, kan de service-principal kan machtigingen in deze resourcegroep worden verleend.
 
@@ -48,7 +48,7 @@ Deze handleiding beschrijft het maken van de artefacten die zijn gekoppeld aan d
 
 > [!div class="checklist"]
 > * Maak een key vault voor het beheren van SSH-sleutels voor het cluster OpenShift.
-> * Maak een service-principal voor gebruik door de Azure Cloud Solution Provider.
+> * Maak een service-principal voor gebruik door de Azure-Cloud-Provider.
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
@@ -60,7 +60,7 @@ az login
 ```
 ## <a name="create-a-resource-group"></a>Een resourcegroep maken
 
-Een resourcegroep maken met de opdracht [az group create](/cli/azure/group#az_group_create). Een Azure-resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. U een speciale resourcegroep gebruiken voor het hosten van de key vault. Deze groep is gescheiden van de resourcegroep waarin de clusterbronnen OpenShift implementeren. 
+Een resourcegroep maken met de opdracht [az group create](/cli/azure/group#az_group_create). Een Azure-resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. Het verdient een speciale resourcegroep gebruiken voor het hosten van de key vault. Deze groep is gescheiden van de resourcegroep waarin de clusterbronnen OpenShift implementeren.
 
 Het volgende voorbeeld wordt een resourcegroep met de naam *keyvaultrg* in de *eastus* locatie:
 
@@ -80,16 +80,16 @@ az keyvault create --resource-group keyvaultrg --name keyvault \
 ```
 
 ## <a name="create-an-ssh-key"></a>Een SSH-sleutel maken 
-Een SSH-sleutel is vereist voor het beveiligen van toegang tot het OpenShift Origin-cluster. Een SSH-sleutelpaar maken met behulp van de `ssh-keygen` opdracht (op Linux of macOS):
+Een SSH-sleutel is vereist voor het beveiligen van toegang tot het cluster OpenShift. Een SSH-sleutelpaar maken met behulp van de `ssh-keygen` opdracht (op Linux of macOS):
  
  ```bash
 ssh-keygen -f ~/.ssh/openshift_rsa -t rsa -N ''
 ```
 
 > [!NOTE]
-> Het SSH-sleutelpaar kunt geen een wachtwoord.
+> Het SSH-sleutelpaar kunt geen een wachtwoord / wachtwoordzin.
 
-Zie voor meer informatie over SSH-sleutels op Windows [over het maken van SSH-sleutels op Windows](/azure/virtual-machines/linux/ssh-from-windows).
+Zie voor meer informatie over SSH-sleutels op Windows [over het maken van SSH-sleutels op Windows](/azure/virtual-machines/linux/ssh-from-windows). Zorg ervoor dat de persoonlijke sleutel in OpenSSH-indeling exporteren.
 
 ## <a name="store-the-ssh-private-key-in-azure-key-vault"></a>De persoonlijke SSH-sleutel in Azure Key Vault Store
 De implementatie van OpenShift maakt gebruik van de SSH-sleutel die u hebt gemaakt voor beveiligde toegang tot de OpenShift-master. Opslaan als wilt inschakelen in de implementatie van de SSH-sleutel veilig worden opgehaald, de sleutel in Key Vault met behulp van de volgende opdracht uit:
@@ -103,18 +103,29 @@ OpenShift communiceert met Azure met behulp van een gebruikersnaam en wachtwoord
 
 Een service-principal met maken [az ad sp create-for-rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac) en de uitvoer van de referenties die OpenShift nodig heeft.
 
-Het volgende voorbeeld maakt u een service principal en Inzender-rechten toegewezen aan een resourcegroep met de naam myResourceGroup. Als u Windows gebruikt, voer ```az group show --name myResourceGroup --query id``` afzonderlijk en de uitvoer gebruiken om de scopes optie--.
+Het volgende voorbeeld maakt u een service principal en Inzender-rechten toegewezen aan een resourcegroep met de naam openshiftrg.
+afzonderlijk en de uitvoer gebruiken om de--optie bereiken.
+
+Maak eerst de resourcegroep met de naam openshiftrg:
 
 ```azurecli
-az ad sp create-for-rbac --name openshiftsp \
-          --role Contributor --password {Strong Password} \
-          --scopes $(az group show --name myResourceGroup --query id)
+az group create -l eastus -n openshiftrg
 ```
+
+Service-principal maken:
+
+```azurecli
+scope=`az group show --name openshiftrg --query id`
+az ad sp create-for-rbac --name openshiftsp \
+      --role Contributor --password {Strong Password} \
+      --scopes $scope
+```
+Als u Windows gebruikt, voer ```az group show --name openshiftrg --query id``` en de uitvoer in plaats van $scope gebruiken.
 
 Noteer de toepassings-id-eigenschap geretourneerd door de opdracht:
 ```json
 {
-  "appId": "11111111-abcd-1234-efgh-111111111111",            
+  "appId": "11111111-abcd-1234-efgh-111111111111",
   "displayName": "openshiftsp",
   "name": "http://openshiftsp",
   "password": {Strong Password},
@@ -135,6 +146,5 @@ In dit artikel komen de volgende onderwerpen aan bod:
 
 Vervolgens implementeert u een OpenShift-cluster:
 
-- [OpenShift Origin implementeren](./openshift-origin.md)
 - [Implementeren van OpenShift Containerplatform](./openshift-container-platform.md)
-
+- [OKD implementeren](./openshift-okd.md)

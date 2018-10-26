@@ -1,3 +1,16 @@
+---
+author: PatAltimore
+ms.service: active-directory-b2c
+ms.topic: include
+ms.date: 11/03/2016
+ms.author: patricka
+ms.openlocfilehash: 9ad715f47f2de9c6f9032ed07232f45fb33b0114
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50132959"
+---
 Als u inschakelen met het bewerken van profielen van uw toepassing wilt, gebruikt u een **bewerken van profielen** beleid. Dit beleid wordt de ervaring van klanten tijdens het bewerken van profielen en de inhoud van tokens die de toepassing bewerking is voltooid ontvangt loopt, via beschreven.
 
 [!INCLUDE [active-directory-b2c-portal-navigate-b2c-service](active-directory-b2c-portal-navigate-b2c-service.md)]

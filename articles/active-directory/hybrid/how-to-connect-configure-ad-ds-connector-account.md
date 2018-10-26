@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 10/12/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: a12549a52171afc1c95588f9a2b259829e170fcc
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: b6fef23b3624703305a13b205b588c83dd135764
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389952"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50094735"
 ---
 # <a name="azure-ad-connectconfigure-ad-ds-connector-account-permissions"></a>Azure AD Connect: Accountmachtigingen voor AD DS-Connector configureren 
 
@@ -28,7 +28,7 @@ De volgende PowerShell-cmdlets kan worden gebruikt voor installatie van Active D
 
 Voor installatie van de Azure AD verbinding maken met Express, is een automatisch gegenereerde (MSOL_nnnnnnnnnn)-account gemaakt in Active Directory met de vereiste machtigingen, dus u hoeft niet op deze module ADSyncConfig, tenzij u machtigingen hebt geblokkeerd overname op organisatie-eenheden of specifieke Active Directory-objecten die u wilt synchroniseren met Azure AD. 
  
-### <a name="permissions-summary"></a>Overzicht van machtigingen 
+### <a name="permissions-summary"></a>Overzicht van bevoegdheden 
 De volgende tabel bevat een samenvatting van de vereiste machtigingen voor AD-objecten: 
 
 | Functie | Machtigingen |
@@ -269,10 +269,10 @@ Dit PowerShell-script worden machtigingen voor het AD-Connector-Account dat is o
 - Overname in het opgegeven object uitschakelen 
 - Alle ACE's op het specifieke object, met uitzondering van ACE's die specifiek zijn voor zelf worden verwijderd omdat we de standaardmachtigingen behouden willen als het gaat om zelf. 
  
- De parameter - object-DN is het AD-serviceaccount waarvan de machtigingen wilt hoger worden ingesteld. Dit is doorgaans het domeinaccount MSOL_nnnnnnnnnnnn die is geconfigureerd in de AD DS-Connector (Zie bepalen de Connector-Account van uw AD DS). De - referentie parameter is nodig om op te geven van de Administrator-account waarvoor de vereiste bevoegdheden beschikt om te beperken van machtigingen voor Active Directory van het doelobject AD. Dit is meestal de onderneming of een domeinbeheerder.  
+ De parameter - ADConnectorAccountDN is het AD-serviceaccount waarvan de machtigingen wilt hoger worden ingesteld. Dit is doorgaans het domeinaccount MSOL_nnnnnnnnnnnn die is geconfigureerd in de AD DS-Connector (Zie bepalen de Connector-Account van uw AD DS). De - referentie parameter is nodig om op te geven van de Administrator-account waarvoor de vereiste bevoegdheden beschikt om te beperken van machtigingen voor Active Directory van het doelobject AD. Dit is meestal de onderneming of een domeinbeheerder.  
 
 ``` powershell
-Set-ADSyncRestrictedPermissions [-ObjectDN] <String> [-Credential] <PSCredential> [-DisableCredentialValidation] [-WhatIf] [-Confirm] [<CommonParameters>] 
+Set-ADSyncRestrictedPermissions [-ADConnectorAccountDN] <String> [-Credential] <PSCredential> [-DisableCredentialValidation] [-WhatIf] [-Confirm] [<CommonParameters>] 
 ```
  
 Bijvoorbeeld: 

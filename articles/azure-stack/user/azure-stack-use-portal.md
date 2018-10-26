@@ -10,15 +10,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 10/23/2018
 ms.author: mabrigg
 ms.reviewer: efemmano
-ms.openlocfilehash: 7ccf746cfd9645b63c2810bff83cfb0c4fa55d65
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 4ec9affa78d1f244208a24bcf8a6603e867d4c08
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44713731"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50086502"
 ---
 # <a name="use-the-azure-stack-portal"></a>De Azure Stack-portal gebruiken
 
@@ -32,12 +32,13 @@ Uw Azure Stack-operators (een serviceprovider of een beheerder in uw organisatie
 
 - Voor een geïntegreerd systeem, de URL is afhankelijk van op de regio en het externe domeinnaam van de operator en bevindt zich in de indeling https://portal.&lt; *regio*&gt;.&lt; *FQDN*&gt;.
 - Als u de Azure Stack Development Kit, het adres van de portal is https://portal.local.azurestack.external.
-
-![Schermopname van de gebruikersportal van Azure Stack](media/azure-stack-use-portal/UserPortal.png)
+- De standaardtijdzone voor alle Azure Stack-implementaties is ingesteld op Coordinated Universal Time (UTC). U kunt een tijdzone selecteren bij het installeren van Azure Stack, maar dan automatisch wordt overgeschakeld naar UTC als standaardwaarde tijdens de installatie.
 
 ## <a name="customize-the-dashboard"></a>Het dashboard aanpassen
 
 Het dashboard bevat een set tegels. U kunt selecteren **dashboard bewerken** wijzigen van het standaarddashboard, of selecteer **nieuw dashboard** te maken van een aangepast dashboard. U kunt eenvoudig een dashboard aanpassen door het toevoegen of verwijderen van tegels. Selecteer bijvoorbeeld het volgende als u wilt toevoegen een Compute-tegel, **+ een resource maken**. Met de rechtermuisknop op **Compute**, en selecteer vervolgens **vastmaken aan dashboard**.
+
+![Schermopname van de gebruikersportal van Azure Stack](media/azure-stack-use-portal/userportal.png)
 
 ## <a name="create-subscription-and-browse-available-resources"></a>Abonnement maken en beschikbare resources bladeren
 

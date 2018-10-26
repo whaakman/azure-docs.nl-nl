@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 09/17/2018
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: d333f8ecd7e1044575f570d893227f9dcb394974
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: ac4f826ed1d27ee39d8e35605a3baa7f94b33e64
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48843256"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "50035419"
 ---
 ## <a name="test-your-code"></a>Testen van uw code
 
@@ -29,14 +29,16 @@ Als u wilt uitvoeren van uw project in Visual Studio, selecteer **F5**. Uw toepa
 
 De eerste keer is dat u de toepassing uitvoert en selecteer de **Microsoft Graph-API aanroepen** knop, wordt u gevraagd aan te melden. Gebruik Azure Active Directory-account (werk of school-account) of een Microsoft-account (live.com, outlook.com) om dit te testen.
 
-![Aanmelden bij de toepassing](./media/active-directory-develop-guidedsetup-windesktop-test/signinscreenshot.png)
+![Aanmelden bij Azure Portal](./media/active-directory-develop-guidedsetup-windesktop-test/signinscreenshot.png)
 
 ### <a name="provide-consent-for-application-access"></a>Geef toestemming voor toegang tot toepassingen
-De eerste keer dat u zich aanmelden bij uw toepassing u ook wordt gevraagd voor toestemming geven om toe te staan van de aanvraag voor toegang tot uw profiel en meld u aan u in, zoals hier wordt weergegeven: 
+
+De eerste keer dat u zich aanmelden bij uw toepassing u ook wordt gevraagd voor toestemming geven om toe te staan van de aanvraag voor toegang tot uw profiel en meld u aan u in, zoals hier wordt weergegeven:
 
 ![Geef uw toestemming voor toegang tot toepassingen](./media/active-directory-develop-guidedsetup-windesktop-test/consentscreen.png)
 
 ### <a name="view-application-results"></a>Resultaten van de toepassing weergeven
+
 Nadat u zich hebt aangemeld, ziet u de gebruikersgegevens van het profiel dat wordt geretourneerd door de aanroep naar de Microsoft Graph API. De resultaten worden weergegeven in de **API Gespreksresultaten** vak. Algemene informatie over het token dat is verkregen via de aanroep van `AcquireTokenAsync` of `AcquireTokenSilentAsync` moeten worden weergegeven in de **Token Info** vak. De resultaten bevatten de volgende eigenschappen:
 
 |Eigenschap  |Indeling  |Beschrijving |
@@ -51,7 +53,7 @@ Nadat u zich hebt aangemeld, ziet u de gebruikersgegevens van het profiel dat wo
 
 De Microsoft Graph API vereist de *user.read* scope om te lezen van het gebruikersprofiel. Dit bereik wordt automatisch toegevoegd in elke toepassing die geregistreerd in de Portal voor Appregistratie standaard. Andere voor Microsoft Graph-API's, evenals de aangepaste API's voor uw back-endserver, mogelijk extra scopes. De Microsoft Graph API vereist de *Calendars.Read* bereik om agenda's van de gebruiker weer te geven.
 
-Voor toegang tot agenda's van de gebruiker in de context van een toepassing moet toevoegen de *Calendars.Read* overgedragen machtigingen voor de registratiegegevens van de toepassing. Voeg vervolgens de *Calendars.Read* bereik instellen op de `acquireTokenSilent` aanroepen. 
+Voor toegang tot agenda's van de gebruiker in de context van een toepassing moet toevoegen de *Calendars.Read* overgedragen machtigingen voor de registratiegegevens van de toepassing. Voeg vervolgens de *Calendars.Read* bereik instellen op de `acquireTokenSilent` aanroepen.
 
 >[!NOTE]
 >De gebruiker mogelijk voor extra toestemmingen gevraagd als u het aantal bereiken verhogen.

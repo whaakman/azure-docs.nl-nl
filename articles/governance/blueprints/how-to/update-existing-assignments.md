@@ -4,16 +4,16 @@ description: Meer informatie over het mechanisme voor het bijwerken van een best
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 10/25/2018
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: ecac0fb21a6691874d5e8db49eadd7114d41845f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 2c9f660e54da50e32ce1d0dc43b0efeacd643c57
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46956197"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50093782"
 ---
 # <a name="how-to-update-an-existing-blueprint-assignment"></a>Het bijwerken van een bestaande blauwdruktoewijzing van
 
@@ -25,11 +25,11 @@ Wanneer een blauwdruk wordt toegewezen, kan de toewijzing kan worden bijgewerkt.
 
 ## <a name="updating-assignments"></a>Toewijzingen bijwerken
 
-1. Start de blauwdrukken voor Azure-service in Azure portal door te klikken op **alle services** en het zoeken en selecteren **beleid** in het linkerdeelvenster. Op de **beleid** pagina, klikt u op **blauwdrukken**.
+1. Klik op **alle services** en het zoeken en selecteren **beleid** in het linkerdeelvenster. Klik op de pagina **Beleid** op **Blueprints**.
 
-1. Selecteer **toegewezen blauwdrukken** op de pagina aan de linkerkant.
+1. Selecteer **Toegewezen blauwdrukken** op de pagina aan de linkerkant.
 
-1. De blauwdruktoewijzing te klikken in de lijst met blauwdrukken, en klik vervolgens op de **bijwerken van de toewijzing** of met de rechtermuisknop op de blauwdruktoewijzing en selecteer **bijwerken van de toewijzing**.
+1. In de lijst met blauwdrukken, de blauwdruktoewijzing te klikken. Klik vervolgens op de **bijwerken van de toewijzing** of met de rechtermuisknop op de blauwdruktoewijzing en selecteer **bijwerken van de toewijzing**.
 
    ![Bijwerken van de toewijzing](../media/update-existing-assignments/update-assignment.png)
 
@@ -45,27 +45,31 @@ Wanneer een blauwdruk wordt toegewezen, kan de toewijzing kan worden bijgewerkt.
 
 ## <a name="rules-for-updating-assignments"></a>Regels voor het bijwerken van toewijzingen
 
-De implementatie van de bijgewerkte toewijzingen volgt een aantal belangrijke regels. Deze regels bepalen wat er gebeurt met een bestaande resource, afhankelijk van de aangevraagde wijziging en het type artefact resource wordt geïmplementeerd of bijgewerkt.
+De implementatie van de bijgewerkte toewijzingen volgt een aantal belangrijke regels. Deze regels bepalen wat er gebeurt met de reeds geïmplementeerde resources. De aangevraagde wijziging en het type artefact-resource wordt geïmplementeerd of bijgewerkt, bepalen welke acties worden uitgevoerd.
 
 - Roltoewijzingen
-  - Als de functie of de rol toegewezen gebruiker (gebruiker, groep of app) wordt gewijzigd, wordt een nieuwe roltoewijzing wordt gemaakt. De roltoewijzing van de eerder geïmplementeerde blijft aanwezig.
+  - Als de functie of de rol toegewezen gebruiker (gebruiker, groep of app) wordt gewijzigd, wordt een nieuwe roltoewijzing wordt gemaakt. Roltoewijzingen eerder geïmplementeerd blijven.
 - Beleidstoewijzingen
   - Als de parameters van de beleidstoewijzing zijn gewijzigd, wordt de bestaande toewijzing wordt bijgewerkt.
-  - Als de definitie van de beleidstoewijzing zijn gewijzigd, wordt een nieuwe beleidstoewijzing gemaakt. De eerder geïmplementeerde beleidstoewijzing is blijven.
-  - Als het beleid toewijzen-artefact wordt verwijderd uit de blauwdruk, wordt de eerder geïmplementeerde beleidstoewijzing links op locatie.
+  - Als de definitie van de beleidstoewijzing is gewijzigd, wordt een nieuwe beleidstoewijzing gemaakt. Beleidstoewijzingen eerder geïmplementeerd blijven.
+  - Als het beleid toewijzen-artefact wordt verwijderd uit de blauwdruk, geïmplementeerd beleid toewijzingen blijven.
 - Azure Resource Manager-sjablonen
-  - De sjabloon wordt verwerkt via Resource Manager als een **plaatsen**. Als u elk resourcetype verwerkt dit anders, Raadpleeg de documentatie voor elke resource opgenomen om de impact van deze actie als uitgevoerd door de blauwdrukken te bepalen.
+  - De sjabloon wordt verwerkt via Resource Manager als een **plaatsen**. Als u deze actie worden elk resourcetype anders verwerkt, Raadpleeg de documentatie voor elke resource opgenomen om de impact van deze actie als uitgevoerd door de blauwdrukken te bepalen.
 
 ## <a name="possible-errors-on-updating-assignments"></a>Mogelijke fouten bij het bijwerken van toewijzingen
 
-Tijdens het bijwerken van toewijzingen, is het mogelijk wijzigingen aanbrengen die afbreken wanneer uitgevoerd. Een voorbeeld hiervan is de locatie van een resourcegroep te wijzigen nadat deze al is geïmplementeerd. Eventuele wijzigingen die worden ondersteund door [Azure Resource Manager](../../../azure-resource-manager/resource-group-overview.md) kan worden gemaakt, maar een wijzigen dat zou leiden tot een fout via Azure Resource Manager wordt ook leiden tot het mislukken van de toewijzing.
+Tijdens het bijwerken van toewijzingen, is het mogelijk te wijzigen die bij uitvoering worden afgebroken. Een voorbeeld is de locatie van een resourcegroep te wijzigen nadat deze al is geïmplementeerd. Eventuele wijzigingen die worden ondersteund door [Azure Resource Manager](../../../azure-resource-manager/resource-group-overview.md) kan worden gemaakt, maar een wijzigen dat zou leiden tot een fout via Azure Resource Manager wordt ook leiden tot het mislukken van de toewijzing.
 
-Er is geen limiet voor het aantal keren dat een toewijzing kunnen worden bijgewerkt. Als er een fout optreedt, vanwege een ongeldige parameter, een bestaand object of een wijziging is niet toegestaan door Azure Resource Manager, de fout te bepalen en dus moet u een andere update in de toewijzing.
+Er is geen limiet voor het aantal keren dat een toewijzing kunnen worden bijgewerkt. Als er een fout optreedt, bepalen van de fout en moet u een andere update in de toewijzing.  Voorbeeldscenario-fout:
+
+- Een ongeldige parameter
+- Een bestaand object
+- Een wijziging die niet wordt ondersteund door Azure Resource Manager
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Meer informatie over de [blauwdruk levenscyclus](../concepts/lifecycle.md)
-- Meer informatie over het gebruik van [statische en dynamische parameters](../concepts/parameters.md)
-- Meer informatie over het aanpassen van de [volgorde blauwdruk](../concepts/sequencing-order.md)
-- Ontdek hoe u het gebruik van [blauwdruk resource vergrendelen](../concepts/resource-locking.md)
-- Problemen oplossen bij het toewijzen van een blauwdruk met [algemene probleemoplossing](../troubleshoot/general.md)
+- Meer informatie over de [levenscyclus van een blauwdruk](../concepts/lifecycle.md)
+- Informatie over hoe u [statische en dynamische parameters](../concepts/parameters.md) gebruikt
+- Meer informatie over hoe u de [blauwdrukvolgorde](../concepts/sequencing-order.md) aanpast
+- Ontdek hoe u gebruikmaakt van [resourcevergrendeling in blauwdrukken](../concepts/resource-locking.md)
+- Problemen oplossen tijdens de toewijzing van een blauwdruk met [algemene probleemoplossing](../troubleshoot/general.md)

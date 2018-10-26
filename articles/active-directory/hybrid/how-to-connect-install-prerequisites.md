@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/28/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: f0791173450d5db3b33762ec9d5ed5c1adf96788
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 4dd3253b1d7ee159914f2d1fd6a8644bbc69c1f0
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49321628"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50092788"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Vereisten voor Azure AD Connect
 Dit onderwerp beschrijft de vereisten en de hardwarevereisten voor Azure AD Connect.
@@ -63,7 +63,7 @@ Voordat u Azure AD Connect installeert, zijn er enkele dingen die u nodig hebt.
 ### <a name="sql-server-used-by-azure-ad-connect"></a>SQL-Server die wordt gebruikt door Azure AD Connect
 * Azure AD Connect vereist een SQL Server-database voor het opslaan van identiteitsgegevens. Een SQL Server 2012 Express LocalDB (een eenvoudige versie van SQL Server Express) wordt standaard geïnstalleerd. SQL Server Express heeft een limiet van 10GB waarmee u voor het beheren van ongeveer 100.000 objecten. Als u nodig hebt voor het beheren van een hoger aantal directory-objecten, moet u de installatiewizard verwijzen naar een andere installatie van SQL Server.
 * Als u een afzonderlijke SQL Server gebruikt, klikt u vervolgens deze vereisten zijn van toepassing:
-  * Azure AD Connect biedt ondersteuning voor alle versies van Microsoft SQL Server van SQL Server 2008 (met de meest recente servicepack) naar SQL Server 2016 SP1. Microsoft Azure SQL Database is **niet ondersteund** als een database.
+  * Azure AD Connect biedt ondersteuning voor alle versies van Microsoft SQL Server van SQL Server 2008 (met de meest recente servicepack) naar SQL Server 2017. Microsoft Azure SQL Database is **niet ondersteund** als een database.
   * U moet een niet-hoofdlettergevoelige SQL-sortering gebruiken. Deze sorteringen worden aangeduid met een \_CI_ in hun naam. Het is **niet ondersteund** voor het gebruik van een hoofdlettergevoelige sortering, geïdentificeerd door \_CS_ in hun naam.
   * U kunt slechts één synchronisatie-engine per SQL-exemplaar hebben. Het is **niet ondersteund** voor het delen van een SQL-exemplaar met FIM/MIM Sync, DirSync of Azure AD Sync.
 

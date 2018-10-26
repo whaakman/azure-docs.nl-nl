@@ -1,5 +1,5 @@
 ---
-title: Status van de virtuele machine bewaken met Azure Monitor voor virtuele machines | Microsoft Docs
+title: Status van de virtuele machine bewaken met Azure Monitor voor virtuele machines (Preview) | Microsoft Docs
 description: Dit artikel wordt beschreven hoe u de status van de virtuele machine en het onderliggende besturingssysteem met Azure Monitor begrijpen voor virtuele machines.
 services: azure-monitor
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/15/2018
+ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 84314f64d8a96e65f63cb5c6051f7f5e902cd682
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 059667787c905f47f6629afdb249a2273ceed585
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387818"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50094224"
 ---
-# <a name="understand-the-health-of-your-azure-virtual-machines-with-azure-monitor-for-vms"></a>Meer informatie over de status van uw Azure virtual machines met Azure Monitor voor virtuele machines
+# <a name="understand-the-health-of-your-azure-virtual-machines-with-azure-monitor-for-vms-preview"></a>Meer informatie over de status van uw Azure virtual machines met Azure Monitor voor virtuele machines (Preview)
 Azure bevat meerdere services die afzonderlijk uitvoeren van een specifieke rol of de taak in de ruimte bewaking, maar biedt een perspectief gedetailleerde status van het besturingssysteem die worden gehost op Azure virtual machines niet beschikbaar was.  Terwijl u verschillende voorwaarden met behulp van Log Analytics of Azure Monitor controleren kan, zijn ze niet ontworpen om te modelleren en status van de belangrijkste onderdelen of algemene status van de virtuele machine vertegenwoordigen.  Met Azure Monitor voor virtuele machines de gezondheid van functie bewaakt het proactief de beschikbaarheid en prestaties van de Windows- of Linux Gast-OS met een model met daarin belangrijke onderdelen en hun relaties, criteria waarmee wordt aangegeven hoe u voor het meten van de status van deze onderdelen, en u waarschuwen wanneer een slechte status voorwaarde wordt gedetecteerd.  
 
 De algehele status van de Azure-VM weergave en het onderliggende besturingssysteem kunnen worden waargenomen vanuit twee perspectieven met Azure Monitor status van de virtuele machines, rechtstreeks vanuit de virtuele machine of voor alle virtuele machines in een resourcegroep van Azure Monitor.
@@ -35,7 +35,7 @@ In deze sectie geeft een overzicht van de standaard status criteria gedefinieerd
 
 ### <a name="windows-vms"></a>Virtuele Windows-machines
 
-- Beschikbaar geheugen in Megabytes 
+- Beschikbaar geheugen in Megabytes 
 - Gemiddelde seconden Per schrijfbewerking (logische schijf)
 - Gemiddelde seconden Per schrijfbewerking (schijf)
 - Gemiddelde logische schijf seconden Per leesbewerking

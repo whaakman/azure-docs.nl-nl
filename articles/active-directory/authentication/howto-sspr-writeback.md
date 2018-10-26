@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 57446f068945d74351a77f21e16874d9e24ddcab
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: e8a09a9fc87bff692b5d5b4c54f87839f2591b63
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48801927"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50086944"
 ---
 # <a name="how-to-configure-password-writeback"></a>Instructies: Het terugschrijven van wachtwoorden configureren
 
@@ -72,13 +72,14 @@ Om in te stellen op de juiste machtigingen voor het terugschrijven van wachtwoor
 3. In het linkerdeelvenster met de rechtermuisknop op het object dat staat voor de hoofdmap van het domein en selecteer **eigenschappen** > **Security** > **Geavanceerd**.
 4. Uit de **machtigingen** tabblad **toevoegen**.
 5. Kies het account dat machtigingen worden toegepast op (van de Azure AD Connect-installatie).
-6. In de **is van toepassing op** vervolgkeuzelijst, selecteer **onderliggende gebruiker** objecten.
+6. In de **is van toepassing op** vervolgkeuzelijst, selecteer **Descendant gebruikersobjecten**.
 7. Onder **machtigingen**, schakelt u de selectievakjes voor de volgende opties:
-    * **Wachtwoord opnieuw instellen**
     * **Wachtwoord wijzigen**
+    * **Wachtwoord opnieuw instellen**
+8. Onder **eigenschappen**, schakelt u de selectievakjes voor de volgende opties:
     * **LockoutTime schrijven**
     * **PwdLastSet schrijven**
-8. Selecteer **toepassen/OK** de wijzigingen toepassen en afsluiten van alle geopende dialoogvensters.
+9. Selecteer **toepassen/OK** de wijzigingen toepassen en afsluiten van alle geopende dialoogvensters.
 
 ## <a name="next-steps"></a>Volgende stappen
 

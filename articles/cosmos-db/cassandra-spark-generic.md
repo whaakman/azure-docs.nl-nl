@@ -10,12 +10,12 @@ ms.devlang: spark-scala
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ankhanol
-ms.openlocfilehash: 38a972d39b845dca39bcc4dcf921c603301af582
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 165919fa3d456786e926f754dba378be38c12588
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48869649"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50094241"
 ---
 # <a name="connect-to-azure-cosmos-db-cassandra-api-from-spark"></a>Verbinding maken met Azure Cosmos DB Cassandra-API van Spark
 
@@ -29,7 +29,7 @@ In dit artikel is een tussen een reeks artikelen over Cassandra-API van Azure Co
 ## <a name="dependencies-for-connectivity"></a>Afhankelijkheden voor connectiviteit
 * **Spark-connector voor Cassandra:** Spark-connector wordt gebruikt voor verbinding met Azure Cosmos DB Cassandra-API.  Bepalen welke en de versie van de connector zich bevindt [Maven central]( https://mvnrepository.com/artifact/com.datastax.spark/spark-cassandra-connector) die compatibel is met de Spark- en Scala-versies van uw Spark-omgeving.
 
-* **Azure Cosmos DB-helper-bibliotheek voor Cassandra-API:** naast de Spark-connector, moet u een ander bibliotheektype bespreken [azure-cosmos-cassandra-spark-helper]( https://search.maven.org/artifact/com.microsoft.azure.cosmosdb/azure-cosmos-cassandra-spark-helper/1.0.0/jar) van Azure Cosmos DB. Deze bibliotheek bevat een factory verbinding en een aangepaste nieuwe poging beleid klassen.
+* **Azure Cosmos DB-helper-bibliotheek voor Cassandra-API:** naast de Spark-connector, moet u een ander bibliotheektype bespreken [azure-cosmos-cassandra-spark-helper]( https://search.maven.org/artifact/com.microsoft.azure.cosmosdb/azure-cosmos-cassandra-spark-helper/1.0.0/jar) van Azure Cosmos DB. Deze bibliotheek bevat klassen beleid van aangepaste verbinding factory en probeer het opnieuw.
 
   Het beleid voor opnieuw proberen in Azure Cosmos DB is geconfigureerd voor het afhandelen van HTTP-status code 429 ("tarief grote aanvraag') uitzonderingen. De Cassandra-API van Azure Cosmos DB vertaalt deze uitzonderingen overbelaste fouten op het systeemeigen Cassandra-protocol en u kunt het opnieuw met de back-laag. Omdat Azure Cosmos DB ingerichte doorvoer model gebruikt, wordt aanvraag beperkende uitzonderingen optreden wanneer de Inkomend/uitgaand verkeer toename van de tarieven. Het beleid voor opnieuw proberen beschermt uw spark-taken op basis van gegevens pieken die tijdelijk groter is dan de doorvoer die is toegewezen voor uw verzameling.
 

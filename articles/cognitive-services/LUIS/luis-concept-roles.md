@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 9bbbb797cd7e7d1cea52f1d5b1b491998b595db7
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 94a02a06335b35a36c35d4b69776b1eb630b402d
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638072"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50086019"
 ---
 # <a name="entity-roles-in-patterns-are-contextual-subtypes"></a>Rollen van de entiteit in de patronen zijn contextuele subtypen
 Rollen zijn met de naam, contextuele subtypen van een entiteit gebruikt alleen in [patronen](luis-concept-patterns.md).
@@ -42,13 +42,8 @@ Rollen worden gebruikt in een patroon van sjabloon utterance, binnen de utteranc
 ## <a name="role-syntax-in-patterns"></a>Syntaxis van de rol van patronen
 De entiteit en de rol worden tussen haakjes, `{}`. De entiteit en de rol worden gescheiden door een dubbele punt. 
 
-## <a name="roles-versus-hierarchical-entities"></a>Functies ten opzichte van hiërarchische entiteiten
-Hiërarchische entiteiten bevatten de dezelfde contextuele informatie als rollen, maar alleen voor uitingen in **intents**. Op deze manier rollen bieden dezelfde contextuele informatie als hiërarchische entiteiten, maar alleen in **patronen**.
 
-|Contextuele learning|Gebruikt in|
-|--|--|
-|hiërarchische entiteiten|Intents|
-|rolls|Patronen|
+[!include[H2 Roles versus hierarchical entities](../../../includes/cognitive-services-luis-hier-roles.md)] 
 
 ## <a name="roles-with-prebuilt-entities"></a>Rollen met vooraf gemaakte entiteiten
 

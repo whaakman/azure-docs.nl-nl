@@ -13,12 +13,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 633717a9f5f74648f7418970dd8047079efe18b9
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 38839379f584b40cdbefad3e4cbb3bc47881c9a7
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49649088"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50094592"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Een Azure-SSIS integratieruntime toevoegen aan een virtueel netwerk
 Uw Azure-SSIS integratieruntime (IR) toevoegen aan een Azure-netwerk in de volgende scenario's: 
@@ -28,6 +28,9 @@ Uw Azure-SSIS integratieruntime (IR) toevoegen aan een Azure-netwerk in de volge
 - Als u beheert de SQL Server Integration Services (SSIS)-catalogusdatabase in Azure SQL Database met virtual network service-eindpunten/beheerd exemplaar. 
 
  Azure Data Factory kunt u uw Azure-SSIS integratieruntime toevoegen aan een virtueel netwerk die zijn gemaakt via het klassieke implementatiemodel of het implementatiemodel Azure Resource Manager. 
+
+> [!IMPORTANT]
+> Het klassieke virtuele netwerk is op dit moment wordt afgeschaft, dus gebruik de Azure Resource Manager-virtuele netwerk in plaats daarvan.  Als u al het klassieke virtuele netwerk, ga dan voor het gebruik van het virtuele netwerk van Azure Resource Manager zo snel mogelijk.
 
 ## <a name="access-to-on-premises-data-stores"></a>Toegang tot on-premises gegevensopslagexemplaren
 Als de SSIS-pakketten toegang tot gegevensarchieven enige openbare cloud, moet u niet de Azure-SSIS IR toevoegen aan een virtueel netwerk. Als de SSIS-pakketten toegang krijgen tot on-premises gegevensopslagexemplaren, moet u de Azure-SSIS IR toevoegen aan een virtueel netwerk dat is verbonden met de on-premises netwerk. 
@@ -46,11 +49,13 @@ Hier volgen enkele belangrijke punten om te weten:
 Als de SSIS-catalogus wordt gehost in Azure SQL Database met virtual network-service-eindpunten of Managed Instance, u kunt deelnemen aan uw Azure-SSIS IR aan: 
 
 - Hetzelfde virtuele netwerk 
-- Een ander virtueel netwerk met een netwerk-naar-netwerkverbinding met het item dat wordt gebruikt voor Azure SQL Database met virtual network service-eindpunten/beheerd exemplaar 
+- Een ander virtueel netwerk met een netwerk-naar-netwerkverbinding met de optie die wordt gebruikt voor het beheerde exemplaar 
 
-Als u uw Azure-SSIS IR aan hetzelfde virtuele netwerk bevinden als het beheerde exemplaar toevoegen, zorg ervoor dat de Azure-SSIS IR in een ander subnet dan het beheerde exemplaar is. Als u de Azure-SSIS IR aan een ander virtueel netwerk dan het beheerde exemplaar toevoegen, raden wij peering op virtueel netwerk (dit is beperkt tot dezelfde regio bevinden) of een virtueel netwerk met virtuele netwerk. Zie [verbinding maken met uw toepassing naar Azure SQL Database Managed Instance](../sql-database/sql-database-managed-instance-connect-app.md).
+Als u uw SSIS-catalogus in Azure SQL Database met virtual network-service-eindpunten host, ervoor zorgen dat u uw Azure-SSIS IR aan hetzelfde virtuele netwerk en subnet toevoegen.
 
-Het virtuele netwerk kan worden geïmplementeerd via het klassieke implementatiemodel of het implementatiemodel Azure Resource Manager.
+Als u uw Azure-SSIS IR aan hetzelfde virtuele netwerk bevinden als het beheerde exemplaar toevoegen, zorg ervoor dat de Azure-SSIS IR in een ander subnet dan het beheerde exemplaar is. Als u uw Azure-SSIS IR aan een ander virtueel netwerk dan het beheerde exemplaar toevoegen, raden wij peering op virtueel netwerk (dit is beperkt tot dezelfde regio bevinden) of een virtueel netwerk met virtuele netwerk. Zie [verbinding maken met uw toepassing naar Azure SQL Database Managed Instance](../sql-database/sql-database-managed-instance-connect-app.md).
+
+In alle gevallen moet worden het virtuele netwerk alleen geïmplementeerd via het Azure Resource Manager-implementatiemodel.
 
 De volgende secties vindt u meer informatie. 
 
@@ -73,13 +78,13 @@ De volgende secties vindt u meer informatie.
 
 De gebruiker die de Azure-SSIS Integration Runtime maakt, moet de volgende machtigingen hebben:
 
-- Als u de SSIS-IR aan een Azure-netwerk van de huidige versie toevoegen bent, hebt u twee opties:
+- Als u uw SSIS-IR aan een virtueel netwerk van Azure Resource Manager toevoegen bent, hebt u twee opties:
 
-  - Gebruik de ingebouwde rol *Inzender voor netwerken*. Deze rol is vereist de *Microsoft.Network/\**  machtiging, maar een veel groter bereik heeft.
+  - Gebruik de ingebouwde *Inzender voor netwerken* rol. Deze rol wordt geleverd met de *Microsoft.Network/\**  machtiging een veel groter bereik dan nodig heeft.
 
-  - Een aangepaste rol maken die de machtiging bevat *Microsoft.Network/virtualNetworks/\*/join/actie*. 
+  - Een aangepaste rol maken die alleen de benodigde bevat *Microsoft.Network/virtualNetworks/\*/join/actie* machtiging. 
 
-- Als u de SSIS-IR aan een klassiek virtueel netwerk van Azure toevoegen bent, raden wij aan dat u de ingebouwde rol *Inzender voor klassieke virtuele machines*. Anders moet u een aangepaste rol met machtigingen om lid van het virtuele netwerk te definiëren.
+- Als u uw SSIS-IR aan een klassiek virtueel netwerk toevoegen bent, raden wij aan dat u de ingebouwde *Inzender voor klassieke virtuele machines* rol. Anders moet u een aangepaste rol met de machtigingen om lid van het virtuele netwerk te definiëren.
 
 ### <a name="subnet"></a> Het subnet selecteren
 -   Selecteer het GatewaySubnet voor het implementeren van een Azure-SSIS Integration Runtime, niet omdat deze is specifiek voor virtuele netwerkgateways. 

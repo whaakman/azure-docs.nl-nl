@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/17/2018
+ms.date: 10/25/2018
 ms.author: tomfitz
-ms.openlocfilehash: c32c4f97a963485e87e36afc44e9cea2ebcebd90
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: e99d5d36fa46e9972e706d580e4dfb1d5f9e8bbc
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394406"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50093819"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Resources verplaatsen naar een nieuwe resourcegroep of abonnement
 
@@ -28,8 +28,10 @@ Bij het verplaatsen van resources, worden zowel de brongroep en de doelgroep ver
 U kunt de locatie van de resource niet wijzigen. Verplaatsen van een resource alleen verplaatst naar een nieuwe resourcegroep. De nieuwe resourcegroep mogelijk een andere locatie, maar dat de locatie van de resource niet wijzigen.
 
 > [!NOTE]
-> Dit artikel wordt beschreven hoe u verplaatst resources binnen een bestaand Azure-account aanbod. Als u daadwerkelijk wijzigen van uw Azure-account (zoals het bijwerken van betalen per gebruik om te vooraf betalen) bieden wilt terwijl u verdergaat met het werken met uw bestaande bronnen, raadpleegt u [uw Azure-abonnement overstappen naar een andere aanbieding](../billing/billing-how-to-switch-azure-offer.md).
->
+> Dit artikel wordt beschreven hoe u verplaatst resources binnen een bestaand Azure-account aanbod. Als u daadwerkelijk wijzigen van uw Azure-account wilt (zoals het upgraden van gratis naar betalen per gebruik)-aanbieding die u wilt converteren van uw abonnement. 
+> * Zie het upgraden van een gratis proefversie [uw gratis proefversie of Azure voor Microsoft Imagine-abonnement upgraden naar betalen per gebruik](..//billing/billing-upgrade-azure-subscription.md).
+> * Als u wilt wijzigen in een betalen per gebruik-account, Zie [wijzigen van uw Azure-betalen per gebruik-abonnement naar een andere aanbieding](../billing/billing-how-to-switch-azure-offer.md).
+> * Als u het abonnement niet kan omzetten [maken van een Azure-ondersteuningsaanvraag](../azure-supportability/how-to-create-azure-support-request.md). Selecteer **Abonnementsbeheer** voor het probleemtype.
 >
 
 ## <a name="checklist-before-moving-resources"></a>Controlelijst voor het verplaatsen van resources
@@ -269,7 +271,7 @@ De volgende lijst bevat een algemeen overzicht van Azure-services die niet worde
 
 Beheerde schijven worden ondersteund voor de verplaatsing vanaf September 24 mei 2018. 
 
-1. Hebt u te registreren als deze functie wilt inschakelen.
+1. In het bronabonnement, registreert u deze functie.
 
   ```azurepowershell-interactive
   Register-AzureRmProviderFeature -FeatureName ManagedResourcesMove -ProviderNamespace Microsoft.Compute

@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 10/25/2018
 ms.author: jeedes
-ms.openlocfilehash: c611fd7893a96113a4a9f2454bcd0b11db02be29
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 6e1f76548e2433f9bc4b0b26b0894a92b7ec0aa0
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45605099"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50092556"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-snowflake"></a>Zelfstudie: Azure Active Directory-integratie met Snowflake
 
@@ -31,7 +31,7 @@ Snowflake integreren met Azure AD biedt u de volgende voordelen:
 - U kunt uw gebruikers automatisch ophalen aangemeld bij Snowflake (Single Sign-On) met hun Azure AD-accounts inschakelen.
 - U kunt uw accounts in één centrale locatie - Azure portal beheren.
 
-Als u wilt graag meer informatie over de integratie van de SaaS-app met Azure AD, Zie [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Als u wilt graag meer informatie over de integratie van de SaaS-app met Azure AD, Zie [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -39,7 +39,6 @@ Voor het configureren van Azure AD-integratie met Snowflake, moet u de volgende 
 
 - Een Azure AD-abonnement
 - Een Snowflake eenmalige aanmelding ingeschakeld abonnement
-- Klanten die geen Snowflake-account hebt en wilt uitproberen via Azure AD app gallery en Raadpleeg [dit](https://trial.snowflake.net/?cloud=azure&utm_source=azure-marketplace&utm_medium=referral&utm_campaign=self-service-azure-mp) koppeling.
 
 > [!NOTE]
 > Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
@@ -50,12 +49,14 @@ Als u wilt testen van de stappen in deze zelfstudie, moet u deze aanbevelingen v
 - Als u geen een proefversie Azure AD-omgeving hebt, kunt u [een proefversie van één maand krijgen](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
+
 In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
 1. Snowflake uit de galerie toe te voegen
 2. Configureren en testen van Azure AD eenmalige aanmelding
 
 ## <a name="adding-snowflake-from-the-gallery"></a>Snowflake uit de galerie toe te voegen
+
 Voor het configureren van de integratie van Snowflake in Azure AD, moet u Snowflake uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
 
 **Als u wilt toevoegen Snowflake uit de galerie, moet u de volgende stappen uitvoeren:**
@@ -67,7 +68,7 @@ Voor het configureren van de integratie van Snowflake in Azure AD, moet u Snowfl
 2. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
 
     ![De blade Enterprise-toepassingen][2]
-    
+
 3. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
 
     ![De knop nieuwe toepassing][3]
@@ -84,13 +85,13 @@ Voor eenmalige aanmelding om te werken, moet Azure AD om te weten wat de gebruik
 
 Als u wilt configureren en testen van Azure AD eenmalige aanmelding met Snowflake, u nodig hebt voor de volgende bouwstenen:
 
-1. **[Azure AD eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
-2. **[Maak een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-3. **[Maak een testgebruiker Snowflake](#create-a-snowflake-test-user)**  : als u wilt een equivalent van Britta Simon in Snowflake die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
-4. **[Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-5. **[Eenmalige aanmelding testen](#test-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
+1. **[Configureren van Azure AD eenmalige aanmelding](#configuring-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
+2. **[Het maken van een Azure AD-testgebruiker](#creating-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
+3. **[Het maken van het Snowflake testgebruiker](#creating-snowflake-test-user)**  : als u wilt een equivalent van Britta Simon in Snowflake die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
+4. **[Toewijzen van de Azure AD-testgebruiker](#assigning-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
+5. **[Eenmalige aanmelding testen](#testing-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Azure AD eenmalige aanmelding configureren
+### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD eenmalige aanmelding configureren
 
 In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal en configureren van eenmalige aanmelding in uw toepassing Snowflake.
 
@@ -100,89 +101,95 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     ![Koppeling voor eenmalige aanmelding configureren][4]
 
-2. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
- 
-    ![In het dialoogvenster voor eenmalige aanmelding](./media/snowflake-tutorial/tutorial_snowflake_samlbase.png)
+2. Op de **selecteert u een methode voor eenmalige aanmelding** dialoogvenster, klikt u op **Selecteer** voor **SAML** modus voor eenmalige aanmelding inschakelen.
 
-3. Op de **Snowflake-domein en URL's** sectie, voert u de volgende stappen uit:
+    ![Eenmalige aanmelding configureren](common/tutorial_general_301.png)
 
-    ![Snowflake-domein en URL's, eenmalige aanmelding informatie](./media/snowflake-tutorial/tutorial_snowflake_url.png)
+3. Op de **instellen van eenmalige aanmelding met SAML** pagina, klikt u op **bewerken** pictogram openen **SAML-basisconfiguratie** dialoogvenster.
+
+    ![Eenmalige aanmelding configureren](common/editconfigure.png)
+
+4. Op de **SAML-basisconfiguratie** sectie, voert u de volgende stappen uit als u wilt configureren van de toepassing in **IDP** modus gestart:
+
+    ![Snowflake-domein en URL's, eenmalige aanmelding informatie](./media/snowflake-tutorial/tutorial_snowflake_url1.png)
 
     a. In de **id** tekstvak, een URL met behulp van het volgende patroon: `https://<SNOWFLAKE-URL>.snowflakecomputing.com`
 
     b. In de **antwoord-URL** tekstvak, een URL met behulp van het volgende patroon: `https://<SNOWFLAKE-URL>.snowflakecomputing.com/fed/login`
 
-4. Controleer **geavanceerde URL-instellingen weergeven** en voer de volgende stap als u wilt configureren van de toepassing in **SP** modus gestart:
+5. Klik op **extra URL's instellen** en voer de volgende stap als u wilt configureren van de toepassing in **SP** modus gestart:
 
-    ![Snowflake-domein en URL's, eenmalige aanmelding informatie](./media/snowflake-tutorial/tutorial_snowflake_url1.png)
+    ![Snowflake-domein en URL's, eenmalige aanmelding informatie](./media/snowflake-tutorial/tutorial_snowflake_url2.png)
 
     In de **aanmeldings-URL** tekstvak, een URL met behulp van het volgende patroon: `https://<SNOWFLAKE-URL>.snowflakecomputing.com`
-     
-    > [!NOTE] 
+
+    > [!NOTE]
     > Deze waarden zijn niet echt. Werk deze waarden met de werkelijke-id, de antwoord-URL en aanmeldings-URL.
 
-5. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **certificaat (Base64)** en slaat u het certificaatbestand op uw computer.
+6. Op de **SAML-handtekeningcertificaat** pagina, in de **SAML-handtekeningcertificaat** sectie, klikt u op **downloaden** downloaden **certificaat (Base64)** en sla het certificaatbestand op uw computer.
 
     ![De downloadkoppeling certificaat](./media/snowflake-tutorial/tutorial_snowflake_certificate.png) 
 
-6. Klik op **opslaan** knop.
+7. Op de **instellen van Snowflake** sectie, kopieert u de juiste URL aan de hand van uw behoeften.
 
-    ![Configureren van eenmalige aanmelding opslaan](./media/snowflake-tutorial/tutorial_general_400.png)
-    
-7. Op de **Snowflake configuratie** sectie, klikt u op **configureren Snowflake** openen **aanmelding configureren** venster. Kopiëren de **Single Sign-On Service URL voor SAML** uit de **Naslaggids sectie.**
+    a. Aanmeldings-URL
 
-    ![Snowflake-configuratie](./media/snowflake-tutorial/tutorial_snowflake_configure.png) 
+    b. Azure AD-id
+
+    c. URL voor afmelden
+
+    ![Snowflake-configuratie](common/configuresection.png)
 
 8. In een ander browservenster, meld u aan bij Snowflake als een beveiligingsbeheerder.
 
-9. Uitvoeren de onderstaande SQL-query op het werkblad door in te stellen de **certificaat** waarde die moet worden de **gedownload certificaat** en **ssoUrl** naar de gekopieerde **SAML Single Sign-On Service-URL** van Azure AD aan de waarde zoals hieronder wordt weergegeven.
+9. **Overschakelen van functie** naar **ACCOUNTADMIN**, door te klikken op **profiel** op rechtsboven van de pagina.
 
-    ![Snowflake-sql](./media/snowflake-tutorial/tutorial_snowflake_sql.png) 
+    > [!NOTE]
+    > Dit staat los van de context die u hebt geselecteerd in de rechterbovenhoek onder de naam van de gebruiker
+    
+    ![De Snowflake-beheerder ](./media/snowflake-tutorial/tutorial_snowflake_accountadmin.png)
+
+10. Open de **Base 64-certificaat gedownload** in Kladblok. Kopieer de waarde tussen "---BEGIN CERTIFICATE---" en '---END CERTIFICATE---' en plak deze in de aanhalingstekens naast **certificaat** hieronder. In de **ssoUrl**, plak **aanmeldings-URL** waarde die u hebt gekopieerd vanuit Azure portal. Selecteer de **alle query's** en klikt u op **uitvoeren**.
+
+    ![Snowflake-sql](./media/snowflake-tutorial/tutorial_snowflake_sql.png)
 
     ```
     use role accountadmin;
     alter account set saml_identity_provider = '{
     "certificate": "<Paste the content of downloaded certificate from Azure portal>",
-    "ssoUrl":"<SAML single sign-on service URL value which you have copied from the Azure portal>",
+    "ssoUrl":"<Login URL value which you have copied from the Azure portal>",
     "type":"custom",
     "label":"AzureAD"
     }';
     alter account set sso_login_page = TRUE;
     ```
 
-### <a name="create-an-azure-ad-test-user"></a>Maak een testgebruiker Azure AD
+### <a name="creating-an-azure-ad-test-user"></a>Het maken van een Azure AD-testgebruiker
 
 Het doel van deze sectie is het maken van een testgebruiker in Azure portal Britta Simon genoemd.
 
-   ![Maak een testgebruiker Azure AD][100]
+1. Selecteer in de Azure portal, in het linkerdeelvenster **Azure Active Directory**, selecteer **gebruikers**, en selecteer vervolgens **alle gebruikers**.
 
-**Als u wilt een testgebruiker maken in Azure AD, moet u de volgende stappen uitvoeren:**
+    ![Azure AD-gebruiker maken][100]
 
-1. In de Azure portal, in het linkerdeelvenster klikt u op de **Azure Active Directory** knop.
+2. Selecteer **nieuwe gebruiker** aan de bovenkant van het scherm.
 
-    ![De Azure Active Directory-knop](./media/snowflake-tutorial/create_aaduser_01.png)
+    ![Het maken van een Azure AD-testgebruiker](common/create_aaduser_01.png) 
 
-2. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen**, en klik vervolgens op **alle gebruikers**.
+3. In de eigenschappen van de gebruiker de volgende stappen uitvoeren.
 
-    !['Gebruikers en groepen' en 'Alle gebruikers' koppelingen](./media/snowflake-tutorial/create_aaduser_02.png)
+    ![Het maken van een Azure AD-testgebruiker](common/create_aaduser_02.png)
 
-3. Om te openen de **gebruiker** in het dialoogvenster, klikt u op **toevoegen** aan de bovenkant van de **alle gebruikers** in het dialoogvenster.
+    a. In de **naam** veld **BrittaSimon**.
+  
+    b. In de **gebruikersnaam** veld, typt u **brittasimon@yourcompanydomain.extension**  
+    Bijvoorbeeld: BrittaSimon@contoso.com
 
-    ![De knop toevoegen](./media/snowflake-tutorial/create_aaduser_03.png)
+    c. Selecteer **eigenschappen**, selecteer de **Show wachtwoord** selectievakje en noteer de waarde die wordt weergegeven in het wachtwoord.
 
-4. In de **gebruiker** dialoogvenster vak, voer de volgende stappen uit:
+    d. Selecteer **Maken**.
 
-    ![Het dialoogvenster gebruiker](./media/snowflake-tutorial/create_aaduser_04.png)
-
-    a. In de **naam** in het vak **BrittaSimon**.
-
-    b. In de **gebruikersnaam** typt u het e-mailadres van gebruiker Britta Simon.
-
-    c. Selecteer de **wachtwoord weergeven** selectievakje en noteer de waarde die wordt weergegeven in de **wachtwoord** vak.
-
-    d. Klik op **Create**.
- 
-### <a name="create-a-snowflake-test-user"></a>Maak een testgebruiker Snowflake
+### <a name="creating-snowflake-test-user"></a>Snowflake-testgebruiker maken
 
 Als u wilt dat gebruikers zich aanmelden bij Snowflake Azure AD, moeten ze worden ingericht voor Snowflake. In Snowflake is inrichten een handmatige taak.
 
@@ -199,66 +206,55 @@ Als u wilt dat gebruikers zich aanmelden bij Snowflake Azure AD, moeten ze worde
     ![De Snowflake-adminsql ](./media/snowflake-tutorial/tutorial_snowflake_usersql.png)
 
     ```
-
     use role accountadmin;
     CREATE USER britta_simon PASSWORD = '' LOGIN_NAME = 'BrittaSimon@contoso.com' DISPLAY_NAME = 'Britta Simon';
     ```
 
-### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
+### <a name="assigning-the-azure-ad-test-user"></a>Toewijzen aan de gebruiker van de test Azure AD
 
 In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmelding door toegang te verlenen aan Snowflake.
 
-![De de gebruikersrol toewijzen][200] 
+1. Selecteer in de Azure portal, **bedrijfstoepassingen**, selecteer **alle toepassingen**.
 
-**Als u wilt toewijzen Britta Simon met Snowflake, moet u de volgende stappen uitvoeren:**
-
-1. Open de weergave toepassingen in de Azure-portal en gaat u naar de mapweergave en Ga naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
-
-    ![Gebruiker toewijzen][201] 
+    ![Gebruiker toewijzen][201]
 
 2. Selecteer in de lijst met toepassingen, **Snowflake**.
 
-    ![De Snowflake-koppeling in de lijst met toepassingen](./media/snowflake-tutorial/tutorial_snowflake_app.png)  
+    ![Eenmalige aanmelding configureren](./media/snowflake-tutorial/tutorial_snowflake_app.png) 
 
 3. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
 
-    ![De koppeling 'Gebruikers en groepen'][202]
+    ![Gebruiker toewijzen][202]
 
 4. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
 
-    ![Het deelvenster toewijzing toevoegen][203]
+    ![Gebruiker toewijzen][203]
 
-5. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
+5. In de **gebruikers en groepen** dialoogvenster Selecteer **Britta Simon** in de lijst met gebruikers, en klik op de **Selecteer** knop aan de onderkant van het scherm.
 
-6. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
+6. In de **toevoegen toewijzing** dialoogvenster Selecteer de **toewijzen** knop.
 
-7. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
-    
-### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
+### <a name="testing-single-sign-on"></a>Eenmalige aanmelding testen
 
 In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
 
 Wanneer u op de tegel Snowflake in het toegangsvenster, u moet u automatisch aangemeld bij uw toepassing Snowflake.
-Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsvenster](../active-directory-saas-access-panel-introduction.md). 
+Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsvenster](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
-
-
 <!--Image references-->
 
-[1]: ./media/snowflake-tutorial/tutorial_general_01.png
-[2]: ./media/snowflake-tutorial/tutorial_general_02.png
-[3]: ./media/snowflake-tutorial/tutorial_general_03.png
-[4]: ./media/snowflake-tutorial/tutorial_general_04.png
+[1]: common/tutorial_general_01.png
+[2]: common/tutorial_general_02.png
+[3]: common/tutorial_general_03.png
+[4]: common/tutorial_general_04.png
 
-[100]: ./media/snowflake-tutorial/tutorial_general_100.png
+[100]: common/tutorial_general_100.png
 
-[200]: ./media/snowflake-tutorial/tutorial_general_200.png
-[201]: ./media/snowflake-tutorial/tutorial_general_201.png
-[202]: ./media/snowflake-tutorial/tutorial_general_202.png
-[203]: ./media/snowflake-tutorial/tutorial_general_203.png
-
+[201]: common/tutorial_general_201.png
+[202]: common/tutorial_general_202.png
+[203]: common/tutorial_general_203.png

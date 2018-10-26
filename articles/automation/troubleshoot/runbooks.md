@@ -8,12 +8,12 @@ ms.date: 10/17/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 33c2bd48084c3d0e73fe2f4a1ce922e7a66b944f
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 532d3d73c939a44678091734f2bbff22267ab6b7
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955412"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50094861"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Fouten met runbooks oplossen
 
@@ -93,8 +93,9 @@ Deze fout treedt op als naam van het abonnement is niet geldig of als de Azure A
 
 Om te bepalen als u hebt geverifieerd naar Azure en toegang tot het abonnement dat u probeert hebben te selecteren, moet u de volgende stappen uitvoeren:  
 
-1. Zorg ervoor dat u uitvoert het **Add-AzureAccount** cmdlet voordat u de **Select-AzureSubscription** cmdlet.  
-2. Als u nog steeds deze foutmelding ziet, wijzigt u de code door toe te voegen de **- AzureRmContext** parameter volgende de **Add-AzureAccount** cmdlet en vervolgens de code wordt uitgevoerd.
+1. Het script buiten Azure Automation om te controleren of dat deze werkt zelfstandige testen.
+2. Zorg ervoor dat u uitvoert het **Add-AzureAccount** cmdlet voordat u de **Select-AzureSubscription** cmdlet.  
+3. Als u nog steeds deze foutmelding ziet, wijzigt u de code door toe te voegen de **- AzureRmContext** parameter volgende de **Add-AzureAccount** cmdlet en vervolgens de code wordt uitgevoerd.
 
    ```powershell
    $Conn = Get-AutomationConnection -Name AzureRunAsConnection
@@ -104,7 +105,7 @@ Om te bepalen als u hebt geverifieerd naar Azure en toegang tot het abonnement d
    $context = Get-AzureRmContext
 
    Get-AzureRmVM -ResourceGroupName myResourceGroup -AzureRmContext $context
-   ```
+    ```
 
 ### <a name="auth-failed-mfa"></a>Scenario: De verificatie bij Azure is mislukt omdat de multi-factor authentication is ingeschakeld
 
@@ -305,7 +306,7 @@ Een van de volgende oplossingen het probleem wordt opgelost:
 * Controleer of u de cmdletnaam van de juist hebt ingevoerd.  
 * Zorg ervoor dat de cmdlet bestaat in uw Automation-account en er zijn geen conflicten. Om te controleren of de cmdlet aanwezig is, opent u een runbook in de bewerkingsmodus en zoeken naar de cmdlet die u wilt zoeken in de bibliotheek of uitvoeren `Get-Command <CommandName>`. Zodra u hebt gevalideerd die de cmdlet voor het account beschikbaar is en dat er geen naam conflicteert met andere cmdlets of runbooks, toe te voegen aan het canvas en zorg ervoor dat u een geldige parameter ingesteld in uw runbook.  
 * Als er een naamconflict en de cmdlet beschikbaar in twee verschillende modules is, kunt u deze kunt oplossen met behulp van de volledig gekwalificeerde naam van de cmdlet. Bijvoorbeeld, kunt u **ModuleName\CmdletName**.  
-* Als u bent de runbook on-premises wordt uitgevoerd in een hybrid worker-groep en zorg ervoor dat is de module/cmdlet op de computer die als host fungeert voor de hybrid worker geïnstalleerd.
+* Als u bent de runbook on-premises wordt uitgevoerd in een hybrid worker-groep en zorg ervoor dat is de module en de cmdlet geïnstalleerd op de computer die als host fungeert voor de hybrid worker.
 
 ### <a name="long-running-runbook"></a>Scenario: Een langlopende runbook kan niet worden voltooid
 

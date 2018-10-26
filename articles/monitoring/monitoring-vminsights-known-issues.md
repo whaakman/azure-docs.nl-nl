@@ -1,5 +1,5 @@
 ---
-title: Azure Monitor voor bekende problemen met VM's | Microsoft Docs
+title: Problemen met Azure Monitor voor bekende VM's (Preview) | Microsoft Docs
 description: Azure Monitor voor virtuele machines is een oplossing in Azure en combineert status en prestaties bewaken van het besturingssysteem van de virtuele machine van Azure, evenals automatisch detecteren van onderdelen van de toepassing en afhankelijkheden met andere resources en de communicatie tussen de kaarten ze. In dit artikel bevat informatie over bekende problemen.
 services: azure-monitor
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/15/2018
+ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 6d1f1d1ae07ec32262f655fd6ed7205a70e252f4
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: eba9e26f12fd9e1862727adec4f8c8f594e8f659
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49385082"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50091671"
 ---
-# <a name="known-issues-with-azure-monitor-for-vms"></a>Bekende problemen met Azure Monitor voor virtuele machines
+# <a name="known-issues-with-azure-monitor-for-vms-preview"></a>Bekende problemen met Azure Monitor voor virtuele machines (Preview)
 
 Hieronder volgen enkele bekende problemen met de Health-functie van Azure Monitor voor virtuele machines:
 

@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 10/23/2018
 ms.author: sethm
 ms.reviewer: harik
-ms.openlocfilehash: 523be365e8b66c157546470a70ddec73d3e1e5d1
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: f00b175fed36fbe2b28f1d11843bb17c54ac3873
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45630678"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50086961"
 ---
 # <a name="azure-stack-servicing-policy"></a>Azure Stack servicebeleid
 Dit artikel wordt beschreven voor het uitvoeren van onderhoud beleid voor geïntegreerde Azure Stack-systemen, en wat u moet doen om te voorkomen dat uw systeem in een ondersteunde status. 
@@ -37,11 +37,12 @@ Er zijn twee soorten updatepakketten voor geïntegreerde systemen:
 ## <a name="update-package-release-cadence"></a>Vrijgeeffrequentie pakket bijwerken
 Microsoft verwacht om software-updatepakketten een maandelijkse uitgebracht vrij te geven. Het is echter mogelijk om meerdere, of er zijn geen updates in een maand. OEM-hardwareleveranciers vrijgeven hun updates op basis van behoefte. 
 
-Documentatie voor het plannen en beheren van updates en het bepalen van uw huidige versie in [beheren updates overzicht](azure-stack-updates.md). Voor informatie over een bepaalde update, met inbegrip van hoe u het downloaden, Zie de releaseopmerkingen voor deze update: 
+Documentatie voor het plannen en beheren van updates en het bepalen van uw huidige versie in [beheren updates overzicht](azure-stack-updates.md). 
+
+Voor informatie over een bepaalde update, met inbegrip van hoe u het downloaden, Zie de releaseopmerkingen voor deze update: 
+- [Azure Stack 1809 update](azure-stack-update-1809.md)
 - [Azure Stack 1808 update](azure-stack-update-1808.md)
 - [Azure Stack 1807 update](azure-stack-update-1807.md)
-- [Azure Stack 1805 update](azure-stack-update-1805.md)
-
 
 ## <a name="hotfixes"></a>Hotfixes
 In sommige gevallen biedt Microsoft hotfixes voor Azure Stack dat adres een specifiek probleem die vaak preventief of tijdgebonden.  Elke hotfix is uitgebracht met een bijbehorende Microsoft Knowledge Base-artikel waarin wordt uitgelegd van het probleem, de oorzaak en de oplossing. 

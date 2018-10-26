@@ -4,14 +4,14 @@ description: Biedt een overzicht van bekende problemen in de Azure Migrate-servi
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 10/23/2018
+ms.date: 10/24/2018
 ms.author: raynew
-ms.openlocfilehash: a41a27f2a87a67ea51bcbe110ac77f7908c44e7a
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: a32b1b73a12242a6c6b1c29fbf116aff73515b46
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945515"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50086740"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Problemen met Azure Migrate oplossen
 
@@ -51,9 +51,16 @@ Het apparaat voor continue detectie toestel verzamelt alleen prestatiegegevens c
 
 ## <a name="collector-errors"></a>Fouten in de logboekverzamelaar
 
-### <a name="deployment-of-collector-ova-failed"></a>Implementatie van de collector OVA is mislukt
+### <a name="deployment-of-azure-migrate-collector-failed-with-the-error-the-provided-manifest-file-is-invalid-invalid-ovf-manifest-entry"></a>Implementatie van Azure Migrate Collector is mislukt met de fout: het opgegeven manifestbestand is ongeldig: ongeldig OVF manifest vermelding.
 
-Dit kan gebeuren als het ova-bestand is gedeeltelijk gedownload of als gevolg van de browser als u vSphere-webclient gebruikt voor het implementeren van het ova-bestand. Zorg ervoor dat het downloaden voltooid is en probeer het implementeren van het ova-bestand met een andere browser.
+1. Controleer of als Azure Migrate Collector OVA-bestand correct is gedownload door het controleren van de hash-waarde. Raadpleeg de [artikel](https://docs.microsoft.com/azure/migrate/tutorial-assessment-vmware#verify-the-collector-appliance) om te controleren of de hash-waarde. Als de hash-waarde niet overeen komt, het OVA-bestand opnieuw te downloaden en de implementatie opnieuw probeert.
+2. Als deze nog steeds mislukt en als u VMware vSphere-Client gebruikt voor het implementeren van de OVF, moet u proberen deze is geïmplementeerd via vSphere-webclient. Als het nog steeds mislukt, probeer het met andere webbrowser.
+3. Als u met behulp van vSphere-webclient en probeert te implementeren op de vCenter Server 6.5, probeert het ova-bestand rechtstreeks op de ESXi-host implementeren door de onderstaande stappen te volgen:
+  - Verbinding maken met de ESXi-host rechtstreeks (in plaats van vCenter-Server) met behulp van de webclient (https:// <*host IP-adres*> /ui)
+  - Ga naar de introductiepagina van > inventaris
+  - Klik op bestand > implementeren van OVF-sjabloon > Ga naar het ova-bestand en de implementatie te voltooien
+4. Als de implementatie nog steeds mislukt, moet u contact op met ondersteuning voor Azure Migrate.
+
 
 ### <a name="collector-is-not-able-to-connect-to-the-internet"></a>Er is geen collector geen verbinding maken met internet
 

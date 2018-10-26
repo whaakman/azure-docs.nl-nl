@@ -10,15 +10,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/22/2018
+ms.date: 10/23/2018
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.openlocfilehash: dc9e1b3fb59aca8fba0c84fbfa674931c24c12c9
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 1af7a1d595b39878f3ed30591e8ad78e767e8cf7
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945889"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50087488"
 ---
 # <a name="virtual-machine-sizes-supported-in-azure-stack"></a>Grootten van virtuele machines worden ondersteund in Azure Stack
 
@@ -31,6 +31,10 @@ In dit artikel geeft een lijst van de virtuele machine (VM)-grootten die beschik
 VM-grootten voor algemeen gebruik bieden een evenwichtige CPU-geheugenverhouding. Ze worden gebruikt voor testen en ontwikkelen, kleine tot middelgrote databases en met weinig of gemiddeld verkeer webservers.
 
 ### <a name="basic-a"></a>Basic A
+
+> [!NOTE]
+> *Basic A* grootten van virtuele machines buiten gebruik worden gesteld voor [het maken van virtuele-machineschaalsets](../azure-stack-compute-add-scalesets.md) (VMSS) via de portal. Als u wilt een VMSS te maken met deze grootte, PowerShell of een sjabloon te gebruiken.
+
 |Grootte - grootte\naam |vCPU     |Geheugen | Maximumgrootte van tijdelijke schijf | Max OS schijfdoorvoer: (IOPS) | Maximale tijdelijke opslagdoorvoer (IOPS) | Max. doorvoer gegevensschijf (IOPS) | Max. aantal NIC's |    
 |-----------------|-----|---------|---------|-----|------|-----------|----|
 |**A0\Basic_A0**  |1    |768 MB   | 20 GB   |300  | 300  |1 / 1 x 300  |1   |

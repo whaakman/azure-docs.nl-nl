@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/24/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: fabc72e6dc31bb7f244cda9634af3b2556ba23a9
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 98a7ae31aeeae29b81a1053b38992d3bc4e0e03f
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/25/2018
-ms.locfileid: "50023790"
+ms.locfileid: "50085306"
 ---
 #  <a name="add-marketplace-items-using-publishing-tool"></a>Met behulp van het hulpprogramma voor publiceren marketplace-items toevoegen
 
@@ -28,7 +28,7 @@ Toevoegen van uw inhoud naar de [Azure Stack Marketplace](azure-stack-marketplac
 
 ## <a name="prerequisites"></a>Vereisten
 
- - U moet de toolkit worden uitgevoerd op de host van de Azure Stack of [VPN](.\asdk\asdk-connect.md#connect-to-azure-stack-with-vpn) verbonden is met de host ASDK van de machine waarop u het hulpprogramma uitvoert.
+ - U moet de toolkit worden uitgevoerd op de host van de Azure Stack of [VPN](.\asdk\asdk-connect.md#connect-with-vpn) verbonden is met de host ASDK van de machine waarop u het hulpprogramma uitvoert.
 
  - Download de [snelstartsjablonen van Azure Stack](https://github.com/Azure/AzureStack-QuickStart-Templates/archive/master.zip) en uit te pakken.
 

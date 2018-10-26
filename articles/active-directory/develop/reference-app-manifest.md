@@ -13,20 +13,34 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/24/2018
+ms.date: 10/24/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: sureshja
-ms.openlocfilehash: bc7999d56da8398b4f54b0144a595ee7c2e2ea35
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 372bff911c0925e05297872da66279e727149010
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49115107"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50086774"
 ---
 # <a name="azure-active-directory-app-manifest"></a>Azure Active Directory-app-manifest
 
-Apps die met Azure Active Directory (Azure AD integreren) moeten zijn geregistreerd met een Azure AD-tenant. U kunt de app in configureren de [Azure-portal](https://portal.azure.com) door te selecteren **App-registraties** onder **Azure Active Directory**, kiezen van de app die u configureren wilt, en vervolgens selecteren **Manifest**.
+Manifest van de toepassing bevat een definitie van de kenmerken van een toepassingsobject in de Microsoft identity-platform. Het fungeert ook als een mechanisme voor het bijwerken van het toepassingsobject. Zie de [documentatie over de toepassingsidentiteit van de Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity) voor meer informatie over de toepassingentiteit en het bijbehorende schema.
+
+U kunt de kenmerken van een app via de Azure portal of programmatisch met behulp van Microsoft Graph configureren. Er zijn echter enkele scenario's waarbij u het app-manifest moet, voor het configureren van een app-kenmerk bewerken. Deze scenario's omvatten:
+
+* Als u de app als Azure AD met meerdere tenants en persoonlijke Microsoft-accounts hebt geregistreerd, kunt u de ondersteunde Microsoft-accounts in de gebruikersinterface niet wijzigen. In plaats daarvan moet u de toepassing manifest editor gebruiken om de ondersteunde accounttype te wijzigen.
+* Als u nodig hebt voor het definiëren van machtigingen en rollen die ondersteuning biedt voor uw app, moet u het toepassingsmanifest wijzigen.
+
+## <a name="configure-the-app-manifest"></a>Het app-manifest configureren
+
+Het toepassingsmanifest configureren:
+
+1. Meld u de [Azure-portal](https://portal.azure.com).
+1. Selecteer de **Azure Active Directory** service en selecteer vervolgens **App-registraties** of **(Preview) van de App-registraties**.
+1. Selecteer de app die u wilt configureren.
+1. Uit van de app **overzicht** weergeeft, schakelt de **Manifest** sectie. Een web gebaseerde manifest editor wordt geopend, zodat u kunt het manifest van de portal bewerken. Desgewenst kunt u **downloaden** voor het bewerken van het manifest lokaal en gebruik vervolgens **uploaden** toe te passen aan uw toepassing.
 
 ## <a name="manifest-reference"></a>Naslaginformatie over het manifest
 
@@ -63,7 +77,7 @@ Apps die met Azure Active Directory (Azure AD integreren) moeten zijn geregistre
 | `requiredResourceAccess` | Het type matrix | Met dynamische toestemming `requiredResourceAccess` schijven van de manier waarop beheerders toestemming en de ervaring van de gebruiker toestemming voor gebruikers dat van statische toestemming gebruikmaakt. Dit wordt echter niet de ervaring van de gebruiker toestemming voor de algemene aanvraag station.<br>`resourceAppId` de unieke id voor de resource waarvoor toegang tot de app vereist is. Deze waarde moet gelijk zijn aan de appId gedeclareerd voor de doel-resource-app.<br>`resourceAccess` is een matrix met een lijst met de OAuth 2.0-machtigingsbereiken en app-rollen die de app nodig van de opgegeven resource heeft. Bevat de `id` en `type` waarden van de opgegeven resources. | <code>[<br>&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;"resourceAppId":"00000002-0000-0000-c000-000000000000",<br>&nbsp;&nbsp;&nbsp;&nbsp;"resourceAccess":[<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"id":"311a71cc-e848-46a1-bdf8-97ff7156d8e6",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"type":"Scope"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;]<br>&nbsp;&nbsp;}<br>] </code> |
 | `samlMetadataUrl` | tekenreeks | De URL naar SAML-metagegevens voor de app. | `https://MyRegisteredAppSAMLMetadata` |
 | `signInUrl` | tekenreeks | Hiermee geeft u de URL naar de startpagina van de app. | `https://MyRegisteredApp` |
-| `signInAudience` | tekenreeks | Hiermee geeft u op welke microsoft-accounts worden ondersteund voor de huidige toepassing. Ondersteunde waarden zijn:<ul><li>**AzureADMyOrg** -gebruikers met een Microsoft werk- of schoolaccount in mijn organisatie Azure AD-tenant (dat wil zeggen enkele tenant)</li><li>**AzureADMultipleOrgs** -gebruikers met een Microsoft werk- of schoolaccount in elke organisatie Azure AD-tenant (dat wil zeggen met meerdere tenants)</li> <li>**AzureADandPersonalMicrosoftAccount** -gebruikers met een persoonlijk Microsoft-account of een account voor werk of school in elke organisatie Azure AD-tenant</li></ul> | `AzureADandPersonalMicrosoftAccount` |
+| `signInAudience` | tekenreeks | Hiermee geeft u op welke Microsoft-accounts worden ondersteund voor de huidige toepassing. Ondersteunde waarden zijn:<ul><li>**AzureADMyOrg** -gebruikers met een Microsoft werk- of schoolaccount in mijn organisatie Azure AD-tenant (dat wil zeggen enkele tenant)</li><li>**AzureADMultipleOrgs** -gebruikers met een Microsoft werk- of schoolaccount in elke organisatie Azure AD-tenant (dat wil zeggen met meerdere tenants)</li> <li>**AzureADandPersonalMicrosoftAccount** -gebruikers met een persoonlijk Microsoft-account of een account voor werk of school in elke organisatie Azure AD-tenant</li></ul> | `AzureADandPersonalMicrosoftAccount` |
 | `tags` | String-matrix | Aangepaste tekenreeksen die kunnen worden gebruikt voor het categoriseren en identificeren van de toepassing. | <code>[<br>&nbsp;&nbsp;"ProductionApp"<br>]</code> |
 
 ## <a name="next-steps"></a>Volgende stappen

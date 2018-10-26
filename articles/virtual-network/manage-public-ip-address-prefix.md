@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: anavin
-ms.openlocfilehash: 71dee9f36a3e8e11cc23f966c9157f6409a3b5e0
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 32ad02583f84a84c494dc8300834cd9ff2f0d771
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47405730"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50094970"
 ---
 # <a name="create-change-or-delete-a-public-ip-address-prefix"></a>Maken, wijzigen of verwijderen van een openbare IP-adresvoorvoegsel
 
@@ -62,8 +62,8 @@ Openbare IP-adresvoorvoegsels hebben een kosten in rekening gebracht. Zie voor m
 
 |Hulpprogramma|Opdracht|
 |---|---|
-|CLI|[AZ network public-IP-voorvoegsel maken](/cli/azure/network/public-ip/prefix/az-network-public-ip-prefix-create)|
-|PowerShell|[Nieuwe AzureRmPublicIpAddressPrefix](/powershell/module/azurerm.network/new-azurermpublicipaddressprefix)|
+|CLI|[AZ network public-IP-voorvoegsel maken](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-create)|
+|PowerShell|[Nieuwe AzureRmPublicIpPrefix](/powershell/module/azurerm.network/new-azurermpublicipprefix)|
 
 ## <a name="create-a-static-public-ip-address-from-a-prefix"></a>Maken van een statisch openbaar IP-adres uit een voorvoegsel
 Als u een voorvoegsel maakt, moet u statische IP-adressen uit het voorvoegsel. Volg hiervoor de onderstaande stappen.
@@ -71,7 +71,7 @@ Als u een voorvoegsel maakt, moet u statische IP-adressen uit het voorvoegsel. V
 1. In het vak met de tekst *zoeken naar resources* aan de bovenkant van de Azure-portal, typt u *openbare ip-adresvoorvoegsel*. Wanneer **openbare IP-adresvoorvoegsels** worden weergegeven in de lijst met zoekresultaten, selecteert u deze.
 2. Selecteer de prefx die u wilt maken van openbare IP-adressen.
 3. Wanneer deze wordt weergegeven in de lijst met zoekresultaten, selecteert u deze en klikt u op **+ IP-adres toevoegen** in de sectie overzicht. Als u dit niet ziet, Controleer of u de juiste koppeling voor de Preview-versie: https://aka.ms/publicipprefixportal
-4. Typ of Selecteer waarden voor de volgende instellingen onder **openbare IP-adres maken**. Aangezien een voorvoegsel voor standaard-SKU, IPv4- en statische is, moet u alleen de volgende informtion bieden:
+4. Typ of Selecteer waarden voor de volgende instellingen onder **openbare IP-adres maken**. Aangezien een voorvoegsel voor standaard-SKU, IPv4- en statische is, moet u alleen de volgende informatie:
 
    |Instelling|Vereist?|Details|
     |---|---|---|
@@ -91,8 +91,8 @@ Als u een voorvoegsel maakt, moet u statische IP-adressen uit het voorvoegsel. V
 
 |Hulpprogramma|Opdracht|
 |---|---|
-|CLI|[lijst met AZ network public-IP-voorvoegsel](/cli/azure/network/public-ip/prefix/az-network-public-ip-prefix-list) aan de lijst met openbare IP-adressen, [az network public-IP-voorvoegsel show](/cli/azure/network/public-ip/prefix/az-network-public-ip-prefix-show) om weer te geven van instellingen. [az network public-IP-voorvoegsel update](/cli/azure/network/public-ip-prefix#az-network-public-ip-prefix-update) om bij te werken; [az network public-IP-voorvoegsel verwijderen](/cli/azure/network/public-ip/prefix/az-network-public-ip-prefix-delete) verwijderen|
-|PowerShell|[Get-AzureRmPublicIpAddressPrefix](/powershell/module/azurerm.network/get-azurermpublicipaddressprefix) een openbaar IP-adresobject ophalen en weergeven van de instellingen [Set AzureRmPublicIpAddressPrefix](/powershell/module/azurerm.network/set-azurermpublicipaddressprefix) instellingen; bijwerken [Remove-AzureRmPublicIpAddressPrefix](/powershell/module/azurerm.network/remove-azurermpublicipaddressprefix) verwijderen|
+|CLI|[lijst met AZ network public-IP-voorvoegsel](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-list) aan de lijst met openbare IP-adressen, [az network public-IP-voorvoegsel show](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-show) om weer te geven van instellingen. [az network public-IP-voorvoegsel update](/cli/azure/network/public-ip-prefix#az-network-public-ip-prefix-update) om bij te werken; [az network public-IP-voorvoegsel verwijderen](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-delete) verwijderen|
+|PowerShell|[Get-AzureRmPublicIpPrefix](/powershell/module/azurerm.network/get-azurermpublicipprefix) een openbaar IP-adresobject ophalen en weergeven van de instellingen [Set AzureRmPublicIpPrefix](/powershell/module/azurerm.network/set-azurermpublicipprefix) instellingen; bijwerken [Remove-AzureRmPublicIpPrefix](/powershell/module/azurerm.network/remove-azurermpublicipprefix) verwijderen|
 
 ## <a name="permissions"></a>Machtigingen
 

@@ -11,21 +11,26 @@ author: ronitr
 ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
-ms.date: 10/15/2018
-ms.openlocfilehash: 2a0bacaf0405a5223afedcd3897e2a1514f7128b
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.date: 10/25/2018
+ms.openlocfilehash: fc82fa592a513d735d4adc602bedaf8e492af13b
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49466678"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50092948"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Aan de slag met SQL Database Auditing
 
-Met Azure SQL database auditing houdt databasegebeurtenissen en geschreven naar een auditlogboek in uw Azure storage-account. Ook controle:
+Controle-instellingen voor Azure [SQL-Database](sql-database-technical-overview.md) en [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) databasegebeurtenissen bijgehouden en geschreven naar een auditlogboek in uw Azure storage-account, OMS-werkruimte of Eventhubs. Ook controle:
 
 - Helpt u naleving van regelgeving, inzicht in de databaseactiviteiten en inzicht krijgen in discrepanties en afwijkingen die kunnen wijzen op problemen voor het bedrijf of vermoedelijke beveiligingsschendingen.
 
 - Hiermee wordt en vergemakkelijkt de naleving van standaarden voor compliance, hoewel het nalevingsbeleid geen garantie. Zie voor meer informatie over Azure-programma's die ondersteuning voor standaarden naleving, de [Azure Trust Center](https://azure.microsoft.com/support/trust-center/compliance/).
+
+
+> [!NOTE] 
+> Dit onderwerp is van toepassing op Azure SQL-servers en op SQL Database- en SQL Data Warehouse-databases die op deze Azure SQL-servers worden gemaakt. Voor het gemak wordt de term 'SQL Database' gebruikt wanneer er wordt verwezen naar zowel SQL Database als SQL Data Warehouse.
+
 
 ## <a id="subheading-1"></a>Azure SQL database auditing-overzicht
 
@@ -51,7 +56,7 @@ Een controlebeleid kan worden gedefinieerd voor een specifieke database of als e
 
 - Als *controle is ingeschakeld*, het *altijd van toepassing op de database*. De database wordt gecontroleerd, ongeacht de database controle-instellingen.
 
-- Controlefunctie voor blobs in de database is ingeschakeld, naast het inschakelen van deze op de server heeft *niet* overschrijven of wijzigen van de instellingen van de controlefunctie voor de server. Beide controles wordt naast elkaar bestaan. Met andere woorden, wordt de database gecontroleerd tweemaal in parallelle; eenmaal door het serverbeleid en eenmaal door het beleid van de database.
+- Controlefunctie voor blobs in de database of het datawarehouse is ingeschakeld, naast het inschakelen van deze op de server heeft *niet* overschrijven of wijzigen van de instellingen van de controlefunctie voor de server. Beide controles wordt naast elkaar bestaan. Met andere woorden, wordt de database gecontroleerd tweemaal in parallelle; eenmaal door het serverbeleid en eenmaal door het beleid van de database.
 
    > [!NOTE]
    > Vermijd het inschakelen van serverblobs zowel blob Databasecontrole samen, tenzij:
@@ -87,7 +92,7 @@ Het volgende gedeelte bevat de configuratie van de controle met Azure portal.
 
     ![opslagaccount](./media/sql-database-auditing-get-started/auditing_select_storage.png)
 
-7. Om te schrijven controle configureren vastgelegd in een Log Analytics-werkruimte en selecteer **Log Analytics (Preview)** en open **Log Analytics-gegevens**. Selecteer of maak de Log Analytics-werkruimte waar logboeken worden geschreven en klik vervolgens op **OK**.
+7. Schrijven controle configureren vastgelegd in een Log Analytics-werkruimte, selecteer **Log Analytics (Preview)** en open **Log Analytics-gegevens**. Selecteer of maak de Log Analytics-werkruimte waar logboeken worden geschreven en klik vervolgens op **OK**.
 
     ![Log Analytics](./media/sql-database-auditing-get-started/auditing_select_oms.png)
 
@@ -98,6 +103,11 @@ Het volgende gedeelte bevat de configuratie van de controle met Azure portal.
 9. Klik op **Opslaan**.
 10. Als u aanpassen van de gecontroleerde gebeurtenissen wilt, u kunt dit doen via [PowerShell-cmdlets](#subheading-7) of de [REST-API](#subheading-9).
 11. Nadat u de controle-instellingen hebt geconfigureerd, kunt u de nieuwe functie voor de detectie van bedreigingen inschakelen en configureren van e-mailberichten voor het ontvangen van beveiligingswaarschuwingen. Wanneer u detectie van bedreigingen, ontvangt u proactieve waarschuwingen voor afwijkende activiteiten die op potentiële beveiligingsrisico's duiden kunnen. Zie voor meer informatie, [aan de slag met detectie van bedreigingen](sql-database-threat-detection-get-started.md).
+
+
+> [!IMPORTANT]
+>Inschakelen van controle op een Azure SQL Data Warehouse, of op een server met een Azure SQL Data Warehouse, **zal leiden tot het datawarehouse wordt hervat**, zelfs in het geval waarin het programma eerder is onderbroken. **Zorg ervoor dat u de datawarehouse onderbreken opnieuw na het inschakelen van controle**.'
+
 
 ## <a id="subheading-3"></a>Analyseren van controlelogboeken en -rapporten
 
@@ -206,6 +216,9 @@ In de productieomgeving bent u waarschijnlijk uw opslagsleutels periodiek te ver
     FAILED_DATABASE_AUTHENTICATION_GROUP
 
     U kunt configureren voor verschillende soorten acties en actiegroepen met behulp van PowerShell, controle, zoals beschreven in de [beheren SQL database auditing met behulp van Azure PowerShell](#subheading-7) sectie.
+
+- Wanneer u AAD-verificatie gebruikt, kan de aanmeldingen records wordt niet *niet* weergegeven in de SQL-auditlogboek. Mislukte aanmeldingen AuditRecords wilt weergeven, moet u gaat u naar de [Azure Active Directory-portal]( ../active-directory/reports-monitoring/reference-sign-ins-error-codes.md), waarvan de details van deze gebeurtenissen zich aanmeldt.
+
 
 ## <a id="subheading-7"></a>SQL database auditing met behulp van Azure PowerShell beheren
 

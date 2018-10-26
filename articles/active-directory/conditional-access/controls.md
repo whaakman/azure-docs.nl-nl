@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/18/2018
+ms.date: 10/25/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 065eee57b78ea10d5e8079de3a938dc00dd60ee2
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: a40774faadc4393a1ebbb6e26673ba7dff22560c
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406769"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50092301"
 ---
 # <a name="what-are-access-controls-in-azure-active-directory-conditional-access"></a>Wat zijn besturingselementen voor toegang in Azure Active Directory voor voorwaardelijke toegang? 
 
@@ -166,8 +166,14 @@ Met de sessiebesturingselementen wordt de beperkte ervaring in een cloud-app ing
 
 ### <a name="use-app-enforced-restrictions"></a>Door apps gehandhaafde beperkingen gebruiken
 
-U kunt dit besturingselement gebruiken om te vereisen van Azure AD om door te geven van de gegevens van een apparaat naar de cloud-app. Dit helpt de cloud-app als de gebruiker afkomstig is van een apparaat dat compatibel is of een domein toegevoegd apparaat weten. Dit besturingselement is momenteel alleen ondersteund met SharePoint als de cloud-app. SharePoint maakt gebruik van de gegevens van een apparaat zodat gebruikers een ervaring beperkt of volledig, afhankelijk van de apparaatstatus.
-Zie voor meer informatie over het vereisen van beperkte toegang met SharePoint, [toegang van niet-beheerde apparaten regelen](https://aka.ms/spolimitedaccessdocs).
+U kunt dit besturingselement gebruiken om te vereisen van Azure AD apparaatgegevens doorgeven aan de geselecteerde cloud-apps. De gegevens van een apparaat kunt de cloud-apps om te weten of een verbinding is geïnitieerd vanaf een apparaat compatibel of domein. Dit besturingselement ondersteunt alleen SharePoint Online en Exchange Online als de geselecteerde cloud-apps. Als u selecteert, de cloud-app maakt gebruik van de apparaatgegevens om gebruikers, afhankelijk van de apparaatstatus, met een beperkt of volledig ervaring te bieden.
+
+Voor meer informatie zie:
+
+- [Beperkte toegang met SharePoint Online inschakelen](https://aka.ms/spolimitedaccessdocs) 
+
+- [Beperkte toegang met Exchange Online inschakelen](https://aka.ms/owalimitedaccess)
+
 
 
 

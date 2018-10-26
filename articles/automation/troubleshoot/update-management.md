@@ -4,20 +4,22 @@ description: Meer informatie over het oplossen van problemen met updatebeheer
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/17/2018
+ms.date: 10/25/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 41883fd677d276f8f26721fdccc3ded020c3278b
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: f52767058ef69d29465f1274109b6d3ffe58296c
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49405222"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50092624"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>Oplossen van problemen met updatebeheer
 
 Dit artikel worden oplossingen voor het oplossen van problemen die worden uitgevoerd op bij het gebruik van updatebeheer.
+
+Er is een agent probleemoplosser voor Hybrid Worker-agent om te bepalen van het onderliggende probleem. Zie voor meer informatie over de probleemoplosser voor [problemen oplossen update-agent](update-agent-issues.md). Voor alle andere problemen, Zie de gedetailleerde informatie hieronder over mogelijke problemen.
 
 ## <a name="general"></a>Algemeen
 
@@ -110,6 +112,20 @@ De Hybrid Runbook Worker is niet een zelfondertekend certificaat genereren
 #### <a name="resolution"></a>Oplossing
 
 Controleer of systeemaccount leestoegang heeft tot map **C:\ProgramData\Microsoft\Crypto\RSA** en probeer het opnieuw.
+
+### <a name="nologs"></a>Scenario: Updatebeheer gegevens niet worden weergegeven in Log Analytics voor een virtuele machine
+
+#### <a name="issue"></a>Probleem
+
+U machines hebt die als **niet beoordeeld** onder **naleving**, maar ziet u gegevens van heartbeat in Log Analytics voor de Hybrid Runbook Worker, maar niet voor updatebeheer.
+
+#### <a name="cause"></a>Oorzaak
+
+De Hybrid Runbook Worker moet mogelijk opnieuw worden geregistreerd en opnieuw geïnstalleerd.
+
+#### <a name="resolution"></a>Oplossing
+
+Volg de stappen in [Windows Hybrid Runbook Worker implementeren](../automation-windows-hrw-install.md) opnieuw installeren van de Hybrid Worker.
 
 ### <a name="hresult"></a>Scenario: Machine wordt niet beoordeeld en ziet u een uitzondering van HResult
 

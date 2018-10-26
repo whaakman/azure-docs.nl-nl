@@ -1,4 +1,17 @@
-### <a name="prerequisites"></a>Vereiste onderdelen
+---
+author: ecfan
+ms.service: logic-apps
+ms.topic: include
+ms.date: 11/03/2016
+ms.author: estfan
+ms.openlocfilehash: ad543ca2cd92895b9042ba795591523f00feb70a
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50093051"
+---
+### <a name="prerequisites"></a>Vereisten
 * Een Wunderlist-account  
 
 Voordat u uw Wunderlist-account in een logische app gebruiken kunt, verleent u de logische app verbinding maken met uw Wunderlist-account. Gelukkig kunt u dit eenvoudig vanuit doen binnen uw logische app in de Azure Portal. 

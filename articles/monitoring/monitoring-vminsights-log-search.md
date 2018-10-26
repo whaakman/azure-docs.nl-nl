@@ -1,5 +1,5 @@
 ---
-title: Hoe u query's van Logboeken van Azure Monitor voor virtuele machines | Microsoft Docs
+title: Hoe u query's van Logboeken van Azure Monitor voor virtuele machines (Preview) | Microsoft Docs
 description: Azure Monitor voor virtuele machines oplossing verzendt metrische gegevens en logboekgegevens naar Log Analytics en in dit artikel beschrijft de records en bevat voorbeeldquery's.
 services: azure-monitor
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/20/2018
+ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 4a5f3178ad4d4152bb29e6c313b3fd332124c154
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 90816061766a423f7dbc7d277433a95c5bcf6115
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48269391"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50095419"
 ---
-# <a name="how-to-query-logs-from-azure-monitor-for-vms"></a>Hoe u Logboeken voor query's van Azure Monitor voor virtuele machines
+# <a name="how-to-query-logs-from-azure-monitor-for-vms-preview"></a>Hoe u Logboeken voor query's van Azure Monitor voor virtuele machines (Preview)
 Azure Monitor voor virtuele machines verzamelt metrische gegevens over prestaties en verbinding-, computer- en inventarisgegevens van proces- en informatie over de status en stuurt het naar de Log Analytics data store in Azure Monitor.  Deze gegevens zijn beschikbaar voor [zoeken](../log-analytics/log-analytics-log-searches.md) in Log Analytics. U kunt deze gegevens toepassen op scenario's met migratieplanning, analyse, detectie en het oplossen van prestaties op aanvraag.
 
 ## <a name="map-records"></a>Records worden toegewezen

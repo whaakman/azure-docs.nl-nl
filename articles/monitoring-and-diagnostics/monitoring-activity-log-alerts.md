@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 5ddf510d50f38ed9aaf742bd06c330e53ffe1391
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 6f007ca3aacb338c14bf481ee58407596c8290ad
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46992793"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50091620"
 ---
 # <a name="alerts-on-activity-log"></a>Waarschuwingen voor activiteitenlogboeken 
 
@@ -50,7 +50,7 @@ Waarschuwingen voor activiteitenlogboeken zijn een aantal veelgebruikte opties:
 - **Gebeurtenis gestart door**: ook wel bekend als de "oproepende functie." De e-mailadres of Azure Active Directory-id van de gebruiker die de bewerking heeft uitgevoerd.
 
 > [!NOTE]
-> In een abonnement maximaal 100 regels voor waarschuwingen voor de activiteit van de scope op een: één resource, alle resources in de resource-groep (of) gehele abonnementsniveau.
+> In een abonnement maximaal 100 regels voor waarschuwingen voor een activiteit van de scope op beide kan worden gemaakt: één resource, alle resources in de resource-groep (of) gehele abonnementsniveau.
 
 Wanneer een waarschuwing voor activiteitenlogboek wordt geactiveerd, wordt een actiegroep die u gebruikt om acties of meldingen te genereren. Een actiegroep is een herbruikbare set van ontvangers van meldingen, zoals e-mailadressen, telefoonnummers webhook-URL's of SMS. De ontvangers kunnen worden verwezen vanuit meerdere waarschuwingen en de meldingskanalen groep centraliseren. Wanneer u de waarschuwing voor activiteitenlogboeken hebt gedefinieerd, hebt u twee opties. U kunt:
 

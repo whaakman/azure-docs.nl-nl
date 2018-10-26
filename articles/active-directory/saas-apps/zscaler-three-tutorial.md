@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2018
+ms.date: 10/25/2018
 ms.author: jeedes
-ms.openlocfilehash: 0ef8fc2ea8b006d49dd54d638183a58bf78a5797
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: b148967af0882993d8ab113bdf0fd3ad3835296f
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49312723"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50092607"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-three"></a>Zelfstudie: Azure Active Directory-integratie met drie Zscaler
 
@@ -119,10 +119,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     ![Eenmalige aanmelding configureren](./media/zscaler-three-tutorial/tutorial_zscalerthree_url.png)
 
-    Voer in het tekstvak de antwoord-URL de URL: `https://login.zscalerthree.net/sfc_sso`
-
-    > [!NOTE]
-    > U moet deze waarde bijwerken met de werkelijke aanmeldings-URL. Neem contact op met [Zscaler drie Client ondersteuningsteam](https://www.zscaler.com/company/contact) om deze waarden te verkrijgen.
+    Voer in het teken op URL-tekstvak de URL: `https://login.zscalerthree.net/sfc_sso`
 
 6. Op de **SAML-handtekeningcertificaat** sectie, klikt u op op **downloaden** downloaden **Certificate(Base64)** en slaat u het certificaatbestand op uw computer.
 

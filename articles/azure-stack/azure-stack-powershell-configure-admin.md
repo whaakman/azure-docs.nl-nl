@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 10/24/2018
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.openlocfilehash: 63fd864ebda1cb766792b99a2725fb069d5b5f2a
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: bbd20df7f002d6072110e3b94887bac24ce13cd2
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024066"
+ms.locfileid: "50087437"
 ---
 # <a name="connect-to-azure-stack-with-powershell-as-an-operator"></a>Verbinding maken met Azure Stack met PowerShell als operator
 
@@ -29,7 +29,7 @@ U kunt de Azure Stack voor het gebruik van PowerShell voor het beheren van resou
 
 ## <a name="prerequisites"></a>Vereisten
 
-De volgende vereisten worden uitgevoerd vanuit de [development kit](.\asdk\asdk-connect.md#connect-to-azure-stack-with-remote-desktop) of vanuit een Windows-externe client als u [verbonden met de ASDK via VPN](.\asdk\asdk-connect.md#connect-to-azure-stack-with-vpn). 
+De volgende vereisten worden uitgevoerd vanuit de [development kit](.\asdk\asdk-connect.md#connect-with-rdp) of vanuit een Windows-externe client als u [verbonden met de ASDK via VPN](.\asdk\asdk-connect.md#connect-with-vpn). 
 
  - Installeer [Azure Stack-compatibel is met Azure PowerShell-modules](azure-stack-powershell-install.md).  
  - In het [Azure Stack development Kit, worden de blobEndpoint](azure-stack-powershell-download.md) .  

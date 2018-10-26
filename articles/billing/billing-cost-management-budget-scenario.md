@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 7/25/2018
 ms.author: erikre
-ms.openlocfilehash: 19d8fbf82410136fd6a50a2088dd9b774dd6cb27
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: 08cdce23fe298bdac932d1ca8abb8166f4d7bbbd
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39259208"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50094810"
 ---
-# <a name="manage-costs-with-azure-budgets"></a>Kosten beheren met Azure budgetten
+# <a name="manage-costs-with-azure-budgets"></a>Kosten beheren met Azure Budgets
 
 Kostenbeheer is een essentieel onderdeel tot het maximaliseren van de waarde van uw investering in de cloud. Er zijn verschillende scenario's waarin kosten zichtbaarheid, rapportage en orchestration kosten op basis van essentieel belang voor voortdurende klandizie bewerkingen. [Azure Cost Management-API's](https://docs.microsoft.com/rest/api/consumption/) bieden een set API's ter ondersteuning van elk van deze scenario's. De API's bieden informatie over het gebruik, zodat u kunt om gedetailleerde exemplaar kosten weer te geven.
 
@@ -139,7 +139,7 @@ Elke logische app moet beginnen met een trigger, die wordt geactiveerd wanneer e
 4.  Zoeken naar 'JSON parseren' de **ontwerper van logische Apps** zoekvak om te zoeken en selecteer de **gegevensbewerkingen - JSON parseren** [actie](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview#logic-app-concepts). 
     
     ![Azure - logische app - Voeg de actie JSON parseren](./media/billing-cost-management-budget-scenario/billing-cost-management-budget-scenario-06.png) 
-5.  Voer '-nettolading in' als de **inhoud** naam voor het parseren van JSON-nettolading.
+5.  Voer '-nettolading in' als de **inhoud** naam voor het parseren van JSON-nettolading of gebruik de tag 'Hoofdtekst' van dynamische inhoud.
 6.  Selecteer de **voorbeeldnettolading gebruiken voor het genereren van schema** optie in de **JSON parseren** vak.
     
     ![Azure - logische app - gebruik voorbeeld JSON-gegevens om het schema genereren](./media/billing-cost-management-budget-scenario/billing-cost-management-budget-scenario-07.png) 

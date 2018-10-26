@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: iainfou
-ms.openlocfilehash: cdf8c64f20e15074a1f055d2ab7abf4304d62505
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 5417e59f15ffcf48cc2af27044355d2bb5c9edaf
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48017904"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50087692"
 ---
 # <a name="create-a-continuous-deployment-pipeline-with-jenkins-and-azure-kubernetes-service-aks"></a>Maken van een pijplijn voor continue implementatie met Jenkins en Azure Kubernetes Service (AKS)
 
@@ -34,9 +34,11 @@ U hebt de volgende items nodig om de stappen in dit artikel te voltooien.
 - Een [AKS-cluster] [ aks-quickstart] en `kubectl` geconfigureerd met de [AKS-cluster referenties][aks-credentials].
 - Een [Azure Container Registry (ACR) register][acr-quickstart], de naam van de ACR-aanmeldingsserver en het AKS-cluster dat is geconfigureerd voor het [verifiëren bij het ACR-register] [ acr-authentication].
 
-- Azure CLI versie 2.0.46 of hoger is geïnstalleerd en geconfigureerd. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren][install-azure-cli].
+- Azure CLI versie 2.0.46 of hoger is geïnstalleerd en geconfigureerd. Voer `az --version` de versie te vinden. Als u wilt installeren of upgraden, Zie [Azure CLI installeren][install-azure-cli].
 - [Docker is geïnstalleerd] [ docker-install] op uw ontwikkelsysteem.
 - Een GitHub-account, [persoonlijk GitHub-toegangstoken][git-access-token], en Git-client is geïnstalleerd op uw ontwikkelsysteem.
+
+- Als u uw eigen Jenkins-exemplaar in plaats van dit voorbeeld in een script vastgelegd manier voor het implementeren van Jenkins, uw Jenkins-exemplaar behoeften [Docker geïnstalleerd en geconfigureerd] [ docker-install] en [kubectl][kubectl-install].
 
 ## <a name="prepare-the-application"></a>De toepassing voorbereiden
 
@@ -317,6 +319,7 @@ In dit artikel hebt u geleerd hoe u Jenkins gebruikt als onderdeel van een CI/CD
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [docker-install]: https://docs.docker.com/install/
+[kubectl-install]: https://kubernetes.io/docs/tasks/tools/install-kubectl/
 
 <!-- LINKS - internal -->
 [az-acr-list]: /cli/azure/acr#az-acr-list

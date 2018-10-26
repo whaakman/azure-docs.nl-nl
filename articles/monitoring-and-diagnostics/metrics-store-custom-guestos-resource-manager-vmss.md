@@ -1,6 +1,6 @@
 ---
-title: Verzenden van de Gast OS metrische gegevens in de Azure Monitor-metriek opslaan met behulp van Resource Manager-sjabloon voor een virtuele-machineschaalset voor Windows
-description: Verzenden van de Gast OS metrische gegevens in de Azure Monitor-metriek opslaan met behulp van Resource Manager-sjabloon voor een virtuele-machineschaalset voor Windows
+title: Gast-OS metrische gegevens verzenden naar de Azure Monitor metrische store met behulp van een Azure Resource Manager-sjabloon voor een virtuele-machineschaalset voor Windows
+description: Gast-OS metrische gegevens verzenden naar de Azure Monitor metrische store met behulp van Resource Manager-sjabloon voor een virtuele-machineschaalset voor Windows
 author: anirudhcavale
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,65 +8,65 @@ ms.topic: howto
 ms.date: 09/24/2018
 ms.author: ancav
 ms.component: metrics
-ms.openlocfilehash: 7b600bd699ce7f9e4a6c7cba1a41b6bdece16bf0
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 0e6580bfea181d28d884356d6c51ff5f9336c3db
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49343721"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50093868"
 ---
-# <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-using-a-resource-manager-template-for-a-windows-virtual-machine-scale-set"></a>Verzenden van de Gast OS metrische gegevens in de Azure Monitor-metriek opslaan met behulp van Resource Manager-sjabloon voor een virtuele-machineschaalset voor Windows
+# <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-by-using-an-azure-resource-manager-template-for-a-windows-virtual-machine-scale-set"></a>Gast-OS metrische gegevens verzenden naar de Azure Monitor metrische store met behulp van een Azure Resource Manager-sjabloon voor een virtuele-machineschaalset voor Windows
 
-De Azure Monitor [Windows Azure Diagnostics-extensie](azure-diagnostics.md) (WAD), kunt u voor het verzamelen van metrische gegevens en logboeken van de Gast-besturingssysteem (als gast-OS) die wordt uitgevoerd als onderdeel van een virtuele Machine, Cloudservice of Service Fabric-cluster.  De extensie kunt telemetrie verzenden naar verschillende locaties die worden vermeld in de eerder gekoppelde artikel.  
+Met behulp van de Azure Monitor [Windows Azure Diagnostics (WAD)-extensie](azure-diagnostics.md), kunt u metrische gegevens en logboeken van het gastbesturingssysteem (als gast-OS) die wordt uitgevoerd als onderdeel van een virtuele machine, een cloudservice of een Azure Service Fabric-cluster verzamelen. De extensie kunt telemetrie verzenden naar verschillende locaties die worden vermeld in de eerder gekoppelde artikel.  
 
-Dit artikel beschrijft het proces voor het verzenden Gast OS metrische gegevens voor prestaties voor een Windows virtuele-machineschaalset met het gegevensarchief van Azure Monitor. U kunt beginnen met WAD versie 1.11, metrische gegevens schrijven rechtstreeks naar de Azure Monitor metrics store waar al standaardplatform metrische gegevens worden verzameld. Op deze locatie opslaat, kunt u toegang tot de dezelfde acties die beschikbaar zijn voor platform metrische gegevens.  Acties omvatten bijna realtime waarschuwingen, grafieken, routering, toegang tot van REST-API en nog veel meer.  In het verleden heeft de extensie WAD geschreven naar Azure Storage, maar niet de gegevensopslag voor Azure Monitor.  
+Dit artikel beschrijft het proces voor het verzenden Gast OS metrische gegevens voor prestaties voor een Windows virtuele-machineschaalset met het gegevensarchief van Azure Monitor. Beginnen met Windows Azure Diagnostics versie 1.11, kunt u metrische gegevens rechtstreeks naar de Azure Monitor metrische gegevens opslaan, waar al standaardplatform metrische gegevens worden verzameld. Door op te slaan ze op deze locatie, kunt u toegang tot de dezelfde acties die beschikbaar voor platform metrische gegevens zijn. Acties omvatten bijna realtime waarschuwingen, grafieken, routering, openen via de REST-API, en meer. In het verleden, wordt de Windows Azure Diagnostics-extensie geschreven naar Azure Storage, maar niet de Azure Monitor-gegevensarchief.  
 
-Als u niet bekend bent met Resource Manager-sjablonen, meer informatie over [sjabloonimplementaties](../azure-resource-manager/resource-group-overview.md), en de structuur en de syntaxis.  
+Als u geen ervaring met Resource Manager-sjablonen, meer informatie over [sjabloonimplementaties](../azure-resource-manager/resource-group-overview.md) en de structuur en de syntaxis.  
 
-## <a name="pre-requisites"></a>Vereisten
+## <a name="prerequisites"></a>Vereisten
 
-- Uw abonnement moet worden geregistreerd bij [Microsoft.Insights](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.8.1) 
+- Uw abonnement moet worden geregistreerd bij [Microsoft.Insights](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-supported-services#portal). 
 
-- U moet beschikken over een [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.8.1) geïnstalleerd, of kunt u [Azure CloudShell](https://docs.microsoft.com/azure/cloud-shell/overview.md) 
+- U moet beschikken over [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.8.1) geïnstalleerd, of kunt u [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview). 
 
 
 ## <a name="set-up-azure-monitor-as-a-data-sink"></a>Azure Monitor instellen als een gegevens-sink 
-De Azure Diagnostics-extensie gebruikt een functie met de naam 'gegevens sinks"route metrische gegevens en logboeken naar verschillende locaties.  De volgende stappen laten zien hoe een Resource Manager-sjabloon en PowerShell gebruiken om te implementeren van een virtuele machine met behulp van de nieuwe "Azure Monitor" gegevens-sink. 
+De Azure Diagnostics-extensie gebruikt een functie met de naam **gegevenssinks** route metrische gegevens en logboeken naar verschillende locaties. De volgende stappen laten zien hoe een Resource Manager-sjabloon en PowerShell gebruiken op een virtuele machine implementeren met behulp van de Azure Monitor-sink voor nieuwe gegevens. 
 
-## <a name="author-resource-manager-template"></a>De auteur van Resource Manager-sjabloon 
-In dit voorbeeld kunt u een openbaar beschikbare voorbeeldsjabloon. De eerste sjablonen lopen https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-autoscale  
+## <a name="author-a-resource-manager-template"></a>De auteur van een Resource Manager-sjabloon 
+In dit voorbeeld kunt u een openbaar beschikbare [voorbeeldsjabloon](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-autoscale):  
 
-- **Azuredeploy.JSON** is een vooraf geconfigureerde Resource Manager-sjabloon voor de implementatie van een virtuele-machineschaalset
+- **Azuredeploy.JSON** is een vooraf geconfigureerde Resource Manager-sjabloon voor de implementatie van een virtuele-machineschaalset.
 
-- **Azuredeploy.parameters.JSON** is een parameterbestand waarin informatie, zoals gebruikersnaam en wachtwoord voor wat u wilt instellen voor uw virtuele machine. De Resource Manager-sjabloon gebruikt tijdens de implementatie van de parameters in dit bestand. 
+- **Azuredeploy.parameters.JSON** is een parameterbestand waarin informatie zoals de gebruikersnaam en wachtwoord die u wilt instellen voor uw virtuele machine. De Resource Manager-sjabloon gebruikt tijdens de implementatie van de parameters in dit bestand. 
 
 Download en slaat u beide bestanden lokaal. 
 
 ###  <a name="modify-azuredeployparametersjson"></a>Azuredeploy.parameters.json wijzigen
-Open de *azuredeploy.parameters.json* bestand 
-
-- Geef een **vmSKU** u wilt implementeren (aangeraden Standard_D2_v3) 
-- Geef een **windowsOSVersion** hebt voor uw virtuele-machineschaalset (we raden aan 2016-Datacenter) 
-- De naam van de virtuele-machineschaalset resource om te worden geïmplementeerd met behulp van een **vmssName** eigenschap. Bijvoorbeeld, *VMSS-WAD-TEST*.    
-- Geef het aantal virtuele machines die u wilt worden uitgevoerd op de VM-schaalset met behulp van de **instanceCount** eigenschap
-- Voer waarden in voor **adminUsername** en **adminPassword** instellen voor de virtuele-machineschaalset. Deze parameters worden gebruikt voor externe toegang tot de virtuele machines in de schaalset. Deze parameters worden gebruikt voor externe toegang tot de virtuele machine. Gebruik niet de namen in deze sjabloon om te voorkomen dat uw virtuele machine gehackt. Bots scannen op het internet voor gebruikersnamen en wachtwoorden in openbare Github-opslagplaatsen. Ze waarschijnlijk worden VM's testen met deze standaardinstellingen. 
+Open de **azuredeploy.parameters.json** bestand:  
+ 
+- Geef een **vmSKU** u wilt implementeren. Het wordt aangeraden de Standard_D2_v3. 
+- Geef een **windowsOSVersion** u wilt gebruiken voor uw virtuele-machineschaalset. Het wordt aangeraden de 2016-Datacenter. 
+- De naam van de virtuele-resource om te worden geïmplementeerd machineschaalset met behulp van een **vmssName** eigenschap. Een voorbeeld is **VMSS-WAD-TEST**.    
+- Geef het aantal virtuele machines die u uitvoeren op de virtuele-machineschaalset wilt met behulp van de **instanceCount** eigenschap.
+- Voer waarden in voor **adminUsername** en **adminPassword** instellen voor de virtuele-machineschaalset. Deze parameters worden gebruikt voor externe toegang tot de virtuele machines in de schaalset. Om te voorkomen dat uw virtuele machine gehackt **niet** die in deze sjabloon gebruiken. Bots scannen op het internet voor gebruikersnamen en wachtwoorden in openbare GitHub-opslagplaatsen. Ze waarschijnlijk worden VM's testen met deze standaardinstellingen. 
 
 
 ###  <a name="modify-azuredeployjson"></a>Azuredeploy.json wijzigen
-Open de *azuredeploy.json* bestand 
+Open de **azuredeploy.json** bestand. 
 
-Toevoegen van een variabele voor de gegevens over het opslagaccount in de Resource Manager-sjabloon. U moet nog steeds een Storage-Account als onderdeel van de installatie van de extensie voor diagnostische gegevens opgeven. Alle logboeken en/of de prestatiemeteritems die zijn opgegeven in het configuratiebestand van de diagnostische gegevens worden geschreven naar het opgegeven opslagaccount naast worden verzonden naar de Azure Monitor metrische store. 
+Toevoegen van een variabele voor de gegevens over het opslagaccount in de Resource Manager-sjabloon. Alle logboeken of prestatiemeteritems die zijn opgegeven in het configuratiebestand van de diagnostische gegevens worden geschreven naar zowel de Azure Monitor metrische store als het opslagaccount dat u hier opgeeft: 
 
 ```json
 "variables": { 
 //add this line       
 "storageAccountName": "[concat('storage', uniqueString(resourceGroup().id))]", 
- ```
+```
  
-De definitie van de virtuele-Machineschaalset niet vinden in de sectie met resources en de sectie 'id' toevoegen aan de configuratie. Dit zorgt ervoor dat Azure een systeem-id wijst deze toe. Deze stap zorgt ervoor dat de virtuele machines in de schaalset metrische gegevens voor gasten over zichzelf naar Azure Monitor kunnen verzenden.  
+De virtuele-machineschaalset definitie in de sectie met resources zoeken en toevoegen de **identiteit** sectie aan de configuratie. Deze toevoeging zorgt ervoor dat Azure wijst deze toe een systeem-id. Deze stap zorgt er ook voor dat de virtuele machines in de schaalset metrische gegevens voor gasten over zichzelf naar Azure Monitor kunnen verzenden:  
 
 ```json
-  { 
+    { 
       "type": "Microsoft.Compute/virtualMachineScaleSets", 
       "name": "[variables('namingInfix')]", 
       "location": "[resourceGroup().location]", 
@@ -76,14 +76,14 @@ De definitie van de virtuele-Machineschaalset niet vinden in de sectie met resou
            "type": "systemAssigned" 
        }, 
        //end of lines to add
- ```
+```
 
 In de virtuele machine schaalset bron, vinden de **virtualMachineProfile** sectie. Toevoegen van een nieuw profiel met de naam **extensionsProfile** voor het beheren van extensies.  
 
 
-In de **extensionProfile**, een nieuwe extensie toevoegen aan de sjabloon, zoals aangegeven in de **VMSS-WAD-extensie sectie**.  In deze sectie wordt de beheerde identiteit voor Azure-resources-extensie die ervoor zorgt de metrische gegevens worden verzonden dat, worden geaccepteerd door Azure Monitor. De **naam** veld kan een willekeurige naam bevatten. 
+In de **extensionProfile**, een nieuwe extensie toevoegen aan de sjabloon, zoals wordt weergegeven in de **VMSS-WAD-extensie** sectie.  In deze sectie wordt de beheerde identiteit voor Azure-resources-extensie die ervoor zorgt de metrische gegevens worden verzonden dat, worden geaccepteerd door Azure Monitor. De **naam** veld kan een willekeurige naam bevatten. 
 
-De volgende code uit de MSI-extensie ook wordt toegevoegd de extensie voor diagnostische gegevens en configuratie als een extensie-resource met de virtuele machine scale set bron. U kunt prestatiemeteritems behoefte toevoegen/verwijderen. 
+De volgende code uit de MSI-extensie ook wordt toegevoegd de extensie voor diagnostische gegevens en configuratie als een extensie-resource met de virtuele machine scale set bron. U kunt toevoegen of verwijderen van prestatiemeteritems, indien nodig: 
 
 ```json
           "extensionProfile": { 
@@ -195,30 +195,32 @@ De volgende code uit de MSI-extensie ook wordt toegevoegd de extensie voor diagn
 ```
 
 
-Voeg een dependsOn voor het opslagaccount om te controleren of dat deze gemaakt in de juiste volgorde. 
+Voeg een **dependsOn** voor het opslagaccount om te controleren of deze gemaakt in de juiste volgorde: 
+
 ```json
 "dependsOn": [ 
 "[concat('Microsoft.Network/loadBalancers/', variables('loadBalancerName'))]", 
 "[concat('Microsoft.Network/virtualNetworks/', variables('virtualNetworkName'))]" 
 //add this line below
 "[concat('Microsoft.Storage/storageAccounts/', variables('storageAccountName'))]" 
- ```
+```
 
-Maak een storage-account als een is niet in de sjabloon is gemaakt.  
+Een storage-account maken als een al in de sjabloon is niet gemaakt: 
+
 ```json
 "resources": [
-  // add this code    
-  {
-     "type": "Microsoft.Storage/storageAccounts",
-     "name": "[variables('storageAccountName')]",
-     "apiVersion": "2015-05-01-preview",
-     "location": "[resourceGroup().location]",
-     "properties": {
-       "accountType": "Standard_LRS"
-      }
-  },
-  // end added code
-  { 
+// add this code    
+{
+    "type": "Microsoft.Storage/storageAccounts",
+    "name": "[variables('storageAccountName')]",
+    "apiVersion": "2015-05-01-preview",
+    "location": "[resourceGroup().location]",
+    "properties": {
+    "accountType": "Standard_LRS"
+    }
+},
+// end added code
+{ 
     "type": "Microsoft.Network/virtualNetworks",
     "name": "[variables('virtualNetworkName')]",
 ```
@@ -227,62 +229,63 @@ Opslaan en sluiten van beide bestanden.
 
 ## <a name="deploy-the-resource-manager-template"></a>De Resource Manager-sjabloon implementeren 
 
-> [!NOTE]
-> U moet beschikken over de Azure Diagnostics-extensieversie 1.5 of hoger en hebben de 'autoUpgradeMinorVersion': de eigenschap ingesteld op *waar* in de Resource Manager-sjabloon.  Azure laadt vervolgens het juiste toestelnummer wanneer deze de virtuele machine wordt gestart. Als u deze instellingen niet in de sjabloon hebt, wijzigen en de sjabloon opnieuw implementeert. 
+> [!NOTE]  
+> U moet uitvoeren de Azure Diagnostics-extensieversie 1.5 of hoger **en** hebben de **autoUpgradeMinorVersion:** eigenschap ingesteld op **waar** in Resource Manager de sjabloon. Azure laadt vervolgens het juiste toestelnummer wanneer deze de virtuele machine wordt gestart. Als u deze instellingen in de sjabloon hebt, wijzigen en de sjabloon opnieuw implementeert. 
 
 
-Voor het implementeren van de Resource Manager-sjabloon, we gebruik van Azure PowerShell.  
+Voor het implementeren van de Resource Manager-sjabloon, kunt u Azure PowerShell gebruiken:  
 
-1. PowerShell starten 
-1. Meld u aan voor het gebruik van Azure `Login-AzureRmAccount`
-1. De lijst met abonnementen ophalen `Get-AzureRmSubscription`
-1. Stel het abonnement dat u zal worden maken of bijwerken van de virtuele machine in 
+1. Start PowerShell. 
+1. Aanmelden bij Azure met `Login-AzureRmAccount`.
+1. Uw lijst met abonnementen ophalen met behulp van `Get-AzureRmSubscription`.
+1. Het abonnement dat u gaat maken of bijwerken van de virtuele machine instellen: 
 
    ```PowerShell
    Select-AzureRmSubscription -SubscriptionName "<Name of the subscription>" 
    ```
-1. Maak een nieuwe resourcegroep voor de virtuele machine wordt geïmplementeerd, voer de onderstaande opdracht 
+1. Maak een nieuwe resourcegroep voor de virtuele machine wordt geïmplementeerd. Voer de volgende opdracht uit: 
 
    ```PowerShell
     New-AzureRmResourceGroup -Name "VMSSWADtestGrp" -Location "<Azure Region>" 
    ```
 
    > [!NOTE]  
-   > Geef een Azure-regio die is ingeschakeld voor aangepaste metrische gegevens. Zie 
+   > Geef een Azure-regio die ingeschakeld voor aangepaste metrische gegevens. Houd er rekening mee te gebruiken een [Azure-regio die ingeschakeld voor aangepaste metrische gegevens](https://github.com/MicrosoftDocs/azure-docs-pr/pull/metrics-custom-overview.md#supported-regions).
  
-1. Voer de volgende opdrachten voor het implementeren van de virtuele machine met de  
-   > [!NOTE] 
-   > Als u bijwerken van een bestaande schaalset wilt, Voeg *-modus incrementele* aan het einde van de volgende opdracht uit. 
+1. Voer de volgende opdrachten voor het implementeren van de virtuele machine:  
+
+   > [!NOTE]  
+   > Als u bijwerken van een bestaande schaalset wilt, voegt u toe **-modus incrementele** aan het einde van de opdracht. 
  
    ```PowerShell
    New-AzureRmResourceGroupDeployment -Name "VMSSWADTest" -ResourceGroupName "VMSSWADtestGrp" -TemplateFile "<File path of your azuredeploy.JSON file>" -TemplateParameterFile "<File path of your azuredeploy.parameters.JSON file>"  
    ```
 
-1. Zodra de implementatie is gelukt moet u kunnen vinden van de virtuele-machineschaalset in Azure portal en deze metrische gegevens naar Azure Monitor te genereren. 
+1. Nadat de implementatie is voltooid, moet u de virtuele-machineschaalset in Azure portal. Deze moet metrische gegevens naar Azure Monitor verzenden. 
 
-   > [!NOTE] 
-   > U kunt uitvoeren in fouten om de geselecteerde vmSkuSize. Als dit het geval is, gaat u terug naar het bestand azuredeploy.json en de standaardwaarde van de parameter vmSkuSize bijwerken. In dit geval wordt aangeraden probeert 'Standard_DS1_v2'). 
+   > [!NOTE]  
+   > U kunt tegenkomen fouten om de geselecteerde **vmSkuSize**. In dat geval gaat u terug naar uw **azuredeploy.json** bestands- en bijwerken van de standaardwaarde van de **vmSkuSize** parameter. Het is raadzaam dat u probeert **Standard_DS1_v2**. 
 
 
 ## <a name="chart-your-metrics"></a>Grafiek van uw metrische gegevens 
 
-1. Aanmelden bij Azure Portal 
+1. Meld u aan bij Azure Portal. 
 
-1. Klik in het menu links op **Monitor** 
+1. Selecteer in het menu links **Monitor**. 
 
-1. Klik op de pagina Monitor **metrische gegevens**. 
+1. Op de **Monitor** weergeeft, schakelt **metrische gegevens**. 
 
-   ![Pagina van de metrische gegevens](./media/metrics-store-custom-rest-api/metrics.png) 
+   ![Monitor - pagina van de metrische gegevens](./media/metrics-store-custom-rest-api/metrics.png) 
 
 1. Wijzig de aggregatie periode **afgelopen 30 minuten**.  
 
-1. Selecteer de virtuele-machineschaalset die u zojuist hebt gemaakt in de vervolgkeuzelijst resource.  
+1. Selecteer de virtuele-machineschaalset die u hebt gemaakt in de vervolgkeuzelijst resource.  
 
-1. Selecteer in de vervolgkeuzelijst naamruimten **azure.vm.windows.guest** 
+1. Selecteer in de vervolgkeuzelijst naamruimten **azure.vm.windows.guest**. 
 
-1. In de metrische gegevens vervolgkeuzelijst, selecteer **geheugen\%Committed Bytes in gebruik**.  
+1. Selecteer in de vervolgkeuzelijst metrische gegevens **geheugen\%Committed Bytes in gebruik**.  
 
-U kunt ook kies vervolgens de dimensies gebruiken op deze metrische gegevens voor een grafiek van deze metrische gegevens voor een bepaalde virtuele machine in de schaalset, of moet worden getekend van elke virtuele machine in de schaalset. 
+U kunt ook kies vervolgens de dimensies gebruiken op deze metrische gegevens voor de grafiek het voor een bepaalde virtuele machine of om te tekenen van elke virtuele machine in de schaalset. 
 
 
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2018
 ms.author: fboylu
-ms.openlocfilehash: 2a5d8540dba491dec8b2da227b0e84c10ff09c77
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 8f42ee996dae476de3744239d4cc5f053722d52b
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394990"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50093208"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>Azure AI-handleiding voor oplossingen voor Voorspellend onderhoud
 
@@ -414,7 +414,6 @@ Het laatste gedeelte van deze handleiding bevat een lijst van PdM oplossingssjab
 
 | # | Titel | Beschrijving |
 |--:|:------|-------------|
-| 1 | [Voorspellend onderhoud van Azure Machine Learning-voorbeeld](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance) |Voorbeeld van PdM om te voorspellen fout via de volgende N tijdseenheden. In dit voorbeeld is geschreven als een Azure ML Workbench-project en is ideaal voor zowel beginners als PdM. [Aanvullende documentatie](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/scenario-predictive-maintenance) die betrekking hebben op dit voorbeeld.|
 | 2 | [De sjabloon voor Voorspellend onderhoud van Azure-oplossing](https://github.com/Azure/AI-PredictiveMaintenance) | Een sjabloon voor open-source oplossing die laat zien van ML-modellen en een volledige Azure-infrastructuur kan ondersteunen van scenario's voor Voorspellend onderhoud in de context van het externe controle IoT. |
 | 3 | [Deep Learning voor Predictief onderhoud](https://github.com/Azure/MachineLearningSamples-DeepLearningforPredictiveMaintenance) | Azure-notitieblok met een demo-oplossing van het gebruik van LSTM (lange termijn geheugen)-netwerken (een klasse van terugkerende Neurale netwerken) voor Voorspellend onderhoud, met een [blogbericht op dit voorbeeld](https://azure.microsoft.com/blog/deep-learning-for-predictive-maintenance).|
 | 4 | [Voorspeld onderhoud model handleiding in R](https://gallery.azure.ai/Notebook/Predictive-Maintenance-Modelling-Guide-R-Notebook-1) | Handleiding voor PdM modellen met behulp van scripts in R.|

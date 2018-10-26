@@ -4,16 +4,16 @@ description: Informatie over het gebruik van de querytaal van Resource-grafiek a
 services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 10/22/2018
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: f488dfad8a38bbfab3b5b74e5b504463af09c089
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: bcd25b95d1369ef98662384945123126ebbbd70f
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49645929"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50086893"
 ---
 # <a name="explore-your-azure-resources-with-resource-graph"></a>Azure-resources verkennen met Resource Graph
 
@@ -21,7 +21,7 @@ Azure Resource Graph biedt de mogelijkheid om te verkennen en detecteren van uw 
 
 ## <a name="explore-virtual-machines"></a>Verken virtual machines
 
-Een algemene resource in Azure is een virtuele machine. Virtuele machines hebben als een brontype talrijke eigenschappen die kunnen worden opgevraagd. Elke eigenschap bevat een optie voor het filteren of zoeken naar exact de resource die u zoekt.
+Een algemene resource in Azure is een virtuele machine. Virtuele machines hebben als een brontype veel eigenschappen die kunnen worden opgevraagd. Elke eigenschap bevat een optie voor het filteren of zoeken naar exact de resource die u zoekt.
 
 ### <a name="virtual-machine-discovery"></a>Detectie van de virtuele machine
 
@@ -214,9 +214,9 @@ az graph query -q "where type =~ 'Microsoft.Compute/virtualMachines' and propert
 Search-AzureRmGraph -Query "where type =~ 'Microsoft.Compute/virtualMachines' and properties.hardwareProfile.vmSize == 'Standard_B2s' | project name, resourceGroup"
 ```
 
-### <a name="virtual-machines-connected-to-premium-managed-disks"></a>Virtuele machines verbonden met premium-beheerde schijven
+### <a name="virtual-machines-connected-to-premium-managed-disks"></a>Virtuele machines die zijn verbonden met premium-beheerde schijven
 
-Als we wilden om op te halen van de details van premium-beheerde schijven die zijn gekoppeld aan deze **Standard_B2s** virtuele machines, breidt u de query voor het geven van de resource-id van de beheerde schijven.
+Als we wilden om op te halen van de details van premium-beheerde schijven die zijn gekoppeld aan deze **Standard_B2s** virtuele machines, breidt u de query voor het geven van de resource-ID van de beheerde schijven.
 
 ```Query
 where type =~ 'Microsoft.Compute/virtualmachines' and properties.hardwareProfile.vmSize == 'Standard_B2s'
@@ -236,11 +236,11 @@ az graph query -q "where type =~ 'Microsoft.Compute/virtualmachines' and propert
 Search-AzureRmGraph -Query "where type =~ 'Microsoft.Compute/virtualmachines' and properties.hardwareProfile.vmSize == 'Standard_B2s' | extend disk = properties.storageProfile.osDisk.managedDisk | where disk.storageAccountType == 'Premium_LRS' | project disk.id"
 ```
 
-Het resultaat is een lijst van schijf-id's
+Het resultaat is een lijst van schijf-id's.
 
 ### <a name="managed-disk-discovery"></a>Detectie van de beheerde schijf
 
-De eerste record uit de vorige query duurt, verkennen we de eigenschappen die bestaan op de beheerde schijf die is gekoppeld aan de eerste virtuele machine. De bijgewerkte query maakt gebruik van de schijf-id en het type wijzigen.
+Met de eerste record uit de vorige query verkennen we de eigenschappen die aanwezig zijn op de beheerde schijf die is gekoppeld aan de eerste virtuele machine. De bijgewerkte query maakt gebruik van de schijf-ID en het type gewijzigd.
 
 Voorbeeld van uitvoer van de vorige query, bijvoorbeeld:
 
@@ -314,7 +314,7 @@ De structuur van de JSON-resultaten die vergelijkbaar is met het volgende voorbe
 
 ## <a name="explore-virtual-machines-to-find-public-ip-addresses"></a>Verken virtual machines om te vinden van openbare IP-adressen
 
-Dit Azure CLI meerdere stappen set van query's eerst gevonden en slaat alle het netwerk netwerkinterfaces (NIC)-resources die zijn verbonden met virtuele machines, maakt gebruik van de lijst met NIC's aan de resource van elk IP-adres dat is een openbaar IP-adres zoeken en deze waarden worden opgeslagen en ten slotte biedt een lijst van het werkelijke openbare IP-adressen.
+Dit Azure CLI-set van query's eerst worden gevonden en alle de netwerkinterfaces (NIC)-resources die zijn verbonden met virtuele machines worden opgeslagen. Vervolgens gebruikt de lijst met NIC's om te vinden van elk IP-adresresource die een openbaar IP-adres is en deze waarden worden opgeslagen. Ten slotte biedt een lijst van de openbare IP-adressen.
 
 ```azurecli-interactive
 # Use Resource Graph to get all NICs and store in the 'nic' variable
@@ -324,7 +324,7 @@ az graph query -q "where type =~ 'Microsoft.Compute/virtualMachines' | project n
 cat nics.txt
 ```
 
-Nadat we hebben de `nics.txt` -bestand, we gebruiken deze in de volgende query om de netwerk-gerelateerde details van de interface-resources ophalen wanneer er een openbaar IP-adres dat is gekoppeld aan de NIC.
+Gebruik de `nics.txt` bestand in de volgende query voor de netwerkinterface van de gerelateerde resources informatie wanneer er een openbaar IP-adres dat is gekoppeld aan de NIC.
 
 ```azurecli-interactive
 # Use Resource Graph with the 'nics.txt' file to get all related public IP addresses and store in 'publicIp.txt' file

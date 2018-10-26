@@ -14,18 +14,18 @@ ms.tgt_pltfrm: ''
 ms.topic: article
 ms.date: 4/27/2018
 ms.author: shhurst
-ms.openlocfilehash: e6ac6a4aa46feb768df437ff9d5969b2b41092c3
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 5aa5ea2a39a0fb9f969e965fed14063522197cda
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041642"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50085776"
 ---
 # <a name="handle-large-messages-with-chunking-in-azure-logic-apps"></a>Grote berichten afhandelen met logische groepen te verdelen in Azure Logic Apps
 
 Bij het verwerken van berichten, beperkt Logic Apps berichtinhoud tot een maximale grootte. Deze limiet helpt overhead te verminderen die zijn gemaakt door opslaan en verwerken van grote berichten. Voor het afhandelen van berichten die groter zijn dan deze limiet, Logic Apps kunt *chunk* grote berichten in kleinere berichten. Op die manier kunt u nog steeds grote bestanden met behulp van Logic Apps onder bepaalde omstandigheden overbrengen. Bij het communiceren met andere services via connectors of HTTP, grote berichten kunnen worden gebruikt door Logic Apps, maar *alleen* in segmenten. Deze voorwaarde betekent connectors moeten ook ondersteuning voor het logische groepen te verdelen, of de logische groepen te verdelen van de onderliggende HTTP-berichtuitwisseling tussen Logic Apps en deze services moet gebruiken.
 
-In dit artikel wordt beschreven hoe u ondersteuning voor berichten die groter dan de limiet van zijn logische groepen te verdelen kunt instellen.
+In dit artikel wordt beschreven hoe u logische groepen te verdelen voor afhandeling van berichten die groter zijn dan de limiet voor acties kunt instellen. Triggers voor logische App bieden geen ondersteuning voor logische groepen te verdelen vanwege de verhoogde overhead van meerdere berichten uitwisselen. 
 
 ## <a name="what-makes-messages-large"></a>Wat kunt u berichten 'grote'?
 

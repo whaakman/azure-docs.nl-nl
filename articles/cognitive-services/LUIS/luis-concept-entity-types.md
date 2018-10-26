@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: diberry
-ms.openlocfilehash: 92b4864f8991380740e6edb498328ce2eea98250
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: fdf81943a7bdbae80f4474915a72bb61f1123a30
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49650108"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50085827"
 ---
 # <a name="entities-in-luis"></a>Entiteiten in LUIS
 
@@ -96,8 +96,9 @@ LUIS biedt veel soorten entiteiten; vooraf gemaakte entiteiten, aangepaste machi
 ## <a name="entity-limits"></a>Limieten voor entiteit
 Beoordeling [limieten](luis-boundaries.md#model-boundaries) om te begrijpen hoe vaak elk type entiteit kunt u toevoegen aan een model.
 
-## <a name="entity-roles"></a>Entiteit-rollen
-Entiteit [rollen](luis-concept-roles.md) zijn van toepassing op aangepaste en vooraf gemaakte entiteiten en worden gebruikt in alleen-patronen. 
+## <a name="roles-versus-hierarchical-entities"></a>Functies ten opzichte van hiërarchische entiteiten
+
+Zie voor meer informatie, [functies ten opzichte van hiërarchische entiteiten](luis-concept-roles.md#roles-versus-hierarchical-entities).
 
 ## <a name="composite-vs-hierarchical-entities"></a>Samengestelde vs hiërarchische entiteiten
 Samengestelde entiteiten en hiërarchische entiteiten zowel hebben relaties tussen bovenliggende en onderliggende en machine hebt geleerd. De machine learning kunt LUIS om te begrijpen van de entiteiten op basis van verschillende contexten (rangschikking van woorden). Samengestelde entiteiten zijn flexibel omdat ze verschillende Entiteitstypen als onderliggende items toegestaan. Een hiërarchische entiteit kinderen zijn alleen eenvoudige entiteiten. 

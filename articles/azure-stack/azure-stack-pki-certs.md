@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 112940dbacf0bfdaff735eb0abd79e177cf5c9c5
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: d181835c6baf5a2a40bca04feaa4c115178ba086
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49456999"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50093958"
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Azure Stack-certificaatvereisten voor openbare-sleutelinfrastructuur
 
@@ -40,7 +40,8 @@ De volgende lijst beschrijft de vereisten voor certificaten die nodig zijn voor 
 - Wanneer u certificaten, moeten certificaten dat een uitgegeven door de dezelfde interne certificeringsinstantie gebruikt voor het ondertekenen van certificaten op de implementatie of een openbare certificeringsinstantie van bovenstaande
 - Het gebruik van zelfondertekende certificaten worden niet ondersteund.
 - Voor implementatie en rotatie kunt u één certificaat die betrekking hebben op alle naamruimten in de naam van het onderwerp en SAN Subject Alternative Name () velden van het certificaat gebruiken of kunt u afzonderlijke-certificaten van elk van de naamruimten hieronder die de Azure Stack Services die u van plan bent om te gebruiken is vereist. Beide benaderingen vereisen het gebruik van jokertekens voor eindpunten, waar ze zijn vereist, zoals **KeyVault** en **KeyVaultInternal**. 
-- De handtekeningalgoritme mag niet SHA1, zoals het moet sterkere. 
+- PFX-versleuteling van het certificaat moet 3DES. 
+- Het certificaat handtekeningalgoritme moet SHA1 niet. 
 - Opmaak van het certificaat moet PFX, als de openbare en persoonlijke sleutels vereist voor Azure Stack-installatie zijn. 
 - De PFX-versleuteling moet 3DES (dit is standaard bij het exporteren van een client voor Windows 10 of Windows Server 2016-certificaatarchief).
 - De certificaat-pfx-bestanden moeten een waarde 'Digitale handtekening' en 'Keyencipherment-bit' in het veld 'Sleutelgebruik' hebben.

@@ -4,7 +4,7 @@ description: Extra taken voor na een OpenShift-cluster is geïmplementeerd.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: haroldwongms
-manager: najoshi
+manager: joraio
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -13,22 +13,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/09/2018
+ms.date: ''
 ms.author: haroldw
-ms.openlocfilehash: 39febceff58127fb9777ace6e3063fbe41605b79
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 7b129eea513b7856ca99b02842b3b9c33c6ec19b
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49426444"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50084982"
 ---
 # <a name="post-deployment-tasks"></a>Taken na de implementatie
 
-Nadat u een OpenShift-cluster implementeert, kunt u extra items configureren. In dit artikel bevat informatie over het volgende:
+Nadat u een OpenShift-cluster implementeert, kunt u extra items configureren. In dit artikel bevat informatie over:
 
 - Het configureren van eenmalige aanmelding met behulp van Azure Active Directory (Azure AD)
 - Het configureren van Log Analytics voor het controleren van OpenShift
 - Metrische gegevens en logboekregistratie configureren
+- Het installeren van Open Service Broker for Azure (OSBA)
 
 ## <a name="configure-single-sign-on-by-using-azure-active-directory"></a>Eenmalige aanmelding configureren met behulp van Azure Active Directory
 
@@ -39,15 +40,15 @@ Voor het gebruik van Azure Active Directory voor verificatie, moet u eerst de re
 Deze stappen wordt de Azure CLI gebruiken om de app-registratie en de grafische gebruikersinterface (portal) om in te stellen de machtigingen te maken. Voor het maken van de app-registratie, moet u de volgende vijf stukjes informatie:
 
 - Weergavenaam: naam van App-registratie (bijvoorbeeld OCPAzureAD)
-- Startpagina: OpenShift console URL (bijvoorbeeld: https://masterdns343khhde.westus.cloudapp.azure.com:8443/console)
-- Id-URI: OpenShift-console-URL (bijvoorbeeld: https://masterdns343khhde.westus.cloudapp.azure.com:8443/console)
+- Startpagina: OpenShift console URL (bijvoorbeeld: https://masterdns343khhde.westus.cloudapp.azure.com/console)
+- Id-URI: OpenShift-console-URL (bijvoorbeeld: https://masterdns343khhde.westus.cloudapp.azure.com/console)
 - Antwoord-URL: Openbare URL en de naam van de app-registratie (bijvoorbeeld Master https://masterdns343khhde.westus.cloudapp.azure.com/oauth2callback/OCPAzureAD)
 - Wachtwoord: Beveiligd wachtwoord (gebruik een sterk wachtwoord)
 
 Het volgende voorbeeld wordt een app-registratie met behulp van de voorgaande informatie:
 
 ```azurecli
-az ad app create --display-name OCPAzureAD --homepage https://masterdns343khhde.westus.cloudapp.azure.com:8443/console --reply-urls https://masterdns343khhde.westus.cloudapp.azure.com/oauth2callback/OCPAzureAD --identifier-uris https://masterdns343khhde.westus.cloudapp.azure.com:8443/console --password {Strong Password}
+az ad app create --display-name OCPAzureAD --homepage https://masterdns343khhde.westus.cloudapp.azure.com/console --reply-urls https://masterdns343khhde.westus.cloudapp.azure.com/oauth2callback/hwocpadint --identifier-uris https://masterdns343khhde.westus.cloudapp.azure.com/console --password {Strong Password}
 ```
 
 Als de opdracht geslaagd is, krijgt u een JSON-uitvoer die vergelijkbaar is met:
@@ -58,9 +59,9 @@ Als de opdracht geslaagd is, krijgt u een JSON-uitvoer die vergelijkbaar is met:
   "appPermissions": null,
   "availableToOtherTenants": false,
   "displayName": "OCPAzureAD",
-  "homepage": "https://masterdns343khhde.westus.cloudapp.azure.com:8443/console",
+  "homepage": "https://masterdns343khhde.westus.cloudapp.azure.com/console",
   "identifierUris": [
-    "https://masterdns343khhde.westus.cloudapp.azure.com:8443/console"
+    "https://masterdns343khhde.westus.cloudapp.azure.com/console"
   ],
   "objectId": "62cd74c9-42bb-4b9f-b2b5-b6ee88991c80",
   "objectType": "Application",
@@ -82,7 +83,7 @@ In Azure Portal:
 
   ![App-registratie](media/openshift-post-deployment/app-registration.png)
 
-6.  Klik op stap 1: Selecteer API en klik vervolgens op **Azure Active Directory (Microsoft.Azure.ActiveDirectory)**. Klik op **Selecteer** aan de onderkant.
+6.  Klik op stap 1: Selecteer API en klik vervolgens op **Windows Azure Active Directory (Microsoft.Azure.ActiveDirectory)**. Klik op **Selecteer** aan de onderkant.
 
   ![Selecteer API App-registratie](media/openshift-post-deployment/app-registration-select-api.png)
 
@@ -106,7 +107,7 @@ In het yaml-bestand, vinden de volgende regels:
 
 ```yaml
 oauthConfig:
-  assetPublicURL: https://masterdns343khhde.westus.cloudapp.azure.com:8443/console/
+  assetPublicURL: https://masterdns343khhde.westus.cloudapp.azure.com/console/
   grantConfig:
     method: auto
   identityProviders:
@@ -146,16 +147,9 @@ Voeg de volgende regels onmiddellijk na de vorige regels:
         token: https://login.microsoftonline.com/<tenant Id>/oauth2/token
 ```
 
-De tenant-ID vinden met behulp van de volgende CLI-opdracht: ```az account show```
+Zorg ervoor dat de tekst wordt uitgelijnd correct onder identityProviders. De tenant-ID vinden met behulp van de volgende CLI-opdracht: ```az account show```
 
 Start opnieuw op de master OpenShift-services op alle hoofdknooppunten:
-
-**OpenShift Origin**
-
-```bash
-sudo systemctl restart origin-master-api
-sudo systemctl restart origin-master-controllers
-```
 
 **OpenShift Container Platform (OCP) met meerdere modellen**
 
@@ -170,135 +164,47 @@ sudo systemctl restart atomic-openshift-master-controllers
 sudo systemctl restart atomic-openshift-master
 ```
 
+**OKD met meerdere modellen**
+
+```bash
+sudo systemctl restart origin-master-api
+sudo systemctl restart origin-master-controllers
+```
+
+**OKD met één master**
+
+```bash
+sudo systemctl restart origin-master
+```
+
 In de console van OpenShift ziet u nu twee opties voor verificatie: htpasswd_auth en [App-registratie].
 
 ## <a name="monitor-openshift-with-log-analytics"></a>OpenShift bewaken met Log Analytics
 
-Voor het controleren van OpenShift met Log Analytics, kunt u een van twee opties: installatie van de Log Analytics-agent op de VM-host of Log Analytics-container. In dit artikel vindt u instructies voor het implementeren van de Log Analytics-container.
+Er zijn drie manieren om toe te voegen van de Log Analytics-agent voor OpenShift.
+- De Log Analytics-agent voor Linux installeren rechtstreeks op elk knooppunt van OpenShift
+- Log Analytics VM-extensie inschakelen op elk knooppunt van OpenShift
+- De Log Analytics-agent installeren als een OpenShift-daemon-set
 
-## <a name="create-an-openshift-project-for-log-analytics-and-set-user-access"></a>Een OpenShift-project maken voor Log Analytics en gebruikerstoegang instellen
-
-```bash
-oadm new-project omslogging --node-selector='zone=default'
-oc project omslogging
-oc create serviceaccount omsagent
-oadm policy add-cluster-role-to-user cluster-reader system:serviceaccount:omslogging:omsagent
-oadm policy add-scc-to-user privileged system:serviceaccount:omslogging:omsagent
-```
-
-## <a name="create-a-daemon-set-yaml-file"></a>Maak een daemon set yaml-bestand
-
-Maak een bestand met de naam ocp-omsagent.yml:
-
-```yaml
-apiVersion: extensions/v1beta1
-kind: DaemonSet
-metadata:
-  name: oms
-spec:
-  selector:
-    matchLabels:
-      name: omsagent
-  template:
-    metadata:
-      labels:
-        name: omsagent
-        agentVersion: 1.4.0-45
-        dockerProviderVersion: 10.0.0-25
-    spec:
-      nodeSelector:
-        zone: default
-      serviceAccount: omsagent
-      containers:
-      - image: "microsoft/oms"
-        imagePullPolicy: Always
-        name: omsagent
-        securityContext:
-          privileged: true
-        ports:
-        - containerPort: 25225
-          protocol: TCP
-        - containerPort: 25224
-          protocol: UDP
-        volumeMounts:
-        - mountPath: /var/run/docker.sock
-          name: docker-sock
-        - mountPath: /etc/omsagent-secret
-          name: omsagent-secret
-          readOnly: true
-        livenessProbe:
-          exec:
-            command:
-              - /bin/bash
-              - -c
-              - ps -ef | grep omsagent | grep -v "grep"
-          initialDelaySeconds: 60
-          periodSeconds: 60
-      volumes:
-      - name: docker-sock
-        hostPath:
-          path: /var/run/docker.sock
-      - name: omsagent-secret
-        secret:
-         secretName: omsagent-secret
-````
-
-## <a name="create-a-secret-yaml-file"></a>Een geheim yaml-bestand maken
-
-Voor het maken van de geheime yaml-bestand, moet u twee soorten informatie: Log Analytics-werkruimte-ID en de gedeelde sleutel van Log Analytics-werkruimte. 
-
-Hier volgt een voorbeeld ocp-secret.yml-bestand: 
-
-```yaml
-apiVersion: v1
-kind: Secret
-metadata:
-  name: omsagent-secret
-data:
-  WSID: wsid_data
-  KEY: key_data
-```
-
-Vervang wsid_data met de met Base64 gecodeerde Log Analytics-werkruimte-ID. Vervang vervolgens key_data door de met Base64 gecodeerde Log Analytics-werkruimte gedeelde sleutel.
-
-```bash
-wsid_data='11111111-abcd-1111-abcd-111111111111'
-key_data='My Strong Password'
-echo $wsid_data | base64 | tr -d '\n'
-echo $key_data | base64 | tr -d '\n'
-```
-
-## <a name="create-the-secret-and-daemon-set"></a>Het geheim en de daemon-set maken
-
-Het geheime bestand implementeren:
-
-```bash
-oc create -f ocp-secret.yml
-```
-
-De daemon-set van Log Analytics-Agent implementeren:
-
-```bash
-oc create -f ocp-omsagent.yml
-```
+De volledige instructies vindt u hier: https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-containers#configure-a-log-analytics-agent-for-red-hat-openshift.
 
 ## <a name="configure-metrics-and-logging"></a>Metrische gegevens en logboekregistratie configureren
 
-De Azure Resource Manager-sjabloon voor OpenShift Container Platform biedt invoerparameters die zijn opgegeven voor het inschakelen van metrische gegevens en logboekregistratie. De OpenShift Container Platform Marketplace-aanbieding en de OpenShift Origin-Resource Manager-sjabloon niet.
+Op basis van de vertakking, kunnen de Azure Resource Manager-sjablonen voor OpenShift Container Platform en OKD invoerparameters die zijn opgegeven voor het inschakelen van metrische gegevens en logboekregistratie als onderdeel van de installatie bieden.
 
-Als u de OCP Resource Manager-sjabloon en de metrische gegevens gebruikt en logboekregistratie zijn niet ingeschakeld tijdens de installatie of als u de OCP Marketplace-aanbieding hebt gebruikt, kunt u eenvoudig kunt zich schakelt u deze na de gebeurtenis. Als u de OpenShift Origin-Resource Manager-sjabloon gebruikt, zijn werk dat vooraf is vereist.
+De OpenShift Container Platform Marketplace-aanbieding biedt ook een optie voor het inschakelen van metrische gegevens en logboekregistratie tijdens de clusterinstallatie van het.
 
-### <a name="openshift-origin-template-pre-work"></a>OpenShift Origin sjabloon vooraf werk
+Als metrische gegevens / logboekregistratie niet is ingeschakeld tijdens de installatie van het cluster, ze eenvoudig achteraf kunnen worden ingeschakeld.
 
-1. SSH naar het eerste hoofdknooppunt met behulp van poort 2200.
+### <a name="ansible-inventory-pre-work"></a>Ansible voorraad vooraf werk
 
-   Voorbeeld:
+Controleer of het ansible-inventarisatiebestand (/ ansible/etc/hosts) heeft de betreffende variabelen voor metrische gegevens / logboekregistratie. Het inventarisatiebestand kan worden gevonden op verschillende hosts op basis van de sjabloon die wordt gebruikt.
 
-   ```bash
-   ssh -p 2200 clusteradmin@masterdnsixpdkehd3h.eastus.cloudapp.azure.com 
-   ```
+Voor de sjabloon van OpenShift Container en de Marketplace-aanbieding, worden de inventarisatiebestand bevindt zich op bastionhost. Voor de sjabloon OKD de inventarisatiebestand bevindt zich op de master-0-host of het bastionhost op basis van de vertakking in gebruik.
 
-2. Bewerk het bestand /etc/ansible/hosts en voeg de volgende regels toe na de sectie id-Provider (# HTPasswdPasswordIdentityProvider inschakelen):
+1. Bewerk het bestand /etc/ansible/hosts en voeg de volgende regels toe na de sectie id-Provider (# HTPasswdPasswordIdentityProvider inschakelen). Als deze regels al aanwezig zijn zijn, niet deze opnieuw toevoegen.
+
+   OpenShift / OKD versies 3,9 en lager
 
    ```yaml
    # Setup metrics
@@ -320,35 +226,130 @@ Als u de OCP Resource Manager-sjabloon en de metrische gegevens gebruikt en logb
    openshift_master_logging_public_url=https://kibana.$ROUTING
    ```
 
+   OpenShift / OKD versies 3.10 en hoger
+
+   ```yaml
+   # Setup metrics
+   openshift_metrics_install_metrics=false
+   openshift_metrics_start_cluster=true
+   openshift_metrics_hawkular_nodeselector={"node-role.kubernetes.io/infra":"true"}
+   openshift_metrics_cassandra_nodeselector={"node-role.kubernetes.io/infra":"true"}
+   openshift_metrics_heapster_nodeselector={"node-role.kubernetes.io/infra":"true"}
+
+   # Setup logging
+   openshift_logging_install_logging=false
+   openshift_logging_fluentd_nodeselector={"logging":"true"}
+   openshift_logging_es_nodeselector={"node-role.kubernetes.io/infra":"true"}
+   openshift_logging_kibana_nodeselector={"node-role.kubernetes.io/infra":"true"}
+   openshift_logging_curator_nodeselector={"node-role.kubernetes.io/infra":"true"}
+   openshift_logging_master_public_url=https://kibana.$ROUTING
+   ```
+
 3. $ROUTING vervangen door de tekenreeks die wordt gebruikt voor de optie openshift_master_default_subdomain in hetzelfde bestand /etc/ansible/hosts.
 
 ### <a name="azure-cloud-provider-in-use"></a>Azure Cloud-Provider in gebruik
 
-Op de eerste hoofdknooppunt (oorsprong) of bastionhost knooppunt (OCP), SSH met behulp van de referenties die zijn opgegeven tijdens de implementatie. Geef de volgende opdracht uit:
+SSH naar de bastionomgeving knooppunt of het eerste hoofdknooppunt (op basis van sjabloon en de vertakking in gebruik) met behulp van de referenties die zijn opgegeven tijdens de implementatie. Geef de volgende opdracht uit:
+
+**OpenShift Containerplatform 3.7 en lager**
 
 ```bash
-ansible-playbook $HOME/openshift-ansible/playbooks/byo/openshift-cluster/openshift-metrics.yml \
+ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/byo/openshift-cluster/openshift-metrics.yml \
 -e openshift_metrics_install_metrics=True \
 -e openshift_metrics_cassandra_storage_type=dynamic
 
-ansible-playbook $HOME/openshift-ansible/playbooks/byo/openshift-cluster/openshift-logging.yml \
+ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/byo/openshift-cluster/openshift-logging.yml \
 -e openshift_logging_install_logging=True \
 -e openshift_hosted_logging_storage_kind=dynamic
 ```
 
-### <a name="azure-cloud-provider-not-in-use"></a>Azure Cloud-Provider niet in gebruik
-
-Op de eerste hoofdknooppunt (oorsprong) of bastionhost knooppunt (OCP), SSH met behulp van de referenties die zijn opgegeven tijdens de implementatie. Geef de volgende opdracht uit:
+**OpenShift Containerplatform 3,9 en hoger**
 
 ```bash
-ansible-playbook $HOME/openshift-ansible/playbooks/byo/openshift-cluster/openshift-metrics.yml \
--e openshift_metrics_install_metrics=True 
+ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/openshift-metrics/config.yml \
+-e openshift_metrics_install_metrics=True \
+-e openshift_metrics_cassandra_storage_type=dynamic
 
-ansible-playbook $HOME/openshift-ansible/playbooks/byo/openshift-cluster/openshift-logging.yml \
--e openshift_logging_install_logging=True 
+ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/openshift-logging/config.yml \
+-e openshift_logging_install_logging=True \
+-e openshift_logging_es_pvc_dynamic=true
 ```
+
+**OKD 3.7 en lager**
+
+```bash
+ansible-playbook ~/openshift-ansible/playbooks/byo/openshift-cluster/openshift-metrics.yml \
+-e openshift_metrics_install_metrics=True \
+-e openshift_metrics_cassandra_storage_type=dynamic
+
+ansible-playbook ~/openshift-ansible/playbooks/byo/openshift-cluster/openshift-logging.yml \
+-e openshift_logging_install_logging=True \
+-e openshift_hosted_logging_storage_kind=dynamic
+```
+
+**OKD 3,9 en hoger**
+
+```bash
+ansible-playbook ~/openshift-ansible/playbooks/byo/openshift-cluster/openshift-metrics.yml \
+-e openshift_metrics_install_metrics=True \
+-e openshift_metrics_cassandra_storage_type=dynamic
+
+ansible-playbook ~/openshift-ansible/playbooks/openshift-logging/config.yml \
+-e openshift_logging_install_logging=True \
+-e openshift_logging_es_pvc_dynamic=true
+```
+
+### <a name="azure-cloud-provider-not-in-use"></a>Azure Cloud-Provider niet in gebruik
+
+SSH naar de bastionomgeving knooppunt of het eerste hoofdknooppunt (op basis van sjabloon en de vertakking in gebruik) met behulp van de referenties die zijn opgegeven tijdens de implementatie. Geef de volgende opdracht uit:
+
+
+**OpenShift Containerplatform 3.7 en lager**
+
+```bash
+ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/byo/openshift-cluster/openshift-metrics.yml \
+-e openshift_metrics_install_metrics=True
+
+ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/byo/openshift-cluster/openshift-logging.yml \
+-e openshift_logging_install_logging=True
+```
+
+**OpenShift Containerplatform 3,9 en hoger**
+
+```bash
+ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/openshift-metrics/config.yml \
+-e openshift_metrics_install_metrics=True
+
+ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/openshift-logging/config.yml \
+-e openshift_logging_install_logging=True
+```
+
+**OKD 3.7 en lager**
+
+```bash
+ansible-playbook ~/openshift-ansible/playbooks/byo/openshift-cluster/openshift-metrics.yml \
+-e openshift_metrics_install_metrics=True
+
+ansible-playbook ~/openshift-ansible/playbooks/byo/openshift-cluster/openshift-logging.yml \
+-e openshift_logging_install_logging=True
+```
+
+**OKD 3,9 en hoger**
+
+```bash
+ansible-playbook ~/openshift-ansible/playbooks/byo/openshift-cluster/openshift-metrics.yml \
+-e openshift_metrics_install_metrics=True
+ansible-playbook ~/openshift-ansible/playbooks/openshift-logging/config.yml \
+-e openshift_logging_install_logging=True
+```
+
+## <a name="install-open-service-broker-for-azure-osba"></a>Open Service Broker for Azure (OSBA) installeren
+
+Open Service Broker voor Azure of OSBA, kunt u Azure Cloud Services rechtstreeks vanuit OpenShift inrichten. OSBA in een implementatie van Open Service Broker-API voor Azure. De Open Service Broker-API is een specificatie die een gemeenschappelijke taal voor cloud-providers die systeemeigen cloudtoepassingen gebruiken kunnen voor het beheren van cloudservices zonder de vergrendeling in definieert.
+
+Als u wilt installeren OSBA op OpenShift, volgt u de instructies die u hier: https://github.com/Azure/open-service-broker-azure#openshift-project-template. 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Aan de slag met OpenShift Container Platform](https://docs.openshift.com/container-platform/3.6/getting_started/index.html)
-- [Aan de slag met OpenShift Origin](https://docs.openshift.org/latest/getting_started/index.html)
+- [Aan de slag met OpenShift Container Platform](https://docs.openshift.com/container-platform)
+- [Aan de slag met OKD](https://docs.okd.io/latest)
