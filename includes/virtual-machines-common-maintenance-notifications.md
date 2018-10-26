@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/02/2018
 ms.author: shants
 ms.custom: include file
-ms.openlocfilehash: efedb2f48748264fb936fe82a1dbb3cf4403cc5e
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: b3f71c4710bd9711a3209dd55f8e680f63627c1b
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "40167100"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50035102"
 ---
 ## <a name="view-vms-scheduled-for-maintenance-in-the-portal"></a>Gepland voor onderhoud in de portal van de virtuele machines weergeven
 
@@ -49,7 +49,7 @@ U kunt gebruiken de Azure-portal en zoek naar virtuele machines die zijn gepland
 
 ## <a name="notification-and-alerts-in-the-portal"></a>Meldingen en waarschuwingen in de portal
 
-Een schema voor gepland onderhoud communiceert Azure met een e-mailbericht verzenden naar de abonnement-eigenaar en mede-eigenaars-groep. U kunt extra ontvangers en kanalen toevoegen aan deze communicatie met het maken van Azure-activiteit waarschuwingen. Zie voor meer informatie [abonnementsactiviteiten controleren met de Azure-activiteitenlogboek] (.. / articles/monitoring-and-diagnostics/monitoring-overview-activity-logs.md).
+Een schema voor gepland onderhoud communiceert Azure met een e-mailbericht verzenden naar de abonnement-eigenaar en mede-eigenaars-groep. U kunt extra ontvangers en kanalen toevoegen aan deze communicatie met het maken van Azure-activiteit waarschuwingen. Zie voor meer informatie, [abonnement activiteiten met de Azure-activiteitenlogboek](../articles/monitoring-and-diagnostics/monitoring-overview-activity-logs.md).
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 2. Selecteer in het menu aan de linkerkant, **Monitor**. 

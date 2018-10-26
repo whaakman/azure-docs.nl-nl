@@ -5,15 +5,15 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: include
-ms.date: 09/24/2018
+ms.date: 10/23/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: b9c4cf6c90ef5507b318b4f13afb982aab151c79
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 4a3581b3d61c5ad17352c2865fc059704c1eece1
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48874063"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "50035232"
 ---
 ### <a name="what-is-expressroute-global-reach"></a>Wat is ExpressRoute globaal bereik?
 
@@ -21,7 +21,7 @@ Globaal bereik ExpressRoute is een Azure-service die uw on-premises netwerken vi
 
 ### <a name="how-do-i-enable-or-disable-expressroute-global-reach"></a>Hoe ik in- of uitschakelen ExpressRoute globaal bereik?
 
-U inschakelen ExpressRoute globaal bereik door het met elkaar verbinden van uw ExpressRoute-circuits. U kunt de functie uitschakelen door de circuits. Zie de configuratie.
+U inschakelen ExpressRoute globaal bereik door het met elkaar verbinden van uw ExpressRoute-circuits. U kunt de functie uitschakelen door de circuits. Zie de [configuratie](../articles/expressroute/expressroute-howto-set-global-reach.md).
 
 ### <a name="do-i-need-expressroute-premium-for-expressroute-global-reach"></a>Moet ik ExpressRoute Premium voor ExpressRoute globaal bereik?
 
@@ -36,6 +36,7 @@ Met ExpressRoute kunt connectiviteit vanuit uw on-premises netwerk naar Microsof
 Globaal bereik van ExpressRoute wordt ondersteund in de volgende landen. De ExpressRoute-circuits moeten worden gemaakt op de peering locaties in die landen.
 
 * Australië
+* Frankrijk
 * Hongkong
 * Ierland
 * Japan
@@ -58,3 +59,11 @@ Nee. Om in te schakelen connectiviteit tussen twee van uw on-premises netwerken,
 ### <a name="what-is-the-network-throughput-i-can-expect-between-my-on-premises-networks-after-i-enable-expressroute-global-reach"></a>Wat is de doorvoer van het netwerk die ik tussen mijn on-premises netwerken verwachten kan nadat ik ExpressRoute globaal bereik hebt ingeschakeld?
 
 De netwerkdoorvoer tussen uw on-premises netwerken, ingeschakeld door ExpressRoute globaal bereik, wordt beperkt door de kleinste hoeveelheid van de twee ExpressRoute-circuits.
+
+### <a name="with-expressroute-global-reach-what-are-the-limits-on-the-number-of-routes-i-can-advertise-and-the-number-of-routes-i-will-receive"></a>Met ExpressRoute globaal bereik, wat zijn de limieten voor het aantal routes dat ik kunt adverteren en het aantal routes dat ik ontvang?
+
+Het aantal routes dat u naar Microsoft voor persoonlijke Azure-peering adverteren kunt blijft 4000 op een standaardcircuit of 10000 op een Premium-circuit. Het aantal routes dat u van Microsoft op persoonlijke Azure-peering ontvangt wordt de som van de routes van uw Azure-netwerken en de routes van uw on-premises-netwerken die zijn verbonden via ExpressRoute globaal bereik. Zorg ervoor dat u een limiet voor de bijbehorende maximale voorvoegsel instelt op uw on-premises router. 
+
+### <a name="what-is-the-sla-for-expressroute-global-reach"></a>Wat is de SLA voor ExpressRoute globaal bereik?
+
+Globaal bereik ExpressRoute biedt dezelfde [beschikbaarheids-SLA](https://azure.microsoft.com/support/legal/sla/expressroute/v1_3/) als de gewone ExpressRoute-service.

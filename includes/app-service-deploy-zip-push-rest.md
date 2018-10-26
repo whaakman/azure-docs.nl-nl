@@ -1,3 +1,16 @@
+---
+author: cephalin
+ms.service: app-service
+ms.topic: include
+ms.date: 11/03/2016
+ms.author: cephalin
+ms.openlocfilehash: ed771d1817e7ee1161e0f94ec9eefb5d2dfb3e23
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50134313"
+---
 ## <a name="rest"></a>ZIP-bestand met de REST-API's implementeren 
 
 U kunt de [service REST-API's voor implementatie](https://github.com/projectkudu/kudu/wiki/REST-API) voor het implementeren van het ZIP-bestand in uw app in Azure. Als u wilt implementeren, een POST-aanvraag naar https://<app_name>.scm.azurewebsites.net/api/zipdeploy te verzenden. De POST-aanvraag moet het ZIP-bestand in de hoofdtekst van bericht bevatten. De implementatiereferenties voor uw app moet u opgegeven in de aanvraag met behulp van HTTP-basisverificatie. Zie voor meer informatie de [naslaginformatie over de implementatie van de ZIP-push](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file). 
