@@ -13,18 +13,18 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.custom: mvc
-ms.date: 10/15/2018
+ms.date: 10/25/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: fa20f746e55f784e02244355c96ac273b9906acc
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 62eccba1b876ca8272dacbbd97a1d28c8b796081
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49339539"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50138307"
 ---
 # <a name="what-is-the-azure-stack-development-kit"></a>Wat is Azure Stack Development Kit?
-[Microsoft Azure Stack-geïntegreerde systemen](.\.\azure-stack-poc.md) in grootte variëren van 4-12-knooppunten en gezamenlijk worden ondersteund door een hardware-partner en Microsoft. Gebruik Azure Stack-geïntegreerde systemen om in te schakelen van nieuwe scenario's voor uw productieworkloads. Als u Azure Stack-operators die u beheert de infrastructuur geïntegreerde systemen en services biedt, raadpleegt u onze [operator documentatie](https://docs.microsoft.com/azure/azure-stack).
+[Microsoft Azure Stack-geïntegreerde systemen](.\.\azure-stack-poc.md) in grootte variëren van 4-16 knooppunten en gezamenlijk worden ondersteund door een hardware-partner en Microsoft. Gebruik Azure Stack-geïntegreerde systemen om in te schakelen van nieuwe scenario's voor uw productieworkloads. Als u Azure Stack-operators die u beheert de infrastructuur geïntegreerde systemen en services biedt, raadpleegt u onze [operator documentatie](https://docs.microsoft.com/azure/azure-stack).
 
 De Azure Stack Development Kit (ASDK) is een implementatie van één knooppunt van de Azure-Stack die u kunt downloaden en gebruiken **gratis**. Alle ASDK onderdelen zijn geïnstalleerd in virtuele machines op een afzonderlijke host-server-computer die moeten voldoen aan of groter zijn dan de [minimale hardwarevereisten](asdk-deploy-considerations.md#hardware). De ASDK is bedoeld om een omgeving waarin u kunt Azure Stack evalueren en ontwikkelen van moderne toepassingen met behulp van API's en hulpprogramma's consistent zijn met Azure in een *niet-productie* omgeving. 
 
@@ -47,7 +47,7 @@ Implementaties van één knooppunt ASDK verschillen van de Azure Stack implement
 
 |Beschrijving|ASDK|Azure Stack met meerdere knooppunten|
 |-----|-----|-----|
-|**Schalen**|Alle onderdelen zijn geïnstalleerd op een computer met één knooppunt-server.|De grootte van 4-12-knooppunten kan variëren.|
+|**Schalen**|Alle onderdelen zijn geïnstalleerd op een computer met één knooppunt-server.|De grootte van 4-16 knooppunten kan variëren.|
 |**Flexibiliteit**|Configuratie met één knooppunt biedt geen hoge beschikbaarheid|[Hoge beschikbaarheid](.\.\azure-stack-key-features.md#high-availability-for-azure-stack) mogelijkheden worden ondersteund.|
 |**Netwerken**|De ASDK maakt gebruik van een virtuele machine met de naam AzS-BGPNAT01 alle ASDK netwerkverkeer te routeren. Er zijn geen extra switch-vereisten.|De AzS-BGPNAT01-machine bestaat niet in implementaties met meerdere knooppunten. Complexere [routering netwerkinfrastructuur](.\.\azure-stack-network.md#network-infrastructure) met inbegrip van Top Of Rack (TOR), Baseboard Management Controller (BMC) en switches van de rand (datacenternetwerk) nodig is.|
 |**Patch- en bijwerkproces**|Als u wilt verplaatsen naar een nieuwe versie van de ASDK, moet u de ASDK op de hostcomputer development kit opnieuw implementeren.|[Patch en bij te werken](.\.\azure-stack-updates.md) proces gebruikt voor het bijwerken van de geïnstalleerde versie van Azure Stack.|
