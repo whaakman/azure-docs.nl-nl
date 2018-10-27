@@ -1,6 +1,6 @@
 ---
-title: Architectuur concepten in Azure IoT centrale | Microsoft Docs
-description: Dit artikel bevat belangrijke concepten over de architectuur van Azure IoT centrale
+title: Architectuur concepten in Azure IoT Central | Microsoft Docs
+description: Dit artikel bevat belangrijke concepten die betrekking hebben de architectuur van Azure IoT Central
 author: dominicbetts
 ms.author: dobett
 ms.date: 11/30/2017
@@ -8,94 +8,94 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: 44408e7b6ad1a068f265bf7b78d973e6aae3001b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 564ea3efe35a1054b8c905cff4b7f4c739cc9216
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34628756"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50156371"
 ---
-# <a name="azure-iot-central-architecture"></a>Architectuur van Azure IoT-centraal
+# <a name="azure-iot-central-architecture"></a>Azure IoT Central-architectuur
 
-Dit artikel bevat een overzicht van de Microsoft Azure IoT Central-architectuur.
+Dit artikel bevat een overzicht van de architectuur van Microsoft Azure IoT Central.
 
-![Architectuur van het hoogste niveau](media/concepts-architecture/architecture.png)
+![Op het hoogste niveau architectuur](media/concepts-architecture/architecture.png)
 
 ## <a name="devices"></a>Apparaten
 
-Apparaten uitwisselen van gegevens met uw Azure IoT centrale toepassing. Een apparaat kunt doen:
+Apparaten uitwisselen van gegevens met uw Azure IoT Central-toepassing. Een apparaat kunt doen:
 
 - Metingen zoals telemetrie verzenden.
-- Instellingen worden gesynchroniseerd met uw toepassing.
+- Instellingen synchroniseren met uw toepassing.
 
-De gegevens die een apparaat met uw toepassing uitwisselen kan is in Azure IoT centrale opgegeven in de sjabloon van een apparaat. Zie voor meer informatie over apparaat sjablonen [metagegevens management](#metadata-management).
+De gegevens die een apparaat met uw toepassing uitwisselen kan is in Azure IoT Central opgegeven in de sjabloon van een apparaat. Zie voor meer informatie over apparaatsjablonen [metagegevens management](#metadata-management).
 
-Zie voor meer informatie over hoe apparaten verbinding met uw Azure IoT centrale toepassing maken, [connectiviteit van apparaten](concepts-connectivity.md).
+Zie voor meer informatie over hoe apparaten verbinding met uw Azure IoT Central-toepassing maken, [apparaatconnectiviteit](concepts-connectivity.md).
 
 ## <a name="cloud-gateway"></a>Cloudgateway
 
-Azure IoT centraal gebruikt Azure IoT Hub als een cloudgateway waarmee de connectiviteit van apparaten. Maakt gebruik van IoT-Hub:
+Azure IoT Central maakt gebruik van Azure IoT Hub als een cloudgateway waarmee de connectiviteit van apparaten. Met IoT Hub kunt:
 
-- Gegevensopname op grote schaal in de cloud.
+- Opname van gegevens op schaal in de cloud.
 - Beheer van apparaten.
-- Beveilig de connectiviteit van apparaten.
+- Beveiligde connectiviteit van apparaten.
 
 Zie voor meer informatie over IoT Hub, [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/).
 
-Zie voor meer informatie over de connectiviteit van apparaten in Azure IoT centrale [connectiviteit van apparaten](concepts-connectivity.md).
+Zie voor meer informatie over de connectiviteit van apparaten in Azure IoT Central, [apparaatconnectiviteit](concepts-connectivity.md).
 
 ## <a name="data-stores"></a>Gegevensopslag
 
-Azure IoT centrale opslaat toepassingsgegevens in de cloud. Toepassingsgegevens opgeslagen omvat:
+Azure IoT Central worden toepassingsgegevens opgeslagen in de cloud. Toepassingsgegevens opgeslagen bevat:
 
-- Apparaat-sjablonen.
+- Apparaatsjablonen.
 - Apparaat-id's.
 - Metagegevens van apparaten.
-- De gebruiker en rolautorisatie gegevens.
+- Gebruiker en rol gegevens.
 
-Azure IoT centraal maakt gebruik van een reeks opslaan tijd voor de meetgegevens van uw apparaten worden verzonden. Tijd reeksgegevens van apparaten die worden gebruikt door de analytics-service.
+Azure IoT Central maakt gebruik van een time series opslaan voor de meting die worden verzonden van uw apparaten. Time series-gegevens van apparaten die worden gebruikt door de analytics-service.
 
 ## <a name="analytics"></a>Analyse
 
-De analytics-service is verantwoordelijk voor het genereren van de aangepaste rapportagegegevens die de toepassing worden weergegeven. Een operator kan [aanpassen van de analytics](howto-create-analytics.md) weergegeven in de toepassing. De Analyseservice is gebouwd boven [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/) en verwerkt de meetgegevens van uw apparaten worden verzonden.
+De analytics-service is verantwoordelijk voor het genereren van de aangepaste rapportagegegevens die de toepassing worden weergegeven. Een operator kan [aanpassen van de analyse](howto-create-analytics.md) weergegeven in de toepassing. De analytics-service is gebouwd boven [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/) en verwerkt de meetgegevens van uw apparaten worden verzonden.
 
 ## <a name="rules-and-actions"></a>Regels en acties
 
-[Regels en acties](howto-create-telemetry-rules.md) werken nauw samen om taken in de toepassing te automatiseren. Een opbouwfunctie kunt definiëren regels op basis van telemetriegegevens, zoals de temperatuur van meer dan een opgegeven drempelwaarde. Azure IoT centraal maakt gebruik van een stroom processor om te bepalen wanneer de regelvoorwaarden wordt voldaan. Als een voorwaarde wordt voldaan, wordt een actie gedefinieerd door de opbouwfunctie voor geactiveerd. Een actie kunt bijvoorbeeld een e-mail naar een technicus de temperatuur van een apparaat is te hoog verzenden.
+[Regels en acties](howto-create-telemetry-rules.md) werken nauw samen om taken in de toepassing te automatiseren. Een opbouwfunctie kunt definiëren regels op basis van telemetrie van apparaten, zoals de temperatuur van meer dan een opgegeven drempelwaarde. Azure IoT Central gebruikt een processor voor streaming om te bepalen wanneer de regelvoorwaarden wordt voldaan. Als een voorwaarde wordt voldaan, wordt er een actie gedefinieerd door de opbouwfunctie voor geactiveerd. Een actie kan bijvoorbeeld een e-mail naar een technicus die de temperatuur van een apparaat te hoog is verzenden.
 
-## <a name="metadata-management"></a>Metagegevens management
+## <a name="metadata-management"></a>Beheer van metagegevens
 
-Apparaat-sjablonen definiëren in een Azure IoT centrale toepassing het gedrag en de mogelijkheid van de typen van apparaat. Een apparaat koelkast sjabloon geeft bijvoorbeeld de telemetrie die een koelkast naar uw toepassing verzendt.
+Apparaatsjablonen definiëren in een Azure IoT Central-toepassing, het gedrag en de mogelijkheid van de typen apparaten. Bijvoorbeeld, een apparaat koelkast sjabloon Hiermee geeft u de telemetrie die een koelkast worden verzonden naar uw toepassing.
 
 ![Sjabloon-architectuur](media/concepts-architecture/template_architecture.png)
 
-In een sjabloon voor apparaat:
+In de sjabloon van een apparaat:
 
-- **Metingen** geeft de telemetrie van het apparaat verzendt naar de toepassing.
-- **Instellingen** geeft de configuraties die een operator kunt instellen.
-- **Eigenschappen** metagegevens die kan worden ingesteld door een operator opgeven.
-- **Regels** gedrag in de toepassing op basis van gegevens die worden verzonden vanaf een apparaat te automatiseren.
-- **Dashboards** aanpasbare weergaven van een apparaat in de toepassing zijn.
+- **Metingen** geeft de telemetrie van het apparaat worden verzonden naar de toepassing.
+- **Instellingen** geeft de configuraties die een operator kan instellen.
+- **Eigenschappen** metagegevens die een operator kan ingesteld opgeven.
+- **Regels** gedrag in de toepassing op basis van gegevens die zijn verzonden vanaf een apparaat te automatiseren.
+- **Dashboards** aanpasbare weergaven van een apparaat in de toepassing.
 
-Een toepassing kan een of meer gesimuleerde en echte apparaten op basis van de sjabloon van elk apparaat hebben.
+Een toepassing kan een of meer gesimuleerde en echte apparaten op basis van de sjabloon voor elk apparaat hebben.
 
-## <a name="rbac"></a>RBAC
+## <a name="role-based-access-control-rbac"></a>Toegangsbeheer op basis van rollen (RBAC)
 
-Een [beheerder kan toegangsregels definiëren](howto-administer.md) voor een Azure IoT centrale toepassing met behulp van de vooraf gedefinieerde rollen. Een beheerder kunt u gebruikers toewijzen aan rollen om te bepalen welke gebieden van de toepassing voor de gebruiker toegang heeft.
+Een [de beheerder kan toegangsregels definiëren](howto-administer.md) voor een Azure IoT Central-toepassing met behulp van de vooraf gedefinieerde rollen. Een beheerder kan gebruikers toewijzen aan rollen om te bepalen welke aspecten van de toepassing voor de gebruiker toegang heeft.
 
 ## <a name="security"></a>Beveiliging
 
-Beveiligingsfuncties in Azure IoT centrale:
+Beveiligingsfuncties in Azure IoT Central zijn onder andere:
 
-- Gegevens worden versleuteld in rust en onderweg.
-- Verificatie wordt verstrekt door Azure Active Directory of het Microsoft-Account. Tweeledige verificatie wordt ondersteund.
-- Volledige tenantisolatie.
-- Beveiliging op apparaten.
+- In-transit en inactieve gegevens versleuteld.
+- Verificatie wordt verstrekt door Azure Active Directory of Microsoft-Account. Verificatie met twee factoren wordt ondersteund.
+- Isolatie van volledige tenants.
+- Beveiliging op apparaat.
 
 ## <a name="ui-shell"></a>UI-shell
 
-De UI-shell is een moderne responsieve HTML5 browser gebaseerde toepassing.
+De UI-shell is een moderne, responsieve, HTML5 browser-gebaseerde toepassing.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Nu dat u over de architectuur van Azure IoT centrale hebt geleerd, de voorgestelde volgende stap is te leren over [connectiviteit van apparaten](concepts-connectivity.md) in Azure IoT centrale.
+U hebt geleerd over de architectuur van Azure IoT Central, de voorgestelde volgende stap is te leren over [apparaatconnectiviteit](concepts-connectivity.md) in Azure IoT Central.

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2018
 ms.author: jeedes
-ms.openlocfilehash: c9134ceebca696ed2b3376a69e26c2ea06f4f0f6
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: c33edf13a8bcafd4a6c3d4885553fc856ec941d8
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39506204"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50158122"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-4me"></a>Zelfstudie: Azure Active Directory-integratie met 4me
 
@@ -59,7 +59,7 @@ Voor het configureren van de integratie van 4me in Azure AD, moet u 4me uit de g
 
 **Als u wilt toevoegen 4me uit de galerie, moet u de volgende stappen uitvoeren:**
 
-1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
 
     ![De Azure Active Directory-knop][1]
 
@@ -177,7 +177,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     c. Onder **SAML** sectie in de **URL voor SAML SSO-** tekstvak, plak de waarde van **Single Sign-On Service URL voor SAML**, die u hebt gekopieerd vanuit Azure portal.
 
-    d. In de **certificaat vingerafdruk** tekstvak, plak de **VINGERAFDRUK** waarde gescheiden door een dubbele punt in duplets volgorde (AA:BB:CC:DD:EE:FF:GG:HH:II), die u hebt gekopieerd vanuit Azure portal.
+    d. In de **certificaat vingerafdruk** tekstvak, plak de **VINGERAFDRUK** waarden van elkaar gescheiden door een dubbele punt in duplets volgorde (AA:BB:CC:DD:EE:FF:GG:HH:II), die u hebt gekopieerd vanuit Azure portal.
 
     e. Klik op **Opslaan**.
 
@@ -218,7 +218,7 @@ Het doel van deze sectie is het maken van een testgebruiker in Azure portal Brit
 Het doel van deze sectie is het maken van een gebruiker met de naam van Britta Simon in 4me. 4me biedt ondersteuning voor just-in-time inrichting, dit is standaard ingeschakeld. Er is geen actie-item voor u in deze sectie. Een nieuwe gebruiker is gemaakt tijdens een poging tot toegang tot 4me als deze nog niet bestaat.
 
 >[!Note]
->Als u maken van een gebruiker handmatig wilt, neem dan contact op met [4me ondersteuningsteam](mailto:support@4me.com).
+>Als u maken van een gebruiker handmatig wilt, neem dan contact op met [4me ondersteuningsteam](mailto:support@4me.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 

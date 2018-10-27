@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: d2ed07be829e48cc4fc0538c08fd498dea99e71e
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: ad77f1f0a99fbdb355163e1bc83461c8c4eb75fa
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985172"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50157697"
 ---
 # <a name="device-connectivity-in-azure-iot-central"></a>Connectiviteit van apparaten in Azure IoT Central
 
@@ -102,7 +102,7 @@ Bulksgewijs export-apparaten van uw toepassing:
 1.  Selecteer de apparaten die u wilt exporteren en klik vervolgens op de **exporteren** actie.
 1.  Nadat de export is voltooid, wordt een bericht weergegeven samen met een koppeling voor het downloaden van het gegenereerde bestand.
 1.  Klik op het bericht weergegeven voor het downloaden van het bestand naar een lokale map op de schijf.
-1.  Het geëxporteerde CSV-bestand heeft de volgende informatie in de kolommen: **thumbrpints voor apparaat-Id, de naam van apparaat, apparaat Priamary/ecundaire sleutels en primair/secundair certificaat**
+1.  Het geëxporteerde CSV-bestand heeft de volgende informatie in de kolommen: **apparaat-Id, de naam van apparaat, apparaat primaire/secundaire sleutels en primaire/secundaire certificaatvingerafdrukken**
     *   IOTC_DEVICEID
     *   IOTC_DEVICENAME
     *   IOTC_SASKEY_PRIMARY

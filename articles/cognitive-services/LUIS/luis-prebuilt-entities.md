@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 10/18/2018
 ms.author: diberry
-ms.openlocfilehash: 2f7c724b14efd569a5993f9a9319c9004874bc43
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 0fe9dbed302fd2d61305167a3bda25b1b403b761
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49647592"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50139971"
 ---
 # <a name="prebuilt-entities-to-recognize-common-data-types"></a>Vooraf gemaakte entiteiten voor het herkennen van veelvoorkomende gegevenstypen
 
@@ -25,7 +25,7 @@ LUIS bevat een set met vooraf gemaakte entiteiten voor het herkennen van algemen
 
 1. Open uw app door te klikken op de naam ervan op **mijn Apps** pagina en klik vervolgens op **entiteiten** in aan de linkerkant. 
 
-1. Op de **entiteiten** pagina, klikt u op **vooraf gemaakte entiteiten beheren**.
+1. Op de **entiteiten** pagina, klikt u op **vooraf gedefinieerde entiteit toevoegen**.
 
 1. In **vooraf gemaakte entiteiten toevoegen** dialoogvenster Selecteer de datetimeV2 vooraf gedefinieerde entiteit. 
 

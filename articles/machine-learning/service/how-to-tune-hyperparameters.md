@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 13820dd511d31217b79385e893edbb55a3a57693
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: e66dcac1d83c71174ad5d7c3fdcd2310143f8e01
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49430015"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50140803"
 ---
 # <a name="tune-hyperparameters-for-your-model"></a>Afstemmen van hyperparameters voor uw model
 
@@ -238,16 +238,18 @@ In dit voorbeeld wordt het beleid voor vroegtijdige beëindiging toegepast op el
 
 ### <a name="no-termination-policy"></a>Er is geen beleid beëindiging
 
-Als u wilt dat alle trainingsuitvoeringen NoTerminationPolicy gebruiken om uit te voeren om te voltooien. Dit is het effect van een vroegtijdige beëindiging-beleid niet wordt toegepast.
+Als u wilt dat alle trainingsuitvoeringen beleid ingesteld op None om uit te voeren om te voltooien. Dit is het effect van een vroegtijdige beëindiging-beleid niet wordt toegepast.
 
 ```Python
-from azureml.train.hyperdrive import NoTerminationPolicy
-early_termination_policy = NoTerminationPolicy()
+policy=None
 ```
 
 ### <a name="default-policy"></a>Standaardbeleid
 
-Als er geen beleid is opgegeven, gebruikt het afstemmen van de service hyperparameter mediaan stoppen beleid met `evaluation_interval` 1 en `delay_evaluation` 5 standaard. Dit zijn conservatieve instellingen, die ongeveer 25% - 35% lager zonder verlies van primaire metrische gegevens (op basis van onze evaluatiegegevens) kunnen bieden.
+Als er geen beleid is opgegeven, kunt de hyperparameter afstemmen van de service alle trainingsuitvoeringen tot voltooiing worden uitgevoerd.
+
+>[!NOTE] 
+>Als u een conservatieve beleid dat zorgt voor besparingen zonder afsluitende veelbelovende taken zoekt, kunt u een beleid mediaan stoppen met `evaluation_interval` 1 en `delay_evaluation` 5. Dit zijn conservatieve instellingen, die ongeveer 25% - 35% lager zonder verlies van primaire metrische gegevens (op basis van onze evaluatiegegevens) kunnen bieden.
 
 ## <a name="allocate-resources"></a>Resources toewijzen
 

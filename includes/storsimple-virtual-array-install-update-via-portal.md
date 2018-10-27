@@ -1,3 +1,16 @@
+---
+author: alkohli
+ms.service: storsimple
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: alkohli
+ms.openlocfilehash: b9f5e5d0b774d3875999fa5337f41040c4217c8b
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50164277"
+---
 <!--author=alkohli last changed: 11/07/16 -->
 
 #### <a name="to-install-updates-via-the-azure-portal"></a>Updates installeren via Azure Portal
@@ -50,6 +63,6 @@
 
     ![apparaat bijwerken](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate16m.png)
 
-9. Nadat de updates zijn geïnstalleerd, ziet u een bericht met het oog op de blade van de updates apparaat. Versie van de software ook wijzigingen in **10.0.10288.0**. 
+9. Nadat de updates zijn geïnstalleerd, ziet u een bericht voor dit effect in de blade met updates. Versie van de software ook gewijzigd in **10.0.10288.0**. 
 
     ![apparaat bijwerken](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate17m.png)

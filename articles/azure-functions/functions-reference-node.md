@@ -10,14 +10,14 @@ ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.service: azure-functions
 ms.devlang: nodejs
 ms.topic: reference
-ms.date: 03/04/2018
+ms.date: 10/26/2018
 ms.author: glenga
-ms.openlocfilehash: eb9387cec98621e27aff7dcb40b8897e326c6706
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: d61570cd5d56cda7737bdb2d1a8d681fc2364610
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353489"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50139387"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Handleiding voor ontwikkelaars van Azure Functions-JavaScript
 Deze handleiding bevat informatie over de complexiteit van het schrijven van Azure Functions met JavaScript.
@@ -297,7 +297,7 @@ De `context.req` (aanvraag)-object heeft de volgende eigenschappen:
 | _rawBody_     | De hoofdtekst van het bericht als een tekenreeks.                           |
 
 
-### <a name="response-object"></a>Antwoordobject
+### <a name="response-object"></a>Responsobject
 
 De `context.res` (antwoord)-object heeft de volgende eigenschappen:
 
@@ -400,13 +400,14 @@ Er zijn twee manieren om pakketten te installeren op uw functie-App:
     Met deze actie wordt gedownload van de pakketten die zijn aangegeven in het package.json-bestand en de functie-app opnieuw wordt opgestart.
 
 ## <a name="environment-variables"></a>Omgevingsvariabelen
-Als u een omgevingsvariabele of een app-instelling waarde, gebruikt u `process.env`, zoals hier wordt weergegeven de `GetEnvironmentVariable` functie:
+
+In de functies, [app-instellingen](functions-app-settings.md), zoals serviceverbinding tekenreeksen, worden weergegeven als omgevingsvariabelen tijdens de uitvoering. U hebt toegang tot deze instellingen met behulp van `process.env`, zoals hier wordt weergegeven de `GetEnvironmentVariable` functie:
 
 ```javascript
 module.exports = function (context, myTimer) {
     var timeStamp = new Date().toISOString();
 
-    context.log('Node.js timer trigger function ran!', timeStamp);   
+    context.log('Node.js timer trigger function ran!', timeStamp);
     context.log(GetEnvironmentVariable("AzureWebJobsStorage"));
     context.log(GetEnvironmentVariable("WEBSITE_SITE_NAME"));
 
@@ -418,6 +419,10 @@ function GetEnvironmentVariable(name)
     return name + ": " + process.env[name];
 }
 ```
+
+[!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
+
+Bij lokale uitvoering, app-instellingen worden gelezen uit de [local.settings.json](functions-run-local.md#local-settings-file) projectbestand.
 
 ## <a name="configure-function-entry-point"></a>Functie-ingangspunt configureren
 

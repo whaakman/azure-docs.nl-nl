@@ -11,12 +11,12 @@ ms.topic: article
 ms.workload: na
 ms.date: 04/05/2018
 ms.author: danlep
-ms.openlocfilehash: 5e0358ebf525c39c09df4268971fa71c02457821
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: fb0760f24b8f384818db8154ffe871d7fd4ce429
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47094190"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50138341"
 ---
 # <a name="monitor-and-debug-an-azure-batch-net-application-with-application-insights"></a>Bewaken en fouten opsporen in een Azure Batch .NET-toepassing met Application Insights
 
@@ -25,6 +25,10 @@ ms.locfileid: "47094190"
 In dit artikel laat zien hoe toevoegen en configureren van de Application Insights-bibliotheek in uw Azure Batch .NET-oplossing en code van uw toepassing instrumenteren. U ziet ook manieren voor het bewaken van uw toepassing via Azure portal en aangepaste dashboards kunt bouwen. Voor Application Insights-ondersteuning in andere talen, bekijk de [programmeertalen, platforms en integraties documentatie](../application-insights/app-insights-platforms.md).
 
 Een voorbeeld van C#-oplossing met code ter ondersteuning van dit artikel vindt u op [GitHub](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/ApplicationInsights). In dit voorbeeld instrumentation code Application Insights wordt de [TopNWords](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/TopNWords) voorbeeld. Als u niet bekend met dit voorbeeld, probeer het bouwen en uitvoeren van TopNWords eerst bent. Dit doet, krijgt u inzicht in een algemene Batch-werkstroom van de verwerking van een reeks blobs voor invoer parallel op meerdere rekenknooppunten. 
+
+> [!TIP]
+> Als alternatief kunt configureren van uw Batch-oplossing om Application Insights-gegevens, zoals VM-prestatiemeteritems in Batch Explorer weer te geven. [Batch Explorer](https://github.com/Azure/BatchExplorer) is een gratis, uitgebreid, zelfstandig clienthulpprogramma voor het maken, foutopsporing en Azure Batch-toepassingen bewaken. Download een [installatiepakket](https://azure.github.io/BatchExplorer/) voor Mac, Linux of Windows. Zie de [opslagplaats voor batch-inzichten](https://github.com/Azure/batch-insights) voor snelle stappen voor het inschakelen van Application Insights-gegevens in de Batch Explorer. 
+>
 
 ## <a name="prerequisites"></a>Vereisten
 * [Visual Studio 2017](https://www.visualstudio.com/vs)

@@ -5,41 +5,41 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/18/2018
+ms.date: 10/26/2018
 ms.topic: troubleshooting
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 4984332e1a149ae838bc76a24abec90364f5699e
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: ba6d8250d70320b33822d73c9213e9005128633f
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47221975"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50157204"
 ---
 # <a name="frequently-asked-questions-for-cloudyn"></a>Veelgestelde vragen over Cloudyn
 
-In dit artikel komen enkele veelgestelde vragen over Cloudyn. Als u vragen over Cloudyn hebt, kunt u vragen deze [Veelgestelde vragen over de Cloudyn](https://social.msdn.microsoft.com/Forums/231bf072-2c71-4121-8339-ac9d868137b9/faqs-for-azure-cost-management-by-cloudyn?forum=Cloudyn).
+In dit artikel komen enkele veelgestelde vragen over Cloudyn. Als u vragen over Cloudyn hebt, kunt u vragen deze [Veelgestelde vragen over de Cloudyn](https://social.msdn.microsoft.com/Forums/home?forum=faqs-for-azure-cost-management-by-cloudyn).
 
 ## <a name="how-can-i-resolve-common-indirect-enterprise-setup-problems"></a>Hoe kan ik problemen met het algemene indirecte enterprise instellen oplossen?
 
-Wanneer u de Cloudyn-portal voor het eerst gebruikt, ziet u mogelijk de volgende berichten als u een Enterprise Agreement of een Cloud Solution Provider (CSP) gebruiker:
+Wanneer u de beheerportal van Cloudyn voor het eerst gebruikt, ziet u mogelijk de volgende berichten als u een Enterprise Agreement- of Cloud Solution Provider-gebruiker (CSP) bent:
 
 - 'De opgegeven API-sleutel is niet een sleutel van het bovenste niveau inschrijving' weergegeven in de **Cloudyn ingesteld** wizard.
 - 'Directe inschrijving: geen' weergegeven in de Enterprise Agreement-portal.
 - "Er zijn geen gebruiksgegevens is gevonden voor de afgelopen 30 dagen. Neem contact op met uw leverancier om te controleren of de opmaak is ingeschakeld voor uw Azure-account' weergegeven in de Cloudyn-portal.
 
-De voorgaande berichten geven aan dat u een Azure Enterprise Agreement via een wederverkoper of CSP hebt aangeschaft. Uw wederverkoper of CSP nodig heeft om in te schakelen _markup_ voor uw Azure-account zodat u uw gegevens kunt weergeven in Cloudyn.
+De voorgaande berichten geven aan dat u een Azure Enterprise Agreement via een wederverkoper of CSP hebt aangeschaft. Uw wederverkoper of CSP moet _markeren_ inschakelen voor uw Azure-account zodat u uw gegevens kunt weergeven in Cloudyn.
 
 Los de problemen als volgt op:
 
 1. Uw wederverkoper moet _markeren_ voor uw account inschakelen. Raadpleeg de [Onboarding-handleiding voor indirecte klanten](https://ea.azure.com/api/v3Help/v2IndirectCustomerOnboardingGuide) voor meer instructies.
 
-2. U de Azure Enterprise overeenkomst-sleutel voor gebruik met Cloudyn genereren. Zie voor instructies [toevoegen van uw Azure EA](https://support.cloudyn.com/hc/articles/210429585-Adding-Your-AZURE-EA) of [vinden Your EA Enrollment ID en API-sleutel](https://youtu.be/u_phLs_udig).
+2. U genereert de Azure Enterprise Overeenkomst-sleutel om Cloudyn te gebruiken. Zie voor instructies [toevoegen van uw Azure EA](quick-register-ea.md#register-with-cloudyn) of [vinden Your EA Enrollment ID en API-sleutel](https://youtu.be/u_phLs_udig).
 
-Alleen een Azure-service-beheerder kunt Cloudyn inschakelen. U hebt onvoldoende co-beheerdersmachtigingen.
+Alleen een Azure-servicebeheerder kan Cloudyn inschakelen. U hebt onvoldoende co-beheerdersmachtigingen.
 
-Voordat u de Azure Enterprise overeenkomst-API-sleutel voor het instellen van Cloudyn genereren kunt, moet u de Azure Billing API inschakelen door de instructies op:
+Voordat u de Azure Enterprise Agreement API-sleutel voor het instellen van Cloudyn kunt genereren, moet u de Azure-facturerings-API inschakelen door de instructies te volgen op:
 
 - [Overzicht van Rapportage-API's voor Enterprise-klanten](../billing/billing-enterprise-api.md)
 - [Microsoft Azure enterprise portal rapportage-API](https://ea.azure.com/helpdocs/reportingAPI) onder **Gegevenstoegang tot de API inschakelen**
@@ -100,7 +100,7 @@ Vermijd het gebruik van de directe URL Cloudyn https://app.cloudyn.com.
 
 ## <a name="how-do-i-activate-unactivated-accounts-with-azure-credentials"></a>Hoe kan ik unactivated accounts met Azure-referenties activeren?
 
-Als uw Azure-accounts worden gedetecteerd door Cloudyn, gegevens van cost onmiddellijk vindt u in rapporten op basis van kosten. Voor Cloudyn om gegevens van gebruik en de prestaties te bieden, moet u echter uw Azure-referenties voor de accounts registreren. Zie voor instructies [toevoegen Azure Resource Manager](https://support.cloudyn.com/hc/articles/212784085-Adding-Azure-Resource-Manager).
+Als uw Azure-accounts worden gedetecteerd door Cloudyn, gegevens van cost onmiddellijk vindt u in rapporten op basis van kosten. Voor Cloudyn om gegevens van gebruik en de prestaties te bieden, moet u echter uw Azure-referenties voor de accounts registreren. Zie voor instructies [een account toevoegen of bijwerken van een abonnement](activate-subs-accounts.md#add-an-account-or-update-a-subscription).
 
 Als u wilt toevoegen voor een account, Azure-referenties in de Cloudyn-portal, selecteert u het symbool bewerken aan de rechterkant van de accountnaam, niet het abonnement.
 
@@ -108,10 +108,7 @@ Als uw Azure-referenties aan Cloudyn zijn toegevoegd, het account wordt weergege
 
 ## <a name="how-do-i-add-multiple-accounts-and-entities-to-an-existing-subscription"></a>Hoe ik meerdere accounts en entiteiten toevoegen aan een bestaand abonnement?
 
-Als u meer entiteiten worden gebruikt om aanvullende Enterprise overeenkomsten toevoegen aan een Cloudyn-abonnement. De volgende koppelingen beschrijven aanvullende entiteiten toevoegen:
-
-- [Toevoegen van een entiteit](https://support.cloudyn.com/hc/articles/212016145-Adding-an-Entity) artikel
-- [Uw hiërarchie met Kostenentiteiten definieert](https://support.cloudyn.com/hc/articles/115005142529-Video-Defining-your-hierarchy-with-Cost-Entities) video
+Als u meer entiteiten worden gebruikt om aanvullende Enterprise overeenkomsten toevoegen aan een Cloudyn-abonnement. Zie voor meer informatie, [maken en beheren van entiteiten](tutorial-user-access.md#create-and-manage-entities).
 
 Voor CSP's:
 

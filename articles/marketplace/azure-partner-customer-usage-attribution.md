@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/15/2018
 ms.author: yijenj
-ms.openlocfilehash: a0b3c220a1cd857bc8bea0eb5ab41625845fcc5d
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 604eb528ef33a95993aa5b6d3ff6eebb77936aa2
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49365614"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50157935"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Azure-partner klant gebruik attribution
 
@@ -44,7 +44,7 @@ Veel oplossingen van partners zijn geïmplementeerd op het abonnement van een kl
 
 Als u wilt toevoegen een globally unique identifier (GUID), moet u een één wijziging van de belangrijkste sjabloonbestand maken:
 
-1. [Maak een GUID](#create-guids) (bijvoorbeeld eb7927c8-dd66-43e1-b0cf-c346a422063) en [registreert de GUID](#register-guids-and-offers).
+1. [Maak een GUID](#create-guids) met behulp van de voorgestelde methode en [registreert de GUID](#register-guids-and-offers).
 
 1. Open de Resource Manager-sjabloon.
 
@@ -58,9 +58,26 @@ Als u wilt toevoegen een globally unique identifier (GUID), moet u een één wij
 
 1. [Controleren of GUID in de sjabloonimplementatie](#verify-the-guid-deployment).
 
-### <a name="sample-template-code"></a>Voorbeeldcode van sjabloon
+### <a name="sample-resource-manager-template-code"></a>Voorbeeld van Resource Manager sjablooncode
+Zorg ervoor dat u wijzigt de onderstaande voorbeeldcode met uw eigen invoer wanneer u deze aan de belangrijkste sjabloonbestand toevoegen.
+De resource moet worden toegevoegd de **mainTemplate.json** of **azuredeploy.json** bestand alleen, en niet in een geneste of gekoppelde sjablonen.
+```
+// Make sure to modify this sample code with your own inputs where applicable
 
-![Voorbeeldcode van sjabloon](media/marketplace-publishers-guide/tracking-sample-code-for-lu-1.PNG)
+{ // add this resource to the mainTemplate.json (do not add the entire file)
+    "apiVersion": "2018-02-01",
+    "name": "pid-XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX" // use your generated GUID here
+    "type": "Microsoft.Resources/deployments",
+    "properties": {
+        "mode": "Incremental",
+        "template": {
+            "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+            "contentVersion": "1.0.0.0",
+            "resources": []
+        }
+    }
+} // remove all comments from the file when complete
+```
 
 ## <a name="use-the-resource-manager-apis"></a>De Resource Manager-API's gebruiken
 
@@ -77,7 +94,7 @@ Bij het ontwerpen van uw API-aanroepen, wordt een GUID voor deze benadering bijh
 > [!Note]
 > De indeling van de tekenreeks is belangrijk. Als de **pid -** voorvoegsel niet is opgenomen, het is niet mogelijk om op te vragen van de gegevens. Verschillende SDK's bijhouden anders. Bekijk de ondersteuning en benadering bijhouden voor uw gewenste Azure-SDK voor het implementeren van deze methode. 
 
-### <a name="example-the-python-sdk"></a>Voorbeeld: De Python-SDK
+#### <a name="example-the-python-sdk"></a>Voorbeeld: De Python-SDK
 
 Voor Python, gebruikt u de **config** kenmerk. U kunt het kenmerk alleen toevoegen aan een UserAgent. Hier volgt een voorbeeld:
 
@@ -104,7 +121,7 @@ export AZURE_HTTP_USER_AGENT='pid-eb7927c8-dd66-43e1-b0cf-c346a422063'
 
 ## <a name="create-guids"></a>GUID's maken
 
-Een GUID is een unieke referentienummer met 32 hexadecimale cijfers. Voor het maken van GUID's voor het bijhouden, moet u een GUID-generator. Het is raadzaam dat u gebruikmaken van [van Azure Storage GUID-generator formulier](https://aka.ms/StoragePartners). Maar als u liever niet wilt gebruiken van Azure Storage GUID-generator, er meerdere zijn [online GUID generatoren](https://www.bing.com/search?q=guid%20generator) die u kunt gebruiken.
+Een GUID is een unieke referentienummer met 32 hexadecimale cijfers. Voor het maken van GUID's voor het bijhouden, moet u een GUID-generator. Het Azure Storage-team heeft gemaakt een [GUID generator formulier](https://aka.ms/StoragePartners) die e-mail een GUID van de juiste indeling en kunnen worden hergebruikt binnen de systemen verschillende bijhouden. 
 
 > [!Note]
 > Het is raadzaam dat u [van Azure Storage GUID-generator formulier](https://aka.ms/StoragePartners) uw GUID maken. Zie voor meer informatie onze [Veelgestelde vragen over](#faq).

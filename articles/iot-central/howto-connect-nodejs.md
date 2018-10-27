@@ -3,17 +3,17 @@ title: Verbinding maken met een algemene Node.js-clienttoepassing op Azure IoT C
 description: Als ontwikkelaar in een apparaat, hoe u een algemene Node.js-apparaat verbinden met uw Azure IoT Central-toepassing.
 author: tbhagwat3
 ms.author: tanmayb
-ms.date: 04/16/2018
+ms.date: 10/26/2018
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 8a5d880d0238e38fbbaa9de22fc1baf604f0fc07
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 4702b0eb53897f173311c40469c912cf41751f24
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45733461"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50155147"
 ---
 # <a name="connect-a-generic-client-application-to-your-azure-iot-central-application-nodejs"></a>Verbinding maken met een algemene clienttoepassing aan uw Azure IoT Central-toepassing (Node.js)
 
@@ -41,9 +41,9 @@ Voeg de volgende telemetrie in de **metingen** pagina:
 | Druk     | pressure    | kPa   | 80  | 110 | 0              |
 
 > [!NOTE]
-  Het gegevenstype van de meting telemetrie is dubbel.
+  Het gegevenstype van de meting telemetrie is een drijvende-kommagetal zijn.
 
-Veldnamen precies zoals weergegeven in de tabel in de sjabloon voor het apparaat invoeren. Als de veldnamen niet overeenkomen, kan de telemetrie kan niet worden weergegeven in de toepassing.
+Veldnamen precies zoals weergegeven in de tabel in de sjabloon voor het apparaat invoeren. Als de veldnamen niet de namen van eigenschappen in de bijbehorende apparaatcode overeenkomen, kan de telemetrie kan niet worden weergegeven in de toepassing.
 
 ### <a name="state-measurements"></a>Status metingen
 
@@ -56,7 +56,7 @@ Voeg de volgende status hebben in de **metingen** pagina:
 > [!NOTE]
   Het gegevenstype van de meting van de status is een tekenreeks.
 
-Veldnamen precies zoals weergegeven in de tabel in de sjabloon voor het apparaat invoeren. Als de veldnamen niet overeenkomen, kan de status kan niet worden weergegeven in de toepassing.
+Veldnamen precies zoals weergegeven in de tabel in de sjabloon voor het apparaat invoeren. Als de veldnamen niet de namen van eigenschappen in de bijbehorende apparaatcode overeenkomen, kan de status kan niet worden weergegeven in de toepassing.
 
 ### <a name="event-measurements"></a>Gebeurtenis-metingen
 
@@ -78,7 +78,7 @@ Voeg de volgende apparaateigenschappen in de **eigenschappenpagina**:
 | Serienummer       | Serienummer      | tekst      |
 | De fabrikant van apparaat | fabrikant      | tekst      |
 
-Voer de veldnamen precies zoals weergegeven in de tabel in de sjabloon voor het apparaat. Als de veldnamen niet overeenkomen, kan de toepassing de eigenschapswaarde niet weergeven.
+Voer de veldnamen precies zoals weergegeven in de tabel in de sjabloon voor het apparaat. Als de veldnamen niet de namen van eigenschappen in de bijbehorende apparaatcode overeenkomen, kan de toepassing niet de waarde van de eigenschap apparaat weergeven.
 
 ### <a name="settings"></a>Instellingen
 
@@ -89,15 +89,15 @@ Voeg de volgende **getal** instellingen in de **instellingenpagina**:
 | Snelheid van ventilator       | fanSpeed       | rpm   | 0        | 0   | 3000 | 0       |
 | Temperatuur instellen | temperatuurInstellen | F     | 0        | 20  | 200  | 80      |
 
-Voer veldnaam precies zoals weergegeven in de tabel in de sjabloon voor het apparaat. Als de veldnamen niet overeenkomen, kan het apparaat geen waarde van de instelling ontvangen.
+Voer veldnaam precies zoals weergegeven in de tabel in de sjabloon voor het apparaat. Als de veldnamen niet de namen van eigenschappen in de bijbehorende apparaatcode overeenkomen, kan het apparaat geen waarde van de instelling ontvangen.
 
 ## <a name="add-a-real-device"></a>Echt apparaat toevoegen
 
-Voeg een echt apparaat van de sjabloon van het apparaat u maken en noteer de apparaatverbindingsreeks in uw Azure IoT Central-toepassing. Zie voor meer informatie, [een echt apparaat toevoegen aan uw Azure IoT Central-toepassing](tutorial-add-device.md)
+Voeg een echt apparaat van de sjabloon van het apparaat u maken en noteer de apparaatverbindingsreeks in uw Azure IoT Central-toepassing. Zie voor stapsgewijze instructies over het verbinden van een Node.js-toepassing naar IoT Central [verbindingsreeks voor een echt apparaat van de toepassing genereren](tutorial-add-device.md#generate-connection-string-for-real-device-from-application) en [voorbereiden van de clientcode](tutorial-add-device.md#prepare-the-client-code) in de zelfstudies > Een apparaat toevoegen.
 
 ### <a name="create-a-nodejs-application"></a>Een Node.js-toepassing maken
 
-De volgende stappen laten zien over het maken van een clienttoepassing die het echte apparaat dat u hebt toegevoegd aan de toepassing implementeert.
+De volgende stappen laten zien over het maken van een clienttoepassing die het echte apparaat dat u hebt toegevoegd aan de toepassing implementeert. Hier staat de Node.js-toepassing voor het echt fysiek apparaat. 
 
 1. Maak de map `connected-air-conditioner-adv` op uw computer. Navigeer naar die map in uw opdrachtregelomgeving.
 
@@ -130,10 +130,10 @@ De volgende stappen laten zien over het maken van een clienttoepassing die het e
     ```
 
   > [!NOTE]
-   > Azure IoT Central is overgeschakeld naar het gebruik van Azure IoT Hub Device Provisioning service (DPS) voor alle apparaatverbindingen, volgt u deze instrustions naar [de apparaat-verbindingsreeks ophalen](concepts-connectivity.md#getting-device-connection-string) en Ga door met de rest van de zelfstudie.
+  > Azure IoT Central is overgeschakeld naar het gebruik van Azure IoT Hub Device Provisioning service (DPS) voor alle apparaatverbindingen, volgt u deze instrustions naar [de apparaat-verbindingsreeks ophalen](concepts-connectivity.md#getting-device-connection-string) en Ga door met de rest van de zelfstudie. Voor meer informatie vindt u ook een gedetailleerd aantal instructies in [voorbereiden van de clientcode](tutorial-add-device.md#prepare-the-client-code) in zelfstudies > een apparaat toevoegen.
 
 
-    Bijwerken van de tijdelijke aanduiding `{your device connection string}` door de verbindingsreeks van het apparaat. In dit voorbeeld wordt geïnitialiseerd `targetTemperature` op nul, eventueel tilt u de huidige lezen van het apparaat of -waarde van het dubbele apparaat. 
+  Bijwerken van de tijdelijke aanduiding `{your device connection string}` door de verbindingsreeks van het apparaat. In dit voorbeeld wordt geïnitialiseerd `targetTemperature` op nul, eventueel tilt u de huidige lezen van het apparaat of -waarde van het dubbele apparaat. 
 
 1. Voor het verzenden van telemetrie, status en gebeurtenis metingen aan uw Azure IoT Central-toepassing, voeg de volgende functie naar het bestand:
 
@@ -157,7 +157,7 @@ De volgende stappen laten zien over het maken van een clienttoepassing die het e
     }
     ```
 
-    1. Voor het verzenden van eigenschappen van een apparaat aan uw Azure IoT Central-toepassing, voeg de volgende functie toe aan het bestand:
+1. Voor het verzenden van eigenschappen van een apparaat aan uw Azure IoT Central-toepassing, voeg de volgende functie toe aan het bestand:
 
     ```javascript
     // Send device properties.
@@ -269,11 +269,11 @@ Als operator in uw Azure IoT Central-toepassing voor uw echte apparaat kunt u:
 
     ![Telemetrie bekijken](media/howto-connect-nodejs/viewtelemetry.png)
 
-* Bekijk de eigenschapswaarden van het apparaat verzonden van uw apparaat op de **eigenschappen** pagina.
+* Bekijk de eigenschapswaarden van het apparaat verzonden van uw apparaat op de **eigenschappen** pagina. De eigenschappen van apparaat tegels worden bijgewerkt als de verbinding geslaagd is. 
 
     ![Eigenschappen van apparaat weergeven](media/howto-connect-nodejs/viewproperties.png)
 
-* Stel de temperatuur ventilator snelheid en het doel van de **instellingen** pagina.
+* Stel de temperatuur ventilator snelheid en het doel van de **instellingen** pagina. De waarden voor de instellingen worden gesynchroniseerd als de verbinding geslaagd is. 
 
     ![Snelheid van de set-ventilator](media/howto-connect-nodejs/setfanspeed.png)
 

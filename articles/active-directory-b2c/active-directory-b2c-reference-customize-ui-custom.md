@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/25/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: c6882dd56ee96e1fcab5926b77f11ce928bf950b
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: c363056fc013cc8b8fd67fb9d656d3550d3bf5a2
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37442352"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50139506"
 ---
 # <a name="customize-the-ui-of-a-user-journey-with-custom-policies"></a>De gebruikersinterface van een gebruikersbeleving met aangepast beleid aanpassen
 
@@ -41,7 +41,7 @@ In vergelijking met de oude traditionele methode, waarbij sjabloon pagina's zijn
 U kunt zoveel inhoudspagina's als u wilt met het samenstellen van HTML5/CSS-bestanden waar nodig opgeven.
 
 > [!NOTE]
-> Uit veiligheidsoverwegingen is het gebruik van JavaScript momenteel geblokkeerd voor aanpassing. Als u wilt deblokkeren JavaScript, is gebruik van een aangepaste domeinnaam voor uw Azure AD B2C-tenant nodig.
+> Uit veiligheidsoverwegingen is het gebruik van JavaScript momenteel geblokkeerd voor aanpassing. 
 
 In elk van uw sjablonen HTML5/CSS, bieden u een *anker* element, dat overeenkomt met de vereiste `<div id=”api”>` element in de HTML-code of de pagina-inhoud, zoals hierna illustreren. Azure AD B2C is vereist dat alle inhoud pagina's deze specifieke div. hebben
 

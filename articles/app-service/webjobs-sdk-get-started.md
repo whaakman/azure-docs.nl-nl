@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: glenga
-ms.openlocfilehash: e2f9bee2adcebfd47ca088a1bbe76b870e285044
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: b0f4ef5079ac689827cb49884fa1c6a51529ea83
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45580429"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50140346"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Aan de slag met de Azure WebJobs-SDK voor verwerking op de achtergrond gebeurtenisgestuurde
 
@@ -182,7 +182,7 @@ In deze sectie maakt instellen u console-aanmelding die gebruikmaakt van de nieu
 
 De Azure-opslagemulator die lokaal wordt uitgevoerd, beschikt niet over alle functies waarvoor de WebJobs SDK. Dus in deze sectie u een opslagaccount in Azure maken en configureren van het project om deze te gebruiken.
 
-1. Open **Server Explorer** en aanmelden bij Azure. Met de rechtermuisknop op de **Azure** knooppunt en selecteert u vervolgens **verbinding maken met Microsoft Azure-abonnement**.
+1. Open **Server Explorer** in Visual studio en aanmelding bij Azure. Met de rechtermuisknop op de **Azure** knooppunt en selecteert u vervolgens **verbinding maken met Microsoft Azure-abonnement**.
 
    ![Aanmelden bij Azure](./media/webjobs-sdk-get-started/sign-in.png)
 
@@ -245,7 +245,7 @@ In deze sectie maakt u bouwen en lokaal uitvoeren van het project en activeer de
 
 1. Het consolevenster sluiten.
 
-1. In **Server Explorer**, vouw het knooppunt voor uw nieuwe opslagaccount en klik vervolgens met de rechtermuisknop op **wachtrijen**. 
+1. In **Server Explorer** in Visual Studio, vouw het knooppunt voor uw nieuwe opslagaccount en klik vervolgens met de rechtermuisknop op **wachtrijen**. 
 
 1. Selecteer **wachtrij maken**. 
 
@@ -310,7 +310,7 @@ In deze sectie maakt uitvoeren u de volgende taken voor het instellen van Applic
 
 ### <a name="configure-app-settings"></a>App-instellingen configureren 
 
-1. In **Server Explorer**, vouw de **App Service** onder het knooppunt **Azure**.
+1. In **Server Explorer** in Visual Studio, vouw de **App Service** onder het knooppunt **Azure**.
 
 1. Vouw de resourcegroep die uw App Service-app in en klik vervolgens met de rechtermuisknop op uw App Service-app.
 
@@ -396,7 +396,7 @@ In deze sectie maakt uitvoeren u de volgende taken voor het instellen van Applic
 
 In deze sectie uitvoeren u lokaal opnieuw om te controleren dat logboekregistratie gegevens nu naar Application Insights evenals garantie voor de console zullen.
 
-1. Gebruik **Server Explorer** voor het maken van een wachtrijbericht dezelfde manier als u hebt [eerdere](#trigger-the-function), met uitzondering van Voer *Hello App Insights!* Als de berichttekst.
+1. Gebruik **Server Explorer** in Visual Studio om een wachtrijbericht te maken, de dezelfde manier waarop u hebt [eerdere](#trigger-the-function), met uitzondering van Voer *Hello App Insights!* Als de berichttekst.
 
 1. Voer het project.
 
@@ -442,7 +442,6 @@ In deze sectie kunt u het project implementeren als een WebJob. U deze implement
 
 1. Zorg ervoor dat u bent niet lokaal worden uitgevoerd (in het consolevenster sluiten als dit nog steeds geopend is). Anders mogelijk het lokale exemplaar van de eerste voor het verwerken van een Wachtrijberichten die u maakt.
 
-1. Gebruik **Server Explorer** voor het maken van een wachtrijbericht dezelfde manier als u hebt [eerdere](#trigger-the-function), met uitzondering van Voer *Hello Azure!*.
 
 1. Vernieuw de **wachtrij** pagina in Visual Studio en het nieuwe bericht is verdwenen omdat de functie die wordt uitgevoerd in Azure App Service is verwerkt.
 
@@ -485,7 +484,7 @@ Invoerbindingen vereenvoudigen code die gegevens leest. Bericht uit de wachtrij 
 
 1. Maak een blobcontainer in uw opslagaccount.
 
-   a. In **Server Explorer**uit, vouw het knooppunt voor uw opslagaccount, met de rechtermuisknop op **Blobs**, en selecteer vervolgens **Blob-Container maken**.
+   a. In **Server Explorer** in Visual Studio, vouw het knooppunt voor uw opslagaccount, met de rechtermuisknop op **Blobs**, en selecteer vervolgens **Blob-Container maken**.
 
    b. In de **Blob-Container maken** dialoogvenster Voer *container* als containernaam van de en klik vervolgens op **OK**.
 

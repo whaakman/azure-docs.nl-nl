@@ -3,7 +3,7 @@ title: 'Azure AD Domain Services: Vergelijken Azure AD Domain Services en ZELFGE
 description: Vergelijking van Azure Active Directory Domain Services met zelf domeincontrollers
 services: active-directory-ds
 documentationcenter: ''
-author: mahesh-unnikrishnan
+author: eringreenlee
 manager: mtillman
 editor: curtand
 ms.assetid: 165249d5-e0e7-4ed1-aa26-91a05a87bdc9
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/07/2017
-ms.author: maheshu
-ms.openlocfilehash: acb125ef807193e79e45bca7e217efe3ffb31698
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.author: ergreenl
+ms.openlocfilehash: f7455076d59e447ade9c15203593d260cf676894
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39505947"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50155794"
 ---
 # <a name="how-to-decide-if-azure-ad-domain-services-is-right-for-your-use-case"></a>U moet kiezen als Azure AD Domain Services is geschikt voor uw use-casescenario
 U kunt uw workloads in Azure Infrastructure Services, zonder te hoeven maken over het beheren van infrastructuur voor identiteiten in Azure implementeren met Azure AD Domain Services. Deze beheerde service wijkt af van een typische implementatie van Windows Server Active Directory die u implementeren en beheren op uw eigen. De service is eenvoudig te implementeren en biedt een geautomatiseerde statuscontrole en herstel. We zijn voortdurend de service voor het toevoegen van ondersteuning voor algemene scenario's voor implementatie in ontwikkeling.

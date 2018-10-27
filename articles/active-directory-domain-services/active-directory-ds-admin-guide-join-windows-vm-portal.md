@@ -3,7 +3,7 @@ title: 'Azure Active Directory Domain Services: Een Windows Server-VM toevoegen 
 description: Een Windows Server virtuele machine toevoegen aan Azure AD DS
 services: active-directory-ds
 documentationcenter: ''
-author: mahesh-unnikrishnan
+author: eringreenlee
 manager: mtillman
 editor: curtand
 ms.assetid: 29316313-c76c-4fb9-8954-5fa5ec82609e
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/21/2018
-ms.author: maheshu
-ms.openlocfilehash: f9ee68fda3bb5e0f5302c8d5c96da0515c05ce1d
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.author: ergreenl
+ms.openlocfilehash: 753818526ad637db0baa13c92e92d2725b19dbf8
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39503397"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50158316"
 ---
 # <a name="join-a-windows-server-virtual-machine-to-a-managed-domain"></a>Een virtuele Windows Server-machine toevoegen aan een beheerd domein
 In dit artikel laat zien hoe een Windows Server-machine implementeren met behulp van de Azure-portal. Vervolgens wordt uitgelegd hoe u de virtuele machine koppelen aan een beheerd domein van Azure Active Directory Domain Services (Azure AD DS).
@@ -63,7 +63,7 @@ Voor het maken van een Windows virtuele machine die lid is van het virtuele netw
 8. Op de **aankoop** pagina, Controleer de instellingen en selecteer vervolgens **OK** de virtuele machine wilt implementeren.
 9. De VM-implementatie is vastgemaakt aan het dashboard van de Azure portal.
 
-    ![Gereed](./media/active-directory-domain-services-admin-guide/create-windows-vm-done.png)
+    ![Klaar](./media/active-directory-domain-services-admin-guide/create-windows-vm-done.png)
 10. Nadat de implementatie is voltooid, kunt u informatie over de virtuele machine bekijken op de **overzicht** pagina.
 
 

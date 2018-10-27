@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: iainfou
-ms.openlocfilehash: fb428e63be54688744bcdb022ba276a957f8aee1
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 1b0b3d0db2067a492905d8f828934f0b63fb8f54
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49648765"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50155980"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Kubernetes-belangrijkste concepten voor Azure Kubernetes Service (AKS)
 
@@ -71,6 +71,27 @@ De Azure VM-grootte voor uw knooppunten definieert het aantal CPU's, hoeveel geh
 De VM-installatiekopie voor de knooppunten in het cluster is momenteel in AKS gebaseerd op Ubuntu Linux. Wanneer u een AKS-cluster maken of het aantal knooppunten opschalen, wordt het Azure-platform het aangevraagde aantal virtuele machines maakt en configureert u deze. Er is geen handmatige configuratie voor u om uit te voeren.
 
 Als u nodig hebt voor het gebruik van een andere host-besturingssysteem hebt, container-runtime, of aangepaste pakketten bevatten, kunt u uw eigen Kubernetes-cluster via implementeren [acs-engine][acs-engine]. De upstream `acs-engine` vrijgegeven functies en configuratieopties te leveren voordat ze officieel worden ondersteund in AKS-clusters. Bijvoorbeeld, als u gebruiken van Windows-containers of in een container runtime dan Docker wilt, kunt u `acs-engine` configureren en implementeren van een Kubernetes-cluster die voldoet aan de behoeften van uw huidige.
+
+### <a name="resource-reservations"></a>Resource-reserveringen
+
+U hoeft te beheren, de Kubernetes-basisonderdelen op elk knooppunt, zoals de *kubelet*, *kube-proxy*, en *kube-DNS-*, maar ze enkele van de beschikbare gebruiken COMPUTE-resources. Als u wilt behouden knooppunt prestaties en functionaliteit, zijn de volgende rekenresources gereserveerd op elk knooppunt:
+
+- **CPU** - 60ms
+- **Geheugen** -20% maximaal 4 GiB
+
+Deze reserveringen betekenen dat de hoeveelheid beschikbare CPU en geheugen voor uw toepassingen kan worden weergegeven kleiner is dan het knooppunt zelf bevat. Als er resourcebeperkingen vanwege het aantal toepassingen die u uitvoert, wordt deze reserveringen Zorg ervoor dat de CPU en geheugen blijft beschikbaar voor de belangrijkste onderdelen die Kubernetes. De resource-reserveringen kunnen niet worden gewijzigd.
+
+Bijvoorbeeld:
+
+- **Standard DS2 versie 2** knooppuntgrootte bevat 2 vCPU en 7 GiB geheugen
+    - 20% van 7 GiB geheugen 1,4 GiB =
+    - Totaal *(7-1.4) 5.6 GiB =* geheugen beschikbaar is voor het knooppunt
+    
+- **Standard E4s v3** knooppuntgrootte bevat 4 vCPU en 32 GiB geheugen
+    - 20% van 32 GiB geheugen = 6.4 GiB, maar AKS alleen behoudt zich een maximum van 4 GiB
+    - Totaal *(32-4) 28 GiB =* is beschikbaar voor het knooppunt
+    
+Het onderliggende knooppunt OS vereist ook een zekere mate van CPU en geheugen zijn voor het voltooien van een eigen kernfuncties.
 
 ### <a name="node-pools"></a>Knooppuntgroepen
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: bryanla
-ms.openlocfilehash: d93ad4185be3d4875c5747fd10359baab69af95d
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 00a2c0d50a2476995dfb0d16d0cdbc5bd0ec313b
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49958649"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50138984"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>Over sleutels, geheimen en certificaten
 
@@ -245,7 +245,7 @@ Naast de geheime gegevens kunnen de volgende kenmerken worden opgegeven:
 
 - *EXP*: IntDate, optioneel, standaard is **altijd**. De *exp* (verlooptijd) kenmerk identificeert de verlooptijd op of na die de geheime gegevens moeten niet worden opgehaald, met uitzondering van in [bepaalde situaties](#date-time-controlled-operations). Dit veld is bedoeld voor **informatief** doeleinden alleen als deze gebruikers van de sleutelkluis-service geïnformeerd dat een bepaalde geheim niet kan worden gebruikt. De waarde moet een getal met een IntDate-waarde.   
 - *NBF*: IntDate, optioneel, standaard is **nu**. De *nbf* (niet voor) kenmerk wordt de tijd waarbinnen moet de geheime gegevens niet worden opgehaald, met uitzondering van in [bepaalde situaties](#date-time-controlled-operations). Dit veld is bedoeld voor **informatief** uitsluitend bedoeld. De waarde moet een getal met een IntDate-waarde. 
-- *ingeschakeld*: Booleaans, optioneel, de standaardwaarde is **waar**. Dit kenmerk wordt opgegeven of de geheime gegevens kunnen worden opgehaald. De ingeschakelde kenmerk wordt gebruikt in combinatie met en *exp* wanneer een bewerking plaatsvindt tussen exp, deze alleen worden toegestaan als ingeschakeld is ingesteld op **waar**. Bewerkingen buiten de *nbf* en *exp* venster worden automatisch niet-toegestane, behalve in [bepaalde situaties](#date-time-controlled-operations).  
+- *ingeschakeld*: Booleaans, optioneel, de standaardwaarde is **waar**. Dit kenmerk wordt opgegeven of de geheime gegevens kunnen worden opgehaald. De ingeschakelde kenmerk wordt gebruikt in combinatie met *nbf* en *exp* wanneer een bewerking plaatsvindt tussen *nbf* en *exp*, worden pas bij inschakeling toegestaan is ingesteld op **waar**. Bewerkingen buiten de *nbf* en *exp* venster worden automatisch niet-toegestane, behalve in [bepaalde situaties](#date-time-controlled-operations).  
 
 Er zijn aanvullende kenmerken voor alleen-lezen die zijn opgenomen in elke reactie met geheime kenmerken:  
 

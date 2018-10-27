@@ -4,9 +4,6 @@ description: In dit artikel wordt uitgelegd hoe u verkeer verdelen met behulp va
 services: traffic-manager
 documentationcenter: ''
 author: kumudd
-manager: timlt
-editor: ''
-ms.assetid: 6dca6de1-18f7-4962-bd98-6055771fab22
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
@@ -14,19 +11,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: kumud
-ms.openlocfilehash: 6637132481ee33d43ec2b747ba89a56983205ff2
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 132cbecdad8303414f15ff3f18caaccd6d430ded
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47432440"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50154913"
 ---
 # <a name="configure-the-weighted-traffic-routing-method-in-traffic-manager"></a>De gewogen verkeersrouteringsmethode configureren in Traffic Manager
 
-Verkeer routeren methode gebruikelijk is bieden een set identieke eindpunten, waaronder cloudservices en websites, en verkeer verzenden naar elk in een round robin besturingsaanvraag. De volgende stappen beschrijven het configureren van dit type verkeersrouteringsmethode.
+Verkeer routeren methode gebruikelijk is het bieden van een set identieke eindpunten, waaronder cloudservices en websites, en verkeer gelijkmatig naar elke verzenden. De volgende stappen beschrijven het configureren van dit type verkeersrouteringsmethode.
 
 > [!NOTE]
-> Azure-Web-App biedt al round robin-taakverdeling functionaliteit voor websites in een Azure-regio (bevat meerdere datacenters). Traffic Manager kunt u opgeven de routeringsmethode voor round robin-verkeer voor websites in verschillende datacenters.
+> Azure-Web-App biedt al round robin-taakverdeling functionaliteit voor websites in een Azure-regio (die kunnen bestaan uit meerdere datacenters). Traffic Manager kunt u verkeer verdelen over websites in verschillende datacenters.
 
 ## <a name="to-configure-the-weighted-traffic-routing-method"></a>Het configureren van de gewogen verkeersrouteringsmethode
 
@@ -51,7 +48,7 @@ Verkeer routeren methode gebruikelijk is bieden een set identieke eindpunten, wa
 
 - Meer informatie over [prioriteit routeringsmethode voor verkeer](traffic-manager-configure-priority-routing-method.md).
 - Meer informatie over [prestaties routeringsmethode voor verkeer](traffic-manager-configure-performance-routing-method.md).
-- Meer informatie over [geografische routeringsmethode](traffic-manager-configure-geographic-routing-method.md).
+- Meer informatie over [geografische verkeersrouteringsmethode](traffic-manager-configure-geographic-routing-method.md).
 - Meer informatie over het [Traffic Manager-instellingen testen](traffic-manager-testing-settings.md).
 
 <!--Image references-->

@@ -1,13 +1,10 @@
 ---
-title: Verkeer weergeven in Azure Traffic Manager | Microsoft Docs
-description: Inleiding tot Traffic Manager verkeer weergeven
+title: Verkeersweergave in Azure Traffic Manager | Microsoft Docs
+description: Inleiding tot Traffic Manager Traffic View
 services: traffic-manager
 documentationcenter: traffic-manager
 author: KumudD
 manager: jeconnoc
-editor: ''
-tags: ''
-ms.assetid: ''
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
@@ -16,64 +13,64 @@ ms.workload: infrastructure
 ms.date: 03/16/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: 7ce51017fdee92e5589c06b398c9650930d5436d
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: d1800fea2212628e7647b5250efa33ebb97957f9
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30179834"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50138069"
 ---
-# <a name="traffic-manager-traffic-view"></a>Traffic Manager verkeer weergeven
+# <a name="traffic-manager-traffic-view"></a>Traffic Manager Traffic View
 
-Traffic Manager biedt dat u met DNS-niveau routering zodat uw eindgebruikers worden omgeleid naar orde eindpunten op basis van de routeringsmethode opgegeven toen u het profiel hebt gemaakt. Traffic Manager biedt verkeer weergave een weergave van uw gebruikersbases (op een DNS-omzetter granulatie niveau) en hun verkeer-patroon. Wanneer u verkeer weergave inschakelt, wordt deze informatie om u te bieden met bruikbare insights verwerkt. 
+Traffic Manager kunt dat u met de DNS-niveau routering zodat uw eindgebruikers worden doorgestuurd naar de eindpunten in orde op basis van de routeringsmethode opgegeven tijdens het maken van het profiel. Traffic View biedt Traffic Manager een weergave van uw klantenbestand (op het niveau van een DNS-resolver granulariteit) en hun gebruikspatroon verkeer. Wanneer u de weergave verkeer inschakelen, wordt deze informatie om te voorzien van inzichten verwerkt. 
 
-U kunt met behulp van verkeer weergeven:
-- begrijpen waarin uw gebruikersbases bevinden (maximaal een lokale DNS-omzetter niveau granulatie).
-- de hoeveelheid verkeer (waargenomen als DNS-query's verwerkt door Azure Traffic Manager) weergeven die afkomstig zijn van deze gebieden.
-- Verkrijg inzicht in wat de representatieve latentie door deze gebruikers ondervonden is.
-- diepgaand in de specifieke verkeerspatronen van elk van deze gebruikersbases naar Azure-regio's waar u eindpunten hebt. 
+Met behulp van Traffic View, kunt u het volgende doen:
+- inzicht in waar uw klantenbestand zich bevindt (tot een lokale DNS-niveau resolver).
+- de hoeveelheid verkeer (in acht genomen als DNS-query's van Azure Traffic Manager verwerkt) weergeven die afkomstig zijn van deze regio's.
+- Krijg inzicht in wat de representatieve latentie die wordt ervaren door deze gebruikers is.
+- dieper ingaan op de specifieke verkeerspatronen van elk van deze klantenbestanden naar Azure-regio's waar u eindpunten hebt. 
 
-Bijvoorbeeld, kunt u verkeer weergave te begrijpen welke regio's hebben een groot aantal verkeer maar lijden onder blokkering van de hogere latenties. Vervolgens kunt u deze gegevens naar uw footprint uitbreiding naar de nieuwe Azure-regio's zodanig plannen dat deze gebruikers kunnen een lagere latentie ervaring hebben.
+Bijvoorbeeld, kunt u Traffic View te begrijpen welke regio's hebben een groot aantal verkeer maar last van hogere latentie. U kunt deze informatie vervolgens gebruiken voor het plannen van uw footprint uitbreiding van nieuwe Azure-regio's, zodat deze gebruikers een lagere latentie-ervaring hebben.
 
-## <a name="how-traffic-view-works"></a>De werking van verkeer weergeven
+## <a name="how-traffic-view-works"></a>De werking van Verkeersweergave
 
-Verkeer weergave werkt met Traffic Manager kijken naar de binnenkomende query's ontvangen in de afgelopen zeven dagen op basis van een profiel dat u deze functie is ingeschakeld. Verkeer weergave geëxtraheerd uit de binnenkomende gegevens van de query's het bron-IP van de DNS-resolver die wordt gebruikt als een representatie van de locatie van de gebruikers. Deze worden vervolgens gegroepeerd in een DNS-resolver niveau samenvattingen base regio's voor een gebruiker maken met behulp van de geografische informatie van IP-adressen bijgehouden door Traffic Manager. Azure-regio's waarop de query is gerouteerd en Hiermee wordt een overzicht van de processtroom verkeer voor gebruikers van deze gebieden kijkt Traffic Manager vervolgens.  
-In de volgende stap Traffic Manager de gebruiker base regio toewijzing van de Azure-regio met het netwerk intelligence latentie tabellen houdt voor verschillende eindgebruiker netwerken om te begrijpen van de gemiddelde latentie waarmee gebruikers van deze gebieden correleert wanneer verbinding maken met Azure-regio's. Al deze berekeningen vervolgens worden gecombineerd met een niveau van lokale DNS-omzetter IP voordat het is aan u gepresenteerd. U kunt de gegevens op verschillende manieren verbruiken.
+Traffic View werkt met Traffic Manager kijken naar de inkomende query's ontvangen in de afgelopen zeven dagen op basis van een profiel dat u deze functie is ingeschakeld. Traffic View geëxtraheerd uit de binnenkomende gegevens van de query's de bron-IP-adres van de DNS-resolver die wordt gebruikt als een weergave van de locatie van de gebruikers. Deze worden vervolgens samen gegroepeerd op een op het niveau resolver DNS-gebruiker basis regio's maken met behulp van de geografische informatie van IP-adressen van Traffic Manager beheerd. Vervolgens kijkt Traffic Manager naar de Azure-regio's waarop de query is doorgestuurd en bouwt een overzicht van de stroom verkeer voor gebruikers van deze regio's.  
+In de volgende stap, Traffic Manager overeenkomt met de basis regio van de gebruiker de toewijzing van de Azure-regio met het netwerk intelligence latentie tabellen wordt bijgehouden voor verschillende eindgebruikers netwerken om te begrijpen van de gemiddelde latentie die wordt ervaren gebruikers van deze regio's als verbinding maken met Azure-regio's. Deze berekeningen vervolgens worden gecombineerd met een niveau van lokale DNS-resolver IP voordat deze aan u gepresenteerd. U kunt de gegevens op verschillende manieren gebruiken.
 
 >[!NOTE]
->De latentie beschreven in de weergave van verkeer een representatieve latentie tussen de eindgebruiker en de Azure-regio's waarmee ze was verbonden, en niet de DNS-lookup-latentie. Verkeer weergave maakt een best effort schatting van de latentie tussen de lokale DNS-omzetter en de Azure-regio die de query is gerouteerd naar, als er onvoldoende gegevens beschikbaar en de latentie vervolgens geretourneerd wordt niet null zijn. 
+>De latentie die wordt beschreven in de Traffic View is een representatieve latentie tussen de eindgebruiker en de Azure-regio's waarnaar ze met verbonden was en is niet de DNS-lookup-latentie. Traffic View maakt een schatting van de inspanningen van de latentie tussen de lokale DNS-resolver en de Azure-regio die de query is doorgestuurd naar, als er onvoldoende gegevens beschikbaar en de latentie vervolgens geretourneerd worden niet null zijn. 
 
-## <a name="visual-overview"></a>Visual-overzicht
+## <a name="visual-overview"></a>Visueel overzicht
 
-Wanneer u navigeren naar de **verkeer weergave** sectie op de pagina Traffic Manager krijgt u een geografische kaart met een overlay van verkeer weergave inzicht. De kaart bevat informatie over de gebruikersgroep en de eindpunten voor uw Traffic Manager-profiel.
+Wanneer u gaat u naar de **Traffic View** sectie van de pagina Traffic Manager, krijgt u een geografische kaart met een overlay van inzichten verkeer weergeven. De kaart bevat informatie over de gebruikers- en eindpunten voor uw Traffic Manager-profiel.
 
-### <a name="user-base-information"></a>Basis van gebruikersgegevens
+### <a name="user-base-information"></a>Basisgegevens van gebruiker
 
-Voor de lokale DNS-resolvers voor welke locatie informatie beschikbaar is, worden ze weergegeven in de kaart. De kleur van de DNS-resolver geeft de gemiddelde latentie ervaren door eindgebruikers die deze DNS-resolver voor de Traffic Manager-query's gebruikt.
+Voor deze lokale DNS-resolvers voor welke locatie informatie beschikbaar is, worden ze weergegeven in de kaart. De kleur van de DNS-resolver geeft aan dat de gemiddelde latentie van eindgebruikers die deze DNS-resolver voor de Traffic Manager-query's gebruikt.
 
-Als u de muisaanwijzer op een DNS-omzetter locatie in de kaart, wordt deze weergegeven:
+Als u de muisaanwijzer over een DNS-resolver locatie op de kaart, wordt deze weergegeven:
 - het IP-adres van de DNS-resolver
-- het volume van de DNS-query-verkeer door Traffic Manager gezien vanaf het
-- de eindpunten op welk verkeer van de DNS resolver is gerouteerd, als een lijn tussen het eindpunt en de DNS-resolver 
-- de gemiddelde latentie van die locatie naar het eindpunt, weergegeven als de kleur van de regel die deze te verbinden
+- het volume van de DNS-query-verkeer door Traffic Manager van het gezien
+- de eindpunten voor hoe het verkeer van de DNS-server naamomzetting is doorgestuurd, als een lijn tussen het eindpunt en de DNS-resolver 
+- de gemiddelde latentie van die locatie naar het eindpunt, weergegeven als de kleur van de regel verbindt deze met
 
 ### <a name="endpoint-information"></a>Informatie over endpoint
 
-Azure-regio's waarin de eindpunten zich bevinden, worden weergegeven als blauwe punten op de kaart. Als uw eindpunt extern en beschikt niet over een Azure-regio toegewezen, wordt het weergegeven aan de bovenkant van de kaart. Klik op een willekeurig eindpunt om te zien van de verschillende vestigingen (op basis van de DNS-resolver gebruikt) van waar het verkeer is omgeleid naar dat eindpunt. De verbindingen worden weergegeven als een lijn tussen het eindpunt en de locatie van DNS-omzetter en volgens de representatieve latentie tussen die paar zijn gekleurd. Bovendien ziet u de naam van het eindpunt, de Azure-regio waarin deze wordt uitgevoerd en het totale volume van aanvragen die zijn omgeleid naar dit Traffic Manager-profiel.
+Azure-regio's waarin de eindpunten zich bevinden worden als de blauwe stippen op de kaart weergegeven. Als uw eindpunt extern is en heeft een Azure-regio aan is toegewezen, wordt het weergegeven aan de bovenkant van de kaart. Klik op elk willekeurig eindpunt om te zien van de verschillende locaties (op basis van de DNS-resolver gebruikt) vanaf waar verkeer is omgeleid naar dit eindpunt. De verbindingen worden weergegeven als een lijn tussen het eindpunt en de locatie van de DNS-resolver en worden gekleurd volgens de representatieve latentie tussen deze twee. Bovendien ziet u de naam van het eindpunt, de Azure-regio waarin deze wordt uitgevoerd en het totale volume van aanvragen die zijn doorgestuurd naar dit Traffic Manager-profiel.
 
 
-## <a name="tabular-listing-and-raw-data-download"></a>In de lijst in tabelvorm en onbewerkte gegevens downloaden
+## <a name="tabular-listing-and-raw-data-download"></a>Lijst in tabelvorm en op onbewerkte gegevens downloaden
 
-U kunt de weergave van verkeer gegevens weergeven in tabelvorm in Azure-portal. Er is een vermelding voor elk IP-adres van DNS-omzetter / eindpunt koppelen die ziet u het IP-adres van de DNS-resolver, de naam en de geografische locatie van de Azure-regio in waarop het eindpunt zich bevindt (indien beschikbaar), het volume aan aanvragen die zijn gekoppeld aan deze DNS-resolver voor dat eindpunt en de representatieve latentie die zijn gekoppeld aan eindgebruikers die DNS gebruiken (indien beschikbaar). U kunt ook het verkeer weergavegegevens downloaden als een CSV-bestand dat kan worden gebruikt als onderdeel van een werkstroom analytics van uw keuze.
+U kunt de Traffic View-gegevens weergeven in tabelvorm in Azure portal. Er is een vermelding voor elke DNS-resolver-IP-adres / eindpunt koppelen die ziet u het IP-adres van de DNS-resolver, de naam en de geografische locatie van de Azure-regio's in die het eindpunt zich bevindt (indien beschikbaar), het aantal aanvragen dat is gekoppeld aan deze DNS-resolver dit eindpunt, en de representatieve latentie die is gekoppeld aan eindgebruikers met behulp van deze DNS (indien beschikbaar). U kunt ook de Traffic View-gegevens als een CSV-bestand dat kan worden gebruikt als onderdeel van een analytics-werkstroom van uw keuze downloaden.
 
-## <a name="billing"></a>Facturering
+## <a name="billing"></a>Billing
 
-Wanneer u verkeer weergave gebruikt, kunt u wordt gefactureerd op basis van het aantal gegevenspunten gebruikt voor het maken van de inzichten die zijn gepresenteerd. Het type van het enige gegevens die wordt gebruikt, is momenteel de query's ontvangen op basis van uw Traffic Manager-profiel. Voor meer informatie over de prijzen, gaat u naar de [Traffic Manager pagina met prijzen](https://azure.microsoft.com/pricing/details/traffic-manager/).
+Wanneer u de weergave verkeer gebruikt, kunt u wordt gefactureerd op basis van het aantal gegevenspunten dat wordt gebruikt om te maken van de inzichten die zijn gepresenteerd. Op dit moment is het enige type gegevenspunt gebruikt de query's ontvangen op basis van uw Traffic Manager-profiel. Voor meer informatie over de prijzen, gaat u naar de [Traffic Manager-pagina met prijzen](https://azure.microsoft.com/pricing/details/traffic-manager/).
 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Meer informatie over [de werking van Traffic Manager](traffic-manager-overview.md)
-- Meer informatie over de [verkeersroutering methoden](traffic-manager-routing-methods.md) ondersteund door Traffic Manager
-- Meer informatie over hoe [een Traffic Manager-profiel maken](traffic-manager-create-profile.md)
+- Informatie over [hoe Traffic Manager werkt](traffic-manager-overview.md)
+- Meer informatie over de [routeringsmethoden voor verkeer](traffic-manager-routing-methods.md) ondersteund door Traffic Manager
+- Meer informatie over het [een Traffic Manager-profiel maken](traffic-manager-create-profile.md)
 

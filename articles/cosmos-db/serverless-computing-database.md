@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: sngun
-ms.openlocfilehash: c183bbe2c20bdc1772160cbbd8260dece0b6eb54
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: 7348f76ab0d5a1057e9fd929e8a55dd0a9e99eb6
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49309498"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50140973"
 ---
 # <a name="serverless-database-computing-using-azure-cosmos-db-and-azure-functions"></a>Serverless database computing met behulp van Azure Cosmos DB en Azure Functions
 
@@ -31,7 +31,8 @@ Azure Cosmos DB en Azure Functions kunt u uw databases en serverloze apps integr
 * Binding van een functie met een Azure Cosmos DB-container met een **Uitvoerbinding**. Wanneer een functie is voltooid, uitvoerbindingen gegevens schrijven naar een container.
 
 > [!NOTE]
-> Op dit moment werken de Azure Cosmos DB-trigger, invoerbindingen en uitvoerbindingen met SQL-API en Gremlin-API-accounts.
+> Azure Cosmos DB-trigger, invoerbindingen en uitvoerbindingen worden momenteel ondersteund voor gebruik met alleen de SQL-API. Voor alle andere Azure Cosmos DB-API's, moet u de database van de functie openen met behulp van de statische-client voor uw API, met inbegrip van de MongoDB-API, Cassandra-API, Gremlin-API en Table-API.
+
 
 Het volgende diagram illustreert elk van deze drie integraties: 
 

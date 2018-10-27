@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/17/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 838717aa8f426ea54f4736453aac8c6fcf9a0099
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 1db805efe7eaec77fcafeb169b3d99098b57f582
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43344494"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50155760"
 ---
 # <a name="create-an-aspnet-web-app-with-azure-active-directory-b2c-sign-up-sign-in-profile-edit-and-password-reset"></a>Een ASP.NET-web-app maken met Azure Active Directory B2C gebruikersregistratie, aanmelding, profiel bewerken en wachtwoord opnieuw instellen
 
@@ -153,7 +153,7 @@ public partial class Startup
 
 #### <a name="configure-the-authentication-middleware"></a>De verificatiemiddleware configureren
 
-Open het bestand `App_Start\Startup.Auth.cs` en implementeren van de `ConfigureAuth(...)` methode. De parameters die u opgeeft in `OpenIdConnectAuthenticationOptions` fungeren als coördinaten voor uw app om te communiceren met Azure AD B2C. Als u bepaalde parameters niet opgeeft, wordt de standaardwaarde gebruikt. Bijvoorbeeld, er geen opgeeft de `ResponseType` in het voorbeeld, zodat de standaardwaarde `code id_token` worden gebruikt voor elke uitgaande aanvraag voor Azure AD B2C.
+Open het bestand `App_Start\Startup.Auth.cs` en implementeer de `ConfigureAuth(...)`-methode. De parameters die u opgeeft in `OpenIdConnectAuthenticationOptions` fungeren als coördinaten voor uw app om te communiceren met Azure AD B2C. Als u bepaalde parameters niet opgeeft, wordt de standaardwaarde gebruikt. Bijvoorbeeld, er geen opgeeft de `ResponseType` in het voorbeeld, zodat de standaardwaarde `code id_token` worden gebruikt voor elke uitgaande aanvraag voor Azure AD B2C.
 
 U moet ook het instellen van de cookie-verificatie. De middleware OpenID Connect maakt gebruik van cookies gebruikerssessies, onder andere onderhouden.
 
@@ -195,7 +195,7 @@ public partial class Startup
                     NameClaimType = "name"
                 },
 
-                // Specify the scope by appending all of the scopes requested into one string (seperated by a blank space)
+                // Specify the scope by appending all of the scopes requested into one string (separated by a blank space)
                 Scope = $"openid profile offline_access {ReadTasksScope} {WriteTasksScope}"
             }
         );

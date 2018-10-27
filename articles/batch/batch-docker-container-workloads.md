@@ -8,14 +8,14 @@ ms.service: batch
 ms.devlang: multiple
 ms.topic: article
 ms.workload: na
-ms.date: 06/04/2018
+ms.date: 10/24/2018
 ms.author: danlep
-ms.openlocfilehash: a85db0315a2ee8aa9fd34b8c18893f4cb1068528
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 458b0f7bbf581c7f2490a8122f351dac612b4ff0
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39090959"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50155601"
 ---
 # <a name="run-container-applications-on-azure-batch"></a>Containertoepassingen uitvoeren op Azure Batch
 
@@ -157,7 +157,7 @@ new_pool = batch.models.PoolAddParameter(
 ```
 
 
-Het volgende voorbeeld van C#-voorbeeld wordt ervan uitgegaan dat u wilt een TensorFlow-installatiekopie uit prefetch [Docker Hub](https://hub.docker.com). In dit voorbeeld bevat een begintaak die wordt uitgevoerd in de VM-host op de knooppunten in de pool. U kunt bijvoorbeeld een begintaak op de host uitvoeren voor het koppelen van een bestandsserver die kan worden benaderd vanaf de containers.
+De volgende C# voorbeeld wordt ervan uitgegaan dat u wilt een TensorFlow-installatiekopie uit prefetch [Docker Hub](https://hub.docker.com). In dit voorbeeld bevat een begintaak die wordt uitgevoerd in de VM-host op de knooppunten in de pool. U kunt bijvoorbeeld een begintaak op de host uitvoeren voor het koppelen van een bestandsserver die kan worden benaderd vanaf de containers.
 
 ```csharp
 
@@ -225,11 +225,15 @@ CloudPool pool = batchClient.PoolOperations.CreatePool(
 
 ## <a name="container-settings-for-the-task"></a>Container-instellingen voor de taak
 
-Om uit te voeren taken van de container op de rekenknooppunten, moet u container-specifieke instellingen, zoals taak opties, te gebruiken installatiekopieën en het register wordt uitgevoerd.
+Om uit te voeren taken van de container op de rekenknooppunten, moet u container-specifieke instellingen opgeven, zoals container uitvoeren opties, te gebruiken installatiekopieën en het register.
 
 Gebruik de `ContainerSettings` eigenschap van de taak klassen om container-specifieke instellingen te configureren. Deze instellingen worden gedefinieerd door de [TaskContainerSettings](/dotnet/api/microsoft.azure.batch.taskcontainersettings) klasse.
 
 Als u taken op containerinstallatiekopieën uitvoeren de [cloud taak](/dotnet/api/microsoft.azure.batch.cloudtask) en [jobbeheertaak](/dotnet/api/microsoft.azure.batch.cloudjob.jobmanagertask) containerinstellingen vereisen. Echter, de [begintaak](/dotnet/api/microsoft.azure.batch.starttask), [jobvoorbereidingstaak](/dotnet/api/microsoft.azure.batch.cloudjob.jobpreparationtask), en [jobvrijgevingstaak](/dotnet/api/microsoft.azure.batch.cloudjob.jobreleasetask) vereisen geen container-instellingen (dat wil zeggen, ze kunnen worden uitgevoerd binnen de context van een container of rechtstreeks op het knooppunt).
+
+De optionele [ContainerRunOptions](/dotnet/api/microsoft.azure.batch.taskcontainersettings.containerrunoptions) extra argumenten die moeten worden de `docker create` opdracht dat de taak wordt uitgevoerd om de container te maken.
+
+### <a name="container-task-working-directory"></a>Werkmap van de container-taak
 
 De opdrachtregel voor een Azure Batch-taak voor container in een werkmap in de container die erg lijkt op het milieu dat batch heeft ingesteld voor een normale (niet-container)-taak wordt uitgevoerd:
 
@@ -237,9 +241,13 @@ De opdrachtregel voor een Azure Batch-taak voor container in een werkmap in de c
 * Alle variabelen voor de omgeving worden toegewezen aan de container
 * De werkmap van de toepassing is ingesteld dezelfde als die voor een normale taak, zodat u kunt functies zoals toepassingspakketten en bronbestanden gebruiken
 
-Omdat de Batch Hiermee wijzigt u de standaard-werkmap in de container, de taak wordt uitgevoerd op een locatie die verschilt van het toegangspunt typische container (bijvoorbeeld `c:\` standaard op een Windows-container of `/` op Linux). Zorg ervoor dat uw taak vanaf de opdrachtregel of de container beginpunt Hiermee geeft u een absoluut pad zijn, als deze niet al op deze manier is geconfigureerd.
+Omdat de Batch Hiermee wijzigt u de standaard-werkmap in de container, de taak wordt uitgevoerd op een locatie die verschilt van de werkmap typische container (bijvoorbeeld `c:\` standaard op een Windows-container of `/` op Linux of een andere map als geconfigureerd in de container-installatiekopie). Om ervoor te zorgen dat uw containertoepassingen goed in de context van de Batch, moet u een van de volgende handelingen: 
 
-Het volgende fragment van Python ziet u een eenvoudige opdrachtregel die wordt uitgevoerd in een Ubuntu-container opgehaald uit Docker Hub. De opties voor uitvoeren in een container zijn extra argumenten voor de `docker create` opdracht die de taak wordt uitgevoerd. Hier de `--rm` optie wordt de container verwijderd nadat de taak is voltooid.
+* Zorg ervoor dat in uw taak vanaf de opdrachtregel (of de werkmap van de container) een absoluut pad wordt opgegeven als deze niet al op deze manier is geconfigureerd.
+
+* Stel in van de taak mag ContainerSettings, een werkmap in de container opties voor het uitvoeren. Bijvoorbeeld `--workdir /app`.
+
+Het volgende fragment van Python ziet u een eenvoudige opdrachtregel die wordt uitgevoerd in een Ubuntu-container opgehaald uit Docker Hub. Hier de `--rm` optie uitvoeren in een container wordt de container verwijderd nadat de taak is voltooid.
 
 ```python
 task_id = 'sampletask'

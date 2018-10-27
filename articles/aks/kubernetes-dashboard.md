@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: iainfou
-ms.openlocfilehash: eb5d1ee88fc95f7d02842ea089f65c6d17a6d69d
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 127f6a5cd8f46b72a4cddcef09cb31b60edd0582
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50091738"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50157187"
 ---
 # <a name="access-the-kubernetes-web-dashboard-in-azure-kubernetes-service-aks"></a>Toegang tot het Kubernetes-web-dashboard in Azure Kubernetes Service (AKS)
 
@@ -34,8 +34,8 @@ Gebruiken om het Kubernetes-dashboard starten, de [az aks Bladeren] [ az-aks-bro
 az aks browse --resource-group myResourceGroup --name myAKSCluster
 ```
 
-> [!NOTE]
-> Als u deze opdracht vanaf de Azure Cloud Shell uitvoert, moet u om toe te voegen de `--enable-cloud-console-aks-browse` parameter voor het openen van het dashboard.
+> [!TIP]
+> Als u deze opdracht vanaf de Azure Cloud Shell uitvoert, voegt u toe de `--enable-cloud-console-aks-browse` parameter correct openen het dashboard.
 
 Met deze opdracht maakt een proxy tussen uw systeem voor de ontwikkeling en het Kubernetes-API en opent een webbrowser naar de Kubernetes-dashboard. Als een webbrowser niet aan het Kubernetes-dashboard wordt geopend, kopieert en plakt u de URL-adres dat is vermeld in de Azure CLI, doorgaans *http://127.0.0.1:8001*.
 

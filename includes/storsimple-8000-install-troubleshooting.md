@@ -1,9 +1,22 @@
+---
+author: alkohli
+ms.service: storsimple
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: alkohli
+ms.openlocfilehash: a2ef939b621b02a49c29a37bc12b335db7ba60b9
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50164616"
+---
 <!--author=alkohli last changed: 08/29/17-->
 
 ## <a name="troubleshooting-update-failures"></a>Problemen oplossen met mislukte updates
 **Wat moet ik doen als ik een melding zie dat de controles vóór de upgrade zijn mislukt?**
 
-Als een controle vooraf mislukt, bekijkt u de gedetailleerde meldingsbalk onder aan de pagina. Hierin kunt u zien welke controle vooraf is mislukt. Bijvoorbeeld: u ontvangt een melding dat de statuscontrole van de domeincontroller en de statuscontrole van de hardware-onderdeel is mislukt. Ga naar **Monitor > Hardware health**. U moet ervoor zorgen dat beide domeincontrollers in orde en online zijn. U moet ook om ervoor te zorgen dat alle hardwareonderdelen in de StorSimple-apparaat te zijn in orde in deze blade worden weergegeven. U kunt daarna proberen de updates te installeren. Als het niet lukt om de problemen met de hardwareonderdelen op te lossen, neemt u contact op met Microsoft-ondersteuning voor de volgende stappen.
+Als een controle vooraf mislukt, bekijkt u de gedetailleerde meldingsbalk onder aan de pagina. Hierin kunt u zien welke controle vooraf is mislukt. Bijvoorbeeld, ontvangt u een melding dat de statuscontrole van de domeincontroller en de statuscontrole voor hardwareonderdelen zijn mislukt. Ga naar **Monitor > hardwarestatus**. U moet ervoor zorgen dat beide controllers in orde en online zijn. U moet ook om ervoor te zorgen dat alle hardwareonderdelen in het StorSimple-apparaat in orde in deze blade zijn worden weergegeven. U kunt daarna proberen de updates te installeren. Als het niet lukt om de problemen met de hardwareonderdelen op te lossen, neemt u contact op met Microsoft-ondersteuning voor de volgende stappen.
 
 **Wat moet ik doen als ik de foutmelding "Kan geen updates installeren" zie en de aanbeveling krijg de gids voor het oplossen van problemen met updates te raadplegen om de oorzaak van het probleem vast te stellen?**
 

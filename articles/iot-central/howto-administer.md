@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 1bb0bc0aa7ad6bbbad502832ba8e0a96f36de428
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 25b4777be4257933b84d58d0f10cf12571de9590
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48268296"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50155317"
 ---
 # <a name="administer-your-iot-central-application"></a>Uw IOT Central-toepassing beheren
 
@@ -33,7 +33,7 @@ De **beheer** sectie kunt u naar:
 
 In de **beheer** sectie, een secundaire navigatiemenu bevat koppelingen naar de verschillende beheertaken.
 
-Voor toegang tot en gebruik de **beheer** sectie die u moet zich in de **beheerder** rol voor een Azure IoT Central-toepassing. Als u een Azure IoT Central-toepassing maakt, wordt u automatisch toegewezen aan de **beheerder** rol voor de toepassing. De *gebruikers beheren* sectie in dit artikel wordt uitgelegd meer over het toewijzen de **beheerder** rol aan andere gebruikers.
+Voor toegang tot en gebruik de **beheer** sectie die u moet zich in de **beheerder** rol voor een Azure IoT Central-toepassing. Als u een Azure IoT Central-toepassing maakt, wordt u automatisch toegewezen aan de **beheerder** rol voor de toepassing. De [gebruikers beheren](#manage-users) sectie in dit artikel wordt uitgelegd meer over het toewijzen de **beheerder** rol aan andere gebruikers.
 
 ## <a name="change-application-name"></a>Naam van de toepassing wijzigen
 

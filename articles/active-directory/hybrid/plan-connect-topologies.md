@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/09/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: ef72829d507d6a471ec9a8972ead262da7f7b582
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 4362a6b936c52319f6f6fc625370733f3c84e361
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49068689"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50158853"
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Topologieën voor Azure AD Connect
 Dit artikel beschrijft de verschillende on-premises en Azure Active Directory (Azure AD)-topologieën die gebruikmaken van Azure AD Connect-synchronisatie als de integratieoplossing key. Dit artikel bevat de ondersteunde en niet-ondersteunde configuraties.
@@ -87,7 +87,7 @@ Met meer dan één Azure AD Connect-synchronisatieserver die is verbonden met é
 ### <a name="multiple-forests-separate-topologies"></a>Meerdere forests, afzonderlijke topologieën
 ![Optie voor de vertegenwoordiging van gebruikers slechts één keer op alle mappen](./media/plan-connect-topologies/MultiForestUsersOnce.png)
 
-![Weergave van meerdere forests en afzonderlijke topologieën](./media/plan-connect-topologies/MultiForestSeperateTopologies.png)
+![Weergave van meerdere forests en afzonderlijke topologieën](./media/plan-connect-topologies/MultiForestSeparateTopologies.png)
 
 In deze omgeving, worden alle on-premises forests behandeld als afzonderlijke entiteiten. Er is geen gebruiker is aanwezig in een andere forest. Elke forest heeft een eigen Exchange-organisatie, en er is geen GALSync tussen de forests. Deze topologie mogelijk de situatie na een fusie/verwerving van of in een organisatie waar elk bedrijfsonderdeel werkt onafhankelijk van elkaar. Deze forests zijn in dezelfde organisatie in Azure AD en worden weergegeven met een uniforme GAL. In de voorgaande afbeelding wordt elk object in elk forest één keer weergegeven in de metaverse en samengevoegd in de doel-Azure AD-tenant.
 

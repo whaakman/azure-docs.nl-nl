@@ -1,7 +1,20 @@
+---
+author: dominicbetts
+ms.service: iot-hub
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: dobett
+ms.openlocfilehash: ab9d059ede2464318205a90b8ac738727e8d89a4
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50164945"
+---
 ## <a name="obtain-an-azure-resource-manager-token"></a>Een Azure Resource Manager-token verkrijgen
-De taken die u uitvoert op resources met behulp van de Azure Resource Manager moeten worden geverifieerd door Azure Active Directory. Het voorbeeld gebruikt wachtwoordverificatie, voor Zie andere benaderingen [verificatie van Azure Resource Manager-aanvragen][lnk-authenticate-arm].
+Alle taken die u uitvoert op resources met behulp van Azure Resource Manager moeten worden geverifieerd door Azure Active Directory. In het voorbeeld hieronder wordt wachtwoordverificatie gebruikt, gebruikt voor andere methoden raadpleegt [verificatie van Azure Resource Manager-aanvragen][lnk-authenticate-arm].
 
-1. Voeg de volgende code naar de **Main** methode in Program.cs ophalen van een token van Azure AD met behulp van de toepassings-id en het wachtwoord.
+1. Voeg de volgende code aan de **Main** methode in Program.cs om op te halen van een token uit Azure AD met behulp van de toepassings-id en het wachtwoord.
    
     ```
     var authContext = new AuthenticationContext(string.Format  
@@ -16,14 +29,14 @@ De taken die u uitvoert op resources met behulp van de Azure Resource Manager mo
       return;
     }
     ```
-2. Maak een **ResourceManagementClient** -object dat u het token gebruikt door de volgende code toe te voegen aan het einde van de **Main** methode:
+2. Maak een **ResourceManagementClient** -object dat het token wordt gebruikt door de volgende code toe te voegen aan het einde van de **Main** methode:
    
     ```
     var creds = new TokenCredentials(token.AccessToken);
     var client = new ResourceManagementClient(creds);
     client.SubscriptionId = subscriptionId;
     ```
-3. Maken of een verwijzing naar de resourcegroep die u gebruikt:
+3. Maken of verkrijgen van een verwijzing naar de resourcegroep die u gebruikt:
    
     ```
     var rgResponse = client.ResourceGroups.CreateOrUpdate(rgName,

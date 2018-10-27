@@ -1,3 +1,16 @@
+---
+author: tamram
+ms.service: storage
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: tamram
+ms.openlocfilehash: 2f27c50b1d016265c20102521a137bcbb0646115
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50164382"
+---
 Als u een shared access signature (SAS)-URL die u toegang tot bronnen in een storage-account hebt hebben, kunt u de SAS in een verbindingsreeks. Omdat de SAS de vereiste informatie bevat op de aanvraag worden geverifieerd, wordt een verbindingsreeks met een SAS biedt het protocol, de service-eindpunt en de vereiste referenties voor toegang tot de resource.
 
 Voor het maken van een verbindingsreeks met een shared access signature, geef de tekenreeks in de volgende indeling:

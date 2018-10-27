@@ -1,34 +1,31 @@
 ---
-title: 'Azure Databricks: Veelgestelde vragen en help | Microsoft Docs'
+title: 'Azure Databricks: Veelgestelde vragen en Help-informatie'
 description: Krijg antwoorden op veelgestelde vragen en oplossen van problemen met informatie over Azure Databricks.
 services: azure-databricks
-documentationcenter: ''
-author: nitinme
-manager: cgronlun
-editor: cgronlun
+author: mamccrea
+ms.author: mamccrea
+ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.workload: big-data
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 05/29/2018
-ms.author: nitinme
-ms.openlocfilehash: c3ba235c60480c38a21ee3264c54b4a4dcdea340
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.topic: conceptual
+ms.date: 10/25/2018
+ms.openlocfilehash: 3bcc511ec6ad8a246c2b1b3a33eb59043a45830e
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39434598"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50138358"
 ---
 # <a name="frequently-asked-questions-about-azure-databricks"></a>Veelgestelde vragen over Azure Databricks
 
-In dit artikel geeft een lijst van de populairste query's die u mogelijk met betrekking tot Azure Databricks. Het bevat ook enkele veelvoorkomende problemen die tijdens het gebruik van Databricks mogelijk hebt. Zie voor meer informatie, [wat is Azure Databricks](what-is-azure-databricks.md). 
+Dit artikel worden de meestgestelde vragen die u mogelijk met betrekking tot Azure Databricks. Het bevat ook enkele veelvoorkomende problemen die tijdens het gebruik van Databricks mogelijk hebt. Zie voor meer informatie, [wat is Azure Databricks](what-is-azure-databricks.md). 
 
-## <a name="can-i-use-my-own-keys-for-local-encryption"></a>Kan ik mijn eigen sleutels gebruiken voor lokale codering? 
-In de huidige release, wordt met behulp van uw eigen sleutels uit Azure Key Vault niet ondersteund. 
+## <a name="can-i-use-azure-key-vault-to-store-keyssecrets-to-be-used-in-azure-databricks"></a>Kan ik Azure Key Vault gebruiken voor het opslaan van sleutels/geheimen moet worden gebruikt in Azure Databricks?
+Ja. U kunt Azure Key Vault gebruiken voor het opslaan van sleutels/geheimen voor gebruik met Azure Databricks. Zie voor meer informatie, [Azure Key Vault-back-scopes](https://docs.azuredatabricks.net/user-guide/secrets/secret-scopes.html#akv-ss).
+
 
 ## <a name="can-i-use-azure-virtual-networks-with-databricks"></a>Kan ik virtuele Azure-netwerken met Databricks gebruiken?
-Een nieuw virtueel netwerk is gemaakt als onderdeel van het inrichten van Databricks. In deze release kunt u uw eigen Azure-netwerk niet gebruiken.
+Ja. Met Azure Databricks kunt u een Azure Virtual Network (VNET). Zie voor meer informatie, [Azure Databricks implementeren in uw Azure Virtual Network](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-inject.html).
 
 ## <a name="how-do-i-access-azure-data-lake-store-from-a-notebook"></a>Hoe krijg ik toegang tot Azure Data Lake Store vanuit een notitieblok? 
 
@@ -116,7 +113,7 @@ Zie voor meer instructies, [resourceproviders en typen](../azure-resource-manage
 
 #### <a name="background"></a>Achtergrond
 
-Azure Databricks is geïntegreerd met Azure AD. Hiermee kunt u machtigingen wilt instellen in Azure Databricks (bijvoorbeeld op laptops en -clusters) door gebruikers van Azure AD op te geven. Voor Azure Databricks kunnen de namen van de gebruikers van uw Azure AD, is er een leesmachtiging voor die informatie vereist. Dit is een toestemming vereist. Als de toestemming nog niet beschikbaar is, ziet u de fout.
+Azure Databricks is geïntegreerd met Azure Active Directory. U kunt machtigingen in Azure Databricks (bijvoorbeeld op laptops en -clusters) instellen door gebruikers van Azure AD op te geven. Voor Azure Databricks om de namen van de gebruikers van uw Azure AD te kunnen hiervoor is leestoegang tot die informatie en toestemming te geven. Als de toestemming nog niet beschikbaar is, ziet u de fout.
 
 #### <a name="solution"></a>Oplossing
 

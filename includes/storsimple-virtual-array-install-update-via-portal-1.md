@@ -1,3 +1,16 @@
+---
+author: alkohli
+ms.service: storsimple
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: alkohli
+ms.openlocfilehash: 350dbc286c060ad10c21ebe1e8715b910871f837
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50164554"
+---
 <!--author=alkohli last changed: 11/02/17 -->
 
 #### <a name="to-install-updates-via-the-azure-portal"></a>Updates installeren via Azure Portal
@@ -10,11 +23,11 @@
 
     ![apparaat bijwerken](../includes/media/storsimple-virtual-array-install-update-via-portal-04/azupdate2m.png)  
 
-3. Als er software-updates beschikbaar zijn, wordt er een bericht weergegeven. U kunt ook op **Scannen** klikken om naar updates te zoeken. Noteer de softwareversie die u uitvoert. 
+3. Als er software-updates beschikbaar zijn, wordt er een bericht weergegeven. U kunt ook op **Scannen** klikken om naar updates te zoeken. Noteer de versie van de software die u uitvoert. 
 
     ![apparaat bijwerken](../includes/media/storsimple-virtual-array-install-update-via-portal-1/azupdate3m1.png)
 
-    U wordt gewaarschuwd wanneer de scan wordt gestart en voltooid is.
+    U krijgt een melding wanneer de scan wordt gestart en voltooid is.
 
     ![apparaat bijwerken](../includes/media/storsimple-virtual-array-install-update-via-portal-1/azupdate5m.png)
 
@@ -22,7 +35,7 @@
 
     ![apparaat bijwerken](../includes/media/storsimple-virtual-array-install-update-via-portal-1/azupdate6m.png)
 
-5. In de **nieuwe updates** blade, neem de releaseopmerkingen. Let ook op nadat de updates worden gedownload, moet u de installatie te bevestigen. Klik op **OK**.
+5. In de **nieuwe updates** blade opmerkingen bij de release bekijken. Let ook op nadat de updates zijn gedownload, moet u de installatie bevestigen. Klik op **OK**.
 
     ![apparaat bijwerken](../includes/media/storsimple-virtual-array-install-update-via-portal-1/azupdate7m.png)
 
@@ -50,7 +63,7 @@
 
     ![apparaat bijwerken](../includes/media/storsimple-virtual-array-install-update-via-portal-1/azupdate16m1.png)
 
-9. Als u met een virtuele-matrix met softwareversie Update 0,6 (10.0.10293.0) is gestart, kunt u nu Update 1 worden uitgevoerd en klaar bent. U kunt de resterende stappen overslaan. Als u met een virtuele-matrix met een softwareversie voorafgaand aan 0,6 (10.0.10293.0)-Update is gestart, wordt u nu bijgewerkt met Update 0,6. Ziet u een ander bericht weergegeven dat aangeeft dat er updates beschikbaar zijn. Herhaal stap 4-8 Update 1 installeren.
+9. Als u begint met een virtuele matrix met softwareversie Update 0.6 (10.0.10293.0), kunt u nu Update 1 worden uitgevoerd en klaar bent. U kunt de resterende stappen overslaan. Als u begint met een virtuele matrix met een softwareversie vóór Update 0.6 (10.0.10293.0), wordt u nu bijgewerkt met Update 0.6. Ziet u een ander bericht weergegeven dat aangeeft dat er updates beschikbaar zijn. Herhaal de stappen 4 tot 8 Update 1 te installeren.
 
     ![apparaat bijwerken](../includes/media/storsimple-virtual-array-install-update-via-portal-1/azupdate17.png)
 

@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2017
+ms.date: 10/26/2018
 ms.author: markvi
 ms.reviewer: nigu
 ms.custom: seohack1
-ms.openlocfilehash: 3bdf44e0a1cf0ccda6d015fa3683964f3530d4af
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: eefbfcf741db3d0949910bc5da8494e087c39ec7
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40003480"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50139143"
 ---
 # <a name="get-started-with-azure-active-directory-identity-protection-and-microsoft-graph"></a>Aan de slag met Azure Active Directory Identity Protection en Microsoft Graph
 Microsoft Graph is de Microsoft unified-API-eindpunt en het hart van [Azure Active Directory Identity Protection](../active-directory-identityprotection.md) API's. De eerste API **identityRiskEvents**, kunt u Microsoft Graph op te vragen voor een lijst met [risicogebeurtenissen](../reports-monitoring/concept-risk-events.md) en informatie die is gekoppeld. In dit artikel helpt u op weg met het uitvoeren van query's deze API. Zie voor een diepgaande inleiding, de volledige documentatie en de toegang tot de Graph Explorer, de [Microsoft Graph-site](https://graph.microsoft.io/).
@@ -37,8 +37,11 @@ Er zijn vier stappen voor het verkrijgen van toegang tot Identity Protection geg
 
 Voordat u begint, moet u op:
 
-* Beheerdersbevoegdheden voor het maken van de toepassing in Azure AD
-* De naam van van uw tenant-domein (bijvoorbeeld contoso.onmicrosoft.com)
+- Een Azure AD P2-tenant
+
+- Beheerdersbevoegdheden voor het maken van de toepassing in Azure AD
+
+- De naam van van uw tenant-domein (bijvoorbeeld contoso.onmicrosoft.com)
 
 
 ## <a name="retrieve-your-domain-name"></a>Uw domeinnaam ophalen 
@@ -49,12 +52,14 @@ Voordat u begint, moet u op:
    
     ![Het maken van een toepassing](./media/graph-get-started/41.png)
 
+3. Klik op **aangepaste-domeinnamen**.
 
-3. In de **beheren** sectie, klikt u op **eigenschappen**.
+    ![Aangepaste domeinnamen](./media/graph-get-started/71.png)
 
-    ![Het maken van een toepassing](./media/graph-get-started/42.png)
+4. Kopieer de naam van het domein dat is gemarkeerd als primaire in de lijst van domeinnamen.
 
-4. Kopieer de domeinnaam van uw.
+    ![Aangepaste domeinnamen](./media/graph-get-started/72.png)
+
 
 
 ## <a name="create-a-new-app-registration"></a>Maak een nieuwe app-registratie
@@ -74,7 +79,7 @@ Voordat u begint, moet u op:
 
     a. In de **naam** tekstvak, typ een naam voor uw toepassing (bijvoorbeeld: AADIP risico Event-API-toepassing).
    
-    b. Als **Type**, selecteer **webtoepassing en / of Web-API**.
+    b. Als **toepassingstype**, selecteer **webtoepassing en / of Web-API**.
    
     c. In de **aanmeldings-URL** tekstvak, type `http://localhost`.
 

@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/25/2018
+ms.date: 10/26/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 7aa7cd2e5b1cf1346a5a7b1f82ec9c7933dd1112
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: bda1a9df8a58833a544dc065dee0110bccf3ec59
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45542477"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50138857"
 ---
 # <a name="how-to-manage-devices-using-the-azure-portal"></a>Over het beheren van apparaten met behulp van de Azure-portal
 
@@ -118,7 +118,14 @@ Voor sommige iOS-apparaten kunnen de namen van apostroffen met verschillende tek
 
 ## <a name="device-management-tasks"></a>Beheertaken voor apparaat
 
-Als beheerder, kunt u de geregistreerde of gekoppelde apparaten beheren. In deze sectie vindt u informatie over algemene beheertaken voor apparaat.
+Als een globale beheerder, kunt u de geregistreerde of gekoppelde apparaten beheren. Er kunnen beheerders van de Intune-Service:
+ 
+- Update-apparaten - voorbeelden zijn dagelijkse bewerkingen zoals het inschakelen/uitschakelen van apparaten
+
+- Verwijderen van apparaten: wanneer een apparaat buiten gebruik is gesteld en moet worden verwijderd in Azure AD
+
+In deze sectie vindt u informatie over algemene beheertaken voor apparaat.
+
 
 
 ### <a name="manage-an-intune-device"></a>Een Intune-apparaat beheren

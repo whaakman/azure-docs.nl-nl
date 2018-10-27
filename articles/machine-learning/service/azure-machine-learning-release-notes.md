@@ -8,13 +8,13 @@ ms.topic: reference
 author: hning86
 ms.author: haining
 ms.reviewer: j-martens
-ms.date: 03/28/2018
-ms.openlocfilehash: 58d0d028c920faa7e86884c85f8fb677ce67c390
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.date: 10/24/2018
+ms.openlocfilehash: 0927ae14d232ec2ce3a46bb66ed535deabbe0138
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389918"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50158683"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Releaseopmerkingen Azure Machine Learning-service
 
@@ -24,19 +24,19 @@ In dit artikel meer informatie over de versies van de Azure Machine Learning-ser
 
 ### <a name="azure-machine-learning-sdk-for-python-v0168"></a>Azure Machine Learning-SDK voor Python v0.1.68
 
-#### <a name="new-features"></a>Nieuwe functies
- * Meerdere tenant ondersteuning bij het maken van nieuwe werkruimte.
++ **Nieuwe functies**
+  * Meerdere tenant ondersteuning bij het maken van nieuwe werkruimte.
 
-#### <a name="breaking-changes"></a>Wijzigingen die fouten veroorzaken
- * **In de volgende release toekomstige** *Workspace.compute_targets, gegevensopslag, experimenten, afbeeldingen, modellen* en *webservices* worden de eigenschappen in plaats van methoden. Vervang bijvoorbeeld *Workspace.compute_targets()* met *Workspace.compute_targets*.
++ **Belangrijke wijzigingen**
+  * **In de volgende release toekomstige** *Workspace.compute_targets, gegevensopslag, experimenten, afbeeldingen, modellen* en *webservices* worden de eigenschappen in plaats van methoden. Vervang bijvoorbeeld *Workspace.compute_targets()* met *Workspace.compute_targets*.
 
-#### <a name="bugs-fixed"></a>Fouten die zijn verholpen
- * De versie van de bibliotheek pynacl moet niet meer worden vastgemaakt bij het implementeren van web service.
++ **Fouten die zijn verholpen**
+  * De versie van de bibliotheek pynacl moet niet meer worden vastgemaakt bij het implementeren van web service.
 
 ### <a name="azure-machine-learning-data-prep-sdk-v030"></a>Azure Machine Learning-Dataprep SDK v0.3.0
 
-#### <a name="new-features"></a>Nieuwe functies:
-* Methode transform_partition_with_file(script_path), waarmee gebruikers om door te geven in het pad van een Python-bestand uit te voeren toegevoegd
++ **Nieuwe functies**
+  * Methode transform_partition_with_file(script_path), waarmee gebruikers om door te geven in het pad van een Python-bestand uit te voeren toegevoegd
 
 ## <a name="2018-10-01"></a>10-01-2018
 
@@ -45,56 +45,55 @@ In dit artikel meer informatie over de versies van de Azure Machine Learning-ser
 
 Zie [de lijst met bekende problemen](resource-known-issues.md) voor meer informatie over bekende problemen en oplossingen.
 
-#### <a name="breaking-changes"></a>Wijzigingen die fouten veroorzaken
- * Workspace.experiments, Workspace.models, Workspace.compute_targets, Workspace.images, Workspace.web_services geretourneerde woordenlijst, lijst met eerder zijn geretourneerd. Zie [azureml.core.Workspace](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py) API-documentatie.
++ **Belangrijke wijzigingen**
+  * Workspace.experiments, Workspace.models, Workspace.compute_targets, Workspace.images, Workspace.web_services geretourneerde woordenlijst, lijst met eerder zijn geretourneerd. Zie [azureml.core.Workspace](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py) API-documentatie.
 
- * Geautomatiseerde Machine Learning verwijderd genormaliseerde gemiddelde vierkant fout van de primaire metrische gegevens.
+  * Geautomatiseerde Machine Learning verwijderd genormaliseerde gemiddelde vierkant fout van de primaire metrische gegevens.
 
++ **HyperDrive**
+  * Verschillende HyperDrive oplossingen voor Bayesiaanse, prestatieverbeteringen voor het aanroepen van de metrische gegevens ophalen 
+  * Tensorflow 1.10 upgrade van 1.9 
+  * Optimalisatie van de docker-installatiekopie voor koude start. 
+  * Taak's nu de juiste status rapporteren, zelfs als ze sluiten met fout code dan 0. 
+  * RunConfig validatie van het kenmerk in de SDK. 
+  * HyperDrive uitvoeren object ondersteunt annuleren die vergelijkbaar is met een reguliere uitvoeren: Er is geen hoeven te worden doorgegeven parameters. 
+  * Widget verbeteringen voor het onderhouden van de status van de waarden van de vervolgkeuzelijst voor gedistribueerde wordt uitgevoerd en HyperDrive wordt uitgevoerd. 
+  * TensorBoard en andere bestanden bieden ondersteuning voor logboek vast voor de Parameter-server. 
+  * Intel(R) MPI ondersteuning op servicezijde. 
+  * Bugfix naar de parameter afstemming voor gedistribueerde oplossing uitvoeren tijdens de validatie in BatchAI. 
+  * Context Manager identificeert nu het primaire exemplaar. 
 
-#### <a name="hyperdrive"></a>HyperDrive
- * Verschillende HyperDrive oplossingen voor Bayesiaanse, prestatieverbeteringen voor het aanroepen van de metrische gegevens ophalen 
- * Tensorflow 1.10 upgrade van 1.9 
- * Optimalisatie van de docker-installatiekopie voor koude start. 
- * Taak's nu de juiste status rapporteren, zelfs als ze sluiten met fout code dan 0. 
- * RunConfig validatie van het kenmerk in de SDK. 
- * HyperDrive uitvoeren object ondersteunt annuleren die vergelijkbaar is met een reguliere uitvoeren: Er is geen hoeven te worden doorgegeven parameters. 
- * Widget verbeteringen voor het onderhouden van de status van de waarden van de vervolgkeuzelijst voor gedistribueerde wordt uitgevoerd en HyperDrive wordt uitgevoerd. 
- * TensorBoard en andere bestanden bieden ondersteuning voor logboek vast voor de Parameter-server. 
- * Intel(R) MPI ondersteuning op servicezijde. 
- * Bugfix naar de parameter afstemming voor gedistribueerde oplossing uitvoeren tijdens de validatie in BatchAI. 
- * Context Manager identificeert nu het primaire exemplaar. 
++ **Azure portal-ervaring**
+  * log_table() en log_row() worden ondersteund in de details van de uitvoering. 
+  * Automatisch maken van grafieken voor tabellen en rijen met 1,2 of 3 numerieke kolommen en een optionele categorische kolom.
 
-#### <a name="azure-portal-experience"></a>Azure portal-ervaring
- * log_table() en log_row() worden ondersteund in de details van de uitvoering. 
- * Automatisch maken van grafieken voor tabellen en rijen met 1,2 of 3 numerieke kolommen en een optionele categorische kolom.
++ **Geautomatiseerde Machine Learning**
+  * Verbeterde foutafhandeling en documentatie 
+  * Voor het uitvoeren van de eigenschap ophalen vast prestatieproblemen. 
+  * Vaste blijven uitvoeren probleem. 
+  * Ensembling iteratie problemen opgelost.
+  * Vaste training verkeerd-om fouten op MAC OS.
+  * Downsampling macro gemiddelde pull-aanvraag/ROC-curve in aangepaste validatiescenario.
+  * Logica van de extra index verwijderd.
+  * Filter verwijderd uit get_output API.
 
-#### <a name="automated-machine-learning"></a>Geautomatiseerde Machine Learning
- * Verbeterde foutafhandeling en documentatie 
- * Voor het uitvoeren van de eigenschap ophalen vast prestatieproblemen. 
- * Vaste blijven uitvoeren probleem. 
- * Ensembling iteratie problemen opgelost.
- * Vaste training verkeerd-om fouten op MAC OS.
- * Downsampling macro gemiddelde pull-aanvraag/ROC-curve in aangepaste validatiescenario.
- * Logica van de extra index verwijderd.
- * Filter verwijderd uit get_output API.
++ **Pijplijnen**
+  * Een methode Pipeline.publish() voor het publiceren van een pijplijn rechtstreeks, zonder een uitvoering eerst toegevoegd.   
+  * Toegevoegd aan een methode PipelineRun.get_pipeline_runs() voor het ophalen van de pijplijn wordt uitgevoerd die zijn gegenereerd op basis van een gepubliceerde pijplijn.
 
-#### <a name="pipelines"></a>Pijplijnen
- * Een methode Pipeline.publish() voor het publiceren van een pijplijn rechtstreeks, zonder een uitvoering eerst toegevoegd.   
- * Toegevoegd aan een methode PipelineRun.get_pipeline_runs() voor het ophalen van de pijplijn wordt uitgevoerd die zijn gegenereerd op basis van een gepubliceerde pijplijn.
-
-#### <a name="project-brainwave"></a>Project Brainwave
- * Bijgewerkte ondersteuning voor nieuwe AI-modellen op FPGA's beschikbaar.
++ **Project Brainwave**
+  * Bijgewerkte ondersteuning voor nieuwe AI-modellen op FPGA's beschikbaar.
 
 ### <a name="azure-machine-learning-data-prep-sdk-v020"></a>Azure Machine Learning-Dataprep SDK v0.2.0
 [Versie 0.2.0](https://pypi.org/project/azureml-dataprep/0.2.0/) bevat de volgende functies en bugfixes:
 
-**Nieuwe functies:** 
- * Ondersteuning voor het coderen van één hot
- * Ondersteuning voor kwantiel transformeren
++ **Nieuwe functies**
+  * Ondersteuning voor het coderen van één hot
+  * Ondersteuning voor kwantiel transformeren
    
-**Bug opgelost:**
- * Werkt met elke versie Tornado hoeft te downgraden van uw versie Tornado
- * Waarde telt voor alle waarden, niet alleen de top drie
++ **Bug opgelost:**
+  * Werkt met elke versie Tornado hoeft te downgraden van uw versie Tornado
+  * Waarde telt voor alle waarden, niet alleen de top drie
 
 ## <a name="2018-09-public-preview-refresh"></a>2018-09 (preview-versie vernieuwen)
 

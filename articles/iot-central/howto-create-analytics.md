@@ -8,20 +8,20 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: bf86e769aff4a9b03d5df1b1aef702814c605fa4
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: c170f573a473d3fdfca5c916b4be594dc93d6b27
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46368083"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50156320"
 ---
 # <a name="how-to-use-analytics-to-analyze-your-device-data"></a>Analytics gebruiken om de apparaatgegevens van uw te analyseren
 
 
-*In dit artikel is van toepassing op operators, opbouwfuncties en beheerders.*
+*Dit artikel is van toepassing op operators, opbouwfuncties en beheerders.*
 
 
-Microsoft Azure IoT Central biedt uitgebreide analysemogelijkheden, zinvol zijn van grote hoeveelheden gegevens van uw apparaten. Als u wilt beginnen, gaat u naar **Analytics** in het navigatiemenu links. 
+Azure IoT Central biedt uitgebreide analysemogelijkheden, zinvol zijn van grote hoeveelheden gegevens van uw apparaten. Als u wilt beginnen, gaat u naar **Analytics** in het navigatiemenu links. 
 
   ![Navigatie naar analytics IoT Central](media\howto-create-analytics\analytics-navigation.png)
 
@@ -40,7 +40,7 @@ to-do: do we need to explain how fiters work?
 * **Filters:** desgewenst kunt u filters toevoegen aan uw zoekopdracht tot Inzoomen op uw gegevens. U kunt maximaal 10 filters tegelijk toevoegen. Bijvoorbeeld, binnen alle koelkasten in Oakland vinden die temperatuur hebben gehad gaat dan 60 graden. 
 * **Periode:** standaard zult we gegevens ophalen uit de afgelopen 10 minuten. U kunt deze waarde wijzigen in een van de vooraf gedefinieerde tijdsbereik of een aangepaste periode. 
 
- ![Analytische query](media\howto-create-analytics\analytics-query.png)
+ ![Analytics-query](media\howto-create-analytics\analytics-query.png)
 
 ## <a name="visualizing-your-data"></a>Uw gegevens te visualiseren
 
@@ -60,12 +60,12 @@ to-do: confirm if 10 is the max number of measurements
 
 Er zijn verschillende manieren waarin u de resultaten van uw query om te voldoen aan de behoeften van uw visualisatie meer kunt wijzigen. U kunt schakelen tussen de grafiekweergave van een en een rasterweergave, Inzoomen en uitzoomen, vernieuw uw gegevensset en alter hoe regels worden weergegeven.
 
-* **Raster weergeven:** uw resultaten zijn beschikbaar in tabelindeling aan zodat u kunt bekijken van de specifieke waarde voor elk gegevenspunt. In deze weergave ook voldoet aan de toegankelijkheidsnormen. 
+* **Raster weergeven:** uw resultaten zijn beschikbaar in de vorm van een tabel, zodat u kunt bekijken van de specifieke waarde voor elk gegevenspunt. In deze weergave ook voldoet aan de toegankelijkheidsnormen. 
 * **Grafiek weergeven:** uw resultaten worden weergegeven in de indeling van een regel eenvoudig omhoog/omlaag punten trends en afwijkingen. 
 
  ![De rasterweergave voor uw analyses weergeven](media\howto-create-analytics\analytics-showgrid.png)
 
-Zoomen kunt u inzoomen op uw gegevens. Als u een bepaalde periode vindt wilt u zich richten op in de resultatenset met behulp van de cursor selectiegrepen het gebied dat u wilt inzoomen op en gebruikt u de beschikbare besturingselementen een van de volgende acties uit te voeren:
+Zoomen kunt u inzoomen op uw gegevens. Als u een bepaalde periode die u zich richten wilt op in de resultatenset kunt vinden, gebruikt u de cursor voor het gebied dat u wilt inzoomen op en gebruikt u de beschikbare besturingselementen een van de volgende acties uit te voeren:
 * **Inzoomen:** wanneer u een bepaalde periode hebt geselecteerd, zoomen in wordt ingeschakeld en kunt u inzoomen op uw gegevens.
 * **Uitzoomen:** dit besturingselement kunt u één niveau van de laatste zoom uitzoomen. Bijvoorbeeld, als u hebt Inzoomen op uw gegevens drie keer, uitzoomen gaat u een back-één stap tegelijk.
 * **Zoomen opnieuw instellen:** wanneer u verschillende niveaus van zoomen hebt uitgevoerd, kunt u de zoomknop opnieuw instellen om terug te keren naar de oorspronkelijke resultatenset. 

@@ -6,14 +6,14 @@ manager: timlt
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: conceptual
-ms.date: 12/12/2017
+ms.date: 10/26/2018
 ms.author: dobett
-ms.openlocfilehash: ae5218bae12b9489d67b0264f0e5fdb6d833cb9e
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 23b36fb647c2949dca1c5efe7f8194ec5a397965
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39187764"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50140397"
 ---
 # <a name="connected-factory-solution-accelerator-walkthrough"></a>Kennismaken met de oplossingsversneller Verbonden factory
 
@@ -53,7 +53,7 @@ Als onderdeel van de oplossing is ook een OPC UA-client geïntegreerd in een web
 
 De gesimuleerde stations en de gesimuleerde productie-uitvoeringssystemen (MES) vormen samen een fabrieksproductielijn. De gesimuleerde apparaten en de OPC Publisher Module zijn gebaseerd op de [OPC UA .NET Standard][lnk-OPC-UA-NET-Standard] die is gepubliceerd door de OPC Foundation.
 
-OPC Proxy en OPC Publisher worden als modules geïmplementeerd op basis van [Azure IoT Edge][lnk-Azure-IoT-Gateway]. Elke gesimuleerde productielijn heeft een eigen gekoppelde gateway.
+OPC Proxy en OPC Publisher worden als modules geïmplementeerd op basis van [Azure IoT Edge][lnk-Azure-IoT-Gateway]. Elke gesimuleerde productielijn heeft een gekoppelde gateway.
 
 Alle simulatie-onderdelen worden uitgevoerd in Docker-containers die worden gehost in een Azure Linux VM. De simulatie wordt standaard geconfigureerd voor het uitvoeren van acht gesimuleerde productielijnen.
 
@@ -61,15 +61,19 @@ Alle simulatie-onderdelen worden uitgevoerd in Docker-containers die worden geho
 
 In een productielijn worden onderdelen geproduceerd. Deze bestaat uit verschillende stations: een montagestation, een teststation en een verpakkingsstation.
 
-De simulatie wordt uitgevoerd en werkt de gegevens bij die worden vrijgegeven via de OPC UA-knooppunten. Alle stations uit de gesimuleerde productielijn worden via OPC UA beheerd door de MES.
+De simulatie wordt uitgevoerd en werkt de gegevens die beschikbaar wordt gesteld via de OPC UA-knooppunten. Alle stations uit de gesimuleerde productielijn worden via OPC UA beheerd door de MES.
 
 ## <a name="simulated-manufacturing-execution-system"></a>Gesimuleerd systeem voor de productie-uitvoering
 
-De MES bewaakt alle stations in de productielijn via OPC UA om wijzigingen in de stationsstatus te detecteren. Er worden OPC UA-methoden aangeroepen om de stations te bedienen en producten worden van station naar station verplaatst tot ze voltooid zijn.
+De MES bewaakt alle stations in de productielijn via OPC UA om wijzigingen in de stationsstatus te detecteren. Deze roept OPC UA-methoden om de stations te bedienen en producten van station naar de volgende totdat deze bewerking voltooid is.
 
 ## <a name="gateway-opc-publisher-module"></a>Gateway OPC Publisher Module
 
-OPC Publisher Module wordt verbonden met de OPC UA-servers van de stations en wordt geabonneerd op de OPC-knooppunten die moeten worden gepubliceerd. De module converteert de knooppuntgegevens naar de JSON-indeling, versleutelt deze en verstuurt ze naar IoT Hub als OPC UA Pub/Sub-berichten.
+OPC Publisher Module wordt verbonden met de OPC UA-servers van de stations en wordt geabonneerd op de OPC-knooppunten die moeten worden gepubliceerd. De module:
+
+1. Converteert de knooppuntgegevens naar JSON-indeling.
+1. Hiermee versleutelt u de JSON.
+1. De JSON verzendt naar IoT Hub als OPC UA Pub/Sub-berichten.
 
 OPC Publisher Module vereist slechts één uitgaande HTTPS-poort (443) en kan gebruikmaken van de bestaande bedrijfsinfrastructuur.
 
@@ -77,7 +81,7 @@ OPC Publisher Module vereist slechts één uitgaande HTTPS-poort (443) en kan ge
 
 Gateway OPC UA Proxy stuurt binaire OPC UA-opdrachten en bedieningsberichten door en vereist slechts één uitgaande HTTPS-poort (443). De module kan gebruikmaken van de bestaande bedrijfsinfrastructuur, zoals Web Proxies.
 
-Er wordt gebruikgemaakt van IoT Hub-apparaatmethoden om TCP/IP-gegevens in pakketten in de toepassingslaag over te dragen. Dit zorgt voor eindpuntvertrouwen, gegevensversleuteling en integriteit dankzij SSL/TLS.
+Het maakt gebruik van IoT Hub-apparaatmethoden om over te dragen apparaatmethoden TCP/IP-gegevens op het niveau van de toepassing om ervoor te zorgen voor eindpuntvertrouwen, gegevensversleuteling en integriteit dankzij SSL/TLS.
 
 Het binaire OPC UA-protocol dat wordt doorgegeven via de proxy zelf maakt gebruik van UA-verificatie en -versleuteling.
 
@@ -93,13 +97,13 @@ IoT Hub biedt een gebeurtenisbron aan Azure TSI. TSI slaat gegevens gedurende 30
 * Tijdstempel van de bron
 * OPC UA DisplayName
 
-Momenteel kunnen klanten met TSI niet aanpassen hoe lang ze de gegevens willen bewaren.
+TSI kan niet op dit moment klanten om aan te passen hoe lang ze willen blijven de gegevens voor.
 
-TSI voert query's uit voor de knooppuntgegevens op basis van een **SearchSpan** (**Time.From**, **Time.To**) en sorteert ze op basis van **OPC UA ApplicationUri**, **OPC UA NodeId** of **OPC UA DisplayName**.
+TSI-query's knooppuntgegevens op basis van een op tijd gebaseerde **SearchSpan** en **OPC UA ApplicationUri** of **OPC UA NodeId** of **OPC UA DisplayName**.
 
-Als u gegevens wilt ophalen voor de OEE- en KPI-meters en de tijdreeksdiagrammen, worden gegevens gesorteerd op basis van het aantal gebeurtenissen, Sum, Avg, Min en Max.
+De oplossing combineert om op te halen van de gegevens voor de OEE en KPI-meters en de tijdreeksdiagrammen, gegevens door het aantal gebeurtenissen, **som**, **Avg**, **Min**, en  **Maximum aantal**.
 
-De tijdreeksen worden opgebouwd op basis van een ander proces. De OEE en KPI's worden berekend op basis van stationbasisgegevens en opgedeeld op basis van de topologie (productielijnen, fabrieken, bedrijf) in de toepassing.
+De tijdreeksen worden opgebouwd op basis van een ander proces. De oplossing berekent de OEE en KPI-waarden op basis van en de waarden voor de productielijnen, fabrieken en enterprise verspreidt.
 
 Daarnaast worden de tijdreeksen voor OEE- en KPI-topologie berekend in de app zodra er een weergegeven periode gereed is. De dagweergave wordt bijvoorbeeld elk volledig uur bijgewerkt.
 
@@ -116,7 +120,7 @@ De IoT Hub in de oplossing doet ook het volgende:
 Voor de oplossing wordt gebruikgemaakt van Azure Blob Storage voor schijfopslag voor de VM en om implementatiegegevens op te slaan.
 
 ## <a name="web-app"></a>Web-app
-De web-app die wordt geïmplementeerd als onderdeel van de oplossingsversneller bestaat uit een ingebouwde OPC UA-client, biedt verwerking van waarschuwingen en biedt visualisatie van de telemetrie.
+De web-app geïmplementeerd als onderdeel van de oplossingsversnellers bevat een geïntegreerde OPC UA-client, verwerking van waarschuwingen en telemetrie visualisatie.
 
 ## <a name="telemetry-data-flow"></a>Telemetriegegevensstroom
 
@@ -161,7 +165,7 @@ De web-app die wordt geïmplementeerd als onderdeel van de oplossingsversneller 
     - Deze stap is intern voor het datacenter.
 
 11. Webbrowser maakt verbinding met de web-app voor de verbonden factory.
-    - Geeft het dashboard van de verbonden factory weer.
+    - Geeft het verbonden Factory-dashboard.
     - Maakt verbinding via HTTPS.
     - Voor toegang tot de app van de verbonden factory is verificatie van de gebruiker via Azure Active Directory vereist.
     - WebApi-aanroepen naar de app van de verbonden factory worden beveiligd door anti-vervalsingstokens.
@@ -182,9 +186,9 @@ De web-app die wordt geïmplementeerd als onderdeel van de oplossingsversneller 
 
 2. OPC-proxy (servercomponent) registreert zichzelf bij IoT Hub.
     - Leest alle bekende apparaten vanaf IoT Hub.
-    - Maakt gebruik van MQTT via TLS via socket of beveiligde WebSocket.
+    - Maakt gebruik van MQTT via TLS via Socket of beveiligde WebSocket.
 
-3. Webbrowser maakt verbinding met de web-app van de verbonden factory en geeft het dashboard van de factory weer.
+3. Webbrowser maakt verbinding met de verbonden Factory-WebApp en geeft het verbonden Factory-dashboard weer.
     - Maakt gebruik van HTTPS.
     - Een gebruiker selecteert een OPC UA-server om verbinding mee te maken.
 
@@ -212,7 +216,7 @@ De web-app die wordt geïmplementeerd als onderdeel van de oplossingsversneller 
     - Deze gegevens worden afgeleverd aan de OPC UA-stack in de app van de verbonden factory.
 
 11. De web-app van de verbonden factory retourneert OPC-browser-UX verrijkt met de OPC UA-specifieke gegevens (ontvangen van de OPC UA-server) naar de webbrowser om ze weer te geven.
-    - Tijdens het browsen door de OPC-adresruimte en het toepassen van functies op knooppunten in de OPC-adresruimte, maakt het OPC-browser-UX-clientonderdeel gebruik van AJAX-aanroepen via HTTPS (beveiligd met anti-vervalsingstokens) om gegevens op te halen uit de web-app van de verbonden factory.
+    - Wanneer een gebruiker wordt naar via de OPC-adresruimte en functies van toepassing op knooppunten in de OPC-adresruimte is, de OPC-Browser-UX-client maakt gebruik van AJAX-aanroepen via HTTPS beveiligd met anti-Vervalsingstokens gegevens ophalen uit de verbonden Factory-WebApp.
     - Zo nodig maakt de client gebruik van de communicatie (zoals uitgelegd in stap 4 t/m 10) om gegevens uit te wisselen met de OPC UA-server.
 
 > [!NOTE]

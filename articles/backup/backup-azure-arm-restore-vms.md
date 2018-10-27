@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 09/04/2017
 ms.author: geg
-ms.openlocfilehash: 450314dddd49825bae689701b694f9a26758835e
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 5812bafbcfa104150325dcdde374f88200b071c0
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49377636"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50155198"
 ---
 # <a name="use-the-azure-portal-to-restore-virtual-machines"></a>De Azure portal gebruiken voor virtuele machines herstellen
 Bescherm uw gegevens door het maken van momentopnamen van uw gegevens met gedefinieerde intervallen. Deze momentopnamen zijn voorzien van herstelpunten en ze zijn opgeslagen in Recovery Services-kluizen. Als het nodig zijn om te herstellen of opnieuw opbouwen van een virtuele machine (VM), kunt u de virtuele machine herstellen uit een van de opgeslagen herstelpunten. Wanneer u een herstelpunt herstelt, kunt u het volgende doen:
@@ -151,7 +151,7 @@ Op de **configuratie terugzetten** Selecteer **OK** voor het voltooien van de co
 In **plaats herstellen** wordt loopt via het tabblad **vervangen bestaande**.
 
 ## <a name="replace-existing-disks-from-a-restore-point"></a>Vervang de bestaande schijven vanaf een herstelpunt
-**Vervang bestaande** optie helpt bij het vervangen van bestaande schijven in de huidige virtuele machine met het geselecteerde herstelpunt. Deze bewerking kan alleen worden uitgevoerd als de huidige VM zich bevindt. Als deze zijn verwijderd vanwege een redenen, kan deze bewerking kan niet worden uitgevoerd; u kunt ook, raden we u om te doen **nieuw** VM of schijven om door te gaan met het terugzetten. Tijdens bewerkingen voor schijven, bestaande als voorzorgsmaatregel vervangen we back-up van de gegevens voordat bewerkingen voor het initiëren van de vervangen-schijven. Als het herstelpunt schijven die meer/kleiner dan de huidige virtuele machine, wordt het aantal schijven in het herstelpunt alleen in de virtuele machine weergegeven wordt heeft. Bestaande optie vervangen wordt momenteel ondersteund voor alleen Managed Disks en niet-versleutelde VM's.  
+**Vervang bestaande** optie helpt bij het vervangen van bestaande schijven in de huidige virtuele machine met het geselecteerde herstelpunt. Deze bewerking kan alleen worden uitgevoerd als de huidige VM zich bevindt. Als deze zijn verwijderd vanwege een redenen, kan deze bewerking kan niet worden uitgevoerd; u kunt ook, raden we u om te doen **nieuw** VM of schijven om door te gaan met het terugzetten. Tijdens bewerkingen voor schijven, bestaande als voorzorgsmaatregel vervangen we back-up van de gegevens voordat bewerkingen voor het initiëren van de vervangen-schijven. Als het herstelpunt schijven die meer/kleiner dan de huidige virtuele machine, wordt het aantal schijven in het herstelpunt alleen in de virtuele machine weergegeven wordt heeft. **Vervang bestaande** optie is momenteel niet ondersteund voor niet-beheerde schijven en versleutelde virtuele machines. Dit wordt ook niet ondersteund voor [gegeneraliseerde VM's](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource) en voor virtuele machines die zijn gemaakt met behulp van [aangepaste installatiekopieën](https://azure.microsoft.com/resources/videos/create-a-custom-virtual-machine-image-in-azure-resource-manager-with-powershell/).  
 
  Op de **configuratie herstellen** blade, de enige invoer die moet worden geselecteerd is **Faseringslocatie**.
 

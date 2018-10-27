@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 10/25/2018
 ms.author: laevenso
-ms.openlocfilehash: 69c682fc51f826a7e7ffd0eb8bcb1a7921aa9d13
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: db9d42cca4bc327d216229f45f5fa1742f70fb9a
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50095385"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50138806"
 ---
 # <a name="use-gpus-for-compute-intensive-workloads-on-azure-kubernetes-service-aks"></a>GPU's gebruiken voor rekenintensieve workloads in Azure Kubernetes Service (AKS)
 
@@ -57,7 +57,7 @@ az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 
 ## <a name="confirm-that-gpus-are-schedulable"></a>Controleer of GPU's zijn Planbare
 
-Bevestig dat GPU's in Kubernetes Planbare zijn met uw AKS-cluster gemaakt. Eerst een overzicht van de knooppunten in uw cluster met behulp van de opdracht [kubectl get knooppunten]-[kubectl get]:
+Bevestig dat GPU's in Kubernetes Planbare zijn met uw AKS-cluster gemaakt. Lijst eerst de knooppunten in uw cluster met de [kubectl ophalen knooppunten] [ kubectl-get] opdracht:
 
 ```
 $ kubectl get nodes

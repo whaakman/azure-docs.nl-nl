@@ -1,12 +1,25 @@
+---
+author: alkohli
+ms.service: storsimple
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: alkohli
+ms.openlocfilehash: 0e8db8779958afe1fd3cf4bf12f2a6fd4a97c61c
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50165837"
+---
 <!--author=alkohli last changed: 9/16/15-->
 
 #### <a name="to-cable-for-power"></a>Op de kabel voor energiebeheer
-1. Zorg ervoor dat de macht op elk van de stroom verandert en koeling Modules (PCMs) zich in de positie OFF.
+1. Zorg ervoor dat de kracht switches op elk van de stroom en koeling Modules (PCMs) op de positie OFF zijn.
 2. Verbinding maken met de stroomkabels aan elk van de PCMs in de primaire behuizing.
-3. De stroomkabels koppelen aan de rack power distribution eenheden (PDU's), zoals wordt weergegeven in de volgende afbeelding. Zorg ervoor dat de twee PCMs gebruik stroomvoorziening scheiden.
+3. De stroomkabels koppelen aan de rack power distribution units (PDU's), zoals wordt weergegeven in de volgende afbeelding. Zorg ervoor dat de twee PCMs gebruik energiebronnen scheiden.
    
    > [!IMPORTANT]
-   > Om ervoor te zorgen hoge beschikbaarheid voor uw systeem, is het raadzaam dat u strikt voldoen aan de kracht bekabeling schema in het volgende diagram wordt weergegeven. 
+   > Voor hoge beschikbaarheid voor uw systeem, wordt u aangeraden dat u alleen voldoen aan de kracht bekabeling schema in het volgende diagram wordt weergegeven. 
    > 
    > 
    
@@ -21,5 +34,5 @@
    | 3 |Controller 0 |
    | 4 |PCM 1 |
    | 5 |PDU 's |
-4. Als u wilt inschakelen op het systeem, de energie-switches op beide PCMs naar de positie op te spiegelen.
+4. Als u wilt inschakelen op het systeem, de switches power op beide PCMs op de positie op te spiegelen.
 

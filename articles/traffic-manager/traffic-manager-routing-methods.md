@@ -11,25 +11,25 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: kumud
-ms.openlocfilehash: eb43b59a26bc9c1b514921a7b6dfa4b920a8fe5f
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 57ae9f3a747ef3fde1a21de8a56ec4059becf392
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955215"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50139330"
 ---
 # <a name="traffic-manager-routing-methods"></a>Methoden voor het doorsturen van Traffic Manager
 
 Met Azure Traffic Manager biedt ondersteuning voor zes routering van verkeer methoden om te bepalen hoe u netwerkverkeer omgeleid naar de verschillende service-eindpunten. Voor elk profiel past Traffic Manager de verkeersrouteringsmethode zijn gekoppeld aan elke DNS-query die wordt ontvangen. De verkeersrouteringsmethode bepaalt welk eindpunt wordt in het DNS-antwoord geretourneerd.
 
-Er zijn vier methoden voor het doorsturen van verkeer beschikbaar in Traffic Manager:
+De volgende methoden voor het doorsturen van verkeer zijn beschikbaar in Traffic Manager:
 
 * **[Prioriteit](#priority):** Selecteer **prioriteit** wanneer u wilt gebruiken van een primaire service-eindpunt voor al het verkeer en geef de back-ups in geval de primaire of de back-eindpunten zijn niet beschikbaar.
 * **[Gewogen](#weighted):** Selecteer **gewogen** wanneer u wilt dat verkeer distribueert naar een set met eindpunten, hetzij gelijkmatig of op basis van gewicht, dat u definieert.
 * **[Prestaties](#performance):** Selecteer **prestaties** wanneer u eindpunten in verschillende geografische locaties en eindgebruikers om de "dichtstbijzijnde" eindpunt in termen van de laagste netwerklatentie te gebruiken.
 * **[Geografische](#geographic):** Selecteer **geografische** zodat gebruikers worden omgeleid naar specifieke eindpunten (Azure, externe of geneste) op basis van welke geografische locatie hun DNS-query is afkomstig uit. Dit biedt uitgebreide mogelijkheden met Traffic Manager hebben klanten om in te schakelen van scenario's waarbij de geografische regio van de gebruiker weten en routering toe op basis van die belangrijk is. Voorbeelden zijn onder meer gegevens soevereiniteit mandaten, lokalisatie van content & gebruiker ervaring naleven en verkeer vanuit verschillende regio's te meten.
 * **[Meerdere waarden](#multivalue):** Selecteer **met meerdere waarden** voor Traffic Manager-profielen die alleen IPv4/IPv6-adressen als eindpunten kunnen hebben. Wanneer een query wordt ontvangen voor dit profiel, worden alle eindpunten in orde worden geretourneerd.
-* **[Subnet](#subnet):** Selecteer **Subnet** verkeersrouteringsmethode sets eindgebruikers IP-adresbereiken koppelen aan een specifieke eindpunt binnen een Traffic Manager-profiel. Wanneer een aanvraag wordt ontvangen, wordt het eindpunt heeft geretourneerd wordt het toegewezen voor de IP-bronadres van de aanvraag. 
+* **[Subnet](#subnet):** Selecteer **Subnet** verkeersrouteringsmethode sets eindgebruikers IP-adresbereiken koppelen aan een specifieke eindpunt binnen een Traffic Manager-profiel. Wanneer een aanvraag wordt ontvangen, wordt het eindpunt heeft geretourneerd wordt het toegewezen voor de IP-bronadres van de aanvraag. 
 
 
 Alle Traffic Manager-profielen bevatten bewaking van de gezondheid van het eindpunt en automatische eindpunt-failover. Zie voor meer informatie, [Traffic Manager-eindpunt bewaking](traffic-manager-monitoring.md). Een enkele Traffic Manager-profiel kan slechts één methode voor verkeersroutering kunt gebruiken. U kunt een andere methode voor verkeersroutering selecteren voor uw profiel op elk gewenst moment. Wijzigingen worden toegepast binnen een minuut en zonder uitvaltijd worden in rekening gebracht. Routeringsmethoden voor verkeer kunnen worden gecombineerd met behulp van geneste Traffic Manager-profielen. Nesten kunt geavanceerde en flexibele routering van verkeer configuraties die voldoen aan de behoeften van grotere, complexe toepassingen. Zie voor meer informatie, [geneste Traffic Manager-profielen](traffic-manager-nested-profiles.md).

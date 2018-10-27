@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2018
 ms.author: negat
-ms.openlocfilehash: 49414b06010cf83c10bbc9519f2bced2126661a4
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: d065f9765ca279f14b9de45e2412b75c94ef3dd8
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49322070"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50139007"
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>Wijzigen van een virtuele-machineschaalset
 Gedurende de levenscyclus van uw toepassingen moet u wijzigen of bijwerken van uw virtuele-machineschaalset. Deze updates kunnen bevatten informatie over het bijwerken van de configuratie van de schaalset of wijzigen van de configuratie van de toepassing. In dit artikel wordt beschreven hoe u een bestaande schaalset met de REST-API's, Azure PowerShell of Azure CLI te wijzigen.
@@ -162,7 +162,7 @@ $ az vmss show --resource-group myResourceGroup --name myScaleSet
 }
 ```
 
-Deze eigenschappen beschrijven de configuratie van de VM-exemplaar, niet de configuratie van de schaalset als geheel. Het model met een schaalset heeft bijvoorbeeld `overprovision` als een eigenschap, maar niet door het model voor een VM-instantie in een schaalset. Dit verschil is omdat overmatige inrichting een eigenschap voor de schaalset als een volledige, niet voor afzonderlijke VM-exemplaren in de schaalset is (Zie voor meer informatie over de piekvraag [ontwerpoverwegingen voor schaalsets](virtual-machine-scale-sets-design-overview.md#overprovisioning)).
+Deze eigenschappen beschrijven de configuratie van een VM-instantie in een schaalset, niet de configuratie van de schaalset als geheel. Het model met een schaalset heeft bijvoorbeeld `overprovision` als een eigenschap, maar niet door het model voor een VM-instantie in een schaalset. Dit verschil is omdat overmatige inrichting een eigenschap voor de schaalset als een volledige, niet voor afzonderlijke VM-exemplaren in de schaalset is (Zie voor meer informatie over de piekvraag [ontwerpoverwegingen voor schaalsets](virtual-machine-scale-sets-design-overview.md#overprovisioning)).
 
 
 ### <a name="the-scale-set-vm-instance-view"></a>De instantieweergave van de VM-schaalset
@@ -239,7 +239,7 @@ $ az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet -
 }
 ```
 
-Deze eigenschappen beschrijven de huidige runtimestatus van de VM-exemplaar, waaronder eventuele uitbreidingen die zijn toegepast op de schaalset.
+Deze eigenschappen beschrijven de huidige runtimestatus van een VM-instantie in een schaalset, waaronder eventuele uitbreidingen die zijn toegepast op de schaalset.
 
 
 ## <a name="how-to-update-global-scale-set-properties"></a>Het bijwerken van de wereldwijde schaal instellen eigenschappen

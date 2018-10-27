@@ -4,9 +4,6 @@ description: In dit artikel krijgt u inzicht in hoe Traffic Manager eindpuntbewa
 services: traffic-manager
 documentationcenter: ''
 author: KumudD
-manager: jeconnoc
-editor: ''
-ms.assetid: fff25ac3-d13a-4af9-8916-7c72e3d64bc7
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
@@ -14,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/22/2017
 ms.author: kumud
-ms.openlocfilehash: 64f3595206c580d0d177622d23aa49753100d3c0
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 15b609bbf4ab048722f2512371eeffece92b3245
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47221091"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50138137"
 ---
 # <a name="traffic-manager-endpoint-monitoring"></a>Eindpuntcontrole van Traffic Manager
 
@@ -140,7 +137,7 @@ Wanneer een eindpunt de status gedegradeerd heeft, is het niet meer in reactie o
 * **Prestaties**. Het eindpunt die het dichtst bij de eindgebruiker wordt geretourneerd. Als dit eindpunt niet beschikbaar is, wordt verkeer in Traffic Manager verplaatst naar de eindpunten in de volgende dichtstbijzijnde Azure-regio. U kunt alternatieve failover plannen voor verkeer routeren configureren met behulp van [geneste Traffic Manager-profielen](traffic-manager-nested-profiles.md#example-4-controlling-performance-traffic-routing-between-multiple-endpoints-in-the-same-region).
 * **Geografische**. Het eindpunt dat is toegewezen aan het leveren van de geografische locatie op basis van de queryaanvraag van IP wordt geretourneerd. Als dit eindpunt niet beschikbaar is, een ander eindpunt kan niet worden geselecteerd voor failover, omdat een geografische locatie kan worden toegewezen aan één eindpunt in een profiel alleen (meer informatie vindt u in de [Veelgestelde vragen over](traffic-manager-FAQs.md#traffic-manager-geographic-traffic-routing-method)). Als een best practice bij het gebruik van de geografische routering, raden we onze klanten geneste Traffic Manager-profielen met meer dan één eindpunt gebruiken als de eindpunten van het profiel.
 * **Meerdere waarden** meerdere eindpunten die zijn toegewezen aan IPv4/IPv6-adressen worden geretourneerd. Wanneer een query wordt ontvangen voor dit profiel, gezonde eindpunten worden geretourneerd op basis van de **Maximum record aantal werkers** waarde die u hebt opgegeven. Het aantal antwoorden is twee eindpunten.
-* **Subnet** het eindpunt dat is toegewezen aan een reeks IP-adresbereiken wordt geretourneerd. Wanneer een aanvraag wordt ontvangen van IP-adres, het eindpunt heeft geretourneerd die voor dat IP-adres is toegewezen. 
+* **Subnet** het eindpunt dat is toegewezen aan een reeks IP-adresbereiken wordt geretourneerd. Wanneer een aanvraag wordt ontvangen van IP-adres, het eindpunt heeft geretourneerd die voor dat IP-adres is toegewezen. 
 
 Zie voor meer informatie, [methoden voor Traffic Manager traffic routing](traffic-manager-routing-methods.md).
 

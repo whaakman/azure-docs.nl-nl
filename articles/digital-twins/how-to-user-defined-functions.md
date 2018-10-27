@@ -6,14 +6,14 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/08/2018
+ms.date: 10/25/2018
 ms.author: alinast
-ms.openlocfilehash: 7fbaff5ed1b60a4434ba2eb0c78c6aa1f3fd6645
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 49566d21fa6897f5c1371bbea2bb602a393de66d
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49324145"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50140786"
 ---
 # <a name="how-to-use-user-defined-functions-in-azure-digital-twins"></a>Over het gebruik van de gebruiker gedefinieerde functies in Azure digitale dubbels
 
@@ -27,8 +27,8 @@ https://yourInstanceName.yourLocation.azuresmartspaces.net/management
 
 | Naam van aangepast kenmerk | Vervangen |
 | --- | --- |
-| `yourInstanceName` | De naam van uw Azure digitale Twins-exemplaar |
-| `yourLocation` | Welke regio u uw exemplaar wordt gehost op server |
+| *NaamExemplaar* | De naam van uw Azure digitale Twins-exemplaar |
+| *yourLocation* | Welke regio u uw exemplaar wordt gehost op server |
 
 ## <a name="client-library-reference"></a>Naslaginformatie over-clientbibliotheek
 
@@ -70,8 +70,8 @@ POST https://yourManagementApiUrl/api/v1.0/matchers
 
 | Naam van aangepast kenmerk | Vervangen |
 | --- | --- |
-| `yourManagementApiUrl` | De volledige URL-pad voor uw API Management  |
-| `yourSpaceIdentifier` | Welke regio u uw exemplaar wordt gehost op server |
+| *yourManagementApiUrl* | De volledige URL-pad voor uw API Management  |
+| *yourSpaceIdentifier* | Welke regio u uw exemplaar wordt gehost op server |
 
 ## <a name="create-a-user-defined-function-udf"></a>Een door de gebruiker gedefinieerde functie (UDF's) maken
 
@@ -90,7 +90,7 @@ POST https://yourManagementApiUrl/api/v1.0/userdefinedfunctions with Content-Typ
 
 | Naam van aangepast kenmerk | Vervangen |
 | --- | --- |
-| `yourManagementApiUrl` | De volledige URL-pad voor uw API Management  |
+| *yourManagementApiUrl* | De volledige URL-pad voor uw API Management  |
 
 Hoofdtekst:
 
@@ -118,12 +118,12 @@ function process(telemetry, executionContext) {
 
 | Naam van aangepast kenmerk | Vervangen |
 | --- | --- |
-| `yourSpaceIdentifier` | De ruimte-id  |
-| `yourMatcherIdentifier` | De id van de matcher die u wilt gebruiken |
+| *yourSpaceIdentifier* | De ruimte-id  |
+| *yourMatcherIdentifier* | De ID van de matcher die u wilt gebruiken |
 
 ### <a name="example-functions"></a>Voorbeeld van de functies
 
-De sensor telemetrie lezen voor de sensor rechtstreeks met het gegevenstype ingesteld `Temperature`, dit is de sensor. Gegevenstype:
+De sensor telemetrie lezen voor de sensor rechtstreeks met het gegevenstype ingesteld `Temperature`, die is `sensor.DataType`:
 
 ```javascript
 function process(telemetry, executionContext) {
@@ -139,7 +139,19 @@ function process(telemetry, executionContext) {
 }
 ```
 
-Meld u aan een bericht als het lezen van de telemetrie sensor een vooraf gedefinieerde drempelwaarde overschrijdt. Als de diagnostische instellingen zijn ingeschakeld op het exemplaar digitale Twins, worden logboeken van de gebruiker gedefinieerde functies doorgestuurd:
+De `telemetry` parameter wordt aangegeven dat een `SensorId` en `Message`. De `executionContext` parameter wordt aangegeven dat de volgende kenmerken:
+
+```csharp
+var executionContext = new UdfExecutionContext
+{
+    EnqueuedTime = request.HubEnqueuedTime,
+    ProcessorReceivedTime = request.ProcessorReceivedTime,
+    UserDefinedFunctionId = request.UserDefinedFunctionId,
+    CorrelationId = correlationId.ToString(),
+};
+```
+
+In het volgende voorbeeld wordt er een bericht Meld u als sensor telemetrie lezen een vooraf gedefinieerde drempelwaarde overschrijdt. Als de diagnostische instellingen zijn ingeschakeld op het exemplaar digitale Twins, worden ook logboeken van de gebruiker gedefinieerde functies worden doorgestuurd:
 
 ```javascript
 function process(telemetry, executionContext) {
@@ -192,7 +204,7 @@ GET https://yourManagementApiUrl/api/v1.0/system/roles
 
 | Naam van aangepast kenmerk | Vervangen |
 | --- | --- |
-| `yourManagementApiUrl` | De volledige URL-pad voor uw API Management  |
+| *yourManagementApiUrl* | De volledige URL-pad voor uw API Management  |
 
 - Object-id is de UDF-ID die eerder is gemaakt
 - Zoek `Path` door het opvragen van de ruimten met hun volledige pad en kopieer de `spacePaths` waarde. Plak deze in het pad hieronder bij het maken van de roltoewijzing UDF
@@ -203,8 +215,8 @@ GET https://yourManagementApiUrl/api/v1.0/spaces?name=yourSpaceName&includes=ful
 
 | Naam van aangepast kenmerk | Vervangen |
 | --- | --- |
-| `yourManagementApiUrl` | De volledige URL-pad voor uw API Management  |
-| `yourSpaceName` | De naam van de ruimte die u wilt gebruiken |
+| *yourManagementApiUrl* | De volledige URL-pad voor uw API Management  |
+| *yourSpaceName* | De naam van de ruimte die u wilt gebruiken |
 
 ```plaintext
 POST https://yourManagementApiUrl/api/v1.0/roleassignments
@@ -218,10 +230,10 @@ POST https://yourManagementApiUrl/api/v1.0/roleassignments
 
 | Naam van aangepast kenmerk | Vervangen |
 | --- | --- |
-| `yourManagementApiUrl` | De volledige URL-pad voor uw API Management  |
-| `yourDesiredRoleIdentifier` | De id voor de gewenste rol |
-| `yourUserDefinedFunctionId` | De id voor de UDF die u wilt gebruiken |
-| `yourAccessControlPath` | De access control-pad |
+| *yourManagementApiUrl* | De volledige URL-pad voor uw API Management  |
+| *yourDesiredRoleIdentifier* | De id voor de gewenste rol |
+| *yourUserDefinedFunctionId* | De ID voor de UDF die u wilt gebruiken |
+| *yourAccessControlPath* | De access control-pad |
 
 ## <a name="send-telemetry-to-be-processed"></a>Verzenden van telemetrie moeten worden verwerkt
 
@@ -241,7 +253,7 @@ Opgegeven een ruimte-id, haalt de ruimte van de grafiek.
 
 | Param  | Type                | Beschrijving  |
 | ------ | ------------------- | ------------ |
-| id  | `guid` | ruimte-id |
+| `id`  | `guid` | ruimte-id |
 
 ### <a name="getsensormetadataid--sensor"></a>getSensorMetadata(id) ⇒ `sensor`
 
@@ -251,7 +263,7 @@ Opgegeven een sensor-id, haalt de sensor van de grafiek.
 
 | Param  | Type                | Beschrijving  |
 | ------ | ------------------- | ------------ |
-| id  | `guid` | sensor-id |
+| `id`  | `guid` | sensor-id |
 
 ### <a name="getdevicemetadataid--device"></a>getDeviceMetadata(id) ⇒ `device`
 
@@ -261,7 +273,7 @@ Gegeven een apparaat-id, haalt het apparaat van de grafiek.
 
 | Param  | Type                | Beschrijving  |
 | ------ | ------------------- | ------------ |
-| id  | `guid` | Apparaat-id |
+| `id`  | `guid` | Apparaat-id |
 
 ### <a name="getsensorvaluesensorid-datatype--value"></a>⇒ getSensorValue (sensorId, gegevenstype) `value`
 
@@ -271,8 +283,8 @@ Basis van een sensor-id en het gegevenstype, de huidige waarde voor die sensor w
 
 | Param  | Type                | Beschrijving  |
 | ------ | ------------------- | ------------ |
-| sensorId  | `guid` | sensor-id |
-| Gegevenstype  | `string` | gegevens van het sensortype |
+| `sensorId`  | `guid` | sensor-id |
+| `dataType`  | `string` | gegevens van het sensortype |
 
 ### <a name="getspacevaluespaceid-valuename--value"></a>⇒ getSpaceValue (spaceId, valueName) `value`
 
@@ -282,8 +294,8 @@ Een id ruimte en de naam van de opgegeven, de huidige waarde voor die eigenschap
 
 | Param  | Type                | Beschrijving  |
 | ------ | ------------------- | ------------ |
-| spaceId  | `guid` | ruimte-id |
-| Waardenaam  | `string` | naam van de eigenschap ruimte |
+| `spaceId`  | `guid` | ruimte-id |
+| `valueName` | `string` | naam van de eigenschap ruimte |
 
 ### <a name="getsensorhistoryvaluessensorid-datatype--value"></a>⇒ getSensorHistoryValues (sensorId, gegevenstype) `value[]`
 
@@ -293,8 +305,8 @@ De historische waarden voor die sensor een sensor-id en het gegevenstype opgegev
 
 | Param  | Type                | Beschrijving  |
 | ------ | ------------------- | ------------ |
-| sensorId  | `guid` | sensor-id |
-| Gegevenstype  | `string` | gegevens van het sensortype |
+| `sensorId` | `guid` | sensor-id |
+| `dataType` | `string` | gegevens van het sensortype |
 
 ### <a name="getspacehistoryvaluesspaceid-datatype--value"></a>⇒ getSpaceHistoryValues (spaceId, gegevenstype) `value[]`
 
@@ -304,8 +316,8 @@ Een id ruimte en de naam van de opgegeven, haalt de historische waarden voor die
 
 | Param  | Type                | Beschrijving  |
 | ------ | ------------------- | ------------ |
-| spaceId  | `guid` | ruimte-id |
-| Waardenaam  | `string` | naam van de eigenschap ruimte |
+| `spaceId` | `guid` | ruimte-id |
+| `valueName` | `string` | naam van de eigenschap ruimte |
 
 ### <a name="getspacechildspacesspaceid--space"></a>getSpaceChildSpaces(spaceId) ⇒ `space[]`
 
@@ -315,7 +327,7 @@ De onderliggende ruimten voor die bovenliggende ruimte krijgen een ruimte-id, wo
 
 | Param  | Type                | Beschrijving  |
 | ------ | ------------------- | ------------ |
-| spaceId  | `guid` | ruimte-id |
+| `spaceId` | `guid` | ruimte-id |
 
 ### <a name="getspacechildsensorsspaceid--sensor"></a>getSpaceChildSensors(spaceId) ⇒ `sensor[]`
 
@@ -325,7 +337,7 @@ De onderliggende sensoren voor die bovenliggende ruimte krijgen een ruimte-id, w
 
 | Param  | Type                | Beschrijving  |
 | ------ | ------------------- | ------------ |
-| spaceId  | `guid` | ruimte-id |
+| `spaceId` | `guid` | ruimte-id |
 
 ### <a name="getspacechilddevicesspaceid--device"></a>getSpaceChildDevices(spaceId) ⇒ `device[]`
 
@@ -335,7 +347,7 @@ De onderliggende apparaten voor die bovenliggende ruimte krijgen een ruimte-id, 
 
 | Param  | Type                | Beschrijving  |
 | ------ | ------------------- | ------------ |
-| spaceId  | `guid` | ruimte-id |
+| `spaceId` | `guid` | ruimte-id |
 
 ### <a name="getdevicechildsensorsdeviceid--sensor"></a>getDeviceChildSensors(deviceId) ⇒ `sensor[]`
 
@@ -345,7 +357,7 @@ Uitgaande van een apparaat-id, de onderliggende sensoren voor dat apparaat boven
 
 | Param  | Type                | Beschrijving  |
 | ------ | ------------------- | ------------ |
-| deviceId  | `guid` | Apparaat-id |
+| `deviceId` | `guid` | Apparaat-id |
 
 ### <a name="getspaceparentspacechildspaceid--space"></a>getSpaceParentSpace(childSpaceId) ⇒ `space`
 
@@ -355,7 +367,7 @@ De bovenliggende ruimte krijgen een ruimte-id, worden opgehaald.
 
 | Param  | Type                | Beschrijving  |
 | ------ | ------------------- | ------------ |
-| childSpaceId  | `guid` | ruimte-id |
+| `childSpaceId` | `guid` | ruimte-id |
 
 ### <a name="getsensorparentspacechildsensorid--space"></a>getSensorParentSpace(childSensorId) ⇒ `space`
 
@@ -365,7 +377,7 @@ De bovenliggende ruimte krijgen een sensor-id, worden opgehaald.
 
 | Param  | Type                | Beschrijving  |
 | ------ | ------------------- | ------------ |
-| childSensorId  | `guid` | sensor-id |
+| `childSensorId` | `guid` | sensor-id |
 
 ### <a name="getdeviceparentspacechilddeviceid--space"></a>getDeviceParentSpace(childDeviceId) ⇒ `space`
 
@@ -375,7 +387,7 @@ Uitgaande van een apparaat-id, de bovenliggende ruimte worden opgehaald.
 
 | Param  | Type                | Beschrijving  |
 | ------ | ------------------- | ------------ |
-| childDeviceId  | `guid` | Apparaat-id |
+| `childDeviceId` | `guid` | Apparaat-id |
 
 ### <a name="getsensorparentdevicechildsensorid--space"></a>getSensorParentDevice(childSensorId) ⇒ `space`
 
@@ -385,7 +397,7 @@ Het bovenliggende apparaat krijgen een sensor-id, worden opgehaald.
 
 | Param  | Type                | Beschrijving  |
 | ------ | ------------------- | ------------ |
-| childSensorId  | `guid` | sensor-id |
+| `childSensorId` | `guid` | sensor-id |
 
 ### <a name="getspaceextendedpropertyspaceid-propertyname--extendedproperty"></a>⇒ getSpaceExtendedProperty (spaceId, propertyName) `extendedProperty`
 
@@ -395,8 +407,8 @@ De eigenschap en de bijbehorende waarde krijgen een ruimte-id, ophalen vanuit de
 
 | Param  | Type                | Beschrijving  |
 | ------ | ------------------- | ------------ |
-| spaceId  | `guid` | ruimte-id |
-| propertyName  | `string` | naam van de eigenschap ruimte |
+| `spaceId` | `guid` | ruimte-id |
+| `propertyName` | `string` | naam van de eigenschap ruimte |
 
 ### <a name="getsensorextendedpropertysensorid-propertyname--extendedproperty"></a>⇒ getSensorExtendedProperty (sensorId, propertyName) `extendedProperty`
 
@@ -406,8 +418,8 @@ De eigenschap en de bijbehorende waarde krijgen een sensor-id, ophalen van de se
 
 | Param  | Type                | Beschrijving  |
 | ------ | ------------------- | ------------ |
-| sensorId  | `guid` | sensor-id |
-| propertyName  | `string` | naam van de eigenschap sensor |
+| `sensorId` | `guid` | sensor-id |
+| `propertyName` | `string` | naam van de eigenschap sensor |
 
 ### <a name="getdeviceextendedpropertydeviceid-propertyname--extendedproperty"></a>⇒ getDeviceExtendedProperty (apparaat-id, propertyName) `extendedProperty`
 
@@ -417,8 +429,8 @@ Uitgaande van een apparaat-id, de eigenschap en de waarde van het apparaat opgeh
 
 | Param  | Type                | Beschrijving  |
 | ------ | ------------------- | ------------ |
-| deviceId  | `guid` | Apparaat-id |
-| propertyName  | `string` | de eigenschap apparaatnaam |
+| `deviceId` | `guid` | Apparaat-id |
+| `propertyName` | `string` | de eigenschap apparaatnaam |
 
 ### <a name="setsensorvaluesensorid-datatype-value"></a>setSensorValue (sensorId, gegevenstype, waarde)
 
@@ -428,9 +440,9 @@ Hiermee stelt een waarde voor de sensor-object met het opgegeven gegevenstype.
 
 | Param  | Type                | Beschrijving  |
 | ------ | ------------------- | ------------ |
-| sensorId  | `guid` | sensor-id |
-| Gegevenstype  | `string` | gegevens van het sensortype |
-| waarde  | `string` | waarde |
+| `sensorId` | `guid` | sensor-id |
+| `dataType`  | `string` | gegevens van het sensortype |
+| `value`  | `string` | waarde |
 
 ### <a name="setspacevaluespaceid-datatype-value"></a>setSpaceValue (spaceId, gegevenstype, waarde)
 
@@ -440,9 +452,9 @@ Hiermee stelt een waarde voor de ruimte-object met het opgegeven gegevenstype.
 
 | Param  | Type                | Beschrijving  |
 | ------ | ------------------- | ------------ |
-| spaceId  | `guid` | ruimte-id |
-| Gegevenstype  | `string` | gegevenstype |
-| waarde  | `string` | waarde |
+| `spaceId` | `guid` | ruimte-id |
+| `dataType` | `string` | gegevenstype |
+| `value` | `string` | waarde |
 
 ### <a name="logmessage"></a>log(Message)
 
@@ -452,7 +464,7 @@ Hiermee wordt het volgende bericht in de gebruiker gedefinieerde functie geregis
 
 | Param  | Type                | Beschrijving  |
 | ------ | ------------------- | ------------ |
-| message  | `string` | bericht moeten worden vastgelegd |
+| `message` | `string` | bericht moeten worden vastgelegd |
 
 ### <a name="sendnotificationtopologyobjectid-topologyobjecttype-payload"></a>sendNotification (topologyObjectId, topologyObjectType, nettolading)
 
@@ -462,9 +474,9 @@ Verzendt een aangepast Meldingsbericht worden verzonden.
 
 | Param  | Type                | Beschrijving  |
 | ------ | ------------------- | ------------ |
-| topologyObjectId  | `Guid` | Graph-object-id (ex.) ruimte / sensor /device-id)|
-| topologyObjectType  | `string` | (ex.) ruimte / sensor / apparaat)|
-| nettolading  | `string` | de json-nettolading met de melding wordt verzonden |
+| `topologyObjectId`  | `guid` | Graph-object-id (ex.) ruimte / sensor /device-ID)|
+| `topologyObjectType`  | `string` | (ex.) ruimte / sensor / apparaat)|
+| `payload`  | `string` | de JSON-nettolading met de melding wordt verzonden |
 
 ## <a name="return-types"></a>Typen retourneren
 
@@ -503,7 +515,7 @@ Retourneert de uitgebreide eigenschap en de waarde voor de huidige ruimte.
 
 | Param  | Type                | Beschrijving  |
 | ------ | ------------------- | ------------ |
-| propertyName | `string` | naam van de uitgebreide eigenschap |
+| `propertyName` | `string` | naam van de uitgebreide eigenschap |
 
 #### <a name="valuevaluename--value"></a>Value(valueName) ⇒ `value`
 
@@ -511,7 +523,7 @@ Retourneert de waarde van de huidige ruimte.
 
 | Param  | Type                | Beschrijving  |
 | ------ | ------------------- | ------------ |
-| Waardenaam | `string` | naam van de waarde |
+| `valueName` | `string` | naam van de waarde |
 
 #### <a name="historyvaluename--value"></a>History(valueName) ⇒ `value[]`
 
@@ -519,7 +531,7 @@ Retourneert de historische waarden van de huidige ruimte.
 
 | Param  | Type                | Beschrijving  |
 | ------ | ------------------- | ------------ |
-| Waardenaam | `string` | naam van de waarde |
+| `valueName` | `string` | naam van de waarde |
 
 #### <a name="notifypayload"></a>Notify(Payload)
 
@@ -527,7 +539,7 @@ Verzendt een melding met de nettolading van de opgegeven.
 
 | Param  | Type                | Beschrijving  |
 | ------ | ------------------- | ------------ |
-| nettolading | `string` | JSON-nettolading in de melding moeten worden opgenomen |
+| `payload` | `string` | JSON-nettolading in de melding moeten worden opgenomen |
 
 ### <a name="device"></a>Apparaat
 
@@ -563,7 +575,7 @@ Retourneert de uitgebreide eigenschap en de waarde voor het huidige apparaat.
 
 | Param  | Type                | Beschrijving  |
 | ------ | ------------------- | ------------ |
-| propertyName | `string` | naam van de uitgebreide eigenschap |
+| `propertyName` | `string` | naam van de uitgebreide eigenschap |
 
 #### <a name="notifypayload"></a>Notify(Payload)
 
@@ -571,7 +583,7 @@ Verzendt een melding met de nettolading van de opgegeven.
 
 | Param  | Type                | Beschrijving  |
 | ------ | ------------------- | ------------ |
-| nettolading | `string` | JSON-nettolading in de melding moeten worden opgenomen |
+| `payload` | `string` | JSON-nettolading in de melding moeten worden opgenomen |
 
 ### <a name="sensor"></a>Sensor
 
@@ -611,7 +623,7 @@ Retourneert de uitgebreide eigenschap en de waarde voor de huidige sensor.
 
 | Param  | Type                | Beschrijving  |
 | ------ | ------------------- | ------------ |
-| propertyName | `string` | naam van de uitgebreide eigenschap |
+| `propertyName` | `string` | naam van de uitgebreide eigenschap |
 
 #### <a name="value--value"></a>Value() ⇒ `value`
 
@@ -627,7 +639,7 @@ Verzendt een melding met de nettolading van de opgegeven.
 
 | Param  | Type                | Beschrijving  |
 | ------ | ------------------- | ------------ |
-| nettolading | `string` | JSON-nettolading in de melding moeten worden opgenomen |
+| `payload` | `string` | JSON-nettolading in de melding moeten worden opgenomen |
 
 ### <a name="value"></a>Waarde
 

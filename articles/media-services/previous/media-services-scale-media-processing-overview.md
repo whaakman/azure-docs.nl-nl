@@ -4,22 +4,21 @@ description: In dit onderwerp wordt een overzicht van het vergroten/verkleinen M
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
-ms.assetid: 780ef5c2-3bd6-4261-8540-6dee77041387
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/30/2018
+ms.date: 10/25/2018
 ms.author: juliako
-ms.openlocfilehash: 698a85244d5341224dd9f513c5617b9086e36844
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 1d626a22802a1de19bcc5647179d76d44e826cfd
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47033070"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50159040"
 ---
 # <a name="scaling-media-processing-overview"></a>Verwerking van Media schalingsoverzicht
 Deze pagina geeft een overzicht van hoe en waarom mediaverwerking schalen. 
@@ -32,11 +31,11 @@ Naast het opgeven van de gereserveerde-eenheidstype, kunt u opgeven voor het inr
 ## <a name="choosing-between-different-reserved-unit-types"></a>Kiezen tussen verschillende gereserveerde-eenheidstypen
 De volgende tabel kunt u een beslissing te nemen bij de keuze tussen verschillende snelheden voor codering. Het bevat ook enkele benchmark gevallen op [een video die u kunt downloaden](https://nimbuspmteam.blob.core.windows.net/asset-46f1f723-5d76-477e-a153-3fd0f9f90f73/SeattlePikePlaceMarket_7min.ts?sv=2015-07-08&sr=c&si=013ab6a6-5ebf-431e-8243-9983a6b5b01c&sig=YCgEB8DxYKK%2B8W9LnBykzm1ZRUTwQAAH9QFUGw%2BIWuc%3D&se=2118-09-21T19%3A28%3A57Z) het uitvoeren van uw eigen tests:
 
-| Scenario's | **S1** | **S2** | **S3** |
-| --- | --- | --- | --- |
-| Beoogde use-case |Single-bitrate codering. <br/>Bestanden op SD of onder oplossingen, tijd niet gevoelige, lage kosten. |Single-bitrate en meerdere bitrate codering.<br/>Normaal gebruik voor zowel SD en HD-codering. |Single-bitrate en meerdere bitrate codering.<br/>Volledige HD en 4K resolutie van video's. Tijd gevoelige en snellere doorlooptijd codering. |
-| Benchmark voor video van 7 minuten |Coderen naar een single-bitrate MP4-bestand met de dezelfde resolutie duurt ongeveer 5 minuten. |Codering met "H264 Single-Bitrate 720p" vooraf duurt ongeveer 8 minuten.<br/><br/>Codering met ' H264 Multiple Bitrate 720p "vooraf ingestelde duurt ongeveer 16,8 minuten. |Codering met "H264 Single-Bitrate 1080p" vooraf duurt ongeveer vier minuten.<br/><br/>Codering met ' H264 Multiple Bitrate 1080p "vooraf ingestelde duurt ongeveer 8 minuten. |
-
+|RU-type|Scenario|Voorbeeld van resultaten voor de [7 min 1080 p video](https://nimbuspmteam.blob.core.windows.net/asset-46f1f723-5d76-477e-a153-3fd0f9f90f73/SeattlePikePlaceMarket_7min.ts?sv=2015-07-08&sr=c&si=013ab6a6-5ebf-431e-8243-9983a6b5b01c&sig=YCgEB8DxYKK%2B8W9LnBykzm1ZRUTwQAAH9QFUGw%2BIWuc%3D&se=2118-09-21T19%3A28%3A57Z)|
+|---|---|---|
+| **S1**|Single-bitrate codering. <br/>Bestanden op SD of onder oplossingen, tijd niet gevoelige, lage kosten.|Coderen naar een single-bitrate MP4-bestand met de dezelfde resolutie duurt ongeveer 5 minuten.|
+| **S2**|Single-bitrate en meerdere bitrate codering.<br/>Normaal gebruik voor zowel SD en HD-codering.|Codering met "H264 Single-Bitrate 720p" vooraf duurt ongeveer 8 minuten.<br/><br/>Codering met ' H264 Multiple Bitrate 720p "vooraf ingestelde duurt ongeveer 16,8 minuten.|
+| **S3**|Single-bitrate en meerdere bitrate codering.<br/>Volledige HD en 4K resolutie van video's. Tijd gevoelige en snellere doorlooptijd codering.|Codering met "H264 Single-Bitrate 1080p" vooraf duurt ongeveer vier minuten.<br/><br/>Codering met ' H264 Multiple Bitrate 1080p "vooraf ingestelde duurt ongeveer 8 minuten.|
 
 ## <a name="considerations"></a>Overwegingen
 > [!IMPORTANT]

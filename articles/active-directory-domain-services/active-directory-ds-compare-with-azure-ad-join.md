@@ -3,7 +3,7 @@ title: Azure AD Join en Azure Active Directory Domain Services vergelijken | Mic
 description: Kiezen tussen Azure AD Join en Azure AD Domain Services
 services: active-directory-ds
 documentationcenter: ''
-author: mahesh-unnikrishnan
+author: eringreenlee
 manager: mtillman
 editor: curtand
 ms.assetid: 31a71d36-58c1-4839-b958-80da0c6a77eb
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/26/2017
-ms.author: maheshu
-ms.openlocfilehash: e4357738417a202d5dd5a97907b5240cf855f395
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.author: ergreenl
+ms.openlocfilehash: 275f537511f721ea3f01c22a962462bab458129c
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39504111"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50156576"
 ---
 # <a name="choose-between-azure-active-directory-join-and-azure-active-directory-domain-services"></a>Kiezen tussen Azure Active Directory join en Azure Active Directory Domain Services
 Dit artikel wordt beschreven verschillen tussen koppelen aan Azure Active Directory (AD) en Azure AD Domain Services en zorgt die u ervoor kiest, op basis van uw use cases.
@@ -73,7 +73,7 @@ Op een machine domein gebruikersverificatie gebeurt met behulp van NTLM of Kerbe
 * [Begrijpen hoe Azure AD Domain Services worden gesynchroniseerd met uw Azure AD-directory](active-directory-ds-synchronization.md)
 
 ### <a name="learn-more-about-azure-ad-join"></a>Meer informatie over Azure AD Join
-* [Inleiding tot Apparaatbeheer in Azure Active Directory](../active-directory/device-management-introduction.md)
+* [Inleiding tot apparaatbeheer in Azure Active Directory](../active-directory/device-management-introduction.md)
 
 ### <a name="get-started-with-azure-ad-domain-services"></a>Aan de slag met Azure AD Domain Services
 * [Azure AD Domain Services met behulp van de Azure-portal inschakelen](active-directory-ds-getting-started.md)

@@ -3,7 +3,7 @@ title: Gebruiker, sessie en gebeurtenis analyse in Azure Application Insights | 
 description: Demografische analyse van de gebruikers van uw web-app.
 services: application-insights
 documentationcenter: ''
-author: mrbullwinkle
+author: NumberByColors
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
@@ -11,14 +11,15 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 01/24/2018
-ms.reviewer: daviste
-ms.author: mbullwin
-ms.openlocfilehash: 2bc10a292855832b7ddb9b8e3a59fbe0f17d8dc6
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.reviewer: mbullwin
+ms.pm_owner: daviste;NumberByColors
+ms.author: daviste
+ms.openlocfilehash: 6fd8adab93f5741afe6d3eab0c50ca50a327fbff
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47093805"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50140329"
 ---
 # <a name="users-sessions-and-events-analysis-in-application-insights"></a>Analyse van gebruikers, sessies en gebeurtenissen in Application Insights
 
@@ -48,10 +49,10 @@ Verken de verschillende groepen gebruikers door de opties voor query's aan de bo
 * Die gebruik hebben gemaakt: Kies aangepaste gebeurtenissen en paginaweergaven.
 * Tijdens: Kies een tijdsbereik.
 * Door: Kies hoe u aan de bucket van de gegevens door een bepaalde periode of door een ander domein zoals browser of een plaats.
-* Splitsen op basis van: Kies een eigenschap waarmee te splitsen of een segment de gegevens. 
-* Filters toevoegen: De query beperken tot bepaalde gebruikers, sessies of gebeurtenissen op basis van hun eigenschappen, zoals de browser of een plaats. 
- 
-## <a name="saving-and-sharing-reports"></a>Opslaan en delen van rapporten 
+* Splitsen op basis van: Kies een eigenschap waarmee te splitsen of een segment de gegevens. 
+* Filters toevoegen: De query beperken tot bepaalde gebruikers, sessies of gebeurtenissen op basis van hun eigenschappen, zoals de browser of een plaats. 
+ 
+## <a name="saving-and-sharing-reports"></a>Opslaan en delen van rapporten 
 U kunt gebruikers rapporten, exclusief voor u in de sectie Mijn rapporten of gedeeld met iedereen met toegang tot deze Application Insights-resource in de sectie gedeelde rapporten opslaan.
 
 Voor het delen van een koppeling naar een rapport gebruikers, sessies of gebeurtenissen. Klik op **Share** in de werkbalk, kopieer vervolgens de koppeling.

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/02/2018
+ms.date: 10/26/2018
 ms.author: genli
-ms.openlocfilehash: d16f106fa1776b0d11a97f71ffe16cf89fb9584a
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 2a0f6b75c540f319848805e8a9bda7b166d5d709
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42056898"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50138653"
 ---
 #  <a name="network-virtual-appliance-issues-in-azure"></a>Virtueel apparaat netwerkproblemen in Azure
 
@@ -77,14 +77,14 @@ PowerShell gebruiken
 **Controleer of het verkeer kan worden gerouteerd naar de NVA**
 
 1. Op [Azure-portal](https://portal.azure.com)Open **Network Watcher**, selecteer **' volgende hop '**.
-2. Geef een virtuele machine die u wilt dat de NVA de volgende hop en een doel-IP-adres waarop om de volgende hop weer te geven. 
+2. Geef een virtuele machine die is geconfigureerd voor het verkeer omleiden naar de NVA en een doel-IP-adres waarop om de volgende hop weer te geven. 
 3. Als de NVA niet wordt vermeld als de **volgende hop**, controleren en bijwerken van de Azure-routetabellen.
 
 **Controleer of het verkeer de NVA kan bereiken**
 
 1.  In [Azure-portal](https://portal.azure.com)Open **Network Watcher**, en selecteer vervolgens **IP-stroom controleren**. 
-2.  Geef een virtuele machine en het IP-adres van de NVA en controleer vervolgens of het verkeer wordt geblokkeerd door een netwerkbeveiligingsgroepen (NSG).
-3.  Als er een NSG-regel waarmee het verkeer wordt geblokkeerd, zoek de NSG in **effectieve** regels en werk vervolgens het toestaan van verkeer om door te geven. Voer **IP-stroom controleren** opnieuw en gebruik **Connectiviteitscontrole** voor het testen van TCP-communicatie van VM naar uw intern of extern IP-adres.
+2.  Geef de virtuele machine en het IP-adres van de NVA en controleer of het verkeer wordt geblokkeerd door een netwerkbeveiligingsgroepen (NSG).
+3.  Als er een NSG-regel waarmee het verkeer wordt geblokkeerd, zoek de NSG in **effectieve** regels en werk vervolgens het toestaan van verkeer om door te geven. Voer **IP-stroom controleren** opnieuw en gebruik **probleemoplossing voor verbindingen** voor het testen van TCP-communicatie van VM naar uw intern of extern IP-adres.
 
 **Controleer of NVA en virtuele machines voor het verwachte verkeer luisteren**
 

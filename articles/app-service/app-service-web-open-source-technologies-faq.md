@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: d65a33dc13d0b91a9ace04dab0be6c37bcd2188f
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: 4185cbad6358f6b2e48513c0d79c0a357eb6235a
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42623297"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50156473"
 ---
 # <a name="open-source-technologies-faqs-for-web-apps-in-azure"></a>Open-source technologieën Veelgestelde vragen over de Web-Apps in Azure
 
@@ -43,9 +43,9 @@ PHP-logboekregistratie inschakelen:
 9. Selecteer **Opslaan**.
 10. Selecteer het potloodpictogram naast **wp-config.php**.
 11. Wijzig de tekst in de volgende code:
-   ```
+   ```php
    //Enable WP_DEBUG modedefine('WP_DEBUG', true);//Enable debug logging to /wp-content/debug.logdefine('WP_DEBUG_LOG', true);
-   //Supress errors and warnings to screendefine('WP_DEBUG_DISPLAY', false);//Supress PHP errors to screenini_set('display_errors', 0);
+   //Suppress errors and warnings to screendefine('WP_DEBUG_DISPLAY', false);//Supress PHP errors to screenini_set('display_errors', 0);
    ```
 12. Start opnieuw op met uw web-app in Azure portal, in het webmenu-app.
 
@@ -70,7 +70,7 @@ Als u wilt de versie van de Node.js-toepassing wijzigen, kunt u een van de volge
 *   Het bestand iisnode.yml wijzigen. Wijzigen van de Node.js-versie in het bestand iisnode.yml alleen Hiermee stelt u de runtime-omgeving waarnaar iisnode wordt gebruikt. De Kudu-cmd en andere nog steeds gebruikmaken van de Node.js-versie die is ingesteld in **App-instellingen** in Azure portal.
 
     Als u wilt de iisnode.yml handmatig instellen, maakt u een iisnode.yml-bestand in de hoofdmap van uw app. In het bestand, zijn onder andere de volgende regel:
-   ```
+   ```yml
    nodeProcessCommandLine: "D:\Program Files (x86)\nodejs\5.9.1\node.exe"
    ```
    
@@ -80,7 +80,7 @@ Als u wilt de versie van de Node.js-toepassing wijzigen, kunt u een van de volge
     2. Hiermee maakt u een implementatiescript standaard als er geen een (deploy.cmd, .deployment-bestanden) in de hoofdmap van de web-app.
     3. Wordt uitgevoerd een implementatiescript waarin deze een iisnode.yml bestand maakt als u de Node.js-versie in het bestand package.json vermeld > engine `"engines": {"node": "5.9.1","npm": "3.7.3"}`
     4. Het bestand iisnode.yml heeft de volgende coderegel:
-        ```
+        ```yml
         nodeProcessCommandLine: "D:\Program Files (x86)\nodejs\5.9.1\node.exe"
         ```
 
@@ -146,7 +146,7 @@ De fout kunt oplossen:
 2. Als u de aangepaste Tomcat of Azure Marketplace Tomcat-webserver, moet u deze JAR-bestand kopiëren naar de bibliotheekmap van Tomcat.
 3. Als u Java vanuit de Azure-portal inschakelen wilt (Selecteer **Java 1.8** > **Tomcat-server**), het sqljdbc.* jar-bestand in de map die parallel aan uw app te kopiëren. Voeg de volgende klassepad naar het web.config-bestand:
 
-    ```
+    ```xml
     <httpPlatform>
     <environmentVariables>
     <environmentVariablename ="JAVA_OPTS" value=" -Djava.net.preferIPv4Stack=true

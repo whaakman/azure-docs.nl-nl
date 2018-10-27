@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/04/2018
-ms.openlocfilehash: 1775e1810a164bfbdd1cddea9360674592cf446c
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.date: 10/24/2018
+ms.openlocfilehash: b4736f47d066d1e2b8e5c7115cb14abeb1cc566a
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857530"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50137222"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>Langetermijnretentie voor Azure SQL Database beheren
 
@@ -172,6 +172,9 @@ In dit voorbeeld wordt weergegeven hoe u een LTR verwijderen uit de lijst met ba
 $ltrBackup = $ltrBackups[0]
 Remove-AzureRmSqlDatabaseLongTermRetentionBackup -ResourceId $ltrBackup.ResourceId
 ```
+> [!IMPORTANT]
+> Back-up is niet-omkeerbare LTR te verwijderen. U kunt meldingen instellen over elke verwijderen in Azure Monitor door te filteren op bewerking 'Hiermee verwijdert u een back-up bewaren lange termijn'. Het activiteitenlogboek bevat informatie over de identiteit en wanneer de aanvraag heeft ingediend. Zie [waarschuwingen voor activiteitenlogboek maken](../monitoring-and-diagnostics/monitoring-create-activity-log-alerts-with-resource-manager-template.md) voor gedetailleerde instructies.
+>
 
 ### <a name="restore-from-ltr-backups"></a>Herstellen vanuit back-ups van links naar rechts
 In dit voorbeeld laat zien hoe om te herstellen vanaf een back-up van links naar rechts. Opmerking: deze interface niet hebt gewijzigd, maar de resource-id-parameter is het nu de LTR-back-resource-id vereist. 

@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 94f96d949f2a05f71e9565fdcbc7b48ed2c2a5c5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f1df22c505bffdfaf60bf9c6eec3ad4e698fff02
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46972655"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50139523"
 ---
 # <a name="azure-data-explorer-data-ingestion"></a>Gegevensopname met Azure Data Explorer
 
@@ -60,9 +60,15 @@ Kusto biedt client-SDK die kan worden gebruikt voor het opnemen en opvragen van 
 
 * [Java SDK](https://docs.microsoft.com/azure/kusto/api/java/kusto-java-client-library)
 
+* [Node-SDK]
+
 * [REST API](https://docs.microsoft.com/azure/kusto/api/netfx/kusto-ingest-client-rest)
 
 **Programmatische opname technieken**:
+
+* Ophalen van gegevens via de Azure Data Explorer data management-service (hoge doorvoer en betrouwbare opname)
+
+  * [**Batch-opname** ](https://docs.microsoft.com/azure/kusto/api/netfx/kusto-ingest-queued-ingest-sample) (geleverd door de SDK): de client de gegevens uploadt naar Azure Blob-opslag (aangegeven door de Azure Data Explorer data management-service) en een melding naar een Azure-wachtrij wordt gepost. Dit is de aanbevolen methode voor grote volumes, betrouwbare en goedkope gegevensopname.
 
 * Ophalen van gegevens rechtstreeks in de Azure Data Explorer-engine (meest geschikt voor verkenning en ontwikkelen van prototypen):
 
@@ -71,10 +77,6 @@ Kusto biedt client-SDK die kan worden gebruikt voor het opnemen en opvragen van 
   * **Opname van query**: besturings (.set, .set-of-toe te voegen, .set of vervangen) die naar de resultaten van query verwijst wordt gebruikt voor het genereren van rapporten of kleine tijdelijke tabellen.
 
   * **Opnemen uit de opslag**: besturings (.ingest in) met gegevens die extern zijn opgeslagen (bijvoorbeeld Azure Blob Storage) kunt u efficiënt bulksgewijs opnemen van gegevens.
-
-* Ophalen van gegevens via de Azure Data Explorer data management-service (hoge doorvoer en betrouwbare opname)
-
-  * [**Batch-opname** ](https://docs.microsoft.com/azure/kusto/api/netfx/kusto-ingest-queued-ingest-sample) (geleverd door de SDK): de client de gegevens uploadt naar Azure Blob-opslag (aangegeven door de Azure Data Explorer data management-service) en een melding naar een Azure-wachtrij wordt gepost. Dit is de aanbevolen methode voor grote volumes, betrouwbare, en goedkope gegevensopname.
 
 **Latentie van verschillende methoden**:
 
@@ -125,7 +127,7 @@ Schematoewijzing helpt deterministische wijze bronvelden gegevens binden aan tab
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Snelstartgids: Opnemen van gegevens van Event Hub in Azure Data Explorer](ingest-data-event-hub.md)
+[Snelstart: gegevens uit Event Hub opnemen in Azure Data Explorer](ingest-data-event-hub.md)
 
-[Snelstartgids: Opnemen van gegevens met behulp van de Azure Data Explorer Python-bibliotheek](python-ingest-data.md)
+[Snelstart: gegevens opnemen met behulp van de Python-bibliotheek voor Azure Data Explorer](python-ingest-data.md)
 

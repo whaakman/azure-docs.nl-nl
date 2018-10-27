@@ -1,12 +1,9 @@
 ---
-title: Land/regio-hiërarchie die wordt gebruikt door Azure Traffic Manager geografische routeringstype | Microsoft Docs
-description: In dit artikel worden gebruikt door Azure Traffic Manager geografische routeringstype land/regio-hiërarchie
+title: Land-/ regiohiërarchie die worden gebruikt door Azure Traffic Manager geografische routeringstype | Microsoft Docs
+description: In dit artikel geeft een lijst van de land-/ regiohiërarchie die worden gebruikt door Azure Traffic Manager geografische routeringstype
 services: traffic-manager
 documentationcenter: ''
 author: kumudd
-manager: timlt
-editor: ''
-ms.assetid: ''
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
@@ -14,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2017
 ms.author: kumud
-ms.openlocfilehash: 45fa209b4417ce8b65d1fa4f2f59ff6c2d50f3a4
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 1609daa4edbc3db9384941d575c141faaa799fb6
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2018
-ms.locfileid: "28201493"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50138239"
 ---
-# <a name="countryregion-hierarchy-used-by-azure-traffic-manager-for-geographic-traffic-routing-method"></a>Land/regio hiërarchie door Azure Traffic Manager gebruikt voor geografische verkeersrouteringsmethode
+# <a name="countryregion-hierarchy-used-by-azure-traffic-manager-for-geographic-traffic-routing-method"></a>Land-/ regiohiërarchie die wordt gebruikt door Azure Traffic Manager voor de geografische verkeersrouteringsmethode
 
-In dit artikel worden de landen en regio's die worden gebruikt door de **geografisch** methode in Azure Traffic Manager. U kunt deze gegevens ook programmatisch ophalen door het aanroepen van de [REST-API van Azure Traffic Manager](https://docs.microsoft.com/rest/api/trafficmanager/). 
+In dit artikel geeft een lijst van de landen en regio's die worden gebruikt door de **geografisch** verkeersrouteringsmethode in Azure Traffic Manager. U kunt deze informatie ook programmatisch verkrijgen door het aanroepen van de [REST-API van Azure Traffic Manager](https://docs.microsoft.com/rest/api/trafficmanager/). 
 
 - WORLD(World)
 
@@ -49,7 +46,7 @@ In dit artikel worden de landen en regio's die worden gebruikt door de **geograf
 
         - CY(Cyprus)
 
-        - CZ (Tsjechië)
+        - CZ (Tsjechische Republiek)
 
         - DE(Germany)
 
@@ -61,7 +58,7 @@ In dit artikel worden de landen en regio's die worden gebruikt door de **geograf
 
         - FI(Finland)
 
-        - VOOR (Faeroër)
+        - FO (Faröer)
 
         - FR(France)
 
@@ -101,7 +98,7 @@ In dit artikel worden de landen en regio's die worden gebruikt door de **geograf
 
         - ME(Montenegro)
 
-        - MK (Macedonië, FYRO)
+        - MK (Macedonië, Voormalige Joegoslavische Republiek)
 
         - MT(Malta)
 
@@ -127,11 +124,11 @@ In dit artikel worden de landen en regio's die worden gebruikt door de **geograf
 
         - SK(Slovakia)
 
-        - SM(San Marino)
+        - SM (San Marino)
 
         - UA(Ukraine)
 
-        - VA (Vaticaanstad)
+        - Evaluatie van beveiligingsproblemen (Vaticaanstad)
 
         - XJ (Jan Mayen)
 
@@ -139,7 +136,7 @@ In dit artikel worden de landen en regio's die worden gebruikt door de **geograf
 
     - GEO-ME(Middle East)
 
-        - AE (United Arabische VAE)
+        - AE (Verenigde Arabische Emiraten)
 
         - BH(Bahrain)
 
@@ -157,13 +154,13 @@ In dit artikel worden de landen en regio's die worden gebruikt door de **geograf
 
         - OM(Oman)
 
-        - PS (Palestijnse)
+        - PS (Palestijnse autoriteit)
 
         - QA(Qatar)
 
-        - SY(Syria)
+        - Sy(Syria)
 
-        - SA(Saudi Arabia)
+        - SA (Saoedi-Arabië)
 
         - TR(Turkey)
 
@@ -205,7 +202,7 @@ In dit artikel worden de landen en regio's die worden gebruikt door de **geograf
 
             - CA-NT(Northwest Territories)
 
-            - CA-NU(Nunavut)
+            - CA-nu(Nunavut)
 
             - CA-on(Ontario)
 
@@ -217,15 +214,15 @@ In dit artikel worden de landen en regio's die worden gebruikt door de **geograf
 
             - CA-YT(Yukon Territory)
 
-        - CR(Costa Rica)
+        - CR (Costa Rica)
 
-        - CU(Cuba)
+        - Cu(Cuba)
 
-        - CW(CuraÃ§ao)
+        - Cw(CuraÃ§ao)
 
         - DM(Dominica)
 
-        - DOEN (Dominicaanse Republiek)
+        - (Dominicaanse Republiek)
 
         - GD(Grenada)
 
@@ -243,11 +240,11 @@ In dit artikel worden de landen en regio's die worden gebruikt door de **geograf
 
         - KN (Saint Kitts en Nevis)
 
-        - Tenantsleutel (Caymaneilanden)
+        - KY (Kaaimaneilanden)
 
-        - LC(Saint Lucia)
+        - LC (Saint Lucia)
 
-        - MF(Saint Martin)
+        - MF (Sint-Maarten)
 
         - MQ(Martinique)
 
@@ -259,13 +256,13 @@ In dit artikel worden de landen en regio's die worden gebruikt door de **geograf
 
         - PA(Panama)
 
-        - CB (Saint Pierre en Miquelon)
+        - UUR (Saint-Pierre en Miquelon)
 
-        - PR (Portorico)
+        - Pull-aanvraag (Puerto Rico)
 
         - SV (El Salvador)
 
-        - SX (Sint Maarten)
+        - SX (Sint-Maarten)
 
         - TC (Turks-en Caicoseilanden)
 
@@ -277,7 +274,7 @@ In dit artikel worden de landen en regio's die worden gebruikt door de **geograf
 
             - US-AK(Alaska)
 
-            - US-AL(Alabama)
+            - US-al(Alabama)
 
             - US-ar(Arkansas)
 
@@ -301,19 +298,19 @@ In dit artikel worden de landen en regio's die worden gebruikt door de **geograf
 
             - US-IA(Iowa)
 
-            - US-ID(Idaho)
+            - US-id(Idaho)
 
             - US-IL(Illinois)
 
-            - US-IN(Indiana)
+            - US-in(Indiana)
 
             - US-KS(Kansas)
 
             - US-KY(Kentucky)
 
-            - US-LA(Louisiana)
+            - US-la(Louisiana)
 
-            - US-MA(Massachusetts)
+            - US-ma(Massachusetts)
 
             - US-MD(Maryland)
 
@@ -323,19 +320,19 @@ In dit artikel worden de landen en regio's die worden gebruikt door de **geograf
 
             - US-Mn(Minnesota)
 
-            - US-MO(Missouri)
+            - US-mo(Missouri)
 
             - US-MS(Mississippi)
 
             - US-MT(Montana)
 
-            - US-NC(North Carolina)
+            - VS-NC(North Carolina)
 
             - VS-ND(North Dakota)
 
             - US-NE(Nebraska)
 
-            - US-NH(New Hampshire)
+            - VS-NH(New Hampshire)
 
             - VS-NJ(New Jersey)
 
@@ -353,7 +350,7 @@ In dit artikel worden de landen en regio's die worden gebruikt door de **geograf
 
             - US-Pa(Pennsylvania)
 
-            - US-RI(Rhode Island)
+            - VS-RI(Rhode Island)
 
             - VS-SC(South Carolina)
 
@@ -371,7 +368,7 @@ In dit artikel worden de landen en regio's die worden gebruikt door de **geograf
 
             - US-WA(Washington)
 
-            - US-WI(Wisconsin)
+            - US-Wi(Wisconsin)
 
             - VS-WV(West Virginia)
 
@@ -379,15 +376,15 @@ In dit artikel worden de landen en regio's die worden gebruikt door de **geograf
 
         - VC (Saint Vincent en de Grenadines)
 
-        - VG (Brits Maagdeneilanden)
+        - VG (Britse Maagdeneilanden)
 
-        - VI (VERENIGDE STATEN Eerste eilanden)
+        - VI (VERENIGDE STATEN Maagdeneilanden eilanden)
 
         - XE (Sint Eustatius)
 
         - XS(Saba)
 
-    - GEO-AS(Asia)
+    - GEO-as(Asia)
 
         - AF(Afghanistan)
 
@@ -401,11 +398,11 @@ In dit artikel worden de landen en regio's die worden gebruikt door de **geograf
 
         - BT(Bhutan)
 
-        - CC (Cocoseilanden eilanden)
+        - CC (Cocos-Keeling-eilanden)
 
         - CN(China)
 
-        - CX(Christmas Island)
+        - Met CX (Christmaseiland)
 
         - GE(Georgia)
 
@@ -415,7 +412,7 @@ In dit artikel worden de landen en regio's die worden gebruikt door de **geograf
 
         - IN(India)
 
-        - I/o (Brits Territorium in de Indische Oceaan)
+        - I/o (Brits Indische Oceaanterritorium)
 
         - JP(Japan)
 
@@ -423,7 +420,7 @@ In dit artikel worden de landen en regio's die worden gebruikt door de **geograf
 
         - KH(Cambodia)
 
-        - KP (Noord Korea)
+        - KP (Noord-Korea)
 
         - KR(Korea)
 
@@ -437,7 +434,7 @@ In dit artikel worden de landen en regio's die worden gebruikt door de **geograf
 
         - Mn(Mongolia)
 
-        - MO(Macao SAR)
+        - MA (Macau SAR)
 
         - MV(Maldives)
 
@@ -465,23 +462,23 @@ In dit artikel worden de landen en regio's die worden gebruikt door de **geograf
 
         - VN(Vietnam)
 
-    - GEO-AF(Africa)
+    - GEO-af(Africa)
 
         - AO(Angola)
 
-        - BF(Burkina Faso)
+        - BF (Burkina Faso)
 
         - BI(Burundi)
 
         - BJ(Benin)
 
-        - BV(Bouvet Island)
+        - BV (Bouveteiland)
 
         - BW(Botswana)
 
-        - CD(Congo (DRC))
+        - CD (Congo-Kinshasa)
 
-        - CF (Republiek Centraal Afrika)
+        - CF (Centraal-Afrikaanse Republiek)
 
         - CG(Congo)
 
@@ -489,11 +486,11 @@ In dit artikel worden de landen en regio's die worden gebruikt door de **geograf
 
         - CM(Cameroon)
 
-        - K/l (Cabo Verde)
+        - CV (Cabo Verde)
 
         - DJ(Djibouti)
 
-        - DZ(Algeria)
+        - Dz(Algeria)
 
         - EG(Egypt)
 
@@ -501,7 +498,7 @@ In dit artikel worden de landen en regio's die worden gebruikt door de **geograf
 
         - ET(Ethiopia)
 
-        - GA(Gabon)
+        - Ga(Gabon)
 
         - GH(Ghana)
 
@@ -509,7 +506,7 @@ In dit artikel worden de landen en regio's die worden gebruikt door de **geograf
 
         - GN(Guinea)
 
-        - GQ(Equatorial Guinea)
+        - GQ (Equatoriaal-Guinea)
 
         - GW(Guinea_Bissau)
 
@@ -553,15 +550,15 @@ In dit artikel worden de landen en regio's die worden gebruikt door de **geograf
 
         - SH (Sint-Helena, Ascension en Tristan da Cunha)
 
-        - SL(Sierra Leone)
+        - SL (Sierra Leone)
 
         - SN(Senegal)
 
         - SO(Somalia)
 
-        - SS (Zuid Soedan)
+        - SS (Zuid-Soedan)
 
-        - ST (São Tomé en Príncipe)
+        - ST (Sao Tomé en principe)
 
         - SZ(Swaziland)
 
@@ -585,7 +582,7 @@ In dit artikel worden de landen en regio's die worden gebruikt door de **geograf
 
         - ZW(Zimbabwe)
 
-    - GEO-AN(Antarctica)
+    - GEO-an(Antarctica)
 
         - AQ(Antarctica)
 
@@ -605,9 +602,9 @@ In dit artikel worden de landen en regio's die worden gebruikt door de **geograf
 
         - FK (Falklandeilanden)
 
-        - GF (Frans Guyana)
+        - GF (Frans-Guyana)
 
-        - GS (Zuid-Georgië en de Zuidelijke Sandwich-eilanden)
+        - GS (Zuid-Georgië en de Zuidelijke Sandwicheilanden)
 
         - GY(Guyana)
 
@@ -627,41 +624,41 @@ In dit artikel worden de landen en regio's die worden gebruikt door de **geograf
 
         - AU(Australia)
 
-            - Australië-ACT(Australian Capital Territory)
+            - AU-ACT(Australian Capital Territory)
 
-            - Australië-NSW(New South Wales)
+            - AU-NSW(New South Wales)
 
             - AU-NT(Northern Territory)
 
             - AU-QLD(Queensland)
 
-            - Australië-SA(South Australia)
+            - AU-SA(South Australia)
 
-            - AU-TAS(Tasmania)
+            - AU-tas(Tasmania)
 
             - AU-VIC(Victoria)
 
-            - Australië-WA(Western Australia)
+            - AU-WA(Western Australia)
 
-        - St (Cookeilanden)
+        - CK (Cookeilanden)
 
         - FJ(Fiji)
 
         - FM(Micronesia)
 
-        - GU(Guam)
+        - Gu(Guam)
 
-        - HM (Heard- en McDonald-eilanden)
+        - HM (Heard- en McDonaldeilanden)
 
         - KI(Kiribati)
 
-        - DV (marshallen eilanden)
+        - MH (Marshalleilanden)
 
-        - MP (Marianen)
+        - MP (Noordelijke Marianen)
 
         - NC (Nieuw-Caledonië)
 
-        - NF(Norfolk Island)
+        - NF (Norfolkeiland)
 
         - NR(Nauru)
 
@@ -669,7 +666,7 @@ In dit artikel worden de landen en regio's die worden gebruikt door de **geograf
 
         - NZ (Nieuw-Zeeland)
 
-        - PF (Frans Polynesië)
+        - PF (Frans-Polynesië)
 
         - PG (Papoea-Nieuw-Guinea)
 
@@ -693,4 +690,4 @@ In dit artikel worden de landen en regio's die worden gebruikt door de **geograf
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Meer informatie over [geografisch verkeer routeringsmethode in Azure Traffic Manager](traffic-manager-routing-methods.md#geographic).
+- Meer informatie over [routeringsmethode in Azure Traffic Manager het verkeer naar geografisch](traffic-manager-routing-methods.md#geographic).

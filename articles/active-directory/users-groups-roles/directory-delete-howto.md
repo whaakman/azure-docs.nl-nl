@@ -13,12 +13,12 @@ ms.date: 06/13/2018
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: b1d3439412e324c71687c43aa9e47c520cb72262
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: ab752799c9e64e47abe0200a26215f9e01c489f6
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42055124"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50139683"
 ---
 # <a name="delete-an-azure-active-directory-tenant"></a>Een Azure Active Directory-tenant niet verwijderen
 Wanneer een tenant is verwijderd, worden ook alle resources die zijn opgenomen in de tenant verwijderd. U moet de tenant voorbereiden door het minimaliseren van alle bijbehorende resources, voordat u verwijderen. Alleen een globale beheerder van Azure Active Directory (Azure AD) u een Azure AD-tenant uit de portal verwijderen kunt.
@@ -73,7 +73,7 @@ U kunt een abonnement in plaatst een **Deprovisoned** status moet worden verwijd
   
   ![algemene voorwaarden](./media/directory-delete-howto/delete-terms.png)
 
-4. Nu de abonnementsstatus is gewijzigd, wordt het abonnement is gemarkeerd voor verwijdering. De abonnement-eneters de **inrichting ongedaan gemaakt** status 72 uur later opnieuw.
+4. Nu de abonnementsstatus is gewijzigd, wordt het abonnement is gemarkeerd voor verwijdering. Het abonnement voert de **inrichting ongedaan gemaakt** status 72 uur later opnieuw.
 
 5. Als u een abonnement op uw tenant hebt verwijderd en 72 uur zijn verstreken, kunt u zich aanmelden terug in de Azure AD-beheercentrum opnieuw en er moeten er is geen actie vereist en er zijn geen abonnementen blokkeren van het verwijderen van uw tenants. U moet mogelijk uw Azure AD-tenant is verwijderd.
   

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: lizross
 ms.custom: it-pro
-ms.openlocfilehash: f546ea5b5f9288849334d27cd1721f0c22fb8806
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: fae68bccbeaa54ca1bab9d77510fe6baecd11fcc
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46297772"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50139717"
 ---
 # <a name="how-to-add-or-remove-group-owners-in-azure-active-directory"></a>Hoe: toevoegen of verwijderen van eigenaren van groepen in Azure Active Directory
 Azure Active Directory (Azure AD)-beveiligingsgroepen zijn eigendom van en beheerd door eigenaren van groepen. Eigenaren van groepen worden toegewezen voor het beheren van een groep en de bijbehorende leden van een resource-eigenaar (beheerder). Groepseigenaren hoeven te worden leden van de groep. Nadat de Groepseigenaar van een is toegewezen, kunt alleen de eigenaar van een resource toevoegen of eigenaren verwijderen.
@@ -27,9 +27,9 @@ In sommige gevallen besluiten u als de beheerder toe te wijzen een eigenaar van 
 Aanvullende groepseigenaren toevoegen aan een groep met behulp van Azure AD.
 
 ### <a name="to-add-a-group-owner"></a>De Groepseigenaar van een toevoegen
-1. Aanmelden bij de [Azure-portal](https://portal.azure.com) met behulp van een globale beheerdersaccount voor de map.
+1. Meld u aan bij de [Azure Portal](https://portal.azure.com) met het account van een globale administrator voor de map.
 
-2. Selecteer **Azure Active Directory**, selecteer **groepen**, en selecteer vervolgens de groep waarvoor u wilt een eigenaar toevoegen (in dit voorbeeld _MDM-beleid - West_).
+2. Selecteer **Azure Active Directory**, selecteer **groepen**, en selecteer vervolgens de groep waarvoor u wilt een eigenaar toevoegen (in dit voorbeeld *MDM-beleid - West*).
 
 3. Op de **MDM-beleid - West-overzicht** weergeeft, schakelt **eigenaren**.
 
@@ -45,9 +45,9 @@ Aanvullende groepseigenaren toevoegen aan een groep met behulp van Azure AD.
 Een eigenaar verwijderen uit een groep met behulp van Azure AD.
 
 ### <a name="to-remove-an-owner"></a>Een eigenaar verwijderen
-1. Aanmelden bij de [Azure-portal](https://portal.azure.com) met behulp van een globale beheerdersaccount voor de map.
+1. Meld u aan bij de [Azure Portal](https://portal.azure.com) met het account van een globale administrator voor de map.
 
-2. Selecteer **Azure Active Directory**, selecteer **groepen**, en selecteer vervolgens de groep waarvoor u wilt een eigenaar toevoegen (in dit voorbeeld _MDM-beleid - West_).
+2. Selecteer **Azure Active Directory**, selecteer **groepen**, en selecteer vervolgens de groep waarvoor u wilt een eigenaar wilt verwijderen (in dit voorbeeld *MDM-beleid - West*).
 
 3. Op de **MDM-beleid - West-overzicht** weergeeft, schakelt **eigenaren**.
 

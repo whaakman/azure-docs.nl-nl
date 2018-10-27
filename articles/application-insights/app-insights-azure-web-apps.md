@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/05/2017
+ms.date: 10/25/2018
 ms.author: mbullwin
-ms.openlocfilehash: 5743408b000dd7497a10f27db2a4ea9d87082b8d
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 91b050c4e1ca37c0af208d6df1ce4f8272235294
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47091792"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50139768"
 ---
 # <a name="monitor-azure-web-app-performance"></a>Prestaties van Azure-web-apps controleren
 In de [Azure Portal](https://portal.azure.com) kunt u instellen dat de prestaties van uw [Azure-web-apps](../app-service/app-service-web-overview.md) worden gecontroleerd. Met [Azure Application Insights](app-insights-overview.md) instrumenteert u uw app om telemetrie over de eigen activiteiten te sturen naar de Application Insights-service, waar de gegevens worden opgeslagen en geanalyseerd. Daar kunnen metrische grafieken en zoekfuncties worden gebruikt om problemen vast te stellen, prestaties te verbeteren en het gebruik te beoordelen.
@@ -33,24 +33,32 @@ U kunt de controle configureren door de app op twee manieren te instrumenteren:
 Als u al een web-app uitvoert in Azure, is er al sprake van enige controle: frequentie van aanvragen en fouten. Voeg Application Insights toe om de controle uit te breiden met reactietijden, controle van het aanroepen van afhankelijkheden, slimme detectie en de krachtige Log Analytics-querytaal. 
 
 1. **Selecteer Application Insights** in het Azure-configuratiescherm voor uw web-app.
-   
-    ![Kies Application Insights onder Controleren.](./media/app-insights-azure-web-apps/05-extend.png)
-   
-   * Kies voor het maken van een nieuwe resource, tenzij u voor deze app al langs een andere weg een Application Insights-resource hebt ingesteld.
-2. **Instrumenteer uw web-app** nadat Application Insights is geïnstalleerd. 
-   
-    ![Uw web-app instrumenteren](./media/app-insights-azure-web-apps/restart-web-app-for-insights.png)
+
+    ![Kies Application Insights onder instellingen.](./media/app-insights-azure-web-apps/settings-app-insights.png)
+
+   * Te kiezen om een nieuwe resource te maken, tenzij u al een Application Insights-resource voor deze toepassing instellen. 
+
+    > [!NOTE]
+    > Wanneer u klikt op **OK** te maken van de nieuwe resource wordt u gevraagd naar **controle-instellingen toepassen**. Selecteren **doorgaan** uw nieuwe Application Insights-resource wordt gekoppeld aan uw web-app, dit ook **activeert u opnieuw opstarten van uw web-app**. 
+
+    ![Uw web-app instrumenteren](./media/app-insights-azure-web-apps/create-resource.png)
+
+2. Zodra de resource is gemaakt Selecteer **controleren en Application Insights-extensie voor de web-app-update** om te bevestigen dat de extensie up-to-date is.
+
+     ![Controleren en bijwerken van de extensie voor site](./media/app-insights-azure-web-apps/check-and-update.png)
+
+3. **Instrumenteer uw web-app** nadat Application Insights is geïnstalleerd.
 
    **Schakel bewaking aan clientzijde in** voor paginaweergave- en gebruikerstelemetrie.
 
    * Selecteer Instellingen > Toepassingsinstellingen
-   * Voeg een nieuw sleutelwaardepaar toe bij App-instellingen: 
-   
-    Sleutel: `APPINSIGHTS_JAVASCRIPT_ENABLED` 
-    
+   * Voeg een nieuw sleutelwaardepaar toe bij App-instellingen:
+
+    Sleutel: `APPINSIGHTS_JAVASCRIPT_ENABLED`
+
     Waarde:`true`
    * Sla de instellingen op met **Opslaan** en start de app opnieuw met **Opnieuw opstarten**.
-3. **Controleer uw app**.  [Verken de gegevens](#explore-the-data).
+4. Controle van uw app-gegevens verkennen door te selecteren **instellingen** > **Application Insights** > **meer in Application Insights weergeven**.
 
 Desgewenst kunt u de app later bouwen met Application Insights.
 
@@ -63,14 +71,14 @@ Application Insights kan gedetailleerdere telemetrie verstrekken door een SDK in
 
 1. Configureer **in Visual Studio** (2013-update 2 of hoger) Application Insights voor uw project.
 
-    Klik met de rechtermuisknop op het webproject en selecteer **Toevoegen > Application Insights** of **Application Insights configureren**.
-   
+    Met de rechtermuisknop op het webproject en selecteer **toevoegen > Application Insights** of **Project** > **Application Insights**  >  **Application Insights configureren**.
+
     ![Klik met de rechtermuisknop op het webproject en kies Application Insights toevoegen of configureren.](./media/app-insights-azure-web-apps/03-add.png)
-   
+
     Als u wordt gevraagd om u aan te melden, gebruikt u de referenties voor uw Azure-account.
-   
+
     De bewerking zorgt voor twee effecten:
-   
+
    1. Maakt een Application Insights-resource in Azure, waarbij telemetrie wordt opgeslagen, geanalyseerd en weergegeven.
    2. Voegt het pakket Application Insights NuGet toe aan uw code (als die er nog niet is) en configureert deze zodanig dat telemetrie wordt verzonden naar de Azure-resource.
 2. **Test de telemetrie** door de app uit te voeren op uw ontwikkelcomputer (F5).
@@ -79,29 +87,6 @@ Application Insights kan gedetailleerdere telemetrie verstrekken door een SDK in
 *Hoe schakel ik over om naar een andere Application Insights-resource te verzenden?*
 
 * Klik in Visual Studio met de rechtermuisknop op het project, kies **Application Insights configureren** en kies de gewenste resource. U krijgt de mogelijkheid om een nieuwe resource te maken. Opnieuw maken en implementeren
-
-## <a name="explore-the-data"></a>De gegevens verkennen
-1. Op de Application Insights-blade van het web-app-configuratiescherm ziet u Live Metrics, waar aanvragen en fouten binnen luttele seconden nadat ze zijn opgetreden worden weergegeven. Dit is bijzonder handige informatie wanneer u uw app opnieuw publiceert, omdat u problemen onmiddellijk te zien krijgt.
-2. Klik door naar de volledige Application Insights-resource.
-
-    ![Doorklikken](./media/app-insights-azure-web-apps/view-in-application-insights.png)
-
-    U kunt er ook rechtstreeks naartoe gaan via Azure-resourcenavigatie.
-
-1. Klik op een grafiek voor gedetailleerdere gegevens:
-   
-    ![Klik op een grafiek in de Application Insights-overzichtsblade](./media/app-insights-azure-web-apps/07-dependency.png)
-   
-    U kunt [metrische blades aanpassen](app-insights-metrics-explorer.md).
-2. Klik door om afzonderlijke gebeurtenissen en hun eigenschappen te zien:
-   
-    ![Klik op een gebeurtenistype om een zoekactie te openen die op dat type is gefilterd](./media/app-insights-azure-web-apps/08-requests.png)
-   
-    Let op de '...'-koppeling waarmee u alle eigenschappen kunt openen.
-   
-    U kunt [zoekacties aanpassen](app-insights-diagnostic-search.md).
-
-Gebruik de [Log Analytics-querytaal](app-insights-analytics-tour.md) voor krachtigere zoekacties in uw telemetrie.
 
 ## <a name="more-telemetry"></a>Meer telemetrie
 

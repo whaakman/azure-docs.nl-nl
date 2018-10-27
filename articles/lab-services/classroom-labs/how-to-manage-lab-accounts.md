@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/17/2018
 ms.author: spelluru
-ms.openlocfilehash: fd43c62f1a291a59d5d373437a49b263d6af4cb3
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 6f9b85ec4821ff2454970136b3c8af2cb0f92154
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39345885"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50140820"
 ---
 # <a name="manage-lab-accounts-in-azure-lab-services"></a>Lab-accounts in Azure Lab Services beheren 
 Een lab-account is in Azure Lab-Services, een container voor beheerde labs zoals leslokaallabs. Een beheerder stelt u een lab-account met Azure Lab-Services en biedt toegang tot een lab-eigenaren die labs in het account maken kunnen. In dit artikel wordt beschreven hoe u een lab-account maken, alle lab-accounts weergeven of verwijderen van een lab-account.
@@ -55,17 +55,17 @@ Om een leslokaallab in een labaccount in te kunnen stellen, moet de gebruiker li
     ![Gebruiker toevoegen aan de rol Labmaker](../media/tutorial-setup-lab-account/add-user-to-lab-creator-role.png)
 
 ## <a name="specify-marketplace-images-available-to-lab-owners"></a>Microsoft Azure Marketplace-installatiekopieën die beschikbaar zijn voor eigenaars van een lab opgeven
-Als de eigenaar van een lab-account, kunt u de Marketplace-installatiekopieën die lab makers labs maken in het lab-account kunnen gebruiken. 
+Als eigenaar van een labaccount kunt u de Marketplace-installatiekopieën opgeven die labmakers kunnen gebruiken in het labaccount. 
 
 1. Selecteer **Marketplace-installatiekopieën** in het menu aan de linkerkant. Standaard ziet u de volledige lijst met installatiekopieën (zowel ingeschakelde als uitgeschakelde). U kunt de lijst filteren om alleen ingeschakelde/uitgeschakelde installatiekopieën te bekijken door de optie **Alleen ingeschakeld**/**Alleen uitgeschakeld** in de vervolgkeuzelijst bovenaan te selecteren. 
     
     ![Pagina Microsoft Azure Marketplace-installatiekopieën](../media/tutorial-setup-lab-account/marketplace-images-page.png)
 
-    De Marketplace-installatiekopieën die worden weergegeven in de lijst zijn alleen degene die voldoen aan de volgende voorwaarden:
+    De Marketplace-installatiekopieën die worden weergegeven in de lijst, zijn de enige die voldoen aan de volgende voorwaarden:
         
-    - Hiermee maakt u een enkele virtuele machine.
-    - Maakt gebruik van Azure Resource Manager voor het inrichten van virtuele machines
-    - Vereist geen extra licentieabonnement aanschaffen
+    - Hiermee wordt een enkele VM gemaakt.
+    - Maakt gebruik van Azure Resource Manager om VM’s in te richten
+    - Hiervoor hoeft u geen extra licentieabonnement aan te schaffen
 2. Als u een Microsoft Azure Marketplace-installatiekopie die is ingeschakeld wilt **uitschakelen**, voert u een van de volgende acties uit: 
     1. Selecteer **... (beletselteken)**  in de laatste kolom en selecteer **Installatiekopie uitschakelen**. 
 
@@ -90,6 +90,28 @@ Volg de instructies uit de vorige sectie die lab-accounts in een lijst weergegev
 2. Selecteer **verwijderen** via de werkbalk. 
 3. Type **Ja** ter bevestiging.
 4. Selecteer **Verwijderen**. 
+
+## <a name="view-and-manage-labs-in-the-lab-account"></a>Weergeven en labs in het lab-account beheren
+
+1. Op de **Lab-Account** weergeeft, schakelt **Labs** in het menu links.
+
+    ![Labs in het account](../media/how-to-manage-lab-accounts/labs-in-account.png)
+1. U ziet een **lijst met labs** in het account met de volgende informatie: 
+    1. De naam van het testlab.
+    2. De datum waarop het lab is gemaakt. 
+    3. E-mailadres van de gebruiker die het lab gemaakt. 
+    4. Maximum aantal gebruikers dat is toegestaan in het lab. 
+    5. De status van het testlab. 
+
+## <a name="delete-a-lab-in-the-lab-account"></a>Een lab in het lab-account verwijderen
+Volg de instructies in de vorige sectie voor een overzicht van de labs in het lab-account.
+
+1. Selecteer **... (ellips)** , en selecteer **verwijderen**. 
+
+    ![Verwijderen van een lab - knop](../media/how-to-manage-lab-accounts/delete-lab-button.png)
+2. Selecteer **Ja** op het waarschuwingsbericht staan aangegeven. 
+
+
 
 ## <a name="next-steps"></a>Volgende stappen
 Aan de slag met het installeren van een lab met Azure Lab Services:

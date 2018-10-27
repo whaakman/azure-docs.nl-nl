@@ -10,12 +10,12 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: tulasim
-ms.openlocfilehash: 76024266a8ae3eb03e910e140184a07ae363e881
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 53fadc0e3ea21b94ca656774baf077192c0394b4
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49384939"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50137290"
 ---
 # <a name="qna-maker-limits"></a>QnA Maker-limieten
 Uitgebreide lijst met limieten voor QnA Maker.
@@ -26,7 +26,7 @@ Uitgebreide lijst met limieten voor QnA Maker.
 
 |**Azure Search tier** | **Gratis** | **Basic** |**S1** | **S2**| **S3** |**S3 HD**|
 |---|---|---|---|---|---|----|
-|Maximum aantal gepubliceerde knowledge bases toegestaan (maximum aantal indexen--1 (gereserveerd voor test)|2|14|49|199|199|2999|
+|Maximum aantal gepubliceerde knowledge bases toegestaan (maximum aantal indexen--1 (gereserveerd voor test)|2|14|49|199|199|2,999|
 
 ## <a name="extraction-limits"></a>Extractie limieten
 * Maximum aantal bestanden die kunnen worden geëxtraheerd en maximale bestandsgrootte: Zie [QnAMaker prijzen](https://azure.microsoft.com/pricing/details/cognitive-services/qna-maker/)
@@ -41,7 +41,7 @@ Uitgebreide lijst met limieten voor QnA Maker.
 
 ## <a name="knowledge-base-content-limits"></a>Limieten voor Knowledge Base-inhoud
 Algemene beperkingen met betrekking tot de inhoud in het knowledge base:
-* Lengte van de antwoordtekst: 250000
+* Lengte van de antwoordtekst: 25.000
 * Lengte van de vraagtekst: 1000
 * Lengte van de metagegevens van sleutel/waarde-tekst: 100
 * Ondersteunde tekens voor de naam van de metagegevens: letters, cijfers en _  

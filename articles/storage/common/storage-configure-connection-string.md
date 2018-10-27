@@ -2,18 +2,18 @@
 title: Een verbindingsreeks configureren voor Azure Storage | Microsoft Docs
 description: Een verbindingsreeks voor een Azure storage-account configureren. Een verbindingsreeks bevat de informatie die nodig is om toegang te verlenen aan een storage-account van uw toepassing tijdens runtime.
 services: storage
-author: craigshoemaker
+author: tamram
 ms.service: storage
 ms.topic: article
 ms.date: 04/12/2017
-ms.author: cshoe
+ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 1c6ba727bf9c19b5da0d0d0313377d5d4ad1e2ac
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 75f8e5605b84b21abf92cd77a71793dbceb4a62b
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39531103"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50139023"
 ---
 # <a name="configure-azure-storage-connection-strings"></a>Azure Storage-verbindingsreeksen configureren
 

@@ -7,140 +7,113 @@ author: diberry
 manager: cgronlun
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 10/24/2018
 ms.author: diberry
 ms.service: cognitive-services
-ms.openlocfilehash: 9b7207a16a89e48ad64b2dbc48a5293d0cf8aa25
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 495b7e99319126b3ee9e655b2d9aa4af940e1d56
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47036079"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50139910"
 ---
-# <a name="manage-intents"></a>Intents beheren 
-Voeg [intents](luis-concept-intent.md) aan uw LUIS-app voor het identificeren van groepen van vragen of de opdrachten die het hetzelfde doel hebben. 
+# <a name="add-intents"></a>Intents toevoegen 
 
-Intents worden beheerd vanuit de **bouwen** sectie in de bovenste werkbalk. U toevoegen en beheren van uw intenties van de **Intents** pagina, beschikbaar in het linkerdeelvenster. 
+Voeg [intents](luis-concept-intent.md) naar uw LUIS-app en het identificeren van vragen of opdrachten die hetzelfde doel hebben. 
 
-De volgende procedure laat zien hoe u het doel "Bookflight" in de app TravelAgent toevoegen.
+Intents worden beheerd vanuit de bovenste navigatiebalk staat **bouwen** sectie, klikt u vervolgens in het linkerpaneel **Intents**. 
 
-## <a name="add-intent"></a>Doel toevoegen
+## <a name="create-an-app"></a>Een app maken
 
-1. Open uw app (bijvoorbeeld TravelAgent) door te klikken op de naam ervan op **mijn Apps** pagina en klik vervolgens op **Intents** in het linkerpaneel. 
-2. Op de **Intents** pagina, klikt u op **maken van nieuwe bedoeling**.
+1. Aanmelden bij de [LUIS](https://www.luis.ai) portal.
 
-3. In de **maken van nieuwe bedoeling** in het dialoogvenster, type de bedoeling naam 'BookFlight' en klikt u op **gedaan**.
+1. Selecteer **Create new app**. 
+
+1. Naam van de nieuwe app `MyHumanResourcesApp`. Selecteer de **Engels** cultuur. De beschrijving is optioneel. 
+
+1. Selecteer **Done**. 
+
+## <a name="add-intent"></a>Intentie toevoegen
+
+1. De app wordt geopend op de **Intents** lijst.
+
+1. Selecteer **Create new intent** op de pagina **Intents**.
+
+1. In de **maken van nieuwe bedoeling** dialoogvenster vak, voer de naam van de intentie `GetEmployeeInformation`, en klikt u op **gedaan**.
 
     ![Doel toevoegen](./media/luis-how-to-add-intents/Addintent-dialogbox.png)
 
-    Op de detailpagina van de intentie van de zojuist toegevoegde intentie [utterances toevoegen](#add-an-utterance-on-intent-page).
+## <a name="add-an-example-utterance"></a>Een voorbeeld-utterance toevoegen
 
-## <a name="rename-intent"></a>Wijzig de naam van doel
+Voorbeeld uitingen zijn voorbeelden van de tekst van de gebruiker vragen of opdrachten. Als u wilt leren Language Understanding (LUIS), moet u voorbeeld utterances toevoegen aan een doel.
 
-1. Op de **bedoeling** pagina, klikt u op het pictogram wijzigen ![Wijzig de naam van intentie](./media/luis-how-to-add-intents/Rename-Intent-btn.png) naast de naam van de intentie. 
-
-2. Op de **bedoeling** pagina, de naam van de huidige intentie wordt weergegeven in het dialoogvenster. Bewerk de naam van de intentie en druk op enter. De nieuwe naam wordt opgeslagen en weergegeven op de pagina intentie.
-
-    ![Doel bewerken](./media/luis-how-to-add-intents/EditIntent-dialogbox.png)
-
-## <a name="delete-intent"></a>Verwijderen van doel
-Bij het verwijderen van een doel dan de intentie geen, kunt u alle uitingen toevoegen aan de intentie geen. Dit is handig als u wilt verplaatsen van de uitingen in plaats van deze worden verwijderd.   
-
-1. Op de **bedoeling** pagina, klikt u op de **verwijderen kunt u lezen wat** knop naast de rechterkant van de naam van de intentie. 
-
-    ![Intentie knop verwijderen](./media/luis-how-to-add-intents/DeleteIntent.png)
-
-2. Klik op de knop 'Ok' in het bevestigingsvenster.
-
-<!--
-    TBD: waiting for confirmation about which delete dialog is going to be in //BUILD
-
-    ![Delete Intent Dialog](./media/luis-how-to-add-intents/DeleteIntent-Confirmation.png)
--->
-
-
-## <a name="add-an-utterance-on-intent-page"></a>Een utterance op intentie pagina toevoegen
-
-Voer een relevante utterance die u kunt van uw gebruikers, zoals verwachten op de pagina intentie `book 2 adult business tickets to Paris tomorrow on Air France` in het tekstvak onder de naam van de intentie en druk op Enter. 
+1. Op de **GetEmployeeInformation** intentie details pagina, voer een relevante utterance die u kunt van uw gebruikers, zoals verwachten `Does John Smith work in Seattle?` in het tekstvak onder de naam van de intentie en druk op Enter.
  
->[!NOTE]
->LUIS worden alle uitingen geconverteerd naar kleine letters.
+    ![Schermafbeelding van de intenties pagina, met utterance gemarkeerd](./media/luis-how-to-add-intents/add-new-utterance-to-intent.png) 
 
-![Schermafbeelding van de intenties pagina, met utterance gemarkeerd](./media/luis-how-to-add-intents/add-new-utterance-to-intent.png) 
+    LUIS alle uitingen geconverteerd naar kleine letters en voegt spaties rond tokens zoals afbreekstreepjes bevatten.
 
-Uitingen worden toegevoegd aan de lijst met uitingen voor het huidige doel. Wanneer een utterance is toegevoegd, [label van de entiteiten](luis-how-to-add-example-utterances.md) binnen de uitingen en [trainen](luis-how-to-train.md) uw app. 
+## <a name="intent-prediction-discrepancy-errors"></a>Voorspelling van intentie discrepantie fouten 
 
-## <a name="create-a-pattern-from-an-utterance"></a>Maken van een patroon van een utterance
-Zie [toevoegen patroon uit bestaande utterance op de pagina kunt u lezen wat of entiteit](luis-how-to-model-intent-pattern.md#add-pattern-from-existing-utterance-on-intent-or-entity-page).
+Een utterance in een doel kan een voorspelling van intentie verschil tussen het geselecteerde doel en de voorspelling score hebben. LUIS geeft aan dat dit verschil met een rood kader rond de **met het label bedoeling** op de rij van de voorbeeld-utterance. 
 
-## <a name="edit-an-utterance-on-intent-page"></a>Een utterance op intentie pagina bewerken
+![Schermafbeelding van de intenties pagina, met utterance gemarkeerd](./media/luis-how-to-add-intents/prediction-discrepancy-intent.png) 
 
-Als u wilt een utterance bewerken, selecteer het weglatingsteken (***...*** ) aan de rechterkant van de regel voor die utterance en selecteer vervolgens **bewerken**. Wijzig de tekst en druk op Enter op het toetsenbord.
+Selecteer in de bovenste navigatiebalk **Train**. Het verschil voorspellen is nu verdwenen.
 
-![Schermafbeelding van de intenties pagina, met de knop met weglatingsteken gemarkeerd](./media/luis-how-to-add-intents/edit-utterance.png) 
+## <a name="add-a-custom-entity"></a>Een aangepaste entiteit toevoegen
 
-## <a name="reassign-utterances-on-intent-page"></a>Uitingen op intentie pagina opnieuw toewijzen
-U kunt het doel van een of meer uitingen wijzigen door deze opnieuw toewijzen aan een ander doel. 
+Zodra een utterance wordt toegevoegd aan een doel, kunt u tekst uit de utterance om een aangepaste entiteit te maken. Een aangepaste entiteit is een manier om de labeltekst voor uitpakken, samen met de juiste intentie. 
 
-Als u wilt toewijzen van een enkele utterance naar een ander doel, aan de rechterkant van de rij van de utterance, selecteert u de juiste naam van de intentie onder de **met het label bedoeling** kolom. De utterance is verwijderd uit de huidige intentie utterance lijst. 
+1. Selecteer het woord `Seattle`, in de utterance. Vierkante haken worden getekend rondom de tekst en een vervolgkeuzelijst wordt weergegeven. 
 
-![Schermafbeelding van BookFlight intentie pagina met de bedoeling van een utterance onder Labeled intentie kolom geselecteerd](./media/luis-how-to-add-intents/reassign-1-utterance.png)
+    ![Schermafbeelding van de intenties de detailpagina van het maken van aangepaste entiteit](./media/luis-how-to-add-intents/create-custom-entity.png) 
 
-Als u wilt wijzigen van de intentie van verschillende uitingen, schakel de selectievakjes in aan de linkerkant van de uitingen en selecteer vervolgens **opnieuw toewijzen van intentie**. Selecteer het juiste doel in de lijst.
+    In het volgende voorbeeld wordt één woord om te markeren als een entiteit. U kunt één werkt en zinnen markeren als entiteiten.
 
-![Schermafbeelding van BookFlight intentie pagina met een utterance gecontroleerd en de intentie knop gemarkeerd voor opnieuw toewijzen](./media/luis-how-to-add-intents/delete-several-utterances.png) 
+1. Voer in het bovenste tekstvak-van het menu, `Location`en selecteer vervolgens **nieuwe entiteit maken**. 
 
-## <a name="delete-utterances-on-intent-page"></a>Uitingen op intentie pagina verwijderen
+    ![Schermafbeelding van de intenties detailpagina, naam van de aangepaste entiteit maken](./media/luis-how-to-add-intents/create-custom-entity-name.png) 
 
-Als u wilt verwijderen een utterance, selecteer het weglatingsteken (***...*** ) aan de rechterkant van de regel voor die utterance en selecteer vervolgens **verwijderen**. De utterance wordt verwijderd uit de lijst en de LUIS-app.
+1. In de **welk type entiteit wilt u maken?** pop-upvenster voor het maken van een entiteit, Controleer of de **entiteitnaam** is _locatie_, en de **entiteitstype**  is _eenvoudige_. Selecteer **Done**.
 
-![Schermafbeelding van de intenties pagina, met de optie voor het verwijderen is gemarkeerd](./media/luis-how-to-add-intents/delete-utterance-ddl.png)
+## <a name="entity-prediction-discrepancy-errors"></a>Entiteit voorspelling discrepantie fouten 
 
-Verschillende uitingen verwijderen:
+De entiteit wordt dit onderstreept in rood om aan te geven een [entiteit voorspelling discrepantie](luis-how-to-add-example-utterances.md#entity-status-predictions). Omdat dit het eerste exemplaar van een entiteit, er zijn niet voldoende voorbeelden voor LUIS hebben een hoge betrouwbaarheid die deze tekst is gecodeerd met de juiste entiteit. Dit verschil wordt verwijderd wanneer de app wordt getraind. 
 
-1. Schakel de selectievakjes in aan de linkerkant van de uitingen en selecteer vervolgens **uitingen (s) verwijderen**. 
+![Schermafbeelding van de intenties de pagina met details, de naam van de aangepaste entiteit in het blauw is gemarkeerd](./media/luis-how-to-add-intents/create-custom-entity-name-blue-highlight.png) 
 
-    ![Schermafbeelding van de intenties pagina, met uitingen gecontroleerd en utterance(s) knop gemarkeerd verwijderen](./media/luis-how-to-add-intents/delete-several-utterances.png)
+De tekst is in blauw, die wijzen op een entiteit gemarkeerd.  
 
-2. Selecteer **gedaan** in de **uitingen verwijderen?** pop-upvenster.
+## <a name="add-a-prebuilt-entity"></a>Een vooraf gedefinieerde entiteit toevoegen
 
-## <a name="search-in-utterances-on-intent-page"></a>Zoeken in uitingen op intentie pagina
-U kunt zoeken naar uitingen die tekst (woorden of zinsdelen) bevatten in van de intentie utterance lijst. Bijvoorbeeld, ziet u mogelijk een foutbericht weergegeven dat betrekking heeft op een bepaald woord, en u wilt alle voorbeelden die bepaald woord bevatten. 
+Zie voor meer informatie, [vooraf gedefinieerde entiteit](luis-how-to-add-entities.md#add-prebuilt-entity).
 
-1. Selecteer het pictogram met Vergrootglas in de werkbalk.
+## <a name="using-the-contextual-toolbar"></a>Met behulp van de contextuele werkbalk
 
-    ![Schermafbeelding van de intenties pagina met zoekpictogram van Vergrootglas gemarkeerd](./media/luis-how-to-add-intents/magnifying-glass.png)
+Wanneer een of meer voorbeeld uitingen is geselecteerd in de lijst het selectievakje aan de linkerkant van een utterance, wordt de werkbalk boven de lijst met utterance kunt u de volgende acties uitvoeren:
 
-2. Een Zoektekstvak wordt weergegeven. Typ het woord of zinsdeel in het zoekvak in de rechterbovenhoek van de lijst met uitingen. De uitingen lijst met updates, zodat alleen de uitingen die uw zoektekst bevatten. 
+* Opnieuw toewijzen van doel: utterance(s) verplaatsen naar een ander doel
+* Utterance(s) verwijderen
+* Entiteit filters: alleen weergeven met gefilterde entiteiten uitingen
+* Alles weergeven / alleen fouten: uitingen met voorspelling fouten weergeven of weergeven van alle uitingen
+* Entiteiten/Tokens weergave: entiteiten weergeven met namen van entiteiten of onbewerkte tekst van utterance weergeven
+* Vergrootglas: zoek uitingen met specifieke tekst
 
-    ![Schermafbeelding van de intenties pagina met Zoektekstvak gemarkeerd](./media/luis-how-to-add-intents/search-textbox.png)
+## <a name="working-with-an-individual-utterance"></a>Werken met een afzonderlijke utterance
 
-    De zoekopdracht te annuleren en de volledige lijst met uitingen herstellen, verwijderen van de zoektekst die u hebt getypt. Als u wilt sluiten in het Zoektekstvak, selecteert u het pictogram met Vergrootglas opnieuw op de werkbalk.
+De volgende acties kunnen worden uitgevoerd op een afzonderlijke utterance in het menu van de drie puntjes aan de rechterkant van de utterance:
 
-## <a name="prediction-discrepancy-errors-on-intent-page"></a>Voorspelling discrepantie fouten op intentie pagina
-Een utterance in een intent mogelijk een discrepantie tussen het geselecteerde doel en de score voorspelling. LUIS geeft aan dat dit verschil met een rood kader rond de score. 
+* Bewerken: de tekst van de utterance wijzigen
+* Verwijderen: Verwijder de utterance uit het doel. Als u nog steeds de utterance wilt, een betere methode is om te verplaatsen naar de **geen** intentie. 
+* Toevoegen van een patroon: een patroon kunt u een algemene utterance en markeren replaceable en ignorable tekst, waardoor de noodzaak van meer uitingen in het doel. 
 
-![Schermafbeelding van de intentie van de BookFlight pagina met voorspelling discrepantie score gemarkeerd](./media/luis-how-to-add-intents/score-discrepancy.png) 
-
-## <a name="filter-by-intent-prediction-discrepancy-errors-on-intent-page"></a>Filteren op intentie voorspelling discrepantie fouten op intentie pagina
-Als u wilt filteren op de lijst utterance alleen uitingen met een discrepantie intentie voorspelling, in-/ uitschakelen van **Alles weergeven** naar **alleen fouten** in de werkbalk. 
-
-## <a name="filter-by-entity-type-on-intent-page"></a>Filteren op entiteitstype op intentie pagina
-Gebruik de **entiteit filters** vervolgkeuzelijst op de werkbalk om de uitingen filteren op entiteit. 
-
-![Schermafbeelding van de intenties pagina met entiteit type filter gemarkeerd](./media/luis-how-to-add-intents/filter-by-entities.png) 
-
-Als u wilt verwijderen van het filter, selecteert u het blauwe filtervak met dat woord of woordgroep onder de werkbalk.  
-<!-- TBD: waiting for ux fix - bug in ux of prebuit entity number -- when filtering by it, it doesn't show the list -->
-
-## <a name="switch-to-token-view-on-intent-page"></a>Overschakelen naar de token weergave op intentie pagina
-In-/ uitschakelen **Tokens weergave** om de tokens in plaats van de namen van het type entiteit weer te geven. Op het toetsenbord, kunt u ook gebruiken **besturingselement + E** in de weergave-of uitschakelen. 
-
-![Schermafbeelding van BookFlight doel met Token weergeven die zijn gemarkeerd](./media/luis-how-to-add-intents/toggle-tokens-view.png)
+De **met het label bedoeling** kolom kunt u het doel van de utterance wijzigen.
 
 ## <a name="train-your-app-after-changing-model-with-intents"></a>Uw app na het wijzigen van model met intents trainen
-Na het toevoegen, bewerken of verwijderen van intents, [trainen](luis-how-to-train.md) en [publiceren](luis-how-to-publish-app.md) uw app voor uw wijzigingen zijn doorgevoerd in eindpunt query's. 
+
+Na het toevoegen, bewerken of verwijderen van intents, [trainen](luis-how-to-train.md) en [publiceren](luis-how-to-publish-app.md) uw app zodat uw wijzigingen worden toegepast op eindpunt query's. 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Na het intents toevoegen aan uw app, uw volgende taak bestaat uit om te beginnen met het toevoegen [voorbeeld uitingen](luis-how-to-add-example-utterances.md) voor de die u hebt toegevoegd. 
+Meer informatie over het toevoegen van [voorbeeld uitingen](luis-how-to-add-example-utterances.md) met entiteiten. 

@@ -5,15 +5,15 @@ services: automation
 ms.service: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/02/2018
+ms.date: 10/25/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 9ba60f770c094f65ee5a4ed6dc21a5e07bac3d27
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: e865d4e9cbad2c2064d961bc6e407440ce8556fc
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48267746"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50158802"
 ---
 # <a name="run-shell-scripts-in-your-linux-vm-with-run-command"></a>Shell-scripts uitvoeren in uw Linux-VM met de opdracht uitvoeren
 
@@ -38,6 +38,9 @@ Hieronder vindt u een lijst met beperkingen die aanwezig zijn bij het gebruik va
 * De maximale tijd die kan worden uitgevoerd door een script is 90 minuten, na waarin het time-out wordt
 * Uitgaande connectiviteit van de virtuele machine is vereist om de resultaten van het script te retourneren.
 
+> [!NOTE]
+> De opdracht uitvoeren vereist om correct te functioneren, verbinding (poort 443) met Azure openbare IP-adressen. Als de extensie heeft geen toegang tot deze eindpunten, kunnen de scripts worden uitgevoerd, maar niet de resultaten worden geretourneerd. Als u verkeer op de virtuele machine blokkeert, kunt u [servicetags](../../virtual-network/security-overview.md#service-tags) waarmee verkeer naar Azure openbare IP-adressen met behulp van de `AzureCloud` tag.
+
 ## <a name="azure-cli"></a>Azure-CLI
 
 Hier volgt een voorbeeld met behulp van de [az vm-opdracht uitvoeren](/cli/azure/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke) opdracht een shell-script uitvoeren op een virtuele Azure Linux-machine.
@@ -55,7 +58,7 @@ Navigeer naar een virtuele machine in [Azure](https://portal.azure.com) en selec
 
 ![Lijst met opdrachten uitvoeren](./media/run-command/run-command-list.png)
 
-Kies een opdracht uit te voeren. Enkele van de opdrachten mogelijk optioneel of vereiste invoerparameters. Voor deze opdrachten worden de parameters weergegeven als tekstvelden voor u de ingevoerde waarden op te geven. Voor elke opdracht die u kunt het script dat wordt uitgevoerd door het uitbreiden van weergeven **script weergeven**. **RunShellScript** wijkt af van de andere opdrachten aangezien kunt u uw eigen aangepaste script opgeven. 
+Kies een opdracht uit te voeren. Enkele van de opdrachten mogelijk optioneel of vereiste invoerparameters. Voor deze opdrachten worden de parameters weergegeven als tekstvelden voor u de ingevoerde waarden op te geven. Voor elke opdracht die u kunt het script dat wordt uitgevoerd door het uitbreiden van weergeven **script weergeven**. **RunShellScript** wijkt af van de andere opdrachten aangezien kunt u uw eigen aangepaste script opgeven.
 
 > [!NOTE]
 > De ingebouwde opdrachten kunnen niet worden bewerkt.
