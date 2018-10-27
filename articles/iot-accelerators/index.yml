@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: e901ba81b92a5d7a7454fbfaca96902e1e8008a8
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: c45b86913f8c76b80da921e2813d405b61d08041
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "41927608"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50139188"
 documentType: LandingData
 title: Documentatie voor IoT-oplossingsversnellers
 metadata:
@@ -17,7 +17,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 07/24/2018
+  ms.date: 10/26/2018
   ms.author: dobett
 abstract:
   description: Lees hier hoe u de IoT-oplossingsversnellers gebruikt. In deze artikelen leest u hoe u de oplossingsversnellers gebruikt om snel aan de slag te gaan met de implementatie van algemene IoT-scenario's zoals bewaking op afstand, IoT voor de industriesector, voorspellend onderhoud en apparaatsimulatie.
@@ -43,4 +43,5 @@ sections:
     - html: <a href="/azure/iot-accelerators/iot-accelerators-remote-monitoring-monitor">Uw IoT-apparaten bewaken</a>
     - html: <a href="/azure/iot-accelerators/iot-accelerators-remote-monitoring-automate">Problemen detecteren met apparaten die zijn verbonden met uw bewakingsoplossing</a>
     - html: <a href="/azure/iot-accelerators/iot-accelerators-remote-monitoring-manage">Apparaten configureren en beheren die zijn verbonden met uw bewakingsoplossing</a>
+    - html: <a href="/azure/iot-accelerators/iot-accelerators-remote-monitoring-root-cause-analysis">Een analyse uitvoeren van de hoofdoorzaak van een waarschuwing</a>
     - html: <a href="/azure/iot-accelerators/iot-accelerators-remote-monitoring-maintain">Waarschuwingen gebruiken en apparaatproblemen oplossen</a>
