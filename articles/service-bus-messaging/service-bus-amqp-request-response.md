@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2018
 ms.author: spelluru
-ms.openlocfilehash: b05e23019e7b0a03965e51052bf334d0cbff041d
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 6ba3d8e4273d0f2ce2626d8876c386a3714d5355
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48269340"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50159091"
 ---
 # <a name="amqp-10-in-microsoft-azure-service-bus-request-response-based-operations"></a>AMQP 1.0 in Microsoft Azure Service Bus: aanvraag-reactie-bewerkingen
 
@@ -179,7 +179,7 @@ De berichttekst van de aanvraag moet bestaan uit een **amqp-waarde** een sectie 
   
 |Sleutel|Waardetype|Vereist|De inhoud van waarde|  
 |---------|----------------|--------------|--------------------|  
-|`from-sequence-number`|lengte|Ja|Volgnummer uit waarop u wilt beginnen peek.|  
+|`from-sequence-number`|lang|Ja|Volgnummer uit waarop u wilt beginnen peek.|  
 |`message-count`|int|Ja|Maximum aantal berichten te bekijken.|  
   
 #### <a name="response"></a>Antwoord  
@@ -188,7 +188,7 @@ Het antwoordbericht moet de volgende toepassingseigenschappen bevatten:
   
 |Sleutel|Waardetype|Vereist|De inhoud van waarde|  
 |---------|----------------|--------------|--------------------|  
-|statusCode|int|Ja|HTTP-responscode [RFC2616]<br /><br /> 200: OK – heeft meer berichten<br /><br /> 0xcc: geen inhoud – geen berichten meer|  
+|statusCode|int|Ja|HTTP-responscode [RFC2616]<br /><br /> 200: OK – heeft meer berichten<br /><br /> 204: geen inhoud – geen berichten meer|  
 |Statusbeschrijving|tekenreeks|Nee|Beschrijving van de status.|  
   
 De berichttekst van het antwoord moet bestaan uit een **amqp-waarde** een sectie met een **kaart** met de volgende items:  
@@ -308,7 +308,7 @@ Het antwoordbericht moet de volgende toepassingseigenschappen bevatten:
   
 |Sleutel|Waardetype|Vereist|De inhoud van waarde|  
 |---------|----------------|--------------|--------------------|  
-|statusCode|int|Ja|HTTP-responscode [RFC2616]<br /><br /> 200: OK – heeft meer berichten<br /><br /> 0xcc: geen inhoud – geen berichten meer|  
+|statusCode|int|Ja|HTTP-responscode [RFC2616]<br /><br /> 200: OK – heeft meer berichten<br /><br /> 204: geen inhoud – geen berichten meer|  
 |Statusbeschrijving|tekenreeks|Nee|Beschrijving van de status.|  
   
 De berichttekst van het antwoord moet bestaan uit een **amqp-waarde** sectie met een map met de volgende items:  
@@ -334,7 +334,7 @@ De berichttekst van de aanvraag moet bestaan uit een **amqp-waarde** een sectie 
   
 |Sleutel|Waardetype|Vereist|De inhoud van waarde|  
 |---------|----------------|--------------|--------------------|  
-|uit de volgnummer|lengte|Ja|Volgnummer uit waarop u wilt beginnen peek.|  
+|uit de volgnummer|lang|Ja|Volgnummer uit waarop u wilt beginnen peek.|  
 |aantal berichten|int|Ja|Maximum aantal berichten te bekijken.|  
 |sessie-id|tekenreeks|Ja|Sessie-ID.|  
   
@@ -344,7 +344,7 @@ Het antwoordbericht moet de volgende toepassingseigenschappen bevatten:
   
 |Sleutel|Waardetype|Vereist|De inhoud van waarde|  
 |---------|----------------|--------------|--------------------|  
-|statusCode|int|Ja|HTTP-responscode [RFC2616]<br /><br /> 200: OK – heeft meer berichten<br /><br /> 0xcc: geen inhoud – geen berichten meer|  
+|statusCode|int|Ja|HTTP-responscode [RFC2616]<br /><br /> 200: OK – heeft meer berichten<br /><br /> 204: geen inhoud – geen berichten meer|  
 |Statusbeschrijving|tekenreeks|Nee|Beschrijving van de status.|  
   
 De berichttekst van het antwoord moet bestaan uit een **amqp-waarde** sectie met een map met de volgende items:  
@@ -449,7 +449,7 @@ Het antwoordbericht moet de volgende toepassingseigenschappen bevatten:
   
 |Sleutel|Waardetype|Vereist|De inhoud van waarde|  
 |---------|----------------|--------------|--------------------|  
-|statusCode|int|Ja|HTTP-responscode [RFC2616]<br /><br /> 200: OK – heeft meer berichten<br /><br /> 0xcc: geen inhoud – geen berichten meer|  
+|statusCode|int|Ja|HTTP-responscode [RFC2616]<br /><br /> 200: OK – heeft meer berichten<br /><br /> 204: geen inhoud – geen berichten meer|  
 |Statusbeschrijving|tekenreeks|Nee|Beschrijving van de status.|  
   
 De berichttekst van het antwoord moet bestaan uit een **amqp-waarde** een sectie met een **kaart** met de volgende items:  
@@ -477,15 +477,15 @@ De berichttekst van de aanvraag moet bestaan uit een **amqp-waarde** een sectie 
 |Sleutel|Waardetype|Vereist|De inhoud van waarde|  
 |---------|----------------|--------------|--------------------|  
 |naam van regel|tekenreeks|Ja|Regelnaam, niet met inbegrip van namen abonnement en het onderwerp.|  
-|Beschrijving van regel|Kaart|Ja|Regelbeschrijving zoals opgegeven in de volgende sectie.|  
+|Beschrijving van regel|map|Ja|Regelbeschrijving zoals opgegeven in de volgende sectie.|  
   
 De **Regelbeschrijving** kaart omvat de volgende items, waarbij **sql-filter** en **correlatiefilter** sluiten elkaar wederzijds uit:  
   
 |Sleutel|Waardetype|Vereist|De inhoud van waarde|  
 |---------|----------------|--------------|--------------------|  
-|SQL-filter|Kaart|Ja|`sql-filter`, zoals opgegeven in de volgende sectie.|  
-|correlatie-filter|Kaart|Ja|`correlation-filter`, zoals opgegeven in de volgende sectie.|  
-|SQL-regelactie|Kaart|Ja|`sql-rule-action`, zoals opgegeven in de volgende sectie.|  
+|SQL-filter|map|Ja|`sql-filter`, zoals opgegeven in de volgende sectie.|  
+|correlatie-filter|map|Ja|`correlation-filter`, zoals opgegeven in de volgende sectie.|  
+|SQL-regelactie|map|Ja|`sql-rule-action`, zoals opgegeven in de volgende sectie.|  
   
 De toewijzing van de sql-filter moet de volgende items bevatten:  
   
@@ -505,7 +505,7 @@ De **correlatiefilter** kaart moet ten minste één van de volgende items bevatt
 |sessie-id|tekenreeks|Nee||  
 |antwoord-naar-sessie-id|tekenreeks|Nee||  
 |inhoudstype|tekenreeks|Nee||  
-|properties|Kaart|Nee|Toegewezen aan Servicebus [BrokeredMessage.Properties](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Properties).|  
+|properties|map|Nee|Toegewezen aan Servicebus [BrokeredMessage.Properties](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Properties).|  
   
 De **sql regelactie** kaart moet de volgende items bevatten:  
   
@@ -668,7 +668,7 @@ De kaart die een bericht moet de volgende items bevatten:
   
 |Sleutel|Waardetype|Vereist|De inhoud van waarde|  
 |---------|----------------|--------------|--------------------|  
-|LOCK-token|UUID|Ja|LOCK-token als `receiver-settle-mode` is 1.|  
+|LOCK-token|uuid|Ja|LOCK-token als `receiver-settle-mode` is 1.|  
 |message|matrix van bytes|Ja|AMQP 1.0 wire-bericht dat is gecodeerd.|  
   
 ### <a name="update-disposition-status"></a>De status van de bestemming bijwerken  
@@ -692,7 +692,7 @@ De berichttekst van de aanvraag moet bestaan uit een **amqp-waarde** een sectie 
 |LOCK-tokens|matrix met uuid|Ja|Bericht vergrendeling tokens toestand status bij te werken.|  
 |onbestelbare berichten-reden|tekenreeks|Nee|Kan worden ingesteld als de status van de bestemming is ingesteld op **onderbroken**.|  
 |Beschrijving van onbestelbare berichten|tekenreeks|Nee|Kan worden ingesteld als de status van de bestemming is ingesteld op **onderbroken**.|  
-|Eigenschappen te wijzigen|Kaart|Nee|Lijst met Service Bus brokered-berichteigenschappen om te wijzigen.|  
+|Eigenschappen te wijzigen|map|Nee|Lijst met Service Bus brokered-berichteigenschappen om te wijzigen.|  
   
 #### <a name="response"></a>Antwoord  
 
