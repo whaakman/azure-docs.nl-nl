@@ -13,30 +13,30 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/17/2018
+ms.date: 10/26/2018
 ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 7323f532787fa767d875e13262cce9f1ceaa79d8
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: ef4bffe3aca05afbdf579b34ddb85c58095b3f3b
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955510"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50138205"
 ---
-# <a name="azure-active-directory-code-samples-v2-endpoint"></a>Azure Active Directory-codevoorbeelden (V2-eindpunt)
+# <a name="azure-active-directory-code-samples-v20-endpoint"></a>Azure Active Directory-codevoorbeelden (v2.0-eindpunt)
 
 [!INCLUDE [active-directory-develop-applies-v2-msal](../../../includes/active-directory-develop-applies-v2-msal.md)]
 
-U kunt Microsoft Azure Active Directory (Azure AD) om te gebruiken:
+U kunt Microsoft identity-platform te gebruiken:
 
 - Verificatie en autorisatie toevoegen aan uw webtoepassingen en web-API's.
 - Vereisen dat een toegangstoken voor toegang tot een beveiligde web-API.
 
-Dit artikel worden kort en verstrekt u koppelingen naar voorbeelden van het Azure AD V2-eindpunt. Deze voorbeelden laten zien hoe dit werkt, samen met codefragmenten die u in uw toepassingen gebruiken kunt. Op de pagina van het voorbeeld van code vindt u gedetailleerde Leesmij-onderwerpen die aan de vereisten, installatie, en instellen. Opmerkingen in de code, zijn er om te begrijpen van de kritieke secties.
+Dit artikel worden kort en verstrekt u koppelingen naar voorbeelden van het Azure AD v2.0-eindpunt. Deze voorbeelden laten zien hoe dit werkt, samen met codefragmenten die u in uw toepassingen gebruiken kunt. Op de pagina van het voorbeeld van code vindt u gedetailleerde Leesmij-onderwerpen die aan de vereisten, installatie, en instellen. Opmerkingen in de code, zijn er om te begrijpen van de kritieke secties.
 
 > [!NOTE]
-> Als u geïnteresseerd in V1-voorbeelden bent, Zie [Azure AD-codevoorbeelden (V1-eindpunt)](sample-v1-code.md).
+> Als u geïnteresseerd in v1.0 voorbeelden bent, Zie [Azure AD-codevoorbeelden (v1.0 eindpunt)](sample-v1-code.md).
 
 Zie voor meer informatie over het algemeen scenario voor elk Voorbeeldtype, [App-typen voor de Azure Active Directory v2.0-eindpunt](v2-app-types.md).
 
@@ -44,7 +44,11 @@ U kunt ook bijdragen aan de voorbeelden op GitHub. Voor meer informatie Zie [Mic
 
 ## <a name="single-page-applications-spa"></a>Toepassingen met één pagina (SPA)
 
-In dit voorbeeld laat zien hoe het schrijven van een toepassing één pagina die wordt beveiligd met Azure AD. Deze voorbeelden gebruik een van de versies van het MSAL.js: [Microsoft Authentication Library voor JavaScript](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-core), [Microsoft Authentication Library voor Angular](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular), [Microsoft Authentication Library voor AngularJS](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angularjs)
+Deze voorbeelden laten zien hoe het schrijven van een toepassing één pagina die wordt beveiligd met Azure AD. Deze voorbeelden gebruik een van de versies van het MSAL.js:
+
+* [Microsoft Authentication Library voor JavaScript](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-core)
+* [Microsoft Authentication Library voor Angular](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular)
+* [Microsoft Authentication Library voor AngularJS](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angularjs)
 
  Platform |  Aanroepen van Microsoft Graph
  -------- |  ---------------------
@@ -58,20 +62,20 @@ De volgende voorbeelden ziet u webtoepassingen die aanmelden van gebruikers. Aan
 
  Platform | Alleen gebruikers worden aangemeld | Gebruikers worden aangemeld en Microsoft Graph aanroepen
  -------- | ------------------- | ---------------------------------
-![ASP.NET](media/sample-v2-code/logo_NETframework.png)<p/> ASP.NET | [appmodelv2-Web-App-openIDConnect-dotNet](https://GitHub.com/AzureAdQuickstarts/AppModelv2-WebApp-OpenIDConnect-DotNet) <p/> [DotNet-Web-App-openidconnect-v2](https://GitHub.com/azure-samples/active-directory-dotnet-webapp-openidconnect-v2)  |              [ASPNET-verbinding maken-rest-voorbeeld](https://github.com/microsoftgraph/aspnet-connect-rest-sample)
-![ASP.NET](media/sample-v2-code/logo_NETcore.png)<p/>ASP.NET Core 2.0 | [aspnetcore-Web-App-openidconnect-v2](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2) |              [aspnetcore-verbinding maken-voorbeeld](https://github.com/microsoftgraph/aspnetcore-connect-sample)
-![Node.js](media/sample-v2-code/logo_nodejs.png)  |                   | [AppModelv2-Web-App-OpenIDConnect-nodejs](https://github.com/azureadquickstarts/appmodelv2-webapp-openidconnect-nodejs)
-![Ruby](media/sample-v2-code/logo_ruby.png) |                   | [Ruby-verbinding maken-rest-voorbeeld](https://github.com/microsoftgraph/ruby-connect-rest-sample)
+![ASP.NET Core](media/sample-v2-code/logo_NETcore.png)<p/>ASP.NET Core 2.0 | [aspnetcore-Web-App-openidconnect-v2](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2) | Hetzelfde voorbeeld de [signInAndCallMsGraph](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/signInAndCallMsGraph) vertakking
+![ASP.NET](media/sample-v2-code/logo_NETframework.png)<p/> ASP.NET | [ASP.NET-snelstartgids](https://GitHub.com/AzureAdQuickstarts/AppModelv2-WebApp-OpenIDConnect-DotNet) <p/> [DotNet-Web-App-openidconnect-v2](https://GitHub.com/azure-samples/active-directory-dotnet-webapp-openidconnect-v2)  |  [DotNet-admin-beperkt-scopes-v2](https://github.com/azure-samples/active-directory-dotnet-admin-restricted-scopes-v2) <p/>[MSGraph-training-aspnetmvcapp](https://github.com/microsoftgraph/msgraph-training-aspnetmvcapp)
+![Node.js](media/sample-v2-code/logo_nodejs.png)  |                   | [Snelstartgids voor node.js](https://github.com/azureadquickstarts/appmodelv2-webapp-openidconnect-nodejs)
+![Ruby](media/sample-v2-code/logo_ruby.png) |                   | [MSGraph-training-rubyrailsapp](https://github.com/microsoftgraph/msgraph-training-rubyrailsapp)
 
 ## <a name="desktop-and-mobile-public-client-apps"></a>Desktop- en mobiele openbare client-apps
 
-De volgende voorbeelden tonen openbare client toepassingen (desktop/mobiele toepassingen) die toegang hebben tot de Microsoft Graph of uw eigen Web-API van de naam van een gebruiker. Deze clienttoepassingen gebruikt MicroSoft Authentication Libraries (MSAL)
+De volgende voorbeelden tonen openbare client toepassingen (desktop/mobiele toepassingen) die toegang hebben tot de Microsoft Graph API of uw eigen Web-API van de naam van een gebruiker. Deze clienttoepassingen gebruikt Microsoft Authentication Libraries (MSAL).
 
 Clienttoepassing | Platform | Stroom/verlenen | Aanroepen van Microsoft Graph | Een ASP.NET Core 2.0-Web-API-aanroepen
 ------------------ | -------- |  ----------| ---------- | -------------------------
-(WPF) Desktop      | ![.NET / C#](media/sample-v2-code/logo_NET.png) | Interactieve | [DotNet-desktop-msgraph-v2](http://github.com/azure-samples/active-directory-dotnet-desktop-msgraph-v2) <p/> [DotNet-admin-beperkt-scopes-v2](https://github.com/azure-samples/active-directory-dotnet-admin-restricted-scopes-v2) | [DotNet-native-aspnetcore-v2](https://GitHub.com/azure-samples/active-directory-dotnet-native-aspnetcore-v2)
+(WPF) Desktop      | ![.NET / C#](media/sample-v2-code/logo_NET.png) | Interactieve | [DotNet-desktop-msgraph-v2](http://github.com/azure-samples/active-directory-dotnet-desktop-msgraph-v2) | [DotNet-native-aspnetcore-v2](https://GitHub.com/azure-samples/active-directory-dotnet-native-aspnetcore-v2)
 Bureaublad (Console)   | ![.NET / C# (Desktop)](media/sample-v2-code/logo_NET.png) | Geïntegreerde Windows-verificatie |[DotNet-iwa-v2](https://github.com/azure-samples/active-directory-dotnet-iwa-v2)
-Bureaublad (Console)   | ![.NET / C# (Desktop)](media/sample-v2-code/logo_NETcore.png) | Gebruikersnaam en wachtwoord |[dotnetcore-up-v2](https://github.com/azure-samples/active-directory-dotnetcore-up-v2)
+Bureaublad (Console)   | ![.NET / C# (Desktop)](media/sample-v2-code/logo_NETcore.png) | Gebruikersnaam en wachtwoord |[dotnetcore-up-v2](https://github.com/azure-samples/active-directory-dotnetcore-console-up-v2)
 Mobile (UWP)   | ![.NET / C# (UWP)](media/sample-v2-code/logo_windows.png) | Interactieve |[DotNet-native-uwp-v2](https://github.com/azure-samples/active-directory-dotnet-native-uwp-v2) |
 Mobile (Android, iOS, UWP)   | ![.NET / C# (Xamarin)](media/sample-v2-code/logo_xamarin.png) | Interactieve |[xamarin-native-v2](https://Github.com/azure-samples/active-directory-xamarin-native-v2) |
 Mobile (iOS)       | ![iOS / Objective-C of swift.](media/sample-v2-code/logo_iOS.png) | Interactieve |[IOS swift-native v2](https://github.com/azure-samples/active-directory-ios-swift-native-v2) <p/> [IOS-native-nxoauth2-v2](https://github.com/azure-samples/active-directory-ios-native-nxoauth2-v2) |
@@ -79,7 +83,7 @@ Mobile (Android)   | ![Android / Java](media/sample-v2-code/logo_Android.png) | 
 
 ## <a name="daemon-applications"></a>Daemon-toepassingen
 
-Het volgende voorbeeld van een toepassing die toegang heeft tot de Microsoft Graph met de eigen identiteit (waarbij geen gebruiker).
+De volgende voorbeelden ziet een toepassing die toegang heeft tot de Microsoft Graph-API met een eigen identiteit (waarbij geen gebruiker).
 
 Clienttoepassing | Platform | Stroom/verlenen | Aanroepen van Microsoft Graph
 ------------------ | -------- | ---------- | --------------------
@@ -88,7 +92,7 @@ Web-app | ![ASP.NET](media/sample-v2-code/logo_NETframework.png)<p/> ASP.NET  | 
 
 ## <a name="headless-applications"></a>' Headless '-toepassingen
 
-De volgende voorbeelden tonen openbare client toepassingen die worden uitgevoerd op een apparaat zonder een webbrowser. Deze apps kunnen worden opdrachtregelprogramma's, of apps die worden uitgevoerd op Linux/Mac- of iOT-toepassing. De voorbeelden zijn voorzien van apps die toegang tot de Microsoft Graph naam van een gebruiker die zich aanmeldt interactief op een ander apparaat (bijvoorbeeld een mobiele telefoon). Deze clienttoepassingen gebruikt MicroSoft Authentication Libraries (MSAL)
+Het volgende voorbeeld toont een openbare client-toepassing die wordt uitgevoerd op een apparaat zonder een webbrowser. De app is een opdrachtregelprogramma, of die wordt uitgevoerd op Linux/Mac of een IoT-toepassing. Het voorbeeld is uitgerust met een app toegang tot de Microsoft Graph-API van de naam van een gebruiker die zich aanmeldt interactief op een ander apparaat (zoals een mobiele telefoon). Deze clienttoepassing maakt gebruik van MicroSoft Authentication Libraries (MSAL).
 
 Clienttoepassing | Platform | Stroom/verlenen | Aanroepen van Microsoft Graph
 ------------------ | -------- |  ----------| ----------
@@ -96,11 +100,11 @@ Bureaublad (Console)   | ![.NET / C# (Desktop)](media/sample-v2-code/logo_NETcor
 
 ## <a name="web-apis"></a>Web-API's
 
-Het volgende voorbeeld toont het beveiligen van een web-API met de Azure AD V2-eindpunt. Deze API wordt uitgevoerd door een WPF-toepassing (maar eigenlijk kan worden aangeroepen in elke toepassing)
+Het volgende voorbeeld toont het beveiligen van een web-API met de Azure AD v2.0-eindpunt. Deze API wordt uitgevoerd door een WPF-toepassing, maar deze kan worden aangeroepen in elke toepassing.
 
 Platform | Voorbeeld
  -------- | -------------------
-![.NET / C#](media/sample-v2-code/logo_NET.png) | [DotNet-native-aspnetcore-v2](https://GitHub.com/azure-samples/active-directory-dotnet-native-aspnetcore-v2)
+![.NET / C#](media/sample-v2-code/logo_NET.png) | WebAPI (service) van [dotnet-native-aspnetcore-v2](https://GitHub.com/azure-samples/active-directory-dotnet-native-aspnetcore-v2)
 
 ## <a name="other-microsoft-graph-samples"></a>Andere voorbeelden van Microsoft Graph
 
