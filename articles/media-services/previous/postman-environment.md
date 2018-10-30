@@ -1,28 +1,28 @@
 ---
-title: Importeren van de omgeving Postman voor Azure Media Services REST-aanroepen
-description: Dit onderwerp bevat een definitie van de omgeving Postman voor Azure Media Services REST-aanroepen.
+title: Importeren van de Postman-omgeving voor Azure Media Services REST-aanroepen
+description: Dit onderwerp bevat een definitie van de Postman-omgeving voor Azure Media Services REST-aanroepen.
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/04/2018
+ms.date: 10/29/2018
 ms.author: juliako
-ms.openlocfilehash: aa3e1bb4c6ae53e24e3153dd55f6a6d07e29e091
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 037bdc233090e79695c17df197bb4c7adb517b20
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33790375"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50229789"
 ---
-# <a name="import-the-postman-environment"></a>De omgeving Postman importeren 
+# <a name="import-the-postman-environment"></a>De Postman-omgeving importeren 
 
-In dit artikel bevat een definitie van de **Postman** omgevingsvariabelen die worden gebruikt de [Postman verzameling](postman-collection.md) die gegroepeerde HTTP-aanvragen die aanroepen van Media Services REST-API's bevat. De omgeving en verzameling bestanden worden gebruikt door de [Postman configureren voor Media Services REST-API-aanroepen](media-rest-apis-with-postman.md) zelfstudie.
+In dit artikel bevat een definitie van de **Postman** omgevingsvariabelen die worden gebruikt de [Postman-verzameling](postman-collection.md) die gegroepeerde HTTP-aanvragen die Media Services REST-API's aanroepen bevat. De omgeving en verzameling bestanden worden gebruikt door de [Postman configureren voor Media Services REST API-aanroepen](media-rest-apis-with-postman.md) zelfstudie.
 
 ```
 {

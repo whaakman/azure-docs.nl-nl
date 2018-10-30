@@ -11,12 +11,12 @@ ms.assetid: d6d14f5f-2126-4e33-808e-41de08e6721f
 ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
-ms.openlocfilehash: 813df5b4ef37ad1264df48863aa8f0ed5a4d4789
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 68378c87e18df874059579445352b8fd1b2b6c13
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43048771"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50232712"
 ---
 # <a name="exchange-messages-in-the-cloud-with-azure-service-bus-and-azure-logic-apps"></a>Exchange-berichten in de cloud met Azure Service Bus en Azure Logic Apps
 
@@ -64,7 +64,7 @@ Controleer of uw logische app machtigingen voor toegang tot uw Service Bus-naamr
       ![Service Bus-naamruimte-verbindingsreeks kopiëren](./media/connectors-create-api-azure-service-bus/find-service-bus-connection-string.png)
 
    > [!TIP]
-   > Zoeken om te controleren of de verbindingsreeks gekoppeld aan uw Service Bus-naamruimte of een Berichtentiteit, zoals een wachtrij is, de verbindingsreeks voor de `EntityPath` parameter. Als u deze parameter kunt vinden, de verbindingsreeks is voor een specifieke entiteit en is niet de juiste tekenreeks die moet worden gebruikt met uw logische app.
+   > Zoeken om te controleren of de verbindingsreeks gekoppeld aan uw Service Bus-naamruimte of een Berichtentiteit, zoals een wachtrij is, de verbindingsreeks voor de `EntityPath`  parameter. Als u deze parameter kunt vinden, de verbindingsreeks is voor een specifieke entiteit en is niet de juiste tekenreeks die moet worden gebruikt met uw logische app.
 
 ## <a name="add-trigger-or-action"></a>Trigger of actie toevoegen
 
@@ -140,7 +140,7 @@ Voor technische informatie over triggers en acties limieten die worden beschreve
 ## <a name="get-support"></a>Ondersteuning krijgen
 
 * Ga naar het [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps) (Forum voor Azure Logic Apps) als u vragen hebt.
-* Als u ideeën voor functies wilt indienen of erop wilt stemmen, gaat u naar de [website voor feedback van Logic Apps-gebruikers](http://aka.ms/logicapps-wish).
+* Als u ideeën voor functies wilt indienen of erop wilt stemmen, gaat u naar de [website voor feedback van Logic Apps-gebruikers](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/03/2018
+ms.date: 10/28/2018
 ms.author: magoedte
-ms.openlocfilehash: 49688b958d904450c50944725b18e0d518e27146
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 32cd373499a1ac6dd8cc02e666b0f6ff70688157
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48269255"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215256"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Met behulp van de oplossing Serviceoverzicht in Azure
 Serviceoverzicht ontdekt automatisch toepassingsonderdelen op Windows- en Linux-systemen en wijst de communicatie tussen services toe. Met Service Map, kunt u uw servers weergeven in de manier waarop u kunt ze beschouwen: als onderling verbonden systemen die kritieke services verlenen. Servicetoewijzing toont verbindingen tussen servers, processen, binnenkomend en uitgaand verbinding latentie en poorten in alle via TCP verbonden architectuur, waarvoor geen configuratie vereist dan de installatie van een agent.
@@ -72,11 +72,6 @@ Machines kunnen worden uitgebreid in de kaart om weer te geven van de actieve gr
 
 Standaard tonen Serviceoverzicht maps de laatste 30 minuten van afhankelijkheidsinformatie. Met behulp van de besturingselementen in de linkerbovenhoek, kunt u een query-toewijzingen voor historische tijdsbereik van maximaal één uur om weer te geven hoe afhankelijkheden in het verleden hebt bekeken (bijvoorbeeld tijdens een incident, of voordat er een wijziging is opgetreden). Serviceoverzicht gegevens worden opgeslagen voor 30 dagen in betaalde werkruimten en 7 dagen gratis werkruimten.
 
-
-
-
-
-
 ## <a name="status-badges-and-border-coloring"></a>Status badges en het inkleuren van de rand
 Aan de onderkant van elke server in de kaart, kan een lijst met status badges overbrengen van statusinformatie over de server zijn. De badges erop duiden dat er een relevante informatie voor de server uit een van de oplossing-integraties. Een badge te klikken gaat u rechtstreeks naar de details van de status in het rechter deelvenster. De status van de momenteel beschikbare badges bevatten waarschuwingen, servicedesk, wijzigingen, beveiliging en Updates.
 
@@ -104,7 +99,7 @@ Daar kunt u **nieuw** en geef een naam op voor de groep.
 ![De naam van groep](media/monitoring-service-map/machine-groups-name.png)
 
 >[!NOTE]
->Computergroepen zijn momenteel beperkt tot 10 servers, maar we zullen binnenkort deze limiet te verhogen.
+>Computergroepen zijn beperkt tot 10 servers.
 
 ### <a name="viewing-a-group"></a>Een groep weergeven
 Als u bepaalde groepen hebt gemaakt, kunt u ze kunt weergeven door het tabblad groepen te kiezen.
@@ -307,7 +302,7 @@ Voor het beheren van kosten en complexiteit, vertegenwoordigen verbinding record
 |:--|:--|
 |Richting |Richting van de verbinding met de waarde is *inkomende* of *uitgaande* |
 |Machine |De FQDN-naam van de computer |
-|Proces |Identiteit van het proces of groepen van processen, de verbinding initiëren/accepteren |
+|Verwerken |Identiteit van het proces of groepen van processen, de verbinding initiëren/accepteren |
 |SourceIp |IP-adres van de bron |
 |DestinationIp |IP-adres van de bestemming |
 |DestinationPort |Poortnummer van de bestemming |

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/04/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: d70eecb6a5d6bafbfa6507dbe8b1bcb1cad67191
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: cbe6ddc2c4680028d5a4a0491756c7a7b9897c69
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46990232"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233239"
 ---
 # <a name="extend-alerts-from-log-analytics-into-azure-alerts"></a>Waarschuwingen van Log Analytics uitbreiden naar Azure-waarschuwingen
 De functie alerts in Azure Log Analytics wordt vervangen door de Azure-waarschuwingen. Als onderdeel van deze overgang, wordt de waarschuwingen die u oorspronkelijk hebt geconfigureerd in Log Analytics worden uitgebreid naar Azure. Als u niet wachten tot deze worden automatisch verplaatst naar Azure wilt, kunt u het proces starten:
@@ -22,7 +22,7 @@ De functie alerts in Azure Log Analytics wordt vervangen door de Azure-waarschuw
 - Programmatisch met behulp van de API AlertsVersion.  
 
 > [!NOTE]
-> Microsoft zal automatisch waarschuwingen die zijn gemaakt in de openbare cloud exemplaren van Log Analytics voor Azure-waarschuwingen, uitgebreid vanaf 14 mei 2018 wordt in een reeks terugkerende tot voltooid. Als er geen problemen voor het maken van [actiegroepen](monitoring-action-groups.md), gebruikt u [deze herstelstappen](monitoring-alerts-extend-tool.md#troubleshooting) om op te halen actiegroepen automatisch gemaakt. U kunt deze stappen gebruiken tot 5 juli 2018. *Niet van toepassing voor Azure regering en Soveriegn cloudgebruikers van Log Analytics*. 
+> Microsoft zal automatisch waarschuwingen die zijn gemaakt in de openbare cloud exemplaren van Log Analytics voor Azure-waarschuwingen, uitgebreid vanaf 14 mei 2018 wordt in een reeks terugkerende tot voltooid. Als er geen problemen voor het maken van [actiegroepen](monitoring-action-groups.md), gebruikt u [deze herstelstappen](monitoring-alerts-extend-tool.md#troubleshooting) om op te halen actiegroepen automatisch gemaakt. U kunt deze stappen gebruiken tot 5 juli 2018. *Niet van toepassing voor Azure Government en onafhankelijke cloudgebruikers van Log Analytics*. 
 
 ## <a name="option-1-initiate-from-the-operations-management-suite-portal"></a>Optie 1: Initiëren vanuit de Operations Management Suite-portal
 De volgende stappen wordt beschreven hoe u waarschuwingen voor de werkruimte van de Operations Management Suite-portal uitbreiden.  

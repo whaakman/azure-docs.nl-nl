@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/19/2018
-ms.openlocfilehash: 9332bcb5849deacde13d67e4a18ea19af8af2977
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.date: 10/29/2018
+ms.openlocfilehash: 3495a923683d78446e61ff0545c7d86023c14bc0
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49471472"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233851"
 ---
 # <a name="overview-active-geo-replication-and-auto-failover-groups"></a>Overzicht: Actieve geo-replicatie en automatische failover-groepen
 
@@ -281,18 +281,18 @@ Zoals eerder besproken automatische failover-groepen en actieve kan geo-replicat
 | --- | --- |
 | [Maken of bijwerken-Database (createMode = herstellen)](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) |Gemaakt, bijgewerkt of hersteld van een primaire of secundaire database. |
 | [Get maken of bijwerken van de Status van Database](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) |Retourneert de status tijdens een bewerking voor maken. |
-| [Stel de secundaire Database als primaire (geplande Failover)](https://docs.microsoft.com/rest/api/sql/replicationlinks/replicationlinks_failover) |Sets die replica-database primaire door failover wordt uitgevoerd vanuit de huidige primaire replica-database is. |
-| [Stel de secundaire Database als primaire (niet-geplande Failover)](https://docs.microsoft.com/rest/api/sql/replicationlinks/replicationlinks_failoverallowdataloss) |Sets die replica-database primaire door failover wordt uitgevoerd vanuit de huidige primaire replica-database is. Met deze bewerking kan leiden tot verlies van gegevens. |
-| [Ophalen van replicatiekoppeling](https://docs.microsoft.com/rest/api/sql/replicationlinks/replicationlinks_get) |Hiermee haalt een bepaalde replicatiekoppeling voor een bepaalde SQL-database in een partnerschap geo-replicatie. Het ophalen van de informatie in de catalogusweergave sys.geo_replication_links zichtbaar. |
-| [Koppelingen voor databasereplicatie - lijst per Database](https://docs.microsoft.com/rest/api/sql/replicationlinks/replicationlinks_listbydatabase) | Hiermee haalt alle koppelingen voor databasereplicatie voor een bepaalde SQL-database in een partnerschap geo-replicatie. Het ophalen van de informatie in de catalogusweergave sys.geo_replication_links zichtbaar. |
-| [Verwijderen van replicatiekoppeling](https://docs.microsoft.com/rest/api/sql/replicationlinks/replicationlinks_delete) | Hiermee verwijdert u een databasereplicatiekoppeling. Kan niet worden uitgevoerd tijdens de failover. |
-| [Maken of bijwerken van de Failovergroep](https://docs.microsoft.com/rest/api/sql/failovergroups/failovergroups_createorupdate) | Hiermee maken of bijwerken van een failovergroep |
-| [Failover-groep verwijderen](https://docs.microsoft.com/rest/api/sql/failovergroups/failovergroups_delete) | Hiermee verwijdert u de failovergroep van de server |
-| [Failover (gepland)](https://docs.microsoft.com/rest/api/sql/failovergroups/failovergroups_failover) | Failover-schakeling van de huidige primaire server naar deze server. |
-| [Geforceerde Failover verlies van gegevens toestaan](https://docs.microsoft.com/rest/api/sql/failovergroups/failovergroups_forcefailoverallowdataloss) |ails via van de huidige primaire server naar deze server. Met deze bewerking kan leiden tot verlies van gegevens. |
-| [Get-Failovergroep](https://docs.microsoft.com/rest/api/sql/failovergroups/failovergroups_get) | Hiermee haalt u een failovergroep. |
-| [Lijst met Failover-groepen door Server](https://docs.microsoft.com/rest/api/sql/failovergroups/failovergroups_listbyserver) | Geeft een lijst van de failover-groepen in een server. |
-| [Failover-groep bijwerken](https://docs.microsoft.com/rest/api/sql/failovergroups/failovergroups_update) | Werkt een failovergroep. |
+| [Stel de secundaire Database als primaire (geplande Failover)](https://docs.microsoft.com/rest/api/sql/replicationlinks/failover) |Sets die replica-database primaire door failover wordt uitgevoerd vanuit de huidige primaire replica-database is. |
+| [Stel de secundaire Database als primaire (niet-geplande Failover)](https://docs.microsoft.com/rest/api/sql/replicationlinks/failoverallowdataloss) |Sets die replica-database primaire door failover wordt uitgevoerd vanuit de huidige primaire replica-database is. Met deze bewerking kan leiden tot verlies van gegevens. |
+| [Ophalen van replicatiekoppeling](https://docs.microsoft.com/rest/api/sql/replicationlinks/get) |Hiermee haalt een bepaalde replicatiekoppeling voor een bepaalde SQL-database in een partnerschap geo-replicatie. Het ophalen van de informatie in de catalogusweergave sys.geo_replication_links zichtbaar. |
+| [Koppelingen voor databasereplicatie - lijst per Database](https://docs.microsoft.com/rest/api/sql/replicationlinks/listbydatabase) | Hiermee haalt alle koppelingen voor databasereplicatie voor een bepaalde SQL-database in een partnerschap geo-replicatie. Het ophalen van de informatie in de catalogusweergave sys.geo_replication_links zichtbaar. |
+| [Verwijderen van replicatiekoppeling](https://docs.microsoft.com/rest/api/sql/replicationlinks/delete) | Hiermee verwijdert u een databasereplicatiekoppeling. Kan niet worden uitgevoerd tijdens de failover. |
+| [Maken of bijwerken van de Failovergroep](https://docs.microsoft.com/rest/api/sql/failovergroups/createorupdate) | Hiermee maken of bijwerken van een failovergroep |
+| [Failover-groep verwijderen](https://docs.microsoft.com/rest/api/sql/failovergroups/delete) | Hiermee verwijdert u de failovergroep van de server |
+| [Failover (gepland)](https://docs.microsoft.com/rest/api/sql/failovergroups/failover) | Failover-schakeling van de huidige primaire server naar deze server. |
+| [Geforceerde Failover verlies van gegevens toestaan](https://docs.microsoft.com/rest/api/sql/failovergroups/forcefailoverallowdataloss) |ails via van de huidige primaire server naar deze server. Met deze bewerking kan leiden tot verlies van gegevens. |
+| [Get-Failovergroep](https://docs.microsoft.com/rest/api/sql/failovergroups/get) | Hiermee haalt u een failovergroep. |
+| [Lijst met Failover-groepen door Server](https://docs.microsoft.com/rest/api/sql/failovergroups/listbyserver) | Geeft een lijst van de failover-groepen in een server. |
+| [Failover-groep bijwerken](https://docs.microsoft.com/rest/api/sql/failovergroups/update) | Werkt een failovergroep. |
 |  | |
 
 ## <a name="next-steps"></a>Volgende stappen

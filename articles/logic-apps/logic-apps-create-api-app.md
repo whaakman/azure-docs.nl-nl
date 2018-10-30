@@ -10,12 +10,12 @@ ms.reviewer: klam, jehollan, LADocs
 ms.topic: article
 ms.assetid: bd229179-7199-4aab-bae0-1baf072c7659
 ms.date: 05/26/2017
-ms.openlocfilehash: a761e384a356a0cbf5531eee7340ddbbd1526909
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: a3f837b41ba6ec7ecadb3e34917a8088e4d1e2d9
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43122243"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233511"
 ---
 # <a name="create-custom-apis-you-can-call-from-azure-logic-apps"></a>Aangepaste API's die u vanuit Azure Logic Apps aanroepen kunt maken
 
@@ -41,7 +41,7 @@ U kunt uw API's hosten op [Azure App Service](../app-service/app-service-web-ove
 > * [Python](../app-service/containers/quickstart-python.md)
 > * [Ruby](../app-service/containers/quickstart-ruby.md)
 >
-> Voor voorbeelden van API-App die is gebouwd voor logische apps, gaat u naar de [Azure Logic Apps-GitHub-opslagplaats](http://github.com/logicappsio) of [blog](http://aka.ms/logicappsblog).
+> Voor voorbeelden van API-App die is gebouwd voor logische apps, gaat u naar de [Azure Logic Apps-GitHub-opslagplaats](http://github.com/logicappsio) of [blog](https://aka.ms/logicappsblog).
 
 ## <a name="how-do-custom-apis-differ-from-custom-connectors"></a>Hoe verschillen aangepaste API's van aangepaste connectors?
 
@@ -230,7 +230,7 @@ Als u wilt uw aangepaste API's beschikbaar maken voor alle gebruikers in Logic A
 
 * Ga naar het [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps) (Forum voor Azure Logic Apps) als u vragen hebt.
 
-* Ter verbetering van Logic Apps kunt u stemmen op ideeën of ideeën indienen op de [site voor gebruikersfeedback van Logic Apps](http://aka.ms/logicapps-wish). 
+* Ter verbetering van Logic Apps kunt u stemmen op ideeën of ideeën indienen op de [site voor gebruikersfeedback van Logic Apps](https://aka.ms/logicapps-wish). 
 
 ## <a name="next-steps"></a>Volgende stappen
 

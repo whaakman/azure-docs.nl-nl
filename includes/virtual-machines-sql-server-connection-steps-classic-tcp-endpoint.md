@@ -1,8 +1,21 @@
+---
+author: rothja
+ms.service: virtual-machines-sql
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: jroth
+ms.openlocfilehash: edb8503f4187fd2d21129ea03e954a0d3516be4b
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50226503"
+---
 ### <a name="create-a-tcp-endpoint-for-the-virtual-machine"></a>Een TCP-eindpunt maken voor de virtuele machine
 Voor toegang tot SQL Server via internet, moet de virtuele machine een eindpunt hebben om te luisteren naar binnenkomende TCP-communicatie. Deze configuratiestap van Azure zorgt ervoor dat binnenkomend TCP-poortverkeer naar een TCP-poort wordt geleid die toegankelijk is voor de virtuele machine.
 
 > [!NOTE]
-> Als u verbinding maakt binnen de dezelfde cloudservice of hetzelfde virtuele netwerk, hoeft u geen openbaar toegankelijk eindpunt te maken. In dat geval kunt u doorgaan met de volgende stap. Zie [Verbindingsscenario's](../articles/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-sql-connect.md#connection-scenarios) voor meer informatie.
+> Als u verbinding binnen de dezelfde cloudservice of een virtueel netwerk maakt, hoeft u niet om een publicaly toegankelijk eindpunt te maken. In dat geval kunt u doorgaan met de volgende stap. Zie [Verbindingsscenario's](../articles/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-sql-connect.md#connection-scenarios) voor meer informatie.
 > 
 > 
 

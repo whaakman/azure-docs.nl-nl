@@ -1,26 +1,23 @@
 ---
-title: Ondersteuningsmatrix voor Azure Site Recovery voor het repliceren van Azure naar Azure | Microsoft Docs
+title: Ondersteuningsmatrix voor Azure Site Recovery voor herstel na noodgevallen van Azure IaaS VM's tussen Azure-regio's met Azure Site Recovery | Microsoft Docs
 description: Geeft een overzicht van de ondersteunde besturingssystemen en configuraties voor de Azure Site Recovery-replicatie van virtuele Azure-machines (VM's) van de ene regio naar een andere voor disaster recovery (DR) behoeften.
 services: site-recovery
-author: sujayt
-manager: rochakm
+author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
-ms.devlang: na
-ms.topic: article
-ms.date: 09/10/2018
-ms.author: sujayt
-ms.openlocfilehash: 49773e076ed8bb06ff76f9f654b914a709051fb5
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.topic: conceptual
+ms.date: 10/28/2018
+ms.author: raynew
+ms.openlocfilehash: a2668ab99ef110c89ddd69cd5e8df858552d27af
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49378615"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215052"
 ---
-# <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Ondersteuningsmatrix voor het repliceren van de ene Azure-regio naar een andere
+# <a name="support-matrix-for-disaster-recovery-of-azure-vms-between-azure-regions"></a>Ondersteuningsmatrix voor herstel na noodgevallen van virtuele Azure-machines tussen Azure-regio 's
 
-
-
-In dit artikel bevat een overzicht van ondersteunde configuraties en -onderdelen wanneer u repliceren en herstellen van virtuele machines van Azure van de ene regio naar een andere regio met behulp van de [Azure Site Recovery](site-recovery-overview.md) service.
+In dit artikel bevat een overzicht van ondersteunde configuraties en -onderdelen wanneer u herstel na noodgeval met replicatie, failover en herstel van een Azure-regio naar een andere virtuele machines van Azure implementeert met behulp van de [Azure Site Recovery](site-recovery-overview.md) de service.
 
 ## <a name="user-interface-options"></a>Opties voor de gebruikersinterface
 

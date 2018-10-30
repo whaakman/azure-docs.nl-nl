@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/19/2018
+ms.date: 10/29/2018
 ms.author: terrylan
-ms.openlocfilehash: 309dddcea1022d9f14c1d4492f5564f2a4ad3b6f
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.openlocfilehash: 69818fdb8124b9afa176ccd4dfd74cf0f2f4b346
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46498501"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233800"
 ---
 # <a name="azure-network-security-overview"></a>Overzicht van de beveiliging van Azure-netwerk
 
@@ -29,12 +29,15 @@ In dit artikel vindt u enkele van de opties die Azure in het gebied van beveilig
 
 * Azure-netwerken
 * Netwerktoegangsbeheer
+* Azure Firewall
 * Veilige externe toegang en cross-premises connectiviteit
 * Beschikbaarheid
 * Naamomzetting
 * Netwerkarchitectuur van perimeternetwerk (DMZ)
-* Controle en detectie van bedreigingen
 * Azure DDoS Protection
+* Azure voordeur
+* Traffic Manager
+* Controle en detectie van bedreigingen
 
 ## <a name="azure-networking"></a>Azure-netwerken
 
@@ -126,6 +129,19 @@ Bijvoorbeeld, zijn uw beveiligingsvereisten voor onder andere:
 
 U kunt toegang tot de beveiligingsfuncties van deze verbeterde netwerk met behulp van een Azure-partner. U kunt de meest recente Azure-partner-netwerk beveiligingsoplossingen vinden door naar de pagina de [Azure Marketplace](https://azure.microsoft.com/marketplace/), en het zoeken naar "beveiliging" en "netwerkbeveiliging."
 
+## <a name="azure-firewall"></a>Azure Firewall
+
+Azure Firewall is een beheerde, cloudgebaseerde netwerkbeveiligingsservice die uw Azure Virtual Network-resources beschermt. Het is een volledige stateful firewall als een service met ingebouwde hoge beschikbaarheid en onbeperkte cloudschaalbaarheid. Sommige functies zijn onder andere:
+
+* Hoge beschikbaarheid
+* Cloudschaalbaarheid
+* Regels voor het filteren van de FQDN van toepassingen
+* Regels voor het filteren van netwerkverkeer
+
+Meer informatie:
+
+* [Overzicht van de Firewall van Azure](../firewall/overview.md)
+
 ## <a name="secure-remote-access-and-cross-premises-connectivity"></a>Veilige externe toegang en cross-premises connectiviteit
 
 Installatie, configuratie en beheer van de behoeften van uw Azure-resources op afstand worden uitgevoerd. Bovendien kunt u implementeren [hybride IT](http://social.technet.microsoft.com/wiki/contents/articles/18120.hybrid-cloud-infrastructure-design-considerations.aspx) -oplossingen waarbij on-premises onderdelen en in de openbare cloud van Azure. Deze scenario's vereisen veilige externe toegang.
@@ -139,9 +155,15 @@ Azure-netwerken ondersteunt de volgende veilige externe toegang-scenario's:
 
 ### <a name="connect-individual-workstations-to-a-virtual-network"></a>Afzonderlijke werkstations verbinden met een virtueel netwerk
 
-Het is raadzaam om in te schakelen van individuele ontwerpers of door personeel dat bewerkingen voor het beheren van virtuele machines en services in Azure. Stel dat u hebt toegang tot een virtuele machine op een virtueel netwerk. Maar het beveiligingsbeleid kan geen externe RDP of SSH-toegang tot afzonderlijke virtuele machines. In dit geval kunt u een punt-naar-site VPN-verbinding.
+Het is raadzaam om in te schakelen van individuele ontwerpers of door personeel dat bewerkingen voor het beheren van virtuele machines en services in Azure. Stel dat u hebt toegang tot een virtuele machine op een virtueel netwerk. Maar het beveiligingsbeleid kan geen externe RDP of SSH-toegang tot afzonderlijke virtuele machines. In dit geval kunt u een [punt-naar-site VPN](../vpn-gateway/point-to-site-about.md) verbinding.
 
-Maakt gebruik van de punt-naar-site VPN-verbinding de [SSTP VPN](https://technet.microsoft.com/library/cc731352.aspx) protocol waarmee u kunt een privé en veilig verbinding maken tussen de gebruiker en het virtuele netwerk. Wanneer de VPN-verbinding tot stand is gebracht, de gebruiker kan RDP of SSH via de VPN-verbinding in een virtuele machine op het virtuele netwerk. (Hierbij wordt ervan uitgegaan dat de gebruiker kan worden geverifieerd en gemachtigd is.)
+De punt-naar-site VPN-verbinding kunt u voor het instellen van een privé en veilig verbinding tussen de gebruiker en het virtuele netwerk. Wanneer de VPN-verbinding tot stand is gebracht, de gebruiker kan RDP of SSH via de VPN-verbinding in een virtuele machine op het virtuele netwerk. (Hierbij wordt ervan uitgegaan dat de gebruiker kan worden geverifieerd en gemachtigd is.) Biedt ondersteuning voor punt-naar-site-VPN:
+
+* Secure Socket Tunneling Protocol (SSTP), een eigen VPN op basis van een SSL-protocol. Een SSL VPN-oplossing kan passeren, firewalls, omdat de meeste firewalls open TCP-poort 443, dat gebruikmaakt van SSL. SSTP wordt alleen ondersteund op Windows-apparaten. Azure ondersteunt alle versies van Windows die SSTP (Windows 7 en hoger) hebben.
+
+* IKEv2 VPN, een op standaarden gebaseerde IPsec VPN-oplossing. IKEv2 VPN kan worden gebruikt om verbinding te maken vanaf Mac-apparaten (OSX-versie 10.11 en hoger).
+
+* [OpenVPN](https://azure.microsoft.com/updates/openvpn-support-for-azure-vpn-gateways/)
 
 Meer informatie:
 
@@ -165,11 +187,13 @@ Punt-naar-site en site-naar-site VPN-verbindingen zijn nuttig voor het inschakel
 * VPN-verbindingen gaan gegevens via internet. Hiermee wordt aangegeven dat deze verbindingen met mogelijke beveiligingsproblemen die betrokken zijn bij het verplaatsen van gegevens via een openbaar netwerk. Bovendien kunnen niet de betrouwbaarheid en beschikbaarheid voor verbindingen via internet worden gegarandeerd.
 * VPN-verbindingen naar virtuele netwerken hebben mogelijk niet de bandbreedte voor sommige toepassingen en toepassing zodra ze max uit met ongeveer 200 Mbps.
 
-Organisaties die normaal gesproken moeten van het hoogste niveau van beveiliging en beschikbaarheid voor hun cross-premises verbindingen gebruiken specifieke WAN-verbindingen voor verbinding met externe sites. Azure biedt de mogelijkheid om met een toegewezen WAN-verbinding die u kunt uw on-premises netwerk verbinden met een virtueel netwerk. Azure ExpressRoute kunt dit.
+Organisaties die normaal gesproken moeten van het hoogste niveau van beveiliging en beschikbaarheid voor hun cross-premises verbindingen gebruiken specifieke WAN-verbindingen voor verbinding met externe sites. Azure biedt de mogelijkheid om met een toegewezen WAN-verbinding die u kunt uw on-premises netwerk verbinden met een virtueel netwerk. Azure ExpressRoute, met Express route direct- en Express-route wereldwijd bereik inschakelen dit.
 
 Meer informatie:
 
 * [Technisch overzicht van ExpressRoute](../expressroute/expressroute-introduction.md)
+* [ExpressRoute direct](../expressroute/expressroute-erdirect-about.md)
+* [Express route wereldwijd bereik](..//expressroute/expressroute-global-reach.md)
 
 ### <a name="connect-virtual-networks-to-each-other"></a>Virtuele netwerken met elkaar verbinden
 
@@ -287,6 +311,46 @@ Meer informatie:
 
 * [Microsoft-Cloudservices en netwerkbeveiliging](../best-practices-network-security.md)
 
+## <a name="azure-ddos-protection"></a>Azure DDoS Protection
+
+Distributed denial of service (DDoS)-aanvallen zijn enkele van de grootste problemen beschikbaarheid en beveiliging naar klanten die hun toepassingen naar de cloud wilt verplaatsen. Een DDoS-aanval wil de bronnen van een toepassing, waardoor de toepassing niet beschikbaar voor legitieme gebruikers. DDoS-aanvallen kunnen worden gericht op een willekeurig eindpunt dat openbaar bereikbaar is via het internet.
+Microsoft biedt DDoS protection, ook wel **Basic** als onderdeel van het Azure-Platform. Dit wordt geleverd zonder kosten en bevat altijd op bewakings- en realtime oplossing voor algemene op netwerkniveau-aanvallen. Naast de die deel uitmaakt van DDoS protection **Basic** kunt u de **Standard** optie. DDoS Protection Standard-functies zijn onder andere:
+
+* **Systeemeigen platform-integratie:** systeemeigen geïntegreerd in Azure. Bevat configuratie via de Azure-portal. DDoS Protection standaard begrijpt dat uw resources en resourceconfiguratie.
+* **Ingebouwde beveiliging:** vereenvoudigde configuratie beschermt meteen alle resources in een virtueel netwerk zodra DDoS Protection standaard is ingeschakeld. Er is geen tussenkomst of gebruiker definitie is vereist. DDoS Protection standaard vermindert meteen en automatisch de aanval, zodra deze wordt gedetecteerd.
+* **Verkeer altijd controleren:** verkeerspatronen van uw toepassingen worden bewaakt van 24 uur per dag, 7 dagen per week, op zoek naar indicatoren van DDoS-aanvallen. Risicobeperking wordt uitgevoerd wanneer het beveiligingsbeleid voor apps worden overschreden.
+* **Risicobeperking rapporten aanvallen** aanval risicobeperking rapporten samengevoegde netwerk stroomgegevens gebruiken om aan te bieden gedetailleerde informatie over aanvallen die gericht is op uw resources.
+* **Risicobeperking Flow logboeken aanvallen** aanval risicobeperking Flow Logboeken kunt u bekijken van het verwijderde verkeer doorgestuurd verkeer en andere gegevens van de aanval in bijna realtime tijdens een actieve DDoS-aanval.
+* **Adaptieve afstemming:** intelligente verkeer profilering leert van verkeer van uw toepassing gedurende een periode, en selecteert en het profiel dat het meest geschikt is voor uw service-updates. Het profiel wordt aangepast wanneer verkeer na verloop van tijd verandert. Laag-3 aan de beveiliging van laag 7: biedt volledige stack DDoS protection, gebruikt in combinatie met een web application firewall.
+* **Uitgebreide risicobeperking schaal:** gedurende 60 verschillende aanval typen kunnen worden verholpen met globale capaciteit, om te beveiligen tegen het grootste bekende DDoS-aanvallen.
+* **Metrische gegevens over aanvallen:** samengevat metrische gegevens van elke aanval, toegankelijk zijn via Azure Monitor.
+* **Waarschuwingen van de aanval:** waarschuwingen kunnen worden geconfigureerd op het starten en stoppen van een aanval en over de duur van de aanval, met ingebouwde aanval metrische gegevens. Waarschuwingen integreren in uw operationele software, zoals Microsoft Azure Log Analytics, Splunk, Azure Storage, e-mailadres en de Azure-portal.
+* **Kosten garantie:** overdracht van gegevens en toepassingen scale-out servicetegoeden voor gedocumenteerde DDoS-aanvallen.
+* **DDoS-snelle responsieve** DDoS Protection Standard-klanten hebben nu toegang tot Rapid Response team tijdens een actieve aanval. DRR kan helpen bij onderzoek van de aanval, aangepaste oplossingen tijdens een aanval en na aanval analyse.
+
+
+Meer informatie:
+
+* [Overzicht van DDOS protection](../virtual-network/ddos-protection-overview.md)
+
+## <a name="azure-front-door"></a>Azure voordeur
+
+Azure voordeur Service kunt u definiëren, beheren en bewaken van de globale routering van uw webverkeer. Het optimaliseren van uw verkeer routeren voor optimale prestaties en hoge beschikbaarheid. Met Azure Front Door kunt u regels voor toegangsbeheer maken voor aangepaste webtoepassingsfirewalls (WAF) om uw HTTP/HTTPS-workload te beschermen tegen exploitatie op basis van klant-IP-adressen, landcode en http-parameters. Bovendien voordeur ook kunt u regels voor het gevecht kwaadaardig botverkeer snelheidsbeperking maken, het SSL-offloading en per-HTTP/HTTPS-aanvraag bevat toepassingslaag verwerking.
+
+Voordeur-platform zelf wordt beveiligd door Azure DDoS Protection Basic. Voor verdere bescherming kan Azure DDoS Protection Standard worden ingeschakeld op uw VNETs en bronnen beschermen tegen netwerklaagaanvallen (TCP/UDP) via automatische afstemming en risicobeperking. Voordeur een omgekeerde proxy van laag 7, wordt hierdoor kan alleen webverkeer doorgeven aan de back-end servers en andere typen verkeer standaard geblokkeerd.
+
+Meer informatie:
+
+* Klep mogelijkheden die u kunt bekijken voor meer informatie over de hele set Azure Front de [voordeur Azure-overzicht](../frontdoor/front-door-overview.md)
+
+## <a name="azure-traffic-manager"></a>Met Azure Traffic manager
+
+Azure Traffic Manager is een op DNS gebaseerde load balancer waarmee u verkeer optimaal over services kunt verdelen in Azure-regio's wereldwijd, terwijl u over hoge beschikbaarheid en een hoge reactiesnelheid beschikt. Traffic Manager maakt gebruik van DNS om aanvragen van clients door te sturen naar de meest geschikte eindpunten op basis van een methode om verkeer te routeren en van de status van de eindpunten. Een eindpunt is een internetgerichte service die binnen of buiten Azure wordt gehost. Traffic manager bewaakt de eindpunten en heeft geen directe voor verkeer naar alle eindpunten die niet beschikbaar zijn.
+
+Meer informatie:
+
+* [Overzicht van Azure Traffic manager](../traffic-manager/traffic-manager-overview.md)
+
 ## <a name="monitoring-and-threat-detection"></a>Controle en detectie van bedreigingen
 
 Azure biedt mogelijkheden voor het op dit gebied key van vroege detectie, bewaking, en het verzamelen en controleren van netwerkverkeer.
@@ -318,6 +382,14 @@ Meer informatie:
 
 * [Inleiding tot Azure Security Center](../security-center/security-center-intro.md)
 
+### <a name="virtual-network-tap"></a>Virtual Network TAP
+
+Met Azure virtual network TAP (Terminal Access Point) kunt u continu stroom netwerkverkeer van uw virtuele machine naar een netwerk-pakket collector of analytics-hulpprogramma. De collector of analytics-hulpprogramma wordt geleverd door een partner netwerk, virtueel apparaat. U kunt hetzelfde virtuele netwerk resource te TIKKEN op het totale verkeer van meerdere netwerkinterfaces in dezelfde of verschillende abonnementen.
+
+Meer informatie:
+
+* [Virtueel netwerk-TAP](../virtual-network/virtual-network-tap-overview.md)
+
 ### <a name="logging"></a>Logboekregistratie
 
 Logboekregistratie op het niveau van een netwerk is een belangrijke functie voor elk netwerk security scenario. In Azure, kunt u zich aanmelden voor nsg's om op te halen netwerkniveau logboekinformatie verkregen gegevens. Met NSG-logboeken krijgt u informatie uit:
@@ -330,21 +402,3 @@ U kunt ook [Microsoft Power BI](https://powerbi.microsoft.com/what-is-power-bi/)
 Meer informatie:
 
 * [Logboekanalyses voor Netwerkbeveiligingsgroepen (nsg's)](../virtual-network/virtual-network-nsg-manage-log.md)
-
-## <a name="azure-ddos-protection"></a>Azure DDoS Protection
-
-Distributed denial of service (DDoS)-aanvallen zijn enkele van de grootste problemen beschikbaarheid en beveiliging naar klanten die hun toepassingen naar de cloud wilt verplaatsen. Een DDoS-aanval wil de bronnen van een toepassing, waardoor de toepassing niet beschikbaar voor legitieme gebruikers. DDoS-aanvallen kunnen worden gericht op een willekeurig eindpunt dat openbaar bereikbaar is via het internet.
-Microsoft biedt DDoS protection, ook wel **Basic** als onderdeel van het Azure-Platform. Dit wordt geleverd zonder kosten en bevat altijd op bewakings- en realtime oplossing voor algemene op netwerkniveau-aanvallen. Naast de die deel uitmaakt van DDoS protection **Basic** kunt u de **Standard** optie. DDoS Protection Standard-functies zijn onder andere:
-
-* **Systeemeigen platform-integratie:** systeemeigen geïntegreerd in Azure. Bevat configuratie via de Azure-portal. DDoS Protection standaard begrijpt dat uw resources en resourceconfiguratie.
-* **Ingebouwde beveiliging:** vereenvoudigde configuratie beschermt meteen alle resources in een virtueel netwerk zodra DDoS Protection standaard is ingeschakeld. Er is geen tussenkomst of gebruiker definitie is vereist. DDoS Protection standaard vermindert meteen en automatisch de aanval, zodra deze wordt gedetecteerd.
-* **Verkeer altijd controleren:** verkeerspatronen van uw toepassingen worden bewaakt van 24 uur per dag, 7 dagen per week, op zoek naar indicatoren van DDoS-aanvallen. Risicobeperking wordt uitgevoerd wanneer het beveiligingsbeleid voor apps worden overschreden.
-* **Adaptieve afstemming:** intelligente verkeer profilering leert van verkeer van uw toepassing gedurende een periode, en selecteert en het profiel dat het meest geschikt is voor uw service-updates. Het profiel wordt aangepast wanneer verkeer na verloop van tijd verandert. Laag-3 aan de beveiliging van laag 7: biedt volledige stack DDoS protection, gebruikt in combinatie met een web application firewall.
-* **Uitgebreide risicobeperking schaal:** gedurende 60 verschillende aanval typen kunnen worden verholpen met globale capaciteit, om te beveiligen tegen het grootste bekende DDoS-aanvallen.
-* **Metrische gegevens over aanvallen:** samengevat metrische gegevens van elke aanval, toegankelijk zijn via Azure Monitor.
-* **Waarschuwingen van de aanval:** waarschuwingen kunnen worden geconfigureerd op het starten en stoppen van een aanval en over de duur van de aanval, met ingebouwde aanval metrische gegevens. Waarschuwingen integreren in uw operationele software, zoals Microsoft Azure Log Analytics, Splunk, Azure Storage, e-mailadres en de Azure-portal.
-* **Kosten garantie:** overdracht van gegevens en toepassingen scale-out servicetegoeden voor gedocumenteerde DDoS-aanvallen.
-
-Meer informatie:
-
-* [Overzicht van DDOS protection](../virtual-network/ddos-protection-overview.md)

@@ -1,10 +1,10 @@
 ---
-title: Snelheid en gelijktijdigheid van uw codering met Azure Media Services beheren | Microsoft Docs
-description: Dit artikel bevat een kort overzicht van hoe u de snelheid en gelijktijdigheid van uw codering taken/taken met Azure Media Services kunt beheren.
+title: Beheren van de snelheid en gelijktijdigheid van uw codering met Azure Media Services | Microsoft Docs
+description: Dit artikel geeft een kort overzicht van hoe u de snelheid en gelijktijdigheid van uw taken/coderingstaken met Azure Media Services kunt beheren.
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 676313f8-a158-4e3a-a99b-2c29a341ecc9
 ms.service: media-services
@@ -12,30 +12,30 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/10/2017
+ms.date: 10/29/2018
 ms.author: juliako
-ms.openlocfilehash: d7e3d6d0c176d0a903c3027ab4feddb332557566
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 3f358be630d9a50d0f048d66c9f79e168c8adcdf
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788275"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50230196"
 ---
-#  <a name="manage-speed-and-concurrency-of-your-encoding"></a>Snelheid en gelijktijdigheid van uw codering beheren
+#  <a name="manage-speed-and-concurrency-of-your-encoding"></a>De snelheid en gelijktijdigheid van uw codering beheren
 
-Dit artikel bevat een kort overzicht van hoe u de snelheid en gelijktijdigheid van uw codering taken/taken kunt beheren.
+Dit artikel geeft een kort overzicht van hoe u de snelheid en gelijktijdigheid van uw taken/coderingstaken kunt beheren.
 
 ## <a name="overview"></a>Overzicht
 
-In Media Services een **gereserveerde eenheidstype** bepaalt de snelheid waarmee uw media het verwerken van de taken worden verwerkt. U kunt kiezen uit de volgende gereserveerde-eenheidstypen: **S1**, **S2** en **S3**. Een coderingstaak wordt bijvoorbeeld sneller uitgevoerd wanneer u het gereserveerde-eenheidstype **S2** gebruikt (in vergelijking met het type **S1**). De [codering eenheden schalen](media-services-scale-media-processing-overview.md) onderwerp bevat een tabel waarmee u de beslissing nemen bij de keuze tussen verschillende codering snelheid te koppelen.
+In Media Services, een **gereserveerde-eenheidstype** bepaalt de snelheid waarmee uw multimedia standaardtaken voor de verwerking worden verwerkt. U kunt kiezen uit de volgende gereserveerde-eenheidstypen: **S1**, **S2** en **S3**. Een coderingstaak wordt bijvoorbeeld sneller uitgevoerd wanneer u het gereserveerde-eenheidstype **S2** gebruikt (in vergelijking met het type **S1**). De [encoding-eenheden schalen](media-services-scale-media-processing-overview.md) onderwerp bevat een tabel die het helpt u besluit bij de keuze tussen verschillende snelheden voor codering.
 
-Naast het opgeven van het type gereserveerde eenheid, kunt u opgeven voor het inrichten van een account met **gereserveerde eenheden**. Op basis van het aantal ingerichte, gereserveerde eenheden wordt bepaald hoeveel mediataken tegelijk kunnen worden verwerkt voor een bepaald account. Bijvoorbeeld, als uw account vijf gereserveerde eenheden, heeft en vervolgens vijf media taken wordt gelijktijdig zo lang worden uitgevoerd als er zijn taken moeten worden verwerkt. De resterende taken in de wachtrij moeten wachten en wordt ophalen opgepikt sequentieel worden verwerkt wanneer een actieve taak is voltooid. Als een account heeft geen geen gereserveerde eenheden die zijn ingericht, zullen vervolgens taken worden opgepikt sequentieel worden verwerkt. In dit geval afhankelijk de wachttijd tussen één taak voltooid en de volgende begin van de beschikbaarheid van resources in het systeem.
+Naast het opgeven van de gereserveerde-eenheidstype, kunt u opgeven voor het inrichten van uw account met **gereserveerde eenheden**. Op basis van het aantal ingerichte, gereserveerde eenheden wordt bepaald hoeveel mediataken tegelijk kunnen worden verwerkt voor een bepaald account. Bijvoorbeeld, als uw account vijf gereserveerde eenheden, heeft en vervolgens vijf mediataken gelijktijdig zo lang zal worden uitgevoerd als er zijn taken die moeten worden verwerkt. De resterende taken in de wachtrij wordt gewacht en wordt u opgehaald voor het verwerken van sequentieel worden verwerkt wanneer een actieve taak is voltooid. Als een account heeft geen alle gereserveerde eenheden worden ingericht, klikt u vervolgens taken opgehaald sequentieel worden verwerkt. In dit geval afhankelijk de wachttijd tussen één taak is voltooid en de volgende begin van de beschikbaarheid van resources in het systeem.
 
-Zie voor gedetailleerde informatie en voorbeelden die laten zien hoe u codering schaaleenheden [dit](media-services-scale-media-processing-overview.md) onderwerp.
+Zie voor gedetailleerde informatie en voorbeelden die laten zien hoe encoding-eenheden schalen [dit](media-services-scale-media-processing-overview.md) onderwerp.
 
 ## <a name="next-step"></a>Volgende stap
 
-[Codering schaaleenheden](media-services-scale-media-processing-overview.md)
+[Encoding-eenheden schalen](media-services-scale-media-processing-overview.md)
 
 ## <a name="media-services-learning-paths"></a>Media Services-leertrajecten
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

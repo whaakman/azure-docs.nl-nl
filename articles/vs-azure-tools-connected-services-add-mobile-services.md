@@ -15,12 +15,12 @@ ms.workload: mobile
 ms.custom: vs-azure
 ms.date: 12/16/2015
 ms.author: mlearned
-ms.openlocfilehash: 6cceb760ab62ea4f7225c9cc0cee7a6baf8ed8be
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: a1b2524b059601e1f6f999af7a9d9e063f7c0420
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42442208"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233443"
 ---
 # <a name="adding-mobile-services-by-using-visual-studio-connected-services"></a>Mobile Services toe te voegen met behulp van Visual Studio verbonden Services
 Visual Studio 2015, u kunt verbinding maken met Azure Mobile Services met behulp van de **Add Connected Service** dialoogvenster. U kunt verbinding maken van een C#-client-app, een JavaScript-app of Cordova-app voor meerdere platformen. Wanneer u verbinding hebt gemaakt, kunt u maken en toegang tot gegevens, aangepaste API's en geplande taken maken of toevoegen van ondersteuning voor pushmeldingen.  De bewerking verbonden services voegt alle juiste verwijzingen en code van de verbinding. U kunt ook profiteren van de ingebouwde ondersteuning voor verificatie met een scala aan populaire id-schema's, zoals Azure AD, Facebook, Twitter en Microsoft-Accounts.
@@ -68,7 +68,7 @@ Het dialoogvenster Connected Services kunt u verbinding maken met Azure Mobile S
 6. Start met behulp van de codevoorbeelden als richtlijn voor het schrijven van code voor toegang tot uw mobiele service!
 
 ## <a name="how-your-project-is-modified"></a>Hoe uw project is gewijzigd
-Hoe uw project in Visual Studio wordt gewijzigd, is afhankelijk van het projecttype. Zie voor C#-client-apps, [wat is er gebeurd: C#-projecten](http://go.microsoft.com/fwlink/p/?LinkId=513119). Zie voor JavaScript-client-apps, [wat is er gebeurd: JavaScript-projecten](http://go.microsoft.com/fwlink/p/?LinkId=513120). Zie voor Cordova-apps, [wat is er gebeurd: Cordova projecten](http://go.microsoft.com/fwlink/p/?LinkId=513116).
+Hoe uw project in Visual Studio wordt gewijzigd, is afhankelijk van het projecttype. Voor C# client-apps, Zie [wat is er gebeurd: C# projecten](http://go.microsoft.com/fwlink/p/?LinkId=513119). Zie voor JavaScript-client-apps, [wat is er gebeurd: JavaScript-projecten](http://go.microsoft.com/fwlink/p/?LinkId=513120). Zie voor Cordova-apps, [wat is er gebeurd: Cordova projecten](http://go.microsoft.com/fwlink/p/?LinkId=513116).
 
 ## <a name="next-steps"></a>Volgende stappen
 Vragen stellen en hulp bij: 

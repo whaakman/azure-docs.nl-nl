@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/11/2018
+ms.date: 10/29/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: fbb51d8dc3b1ea4c6b34120e8fe35474ae949cf2
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 7071e22d703ab7ec3a51eff02d1694fc04cb3417
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49116909"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50231233"
 ---
 # <a name="troubleshoot-your-deployment-to-kubernetes-to-azure-stack"></a>Oplossen van uw implementatie naar Kubernetes met Azure Stack
 
@@ -28,7 +28,7 @@ ms.locfileid: "49116909"
 > [!Note]  
 > Kubernetes in Azure Stack is in preview.
 
-Het volgende artikel kijkt naar het oplossen van uw Kubernetes-cluster. U kunt de implementatie-waarschuwing bekijken en de status van uw implementatie controleren door de elementen die zijn vereist voor de implementatie. Mogelijk moet u de implementatielogboeken te verzamelen uit uw Azure Stack of de Linux-VM's die als host fungeren voor Kubernetes. U moet bovendien samen met de beheerder van uw Azure Stack logboeken ophalen van een administratieve eindpunt.
+Het volgende artikel kijkt naar het oplossen van uw Kubernetes-cluster. U kunt de implementatie-waarschuwing bekijken en de status van uw implementatie controleren door te kijken de elementen die zijn vereist voor de implementatie. Mogelijk moet u de implementatielogboeken te verzamelen uit uw Azure Stack of de Linux-VM's die als host fungeren voor Kubernetes. U moet bovendien samen met de beheerder van uw Azure Stack logboeken ophalen van een administratieve eindpunt.
 
 ## <a name="overview-of-deployment"></a>Overzicht van de implementatie
 
@@ -47,7 +47,7 @@ Het volgende diagram ziet u het algemene proces voor het implementeren van het c
     Voer de waarden die u nodig hebt voor het instellen van de Kubernetes cluster, waaronder:
     -  **Gebruikersnaam** gebruikersnaam voor de virtuele Linux-Machines die deel van het Kubernetes-cluster uitmaken en DVM.
     -  **Openbare SSH-sleutel** de sleutel die wordt gebruikt voor autorisatie voor alle Linux-machines gemaakt als onderdeel van de Kubernetes-cluster en DVM
-    -  **Service-Principal** de ID die wordt gebruikt door de Kubernetes Azure-cloud-provider. De Client-ID die wordt geïdentificeerd als de toepassings-ID tijdens het maken van uw service-principal. 
+    -  **Service-Principal** de ID die wordt gebruikt door de Kubernetes Azure-cloud-provider. De Client-ID is als de toepassings-ID geïdentificeerd wanneer u uw service principal worden gemaakt. 
     -  **Clientgeheim** ze sleutel u hebt gemaakt bij het maken van uw service-principal.
 
 2. Implementatie van virtuele machine maakt en de extensie voor aangepaste scripts.

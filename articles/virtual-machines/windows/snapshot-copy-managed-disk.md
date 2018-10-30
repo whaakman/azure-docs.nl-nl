@@ -14,16 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: cynthn
-ms.openlocfilehash: 87d78178c32aea3ae601983ec14e9df0732b59e2
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 0f223660f8dc99b590f8aa80a03d60fcbf3aa5d3
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091297"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50232576"
 ---
 # <a name="create-a-snapshot"></a>Een momentopname maken
 
-Een momentopname is een volledige, alleen-lezen kopie van een virtuele harde schijf (VHD). U kunt een momentopname van een besturingssysteem of de gegevensschijf VHD te gebruiken als een back-up of problemen met virtuele machine (VM). 
+Een momentopname is een volledige, alleen-lezen kopie van een virtuele harde schijf (VHD). U kunt een momentopname van een besturingssysteem of de gegevensschijf VHD te gebruiken als een back-up of problemen met virtuele machine (VM).
+
+Als u de momentopname gebruiken wilt voor het maken van een nieuwe virtuele machine, wordt u aangeraden dat u de juiste wijze de virtuele machine afgesloten voor het maken van een momentopname, om te wissen van alle processen die uitgevoerd worden.
 
 ## <a name="use-the-azure-portal"></a>Azure Portal gebruiken 
 

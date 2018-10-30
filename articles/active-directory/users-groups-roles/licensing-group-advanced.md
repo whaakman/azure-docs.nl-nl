@@ -11,15 +11,15 @@ ms.service: active-directory
 ms.topic: article
 ms.workload: identity
 ms.component: users-groups-roles
-ms.date: 06/02/2017
+ms.date: 10/29/2018
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 15b52920774a878cd386ced5966d507768a8af70
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 9b94bf4c499a5d6323e774df90304f0134bc5894
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39627386"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215409"
 ---
 # <a name="scenarios-limitations-and-known-issues-using-groups-to-manage-licensing-in-azure-active-directory"></a>Scenario's, beperkingen en bekende problemen met behulp van groepen beheren in Azure Active Directory-licentieverlening
 
@@ -211,23 +211,21 @@ Mogelijk ziet u vergelijkbare fouten bij het verwijderen van de groep via PowerS
 
 Als u licentieverlening op basis van een groep, is het een goed idee om vertrouwd te raken met de volgende lijst met beperkingen en bekende problemen.
 
-- Groepslicenties op dit moment biedt geen ondersteuning voor groepen met andere groepen (geneste groepen). Als u een licentie aan een groep geneste toepast, zijn alleen de directe eerste niveau die lid zijn van de groep de licenties die zijn toegepast.
+- Groepslicenties op dit moment biedt geen ondersteuning voor groepen met andere groepen (geneste groepen). Als u een licentie toepast op een geneste groep, wordt die licentie alleen toegepast op de gebruikers die lid direct zijn van de groep.
 
-- De functie kan alleen worden gebruikt met beveiligingsgroepen. Office-groepen worden momenteel niet ondersteund en u zich niet kunnen worden gebruikt in het toewijzingsproces licentie.
+- De functie kan alleen worden gebruikt met beveiligingsgroepen en Office 365-groepen waarvoor securityenabled moet = TRUE.
 
 - De [Office 365-beheerportal](https://portal.office.com ) ondersteunt momenteel geen Groepslicenties. Als een gebruiker een licentie worden overgenomen uit een groep, wordt deze licentie in de Office-beheerportal weergegeven als een gewone gebruiker-licentie. Als u probeert te wijzigen die licentie of probeer te verwijderen van de licentie, retourneert de portal een foutbericht weergegeven. Overgenomen Groepslicenties worden niet rechtstreeks op een gebruiker gewijzigd.
 
-- Wanneer een gebruiker wordt verwijderd uit een groep en verliest de licentie, de service-abonnementen van deze licentie (bijvoorbeeld SharePoint Online) zijn ingesteld op een **onderbroken** staat. De service-abonnementen zijn niet ingesteld op een definitieve status uitgeschakeld. Deze voorzorgsmaatregel kan te voorkomen dat per ongeluk verwijderen van gebruikersgegevens, als een beheerder een fout in het lidmaatschap van groepsbeheer maakt.
-
 - Wanneer de licenties worden toegewezen of worden gewijzigd voor een grote groep (bijvoorbeeld 100.000 gebruikers), kan dit de prestaties beïnvloeden. Het volume van de wijzigingen die worden gegenereerd door Azure AD-automatisering mogelijk specifiek, negatieve invloed hebben op de prestaties van uw directory-synchronisatie tussen Azure AD en on-premises systemen.
 
-- In bepaalde situaties hoge belasting licentie verwerking kan worden vertraagd en wijzigingen, zoals het toevoegen/verwijderen van een groep licentie of gebruikers toevoegen/verwijderen uit groep kunnen lang duren om te worden verwerkt. Als u ziet de wijzigingen worden meer dan 24 uur om te verwerken, neem [open een ondersteuningsticket](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/supportRequest) om toe te staan te onderzoeken. Verbeterd prestatiekenmerken van deze functie voordat het bereikt *algemene beschikbaarheid*.
+- Als u gebruikmaakt van dynamische groepen om het lidmaatschap van de gebruiker te beheren, controleert u of de gebruiker deel uitmaakt van de groep. Dit is noodzakelijk voor het toewijzen van licenties. Als dit niet het geval is, [controleert u de verwerkingsstatus voor de lidmaatschapsregel](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-create-rule#check-processing-status-for-a-membership-rule) van de dynamische groep. 
+
+- In bepaalde situaties hoge belasting duurt lang verwerkt licentiewijzigingen voor groepen of wijzigingen in het lidmaatschap aan groepen met licenties. Als u uw wijzigingen worden meer dan 24 uur voor het verwerken van groep grootte van 60K gebruikers of minder, neem [open een ondersteuningsticket](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/supportRequest) om toe te staan te onderzoeken. 
 
 - Licentie management automation niet automatisch reageren op alle soorten wijzigingen in de omgeving. Bijvoorbeeld, u waarschijnlijk te weinig licenties, waardoor sommige gebruikers zich in een foutstatus. Aan vrij te maken van het aantal beschikbare stoelen, kunt u sommige rechtstreeks toegewezen licenties van andere gebruikers. Het systeem echter niet automatisch reageren op deze wijziging en gebruikers in de status van deze fout corrigeren.
 
   Als tijdelijke oplossing voor dit soort beperkingen, gaat u naar de **groep** -blade in Azure AD, en klikt u op **opnieuw verwerken**. Met deze opdracht alle gebruikers in die groep worden verwerkt en wordt de status fout, indien mogelijk opgelost.
-
-- Groepslicenties vastgelegd geen fouten wanneer een licentie kan niet worden toegewezen aan een gebruiker door een dubbele proxyadresconfiguratie in Exchange Online; dergelijke gebruikers worden overgeslagen tijdens het toewijzen van licenties. Zie voor meer informatie over het identificeren en oplossen van dit probleem [in deze sectie](licensing-groups-resolve-problems.md#license-assignment-fails-silently-for-a-user-due-to-duplicate-proxy-addresses-in-exchange-online).
 
 ## <a name="next-steps"></a>Volgende stappen
 
@@ -237,3 +235,5 @@ Voor meer informatie over scenario’s voor licentiebeheer via licenties op basi
 * [Licenties toewijzen aan een groep in Azure Active Directory](licensing-groups-assign.md)
 * [Licentieproblemen voor een groep vaststellen en oplossen in Azure Active Directory](licensing-groups-resolve-problems.md)
 * [Gebruikers met een afzonderlijke licentie migreren naar licenties op basis van groepen in Azure Active Directory](licensing-groups-migrate-users.md)
+* [Het migreren van gebruikers tussen productlicenties groepsgebaseerde licentieverlening in Azure Active Directory gebruiken](../users-groups-roles/licensing-groups-change-licenses.md)
+* [PowerShell-voorbeelden voor Groepslicenties in Azure Active Directory](../users-groups-roles/licensing-ps-examples.md)

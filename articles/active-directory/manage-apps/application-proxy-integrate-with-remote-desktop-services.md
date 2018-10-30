@@ -15,12 +15,12 @@ ms.date: 06/27/2018
 ms.author: barbkess
 ms.custom: it-pro
 ms.reviewer: harshja
-ms.openlocfilehash: 5d8af50e3007342a5cd46e4862623f2cf7145172
-ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
+ms.openlocfilehash: 388fd812185bc8bd2ef68a1dbcea6303d30dcdf3
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39480418"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50230787"
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Extern bureaublad met Azure AD Application Proxy publiceren
 
@@ -97,6 +97,8 @@ Verbinding maken met de implementatie van extern bureaublad-services als beheerd
    ```
    Set-RDSessionCollectionConfiguration -CollectionName "QuickSessionCollection" -CustomRdpProperty "pre-authentication server address:s:https://remotedesktoptest-aadapdemo.msappproxy.net/`nrequire pre-authentication:i:1"
    ```
+>[!NOTE]
+>De bovenstaande opdracht maakt gebruik van een backtick in ' ' nrequire '.
 
 9. Als u wilt controleren of de wijziging van de aangepaste RDP-eigenschappen, evenals de inhoud van het RDP-bestand dat zal worden gedownload van RDWeb voor deze verzameling weergeven, moet u de volgende opdracht uitvoeren:
     ```

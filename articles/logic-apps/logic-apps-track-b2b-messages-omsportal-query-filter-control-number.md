@@ -1,6 +1,6 @@
 ---
-title: Query's voor B2B-berichten maken in Log Analytics - Azure Logic Apps | Microsoft Docs
-description: Query's die AS2, X 12 en EDIFACT-berichten met Log Analytics voor Azure Logic Apps bijhouden maken
+title: Tracerings-query's voor B2B-berichten maken in Log Analytics - Azure Logic Apps | Microsoft Docs
+description: Query's die AS2, X 12 en EDIFACT-berichten in Azure Log Analytics voor Azure Logic Apps bijhouden maken
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -8,109 +8,127 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
-ms.date: 06/19/2018
-ms.openlocfilehash: baccd255fc2812eae0de3a98dfcef3dcbc7e1b46
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.date: 10/19/2018
+ms.openlocfilehash: af1d00e49819f1d69e08c0fa99891690e07b489f
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43124267"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233749"
 ---
-# <a name="create-queries-for-tracking-as2-x12-and-edifact-messages-in-log-analytics-for-azure-logic-apps"></a>Query's voor het bijhouden van AS2, X 12 en EDIFACT-berichten in Log Analytics voor Azure Logic Apps maken
+# <a name="create-tracking-queries-for-b2b-messages-in-azure-log-analytics-for-azure-logic-apps"></a>Tracerings-query's voor B2B-berichten maken in Azure Log Analytics voor Azure Logic Apps
 
 Als u wilt zoeken AS2, X12 of EDIFACT-berichten dat u met bijhoudt [Azure Log Analytics](../log-analytics/log-analytics-overview.md), kunt u query's die filteracties op basis van specifieke criteria. U kunt bijvoorbeeld berichten op basis van een specifieke uitwisseling controlenummer vinden.
 
-## <a name="requirements"></a>Vereisten
+> [!NOTE]
+> Eerder beschreven stappen voor het uitvoeren van deze taken met de Microsoft Operations Management Suite (OMS), is deze pagina [buiten gebruik stellen in januari 2019](../log-analytics/log-analytics-oms-portal-transition.md), vervangt u deze stappen met Azure Log Analytics op in plaats daarvan. 
 
-* Een logische app die ingesteld met de logboekregistratie van diagnostische gegevens. Informatie over [over het maken van een logische app](../logic-apps/quickstart-create-first-logic-app-workflow.md) en [over het instellen van logboekregistratie voor deze logische app](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
+## <a name="prerequisites"></a>Vereisten
+
+* Een logische app die ingesteld met de logboekregistratie van diagnostische gegevens. Informatie over [over het maken van een logische app](quickstart-create-first-logic-app-workflow.md) en [over het instellen van logboekregistratie voor deze logische app](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
 
 * Integratie-account ingesteld met bewaking en logboekregistratie. Informatie over [over het maken van een integratieaccount](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) en [over het instellen van controle en logboekregistratie voor dat account](../logic-apps/logic-apps-monitor-b2b-message.md).
 
 * Als u dat nog niet gedaan hebt, [diagnostische gegevens publiceren naar Log Analytics](../logic-apps/logic-apps-track-b2b-messages-omsportal.md) en [bericht bijhouden in Log Analytics instellen](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
 
-> [!NOTE]
-> Nadat u de bovenstaande vereisten hebt voldaan, moet u een werkruimte van Log Analytics hebben. U moet dezelfde werkruimte gebruiken voor het bijhouden van uw B2B-communicatie in Log Analytics. 
->  
-> Als u een Log Analytics-werkruimte hebt, krijgt u informatie [over het maken van een Log Analytics-werkruimte](../log-analytics/log-analytics-quick-create-workspace.md).
+## <a name="create-queries-with-filters"></a>Query's met filters maken
 
-## <a name="create-message-queries-with-filters-in-log-analytics"></a>Bericht-query's met filters in Log Analytics maken
+Berichten op basis van specifieke eigenschappen of waarden zoekt, kunt u query's die gebruikmaken van filters maken. 
 
-In dit voorbeeld laat zien hoe u berichten op basis van hun controlenummer uitwisseling kunt vinden.
+1. Selecteer in [Azure Portal](https://portal.azure.com) de optie **Alle services**. In het zoekvak zoeken "log analytics" en selecteer **Log Analytics**.
 
-> [!TIP] 
-> Als u bekend bent met de naam van uw Log Analytics-werkruimte, gaat u naar de startpagina van uw werkruimte (`https://{your-workspace-name}.portal.mms.microsoft.com`), en beginnen bij stap 4. Anders kunt u beginnen bij stap 1.
+   ![Selecteer de Log Analytics](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/find-log-analytics.png)
 
-1. In de [Azure-portal](https://portal.azure.com), kiest u **alle Services**. Zoek naar "log analytics" en kies vervolgens **Log Analytics** zoals hier wordt weergegeven:
+1. Onder **Log Analytics**, zoek en selecteer uw Log Analytics-werkruimte. 
 
-   ![Log Analytics zoeken](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/browseloganalytics.png)
+   ![Log Analytics-werkruimte selecteren](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/select-log-analytics-workspace.png)
 
-2. Onder **Log Analytics**, zoek en selecteer uw Log Analytics-werkruimte.
+1. In het werkruimtemenu onder **algemene**, selecteert u **Logboeken (klassiek)** of **logboeken**. 
 
-   ![Selecteer uw Log Analytics-werkruimte](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/selectla.png)
+   Dit voorbeeld laat zien hoe u de klassieke weergave van de logboeken. 
+   Als u ervoor kiest **logboeken bekijken** in de **maximaliseren van uw Log Analytics-ervaring** sectie onder **zoeken in Logboeken en analyseren**, krijgt u de **Logboeken (klassieke weergave)** . 
 
-3. Onder **Management**, kiest u **zoeken in logboeken**.
+   ![Klassieke logboeken weergeven](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/view-classic-logs.png)
 
-   ![Kies Lo zoeken](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/azure-portal-page.png)
+1. In de query-invoervak, typ de naam van het veld dat u wilt zoeken. Wanneer u te typen begint, wordt de query-editor toont de mogelijke overeenkomsten en de bewerkingen die u kunt gebruiken. Nadat u uw query maakt, kiest u **uitvoeren** of druk op de Enter-toets.
 
-4. Voer in het zoekvak, een veld dat u wilt zoeken, en druk op **Enter**. Wanneer u te typen begint, Log Analytics laat zien u mogelijke overeenkomsten en bewerkingen die u kunt gebruiken. Meer informatie over [gegevens zoeken in Log Analytics](../log-analytics/log-analytics-log-searches.md).
+   In dit voorbeeld wordt gezocht naar overeenkomsten op **LogicAppB2B**. 
+   Meer informatie over [gegevens zoeken in Log Analytics](../log-analytics/log-analytics-log-searches.md).
 
-   In dit voorbeeld wordt gezocht naar gebeurtenissen met **Type = AzureDiagnostics**.
+   ![Begin met het typen van queryreeks](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/create-query.png)
 
-   ![Begin met het typen van queryreeks](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-start-query.png)
+1. Als u wilt wijzigen van de periode die u wilt weergeven in het linkerdeelvenster in de duur van de lijst selecteren of sleep de schuifregelaar. 
 
-5. Kies in de linkerbalk de periode die u wilt weergeven. Als u wilt een filter toevoegen aan uw query, kies **+ toevoegen**.
+   ![Wijziging tijdsbestek](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/change-timeframe.png)
 
-   ![Filter toevoegen aan query](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/query1.png)
+1. Als u wilt een filter toevoegen aan uw query, kies **toevoegen**. 
 
-6. Onder **Filters toevoegen**, voer de naam van het filter zodat u kunt het filter dat u wilt zoeken. Selecteer het filter en kies **+ toevoegen**.
+   ![Filter toevoegen aan query](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/add-filter.png)
 
-   Als u het controlenummer uitwisseling zoekt, in dit voorbeeld wordt gezocht naar het woord 'knooppunt' en selecteert **event_record_messageProperties_interchangeControlNumber_s** als het filter.
+1. Onder **Filters toevoegen**, voer filternaam die u wilt zoeken. Als u het filter hebt gevonden, selecteert u met het filter. Kies in het linkerdeelvenster **toevoegen** opnieuw.
 
-   ![Filter selecteren](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-query-add-filter.png)
+   Dit is bijvoorbeeld een andere query die u zoekt op **Type == "AzureDiagnostics"** gebeurtenissen en vindt u de resultaten op basis van het controlenummer uitwisseling door het selecteren van de **event_record_messageProperties_ interchangeControlNumber_s** filter.
 
-7. Selecteer de filterwaarde die u wilt gebruiken, en kies in de linkerbalk **toepassen**.
+   ![De filterwaarde selecteren](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/filter-example.png)
 
-   In het volgende voorbeeld wordt de uitwisseling controlenummer voor de berichten die we willen.
+   Nadat u hebt gekozen **toevoegen**, uw query wordt bijgewerkt met de gebeurtenis geselecteerde filter en de waarde. 
+   De resultaten van uw vorige worden nu te gefilterd. 
 
-   ![De filterwaarde selecteren](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-query-select-filter-value.png)
+   Bijvoorbeeld: deze query zoekt **Type == "AzureDiagnostics"** en vindt u resultaten op basis van een controlenummer uitwisseling met behulp van de **event_record_messageProperties_interchangeControlNumber_s**filter.
 
-8. Ga nu terug naar de query die u bouwt. De query is bijgewerkt met het geselecteerde filter gebeurtenis en de waarde. De resultaten van uw vorige worden nu te gefilterd.
-
-    ![Ga terug naar uw query's uitvoeren met de gefilterde resultaten](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-query-filtered-results.png)
+   ![Gefilterde resultaten](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/filtered-results.png)
 
 <a name="save-oms-query"></a>
 
-## <a name="save-your-query-for-future-use"></a>De query voor toekomstig gebruik opslaan
+## <a name="save-query"></a>Query opslaan
 
-1. Uit uw query op de **zoeken in logboeken** pagina, kies **opslaan**. Geef een naam op voor uw query, selecteert u een categorie en kies **opslaan**.
+Uw query in op te slaan **Logboeken (klassiek)** weergeven, als volgt te werk:
 
-   ![Geef uw query een naam en categorie](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-query-save.png)
+1. Uit uw query op de **Logboeken (klassiek)** pagina, kies **Analytics**. 
 
-2. Als u uw query, kies **Favorieten**.
+   ![Kies 'Analytics'](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/choose-analytics.png)
 
-   !['Favorieten' kiezen](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-query-favorites.png)
+1. Kies op de werkbalk query **opslaan**.
 
-3. Onder **opgeslagen zoekopdrachten**, selecteert u uw query zodat u kunt de resultaten bekijken. Voor het bijwerken van de query, zodat u verschillende resultaten kunt vinden, kunt u de query bewerken.
+   ![Kies 'Opslaan'](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/save-query.png)
 
-   ![Selecteer uw query](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-log-search-find-favorites.png)
+1. Geef de details over uw query, bijvoorbeeld, Geef uw query een naam, selecteer **Query**, en geef een categorienaam op. Als u bent klaar, kiest u **Opslaan**.
 
-## <a name="find-and-run-saved-queries-in-log-analytics"></a>Zoeken en uitvoeren van opgeslagen query's in Log Analytics
+   ![Kies 'Opslaan'](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/query-details.png)
 
-1. Open de startpagina van uw Log Analytics-werkruimte (`https://{your-workspace-name}.portal.mms.microsoft.com`), en kies **zoeken in logboeken**.
+1. Opgeslagen query's, Ga terug naar de querypagina om weer te geven. Kies op de werkbalk query **opgeslagen zoekopdrachten**.
 
-   ![Kies op de startpagina van uw Log Analytics, "Zoeken in Logboeken"](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/logsearch.png)
+   ![Kies "Opgeslagen zoekopdrachten"](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/choose-saved-searches.png)
 
-   -of-
+1. Onder **opgeslagen zoekopdrachten**, selecteert u uw query, zodat u kunt de resultaten bekijken. 
 
-   ![Kies in het menu "Zoeken in Logboeken"](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/logsearch-2.png)
+   ![Selecteer uw query](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/saved-query-results.png)
 
-2. Op de **zoeken in logboeken** startpagina, kiest u **Favorieten**.
+   Voor het bijwerken van de query, zodat u verschillende resultaten kunt vinden, kunt u de query bewerken.
 
-   !['Favorieten' kiezen](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-log-search-favorites.png)
+## <a name="find-and-run-saved-queries"></a>Zoeken en opgeslagen query's uitvoeren
 
-3. Onder **opgeslagen zoekopdrachten**, selecteert u uw query zodat u kunt de resultaten bekijken. Voor het bijwerken van de query, zodat u verschillende resultaten kunt vinden, kunt u de query bewerken.
+1. Selecteer in [Azure Portal](https://portal.azure.com) de optie **Alle services**. In het zoekvak zoeken "log analytics" en selecteer **Log Analytics**.
 
-   ![Selecteer uw query](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-log-search-find-favorites.png)
+   ![Selecteer de Log Analytics](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/find-log-analytics.png)
+
+1. Onder **Log Analytics**, zoek en selecteer uw Log Analytics-werkruimte. 
+
+   ![Log Analytics-werkruimte selecteren](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/select-log-analytics-workspace.png)
+
+1. In het werkruimtemenu onder **algemene**, selecteert u **Logboeken (klassiek)** of **logboeken**. 
+
+   Dit voorbeeld laat zien hoe u de klassieke weergave van de logboeken. 
+
+1. Nadat de querypagina wordt geopend, op de werkbalk query kiest **opgeslagen zoekopdrachten**.
+
+   ![Kies "Opgeslagen zoekopdrachten"](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/choose-saved-searches.png)
+
+1. Onder **opgeslagen zoekopdrachten**, selecteert u uw query, zodat u kunt de resultaten bekijken. 
+
+   ![Selecteer uw query](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/saved-query-results.png) 
+
+   De query wordt automatisch uitgevoerd, maar als de query kan niet worden uitgevoerd voor een bepaalde reden, in de query-editor kiest **uitvoeren**.
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -11,13 +11,13 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: sstein
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: 77e3cdcbd18a4a5313160b947ce278a75f3e3de3
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.date: 10/29/2018
+ms.openlocfilehash: 6a5ee991ca21e60e6c2b14d5e3be560183eae4fa
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056383"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50232899"
 ---
 # <a name="deploy-and-explore-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-sql-database"></a>Implementeren en een multitenant SaaS-app die gebruikmaakt van het patroon van de database-per-tenant met SQL Database verkennen
 
@@ -39,20 +39,20 @@ Een [reeks gerelateerde zelfstudies](saas-dbpertenant-wingtip-app-overview.md#sq
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor deze zelfstudie, zorg ervoor dat Azure PowerShell is geïnstalleerd. Zie voor meer informatie, [aan de slag met Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
+Voor deze zelfstudie, zorg ervoor dat Azure PowerShell is geïnstalleerd. Zie [Aan de slag met Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps) voor meer informatie.
 
 ## <a name="deploy-the-wingtip-tickets-saas-application"></a>De Wingtip Tickets SaaS-toepassing implementeren
 
-#### <a name="plan-the-names"></a>De namen van plan bent
+### <a name="plan-the-names"></a>De namen van plan bent
 
 In de stappen van deze sectie bieden u een gebruikerswaarde die wordt gebruikt om ervoor resourcenamen wereldwijd uniek zijn. U ook opgeven een naam op voor de resourcegroep waarin alle resources die zijn gemaakt door een implementatie van de app. We raden voor fictieve personen met de naam Anne Finley:
 
 - **Gebruiker**: *af1* bestaat uit de Anne Finley initialen plus een cijfer. Als u de app op een tweede keer implementeren, gebruikt u een andere waarde. Een voorbeeld is af2.
 - **Resourcegroep**: *wingtip-dpt-af1* geeft aan dat dit is de database-per-tenant-app. Toevoegen van de gebruiker de naam af1 voor het correleren van de naam van de resourcegroep met de namen van de resources die deze bevat.
 
-Kies de namen van de nu en schrijf ze op. 
+Kies de namen van de nu en schrijf ze op.
 
-#### <a name="steps"></a>Stappen
+### <a name="steps"></a>Stappen
 
 1. Als u de sjabloon van de implementatie van de database-per-tenant Wingtip Tickets SaaS in Azure portal, schakelt **implementeren in Azure**.
 
@@ -63,7 +63,7 @@ Kies de namen van de nu en schrijf ze op.
     > [!IMPORTANT]
     > Sommige firewalls verificatie en de server zijn opzettelijk onbeveiligde voor demonstratiedoeleinden te gebruiken. U wordt aangeraden dat u een nieuwe resourcegroep maken. Gebruik geen bestaande resourcegroepen, servers of pools. Gebruik deze toepassing, scripts en alle geïmplementeerde resources niet voor productie. Verwijder deze resourcegroep wanneer u klaar met de toepassing bent om gerelateerde facturering te stoppen.
 
-    - **Resourcegroep**: Selecteer **nieuw**, en geef de unieke naam die u hebt gekozen eerder voor de resourcegroep. 
+    - **Resourcegroep**: Selecteer **nieuw**, en geef de unieke naam die u hebt gekozen eerder voor de resourcegroep.
     - **Locatie**: Selecteer een locatie in de vervolgkeuzelijst.
     - **Gebruiker**: Gebruik de gebruiker de naam van waarde die u eerder hebt gekozen.
 
@@ -97,7 +97,7 @@ Scripts bevinden zich in de... \\WingtipTicketsSaaS-DbPerTenant-master\\map Lear
 
 Voordat u alle scripts uitvoeren, moet u de waarden voor resource-groep en gebruiker in het configuratiebestand van de gebruiker bijgewerkt. Deze variabelen instellen op de waarden die u hebt gebruikt tijdens de implementatie.
 
-1. Open in de PowerShell ISE... \\Learning Modules\\**UserConfig.psm1** 
+1. Open in de PowerShell ISE... \\Learning Modules\\**UserConfig.psm1**
 1. Update **ResourceGroupName** en **naam** met de specifieke waarden voor uw implementatie (op regel 10 en 11 alleen).
 1. Sla de wijzigingen op.
 
@@ -115,13 +115,13 @@ Een centraal **Events Hub** pagina bevat een lijst met koppelingen naar de tenan
 
     ![Events Hub](media/saas-dbpertenant-get-started-deploy/events-hub.png)
 
-1. Selecteer **Fabrikam Jazz Club** in de Events Hub.
+2. Selecteer **Fabrikam Jazz Club** in de Events Hub.
 
     ![Gebeurtenissen](./media/saas-dbpertenant-get-started-deploy/fabrikam.png)
 
-#### <a name="azure-traffic-manager"></a>Azure Traffic Manager
+### <a name="azure-traffic-manager"></a>Azure Traffic Manager
 
-Maakt gebruik van de toepassing Wingtip [ *Azure Traffic Manager* ](../traffic-manager/traffic-manager-overview.md) om de verdeling van inkomende aanvragen te beheren. De URL voor toegang tot de pagina gebeurtenissen voor een specifieke tenant maakt gebruik van de volgende indeling:
+Maakt gebruik van de toepassing Wingtip [*Azure Traffic Manager* ](../traffic-manager/traffic-manager-overview.md) om de verdeling van inkomende aanvragen te beheren. De URL voor toegang tot de pagina gebeurtenissen voor een specifieke tenant maakt gebruik van de volgende indeling:
 
 - http://events.wingtip-dpt.&lt; gebruiker&gt;.trafficmanager.net/fabrikamjazzclub
 
@@ -135,13 +135,17 @@ Maakt gebruik van de toepassing Wingtip [ *Azure Traffic Manager* ](../traffic-m
     | fabrikamjazzclub | Hiermee geeft u de tenant met de naam Fabrikam Jazz Club. |
     | &nbsp; | &nbsp; |
 
-* De tenantnaam wordt afgeleid uit de URL door de app.
-* Naam van de tenant wordt gebruikt om een sleutel te maken.
-* De sleutel wordt gebruikt voor toegang tot de catalogus om op te halen van de locatie van de database van de tenant.
-    - De catalogus wordt geïmplementeerd met behulp van *shard-Toewijzingsbeheer*.
-* De Events Hub maakt gebruik van uitgebreide metagegevens in de catalogus te maken van de URL van de pagina van de lijst van gebeurtenissen voor elke tenant.
+- De tenantnaam wordt afgeleid uit de URL door de app.
+- Naam van de tenant wordt gebruikt om een sleutel te maken.
+- De sleutel wordt gebruikt voor toegang tot de catalogus om op te halen van de locatie van de database van de tenant.
+  - De catalogus wordt geïmplementeerd met behulp van *shard-Toewijzingsbeheer*.
+- De Events Hub maakt gebruik van uitgebreide metagegevens in de catalogus te maken van de URL van de pagina van de lijst van gebeurtenissen voor elke tenant.
 
-In een productieomgeving, doorgaans maakt u een CNAME-DNS-record [ *internetdomein van een bedrijf* ](../traffic-manager/traffic-manager-point-internet-domain.md) naar de Traffic Manager-DNS-naam.
+In een productieomgeving, doorgaans maakt u een CNAME-DNS-record [*internetdomein van een bedrijf*](../traffic-manager/traffic-manager-point-internet-domain.md) naar de Traffic Manager-DNS-naam.
+
+> [!NOTE]
+> Deze mogelijk niet direct duidelijk wat het gebruik van traffic manager is in deze zelfstudie. Het doel van deze reeks zelfstudies is te presenteren patronen die de schaal van een complexe productie-omgeving kunnen verwerken. Bijvoorbeeld, in dat geval hebt u meerdere web-apps, verdeeld over de hele wereld, CO-locatie met databases en moet u traffic manager om te routeren tussen deze instanties.
+Er zijn echter een andere reeks zelfstudies die laat zien van het gebruik van traffic manager de [geo-herstel](saas-dbpertenant-dr-geo-restore.md) en de [geo-replicatie](saas-dbpertenant-dr-geo-replication.md) zelfstudies. In deze zelfstudie wordt traffic manager gebruikt om u te helpen bij het overschakelen naar een exemplaar van het herstel van de SaaS-app in het geval van een regionale onderbreking.
 
 ## <a name="start-generating-load-on-the-tenant-databases"></a>Workloads genereren voor de tenant-databases
 
@@ -150,12 +154,12 @@ Nu dat de app is geïmplementeerd, laten we om te werken.
 De *Demo-LoadGenerator* PowerShell-script wordt een werkbelasting die wordt uitgevoerd op alle tenantdatabases. De werkelijke belasting van veel SaaS-apps is het sporadisch en onvoorspelbaar. Als u wilt dit type load simuleren, produceert de generator een belasting met willekeurige pieken of pieken van activiteit op elke tenant. De pieken optreden met willekeurige intervallen. Het duurt enkele minuten voor het patroon load te geven. Moet de generator voor ten minste drie of vier minuten voordat u de belasting controleren worden uitgevoerd.
 
 1. Open in de PowerShell ISE, de... \\Learning Modules\\hulpprogramma's voor\\*Demo-LoadGenerator.ps1* script.
-1. Druk op F5 op het script uitvoert en de load-generator te starten. Laat de standaardwaarde parameterwaarden nu.
-1. Meld u aan bij uw Azure-account en selecteer het abonnement dat u gebruiken wilt, indien nodig.
+2. Druk op F5 op het script uitvoert en de load-generator te starten. Laat de standaardwaarde parameterwaarden nu.
+3. Meld u aan bij uw Azure-account en selecteer het abonnement dat u gebruiken wilt, indien nodig.
 
 De load-generator-script wordt gestart een achtergrondtaak voor elke database in de catalogus en wordt het gestopt. Als u de load-generator-script opnieuw uitvoeren, stopt alle achtergrondtaken die worden uitgevoerd voordat er begonnen wordt met nieuwe labels.
 
-#### <a name="monitor-the-background-jobs"></a>De achtergrondtaken bewaken
+### <a name="monitor-the-background-jobs"></a>De achtergrondtaken bewaken
 
 Als u wilt beheren en controleren van de achtergrondtaken, gebruikt u de volgende cmdlets:
 
@@ -163,7 +167,7 @@ Als u wilt beheren en controleren van de achtergrondtaken, gebruikt u de volgend
 - `Receive-Job`
 - `Stop-Job`
 
-#### <a name="demo-loadgeneratorps1-actions"></a>Demo-LoadGenerator.ps1 acties
+### <a name="demo-loadgeneratorps1-actions"></a>Demo-LoadGenerator.ps1 acties
 
 *Demo-LoadGenerator.ps1* lijkt op een actieve werkbelasting van de klanttransacties. De volgende stappen beschrijven de reeks acties die *Demo-LoadGenerator.ps1* initieert:
 
@@ -171,18 +175,18 @@ Als u wilt beheren en controleren van de achtergrondtaken, gebruikt u de volgend
 
     - Beide .ps1-bestanden worden opgeslagen onder de mappen Learning Modules\\hulpprogramma's voor\\.
 
-1. *LoadGenerator.ps1* lussen via alle tenant-databases in de catalogus.
+2. *LoadGenerator.ps1* lussen via alle tenant-databases in de catalogus.
 
-1. *LoadGenerator.ps1* een achtergrondtaak van PowerShell voor elke tenantdatabase begint:
+3. *LoadGenerator.ps1* een achtergrondtaak van PowerShell voor elke tenantdatabase begint:
 
     - De achtergrondtaken worden standaard uitgevoerd gedurende 120 minuten.
-    - Elke taak een op basis van CPU-belasting zorgt ervoor dat op één tenant-database door te voeren *sp_CpuLoadGenerator*. De intensiteit en de duur van de belasting varieert, afhankelijk van `$DemoScenario`. 
+    - Elke taak een op basis van CPU-belasting zorgt ervoor dat op één tenant-database door te voeren *sp_CpuLoadGenerator*. De intensiteit en de duur van de belasting varieert, afhankelijk van `$DemoScenario`.
     - *sp_CpuLoadGenerator* lussen om een SQL SELECT-instructie die ervoor zorgt een hoog CPU-belasting dat. Het tijdsinterval tussen problemen van de SELECT varieert op basis van de parameterwaarden te maken van een instelbare CPU-belasting. De belastingsniveaus en intervallen zijn ingedeeld als u wilt simuleren realistischer geladen.
     - Deze .sql-bestanden worden opgeslagen onder *WingtipTenantDB\\dbo\\StoredProcedures\\*.
 
-1. Als `$OneTime = $false`, de load-generator begint de achtergrondtaken en vervolgens om uit te voeren. Elke 10 seconden, bewaakt het voor alle nieuwe tenants die zijn ingericht. Als u `$OneTime = $true`, de LoadGenerator begint de achtergrondtaken en vervolgens niet meer werkt op de voorgrond is geplaatst. Voor deze zelfstudie laat u `$OneTime = $false`.
+4. Als `$OneTime = $false`, de load-generator begint de achtergrondtaken en vervolgens om uit te voeren. Elke 10 seconden, bewaakt het voor alle nieuwe tenants die zijn ingericht. Als u `$OneTime = $true`, de LoadGenerator begint de achtergrondtaken en vervolgens niet meer werkt op de voorgrond is geplaatst. Voor deze zelfstudie laat u `$OneTime = $false`.
 
-  Ctrl + C of stoppen bewerking Ctrl-Break gebruiken als u wilt stoppen of opnieuw starten van de load-generator. 
+  Ctrl + C of stoppen bewerking Ctrl-Break gebruiken als u wilt stoppen of opnieuw starten van de load-generator.
 
   Als u de load-generator die worden uitgevoerd in de voorgrond is geplaatst, gebruikt u een ander exemplaar van de PowerShell ISE andere PowerShell-scripts uit te voeren.
 
@@ -195,11 +199,11 @@ Voordat u met de volgende sectie doorgaat, laat u de load-generator in de status
 De eerste implementatie er drie voorbeeldtenants gemaakt. Nu maken u een andere tenant om te zien van de impact op de geïmplementeerde toepassing. In de app Wingtip, de werkstroom voor het inrichten van nieuwe tenants wordt uitgelegd in de [inrichten en catalogiseren zelfstudie](saas-dbpertenant-provision-and-catalog.md). In deze fase maakt u een nieuwe tenant, waarbij minder dan één minuut.
 
 1. Open een nieuwe PowerShell ISE.
-1. Open... \\Learning Modules\Provision and Catalog\\*Demo-ProvisionAndCatalog.ps1*.
-1. Druk op F5 om het script uitvoert. Gebruik voorlopig de standaardwaarden.
+2. Open... \\Learning Modules\Provision and Catalog\\*Demo-ProvisionAndCatalog.ps1*.
+3. Druk op F5 om het script uitvoert. Gebruik voorlopig de standaardwaarden.
 
    > [!NOTE]
-   > Veel Wingtip SaaS-scripts gebruiken *$PSScriptRoot* om te bladeren in mappen voor het aanroepen van functies in andere scripts. Deze variabele wordt geëvalueerd wanneer het volledige script is uitgevoerd door op F5 te drukken. Markeren en uitvoeren van een selectie met F8 kunnen leiden tot fouten. Druk op F5 om het uitvoeren van de scripts.
+   > Veel Wingtip SaaS-scripts gebruiken *$PSScriptRoot* om te bladeren in mappen voor het aanroepen van functies in andere scripts. Deze variabele wordt geëvalueerd wanneer het volledige script is uitgevoerd door op F5 te drukken. Markeren en uitvoeren van een selectie met F8 kunnen leiden tot fouten. Druk op F5 om het uitvoeren van de scripts.
 
 De database van de nieuwe tenant is:
 
@@ -217,16 +221,16 @@ Vernieuw de Events Hub zodat de nieuwe tenant weergegeven in de lijst.
 
 Nu u bent begonnen met het uitvoeren van een werklast in de verzameling van tenants, laten we bekijken enkele van de resources die zijn geïmplementeerd.
 
-1. In de [Azure-portal](http://portal.azure.com), blader naar de lijst met SQL-servers. Open vervolgens de **catalogus-dpt -&lt;gebruiker&gt;**  server.
+1. In de [Azure-portal](http://portal.azure.com), blader naar de lijst met SQL-servers. Open vervolgens de **catalogus-dpt -&lt;gebruiker&gt;** server.
     - De catalogusserver bevat twee databases: **tenantcatalog** en **basetenantdb** (een sjabloondatabase die voor het maken van nieuwe tenants worden gekopieerd).
 
    ![Databases](./media/saas-dbpertenant-get-started-deploy/databases.png)
 
-1. Ga terug naar de lijst met SQL-servers.
+2. Ga terug naar de lijst met SQL-servers.
 
-1. Open de **tenants1-dpt -&lt;gebruiker&gt;**  server die de tenantdatabases bevat.
+3. Open de **tenants1-dpt -&lt;gebruiker&gt;** server die de tenantdatabases bevat.
 
-1. Zie de volgende items:
+4. Zie de volgende items:
 
     - Elke tenant-database is een **Standard-elastisch** database in een standaardpool van 50 eDTU.
     - De database Red Maple Racing is de database van de tenant die u eerder hebt ingericht.
@@ -237,7 +241,7 @@ Nu u bent begonnen met het uitvoeren van een werklast in de verzameling van tena
 
 Na *LoadGenerator.ps1* uitvoeringen voor enkele minuten, voldoende gegevens beschikbaar moeten zijn om te kijken naar enkele mogelijkheden voor bewaking starten. Deze mogelijkheden zijn ingebouwd in pools en databases.
 
-Blader naar de server **tenants1-dpt -&lt;gebruiker&gt;**, en selecteer **Pool1** om Resourcegebruik voor de groep weer te geven. In de volgende grafieken, wordt de load-generator uitgevoerd gedurende één uur.
+Blader naar de server **tenants1-dpt -&lt;gebruiker&gt;**, en selecteer **Pool1** om Resourcegebruik voor de groep weer te geven. In de volgende grafieken, wordt de load-generator uitgevoerd gedurende één uur.
 
    ![Pool bewaken](./media/saas-dbpertenant-get-started-deploy/monitor-pool.png)
 
@@ -249,10 +253,9 @@ De twee grafieken ziet u dat elastische pools en SQL-Database goed geschikt voor
 ## <a name="additional-resources"></a>Aanvullende resources
 
 - Zie voor meer informatie, extra [zelfstudies die op de database-per-tenant-toepassing Wingtip Tickets SaaS voortbouwen](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials).
-- Zie voor meer informatie over elastische pools, [wat is een elastische pool van Azure SQL?](sql-database-elastic-pool.md).
-- Zie voor meer informatie over elastische taken, [beheren uitgeschaalde clouddatabases](sql-database-elastic-jobs-overview.md).
-- Zie voor meer informatie over multitenant SaaS-toepassingen, [ontwerppatronen voor multitenant SaaS-toepassingen](saas-tenancy-app-design-patterns.md).
-
+- Zie voor meer informatie over elastische pools, [wat is een elastische pool van Azure SQL?](sql-database-elastic-pool.md).
+- Zie voor meer informatie over elastische taken, [beheren uitgeschaalde clouddatabases](sql-database-elastic-jobs-overview.md).
+- Zie voor meer informatie over multitenant SaaS-toepassingen, [ontwerppatronen voor multitenant SaaS-toepassingen](saas-tenancy-app-design-patterns.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 
@@ -268,9 +271,6 @@ In deze zelfstudie hebt u het volgende geleerd:
 
 Probeer vervolgens de [inrichten en catalogiseren zelfstudie](saas-dbpertenant-provision-and-catalog.md).
 
-
-
 <!-- Link references. -->
 
-[github-wingtip-dpt]: https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant 
-
+[github-wingtip-dpt]: https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant

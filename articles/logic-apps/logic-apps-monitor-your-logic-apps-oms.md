@@ -1,6 +1,6 @@
 ---
-title: Monitor voor logische app wordt uitgevoerd met Log Analytics - Azure Logic Apps | Microsoft Docs
-description: Verkrijgen van inzichten en gegevens over uw logische app wordt uitgevoerd met Log Analytics voor foutopsporing voor het opsporen en oplossen
+title: Logische apps met Log Analytics - Azure Logic Apps bewaken | Microsoft Docs
+description: Verzamel inzichten en foutopsporing van gegevens voor het oplossen en diagnosticeren van uw logische app wordt uitgevoerd met Azure Log Analytics
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -8,24 +8,24 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
-ms.date: 10/11/2018
-ms.openlocfilehash: 177c361734a88acab5fc10d6b460645be82bf437
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.date: 10/19/2018
+ms.openlocfilehash: c65cc24f9b0083e9c873465008490bf00ea83852
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49457134"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50232373"
 ---
-# <a name="monitor-and-get-insights-about-logic-app-runs-with-log-analytics"></a>Controleren op en Verkrijg inzichten over runs voor logic Apps met Log Analytics
+# <a name="monitor-logic-apps-with-azure-log-analytics"></a>Logische apps controleren met Azure Log Analytics
 
-Voor controle en uitgebreidere foutopsporing informatie, kunt u Log Analytics inschakelen op hetzelfde moment als u een logische app maakt. Log Analytics biedt Diagnostische logboekregistratie en bewaking voor uw logische app wordt uitgevoerd via Azure portal. Wanneer u de Logic Apps-beheeroplossing toevoegt, krijgt u de cumulatieve status van de runs voor logic Apps en -specifieke details, zoals status, uitvoeringstijd, de status opnieuw indienen en correlatie-id's.
+Inschakelen om te controleren en uitgebreidere foutopsporing meer informatie over uw logische apps, [Azure Log Analytics](../log-analytics/log-analytics-overview.md) wanneer u uw logische app maakt. Log Analytics biedt Diagnostische logboekregistratie en bewaking voor uw logische apps wanneer u de oplossing voor Logic Apps-beheer in Azure portal installeren. Deze oplossing biedt ook de verzamelde informatie voor uw logische app wordt uitgevoerd met specifieke details zoals status, uitvoeringstijd, de status opnieuw indienen en correlatie-id's. In dit artikel laat zien hoe inschakelen op Log Analytics, zodat u de runtime-gebeurtenissen weergeven kunt en gegevens voor uw logische app wordt uitgevoerd.
 
-Dit artikel laat het inschakelen van Log Analytics, zodat u de runtime-gebeurtenissen weergeven kunt en gegevens voor uw logische app uitvoeren.
+Als u wilt inschakelen op Azure Log Analytics voor bestaande logische apps, volgt u deze stappen voor het [Diagnostische logboekregistratie inschakelen en de logische app runtime-gegevens verzenden naar Log Analytics](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
 
- > [!TIP]
- > Voor het bewaken van uw bestaande logische apps, volgt u deze stappen voor het [Diagnostische logboekregistratie inschakelen en de logische app runtime-gegevens verzenden naar Log Analytics](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
+> [!NOTE]
+> Eerder beschreven stappen voor het uitvoeren van deze taken met de Microsoft Operations Management Suite (OMS), is deze pagina [buiten gebruik stellen in januari 2019](../log-analytics/log-analytics-oms-portal-transition.md), vervangt u deze stappen met Azure Log Analytics op in plaats daarvan. 
 
-## <a name="requirements"></a>Vereisten
+## <a name="prerequisites"></a>Vereisten
 
 Voordat u begint, moet u een Log Analytics-werkruimte. Informatie over [over het maken van een Log Analytics-werkruimte](../log-analytics/log-analytics-quick-create-workspace.md). 
 
@@ -54,11 +54,11 @@ Voordat u begint, moet u een Log Analytics-werkruimte. Informatie over [over het
 
 1. Wordt uitgevoerd om uw logische app weer te geven, [gaat u verder met deze stappen](#view-logic-app-runs-oms).
 
-## <a name="install-the-logic-apps-management-solution"></a>De oplossing voor Logic Apps-beheer installeren
+## <a name="install-logic-apps-management-solution"></a>Oplossing voor de Logic Apps-beheer installeren
 
 Als u al ingesteld op Log Analytics tijdens het maken van uw logische app, moet u deze stap overslaan. U hebt al de Logic Apps-beheeroplossing geïnstalleerd.
 
-1. Selecteer in [Azure Portal](https://portal.azure.com) de optie **Alle services**. Voer 'log analytics' als filter in het zoekvak en selecteer **Log Analytics**.
+1. Selecteer in [Azure Portal](https://portal.azure.com) de optie **Alle services**. In het zoekvak zoeken "log analytics" en selecteer **Log Analytics**.
 
    ![Selecteer "Log Analytics"](./media/logic-apps-monitor-your-logic-apps-oms/find-log-analytics.png)
 
@@ -66,7 +66,7 @@ Als u al ingesteld op Log Analytics tijdens het maken van uw logische app, moet 
 
    ![Selecteer uw Log Analytics-werkruimte](./media/logic-apps-monitor-your-logic-apps-oms/select-log-analytics-workspace.png)
 
-1. Onder **bewakingsoplossingen configureren**, kiest u **oplossingen weergeven**.
+1. Onder **aan de slag met Log Analytics** > **bewakingsoplossingen configureren**, kiest u **oplossingen weergeven**.
 
    ![Kies "Oplossingen weergeven"](media/logic-apps-monitor-your-logic-apps-oms/log-analytics-workspace.png)
 
@@ -76,19 +76,23 @@ Als u al ingesteld op Log Analytics tijdens het maken van uw logische app, moet 
 
    Als u de oplossing, klikt u onder aan de lijst niet vinden Kies **meer laden** totdat de oplossing wordt weergegeven.
 
-1. Kies **maken**, waarmee de oplossing wordt geïnstalleerd.
+1. Kies **maken**, Controleer of de Log Analytics-werkruimte waar u wilt installeren van de oplossing en kies vervolgens **maken** opnieuw.   
 
-   ![Kies 'Toevoegen' voor "Logic Apps-beheer"](./media/logic-apps-monitor-your-logic-apps-oms/create-logic-apps-management-solution.png)
+   ![Kies 'Maken' voor "Logic Apps-beheer"](./media/logic-apps-monitor-your-logic-apps-oms/create-logic-apps-management-solution.png)
+
+   Als u niet wilt gebruiken van een bestaande werkruimte, kunt u ook een nieuwe werkruimte maken op dit moment.
+
+   Wanneer u klaar bent, is de oplossing Logic Apps-beheer wordt weergegeven op de pagina overzicht. 
 
 <a name="view-logic-app-runs-oms"></a>
 
-## <a name="view-logic-app-runs-in-log-analytics-workspace"></a>De logische app weergeven in Log Analytics-werkruimte wordt uitgevoerd
+## <a name="view-logic-app-run-information"></a>Voer informatie de logische app weergeven
 
-1. Als u wilt weergeven van het aantal en de status van uw logische app wordt uitgevoerd, gaat u naar uw Log Analytics-werkruimte en open de pagina overzicht. 
+Nadat uw logische app wordt uitgevoerd, kunt u de status en het aantal voor deze uitvoeringen weergeven op de **Logic Apps-beheer** tegel. 
 
-   Meer informatie over uw runs voor logic Apps worden weergegeven op de **Logic Apps-beheer** tegel. Als u een overzicht met meer informatie over uw logische app wordt uitgevoerd, kiest u de **Logic Apps-beheer** tegel. 
+1. Ga naar uw Log Analytics-werkruimte en open de pagina overzicht. Kies **Logic Apps-beheer**. 
 
-   ![Overzichtstegel met logische app uitvoeren aantal en de status](media/logic-apps-monitor-your-logic-apps-oms/overview.png)
+   ![Logische app de status en het aantal](media/logic-apps-monitor-your-logic-apps-oms/overview.png)
 
    Uw runs voor logic Apps worden hier, gegroepeerd op naam of uitvoeringsstatus. 
    Deze pagina bevat ook informatie over fouten in acties of triggers voor de logische app wordt uitgevoerd.

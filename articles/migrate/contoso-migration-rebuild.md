@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 6c68d90605590ed8a17296e83276c7ef5396d6a2
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 48b4878eef7395b51d19c59443736bae5aeb7365
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092969"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233579"
 ---
 # <a name="contoso-migration-rebuild-an-on-premises-app-to-azure"></a>Migratie van Contoso: opnieuw opbouwen van een on-premises app naar Azure
 
@@ -139,7 +139,7 @@ Hier ziet u hoe Contoso de migratie wordt uitgevoerd:
 > * **Stap 1: Inrichten AKS en ACR**: Contoso richt de beheerde AKS-cluster en Azure-containerregister met behulp van PowerShell
 > * **Stap 2: Bouw de Docker-containers**: ze CI instellen voor Docker-containers met behulp van Azure DevOps en push ze naar de ACR.
 > * **Stap 3: Implementatie van back-end microservices**: implementatie van de rest van de infrastructuur die zal worden gebruikt door de back-end microservices.
-> * **Stap 4: Een front-infrastructuur implementeren**: ze implementeren voor de front-end-infrastructuur, inclusief blob-opslag voor de huisdier telefoons, Cosmos DB en Vision-API.
+> * **Stap 4: Een front-infrastructuur implementeren**: implementatie van de front-end-infrastructuur, met inbegrip van blob-opslag voor de huisdier telefoons, Cosmos DB en Vision-API.
 > * **Stap 5: De back-end migreren**: ze microservices implementeren en uitvoeren in AKS, voor het migreren van de back-end.
 > * **Stap 6: Publiceer de front-end**: ze de SmartHotel360-app publiceren naar de Azure App service en de functie-App die wordt aangeroepen door de huisdier-service.
 

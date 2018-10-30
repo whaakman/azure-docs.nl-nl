@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/06/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: d240bafa543633999a74ef66efcfd7130a4a7b7a
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 1a135b0e17889c544a99ad677e9fa42ad6de994c
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389272"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50231879"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Problemen met Azure Files Sync oplossen
 Gebruik Azure File Sync te centraliseren bestandsshares van uw organisatie in Azure Files, terwijl de flexibiliteit, prestaties en compatibiliteit van een on-premises bestandsserver. Azure File Sync transformeert Windows Server naar een snelle cache van uw Azure-bestandsshare. U kunt elk protocol dat beschikbaar is op Windows Server voor toegang tot uw gegevens lokaal, met inbegrip van SMB, NFS en FTPS gebruiken. U kunt zoveel caches hebben als u nodig hebt over de hele wereld.
@@ -74,9 +74,9 @@ Dit probleem treedt op als de Azure-bestandsshare al in gebruik door een andere 
 Als u dit bericht ziet en de Azure-bestandsshare momenteel niet gebruikt door een cloudeindpunt is, voert u de volgende stappen uit om te wissen van de metagegevens van de Azure File Sync op de Azure-bestandsshare:
 
 > [!Warning]  
-> Verwijderen van de metagegevens van een Azure-bestandsshare die momenteel in gebruik door een cloudeindpunt zorgt ervoor dat Azure File Sync-bewerkingen mislukken. 
+> Verwijderen van de metagegevens van een Azure-bestandsshare die momenteel in gebruik door een cloudeindpunt zorgt ervoor dat Azure File Sync-bewerkingen mislukken. 
 
-1. In de Azure-portal, gaat u naar uw Azure-bestandsshare.  
+1. In de Azure-portal, gaat u naar uw Azure-bestandsshare.  
 2. Met de rechtermuisknop op de Azure-bestandsshare en selecteer vervolgens **metagegevens bewerken**.
 3. Met de rechtermuisknop op **SyncService**, en selecteer vervolgens **verwijderen**.
 
@@ -519,7 +519,7 @@ Deze fout treedt op omdat er wijzigingen in de Azure-bestandsshare rechtstreeks 
 | | |
 | **HRESULT** | 0x80c8021c |
 | **HRESULT (decimaal)** | -2134375908 |
-| **Fouttekenreeks** | ECS_E_SYNC_METADATA_KNOWLEGE_LIMIT_REACHED |
+| **Fouttekenreeks** | ECS_E_SYNC_METADATA_KNOWLEDGE_LIMIT_REACHED |
 | **Herstel is vereist** | Ja |
 | | |
 | **HRESULT** | 0x80c80253 |

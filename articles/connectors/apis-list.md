@@ -9,12 +9,12 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: article
 ms.date: 08/23/2018
-ms.openlocfilehash: 6b31882ec3916e60ac7dc7b8117328176abef1b4
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 3230692208d27ebac073e257266c885b5e03095c
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42818531"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233630"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>Connectors voor Azure Logic Apps
 
@@ -158,7 +158,7 @@ Als u aangepaste API Apps of connectors openbare voor iedereen die het gebruik i
 
 * Ga naar het [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps) (Forum voor Azure Logic Apps) als u vragen hebt.
 
-* Als u wilt indienen of hierop stemmen op ideeën voor Azure Logic Apps en connectors, gaat u naar de [site voor gebruikersfeedback van Logic Apps](http://aka.ms/logicapps-wish).
+* Als u wilt indienen of hierop stemmen op ideeën voor Azure Logic Apps en connectors, gaat u naar de [site voor gebruikersfeedback van Logic Apps](https://aka.ms/logicapps-wish).
 
 * Zijn de ontbrekende artikelen of de details die u denkt dat documenten zijn belangrijk? Zo ja, kunt u helpen door toe te voegen aan de bestaande artikelen of door uw eigen te schrijven. De documentatie is open-source en gehost op GitHub. Aan de slag van de Azure-documentatie [GitHub-opslagplaats](https://github.com/Microsoft/azure-docs). 
 

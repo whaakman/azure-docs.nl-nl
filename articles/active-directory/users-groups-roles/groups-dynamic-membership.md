@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 09/20/2018
+ms.date: 10/26/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: e8f0077bf5a1a2911b3aec032fadacf31ad75463
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 13d6ed9feab4654d3574a5aced72efa0345365a6
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855269"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215324"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Regels voor dynamisch lidmaatschap voor groepen in Azure Active Directory
 
@@ -316,7 +316,7 @@ De regel 'Alle apparaten' is gebouwd met behulp van één expressie met behulp v
 device.objectid -ne null
 ```
 
-### <a name="extension-properties-and-custom-extension-properties"></a>Extensie-eigenschappen en aangepaste extensie-eigenschappen
+## <a name="extension-properties-and-custom-extension-properties"></a>Extensie-eigenschappen en aangepaste extensie-eigenschappen
 
 Extensiekenmerken en aangepaste extenson eigenschappen worden ondersteund als de eigenschappen van een verbindingsreeks in dynamisch-lidmaatschapregels. Extensiekenmerken vanuit on-premises Windows Server AD worden gesynchroniseerd en neemt de indeling van "ExtensionAttributeX", waarbij X gelijk is aan 1-15. Hier volgt een voorbeeld van een regel die gebruikmaakt van een extensiekenmerk als een eigenschap:
 
@@ -335,7 +335,7 @@ Een voorbeeld van een regel die gebruikmaakt van een aangepaste extensie-eigensc
 user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber -eq "123"
 ```
 
-Naam van de aangepaste eigenschap kan worden gevonden in de map door het opvragen van een gebruiker de eigenschap met behulp van Graph Explorer en te zoeken naar de eigenschapsnaam.
+Naam van de aangepaste eigenschap kan worden gevonden in de map door het opvragen van een gebruiker de eigenschap met behulp van Graph Explorer en te zoeken naar de eigenschapsnaam. Bovendien kunt u nu kiezen **aangepaste extensie-eigenschappen ophalen** koppeling in de opbouwfunctie voor dynamische gebruiker groep regel voor een unieke app-ID invoeren en ontvangen van de volledige lijst met aangepaste extensie-eigenschappen om te gebruiken bij het maken van een regel voor dynamisch lidmaatschap. Deze lijst kan ook worden vernieuwd om op te halen van alle nieuwe aangepaste extensie-eigenschappen voor die app.
 
 ## <a name="rules-for-devices"></a>Regels voor apparaten
 

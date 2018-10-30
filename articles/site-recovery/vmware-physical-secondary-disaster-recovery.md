@@ -1,21 +1,18 @@
 ---
 title: Herstel na noodgevallen van virtuele VMware-machines of fysieke servers naar een secundaire site met Azure Site Recovery instellen | Microsoft Docs
 description: Meer informatie over het instellen van herstel na noodgeval voor VMware-VM's, of Windows en Linux-fysieke servers, naar een secundaire site met Azure Site Recovery.
-services: site-recovery
-author: nsoneji
-manager: gauarvd
+author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
-ms.workload: backup-recovery
-ms.tgt_pltfrm: na
-ms.topic: article
-ms.date: 08/01/2018
+ms.topic: conceptual
+ms.date: 10/29/2018
 ms.author: raynew
-ms.openlocfilehash: 94abdd30dc9cd279ab791541250787a111f80d30
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: fe6199aea91bbb7518ccdbfe640848a59edcee49
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39618985"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215460"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site"></a>Herstel na noodgevallen van on-premises virtuele VMware-machines of fysieke servers naar een secundaire site instellen
 
@@ -176,7 +173,7 @@ Scout Update 5 is een cumulatieve update. Het bevat alle correcties uit Update 1
 > [!NOTE]
 > * De P2V-cluster-oplossingen zijn alleen van toepassing op fysieke MSCS-clusters die onlangs zijn beveiligd met Site Recovery Scout Update 5. Als u wilt de cluster-oplossingen op beveiligde P2V MSCS-clusters met oudere updates hebt geïnstalleerd, volgt u de upgrade stappen in de sectie 12 van de [opmerkingen bij de Site Recovery Scout Release](https://aka.ms/asr-scout-release-notes).
 > * Als op het moment van opnieuw beveiliging, dezelfde set schijven actief op elk van de clusterknooppunten zijn zoals ze in eerste instantie beveiligd waren, klikt u vervolgens opnieuw beveiliging van een fysieke MSCS-cluster kan alleen opnieuw gebruiken bestaande doel-schijven. Als dat niet het geval is, klikt u vervolgens de handmatige stappen gebruiken in de sectie 12 van [opmerkingen bij de Site Recovery Scout Release](https://aka.ms/asr-scout-release-notes), de doel-kant schijven verplaatsen naar het juiste gegevensarchief pad, voor gebruik tijdens opnieuw beveiliging. Als u opnieuw de MSCS-cluster in de modus voor P2V beveiligen zonder dat de upgrade stappen te volgen, maakt een nieuwe schijf op de doel-ESXi-server. U moet de oude schijven handmatig verwijderen uit het gegevensarchief.
-> * Wanneer een bron SLES11 of SLES11 (met alle servicepacks)-server opnieuw is gestart zonder problemen handmatig markeert vervolgens de **hoofdmap** replicatieparen voor hernieuwde synchronisatie schijf. Er is geen melding in de CX-interface. Als u niet de hoofdmap-schijf voor hersynchronisatie markeren, ziet u mogelijk problemen met de gegevensintegriteit.
+> * Wanneer een bron SLES11 of SLES11 (met alle servicepacks)-server opnieuw is gestart zonder problemen handmatig markeert vervolgens de **hoofdmap** replicatieparen voor hernieuwde synchronisatie schijf. Er is geen melding in de CX-interface. Als u niet de hoofdmap-schijf voor hersynchronisatie markeren, ziet u mogelijk problemen met de gegevensintegriteit.
 
 
 ### <a name="azure-site-recovery-scout-801-update-4"></a>Azure Site Recovery Scout 8.0.1 Update 4

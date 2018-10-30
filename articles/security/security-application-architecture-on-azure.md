@@ -1,6 +1,6 @@
 ---
 title: Beveiliging integreren in uw Azure architectuur ontwerpen | Microsoft Docs
-description: " Dit artikel helpt u een overzicht van de architectuur voor toepassingen en services in Azure om het gemakkelijker om te integreren met beveiliging ontwerpen en implementeren. "
+description: " Dit artikel krijgt u inzicht in de architectuur van toepassingen en services op Azure zodat u gemakkelijk integreren beveiliging in ontwerp en implementatie. "
 services: security
 documentationcenter: na
 author: TomShinder
@@ -14,45 +14,45 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: f15378c50dbf80863305ed4d1f31ae75f46a7789
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 8ca9f0b75627e7ad366b3c02ec3126713a283ed2
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/23/2017
-ms.locfileid: "25549417"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233732"
 ---
 # <a name="application-architecture-on-azure"></a>Toepassingsarchitectuur in Azure
-Als u wilt beveiligen van uw cloud-gebaseerde oplossingen in Microsoft Azure een solide basis van de architectuur is essentieel. Architecten, ontwerpers en uitvoerders profiteren van een sterke kennis van de architectuur van toepassingen en services. Deze fundamentele kennis helpt u inzicht in de onderdelen van uw cloud-gebaseerde oplossingen en makkelijker te beveiliging integreren in alle aspecten van uw ontwerp en de implementatie.
+Om u te helpen beveiligen van uw cloud-gebaseerde oplossingen op Microsoft Azure, een solide basis van de architectuur is essentieel. Architecten, ontwerpers en uitvoerders profiteren van een sterke kennis van de architectuur van toepassingen en services. Deze fundamentele kennis helpt u inzicht in de onderdelen van uw cloud-gebaseerde oplossingen en het eenvoudiger is om te integreren beveiliging in alle aspecten van uw ontwerp en de implementatie.
 
-We hebben het volgende om u te helpen uw architectuur onderzoeken en ontwerpen:
+We hebben het volgende voor hulp bij uw architectonische onderzoeken en ontwerpen:
 
 * Architectuur infographics
-* Architecturale blauwdrukken
-* Cloud en enterprise is ingesteld
+* Blauwdrukken van cloudarchitectuur
+* Cloud en enterprise symbool instellen
 * 3D-blauwdruk Visio-sjabloon
 
 ## <a name="architectural-infographics"></a>Architectuur infographics
-Microsoft publiceert verschillende architectuur gerelateerde posters/infographics. Deze omvatten:
+Microsoft publiceert verschillende architectuur gerelateerde posters/infographics. Ze omvatten:
 
-* [Echte Cloud-toepassingen maken](https://azure.microsoft.com/documentation/infographics/building-real-world-cloud-apps/)
+* [Real-World Cloud-toepassingen ontwikkelen](https://azure.microsoft.com/documentation/infographics/building-real-world-cloud-apps/)
 * [Schalen met Cloudservices](https://azure.microsoft.com/documentation/infographics/cloud-services/)
 
-## <a name="architectural-blueprints"></a>Architecturale blauwdrukken
-Publiceert Microsoft over een set op hoog niveau [bouwkundige blauwdrukken](http://aka.ms/azblueprints) die laat zien hoe u specifieke typen van systemen die Microsoft-producten.
-Elke blauwdruk bevat a:
+## <a name="architectural-blueprints"></a>Blauwdrukken van cloudarchitectuur
+Microsoft publiceert een set op hoog niveau [blauwdrukken van cloudarchitectuur](https://aka.ms/azblueprints) weergegeven over het bouwen van bepaalde typen systemen met behulp van Microsoft-producten.
+Elke blauwdruk omvat a:
 
-* Platte 2D Visio 2003-bestand dat u kunt downloaden en wijzigen
-* Kleur van de 3D-perspectief PDF-bestand in te voeren van de blauwdruk voor minder technische doelgroepen
-* Video die bij de 3D-versie helpt
+* Vaste 2D Visio 2003-bestand dat u kunt downloaden en wijzigen
+* Kleurrijke 3D-perspectief PDF-bestand in te voeren van de blauwdruk voor minder technische doelgroepen
+* Video laat zien hoe u via de 3D-versie
 
-## <a name="cloud-and-enterprise-symbol-set"></a>Cloud en enterprise is ingesteld
-[De Visio en symbolen training video bekijken](http://aka.ms/CnESymbolsVideo) en vervolgens [downloaden van de Cloud en Enterprise symbool instellen](http://aka.ms/CnESymbols) om te beschrijven van Azure, Windows Server, SQL Server en meer technische materialen maken. U kunt de symbolen in architectuur diagrammen, trainingsmateriaal presentaties, gegevensbladen, infographics, whitepapers en zelfs van derden books gebruiken als het rapport mensen traint te gebruiken Microsoft-producten. Ze zijn echter niet bedoeld voor gebruik in gebruikersinterfaces.
+## <a name="cloud-and-enterprise-symbol-set"></a>Cloud en enterprise symbool instellen
+[De Visio en symbolen training video bekijken](https://aka.ms/CnESymbolsVideo) en vervolgens [downloaden van de Cloud en Enterprise-symbool instellen](https://aka.ms/CnESymbols) voor het maken van technische materialen die worden beschreven van Azure, Windows Server, SQL Server en meer. U kunt de symbolen in architectuurdiagrammen, trainingsmateriaal, presentaties, gegevensbladen, infographics, technische documenten en zelfs van derden boeken kunt gebruiken als het boek mensen traint te gebruiken Microsoft-producten. Ze zijn echter niet bedoeld voor gebruik in gebruikersinterfaces.
 
 ## <a name="3d-blueprint-visio-template"></a>3D-blauwdruk Visio-sjabloon
-De 3D-versies van de [Microsoft architectuur blauwdrukken](http://aka.ms/azblueprints) in eerste instantie zijn gemaakt in een niet-Microsoft-hulpprogramma. Een nieuwe Visio 2013 (en hoger) sjabloon verzonden op 5 augustus 2015 als onderdeel van een [Microsoft Architecture certificeringsinstantie loop gedistribueerd bij EDX.ORG](https://docs.microsoft.com/azure/architecture/#microsoft-architecture-certification-course).
+De 3D-versies van de [Microsoft Architectuurblauwdrukken](https://aka.ms/azblueprints) in eerste instantie zijn gemaakt in een niet-Microsoft-programma. Een nieuwe Visio 2013 (en hoger)-sjabloon op 5 augustus 2015 worden verzonden als onderdeel van een [Microsoft Architecture-certificering cursus gedistribueerd op EDX.ORG](https://docs.microsoft.com/azure/architecture/#microsoft-architecture-certification-course).
 
-De sjabloon is ook beschikbaar is buiten het verloop.
+De sjabloon is ook beschikbaar buiten de cursus.
 
-* [Bekijk de video training](http://aka.ms/3dBlueprintTemplateVideo) eerste zodat u weet wat u ermee kunt doen
-* Download de [Microsoft Visio-sjabloon voor 3D-blauwdruk](http://aka.ms/3DBlueprintTemplate)
-* Download de [Cloud en Enterprise symbolen](https://docs.microsoft.com/azure/architecture/#drawing-symbol-and-icon-sets) voor gebruik met de 3D-sjabloon
+* [Bekijk de trainingsvideo](https://aka.ms/3dBlueprintTemplateVideo) eerst, zodat u weet wat u ermee kunt doen
+* Download de [Microsoft Visio-sjabloon voor 3D-blauwdruk](https://aka.ms/3DBlueprintTemplate)
+* Download de [Cloud en Enterprise-symbolen](https://docs.microsoft.com/azure/architecture/#drawing-symbol-and-icon-sets) voor gebruik met de 3D-sjabloon

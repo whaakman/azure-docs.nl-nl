@@ -7,20 +7,22 @@ ms.service: firewall
 ms.topic: article
 ms.date: 10/24/2018
 ms.author: victorh
-ms.openlocfilehash: cba8ee486e13f00043a6b2092ae98bd84f9f6cba
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: cff31ba73730b7cf7cb27ecb132ec70806234924
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50095173"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233392"
 ---
 # <a name="azure-firewall-log-analytics-samples"></a>Voorbeelden van Azure Log Analytics voor Firewall
 
-De volgende voorbeelden van Log Analytics kunnen worden gebruikt voor het analyseren van uw Azure-Firewall-logboeken.
+De volgende voorbeelden van Log Analytics kunnen worden gebruikt voor het analyseren van uw Azure-Firewall-logboeken. Het voorbeeldbestand is ingebouwd in Log Analytics-ontwerper, de [Weergaveontwerper van Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-view-designer) artikel vindt u meer informatie over het ontwerp van de weergave.
 
 ## <a name="log-analytics-view"></a>Log Analytics-weergave
 
-Hier ziet u hoe u een voorbeeld van de log analytics-visualisatie kunt configureren. U kunt de visualisatie voorbeeld downloaden [hier](scripts/AzureFirewall.omsview). Voer de volgende stappen uit om de weergave toevoegen aan uw log analytics-werkruimte:
+Hier ziet u hoe u een voorbeeld van de log analytics-visualisatie kunt configureren. U kunt downloaden de voorbeeld-visualisatie van de [azure-docs-json-samples](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-firewall/AzureFirewall.omsview) opslagplaats. De eenvoudigste manier is met de rechtermuisknop op de hyperlink op deze pagina en kies *opslaan als* en geef een naam, zoals **AzureFirewall.omsview**. 
+
+Voer de volgende stappen uit om de weergave toevoegen aan uw log analytics-werkruimte:
 
 1. Open de log analytics-werkruimte in de Azure Portal.
 2. Open **Designer bekijken** hieronder **algemene**.

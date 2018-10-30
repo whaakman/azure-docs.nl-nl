@@ -1,21 +1,21 @@
 ---
-title: Voorbereiden van de doelomgeving (VMware/fysiek naar Azure) | Microsoft Docs
-description: In dit artikel wordt beschreven hoe u uw doel-Azure-omgeving voorbereiden voor VMware VM-replicatie en replicatie van fysieke Servers naar Azure.
+title: Voorbereiden van de doelomgeving voor VMware-replicatie naar Azure | Microsoft Docs
+description: In dit artikel wordt beschreven hoe u uw doel-Azure-omgeving voor VMware-VM-replicatie naar Azure voorbereiden.
 services: site-recovery
-author: bsiva
-manager: abhemraj
+author: Rajeswari-Mamilla
+manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 09/28/2018
-ms.author: bsiva
-ms.openlocfilehash: 948812f05697362978ad041566d22977efec92a1
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.date: 10/29/2018
+ms.author: ramamill
+ms.openlocfilehash: a6f983b08415659b9a989ebed824cddd210396e1
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434633"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233426"
 ---
-# <a name="prepare-the-target-environment-vmwarephysical-to-azure"></a>Voorbereiden van de doelomgeving (VMware/fysiek naar Azure)
+# <a name="prepare-the-target-environment-for-disaster-recovery-of-vmware-vms-or-physical-servers-to-azure"></a>Voorbereiden van de doelomgeving voor herstel na noodgevallen van virtuele VMware-machines of fysieke servers naar Azure
 
 In dit artikel wordt beschreven hoe u uw doel-Azure-omgeving om te beginnen met het repliceren van virtuele VMware-machines of fysieke servers naar Azure voorbereiden.
 

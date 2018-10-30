@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
-ms.openlocfilehash: 15d46f16c78b8fa757d7810542b3d6bfa9a95f3c
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: fcbba3578627f53ff1de29fe6e309db9608b31c9
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465624"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50231505"
 ---
 # <a name="microsoft-cortana-intelligence-competitions-faq"></a>Veelgestelde vragen over Microsoft Cortana Intelligence-wedstrijden
 **Wat is Cortana Intelligence-wedstrijden?**
 
-De Microsoft Cortana Intelligence-wedstrijden koppelt zijn netwerk van een wereldwijde community van liefhebbers van gezamenlijk het oplossen van enkele van's werelds meest complexe data science problemen. Cortana Intelligence-wedstrijden kunt liefhebbers van over de hele wereld te concurreren en zeer nauwkeurige en intelligente wetenschappelijk gegevensmodellen te bouwen. Deze gehoste competities zijn gebaseerd op de unieke gegevenssets die beschikbaar zijn gesteld openbaar voor de eerste keer. Deelnemers kunnen winnen beloningen of erkenning via de bovenste 10 openbare leaderboard ophalen. U kunt toegang tot de startpagina competities op [aka.ms/CIComp](http://aka.ms/CIComp).
+De Microsoft Cortana Intelligence-wedstrijden koppelt zijn netwerk van een wereldwijde community van liefhebbers van gezamenlijk het oplossen van enkele van's werelds meest complexe data science problemen. Cortana Intelligence-wedstrijden kunt liefhebbers van over de hele wereld te concurreren en zeer nauwkeurige en intelligente wetenschappelijk gegevensmodellen te bouwen. Deze gehoste competities zijn gebaseerd op de unieke gegevenssets die zijn aangebracht beschikbaar publicaly voor de eerste keer. Deelnemers kunnen winnen beloningen of erkenning via de bovenste 10 openbare leaderboard ophalen. U kunt toegang tot de startpagina competities op [aka.ms/CIComp](http://aka.ms/CIComp).
 
 **Hoe vaak brengt Microsoft nieuwe competities?**
 

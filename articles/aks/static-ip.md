@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 09/26/2018
 ms.author: iainfou
-ms.openlocfilehash: b64727f6a77bb1151a4f9016b6179a7ee22e3a5c
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 0e5d42dddf550d8c7d4a579afd8436343749a995
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50085475"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233647"
 ---
 # <a name="use-a-static-public-ip-address-with-the-azure-kubernetes-service-aks-load-balancer"></a>Gebruik een statisch openbaar IP-adres aan de load balancer van Azure Kubernetes Service (AKS)
 
@@ -93,7 +93,10 @@ kubectl apply -f load-balancer-service.yaml
 
 ## <a name="use-a-static-ip-address-outside-of-the-node-resource-group"></a>Gebruik een statisch IP-adres buiten de resourcegroep van knooppunt
 
-Met Kubernetes 1.10 of hoger, kunt u voor het gebruik van een statisch IP-adres dat buiten de resourcegroep van het knooppunt wordt gemaakt. De service-principal die worden gebruikt door het AKS-cluster moet zijn gemachtigd om de andere resourcegroep.
+Met Kubernetes 1.10 of hoger, kunt u voor het gebruik van een statisch IP-adres dat buiten de resourcegroep van het knooppunt wordt gemaakt. De service-principal die worden gebruikt door het AKS-cluster moet zijn gemachtigd om de andere resourcegroep, met behulp van de volgende opdracht uit om SP-machtigingen te verlenen:
+```
+az role assignment create --assignee <SP Client ID> --role "Network Contributor" --scope /subscriptions/<subscription id>/resourceGroups/<resource group name>
+```
 
 Voor het gebruik van een IP-adres buiten de resourcegroep van het knooppunt, moet u een aantekening toevoegen aan de definitie van de Service. Het volgende voorbeeld wordt de aantekening aan de resourcegroep met de naam *myResourceGroup*. Geef uw eigen Resourcegroepnaam:
 

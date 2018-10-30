@@ -1,21 +1,20 @@
 ---
 title: De configuratieserver voor VMware-noodherstel met Azure Site Recovery implementeren | Microsoft Docs
-description: In dit artikel wordt beschreven hoe u een configuratieserver voor VMware-noodherstel met Azure Site Recovery implementeren
-services: site-recovery
+description: In dit artikel wordt beschreven hoe u een configuratieserver voor VMware-noodherstel implementeren in Azure met Azure Site Recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 10/29/2018
 ms.author: raynew
-ms.openlocfilehash: 4222214705c42fe09d90d77faa7be63cc2a13206
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 516edd922d6ead9a71f81c3b9b777b15f1fb28ae
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44025273"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233154"
 ---
-# <a name="deploy-a-configuration-server"></a>Een configuratieserver implementeren
+# <a name="deploy-a-configuration-server-for-vmware-disaster-recovery-to-azure"></a>Een configuratieserver voor VMware-noodherstel implementeren in Azure
 
 U implementeert een on-premises configuratieserver wanneer u [Azure Site Recovery](site-recovery-overview.md) voor herstel na noodgevallen van virtuele VMware-machines en fysieke servers naar Azure. De configuratie van server coördinaten communicatie tussen on-premises VMware en Azure. Deze beheert de gegevensreplicatie. In dit artikel begeleidt u bij de stappen die nodig zijn voor de configuratieserver implementeren wanneer u virtuele VMware-machines naar Azure repliceert. [In dit artikel volgen](physical-azure-set-up-source.md) als u nodig hebt voor het instellen van een configuratieserver voor replicatie van fysieke server.
 
@@ -117,6 +116,14 @@ Als u toevoegen van een extra NIC aan de configuratieserver wilt, moet u het toe
 8. Selecteer **Configuratie voltooien** om de registratie te voltooien.
 9. Nadat de registratie is voltooid, opent u Azure portal, controleert u of de configuratieserver en de VMware-server worden weergegeven op **Recovery Services-kluis** > **beheren**  >  **Infrastructuur voor site Recovery** > **configuratieservers**.
 
+## <a name="upgrade-the-configuration-server"></a>De configuratieserver upgraden
+
+Als u de configuratieserver bijwerken naar de nieuwste versie, volgt u deze [stappen](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server).
+
+## <a name="manage-the-configuration-server"></a>De configuratieserver beheren
+
+Om te voorkomen onderbrekingen in de lopende replicatie, zorg ervoor dat IP-adres van de configuratieserver niet wordt gewijzigd nadat de configuratieserver bij een kluis is geregistreerd. U kunt meer informatie over algemene beheertaken voor configuration server [hier](vmware-azure-manage-configuration-server.md).
+
 ## <a name="faq"></a>Veelgestelde vragen
 
 1. Kan ik de virtuele machine, waarop de configuratieserver is geïnstalleerd, voor verschillende doeleinden gebruiken?
@@ -140,14 +147,6 @@ Als u toevoegen van een extra NIC aan de configuratieserver wilt, moet u het toe
 7. Waar kan ik registratiesleutels kluis downloaden?
 
     In de **Recovery Services-kluis**, **beheren** > **infrastructuur voor Site Recovery** > **configuratieservers**. Selecteer in de Servers, **registratiesleutel downloaden** voor het downloaden van het bestand met kluisreferenties.
-
-## <a name="upgrade-the-configuration-server"></a>De configuratieserver upgraden
-
-Als u de configuratieserver bijwerken naar de nieuwste versie, volgt u deze [stappen](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server).
-
-## <a name="manage-the-configuration-server"></a>De configuratieserver beheren
-
-Om te voorkomen onderbrekingen in de lopende replicatie, zorg ervoor dat IP-adres van de configuratieserver niet wordt gewijzigd nadat de configuratieserver bij een kluis is geregistreerd. U kunt meer informatie over algemene beheertaken voor configuration server [hier](vmware-azure-manage-configuration-server.md).
 
 ## <a name="troubleshoot-deployment-issues"></a>Oplossen van implementatieproblemen
 

@@ -10,12 +10,12 @@ ms.reviewer: estfan, LADocs
 ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.topic: article
 ms.date: 03/15/2018
-ms.openlocfilehash: 6ba274bb3ff3679b4a44950db168215c54f3ade6
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 1c8abc153084f0c6491cab3677b93f8c450ad908
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44299743"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50229414"
 ---
 # <a name="create-streaming-customer-insights-dashboard-with-azure-logic-apps-and-azure-functions"></a>Streaming customer insights-dashboard maken met Azure Logic Apps en Azure Functions
 
@@ -26,7 +26,7 @@ Met Azure Logic Apps biedt een engine voor serverloze werkstromen in de cloud, z
 
 In dit scenario maakt u een logische app die wordt geactiveerd op het vinden van feedback van klanten. Sommige connectors dat help u reageren op feedback van klanten zijn onder andere Outlook.com, Office 365, enquête Monkey, Twitter, en een [HTTP-aanvraag van een webformulier](https://blogs.msdn.microsoft.com/logicapps/2017/01/30/calling-a-logic-app-from-an-html-form/). De werkstroom die u maakt bewaakt een hashtag op Twitter.
 
-U kunt [bouwen van de gehele oplossing in Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md) en [implementeren van de oplossing met Azure Resource Manager-sjabloon](../logic-apps/logic-apps-create-deploy-template.md). Voor een video-overzicht waarin wordt getoond hoe u deze oplossing maakt [Bekijk deze video voor Channel 9](http://aka.ms/logicappsdemo). 
+U kunt [bouwen van de gehele oplossing in Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md) en [implementeren van de oplossing met Azure Resource Manager-sjabloon](../logic-apps/logic-apps-create-deploy-template.md). Voor een video-overzicht waarin wordt getoond hoe u deze oplossing maakt [Bekijk deze video voor Channel 9](https://aka.ms/logicappsdemo). 
 
 ## <a name="trigger-on-customer-data"></a>Activeren op gegevens van de klant
 

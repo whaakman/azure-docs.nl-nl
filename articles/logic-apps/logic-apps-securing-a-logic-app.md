@@ -10,12 +10,12 @@ ms.reviewer: estfan, LADocs
 ms.assetid: 9fab1050-cfbc-4a8b-b1b3-5531bee92856
 ms.topic: article
 ms.date: 11/22/2016
-ms.openlocfilehash: 1307b6df22c51af9710d44abb23178d65e3507aa
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 0fe35b67a424caedcea2c71885d1757943ace9d1
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44377391"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50232593"
 ---
 # <a name="secure-access-in-azure-logic-apps"></a>Beveiligde toegang in Azure Logic Apps
 
@@ -168,7 +168,7 @@ Het is raadzaam om te voorzien van sommige aspecten van een definitie van de wer
 
 ### <a name="using-parameters-and-secure-parameters"></a>Met behulp van parameters en veilige parameters
 
-Voor toegang tot de waarde van een resourceparameter tijdens runtime, de [werkstroomdefinitietaal](http://aka.ms/logicappsdocs) biedt een `@parameters()` bewerking. U kunt ook [parameters opgeven in de sjabloon van de resource-implementatie](../azure-resource-manager/resource-group-authoring-templates.md#parameters). Maar als u het parametertype als `securestring`, de parameter niet geretourneerd met de rest van de resourcedefinitie, en niet toegankelijk is door de resource na de implementatie weer te geven.
+Voor toegang tot de waarde van een resourceparameter tijdens runtime, de [werkstroomdefinitietaal](https://aka.ms/logicappsdocs) biedt een `@parameters()` bewerking. U kunt ook [parameters opgeven in de sjabloon van de resource-implementatie](../azure-resource-manager/resource-group-authoring-templates.md#parameters). Maar als u het parametertype als `securestring`, de parameter niet geretourneerd met de rest van de resourcedefinitie, en niet toegankelijk is door de resource na de implementatie weer te geven.
 
 > [!NOTE]
 > Als de parameter wordt gebruikt in de headers of de hoofdtekst van een aanvraag, de parameter mogelijk zichtbaar door het openen van de uitvoeringsgeschiedenis en uitgaande HTTP-aanvraag. Zorg ervoor dat uw beleid voor toegang tot inhoud dienovereenkomstig ingesteld.

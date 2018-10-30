@@ -10,18 +10,18 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: article
 ms.date: 09/24/2018
-ms.openlocfilehash: 7754e93035a5f76d31f6a4202c757c909706a52a
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 2c4255b70ae9eb3b31b6fdfce33853f0d517aa1f
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50156932"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215477"
 ---
 # <a name="select-and-use-a-compute-target-to-train-your-model"></a>Selecteer en gebruik een compute-doel aan uw model te trainen
 
 Met de Azure Machine Learning-service, kunt u uw model in verschillende omgevingen te trainen. Deze omgevingen, met de naam __compute-doelen__, lokaal of in de cloud kan zijn. In dit document leert u over de ondersteunde compute-doelen en het gebruik ervan.
 
-Een compute-doel is de resource die wordt uitgevoerd de trainingsscript of hosts uw model wanneer deze geïmplementeerd als een webservice. Ze kunnen worden gemaakt en beheerd met de Azure Machine Learning-SDK of de CLI. Als u de compute-doelen die zijn gemaakt door een ander proces (bijvoorbeeld, de Azure portal of Azure CLI) hebt, kunt u ze kunt gebruiken door ze te koppelen aan uw werkruimte van Azure Machine Learning-service.
+Een compute-doel is de resource die als host fungeert voor uw model wanneer deze wordt geïmplementeerd als een webservice of uw trainingsscript wordt uitgevoerd. Ze kunnen worden gemaakt en beheerd met de Azure Machine Learning-SDK of de CLI. Als u de compute-doelen die zijn gemaakt door een ander proces (bijvoorbeeld, de Azure portal of Azure CLI) hebt, kunt u ze kunt gebruiken door ze te koppelen aan uw werkruimte van Azure Machine Learning-service.
 
 U kunt beginnen met lokaal wordt uitgevoerd op uw computer en klik vervolgens in andere omgevingen zoals externe Data Science virtual machines met GPU of Azure Batch AI opschalen en uitbreiden. 
 
@@ -36,8 +36,13 @@ Azure Machine Learning-service ondersteunt de volgende compute-doelen:
 |----|:----:|:----:|:----:|:----:|
 |[Lokale computer](#local)| Misschien | &nbsp; | ✓ | &nbsp; |
 |[Data Science Virtual Machine (DSVM)](#dsvm) | ✓ | ✓ | ✓ | ✓ |
-|[Azure Batch AI](#batch)| ✓ | ✓ | ✓ | ✓ | ✓ |
+|[Azure Batch AI](#batch)| ✓ | ✓ | ✓ | ✓ |
+|[Azure Databricks](#databricks)| &nbsp; | &nbsp; | &nbsp; | ✓[*](#pipeline-only) |
+|[Azure Data Lake Analytics](#adla)| &nbsp; | &nbsp; | &nbsp; | ✓[*](#pipeline-only) |
 |[Azure HDInsight](#hdinsight)| &nbsp; | &nbsp; | &nbsp; | ✓ |
+
+> [!IMPORTANT]
+> <a id="pipeline-only"></a>* Azure Databricks en Azure Data Lake Analytics kunt __alleen__ worden gebruikt in een pijplijn. Zie voor meer informatie over pijplijnen, de [pijplijnen in Azure Machine Learning](concept-ml-pipelines.md) document.
 
 __[Azure Container Instances (ACI)](#aci)__  kan ook worden gebruikt voor het trainen van modellen. Het is een serverloze cloud-aanbieding waarmee goedkope en eenvoudig te maken en werken met. ACI biedt geen ondersteuning voor GPU-versnelling, geautomatiseerde hyper parameter afstemmen, of geautomatiseerde modelselectie. Het kan niet ook worden gebruikt in een pijplijn.
 
@@ -52,7 +57,7 @@ U kunt de SDK van Azure Machine Learning, Azure CLI of Azure-portal gebruiken om
 > [!IMPORTANT]
 > U kunt een bestaand exemplaar van de Azure-Containers niet koppelen aan uw werkruimte. In plaats daarvan moet u een nieuw exemplaar maken.
 >
-> U kunt een Azure HDInsight-cluster in een werkruimte niet maken. In plaats daarvan moet u een bestaand cluster koppelen.
+> U kunt Azure HDInsight, Azure Databricks en Azure Data Lake Store kan niet maken in een werkruimte. In plaats daarvan moet u de resource maken en deze vervolgens koppelen aan uw werkruimte.
 
 ## <a name="workflow"></a>Werkstroom
 
@@ -311,6 +316,106 @@ Duurt een paar seconden met een paar minuten een ACI-compute-doel maken.
 
 Zie voor een Jupyter-Notebook die laat training voor Azure Container Instances zien, [ https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/03.train-on-aci/03.train-on-aci.ipynb ](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/03.train-on-aci/03.train-on-aci.ipynb).
 
+## <a id="databricks"></a>Azure Databricks
+
+Azure Databricks is een omgeving op basis van Apache Spark in de Azure-cloud. Het kan worden gebruikt als een compute-doel bij het trainen van met een Azure Machine Learning-pijplijn modellen.
+
+> [!IMPORTANT]
+> Een Azure Databricks compute-doel kan alleen worden gebruikt in een Machine Learning-pijplijn.
+>
+> U moet een Azure Databricks-werkruimte maken voordat u deze gebruikt met het trainen van uw model. Zie voor het maken van deze resource, de [een Spark-taak uitvoeren op Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal) document.
+
+Als u wilt koppelen Azure Databricks als een compute-doel, moet u de Azure Machine Learning-SDK gebruiken en geef de volgende informatie:
+
+* __De naam van COMPUTE__: de naam die u wilt toewijzen aan deze compute-resource.
+* __Resource-ID__: de resource-ID van de Azure Databricks-werkruimte. De volgende tekst is een voorbeeld van de indeling voor deze waarde:
+
+    ```text
+    /subscriptions/<your_subscription>/resourceGroups/<resource-group-name>/providers/Microsoft.Databricks/workspaces/<databricks-workspace-name>
+    ```
+
+    > [!TIP]
+    > Als u de resource-ID, gebruikt u de volgende Azure CLI-opdracht. Vervang `<databricks-ws>` met de naam van uw Databricks-werkruimte:
+    > ```azurecli-interactive
+    > az resource list --name <databricks-ws> --query [].id
+    > ```
+
+* __Toegangstoken__: het toegangstoken dat wordt gebruikt om te verifiëren met Azure Databricks. Zie voor het genereren van een toegangstoken de [verificatie](https://docs.azuredatabricks.net/api/latest/authentication.html) document.
+
+De volgende code ziet u hoe u Azure Databricks als een compute-doel toevoegen:
+
+```python
+databricks_compute_name = os.environ.get("AML_DATABRICKS_COMPUTE_NAME", "<databricks_compute_name>")
+databricks_resource_id = os.environ.get("AML_DATABRICKS_RESOURCE_ID", "<databricks_resource_id>")
+databricks_access_token = os.environ.get("AML_DATABRICKS_ACCESS_TOKEN", "<databricks_access_token>")
+
+try:
+    databricks_compute = ComputeTarget(workspace=ws, name=databricks_compute_name)
+    print('Compute target already exists')
+except ComputeTargetException:
+    print('compute not found')
+    print('databricks_compute_name {}'.format(databricks_compute_name))
+    print('databricks_resource_id {}'.format(databricks_resource_id))
+    print('databricks_access_token {}'.format(databricks_access_token))
+    databricks_compute = DatabricksCompute.attach(
+             workspace=ws,
+             name=databricks_compute_name,
+             resource_id=databricks_resource_id,
+             access_token=databricks_access_token
+         )
+    
+    databricks_compute.wait_for_completion(True)
+```
+
+## <a id="adla"></a>Azure Data Lake Analytics
+
+Azure Data Lake Analytics is een platform voor big data-analyses in de Azure-cloud. Het kan worden gebruikt als een compute-doel bij het trainen van met een Azure Machine Learning-pijplijn modellen.
+
+> [!IMPORTANT]
+> Een Azure Data Lake Analytics compute-doel kan alleen worden gebruikt in een Machine Learning-pijplijn.
+>
+> U moet een Azure Data Lake Analytics-account maken voordat u deze gebruikt met het trainen van uw model. Zie voor het maken van deze resource, de [aan de slag met Azure Data Lake Analytics](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-get-started-portal) document.
+
+Als u wilt koppelen Data Lake Analytics als een compute-doel, moet u de Azure Machine Learning-SDK gebruiken en geef de volgende informatie:
+
+* __De naam van COMPUTE__: de naam die u wilt toewijzen aan deze compute-resource.
+* __Resource-ID__: de resource-ID van het Data Lake Analytics-account. De volgende tekst is een voorbeeld van de indeling voor deze waarde:
+
+    ```text
+    /subscriptions/<your_subscription>/resourceGroups/<resource-group-name>/providers/Microsoft.DataLakeAnalytics/accounts/<datalakeanalytics-name>
+    ```
+
+    > [!TIP]
+    > Als u de resource-ID, gebruikt u de volgende Azure CLI-opdracht. Vervang `<datalakeanalytics>` met de naam van de naam van uw Data Lake Analytics-account:
+    > ```azurecli-interactive
+    > az resource list --name <datalakeanalytics> --query [].id
+    > ```
+
+De volgende code ziet u hoe u Data Lake Analytics als een compute-doel toevoegen:
+
+```python
+adla_compute_name = os.environ.get("AML_ADLA_COMPUTE_NAME", "<adla_compute_name>")
+adla_resource_id = os.environ.get("AML_ADLA_RESOURCE_ID", "<adla_resource_id>")
+
+try:
+    adla_compute = ComputeTarget(workspace=ws, name=adla_compute_name)
+    print('Compute target already exists')
+except ComputeTargetException:
+    print('compute not found')
+    print('adla_compute_name {}'.format(adla_compute_name))
+    print('adla_resource_id {}'.format(adla_resource_id))
+    adla_compute = AdlaCompute.attach(
+             workspace=ws,
+             name=adla_compute_name,
+             resource_id=adla_resource_id
+         )
+    
+    adla_compute.wait_for_completion(True)
+```
+
+> [!TIP]
+> Azure Machine Learning-pijplijnen kunnen uitsluitend worden gebruikt met gegevens die zijn opgeslagen in het standaardarchief van gegevens van het Data Lake Analytics-account. Als de gegevens die u nodig hebt om te werken met in een niet-standaard-archief is, kunt u een [ `DataTransferStep` ](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.data_transfer_step.datatransferstep?view=azure-ml-py) om de gegevens voordat een training te kopiëren.
+
 ## <a id="hdinsight"></a>Een HDInsight-cluster koppelen 
 
 HDInsight is een populair platform voor big data-analyses. Het biedt Apache Spark, die kunnen worden gebruikt om uw model te trainen.
@@ -351,8 +456,19 @@ run_config.auto_prepare_environment = True
 ```
 
 ## <a name="submit-training-run"></a>Indienen van training uitvoeren
-    
-De code voor het indienen van een uitvoering training is hetzelfde, ongeacht de compute-doel:
+
+Er zijn twee manieren om in te dienen een training uitvoeren:
+
+* Indienen van een `ScriptRunConfig` object.
+* Indienen van een `Pipeline` object.
+
+> [!IMPORTANT]
+> De Azure Databricks, Azure Lake Analytics en HDInsight van Azure compute-doelen kunnen alleen worden gebruikt in een pijplijn.
+> De lokale compute-doel kan niet worden gebruikt in een pijplijn.
+
+### <a name="submit-using-scriptrunconfig"></a>Indienen met behulp van `ScriptRunConfig`
+
+Het patroon van de code voor het indienen van een training wordt uitgevoerd met behulp van `ScriptRunConfig` is hetzelfde, ongeacht de compute-doel:
 
 * Maak een `ScriptRunConfig` object met behulp van de configuratie uitvoeren voor de compute-doel.
 * De uitvoering verzenden.
@@ -360,13 +476,46 @@ De code voor het indienen van een uitvoering training is hetzelfde, ongeacht de 
 
 Het volgende voorbeeld wordt de configuratie voor het systeem beheerd lokale compute-doel eerder in dit document hebt gemaakt:
 
-```pyghon
+```python
 src = ScriptRunConfig(source_directory = script_folder, script = 'train.py', run_config = run_config_system_managed)
 run = exp.submit(src)
 run.wait_for_completion(show_output = True)
 ```
 
 Zie voor een Jupyter-Notebook die laat training met Spark in HDInsight zien, [ https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/05.train-in-spark/05.train-in-spark.ipynb ](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/05.train-in-spark/05.train-in-spark.ipynb).
+
+### <a name="submit-using-a-pipeline"></a>Indienen met behulp van een pijplijn
+
+De code voor het indienen van een training wordt uitgevoerd met behulp van een pijplijn hetzelfde, ongeacht de compute-doel is patroon:
+
+* Een stap toevoegen aan de pijplijn voor de compute-resource.
+* Dien een uitvoeren met behulp van de pijplijn.
+* Wacht totdat de uitvoering om te voltooien.
+
+Het volgende voorbeeld wordt de Azure Databricks-compute-doel eerder in dit document hebt gemaakt:
+
+```python
+dbStep = DatabricksStep(
+    name="databricksmodule",
+    inputs=[step_1_input],
+    outputs=[step_1_output],
+    num_workers=1,
+    notebook_path=notebook_path,
+    notebook_params={'myparam': 'testparam'},
+    run_name='demo run name',
+    databricks_compute=databricks_compute,
+    allow_reuse=False
+)
+# list of steps to run
+steps = [dbStep]
+pipeline = Pipeline(workspace=ws, steps=steps)
+pipeline_run = Experiment(ws, 'Demo_experiment').submit(pipeline)
+pipeline_run.wait_for_completion()
+```
+
+Zie voor meer informatie over machine learning-pijplijnen, de [pijplijnen en Azure Machine Learning](concept-ml-pipelines.md) document.
+
+Bijvoorbeeld Jupyter-Notebooks die laten zien training over het gebruik van een pijplijn, Zie [ https://github.com/Azure/MachineLearningNotebooks/tree/master/pipeline ](https://github.com/Azure/MachineLearningNotebooks/tree/master/pipeline).
 
 ## <a name="view-and-set-up-compute-using-the-azure-portal"></a>Weergeven en compute met behulp van de Azure-portal instellen
 
@@ -387,11 +536,18 @@ Volg de bovenstaande stappen voor het weergeven van de lijst met compute-doelen 
 
 1. Voer een naam voor de compute-doel.
 1. Selecteer het type compute koppelen voor __Training__. 
+
+    > [!IMPORTANT]
+    > Niet alle compute-typen kunnen worden gemaakt met de Azure-portal. Momenteel zijn de typen die kunnen worden gemaakt voor training:
+    > 
+    > * Virtuele machine
+    > * Batch AI
+
 1. Selecteer __nieuw__ en vul het formulier vereist. 
 1. Selecteer __Maken__
 1. U kunt de status bekijken bewerking maken door het selecteren van de compute-doel in de lijst.
 
-    ![Weergavelijst Compute](./media/how-to-set-up-training-targets/View_list.png) vervolgens ziet u de details voor deze compute.
+    ![Weergavelijst Compute](./media/how-to-set-up-training-targets/View_list.png) vervolgens ziet u de details voor de compute-doel.
     ![Details weergeven](./media/how-to-set-up-training-targets/vm_view.PNG)
 1. U kunt nu een uitvoering op basis van deze doelen als gedetailleerde bovenstaande indienen.
 
@@ -401,8 +557,16 @@ Volg de bovenstaande stappen voor het weergeven van de lijst met compute-doelen 
 
 1. Klik op de **+** zich bij het toevoegen van een compute-doel.
 2. Voer een naam voor de compute-doel.
-3. Selecteer het type van de rekencapaciteit te koppelen voor Training. Batch AI- en virtuele Machines worden momenteel ondersteund in de portal voor training.
-4. Selecteer bestaande gebruiken.
+3. Selecteer het type van de rekencapaciteit te koppelen voor Training.
+
+    > [!IMPORTANT]
+    > Niet alle compute-typen kunnen worden gekoppeld met behulp van de portal.
+    > Momenteel zijn de typen die kunnen worden gekoppeld voor training:
+    > 
+    > * Virtuele machine
+    > * Batch AI
+
+1. Selecteer bestaande gebruiken.
     - Bij het toevoegen van Batch AI-clusters, selecteert u de compute-doel in de vervolgkeuzelijst, selecteert u de Batch AI-werkruimte en de Batch AI-Cluster en klik vervolgens op **maken**.
     - Bij het toevoegen van een virtuele Machine, voert u het IP-adres, combinatie van gebruikersnaam en wachtwoord, persoonlijke/openbare sleutels en de poort en klik op maken.
 
@@ -412,7 +576,7 @@ Volg de bovenstaande stappen voor het weergeven van de lijst met compute-doelen 
     > * [Maken en gebruiken van SSH-sleutels in Linux of macOS]( https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys)
     > * [Maken en gebruiken van SSH-sleutels op Windows]( https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows)
 
-5. U kunt de status van de Inrichtingsstatus bekijken door het selecteren van de compute-doel in de lijst van berekeningen.
+5. U kunt de status van de Inrichtingsstatus bekijken door het selecteren van de compute-doel in de lijst.
 6. U kunt nu een uitvoering op basis van deze doelen indienen.
 
 ## <a name="examples"></a>Voorbeelden

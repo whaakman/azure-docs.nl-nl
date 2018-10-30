@@ -10,12 +10,12 @@ manager: jeconnoc
 ms.reviewer: klam, LADocs
 ms.date: 10/03/2018
 ms.topic: article
-ms.openlocfilehash: ac184ce790a0700fcacc63f70c2bb321142d7224
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: aac59e087ba106bc20d94fea85cb8a3cd9273482
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49320540"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233069"
 ---
 # <a name="run-actions-based-on-group-status-with-scopes-in-azure-logic-apps"></a>Uitvoeren van acties op basis van status van de groep met een bereik in Azure Logic Apps
 
@@ -213,7 +213,7 @@ Voeg vervolgens een bereik zodat u kunt specifieke acties te groeperen en hun st
 
       ![Selecteer de statussen van het bereik](./media/logic-apps-control-flow-run-steps-group-scopes/select-run-after-statuses.png)
 
-   1. Wanneer u klaar bent, kiest u **gedaan**. 
+   1. Wanneer u klaar bent, kiest u **Gereed**. 
    De voorwaarde wordt nu een 'gegevens'-pictogram weergegeven.
 
 1. In de **als de waarde true** en **indien onwaar** vertakkingen, voeg de acties die u wilt uitvoeren op basis van elke omvang aan te status, bijvoorbeeld een e-mailadres of een bericht verzenden.
@@ -389,7 +389,7 @@ Als u in de codeweergave werkt, kunt u in plaats daarvan de structuur van een be
 ## <a name="get-support"></a>Ondersteuning krijgen
 
 * Ga naar het [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps) (Forum voor Azure Logic Apps) als u vragen hebt.
-* Als u wilt indienen of hierop stemmen op de functies en suggesties, gaat u naar de [site voor gebruikersfeedback van Azure Logic Apps](http://aka.ms/logicapps-wish).
+* Als u wilt indienen of hierop stemmen op de functies en suggesties, gaat u naar de [site voor gebruikersfeedback van Azure Logic Apps](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Volgende stappen
 

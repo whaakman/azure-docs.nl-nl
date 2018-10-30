@@ -12,12 +12,12 @@ ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: 32b60a53581a0f372a7d994cfa260ebd7bcb27b2
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: ffa1c45b2d9449310a2b0dcc66a513b4d8efbc5d
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49467038"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50232984"
 ---
 # <a name="azure-sql-database-data-discovery-and-classification"></a>Azure SQL-databasegegevens detectie en classificatie
 
@@ -132,7 +132,7 @@ Een belangrijk aspect van het information protection paradigma is de mogelijkhei
 T-SQL kunt u kolomclassificaties toevoegen/verwijderen, evenals alle classificaties voor de gehele database ophalen.
 
 > [!NOTE]
-> Bij het gebruik van T-SQL voor het beheren van labels, is er geen validatie die labels toegevoegd aan een kolom in de organisatie information protection-beleid (de set van labels die worden weergegeven in de portal aanbevelingen) bestaan. Het is daarvoor aan u kunt dit controleren.
+> Bij het gebruik van T-SQL voor het beheren van labels, is er geen validatie die labels toegevoegd aan een kolom in de organisatie information protection-beleid (de set van labels die worden weergegeven in de portal aanbevelingen) bestaan. Het is daarom aan u kunt dit controleren.
 
 - De indeling van een of meer kolommen toevoegen/bijwerken: [GEVOELIGHEIDSCLASSIFICATIE toevoegen](https://docs.microsoft.com/sql/t-sql/statements/add-sensitivity-classification-transact-sql)
 - De classificatie uit een of meer kolommen verwijderen: [GEVOELIGHEIDSCLASSIFICATIE niet verwijderen](https://docs.microsoft.com/sql/t-sql/statements/drop-sensitivity-classification-transact-sql)

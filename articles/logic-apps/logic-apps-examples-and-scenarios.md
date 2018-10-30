@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.assetid: e06311bc-29eb-49df-9273-1f05bbb2395c
 ms.date: 01/31/18
-ms.openlocfilehash: 0d5a7cb97636b9ca3aabf6c4199ce9e41bc1665d
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 6249c45a1cd3a8acbb9770fc39da881d8da9057f
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44304421"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50230130"
 ---
 # <a name="common-scenarios-examples-tutorials-and-walkthroughs-for-azure-logic-apps"></a>Algemene scenario's, voorbeelden, zelfstudies en -scenario's voor Azure Logic Apps
 
@@ -59,7 +59,7 @@ Voor systemen en services die mogelijk niet connectors hebt gepubliceerd, kunt u
 * [Instellen van langdurige acties voor de werkstroom wordt uitgevoerd](../logic-apps/logic-apps-create-api-app.md)
 * [Reageren op externe gebeurtenissen en acties met webhooks](../logic-apps/logic-apps-create-api-app.md)
 * [Aanroepen, trigger of nesten van werkstromen met synchrone antwoorden op HTTP-aanvragen](../logic-apps/logic-apps-http-endpoint.md)
-* [Zelfstudie: Een AI aangestuurde sociale dashboard bouw binnen enkele minuten met Logic Apps en Power BI](http://aka.ms/logicappsdemo)
+* [Zelfstudie: Een AI aangestuurde sociale dashboard bouw binnen enkele minuten met Logic Apps en Power BI](https://aka.ms/logicappsdemo)
 * [Video: Reageren op Twilio-SMS-webhooks en verzenden van een tekstantwoord](https://channel9.msdn.com/Blogs/Windows-Azure/Azure-Logic-Apps-Walkthrough-Webhook-Functions-and-an-SMS-Bot)
 
 ## <a name="control-flow-error-handling-and-logging-capabilities"></a>Controlestroom, foutafhandeling en mogelijkheden voor logboekregistratie
@@ -84,11 +84,11 @@ U kunt volledig ontwikkelen en implementeren van logische apps met Visual Studio
 
 ## <a name="content-types-conversions-and-transformations-within-a-run"></a>Typen inhoud, conversies en transformaties in een uitvoering
 
-U kunt toegang krijgen tot, converteren en verschillende typen inhoud transformeren met behulp van de vele functies in de Azure Logic Apps [werkstroomdefinitietaal](http://aka.ms/logicappsdocs). Bijvoorbeeld, u kunt converteren tussen een tekenreeks, JSON en XML met de `@json()` en `@xml()` werkstroom expressies. De Logic Apps-engine bewaart inhoudstypen die u ter ondersteuning van inhoudsoverdracht op een manier zonder verlies tussen services.
+U kunt toegang krijgen tot, converteren en verschillende typen inhoud transformeren met behulp van de vele functies in de Azure Logic Apps [werkstroomdefinitietaal](https://aka.ms/logicappsdocs). Bijvoorbeeld, u kunt converteren tussen een tekenreeks, JSON en XML met de `@json()` en `@xml()` werkstroom expressies. De Logic Apps-engine bewaart inhoudstypen die u ter ondersteuning van inhoudsoverdracht op een manier zonder verlies tussen services.
 
 * [De werking van werkstroom expressies in logische apps](../logic-apps/logic-apps-author-definitions.md)
 * [Niet-JSON-inhoudstypen verwerken](../logic-apps/logic-apps-content-type.md), bijvoorbeeld `application/xml`, `application/octet-stream`, en `multipart/formdata`
-* [Werkstroom van werkstroomschema voor Azure Logic Apps](http://aka.ms/logicappsdocs)
+* [Werkstroom van werkstroomschema voor Azure Logic Apps](https://aka.ms/logicappsdocs)
 
 ## <a name="other-integrations-and-capabilities"></a>Andere integraties en mogelijkheden
 

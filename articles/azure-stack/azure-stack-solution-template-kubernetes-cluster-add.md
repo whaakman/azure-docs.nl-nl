@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/08/2018
+ms.date: 10/29/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: 9250e38eadb9d9b1e8bf0c09fa1a9a165e5e69f1
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 5a3d63637d7b680a012057b92546ccde87ac73de
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48886259"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233358"
 ---
 # <a name="add-kubernetes-to-the-azure-stack-marketplace"></a>Kubernetes op Azure Stack Marketplace toevoegen
 
@@ -72,9 +72,10 @@ De volgende Ubuntu-Server-installatiekopie toevoegen aan de Marketplace:
 
 1. Voer `UbuntuServer` in.
 
-1. Selecteer de nieuwste versie van de server met het volgende profiel:
+1. Selecteer de nieuwste versie van de server. De volledige versie controleren en ervoor te zorgen dat u de nieuwste versie hebt:
     - **Uitgever**: Canonical
     - **Bieden**: UbuntuServer
+    - **Versie**: 16.04.201806120
     - **SKU**: 16.04-LTS
 
 1. Selecteer **downloaden.**

@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 5/21/2018
+ms.date: 10/29/2018
 ms.topic: article
 ms.service: azure-blockchain
-ms.reviewer: zeyadr
+ms.reviewer: coborn
 manager: femila
-ms.openlocfilehash: ee8057be98d18db5963a3e5f1ba1f8bd8d76fe05
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: c08557156848d4e7fcf0b1adbe6c8faa4ee00c82
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48242516"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50231369"
 ---
 # <a name="hyperledger-fabric-single-member-network"></a>Hyperledger Fabric enkel lid netwerk
 
@@ -28,7 +28,7 @@ Wanneer u dit artikel hebt gelezen:
 
 ## <a name="about-blockchain"></a>Over blockchains
 
-Als u niet bekend bent met de blockchain-community, is dit een uitstekende gelegenheid om te leren over de technologie op een manier eenvoudig en kunnen worden geconfigureerd in Azure. Blockchain is de onderliggende technologie achter Bitcoin; het is echter veel meer dan alleen een factor voor een virtuele valuta. Het is een samenstelling van de bestaande database, gedistribueerd systeem en cryptografische technologieën waarmee veilige meerdere partijen berekening met garanties onveranderbaarheid, verifiability controleerbaarheid en tolerantie voor aanvallen. Verschillende protocollen maken gebruik van verschillende mechanismen voor het opgeven van deze kenmerken. [Hyperledger Fabric](https://github.com/hyperledger/fabric) één dergelijk protocol is.
+Als u niet bekend bent met de blockchain-community, is deze oplossingssjabloon een uitstekende gelegenheid om te leren over de technologie op een manier eenvoudig en kunnen worden geconfigureerd in Azure. Blockchain is de onderliggende technologie achter Bitcoin; het is echter veel meer dan alleen een factor voor een virtuele valuta. Het is een samenstelling van de bestaande database, gedistribueerd systeem en cryptografische technologieën waarmee veilige meerdere partijen berekening met garanties onveranderbaarheid, verifiability controleerbaarheid en tolerantie voor aanvallen. Verschillende protocollen maken gebruik van verschillende mechanismen voor het opgeven van deze kenmerken. [Hyperledger Fabric](https://github.com/hyperledger/fabric) één dergelijk protocol is.
 
 ## <a name="consortium-architecture-on-azure"></a>Consortium architectuur op Azure
 
@@ -36,7 +36,7 @@ Deze sjabloon implementeert een topologie om u te helpen bij het testen en produ
 
 Het netwerk bestaat uit drie soorten knooppunten:
 
-1. **Lid knooppunt**: een knooppunt met de service voor het lidmaatschap van Fabric die wordt geregistreerd en leden van het netwerk beheert. Dit knooppunt kan uiteindelijk worden geclusterd voor schaalbaarheid en hoge beschikbaarheid, maar in dit lab, een lid van één knooppunt wordt gebruikt.
+1. **Lid knooppunt**: een knooppunt met de service voor het lidmaatschap van Fabric die wordt geregistreerd en leden van het netwerk beheert. Dit knooppunt kan worden geclusterd voor schaalbaarheid en hoge beschikbaarheid; Maar in dit lab, een lid van één knooppunt zal worden gebruikt.
 2. **Besteller knooppunten**: een knooppunt met de implementatie van een garantie levering, zoals Totaal communicatieservice bestellen broadcast of atomic-transacties.
 3. **Knooppunten op hetzelfde niveau**: een knooppunt dat transacties doorgevoerd en onderhoudt de status en een kopie van het gedistribueerde grootboek.
 
@@ -57,13 +57,13 @@ Nadat u een abonnement hebt, gaat u naar de [Azure-portal](https://portal.azure.
 
 ## <a name="deployment"></a>Implementatie
 
-Selecteer eerst de **Hyperledger Fabric één lid Blockchain** en klikt u op **maken**. Hiermee opent u de **basisbeginselen** blade in de wizard.
+Als u wilt starten, selecteert u de **Hyperledger Fabric één lid Blockchain** en klikt u op **maken** openen de **basisbeginselen** blade in de wizard.
 
 De sjabloonimplementatie begeleidt u bij het configureren van het netwerk met meerdere knooppunten. De stroom van de implementatie is onderverdeeld in drie stappen: basisbeginselen, netwerkconfiguratie en configuratie van de Infrastructuurresources.
 
 ### <a name="basics"></a>Basisbeginselen
 
-Onder de **basisbeginselen** blade waarden opgeven voor standard parameters voor elke implementatie, zoals abonnement, resourcegroep en virtuele-eigenschappen.
+In de **basisbeginselen** blade waarden opgeven voor standard parameters voor elke implementatie. Abonnement, resourcegroep en basic virtuele machine, zoals eigenschappen.
 
 ![Basisbeginselen](./media/hyperledger-fabric-single-member-blockchain/basics.png)
 
@@ -72,7 +72,7 @@ Parameternaam| Beschrijving| Toegestane waarden|Standaardwaarde
 **Voorvoegsel van de resource**| Een tekenreeks die wordt gebruikt als basis voor de naam van de geïmplementeerde resources.|6 tekens of minder|N.v.t.
 **VM-gebruikersnaam**| De gebruikersnaam van de beheerder voor elk van de virtuele machines die zijn geïmplementeerd voor dit lid.|1 - 64 tekens|azureuser
 **Verificatietype**| De methode voor verificatie bij de virtuele machine.|Wachtwoord of SSH de openbare sleutel|Wachtwoord
-**Wachtwoord (verificatietype = wachtwoord)**|Het wachtwoord voor het beheerdersaccount voor elk van de virtuele machines die zijn geïmplementeerd. Het wachtwoord moet 3 van de volgende bevatten: 1 hoofdletter, 1 kleine letter, 1 cijfer en 1 speciaal teken.<br /><br />Hoewel alle virtuele machines wordt in eerste instantie hetzelfde wachtwoord hebben, kunt u het wachtwoord kunt wijzigen na het inrichten.|12 - 72 tekens|N.v.t.
+**Wachtwoord (verificatietype = wachtwoord)**|Het wachtwoord voor het beheerdersaccount voor elk van de virtuele machines die zijn geïmplementeerd. Het wachtwoord moet drie van de tekentypen van de volgende bevatten: 1 hoofdletter, 1 kleine letter, 1 cijfer en 1 speciaal teken.<br /><br />Hoewel alle virtuele machines wordt in eerste instantie hetzelfde wachtwoord hebben, kunt u het wachtwoord kunt wijzigen na het inrichten.|12 - 72 tekens|N.v.t.
 **SSH-sleutel (verificatietype = openbare sleutel)**|De veilige shell-sleutel die wordt gebruikt voor externe aanmelding.||N.v.t.
 **Toegang beperken door van IP-adres**|Als u op het type te bepalen of clients eindpunt toegang beperkt tot of niet is.|Ja/Nee| Nee
 **Toegestane IP-adres of subnet (toegang beperken door van IP-adres = Yes)**|Het IP-adres of de set IP-adressen die is toegestaan voor toegang tot het clienteindpunt van de als toegangsbeheer is ingeschakeld.||N.v.t.
@@ -82,7 +82,7 @@ Parameternaam| Beschrijving| Toegestane waarden|Standaardwaarde
 
 ### <a name="network-size-and-performance"></a>Netwerkgrootte en prestaties
 
-Vervolgens onder **grootte en prestaties, het netwerk** invoer voor de grootte van het netwerk consortium, zoals het aantal lidmaatschap, besteller en peer-knooppunten opgeven. Kies Opties voor infrastructuur en de grootte van uw virtuele machine.
+Vervolgens in **grootte en prestaties, het netwerk** invoer voor de grootte van het netwerk consortium opgeven. Zoals het aantal lidmaatschap, besteller en peer-knooppunten. Kies Opties voor infrastructuur en de grootte van uw virtuele machine.
 
 ![Netwerkgrootte en prestaties](./media/hyperledger-fabric-single-member-blockchain/network-size-performance.png)
 
@@ -129,13 +129,13 @@ Voor toegang tot de output-parameters, en klik eerst op de **implementaties** ta
 
 Klik op de eerste implementatie in de lijst om te kijken naar de details uit de Implementatiegeschiedenis.
 
-![Details van de implementatie](./media/hyperledger-fabric-single-member-blockchain/deployment-details.png)
+![Implementatiedetails](./media/hyperledger-fabric-single-member-blockchain/deployment-details.png)
 
 Het scherm met details ziet u een samenvatting van de implementatie, gevolgd door drie parameters die handig zijn:
 
 - De _API-EINDPUNT_ kan worden gebruikt wanneer u een toepassing op het netwerk implementeert.
 - De _VOORVOEGSEL_ , ook wel genoemd _implementatie voorvoegsel_ , unieke wijze identificeert en uw implementatie van uw resources. Deze worden gebruikt bij het gebruik van de opdrachtregelprogramma's op basis van.
-- De _SSH eerste VM-_ biedt u een vooraf samengesteld ssh-met de juiste parameters opdracht vereist om verbinding met de eerste virtuele machine in uw netwerk te; in het geval van een Hyperledger Fabric, worden de Fabric-CA-knooppunt.
+- De _SSH eerste VM-_ biedt u een vooraf samengesteld ssh-opdracht met de juiste parameters vereist voor het verbinding maken met de eerste virtuele machine in uw netwerk. Voor Hyperledger Fabric worden de Fabric-CA-knooppunt.
 
 U kunt op afstand verbinding maken met de virtuele machines voor elk knooppunt via SSH met uw beheerder opgegeven gebruikersnaam en het wachtwoord/SSH-sleutel. Omdat het knooppunt VM's geen hun eigen openbare IP-adressen, moet u om te gaan via de load balancer en het poortnummer opgeven. De SSH-opdracht voor toegang tot het eerste knooppunt van de transactie is de sjabloonuitvoer van de derde ** SSH naar eerste VM (voor de Voorbeeldimplementatie: `sh -p 3000 azureuser@hlf2racpt.northeurope.cloudapp.azure.com`). Verhogen om door te gaan naar de knooppunten van extra transactielogboeken, het poortnummer dat door een (bijvoorbeeld het eerste knooppunt van de transactie is op poort 3000, de tweede is 3001, de derde is op 3002, enz.).
 

@@ -17,12 +17,12 @@ ms.date: 10/02/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: ceafee3ac3453590d1687f662c7f3c9a8d8b4e0c
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 29cbb96cc6dec4bac601e8795599f77c955c418a
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50156626"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50230826"
 ---
 # <a name="azure-active-directory-v20-and-the-oauth-20-device-code-flow"></a>Azure Active Directory v2.0 en de stroom voor OAuth 2.0-apparaat code
 
@@ -113,7 +113,7 @@ Omdat de stroom van het apparaat een polling-protocol is, moet uw client verwach
 | `expired_token`|  Ten minste `expires_in` seconden zijn verstreken en verificatie is niet meer mogelijk is met dit `device_code`. | Stop polling en terugkeren naar een niet-geverifieerde status. |
 
 
-### <a name="succesful-authentication-response"></a>Verificatieantwoord voor succes uitgevoerd
+### <a name="successful-authentication-response"></a>Verificatie is geslaagd antwoord
 
 Een geslaagde respons token ziet er als:
 

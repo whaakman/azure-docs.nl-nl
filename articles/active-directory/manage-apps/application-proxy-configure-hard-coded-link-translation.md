@@ -15,12 +15,12 @@ ms.date: 05/04/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 0d139437a069406db2ae0f189480072f8063a327
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 73854cba151dfbebe53862a39fbe980502192c2d
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45982269"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50230060"
 ---
 # <a name="redirect-hardcoded-links-for-apps-published-with-azure-ad-application-proxy"></a>Koppelingen naar de vastgelegd voor apps die zijn gepubliceerd met Azure AD Application Proxy omleiden
 
@@ -97,6 +97,7 @@ Ter verbetering van prestaties en beveiliging, niet worden enkele koppelingen di
 
 - De koppelingen niet in de codetags. 
 - De koppelingen niet in HTML of CSS. 
+- Koppelingen in de URL-notatie.
 - Interne koppelingen geopend vanuit andere programma's. Koppelingen verzonden via e-mail of chatbericht of opgenomen in andere documenten wordt niet worden vertaald. De gebruikers moeten weten om naar de externe URL te gaan.
 
 Als u nodig hebt ter ondersteuning van een van deze twee scenario's, gebruikt u dezelfde interne en externe URL's in plaats van de vertaling van koppelingen.  

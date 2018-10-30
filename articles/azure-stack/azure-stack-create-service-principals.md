@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/06/2018
+ms.date: 10/26/2018
 ms.author: sethm
-ms.openlocfilehash: 96137b95f46f24bca6a4ee6a39d93a490a03c431
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: a6d8ef698c005429c1184b5565b1a9387d05e062
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49958445"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50230111"
 ---
 # <a name="provide-applications-access-to-azure-stack"></a>Toepassingen toegang geven tot Azure Stack
 
@@ -77,6 +77,13 @@ Het script wordt uitgevoerd vanaf het eindpunt van de bevoegde op een virtuele m
 Vereisten:
 - Er is een certificaat vereist.
 
+Vereisten voor certificaten:
+ - De cryptografieprovider (CSP) moet verouderde sleutel-provider.
+ - Opmaak van het certificaat moet zich in PFX-bestand, zoals de openbare en persoonlijke sleutels vereist zijn. Windows-servers gebruiken pfx-bestanden met het openbare sleutelbestand (SSL-certificaatbestand) en de bijbehorende persoonlijke sleutelbestand.
+ - Voor de productie, moet het certificaat van een interne certificeringsinstantie of een openbare certificeringsinstantie worden uitgegeven. Als u een openbare certificeringsinstantie gebruikt, moet u de instantie opgenomen in het operationele systeem basisinstallatiekopie als onderdeel van het Microsoft-programma vertrouwde basis-CA. U vindt de volledige lijst met [Microsoft Trusted Root Certificate Program: deelnemers](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca).
+ - Uw Azure Stack-infrastructuur moet toegang tot het netwerk hebben tot de locatie van de certificeringsinstantie certificaat certificaatintrekkingslijst (CRL) gepubliceerd in het certificaat. Dit CRL moet een HTTP-eindpunt.
+
+
 #### <a name="parameters"></a>Parameters
 
 De volgende informatie is vereist als invoer voor de automation-parameters:
@@ -93,7 +100,7 @@ De volgende informatie is vereist als invoer voor de automation-parameters:
 1. Open een Windows PowerShell-sessie met verhoogde bevoegdheden en voer de volgende opdrachten uit:
 
    > [!NOTE]
-   > In dit voorbeeld wordt een zelfondertekend certificaat gemaakt. Wanneer u deze opdrachten in een productie-implementatie uitvoeren, gebruikt u [Get-certificaat](/powershell/module/pkiclient/get-certificate) om op te halen van het certificaatobject voor het certificaat dat u wilt gebruiken.
+   > In dit voorbeeld wordt een zelfondertekend certificaat gemaakt. Wanneer u deze opdrachten in een productie-implementatie uitvoeren, gebruikt u [Get-Item](/powershell/module/Microsoft.PowerShell.Management/Get-Item) om op te halen van het certificaatobject voor het certificaat dat u wilt gebruiken.
 
    ```PowerShell  
     # Credential for accessing the ERCS PrivilegedEndpoint, typically domain\cloudadmin
@@ -102,7 +109,7 @@ De volgende informatie is vereist als invoer voor de automation-parameters:
     # Creating a PSSession to the ERCS PrivilegedEndpoint
     $session = New-PSSession -ComputerName <ERCS IP> -ConfigurationName PrivilegedEndpoint -Credential $creds
 
-    # This produces a self signed cert for testing purposes. It is prefered to use a managed certificate for this.
+    # This produces a self signed cert for testing purposes. It is preferred to use a managed certificate for this.
     $cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=<yourappname>" -KeySpec KeyExchange
 
     $ServicePrincipal = Invoke-Command -Session $session -ScriptBlock { New-GraphApplication -Name '<yourappname>' -ClientCertificates $using:cert}

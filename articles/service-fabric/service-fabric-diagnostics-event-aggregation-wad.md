@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/03/2018
 ms.author: srrengar
-ms.openlocfilehash: a870c99718ecafe8af33e13be9aa46631888c8cb
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: d670b90404d441876727336fc50a848965082de5
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389680"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50232491"
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>Aggregatie van de gebeurtenis en verzameling met Windows Azure Diagnostics
 > [!div class="op_single_selector"]
@@ -292,7 +292,7 @@ Als u een Application Insights-sink, zoals beschreven in de onderstaande sectie,
 
 ## <a name="send-logs-to-application-insights"></a>Logboeken verzenden naar Application Insights
 
-Controle en diagnostische gegevens verzenden naar Application Insights (AI) kan worden gedaan als onderdeel van de configuratie van de WAD. Als u u AI gebruikt voor de gebeurtenis analyses en visualisatie besluit, leest u [over het instellen van een AI-sink](service-fabric-diagnostics-event-analysis-appinsights.md#add-the-ai-sink-to-the-resource-manager-template) als onderdeel van uw 'WadCfg'.
+Controle en diagnostische gegevens verzenden naar Application Insights (AI) kan worden gedaan als onderdeel van de configuratie van de WAD. Als u u AI gebruikt voor de gebeurtenis analyses en visualisatie besluit, leest u [over het instellen van een AI-sink](service-fabric-diagnostics-event-analysis-appinsights.md#add-the-application-insights-sink-to-the-resource-manager-template) als onderdeel van uw 'WadCfg'.
 
 ## <a name="next-steps"></a>Volgende stappen
 

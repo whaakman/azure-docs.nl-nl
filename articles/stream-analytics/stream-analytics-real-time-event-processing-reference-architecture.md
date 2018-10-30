@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/24/2017
-ms.openlocfilehash: 08ad2d853ab909ea859ffd1230dd651aa6661500
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 1195ab125749cd211a35d7ff00c4f418dbd59f62
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49987627"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50232423"
 ---
 # <a name="reference-architecture-real-time-event-processing-with-microsoft-azure-stream-analytics"></a>Referentie-architectuur: gebeurtenissen verwerken met Microsoft Azure Stream Analytics in realtime
 De referentiearchitectuur voor realtime-gebeurtenissen verwerken met Azure Stream Analytics is een algemene blauwdruk bedoeld voor het implementeren van een realtime platform als een oplossing voor het verwerken van streams van service (PaaS) met Microsoft Azure.
@@ -25,7 +25,7 @@ Traditioneel zijn analytics-oplossingen gebaseerd op de mogelijkheden, zoals ETL
 Microsoft Azure biedt een uitgebreide catalogus van analytics-technologieën die geschikt voor het zijn ondersteunen van een matrix van de oplossing voor verschillende scenario's en vereisten. Selecteren welke Azure-services te implementeren voor een end-to-end-oplossing kan lastig zijn gegeven van de breedte van de aanbiedingen. Dit document is ontworpen om de mogelijkheden en maken tussen verschillende Azure-services die ondersteuning bieden voor een gebeurtenis-streaming-oplossing te beschrijven. Hierin wordt uitgelegd enkele van de scenario's waarin klanten van dit soort aanpak profiteren kunnen.
 
 ## <a name="contents"></a>Inhoud
-* Uitvoeringssamenvatting
+* Managementsamenvatting
 * Inleiding tot realtime analyses
 * Toegevoegde waarde van realtime-gegevens in Azure
 * Algemene scenario's voor analyse in realtime

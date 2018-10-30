@@ -4,7 +4,7 @@ description: In dit onderwerp ziet verschillende taken die worden uitgevoerd met
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 0582628e-a525-4a78-90ac-9f7fc1cd909f
 ms.service: media-services
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 07/17/2017
+ms.date: 10/24/2018
 ms.author: juliako
-ms.openlocfilehash: 808f25ee2c0b72f557ec72d159318e25cb7387ab
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: a5300f3b998e22cca56001bd52f761bb0a366cbe
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "33790557"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50231454"
 ---
 # <a name="using-azure-media-packager-to-accomplish-static-packaging-tasks"></a>Met behulp van Azure Media Packager statische pakketten taken
 > [!NOTE]
@@ -251,7 +251,7 @@ Het volgende codevoorbeeld maakt gebruik van Azure Media Services .NET SDK Exten
 ```
 
 ## <a name="using-static-encryption-to-protect-your-smooth-and-mpeg-dash-with-playready"></a>Met statische versleuteling voor de beveiliging van uw vloeiende en MPEG-DASH met PlayReady
-MediaPackager_MP4ToSmooth.xml en MediaPackager_SmoothToHLS.xml zijn gedefinieerd in [taak vooraf voor Azure Media Packager](media-services-protect-with-playready-widevine.md) en MediaEncryptor_PlayReadyProtection.xml is gedefinieerd in de taak voorinstelling voor Azure Media Wachtwoordversleuteling artikel.
+Als u beveiligen van uw inhoud met PlayReady wilt, hebt u een keuze van het gebruik van [dynamische versleuteling](media-services-protect-with-playready-widevine.md) (de aanbevolen optie) of statische versleuteling (zoals beschreven in deze sectie).
 
 Het voorbeeld in deze sectie codeert een tussentijds bestand (in dit geval MP4) naar de adaptive bitrate MP4-bestanden. Het MP4s vervolgens verpakt in Smooth Streaming en vervolgens versleutelt Smooth Streaming met PlayReady. U bent als gevolg hiervan streamen Smooth Streaming of MPEG-DASH.
 
@@ -986,7 +986,7 @@ Het voorbeeld in deze sectie codeert een tussentijds bestand (in dit geval MP4) 
 ```
 
 ## <a name="using-static-encryption-to-protect-hlsv3-with-playready"></a>Met statische versleuteling voor de beveiliging van HLSv3 met PlayReady
-MediaPackager_MP4ToSmooth.xml en MediaPackager_SmoothToHLS.xml zijn gedefinieerd in [taak vooraf voor Azure Media Packager](media-services-protect-with-playready-widevine.md) en MediaEncryptor_PlayReadyProtection.xml is gedefinieerd in de taak voorinstelling voor Azure Media Wachtwoordversleuteling artikel.
+Als u beveiligen van uw inhoud met PlayReady wilt, hebt u een keuze van het gebruik van [dynamische versleuteling](media-services-protect-with-playready-widevine.md) (de aanbevolen optie) of statische versleuteling (zoals beschreven in deze sectie).
 
 > [!NOTE]
 > Als u wilt beveiligen van uw inhoud met PlayReady u moet eerst converteren/uw inhoud coderen naar een indeling Smooth Streaming.

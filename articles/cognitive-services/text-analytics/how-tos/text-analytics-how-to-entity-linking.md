@@ -10,12 +10,12 @@ ms.component: text-analytics
 ms.topic: article
 ms.date: 10/01/2018
 ms.author: ashmaka
-ms.openlocfilehash: 42e1704df315c754b2b506a0470d128b7666c280
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: e81428d5bdffb65b5e61a7aba7496da275f249a5
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49645794"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50230553"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics-preview"></a>Herkenning van entiteit met de naam gebruiken in Text Analytics (Preview)
 
@@ -56,7 +56,7 @@ Entiteiten koppelen in verschillende talen, moet met behulp van een betreffende 
 | Hoeveelheid      | Temperatuur   | "32 graden"    |
 | DateTime      | N.V.T.\*         | "6:30 PM 4 februari 2012"      | 
 | DateTime      | Date          | "Mei 2e 2017", "05/02/2017"   | 
-| Datum en tijd     | Time          | "8 am", "8:00"  | 
+| Datum tijd     | Time          | "8 am", "8:00"  | 
 | DateTime      | DateRange     | "Mei 2e op 5 mei"    | 
 | DateTime      | timeRange     | "18: 00 uur tot 19: 00"     | 
 | DateTime      | Duur      | '1 minuut en 45 seconden'   | 
@@ -95,7 +95,7 @@ Meer informatie over de definitie van de aanvraag kunt u vinden in [De Text Anal
 
 + Maak een **POST**-aanvraag. Controleer de API-documentatie voor deze aanvraag: [Entity Linking-API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634)
 
-+ Stel het HTTP-eindpunt in voor sleuteltermextractie. Deze moet de `/entities`-resource: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1-preview/entities` bevatten
++ Stel het HTTP-eindpunt voor het ophalen van de entiteit. Deze moet de `/entities`-resource: `https://[your-region].api.cognitive.microsoft.com/text/analytics/v2.1-preview/entities` bevatten
 
 + Stel een aanvraagheader in om de toegangssleutel voor de Text Analytics-bewerkingen op te nemen. Zie voor meer informatie [Eindpunten en toegangssleutels zoeken](text-analytics-how-to-access-key.md).
 

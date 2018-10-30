@@ -17,12 +17,12 @@ ms.topic: article
 ms.date: 09/15/2017
 ms.author: daden
 ROBOTS: NOINDEX
-ms.openlocfilehash: 8f3bd4e62aa85c69a0bfafeacf13bc3e472136d5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0d3c6b78944d9365d1e7e88ed33aba852b71a9c1
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46964698"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50232015"
 ---
 # <a name="server-workload-forecasting-on-terabytes-of-data"></a>Prognose voor serverworkload per terabytes aan gegevens
 
@@ -100,7 +100,7 @@ Voer `git status` om te controleren van de status van de bestanden voor versie b
 
 ## <a name="data-description"></a>Beschrijving van de gegevens
 
-De gegevens die worden gebruikt in dit voorbeeld is Werkbelastinggegevens kunstmatige-server. Deze wordt gehost in een Azure Blob storage-account dat openbaar toegankelijk is in de regio VS-Oost. De accountgegevens voor specifieke opslag te vinden in de `dataFile` veld [ `Config/storageconfig.json` ](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Config/fulldata_storageconfig.json) in de notatie ' wasb: / /<BlobStorageContainerName>@<StorageAccountName>.blob.core.windows.net/<path>'. U kunt de gegevens rechtstreeks vanuit de Blob-opslag gebruiken. Als de opslag wordt gebruikt door veel gebruikers gelijktijdig, kunt u [azcopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux) voor het downloaden van de gegevens in uw eigen opslag voor een betere ervaring voor experimenten. 
+De gegevens die worden gebruikt in dit voorbeeld is Werkbelastinggegevens kunstmatige-server. Deze wordt gehost in een Azure Blob storage-account dat publicaly toegankelijk in de regio VS-Oost. De accountgegevens voor specifieke opslag te vinden in de `dataFile` veld [ `Config/storageconfig.json` ](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Config/fulldata_storageconfig.json) in de notatie ' wasb: / /<BlobStorageContainerName>@<StorageAccountName>.blob.core.windows.net/<path>'. U kunt de gegevens rechtstreeks vanuit de Blob-opslag gebruiken. Als de opslag wordt gebruikt door veel gebruikers gelijktijdig, kunt u [azcopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux) voor het downloaden van de gegevens in uw eigen opslag voor een betere ervaring voor experimenten. 
 
 De totale gegevensgrootte is ongeveer 1 TB. Elk bestand is ongeveer 1-3 GB, en is in CSV-bestandsindeling, zonder koptekst. Elke rij gegevens vertegenwoordigt de belasting van een transactie op een bepaalde server. De gedetailleerde gegevens van het schema is als volgt:
 

@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 5/21/2018
+ms.date: 10/29/2018
 ms.topic: article
 ms.service: azure-blockchain
-ms.reviewer: zeyadr
+ms.reviewer: coborn
 manager: femila
-ms.openlocfilehash: 823bea9bac8ff270d5b5c02e3b76a2f7236c9c99
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: fa58ecf4607efc1d212e40b98d199756d4b987f8
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48242555"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50231794"
 ---
 # <a name="ethereum-proof-of-work-consortium-solution-template"></a>Ethereum bewijs van werk consortium-oplossingssjabloon
 
@@ -119,7 +119,7 @@ Vijfde regio| Vijfde regio voor de implementatie van het netwerk consortium (Vis
 
 ### <a name="network-size-and-performance"></a>Netwerkgrootte en prestaties
 
-Vervolgens onder **grootte en prestaties van het netwerk** invoer voor de grootte van het netwerk consortium, zoals aantal en de grootte van de analysestructuur knooppunten en transactie-knooppunten opgeven.
+Vervolgens onder **grootte en prestaties van het netwerk** invoer voor de grootte van het netwerk consortium opgeven. Zoals aantal en de grootte van de analysestructuur knooppunten en transactie-knooppunten.
 
 ![Netwerkgrootte en prestaties](./media/ethereum-deployment/network-size-performance.png)
 
@@ -261,10 +261,10 @@ Importeer vervolgens de module:
 
 Ten slotte de functie uitvoeren met de juiste invoer:
 
-- **MyGatewayResourceId** : resourcepad van uw Gateway. Dit is de sjabloon implementatie output-parameter met de naam **CONSORTIUM_MEMBER_GATEWAY_ID**.
-- **OtherGatewayResourceId** : resourcepad van de gateway van het gekoppelde lid. Dit wordt geleverd door het gekoppelde lid en is de sjabloon output-parameter van de implementatie ook met de naam **CONSORTIUM_MEMBER_GATEWAY_ID**.
-- **ConnectionName** : een naam op voor u deze Gateway-verbinding wilt aanduiden.
-- **Gedeelde sleutel** : het vooraf vastgestelde geheim tussen de twee leden van het netwerk consortium die een verbinding tot stand brengt.
+- **MyGatewayResourceId:** resourcepad van uw Gateway. Dit is de sjabloon implementatie output-parameter met de naam **CONSORTIUM_MEMBER_GATEWAY_ID**.
+- **OtherGatewayResourceId:** resourcepad van de gateway van het gekoppelde lid. Dit wordt geleverd door het gekoppelde lid en is de sjabloon output-parameter van de implementatie ook met de naam **CONSORTIUM_MEMBER_GATEWAY_ID**.
+- **Verbindingsnaam:** een naam op voor u deze Gateway-verbinding wilt aanduiden.
+- **Gedeelde sleutel:** het vooraf vastgestelde geheim tussen de twee leden van het netwerk consortium die een verbinding tot stand brengt.
 
 **CreateConnection** -MyGatewayResourceId <resource path of your Gateway> - OtherGatewayResourceId < bronpad van het gekoppelde lid gateway > - ConnectionName mijnVerbinding - SharedKey "MySharedKeyAbc123"
 
@@ -274,11 +274,11 @@ De Azure CLI-script downloaden en lokaal opslaat. De locatie van de Azure CLI-sc
 
 Voer het script met de juiste invoer:
 
-- **MyGatewayResourceId** : resourcepad van uw Gateway. Dit is de sjabloon implementatie output-parameter met de naam **CONSORTIUM_MEMBER_GATEWAY_ID**.
-- **OtherGatewayResourceId** : resourcepad van de gateway van het gekoppelde lid. Dit wordt geleverd door het gekoppelde lid en parameter voor de implementatie van hun implementatie ook met de naam is **CONSORTIUM_MEMBER_GATEWAY_ID**.
-- **ConnectionName** : een naam op voor u deze Gateway-verbinding wilt aanduiden.
-- **Gedeelde sleutel** : het vooraf vastgestelde geheim tussen de twee leden van het netwerk consortium die een verbinding tot stand brengt.
-- **Locatie** : de Azure-regio waar uw gateway-resource is geïmplementeerd.
+- **MyGatewayResourceId:** resourcepad van uw Gateway. Dit is de sjabloon implementatie output-parameter met de naam **CONSORTIUM_MEMBER_GATEWAY_ID**.
+- **OtherGatewayResourceId:** resourcepad van de gateway van het gekoppelde lid. Dit wordt geleverd door het gekoppelde lid en parameter voor de implementatie van hun implementatie ook met de naam is **CONSORTIUM_MEMBER_GATEWAY_ID**.
+- **Verbindingsnaam:** een naam op voor u deze Gateway-verbinding wilt aanduiden.
+- **Gedeelde sleutel:** het vooraf vastgestelde geheim tussen de twee leden van het netwerk consortium die een verbinding tot stand brengt.
+- **Locatie:** de Azure-regio waar uw gateway-resource is geïmplementeerd.
 
 ``` powershell
 az network vpn-connection create --name $ConnectionName --resource-group
@@ -316,7 +316,7 @@ Voor het installeren van de extensie in Chrome, gaat u naar aanpassen en beheren
 
 ![MetaMask-extensie](./media/ethereum-deployment/metamask-extension.png)
 
-Na de installatie MetaMask openen en een nieuwe kluis te maken. Standaard wordt de kluis worden verbonden met het testnetwerk Morden. U moet deze verbinding maken met het netwerk geïmplementeerde persoonlijke consortium, specifiek voor de load balancer vóór de transactie-knooppunten wijzigen. Ophalen van de sjabloonuitvoer van de de beschikbaar gemaakte Ethereum RPC-eindpunt op poort 8545, met de naam als `ETHEREUM-RPC-ENDPOINT`, en voer deze in aangepaste RPC zoals hieronder wordt weergegeven.
+Na de installatie MetaMask openen en een nieuwe kluis te maken. Standaard wordt de kluis worden verbonden met het testnetwerk Morden. Wijzig deze verbinding maken met het netwerk geïmplementeerde persoonlijke consortium, specifiek voor de load balancer vóór de transactie-knooppunten. Ophalen van de sjabloonuitvoer van de de beschikbaar gemaakte Ethereum RPC-eindpunt op poort 8545, met de naam als `ETHEREUM-RPC-ENDPOINT`, en voer deze in aangepaste RPC zoals hieronder wordt weergegeven.
 
 ![Instellingen voor MetaMask](./media/ethereum-deployment/metamask-settings.png)
 

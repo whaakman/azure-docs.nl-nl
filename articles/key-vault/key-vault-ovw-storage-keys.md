@@ -9,12 +9,12 @@ author: bryanla
 ms.author: bryanla
 manager: mbaldwin
 ms.date: 10/03/2018
-ms.openlocfilehash: adc8b84f0f22e85de88c4bd80c10a2a35d7b490a
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 02fffe7c4a3acff6ce6d68046eee4286003b1766
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49114597"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50232219"
 ---
 # <a name="azure-key-vault-storage-account-keys"></a>Azure Key Vault-Opslagaccountsleutels
 
@@ -31,38 +31,45 @@ ms.locfileid: "49114597"
 --------------
 1. [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) Azure CLI installeren   
 2. [Een Opslagaccount maken](https://azure.microsoft.com/services/storage/)
-    - Volg de stappen in deze [document](https://docs.microsoft.com/azure/storage/) om een opslagaccount te maken  
+    - Volg de stappen in dit [document](https://docs.microsoft.com/azure/storage/) om een opslagaccount te maken  
     - **Richtlijnen voor de naamgeving:** namen van Opslagaccounts moet tussen 3 en 24 tekens lang zijn en mag alleen cijfers en kleine letters.        
       
 <a name="step-by-step-instructions"></a>Voor stap door stap-instructies
 -------------------------
+In de onderstaande instructies volgen, zijn we Key Vault toewijzen als een service operatormachtigingen hebben voor uw storage-account
 
-1. Haal de resource-ID van het Azure-Opslagaccount dat u wilt beheren.
-    a. Na het maken van een opslagaccount voert u de volgende opdracht om op te halen van de resource-ID van het opslagaccount dat u wilt beheren
+1. Na het maken van een storage-account de volgende opdracht om op te halen van de resource-ID van het opslagaccount dat wilt u beheren
+
     ```
     az storage account show -n storageaccountname (Copy ID out of the result of this command)
     ```
+    
 2. Aanvraag-ID van Azure Key Vault de service principal ophalen 
+
     ```
     az ad sp show --id cfa8b339-82a2-471a-a3c9-0fc0be7a4093
     ```
+    
 3. Opslag sleutel Operator-rol toewijzen aan Azure Key Vault-identiteit
+
     ```
     az role assignment create --role "Storage Account Key Operator Service Role"  --assignee-object-id hhjkh --scope idofthestorageaccount
     ```
+    
 4. Maken van een Key Vault beheerde Storage-Account.     <br /><br />
-   Onderstaande opdracht vraagt u Key Vault voor uw opslagtoegangssleutels regelmatig opnieuw genereren met een punt opnieuw genereren. Hieronder, zijn we een periode van 90 dagen voor opnieuw regenereren instellen. Na 90 dagen wordt Key Vault opnieuw genereren 'key1' en de actieve sleutel uit 'key2' naar 'key1' wisselen.
-   ### <a name="key-regeneration"></a>Sleutel opnieuw genereren
+   Hieronder, zijn we een periode van 90 dagen voor opnieuw regenereren instellen. Na 90 dagen wordt Key Vault opnieuw genereren 'key1' en de actieve sleutel uit 'key2' naar 'key1' wisselen.
+   
     ```
-    az keyvault storage add --vault-name <YourVaultName> -n <StorageAccountName> --active-key-name key2 --auto-generate-key --regeneration-period P90D --resource-id <Resource-id-of-storage-account>
+    az keyvault storage add --vault-name <YourVaultName> -n <StorageAccountName> --active-key-name key2 --auto-regenerate-key --regeneration-period P90D --resource-id <Resource-id-of-storage-account>
     ```
     In het geval de gebruiker het storage-account hebt gemaakt en heeft geen machtigingen voor de storage-account, stel de volgende stappen uit de machtigingen voor uw account om ervoor te zorgen dat u alle opslagmachtigingen voor de in de Key Vault kunt beheren.
-    [!NOTE] In het geval dat de gebruiker heeft geen machtigingen voor de storage-account We eerst de object-id van de gebruiker krijgen
+ > [!NOTE] 
+    In het geval de gebruiker beschikt niet over machtigingen voor het opslagaccount, krijgen we eerst de Object-Id van de gebruiker
 
     ```
     az ad user show --upn-or-object-id "developer@contoso.com"
 
-    az keyvault set-policy --name <YourVaultName> --object-id <ObjectId> --storage-permissions backup delete list regeneratekey recover purge restore set setsas update
+    az keyvault set-policy --name <YourVaultName> --object-id <ObjectId> --storage-permissions backup delete list regeneratekey recover     purge restore set setsas update
     ```
 
 ### <a name="relevant-powershell-cmdlets"></a>Relevante Powershell-cmdlets

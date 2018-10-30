@@ -1,22 +1,21 @@
 ---
-title: Openbare IP-adres met Site Recovery | Microsoft Docs
-description: Beschrijft hoe u het openbare IP-adressen met behulp van Azure Site Recovery en Azure Traffic Manager voor de migratie en herstel na noodgevallen instellen
+title: Openbare IP-adressen gebruiken na een failover met Azure Site Recovery | Microsoft Docs
+description: Beschrijft hoe u voor het instellen van openbare IP-adressen met Azure Site Recovery en Azure Traffic Manager voor de migratie en herstel na noodgevallen
 services: site-recovery
-documentationcenter: ''
 author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 09/28/2018
 ms.author: mayg
-ms.openlocfilehash: fd17c786515a6db1f8aa5c1aff7c0dcd42ed7dc6
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 80c38ecc766d60fba578e877998aeb216ea66012
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47435209"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215273"
 ---
-# <a name="public-ip-address-with-site-recovery"></a>Openbare IP-adres met Site Recovery
+# <a name="set-up-public-ip-addresses-after-failover"></a>Openbare IP-adressen instellen na een failover
 
 Door openbare IP-adressen te gebruiken, zijn internetbronnen in staat inkomende communicatie voor Azure-resources te verwerken. Openbare IP-adressen maken het ook mogelijk dat Azure-resources uitgaande communicatie naar internet en openbare Azure-services kunnen afhandelen via een IP-adres dat is toegewezen aan de resource.
 - Binnenkomende communicatie via Internet tot de resource, zoals Azure Virtual Machines (VM), Application Gateways voor Azure, Azure Load Balancers, Azure VPN-Gateways en anderen. U kunt nog steeds met de communiceren met enkele resources, zoals virtuele machines, via Internet, als een virtuele machine geen openbaar IP-adres toegewezen, als de virtuele machine deel uit van een back-end-pool van load balancer maakt, en de load balancer een openbaar IP-adres wordt toegewezen.

@@ -1,6 +1,6 @@
 ---
 title: Over het installeren van HANA op SAP HANA op Azure (grote instanties) | Microsoft Docs
-description: Over het installeren van HANA op SAP HANA op Azure (grote instantie).
+description: Over het installeren van HANA op SAP HANA op Azure (grote instanties).
 services: virtual-machines-linux
 documentationcenter: ''
 author: hermanndms
@@ -14,122 +14,124 @@ ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 76a7ce99799b85d81aa6e127ebe1e57e2df3e59a
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: f4629894933507bda7359fb034c4079d38100029
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44164723"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50231403"
 ---
-# <a name="example-of-an-sap-hana-installation-on-hana-large-instances"></a>Voorbeeld van een installatie van de SAP HANA op grote HANA-instanties
+# <a name="install-hana-on-sap-hana-on-azure-large-instances"></a>HANA installeren op SAP HANA op Azure (grote instanties)
 
-In deze sectie wordt beschreven hoe SAP HANA installeren op een eenheid HANA grote instantie. De status gestart die we hebben er als volgt uitzien:
+Als u wilt installeren HANA op SAP HANA op Azure (grote instanties), moet u eerst het volgende doen:
+- U voorzien Microsoft van de gegevens op te implementeren voor u een SAP HANA grote instantie.
+- U ontvangt de SAP HANA grote instantie van Microsoft.
+- U maakt een Azure-netwerk dat is verbonden met uw on-premises netwerk.
+- U kunt het ExpressRoute-circuit voor HANA grote instanties verbinding met hetzelfde Azure virtual network.
+- U installeert een Azure-machine die u als een jump-box voor HANA grote instanties gebruikt.
+- U ervoor zorgen dat u vanuit de jump-box met uw eenheid HANA grote instantie verbinden kunt, en vice versa.
+- U controleren of de vereiste pakketten en patches worden geïnstalleerd.
+- U de SAP-opmerkingen en documentatie over de HANA-installatie op het besturingssysteem die u hebt gelezen. Zorg ervoor dat de HANA-release van keuze in de release van het besturingssysteem wordt ondersteund.
 
-- U hebt opgegeven Microsoft de gegevens voor het implementeren van een SAP HANA grote instantie.
-- U hebt de SAP HANA grote instantie van Microsoft hebt ontvangen.
-- U hebt een Azure-VNet die is verbonden met uw on-premises netwerk hebt gemaakt.
-- U hebt verbinding het circuit ExpressRotue voor HANA grote instanties met de dezelfde Azure-VNet.
-- U hebt een Azure-VM die u als een jump-box voor HANA grote instanties gebruikt geïnstalleerd.
-- U hebt ervoor gezorgd dat u verbinding vanuit de jump-box op uw machine HANA grote instantie en vice versa maken kunt.
-- U hebt gecontroleerd of alle vereiste pakketten en patches worden geïnstalleerd.
-- U leest de SAP-opmerkingen en documentatie met betrekking tot HANA-installatie op het besturingssysteem u gebruikt en u hebt ervoor gezorgd dat de HANA-release van keuze wordt ondersteund voor het besturingssysteem release.
+De volgende sectie ziet u een voorbeeld van het downloaden van de HANA-installatiepakketten aan de sprong in het virtuele machine. In dit geval is het besturingssysteem Windows.
 
-Wat wordt weergegeven in de volgende reeksen is het downloaden van de HANA-installatiepakketten voor de VM, in dit geval wordt uitgevoerd op een Windows-besturingssysteem, het exemplaar van de pakketten aan de eenheid HANA grote instantie en de volgorde van de installatie van de jump-box.
+## <a name="download-the-sap-hana-installation-bits"></a>Downloaden van de SAP HANA-installatie-bits
+De eenheden HANA grote instantie worden niet rechtstreeks verbonden met internet. U downloaden niet de installatiepakketten rechtstreeks van SAP HANA grote instantie virtual machine. U kunt in plaats daarvan de pakketten downloaden aan de sprong in het virtuele machine.
 
-## <a name="download-of-the-sap-hana-installation-bits"></a>Het downloaden van de SAP HANA-installatie-bits
-Aangezien de eenheden HANA grote instantie geen directe verbinding met internet hebben, niet kan u de installatiepakketten rechtstreeks downloaden vanaf SAP voor HANA grote instantie VM. Om te strijden tegen de ontbrekende directe verbinding met internet, moet u de jump-box. U downloaden de pakketten naar de jump-box VM.
+U moet een SAP-S-gebruiker of een andere gebruiker, waardoor u toegang krijgt tot de SAP-Marketplace.
 
-De installatiepakketten HANA downloaden, moet u een SAP-S-gebruiker of een andere gebruiker, waardoor u toegang krijgt tot de SAP-Marketplace. Met deze reeks schermen volgen na het aanmelden:
+1. Meld u aan en gaat u naar [SAP Service Marketplace](https://support.sap.com/en/index.html). Selecteer **Software downloaden** > **-installaties en -Upgrade** > **door alfabetische**. Selecteer vervolgens **onder H: SAP HANA-Platform Edition** > **SAP HANA-Platform Edition 2.0** > **installatie**. Download de bestanden in de volgende schermafbeelding wordt weergegeven.
 
-Ga naar [SAP Service Marketplace](https://support.sap.com/en/index.html) > Klik op downloaden van Software >-installaties en -Upgrade > door alfabetische > onder H: SAP HANA-Platform Edition > SAP HANA-Platform Edition 2.0 > installatie > downloaden de volgende bestanden
+   ![Schermafbeelding van de bestanden te downloaden](./media/hana-installation/image16_download_hana.PNG)
 
-![HANA-installatie downloaden](./media/hana-installation/image16_download_hana.PNG)
+2. In dit voorbeeld hebben we SAP HANA 2.0 installatiepakketten gedownload. In de Azure gaat u in het virtuele machine, de zelfuitpakkend archieven uitbreiden naar de map, zoals hieronder weergegeven.
 
-In het geval demonstratie hebben we SAP HANA 2.0 installatiepakketten gedownload. In de Azure jump-box VM uitbreiden u de zelfuitpakkend archieven naar de map zoals hieronder wordt weergegeven.
+   ![Schermafbeelding van zichzelf uitpakkend archief](./media/hana-installation/image17_extract_hana.PNG)
 
-![Uitpakken van HANA-installatie](./media/hana-installation/image17_extract_hana.PNG)
+3. Als het archief zijn uitgepakt, Kopieer de map die zijn gemaakt door de extractie (in dit geval 51052030). Kopieer de map van het volume /hana/shared HANA grote instantie in een map die u hebt gemaakt.
 
-Als het archief zijn uitgepakt, Kopieer de map die zijn gemaakt door de extractie, in het geval hierboven 51052030, aan de HANA grote instantie-eenheid in het volume /hana/shared in een map die u hebt gemaakt.
-
-> [!Important]
-> Kopieer de installatiepakketten niet in de hoofdmap of opstartinstallatiekopieën LUN, omdat er ruimte is beperkt en moet worden gebruikt door andere processen ook.
+   > [!Important]
+   > Kopieer de installatiepakketten niet in de hoofdmap of opstartinstallatiekopieën LUN, omdat er ruimte is beperkt en moet worden gebruikt door andere processen ook.
 
 
 ## <a name="install-sap-hana-on-the-hana-large-instance-unit"></a>SAP HANA installeren op de eenheid HANA grote instantie
-Als u wilt installeren SAP HANA, moet u aanmelden als gebruiker hoofdmap. Alleen basis heeft onvoldoende machtigingen voor het installeren van SAP HANA.
-Het eerste wat dat u moet doen is het instellen van machtigingen op de map die u in/hana/gedeelde hebt gekopieerd. De machtigingen nodig om in te stellen, zoals
+Wilt u SAP HANA installeren, moet u zich aanmelden als gebruiker root. Alleen basis heeft onvoldoende machtigingen voor het installeren van SAP HANA. Machtigingen instellen voor de map die u in /hana/shared hebt gekopieerd.
 
 ```
 chmod –R 744 <Installation bits folder>
 ```
 
-Als u wilt voor het installeren van SAP HANA met behulp van de grafische installatie, moet het pakket gtk2 worden geïnstalleerd op de HANA grote instanties. Controleer of deze is geïnstalleerd met de opdracht
+Als u installeren van SAP HANA wilt met behulp van de grafische interface-installatie, moet het pakket gtk2 op HANA grote instanties worden geïnstalleerd. Als u wilt controleren of deze is geïnstalleerd, moet u de volgende opdracht uitvoeren:
 
 ```
 rpm –qa | grep gtk2
 ```
 
-In de verdere stappen, zijn we aan te tonen de SAP HANA-installatie met behulp van de grafische gebruikersinterface. Als volgende stap gaat u naar de installatiemap en navigeer naar de map sub HDB_LCM_LINUX_X86_64. Starten
+(In de volgende stappen laten we zien de SAP HANA-installatie met behulp van de grafische gebruikersinterface.)
+
+Ga naar de installatiemap en gaat u naar de map sub HDB_LCM_LINUX_X86_64. 
+
+Uit die map starten:
 
 ```
 ./hdblcmgui 
 ```
-uit die map. Nu ophalen u geleid via een reeks schermen waar u nodig hebt om te zorgen dat de gegevens voor de installatie. In het geval is aangetoond dat installeert we de SAP HANA-database-server en de SAP HANA client-onderdelen. Onze selectie is daarom 'SAP HANA-Database, zoals hieronder wordt weergegeven
+Op dit punt, uitgevoerd via een reeks schermen waarin u de gegevens voor de installatie opgeven. In dit voorbeeld wordt de SAP HANA-database-server en de SAP HANA client-onderdelen installeert. Onze selectie is daarom **SAP HANA-Database**.
 
-![HANA in installatie selecteren](./media/hana-installation/image18_hana_selection.PNG)
+![Schermafbeelding van SAP HANA Lifecycle Management scherm, met SAP HANA-Database geselecteerd](./media/hana-installation/image18_hana_selection.PNG)
 
-In het volgende scherm kiest u de optie Nieuw systeem installeren
+Selecteer op het volgende scherm **nieuw systeem installeren**.
 
-![Selecteer de nieuwe installatie HANA](./media/hana-installation/image19_select_new.PNG)
+![Schermafbeelding van SAP HANA Lifecycle Management scherm, installeren nieuwe systeem geselecteerd](./media/hana-installation/image19_select_new.PNG)
 
-Na deze stap moet u kiezen tussen verschillende extra onderdelen die verder kunnen worden geïnstalleerd met de SAP HANA-database-server.
+Selecteer vervolgens onder verschillende aanvullende onderdelen die u kunt installeren.
 
-![Aanvullende HANA onderdelen selecteren](./media/hana-installation/image20_select_components.PNG)
+![Schermafbeelding van SAP HANA Lifecycle Management scherm, met de lijst van extra onderdelen](./media/hana-installation/image20_select_components.PNG)
 
-We hebben gekozen ten behoeve van deze documentatie wordt de SAP HANA-Client en de SAP HANA Studio. We ook een exemplaar omhoog geïnstalleerd. daarom in het volgende scherm moet u kiezen één Host-systeem 
+Hier kiezen we de SAP HANA-Client en de SAP HANA Studio. We ook installeren een exemplaar omhoog. Kies vervolgens **één hostsysteem**. 
 
-![Selecteer de installatie van de scale-up](./media/hana-installation/image21_single_host.PNG)
+![Schermafbeelding van SAP HANA Lifecycle Management scherm, met één hostsysteem geselecteerd](./media/hana-installation/image21_single_host.PNG)
 
-In het volgende scherm moet u enkele gegevens opgeven
+Geef vervolgens de gegevens.
 
-![Bieden van SAP HANA-SID](./media/hana-installation/image22_provide_sid.PNG)
+![Schermafbeelding van SAP HANA Lifecycle Management scherm, met eigenschappen systeemvelden definiëren](./media/hana-installation/image22_provide_sid.PNG)
 
 > [!Important]
-> Als HANA systeem-ID (SID), moet u voor de dezelfde SID, als u Microsoft verstrekt wanneer u de implementatie van HANA grote instantie besteld. Een andere SID is de installatie mislukken vanwege problemen met toegang tot de machtiging op de verschillende volumes
+> Als HANA systeem-ID (SID), moet u de dezelfde SID als u Microsoft verstrekt wanneer u de implementatie van HANA grote instantie besteld opgeven. Kies een andere SID zorgt ervoor dat de installatie is mislukt vanwege problemen met toegang tot de machtiging op de verschillende volumes.
 
-Als de installatie van gedeelde map die u gebruikt de/hana/directory. In de volgende stap moet u de locaties opgeven voor de HANA-gegevensbestanden en de HANA-logboekbestanden
+Gebruik de map /hana/shared voor het installatiepad. In de volgende stap biedt u de locaties voor de HANA-gegevensbestanden en de logboekbestanden van HANA.
 
 
-![Geef HANA Logboeklocatie](./media/hana-installation/image23_provide_log.PNG)
+![Schermafbeelding van SAP HANA Lifecycle Management scherm, gegevens en logboekbestanden gebied velden](./media/hana-installation/image23_provide_log.PNG)
 
 > [!Note]
-> U moet definiëren als gegevens en logboekbestanden de volumes die al bij de koppelpunten met de SID die u hebt gekozen in de selectie van het scherm voordat u dit scherm is geleverd. Als de beveiligings-id niet met de naam die u hebt getypt overeen in, in het scherm voordat, gaat u terug en aanpassen van de SID op de waarde die u op de koppelpunten hebt.
+> De SID die u hebt opgegeven toen u Systeemeigenschappen (twee schermen geleden) hebt gedefinieerd, moet overeenkomen met de SID van de koppelpunten. Als er een niet-overeenkomend, gaat u terug en aanpassen van de SID op de waarde die u op de koppelpunten hebt.
 
 De hostnaam van de beoordeling en uiteindelijk pas dit in de volgende stap. 
 
-![Naam van de beoordeling-host](./media/hana-installation/image24_review_host_name.PNG)
+![Schermafbeelding van SAP HANA Lifecycle Management scherm, met de naam van host](./media/hana-installation/image24_review_host_name.PNG)
 
 In de volgende stap moet u ook gegevens die u naar Microsoft is opgegeven toen u de implementatie van HANA grote instantie besteld op te halen. 
 
-![Geef systeemgebruiker UID en groeps-id](./media/hana-installation/image25_provide_guid.PNG)
+![Schermafbeelding van SAP HANA Lifecycle Management, met de beheerder systeemvelden definiëren](./media/hana-installation/image25_provide_guid.PNG)
 
 > [!Important]
-> U moet dezelfde gebruikers-ID van systeem en ID van de groep van de gebruiker opgeven als u Microsoft verstrekt als u de implementatie van de eenheid order. Als u niet de dezelfde id's geven, mislukt de installatie van SAP HANA op de eenheid HANA grote instantie.
+> Geef dezelfde **systeembeheerder gebruikers-ID** en **-ID van de groep van de gebruiker** zoals u hebt opgegeven voor Microsoft, als u de implementatie van de eenheid bestellen. Anders mislukt de installatie van SAP HANA op de eenheid HANA grote instantie.
 
-In de volgende twee schermen die we niet zichtbaar zijn in deze documentatie, moet u het wachtwoord opgeven voor de gebruiker van de SAP HANA-database en het wachtwoord voor de gebruiker sapadm, die wordt gebruikt voor de SAP-Hostagent die wordt geïnstalleerd als onderdeel van de SAP HANA-datab exemplaar van de as-omgeving.
+De volgende twee schermen worden niet hier weergegeven. Hiermee kunt u voor het wachtwoord voor de gebruiker van de SAP HANA-database en het wachtwoord voor de gebruiker sapadm. De laatste wordt gebruikt voor de SAP-Hostagent die wordt geïnstalleerd als onderdeel van het exemplaar van de SAP HANA-database.
 
-Na het definiëren van het wachtwoord is een bevestigingsvenster weergegeven. Controleer alle gegevens die worden vermeld en doorgaan met de installatie. U bereiken een scherm met de installatievoortgang waarin de voortgang van de installatie, zoals de onderstaande
+Na het definiëren van het wachtwoord, ziet u een bevestigingsvenster. Controleer alle gegevens die worden vermeld en doorgaan met de installatie. U bereikt een scherm met de installatievoortgang waarin de voortgang van de installatie, zoals deze:
 
-![Voortgang van de installatie controleren](./media/hana-installation/image27_show_progress.PNG)
+![Schermafbeelding van SAP HANA Lifecycle Management scherm, met de installatie uitgevoerd indicatoren](./media/hana-installation/image27_show_progress.PNG)
 
-Als de installatie is voltooid, moet u een afbeelding, zoals de volgende uitvoer
+Als de installatie is voltooid, ziet u een scherm zoals dit:
 
-![Installatie is voltooid](./media/hana-installation/image28_install_finished.PNG)
+![Schermafbeelding van SAP HANA Lifecycle Management scherm, waarmee wordt aangegeven installatie is voltooid](./media/hana-installation/image28_install_finished.PNG)
 
-Op dit moment moet de SAP HANA-instantie actief en werkend en klaar voor gebruik. U moet geen verbinding maken met het vanuit SAP HANA Studio. Controleer ook of u controleren of de meest recente patches van SAP HANA en toepassen van patches.
+De SAP HANA-instantie moet nu actief en werkend en klaar voor gebruik. U moet geen verbinding maken met het vanuit SAP HANA Studio. Controleer ook of u controleren en de meest recente updates toepassen.
 
 
-**Volgende stappen**
+## <a name="next-steps"></a>Volgende stappen
 
-- Raadpleeg [SAP HANA grote instanties hoge beschikbaarheid en herstel na noodgeval op Azure](hana-overview-high-availability-disaster-recovery.md).
+- [SAP HANA grote instanties hoge beschikbaarheid en herstel na noodgeval op Azure](hana-overview-high-availability-disaster-recovery.md)
 

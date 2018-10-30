@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/08/2018
 ms.author: glenga
-ms.openlocfilehash: 704a41ec840e2a252a1bbb5c20688f722bd0cdfd
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 7a049a1fb57d65824fa2c44b40d3d51083459973
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48887033"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50232239"
 ---
 # <a name="hostjson-reference-for-azure-functions"></a>naslaginformatie over host.JSON voor Azure Functions
 
@@ -195,7 +195,7 @@ Functieaanroepen worden geaggregeerd als de eerste dag van de twee limieten zijn
 
 ## <a name="applicationinsights"></a>Application Insights
 
-Besturingselementen voor de [functie steekproeven in Application Insights](functions-monitoring.md#configure-sampling). In versie 2.x gebruikt, deze instelling is een onderliggend element van [logboekregistratie](#log).
+Besturingselementen voor de [functie steekproeven in Application Insights](functions-monitoring.md#configure-sampling). In versie 2.x gebruikt, deze instelling is een onderliggend element van [logboekregistratie](#logging).
 
 ```json
 {
@@ -443,7 +443,7 @@ Configuratie-instellingen voor logboeken die u met behulp van maakt een `TraceWr
 |consoleLevel|informatie|Het traceringsniveau bepaald voor console-aanmelding. Opties zijn: `off`, `error`, `warning`, `info`, en `verbose`.|
 |fileLoggingMode|debugOnly|Het traceringsniveau bepaald voor logboekregistratie. Opties zijn `never`, `always`, `debugOnly`.| 
 
-## <a name="version"></a>version
+## <a name="version"></a>versie
 
 *Versie 2.x*
 

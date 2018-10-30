@@ -6,18 +6,18 @@ author: rayne-wiselman
 manager: carmonm
 ms.topic: conceptual
 ms.service: site-recovery
-ms.date: 10/09/2018
+ms.date: 10/28/2018
 ms.author: raynew
-ms.openlocfilehash: 802c2223a72a89dbe2a97404aab4b0fc85c391ed
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 9da64ebe675f9d481c7474a81fec294d50e49ce7
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902821"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215205"
 ---
 # <a name="replicate-azure-stack-vms-to-azure"></a>Azure Stack-VM's repliceren naar Azure
 
-In dit artikel leest u hoe u herstel na noodgevallen naar Azure instelt voor Azure Stack-VM's met behulp van de [Azure Site Recovery-service](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview).
+Dit artikel leest u over het instellen van herstel na noodgevallen Azure Stack-VM's naar Azure, met behulp van de [Azure Site Recovery-service](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview).
 
 Site Recovery draagt bij aan uw strategie voor zakelijke continuïteit en noodherstel herstel (BCDR). De service zorgt ervoor dat uw VM-workloads beschikbaar wanneer verwacht blijven en onverwachte storingen optreden.
 
@@ -189,7 +189,7 @@ Nu de configuratieserver installeren:
 [!INCLUDE [site-recovery-add-configuration-server](../../includes/site-recovery-add-configuration-server.md)]
 
 > [!NOTE]
-> De configuratieserver kan ook worden geïnstalleerd vanaf de opdrachtregel. [Meer informatie](http://aka.ms/installconfigsrv).
+> De configuratieserver kan ook worden geïnstalleerd vanaf de opdrachtregel. [Meer informatie](physical-manage-configuration-server.md#install-from-the-command-line).
 
 > Het duurt 15 minuten of langer voordat de accountnaam wordt weergegeven in de portal. Selecteer **Configuratieservers** > ***servernaam*** > **Server vernieuwen** om direct bij te werken.
 
