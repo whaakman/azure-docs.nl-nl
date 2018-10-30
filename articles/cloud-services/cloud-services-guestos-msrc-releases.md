@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 10/24/2018
+ms.date: 10/28/2018
 ms.author: raiye
-ms.openlocfilehash: 989627388e9ad1c99daa31bd9c8af884ab16b421
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 0430eefb55893420cf7ea603998f14465fb2cc60
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50087777"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215511"
 ---
 # <a name="azure-guest-os"></a>Azure-Gastbesturingssysteem
 De volgende tabellen tonen de updates van de Microsoft Security Response Center (MSRC) toegepast op de Azure-Gastbesturingssysteem. Zoeken in dit artikel om te bepalen als een bepaalde update van toepassing op de Gast-besturingssysteem dat u gebruikt. Updates altijd overdragen voor de betreffende [familie] [ family-explain] ze zijn geïntroduceerd in.
@@ -30,11 +30,11 @@ De volgende tabellen tonen de updates van de Microsoft Security Response Center 
 | Productcategorie | Bovenliggende KB-artikel | Beschrijving van beveiligingsproblemen | Gastbesturingssysteem | Datum voor het eerst geïntroduceerd |
 | --- | --- | --- | --- | --- |
 | Rel 18-10 | [4462917] | Windows 10-beveiliging | 5,24 | 9 oktober 2018 |
-| Rel 18-10 | [4464330] | Windows 10-beveiliging | 6.01 | 9 oktober 2018 |
+| Rel 18-10 | [4464330] | Windows 10-beveiliging | 6.0 | 9 oktober 2018 |
 | Rel 18-10 | [4462915] | Windows-beveiliging | 2,79 | 9 oktober 2018 |
 | Rel 18-10 | [4462931] | Windows-beveiliging | 3,66 | 9 oktober 2018 |
 | Rel 18-10 | [4462941] | Windows-beveiliging | 4,59 | 9 oktober 2018 |
-| Rel 18-10 | [4462930] | Flash | 3,66, 4,59, 5,24, 6.01 | 9 oktober 2018 |
+| Rel 18-10 | [4462930] | Flash | 3,66, 4,59, 5,24, 6.0 | 9 oktober 2018 |
 | Rel 18-10 | [4462949] | Internet Explorer | 2,79, 3,66, 4,59 | 9 oktober 2018 |
 | N/A | [4339284] | Tijdzone-update | 2,79, 3,66, 4,59 | 24 juli 2018 |
 | N/A | [4457144] | Updatepakket september niet voor beveiliging | 2,79 | 11 september 2018 |
