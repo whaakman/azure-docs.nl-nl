@@ -124,13 +124,13 @@ De C#-programma is afhankelijk van de naamruimte **Microsoft.IdentityModel.Clien
 
 Een naamruimten die afhankelijk van het C#-voorbeeld is **System.Data.SqlClient**. Is van belang zijn speciale de enum **SqlAuthenticationMethod**. Deze opsomming heeft de volgende waarden:
 
-- **SqlAuthenticationMethod.ActiveDirectory * interactief ***:&nbsp; Gebruik dit met de naam van een Azure AD-gebruiker om multi-factor authentication, MFA.
+- **SqlAuthenticationMethod.ActiveDirectory \*interactief**\*:&nbsp; Gebruik dit met de naam van een Azure AD-gebruiker om multi-factor authentication, MFA.
     - Deze waarde is de focus van dit artikel. Het genereert een interactieve ervaring door het weergeven van dialoogvensters voor het wachtwoord van de gebruiker, en vervolgens voor MFA-validatie als MFA is ingesteld op deze gebruiker.
     - Deze waarde is beschikbaar vanaf .NET Framework versie 4.7.2.
 
-- **SqlAuthenticationMethod.ActiveDirectory * geïntegreerde ***:&nbsp; Gebruik deze optie voor een *federatieve* account. Voor een federatieve-account is de naam van de gebruiker bekend aan het Windows-domein. Deze methode biedt geen ondersteuning voor MFA.
+- **SqlAuthenticationMethod.ActiveDirectory \*geïntegreerde**\*:&nbsp; Gebruik deze optie voor een *federatieve* account. Voor een federatieve-account is de naam van de gebruiker bekend aan het Windows-domein. Deze methode biedt geen ondersteuning voor MFA.
 
-- **SqlAuthenticationMethod.ActiveDirectory * wachtwoord ***:&nbsp; dit gebruiken voor verificatie met een Azure AD-gebruiker en wachtwoord van de gebruiker vereist. De authenticatie wordt uitgevoerd in Azure SQL-Database. Deze methode biedt geen ondersteuning voor MFA.
+- **SqlAuthenticationMethod.ActiveDirectory \*wachtwoord**\*:&nbsp; dit gebruiken voor verificatie met een Azure AD-gebruiker en wachtwoord van de gebruiker vereist. De authenticatie wordt uitgevoerd in Azure SQL-Database. Deze methode biedt geen ondersteuning voor MFA.
 
 
 
