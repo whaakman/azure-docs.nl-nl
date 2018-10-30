@@ -1,20 +1,21 @@
 ---
-title: Toepassingen met SQL Server en Azure Site Recovery repliceert | Microsoft Docs
-description: In dit artikel wordt beschreven hoe u SQL Server met behulp van Azure Site Recovery voor de mogelijkheden van SQL Server na een noodgeval repliceren.
+title: Herstel na noodgevallen instellen voor SQL Server met SQL Server en Azure Site Recovery | Microsoft Docs
+description: In dit artikel wordt beschreven hoe u herstel na noodgevallen instellen voor SQL Server met behulp van SQL Server en Azure Site Recovery.
 services: site-recovery
-author: rayne-wiselman
+author: sujayt
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 07/22/2018
-ms.author: raynew
-ms.openlocfilehash: a734999f0fa473b5f1ee8ed55c4b73950566490d
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.author: sutalasi
+ms.openlocfilehash: 46f5f73293875cd89036eb615e7bd81188bc4c67
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43188770"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210258"
 ---
-# <a name="protect-sql-server-using-sql-server-disaster-recovery-and-azure-site-recovery"></a>SQL Server met behulp van SQL Server-noodherstel en Azure Site Recovery beveiligen
+# <a name="set-up-disaster-recovery-for-sql-server"></a>Herstel na noodgevallen voor SQL Server instellen 
 
 In dit artikel wordt beschreven hoe u de SQL Server-back-end van een toepassing met behulp van een combinatie van bedrijfscontinuïteit van SQL Server en disaster recovery (BCDR)-technologieën, beveiligen en [Azure Site Recovery](site-recovery-overview.md).
 

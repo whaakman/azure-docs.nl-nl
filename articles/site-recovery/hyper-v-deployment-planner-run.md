@@ -1,20 +1,20 @@
 ---
-title: Azure Site Recovery-implementatieplanner voor Hyper-V naar Azure | Microsoft Docs
-description: Dit artikel leert u hoe u kunt het uitvoeren van de Site Recovery deployment planner foro Hyper-V naar Azure-replicatie.
+title: Uitvoeren van de Azure Site Recovery Deployment Planner voor Hyper-V naar Azure een noodgeval | Microsoft Docs
+description: Dit artikel wordt beschreven hoe u de Azure Site Recovery Deployment Planner voor Hyper-V-noodherstel naar Azure uitvoert.
 author: nsoneji
 manager: garavd
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: nisoneji
-ms.openlocfilehash: 9da79884973c620bbf8b6a191f3dd6db5bd19064
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 1df8f7025787eb864b7e9ad6f41105df8fb2cc8a
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49094187"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50213335"
 ---
-# <a name="run-azure-site-recovery-deployment-planner-for-hyper-v-to-azure"></a>De Azure Site Recovery-implementatieplanner voor Hyper-V naar Azure uitvoeren
+# <a name="run-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>De Azure Site Recovery deployment planner voor noodherstel van Hyper-V naar Azure uitvoeren
 
 Kunt u uitvoeren van de Site Recovery deployment planner opdrachtregelprogramma (ASRDeploymentPlanner.exe in een van deze vier modi): 
 -   [De lijst met VM’s (virtuele machines) ophalen](#get-vm-list-for-profiling-hyper-v-vms)

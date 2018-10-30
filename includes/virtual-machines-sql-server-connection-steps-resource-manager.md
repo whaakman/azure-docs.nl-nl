@@ -1,3 +1,16 @@
+---
+author: rothja
+ms.service: virtual-machines-sql
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: jroth
+ms.openlocfilehash: 4e79fef08af8ff73ce63ab4732c9efd77e3a5d3f
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50227405"
+---
 ### <a name="configure-a-dns-label-for-the-public-ip-address"></a>Een DNS-label configureren voor het openbare IP-adres
 
 Als u vanaf internet verbinding wilt maken met de SQL Server Database Engine, kunt u overwegen om een DNS-label te maken voor uw openbare IP-adres. U kunt ook verbinding maken met behulp van een IP-adres, maar het DNS-label resulteert in een A-record die eenvoudiger te identificeren is en die het onderliggende openbare IP-adres maskeert.

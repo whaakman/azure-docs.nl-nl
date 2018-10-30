@@ -1,27 +1,20 @@
 ---
-title: Een toepassing met meerdere lagen SharePoint met behulp van Azure Site Recovery repliceert | Microsoft Docs
-description: Dit artikel wordt beschreven hoe u een toepassing met meerdere lagen SharePoint met behulp van de mogelijkheden van Azure Site Recovery repliceert.
-services: site-recovery
-documentationcenter: ''
+title: Herstel na noodgevallen voor een toepassing met meerdere lagen SharePoint met behulp van Azure Site Recovery instellen | Microsoft Docs
+description: In dit artikel wordt beschreven hoe u herstel na noodgevallen voor een toepassing met meerdere lagen SharePoint met behulp van Azure Site Recovery-mogelijkheden.
 author: sujayt
 manager: rochakm
-editor: ''
-ms.assetid: ''
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: sutalasi
-ms.openlocfilehash: eb5801988b6fa966a0326c39be4a267ea08500a8
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 5e3ebd7d3aa5555fbe5ea77dece6eb3177809de7
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37916782"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215069"
 ---
-# <a name="replicate-a-multi-tier-sharepoint-application-for-disaster-recovery-using-azure-site-recovery"></a>Een toepassing met meerdere lagen SharePoint voor herstel na noodgevallen met Azure Site Recovery worden gerepliceerd
+# <a name="set-up-disaster-recovery-for-a-multi-tier-sharepoint-application-for-disaster-recovery-using-azure-site-recovery"></a>Instellen van herstel na noodgevallen voor een toepassing met meerdere lagen SharePoint voor herstel na noodgevallen met Azure Site Recovery
 
 Dit artikel wordt beschreven in de details van het beveiligen van een SharePoint-toepassing met [Azure Site Recovery](site-recovery-overview.md).
 

@@ -1,36 +1,29 @@
 ---
-title: Een meerlagige Citrix XenDesktop en XenApp-implementatie met behulp van Azure Site Recovery repliceert | Microsoft Docs
-description: In dit artikel wordt beschreven hoe u beveiligen en herstellen van XenApp- en Citrix XenDesktop-implementaties die met Azure Site Recovery.
-services: site-recovery
-documentationcenter: ''
+title: Herstel na noodgevallen voor een Citrix XenDesktop en XenApp implementatie van meerdere lagen met Azure Site Recovery instellen | Microsoft Docs
+description: In dit artikel wordt beschreven hoe u herstel na noodgevallen instellen voor XenApp- en Citrix XenDesktop-implementaties die met Azure Site Recovery.
 author: ponatara
 manager: abhemraj
-editor: ''
-ms.assetid: 9126f5e8-e9ed-4c31-b6b4-bf969c12c184
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: ponatara
-ms.openlocfilehash: 45d366842416ddfa7b0153a1d075ee6de58e45a1
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 0b8d9765766191533745da4c653f1a91ce635c24
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39213630"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210309"
 ---
-# <a name="replicate-a-multi-tier-citrix-xenapp-and-xendesktop-deployment-using-azure-site-recovery"></a>Een meerlagige Citrix XenApp en XenDesktop-implementatie met behulp van Azure Site Recovery worden gerepliceerd
+# <a name="set-up-disaster-recovery-for-a-multi-tier-citrix-xenapp-and-xendesktop-deployment"></a>instellen van herstel na noodgevallen voor een meerlagige Citrix XenApp en XenDesktop-implementaties
 
-## <a name="overview"></a>Overzicht
+
 
 Citrix XenDesktop is een bureaublad-virtualisatie-oplossing die voorziet in bureaubladen en toepassingen als een ondemand-service op een willekeurige gebruiker, waar dan ook. Met FlexCast delivery-technologie, kan XenDesktop snel en veilig leveren en bureaubladen voor gebruikers.
 Vandaag de dag Citrix XenApp zorgt niet voor noodgevallen mogelijkheden voor herstel.
 
 Een goede noodhersteloplossing mag modellering van herstelplannen rond de bovenstaande architecturen voor complexe toepassingen en ook de mogelijkheid het toevoegen van aangepaste stappen voor het afhandelen van toepassingstoewijzingen tussen verschillende lagen daarom bieden een één-op Zorg ervoor dat de schermopname oplossing in het geval van een noodgeval leidt tot een lagere RTO.
 
-Dit document bevat een stapsgewijze instructies voor het bouwen van een oplossing voor noodherstel voor uw on-premises Citrix XenApp-implementaties op Hyper-V en VMware vSphere-platforms. Dit document beschrijft ook hoe u een testfailover (Dr-herstelanalyse) en niet-geplande failover naar Azure met behulp van herstelplannen, de ondersteunde configuraties en vereisten uitvoert.
+Dit document bevat stapsgewijze instructies voor het bouwen van een oplossing voor noodherstel voor uw on-premises Citrix XenApp-implementaties op Hyper-V en VMware vSphere-platforms. Dit document beschrijft ook hoe u een testfailover (Dr-herstelanalyse) en niet-geplande failover naar Azure met behulp van herstelplannen, de ondersteunde configuraties en vereisten uitvoert.
 
 
 ## <a name="prerequisites"></a>Vereisten
@@ -46,7 +39,7 @@ Voordat u begint, zorg er dan voor dat u het volgende weten:
 
 ## <a name="deployment-patterns"></a>Implementaties
 
-Een Citrix XenApp en XenDesktop-farm is doorgaans de volgende implementatie-patroon:
+Een Citrix XenApp en XenDesktop-farm hebben meestal de volgende implementatie-patroon:
 
 **Implementatie-patroon**
 
@@ -75,7 +68,7 @@ Aangezien XenApp 7,7 of hoger wordt ondersteund in Azure, alleen implementaties 
 
 1. Beveiliging en herstel van on-premises implementaties van besturingssysteem van de Server met machines om te leveren XenApp gepubliceerde apps en XenApp bureaubladen gepubliceerd wordt ondersteund.
 
-2. Beveiliging en herstel van on-premises implementaties desktopcomputers OS gebruiken om te leveren van VDI Desktop Client virtuele bureaubladen, met inbegrip van Windows 10, wordt niet ondersteund. Dit is omdat het herstel van machines met desktop OS'es biedt geen ondersteuning voor ASR.  Bovendien sommige virtuele bureaublad clientbesturingssystemen (bv. Windows 7) zijn nog niet ondersteund voor licentieverlening in Azure. [Meer informatie](https://azure.microsoft.com/pricing/licensing-faq/) over licentieverlening voor clientbureaubladen en serverdesktops in Azure.
+2. Beveiliging en herstel van on-premises implementaties desktopcomputers OS gebruiken om te leveren van VDI Desktop Client virtuele bureaubladen, met inbegrip van Windows 10, wordt niet ondersteund. Dit is omdat de Site Recovery biedt geen ondersteuning voor het herstel van machines met desktop OS'es.  Bovendien sommige virtuele bureaublad clientbesturingssystemen (bv. Windows 7) zijn nog niet ondersteund voor licentieverlening in Azure. [Meer informatie](https://azure.microsoft.com/pricing/licensing-faq/) over licentieverlening voor clientbureaubladen en serverdesktops in Azure.
 
 3.  Azure Site Recovery kan niet repliceren en beveiligen van bestaande on-premises MCS of PV's klonen.
 U moet deze met Azure RM inrichting van Delivery controller klonen opnieuw maken.
@@ -152,7 +145,7 @@ Herstelplannen kunnen worden aangepast om toe te voegen, failover-groepen voor s
 
 ### <a name="adding-scripts-to-the-recovery-plan"></a>Scripts toe te voegen aan het herstelplan te gaan
 
-Scripts kunnen worden uitgevoerd vóór of na een specifieke groep van een herstelplan te gaan. Handmatige acties kunnen worden ook worden opgenomen en tijdens de failover is uitgevoerd.
+Scripts kunnen worden uitgevoerd vóór of na een specifieke groep van een herstelplan te gaan. Handmatige acties kunnen ook worden opgenomen en tijdens de failover is uitgevoerd.
 
 Het aangepaste herstelplan ziet eruit als het hieronder:
 
@@ -163,20 +156,20 @@ Het aangepaste herstelplan ziet eruit als het hieronder:
    >[!NOTE]     
    >Stap 4, 6 en 7 met handmatige of script acties zijn van toepassing op slechts een on-premises XenApp > omgeving met MCS/PV's catalogussen.
 
-4. Actie voor het handmatig of script van groep 3: afsluiten master VDA VM de Master VDA VM na failover naar Azure is in een status running doorbrengt. Voor het maken van nieuwe MCS-catalogi met behulp van Azure ARM die als host fungeert, de hoofd VDA-VM is vereist om te worden gestopt (de toegewezen) staat. Afsluiten van de virtuele machine van Azure-Portal.
+4. Actie voor het handmatig of script van groep 3: afsluiten master VDA VM de Master VDA VM na een failover naar Azure is in een status running doorbrengt. Voor het maken van nieuwe MCS-catalogi met behulp van Azure die als host fungeert, de hoofd VDA-VM is vereist om te worden gestopt (de toegewezen) staat. Afsluiten van de virtuele machine van Azure-portal.
 
 5. Failover Group4: Delivery Controller en StoreFront-server-VM 's
 6. Groep3 handmatig of script actie 1:
 
     ***Azure RM-hostverbinding toevoegen***
 
-    Azure ARM-hostverbinding maken in machine Delivery Controller voor het inrichten van nieuwe MCS-catalogi in Azure. Volg de stappen, zoals wordt beschreven in deze [artikel](https://www.citrix.com/blogs/2016/07/21/connecting-to-azure-resource-manager-in-xenapp-xendesktop/).
+    Azure-hostverbinding maken in machine Delivery Controller voor het inrichten van nieuwe MCS-catalogi in Azure. Volg de stappen, zoals wordt beschreven in deze [artikel](https://www.citrix.com/blogs/2016/07/21/connecting-to-azure-resource-manager-in-xenapp-xendesktop/).
 
 7. Groep3 handmatig of script actie 2:
 
     ***MCS-catalogi in Azure opnieuw maken***
 
-    De bestaande MCS of PV's klonen op de primaire site worden, niet gerepliceerd naar Azure. U moet deze met behulp van de gerepliceerde master VDA en Azure ARM inrichten Delivery controller klonen opnieuw maken. Volg de stappen, zoals wordt beschreven in deze [artikel](https://www.citrix.com/blogs/2016/09/12/using-xenapp-xendesktop-in-azure-resource-manager/) MCS-catalogi maken in Azure.
+    De bestaande MCS of PV's klonen op de primaire site worden, niet gerepliceerd naar Azure. U moet deze met behulp van de gerepliceerde master VDA en Azure inrichten Delivery controller klonen opnieuw maken. Volg de stappen, zoals wordt beschreven in deze [artikel](https://www.citrix.com/blogs/2016/09/12/using-xenapp-xendesktop-in-azure-resource-manager/) MCS-catalogi maken in Azure.
 
 ![Plan voor herstel voor XenApp-onderdelen](./media/site-recovery-citrix-xenapp-and-xendesktop/citrix-recoveryplan.png)
 

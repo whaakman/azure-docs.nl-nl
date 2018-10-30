@@ -1,6 +1,6 @@
 ---
-title: Beveiligen van Active Directory en DNS met Azure Site Recovery | Microsoft Docs
-description: In dit artikel wordt beschreven hoe u een oplossing voor noodherstel voor Active Directory implementeren met behulp van Azure Site Recovery.
+title: Herstel na noodgevallen instellen voor Active Directory en DNS met Azure Site Recovery | Microsoft Docs
+description: In dit artikel wordt beschreven hoe u een oplossing voor noodherstel voor Active Directory en DNS met Azure Site Recovery implementeren.
 services: site-recovery
 documentationcenter: ''
 author: mayurigupta13
@@ -9,14 +9,14 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: mayg
-ms.openlocfilehash: 1072c903e9bd9ccb3d63cae426283a677d10077e
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 51d435d9edea5e341127cac89bc96a71c7bc8bb4
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49354288"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50211890"
 ---
-# <a name="use-azure-site-recovery-to-protect-active-directory-and-dns"></a>Azure Site Recovery gebruiken om te beveiligen van Active Directory en DNS
+# <a name="set-up-disaster-recovery-for-active-directory-and-dns"></a>Herstel na noodgevallen instellen voor Active Directory en DNS
 
 Zakelijke toepassingen zoals SharePoint, Dynamics AX en SAP, is afhankelijk van Active Directory en DNS-infrastructuur te laten functioneren. Bij het instellen van herstel na noodgevallen voor toepassingen, moet u vaak herstellen Active Directory en DNS voordat u andere toepassingsonderdelen, om te controleren of de functionaliteit van de juiste toepassing kunt herstellen.
 

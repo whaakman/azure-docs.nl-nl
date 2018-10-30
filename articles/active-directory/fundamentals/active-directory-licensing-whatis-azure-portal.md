@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.component: fundamentals
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 06/13/2018
+ms.date: 10/29/2018
 ms.author: lizross
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 7848b52bcf5204a871920cbfab8a0e95223654d4
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 3f23b28c1b20155e50fddf17db90cd2a53c04855
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45735898"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50209816"
 ---
 # <a name="what-is-group-based-licensing-in-azure-active-directory"></a>Wat is licentieverlening in Azure Active Directory op basis van groep?
 
@@ -28,14 +28,12 @@ Tot nu toe konden licenties alleen worden toegewezen op het niveau van de indivi
 
 Azure AD bevat nu licenties op basis van groepen om met dergelijke uitdagingen om te gaan. U kunt een of meer productlicenties toewijzen aan een groep. De licenties worden in Azure AD toegewezen aan alle leden van de groep. Wanneer er nieuwe gebruikers lid worden van de groep, worden aan hen de juiste licenties toegewezen. Wanneer zij de groep weer verlaten, worden deze licenties verwijderd. Hierdoor is er geen noodzaak meer om licentiebeheer via PowerShell te automatiseren om wijzigingen in de organisatie- en afdelingsstructuur per gebruiker weer te geven.
 
->[!Note]
->Groepslicenties is een openbare preview-functie van Azure Active Directory (Azure AD) en is beschikbaar met elk betaald Azure AD-licentieplan. Zie [Aanvullende gebruiksvoorwaarden voor Microsoft Azure-previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voor meer informatie.
 
 ## <a name="features"></a>Functies
 
 Dit zijn de belangrijkste functies van licenties op basis van groepen:
 
-- Licenties kunnen worden toegewezen aan elke beveiligingsgroep in Azure AD. Beveiligingsgroepen kunnen on-premises worden gesynchroniseerd met behulp van Azure AD Connect. U kunt beveiligingsgroepen ook rechtstreeks in Azure AD maken (ook wel groepen met het kenmerk Alleen-cloud genoemd), of automatisch via de functie voor dynamische Azure AD-groepen.
+- Licenties kunnen worden toegewezen aan elke beveiligingsgroep in Azure AD. Beveiligingsgroepen kunnen worden gesynchroniseerd vanuit on-premises, met behulp van Azure AD Connect. U kunt beveiligingsgroepen ook rechtstreeks in Azure AD maken (ook wel groepen met het kenmerk Alleen-cloud genoemd), of automatisch via de functie voor dynamische Azure AD-groepen.
 
 - Wanneer een productlicentie is toegewezen aan een groep, kan de beheerder een of meer serviceplannen in het product uitschakelen. Dit gebeurt meestal wanneer de organisatie nog niet klaar is om een van de services in het product te gebruiken. Zo kan de beheerder, bijvoorbeeld, Office 365 toewijzen aan een afdeling, maar de Yammer-service tijdelijk uitschakelen.
 
@@ -45,11 +43,11 @@ Dit zijn de belangrijkste functies van licenties op basis van groepen:
 
 - Wijzigingen in licenties die het resultaat zijn van wijzigingen in groepslidmaatschappen, worden automatisch beheerd in Azure AD. Wijzigingen in licenties worden meestal binnen enkele minuten na een lidmaatschapswijziging van kracht.
 
-- Een gebruiker kan lid zijn van meerdere groepen waarvoor licentiebeleid is opgesteld. Een gebruiker kan ook een aantal licenties hebben die rechtstreeks zijn toegewezen, buiten een groep. De resulterende gebruikersstatus is een combinatie van alle toegewezen product- en servicelicenties.
+- Een gebruiker kan lid zijn van meerdere groepen waarvoor licentiebeleid is opgesteld. Een gebruiker kan ook een aantal licenties hebben die rechtstreeks zijn toegewezen, buiten een groep. De resulterende gebruikersstatus is een combinatie van alle toegewezen product- en servicelicenties. Als een gebruiker licentie uit meerdere bronnen toegewezen, kan de licentie wordt slechts één keer worden gebruikt.
 
 - In sommige gevallen kunnen er geen licenties worden toegewezen aan een gebruiker. Bijvoorbeeld wanneer er niet voldoende licenties beschikbaar zijn in de tenant, of wanneer tegelijkertijd conflicterende services zijn toegewezen. Beheerders hebben toegang tot informatie over gebruikers voor wie de groepslicenties niet volledig zijn verwerkt in Azure AD. Ze kunnen vervolgens een herstelbewerking uitvoeren op basis van deze informatie.
 
-- Tijdens de openbare preview-versie is een betaald abonnement of een proefversie op de Azure AD Basic- of Premium-editie vereist in de tenant om licentiebeheer op basis van groepen te gebruiken.
+- Een betaalde versie of proefversie abonnement voor Azure AD Basic of een betaalde versie of proefversie Office 365 Enterprise E3, Office 365 A3 en hoger edities is vereist in de tenant te gebruiken op basis van een groep Licentiebeheer. Deze functie is de licentie voor elke unieke gebruiker die lid is van de groepen die zijn toegewezen licentie vereist. U hoeft te licenties toewijzen aan gebruikers voor deze lid te zijn van groepen die licentie zijn toegewezen, maar hebt u het minimale aantal licenties in de tenant om te kunnen krijgen alle gebruikers. Bijvoorbeeld, als u had een totaal van 1000 unieke gebruikers in alle groepen met licenties die zijn toegewezen in uw tenant, dan moet u ten minste 1000 licenties om te voldoen aan de licentievereiste.
 
 ## <a name="your-feedback-is-welcome"></a>We stellen uw feedback op prijs!
 
@@ -62,4 +60,6 @@ Voor meer informatie over scenario’s voor licentiebeheer via licenties op basi
 * [Licenties toewijzen aan een groep in Azure Active Directory](../users-groups-roles/licensing-groups-assign.md)
 * [Licentieproblemen voor een groep vaststellen en oplossen in Azure Active Directory](../users-groups-roles/licensing-groups-resolve-problems.md)
 * [Gebruikers met een afzonderlijke licentie migreren naar licenties op basis van groepen in Azure Active Directory](../users-groups-roles/licensing-groups-migrate-users.md)
+* [Het migreren van gebruikers tussen productlicenties groepsgebaseerde licentieverlening in Azure Active Directory gebruiken](../users-groups-roles/licensing-groups-change-licenses.md)
 * [Aanvullende scenario’s voor Azure Active Directory-licenties op basis van groepen](../users-groups-roles/licensing-group-advanced.md)
+* [PowerShell-voorbeelden voor Groepslicenties in Azure Active Directory](../users-groups-roles/licensing-ps-examples.md)

@@ -6,22 +6,29 @@ author: adiganmsft
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
-ms.date: 07/26/2018
+ms.date: 10/29/2018
 ms.author: adigan
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0c1d7a404ffd9b4da4868f56a5e17300495b57db
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 945a91b9021ed5ff02e8c1ef7baf85e2098202ca
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48269357"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50214661"
 ---
 # <a name="configure-azure-backup-reports"></a>Azure Backup-rapporten configureren
 In dit artikel ziet u stappen te volgen voor het configureren van rapporten voor Azure Backup met behulp van een Recovery Services-kluis. U ziet ook hoe u toegang tot rapporten met behulp van Power BI. Nadat u deze stappen hebt voltooid, gaat u rechtstreeks naar Power BI om te bekijken, aanpassen en rapporten maken.
 
+> [!IMPORTANT]
+> Vanaf 1 November 2018, kunnen sommige klanten problemen bij het laden van de gegevens in Azure-back-up-App in Power BI, dat 'We gevonden extra tekens aan het einde van de JSON-invoer Zie. De uitzondering is opgetreden voor de IDataReader-interface."
+Dit is vanwege een wijziging in de indeling waarin gegevens worden geladen in het opslagaccount.
+Werk de App naar de nieuwste versie om te voorkomen dat dit probleem.
+>
+>
+
 ## <a name="supported-scenarios"></a>Ondersteunde scenario's
 - Azure Backup-rapporten worden ondersteund voor virtuele machine van Azure back-up en bestands- en back-up naar de cloud met behulp van de Azure Recovery Services-Agent.
-- Rapporten voor Azure SQL Database, Data Protection Manager en Azure Backup-server worden niet ondersteund op dit moment.
+- Rapporten voor Azure SQL Database, Azure-bestandsshares, Data Protection Manager en Azure Backup server worden niet ondersteund op dit moment.
 - U kunt rapporten weergeven in kluizen en abonnementen, als het opslagaccount is geconfigureerd voor elk van de kluizen. Het geselecteerde opslagaccount moet zich in dezelfde regio als de Recovery Services-kluis.
 - De frequentie van geplande vernieuwing voor de rapporten is 24 uur in Power BI. U kunt ook een ad-hoc-vernieuwing van de rapporten in Power BI uitvoeren. In dit geval wordt de meest recente gegevens in het opslagaccount van de klant gebruikt om rapporten weer te geven.
 

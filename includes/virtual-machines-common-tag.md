@@ -1,6 +1,16 @@
-
-
-
+---
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: cynthn
+ms.openlocfilehash: ccc2b574ea054a1b0ecf32a1e59691050fb66fcf
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50227184"
+---
 ## <a name="tagging-a-virtual-machine-through-templates"></a>Labels van een virtuele Machine via sjablonen
 Eerst laten we kijken tagging via sjablonen. [Deze sjabloon](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-tags) plaatst u tags op de volgende resources: Compute (virtuele Machine), opslagruimte (Opslagaccount) en netwerk (openbare IP-adres, Virtueelnetwerk en netwerk-Interface). Deze sjabloon is voor een Windows-VM, maar kan worden aangepast voor virtuele Linux-machines.
 

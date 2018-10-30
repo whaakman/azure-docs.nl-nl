@@ -1,19 +1,19 @@
 ---
-title: Installeren van een Linux-hoofddoelserver voor failover van Azure naar on-premises | Microsoft Docs
-description: Voordat het opnieuw met het beveiligen van een virtuele Linux-machine, moet u een Linux-hoofddoelserver. Leer hoe u een te installeren.
+title: Een Linux-hoofddoelserver voor failback installeren op een on-premises site | Microsoft Docs
+description: Meer informatie over het instellen van een Linux-hoofddoelserver voor failback uitvoeren naar een on-premises site tijdens herstel na noodgevallen van virtuele VMware-machines naar Azure met Azure Site Recovery.
 author: nsoneji
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: nisoneji
-ms.openlocfilehash: 470d4547a63105e319f072461a4d8f24ebe3dbe8
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 415b50b94052e7d428ddfa55d5288c8954a3ff1a
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49094119"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212366"
 ---
-# <a name="install-a-linux-master-target-server"></a>Een Linux-hoofddoelserver installeren
+# <a name="install-a-linux-master-target-server-for-failback"></a>Installeren van een Linux-hoofddoelserver voor failback
 Nadat u uw virtuele machines naar Azure failover, kunt u de virtuele machines om de on-premises site weer failover. Als u wilt uitvoeren van een failback, moet u opnieuw beveiligen van de virtuele machine van Azure naar de on-premises site. Voor dit proces moet u een on-premises hoofddoelserver om het verkeer te ontvangen. 
 
 Als de beveiligde virtuele machine een Windows virtuele machine is, moet u een Windows-hoofddoelserver. Voor een virtuele Linux-machine moet u een Linux-hoofddoelserver. Lees de volgende stappen uit voor informatie over het maken en een Linux-hoofddoel te installeren.

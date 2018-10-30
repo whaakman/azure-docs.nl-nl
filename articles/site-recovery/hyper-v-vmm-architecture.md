@@ -1,20 +1,20 @@
 ---
-title: Hyper-V-replicatie naar secundaire site-architectuur in Azure Site Recovery | Microsoft Docs
-description: Dit artikel biedt een overzicht van de architectuur voor het repliceren van on-premises Hyper-V-VM’s naar een secundaire System Center VMM-site met Azure Site Recovery.
+title: Architectuur voor Hyper-V-noodherstel naar een secundaire on-premises site met Azure Site Recovery | Microsoft Docs
+description: In dit artikel biedt een overzicht van de architectuur voor herstel na noodgevallen van on-premises Hyper-V-machines naar een secundaire System Center VMM-site met Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 10/10/2018
+ms.date: 10/28/2018
 ms.author: raynew
-ms.openlocfilehash: 8f8b498164cc4a77cace470f7483aa572fefbaed
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 98eb654468eb27b8100a0cc9b73994e5a7add167
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078916"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50214593"
 ---
-# <a name="hyper-v-replication-to-a-secondary-site"></a>Hyper-V-replicatie naar een secundaire site
+# <a name="architecture---hyper-v-replication-to-a-secondary-site"></a>Architectuur - Hyper-V-replicatie naar een secundaire site
 
 In dit artikel worden de onderdelen en processen beschreven die zijn betrokken bij het repliceren van on-premises Hyper-V-VM's (virtuele machines) in System Center VMM-clouds (Virtual Machine Manager) naar een secundaire VMM-site met behulp van de [Azure Site Recovery](site-recovery-overview.md)-service in Azure Portal.
 

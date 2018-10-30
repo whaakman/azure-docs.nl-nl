@@ -1,6 +1,6 @@
 ---
-title: Een failback uitvoeren naar een on-premises-site voor Hyper-v-machines | Microsoft Docs
-description: Azure Site Recovery coördineert de replicatie, failover en herstel van virtuele machines en fysieke servers. Meer informatie over de failback vanuit Azure naar on-premises datacenter.
+title: Een failback uitvoeren tijdens noodgeval van Hyper-v virtuele machines van Azure naar on-premises | Microsoft Docs
+description: Meer informatie over het mislukken back-Hyper-V-machines naar een on-premises site tijdens herstel na noodgevallen naar Azure met de Azure Site Recovery-service.
 services: site-recovery
 author: rajani-janaki-ram
 manager: gauravd
@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: rajanaki
-ms.openlocfilehash: fd171251ef465a28e4844901a529e0a3eaaf8f9d
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: b841dee766399f1e3c7325d2ab67e342dfa8657a
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37920869"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50211856"
 ---
 # <a name="run-a-failback-for-hyper-v-vms"></a>Een failback uitvoeren voor Hyper-V-machines
 
@@ -31,7 +31,7 @@ Na een failover van de primaire naar secundaire locatie, gerepliceerde virtuele 
 3. Als u bent werkt het uitvoeren van Azure selecteert u instellingen in **gegevenssynchronisatie**:
     - **Synchroniseren van gegevens voordat de failover (Synchronize alleen op de deltawijzigingen)**— deze optie wordt de uitvaltijd voor virtuele machines geminimaliseerd omdat het synchroniseert zonder dat deze wordt afgesloten. Het biedt de volgende stappen uit:
         - Fase 1: Momentopname van de virtuele machine in Azure en vervolgens gekopieerd naar de on-premises Hyper-V-host. De machine wordt uitgevoerd in Azure.
-        - Fase 2: Sluit de virtuele machine in Azure, zodat er geen nieuwe wijzigingen worden uitgevoerd. De uiteindelijke set delta wijzigingen worden overgebracht naar de on-premises server en de on-premises virtuele machine is gestart.
+        - Fase 2: Sluit de virtuele machine in Azure, zodat er geen nieuwe wijzigingen worden uitgevoerd. De uiteindelijke set wijzigingen worden overgedragen naar de on-premises server en de on-premises virtuele machine is gestart.
 
     - **Synchroniseren van gegevens tijdens de failover alleen (volledige download)**— deze optie is veel sneller.
         - Deze optie is sneller, omdat we verwachten dat de meeste van de schijf is gewijzigd en we niet wilt dat de tijd in de berekening van de controlesom. Een download van de schijf worden uitgevoerd. Het is ook handig wanneer de on-premises virtuele machine is verwijderd.
@@ -39,11 +39,11 @@ Na een failover van de primaire naar secundaire locatie, gerepliceerde virtuele 
 
 
 4. Als gegevensversleuteling is ingeschakeld voor de cloud in **versleutelingssleutel** selecteert u het certificaat dat is uitgegeven wanneer u versleuteling van gegevens tijdens de installatie van de Provider op de VMM-server ingeschakeld.
-5. Start de failover. U kunt de voortgang van de failover volgen op de **taken** tabblad.
-6. Als u ervoor hebt gekozen om de gegevens voordat de failover te synchroniseren, zodra de initiële synchronisatie voltooid is en u kunt nu de virtuele machines in Azure afsluiten, klikt u op **taken** geplande failover taaknaam **Failover voltooien**. Dit de Azure-machine wordt afgesloten, verzendt de meest recente wijzigingen aan de on-premises virtuele machine en start de VM on-premises.
+5. Start de failover. U kunt de voortgang van de failover volgen op het tabblad **Taken**.
+6. Als u ervoor hebt gekozen om de gegevens voordat de failover te synchroniseren, zodra de initiële synchronisatie voltooid is en u kunt nu de virtuele machines in Azure afsluiten, klikt u op **taken** > taaknaam >  **Failover voltooien**. Dit de Azure-machine wordt afgesloten, verzendt de meest recente wijzigingen aan de on-premises virtuele machine en start de VM on-premises.
 7. U kunt nu Meld u aan bij de virtuele machine om te valideren beschikbaar is als verwacht.
 8. De virtuele machine is in behandeling staat. Klik op **doorvoeren** om door te voeren van de failover.
-9. Nu om te voltooien van de klik failback **omgekeerde repliceren** om te beginnen met het beveiligen van de virtuele machine in de primaire site.
+9. Als u wilt de failback hebt voltooid, klikt u op **omgekeerde repliceren** om te beginnen met het beveiligen van de virtuele machine in de primaire site.
 
 
 Volg deze procedures een failback uitvoeren naar de oorspronkelijke primaire site. Deze procedure wordt beschreven hoe u een geplande failover voor een herstelplan uitvoeren. U kunt ook de failover voor een enkele virtuele machine uitvoeren op de **virtuele Machines** tabblad.
@@ -57,10 +57,10 @@ Als u beveiliging tussen hebt geïmplementeerd een [Hyper-V-site en Azure](site-
 3. Selecteer **beveiligde Items** -> **beveiligingsgroep**  ->  <ProtectionGroupName>  ->  <VirtualMachineName> u wilt een failback uitvoeren, en selecteer **gepland Failover**.
 4. In **geplande Failover bevestigen** Selecteer **maken on-premises virtuele machine indien deze niet bestaat**.
 5. In de hostnaam, ** selecteert u de nieuwe Hyper-V-host-server waarop u wilt plaatsen van de virtuele machine.
-6. Synchronisatie van gegevens, raden we u de optie **synchroniseert de gegevens voordat de failover**. Dit minimaliseert downtime voor virtuele machines als het synchroniseert zonder dat deze wordt afgesloten. Dit doet het volgende:
+6. In de synchronisatie van gegevens raden wij dat u de optie om de gegevens voordat de failover te synchroniseren. Dit minimaliseert downtime voor virtuele machines als het synchroniseert zonder dat deze wordt afgesloten. Dit doet het volgende:
 
     - Fase 1: Momentopname van de virtuele machine in Azure en vervolgens gekopieerd naar de on-premises Hyper-V-host. De machine wordt uitgevoerd in Azure.
-    - Fase 2: Sluit de virtuele machine in Azure, zodat er geen nieuwe wijzigingen worden uitgevoerd. De uiteindelijke set wijzigingen worden overgebracht naar de on-premises server en de on-premises virtuele machine is gestart.
+    - Fase 2: Sluit de virtuele machine in Azure, zodat er geen nieuwe wijzigingen worden uitgevoerd. De uiteindelijke set wijzigingen worden overgedragen naar de on-premises server en de on-premises virtuele machine is gestart.
     
 7. Klik op het vinkje om te beginnen met de failover (failback).
 8. Nadat de initiële synchronisatie is voltooid en u klaar bent om de virtuele machine in Azure, klikt u op **taken** > <planned failover job> > **volledige Failover**. Deze machine van Azure wordt afgesloten, verzendt de meest recente wijzigingen aan de on-premises virtuele machine en wordt gestart, krijgt.

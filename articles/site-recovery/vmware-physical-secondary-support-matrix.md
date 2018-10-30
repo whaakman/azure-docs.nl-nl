@@ -1,23 +1,22 @@
 ---
-title: Ondersteuningsmatrix voor replicatie van virtuele VMware-machines of fysieke servers naar een secundaire VMware-site met Azure Site Recovery | Microsoft Docs
-description: Geeft een overzicht van de ondersteuning voor VMware-/ fysieke servers repliceren naar een secundaire site met Azure Site Recovery
-services: site-recovery
+title: Ondersteuningsmatrix voor herstel na noodgevallen van virtuele VMware-machines of fysieke servers naar een secundaire VMware-site met Azure Site Recovery | Microsoft Docs
+description: Geeft een overzicht van de ondersteuning voor herstel na noodgevallen van virtuele VMware-machines en fysieke servers naar een secundaire site met Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 10/29/2018
 ms.author: raynew
-ms.openlocfilehash: 4df929e8a185a04aef5cb13f30c19b0db707e765
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 8406cf2b31b87cdb4f6c9b6ba3d06559cf1d4d41
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44021990"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50209799"
 ---
-# <a name="support-matrix-for-replication-of-vmware-vms-and-physical-servers-to-a-secondary-site"></a>Ondersteuningsmatrix voor replicatie van virtuele VMware-machines en fysieke servers naar een secundaire site
+# <a name="support-matrix-for-disaster-recovery-of-vmware-vms-and-physical-servers-to-a-secondary-site"></a>Ondersteuningsmatrix voor herstel na noodgevallen van virtuele VMware-machines en fysieke servers naar een secundaire site
 
-In dit artikel bevat een overzicht van wat wordt ondersteund wanneer u de [Azure Site Recovery](site-recovery-overview.md) VMware-machines of Windows/Linux fysieke servers repliceren naar een secundaire VMware-site-service.
+In dit artikel bevat een overzicht van wat wordt ondersteund wanneer u de [Azure Site Recovery](site-recovery-overview.md) fysieke servers naar een secundaire VMware-site voor herstel na noodgevallen van virtuele VMware-machines of Windows/Linux-service.
 
 - Als u repliceren van VMware-machines of fysieke servers naar Azure wilt, raadpleegt u [deze ondersteuningsmatrix](vmware-physical-azure-support-matrix.md).
 - Als u repliceren van Hyper-V-machines naar een secundaire site wilt, lees dan [deze ondersteuningsmatrix](hyper-v-azure-support-matrix.md).

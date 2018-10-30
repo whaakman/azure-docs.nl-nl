@@ -1,17 +1,17 @@
 ---
-title: Installatie van de Mobility-Service voor Azure Site Recovery met behulp van System Center Configuration Manager automatiseren | Microsoft Docs
-description: Dit artikel helpt u de installatie van Mobility Service automatiseren met behulp van System Center Configuration Manager.
+title: Installatie van de Azure Site Recovery Mobility Service voor herstel na noodgevallen van virtuele VMware-machines en fysieke servers naar Azure met behulp van System Center Configuration Manager automatiseren | Microsoft Docs
+description: Dit artikel helpt u de installatie van de Mobility-Service met System Center Configuration Manager voor herstel na noodgevallen van virtuele VMware-machines en fysieke servers naar Azure met Site Recovery automatiseren.
 author: Rajeswari-Mamilla
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 10/29/2018
 ms.author: ramamill
-ms.openlocfilehash: 6aff17908d220557720776a2d7884adc28b5deee
-ms.sourcegitcommit: baed5a8884cb998138787a6ecfff46de07b8473d
+ms.openlocfilehash: f14c02404dae5a923aabcd2df8279a6150c42f57
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "37917166"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215290"
 ---
 # <a name="automate-mobility-service-installation-with-system-center-configuration-manager"></a>Installatie van de Mobility-Service met System Center Configuration Manager automatiseren
 

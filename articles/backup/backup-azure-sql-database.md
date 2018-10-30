@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 08/02/2018
 ms.author: markgal;anuragm
 ms.custom: ''
-ms.openlocfilehash: aab0ac2dfba47741eaf5a75ef46d9ca5f8873d50
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 72d48bd1716e1b62ae92f8317f3f9611ac463453
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434242"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50211499"
 ---
 # <a name="back-up-sql-server-databases-to-azure"></a>Back-up van SQL Server-databases naar Azure
 
@@ -658,23 +658,23 @@ Azure Backup gebruikt systeemeigen SQL-API's voor alle back-upbewerkingen. De sy
 Het volgende voorbeeld wordt een query waarmee alle back-uptaken voor een database met de naam worden opgehaald **DB1**. De query voor geavanceerde bewaking aanpassen.
 
 ```
-select CAST (
+select CAST (
 Case type
-                when 'D' 
-                                 then 'Full'
-                when  'I'
-                               then 'Differential' 
-                ELSE 'Log'
-                END         
-                AS varchar ) AS 'BackupType',
-database_name, 
+                when 'D' 
+                                 then 'Full'
+                when  'I'
+                               then 'Differential' 
+                ELSE 'Log'
+                END         
+                AS varchar ) AS 'BackupType',
+database_name, 
 server_name,
 machine_name,
 backup_start_date,
 backup_finish_date,
-DATEDIFF(SECOND, backup_start_date, backup_finish_date) AS TimeTakenByBackupInSeconds,
-backup_size AS BackupSizeInBytes
-  from msdb.dbo.backupset where user_name = 'NT SERVICE\AzureWLBackupPluginSvc' AND database_name =  <DB1>  
+DATEDIFF(SECOND, backup_start_date, backup_finish_date) AS TimeTakenByBackupInSeconds,
+backup_size AS BackupSizeInBytes
+  from msdb.dbo.backupset where user_name = 'NT SERVICE\AzureWLBackupPluginSvc' AND database_name =  <DB1>  
  
 ```
 
@@ -703,7 +703,7 @@ Wanneer u beveiliging voor een SQL Server-database stopt, vraagt Azure back-up o
 * Alle toekomstige back-uptaken stoppen en verwijderen van alle herstelpunten.
 * Alle toekomstige back-uptaken stoppen maar laat u de herstelpunten.
 
-Er is een kosten voor de herstelpunten behouden. Het aantal herstelpunten voor SQL in rekening worden gebracht van het beveiligde exemplaar van SQL prijzen kosten in rekening gebracht, plus de opslag die wordt gebruikt. Zie voor meer informatie over prijzen van Azure Backup voor SQL, de [pagina met prijzen voor back-up in Azure](https://azure.microsoft.com/pricing/details/backup/). 
+Als u back-up stoppen met behoud van gegevens, herstelpunten worden verwijderd volgens het back-upbeleid. U kunt het beveiligde exemplaar van SQL prijzen kosten in rekening gebracht, plus de opslag verbruikt totdat alle herstelpunten worden schoongemaakt wordt gebracht. Zie voor meer informatie over prijzen van Azure Backup voor SQL, de [pagina met prijzen voor back-up in Azure](https://azure.microsoft.com/pricing/details/backup/). 
 
 Beveiliging voor een database stoppen:
 

@@ -1,19 +1,18 @@
 ---
-title: Replicatie van virtuele Hyper-V-machines met PowerShell en Azure Resource Manager | Microsoft Docs
-description: Automatiseer de replicatie van Hyper-V-machines naar Azure met Azure Site Recovery met behulp van PowerShell en Azure Resource Manager.
-services: site-recovery
+title: Instellen van herstel na noodgevallen naar Azure voor Hyper-V-machines met behulp van PowerShell en Azure Resource Manager | Microsoft Docs
+description: Herstel na noodgevallen van Hyper-V-machines naar Azure automatiseren met de Azure Site Recovery-service met behulp van PowerShell en Azure Resource Manager.
 author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 10/16/2018
 ms.author: sutalasi
-ms.openlocfilehash: 1d72d56188c3b787ab335ced554eb7c1dc74e0b7
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: f8f690a4f94ee56cfaa5532fa090fada1a33bddf
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49427430"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50214780"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-hyper-v-vms-using-powershell-and-azure-resource-manager"></a>Instellen van herstel na noodgevallen naar Azure voor Hyper-V-machines met behulp van PowerShell en Azure Resource Manager
 

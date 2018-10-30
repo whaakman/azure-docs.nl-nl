@@ -1,18 +1,31 @@
+---
+author: rothja
+ms.service: virtual-machines-sql
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: jroth
+ms.openlocfilehash: 22f16a7382cb0fe1f3fe2a6ef5e7c00a6989623c
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50226528"
+---
 ## <a name="next-steps"></a>Volgende stappen
 
-Nadat de Azure Sleutelkluis-integratie is ingeschakeld, kunt u SQL Server-versleuteling inschakelen op de SQL-VM. U moet eerst een asymmetrische sleutel in de sleutelkluis en een symmetrische sleutel vanuit SQL Server op de virtuele machine maken. Vervolgens kunt u zich T-SQL-instructies voor het inschakelen van versleuteling voor uw databases en de back-ups uitvoeren.
+Nadat Azure Key Vault-integratie is ingeschakeld, kunt u SQL Server-versleuteling inschakelen op de SQL-VM. Eerst moet u een asymmetrische sleutel in uw key vault en een symmetrische sleutel in SQL Server op de virtuele machine maken. Vervolgens kunt u zich voor het uitvoeren van T-SQL-instructies gebruikt om versleuteling voor uw databases en de back-ups te schakelen.
 
-Er zijn verschillende vormen van versleuteling die u van profiteren kunt:
+Er zijn verschillende vormen die u van profiteren kunt versleuteling:
 
 * [Transparante gegevensversleuteling (TDE)](https://msdn.microsoft.com/library/bb934049.aspx)
 * [Versleutelde back-ups](https://msdn.microsoft.com/library/dn449489.aspx)
-* [Kolom: versleuteling op bestandsniveau (wissen)](https://msdn.microsoft.com/library/ms173744.aspx)
+* [Versleuteling op kolom (wissen)](https://msdn.microsoft.com/library/ms173744.aspx)
 
-De volgende Transact-SQL-scripts bevatten voorbeelden voor elk van deze gebieden.
+De volgende Transact-SQL-scripts vindt u voorbeelden voor elk van deze gebieden.
 
 ### <a name="prerequisites-for-examples"></a>Vereisten voor voorbeelden
 
-Elk voorbeeld is gebaseerd op de twee vereisten: een asymmetrische sleutel van de sleutelkluis aangeroepen **CONTOSO_KEY** en een referentie die zijn gemaakt door de functie Azure Sleutelkluis-integratie met de naam **Azure_EKM_TDE_cred**. De volgende Transact-SQL-opdrachten het instellen van deze vereisten voor het uitvoeren van de voorbeelden.
+Elk voorbeeld is gebaseerd op de twee vereisten: een asymmetrische sleutel van uw key vault met de naam **CONTOSO_KEY** en een referentie die zijn gemaakt door de functie Azure Sleutelkluis-integratie met de naam **Azure_EKM_TDE_cred**. De volgende Transact-SQL-opdrachten deze vereisten voor het uitvoeren van de voorbeelden voor installatie.
 
 ``` sql
 USE master;
@@ -39,7 +52,7 @@ CREATION_DISPOSITION = OPEN_EXISTING;
 
 ### <a name="transparent-data-encryption-tde"></a>Transparante gegevensversleuteling (TDE)
 
-1. Een SQL Server-aanmelding moet worden gebruikt door de Database-Engine voor TDE maken en vervolgens de referentie aan toe te voegen.
+1. Maak een SQL Server-aanmelding moet worden gebruikt door de Database-Engine voor TDE, en vervolgens de referentie aan toe te voegen.
 
    ``` sql
    USE master;
@@ -57,7 +70,7 @@ CREATION_DISPOSITION = OPEN_EXISTING;
    GO
    ```
 
-1. De database van een versleutelingssleutel die wordt gebruikt voor TDE maken.
+1. Maak de database-versleutelingssleutel die wordt gebruikt voor TDE.
 
    ``` sql
    USE ContosoDatabase;
@@ -93,7 +106,7 @@ CREATION_DISPOSITION = OPEN_EXISTING;
    GO
    ```
 
-1. Back-up van de versleuteling van de database opgeven met de asymmetrische sleutel die wordt opgeslagen in de sleutelkluis.
+1. Back-up van de versleuteling van de database opgeven met de asymmetrische sleutel opgeslagen in de key vault.
 
    ``` sql
    USE master;
@@ -104,9 +117,9 @@ CREATION_DISPOSITION = OPEN_EXISTING;
    GO
    ```
 
-### <a name="column-level-encryption-cle"></a>Kolom: versleuteling op bestandsniveau (wissen)
+### <a name="column-level-encryption-cle"></a>Versleuteling op kolom (wissen)
 
-Dit script maakt een symmetrische sleutel is beveiligd door de asymmetrische sleutel in de sleutelkluis en gebruikt vervolgens de symmetrische sleutel voor het versleutelen van gegevens in de database.
+Met dit script maakt een symmetrische sleutel die beveiligd is door de asymmetrische sleutel in de key vault en gebruikt vervolgens de symmetrische sleutel voor het versleutelen van gegevens in de database.
 
 ``` sql
 CREATE SYMMETRIC KEY DATA_ENCRYPTION_KEY
@@ -131,6 +144,6 @@ CLOSE SYMMETRIC KEY DATA_ENCRYPTION_KEY;
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-Zie voor meer informatie over het gebruik van deze versleutelingsfuncties [EKM met functies van SQL Server-codering met behulp van](https://msdn.microsoft.com/library/dn198405.aspx#UsesOfEKM).
+Zie voor meer informatie over het gebruik van deze versleutelingsfuncties [EKM gebruiken met SQL Server-versleutelingsfuncties](https://msdn.microsoft.com/library/dn198405.aspx#UsesOfEKM).
 
-Denk eraan dat de stappen in dit artikel wordt ervan uitgegaan dat u al hebt uitgevoerd op een virtuele machine van Azure SQL-Server. Als dit niet het geval is, Zie [een SQL Server-machine inrichten in Azure](../articles/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision.md). Zie voor andere instructies over het uitvoeren van SQL Server op Azure Virtual machines [SQL Server op Azure Virtual Machines-overzicht](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview.md).
+Merk op dat de stappen in dit artikel wordt ervan uitgegaan dat u al hebt uitgevoerd op een virtuele machine van Azure SQL-Server. Als dit niet het geval is, Zie [een SQL Server-machine inrichten in Azure](../articles/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision.md). Zie voor andere instructies over het uitvoeren van SQL Server op Azure Virtual machines [SQL Server op Azure Virtual Machines overzicht](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview.md).

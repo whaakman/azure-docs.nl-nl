@@ -1,19 +1,19 @@
 ---
-title: Over de migratie in Azure Site Recovery | Microsoft Docs
-description: Dit artikel wordt beschreven hoe u voor het migreren van on-premises en virtuele Azure-machines met behulp van de Azure Site Recovery-service.
+title: Over de migratie van on-premises machines en Azure VM's Azure Site Recovery | Microsoft Docs
+description: In dit artikel wordt beschreven hoe u on-premises en Azure IaaS VM's migreren naar Azure met behulp van de Azure Site Recovery-service.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/10/2018
+ms.date: 10/28/2018
 ms.author: raynew
-ms.openlocfilehash: 329f03c30af167b147e5e45c618e6ec4e58efd3f
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 6f510ac394b939996defe0a7ed49317ec0aabe3b
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49075996"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50211992"
 ---
 # <a name="about-migration"></a>Info over migratie
 

@@ -1,6 +1,6 @@
 ---
-title: Kostenramingen van Azure Site Recovery Deployment Planner voor Hyper-V naar Azure | Microsoft Docs
-description: In dit artikel worden de details van kostenramingen beschreven uit een rapport dat met Azure Site Recovery Deployment Planner voor een Hyper-V naar Azure-scenario is gegenereerd.
+title: Bekijk de Azure Site Recovery Deployment Planner kosten van het rapport met kostenramingen voor herstel na noodgevallen van Hyper-V-machines naar Azure | Microsoft Docs
+description: Dit artikel wordt beschreven hoe u controleert de kosten schatten rapport gegenereerd in de Azure Site Recovery Deployment Planner voor Hyper-V-noodherstel naar Azure.
 services: site-recovery
 author: nsoneji
 manager: garavd
@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: nisoneji
-ms.openlocfilehash: 40a8e2e6d994608d4aa26f6d9b3723c0ee27d3db
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 0233446f817436632efc4110872e84b6b3105453
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387239"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50213182"
 ---
 # <a name="cost-estimation-report-by-azure-site-recovery-deployment-planner"></a>Rapport met kostenramingen van Azure Site Recovery Deployment Planner 
 

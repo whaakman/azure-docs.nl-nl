@@ -1,20 +1,20 @@
 ---
-title: Hyper-V naar Azure-replicatie-architectuur in Azure Site Recovery | Microsoft Docs
-description: Dit artikel biedt een overzicht van de onderdelen en architectuur die worden gebruikt bij het repliceren van on-premises virtuele machines van Hyper-V naar Azure met de Azure Site Recovery-service.
+title: Hyper-V naar Azure disaster recovery-architectuur in Azure Site Recovery | Microsoft Docs
+description: Dit artikel bevat een overzicht van de onderdelen en architectuur die worden gebruikt bij het implementeren van herstel na noodgevallen voor on-premises Hyper-V-machines (zonder VMM) naar Azure met de Azure Site Recovery-service.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/10/2018
+ms.date: 10/28/2018
 ms.author: raynew
-ms.openlocfilehash: 49059415c5f96eeb4dd871e7d2c8ae4ab9b2c12e
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 23b12f5b0423f717e96ec1f59480f0175648c75f
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078355"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210649"
 ---
-# <a name="hyper-v-to-azure-replication-architecture"></a>Hyper-V naar Azure-replicatie-architectuur
+# <a name="hyper-v-to-azure-disaster-recovery-architecture"></a>Hyper-V naar Azure disaster recovery-architectuur
 
 
 Dit artikel beschrijft de architectuur en processen die worden gebruikt bij het repliceren, failover en herstellen van Hyper-V virtuele machines (VM's) tussen on-premises Hyper-V-hosts en Azure, met behulp van de [Azure Site Recovery](site-recovery-overview.md) service.

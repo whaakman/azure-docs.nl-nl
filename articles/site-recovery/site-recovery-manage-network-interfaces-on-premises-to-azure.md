@@ -1,22 +1,20 @@
 ---
-title: Netwerkinterfaces in Azure Site Recovery voor on-premises naar Azure-replicatie beheren | Microsoft Docs
-description: Beschrijft hoe u netwerkinterfaces beheren voor on-premises naar Azure met Azure Site Recovery-replicatie
-services: site-recovery
+title: Netwerkinterfaces in Azure Site Recovery voor noodherstel van on-premises naar Azure beheren | Microsoft Docs
+description: Beschrijft hoe u voor het beheren van netwerkinterfaces voor noodherstel van on-premises naar Azure met Azure Site Recovery
 author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: mayg
-ms.openlocfilehash: 0ca2d32910e57042d2cbc9d3b772d226d835b545
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: afa8dfc39177e3f15db0092691d910b6b2cd3764
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49352407"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212451"
 ---
-# <a name="manage-virtual-machine-network-interfaces-for-on-premises-to-azure-replication"></a>Netwerkinterfaces van virtuele machines voor on-premises naar Azure-replicatie beheren
-
+# <a name="manage-virtual-machine-network-interfaces-for-on-premises-disaster-recovery-to-azure"></a>Netwerkinterfaces van virtuele machines voor noodherstel van on-premises naar Azure beheren
 Een virtuele machine (VM) in Azure moet ten minste één netwerkinterface die is gekoppeld aan deze hebben. Er kan als veel netwerkinterfaces die zijn gekoppeld aan deze als de VM-grootte ondersteunt.
 
 Standaard worden de eerste netwerkinterface die is gekoppeld aan een virtuele machine van Azure wordt gedefinieerd als de primaire netwerkinterface. Alle andere netwerkinterfaces in de virtuele machine zijn secundaire netwerkinterfaces. Standaard wordt al het uitgaande verkeer van de virtuele machine ook verzonden van het IP-adres dat toegewezen aan de primaire IP-adresconfiguratie van de primaire netwerkinterface.

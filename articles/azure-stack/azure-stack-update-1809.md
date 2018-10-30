@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/26/2018
+ms.date: 10/27/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 161b54620bd8a3c9994228a30bd7495717064168
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: d80e7bc1d391d9b5bfd718ca2dc0e9dc7ecb2268
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158463"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210870"
 ---
 # <a name="azure-stack-1809-update"></a>Azure Stack 1809 update
 
@@ -38,6 +38,8 @@ De Azure Stack 1809 update build-nummer **1.1809.0.90**.
 ### <a name="new-features"></a>Nieuwe functies
 
 Deze update bevat de volgende verbeteringen voor Azure Stack:
+
+- Met deze release, geïntegreerde Azure Stack-systemen ondersteunt configuraties van 4-16 knooppunten.
 
 - <!--  2712869   | IS  ASDK -->  **Azure Stack syslog-client (algemene beschikbaarheid)** deze client kunt u het doorsturen van controles, waarschuwingen en -logboeken met betrekking tot de Azure Stack-infrastructuur naar een syslog-server of security information en event management (SIEM) software extern naar Azure Stack. De syslog-client biedt nu ondersteuning voor de poort waarop de syslog-server luistert op te geven.
 
@@ -147,6 +149,8 @@ Klik op de hiervoor vermelde koppelingen voor meer informatie over deze beveilig
 - <!-- 2468613 - IS --> Tijdens de installatie van deze update, ziet u mogelijk waarschuwingen met de titel *fout: sjabloon voor FaultType UserAccounts.New ontbreekt.*  U kunt deze waarschuwingen negeren. Deze waarschuwingen worden automatisch gesloten nadat de installatie van deze update is voltooid.
 
 - <!-- 2489559 - IS --> Probeer niet voor het maken van virtuele machines tijdens de installatie van deze update. Zie voor meer informatie over het beheren van updates [-updates beheren in Azure Stack-overzicht](azure-stack-updates.md#plan-for-updates).
+
+- <!-- 3139614 | IS --> Als u een update hebt toegepast op Azure Stack van uw OEM, de **Update beschikbaar** melding mogelijk niet weergegeven in de Azure Stack-beheerportal. Voor het installeren van de Microsoft update, downloaden en importeren handmatig met behulp van de instructies die u hier [toepassen van updates in Azure Stack](azure-stack-apply-updates.md).
 
 ### <a name="post-update-steps"></a>Stappen na het bijwerken
 

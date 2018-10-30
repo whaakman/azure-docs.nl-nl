@@ -1,6 +1,6 @@
 ---
-title: Een Site Recovery-kluis verwijderen
-description: Informatie over het verwijderen van een Azure Site Recovery-kluis, op basis van de Site Recovery-scenario.
+title: Een Recovery Services-kluis geconfigureerd voor de Azure Site Recovery-service verwijderen
+description: Meer informatie over het verwijderen van een Recovery Services-kluis geconfigureerd voor Azure Site Recovery
 author: rajani-janaki-ram
 manager: rochakm
 ms.service: site-recovery
@@ -8,14 +8,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: rajani-janaki-ram
-ms.openlocfilehash: 9c4a88d8a3d63555a57bd5553b721cfbcd77df2c
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: f351bd715baf86407c249e13aa02cf3c37e374c4
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38971185"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212417"
 ---
-# <a name="delete-a-site-recovery-vault"></a>Een Site Recovery-kluis verwijderen
+# <a name="delete-a-site-recovery-recovery-services-vault"></a>Een Site Recovery Recovery Services-kluis verwijderen
 
 Afhankelijkheden kunnen voorkomen dat u een Azure Site Recovery-kluis verwijderen. De acties die u moet uitvoeren, afhankelijk van het scenario voor Site Recovery. Als u wilt verwijderen van een kluis die wordt gebruikt in Azure Backup, Zie [verwijderen van een back-upkluis in Azure](../backup/backup-azure-delete-vault.md).
 

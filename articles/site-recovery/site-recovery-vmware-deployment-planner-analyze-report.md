@@ -1,21 +1,21 @@
 ---
-title: Azure Site Recovery-implementatieplanner voor VMware naar Azure | Microsoft Docs
-description: In dit artikel wordt een scenario beschreven waarin een rapport dat door de Azure Site Recovery-implementatieplanner voor VMware naar Azure is gegenereerd, wordt geanalyseerd.
-services: site-recovery
+title: Rapport van de Azure Site Recovery Deployment Planner voor herstel na noodgevallen van VMware naar Azure analyseren | Microsoft Docs
+description: Dit artikel wordt beschreven hoe u kunt het rapport dat is gegenereerd door de Azure Site Recovery Deployment Planner voor noodherstel van VMware naar Azure te analyseren.
 author: nsoneji
 manager: garavd
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: nisoneji
-ms.openlocfilehash: e6aa3a8c788fe06a528a9c363a28faffa0a9ca88
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: d709b13aaf6b6ee9a913484ed503da1e76982d17
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49094085"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50213913"
 ---
-# <a name="azure-site-recovery-deployment-planner-report"></a>Rapport Azure Site Recovery-implementatieplanner
+# <a name="analyze-the-azure-site-recovery-deployment-planner-report-for-vmware-disaster-recovery-to-azure"></a>Rapport van de Azure Site Recovery-Implementatieplanner voor VMware naar Azure een noodgeval analyseren
+
 Het gegenereerde Microsoft Excel-rapport bevat de volgende bladen:
 ## <a name="on-premises-summary"></a>Samenvatting on-premises
 Het werkblad Samenvatting on-premises biedt een overzicht van de geprofileerde VMware-omgeving.

@@ -1,21 +1,21 @@
 ---
-title: Algemene vragen - Hyper-V naar Azure-replicatie met Azure Site Recovery | Microsoft Docs
-description: In dit artikel bevat een overzicht van de veelgestelde vragen over on-premises Hyper-V-machines repliceren naar Azure met behulp van Azure Site Recovery.
+title: Algemene vragen - Hyper-V naar Azure-noodherstel met Azure Site Recovery | Microsoft Docs
+description: In dit artikel bevat een overzicht van de veelgestelde vragen over het instellen van herstel na noodgevallen voor on-premises Hyper-V-machines naar Azure met behulp van de Azure Site Recovery-site.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.date: 10/10/2018
+ms.date: 10/28/2018
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 7c5316aea2bfdb9a96b9aeb2dd5387b2643a92b2
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 6345cf47d19f7990e776e0fe4ec2bafd005c9cf2
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49319724"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212485"
 ---
-# <a name="common-questions---hyper-v-to-azure-replication"></a>Veelgestelde vragen - Hyper-V naar Azure-replicatie
+# <a name="common-questions---hyper-v-to-azure-disaster-recovery"></a>Veelgestelde vragen - Hyper-V naar Azure-noodherstel
 
 In dit artikel vindt u antwoorden op veelgestelde vragen, we zien bij het repliceren van on-premises Hyper-V-machines naar Azure. 
 

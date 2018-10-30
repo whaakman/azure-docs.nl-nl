@@ -1,3 +1,16 @@
+---
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: cynthn
+ms.openlocfilehash: bc273b8979b29057163e02dc9605e631aef173f1
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50227176"
+---
 # <a name="use-infrastructure-automation-tools-with-virtual-machines-in-azure"></a>Infrastructuur automatiseringsprogramma's gebruiken met virtuele machines in Azure
 Als u wilt maken en beheren van virtuele Azure-machines (VM's) op een consistente manier op schaal, een vorm van automatisering doorgaans gewenst. Er zijn veel hulpprogramma's en oplossingen waarmee u kunt de volledige Azure-infrastructuur-implementatie en beheer van levenscyclus automatiseren. In dit artikel worden enkele van de infrastructuur voor automation-hulpprogramma's die u in Azure gebruiken kunt. Deze hulpprogramma's wordt vaak aanpassen aan een van de volgende methoden:
 
@@ -48,11 +61,11 @@ Cloud-init werkt ook in distributies. U gebruikt bijvoorbeeld niet **apt-get ins
 
 | Uitgever | Aanbieding | SKU | Versie | cloud-init gereed
 |:--- |:--- |:--- |:--- |:--- |:--- |
-|Canonical |UbuntuServer |16.04-LTS |nieuwste |ja | 
-|Canonical |UbuntuServer |14.04.5-LTS |nieuwste |ja |
-|CoreOS |CoreOS |Stabiel |nieuwste |ja |
-|OpenLogic |CentOS |7-CI |nieuwste |preview |
-|RedHat |RHEL |7-RAW-CI |nieuwste |preview |
+|Canonical |UbuntuServer |16.04-LTS |meest recente |ja | 
+|Canonical |UbuntuServer |14.04.5-LTS |meest recente |ja |
+|CoreOS |CoreOS |Stabiel |meest recente |ja |
+|OpenLogic |CentOS |7-CI |meest recente |preview |
+|RedHat |RHEL |7-RAW-CI |meest recente |preview |
 
 Meer informatie over cloud-init op Azure:
 

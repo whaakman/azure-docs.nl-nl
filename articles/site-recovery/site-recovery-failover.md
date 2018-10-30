@@ -1,21 +1,22 @@
 ---
-title: Failover in Site Recovery | Microsoft Docs
-description: Azure Site Recovery coördineert de replicatie, failover en herstel van virtuele machines en fysieke servers. Meer informatie over failover naar Azure of een secundair datacenter.
+title: Failover tijdens het herstel na noodgeval met Azure Site Recovery | Microsoft Docs
+description: Meer informatie over mislukte via virtuele machines en fysieke servers tijdens het herstel na noodgeval met de Azure Site Recovery-service.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 09/11/2018
-ms.author: ponatara
-ms.openlocfilehash: c9a2f258ca952ca36000e1ca0630fbde31ba7ba0
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.date: 10/28/2018
+ms.author: raynew
+ms.openlocfilehash: 6e16529740377b9a082fda4f3e4409b57441715e
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391314"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215154"
 ---
-# <a name="failover-in-site-recovery"></a>Failover in Site Recovery
+# <a name="fail-over-vms-and-physical-servers"></a>Failover van virtuele machines en fysieke servers 
+
 Dit artikel wordt beschreven hoe failover-virtuele machines en fysieke servers beveiligd door Site Recovery.
 
 ## <a name="prerequisites"></a>Vereisten
@@ -114,9 +115,9 @@ Als u wilt behouden de stationsletter op virtuele machines na een failover, kunt
 
 ## <a name="prepare-to-connect-to-azure-vms-after-failover"></a>Voorbereiden op het verbinden met virtuele Azure-machines na een failover
 
-Als u verbinding maken met virtuele Azure-machines met behulp van RDP/SSH na een failover wilt, volgt u de vereisten die worden samengevat in de tabel [hier](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover).
+Als u na een failover verbinding wilt maken met virtuele Azure-machines met behulp van RDP/SSH, volgt u de procedure die [hier](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover) wordt beschreven.
 
-Volg de stappen [hier](site-recovery-failover-to-azure-troubleshoot.md) oplossen met connectiviteit problemen na een failover.
+Volg de stappen die [hier](site-recovery-failover-to-azure-troubleshoot.md) worden beschreven om eventuele verbindingsproblemen na een failover op te lossen.
 
 
 ## <a name="next-steps"></a>Volgende stappen

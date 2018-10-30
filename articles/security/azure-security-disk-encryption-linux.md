@@ -7,12 +7,12 @@ ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
 ms.date: 09/19/2018
-ms.openlocfilehash: 1cebb3dae8fbfd4188487a6ff7fca42ac0505cf0
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.openlocfilehash: 3561c2959283cd1c589414b96724cf0341af5e0a
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46498484"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215375"
 ---
 # <a name="enable-azure-disk-encryption-for-linux-iaas-vms"></a>Schakel Azure Disk Encryption voor Linux IaaS-VM 's 
 
@@ -252,7 +252,11 @@ De parameter gaat echter alle partities en worden deze versleuteld, zolang ze vo
 - Is niet een hoofdmap/OS/opstartpartitie
 - Is niet versleuteld
 - Is geen BEK volume
+- Is niet een RAID-volume
+- Is niet een LVM-volume
 - Is gekoppeld
+
+Versleutel de schijven die het volume RAID- of LVM in plaats van het volume RAID- of LVM opstellen.
 
 ### <a name="bkmk_EFAPSH"> </a> Gebruik de parameter EncryptFormatAll met Azure CLI
 Gebruik de [az vm encryption inschakelen](/cli/azure/vm/encryption#az-vm-encryption-enable) opdracht schakelt u versleuteling op een actieve IaaS-virtuele machine in Azure.

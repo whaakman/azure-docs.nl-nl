@@ -1,21 +1,20 @@
 ---
-title: Testen van failover naar Azure in Azure Site Recovery | Microsoft Docs
-description: Meer informatie over het uitvoeren van een testfailover van on-premises naar Azure met behulp van de Azure Site Recovery-service.
-services: site-recovery
+title: Een Dr-herstelanalyse uitvoeren naar Azure met behulp van Azure Site Recovery | Microsoft Docs
+description: Meer informatie over het uitvoeren van een Dr-herstelanalyse van on-premises naar Azure met behulp van de Azure Site Recovery-service.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 09/11/2018
+ms.topic: conceptual
+ms.date: 10/28/2018
 ms.author: raynew
-ms.openlocfilehash: 4c72a58cdc6082a40fe80b7a3cf8cf964199371e
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 6eb1ee90b22b9e37dcae900cd80f80cb549090e9
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391773"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50213947"
 ---
-# <a name="test-failover-to-azure-in-site-recovery"></a>Testfailover naar Azure in Site Recovery
+# <a name="run-a-disaster-recovery-drill-to-azure"></a>Noodherstelanalyse uitvoeren in Azure 
 
 
 In dit artikel wordt beschreven hoe u een Dr-herstelanalyse uitvoeren naar Azure met behulp van een testfailover van Site Recovery.  
@@ -77,13 +76,13 @@ In de volgende scenario's vereist de failover een extra tussenstap die meestal o
 In alle andere gevallen, geen tussenstap is niet vereist en failover aanzienlijk minder tijd in beslag neemt.
 
 
-## <a name="create-a-network-for-test-failover"></a>Maken van een netwerk voor test-failover
+## <a name="create-a-network-for-test-failover"></a>Een netwerk maken voor failovertest
 
-Het wordt aangeraden dat voor de testfailover, u een netwerk dat is geïsoleerd van de productie-site-herstelnetwerk specifieke in de **berekening en netwerk** instellingen voor elke virtuele machine. Standaard bij het maken van een Azure-netwerk, is het geïsoleerd van andere netwerken. Het testnetwerk moet uw productienetwerk nabootsen:
+Het wordt aangeraden om voor het testen van failover een netwerk te kiezen dat is geïsoleerd van het herstelnetwerk voor de productiesite dat is opgegeven in de instellingen voor **Berekening en netwerk** voor een VM. De standaardinstelling is dat bij het maken van een virtueel Azure-netwerk dit netwerk wordt geïsoleerd van andere netwerken. Het testnetwerk moet een exacte kopie zijn van uw productienetwerk:
 
-- Het testnetwerk moet hetzelfde aantal subnetten als uw productienetwerk hebben. Subnetten moeten dezelfde naam hebben.
+- Het testnetwerk moet hetzelfde aantal subnetten hebben als uw productienetwerk. Subnetten moeten dezelfde naam hebben.
 - Het testnetwerk moet hetzelfde IP-adresbereik gebruiken.
-- De DNS-server van het testnetwerk bijwerken met het IP-adres dat is opgegeven voor de DNS-VM in **berekening en netwerk** instellingen. Lezen [testfailover-overwegingen voor Active Directory](site-recovery-active-directory.md#test-failover-considerations) voor meer informatie.
+- Werk het DNS van het testnetwerk bij met het IP-adres dat voor de DNS-VM is opgegeven in de instellingen voor **Berekening en netwerk**. Lees [Testfailover-overwegingen voor Active Directory](site-recovery-active-directory.md#test-failover-considerations) voor meer informatie.
 
 
 ## <a name="test-failover-to-a-production-network-in-the-recovery-site"></a>Een failovertest uitvoeren naar een productienetwerk in de site recovery
@@ -111,7 +110,7 @@ Als u verbinding maken met virtuele Azure-machines met behulp van RDP/SSH na een
 **Virtuele Azure-machine waarop Linux wordt uitgevoerd** | On-premises computer voordat de failover | Zorg ervoor dat de Secure Shell-service op de virtuele machine is ingesteld op automatisch wordt gestart bij het opstarten van het systeem.<br/><br/> Controleer of er in de firewallregels is ingesteld dat SSH-verbindingen zijn toegestaan.
 **Virtuele Azure-machine waarop Linux wordt uitgevoerd** | Virtuele Azure-machine na een failover | De regels voor netwerkbeveiligingsgroepen op de virtuele machine (en de Azure-subnet waarmee deze is verbonden) moeten binnenkomende verbindingen aan de SSH-poort worden toegestaan.<br/><br/> [Voeg een openbaar IP-adres toe](https://aka.ms/addpublicip) voor de VM.<br/><br/> Controleer **diagnostische gegevens over opstarten** voor een schermopname van de virtuele machine.<br/><br/>
 
-Volg de stappen [hier](site-recovery-failover-to-azure-troubleshoot.md) oplossen met connectiviteit problemen na een failover.
+Volg de stappen die [hier](site-recovery-failover-to-azure-troubleshoot.md) worden beschreven om eventuele verbindingsproblemen na een failover op te lossen.
 
 ## <a name="next-steps"></a>Volgende stappen
 Nadat u een Dr-herstelanalyse hebt voltooid, meer informatie over andere typen [failover](site-recovery-failover.md).

@@ -1,22 +1,20 @@
 ---
-title: Problemen oplossen met mislukte tijdens een failback van virtuele machines van Azure naar on-premises VMware met Azure Site Recovery | Microsoft Docs
-description: In dit artikel worden manieren voor het oplossen van veelvoorkomende failback en opnieuw beveiligen fouten tijdens een failback naar VMware van Azure met behulp van Azure Site Recovery beschreven.
-services: site-recovery
-documentationcenter: ''
+title: Failback naar on-premises oplossen tijdens het herstel van VMware-VM na noodgevallen naar Azure met Azure Site Recovery | Microsoft Docs
+description: In dit artikel worden manieren voor het oplossen van problemen met failback en opnieuw beveiligen tijdens het herstel van VMware-VM na noodgevallen naar Azure met Azure Site Recovery beschreven.
 author: rajani-janaki-ram
 manager: gauravd
 ms.service: site-recovery
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: rajanaki
-ms.openlocfilehash: c5ba0f1d98f3e4023e767bf3eea7a0b497d47686
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 89484e14d69493c74ed1ff983cf88ec146e0313d
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37920960"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210360"
 ---
-# <a name="troubleshoot-failback-from-azure-to-vmware"></a>Failback van Azure naar VMware oplossen
+# <a name="troubleshoot-failback-to-on-premises-from-azure"></a>Failback naar on-premises van Azure oplossen
 
 In dit artikel wordt beschreven hoe u aan het oplossen van problemen die optreden bij het uitvoeren van Azure-VM naar uw on-premises VMware-infrastructuur, na een failover naar Azure met behulp van [Azure Site Recovery](site-recovery-overview.md).
 

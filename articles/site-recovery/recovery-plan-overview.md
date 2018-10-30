@@ -1,29 +1,24 @@
 ---
-title: Met behulp van herstelplannen in Azure Site Recovery | Microsoft Docs
-description: Meer informatie over plannen voor herstel in Azure Site Recovery.
-services: site-recovery
-documentationcenter: ''
+title: Met behulp van herstelplannen in herstel na noodgeval met Azure Site Recovery | Microsoft Docs
+description: Meer informatie over het gebruik van plannen voor herstel voor herstel na noodgeval met de Azure Site Recovery-service.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 10/28/2018
 ms.author: raynew
-ms.openlocfilehash: 011c9acb5d34e15f65b64d59867e7501f0720a08
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 463a7fc51cac6160fbb97fc53077d0b5eda80533
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37920106"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215188"
 ---
 # <a name="about-recovery-plans"></a>Over herstelplannen
 
 Dit artikel wordt beschreven in de herstelplannen [Azure Site Recovery](site-recovery-overview.md).
 
 Een herstelplan verzamelt machines in herstelgroepen. U kunt een abonnement aanpassen door de volgorde, instructies en taken aan toe te voegen. Nadat een abonnement is gedefinieerd, kunt u een failover uitvoert op deze.
-
-
 
 
 

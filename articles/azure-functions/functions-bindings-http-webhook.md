@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: 7fa9d097a8f000c886425d53ee000c6013f3bbb0
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 8b245b51eb349e8c8aaa61d30ec3daec427ea2fd
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50086723"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212162"
 ---
 # <a name="azure-functions-http-triggers-and-bindings"></a>Azure Functions-HTTP-triggers en bindingen
 
@@ -44,7 +44,7 @@ De HTTP-bindingen zijn opgegeven in de [Microsoft.Azure.WebJobs.Extensions.Http]
 
 De HTTP-trigger kunt u een functie met een HTTP-aanvraag aanroepen. U kunt een HTTP-trigger gebruiken om te bouwen serverloze API's en webhooks reageren. 
 
-Standaard retourneert een HTTP-trigger HTTP 200 OK met een lege hoofdtekst in functies 1.x of HTTP 204 geen inhoud met een lege hoofdtekst in functies 2.x. Configureren voor het wijzigen van het antwoord een [HTTP-Uitvoerbinding](#http-output-binding).
+Standaard retourneert een HTTP-trigger HTTP 200 OK met een lege hoofdtekst in functies 1.x of HTTP 204 geen inhoud met een lege hoofdtekst in functies 2.x. Configureren voor het wijzigen van het antwoord een [HTTP-Uitvoerbinding](#output).
 
 ## <a name="trigger---example"></a>Trigger - voorbeeld
 

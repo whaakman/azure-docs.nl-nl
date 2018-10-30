@@ -1,22 +1,19 @@
 ---
-title: IP-adressen behouden wanneer Failover-overschakeling uitvoeren naar een andere Azure-regio virtuele Azure-machines | Microsoft Docs
-description: Beschrijft hoe u IP-adressen voor Azure naar Azure failover-scenario's met Azure Site Recovery behouden
+title: IP-adressen voor Azure VM-failover behouden | Microsoft Docs
+description: Hierin wordt beschreven hoe u IP-adressen behouden wanneer failover van virtuele machines van Azure voor herstel na noodgevallen naar een secundaire regio met Azure Site Recovery
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.date: 10/16/2018
 author: mayurigupta13
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: 4260a4487480c42b518374965d8deda1e7803e62
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 86adaa21a069c168b512231ba231940bfa2ef9e8
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353319"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50213029"
 ---
-# <a name="ip-address-retention-for-azure-virtual-machine-failover"></a>IP-adres retentie voor de failover van de virtuele machine van Azure
+# <a name="ip-address-retention-for-azure-vm-failover"></a>IP-adres bewaartermijn voor Azure VM-failover
 
 Azure Site Recovery maakt herstel na noodgevallen voor Azure VM's. Wanneer Failover-overschakeling uitvoeren van een Azure-regio naar een andere, vereisen klanten vaak behoud van hun IP-configuraties. Site Recovery, imiteert standaard, bron van virtueel netwerk en subnetstructuur bij het maken van deze resources in de doelregio. Voor Azure VM's geconfigureerd met statische privé IP-adressen, maakt Site Recovery ook een best-effort probeert te gebruiken voor het inrichten van de dezelfde privé IP-adres op de doel-VM, als dat IP-adres niet al wordt geblokkeerd door een Azure-resource of een gerepliceerde virtuele machine.
 

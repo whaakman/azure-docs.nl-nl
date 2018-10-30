@@ -1,19 +1,8 @@
 ---
-title: Inschakelen van replicatie van VMware-VM naar Azure met Azure Site Recovery | Microsoft-Docs
-description: Dit artikel wordt beschreven hoe u voor het instellen van replicatie van VMware-machines naar Azure met behulp van Azure Site Recovery.
-services: site-recovery
-author: asgang
-ms.service: site-recovery
-ms.date: 07/06/2018
-ms.topic: conceptual
-ms.author: asgang
-ms.openlocfilehash: 9a868b196a287b7a5121803136d3c0119f64d9fe
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
-ms.translationtype: MT
-ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917020"
----
+titel: inschakelen replicatie van VMware-VM's voor noodherstel van VMware naar Azure met Azure Site Recovery | Microsoft-Docs-beschrijving: in dit artikel wordt beschreven hoe u de replicatie van VMware-VM's voor herstel na noodgevallen naar Azure met behulp van Azure Site Recovery in te schakelen.
+Auteur: asgang ms.service: site recovery ms.date: 07/06/2018 ms.topic: conceptueel ms.author: asgang
+
+
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>Schakel replicatie naar Azure voor VMware-VM 's
 
 

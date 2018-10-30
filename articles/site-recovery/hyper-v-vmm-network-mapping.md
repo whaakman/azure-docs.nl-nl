@@ -1,21 +1,21 @@
 ---
-title: Over netwerktoewijzing voor replicatie van Hyper-V-VM (met VMM) naar Azure met Site Recovery | Microsoft Docs
-description: Beschrijft hoe u voor het instellen van netwerktoewijzing voor replicatie van Hyper-V-machines worden beheerd in VMM-clouds, met Azure Site Recovery.
+title: Over netwerkkoppeling voor noodherstel Hyper-V-VM (met VMM) naar Azure met Site Recovery | Microsoft Docs
+description: Beschrijft hoe u voor het instellen van netwerktoewijzing voor herstel na noodgevallen van Hyper-V-machines (beheerd in VMM-clouds) naar Azure met Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 10/10/2018
+ms.date: 10/28/2018
 ms.author: raynew
-ms.openlocfilehash: d683554a97a1616b0d4d7b1ae95d62b476de04eb
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: cecc1df23ebed88db315e7de14ea850ba5297697
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078508"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212978"
 ---
-# <a name="prepare-network-mapping-for-hyper-v-vm-replication-to-azure"></a>Netwerktoewijzing voorbereiden voor replicatie van virtuele Hyper-V-machines naar Azure
+# <a name="prepare-network-mapping-for-hyper-v-vm-disaster-recovery-to-azure"></a>Netwerktoewijzing voorbereiden voor noodherstel van Hyper-V-VM naar Azure
 
 
 Dit artikel helpt u om te begrijpen en voorbereiden op netwerktoewijzing wanneer u Hyper-V-machines in System Center Virtual Machine Manager (VMM)-clouds naar Azure of naar een secundaire site repliceren met behulp van de [Azure Site Recovery](site-recovery-overview.md) service.

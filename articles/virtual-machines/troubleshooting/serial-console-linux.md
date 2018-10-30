@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/11/2018
 ms.author: harijay
-ms.openlocfilehash: bccf53ed5554579f4ff0a864c38562b7b7f0d3ca
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 57abb01d70929144a8457a04ebc0caf9aecaa61c
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48885286"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212400"
 ---
 # <a name="virtual-machine-serial-console"></a>Seriële Console van virtuele Machine
 
@@ -217,5 +217,6 @@ A. Toegang tot de seriële console voor schaalsetinstanties virtuele machine wor
 ## <a name="next-steps"></a>Volgende stappen
 * Seriële Console te gebruiken [WORMGATEN opstart en geef de modus voor één gebruiker](serial-console-grub-single-user-mode.md)
 * Gebruik voor de seriële Console [NMI en SysRq aanroepen](serial-console-nmi-sysrq.md)
+* Informatie over het gebruik van de seriële Console [WORMGATEN in verschillende distributies inschakelen](https://blogs.msdn.microsoft.com/linuxonazure/2018/10/23/why-proactively-ensuring-you-have-access-to-grub-and-sysrq-in-your-linux-vm-could-save-you-lots-of-down-time/)
 * Seriële Console van het is ook beschikbaar voor [Windows](../windows/serial-console.md) VM's
 * Meer informatie over [diagnostische gegevens over opstarten](boot-diagnostics.md)

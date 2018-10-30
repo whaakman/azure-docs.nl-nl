@@ -1,21 +1,20 @@
 ---
-title: Een processerver in Azure instellen voor VMware-VM en fysieke server failbacks met Azure Site Recovery | Microsoft Docs
-description: In dit artikel wordt beschreven hoe u een processerver in Azure, naar Azure-VM's naar VMware-failback instellen.
-services: site-recovery
+title: Instellen van een processerver in Azure mislukken tijdens het herstel na noodgevallen van virtuele VMware-machines en fysieke servers met Azure Site Recovery | Microsoft-Docs
+description: Dit artikel wordt beschreven hoe u voor het instellen van een processerver in Azure, failback van Azure naar on-premises tijdens herstel na noodgevallen van virtuele VMware-machines en fysieke servers.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/10/2018
+ms.date: 10/28/2018
 ms.author: raynew
-ms.openlocfilehash: 641f671f23dde0bcc32ad1ef8343a5a84227c67f
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 330f0197b8a7735043e93f00dc4baa5578f50228
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955373"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212230"
 ---
-# <a name="set-up-additional-process-servers-for-scalability"></a>Instellen van extra processervers voor schaalbaarheid
+# <a name="scale-for-failback-with-additional-process-servers"></a>Schaal voor failback met extra processervers
 
 Wanneer u repliceert virtuele VMware-machines of fysieke servers naar Azure met [siteherstel](site-recovery-overview.md), een processerver is geïnstalleerd op de configuratie van server-machine en wordt gebruikt voor de coördinatie van gegevensoverdracht tussen de Site Recovery en uw on-premises infrastructuur. U kunt aanvullende zelfstandige processervers toevoegen om te vergroten capaciteit en scale-out-implementatie van uw replicatie. Dit artikel wordt beschreven hoe u dit doet.
 

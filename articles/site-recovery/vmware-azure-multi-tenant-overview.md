@@ -1,22 +1,20 @@
 ---
-title: Overzicht van ondersteuning voor meerdere tenants voor VMware-VM-replicatie naar Azure (CSP) met behulp van Azure Site Recovery | Microsoft Docs
-description: Biedt een overzicht van Azure Site Recovery-ondersteuning voor de tenant-abonnementen in een omgeving met meerdere tenants, via het CSP-programma.
-services: site-recovery
+title: Overzicht van ondersteuning voor meerdere tenants voor herstel na noodgevallen voor VMware-VM naar Azure (CSP) met behulp van Azure Site Recovery | Microsoft Docs
+description: Biedt een overzicht van Azure Site Recovery-ondersteuning voor noodherstel VMWare naar Azure in een omgeving met meerdere tenants (CSP)-programma.
 author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: mayg
-ms.openlocfilehash: 4cd0c3baf385a864e2173de9bbce897bb5066dae
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 89e731d6c255092b087f0615bad49185c7181f1f
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49352868"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210752"
 ---
-# <a name="overview-of-multi-tenant-support-for-vmware-replication-to-azure-with-csp"></a>Overzicht van ondersteuning voor meerdere tenants voor VMware-replicatie naar Azure met CSP
+# <a name="overview-of-multi-tenant-support-for-vmware-fisaster-recovery-to-azure-with-csp"></a>Overzicht van ondersteuning voor meerdere tenants fisaster voor herstel voor VMware naar Azure met CSP
 
 [Azure Site Recovery](site-recovery-overview.md) biedt ondersteuning voor omgevingen met meerdere tenants voor tenant-abonnementen. Het ondersteunt ook meerdere tenants voor tenant-abonnementen die worden gemaakt en beheerd via het programma Microsoft Cloud Solution Provider (CSP).
 

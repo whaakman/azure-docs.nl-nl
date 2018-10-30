@@ -1,5 +1,6 @@
 ---
-title: Toepassingsdashboard voor LUIS-apps | Microsoft Docs
+title: Toepassingsdashboard voor Language Understanding-apps
+titleSuffix: Azure Cognitive Services
 description: Meer informatie over het dashboard, een gevisualiseerde rapportagetool in te voeren die u kunt uw apps in één oogopslag controleren.
 services: cognitive-services
 author: diberry
@@ -9,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 03/01/2018
 ms.author: diberry
-ms.openlocfilehash: cab07a994f2bdfb7ef8491adbb482c1902e4d4cb
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 6a4e8dbee34402f57d3e697e93d10573aaf10998
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47031982"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212805"
 ---
 # <a name="application-dashboard"></a>Toepassingsdashboard
 Het app-dashboard kunt u uw app in één oogopslag controleren. De **Dashboard** wordt weergegeven wanneer u een app openen door te klikken op de naam van de toepassing op **mijn Apps** pagina selecteert **Dashboard** uit boven in het venster. 

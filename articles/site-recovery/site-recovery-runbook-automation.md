@@ -1,25 +1,18 @@
 ---
-title: Azure Automation-runbooks aan herstelplannen in Azure Site Recovery toevoegen | Microsoft Docs
-description: Meer informatie over hoe Azure Site Recovery kan u helpen plannen voor herstel met behulp van Azure Automation uitbreiden. Leer hoe u complexe taken uit te voeren tijdens het herstel naar Azure.
-services: site-recovery
-documentationcenter: ''
+title: Azure Automation-runbooks aan herstelplannen van Site Recovery toevoegen | Microsoft Docs
+description: Informatie over het uitbreiden van plannen voor herstel met Azure Automation voor herstel na noodgeval met Azure Site Recovery.
 author: ruturaj
 manager: gauravd
-editor: ''
-ms.assetid: ecece14d-5f92-4596-bbaf-5204addb95c2
 ms.service: site-recovery
-ms.devlang: powershell
-ms.tgt_pltfrm: na
-ms.topic: article
-ms.workload: storage-backup-recovery
+ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: ruturajd@microsoft.com
-ms.openlocfilehash: 55160f3c43d8cbfc5f8b3e6aaf26bcb911387c52
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 5da623d07c34114d82c2b818a7c06420ffb9c886
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39578762"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50211108"
 ---
 # <a name="add-azure-automation-runbooks-to-recovery-plans"></a>Azure Automation-runbooks aan herstelplannen toevoegen
 In dit artikel wordt beschreven hoe Azure Site Recovery kan worden geïntegreerd met Azure Automation kunt u uw herstelplannen uitbreiden. Plannen voor herstel kunnen gecoördineerd herstel van virtuele machines die zijn beveiligd met Site Recovery. Plannen voor herstel werkt zowel voor replicatie naar een secundaire cloud, en voor replicatie naar Azure. Plannen voor herstel ook helpen met het herstel **accuraat**, **herhaalbare**, en **geautomatiseerde**. Als u uw virtuele machines naar Azure failover, een uitbreiding voor integratie met Azure Automation uw plannen voor herstel. U kunt deze gebruiken voor het uitvoeren van runbooks, deze bieden een krachtige geautomatiseerde taken.

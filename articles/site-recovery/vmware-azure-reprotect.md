@@ -1,21 +1,20 @@
 ---
-title: Opnieuw beveiligen van virtuele machines van Azure naar een on-premises site | Microsoft Docs
-description: Na een failover van virtuele machines naar Azure, kunt u een failback naar on-premises om virtuele machines starten. Informatie over het opnieuw beveiligen voordat u een failback.
-services: site-recovery
+title: Opnieuw beveiligen van virtuele machines van Azure naar een on-premises site tijdens herstel na noodgevallen van virtuele VMware-machines en fysieke servers | Microsoft Docs
+description: Leer hoe u failback van Azure naar de on-premises site na een failover naar Azure tijdens het herstel na noodgevallen van virtuele VMware-machines en fysieke servers.
 author: rajani-janaki-ram
 manager: gauravd
 ms.service: site-recovery
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: rajanaki
-ms.openlocfilehash: 1b410b2832d856f80d640aab2096fef270156c81
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 3f661ab5ff2a127ba7507a64bb4520cbad740473
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39346676"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50213284"
 ---
-# <a name="reprotect-machines-from-azure-to-an-on-premises-site"></a>Machines van Azure naar een on-premises site opnieuw beveiligen
+# <a name="reprotect-and-fail-back-machines-to-an-on-premises-site-after-failover-to-azure"></a>Opnieuw beveiligen en mislukt de back-machines naar een on-premises site na een failover naar Azure
 
 Na [failover](site-recovery-failover.md) van on-premises VMware-machines of fysieke servers naar Azure, de eerste stap in mislukte terug naar uw on-premises site is de Azure-VM's die zijn gemaakt tijdens de failover opnieuw beveiligen. Dit artikel wordt beschreven hoe u dit doet. 
 

@@ -6,14 +6,14 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/08/2018
+ms.date: 10/26/2018
 ms.author: alinast
-ms.openlocfilehash: 1c2068af510cb3733ce99a6ae7b40487a8c1a015
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: c1d66e0b58567244f8c1406ee258c9311994ff20
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49324085"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215103"
 ---
 # <a name="understanding-digital-twins-object-models-and-spatial-intelligence-graph"></a>Inzicht krijgen in digitale dubbels objectmodellen en ruimtelijke intelligence graph
 
@@ -25,7 +25,7 @@ Met _digitale dubbels objectmodellen_ en _ontologie_ aanwezig is, een kunt vulle
 
 ![Digitale dubbels ruimtelijke grafiek samenstellen][1]
 
-<a id="model" />
+<a id="model"></a>
 
 De ruimtelijke grafiek combineert spaties, apparaten, sensoren en gebruikers. Elk is gekoppeld aan een manier die de echte wereld modellen: 43 venue heeft vier verdiepingen, elk met meerdere verschillende gebieden. Gebruikers zijn gekoppeld aan hun werkstation en toegang krijgen tot gedeelten van de grafiek.  Bijvoorbeeld, hoeft een beheerder rechten wijzigingen aanbrengen aan de ruimtelijke grafiek terwijl de bezoeker mogelijk alleen tot bepaalde gegevens maken.
 
@@ -52,19 +52,19 @@ Er zijn andere categorieën van objecten:
 - **Vergelijkingsprogramma voor** objecten om te welke UDF's bepalen wordt uitgevoerd voor een bepaalde telemetrieberichten zijn.
 - **Eindpunten** zijn de locaties waar berichten over Telemetrie en gebeurtenissen van digitale dubbels kunnen worden gerouteerd, bijvoorbeeld `Event Hub`, `Service Bus`, `Event Grid`.
 
-<a id="graph" />
+<a id="graph"></a>
 
-## <a name="spatial-intelligence-graph"></a>Ruimtelijke intelligence graph
+## <a name="spatial-intelligence-graph"></a>Grafiek voor ruimtelijke intelligentie
 
 **Ruimtelijke graph** is de hiërarchische grafiek van opslagruimten, apparaten en mensen die zijn gedefinieerd in de **digitale dubbels objectmodel**. Biedt ondersteuning voor de ruimtelijke grafiek _overname_, _filteren_, _doorlopen_, _schaalbaarheid_, en _uitbreidbaarheid_ . Gebruikers kunnen beheren en communiceren met hun ruimtelijke graph met een verzameling van REST-API's (Zie hieronder).
 
-De gebruiker die een service digitale Twins in hun abonnement implementeert, wordt de globale beheerder van het hoofdknooppunt automatisch verlenen volledige toegang tot de volledige structuur. Deze gebruiker kan vervolgens inrichten spaties in de grafiek met de `Space` API. Apparaten kunnen worden ingericht met behulp van de `Device` API, sensoren, kunnen worden ingericht met behulp van `Sensor` API, enzovoort. We bieden ook [open source-hulpprogramma's](https://github.com/Azure-Samples/digital-twins-samples-csharp) voor het inrichten van de grafiek in één bulkbewerking.
+De gebruiker die een service digitale Twins in hun abonnement implementeert, wordt de globale beheerder van het hoofdknooppunt automatisch verlenen volledige toegang tot de volledige structuur. Deze gebruiker kan vervolgens inrichten spaties in de graaf met behulp van de ruimte-API. Apparaten kunnen worden ingericht met behulp van de apparaat-API, sensoren kunnen worden ingericht met behulp van de Sensor-API, enzovoort. We bieden ook [open source-hulpprogramma's](https://github.com/Azure-Samples/digital-twins-samples-csharp) voor het inrichten van de grafiek in één bulkbewerking.
 
 Grafiek _overname_ is van toepassing op de machtigingen en de eigenschappen die het resultaat van een bovenliggend knooppunt alle knooppunten eronder. Bijvoorbeeld, wanneer een rol is toegewezen aan een gebruiker op een bepaald knooppunt, heeft de gebruiker van die rol machtigingen voor het knooppunt en elk knooppunt eronder. Bovendien wordt elke sleutel en het uitgebreide type gedefinieerd voor een bepaald knooppunt worden overgenomen door alle knooppunten onder dat knooppunt.
 
-Grafiek _filteren_ kunnen gebruikers resultaten van de aanvraag-id's, naam, typen, subtypen, bovenliggende ruimte, bijbehorende opslagruimten, sensor-gegevenstypen, sleutels en waarden, bladeren, minLevel, maxLevel en andere OData-filter verfijnen de parameters.
+Grafiek _filteren_ kunnen gebruikers Beperk aanvraag resultaten op basis van id's, naam, typen, subtypen, bovenliggende ruimte, bijbehorende opslagruimten, sensor-gegevenstypen, sleutels en waarden, *passeren*,  *minLevel*, *maxLevel*, en andere parameters OData-filter.
 
-Grafiek _doorlopen_ kunnen gebruikers de ruimtelijke graph via de diepgang en uitgebreidheid navigeren. Voor diepte, kan de grafiek worden doorlopen boven naar beneden of beneden met parameters voor de navigatie `traverse`, `minLevel`, `maxLevel`. Voor brede, kan de grafiek om op te halen van knooppunten op hetzelfde niveau die rechtstreeks zijn gekoppeld aan een bovenliggende ruimte of een van de afgeleiden ervan wordt genavigeerd. Bij het opvragen van een object, kan u alle gerelateerde objecten die relaties hebben met dat object door de `includes` parameter van de ophalen-API's.
+Grafiek _doorlopen_ kunnen gebruikers de ruimtelijke graph via de diepgang en uitgebreidheid navigeren. Voor diepte, kan de grafiek worden doorlopen boven naar beneden of beneden met parameters voor de navigatie *passeren*, *minLevel*, *maxLevel*. Voor brede, kan de grafiek om op te halen van knooppunten op hetzelfde niveau die rechtstreeks zijn gekoppeld aan een bovenliggende ruimte of een van de afgeleiden ervan wordt genavigeerd. Bij het opvragen van een object, kan u alle gerelateerde objecten die relaties hebben met dat object door de *bevat* parameter van de ophalen-API's.
 
 Azure van digitale dubbels garandeert graph _schaalbaarheid_, zodat uw echte workloads kunnen worden verwerkt. Digitale dubbels kunnen worden gebruikt voor grote portfolio van onroerend goed, infrastructuur, apparaten, sensoren, Telemetrie en meer.
 
@@ -80,8 +80,8 @@ https://yourInstanceName.yourLocation.azuresmartspaces.net/management/swagger
 
 | Naam van aangepast kenmerk | Vervangen |
 | --- | --- |
-| `yourInstanceName` | De naam van uw Azure digitale Twins-exemplaar |
-| `yourLocation` | Welke regio u uw exemplaar wordt gehost op server |
+| *NaamExemplaar* | De naam van uw Azure digitale Twins-exemplaar |
+| *yourLocation* | Welke regio u uw exemplaar wordt gehost op server |
 
  De volledige URL-indeling kan worden weergegeven in onderstaande afbeelding wordt gebruikt:
 

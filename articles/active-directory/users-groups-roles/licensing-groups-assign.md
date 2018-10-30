@@ -11,15 +11,15 @@ ms.service: active-directory
 ms.topic: article
 ms.workload: identity
 ms.component: users-groups-roles
-ms.date: 06/05/2017
+ms.date: 10/29/2018
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7a235851d7172d32d62c64b163e0b7635a1a47fd
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: e08ca3453cc43fa0f35102ca5563b4b07ce45dea
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37861870"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215001"
 ---
 # <a name="assign-licenses-to-users-by-group-membership-in-azure-active-directory"></a>Licenties toewijzen aan gebruikers door groepslidmaatschappen in Azure Active Directory
 
@@ -28,7 +28,7 @@ Dit artikel helpt u bij het toewijzen van productlicenties aan een groep gebruik
 In dit voorbeeld bevat de tenant een beveiligingsgroep met de naam **HR-afdeling**. Deze groep bevat alle leden van de afdeling human resources (ongeveer 1000 gebruikers). U Office 365 Enterprise E3-licenties toewijzen aan de gehele afdeling. De Enterprise Yammer-service die opgenomen in het product moet tijdelijk worden uitgeschakeld totdat de afdeling gereed is om deze te gebruiken. U ook wilt implementeren van Enterprise Mobility + Security-licenties in dezelfde groep gebruikers.
 
 > [!NOTE]
-> Sommige Microsoft-services zijn niet beschikbaar op alle locaties. Voordat een licentie kan worden toegewezen aan een gebruiker, wordt de beheerder heeft om op te geven van de locatie-eigenschap van het gebruik van de gebruiker.
+> Sommige services van Microsoft zijn niet op alle locaties beschikbaar. Voordat een licentie kan worden toegewezen aan een gebruiker, wordt de beheerder heeft om op te geven van de locatie-eigenschap van het gebruik van de gebruiker.
 
 > Alle gebruikers geen gebruikslocatie opgegeven overnemen voor licentietoewijzing groep, de locatie van de map. Als u gebruikers op meerdere locaties hebt, raden wij aan dat u altijd gebruikslocatie als onderdeel van de gebruikersstroom maken in Azure AD (bijvoorbeeld via AAD Connect-configuratie) - die ervoor zorgt het resultaat van licentietoewijzing dat altijd juist is en gebruikers geen ontvangen Services op locaties die niet zijn toegestaan.
 
@@ -52,7 +52,7 @@ In dit voorbeeld bevat de tenant een beveiligingsgroep met de naam **HR-afdeling
 
    ![Toewijzingsopties](./media/licensing-groups-assign/assignment-options.png)
 
-7. Voltooid de toewijzing voor de **licentie toewijzen** deelvenster, klikt u op **toewijzen** aan de onderkant van het deelvenster.
+7. Voltooi de toewijzing door onder aan het deelvenster **Licentie toewijzen** op **Toewijzen** te klikken.
 
 8. Een melding wordt weergegeven in de rechterbovenhoek waarin de status en het resultaat van het proces. Als de toewijzing aan de groep kan niet worden voltooid (bijvoorbeeld vanwege bestaande licenties in de groep), klikt u op de melding om details van de fout te bekijken.
 
@@ -104,6 +104,8 @@ We hebben hebt een licentiesjabloon voor de groep HR-afdeling nu opgegeven. Een 
 Zie voor meer informatie over de functieset voor Licentiebeheer via groepen, de volgende artikelen:
 
 * [Wat is licentieverlening in Azure Active Directory op basis van groep?](../fundamentals/active-directory-licensing-whatis-azure-portal.md)
-* [Identificeren en oplossen van problemen voor een groep in Azure Active Directory](licensing-groups-resolve-problems.md)
-* [Hoe gebruikers met een afzonderlijke licentie migreren naar het Groepslicenties in Azure Active Directory](licensing-groups-migrate-users.md)
-* [Azure Active Directory-groep op basis van aanvullende scenario's-licentieverlening](../active-directory-licensing-group-advanced.md)
+* [Licentieproblemen voor een groep vaststellen en oplossen in Azure Active Directory](licensing-groups-resolve-problems.md)
+* [Gebruikers met een afzonderlijke licentie migreren naar licenties op basis van groepen in Azure Active Directory](licensing-groups-migrate-users.md)
+* [Het migreren van gebruikers tussen productlicenties groepsgebaseerde licentieverlening in Azure Active Directory gebruiken](licensing-groups-change-licenses.md)
+* [Aanvullende scenario’s voor Azure Active Directory-licenties op basis van groepen](../active-directory-licensing-group-advanced.md)
+* [PowerShell-voorbeelden voor Groepslicenties in Azure Active Directory](licensing-ps-examples.md)

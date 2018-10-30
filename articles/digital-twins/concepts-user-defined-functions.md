@@ -6,16 +6,16 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/08/2018
+ms.date: 10/26/2018
 ms.author: alinast
-ms.openlocfilehash: b7561848ffd0158e22e97530774112dcee2a9864
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: a45f82b142ee4f4c9c88ea755607b88323feaae5
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49324078"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210122"
 ---
-# <a name="data-processing-and-user-defined-functions"></a>Gegevens verwerken en de gebruiker gedefinieerde functies
+# <a name="data-processing-and-user-defined-functions"></a>Gegevensverwerking en door gebruikers gedefinieerde functies
 
 Azure van digitale dubbels biedt geavanceerde Reken-mogelijkheden. Ontwikkelaars kunnen definiëren en aangepaste functies uitvoeren in binnenkomende berichten over telemetrie te verzenden van gebeurtenissen naar vooraf gedefinieerde eindpunten.
 
@@ -25,7 +25,7 @@ Zodra apparaten telemetriegegevens naar digitale Twins verzenden, ontwikkelaars 
 
 ![Digitale dubbels gegevensverwerking stroom][1]
 
-1. De _valideren_ fase transformeert het binnenkomende telemetrie-bericht naar een algemeen begrepen [ `data transfer object` ](https://en.wikipedia.org/wiki/Data_transfer_object) indeling. Deze fase voert ook validatie van het apparaat en de sensor.
+1. De _valideren_ fase transformeert het binnenkomende telemetrie-bericht naar een algemeen begrepen [ **data transfer object** ](https://en.wikipedia.org/wiki/Data_transfer_object) indeling. Deze fase voert ook validatie van het apparaat en de sensor.
 1. De _overeenkomen met_ fase vindt de juiste door de gebruiker gedefinieerde functie (s) om uit te voeren. Vooraf gedefinieerde vergelijkingsprogramma voor vindt dat de door de gebruiker gedefinieerde functie (s) op basis van het apparaat, sensor en ruimte gegevens uit de binnenkomende telemetrie-bericht.
 1. De _compute_ fase wordt uitgevoerd voor de door de gebruiker gedefinieerde functie (s) in de vorige fase overeenkomen. Deze functie (s) kunnen lezen en bijwerken van berekende waarden op ruimtelijke graph-knooppunten en kunt aangepaste meldingen verzenden.
 1. De _verzending_ fase routes aangepaste meldingen van de compute-fase naar eindpunten zijn gedefinieerd in de grafiek.
@@ -40,11 +40,11 @@ Gegevens worden verwerkt in digitale dubbels Azure bestaat uit drie objecten te 
 
 _Vergelijkingsprogramma voor_ definiëren van een set voorwaarden die evalueren welke acties uitgevoerd op basis van binnenkomende telemetriegegevens van de sensor. Deze voorwaarden om te bepalen van de overeenkomst kunnen eigenschappen van de sensor, van de sensor bovenliggende apparaat en van de sensor bovenliggende ruimte bevatten. De voorwaarden worden uitgedrukt als vergelijkingen op basis van een [JSON-pad](http://jsonpath.com/) zoals wordt beschreven in het voorbeeld hieronder:
 
-- Alle sensoren van gegevenstype `Temperature`.
+- Alle sensoren van gegevenstype **temperatuur**.
 - Met `01` in hun poort.
-- Die deel uitmaken van apparaten met de sleutel van de uitgebreide eigenschap `Manufacturer` ingesteld op de waarde `GoodCorp`.
-- Die deel uitmaken van opslagruimten van het type `Venue`.
-- Welke descendanten van bovenliggende zijn `SpaceId` `DE8F06CA-1138-4AD7-89F4-F782CC6F69FD`.
+- Die deel uitmaken van apparaten met de sleutel van de uitgebreide eigenschap **fabrikant** ingesteld op de waarde `"GoodCorp"`.
+- Die deel uitmaken van opslagruimten van het type `"Venue"`.
+- Welke descendanten van bovenliggende zijn **SpaceId** `DE8F06CA-1138-4AD7-89F4-F782CC6F69FD`.
 
 ```JSON
 {

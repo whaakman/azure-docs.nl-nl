@@ -1,6 +1,6 @@
 ---
-title: Failback in Azure Site Recovery | Microsoft Docs
-description: Dit artikel bevat een overzicht van verschillende typen failback en de beperkingen worden overwogen terwijl er een failover naar on-premises met de Azure Site Recovery-service.
+title: Failback tijdens herstel na noodgeval met Azure Site Recovery | Microsoft Docs
+description: Dit artikel bevat een overzicht van verschillende typen failback en de beperkingen worden overwogen terwijl er een failover naar on-premises tijdens herstel na noodgeval met de Azure Site Recovery-service.
 services: site-recovery
 author: rajani-janaki-ram
 manager: guaravd
@@ -8,16 +8,16 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: rajanki
-ms.openlocfilehash: 2a9ee380fc16c4088d98875dd465509c4023d037
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: e97d736e7e117e0ccce6dc021a9de2ea15ac5484
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37920386"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210139"
 ---
 # <a name="overview-of-failback"></a>Overzicht van failback
 
-Nadat u hebt een failover naar Azure, kunt u een failback naar uw on-premises site. Er zijn twee verschillende typen failback die mogelijk met Azure Site Recovery zijn: 
+Nadat u hebt failover naar Azure als onderdeel van het herstelproces na noodgevallen, kunt u een failback naar uw on-premises site. Er zijn twee verschillende typen failback die mogelijk met Azure Site Recovery zijn: 
 
 - Failback naar de oorspronkelijke locatie 
 - Een failback uitvoeren naar een alternatieve locatie

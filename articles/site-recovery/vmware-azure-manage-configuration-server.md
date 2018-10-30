@@ -1,18 +1,18 @@
 ---
-title: De configuratieserver voor VMware-noodherstel met Azure Site Recovery beheren | Microsoft Docs
-description: In dit artikel wordt beschreven hoe u een bestaande configuratieserver voor VMware naar Azure met Azure Site RecoveryS een noodgeval beheren.
+title: De configuratieserver voor VMware en fysieke server-noodherstel met Azure Site Recovery beheren | Microsoft Docs
+description: In dit artikel wordt beschreven hoe u een bestaande configuratieserver voor herstel na noodgevallen van virtuele VMware-machines en fysieke servers naar Azure met Azure Site RecoveryS beheren.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 10/15/2018
+ms.topic: conceptual
+ms.date: 10/29/2018
 ms.author: raynew
-ms.openlocfilehash: bb756a89babef96b16419104737e87405b3527ab
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 4ac3871893e7e8161dc087f285eb3d802cd4a355
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49407398"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215137"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vms"></a>De configuratieserver voor VMware-VM's beheren
 

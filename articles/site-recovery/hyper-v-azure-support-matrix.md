@@ -1,21 +1,21 @@
 ---
-title: Ondersteuningsmatrix voor Hyper-V-replicatie naar Azure | Microsoft Docs
-description: Geeft een overzicht van de ondersteunde onderdelen en de vereisten voor Hyper-V-replicatie naar Azure met Azure Site Recovery
+title: Ondersteuningsmatrix voor herstel na noodgevallen van on-premises Hyper-V-machines naar Azure | Microsoft Docs
+description: Geeft een overzicht van de ondersteunde onderdelen en de vereisten voor noodherstel van Hyper-V-VM naar Azure met Azure Site Recovery
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/10/2018
+ms.date: 10/28/2018
 ms.author: raynew
-ms.openlocfilehash: 83d2fabbe3a1b0ab44cb97e53baf0aa40349aeed
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: e389f37448211afc35fb98572161be4fcaea7556
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49079205"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210717"
 ---
-# <a name="support-matrix-for-hyper-v-replication-to-azure"></a>Ondersteuningsmatrix voor Hyper-V-replicatie naar Azure
+# <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Ondersteuningsmatrix voor herstel na noodgevallen van on-premises Hyper-V-machines naar Azure
 
 
 In dit artikel bevat een overzicht van de ondersteunde onderdelen en -instellingen voor herstel na noodgevallen van on-premises Hyper-V-machines naar Azure met behulp van [Azure Site Recovery](site-recovery-overview.md).

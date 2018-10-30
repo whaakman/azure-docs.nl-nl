@@ -1,19 +1,19 @@
 ---
-title: Failback van Azure naar VMware met Azure Site Recovery | Microsoft Docs
-description: Na een failover van virtuele machines naar Azure, kunt u een failback naar on-premises om virtuele machines starten. Meer informatie over de stappen voor het uitvoeren van een failback.
+title: Failback van Azure tijdens het herstel na noodgevallen van virtuele VMware-machines naar Azure met Azure Site Recovery | Microsoft Docs
+description: Leer hoe u een failback uitvoeren naar de on-premises site na een failover naar Azure, tijdens het herstel na noodgevallen van virtuele VMware-machines en fysieke servers naar Azure.
 author: nsoneji
 ms.service: site-recovery
 ms.date: 10/11/2018
 ms.topic: conceptual
 ms.author: nisoneji
-ms.openlocfilehash: 841e036555723051dfeaf946f31eaf9eedaee798
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: becf0b8c9f14d81b0a25fb1727b69452c3ff690c
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093507"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215171"
 ---
-# <a name="fail-back-from-azure-to-an-on-premises-site"></a>Failback van Azure naar een on-premises site
+# <a name="fail-back-vmware-vms-and-physical-servers-from-azure-to-an-on-premises-site"></a>Failback virtuele VMware-machines en fysieke servers van Azure naar een on-premises site
 
 Dit artikel wordt beschreven hoe u een failover back virtuele machines van Azure Virtual Machines naar een on-premises VMware-omgeving. Volg de instructies in dit artikel mislukken back-uw VMware-machines of Windows/Linux fysieke servers nadat ze hebben een failover van de on-premises site naar Azure met behulp van de [Failover in Azure Site Recovery](site-recovery-failover.md) zelfstudie.
 

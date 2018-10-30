@@ -11,15 +11,15 @@ ms.service: active-directory
 ms.component: users-groups-roles
 ms.topic: article
 ms.workload: identity
-ms.date: 06/05/2017
+ms.date: 10/29/2018
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5d64cf71ea3a44b7539835e3616150218e8b3635
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: ee441a8c9a0d8a70a2797f090a143189cdb6872a
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37861702"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50211533"
 ---
 # <a name="identify-and-resolve-license-assignment-problems-for-a-group-in-azure-active-directory"></a>Identificeren en oplossen van problemen toewijzing voor een groep in Azure Active Directory
 
@@ -65,7 +65,7 @@ Als u wilt zien welke gebruikers en groepen licenties worden verbruikt, moet u e
 
 **Probleem:** een van de producten die is opgegeven in de groep bevat een service-plan die strijdig is met een andere service-plan al aan de gebruiker via een ander product toegewezen is. Sommige service-abonnementen zijn geconfigureerd op een manier dat ze niet worden toegewezen aan dezelfde gebruiker als een andere, gerelateerde service-plan.
 
-Bekijk het volgende voorbeeld. Een gebruiker heeft een licentie voor Office 365 Enterprise *E1* toegewezen rechtstreeks met de abonnementen die zijn ingeschakeld. De gebruiker is toegevoegd aan een groep met de Office 365 Enterprise *E3* toegewezen aan het product. Het product E3 bevat service-plannen die elkaar niet overlappen met de abonnementen die zijn opgenomen in E1, zodat de groep licentietoewijzing is mislukt met de fout 'Conflicterende serviceabonnementen'. In dit voorbeeld zijn de conflicterende serviceabonnementen:
+Overweeg het volgende scenariovoorbeeld. Een gebruiker heeft een licentie voor Office 365 Enterprise *E1* toegewezen rechtstreeks met de abonnementen die zijn ingeschakeld. De gebruiker is toegevoegd aan een groep met de Office 365 Enterprise *E3* toegewezen aan het product. Het product E3 bevat service-plannen die elkaar niet overlappen met de abonnementen die zijn opgenomen in E1, zodat de groep licentietoewijzing is mislukt met de fout 'Conflicterende serviceabonnementen'. In dit voorbeeld zijn de conflicterende serviceabonnementen:
 
 -   SharePoint Online (abonnement 2) veroorzaakt een conflict met SharePoint Online (abonnement 1).
 -   Exchange Online (abonnement 2) veroorzaakt een conflict met Exchange Online (abonnement 1).
@@ -96,6 +96,19 @@ U lost dit probleem, gebruikers van de ondersteunde locaties van de gelicentieer
 
 > [!NOTE]
 > Wanneer Azure AD wordt toegewezen Groepslicenties, nemen alle gebruikers geen opgegeven gebruikslocatie de locatie van de map. U wordt aangeraden dat beheerders het juiste gebruik locatie waarden instellen voor gebruikers voordat u Groepslicenties om te voldoen aan de lokale wetten en voorschriften.
+
+## <a name="duplicate-proxy-addresses"></a>Dubbele proxyadressen
+
+Als u Exchange Online gebruikt, kunnen sommige gebruikers in uw tenant niet correct worden geconfigureerd met dezelfde waarde voor de proxy-adres. Wanneer Groepslicenties probeert een licentie toewijzen aan een gebruiker, mislukt en ziet u 'Proxy-adres is al in gebruik'.
+
+> [!TIP]
+> Om te zien of er een dubbele proxy-adres, voert u de volgende PowerShell-cmdlet voor Exchange Online:
+```
+Run Get-Recipient | where {$_.EmailAddresses -match "user@contoso.onmicrosoft.com"} | fL Name, RecipientType,emailaddresses
+```
+> Zie voor meer informatie over dit probleem [foutbericht 'Proxy-adres is al in gebruik' in Exchange Online](https://support.microsoft.com/help/3042584/-proxy-address-address-is-already-being-used-error-message-in-exchange-online). Het artikel bevat ook informatie over [verbinding maken met Exchange Online met behulp van externe PowerShell](https://technet.microsoft.com/library/jj984289.aspx). In dit artikel voor meer informatie Zie [op hoe het kenmerk proxyAddresses wordt gevuld in Azure AD](https://support.microsoft.com/help/3190357/how-the-proxyaddresses-attribute-is-populated-in-azure-ad).
+
+Nadat u eventuele problemen proxy-adres voor de betrokken gebruikers oplossen, zorg er dan voor dat forceren licentie-verwerking op de groep om ervoor te zorgen dat de licenties die nu kunnen worden toegepast.
 
 ## <a name="what-happens-when-theres-more-than-one-product-license-on-a-group"></a>Wat gebeurt er wanneer er meer dan één productlicentie op een groep?
 
@@ -134,19 +147,7 @@ Van nu af aan alle gebruikers die zijn toegevoegd aan deze groep een licentie va
 > [!TIP]
 > U kunt meerdere groepen voor elke vereiste service-plan maken. Als u Office 365 Enterprise E1 en Office 365 Enterprise E3 voor uw gebruikers gebruiken, kunt u bijvoorbeeld twee groepen aan licentie Microsoft Workplace Analytics maken: een E1 gebruikt als een vereiste en de andere die gebruikmaakt van E3. Hiermee kunt u de invoegtoepassing E1 en E3 gebruikers distribueren zonder aanvullende licenties verbruikt.
 
-## <a name="license-assignment-fails-silently-for-a-user-due-to-duplicate-proxy-addresses-in-exchange-online"></a>Licentietoewijzing is mislukt op de achtergrond voor een gebruiker vanwege dubbele proxyadressen in Exchange Online
 
-Als u Exchange Online gebruikt, kunnen sommige gebruikers in uw tenant niet correct worden geconfigureerd met dezelfde waarde voor de proxy-adres. Wanneer een licentie toewijzen aan een gebruiker Groepslicenties probeert, mislukt en niet opgenomen in een fout. De fout om vast te leggen van de fout in dit geval is een beperking in de preview-versie van deze functie en gaan we daar voordat *algemene beschikbaarheid*.
-
-> [!TIP]
-> Als u merkt dat sommige gebruikers geen een licentie hebt ontvangen en er geen fout vastgelegd voor gebruikers is, moet u eerst controleren als er een dubbele proxy-adres.
-> Om te zien of er een dubbele proxy-adres, voert u de volgende PowerShell-cmdlet voor Exchange Online:
-```
-Run Get-Recipient | where {$_.EmailAddresses -match "user@contoso.onmicrosoft.com"} | fL Name, RecipientType,emailaddresses
-```
-> Zie voor meer informatie over dit probleem [foutbericht 'Proxy-adres is al in gebruik' in Exchange Online](https://support.microsoft.com/help/3042584/-proxy-address-address-is-already-being-used-error-message-in-exchange-online). Het artikel bevat ook informatie over [verbinding maken met Exchange Online met behulp van externe PowerShell](https://technet.microsoft.com/library/jj984289.aspx).
-
-Nadat u eventuele problemen proxy-adres voor de betrokken gebruikers oplossen, zorg er dan voor dat forceren licentie-verwerking op de groep om ervoor te zorgen dat de licenties die nu kunnen worden toegepast.
 
 ## <a name="how-do-you-force-license-processing-in-a-group-to-resolve-errors"></a>Hoe Dwing u licentie-verwerking van een groep oplossen?
 
@@ -154,11 +155,19 @@ Afhankelijk van welke stappen u om op te lossen de fouten hebt gemaakt, kan het 
 
 Bijvoorbeeld, als u licenties vrij door het verwijderen van rechtstreekse licentietoewijzingen van gebruikers, moet u voor het activeren van de verwerking van groepen die eerder is mislukt voor een volledige licentie op alle gebruikersleden van de. Als u wilt opnieuw met het verwerken van een groep, gaat u naar het deelvenster groep open **licenties**, en selecteer vervolgens de **opnieuw verwerken** op de werkbalk.
 
+## <a name="how-do-you-force-license-processing-on-a-user-to-resolve-errors"></a>Hoe Dwing u licentie-verwerking van een gebruiker op te lossen fouten?
+
+Afhankelijk van welke stappen u om op te lossen de fouten hebt gemaakt, kan het nodig zijn voor het handmatig activeren van de verwerking van een gebruiker aan het bijwerken van de status van de gebruikers.
+
+Bijvoorbeeld, als u dubbele proxy-adres probleem voor een betrokken gebruiker hebt opgelost, moet u voor het activeren van de verwerking van de gebruiker. Als u wilt opnieuw verwerken van een gebruiker, gaat u naar de gebruiker-deelvenster, open **licenties**, en selecteer vervolgens de **opnieuw verwerken** op de werkbalk.
+
 ## <a name="next-steps"></a>Volgende stappen
 
 Zie de volgende onderwerpen voor meer informatie over andere scenario's voor Licentiebeheer via groepen:
 
-* [Licenties toewijzen aan een groep in Azure Active Directory](licensing-groups-assign.md)
 * [Wat is licentieverlening in Azure Active Directory op basis van groep?](../fundamentals/active-directory-licensing-whatis-azure-portal.md)
-* [Hoe gebruikers met een afzonderlijke licentie migreren naar het Groepslicenties in Azure Active Directory](licensing-groups-migrate-users.md)
-* [Azure Active Directory-groep op basis van aanvullende scenario's-licentieverlening](licensing-group-advanced.md)
+* [Licenties toewijzen aan een groep in Azure Active Directory](licensing-groups-assign.md)
+* [Gebruikers met een afzonderlijke licentie migreren naar licenties op basis van groepen in Azure Active Directory](licensing-groups-migrate-users.md)
+* [Het migreren van gebruikers tussen productlicenties groepsgebaseerde licentieverlening in Azure Active Directory gebruiken](licensing-groups-change-licenses.md)
+* [Aanvullende scenario’s voor Azure Active Directory-licenties op basis van groepen](licensing-group-advanced.md)
+* [PowerShell-voorbeelden voor Groepslicenties in Azure Active Directory](licensing-ps-examples.md)

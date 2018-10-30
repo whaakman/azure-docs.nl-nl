@@ -9,12 +9,12 @@ ms.author: haining
 author: hning86
 ms.reviewer: larryfr
 ms.date: 10/24/2018
-ms.openlocfilehash: b00f72c987b6ce8c44796bd036af670ec39fa7a6
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 95f74b23b9d0c89966347f066041b23f64f3b82c
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50093629"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210683"
 ---
 # <a name="how-the-azure-machine-learning-service-works-architecture-and-concepts"></a>De werking van de service Azure Machine Learning: architectuur en concepten
 
@@ -143,7 +143,7 @@ Een uitvoering is een record met de volgende informatie:
 
 * Metagegevens over de uitvoering (tijdstempel, duur, enz.)
 * Metrische gegevens die zijn vastgelegd door het script
-* Uitvoerbestanden automatisch verzameld door het experiment of expliciet door u worden geüpload.
+* Uitvoer autocollected bestanden door het experiment of expliciet door u worden geüpload.
 * Een momentopname van de map waarin uw scripts, voordat de uitvoering
 
 Een uitvoering wordt gemaakt wanneer u een script voor een model te trainen verzendt. Een uitvoering kan nul of meer onderliggende uitvoeringen hebben. Zodat het op het hoogste niveau uitvoeren mogelijk twee onderliggende-wordt uitgevoerd, die mogelijk is hun eigen onderliggende wordt uitgevoerd.
@@ -156,23 +156,28 @@ Een experiment is een groepering van veel worden uitgevoerd op een bepaald scrip
 
 Zie voor een voorbeeld van het gebruik van een experiment, het [Snelstartgids: aan de slag met Azure Machine Learning-service](quickstart-get-started.md) document.
 
-
 ## <a name="pipelines"></a>Pijplijnen
 
-Pijplijnen worden gebruikt voor het maken en beheren van de werkstromen die fasen geniet samen machine learning (ML), zoals gegevens voor te bereiden, modeltraining modelimplementatie en inferentietaken. Elke fase kan meerdere stappen, die kan worden uitgevoerd zonder toezicht in diverse compute-doelen omvatten.
+Pijplijnen worden gebruikt voor het maken en beheren van werkstromen die samen te voegen machine learning-fasen. Een pijplijn kan bijvoorbeeld gegevens voor te bereiden, modeltraining modelimplementatie en inferentietaken fasen. Elke fase kan meerdere stappen, die kan worden uitgevoerd zonder toezicht in diverse compute-doelen omvatten.
 
 Zie het artikel voor meer informatie over machine learning-pijplijnen met deze service [pijplijnen en Azure Machine Learning](concept-ml-pipelines.md).
 
 ## <a name="compute-target"></a>COMPUTE-doel
 
-Een compute-doel is de compute-resource die is gebruikt om uw trainingsscript uitgevoerd of host voor de implementatie van uw web-service. De ondersteunde compute-doelen zijn: 
+Een compute-doel is de compute-resource die is gebruikt voor het uitvoeren van uw trainingsscript of host voor uw service-implementatie. De ondersteunde compute-doelen zijn: 
 
-* Uw lokale computer
-* Een virtuele Linux-machine in Azure (zoals de Data Science Virtual Machine)
-* Azure Batch AI-Cluster
-* Apache Spark voor HDInsight
-* Azure Container Instance
-* Azure Kubernetes Service
+| COMPUTE-doel | Training | Implementatie |
+| ---- |:----:|:----:|
+| Uw lokale computer | ✓ | &nbsp; |
+| Een virtuele Linux-machine in Azure</br>(zoals de Data Science Virtual Machine) | ✓ | &nbsp; |
+| Azure Batch AI-Cluster | ✓ | &nbsp; |
+| Azure Databricks | ✓ | &nbsp; | &nbsp; |
+| Azure Data Lake Analytics | ✓ | &nbsp; |
+| Apache Spark voor HDInsight | ✓ | &nbsp; |
+| Azure Container Instance | ✓ | ✓ |
+| Azure Kubernetes Service | &nbsp; | ✓ |
+| Azure IoT Edge | &nbsp; | ✓ |
+| Project Brainwave</br>(Field-programmable gate array) | &nbsp; | ✓ |
 
 COMPUTE-doelen zijn gekoppeld aan een werkruimte. COMPUTE-doelen dan de lokale computer worden gedeeld door gebruikers van de werkruimte.
 
@@ -194,7 +199,7 @@ Bijvoorbeeld configuraties worden uitgevoerd, Zie de [selecteren en gebruiken va
 
 Als u wilt een model te trainen, moet u de map waarin het trainingsscript en de bijbehorende bestanden opgeven. U geeft ook de naam van een experiment, die wordt gebruikt voor het opslaan van informatie die verzameld tijdens de training. Tijdens de training, de gehele map is gekopieerd naar de omgeving instrueren (compute-doel) en het script dat is opgegeven door de configuratie van de uitvoering is gestart. Een momentopname van de map worden ook opgeslagen onder het experiment in de werkruimte.
 
-Zie voor een voorbeeld van een model te trainen met behulp van scripts, [een werkruimte maken met Python](quickstart-get-started.md)
+Zie voor een voorbeeld [een werkruimte maken met Python](quickstart-get-started.md)
 
 ## <a name="logging"></a>Logboekregistratie
 

@@ -8,12 +8,12 @@ ms.service: data-explorer
 services: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 59a6a94e2906413423a4ae03a7c1c115b2ec0cc0
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: bd3be916587ab884ea5579234a6189af54b53797
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47047418"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50209204"
 ---
 # <a name="manage-cluster-scaling-to-accommodate-changing-demand"></a>Beheren met het cluster schalen om te voldoen aan veranderende vraag
 
@@ -63,4 +63,4 @@ De volgende afbeelding ziet u de stroom van de volgende stappen. We bieden hiero
 
 U hebt nu een scale-out-bewerking voor uw Azure Data Explorer cluster geconfigureerd. Een andere regel voor een bewerking schaal toevoegen. Hierdoor kunnen uw cluster schalen dynamisch op basis van metrische gegevens over Resourcegebruik die u opgeeft.
 
-Als u hulp nodig met het cluster schalen problemen hebt, opent u een ondersteuningsaanvraag in de [Azure-portal](https://portal.azure.com).
+Als u hulp nodig met het cluster schalen problemen hebt, opent u een ondersteuningsaanvraag in de [Azure-portal](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).

@@ -1,3 +1,16 @@
+---
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: cynthn
+ms.openlocfilehash: 5490bdd3934b438a683ce4271fbec20b3d13735d
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50227084"
+---
 Als op uw virtuele machine (VM) in Azure een opstart- of schijffout optreedt, moet u mogelijk de stappen voor probleemoplossing uitvoeren op de virtuele harde schijf zelf. Een veelvoorkomend voorbeeld is een mislukte toepassingsupdate die verhindert dat de virtuele machine opstart. In dit artikel wordt beschreven hoe u Azure Portal gebruikt om verbinding maken met de virtuele harde schijf van een andere virtuele machine om eventuele fouten te corrigeren en de oorspronkelijke virtuele machine opnieuw te maken.
 
 
@@ -57,6 +70,6 @@ Wanneer de fouten zijn opgelost koppelt u de bestaande virtuele harde schijf los
 Gebruik voor het maken van een virtuele machine van de oorspronkelijke virtuele harde schijf [Azure-portal](https://portal.azure.com).
 
 1. Meld u aan bij de [Azure-portal](https://portal.azure.com).
-2. Links boven aan de portal, selecteer **maken van een resource** > **Compute** > **virtuele Machine** > **uit Galerie**.
+2. Links boven aan de portal, selecteer **een resource maken** > **Compute** > **virtuele Machine** > **uit Galerie**.
 3. Selecteer in de sectie **Een afbeelding kiezen** de optie **Mijn schijven**, en selecteer vervolgens de oorspronkelijke virtuele harde schijf. Controleer de locatie-informatie. Dit is de regio waar de virtuele machine moet worden geïmplementeerd. Selecteer de knop Volgende.
 4. Typ in de sectie **Configuratie van de virtuele machine** de naam van de virtuele machine en selecteer een grootte voor de virtuele machine.

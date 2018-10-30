@@ -1,32 +1,47 @@
 ---
-title: QnA bot met Azure Bot Service - QnA Maker
+title: 'Zelfstudie: QnA bot met Azure Bot Service - QnA Maker'
 titleSuffix: Azure Cognitive Services
 description: In deze zelfstudie helpt u bij het bouwen van een QnA bot met Azure Bot service v3 in Azure portal.
 services: cognitive-services
 author: tulasim88
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: qna-maker
+ms.component: qna-maker`
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 10/25/2018
 ms.author: tulasim
-ms.openlocfilehash: 30400b04ec08d936242b022f10cf1485e009e6d2
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 19c56cf05e307deca52808b0eeba65b8949ffc0b
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49647320"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212730"
 ---
-# <a name="create-a-qna-bot-with-azure-bot-service-v3"></a>Een QnA Bot maken met Azure Bot Service v3
-In deze zelfstudie helpt u bij het bouwen van een QnA bot met Azure Bot service v3 in Azure portal.
+# <a name="tutorial-create-a-qna-bot-with-azure-bot-service-v3"></a>Zelfstudie: Een QnA Bot maken met Azure Bot Service v3
 
-## <a name="prerequisite"></a>Vereiste
-Voordat u bouwt, volg de stappen in [maken van een kennisdatabase](../How-To/create-knowledge-base.md) een QnA Maker-service maken met vragen en antwoorden.
+In deze zelfstudie begeleidt u bij het bouwen van een QnA bot met Azure Bot service v3 in de [Azure-portal](https://portal.azure.com) zonder een code te schrijven. Een gepubliceerde knowledge base (KB) verbinding te maken met een bot is net zo eenvoudig als bot toepassingsinstellingen wijzigen. 
 
-De bot reageert op vragen van de knowledge base die u hebt gemaakt, via de QnAMakerDialog.
+> [!Note] 
+> In dit onderwerp is van versie 3 van de SDK-Bot. U vindt versie 4 [hier](https://docs.microsoft.com/azure/bot-service/bot-builder-howto-qna?view=azure-bot-service-4.0&tabs=cs). 
+
+**In deze zelfstudie leert u het volgende:**
+
+<!-- green checkmark -->
+> [!div class="checklist"]
+> * Een Azure Bot Service maken met de QnA Maker-sjabloon
+> * Chatten met de bot om te controleren of dat de code werkt 
+> * Uw gepubliceerde KB verbinden met de bot
+> * Testen van de bot met een vraag
+
+In dit artikel kunt u de gratis QnA Maker [service](../how-to/set-up-qnamaker-service-azure.md).
+
+## <a name="prerequisites"></a>Vereisten
+
+U moet een gepubliceerde knowledge base voor deze zelfstudie. Als u een hebt, volgt u de stappen in [maken van een kennisdatabase](../How-To/create-knowledge-base.md) een QnA Maker-service maken met vragen en antwoorden.
 
 ## <a name="create-a-qna-bot"></a>Maken van een QnA Bot
-1. In de [Azure-portal](https://portal.azure.com), selecteer **maken** nieuwe resource in het menu-blade en selecteer vervolgens **alle**.
+
+1. Selecteer in Azure Portal **Een resource maken**.
 
     ![bot-service maken](../media/qnamaker-tutorials-create-bot/bot-service-creation.png)
 
@@ -34,12 +49,12 @@ De bot reageert op vragen van de knowledge base die u hebt gemaakt, via de QnAMa
 
     ![bot-service selecteren](../media/qnamaker-tutorials-create-bot/bot-service-selection.png)
 
-3. In de **Bot Service-blade**, geef de vereiste gegevens:
+3. In **Bot Service** geeft u de vereiste informatie op:
 
     - Stel **appnaam** op de naam van uw bot. De naam wordt gebruikt als het subdomein wanneer uw bot wordt geïmplementeerd naar de cloud (bijvoorbeeld mynotesbot.azurewebsites.net).
     - Selecteer het abonnement, de resourcegroep, de App service-plan en de locatie.
 
-4. Zie de instructies voor het maken van een bot QnA met SDK-v4-Zie [QnA v4-bot sjabloon](https://aka.ms/qna-bot-v4). Voor het gebruik van de v3-sjablonen, selecteert u de SDK-versie van **SDK v3** en de taal van de SDK van **C#** of **Node.js**.
+4. Voor het gebruik van de v3-sjablonen, selecteert u de SDK-versie van **SDK v3** en de taal van de SDK van **C#** of **Node.js**.
 
     ![de instellingen van de bot-sdk](../media/qnamaker-tutorials-create-bot/bot-v3.png)
 
@@ -47,7 +62,7 @@ De bot reageert op vragen van de knowledge base die u hebt gemaakt, via de QnAMa
 
     ![bot-service selecteren](../media/qnamaker-tutorials-create-bot/bot-v3-template.png)
 
-6. Controleer uw instellingen en selecteer vervolgens **maken**. Hiermee maakt en implementeert de bot-service met QnAMakerDialog naar Azure.
+6. Controleer uw instellingen en selecteer vervolgens **maken**. Hiermee maakt en implementeert de bot-service met op Azure.
 
     ![bot-service selecteren](../media/qnamaker-tutorials-create-bot/bot-blade-settings-v3.png)
 
@@ -57,13 +72,14 @@ De bot reageert op vragen van de knowledge base die u hebt gemaakt, via de QnAMa
     - Nadat de melding wordt gewijzigd in **implementatie is voltooid**, selecteer **naar de resource gaan** op waarmee de melding.
 
 ## <a name="chat-with-the-bot"></a>Met de Bot chatten
-Selecteren **naar de resource gaan** gaat u naar de resourceblade van de bot.
 
-Nadat de bot is geregistreerd, klikt u op **Test in Web Chat** om de Web Chat-deelvenster te openen. Typ "Hallo" in Web Chat.
+Selecteren **naar de resource gaan** gaat u naar de resource van de bot.
+
+Selecteer **Test in Web Chat** om de Web Chat-deelvenster te openen. Typ 'Hallo' Web Chat.
 
 ![QnA bot chatten](../media/qnamaker-tutorials-create-bot/qna-bot-web-chat.PNG)
 
-De bot reageert met 'Stel QnAKnowledgebaseId en QnASubscriptionKey in Appinstellingen. Leer hoe u ze op https://aka.ms/qnaabssetup'. Dit antwoord wordt bevestigd dat uw QnA Bot het bericht heeft ontvangen, maar er geen QnA Maker-kennisdatabase die zijn gekoppeld aan het nog is. Dat doen in de volgende stap.
+De bot reageert met 'Stel QnAKnowledgebaseId en QnASubscriptionKey in Appinstellingen. Dit antwoord wordt bevestigd dat uw QnA Bot het bericht heeft ontvangen, maar er geen QnA Maker-kennisdatabase die zijn gekoppeld aan het nog is. 
 
 ## <a name="connect-your-qna-maker-knowledge-base-to-the-bot"></a>Uw QnA Maker knowledge base verbinden met de bot
 
@@ -71,10 +87,11 @@ De bot reageert met 'Stel QnAKnowledgebaseId en QnASubscriptionKey in Appinstell
 
     ![App-instellingen](../media/qnamaker-tutorials-create-bot/application-settings.PNG)
 
-2. Uw knowledge base-ID en host-url voor de eindpuntsleutel ophalen uit het tabblad instellingen van uw knowledge base in https://qnamaker.ai.
+1. Uw knowledge base-ID en host-url voor de eindpuntsleutel ophalen uit het tabblad instellingen van uw knowledge base in de portal voor QnA Maker.
+
     - Aanmelden bij [QnA Maker](https://qnamaker.ai)
     - Ga naar uw knowledge base
-    - Klik op de **instellingen** tabblad
+    - Selecteer de **instellingen** tabblad
     - **Publiceren** uw knowledge base, als dit nog niet gedaan
 
     ![QnA Maker-waarden](../media/qnamaker-tutorials-create-bot/qnamaker-settings-kbid-key.PNG)
@@ -83,16 +100,27 @@ De bot reageert met 'Stel QnAKnowledgebaseId en QnASubscriptionKey in Appinstell
 > Als u verbinding maken met de preview-versie van de knowledge base met de QnA bot wilt, stel de waarde van **Ocp-Apim-Subscription-Key** naar **QnAAuthKey**. Laat de **QnAEndpointHostName** leeg zijn.
 
 ## <a name="test-the-bot"></a>De bot testen
-Klik in de Azure-portal op **testen in Web Chat** voor het testen van de bot. 
+
+Selecteer in de Azure portal, **testen in Web Chat** voor het testen van de bot. 
 
 ![QnA Maker-bot](../media/qnamaker-tutorials-create-bot/qna-bot-web-chat-response.PNG)
 
-Uw QnA Bot is nu antwoorden op uit uw knowledge base.
+Uw QnA Bot antwoorden uit uw knowledge base.
+
+## <a name="clean-up-resources"></a>Resources opschonen
+
+Wanneer u klaar bent met de bot van deze zelfstudie, verwijdert u de bot in Azure portal. De bot-services zijn onder andere:
+
+* De App Service-plan
+* De Search-service
+* De Cognitive service
+* De appservice
+* (Optioneel) kan het ook de application insights-service en de opslag voor de application insights-gegevens
 
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [QnA Maker en LUIS integreren](./integrate-qnamaker-luis.md)
+> [Concept: knowledge base](../concepts/knowledge-base.md)
 
 ## <a name="see-also"></a>Zie ook
 

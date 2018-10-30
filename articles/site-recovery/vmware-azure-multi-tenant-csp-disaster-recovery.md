@@ -1,21 +1,20 @@
 ---
-title: Instellen van VMware-replicatie naar Azure in de multitenancy-omgeving met behulp van Site Recovery en het programma Cloud Solution Provider (CSP) | Microsoft Docs
-description: Beschrijft hoe u maken en beheren van abonnementen via CSP tenant en Azure Site Recovery implementeert in een multitenant-instellingen
-services: site-recovery
+title: Ingesteld op noodherstel VMware naar Azure in een omgeving met meerdere tenants met behulp van Site Recovery en het programma Cloud Solution Provider (CSP) | Microsoft Docs
+description: Beschrijft hoe u voor het instellen van VMware-noodherstel in een omgeving met meerdere tenants met Azure Site Recovery.
 author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: mayg
-ms.openlocfilehash: bd356a7e4285f8663b91da1f200cc2ae3c266bf3
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: c26421f848cf25e391589fa791f801e30fd14797
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49354117"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50208898"
 ---
-# <a name="set-up-vmware-replication-in-a-multi-tenancy-environment-with-the-cloud-solution-provider-csp-program"></a>Instellen van VMware-replicatie in een omgeving met meerdere tenants met het programma Cloud Solution Provider (CSP)
+# <a name="set-up-vmware-disaster-recovery-in-a-multi-tenancy-environment-with-the-cloud-solution-provider-csp-program"></a>Herstel van VMware na noodgevallen in een omgeving met meerdere tenants met het programma Cloud Solution Provider (CSP) instellen
 
 De [CSP-programma](https://partner.microsoft.com/en-US/cloud-solution-provider) bevordert beter samen verhalen voor Microsoft-cloudservices, waaronder Office 365, Enterprise Mobility Suite en Microsoft Azure. Met CSP, partners eigenaar van de end-to-end-relatie met klanten en worden de contactpunt voor de primaire relatie. Partners kunnen Azure-abonnementen voor klanten implementeren en de abonnementen, met hun eigen oplossingen met toegevoegde waarde, aangepaste combineren.
 

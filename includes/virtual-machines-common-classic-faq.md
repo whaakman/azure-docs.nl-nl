@@ -1,6 +1,16 @@
-
-
-
+---
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: cynthn
+ms.openlocfilehash: 45a6bd349169265ef411d01a3601a27551847633
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50226806"
+---
 In dit artikel komen enkele veelgestelde vragen aan bod over virtuele machines van Azure die zijn gemaakt met het klassieke implementatiemodel.
 
 ## <a name="can-i-migrate-my-vm-created-in-the-classic-deployment-model-to-the-new-resource-manager-model"></a>Kan ik een VM die is gemaakt met het klassieke implementatiemodel migreren naar het nieuwe model van Resource Manager?
@@ -48,7 +58,7 @@ Voor virtuele machines die zijn gemaakt in het klassieke implementatiemodel kunt
 Op het moment dat u de virtuele machine maakt, moet u het netwerk opgeven waarvan de virtuele machine deel moet uitmaken. Het is niet mogelijk om een bestaande virtuele machine te koppelen aan een virtueel netwerk. U dit probleem omzeilen door de virtuele harde schijf (VHD) los te koppelen van de bestaande virtuele machine en de schijf vervolgens gebruiken om een nieuwe virtuele machine te maken met de gewenste netwerkconfiguratie.
 
 ## <a name="how-can-i-access--my-virtual-machine"></a>Hoe krijg ik toegang tot mijn virtuele machine?
-U moet geen externe verbinding aan te melden bij de virtuele machine via Extern bureaublad-verbinding voor een virtuele machine van Windows of een "Secure Shell" (SSH) voor een Linux-VM. Instructies vindt u hier:
+U moet een externe verbinding met het aanmelden bij de virtuele machine via verbinding met extern bureaublad voor een virtuele Windows-machine of een SSH (Secure Shell) voor een Linux-VM. Instructies vindt u hier:
 
 * [Aanmelden bij een virtuele machine met Windows Server](../articles/virtual-machines/windows/classic/connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Er worden maximaal twee gelijktijdige verbindingen ondersteund, tenzij de server is geconfigureerd als een host voor sessies van Extern bureaublad-services.  
 * [Aanmelden bij een virtuele machine met Linux](../articles/virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). SSH biedt standaard ondersteuning voor maximaal tien gelijktijdige verbindingen. U kunt dit aantal verhogen door het configuratiebestand te bewerken.
@@ -57,7 +67,7 @@ Als er problemen optreden met Extern bureaublad of SSH, installeert en gebruikt 
 
 Voor Windows-VM's gelden nog deze extra opties:
 
-* Zoek de virtuele machine in de Azure-portal en klik vervolgens op **externe toegang opnieuw instellen** uit de opdrachtbalk.
+* Zoek de VM in Azure portal, en klik vervolgens op **externe toegang opnieuw instellen** vanuit de opdrachtbalk.
 * Raadpleeg [Problemen oplossen met verbindingen van Extern bureaublad met virtuele Azure-machines waarop Windows wordt uitgevoerd](../articles/virtual-machines/windows/troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * Gebruik externe communicatie van Windows PowerShell om verbinding te maken met de VM of maak extra eindpunten zodat andere resources verbinding kunnen maken met de VM. Zie [Eindpunten voor een virtuele machine instellen](../articles/virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) voor meer informatie.
 
@@ -78,13 +88,13 @@ De term 'upgraden' betekent meestal overstappen naar een recentere versie van he
 Zie [Functies en onderdelen migreren in Windows Server](http://go.microsoft.com/fwlink/p/?LinkId=396940) voor algemene informatie over de hulpprogramma's en processen voor het migreren van een computer met Windows Server.
 
 ## <a name="whats-the-default-user-name-and-password-on-the-virtual-machine"></a>Welke gebruikersnaam en welk wachtwoord worden standaard gebruikt op een virtuele machine?
-De installatiekopieën die worden verstrekt door Azure bevatten geen vooraf geconfigureerde gebruikersnaam en wachtwoord. Wanneer u een virtuele machine met een van deze installatiekopieën maakt, moet u een gebruikersnaam en wachtwoord dat u aan te melden bij de virtuele machine.
+De installatiekopieën die worden verstrekt door Azure bevatten geen vooraf geconfigureerde gebruikersnaam en wachtwoord. Wanneer u een virtuele machine met behulp van een van deze installatiekopieën maakt, moet u een gebruikersnaam en wachtwoord, waarmee u zich aanmeldt bij de virtuele machine opgeven.
 
 Als u de gebruikersnaam of het wachtwoord bent vergeten en u de VM-agent hebt geïnstalleerd, kunt u de extensie [VMAccess](../articles/virtual-machines/windows/extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) installeren en gebruiken om het probleem op te lossen.
 
 Aanvullende details:
 
-* De Linux-installatiekopieën, als u de Azure-portal gebruikt, 'azureuser' wordt weergegeven als een standaardnaam van de gebruiker maar u kunt dit wijzigen met behulp van 'Uit galerie' in plaats van snel maken als de manier waarop de virtuele machine maken. Als u Uit galerie gebruikt, kunt u ook beslissen of u zich wilt aanmelden met een wachtwoord, een SSH-sleutel of beide. Het gebruikersaccount is een niet-bevoegde gebruiker met 'sudo'-toegang voor het uitvoeren van opdrachten met verhoogde bevoegdheden. Het root-account is uitgeschakeld.
+* Voor de Linux-installatiekopieën, als u de Azure-portal, 'azureuser' is opgegeven als een standaardnaam van de gebruiker maar u kunt dit wijzigen met behulp van 'Uit galerie' in plaats van snel maken als de manier waarop de virtuele machine te maken. Als u Uit galerie gebruikt, kunt u ook beslissen of u zich wilt aanmelden met een wachtwoord, een SSH-sleutel of beide. Het gebruikersaccount is een niet-bevoegde gebruiker met 'sudo'-toegang voor het uitvoeren van opdrachten met verhoogde bevoegdheden. Het root-account is uitgeschakeld.
 * Voor Windows-installatiekopieën moet u een gebruikersnaam en wachtwoord opgeven wanneer u de virtuele machine maakt. Het account wordt toegevoegd aan de groep Administrators.
 
 ## <a name="can-azure-run-anti-virus-on-my-virtual-machines"></a>Kan Azure een antivirusprogramma uitvoeren op mijn virtuele machines?
@@ -104,7 +114,7 @@ Azure rekent een uurprijs op basis van de grootte en het besturingssysteem van d
 
 Er worden kosten in rekening gebracht wanneer de VM de status Uitvoeren of Gestopt heeft, maar niet bij de status Gestopt (Toewijzing ongedaan gemaakt). Als u een VM in de status Gestopt (Toewijzing ongedaan gemaakt) wilt zetten, voert u een van de volgende handelingen uit:
 
-* Afgesloten of de virtuele machine verwijderen uit de Azure-portal.
+* Afgesloten of de virtuele machine verwijderen uit de Azure portal.
 * Gebruik de cmdlet Stop-AzureVM, beschikbaar in de Azure PowerShell-module.
 * Gebruik de bewerking Rol afsluiten in de REST-API van Servicebeheer en geef StoppedDeallocated op voor het element PostShutdownAction.
 
@@ -117,7 +127,7 @@ Niet-gepland onderhoudsgebeurtenissen kunnen optreden wanneer Azure een ernstige
 
 In het geval van een zelfstandige VM (een VM die geen deel uitmaakt van een beschikbaarheidsset) wordt er vanuit Azure ten minste één week voor gepland onderhoud een e-mail verstuurd naar de servicebeheerder van het abonnement met de mededeling dat de VM tijdens dit onderhoud opnieuw kan worden opgestart. Toepassingen die worden uitgevoerd op de VM's kunnen tijdelijk niet beschikbaar zijn.
 
-Ook kunt u de Azure portal of Azure PowerShell om de logboeken opnieuw worden opgestart bij het opstarten is opgetreden vanwege gepland onderhoud bekijken. Zie voor meer informatie [VM-opstartlogboeken bekijken](https://azure.microsoft.com/blog/2015/04/01/viewing-vm-reboot-logs/).
+U kunt ook de Azure portal of Azure PowerShell om weer te geven van de opstartlogboeken bekijken wanneer het opnieuw opstarten is opgetreden vanwege gepland onderhoud gebruiken. Zie voor meer informatie [VM-opstartlogboeken bekijken](https://azure.microsoft.com/blog/2015/04/01/viewing-vm-reboot-logs/).
 
 Om redundantie te bieden, plaatst u twee of meer vergelijkbaar geconfigureerde VM's in dezelfde beschikbaarheidsset. Op deze manier zorgt u ervoor dat er ten minste één VM beschikbaar is tijdens gepland of ongepland onderhoud. Azure garandeert bepaalde niveaus van VM-beschikbaarheid voor deze configuratie. Zie [Beschikbaarheid van virtuele machines beheren](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) voor meer informatie.
 

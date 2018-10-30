@@ -1,25 +1,26 @@
 ---
-title: VMware naar Azure-replicatie-architectuur in Azure Site Recovery | Microsoft Docs
-description: In dit artikel biedt een overzicht van de onderdelen en architectuur die worden gebruikt bij het repliceren van on-premises VMware-machines naar Azure met Azure Site Recovery
+title: VMware naar Azure disaster recovery-architectuur in Azure Site Recovery | Microsoft Docs
+description: In dit artikel biedt een overzicht van de onderdelen en architectuur die worden gebruikt bij het instellen van herstel na noodgevallen van on-premises VMware-machines naar Azure met Azure Site Recovery
 author: rayne-wiselman
 ms.service: site-recovery
+ms.topic: conceptual
 ms.date: 09/12/2018
 ms.author: raynew
-ms.openlocfilehash: 498c41324bfc85f6f91acc8000df4c34856cf428
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 58129ece0fb1b7f446e5f8d738b5d1135aa0256e
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44715751"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212383"
 ---
-# <a name="vmware-to-azure-replication-architecture"></a>VMware naar Azure-replicatie-architectuur
+# <a name="vmware-to-azure-disaster-recovery-architecture"></a>VMware naar Azure disaster recovery-architectuur
 
-Dit artikel beschrijft de architectuur en processen die worden gebruikt bij het repliceren, failover en herstel van virtuele VMware-machines (VM's) tussen een on-premises VMware-site en Azure met behulp van [Azure Site Recovery](site-recovery-overview.md).
+Dit artikel beschrijft de architectuur en processen die worden gebruikt wanneer u disaster recovery-replicatie, failover en herstel van virtuele VMware-machines (VM's) implementeert tussen een on-premises VMware-site en Azure met de [Azure Site Recovery](site-recovery-overview.md) servuce.
 
 
 ## <a name="architectural-components"></a>Architectuuronderdelen
 
-De volgende tabel en afbeelding vindt een weergave op hoog niveau van de onderdelen die worden gebruikt voor replicatie van VMware naar Azure.
+De volgende tabel en afbeelding vindt een weergave op hoog niveau van de onderdelen die worden gebruikt voor noodherstel van VMware naar Azure.
 
 **Onderdeel** | **Vereiste** | **Details**
 --- | --- | ---

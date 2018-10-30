@@ -1,5 +1,16 @@
-
-
+---
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: cynthn
+ms.openlocfilehash: 127ade3b37380c50461c5b648265b431a2f4467e
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50227109"
+---
 Een *aangepaste* virtuele machine is een virtuele machine die u maakt met een **aanbevolen app** uit **Marketplace**. Een dergelijke app doet veel werk voor u. U kunt echter nog steeds enkele configuratiekeuzes maken, zoals:
 
 * De virtuele machine verbinden met een virtueel netwerk.

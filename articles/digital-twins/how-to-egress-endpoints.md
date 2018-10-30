@@ -6,20 +6,20 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/08/2018
+ms.date: 10/26/2018
 ms.author: alinast
-ms.openlocfilehash: c917fab84448684cf29af162ec0781d764605f71
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: c09ee84cda5f0a9747d3ee1f8f1b37d1323f2cc2
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49324141"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212247"
 ---
 # <a name="egress-and-endpoints"></a>Uitgaand verkeer en eindpunten
 
 Het concept van biedt ondersteuning voor Azure van digitale dubbels _eindpunten_ waarbij elk eindpunt vertegenwoordigt een bericht/gebeurtenis-broker in Azure-abonnement van de gebruiker. Gebeurtenissen en -berichten kunnen worden verzonden naar **Event Hub**, **Event Grid**, en **Service Bus-onderwerpen**.
 
-Gebeurtenissen worden verzonden naar de eindpunten op basis van vooraf gedefinieerde routering voorkeuren: de gebruiker kan opgeven welk eindpunt moet een van de volgende gebeurtenissen ontvangen:`TopologyOperation`, `UdfCustom`, `SensorChange`, `SpaceChange`, of `DeviceMessage`.
+Gebeurtenissen worden verzonden naar de eindpunten op basis van vooraf gedefinieerde routering voorkeuren: de gebruiker kan opgeven welk eindpunt moet een van de volgende gebeurtenissen ontvangen: **TopologyOperation**, **UdfCustom**, **SensorChange**, **SpaceChange**, of **DeviceMessage**.
 
 Raadpleeg voor een basiskennis hebt van gebeurtenissen Routering en gebeurtenistypen [Routing gebeurtenissen en -berichten](concepts-events-routing.md).
 
@@ -27,9 +27,9 @@ Raadpleeg voor een basiskennis hebt van gebeurtenissen Routering en gebeurtenist
 
 Hier volgen de indeling voor elk van de typen gebeurtenissen:
 
-- `TopologyOperation`
+- **TopologyOperation**
 
-  Van toepassing op wijzigingen in de metagegevensgrafiek. De `subject` -eigenschap geeft het type object dat is beïnvloed. Typen van objecten die deze gebeurtenis kunnen zijn: `Device, DeviceBlobMetadata`, `DeviceExtendedProperty`, `ExtendedPropertyKey`, `ExtendedType`, `KeyStore`, `Report`, `RoleDefinition`, `Sensor`, `SensorBlobMetadata`, `SensorExtendedProperty`, `Space` ,  `SpaceBlobMetadata`, `SpaceExtendedProperty`, `SpaceResource`, `SpaceRoleAssignment`, `System`, `User`, `UserBlobMetadata`, `UserExtendedProperty`.
+  Van toepassing op wijzigingen in de metagegevensgrafiek. De *onderwerp* eigenschap geeft u het type object dat is beïnvloed. Typen van objecten die deze gebeurtenis kunnen zijn: **apparaat**, **DeviceBlobMetadata**, **DeviceExtendedProperty**, **ExtendedPropertyKey**, **ExtendedType**, **KeyStore**, **rapport**, **RoleDefinition**, **Sensor**, **SensorBlobMetadata**, **SensorExtendedProperty**, **ruimte**, **SpaceBlobMetadata**,  **SpaceExtendedProperty**, **SpaceResource**, **SpaceRoleAssignment**, **System**, **gebruiker**, **UserBlobMetadata**, **UserExtendedProperty**.
 
   Voorbeeld:
 
@@ -55,11 +55,14 @@ Hier volgen de indeling voor elk van de typen gebeurtenissen:
 
     | Naam van aangepast kenmerk | Vervangen |
     | --- | --- |
-    | `yourTopicName` | De naam van uw aangepaste onderwerp |
+    | *yourTopicName* | De naam van uw aangepaste onderwerp |
 
-- `UdfCustom`
+- **UdfCustom**
 
-  Een gebeurtenis die is verzonden door een gebruiker gedefinieerde functie (UDF's). Opmerking: deze gebeurtenis is expliciet worden verzonden vanuit de UDF zelf.
+  Een gebeurtenis die is verzonden door een gebruiker gedefinieerde functie (UDF's). 
+  
+  > [!IMPORTANT]
+  > Deze gebeurtenis is expliciet worden verzonden vanuit de UDF zelf.
 
   Voorbeeld:
 
@@ -83,9 +86,9 @@ Hier volgen de indeling voor elk van de typen gebeurtenissen:
 
     | Naam van aangepast kenmerk | Vervangen |
     | --- | --- |
-    | `yourTopicName` | De naam van uw aangepaste onderwerp |
+    | *yourTopicName* | De naam van uw aangepaste onderwerp |
 
-- `SensorChange`
+- **SensorChange**
 
   Een update van een sensor status op basis van wijzigingen van telemetrie.
 
@@ -118,9 +121,9 @@ Hier volgen de indeling voor elk van de typen gebeurtenissen:
 
     | Naam van aangepast kenmerk | Vervangen |
     | --- | --- |
-    | `yourTopicName` | De naam van uw aangepaste onderwerp |
+    | *yourTopicName* | De naam van uw aangepaste onderwerp |
 
-- `SpaceChange`
+- **SpaceChange**
 
   Een update van een spatie staat op basis van wijzigingen van telemetrie.
 
@@ -153,15 +156,15 @@ Hier volgen de indeling voor elk van de typen gebeurtenissen:
 
     | Naam van aangepast kenmerk | Vervangen |
     | --- | --- |
-    | `yourTopicName` | De naam van uw aangepaste onderwerp |
+    | *yourTopicName* | De naam van uw aangepaste onderwerp |
 
-- `DeviceMessage`
+- **DeviceMessage**
 
-  Hiermee kunt u opgeven een `EventHub` verbinding waarmee onbewerkte telemetriegebeurtenissen ook kunnen worden gerouteerd van digitale dubbels van Azure.
+  Hiermee kunt u opgeven een **EventHub** verbinding waarmee onbewerkte telemetriegebeurtenissen ook kunnen worden gerouteerd van digitale dubbels van Azure.
 
 > [!NOTE]
-> - `DeviceMessage` is alleen met combineerbare `EventHub`; zich niet combineren `DeviceMessage` met een van de andere typen gebeurtenissen.
-> - Kunt u zich kunt u slechts één eindpunt van de combinatie van het type `EventHub` / `DeviceMessage`.
+> - **DeviceMessage** is alleen met combineerbare **EventHub**; zich niet combineren **DeviceMessage** met een van de andere typen gebeurtenissen.
+> - Kunt u zich kunt u slechts één eindpunt van de combinatie van het type **EventHub** of **DeviceMessage**.
 
 ## <a name="configuring-endpoints"></a>Eindpunten configureren
 
@@ -171,7 +174,7 @@ Eindpunt management wordt uitgevoerd via de API-eindpunten. Hier volgen enkele v
 POST https://endpoints-demo.azuresmartspaces.net/management/api/v1.0/endpoints
 ```
 
-- Doorsturen naar **Service Bus** gebeurtenistypen: `SensorChange`, `SpaceChange`, `TopologyOperation`
+- Doorsturen naar **Service Bus** gebeurtenistypen: **SensorChange**, **SpaceChange**, **TopologyOperation**
 
   ```JSON
   {
@@ -189,12 +192,12 @@ POST https://endpoints-demo.azuresmartspaces.net/management/api/v1.0/endpoints
 
     | Naam van aangepast kenmerk | Vervangen |
     | --- | --- |
-    | `yourNamespace` | De naamruimte van uw eindpunt |
-    | `yourPrimaryKey` | De primaire verbindingsreeks die wordt gebruikt om te verifiëren |
-    | `yourSecondaryKey` | De secundaire verbindingsreeks die wordt gebruikt om te verifiëren |
-    | `yourTopicName` | De naam van uw aangepaste onderwerp |
+    | *yourNamespace* | De naamruimte van uw eindpunt |
+    | *yourPrimaryKey* | De primaire verbindingsreeks die wordt gebruikt om te verifiëren |
+    | *yourSecondaryKey* | De secundaire verbindingsreeks die wordt gebruikt om te verifiëren |
+    | *yourTopicName* | De naam van uw aangepaste onderwerp |
 
-- Doorsturen naar **Event Grid** gebeurtenistypen: `SensorChange`, `SpaceChange`, `TopologyOperation`
+- Doorsturen naar **Event Grid** gebeurtenistypen: **SensorChange**, **SpaceChange**, **TopologyOperation**
 
   ```JSON
   {
@@ -212,11 +215,11 @@ POST https://endpoints-demo.azuresmartspaces.net/management/api/v1.0/endpoints
 
     | Naam van aangepast kenmerk | Vervangen |
     | --- | --- |
-    | `yourPrimaryKey` | De primaire verbindingsreeks die wordt gebruikt om te verifiëren|
-    | `yourSecondaryKey` | De secundaire verbindingsreeks die wordt gebruikt om te verifiëren |
-    | `yourTopicName` | De naam van uw aangepaste onderwerp |
+    | *yourPrimaryKey* | De primaire verbindingsreeks die wordt gebruikt om te verifiëren|
+    | *yourSecondaryKey* | De secundaire verbindingsreeks die wordt gebruikt om te verifiëren |
+    | *yourTopicName* | De naam van uw aangepaste onderwerp |
 
-- Doorsturen naar **Event Hub** gebeurtenistypen: `SensorChange`, `SpaceChange`, `TopologyOperation`
+- Doorsturen naar **Event Hub** gebeurtenistypen: **SensorChange**, **SpaceChange**, **TopologyOperation**
 
   ```JSON
   {
@@ -234,12 +237,12 @@ POST https://endpoints-demo.azuresmartspaces.net/management/api/v1.0/endpoints
 
     | Naam van aangepast kenmerk | Vervangen |
     | --- | --- |
-    | `yourNamespace` | De naamruimte van uw eindpunt |
-    | `yourPrimaryKey` | De primaire verbindingsreeks die wordt gebruikt om te verifiëren |
-    | `yourSecondaryKey` | De secundaire verbindingsreeks die wordt gebruikt om te verifiëren |
-    | `yourEventHubName` | De naam van uw Event Hub |
+    | *yourNamespace* | De naamruimte van uw eindpunt |
+    | *yourPrimaryKey* | De primaire verbindingsreeks die wordt gebruikt om te verifiëren |
+    | *yourSecondaryKey* | De secundaire verbindingsreeks die wordt gebruikt om te verifiëren |
+    | *yourEventHubName* | De naam van uw **Event Hub** |
 
-- Doorsturen naar **Event Hub** gebeurtenistypen `DeviceMessage`. Houd er rekening mee de opname van _EntityPath_ in de `connectionString`, dat verplicht is.
+- Doorsturen naar **Event Hub** gebeurtenistype: **DeviceMessage**. De opname van `EntityPath` in de **connectionString** is verplicht.
 
   ```JSON
   {
@@ -255,10 +258,10 @@ POST https://endpoints-demo.azuresmartspaces.net/management/api/v1.0/endpoints
 
     | Naam van aangepast kenmerk | Vervangen |
     | --- | --- |
-    | `yourNamespace` | De naamruimte van uw eindpunt |
-    | `yourPrimaryKey` | De primaire verbindingsreeks die wordt gebruikt om te verifiëren |
-    | `yourSecondaryKey` | De secundaire verbindingsreeks die wordt gebruikt om te verifiëren |
-    | `yourEventHubName` | De naam van uw Event Hub |
+    | *yourNamespace* | De naamruimte van uw eindpunt |
+    | *yourPrimaryKey* | De primaire verbindingsreeks die wordt gebruikt om te verifiëren |
+    | *yourSecondaryKey* | De secundaire verbindingsreeks die wordt gebruikt om te verifiëren |
+    | *yourEventHubName* | De naam van uw **Event Hub** |
 
 > [!NOTE]
 > Bij het maken van een nieuw eindpunt duurt het maximaal 5 tot 10 minuten te ontvangen van gebeurtenissen op het eindpunt.

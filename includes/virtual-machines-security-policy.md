@@ -1,3 +1,16 @@
+---
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: cynthn
+ms.openlocfilehash: 4887dbcc89180c54b8e991e6fa152463476c5ce9
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50227478"
+---
 Het is belangrijk om uw virtuele machine (VM) te beveiligen voor de toepassingen die u uitvoert. Beveiligen van uw virtuele machines, kunt u een of meer Azure-services en functies die betrekking hebben op beveiligde toegang tot uw VM's en beveiligde opslag van uw gegevens opnemen. In dit artikel bevat informatie waarmee u uw virtuele machine en toepassingen om veilig te houden.
 
 ## <a name="antimalware"></a>Antimalware
@@ -26,7 +39,7 @@ Als u verbinding met virtuele machines, moet u cryptografie met openbare sleutel
 
 Een veelvoorkomende uitdaging bij het bouwen van cloud-apps is het beheren van de referenties in uw code voor verificatie bij cloudservices. Het is belangrijk dat de referenties veilig worden bewaard. In het ideale geval worden de referenties nooit weergegeven op werkstations van ontwikkelaars en niet ingecheckt in broncodebeheer. Azure Key Vault biedt een manier voor het veilig opslaan van referenties, geheimen en andere sleutels, maar uw code moet worden geverifieerd bij Key Vault om ze op te halen. 
 
-De beheerde identiteit voor de functie Azure-resources in Azure Active Directory (Azure AD) lost dit probleem. De functie biedt Azure-services met een automatisch beheerde identiteit in Azure AD. U kunt de identiteit gebruiken voor verificatie bij alle services die ondersteuning bieden voor Azure AD-verificatie, inclusief Key Vault, zonder referenties in de code.  De code die wordt uitgevoerd op een virtuele machine kunt u een token aanvragen bij twee eindpunten die alleen toegankelijk vanuit de virtuele machine zijn. Voor meer informatie over deze service gedetailleerde, Controleer de [beheerde identiteiten voor een Azure-resources](../articles/active-directory/managed-identities-azure-resources/overview.md) overzichtspagina.   
+Dit probleem wordt opgelost met de functie Beheerde identiteiten voor Azure-resources in Azure Active Directory (Azure AD). De functie biedt Azure-services met een automatisch beheerde identiteit in Azure AD. U kunt de identiteit gebruiken voor verificatie bij alle services die ondersteuning bieden voor Azure AD-verificatie, inclusief Key Vault, zonder referenties in de code.  De code die wordt uitgevoerd op een virtuele machine kunt u een token aanvragen bij twee eindpunten die alleen toegankelijk vanuit de virtuele machine zijn. Voor meer informatie over deze service gedetailleerde, Controleer de [beheerde identiteiten voor een Azure-resources](../articles/active-directory/managed-identities-azure-resources/overview.md) overzichtspagina.   
 
 ## <a name="policies"></a>Beleidsregels
 

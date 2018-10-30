@@ -1,5 +1,5 @@
 ---
-title: Hoe u ingebouwde Azure-Monitor voor containers | Microsoft Docs
+title: Hoe u ingebouwde Azure-Monitor voor containers (Preview) | Microsoft Docs
 description: Dit artikel wordt beschreven hoe u met het voorbereiden en configureren van Azure Monitor voor containers, zodat u begrijpt hoe de container wordt uitgevoerd en welke problemen met betrekking tot prestaties zijn geïdentificeerd.
 services: azure-monitor
 documentationcenter: ''
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/04/2018
 ms.author: magoedte
-ms.openlocfilehash: 9fa0df0bbf363a7c751de460fd98740b4314f996
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: 505abe8f3dc19458b3f0e18f349974199ae4ba58
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48831191"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212111"
 ---
-# <a name="how-to-onboard-azure-monitor-for-containers"></a>Hoe u ingebouwde Azure-Monitor voor containers
+# <a name="how-to-onboard-azure-monitor-for-containers-preview"></a>Hoe u ingebouwde Azure-Monitor voor containers (Preview) 
 In dit artikel wordt beschreven hoe u voor het instellen van Azure Monitor voor containers voor het bewaken van de prestaties van workloads die worden geïmplementeerd in Kubernetes-omgevingen en die worden gehost op [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/).
 
-## <a name="prerequisites"></a>Vereiste onderdelen 
+## <a name="prerequisites"></a>Vereisten 
 Voordat u begint, zorg ervoor dat u het volgende hebt:
 
 - Een nieuw of bestaand AKS-cluster.

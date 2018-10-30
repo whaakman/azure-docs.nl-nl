@@ -6,27 +6,27 @@ manager: deshner
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/10/2018
+ms.date: 10/26/2018
 ms.author: dwalthermsft
-ms.openlocfilehash: aa5f6053bf1c98d2b84c02617da30f5d856ed3fc
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: f9a3d934de47630ac3fd2356001014d006c2a4eb
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49324079"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212264"
 ---
-# <a name="public-preview-service-limits"></a>Limieten voor openbare preview-service
+# <a name="public-preview-service-limits"></a>Servicebeperkingen van de openbare preview
 
-Tijdens de openbare Preview heeft Azure digitale dubbels tijdelijke abonnement, exemplaar en frequentielimieten die hieronder worden beschreven.
+Tijdens de **Public Preview**, Azure digitale dubbels heeft tijdelijke-abonnement, exemplaar en frequentielimieten die hieronder worden beschreven.
 
 Deze beperkingen bestaan om te leren over de nieuwe service en de vele functies vereenvoudigen.
 
 > [!NOTE]
-> Kan deze limiet wordt verhoogd en/of verwijderd door algemene beschikbaarheid (GA).
+> Deze limieten zal worden verhoogd en/of verwijderd door **algemene beschikbaarheid** (**GA**).
 
 ## <a name="per-subscription-limits"></a>Limieten voor een per abonnement
 
-Elk Azure-abonnement kunt maken of precies één exemplaar van Azure digitale dubbels uitgevoerd op een moment tijdens de openbare Preview.
+Tijdens de **Public Preview**, elk Azure-abonnement kunt maken of precies één exemplaar van Azure digitale dubbels uitgevoerd op een tijdstip.
 
 > [!TIP]
 > Verwijderen van uw exemplaar kunt u een nieuwe maken.
@@ -35,9 +35,9 @@ Elk Azure-abonnement kunt maken of precies één exemplaar van Azure digitale du
 
 Op zijn beurt kan elk exemplaar van Azure digitale dubbels hebben:
 
-- Een `IoTHub` Resource
-- Een `EventHub` -eindpunt voor het gebeurtenistype DeviceMessage
-- Maximaal drie `EventHub`, `ServiceBus`, of `EventGrid` eindpunten van het gebeurtenistype `SensorChange`, `SpaceChange`, `TopologyOperation`, of `UdfCustom`
+- Een **IoTHub** Resource
+- Een **EventHub** -eindpunt voor het gebeurtenistype **DeviceMessage**
+- Maximaal drie **EventHub**, **ServiceBus**, of **EventGrid** eindpunten van het gebeurtenistype **SensorChange**, **SpaceChange** , **TopologyOperation**, of **UdfCustom**
 
 ## <a name="management-api-limits"></a>Beheer-API-limieten
 
@@ -54,7 +54,7 @@ De aanvraag frequentielimieten toe voor uw API Management zijn:
 De volgende limieten instellen voor het totale aantal alle de gebruiker gedefinieerde functieaanroepen naar uw Azure digitale Twins-exemplaar:
 
 - 400 client library-aanroepen per seconde
-- 100 SendNotification aanroepen per seconde
+- 100 **SendNotification** aanroepen per seconde
 
 > [!NOTE]
 > De volgende acties kunnen leiden tot extra frequentielimieten tijdelijk worden toegepast:

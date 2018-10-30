@@ -1,21 +1,20 @@
 ---
-title: Een meerlagige op basis van een IIS-webtoepassing met Azure Site Recovery repliceert | Microsoft Docs
+title: Herstel na noodgevallen instellen voor een meerdere lagen op basis van een IIS-webtoepassing met Azure Site Recovery | Microsoft Docs
 description: Leer hoe u IIS web farm virtuele machines met Azure Site Recovery repliceert.
-services: site-recovery
 author: nsoneji
 manager: gauravd
 ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: nisoneji
-ms.openlocfilehash: 830ced767a34302a635b9e685a2aee60c95fc81f
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: bac995829e90fea35eebf5e5e57a0ffb85bbba0c
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37920845"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50211822"
 ---
-# <a name="replicate-a-multi-tier-iis-based-web-application"></a>Een meerlagige op basis van een IIS-webtoepassing repliceren
+# <a name="set-up-disaster-recovery-for-a-multi-tier-iis-based-web-application"></a>Herstel na noodgevallen instellen voor een meerdere lagen op basis van een IIS-webtoepassing
 
 Toepassingssoftware is de engine van bedrijfsproductiviteit in een organisatie. Verschillende webtoepassingen kunnen verschillende doeleinden gebruikt in een organisatie. Het is mogelijk dat sommige toepassingen, zoals toepassingen die worden gebruikt voor de verwerking van de salarisadministratie, financiële toepassingen en klantgerichte websites, essentieel is voor een organisatie. Om te voorkomen dat verlies van productiviteit, is het belangrijk voor de organisatie deze toepassingen continu ingesteld en geactiveerd. Nog belangrijker, kan deze toepassingen continu beschikbaar die helpen voorkomen schade aan het merk of de afbeelding van de organisatie.
 

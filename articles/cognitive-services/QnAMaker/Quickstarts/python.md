@@ -1,7 +1,7 @@
 ---
 title: REST-API (V4) - Python - QnA Maker
 titleSuffix: Azure Cognitive Services
-description: Verkrijg informatie en codevoorbeelden om u te helpen snel aan de slag te gaan met de Microsoft Translator Text-API in Microsoft Cognitive Services in Azure.
+description: Get Python informatie en code-voorbeelden om u te helpen snel aan de slag met behulp van de Microsoft Translator Text-API in Microsoft Cognitive Services op Azure.
 services: cognitive-services
 author: diberry
 manager: cgronlun
@@ -10,17 +10,17 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 10/19/2018
 ms.author: diberry
-ms.openlocfilehash: 595eee6a10192d877aa77f4849bac494dff05808
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 1eff6ab146bb3a7ee053b8ac7fe3137d7c58c93a
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49650006"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212468"
 ---
 # <a name="qna-maker-rest-api-with-python"></a>QnA Maker REST-API met Python
 <a name="HOLTop"></a>
 
-In dit artikel leest u hoe u de [Microsoft QnA Maker-API](../Overview/overview.md) met Python gebruikt om het volgende te doen.
+In dit artikel leest u hoe u de [QnA Maker-API van Microsoft](../Overview/overview.md) met Python om het volgende te doen.
 
 - [Een nieuwe knowledge base maken.](#Create)
 - [Een bestaande knowledge base bijwerken.](#Update)
@@ -147,7 +147,7 @@ while False == done:
         done = True
 ```
 
-**Een knowledge base-antwoord maken**
+**Antwoord van methode Create knowledge base**
 
 Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u kunt zien in het volgende voorbeeld: 
 
@@ -287,7 +287,7 @@ while False == done:
         done = True
 ```
 
-**Knowledge base-antwoord bijwerken**
+**Antwoord van methode Update knowledge base**
 
 Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u kunt zien in het volgende voorbeeld: 
 
@@ -390,7 +390,7 @@ Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u kunt zien
 
 <a name="Replace"></a>
 
-## <a name="replace-knowledge-base"></a>Een knowledge base vervangen
+## <a name="replace-knowledge-base"></a>Knowledge base vervangen
 
 Met de volgende code wordt de inhoud van de opgegeven knowledge base vervangen. Hierbij wordt gebruikgemaakt van de methode [Replace](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_publish).
 
@@ -464,7 +464,7 @@ result = replace_kb (path, content)
 print (pretty_print(result))
 ```
 
-**Een knowledge base-antwoord vervangen**
+**Antwoord van methode Replace knowledge base**
 
 Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u kunt zien in het volgende voorbeeld: 
 
@@ -528,7 +528,7 @@ result = get_qna (path)
 print (pretty_print(result))
 ```
 
-**Een knowledge base-antwoord downloaden**
+**Antwoord van methode Download knowledge base**
 
 Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u kunt zien in het volgende voorbeeld: 
 
@@ -573,9 +573,9 @@ Met de volgende code worden antwoorden op een vraag opgehaald uit de opgegeven k
 
 1. Maak een nieuw Python-project in uw favoriete IDE.
 1. Voeg de onderstaande code toe.
-1. Vervang de waarde `host` door de websitenaam uit uw QnA Maker-abonnement. Zie [Een QnA Maker-service maken](../How-To/set-up-qnamaker-service-azure.md) voor meer informatie.
+1. Vervang de waarde `host` door de websitenaam voor uw QnA Maker-abonnement. Zie [Een QnA Maker-service maken](../How-To/set-up-qnamaker-service-azure.md) voor meer informatie.
 1. Vervang de waarde `endpoint_key` door een geldige eindpuntsleutel voor uw abonnement. Deze sleutel is niet hetzelfde als uw abonnementssleutel. U kunt uw eindpuntsleutels ophalen met de methode [Get endpoint keys](#GetKeys).
-1. Vervang de waarde `kb` door de id van de knowledge base waar u antwoorden uit wilt ophalen. Deze knowledge base moet al zijn gepubliceerd aan de hand van de methode [Publish](#Publish).
+1. Vervang de waarde `kb` door de id van de knowledge base waaruit u antwoorden wilt ophalen. Deze knowledge base moet al zijn gepubliceerd met behulp van de methode [Publish](#Publish).
 1. Voer het programma uit.
 
 ```python
@@ -629,7 +629,7 @@ result = get_answers (method, content)
 print (pretty_print(result))
 ```
 
-**Antwoorden ophalen**
+**Antwoord van methode Get answers**
 
 Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u kunt zien in het volgende voorbeeld: 
 
@@ -702,7 +702,7 @@ result = get_kb (path)
 print (pretty_print(result))
 ```
 
-**Antwoord voor het ophalen van knowledge base-gegevens**
+**Antwoord van methode Get knowledge base Details**
 
 Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u kunt zien in het volgende voorbeeld: 
 
@@ -772,7 +772,7 @@ result = get_kbs (path)
 print (pretty_print(result))
 ```
 
-**Antwoord voor knowledge bases van een gebruiker ophalen**
+**Antwoord Get knowledge bases for user**
 
 Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u kunt zien in het volgende voorbeeld: 
 
@@ -867,7 +867,7 @@ result = delete_kb (path, '')
 print (pretty_print(result))
 ```
 
-**Het antwoord van een knowledge base verwijderen**
+**Antwoord van methode Delete knowledge base**
 
 Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u kunt zien in het volgende voorbeeld: 
 
@@ -925,7 +925,7 @@ result = get_keys (path)
 print (pretty_print(result))
 ```
 
-**Antwoord van eindpuntsleutels ophalen**
+**Antwoord van methode Get endpoint keys**
 
 Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u kunt zien in het volgende voorbeeld: 
 
@@ -993,7 +993,7 @@ result = refresh_keys (path, '')
 print (pretty_print(result))
 ```
 
-**Antwoord van eindpuntsleutels vernieuwen**
+**Antwoord van methode Refresh endpoint keys**
 
 Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u kunt zien in het volgende voorbeeld: 
 
@@ -1052,7 +1052,7 @@ result = get_alterations (path)
 print (pretty_print(result))
 ```
 
-**Antwoord van woordwijzigingen ophalen**
+**Antwoord van methode Get word alterations**
 
 Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u kunt zien in het volgende voorbeeld: 
 
@@ -1136,7 +1136,7 @@ result = put_alterations (path, content)
 print (pretty_print(result))
 ```
 
-**Antwoord van woordwijzigingen vervangen**
+**Antwoord van methode Replace word alterations**
 
 Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u kunt zien in het volgende voorbeeld: 
 

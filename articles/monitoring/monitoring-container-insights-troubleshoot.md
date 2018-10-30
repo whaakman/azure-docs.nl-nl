@@ -1,5 +1,5 @@
 ---
-title: Over het oplossen van Azure Monitor voor containers | Microsoft Docs
+title: Over het oplossen van Azure Monitor voor containers (Preview) | Microsoft Docs
 description: Dit artikel wordt beschreven hoe u kunt problemen op te lossen met Azure Monitor voor containers.
 services: azure-monitor
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/19/2018
 ms.author: magoedte
-ms.openlocfilehash: 19d015947e5d2331c50cd64956e8a7650f96616d
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 69e5a61d5e66e5904df31456e9311a39058787b2
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638321"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212349"
 ---
-# <a name="troubleshooting-azure-monitor-for-containers"></a>Oplossen van problemen met Azure Monitor voor containers
+# <a name="troubleshooting-azure-monitor-for-containers-preview"></a>Oplossen van problemen met Azure Monitor voor containers (Preview)
 
 Wanneer u de bewaking van uw cluster Azure Kubernetes Service (AKS) met Azure Monitor voor containers configureert, kunt u een probleem te voorkomen dat het verzamelen van gegevens of rapportage over de status kunt tegenkomen. Dit artikel worden enkele veelvoorkomende problemen en stappen voor probleemoplossing.
 

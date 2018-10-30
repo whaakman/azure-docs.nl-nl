@@ -1,21 +1,21 @@
 ---
-title: Ondersteuningsmatrix voor de replicatie van Hyper-V-machines in VMM-clouds naar een secundaire site met Azure Site Recovery | Microsoft Docs
+title: Ondersteuningsmatrix voor herstel na noodgevallen van Hyper-V-machines in VMM-clouds naar een secundaire site met Azure Site Recovery | Microsoft Docs
 description: Geeft een overzicht van ondersteuning voor replicatie van de Hyper-V virtuele machines in VMM-clouds naar een secundaire site met Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/10/2018
+ms.date: 10/28/2018
 ms.author: raynew
-ms.openlocfilehash: e1a0ee2a9ad958a5938569927a489785edd8ee1f
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 3203ae48163ba325c8dad2f29c9f566e330928b5
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078831"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50214287"
 ---
-# <a name="support-matrix-for-replication-of-hyper-v-vms-to-a-secondary-site"></a>Ondersteuningsmatrix voor de replicatie van Hyper-V-machines naar een secundaire site
+# <a name="support-matrix-for-disaster-recovery-of-hyper-v-vms-to-a-secondary-site"></a>Ondersteuningsmatrix voor herstel na noodgevallen van Hyper-V-machines naar een secundaire site
 
 In dit artikel bevat een overzicht van wat wordt ondersteund wanneer u de [Azure Site Recovery](site-recovery-overview.md) service voor het repliceren van Hyper-V-machines worden beheerd in System Center Virtual Machine Manager (VMM)-clouds naar een secundaire site. Als u virtuele Hyper-V-machines repliceren naar Azure wilt, raadpleegt u [deze ondersteuningsmatrix](hyper-v-azure-support-matrix.md).
 

@@ -1,19 +1,18 @@
 ---
-title: Problemen met replicatie voor VMware-VM en fysieke servers repliceren naar Azure met Azure Site Recovery | Microsoft Docs
-description: In dit artikel biedt bij het repliceren van virtuele VMware-machines en fysieke servers naar Azure met Azure Site Recovery voor probleemoplossing voor algemene problemen met replicatie.
-services: site-recovery
+title: Problemen met replicatie voor herstel na noodgevallen van virtuele VMware-machines en fysieke servers naar Azure met Azure Site Recovery | Microsoft Docs
+description: Dit artikel bevat informatie over probleemoplossing voor algemene problemen met replicatie tijdens herstel na noodgevallen van virtuele VMware-machines en fysieke servers naar Azure met Azure Site Recovery.
 author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 10/29/2018
 ms.author: ramamill
-ms.openlocfilehash: c2100ee2388ae09bd309167b1be77f7bdbe32f69
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 915f7d7d2d6be02dfef0cd6bb9a2fa156ed565bc
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126014"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50214729"
 ---
 # <a name="troubleshoot-replication-issues-for-vmware-vms-and-physical-servers"></a>Problemen met replicatie voor virtuele VMware-machines en fysieke servers
 
@@ -70,7 +69,7 @@ Als er problemen zijn, klikt u vervolgens vanaf de opdrachtregel processerver te
 Als u kan geen verbinding maken, klikt u vervolgens controleren of het toegangsprobleem vanwege een firewall of Proxy, zoals beschreven in de volgende stap.
 
 
-* **Controleer als IP-adressen gebaseerde firewallregels op de processerver toegang niet blokkeert**: als u een IP-adressen gebaseerde firewallregels gebruikt op de server, downloadt u de volledige lijst van Microsoft Azure Datacenter IP-bereiken van [hier](https://www.microsoft.com/download/details.aspx?id=41653) en toe te voegen aan uw firewallconfiguratie om ervoor te zorgen dat communicatie met Azure (en de poort HTTPS (443)).  Sta de IP-adresbereiken voor de Azure-regio van uw abonnement en voor de regio VS - west toe (deze worden gebruikt voor toegangs- en identiteitsbeheer).
+* **Controleer als IP-adressen gebaseerde firewallregels op de processerver toegang niet blokkeert**: als u een IP-adressen gebaseerde firewallregels gebruikt op de server, downloadt u de volledige lijst van Microsoft Azure Datacenter IP-bereiken van [hier](https://www.microsoft.com/download/details.aspx?id=41653) en toe te voegen aan uw firewallconfiguratie om ervoor te zorgen dat communicatie met Azure (en de poort HTTPS (443)).  Sta de IP-adresbereiken voor de Azure-regio van uw abonnement en voor de regio US - west toe (deze worden gebruikt voor toegangs- en identiteitsbeheer).
 
 * **Controleer als URL-gebaseerde firewall op de processerver toegang niet blokkeert**: als u een URL-gebaseerde firewall-regels op de server, controleert u of de volgende URL's worden toegevoegd aan de firewall-configuratie.
 

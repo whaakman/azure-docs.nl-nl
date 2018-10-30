@@ -1,6 +1,6 @@
 ---
-title: Hyper-V naar Azure met Azure Site Recovery-replicatie oplossen | Microsoft Docs
-description: Hierin wordt beschreven hoe voor het oplossen van problemen met Hyper-V naar Azure met Azure Site Recovery-replicatie
+title: Oplossen van Hyper-V naar Azure-noodherstel met Azure Site Recovery | Microsoft Docs
+description: Hierin wordt beschreven hoe disaster recovery problemen oplossen met Hyper-V naar Azure met Azure Site Recovery-replicatie
 services: site-recovery
 author: Rajeswari-Mamilla
 manager: rochakm
@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 10/10/2018
 ms.author: ramamill
-ms.openlocfilehash: 027107cca1872ddd504567b74c798fc00e9af214
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 753f666c9ac0167f672353ff33e28d0f7e68b755
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49067384"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212944"
 ---
 # <a name="troubleshoot-hyper-v-to-azure-replication-and-failover"></a>Hyper-V naar Azure-replicatie en failover oplossen
 
@@ -132,7 +132,7 @@ Een app-consistente momentopname is een point-in-time-momentopname van de toepas
     - U kunt dit controleren vanuit een sessie met verhoogde bevoegdheden PowerShell op de Hyper-V-host met de opdracht **et-VMIntegrationService - VMName<VMName>-naam VSS** u kunt deze informatie ook ophalen door aan te melden bij de Gast-VM. [Meer informatie](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services).
     - Zorg ervoor dat de back-up/VSS-integratieservices op de virtuele machine actief is en in orde. Als dat niet het geval is, start deze services en de Hyper-V Volume Shadow Copy-aanvrager-service op de Hyper-V-hostserver.
 
-### <a name="common-errors"></a>Veelvoorkomende fouten
+### <a name="common-errors"></a>Algemene fouten
 
 **Foutcode** | **Bericht** | **Details**
 --- | --- | ---

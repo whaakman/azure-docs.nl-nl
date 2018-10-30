@@ -8,12 +8,12 @@ ms.date: 09/18/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: f5906a93e92691cb6046fb04a9fd83f3484e17b8
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 0ff56b86243956d1fa6b51a6dfd14af9e00d8367
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49427396"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212774"
 ---
 # <a name="azure-policy-definition-structure"></a>Structuur van Azure-beleidsdefinities
 
@@ -228,8 +228,8 @@ De volgende velden worden ondersteund:
 
 Beleid ondersteunt de volgende typen effect:
 
-- **Weigeren**: genereert een gebeurtenis in het auditlogboek en de aanvraag is mislukt
-- **Audit**: een waarschuwingsgebeurtenis in logboek dat wordt gegenereerd, maar mislukt de aanvraag niet
+- **Weigeren**: genereert een gebeurtenis in het activiteitenlogboek en de aanvraag is mislukt
+- **Audit**: genereert een waarschuwingsgebeurtenis in het activiteitenlogboek, maar niet de aanvraag is mislukt
 - **Toevoeg-**: voegt de gedefinieerde set velden toe aan de aanvraag
 - **AuditIfNotExists**: kunt controleren als een resource niet bestaat
 - **DeployIfNotExists**: implementeert een resource als deze niet al bestaat.

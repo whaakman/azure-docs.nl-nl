@@ -1,24 +1,24 @@
 ---
 title: Replicatie van Azure naar Azure-architectuur in Azure Site Recovery | Microsoft Docs
-description: Dit artikel bevat een overzicht van de onderdelen en architectuur die worden gebruikt bij het repliceren van virtuele Azure-machines tussen Azure-regio's met behulp van de Azure Site Recovery-service.
+description: Dit artikel bevat een overzicht van de onderdelen en architectuur die worden gebruikt bij het instellen van herstel na noodgevallen tussen Azure-regio's voor Azure-VM's met behulp van de Azure Site Recovery-service.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/10/2018
+ms.date: 10/28/2018
 ms.author: raynew
-ms.openlocfilehash: 20387c325497934ccb2e02188b24a0125f937e00
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 0069ece5d02ad52b6fea9add7817e63fa3c412b6
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078254"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212724"
 ---
-# <a name="azure-to-azure-replication-architecture"></a>Replicatie van Azure naar Azure-architectuur
+# <a name="azure-to-azure-disaster-recovery-architecture"></a>Azure naar Azure disaster recovery-architectuur
 
 
-In dit artikel beschrijft de architectuur die wordt gebruikt bij het repliceren, failover en herstellen van Azure virtuele machines (VM's) tussen Azure-regio's, met behulp van de [Azure Site Recovery](site-recovery-overview.md) service.
+In dit artikel beschrijft de architectuur die wordt gebruikt bij het implementeren van herstel na noodgeval met replicatie, failover en herstel van virtuele Azure-machines (VM's) tussen Azure-regio's, met behulp van de [Azure Site Recovery](site-recovery-overview.md) service.
 
 
 

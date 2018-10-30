@@ -1,20 +1,19 @@
 ---
-title: " Beheren van VMware vCenter-servers in Azure Site Recovery | Microsoft Docs"
-description: Dit artikel wordt beschreven hoe toevoegen en beheren van VMware vCenter in Azure Site Recovery.
+title: Beheren van VMware vCenter-servers voor herstel na noodgevallen van virtuele VMware-machines naar Azure met Azure Site Recovery | Microsoft-Docs
+description: Dit artikel wordt beschreven hoe toevoegen en beheren van VMware vCenter voor herstel na noodgevallen van virtuele VMware-machines naar Azure met Azure Site Recovery.
 author: Rajeswari-Mamilla
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/20/2018
 ms.author: ramamill
-ms.openlocfilehash: 6f3edf8e5d7a6fda1795991ac0a21cc316c29414
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 854d7724aebd882414287b19c015ef1425bfa6db
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37950441"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210290"
 ---
-# <a name="manage-vmware-vcenter-servers"></a>VMware vCenter-servers beheren 
+# <a name="manage-vmware-vcenter-server"></a>Beheren van VMware vCenter-server
 
 Dit artikel worden de verschillende Site Recovery-bewerkingen die kunnen worden uitgevoerd op een VMware vCenter. Controleer of de [vereisten](vmware-physical-azure-support-matrix.md#replicated-machines) voordat u begint.
 

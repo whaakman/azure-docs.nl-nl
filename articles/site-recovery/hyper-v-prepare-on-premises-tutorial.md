@@ -1,19 +1,19 @@
 ---
-title: On-premises Hyper-V-server voorbereiden voor herstel na noodgevallen van Hyper-V-machines naar Azure | Microsoft Docs
-description: Informatie over het voorbereiden van de on-premises Hyper-V-machines niet worden beheerd door System Center VMM voor herstel na noodgevallen naar Azure met de Azure Site Recovery-service.
+title: On-premises Hyper-V-servers voorbereiden voor herstel na noodgevallen van Hyper-V-machines naar Azure | Microsoft Docs
+description: Informatie over het voorbereiden van on-premises Hyper-V-VM's voor herstel na noodgevallen naar Azure met de Azure Site Recovery-service.
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 10/28/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: f1899817ee2d0efec4ab561a64f24e49cb173c29
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 5f46f22ab524e1d51b01fcedb4ea1420d755ecbe
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44720766"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50209884"
 ---
 # <a name="prepare-on-premises-hyper-v-servers-for-disaster-recovery-to-azure"></a>On-premises Hyper-V-servers voorbereiden op herstel na noodgevallen naar Azure
 

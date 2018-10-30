@@ -14,17 +14,17 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: pbutlerm
-ms.openlocfilehash: c9ed3f3511def085f5e0658bbcbd7978e3a7ce20
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 9ffb67a2d3d07e75df29070ca198bac1661f95cc
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49079307"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212961"
 ---
 <a name="saas-sell-through-azure---apis"></a>SaaS-verkopen via Azure - API 's
 ==============================
 
-In dit artikel wordt uitgelegd hoe u een SaaS-aanbieding maken met API's. De API's die nodig zijn voor het toestaan van abonnementen voor uw SaaS-aanbieding hebt u verkopen via Azure geselecteerd. Als u maken van een reguliere SaaS-aanbieding die geen commerce ingeschakeld wilt, raadpleegt u [SaaS-toepassing technische Publicatiehandleiding Guide]./cloud-partner-portal-saas-offers-tech-publishing-guide.md).
+In dit artikel wordt uitgelegd hoe u een SaaS-aanbieding maken met API's. De API's die nodig zijn voor het toestaan van abonnementen voor uw SaaS-aanbieding hebt u verkopen via Azure geselecteerd. Als u maken van een reguliere SaaS-aanbieding die niet zijn ingeschakeld commerce wilt, Zie [SaaS-toepassing technische Publicatiehandleiding voor](./cloud-partner-portal-saas-offers-tech-publishing-guide.md).
 
 In dit artikel is onderverdeeld in twee secties:
 

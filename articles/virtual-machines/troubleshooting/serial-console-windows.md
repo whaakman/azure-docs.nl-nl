@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/22/2018
 ms.author: harijay
-ms.openlocfilehash: facd9be037894932e516e8294e36b6b0e55374c8
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 2cde7d2af4dee9e2bd241f0856b8f2d29ccad6ad
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024409"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210734"
 ---
 # <a name="virtual-machine-serial-console"></a>Seriële Console van virtuele Machine
 
@@ -54,20 +54,26 @@ Seriële console voor virtuele machines is alleen toegankelijk via [Azure-portal
   4. Schuif omlaag naar de ondersteuning en probleemoplossing sectie en klik op de optie 'Seriële console'. Een nieuw deelvenster met de seriële console opent en start de verbinding.
 
 ## <a name="enable-serial-console-in-custom-or-older-images"></a>Seriële Console inschakelen in aangepaste of oudere installatiekopieën
-Nieuwere Windows Server-installatiekopieën in Azure heeft [speciale beheerconsole](https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) (SAC) standaard ingeschakeld. SAC wordt ondersteund in serverversies van Windows, maar is niet beschikbaar is op clientversies (bijvoorbeeld Windows 10, Windows 8 of Windows 7). Als u wilt inschakelen voor Windows-machines die zijn gemaakt vóór februari 2018 de seriële console, gebruikt u de volgende stappen uit: 
+Nieuwere Windows Server-installatiekopieën in Azure heeft [speciale beheerconsole](https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) (SAC) standaard ingeschakeld. SAC wordt ondersteund in serverversies van Windows, maar is niet beschikbaar is op clientversies (bijvoorbeeld Windows 10, Windows 8 of Windows 7). 
+
+Voor oudere Windows Server-installatiekopieën (die zijn gemaakt vóór februari 2018), mag u de seriële console via de Azure-portal uitgevoerd RunCommand-functie automatisch ingeschakeld. Zoek de opdracht uitvoeren met de naam 'EnableEMS' in de Azure-portal.
+
+![](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-runcommand.png)
+
+U kunt ook om in te schakelen handmatig de seriële console voor Windows-machines die zijn gemaakt vóór februari 2018, gebruik de volgende stappen uit: 
 
 1. Verbinding maken met uw Windows-machine via Extern bureaublad
-2. Voer de volgende opdrachten vanaf een opdrachtprompt met beheerdersrechten. 
-* `bcdedit /ems {current} on`
-* `bcdedit /emssettings EMSPORT:1 EMSBAUDRATE:115200`
-3. Opnieuw opstarten van het systeem voor de console SAC zijn ingeschakeld
+1. Voer de volgende opdrachten vanaf een opdrachtprompt met beheerdersrechten. 
+    * `bcdedit /ems {current} on`
+    * `bcdedit /emssettings EMSPORT:1 EMSBAUDRATE:115200`
+1. Opnieuw opstarten van het systeem voor de console SAC zijn ingeschakeld
 
-![](/media/virtual-machines-serial-console/virtual-machine-windows-serial-console-connect.gif)
+![](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-connect.gif)
 
 Indien nodig, kan de SAC ook worden ingeschakeld offline:
 
 1. De windows-schijf die u wilt dat SAC geconfigureerd voor als een gegevensschijf aan bestaande virtuele machine koppelen. 
-2. Voer de volgende opdrachten vanaf een opdrachtprompt met beheerdersrechten. 
+1. Voer de volgende opdrachten vanaf een opdrachtprompt met beheerdersrechten. 
 * `bcdedit /store <mountedvolume>\boot\bcd /ems {default} on`
 * `bcdedit /store <mountedvolume>\boot\bcd /emssettings EMSPORT:1 EMSBAUDRATE:115200`
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/24/2018
 ms.author: roiyz
-ms.openlocfilehash: 1201e7ec232a5bd45351072949dc0b9c19af434f
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 7396277c58b079dc2f0c68b7832a6f2ca57ee287
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452170"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212298"
 ---
 # <a name="custom-script-extension-for-windows"></a>Aangepaste Scriptextensie voor Windows
 
@@ -73,7 +73,7 @@ Deze items moeten worden beschouwd als vertrouwelijke gegevens en opgegeven in d
 
 ```json
 {
-    "apiVersion": "2015-06-15",
+    "apiVersion": "2018-06-01",
     "type": "Microsoft.Compute/virtualMachines/extensions",
     "name": "config-app",
     "location": "[resourceGroup().location]",
@@ -108,7 +108,7 @@ Deze items moeten worden beschouwd als vertrouwelijke gegevens en opgegeven in d
 
 | Naam | Waarde / voorbeeld | Gegevenstype |
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | datum |
+| apiVersion | 2015-06-15 | date |
 | Uitgever | Microsoft.Compute | tekenreeks |
 | type | Customscriptextension gebruiken | tekenreeks |
 | typeHandlerVersion | 1.9 | int |
@@ -135,7 +135,10 @@ Openbare instellingen worden naar de virtuele machine waar het script wordt uitg
 
 ## <a name="template-deployment"></a>Sjabloonimplementatie
 
-Azure VM-extensies kunnen worden geïmplementeerd met Azure Resource Manager-sjablonen. De JSON-schema in de vorige sectie beschreven kan worden gebruikt in een Azure Resource Manager-sjabloon om uit te voeren van de aangepaste Scriptextensie tijdens de sjabloonimplementatie van een Azure Resource Manager. Een voorbeeldsjabloon met de Custom Script Extension vindt u hier [GitHub](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-windows).
+Azure VM-extensies kunnen worden geïmplementeerd met Azure Resource Manager-sjablonen. De JSON-schema in de vorige sectie beschreven kan worden gebruikt in een Azure Resource Manager-sjabloon om uit te voeren van de aangepaste Scriptextensie tijdens de sjabloonimplementatie van een Azure Resource Manager. De volgende voorbeelden laten zien hoe de aangepaste scriptextensie gebruiken:
+
+* [Zelfstudie: Extensies voor virtuele machines met Azure Resource Manager-sjablonen implementeren](../../azure-resource-manager/resource-manager-tutorial-deploy-vm-extensions.md)
+* [Implementeer twee Tier-toepassing op Windows- en Azure SQL DB](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-windows)
 
 ## <a name="powershell-deployment"></a>PowerShell-implementatie
 

@@ -8,18 +8,18 @@ ms.service: data-explorer
 services: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: b0fb2cd79c0ee685ad2000c5444a84d53e462f24
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 287b95b59b0ec2b308d3e455c4f6ffce4baf4ff7
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48868272"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212876"
 ---
 # <a name="manage-azure-data-explorer-database-permissions"></a>Azure Data Explorer databasemachtigingen beheren
 
 Azure Data Explorer kunt u toegang tot databases en tabellen, beheren met behulp van een *op rollen gebaseerd toegangsbeheer* model. Bij dit model *principals* (gebruikers, groepen en apps) zijn toegewezen aan *rollen*. Beveiligings-principals hebben toegang tot resources op basis van de rollen die ze zijn toegewezen.
 
-Dit artikel beschrijft de beschikbare rollen en beveiligings-principals toewijzen aan deze rollen.
+Dit artikel beschrijft de beschikbare rollen en beveiligings-principals toewijzen aan deze rollen met behulp van de Azure-portal en opdrachten voor het beheer van Azure Data Explorer.
 
 ## <a name="roles-and-permissions"></a>Rollen en machtigingen
 

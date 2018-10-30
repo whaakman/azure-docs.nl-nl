@@ -1,19 +1,19 @@
 ---
-title: Failover en failback-Hyper-V-machines gerepliceerd naar een secundair datacenter met Site Recovery | Microsoft Docs
-description: Leer hoe u Hyper-V virtuele machines een failover naar uw secundaire on-premises site en een failback uitvoeren naar primaire site, met Azure Site Recovery
+title: Failover en failback-Hyper-V-machines gerepliceerd naar een secundair Datacenter tijdens herstel na noodgeval met Azure Site Recovery | Microsoft Docs
+description: Leer hoe u Hyper-V virtuele machines een failover naar uw secundaire on-premises site en een failback naar primaire site tijdens herstel na noodgeval met Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/10/2018
+ms.date: 10/28/2018
 ms.author: raynew
-ms.openlocfilehash: 782ddc3ebb7b3c533d0eb5c4b7735a13cbaf268c
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 80a26f7f2c97fdbc5342d8845277facd79f22a62
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49077677"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210003"
 ---
 # <a name="fail-over-and-fail-back-hyper-v-vms-replicated-to-your-secondary-on-premises-site"></a>Failover en failback-Hyper-V-machines gerepliceerd naar de secundaire on-premises site
 
@@ -68,7 +68,7 @@ Beginnen met het repliceren van de secundaire site naar de primaire en een failb
  
 1. Klik op de virtuele machine > Klik op **omgekeerde repliceren**.
 2. Nadat de taak voltooid is, klikt u op de virtuele machine > In **Failover**, Controleer of de failoverrichting (van secundaire VMM-cloud) en selecteert u de bron- en doellocaties. 
-4. Start de failover. U kunt de voortgang van de failover volgen op de **taken** tabblad.
+4. Start de failover. U kunt de voortgang van de failover volgen op het tabblad **Taken**.
 5. Controleer of de virtuele machine beschikbaar is in de primaire VMM-cloud.
 6. Als u beginnen met het repliceren van de primaire virtuele machine terug naar de secundaire site opnieuw wilt, klikt u op **omgekeerde repliceren**.
 
