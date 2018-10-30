@@ -43,7 +43,7 @@ U krijgt:
 
 Opties voor waar u nog steeds Express kunt gebruiken:
 
-- Als u niet synchroniseren van alle OE's wilt, kunt u nog steeds Express gebruikt en op de laatste pagina, schakel ** Start het synchronisatieproces... ***. De installatiewizard opnieuw uitvoeren en wijzigen van de organisatie-eenheden in [configuratieopties](how-to-connect-installation-wizard.md#customize-synchronization-options) en geplande synchronisatie in te schakelen.
+- Als u niet synchroniseren van alle OE's wilt, kunt u nog steeds Express gebruikt en op de laatste pagina, schakel **Start het synchronisatieproces...**\*. De installatiewizard opnieuw uitvoeren en wijzigen van de organisatie-eenheden in [configuratieopties](how-to-connect-installation-wizard.md#customize-synchronization-options) en geplande synchronisatie in te schakelen.
 - Wilt u een van de nieuwe functies in Azure AD Premium, zoals het terugschrijven van wachtwoorden inschakelen. Ga eerst via express om op te halen van de eerste installatie is voltooid. Voer de installatiewizard opnieuw uit en wijzig de [configuratieopties](how-to-connect-installation-wizard.md#customize-synchronization-options).
 
 ## <a name="custom"></a>Aangepast telefoonnummer
