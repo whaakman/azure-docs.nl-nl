@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: d695627efddc0ca02c3d9299f4b8a13bdc85e8fb
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 3094075607f096200ce1fb7ad499776bdcd3e093
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42061408"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233596"
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>Gegevens verplaatsen tussen on-premises bronnen en de cloud met Data Management Gateway
 > [!NOTE]
@@ -65,7 +65,7 @@ In deze stap maakt u de Azure-portal gebruiken om u te maken van een Azure Data 
    > [!IMPORTANT]
    > De naam van de Azure-gegevensfactory moet wereldwijd uniek zijn. Als u de foutmelding: **Data factory name 'ADFTutorialOnPremDF' is niet beschikbaar**, wijzigt u de naam van de data factory (bijvoorbeeld yournameADFTutorialOnPremDF) en probeert u het opnieuw. Deze naam in plaats van ADFTutorialOnPremDF gebruiken tijdens het uitvoeren van de resterende stappen in deze zelfstudie.
    >
-   > De naam van de gegevensfactory wordt in de toekomst mogelijk geregistreerd als **DNS**-naam en wordt daarmee ook voor iedereen zichtbaar.
+   > De naam van de data factory mogelijk geregistreerd als een **DNS** naam in de toekomst en wordt daarmee ook publicaly zichtbaar.
    >
    >
 4. Selecteer het **Azure-abonnement** waarvoor u de gegevensfactory wilt maken.
@@ -304,7 +304,7 @@ In deze stap maakt u invoer- en uitvoergegevenssets die invoer- en uitvoergegeve
 ## <a name="create-pipeline"></a>Pijplijn maken
 In deze stap maakt u een **pijplijn** met een **Kopieeractiviteit** die gebruikmaakt van **EmpOnPremSQLTable** als invoer en **OutputBlobTable** als de uitvoer.
 
-1. In Data Factory-Editor, klikt u op **... Meer** en vervolgens op **Nieuwe pijplijn**.
+1. In Data Factory-Editor, klikt u op **... Meer** en vervolgens op **Nieuwe pijplijn.
 2. Vervang de JSON in het rechterdeelvenster met de volgende tekst:    
 
     ```JSON   

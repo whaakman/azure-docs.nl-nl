@@ -1,6 +1,6 @@
 ---
 title: Azure-web-apps maken met Ansible (preview)
-description: Leer hoe u Ansible gebruikt om een web-app te maken met een runtime voor Java 8- en Tomcat-containers in App Service onder Linux
+description: Leer hoe u Ansible gebruikt om een web-app te maken met een runtime voor Java 8- en Tomcat-containers in App Service in Linux
 ms.service: ansible
 keywords: ansible, azure, devops, bash, playbook, Azure App Service, web-app, Java
 author: tomarcher
@@ -8,15 +8,15 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 09/20/2018
-ms.openlocfilehash: 1899b1fc1e0a38d859fb3a7ce2153585579650f3
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: 48b4c201b2b96bd4662e8c90be7298a4f418af53
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47586670"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49426548"
 ---
-# <a name="create-azure-app-service-web-apps-using-ansible-preview"></a>Web-apps van Azure App Service maken met Ansible (preview)
-[Azure App Service Web Apps](https://docs.microsoft.com/azure/app-service/app-service-web-overview) (of kortweg Web Apps) is een service voor het hosten van webtoepassingen, REST-API's en mobiele back-ends. U kunt er in uw favoriete taal programmeren, of het nu .NET, .NET Core, Java, Ruby, Node.js, PHP of Python is.
+# <a name="create-azure-app-service-web-apps-by-using-ansible-preview"></a>Web-apps van Azure App Service maken met Ansible (preview)
+Met [Azure App Service Web Apps](https://docs.microsoft.com/azure/app-service/app-service-web-overview) (of kortweg Web Apps) worden webtoepassingen, REST API's en mobiele back-ends gehost. U kunt programmeren in uw favoriete taal&mdash;.NET, .NET Core, Java, Ruby, Node.js, PHP of Python.
 
 U kunt Ansible ook gebruiken om de implementatie en configuratie van resources in uw omgeving te automatiseren. In dit artikel leest u hoe u Ansible gebruikt om een web-app te maken met de Java-runtime. 
 
@@ -25,12 +25,12 @@ U kunt Ansible ook gebruiken om de implementatie en configuratie van resources i
 - [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
 
 > [!Note]
-> Ansible 2.7 is vereist om de volgende voorbeeld-playbooks in deze zelfstudie uit te voeren. U kunt de RC-versie van Ansible 2.7 installeren door `sudo pip install ansible[azure]==2.7.0rc2` uit te voeren. Ansible 2.7 wordt uitgebracht in oktober 2018. Daarna hoeft u hier geen versie op te geven omdat 2.7 de standaardversie is. 
+> Ansible 2.7 is vereist om de volgende voorbeeld-playbooks in deze zelfstudie uit te voeren. U kunt de RC-versie van Ansible 2.7 installeren door `sudo pip install ansible[azure]==2.7.0rc2` uit te voeren. Nadat Ansible 2.7 is uitgebracht, hoeft u hier geen versie op te geven omdat 2.7 de standaardversie is. 
 
 ## <a name="create-a-simple-app-service"></a>Een eenvoudige app-service maken
 Deze sectie bevat een voorbeeld-Ansible-playbook waarmee de volgende resources worden gedefinieerd:
 - Resourcegroep, waarin uw App Service-plan en web-app worden geïmplementeerd
-- Web-app, een web-app met een runtime voor Java 8- en Tomcat-containers in App Service onder Linux
+- Web-app met een runtime voor Java 8- en Tomcat-containers in App Service in Linux
 
 ```
 - hosts: localhost
@@ -62,14 +62,14 @@ Deze sectie bevat een voorbeeld-Ansible-playbook waarmee de volgende resources w
               java_container: tomcat
               java_container_version: 8.5
 ```
-Sla het bovenstaande playbook op als firstwebapp.yml.
+Sla het voorgaande playbook op als **firstwebapp.yml**.
 
 Als u het playbook wilt uitvoeren, gebruikt u de opdracht **ansible-playbook** als volgt:
 ```bash
 ansible-playbook firstwebapp.yml
 ```
 
-In de uitvoer van het uitvoeren van het Ansible-playbook ziet u dat de web-app is gemaakt:
+In de uitvoer van het uitvoeren van het Ansible-playbook ziet u dat het maken van de web-app is geslaagd:
 
 ```
 TASK [Create a resource group] *************************************************
@@ -84,19 +84,19 @@ PLAY RECAP *********************************************************************
 localhost                  : ok=2    changed=2    unreachable=0    failed=0   
 ```
 
-## <a name="create-app-service-with-traffic-manager"></a>App Service maken met Traffic Manager
-U kunt [Azure Traffic Manager](https://docs.microsoft.com/azure/app-service/web-sites-traffic-manager) gebruiken om te bepalen hoe aanvragen van web-clients worden gedistribueerd naar apps in Azure App Service. Wanneer App Service-eindpunten worden toegevoegd aan een Azure Traffic Manager-profiel, houdt Azure Traffic Manager de status van uw App Service-apps bij (actief, gestopt of verwijderd) zodat de service kan bepalen welke van deze eindpunten verkeer moeten ontvangen.
+## <a name="create-an-app-service-by-using-traffic-manager"></a>Een app-service maken met behulp van Traffic Manager
+U kunt [Azure Traffic Manager](https://docs.microsoft.com/azure/app-service/web-sites-traffic-manager) gebruiken om te bepalen hoe aanvragen van web-clients worden gedistribueerd naar apps in Azure App Service. Wanneer App Service-eindpunten worden toegevoegd aan een Azure Traffic Manager-profiel, wordt met Traffic Manager de status van de App Service-apps bijgehouden. Statussen omvatten: actief, gestopt en verwijderd. In Traffic Manager wordt vervolgens bepaald of deze eindpunten verkeer kunnen ontvangen.
 
 In App Service wordt een app uitgevoerd in een [App Service-plan](https://docs.microsoft.com/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview
-). Een App Service-plan definieert een set rekenresources waarmee een web-app kan worden uitgevoerd. U kunt uw App Service-plan en de web-app in verschillende groepen beheren.
+). Een App Service-plan definieert een set rekenresources waarmee een web-app kan worden uitgevoerd. U kunt het App Service-plan en de web-app in verschillende groepen beheren.
 
 Deze sectie bevat een voorbeeld-Ansible-playbook waarmee de volgende resources worden gedefinieerd:
 - Resourcegroep, waarin uw App Service-plan wordt geïmplementeerd
 - App Service-plan
-- Resourcegroep, waarin u uw App Service-plan en web-app worden geïmplementeerd
-- Web-app, een web-app met een runtime voor Java 8- en Tomcat-containers in App Service onder Linux
+- Secundaire resourcegroep, waarin de web-app wordt geïmplementeerd
+- Web-app met een runtime voor Java 8- en Tomcat-containers in App Service in Linux
 - Traffic Manager-profiel
-- Traffic Manager-eindpunt, dat gemaakte website gebruikt
+- Traffic Manager-eindpunt, dat gebruikmaakt van de gemaakte website
 
 ```
 - hosts: localhost
@@ -179,14 +179,14 @@ Deze sectie bevat een voorbeeld-Ansible-playbook waarmee de volgende resources w
       target_resource_id: "{{ webapp.webapps[0].id }}"
 
 ```
-Sla het playbook hierboven op als webapp.yml of [download het playbook](https://github.com/Azure-Samples/ansible-playbooks/blob/master/webapp.yml).
+Sla het voorgaande playbook op als **webapp.yml** of [download het playbook](https://github.com/Azure-Samples/ansible-playbooks/blob/master/webapp.yml).
 
 Als u het playbook wilt uitvoeren, gebruikt u de opdracht **ansible-playbook** als volgt:
 ```bash
 ansible-playbook webapp.yml
 ```
 
-In de uitvoer van het Ansible-playbook ziet u dat het App Service-plan, de web-app, het Traffic Manager-profiel en het eindpunt zijn gemaakt:
+In de uitvoer van het Ansible-playbook ziet u dat het maken van het App Service-plan, de web-app, het Traffic Manager-profiel en het eindpunt is geslaagd:
 ```
 TASK [Create resource group] ****************************************************************************
 changed: [localhost]

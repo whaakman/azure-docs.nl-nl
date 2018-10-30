@@ -1,5 +1,5 @@
 ---
-title: 'Zelfstudie: Een project voor objectdetectie bouwen in C# - Custom Vision Service'
+title: 'Zelfstudie: een objectdetectieproject maken met de Custom Vision-SDK voor C# - Custom Vision Service'
 titlesuffix: Azure Cognitive Services
 description: Maak een project, voeg tags toe, upload afbeeldingen, train uw project en doe een voorspelling met behulp van het standaardeindpunt.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: custom-vision
 ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: areddish
-ms.openlocfilehash: d04fb86abbc0f174e895c166d97fc5467831206f
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 222a17f1d39bc52d1e5ff34e421d0203d80dd1bd
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46366910"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958496"
 ---
-# <a name="tutorial-use-custom-vision-api-to-build-an-object-detection-project-in-c"></a>Zelfstudie: De Custom Vision-API gebruiken voor het bouwen van een project voor objectdetectie in C#
+# <a name="tutorial-create-an-object-detection-project-with-the-custom-vision-sdk-for-c"></a>Zelfstudie: een objectdetectieproject maken met de Custom Vision-SDK voor C#
 
 Ontdek hoe u een eenvoudige Windows-toepassing gebruikt met de Computer Vision-API om een project voor objectdetectie te maken. Wanneer u het project hebt gemaakt, kunt u gelabelde regio's toevoegen, afbeeldingen uploaden, het project trainen, de standaardeindpunt-URL voor voorspellingen ophalen en het eindpunt gebruiken om afbeeldingen programmatisch te testen. Gebruik dit open-sourcevoorbeeld als sjabloon voor het bouwen van uw eigen app voor Windows waarin gebruik wordt gemaakt van de Custom Vision-API.
 
@@ -202,7 +202,7 @@ Nu u tags en afbeeldingen hebt toegevoegd aan het project, kunt u het project tr
     Console.WriteLine("Done!\n");
 ```
 
-## <a name="step-6-get-and-use-the-default-prediction-endpoint"></a>Stap 6: het standaard voor voorspellingen ophalen en gebruiken
+## <a name="step-6-get-and-use-the-default-prediction-endpoint"></a>Stap 6: het standaardeindpunt voor voorspellingen ophalen en gebruiken
 
 U bent er nu klaar voor om het model te gebruiken voor voorspellingen: 
 

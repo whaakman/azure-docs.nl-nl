@@ -1,20 +1,21 @@
 ---
-title: 'Snelstart: Gesproken tekst herkennen in C# onder .NET Framework in Windows met behulp van de Speech SDK van Cognitive Services'
-titleSuffix: Microsoft Cognitive Services
-description: Gesproken tekst leren herkennen in C# onder .NET Framework in Windows met behulp van de Speech SDK van Cognitive Services
+title: 'Snelstart: Gesproken tekst herkennen in C# onder .NET Framework in Windows met behulp van de Speech Service SDK'
+titleSuffix: Azure Cognitive Services
+description: Informatie over het herkennen van gesproken tekst in C# onder .NET Framework in Windows met behulp van de Speech Service SDK
 services: cognitive-services
 author: wolfma61
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: quickstart
 ms.date: 09/24/2018
 ms.author: wolfma
-ms.openlocfilehash: 32b484451c4ee2264c25cca92b1d03d91b955a29
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 06d4a41a4a67d077f8d79eee68938dff65adf0e8
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47053993"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49468514"
 ---
 # <a name="quickstart-recognize-speech-in-c-under-net-framework-on-windows-by-using-the-speech-sdk"></a>Snelstart: Gesproken tekst herkennen in C# onder .NET Framework in Windows met behulp van de Speech SDK
 
@@ -24,7 +25,7 @@ In dit artikel maakt u een C#-consoletoepassing voor .NET Framework voor Windows
 
 ## <a name="prerequisites"></a>Vereisten
 
-U hebt een abonnementssleutel voor de Speech-service nodig om deze snelstart uit te voeren. U kunt er een gratis downloaden. Zie [Probeer de Speech-service gratis uit](get-started.md) voor meer informatie.
+U hebt een abonnementssleutel voor de Speech-service nodig om deze snelstartgids te doorlopen. U kunt er gratis een krijgen. Zie [Speech-service gratis uitproberen](get-started.md) voor meer informatie.
 
 ## <a name="create-a-visual-studio-project"></a>Een Visual Studio-project maken
 
@@ -40,13 +41,13 @@ U hebt een abonnementssleutel voor de Speech-service nodig om deze snelstart uit
 
 1. Vervang ook de tekenreeks `YourServiceRegion` door de [regio](regions.md) die gekoppeld is aan uw abonnement (bijvoorbeeld `westus` voor het gratis proefabonnement).
 
-1. Sla de wijzigingen aan het project op.
+1. Sla de wijzigingen in het project op.
 
-## <a name="build-and-run-the-app"></a>De app compileren en uitvoeren
+## <a name="build-and-run-the-app"></a>De app bouwen en uitvoeren
 
 1. Compileer de toepassing. Selecteer in de menubalk **Build** > **Build Solution**. De code moet nu zonder fouten worden gecompileerd.
 
-    ![Schermafbeelding van Visual Studio-toepassing met Build Solution-optie gemarkeerd](media/sdk/qs-csharp-dotnet-windows-08-build.png "Geslaagde build")
+    ![Schermafbeelding van Visual Studio-toepassing met de optie Build Solution gemarkeerd](media/sdk/qs-csharp-dotnet-windows-08-build.png "Geslaagde build")
 
 1. Start de toepassing. Selecteer in de menubalk **Debug** > **Start Debugging** of druk op **F5**.
 
@@ -62,7 +63,7 @@ Zoek naar dit voorbeeld in de map `quickstart/csharp-dotnet-windows`.
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Intents van gesproken inhoud herkennen met behulp van de Speech SDK voor C#](how-to-recognize-intents-from-speech-csharp.md)
+> [Intenties van gesproken inhoud herkennen met behulp van de Speech SDK voor C#](how-to-recognize-intents-from-speech-csharp.md)
 
 ## <a name="see-also"></a>Zie ook
 

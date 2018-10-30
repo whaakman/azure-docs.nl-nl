@@ -1,48 +1,49 @@
 ---
-title: 'Snelstartgids: Herkennen gesproken tekst in JavaScript in een browser met behulp van de Cognitive Services spraak-SDK'
-titleSuffix: Microsoft Cognitive Services
-description: Meer informatie over het herkennen van gesproken tekst in JavaScript in een browser met behulp van de Cognitive Services spraak-SDK
+title: 'Snelstart: Gesproken tekst in JavaScript herkennen in een browser met behulp van de Speech Service SDK'
+titleSuffix: Azure Cognitive Services
+description: Informatie over het herkennen van gesproken tekst in JavaScript in een browser met behulp van de Speech Service SDK
 services: cognitive-services
 author: fmegen
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: Speech
-ms.topic: article
+ms.component: speech-service
+ms.topic: quickstart
 ms.date: 10/12/2018
 ms.author: fmegen
-ms.openlocfilehash: 2667d398141b53c87328eec7b608c4f613c15ea4
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
-ms.translationtype: MT
+ms.openlocfilehash: b01746c20dbef7726f129badac045c1fb440f602
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49340270"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49467460"
 ---
-# <a name="quickstart-recognize-speech-in-javascript-in-a-browser-using-the-cognitive-services-speech-sdk"></a>Snelstartgids: Herkennen gesproken tekst in JavaScript in een browser met behulp van de Cognitive Services spraak-SDK
+# <a name="quickstart-recognize-speech-in-javascript-in-a-browser-using-the-speech-service-sdk"></a>Snelstart: Gesproken tekst in JavaScript herkennen in een browser met behulp van de Speech Service SDK
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-In dit artikel leert u over het maken van een website met de JavaScript-binding van de Cognitive Services Speech SDK spraak naar tekst te transcriberen.
-De toepassing is gebaseerd op de Microsoft Cognitive Services Speech SDK ([downloaden versie 1.0.1](https://aka.ms/csspeech/jsbrowserpackage)).
+In dit artikel leert u hoe u een website maakt met behulp van de JavaScript binding van de Cognitive Services Speech SDK om spraak om te zetten naar tekst.
+De toepassing is gebaseerd op de Microsoft Cognitive Services Speech SDK ([download versie 1.0.1](https://aka.ms/csspeech/jsbrowserpackage)).
 
 ## <a name="prerequisites"></a>Vereisten
 
-* Een abonnementssleutel voor de Speech-service. Zie [de spraakservice gratis uitproberen](get-started.md).
-* Een PC of Mac, met een microfoon werken.
+* Een abonnementssleutel voor de Speech-service. Zie [Probeer de Speech-service gratis uit](get-started.md).
+* Een pc of Mac, met een werkende microfoon.
 * Een teksteditor.
 * Een actuele versie van Chrome of Microsoft Edge.
-* (Optioneel) een webserver die ondersteunt het hosten van PHP-scripts.
+* Een webserver die het hosten van PHP-scripts ondersteunt (optioneel).
 
-## <a name="create-a-new-website-folder"></a>Maak een nieuwe websitemap
+## <a name="create-a-new-website-folder"></a>Een nieuwe websitemap maken
 
-Maak een nieuwe, lege map. Als u wilt hosten van de steekproef op een webserver, en zorg ervoor dat de webserver, toegang heeft tot de map.
+Maak een nieuwe, lege map. Als u de voorbeeldtoepassing op een webserver wilt hosten, moet u ervoor zorgen dat de webserver toegang heeft tot de map.
 
-## <a name="unpack-the-speech-sdk-for-javascript-into-that-folder"></a>De spraak-SDK voor JavaScript in die map uitpakken
+## <a name="unpack-the-speech-sdk-for-javascript-into-that-folder"></a>De Speech SDK voor JavaScript in die map uitpakken
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-Download de SDK spraak als een [-ZIP-pakket](https://aka.ms/csspeech/jsbrowserpackage) en pak het uit in de zojuist gemaakte map. Dit moet resulteren in twee bestanden wordt uitgepakt, dat wil zeggen, `microsoft.cognitiveservices.speech.sdk.bundle.js` en `microsoft.cognitiveservices.speech.sdk.bundle.js.map`.
+Download de Speech SDK als een [ZIP-pakket](https://aka.ms/csspeech/jsbrowserpackage) en pak dit uit in de zojuist gemaakte map. Er moeten nu twee bestanden worden uitgepakt, namelijk `microsoft.cognitiveservices.speech.sdk.bundle.js` en `microsoft.cognitiveservices.speech.sdk.bundle.js.map`.
 Het laatste bestand is optioneel en wordt gebruikt om u te helpen bij foutopsporing in SDK-code, indien nodig.
 
-## <a name="create-an-indexhtml-page"></a>Maak een index.html-pagina
+## <a name="create-an-indexhtml-page"></a>Een index.html-pagina maken
 
 Maak een nieuw bestand in de map met de naam `index.html` en open dit bestand met een teksteditor.
 
@@ -65,42 +66,42 @@ Maak een nieuw bestand in de map met de naam `index.html` en open dit bestand me
   </html>
   ```
 
-1. Voeg de volgende code in de gebruikersinterface toe aan het bestand, onder de eerste opmerking:
+1. Voeg de volgende gebruikersinterfacecode toe aan het bestand, onder de eerste opmerking:
 
   [!code-html[](~/samples-cognitive-services-speech-sdk/quickstart/js-browser/index.html#uidiv)]
 
-1. Voeg een verwijzing naar de spraak-SDK
+1. Voeg een verwijzing toe aan de Speech SDK
 
   [!code-html[](~/samples-cognitive-services-speech-sdk/quickstart/js-browser/index.html#speechsdkref)]
 
-1. Wire-up handlers voor de opname-knop, herkenningsresultaat en abonnement gerelateerde velden gedefinieerd door de code van de gebruikersinterface:
+1. Stel handlers in voor de velden die gerelateerd zijn aan de spraakherkenningsknop, het spraakherkenningsresultaat en het abonnement die zijn gedefinieerd door de gebruikersinterfacecode:
 
   [!code-html[](~/samples-cognitive-services-speech-sdk/quickstart/js-browser/index.html#quickstartcode)]
 
-## <a name="create-the-token-source-optional"></a>Maak de token bron (optioneel)
+## <a name="create-the-token-source-optional"></a>De tokenbron maken (optioneel)
 
-Als u wilt voor het hosten van de webpagina wordt weergegeven op een webserver, kunt u eventueel een token bron opgeven voor de demo-toepassing.
-Op die manier kunnen uw abonnementssleutel wordt nooit laat uw server en gebruikers toestaat met spraakmogelijkheden zonder in te voeren van een autorisatiecode zelf.
+Als u de webpagina wilt hosten op een webserver, kunt u desgewenst een tokenbron opgeven voor uw voorbeeldtoepassing.
+Op die manier verlaat uw abonnementssleutel nooit uw server en is het gebruikers toegestaan gebruik te maken van spraakmogelijkheden zonder zelf een autorisatiecode in te hoeven voeren.
 
-1. Maak een nieuw bestand met de naam `token.php`. In dit voorbeeld veronderstellen we dat uw webserver de PHP-scripttaal. Voer de volgende code:
+1. Maak een nieuw bestand met de naam `token.php`. In dit voorbeeld gaan we er van uit dat uw webserver de PHP-scripttaal ondersteunt. Voer de volgende code in:
 
   [!code-php[](~/samples-cognitive-services-speech-sdk/quickstart/js-browser/token.php)]
 
-1. Bewerk de `index.html` -bestand en voeg de volgende code toe aan het bestand:
+1. Bewerk het bestand `index.html` en voeg de volgende code toe aan het bestand:
 
   [!code-html[](~/samples-cognitive-services-speech-sdk/quickstart/js-browser/index.html#authorizationfunction)]
 
 > [!NOTE]
-> Autorisatietokens slechts hebben een beperkte levensduur.
-> In dit eenvoudige voorbeeld weergegeven autorisatietokens automatisch vernieuwen niet. Als een gebruiker, kunt u handmatig laad de pagina of druk op F5 om te vernieuwen.
+> Autorisatietokens hebben slechts een beperkte levensduur.
+> In dit eenvoudige voorbeeld wordt niet weergegeven hoe autorisatietokens automatisch worden vernieuwd. Als een gebruiker kunt u de pagina handmatig opnieuw laden of op F5 drukken om te vernieuwen.
 
-## <a name="build-and-run-the-sample-locally"></a>Bouw en het voorbeeld lokaal uitvoeren
+## <a name="build-and-run-the-sample-locally"></a>Het voorbeeld bouwen en lokaal uitvoeren
 
-U start de app, dubbelklik op het bestand index.html of index.html met uw favoriete webbrowser te openen. Het biedt een eenvoudige GUI zodat u kunt uw abonnementssleutel invoeren en [regio](regions.md) en activeren van een opname met behulp van de microfoon.
+Om de app te starten, dubbelklikt u op het bestand index.html of opent u index.html met uw favoriete webbrowser. Er wordt een eenvoudige grafische gebruikersinterface weergegeven waarin u uw abonnementssleutel en [regio](regions.md) kunt invoeren spraakherkenning met behulp van de microfoon kunt activeren.
 
-## <a name="build-and-run-the-sample-via-a-web-server"></a>Bouw en voer het voorbeeld uit via een webserver
+## <a name="build-and-run-the-sample-via-a-web-server"></a>De voorbeeldtoepassing bouwen en uitvoeren via een webserver
 
-Start uw app, open uw favoriete webbrowser en wijst deze naar de openbare URL die u bij het hosten van de map op, Geef uw [regio](regions.md), en een opname met behulp van de microfoon te activeren. Als geconfigureerd, wordt er een token van de bron-token verkrijgen.
+Om uw app te starten, opent u uw favoriete webbrowser en laat u deze wijzen naar de openbare URL waarop u de map host, geeft u uw [regio](regions.md) op en activeert u spraakherkenning met behulp van de microfoon. Indien dit is geconfigureerd, wordt er een token uit uw tokenbron opgehaald.
 
 [!INCLUDE [Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
 Zoek naar dit voorbeeld in de map `quickstart/js-browser`.

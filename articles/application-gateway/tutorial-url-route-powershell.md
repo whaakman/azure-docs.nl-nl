@@ -1,36 +1,38 @@
 ---
 title: Webverkeer routeren op basis van de URL - Azure PowerShell
-description: Meer informatie over hoe u webverkeer routeert op basis van de URL naar specifieke schaalbare pools met servers met behulp van Azure PowerShell.
+description: Lees hoe u Azure PowerShell kunt gebruiken om webverkeer op basis van de URL te routeren naar specifieke schaalbare pools met servers.
 services: application-gateway
 author: vhorne
 manager: jpconnock
 ms.service: application-gateway
 ms.topic: tutorial
 ms.workload: infrastructure-services
-ms.date: 7/13/2018
+ms.date: 10/25/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 66f79b68c003aa3605653b0decc091d22fbf3860
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 3889e1fc9bfaa9beccba560d4a984c451fb325da
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39055182"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025239"
 ---
 # <a name="route-web-traffic-based-on-the-url-using-azure-powershell"></a>Webverkeer routeren op basis van de URL met Azure PowerShell
 
-U kunt Azure PowerShell gebruiken om webverkeersroutering te configureren naar specifieke schaalbare serverpools op basis van de URL die wordt gebruikt voor toegang tot uw toepassing. In deze zelfstudie maakt u een [Azure Application Gateway](application-gateway-introduction.md) met drie back-endpools met behulp van [Virtual Machine Scale Sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). Elk van de back-endpools heeft een specifiek doel, zoals algemene gegevens, afbeeldingen en video's.  Door verkeer te routeren om pools te scheiden, zorgt u ervoor dat uw klanten de informatie krijgen die ze nodig hebben wanneer ze deze nodig hebben.
+U kunt Azure PowerShell gebruiken om webverkeersroutering te configureren naar specifieke schaalbare serverpools op basis van de URL die wordt gebruikt voor toegang tot uw toepassing. In deze zelfstudie gebruikt u [Virtual Machine Scale Sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) om een [Azure Application Gateway](application-gateway-introduction.md) met drie back-endpools te maken. Elk van de back-endpools heeft een specifiek doel, zoals algemene gegevens, afbeeldingen en video's.  Door verkeer te routeren om pools te scheiden, zorgt u ervoor dat uw klanten de informatie krijgen die ze nodig hebben wanneer ze deze nodig hebben.
 
-Als u verkeersroutering wilt inschakelen, maakt u [routeringsregels](application-gateway-url-route-overview.md) die worden toegewezen aan listeners die op bepaalde poorten luisteren om ervoor te zorgen dat webverkeer binnenkomt op de juiste servers in de pools.
+Als u verkeersroutering wilt inschakelen, maakt u [routeringsregels](application-gateway-url-route-overview.md) die worden toegewezen aan listeners. Deze listeners luisteren vervolgens op specifieke poorten om te waaborgen dat webverkeer op de juiste servers binnenkomt in de pools.
 
 In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
 > * Het netwerk instellen
-> * Listeners, toewijzing van URL-pad en regels maken
+> * Listeners, een toewijzing van URL-pad en regels maken
 > * Schaalbare back-endpools maken
 
 ![Voorbeeld van URL-routering](./media/tutorial-url-route-powershell/scenario.png)
+
+U kunt deze zelfstudie desgewenst volgen met behulp van de [Azure CLI](tutorial-url-route-cli.md) of de [Azure-portal](create-url-route-portal.md).
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
@@ -132,9 +134,9 @@ $poolSettings = New-AzureRmApplicationGatewayBackendHttpSettings `
 
 ### <a name="create-the-default-listener-and-rule"></a>De standaard-listener en regel maken
 
-Een listener is vereist om de toepassingsgateway in te schakelen om het verkeer op de juiste manier naar de back-endpool te routeren. In deze zelfstudie maakt u twee listeners. De eerste basis-listener die u maakt, luistert naar verkeer op de basis-URL. De tweede listener die u maakt, luistert naar verkeer op specifieke URL’s.
+Als u de toepassingsgateway wilt inschakelen om het verkeer op de juiste manier naar de back-endpool te routeren, is een listener vereist. In deze zelfstudie maakt u twee listeners. De eerste basis-listener die u maakt, luistert naar verkeer op de basis-URL. De tweede listener die u maakt, luistert naar verkeer op specifieke URL's.
 
-Maak de standaard-listener met de naam *myDefaultListener* met behulp van [New-AzureRmApplicationGatewayHttpListener](/powershell/module/azurerm.network/new-azurermapplicationgatewayhttplistener) met de front-endconfiguratie en de front-endpoort die u eerder hebt gemaakt. 
+Maak de standaard-listener met de naam *myDefaultListener* met behulp van [New-AzureRmApplicationGatewayHttpListener](/powershell/module/azurerm.network/new-azurermapplicationgatewayhttplistener), met de front-endconfiguratie en de front-endpoort die u eerder hebt gemaakt. 
 
 Er is een regel vereist, zodat de listener weet welke back-endpool moet worden gebruikt voor binnenkomend verkeer. Maak een basisregel met de naam *rule1* met behulp van [New-AzureRmApplicationGatewayRequestRoutingRule](/powershell/module/azurerm.network/new-azurermapplicationgatewayrequestroutingrule).
 
@@ -409,7 +411,7 @@ for ($i=1; $i -le 3; $i++)
 
 ## <a name="test-the-application-gateway"></a>De toepassingsgateway testen
 
-Gebruik [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) om het openbare IP-adres van de toepassingsgateway op te halen. Kopieer het openbare IP-adres en plak het in de adresbalk van de browser. Bijvoorbeeld *http://52.168.55.24*, *http://52.168.55.24:8080/images/test.htm* of *http://52.168.55.24:8080/video/test.htm*.
+Gebruik [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) om het openbare IP-adres van de toepassingsgateway op te halen. Kopieer het openbare IP-adres en plak het in de adresbalk van de browser. Zoals *http://52.168.55.24*, *http://52.168.55.24:8080/images/test.htm* of *http://52.168.55.24:8080/video/test.htm*.
 
 ```azurepowershell-interactive
 Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAddress
@@ -439,7 +441,7 @@ In deze zelfstudie heeft u het volgende geleerd:
 
 > [!div class="checklist"]
 > * Het netwerk instellen
-> * Listeners, toewijzing van URL-pad en regels maken
+> * Listeners, een toewijzing van URL-pad en regels maken
 > * Schaalbare back-endpools maken
 
 > [!div class="nextstepaction"]

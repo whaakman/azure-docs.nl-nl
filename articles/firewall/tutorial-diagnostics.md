@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 9/24/2018
+ms.date: 10/24/2018
 ms.author: victorh
-ms.openlocfilehash: 1940fb210481dc75fe48d110776185e90cb3e42f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 875efddfff9b50ab05665cb8c158467dc46c8d0d
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46991042"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49987425"
 ---
 # <a name="tutorial-monitor-azure-firewall-logs-and-metrics"></a>Zelfstudie: Azure Firewall-logboeken en metrische gegevens bewaken
 
@@ -51,11 +51,11 @@ Nadat u deze procedure voor het inschakelen van diagnostische logboekregistratie
 5. In dit voorbeeld worden de logboeken in Log Analytics opgeslagen, dus typ **Firewall Log Analytics** als naam.
 6. Klik op **Verzenden naar Log Analytics** om uw werkruimte te configureren. U kunt ook Event Hubs en een opslagaccount gebruiken om de diagnostische logboeken op te slaan.
 7. Klik onder **Log Analytics** op **Configureren**.
-8. Klik op de pagina OMS-werkruimten op **Nieuwe werkruimte maken**.
-9. Op de pagina **Log Analytics-werkruimte** typt u **firewall-oms** als naam voor de nieuwe **OMS-werkruimte**.
+8. Klik op de pagina Log Analytics-werkruimten op **Nieuwe werkruimte maken**.
+9. Op de pagina **Log Analytics-werkruimte** typt u **firewall-oms** als naam voor de nieuwe **Log Analytics-werkruimte**.
 10. Selecteer uw abonnement, gebruik de bestaande firewall-resourcegroep (**Test-FW-RG**), selecteer **VS - oost** als locatie en selecteer de prijscategorie **Gratis**.
 11. Klik op **OK**.
-   ![Het configuratieproces starten][1]
+   ![Het configuratieproces starten][1] OMS-werkruimten worden nu aangeduid als Log Analytics-werkruimten.  
 12. Klik onder **Logboek** op **AzureFirewallApplicationRule** en **AzureFirewallNetworkRule** om logboeken voor toepassings- en netwerkregels te verzamelen.
    ![Diagnostische instellingen opslaan][2]
 13. Klik op **Opslaan**.
@@ -95,6 +95,8 @@ U kunt activiteitenlogboekgegevens bekijken en analyseren via een van de volgend
 ## <a name="view-and-analyze-the-network-and-application-rule-logs"></a>De logboeken voor netwerk- en toepassingsregels bekijken en analyseren
 
 Azure [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md) verzamelt de teller- en gebeurtenislogboekbestanden. Het omvat visualisaties en krachtige zoekmogelijkheden om uw logboeken te analyseren.
+
+Zie [Voorbeelden van Azure Firewall Log Analytics](log-analytics-samples.md) voor voorbeeldquery’s van Azure Firewall Log Analytics.
 
 U kunt ook verbinding maken met uw opslagaccount en de JSON-logboekitems voor toegangs- en prestatielogboeken ophalen. Nadat u de JSON-bestanden hebt gedownload, kunt u ze naar de CSV-indeling converteren en in Excel, Power BI of een ander hulpprogramma voor gegevensvisualisatie bekijken.
 

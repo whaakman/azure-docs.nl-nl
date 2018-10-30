@@ -6,21 +6,21 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 10/08/2018
+ms.date: 10/19/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Data Box Edge so I can use it to transform the data before sending it to Azure.
-ms.openlocfilehash: 4729e08399132243543c6f4e1cadd537d185e9e3
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: ba77fc4596d9bb245b3cea2538804b1816e9ad14
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49166250"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49466967"
 ---
 # <a name="tutorial-transform-data-with-azure-data-box-edge-preview"></a>Zelfstudie: Gegevens transformeren met Azure Data Box Edge (preview)
 
 In deze zelfstudie wordt beschreven hoe u een rekenprocesrol configureert in Data Box Edge. Als rol is geconfigureerd, kan Data Box Edge gegevens transformeren voordat deze naar Azure worden verzonden.
 
-Deze procedure neemt 30-45 minuten in beslag. 
+Deze procedure neemt 30-45 minuten in beslag.
 
 In deze zelfstudie leert u het volgende:
 
@@ -31,7 +31,7 @@ In deze zelfstudie leert u het volgende:
 > * Gegevenstransformatie controleren en gegevens overdragen
 
 > [!IMPORTANT]
-> Data Box Edge is in de preview-fase. Lees de [Gebruiksvoorwaarden voor de preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voordat u deze oplossing bestelt en implementeert. 
+> Data Box Edge is in de preview-fase. Lees de [Gebruiksvoorwaarden voor de preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voordat u deze oplossing bestelt en implementeert.
  
 ## <a name="prerequisites"></a>Vereisten
 
@@ -48,7 +48,8 @@ Zie [Een IoT Hub maken](https://docs.microsoft.com/azure/iot-hub/iot-hub-create-
 
 ![IoT Hub-resource maken](./media/data-box-edge-deploy-configure-compute/create-iothub-resource-1.png)
 
-Het volgende geldt als de rekenprocesrol niet is geconfigureerd in Edge: 
+Het volgende geldt als de rekenprocesrol niet is ingesteld in Edge:
+
 - De IoT Hub-resource beschikt niet over IoT-apparaten of IoT Edge-apparaten.
 - U kunt geen lokale Edge-shares maken. Wanneer u een share toevoegt, is de optie voor het maken van een lokale share voor Edge-computing niet ingeschakeld.
 
@@ -91,12 +92,12 @@ Als u de rekenprocesrol wilt instellen op het apparaat, moet u de volgende stapp
 
     ![Een rekenprocesrol configureren](./media/data-box-edge-deploy-configure-compute/setup-compute-8.png) 
 
-Er zijn echter geen aangepaste modules aanwezig op dit Edge-apparaat. U kunt nu een aangepaste module toevoegen aan dit apparaat.
+Er zijn echter geen aangepaste modules aanwezig op dit Edge-apparaat. U kunt nu een aangepaste module toevoegen aan dit apparaat. Ga naar [Een C#-module ontwikkelen voor uw Data Box Edge](data-box-edge-create-iot-edge-module.md) voor meer informatie over het maken van een aangepaste module.
 
 
 ## <a name="add-a-custom-module"></a>Een aangepaste module toevoegen
 
-In deze sectie voegt u een aangepaste module toe aan het IoT Edge-apparaat. 
+In deze sectie voegt u een aangepaste module toe aan het IoT Edge-apparaat dat u hebt gemaakt in [Een C#-module ontwikkelen voor uw Data Box Edge](data-box-edge-create-iot-edge-module.md). 
 
 Deze procedure maakt gebruik van een voorbeeld waarin de gebruikte aangepaste module bestanden van een lokale share op het Edge-apparaat neemt en deze verplaatst naar een cloudshare op het apparaat. De cloudshare pusht de bestanden vervolgens naar het Azure-opslagaccount dat is gekoppeld aan de cloudshare. 
 
@@ -133,11 +134,26 @@ Deze procedure maakt gebruik van een voorbeeld waarin de gebruikte aangepaste mo
 
         ![Aangepaste module toevoegen](./media/data-box-edge-deploy-configure-compute/add-a-custom-module-6.png) 
  
-    2. Geef de instellingen voor de aangepaste IoT Edge-module op. Geef waarden op voor **Naam** en **Afbeeldings-URI** voor de module. 
+    2. Geef de instellingen voor de aangepaste IoT Edge-module op. Geef de **naam** van de module en **URI installatiekopie** op voor de bijbehorende containerinstallatiekopie. 
     
         ![Aangepaste module toevoegen](./media/data-box-edge-deploy-configure-compute/add-a-custom-module-7.png) 
 
-    3. Geef bij **Opties Container maken** de lokale koppelpunten op voor de Edge-modules die u in de voorgaande stappen hebt gekopieerd voor de cloudshare en de lokale share (het is belangrijk dat u deze paden gebruikt in plaats van nieuwe maakt). Deze shares worden toegewezen aan de overeenkomende koppelpunten van de container. Geef hier ook eventuele omgevingsvariabelen op voor uw module.
+    3. Geef bij **Opties Container maken** de lokale koppelpunten op voor de Edge-modules die u in de voorgaande stappen hebt gekopieerd voor de cloudshare en de lokale share (het is belangrijk dat u deze paden gebruikt in plaats van nieuwe maakt). De lokale koppelpunten worden toegewezen aan de bijbehorende **InputFolderPath** en de **OutputFolderPath** die u hebt opgegeven in de module toen u [de module hebt bijgewerkt met aangepaste code](data-box-edge-create-iot-edge-module.md#update-the-module-with-custom-code). 
+    
+        U kunt het voorbeeld dat hieronder wordt weergegeven in uw **opties Container maken** kopiëren en plakken: 
+        
+        ```
+        {
+         "HostConfig": {
+          "Binds": [
+           "/home/hcsshares/mysmblocalshare:/home/LocalShare",
+           "/home/hcsshares/mysmbshare1:/home/CloudShare"
+           ]
+         }
+        }
+        ```
+
+        Geef hier ook eventuele omgevingsvariabelen op voor uw module.
 
         ![Aangepaste module toevoegen](./media/data-box-edge-deploy-configure-compute/add-a-custom-module-8.png) 
  
@@ -146,6 +162,8 @@ Deze procedure maakt gebruik van een voorbeeld waarin de gebruikte aangepaste mo
         ![Aangepaste module toevoegen](./media/data-box-edge-deploy-configure-compute/add-a-custom-module-9.png) 
  
 6.  Onder **Routes opgeven** kunt u routes tussen modules instellen. In dit geval geeft u de naam op van de lokale share die gegevens naar de cloudshare pusht. Klik op **Volgende**.
+
+    U kunt route vervangen door de volgende routetekenreeks:       "route": "FROM /* WHERE topic = 'mysmblocalshare' INTO BrokeredEndpoint(\"/modules/filemovemodule/inputs/input1\")"
 
     ![Aangepaste module toevoegen](./media/data-box-edge-deploy-configure-compute/add-a-custom-module-10.png) 
  

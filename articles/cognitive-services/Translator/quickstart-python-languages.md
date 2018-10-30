@@ -1,23 +1,23 @@
 ---
-title: 'Snelstart: ondersteunde talen ophalen - Translator Text, Python'
+title: 'Snelstart: Ondersteunde talen ophalen, Python - Translator Text-API'
 titleSuffix: Azure Cognitive Services
 description: In deze snelstart haalt u een lijst met ondersteunde talen op voor vertaling, transliteratie en opzoeken in woordenlijsten en voorbeelden met behulp van de Translator Text-API met Java.
 services: cognitive-services
-author: noellelacharite
+author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/21/2018
-ms.author: nolachar
-ms.openlocfilehash: a68a1b31cb844a4873bf34c6a292beeb2a4b61c0
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.author: erhopf
+ms.openlocfilehash: b920b08d3bc5d4e340aa8ade6b26e5fe61208098
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46121733"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49644722"
 ---
-# <a name="quickstart-get-supported-languages-with-python"></a>Snelstart: Ondersteunde talen ophalen met Python
+# <a name="quickstart-get-supported-languages-with-the-translator-text-rest-api-python"></a>Snelstart: Ondersteunde talen ophalen met de Translator Text REST API (Python)
 
 In deze snelstartgids haalt u een lijst met ondersteunde talen op voor vertaling, transliteratie en opzoeken in woordenlijsten en voorbeelden met behulp van de Translator Text-API.
 

@@ -1,5 +1,5 @@
 ---
-title: 'Snelstart: gezichten in een afbeelding detecteren - SDK, C#'
+title: 'Snelstart: Gezichten in een afbeelding detecteren met behulp van de .NET SDK met C#'
 titleSuffix: Azure Cognitive Services
 description: In deze snelstart detecteert u gezichten in een afbeelding met behulp van de Face Windows C# clientbibliotheek in Cognitive Services.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: face-api
 ms.topic: quickstart
 ms.date: 09/14/2018
 ms.author: pafarley
-ms.openlocfilehash: b5fd10aaab28303079d3eef9c4c5c25207bb672e
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: a4b0b8b277ed6bc6e2bc3c7549d1e67d5f18c615
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49344979"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954960"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-c35---face"></a>Snelstart: gezichten in een afbeelding detecteren met C&#35; - Gezicht
+# <a name="quickstart-detect-faces-in-an-image-using-the-net-sdk-with-c"></a>Snelstart: Gezichten in een afbeelding detecteren met behulp van de .NET SDK met C#
 
 In deze snelstart detecteert u menselijke gezichten in een afbeelding met behulp van de Face Windows clientbibliotheek.
 

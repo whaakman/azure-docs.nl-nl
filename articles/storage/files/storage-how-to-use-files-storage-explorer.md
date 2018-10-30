@@ -1,36 +1,29 @@
 ---
-title: Azure-bestandsshares beheren met Azure Storage Explorer
-description: Leer hoe u Azure-bestandsshares beheert met Azure Storage Explorer.
+title: Snelstart voor het beheren van Azure-bestandsshares met behulp van Azure Storage Explorer
+description: In deze snelstart leert u hoe Azure Storage Explorer gebruikt om Azure-bestandsshares te beheren.
 services: storage
 author: wmgries
 ms.service: storage
-ms.topic: get-started-article
-ms.date: 02/27/2018
+ms.topic: quickstart
+ms.date: 10/18/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: 949d96bb1b5ffdc948737d4a47ffa14b2e344b5e
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: f86a86fd9858fcc6f0b78256da1e96effbcbe68c
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45574724"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49944215"
 ---
-# <a name="manage-azure-file-shares-with-azure-storage-explorer"></a>Azure-bestandsshares beheren met Azure Storage Explorer 
-[Azure Files ](storage-files-introduction.md) is het gebruiksvriendelijke cloudbestandssysteem van Microsoft. In dit artikel doorloopt u basisbeginselen van het werken met Azure-bestandsshares met behulp van [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/). Azure Storage Explorer is een populair clienthulpprogramma dat beschikbaar is voor Windows, macOS en Linux. Met Azure Storage Explorer kunt u Azure-bestandsshares en andere opslagresources beheren.
+# <a name="quickstart-create-and-manage-azure-file-shares-with-azure-storage-explorer"></a>Snelstart: Azure-bestandsshares maken en beheren met Azure Storage Explorer
+In deze handleiding worden de basisbeginselen besproken van het werken met [Azure-bestandsshares](storage-files-introduction.md) met behulp van Azure Storage Explorer. Azure-bestandsshares zijn net als andere bestandsshares, maar worden in de cloud opgeslagen en ondersteund op het Azure-platform. Azure-bestandsshares ondersteunen het SMB-protocol volgens de industriestandaard en bieden de mogelijkheid bestanden te delen tussen meerdere computers, toepassingen en exemplaren. 
 
+Azure Storage Explorer is een populair clienthulpprogramma dat beschikbaar is voor Windows, macOS en Linux. Met Azure Storage Explorer kunt u Azure-bestandsshares en andere opslagresources beheren.
+
+Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
+
+## <a name="prerequisites"></a>Vereisten
 Voor deze snelstartgids moet Azure Storage Explorer zijn geïnstalleerd. Ga naar [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) om het te downloaden en te installeren.
-
-In dit artikel leert u het volgende:
-
-> [!div class="checklist"]
-> * Een resourcegroep en een opslagaccount maken
-> * Een Azure-bestandsshare maken 
-> * Een map maken
-> * Bestand uploaden
-> * Bestand downloaden
-> * Een momentopname van een share maken en gebruiken
-
-Als u nog geen abonnement op Azure hebt, kunt u een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) maken voordat u begint.
 
 ## <a name="create-a-storage-account"></a>Create a storage account
 U kunt Azure Storage Explorer niet gebruiken voor het maken van nieuwe resources. Voor deze demo maakt u het opslagaccount in [Azure Portal](https://portal.azure.com/). 
@@ -49,7 +42,7 @@ Voor deze snelstartgids meldt u zich aan met uw Azure-account. Selecteer **Een A
 ![Een schermafbeelding van Microsoft Azure Storage Explorer - venster Verbinding maken](./media/storage-how-to-use-files-storage-explorer/connect-to-azure-storage-1.png)
 
 ### <a name="create-a-file-share"></a>Een bestandsshare maken
-Ga als volgt te werk om uw eerste Azure-bestandsshare te maken in het opslagaccount *storageacct<random number>*:
+Ga als volgt te werk om uw eerste Azure-bestandsshare te maken in het `storageacct<random number>`-opslagaccount:
 
 1. Vouw het opslagaccount uit dat u hebt gemaakt.
 2. Klik met de rechtermuisknop op **Bestandsshares** en selecteer **Bestandsshare maken**.  
@@ -57,13 +50,12 @@ Ga als volgt te werk om uw eerste Azure-bestandsshare te maken in het opslagacco
 
 3. Voer voor de bestandsshare *myshare* in en druk op Enter.
 
-> [!IMPORTANT]  
-> De namen van shares mogen alleen kleine letters, cijfers en afbreekstreepjes bevatten, maar mogen niet met een afbreekstreepje beginnen. Zie [Naming and Referencing Shares, Directories, Files, and Metadata](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata) (Shares, mappen, bestanden en metagegevens een naam geven en hiernaar verwijzen) voor meer informatie over de naamgeving van bestandsshares en bestanden.
+De namen van shares mogen alleen kleine letters, cijfers en afbreekstreepjes bevatten, maar mogen niet met een afbreekstreepje beginnen. Zie [Naming and Referencing Shares, Directories, Files, and Metadata](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata) (Shares, mappen, bestanden en metagegevens een naam geven en hiernaar verwijzen) voor meer informatie over de naamgeving van bestandsshares en bestanden.
 
 Nadat de bestandsshare is gemaakt, wordt er in het rechterdeelvenster een tabblad voor de bestandsshare geopend. 
 
-## <a name="work-with-the-contents-of-an-azure-file-share"></a>Werken met de inhoud van een Azure-bestandsshare
-U beschikt nu over een Azure-bestandsshare. De volgende stap is het koppelen van de bestandsshare met SMB op [Windows](storage-how-to-use-files-windows.md), [Linux](storage-how-to-use-files-linux.md) of [macOS](storage-how-to-use-files-mac.md). U kunt ook Azure CLI gebruiken om met uw Azure-bestandsshare te werken. Het voordeel van het gebruik van Azure CLI ten opzichte van het koppelen van de bestandsshare met behulp van SMB is dat alle aanvragen die zijn ingediend via Azure CLI worden gedaan met behulp van de REST API van het bestand. U kunt de REST API van het bestand gebruiken om bestanden en mappen te maken, te wijzigen en te verwijderen op clients die niet over SMB beschikken.
+## <a name="use-your-azure-file-share"></a>Uw Azure-bestandsshare gebruiken
+U beschikt nu over een Azure-bestandsshare. De volgende stap is het koppelen van de bestandsshare met SMB op [Windows](storage-how-to-use-files-windows.md), [Linux](storage-how-to-use-files-linux.md) of [macOS](storage-how-to-use-files-mac.md). U kunt ook Azure Storage Explorer gebruiken om met de Azure-bestandsshare te werken. Het voordeel van het gebruik van Azure Storage Explorer ten opzichte van het koppelen van de bestandsshare met behulp van SMB is dat alle aanvragen die zijn ingediend via Azure Storage Explorer, worden gedaan met behulp van de REST API van het bestand. U kunt de REST API van het bestand gebruiken om bestanden en mappen te maken, te wijzigen en te verwijderen op clients die niet over SMB beschikken.
 
 ### <a name="create-a-directory"></a>Een map maken
 Het toevoegen van een map biedt een hiërarchische structuur voor het beheren van de bestandsshare. U kunt meerdere niveaus maken in uw map. U moet er echter voor zorgen dat de bovenliggende mappen bestaan voordat u submappen maakt. Voor het pad myDirectory/mySubDirectory moet u bijvoorbeeld eerst de map *myDirectory* maken. Daarna kunt u *mySubDirectory* maken. 
@@ -89,41 +81,12 @@ Als u een kopie van een bestand vanuit uw bestandsshare wilt downloaden, klikt u
 
 De voortgang van de download wordt weergegeven in het deelvenster **Activiteiten** onderaan het venster.
 
-## <a name="create-and-modify-share-snapshots"></a>Momentopnamen van shares maken en wijzigen
-Een momentopname bevat voor een specifiek moment de actuele inhoud van een Azure-bestandsshare. Momentopnamen van een bestandsshare zijn vergelijkbaar met andere technologieën die u mogelijk al kent, zoals:
-- [Volume Shadow Copy Service (VSS)](https://docs.microsoft.com/windows/desktop/VSS/volume-shadow-copy-service-portal) voor Windows-bestandssystemen, zoals NTFS en ReFS
-- Momentopnamen van [Logical Volume Manager (LVM)](https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux)#Basic_functionality) voor Linux-systemen.
-- Momentopnamen van [Apple File System (APFS)](https://developer.apple.com/library/content/documentation/FileManagement/Conceptual/APFS_Guide/Features/Features.html) voor macOS
-
-Een momentopname van een share maken:
-
-1. Selecteer het tabblad voor de bestandsshare *myshare*.
-2. Selecteer in het bovenste menu **Momentopname maken**. (Afhankelijk van de afmetingen van het venster van Azure Storage Explorer moet u misschien eerst **Meer** selecteren om deze optie te zien.)  
-    ![Een schermopname van de knop Momentopname maken in context](media/storage-how-to-use-files-storage-explorer/create-share-snapshot-1.png)
-
-### <a name="list-and-browse-share-snapshots"></a>Momentopnamen van shares weergeven en er doorheen bladeren
-Wanneer de momentopname is gemaakt, selecteert u **Momentopnamen weergeven** om een lijst te zien met de momentopnamen voor de share. (Afhankelijk van de afmetingen van het venster van Azure Storage Explorer moet u misschien eerst **Meer** selecteren om deze optie te zien.) Dubbelklik op de momentopname van een share als u er doorheen wilt bladeren.
-
-![Een schermopname van het venster waarin u door momentopnamen van shares kunt bladeren](media/storage-how-to-use-files-storage-explorer/list-browse-snapshots-1.png)
-
-### <a name="restore-from-a-share-snapshot"></a>Bestand herstellen vanuit een share-momentopname
-Om te laten zien hoe u een bestand herstelt vanuit een momentopname van de share, moet u eerst een bestand verwijderen uit de live Azure-bestandsshare. Ga naar de map *myDirectory*, klik met de rechtermuisknop op het bestand dat u hebt geüpload en selecteer **Verwijderen**. Ga als volgt te werk om dat bestand te herstellen vanuit de momentopname van de share:
-
-1. Selecteer **Momentopnamen voor bestandsshare weergeven**. (Afhankelijk van de afmetingen van het venster van Azure Storage Explorer moet u misschien eerst **Meer** selecteren om deze optie te zien.)
-2. Dubbelklik in de lijst met momentopnamen op de momentopname van de share.
-3. Blader door de momentopname totdat u het bestand hebt gevonden dat u hebt verwijderd. Selecteer de bestandsshare en selecteer **Momentopname terugzetten**. (Afhankelijk van de afmetingen van het venster van Azure Storage Explorer moet u misschien eerst **Meer** selecteren om deze optie te zien.) In een volgend venster wordt de waarschuwing weergegeven dat hierdoor de inhoud van de bestandsshare wordt overschreven en dat dit niet ongedaan kan worden gemaakt. Selecteer **OK**.
-4. Als het goed is, staat het bestand nu weer op de oorspronkelijke locatie in de live Azure-bestandsshare.
-
-### <a name="delete-a-share-snapshot"></a>Een share-momentopname verwijderen
-Als u een momentopname van een share wilt verwijderen, gaat u naar de [lijst met momentopnamen van de share](#list-and-browse-share-snapshots). Klik met de rechtermuisknop op de momentopname die u wilt verwijderen en selecteer **Verwijderen**.
-
 ## <a name="clean-up-resources"></a>Resources opschonen
 U kunt Azure Storage Explorer niet gebruiken voor het verwijderen van resources. U kunt [Azure Portal](https://portal.azure.com/) gebruiken als u wilt opschonen vanuit deze snelstartgids. 
 
 [!INCLUDE [storage-files-clean-up-portal](../../../includes/storage-files-clean-up-portal.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
-- [Bestandsshares beheren met Azure Portal](storage-how-to-use-files-portal.md)
-- [Bestandsshares beheren met Azure PowerShell](storage-how-to-use-files-powershell.md)
-- [Bestandsshares beheren met Azure CLI](storage-how-to-use-files-cli.md)
-- [Implementatie van Azure Files plannen](storage-files-planning.md)
+
+> [!div class="nextstepaction"]
+> [Wat is Azure Files?](storage-files-introduction.md)

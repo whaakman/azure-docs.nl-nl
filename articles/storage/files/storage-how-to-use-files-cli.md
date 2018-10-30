@@ -1,38 +1,37 @@
 ---
-title: Azure-bestandsshares beheren met Azure CLI
-description: Leer hoe u Azure Files beheert met behulp van Azure CLI.
+title: Snelstart over het beheren van Azure-bestandsshares met Azure CLI
+description: In deze snelstart leert u hoe Azure CLI gebruikt om Azure Files te beheren.
 services: storage
 author: wmgries
 ms.service: storage
-ms.topic: get-started-article
-ms.date: 03/26/2018
+ms.topic: quickstart
+ms.date: 10/18/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: de48789c42ccd2d7e090af6f430f323b16416e9c
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: aab248ac7c9adf7d996406ec35e0317594ce0b68
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389782"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945015"
 ---
-# <a name="manage-azure-file-shares-using-azure-cli"></a>Azure-bestandsshares beheren met Azure CLI
-[Azure Files](storage-files-introduction.md) is het gebruiksvriendelijke cloudbestandssysteem van Microsoft. Azure-bestandsshares kunnen worden gekoppeld in Windows, Linux en macOS. In dit artikel worden de basisbeginselen besproken van het werken met Azure-bestandsshares met behulp van Azure CLI. Leer hoe u het volgende doet: 
-
-> [!div class="checklist"]
-> * Een resourcegroep en een opslagaccount maken
-> * Een Azure-bestandsshare maken 
-> * Een map maken
-> * Bestand uploaden 
-> * Bestand downloaden
-> * Een momentopname van een share maken en gebruiken
+# <a name="quickstart-create-and-manage-azure-file-shares-using-azure-cli"></a>Snelstart: Azure-bestandsshares maken en beheren met Azure CLI
+In deze handleiding worden de basisbeginselen besproken van het werken met [Azure-bestandsshares](storage-files-introduction.md) met behulp van Azure CLI. Azure-bestandsshares zijn net als andere bestandsshares, maar worden in de cloud opgeslagen en ondersteund door het Azure-platform. Azure-bestandsshares ondersteunen het SMB-protocol volgens de industriestandaard en bieden de mogelijkheid bestanden te delen tussen meerdere machines, toepassingen en instanties. 
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Als u ervoor kiest om Azure CLI lokaal te installeren en te gebruiken, moet u voor de stappen in dit artikel Azure CLI-versie 2.0.4 of hoger uitvoeren. Voer **az --version** uit om uw Azure CLI-versie te vinden. Als u uw CLI wilt installeren of upgraden, raadpleegt u [De Azure CLI installeren](/cli/azure/install-azure-cli). 
+Als u ervoor kiest om Azure CLI lokaal te installeren en te gebruiken, moet u voor de stappen in dit artikel Azure CLI-versie 2.0.4 of hoger uitvoeren. Voer **az --version** uit om uw Azure CLI-versie te vinden. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren](/cli/azure/install-azure-cli). 
 
 Azure CLI-opdrachten retourneren standaard JavaScript Object Notation (JSON). JSON is de standaardmethode voor het verzenden en ontvangen van berichten van REST API's. Om te kunnen werken met JSON-antwoorden, wordt in enkele van de voorbeelden in dit artikel de parameter *query* gebruikt in de Azure CLI-opdrachten. Deze parameter gebruikt de [JMESPath-querytaal](http://jmespath.org/) voor het parseren van JSON. Raadpleeg de [zelfstudie over JMESPath](http://jmespath.org/tutorial.html) voor meer informatie over hoe u de resultaten van Azure CLI-opdrachten kunt gebruiken door de JMESPath-querytaal te volgen.
+
+## <a name="sign-in-to-azure"></a>Aanmelden bij Azure
+Als u Azure CLI lokaal gebruikt, opent u een opdrachtprompt en meldt u zich aan bij Azure (als u dat nog niet had gedaan).
+
+```bash 
+az login
+```
 
 ## <a name="create-a-resource-group"></a>Een resourcegroep maken
 Een resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. Als u nog geen Azure-resourcegroep hebt, kunt u met de opdracht [az group create](/cli/azure/group#create) een groep maken. 
@@ -77,15 +76,26 @@ az storage share create \
     --name "myshare" 
 ```
 
-> [!IMPORTANT]  
-> De namen van shares mogen alleen kleine letters, cijfers en enkele afbreekstreepjes bevatten, maar mogen niet met een afbreekstreepje beginnen. Zie [Naming and referencing shares, directories, files, and metadata](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata) (Shares, mappen, bestanden en metagegevens een naam geven en hiernaar verwijzen) voor meer informatie over de naamgeving van bestandsshares en bestanden.
+De namen van shares mogen alleen kleine letters, cijfers en enkele afbreekstreepjes bevatten, maar mogen niet met een afbreekstreepje beginnen. Zie [Naming and referencing shares, directories, files, and metadata](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata) (Shares, mappen, bestanden en metagegevens een naam geven en hiernaar verwijzen) voor meer informatie over de naamgeving van bestandsshares en bestanden.
 
-## <a name="work-with-the-contents-of-an-azure-file-share"></a>Werken met de inhoud van een Azure-bestandsshare
-U beschikt nu over een Azure-bestandsshare. De volgende stap is het koppelen van de bestandsshare met SMB op [Windows](storage-how-to-use-files-windows.md), [Linux](storage-how-to-use-files-linux.md) of [macOS](storage-how-to-use-files-mac.md). U kunt ook Azure CLI gebruiken om met uw Azure-bestandsshare te werken. Het voordeel van het gebruik van Azure CLI ten opzichte van het koppelen van de bestandsshare met behulp van SMB is dat alle aanvragen die zijn ingediend via Azure CLI, worden gedaan met behulp van de REST API van het bestand. U kunt de REST API van het bestand gebruiken om bestanden en mappen te maken, te wijzigen en te verwijderen in uw bestandsshare vanaf deze locaties:
+## <a name="use-your-azure-file-share"></a>Uw Azure-bestandsshare gebruiken
+Azure Files biedt twee methoden voor het werken met bestanden en mappen in uw Azure-bestandsshare: het [SMB-protocol](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) volgens de industriestandaard en het [File REST-protocol](https://docs.microsoft.com/rest/api/storageservices/file-service-rest-api). 
 
-- De Bash Azure Cloud Shell (die geen ondersteuning biedt voor het koppelen van bestandsshares via SMB)
-- Clients die geen SMB-shares kunnen koppelen, zoals on-premises clients waarvoor poort 445 is geblokkeerd
-- Scenario's zonder server, zoals in [Azure Functions](../../azure-functions/functions-overview.md)
+Zie het volgende document op basis van uw besturingssysteem om een bestandsshare met SMB te koppelen:
+- [Linux](storage-how-to-use-files-linux.md)
+- [MacOS](storage-how-to-use-files-mac.md)
+- [Windows](storage-how-to-use-files-windows.md)
+
+### <a name="using-an-azure-file-share-with-the-file-rest-protocol"></a>Een Azure-bestandsshare gebruiken met het File REST-protocol 
+Het is mogelijk om rechtstreeks met het File REST-protocol te werken (dat wil zeggen HTTP REST-aanroepen zelf te maken), maar de meest voorkomende manier om het File REST-protocol te gebruiken, is met Azure CLI, de [AzureRM PowerShell-module](storage-how-to-use-files-powershell.md) of een Azure Storage-SDK, die allemaal een mooie wrapper rond het File REST-protocol bieden in de script-/programmeertaal van uw keuze.  
+
+In de meeste gevallen gebruikt u Azure Files en de Azure-bestandsshare via het SMB-protocol, omdat dit u de mogelijkheid biedt om de bestaande toepassingen en hulpprogramma's te gebruiken die u verwacht te kunnen gebruiken, maar er zijn diverse redenen waarom het gebruik van de File REST-API in plaats van SMB voordelen oplevert, zoals:
+
+- U bladert door uw bestandsshare via de Azure Bach Cloud Shell (die geen ondersteuning biedt voor het koppelen van bestandsshares via SMB).
+- U moet een script of toepassing uitvoeren vanaf een client die geen SMB-shares kan koppelen, zoals on-premises clients waarvoor poort 445 niet is gedeblokkeerd.
+- U profiteert van serverloze resources, zoals [Azure Functions](../../azure-functions/functions-overview.md). 
+
+De volgende voorbeelden laten zien hoe u de AzureRM PowerShell-module gebruikt voor het bewerken van uw Azure-bestandsshare met het File REST-protocol. 
 
 ### <a name="create-a-directory"></a>Een map maken
 Als u in de hoofdmap van uw Azure-bestandsshare een nieuwe map wilt maken met de naam *myDirectory*, gebruikt u de opdracht [`az storage directory create`](/cli/azure/storage/directory#az_storage_directory_create):
@@ -176,84 +186,6 @@ az storage file list \
 
 Hoewel de opdracht `az storage file copy start` handig is voor het verplaatsen van bestanden tussen Azure-bestandsshares en Azure Blob-opslagcontainers, is het beter om AzCopy te gebruiken voor grotere bewerkingen. (Groter voor wat betreft het aantal bestanden of de grootte van de verplaatste bestanden.) U vindt hier meer informatie over [AzCopy voor Linux](../common/storage-use-azcopy-linux.md) en [AzCopy voor Windows](../common/storage-use-azcopy.md). AzCopy moet lokaal zijn geïnstalleerd. AzCopy is niet beschikbaar in Cloud Shell. 
 
-## <a name="create-and-modify-share-snapshots"></a>Momentopnamen van shares maken en wijzigen
-Een andere handige taak die u kunt doen met een Azure-bestandsshare is het maken van een momentopname van de share. Een momentopname bevat voor een specifiek moment de actuele inhoud van een Azure-bestandsshare. Momentopnamen van een share zijn vergelijkbaar met bepaalde technologieën van besturingssystemen die u mogelijk al kent, zoals:
-- Momentopnamen van [Logical Volume Manager (LVM)](https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux)#Basic_functionality) voor Linux-systemen.
-- Momentopnamen van [Apple File System (APFS)](https://developer.apple.com/library/content/documentation/FileManagement/Conceptual/APFS_Guide/Features/Features.html) voor macOS
-- [Volume Shadow Copy Service (VSS)](https://docs.microsoft.com/windows/desktop/VSS/volume-shadow-copy-service-portal) voor Windows-bestandssystemen, zoals NTFS en ReFS
-
-U kunt een momentopname van een share maken met behulp van de opdracht [`az storage share snapshot`](/cli/azure/storage/share#az_storage_share_snapshot):
-
-```azurecli-interactive
-SNAPSHOT=$(az storage share snapshot \
-    --account-name $STORAGEACCT \
-    --account-key $STORAGEKEY \
-    --name "myshare" \
-    --query "snapshot" | tr -d '"')
-```
-
-### <a name="browse-share-snapshot-contents"></a>Bladeren door inhoud van share-momentopnamen
-U kunt door de inhoud van een momentopname van een share bladeren door het tijdstempel van de momentopname dat u hebt vastgelegd in de variabele `$SNAPSHOT`, door te geven aan de opdracht `az storage file list`:
-
-```azurecli-interactive
-az storage file list \
-    --account-name $STORAGEACCT \
-    --account-key $STORAGEKEY \
-    --share-name "myshare" \
-    --snapshot $SNAPSHOT \
-    --output table
-```
-
-### <a name="list-share-snapshots"></a>Momentopnamen van shares opvragen
-Gebruik de volgende opdracht om een lijst weer te geven met de momentopnamen die u hebt gemaakt voor de share:
-
-```azurecli-interactive
-az storage share list \
-    --account-name $STORAGEACCT \
-    --account-key $STORAGEKEY \
-    --include-snapshot \
-    --query "[? name=='myshare' && snapshot!=null]" | tr -d '"'
-```
-
-### <a name="restore-from-a-share-snapshot"></a>Bestand herstellen vanuit een share-momentopname
-U kunt een bestand herstellen met behulp van de opdracht `az storage file copy start` die u eerder hebt gebruikt. Verwijder eerst het SampleUpload.txt-bestand dat u hebt geüpload, zodat u dit kunt herstellen vanuit de momentopname:
-
-```azurecli-interactive
-# Delete SampleUpload.txt
-az storage file delete \
-    --account-name $STORAGEACCT \
-    --account-key $STORAGEKEY \
-    --share-name "myshare" \
-    --path "myDirectory/SampleUpload.txt"
-
-# Build the source URI for a snapshot restore
-URI=$(az storage account show \
-    --resource-group "myResourceGroup" \
-    --name $STORAGEACCT \
-    --query "primaryEndpoints.file" | tr -d '"')
-
-URI=$URI"myshare/myDirectory/SampleUpload.txt?sharesnapshot="$SNAPSHOT
-
-# Restore SampleUpload.txt from the share snapshot
-az storage file copy start \
-    --account-name $STORAGEACCT \
-    --account-key $STORAGEKEY \
-    --source-uri $URI \
-    --destination-share "myshare" \
-    --destination-path "myDirectory/SampleUpload.txt"
-```
-
-### <a name="delete-a-share-snapshot"></a>Een share-momentopname verwijderen
-U kunt een momentopname van een share verwijderen met behulp van de opdracht [`az storage share delete`](/cli/azure/storage/share#az_storage_share_delete). Gebruik de variabele die de verwijzing `$SNAPSHOT` naar de `--snapshot`-parameter bevat:
-
-```azurecli-interactive
-az storage share delete \
-    --account-name $STORAGEACCT \
-    --account-key $STORAGEKEY \
-    --name "myshare" \
-    --snapshot $SNAPSHOT
-```
-
 ## <a name="clean-up-resources"></a>Resources opschonen
 Als u klaar bent, kunt u de opdracht [`az group delete`](/cli/azure/group#delete) gebruiken om de resourcegroep en alle bijbehorende resources te verwijderen: 
 
@@ -288,7 +220,6 @@ U kunt resources ook afzonderlijk verwijderen.
     ```
 
 ## <a name="next-steps"></a>Volgende stappen
-- [Bestandsshares beheren met Azure Portal](storage-how-to-use-files-portal.md)
-- [Bestandsshares beheren met Azure PowerShell](storage-how-to-use-files-powershell.md)
-- [Bestandsshares beheren met Storage Explorer](storage-how-to-use-files-storage-explorer.md)
-- [Implementatie van Azure Files plannen](storage-files-planning.md)
+
+> [!div class="nextstepaction"]
+> [Wat is Azure Files?](storage-files-introduction.md)

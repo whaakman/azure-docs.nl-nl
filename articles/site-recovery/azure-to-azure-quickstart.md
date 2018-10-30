@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: quickstart
-ms.date: 10/10/2018
+ms.date: 10/19/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: e10b5271caef5530c94cca73b3e2e1d435080676
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 623c45cbc82139090d893b8501c7d363c4443d67
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49066918"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49456161"
 ---
 # <a name="replicate-an-azure-vm-to-another-azure-region"></a>Een Azure-VM repliceren naar een andere Azure-regio
 
@@ -24,7 +24,8 @@ In deze snelstartgids wordt het repliceren van een Azure-VM naar een andere Azur
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
-
+> [!NOTE]
+> Dit artikel is bedoeld om een nieuwe gebruiker door Azure Site Recovery te begeleiden met behulp van de standaardopties en met minimale aanpassing. Raadpleeg [de zelfstudie voor het inschakelen van replicatie voor Azure-VM’s](azure-to-azure-tutorial-enable-replication.md) als u meer wilt weten over de verschillende instellingen die kunnen worden aangepast
 
 ## <a name="log-in-to-azure"></a>Meld u aan bij Azure.
 
@@ -33,7 +34,6 @@ Meld u aan bij Azure Portal op http://portal.azure.com.
 ## <a name="enable-replication-for-the-azure-vm"></a>Replicatie inschakelen voor de Azure-VM
 
 1. Klik in Azure Portal op **Virtuele machines** en selecteer de VM die u wilt repliceren.
-
 2. Klik bij **Bewerkingen** op **Herstel na noodgeval**.
 3. Selecteer in **Noodherstel configureren** > **Doelregio** de doelregio waarnaar u wilt repliceren.
 4. Accepteer voor deze snelstartgids de overige standaardinstellingen.
@@ -41,14 +41,12 @@ Meld u aan bij Azure Portal op http://portal.azure.com.
 
     ![replicatie inschakelen](media/azure-to-azure-quickstart/enable-replication1.png)
 
-
-
 ## <a name="verify-settings"></a>Instellingen controleren
 
 Nadat de replicatietaak is voltooid, kunt u de replicatiestatus controleren, de replicatie-instellingen wijzigen en de implementatie testen.
 
 1. Klik in het VM-menu op **Herstel na noodgeval**.
-2. U kunt de replicatiestatus, gemaakte herstelpunten en bron- en doelregio's op de kaart controleren.
+2. U kunt de replicatiestatus, de gemaakte herstelpunten, en de bron- en doelregio's op de kaart controleren.
 
    ![Replicatiestatus](media/azure-to-azure-quickstart/replication-status.png)
 
@@ -68,7 +66,7 @@ Stop de replicatie als volgt:
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze snelstartgids hebt u één VM gerepliceerd naar een secundaire regio.
+In deze snelstartgids hebt u één VM gerepliceerd naar een secundaire regio. U kunt nu meer opties verkennen en proberen om een set Azure-VM’s te repliceren met behulp van een herstelplan.
 
 > [!div class="nextstepaction"]
 > [Herstel na noodgeval voor Azure-VM’s configureren](azure-to-azure-tutorial-enable-replication.md)

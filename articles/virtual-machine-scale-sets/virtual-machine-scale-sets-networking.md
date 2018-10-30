@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: negat
-ms.openlocfilehash: 43aa74e7250f4825702e249032db1566346ab558
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: 6ed3488218a5b813478fa18f7bb05dcfb07a319c
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48831208"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955147"
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Netwerken voor virtuele-machineschaalsets in Azure
 
@@ -50,10 +50,26 @@ Versneld netwerken in Azure verbetert de prestaties van het netwerk door het ins
 ## <a name="create-a-scale-set-that-references-an-existing-azure-load-balancer"></a>Een schaalset maken die verwijst naar een bestaande Azure Load Balancer
 Wanneer een schaalset is gemaakt met Azure Portal, wordt er voor de meeste configuratieopties een nieuwe load balancer gemaakt. Als u een schaalset maakt die moet verwijzen naar een bestaande load balancer, kunt u dit doen met de CLI. Het volgende voorbeeldscript maakt een load balancer en maakt vervolgens een schaalset die ernaar verwijst:
 ```bash
-az network lb create -g lbtest -n mylb --vnet-name myvnet --subnet mysubnet --public-ip-address-allocation Static --backend-pool-name mybackendpool
+az network lb create \
+    -g lbtest \
+    -n mylb \
+    --vnet-name myvnet \
+    --subnet mysubnet \
+    --public-ip-address-allocation Static \
+    --backend-pool-name mybackendpool
 
-az vmss create -g lbtest -n myvmss --image Canonical:UbuntuServer:16.04-LTS:latest --admin-username negat --ssh-key-value /home/myuser/.ssh/id_rsa.pub --upgrade-policy-mode Automatic --instance-count 3 --vnet-name myvnet --subnet mysubnet --lb mylb --backend-pool-name mybackendpool
-
+az vmss create \
+    -g lbtest \
+    -n myvmss \
+    --image Canonical:UbuntuServer:16.04-LTS:latest \
+    --admin-username negat \
+    --ssh-key-value /home/myuser/.ssh/id_rsa.pub \
+    --upgrade-policy-mode Automatic \
+    --instance-count 3 \
+    --vnet-name myvnet \
+    --subnet mysubnet \
+    --lb mylb \
+    --backend-pool-name mybackendpool
 ```
 
 ## <a name="create-a-scale-set-that-references-an-application-gateway"></a>Een schaalset maken die verwijst naar een toepassingsgateway
@@ -91,7 +107,7 @@ Als u aangepaste DNS-servers wilt configureren in een Azure-sjabloon, voegt u de
 ```
 
 ### <a name="creating-a-scale-set-with-configurable-virtual-machine-domain-names"></a>Een schaalset maken met de configureerbare domeinnamen van virtuele machines
-Als u een schaalset wilt maken met een aangepaste DNS-naam voor virtuele machines met de CLI, voegt u het argument **--vm-domain-name** toe aan de opdracht **vmss create**, gevolgd door een tekenreeks met de domeinnaam.
+Als u een schaalset wilt maken met een aangepaste DNS-naam voor virtuele machines met de CLI, voegt u het argument **--vm-domain-name** toe aan de opdracht **virtual machine scale set create**, gevolgd door een tekenreeks met de domeinnaam.
 
 Als u de domeinnaam wilt instellen in een Azure-sjabloon, voegt u de eigenschap **dnsSettings** toe aan het gedeelte **networkInterfaceConfigurations** van de schaalset. Bijvoorbeeld:
 
@@ -155,23 +171,35 @@ U kunt de openbare IP-adressen die zijn toegewezen aan de virtuele machines van 
 
 Gebruik de opdracht _Get-AzureRmPublicIpAddress_ om openbare IP-adressen voor schaalsets weer te geven met behulp van PowerShell. Bijvoorbeeld:
 ```PowerShell
-PS C:\> Get-AzureRmPublicIpAddress -ResourceGroupName myrg -VirtualMachineScaleSetName myvmss
+Get-AzureRmPublicIpAddress -ResourceGroupName myrg -VirtualMachineScaleSetName myvmss
 ```
 
 U kunt ook query's uitvoeren op de openbare IP-adressen door rechtstreeks naar de resource-id van de openbare IP-adresconfiguratie te verwijzen. Bijvoorbeeld:
 ```PowerShell
-PS C:\> Get-AzureRmPublicIpAddress -ResourceGroupName myrg -Name myvmsspip
+Get-AzureRmPublicIpAddress -ResourceGroupName myrg -Name myvmsspip
 ```
 
-Query’s uitvoeren op de openbare IP-adressen die zijn toegewezen aan de virtuele machines in de schaalset met de [Azure Resource Explorer](https://resources.azure.com) of de REST API van Azure met versie **2017-03-30** of hoger.
+U kunt ook de openbare IP-adressen die zijn toegewezen aan de virtuele machines in de schaalset weergeven door een query uit te voeren op [Azure Resource Explorer](https://resources.azure.com) of de REST API van Azure met versie **2017-03-30** of hoger.
 
-Als u de openbare IP-adressen van een schaalset wilt bekijken met behulp van de Resource Explorer, bekijkt u het gedeelte **publicipaddresses** onder uw schaalset. Bijvoorbeeld: https://resources.azure.com/subscriptions/_your_sub_id_/resourceGroups/_your_rg_/providers/Microsoft.Compute/virtualMachineScaleSets/_your_vmss_/publicipaddresses
+Ga als volgt te werk om een query uit te voeren op [Azure Resource Explorer](https://resources.azure.com):
 
-```
+1. Open [Azure Resource Explorer](https://resources.azure.com) in een webbrowser.
+1. Vouw *Abonnementen* aan de linkerkant uit door te klikken op de *+* ernaast. Als zich slechts één item onder *Abonnementen* bevindt, is dit mogelijk al uitgevouwen.
+1. Vouw uw abonnement uit.
+1. Vouw uw resourcegroep uit.
+1. Vouw *providers* uit.
+1. Vouw *Microsoft.Compute* uit.
+1. Vouw *virtualMachineScaleSets* uit.
+1. Vouw uw schaalset uit.
+1. Klik op *publicipaddresses*.
+
+Ga als volgt te werk om een query uit te voeren op de Azure REST API:
+
+```bash
 GET https://management.azure.com/subscriptions/{your sub ID}/resourceGroups/{RG name}/providers/Microsoft.Compute/virtualMachineScaleSets/{scale set name}/publicipaddresses?api-version=2017-03-30
 ```
 
-Voorbeelduitvoer:
+Voorbeeld van uitvoer van de [Azure Resource Explorer](https://resources.azure.com) en Azure REST API:
 ```json
 {
   "value": [
@@ -289,12 +317,14 @@ Het volgende voorbeeld is een netwerkprofiel van een schaalset met meerdere NIC-
 ```
 
 ## <a name="nsg--asgs-per-scale-set"></a>NSG en ASG’s per schaalset
+Een [netwerkbeveiligingsgroep](../virtual-network/security-overview.md) biedt u de mogelijkheid om netwerkverkeer naar en van Azure-resources in een virtueel Azure-netwerk te filteren met behulp van beveiligingsregels. Met [toepassingsbeveiligingsgroepen](../virtual-network/security-overview.md#application-security-groups) kunt u netwerkbeveiliging van Azure-resources afhandelen en ze groeperen als een uitbreiding van uw toepassingsstructuur.
+
 Netwerkbeveiligingsgroepen kunnen rechtstreeks op een schaalset worden toegepast door een verwijzing naar de sectie Configuratie van netwerkinterface van de eigenschappen van de virtuele machine van de schaalset toe te voegen.
 
 Toepassingsbeveiligingsgroepen kunnen ook rechtstreeks worden opgegeven voor een schaalset door een verwijzing toe te voegen naar de sectie IP-configuraties van de netwerkinterface in de eigenschappen van de virtuele machine van de schaalset.
 
 Bijvoorbeeld: 
-```
+```json
 "networkProfile": {
     "networkInterfaceConfigurations": [
         {
@@ -334,6 +364,42 @@ Bijvoorbeeld:
     ]
 }
 ```
+
+Als u wilt controleren of uw netwerkbeveiligingsgroep is gekoppeld aan uw schaalset, gebruikt u de opdracht `az vmss show`. Het onderstaande voorbeeld gebruikt `--query` om de resultaten te filteren en alleen de relevante sectie van de uitvoer weer te geven.
+
+```bash
+az vmss show \
+    -g myResourceGroup \
+    -n myScaleSet \
+    --query virtualMachineProfile.networkProfile.networkInterfaceConfigurations[].networkSecurityGroup
+
+[
+  {
+    "id": "/subscriptions/.../resourceGroups/myResourceGroup/providers/Microsoft.Network/networkSecurityGroups/nsgName",
+    "resourceGroup": "myResourceGroup"
+  }
+]
+```
+
+Als u wilt controleren of uw toepassingsbeveiligingsgroep is gekoppeld aan uw schaalset, gebruikt u de opdracht `az vmss show`. Het onderstaande voorbeeld gebruikt `--query` om de resultaten te filteren en alleen de relevante sectie van de uitvoer weer te geven.
+
+```bash
+az vmss show \
+    -g myResourceGroup \
+    -n myScaleSet \
+    --query virtualMachineProfile.networkProfile.networkInterfaceConfigurations[].ipConfigurations[].applicationSecurityGroups
+
+[
+  [
+    {
+      "id": "/subscriptions/.../resourceGroups/myResourceGroup/providers/Microsoft.Network/applicationSecurityGroups/asgName",
+      "resourceGroup": "myResourceGroup"
+    }
+  ]
+]
+```
+
+
 
 ## <a name="next-steps"></a>Volgende stappen
 Bekijk het [Azure Virtual network overview](../virtual-network/virtual-networks-overview.md) (Azure Virtual Network-overzicht) voor meer informatie over het gebruik van virtuele netwerken in Azure.

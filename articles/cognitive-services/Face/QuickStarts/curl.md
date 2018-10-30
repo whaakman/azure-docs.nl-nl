@@ -1,5 +1,5 @@
 ---
-title: 'Snelstart: gezichten in een afbeelding detecteren - Face-API, cURL'
+title: 'Snelstart: Gezichten in een afbeelding detecteren met de REST API en cURL'
 titleSuffix: Azure Cognitive Services
 description: In deze snelstart detecteert u gezichten in een afbeelding met behulp van de Face-API met cURL.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: face-api
 ms.topic: quickstart
 ms.date: 05/10/2018
 ms.author: pafarley
-ms.openlocfilehash: da18b7b3666863742f987b2ee0da297c0838d266
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: ab403ec6a9db4d1a0dc03074044eeb424e4ba875
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49343058"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49953345"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-curl"></a>Snelstart: gezichten in een afbeelding detecteren met cURL
+# <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-curl"></a>Snelstart: Gezichten in een afbeelding detecteren met de REST API en cURL
 
 In deze snelstart detecteert u gezichten in een afbeelding met behulp van de Face-API.
 

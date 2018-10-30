@@ -12,12 +12,12 @@ ms.author: daredis
 ms.reviewer: vanto, carlrab
 manager: craigg
 ms.date: 09/07/2018
-ms.openlocfilehash: ceed69503900b38d7f6a29bbe116ab9a4d54e396
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: b81e76201f7f751ee01e903d83f316811abaf483
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857955"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955470"
 ---
 # <a name="secure-your-azure-sql-database"></a>Uw Azure SQL-database beveiligen
 
@@ -59,7 +59,7 @@ Meld u aan bij [Azure Portal](https://portal.azure.com/).
 
 SQL-databases worden in Azure beveiligd door een firewall. De standaardinstelling is dat alle verbindingen met de server en de databases op de server worden geweigerd, behalve verbindingen van andere Azure-services. Zie [Overzicht van de firewallregels voor Azure SQL Database](sql-database-firewall-configure.md) voor meer informatie.
 
-De veiligste configuratie is om 'Toegang tot Azure services toestaan' in te stellen op UIT. Als u verbinding moet maken met de database vanaf een virtuele machine in Azure of vanuit een cloudservice, moet u een [gereserveerd IP-adres](../virtual-network/virtual-networks-reserved-public-ip.md) maken en alleen dat gereserveerde IP-adres toegang geven via de firewall. 
+De veiligste configuratie is om 'Toegang tot Azure services toestaan' in te stellen op UIT. Als u verbinding moet maken met de database vanaf een virtuele machine in Azure of vanuit een cloudservice, dient u een [gereserveerd IP-adres (klassieke implementatie)](../virtual-network/virtual-networks-reserved-public-ip.md) te maken en alleen dat gereserveerde IP-adres toegang te geven via de firewall. Als u het [Resource Manager](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm)-implementatiemodel gebruikt, wordt er een speciaal IP-adres aan de resource toegewezen en dient u dit IP-adres toegang te geven via de firewall.
 
 Volg deze stappen voor het maken van een [firewallregel op serverniveau voor uw SQL-database](sql-database-firewall-configure.md) voor uw server om verbindingen vanaf een specifiek IP-adres toe te staan. 
 

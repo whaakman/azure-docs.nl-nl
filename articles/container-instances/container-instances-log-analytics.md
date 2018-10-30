@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: overview
 ms.date: 07/17/2018
 ms.author: danlep
-ms.openlocfilehash: 62457fe5b0336cb6ae6ac4fc63f4884ed14cf9d3
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: dc6aab03ec3e0ec47026c7d435ea538612c7bffb
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48856034"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405596"
 ---
 # <a name="container-instance-logging-with-azure-log-analytics"></a>Logboekregistratie van containerinstanties met Azure Log Analytics
 
@@ -100,7 +100,7 @@ Kort nadat u de opdracht hebt opgegeven, zou u een reactie van Azure met impleme
 
 Nadat u de containergroep hebt geïmplementeerd, kan het enkele minuten (wel tien minuten) duren voor de eerste logboekvermeldingen worden weergegeven in Azure Portal. Als u logboeken van de containergroep wilt bekijken, moet u uw Log Analytics-werkruimte openen en het volgende doen:
 
-1. In het overzicht van **OMS-werkruimte** selecteert u **Zoeken in logboeken**.
+1. In het overzicht van **OMS-werkruimte** selecteert u **Zoeken in logboeken**. OMS-werkruimten worden nu aangeduid als Log Analytics-werkruimten.  
 1. Onder **Nog een aantal query's om te proberen** selecteert u de koppeling **Alle verzamelde gegevens**.
 
 U ziet nu enkele resultaten die door de query `search *` worden weergegeven. Als u eerst geen resultaten ziet, wacht u een paar minuten en selecteert u vervolgens de knop **UITVOEREN** om de query opnieuw uit te voeren. Standaard worden logboekvermeldingen weergegeven in de lijstweergave. Selecteer **Tabel** om de logboekvermeldingen in een meer gecomprimeerde indeling weer te geven. U kunt vervolgens een rij uitbreiden om de inhoud van een afzonderlijke logboekvermelding te zien.

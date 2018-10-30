@@ -1,25 +1,31 @@
 ---
-title: 'Snelstart: de knowledge base bijwerken - Qna Maker'
+title: 'Snelstart: Knowledge base bijwerken - REST, Go - QnA Maker'
 titleSuffix: Azure Cognitive Services
-description: Een kennisdatabase bijwerken in Go voor QnA Maker.
+description: In deze REST-snelstart wordt beschreven hoe u uw voorbeeld van een QnA Maker-KB (knowledge base) programmatisch kunt bijwerken. Met de JSON-definitie voor het bijwerken van een KB kunt u paren van vragen en antwoorden toevoegen, wijzigen of verwijderen.
 services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: quickstart
-ms.date: 09/12/2018
+ms.date: 10/19/2018
 ms.author: diberry
-ms.openlocfilehash: b447b77eb1fdd9135f7d15a791414d166194b2dd
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 5275184994dce446a7ca572a049f3860c4782139
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389306"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49646878"
 ---
-# <a name="update-a-knowledge-base"></a>Een kennisdatabase bijwerken
+# <a name="quickstart-update-a-knowledge-base-in-qna-maker-using-go"></a>Snelstart: Een knowledge base bijwerken in QnA Maker met behulp van Go
 
-Met de volgende code wordt een bestaande knowledge base bijgewerkt met behulp van de methode [Update](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600).
+Deze quickstart helpt u bij het programmatisch bijwerken van een bestaande QnA Maker-knowledge base (KB).  Met deze JSON kunt u een KB bijwerken door nieuwe gegevensbronnen toe te voegen, gegevensbronnen te wijzigen of gegevensbronnen te verwijderen.
+
+Deze API is gelijk aan bewerken, waarna u de knop **Save and train** in de QnA Maker-portal gebruikt.
+
+In deze snelstart worden QnA Maker-API's aangeroepen:
+* [Update](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600): het model voor de knowledge base is gedefinieerd in de JSON die in de hoofdtekst van de API-aanvraag wordt verzonden. 
+* [Bewerkingsdetails ophalen](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails)
 
 1. Maak een nieuw Go-project in uw favoriete IDE.
 2. Voeg de onderstaande code toe.
@@ -191,7 +197,7 @@ Press any key to continue.
 
 ## <a name="get-request-status"></a>De aanvraagstatus ophalen
 
-U kunt de methode [Operation](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails) aanroepen om de status van een aanvraag voor het maken of bijwerken van een kennisdatabase te controleren. Bekijk de voorbeeldcode voor de methode [Create](#Create) of [Update](#Update) om te zien hoe deze methode wordt gebruikt.
+U kunt de methode [Operation](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails) aanroepen om de status van een aanvraag voor het maken of bijwerken van een kennisdatabase te controleren. Bekijk de voorbeeldcode voor de snelstart [Create](create-new-kb-go.md) om te zien hoe deze methode wordt gebruikt.
 
 ## <a name="next-steps"></a>Volgende stappen
 

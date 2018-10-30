@@ -3,7 +3,7 @@ title: Uw eerste API importeren en publiceren in Azure API Management | Microsof
 description: Informatie over het importeren en publiceren van uw eerste API met API Management.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: mikebudzynski
 manager: cfowler
 editor: ''
 ms.service: api-management
@@ -14,12 +14,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 538977b9057a5699d61d6c2cc44209367e3550e2
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: cf913c0aaf7dd9957f21452caf8e43a9e3c8b2db
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47093399"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49467392"
 ---
 # <a name="import-and-publish-your-first-api"></a>Uw eerste API importeren en publiceren 
 
@@ -73,9 +73,11 @@ In deze sectie ziet u hoe u een back-end-API met de naam OpenAPI-specificatie ku
 
 ## <a name="test-the-new-apim-api-in-the-azure-portal"></a>De nieuwe APIM API testen in Azure Portal
 
+![API-kaart testen](./media/api-management-get-started/01-import-first-api-01.png)
+
 Bewerkingen kunnen rechtstreeks vanuit Azure Portal worden aangeroepen. Dit is een handige manier om de bewerkingen van een API te bekijken en te testen.  
 1. Selecteer de API die u in de vorige stap hebt gemaakt (op het tabblad **API's**).
-2. Druk op het tabblad **Testen**.  ![API testen](./media/api-management-get-started/test-api.png)
+2. Druk op het tabblad **Testen**.
 3. Klik op **GetSpeakers**.
     Op de pagina worden velden weergegeven voor queryparameters (maar in dit geval zijn er geen queryparameters) en headers. Een van de headers is Ocp-Apim-Subscription-Key voor de abonnementssleutel van het product dat is gekoppeld aan deze API. De sleutel wordt automatisch ingevuld.
 4. Druk op **Verzenden**.
@@ -87,7 +89,8 @@ Bewerkingen kunnen rechtstreeks vanuit Azure Portal worden aangeroepen. Dit is e
 Bewerkingen kunnen ook worden aangeroepen vanuit de **ontwikkelaarsportal** om de API's te testen.
 
 1. Navigeer naar de **ontwikkelaarsportal**.
-![ontwikkelaarsportal](./media/api-management-get-started/developer-portal.png)
+
+ ![ontwikkelaarsportal](./media/api-management-get-started/developer-portal.png)
 
 2. Selecteer **API's**, klik op **Demo Conference API** en vervolgens op **GetSpeakers**.
     

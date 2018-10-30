@@ -7,14 +7,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-ms.date: 09/24/2018
+ms.date: 10/23/2018
 ms.author: alkohli
-ms.openlocfilehash: 1beecd4c37ef333464e96b93294c25d182ffdf91
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 731730aae59fa654394bf01a139af0088c207774
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49090803"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955334"
 ---
 # <a name="what-is-azure-data-box"></a>Wat is Azure Data Box?
 
@@ -62,7 +62,7 @@ Het Data Box-apparaat biedt de volgende functies in deze versie.
 | Dimensies                                              | Apparaat - Breedte: 309,0 mm Hoogte: 430,4 mm Diepte: 502,0 mm |            
 | Rackruimte                                              | 7 U wanneer het op zijn apparaat in het rack wordt geplaatst (kan niet in rack worden gemonteerd)|
 | Vereiste kabels                                         | 1 x voedingskabel (inbegrepen) <br> 2 RJ45-kabels <br> 2 x SFP+ Twinax-koperen kabels|
-| Opslagcapaciteit                                        | 100 TB <br> Bruikbare capaciteit van 80 TB na RAID 5-bescherming|
+| Opslagcapaciteit                                        | 100 TB-apparaat bevat bruikbare capaciteit van 80 TB na RAID 5-bescherming|
 | Netwerkinterfaces                                      | 2 X 1 GbE interface - MGMT, DATA 3. <br> MGMT - Eén beheerinterface, niet configureerbaar door gebruikers, gebruikt voor eerste installatie <br> DATA3 - Voor gegevens, kan door gebruiker worden geconfigureerd en is standaard dynamisch <br> MGMT en DATA 3 kunnen ook werken als 10 GbE <br> 2 x 10 GbE-interface - DATA 1, DATA 2 <br> Beide zijn voor gegevens en kunnen dynamisch (standaard) of statisch worden geconfigureerd |
 | Media voor gegevensoverdracht                                     | RJ45, SFP+ copper 10 GbE Ethernet  |
 | Beveiliging                                                | Robuust apparaat met fraudebestendige, aangepaste schroeven <br> Verzegeling aan de onderkant van het apparaat|

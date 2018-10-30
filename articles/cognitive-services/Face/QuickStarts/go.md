@@ -1,5 +1,5 @@
 ---
-title: 'Snelstart: Gezichten in een afbeelding detecteren - Face-API, Go'
+title: 'Snelstart: Gezichten in een afbeelding detecteren met de REST API en Go'
 titleSuffix: Azure Cognitive Services
 description: In deze snelstart detecteert u gezichten in een afbeelding met behulp van de Face-API met Go.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: face-api
 ms.topic: quickstart
 ms.date: 06/25/2018
 ms.author: pafarley
-ms.openlocfilehash: 1717d32f679d0f5196d8ff03a27415c9e41e0c23
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: a66d50ac6984ea50eef1e34cc53db4d7e5bbdcad
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49344947"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49956201"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-go"></a>Snelstartgids: gezichten in een afbeelding detecteren met behulp van Go
+# <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-go"></a>Snelstart: Gezichten in een afbeelding detecteren met de REST API en Go
 
 In deze snelstartgids detecteert u menselijke gezichten in een afbeelding met behulp van de Face-API.
 

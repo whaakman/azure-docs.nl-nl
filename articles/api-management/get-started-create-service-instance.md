@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 7fb4182c0b5149a9006a30ad34782ad968e16758
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: f5465040f7dc0efd90591050ed9953149aca34b0
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38595585"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49456436"
 ---
 # <a name="create-a-new-azure-api-management-service-instance"></a>Een nieuw exemplaar van de API Management-service maken
 
@@ -35,6 +35,8 @@ Meld u aan bij Azure Portal op http://portal.azure.com.
 
 ## <a name="create-a-new-service"></a>Een nieuwe service maken
 
+![Nieuw Azure API Management-exemplaar maken](./media/get-started-create-service-instance/00-CreateResource-01.png)
+
 1. Selecteer in [Azure Portal](https://portal.azure.com/) achtereenvolgens **Een resource maken** > **Bedrijfsintegratie** > **API Management**.
 
     U kunt ook **Nieuw** kiezen, `API management` typen in het zoekvak en op Enter drukken. Klik op **Create**.
@@ -43,15 +45,16 @@ Meld u aan bij Azure Portal op http://portal.azure.com.
 
     ![nieuw exemplaar](./media/get-started-create-service-instance/get-started-create-service-instance-create-new.png)
 
-    | Instelling      | Voorgestelde waarde  | Beschrijving              |
-    | ------------ |  ------- | ---------------------------------|
-    |**Naam**|Een unieke naam voor de API Management-service| De naam kan later niet meer worden gewijzigd. De servicenaam wordt gebruikt om een standaarddomeinnaam te genereren in de notatie: *{name}.azure-api.net.* Zie [Een aangepast domein configureren](configure-custom-domain.md) als u een aangepaste domeinnaam wilt gebruiken. <br/> De servicenaam wordt gebruikt om naar de service en de bijbehorende Azure-resource te verwijzen.|
-    |**Abonnement**|Uw abonnement | Het abonnement waarin dit nieuwe service-exemplaar wordt gemaakt. U kunt het abonnement selecteren in een van de verschillende Azure-abonnementen waartoe u toegang hebt.|
-    |**Resourcegroep**|*apimResourceGroup*|U kunt een nieuwe of bestaande resource selecteren. Een resourcegroep is een verzameling resources met dezelfde levenscyclus, dezelfde machtigingen en hetzelfde beleid. Klik [hier](../azure-resource-manager/resource-group-overview.md#resource-groups) voor meer informatie.|
-    |**Locatie**|*VS - west*|Selecteer de geografische regio bij u in de buurt. Alleen de beschikbare regio’s voor de API Management-service worden weergegeven in de vervolgkeuzelijst. |
-    |**Naam van de organisatie**|De naam van uw organisatie|Deze naam wordt op een aantal plekken gebruikt, onder andere in de titel van de ontwikkelaarsportal en als afzender bij e-mailmeldingen.|
-    |**E-mailadres van de beheerder**|*admin@org.com*|Vast e-mailadres waarnaar alle meldingen afkomstig van **API Management** worden verzonden.|
-    |**Prijscategorie**|*Developer*|Vaste **Developer**-laag om de service te evalueren. Deze laag is niet bedoeld voor productie. Zie [bijwerken en schalen](upgrade-and-scale.md) voor meer informatie over het schalen van API Management-lagen.|
+    | Instelling                 | Voorgestelde waarde                               | Beschrijving                                                                                                                                                                                                                                                                                                                         |
+|-------------------------|-----------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Naam**                | Een unieke naam voor de API Management-service | De naam kan later niet meer worden gewijzigd. De servicenaam wordt gebruikt om een standaarddomeinnaam te genereren in de notatie: *{name}.azure-api.net.* Zie [Een aangepast domein configureren](configure-custom-domain.md) als u een aangepaste domeinnaam wilt gebruiken. <br/> De servicenaam wordt gebruikt om naar de service en de bijbehorende Azure-resource te verwijzen. |
+| **Abonnement**        | Uw abonnement                             | Het abonnement waarin dit nieuwe service-exemplaar wordt gemaakt. U kunt het abonnement selecteren in een van de verschillende Azure-abonnementen waartoe u toegang hebt.                                                                                                                                                            |
+| **Resourcegroep**      | *apimResourceGroup*                           | U kunt een nieuwe of bestaande resource selecteren. Een resourcegroep is een verzameling resources met dezelfde levenscyclus, dezelfde machtigingen en hetzelfde beleid. Klik [hier](../azure-resource-manager/resource-group-overview.md#resource-groups) voor meer informatie.                                                                                                  |
+| **Locatie**            | *VS - west*                                    | Selecteer de geografische regio bij u in de buurt. Alleen de beschikbare regio’s voor de API Management-service worden weergegeven in de vervolgkeuzelijst.                                                                                                                                                                                                          |
+| **Naam van de organisatie**   | De naam van uw organisatie                 | Deze naam wordt op een aantal plekken gebruikt, onder andere in de titel van de ontwikkelaarsportal en als afzender bij e-mailmeldingen.                                                                                                                                                                                                             |
+| **E-mailadres van de beheerder** | *admin@org.com*                               | Vast e-mailadres waarnaar alle meldingen afkomstig van **API Management** worden verzonden.                                                                                                                                                                                                                                              |
+| **Prijscategorie**        | *Developer*                                   | Vaste **Developer**-laag om de service te evalueren. Deze laag is niet bedoeld voor productie. Zie [bijwerken en schalen](upgrade-and-scale.md) voor meer informatie over het schalen van API Management-lagen.                                                                                                                                    |
+
 3. Kies **Maken**.
 
     > [!TIP]
@@ -63,13 +66,18 @@ Meld u aan bij Azure Portal op http://portal.azure.com.
 
 Wanneer de resourcegroep niet meer nodig is, kunt u deze stappen volgen om de resourcegroep en alle gerelateerde resources te verwijderen:
 
+1. Selecteer in de Azure-portal de optie **Alle services**.
+2. Voer `resource groups` in het zoekvak in en klik op het resultaat.
 
-1. In Azure Portal selecteert u ![pijl](./media/get-started-create-service-instance/arrow.png).
-2. Selecteer **Resourcegroepen**.
-3. Ga naar uw resourcegroep.
-4. Klik op . . . en verwijder de groep.
+    ![Navigatie in resourcegroepen](./media/get-started-create-service-instance/00-DeleteResource-01.png)
 
-![opruimen](./media/get-started-create-service-instance/cleanup.png)
+3. Ga naar uw resourcegroep en klik erop.
+4. Klik op **Resourcegroep verwijderen**.
+
+    ![Navigatie in resourcegroepen](./media/get-started-create-service-instance/00-DeleteResource-02.png)
+
+5. Bevestig de verwijdering door de naam van de resourcegroep in te voeren.
+6. Klik op **Verwijderen**.
 
 ## <a name="next-steps"></a>Volgende stappen
 

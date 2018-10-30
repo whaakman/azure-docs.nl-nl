@@ -6,22 +6,25 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 07/06/2018
+ms.date: 10/19/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: facf8895770f890bfbbef946a32cc681f685e998
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 361a1934a1e0cdcc0647c4c4f62af98f52b8c899
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37915199"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49456867"
 ---
 # <a name="prepare-on-premises-vmware-servers-for-disaster-recovery-to-azure"></a>On-premises VMware-servers voorbereiden op herstel naar Azure na een noodgeval
 
 [Azure Site Recovery](site-recovery-overview.md) draagt bij aan uw strategie voor zakelijke continuïteit en noodherstel (BCDR) door te zorgen dat uw zakelijke apps actief blijven tijdens geplande en ongeplande uitval. Site Recovery beheert en orkestreert noodherstel van on-premises machines en virtuele Azure-machines (VM's), met inbegrip van replicatie, failover en herstel.
 
 - Dit is de tweede zelfstudie in een reeks waarin u ziet hoe u herstel na noodgeval kunt instellen voor Azure voor on-premises VMware-VM’s. In de eerste zelfstudie hebben we de [Azure-onderdelen ingesteld](tutorial-prepare-azure.md) die nodig zijn voor VMware-noodherstel.
-- In deze zelfstudies ziet u steeds het eenvoudigste implementatiepad voor een scenario. Waar mogelijk wordt gebruikgemaakt van standaardopties en niet alle mogelijke instellingen en paden worden weergegeven. 
+
+
+> [!NOTE]
+> In deze zelfstudies ziet u steeds het eenvoudigste implementatiepad voor een scenario. Waar mogelijk wordt gebruikgemaakt van standaardopties en niet alle mogelijke instellingen en paden worden weergegeven. Raadpleeg de sectie **Instructies** voor het betreffende scenario voor gedetailleerde instructies.
 
 In dit artikel ziet u hoe u uw on-premises VMware-omgeving voorbereidt wanneer u Azure Site Recovery wilt gebruiken om VMware-VM's te repliceren naar Azure. In deze zelfstudie leert u procedures om het volgende te doen:
 
@@ -101,11 +104,13 @@ Als u na een failover verbinding wilt maken met Linux-VM’s met behulp van SSH,
 - [Voeg een openbaar IP-adres toe](site-recovery-monitoring-and-troubleshooting.md) voor de VM.
 - U kunt de **Diagnostische gegevens over opstarten** controleren om een schermopname van de VM weer te geven.
 
+
+## <a name="failback-requirements"></a>Vereisten voor failback
+Als u on-premises een failback wilt uitvoeren, moet u ook [voldoen aan bepaalde vereisten](vmware-azure-reprotect.md##before-you-begin). Deze vereisten **gelden echter niet om herstel na noodgevallen** in te schakelen voor uw VM’s, en kunnen ook worden uitgesteld totdat de failover naar Azure is uitgevoerd.
+
 ## <a name="useful-links"></a>Handige koppelingen
 
 Als u meerdere virtuele machines repliceert, moet u de capaciteit en implementatie plannen voordat u begint. [Meer informatie](site-recovery-deployment-planner.md).
-
-
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 10/10/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 442e8d425e60566df5ce919e3463235ef1d6e4f0
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 334b7aa3a3a174055c3741f20a4817063efd21f6
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078093"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49456640"
 ---
 # <a name="about-site-recovery"></a>Site Recovery
 
@@ -29,7 +29,7 @@ Azure Recovery Services dragen bij aan uw BCDR-strategie:
 Met Site Recovery kunt u replicatie beheren voor:
 
 - Azure-VM's die worden gerepliceerd tussen Azure-regio's.
-- On-premises VM’s en fysieke servers die worden gerepliceerd naar Azure of naar een secundaire site.
+- On-premises VM's, Azure Stack-VM's en fysieke servers.
 
 
 ## <a name="what-does-site-recovery-provide"></a>Wat biedt Site Recovery?
@@ -56,10 +56,9 @@ Met Site Recovery kunt u replicatie beheren voor:
 
 **Ondersteund** | **Details**
 --- | ---
-**Replicatiescenario's** | Repliceer VM's van de ene Azure-regio naar de andere.<br/><br/>  Repliceer on-premises VMware-VM's, Hyper-V-VM's, fysieke servers (Windows en Linux) naar Azure.<br/><br/> Repliceer on-premises VMware-VM’s, Hyper-V-VM’s die worden beheerd met System Center VMM, en fysieke servers naar een secundaire site.
+**Replicatiescenario's** | Repliceer VM's van de ene Azure-regio naar de andere.<br/><br/>  Repliceer on-premises VMware-VM's, Hyper-V-VM's, fysieke servers (Windows en Linux), Azure4 Stack-VM's naar Azure.<br/><br/> Repliceer on-premises VMware-VM’s, Hyper-V-VM’s die worden beheerd met System Center VMM, en fysieke servers naar een secundaire site.
 **Regio's** | Bekijk [ondersteunde regio's](https://azure.microsoft.com/regions/services/) voor Site Recovery. |
 **Gerepliceerde machines** | Lees de replicatievereisten voor [Azure VM](azure-to-azure-support-matrix.md#support-for-replicated-machine-os-versions)-replicatie, [on-premises virtuele VMware-machines en fysieke servers](vmware-physical-azure-support-matrix.md#replicated-machines), en [on-premises virtuele Hyper-V-machines](hyper-v-azure-support-matrix.md#replicated-vms).
-**VMware-servers/-hosts** | De VMware-VM's die u wilt repliceren, kunnen zich bevinden op [ondersteunde host- en virtualisatieservers](vmware-physical-azure-support-matrix.md).
 **Workloads** | U kunt iedere workload repliceren die wordt uitgevoerd op een computer waarvoor replicatie wordt ondersteund. Daarnaast heeft het Site Recovery-team specifieke tests uitgevoerd voor een [aantal apps](site-recovery-workload.md#workload-summary).
 
 

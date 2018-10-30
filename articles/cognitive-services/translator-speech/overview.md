@@ -10,12 +10,12 @@ ms.component: translator-speech
 ms.topic: overview
 ms.date: 3/5/2018
 ms.author: v-jansko
-ms.openlocfilehash: 77e60fe39f7cbb985ee0e7ed2785805e80c389ae
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 641081e4a01aa5810d569795c10e967e4b46568e
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49341137"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50023574"
 ---
 # <a name="what-is-translator-speech-api"></a>Wat is de Translator Speech-API?
 
@@ -34,7 +34,7 @@ De service biedt voor spraak-naar-spraakomzetting de mogelijkheid om spraak na t
 De Translator Speech-API maakt gebruik van het WebSocket-protocol voor een full-duplex-communicatiekanaal tussen de client en de server. 
 
 ## <a name="about-microsoft-translator"></a>Over Microsoft Translator
-Microsoft Translator is een cloudservice voor machinevertaling. Aan de basis van deze service staan de [Translator Text-API] (https://www.microsoft.com/en-us/translator/translatorapi.aspx) en de Translator Speech-API), die te vinden zijn in diverse Microsoft-producten en -services en door duizenden bedrijven over de hele wereld worden gebruikt in hun toepassingen en werkstromen om hun inhoud beschikbaar te maken voor een wereldwijd publiek.
+Microsoft Translator is een cloudservice voor machinevertaling. Aan de basis van deze service staan de [Translator Text-API](https://www.microsoft.com/en-us/translator/translatorapi.aspx) en de Translator Speech-API, die te vinden zijn in diverse Microsoft-producten en -services en door duizenden bedrijven over de hele wereld worden gebruikt in hun toepassingen en werkstromen om hun inhoud beschikbaar te maken voor een wereldwijd publiek.
 
 Meer informatie over de [Microsoft Translator-service](https://www.microsoft.com/en-us/translator/home.aspx)
 

@@ -1,34 +1,34 @@
 ---
 title: 'Snelstart: Knowledge base publiceren - REST, C# - QnA Maker'
 titleSuffix: Azure Cognitive Services
-description: Deze snelstartgids helpt u bij het publiceren van uw KB waarbij de meest recente versie van de geteste knowledge base wordt verstuurd naar een specifieke Azure Search-index voor de gepubliceerde knowledge base. Hiermee wordt ook een eindpunt gemaakt dat kan worden aangeroepen in uw toepassing of chatbot.
+description: Deze op REST gebaseerde snelstart helpt u bij het publiceren van uw KB, waarbij de meest recente versie van de geteste knowledge base naar een specifieke Azure Search-index wordt gepusht die de gepubliceerde knowledge base vertegenwoordigt. Hiermee wordt ook een eindpunt gemaakt dat kan worden aangeroepen in uw toepassing of chatbot.
 services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: quickstart
-ms.date: 10/01/2018
+ms.date: 10/19/2018
 ms.author: diberry
-ms.openlocfilehash: f2aa73dacdffaebcddbf91b2f5c7c3db4a331431
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: ce027abb75423d0174a7175c3bbafe5c0fb3e157
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48883581"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49646259"
 ---
-# <a name="quickstart-publish-a-qna-maker-knowledge-base-in-c"></a>Snelstart: een QnA Maker-knowledge base publiceren in C#
+# <a name="quickstart-publish-a-knowledge-base-in-qna-maker-using-c"></a>Snelstart: Een knowledge base publiceren in QnA Maker met behulp van C#
 
-In deze snelstart wordt beschreven hoe u programmatisch uw knowledge base (KB) kunt publiceren. Door te publiceren wordt de nieuwste versie van de knowledge base verstuurd naar een specifieke Azure Search-index en wordt een eindpunt gemaakt dat kan worden aangeroepen in uw toepassing of chatbot.
+In deze snelstart wordt beschreven hoe u programmatisch uw knowledge base (KB) kunt publiceren. Door te publiceren wordt de nieuwste versie van de knowledge base verstuurd naar een specifieke Azure Search-index en wordt er een eindpunt gemaakt dat kan worden aangeroepen in uw toepassing of chatbot.
 
 In deze snelstart worden QnA Maker-API's aangeroepen:
-* [Publiceren](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fe) - voor deze API zijn geen gegevens in de hoofdtekst van de aanvraag nodig.
+* [Publiceren](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fe): voor deze API zijn er geen gegevens in de hoofdtekst van de aanvraag nodig.
 
 ## <a name="prerequisites"></a>Vereisten
 
 * De meest recente [**Visual Studio Community edition**](https://www.visualstudio.com/downloads/).
 * U moet een [QnA Maker-service ](../How-To/set-up-qnamaker-service-azure.md) hebben. Selecteer onder **Resourcebeheer** de optie **Sleutel** om uw sleutel op te halen. 
-* Id voor knowledge base (KB) in QnA Maker gevonden in de URL in de parameter voor de kbid-queryreeks zoals hieronder wordt weergegeven.
+* Id voor knowledge base (KB) in QnA Maker gevonden in de URL in de parameter voor de kbid-queryreeks, zoals hieronder wordt weergegeven.
 
     ![Id voor knowledge base in QnA Maker](../media/qnamaker-quickstart-kb/qna-maker-id.png)
 
@@ -120,7 +120,7 @@ static void Main(string[] args)
 
 ## <a name="build-and-run-the-program"></a>Het programma bouwen en uitvoeren
 
-Bouw het programma en voer het uit. De aanvraag wordt automatisch verzonden naar de QnA Maker-API om de KB te publiceren en vervolgens wordt het antwoord afgedrukt in het consolevenster.
+Bouw het programma en voer het uit. De aanvraag wordt automatisch verzonden naar de QnA Maker-API om de KB te publiceren en vervolgens wordt het antwoord weergegeven in het consolevenster.
 
 Zodra uw knowledge base is gepubliceerd, kunt u deze opvragen van het eindpunt met behulp van een clienttoepassing of chatbot. 
 

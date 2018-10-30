@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 10/10/2018
+ms.date: 10/19/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 0404774f1cb347ceead8b78d1a9a6506712dea5c
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: ab79201442fe9c7334525972c34eba86daf27e99
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49069094"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49457422"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region"></a>Herstel na noodgevallen instellen van Azure-VM’s naar een secundaire Azure-regio
 
@@ -27,6 +27,9 @@ Deze zelfstudie laat zien hoe u herstel na noodgevallen in een secundaire Azure-
 > * Doelresource-instellingen controleren
 > * Uitgaande toegang instellen voor VM’s
 > * Replicatie inschakelen voor een VM
+
+> [!NOTE]
+> Deze zelfstudie is bedoeld om de gebruiker stapsgewijs te begeleiden bij het uitvoeren van een replicatie met een minimale hoeveelheid aanpassing. Raadpleeg de documenten bij Instructies voor Azure-VM's als u meer informatie wilt over de verschillende aspecten van herstel na noodgevallen, inclusief netwerkoverwegingen, automatisering en het oplossen van problemen.
 
 
 ## <a name="prerequisites"></a>Vereisten
@@ -193,7 +196,7 @@ Klik op Aanpassen naast Versleutelingsinstellingen om de standaardinstellingen t
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie hebt u herstel na noodgevallen geconfigureerd voor een Azure-VM. De volgende stap is het testen van uw configuratie.
+In deze zelfstudie hebt u herstel na noodgevallen geconfigureerd voor een Azure-VM. De volgende stap is het testen van uw configuratie door een noodherstelanalyse te starten.
 
 > [!div class="nextstepaction"]
 > [Noodherstelanalyse uitvoeren](azure-to-azure-tutorial-dr-drill.md)

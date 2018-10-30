@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: resource-graph
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 1a2bc5626e94f5fcb0ec8c2be8d91c8fc6484e0b
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 001805aaf87ed6c3481a8ad8378cdc22ef74d274
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47224559"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49646385"
 ---
 # <a name="run-your-first-resource-graph-query-using-azure-powershell"></a>Uw eerste Resource Graph-query uitvoeren met Azure PowerShell
 
@@ -32,7 +32,7 @@ De module moet worden toegevoegd opdat Azure PowerShell query's kan uitvoeren vo
 
 Voor de Azure Resource Graph-module is de volgende software vereist:
 
-- Azure PowerShell 6.3.0 of hoger. Als deze nog niet is geïnstalleerd, voert u [deze instructies](/powershell/azure/install-azurerm-ps) uit.
+- Azure PowerShell 6.3.0 of hoger. Als deze nog niet is geïnstalleerd, volgt u [deze instructies](/powershell/azure/install-azurerm-ps) op.
 
   - Voor PowerShell Core gebruikt u de **Az**-versie van de Azure PowerShell-module.
 
@@ -41,7 +41,11 @@ Voor de Azure Resource Graph-module is de volgende software vereist:
   > [!NOTE]
   > Het wordt momenteel niet aanbevolen om de module te installeren in Cloud Shell.
 
-- PowerShellGet. Als deze nog niet is geïnstalleerd of bijgewerkt, voert u [deze instructies](/powershell/gallery/installing-psget) uit.
+- PowerShellGet 2.0.1 of hoger. Als deze nog niet is geïnstalleerd of bijgewerkt, volgt u [deze instructies](/powershell/gallery/installing-psget) op.
+
+### <a name="cloud-shell"></a>Cloud Shell
+
+Als u de Azure Resource Graph-module wilt toevoegen aan Cloud Shell, volgt u de onderstaande instructies voor PowerShell Core.
 
 ### <a name="powershell-core"></a>PowerShell Core
 
@@ -49,21 +53,21 @@ De Resource Graph-module voor PowerShell Core is **Az.ResourceGraph**.
 
 1. Voer vanuit een PowerShell Core-prompt met **beheerdersrechten** de volgende opdracht uit:
 
-   ```powershell
+   ```azurepowershell-interactive
    # Install the Resource Graph module from PowerShell Gallery
    Install-Module -Name Az.ResourceGraph
    ```
 
-1. Valideer als volgt of de module is geïmporteerd en de juiste versie (0.2.0) heeft:
+1. Valideer als volgt of de module is geïmporteerd en de juiste versie (0.3.0) heeft:
 
-   ```powershell
+   ```azurepowershell-interactive
    # Get a list of commands for the imported Az.ResourceGraph module
    Get-Command -Module 'Az.ResourceGraph' -CommandType 'Cmdlet'
    ```
 
 1. Schakel met de volgende opdracht achterwaartse aliassen in voor **Az** naar **AzureRm**:
 
-   ```powershell
+   ```azurepowershell-interactive
    # Enable backwards alias compatibility
    Enable-AzureRmAlias
    ```
@@ -79,7 +83,7 @@ De Resource Graph-module voor Windows PowerShell is **AzureRm.ResourceGraph**.
    Install-Module -Name AzureRm.ResourceGraph -AllowPrerelease
    ```
 
-1. Valideer als volgt of de module is geïmporteerd en de juiste versie (0.1.0 preview) heeft:
+1. Valideer als volgt of de module is geïmporteerd en de juiste versie (0.1.1 preview) heeft:
 
    ```powershell
    # Get a list of commands for the imported AzureRm.ResourceGraph module
@@ -88,12 +92,12 @@ De Resource Graph-module voor Windows PowerShell is **AzureRm.ResourceGraph**.
 
 ## <a name="run-your-first-resource-graph-query"></a>Uw eerste Resource Graph-query uitvoeren
 
-Nu de Azure PowerShell-module is toegevoegd aan uw gewenste omgeving, kunt u een eenvoudige Resource Graph-query proberen uit te voeren. De query retourneert de eerste vijf Azure-resources met de **naam** en het **resourcetype** van elke resource.
+Nu de Azure PowerShell-module is toegevoegd aan uw gewenste omgeving, kunt u een eenvoudige Resource Graph-query uitvoeren. De query retourneert de eerste vijf Azure-resources met de **naam** en het **resourcetype** van elke resource.
 
 1. Voer als volgt uw eerste Azure Resource Graph-query uit met de cmdlet `Search-AzureRmGraph`:
 
-   ```powershell
-   # Login first with Connect-AzureRmAccount
+   ```azurepowershell-interactive
+   # Login first with Connect-AzureRmAccount if not using Cloud Shell
 
    # Run Azure Resource Graph query
    Search-AzureRmGraph -Query 'project name, type | limit 5'
@@ -104,7 +108,7 @@ Nu de Azure PowerShell-module is toegevoegd aan uw gewenste omgeving, kunt u een
 
 1. Werk de query als volgt bij om de eigenschap **naam** te `order by`:
 
-   ```powershell
+   ```azurepowershell-interactive
    # Run Azure Resource Graph query with 'order by'
    Search-AzureRmGraph -Query 'project name, type | limit 5 | order by name asc'
    ```
@@ -112,9 +116,9 @@ Nu de Azure PowerShell-module is toegevoegd aan uw gewenste omgeving, kunt u een
   > [!NOTE]
   > Net als bij de eerste query zal deze query waarschijnlijk per aanvraag een andere set resources opleveren als de query meerdere keren wordt uitgevoerd. De volgorde van de queryopdrachten is belangrijk. In dit voorbeeld komt `order by` na `limit`. Hiermee worden de queryresultaten eerst beperkt en daarna geordend.
 
-1. Werk de query als volgt bij om eerst te `order by` op de eigenschap **naam** en daarna de resultaten van de top 5 te `limit`:
+1. Werk de query als volgt bij om eerst te `order by` op de eigenschap **naam** en daarna de resultaten van de top vijf te `limit`:
 
-   ```powershell
+   ```azurepowershell-interactive
    # Run Azure Resource Graph query with `order by` first, then with `limit`
    Search-AzureRmGraph -Query 'project name, type | order by name asc | limit 5'
    ```

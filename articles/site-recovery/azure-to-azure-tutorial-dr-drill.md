@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 10/10/2018
+ms.date: 10/19/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 90d82abb6570028308b8d516a868fa981c75eb94
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: b1893d9713f70ee7553392a320fec52fe5c88f3c
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49066986"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49458051"
 ---
 # <a name="run-a-disaster-recovery-drill-for-azure-vms-to-a-secondary-azure-region"></a>Een DR-herstelanalyse uitvoeren van Azure-VM’s naar een secundaire Azure-regio
 
@@ -26,12 +26,13 @@ Deze tutorial laat zien hoe u een DR-herstelanalyse kunt uitvoeren voor een Azur
 > * Vereisten controleren
 > * Een testfailover uitvoeren voor één VM
 
-
+> [!NOTE]
+> Deze zelfstudie is bedoeld om de gebruiker stapsgewijs te begeleiden bij het uitvoeren van een DR Drill met minimale stappen. Raadpleeg de documenten onder ‘Instructies’ voor Azure-VM’s als u meer informatie wilt over de verschillende aspecten van het uitvoeren van een DR Drill, inclusief netwerkoverwegingen, automatisering of het oplossen van problemen.
 
 ## <a name="prerequisites"></a>Vereisten
 
 - Voordat u een failovertest uitvoert, wordt u aangeraden de VM-eigenschappen te controleren of alles is zoals verwacht.  Ga naar de VM-eigenschappen in **Gerepliceerde items**. In de **Essentials**-blade ziet u informatie over de instellingen en status van machines.
-- Wij raden u aan om een apart VM-netwerk te gebruiken voor de failover, en niet het standaardnetwerk dat is opgezet toen u replicatie inschakelde.
+- **Wij raden u aan om een apart VM-netwerk te gebruiken voor de failover** en niet het standaardnetwerk dat is ingesteld toen u replicatie inschakelde.
 
 
 ## <a name="run-a-test-failover"></a>Een testfailover uitvoeren

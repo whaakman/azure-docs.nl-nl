@@ -1,33 +1,34 @@
 ---
 title: 'Snelstartgids: spraak herkennen in Java (Windows of Linux)'
-titleSuffix: Microsoft Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Meer informatie over spraak herkennen in Java (Windows of Linux)
 services: cognitive-services
 author: fmegen
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: Speech
+ms.component: speech-service
 ms.topic: quickstart
 ms.date: 10/12/2018
 ms.author: fmegen
-ms.openlocfilehash: 1f0c19524ebd59dcf0377cc173cd780d656ba447
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 80ddef79392acb677555ed795bf429f5ec0266a0
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49339193"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49467256"
 ---
-# <a name="quickstart-recognize-speech-in-java-on-windows-or-linux-by-using-the-speech-sdk"></a>Snelstartgids: spraak herkennen in Java op Windows of Linux met behulp van de Speech-SDK
+# <a name="quickstart-recognize-speech-in-java-on-windows-or-linux-by-using-the-speech-service-sdk"></a>Snelstart: Spraak herkennen in Java (Windows of Linux) met behulp van de Speech Service-SDK
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-In dit artikel maakt u een Java-consoletoepassing met behulp van de [Speech-SDK](speech-sdk.md). Doel is om realtime spraak naar tekst om te zetten vanuit de microfoon van uw pc. De toepassing wordt gebouwd met het Speech SDK Maven-pakket en de Eclipse Java IDE (v4.8) op 64-bit Windows of Ubuntu Linux 16.04. De toepassing wordt uitgevoerd op een 64-bit Java 8 runtime-omgeving (JRE).
+In dit artikel maakt u een Java-consoletoepassing met behulp van de [Speech Service-SDK](speech-sdk.md). Doel is om realtime spraak naar tekst om te zetten vanuit de microfoon van uw pc. De toepassing wordt gebouwd met het Speech SDK Maven-pakket en de Eclipse Java IDE (v4.8) op 64-bit Windows of Ubuntu Linux 16.04. De toepassing wordt uitgevoerd op een 64-bit Java 8 runtime-omgeving (JRE).
 
 > [!NOTE]
 > Zie [Speech Devices SDK](speech-devices-sdk.md) voor de Speech Devices-SDK en het Roobo-apparaat.
 
 ## <a name="prerequisites"></a>Vereisten
 
-U hebt een abonnementssleutel voor de Speech-service nodig om deze snelstartgids te doorlopen. U kunt er gratis een krijgen. Zie [Speech-service gratis uitproberen](get-started.md) voor meer informatie.
+U hebt een abonnementssleutel voor de Speech-service nodig om deze snelstartgids te doorlopen. U kunt er gratis een krijgen. Zie [Speech Service gratis uitproberen](get-started.md) voor de details.
 
 
 ## <a name="create-and-configure-project"></a>Project maken en configureren

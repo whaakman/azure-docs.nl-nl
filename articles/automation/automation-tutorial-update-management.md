@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/18/2018
 ms.author: zachal
 ms.custom: mvc
-ms.openlocfilehash: bc1b52b97897cb1c635fb16e6ef9692de1ca8a44
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 6046781f59b64dcec4769686a2acd710c7b68965
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167253"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49987304"
 ---
 # <a name="manage-windows-updates-by-using-azure-automation"></a>Windows-updates beheren met behulp van Azure Automation
 
@@ -90,7 +90,7 @@ Voor elk type melding moeten er verschillende meldingsvoorwaarden worden gedefin
 
 #### <a name="log-analytics-query-alert"></a>Melding via Log Analytics-query
 
-Voor geslaagde implementaties kunt u een melding maken op basis van een Log Analytics-query. Voor mislukte implementaties kunt u de stappen bij [Runbookmelding](#runbook-alert) gebruiken om te worden geïnformeerd wanneer het master-runbook waarmee update-implementaties worden uitgevoerd, mislukt. U kunt een aangepaste query schrijven voor extra waarschuwingen als u rekening wilt houden met veel verschillende scenario’s.
+Voor geslaagde implementaties kunt u een melding maken op basis van een Log Analytics-query. Voor mislukte implementaties kunt u de stappen bij [Runbook-waarschuwing](#runbook-alert) gebruiken om te worden geïnformeerd wanneer het master-runbook waarmee update-implementaties worden uitgevoerd, mislukt. U kunt een aangepaste query schrijven voor extra waarschuwingen als u rekening wilt houden met veel verschillende scenario’s.
 
 Ga in Azure Portal naar **Monitor** en selecteer vervolgens **Waarschuwing maken**.
 
@@ -114,7 +114,7 @@ Voer onder **Waarschuwingslogica** voor **Drempelwaarde** in: **1**. Wanneer u k
 
 ![Signaallogica configureren](./media/automation-tutorial-update-management/signal-logic.png)
 
-#### <a name="runbook-alert"></a>Runbook-melding
+#### <a name="runbook-alert"></a>Runbook-waarschuwing
 
 Voor mislukte implementaties moet u een waarschuwing maken over de fout van het master-runbook.
 Ga in Azure Portal naar **Monitor** en selecteer vervolgens **Waarschuwing maken**.
@@ -194,6 +194,9 @@ Als u klaar bent met het configureren van de planning, selecteert u **Maken**.
 ![Deelvenster Planningsinstellingen bijwerken](./media/automation-tutorial-update-management/manageupdates-schedule-win.png)
 
 U keert nu terug naar het statusdashboard. Selecteer **Geplande update-implementaties** om de gemaakte implementatieplanning weer te geven.
+
+> [!NOTE]
+> Updatebeheer biedt ondersteuning voor het implementeren van eerste partij-updates en het vooraf downloaden van patches. Hiervoor is vereist dat wijzigingen in de systemen worden hersteld. Zie [ondersteuning voor eerste partijen en vooraf downloaden](automation-update-management.md#firstparty-predownload) voor informatie over het configureren van deze instellingen in uw systemen.
 
 ## <a name="view-results-of-an-update-deployment"></a>Resultaten van een update-implementatie weergeven
 

@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 05/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 5a93feec7996fc0ebf742b8d62b159dca5f1c1ed
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: c3eecfdf4bc2e6bf6798a6b3845cdc2e2e243341
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34636984"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49467426"
 ---
 # <a name="tutorial-set-up-a-lab-by-using-azure-devtest-labs"></a>Zelfstudie: Een lab maken met Azure DevTest Labs
 In deze zelfstudie maakt u een lab met Azure Portal. Een labbeheerder stelt in een organisatie een lab op, maakt virtuele machines in het lab en configureert beleidsregels. Labgebruikers (bijvoorbeeld ontwikkelaars en testers) claimen virtuele machines in het lab, maken hier verbinding mee en gebruiken deze. 
@@ -55,7 +55,7 @@ In de volgende stappen ziet u hoe u Azure Portal kunt gebruiken om een lab te ma
 1. Selecteer op de pagina **DevTest Lab** **+ toevoegen** op de werkbalk. 
 
     ![Knop Toevoegen](./media/tutorial-create-custom-lab/add-vm-to-lab-button.png)
-1. Zoek op de pagina **Een basis kiezen** met het trefwoord **Ubuntu** en selecteer een van de basisafbeeldingen in de lijst. 
+1. Zoek op de pagina **Een basis kiezen** met een trefwoord (bijvoorbeeld Windows of Ubuntu) en selecteer een van de basisafbeeldingen in de lijst. 
 1. Voer op de pagina van de **virtuele machine** de volgende acties uit: 
     1. Voer bij **Naam virtuele machine** een naam in voor de virtuele machine. 
     2. Voer bij **Gebruikersnaam** een naam in voor de gebruiker die toegang heeft tot de virtuele machine. 
@@ -71,6 +71,9 @@ In de volgende stappen ziet u hoe u Azure Portal kunt gebruiken om een lab te ma
 
         ![Status van het maken van de virtuele machine](./media/tutorial-create-custom-lab/vm-creation-status.png)
 1. Nadat de virtuele machine is gemaakt, ziet u deze in de lijst met **Claimbare virtuele machines**. 
+
+    > [!NOTE] 
+    > Als u een Linux-VM toevoegt aan een lab, kunt u SSH- en RDP-toegang tot de virtuele machine inschakelen. Als u geen toegang inschakelt tijdens het maken van de virtuele machine, kunt u handmatig regels toevoegen aan de netwerkbeveiligingsgroep die gekoppeld is aan de virtuele machine om poorten te openen voor SSH en RDP.
 
 ## <a name="add-a-user-to-the-lab-user-role"></a>Een gebruiker toevoegen aan de rol Labgebruiker
 

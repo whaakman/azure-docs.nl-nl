@@ -1,23 +1,23 @@
 ---
-title: 'Snelstart: taal bepalen op basis van tekst - Translator Text, Go'
+title: 'Snelstart: Taal bepalen op basis van tekst, Go - Translator Text-API'
 titleSuffix: Azure Cognitive Services
 description: In deze snelstart bepaalt u de taal van de brontekst met behulp van de Translator Text-API met Go.
 services: cognitive-services
-author: noellelacharite
+author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/29/2018
-ms.author: nolachar
-ms.openlocfilehash: 25834fae2ce60d93ebeb3a25298b97294748bf9b
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.author: erhopf
+ms.openlocfilehash: 0275b408e71ec967f6453c94566b4799b3dd4396
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129706"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49647201"
 ---
-# <a name="quickstart-identify-language-from-text-with-go"></a>Snelstart: taal bepalen op basis van tekst met Go
+# <a name="quickstart-identify-language-from-text-with-the-translator-text-rest-api-go"></a>Snelstart: Taal bepalen op basis van tekst met de Translator Text REST API (Go)
 
 In deze snelstartgids bepaalt u de taal van de brontekst met behulp van de Translator Text-API.
 

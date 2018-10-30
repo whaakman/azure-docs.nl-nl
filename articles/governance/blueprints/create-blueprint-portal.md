@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 7af0d4819d4044f4cccc43cde1cffe7dff7982a7
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 6b7ca276f3273faa485d08633061f882493f72f7
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056434"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49647269"
 ---
 # <a name="define-and-assign-an-azure-blueprint-in-the-portal"></a>Een Azure Blueprint definiëren en toewijzen in de portal
 
@@ -111,7 +111,7 @@ De eerste stap bij het definiëren van een standaardpatroon voor naleving bestaa
 
    ![Artefact - Resource Manager-sjabloon](./media/create-blueprint-portal/add-resource-manager-template.png)
 
-1. De voltooide blauwdruk moet er nu ongeveer als volgt uitzien. U ziet dat voor elke artefact '_x_ van de _y_ parameters ingevuld' wordt weergegeven in de kolom _Parameters_. De **dynamische parameters** worden ingesteld tijdens elke toewijzing van de blauwdruk en de enige **statische parameter** op roltoewijzing is al geconfigureerd.
+1. De voltooide blauwdruk moet er nu ongeveer als volgt uitzien. U ziet dat voor elke artefact '_x_ van de _y_ parameters ingevuld' wordt weergegeven in de kolom _Parameters_. De **dynamische parameters** worden ingesteld tijdens elke toewijzing van de blauwdruk.
 
    ![Voltooide blauwdruk](./media/create-blueprint-portal/completed-blueprint.png)
 

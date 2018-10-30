@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: overview
 ms.date: 09/27/2018
 ms.author: alkohli
-ms.openlocfilehash: 5a95675d5e37adec5fb1f1542daad329484a2a4c
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 1d38b563e2a272acdbaa4ea0c2a169a04e798d12
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092607"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49649394"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box: veelgestelde vragen
 
@@ -217,7 +217,7 @@ A.  Als de gegevens naar Azure zijn gekopieerd, worden de gegevens van op de Dat
 ## <a name="audit-report"></a>Auditrapport
 
 ### <a name="how-does-azure-data-box-service-help-support-customers-chain-of-custody-procedure"></a>Hoe helpt de Azure Data Box-service in de procedure voor de bewakingsketen van klanten?
-A.  De Azure Data Box-service biedt systeemeigen rapporten die u kunt gebruiken voor de documentatie van uw bewakingsketen. De audit- en kopielogboeken zijn beschikbaar in uw opslagaccount in Azure. De ordergeschiedenis kan in uw bestelling in de Azure Portal worden gedownload nadat de bestelling is voltooid.
+A.  De Azure Data Box-service biedt systeemeigen rapporten die u kunt gebruiken voor de documentatie van uw bewakingsketen. De controle- en kopielogboeken zijn beschikbaar in uw opslagaccount in Azure. U kunt [de bestelgeschiedenis downloaden](data-box-portal-admin.md#download-order-history) via de Azure-portal nadat de bestelling is voltooid.
 
 
 ### <a name="what-type-of-reporting-is-available-to-support-chain-of-custody"></a>Wat voor soort rapporten is er beschikbaar ter ondersteuning van de bewakingsketen?
@@ -230,7 +230,7 @@ A.  De volgende soorten rapporten zijn beschikbaar ter ondersteuning van de bewa
 - Opschoning van het Data Box-apparaat (volgens de norm NIST 800 88R1) nadat gegevens naar uw Azure-opslagaccount zijn gekopieerd.
 
 ### <a name="are-the-carrier-tracking-logs--from-upsdhl-available"></a>Zijn de logboeken voor tracering van de koerier (van UPS/DHL) beschikbaar? 
-A.  De logboeken voor tracering van de koerier worden vastgelegd in het auditlogboekrapport van Data Box. Dit rapport is beschikbaar nadat het apparaat naar het Azure-datacenter is geretourneerd en de gegevens op de schijven van het apparaat zijn opgeschoond. Als u ze direct nodig hebt, kunt u ook met het traceringsnummer van de bestelling naar de website van de koerier gaan en de traceringsinformatie opvragen.
+A.  De logboeken voor tracering van de koerier worden vastgelegd in de bestelgeschiedenis van Data Box. Dit rapport is beschikbaar nadat het apparaat naar het Azure-datacenter is geretourneerd en de gegevens op de schijven van het apparaat zijn opgeschoond. Als u ze direct nodig hebt, kunt u ook met het traceringsnummer van de bestelling naar de website van de koerier gaan en de traceringsinformatie opvragen.
 
 ### <a name="can-i-transport-the-data-box-to-azure-datacenter"></a>Kan ik de Data Box naar het Azure-datacenter vervoeren? 
 A.  Nee. Het Azure-datacenter accepteert momenteel geen levering van de Data Box door klanten of andere koeriers dan UPS/DHL.

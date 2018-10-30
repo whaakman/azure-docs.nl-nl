@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 06/06/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: f3925c26e2b7e4044daf5ac4e94fbb24393a4ddc
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f8310885ddf7e2229054f36b8fda92b92c1ab01e
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46999882"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406497"
 ---
 # <a name="tutorial-monitor-and-update-a-linux-virtual-machine-in-azure"></a>Zelfstudie: Een virtuele Linux-machine bewaken en bijwerken in Azure
 
@@ -183,8 +183,8 @@ Kies de Log Analytics-werkruimte en het Automation-account en selecteer **Inscha
 Als een van de volgende vereiste onderdelen ontbreekt na de onboarding, wordt dit automatisch toegevoegd:
 
 * [Log Analytics](../../log-analytics/log-analytics-overview.md)-werkruimte
-* [Automatisering](../../automation/automation-offering-get-started.md)
-* Een [Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md) wordt ingeschakeld op de VM.
+* [Automation](../../automation/automation-offering-get-started.md)
+* Een [Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md) wordt ingeschakeld op de virtuele machine.
 
 Het scherm **Updatebeheer** wordt geopend. Configureer de locatie, de Log Analytics-werkruimte en het Automation-account dat moet worden gebruikt, en selecteer **Inschakelen**. Als de velden lichtgrijs zijn, betekent dit dat een andere automatiseringsoplossing is ingeschakeld voor de virtuele machine en dat dezelfde werkruimte en hetzelfde Automation-account moeten worden gebruikt.
 
@@ -293,7 +293,7 @@ De grafiek toont wijzigingen die in de loop der tijd hebben plaatsgevonden. Nada
 
 U kunt geavanceerdere bewaking van de VM uitvoeren met behulp van de oplossingen zoals Updatebeheer en Wijzigingen en inventaris bewaken, mogelijk gemaakt met [Azure Automation](../../automation/automation-intro.md).
 
-Wanneer u toegang hebt tot de Log Analytics-werkruimte, vindt u de werkruimtesleutel en werkruimte-id door **Geavanceerde instellingen** te selecteren onder **INSTELLINGEN**. Vervang \<werkruimtesleutel \> en \< werkruimte-id\> door de waarden van uw Log Analytics-werkruimte. U kunt dan **az vm extension set** gebruiken om de extensie toe te voegen aan de VM:
+Wanneer u toegang hebt tot de Log Analytics-werkruimte, kunt u de werkruimtesleutel en werkruimte-id vinden door onder **INSTELLINGEN** de optie **Geavanceerde instellingen** te selecteren. Vervang \<werkruimtesleutel \> en \< werkruimte-id\> door de waarden van uw Log Analytics-werkruimte. U kunt dan **az vm extension set** gebruiken om de extensie toe te voegen aan de VM:
 
 ```azurecli-interactive
 az vm extension set \
@@ -308,7 +308,7 @@ az vm extension set \
 
 Na enkele minuten ziet u de nieuwe VM in de Log Analytics-werkruimte.
 
-![OMS-blade](./media/tutorial-monitoring/tutorial-monitor-oms.png)
+![Log Analytics](./media/tutorial-monitoring/tutorial-monitor-oms.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 

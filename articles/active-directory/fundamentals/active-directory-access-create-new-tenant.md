@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: lizross
 custom: it-pro
-ms.openlocfilehash: 8ef68c8afcf61a1a11c341a679443071aece9812
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: eacb2e7c52adae9de0b74c3dade59446cc8459ed
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46363000"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50023541"
 ---
 # <a name="quickstart-access-azure-active-directory-to-create-a-new-tenant"></a>Snelstart voor toegang tot Azure Active Directory en om een nieuwe tenant te maken
 U kunt al uw administratieve taken uitvoeren met behulp van de portal van Azure Active Directory (Azure AD), met inbegrip van het maken van een nieuwe tenant voor uw organisatie. 
@@ -24,13 +24,6 @@ U kunt al uw administratieve taken uitvoeren met behulp van de portal van Azure 
 In deze Snelstartgids leert u hoe u bij de Azure Portal en Azure Active Directory komt en hoe u een eenvoudige tenant voor uw organisatie maakt.
 
 Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) aan voordat u begint.
-
-## <a name="prerequisites"></a>Vereisten
-Voordat u begint, moet u het volgende doen:
-
-- Zorg ervoor dat uw organisatie een geldige Azure AD-licentie heeft.
-
-- Zorg ervoor dat u een Globale administrator bent.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Aanmelden bij Azure Portal
 Meld u aan bij de [Azure Portal](https://portal.azure.com/) van uw organisatie met een Globale-administratoraccount.
@@ -76,3 +69,5 @@ Als u deze toepassing niet verder gebruikt, kunt u de tenant met de volgende sta
 - Groepen en leden toevoegen, zie [Een basisgroep maken en leden toevoegen](active-directory-groups-create-azure-portal.md)
 
 - Meer informatie over [op rollen gebaseerde toegang met behulp van Privileged Identity Management](../../role-based-access-control/pim-azure-resource.md) en [Voorwaardelijke toegang](../../role-based-access-control/conditional-access-azure-management.md) voor het beheer van uw organisatietoepassing en toegang tot de source.
+
+- Informatie over Azure Active Directory, met inbegrip van [basisinformatie over licenties, terminologie en bijbehorende functies](active-directory-whatis.md).

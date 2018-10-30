@@ -1,5 +1,5 @@
 ---
-title: 'Zelfstudie: Een afbeeldingsclassificatieproject maken: Custom Vision Service, Java'
+title: 'Zelfstudie: Een afbeeldingsclassificatieproject maken met de Custom Vision-SDK voor Java'
 titlesuffix: Azure Cognitive Services
 description: Maak een project, voeg tags toe, upload afbeeldingen, train uw project en doe een voorspelling met behulp van het standaardeindpunt.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: custom-vision
 ms.topic: tutorial
 ms.date: 08/28/2018
 ms.author: areddish
-ms.openlocfilehash: 9a7f50e0eb33016d6a2d8f28be047b327135c51f
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: e302fc580d9c83d269f0deedd051a3ea23bd274e
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46367352"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49957206"
 ---
-# <a name="tutorial-build-an-image-classification-project-with-java"></a>Zelfstudie: Een afbeeldingsclassificatieproject maken met Java
+# <a name="tutorial-create-an-image-classification-project-with-the-custom-vision-sdk-for-java"></a>Zelfstudie: Een afbeeldingsclassificatieproject maken met de Custom Vision-SDK voor Java
 
 Lees hoe u een afbeeldingsclassificatieproject kunt maken met behulp van de Custom Vision Service en Java. Wanneer u het project hebt gemaakt, kunt u tags toevoegen, afbeeldingen uploaden, het project trainen, de standaardeindpunt-URL voor voorspellingen ophalen en deze gebruiken om afbeeldingen programmatisch te testen. Gebruik dit open-sourcevoorbeeld als sjabloon voor het bouwen van uw eigen app met behulp van de Custom Vision-API.
 

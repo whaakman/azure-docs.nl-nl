@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 10/03/2018
+ms.date: 10/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: d09fcde90cf182bc8197c579718ecef7c5ce1eed
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 3cdc4a8a670b5af43e72b38d7a3b6d9aafdac348
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394521"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49429436"
 ---
 # <a name="what-is-azure-analysis-services"></a>Wat is Azure Analysis Services?
 
@@ -81,29 +81,34 @@ Azure Analysis Services wordt ondersteund in regio's in de hele wereld. Onderste
 |Brazilië - zuid     |    B1, B2, S0, S1, S2, S4, D1     |     1    |
 |Canada - midden    |     B1, B2, S0, S1, S2, S4, D1    |     1    |
 |US - oost     |     B1, B2, S0, S1, S2, S4, D1    |    1     |
-|US - oost 2     |     B1, B2, S0, S1, S2, S4, D1  <br>S8, S9   |    7<br>1    |
+|US - oost 2     |     B1, B2, S0, S1, S2, S4, D1   |    7    |
+|US - oost 2     |     S8, S9   |    1    |
 |US - noord-centraal     |     B1, B2, S0, S1, S2, S4, D1     |    1     |
 |US - centraal     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 |US - zuid-centraal     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 |US - west-centraal   |     B1, B2, S0, S1, S2, S4, D1    |    3     |
-|US - west     |    B1, B2, S0, S1, S2, S4, D1  <br>S8, S9   |    7<br>2  |
-|VS - west 2    |    B1, B2, S0, S1, S2, S4, D1   <br>S8, S9  |    3<br>1     |
+|US - west     |    B1, B2, S0, S1, S2, S4, D1    |    7   |
+|US - west     |    S8, S9   |    2  |
+|VS - west 2    |    B1, B2, S0, S1, S2, S4, D1    |    3   |
+|VS - west 2    |    S8, S9  |    1     |
 
 ### <a name="europe"></a>Europa
 
 |Regio  | Ondersteunde abonnementen | Queryreplica's (alleen Standard-abonnementen) |
 |---------|---------|:---------:|
 |Europa - noord     |    B1, B2, S0, S1, S2, S4, D1      |    7     |
-|Verenigd Koninkrijk Zuid   |    B1, B2, S0, S1, S2, S4, D1      |     1    |
-|Europa -west     |    B1, B2, S0, S1, S2, S4, D1   <br>S8, S9    |    7<br>1     |
+|Verenigd Koninkrijk Zuid     |    B1, B2, S0, S1, S2, S4, D1      |     1    |
+|Europa -west     |    B1, B2, S0, S1, S2, S4, D1   |    7    |
+|Europa -west    |   S8, S9  |  1  |
 
 ### <a name="asia-pacific"></a>Azië en Stille Oceaan 
 
 |Regio  | Ondersteunde abonnementen | Queryreplica's (alleen Standard-abonnementen) |
 |---------|---------|:---------:|
+|Australië - oost     |    B1, B2, S0, S1, S2, S4     |    3     |
+|Australië - oost     |    S8, S9    |    1     |
 |Australië - zuidoost     | B1, B2, S0, S1, S2, S4, D1       |    1     |
-|Australië - oost     |    B1, B2, S0, S1, S2, S4    <br>S8, S9    |    3<br>1     |
-|Japan - oost  |   B1, B2, S0, S1, S2, S4, D1       |    1     |
+|Japan - oost     |   B1, B2, S0, S1, S2, S4, D1       |    1     |
 |Azië - zuidoost     |     B1, B2, S0, S1, S2, S4, S8, S9, D1     |   1      |
 |India - west     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 
@@ -184,9 +189,11 @@ Ga naar het [Microsoft Vertrouwenscentrum](https://www.microsoft.com/trustcenter
 
 ![Tools voor BI-ontwikkelaars](./media/analysis-services-overview/aas-overview-dev-tools.png)
 
-### <a name="sql-server-data-tools-ssdt-for-visual-studio"></a>SQL Server Data Tools (SSDT) voor Visual Studio
+### <a name="visual-studio"></a>Visual Studio
 
-Ontwikkel en implementeer modellen met de gratis [SQL Server Data Tools (SSDT) voor Visual Studio](https://msdn.microsoft.com/library/mt204009.aspx). SSDT bevat Analysis Services-projectsjablonen waarmee u snel aan de slag kunt gaan. Bovendien biedt SSDT voor tabellaire modellen met compatibiliteitsniveau 1400 nu ook de innovatieve queryfunctie Get Data en mashup-functionaliteit. Als u al bekend bent met Get Data in Power BI Desktop en Excel 2016, weet u hoe eenvoudig het is om voor gegevensbronnen query's te maken die naadloos aansluiten bij uw behoeften. Microsoft Analysis Services-projecten zijn ook beschikbaar voor Visual Studio als een installeerbaar VSIX-pakket. [Downloaden van Marketplace](https://marketplace.visualstudio.com/items?itemName=ProBITools.MicrosoftAnalysisServicesModelingProjects).
+Ontwikkel en implementeer modellen met de gratis [SQL Server Data Tools (SSDT) voor Visual Studio](https://msdn.microsoft.com/library/mt204009.aspx). SSDT bevat Analysis Services-projectsjablonen waarmee u snel aan de slag kunt gaan. Bovendien biedt SSDT voor tabellaire modellen met compatibiliteitsniveau 1400 nu ook de innovatieve queryfunctie Get Data en mashup-functionaliteit. Als u al bekend bent met Get Data in Power BI Desktop en Excel 2016, weet u hoe eenvoudig het is om voor gegevensbronnen query's te maken die naadloos aansluiten bij uw behoeften. 
+
+Als u Visual Studio 2017 gebruikt, zijn Microsoft Analysis Services-projecten beschikbaar als een gratis installeerbaar VSIX-pakket. [Downloaden van Marketplace](https://marketplace.visualstudio.com/items?itemName=ProBITools.MicrosoftAnalysisServicesModelingProjects).
 
 ### <a name="sql-server-management-studio"></a>SQL Server Management Studio
 

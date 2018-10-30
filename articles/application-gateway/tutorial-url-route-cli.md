@@ -7,15 +7,15 @@ manager: jpconnock
 ms.service: application-gateway
 ms.topic: tutorial
 ms.workload: infrastructure-services
-ms.date: 7/14/2018
+ms.date: 10/25/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 2402dd2adb27abb784c34a2a3569e8f6e4a60f77
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f683d63683e903d947d0789a16a8efa48196d36a
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46954786"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50026191"
 ---
 # <a name="tutorial-route-web-traffic-based-on-the-url-using-the-azure-cli"></a>Zelfstudie: Webverkeer routeren op basis van de URL met behulp van de Azure CLI
 
@@ -30,10 +30,9 @@ In deze zelfstudie leert u het volgende:
 > * Listeners, een toewijzing van URL-pad en regels maken
 > * Schaalbare back-endpools maken
 
-
 ![Voorbeeld van URL-routering](./media/tutorial-url-route-cli/scenario.png)
 
-U kunt deze zelfstudie desgewenst volgen met behulp van [Azure PowerShell](tutorial-url-route-powershell.md).
+U kunt deze zelfstudie desgewenst volgen met behulp van [Azure PowerShell](tutorial-url-route-powershell.md) of de [Azure-portal](create-url-route-portal.md).
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
@@ -234,7 +233,7 @@ done
 
 ## <a name="test-the-application-gateway"></a>De toepassingsgateway testen
 
-Gebruik [az network public-ip show](/cli/azure/network/public-ip#az-network_public_ip_show) om het openbare IP-adres van de toepassingsgateway op te halen. Kopieer het openbare IP-adres en plak het in de adresbalk van de browser. Bijvoorbeeld *http://40.121.222.19*, *http://40.121.222.19:8080/images/test.htm* of *http://40.121.222.19:8080/video/test.htm*.
+Gebruik [az network public-ip show](/cli/azure/network/public-ip#az-network_public_ip_show) om het openbare IP-adres van de toepassingsgateway op te halen. Kopieer het openbare IP-adres en plak het in de adresbalk van de browser. Zoals *http://40.121.222.19*, *http://40.121.222.19:8080/images/test.htm* of *http://40.121.222.19:8080/video/test.htm*.
 
 ```azurecli-interactive
 az network public-ip show \

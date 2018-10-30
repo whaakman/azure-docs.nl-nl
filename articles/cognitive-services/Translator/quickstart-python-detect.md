@@ -1,23 +1,23 @@
 ---
-title: 'Snelstart: taal bepalen op basis van tekst - Translator Text, Python'
+title: 'Snelstart: Taal bepalen op basis van tekst, Python - Translator Text-API'
 titleSuffix: Azure Cognitive Services
 description: In deze snelstart bepaalt u de taal van de brontekst met behulp van de Translator Text-API met Python.
 services: cognitive-services
-author: noellelacharite
+author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/21/2018
-ms.author: nolachar
-ms.openlocfilehash: 31fb36421dd2aef21f77b4941771e4d3db813730
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.author: erhopf
+ms.openlocfilehash: 669118ed925c961aeb1d99c9e794f6702b29a83b
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46124997"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49644899"
 ---
-# <a name="quickstart-identify-language-from-text-with-python"></a>Snelstart: taal bepalen op basis van tekst met Python
+# <a name="quickstart-identify-language-from-text-with-the-translator-text-rest-api-python"></a>Snelstart: Taal bepalen op basis van tekst met de Translator Text REST API (Python)
 
 In deze snelstartgids bepaalt u de taal van de brontekst met behulp van de Translator Text-API.
 

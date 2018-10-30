@@ -1,5 +1,5 @@
 ---
-title: 'Zelfstudie: Een project maken voor het detecteren van objecten: Custom Vision-API, Java'
+title: 'Zelfstudie: een objectdetectieproject maken met de Custom Vision-SDK voor Java - Custom Vision Service'
 titlesuffix: Azure Cognitive Services
 description: Maak een project, voeg tags toe, upload afbeeldingen, train uw project en doe een voorspelling met behulp van het standaardeindpunt.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: custom-vision
 ms.topic: tutorial
 ms.date: 08/28/2018
 ms.author: areddish
-ms.openlocfilehash: 661242e4962a8218c48d7ea66d8a6f728b5154c8
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: d4af3315cfca18da594730cc402236684f81bfc8
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46365012"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49957332"
 ---
-# <a name="tutorial-build-an-object-detection-project-with-java"></a>Zelfstudie: Een objectdetectieproject bouwen met Java
+# <a name="tutorial-create-an-object-detection-project-with-the-custom-vision-sdk-for-java"></a>Zelfstudie: een objectdetectieproject maken met de Custom Vision-SDK voor Java
 
 Verken een eenvoudige Java-toepassing met de Computer Vision-API om een project voor objectdetectie te maken. Wanneer u het project hebt gemaakt, kunt u gelabelde regio's toevoegen, afbeeldingen uploaden, het project trainen, de standaardeindpunt-URL voor voorspellingen ophalen en het eindpunt gebruiken om afbeeldingen programmatisch te testen. Gebruik dit open-sourcevoorbeeld als sjabloon voor het bouwen van uw eigen app met behulp van de Custom Vision-API.
 

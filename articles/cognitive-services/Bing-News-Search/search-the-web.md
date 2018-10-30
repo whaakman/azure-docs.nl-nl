@@ -10,12 +10,12 @@ ms.component: bing-news-search
 ms.topic: overview
 ms.date: 06/21/2016
 ms.author: scottwhi
-ms.openlocfilehash: 787fdea047f9e7d77ca0a156f1c41fa50fd2fa48
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 4ed816b117d11dd38e6a8ea5191171b812db0f1c
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48801468"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50023199"
 ---
 # <a name="what-is-bing-news-search"></a>Wat is Bing Nieuws zoeken?
 
@@ -265,7 +265,7 @@ Als er andere artikelen zijn die gerelateerd zijn aan een nieuwsartikel, kan het
 
 Zie [Uw eerste aanvraag maken](./quickstart.md) om snel aan de slag te gaan met uw eerste aanvraag.
 
-Lees voor meer informatie de https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference)naslaghandleiding over de Bing Nieuws zoeken-API v7. De handleiding bevat de lijst met eindpunten, headers en queryparameters die u nodig hebt om zoekresultaten op te vragen. Daarnaast vindt u hier definities van de responsobjecten.
+Lees voor meer informatie de naslaghandleiding over de [Bing Nieuws zoeken-API v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference). De handleiding bevat de lijst met eindpunten, headers en queryparameters die u nodig hebt om zoekresultaten op te vragen. Daarnaast vindt u hier definities van de responsobjecten.
 
 Zie [Automatische suggestie-API voor Bing](../bing-autosuggest/get-suggested-search-terms.md) om de gebruikerservaring van het zoekvak te verbeteren. Als de gebruiker een zoekterm invoert, kunt u deze API aanroepen om relevante querytermen weer te geven die door anderen zijn gebruikt.
 

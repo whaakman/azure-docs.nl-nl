@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/11/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: e9ed0ba8d24f30f67dbb315848dc4c260cae4f50
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 7e586e7e3ec8c16dcd215dbc11251d1b9fe928e1
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391365"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49457038"
 ---
 # <a name="fail-over-and-fail-back-vmware-vms-and-physical-servers-replicated-to-azure"></a>Failover- en failback-overschakeling uitvoeren van naar Azure gerepliceerde VMware-VM’s en fysieke servers
 
@@ -82,7 +82,7 @@ In sommige scenario's vereist de failover extra verwerking die circa acht tot ti
 
 ## <a name="connect-to-failed-over-virtual-machine-in-azure"></a>Verbinding maken met een virtuele machine in Azure waarvoor een failover is uitgevoerd
 
-1. Als u verbinding wilt maken met virtuele Azure-machines met behulp van RDP/SSH na een failover, volgt u de procedure die [hier](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover) wordt beschreven.
+1. Als u na een failover verbinding wilt maken met virtuele Azure-machines met behulp van RDP/SSH, volgt u de procedure die [hier](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover) wordt beschreven.
 2. Na de failover gaat u naar de virtuele machine en valideert u door [verbinding te maken](../virtual-machines/windows/connect-logon.md) met deze machine.
 3. Na de validatie klikt u op **Doorvoeren** om het herstelpunt van de virtuele machine te voltooien na de failover. Na het doorvoeren worden alle andere herstelpunten verwijderd. Hiermee is de failover voltooid.
 
@@ -93,13 +93,12 @@ Volg de stappen die [hier](site-recovery-failover-to-azure-troubleshoot.md) word
 
 ## <a name="preparing-for-reprotection-of-azure-vm"></a>Opnieuw beveiligen van de Azure-VM voorbereiden
 
-### <a name="create-a-process-server-in-azure"></a>Een processerver maken in Azure
+- **Als u een Azure ExpressRoute-verbinding hebt**, kunt u als onderdeel van de installatie de on-premises processerver (een ingebouwde processerver) gebruiken die automatisch wordt geïnstalleerd op de configuratieserver.
 
-De processerver ontvangt gegevens van de Azure VM en verzendt deze naar de on-premises site. Er is een netwerk met lage latentie vereist tussen de processerver en de beveiligde VM.
+> [!IMPORTANT]
+> Als u een VPN-verbinding tussen uw on-premises omgeving en Azure hebt, moet u een Azure-VM instellen als een processerver om opnieuw te beveiligen en voor failback. Volg de instructies in [dit artikel](vmware-azure-set-up-process-server-azure.md) om een processerver in te stellen in Azure.
 
-- Als u een Azure ExpressRoute-verbinding hebt, kunt u voor testdoeleinden de on-premises processerver (een ingebouwde processerver) gebruiken die automatisch wordt geïnstalleerd op de configuratieserver.
-- Als u een VPN-verbinding hebt of als u failback uitvoert in een productieomgeving, moet u een Azure-VM instellen als een Azure-processerver voor failback.
-- Volg de instructies in [dit artikel](vmware-azure-set-up-process-server-azure.md) om een processerver in te stellen in Azure.
+Raadpleeg voor meer informatie over de vereisten voor opnieuw beveiligen en failback deze [sectie]] (vmware-azure-reprotect.md##before-you-begin). 
 
 ### <a name="configure-the-master-target-server"></a>De hoofddoelserver configureren
 

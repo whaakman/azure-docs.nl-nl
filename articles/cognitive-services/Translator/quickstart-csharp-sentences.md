@@ -1,23 +1,23 @@
 ---
-title: 'Snelstartgids: Zin lengtes - Translator Text-API, C# ophalen'
+title: 'Snelstart: Zinlengtes ophalen, C# - Translator Text-API'
 titleSuffix: Azure Cognitive Services
 description: In deze snelstartgids vindt u de lengte van zinnen in tekst met behulp van de Translator Text-API met C#.
 services: cognitive-services
-author: noellelacharite
+author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/15/2018
-ms.author: nolachar
-ms.openlocfilehash: 699c4b775f2c5745a5b52593d44a0af408c5e73a
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.author: erhopf
+ms.openlocfilehash: c10a38164c71eaa4239072fe10973932ce8cce3b
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49319595"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49645017"
 ---
-# <a name="quickstart-get-sentence-lengths-with-c35"></a>Snelstart: Zinslengten ophalen met C&#35;
+# <a name="quickstart-get-sentence-lengths-with-the-translator-text-rest-api-c"></a>Snelstart: Zinlengtes ophalen met de Translator Text REST API (C#)
 
 In deze snelstartgids vindt u de lengte van zinnen in tekst met behulp van de Translator Text-API.
 
@@ -30,7 +30,7 @@ Als u de Translator Text-API wilt gebruiken, moet u ook een abonnementssleutel h
 ## <a name="breaksentence-request"></a>BreakSentence-aanvraag
 
 > [!TIP]
-> Haal de nieuwste code op uit [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-C-Sharp).
+> Haal de laatste nieuwe code op uit [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-C-Sharp).
 
 Met de volgende code wordt de brontekst in zinnen verdeeld met behulp van de methode [BreakSentence](./reference/v3-0-break-sentence.md).
 

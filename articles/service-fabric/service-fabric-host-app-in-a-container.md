@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/18/2018
 ms.author: ryanwi
-ms.openlocfilehash: 7573746b91f057d83a299d54801785118cc1c878
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 36b9a2e710a2a7f34ee9374e89f3fb19cc591ac3
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44380128"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49429589"
 ---
 # <a name="tutorial-deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>Zelfstudie: Een .NET-toepassing in een Windows-container implementeren in Azure Service Fabric
 
@@ -61,7 +61,9 @@ De container is nu klaar om te worden gebouwd en verpakt in een Service Fabric-t
 ## <a name="create-an-azure-sql-db"></a>Een Azure SQL DB maken
 Wanneer de toepassing Fabrikam Fiber CallCenter in productie wordt uitgevoerd, moeten de gegevens persistent worden gemaakt in een database. Er is momenteel geen manier om behoud van gegevens in een container te waarborgen, daarom kunt u productiegegevens niet opslaan in SQL Server in een container.
 
-Wij raden [Azure SQL Database](/azure/sql-database/sql-database-get-started-powershell) aan. Als u een beheerde SQL Server-database in Azure wilt instellen en uitvoeren, voert u het volgende script uit.  Wijzig de scriptvariabelen indien nodig. *client-IP* is het IP-adres van uw ontwikkelcomputer.  Als u zich achter een bedrijfsfirewall bevindt, is het IP-adres van uw ontwikkelcomputer mogelijk geen IP-adres dat beschikbaar is voor internet.  U kunt de serverfirewallregel voor de SQL-database ook instellen via de [Azure-portal](https://portal.azure.com), waarin het IP-adres van uw computer wordt vermeld.
+Wij raden [Azure SQL Database](/azure/sql-database/sql-database-get-started-powershell) aan. Als u een beheerde SQL Server-database in Azure wilt instellen en uitvoeren, voert u het volgende script uit.  Wijzig de scriptvariabelen indien nodig. *client-IP* is het IP-adres van uw ontwikkelcomputer.
+
+Als u zich achter een bedrijfsfirewall bevindt, is het IP-adres van uw ontwikkelcomputer mogelijk geen IP-adres dat beschikbaar is voor internet. Ter verificatie of de database het juiste IP-adres heeft voor de firewall-regel, gaat u naar de [Azure-portal](https://portal.azure.com) en zoekt u uw database in de sectie SQL Database. Klik op de naam van de database en klik in de sectie Overzicht op Serverfirewall instellen. Client-IP-adres is het IP-adres van uw ontwikkelcomputer. Controleer of dit adres overeenkomt met het IP-adres in de regel AllowClient.
 
 ```powershell
 $subscriptionID="<subscription ID>"

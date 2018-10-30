@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 04/09/2018
 ms.author: makromer
-ms.openlocfilehash: ca00a414402c1cfdef55cfbde9291688f091bf77
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: aecb193d1d9a10dbb5c936401f9900c4b2be071f
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43095916"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49638237"
 ---
 # <a name="compare-azure-data-factory-with-data-factory-version-1"></a>Azure Data Factory vergelijken met Data Factory-versie 1
 In dit artikel wordt Data Factory vergeleken met Data Factory-versie 1. Zie [Inleiding tot Data Factory](introduction.md) voor een inleiding tot Data Factory. Zie [Inleiding tot Azure Data Factory](v1/data-factory-introduction.md) voor een inleiding tot Data Factory-versie 1. 
@@ -62,7 +62,7 @@ De [activiteit ForEach](control-flow-for-each-activity.md) definieert een herhal
 De activiteit [Until](control-flow-until-activity.md) biedt dezelfde functionaliteit als de lusstructuur do-until in een programmeertaal. Er wordt een reeks activiteiten uitgevoerd totdat de voorwaarde die aan de activiteit is gekoppeld, resulteert in `true`. U kunt in Data Factory een time-outwaarde voor de Until-activiteit opgeven.  
 
 ### <a name="trigger-based-flows"></a>Op triggers gebaseerde stromen
-Pijplijnen kunnen op aanvraag of volgens wandklokplanningen worden geactiveerd. In het artikel [Pijplijnen en triggers](concepts-pipeline-execution-triggers.md) vindt u meer informatie over triggers. 
+Pijplijnen kunnen op aanvraag (op basis van een gebeurtenis, ofwel blob-bericht) of volgens wandklokplanningen worden geactiveerd. In het artikel [Pijplijnen en triggers](concepts-pipeline-execution-triggers.md) vindt u meer informatie over triggers. 
 
 ### <a name="invoking-a-pipeline-from-another-pipeline"></a>Een pijplijn aanroepen vanaf een andere pijplijn
 De [activiteit Execute Pipeline](control-flow-execute-pipeline-activity.md) stelt een Data Factory-pijplijn in staat om een andere pijplijn aan te roepen.

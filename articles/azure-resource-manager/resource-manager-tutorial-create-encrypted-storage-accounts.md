@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 09/07/2018
+ms.date: 10/18/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: d48374d7919be3d141ea199e8238a220dbfe0332
-ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
+ms.openlocfilehash: a3fc3e0cc30b379c84ac0ba12f733d2db4e41587
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47419522"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945787"
 ---
 # <a name="tutorial-create-an-azure-resource-manager-template-for-deploying-an-encrypted-storage-account"></a>Zelfstudie: Een Azure Resource Manager-sjabloon maken voor het implementeren van een versleuteld opslagaccount
 
@@ -40,8 +40,7 @@ Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.
 
 Als u dit artikel wilt voltooien, hebt u het volgende nodig:
 
-* [Visual Studio Code](https://code.visualstudio.com/).
-* Extensie voor Azure Resource Manager-hulpprogramma's. Als u deze wilt installeren, gaat u naar [Install the Resource Manager Tools extension](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites) (Extensie voor Resource Manager-hulpprogramma's installeren).
+* [Visual Studio Code](https://code.visualstudio.com/) met de [extensie Resource Manager Tools](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites).
 
 ## <a name="open-a-quickstart-template"></a>Een snelstartsjabloon openen
 
@@ -56,7 +55,7 @@ De in deze snelstart gebruikte sjabloon wordt [Create a standard storage account
 3. Selecteer **Openen** om het bestand te openen.
 4. Selecteer **Bestand**>**Opslaan als** om het bestand op uw lokale computer op te slaan als **azuredeploy.json**.
 
-## <a name="understand-the-format"></a>Inzicht in de indeling
+## <a name="understand-the-schema"></a>Informatie over het schema
 
 Vouw vanuit VS Code de sjabloon samen naar het hoofdniveau. U hebt de eenvoudigste structuur met de volgende elementen:
 
@@ -69,7 +68,7 @@ Vouw vanuit VS Code de sjabloon samen naar het hoofdniveau. U hebt de eenvoudigs
 * **resources**: geef de resourcetypen op die worden geïmplementeerd of bijgewerkt in een resourcegroep.
 * **outputs**: geef de waarden op die worden geretourneerd na de implementatie.
 
-## <a name="use-parameters-in-template"></a>Parameters in een sjabloon gebruiken
+## <a name="use-parameters"></a>Parameters gebruiken
 
 Met parameters kunt u de implementatie aanpassen door waarden op te geven die voor een specifieke omgeving zijn aangepast. U gebruikt de parameters die in de sjabloon zijn gedefinieerd bij het instellen van waarden voor het opslagaccount.
 
@@ -90,7 +89,7 @@ De parameters die zijn gedefinieerd in de sjabloon gebruiken:
 "name": "[parameters('storageAccountType')]"
 ```
 
-## <a name="use-variables-in-template"></a>Variabelen in een sjabloon gebruiken
+## <a name="use-variables"></a>Variabelen gebruiken
 
 Met variabelen kunt u waarden maken die in uw sjablonen kunnen worden gebruikt. Variabelen helpen sjablonen minder complex te maken.
 
@@ -117,9 +116,7 @@ Het doel van deze zelfstudie is om een sjabloon te definiëren voor het maken va
 
     ![Resource Manager-sjabloon verwijzing opslagaccount](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-resources-reference-storage-accounts.png)
 
-    resource-manager-sjabloon-bronnen-verwijzing-opslagaccounts
-1. Bekijk de aan versleuteling gerelateerde informatie.  
-1. Voeg de volgende json toe in het element eigenschappen van de resourcedefinitie voor het opslagaccount:
+4. Zoek de aan versleuteling gerelateerde definitie-informatie.  
 
     ```json
     "encryption": {
@@ -131,11 +128,9 @@ Het doel van deze zelfstudie is om een sjabloon te definiëren voor het maken va
         }
     }
     ```
-    Met deze tegel wordt de versleutelingsfunctie van de Blob Storage-service ingeschakeld.
-
-Wijzig de sjabloon vanuit Visual Studio Code, zodat het uiteindelijke resources-element er als volgt uitziet:
-
-![Versleutelde resources van opslagaccount in Resource Manager-sjabloon](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-encrypted-storage-resources.png)
+5. Wijzig de sjabloon vanuit Visual Studio Code, zodat het uiteindelijke resources-element er als volgt uitziet:
+    
+    ![Versleutelde resources van opslagaccount in Resource Manager-sjabloon](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-encrypted-storage-resources.png)
 
 ## <a name="deploy-the-template"></a>De sjabloon implementeren
 

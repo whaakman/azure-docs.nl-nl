@@ -1,23 +1,23 @@
 ---
-title: 'Snelstart: tekstscript converteren - Translator Text, Python'
+title: 'Snelstart: Tekstscript converteren, Python - Translator Text-API'
 titleSuffix: Azure Cognitive Services
 description: In deze snelstartgids converteert u tekst in één taal van het ene script naar het andere met de Translator Text-API met Python.
 services: cognitive-services
-author: noellelacharite
+author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/21/2018
-ms.author: nolachar
-ms.openlocfilehash: 24fe0dc23703bdca4ce74ba1a527990a70ac2ffc
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.author: erhopf
+ms.openlocfilehash: 2621e3ae165efe9f592400e3ad2782b396cf2a60
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46122108"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49647441"
 ---
-# <a name="quickstart-transliterate-text-with-python"></a>Snelstart: Tekst translitereren met Python
+# <a name="quickstart-transliterate-text-with-the-translator-text-rest-api-python"></a>Snelstart: Tekst vertalen met de Translator Text REST API (Python)
 
 In deze snelstartgids converteert u tekst in één taal van het ene schrift naar het andere met de Translator Text-API.
 

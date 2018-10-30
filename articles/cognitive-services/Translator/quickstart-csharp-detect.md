@@ -1,23 +1,23 @@
 ---
-title: 'Snelstart: Taal bepalen op basis van tekst - Translator Text API, C#'
+title: 'Snelstart: taal bepalen op basis van tekst, C# - Translator Text-API'
 titleSuffix: Azure Cognitive Services
 description: In deze snelstart bepaalt u de taal van de brontekst met behulp van de Translator Text-API met C#.
 services: cognitive-services
-author: noellelacharite
+author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/15/2018
-ms.author: nolachar
-ms.openlocfilehash: b9a5dbdc1e7950400597c76359b8eee4268af6d0
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.author: erhopf
+ms.openlocfilehash: d92b5f7815c7aeb43ef81bb7b06aa1cda64f32dc
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49320370"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49647099"
 ---
-# <a name="quickstart-identify-language-from-text-with-c35"></a>Snelstart: Taal bepalen op basis van tekst met C&#35;
+# <a name="quickstart-identify-language-from-text-with-the-translator-text-rest-api-c"></a>Snelstart: taal bepalen op basis van tekst met de Translator Text REST API (C#)
 
 In deze snelstartgids bepaalt u de taal van de brontekst met behulp van de Translator Text-API.
 
@@ -30,7 +30,7 @@ Als u de Translator Text-API wilt gebruiken, moet u ook een abonnementssleutel h
 ## <a name="detect-request"></a>Detect-aanvraag
 
 > [!TIP]
-> Haal de nieuwste code op uit [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-C-Sharp).
+> Haal de laatste nieuwe code op uit [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-C-Sharp).
 
 Met de volgende code bepaalt u de taal van de brontekst met de methode [Detect](./reference/v3-0-detect.md).
 

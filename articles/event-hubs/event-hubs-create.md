@@ -1,70 +1,105 @@
 ---
-title: Een Azure event hub maken | Microsoft Docs
-description: Maak een Azure Event Hubs-naamruimte en een event hub met behulp van de Azure portal
+title: 'Azure-snelstart: Een event hub maken met behulp van Azure Portal | Microsoft Docs'
+description: In deze snelstart leert u hoe u een Azure event hub maakt met behulp van Azure Portal en vervolgens gebeurtenissen verzendt en ontvangt met behulp van .NET Standard SDK.
 services: event-hubs
+documentationcenter: ''
 author: ShubhaVijayasarathy
 manager: timlt
 ms.service: event-hubs
-ms.devlang: na
-ms.topic: article
+ms.topic: quickstart
+ms.custom: mvc
 ms.date: 08/16/2018
 ms.author: shvija
-ms.openlocfilehash: 5b468e1758d752cd3001c85b328d064369429499
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
-ms.translationtype: MT
+ms.openlocfilehash: d053edaa187a3e0626f5ea0864d778f44f394bd7
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42056878"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49455773"
 ---
-# <a name="create-an-event-hubs-namespace-and-an-event-hub-using-the-azure-portal"></a>Maak een Event Hubs-naamruimte en een event hub met behulp van de Azure portal
+# <a name="quickstart-create-an-event-hub-using-azure-portal"></a>Snelstart: Een event hub maken met behulp van Azure Portal
+Azure Event Hubs is een big data-platform voor het streamen van gegevens en een gebeurtenisopneemservice die miljoenen gebeurtenissen per seconde kan opnemen en verwerken. Event Hubs kan gebeurtenissen, gegevens of telemetrie die wordt geproduceerd door gedistribueerde software en apparaten verwerken en opslaan. Gegevens die naar een Event Hub worden verzonden, kunnen worden omgezet en opgeslagen via een provider voor realtime analytische gegevens of batchverwerking/opslagadapters. Zie [Overzicht van Event Hubs](event-hubs-about.md) en [Functies van Event Hubs](event-hubs-features.md) voor een gedetailleerd overzicht van Event Hubs.
+
+In deze snelstart maakt u een Event Hub met behulp van de [Azure-portal](https://portal.azure.com).
+
+## <a name="prerequisites"></a>Vereisten
+
+Zorg ervoor dat u over het volgende beschikt om deze snelstart te voltooien:
+
+- Azure-abonnement. Als u nog geen abonnement hebt, [maakt u een gratis account](https://azure.microsoft.com/free/) voordat u begint.
+- [Visual Studio 2017 update 3 (versie 15.3, 26730.01)](http://www.visualstudio.com/vs) of hoger.
+- [.NET Standard SDK](https://www.microsoft.com/net/download/windows), versie 2.0 of later.
+
+## <a name="create-a-resource-group"></a>Een resourcegroep maken
+
+Een resourcegroep is een logische verzameling Azure-resources. Alle resources worden geïmplementeerd en beheerd in een resourcegroep. Ga als volgt te werk om een resourcegroep te maken:
+
+1. Meld u aan bij [Azure Portal](https://portal.azure.com).
+2. Kik in het linkernavigatievenster op **Resourcegroepen**. Klik vervolgens op **Toevoegen**.
+
+   ![Resourcegroepen - Knop Toevoegen](./media/event-hubs-quickstart-portal/resource-groups1.png)
+
+2. Typ een unieke naam voor de resourcegroep. Het systeem controleert onmiddellijk of de naam beschikbaar is in het momenteel geselecteerde Azure-abonnement.
+
+3. Klik in **Abonnement** op de naam van het Azure-abonnement waarin u de resourcegroep wilt maken.
+
+4. Selecteer een geografische locatie voor de resourcegroep.
+
+5. Klik op **Create**.
+
+   ![Resourcegroep - Maken](./media/event-hubs-quickstart-portal/resource-groups2.png)
 
 ## <a name="create-an-event-hubs-namespace"></a>Een Event Hubs-naamruimte maken
 
-1. Meld u aan bij de [Azure-portal][Azure portal], en klikt u op **een resource maken** op linksboven in het scherm.
-2. Klik op **Internet of Things** en vervolgens op **Event Hubs**.
-   
-    ![](./media/event-hubs-create/create-event-hub9.png)
+Een Event Hubs-naamruimte biedt een unieke scopingcontainer, waarnaar wordt verwezen met de volledig gekwalificeerde domeinnaam (FQDN), waarin u een of meer Event Hubs maakt. Ga als volgt te werk om een ​​naamruimte in uw resourcegroep te maken met behulp van de portal:
 
-3. Voer in **Naamruimte maken** een naam in voor de naamruimte. In het systeem wordt onmiddellijk gecontroleerd of de naam beschikbaar is.  
+1. Open de Azure-portal en klik op **Een resource maken** linksboven in het scherm.
+
+2. Klik op **Internet of Things** en vervolgens op **Event Hubs**.
+
+3. Voer in **Naamruimte maken** een naam in voor de naamruimte. In het systeem wordt onmiddellijk gecontroleerd of de naam beschikbaar is.
+
+   ![Een Event Hub-naamruimte maken](./media/event-hubs-create/create-event-hub1.png)
 
 4. Nadat u hebt gecontroleerd of de naam van de naamruimte beschikbaar is, kiest u de prijscategorie (Basic of Standard). Kies ook een Azure-abonnement, resourcegroep en locatie voor het maken van de resource.
  
 5. Klik op **Maken** om de naamruimte te maken. U moet een paar minuten wachten voordat het systeem de resources volledig heeft ingericht.
+6. Selecteer **Waarschuwingen** en selecteer dan de **implementatie** met dezelfde naam als de Event Hub-naamruimte. 
 
-    ![](./media/event-hubs-create/create-event-hub1.png)
+   ![Resourcegroep - Waarschuwing over maken](./media/event-hubs-quickstart-portal/create-alert.png)
+6. Selecteer de Event Hub-naamruimte uit de lijst resources die u tijdens het implementeren hebt gemaakt. 
 
-6. Klik in de portallijst met naamruimten op de zojuist gemaakte naamruimte.
-
-7. Klik op **Beleid voor gedeelde toegang** en vervolgens op **RootManageSharedAccessKey**.
+   ![Naamruimte uit de implementatie selecteren](./media/event-hubs-quickstart-portal/deployment-namespace.png)
+7. Op de pagina **Event Hubs-naamruimte** selecteert u **Beleid voor gedeelde toegang** en vervolgens klikt u op **RootManageSharedAccessKey**.
     
-    ![](./media/event-hubs-create/create-event-hub7.png)
-
 8. Klik op de knop voor kopiëren om de verbindingsreeks **RootManageSharedAccessKey** naar het Klembord te kopiëren. Bewaar deze verbindingsreeks op een tijdelijke locatie, zoals Kladblok, om later te gebruiken.
     
-    ![](./media/event-hubs-create/create-event-hub8.png)
-
 ## <a name="create-an-event-hub"></a>Een Event Hub maken
 
-1. Klik in de lijst met naamruimten van Event Hubs op de zojuist gemaakte naamruimte.      
-   
-    ![](./media/event-hubs-create/create-event-hub2.png) 
+Ga als volgt te werk om een Event Hub in de naamruimte te maken:
 
-2. Klik op de blade Naamruimte op **Event Hubs**.
+1. Op de pagina Event Hubs-naamruimten selecteert u **Event Hubs**.
    
-    ![](./media/event-hubs-create/create-event-hub3.png)
+    ![Event Hubs selecteren in het menu links](./media/event-hubs-quickstart-portal/create-event-hub3.png)
 
-3. Aan de bovenkant van de blade, klikt u op **+ Event Hub**.
+1. Klik op **+ Event Hub** bovenaan in het venster.
    
-    ![](./media/event-hubs-create/create-event-hub4.png)
-4. Typ een naam voor uw Event Hub en klik vervolgens op **Maken**. 
+    ![Event Hub toevoegen - Knop](./media/event-hubs-quickstart-portal/create-event-hub4.png)
+1. Typ een naam voor uw Event Hub en klik vervolgens op **Maken**.
+   
+    ![Event hub maken](./media/event-hubs-quickstart-portal/create-event-hub5.png)
 
-Uw event hub is nu gemaakt en u hebt de verbindingsreeksen die u wilt verzenden en ontvangen van gebeurtenissen.
+
+Gefeliciteerd! U hebt de portal gebruikt om een ​​Event Hubs-naamruimte en een Event Hub binnen die naamruimte te maken. 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Volg deze koppelingen voor meer informatie over Event Hubs:
+In dit artikel hebt u een resourcegroep, een Event Hubs-naamruimte en een Event Hub gemaakt. Zie de volgende zelfstudies voor stapsgewijze instructies voor het verzenden van gebeurtenissen naar of ontvangen van gebeurtenissen vanuit een Event Hub:  
 
-* [Event Hubs-overzicht](event-hubs-what-is-event-hubs.md)
-* [Event Hubs-API-overzicht](event-hubs-api-overview.md)
+- **Gebeurtenissen verzenden naar een Event Hub**: [.NET Standard](event-hubs-dotnet-standard-getstarted-send.md), [.NET Framework](event-hubs-dotnet-framework-getstarted-send.md), [Java](event-hubs-java-get-started-send.md), [Python](event-hubs-python-get-started-send.md), [Node.js](event-hubs-node-get-started-send.md), [Go](event-hubs-go-get-started-send.md), [C](event-hubs-c-getstarted-send.md)
+- **Gebeurtenissen ontvangen vanuit een Event Hub**: [.NET Standard](event-hubs-dotnet-standard-getstarted-receive-eph.md), [.NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md), [Java](event-hubs-java-get-started-receive-eph.md), [Python](event-hubs-python-get-started-receive.md), [Node.js](event-hubs-node-get-started-receive.md), [Go](event-hubs-go-get-started-receive-eph.md), [Apache Storm](event-hubs-storm-getstarted-receive.md)
+
 
 [Azure portal]: https://portal.azure.com/
+[3]: ./media/event-hubs-quickstart-portal/sender1.png
+[4]: ./media/event-hubs-quickstart-portal/receiver1.png

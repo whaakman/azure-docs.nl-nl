@@ -1,23 +1,23 @@
 ---
-title: 'Snelstart: Alternatieve vertalingen zoeken - -Translator Text-API, C#'
+title: 'Snelstart: Alternatieve vertalingen zoeken, C# - Translator Text-API'
 titleSuffix: Azure Cognitive Services
 description: In deze snelstartgids vindt u alternatieve vertalingen en voorbeelden van termen in context met behulp van de Translator Text-API met C#.
 services: cognitive-services
-author: noellelacharite
+author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/15/2018
-ms.author: nolachar
-ms.openlocfilehash: 35903b0da707e5167781c3a7595c3be938a4fc07
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.author: erhopf
+ms.openlocfilehash: e7a450838ab32d191ca8659a8e84e0104c76e3a5
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49321341"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49645453"
 ---
-# <a name="quickstart-find-alternate-translations-and-usage-with-c35"></a>Snelstart: alternatieve vertalingen zoeken en gebruiken met C&#35;
+# <a name="quickstart-find-alternate-translations-with-the-translator-text-rest-api-c"></a>Snelstart: Alternatieve vertalingen zoeken met de Translator Text REST API (C#)
 
 In deze snelstartgids zoekt u details van mogelijke alternatieve vertalingen voor een term plus gebruiksvoorbeelden van deze alternatieve vertalingen met behulp van de Translator Text-API.
 

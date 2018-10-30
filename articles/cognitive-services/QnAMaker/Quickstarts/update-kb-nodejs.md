@@ -8,16 +8,16 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: quickstart
-ms.date: 10/02/2018
+ms.date: 10/19/2018
 ms.author: diberry
-ms.openlocfilehash: 3bbc55b3bb064b2cf4b140a395e99209b71a5ce1
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 1b92589fe01f171b732c04057dc290f0f32cb31a
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48816210"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49647813"
 ---
-# <a name="quickstart-update-a-qna-maker-knowledge-base-in-nodejs"></a>Quickstart: Een QnA Maker-knowledge base bijwerken in Node.js
+# <a name="quickstart-update-a-knowledge-base-in-qna-maker-using-nodejs"></a>Snelstart: Een knowledge base bijwerken in QnA Maker met behulp van Node.js
 
 Deze quickstart helpt u bij het programmatisch bijwerken van een bestaande QnA Maker-knowledge base (KB).  Met deze JSON kunt u een KB bijwerken door nieuwe gegevensbronnen toe te voegen, gegevensbronnen te wijzigen of gegevensbronnen te verwijderen.
 
@@ -31,7 +31,7 @@ In deze snelstart worden QnA Maker-API's aangeroepen:
 
 * [Node.js 6+](https://nodejs.org/en/download/)
 * U moet een [QnA Maker-service ](../How-To/set-up-qnamaker-service-azure.md) hebben. Selecteer onder **Resourcebeheer** de optie **Sleutel** om uw sleutel op te halen. 
-* Id voor knowledge base (KB) in QnA Maker gevonden in de URL in de parameter voor de kbid-queryreeks zoals hieronder wordt weergegeven.
+* Id voor knowledge base (KB) in QnA Maker gevonden in de URL in de parameter voor de kbid-queryreeks, zoals hieronder wordt weergegeven.
 
     ![Id voor knowledge base in QnA Maker](../media/qnamaker-quickstart-kb/qna-maker-id.png)
 
@@ -50,7 +50,7 @@ Voeg aan het begin van `update-knowledge-base.js` de volgende regels toe om de n
 [!code-nodejs[Add the dependencies](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/update-knowledge-base/update-knowledge-base.js?range=1-4 "Add the dependencies")]
 
 ## <a name="add-required-constants"></a>Vereiste constanten toevoegen
-Voeg de vereiste constanten toe voor toegang tot QnA Maker na de bovenstaande vereiste afhankelijkheden. Vervang de waarde van de variabele `subscriptionKey` door uw eigen QnA Maker-sleutel. 
+Voeg na de bovenstaande vereiste afhankelijkheden de vereiste constanten toe voor toegang tot QnA Maker. Vervang de waarde van de variabele `subscriptionKey` door uw eigen QnA Maker-sleutel. 
 
 [!code-nodejs[Add required constants](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/update-knowledge-base/update-knowledge-base.js?range=10-17 "Add required constants")]
 
@@ -75,7 +75,7 @@ Elke sectie kan worden gebruikt in een en dezelfde aanvraag voor de API.
 
 ## <a name="add-supporting-functions"></a>Ondersteunende functies toevoegen
 
-Voeg vervolgens de volgende ondersteunende functies toe.
+Voeg daarna de volgende ondersteunende functies toe.
 
 1. Voeg de volgende functie toe om JSON in een leesbare indeling weer te geven:
 

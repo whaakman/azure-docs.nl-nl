@@ -4,15 +4,15 @@ description: Biedt een overzicht van de service Azure Migrate.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 09/25/2018
+ms.date: 10/23/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: d2a8885ffb9148d408eff0e8a7d2ef09121e5359
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 30cca10a83be09b8c9736df546958c3a1fe66f37
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47162031"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025620"
 ---
 # <a name="about-azure-migrate"></a>Over Azure Migrate
 
@@ -29,16 +29,16 @@ Azure Migrate helpt u bij het volgende:
 
 ## <a name="current-limitations"></a>Huidige beperkingen
 
-- Op dit moment kunt u alleen on-premises virtuele VMware-machines (VMware-VM's) beoordelen voor migratie naar virtuele Azure-machines. De VMware-VM's moeten worden beheerd door een vCenter Server (versie 5.5, 6.0 of 6.5).
+- U kunt alleen on-premises VMware-VM’s (virtuele machines) beoordelen voor migratie naar Azure-VM’s. De VMware-VM's moeten worden beheerd door een vCenter Server (versie 5.5, 6.0 of 6.5).
 - Als u Hyper-VM's en fysieke servers wilt beoordelen, gebruikt u de [Azure Site Recovery Deployment Planner](http://aka.ms/asr-dp-hyperv-doc) voor Hyper-V, en onze [hulpprogramma's van partners](https://azure.microsoft.com/migration/partners/) voor fysieke computers.
 - U kunt maximaal 1500 VM's detecteren in een enkele detectieronde en maximaal 1500 VM's in een enkel project. Bovendien kunt u maximaal 1500 VM's beoordelen in een enkele beoordeling.
 - Als u een grotere omgeving wilt detecteren, kunt u de detectie splitsen en meerdere projecten maken. [Meer informatie](how-to-scale-assessment.md). Azure Migrate ondersteunt maximaal 20 projecten per abonnement.
 - Azure Migrate biedt voor migratiebeoordeling alleen ondersteuning voor beheerde schijven.
-- U kunt een Azure Migrate-project alleen maken in de geografie van de Verenigde Staten. Dit heeft geen invloed op uw mogelijkheid voor het plannen van de migratie naar een Azure-doellocatie. De geografie van het migratieproject wordt alleen gebruikt om de detecteerde metagegevens uit de on-premises omgeving op te slaan. [Meer informatie](https://docs.microsoft.com/azure/migrate/resources-faq#discovery-and-assessment) over de metagegevens die zijn verzameld door Azure Migrate. De verzamelde metagegevens worden opgeslagen in een van de regio's in de geselecteerde [Azure-geografie](https://azure.microsoft.com/global-infrastructure/geographies/):
+-  U kunt een Azure Migrate-project alleen maken in de geografie van de Verenigde Staten. U kunt echter wel een migratie plannen voor elke Azure-doellocatie.
+    - Alleen gedetecteerde metagegevens uit de on-premises omgeving worden opgeslagen in de migratieprojectregio.
+    - Metagegevens worden opgeslagen in een van de regio’s in de geografie: US - west-centraal/US - oost.
+    - Als u visualisatie van afhankelijkheden gebruikt met een Log Analytics-werkruimte, wordt deze in dezelfde regio gemaakt als het project. 
 
-**Geografie** | **Regio's**
---- | ---
-Verenigde Staten | US - west-centraal, US - oost
 
 ## <a name="what-do-i-need-to-pay-for"></a>Waar moet ik voor betalen?
 
@@ -72,7 +72,7 @@ Instellingen voor evaluatie kunnen worden aangepast op basis van uw behoeften. E
 4. U kunt de collector uitvoeren op de virtuele machine om detectie op te starten.
 5. De collector verzamelt metagegevens van de VM's met behulp van PowerCLI-cmdlets van VMware. Detectie vindt plaats zonder agent en er wordt niets op de VMware-hosts of VM's geïnstalleerd. De verzamelde metagegevens bevatten informatie over de VM's (kernen, geheugen, schijven, schijfgroottes en netwerkadapters). Er worden ook prestatiegegevens van de VM's verzameld, met inbegrip van CPU- en geheugengebruik, schijf-IOPS, schijfdoorvoer (MBps) en netwerkuitvoer (MBps).
 5.  De metagegevens worden doorgegeven aan het Azure Migrate-project. U kunt ze bekijken in Azure Portal.
-6.  Voor evaluatiedoeleinden deelt u de gedetecteerde virtuele machines in groepen in. U kunt bijvoorbeeld virtuele machines groeperen waarin dezelfde applicatie wordt uitgevoerd. Voor een nauwkeurigere groepering kunt u afhankelijkheidsvisualisatie gebruiken om afhankelijkheden te bekijken van een specifieke computer, of voor alle computers in een groep, en de groep verfijnen.
+6.  Voor evaluatiedoeleinden deelt u de gedetecteerde virtuele machines in groepen in. U kunt bijvoorbeeld virtuele machines groeperen waarin dezelfde applicatie wordt uitgevoerd. Voor een nauwkeurigere groepering kunt u visualisatie van afhankelijkheden gebruiken om afhankelijkheden te bekijken van een specifieke computer, of voor alle computers in een groep, en de groep verfijnen.
 7.  Nadat een groep is gedefinieerd, kunt u hiervoor een evaluatie maken.
 8.  Nadat de evaluatie is voltooid, kunt u deze weergeven in de portal of downloaden in Excel-indeling.
 

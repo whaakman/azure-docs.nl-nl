@@ -1,23 +1,23 @@
 ---
-title: 'Snelstart: Tekst-script converteren - Translator Text, C#'
+title: 'Snelstart: Tekstscript converteren, C# - Translator Text'
 titleSuffix: Azure Cognitive Services
 description: In deze snelstartgids converteert u tekst in één taal van het ene script naar het andere met de Translator Text-API met C#.
 services: cognitive-services
-author: noellelacharite
+author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/15/2018
-ms.author: nolachar
-ms.openlocfilehash: 7fa8c5dc76e59ec236d6b9662bd2ba41db0add0f
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.author: erhopf
+ms.openlocfilehash: d0dd7ef04f6feb04df4fafc5b750f291d05f2862
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49320404"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49646205"
 ---
-# <a name="quickstart-transliterate-text-with-c35"></a>Snelstart: Tekst translitereren met C&#35;
+# <a name="quickstart-transliterate-text-with-the-translator-text-rest-api-c"></a>Snelstart: Transliteratie gebruiken voor tekst met de Translator Text REST API (C#)
 
 In deze snelstartgids converteert u tekst in één taal van het ene schrift naar het andere met de Translator Text-API.
 
@@ -30,7 +30,7 @@ Als u de Translator Text-API wilt gebruiken, moet u ook een abonnementssleutel h
 ## <a name="transliterate-request"></a>Transliterate-aanvraag
 
 > [!TIP]
-> Krijg de nieuwste code van [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-C-Sharp).
+> Haal de laatste nieuwe code op uit [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-C-Sharp).
 
 Het volgende converteert tekst in één taal van het ene schrift naar het andere met behulp van de methode [Transliterate](./reference/v3-0-transliterate.md).
 

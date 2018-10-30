@@ -1,5 +1,5 @@
 ---
-title: 'Zelfstudie: Een Windows-app bouwen voor Custom Vision Service met C#'
+title: 'Zelfstudie: Een afbeeldingsclassificatieproject maken met de Custom Vision-SDK voor C#'
 titlesuffix: Azure Cognitive Services
 description: Maak een project, voeg tags toe, upload afbeeldingen, train uw project en doe een voorspelling met behulp van het standaardeindpunt.
 services: cognitive-services
@@ -10,16 +10,16 @@ ms.component: custom-vision
 ms.topic: tutorial
 ms.date: 05/03/2018
 ms.author: anroth
-ms.openlocfilehash: 9e5ed71d4620f7ffeac8acb15f90d67964a86870
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: e046fe452a13384ae7929be805c6252d6ad2fbf9
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46366638"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49953040"
 ---
-# <a name="tutorial-use-the-custom-vision-service-from-a-c-application"></a>Zelfstudie: De Custom Vision Service uit een C#-toepassing gebruiken
+# <a name="tutorial-create-an-image-classification-project-with-the-custom-vision-sdk-for-c"></a>Zelfstudie: Een afbeeldingsclassificatieproject maken met de Custom Vision-SDK voor C#
 
-Lees hoe u de Custom Vision Service uit een C#-toepassing gebruikt. Wanneer u het project hebt gemaakt, kunt u tags toevoegen, afbeeldingen uploaden, het project trainen, de standaardeindpunt-URL voor voorspellingen ophalen en het eindpunt gebruiken om afbeeldingen programmatisch te testen. Gebruik dit open-sourcevoorbeeld als sjabloon voor het bouwen van uw eigen app voor Windows met behulp van de Custom Vision Service-API.
+Lees hoe u de Custom Vision Service-SDK in een C#-toepassing gebruikt. Wanneer u het project hebt gemaakt, kunt u tags toevoegen, afbeeldingen uploaden, het project trainen, de standaardeindpunt-URL voor voorspellingen ophalen en het eindpunt gebruiken om afbeeldingen programmatisch te testen. Gebruik dit open-sourcevoorbeeld als sjabloon voor het bouwen van uw eigen app voor Windows met behulp van de Custom Vision Service-API.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -35,7 +35,7 @@ U kunt de afbeeldingen tegelijk met de [C#-voorbeelden](https://github.com/Azure
 
 ## <a name="get-the-training-and-prediction-keys"></a>De training en voorspellingssleutels ophalen
 
-Als u de sleutels wilt ophalen die in dit voorbeeld worden gebruikt, gaat u naar de [Custom Vision-webpagina](https://customvision.ai) en selecteert u het __tandwielpictogram__ in de rechterbovenhoek. In de sectie __Accounts__ kopieert u de waarden uit de velden __Trainingssleutel__ en __Voorspellingssleutel__.
+Als u de sleutels wilt ophalen die in dit voorbeeld worden gebruikt, gaat u naar de [Custom Vision-webpagina](https://customvision.ai) en selecteert u het __tandwielpictogram__ in de rechterbovenhoek. In het sectie __Accounts__ kopieert u de waarden uit de velden __Trainingssleutel__ en __Voorspellingssleutel__.
 
 ![Afbeelding van de gebruikersinterface van de sleutels](./media/csharp-tutorial/training-prediction-keys.png)
 

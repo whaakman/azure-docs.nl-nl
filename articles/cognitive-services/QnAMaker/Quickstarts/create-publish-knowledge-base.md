@@ -1,5 +1,5 @@
 ---
-title: 'Snelstart: Een KB maken - QnA Maker'
+title: Een knowledge base maken, trainen en publiceren - QnA Maker
 titleSuffix: Azure Cognitive Services
 description: U kunt een QnA Maker-knowledge base (KB) maken van uw eigen inhoud, zoals veelgestelde vragen of producthandleidingen. De QnA Maker-KB in dit voorbeeld is gemaakt op basis van een eenvoudige webpagina met veelgestelde vragen waarop vragen worden beantwoord over het herstel van BitLocker-sleutels.
 author: diberry
@@ -7,16 +7,16 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: quickstart
-ms.date: 09/12/2018
+ms.date: 10/19/2018
 ms.author: diberry
-ms.openlocfilehash: 99f9259c9fa73a9ba4842b2684cde8a44f73145a
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: c57edd897797d4352706283072aa19444948436b
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389663"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49644782"
 ---
-# <a name="quickstart-create-train-and-publish-your-knowledge-base"></a>Snelstart: Een knowledge base maken, trainen en publiceren
+# <a name="create-train-and-publish-your-qna-maker-knowledge-base"></a>Uw QnA Maker-knowledge base maken, trainen en publiceren
 
 U kunt een QnA Maker-knowledge base (KB) maken van uw eigen inhoud, zoals veelgestelde vragen of producthandleidingen. De QnA Maker-KB in dit voorbeeld is gemaakt op basis van een eenvoudige webpagina met veelgestelde vragen waarop vragen worden beantwoord over het herstel van BitLocker-sleutels.
 

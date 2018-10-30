@@ -1,5 +1,5 @@
 ---
-title: 'Snelstart: gezichten in een afbeelding detecteren - Face-API, Python'
+title: 'Snelstart: Gezichten in een afbeelding detecteren met de REST API en Python'
 titleSuffix: Azure Cognitive Services
 description: In deze snelstart detecteert u gezichten in een afbeelding met behulp van de Face-API met Python.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: face-api
 ms.topic: quickstart
 ms.date: 05/24/2018
 ms.author: pafarley
-ms.openlocfilehash: 581c2a7d4508833647d4dbb9861000fddd75cde8
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 76a9260d534057e3a03f8c8f1d7420329713ea80
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49339578"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49957272"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-python"></a>Snelstart: gezichten in een afbeelding detecteren met Python
+# <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-python"></a>Snelstart: Gezichten in een afbeelding detecteren met de REST API en Python
 
 In deze snelstart detecteert u menselijke gezichten in een afbeelding op afstand met behulp van de Face-service. De gedetecteerde gezichten zijn gemarkeerd met kleinere rechthoeken en met het geslacht en de leeftijd van elke persoon. Om een lokale afbeelding te gebruiken, zie de syntax in [Computervisie: een lokale afbeelding analyseren met Python](../../Computer-vision/QuickStarts/python-disk.md).
 

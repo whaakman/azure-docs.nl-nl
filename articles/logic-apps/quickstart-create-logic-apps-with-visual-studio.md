@@ -12,12 +12,12 @@ ms.custom: mvc
 ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.date: 07/31/2018
-ms.openlocfilehash: b8961edebd80d5f36d844734e3c93a4bd3b1f0cf
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 6783c59b354e0eebc7fa6d8f67985b8d7b72c22a
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42162130"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49645828"
 ---
 # <a name="quickstart-create-and-automate-tasks-processes-and-workflows-with-azure-logic-apps---visual-studio"></a>Snelstart: Maken en automatiseren van taken, processen en werkstromen met Azure Logic Apps in Visual Studio
 
@@ -148,6 +148,10 @@ Voordat u uw logische app kunt uitvoeren, moet u de app implementeren vanuit Vis
 
    ![Uitvoer implementatiestatus](./media/quickstart-create-logic-apps-with-visual-studio/logic-app-output-window.png)
 
+   Als de connectors die u hebt geselecteerd, invoer van u nodig hebben, wordt mogelijk op de achtergrond een PowerShell-venster geopend waarin wordt gevraagd om de noodzakelijke wachtwoorden en geheime sleutels. Nadat u deze gegevens hebt ingevoerd, wordt de implementatie voortgezet.
+   
+   ![PowerShell-venster voor implementatie](./media/quickstart-create-logic-apps-with-visual-studio/logic-apps-powershell-window.png)
+   
    Nadat de implementatie is voltooid, gaat uw logische app live in Azure Portal en controleert deze de RSS-feed op basis van de opgegeven planning (elke minuut). 
    Als de RSS-feed nieuwe items heeft, verzendt uw logische app een e-mailbericht voor elk nieuw item. 
    Anders wacht de logische app tot het volgende interval voordat opnieuw een controle wordt uitgevoerd. 

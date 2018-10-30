@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 10/09/2018
+ms.date: 10/19/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 50f1c81f08787181de2fe3a9f6fb97a96a2bd882
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 5e198310dd18cc8574b5510b9318ff4badaffca3
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49114309"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49646299"
 ---
 # <a name="tutorial-create-azure-resource-manager-templates-with-dependent-resources"></a>Zelfstudie: Azure Resource Manager-sjablonen met afhankelijke resources maken
 
@@ -29,7 +29,7 @@ In deze zelfstudie hebt u een opslagaccount, een virtuele machine, een virtueel 
 Deze zelfstudie bestaat uit de volgende taken:
 
 > [!div class="checklist"]
-> * Key Vault voorbereiden
+> * Een beveiligde omgeving instellen
 > * Een snelstartsjabloon openen
 > * De sjabloon verkennen
 > * Het parameterbestand bewerken
@@ -42,77 +42,12 @@ Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.
 Als u dit artikel wilt voltooien, hebt u het volgende nodig:
 
 * [Visual Studio Code](https://code.visualstudio.com/) met de extensie Resource Manager Tools.  Zie [De extensie installeren](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites)
-
-## <a name="prepare-key-vault"></a>Key Vault voorbereiden
-
-Als u een spraying-aanval op wachtwoorden wilt voorkomen, wordt het aangeraden om een automatisch gegenereerd wachtwoord te gebruiken voor het beheerdersaccount van de virtuele machine en om Key Vault te gebruiken voor het opslaan van het wachtwoord. Met de volgende procedure maakt u een sleutelkluis en een geheim om het wachtwoord op te slaan. Hiermee configureert u ook de machtigingen die nodig zijn voor de sjabloonimplementatie, om toegang te verkrijgen tot het geheim dat in de sleutelkluis is opgeslagen. Er is aanvullend toegangsbeleid nodig als de sleutelkluis onderdeel is van een ander Azure-abonnement. Zie [Azure Key Vault gebruiken om veilig parameterwaarden door te geven tijdens de implementatie](./resource-manager-keyvault-parameter.md) voor meer informatie.
-
-1. Meld u aan bij [Azure Cloud Shell](https://shell.azure.com).
-2. Schakel in de linkerbovenhoek over naar uw favoriete omgeving (**PowerShell** of **Bash**).
-3. Voer de volgende Azure PowerShell- of Azure CLI-opdracht uit.  
+* Genereer een wachtwoord voor het beheerdersaccount van de virtuele machine om spraying-aanvallen op wachtwoorden te voorkomen. Hier volgt een voorbeeld:
 
     ```azurecli-interactive
-    keyVaultName='<your-unique-vault-name>'
-    resourceGroupName='<your-resource-group-name>'
-    location='Central US'
-    userPrincipalName='<your-email-address-associated-with-your-subscription>'
-    
-    # Create a resource group
-    az group create --name $resourceGroupName --location $location
-    
-    # Create a Key Vault
-    keyVault=$(az keyvault create \
-      --name $keyVaultName \
-      --resource-group $resourceGroupName \
-      --location $location \
-      --enabled-for-template-deployment true)
-    keyVaultId=$(echo $keyVault | jq -r '.id')
-    az keyvault set-policy --upn $userPrincipalName --name $keyVaultName --secret-permissions set delete get list
-
-    # Create a secret
-    password=$(openssl rand -base64 32)
-    az keyvault secret set --vault-name $keyVaultName --name 'vmAdminPassword' --value $password
-    
-    # Print the useful property values
-    echo "You need the following values for the virtual machine deployment:"
-    echo "Resource group name is: $resourceGroupName."
-    echo "The admin password is: $password."
-    echo "The Key Vault resource ID is: $keyVaultId."
+    openssl rand -base64 32
     ```
-
-    ```azurepowershell-interactive
-    $keyVaultName = "<your-unique-vault-name>"
-    $resourceGroupName="<your-resource-group-name>"
-    $location='Central US'
-    $userPrincipalName="<your-email-address-associated-with-your-subscription>"
-    
-    # Create a resource group
-    New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
-        
-    # Create a Key Vault
-    $keyVault = New-AzureRmKeyVault `
-      -VaultName $keyVaultName `
-      -resourceGroupName $resourceGroupName `
-      -Location $location `
-      -EnabledForTemplateDeployment
-    Set-AzureRmKeyVaultAccessPolicy -VaultName $keyVaultName -UserPrincipalName $userPrincipalName -PermissionsToSecrets set,delete,get,list
-      
-    # Create a secret
-    $password = openssl rand -base64 32
-    
-    $secretValue = ConvertTo-SecureString $password -AsPlainText -Force
-    Set-AzureKeyVaultSecret -VaultName $keyVaultName -Name "vmAdminPassword" -SecretValue $secretValue
-    
-    # Print the useful property values
-    echo "You need the following values for the virtual machine deployment:"
-    echo "Resource group name is: $resourceGroupName."
-    echo "The admin password is: $password."
-    echo "The Key Vault resource ID is: " $keyVault.ResourceID
-    ```
-4. Noteer de uitvoerwaarden. U hebt ze later in de zelfstudie nodig
-
-> [!NOTE]
-> Elke Azure-service heeft eigen wachtwoordvereisten. U vindt de vereisten voor virtuele Azure-machines bijvoorbeeld in 'Wat zijn de wachtwoordvereisten bij het maken van een VM?'
+    Azure Key Vault is ontworpen om cryptografische sleutels en andere geheimen te beveiligen. Zie [Zelfstudie: Azure Key Vault integreren in de Resource Manager-sjabloonimplementatie](./resource-manager-tutorial-use-key-vault.md) voor meer informatie. We raden u ook aan om uw wachtwoord elke drie maanden te wijzigen.
 
 ## <a name="open-a-quickstart-template"></a>Een snelstartsjabloon openen
 
@@ -126,7 +61,6 @@ Azure-snelstartsjablonen is een opslagplaats voor Resource Manager-sjablonen. In
     ```
 3. Selecteer **Openen** om het bestand te openen.
 4. Selecteer **Bestand**>**Opslaan als** om het bestand op uw lokale computer op te slaan als **azuredeploy.json**.
-5. Herhaal stap 1-4 om **https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.parameters.json** te openen en sla het bestand dan op als **azuredeploy.parameters.json**.
 
 ## <a name="explore-the-template"></a>De sjabloon verkennen
 
@@ -170,44 +104,16 @@ Het volgende diagram illustreert de resources en de afhankelijkheidsgegevens voo
 
 Door de afhankelijkheden op te geven, kan Resource Manager de oplossing efficiënt implementeren. Het implementeert tegelijk het opslagaccount, een openbaar IP-adres en een virtueel netwerk omdat ze geen afhankelijkheden hebben. Nadat het openbare IP-adres en het virtuele netwerk zijn geïmplementeerd, wordt de netwerkinterface gemaakt. Wanneer alle andere resources zijn geïmplementeerd, implementeert Resource Manager de virtuele machine.
 
-## <a name="edit-the-parameters-file"></a>Het parameterbestand bewerken
-
-U hoeft het sjabloonbestand niet te wijzigen. U moet echter het parameterbestand bewerken om het beheerderswachtwoord uit de sleutelkluis op te halen.
-
-1. Open **azuredeploy.parameters.json** in Visual Studio Code als het bestand nog niet is geopend.
-2. Werk de parameter **adminPassword** bij naar:
-
-    ```json
-    "adminPassword": {
-        "reference": {
-            "keyVault": {
-            "id": "/subscriptions/<SubscriptionID>/resourceGroups/mykeyvaultdeploymentrg/providers/Microsoft.KeyVault/vaults/<KeyVaultName>"
-            },
-            "secretName": "vmAdminPassword"
-        }
-    },
-    ```
-    Vervang de **id** door de resource-id van de sleutelkluis die u in de afgelopen procedure hebt gemaakt. Dit is een van de zaken die wordt uitgevoerd. 
-
-    ![Key Vault en Resource Manager-sjabloon integreren - virtuele-machine-implementatie - parameterbestand](./media/resource-manager-tutorial-use-key-vault/resource-manager-tutorial-create-vm-parameters-file.png)
-3. Geef waarden op voor:
-
-    - **adminUsername**: geef het beheerdersaccount van de virtuele machine een naam.
-    - **dnsLabelPrefix**: geef de dnsLablePrefix een naam.
-4. Sla de wijzigingen op.
-
 ## <a name="deploy-the-template"></a>De sjabloon implementeren
 
 Er bestaan meerdere methoden voor het implementeren van sjablonen.  In deze zelfstudie gebruikt u Cloud Shell van Azure Portal.
 
-1. Meld u aan bij [Cloud Shell](https://shell.azure.com). U kunt zich ook aanmelden bij de [Azure-portal](https://portal.azure.com) en dan in de rechterbovenhoek **Cloud Shell** selecteren, zoals weergegeven in de volgende afbeelding:
-
-    ![Cloud Shell in Azure Portal](./media/resource-manager-tutorial-create-templates-with-dependent-resources/azure-portal-cloud-shell.png)
+1. Meld u aan bij [Cloud Shell](https://shell.azure.com). 
 2. Selecteer **PowerShell** in de linkerbovenhoek van Cloud Shell en selecteer **Bevestigen**.  In deze zelfstudie gebruikt u PowerShell.
 3. Selecteer **Bestand uploaden** vanuit Cloud Shell:
 
     ![Bestand uploaden in Cloud Shell in Azure Portal](./media/resource-manager-tutorial-create-templates-with-dependent-resources/azure-portal-cloud-shell-upload-file.png)
-4. Selecteer de bestanden die u eerder in de zelfstudie hebt opgeslagen. De standaardnamen zijn **azuredeploy.json** en **azuredeploy.paraemters.json**.  Als u bestanden met dezelfde bestandsnamen hebt, worden de oude bestanden zonder melding overschreven.
+4. Selecteer de sjabloon die u eerder in de zelfstudie hebt opgeslagen. De standaardnaam is **azuredeploy.json**.  Als u een bestand met dezelfde bestandsnaam hebt, wordt het oude bestand zonder melding overschreven.
 5. Voer vanaf Cloud Shell de volgende opdracht uit om te verifiëren of het bestand is geüpload. 
 
     ```bash
@@ -222,22 +128,28 @@ Er bestaan meerdere methoden voor het implementeren van sjablonen.  In deze zelf
 
     ```bash
     cat azuredeploy.json
-    cat azuredeploy.parameters.json
     ```
-7. Voer vanuit Cloud Shell de volgende PowerShell-opdrachten uit. In het voorbeeldscript wordt gebruikgemaakt van dezelfde resourcegroep als de groep die u voor de sleutelkluis hebt gemaakt. Door dezelfde resourcegroep te gebruiken, is het eenvoudiger om de resources op te schonen.
+7. Voer vanuit Cloud Shell de volgende PowerShell-opdrachten uit. Gebruik een gegenereerd wachtwoord voor het beheerdersaccount van de virtuele machine om de beveiliging te verbeteren. Zie [Vereisten](#prerequisites).
 
-    ```powershell
-    $resourceGroupName = "<Enter the resource group name>"
-    $deploymentName = "<Enter a deployment name>"
+    ```azurepowershell
+    $deploymentName = Read-Host -Prompt "Enter the name for this deployment"
+    $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
+    $adminUsername = Read-Host -Prompt "Enter the virtual machine admin username"
+    $adminPassword = Read-Host -Prompt "Enter the admin password"
+    $dnsLablePrefix = Read-Host -Prompt "Enter the DNS label prefix"
 
+    New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
     New-AzureRmResourceGroupDeployment -Name $deploymentName `
         -ResourceGroupName $resourceGroupName `
-        -TemplateFile azuredeploy.json `
-        -TemplateparameterFile azuredeploy.parameters.json
+        -adminUsername = $adminUsername `
+        -adminPassword = $adminPassword `
+        -dnsLabelPrefix = $dnsLabelPrefix `
+        -TemplateFile azuredeploy.json 
     ```
 8. Voer de volgende PowerShell-opdracht uit om de nieuwe virtuele machine weer te geven:
 
-    ```powershell
+    ```azurepowershell
+    $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
     Get-AzureRmVM -Name SimpleWinVM -ResourceGroupName $resourceGroupName
     ```
 

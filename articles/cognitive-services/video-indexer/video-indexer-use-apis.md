@@ -1,5 +1,5 @@
 ---
-title: 'Zelfstudie: de Video Indexer-API gebruiken'
+title: De Video Indexer-API gebruiken
 titlesuffix: Azure Cognitive Services
 description: Met dit artikel leert u hoe u aan de slag gaat met de Video Indexer-API.
 services: cognitive services
@@ -8,16 +8,16 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: video-indexer
 ms.topic: tutorial
-ms.date: 09/09/2018
+ms.date: 10/20/2018
 ms.author: juliako
-ms.openlocfilehash: 7bd7ed1b2d2f437ef57598c42ca12ce8bfb174a1
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 401811ec8803f3ede5a829dc96edc1e7f15e5ee0
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985562"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49637745"
 ---
-# <a name="tutorial-use-the-video-indexer-api"></a>Zelfstudie: de Video Indexer-API gebruiken
+# <a name="use-the-video-indexer-api"></a>De Video Indexer-API gebruiken
 
 > [!Note]
 > De Video Indexer V1-API is afgeschaft op 1 augustus 2018. U moet nu de Video Indexer v2-API gebruiken. <br/>Bekijk [hier](https://api-portal.videoindexer.ai/) de instructies voor ontwikkeling met de Video Indexer v2-API's. 
@@ -51,6 +51,9 @@ In dit artikel wordt uitgelegd hoe ontwikkelaars kunnen profiteren van de [Video
     Wanneer u zich abonneert, kunt u uw abonnement en uw primaire en secundaire sleutels zien. De sleutels moeten beveiligd zijn. De sleutels mogen alleen door uw servercode gebruikt worden. Ze mogen niet aan clientzijde beschikbaar zijn (.js, .html, enzovoort).
 
     ![Aanmelden](./media/video-indexer-use-apis/video-indexer-api03.png)
+
+> [!TIP]
+> Een gebruiker van Video Indexer kan met één abonnementssleutel verbinding maken met meerdere Video Indexer-accounts. U kunt deze Video Indexer-accounts vervolgens koppelen aan verschillende Media Services-accounts.
 
 ## <a name="obtain-access-token-using-the-authorization-api"></a>Tokens verkrijgen met de Authorization-API
 

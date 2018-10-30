@@ -1,20 +1,20 @@
 ---
 title: Zoeken met Azure Maps | Microsoft Docs
 description: Zoeken naar nuttige plaatsen in de buurt met behulp van Azure Maps
-author: dsk-2015
-ms.author: dkshir
-ms.date: 10/02/2018
+author: walsehgal
+ms.author: v-musehg
+ms.date: 10/22/2018
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 761674c5839f0513532355116db07604f9e9d9dc
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 10fb30b77cc3cd18cbb6b3def9682349474fba71
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48816817"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49645811"
 ---
 # <a name="search-nearby-points-of-interest-using-azure-maps"></a>Zoeken naar nuttige plaatsen in de buurt met behulp van Azure Maps
 
@@ -116,11 +116,10 @@ De Map Control-API is een handige clientbibliotheek waarmee u Maps eenvoudig kun
 
     ```JavaScript
     // Instantiate map to the div with id "map"
-    var MapsAccountKey = "<your account key>";
-    var map = new atlas.Map("map", {
-        "subscription-key": MapsAccountKey
-    });
+    atlas.setSubscriptionKey("<your account key>");
+    var map = new atlas.Map("map");
     ```
+
     Dit segment initialiseert de Map Control-API voor de sleutel van uw Azure Maps-account. **Atlas** is de naamruimte die de API en gerelateerde visuele onderdelen bevat. **Atlas.Map** biedt het besturingselement voor een visuele en interactieve webkaart.
 
 4. Sla de wijzigingen op in het bestand en open de HTML-pagina in een browser. Dit is de eenvoudigste kaart die u kunt maken door **atlas.map** aan te roepen en de sleutel van uw account op te geven.
@@ -148,14 +147,14 @@ In dit gedeelte ziet u hoe u met de Maps Search-API een nuttige plaats vindt op 
     var client = new atlas.service.Client(MapsAccountKey);
     ```
 
-3. Alle functies op de kaart moeten zijn geladen nadat de kaart is geladen. U kunt hiervoor zorgen door alle kaartfuncties op te nemen in het blok met de eventListener voor de kaart. Voeg de volgende regels met code toe om een [eventListener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addeventlistener) toe te voegen aan de kaart, om ervoor te zorgen dat de kaart volledig wordt geladen voordat u functies toevoegt.
+3. Alle functies op de kaart moeten zijn geladen nadat de kaart is geladen. U kunt hiervoor zorgen door alle kaartfuncties op te nemen in het blok met de eventListener voor de kaart. Voeg de volgende regels met code toe om een [eventListener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) toe te voegen aan de kaart, om ervoor te zorgen dat de kaart volledig wordt geladen voordat u functies toevoegt.
     
     ```JavaScript
-         map.addEventListener("load", function() {
+         map.events.add("load", function() {
          });
     ```
 
-4. Voeg het volgende scriptblok toe **binnen de eventListener voor het laden van de kaart** om de query te maken. Hierin wordt de service Fuzzy zoeken gebruikt, een basiszoek-API van de Search Service. Via de service Fuzzy zoeken wordt de meeste fuzzy invoer verwerkt, zoals een combinatie van tokens voor een adres en een nuttige plaats. Er wordt gezocht naar benzinestations binnen de opgegeven radius. Het antwoord wordt vervolgens geparseerd in GeoJSON-indeling en geconverteerd naar punten, die aan de kaart worden toegevoegd als punaises. Met het laatste deel van het script worden cameragrenzen aan de kaart toegevoegd met de eigenschap [setCameraBounds](https://docs.microsoft.com/javascript/api/azure-maps-control/models.cameraboundsoptions?view=azure-iot-typescript-latest) van de kaart.
+4. Voeg het volgende scriptblok toe **binnen de gebeurtenissen voor het laden van de kaart** om de query te bouwen. Hierin wordt de service Fuzzy zoeken gebruikt, een basiszoek-API van de Search Service. Via de service Fuzzy zoeken wordt de meeste fuzzy invoer verwerkt, zoals een combinatie van tokens voor een adres en een nuttige plaats. Er wordt gezocht naar benzinestations binnen de opgegeven radius. Het antwoord wordt vervolgens geparseerd in GeoJSON-indeling en geconverteerd naar punten, die aan de kaart worden toegevoegd als punaises. Met het laatste deel van het script worden cameragrenzen aan de kaart toegevoegd met de eigenschap [setCameraBounds](https://docs.microsoft.com/javascript/api/azure-maps-control/models.cameraboundsoptions?view=azure-iot-typescript-latest) van de kaart.
 
     ```JavaScript
 
@@ -190,8 +189,8 @@ In dit gedeelte ziet u hoe u met de Maps Search-API een nuttige plaats vindt op 
             map.setCameraBounds({
                bounds: geojsonResponse.getGeoJsonResults().bbox,
                padding: 50
-            );
-        });
+            });
+    });
     ```
 5. Sla het bestand **MapSearch.html** op en vernieuw de browser. U ziet nu dat de kaart is gecentreerd rond Seattle en dat blauwe spelden de locaties van tankstations in het gebied aangeven.
 

@@ -1,20 +1,21 @@
 ---
 title: Wat is de Speech-service?
-description: "De Speech-service, onderdeel van Microsoft's Cognitive Services, verenigt verschillende Azure-spraakservices die voorheen afzonderlijk beschikbaar waren: Bing Speech (bestaande uit spraakherkenning en tekst-naar-spraak), Custom Speech en Spraakomzetting."
 titleSuffix: Azure Cognitive Services
+description: 'De Speech-service, onderdeel van de Azure Cognitive Services, verenigt verschillende spraakservices die voorheen afzonderlijk beschikbaar waren: Bing Speech (bestaande uit spraakherkenning en tekst-naar-spraak), Custom Speech en Spraakomzetting.'
 services: cognitive-services
 author: erhopf
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: overview
 ms.date: 09/24/2018
 ms.author: erhopf
-ms.openlocfilehash: 7a61d85d96b993d49a536c38c2907a3d6ef55e65
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: ba4204c23f3467ff07940fd6a72464e67604dde1
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49365455"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49470443"
 ---
 # <a name="what-is-the-speech-service"></a>Wat is de Speech-service?
 

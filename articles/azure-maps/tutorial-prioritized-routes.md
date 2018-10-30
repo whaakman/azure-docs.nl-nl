@@ -1,20 +1,20 @@
 ---
 title: Meerdere routes met Azure Maps | Microsoft Docs
 description: Routes vinden voor verschillende manieren van reizen met Azure Maps
-author: dsk-2015
-ms.author: dkshir
-ms.date: 10/02/2018
+author: walsehgal
+ms.author: v-musehg
+ms.date: 10/22/2018
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 340bf83f07b9e730cc43baccc60a39f5ba1f9942
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 864f662cd6be3c5929166db92f2dad92b9c6586e
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48815304"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49648204"
 ---
 # <a name="find-routes-for-different-modes-of-travel-using-azure-maps"></a>Routes vinden voor verschillende manieren van reizen met Azure Maps
 
@@ -74,15 +74,16 @@ Gebruik de volgende stappen voor het maken van een statische HTML-pagina, ingesl
     </html>
     ```
     De resourcelocaties voor CSS en JavaScript-bestanden voor de Azure Maps-bibliotheek worden ingesloten in de HTML-koptekst. Het segment *script* in de hoofdtekst van de HTML-code bevat de inline JavaScript-code voor de kaart.
+
 3. Voeg de volgende JavaScript-code toe aan het blok *script* van het HTML-bestand. Vervang de tekenreeks **\<your account key\>** door de primaire sleutel die u hebt gekopieerd uit uw Maps-account. Als u geen focus voor de kaart instelt, wordt de hele wereld weergegeven. Met deze code wordt het middelpunt van de kaart en een zoomniveau ingesteld zodat u zich standaard op een bepaald gebied kunt richten.
 
     ```JavaScript
     // Instantiate map to the div with id "map"
-    var MapsAccountKey = "<your account key>";
+    var mapCenterPosition = [-73.985708, 40.75773];
+    atlas.setSubscriptionKey("<your account key>");
     var map = new atlas.Map("map", {
-        "subscription-key": MapsAccountKey
-         center: [-118.2437, 34.0522],
-         zoom: 12
+      center: mapCenterPosition,
+      zoom: 11
     });
     ```
     De **atlas.Map** biedt het besturingselement voor een visuele en interactieve webkaart en is een onderdeel van de Azure Map Control API.
@@ -93,10 +94,10 @@ Gebruik de volgende stappen voor het maken van een statische HTML-pagina, ingesl
 
 ## <a name="visualize-traffic-flow"></a>Verkeerstromen visualiseren
 
-1. Voeg de weergave van de verkeersstroom toe aan de kaart.  De **map.addEventListener** zorgt ervoor dat alle kaartfuncties die worden toegevoegd aan de kaart, worden geladen nadat de kaart volledig is geladen.
+1. Voeg de weergave van de verkeersstroom toe aan de kaart.  De **map.events.add** zorgt ervoor dat alle kaartfuncties die worden toegevoegd aan de kaart, worden geladen nadat de kaart volledig is geladen.
 
     ```JavaScript
-    map.addEventListener("load", function() {
+    map.events.add("load", function() {
         // Add Traffic Flow to the Map
         map.setTraffic({
             flow: "relative"
@@ -146,7 +147,7 @@ Voor deze zelfstudie, moet u een fictief bedrijf in Seattle, genaamd Fabrikam, i
         padding: 100
     });
     
-    map.addEventListener("load", function() { 
+    map.events.add("load", function() { 
         // Add pins to the map for the start and end point of the route
         map.addPins([startPin, destinationPin], {
             name: "route-pins",
@@ -155,7 +156,7 @@ Voor deze zelfstudie, moet u een fictief bedrijf in Seattle, genaamd Fabrikam, i
         });
     });
     ```
-    Door **map.setCameraBounds** aan te roepen, wordt het kaartenvenster aangepast aan de coördinaten van de begin- en eindpunten. De **map.addEventListener** zorgt ervoor dat alle kaartfuncties die worden toegevoegd aan de kaart, worden geladen nadat de kaart volledig is geladen. De API **map.addPins** voegt de punten als visuele onderdelen toe aan het kaartbesturingselement.
+    Door **map.setCameraBounds** aan te roepen, wordt het kaartenvenster aangepast aan de coördinaten van de begin- en eindpunten. De **map.events.add** zorgt ervoor dat alle kaartfuncties die worden toegevoegd aan de kaart, worden geladen nadat de kaart volledig is geladen. De API **map.addPins** voegt de punten als visuele onderdelen toe aan het kaartbesturingselement.
 
 3. Sla het bestand op en vernieuw de browser. De spelden worden weergegeven op de kaart. Ook al had u de kaart gedeclareerd met Los Angeles als middelpunt, met **map.setCameraBounds** is de kaartweergave aangepast aan het begin- en eindpunt.
 
@@ -165,7 +166,7 @@ Voor deze zelfstudie, moet u een fictief bedrijf in Seattle, genaamd Fabrikam, i
 
 ## <a name="render-routes-prioritized-by-mode-of-travel"></a>Routes weergeven gerangschikt naar de manier van reizen
 
-In deze sectie wordt beschreven hoe u de routeservice-API van Azure Maps gebruikt om te zoeken naar meerdere routes van een bepaald beginpunt naar een bestemming op basis van de manier van reizen. De routeservice biedt API's om de *snelste*, *kortste*, *zuinigste* of *leukste* route tussen twee locaties te plannen, waarbij rekening wordt gehouden met de huidige verkeersomstandigheden. Ook kunnen gebruikers in de toekomst routes plannen met behulp van de uitgebreide historische verkeersdatabase van Azure en de duur van de route voor elke dag en tijd voorspellen. Zie [Routebeschrijvingen ophalen](https://docs.microsoft.com/rest/api/maps/route/getroutedirections) voor meer informatie.  Alle volgende codeblokken moeten worden toegevoegd **binnen de map.loadEventListener** om ervoor te zorgen dat de blokken worden geladen nadat de kaart volledig is geladen.
+In deze sectie wordt beschreven hoe u de routeservice-API van Azure Maps gebruikt om te zoeken naar meerdere routes van een bepaald beginpunt naar een bestemming op basis van de manier van reizen. De routeservice biedt API's om de *snelste*, *kortste*, *zuinigste* of *leukste* route tussen twee locaties te plannen, waarbij rekening wordt gehouden met de huidige verkeersomstandigheden. Ook kunnen gebruikers in de toekomst routes plannen met behulp van de uitgebreide historische verkeersdatabase van Azure en de duur van de route voor elke dag en tijd voorspellen. Zie [Routebeschrijvingen ophalen](https://docs.microsoft.com/rest/api/maps/route/getroutedirections) voor meer informatie. Alle volgende codeblokken moeten worden toegevoegd **binnen de map.loadEventListener** om ervoor te zorgen dat de blokken worden geladen nadat de kaart volledig is geladen.
 
 1. Voeg eerst een nieuwe laag aan de kaart toe om het routepad, de *linestring*, weer te geven. In deze zelfstudie zijn er twee verschillende routes: een **autoroute** en een **vrachtwagenroute**, elk met een eigen stijl. Voeg de volgende JavaScript-code toe aan het blok *script*:
 
@@ -233,7 +234,7 @@ In deze sectie wordt beschreven hoe u de routeservice-API van Azure Maps gebruik
     // Execute the car route query then add the route to the map once a response is received  
     client.route.getRouteDirections(routeQuery).then(response => {
         // Parse the response into GeoJSON
-        var geoJsonResponse = new tlas.service.geojson
+        var geoJsonResponse = new atlas.service.geojson
             .GeoJsonRouteDiraectionsResponse(response);
 
         // Get the first in the array of routes and add it to the map 

@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: fc4b2f153c89d4253bc3fdd9c5a49973baa38752
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: 79a6636043499cffb7eded409cdc27c56de98e33
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49310212"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49430218"
 ---
 # <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>Azure AD-wachtwoord opnieuw instellen vanuit het aanmeldingsscherm
 
@@ -118,6 +118,8 @@ Als Ctrl+Alt+Del wordt vereist door het beleid of meldingen voor het vergrendele
 Het auditlogboek van Azure AD bevat informatie over het IP-adres en het ClientType waarvoor het wachtwoord opnieuw is ingesteld.
 
 ![Voorbeeld van opnieuw instellen van wachtwoord via het aanmeldingsscherm in het auditlogboek van Azure AD](media/tutorial-sspr-windows/windows-sspr-azure-ad-audit-log.png)
+
+Als uw Windows 10-computers zich achter een proxyserver of firewall bevinden, is HTTPS-verkeer (443) naar passwordreset.microsoftonline.com en ajax.aspnetcdn.com toegestaan.
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
