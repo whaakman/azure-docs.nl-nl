@@ -73,7 +73,7 @@ Meld u aan bij [Azure Portal](https://portal.azure.com).
 
     ![Administrator-account](./media/quick-create-portal/administrator-account.png)
 
-1. Onder **Regels voor binnenkomende poort** > **Openbare binnenkomende poorten**, kiest u **​​Geselecteerde poorten toestaan** en selecteert u vervolgens **SSH (22)** en  **TTP (80)** in de vervolgkeuzelijst. 
+1. Onder **Regels voor binnenkomende poort** > **Openbare binnenkomende poorten**, kiest u **​​Geselecteerde poorten toestaan** en selecteert u vervolgens **SSH (22)** en  **HTTP (80)** in de vervolgkeuzelijst. 
 
     ![Open poorten voor RDP en HTTP](./media/quick-create-portal/inbound-port-rules.png)
 
