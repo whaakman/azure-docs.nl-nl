@@ -4,19 +4,24 @@ items:
 - name: Overzicht
   items:
   - name: Overzicht van Azure-beleid
+    displayName: rbac, assign, initiative, parameters, count
     href: overview.md
 - name: Snelstartgidsen
   items:
   - name: Een beleid toewijzen - Portal
+    displayName: assign, compliance
     href: assign-policy-portal.md
   - name: Een beleid toewijzen - PowerShell
+    displayName: assign, compliance
     href: assign-policy-powershell.md
   - name: Een beleid toewijzen - Azure CLI
+    displayName: assign, compliance
     href: assign-policy-azurecli.md
   expanded: true
 - name: Zelfstudies
   items:
   - name: Azure-beleid maken en beheren
+    displayName: assign, definition, compliance, exempt, exclusion
     href: ./tutorials/create-and-manage.md
 - name: Voorbeelden
   href: ./samples/index.md
@@ -26,164 +31,222 @@ items:
     - name: Naamgeving
       items:
       - name: Meerdere naampatronen toestaan
+        displayName: deny, indexed
         href: samples/allow-multiple-name-patterns.md
       - name: Like-patroon vereisen
+        displayName: deny, indexed
         href: samples/enforce-like-pattern.md
       - name: Match-patroon vereisen
+        displayName: deny, indexed
         href: samples/enforce-match-pattern.md
       - name: Tag-match-patroon vereisen
+        displayName: deny, all
         href: samples/enforce-tag-match-pattern.md
     - name: Tags
       items:
       - name: Tag met standaardwaarde toepassen
+        displayName: append, builtin, concat
         href: samples/apply-tag-def-val.md
       - name: Factureringstagbeleidinitiatief
         href: samples/billing-tags-policy-init.md
       - name: Tag en waarde afdwingen
+        displayName: deny, concat, builtin
         href: samples/enforce-tag-val.md
       - name: Tag en de waarde ervan afdwingen in brongroepen
+        displayName: deny, concat
         href: samples/enforce-tag-rg.md
     - name: Locaties
       items:
       - name: Toegestane locaties
+        displayName: deny, builtin, location
         href: samples/allowed-locs.md
     - name: Resourcetypen
       items:
       - name: Toegestane brontypen
+        displayName: deny, builtin, resourceTypes
         href: samples/allowed-res-types.md
       - name: Niet toegestane brontypen
+        displayName: deny, builtin, resourceTypes
         href: samples/not-allowed-res-type.md
   - name: Compute
     items:
     - name: Virtuele machines
       items:
       - name: Aangepaste VM-installatiekopie van een resourcegroep toestaan
+        displayName: deny, concat, ExistingResourceGroups
         href: samples/allow-custom-vm-image.md
       - name: Toegestane SKU's voor opslagaccounts en virtuele machines
+        displayName: initiative, vmSKUs, storageSKUs
         href: samples/allowed-skus-storage.md
       - name: Goedgekeurde VM-installatiekopieën
+        displayName: deny
         href: samples/allowed-custom-images.md
       - name: Controleert of uitbreiding bestaat
+        displayName: auditIfNotExists
         href: samples/audit-ext-not-exist.md
       - name: Niet-toegestane VM-extensies
+        displayName: deny
         href: samples/not-allowed-vm-ext.md
     - name: Virtuele-machineschaalsets
       items:
       - name: Controle of VM geen beheerde schijf gebruikt
+        displayName: audit
         href: samples/create-vm-managed-disk.md
       - name: Virtuele machine met beheerde schijf maken
+        displayName: deny
         href: samples/use-managed-disk-vm.md
       - name: Azure hybrid use benefit weigeren
+        displayName: deny
         href: samples/deny-hybrid-use.md
       - name: Alleen een bepaalde VM-platforminstallatiekopie toestaan
+        displayName: deny
         href: samples/allow-certain-vm-image.md
   - name: Data Lake
     items:
     - name: Data Lake Store-versleuteling vereisen
+      displayName: deny
       href: samples/enforce-datalakestore-encryption.md
   - name: Bewaking
     items:
     - name: Diagnostische instelling voor controleren
+      displayName: auditIfNotExists, resourceTypes
       href: samples/audit-diag-setting.md
   - name: Netwerk
     items:
     - name: Netwerkinterfaces
       items:
       - name: NSG X op elke NIC
+        displayName: deny
         href: samples/nsg-on-nic.md
       - name: Goedgekeurd subnet gebruiken voor VM-netwerkinterfaces
+        displayName: deny
         href: samples/use-approved-subnet-vm-nics.md
       - name: Goedgekeurd vNet gebruiken voor VM-netwerkinterfaces
+        displayName: deny, concat
         href: samples/use-approved-vnet-vm-nics.md
     - name: Virtuele netwerken
       items:
       - name: Toegestane application gateway-SKU’s
+        displayName: deny
         href: samples/allowed-app-gate-sku.md
       - name: Geen netwerkpeering naar ER-netwerk
+        displayName: deny, all, concat, ExistingResourceGroups
         href: samples/no-peering-er-net.md
       - name: Geen door de gebruiker gedefinieerde routetabellen
+        displayName: deny, all
         href: samples/no-user-def-route-table.md
       - name: NSG X in elk subnet
+        displayName: deny, all
         href: samples/nsg-on-subnet.md
       - name: Goedgekeurd subnet gebruiken voor VM-netwerkinterfaces
+        displayName: deny
         href: samples/use-approved-subnet-vm-nics.md
       - name: Goedgekeurd vNet gebruiken voor VM-netwerkinterfaces
+        displayName: deny
         href: samples/use-approved-vnet-vm-nics.md
     - name: Netwerkbeveiligingsgroepen
       items:
       - name: NSG X op elke NIC
+        displayName: deny
         href: samples/nsg-on-nic.md
       - name: NSG X in elk subnet
+        displayName: deny, all
         href: samples/nsg-on-subnet.md
     - name: ExpressRoutes
       items:
       - name: Toegestane Express Route-bandbreedten
+        displayName: deny
         href: samples/allowed-er-band.md
       - name: Toegestane Express Route-SKU 's
+        displayName: deny
         href: samples/allowed-er-skus.md
       - name: Toegestane peeringlocatie voor Express Route
+        displayName: deny, Location
         href: samples/allowed-peering-er.md
     - name: Network Watchers
       items:
       - name: Controleren of Network Watcher is ingeschakeld voor de regio
+        displayName: auditIfNotExists, Location
         href: samples/net-watch-not-enabled.md
     - name: Toepassingsgateways
       items:
       - name: Toegestane application gateway-SKU’s
+        displayName: deny
         href: samples/allowed-app-gate-sku.md
   - name: SQL
     items:
     - name: SQL-servers
       items:
       - name: Op een Azure Active Directory-beheerder controleren
+        displayName: auditIfNotExists
         href: samples/audit-no-aad-admin.md
       - name: Instelling dreigingsdetectieniveau server controleren
+        displayName: auditIfNotExists
         href: samples/audit-sql-ser-threat-det-setting.md
       - name: Auditinstellingen SQL Server controleren
+        displayName: auditIfNotExists, builtin
         href: samples/sql-server-audit.md
       - name: Auditinstellingsniveau SQL Server controleren
+        displayName: auditIfNotExists
         href: samples/audit-sql-ser-leve-audit-setting.md
       - name: SQL Server-versie 12.0 vereisen
+        displayName: deny, builtin
         href: samples/req-sql-12.md
     - name: SQL Databases
       items:
       - name: Toegestane SQL DB-SKU's
+        displayName: deny
         href: samples/allowed-sql-db-skus.md
       - name: Instelling dreigingsdetectieniveau SQL DB controleren
+        displayName: auditIfNotExists
         href: samples/audit-db-threat-det-setting.md
       - name: Versleuteling van SQL DB controleren
+        displayName: auditIfNotExists, disabled, indexed, builtin
         href: samples/sql-database-encryption-audit.md
       - name: Auditinstellingsniveau SQL DB controleren
+        displayName: auditIfNotExists
         href: samples/audit-sql-db-audit-setting.md
   - name: Storage
     items:
     - name: Toegestane SKU's voor opslagaccount en virtuele machines
+      displayName: initiative, vmSKUs, storageSKUs
       href: samples/allowed-skus-storage.md
     - name: Toegestane opslagaccount-SKU's
+      displayName: deny, builtin, storageSKUs
       href: samples/allowed-stor-acct-skus.md
     - name: Statische toegangslaag voor opslagaccounts weigeren
+      displayName: deny, all
       href: samples/deny-cool-access-tiering.md
     - name: HTTPs-verkeer voor opslagaccounts vereisen
+      displayName: deny, all
       href: samples/ensure-https-stor-acct.md
     - name: Opslagbestandsversleuteling vereisen
+      displayName: deny, all
       href: samples/ensure-store-file-enc.md
     - name: Opslagaccountversleutelingsvereisen
+      displayName: deny, builtin
       href: samples/req-store-acct-enc.md
 - name: Concepten
   items:
   - name: Structuur van Azure-beleidsdefinities
+    displayName: parameters, location, rule, alias, initiatives
     href: ./concepts/definition-structure.md
   - name: Inzicht in de effecten van het beleid
+    displayName: order, evaluation
     href: ./concepts/effects.md
   - name: Virtuele machines met gastconfiguratie controleren
+    displayName: provider, tools, definition
     href: ./concepts/guest-configuration.md
 - name: Handleidingen
   items:
   - name: Programmatisch beleid maken
+    displayName: assign, definition
     href: ./how-to/programmatically-create.md
   - name: Nalevingsgegevens ophalen
+    displayName: evaluation, scan, summarize, query, events, log analytics
     href: ./how-to/getting-compliance-data.md
   - name: Niet-compatibele resources herstellen
+    displayName: managed identity, task, definition, roleDefinitionIds
     href: ./how-to/remediate-resources.md
 - name: Naslaginformatie
   items:
@@ -227,9 +290,9 @@ items:
     href: https://azure.microsoft.com/pricing/calculator/
   - name: UserVoice
     href: https://feedback.azure.com/forums/915958-azure-governance
-ms.openlocfilehash: ba412513631e9a130e3f95ac772e6d0076c63071
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 3fbe1f250dbf07fc27f9fda58f6ea85347066018
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50221458"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50248367"
