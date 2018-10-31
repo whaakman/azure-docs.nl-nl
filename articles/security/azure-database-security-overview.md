@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2018
+ms.date: 10/30/2018
 ms.author: TomSh
-ms.openlocfilehash: 460ef8a3d4436f240793025cbec874c624a2a6f4
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: a61f3572037b1c62ea5ed4e0ac4496b057e2b96d
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47039017"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50249048"
 ---
 # <a name="azure-database-security-overview"></a>Overzicht van de beveiliging van Azure-database
 
@@ -65,6 +65,7 @@ Alle verbindingen met Azure SQL Database vereisen versleuteling (TLS/SSL) bij al
 In de verbindingsreeks van uw toepassing, moet u parameters voor het versleutelen van de verbinding en niet voor het servercertificaat vertrouwen. (Dit doet u als u de verbindingsreeks buiten de Azure-portal kopiëren.) Anders wordt de verbinding niet controleert of de identiteit van de server en is vatbaar voor 'man-in-the-middle'-aanvallen. Voor het stuurprogramma ADO.NET bijvoorbeeld deze Verbindingsreeksparameters zijn `Encrypt=True` en `TrustServerCertificate=False`.
 
 ### <a name="encryption-at-rest"></a>Versleuteling 'at rest'
+
 U kunt verschillende voorzorgsmaatregelen nemen om te beveiligen van de database. Bijvoorbeeld, een beveiligd systeem ontwerpen, vertrouwelijke assets coderen en bouwen van een firewall om de database-servers. Maar in een scenario waarin de fysieke media (zoals stations of back-uptapes) worden gestolen, een schadelijke partij kunt alleen herstellen of koppel de database en de gegevens bladeren.
 
 Eén oplossing is het versleutelen van gevoelige gegevens in de database en de sleutels die worden gebruikt voor het versleutelen van de gegevens met een certificaat te beschermen. Deze oplossing voorkomt personen zonder de sleutels met behulp van de gegevens, maar dit type beveiliging moet worden gepland.
@@ -92,6 +93,7 @@ Altijd biedt versleutelde een scheiding tussen personen die eigenaar zijn van de
 Bovendien maakt Always Encrypted versleuteling transparant voor toepassingen. Een stuurprogramma Always Encrypted-functionaliteit is geïnstalleerd op de clientcomputer zodat deze automatisch versleutelen en ontsleutelen van gevoelige gegevens in de clienttoepassing. Het stuurprogramma versleutelt de gegevens in gevoelige kolommen voordat de gegevens doorgegeven aan de database-engine. Het stuurprogramma herschrijft automatisch query's, zodat de semantiek voor de toepassing blijven behouden. Het stuurprogramma ontsleutelt op dezelfde manier transparant gegevens, opgeslagen in de versleutelde databasekolommen, die is opgenomen in de queryresultaten.
 
 ## <a name="access-control"></a>Toegangsbeheer
+
 Voor de beveiliging regelt SQL Database toegang met behulp van:
 
 - Firewall-regels die de connectiviteit door IP-adres beperken.
@@ -124,11 +126,13 @@ Verificatie verwijst naar hoe u uw identiteit bewijst bij het maken van verbindi
   - Deze kunt wachtwoorden moet opslaan elimineren door in te schakelen van geïntegreerde Windows-verificatie en andere vormen van die ondersteuning biedt voor Azure AD-verificatie.
 
 #### <a name="authorization"></a>Autorisatie
+
 [Autorisatie](https://docs.microsoft.com/azure/sql-database/sql-database-manage-logins) verwijst naar wat een gebruiker binnen een Azure SQL database doen kan. Dit wordt bepaald door de database van uw gebruikersaccount [rollidmaatschappen](https://msdn.microsoft.com/library/ms189121) en [objectmachtigingen](https://msdn.microsoft.com/library/ms191291.aspx). Autorisatie is het proces voor het bepalen van welke beveiligbare resources hebben toegang tot een principal en welke bewerkingen zijn toegestaan voor deze resources.
 
 ### <a name="application-access"></a>Toegang tot toepassingen
 
 #### <a name="dynamic-data-masking"></a>Dynamische gegevensmaskering
+
 Een medewerker van de op een callcenter mogelijk aanroepers identificeren door verschillende cijfers van hun sociaal-fiscaal nummer of creditcardnummer. Maar deze gegevensitems niet volledig worden blootgesteld aan de klantenservice.
 
 U kunt een maskeringsregel die alles behalve de laatste vier cijfers van een sociaal-fiscaal nummer of creditcardnummer in de resultatenset van een query maskeert definiëren.
@@ -141,11 +145,11 @@ Met [dynamische gegevensmaskering in SQL Database](https://docs.microsoft.com/az
 
 [Dynamische gegevensmaskering](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking) helpt voorkomen dat onbevoegde toegang tot gevoelige gegevens doordat u aangeven hoeveel van de gevoelige gegevens worden vrijgegeven, met minimale impact op de toepassingslaag. Dit is een beveiligingsfunctie op basis van beleid. De gevoelige gegevens in de resultatenset van een query die is uitgevoerd op toegewezen databasevelden worden verborgen, terwijl de gegevens in de database niet worden gewijzigd.
 
-
 > [!Note]
 > Dynamische gegevensmaskering kan worden geconfigureerd door de beheerder van de Azure-Database, -serverbeheerder of officer van beveiligingsrollen.
 
 #### <a name="row-level-security"></a>Beveiliging op rijniveau
+
 Een andere algemene beveiligingsvereiste voor meerdere tenants databases is [Row-Level Security](https://msdn.microsoft.com/library/dn765131.aspx). U kunt deze functie gebruiken voor het beheren van toegang tot rijen in een database-tabel op basis van de kenmerken van de gebruiker die een query wordt uitgevoerd. (Voorbeeld van de kenmerken zijn groep lidmaatschap en uitvoering van context).
 
 ![Beveiliging op rijniveau zodat een gebruiker toegang tot rijen in een tabel via een client-app](./media/azure-databse-security-overview/azure-database-fig4.png)
@@ -155,18 +159,20 @@ De logica van de beperking van toegang is gevonden in de databaselaag in plaats 
 Beveiliging op rijniveau introduceert toegangsbeheer op basis van een predicaat. Biedt een flexibele, gecentraliseerde evaluatie kunt uitvoeren in overweging metagegevens of andere criteria die de beheerder bepaalt indien van toepassing. Het predicaat wordt gebruikt als een criterium om te bepalen of de gebruiker de juiste toegang heeft tot de gegevens op basis van gebruikerskenmerken heeft. U kunt toegangsbeheer op basis van een label kunt implementeren met behulp van toegangsbeheer op basis van een predicaat.
 
 ## <a name="proactive-monitoring"></a>Proactieve controle
+
 SQL Database helpt uw gegevens worden beveiligd door te geven *controle* en *detectie van bedreigingen* mogelijkheden.
 
 ### <a name="auditing"></a>Controleren
+
 [Met Azure SQL Database auditing](https://docs.microsoft.com/azure/sql-database/sql-database-auditing-get-started) verhoogt u de mogelijkheid meer inzicht krijgen in gebeurtenissen en wijzigingen die binnen de database plaatsvinden. Voorbeelden zijn updates en query's op basis van de gegevens.
 
 SQL Database auditing worden databasegebeurtenissen bijgehouden en geschreven naar een auditlogboek in uw Azure storage-account database. Controles, kunt u de naleving van regelgeving, begrijpen databaseactiviteiten en inzicht krijgen in discrepanties en afwijkingen die kunnen wijzen op problemen voor het bedrijf of vermoedelijke beveiligingsschendingen. Controle kunt en vergemakkelijkt de naleving van standaarden voor compliance, maar biedt geen garantie voor naleving.
 
 U kunt SQL Database auditing om te gebruiken:
 
--   **Behouden** een audittrail van de geselecteerde gebeurtenissen. Categorieën van de databaseacties moeten worden gecontroleerd, kunt u definiëren.
--   **Rapport** op database-activiteit. U kunt vooraf geconfigureerde rapporten en een dashboard snel aan de slag met de activiteit en rapportage.
--   **Analyseren** rapporten. U kunt verdachte gebeurtenissen, ongebruikelijke activiteiten en trends vinden.
+- **Behouden** een audittrail van de geselecteerde gebeurtenissen. Categorieën van de databaseacties moeten worden gecontroleerd, kunt u definiëren.
+- **Rapport** op database-activiteit. U kunt vooraf geconfigureerde rapporten en een dashboard snel aan de slag met de activiteit en rapportage.
+- **Analyseren** rapporten. U kunt verdachte gebeurtenissen, ongebruikelijke activiteiten en trends vinden.
 
 Er zijn twee methoden voor controle:
 
@@ -174,13 +180,26 @@ Er zijn twee methoden voor controle:
 -   **Tabelcontrole**: Logboeken worden geschreven naar Azure Table storage.
 
 ### <a name="threat-detection"></a>Detectie van bedreigingen
-[Azure SQL Database threat detection](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection) detecteert verdachte activiteiten die duiden op potentiële beveiligingsrisico's. Wanneer deze zich voordoen, kunt u detectie van bedreigingen te reageren op verdachte gebeurtenissen in de database, zoals SQL-injecties. Het biedt waarschuwingen en het gebruik van Azure SQL Database auditing als u wilt de verdachte gebeurtenissen onderzoeken toestaat.
+
+[Advanced Threat Protection voor Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-advanced-threat-protection) detecteert verdachte activiteiten die duiden op potentiële beveiligingsrisico's. Wanneer deze zich voordoen, kunt u detectie van bedreigingen te reageren op verdachte gebeurtenissen in de database, zoals SQL-injecties. Het biedt waarschuwingen en het gebruik van Azure SQL Database auditing als u wilt de verdachte gebeurtenissen onderzoeken toestaat.
 
 ![Detectie van bedreigingen voor SQL Database en een web-app met een externe aanvaller en een kwaadwillende insider](./media/azure-databse-security-overview/azure-database-fig5.jpg)
 
-SQL-injectie is een van de veelvoorkomende beveiligingsproblemen voor webtoepassingen. Wordt gebruikt voor aanvallen op gegevensgestuurde toepassingen. Aanvallers maken gebruik van beveiligingsproblemen van toepassingen om te injecteren in invoervelden van de toepassing, schadelijke SQL-instructies schendingen veroorzaken of wijzigen van gegevens in de database.
+SQL geavanceerde Threat Protection (ATP) biedt een geavanceerde SQL-beveiligingsmogelijkheden, met inbegrip van gegevensdetectie en classificatie, evaluatie van beveiligingsproblemen en detectie van bedreigingen. 
 
-Security officers of andere aangewezen administrators krijgt een onmiddellijke melding over verdachte databaseactiviteiten wanneer deze zich voordoen. Elke melding vindt u informatie over de verdachte activiteit en raadt aan om het verder te onderzoeken en tegenhouden.        
+- [Gegevensdetectie en classificatie](../sql-database/sql-database-data-discovery-and-classification.md)
+- [Evaluatie van beveiligingsproblemen](../sql-database/sql-vulnerability-assessment.md)  
+- [Detectie van bedreigingen](../sql-database/sql-database-threat-detection.md)
+
+[Azure Database for PostgreSQL Advanced Threat Protection](../postgresql/concepts-data-access-and-security-threat-protection.md) biedt een nieuwe beveiligingslaag, waarmee u om te detecteren en op mogelijke bedreigingen reageert zodra ze zich voordoen, dankzij beveiligingswaarschuwingen over afwijkende activiteiten. Gebruikers ontvangen een waarschuwing bij verdachte databaseactiviteiten, en mogelijke beveiligingsproblemen, evenals afwijkende toegang en query's patronen. Advanced Threat Protection voor Azure Database for PostgreSQL integreert waarschuwingen met Azure Security Center. Het type waarschuwingen zijn onder andere:
+
+- Toegang vanaf ongebruikelijke locatie
+- Toegang vanaf ongebruikelijk Azure-datacentrum 
+- Toegang vanaf ongebruikelijke 
+- Toegang vanaf een mogelijk schadelijke toepassing 
+- Brute force Azure database voor PostgreSQL-referenties 
+
+[Azure Database for MySQL Advanced Threat Protection](/mysql/concepts-data-access-and-security-threat-protection.md) biedt beveiliging die vergelijkbaar is met geavanceerde beveiliging voor PostgreSQL.  
 
 ## <a name="centralized-security-management"></a>Gecentraliseerd beheer
 
@@ -188,12 +207,20 @@ Security officers of andere aangewezen administrators krijgt een onmiddellijke m
 
 [Security Center](https://docs.microsoft.com/azure/security-center/security-center-sql-database) helpt u uw gegevens in SQL Database beveiligen door inzicht in de beveiliging van uw servers en databases te bieden. Met Security Center, kunt u het volgende doen:
 
--   Hiermee definieert u beleid voor controle en versleuteling van de SQL-Database.
--   Bewaak de beveiliging van SQL Database-resources in al uw abonnementen.
--   Snel identificeren en oplossen van beveiligingsproblemen met zich mee.
--   Integreer waarschuwingen van [Azure SQL Database threat detection](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection).
+- Hiermee definieert u beleid voor controle en versleuteling van de SQL-Database.
+- Bewaak de beveiliging van SQL Database-resources in al uw abonnementen.
+- Snel identificeren en oplossen van beveiligingsproblemen met zich mee.
+- Integreer waarschuwingen van [Azure SQL Database threat detection](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection).
 
 Security Center biedt ondersteuning voor toegang op basis van rollen.
+
+## <a name="sql-information-protection"></a>SQL Information Protection
+
+[SQL Information Protection](../sql-database/sql-database-data-discovery-and-classification.md) automatisch worden gedetecteerd en classificeert potentieel gevoelige gegevens, biedt een mechanisme labelen voor gevoelige gegevens met de classificatie-kenmerken permanent tagging en biedt een gedetailleerde dashboard wordt weergegeven de status van de classificatie van de database.  
+
+Bovendien berekent het resultaat gevoeligheid van de SQL-query's, zo instellen dat query's die gevoelige gegevens extraheren expliciet kunnen worden gecontroleerd en de gegevens kunnen worden beveiligd. Zie voor meer informatie over SQL Information Protection, Azure SQL Database-gegevensdetectie en classificatie.
+
+U kunt configureren [SQL Information Protection-beleid](/security-center/security-center-info-protection-policy.md) in Azure Security Center.
 
 ## <a name="azure-marketplace"></a>Azure Marketplace
 

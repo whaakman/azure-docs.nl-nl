@@ -10,14 +10,14 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.component: pim
-ms.date: 07/23/2018
+ms.date: 10/30/2018
 ms.author: rolyon
-ms.openlocfilehash: 33bfe28bf612c47c9f42345dabccc017337c3d45
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 5f0b5d1695603a7cd2a3c7ac1dbc484e44257d88
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43190153"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50249608"
 ---
 # <a name="assign-azure-ad-directory-roles-in-pim"></a>Azure AD-directory-rollen in PIM toewijzen
 
@@ -41,7 +41,7 @@ Volg deze stappen voor het maken van een gebruiker in aanmerking voor een Azure 
 
 1. Klik op **rollen** of **leden**.
 
-    ![Rollen voor Azure AD-adreslijst](./media/pim-how-to-add-role-to-user/pim-directory-roles.png)
+    ![Rollen voor Azure AD-directory](./media/pim-how-to-add-role-to-user/pim-directory-roles.png)
 
 1. Klik op **lid toevoegen** beheerde leden toevoegen te openen.
 
@@ -112,6 +112,39 @@ Volg deze stappen voor een specifieke gebruiker verwijderen van een directory-ro
     ![Een rol verwijderen](./media/pim-how-to-add-role-to-user/pim-remove-role-confirm.png)
 
     De roltoewijzing is verwijderd.
+
+## <a name="authorization-error-when-assigning-roles"></a>Autorisatiefout bij het toewijzen van rollen
+
+Als u onlangs PIM ingeschakeld voor een abonnement en u een Autorisatiefout krijgt wanneer u probeert te maken van een gebruiker in aanmerking voor een directory-rol, kan het zijn dat de MS-PIM-service-principal heeft nog geen de juiste machtigingen. De MS-PIM-service-principal moet de [Administrator voor gebruikerstoegang](../../role-based-access-control/built-in-roles.md#user-access-administrator) rol het toewijzen van rollen voor anderen. In plaats van er wordt gewacht tot MS-PIM de rol Administrator voor gebruikerstoegang is toegewezen, kunt u deze handmatig toewijzen.
+
+Volg deze stappen voor de rol Administrator voor gebruikerstoegang toewijzen aan de MS-PIM service-principal voor een abonnement.
+
+1. Meld u aan bij de Azure-portal als globale beheerder.
+
+1. Kies **alle services** en vervolgens **abonnementen**.
+
+1. Kies uw abonnement.
+
+1. Kies **Toegangsbeheer (IAM)** om de huidige lijst met roltoewijzingen voor het abonnement te zien.
+
+   ![Blade toegangsbeheer (IAM) voor een abonnement](./media/pim-how-to-add-role-to-user/ms-pim-access-control.png)
+
+1. Controleer of de **MS-PIM** service-principal is toegewezen de **Administrator voor gebruikerstoegang** rol.
+
+1. Als dit niet het geval is, kiest u **toevoegen** openen de **machtigingen toevoegen** deelvenster.
+
+1. In de **rol** vervolgkeuzelijst, selecteer de **Administrator voor gebruikerstoegang** rol.
+
+1. In de **Selecteer** lijst, zoek en selecteer de **MS-PIM** service-principal.
+
+   ![Machtigingen voor MS-PIM toevoegen](./media/pim-how-to-add-role-to-user/ms-pim-add-permissions.png)
+
+1. Kies **opslaan** aan de rol toe te wijzen.
+
+   Na enkele ogenblikken wordt de MS-PIM service-principal de rol Administrator voor gebruikerstoegang op het abonnementsbereik toegewezen.
+
+   ![De rol Administrator voor gebruikerstoegang voor MS-PIM](./media/pim-how-to-add-role-to-user/ms-pim-user-access-administrator.png)
+
 
 ## <a name="next-steps"></a>Volgende stappen
 

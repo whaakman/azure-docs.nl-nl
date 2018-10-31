@@ -1,10 +1,10 @@
 ---
-title: Het ophalen van een Mediaprocessor-exemplaar met behulp van REST | Microsoft Docs
-description: Informatie over het maken van een onderdeel van de processor media als u wilt coderen, indeling converteren, versleutelen of ontsleutelen van media-inhoud voor Azure Media Services.
+title: Over het verkrijgen van een Mediaprocessor-exemplaar met behulp van REST | Microsoft Docs
+description: Informatie over het maken van een onderdeel van de processor media om te coderen, converteren indeling, versleutelen of ontsleutelen van media-inhoud voor Azure Media Services.
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: f9ff1997-0da6-4528-aaed-792837e5be41
 ms.service: media-services
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2017
+ms.date: 10/30/2018
 ms.author: juliako
-ms.openlocfilehash: 3e0bd654deca9db8ac13f4af9c4732ba42c01e97
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 673aac79d3cba94b9579000a333bb03086312994
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33790249"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50248956"
 ---
-# <a name="how-to-get-a-media-processor-instance"></a>Het ophalen van een exemplaar van de Media-Processor
+# <a name="how-to-get-a-media-processor-instance"></a>Over het verkrijgen van een exemplaar van Mediaprocessor
 > [!div class="op_single_selector"]
 > * [.NET](media-services-get-media-processor.md)
 > * [REST](media-services-rest-get-media-processor.md)
@@ -29,26 +29,26 @@ ms.locfileid: "33790249"
 > 
 
 ## <a name="overview"></a>Overzicht
-Media-Processors zijn een component die verantwoordelijk is voor een specifieke video of audio verwerkingstaak, zoals de codering, versleutelen of ontsleutelen media-inhoud Indelingsconversie. Alle taken die worden verzonden naar de Media Services moet een Mediaprocessor coderen, versleutelen of de video of audio-inhoud te converteren. 
+Media-Processors zijn een component die verantwoordelijk is voor een specifieke video of audio verwerkingstaak, zoals codering, Indelingsconversie, versleutelen of ontsleutelen media-inhoud. Alle taken die worden verzonden naar Media Services moet een Mediaprocessor coderen, versleutelen of de video of audio-inhoud te converteren. 
 
 ## <a name="azure-media-processors"></a>Azure media-processors 
 
-Het volgende onderwerp bevat een lijst met media processors:
+Het volgende onderwerp bevat een lijst met media-processors:
 
-* [Codering van media-processors](scenarios-and-availability.md#encoding-media-processors)
-* [Analytics-mediaprocessoren](scenarios-and-availability.md#analytics-media-processors)
+* [Mediaprocessors coderen](scenarios-and-availability.md#encoding-media-processors)
+* [Mediaprocessors voor analyse](scenarios-and-availability.md#analytics-media-processors)
 
 >[!NOTE]
->Bij het openen van entiteiten in Media Services, moet u specifieke header-velden en waarden instellen in uw HTTP-aanvragen. Zie voor meer informatie [Setup voor het ontwikkelen van Media Services REST API](media-services-rest-how-to-use.md).
+>Bij het openen van entiteiten in Media Services, moet u specifieke header-velden en waarden instellen in uw HTTP-aanvragen. Zie voor meer informatie, [instellen voor het ontwikkelen van Media Services REST API](media-services-rest-how-to-use.md).
 
 ## <a name="connect-to-media-services"></a>Verbinding met Media Services maken
 
-Zie voor meer informatie over de verbinding maken met de AMS API [toegang tot de API van Azure Media Services met Azure AD authentication](media-services-use-aad-auth-to-access-ams-api.md). 
+Zie voor meer informatie over het verbinding maken met de AMS-API [toegang tot de API van Azure Media Services met Azure AD-verificatie](media-services-use-aad-auth-to-access-ams-api.md). 
 
 
-## <a name="get-a-media-processor"></a>Ophalen van een Mediaprocessor
+## <a name="get-a-media-processor"></a>Een Mediaprocessor ophalen
 
-De volgende REST-aanroep laat zien hoe u een exemplaar van de processor media op naam (in dit geval **Media Encoder Standard**). 
+De volgende REST-aanroep laat zien hoe u een exemplaar van de processor media ophalen met de naam (in dit geval **Media Encoder Standard**). 
 
 Aanvraag:
 
@@ -62,7 +62,7 @@ Aanvraag:
     x-ms-version: 2.17
     Host: media.windows.net
 
-Antwoord:
+Reactie:
 
     . . .
 
@@ -88,5 +88,5 @@ Antwoord:
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
-Nu dat u hoe een exemplaar van de processor media ophalen weet, gaat u naar de [hoe een Asset coderen](media-services-rest-get-started.md) artikel die laat zien hoe u de Media Encoder Standard een asset coderen.
+Nu dat u hoe u een exemplaar van de processor media ophalen weet, gaat u naar de [een Asset coderen](media-services-rest-get-started.md) artikel die laat zien hoe u een asset coderen Media Encoder Standard gebruikt.
 

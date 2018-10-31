@@ -7,24 +7,24 @@ ms.subservice: scenario
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: tmullaney
-ms.author: thmullan
+author: VanMSFT
+ms.author: vanto
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 94430d3b72bb5b8e8bde0e9e2e9fb2eb2b0c3632
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: d669e7beb2d0e41ff26408d4f71c3e1648c41e3a
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056281"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50242565"
 ---
 # <a name="multi-tenant-applications-with-elastic-database-tools-and-row-level-security"></a>Multitenant-toepassingen met elastische Databasehulpprogramma's en beveiliging op rijniveau
 
 [Hulpmiddelen voor elastic database](sql-database-elastic-scale-get-started.md) en [beveiliging op rijniveau (RLS)] [ rls] werken samen om het inschakelen van de gegevenslaag van een toepassing met meerdere tenants met Azure SQL Database schalen. Deze technologieën helpen samen u een toepassing bouwt die een zeer schaalbare gegevenslaag heeft. De gegevenslaag biedt ondersteuning voor multitenant shards en maakt gebruik van **ADO.NET SqlClient** of **Entity Framework**. Zie voor meer informatie, [ontwerppatronen voor multitenant SaaS-toepassingen met Azure SQL Database](saas-tenancy-app-design-patterns.md).
 
 - **Hulpmiddelen voor elastic database** kunnen ontwikkelaars de gegevenslaag standard sharding-praktijken, uitschalen met behulp van .NET-bibliotheken en sjablonen voor Azure-service. Shards beheren met behulp van de [elastische Database-clientbibliotheek] [ s-d-elastic-database-client-library] helpt automatiseren en stroomlijnen veel van de infrastructurele taken die meestal gepaard gaat met sharding.
-- **Beveiliging op rijniveau** biedt ontwikkelaars de mogelijkheid voor het veilig opslaan van gegevens voor meerdere tenants in dezelfde database. Beveiligingsbeleid voor beveiliging op Rijniveau filteren rijen die geen deel uitmaken van de tenant die een query uitvoert. Het filter de bedrijfslogica in de database centraliseren vereenvoudigt het onderhoud en vermindert het risico van een beveiligingsfout. De alternatieve van afhankelijk zijn van alle clientcode enfore beveiliging is riskant.
+- **Beveiliging op rijniveau** biedt ontwikkelaars de mogelijkheid voor het veilig opslaan van gegevens voor meerdere tenants in dezelfde database. Beveiligingsbeleid voor beveiliging op Rijniveau filteren rijen die geen deel uitmaken van de tenant die een query uitvoert. Het filter de bedrijfslogica in de database centraliseren vereenvoudigt het onderhoud en vermindert het risico van een beveiligingsfout. De alternatieve van afhankelijk zijn van alle clientcode om af te dwingen beveiliging is riskant.
 
 Door deze functies samen gebruikt, kan een toepassing gegevens opslaan voor meerdere tenants in dezelfde shard-database. Het kost minder per tenant als de tenants een database deelt. Nog kunt dezelfde toepassing bieden ook de premium-tenants de mogelijkheid om betalen voor hun eigen toegewezen shard met één tenant. Een voordeel van isolatie van één tenant is prestatiegaranties verhogen. In een database met één tenant is er geen andere tenant, en dingen om de resources.
 
@@ -39,8 +39,8 @@ Het doel is om de elastische database-clientbibliotheek gebruiken [gegevensafhan
 
 ### <a name="prerequisites"></a>Vereisten
 
-- Gebruik Visual Studio (2012 of hoger) 
-- Drie Azure SQL-databases maken 
+- Gebruik Visual Studio (2012 of hoger)
+- Drie Azure SQL-databases maken
 - Download voorbeeldproject: [elastische DB-hulpprogramma's voor Azure SQL - Multitenant Shards](http://go.microsoft.com/?linkid=9888163)
   - Vul de gegevens voor uw databases aan het begin van **Program.cs** 
 

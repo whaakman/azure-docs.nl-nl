@@ -1,8 +1,8 @@
 ---
-title: Geselecteerde instelling H264 Single-Bitrate 4K Audio 5.1 | Microsoft Docs
-description: Het onderwerp een overzicht van de **standaardinstelling H264 Single-Bitrate 4K Audio 5.1** taak vooraf ingesteld.
+title: H264 Single Bitrate 4K-Audio 5.1 | Microsoft Docs
+description: Het onderwerp een overzicht van de **H264 Single-Bitrate 4K-Audio 5.1** taak vooraf ingesteld.
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 services: media-services
 documentationcenter: ''
@@ -12,24 +12,24 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/20/2017
+ms.date: 10/30/2018
 ms.author: juliako
-ms.openlocfilehash: 05c085e82adbf362a0745f7b819854086f9507f9
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: b2dab421d52f822378309b99166ce4441999a727
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788254"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50250118"
 ---
-# <a name="h264-single-bitrate-4k-audio-51"></a>Geselecteerde instelling H264 Single-Bitrate 4K Audio 5.1
-`Media Encoder Standard` definieert een aantal standaardinstellingen die u gebruiken kunt bij het maken van codering taken codering. Kunt u ofwel een `preset name` om op te geven naar welke indeling u wilt uw mediabestand coderen. U kunt maken met uw eigen JSON of XML gebaseerde standaardinstellingen (met UTF-8- of UTF-16-codering. U zou geeft u het aangepaste vooraf ingesteld op de encoder. Voor een overzicht van de vooraf ingestelde namen ondersteund door dit `Media Encoder Standard` encoder, Zie [taak standaardinstellingen voor Media Encoder Standard](media-services-mes-presets-overview.md).  
+# <a name="h264-single-bitrate-4k-audio-51"></a>H264 Single-Bitrate 4K Audio 5.1
+`Media Encoder Standard` definieert een reeks voorinstellingen die kunt u bij het maken van coderingstaken coderen. Kunt u ofwel een `preset name` om op te geven in welke indeling u wilt coderen van uw media-bestand. Of, kunt u uw eigen JSON of XML-indeling voorinstellingen (met behulp van UTF-8- of UTF-16-codering. Vervolgens geeft u door de aangepaste voorinstelling voor het coderingsprogramma. Voor een lijst van de vooraf gedefinieerde namen ondersteund door dit `Media Encoder Standard` encoder, Zie [taak voorinstellingen voor Media Encoder Standard](media-services-mes-presets-overview.md).  
   
- In dit onderwerp leest de `H264 Single Bitrate 4K Audio 5.1` voorinstelling (in XML en JSON-indeling).  
+ In dit onderwerp leest de `H264 Single Bitrate 4K Audio 5.1` vooraf ingesteld (in XML en JSON-indeling).  
   
- Deze definitie produceert één MP4-bestand met een bitrate van 18000 kbps en AAC 5.1 audio. Voor gedetailleerde informatie over profiel bitrate, snelheid, enz. dit wordt vooraf ingesteld, controleert u de XML- of JSON zoals hieronder gedefinieerd. Zie voor een uitleg van elk element in welke betekent en de geldige waarden voor elk element, het [Media Encoder Standard schema](media-services-mes-schema.md).  
+ Deze definitie produceert één MP4-bestand met een bitrate van 18000 kbps en AAC-5.1 audio. Voor gedetailleerde informatie over het profiel bitrate, steekproeven snelheid, enz. van deze vooraf ingesteld, controleert u de XML of JSON hieronder gedefinieerd. Voor een uitleg van elk element in welke betekent en de geldige waarden voor elk element, Zie de [Media Encoder Standard schema](media-services-mes-schema.md).  
   
 > [!NOTE]
->  Krijgt u de gereserveerde eenheid Premium coderen van type met 4 kB. Zie voor meer informatie [How to Scale codering](https://azure.microsoft.com/documentation/articles/media-services-portal-encoding-units).  
+>  Krijgt u de gereserveerde Premium-eenheid van het type met 4K codeert. Zie voor meer informatie, [hoe schaal codering](https://azure.microsoft.com/documentation/articles/media-services-portal-encoding-units).  
   
  XML  
   

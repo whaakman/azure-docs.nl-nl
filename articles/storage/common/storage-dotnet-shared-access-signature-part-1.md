@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/18/2017
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: d170fc0a0e4113b0f58c3b78f3a61aa2b08e69ff
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: c7d2c16ef135644c1ff23d7a71c66bec27ac930d
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/30/2018
-ms.locfileid: "50231531"
+ms.locfileid: "50241042"
 ---
 # <a name="using-shared-access-signatures-sas"></a>Shared access signatures (SAS) gebruiken
 
@@ -222,7 +222,7 @@ De volgende aanbevelingen voor het gebruik van handtekeningen voor gedeelde toeg
 6. **Worden met de resource moet worden geopend.** Er is een aanbevolen beveiligingsprocedure zodat een gebruiker beschikken over de minimaal vereiste machtigingen. Als een gebruiker alleen lezen-toegang tot een enkele entiteit moet, verleen deze leestoegang tot die één entiteit en toegang tot alle entiteiten niet lezen, schrijven en verwijderen. Dit helpt ook bij de schade standaardprocedures als er een SAS is geknoeid omdat de SAS minder stroom de beschikking over een aanvaller heeft.
 7. **Krijg inzicht in uw account wordt gefactureerd voor het gebruik, met inbegrip van die klaar zijn met SAS.** Als u toegang voor schrijven naar een blob opgeeft, wordt een gebruiker kan kiezen voor het uploaden van een blob van 200GB. Als u deze leestoegang ook opgegeven hebt, kunnen ze om deze te downloaden 10 keer kiezen waarbij extra kosten voor 2 TB in de kosten voor uitgaand voor u. Nogmaals, bieden beperkte machtigingen om te beperken van de mogelijke reacties van kwaadwillende gebruikers. Gebruik eenvoudige SAS deze bedreiging beperken (maar houd ook rekening met tijdsverschil op de eindtijd).
 8. **Valideren van gegevens die zijn geschreven met behulp van SAS.** Wanneer een clienttoepassing gegevens naar uw opslagaccount schrijft, houd er rekening mee dat er problemen met die gegevens kunnen worden. Als uw toepassing vereist dat gegevens worden gevalideerd of geautoriseerd voordat deze klaar voor gebruik is, kunt u deze validatie moet uitvoeren nadat de gegevens worden geschreven en voordat deze wordt gebruikt door uw toepassing. Met deze procedure biedt ook bescherming tegen beschadigd of schadelijke gegevens naar uw account worden geschreven door een gebruiker die de SAS correct hebt aangeschaft, of door een gebruiker die gebruik maken van een gelekte SAS.
-9. **Altijd gebruik geen SAS.** Soms is de risico's die zijn gekoppeld aan een bepaalde bewerking op basis van uw opslagaccount opwegen tegen de voordelen van de SAS. Voor dergelijke bewerkingen plaatsvindt, maakt u een middelste laag service die naar uw opslagaccount schrijft, na het uitvoeren van zakelijke regel validatie, verificatie en controle. Bovendien is soms het eenvoudiger om toegang op een andere manier te beheren. Bijvoorbeeld, als u wilt alle blobs in een container publicaly om leesbaar te maken, kunt u de container openbaar, in plaats van dat een SAS toegang naar elke client.
+9. **Altijd gebruik geen SAS.** Soms is de risico's die zijn gekoppeld aan een bepaalde bewerking op basis van uw opslagaccount opwegen tegen de voordelen van de SAS. Voor dergelijke bewerkingen plaatsvindt, maakt u een middelste laag service die naar uw opslagaccount schrijft, na het uitvoeren van zakelijke regel validatie, verificatie en controle. Bovendien is soms het eenvoudiger om toegang op een andere manier te beheren. Bijvoorbeeld, als u wilt om alle blobs in een container openbaar leesbaar, kunt u de container openbaar, in plaats van dat een SAS toegang naar elke client.
 10. **Storage Analytics gebruiken om uw toepassing te bewaken.** U kunt logboekregistratie en metrische gegevens een piek in authenticatiefouten vanwege een storing in acht nemen in uw SAS-provider-service of het onbedoeld verwijderen van een opgeslagen toegangsbeleid gebruiken. Zie de [Blog van Azure Storage-Team](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/08/03/windows-azure-storage-logging-using-logs-to-track-storage-requests.aspx) voor meer informatie.
 
 ## <a name="sas-examples"></a>SAS-voorbeelden

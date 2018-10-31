@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/10/2017
 ms.author: jeedes
-ms.openlocfilehash: e2dc9b7e7cf5964c36b21418a0162c1c2ef92dc8
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: b5f240091cf5ce9331ada818c218db04f508dbc8
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39430178"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50241800"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sprinklr"></a>Zelfstudie: Azure Active Directory-integratie met Sprinklr
 
@@ -59,7 +59,7 @@ Voor het configureren van de integratie van Sprinklr in Azure AD, moet u Sprinkl
 
 **Als u wilt toevoegen Sprinklr uit de galerie, moet u de volgende stappen uitvoeren:**
 
-1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
 
     ![Active Directory][1]
 
@@ -161,7 +161,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     h. Plak de **afmelding URL** waarde die u hebt gekopieerd vanuit Azure Portal in de **afmeldings-URL van id-Provider** tekstvak.
      
-    i. Als **SAML-ID gebruikerstype**, selecteer **Assertion gebruiker bevat "s sprinklr.com gebruikersnaam**.
+    i. Als **SAML-ID gebruikerstype**, selecteer **verklaring bevat de gebruikersnaam van gebruiker sprinklr.com**.
 
     j. Als **SAML-ID gebruikerslocatie**, selecteer **gebruikers-ID is in het element met naam-id van het onderwerp overzicht**.
 

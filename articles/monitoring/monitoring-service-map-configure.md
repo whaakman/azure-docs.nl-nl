@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: daseidma;bwren
-ms.openlocfilehash: 70cf6fe1e2256ba2ed58d020111669e59d9db56b
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 9d574e7e8b0b285093aa0960243300dfe9f6d417
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49405511"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50248992"
 ---
 # <a name="configure-service-map-in-azure"></a>Serviceoverzicht configureren in Azure
 Serviceoverzicht ontdekt automatisch toepassingsonderdelen op Windows- en Linux-systemen en wijst de communicatie tussen services toe. U kunt deze gebruiken om weer te geven van uw servers beschouwen zoals u ze--onderling verbonden systemen die kritieke services verlenen. Servicetoewijzing toont verbindingen tussen servers, processen en poorten in alle via TCP verbonden architectuur zonder configuratie vereist, dan een agent geïnstalleerd.
@@ -146,7 +146,7 @@ In dit artikel, verwijzen we naar alle agents of Linux- of Windows met een behee
 
 De Serviceoverzicht-agent wordt niet verzonden gegevens zelf, en hoeven er geen wijzigingen in de firewalls en poorten. De gegevens in het Serviceoverzicht worden altijd verzonden door de Log Analytics-agent naar de service Log Analytics, rechtstreeks of via de gateway van Log Analytics.
 
-![Serviceoverzicht agents](media/monitoring-service-map/agents.png)
+![Serviceoverzicht agents](media/monitoring-service-map-configure/agents.png)
 
 Als u een System Center Operations Manager-klant bent met een beheergroep die is verbonden met Log Analytics:
 

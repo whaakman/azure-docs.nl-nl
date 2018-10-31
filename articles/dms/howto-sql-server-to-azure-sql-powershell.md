@@ -1,6 +1,6 @@
 ---
-title: Azure Database Migration Service-module gebruiken in Microsoft Azure PowerShell voor het migreren van SQL Server on-premises naar Azure SQL-database | Microsoft Docs
-description: Meer informatie over het migreren van on-premises SQL Server naar Azure SQL met behulp van Azure PowerShell.
+title: SQL Server migreren naar Azure SQL Database met de Database migratieservice- en PowerShell | Microsoft Docs
+description: Meer informatie over het migreren van on-premises SQL Server naar Azure SQL Database met behulp van Azure PowerShell.
 services: database-migration
 author: pochiraju
 ms.author: rajpo
@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 10/09/2018
-ms.openlocfilehash: ffa4d5f87a722ed3cb95d873d02707ed1c797dc6
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 0a4e88ed52e2da814d1b10dbc695c9c61b899ef1
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48886663"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50248193"
 ---
-# <a name="migrate-sql-server-on-premises-to-azure-sql-db-using-azure-powershell"></a>On-premises SQL Server migreren naar Azure SQL-database met behulp van Azure PowerShell
+# <a name="migrate-sql-server-on-premises-to-azure-sql-database-using-azure-powershell"></a>On-premises SQL Server migreren naar Azure SQL Database met behulp van Azure PowerShell
 In dit artikel, migreert u de **Adventureworks2012** database hersteld naar een on-premises exemplaar van SQL Server 2016 of hoger met een Azure SQL Database met behulp van Microsoft Azure PowerShell. U kunt databases uit een on-premises SQL Server-exemplaar migreren naar Azure SQL Database met behulp van de `AzureRM.DataMigration` module in Microsoft Azure PowerShell.
 
 In dit artikel leert u het volgende:

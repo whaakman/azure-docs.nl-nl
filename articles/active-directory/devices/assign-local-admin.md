@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 08/09/2018
 ms.author: markvi
 ms.reviewer: ravenn
-ms.openlocfilehash: cde364cb5231c1cc0b1947da35994862cf45b571
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 267e398305939048014038b7350b2a10481fdfbd
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43042158"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50238723"
 ---
 # <a name="how-to-manage-the-local-administrators-group-on-azure-ad-joined-devices"></a>Over het beheren van de lokale groep administrators op de Azure AD gekoppelde apparaten
 
@@ -92,9 +92,9 @@ Beginnen met de **Windows 10 1709** release, kunt u deze taak uitvoeren vanuit *
  
 U kunt daarnaast ook gebruikers via de opdrachtprompt toevoegen:
 
-- Als uw tenantgebruikers worden gesynchroniseerd vanuit on-premises Active Directory, gebruikt u `net localgroup administrators /add “Contoso\username”`.
+- Als uw tenantgebruikers worden gesynchroniseerd vanuit on-premises Active Directory, gebruikt u `net localgroup administrators /add "Contoso\username"`.
 
-- Als uw tenantgebruikers worden gemaakt in Azure AD, gebruiken `net localgroup administrators /add “AzureAD\UserUpn”`
+- Als uw tenantgebruikers worden gemaakt in Azure AD, gebruiken `net localgroup administrators /add "AzureAD\UserUpn"`
 
 
 ## <a name="considerations"></a>Overwegingen 
@@ -109,8 +109,8 @@ Wanneer u gebruikers uit de rol van apparaatbeheerder verwijdert, hebben ze nog 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Als u een overzicht van het apparaat in Azure portal te beheren, Zie [apparaten beheert met de Azure-portal](device-management-azure-portal.md)
+- Zie [Apparaten beheren met behulp van de Azure-portal](device-management-azure-portal.md) voor een overzicht van hoe u apparaten in de Azure-portal kunt beheren.
 
-- Zie voor meer informatie over voorwaardelijke toegang op basis van apparaat, [configureren van beleid voor het apparaat gebaseerde voorwaardelijke toegang van Azure Active Directory](../conditional-access/require-managed-devices.md).
+- Zie [Beleid configureren voor apparaatgebaseerde voorwaardelijke toegang van Azure Active Directory](../conditional-access/require-managed-devices.md) voor meer informatie over apparaatgebaseerde voorwaardelijke toegang.
 
 

@@ -9,12 +9,12 @@ ms.workload: core
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: shvija
-ms.openlocfilehash: 6d5b52c8a5dd0306a349cac5e67eecc809005c6f
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 2f59b7f47acc8ce8e566b7f0e2bcfed379ea60d2
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49429181"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50239081"
 ---
 # <a name="receive-events-from-azure-event-hubs-using-nodejs"></a>Gebeurtenissen ontvangen van Azure Event Hubs met behulp van Node.js
 
@@ -141,12 +141,7 @@ U vindt meer voorbeelden [hier](https://github.com/Azure/azure-event-hubs-node/t
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Ga naar de volgende pagina's voor meer informatie over Event Hubs:
-
-* [Gebeurtenissen verzenden met behulp van Node.js](event-hubs-go-get-started-send.md)
-* [Event Hubs-voorbeelden](https://github.com/Azure/azure-event-hubs-node/tree/master/processor/examples/)
-* [Gebeurtenissen vastleggen naar Azure Storage of Data Lake Store](event-hubs-capture-overview.md)
-* [Veelgestelde vragen over Event Hubs](event-hubs-faq.md)
+In deze quickstart maakt u een Node.js-toepassing die berichten van een event hub ontvangen gemaakt. Zie voor meer informatie over het verzenden van gebeurtenissen naar een event hub met behulp van Node.js, [verzenden van gebeurtenissen van event hub - Node.js](event-hubs-node-get-started-send.md).
 
 <!-- Links -->
 [gratis account]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio

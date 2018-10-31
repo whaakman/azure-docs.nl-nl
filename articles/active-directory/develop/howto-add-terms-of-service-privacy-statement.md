@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviwer: lenalepa, sureshja
 ms.custom: aaddev
-ms.openlocfilehash: 21cd4990e2117cef2d36fa2607a601afd1a4c4e4
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 2195a43665f99e8388b13fc6dc3e528496bd3901
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46990498"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50242684"
 ---
 # <a name="terms-of-service-and-privacy-statement-for-registered-azure-active-directory-apps"></a>Gebruiksrechtovereenkomst en privacyverklaring voor geregistreerde Azure Active Directory-apps
 
@@ -64,7 +64,7 @@ Als de gebruiksrechtovereenkomst en privacyverklaring klaar bent, kunt u koppeli
 
 Volg deze stappen als u uw app geregistreerd in Azure portal.
 
-1. Aanmelden bij de [Azure-portal](https://portal.azure.com/).
+1. Meld u aan bij de  [Azure-portal](https://portal.azure.com/).
 2. Navigeer naar de **App-registraties** sectie en selecteer uw app.
 3. Open de **eigenschappen** sectie van de app.
 4. Vul de **voorwaarden van de URL van de Service** en **URL van privacyverklaring van** velden.
@@ -89,8 +89,8 @@ Als u liever de JSON-object van de app rechtstreeks te wijzigen, kunt u de manif
 
 ```json
     "informationalUrls": { 
-        "termsOfService": “<your_terms_of_service_url>”, 
-        "privacy": “<your_privacy_statement_url>” 
+        "termsOfService": "<your_terms_of_service_url>", 
+        "privacy": "<your_privacy_statement_url>" 
     }
 ```
 

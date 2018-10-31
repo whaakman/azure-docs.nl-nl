@@ -1,8 +1,8 @@
 ---
 title: Pogingslogica in de Media Services SDK voor .NET | Microsoft Docs
-description: Het onderwerp overzicht een van Pogingslogica in de Media Services SDK voor .NET.
+description: Het onderwerp biedt een overzicht van de logica voor opnieuw proberen in de Media Services SDK voor .NET.
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 services: media-services
 documentationcenter: ''
@@ -12,44 +12,44 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/21/2017
+ms.date: 10/24/2018
 ms.author: juliako
-ms.openlocfilehash: 34125712c59938b3a74e7cdc150f3f16b694b92f
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 0a4c9db8da046e901241bc383098013b2acc6bb2
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33790424"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50242259"
 ---
 # <a name="retry-logic-in-the-media-services-sdk-for-net"></a>Pogingslogica in de Media Services SDK voor .NET
-Als u werkt met Microsoft Azure-services, kunnen tijdelijke fouten optreden. Als een tijdelijke fout in de meeste gevallen optreedt na een paar pogingen de bewerking is geslaagd. De Media Services SDK voor .NET implementeert de Pogingslogica voor het afhandelen van tijdelijke fouten die zijn gekoppeld aan de uitzonderingen en fouten die worden veroorzaakt door webaanvragen, uitvoeren van query's, het opslaan van wijzigingen en opslagbewerkingen.  Standaard wordt de Media Services SDK voor .NET vier pogingen uitgevoerd voordat de uitzondering voor uw toepassing opnieuw te genereren. Deze uitzondering moet vervolgens goed omgaan met de code in uw toepassing.  
+Als u werkt met Microsoft Azure-services, kunnen tijdelijke fouten optreden. Als er een tijdelijke fout optreedt in de meeste gevallen na een paar nieuwe pogingen de bewerking is geslaagd. De Media Services SDK voor .NET implementeert de logica voor nieuwe pogingen voor het afhandelen van tijdelijke fouten die zijn gekoppeld aan de uitzonderingen en fouten die worden veroorzaakt door webaanvragen, uitvoeren van query's, het opslaan van wijzigingen en -opslagbewerkingen.  Standaard wordt de Media Services SDK voor .NET vier pogingen uitgevoerd voordat de uitzondering aan uw toepassing opnieuw te genereren. Deze uitzondering moet vervolgens correct verwerken door de code in uw toepassing.  
 
- Hier volgt een korte richtlijn webaanvraag, opslag, Query en SaveChanges beleidsregels:  
+ Hier volgt een korte richtlijn webaanvraag, opslag, query's en SaveChanges beleid:  
 
-* Het beleid voor opslag wordt gebruikt voor bewerkingen voor blob-opslag (uploads of downloaden van assetbestanden).  
-* Het beleid webaanvraag wordt gebruikt voor algemene webaanvragen (bijvoorbeeld voor een verificatietoken ophalen en het oplossen van het eindpunt van de cluster gebruikers).  
-* Het beleid van de Query wordt gebruikt voor het uitvoeren van query's entiteiten van REST (bijvoorbeeld mediaContext.Assets.Where(...)).  
-* Het beleid SaveChanges wordt gebruikt voor het uitvoeren van alles wat gegevens in de service (bijvoorbeeld het maken van een entiteit bijwerken van een entiteit, een servicefunctie aanroepen voor een bewerking) wijzigt.  
+* Het beleid voor opslag wordt gebruikt voor blob-opslagbewerkingen (uploaden of downloaden van assetbestanden).  
+* Het beleid voor Web wordt gebruikt voor algemene webaanvragen (bijvoorbeeld voor een verificatietoken ophalen en het oplossen van het clustereindpunt gebruikers).  
+* Het beleid van de Query wordt gebruikt voor het uitvoeren van query's entiteiten op basis van REST (bijvoorbeeld mediaContext.Assets.Where(...)).  
+* Het beleid SaveChanges wordt gebruikt voor het uitvoeren van alles wat gegevens in de service (bijvoorbeeld, het maken van een entiteit bijwerken van een entiteit, een door de servicefunctie voor een bewerking aanroepen) wordt gewijzigd.  
   
-  Dit onderwerp bevat de typen en Pogingslogica foutcodes die worden verwerkt door de Media Services SDK voor .NET.  
+  In dit onderwerp geeft een lijst van de uitzonderingstypen en foutcodes die worden verwerkt door de Media Services SDK voor .NET-logica voor opnieuw proberen.  
 
-## <a name="exception-types"></a>Uitzondering typen
-De volgende tabel beschrijft de uitzonderingen die de Media Services SDK voor .NET worden verwerkt of verwerkt niet voor bepaalde bewerkingen, die tijdelijke fouten kunnen veroorzaken.  
+## <a name="exception-types"></a>Uitzonderingstypen
+De volgende tabel beschrijft de uitzonderingen die de Media Services SDK voor .NET worden verwerkt of verwerkt niet voor bepaalde bewerkingen dat leiden tijdelijke fouten tot kunnen.  
 
 | Uitzondering | Webaanvraag | Storage | Query’s uitvoeren | SaveChanges |
 | --- | --- | --- | --- | --- |
 | WebException<br/>Zie voor meer informatie de [WebException statuscodes](media-services-retry-logic-in-dotnet-sdk.md#WebExceptionStatus) sectie. |Ja |Ja |Ja |Ja |
-| DataServiceClientException<br/> Zie voor meer informatie [HTTP-fout statuscodes](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode). |Nee |Ja |Ja |Ja |
-| DataServiceQueryException<br/> Zie voor meer informatie [HTTP-fout statuscodes](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode). |Nee |Ja |Ja |Ja |
-| DataServiceRequestException<br/> Zie voor meer informatie [HTTP-fout statuscodes](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode). |Nee |Ja |Ja |Ja |
+| DataServiceClientException<br/> Zie voor meer informatie, [statuscodes voor HTTP-fout](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode). |Nee |Ja |Ja |Ja |
+| DataServiceQueryException<br/> Zie voor meer informatie, [statuscodes voor HTTP-fout](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode). |Nee |Ja |Ja |Ja |
+| DataServiceRequestException<br/> Zie voor meer informatie, [statuscodes voor HTTP-fout](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode). |Nee |Ja |Ja |Ja |
 | DataServiceTransportException |Nee |Nee |Ja |Ja |
 | TimeoutException |Ja |Ja |Ja |Nee |
 | SocketException |Ja |Ja |Ja |Ja |
 | StorageException |Nee |Ja |Nee |Nee |
-| IOException |Nee |Ja |Nee |Nee |
+| Ioexception opgetreden |Nee |Ja |Nee |Nee |
 
 ### <a name="WebExceptionStatus"></a> Statuscodes WebException
-De volgende tabel ziet welke foutcodes WebException de Pogingslogica is geïmplementeerd. De [WebExceptionStatus](http://msdn.microsoft.com/library/system.net.webexceptionstatus.aspx) opsomming definieert de statuscodes.  
+De volgende tabel ziet u welke foutcodes WebException logica voor opnieuw proberen is geïmplementeerd. De [WebExceptionStatus](http://msdn.microsoft.com/library/system.net.webexceptionstatus.aspx) opsomming definieert de statuscodes.  
 
 | Status | Webaanvraag | Storage | Query’s uitvoeren | SaveChanges |
 | --- | --- | --- | --- | --- |
@@ -60,19 +60,19 @@ De volgende tabel ziet welke foutcodes WebException de Pogingslogica is geïmple
 | PipelineFailure |Ja |Ja |Ja |Nee |
 | ConnectionClosed |Ja |Ja |Ja |Nee |
 | KeepAliveFailure |Ja |Ja |Ja |Nee |
-| UnknownError |Ja |Ja |Ja |Nee |
+| Errorcodes.unknownerror |Ja |Ja |Ja |Nee |
 | ReceiveFailure |Ja |Ja |Ja |Nee |
 | RequestCanceled |Ja |Ja |Ja |Nee |
 | Time-out |Ja |Ja |Ja |Nee |
-| Een protocolfout <br/>De nieuwe poging op een protocolfout wordt bepaald door de verwerking van HTTP-status code. Zie voor meer informatie [HTTP-fout statuscodes](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode). |Ja |Ja |Ja |Ja |
+| Een protocolfout <br/>De nieuwe poging op een protocolfout wordt bepaald door de verwerking van HTTP-status code. Zie voor meer informatie, [statuscodes voor HTTP-fout](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode). |Ja |Ja |Ja |Ja |
 
 ### <a name="HTTPStatusCode"></a> Statuscodes voor HTTP-fout
-Wanneer bewerkingen query's en SaveChanges throw DataServiceClientException, DataServiceQueryException of DataServiceQueryException, wordt de status van HTTP-foutcode in de eigenschap StatusCode geretourneerd.  De volgende tabel ziet welke foutcodes de Pogingslogica is geïmplementeerd.  
+Wanneer bewerkingen query's en SaveChanges throw DataServiceClientException, DataServiceQueryException of DataServiceQueryException, wordt de statuscode van de HTTP-fout in de eigenschap StatusCode geretourneerd.  De volgende tabel ziet u welke foutcodes logica voor opnieuw proberen is geïmplementeerd.  
 
 | Status | Webaanvraag | Storage | Query’s uitvoeren | SaveChanges |
 | --- | --- | --- | --- | --- |
 | 401 |Nee |Ja |Nee |Nee |
-| 403 |Nee |Ja<br/>Verwerking van nieuwe pogingen met langer wachten op. |Nee |Nee |
+| 403 |Nee |Ja<br/>Nieuwe pogingen met langer wachten op verwerking. |Nee |Nee |
 | 408 |Ja |Ja |Ja |Ja |
 | 429 |Ja |Ja |Ja |Ja |
 | 500 |Ja |Ja |Ja |Nee |
@@ -80,7 +80,7 @@ Wanneer bewerkingen query's en SaveChanges throw DataServiceClientException, Dat
 | 503 |Ja |Ja |Ja |Ja |
 | 504 |Ja |Ja |Ja |Nee |
 
-Als u bekijken op de werkelijke implementatie van de Media Services SDK voor .NET-Pogingslogica wilt, Zie [azure-sdk-voor-media-services](https://github.com/Azure/azure-sdk-for-media-services/tree/dev/src/net/Client/TransientFaultHandling).
+Als u bekijken op de werkelijke implementatie van de Media Services SDK voor .NET-logica voor opnieuw proberen wilt, Zie [azure-sdk-voor-media-services](https://github.com/Azure/azure-sdk-for-media-services/tree/dev/src/net/Client/TransientFaultHandling).
 
 ## <a name="next-steps"></a>Volgende stappen
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

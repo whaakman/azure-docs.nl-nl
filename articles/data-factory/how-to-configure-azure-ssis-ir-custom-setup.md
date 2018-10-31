@@ -8,17 +8,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/21/2018
+ms.date: 10/28/2018
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: ad3ec09f039b38290929289c7bca77664b0fb554
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 3ba3e6036821323146f00cf9c255b70606771aed
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39441782"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50241154"
 ---
 # <a name="customize-setup-for-the-azure-ssis-integration-runtime"></a>Setup voor de Azure-SSIS integratieruntime aanpassen
 
@@ -98,7 +98,11 @@ Voor het aanpassen van uw Azure-SSIS-IR, moet u de volgende zaken:
 
        ![Kopiëren en opslaan van de handtekening voor gedeelde toegang](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image8.png)
 
-    1.  Wanneer u inrichten of opnieuw configureren van uw Azure-SSIS IR met PowerShell, voordat u begint met uw Azure-SSIS-IR, voert de `Set-AzureRmDataFactoryV2IntegrationRuntime` cmdlet met de SAS-URI van de container als de waarde voor nieuwe `SetupScriptContainerSasUri` parameter. Bijvoorbeeld:
+    1.  Wanneer u inrichten of opnieuw configureren van uw Azure-SSIS IR met Data Factory-UI, voordat u begint met uw Azure-SSIS-IR, voert u de SAS-URI van de container in het desbetreffende veld:
+
+       ![Voer de Shared Access Signature](media/tutorial-create-azure-ssis-runtime-portal/advanced-settings.png)
+
+       Wanneer u inrichten of opnieuw configureren van uw Azure-SSIS IR met PowerShell, voordat u begint met uw Azure-SSIS-IR, voert de `Set-AzureRmDataFactoryV2IntegrationRuntime` cmdlet met de SAS-URI van de container als de waarde voor nieuwe `SetupScriptContainerSasUri` parameter. Bijvoorbeeld:
 
        ```powershell
        Set-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $MyDataFactoryName `
@@ -143,7 +147,7 @@ Voor het aanpassen van uw Azure-SSIS-IR, moet u de volgende zaken:
 
        1. Een `MSDTC` map een aangepaste instellingen bevat voor het wijzigen van de netwerk- en configuraties voor de service Microsoft Distributed Transaction Coordinator (MSDTC) op elk knooppunt van uw Azure-SSIS-IR. Om ervoor te zorgen dat de MSDTC is gestart, proces-taak uitvoeren wordt toegevoegd aan het begin van de controlestroom in de pakketten voor uitvoering van de volgende opdracht uit: `%SystemRoot%\system32\cmd.exe /c powershell -Command "Start-Service MSDTC"` 
 
-       1. Een `ORACLE ENTERPRISE` map, waarin een aangepaste setup-script (`main.cmd`) en config-bestand voor installatie op de achtergrond (`client.rsp`) voor het installeren van het stuurprogramma Oracle OCI op elk knooppunt van uw Azure-SSIS IR Enterprise Edition. Deze instelling kunt u de Oracle Connection Manager, de bron en bestemming gebruiken. Download de meest recente Oracle-client - eerst bijvoorbeeld `winx64_12102_client.zip` - van [Oracle](http://www.oracle.com/technetwork/database/enterprise-edition/downloads/database12c-win64-download-2297732.html) en upload het samen met `main.cmd` en `client.rsp` in de container. Als u verbinding maken met Oracle TNS, moet u ook downloaden `tnsnames.ora`, bewerken en uploaden naar de container, zodat deze kan worden gekopieerd naar de installatiemap van Oracle tijdens de installatie.
+       1. Een `ORACLE ENTERPRISE` map, waarin een aangepaste setup-script (`main.cmd`) en config-bestand voor installatie op de achtergrond (`client.rsp`) voor het installeren van de Oracle-connectors en OCI stuurprogramma op elk knooppunt van uw Azure-SSIS IR Enterprise Edition. Deze instelling kunt u de Oracle Connection Manager, de bron en bestemming gebruiken. Download eerst Microsoft-Connectors 5.0 voor Oracle (`AttunitySSISOraAdaptersSetup.msi` en `AttunitySSISOraAdaptersSetup64.msi`) van [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=55179) en de meest recente Oracle-client - bijvoorbeeld `winx64_12102_client.zip` - van [Oracle](http://www.oracle.com/technetwork/database/enterprise-edition/downloads/database12c-win64-download-2297732.html), upload vervolgens ze allemaal samen met `main.cmd` en `client.rsp` in de container. Als u verbinding maken met Oracle TNS, moet u ook downloaden `tnsnames.ora`, bewerken en uploaden naar de container, zodat deze kan worden gekopieerd naar de installatiemap van Oracle tijdens de installatie.
 
        1. Een `ORACLE STANDARD` map, waarin een aangepaste setup-script (`main.cmd`) voor het installeren van de Oracle-ODP.NET-stuurprogramma op elk knooppunt van uw Azure-SSIS-IR. Deze instelling kunt u de ADO.NET Connection Manager, de bron en bestemming gebruiken. Download de meest recente Oracle ODP.NET-stuurprogramma - eerst bijvoorbeeld `ODP.NET_Managed_ODAC122cR1.zip` - van [Oracle](http://www.oracle.com/technetwork/database/windows/downloads/index-090165.html), en upload het samen met `main.cmd` in de container.
 

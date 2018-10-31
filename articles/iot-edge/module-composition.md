@@ -8,16 +8,16 @@ ms.date: 06/06/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a65eb029dbf10b194bd28bf7ad82f5aa839338a2
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: beb7574653375024f36912c4b3a37b01d2f59bd5
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46990617"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50248391"
 ---
-# <a name="learn-how-to-use-deployment-manifests-to-deploy-modules-and-establish-routes"></a>Informatie over het gebruik van implementatie manifesten implementeren modules en routes tot stand brengen
+# <a name="learn-how-to-deploy-modules-and-establish-routes-in-iot-edge"></a>Meer informatie over het implementeren van modules en routes instellen in IoT Edge
 
-Elke IoT Edge-apparaat wordt uitgevoerd ten minste twee modules: $edgeAgent en $edgeHub, die gezamenlijk de IoT Edge-runtime. Naast deze standaard twee kunt elk IoT Edge-apparaat meerdere modules om uit te voeren van een willekeurig aantal processen uitvoeren. Wanneer u alle deze modules in één keer op een apparaat implementeert, moet u een manier om aan te geven welke modules worden geleverd en hoe ze met elkaar communiceren. 
+Elke IoT Edge-apparaat wordt uitgevoerd ten minste twee modules: $edgeAgent en $edgeHub, die gezamenlijk de IoT Edge-runtime. Bovendien kan meerdere modules om uit te voeren van een willekeurig aantal processen worden uitgevoerd door elk IoT Edge-apparaat. Wanneer u alle deze modules in één keer op een apparaat implementeert, moet u een manier om aan te geven welke modules worden geleverd en hoe ze met elkaar communiceren. 
 
 De *implementatie manifest* is een JSON-document dat wordt beschreven:
 
@@ -27,7 +27,7 @@ De *implementatie manifest* is een JSON-document dat wordt beschreven:
 
 Alle IoT Edge-apparaten moeten worden geconfigureerd met een manifest van de implementatie. Een nieuw geïnstalleerde IoT Edge-runtime rapporteert een foutcode totdat geconfigureerd met een manifest. 
 
-In de Azure IoT Edge-zelfstudies bouwt u een manifest van de implementatie door te gaan met een wizard in de portal voor Azure IoT Edge. U kunt ook een implementatie-manifest programmatisch met behulp van REST- of de SDK voor IoT Hub-Service. Zie voor meer informatie, [inzicht in IoT Edge-implementaties][lnk-deploy].
+In de Azure IoT Edge-zelfstudies bouwt u een manifest van de implementatie door te gaan met een wizard in de portal voor Azure IoT Edge. U kunt ook een implementatie-manifest programmatisch met behulp van REST- of de SDK voor IoT Hub-Service. Zie voor meer informatie, [inzicht in IoT Edge-implementaties](module-deployment-monitoring.md).
 
 ## <a name="create-a-deployment-manifest"></a>Maken van een manifest van de implementatie
 
@@ -138,7 +138,7 @@ De bron geeft aan waar de berichten afkomstig zijn uit. Het kan een van de volge
 | `/messages/modules/{moduleId}/outputs/{output}` | Een apparaat-naar-cloud bericht verzonden met behulp van {moduleId} {uitvoer} |
 
 ### <a name="condition"></a>Voorwaarde
-De voorwaarde is optioneel in de declaratie van een route. Als u wilt dat alle berichten van de sink doorgeven aan de bron, laat u uit de **waar** component volledig. Of u kunt de [IoT Hub-querytaal] [ lnk-iothub-query] berichten of berichttypen die voldoen aan de voorwaarde voor bepaalde filteren.
+De voorwaarde is optioneel in de declaratie van een route. Als u wilt dat alle berichten van de sink doorgeven aan de bron, laat u uit de **waar** component volledig. Of u kunt de [IoT Hub-querytaal](../iot-hub/iot-hub-devguide-routing-query-syntax.md) berichten of berichttypen die voldoen aan de voorwaarde voor bepaalde filteren.
 
 De berichten die modules in IoT Edge tussen worden opgemaakt gelijk zijn aan de berichten die de apparaten en Azure IoT Hub tussen. Alle berichten worden opgemaakt als JSON en hebben **systemProperties**, **appProperties**, en **hoofdtekst** parameters. 
 
@@ -262,10 +262,4 @@ Dit een voorbeeld van een implementatie manifest JSON-document.
 
 * Zie voor een volledige lijst van eigenschappen die kunnen of moeten worden opgenomen in $edgeAgent en $edgeHub [eigenschappen van de Edge agent en Edge hub](module-edgeagent-edgehub.md).
 
-* Nu dat u hoe IoT Edge-modules worden gebruikt weet, [informatie over de vereisten en hulpprogramma's voor het ontwikkelen van IoT Edge-modules][lnk-module-dev].
-
-[lnk-deploy]: module-deployment-monitoring.md
-[lnk-iothub-query]: ../iot-hub/iot-hub-devguide-routing-query-syntax.md
-[lnk-docker-create-options]: https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate
-[lnk-docker-logging-options]: https://docs.docker.com/engine/admin/logging/overview/
-[lnk-module-dev]: module-development.md
+* Nu dat u hoe IoT Edge-modules worden gebruikt weet, [informatie over de vereisten en hulpprogramma's voor het ontwikkelen van IoT Edge-modules](module-development.md).
