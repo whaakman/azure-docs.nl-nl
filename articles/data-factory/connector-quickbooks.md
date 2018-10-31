@@ -1,6 +1,6 @@
 ---
-title: Gegevens kopiëren van QuickBooks met Azure Data Factory (Preview) | Microsoft Docs
-description: Meer informatie over het kopiëren van gegevens uit QuickBooks naar ondersteunde sink-gegevensopslag met behulp van een kopieeractiviteit in een Azure Data Factory-pijplijn.
+title: Gegevens kopiëren van QuickBooks Online met Azure Data Factory (Preview) | Microsoft Docs
+description: Meer informatie over het kopiëren van gegevens uit QuickBooks Online naar ondersteunde sink-gegevensopslag met behulp van een kopieeractiviteit in een Azure Data Factory-pijplijn.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -11,25 +11,25 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/15/2018
+ms.date: 10/29/2018
 ms.author: jingwang
-ms.openlocfilehash: 83e3007a7c3198c5ae37cf95d2b21cde88bd8210
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: a3d079483ecf4ea8cf9a4c6bda050bfe8befcfd0
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46127129"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50241680"
 ---
-# <a name="copy-data-from-quickbooks-using-azure-data-factory-preview"></a>Kopiëren van gegevens uit QuickBooks met Azure Data Factory (Preview)
+# <a name="copy-data-from-quickbooks-online-using-azure-data-factory-preview"></a>Gegevens kopiëren van QuickBooks Online met Azure Data Factory (Preview)
 
-In dit artikel bevat een overzicht over het gebruik van de Kopieeractiviteit in Azure Data Factory gegevens uit QuickBooks te kopiëren. Dit is gebaseerd op de [overzicht kopieeractiviteit](copy-activity-overview.md) artikel met daarin een algemeen overzicht van de kopieeractiviteit.
+In dit artikel bevat een overzicht over het gebruik van de Kopieeractiviteit in Azure Data Factory om gegevens te kopiëren vanuit QuickBooks Online. Dit is gebaseerd op de [overzicht kopieeractiviteit](copy-activity-overview.md) artikel met daarin een algemeen overzicht van de kopieeractiviteit.
 
 > [!IMPORTANT]
 > Deze connector is momenteel in preview. U kunt uitproberen en ons feedback te geven. Neem contact op met de [ondersteuning van Azure](https://azure.microsoft.com/support/) als u een afhankelijkheid van preview-connectors wilt opnemen in uw oplossing.
 
 ## <a name="supported-capabilities"></a>Ondersteunde mogelijkheden
 
-U kunt gegevens uit QuickBooks kopiëren naar een ondersteunde sink-gegevensopslag. Zie voor een lijst met gegevensarchieven die worden ondersteund als bronnen/put door de kopieeractiviteit, de [ondersteunde gegevensarchieven](copy-activity-overview.md#supported-data-stores-and-formats) tabel.
+U kunt gegevens uit QuickBooks Online kopiëren naar een ondersteunde sink-gegevensopslag. Zie voor een lijst met gegevensarchieven die worden ondersteund als bronnen/put door de kopieeractiviteit, de [ondersteunde gegevensarchieven](copy-activity-overview.md#supported-data-stores-and-formats) tabel.
 
 Azure Data Factory biedt een ingebouwde stuurprogramma als connectiviteit wilt inschakelen, dus hoeft u stuurprogramma voor gebruik van deze connector handmatig installeren.
 
@@ -48,8 +48,8 @@ De volgende eigenschappen worden ondersteund voor QuickBooks gekoppelde service:
 | Eigenschap | Beschrijving | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type moet worden ingesteld op: **QuickBooks** | Ja |
-| endpoint | Het eindpunt van de QuickBooks-server. (dat wil zeggen, quickbooks.api.intuit.com)  | Ja |
-| companyId | De bedrijfs-ID van het bedrijf QuickBooks te autoriseren.  | Ja |
+| endpoint | Het eindpunt van de QuickBooks Online-server. (dat wil zeggen, quickbooks.api.intuit.com)  | Ja |
+| companyId | De bedrijfs-ID van het bedrijf QuickBooks te autoriseren. Zie voor informatie over het zoeken naar de bedrijfs-ID [hoe vind ik de ID van mijn bedrijf?](https://quickbooks.intuit.com/community/Getting-Started/How-do-I-find-my-Company-ID/m-p/185551). | Ja |
 | consumerKey | De consumentsleutel voor OAuth 1.0-verificatie. | Ja |
 | consumerSecret | De consumentgeheim voor OAuth 1.0-verificatie. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory, of [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 | accessToken | Het toegangstoken voor verificatie voor OAuth 1.0. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory, of [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
@@ -89,7 +89,7 @@ De volgende eigenschappen worden ondersteund voor QuickBooks gekoppelde service:
 
 Zie voor een volledige lijst van de secties en eigenschappen die beschikbaar zijn voor het definiëren van gegevenssets, de [gegevenssets](concepts-datasets-linked-services.md) artikel. Deze sectie bevat een lijst met eigenschappen die worden ondersteund door QuickBooks gegevensset.
 
-Als u wilt kopiëren van gegevens uit QuickBooks, stel de eigenschap type van de gegevensset in **QuickBooksObject**. Er is geen aanvullende typespecifieke-eigenschap in dit type gegevensset.
+Als u wilt kopiëren van gegevens uit QuickBooks Online, stel de eigenschap type van de gegevensset in **QuickBooksObject**. Er is geen aanvullende typespecifieke-eigenschap in dit type gegevensset.
 
 **Voorbeeld**
 
@@ -112,7 +112,7 @@ Zie voor een volledige lijst van de secties en eigenschappen die beschikbaar zij
 
 ### <a name="quickbookssource-as-source"></a>QuickBooksSource als bron
 
-Als u wilt kopiëren van gegevens uit QuickBooks, stelt u het brontype in de kopieeractiviteit naar **QuickBooksSource**. De volgende eigenschappen worden ondersteund in de kopieeractiviteit **bron** sectie:
+Als u wilt kopiëren van gegevens uit QuickBooks Online, stelt u het brontype in de kopieeractiviteit naar **QuickBooksSource**. De volgende eigenschappen worden ondersteund in de kopieeractiviteit **bron** sectie:
 
 | Eigenschap | Beschrijving | Vereist |
 |:--- |:--- |:--- |
@@ -150,6 +150,9 @@ Als u wilt kopiëren van gegevens uit QuickBooks, stelt u het brontype in de kop
     }
 ]
 ```
+## <a name="copy-data-from-quickbooks-desktop"></a>Gegevens uit Quickbooks Desktop kopiëren
+
+De Kopieeractiviteit in Azure Data Factory kan gegevens rechtstreeks vanuit Quickbooks Desktop niet kopiëren. Uw Quickbooks-gegevens exporteren naar een bestand met door komma's gescheiden waarden (CSV) om gegevens te kopiëren vanuit Quickbooks Desktop, en vervolgens het bestand te uploaden naar Azure Blob Storage. Van daaruit kunt u Data Factory kopiëren van de gegevens naar de sink van uw keuze.
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie voor een lijst met gegevensarchieven die worden ondersteund als bronnen en sinks door de kopieeractiviteit in Azure Data Factory, [ondersteunde gegevensarchieven](copy-activity-overview.md#supported-data-stores-and-formats).

@@ -1,8 +1,8 @@
 ---
-title: Geselecteerde instelling H264 Multiple Bitrate 1080p Media Encoder Standard voor definitie - Azure | Microsoft Docs
-description: Het onderwerp een overzicht van de **standaardinstelling H264 Multiple Bitrate 1080p** taak vooraf ingesteld.
+title: H264 Multiple Bitrate 1080p Media Encoder Standard voor definitie - Azure | Microsoft Docs
+description: Het onderwerp een overzicht van de **H264 Multiple Bitrate 1080p** taak vooraf ingesteld.
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 services: media-services
 documentationcenter: ''
@@ -12,24 +12,24 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/20/2017
+ms.date: 10/30/2018
 ms.author: juliako
-ms.openlocfilehash: a1aa9c097ae3eba6c14476d58b432d8d8cc126c0
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 0530965a7823ce1a95704aef3b7e6d6ac941f474
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788359"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50248906"
 ---
-# <a name="h264-multiple-bitrate-1080p"></a>Geselecteerde instelling H264 Multiple Bitrate 1080p
-`Media Encoder Standard` definieert een aantal standaardinstellingen die u gebruiken kunt bij het maken van codering taken codering. Kunt u ofwel een `preset name` om op te geven naar welke indeling u wilt uw mediabestand coderen. U kunt maken met uw eigen JSON of XML gebaseerde standaardinstellingen (met UTF-8- of UTF-16-codering. U zou geeft u het aangepaste vooraf ingesteld op de encoder. Voor een overzicht van de vooraf ingestelde namen ondersteund door dit `Media Encoder Standard` encoder, Zie [taak standaardinstellingen voor Media Encoder Standard](media-services-mes-presets-overview.md).  
+# <a name="h264-multiple-bitrate-1080p"></a>H264 Multiple Bitrate 1080p
+`Media Encoder Standard` definieert een reeks voorinstellingen die kunt u bij het maken van coderingstaken coderen. Kunt u ofwel een `preset name` om op te geven in welke indeling u wilt coderen van uw media-bestand. Of, kunt u uw eigen JSON of XML-indeling voorinstellingen (met behulp van UTF-8- of UTF-16-codering. Vervolgens geeft u door de aangepaste voorinstelling voor het coderingsprogramma. Voor een lijst van de vooraf gedefinieerde namen ondersteund door dit `Media Encoder Standard` encoder, Zie [taak voorinstellingen voor Media Encoder Standard](media-services-mes-presets-overview.md).  
   
  In dit onderwerp leest de `H264 Multiple Bitrate 1080p` vooraf in XML en JSON-indeling.  
   
- Deze definitie wordt een set 8 GOP uitgelijnde MP4-bestanden, variërend van 6000 kbps tot 400 kbps en stereogeluid AAC geproduceerd. Voor gedetailleerde informatie over profiel bitrate, snelheid, enz. dit wordt vooraf ingesteld, controleert u de XML- of JSON zoals hieronder gedefinieerd. Zie voor uitleg van welke elk element in deze standaardinstellingen middelen en de geldige waarden voor elk element in de [Media Encoder Standard schema](media-services-mes-schema.md) onderwerp.  
+ Deze definitie wordt een reeks van 8 GOP uitgelijnde MP4-bestanden, variërend van 6000 kbps tot 400 kbps en stereo AAC-audio. Voor gedetailleerde informatie over het profiel bitrate, steekproeven snelheid, enz. van deze vooraf ingesteld, controleert u de XML of JSON hieronder gedefinieerd. Voor een uitleg van wat elk element in deze middelen voorinstellingen, en de geldige waarden voor elk element, Zie de [Media Encoder Standard schema](media-services-mes-schema.md) onderwerp.  
   
 > [!NOTE]
->  Bij het wijzigen van de `Width` en `Height` waarden in lagen en zorg ervoor dat de hoogte-breedteverhouding consistent blijft. Bijvoorbeeld: 1920 x 1080, 1280 x 720, 1080 x 576 640 x 360. U moet een combinatie van hoogte-breedteverhouding niet zoals gebruiken: 1280 x 720, 720 x 480, 640 x 360.  
+>  Bij het wijzigen van de `Width` en `Height` waarden voor lagen, zorg ervoor dat de hoogte-breedteverhouding consistent blijft. Bijvoorbeeld: 1920 x 1080, 1280 x 720, 1080 x 576 640 x 360. Gebruik niet een combinatie van verhoudingen, zoals: 1280 x 720, 720 x 480, 640 x 360.  
   
  XML  
   

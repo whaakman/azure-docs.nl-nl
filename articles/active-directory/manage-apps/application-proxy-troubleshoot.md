@@ -15,12 +15,12 @@ ms.date: 06/26/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: aa7962e3659618b8c5a4f161d667c5e90477acc9
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 8be0e909ea391ed1b66fc78349cc2283d009e8cb
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44347644"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50240372"
 ---
 # <a name="troubleshoot-application-proxy-problems-and-error-messages"></a>Oplossen van problemen met Application Proxy- en foutberichten
 Als er fouten optreden bij het openen van een gepubliceerde toepassing of in de publicatie van toepassingen, controleert u de volgende opties om te zien of Microsoft Azure AD Application Proxy correct werkt:
@@ -43,7 +43,7 @@ Als u het pad op waarnaar wordt verwezen, inhoud bevatten, maar nog steeds moete
 
 Als de registratie is mislukt tijdens de installatie van de wizard Connector, zijn er twee manieren om de oorzaak van het probleem weer te geven. Een zoeken in het gebeurtenislogboek onder **toepassingen en Services Logs\Microsoft\AadApplicationProxy\Connector\Admin**, of Voer de volgende Windows PowerShell-opdracht:
 
-    Get-EventLog application –source “Microsoft AAD Application Proxy Connector” –EntryType “Error” –Newest 1
+    Get-EventLog application –source "Microsoft AAD Application Proxy Connector" –EntryType "Error" –Newest 1
 
 Als u de Connector-fout in het gebeurtenislogboek hebt gevonden, kunt u deze tabel van veelvoorkomende fouten gebruiken om het probleem te verhelpen:
 

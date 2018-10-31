@@ -4,16 +4,16 @@ description: Dit artikel helpt u bij het programmatisch beleid maken en beheren 
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 10/29/2018
+ms.date: 10/30/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 4a68b60df76dcc554158d6c8db4d0dfe8dd32be7
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: d72c9c1747bb697f66fa53489636b1726053060c
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50209221"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50242625"
 ---
 # <a name="programmatically-create-policies-and-view-compliance-data"></a>Programmatisch beleid maken en compatibiliteitsgegevens weergeven
 
@@ -74,7 +74,13 @@ De eerste stap voor beter inzicht in uw resources is het maken en toewijzen van 
    New-AzureRmPolicyDefinition -Name 'AuditStorageAccounts' -DisplayName 'Audit Storage Accounts Open to Public Networks' -Policy 'AuditStorageAccounts.json'
    ```
 
-   De opdracht maakt u een beleidsdefinitie met de naam _Audit Storage Accounts openen met een openbaar netwerk_. Zie voor meer informatie over andere parameters die u kunt gebruiken, [New-AzureRmPolicyDefinition](/powershell/module/azurerm.resources/new-azurermpolicydefinition).
+   De opdracht maakt u een beleidsdefinitie met de naam _Audit Storage Accounts openen met een openbaar netwerk_.
+   Zie voor meer informatie over andere parameters die u kunt gebruiken, [New-AzureRmPolicyDefinition](/powershell/module/azurerm.resources/new-azurermpolicydefinition).
+
+   Wanneer aangeroepen zonder locatieparameters, `New-AzureRmPolicyDefinition` standaard ingesteld op het opslaan van de beleidsdefinitie in het geselecteerde abonnement van de context van sessies. Als u wilt de definitie van de opslaan naar een andere locatie, gebruik de volgende parameters:
+
+   - **Abonnements-id** -opslaan naar een ander abonnement. Vereist een _GUID_ waarde.
+   - **ManagementGroupName** -opslaan in een beheergroep. Vereist een _tekenreeks_ waarde.
 
 1. Nadat u de beleidsdefinitie van uw maakt, kunt u een beleidstoewijzing maken door het uitvoeren van de volgende opdrachten:
 
@@ -86,7 +92,8 @@ De eerste stap voor beter inzicht in uw resources is het maken en toewijzen van 
 
    Vervang _ContosoRG_ met de naam van de beoogde resourcegroep.
 
-   De **bereik** parameter op `New-AzureRmPolicyAssignment` werkt ook met abonnementen en beheergroepen. De parameter maakt gebruik van een pad van de volledige resource, die de **ResourceId** eigenschap op `Get-AzureRmResourceGroup` retourneert. Het patroon voor **bereik** voor elke container als volgt is.  Vervang `{rgName}`, `{subId}`, en `{mgName}` met de resource groepsnaam, abonnements-ID, en de naam van beheergroep, respectievelijk.
+   De **bereik** parameter op `New-AzureRmPolicyAssignment` werkt ook met abonnementen en beheergroepen. De parameter maakt gebruik van een pad van de volledige resource, die de **ResourceId** eigenschap op `Get-AzureRmResourceGroup` retourneert. Het patroon voor **bereik** voor elke container als volgt is.
+   Vervang `{rgName}`, `{subId}`, en `{mgName}` met de resource groepsnaam, abonnements-ID, en de naam van beheergroep, respectievelijk.
 
    - Resourcegroep: `/subscriptions/{subId}/resourceGroups/{rgName}`
    - Abonnement: `/subscriptions/{subId}/`

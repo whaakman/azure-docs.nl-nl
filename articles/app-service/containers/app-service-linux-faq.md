@@ -5,7 +5,7 @@ keywords: Azure appservice, web-app, veelgestelde vragen over, linux, oss, web-a
 services: app-service
 documentationCenter: ''
 author: yili
-manager: apurvajo
+manager: stefsch
 editor: ''
 ms.assetid: ''
 ms.service: app-service
@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/26/2018
+ms.date: 10/30/2018
 ms.author: yili
-ms.openlocfilehash: aba6a1f7028ac09cad8acf587fd56dcc2c16919b
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: ac023834cf6516bdf92e4a2ee02081d35f475b81
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44295715"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50249312"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Azure App Service on Linux Veelgestelde vragen
 
@@ -79,7 +79,7 @@ Als uw Linux-web-app niet Git-implementatie, kies een van de volgende opties om 
 - Gebruik de [ZIP API implementeren](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file): Gebruik deze API [SSH in uw web-app](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-ssh-support#making-a-client-connection) en Ga naar de map waar u om uw code te implementeren. Voer de volgende code:
 
    ```bash
-   curl -X POST -u <user> --data-binary @<zipfile> https://{your-sitename}.scm.azurewebsites.net/api/zipdeploy
+   curl -X POST -u <user> --data-binary @<zipfile> https://{your-sitename}.scm.azurewebsites.net/api/zipdeployui
    ```
 
    Als u een foutmelding dat krijgt het `curl` opdracht is niet gevonden, zorg ervoor dat u curl installeren met behulp van `apt-get install curl` voordat u de vorige `curl` opdracht.
@@ -92,7 +92,7 @@ Ja, uitschakelen `perMessageDeflate` in uw Node.js-code op de server. Bijvoorbee
 
 ```nodejs
 var io = require('socket.io')(server,{
-  perMessageDeflate :false
+  perMessageDeflate :false
 });
 ```
 

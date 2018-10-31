@@ -1,7 +1,7 @@
 ---
-title: Gegevens wetenschappelijke virtuele Machine ontwikkelingsprogramma's - Azure | Microsoft Docs
-description: Gegevens wetenschappelijke virtuele machine ontwikkelingsprogramma's.
-keywords: hulpmiddelen voor wetenschappelijke gegevens, gegevens wetenschappelijke virtuele machine, hulpprogramma's voor gegevenswetenschap, gegevenswetenschap linux
+title: Data Science Virtual Machine ontwikkelprogramma's - Azure | Microsoft Docs
+description: Data Science Virtual machine ontwikkelprogramma's.
+keywords: hulpprogramma's voor datatechnologie, virtuele machine voor datatechnologie, hulpprogramma voor datatechnologie, linux-datatechnologie
 services: machine-learning
 documentationcenter: ''
 author: gopitk
@@ -15,80 +15,80 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: gokuma
-ms.openlocfilehash: b8b0b8934b51080c3583281673183c1498c26417
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 2f642a91bd656cb74cdce2a98c44372a64f23cb9
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31408306"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50237874"
 ---
-# <a name="development-tools-on-the-data-science-virtual-machine"></a>Ontwikkelingsprogramma's op de gegevens wetenschappelijke virtuele Machine
+# <a name="development-tools-on-the-data-science-virtual-machine"></a>Ontwikkelhulpprogramma's op de Data Science Virtual Machine
 
-De gegevens wetenschappelijke virtuele Machine (DSVM) biedt een productieve omgeving voor het ontwikkelen van uw door diverse populaire hulpmiddelen en IDE bundeling. Hier volgen een aantal hulpprogramma's die beschikbaar zijn op de DSVM. 
+De Data Science Virtual Machine (DSVM) biedt een productieve omgeving voor het ontwikkelen van apps door bundeling van verschillende populaire hulpprogramma's en IDE. Hier zijn enkele hulpprogramma's die beschikbaar zijn op de DSVM. 
 
 ## <a name="visual-studio-2017"></a>Visual Studio 2017  
 |    |           |
 | ------------- | ------------- |
-| Wat is het?   | Algemeen IDE      |
-| Ondersteunde DSVM versies      | Windows      |
-| Doorgaans worden gebruikt      | Softwareontwikkeling    |
-| Hoe wordt deze geconfigureerd / geïnstalleerd op de DSVM?      | Gegevens wetenschappelijke werkbelasting (extra Python en R), Azure-workload (Hadoop, Data Lake), Node.js, SQL Server-hulpprogramma's, [Visual Studio Tools for AI](https://github.com/Microsoft/vs-tools-for-ai)    |
-| Hoe gebruik / uitvoeren?      | Snelkoppeling op het bureaublad (`C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\devenv.exe`)    |
-| Bijbehorende hulpprogramma's op de DSVM      |     Visual Studio Code, RStudio, Juno  |
+| Wat is het?   | Algemeen gebruik IDE      |
+| Ondersteunde DSVM-versies      | Windows      |
+| Wordt doorgaans gebruikt      | Ontwikkeling van software    |
+| Hoe wordt deze geconfigureerd / geïnstalleerd op de DSVM?      | Data Science-werkbelasting (Python / R tools), Azure-workload (Hadoop, Data Lake), Node.js, SQL Server-hulpprogramma's, [Visual Studio-hulpprogramma's voor AI](https://github.com/Microsoft/vs-tools-for-ai)    |
+| Hoe kan ik gebruik / uitvoeren?      | Snelkoppeling op het bureaublad (`C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\devenv.exe`)    |
+| Meer hulpprogramma's op de DSVM      |     Visual Studio Code, RStudio, Juno  |
 
 ## <a name="visual-studio-code"></a>Visual Studio Code 
 |    |           |
 | ------------- | ------------- |
-| Wat is het?   | Algemeen IDE      |
-| Ondersteunde DSVM versies      | Windows, Linux     |
-| Doorgaans worden gebruikt      | Code-editor en Git-integratie   |
-| Hoe gebruik / uitvoeren?      | Snelkoppeling op het bureaublad (`C:\Program Files (x86)\Microsoft VS Code\Code.exe`) in Windows, snelkoppeling op het bureaublad of terminal (`code`) in Linux    |
-| Bijbehorende hulpprogramma's op de DSVM      |     Visual Studio 2017, RStudio, Juno  |
+| Wat is het?   | Algemeen gebruik IDE      |
+| Ondersteunde DSVM-versies      | Windows, Linux     |
+| Wordt doorgaans gebruikt      | Code-editor en Git-integratie   |
+| Hoe kan ik gebruik / uitvoeren?      | Snelkoppeling op het bureaublad (`C:\Program Files (x86)\Microsoft VS Code\Code.exe`) in Windows, de snelkoppeling op het bureaublad of terminal (`code`) in Linux    |
+| Meer hulpprogramma's op de DSVM      |     Visual Studio 2017, RStudio, Juno  |
 
-## <a name="rstudio--desktop"></a>RStudio bureaublad 
+## <a name="rstudio--desktop"></a>RStudio Desktop 
 |    |           |
 | ------------- | ------------- |
 | Wat is het?   | Client IDE voor R    |
-| Ondersteunde DSVM versies      | Windows, Linux      |
-| Doorgaans worden gebruikt      |  R-ontwikkeling     |
-| Hoe gebruik / uitvoeren?      | Snelkoppeling op het bureaublad (`C:\Program Files\RStudio\bin\rstudio.exe`) in Windows, snelkoppeling op het bureaublad (`/usr/bin/rstudio`) op Linux      |
-| Bijbehorende hulpprogramma's op de DSVM      |   Visual Studio 2017, Visual Studio Code, Juno      |
+| Ondersteunde DSVM-versies      | Windows, Linux      |
+| Wordt doorgaans gebruikt      |  R-ontwikkeling     |
+| Hoe kan ik gebruik / uitvoeren?      | Snelkoppeling op het bureaublad (`C:\Program Files\RStudio\bin\rstudio.exe`) op Windows, snelkoppeling op het bureaublad (`/usr/bin/rstudio`) op Linux      |
+| Meer hulpprogramma's op de DSVM      |   Visual Studio 2017, Visual Studio Code, Juno      |
 
 ## <a name="rstudio--server"></a>RStudio Server 
 |    |           |
 | ------------- | ------------- |
-| Wat is het?   | Web-based IDE voor R    |
-| Ondersteunde DSVM versies      | Linux      |
-| Doorgaans worden gebruikt      |  R-ontwikkeling     |
-| Hoe gebruik / uitvoeren?      | Schakel de service met _systemctl rstudio-server inschakelen_, start de service met _systemctl rstudio-server starten_. U kunt vervolgens aanmelden met RStudio-Server op http://your-vm-ip:8787.       |
-| Bijbehorende hulpprogramma's op de DSVM      |   Visual Studio 2017, Visual Studio Code, RStudio bureaublad      |
+| Wat is het?   | Webgebaseerde IDE voor R    |
+| Ondersteunde DSVM-versies      | Linux      |
+| Wordt doorgaans gebruikt      |  R-ontwikkeling     |
+| Hoe kan ik gebruik / uitvoeren?      | Schakel de service met _systemctl inschakelen rstudio server_, start u de service met _systemctl start rstudio server_. U kunt vervolgens aanmelden bij RStudio Server op http://your-vm-ip:8787.       |
+| Meer hulpprogramma's op de DSVM      |   Visual Studio 2017, Visual Studio Code, RStudio Desktop      |
 
 ## <a name="juno"></a>Juno 
 |    |           |
 | ------------- | ------------- |
-| Wat is het?   | IDE-client voor Julia taal   |
-| Ondersteunde DSVM versies      | Windows, Linux      |
-| Doorgaans worden gebruikt      |  Julia-ontwikkeling     |
-| Hoe gebruik / uitvoeren?      | Snelkoppeling op het bureaublad (`C:\JuliaPro-0.5.1.1\Juno.bat`) in Windows, snelkoppeling op het bureaublad (`/opt/JuliaPro-VERSION/Juno`) op Linux      |
-| Bijbehorende hulpprogramma's op de DSVM      |   Visual Studio 2017, Visual Studio Code, RStudio      |
+| Wat is het?   | IDE-client voor Julia-taal   |
+| Ondersteunde DSVM-versies      | Windows, Linux      |
+| Wordt doorgaans gebruikt      |  Julia-ontwikkeling     |
+| Hoe kan ik gebruik / uitvoeren?      | Snelkoppeling op het bureaublad (`C:\JuliaPro-0.5.1.1\Juno.bat`) op Windows, snelkoppeling op het bureaublad (`/opt/JuliaPro-VERSION/Juno`) op Linux      |
+| Meer hulpprogramma's op de DSVM      |   Visual Studio 2017, Visual Studio Code, RStudio      |
 
 ## <a name="pycharm"></a>Pycharm
 |    |           |
 | ------------- | ------------- |
-| Wat is het?   | IDE-client voor Python taal    |
-| Ondersteunde DSVM versies      | Linux      |
-| Doorgaans worden gebruikt      |  R-ontwikkeling     |
-| Hoe gebruik / uitvoeren?      | Snelkoppeling op het bureaublad (`/usr/bin/pycharm`) op Linux      |
-| Bijbehorende hulpprogramma's op de DSVM      |   Visual Studio 2017, Visual Studio Code, RStudio      |
+| Wat is het?   | IDE-client voor Python-taal    |
+| Ondersteunde DSVM-versies      | Linux      |
+| Wordt doorgaans gebruikt      |  Python-ontwikkeling     |
+| Hoe kan ik gebruik / uitvoeren?      | Snelkoppeling op het bureaublad (`/usr/bin/pycharm`) op Linux      |
+| Meer hulpprogramma's op de DSVM      |   Visual Studio 2017, Visual Studio Code, RStudio      |
 
 
 
-## <a name="powerbi-desktop"></a>Power BI Desktop 
+## <a name="powerbi-desktop"></a>PowerBI Desktop 
 |    |           |
 | ------------- | ------------- |
 | Wat is het?   | Interactieve gegevensvisualisatie en BI-hulpprogramma    |
-| Ondersteunde DSVM versies      | Windows  |
-| Doorgaans worden gebruikt      |  Gegevensvisualisatie en het bouwen van Dashboards   |
-| Hoe gebruik / uitvoeren?      | Snelkoppeling op het bureaublad (`C:\Program Files\Microsoft Power BI Desktop\bin\PBIDesktop.exe`)      |
-| Bijbehorende hulpprogramma's op de DSVM      |   Visual Studio 2017, Visual Studio Code, Juno      |
+| Ondersteunde DSVM-versies      | Windows  |
+| Wordt doorgaans gebruikt      |  Gegevensvisualisatie en het bouwen van Dashboards   |
+| Hoe kan ik gebruik / uitvoeren?      | Snelkoppeling op het bureaublad (`C:\Program Files\Microsoft Power BI Desktop\bin\PBIDesktop.exe`)      |
+| Meer hulpprogramma's op de DSVM      |   Visual Studio 2017, Visual Studio Code, Juno      |
 

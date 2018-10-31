@@ -1,10 +1,10 @@
 ---
-title: Media Encoder Standard standaardinstellingen aanpassen | Microsoft Docs
-description: Dit onderwerp leest het uitvoeren van geavanceerde codering met Media Encoder Standard standaardinstellingen van de taak aanpassen. Het onderwerp laat zien hoe Media Services .NET SDK gebruiken om een codering taak en taak te maken. Ook ziet u hoe aangepaste standaardinstellingen voor de coderingstaak opgeven.
+title: Voorinstellingen voor Media Encoder Standard aanpassen | Microsoft Docs
+description: In dit onderwerp ziet u hoe geavanceerde codering met Media Encoder Standard taak voorinstellingen aanpassen. Het onderwerp wordt beschreven hoe u een codering taak en een taak maken met Media Services .NET SDK. U ziet ook hoe u aangepaste voorinstellingen voor de coderingstaak opgeven.
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: ec95392f-d34a-4c22-a6df-5274eaac445b
 ms.service: media-services
@@ -12,32 +12,32 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/09/2017
+ms.date: 10/30/2018
 ms.author: juliako
-ms.openlocfilehash: 4bdfdb5bd5362d5a8039ca31d498d122843df2a7
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 21f182051e3e92cd126b832876d57854ac126367
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788415"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50247450"
 ---
-# <a name="customizing-media-encoder-standard-presets"></a>Aanpassen Media Encoder Standard voorinstellingen
+# <a name="customizing-media-encoder-standard-presets"></a>Voorinstellingen van aanpassen Media Encoder Standard
 
 ## <a name="overview"></a>Overzicht
 
-In dit artikel laat zien hoe uitvoeren van geavanceerde codering met Media Encoder Standard (MES) met een aangepaste voorinstelling. Het artikel gebruikmaakt van .NET om een taak die voor codering en een taak die wordt uitgevoerd met deze taak te maken.  
+Dit artikel leest hoe geavanceerde codering met Media Encoder Standard (MES) met behulp van een aangepaste voorinstelling. Het artikel gebruikmaakt van .NET om een coderingstaak en een taak die wordt uitgevoerd met deze taak te maken.  
 
-Dit artikel ziet u het aanpassen van een vooraf ingestelde door middel van de [standaardinstelling H264 Multiple Bitrate 720p](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) definitie en het aantal lagen te verminderen. De [Media Encoder Standard aanpassen voorinstellingen](media-services-advanced-encoding-with-mes.md) artikel wordt gedemonstreerd aangepaste standaardinstellingen die kunnen worden gebruikt voor geavanceerde codering taken uitvoeren.
+Dit artikel leest u hoe u een vooraf ingestelde aanpassen door de [H264 Multiple Bitrate 720p](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) vooraf ingesteld en het aantal lagen te verminderen. De [voorinstellingen van Media Encoder Standard aanpassen](media-services-advanced-encoding-with-mes.md) dit artikel ziet u aangepaste voorinstellingen die kunnen worden gebruikt voor het uitvoeren van geavanceerde coderingstaken.
 
-## <a id="customizing_presets"></a> Een definitie MES aanpassen
+## <a id="customizing_presets"></a> Een MES-definitie aanpassen
 
 ### <a name="original-preset"></a>Oorspronkelijke definitie
 
-Opslaan van de JSON die is gedefinieerd in de [standaardinstelling H264 Multiple Bitrate 720p](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) artikel in een bestand met .json-extensie. Bijvoorbeeld: **CustomPreset_JSON.json**.
+Opslaan van de JSON die is gedefinieerd in de [H264 Multiple Bitrate 720p](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) artikel in een bestand met JSON-extensie. Bijvoorbeeld, **CustomPreset_JSON.json**.
 
 ### <a name="customized-preset"></a>Aangepaste voorinstelling
 
-Open de **CustomPreset_JSON.json** bestands- en verwijderen van de eerste drie lagen uit **H264Layers** zodat uw bestand uitziet.
+Open de **CustomPreset_JSON.json** bestands- en verwijderen van de eerste drie lagen uit **H264Layers** , zodat uw bestand er als uitzien volgt.
 
 ```json 
     {  
@@ -110,21 +110,21 @@ Open de **CustomPreset_JSON.json** bestands- en verwijderen van de eerste drie l
     }  
 ```
 
-## <a id="encoding_with_dotnet"></a>Codering met mediaservices .NET SDK
+## <a id="encoding_with_dotnet"></a>Coderen met mediaservices .NET SDK
 
-Het volgende codevoorbeeld maakt gebruik van Media Services .NET SDK naar de volgende taken uitvoeren:
+Het volgende codevoorbeeld maakt gebruik van Media Services .NET SDK aan de volgende taken uitvoeren:
 
-- Maak een codeertaak.
-- Een verwijzing naar de Media Encoder Standard encoder ophalen.
+- Maak een coderingstaak.
+- Een verwijzing naar de Media Encoder Standard encoder worden opgehaald.
 - Laden van de aangepaste JSON-definitie die u hebt gemaakt in de vorige sectie. 
   
         // Load the JSON from the local file.
         string configuration = File.ReadAllText(fileName);  
 
-- Een codering taak toevoegen aan de taak. 
-- Geef de invoer asset moeten worden gecodeerd.
+- Een coderingstaak toevoegen aan de taak. 
+- Geef het invoeractivum moeten worden gecodeerd.
 - Maak een uitvoerasset met de gecodeerde asset.
-- Een gebeurtenis-handler voor het controleren van de voortgang van de taak toevoegen.
+- Voeg een gebeurtenis-handler om te controleren of de taak wordt uitgevoerd.
 - Verzenden van de taak.
    
 #### <a name="create-and-configure-a-visual-studio-project"></a>Maak en configureer een Visual Studio-project.
@@ -268,5 +268,5 @@ namespace CustomizeMESPresests
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="see-also"></a>Zie ook
-[Media Services-codering overzicht](media-services-encode-asset.md)
+[Media Services Encoding overzicht](media-services-encode-asset.md)
 

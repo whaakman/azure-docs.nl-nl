@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/06/2017
 ms.author: ergreenl
-ms.openlocfilehash: a97103aa1b98d1dc93cecc8350892adafd9618ef
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: b58df5ebf5332688424ac6ed2eeb9679487bcdc4
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50156509"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50240253"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-powershell"></a>Azure Active Directory Domain Services met behulp van PowerShell inschakelen
 Dit artikel laat u het inschakelen van Azure Active Directory (AD) Domain Services met behulp van PowerShell.
@@ -38,7 +38,7 @@ Volg de instructies in het artikel [installeren van de Azure PowerShell-module e
 Typ de volgende PowerShell-opdracht voor het maken van de service-principal die is vereist voor Azure AD Domain Services in uw Azure AD-directory.
 ```powershell
 # Create the service principal for Azure AD Domain Services.
-New-AzureADServicePrincipal -AppId “2565bd9d-da50-47d4-8b85-4c97f669dc36”
+New-AzureADServicePrincipal -AppId "2565bd9d-da50-47d4-8b85-4c97f669dc36"
 ```
 
 ## <a name="task-3-create-and-configure-the-aad-dc-administrators-group"></a>Taak 3: Maken en configureren van de groep 'AAD DC Administrators'
@@ -166,7 +166,7 @@ Connect-AzureAD
 Connect-AzureRmAccount
 
 # Create the service principal for Azure AD Domain Services.
-New-AzureADServicePrincipal -AppId “2565bd9d-da50-47d4-8b85-4c97f669dc36”
+New-AzureADServicePrincipal -AppId "2565bd9d-da50-47d4-8b85-4c97f669dc36"
 
 # Create the delegated administration group for AAD Domain Services.
 New-AzureADGroup -DisplayName "AAD DC Administrators" `

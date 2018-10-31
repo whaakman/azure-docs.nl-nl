@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/09/2018
 ms.author: kgremban
-ms.openlocfilehash: c400a084a78af6313e355d65bcbc07a520f55514
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: b470ca15163ef1e74ec9795ad0a2581a24c83474
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50156048"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50250404"
 ---
 # <a name="monitor-the-health-of-azure-iot-hub-and-diagnose-problems-quickly"></a>Controleer de status van Azure IoT Hub en snel problemen vaststellen
 
@@ -24,13 +24,13 @@ Azure Monitor is één bron van controle en registratie voor uw Azure-services. 
 > [!IMPORTANT]
 > De gebeurtenissen die zijn gegenereerd door de IoT Hub-service met behulp van Azure Monitor logboeken met diagnostische gegevens zijn niet gegarandeerd betrouwbaar of geordende. Sommige gebeurtenissen kunnen verloren of die niet de juiste volgorde worden geleverd. Logboeken met diagnostische gegevens ook zijn niet bedoeld om te worden realtime en het duurt enkele minuten voor gebeurtenissen naar uw keuze van de bestemming wordt geschreven.
 
-Azure Resource Health helpt u bij het diagnosticeren en ondersteuning krijgen wanneer een problemen met Azure invloed is op uw resources. Huidige en eerdere status van biedt een gepersonaliseerd dashboard voor uw IoT-Hubs. Doorgaan met het lezen van dit artikel voor meer informatie over hoe u [gebruik Azure Resource Health](#use-azure-resource-health) met uw IoT-hub. 
+Azure Resource Health helpt u bij het diagnosticeren en ondersteuning krijgen wanneer een Azure-probleem gevolgen heeft voor uw resources. Huidige en eerdere status van biedt een gepersonaliseerd dashboard voor uw IoT-Hubs. Doorgaan met het lezen van dit artikel voor meer informatie over hoe u [gebruik Azure Resource Health](#use-azure-resource-health) met uw IoT-hub. 
 
-Naast integreren met deze twee services, biedt IoT Hub ook een eigen metrische gegevens die u gebruiken kunt om te begrijpen van de status van uw IoT-resources. Zie voor meer informatie, [metrische gegevens van IoT-Hub begrijpen][lnk-metrics].
+IoT Hub biedt ook een eigen metrische gegevens die u gebruiken kunt om te begrijpen van de status van uw IoT-resources. Zie voor meer informatie, [metrische gegevens van IoT-Hub begrijpen][lnk-metrics].
 
 ## <a name="use-azure-monitor"></a>Azure Monitor gebruiken
 
-Azure Monitor biedt resourceniveau-diagnostische gegevens, wat betekent dat bewerkingen die binnen uw IoT-hub plaatsvinden te bewaken. 
+Azure Monitor biedt diagnostische gegevens voor Azure-resources, wat betekent dat bewerkingen die binnen uw IoT-hub plaatsvinden te bewaken. 
 
 Azure Monitor diagnostische instellingen vervangt de IoT Hub-bewerkingen bewaken. Als u momenteel gebruikmaakt van bewerkingen controleren, moet u uw werkstromen migreren. Zie voor meer informatie, [migreren uit bewerkingen voor controle-instellingen voor diagnostische gegevens][lnk-migrate].
 
@@ -42,11 +42,9 @@ Zie voor meer informatie over de specifieke metrische gegevens en gebeurtenissen
 
 Azure Monitor houdt bij of verschillende bewerkingen die zich in IoT Hub voordoen. Elke categorie bevat een schema dat definieert hoe gebeurtenissen in die categorie worden gerapporteerd. 
 
-
-
 #### <a name="connections"></a>Verbindingen
 
-De verbindingen categorie nummers apparaat verbinding maken en gebeurtenissen loskoppelen van een IoT-hub, evenals fouten. Het bijhouden van deze categorie is handig voor het identificeren van niet-geautoriseerde verbindingspogingen en voor het bijhouden van een verbinding is verbroken voor apparaten in de gebieden van slechte connectiviteit.
+De verbindingen categorie nummers apparaat verbinding maken en gebeurtenissen loskoppelen van een IoT-hub, evenals fouten. Deze categorie is handig voor het identificeren van niet-geautoriseerde verbindingspogingen en of waarschuwingen wanneer u verbinding met de apparaten kwijtraken.
 
 > [!NOTE]
 > Voor betrouwbare verbindingsstatus van apparaten controleren [apparaat heartbeat][lnk-devguide-heartbeat].
@@ -65,7 +63,13 @@ De verbindingen categorie nummers apparaat verbinding maken en gebeurtenissen lo
 
 #### <a name="cloud-to-device-commands"></a>Cloud-naar-apparaat-opdrachten
 
-De categorie cloud-naar-apparaatopdrachten houdt bij of fouten die optreden bij de IoT-hub en zijn gerelateerd aan de pijplijn cloud-naar-apparaat bericht. Deze categorie bevat fouten die optreden bij het verzenden van berichten van cloud-naar-apparaat (zoals niet-geautoriseerde afzender), het ontvangen van berichten van cloud-naar-apparaat (zoals aantal bezorgingen is overschreden) en het ontvangen van feedback van cloud-naar-apparaat bericht (zoals feedback verlopen). Deze categorie geen fouten van een apparaat dat een cloud-naar-apparaat-bericht niet goed verwerkt als de cloud-naar-apparaat-bericht met succes is afgeleverd af.
+De categorie cloud-naar-apparaatopdrachten houdt bij of fouten die optreden bij de IoT-hub en zijn gerelateerd aan de pijplijn cloud-naar-apparaat bericht. Deze categorie bevat fouten die vanaf optreden:
+
+* Verzenden van cloud-naar-apparaat-berichten (zoals niet-geautoriseerde afzender fouten)
+* Ontvangen van berichten van cloud-naar-apparaat (zoals levering overschrijdt het aantal fouten), en
+* Cloud-naar-apparaat bericht feedback ontvangen (zoals feedback verlopen fouten). 
+
+Deze categorie heeft geen runbookauteur fouten worden gedetecteerd wanneer het cloud-naar-apparaat-bericht is bezorgd, maar niet goed door het apparaat verwerkt.
 
 ```json
 {
@@ -111,7 +115,13 @@ De apparaatcategorie die identiteit operations houdt bij of fouten die optreden 
 
 #### <a name="routes"></a>Routes
 
-De categorie voor het doorsturen van bericht houdt bij of fouten die optreden tijdens de evaluatie van bericht route en eindpunt status van de waargenomen door de IoT Hub. Deze categorie omvat gebeurtenissen zoals wanneer een regel resulteert in 'niet-gedefinieerde', wanneer IoT-Hub markeert een eindpunt als onbestelbaar en eventuele andere fouten die zijn ontvangen van een eindpunt. Deze categorie bevat geen specifieke fouten over berichten zelf (zoals apparaat beperkingsfouten), die worden gerapporteerd in de categorie 'apparaattelemetrie'.
+De categorie voor het doorsturen van bericht houdt bij of fouten die optreden tijdens de evaluatie van bericht route en eindpunt status van de waargenomen door de IoT Hub. Deze categorie omvat gebeurtenissen, zoals:
+
+* Een regel resulteert in "niet-gedefinieerde",
+* IoT Hub een eindpunt markeert als onbestelbaar, of
+* Eventuele fouten die zijn ontvangen van een eindpunt. 
+
+Deze categorie bevat geen specifieke fouten over berichten zelf (zoals apparaat beperkingsfouten), die worden gerapporteerd in de categorie 'apparaattelemetrie'.
 
 ```json
 {
@@ -365,7 +375,7 @@ class Program 
 
 Gebruik Azure Resource Health om te controleren of uw IoT-hub actief en werkend is. U kunt ook meer informatie of een regionale storing is die invloed hebben op de status van uw IoT-hub. Voor meer informatie over specifieke details over de status van uw Azure-IoT-Hub, raden wij aan dat u [gebruikt Azure Monitor](#use-azure-monitor). 
 
-Azure IoT Hub geeft aan dat de status op het niveau van een regionale. Als er een regionale onderbreking die invloed hebben op uw IoT-hub, de status wordt weergegeven als **onbekende**. Zie voor meer informatie over de specifieke statuscontroles die Azure Resource Health uitvoert, [resourcetypen en statuscontroles in Azure resource health][lnk-ARH-checks].
+Azure IoT Hub geeft aan dat de status op het niveau van een regionale. Als een regionale storing van invloed is op uw IoT-hub, de status wordt weergegeven als **onbekende**. Zie voor meer informatie, [resourcetypen en statuscontroles in Azure resource health][lnk-ARH-checks].
 
 Om te controleren of de status van uw IoT-hubs, de volgende stappen uit:
 

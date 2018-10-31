@@ -6,19 +6,19 @@ author: jeffpatt24
 tags: storage
 ms.service: storage
 ms.topic: article
-ms.date: 05/11/2018
+ms.date: 10/30/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: 59eb0ddad72f5e54a23a97a260477f84019eb62c
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 5e730e52d55f6c8c2dd02f69e3efa67017af152b
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49386338"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50242973"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Problemen met Azure Files oplossen in Windows
 
-Dit artikel worden veelvoorkomende problemen met betrekking tot Microsoft Azure-bestanden wanneer u verbinding vanaf Windows-clients maakt. Het biedt ook mogelijke oorzaken en oplossingen voor deze problemen. Naast de stappen in dit artikel, kunt u ook gebruiken [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5) om ervoor te zorgen dat de Windows client-omgeving juiste vereisten heeft. AzFileDiagnostics automatiseert de detectie van de meeste van de symptomen die in dit artikel worden vermeld en helpt bij het instellen van uw omgeving om de optimale prestaties. U kunt ook deze informatie vinden in de [probleemoplosser voor Azure-bestandsshares](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares) waarmee de stappen om u te helpen met problemen die verbinding maken/toewijzing/koppelen Azure-bestandsshares.
+Dit artikel worden veelvoorkomende problemen met betrekking tot Microsoft Azure-bestanden wanneer u verbinding vanaf Windows-clients maakt. Het biedt ook mogelijke oorzaken en oplossingen voor deze problemen. Naast de stappen in dit artikel, kunt u ook gebruiken [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5) om ervoor te zorgen dat de Windows client-omgeving juiste vereisten heeft. AzFileDiagnostics automatiseert de detectie van de meeste van de symptomen die in dit artikel worden vermeld en helpt bij het instellen van uw omgeving om de optimale prestaties. U kunt ook deze informatie vinden in de [probleemoplosser voor Azure-bestandsshares](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares) waarmee de stappen om u te helpen met problemen die verbinding maken/toewijzing/koppelen Azure-bestandsshares.
 
 
 <a id="error53-67-87"></a>
@@ -189,6 +189,24 @@ Als u wilt een bestand kopiëren via het netwerk, moet u het eerst ontsleutelen.
   - Waarde = 1
 
 Let erop dat de registersleutel instellen van invloed is op alle kopieerbewerkingen die worden aangebracht in netwerkshares.
+
+## <a name="slow-enumeration-of-files-and-folders"></a>Trage inventarisatie van bestanden en mappen
+
+### <a name="cause"></a>Oorzaak
+
+Dit probleem kan optreden als er geen voldoende cache op clientcomputer bij grote mappen.
+
+### <a name="solution"></a>Oplossing
+
+Dit probleem op te lossen aanpassen van de **DirectoryCacheEntrySizeMax** registerwaarde om toe te staan in cache plaatsen van grotere mapweergaven in de clientcomputer:
+
+- Locatie: HKLM\System\CCS\Services\Lanmanworkstation\Parameters
+- Waarde mane: DirectoryCacheEntrySizeMax 
+- Type waarde: DWORD
+ 
+ 
+U kunt bijvoorbeeld instellen op 0x100000 en controleren of de prestaties beter worden.
+
 
 ## <a name="need-help-contact-support"></a>Hulp nodig? Neem contact op met ondersteuning.
 Als u nog steeds hulp nodig hebt, [contact op met ondersteuning](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) om op te halen van uw probleem op te lossen snel.

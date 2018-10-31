@@ -9,12 +9,12 @@ ms.workload: core
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: shvija
-ms.openlocfilehash: eaea6adbaef7baf9bb1e617ba0a709cf14edf781
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 0a8cb349be0ffefecb07bc705391684dc57f1b96
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40005575"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50239488"
 ---
 # <a name="receive-events-from-event-hubs-using-go"></a>Gebeurtenissen ontvangen van Event Hubs met behulp van Go
 
@@ -80,7 +80,7 @@ import (
 
 ## <a name="create-service-principal"></a>Een service-principal maken
 
-Maak een nieuwe serviceprincipal door de instructies in [een Azure service-principal maken met Azure CLI 2.0](/cli/azure/create-an-azure-service-principal-azure-cli). De opgegeven referenties opslaan in uw omgeving met de volgende namen. Zowel de Azure SDK voor Go en de Event Hubs-pakket vooraf zijn geconfigureerd voor het zoeken naar deze namen van variabelen.
+Maak een nieuwe serviceprincipal door de instructies in [een Azure service-principal maken met Azure CLI 2.0](/cli/azure/create-an-azure-service-principal-azure-cli). De opgegeven referenties opslaan in uw omgeving met de volgende namen: zowel Azure SDK voor Go en Event Hubs-pakket vooraf zijn geconfigureerd voor het zoeken naar deze namen van variabelen.
 
 ```bash
 export AZURE_CLIENT_ID=
@@ -197,13 +197,7 @@ if err != nil {
 In deze zelfstudie wordt één exemplaar van **EventProcessorHost** gebruikt. Als u wilt verhogen doorvoer en betrouwbaarheid, moet u meerdere exemplaren van **EventProcessorHost** op verschillende systemen. De Leaser system zorgt ervoor dat slechts één ontvanger is gekoppeld aan en ontvangt berichten van een opgegeven partitie op een bepaald tijdstip.
 
 ## <a name="next-steps"></a>Volgende stappen
-
-Ga naar deze pagina's voor meer informatie over Event Hubs:
-
-* [Gebeurtenissen verzenden met Go](event-hubs-go-get-started-send.md)
-* [Event Hubs-overzicht](event-hubs-about.md)
-* [Een Event Hub maken](event-hubs-create.md)
-* [Veelgestelde vragen over Event Hubs](event-hubs-faq.md)
+In deze quickstart maakt u een Go-toepassing die berichten van een event hub ontvangen gemaakt. Zie voor meer informatie over het verzenden van gebeurtenissen naar een event hub met behulp van Go, [verzenden van gebeurtenissen van event hub - Go](event-hubs-go-get-started-send.md).
 
 <!-- Links -->
 [Event Hubs overview]: event-hubs-about.md

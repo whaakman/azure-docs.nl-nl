@@ -3,20 +3,20 @@ title: Azure Cosmos DB-bindingen voor Functions 2.x
 description: Over het gebruik van Azure Cosmos DB-triggers en bindingen in Azure Functions.
 services: functions
 documentationcenter: na
-author: ggailey777
+author: craigshoemaker
 manager: jeconnoc
 keywords: Azure functions, functies, gebeurtenisverwerking, dynamische Computing, serverloze architectuur
 ms.service: azure-functions; cosmos-db
 ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
-ms.author: glenga
-ms.openlocfilehash: fae82d702158b98e0182a0cfa575249c19236ccb
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.author: cshoe
+ms.openlocfilehash: 4a1f9552b9a578cd34f3482e793947e06bb24407
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50157663"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50249777"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-2x"></a>Azure Cosmos DB-bindingen voor Azure Functions 2.x
 
@@ -1707,6 +1707,33 @@ Wanneer u naar de output-parameter in de functie schrijft wordt een document sta
 | Binding | Referentie |
 |---|---|
 | CosmosDB | [Foutcodes in CosmosDB](https://docs.microsoft.com/rest/api/cosmos-db/http-status-codes-for-cosmosdb) |
+
+<a name="host-json"></a>  
+
+## <a name="hostjson-settings"></a>instellingen voor host.JSON
+
+In deze sectie beschrijft de globale configuratie-instellingen beschikbaar voor deze binding in versie 2.x. Voor meer informatie over globale configuratie-instellingen in versie 2.x, Zie [naslaginformatie over host.json voor Azure Functions versie 2.x](functions-host-json.md).
+
+```json
+{
+    "version": "2.0",
+    "extensions": {
+        "cosmosDB": {
+            "connectionMode": "Gateway",
+            "protocol": "Https",
+            "leaseOptions": {
+                "leasePrefix": "prefix1"
+            }
+        }
+    }
+}
+```  
+
+|Eigenschap  |Standaard | Beschrijving |
+|---------|---------|---------| 
+|GatewayMode|Gateway|De verbindingsmodus die door de functie wordt gebruikt bij het verbinden met de Azure Cosmos DB-service. Opties zijn `Direct` en `Gateway`|
+|Protocol|Https|De verbindingsprotocol wordt gebruikt door de functie wanneer verbinding met de Azure Cosmos DB-service.  Lezen [hier voor een uitleg van beide modi](../cosmos-db/performance-tips.md#networking)| 
+|leasePrefix|N.v.t.|Lease-voorvoegsel moet worden gebruikt voor alle functies in een app.| 
 
 ## <a name="next-steps"></a>Volgende stappen
 

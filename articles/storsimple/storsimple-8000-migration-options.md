@@ -11,14 +11,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/20/2018
+ms.date: 10/30/2018
 ms.author: alkohli
-ms.openlocfilehash: 5da67b5141eb61823d3e376b6f0e6b0b3895ca68
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.openlocfilehash: 5166e154e1a67cea777933b6bf8757661a9c3ad5
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46498280"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50242956"
 ---
 # <a name="options-to-migrate-data-from-storsimple-5000-7000-series"></a>Opties voor het migreren van gegevens uit StorSimple 5000-7000 serie 
 
@@ -29,15 +29,21 @@ StorSimple 5000-7000 serie bereikt [einde van ondersteuning](https://support.mic
 
 ## <a name="migration-options"></a>Opties voor de migratie
 
-Klanten met behulp van de StorSimple hebben 5000-7000-serie de volgende twee opties:
+De StorSimple 5000-7000-serie met klanten hebben de volgende opties:
 
-- **Een upgrade uitvoeren naar de StorSimple 8000-serie** : upgrade uitvoeren naar de StorSimple 8000-serie en blijven op het StorSimple-platform.  Dit upgradepad moet klanten hun apparaten uit de 5000-7000 serie vervangen door een 8000-serie. De gegevens is van het apparaat uit de 5000-7000 serie gemigreerd met behulp van het hulpprogramma voor migratie. Zodra de migratie is voltooid is, blijven de apparaten van de StorSimple 8000-serie laag gegevens naar Azure Blob Storage. 
+- **Opties voor Azure**:
+
+    - **Een upgrade uitvoeren naar de StorSimple 8000-serie** : upgrade uitvoeren naar de StorSimple 8000-serie en blijven op het StorSimple-platform.  Dit upgradepad moet klanten hun apparaten uit de 5000-7000 serie vervangen door een 8000-serie. De gegevens is van het apparaat uit de 5000-7000 serie gemigreerd met behulp van het hulpprogramma voor migratie. Zodra de migratie is voltooid is, blijven de apparaten van de StorSimple 8000-serie laag gegevens naar Azure Blob Storage. 
 
     Voor meer informatie over het migreren van gegevens met behulp van een StorSimple 8000-serie, gaat u naar [migreren van gegevens uit de StorSimple 5000-7000 serie 8000-serie apparaat](storsimple-8000-migrate-from-5000-7000.md).
 
-- **Migreren naar Azure File Sync** – dit nieuwe migratieoptie kan klanten voor het opslaan van bestandsshares van hun organisatie in de Azure-bestanden. Deze bestandsshares worden vervolgens centraal voor on-premises toegang met behulp van Azure File Sync (AFS). AFS kan worden geïmplementeerd op een Windows Server-host. De migratie van de werkelijke gegevens wordt vervolgens uitgevoerd als een host worden uitgevoerd of met behulp van het hulpprogramma voor migratie.
+    - **Migreren naar Azure File Sync** – dit nieuwe migratieoptie kan klanten voor het opslaan van bestandsshares van hun organisatie in de Azure-bestanden. Deze bestandsshares worden vervolgens centraal voor on-premises toegang met behulp van Azure File Sync (AFS). AFS kan worden geïmplementeerd op een Windows Server-host. De migratie van de werkelijke gegevens wordt vervolgens uitgevoerd als een host worden uitgevoerd of met behulp van het hulpprogramma voor migratie.
 
     Voor meer informatie over het migreren van gegevens naar Azure File Sync, gaat u naar [gegevens migreren van StorSimple 5000-7000 serie naar Azure File Sync](https://aka.ms/StorSimpleMigrationAFS).
+
+- **Opties van derden**:
+
+    - **Migreren naar Panzura vrijheid NAS** -StorSimple 5000-7000-klanten kiezen kunnen om te migreren naar Panzura vrijheid NAS ze de gegevens bewaren in Azure. Panzura vrijheid om de oplossing biedt een NAS-oplossing die datacenters, kantoren, openbare en privéclouds omvat. De oplossing maakt een lokale, hybride en cloudgegevens in werkstromen voor NFS, SMB- en mobiele clients. Deze migratie wordt ondersteund door Panzura en klanten kunnen aan de slag door het aanvragen van Migratieondersteuning voor van de [Panzura website](https://panzura.com/storsimple-migration/).
 
 ## <a name="migration---frequently-asked-questions"></a>Migratie - Veelgestelde vragen
 
@@ -50,11 +56,11 @@ A. StorSimple 5000-7000 serie bereiken [einde van de service](https://support.mi
 A. U kunt echter ook doorgaan met de gegevens in Azure bij het migreren naar een nieuwere service. 
 
 
-### <a name="q--what-happens-to-the-data-i-have-stored-locally-on-my-storsimple-device"></a>V.  Wat gebeurt er met de gegevens die ik lokaal hebt opgeslagen op het StorSimple-apparaat? 
+### <a name="q-what-happens-to-the-data-i-have-stored-locally-on-my-storsimple-device"></a>V. Wat gebeurt er met de gegevens die ik lokaal hebt opgeslagen op het StorSimple-apparaat? 
 
 A. De gegevens die zich op het lokale apparaat kunnen worden gekopieerd naar de nieuwere service zoals beschreven in de migratie-documenten.
 
-### <a name="what-happens-if-i-want-to-keep-my-storsimple-50007000-series-appliance"></a>Wat gebeurt er als ik wil mijn StorSimple 5000/7000-serie-apparaat? 
+### <a name="q-what-happens-if-i-want-to-keep-my-storsimple-50007000-series-appliance"></a>V. Wat gebeurt er als ik wil mijn StorSimple 5000/7000-serie-apparaat? 
 
 A. Terwijl de services werken blijven kunnen, is Microsoft niet langer kunnen bieden ondersteuning voor hardware en software. Migratie wordt aanbevolen voor bedrijfscontinuïteit.
 

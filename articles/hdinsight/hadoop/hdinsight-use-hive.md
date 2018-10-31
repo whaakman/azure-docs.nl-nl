@@ -10,12 +10,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/23/2018
-ms.openlocfilehash: 446bb23e15d908c8afe189a33e4d8a70faad284a
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 9f22766b0ecbaff027cf4b495624f892d4339d17
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43126634"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50249340"
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>Wat is Apache Hive en HiveQL op Azure HDInsight?
 
@@ -245,8 +245,6 @@ Nu dat u hebt geleerd wat Hive is en hoe u deze wilt gebruiken met Hadoop in HDI
 * [Gegevens uploaden naar HDInsight][hdinsight-upload-data]
 * [Pig gebruiken met HDInsight][hdinsight-use-pig]
 * [MapReduce-taken gebruiken met HDInsight][hdinsight-use-mapreduce]
-
-[hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx
 
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/

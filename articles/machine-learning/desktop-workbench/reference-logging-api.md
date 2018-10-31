@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 09/25/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 7084251102984445e7c2341b78b44f85811ebea7
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f7dac645ef0b732b7f3087a06c74385871d5b1c9
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46958217"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50238333"
 ---
 # <a name="logging-api-reference"></a>Logboekregistratie van API-verwijzing
 
@@ -89,5 +89,5 @@ $ az ml history info -r <runid> -a <artifact/path>
 $ az ml history promote -r <runid> -ap <artifact/prefix> -n <name of asset to create>
 ```
 ## <a name="next-steps"></a>Volgende stappen
-- Doorloop de [classificeren van iris tutoria deel 2](tutorial-classifying-iris-part-2.md) API voor logboekregistratie in actie zien.
+- Doorloop de [classificeren van iris zelfstudie, deel 2](tutorial-classifying-iris-part-2.md) API voor logboekregistratie in actie zien.
 - Beoordeling [gebruik Uitvoeringsgeschiedenis en metrische gegevens van Model in Azure Machine Learning Workbench](how-to-use-run-history-model-metrics.md) beter begrijpen hoe logboekregistratie van API's kan worden gebruikt in de geschiedenis uitvoeren.

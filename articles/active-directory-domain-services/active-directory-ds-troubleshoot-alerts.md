@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2018
+ms.date: 10/25/2018
 ms.author: ergreenl
-ms.openlocfilehash: 0eb028e419f05843da308c824d79a8f4e1883fb2
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: a6928b5a849f35456a6fb7699acd7720f686c2aa
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49429742"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50243058"
 ---
 # <a name="azure-ad-domain-services---troubleshoot-alerts"></a>Azure AD Domain Services - waarschuwingen oplossen
 Dit artikel bevat de handleidingen voor probleemoplossing voor alle waarschuwingen die op uw beheerde domein optreden kunnen.
@@ -37,11 +37,21 @@ Kies de stappen voor probleemoplossing die overeenkomen met de ID of het bericht
 | AADDS103 | *Het IP-adresbereik voor het virtuele netwerk waarin u Azure AD Domain Services hebt ingeschakeld, wordt in een openbare IP-adresbereik. Azure AD Domain Services moeten zijn ingeschakeld in een virtueel netwerk met een privé IP-adresbereik. Deze configuratie heeft gevolgen voor de mogelijkheid van Microsoft om te controleren, beheren, patch en synchroniseren van uw beheerde domein.* | [Adres bevindt zich in een openbare IP-adresbereik](#aadds103-address-is-in-a-public-ip-range) |
 | AADDS104 | *Microsoft kan niet tot de domeincontrollers voor dit beheerde domein. Dit kan gebeuren als een netwerkbeveiligingsgroep (NSG) geconfigureerd op uw virtuele netwerk blokkeert de toegang tot het beheerde domein. Een andere mogelijke reden is als er een door de gebruiker gedefinieerde route blokkeert binnenkomend verkeer van internet is.* | [Netwerkfout](active-directory-ds-troubleshoot-nsg.md) |
 | AADDS105 | *De service-principal met de toepassings-ID "d87dcbc6-a371-462e-88e3-28ad15ec4e64" is verwijderd en vervolgens opnieuw gemaakt. De recreatie blijven achter inconsistent machtigingen op Azure AD Domain Services-resources die nodig zijn om uw beheerde domein te behouden. Synchronisatie van wachtwoorden in uw beheerde domein kan worden beïnvloed.* | [De toepassing van de synchronisatie van wachtwoord is verlopen](active-directory-ds-troubleshoot-service-principals.md#alert-aadds105-password-synchronization-application-is-out-of-date) |
+| AADDS106 | *Uw Azure-abonnement dat is gekoppeld aan uw beheerde domein is verwijderd.  Azure AD Domain Services moet een actief abonnement om door te gaan naar behoren werkt.* | [Azure-abonnement is niet gevonden](#aadds106-your-azure-subscription-is-not-found) |
+| AADDS107 | *Uw Azure-abonnement dat is gekoppeld aan uw beheerde domein is niet actief.  Azure AD Domain Services moet een actief abonnement om door te gaan naar behoren werkt.* | [Azure-abonnement is uitgeschakeld](#aadds107-your-azure-subscription-is-disabled) |
+| AADDS108 | *Een resource die wordt gebruikt voor uw beheerde domein is verwijderd. Deze resource is nodig voor Azure AD Domain Services te laten functioneren.* | [Een resource is verwijderd](#aadds108-resources-for-your-managed-domain-cannot-be-found) |
+| AADDS109 | *Het subnet dat is geselecteerd voor de implementatie van Azure AD Domain Services is vol en heeft geen ruimte voor de extra domeincontroller die moet worden gemaakt.* | [Subnet is vol.](#aadds109-the-subnet-associated-with-your-managed-domain-is-full) |
+| AADDS110 | *We hebben geïdentificeerd dat het subnet van het virtuele netwerk in dit domein mogelijk niet voldoende IP-adressen. Azure AD Domain Services moet ten minste twee beschikbare IP-adressen binnen het subnet is ingeschakeld in. We raden u aan ten minste 3 tot 5 extra IP-adressen binnen het subnet. Dit wordt mogelijk veroorzaakt als andere virtuele machines binnen het subnet, dus het toewijzen van het aantal beschikbare IP-adressen of als er een beperking voor het aantal beschikbare IP-adressen in het subnet is worden geïmplementeerd.* | [Er is onvoldoende IP-adressen](#aadds110-not-enough-ip-address-in-the-managed-domain) |
+| AADDS111 | *Een of meer van de netwerkresources die worden gebruikt door het beheerde domein kan niet worden uitgevoerd op als het doelbereik is vergrendeld.* | [Resources zijn vergrendeld](#aadds111-resources-are-locked) |
+| AADDS112 | *Een of meer van de netwerkresources die worden gebruikt door het beheerde domein kan niet worden uitgevoerd op vanwege beleid restriction(s).* | [Resources zijn onbruikbaar.](#aadds112-resources-are-unusable) |
+| AADDS113 | *De resources die worden gebruikt door Azure AD Domain Services zijn gedetecteerd in een onverwachte status en kunnen niet worden hersteld.* | [Resources zijn niet kan worden hersteld](#aadds113-resources-are-unrecoverable) |
+| AADDS114 | * Azure AD Domain Services-domeincontrollers zijn niet in staat is toegang tot poort 443. Dit is nodig om de service, beheren en bijwerken van uw beheerde domein. * | [Poort 442 geblokkeerd](#aadds114-port-443-blocked) |
 | AADDS500 | *Het beheerde domein voor het laatst is gesynchroniseerd met Azure AD op [datum]. Het is mogelijk dat gebruikers kan zich niet aanmelden bij het beheerde domein of groepslidmaatschappen kunnen niet worden gesynchroniseerd met Azure AD.* | [Synchronisatie nog niet heeft plaatsgevonden sinds langere tijd](#aadds500-synchronization-has-not-completed-in-a-while) |
 | AADDS501 | *Het beheerde domein is laatste back-ups op [datum].* | [Een back-up nog niet is gemaakt in een tijdje](#aadds501-a-backup-has-not-been-taken-in-a-while) |
 | AADDS502 | *Het certificaat voor secure LDAP voor het beheerde domein verloopt op [datum].* | [Certificaat voor secure LDAP verloopt](active-directory-ds-troubleshoot-ldaps.md#aadds502-secure-ldap-certificate-expiring) |
 | AADDS503 | *Het beheerde domein is onderbroken omdat de Azure-abonnement dat is gekoppeld aan het domein niet actief is.* | [Onderbreking vanwege een uitgeschakeld abonnement](#aadds503-suspension-due-to-disabled-subscription) |
 | AADDS504 | *Het beheerde domein is onderbroken vanwege een ongeldige configuratie. De service is te beheren, patch, of bijwerken van de domeincontrollers voor uw beheerde domein gedurende een lange periode.* | [Onderbreking vanwege een ongeldige configuratie](#aadds504-suspension-due-to-an-invalid-configuration) |
+
 
 
 ## <a name="aadds100-missing-directory"></a>AADDS100: Ontbrekende map
@@ -101,6 +111,127 @@ In het virtuele netwerk, kunnen machines aanvragen versturen naar Azure-resource
 3. Ga als volgt [het ophalen van aan de slag met behulp van Azure AD Domain Services-handleiding](active-directory-ds-getting-started.md) om uw beheerde domein opnieuw te maken. Zorg ervoor dat u een virtueel netwerk met een privé IP-adresbereik selecteren.
 4. Naar domein voert u uw virtuele machines naar het nieuwe domein [in deze handleiding](active-directory-ds-admin-guide-join-windows-vm-portal.md).
 8. Om te controleren of de waarschuwing is opgelost, Controleer de status van uw domein in twee uur.
+
+## <a name="aadds106-your-azure-subscription-is-not-found"></a>AADDS106: Uw Azure-abonnement is niet gevonden.
+
+**Waarschuwing:**
+
+*Uw Azure-abonnement dat is gekoppeld aan uw beheerde domein is verwijderd.  Azure AD Domain Services moet een actief abonnement om door te gaan naar behoren werkt.*
+
+**Oplossing:**
+
+Azure AD Domain Services vereist een abonnement op de functie en kan niet worden verplaatst naar een ander abonnement. Omdat het Azure-abonnement waaraan uw beheerde domein is gekoppeld, is verwijderd, moet u opnieuw maken van een Azure-abonnement en Azure AD Domain Services.
+
+1. Maak een Azure-abonnement
+2. [Verwijderen van uw beheerde domein](active-directory-ds-disable-aadds.md) uit uw bestaande Azure AD-map.
+3. Ga als volgt de [aan de slag](active-directory-ds-getting-started.md) handleiding voor het opnieuw maken van een beheerd domein.
+
+## <a name="aadds107-your-azure-subscription-is-disabled"></a>AADDS107: Uw Azure-abonnement is uitgeschakeld
+
+**Waarschuwing:**
+
+*Uw Azure-abonnement dat is gekoppeld aan uw beheerde domein is niet actief.  Azure AD Domain Services moet een actief abonnement om door te gaan naar behoren werkt.*
+
+**Oplossing:**
+
+
+1. [Uw Azure-abonnement verlengen](https://docs.microsoft.com/azure/billing/billing-subscription-become-disable).
+2. Nadat het abonnement wordt verlengd, wordt Azure AD Domain Services een melding ontvangen van Azure naar uw beheerde domein opnieuw in te schakelen.
+
+## <a name="aadds108-resources-for-your-managed-domain-cannot-be-found"></a>AADDS108: Resources voor uw beheerde domein is niet gevonden
+
+**Waarschuwing:**
+
+*Een resource die wordt gebruikt voor uw beheerde domein is verwijderd. Deze resource is nodig voor Azure AD Domain Services te laten functioneren.*
+
+**Oplossing:**
+
+Azure AD Domain Services maakt specifieke resources tijdens de implementatie om te laten functioneren, met inbegrip van openbare IP-adressen, NIC's en een load balancer. Als een van de benoemde worden verwijderd, wordt dit zorgt ervoor dat uw beheerde domein zich in een niet-ondersteunde status en voorkomt u dat uw domein wordt beheerd. Deze waarschuwing wordt gevonden wanneer iemand die dit kan de Azure AD Domain Services-resources bewerken een benodigde bron verwijdert. De volgende stappen beschrijven het herstellen van uw beheerde domein.
+
+1.  Navigeer naar de health-pagina van Azure AD Domain Services
+  1.    Reis naar de [pagina Azure AD Domain Services]() in Azure portal.
+  2.    Klik in de navigatiebalk links op **Health**
+2.  Controleer of de waarschuwing is minder dan 4 uur
+  1.    Klik op de waarschuwing met de ID van de health-pagina **AADDS108**
+  2.    De waarschuwing heeft een tijdstempel voor wanneer het eerst is gevonden. Als dat tijdstempel minder dan 4 uur geleden is, is er een kans dat Azure AD Domain Services opnieuw van de verwijderde resourcegroep maken kunt.
+3.  Als de waarschuwing meer dan 4 uur is, wordt het beheerde domein heeft een onherstelbare status. U moet verwijderen en opnieuw maken van Azure AD Domain Services.
+
+
+## <a name="aadds109-the-subnet-associated-with-your-managed-domain-is-full"></a>AADDS109: Het subnet dat is gekoppeld aan uw beheerde domein is vol.
+
+**Waarschuwing:**
+
+*Het subnet dat is geselecteerd voor de implementatie van Azure AD Domain Services is vol en heeft geen ruimte voor de extra domeincontroller die moet worden gemaakt.*
+
+**Oplossing:**
+
+Dit is een fout niet kan worden hersteld. Als u wilt oplossen, moet u [verwijderen van uw bestaande beheerde domein](active-directory-ds-disable-aadds.md) en [opnieuw maken van uw beheerde domein](active-directory-ds-getting-started.md)
+
+
+## <a name="aadds110-not-enough-ip-address-in-the-managed-domain"></a>AADDS110: Onvoldoende IP-adres in het beheerde domein
+
+**Waarschuwing:**
+
+*We hebben geïdentificeerd dat het subnet van het virtuele netwerk in dit domein mogelijk niet voldoende IP-adressen. Azure AD Domain Services moet ten minste twee beschikbare IP-adressen binnen het subnet is ingeschakeld in. We raden u aan ten minste 3 tot 5 extra IP-adressen binnen het subnet. Dit wordt mogelijk veroorzaakt als andere virtuele machines binnen het subnet, dus het toewijzen van het aantal beschikbare IP-adressen of als er een beperking voor het aantal beschikbare IP-adressen in het subnet is worden geïmplementeerd.*
+
+**Oplossing:**
+
+1. [Verwijderen van uw beheerde domein](#active-directory-ds-disable-aadds.md) uit uw tenant.
+2. Het IP-adresbereik voor het subnet oplossen
+  1. Navigeer naar de [pagina met virtuele netwerken in Azure portal](https://portal.azure.com/?feature.canmodifystamps=true&Microsoft_AAD_DomainServices=preview#blade/HubsExtension/Resources/resourceType/Microsoft.Network%2FvirtualNetworks).
+  2. Selecteer het virtuele netwerk dat u wilt gebruiken voor Azure AD Domain Services.
+  3. Klik op **adresruimte** onder instellingen
+  4. Het adresbereik bijwerken door te klikken op de bestaande adresbereik en te bewerken of een aanvullend adresbereik toe te voegen. Sla uw wijzigingen op.
+  5. Klik op **subnetten** in de navigatiebalk links.
+  6. Klik op het subnet dat u wilt bewerken in de tabel.
+  7. Het adresbereik bijwerken en sla de wijzigingen.
+3. Ga als volgt [het ophalen van aan de slag met behulp van Azure AD Domain Services-handleiding](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started) om uw beheerde domein opnieuw te maken. Zorg ervoor dat u een virtueel netwerk met een privé IP-adresbereik selecteren.
+4. Naar domein voert u uw virtuele machines naar het nieuwe domein [in deze handleiding](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-admin-guide-join-windows-vm-portal).
+5. Controleer de status van uw domein in twee uur om ervoor te zorgen dat u de stappen correct hebt voltooid.
+
+## <a name="aadds111-resources-are-locked"></a>AADDS111: Resources zijn vergrendeld
+
+**Waarschuwing:**
+
+*Een of meer van de netwerkresources die worden gebruikt door het beheerde domein kan niet worden uitgevoerd op als het doelbereik is vergrendeld.*
+
+**Oplossing:**
+
+1.  Beoordeling Resource Manager-bewerking logboeken op de netwerkbronnen (deze informatie geeft op welke vergrendeling houdt gewijzigd).
+2.  Verwijder de vergrendeling op de resources zodat de service-principal voor Azure AD Domain Services kan worden uitgevoerd op deze.
+
+
+## <a name="aadds112-resources-are-unusable"></a>AADDS112: Resources onbruikbaar zijn
+
+**Waarschuwing:**
+
+*Een of meer van de netwerkresources die worden gebruikt door het beheerde domein kan niet worden uitgevoerd op vanwege beleid restriction(s).*
+
+**Oplossing:**
+
+1.  Beoordeling Resource Manager-bewerking logboeken op de netwerkbronnen voor uw beheerde domein
+2.  De beperkingen van het beleid op de resources verzwakken zodat de AAD-DS-service-principal op deze kan werken.
+
+## <a name="aadds113-resources-are-unrecoverable"></a>AADDS113: Resources zijn niet kan worden hersteld
+
+**Waarschuwing:**
+
+*De resources die worden gebruikt door Azure AD Domain Services zijn gedetecteerd in een onverwachte status en kunnen niet worden hersteld.*
+
+**Oplossing:**
+
+Dit is een fout niet kan worden hersteld. Als u wilt oplossen, moet u [verwijderen van uw bestaande beheerde domein](active-directory-ds-disable-aadds.md) en [opnieuw maken van uw beheerde domein](active-directory-ds-getting-started.md)
+
+## <a name="aadds114-port-443-blocked"></a>AADDS114: Poort 443 is geblokkeerd
+
+**Waarschuwing:**
+
+*Azure AD Domain Services-domeincontrollers zijn niet in staat is toegang tot poort 443. Dit is nodig om de service, beheren en bijwerken van uw beheerde domein.*
+
+**Oplossing:**
+
+Binnenkomende toegang toestaan via poort 443 van de netwerkbeveiligingsgroep voor Azure AD Domain Services.
+
 
 ## <a name="aadds500-synchronization-has-not-completed-in-a-while"></a>AADDS500: Synchronisatie is niet voltooid in een tijdje
 

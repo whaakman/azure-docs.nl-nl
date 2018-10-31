@@ -1,6 +1,6 @@
 ---
-title: Hoe het configureren van hybride Azure Active Directory apparaten gekoppelde | Microsoft Docs
-description: Informatie over het configureren van hybride Azure Active Directory verbonden apparaten.
+title: Hybride Azure Active Directory-gekoppelde apparaten configureren| Microsoft Docs
+description: Lees hoe u hybride Azure Active Directory-gekoppelde apparaten kunt configureren.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -13,27 +13,27 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2018
+ms.date: 10/29/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 12d3b358be8bb90b63e5e7310123f8ae7093994c
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 28344ac7c50b48b472ba6f907b116b3b202de454
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43190269"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50238794"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Hoe u uw hybride Azure Active Directory join-implementatie plannen
 
-Een apparaat wordt op een soortgelijke manier aan een gebruiker een andere identiteit die u wilt beveiligen en ook gebruiken voor het beveiligen van uw resources op elk moment en de locatie. U kunt dit doel te bereiken door uw apparaten met identiteiten met Azure AD met behulp van een van de volgende methoden:
+Net zoals een gebruiker, wordt een apparaat ook een identiteit die u wilt beschermen en die u wilt gebruiken om uw bronnen altijd en overal te beschermen. U kunt dit doel bereiken door de identiteiten van uw apparaten naar Azure AD te brengen met een van de volgende methoden:
 
-- Azure AD join
-- Hybrid Azure AD Join
+- Azure AD-koppeling
+- Hybride Azure AD-koppeling
 - Azure AD-registratie
 
-Door uw apparaten meebrengen naar Azure AD, kunt u uw gebruikers productiviteit door middel van eenmalige aanmelding (SSO) in uw cloud en on-premises resources maximaliseren. Op hetzelfde moment, kunt u veilige toegang tot uw cloud en on-premises resources met [voorwaardelijke toegang](../active-directory-conditional-access-azure-portal.md).
+Door uw apparaten naar Azure AD te brengen, optimaliseert u de productiviteit van uw gebruikers via eenmalige aanmelding (SSO) bij al uw on-premises bronnen en cloudbronnen. Tegelijk kunt u de toegang tot uw on-premises bronnen en cloudbronnen beveiligen met [voorwaardelijke toegang](../active-directory-conditional-access-azure-portal.md).
 
-Als u een on-premises Active Directory-omgeving hebt en u wilt deelnemen aan uw domein apparaten naar Azure AD, kunt u dit doen met hybride Azure AD gekoppelde apparaten configureren. Dit artikel vindt u met de bijbehorende stappen voor het implementeren van een hybride Azure AD join in uw omgeving. 
+Als u een on-premises Active Directory-omgeving hebt en u uw domein-gekoppelde apparaten aan Azure AD wilt koppelen, kunt u dit doen door hybride Azure AD-gekoppelde apparaten te configureren. Dit artikel vindt u met de bijbehorende stappen voor het implementeren van een hybride Azure AD join in uw omgeving. 
 
 
 ## <a name="prerequisites"></a>Vereisten
@@ -95,18 +95,18 @@ Als u het hulpprogramma voor systeemvoorbereiding (Sysprep) zijn afhankelijk, zo
 
 Als u al op de momentopname van een virtuele Machine (VM vertrouwen,) te maken van aanvullende virtuele machines, zorg er dan voor dat u een momentopname van een virtuele machine die niet is geconfigureerd voor de hybride Azure AD join.
 
-De registratie van Windows downlevel-apparaten wordt niet ondersteund voor apparaten die zijn geconfigureerd voor gebruiker profiel roaming of zwervende referenties. Als u zwervende profielen of instellingen vertrouwen, gebruikt u Windows 10.
+Hybrid Azure AD join van Windows downlevel-apparaten:
 
-- De registratie van Windows downlevel-apparaten **is** in omgevingen met niet-gefedereerde via naadloze eenmalige aanmelding ondersteund [Azure Active Directory naadloze eenmalige aanmelding](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso-quick-start). 
- 
-- De registratie van Windows downlevel-apparaten **is niet** ondersteund bij het gebruik van Azure AD Pass-through-verificatie zonder naadloze eenmalige aanmelding.
+- **Is** ondersteund in omgevingen met niet-gefedereerde [Azure Active Directory naadloze eenmalige aanmelding](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso-quick-start). 
 
-- De registratie van Windows downlevel-apparaten **is niet** ondersteund voor apparaten die gebruikmaken van zwervende profielen. Als u zwervende profielen of instellingen vertrouwen, gebruikt u Windows 10.
+- **Is niet** ondersteund bij het gebruik van Azure AD Pass-through-verificatie zonder naadloze eenmalige aanmelding.
+
+- **Is niet** ondersteund bij gebruik van zwervende referenties of gebruikersprofiel voor roaming of bij het gebruik van virtuele desktopinfrastructuur (VDI).
 
 
 De registratie van Windows Server met de rol van domeincontroller (DC) wordt niet ondersteund.
 
-Als uw organisatie toegang tot Internet via een geverifieerde uitgaande proxy vereist, moet u ervoor zorgen dat uw Windows 10-computers aan de uitgaande proxy verifiëren kunnen. Omdat Windows 10-computers worden uitgevoerd met behulp van de context van de computer het registreren van apparaten, is het nodig zijn om uitgaande proxy-verificatie met behulp van de context van de computer te configureren.
+Als uw organisatie internettoegang via een geverifieerde uitgaande proxy vereist, moet u ervoor zorgen dat uw Windows 10-computers succesvol kunnen verifiëren bij de uitgaande proxy. Omdat Windows 10-computers apparaatregistratie uitvoeren via machinecontext, moet u verificatie van een uitgaande proxy configureren via machinecontext.
 
 
 Hybride Azure AD join is een proces naar uw on-premises domein apparaten automatisch wordt geregistreerd bij Azure AD. Er zijn gevallen waarin u niet wilt dat al uw apparaten automatisch te registreren. Als dit het geval is, raadpleegt u [over het beheren van de hybride Azure AD join van uw apparaten](hybrid-azuread-join-control.md).
@@ -128,7 +128,7 @@ Als uw omgeving heeft beheerde domeinen, ondersteunt hybride Azure AD join:
 
 - Synchronisatie van Wachtwoordhashes (WHS) met naadloze eenmalige aanmelding (SSO) 
 
-Vanaf versie 1.1.819.0, biedt Azure AD Connect u de wizard een hybride Azure AD join configureren. De wizard kunt u het configuratieproces aanzienlijk te vereenvoudigen. Zie voor meer informatie:
+Vanaf versie 1.1.819.0 bevat Azure AD Connect een wizard om hybride Azure AD-koppeling te configureren. Met de wizard kunt u het configuratieproces aanzienlijk vereenvoudigen. Zie voor meer informatie:
 
 - [Hybride Azure Active Directory-deelname configureren voor federatieve domeinen](hybrid-azuread-join-federated-domains.md)
 

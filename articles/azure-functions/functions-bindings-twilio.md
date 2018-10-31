@@ -3,21 +3,21 @@ title: Azure Functions Twilio-binding
 description: Over het gebruik van Twilio-bindingen met Azure Functions.
 services: functions
 documentationcenter: na
-author: ggailey777
+author: craigshoemaker
 manager: jeconnoc
 keywords: Azure functions, functies, gebeurtenisverwerking, dynamische Computing, serverloze architectuur
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
 ms.date: 07/09/2018
-ms.author: glenga
+ms.author: cshoe
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0a0c9fafc9db0c4361d0b1b51b15979e8fe33e27
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 9832281b586bf4377096ff28362b4fc180480aea
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50086002"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50246141"
 ---
 # <a name="twilio-binding-for-azure-functions"></a>Twilio-binding voor Azure Functions
 
@@ -122,7 +122,7 @@ public static void Run(string myQueueItem, out SMSMessage message,  TraceWriter 
 }
 ```
 
-U kunt niet gebruiken in asynchrone code uitvoerparameters. Hier volgt een asynchrone C#-code-voorbeeldscript:
+U kunt niet gebruiken in synchrone code uitvoerparameters. Hier volgt een asynchrone C#-code-voorbeeldscript:
 
 ```cs
 #r "Newtonsoft.Json"
@@ -216,20 +216,31 @@ Zie het voorbeeld taalspecifieke:
 Het volgende voorbeeld wordt een [C#-functie](functions-dotnet-class-library.md) die verstuurt een tekstbericht wanneer ze worden geactiveerd door een wachtrijbericht.
 
 ```cs
-[FunctionName("QueueTwilio")]
-[return: TwilioSms(AccountSidSetting = "TwilioAccountSid", AuthTokenSetting = "TwilioAuthToken", From = "+1425XXXXXXX" )]
-public static CreateMessageOptions Run(
-    [QueueTrigger("myqueue-items", Connection = "AzureWebJobsStorage")] JObject order,
-    ILogger log)
+using Microsoft.Azure.WebJobs;
+using Microsoft.Extensions.Logging;
+using Newtonsoft.Json.Linq;
+using Twilio.Rest.Api.V2010.Account;
+using Twilio.Types;
+namespace TwilioQueueOutput
 {
-    log.LogInformation($"C# Queue trigger function processed: {order}");
-
-    var message = new CreateMessageOptions(new PhoneNumber(order["mobileNumber"].ToString()))
+    public static class QueueTwilio
     {
-        Body = $"Hello {order["name"]}, thanks for your order!"
-    };
+        [FunctionName("QueueTwilio")]
+        [return: TwilioSms(AccountSidSetting = "TwilioAccountSid", AuthTokenSetting = "TwilioAuthToken", From = "+1425XXXXXXX")]
+        public static CreateMessageOptions Run(
+        [QueueTrigger("myqueue-items", Connection = "AzureWebJobsStorage")] JObject order,
+        ILogger log)
+        {
+            log.LogInformation($"C# Queue trigger function processed: {order}");
 
-    return message;
+            var message = new CreateMessageOptions(new PhoneNumber(order["mobileNumber"].ToString()))
+            {
+                Body = $"Hello {order["name"]}, thanks for your order!"
+            };
+
+            return message;
+        }
+    }
 }
 ```
 
@@ -247,9 +258,8 @@ Voorbeeld van de function.json:
 {
   "type": "twilioSms",
   "name": "message",
-  "accountSid": "TwilioAccountSid",
-  "authToken": "TwilioAuthToken",
-  "to": "+1704XXXXXXX",
+  "accountSidSetting": "TwilioAccountSid",
+  "authTokenSetting": "TwilioAuthToken",
   "from": "+1425XXXXXXX",
   "direction": "out",
   "body": "Azure Functions Testing"
@@ -260,11 +270,13 @@ Hier volgt een C#-scriptcode:
 
 ```cs
 #r "Newtonsoft.Json"
-#r "Twilio.Api"
+#r "Twilio"
+#r "Microsoft.Azure.WebJobs.Extensions.Twilio"
 
 using System;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
+using Microsoft.Azure.WebJobs.Extensions.Twilio;
 using Twilio.Rest.Api.V2010.Account;
 using Twilio.Types;
 
@@ -277,27 +289,26 @@ public static void Run(string myQueueItem, out CreateMessageOptions message,  IL
     dynamic order = JsonConvert.DeserializeObject(myQueueItem);
     string msg = "Hello " + order.name + ", thank you for your order.";
 
-    // Even if you want to use a hard coded message and number in the binding, you must at least
-    // initialize the CreateMessageOptions variable.
+    // You must initialize the CreateMessageOptions variable with the "To" phone number.
     message = new CreateMessageOptions(new PhoneNumber("+1704XXXXXXX"));
 
     // A dynamic message can be set instead of the body in the output binding. In this example, we use
-    // the order information to personalize a text message to the mobile number provided for
-    // order status updates.
+    // the order information to personalize a text message.
     message.Body = msg;
-    message.To = order.mobileNumber;
 }
 ```
 
-U kunt niet gebruiken in asynchrone code uitvoerparameters. Hier volgt een asynchrone C#-code-voorbeeldscript:
+U kunt niet gebruiken in synchrone code uitvoerparameters. Hier volgt een asynchrone C#-code-voorbeeldscript:
 
 ```cs
 #r "Newtonsoft.Json"
-#r "Twilio.Api"
+#r "Twilio"
+#r "Microsoft.Azure.WebJobs.Extensions.Twilio"
 
 using System;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
+using Microsoft.Azure.WebJobs.Extensions.Twilio;
 using Twilio.Rest.Api.V2010.Account;
 using Twilio.Types;
 
@@ -310,15 +321,12 @@ public static async Task Run(string myQueueItem, IAsyncCollector<CreateMessageOp
     dynamic order = JsonConvert.DeserializeObject(myQueueItem);
     string msg = "Hello " + order.name + ", thank you for your order.";
 
-    // Even if you want to use a hard coded message and number in the binding, you must at least
-    // initialize the CreateMessageOptions variable.
+    // You must initialize the CreateMessageOptions variable with the "To" phone number.
     CreateMessageOptions smsText = new CreateMessageOptions(new PhoneNumber("+1704XXXXXXX"));
 
     // A dynamic message can be set instead of the body in the output binding. In this example, we use
-    // the order information to personalize a text message to the mobile number provided for
-    // order status updates.
+    // the order information to personalize a text message.
     smsText.Body = msg;
-    smsText.To = order.mobileNumber;
 
     await message.AddAsync(smsText);
 }
@@ -336,9 +344,8 @@ Voorbeeld van de function.json:
 {
   "type": "twilioSms",
   "name": "message",
-  "accountSid": "TwilioAccountSid",
-  "authToken": "TwilioAuthToken",
-  "to": "+1704XXXXXXX",
+  "accountSidSetting": "TwilioAccountSid",
+  "authTokenSetting": "TwilioAuthToken",
   "from": "+1425XXXXXXX",
   "direction": "out",
   "body": "Azure Functions Testing"
@@ -355,13 +362,12 @@ module.exports = function (context, myQueueItem) {
     // customer and a mobile number to send text updates to.
     var msg = "Hello " + myQueueItem.name + ", thank you for your order.";
 
-    // Even if you want to use a hard coded message and number in the binding, you must at least
+    // Even if you want to use a hard coded message in the binding, you must at least
     // initialize the message binding.
     context.bindings.message = {};
 
-    // A dynamic message can be set instead of the body in the output binding. In this example, we use
-    // the order information to personalize a text message to the mobile number provided for
-    // order status updates.
+    // A dynamic message can be set instead of the body in the output binding. The "To" number 
+    // must be specified in code. 
     context.bindings.message = {
         body : msg,
         to : myQueueItem.mobileNumber
@@ -379,13 +385,9 @@ Zie voor meer informatie over de kenmerkeigenschappen die u kunt configureren, [
 
 ```csharp
 [FunctionName("QueueTwilio")]
-[return: TwilioSms(
-    AccountSidSetting = "TwilioAccountSid", 
-    AuthTokenSetting = "TwilioAuthToken", 
-    From = "+1425XXXXXXX" )]
-public static SMSMessage Run(
-    [QueueTrigger("myqueue-items", Connection = "AzureWebJobsStorage")] JObject order,
-    ILogger log)
+[return: TwilioSms(AccountSidSetting = "TwilioAccountSid", AuthTokenSetting = "TwilioAuthToken", From = "+1425XXXXXXX")]
+public static CreateMessageOptions Run(
+[QueueTrigger("myqueue-items", Connection = "AzureWebJobsStorage")] JObject order, ILogger log)
 {
     ...
 }
@@ -397,16 +399,16 @@ Zie voor een compleet voorbeeld [C#-voorbeeld](#c-example).
 
 De volgende tabel beschrijft de binding configuratie-eigenschappen die u instelt in de *function.json* bestand en de `TwilioSms` kenmerk.
 
-|de eigenschap Function.JSON | De kenmerkeigenschap |Beschrijving|
-|---------|---------|----------------------|
-|**type**|| Moet worden ingesteld op `twilioSms`.|
-|**direction**|| Moet worden ingesteld op `out`.|
-|**De naam**|| Naam van de variabele die wordt gebruikt in de functiecode aan te geven voor de Twilio-SMS-bericht. |
-|**accountSid**|**AccountSid**| Deze waarde moet worden ingesteld op de naam van een app-instelling met de Sid van uw Twilio-Account.|
-|**authToken**|**authToken**| Deze waarde moet worden ingesteld op de naam van een app-instelling met uw Twilio-verificatietoken.|
-|**Aan**|**Aan**| Deze waarde is ingesteld voor het telefoonnummer dat naar de SMS-tekst wordt verzonden.|
-|**Van**|**Van**| Deze waarde is ingesteld voor het telefoonnummer dat door de SMS-tekst wordt verzonden.|
-|**De hoofdtekst**|**Hoofdtekst**| Deze waarde kan harde code voor de SMS-bericht als u niet wilt dynamisch instellen in de code voor uw functie worden gebruikt. |
+| V1 function.json eigenschap | de eigenschap function.json v2 | De kenmerkeigenschap |Beschrijving|
+|---------|---------|---------|----------------------|
+|**type**|**type**| Moet worden ingesteld op `twilioSms`.|
+|**direction**|**direction**| Moet worden ingesteld op `out`.|
+|**De naam**|**De naam**| Naam van de variabele die wordt gebruikt in de functiecode aan te geven voor de Twilio-SMS-bericht. |
+|**accountSid**|**accountSidSetting**| **AccountSidSetting**| Deze waarde moet worden ingesteld op de naam van een app-instelling met uw Twilio-Account-Sid bijvoorbeeld TwilioAccountSid. Als niet is ingesteld, de standaardapp-instelling is de naam 'AzureWebJobsTwilioAccountSid'. |
+|**authToken**|**authTokenSetting**|**AuthTokenSetting**| Deze waarde moet worden ingesteld op de naam van een app-instelling met uw Twilio-verificatietoken bijvoorbeeld TwilioAccountAuthToken. Als niet is ingesteld, de standaardapp-instelling is de naam 'AzureWebJobsTwilioAuthToken'. |
+|**Aan**| N.V.T. - opgeven in code | **Aan**| Deze waarde is ingesteld voor het telefoonnummer dat naar de SMS-tekst wordt verzonden.|
+|**Van**|**Van** | **Van**| Deze waarde is ingesteld voor het telefoonnummer dat door de SMS-tekst wordt verzonden.|
+|**De hoofdtekst**|**De hoofdtekst** | **Hoofdtekst**| Deze waarde kan harde code voor de SMS-bericht als u niet wilt dynamisch instellen in de code voor uw functie worden gebruikt. |  
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 

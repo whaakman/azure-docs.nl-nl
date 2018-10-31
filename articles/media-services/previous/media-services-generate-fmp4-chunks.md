@@ -1,30 +1,30 @@
 ---
-title: Een Azure Media Services codering taak maken die wordt gegenereerd fMP4 segmenten | Microsoft Docs
-description: Dit onderwerp leest hoe u een codering taak maken die wordt gegenereerd fMP4 segmenten. Wanneer deze taak wordt gebruikt met Media Encoder Standard of codering met Media Encoder Premium werkstroom, bevat de uitvoerasset fMP4 segmenten in plaats van ISO MP4-bestanden.
+title: Een Azure Media Services encoding-taak maken die fMP4-chunks worden | Microsoft Docs
+description: In dit onderwerp laat zien hoe een coderingstaak waarmee fMP4-chunks worden gemaakt. Wanneer deze taak wordt gebruikt met de Media Encoder Standard of codering Media Encoder Premium Workflow, bevat de uitvoerasset fMP4-chunks in plaats van ISO MP4-bestanden.
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/09/2017
+ms.date: 10/30/2018
 ms.author: juliako
-ms.openlocfilehash: 09dd5ea447449bc23f49699dc69647550f62738a
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: f2f3784ea2cb4a7864faef6a4e49edd7a289afc2
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788205"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50250549"
 ---
-#  <a name="create-an-encoding-task-that-generates-fmp4-chunks"></a>Een codering taak maken die wordt gegenereerd fMP4 segmenten
+#  <a name="create-an-encoding-task-that-generates-fmp4-chunks"></a>Een coderingstaak waarmee fMP4-chunks worden maken
 
 ## <a name="overview"></a>Overzicht
 
-Dit artikel laat zien hoe u een codering taak maken die wordt gegenereerd gefragmenteerde MP4 segmenten in plaats van ISO MP4-bestanden (fMP4). Als fMP4 segmenten worden gegenereerd, gebruiken de **Media Encoder Standard** of **Media Encoder Premium werkstroom** encoder te maken van een taak die voor codering en ook **AssetFormatOption.AdaptiveStreaming**  optie, zoals in dit codefragment:  
+Dit artikel wordt beschreven hoe u maakt een coderingstaak die wordt gegenereerd gefragmenteerde MP4 (fMP4) segmenten in plaats van ISO MP4-bestanden. Voor het genereren van fMP4-chunks, gebruikt u de **Media Encoder Standard** of **Media Encoder Premium Workflow** coderingsprogramma te maken van een coderingstaak ook opgeven **AssetFormatOption.AdaptiveStreaming**  optie, zoals in dit codefragment wordt getoond:  
     
 ```csharp
     task.OutputAssets.AddNew(@"Output Asset containing fMP4 chunks", 
@@ -32,15 +32,15 @@ Dit artikel laat zien hoe u een codering taak maken die wordt gegenereerd gefrag
             formatOption: AssetFormatOption.AdaptiveStreaming);
 ```
 
-## <a id="encoding_with_dotnet"></a>Codering met mediaservices .NET SDK
+## <a id="encoding_with_dotnet"></a>Coderen met mediaservices .NET SDK
 
-Het volgende codevoorbeeld maakt gebruik van Media Services .NET SDK naar de volgende taken uitvoeren:
+Het volgende codevoorbeeld maakt gebruik van Media Services .NET SDK aan de volgende taken uitvoeren:
 
-- Maak een codeertaak.
-- Geen verwijzing ophalen naar de **Media Encoder Standard** encoder.
-- Een codering taak toevoegen aan het project en geef voor het gebruik van de **adaptief streamen** vooraf ingestelde. 
-- Maak een uitvoerasset die fMP4 segmenten en een ISM-bestand bevat.
-- Een gebeurtenis-handler voor het controleren van de voortgang van de taak toevoegen.
+- Maak een coderingstaak.
+- Geen verwijzing ophalen naar de **Media Encoder Standard** coderingsprogramma.
+- Een coderingstaak toevoegen aan het project en geef voor het gebruik van de **adaptief streamen** vooraf ingestelde. 
+- Maak een uitvoerasset die fMP4-chunks en een ISM-bestand zal bevatten.
+- Voeg een gebeurtenis-handler om te controleren of de taak wordt uitgevoerd.
 - Verzenden van de taak.
 
 #### <a name="create-and-configure-a-visual-studio-project"></a>Maak en configureer een Visual Studio-project.
@@ -177,5 +177,5 @@ namespace AdaptiveStreaming
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="see-also"></a>Zie ook
-[Media Services-codering overzicht](media-services-encode-asset.md)
+[Media Services Encoding overzicht](media-services-encode-asset.md)
 

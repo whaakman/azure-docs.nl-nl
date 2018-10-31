@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/15/2017
 ms.author: rafats
-ms.openlocfilehash: d74aa6b7ef762b7971fd67654e7fc1a23a8d83cc
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: e0cbf806b7999a56ccdf2826a735238fe8130bf5
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42057502"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50240576"
 ---
 # <a name="azure-cosmos-db-database-security"></a>Azure Cosmos DB-database-beveiliging
 
@@ -67,7 +67,7 @@ Laten we even stilstaan bij elkaar in detail.
 |Gebruikers en machtigingen|Met behulp van de [hoofdsleutel](#master-key) voor het account, kunt u resources van gebruiker en machtiging resources per database maken. Een [resourcetoken](#resource-token) is gekoppeld aan een machtiging in een database en bepaalt of de gebruiker heeft toegang (lezen / schrijven, alleen-lezen, of geen toegang) tot de bron van een toepassing in de database. Toepassingsresources omvatten container, documenten, bijlagen, opgeslagen procedures, triggers en UDF's. De resourcetoken wordt vervolgens gebruikt tijdens de verificatie om te geven of weigeren van toegang tot de resource.<br><br>Meer informatie in [toegang tot Azure Cosmos DB-resources beveiligen](secure-access-to-data.md).|
 |Active directory-integratie (RBAC)| U kunt ook toegang bieden tot het account van de database met behulp van toegangsbeheer (IAM) in Azure portal, zoals wordt weergegeven in de schermopname onder deze tabel. IAM biedt op rollen gebaseerd toegangsbeheer en kan worden geïntegreerd met Active Directory. U kunt ingebouwde rollen of aangepaste rollen gebruiken voor individuen en groepen, zoals wordt weergegeven in de volgende afbeelding.|
 |Globale replicatie|Azure Cosmos DB biedt kant en klare wereldwijde distributie, waarmee u uw gegevens gerepliceerd naar een van de world wide-datacenters van Azure met één klik op een knop. Globale replicatie kunt u wereldwijd schalen en lage latentie toegang bieden tot uw gegevens over de hele wereld.<br><br>In de context van beveiliging gegevensbeveiliging globale replicatie tegen regionale fouten.<br><br>Zie [Gegevens wereldwijd distribueren](distribute-data-globally.md) voor meer informatie.|
-|Regionale failovers|Als u uw gegevens in meer dan één datacenter zijn gerepliceerd, Azure Cosmos DB automatisch wordt getotaliseerd via uw bewerkingen moet een regionaal datacenter offline gaan. U kunt een geprioriteerde lijst met failover-regio's met behulp van de regio's waarin uw gegevens worden gerepliceerd. <br><br>Meer informatie in [regionale Failovers in Azure Cosmos DB](regional-failover.md).|
+|Regionale failovers|Als u uw gegevens in meer dan één datacenter zijn gerepliceerd, Azure Cosmos DB automatisch wordt getotaliseerd via uw bewerkingen moet een regionaal datacenter offline gaan. U kunt een geprioriteerde lijst met failover-regio's met behulp van de regio's waarin uw gegevens worden gerepliceerd. <br><br>Meer informatie in [regionale Failovers in Azure Cosmos DB](high-availability.md).|
 |Lokale replicatie|Zelfs binnen één datacentrum, Azure Cosmos DB automatisch worden gegevens gerepliceerd voor hoge beschikbaarheid, waarbij u de keuze van [consistentieniveaus](consistency-levels.md). Dit garandeert een 99,99% [beschikbaarheids-SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db) voor alle accounts voor één regio en alle accounts voor meerdere regio's met soepele consistentie en leesbeschikbaarheid van 99,999% beschikbaarheid voor alle databaseaccounts voor meerdere regio's.|
 |Automatische online back-ups|Azure Cosmos DB-databases worden regelmatig een back-up gemaakt en opgeslagen in een winkel georedundant. <br><br>Meer informatie in [automatische online back-up en herstel met Azure Cosmos DB](online-backup-and-restore.md).|
 |Terugzetten van verwijderde gegevens|De geautomatiseerde online back-ups kunnen worden gebruikt om gegevens die u hebt mogelijk per ongeluk verwijderd tot ongeveer 30 dagen na de gebeurtenis te herstellen. <br><br>Meer informatie in [automatische online back-up en herstel met Azure Cosmos DB](online-backup-and-restore.md)|

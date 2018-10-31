@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/20/2018
 ms.author: anwestg
-ms.openlocfilehash: 08fcaa44fc807f986324b8304010792af99fd838
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 786f6ca3b3a1ad26d36c751c54d3cf69ae1d2fd4
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387993"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50240865"
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Voordat u aan de slag met App Service in Azure Stack
 
@@ -170,7 +170,7 @@ Azure App Service is vereist voor het gebruik van een bestandsserver. Voor produ
 Voor alleen voor implementaties van Azure Stack Development Kit, kunt u de [voorbeeld van Azure Resource Manager-implementatiesjabloon](https://aka.ms/appsvconmasdkfstemplate) om een geconfigureerde bestandsserver van één knooppunt te implementeren. De bestandsserver van één knooppunt bevindt zich in een werkgroep.
 
 >[!IMPORTANT]
-> Als u ervoor kiest om te implementeren App Service in een bestaand Virtueelnetwerk moet de Server worden geïmplementeerd in een apart Subnet vanuit App Service.
+> Als u ervoor kiest om App Service in een bestaand Virtueelnetwerk te implementeren, moet de Server worden geïmplementeerd in een apart Subnet vanuit App Service.
 
 ### <a name="provision-groups-and-accounts-in-active-directory"></a>Inrichten van groepen en accounts in Active Directory
 

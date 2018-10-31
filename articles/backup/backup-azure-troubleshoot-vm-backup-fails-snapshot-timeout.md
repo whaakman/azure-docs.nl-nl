@@ -7,14 +7,14 @@ manager: cshepard
 keywords: Azure back-up. VM-agent; Verbinding met het netwerk;
 ms.service: backup
 ms.topic: troubleshooting
-ms.date: 06/25/2018
+ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: ce4a889cae852d333ea9862138f4d44471677c26
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: 5c37e2e3cabb81ed123146f283c7d568cc58816d
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45544010"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50242619"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Azure Backup oplossen: problemen met de agent of de extensie
 
@@ -181,7 +181,7 @@ De extensie verwijderen:
 
 1. In de [Azure-portal](https://portal.azure.com/), gaat u naar de virtuele machine waarop back-upfouten zich voordoet.
 2. Selecteer **instellingen**.
-3. Selecteer **extensies**.
+3. Selecteer **Extensies**.
 4. Selecteer **Vmsnapshot-extensie**.
 5. Selecteer **verwijderen**.
 
@@ -195,7 +195,7 @@ Dit probleem is specifiek voor beheerde VM's waarin de gebruiker Hiermee vergren
 #### <a name="solution"></a>Oplossing
 
 Los het probleem, verwijder de vergrendeling van de resourcegroep en voer de volgende stappen uit als u wilt verwijderen van de verzameling van herstelpunt: 
- 
+ 
 1. Verwijder de vergrendeling in de resourcegroep waarin de virtuele machine zich bevindt. 
 2. Installeer ARMClient Chocolatey met: <br>
    https://github.com/projectkudu/ARMClient

@@ -11,22 +11,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/31/2018
+ms.date: 10/29/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: cb2b4bdee445587b32516c8db869170ab067b8d3
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: c94ecc223c4e2c0533c23e58823bb203064ceef6
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406854"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50250447"
 ---
 # <a name="troubleshooting-errors-during-synchronization"></a>Synchronisatiefouten oplossen
 Fouten kunnen zich voordoen wanneer identiteitsgegevens worden gesynchroniseerd vanuit Windows Server Active Directory (AD DS) naar Azure Active Directory (Azure AD). Dit artikel bevat een overzicht van verschillende typen synchronisatiefouten enkele van de mogelijke scenario's die ertoe leiden dat deze fouten en mogelijke manieren de fouten te herstellen. In dit artikel bevat de algemene fouttypen en kan geen betrekking op alle mogelijke fouten.
 
  In dit artikel wordt ervan uitgegaan dat de lezer bekend bent met de onderliggende is [ontwerpconcepten van Azure AD en Azure AD Connect](plan-connect-design-concepts.md).
 
-Met de meest recente versie van Azure AD Connect \(augustus 2016 of hoger\), een rapport over synchronisatiefouten is beschikbaar in de [Azure Portal](https://aka.ms/aadconnecthealth) als onderdeel van Azure AD Connect Health voor synchroniseren.
+Met de meest recente versie van Azure AD Connect \(augustus 2016 of hoger\), een rapport over synchronisatiefouten is beschikbaar in de [Azure-portal](https://aka.ms/aadconnecthealth) als onderdeel van Azure AD Connect Health voor synchroniseren.
 
 Vanaf 1 September 2016 [Azure Active Directory dubbel kenmerk tolerantie](how-to-connect-syncservice-duplicate-attribute-resiliency.md) functie wordt standaard ingeschakeld voor alle de *nieuwe* Azure Active Directory-Tenants. Deze functie wordt automatisch ingeschakeld voor bestaande tenants in de komende maanden.
 
@@ -219,6 +219,29 @@ Wanneer een kenmerk overschrijdt de maximale toegestane grootte, de maximale len
 
 ### <a name="how-to-fix"></a>Voor het oplossen van
 1. Zorg ervoor dat het kenmerk dat de fout veroorzaakt binnen de toegestane beperking.
+
+## <a name="existing-admin-role-conflict"></a>Conflict met bestaande beheerdersrol
+
+### <a name="description"></a>Beschrijving
+Een **bestaande Admin rol Conflict** van een gebruikersobject tijdens de synchronisatie wordt uitgevoerd wanneer dat gebruikersobject heeft:
+
+- beheerdersmachtigingen en
+- de dezelfde UserPrincipalName als een bestaande Azure AD-object
+
+Azure AD Connect is niet toegestaan op zachte overeenkomst met een gebruikersobject van on-premises AD met een gebruikersobject in Azure AD en waaraan een beheerdersrol toegewezen.  Zie voor meer informatie [Azure AD UserPrincipalName populatie](plan-connect-userprincipalname.md)
+
+![Bestaande Admin](media/tshoot-connect-sync-errors/existingadmin.png)
+
+
+### <a name="how-to-fix"></a>Voor het oplossen van
+Om op te lossen dit probleem als volgt een van de volgende:
+
+
+- Wijzig de UserPrincipalName in een waarde die komt niet overeen met die van een gebruiker met beheerdersrechten in Azure AD - Hiermee u een nieuwe gebruiker in Azure AD met de overeenkomende UserPrincipalName maakt
+- Verwijder de beheerdersrol van de gebruiker met beheerdersrechten in Azure AD, zodat de zachte match tussen het on-premises-gebruikersobject en het bestaande object van de Azure AD-gebruiker.
+
+>[!NOTE]
+>U kunt de beheerdersrol toewijzen aan het bestaande gebruikersobject opnieuw nadat de zachte match tussen het on-premises-gebruikersobject en het Azure AD-gebruikersobject is voltooid.
 
 ## <a name="related-links"></a>Verwante koppelingen
 * [Ga naar Active Directory-objecten in Active Directory-beheercentrum](https://technet.microsoft.com/library/dd560661.aspx)

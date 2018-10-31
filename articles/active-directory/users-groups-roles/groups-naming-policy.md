@@ -14,12 +14,12 @@ ms.date: 05/21/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 111be7d3ee00f2b40ace3bfe4efdacc5029ccf77
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 2857f95eff0b2d039a1a3c7bbe566a8ed3ca4fea
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39239131"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50243126"
 ---
 # <a name="enforce-a-naming-policy-for-office-365-groups-in-azure-active-directory-preview"></a>Afdwingen van een naamgevingsbeleid voor Office 365-groepen in Azure Active Directory (preview)
 
@@ -49,7 +49,7 @@ Tekenreeksen kunt u het eenvoudiger om te scannen en groepen in de globale adres
 
 #### <a name="user-attributes"></a>Gebruikerskenmerken
 
-U kunt de kenmerken waarmee u kunnen gebruiken en uw gebruikers identificeren welke afdeling, office of geografische regio waarvan de groep is gemaakt. Bijvoorbeeld, als u het naamgevingsbeleid als definiëren `PrefixSuffixNamingRequirement = “GRP [GroupName] [Department]”`, en `User’s department = Engineering`, en vervolgens de groepsnaam van een afgedwongen mogelijk "Mijn groep groep Engineering." Ondersteunde Azure AD-kenmerken zijn \[afdeling\], \[bedrijf\], \[Office\], \[volgt\], \[CountryOrRegion \], \[Titel\]. Niet-ondersteunde gebruikerskenmerken worden behandeld als vaste tekenreeksen; bijvoorbeeld, "\[postcode\]'. Extensiekenmerken en aangepaste kenmerken worden niet ondersteund.
+U kunt de kenmerken waarmee u kunnen gebruiken en uw gebruikers identificeren welke afdeling, office of geografische regio waarvan de groep is gemaakt. Bijvoorbeeld, als u het naamgevingsbeleid als definiëren `PrefixSuffixNamingRequirement = "GRP [GroupName] [Department]"`, en `User’s department = Engineering`, en vervolgens de groepsnaam van een afgedwongen mogelijk "Mijn groep groep Engineering." Ondersteunde Azure AD-kenmerken zijn \[afdeling\], \[bedrijf\], \[Office\], \[volgt\], \[CountryOrRegion \], \[Titel\]. Niet-ondersteunde gebruikerskenmerken worden behandeld als vaste tekenreeksen; bijvoorbeeld, "\[postcode\]'. Extensiekenmerken en aangepaste kenmerken worden niet ondersteund.
 
 U wordt aangeraden dat u kenmerken die waarden ingevuld voor alle gebruikers in uw organisatie en niet gebruikmaken van kenmerken die lang waarden hebben.
 
@@ -75,10 +75,10 @@ Geselecteerde beheerders kunnen worden uitgesloten van deze beleidsregels voor a
 
 ## <a name="install-powershell-cmdlets-to-configure-a-naming-policy"></a>PowerShell-cmdlets voor het configureren van een naamgevingsbeleid installeren
 
-Zorg ervoor dat u een oudere versie van de Azure Active Directory PowerShell voor Graph-Module voor Windows PowerShell verwijderen en installeer [Azure Active Directory PowerShell voor Graph - openbare Preview-versie 2.0.0.137](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.137) voordat u de PowerShell-opdrachten. 
+Verwijder een oudere versie van Azure Active Directory PowerShell voor Graph Module voor Windows PowerShell en installeer [Azure Active Directory PowerShell for Graph - Public Preview Release 2.0.0.137](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.137) (Azure Active Directory PowerShell voor Graph - Release 2.0.0.137 voor openbare preview) voordat u de PowerShell-opdrachten uitvoert. 
 
-1. Open de app Windows PowerShell als beheerder.
-2. Een vorige versie van AzureADPreview verwijderen.
+1. Open de Windows PowerShell-app als beheerder.
+2. Verwijder eventuele oudere versies van AzureADPreview.
   
   ````
   Uninstall-Module AzureADPreview
@@ -88,21 +88,21 @@ Zorg ervoor dat u een oudere versie van de Azure Active Directory PowerShell voo
   ````
   Install-Module AzureADPreview
   ````
-Als u wordt gevraagd of u over het openen van een niet-vertrouwde opslagplaats, typt u **Y**. Het duurt enkele minuten voor de nieuwe module te installeren.
+Als u wordt gevraagd een niet-vertrouwde opslagplaats te openen, typt u **Y**. Het kan enkele minuten duren voordat de nieuwe module is geïnstalleerd.
 
 ## <a name="configure-the-group-naming-policy-for-a-tenant-using-azure-ad-powershell"></a>Het beleid voor naamgeving voor een tenant met behulp van Azure AD PowerShell configureren
 
 1. Open een Windows PowerShell-venster op uw computer. U kunt deze zonder verhoogde bevoegdheden te openen.
 
-2. Voer de volgende opdrachten om voor te bereiden om uit te voeren van de cmdlets.
+2. Voer de volgende opdrachten uit als voorbereiding op het uitvoeren van de cmdlets.
   
   ````
   Import-Module AzureADPreview
   Connect-AzureAD
   ````
-  In de **aanmelden bij uw Account** scherm dat wordt geopend, Voer uw beheerdersaccount en het wachtwoord dat u verbinding maken met uw service en selecteer **aanmelden**.
+  In het scherm **Sign in to your Account** dat verschijnt, voert u uw beheerdersaccount en wachtwoord in om verbinding te maken met uw service. Selecteer vervolgens **Aanmelden**.
 
-3. Volg de stappen in [Azure Active Directory-cmdlets voor het configureren van groepsinstellingen](groups-settings-cmdlets.md) te maken van de instellingen voor deze tenant.
+3. Volg de stappen in [Azure Active Directory-cmdlets voor het configureren van groepsinstellingen](groups-settings-cmdlets.md) om groepsinstellingen voor deze tenant te maken.
 
 ### <a name="view-the-current-settings"></a>De huidige instellingen weergeven
 
@@ -112,7 +112,7 @@ Als u wordt gevraagd of u over het openen van een niet-vertrouwde opslagplaats, 
   $Setting = Get-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id
   ````
   
-2. De instellingen voor de huidige weergegeven.
+2. Geef de instellingen voor de huidige groep weer.
   
   ````
   $Setting.Values
@@ -120,19 +120,19 @@ Als u wordt gevraagd of u over het openen van een niet-vertrouwde opslagplaats, 
   
 ### <a name="set-the-naming-policy-and-custom-blocked-words"></a>Stel de naamgevingsbeleid en de geblokkeerde dan speciale woorden
 
-1. De groep naam voorvoegsels en achtervoegsels instellen in Azure AD PowerShell.
+1. Stel de voor- en achtervoegsels van de groepsnaam in in Azure AD PowerShell.
   
   ````
   $Setting["PrefixSuffixNamingRequirement"] =“GRP_[GroupName]_[Department]"
   ````
   
-2. Stel de aangepaste geblokkeerde woorden die u wilt beperken. Het volgende voorbeeld ziet u hoe u uw eigen aangepaste woorden kunt toevoegen.
+2. Stel de aangepaste, geblokkeerde woorden in die u wilt verbieden. In het volgende voorbeeld wordt getoond hoe u uw eigen aangepaste woorden kunt toevoegen.
   
   ````
   $Setting["CustomBlockedWordsList"]=“Payroll,CEO,HR"
   ````
   
-3. Sla de instellingen voor het nieuwe beleid om te worden van kracht, zoals in het volgende voorbeeld.
+3. Sla de instellingen voor het nieuwe beleid op zodat het van kracht wordt, zoals in het volgende voorbeeld.
   
   ````
   Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting
@@ -185,7 +185,7 @@ Microsoft Stream | Microsoft Stream toont de naamgeving van de naam van beleid a
 Outlook-iOS en Android-App | Groepen die zijn gemaakt in de Outlook-apps die compatibel zijn met het geconfigureerde beleid voor naamgeving. Mobiele app van Outlook nog de Preview-versie van de beleidsnaam van de naming afgedwongen niet wordt weergegeven, en geen aangepaste geblokkeerde woord fouten retourneert wanneer de gebruiker krijgt de naam van de groep. Echter het naamgevingsbeleid wordt automatisch toegepast op het maken/bewerken te klikken en gebruikers zien foutberichten worden weergegeven als er aangepaste geblokkeerde woorden in de naam of alias.
 Groepen mobiele app | Groepen die zijn gemaakt in de mobiele app van de groepen die compatibel zijn met het naamgevingsbeleid. Groepen mobiele app wordt niet weergegeven voor de Preview-versie van het beleid voor naamgeving en retourneert geen aangepaste geblokkeerde woord fouten als de gebruiker krijgt de naam van de groep. Maar het naamgevingsbeleid wordt automatisch toegepast tijdens het maken of bewerken van een groep en gebruikers wordt weergegeven met de juiste fouten als er aangepaste geblokkeerde woorden in de naam of alias.
 Planner | Planner is compatibel met het naamgevingsbeleid. Planner toont de naamgeving voor Preview-versie bij het invoeren van de naam van het plan. Wanneer een gebruiker een aangepaste geblokkeerde woord invoert, wordt een foutbericht wordt weergegeven bij het maken van het abonnement.
-Dynamics 365 voor Customer Engagement | Dynamics 365 voor Customer Engagement is compatibel met het naamgevingsbeleid. Dynamics 365 ziet u de beleidsnaam van de naming afgedwongen wanneer de gebruiker een groepsnaam of een groep e-mailalias. Wanneer de gebruiker een aangepaste geblokkeerde woord invoert, wordt een foutbericht wordt weergegeven met het geblokkeerde woord zodat de gebruiker het kunt verwijderen.
+Dynamics 365 for Customer Engagement | Dynamics 365 voor Customer Engagement is compatibel met het naamgevingsbeleid. Dynamics 365 ziet u de beleidsnaam van de naming afgedwongen wanneer de gebruiker een groepsnaam of een groep e-mailalias. Wanneer de gebruiker een aangepaste geblokkeerde woord invoert, wordt een foutbericht wordt weergegeven met het geblokkeerde woord zodat de gebruiker het kunt verwijderen.
 School Data Sync (SDS) | Groepen die zijn gemaakt via SDS in overeenstemming met het naamgevingsbeleid, maar het naamgevingsbeleid wordt niet automatisch toegepast. SDS-beheerders hebben de voor- en achtervoegsels toevoegen aan klassenamen waarvoor groepen moeten worden gemaakt en vervolgens geüpload naar SDS. Groep maken of bewerken, anders mislukken.
 Outlook Customer Manager (OCM) | Outlook Customer Manager is compatibel met het naamgevingsbeleid, automatisch op de groep hebt gemaakt in Outlook Customer Manager toegepast wordt. Als een aangepaste geblokkeerde woord wordt gedetecteerd, het maken van de groep in OCM is geblokkeerd en de gebruiker is geblokkeerd met behulp van de app OCM.
 -App classroom | Groepen die zijn gemaakt in de app Classroom in overeenstemming met het naamgevingsbeleid, maar het naamgevingsbeleid wordt niet automatisch toegepast en de naamgeving voor Preview-versie wordt niet weergegeven aan de gebruikers bij het invoeren van de naam van een leslokaal-groep. Gebruikers moeten de naam van de groep afgedwongen leslokaal met voor- en achtervoegsels invoeren. Zo niet, in de classroom-groep maken of bewerken van de bewerking mislukt met fouten.

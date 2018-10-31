@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: gokuma
-ms.openlocfilehash: c125f503166e3f63599dbd09acf42c69fab8d2ce
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 7576c479b9e3e443b048a9295c0ff0f30d4b9423
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48044651"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50240321"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-on-azure"></a>Gegevenswetenschap met een Linux Data Science Virtual Machine in Azure
 Deze procedure ziet u hoe u enkele algemene datatechnologietaken met de Linux Data Science VM uitvoert. De Linux Data Science Virtual Machine (DSVM) is een installatiekopie van een virtuele machine op Azure die vooraf worden geïnstalleerd met een verzameling hulpprogramma's die doorgaans gebruikt voor gegevensanalyse en machine learning is beschikbaar. De belangrijke software-componenten zijn ingedeeld de [Linux Data Science Virtual Machine inrichten](linux-dsvm-intro.md) onderwerp. De VM-installatiekopie maakt het gemakkelijk om te beginnen gegevenswetenschap in minuten, zonder te installeren en configureren van elk van de hulpprogramma's afzonderlijk. U kunt eenvoudig opschalen van de virtuele machine, indien nodig, en stoppen wanneer deze niet in gebruik. Deze resource is zo flexibel en kostenefficiënt.
 
-De data science-taken in dit scenario wordt gedemonstreerd, volg de stappen de [Team Data Science Process](https://azure.microsoft.com/documentation/learning-paths/data-science-process/). Deze procedure biedt een systematische benadering voor data science waarmee teams van data scientists effectief samenwerken gedurende de levenscyclus van het bouwen van intelligente toepassingen. Het data science process biedt ook een iteratieve raamwerk voor datatechnologie die kan worden gevolgd door een persoon.
+De data science-taken in dit scenario wordt gedemonstreerd, volg de stappen de [Team Data Science Process](https://docs.microsoft.com/en-us/azure/machine-learning/team-data-science-process/overview). Deze procedure biedt een systematische benadering voor data science waarmee teams van data scientists effectief samenwerken gedurende de levenscyclus van het bouwen van intelligente toepassingen. Het data science process biedt ook een iteratieve raamwerk voor datatechnologie die kan worden gevolgd door een persoon.
 
 We analyseren de [spambase](https://archive.ics.uci.edu/ml/datasets/spambase) gegevensset in dit scenario. Dit is een set van e-mailberichten die zijn gemarkeerd als spam of ham (wat betekent dat ze zijn niet spam), en bevat ook enkele statistieken over de inhoud van de e-mailberichten. De statistieken die zijn opgenomen zijn in de volgende maar één sectie besproken.
 

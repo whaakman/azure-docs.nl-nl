@@ -9,17 +9,17 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: jasonh
 ROBOTS: NOINDEX
-ms.openlocfilehash: 59e6fd0a05374329efb20201c8d904cbbdc72b1a
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 84c28eebc2bcf1bfdfcb0995f1caa05ed19629e2
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43110996"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50250832"
 ---
 # <a name="run-hadoop-mapreduce-samples-in-windows-based-hdinsight"></a>Voorbeelden van Hadoop MapReduce uitvoeren in HDInsight op basis van Windows
 [!INCLUDE [samples-selector](../../includes/hdinsight-run-samples-selector.md)]
 
-Een reeks voorbeelden zijn bedoeld om u gestart actieve MapReduce-taken op Azure HDInsight met Hadoop-clusters. Deze voorbeelden zijn beschikbaar op elk van de beheerde HDInsight-clusters die u maakt. Deze voorbeelden wordt uitgevoerd, raakt u vertrouwd met het gebruik van Azure PowerShell-cmdlets uitvoeren op Hadoop-clusters.
+Een reeks voorbeelden wordt waarmee u kunt halen gestart actieve MapReduce-taken op Hadoop-clusters met behulp van Azure HDInsight geleverd. Deze voorbeelden zijn beschikbaar op elk van de beheerde HDInsight-clusters die u maakt. Deze voorbeelden wordt uitgevoerd, raakt u vertrouwd met het gebruik van Azure PowerShell-cmdlets uitvoeren op Hadoop-clusters.
 
 * [**Aantal woorden**][hdinsight-sample-wordcount]: woorden worden geteld in een tekstbestand.
 * [**C#-streaming woordentelling**][hdinsight-sample-csharp-streaming]: woorden worden geteld in een tekstbestand met de Hadoop-streaming-interface.
@@ -167,7 +167,7 @@ Het script dat is opgegeven voor dit voorbeeld verzendt een Hadoop-jar-taak en i
     ```
 
 ## <a name="hdinsight-sample-10gb-graysort"></a>10 GB Graysort
-In dit voorbeeld maakt gebruik van een gemiddelde hoeveelheden 10GB aan gegevens zodat deze kan relatief snel kan worden uitgevoerd. Maakt gebruik van de MapReduce-toepassingen die zijn ontwikkeld door Owen O'Malley en Arun Murthy die de jaarlijkse voor algemeen gebruik ("daytona") terabyte sorteren benchmark in 2009 met een snelheid van 0.578 TB/min (100 TB in 173 minuten gewonnen). Zie voor meer informatie over deze en andere sorteren benchmarks de [Sortbenchmark](http://sortbenchmark.org/) site.
+In dit voorbeeld maakt gebruik van een gemiddelde hoeveelheden 10 GB aan gegevens zodat deze kan relatief snel kan worden uitgevoerd. Maakt gebruik van de MapReduce-toepassingen die zijn ontwikkeld door Owen O'Malley en Arun Murthy die de jaarlijkse voor algemeen gebruik ("daytona") terabyte sorteren benchmark in 2009 met een snelheid van 0.578 TB/min (100 TB in 173 minuten gewonnen). Zie voor meer informatie over deze en andere sorteren benchmarks de [Sortbenchmark](http://sortbenchmark.org/) site.
 
 In dit voorbeeld maakt gebruik van drie sets MapReduce-programma's:
 
@@ -211,7 +211,6 @@ In dit artikel en de artikelen in elk van de voorbeelden, hebt u geleerd hoe u d
 * [Pig gebruiken met Hadoop op HDInsight][hdinsight-use-pig]
 * [Hive gebruiken met Hadoop op HDInsight][hdinsight-use-hive]
 * [Hadoop-taken in HDInsight][hdinsight-submit-jobs]
-* [Azure HDInsight SDK-documentatie][hdinsight-sdk-documentation]
 
 ## <a name="appendix-a---the-word-count-source-code"></a>Bijlage A - de broncode van de Word-count
 
@@ -977,8 +976,6 @@ public class TeraSort extends Configured implements Tool {
     }
 }
 ```
-
-[hdinsight-sdk-documentation]: https://msdn.microsoft.com/library/azure/dn479185.aspx
 
 [hdinsight-submit-jobs]: hadoop/submit-apache-hadoop-jobs-programmatically.md
 [hdinsight-introduction]:hadoop/apache-hadoop-introduction.md

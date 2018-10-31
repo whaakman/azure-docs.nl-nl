@@ -14,12 +14,12 @@ ms.date: 03/09/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 29a53101bff8c384d01f952c4498e09d9d970ee3
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: 9e73a979950e856a7fc2bfa2193ea4ca0d59bac2
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43841731"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50242225"
 ---
 # <a name="configure-the-expiration-policy-for-office-365-groups"></a>Het vervalbeleid voor Office 365-groepen configureren
 
@@ -55,9 +55,9 @@ Zie voor meer informatie over machtigingen om terug te zetten van een verwijderd
 
 4. Op de **verlopen** blade kunt u:
 
-  * De Groepslevensduur van de in dagen instellen. U kunt een van de vooraf gedefinieerde waarden, of een aangepaste waarde (moet 31 dagen of meer) selecteren. 
-  * Geef een e-mailadres waar de vernieuwing en verlopen-meldingen moeten worden verzonden wanneer een groep geen eigenaar heeft. 
-  * Selecteer welke Office 365-groepen is verlopen. U kunt vervaldatum inschakelen voor **alle** Office 365-groepen die u kunt kiezen om in te schakelen alleen **geselecteerde** Selecteer Office 365-groepen, of u **geen** om uit te schakelen verlopen voor alle groepen .
+  * De Groepslevensduur van de in dagen instellen. U kunt een van de vooraf gedefinieerde waarden, of een aangepaste waarde (moet 31 dagen of meer) selecteren. 
+  * Geef een e-mailadres waar de vernieuwing en verlopen-meldingen moeten worden verzonden wanneer een groep geen eigenaar heeft. 
+  * Selecteer welke Office 365-groepen is verlopen. U kunt vervaldatum inschakelen voor **alle** Office 365-groepen die u kunt kiezen om in te schakelen alleen **geselecteerde** Selecteer Office 365-groepen, of u **geen**  om uit te schakelen verlopen voor alle groepen.
   * Uw instellingen opslaan wanneer u klaar bent met het selecteren van **opslaan**.
 
 
@@ -78,8 +78,8 @@ Als de groep die u herstellen van wilt documenten, SharePoint-sites of andere pe
 > [!NOTE]
 > * Wanneer u vervaldatum voor het eerst instelt, worden alle groepen die ouder dan het Vervalinterval opgegeven zijn ingesteld op 30 dagen voordat het vervalt. De eerste vernieuwing meldingse-mail wordt verzonden in een dag. 
 >   Bijvoorbeeld, groep A 400 dagen geleden is gemaakt, en het Vervalinterval opgegeven is ingesteld op 180 dagen. Wanneer u instellingen voor verlooptijd toepast, heeft groep A 30 dagen voordat het wordt verwijderd, tenzij de eigenaar van de Hiermee vernieuwt u deze.
-> * Op dit moment slechts één verloopbeleid kan worden geconfigureerd voor Office 365-groepen in een tenant.
-> * Wanneer een dynamische groep wordt verwijderd en hersteld, is het gezien als een nieuwe groep en opnieuw worden ingevuld op basis van de regel. Dit proces kan tot 24 uur duren.
+> * Momenteel kan slechts één verloopbeleid worden geconfigureerd voor Office 365-groepen in een tenant.
+> * Wanneer een dynamische groep is verwijderd en hersteld, wordt deze beschouwd als een nieuwe groep en opnieuw ingevuld volgens de regel. Dit proces duurt maximaal 24 uur.
 
 ## <a name="how-office-365-group-expiration-works-with-a-mailbox-on-legal-hold"></a>Hoe de vervaldatum van de Office 365-groep is werkt met een postvak in juridische bewaring
 Wanneer een groep is verlopen en wordt verwijderd, klikt u vervolgens 30 dagen na verwijdering van de groep gegevens van apps, Planner, Sites, zoals of Teams worden definitief verwijderd, maar de groepspostvak dat zich op de juridische bewaring worden bewaard en is niet permanent verwijderd. De beheerder kan Exchange-cmdlets gebruiken voor het herstellen van het postvak om op te halen van de gegevens. 
@@ -116,19 +116,19 @@ Hier volgen enkele voorbeelden van hoe u PowerShell-cmdlets gebruiken kunt voor 
 4. Bijwerken van het bestaande beleid Set-AzureADMSGroupLifecyclePolicy: met deze cmdlet wordt gebruikt om een bestaand beleid. In het onderstaande voorbeeld wordt de Groepslevensduur van de in het bestaande beleid gewijzigd van 365 dagen op 180 dagen. 
   
   ````
-  Set-AzureADMSGroupLifecyclePolicy -Id “26fcc232-d1c3-4375-b68d-15c296f1f077”   -GroupLifetimeInDays 180 -AlternateNotificationEmails "emailaddress@contoso.com"
+  Set-AzureADMSGroupLifecyclePolicy -Id "26fcc232-d1c3-4375-b68d-15c296f1f077" -GroupLifetimeInDays 180 -AlternateNotificationEmails "emailaddress@contoso.com"
   ````
   
 5. Specifieke groepen toevoegen aan het beleid Add-AzureADMSLifecyclePolicyGroup: met deze cmdlet een gebruikersgroep wordt toegevoegd aan het lifecycle-beleid. Als u een voorbeeld: 
   
   ````
-  Add-AzureADMSLifecyclePolicyGroup -Id “26fcc232-d1c3-4375-b68d-15c296f1f077” -groupId "cffd97bd-6b91-4c4e-b553-6918a320211c"
+  Add-AzureADMSLifecyclePolicyGroup -Id "26fcc232-d1c3-4375-b68d-15c296f1f077" -groupId "cffd97bd-6b91-4c4e-b553-6918a320211c"
   ````
   
 6. Verwijder het bestaande beleid Remove-AzureADMSGroupLifecyclePolicy: met deze cmdlet verwijdert u de instellingen voor de Office 365 verloopt echter wel vereist dat de beleids-ID. Hiermee wordt de vervaldatum voor Office 365-groepen uitgeschakeld. 
   
   ````
-  Remove-AzureADMSGroupLifecyclePolicy -Id “26fcc232-d1c3-4375-b68d-15c296f1f077”
+  Remove-AzureADMSGroupLifecyclePolicy -Id "26fcc232-d1c3-4375-b68d-15c296f1f077"
   ````
   
 De volgende cmdlets kan worden gebruikt om het beleid configureren in meer detail. Zie voor meer informatie, [PowerShell-documentatie](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&branch=master#groups).

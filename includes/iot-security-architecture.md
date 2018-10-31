@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: bbdff5a9aa74ab08dc99c41f8ab847f901e18256
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: ac51dc8b7cbfa08ebca201c42c0c82356b7d5b6c
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50226769"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50254546"
 ---
 # <a name="internet-of-things-security-architecture"></a>Internet of Things-beveiligingsarchitectuur
 
@@ -21,7 +21,7 @@ Bij het ontwerpen van een systeem, is het belangrijk dat u de potentiële bedrei
 
 ## <a name="security-starts-with-a-threat-model"></a>Beveiliging begint met een risicomodel
 
-Microsoft heeft lang bedreigingsmodellen gebruikt voor de producten en van het bedrijf threat modeling proces publicaly beschikbaar heeft gesteld. De ervaring van het bedrijf laat zien dat het model heeft onverwachte voordelen boven het direct inzicht in wat bedreigingen de meeste zijn over. Bijvoorbeeld, maakt het ook een avenue voor een discussie over de openen met anderen buiten het ontwikkelingsteam en wat tot nieuwe ideeën en verbeteringen in het product leiden kan.
+Microsoft heeft lang bedreigingsmodellen gebruikt voor de producten en van het bedrijf threat modeling proces openbaar beschikbaar heeft gesteld. De ervaring van het bedrijf laat zien dat het model heeft onverwachte voordelen boven het direct inzicht in wat bedreigingen de meeste zijn over. Bijvoorbeeld, maakt het ook een avenue voor een discussie over de openen met anderen buiten het ontwikkelingsteam en wat tot nieuwe ideeën en verbeteringen in het product leiden kan.
 
 Het doel van risicomodel is om te begrijpen hoe een aanvaller kan een systeem en controleer vervolgens of de juiste oplossingen zijn aanwezig kan zijn. Threat modellering Hiermee wordt het ontwerpteam om oplossingen te overwegen als het systeem is ontworpen in plaats van nadat het systeem wordt geïmplementeerd. Dit is van cruciaal belang, omdat ook onrendabel zijn beveiligingen aan een groot aantal apparaten in het veld onbruikbare is, is dit foutgevoelig en laat klanten op risico.
 

@@ -10,12 +10,12 @@ ms.date: 08/31/2018
 ms.service: key-vault
 ms.workload: identity
 ms.topic: conceptual
-ms.openlocfilehash: 9b0600a7afb07600116440461037c7abcb9236de
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 6e0029e051e418bc54471284547329a0b0a2e9cd
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49404321"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50246651"
 ---
 # <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Virtual Network-Service-eindpunten voor Azure Key Vault
 
@@ -44,7 +44,7 @@ Hier volgen de stappen die vereist voor het configureren van firewalls en virtue
 Raadpleeg [configureren van Azure Key Vault Firewalls en virtuele netwerken](key-vault-network-security.md) voor gedetailleerde stapsgewijze instructies.
 
 > [!IMPORTANT]
-> Wanneer de firewall-regels zijn in feite alle Key Vault [gegevenslaag](../key-vault/key-vault-secure-your-key-vault.md#data-plane-access-control) bewerkingen kunnen alleen worden uitgevoerd wanneer de oproepende functie aanvragen afkomstig zijn uit de toegestane virtuele netwerken of een IPV4-adresbereik. Dit geldt ook voor toegang tot key vault vanuit Azure portal. Wanneer een gebruiker kan de browser tot een key vault vanuit Azure portal, ze niet mogelijk aan de lijst met sleutels/geheimen/certificaten als hun clientmachine zich niet in de lijst met toegestane. Dit ook van invloed op de 'Key Vault kiezer' door andere Azure-services. Gebruikers mogelijk om te bekijken van de lijst met sleutelkluizen maar sleutels, niet wordt vermeld als de firewall-regels te voorkomen dat de client-computer.
+> Wanneer de firewall-regels zijn in feite alle Key Vault [gegevenslaag](../key-vault/key-vault-secure-your-key-vault.md#data-plane-access-control) bewerkingen kunnen alleen worden uitgevoerd wanneer de oproepende functie aanvragen afkomstig zijn uit de toegestane virtuele netwerken of een IPV4-adresbereik. (Voor meer informatie over management vlak vs gegevenslaag Lees [dit](../key-vault/key-vault-secure-your-key-vault.md#management-plane-access-control) dit geldt ook voor toegang tot key vault vanuit Azure portal. Wanneer een gebruiker kan de browser tot een key vault vanuit Azure portal, ze niet mogelijk aan de lijst met sleutels/geheimen/certificaten als hun clientmachine zich niet in de lijst met toegestane. Dit ook van invloed op de 'Key Vault kiezer' door andere Azure-services. Gebruikers mogelijk om te bekijken van de lijst met sleutelkluizen maar sleutels, niet wordt vermeld als de firewall-regels te voorkomen dat de client-computer.
 
 
 > [!NOTE]

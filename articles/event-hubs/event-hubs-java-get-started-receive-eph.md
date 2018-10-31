@@ -9,12 +9,12 @@ ms.workload: core
 ms.topic: article
 ms.date: 08/26/2018
 ms.author: shvija
-ms.openlocfilehash: ee1339d02fb23282d3589a80385f982eae2865fe
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: dce7c4067ba6d96bf14f4e3300d951b594afe930
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43128163"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50240629"
 ---
 # <a name="receive-events-from-azure-event-hubs-using-java"></a>Gebeurtenissen ontvangen van Azure Event Hubs met behulp van Java
 
@@ -50,11 +50,11 @@ Voor het gebruik van EventProcessorHost, hebt u een [Azure Storage-account][Azur
    
     ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage3.png)
 
-    Kopieer de key1-waarde naar een tijdelijke locatie, voor gebruik verderop in deze zelfstudie.
+    Kopieer de key1-waarde naar een tijdelijke locatie. U gaat deze verderop in de zelfstudie gebruiken.
 
 ### <a name="create-a-java-project-using-the-eventprocessor-host"></a>Maak een Java-project met behulp van EventProcessorHost
 
-De Java-clientbibliotheek voor Event Hubs is beschikbaar voor gebruik in Maven-projecten uit de [Maven Central Repository][Maven Package], en kan worden verwezen met behulp van de volgende afhankelijkheidsverklaring binnen uw Maven Project-bestand. De huidige versie is voor het artefact azure-eventhubs-eph 2.0.1 is en de huidige versie voor de azure-eventhubs artefact 1.0.2 is:    
+De Java-clientbibliotheek voor Event Hubs is beschikbaar voor gebruik in Maven-projecten uit de [Maven Central Repository][Maven Package], en kan worden verwezen met behulp van de volgende afhankelijkheidsverklaring binnen uw Maven Project-bestand. De huidige versie van het artefact azure-eventhubs-eph 2.0.1 is en de huidige versie voor de azure-eventhubs artefact 1.0.2 is:    
 
 ```xml
 <dependency>
@@ -241,7 +241,7 @@ Voor verschillende soorten build-omgevingen, kunt u de meest recente vrijgegeven
     }
     ```
 
-In deze zelfstudie wordt één exemplaar van EventProcessorHost gebruikt. Voor een betere doorvoer is het raadzaam dat u meerdere exemplaren van EventProcessorHost, bij voorkeur uitgevoerd op afzonderlijke computers.  Dit biedt ook redundantie. In die gevallen werken de verschillende exemplaren automatisch samen om de ontvangen gebeurtenissen gelijkmatig te verdelen. Als u wilt dat meerdere ontvangers *alle* gebeurtenissen verwerken, gebruik dan het concept **ConsumerGroup**. Wanneer er gebeurtenissen van verschillende computers worden ontvangen, kan het nuttig zijn om namen voor EventProcessorHost-exemplaren op te geven op basis van de computers waarop (of rollen waarin) ze zijn geïmplementeerd.
+In deze zelfstudie wordt één exemplaar van EventProcessorHost gebruikt. U wordt aangeraden dat u meerdere exemplaren van EventProcessorHost, bij voorkeur uitgevoerd op afzonderlijke computers voor een betere doorvoer.  Het biedt ook redundantie. In die gevallen werken de verschillende exemplaren automatisch samen om de ontvangen gebeurtenissen gelijkmatig te verdelen. Als u wilt dat meerdere ontvangers *alle* gebeurtenissen verwerken, gebruik dan het concept **ConsumerGroup**. Wanneer er gebeurtenissen van verschillende computers worden ontvangen, kan het nuttig zijn om namen voor EventProcessorHost-exemplaren op te geven op basis van de computers waarop (of rollen waarin) ze zijn geïmplementeerd.
 
 ## <a name="publishing-messages-to-eventhub"></a>Publiceren berichten naar EventHub
 
@@ -249,7 +249,7 @@ Voordat u berichten worden opgehaald door de consumenten, die ze moeten worden g
 
 Als een tekenreeks voor de partitiesleutel is opgegeven, wordt de sleutel wordt gehasht om te bepalen welke partitie voor het verzenden van de gebeurtenis.
 
-Als de partitiesleutel is niet ingesteld, klikt u vervolgens wordt berichten round-robined op alle beschikbare partities
+Als de partitiesleutel is niet ingesteld, klikt u vervolgens zijn berichten round-robined op alle beschikbare partities
 
 ```java
 // Serialize the event into bytes
@@ -271,25 +271,20 @@ eventHubClient.sendSync(sendEvent, partitionKey);
 
 De API biedt een mechanisme voor het implementeren van uw aangepaste controlepuntbeheer voor scenario's waarbij de standaardimplementatie niet compatibel met uw situatie is.
 
-De standaard controlepunt manager maakt gebruik van blob-opslag, maar als u de controlepunt-manager gebruikt door EPH met uw eigen implementatie overschrijft, kunt u geen store die u wilt back-ups maken het uw controlepunt manager-implementatie.
+De standaard controlepunt manager maakt gebruik van blob-opslag, maar als u de controlepunt-manager gebruikt door EPH met uw eigen implementatie overschrijft, kunt u geen store die u wilt maken van uw manager-implementatie van het controlepunt.
 
-U moet een klasse die de interface com.microsoft.azure.eventprocessorhost.ICheckpointManager maken
+Maken van een klasse die de interface com.microsoft.azure.eventprocessorhost.ICheckpointManager
 
 Gebruik van uw aangepaste implementatie van de manager van het controlepunt (com.microsoft.azure.eventprocessorhost.ICheckpointManager)
 
-In uw implementatie, kunt u het standaardmechanisme voor het plaatsen van controlepunten overschrijven en implementeren van onze eigen controlepunten op basis van uw eigen gegevensarchief (SQL Server, cosmos DB, Redis Cache enzovoort). Het is aanbevolen dat de store gebruikt voor het back-ups maken uw manager-implementatie van het controlepunt toegankelijk is voor alle EPH-exemplaren die zijn verwerking van gebeurtenissen voor de consumergroep.
+In uw implementatie, kunt u het standaardmechanisme voor het plaatsen van controlepunten overschrijven en implementeren van onze eigen controlepunten op basis van uw eigen gegevensarchief (SQL Server, cosmos DB, Redis Cache enzovoort). U wordt aangeraden dat de store gebruikt voor het back-ups maken uw manager-implementatie van het controlepunt is toegankelijk voor alle EPH-exemplaren die zijn verwerking van gebeurtenissen voor de consumergroep.
 
-U kunt een gegevensopslag die beschikbaar zijn in uw omgeving.
+U kunt een gegevensopslag die beschikbaar is in uw omgeving.
 
-De klasse com.microsoft.azure.eventprocessorhost.EventProcessorHost biedt u 2 constructors waarmee u kunt voor de onderdrukking van de manager van het controlepunt voor de EventProcessorHost.
+De klasse com.microsoft.azure.eventprocessorhost.EventProcessorHost beschikt u over twee constructors waarmee u kunt voor de onderdrukking van de manager van het controlepunt voor de EventProcessorHost.
 
 ## <a name="next-steps"></a>Volgende stappen
-
-U kunt meer informatie over Event Hubs vinden via de volgende koppelingen:
-
-* [Event Hubs-overzicht](event-hubs-what-is-event-hubs.md)
-* [Een Event Hub maken](event-hubs-create.md)
-* [Veelgestelde vragen over Event Hubs](event-hubs-faq.md)
+In deze quickstart maakt u een Java-toepassing die berichten van een event hub ontvangen gemaakt. Zie voor meer informatie over het verzenden van gebeurtenissen naar een event hub met behulp van Java, [verzenden van gebeurtenissen van event hub - Java](event-hubs-java-get-started-send.md).
 
 <!-- Links -->
 [Event Hubs overview]: event-hubs-what-is-event-hubs.md

@@ -17,12 +17,12 @@ ms.date: 10/26/2018
 ms.author: markvi
 ms.reviewer: nigu
 ms.custom: seohack1
-ms.openlocfilehash: eefbfcf741db3d0949910bc5da8494e087c39ec7
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 3cbded3224e7622d13e7af362cb3532a1813787e
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139143"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50242157"
 ---
 # <a name="get-started-with-azure-active-directory-identity-protection-and-microsoft-graph"></a>Aan de slag met Azure Active Directory Identity Protection en Microsoft Graph
 Microsoft Graph is de Microsoft unified-API-eindpunt en het hart van [Azure Active Directory Identity Protection](../active-directory-identityprotection.md) API's. De eerste API **identityRiskEvents**, kunt u Microsoft Graph op te vragen voor een lijst met [risicogebeurtenissen](../reports-monitoring/concept-risk-events.md) en informatie die is gekoppeld. In dit artikel helpt u op weg met het uitvoeren van query's deze API. Zie voor een diepgaande inleiding, de volledige documentatie en de toegang tot de Graph Explorer, de [Microsoft Graph-site](https://graph.microsoft.io/).
@@ -173,7 +173,7 @@ Als u wilt verifiëren, verzendt u een post-aanvraag voor `https://login.microso
 Als dit lukt, retourneert deze een verificatietoken.  
 Voor het aanroepen van de API, een koptekst te maken met de volgende parameter:
 
-    `Authorization`=”<token_type> <access_token>"
+    `Authorization`="<token_type> <access_token>"
 
 
 Bij het verifiëren, kunt u het type token en het toegangstoken vinden in het geretourneerde token.

@@ -83,6 +83,8 @@ items:
       href: plan-connect-performance-factors.md
     - name: Hoe gebruikers zich aanmelden
       href: plan-connect-user-signin.md
+    - name: Populatie van Azure AD UserPrincipalName
+      href: plan-connect-userprincipalname.md
     - name: Speciale overwegingen voor exemplaren
       href: reference-connect-instances.md
     - name: Ontwerpoverwegingen voor hybride identiteit
@@ -153,6 +155,8 @@ items:
       href: how-to-connect-fed-ssl-update.md
     - name: De AD FS-vertrouwensrelatie beheren met Azure AD
       href: how-to-connect-azure-ad-trust.md
+    - name: Hash-algoritme voor O365 RP wijzigen
+      href: how-to-connect-fed-sha256-guidance.md
     - name: Azure AD-federation compatibiliteitslijst
       href: how-to-connect-fed-compatibility.md
     - name: Een SAML 2.0-server gebruiken als u id-provider
@@ -287,9 +291,9 @@ items:
     href: reference-connect-sync-functions-reference.md
   - name: Azure AD-federation compatibiliteitslijst
     href: how-to-connect-fed-compatibility.md
-ms.openlocfilehash: eda2a26a9bd3d5a484865a8458246506f24bb518
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: e5d89e467b9dd6b41e246c889f41ad9abe21182b
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49351929"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50249666"

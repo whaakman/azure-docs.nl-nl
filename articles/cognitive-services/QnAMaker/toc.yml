@@ -7,7 +7,7 @@ items:
     href: Overview/overview.md
 - name: Snelstartgidsen
   items:
-  - name: REST API gebruiken
+  - name: REST API's gebruiken
     items:
     - name: Een knowledge base maken
       items:
@@ -21,7 +21,7 @@ items:
         href: Quickstarts/create-new-kb-nodejs.md
       - name: Python
         href: Quickstarts/create-new-kb-python.md
-    - name: Een kennisdatabase bijwerken
+    - name: Een knowledge base bijwerken
       items:
       - name: C#
         href: Quickstarts/update-kb-csharp.md
@@ -33,7 +33,7 @@ items:
         href: Quickstarts/update-kb-nodejs.md
       - name: Python
         href: Quickstarts/update-kb-python.md
-    - name: Een kennisdatabase publiceren
+    - name: Een knowledge base publiceren
       items:
       - name: C#
         href: Quickstarts/publish-kb-csharp.md
@@ -45,6 +45,13 @@ items:
         href: Quickstarts/publish-kb-nodejs.md
       - name: Python
         href: Quickstarts/publish-kb-python.md
+- name: Zelfstudies
+  items:
+  - name: Een knowledge base maken en hier query's op uitvoeren
+    displayName: curl, publish, chit-chat, chit chat
+    href: Tutorials/create-publish-query-in-portal.md
+  - name: Een QnA Maker-bot maken
+    href: Tutorials/create-qna-bot.md
 - name: Concepten
   items:
   - name: Knowledge base
@@ -54,16 +61,21 @@ items:
   - name: Aanbevolen procedures
     href: Concepts/best-practices.md
   - name: Betrouwbaarheidsscore
+    displayName: DefaultAnswer, Default answer
     href: Concepts/confidence-score.md
   - name: Ondersteunde gegevensbronnen
     href: Concepts/data-sources-supported.md
+- name: Zelfstudies
+  items:
+  - name: Een knowledge base maken en vragen beantwoorden met C#
+    href: Tutorials/create-publish-answer.md
 - name: Handleidingen
   items:
   - name: Een QnA Maker-service instellen
     href: How-To/set-up-qnamaker-service-azure.md
   - name: Een knowledge base maken
     href: Quickstarts/create-publish-knowledge-base.md
-  - name: Een kennisdatabase maken
+  - name: Een knowledge base maken
     href: How-To/create-knowledge-base.md
   - name: Heen-en-weergepraat toevoegen aan knowledge base
     href: How-to/chit-chat-knowledge-base.md
@@ -77,7 +89,7 @@ items:
     href: How-To/collaborate-knowledge-base.md
   - name: Een knowledge base testen
     href: How-To/test-knowledge-base.md
-  - name: Een kennisdatabase publiceren
+  - name: Een knowledge base publiceren
     href: How-To/publish-knowledge-base.md
   - name: Analytische gegevens verkrijgen voor uw knowledge base
     href: How-To/get-analytics-knowledge-base.md
@@ -85,8 +97,6 @@ items:
     href: How-To/key-management.md
   - name: Een knowledge base maken in een andere taal
     href: How-To/language-knowledge-base.md
-  - name: Een QnA-bot maken met Azure Bot Service
-    href: Tutorials/create-qna-bot.md
   - name: QnA Maker en LUIS integreren
     href: Tutorials/integrate-qnamaker-luis.md
   - name: Een bedrijfscontinuïteitsplan maken voor QnA Maker
@@ -139,9 +149,9 @@ items:
     href: https://docs.microsoft.com/search/index?search=QnAMaker
   - name: Blog
     href: https://blog.botframework.com/category/QnAMaker/
-ms.openlocfilehash: 3c072165fe8d46f0518c5e777580453214dc86f5
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 2819cb8c3264f7f1086f4eaeca3fdbf9c07c3be8
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49456674"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50221346"

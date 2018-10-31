@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 08/30/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 36db41308678f3f1bd713561f9a844288f5db401
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 19a4b77be613eb7ddb4367ca5dc5731c4e0a0287
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46312240"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50249251"
 ---
 # <a name="install-azure-ad-connect-using-an-existing-adsync-database"></a>Azure AD Connect met behulp van een bestaande ADSync-database installeren
 Azure AD Connect vereist een SQL Server-database voor het opslaan van gegevens. U kunt de standaard die SQL Server 2012 Express LocalDB geïnstalleerd met Azure AD Connect of gebruik uw eigen volledige versie van SQL. Voorheen was tijdens de installatie van Azure AD Connect, is een nieuwe database met de naam ADSync altijd gemaakt. Met Azure AD Connect versie 1.1.613.0 (of na) hebt u de optie voor het Azure AD Connect installeren door het aan te wijzen aan een bestaande ADSync-database.
@@ -86,6 +86,17 @@ Belangrijke opmerkingen te nemen Let van op voordat u doorgaat:
  
 11. Zodra de installatie is voltooid, wordt de Azure AD Connect-server automatisch ingeschakeld voor de faseringsmodus. U wordt aangeraden om de serverconfiguratie en exports die in behandeling zijn, te controleren op onverwachte wijzigingen, voordat u de faseringsmodus uitschakelt. 
 
+## <a name="post-installation-tasks"></a>Taken na de installatie
+Wanneer het herstellen van een databaseback-up gemaakt met een versie van Azure AD Connect voorafgaand aan <our pending release>, de staging-server wordt automatisch geselecteerd voor een aanmeldingsmethode van **niet configureert**. Terwijl uw wachtwoordhashsynchronisatie en wachtwoord terugschrijven voorkeuren wordt hersteld, moet u de aanmeldingsmethode zodat deze overeenkomt met de andere beleidsregels van toepassing zijn op uw server voor de actieve synchronisatie later wijzigen.  Deze stappen is mislukt mogelijk te voorkomen dat gebruikers zich in moet deze server wordt geactiveerd.  
+
+Gebruik de onderstaande tabel om te controleren of eventuele extra stappen die nodig zijn.
+
+|Functie|Stappen|
+|-----|-----|
+|Wachtwoord-hashsynchronisatie| de wachtwoord-Hashsynchronisatie en instellingen voor het terugschrijven van wachtwoorden zijn volledig is hersteld voor versies van AADC vanaf <our impending release>.  Als het herstellen van een oudere versie van AADC, controleert u de instellingen van de synchronisatie-optie voor deze functies om te controleren of ze overeenkomen met uw server voor de actieve synchronisatie.  Er zijn geen andere configuratiestappen moeten nodig zijn.|
+|Federatie met AD FS|Azure verificaties zullen echter ook doorgaan met het AD FS-beleid dat is geconfigureerd voor uw server voor de actieve synchronisatie.  Als u Azure AD Connect gebruikt voor het beheren van uw AD FS-farm, kunt u de aanmeldingsmethode kunt (optioneel) voor AD FS-federatie ter voorbereiding op de stand-by-server steeds de actieve synchronisatie-instantie wijzigen.   Als opties voor apparaten op de server voor de actieve synchronisatie zijn ingeschakeld, configureert u deze opties op deze server door het uitvoeren van de taak 'Apparaatopties configureren'.|
+|Pass through-verificatie en Desktop Single Sign-On|Bijwerken van de aanmelding methode zodat deze overeenkomen met de configuratie op uw server voor de actieve synchronisatie.  Als dit niet wordt gevolgd voor het promoveren van de server naar de primaire, Pass through-verificatie samen met naadloze eenmalige aanmelding op uitgeschakeld en uw tenant mogelijk worden vergrendeld als u geen WHS als back-up maken van aanmelden bij de optie. Ook Houd er rekening mee dat wanneer u in de faseringsmodus Pass through-verificatie inschakelt, een nieuwe verificatieagent wordt geïnstalleerd, geregistreerd en wordt uitgevoerd als een hoge beschikbaarheid-agent die aanmelden aanvragen accepteert.|
+|Federatie met PingFederate|Azure verificaties zullen echter ook doorgaan met de PingFederate-beleid dat is geconfigureerd voor uw server voor de actieve synchronisatie.  U mag de methode aanmelden (optioneel) wijzigen in PingFederate ter voorbereiding op de stand-by-server steeds de actieve synchronisatie-exemplaar.  Deze stap kan worden uitgesteld totdat u nodig hebt voor het federeren van aanvullende domeinen met PingFederate.|
 ## <a name="next-steps"></a>Volgende stappen
 
 - Nu u Azure AD Connect geïnstalleerd hebt kunt u [de installatie verifiëren en licenties toewijzen](how-to-connect-post-installation.md).

@@ -12,12 +12,12 @@ ms.devlang: java
 ms.topic: article
 ms.date: 08/29/2018
 ms.author: routlaw
-ms.openlocfilehash: e11b115d7a6421c34e7f1371ad8931b6affa0436
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 1639194741fb343391f80790d0a2cc7f392218ac
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48815168"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50238112"
 ---
 # <a name="java-developers-guide-for-app-service-on-linux"></a>Java developer's guide for App Service op Linux
 
@@ -146,6 +146,8 @@ Volg de instructies in de [een bestaand aangepast SSL-certificaat binden](/azure
 
 >[!NOTE]
 > Als uw toepassing gebruikmaakt van de Spring-Framework of Spring Boot, kunt u de database-verbindingsgegevens voor de Spring gegevens JPA als omgevingsvariabelen instellen [in uw toepassing eigenschappenbestand]. Gebruik vervolgens [app-instellingen](/azure/app-service/web-sites-configure#app-settings) voor het definiëren van deze waarden voor uw toepassing in de Azure portal of de CLI.
+
+De voorbeeld-configuratie-fragmenten in deze sectie gebruiken MySQL-database. Zie voor meer informatie, de configuratie van documenten voor [MySQL](https://dev.mysql.com/doc/connector-j/8.0/en/connector-j-usagenotes-tomcat.html) , [SQL Server JDBC](https://docs.microsoft.com/en-us/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server?view=sql-server-2017), en [PostgreSQL](https://jdbc.postgresql.org/documentation/head/index.html).
 
 Voor het configureren van Tomcat voor het gebruik van beheerde verbindingen met databases met behulp van Java-Database Connectivity (JDBC) of de Java-persistentie API (JPA), moet u eerst de CATALINA_OPTS omgevingsvariabele gelezen door Tomcat bij het opstarten aanpassen. Stel deze waarden via een app-instelling in App Service-Maven-invoegtoepassing:
 

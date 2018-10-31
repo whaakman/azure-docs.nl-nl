@@ -4,7 +4,6 @@
 ## [Wat is Azure Active Directory?](fundamentals/active-directory-whatis.md)
 ## [Over Azure-identiteitsbeheer](fundamentals/identity-fundamentals.md)
 ## [Inzicht krijgen in Azure-identiteitsoplossingen](fundamentals/understand-azure-identity-solutions.md)
-## [Een hybride identiteitsoplossing kiezen](choose-hybrid-identity-solution.md)
 ## [Azure-abonnementen koppelen](fundamentals/active-directory-how-subscriptions-associated-directory.md)
 ## [Overwegingen met betrekking tot vestigingsplaats en gegevens](fundamentals/active-directory-data-storage-eu.md)
 ## [Veelgestelde vragen](fundamentals/active-directory-faq.md)
@@ -47,7 +46,6 @@
 ### [Nieuwe gebruikers toevoegen aan Azure AD](fundamentals/add-users-azure-active-directory.md)
 ### [Gebruikersprofielen beheren](fundamentals/active-directory-users-profile-azure-portal.md)
 ### [Gebruikerswachtwoorden opnieuw instellen](fundamentals/active-directory-users-reset-password-azure-portal.md)
-### [Accounts delen](active-directory-sharing-accounts.md)
 ### [Gebruikers aan beheerdersrollen toewijzen](fundamentals/active-directory-users-assign-role-azure-portal.md)
 ### [Gastgebruikers toevoegen van een andere directory (B2B)](b2b/what-is-b2b.md)
 #### [Beheerders die B2B-gebruikers toevoegen](b2b/add-users-administrator.md)
@@ -320,11 +318,15 @@
 
 ### [Privileged Identity Management](privileged-identity-management/pim-configure.md?toc=%2fazure%2factive-directory%2ftoc.json)
 
-## [AD FS in Azure implementeren](hybrid/how-to-connect-fed-azure-adfs.md)
-### [Hoge beschikbaarheid](active-directory-adfs-in-azure-with-azure-traffic-manager.md)
-### [Hash-algoritme van de handtekening wijzigen](active-directory-federation-sha256-guidance.md)
+
 
 ## [Problemen oplossen](fundamentals/active-directory-troubleshooting-support-howto.md)
+
+## Azure AD Proof of Concept (PoC) implementeren
+### [PoC Playbook: inleiding](active-directory-playbook-intro.md)
+### [PoC Playbook: onderdelen](active-directory-playbook-ingredients.md)
+### [PoC Playbook: implementatie](active-directory-playbook-implementation.md)
+### [PoC Playbook: bouwstenen](active-directory-playbook-building-blocks.md)
 
 # Naslaginformatie
 ## [Codevoorbeelden](https://azure.microsoft.com/resources/samples/?service=active-directory)

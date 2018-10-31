@@ -8,18 +8,18 @@ ms.date: 09/21/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 259d61125828ee487b74daa525f3635cfa592ce7
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: ecc48adfeef30a777ae4d96c9b996c8bcdfea12d
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48017701"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50247807"
 ---
 # <a name="properties-of-the-edge-agent-and-edge-hub-module-twins"></a>Eigenschappen van de Edge agent en Edge hub moduledubbels
 
 De Edge agent en Edge hub zijn twee modules die gezamenlijk de IoT Edge-runtime. Zie voor meer informatie over welke functies elke module wordt uitgevoerd, [inzicht in de Azure IoT Edge-runtime en de bijbehorende architectuur](iot-edge-runtime.md). 
 
-Dit artikel bevat de gewenste eigenschappen en de gerapporteerde eigenschappen van de runtime-moduledubbels. Zie voor meer informatie over het implementeren van modules op IoT Edge-apparaten [implementatie en bewaking][lnk-deploy].
+Dit artikel bevat de gewenste eigenschappen en de gerapporteerde eigenschappen van de runtime-moduledubbels. Zie voor meer informatie over het implementeren van modules op IoT Edge-apparaten [implementatie en bewaking](module-deployment-monitoring.md).
 
 ## <a name="edgeagent-desired-properties"></a>EdgeAgent gewenste eigenschappen
 
@@ -30,26 +30,26 @@ De moduledubbel voor de Edge agent heet `$edgeAgent` en coördineert de communic
 | schemaVersion | Moet "1.0" | Ja |
 | runtime.type | Moet "docker" | Ja |
 | runtime.settings.minDockerVersion | Ingesteld op de minimaal vereiste door deze implementatie manifest Docker-versie | Ja |
-| runtime.settings.loggingOptions | Een stringified JSON met de opties voor logboekregistratie voor de Edge agent-container. [Docker-opties voor logboekregistratie][lnk-docker-logging-options] | Nee |
+| runtime.settings.loggingOptions | Een stringified JSON met de opties voor logboekregistratie voor de Edge agent-container. [Docker-opties voor logboekregistratie](https://docs.docker.com/engine/admin/logging/overview/) | Nee |
 | runtime.settings.registryCredentials<br>. {registryId} .username | De gebruikersnaam van het containerregister. De gebruikersnaam is voor Azure Container Registry, gewoonlijk de naam van het containerregister.<br><br> Registerreferenties zijn nodig om alle module-installatiekopieën die niet openbaar zijn. | Nee |
 | runtime.settings.registryCredentials<br>. {registryId} .password | Het wachtwoord voor het containerregister. | Nee |
 | runtime.settings.registryCredentials<br>. {registryId} .address | Het adres van het containerregister. Voor Azure Container Registry, is het adres meestal *{registryname}.azurecr.IO*. | Nee |  
 | systemModules.edgeAgent.type | Moet "docker" | Ja |
 | systemModules.edgeAgent.settings.image | De URI van de installatiekopie van het Edge-agent. De Edge agent is momenteel niet kunnen automatisch te laten bijwerken. | Ja |
-| systemModules.edgeAgent.settings<br>.createOptions | Een stringified JSON met de opties voor het maken van de Edge agent-container. [Opties voor docker maken][lnk-docker-create-options] | Nee |
+| systemModules.edgeAgent.settings<br>.createOptions | Een stringified JSON met de opties voor het maken van de Edge agent-container. [Opties voor docker maken](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate) | Nee |
 | systemModules.edgeAgent.configuration.id | De ID van de implementatie die deze module wordt geïmplementeerd. | Deze eigenschap is ingesteld door de IoT Hub wanneer deze het manifest wordt toegepast met behulp van een implementatie. Geen deel uitmaakt van een manifest van de implementatie. |
 | systemModules.edgeHub.type | Moet "docker" | Ja |
 | systemModules.edgeHub.status | Moet worden 'running' | Ja |
 | systemModules.edgeHub.restartPolicy | 'Altijd' moet | Ja |
 | systemModules.edgeHub.settings.image | De URI van de installatiekopie van Edge hub. | Ja |
-| systemModules.edgeHub.settings<br>.createOptions | Een stringified JSON met de opties voor het maken van de Edge hub-container. [Opties voor docker maken][lnk-docker-create-options] | Nee |
+| systemModules.edgeHub.settings<br>.createOptions | Een stringified JSON met de opties voor het maken van de Edge hub-container. [Opties voor docker maken](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate) | Nee |
 | systemModules.edgeHub.configuration.id | De ID van de implementatie die deze module wordt geïmplementeerd. | Deze eigenschap is ingesteld door de IoT Hub wanneer deze het manifest wordt toegepast met behulp van een implementatie. Geen deel uitmaakt van een manifest van de implementatie. |
 | modules. {moduleId} .version | Een gebruiker gedefinieerde tekenreeks voor de versie van deze module. | Ja |
 | modules. {moduleId} .type | Moet "docker" | Ja |
 | modules. {moduleId} .status | {'running' \| 'stopped'} | Ja |
 | modules. {moduleId} .restartPolicy | {"nooit" \| 'op-is mislukt' \| 'van-niet in orde' \| "altijd"} | Ja |
 | modules.{moduleId}.settings.image | De URI naar de installatiekopie van de module. | Ja |
-| modules. {moduleId}.settings.createOptions | Een stringified JSON met de opties voor het maken van de module-container. [Opties voor docker maken][lnk-docker-create-options] | Nee |
+| modules. {moduleId}.settings.createOptions | Een stringified JSON met de opties voor het maken van de module-container. [Opties voor docker maken](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate) | Nee |
 | modules. {moduleId}.configuration.id | De ID van de implementatie die deze module wordt geïmplementeerd. | Deze eigenschap is ingesteld door de IoT Hub wanneer deze het manifest wordt toegepast met behulp van een implementatie. Geen deel uitmaakt van een manifest van de implementatie. |
 
 ## <a name="edgeagent-reported-properties"></a>EdgeAgent gerapporteerde eigenschappen
@@ -63,7 +63,7 @@ De Edge agent gerapporteerde eigenschappen van de drie belangrijkste stukjes inf
 Deze laatste stukje informatie is nuttig als de meest recente gewenste eigenschappen zijn niet is toegepast door de runtime en het apparaat wordt nog steeds uitgevoerd voor een eerdere implementatie-manifest.
 
 > [!NOTE]
-> De gerapporteerde eigenschappen van de Edge agent zijn nuttig omdat ze kunnen worden opgevraagd met de [IoT Hub-querytaal] [ lnk-iothub-query] voor het onderzoeken van de status van implementaties op grote schaal. Zie voor meer informatie over het gebruik van de eigenschappen van het Edge-agent voor de status van [inzicht in IoT Edge-implementaties voor individuele apparaten of op schaal][lnk-deploy].
+> De gerapporteerde eigenschappen van de Edge agent zijn nuttig omdat ze kunnen worden opgevraagd met de [IoT Hub-querytaal](../iot-hub/iot-hub-devguide-query-language.md) voor het onderzoeken van de status van implementaties op grote schaal. Zie voor meer informatie over het gebruik van de eigenschappen van het Edge-agent voor de status van [inzicht in IoT Edge-implementaties voor individuele apparaten of op schaal](module-deployment-monitoring.md).
 
 De volgende tabel bevat geen informatie die is opgehaald uit de gewenste eigenschappen.
 
@@ -117,9 +117,3 @@ De moduledubbel voor de Edge hub heet `$edgeHub` en coördineert de communicatie
 ## <a name="next-steps"></a>Volgende stappen
 
 Zie voor meer informatie over deze eigenschappen gebruiken voor het bouwen van implementatie manifesten, [te begrijpen hoe IoT Edge-modules kunnen worden gebruikt, geconfigureerd en opnieuw gebruikt](module-composition.md).
-
-<!--links -->
-[lnk-deploy]: module-deployment-monitoring.md
-[lnk-docker-create-options]: https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate
-[lnk-docker-logging-options]: https://docs.docker.com/engine/admin/logging/overview/
-[lnk-iothub-query]: ../iot-hub/iot-hub-devguide-query-language.md

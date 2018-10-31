@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: sngun
-ms.openlocfilehash: de67d71a209ea0889b4dc5c87fed254700cb9916
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 554718f0bb465ca757fc4dcf6c22d3b0dd80f2fb
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49395126"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50251087"
 ---
 # <a name="azure-cosmos-db-faq"></a>Veelgestelde vragen over Azure Cosmos DB
 ## <a name="azure-cosmos-db-fundamentals"></a>Grondbeginselen van Azure Cosmos DB
@@ -36,11 +36,11 @@ Azure Cosmos DB is een goede keuze voor nieuwe web, mobiel, gaming en IoT-toepas
 ### <a name="how-does-azure-cosmos-db-offer-predictable-performance"></a>Hoe biedt Azure Cosmos DB voorspelbare prestaties?
 Een [aanvraageenheid](request-units.md) (ru/s) is de maateenheid voor doorvoer in Azure Cosmos DB. Een doorvoer van 1 RU komt overeen met de doorvoer van het ophalen van een document van 1 KB. Elke bewerking in Azure Cosmos DB, met inbegrip van leesbewerkingen, schrijfbewerkingen, SQL-query's en uitvoeringen van opgeslagen procedures, heeft een deterministische RU-waarde die gebaseerd op de doorvoer die is vereist om de bewerking te voltooien. In plaats van nadenken over de CPU, IO en geheugen en hoe ze elke invloed op de doorvoer van uw toepassing, kunt u denken in termen van één RU maateenheid.
 
-U kunt elke Azure Cosmos DB-container met een ingerichte doorvoer in termen van Aanvraageenheden aan doorvoer per seconde reserveren. U kunt voor toepassingen van elke omvang, benchmarken van afzonderlijke aanvragen voor het meten van de RU-waarden en inrichten van een container voor het afhandelen van het totaal aantal aanvraageenheden voor alle aanvragen. U kunt ook omhoog of omlaag doorvoer van uw container schalen naarmate de behoeften van uw toepassing veranderen. Voor meer informatie over aanvraageenheden en hulp bij het bepalen van de container moet, Zie [schatten van de doorvoer moet](request-units.md#estimating-throughput-needs) en probeer de [doorvoer calculator](https://www.documentdb.com/capacityplanner). De term *container* verwijst hier naar verwijst naar een verzameling van de SQL-API, Gremlin-API-grafiek, MongoDB-API-verzameling en Table-API-tabel. 
+U kunt elke Azure Cosmos DB-container met een ingerichte doorvoer in termen van Aanvraageenheden aan doorvoer per seconde reserveren. U kunt voor toepassingen van elke omvang, benchmarken van afzonderlijke aanvragen voor het meten van de RU-waarden en inrichten van een container voor het afhandelen van het totaal aantal aanvraageenheden voor alle aanvragen. U kunt ook omhoog of omlaag doorvoer van uw container schalen naarmate de behoeften van uw toepassing veranderen. Voor meer informatie over aanvraageenheden en hulp bij het bepalen van de container moet, Zie [schatten van de doorvoer moet](request-units.md#estimating-throughput-needs) en probeer de [doorvoer calculator](https://www.documentdb.com/capacityplanner). De term *container* verwijst hier naar een verzameling van de SQL-API, Gremlin-API-grafiek, MongoDB-API-verzameling en Table-API-tabel. 
 
 ### <a name="how-does-azure-cosmos-db-support-various-data-models-such-as-keyvalue-columnar-document-and-graph"></a>Hoe biedt Azure Cosmos DB ondersteuning voor verschillende gegevensmodellen zoals sleutel/waarde, in kolomvorm, document en een graaf?
 
-Sleutel/waarde (tabel), wat in kolomvorm, document en de grafiekgegevens zijn modellen zijn alle systeemeigen worden ondersteund vanwege het ARS (atomen, records en -reeksen) ontwerpen dat Azure Cosmos DB is gebouwd op. Atomen, records en -reeksen kunnen eenvoudig worden toegewezen en toegewezen aan verschillende gegevensmodellen. De API's voor een subset van modellen zijn beschikbaar nu (SQL, MongoDB, Table en Gremlin-API's) en anderen die specifiek zijn voor aanvullende gegevensmodellen komen beschikbaar in de toekomst.
+Sleutel/waarde (tabel), wat in kolomvorm, documenten en de grafiekgegevens zijn modellen alle systeemeigen worden ondersteund vanwege het ARS (atomen, records en -reeksen) ontwerp dat Azure Cosmos DB is gebouwd op. Atomen, records en -reeksen kunnen eenvoudig worden toegewezen en toegewezen aan verschillende gegevensmodellen. De API's voor een subset van modellen zijn beschikbaar nu (SQL, MongoDB, Table en Gremlin-API's) en anderen die specifiek zijn voor aanvullende gegevensmodellen komen beschikbaar in de toekomst.
 
 Azure Cosmos DB heeft een schema agnostisch indexeren engine voor automatisch indexeren van alle gegevens die deze neemt zonder schema's of secundaire indexen van de ontwikkelaar. De engine is afhankelijk van een set van logische index-indelingen (omgekeerde, in kolomvorm, structuur) die de indeling van de index en de subsystemen voor queryverwerking loskoppelen. Cosmos DB biedt ook de mogelijkheid ter ondersteuning van een set wire-protocollen en API's op een uitbreidbare manier en efficiënt te vertalen naar het gegevensmodel core (1) en de logische index-indelingen (2) waardoor het een unieke kan meerdere gegevensmodellen systeemeigen ondersteunen.
 
@@ -53,11 +53,11 @@ Er is geen limiet voor de totale hoeveelheid gegevens die een container kunt ops
 ### <a name="what-are-the-throughput-limits-of-azure-cosmos-db"></a>Wat zijn de doorvoerlimieten van Azure Cosmos DB?
 Er is geen limiet voor de totale hoeveelheid doorvoer die een container in Azure Cosmos DB kan ondersteunen. Het belangrijkste idee is dat uw workload ongeveer gelijkmatig verdelen tussen een voldoende aantal partitiesleutels.
 
-### <a name="are-direct-and-gateway-connectivity-modes-encrypted-"></a>Direct en Gateway modi voor connectiviteit versleuteld? 
+### <a name="are-direct-and-gateway-connectivity-modes-encrypted"></a>Direct en Gateway modi voor connectiviteit versleuteld? 
 Ja, beide modi worden altijd volledig versleuteld. 
 
 ### <a name="how-much-does-azure-cosmos-db-cost"></a>Wat kost Azure Cosmos DB?
-Raadpleeg voor meer informatie, de [prijsinformatie van Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/) pagina. Azure Cosmos DB-gebruikskosten worden bepaald door het aantal ingerichte containers, het aantal uren dat de containers online zijn en de ingerichte doorvoer voor elke container. De term *containers* verwijst hier naar de verzameling van de SQL-API, Gremlin-API (Graph), MongoDB-API-verzameling en Table-API-tabellen. 
+Raadpleeg voor meer informatie, de [prijsinformatie van Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/) pagina. Azure Cosmos DB-gebruikskosten worden bepaald door het aantal ingerichte containers, het aantal uren dat de containers online zijn en de ingerichte doorvoer voor elke container. De term container hier verwijst naar de verzameling van de SQL-API, Gremlin-API (Graph), MongoDB-API-verzameling en Table-API-tabellen. 
 
 ### <a name="is-a-free-account-available"></a>Is een gratis account beschikbaar?
 Ja, kunt u aanmelden voor een account gedurende beperkte tijd gratis, zonder toezegging. Om u te registreren, gaat u naar [Azure Cosmosdb gratis uitproberen](https://azure.microsoft.com/try/cosmosdb/) of lees meer in de [probeer Azure Cosmos DB Veelgestelde vragen over](#try-cosmos-db).
@@ -72,7 +72,7 @@ Als u wilt een technische vraag, kunt u posten naar een van deze twee vraag en a
 * [MSDN-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecosmosdb)
 * [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-cosmosdb). Stack Overflow wordt aanbevolen voor vragen over programmeren. Zorg ervoor dat uw vraag is [op onderwerp](https://stackoverflow.com/help/on-topic) en [zo veel details bevatten mogelijk, waardoor de vraag duidelijke en kan worden beantwoord](https://stackoverflow.com/help/how-to-ask). 
 
-Om aan te vragen van nieuwe functies, maakt u een nieuwe aanvraag op [Uservoice](https://feedback.azure.com/forums/263030-azure-cosmos-db).
+Om aan te vragen van nieuwe functies, maakt u een nieuwe aanvraag op [uservoice](https://feedback.azure.com/forums/263030-azure-cosmos-db).
 
 Als u een probleem met uw account wilt oplossen, kunt u een [ondersteuningsaanvraag](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) indienen in Azure Portal.
 
@@ -88,7 +88,7 @@ Probeer Azure Cosmos DB-abonnementen worden weergegeven in de Azure-portal naast
 De volgende voorwaarden van toepassing op abonnementen Try Azure Cosmos DB:
 
 * Een container per abonnement voor SQL, Gremlin-API en tabel accounts.
-* Maximaal 3-verzamelingen per abonnement voor MongoDB-accounts.
+* Maximaal drie verzamelingen per abonnement voor MongoDB-accounts.
 * Opslagcapaciteit van 10 GB.
 * Globale replicatie is beschikbaar in de volgende [Azure-regio's](https://azure.microsoft.com/regions/): VS-midden, Noord-Europa en Zuidoost-Azië
 * Maximale doorvoer van 5 K RU/s.
@@ -116,7 +116,7 @@ Container en de inrichting van de database-level doorvoer zijn aparte aanbieding
 
 ### <a name="how-do-i-create-fixed-collection-with-partition-key"></a>Hoe maak ik vaste verzameling met partitiesleutel
 
-Op dit moment kunt u verzameling met de doorvoer van een partitie maken met behulp van de [CreatePartitionedCollection](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/CollectionManagement/Program.cs#L118) methode van de .net SDK of met behulp van de [Azure CLI](https://docs.microsoft.com/cli/azure/cosmosdb/collection?view=azure-cli-latest#az-cosmosdb-collection-create). Het maken van een vaste verzameling met behulp van Azure portal is niet momenteel wordt ondersteund.  
+Op dit moment kunt u verzameling met de doorvoer van een partitie maken met behulp van de [CreatePartitionedCollection](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/CollectionManagement/Program.cs#L118) methode van de .net SDK of met behulp van de [Azure CLI](https://docs.microsoft.com/cli/azure/cosmosdb/collection?view=azure-cli-latest#az-cosmosdb-collection-create). Het maken van een vaste verzameling met behulp van Azure portal is momenteel niet ondersteund.  
 
 ### <a name="does-azure-cosmosdb-support-time-series-analysis"></a>Azure cosmos DB biedt ondersteuning voor tijdseries analyseren? 
 Ja Azure cosmos DB biedt ondersteuning voor tijdseries analyseren, ziet u hier een voorbeeld van [reeks tijdpatroon](https://github.com/Azure/azure-cosmosdb-dotnet/tree/master/samples/Patterns). Dit voorbeeld laat zien hoe u kunt gebruiken voor het bouwen van geaggregeerde weergaven via time series-gegevens-wijzigingenfeed. U kunt deze benadering uitbreiden met behulp van spark streaming of een andere processor voor streaming-gegevens.
@@ -161,7 +161,7 @@ De SQL-query-taal ondersteund door SQL API-accounts is een uitgebreide subset va
 De SQL-API biedt ondersteuning voor aggregatie van de lage latentie op elke schaal via statistische functies `COUNT`, `MIN`, `MAX`, `AVG`, en `SUM` via de SQL-grammatica. Zie voor meer informatie, [statistische functies](sql-api-sql-query.md#Aggregates).
 
 ### <a name="how-does-the-sql-api-provide-concurrency"></a>Hoe biedt de SQL-API gelijktijdigheid?
-De SQL-API biedt ondersteuning voor Optimistisch gelijktijdigheidbeheer (OCC) via HTTP-entity-tags of ETags. Elke SQL-API-resource heeft een ETag en de ETag is ingesteld op de server telkens wanneer een document wordt bijgewerkt. De ETag-header en de huidige waarde zijn opgenomen in alle berichten met reacties. ETags kan worden gebruikt met de header If-Match om toe te staan van de server om te bepalen of een resource moet worden bijgewerkt. De If-Match-waarde is de ETag-waarde moet worden gecontroleerd tegen. Als de ETag-waarde overeenkomt met de ETag-waarde van de server, worden de resource wordt bijgewerkt. Als de ETag niet meer actueel is, de server worden geweigerd door de bewerking opnieuw uit met een ' HTTP 412 Precondition failure ' responscode. Haalt de client vervolgens opnieuw de bron uit voor het verkrijgen van de huidige ETag-waarde voor de resource. ETags kan bovendien met de If-None-Match-header worden gebruikt om te bepalen of een opnieuw ophalen van een resource nodig is.
+De SQL-API biedt ondersteuning voor Optimistisch gelijktijdigheidbeheer (OCC) via HTTP-entity-tags of ETags. Elke SQL-API-resource heeft een ETag en de ETag is ingesteld op de server telkens wanneer een document wordt bijgewerkt. De ETag-header en de huidige waarde zijn opgenomen in alle berichten met reacties. ETags kan worden gebruikt met de header If-Match om toe te staan van de server om te bepalen of een resource moet worden bijgewerkt. De If-Match-waarde is de ETag-waarde moet worden gecontroleerd tegen. Als de ETag-waarde overeenkomt met de ETag-waarde van de server, worden de resource wordt bijgewerkt. Als de ETag niet meer actueel is, de server worden geweigerd door de bewerking opnieuw uit met een ' HTTP 412 Precondition failure ' responscode. De client refetches vervolgens de bron uit voor het verkrijgen van de huidige ETag-waarde voor de resource. ETags kan bovendien met de If-None-Match-header worden gebruikt om te bepalen of een opnieuw ophalen van een resource nodig is.
 
 Voor het gebruik van optimistische gelijktijdigheid in .NET, gebruiken de [AccessCondition](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.accesscondition.aspx) klasse. Zie voor een voorbeeld van .NET [Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/DocumentManagement/Program.cs) in het voorbeeld DocumentManagement op GitHub.
 
@@ -230,13 +230,13 @@ Nee, bestaande opslag-SDK's moeten nog steeds werken. Maar het wordt aangeraden 
 ### <a name="where-is-table-api-not-identical-with-azure-table-storage-behavior"></a>Waar is Table-API niet identiek zijn met Azure Table storage gedrag?
 Er zijn enkele verschillen in werking die gebruikers die afkomstig zijn van Azure Table-opslag wilt maken van tabellen met de Azure Cosmos DB Table-API moeten rekening houden met:
 
-* Azure Cosmos DB Table-API maakt gebruik van een model met gereserveerde capaciteit om ervoor te zorgen gegarandeerde prestaties, maar dit betekent dat een voor de capaciteit betaalt, zodra de tabel is gemaakt, zelfs als de capaciteit niet wordt gebruikt. Met Azure Table storage betaalt een alleen voor de opslagcapaciteit die daadwerkelijk wordt gebruikt. Dit helpt om uit te leggen waarom Table-API kan bieden dat een 10 ms lezen en 15 ms schrijven SLA in het 99e percentiel, terwijl Azure Table storage een SLA van 10 tweede biedt. Maar als gevolg hiervan met Table-API-tabellen, zelfs lege tabellen zonder alle aanvragen, geld kosten om ervoor te zorgen de capaciteit voor het afhandelen van de aanvragen die naar deze op de SLA die worden aangeboden door Azure Cosmos DB.
+* Azure Cosmos DB Table-API maakt gebruik van een model met gereserveerde capaciteit om ervoor te zorgen gegarandeerde prestaties, maar dit betekent dat een voor de capaciteit betaalt, zodra de tabel is gemaakt, zelfs als de capaciteit niet wordt gebruikt. Met Azure Table storage betaalt een alleen voor de opslagcapaciteit die wordt gebruikt. Dit helpt om uit te leggen waarom Table-API kunnen bieden een 10 ms lezen en 15 ms schrijven SLA in het 99e percentiel, terwijl Azure Table storage een SLA van 10 seconden biedt. Maar als gevolg hiervan met Table-API-tabellen, zelfs lege tabellen zonder alle aanvragen, geld kosten om ervoor te zorgen de capaciteit voor het afhandelen van de aanvragen die naar deze op de SLA die worden aangeboden door Azure Cosmos DB.
 * Queryresultaten geretourneerd door de Table-API worden niet in de partitie en recordsleutels sleutelsortering gesorteerd zoals in de Azure Table storage.
 * Recordsleutels mag alleen bestaan uit maximaal 255 bytes
 * Batches mag alleen maximaal 2 MB/s
 * CORS is momenteel niet ondersteund.
 * Tabelnamen in Azure Table-opslag zijn niet hoofdlettergevoelig, maar ze zijn in Azure Cosmos DB Table-API
-* Aantal interne Azure Cosmos DB-indelingen voor codering informatie, zoals binaire velden zijn momenteel niet zo efficiënt als een mogelijk interessant vindt. Daarom kan dit leiden tot onverwachte beperkingen op van elke gegevensomvang. Bijvoorbeeld, kan niet momenteel een gebruiken de volledige 1 Meg van een Tabelentiteit voor het opslaan van binaire gegevens omdat de codering van de gegevens wordt groter.
+* Aantal interne Azure Cosmos DB-indelingen voor codering informatie, zoals binaire velden zijn momenteel niet zo efficiënt als een mogelijk interessant vindt. Daarom kan dit leiden tot onverwachte beperkingen op van elke gegevensomvang. Bijvoorbeeld, kan niet momenteel een gebruiken de volledige één Meg van een Tabelentiteit voor het opslaan van binaire gegevens omdat de codering van de gegevens wordt groter.
 * Naam van de entiteit-eigenschap Id wordt momenteel niet ondersteund
 * TableQuery TakeCount is niet beperkt tot 1000
 
@@ -260,17 +260,17 @@ Voor de .NET SDK in het bijzonder, zijn er bepaalde klassen en methoden die Azur
 |                  | \*ServiceStats * |
 | CloudTable | SetPermissions * |
 |            | GetPermissions * |
-| TableServiceContext | * (is deze klasse daadwerkelijk afgeschaft) |
+| TableServiceContext | * (wordt deze klasse afgeschaft) |
 | TableServiceEntity | " " |
 | TableServiceExtensions | " " |
 | TableServiceQuery | " " |
 
-Als een van deze verschillen een probleem voor uw project contact opnemen met [ askcosmosdb@microsoft.com ](mailto:askcosmosdb@microsoft.com) en laat ons weten.
+Als een van deze verschillen een probleem voor uw project, contact op met [ askcosmosdb@microsoft.com ](mailto:askcosmosdb@microsoft.com) en laat ons weten.
 
 ### <a name="how-do-i-provide-feedback-about-the-sdk-or-bugs"></a>Hoe kan ik feedback geven over de SDK of fouten?
 U kunt uw feedback delen in een van de volgende manieren:
 
-* [Uservoice](https://feedback.azure.com/forums/599062-azure-cosmos-db-table-api)
+* [Uservoice](https://feedback.azure.com/forums/263030-azure-cosmos-db)
 * [MSDN-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecosmosdb)
 * [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-cosmosdb). Stack Overflow wordt aanbevolen voor vragen over programmeren. Zorg ervoor dat uw vraag is [op onderwerp](https://stackoverflow.com/help/on-topic) en [zo veel details bevatten mogelijk, waardoor de vraag duidelijke en kan worden beantwoord](https://stackoverflow.com/help/how-to-ask).
 
@@ -329,7 +329,7 @@ Nee, kunt u maken en gebruiken van bestaande Azure Table storage activa zonder o
 U kunt de Azure Cosmos DB-portal [globale replicatie-instellingen](tutorial-global-distribution-sql-api.md#portal) om toe te voegen regio's die geschikt voor uw toepassing zijn. Voor het ontwikkelen van een wereldwijd gedistribueerde toepassing, moet u ook uw toepassing toevoegen met de informatie PreferredLocation is ingesteld op de lokale regio voor het ontwikkelen van wachttijden lezen. 
 
 ### <a name="how-do-i-change-the-primary-write-region-for-the-account-in-the-table-api"></a>Hoe wijzig ik de primaire regio voor schrijven voor het account in de Table-API?
-Het Azure Cosmos DB globale replicatie portal deelvenster kunt u een regio toevoegt en vervolgens een failover uitvoeren naar de vereiste regio. Zie voor instructies [ontwikkelen met Azure Cosmos DB-accounts voor meerdere regio's](regional-failover.md). 
+Het Azure Cosmos DB globale replicatie portal deelvenster kunt u een regio toevoegt en vervolgens een failover uitvoeren naar de vereiste regio. Zie voor instructies [ontwikkelen met Azure Cosmos DB-accounts voor meerdere regio's](high-availability.md). 
 
 ### <a name="how-do-i-configure-my-preferred-read-regions-for-low-latency-when-i-distribute-my-data"></a>Hoe configureer ik mijn voorkeur leesregio's voor lage latentie als ik mijn gegevens distribueren? 
 Om te lezen uit de lokale locatie, gebruikt u de PreferredLocation-sleutel in het bestand app.config. Voor bestaande toepassingen genereert de Table-API een fout als LocationMode is ingesteld. Deze code wordt niet verwijderen omdat de tabel-API deze gegevens uit het bestand app.config haalt. Zie voor meer informatie, [mogelijkheden van Azure Cosmos DB](../cosmos-db/tutorial-develop-table-dotnet.md#azure-cosmos-db-capabilities).
@@ -351,7 +351,7 @@ Azure Cosmos DB de gegevens in de lokale regio blijvend wordt doorgevoerd en de 
 U kunt met Azure Cosmos DB, het consistentieniveau instellen op het niveau van de container (op de tabel). Met behulp van de .NET SDK, kunt u het niveau wijzigen door op te geven van de waarde voor TableConsistencyLevel sleutel in het bestand app.config. De mogelijke waarden zijn: sterk, gebonden veroudering, sessie, Consistent voorvoegsel en uiteindelijk. Zie voor meer informatie, [gegevens instelbare consistentieniveaus in Azure Cosmos DB](consistency-levels.md). Het belangrijkste idee is dat u niet de consistentie van de aanvraag niveau op meer dan de instelling voor de tabel instellen. U kunt het consistentieniveau van de van de tabel bijvoorbeeld niet instellen op uiteindelijk en het niveau van de aanvraag voor consistentie op sterke. 
 
 ### <a name="how-does-the-table-api-handle-failover-if-a-region-goes-down"></a>Hoe de Table-API failover af te handelen als een regio uitvalt? 
-De Table-API maakt gebruik van de wereldwijd gedistribueerde platform van Azure Cosmos DB. Inschakelen om ervoor te zorgen dat uw toepassing datacenter downtime kan tolereren, ten minste één meer regio voor het account in de Azure Cosmos DB-portal [ontwikkelen met Azure Cosmos DB-accounts voor meerdere regio's](regional-failover.md). U kunt de prioriteit van de regio kunt instellen met behulp van de portal [ontwikkelen met Azure Cosmos DB-accounts voor meerdere regio's](regional-failover.md). 
+De Table-API maakt gebruik van de wereldwijd gedistribueerde platform van Azure Cosmos DB. Inschakelen om ervoor te zorgen dat uw toepassing datacenter downtime kan tolereren, ten minste één meer regio voor het account in de Azure Cosmos DB-portal [ontwikkelen met Azure Cosmos DB-accounts voor meerdere regio's](high-availability.md). U kunt de prioriteit van de regio kunt instellen met behulp van de portal [ontwikkelen met Azure Cosmos DB-accounts voor meerdere regio's](high-availability.md). 
 
 U kunt zoveel regio's als u wilt gebruiken voor het account en waar het kan failover bepalen uitvoeren naar door te geven van een failover-prioriteit toevoegen. Voor het gebruik van de database, moet u natuurlijk, er een toepassing te bieden. Als u dit doet, wordt uw klanten geen uitvaltijd moeten ervaren. De [nieuwste .NET client SDK](table-sdk-dotnet.md) homing-automatisch is, maar de andere SDK's zijn niet. Dat wil zeggen, kan de regio die niet actief is en automatisch een failover uitvoeren naar de nieuwe regio detecteren.
 
@@ -431,7 +431,7 @@ Azure Cosmos DB biedt gegarandeerd voor de prestaties en de latentie, met een bo
 
 Met behulp van de doorvoer-specificatie, kunt u flexibel wijzigen om te profiteren van de periodieke variatie van uw toepassing, voldoen aan de doorvoerbehoeften en kosten besparen.
 
-### <a name="azure-table-storage-has-been-very-inexpensive-for-me-because-i-pay-only-to-store-the-data-and-i-rarely-query-the-azure-cosmos-db-table-api-offering-seems-to-be-charging-me-even-though-i-have-not-performed-a-single-transaction-or-stored-anything-can-you-please-explain"></a>Azure Table storage is zeer goedkope voor mij, omdat ik betaal alleen voor het opslaan van de gegevens, en ik zelden query. De Azure Cosmos DB Table-API-aanbieding lijkt te worden kosten in rekening gebracht me zelfs als ik niet heb één transactie uitgevoerd of die zijn opgeslagen op Alles. Kunt u Leg?
+### <a name="azure-table-storage-has-been-inexpensive-for-me-because-i-pay-only-to-store-the-data-and-i-rarely-query-the-azure-cosmos-db-table-api-offering-seems-to-be-charging-me-even-though-i-have-not-performed-a-single-transaction-or-stored-anything-can-you-please-explain"></a>Azure Table storage is goedkoop voor mij, omdat ik betaal alleen voor het opslaan van de gegevens, en ik zelden query. De Azure Cosmos DB Table-API-aanbieding lijkt te worden kosten in rekening gebracht me zelfs als ik niet heb één transactie uitgevoerd of die zijn opgeslagen op Alles. Kunt u Leg?
 
 Azure Cosmos DB is ontworpen om te worden van een wereldwijd gedistribueerde, op basis van een SLA-systeem met garanties met betrekking tot beschikbaarheid, latentie en doorvoer. Wanneer u de doorvoer in Azure Cosmos DB reserveren, deze kan worden gegarandeerd, in tegenstelling tot de doorvoer van andere systemen. Azure Cosmos DB biedt extra mogelijkheden, die klanten hebben aangevraagd, zoals secundaire indexen en wereldwijde distributie.  
 
@@ -456,13 +456,13 @@ Azure Cosmos DB Gremlin-API maakt gebruik van de open-source-stuurprogramma's al
 
 ### <a name="how-are-rus-charged-when-running-queries-on-a-graph-database"></a>Hoe worden RU/s in rekening gebracht bij het uitvoeren van query's op een grafiekdatabase? 
 
-Graph-objecten, hoekpunten en randen, worden weergegeven als JSON-documenten in de back-end. Omdat een Gremlin-query op een wijzigen kunt of veel graph-objecten op een tijdstip, de kosten die zijn gekoppeld met deze isbe direct verband houden met de objecten, randen die worden verwerkt door de query. Dit is hetzelfde proces dat Azure Cosmos DB voor alle andere API's gebruikt. Zie voor meer informatie, [Aanvraageenheden in Azure Cosmos DB](request-units.md).
+Alle graph-objecten, hoekpunten en randen, worden weergegeven als JSON-documenten in de back-end. Omdat een Gremlin-query op een wijzigen kunt of veel graph-objecten op een tijdstip, wordt de kosten die gepaard gaan met het rechtstreeks met betrekking tot de objecten, randen die worden verwerkt door de query. Dit is hetzelfde proces dat Azure Cosmos DB voor alle andere API's gebruikt. Zie voor meer informatie, [Aanvraageenheden in Azure Cosmos DB](request-units.md).
 
 De RU-kosten zijn gebaseerd op de werkset van de gegevens van het transport en niet het resultaat ingesteld. Bijvoorbeeld, als een query is erop gericht om op te halen van een hoekpunt als gevolg hiervan, maar moet door meerdere andere objecten van de manier waarop bladeren, klikt u vervolgens de kosten wordt worden gebaseerd op alle graph-objecten die nodig is voor het berekenen van het hoekpunt één resultaat.
 
 ### <a name="whats-the-maximum-scale-that-a-graph-database-can-have-in-azure-cosmos-db-gremlin-api"></a>Wat is de maximale schaal die een grafiekdatabase in Gremlin-API van Azure Cosmos DB hebben kunt? 
 
-Azure Cosmos DB maakt gebruik van [horizontale partitionering](partition-data.md) automatisch adres toename in de vereisten voor opslag en doorvoer. De maximale doorvoer en opslag van de capaciteit van een werkbelasting wordt bepaald door het bedrag van de partities die gekoppeld aan een bepaalde verzameling zijn. Een verzameling Gremlin-API heeft echter een specifieke set richtlijnen om te controleren of een goede prestaties op schaal. Zie voor meer informatie en aanbevolen procedures, [best practices voor partitionering](partition-data.md#best-practices-when-choosing-a-partition-key) document. 
+Azure Cosmos DB maakt gebruik van [horizontale partitionering](partition-data.md) automatisch adres toename in de vereisten voor opslag en doorvoer. De maximale doorvoer en opslag van de capaciteit van een werkbelasting wordt bepaald door het aantal partities die gekoppeld aan een bepaalde verzameling zijn. Een verzameling Gremlin-API heeft echter een specifieke set richtlijnen om te controleren of een goede prestaties op schaal. Zie voor meer informatie en aanbevolen procedures, [best practices voor partitionering](partition-data.md#best-practices-when-choosing-a-partition-key) document. 
 
 ### <a name="how-can-i-protect-against-injection-attacks-using-gremlin-drivers"></a>Hoe kan ik beveiligen tegen aanvallen via injectie met behulp van Gremlin-stuurprogramma's? 
 
@@ -472,7 +472,7 @@ Meest systeemeigen Tinkerpop Gremlin-stuurprogramma's kunnen de optie voor een w
 
 Azure Cosmos DB Gremlin-API implementeert een subset van de functionaliteit die is gedefinieerd in het gebied van Gremlin. Raadpleeg voor meer informatie en ondersteunde stappen [Gremlin-ondersteuning](gremlin-support.md) artikel.
 
-De beste oplossing is de vereiste Gremlin-stappen opnieuw schrijven met de ondersteunde functionaliteit, omdat alle essentiële Gremlin-stappen worden ondersteund door Azure Cosmos DB.
+De beste oplossing is het herschrijven van de vereiste Gremlin-stappen met de ondersteunde functionaliteit, omdat alle essentiële Gremlin-stappen worden ondersteund door Azure Cosmos DB.
 
 ### <a name="why-am-i-getting-the-websocketexception-the-server-returned-status-code-200-when-status-code-101-was-expected-error"></a>Waarom krijg ik het "WebSocketException: de server heeft statuscode '200' geretourneerd als de statuscode '101' werd verwacht" fout?
 
@@ -501,7 +501,7 @@ Een Gremlin-verbinding wordt gemaakt via een WebSocket-verbinding. Hoewel WebSoc
 
 ### <a name="why-cant-i-use-fluent-api-calls-in-the-native-gremlin-drivers"></a>Waarom gebruik ik fluent API-aanroepen kan niet in de systeemeigen Gremlin-stuurprogramma's?
 
-Fluent API-aanroepen zijn nog niet ondersteund door de Gremlin-API van Azure Cosmos DB. Fluent API-aanroepen moeten een interne opmaak functie wel bytecode ondersteuning die wordt momenteel niet ondersteund door Azure Cosmos DB Gremlin API. Vanwege om dezelfde reden is wordt de meest recente stuurprogramma voor Gremlin-JavaScript ook op dit moment niet ondersteund. 
+Fluent API-aanroepen zijn nog niet ondersteund door de Gremlin-API van Azure Cosmos DB. Fluent API-aanroepen moeten een interne opmaak functie wel bytecode ondersteuning die momenteel niet wordt ondersteund door Azure Cosmos DB Gremlin API. Vanwege om dezelfde reden is wordt de meest recente stuurprogramma voor Gremlin-JavaScript ook op dit moment niet ondersteund. 
 
 ### <a name="how-can-i-evaluate-the-efficiency-of-my-gremlin-queries"></a>Hoe kan ik de efficiëntie van mijn Gremlin query's evalueren?
 
@@ -579,7 +579,7 @@ De uitvoer van de bovenstaande profiel toont hoeveel tijd wordt besteed aan het 
 ## <a id="cassandra"></a> Cassandra-API
 
 ### <a name="what-is-the-protocol-version-supported-in-the-private-preview-is-there-a-plan-to-support-other-protocols"></a>Wat is de versie van het protocol in de beperkte Preview-versie ondersteund? Is er een abonnement voor de ondersteuning van andere protocollen?
-Apache Cassandra-API voor Azure Cosmos DB ondersteunt vandaag CQL-versie 4. Als u feedback hebt over andere protocollen ondersteunen, laat het ons weten [uservoice-feedback](https://feedback.azure.com/forums/263030-azure-cosmos-db) of stuur een e-mail naar [ askcosmosdbcassandra@microsoft.com ](mailto:askcosmosdbcassandra@microsoft.com). 
+Apache Cassandra-API voor Azure Cosmos DB ondersteunt vandaag CQL-versie 4. Als u feedback hebt over andere protocollen ondersteunen, laat het ons weten [feedback van gebruikers](https://feedback.azure.com/forums/263030-azure-cosmos-db) of stuur een e-mail naar [ askcosmosdbcassandra@microsoft.com ](mailto:askcosmosdbcassandra@microsoft.com). 
 
 ### <a name="why-is-choosing-a-throughput-for-a-table-a-requirement"></a>Waarom kiezen is een doorvoer voor een tabel een vereiste?
 Azure Cosmos DB wordt standaard doorvoer ingesteld voor de container op basis van waar u de tabel - maken-portal of CQL. Azure Cosmos DB biedt gegarandeerd voor de prestaties en de latentie, met een bovengrens voor bewerking. Deze garantie is mogelijk wanneer de engine governance op bewerkingen van de tenant kunt afdwingen. Doorvoer van de instelling zorgt ervoor dat u de gegarandeerde doorvoer en latentie, omdat het platform deze capaciteit gereserveerd en bewerking geslaagd garandeert. U kunt flexibel wijzigen doorvoer om te profiteren van de periodieke variatie van uw toepassing en kosten te besparen.
@@ -604,34 +604,34 @@ simpleStatement.SetOutgoingPayload(outgoingPayload);
 ``` 
 
 ### <a name="what-happens-when-throughput-is-exceeded"></a>Wat gebeurt er wanneer de doorvoer wordt overschreden? 
-Azure Cosmos DB biedt gegarandeerd voor de prestaties en de latentie, met een bovengrens voor bewerking. Deze garantie is mogelijk wanneer de engine governance op bewerkingen van de tenant kunt afdwingen. Dit is mogelijk op basis van het instellen van de doorvoer, wat zorgt ervoor dat u de gegarandeerde doorvoer en latentie, omdat het platform deze capaciteit gereserveerd en garandeert bewerking geslaagd. Wanneer u deze capaciteit overschrijdt krijgt u de overbelaste foutmelding bericht dat uw capaciteit is overschreden. 0x1001 overbelast: de aanvraag kan niet worden verwerkt omdat 'Aanvraagsnelheid hoog is'. In dit stadium is het essentieel om te zien welke bewerkingen en het volume zorgt ervoor dat dit probleem. U krijgt een idee van verbruikte capaciteit van meer dan de ingerichte capaciteit met metrische gegevens over de portal. Vervolgens moet u ervoor zorgen capaciteit bijna wordt verbruikt gelijkmatig over alle onderliggende partities. Als u de meeste van de doorvoer wordt gebruikt door één partitie, hebt u scheeftrekken van werkbelasting. 
+Azure Cosmos DB biedt gegarandeerd voor de prestaties en de latentie, met een bovengrens voor bewerking. Deze garantie is mogelijk wanneer de engine governance op bewerkingen van de tenant kunt afdwingen. Dit is mogelijk op basis van het instellen van de doorvoer, wat zorgt ervoor dat u de gegarandeerde doorvoer en latentie, omdat het platform deze capaciteit gereserveerd en garandeert bewerking geslaagd. Als u deze capaciteit overschrijden, krijgt u de overbelaste foutmelding dat uw capaciteit is overschreden. 0x1001 overbelast: de aanvraag kan niet worden verwerkt omdat 'Aanvraagsnelheid hoog is'. In dit stadium is het essentieel om te zien welke bewerkingen en het volume zorgt ervoor dat dit probleem. U krijgt een idee van verbruikte capaciteit van meer dan de ingerichte capaciteit met metrische gegevens over de portal. Vervolgens moet u ervoor zorgen capaciteit bijna wordt verbruikt gelijkmatig over alle onderliggende partities. Als u de meeste van de doorvoer wordt gebruikt door één partitie, hebt u scheeftrekken van werkbelasting. 
 
 Metrische gegevens zijn beschikbaar die laten zien u hoe doorvoer wordt gebruikt in uren, dagen, en per zeven dagen over meerdere partities of in een statistische functie. Zie voor meer informatie, [bewaking en foutopsporing met metrische gegevens in Azure Cosmos DB](use-metrics.md).
 
 Logboeken met diagnostische gegevens worden beschreven de [Diagnostische logboekregistratie van Azure Cosmos DB](logging.md) artikel.
 
 ### <a name="does-the-primary-key-map-to-the-partition-key-concept-of-azure-cosmos-db"></a>De primaire sleutel toewijzen aan het belangrijkste concept van de partitie van Azure Cosmos DB biedt?
-Ja, de partitiesleutel wordt gebruikt om de entiteit in de juiste locatie. In Azure Cosmos DB wordt deze gebruikt om het juiste logische partitie die is opgeslagen op een fysieke partitie vinden. Het partitioneren concept wordt ook uitgelegd in de [partitioneren en schalen in Azure Cosmos DB](partition-data.md) artikel. De essentiële toets maken opslaan als volgt dat een logische partitie mag niet groter zijn dan de limiet van 10 GB vandaag nog. 
+Ja, de partitiesleutel wordt gebruikt om de entiteit in de juiste locatie. In Azure Cosmos DB, is het gebruikt voor het juiste logische partitie die is opgeslagen op een fysieke partitie vinden. Het partitioneren concept wordt ook uitgelegd in de [partitioneren en schalen in Azure Cosmos DB](partition-data.md) artikel. De essentiële toets maken opslaan als volgt dat een logische partitie mag niet groter zijn dan de limiet van 10 GB vandaag nog. 
 
 ### <a name="what-happens-when-i-get-a-quota-full-notification-indicating-that-a-partition-is-full"></a>Wat gebeurt er wanneer ik een quotum volledig krijg'-melding die aangeeft dat een partitie vol is?
-Azure Cosmos DB is een SLA-systeem waarmee onbeperkte schaal, garanties met betrekking tot latentie, doorvoer, beschikbaarheid en consistentie. De Cassandra-API kunt te onbeperkte opslag van gegevens. Deze onbeperkte opslag is gebaseerd op de horizontale scaleout van gegevens met behulp van de belangrijkste concept partitioneren. Het partitioneren concept wordt ook uitgelegd in de [partitioneren en schalen in Azure Cosmos DB](partition-data.md) artikel.
+Azure Cosmos DB is een SLA-systeem waarmee onbeperkte schaal, garanties met betrekking tot latentie, doorvoer, beschikbaarheid en consistentie. Deze onbeperkte opslag is gebaseerd op de horizontale opwaartse gegevens met behulp van de belangrijkste concept partitioneren. Het partitioneren concept wordt ook uitgelegd in de [partitioneren en schalen in Azure Cosmos DB](partition-data.md) artikel.
 
-De limiet van 10 GB voor het aantal entiteiten of items per logische partitie moet u voldoen aan. Om ervoor te zorgen dat uw toepassing goed schaalbaar, raden wij aan dat u *niet* een hot partitie maken met alle informatie in één partitie op te slaan en het uitvoeren van query's. Deze fout kan alleen afkomstig is als u gegevens is vervormd - die is dat u grote hoeveelheden gegevens voor één partitiesleutel - dat wil zeggen, hebben meer dan 10 GB. Hier vindt u de verdeling van gegevens met behulp van de opslag-portal. Manier om deze fout te herstellen is om recrete in de tabel en kiest u een gedetailleerde primaire (partitiesleutel), waardoor betere verdeling van gegevens.
+De limiet van 10 GB voor het aantal entiteiten of items per logische partitie moet u voldoen aan. Om ervoor te zorgen dat uw toepassing goed schaalbaar, raden wij aan dat u *niet* een hot partitie maken met alle informatie in één partitie op te slaan en het uitvoeren van query's. Deze fout kan alleen worden geleverd als uw gegevens is vervormd - die dat u hebt veel van de gegevens voor één partitiesleutel - dat wil zeggen, meer dan 10 GB. Hier vindt u de verdeling van gegevens met behulp van de opslag-portal. Er is een manier om deze fout te herstellen opnieuw maken in de tabel en kiest u een gedetailleerde primaire (partitiesleutel), waardoor betere verdeling van gegevens.
 
 ### <a name="is-it-possible-to-use-cassandra-api-as-key-value-store-with-millions-or-billions-of-individual-partition-keys"></a>Is het mogelijk het gebruik van Cassandra-API als sleutel-waardearchief met miljoenen of miljarden afzonderlijke partitiesleutels?
 Azure Cosmos DB kunt onbeperkte gegevens opslaan door het uitbreiden van de opslag. Dit is onafhankelijk van de doorvoer. U kunt de Cassandra-API Ja altijd alleen gebruiken voor het opslaan en ophalen van sleutel/waarden door de juiste primaire/partitiesleutel op te geven. Deze afzonderlijke sleutels ophalen van hun eigen logische partitie en zich op een fysieke partitie zonder problemen. 
 
 ### <a name="is-it-possible-to-create-multiple-tables-with-apache-cassandra-api-of-azure-cosmos-db"></a>Is het mogelijk om meerdere tabellen maken met Apache Cassandra-API van Azure Cosmos DB?
-Ja, het is mogelijk te maken meerdere tabellen met Apache Cassandra-API. Elk van deze tabellen wordt behandeld als eenheid voor doorvoer en opslag. 
+Ja, is het mogelijk te maken van meerdere tabellen met Apache Cassandra-API. Elk van deze tabellen wordt behandeld als eenheid voor doorvoer en opslag. 
 
 ### <a name="is-it-possible-to-create-multiple-tables-in-succession"></a>Is het mogelijk te maken van meerdere tabellen achter elkaar?
 Azure Cosmos DB is resourcegestuurd systeem voor zowel gegevens als het besturingselement vlak-activiteiten. Containers, zoals verzamelingen, tabellen zijn runtime-entiteiten die zijn ingericht voor de opgegeven doorvoercapaciteit. Het maken van deze containers snel achter elkaar is geen verwachte activiteit en beperkt. Probeer om ze als u tests die drop/tabellen onmiddellijk maken - hebt.
 
-### <a name="what-is-maximum-number-of-tables-which-can-be-created"></a>Wat is een maximum aantal tabellen die kan worden gemaakt?
-Er is geen fysieke limiet voor het aantal tabellen, stuurt u een e-mailbericht op [ askcosmosdbcassandra@microsoft.com ](mailto:askcosmosdbcassandra@microsoft.com) als u een zeer groot aantal tabellen (waarin de totale grootte van de constante groter is dan 10 TB aan gegevens) die moeten worden gemaakt op basis van gebruikelijke 10s of 100s hebt. 
+### <a name="what-is-maximum-number-of-tables-that-can-be-created"></a>Wat is een maximum aantal tabellen dat kan worden gemaakt?
+Er is geen fysieke limiet voor het aantal tabellen, stuurt u een e-mailbericht op [ askcosmosdbcassandra@microsoft.com ](mailto:askcosmosdbcassandra@microsoft.com) als u een groot aantal tabellen (waarin de totale grootte van de constante groter is dan 10 TB aan gegevens) die moeten worden gemaakt op basis van gebruikelijke 10s of 100s hebt. 
 
-### <a name="what-is-the-maximum--of-keyspace-which-we-can-create"></a>Wat is het maximale aantal keyspace die we kunnen maken? 
-Er is geen fysieke limiet voor het aantal keyspaces omdat ze zijn containers voor metagegevens, stuurt u een e-mailbericht op [ askcosmosdbcassandra@microsoft.com ](mailto:askcosmosdbcassandra@microsoft.com) als u een zeer groot aantal keyspaces voor een of andere reden hebt. 
+### <a name="what-is-the-maximum--of-keyspace-that-we-can-create"></a>Wat is het maximale aantal keyspace die we kunnen maken? 
+Er is geen fysieke limiet voor het aantal keyspaces omdat ze zijn containers voor metagegevens, stuurt u een e-mailbericht op [ askcosmosdbcassandra@microsoft.com ](mailto:askcosmosdbcassandra@microsoft.com) als u een groot aantal keyspaces voor een of andere reden hebt. 
 
 ### <a name="is-it-possible-to-bring-in-lot-of-data-after-starting-from-normal-table"></a>Is het mogelijk om grote hoeveelheden gegevens na het starten van de normale tabel te betrekken? 
 De opslagcapaciteit wordt automatisch beheerd en neemt toe naarmate u meer gegevens pushen. Zo kunt u gegevens die u nodig hebt zonder beheer en inrichting van knooppunten, enzovoort vol vertrouwen importeren. 
@@ -640,13 +640,13 @@ De opslagcapaciteit wordt automatisch beheerd en neemt toe naarmate u meer gegev
 Apache Cassandra-API van Azure Cosmos DB is een platformservice. Het biedt protocol op compatibiliteit voor het uitvoeren van bewerkingen. Het wordt direct de complexiteit van het beheer, bewaking en configuratie verborgen. Als een ontwikkelaar/gebruiker hoeft u geen zorgen te hoeven maken over de beschikbaarheid, tombstones, sleutel cache, rij-cache, waas filter en vele andere instellingen. Azure Cosmos-DB Apache Cassandra-API richt zich op het bieden van lezen en schrijven van prestaties die u nodig zonder de overhead van de configuratie en beheer hebt.
 
 ### <a name="will-apache-cassandra-api-for-azure-cosmos-db-support-node-additioncluster-statusnode-status-commands"></a>Apache Cassandra-API voor Azure Cosmos DB biedt ondersteuning voor knooppunt toevoeging/cluster status/node status opdrachten?
-Apache Cassandra-API is een platformservice waardoor capaciteitsplanning, reageren op de flexibiliteit van de vereisten voor doorvoer en opslag van een koud kunstje. Met Azure Cosmos DB inrichten u doorvoer die u nodig. Vervolgens kunt u deze omhoog en omlaag een willekeurig aantal keren via de dag schalen zonder u zorgen te maken over het toevoegen/verwijderen van knooppunten of ze beheren. Dit betekent dat u niet wilt dat het knooppunt, voor Clusterbeheer te gebruiken. 
+Apache Cassandra-API is een platformservice waardoor capaciteitsplanning, reageren op de flexibiliteit van de vereisten voor doorvoer en opslag van een koud kunstje. Met Azure Cosmos DB u ingericht met doorvoer, moet u. Vervolgens kunt u deze omhoog en omlaag een willekeurig aantal keren via de dag schalen zonder u zorgen te maken over het toevoegen/verwijderen van knooppunten of ze beheren. Dit betekent dat u niet wilt dat het knooppunt, voor Clusterbeheer te gebruiken. 
 
 ### <a name="what-happens-with-respect-to-various-config-settings-for-keyspace-creation-like-simplenetwork"></a>Wat gebeurt er met betrekking tot verschillende configuratie-instellingen voor het maken van de keyspace zoals eenvoudige/netwerk?
 Azure Cosmos DB biedt wereldwijde distributie buiten het vak voor beschikbaarheid en lage latentie redenen. U hoeft niet aan de installatie van replica's enzovoort. Alle schrijfbewerkingen zijn altijd blijvend quorum doorgevoerd in een andere regio's waar u schrijven terwijl de prestaties.  
 
-### <a name="what-happens-with-respect-to-various-settings-for-table-metadata-like-bloom-filter-caching-read-repair-change-gcgrace-compression-memtableflushperiod-etc"></a>Wat gebeurt er met betrekking tot verschillende instellingen voor de metagegevens van de tabel, zoals waas worden gefilterd, caching, lezen herstellen wijzigen, gc_grace, compressie memtable_flush_period enzovoort?
-Azure Cosmos DB biedt prestaties voor lees-/ schrijfbewerkingen en doorvoer zonder behoefte aan een van de configuratie-instellingen en per ongeluk kunt deze bewerken.  
+### <a name="what-happens-with-respect-to-various-settings-for-table-metadata-like-bloom-filter-caching-read-repair-change-gcgrace-compression-memtableflushperiod-etc"></a>Wat gebeurt er met betrekking tot verschillende instellingen voor de metagegevens van de tabel, zoals waas filter, caching, herstellen wijzigen, gc_grace, compressie memtable_flush_period enz lezen.?
+Azure Cosmos DB biedt prestaties voor lees-/ schrijfbewerkingen en doorvoer zonder dat nodig is voor een van de configuratie-instellingen aan te raken en ze per ongeluk te bewerken.  
 
 ### <a name="is-time-to-live-ttl-supported-for-cassandra-tables"></a>Wordt de time-to-live (TTL) voor Cassandra-tabellen ondersteund? 
 Ja, de TTL-waarde wordt ondersteund. 
@@ -661,17 +661,17 @@ Stuurprogramma's die gebruikmaken van CQLv3 zijn in private preview Apache Cassa
 ### <a name="is-composite-partition-key-supported"></a>Wordt samengesteld partitiesleutel ondersteund?
 Ja, kunt u de syntaxis van de reguliere samengestelde partitiesleutel maken. 
 
-### <a name="can-i-use-sstable-loader-for-data-loading"></a>Kan ik sstable loader gebruiken voor het laden van gegevens?
-Nee, de Preview-versie sstable loader wordt niet ondersteund. 
+### <a name="can-i-use-stable-loader-for-data-loading"></a>Kan ik stabiel loader gebruiken voor het laden van gegevens?
+Nee, de Preview-versie stabiel loader wordt niet ondersteund. 
 
 ### <a name="can-an-on-premises-cassandra-cluster-be-paired-with-azure-cosmos-dbs-apache-cassandra-api"></a>Kan een on-premises cassandra-cluster worden gekoppeld aan Azure Cosmos DB Apache Cassandra-API?
 Op dit Azure Cosmos DB heeft een optimale ervaring voor cloudomgeving zonder de overhead van bewerkingen. Als u nodig hebt met het koppelen, stuurt u een e-mail naar [ askcosmosdbcassandra@microsoft.com ](mailto:askcosmosdbcassandra@microsoft.com) met een beschrijving van uw scenario.
 
 ### <a name="does-cassandra-api-provide-full-backups"></a>Biedt Cassandra-API van volledige back-ups? 
-Azure Cosmos DB biedt twee gratis volledige back-ups die op basis van vier uur interval vandaag nog voor alle API's. Dit zorgt ervoor dat u hoeft niet het instellen van een back-upschema enzovoort. Als u wijzigen bewaring en frequentie wilt, stuur een e-mail naar [ askcosmosdbcassandra@microsoft.com ](mailto:askcosmosdbcassandra@microsoft.com) of een ondersteuningsverzoek in te trekken. Informatie over back-upfunctionaliteit vindt u in de [automatische online back-up en herstel met Azure Cosmos DB](online-backup-and-restore.md) artikel. 
+Azure Cosmos DB biedt twee gratis volledige back-ups die op basis van vier uur interval vandaag nog voor alle API's. Dit zorgt ervoor dat u hoeft niet voor het instellen van een back-upschema enzovoort. Als u wijzigen bewaring en frequentie wilt, stuur een e-mail naar [ askcosmosdbcassandra@microsoft.com ](mailto:askcosmosdbcassandra@microsoft.com) of een ondersteuningsverzoek in te trekken. Informatie over back-upfunctionaliteit vindt u in de [automatische online back-up en herstel met Azure Cosmos DB](online-backup-and-restore.md) artikel. 
 
 ### <a name="how-does-the-cassandra-api-account-handle-failover-if-a-region-goes-down"></a>Hoe de Cassandra-API-account failover af te handelen als een regio uitvalt? 
-De Cassandra-API van Azure Cosmos DB leent van de wereldwijd gedistribueerde platform van Azure Cosmos DB. Inschakelen om ervoor te zorgen dat uw toepassing datacenter downtime kan tolereren, ten minste één meer regio voor het account in de Azure Cosmos DB-portal [ontwikkelen met Azure Cosmos DB-accounts voor meerdere regio's](regional-failover.md). U kunt de prioriteit van de regio kunt instellen met behulp van de portal [ontwikkelen met Azure Cosmos DB-accounts voor meerdere regio's](regional-failover.md). 
+De Cassandra-API van Azure Cosmos DB leent van de wereldwijd gedistribueerde platform van Azure Cosmos DB. Inschakelen om ervoor te zorgen dat uw toepassing datacenter downtime kan tolereren, ten minste één meer regio voor het account in de Azure Cosmos DB-portal [ontwikkelen met Azure Cosmos DB-accounts voor meerdere regio's](high-availability.md). U kunt de prioriteit van de regio kunt instellen met behulp van de portal [ontwikkelen met Azure Cosmos DB-accounts voor meerdere regio's](high-availability.md). 
 
 U kunt zoveel regio's als u wilt gebruiken voor het account en waar het kan failover bepalen uitvoeren naar door te geven van een failover-prioriteit toevoegen. Voor het gebruik van de database, moet u er een toepassing te bieden. Als u dit doet, wordt uw klanten geen uitvaltijd moeten ervaren. 
 
@@ -688,7 +688,7 @@ Wij van plan bent voor de ondersteuning van deze mogelijkheid in de toekomst.
 Apache Cassandra-API biedt dezelfde CQL-functionaliteit als Apache Cassandra. We bent van plan om uit te zoeken haalbaarheid van verschillende mogelijkheden in de toekomst ondersteunen.
 
 ### <a name="feature-x-of-regular-cassandra-api-is-not-working-as-today-where-can-the-feedback-be-provided"></a>Functie x van reguliere Cassandra-API werkt niet als het vandaag, waarbij kan feedback worden opgegeven?
-Feedback geven via [uservoice-feedback](https://feedback.azure.com/forums/263030-azure-cosmos-db).
+Feedback geven via [feedback van gebruikers](https://feedback.azure.com/forums/263030-azure-cosmos-db).
 
 [azure-portal]: https://portal.azure.com
 [query]: sql-api-sql-query.md

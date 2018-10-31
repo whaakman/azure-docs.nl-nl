@@ -4,7 +4,7 @@ description: Deze pagina bevat richtlijnen voor het wijzigen van SHA-algoritme v
 keywords: SHA1, SHA256, O365, Federatie, aadconnect, adfs, ad fs, wijziging sha, federatieve vertrouwensrelatie, vertrouwensrelatie van relying party
 services: active-directory
 documentationcenter: ''
-author: anandyadavmsft
+author: billmath
 manager: mtillman
 editor: ''
 ms.assetid: cf6880e2-af78-4cc9-91bc-b64de4428bbd
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2016
-ms.author: anandy
-ms.openlocfilehash: 5352c76d2f41adef8fae29d3f60204fb05546ddc
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.date: 10/26/2018
+ms.author: billmath
+ms.openlocfilehash: d76905df230fe9d1a61186cc22d14bb44028e00b
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46298044"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50252178"
 ---
 # <a name="change-signature-hash-algorithm-for-office-365-relying-party-trust"></a>Handtekening hash-algoritme voor Office 365 vertrouwensrelatie van relying party wijzigen
 ## <a name="overview"></a>Overzicht
@@ -39,7 +39,7 @@ Nadat u de handtekeningalgoritme met een van de twee onderstaande processen hebt
 4. Selecteer de **Geavanceerd** tabblad en selecteer het veilige hash-algoritme SHA256.
 5. Klik op **OK**.
 
-![SHA256 ondertekeningsalgoritme--MMC](./media/active-directory-aadconnectfed-sha256guidance/mmc.png)
+![SHA256 ondertekeningsalgoritme--MMC](./media/how-to-connect-fed-sha256-guidance/mmc.png)
 
 ### <a name="ad-fs-powershell-cmdlets"></a>AD FS-PowerShell-cmdlets
 1. Open PowerShell onder administrator-bevoegdheden op elke AD FS-server.
@@ -48,5 +48,5 @@ Nadat u de handtekeningalgoritme met een van de twee onderstaande processen hebt
    <code>Set-AdfsRelyingPartyTrust -TargetName 'Microsoft Office 365 Identity Platform' -SignatureAlgorithm 'http://www.w3.org/2001/04/xmldsig-more#rsa-sha256'</code>
 
 ## <a name="also-read"></a>Lees ook
-* [Herstellen van Office 365-vertrouwensrelatie met Azure AD Connect](hybrid/how-to-connect-fed-management.md#repairthetrust)
+* [Herstellen van Office 365-vertrouwensrelatie met Azure AD Connect](how-to-connect-fed-management.md#repairthetrust)
 

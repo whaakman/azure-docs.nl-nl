@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2017
 ms.author: bwren;dairwin
-ms.openlocfilehash: 6fc6afa9c0ccbddcfa408556dee92618fe63c8fb
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: b9146bfc284a469f12eb626c2434f4afe52335dc
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49407109"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50250436"
 ---
 # <a name="service-map-integration-with-system-center-operations-manager"></a>Serviceoverzicht integratie met System Center Operations Manager
   > [!NOTE]
@@ -53,19 +53,19 @@ Serviceoverzicht om integratie te configureren, het volgende doen:
 
 1. De configuratiewizard openen in de **Service kaart overzicht** deelvenster, klikt u op **werkruimte toevoegen**.  
 
-    ![Overzicht van service-kaart deelvenster](media/monitoring-service-map/scom-configuration.png)
+    ![Overzicht van service-kaart deelvenster](media/monitoring-service-map-scom/scom-configuration.png)
 
 2. In de **verbindingsconfiguratie** venster, geef de naam van tenant of -ID, toepassings-ID (ook wel bekend als de gebruikersnaam of clientID) en het wachtwoord van de service-principal, en klik vervolgens op **volgende**. Ga voor meer informatie naar [maken van een service-principal](#creating-a-service-principal).
 
-    ![Het venster verbindingsconfiguratie](media/monitoring-service-map/scom-config-spn.png)
+    ![Het venster verbindingsconfiguratie](media/monitoring-service-map-scom/scom-config-spn.png)
 
 3. In de **Abonnementselectie** venster, selecteert u de Azure-abonnement, de Azure-resourcegroep (het account met de Log Analytics-werkruimte) en de Log Analytics-werkruimte en klik vervolgens op **volgende**.
 
-    ![De werkruimte van Operations Manager-configuratie](media/monitoring-service-map/scom-config-workspace.png)
+    ![De werkruimte van Operations Manager-configuratie](media/monitoring-service-map-scom/scom-config-workspace.png)
 
 4. In de **Machine groepsselectie** venster, kiest u welke kaart computergroepen u wilt synchroniseren met Operations Manager. Klik op **computergroepen toevoegen/verwijderen**, kiest u groepen uit de lijst met **beschikbare computergroepen**, en klikt u op **toevoegen**.  Wanneer u klaar bent met groepen te selecteren, klikt u op **Ok** om te voltooien.
     
-    ![De Operations Manager-configuratie computergroepen](media/monitoring-service-map/scom-config-machine-groups.png)
+    ![De Operations Manager-configuratie computergroepen](media/monitoring-service-map-scom/scom-config-machine-groups.png)
     
 5. In de **serverselectie** venster, u de groep Service Map-Servers configureren met de servers die u wilt synchroniseren tussen Operations Manager en Service Map. Klik op **Servers toevoegen/verwijderen**.   
     
@@ -75,36 +75,36 @@ Serviceoverzicht om integratie te configureren, het volgende doen:
     * Beheerd door Service Map
     * Vermeld in de groep Servers van Service-kaart
 
-    ![De groep Operations Manager-configuratie](media/monitoring-service-map/scom-config-group.png)
+    ![De groep Operations Manager-configuratie](media/monitoring-service-map-scom/scom-config-group.png)
 
 6. Optioneel: Selecteer de resourcegroep van de beheerserver om te communiceren met Log Analytics, en klik vervolgens op **werkruimte toevoegen**.
 
-    ![De Operations Manager-configuratie-resourcegroep](media/monitoring-service-map/scom-config-pool.png)
+    ![De Operations Manager-configuratie-resourcegroep](media/monitoring-service-map-scom/scom-config-pool.png)
 
     Het duurt even om te configureren en registreren van de Log Analytics-werkruimte. Nadat deze is geconfigureerd, wordt de eerste synchronisatie van Serviceoverzicht in Operations Manager gestart.
 
-    ![De Operations Manager-configuratie-resourcegroep](media/monitoring-service-map/scom-config-success.png)
+    ![De Operations Manager-configuratie-resourcegroep](media/monitoring-service-map-scom/scom-config-success.png)
 
 
 ## <a name="monitor-service-map"></a>Monitor Serviceoverzicht
 Nadat de verbinding van de Log Analytics-werkruimte is gemaakt, een nieuwe map Service Map, wordt weergegeven in de **bewaking** deelvenster van de Operations Manager-console.
 
-![Het deelvenster controle van Operations Manager](media/monitoring-service-map/scom-monitoring.png)
+![Het deelvenster controle van Operations Manager](media/monitoring-service-map-scom/scom-monitoring.png)
 
 De Serviceoverzicht-map bevat vier knooppunten:
 * **Actieve waarschuwingen**: geeft een lijst van alle actieve waarschuwingen over de communicatie tussen Operations Manager en Service Map.  Houd er rekening mee dat deze waarschuwingen niet zijn van Log Analytics waarschuwingen gesynchroniseerd wordt met Operations Manager. 
 
 * **Servers**: geeft een lijst van de bewaakte servers die zijn geconfigureerd om te synchroniseren van Serviceoverzicht.
 
-    ![Het deelvenster Servers van Operations Manager-bewaking](media/monitoring-service-map/scom-monitoring-servers.png)
+    ![Het deelvenster Servers van Operations Manager-bewaking](media/monitoring-service-map-scom/scom-monitoring-servers.png)
 
 * **Groepsweergaven van de afhankelijkheid van de computer**: geeft een lijst van alle computergroepen die vanuit de Service Map zijn gesynchroniseerd. U kunt klikken op een groep om een diagram van de gedistribueerde toepassing weer te geven.
 
-    ![Een diagram van de Operations Manager gedistribueerde toepassing](media/monitoring-service-map/scom-group-dad.png)
+    ![Een diagram van de Operations Manager gedistribueerde toepassing](media/monitoring-service-map-scom/scom-group-dad.png)
 
 * **Server afhankelijkheid weergaven**: geeft een lijst van alle servers die zijn gesynchroniseerd van Serviceoverzicht. U kunt klikken op elke server om een diagram van de gedistribueerde toepassing weer te geven.
 
-    ![Een diagram van de Operations Manager gedistribueerde toepassing](media/monitoring-service-map/scom-dad.png)
+    ![Een diagram van de Operations Manager gedistribueerde toepassing](media/monitoring-service-map-scom/scom-dad.png)
 
 ## <a name="edit-or-delete-the-workspace"></a>Bewerken of verwijderen van de werkruimte
 U kunt bewerken of verwijderen van de geconfigureerde werkruimte via de **Service kaart overzicht** deelvenster (**beheer** deelvenster > **Operations Management Suite**  >  **Service kaart**).
@@ -114,12 +114,12 @@ U kunt bewerken of verwijderen van de geconfigureerde werkruimte via de **Servic
 
 Nu kunt u slechts één Log Analytics-werkruimte configureren.
 
-![De werkruimte van Operations Manager-bewerken](media/monitoring-service-map/scom-edit-workspace.png)
+![De werkruimte van Operations Manager-bewerken](media/monitoring-service-map-scom/scom-edit-workspace.png)
 
 ## <a name="configure-rules-and-overrides"></a>Regels en overschrijvingen configureren
 Een regel, _Microsoft.SystemCenter.ServiceMapImport.Rule_, om op te halen regelmatig gegevens van Service Map wordt gemaakt. Als u wilt synchroniseren tijdsinstellingen wijzigen, kunt u onderdrukkingen van de regel (**ontwerpen** deelvenster > **regels** > **Microsoft.SystemCenter.ServiceMapImport.Rule**) .
 
-![Het eigenschappenvenster van Operations Manager-onderdrukkingen](media/monitoring-service-map/scom-overrides.png)
+![Het eigenschappenvenster van Operations Manager-onderdrukkingen](media/monitoring-service-map-scom/scom-overrides.png)
 
 * **Ingeschakeld**: in- of uitschakelen van automatische updates. 
 * **IntervalMinutes**: opnieuw instellen van de tijd tussen de updates. Het standaardinterval is één uur. Als u synchroniseren server maps regelmatig wilt, kunt u de waarde wijzigen.

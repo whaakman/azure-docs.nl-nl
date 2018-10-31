@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/17/2018
+ms.date: 10/29/2018
 ms.author: terrylan
-ms.openlocfilehash: 4ed4e73348db8cfffb6e79afaa9d196e242d7488
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 759de1c62cb9cb4aa642fa564378b1ed551d7dae
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42060180"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50239352"
 ---
 # <a name="azure-storage-security-overview"></a>Overzicht van beveiliging van Azure Storage
 
@@ -33,6 +33,7 @@ Azure Storage is de oplossing voor opslag in de cloud voor moderne toepassingen 
 * Analytics gebruiken voor het bijhouden van de verificatiemethode die wordt gebruikt wanneer ze toegang hebben tot opslag.
 
 Zie voor een meer gedetailleerde Kijk op beveiliging in Azure Storage, de [Azure Storage-beveiligingshandleiding](../storage/common/storage-security-guide.md). Deze handleiding biedt een dieper ingaan op de beveiligingsfuncties van Azure Storage. Deze functies omvatten opslagaccountsleutels gegevensversleuteling in-transit en at-rest en opslaganalyse.
+
 
 Dit artikel bevat een overzicht van Azure-beveiliging-functies die u met Azure Storage gebruiken kunt. Koppelingen naar artikelen Geef details van elke functie zodat u kunt meer informatie.
 
@@ -91,13 +92,35 @@ Meer informatie
 
 * [Azure Disk Encryption voor Windows en Linux IaaS-Machines](https://gallery.technet.microsoft.com/Azure-Disk-Encryption-for-a0018eb0)
 
-## <a name="azure-storage-firewalls-and-virtual-networks"></a>Azure Storage-Firewalls en virtuele netwerken
+## <a name="firewalls-and-virtual-networks"></a>Firewalls en virtuele netwerken
 
 Azure-opslag kunt u firewallregels voor uw storage-accounts inschakelen. Eenmaal ingeschakeld ze binnenkomende aanvragen voor gegevens, inclusief aanvragen van andere Azure-services worden geblokkeerd. U kunt configureren dat uitzonderingen om verkeer te staan. Firewall-regels kunnen worden ingeschakeld op de bestaande opslagaccounts of tijdens het aanmaken.
 
 U moet deze functionaliteit gebruiken voor het beveiligen van uw storage-accounts naar een specifieke set toegestane netwerken.
 
 Lees het artikel voor meer informatie over Azure storage firewalls en virtuele netwerken [en virtuele netwerken voor Azure Storage-Firewalls configureren](../storage/common/storage-network-security.md)
+
+## <a name="azure-data-box"></a>Azure Data Box
+
+Met apparaten met Data Box, Data Box Disk of Data Box Heavy kunt u grote hoeveelheden gegevens overdragen naar Azure als overdracht via uw netwerk geen optie is. Deze apparaten van de overdracht offlinesynchronisatie van gegevens worden verzonden tussen uw organisatie en het Azure-datacentrum. De apparaten maken gebruik van AES-versleuteling om uw gegevens tijdens de overdracht te beveiligen en ondergaan na het uploaden een grondig opschoningsproces om uw gegevens van het apparaat te verwijderen.
+
+Data Box Edge en Data Box Gateway zijn producten voor onlinegegevensoverdracht die fungeren als netwerkopslaggateways om gegevens tussen uw site en Azure te beheren. Met Data Box Edge, een on-premises netwerkapparaat, worden gegevens overdragen van en naar Azure en worden gegevens verwerkt met behulp van Edge-rekenprocessen met artificial intelligence (AI). Data Box Gateway is een virtueel apparaat met opslaggatewaymogelijkheden.
+
+Meer informatie:
+
+* [Azure Data Box](https://azure.microsoft.com/services/storage/databox/)
+* [Azure Data Box Edge](../databox-online/data-box-edge-overview.md)
+* [Azure Data Box-Gateway](..//databox-online/data-box-gateway-overview.md)
+
+## <a name="advanced-threat-protection"></a>Advanced Threat Protection
+
+Azure Storage biedt Advanced Threat Protection voor een extra laag met beveiligingsinformatie die ongebruikelijke en potentieel schadelijke pogingen om toegang tot of misbruik te maken van uw storage-account wordt gedetecteerd. Advanced Threat Protection monitoren diagnostische logboeken van Azure Storage voor verdachte lezen, schrijven of te verwijderen van aanvragen naar Blob-opslag. 
+
+Geavanceerde Threat Protection-waarschuwingen kunnen worden bekeken via [Azure Security Center](https://azure.microsoft.com/services/security-center/). Azure Security Center biedt meer informatie over elke verdachte activiteit gedetecteerd en ontvangt u aanbevelingen om te onderzoeken en oplossen van de mogelijke bedreiging. 
+
+Meer informatie:
+
+* [Azure Advanced Threat Protection overzicht-opslag](../storage/common/storage-advanced-threat-protection.md)
 
 ## <a name="azure-key-vault"></a>Azure Key Vault
 

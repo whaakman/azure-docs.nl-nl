@@ -1,10 +1,10 @@
 ---
 title: Miniatuurweergaven genereren met Media Encoder Standard met .NET
-description: Dit onderwerp leest hoe u .NET gebruikt voor een asset coderen en het genereren van miniaturen tegelijkertijd met Media Encoder Standard.
+description: In dit onderwerp wordt beschreven hoe u een asset coderen en genereren van miniaturen op hetzelfde moment met Media Encoder Standard met .NET.
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: b8dab73a-1d91-4b6d-9741-a92ad39fc3f7
 ms.service: media-services
@@ -12,26 +12,26 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/09/2017
+ms.date: 10/30/2018
 ms.author: juliako
-ms.openlocfilehash: 08332865a60baa0dd87b16809994065ddfed3055
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 9f717f0ae70c503d3527d5df2e6556c120146f3b
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33789437"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50249308"
 ---
 # <a name="how-to-generate-thumbnails-using-media-encoder-standard-with-net"></a>Miniatuurweergaven genereren met Media Encoder Standard met .NET
 
-U kunt Media Encoder Standard voor het genereren van miniaturen voor een of meer van uw invoervideo in [JPEG](https://en.wikipedia.org/wiki/JPEG), [PNG](https://en.wikipedia.org/wiki/Portable_Network_Graphics), of [BMP](https://en.wikipedia.org/wiki/BMP_file_format) installatiekopie bestandsindelingen. U kunt taken die alleen afbeeldingen produceren verzenden of u miniaturen generatie codering kunt combineren. In dit artikel biedt een paar voorbeeld XML en JSON miniaturen standaardinstellingen voor dergelijke scenario's. Aan het einde van het artikel, er is een [voorbeeldcode](#code_sample) die laat zien hoe de Media Services .NET SDK gebruiken de codering taak uit te voeren.
+U kunt Media Encoder Standard voor het genereren van miniaturen voor een of meer van uw invoervideo in [JPEG](https://en.wikipedia.org/wiki/JPEG), [PNG](https://en.wikipedia.org/wiki/Portable_Network_Graphics), of [BMP](https://en.wikipedia.org/wiki/BMP_file_format) image bestandsindelingen. U kunt taken die alleen afbeeldingen produceren indienen of u miniaturen te genereren met codering kunt combineren. Dit artikel vindt enkele voorbeeld XML en JSON miniaturen voorinstellingen voor dergelijke scenario's. Aan het einde van het artikel, er is een [voorbeeldcode](#code_sample) die laat zien hoe u de Media Services .NET SDK gebruiken om uit te voeren van de coderingstaak.
 
-Voor meer informatie over de elementen die worden gebruikt in de standaardinstellingen voorbeeld moet u nagaan [Media Encoder Standard schema](media-services-mes-schema.md).
+Voor meer informatie over de elementen die worden gebruikt in voorbeeld voorinstellingen, moet u controleren [Media Encoder Standard schema](media-services-mes-schema.md).
 
-Leest de [overwegingen](media-services-dotnet-generate-thumbnail-with-mes.md#considerations) sectie.
+Controleer de [overwegingen met betrekking tot](media-services-dotnet-generate-thumbnail-with-mes.md#considerations) sectie.
     
 ## <a name="example-of-a-single-png-file-preset"></a>Voorbeeld van een 'één PNG-bestand'-definitie
 
-De volgende JSON- en XML-definitie kan worden gebruikt voor het produceren van een enkele uitvoer PNG-bestand van de eerste paar seconden van de invoer-video waar het coderingsprogramma een poging best-effort is vinden van een 'interessante' frame. Houd er rekening mee dat de afmetingen van de uitvoer-afbeelding zijn ingesteld op 100%, wat betekent dat deze overeenkomen met de afmetingen van de invoer video. U ziet ook hoe de instelling 'Indeling' in 'Uitvoer' moet overeenkomen met het gebruik van 'PngLayers' in de sectie 'Codecs'. 
+De volgende JSON en XML-definitie kan worden gebruikt voor het produceren van een enkele PNG-bestand voor uitvoer van de eerste paar seconden van de video-en invoer waar het coderingsprogramma is een best-effort uit te voeren een "interessante" frame zoeken. Houd er rekening mee dat de afmetingen van de uitvoer-afbeelding zijn ingesteld op 100%, wat betekent dat deze overeenkomen met de afmetingen van de invoervideo. Houd er ook rekening mee dat u hoe de instelling '-indeling' in 'Uitvoer' is vereist zodat deze overeenkomt met het gebruik van 'PngLayers' in de sectie 'Codecs'. 
 
 ### <a name="json-preset"></a>JSON-definitie
 
@@ -85,9 +85,9 @@ De volgende JSON- en XML-definitie kan worden gebruikt voor het produceren van e
     </Preset>
 ```
 
-## <a name="example-of-a-series-of-jpeg-images-preset"></a>Voorbeeld van een 'reeks JPEG-afbeeldingen'-definitie
+## <a name="example-of-a-series-of-jpeg-images-preset"></a>Voorbeeld van een definitie "reeks JPEG-afbeeldingen"
 
-De volgende JSON- en XML-definitie kan worden gebruikt voor het produceren van een set 10 installatiekopieën op tijdstempels van 5% 15%,..., 95% van de invoer tijdlijn, waarbij de grootte van de installatiekopie is opgegeven voor een van de video invoer kwartaal.
+De volgende JSON en XML-definitie kan worden gebruikt voor het produceren van een set van 10 afbeeldingen met tijdstempels van 5%, 15% is,..., 95% van de invoer tijdlijn, waarbij de grootte van de installatiekopie naar een is opgegeven die van de video-invoer kwartalen.
 
 ### <a name="json-preset"></a>JSON-definitie
 
@@ -145,9 +145,9 @@ De volgende JSON- en XML-definitie kan worden gebruikt voor het produceren van e
     </Preset>
 ```
 
-## <a name="example-of-a-one-image-at-a-specific-timestamp-preset"></a>Voorbeeld van een 'één installatiekopie op een tijdstempel voor een specifieke'-definitie
+## <a name="example-of-a-one-image-at-a-specific-timestamp-preset"></a>Voorbeeld van een definitie voor 'een installatiekopie op een specifieke tijdstempel'
 
-De volgende JSON- en XML-definitie kan worden gebruikt voor het produceren van een enkele JPEG-afbeelding van de video invoer bij de 30 seconden. Deze definitie de invoer video op meer dan 30 seconden duren worden verwacht (anders de taak mislukt).
+De volgende JSON en XML-definitie kan worden gebruikt voor het produceren van een enkele JPEG-afbeelding van de video-invoer bij de 30 seconden. Deze definitie wordt verwacht dat de invoervideo moet meer dan 30 seconden duurt (anders de taak is mislukt).
 
 ### <a name="json-preset"></a>JSON-definitie
 
@@ -204,11 +204,11 @@ De volgende JSON- en XML-definitie kan worden gebruikt voor het produceren van e
     </Preset>
 ```
 
-## <a name="example-of-a-thumbnails-at-different-resolutions-preset"></a>Voorbeeld van een 'miniaturen met verschillende resoluties'-definitie
+## <a name="example-of-a-thumbnails-at-different-resolutions-preset"></a>Voorbeeld van een definitie "miniaturen bij verschillende resoluties"
 
-De volgende voorinstelling kan worden gebruikt voor het genereren van miniaturen met verschillende resoluties in één taak. In het voorbeeld posities 5% 15%,..., 95% van de invoer tijdlijn het coderingsprogramma twee installatiekopieën: één voor 100% van de invoer beeldschermresolutie en andere op 50% gegenereerd.
+De volgende vooraf gedefinieerde instellingen kan worden gebruikt voor het genereren van miniaturen bij verschillende resoluties in één taak. In het voorbeeld op posities 5%, 15% is,..., 95% van de invoer tijdlijn, de encoder genereert twee installatiekopieën: één voor 100% van de invoerresolutie van de video en andere bij 50%.
 
-Let op het gebruik van macro {resolutie} in de bestandsnaam; Hiermee wordt aangegeven voor het coderingsprogramma de breedte en hoogte die u hebt opgegeven in de sectie codering van de vooraf ingestelde tijdens het genereren van de bestandsnaam van de uitvoer-installatiekopieën gebruiken. Hiermee kunt u ook eenvoudig onderscheid maken tussen de verschillende afbeeldingen
+Let op het gebruik van de macro is {resolutie} in de bestandsnaam; Geeft aan met het coderingsprogramma gebruik van de breedte en hoogte die u hebt opgegeven in de sectie codering van de vooraf gedefinieerde instellingen tijdens het genereren van de bestandsnaam van de uitvoer-installatiekopieën. Hierdoor kunnen ook u eenvoudig onderscheid maken tussen de verschillende afbeeldingen
 
 ### <a name="json-preset"></a>JSON-definitie
 
@@ -279,10 +279,10 @@ Let op het gebruik van macro {resolutie} in de bestandsnaam; Hiermee wordt aange
 
 ## <a name="example-of-generating-a-thumbnail-while-encoding"></a>Voorbeeld van het genereren van een miniatuur tijdens het coderen
 
-Terwijl alle van de bovenstaande voorbeelden hebt besproken hoe u een codering taak die levert afbeeldingen alleen kunt indienen, kunt u ook combineren video en audio-codering met miniaturen generatie. De volgende JSON- en XML-definitie vertellen **Media Encoder Standard** een miniatuur genereren tijdens de codering.
+Terwijl alle van de bovenstaande voorbeelden hebt die wordt besproken hoe u kunt een coderingstaak indient die alleen afbeeldingen produceert, kunt u ook combineren video/audio codering met miniaturen te genereren. De volgende JSON en XML-definitie vertellen **Media Encoder Standard** voor het genereren van een miniatuur tijdens het coderen.
 
 ### <a id="json"></a>JSON-definitie
-Zie voor meer informatie over schema [dit](https://msdn.microsoft.com/library/mt269962.aspx) artikel.
+Zie voor meer informatie over het schema [dit](https://msdn.microsoft.com/library/mt269962.aspx) artikel.
 
 ```json
     {
@@ -347,7 +347,7 @@ Zie voor meer informatie over schema [dit](https://msdn.microsoft.com/library/mt
 ```
 
 ### <a id="xml"></a>XML-definitie
-Zie voor meer informatie over schema [dit](https://msdn.microsoft.com/library/mt269962.aspx) artikel.
+Zie voor meer informatie over het schema [dit](https://msdn.microsoft.com/library/mt269962.aspx) artikel.
 
 ```csharp
     <?xml version="1.0" encoding="utf-16"?>
@@ -403,21 +403,21 @@ Zie voor meer informatie over schema [dit](https://msdn.microsoft.com/library/mt
 
 ## <a id="code_sample"></a>Video coderen en genereren van miniaturen met .NET
 
-Het volgende codevoorbeeld maakt gebruik van Media Services .NET SDK naar de volgende taken uitvoeren:
+Het volgende codevoorbeeld maakt gebruik van Media Services .NET SDK aan de volgende taken uitvoeren:
 
-* Maak een codeertaak.
-* Een verwijzing naar de Media Encoder Standard encoder ophalen.
-* Laden van de vooraf ingestelde [XML](media-services-dotnet-generate-thumbnail-with-mes.md#xml) of [JSON](media-services-dotnet-generate-thumbnail-with-mes.md#json) die de codering vooraf ingesteld en de benodigde informatie voor het genereren van miniaturen bevatten. U kunt dit opslaan [XML](media-services-dotnet-generate-thumbnail-with-mes.md#xml) of [JSON](media-services-dotnet-generate-thumbnail-with-mes.md#json) in bestands- en gebruik de volgende code om het bestand niet laden.
+* Maak een coderingstaak.
+* Een verwijzing naar de Media Encoder Standard encoder worden opgehaald.
+* Laden van de vooraf ingestelde [XML](media-services-dotnet-generate-thumbnail-with-mes.md#xml) of [JSON](media-services-dotnet-generate-thumbnail-with-mes.md#json) die de vooraf ingestelde en informatie die nodig zijn voor het genereren van miniaturen codering bevatten. Kunt u dit opslaan [XML](media-services-dotnet-generate-thumbnail-with-mes.md#xml) of [JSON](media-services-dotnet-generate-thumbnail-with-mes.md#json) in een bestand en gebruik de volgende code om het bestand niet laden.
   
         // Load the XML (or JSON) from the local file.
         string configuration = File.ReadAllText(fileName);  
-* Een enkele codering taak toevoegen aan de taak. 
-* Geef de invoer asset moeten worden gecodeerd.
+* Een enkele coderingstaak toevoegen aan de taak. 
+* Geef het invoeractivum moeten worden gecodeerd.
 * Maak een uitvoerasset met de gecodeerde asset.
-* Een gebeurtenis-handler voor het controleren van de voortgang van de taak toevoegen.
+* Voeg een gebeurtenis-handler om te controleren of de taak wordt uitgevoerd.
 * Verzenden van de taak.
 
-Zie de [ontwikkelen van Media Services met .NET](media-services-dotnet-how-to-use.md) artikel voor instructies over het instellen van uw Developer-omgeving.
+Zie de [Media Services ontwikkelen met .NET](media-services-dotnet-how-to-use.md) artikel voor instructies over het instellen van uw ontwikkelomgeving.
 
 ```csharp
 using System;
@@ -546,24 +546,24 @@ namespace EncodeAndGenerateThumbnails
 ```
 
 ## <a name="considerations"></a>Overwegingen
-Het volgende letten:
+De volgende overwegingen zijn van toepassing:
 
-* Het gebruik van expliciete tijdstempels voor stap/beginbereik wordt ervan uitgegaan dat de invoerbron ten minste 1 minuut.
-* Png-jpg/BmpImage elementen moeten worden gestart, stap en bereik tekenreekskenmerken: deze kunnen worden geïnterpreteerd als:
+* Het gebruik van expliciete tijdstempels voor begin/stap/bereik wordt ervan uitgegaan dat de invoerbron ten minste 1 minuut.
+* Jpg/Png/BmpImage elementen starten, stap, en bereik tekenreekskenmerken – en deze kunnen worden gezien als:
   
-  * Aantal frame als ze niet-negatieve gehele getallen zijn, bijvoorbeeld 'Start': '120'
-  * Relatieve duur van de bron als uitgedrukt als % voorafgegaan, bijvoorbeeld 'Start': '15% ', of
-  * Tijdstempel als uitgedrukt als: mm: ss... de indeling. Bijvoorbeeld 'Start': ' 00: 01:00 '
+  * Aantal frame als ze niet-negatief geheel getal zijn, bijvoorbeeld 'Start': "120,"
+  * Ten opzichte van de duur van bron als uitgedrukt als achtervoegsel %, bijvoorbeeld 'Start': '15% ', of
+  * Tijdstempel indien weergegeven als uu: mm:... de indeling. Bijvoorbeeld 'Start': ' 00: 01:00 "
     
-    U kunt combineren en notaties als u moet overeenkomen.
+    U kunt combineren en neem opmerkingen als u overeenkomen.
     
-    Daarnaast ondersteunt Start ook een speciale Macro: {Best}, die probeert om te bepalen van het eerste 'interessante' frame van de inhoud-NOTITIE: (stap en bereik worden genegeerd tijdens het starten is ingesteld op {beste})
-  * Standaardwaarden: Starten: {Best}
-* De indeling van uitvoer moet expliciet worden opgegeven voor elke afbeeldingsindeling: Png-Jpg/BmpFormat. Als aanwezig is, vergelijkt MES JpgVideo naar JpgFormat enzovoort. OutputFormat introduceert een nieuwe installatiekopie codec specifieke Macro: {Index}, welke moet aanwezig zijn (eenmaal en slechts één keer) voor de installatiekopie-uitvoerindelingen.
+    Daarnaast ondersteunt Start ook een speciale Macro: {Best}, die probeert vast te stellen van de eerste "interessante" frame van de NOTITIE-inhoud: (stap en het bereik worden genegeerd tijdens het starten is ingesteld op {beste})
+  * Standaardinstellingen: Start: {aanbevolen}
+* De indeling van uitvoer moet expliciet worden opgegeven voor de indeling van elke afbeelding: Jpg/Png/BmpFormat. Indien aanwezig, overeenkomt MES JpgVideo naar JpgFormat enzovoort. Uitvoerindeling introduceert een nieuwe installatiekopie codec specifieke Macro: {Index}, die moet worden presenteren (één keer en slechts één keer) voor de installatiekopie uitvoerindelingen.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-U kunt controleren de [taak uitgevoerd](media-services-check-job-progress.md) wanneer de coderingstaak in behandeling is.
+U kunt controleren de [taakvoortgang](media-services-check-job-progress.md) terwijl de coderingstaak in behandeling is.
 
 ## <a name="media-services-learning-paths"></a>Media Services-leertrajecten
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
@@ -572,5 +572,5 @@ U kunt controleren de [taak uitgevoerd](media-services-check-job-progress.md) wa
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="see-also"></a>Zie ook
-[Media Services-codering overzicht](media-services-encode-asset.md)
+[Media Services Encoding overzicht](media-services-encode-asset.md)
 

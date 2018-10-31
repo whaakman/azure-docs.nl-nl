@@ -12,17 +12,17 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 10/26/2018
 ms.author: glenga
-ms.openlocfilehash: d61570cd5d56cda7737bdb2d1a8d681fc2364610
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 470128344182cc6a06a378a0f4ab75b19e9a646e
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139387"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50249774"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Handleiding voor ontwikkelaars van Azure Functions-JavaScript
 Deze handleiding bevat informatie over de complexiteit van het schrijven van Azure Functions met JavaScript.
 
-Een JavaScript-functie is een geëxporteerde `function` die wordt uitgevoerd wanneer ze worden geactiveerd ([triggers zijn geconfigureerd in de function.json](functions-triggers-bindings.md)). Elke functie wordt doorgegeven een `context` -object dat wordt gebruikt voor het ontvangen en verzenden die gegevens bindt, logboekregistratie en communiceert met de runtime.
+Een JavaScript-functie is een geëxporteerde `function` die wordt uitgevoerd wanneer geactiveerd ([triggers zijn geconfigureerd in de function.json](functions-triggers-bindings.md)). Het eerste argument elke functie wordt doorgegeven is een `context` -object dat wordt gebruikt voor het ontvangen en verzenden die gegevens bindt, logboekregistratie en communiceert met de runtime.
 
 In dit artikel wordt ervan uitgegaan dat u al hebt gelezen de [referentie voor ontwikkelaars van Azure Functions](functions-reference.md). Het is ook raadzaam dat u een zelfstudie onder 'Quickstarts' hebt gevolgd om te [uw eerste functie maken](functions-create-first-function-vs-code.md).
 
@@ -48,42 +48,28 @@ FunctionsProject
  | - bin
 ```
 
-In de hoofdmap van het project, er is een gedeelde [host.json](functions-host-json.md) -bestand dat kan worden gebruikt voor het configureren van de functie-app. Elke functie heeft een map met een eigen codebestand (.js) en de binding-configuratiebestand (function.json).
+In de hoofdmap van het project, er is een gedeelde [host.json](functions-host-json.md) -bestand dat kan worden gebruikt voor het configureren van de functie-app. Elke functie heeft een map met een eigen codebestand (.js) en de binding-configuratiebestand (function.json). De naam van `function.json`van bovenliggende map is altijd de naam van uw functie.
 
 De binding-extensies vereist in [versie 2.x](functions-versions.md) van de functies runtime zijn gedefinieerd in de `extensions.csproj` bestand met de werkelijke dll-bestanden in de `bin` map. Als u lokaal ontwikkelt, moet u [bindinguitbreidingen registreren](functions-triggers-bindings.md#local-development-azure-functions-core-tools). Bij het ontwikkelen van functies in Azure portal, geldt deze registratie voor u.
 
 ## <a name="exporting-a-function"></a>Exporteren van een functie
 
-JavaScript-functies moeten worden geëxporteerd [ `module.exports` ](https://nodejs.org/api/modules.html#modules_module_exports) (of [ `exports` ](https://nodejs.org/api/modules.html#modules_exports)). De geëxporteerde functie moet in het geval standaard alleen exporteren uit het bestand en het exporteren met de naam `run`, of het exporteren met de naam `index`. De standaardlocatie van de functie is `index.js`, waarbij `index.js` deelt dezelfde bovenliggende map als de bijbehorende `function.json`. Houd er rekening mee dat de naam van `function.json`van bovenliggende map is altijd de naam van uw functie. 
+JavaScript-functies moeten worden geëxporteerd [ `module.exports` ](https://nodejs.org/api/modules.html#modules_module_exports) (of [ `exports` ](https://nodejs.org/api/modules.html#modules_exports)). De geëxporteerde functie moet een JavaScript-functie die wordt uitgevoerd wanneer ze worden geactiveerd.
 
-Meer informatie over het configureren van de locatie van de en naam van de functie exporteren, [configureren van uw functie-ingangspunt](functions-reference-node.md#configure-function-entry-point) hieronder.
+Standaard de Functions-runtime zoekt de functie in `index.js`, waarbij `index.js` deelt dezelfde bovenliggende map als het bijbehorende `function.json`. In het geval standaard uw geëxporteerde functie moet het enige exporteren uit het bestand of de uitvoer met de naam `run` of `index`. Meer informatie over het configureren van de locatie van de en naam van de functie exporteren, [configureren van uw functie-ingangspunt](functions-reference-node.md#configure-function-entry-point) hieronder.
 
-Altijd moet rekening houden met de geëxporteerde functie-ingangspunt een `context` object als de eerste parameter.
+De geëxporteerde functie wordt een aantal argumenten doorgegeven op worden uitgevoerd. Het eerste argument duurt is altijd een `context` object. Als uw functie synchroon is (resulteert niet in een Promise), moet u doorgeven de `context` -object, als het aanroepen `context.done` is vereist voor gebruik.
 
 ```javascript
-// You must include a context, other arguments are optional
+// You should include context, other arguments are optional
 module.exports = function(context, myTrigger, myInput, myOtherInput) {
     // function logic goes here :)
     context.done();
 };
 ```
-```javascript
-// You can also use 'arguments' to dynamically handle inputs
-module.exports = async function(context) {
-    context.log('Number of inputs: ' + arguments.length);
-    // Iterates through trigger and input binding data
-    for (i = 1; i < arguments.length; i++){
-        context.log(arguments[i]);
-    }
-};
-```
-
-Triggers en bindingen voor invoer (bindingen van `direction === "in"`) kunnen worden doorgegeven aan de functie als parameters. Ze worden doorgegeven aan de functie in dezelfde volgorde als waarin ze zijn gedefinieerd in *function.json*. U kunt ook dynamisch invoer met de JavaScript verwerken [ `arguments` ](https://msdn.microsoft.com/library/87dw3w1k.aspx) object. Als u hebt bijvoorbeeld `function(context, a, b)` en wijzig deze in `function(context, a)`, krijgt u nog steeds de waarde van `b` in functiecode door te verwijzen naar `arguments[2]`.
-
-Alle bindingen, ongeacht de richting, ook worden doorgegeven in de `context` object met de `context.bindings` eigenschap.
 
 ### <a name="exporting-an-async-function"></a>Exporteren van een asynchrone-functie
-Bij het gebruik van de JavaScript [ `async function` ](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/async_function) declaratie of gewoon JavaScript [beloften](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise) (niet beschikbaar met Functions v1.x), u niet expliciet hoeft aan te roepen de [ `context.done` ](#contextdone-method) callback gebruikt om op te geven dat de functie is voltooid. Uw functie wordt voltooid wanneer de geëxporteerde async-functie/belofte is voltooid.
+Bij het gebruik van de JavaScript [ `async function` ](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/async_function) declaratie of anders retourneert een JavaScript [belofte](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise) (niet beschikbaar met Functions v1.x), u niet expliciet hoeft aan te roepen de [ `context.done` ](#contextdone-method) callback gebruikt om op te geven dat de functie is voltooid. De functie is voltooid wanneer de geëxporteerde async-functie/belofte is voltooid.
 
 Dit is bijvoorbeeld een eenvoudige functie die registreert dat hij is geactiveerd en is onmiddellijk voltooid.
 ``` javascript
@@ -92,7 +78,7 @@ module.exports = async function (context) {
 };
 ```
 
-Bij het exporteren van een asynchrone-functie, kunt u ook uitvoerbindingen te configureren de `return` waarde. Dit is een alternatieve methode voor het toewijzen van uitvoer met behulp van de [ `context.bindings` ](#contextbindings-property) eigenschap.
+Bij het exporteren van een asynchrone-functie, kunt u ook een Uitvoerbinding om te configureren de `return` waarde. Dit wordt aanbevolen als u slechts één Uitvoerbinding hebt.
 
 Om toe te wijzen een uitvoer met `return`, wijzigt de `name` eigenschap `$return` in `function.json`.
 ```json
@@ -113,10 +99,81 @@ module.exports = async function (context, req) {
 }
 ```
 
-## <a name="context-object"></a>context-object
-De runtime wordt gebruikt een `context` object om door te geven gegevens van en naar uw functie en u communiceren met de runtime te laten.
+## <a name="bindings"></a>Bindingen 
+In JavaScript, [bindingen](functions-triggers-bindings.md) zijn geconfigureerd en gedefinieerd in de function.json van een functie. Functies werken met bindingen een aantal manieren.
 
-De `context` object is altijd de eerste parameter voor een functie en moet worden opgenomen omdat deze methoden, zoals `context.done` en `context.log`, die vereist zijn correct gebruik van de runtime. U kunt het object naam wat u graag (bijvoorbeeld `ctx` of `c`).
+### <a name="reading-trigger-and-input-data"></a>Trigger voor lezen en invoergegevens
+Trigger en bindingen invoer (bindingen van `direction === "in"`) kunnen worden gelezen door een functie op drie manieren:
+ - **_(Aanbevolen)_  Als parameters aan uw functie doorgegeven.** Ze worden doorgegeven aan de functie in dezelfde volgorde als waarin ze zijn gedefinieerd in *function.json*. Houd er rekening mee dat de `name` -eigenschap worden gedefinieerd *function.json* hoeft niet te overeenkomen met de naam van de parameter, maar het moet.
+   ``` javascript
+   module.exports = async function(context, myTrigger, myInput, myOtherInput) { ... };
+   ```
+ - **Als leden van de [ `context.bindings` ](#contextbindings-property) object.** Elk lid met de naam van de `name` -eigenschap worden gedefinieerd *function.json*.
+   ``` javascript
+   module.exports = async function(context) { 
+       context.log("This is myTrigger: " + context.bindings.myTrigger);
+       context.log("This is myInput: " + context.bindings.myInput);
+       context.log("This is myOtherInput: " + context.bindings.myOtherInput);
+   };
+   ```
+ - **Als invoer met de JavaScript [ `arguments` ](https://msdn.microsoft.com/library/87dw3w1k.aspx) object.** Dit is in wezen hetzelfde als invoer wordt doorgegeven als parameters, maar kunt u voor het afhandelen van dynamisch invoer.
+   ``` javascript
+   module.exports = async function(context) { 
+       context.log("This is myTrigger: " + arguments[1]);
+       context.log("This is myInput: " + arguments[2]);
+       context.log("This is myOtherInput: " + arguments[3]);
+   };
+   ```
+
+### <a name="writing-data"></a>Schrijven van gegevens
+Uitvoer (bindingen van `direction === "out"`) door een functie in een aantal manieren om te kunnen worden geschreven. In alle gevallen moet de `name` eigenschap van de binding zoals gedefinieerd in *function.json* komt overeen met de naam van het Objectlid naar worden geschreven in de functie. 
+
+U kunt gegevens toewijzen aan uitvoerbindingen in een van de volgende manieren. Deze methoden moeten niet worden gecombineerd.
+- **_[Aanbevolen voor meerdere uitvoer]_  Retourneren een object.** Als u van een asynchrone/Promise functie retourneren gebruikmaakt, kunt u een object met een toegewezen uitvoergegevens retourneren. In het volgende voorbeeld wordt de uitvoerbindingen zijn met de naam "httpResponse" en "queueOutput" in *function.json*.
+  ``` javascript
+  module.exports = async function(context) {
+      let retMsg = 'Hello, world!';
+      return {
+          httpResponse: {
+              body: retMsg
+          },
+          queueOutput: retMsg
+      };
+  };
+  ```
+  Als u van een synchrone functie gebruikmaakt, kunt u terugkeren dit object met [ `context.done` ](#contextdone-method) (Zie het voorbeeld).
+- **_[Aanbevolen voor één uitvoer]_  Rechtstreeks een waarde retourneren en het gebruik van de naam van de binding $return.** Dit werkt alleen voor asynchrone/belofte functies retourneren. Zie het voorbeeld in [exporteren van een functie asynchrone](#exporting-an-async-function). 
+- **Toewijzen van waarden die moeten worden `context.bindings`**  kunt u waarden rechtstreeks aan context.bindings toewijzen.
+  ``` javascript
+  module.exports = async function(context) {
+      let retMsg = 'Hello, world!';
+      context.bindings.httpResponse = {
+          body: retMsg
+      };
+      context.bindings.queueOutput = retMsg;
+      return;
+  };
+  ```
+ 
+### <a name="bindings-data-type"></a>Bindings-gegevenstype
+
+Voor het definiëren van het gegevenstype voor een Invoerbinding, de `dataType` eigenschap in het bindingsdefinitie van de. Bijvoorbeeld, om te lezen van de inhoud van een HTTP-aanvraag in binaire indeling, gebruikt het type `binary`:
+
+```json
+{
+    "type": "httpTrigger",
+    "name": "req",
+    "direction": "in",
+    "dataType": "binary"
+}
+```
+
+Opties voor `dataType` zijn: `binary`, `stream`, en `string`.
+
+## <a name="context-object"></a>context-object
+De runtime wordt gebruikt een `context` object om door te geven gegevens van en naar uw functie en u communiceren met de runtime te laten. Het contextobject kan worden gebruikt voor het lezen van en instellen van gegevens uit de bindingen schrijven logboeken en met behulp van de `context.done` retouraanroep wanneer de geëxporteerde functie synchroon is.
+
+De `context` -object is altijd de eerste parameter voor een functie. Deze moet worden toegevoegd omdat er belangrijke methoden, zoals `context.done` en `context.log`. U kunt het object naam wat u graag (bijvoorbeeld `ctx` of `c`).
 
 ```javascript
 // You must include a context, but other arguments are optional
@@ -173,9 +230,9 @@ context.done([err],[propertyBag])
 
 Informeert de runtime die uw code is voltooid. Als uw functie gebruikmaakt van de JavaScript [ `async function` ](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/async_function) declaratie (beschikbaar met behulp van knooppunt 8 + in functies versie 2.x), u hoeft niet te gebruiken `context.done()`. De `context.done` callback impliciet wordt genoemd.
 
-Als uw functie niet een functie asynchrone is **moet worden aangeroepen** `context.done` om te informeren over de runtime die uw functie voltooid is. Als deze ontbreekt, wordt de uitvoering time-out.
+Als uw functie niet een functie asynchrone is **moet worden aangeroepen** `context.done` om te informeren over de runtime die uw functie voltooid is. De time-out op als deze ontbreekt.
 
-De `context.done` methode kunt u weer zowel een gebruiker gedefinieerde fout doorgeven aan de runtime- en uitvoergegevens van de binding met een JSON-object. Eigenschappen doorgegeven aan `context.done` overschrijft alles instellen op de `context.bindings` object.
+De `context.done` methode kunt u weer zowel een gebruiker gedefinieerde fout doorgeven aan de runtime- en uitvoergegevens van de binding met een JSON-object. Eigenschappen doorgegeven aan `context.done` overschrijven alles instellen op de `context.bindings` object.
 
 ```javascript
 // Even though we set myOutput to have:
@@ -183,7 +240,7 @@ De `context.done` methode kunt u weer zowel een gebruiker gedefinieerde fout doo
 context.bindings.myOutput = { text: 'hello world', number: 123 };
 // If we pass an object to the done function...
 context.done(null, { myOutput: { text: 'hello there, world', noNumber: true }});
-// the done method will overwrite the myOutput binding to be: 
+// the done method overwrites the myOutput binding to be: 
 //  -> text: 'hello there, world', noNumber: true
 ```
 
@@ -211,24 +268,9 @@ U kunt [de drempelwaarde trace-niveau voor logboekregistratie configureren](#con
 
 Lezen [controlefuncties van Azure](functions-monitoring.md) voor meer informatie over het weergeven en uitvoeren van query's functielogboeken.
 
-## <a name="binding-data-type"></a>Binding-gegevenstype
-
-Voor het definiëren van het gegevenstype voor een Invoerbinding, de `dataType` eigenschap in het bindingsdefinitie van de. Bijvoorbeeld, om te lezen van de inhoud van een HTTP-aanvraag in binaire indeling, gebruikt het type `binary`:
-
-```json
-{
-    "type": "httpTrigger",
-    "name": "req",
-    "direction": "in",
-    "dataType": "binary"
-}
-```
-
-Opties voor `dataType` zijn: `binary`, `stream`, en `string`.
-
 ## <a name="writing-trace-output-to-the-console"></a>Trace-uitvoer schrijven naar de console 
 
-In de functies, gebruikt u de `context.log` methoden trace-uitvoer schrijven naar de console. Traceren in v2.x van functies, ouputs via `console.log` zijn vastgelegd op het niveau van de functie-App. Dit betekent dat de uitvoer van `console.log` zijn niet gekoppeld aan een specifieke functieaanroepen en kan daarom niet worden weergegeven in een specifieke functie Logboeken. Ze zullen echter doorgeven naar Application Insights. In functies v1.x, u niet gebruiken `console.log` te schrijven naar de console. 
+In de functies, gebruikt u de `context.log` methoden trace-uitvoer schrijven naar de console. Traceren in v2.x van functies, ouputs via `console.log` zijn vastgelegd op het niveau van de functie-App. Dit betekent dat de uitvoer van `console.log` zijn niet gekoppeld aan een specifieke functieaanroepen en kan daarom niet worden weergegeven in een specifieke functie Logboeken. Ze doen, echter doorgeven naar Application Insights. In functies v1.x, u niet gebruiken `console.log` te schrijven naar de console. 
 
 Als u aanroept `context.log()`, het bericht is geschreven naar de console op het standaardniveau van trace die is de _info_ traceerniveau. De volgende code schrijft naar de console op het traceerniveau informatie:
 
@@ -312,7 +354,7 @@ De `context.res` (antwoord)-object heeft de volgende eigenschappen:
 
 Wanneer u met HTTP-triggers werkt, kunt u de HTTP-aanvraag en respons objecten in een aantal manieren openen:
 
-+ Van `req` en `res` eigenschappen op de `context` object. Op deze manier kunt u het gebruikelijke patroon voor toegang tot HTTP gegevens uit het contextobject, de volledige gebruiken in plaats van `context.bindings.name` patroon. Het volgende voorbeeld ziet u hoe u toegang tot de `req` en `res` objecten op de `context`:
++ **Van `req` en `res` eigenschappen op de `context` object.** Op deze manier kunt u het gebruikelijke patroon voor toegang tot HTTP gegevens uit het contextobject, de volledige gebruiken in plaats van `context.bindings.name` patroon. Het volgende voorbeeld ziet u hoe u toegang tot de `req` en `res` objecten op de `context`:
 
     ```javascript
     // You can access your http request off the context ...
@@ -321,7 +363,7 @@ Wanneer u met HTTP-triggers werkt, kunt u de HTTP-aanvraag en respons objecten i
     context.res = { status: 202, body: 'You successfully ordered more coffee!' }; 
     ```
 
-+ Van de benoemde invoer- en uitvoerbindingen. Op deze manier kunnen werken de HTTP-trigger en bindingen op dezelfde manier als andere bindingen. Het volgende voorbeeld wordt het antwoordobject met behulp van een benoemde `response` binding: 
++ **Van de benoemde invoer- en uitvoerbindingen.** Op deze manier kunnen werken de HTTP-trigger en bindingen op dezelfde manier als andere bindingen. Het volgende voorbeeld wordt het antwoordobject met behulp van een benoemde `response` binding: 
 
     ```json
     {
@@ -333,9 +375,9 @@ Wanneer u met HTTP-triggers werkt, kunt u de HTTP-aanvraag en respons objecten i
     ```javascript
     context.bindings.response = { status: 201, body: "Insert succeeded." };
     ```
-+ _[Alleen-antwoord]_  Door het aanroepen van `context.res.send(body?: any)`. Een HTTP-antwoord wordt gemaakt met invoer `body` als hoofdtekst van het antwoord. `context.done()` impliciet wordt genoemd.
++ **_[Alleen-antwoord]_  Door het aanroepen van `context.res.send(body?: any)`.** Een HTTP-antwoord wordt gemaakt met invoer `body` als hoofdtekst van het antwoord. `context.done()` impliciet wordt genoemd.
 
-+ _[Alleen-antwoord]_  Door het aanroepen van `context.done()`. Een speciaal soort HTTP-binding retourneert het antwoord dat is doorgegeven aan de `context.done()` methode. De volgende HTTP-Uitvoerbinding definieert een `$return` uitvoerparameter:
++ **_[Alleen-antwoord]_  Door het aanroepen van `context.done()`.** Een speciaal soort HTTP-binding retourneert het antwoord dat is doorgegeven aan de `context.done()` methode. De volgende HTTP-Uitvoerbinding definieert een `$return` uitvoerparameter:
 
     ```json
     {

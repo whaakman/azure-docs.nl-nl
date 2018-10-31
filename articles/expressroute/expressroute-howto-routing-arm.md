@@ -3,24 +3,17 @@ title: 'Routering (peering) voor een ExpressRoute-circuit configureren: Resource
 description: Dit artikel begeleidt u stapsgewijs door de procedure voor het maken en inrichten van de persoonlijke, openbare en Microsoft-peering van een ExpressRoute-circuit. In dit artikel leest u hoe u de status controleert en peerings voor uw circuit bijwerkt of verwijdert.
 documentationcenter: na
 services: expressroute
-author: osamazia
-manager: jonor
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 0a036d51-77ae-4fee-9ddb-35f040fbdcdf
+author: jaredr80
 ms.service: expressroute
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 10/23/2018
-ms.author: osamaz, jaredr80
-ms.openlocfilehash: dc67f4a4e2189a63cfd4adbb5c1b7eace23acad5
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.author: jaredro
+ms.openlocfilehash: 3395c0f7498ab69a08745a7b3222135cb5e7292e
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49957527"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50249184"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-using-powershell"></a>Peering voor een ExpressRoute-circuit met behulp van PowerShell maken en wijzigen
 
@@ -36,11 +29,6 @@ Dit artikel helpt u bij het maken en beheren van routeringsconfiguratie voor een
 > * [PowerShell (klassiek)](expressroute-howto-routing-classic.md)
 > 
 
-## <a name="configuration-prerequisites"></a>Configuratievereisten
-
-* U moet de nieuwste versie van de Azure Resource Manager PowerShell-cmdlets. Zie [Azure PowerShell installeren en configureren](/powershell/azure/overview) voor meer informatie. 
-* Zorg dat u de pagina met [vereisten](expressroute-prerequisites.md), de pagina over [routeringsvereisten](expressroute-routing.md) en de pagina over [werkstromen](expressroute-workflows.md) hebt gelezen voordat u begint met de configuratie.
-* U moet een actief ExpressRoute-circuit hebben. Volg de instructies voor het [maken van een ExpressRoute-circuit](expressroute-howto-circuit-arm.md) en laat het circuit inschakelen door de connectiviteitsprovider voordat u verder gaat. Het ExpressRoute-circuit moet zich in een status ingericht en zijn ingeschakeld voor u te kunnen zijn voor het uitvoeren van de cmdlets in dit artikel.
 
 Deze instructies zijn alleen van toepassing op circuits die zijn gemaakt met serviceproviders die services met Laag-2-connectiviteit aanbieden. Als u een serviceprovider die beheerde laag-3-services (meestal een IPVPN, zoals MPLS), uw connectiviteitsprovider configureren en beheren van routering voor u.
 
@@ -50,6 +38,15 @@ Deze instructies zijn alleen van toepassing op circuits die zijn gemaakt met ser
 > 
 
 U kunt een, twee of alle drie de peerings (Azure privé, Azure openbaar en Microsoft) voor een ExpressRoute-circuit configureren. U kunt peerings configureren in elke gewenste volgorde. U moet er echter wel voor zorgen dat u de configuratie van elke peering een voor een voltooit. Zie voor meer informatie over routering domeinen en peerings [ExpressRoute-Routeringsdomeinen](expressroute-circuit-peerings.md).
+
+## <a name="configuration-prerequisites"></a>Configuratievereisten
+
+* Zorg dat u de pagina met [vereisten](expressroute-prerequisites.md), de pagina over [routeringsvereisten](expressroute-routing.md) en de pagina over [werkstromen](expressroute-workflows.md) hebt gelezen voordat u begint met de configuratie.
+* U moet een actief ExpressRoute-circuit hebben. Volg de instructies voor het [maken van een ExpressRoute-circuit](expressroute-howto-circuit-arm.md) en laat het circuit inschakelen door de connectiviteitsprovider voordat u verder gaat. Het ExpressRoute-circuit moet zich in een status ingericht en zijn ingeschakeld voor u te kunnen zijn voor het uitvoeren van de cmdlets in dit artikel.
+
+### <a name="working-with-azure-powershell"></a>Werken met Azure PowerShell
+
+[!INCLUDE [expressroute-cloudshell](../../includes/expressroute-cloudshell-powershell-about.md)]
 
 ## <a name="msft"></a>Microsoft-peering
 
@@ -62,37 +59,17 @@ In deze sectie helpt u bij het maken, ophalen, bijwerken en verwijderen van de c
 
 ### <a name="to-create-microsoft-peering"></a>Microsoft-peering maken
 
-1. Importeer de PowerShell-module voor ExpressRoute.
+1. Meld u aan en selecteer uw abonnement.
 
-  U moet het meest recente installatieprogramma installeren vanuit de [PowerShell Gallery](http://www.powershellgallery.com/) en de Azure Resource Manager-modules importeren in de PowerShell-sessie om de ExpressRoute-cmdlets te kunnen gebruiken. U moet PowerShell tevens uitvoeren als beheerder.
+  Als u PowerShell lokaal hebt geïnstalleerd, kunt u zich aanmelden. Als u Azure Cloud Shell gebruikt, kunt u deze stap overslaan.
 
-  ```powershell
-  Install-Module AzureRM
-
-  Install-AzureRM
-  ```
-
-  Alle AzureRM.*-modules binnen het bereik van de bekende semantische versie importeren.
-
-  ```powershell
-  Import-AzureRM
-  ```
-
-  U kunt ook gewoon een bepaalde module binnen het bereik van de bekende semantische versie importeren.
-
-  ```powershell
-  Import-Module AzureRM.Network
-  ```
-
-  Aanmelden bij uw account.
-
-  ```powershell
+  ```azurepowershell
   Connect-AzureRmAccount
   ```
 
   Selecteer het abonnement dat u wilt maken van ExpressRoute-circuit.
 
-  ```powershell
+  ```azurepowershell-interactive
 Select-AzureRmSubscription -SubscriptionId "<subscription ID>"
   ```
 2. Maak een ExpressRoute-circuit.
@@ -101,7 +78,7 @@ Select-AzureRmSubscription -SubscriptionId "<subscription ID>"
 
 3. Controleer de ExpressRoute-circuit om te controleren of deze is ingericht en ook ingeschakeld. Gebruik het volgende voorbeeld:
 
-  ```powershell
+  ```azurepowershell-interactive
   Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
   ```
 
@@ -144,7 +121,7 @@ Select-AzureRmSubscription -SubscriptionId "<subscription ID>"
 
   Gebruik het volgende voorbeeld Microsoft-peering voor uw circuit te configureren:
 
-  ```powershell
+  ```azurepowershell-interactive
   Add-AzureRmExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt -PeeringType MicrosoftPeering -PeerASN 100 -PeerAddressType IPv4 -PrimaryPeerAddressPrefix "123.0.0.0/30" -SecondaryPeerAddressPrefix "123.0.0.4/30" -VlanId 300 -MicrosoftConfigAdvertisedPublicPrefixes "123.1.0.0/24" -MicrosoftConfigCustomerAsn 23 -MicrosoftConfigRoutingRegistryName "ARIN"
 
   Add-AzureRmExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt -PeeringType MicrosoftPeering -PeerASN 100 -PeerAddressType IPv6 -PrimaryPeerAddressPrefix "3FFE:FFFF:0:CD30::/126" -SecondaryPeerAddressPrefix "3FFE:FFFF:0:CD30::4/126" -VlanId 300 -MicrosoftConfigAdvertisedPublicPrefixes "3FFE:FFFF:0:CD31::/120" -MicrosoftConfigCustomerAsn 23 -MicrosoftConfigRoutingRegistryName "ARIN"
@@ -156,7 +133,7 @@ Select-AzureRmSubscription -SubscriptionId "<subscription ID>"
 
 U kunt de configuratiegegevens wilt weergeven in het volgende voorbeeld krijgen:
 
-```powershell
+```azurepowershell-interactive
 $ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 
 Get-AzureRmExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt
@@ -166,7 +143,7 @@ Get-AzureRmExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -ExpressRou
 
 U kunt een deel van de configuratie met behulp van het volgende voorbeeld bijwerken:
 
-```powershell
+```azurepowershell-interactive
 Set-AzureRmExpressRouteCircuitPeeringConfig  -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt -PeeringType MicrosoftPeering -PeerASN 100 -PeerAddressType IPv4 -PrimaryPeerAddressPrefix "123.0.0.0/30" -SecondaryPeerAddressPrefix "123.0.0.4/30" -VlanId 300 -MicrosoftConfigAdvertisedPublicPrefixes "124.1.0.0/24" -MicrosoftConfigCustomerAsn 23 -MicrosoftConfigRoutingRegistryName "ARIN"
 
 Set-AzureRmExpressRouteCircuitPeeringConfig  -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt -PeeringType MicrosoftPeering -PeerASN 100 -PeerAddressType IPv6 -PrimaryPeerAddressPrefix "3FFE:FFFF:0:CD30::/126" -SecondaryPeerAddressPrefix "3FFE:FFFF:0:CD30::4/126" -VlanId 300 -MicrosoftConfigAdvertisedPublicPrefixes "3FFE:FFFF:0:CD31::/120" -MicrosoftConfigCustomerAsn 23 -MicrosoftConfigRoutingRegistryName "ARIN"
@@ -178,7 +155,7 @@ Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 
 U kunt de peeringconfiguratie verwijderen door de volgende cmdlet:
 
-```powershell
+```azurepowershell-interactive
 Remove-AzureRmExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt
 
 Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
@@ -194,32 +171,32 @@ In deze sectie helpt u bij het maken, ophalen, bijwerken en verwijderen van de A
 
   U moet het meest recente installatieprogramma installeren vanuit de [PowerShell Gallery](http://www.powershellgallery.com/) en de Azure Resource Manager-modules importeren in de PowerShell-sessie om de ExpressRoute-cmdlets te kunnen gebruiken. U moet PowerShell tevens uitvoeren als beheerder.
 
-  ```powershell
+  ```azurepowershell-interactive
   Install-Module AzureRM
   Install-AzureRM
   ```
 
   Alle AzureRM.*-modules binnen het bereik van de bekende semantische versie importeren.
 
-  ```powershell
+  ```azurepowershell-interactive
   Import-AzureRM
   ```
 
   U kunt ook gewoon een bepaalde module binnen het bereik van de bekende semantische versie importeren.
 
-  ```powershell
+  ```azurepowershell-interactive
   Import-Module AzureRM.Network 
   ```
 
   Aanmelden bij uw account.
 
-  ```powershell
+  ```azurepowershell-interactive
   Connect-AzureRmAccount
   ```
 
   Selecteer het abonnement dat u wilt maken van ExpressRoute-circuit.
 
-  ```powershell
+  ```azurepowershell-interactive
   Select-AzureRmSubscription -SubscriptionId "<subscription ID>"
   ```
 2. Maak een ExpressRoute-circuit.
@@ -228,7 +205,7 @@ In deze sectie helpt u bij het maken, ophalen, bijwerken en verwijderen van de A
 
 3. Controleer de ExpressRoute-circuit om te controleren of deze is ingericht en ook ingeschakeld. Gebruik het volgende voorbeeld:
 
-  ```powershell
+  ```azurepowershell-interactive
   Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
   ```
 
@@ -268,7 +245,7 @@ In deze sectie helpt u bij het maken, ophalen, bijwerken en verwijderen van de A
 
   Gebruik het volgende voorbeeld voor persoonlijke Azure-peering voor uw circuit configureren:
 
-  ```powershell
+  ```azurepowershell-interactive
   Add-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt -PeeringType AzurePrivatePeering -PeerASN 100 -PrimaryPeerAddressPrefix "10.0.0.0/30" -SecondaryPeerAddressPrefix "10.0.0.4/30" -VlanId 200
 
   Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
@@ -276,7 +253,7 @@ In deze sectie helpt u bij het maken, ophalen, bijwerken en verwijderen van de A
 
   Als u ervoor kiest een MD5-hash wilt gebruiken, gebruikt u het volgende voorbeeld:
 
-  ```powershell
+  ```azurepowershell-interactive
   Add-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt -PeeringType AzurePrivatePeering -PeerASN 100 -PrimaryPeerAddressPrefix "10.0.0.0/30" -SecondaryPeerAddressPrefix "10.0.0.4/30" -VlanId 200  -SharedKey "A1B2C3D4"
   ```
 
@@ -289,7 +266,7 @@ In deze sectie helpt u bij het maken, ophalen, bijwerken en verwijderen van de A
 
 U krijgt informatie over de configuratie met behulp van het volgende voorbeeld:
 
-```powershell
+```azurepowershell-interactive
 $ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 
 Get-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt
@@ -299,7 +276,7 @@ Get-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -Express
 
 U kunt een deel van de configuratie met behulp van het volgende voorbeeld kunt bijwerken. In dit voorbeeld wordt de VLAN-ID van het circuit wordt bijgewerkt van 100 tot 500.
 
-```powershell
+```azurepowershell-interactive
 Set-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt -PeeringType AzurePrivatePeering -PeerASN 100 -PrimaryPeerAddressPrefix "10.0.0.0/30" -SecondaryPeerAddressPrefix "10.0.0.4/30" -VlanId 200
 
 Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
@@ -314,7 +291,7 @@ U kunt de peeringconfiguratie verwijderen door het volgende voorbeeld uitvoert:
 > 
 > 
 
-```powershell
+```azurepowershell-interactive
 Remove-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt
 
 Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
@@ -330,7 +307,7 @@ In deze sectie helpt u bij het maken, ophalen, bijwerken en verwijderen van de A
 
   U moet het meest recente installatieprogramma installeren vanuit de [PowerShell Gallery](http://www.powershellgallery.com/) en de Azure Resource Manager-modules importeren in de PowerShell-sessie om de ExpressRoute-cmdlets te kunnen gebruiken. U moet PowerShell tevens uitvoeren als beheerder.
 
-  ```powershell
+  ```azurepowershell-interactive
   Install-Module AzureRM
 
   Install-AzureRM
@@ -338,25 +315,25 @@ In deze sectie helpt u bij het maken, ophalen, bijwerken en verwijderen van de A
 
   Alle AzureRM.*-modules binnen het bereik van de bekende semantische versie importeren.
 
-  ```powershell
+  ```azurepowershell-interactive
   Import-AzureRM
   ```
 
   U kunt ook gewoon een bepaalde module binnen het bereik van de bekende semantische versie importeren.
 
-  ```powershell
+  ```azurepowershell-interactive
   Import-Module AzureRM.Network
 ```
 
   Aanmelden bij uw account.
 
-  ```powershell
+  ```azurepowershell-interactive
   Connect-AzureRmAccount
   ```
 
   Selecteer het abonnement dat u wilt maken van ExpressRoute-circuit.
 
-  ```powershell
+  ```azurepowershell-interactive
   Select-AzureRmSubscription -SubscriptionId "<subscription ID>"
   ```
 2. Maak een ExpressRoute-circuit.
@@ -365,7 +342,7 @@ In deze sectie helpt u bij het maken, ophalen, bijwerken en verwijderen van de A
 
 3. Controleer of de ExpressRoute circuit is ingericht en ook ingeschakeld. Gebruik het volgende voorbeeld:
 
-  ```powershell
+  ```azurepowershell-interactive
   Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
   ```
 
@@ -405,7 +382,7 @@ In deze sectie helpt u bij het maken, ophalen, bijwerken en verwijderen van de A
 
   Voer het volgende voorbeeld voor het configureren van openbare Azure-peering voor uw circuit
 
-  ```powershell
+  ```azurepowershell-interactive
   Add-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -ExpressRouteCircuit $ckt -PeeringType AzurePublicPeering -PeerASN 100 -PrimaryPeerAddressPrefix "12.0.0.0/30" -SecondaryPeerAddressPrefix "12.0.0.4/30" -VlanId 100
 
   Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
@@ -413,7 +390,7 @@ In deze sectie helpt u bij het maken, ophalen, bijwerken en verwijderen van de A
 
   Als u ervoor kiest een MD5-hash wilt gebruiken, gebruikt u het volgende voorbeeld:
 
-  ```powershell
+  ```azurepowershell-interactive
   Add-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -ExpressRouteCircuit $ckt -PeeringType AzurePublicPeering -PeerASN 100 -PrimaryPeerAddressPrefix "12.0.0.0/30" -SecondaryPeerAddressPrefix "12.0.0.4/30" -VlanId 100  -SharedKey "A1B2C3D4"
 
   Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
@@ -428,7 +405,7 @@ In deze sectie helpt u bij het maken, ophalen, bijwerken en verwijderen van de A
 
 U krijgt informatie over de configuratie met de volgende cmdlet:
 
-```powershell
+```azurepowershell-interactive
   $ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 
   Get-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -Circuit $ckt
@@ -438,7 +415,7 @@ U krijgt informatie over de configuratie met de volgende cmdlet:
 
 U kunt een deel van de configuratie met behulp van het volgende voorbeeld kunt bijwerken. In dit voorbeeld is de VLAN-ID van het circuit wordt bijgewerkt van 200 in 600.
 
-```powershell
+```azurepowershell-interactive
 Set-AzureRmExpressRouteCircuitPeeringConfig  -Name "AzurePublicPeering" -ExpressRouteCircuit $ckt -PeeringType AzurePublicPeering -PeerASN 100 -PrimaryPeerAddressPrefix "123.0.0.0/30" -SecondaryPeerAddressPrefix "123.0.0.4/30" -VlanId 600
 
 Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
@@ -448,7 +425,7 @@ Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 
 U kunt de peeringconfiguratie verwijderen door het volgende voorbeeld uitvoert:
 
-```powershell
+```azurepowershell-interactive
 Remove-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -ExpressRouteCircuit $ckt
 Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: ergreenl
-ms.openlocfilehash: cdf5403e78c8136c923c7d2ff95a337db810c7a9
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 7726a28e0254f4316759c3d8c74f57db6a9e399e
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50155929"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50242191"
 ---
 # <a name="configure-scoped-synchronization-from-azure-ad-to-your-managed-domain"></a>Scoped synchronisatie van Azure AD met uw beheerde domein configureren
 In dit artikel leest u hoe het configureren van alleen specifieke gebruikersaccounts uit uw Azure AD-directory worden gesynchroniseerd met uw Azure AD Domain Services beheerde domein.
@@ -65,7 +65,7 @@ Voer de volgende stappen uit als u wilt configureren op basis van een groep binn
 3. Sla de [script in de volgende sectie](active-directory-ds-scoped-synchronization.md#script-to-select-groups-to-synchronize-to-the-managed-domain-select-groupstosyncps1) naar een bestand met de naam ```Select-GroupsToSync.ps1```. Voer het script, zoals hieronder:
 
   ```powershell
-  .\Select-GroupsToSync.ps1 -groupsToAdd @("AAD DC Administrators", “GroupName1”, “GroupName2”)
+  .\Select-GroupsToSync.ps1 -groupsToAdd @("AAD DC Administrators", "GroupName1", "GroupName2")
   ```
 
   > [!WARNING]

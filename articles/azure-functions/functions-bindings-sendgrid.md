@@ -3,19 +3,19 @@ title: Azure Functions SendGrid-bindingen
 description: Verwijzen naar een Azure Functions SendGrid-bindingen.
 services: functions
 documentationcenter: na
-author: ggailey777
+author: craigshoemaker
 manager: jeconnoc
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 11/29/2017
-ms.author: glenga
-ms.openlocfilehash: 79fb24e85dea5a8d8d9ca637612ea4a65339a4e3
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.author: cshoe
+ms.openlocfilehash: 23ec5cd6eee3333922b5371a0ece631ebbc20939
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50087405"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50248028"
 ---
 # <a name="azure-functions-sendgrid-bindings"></a>Azure Functions SendGrid-bindingen
 
@@ -199,6 +199,31 @@ De volgende tabel beschrijft de binding configuratie-eigenschappen die u instelt
 |**Tekst**|**Tekst**| de inhoud van de e-mail. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
+
+<a name="host-json"></a>  
+
+## <a name="hostjson-settings"></a>instellingen voor host.JSON
+
+In deze sectie beschrijft de globale configuratie-instellingen beschikbaar voor deze binding in versie 2.x. Het onderstaande voorbeeld host.json bestand bevat alleen de versie 2.x-instellingen voor deze binding. Voor meer informatie over globale configuratie-instellingen in versie 2.x, Zie [naslaginformatie over host.json voor Azure Functions versie 2.x](functions-host-json.md).
+
+> [!NOTE]
+> Voor een verwijzing van host.json in functies 1.x, Zie [naslaginformatie over host.json voor Azure Functions 1.x](functions-host-json-v1.md).
+
+```json
+{
+    "version": "2.0",
+    "extensions": {
+        "sendGrid": {
+            "from": "Azure Functions <samples@functions.com>"
+        }
+    }
+}
+```  
+
+|Eigenschap  |Standaard | Beschrijving |
+|---------|---------|---------| 
+|uit|N.v.t.|E-mailadres van de afzender voor alle functies.| 
+
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/15/2018
+ms.date: 10/31/2018
 ms.author: abnarain
-ms.openlocfilehash: 251d1a187c2a6742c361349274fd1e0bb1e41525
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 2dc81a96f1e83c3a6b1ddee92f57b2f0bae4196d
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48817142"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50248912"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Maken en configureren van een zelf-hostende integratieruntime
 De integratieruntime (IR) is de rekeninfrastructuur die Azure Data Factory gebruikt zodat de mogelijkheden van de integratie van gegevens in verschillende netwerkomgevingen. Zie voor meer informatie over IR [overzicht van Integration runtime](concepts-integration-runtime.md).
@@ -69,7 +69,7 @@ Hier volgt een gegevensstroom op hoog niveau voor een samenvatting van de stappe
 - Zelfs als het gegevensarchief in de cloud op een virtuele machine van Azure IaaS is, moet u de zelf-hostende integratieruntime gebruiken.
 - Taken mislukken in een zelf-hostende integratieruntime die geïnstalleerd op een Windows-server op welke FIPS-compatibele versleuteling is ingeschakeld. U lost dit probleem FIPS-compatibele versleuteling op de server uit te schakelen. Als u wilt uitschakelen FIPS-compatibele versleuteling, wijzigt u de volgende registerwaarde van 1 (ingeschakeld) op 0 (uitgeschakeld): `HKLM\System\CurrentControlSet\Control\Lsa\FIPSAlgorithmPolicy\Enabled`.
 
-## <a name="prerequisites"></a>Vereiste onderdelen
+## <a name="prerequisites"></a>Vereisten
 
 - De ondersteunde besturingssysteemversies zijn Windows 7 Service Pack 1, Windows 8.1, Windows 10, Windows Server 2008 R2 SP1, Windows Server 2012, Windows Server 2012 R2 en Windows Server 2016. Installatie van de zelf-hostende integratieruntime op een domeincontroller wordt niet ondersteund.
 - .NET framework 4.6.1 of hoger is vereist. Als u de zelf-hostende integratieruntime op een computer met Windows 7 installeert, installeert u .NET Framework 4.6.1 of hoger. Zie [.NET Framework-systeemvereisten](/dotnet/framework/get-started/system-requirements) voor meer informatie.
@@ -146,6 +146,8 @@ Hier volgen de vereisten voor het TLS/SSL-certificaat dat wordt gebruikt voor he
 ## <a name="sharing-the-self-hosted-integration-runtime-with-multiple-data-factories"></a>Delen van de zelf-hostende integratieruntime met meerdere data factory 's
 
 U kunt een bestaande zelf-hostende integration runtime-infrastructuur, die u hebt al ingesteld in een data factory opnieuw gebruiken. Hiermee kunt u maken een *gekoppelde zelf-hostende integratieruntime* in een andere data factory door te verwijzen naar een bestaande zelf-hostende IR (gedeeld).
+
+Als u wilt delen een zelf-hostende integratieruntime met behulp van PowerShell, Zie [een gedeelde zelf-hostende integratieruntime maken in Azure Data Factory met PowerShell](create-shared-self-hosted-integration-runtime-powershell.md).
 
 ### <a name="terminology"></a>Terminologie
 

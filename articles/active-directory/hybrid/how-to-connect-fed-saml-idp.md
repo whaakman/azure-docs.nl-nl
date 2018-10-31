@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: ce57857ecc5b8e18aecdcc58754e5f9bf5b22a74
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: a197b3c7aa423323f984a793851a458733391e33
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46312114"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50243109"
 ---
 #  <a name="use-a-saml-20-identity-provider-idp-for-single-sign-on"></a>Een SAML 2.0-id-Provider (IdP) gebruiken voor eenmalige aanmelding op
 
@@ -80,7 +80,7 @@ Deze tabel bevat de vereisten voor specifieke kenmerken in het SAML 2.0-bericht.
 | ----- | ----- |
 |NameID|De waarde van deze verklaring moet gelijk zijn aan de ImmutableID van de Azure AD-gebruiker. Het kan maximaal 64 alfanumerieke tekens zijn. Alle niet-HTML-veilige tekens moeten worden gecodeerd, bijvoorbeeld een teken '+' wordt weergegeven als '.2B'.|
 |IDPEmail|De User Principal Name (UPN) in het SAML-antwoord wordt vermeld als een element met de naam IDPEmail van de gebruiker UserPrincipalName (UPN) in Azure AD/Office 365. De UPN is in de e-mailadres. UPN-waarde in Office 365 (Azure Active Directory) voor Windows.|
-|Certificaatverlener|Vereist om te worden van een URI van de id-provider. Niet opnieuw gebruiken met de uitgever van de voorbeeldberichten. Als u meerdere domeinen voor op het hoogste niveau in uw Azure AD-tenants de uitgever, moet overeenkomen met de opgegeven URI-instelling geconfigureerd per domein.|
+|Verlener|Vereist om te worden van een URI van de id-provider. Niet opnieuw gebruiken met de uitgever van de voorbeeldberichten. Als u meerdere domeinen voor op het hoogste niveau in uw Azure AD-tenants de uitgever, moet overeenkomen met de opgegeven URI-instelling geconfigureerd per domein.|
 
 >[!IMPORTANT]
 >Azure AD ondersteunt momenteel de volgende URI van de NameID-indeling voor SAML-2.0:urn:oasis:names:tc:SAML:2.0:nameid-indeling: permanente.
