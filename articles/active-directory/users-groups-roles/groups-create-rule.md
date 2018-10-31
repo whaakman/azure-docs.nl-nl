@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 10/26/2018
+ms.date: 10/30/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: d521406e37920dcd76c0078d2fdf54c16b7a0461
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: be880b937f254cbf8115d1a5129069069a0c7eea
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50209986"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50249662"
 ---
 # <a name="create-a-dynamic-group-and-check-status"></a>Een dynamische groep maken en de status controleren
 
@@ -39,7 +39,7 @@ Dit artikel wordt uitgelegd hoe u een regel in de Azure-portal voor dynamisch li
 
    ![Regel voor dynamisch lidmaatschap toevoegen](./media/groups-create-rule/add-dynamic-group-rule.png)
 
-5. De volledige lijst van de klant extensie-eigenschappen die u aan uw lidmaatschapquery toevoegen kunt wilt bekijken, selecteert u **Get klant extensie-eigenschappen**, voer een unieke toepassings-ID en selecteer vervolgens **eigenschappenvernieuwen**. De volledige is van eigenschappen is nu beschikbaar om te selecteren.
+5. De volledige lijst van aangepaste extensie-eigenschappen die u aan uw lidmaatschapquery toevoegen kunt wilt bekijken, selecteert u **aangepaste extensie-eigenschappen ophalen**, voer de toepassings-ID en selecteer vervolgens **eigenschappen vernieuwen**. De volledige is van eigenschappen is nu beschikbaar om te selecteren.
 6. Na het maken van de regel, selecteer **query toevoegen** aan de onderkant van de blade.
 7. Selecteer **maken** op de **groep** blade om de groep te maken.
 

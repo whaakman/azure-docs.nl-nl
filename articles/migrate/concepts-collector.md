@@ -4,15 +4,15 @@ description: Bevat informatie over het Collector-apparaat in Azure Migrate.
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 10/24/2018
+ms.date: 10/30/2018
 ms.author: snehaa
 services: azure-migrate
-ms.openlocfilehash: 006a246323e9f82ea9c9a6a2940ed624d7e44e13
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 81e6731068db84f02073f02c49bea9a8fb7c7c70
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986776"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50241188"
 ---
 # <a name="about-the-collector-appliance"></a>Over het Collector-apparaat
 
@@ -20,6 +20,38 @@ ms.locfileid: "49986776"
 
 De Azure Migrate Collector is een lichtgewicht apparaat die kan worden gebruikt voor het detecteren van een on-premises vCenter-omgeving voor evaluatiedoeleinden met de [Azure Migrate](migrate-overview.md) service vóór de migratie naar Azure.  
 
+## <a name="discovery-methods"></a>Detectiemethoden
+
+Er zijn twee opties voor de Collector-apparaat, eenmalige detectie of continue detectie.
+
+### <a name="one-time-discovery"></a>Eenmalige detectie
+
+Het Collector-apparaat communiceert via een eenmalig met vCenter-Server voor het verzamelen van metagegevens over de virtuele machines. Met behulp van deze methode:
+
+- Het apparaat is niet altijd verbonden zijn aan het project Azure Migrate.
+- Wijzigingen in de on-premises-omgeving worden niet weergegeven in Azure Migrate wanneer de detectie is voltooid. Als gevolg van eventuele wijzigingen, moet u dezelfde omgeving in hetzelfde project opnieuw te detecteren.
+- Het apparaat tijdens het verzamelen van prestatiegegevens voor een virtuele machine, zijn afhankelijk van de van historische prestatiegegevens die zijn opgeslagen in de vCenter-Server. Geschiedenis van geheugenprestaties worden verzameld voor de afgelopen maand.
+- Voor de verzameling van historische prestatiegegevens moet u de instellingen voor statistieken in vCenter-Server op niveau 3 ingesteld. Na het instellen van het niveau van de drie, moet u wachten op ten minste een dag voor vCenter voor het verzamelen van prestatiemeteritems. Daarom aangeraden de detectie uit te voeren na ten minste een dag. Als u beoordelen van de omgeving op basis van prestatiegegevens van 1 week of één maand wilt, moet u wachten dienovereenkomstig.
+- In deze detectiemethode, Azure Migrate gemiddelde tellers voor elke metrische gegevens (in plaats piektellers) die leiden te voorzichtige sizing tot kunnen verzamelt. U wordt aangeraden dat u de continue detectieoptie gebruiken om op te halen meer nauwkeurige resultaten formaat.
+
+### <a name="continuous-discovery"></a>Continue detectie
+
+Het Collector-apparaat continu is verbonden met het Azure Migrate-project en continu verzamelt prestatiegegevens van virtuele machines.
+
+- De Collector profielen continu de on-premises omgeving voor het verzamelen van gegevens over het gebruik van realtime elke 20 seconden.
+- Het toestel totaliseert de voorbeelden 20 seconden en maakt u één gegevenspunt om de 15 minuten.
+- Punt het apparaat de hoogste waarde selecteert in de voorbeelden 20 seconden en verzendt dit naar Azure te maken van de gegevens.
+- Dit model afhankelijk niet van de instellingen voor statistieken vCenter-Server om prestatiegegevens te verzamelen.
+- U kunt stoppen continue profilering op elk gewenst moment van de Collector.
+
+Houd er rekening mee dat het apparaat alleen continu prestatiegegevens verzamelt, het detecteert niet elke configuratiewijziging in de on-premises omgeving (dat wil zeggen het toevoegen/verwijderen van VM’s, toevoegen van schijven, enz.). Als er een configuratiewijziging in de on-premises omgeving is, kunt u het volgende doen om de wijzigingen door te voeren in de portal:
+
+- Toevoegen van items (virtuele machines, schijven, kernen enz.): om deze wijzigingen in de Azure-portal door te voeren, kunt u de detectie vanaf het apparaat stoppen en opnieuw starten. Dit zorgt ervoor dat de wijzigingen worden bijgewerkt in het Azure Migrate-project.
+
+- Verwijderen van VM’s: vanwege de manier waarop het apparaat is ontworpen, wordt het verwijderen van VM’s niet doorgevoerd, zelfs niet als u de detectie stopt en opnieuw start. Dit komt doordat gegevens uit volgende detecties worden toegevoegd aan de oudere detecties en niet worden overschreven. In dit geval kunt u eenvoudigweg de VM in de portal negeren door deze uit uw groep te verwijderen en de evaluatie opnieuw te berekenen.
+
+> [!NOTE]
+> De functionaliteit van continue detectie is in preview. We raden u aan deze methode te gebruiken, aangezien met deze methode gedetailleerde prestatiegegevens worden verzameld, wat leidt tot een precieze groottebepaling.
 
 ## <a name="deploying-the-collector"></a>Implementatie van de Collector
 
@@ -163,43 +195,6 @@ U kunt de Collector upgraden naar de meest recente versie zonder het ova-bestand
 3. Kopieer het zip-bestand naar de Azure Migrate collector virtuele machine (collector-apparaat).
 4. Met de rechtermuisknop op het zip-bestand en selecteer Alles uitpakken.
 5. Met de rechtermuisknop op Setup.ps1 en selecteer uitvoeren met PowerShell en volg de instructies op het scherm om de update te installeren.
-
-
-## <a name="discovery-methods"></a>Detectiemethoden
-
-Er zijn twee methoden die het Collector-apparaat voor detectie, eenmalige detectie of continue detectie gebruiken kunt.
-
-
-### <a name="one-time-discovery"></a>Eenmalige detectie
-
-De Collector communiceert via een eenmalig met vCenter-Server voor het verzamelen van metagegevens over de virtuele machines. Met behulp van deze methode:
-
-- Het apparaat is niet altijd verbonden zijn aan het project Azure Migrate.
-- Wijzigingen in de on-premises-omgeving worden niet weergegeven in Azure Migrate wanneer de detectie is voltooid. Als gevolg van eventuele wijzigingen, moet u dezelfde omgeving in hetzelfde project opnieuw te detecteren.
-- Voor deze detectiemethode moet u de instellingen voor statistieken in vCenter-Server op niveau 3 ingesteld.
-- Na het instellen van het niveau van de drie, gaat u naar een dag voor het genereren van de prestatiemeteritems. Daarom raden we aan dat u de detectie uitgevoerd na een dag.
-- Het apparaat tijdens het verzamelen van prestatiegegevens voor een virtuele machine, zijn afhankelijk van de van historische prestatiegegevens die zijn opgeslagen in de vCenter-Server. Geschiedenis van geheugenprestaties worden verzameld voor de afgelopen maand.
-- Azure Migrate verzamelt gemiddelde items (in plaats van piek teller) voor alle gegevens die leiden te voorzichtige grootte tot kan.
-
-### <a name="continuous-discovery"></a>Continue detectie
-
-Het Collector-apparaat continu is verbonden met het Azure Migrate-project en continu verzamelt prestatiegegevens van virtuele machines.
-
-- De Collector profielen continu de on-premises omgeving voor het verzamelen van gegevens over het gebruik van realtime elke 20 seconden.
-- Dit model afhankelijk niet van de instellingen voor statistieken vCenter-Server om prestatiegegevens te verzamelen.
-- Het toestel totaliseert de voorbeelden 20 seconden en maakt u één gegevenspunt om de 15 minuten.
-- Punt het apparaat de hoogste waarde selecteert in de voorbeelden 20 seconden en verzendt dit naar Azure te maken van de gegevens.
-- U kunt stoppen continue profilering op elk gewenst moment van de Collector.
-
-Houd er rekening mee dat het apparaat verzamelt alleen prestatiegegevens continu, detecteert niet elke configuratiewijziging in de on-premises-omgeving (dat wil zeggen VM toevoegen, verwijderen en schijf toevoegen, enz.). Als er een configuratiewijziging in de on-premises-omgeving, kunt u het volgende om de wijzigingen in de portal weer te doen:
-
-1. Het toevoegen van items (virtuele machines, schijven, kernen enz.): als gevolg van deze wijzigingen in de Azure-portal, kunt u de detectie van het toestel stopt en start het opnieuw. Dit zorgt ervoor dat de wijzigingen in de Azure Migrate-project worden bijgewerkt.
-
-2. Het verwijderen van virtuele machines: vanwege de manier waarop het apparaat is ontworpen, verwijderen van virtuele machines wordt niet weergegeven, zelfs als u stopt en de detectie start. Dit komt doordat gegevens uit de volgende detecties zijn toegevoegd aan de oudere detecties en niet worden genegeerd. In dit geval kunt u de virtuele machine in de portal, gewoon negeren door verwijderen uit de groep en de evaluatie te berekenen.
-
-> [!NOTE]
-> De functionaliteit van continue detectie is in preview. We raden u aan het gebruik van deze methode als deze methode gedetailleerde prestatiegegevens verzamelt en in een nauwkeurige juiste groottebepaling resulteert.
-
 
 ## <a name="discovery-process"></a>Discovery-proces
 

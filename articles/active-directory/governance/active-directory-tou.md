@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: compliance
-ms.date: 10/19/2018
+ms.date: 10/30/2018
 ms.author: rolyon
-ms.openlocfilehash: be00f6fb41572c0a9599f7005f2cdd1d6587f15a
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 87b08ce138cde5cc70c5a80cc414c68dd7aea743
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49944138"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50249796"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Functie Azure Active Directory Gebruiksrechtovereenkomst
 Azure AD Gebruiksrechtovereenkomst is een eenvoudige methode waarmee organisaties informatie kunnen presenteren aan eindgebruikers. Deze presentatie zorgt ervoor dat gebruikers relevante disclaimers voor juridische vereisten of nalevingsvereisten te zien krijgen. In dit artikel wordt beschreven hoe u aan de slag met de gebruiksvoorwaarden.
@@ -46,6 +46,7 @@ Met Azure AD Gebruiksrechtovereenkomst kunt u het volgende doen:
 - Helpen bij het voldoen aan de regels.
 - Een lijst maken met personen die wel of niet akkoord zijn gegaan met uw Gebruiksrechtovereenkomst.
 - Een logboek van de voorwaarden van de activiteit gebruiken voor naleving en audits weergegeven.
+- Maken en beheren van de voorwaarden van het gebruik van gebruik [Microsoft Graph-API's](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/agreement) (momenteel in Preview-versie).
 
 ## <a name="prerequisites"></a>Vereisten
 U moet over het volgende beschikken om Azure AD Gebruiksrechtovereenkomst te gebruiken en te configureren:

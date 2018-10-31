@@ -11,19 +11,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/05/2018
+ms.date: 10/18/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 0340a4d527023c050e2c776d31c02b59161a1316
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 904502e5c73127cca7920da2173edd013e55762f
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49429460"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50242242"
 ---
 # <a name="analyze-log-analytics-data-in-azure-monitor"></a>Analyseren van Log Analytics-gegevens in Azure Monitor
 
-Logboekgegevens die zijn verzameld door Azure Monitor is opgeslagen in Log Analytics verzamelt Telemetrie en andere gegevens uit een groot aantal bronnen en biedt een querytaal voor geavanceerde analyses.
+Logboekgegevens die zijn verzameld door Azure Monitor is opgeslagen in een Log Analytics-werkruimte die is gebaseerd op [Azure Data Explorer](/data-explorer). Het verzamelt telemetrie van een groot aantal bronnen en maakt gebruik van de [querytaal van Data Explorer](/kusto) ophalen en analyseren van gegevens.
 
 > [!NOTE]
 > Log Analytics is eerder beschouwd als een eigen service in Azure. Het is nu beschouwd als een onderdeel van Azure Monitor en richt zich op de opslag en analyse van gegevens met behulp van de querytaal. Functies die werden beschouwd als onderdeel van Log Analytics, zoals Windows en Linux-agents voor het verzamelen van gegevens, weergaven om bestaande gegevens en waarschuwingen te visualiseren om proactief te waarschuwen u van problemen, niet zijn gewijzigd, maar worden nu beschouwd als onderdeel van Azure Monitor.
@@ -51,7 +51,7 @@ De verschillende manieren die u query's in Log Analytics gebruikt omvatten het v
 ![Zoekopdrachten in Logboeken](media/log-analytics-queries/queries-overview.png)
 
 ## <a name="write-a-query"></a>Een query schrijven
-Log Analytics bevat [een uitgebreide querytaal](query-language/get-started-queries.md) die u bij het ophalen en analyseren van logboekgegevens op verschillende manieren kunt gebruiken.  U doorgaans begint met eenvoudige query's en vervolgens de voortgang voor het gebruik van meer geavanceerde functies zoals de vereisten van uw steeds complexer.
+Meld u Analytics gebruikt [een versie van de querytaal van Data Explorer](query-language/get-started-queries.md) ophalen en analyseren van logboekgegevens op verschillende manieren.  U doorgaans begint met eenvoudige query's en vervolgens de voortgang voor het gebruik van meer geavanceerde functies zoals de vereisten van uw steeds complexer.
 
 De basisstructuur van een query is een brontabel gevolgd door een reeks van operators, gescheiden door een sluisteken `|`.  U kunt koppelen samen meerdere operators voor het verfijnen van de gegevens en geavanceerde functies uitvoeren.
 

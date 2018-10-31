@@ -15,12 +15,12 @@ ms.date: 09/08/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 10bcb3c0c4842202f95cdc1fff30d12b7a8fbbc2
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: e6f4e67d09eacadbbf9d74f417357a87ece0a951
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39366020"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50238502"
 ---
 # <a name="set-a-custom-home-page-for-published-apps-by-using-azure-ad-application-proxy"></a>Een aangepaste startpagina voor gepubliceerde apps instellen met behulp van Azure AD-toepassingsproxy
 
@@ -62,7 +62,7 @@ Voordat u de URL van startpagina, houd rekening met de volgende vereisten:
 
 ### <a name="install-the-azure-ad-powershell-module"></a>De Azure AD PowerShell-module installeren
 
-Voordat u de URL van een aangepaste startpagina definiëren met behulp van PowerShell, installeert u de Azure AD PowerShell-module. U kunt het downloaden van de [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureAD/2.0.0.131), waarbij de Graph API-eindpunt wordt gebruikt. 
+Voordat u de URL van een aangepaste startpagina definiëren met behulp van PowerShell, installeert u de Azure AD PowerShell-module. U kunt het downloaden van de [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureAD/2.0.0.131), waarbij de Graph API-eindpunt wordt gebruikt. 
 
 Volg deze stappen voor het installeren van het pakket:
 
@@ -72,7 +72,7 @@ Volg deze stappen voor het installeren van het pakket:
      Install-Module -Name AzureAD
     ```
     Als u de opdracht als een niet-beheerder uitvoert, gebruikt u de `-scope currentuser` optie.
-2. Tijdens de installatie, selecteert u **Y** twee pakketten installeren via Nuget.org. Beide pakketten zijn vereist. 
+2. Tijdens de installatie, selecteert u **Y** twee pakketten installeren via Nuget.org. Beide pakketten zijn vereist. 
 
 ### <a name="find-the-objectid-of-the-app"></a>De object-id van de app zoeken
 
@@ -92,14 +92,14 @@ De object-id van de app verkrijgen en zoek vervolgens de app door de startpagina
 3. De app op basis van de URL van de startpagina te zoeken. U vindt de URL in de beheerportal door te gaan naar **Azure Active Directory** > **bedrijfstoepassingen** > **alle toepassingen**. In dit voorbeeld wordt *sharepoint-iddemo*.
 
     ```
-    Get-AzureADApplication | where { $_.Homepage -like “sharepoint-iddemo” } | fl DisplayName, Homepage, ObjectID
+    Get-AzureADApplication | where { $_.Homepage -like "sharepoint-iddemo" } | fl DisplayName, Homepage, ObjectID
     ```
 4. U moet een resultaat die vergelijkbaar is met hieronder. Kopieer de ObjectID GUID die u wilt gebruiken in de volgende sectie.
 
     ```
     DisplayName : SharePoint
-    Homepage    : https://sharepoint-iddemo.msappproxy.net/
-    ObjectId    : 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4
+    Homepage    : https://sharepoint-iddemo.msappproxy.net/
+    ObjectId    : 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4
     ```
 
 ### <a name="update-the-home-page-url"></a>Bijwerken van de URL van startpagina
@@ -117,13 +117,13 @@ De URL van startpagina maken en bijwerken van uw toepassing met de waarde. Ga do
 2. Maak een lege toepassingsobject voor het opslaan van de wijzigingen die u wilt maken. Deze variabele bevat de waarden die u wilt bijwerken. Niets is in deze stap gemaakt.
 
     ```
-    $appnew = New-Object “Microsoft.Open.AzureAD.Model.Application”
+    $appnew = New-Object "Microsoft.Open.AzureAD.Model.Application"
     ```
 
-3. De URL van startpagina ingesteld op de waarde die u wilt. De waarde moet een pad van het subdomein van de gepubliceerde app. Bijvoorbeeld, als u de URL van de startpagina van *https://sharepoint-iddemo.msappproxy.net/* naar *https://sharepoint-iddemo.msappproxy.net/hybrid/*, gaat u rechtstreeks naar de startpagina van aangepaste app-gebruikers.
+3. De URL van startpagina ingesteld op de waarde die u wilt. De waarde moet een pad van het subdomein van de gepubliceerde app. Bijvoorbeeld, als u de URL van de startpagina van *https://sharepoint-iddemo.msappproxy.net/* naar *https://sharepoint-iddemo.msappproxy.net/hybrid/*, gaat u rechtstreeks naar de startpagina van aangepaste app-gebruikers.
 
     ```
-    $homepage = “https://sharepoint-iddemo.msappproxy.net/hybrid/”
+    $homepage = "https://sharepoint-iddemo.msappproxy.net/hybrid/"
     ```
 4. Moet u de update met behulp van de GUID (object-id) die u hebt genoteerd in ' stap 1: de object-id van de app vinden. "
 

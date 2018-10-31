@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 09/04/2018
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 3320422396148cad3252c0e834e903b3853a9671
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: bf4d6687e00849fd7c8269eb1a4739e0153a8503
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48812323"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50251138"
 ---
 De volgende tabel wordt beschreven hoe ondersteuning toevoegen voor deze binding in de ontwikkelomgeving.
 
@@ -22,6 +22,6 @@ De volgende tabel wordt beschreven hoe ondersteuning toevoegen voor deze binding
 |----------------------|----------------|---------------|
 |Lokale ontwikkeling - C#-klassenbibliotheek       | [Installeer het pakket](../articles/azure-functions/functions-triggers-bindings.md#c-class-library-with-visual-studio-2017) |
 |Lokale ontwikkeling - C#-script, JavaScript, F # |[De extensie registreren](../articles/azure-functions/functions-triggers-bindings.md#local-development-azure-functions-core-tools)         |
-|Portal-ontwikkeling| [Automatisch](../articles/azure-functions/functions-triggers-bindings.md#azure-portal-development)    |
+|Portal-ontwikkeling| Bij het toevoegen van de Uitvoerbinding installeren    |
 
 Zie voor informatie over het bijwerken van bestaande binding extensies in de portal zonder opnieuw te publiceren van uw functie-app-project, [uw extensies bijwerken](../articles/azure-functions/install-update-binding-extensions-manual.md).

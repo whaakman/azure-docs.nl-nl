@@ -1,48 +1,48 @@
 ---
-title: Azure Media Encoder Standard gebruiken voor het automatisch genereren van een ladder bitrate | Microsoft Docs
-description: Dit onderwerp wordt beschreven hoe Media Encoder Standard (MES) gebruiken om een bitrate ladder op basis van de invoer resolutie en bitrate automatisch te genereren. De invoer resolutie en bitrate wordt nooit worden overschreden. Bijvoorbeeld, als de invoer is 720p op 3 Mbps, uitvoer wordt met de beste 720p blijven en wordt gestart volgens de tarieven voor lager is dan 3 Mbps.
+title: Azure Media Encoder Standard gebruikt om automatisch een bitrateladder genereren | Microsoft Docs
+description: Dit onderwerp wordt beschreven hoe u automatisch een bitrateladder op basis van de invoerresolutie en bitrate genereren met Media Encoder Standard (MES). De invoerresolutie en bitrate wordt nooit worden overschreden. Bijvoorbeeld, als de invoer 720p op 3 Mbps, uitvoer wordt met de beste 720p blijven, en tarieven lager is dan 3 Mbps wordt gestart.
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/10/2017
+ms.date: 10/30/2018
 ms.author: juliako
-ms.openlocfilehash: 80f76f413ec2c267ba8fb93514480e168563f470
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 1d02f64cce5e539dd43a9372a00cd3ec1ddd5f0c
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788625"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50246973"
 ---
-#  <a name="use-azure-media-encoder-standard-to-auto-generate-a-bitrate-ladder"></a>Azure Media Encoder Standard gebruiken om een ladder bitrate automatisch te genereren
+#  <a name="use-azure-media-encoder-standard-to-auto-generate-a-bitrate-ladder"></a>Azure Media Encoder Standard gebruikt om automatisch een bitrateladder genereren
 
 ## <a name="overview"></a>Overzicht
 
-In dit artikel laat zien hoe Media Encoder Standard (MES) gebruiken om een bitrate ladder (bitrate resolutie paren) op basis van de invoer resolutie en bitrate automatisch te genereren. De automatisch gegenereerde voorinstelling zijn nooit overschrijden de invoer resolutie en de bitsnelheid. Bijvoorbeeld, als de invoer 720p met 3 Mbps is, uitvoer blijft 720p met de beste en volgens de tarieven voor lager is dan 3 Mbps wordt gestart.
+Dit artikel wordt beschreven hoe u automatisch een bitrateladder (bitrate-resolutie paren) op basis van de invoerresolutie en bitrate genereren met Media Encoder Standard (MES). De automatisch gegenereerde voorinstelling wordt nooit groter zijn dan de invoerresolutie en de bitsnelheid. Bijvoorbeeld, als de invoer 720p met 3 Mbps is, uitvoer blijft 720p met de beste en tarieven lager is dan 3 Mbps wordt gestart.
 
-### <a name="encoding-for-streaming-only"></a>Voor Streaming alleen codering
+### <a name="encoding-for-streaming-only"></a>Voor het streamen van alleen-codering
 
-Als het uw bedoeling is om de bronvideo alleen voor streaming coderen, moet vervolgens u de 'adaptief streamen' vooraf ingesteld bij het maken van een taak die voor codering. Wanneer u de **adaptief streamen** definitie het coderingsprogramma MES wordt op intelligente wijze cap een ladder bitrate. Echter, u pas weer om te bepalen de codering kosten, omdat de service bepaalt hoeveel lagen als u wilt gebruiken en met welke resolutie. Ziet u voorbeelden van lagen van uitvoer geproduceerd door MES als gevolg van codering met de **adaptief streamen** voorinstelling aan het einde van dit artikel. De Asset MP4-bestanden bevat waar audio en video-uitvoer is niet interleaved.
+Als uw bedoeling is aan de bronvideo coderen voor het streamen van, moet klikt u vervolgens u de 'adaptief streamen"vooraf ingesteld bij het maken van een coderingstaak. Wanneer u de **adaptief streamen** definitie de MES-coderingsprogramma wordt op intelligente wijze gegevenslimiet een bitrateladder. Echter, u pas weer om te bepalen de codering kosten, omdat de service wordt bepaald hoeveel lagen als u wilt gebruiken en met welke resolutie. Ziet u voorbeelden van uitvoer lagen die worden geproduceerd door de MES als gevolg van de codering met de **adaptief streamen** vooraf aan het einde van dit artikel. De Asset bevat MP4-bestanden waar de audio en video-uitvoer is niet interleaved.
 
-### <a name="encoding-for-streaming-and-progressive-download"></a>Codering in voor streamen en progressief downloaden
+### <a name="encoding-for-streaming-and-progressive-download"></a>Encoding voor streamen en progressief downloaden
 
-Als het uw bedoeling is voor het coderen van de bronvideo voor streaming, evenals voor het produceren MP4-bestanden progressief downloaden, moet u de 'inhoud adaptieve meerdere Bitrate MP4' vooraf ingesteld bij het maken van een taak die voor codering gebruiken. Wanneer u de **inhoud adaptieve meerdere Bitrate MP4** definitie het coderingsprogramma MES geldt dezelfde codering logica zoals hierboven, maar nu de uitvoerasset bevat MP4-bestanden waar audio en video interleaved is. U kunt een van deze MP4-bestanden (bijvoorbeeld de hoogste versie bitrate) gebruiken als een bestand progressief downloaden.
+Als het uw bedoeling is aan de bronvideo coderen voor streaming, evenals voor het produceren MP4-bestanden voor het progressief downloaden, moet u de 'inhoud adaptieve meerdere Bitrate MP4"vooraf ingesteld bij het maken van een coderingstaak gebruiken. Wanneer u de **inhoud adaptieve meerdere Bitrate MP4** vooraf ingesteld, de codering met MES geldt codering dezelfde logica als hierboven, maar de uitvoerasset wordt nu MP4-bestanden bevatten, waar de audio en video interleaved is. U kunt een van deze MP4-bestanden (bijvoorbeeld, de hoogste versie bitrate) gebruiken als een bestand progressief downloaden.
 
-## <a id="encoding_with_dotnet"></a>Codering met mediaservices .NET SDK
+## <a id="encoding_with_dotnet"></a>Coderen met mediaservices .NET SDK
 
-Het volgende codevoorbeeld maakt gebruik van Media Services .NET SDK naar de volgende taken uitvoeren:
+Het volgende codevoorbeeld maakt gebruik van Media Services .NET SDK aan de volgende taken uitvoeren:
 
-- Maak een codeertaak.
-- Een verwijzing naar de Media Encoder Standard encoder ophalen.
-- Een codering taak toevoegen aan het project en geef voor het gebruik van de **adaptief streamen** vooraf ingestelde. 
+- Maak een coderingstaak.
+- Een verwijzing naar de Media Encoder Standard encoder worden opgehaald.
+- Een coderingstaak toevoegen aan het project en geef voor het gebruik van de **adaptief streamen** vooraf ingestelde. 
 - Maak een uitvoerasset met de gecodeerde asset.
-- Een gebeurtenis-handler voor het controleren van de voortgang van de taak toevoegen.
+- Voeg een gebeurtenis-handler om te controleren of de taak wordt uitgevoerd.
 - Verzenden van de taak.
 
 #### <a name="create-and-configure-a-visual-studio-project"></a>Maak en configureer een Visual Studio-project.
@@ -169,10 +169,10 @@ namespace AdaptiveStreamingMESPresest
 
 ## <a id="output"></a>Uitvoer
 
-Deze sectie ziet u drie voorbeelden van lagen van uitvoer geproduceerd door MES als gevolg van codering met de **adaptief streamen** vooraf ingestelde. 
+In deze sectie ziet u drie voorbeelden van uitvoer lagen die worden geproduceerd door de MES als gevolg van de codering met de **adaptief streamen** vooraf ingestelde. 
 
 ### <a name="example-1"></a>Voorbeeld 1
-Bron met hoogte '1080' en '29.970' framesnelheid produceert 6 video lagen:
+Bron met hoogte "1080" en "29.970" framesnelheid produceert 6 video lagen:
 
 |Laag|Hoogte|Breedte|Bitrate(kbps)|
 |---|---|---|---|
@@ -184,7 +184,7 @@ Bron met hoogte '1080' en '29.970' framesnelheid produceert 6 video lagen:
 |6|180|320|380|
 
 ### <a name="example-2"></a>Voorbeeld 2
-Bron met hoogte '720' en '23.970' framesnelheid produceert 5 video lagen:
+Bron met hoogte "720" en "23.970" framesnelheid produceert 5 video lagen:
 
 |Laag|Hoogte|Breedte|Bitrate(kbps)|
 |---|---|---|---|
@@ -195,7 +195,7 @@ Bron met hoogte '720' en '23.970' framesnelheid produceert 5 video lagen:
 |5|180|320|320|
 
 ### <a name="example-3"></a>Voorbeeld 3
-Bron met hoogte '360' en '29.970' framesnelheid produceert 3 video lagen:
+Bron met hoogte "360" en "29.970" framesnelheid produceert 3 video lagen:
 
 |Laag|Hoogte|Breedte|Bitrate(kbps)|
 |---|---|---|---|
@@ -209,5 +209,5 @@ Bron met hoogte '360' en '29.970' framesnelheid produceert 3 video lagen:
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="see-also"></a>Zie ook
-[Media Services-codering overzicht](media-services-encode-asset.md)
+[Media Services Encoding overzicht](media-services-encode-asset.md)
 

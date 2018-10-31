@@ -4,16 +4,16 @@ description: Platforms die worden ondersteund door Azure IoT Edge
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 6/21/2018
+ms.date: 09/21/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 2163179d3353626e12495381fc64792db56ec78e
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: b8b4664540d07b76d0cebe5df99ba2cc67dd47e6
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43286359"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50248552"
 ---
 # <a name="azure-iot-edge-support"></a>Ondersteuning van Azure IoT Edge
 Er zijn tal van manieren om te zoeken naar ondersteuning voor de Azure IoT Edge-product.
@@ -65,6 +65,3 @@ Laag 2-systemen kunnen worden beschouwd als compatibel met Azure IoT Edge en rel
 ## <a name="container-engines"></a>Container-engines
 Azure IoT Edge moet een container-engine starten modules, ongeacht het besturingssysteem waarop deze wordt uitgevoerd. Microsoft biedt een container-engine, moby-engine, om te voldoen aan deze vereiste. Deze is gebaseerd op de Moby open source-project. Docker CE- en Docker EE zijn andere populaire container-engines. Ze zijn ook afhankelijk van het Moby open-source-project en compatibel zijn met Azure IoT Edge. Microsoft biedt best inspanning ondersteuning voor systemen met behulp van de container motoren; Microsoft heeft echter niet de mogelijkheid om oplossingen voor problemen in deze af te leveren. Microsoft adviseert om deze reden moby-engine op productiesystemen.
 
-
-<!-- Links -->
-[lnk-edge-blog]: https://azure.microsoft.com/blog/securing-the-intelligent-edge/ 

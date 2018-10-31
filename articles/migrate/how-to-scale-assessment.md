@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: raynew
-ms.openlocfilehash: f289e9745eb220e735cc5c58ce8006c9fea7e61e
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: b5685640a55e2ce52a202c341cb293fe9315ab14
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50086655"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50240185"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Een grote VMware-omgeving ontdekken en beoordelen
 
@@ -122,7 +122,7 @@ Als u meerdere projecten hebt, moet u het collector-apparaat slechts één keer 
 1. Klik in het Azure Migrate-project op **Aan de slag** > **Detecteren en evalueren** > **Machines detecteren**.
 2. In **Machines detecteren** zijn er twee opties beschikbaar voor het apparaat. Klik op **Downloaden** om het juiste apparaat te downloaden op basis van uw voorkeur.
 
-    a. **Eenmalige detectie:** het apparaat voor dit model communiceert met de vCenter Server om metagegevens over de virtuele machines te verzamelen. Voor het verzamelen van prestatiegegevens van de virtuele machines baseert het apparaat zich op de historische prestatiegegevens die zijn opgeslagen in de vCenter Server en worden de prestatiegeschiedenis van de laatste maand verzameld. In dit model, gemiddelde teller (versus piek teller) voor elke meetwaarde, Azure Migrate verzamelt [meer](https://docs.microsoft.com/azure/migrate/concepts-collector#what-data-is-collected). Omdat dit een eenmalige detectie, worden wijzigingen in de on-premises omgeving niet weergegeven wanneer de detectie voltooid is. Als u wilt dat de wijzigingen worden weergegeven, moet u opnieuw een detectie van dezelfde omgeving uitvoeren voor hetzelfde project.
+    a. **Eenmalige detectie:** het apparaat voor dit model communiceert met de vCenter Server om metagegevens over de virtuele machines te verzamelen. Voor het verzamelen van prestatiegegevens van de virtuele machines baseert het apparaat zich op de historische prestatiegegevens die zijn opgeslagen in de vCenter Server en worden de prestatiegeschiedenis van de laatste maand verzameld. In dit model verzamelt Azure Migrate het gemiddelde meteritem (versus piektellers) voor alle metrische gegevens, [meer informatie](https://docs.microsoft.com/azure/migrate/concepts-collector#what-data-is-collected). Omdat dit een eenmalige detectie, worden wijzigingen in de on-premises omgeving niet weergegeven wanneer de detectie voltooid is. Als u wilt dat de wijzigingen worden weergegeven, moet u opnieuw een detectie van dezelfde omgeving uitvoeren voor hetzelfde project.
 
     b. **Continue detectie:** het apparaat voor dit model profileert continu de on-premises omgeving om realtime gebruiksgegevens voor elke virtuele machine te verzamelen. In dit model worden piektellers verzameld voor elk metrisch gegeven (CPU-gebruik, geheugengebruik enzovoort). Dit model is voor het verzamelen van prestatiegegevens niet afhankelijk van de instellingen voor statistieken in vCenter Server. U kunt de continue profilering op elk gewenst moment stoppen vanaf het apparaat.
 
@@ -150,8 +150,11 @@ Controleer dat het OVA-bestand beveiligd is voordat u deze implementeert:
 
 Voor OVA-versie 1.0.9.15 (vrijgegeven op 23-10-2018)
 
-**Algoritme** | **hash-waarde**
->>>>>>> 20dc93529e7c0a4d17f2f4524752b5e2bead4e37---| ---MD5 | e9ef16b0c837638c506b5fc0ef75ebfa SHA1 | 37b4b1e92b3c6ac2782ff5258450df6686c89864 SHA256 | 8a86fc17f69b69968eb20a5c4c288c194cdcffb4ee6568d85ae5ba96835559ba
+**Algoritme** | **Hash-waarde**
+--- | ---
+MD5 | e9ef16b0c837638c506b5fc0ef75ebfa
+SHA1 | 37b4b1e92b3c6ac2782ff5258450df6686c89864
+SHA256 | 8a86fc17f69b69968eb20a5c4c288c194cdcffb4ee6568d85ae5ba96835559ba
 
 Voor OVA-versie 1.0.9.14 (vrijgegeven op 8/24/2018)
 

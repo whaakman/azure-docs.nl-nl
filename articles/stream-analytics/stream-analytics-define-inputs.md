@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/27/2018
-ms.openlocfilehash: 556b71d8312c7661b58a3ccf56fd76f6753ef9cf
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 2bd2a90c6bac280b6f68bde378b7f7d32b7fcd38
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49987576"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50248741"
 ---
 # <a name="stream-data-as-input-into-stream-analytics"></a>Stream-gegevens als invoer in Stream Analytics
 
@@ -115,7 +115,6 @@ Wanneer u streaminggegevens vanuit een IoT-Hub, hebt u toegang tot de volgende m
 | **IoTHub.ConnectionDeviceId** | De verificatie-ID gebruikt om dit bericht te verzenden. Deze waarde wordt vermeld op servicebound berichten door de IoT Hub. |
 | **IoTHub.ConnectionDeviceGenerationId** | De generatie-ID van het geverifieerde apparaat dat is gebruikt om dit bericht te verzenden. Deze waarde wordt vermeld op servicebound berichten door de IoT Hub. |
 | **IoTHub.EnqueuedTime** | De tijd waarop het bericht is ontvangen door de IoT Hub. |
-| **IoTHub.StreamId** | Een aangepaste gebeurtenis-eigenschap toegevoegd door het apparaat van de afzender. |
 
 
 ## <a name="stream-data-from-blob-storage"></a>Stream-gegevens uit Blob storage

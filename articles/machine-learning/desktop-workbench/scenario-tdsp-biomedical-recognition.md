@@ -17,12 +17,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: a3ae9c0926f9c2a8bb900e25b610f8c2f4e6d292
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 0ca8e1081b514d5569c84a6364d55e8f49bee533
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/30/2018
-ms.locfileid: "50231573"
+ms.locfileid: "50238996"
 ---
 # <a name="biomedical-entity-recognition-using-team-data-science-process-tdsp-template"></a>Herkenning biomedische entiteit met behulp van Team Data Science Process (TDSP)-sjabloon
 
@@ -64,7 +64,7 @@ De volgende afbeelding toont de architectuur die is gebruikt voor het verwerken 
 ## <a name="data-description"></a>Beschrijving van de gegevens
 
 ### <a name="1-word2vec-model-training-data"></a>1. Word2Vec model trainen van gegevens
-We eerst de onbewerkte MEDLINE abstracte gegevens uit gedownloade [MEDLINE](https://www.nlm.nih.gov/pubs/factsheets/medline.html). De gegevens zijn publicaly die beschikbaar zijn in de vorm van XML-bestanden op hun [FTP-server](https://ftp.ncbi.nlm.nih.gov/pubmed/baseline). Er zijn 892 XML-bestanden beschikbaar op de server en bevat de informatie 30.000 artikelen over elk van de XML-bestanden. Meer informatie over de stap van de verzameling gegevens vindt u in de sectie projectstructuur. De velden die aanwezig zijn in elk bestand zijn 
+We eerst de onbewerkte MEDLINE abstracte gegevens uit gedownloade [MEDLINE](https://www.nlm.nih.gov/pubs/factsheets/medline.html). De gegevens zijn openbaar beschikbaar in de vorm van XML-bestanden op hun [FTP-server](https://ftp.ncbi.nlm.nih.gov/pubmed/baseline). Er zijn 892 XML-bestanden beschikbaar op de server en bevat de informatie 30.000 artikelen over elk van de XML-bestanden. Meer informatie over de stap van de verzameling gegevens vindt u in de sectie projectstructuur. De velden die aanwezig zijn in elk bestand zijn 
         
         abstract
         affiliation

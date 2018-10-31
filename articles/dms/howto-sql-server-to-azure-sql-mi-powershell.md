@@ -1,6 +1,6 @@
 ---
-title: Azure Database Migration Service-module gebruiken in Microsoft Azure PowerShell voor het migreren van SQL Server on-premises naar Azure SQL DB MI | Microsoft Docs
-description: Meer informatie over het migreren van on-premises SQL Server naar Azure SQL DB MI met behulp van Azure PowerShell.
+title: SQL Server migreren naar Azure SQL Database Managed Instance met de Database migratieservice- en PowerShell | Microsoft Docs
+description: Meer informatie over het migreren van on-premises SQL Server naar Azure SQL database Managed Instance met Azure PowerShell.
 services: database-migration
 author: pochiraju
 ms.author: rajpo
@@ -11,15 +11,15 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 10/09/2018
-ms.openlocfilehash: 9a0c427b8beec3984a9fdd5d41ba3705fd21fd4c
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 64d77a17241c44c9d450b9e7602222cdb89482b7
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49364989"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50247156"
 ---
-# <a name="migrate-sql-server-on-premises-to-azure-sql-db-using-azure-powershell"></a>On-premises SQL Server migreren naar Azure SQL-database met behulp van Azure PowerShell
-In dit artikel, migreert u de **Adventureworks2012** database hersteld naar een on-premises exemplaar van SQL Server 2005 of hoger met een Azure SQL Database met behulp van Microsoft Azure PowerShell. U kunt databases uit een on-premises SQL Server-exemplaar migreren naar Azure SQL Database met behulp van de `AzureRM.DataMigration` module in Microsoft Azure PowerShell.
+# <a name="migrate-sql-server-on-premises-to-azure-sql-database-managed-instance-using-azure-powershell"></a>On-premises SQL Server migreren naar Azure SQL Database Managed Instance met Azure PowerShell
+In dit artikel, migreert u de **Adventureworks2012** database hersteld naar een on-premises exemplaar van SQL Server 2005 of hoger naar een Azure SQL Database Managed Instance met behulp van Microsoft Azure PowerShell. U kunt databases uit een on-premises SQL Server-exemplaar naar Azure SQL Database Managed Instance migreren met behulp van de `AzureRM.DataMigration` module in Microsoft Azure PowerShell.
 
 In dit artikel leert u het volgende:
 > [!div class="checklist"]

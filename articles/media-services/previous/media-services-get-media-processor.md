@@ -1,10 +1,10 @@
 ---
-title: Het maken van een Mediaprocessor met Azure Media Services SDK voor .NET | Microsoft Docs
-description: Informatie over het maken van een onderdeel van de processor media als u wilt coderen, indeling converteren, versleutelen of ontsleutelen van media-inhoud voor Azure Media Services. Codevoorbeelden zijn geschreven in C# en gebruiken van de Media Services SDK voor .NET.
+title: Over het maken van een Mediaprocessor met behulp van de Azure Media Services SDK voor .NET | Microsoft Docs
+description: Informatie over het maken van een onderdeel van de processor media om te coderen, converteren indeling, versleutelen of ontsleutelen van media-inhoud voor Azure Media Services. Codevoorbeelden zijn geschreven in C# en de Media Services SDK voor .NET gebruiken.
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: dbf9496f-c6f0-42a7-aa36-70f89dcb8ea2
 ms.service: media-services
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2017
+ms.date: 10/30/2018
 ms.author: juliako
-ms.openlocfilehash: 60da450c11a2e65d96c15798854adfef371a694f
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 64e353bbb83c7696960fc1d2e478478afbc94241
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788191"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50249234"
 ---
-# <a name="how-to-get-a-media-processor-instance"></a>Procedure: een exemplaar van de Processor Media
+# <a name="how-to-get-a-media-processor-instance"></a>Hoe: een exemplaar van de Processor Media ophalen
 > [!div class="op_single_selector"]
 > * [.NET](media-services-get-media-processor.md)
 > * [REST](media-services-rest-get-media-processor.md)
@@ -29,18 +29,18 @@ ms.locfileid: "33788191"
 > 
 
 ## <a name="overview"></a>Overzicht
-In Media Services die een Mediaprocessor een component die verantwoordelijk is voor een specifieke verwerkingstaak is, zoals de codering, versleutelen of ontsleutelen van media-inhoud-conversie-indeling. U doorgaans maken een Mediaprocessor tijdens het maken van een taak voor het coderen, versleutelen of de indeling van media-inhoud te converteren.
+In Media Services is die een Mediaprocessor een onderdeel die verantwoordelijk is voor een specifieke verwerkingstaak is, zoals de encoding,-indeling converteren, versleutelen of ontsleutelen van media-inhoud. Doorgaans maakt u een Mediaprocessor bij het maken van een taak om te coderen, versleutelen of de indeling van media-inhoud te converteren.
 
 ## <a name="azure-media-processors"></a>Azure media-processors 
 
-Het volgende onderwerp bevat een lijst met media processors:
+Het volgende onderwerp bevat een lijst met media-processors:
 
-* [Codering van media-processors](scenarios-and-availability.md#encoding-media-processors)
-* [Analytics-mediaprocessoren](scenarios-and-availability.md#analytics-media-processors)
+* [Mediaprocessors coderen](scenarios-and-availability.md#encoding-media-processors)
+* [Mediaprocessors voor analyse](scenarios-and-availability.md#analytics-media-processors)
 
 ## <a name="get-media-processor"></a>Ophalen van Mediaprocessor
 
-De volgende methode laat zien hoe een exemplaar van de processor media. In het voorbeeld wordt ervan uitgegaan dat het gebruik van een module-niveau variabele met de naam **_context** om te verwijzen naar de servercontext zoals beschreven in de sectie [hoe: verbinding maken met Media Services programmatisch](media-services-use-aad-auth-to-access-ams-api.md).
+De volgende methode laat zien hoe een exemplaar van de processor media. De voorbeeldcode wordt ervan uitgegaan dat het gebruik van een module-niveau variabele met de naam **_context** om te verwijzen naar de servercontext zoals beschreven in de sectie [hoe: verbinding maken met Media Services via een programma](media-services-use-aad-auth-to-access-ams-api.md).
 
     private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
     {
@@ -61,5 +61,5 @@ De volgende methode laat zien hoe een exemplaar van de processor media. In het v
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
-Nu dat u hoe een exemplaar van de processor media ophalen weet, gaat u naar de [hoe een Asset coderen](media-services-dotnet-encode-with-media-encoder-standard.md) onderwerp dat wordt beschreven hoe u met Media Encoder Standard een asset coderen.
+Nu dat u hoe u een exemplaar van de processor media ophalen weet, gaat u naar de [een Asset coderen](media-services-dotnet-encode-with-media-encoder-standard.md) onderwerp leert u hoe u de Media Encoder Standard voor een asset coderen.
 
