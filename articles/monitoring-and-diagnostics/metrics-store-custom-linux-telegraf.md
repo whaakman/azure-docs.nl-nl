@@ -47,7 +47,7 @@ Maak een nieuwe Linux-VM:
 
     ![Overzicht van virtuele machines grootte telegraaf agent](./media/metrics-store-custom-linux-telegraf/vm-size.png)
 
-1. Op de **instellingen** pagina **netwerk** > **Network Security Group**   >  ** Openbare binnenkomende poorten selecteren**, selecteer **HTTP** en **SSH (22)**. Laat de rest van de standaardwaarden en selecteer **OK**. 
+1. Op de **instellingen** pagina **netwerk** > **Network Security Group** > **Openbare binnenkomende poorten selecteren**, selecteer **HTTP** en **SSH (22)**. Laat de rest van de standaardwaarden en selecteer **OK**. 
 
 1. Selecteer op de pagina overzicht **maken** de implementatie van de virtuele machine te starten. 
 
