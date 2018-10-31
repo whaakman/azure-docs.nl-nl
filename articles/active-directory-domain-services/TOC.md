@@ -24,44 +24,45 @@
 ## [Azure AD Domain Services inschakelen met behulp van PowerShell](active-directory-ds-enable-using-powershell.md)
 ## [Bereik voor synchronisatie van Azure AD naar een beheerd domein configureren](active-directory-ds-scoped-synchronization.md)
 ## [Uw beheerde domein beveiligen](active-directory-ds-secure-your-domain.md)
-## Een beheerd domein koppelen
-### [Windows Server-VM](active-directory-ds-admin-guide-join-windows-vm-portal.md)
-### [Windows Server-VM op basis van sjabloon](active-directory-ds-join-windows-vm-template.md)
-### [CentOS](active-directory-ds-join-centos-linux-vm.md)
-### [CoreOS](active-directory-ds-join-coreos-linux-vm.md)
-### [Red Hat Enterprise Linux](active-directory-ds-join-rhel-linux-vm.md)
-### [Ubuntu Server](active-directory-ds-join-ubuntu-linux-vm.md)
-## Een beheerd domein beheren
-### [Een beheerd domein beheren](active-directory-ds-admin-guide-administer-domain.md)
-### [DNS beheren in een beheerd domein](active-directory-ds-admin-guide-administer-dns.md)
-### [E-mailmeldingen bijwerken](active-directory-ds-notifications.md)
-### Secure LDAP configureren voor een beheerd domein
-#### [Taak 1: Een certificaat voor Secure LDAP verkrijgen](active-directory-ds-admin-guide-configure-secure-ldap.md)
-#### [Taak 2: het certificaat voor Secure LDAP exporteren](active-directory-ds-admin-guide-configure-secure-ldap-export-pfx.md)
-#### [Taak 3: Secure LDAP inschakelen voor het beheerde domein met Azure Portal](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md)
-#### [Taak 4: DNS configureren voor toegang tot het beheerde domein vanaf het internet](active-directory-ds-ldaps-configure-dns.md)
-#### [Taak 5: verbinding maken met het beheerde domein en de Secure LDAP-toegang vergrendelen](active-directory-ds-ldaps-bind-lockdown.md)
-#### [Problemen met Secure LDAP oplossen](active-directory-ds-ldaps-troubleshoot.md)
-
-### [Een organisatie-eenheid maken in een beheerd domein](active-directory-ds-admin-guide-create-ou.md)
-### [Een beheerd serviceaccount voor groepen maken in een beheerd domein](active-directory-ds-create-gmsa.md)
-### [Groepsbeleid in een beheerd domein beheren](active-directory-ds-admin-guide-administer-group-policy.md)
-### [Wachtwoordbeleid op een beheerd domein configureren](active-directory-ds-password-policy.md)
+## [Een organisatie-eenheid maken in een beheerd domein](active-directory-ds-admin-guide-create-ou.md)
+## [Een beheerd serviceaccount voor groepen maken in een beheerd domein](active-directory-ds-create-gmsa.md)
+## [Groepsbeleid in een beheerd domein beheren](active-directory-ds-admin-guide-administer-group-policy.md)
+## [Wachtwoordbeleid op een beheerd domein configureren](active-directory-ds-password-policy.md)
 ## [Een virtueel netwerk selecteren](active-directory-ds-networking.md)
 ## Toepassingen implementeren
 ### [Ondersteuning voor profielsynchronisatie voor SharePoint Server configureren](active-directory-ds-enable-sharepoint-profile-sync.md)
 ### [Kerberos-beperkte overdracht configureren](active-directory-ds-enable-kcd.md)
 ### [Azure AD-toepassingsproxy implementeren](active-directory-ds-deploy-azure-app-proxy.md)
 ## [Een beheerd domein verwijderen](active-directory-ds-disable-aadds.md)
-## Problemen oplossen
-### [Veelgestelde vragen](active-directory-ds-faqs.md)
-### [Handleiding voor het oplossen van problemen](active-directory-ds-troubleshooting.md)
-### [Problemen met betrekking tot waarschuwingen oplossen](active-directory-ds-troubleshoot-alerts.md)
-#### [Problemen met NSG-configuratie oplossen](active-directory-ds-troubleshoot-nsg.md)
-#### [Ontbrekende service-principals herstellen](active-directory-ds-troubleshoot-service-principals.md)
-#### [Fouten met betrekking tot Secure LDAP](active-directory-ds-troubleshoot-ldaps.md)
-### [Fouten met niet-overeenkomende tenants oplossen](active-directory-ds-mismatched-tenant-error.md)
-### [Onderbroken domeinen](active-directory-ds-suspension.md)
+
+# Een beheerd domein koppelen
+## [Windows Server-VM](active-directory-ds-admin-guide-join-windows-vm-portal.md)
+## [Windows Server-VM op basis van sjabloon](active-directory-ds-join-windows-vm-template.md)
+## [CentOS](active-directory-ds-join-centos-linux-vm.md)
+## [CoreOS](active-directory-ds-join-coreos-linux-vm.md)
+## [Red Hat Enterprise Linux](active-directory-ds-join-rhel-linux-vm.md)
+## [Ubuntu Server](active-directory-ds-join-ubuntu-linux-vm.md)
+# Een beheerd domein beheren
+## [Een beheerd domein beheren](active-directory-ds-admin-guide-administer-domain.md)
+## [DNS beheren in een beheerd domein](active-directory-ds-admin-guide-administer-dns.md)
+## [E-mailmeldingen bijwerken](active-directory-ds-notifications.md)
+# Secure LDAP configureren voor een beheerd domein
+## [Taak 1: een certificaat voor Secure LDAP verkrijgen](active-directory-ds-admin-guide-configure-secure-ldap.md)
+## [Taak 2: het certificaat voor Secure LDAP exporteren](active-directory-ds-admin-guide-configure-secure-ldap-export-pfx.md)
+## [Taak 3: Secure LDAP inschakelen voor het beheerde domein met Azure Portal](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md)
+## [Taak 4: DNS configureren voor toegang tot het beheerde domein vanaf het internet](active-directory-ds-ldaps-configure-dns.md)
+## [Taak 5: verbinding maken met het beheerde domein en de Secure LDAP-toegang vergrendelen](active-directory-ds-ldaps-bind-lockdown.md)
+## [Problemen met Secure LDAP oplossen](active-directory-ds-ldaps-troubleshoot.md)
+
+# Problemen oplossen
+## [Veelgestelde vragen](active-directory-ds-faqs.md)
+## [Handleiding voor het oplossen van problemen](active-directory-ds-troubleshooting.md)
+## [Problemen met betrekking tot waarschuwingen oplossen](active-directory-ds-troubleshoot-alerts.md)
+### [Problemen met NSG-configuratie oplossen](active-directory-ds-troubleshoot-nsg.md)
+### [Ontbrekende service-principals herstellen](active-directory-ds-troubleshoot-service-principals.md)
+### [Fouten met betrekking tot Secure LDAP](active-directory-ds-troubleshoot-ldaps.md)
+## [Fouten met niet-overeenkomende tenants oplossen](active-directory-ds-mismatched-tenant-error.md)
+## [Onderbroken domeinen](active-directory-ds-suspension.md)
 
 
 # Naslaginformatie

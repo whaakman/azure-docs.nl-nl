@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 3094075607f096200ce1fb7ad499776bdcd3e093
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: b221697b7450ad1c6dac87b7a08c7db8b11810bf
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233596"
+ms.locfileid: "50240457"
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>Gegevens verplaatsen tussen on-premises bronnen en de cloud met Data Management Gateway
 > [!NOTE]
@@ -65,7 +65,7 @@ In deze stap maakt u de Azure-portal gebruiken om u te maken van een Azure Data 
    > [!IMPORTANT]
    > De naam van de Azure-gegevensfactory moet wereldwijd uniek zijn. Als u de foutmelding: **Data factory name 'ADFTutorialOnPremDF' is niet beschikbaar**, wijzigt u de naam van de data factory (bijvoorbeeld yournameADFTutorialOnPremDF) en probeert u het opnieuw. Deze naam in plaats van ADFTutorialOnPremDF gebruiken tijdens het uitvoeren van de resterende stappen in deze zelfstudie.
    >
-   > De naam van de data factory mogelijk geregistreerd als een **DNS** naam in de toekomst en wordt daarmee ook publicaly zichtbaar.
+   > De naam van de data factory mogelijk geregistreerd als een **DNS** naam in de toekomst en wordt daarmee ook voor iedereen zichtbaar.
    >
    >
 4. Selecteer het **Azure-abonnement** waarvoor u de gegevensfactory wilt maken.
