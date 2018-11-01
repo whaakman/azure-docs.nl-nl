@@ -52,11 +52,11 @@ Een DNS-zone wordt gebruikt om de DNS-records voor een bepaald domein te hosten.
 
 De domeinnaam van een is *alleen een naam*. Een DNS-zone is een Gegevensresource die de DNS-records voor een domeinnaam bevat. Met Azure DNS kunt u een DNS-zone hosten en de DNS-records voor een domein in Azure beheren. Het biedt ook DNS-naamservers om te reageren op DNS-query's via Internet.
 
-### <a name="do-i-need-to-buy-a-dns-domain-name-to-use-azure-dns"></a>Heb ik nodig om Azure DNS gebruiken voor een DNS-domeinnaam aanschaffen? 
+### <a name="do-i-need-to-buy-a-dns-domain-name-to-use-azure-dns"></a>Moet ik een DNS-domeinnaam aanschaffen om Azure DNS te gebruiken? 
 
 Dat hoeft niet.
 
-U hoeft te kopen van een domein voor het hosten van een DNS-zone in Azure DNS. U kunt altijd een DNS-zone maken zonder dat u eigenaar van een domeinnaam bent. DNS-query's voor deze zone oplossen alleen als ze worden doorgestuurd naar de Azure DNS-naamservers toegewezen aan de zone.
+U hoeft geen domein te kopen voor het hosten van een DNS-zone in Azure DNS. U kunt altijd een DNS-zone maken zonder dat u eigenaar van een domeinnaam bent. DNS-query's voor deze zone oplossen alleen als ze worden doorgestuurd naar de Azure DNS-naamservers toegewezen aan de zone.
 
 Als u wilt uw DNS-zone een koppeling naar de globale DNS-hiërarchie, moet u de domeinnaam aanschaffen. Klik, DNS-query's vanaf elke locatie ter wereld uw DNS-zone en antwoord op met uw DNS-records vinden.
 
