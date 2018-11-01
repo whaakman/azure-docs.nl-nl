@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/21/2018
 ms.author: erhopf
-ms.openlocfilehash: 3ea4c3a6463b831fe960bf6aec9e4c1151f8424d
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 59d3c194f08a8ede6ea2a56f95f7000eafe6c479
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49644864"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50413225"
 ---
 # <a name="quickstart-get-sentence-lengths-with-the-translator-text-rest-api-java"></a>Snelstart: Zinlengtes ophalen met de Translator Text REST API (Java)
 
@@ -23,7 +23,7 @@ In deze snelstartgids vindt u de lengte van zinnen in tekst met behulp van de Tr
 
 ## <a name="prerequisites"></a>Vereisten
 
-U moet over [JDK 7 of 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) beschikken om deze code te compileren en uit te voeren. U kunt een Java-IDE gebruiken als u daar graag mee werkt, maar u kunt ook een teksteditor gebruiken.
+U moet over [JDK 7 of 8](https://aka.ms/azure-jdks) beschikken om deze code te compileren en uit te voeren. U kunt een Java-IDE gebruiken als u daar graag mee werkt, maar u kunt ook een teksteditor gebruiken.
 
 Als u de Translator Text-API wilt gebruiken, moet u ook een abonnementssleutel hebben. Zie [Hoe u zich registreert voor de Translator Text-API](translator-text-how-to-signup.md).
 

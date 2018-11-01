@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/26/2018
 ms.author: tomfitz
-ms.openlocfilehash: 2c5d0dc322a4a56f0de9bd3c1af7efc158131a89
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 16e78784337771d1e31d826f475c92c86fe20411
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954212"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212315"
 ---
 # <a name="azure-resource-manager-overview"></a>Overzicht van Azure Resource Manager
 De infrastructuur voor uw toepassing bestaat meestal uit veel onderdelen, zoals een virtuele machine, een opslagaccount en een virtueel netwerk, of een webtoepassing, database, databaseserver en services van derden. Deze onderdelen moet u niet zien als afzonderlijke entiteiten, maar als onderdelen die één entiteit vormen en aan elkaar zijn gerelateerd en afhankelijk zijn van elkaar. U implementeert, beheert en bewaakt deze onderdelen als groep. Met Azure Resource Manager kunt u met de resources als groep in uw oplossing werken. U kunt alle resources voor uw oplossing implementeren, bijwerken of verwijderen in een enkele, gecoördineerde bewerking. Voor implementatie gebruikt u een sjabloon. Deze sjabloon kan voor verschillende omgevingen worden gebruikt, zoals testen, faseren en productie. Resource Manager biedt beveiliging, controle en tagfuncties die u na de implementatie helpen bij het beheren van uw resources. 
@@ -65,29 +65,7 @@ Voor begeleiding bij de manier waarop ondernemingen Resource Manager effectief k
 
 Raadpleeg [Develop Azure Resource Manager templates for cloud consistency](templates-cloud-consistency.md) (Azure Resource Manager-sjablonen ontwikkelen voor consistentie in de cloud) voor aanbevelingen voor het maken van Resource Manager-sjablonen die u kunt gebruiken in Azure, in onafhankelijke Azure-clouds en in Azure Stack.
 
-## <a name="quickstarts-and-tutorials"></a>Snelstarts en zelfstudies
-
-Gebruik de volgende snelstarts en zelfstudies voor meer informatie over het ontwikkelen van resourcemanager-sjablonen:
-
-- Snelstartgidsen
-
-    |Titel|Beschrijving|
-    |------|-----|
-    |[Azure Portal gebruiken](./resource-manager-quickstart-create-templates-use-the-portal.md)|Genereer een sjabloon met behulp van de portal en het proces voor het bewerken en implementeren van de sjabloon.|
-    |[Visual Studio Code gebruiken](./resource-manager-quickstart-create-templates-use-visual-studio-code.md)|Leer hoe u met Visual Studio Code sjablonen kunt maken en bewerken en hoe u de Azure Cloud-shell kunt gebruiken om sjablonen te implementeren.|
-    |[Visual Studio gebruiken](./vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)|Gebruik Visual Studio om sjablonen te maken, bewerken en implementeren.|
-
-- Zelfstudies
-
-    |Titel|Beschrijving|
-    |------|-----|
-    |[Sjabloonverwijzing gebruiken](./resource-manager-tutorial-create-encrypted-storage-accounts.md)|Gebruik het referentiemateriaal voor sjablonen om sjablonen te ontwikkelen. In de zelfstudie vindt u het schema van het opslagaccount. Gebruik de informatie voor het maken van een versleuteld opslagaccount.|
-    |[Meerdere exemplaren maken](./resource-manager-tutorial-create-multiple-instances.md)|Meerdere exemplaren van Azure-resources maken In de zelfstudie maakt u meerdere exemplaren van het opslagaccount.|
-    |[Implementatievolgorde van resources instellen](./resource-manager-tutorial-create-templates-with-dependent-resources.md)|Definieer bronafhankelijkheden. In de zelfstudie maakt u een virtueel netwerk, een virtuele machine en de afhankelijke Azure-resources. U leert hoe de afhankelijkheden worden gedefinieerd.|
-    |[Voorwaarden gebruiken](./resource-manager-tutorial-use-conditions.md)|Resources implementeren op basis van bepaalde parameterwaarden. In de zelfstudie definieert u een sjabloon voor het maken van een nieuw opslagaccount of maakt u gebruik van een bestaand opslagaccount op basis van de waarde van een parameter.|
-    |[Key Vault integreren](./resource-manager-tutorial-use-key-vault.md)|Haal geheimen/wachtwoorden op uit Azure Key Vault. In de zelfstudie maakt u een virtuele machine.  Het beheerderswachtwoord voor virtuele machines wordt opgehaald uit Key Vault.|
-    |[Gekoppelde sjablonen maken](./resource-manager-tutorial-create-linked-templates.md)|Verdeel sjablonen onder in modules en roep andere sjablonen aan vanuit een sjabloon. In de zelfstudie maakt u een virtueel netwerk, een virtuele machine en de afhankelijke resources.  Het afhankelijke opslagaccount wordt gedefinieerd in een gekoppeld sjabloon. |
-    |[Veilige implementatiemethoden gebruiken](./deployment-manager-tutorial.md)|Azure Deployment Manager gebruiken |
+[!INCLUDE [arm-tutorials-quickstarts](../../includes/resource-manager-tutorials-quickstarts.md)]
 
 ## <a name="resource-groups"></a>Resourcegroepen
 Er zijn een aantal belangrijke factoren waarmee u rekening moet houden bij het definiëren van de resourcegroep:

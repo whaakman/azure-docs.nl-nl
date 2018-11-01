@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 10/23/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 30cca10a83be09b8c9736df546958c3a1fe66f37
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 1aeaff486ed9f7cb99ea0b95451fc765344847a1
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/25/2018
-ms.locfileid: "50025620"
+ms.locfileid: "50086672"
 ---
 # <a name="about-azure-migrate"></a>Over Azure Migrate
 
@@ -37,7 +37,7 @@ Azure Migrate helpt u bij het volgende:
 -  U kunt een Azure Migrate-project alleen maken in de geografie van de Verenigde Staten. U kunt echter wel een migratie plannen voor elke Azure-doellocatie.
     - Alleen gedetecteerde metagegevens uit de on-premises omgeving worden opgeslagen in de migratieprojectregio.
     - Metagegevens worden opgeslagen in een van de regio’s in de geografie: US - west-centraal/US - oost.
-    - Als u visualisatie van afhankelijkheden gebruikt met een Log Analytics-werkruimte, wordt deze in dezelfde regio gemaakt als het project. 
+    - Als u visualisatie van afhankelijkheden gebruikt met een Log Analytics-werkruimte, wordt deze in dezelfde regio gemaakt als het project.
 
 
 ## <a name="what-do-i-need-to-pay-for"></a>Waar moet ik voor betalen?
@@ -72,7 +72,7 @@ Instellingen voor evaluatie kunnen worden aangepast op basis van uw behoeften. E
 4. U kunt de collector uitvoeren op de virtuele machine om detectie op te starten.
 5. De collector verzamelt metagegevens van de VM's met behulp van PowerCLI-cmdlets van VMware. Detectie vindt plaats zonder agent en er wordt niets op de VMware-hosts of VM's geïnstalleerd. De verzamelde metagegevens bevatten informatie over de VM's (kernen, geheugen, schijven, schijfgroottes en netwerkadapters). Er worden ook prestatiegegevens van de VM's verzameld, met inbegrip van CPU- en geheugengebruik, schijf-IOPS, schijfdoorvoer (MBps) en netwerkuitvoer (MBps).
 5.  De metagegevens worden doorgegeven aan het Azure Migrate-project. U kunt ze bekijken in Azure Portal.
-6.  Voor evaluatiedoeleinden deelt u de gedetecteerde virtuele machines in groepen in. U kunt bijvoorbeeld virtuele machines groeperen waarin dezelfde applicatie wordt uitgevoerd. Voor een nauwkeurigere groepering kunt u visualisatie van afhankelijkheden gebruiken om afhankelijkheden te bekijken van een specifieke computer, of voor alle computers in een groep, en de groep verfijnen.
+6.  Voor evaluatiedoeleinden deelt u de gedetecteerde virtuele machines in groepen in. U kunt bijvoorbeeld virtuele machines groeperen waarin dezelfde applicatie wordt uitgevoerd. Voor een nauwkeurigere groepering kunt u afhankelijkheidsvisualisatie gebruiken om afhankelijkheden te bekijken van een specifieke computer, of voor alle computers in een groep, en de groep verfijnen.
 7.  Nadat een groep is gedefinieerd, kunt u hiervoor een evaluatie maken.
 8.  Nadat de evaluatie is voltooid, kunt u deze weergeven in de portal of downloaden in Excel-indeling.
 

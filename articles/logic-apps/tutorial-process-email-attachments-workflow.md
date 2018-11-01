@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 07/20/2018
 ms.reviewer: klam, LADocs
-ms.openlocfilehash: d07342bac3f76472a4783c28cac0741906049bb2
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 3d4e91465e2f9986ec1029b304e1c026e39f45b6
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "41919387"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50231965"
 ---
 # <a name="process-emails-and-attachments-with-azure-logic-apps"></a>E-mails en bijlagen verwerken met Azure Logic Apps
 
@@ -670,7 +670,7 @@ Als u die niet meer nodig hebt, verwijdert u de resourcegroep die uw logische ap
 ## <a name="get-support"></a>Ondersteuning krijgen
 
 * Ga naar het [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps) (Forum voor Azure Logic Apps) als u vragen hebt.
-* Als u ideeën voor functies wilt indienen of erop wilt stemmen, gaat u naar de [website voor feedback van Logic Apps-gebruikers](http://aka.ms/logicapps-wish).
+* Als u ideeën voor functies wilt indienen of erop wilt stemmen, gaat u naar de [website voor feedback van Logic Apps-gebruikers](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Volgende stappen
 

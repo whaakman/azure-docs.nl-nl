@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/12/2018
-ms.openlocfilehash: 96a151b3de5d59ad74eaf7061b1a3ff91d602759
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: b48ecce1c87c0a29996e437d621c3ce396a84856
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48044413"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50232661"
 ---
 # <a name="manage-mailing-list-requests-with-azure-logic-apps"></a>Adressenlijstaanvragen beheren met Azure Logic Apps
 
@@ -317,7 +317,7 @@ Als u die niet meer nodig hebt, verwijdert u de resourcegroep die uw logische ap
 ## <a name="get-support"></a>Ondersteuning krijgen
 
 * Ga naar het [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps) (Forum voor Azure Logic Apps) als u vragen hebt.
-* Als u ideeën voor functies wilt indienen of erop wilt stemmen, gaat u naar de [website voor feedback van Logic Apps-gebruikers](http://aka.ms/logicapps-wish).
+* Als u ideeën voor functies wilt indienen of erop wilt stemmen, gaat u naar de [website voor feedback van Logic Apps-gebruikers](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Volgende stappen
 

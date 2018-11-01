@@ -3,19 +3,19 @@ title: 'Zelfstudie: Sentimentanalyse voor streaming-gegevens met behulp van Azur
 description: Informatie over het gebruik van Azure Databricks met Event Hubs en de Cognitive Services API voor het uitvoeren van sentimentanalyse voor bijna-realtime streaminggegevens.
 services: azure-databricks
 author: lenadroid
-manager: cgronlun
+ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
 ms.workload: Active
 ms.date: 10/23/2018
 ms.author: alehall
-ms.openlocfilehash: ddaee7c534ec8ac1bd4ce958a8ed08922cdd17e9
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 6868e481a796980be315c466cd79021255355084
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50026242"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50416645"
 ---
 # <a name="tutorial-sentiment-analysis-on-streaming-data-using-azure-databricks"></a>Zelfstudie: Sentimentanalyse voor streaming-gegevens met behulp van Azure Databricks
 
@@ -100,7 +100,7 @@ In deze sectie gaat u een Azure Databricks-werkruimte maken met behulp van Azure
 
     * Voer een naam in voor het cluster.
     * Voor dit artikel maakt u een cluster met een **4.0 (bèta)**-runtime.
-    * Zorg ervoor dat u het selectievakje **Beëindigen na \_\_ minuten van inactiviteit** inschakelt. Geef een duur (in minuten) op waarna het cluster moet worden beëindigd als het niet wordt gebruikt.
+    * Zorg ervoor dat u het selectievakje **Beëindigen na\_\_ minuten van inactiviteit** inschakelt. Geef een duur (in minuten) op waarna het cluster moet worden beëindigd als het niet wordt gebruikt.
 
     Selecteer **Cluster maken**. Zodra het cluster wordt uitgevoerd, kunt u notitieblokken koppelen aan het cluster en Spark-taken uitvoeren.
 

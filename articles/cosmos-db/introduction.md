@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 04/08/2018
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: b9c4c2595bb7d5347397bff95c90fbdc91902bcd
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 12e3cf028b4812abd43dd2b6f23190fa6b75157a
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43696445"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50242287"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Welkom bij Azure Cosmos DB
 
@@ -55,7 +55,7 @@ Als een wereldwijd gedistribueerde databaseservice maakt Azure Cosmos DB het een
 * **Zorgen voor vrijwel volledige beschikbaarheid**
     * SLA voor een beschikbaarheid van 99,99% voor alle databaseaccounts voor één regio en leesbeschikbaarheid van 99,999% voor alle databaseaccounts voor meerdere regio's.
     * U kunt voor een hogere beschikbaarheid en betere prestaties implementeren naar een willekeurig aantal [Azure-regio's](https://azure.microsoft.com/regions).
-    * U kunt dynamisch prioriteiten instellen voor regio's en [fouten simuleren](regional-failover.md) voor een of meer regio's met garanties dat er geen gegevensverlies optreedt om zo de end-to-end beschikbaarheid voor de hele app te testen (dus meer dan alleen de database). 
+    * U kunt dynamisch prioriteiten instellen voor regio's en [fouten simuleren](high-availability.md) voor een of meer regio's met garanties dat er geen gegevensverlies optreedt om zo de end-to-end beschikbaarheid voor de hele app te testen (dus meer dan alleen de database). 
 
 * **Op correcte wijze wereldwijd gedistribueerde toepassingen schrijven**
     * De vijf duidelijk omschreven, praktische en intuïtieve [consistentiemodellen](consistency-levels.md) bieden een breed spectrum aan mogelijkheden: van sterke SQL-achtige consistentie tot soepele NoSQL-achtige eindconsistentie en alles daartussenin. 

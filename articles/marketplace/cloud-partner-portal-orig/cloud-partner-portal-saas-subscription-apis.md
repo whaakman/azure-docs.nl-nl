@@ -225,7 +225,7 @@ Het eindpunt abonneren kan gebruikers een abonnement om een SaaS-service voor ee
 
 **PUT**
 
-**https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{subscriptionId}* ?api-version=2017-04-15**
+**https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{subscriptionId}*?api-version=2017-04-15**
 
 | **Parameternaam**  | **Beschrijving**                                       |
 |---------------------|-------------------------------------------------------|
@@ -290,7 +290,7 @@ Het eindpunt van de wijziging kan de gebruiker van een plan op dat moment geabon
 
 **PATCH**
 
-**https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{subscriptionId}* ?api-version=2017-04-15**
+**https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{subscriptionId}*?api-version=2017-04-15**
 
 | **Parameternaam**  | **Beschrijving**                                       |
 |---------------------|-------------------------------------------------------|

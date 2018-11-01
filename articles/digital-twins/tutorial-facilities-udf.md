@@ -5,14 +5,14 @@ services: digital-twins
 author: dsk-2015
 ms.service: digital-twins
 ms.topic: tutorial
-ms.date: 10/15/2018
+ms.date: 10/26/2018
 ms.author: dkshir
-ms.openlocfilehash: 1e5cb18b4e526cd0a0607f5bc93788fcf07430e1
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: cf45cb8de0e40dfe5f5772dcb1a0be2aa7585fd6
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49364231"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50156677"
 ---
 # <a name="tutorial-provision-your-building-and-monitor-working-conditions-with-azure-digital-twins"></a>Zelfstudie: Uw gebouw inrichten en uw werkomstandigheden controleren met Azure Digital Twins
 
@@ -161,7 +161,7 @@ Zoek in het voorbeeldbestand *provisionSample.yaml* naar een sectie die begint m
             }
         ```
         
-        Met de gewijzigde door de gebruiker gedefinieerde functie wordt gezocht naar omstandigheden waarbij een kamer beschikbaar wordt en het koolstofdioxideniveau en de temperatuur ervan binnen de toegestane limieten vallen. Er wordt een melding met de instructie `parentSpace.Notify(JSON.stringigy(alert));` gegenereerd als deze omstandigheid zich voordoet. Met het bijbehorende bericht wordt de waarde van de gecontroleerde ruimte ingesteld, ongeacht of de omstandigheid zich voordoet of niet.
+        Met de gewijzigde door de gebruiker gedefinieerde functie wordt gezocht naar omstandigheden waarbij een kamer beschikbaar wordt en het koolstofdioxideniveau en de temperatuur ervan binnen de toegestane limieten vallen. Er wordt een melding met de instructie `parentSpace.Notify(JSON.stringify(alert));` gegenereerd als deze omstandigheid zich voordoet. Met het bijbehorende bericht wordt de waarde van de gecontroleerde ruimte ingesteld, ongeacht of de omstandigheid zich voordoet of niet.
     
     1. Sla het bestand op. 
     

@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 08/07/2018
 ms.author: cephalin
-ms.openlocfilehash: e597ba5236fb2d7fea8649f423c4a952b01f87ee
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 9b66dad87708ad127186b0bbbc39965fe90b6b75
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39599616"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50416151"
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service"></a>Zelfstudie: Gebruikers eind-tot-eind verifiëren en autoriseren in Azure App Service
 
@@ -82,6 +82,10 @@ Druk op `Ctrl+C` in de terminal als u ASP.NET Core wilt stoppen.
 ## <a name="deploy-apps-to-azure"></a>Apps in Azure implementeren
 
 In deze stap implementeert u het project in twee App Service-apps. De ene is de front-end-app en de andere is de back-end-app.
+
+### <a name="configure-a-deployment-user"></a>Een implementatiegebruiker configureren
+
+[!INCLUDE [Configure deployment user](../../includes/configure-deployment-user-no-h.md)]
 
 ### <a name="create-azure-resources"></a>Azure-resources maken
 
