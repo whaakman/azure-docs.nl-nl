@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/24/2018
+ms.date: 10/30/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: febdb2e3ae4432c36ca839f81ba7a1d333df1a2f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: a9e601d0bd9a4d7879ecd205488c6a901a464021
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46951998"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50419828"
 ---
 # <a name="tutorial-deploy-apps-to-azure-and-azure-stack"></a>Zelfstudie: Apps implementeren in Azure en Azure Stack
 
@@ -112,7 +112,7 @@ De volgende stappen wordt beschreven wat is vereist om verificatie te configurer
 3. Valideren van de Azure Stack-abonnement via toegangsbeheer op basis van rollen om toe te staan van de Service SPN (Principal Name) moet deel uitmaken van de rol van de Inzender.
 4. De definitie van een nieuwe Service maken in Azure DevOps-Services met behulp van de Azure Stack-eindpunten en de SPN-informatie.
 
-### <a name="create-a-service-principal"></a>Een Service-Principal maken
+### <a name="create-a-service-principal"></a>Een service-principal maken
 
 Raadpleeg de [Service-Principal maken](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications) instructies voor het maken van een service-principal. Kies **Web-App/API** voor het toepassingstype of [het PowerShell-script gebruiken](https://github.com/Microsoft/vsts-rm-extensions/blob/master/TaskModules/powershell/Azure/SPNCreation.ps1#L5) , zoals wordt beschreven in het artikel [Maak een Azure Resource Manager serviceverbinding met een bestaande service Principal ](https://docs.microsoft.com/vsts/pipelines/library/connect-to-azure?view=vsts#create-an-azure-resource-manager-service-connection-with-an-existing-service-principal).
 
@@ -180,7 +180,7 @@ U kunt het bereik instellen op het niveau van het abonnement, resourcegroep of r
 
 3. Selecteer in Visual Studio Enterprise, **Access Control (IAM)**.
 
-    ![Access Control (IAM)](media\azure-stack-solution-hybrid-pipeline\000_12.png)
+    ![Toegangsbeheer (IAM)](media\azure-stack-solution-hybrid-pipeline\000_12.png)
 
 4. Selecteer **Toevoegen**.
 
@@ -273,21 +273,57 @@ Met het maken van eindpunten, implementeren een build van het Visual Studio Onli
 10. Selecteer **wijzigingen opslaan**.
 
 Nu informatie over het eindpunt bestaat, het Azure DevOps-Services op Azure Stack-verbinding is klaar voor gebruik. De build-agent in Azure Stack haalt de instructies van Azure DevOps-Services en vervolgens de agent voor de communicatie met Azure Stack-eindpuntgegevens overbrengen.
+
 ## <a name="create-an-azure-stack-endpoint"></a>Een Azure Stack-eindpunt maken
+
+### <a name="create-an-endpoint-for-azure-ad-deployments"></a>Een eindpunt voor Azure AD-implementaties maken
 
 U kunt de instructies in [een Azure Resource Manager-serviceverbinding met een bestaande service-principal maken ](https://docs.microsoft.com/vsts/pipelines/library/connect-to-azure?view=vsts#create-an-azure-resource-manager-service-connection-with-an-existing-service-principal) artikel een serviceverbinding met een bestaande service-principal maken en gebruiken van de volgende toewijzing:
 
-- Omgeving: AzureStack
-- URL van de omgeving: Er ongeveer als `https://management.local.azurestack.external`
-- Abonnements-ID: Gebruiker abonnements-ID van Azure Stack
-- De naam van abonnement: naam van gebruikersabonnement van Azure Stack
-- Service-Principal-client-ID: de principal-ID van [dit](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#create-a-service-principal) sectie in dit artikel.
-- Sleutel van de Service-Principal: de sleutel van hetzelfde artikel (of het wachtwoord als u het script gebruikt).
-- Tenant-ID: De tenant-ID u ophalen na de instructie op [ophalen van de tenant-ID](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#get-the-tenant-id).
+U kunt een serviceverbinding maken met de volgende toewijzing:
 
-Nu het eindpunt is gemaakt, de VSTS aan Azure Stack-verbinding is klaar voor gebruik. De build-agent in Azure Stack haalt de instructies van VSTS en vervolgens de agent voor de communicatie met Azure Stack-eindpuntgegevens overbrengen.
+| Naam | Voorbeeld | Beschrijving |
+| --- | --- | --- |
+| Verbindingsnaam | Azure Stack Azure AD | De naam van de verbinding. |
+| Omgeving | AzureStack | De naam van uw omgeving. |
+| URL van de omgeving | `https://management.local.azurestack.external` | Het beheereindpunt. |
+| Niveau van het bereik | Abonnement | Het bereik van de verbinding. |
+| Abonnements-id | 65710926-XXXX-4F2A-8FB2-64C63CD2FAE9 | Gebruiker abonnements-ID van Azure Stack |
+| Abonnementsnaam | name@contoso.com | Naam van gebruikersabonnement van Azure Stack. |
+| Service-Principal-client-ID | FF74AACF-XXXX-4776-93FC-C63E6E021D59 | De principal-ID van [dit](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#create-a-service-principal) sectie in dit artikel. |
+| Service-Principal-sleutel | THESCRETGOESHERE = | De sleutel van hetzelfde artikel (of het wachtwoord als u het script gebruikt). |
+| Tenant-id | D073C21E-XXXX-4AD0-B77E-8364FCA78A94 | De tenant-ID ophalen van de volgende de instructie op aan de tenant-id. De tenant-ID die u na de instructie op ophalen [ophalen van de tenant-ID](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#get-the-tenant-id).  |
+| Verbinding: | Niet gecontroleerd | Controleer de verbindingsinstellingen voor de service-principal. |
 
-![Agent bouwen](media\azure-stack-solution-hybrid-pipeline\016_save_changes.png)
+Nu het eindpunt is gemaakt, de DevOps op Azure Stack-verbinding is klaar voor gebruik. De build-agent in Azure Stack haalt de instructies van DevOps op en klikt u vervolgens de agent voor de communicatie met Azure Stack-eindpuntgegevens overbrengen.
+
+![Agent Azure AD maken](media\azure-stack-solution-hybrid-pipeline\016_save_changes.png)
+
+### <a name="create-an-endpoint-for-ad-fs"></a>Een eindpunt maken voor AD FS
+
+De meest recente update van Azure DevOps kunt maken van een serviceverbinding met behulp van een service-principal met een certificaat voor verificatie. Dit is vereist wanneer Azure Stack wordt geïmplementeerd met AD FS als id-provider. 
+
+![Agent AD FS bouwen](media\azure-stack-solution-hybrid-pipeline\image06.png)
+
+U kunt een serviceverbinding maken met de volgende toewijzing:
+
+| Naam | Voorbeeld | Beschrijving |
+| --- | --- | --- |
+| Verbindingsnaam | Azure Stack ADFS | De naam van de verbinding. |
+| Omgeving | AzureStack | De naam van uw omgeving. |
+| URL van de omgeving | `https://management.local.azurestack.external` | Het beheereindpunt. |
+| Niveau van het bereik | Abonnement | Het bereik van de verbinding. |
+| Abonnements-id | 65710926-XXXX-4F2A-8FB2-64C63CD2FAE9 | Gebruiker abonnements-ID van Azure Stack |
+| Abonnementsnaam | name@contoso.com | Naam van gebruikersabonnement van Azure Stack. |
+| Service-Principal-client-ID | FF74AACF-XXXX-4776-93FC-C63E6E021D59 | De client-ID van de Service-Principal die u voor AD FS hebt gemaakt. |
+| Certificaat | `<certificate>` |  Het certificaatbestand converteren van PFX naar PEM. Certificaatinhoud PEM-bestand in dit veld plakken. <br> Converteren van PFX naar PEM:<br>`openssl pkcs12 -in file.pfx -out file.pem -nodes -password pass:<password_here>` |
+| Tenant-id | D073C21E-XXXX-4AD0-B77E-8364FCA78A94 | De tenant-ID ophalen van de volgende de instructie op aan de tenant-id. De tenant-ID die u na de instructie op ophalen [ophalen van de tenant-ID](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#get-the-tenant-id). |
+| Verbinding: | Niet gecontroleerd | Controleer de verbindingsinstellingen voor de service-principal. |
+
+Nu dat het eindpunt is gemaakt, is het Azure DevOps op Azure Stack-verbinding is klaar voor gebruik. De build-agent in Azure Stack instructies opgehaald uit Azure DevOps en vervolgens de agent voor de communicatie met Azure Stack-eindpuntgegevens overbrengen.
+
+> [!Note]
+> Als uw Azure Stack gebruiker ARM-eindpunt is niet blootgesteld aan Internet, mislukt de verbinding valideren. Dit is normaal en u kunt uw verbinding valideren door het maken van een release-pijplijn met een eenvoudige taak. 
 
 ## <a name="develop-your-application-build"></a>Het bouwen van uw toepassing ontwikkelen
 

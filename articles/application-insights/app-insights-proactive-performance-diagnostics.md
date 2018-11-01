@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 05/04/2017
 ms.reviewer: antonfr
 ms.author: mbullwin
-ms.openlocfilehash: 8c34696f81e40b4db13e6868f6bdaa1b2a8e7a2a
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: b0256e899d47e3b6f8141218c11e1a7a62ca8e1a
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47095460"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50419721"
 ---
 # <a name="smart-detection---performance-anomalies"></a>Slimme detectie: afwijkende prestaties
 
@@ -47,7 +47,7 @@ Nee, een melding betekent niet dat uw app beslist een probleem is. Het is gewoon
 De meldingen betreffen: diagnostische gegevens. Hier volgt een voorbeeld:
 
 
-![Hier volgt een voorbeeld van detectie van degradatie van de serverreactietijd](./media/app-insights-proactive-diagnostics/server_response_time_degradation.png)
+![Hier volgt een voorbeeld van detectie van degradatie van de serverreactietijd](media/app-insights-proactive-performance-diagnostics/server_response_time_degradation.png)
 
 1. **Sorteren**. De melding ziet u hoeveel gebruikers of het aantal bewerkingen worden beïnvloed. Hiermee kunt u een prioriteit toewijzen aan het probleem.
 2. **Bereik**. Het probleem invloed heeft op al het verkeer of slechts enkele pagina's? Is deze beperkt tot bepaalde browsers of locaties? Deze gegevens kan worden opgehaald van de melding.
@@ -61,7 +61,7 @@ De meldingen betreffen: diagnostische gegevens. Hier volgt een voorbeeld:
 
 Slimme detectie meldingen zijn standaard ingeschakeld en verzonden naar gebruikers die beschikken over [eigenaren, bijdragers en lezers toegang tot de Application Insights-resource](app-insights-resources-roles-access-control.md). Om dit te wijzigen, klik **configureren** in het e-mailmelding, of open Slimme detectie-instellingen in Application Insights. 
   
-  ![Instellingen voor slimme detectie](./media/app-insights-proactive-diagnostics/smart_detection_configuration.png)
+  ![Instellingen voor slimme detectie](media/app-insights-proactive-performance-diagnostics/smart_detection_configuration.png)
   
   * U kunt de **Afmelden** koppeling in de e-mail Slimme detectie om te stoppen met het ontvangen van de e-mailmeldingen.
 
@@ -143,7 +143,7 @@ Moderne toepassingen vast meer microservices ontwerpbenadering, die in veel geva
 
 Voorbeeld van de afhankelijkheid verslechtering van de melding:
 
-![Hier volgt een voorbeeld van detectie van verslechtering van de duur van afhankelijkheid](./media/app-insights-proactive-diagnostics/dependency_duration_degradation.png)
+![Hier volgt een voorbeeld van detectie van verslechtering van de duur van afhankelijkheid](media/app-insights-proactive-performance-diagnostics/dependency_duration_degradation.png)
 
 U ziet dat u leest:
 
@@ -161,7 +161,7 @@ U ziet dat u leest:
 
 Application Insights wordt gezocht naar prestatieproblemen die mogelijk alleen van invloed op een gedeelte van uw gebruikers of alleen van invloed op gebruikers in sommige gevallen. Melding over het laden van pagina's is bijvoorbeeld langzamer zijn op één type browser dan op andere typen browsers, of als aanvragen langzamer worden uitgevoerd vanaf een bepaalde server. Deze kan ook problemen met de combinaties van de eigenschappen vinden, zoals trage pagina wordt geladen in één geografisch gebied voor clients met behulp van specifieke besturingssysteem.  
 
-Afwijkingen zoals deze zijn zeer moeilijk te detecteren door te inspecteren van de gegevens, maar zijn vaker voor dan u denkt. Vaak ze alleen surface wanneer uw klanten klagen. Op dat moment zijn opgelost, het is te laat: de betrokken gebruikers zijn al overschakelen naar uw concurrenten!
+Afwijkingen zoals deze zijn zeer moeilijk te detecteren door te inspecteren van de gegevens, maar zijn vaker voor dan u denkt. Vaak ze alleen surface wanneer uw klanten klagen. Op dat moment worden deze s te laat: de betrokken gebruikers zijn al overschakelen naar uw concurrenten!
 
 Op dit moment kijken onze algoritmen laadtijden voor pagina's, de reactietijden aanvraag op de server, en reactietijden voor afhankelijkheden.  
 

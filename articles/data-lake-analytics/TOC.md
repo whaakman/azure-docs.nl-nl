@@ -64,6 +64,7 @@
 
 ## Doorlopende integratie en doorlopende implementatie
 ### [Overzicht](data-lake-analytics-cicd-overview.md)
+### [Assembly-registratie](data-lake-analytics-cicd-manage-assemblies.md)
 ### [Tests instellen](data-lake-analytics-cicd-test.md)
 ### [U-SQL-SDK](data-lake-analytics-u-sql-sdk.md)
 

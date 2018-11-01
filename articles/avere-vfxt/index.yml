@@ -1,0 +1,30 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: 3052d856d83a7bf7cbb41a90f92b598c8c24cd5e
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50669146"
+documentType: LandingData
+title: Documentatie voor Avere vFXT for Azure
+metadata:
+  title: Documentatie voor Avere vFXT for Azure
+  description: Avere vFXT gebruiken als een cachelaag voor lees-intensieve high performance computing (HPC)-taken
+  services: avere-vfxt
+  author: ekpgh
+  ms.service: avere-vfxt
+  ms.topic: landing-page
+  ms.date: 10/31/2018
+  ms.author: v-erkell
+abstract:
+  description: Avere vFXT for Azure biedt een cloud-cachelaag voor gegevensintensieve high performance computing (HPC)-taken. Door bestanden dichtbij uw rekenknooppunten in cache op te slaan, verhoogt Avere vFXT de leessnelheden en kunt u zelfs bij piekbelasting ongehinderd werken. Avere vFXT werkt het beste met systemen die tussen 1000 en 40.000 clientkernen hebben. <p>Avere vFXT kan worden gecombineerd met uw bestaande on-premises gegevensopslag om Azure-computingbronnen toegang te geven tot lokale actieve bestanden die zijn opgeslagen in de langetermijnopslag van uw datacenter.
+sections:
+- title: Aan de slag met Avere vFXT for Azure
+  items:
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="avere-vfxt-deploy-plan">Uw Avere vFXT for Azure-systeem plannen</a>
+    - html: <a href="avere-vfxt-deploy-overview">Informatie over Avere vFXT-implementatie</a>
+    - html: <a href="avere-vfxt-prereqs">Aan vereisten voldoen</a>
+    - html: <a href="avere-vfxt-deploy">Het Avere vFXT-cluster implementeren</a>
