@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 08/27/2018
 ms.author: kgremban
-ms.openlocfilehash: 2eebc96b14ee0f06b3bd88ea565dfe9372aba1ff
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: d85355b50bad9f05acc7da92d763d011e6f807b6
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47037811"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50741076"
 ---
 # <a name="install-azure-iot-edge-runtime-on-windows-to-use-with-windows-containers"></a>Azure IoT Edge-runtime installeren op Windows voor gebruik met Windows-containers
 
@@ -36,11 +36,11 @@ Raadpleeg voor meer informatie over welke besturingssystemen worden ondersteund,
 ## <a name="install-the-container-runtime"></a>De container-runtime installeren 
 
 >[!NOTE]
->Volg de stappen uit voor container engine-installatie op Windows IoT Core [inrichten van een IoT Core apparaat artikel] [ lnk-iot-core] en ga verder met de onderstaande instructies.
+>Volg de stappen uit voor container engine-installatie op Windows IoT Core [inrichten van een IoT Core apparaat artikel](how-to-install-iot-core.md) en ga verder met de onderstaande instructies.
 
-Azure IoT Edge is afhankelijk van een [OCI-compatibele] [ lnk-oci] container runtime (bijvoorbeeld Docker). U kunt [Docker voor Windows] [ lnk-docker-for-windows] voor ontwikkelen en testen. 
+Azure IoT Edge is afhankelijk van een [OCI-compatibele](https://www.opencontainers.org/) container runtime (bijvoorbeeld Docker). U kunt [Docker voor Windows](https://www.docker.com/docker-windows) voor ontwikkelen en testen. 
 
-Docker voor Windows configureren [gebruik van Windows-containers][lnk-docker-config].
+Docker voor Windows configureren [gebruik van Windows-containers](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers).
 
 ## <a name="install-the-azure-iot-edge-security-daemon"></a>De Daemon van de beveiliging met Azure IoT Edge installeren
 
@@ -51,7 +51,7 @@ Een enkele IoT Edge-apparaat kan worden ingericht handmatig met behulp van een a
 
 ### <a name="install-and-manually-provision"></a>Installeren en handmatig inrichten
 
-1. Volg de stappen in [een nieuwe Azure IoT Edge-apparaat registreren] [ lnk-dcs] op uw apparaat registreren en de verbindingsreeks op te halen. 
+1. Volg de stappen in [een nieuwe Azure IoT Edge-apparaat registreren](how-to-register-device-portal.md) op uw apparaat registreren en de verbindingsreeks op te halen. 
 
 2. Voer PowerShell op uw IoT Edge-apparaat uit als administrator. 
 
@@ -66,7 +66,7 @@ Een enkele IoT Edge-apparaat kan worden ingericht handmatig met behulp van een a
 
 ### <a name="install-and-automatically-provision"></a>Installeren en automatisch inrichten
 
-1. Volg de stappen in [maken en inrichten van een gesimuleerd TPM-Edge-apparaat op Windows] [ lnk-dps] de Device Provisioning Service instellen en ophalen van de **bereik-ID**, een TPM simuleren apparaat- en halen de **registratie-ID**, maakt u een afzonderlijke inschrijving. Nadat het apparaat is geregistreerd in uw IoT-Hub, gaat u verder met de installatie.  
+1. Volg de stappen in [maken en inrichten van een gesimuleerd TPM-Edge-apparaat op Windows](how-to-auto-provision-simulated-device-windows.md) de Device Provisioning Service instellen en ophalen van de **bereik-ID**, TPM-apparaat simuleren en op te halen de  **Registratie-ID**, maakt u een afzonderlijke inschrijving. Nadat het apparaat is geregistreerd in uw IoT-Hub, gaat u verder met de installatie.  
 
    >[!TIP]
    >Houd het venster met de TPM-simulator openen tijdens het installeren en testen. 
@@ -116,21 +116,6 @@ Als het netwerk een proxyserver heeft, volgt u de stappen in [uw IoT Edge-appara
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Nu u een IoT Edge-apparaat dat is ingericht met de runtime geïnstalleerd hebt, kunt u [IoT Edge-modules implementeren][lnk-modules].
+Nu u een IoT Edge-apparaat dat is ingericht met de runtime geïnstalleerd hebt, kunt u [IoT Edge-modules implementeren](how-to-deploy-modules-portal.md).
 
-Als u hebt met het Edge-runtime niet goed geïnstalleerd problemen, bekijk de [probleemoplossing] [ lnk-trouble] pagina.
-
-
-<!-- Images -->
-[img-nat]: ./media/how-to-install-iot-edge-windows-with-windows/nat.png
-
-<!-- Links -->
-[lnk-docker-config]: https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers
-[lnk-dcs]: how-to-register-device-portal.md
-[lnk-dps]: how-to-auto-provision-simulated-device-windows.md
-[lnk-oci]: https://www.opencontainers.org/
-[lnk-moby]: https://mobyproject.org/
-[lnk-trouble]: troubleshoot.md
-[lnk-docker-for-windows]: https://www.docker.com/docker-windows
-[lnk-iot-core]: how-to-install-iot-core.md
-[lnk-modules]: how-to-deploy-modules-portal.md
+Als u hebt met het Edge-runtime niet goed geïnstalleerd problemen, bekijk de [probleemoplossing](troubleshoot.md) pagina.

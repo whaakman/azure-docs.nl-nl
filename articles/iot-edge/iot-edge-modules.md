@@ -8,12 +8,12 @@ ms.date: 09/21/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 5d80b6438569e74ee254d27e0061443a87efc6ce
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: 80679d6efd44598fbe403707ad2e757010eb8d91
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47423388"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50741671"
 ---
 # <a name="understand-azure-iot-edge-modules"></a>Informatie over Azure IoT Edge-modules
 
@@ -31,7 +31,7 @@ De afbeeldingen aanwezig zijn in de cloud en ze kunnen worden bijgewerkt, gewijz
 
 Telkens wanneer de installatiekopie van een module is geïmplementeerd op een apparaat en aan de slag door de IoT Edge-runtime, is een nieuw exemplaar van die module gemaakt. Twee apparaten in verschillende onderdelen van de hele wereld kunnen dezelfde module installatiekopie; gebruiken maar zou elk hun eigen module-exemplaar hebt, wanneer de module wordt gestart op het apparaat. 
 
-![Module afbeeldingen in de cloud - module-exemplaren op apparaten][1]
+![Module afbeeldingen in de cloud - module-exemplaren op apparaten](./media/iot-edge-modules/image_instance.png)
 
 In uitvoering, modules installatiekopieën bestaan als containerinstallatiekopieën in een opslagplaats en module-exemplaren zijn containers op apparaten. 
 
@@ -46,23 +46,23 @@ De identiteit die is gekoppeld aan een module-exemplaar afhankelijk is van de id
 
 Duidelijk in scenario's kunt als u wilt implementeren een installatiekopie van de module meerdere keren op hetzelfde apparaat, u implementeren dezelfde installatiekopie van meerdere keren met verschillende namen.
 
-![Module-id's zijn uniek][2]
+![Module-id's zijn uniek](./media/iot-edge-modules/identity.png)
 
 ## <a name="module-twins"></a>Moduledubbels
 
 Elk exemplaar van de module heeft ook een bijbehorende moduledubbel die u gebruiken kunt voor het configureren van de module-exemplaar. Het exemplaar en het dubbele zijn gekoppeld met elkaar via de identiteit van de module. 
 
-Een moduledubbel is een JSON-document waarin de eigenschappen van de informatie en configuratie van de module. Dit concept werkt parallel de [apparaatdubbel] [ lnk-device-twin] concept van IoT Hub. De structuur van een moduledubbel is precies hetzelfde als een apparaatdubbel. De API's gebruikt om te communiceren met beide typen dubbels zijn ook hetzelfde. Het enige verschil tussen de twee is de identiteit die wordt gebruikt voor het starten van de client-SDK. 
+Een moduledubbel is een JSON-document waarin de eigenschappen van de informatie en configuratie van de module. Dit concept werkt parallel de [apparaatdubbel](../iot-hub/iot-hub-devguide-device-twins.md) concept van IoT Hub. De structuur van een moduledubbel is precies hetzelfde als een apparaatdubbel. De API's gebruikt om te communiceren met beide typen dubbels zijn ook hetzelfde. Het enige verschil tussen de twee is de identiteit die wordt gebruikt voor het starten van de client-SDK. 
 
 ```csharp
-// Create a ModuleClient object. This ModuleClient will act on behalf of a 
-// module since it is created with a module’s connection string instead 
-// of a device connection string. 
-ModuleClient client = new ModuleClient.CreateFromEnvironmentAsync(settings); 
-await client.OpenAsync(); 
- 
-// Get the module twin 
-Twin twin = await client.GetTwinAsync(); 
+// Create a ModuleClient object. This ModuleClient will act on behalf of a 
+// module since it is created with a module’s connection string instead 
+// of a device connection string. 
+ModuleClient client = new ModuleClient.CreateFromEnvironmentAsync(settings); 
+await client.OpenAsync(); 
+ 
+// Get the module twin 
+Twin twin = await client.GetTwinAsync(); 
 ```
 
 ## <a name="offline-capabilities"></a>Functionaliteiten offline
@@ -79,15 +79,8 @@ IoT Edge-modules zijn offline gedurende langere perioden, zolang de volgende ver
 Aanvullende offline-mogelijkheden zijn beschikbaar in openbare preview. Zie voor meer informatie, [begrijpen uitgebreid offline-mogelijkheden voor IoT Edge-apparaten, modules en onderliggende apparaten](offline-capabilities.md).
 
 ## <a name="next-steps"></a>Volgende stappen
- - [Informatie over de vereisten en hulpprogramma's voor het ontwikkelen van IoT Edge-modules][lnk-mod-dev]
- - [De Azure IoT Edge-runtime en de bijbehorende architectuur begrijpen][lnk-runtime]
+ - [Informatie over de vereisten en hulpprogramma's voor het ontwikkelen van IoT Edge-modules](module-development.md)
+ - [De Azure IoT Edge-runtime en de bijbehorende architectuur begrijpen](iot-edge-runtime.md)
 
 <!-- Images -->
-[1]: ./media/iot-edge-modules/image_instance.png
 [2]: ./media/iot-edge-modules/identity.png
-
-<!-- Links -->
-[lnk-device-identity]: ../iot-hub/iot-hub-devguide-identity-registry.md
-[lnk-device-twin]: ../iot-hub/iot-hub-devguide-device-twins.md
-[lnk-runtime]: iot-edge-runtime.md
-[lnk-mod-dev]: module-development.md

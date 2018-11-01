@@ -1,9 +1,9 @@
 ---
-title: Verwijst naar een aangepaste installatiekopie in een Azure-scale set-sjabloon | Microsoft Docs
-description: Informatie over het toevoegen van een aangepaste installatiekopie aan een bestaande sjabloon voor Azure virtuele-Machineschaalset
+title: Verwijzen naar een aangepaste installatiekopie in een sjabloon van de Azure-schaal | Microsoft Docs
+description: Leer hoe u een aangepaste installatiekopie toevoegen aan een bestaande sjabloon voor Azure virtuele-Machineschaalset opgehaald
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: gatneil
+author: mayanknayar
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,27 +14,27 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 5/10/2017
-ms.author: negat
-ms.openlocfilehash: 28d2c080048a7f82e83ad9c1794c9757b330a8c7
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.author: manayar
+ms.openlocfilehash: 2e3c8177a32082c251be74e597a18730ae1c9d37
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/20/2017
-ms.locfileid: "26780915"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50739636"
 ---
-# <a name="add-a-custom-image-to-an-azure-scale-set-template"></a>Een aangepaste installatiekopie toevoegen aan een Azure-scale set-sjabloon
+# <a name="add-a-custom-image-to-an-azure-scale-set-template"></a>Een aangepaste installatiekopie toevoegen aan een Azure-schaalsetsjabloon
 
-Dit artikel laat zien hoe u wijzigt de [minimale levensvatbaar schaalset sjabloon](./virtual-machine-scale-sets-mvss-start.md) voor het implementeren van een aangepaste installatiekopie.
+Dit artikel wordt beschreven hoe u wijzigt de [minimaal levensvatbare schaalsets sjabloon](./virtual-machine-scale-sets-mvss-start.md) implementeren vanuit een aangepaste installatiekopie.
 
-## <a name="change-the-template-definition"></a>De sjabloondefinitie wijzigen
+## <a name="change-the-template-definition"></a>De sjabloondefinitie van de wijzigen
 
-De minimale levensvatbaar scale set sjabloon kan worden gezien [hier](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json), en de sjabloon voor de implementatie van de schaal van een aangepaste installatiekopie kan worden bekeken [hier](https://raw.githubusercontent.com/gatneil/mvss/custom-image/azuredeploy.json). We bekijken de diff gebruikt voor het maken van deze sjabloon (`git diff minimum-viable-scale-set custom-image`) stuk door stuk:
+De minimale levensvatbare schaalsetsjabloon kan worden gezien [hier](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json), en de sjabloon voor de implementatie van de schaal van een aangepaste installatiekopie kan worden bekeken [hier](https://raw.githubusercontent.com/gatneil/mvss/custom-image/azuredeploy.json). We bekijken de diff gebruikt voor het maken van deze sjabloon (`git diff minimum-viable-scale-set custom-image`) stuk door stuk:
 
 ### <a name="creating-a-managed-disk-image"></a>Installatiekopie van een beheerde schijf maken
 
-Als u al een aangepaste beheerde schijfkopie (een resource van het type `Microsoft.Compute/images`), en vervolgens kunt u deze sectie overslaan.
+Als u al een aangepaste beheerde installatiekopie (een resource van het type `Microsoft.Compute/images`), en vervolgens kunt u deze sectie overslaan.
 
-Voeg eerst een `sourceImageVhdUri` parameter, dat de URI naar de algemene blob in Azure Storage dat te implementeren vanuit de aangepaste installatiekopie bevat.
+Voeg eerst toe een `sourceImageVhdUri` parameter, die de URI naar de gegeneraliseerde blob in Azure Storage met de aangepaste installatiekopie om vanuit te implementeren.
 
 
 ```diff
@@ -52,7 +52,7 @@ Voeg eerst een `sourceImageVhdUri` parameter, dat de URI naar de algemene blob i
    "variables": {},
 ```
 
-Vervolgens voegt u een resource van het type `Microsoft.Compute/images`, die de beheerde schijfimage op basis van de algemene blob zich bevindt op URI is `sourceImageVhdUri`. Deze installatiekopie moet zich in dezelfde regio bevinden als de schaalaanpassingsset die gebruikmaakt van deze. Geef het type besturingssysteem, de locatie van de blob in de eigenschappen van de installatiekopie (van de `sourceImageVhdUri` parameter), en het opslagaccounttype:
+Vervolgens voegt u toe een resource van het type `Microsoft.Compute/images`, die de installatiekopie van de beheerde schijf op basis van de gegeneraliseerde blob zich bevindt in de URI is `sourceImageVhdUri`. Deze installatiekopie moet zich in dezelfde regio als de schaalset die wordt gebruikt. Geef in de eigenschappen van de installatiekopie, het type besturingssysteem, de locatie van de blob (van de `sourceImageVhdUri` parameter), en het opslagaccounttype:
 
 ```diff
    "resources": [
@@ -79,7 +79,7 @@ Vervolgens voegt u een resource van het type `Microsoft.Compute/images`, die de 
 
 ```
 
-Stel in de schaal resource, voegt een `dependsOn` verwijst naar de aangepaste installatiekopie om te controleren of de installatiekopie van het component voordat de schaal ingesteld probeert te implementeren vanuit die installatiekopie wordt gemaakt:
+In de schaalset ingesteld resource, Voeg een `dependsOn` component die verwijzen naar de aangepaste installatiekopie om te controleren of de installatiekopie wordt gemaakt voordat de schaalset probeert te implementeren vanuit die installatiekopie:
 
 ```diff
        "location": "[resourceGroup().location]",
@@ -94,9 +94,9 @@ Stel in de schaal resource, voegt een `dependsOn` verwijst naar de aangepaste in
 
 ```
 
-### <a name="changing-scale-set-properties-to-use-the-managed-disk-image"></a>Wijzigen van de schaal instellen eigenschappen voor het gebruik van de beheerde schijfimage
+### <a name="changing-scale-set-properties-to-use-the-managed-disk-image"></a>Het wijzigen van schaal instellen eigenschappen om te gebruiken van de installatiekopie van de beheerde schijf
 
-In de `imageReference` ingesteld van de schaal `storageProfile`, in plaats van de uitgever, aanbieding, sku, en versie van een platforminstallatiekopie van het en geef de `id` van de `Microsoft.Compute/images` resource:
+In de `imageReference` instellen van de schaal `storageProfile`, in plaats van op te geven de uitgever, aanbieding, sku, en versie van een platforminstallatiekopie, geef de `id` van de `Microsoft.Compute/images` resource:
 
 ```diff
          "virtualMachineProfile": {
@@ -112,7 +112,7 @@ In de `imageReference` ingesteld van de schaal `storageProfile`, in plaats van d
            "osProfile": {
 ```
 
-In dit voorbeeld gebruiken de `resourceId` functie voor het ophalen van de resource-ID van de installatiekopie gemaakt in dezelfde sjabloon. Als u de beheerde schijfimage vooraf hebt gemaakt, moet u de ID van die installatiekopie opgeven. Deze ID moet van het formulier: `/subscriptions/<subscription-id>resourceGroups/<resource-group-name>/providers/Microsoft.Compute/images/<image-name>`.
+In dit voorbeeld gebruikt de `resourceId` functie voor het ophalen van de resource-ID van de installatiekopie hebt gemaakt in dezelfde sjabloon. Als u de installatiekopie van de beheerde schijf vooraf hebt gemaakt, moet u in plaats daarvan de ID van die installatiekopie opgeven. Deze ID moet van het formulier: `/subscriptions/<subscription-id>resourceGroups/<resource-group-name>/providers/Microsoft.Compute/images/<image-name>`.
 
 
 ## <a name="next-steps"></a>Volgende stappen

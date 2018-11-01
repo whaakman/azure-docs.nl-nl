@@ -9,12 +9,12 @@ ms.date: 03/26/2018
 ms.author: tamram
 ms.custom: mvc
 ms.component: blobs
-ms.openlocfilehash: d50291a33a9456fad20382d8e646bf6a19d6179e
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: 162b30444a22ea193d93e8a6a2c7374dcd2f5fd3
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47180878"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50415981"
 ---
 # <a name="tutorial-make-your-application-data-highly-available-with-azure-storage"></a>Zelfstudie: Toepassingsgegevens maximaal beschikbaar maken met Azure-opslag
 
@@ -49,15 +49,15 @@ Vereisten voor het voltooien van deze zelfstudie:
 # <a name="java-tabjava"></a>[Java] (#tab/java)
 
 * Installeer en configureer [Maven](http://maven.apache.org/download.cgi) om te werken vanuit de opdrachtregel
-* Installeer en configureer een [JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
+* Installeer en configureer een [JDK](https://aka.ms/azure-jdks)
 
 ---
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="log-in-to-the-azure-portal"></a>Aanmelden bij de Azure-portal
+## <a name="log-in-to-the-azure-portal"></a>Aanmelden bij Azure Portal
 
-Meld u aan bij de [Azure-portal](https://portal.azure.com/).
+Meld u aan bij [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-a-storage-account"></a>Create a storage account
 
@@ -65,7 +65,7 @@ Een opslagaccount biedt een unieke naamruimte voor het opslaan en openen van uw 
 
 Volg deze stappen om een account voor geografisch redundante opslag met leestoegang te maken:
 
-1. Selecteer de knop **Een resource maken** in de linkerbovenhoek van de Azure-portal.
+1. Selecteer de knop **Een resource maken** in de linkerbovenhoek van Azure Portal.
 
 2. Selecteer **Opslag** op de pagina **Nieuw** en selecteer **Opslagaccount - Blob, File, Table, Queue** onder **Aanbevolen**.
 3. Vul het formulier voor het opslagaccount in met de informatie uit de volgende afbeelding en selecteer **Maken**:
@@ -114,7 +114,7 @@ git clone https://github.com/Azure-Samples/storage-java-ha-ra-grs.git
 
 In de toepassing moet u de verbindingsreeks voor uw opslagaccount opgeven. U wordt aangeraden deze verbindingsreeks binnen een omgevingsvariabele op te slaan op de lokale computer waarop de toepassing wordt uitgevoerd. Volg een van de onderstaande voorbeelden afhankelijk van uw besturingssysteem voor het maken van de omgevingsvariabele.
 
-Ga in de Azure-portal naar uw opslagaccount. Selecteer bij **Instellingen** in uw opslagaccount de optie **Toegangssleutels**. Kopieer de **verbindingsreeks** uit de primaire of secundaire sleutel. Vervang \<yourconnectionstring\> door uw werkelijke verbindingsreeks door afhankelijk van uw besturingssysteem een van de volgende opdrachten uit te voeren. Met deze opdracht slaat u een omgevingsvariabele naar de lokale machine op. In Windows is de omgevingsvariabele pas beschikbaar wanneer u de **-opdrachtprompt** of shell die u gebruikt opnieuw laadt. Vervang **\<storageConnectionString\>** in het volgende voorbeeld:
+Ga in Azure Portal naar uw opslagaccount. Selecteer bij **Instellingen** in uw opslagaccount de optie **Toegangssleutels**. Kopieer de **verbindingsreeks** uit de primaire of secundaire sleutel. Vervang \<yourconnectionstring\> door uw werkelijke verbindingsreeks door afhankelijk van uw besturingssysteem een van de volgende opdrachten uit te voeren. Met deze opdracht slaat u een omgevingsvariabele naar de lokale machine op. In Windows is de omgevingsvariabele pas beschikbaar wanneer u de **-opdrachtprompt** of shell die u gebruikt opnieuw laadt. Vervang **\<storageConnectionString\>** in het volgende voorbeeld:
 
 # <a name="linux-tablinux"></a>[Linux] (#tab/linux) 
 export storageconnectionstring=\<yourconnectionstring\> 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/22/2016
 ms.author: ancav
 ms.component: autoscale
-ms.openlocfilehash: 78e3bec0d00336ce7cedc1434bf6ad7c65435969
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 995e93290e7c305e217c1f44609d383f69d83a9a
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978179"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50420554"
 ---
 # <a name="advanced-autoscale-configuration-using-resource-manager-templates-for-vm-scale-sets"></a>Geavanceerd automatisch schalen configureren met behulp van Resource Manager-sjablonen voor VM-Schaalsets
 U kunt in- en scale-out in Virtual Machine Scale Sets op basis van prestaties metrische drempels, door een terugkerend schema, of door een bepaalde datum. U kunt ook e-mail en webhook-meldingen voor schaalacties configureren. In dit scenario ziet u een voorbeeld van het configureren van al deze objecten met behulp van Resource Manager-sjabloon voor een VM-Schaalset.
@@ -29,7 +29,7 @@ In dit scenario gebruiken we [Azure Resource Explorer](https://resources.azure.c
 1. Een nieuwe schaalset met een instelling voor automatisch schalen te implementeren. Dit artikel wordt gebruikgemaakt van de Azure QuickStart-galerie, met een Windows-schaalset met een sjabloon voor automatisch schalen. Schaalsets voor Linux op dezelfde manier werken.
 2. Nadat de schaalset is gemaakt, gaat u naar de resource van de set schaal van Azure Resource Explorer. U ziet het volgende onder het knooppunt Microsoft.Insights.
 
-    ![Azure Explorer](./media/insights-advanced-autoscale-vmss/azure_explorer_navigate.png)
+    ![Azure Explorer](media/insights-advanced-autoscale-virtual-machine-scale-sets/azure_explorer_navigate.png)
 
     De uitvoering van de sjabloon voor een standaard-instelling voor automatisch schalen is gemaakt met de naam **'autoscalewad'**. Aan de rechterkant vindt u de volledige definitie van deze instelling voor automatisch schalen. In dit geval wordt de instelling voor automatisch schalen wordt geleverd met een CPU % op basis van scale-out en schalen in de regel.  
 
@@ -58,11 +58,11 @@ In dit scenario gebruiken we [Azure Resource Explorer](https://resources.azure.c
 
 5. Zorg dat u zich op de **lezen/schrijven** modus in Resource Explorer
 
-    ![Autoscalewad, instelling standaard voor automatisch schalen](./media/insights-advanced-autoscale-vmss/autoscalewad.png)
+    ![Autoscalewad, instelling standaard voor automatisch schalen](media/insights-advanced-autoscale-virtual-machine-scale-sets/autoscalewad.png)
 
 6. Klik op bewerken. **Vervang** het element 'profielen' in de instelling voor automatisch schalen met de volgende configuratie:
 
-    ![Profielen](./media/insights-advanced-autoscale-vmss/profiles.png)
+    ![Profielen](media/insights-advanced-autoscale-virtual-machine-scale-sets/profiles.png)
 
     ```
     {

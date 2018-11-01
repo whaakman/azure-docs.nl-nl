@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 10/16/2018
-ms.openlocfilehash: 5ebf7b580acb404c8016ba39fb522bc3b2ba7b84
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: faf7ba745b57fb6e0155afe8cee52cef81ba5896
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49953917"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50138640"
 ---
 # <a name="quickstart-ingest-data-using-the-azure-data-explorer-python-library"></a>Snelstart: gegevens opnemen met behulp van de Python-bibliotheek voor Azure Data Explorer
 
@@ -36,8 +36,8 @@ Naast een Azure-abonnement hebt u het volgende nodig om deze snelstart te voltoo
 Installeer *azure-kusto-data* en *azure-kusto-ingest*.
 
 ```
-pip install azure-kusto-data
-pip install azure-kusto-ingest
+pip install azure-kusto-data==0.0.13
+pip install azure-kusto-ingest==0.0.13
 ```
 
 ## <a name="add-import-statements-and-constants"></a>Importinstructies en constanten toevoegen
@@ -47,6 +47,7 @@ Importeer klassen uit de bibliotheek, evenals *dataetime* en *pandas*, een bibli
 ```python
 from azure.kusto.data.request import KustoClient, KustoConnectionStringBuilder
 from azure.kusto.data.exceptions import KustoServiceError
+from azure.kusto.data.helpers import dataframe_from_result_table
 import pandas as pd
 import datetime
 ```
@@ -110,9 +111,9 @@ Maak een tabel die overeenkomt met het schema van de gegevens in het bestand Sto
 KUSTO_CLIENT = KustoClient(KCSB_DATA)
 CREATE_TABLE_COMMAND = ".create table StormEvents (StartTime: datetime, EndTime: datetime, EpisodeId: int, EventId: int, State: string, EventType: string, InjuriesDirect: int, InjuriesIndirect: int, DeathsDirect: int, DeathsIndirect: int, DamageProperty: int, DamageCrops: int, Source: string, BeginLocation: string, EndLocation: string, BeginLat: real, BeginLon: real, EndLat: real, EndLon: real, EpisodeNarrative: string, EventNarrative: string, StormSummary: dynamic)"
 
-df_table_create_output = KUSTO_CLIENT.execute_mgmt(KUSTO_DATABASE, CREATE_TABLE_COMMAND).primary_results[0].to_dataframe()
+RESPONSE = KUSTO_CLIENT.execute_mgmt(KUSTO_DATABASE, CREATE_TABLE_COMMAND)
 
-df_table_create_output
+dataframe_from_result_table(RESPONSE.primary_results[0])
 ```
 
 ## <a name="define-ingestion-mapping"></a>Toewijzing van opname definiëren
@@ -122,9 +123,9 @@ Wijs binnenkomende CSV-gegevens toe aan de kolomnamen en gegevenstypen die zijn 
 ```python
 CREATE_MAPPING_COMMAND = """.create table StormEvents ingestion csv mapping 'StormEvents_CSV_Mapping' '[{"Name":"StartTime","datatype":"datetime","Ordinal":0}, {"Name":"EndTime","datatype":"datetime","Ordinal":1},{"Name":"EpisodeId","datatype":"int","Ordinal":2},{"Name":"EventId","datatype":"int","Ordinal":3},{"Name":"State","datatype":"string","Ordinal":4},{"Name":"EventType","datatype":"string","Ordinal":5},{"Name":"InjuriesDirect","datatype":"int","Ordinal":6},{"Name":"InjuriesIndirect","datatype":"int","Ordinal":7},{"Name":"DeathsDirect","datatype":"int","Ordinal":8},{"Name":"DeathsIndirect","datatype":"int","Ordinal":9},{"Name":"DamageProperty","datatype":"int","Ordinal":10},{"Name":"DamageCrops","datatype":"int","Ordinal":11},{"Name":"Source","datatype":"string","Ordinal":12},{"Name":"BeginLocation","datatype":"string","Ordinal":13},{"Name":"EndLocation","datatype":"string","Ordinal":14},{"Name":"BeginLat","datatype":"real","Ordinal":16},{"Name":"BeginLon","datatype":"real","Ordinal":17},{"Name":"EndLat","datatype":"real","Ordinal":18},{"Name":"EndLon","datatype":"real","Ordinal":19},{"Name":"EpisodeNarrative","datatype":"string","Ordinal":20},{"Name":"EventNarrative","datatype":"string","Ordinal":21},{"Name":"StormSummary","datatype":"dynamic","Ordinal":22}]'"""
 
-df_mapping_create_output = KUSTO_CLIENT.execute_mgmt(KUSTO_DATABASE, CREATE_MAPPING_COMMAND).primary_results[0].to_dataframe()
+RESPONSE = KUSTO_CLIENT.execute_mgmt(KUSTO_DATABASE, CREATE_MAPPING_COMMAND)
 
-df_mapping_create_output
+dataframe_from_result_table(RESPONSE.primary_results[0])
 ```
 
 ## <a name="queue-a-message-for-ingestion"></a>Bericht in wachtrij zetten voor opname
@@ -150,15 +151,15 @@ Wacht vijf tot tien minuten totdat de opname in de wachtrijde opname heeft gepla
 ```python
 QUERY = "StormEvents | count"
 
-df = KUSTO_CLIENT.execute_query(KUSTO_DATABASE, QUERY).primary_results[0].to_dataframe()
+RESPONSE = KUSTO_CLIENT.execute_query(KUSTO_DATABASE, QUERY)
 
-df
+dataframe_from_result_table(RESPONSE.primary_results[0])
 ```
 
 ## <a name="run-troubleshooting-queries"></a>Query's voor probleemoplossing uitvoeren
 
 Meld u aan bij [https://dataexplorer.azure.com](https://dataexplorer.azure.com) en maak verbinding met uw cluster. Voer de volgende opdracht uit in uw database om te zien of er in de afgelopen vier uur fouten zijn opgetreden tijdens het opnemen van gegevens. Vervang de naam van de database voordat u de opdracht uitvoert.
-    
+
 ```Kusto
     .show ingestion failures
     | where FailedOn > ago(4h) and Database == "<DatabaseName>"

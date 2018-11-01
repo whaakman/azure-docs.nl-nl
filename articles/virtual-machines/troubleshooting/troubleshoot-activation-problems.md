@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 05/11/2018
+ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: e8ecdf1fffb51c0b8e9ce996307595a5444a64ee
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: eeecf37a6cc7a0f86662f002b6f0efab5ef8c35c
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47413668"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50417460"
 ---
 # <a name="troubleshoot-azure-windows-virtual-machine-activation-problems"></a>Problemen met Windows Azure virtuele machine-activering
 
@@ -82,7 +82,7 @@ Deze stap is niet van toepassing op Windows 2012 of Windows 2008 R2. De functie 
 2. Naar begin gaan, zoeken op Windows PowerShell, met de rechtermuisknop op Windows PowerShell en selecteer vervolgens als administrator uitvoeren.
 
 3. Zorg ervoor dat de virtuele machine is geconfigureerd voor het gebruik van de juiste Azure KMS-server. U doet dit door de volgende opdracht uitvoeren:
-  
+  
     ```
     iex “$env:windir\system32\cscript.exe $env:windir\system32\slmgr.vbs /skms
     kms.core.windows.net:1688
@@ -90,11 +90,11 @@ Deze stap is niet van toepassing op Windows 2012 of Windows 2008 R2. De functie 
     De opdracht moet worden geretourneerd: naam van de Key Management Service-machine ingesteld op kms.core.windows.net:1688 is.
 
 4. Controleer of met behulp van Psping dat u verbinding met de KMS-server hebben. Ga naar de map waar u het downloaden van het Pstools.zip uitgepakt en voer het volgende:
-  
+  
     ```
     \psping.exe kms.core.windows.net:1688
     ```
-  
+  
   Zorg ervoor dat u ziet in de tweede laatste regel van de uitvoer: verzonden = 4, ontvangen = 4, verloren = 0 (0% verlies).
 
   Als verloren is groter dan 0 (nul), is de virtuele machine heeft geen verbinding met de KMS-server. In dit geval is als de virtuele machine zich in een virtueel netwerk en heeft een aangepaste DNS-server opgegeven, moet u ervoor zorgen dat DNS-server kunnen omzetten van kms.core.windows.net. Of de DNS-server wijzigt in een kms.core.windows.net is opgelost.

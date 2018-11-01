@@ -8,14 +8,14 @@ editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines
 ms.topic: troubleshooting
-ms.date: 06/15/2018
+ms.date: 10/31/2018
 ms.author: delhan
-ms.openlocfilehash: 64641f8acfe7b58763756e2a0707fa799ee804b2
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 9341458336e4c95b84590eadbc86073e7dbf09a0
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47413663"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50419551"
 ---
 # <a name="how-to-use-boot-diagnostics-to-troubleshoot-virtual-machines-in-azure"></a>Het gebruik van diagnostische gegevens over opstarten voor virtuele machines in Azure oplossen
 
@@ -24,6 +24,10 @@ Ondersteuning voor twee foutopsporingsfuncties is nu beschikbaar in Azure: onder
 Wanneer u uw eigen installatiekopie naar Azure of een van de platforminstallatiekopieën van het opstart, kunnen er diverse redenen waarom een virtuele machine in een niet-opstartbare status opgehaald. Deze functies kunnen u eenvoudig analyseren en herstellen van uw virtuele machines opstartfouten.
 
 Voor virtuele Linux-machines, kunt u eenvoudig de uitvoer van uw consolelogboek vanuit de Portal weergeven. Voor zowel Windows als Linux virtuele machines kunt Azure u ook om te zien van een schermopname van de virtuele machine uit de hypervisor. Beide van deze functies worden ondersteund voor virtuele Azure-machines in alle regio's. Houd er rekening mee dat het tot 10 minuten kan duren voordat de schermafbeeldingen en uitvoer worden weergegeven in uw opslagaccount.
+
+U kunt selecteren de **diagnostische gegevens over opstarten** optie om het logboek of de schermafbeelding weer te geven.
+
+![Resource Manager](./media/virtual-machines-common-boot-diagnostics/screenshot1.png)
 
 ## <a name="common-boot-errors"></a>Veelvoorkomende opstartfouten
 
@@ -70,7 +74,7 @@ Voor virtuele Linux-machines, kunt u eenvoudig de uitvoer van uw consolelogboek 
             "diagnosticsProfile": {
                 "bootDiagnostics": {
                 "enabled": true,
-                "storageUri": "[concat('http://', parameters('newStorageAccountName'), '.blob.core.windows.net')]"
+                "storageUri": "[concat('https://', parameters('newStorageAccountName'), '.blob.core.windows.net')]"
                 }
             }
             }

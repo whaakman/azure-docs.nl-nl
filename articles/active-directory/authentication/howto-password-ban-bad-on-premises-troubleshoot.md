@@ -5,23 +5,23 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 10/30/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: jsimmons
-ms.openlocfilehash: c164c2465a4e9d60159ea9596139f2e4938f792f
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 6832f6f9d09cbbfea6ccaa69160ad93209c7ac8c
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50242497"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50741177"
 ---
 # <a name="preview-azure-ad-password-protection-monitoring-reporting-and-troubleshooting"></a>Voorbeeld: Azure AD wachtwoord beveiliging bewaking, rapportage en probleemoplossing
 
 |     |
 | --- |
-| Beveiliging van Azure AD-wachtwoord en de lijst met aangepaste uitgesloten wachtwoorden zijn openbare preview-functies van Azure Active Directory. Zie voor meer informatie over previews [aanvullende gebruiksrechtovereenkomst voor Microsoft Azure-Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
+| Beveiliging van Azure AD-wachtwoord is een openbare preview-functie van Azure Active Directory. Zie voor meer informatie over previews [aanvullende gebruiksrechtovereenkomst voor Microsoft Azure-Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
 |     |
 
 Zijn essentiële taken na de implementatie van Azure AD-wachtwoordbeveiliging bewaking en rapportage. In dit artikel gaat in detail om u te helpen dat u leert waar elke service registreert informatie en hoe u een rapport over het gebruik van Azure AD-wachtwoordbeveiliging.
@@ -88,7 +88,7 @@ Enkele andere belangrijke gebeurtenislogboekberichten rekening mee moet houden z
 
 Het wachtwoord voor de opgegeven gebruiker is geaccepteerd omdat een Azure-wachtwoordbeleid nog niet beschikbaar is
 
-Gebruikersnaam: <user> FullName: <user>
+Gebruikersnaam: SomeUser FullName: een gebruiker
 
 Dit probleem kan worden veroorzaakt door een of meer van de volgende redenen: % n
 

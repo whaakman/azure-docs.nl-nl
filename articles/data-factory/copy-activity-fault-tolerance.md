@@ -1,6 +1,6 @@
 ---
-title: Fouttolerantie van de kopieeractiviteit in Azure Data Factory | Microsoft Docs
-description: Meer informatie over het toevoegen van fouttolerantie voor de kopieeractiviteit in Azure Data Factory door het overslaan van de niet-compatibele rijen.
+title: Fouttolerantie van kopieeractiviteit in Azure Data Factory | Microsoft Docs
+description: Meer informatie over-fouttolerantie gebruikt voor het kopiëren van activiteit in Azure Data Factory door het overslaan van de niet-compatibele rijen toevoegen.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -11,45 +11,47 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/27/2018
+ms.date: 10/26/2018
 ms.author: jingwang
-ms.openlocfilehash: 6c76820b39f31d92362295d54984069393fa0dec
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 3f207cdb3af3f7e328cd5843053240bbbe15980e
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37058884"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50418340"
 ---
-#  <a name="fault-tolerance-of-copy-activity-in-azure-data-factory"></a>Fouttolerantie van de kopieeractiviteit in Azure Data Factory
+#  <a name="fault-tolerance-of-copy-activity-in-azure-data-factory"></a>Fouttolerantie van kopieeractiviteit in Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versie 1](v1/data-factory-copy-activity-fault-tolerance.md)
+> * [Versie 1:](v1/data-factory-copy-activity-fault-tolerance.md)
 > * [Huidige versie](copy-activity-fault-tolerance.md)
 
-De kopieeractiviteit in Azure Data Factory biedt twee manieren om af te handelen incompatibel rijen bij het kopiëren van gegevens tussen de bron- en sink gegevensarchieven:
+De kopieeractiviteit in Azure Data Factory biedt twee manieren voor het afhandelen van incompatibele rijen tijdens het kopiëren van gegevens tussen de bron-en sink:
 
-- U kunt afbreken en mislukt de kopie activiteit als niet-compatibele gegevens aangetroffen (standaardinstelling).
-- U kunt doorgaan met het kopiëren alle gegevens door toe te voegen fouttolerantie en niet-compatibele gegevensrijen wordt overgeslagen. Bovendien kunt u de niet-compatibele rijen registreren in Azure Blob storage of Azure Data Lake Store. Bekijk vervolgens het logboek voor meer informatie over de oorzaak van de fout, los van de gegevens op de gegevensbron en probeer het opnieuw met de kopieerbewerking.
+- U kunt afbreken en het kopiëren van een activiteit als niet-compatibele gegevens is opgetreden (standaardinstelling).
+- U kunt doorgaan met het kopiëren alle gegevens die door toe te voegen fouttolerantie en niet-compatibele gegevensrijen wordt overgeslagen. Bovendien kunt u de niet-compatibele rijen registreren in Azure Blob storage of Azure Data Lake Store. U kunt vervolgens het logboek voor informatie over de oorzaak van de fout, los van de gegevens op de gegevensbron en probeer het opnieuw met de kopieeractiviteit onderzoeken.
 
 ## <a name="supported-scenarios"></a>Ondersteunde scenario's
-Kopieeractiviteit ondersteunt drie scenario's voor het detecteren, wordt overgeslagen en logboekregistratie incompatibel gegevens:
+Kopieeractiviteit ondersteunt drie scenario's voor het detecteren, wordt overgeslagen en logboekregistratie niet-compatibele gegevens:
 
-- **Incompatibiliteit tussen het gegevensbrontype en het systeemeigen type sink**. 
+- **Incompatibiliteit tussen het gegevenstype van de bron en het systeemeigen sink-type**. 
 
-    Bijvoorbeeld: gegevens kopiëren van een CSV-bestand in Blob storage naar een SQL-database met de schemadefinitie van een dat drie kolommen van het type INT bevat. De CSV-bestand rijen die numerieke gegevens, zoals 123.456.789 bevatten is gekopieerd naar de store sink. Echter, de rijen met niet-numerieke waarden, zoals 123,456, abc zijn gedetecteerd als niet compatibel en worden overgeslagen.
+    Bijvoorbeeld: gegevens kopiëren van een CSV-bestand in Blob-opslag met een SQL-database met de schemadefinitie van een met drie kolommen van het gegevenstype INT. De rijen van de CSV-bestand die numerieke gegevens bevatten, zoals 123.456.789 is gekopieerd naar de sink-store. Echter, de rijen met niet-numerieke waarden, zoals 123,456, abc worden gedetecteerd als niet compatibel en worden overgeslagen.
 
-- **Het aantal kolommen tussen de bron en de sink komt niet overeen**.
+- **Komt niet overeen in het aantal kolommen tussen de bron en de sink**.
 
-    Bijvoorbeeld: gegevens kopiëren van een CSV-bestand in Blob storage naar een SQL-database met de schemadefinitie van een dat zes kolommen bevat. De CSV-bestand-rijen met zes kolommen worden gekopieerd naar de store sink. De CSV-bestand rijen die minder dan zes of meer kolommen bevatten als niet compatibel zijn gedetecteerd en worden overgeslagen.
+    Bijvoorbeeld: gegevens kopiëren van een CSV-bestand in Blob-opslag met een SQL-database met de schemadefinitie van een dat zes kolommen bevat. De CSV-bestand-rijen met zes kolommen is gekopieerd naar de sink-store. De CSV-bestand rijen die meer of minder dan zes kolommen bevatten als niet-compatibele worden gedetecteerd en worden overgeslagen.
 
-- **Primaire sleutel is geschonden bij het schrijven naar SQL Server/Azure SQL Database/Azure Cosmos DB**.
+- **Schending van primaire sleutel bij het schrijven naar SQL Server/Azure SQL Database-/ Azure Cosmos DB**.
 
-    Bijvoorbeeld: gegevens kopiëren van een SQL-server naar een SQL-database. Een primaire sleutel is gedefinieerd in de sink SQL-database, maar die geen primaire sleutel is gedefinieerd in de bron-SQL-server. De dubbele rijen die in de bron voorkomen kunnen niet worden gekopieerd naar de sink. Alleen de eerste rij van de brongegevens Kopieeractiviteit gekopieerd naar de sink. De volgende bronrijen met dubbele primaire sleutelwaarde zijn gedetecteerd als niet compatibel en worden overgeslagen.
+    Bijvoorbeeld: gegevens kopiëren van een SQL-server naar een SQL-database. Een primaire sleutel is gedefinieerd in de sink-SQL-database, maar die geen primaire sleutel is gedefinieerd in de bron-SQL-server. De dubbele rijen die zijn opgenomen in de bron kunnen niet worden gekopieerd naar de sink. Kopieeractiviteit kopieert alleen de eerste rij van de brongegevens in de gootsteen. De volgende bronrijen met de dubbele waarde voor de primaire sleutel zijn gedetecteerd als niet-compatibel en worden overgeslagen.
 
 >[!NOTE]
->Deze functie is niet van toepassing wanneer kopieeractiviteit is geconfigureerd voor het aanroepen van externe gegevens laden met inbegrip van mechanisme [Azure SQL Data Warehouse PolyBase](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-sql-data-warehouse) of [Amazon Redshift Unload](connector-amazon-redshift.md#use-unload-to-copy-data-from-amazon-redshift). Gebruiken om gegevens te laden in SQL Data Warehouse met PolyBase, PolyBase van systeemeigen fouttolerantie ondersteuning door te geven '[polyBaseSettings](connector-azure-sql-data-warehouse.md#azure-sql-data-warehouse-as-sink)' in de kopieerbewerking.
+>- Voor het laden van gegevens in SQL Data Warehouse PolyBase van systeemeigen fouttolerantie-instellingen met PolyBase, configureren door op te geven afwijzen beleid via '[polyBaseSettings](connector-azure-sql-data-warehouse.md#azure-sql-data-warehouse-as-sink)' in de kopieeractiviteit. U kunt nog steeds omleiding PolyBase incompatibele rijen Blob of ADLS die normaal werken zoals hieronder wordt weergegeven.
+>- Deze functie is niet van toepassing wanneer de kopieeractiviteit is geconfigureerd om aan te roepen [verwijderen van Amazon Redshift](connector-amazon-redshift.md#use-unload-to-copy-data-from-amazon-redshift).
+
 
 ## <a name="configuration"></a>Configuratie
-Het volgende voorbeeld bevat een JSON-definitie voor het configureren van de niet-compatibele rijen in de kopieerbewerking wordt overgeslagen:
+Het volgende voorbeeld bevat een JSON-definitie voor het configureren van het overslaan van de niet-compatibele rijen in de Kopieeractiviteit:
 
 ```json
 "typeProperties": {
@@ -72,13 +74,13 @@ Het volgende voorbeeld bevat een JSON-definitie voor het configureren van de nie
 
 Eigenschap | Beschrijving | Toegestane waarden | Vereist
 -------- | ----------- | -------------- | -------- 
-enableSkipIncompatibleRow | Geeft aan of niet-compatibele rijen overslaan tijdens het kopiëren van of niet. | True<br/>False (standaard) | Nee
-redirectIncompatibleRowSettings | Een groep met eigenschappen die kunnen worden opgegeven wanneer u wilt vastleggen van de niet-compatibele rijen. | &nbsp; | Nee
-linkedServiceName | De gekoppelde service van [Azure Storage](connector-azure-blob-storage.md#linked-service-properties) of [Azure Data Lake Store](connector-azure-data-lake-store.md#linked-service-properties) voor het opslaan van het logboek dat overgeslagen rijen bevat. | De naam van een `AzureStorage` of `AzureDataLakeStore` type gekoppelde service, die naar het exemplaar dat u gebruiken verwijst wilt voor het opslaan van het logboekbestand. | Nee
-pad | Het pad van het logboekbestand dat overgeslagen rijen bevat. | Geef het pad dat u wilt gebruiken om de niet-compatibele gegevens te registreren. Als u niet een pad opgeeft, wordt in de service een container voor u gemaakt. | Nee
+enableSkipIncompatibleRow | Geeft aan of om over te slaan van incompatibele rijen tijdens het kopiëren van of niet. | True<br/>False (standaard) | Nee
+redirectIncompatibleRowSettings | Een groep met eigenschappen die kunnen worden opgegeven wanneer u wilt registreren van incompatibele rijen. | &nbsp; | Nee
+linkedServiceName | De gekoppelde service van [Azure Storage](connector-azure-blob-storage.md#linked-service-properties) of [Azure Data Lake Store](connector-azure-data-lake-store.md#linked-service-properties) voor het opslaan van het logboek dat de overgeslagen rijen bevat. | De naam van een `AzureStorage` of `AzureDataLakeStore` gekoppelde service, die verwijst naar het exemplaar dat u wilt gebruiken voor het opslaan van het logboekbestand typt. | Nee
+pad | Het pad van het logboekbestand dat overgeslagen rijen bevat. | Geef het pad dat u wilt gebruiken om de niet-compatibele gegevens te registreren. Als u een pad opgeeft, wordt in de service een container voor u gemaakt. | Nee
 
 ## <a name="monitor-skipped-rows"></a>Monitor overgeslagen rijen
-Nadat de kopieeractiviteit uitgevoerd is voltooid, ziet u het aantal overgeslagen rijen in de uitvoer van de kopieeractiviteit:
+Nadat de copy-activiteit uitvoeren is voltooid, ziet u het aantal overgeslagen rijen in de uitvoer van de kopieeractiviteit:
 
 ```json
 "output": {
@@ -93,11 +95,11 @@ Nadat de kopieeractiviteit uitgevoerd is voltooid, ziet u het aantal overgeslage
         },
 
 ```
-Als u voor de niet-compatibele rijen logboekregistratie hebt geconfigureerd, kunt u het logboekbestand op dit pad vinden: `https://[your-blob-account].blob.core.windows.net/[path-if-configured]/[copy-activity-run-id]/[auto-generated-GUID].csv`. 
+Als u configureert voor logboekregistratie van het incompatibele rijen, kunt u het logbestand op dit pad vinden: `https://[your-blob-account].blob.core.windows.net/[path-if-configured]/[copy-activity-run-id]/[auto-generated-GUID].csv`. 
 
-De logboekbestanden kunnen alleen worden de csv-bestanden. De oorspronkelijke gegevens wordt overgeslagen worden geregistreerd met door komma's als kolomscheidingsteken indien nodig. We twee of meer kolommen 'ErrorCode' en 'ErrorMessage' in extra toevoegen aan de oorspronkelijke brongegevens in het logboekbestand, waarin u de hoofdmap kunt zien oorzaak van de niet-compatibel. De ErrorCode en ErrorMessage wordt door dubbele aanhalingstekens worden vermeld. 
+De logboekbestanden kunnen alleen worden voor de csv-bestanden. De oorspronkelijke gegevens wordt overgeslagen worden vastgelegd met door komma's als kolomscheidingsteken indien nodig. We twee of meer kolommen "ErrorCode" en "Foutbericht" in extra toevoegen aan de oorspronkelijke brongegevens in een logboekbestand, waarin u de basis kunt zien oorzaak van de niet-compatibel. De foutcode en het foutbericht wordt door dubbele aanhalingstekens worden vermeld. 
 
-Een voorbeeld van de inhoud van het logboek-bestand is als volgt:
+Een voorbeeld van de inhoud van het log-bestand is als volgt:
 
 ```
 data1, data2, data3, "UserErrorInvalidDataValue", "Column 'Prop_2' contains an invalid value 'data3'. Cannot convert 'data3' to type 'DateTime'."
@@ -105,9 +107,9 @@ data4, data5, data6, "2627", "Violation of PRIMARY KEY constraint 'PK_tblintstrd
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie de andere artikelen voor de Kopieeractiviteit:
+Zie de andere artikelen van de Kopieeractiviteit:
 
-- [Activiteit-overzicht](copy-activity-overview.md)
-- [Uitvoering van de activiteit](copy-activity-performance.md)
+- [Overzicht kopieeractiviteit](copy-activity-overview.md)
+- [Prestaties van de kopieeractiviteit](copy-activity-performance.md)
 
 

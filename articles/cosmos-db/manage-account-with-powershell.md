@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/21/2017
 ms.author: sngun
-ms.openlocfilehash: 82ab30ebab1b69d5ae636702b3b56d3792c09010
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: b115058353d14a3bd7c774197e06de088030ffff
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47394570"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50741348"
 ---
 # <a name="create-an-azure-cosmos-db-account-using-powershell"></a>Maak een Azure Cosmos DB-account met behulp van PowerShell
 
-De volgende handleiding wordt beschreven opdrachten voor het automatiseren van beheer van uw Azure Cosmos DB-database-accounts met behulp van Azure Powershell. Dit omvat ook opdrachten voor het beheren van accountsleutels en failover-prioriteiten in [databaseaccounts voor meerdere regio's] [distribueren-gegevens-globally.md]. Bijwerken van uw databaseaccount, kunt u consistentie beleid wijzigen en regio's toevoegen/verwijderen. Voor het beheer van meerdere platforms van uw Azure Cosmos DB-account, kunt u een [Azure CLI](cli-samples.md), wordt de [Resource Provider REST API][rp-rest-api], of de [Azure-portal ](create-sql-api-dotnet.md#create-account).
+De volgende handleiding wordt beschreven opdrachten voor het automatiseren van beheer van uw Azure Cosmos DB-database-accounts met behulp van Azure Powershell. Dit omvat ook opdrachten voor het beheren van accountsleutels en failover-prioriteiten in [databaseaccounts voor meerdere regio's][distribute-data-globally]. Bijwerken van uw databaseaccount, kunt u consistentie beleid wijzigen en regio's toevoegen/verwijderen. Voor het beheer van meerdere platforms van uw Azure Cosmos DB-account, kunt u een [Azure CLI](cli-samples.md), wordt de [Resource Provider REST API][rp-rest-api], of de [Azure-portal ](create-sql-api-dotnet.md#create-account).
 
 ## <a name="getting-started"></a>Aan de slag
 
@@ -33,7 +33,7 @@ Volg de instructies in [hoe u Azure PowerShell installeren en configureren] [ po
 
 ## <a id="create-documentdb-account-powershell"></a> Een Azure Cosmos DB-Account maken
 
-Met deze opdracht kunt u een Azure Cosmos DB-databaseaccount maken. Uw nieuwe databaseaccount als één regio of [meerdere regio's] [distribueren-gegevens-globally.md] configureren met een bepaalde [consistentie beleid](consistency-levels.md).
+Met deze opdracht kunt u een Azure Cosmos DB-databaseaccount maken. Uw nieuwe databaseaccount configureren als een van beide één regio of [meerdere regio's] [ distribute-data-globally] met een bepaalde [consistentie beleid](consistency-levels.md).
 
     $locations = @(@{"locationName"="<write-region-location>"; "failoverPriority"=0}, @{"locationName"="<read-region-location>"; "failoverPriority"=1})
     $iprangefilter = "<ip-range-filter>"
@@ -60,7 +60,7 @@ Voorbeeld:
     New-AzureRmResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "rg-test" -Location "West US" -Name "docdb-test" -Properties $CosmosDBProperties
 
 ### <a name="notes"></a>Opmerkingen
-* Het vorige voorbeeld maakt een databaseaccount met twee regio's. Het is ook mogelijk te maken van een databaseaccount met één regio (die is aangewezen als de schrijfregio en een failover-prioriteit-waarde van 0) of meer dan twee regio's. Zie voor meer informatie [databaseaccounts voor meerdere regio's] [distribueren-gegevens-globally.md].
+* Het vorige voorbeeld maakt een databaseaccount met twee regio's. Het is ook mogelijk te maken van een databaseaccount met één regio (die is aangewezen als de schrijfregio en een failover-prioriteit-waarde van 0) of meer dan twee regio's. Zie voor meer informatie, [databaseaccounts voor meerdere regio's][distribute-data-globally].
 * De locaties moet regio's waar Azure Cosmos DB algemeen beschikbaar is. De huidige lijst met regio's wordt geleverd op de [Azure-regio's pagina](https://azure.microsoft.com/regions/#services).
 
 ## <a id="update-documentdb-account-powershell"></a> Bijwerken van een Azure Cosmos DB-databaseaccount
@@ -195,6 +195,7 @@ Voorbeeld:
 * Als u wilt verbinding maken met behulp van Node.js, Zie [verbinding maken en query's uitvoeren met Node.js en een MongoDB-app](create-mongodb-nodejs.md).
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
+
 [powershell-install-configure]: https://docs.microsoft.com/azure/powershell-install-configure
 [scaling-globally]: distribute-data-globally.md#EnableGlobalDistribution
 [distribute-data-globally]: distribute-data-globally.md

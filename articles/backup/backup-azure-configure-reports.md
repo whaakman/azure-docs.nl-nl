@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: adigan
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 945a91b9021ed5ff02e8c1ef7baf85e2098202ca
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 493a8881975e6b7568a7823bfc86fc97b4389378
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50214661"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50418276"
 ---
 # <a name="configure-azure-backup-reports"></a>Azure Backup-rapporten configureren
 In dit artikel ziet u stappen te volgen voor het configureren van rapporten voor Azure Backup met behulp van een Recovery Services-kluis. U ziet ook hoe u toegang tot rapporten met behulp van Power BI. Nadat u deze stappen hebt voltooid, gaat u rechtstreeks naar Power BI om te bekijken, aanpassen en rapporten maken.
@@ -22,7 +22,7 @@ In dit artikel ziet u stappen te volgen voor het configureren van rapporten voor
 > [!IMPORTANT]
 > Vanaf 1 November 2018, kunnen sommige klanten problemen bij het laden van de gegevens in Azure-back-up-App in Power BI, dat 'We gevonden extra tekens aan het einde van de JSON-invoer Zie. De uitzondering is opgetreden voor de IDataReader-interface."
 Dit is vanwege een wijziging in de indeling waarin gegevens worden geladen in het opslagaccount.
-Werk de App naar de nieuwste versie om te voorkomen dat dit probleem.
+Download de meest recente App (versie 1.8) om dit probleem te voorkomen.
 >
 >
 
@@ -74,23 +74,24 @@ Volg deze stappen voor het opslagaccount voor een Recovery Services-kluis config
       ![Diagnostische instelling stap 9 weergeven](./media/backup-azure-configure-reports/diagnostic-setting-row.png)
 
 > [!NOTE]
-> Na het configureren van rapporten door op te slaan van het opslagaccount *24 uur wachten* voor de initiële gegevens-push te voltooien. Importeer de Azure Backup-inhoudspakket in Power BI alleen na deze periode. Zie voor meer informatie de [gedeelte met veelgestelde vragen](#frequently-asked-questions). 
+> Na het configureren van rapporten door op te slaan van het opslagaccount *24 uur wachten* voor de initiële gegevens-push te voltooien. Importeer de Azure-back-up in Power BI-App alleen na deze periode. Zie voor meer informatie de [gedeelte met veelgestelde vragen](#frequently-asked-questions). 
 >
 >
 
 ## <a name="view-reports-in-power-bi"></a>Rapporten weergeven in Power BI 
 Nadat u een opslagaccount voor rapporten met behulp van een Recovery Services-kluis hebt geconfigureerd, duurt het ongeveer 24 uur voor rapportagegegevens te starten stromen. Volg deze stappen voor het weergeven van rapporten in Power BI na 24 uur van het instellen van een storage-account.
-1. [Meld u aan](https://powerbi.microsoft.com/landing/signin/) naar Power BI.
-2. Selecteer **Gegevens ophalen**. In de **Inhoudsbibliotheek Pack**onder **Services**, selecteer **ophalen**. Volg de stappen in de [Power BI-documentatie voor toegang tot het inhoudspakket](https://powerbi.microsoft.com/documentation/powerbi-content-packs-services/).
+Als u wilt aanpassen en delen van het rapport, een werkruimte maken en voer de volgende stappen uit
 
-     ![Import-inhoudspakket](./media/backup-azure-configure-reports/content-pack-import.png)
+1. [Meld u aan](https://powerbi.microsoft.com/landing/signin/) naar Power BI.
+2. Selecteer **Gegevens ophalen**. In de **meer manieren om te maken van uw eigen inhoud**, selecteer **Service inhoudspakketten**. Volg de stappen in de [Power BI-documentatie verbinding maken met een service](https://powerbi.microsoft.com/documentation/powerbi-content-packs-services/).
+
 3. In de **zoeken** balk, voer **Azure Backup** en selecteer **nu downloaden**.
 
       ![Inhoudspakket ophalen](./media/backup-azure-configure-reports/content-pack-get.png)
 4. Voer de naam van het opslagaccount dat is geconfigureerd in de vorige stap 5 en selecteer **volgende**.
 
     ![De opslagaccountnaam invoeren](./media/backup-azure-configure-reports/content-pack-storage-account-name.png)    
-5. Voer de opslagaccountsleutel voor dit opslagaccount. Naar [bekijken en kopiëren van de toegangssleutels voor opslag](../storage/common/storage-account-manage.md#access-keys), gaat u naar uw opslagaccount in Azure portal. 
+5. Met behulp van verificatiemethode 'Key', voer de opslagaccountsleutel voor dit opslagaccount. Naar [bekijken en kopiëren van de toegangssleutels voor opslag](../storage/common/storage-account-manage.md#access-keys), gaat u naar uw opslagaccount in Azure portal. 
 
      ![Storage-account invoeren](./media/backup-azure-configure-reports/content-pack-storage-account-key.png) <br/>
      
@@ -102,9 +103,7 @@ Nadat u een opslagaccount voor rapporten met behulp van een Recovery Services-kl
     
     ![Importeren geslaagd-inhoudspakket](./media/backup-azure-configure-reports/content-pack-import-success.png) <br/>
     
-7. Nadat gegevens zijn geïmporteerd, de **Azure Backup** inhoudspakket is zichtbaar in **Apps** in het navigatiedeelvenster. Onder **Dashboards**, **rapporten**, en **gegevenssets**, in de lijst staan nu back-up van Azure met de gele sterren die zojuist geïmporteerde rapporten aangeven.
-
-     ![Azure Backup-inhoudspakket](./media/backup-azure-configure-reports/content-pack-azure-backup.png) <br/>
+7. Nadat gegevens zijn geïmporteerd, de **Azure Backup** inhoudspakket is zichtbaar in **Apps** in het navigatiedeelvenster. Onder **Dashboards**, **rapporten**, en **gegevenssets**, in de lijst staan nu back-up van Azure.
      
 8. Onder **Dashboards**, selecteer **Azure Backup**, waarin een aantal belangrijke rapporten vastgemaakt.
 

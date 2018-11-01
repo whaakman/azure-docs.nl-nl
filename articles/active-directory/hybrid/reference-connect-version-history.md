@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 09/06/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 93bd141b591cda5ec6ff1d9d042222070d3146e6
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: f0a9ac1700d635365ebea0c5966489ed3d2d797b
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49390309"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50420237"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Versiegeschiedenis van release
 Azure AD Connect het team van Azure Active Directory (Azure AD) regelmatig bijgewerkt met nieuwe functies en functionaliteit. Niet alle toevoegingen gelden voor alle doelgroepen.
@@ -37,6 +37,37 @@ Vereiste machtigingen | Zie voor de vereiste machtigingen voor een update toepas
 
 Downloaden | [Azure AD Connect downloaden](http://go.microsoft.com/fwlink/?LinkId=615771).
 
+## <a name="12650"></a>1.2.65.0 
+
+### <a name="release-status"></a>Releasestatus 
+
+25-10-2018: die zijn uitgebracht voor downloaden
+
+ 
+### <a name="new-features-and-improvements"></a>Nieuwe functies en verbeteringen 
+
+
+- Gewijzigd van de functionaliteit van kenmerk terugschrijven om ervoor te zorgen gehoste voicemail werkt zoals verwacht.  In bepaalde scenario's, is Azure AD het kenmerk msExchUcVoicemailSettings overschreven tijdens write-back met een null-waarde.  Azure AD wordt nu niet meer de on-premises-waarde van dit kenmerk gewist als de waarde van de cloud is niet ingesteld.
+- De verwerking van gewijzigde standaardregels verbeterd. U bent nu een melding als u wijzigingen hebt aangebracht in de standaardregels en opties voor het herstellen van de standaardregels worden aangeboden. 
+- Diagnostische gegevens in de Azure AD Connect-wizard voor het onderzoeken en identificeren van problemen met de netwerkverbinding met Azure AD toegevoegd. Deze dezelfde diagnostische gegevens kunnen ook worden uitgevoerd via Powershell direct met de Cmdlet Test - AdSyncAzureServiceConnectivity. 
+- Diagnostische gegevens in de Azure AD Connect-wizard voor het onderzoeken en identificeren van problemen met de netwerkverbinding naar AD toegevoegd. Deze dezelfde diagnostische gegevens kunnen ook worden uitgevoerd via Powershell direct met de functie Start ConnectivityValidation in de ADConnectivityTools Powershell-module.  Zie voor meer informatie [wat is de ADConnectivityTool PowerShell-Module?](how-to-connect-adconnectivitytools.md)
+- Een AD-schema versiecontrole vooraf voor de toegevoegd voor hybride Azure Active Directory-Join en write-back van apparaat 
+- De Directory-extensie pagina kenmerk zoekopdracht zo dat niet-hoofdlettergevoelig worden gewijzigd.
+-   Volledige ondersteuning toegevoegd voor TLS 1.2. Deze versie biedt ondersteuning voor alle andere protocollen wordt uitgeschakeld en alleen TLS 1.2 wordt ingeschakeld op de machine waarop Azure AD Connect is geïnstalleerd.  Zie voor meer informatie [TLS 1.2 afdwingen voor Azure AD Connect](reference-connect-tls-enforcement.md)
+
+ 
+
+### <a name="fixed-issues"></a>Problemen opgelost   
+
+- Een bug opgelost waarbij Azure AD Connect upgraden, mislukken als SQL Always On wordt gebruikt. 
+- Een opgelost voor het correct parseren van de namen van de organisatie-eenheid die een slash bevatten. 
+- Een probleem opgelost waarbij Pass through-verificatie wordt uitgeschakeld voor een schone installatie in de faseringsmodus bevindt. 
+- Een opgelost waardoor de PowerShell-module worden geladen bij het uitvoeren van de hulpprogramma's voor probleemoplossing 
+- Een opgelost die klanten uit met behulp van numerieke waarden in het eerste teken van een hostnaam wilt blokkeren. 
+- Een bug opgelost waarbij Azure AD Connect wordt bevraagd ongeldige partities en -container selecteren 
+- Het foutbericht 'Ongeldig wachtwoord' opgelost wanneer de Desktop-SSO is ingeschakeld. 
+- Verschillende oplossingen voor beheer van AD FS-vertrouwensrelatie  
+- Bij het configureren van Write-back van apparaat - vaste de schemacontrole om te zoeken naar de objectklasse msDs-DeviceContainer is (die is geïntroduceerd in WS2012-R2)
 
  
 ## <a name="118820"></a>1.1.882.0  

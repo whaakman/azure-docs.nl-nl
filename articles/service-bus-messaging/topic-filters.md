@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2018
 ms.author: spelluru
-ms.openlocfilehash: ac30718a92d76dedcb5b0ef3bdd2f282dd117720
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 41af53dbfbb5c863007a332445a2f184fcbcbf81
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48853518"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50741059"
 ---
 # <a name="topic-filters-and-actions"></a>Onderwerpfilters en acties
 
@@ -40,7 +40,7 @@ Filterregels voor complexe nodig verwerkingscapaciteit. Het gebruik van SQL-filt
 
 ## <a name="actions"></a>Acties
 
-Met de voorwaarden van SQL-filter, kunt u een actie die aantekeningen toevoegen aan het bericht door toe te voegen, te verwijderen of vervangen van eigenschappen en hun waarden definiëren. De actie [maakt gebruik van een expressie voor een SQL-achtige](service-bus-messaging-sql-filter.md) die los leans op de syntaxis van de UPDATE van de SQL-instructie. De actie is uitgevoerd op het bericht nadat deze zijn afgestemd en voordat het bericht is geselecteerd in het onderwerp. De wijzigingen in de berichteigenschappen zijn exclusief zijn voor het bericht gekopieerd naar het abonnement.
+Met de voorwaarden van SQL-filter, kunt u een actie die aantekeningen toevoegen aan het bericht door toe te voegen, te verwijderen of vervangen van eigenschappen en hun waarden definiëren. De actie [maakt gebruik van een expressie voor een SQL-achtige](service-bus-messaging-sql-filter.md) die los leans op de syntaxis van de UPDATE van de SQL-instructie. De actie is uitgevoerd op het bericht nadat deze zijn afgestemd en voordat het bericht is geselecteerd in het abonnement. De wijzigingen in de berichteigenschappen zijn exclusief zijn voor het bericht gekopieerd naar het abonnement.
 
 ## <a name="usage-patterns"></a>Gebruikspatronen
 

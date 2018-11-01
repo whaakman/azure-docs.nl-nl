@@ -12,12 +12,12 @@ ms.custom: mvc
 ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.date: 07/31/2018
-ms.openlocfilehash: 6783c59b354e0eebc7fa6d8f67985b8d7b72c22a
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 9d2fe2c18452537f734a8bf176130e1ad68d40e1
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49645828"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50231029"
 ---
 # <a name="quickstart-create-and-automate-tasks-processes-and-workflows-with-azure-logic-apps---visual-studio"></a>Snelstart: Maken en automatiseren van taken, processen en werkstromen met Azure Logic Apps in Visual Studio
 
@@ -184,7 +184,7 @@ Selecteer de resourcegroep voor uw logische app en selecteer vervolgens **Overzi
 ## <a name="get-support"></a>Ondersteuning krijgen
 
 * Ga naar het <a href="https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps" target="_blank">Azure Logic Apps forum</a> (Forum voor Azure Logic Apps) als u vragen hebt.
-* Als u ideeën voor functies wilt indienen of erop wilt stemmen, gaat u naar de <a href="http://aka.ms/logicapps-wish" target="_blank">website voor feedback van Logic Apps-gebruikers</a>.
+* Als u ideeën voor functies wilt indienen of erop wilt stemmen, gaat u naar de <a href="https://aka.ms/logicapps-wish" target="_blank">website voor feedback van Logic Apps-gebruikers</a>.
 
 ## <a name="next-steps"></a>Volgende stappen
 

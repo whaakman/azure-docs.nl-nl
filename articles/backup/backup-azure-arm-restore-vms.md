@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 09/04/2017
 ms.author: geg
-ms.openlocfilehash: 5812bafbcfa104150325dcdde374f88200b071c0
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 7de9d1674860a6369c1dc09462a06def672fbdf2
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50155198"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50420520"
 ---
 # <a name="use-the-azure-portal-to-restore-virtual-machines"></a>De Azure portal gebruiken voor virtuele machines herstellen
 Bescherm uw gegevens door het maken van momentopnamen van uw gegevens met gedefinieerde intervallen. Deze momentopnamen zijn voorzien van herstelpunten en ze zijn opgeslagen in Recovery Services-kluizen. Als het nodig zijn om te herstellen of opnieuw opbouwen van een virtuele machine (VM), kunt u de virtuele machine herstellen uit een van de opgeslagen herstelpunten. Wanneer u een herstelpunt herstelt, kunt u het volgende doen:
@@ -170,7 +170,7 @@ Klik op de hyperlink van de meldingen naar **BackupJobs** lijst. De details van 
 
 De **back-uptaken** blade wordt geopend en toont de lijst met taken.
 
-![Lijst met virtuele machines in een kluis](./media/backup-azure-arm-restore-vms/restore-job-completed.png)
+![Lijst met virtuele machines in een kluis](./media/backup-azure-arm-restore-vms/restore-job-in-progress1.png)
 
 ## <a name="use-templates-to-customize-a-restored-vm"></a>Sjablonen gebruiken voor het aanpassen van een herstelde VM
 Na de [schijven herstelbewerking is voltooid](#Track-the-restore-operation), gebruikt u de sjabloon die is gegenereerd als onderdeel van de herstelbewerking opnieuw een nieuwe virtuele machine maken met een configuratie verschilt van de back-upconfiguratie. Ook kunt u het aanpassen van de namen van resources die zijn gemaakt tijdens het proces voor het maken van een nieuwe virtuele machine vanaf een herstelpunt.

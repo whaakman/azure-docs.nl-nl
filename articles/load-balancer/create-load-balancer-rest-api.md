@@ -4,9 +4,6 @@ description: Informatie over het maken van een Azure Load Balancer met behulp va
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -14,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: load-balancer
 ms.date: 06/06/2018
 ms.author: kumud
-ms.openlocfilehash: ca952fa4fbea742121e579b28be35d834f17eade
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 2f5d3584a429ce35e6905b14bb412c3782fb0185
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44057051"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50416916"
 ---
 # <a name="create-an-azure-basic-load-balancer-using-rest-api"></a>Een Azure Basic Load Balancer maken met REST-API
 
@@ -43,7 +40,7 @@ Gebruik de volgende HTTP PUT-aanvraag te maken van een nieuwe Azure Basic Load B
 
 
 
-### <a name="request-body"></a>Aanvraagtekst
+### <a name="request-body"></a>Aanvraagbody
 
 Is de enige vereiste parameter `location`. Als u geen definieert de *SKU* versie, een Basic Load Balancer wordt standaard gemaakt.  Gebruik [optionele parameters](https://docs.microsoft.com/rest/api/load-balancer/loadbalancers/createorupdate#request-body) om aan te passen van de load balancer.
 
@@ -65,7 +62,7 @@ In deze stap maakt u een Basic Load Balancer met de naam *lb* op de **VS-Oost** 
   ```HTTP    
   PUT https://management.azure.com/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb?api-version=2018-02-01
   ```
-#### <a name="request-body"></a>Aanvraagtekst
+#### <a name="request-body"></a>Aanvraagbody
 
   ```JSON
    {
@@ -79,7 +76,7 @@ In deze stap configureert u de load balancer *lb* resources toe met een front-en
   ```HTTP    
   PUT https://management.azure.com/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb?api-version=2018-02-01
   ```
-#### <a name="request-body"></a>Aanvraagtekst
+#### <a name="request-body"></a>Aanvraagbody
 
   ```JSON
 {

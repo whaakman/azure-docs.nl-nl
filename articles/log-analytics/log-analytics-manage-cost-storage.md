@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/27/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: dfb95a57da62037df8f7fbe7e5d8edd970e264ac
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 2c52baf47e0b1495a5abfa727ab8bc8d997a4283
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48044362"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50418888"
 ---
 # <a name="manage-cost-by-controlling-data-volume-and-retention-in-log-analytics"></a>Kosten beheren door het gegevensvolume en retentie in Log Analytics beheren
 
@@ -55,7 +55,7 @@ Er zijn twee manieren waarin de hoeveelheid gegevens kan worden beperkt en helpe
 Log Analytics maakt het gemakkelijk te begrijpen wat de kosten zijn waarschijnlijk worden op basis van recente gebruikspatronen.  U doet dit door de volgende stappen uitvoeren.  
 
 1. Meld u aan bij de [Azure Portal](http://portal.azure.com). 
-2. Klik in Azure Portal op **Alle services**. Typ in de lijst met resources **Log Analytics**. Als u begint te typen, wordt de lijst gefilterd op basis van uw invoer. Selecteer **Log Analytics**.<br><br> ![Azure Portal](media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br><br>  
+2. Klik in Azure Portal op **Alle services**. Typ in de lijst met resources **Log Analytics**. Als u begint te typen, wordt de lijst gefilterd op basis van uw invoer. Selecteer **Log Analytics**.<br><br> ![Azure Portal](media/log-analytics-manage-cost-storage/azure-portal-01.png)<br><br>  
 3. In het deelvenster voor abonnementen van Log Analytics, selecteert u uw werkruimte en klik vervolgens op **gebruik en geraamde kosten** in het linkerdeelvenster.<br><br> ![Pagina gebruik en geschatte kosten](media/log-analytics-manage-cost-storage/usage-estimated-cost-dashboard-01.png)<br>
 
 Hier kunt u uw gegevensvolume bekijken voor de maand. Dit omvat alle gegevens ontvangen en opgeslagen in uw Log Analytics-werkruimte.  Klik op **informatie over het gebruik** vanaf de bovenkant van de pagina om het dashboard met gebruiksgegevens met informatie over trends van volume door de bron, computers en aanbieding weer te geven. Klik op weergeven en een limiet instellen of wijzigen van de bewaarperiode **gegevensvolumebeheer**.
