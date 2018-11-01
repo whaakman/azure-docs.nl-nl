@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: b09ebbb358b909c98df4eb05154c29b4b3cb7ee9
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 7ba5db8e50e8da5b274f73046d56f7816ca8834d
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48888251"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50138324"
 ---
 # <a name="tutorial-3-add-common-utterance-formats"></a>Zelfstudie 3: Algemene vormen van utterances toevoegen
 
@@ -50,7 +50,7 @@ Als u niet over de app Human Resources uit de vorige zelfstudie beschikt, voert 
 
 ## <a name="create-new-intents-and-their-utterances"></a>Nieuwe intenties en de bijbehorende utterances maken
 
-1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Selecteer **Create new intent** op de pagina **Intents**. 
 
@@ -90,7 +90,7 @@ Als u niet over de app Human Resources uit de vorige zelfstudie beschikt, voert 
 
 ## <a name="caution-about-example-utterance-quantity"></a>Waarschuwing over hoeveelheid voorbeeld-utterances
 
-[!include[Too few examples](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]
+[!INCLUDE [Too few examples](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]
 
 ## <a name="train"></a>Trainen
 
@@ -222,7 +222,7 @@ Om ervoor te zorgen dat een patroon overeenkomt met een utterance, moeten eerst 
 
 In deze zelfstudie voegt u twee nieuwe intenties toe: `OrgChart-Manager` en `OrgChart-Reports`. 
 
-|Intent|Utterance|
+|Intentie|Utterance|
 |--|--|
 |OrgChart-Manager|Aan wie moet Jill Jones verantwoording afleggen?|
 |OrgChart-Reports|Wie legt er verantwoording af aan Jill Jones?|
@@ -369,7 +369,7 @@ De vorige patroonsjabloon-utterances in deze zelfstudie hadden enkele voorbeelde
 
 Voorbeelden van utterances zijn:
 
-|Intent|Voorbeeld-utterances met optionele tekst en voorafgemaakte entiteiten|
+|Intentie|Voorbeeld-utterances met optionele tekst en voorafgemaakte entiteiten|
 |:--|:--|
 |OrgChart-Manager|`Who was Jill Jones manager on March 3?`|
 |OrgChart-Manager|`Who is Jill Jones manager now?`|
@@ -379,7 +379,7 @@ Voorbeelden van utterances zijn:
 In elk van deze voorbeelden wordt gebruikgemaakt van een werkwoordsvorm, `was`, `is`, `will be`, evenals een datum, `March 3`, `now`, en `in a month`, die LUIS correct moet voorspellen. U ziet dat in de laatste twee voorbeelden bijna dezelfde tekst wordt gebruikt, behalve voor `in` en `on`.
 
 Voorbeeld van sjabloon-utterances:
-|Intent|Voorbeeld-utterances met optionele tekst en voorafgemaakte entiteiten|
+|Intentie|Voorbeeld-utterances met optionele tekst en voorafgemaakte entiteiten|
 |:--|:--|
 |OrgChart-Manager|`who was {Employee}['s] manager [[on]{datetimeV2}?`]|
 |OrgChart-Manager|`who is {Employee}['s] manager [[on]{datetimeV2}?]`|
@@ -412,7 +412,7 @@ Dankzij het gebruik van de optionele syntaxis met vierkante haken, `[]`, kan dez
 
 1. Terwijl u zich nog steeds in de sectie **Patterns** van **Build** bevindt, voegt u verschillende nieuwe patroonsjabloon-utterances toe. Selecteer **OrgChart-Manager** in de vervolgkeuzelijst Intent en voer elk van de volgende sjabloon-utterances in:
 
-    |Intent|Voorbeeld-utterances met optionele tekst en voorafgemaakte entiteiten|
+    |Intentie|Voorbeeld-utterances met optionele tekst en voorafgemaakte entiteiten|
     |--|--|
     |OrgChart-Manager|`who was {Employee}['s] manager [[on]{datetimeV2}?]`|
     |OrgChart-Manager|`who is {Employee}['s] manager [[on]{datetimeV2}?]`|

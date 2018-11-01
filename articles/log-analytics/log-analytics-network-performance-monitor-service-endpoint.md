@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
 ms.component: ''
-ms.openlocfilehash: fb84b20630eb63cb53ccb1d13a383ed6287b802b
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 76c8421286633dc3c81a073423a7d9f9ca1e1d85
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406616"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50420843"
 ---
 # <a name="service-connectivity-monitor"></a>Bewaking van serviceverbinding
 
@@ -35,13 +35,13 @@ U kunt de volgende functies met Service-Connectiviteitsmonitor uitvoeren:
 - Identificeer hotspots in het netwerk die slecht presteert prestaties veroorzaakt mogelijk door de latentie bijgedragen door elke hop op een topologie-kaart weer te geven.
 
 
-![Bewaking van serviceverbinding](media/log-analytics-network-performance-monitor/service-endpoint-intro.png)
+![Bewaking van serviceverbinding](media/log-analytics-network-performance-monitor-service-endpoint/service-endpoint-intro.png)
 
 
 ## <a name="configuration"></a>Configuratie 
 Open de configuratie voor Network Performance Monitor te openen de [Network Performance Monitor oplossing](log-analytics-network-performance-monitor.md) en selecteer **configureren**.
 
-![Network Performance Monitor configureren](media/log-analytics-network-performance-monitor/npm-configure-button.png)
+![Network Performance Monitor configureren](media/log-analytics-network-performance-monitor-service-endpoint/npm-configure-button.png)
 
 
 ### <a name="configure-log-analytics-agents-for-monitoring"></a>Log Analytics-agents configureren voor bewaking
@@ -79,7 +79,7 @@ Beginnen met het maken van de tests uitgevoerd voor het controleren van de netwe
 10. Kies voorwaarden controleren. U kunt aangepaste drempelwaarden voor het genereren van health-gebeurtenis instellen door te voeren drempelwaarden. Wanneer de waarde van de voorwaarde hoger dan de geselecteerde drempelwaarde voor het geselecteerde netwerk of subnet paar gaat, wordt een statusgebeurtenis wordt gegenereerd. 
 11. Selecteer **opslaan** aan de configuratie op te slaan. 
 
-    ![Connectiviteitsmonitor voor service-testconfiguraties](media/log-analytics-network-performance-monitor/service-endpoint-configuration.png)
+    ![Connectiviteitsmonitor voor service-testconfiguraties](media/log-analytics-network-performance-monitor-service-endpoint/service-endpoint-configuration.png)
 
 
 
@@ -87,11 +87,11 @@ Beginnen met het maken van de tests uitgevoerd voor het controleren van de netwe
 
 Ga naar de dashboardweergave Network Performance Monitor. Als u een overzicht van de status van de verschillende tests die u hebt gemaakt, bekijk de **Service Connectiviteitsmonitor** pagina. 
 
-![Connectiviteitsmonitor voor service-pagina](media/log-analytics-network-performance-monitor/service-endpoint-blade.png)
+![Connectiviteitsmonitor voor service-pagina](media/log-analytics-network-performance-monitor-service-endpoint/service-endpoint-blade.png)
 
 Selecteer de tegel om de details van de tests weer op te geven de **Tests** pagina. U kunt de status van de punt-in-time en de waarde van de reactietijd van service, netwerklatentie en pakketverlies voor alle tests weergeven in de tabel aan de linkerkant. Het besturingselement netwerk staat Recorder gebruiken om de momentopname van het netwerk op een later tijdstip in het verleden weer te geven. Selecteer de test in de tabel die u wilt onderzoeken. In de grafieken in het deelvenster aan de rechterkant vindt u de historische trend van het gegevensverlies, latentie en tijdwaarden van de reactie. Selecteer de **Test Details** koppeling om de prestaties van elk knooppunt weer te geven.
 
-![Connectiviteitsmonitor voor service-tests](media/log-analytics-network-performance-monitor/service-endpoint-tests.png)
+![Connectiviteitsmonitor voor service-tests](media/log-analytics-network-performance-monitor-service-endpoint/service-endpoint-tests.png)
 
 In de **Testknooppunten** weergeven, kunt u de netwerkverbinding van elk knooppunt observeren. Selecteer het knooppunt met verminderde prestaties. Dit is het knooppunt waar de toepassing is waargenomen langzaam worden uitgevoerd.
 
@@ -99,15 +99,15 @@ Bepalen of de prestaties slecht presteert vanwege een probleem aan het uiteinde 
 
 * **Toepassingsprobleem:** een piek in de reactietijd, maar consistentie in de netwerklatentie kan erop wijzen dat het netwerk goed werkt en het probleem wordt mogelijk veroorzaakt door een probleem aan het einde van de toepassing. 
 
-    ![Connectiviteitsmonitor voor service-toepassingsprobleem](media/log-analytics-network-performance-monitor/service-endpoint-application-issue.png)
+    ![Connectiviteitsmonitor voor service-toepassingsprobleem](media/log-analytics-network-performance-monitor-service-endpoint/service-endpoint-application-issue.png)
 
 * **Probleem met het netwerk:** een piek in de reactietijd, samen met een bijbehorende piek in de netwerklatentie kan erop wijzen dat de toename van reactietijden veroorzaakt door een toename van de netwerklatentie worden kan. 
 
-    ![Connectiviteitsmonitor voor service-netwerkprobleem](media/log-analytics-network-performance-monitor/service-endpoint-network-issue.png)
+    ![Connectiviteitsmonitor voor service-netwerkprobleem](media/log-analytics-network-performance-monitor-service-endpoint/service-endpoint-network-issue.png)
 
 Nadat u hebt vastgesteld dat het probleem vanwege het netwerk is, selecteert u de **topologie** weergavekoppeling voor het identificeren van de lastige hop op de kaart topologie. Een voorbeeld wordt weergegeven in de volgende afbeelding. Buiten de 105 ms totale latentie tussen het knooppunt en het toepassingseindpunt van de is 96 ms vanwege de hop in rood gemarkeerd. Nadat u de lastige hop geïdentificeerd, kunt u corrigerende maatregelen kunt nemen. 
 
-![Connectiviteitsmonitor voor service-tests](media/log-analytics-network-performance-monitor/service-endpoint-topology.png)
+![Connectiviteitsmonitor voor service-tests](media/log-analytics-network-performance-monitor-service-endpoint/service-endpoint-topology.png)
 
 ## <a name="diagnostics"></a>Diagnostiek 
 

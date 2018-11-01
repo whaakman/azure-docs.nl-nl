@@ -9,12 +9,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: ramkris
-ms.openlocfilehash: a22cd65ef5d4ef22038a8506359d1036e829db4d
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 44477f77547c9373bd4a3394c80e217d419bc8e0
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49362106"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50420044"
 ---
 # <a name="use-bulk-executor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>Bulksgewijs executor Java-clientbibliotheek gebruiken om te bulksgewijs bewerkingen uitvoeren op Azure Cosmos DB-gegevens
 
@@ -28,7 +28,7 @@ Bulksgewijs executor-bibliotheek wordt momenteel ondersteund door Azure Cosmos D
 
 * [Probeer Azure Cosmos DB gratis uit](https://azure.microsoft.com/try/cosmosdb/) zonder Azure-abonnement, zonder kosten en zonder verplichtingen. Of u kunt de [Azure Cosmos DB-Emulator](https://docs.microsoft.com/azure/cosmos-db/local-emulator) met de `https://localhost:8081` URI. De primaire sleutel wordt gegeven in [Aanvragen verifiëren](local-emulator.md#authenticating-requests).  
 
-* [Java Development Kit (JDK) 1.7+](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)  
+* [Java Development Kit (JDK) 1.7+](https://aka.ms/azure-jdks)  
   - Voer op Ubuntu `apt-get install default-jdk` uit om de JDK te installeren.  
 
   - Zorg dat de omgevingsvariabele JAVA_HOME verwijst naar de map waarin de JDK is geïnstalleerd.

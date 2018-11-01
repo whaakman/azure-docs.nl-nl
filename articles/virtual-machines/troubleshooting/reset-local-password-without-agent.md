@@ -11,14 +11,14 @@ ms.service: virtual-machines-windows
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 01/25/2018
+ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: a69692d9f50d0362a6b10d3237e1e5448c43baab
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 31e675b101d903af5dd4a07fee3bc56fbc3353d9
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48268713"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50412785"
 ---
 # <a name="reset-local-windows-password-for-azure-vm-offline"></a>Lokale Windows-wachtwoord offline voor Azure-VM herstellen
 U kunt opnieuw instellen van het lokale Windows-wachtwoord van een virtuele machine in Azure met de [Azure portal of Azure PowerShell](reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) voorwaarde dat de Azure-gastagent is geïnstalleerd. Deze methode is de belangrijkste manier om een wachtwoord opnieuw instellen voor een Azure-VM. Als u problemen ondervindt met de Azure-gastagent niet reageert of niet worden geïnstalleerd na het uploaden van een aangepaste installatiekopie, u handmatig kunt moet u een Windows-wachtwoord opnieuw instellen. Dit artikel wordt uitgelegd hoe u een lokaal account-wachtwoord opnieuw instellen door de virtuele bron-OS-schijf koppelen aan een andere virtuele machine. De stappen in dit artikel niet van toepassing op Windows-domeincontrollers. 
@@ -133,7 +133,7 @@ Altijd probeer het opnieuw instellen van een wachtwoord met de [Azure portal of 
      ![Kopiëren van schijf-URI](./media/reset-local-password-without-agent/copy_source_vhd_uri.png)
 9. Een virtuele machine maken van de besturingssysteemschijf van de bron-VM:
    
-   * Gebruik [deze Azure Resource Manager-sjabloon](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd-new-or-existing-vnet) aan een virtuele machine maken vanaf een gespecialiseerde VHD. Klik op de `Deploy to Azure` knop voor het openen van de Azure-portal met de details van de sjablonen die voor u wordt gevuld.
+   * Gebruik [deze Azure Resource Manager-sjabloon](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd-new-or-existing-vnet) aan een virtuele machine maken vanaf een gespecialiseerde VHD. Klik op de `Deploy to Azure` knop voor het openen van de Azure-portal met de details van de sjablonen die voor u wordt gevuld.
    * Als u behouden van alle voorgaande instellingen voor de virtuele machine wilt, selecteert u *template bewerken* voor uw bestaande VNet, subnet, netwerkadapter of openbaar IP-adres.
    * In de `OSDISKVHDURI` parameter tekstvak, plak de URI van de bron-VHD verkrijgen in de vorige stap:
      

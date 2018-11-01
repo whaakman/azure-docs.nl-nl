@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: ffac9511ab93367cba3f006249bd92658a520e09
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 76a87b79ccc776e0facd57a1cff50fbbcb4f0b9e
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49386927"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50414876"
 ---
 # <a name="create-view-and-manage-classic-metric-alerts-using-azure-monitor"></a>Maken, weergeven en beheren van klassieke metrische waarschuwingen met behulp van Azure Monitor
 
@@ -24,11 +24,11 @@ Klassieke metrische waarschuwingen in Azure Monitor biedt een manier om te worde
 
 2. In de **bewaking** sectie, selecteer **waarschuwingen (klassiek)**. De tekst en het pictogram kunnen enigszins verschillen voor verschillende resources. Als u niet kunt vinden **waarschuwingen (klassiek)** hier is het wellicht in **waarschuwingen** of **waarschuwingsregels**.
 
-    ![Bewaking](./media/alerts-metric-classic/AlertRulesButton.png)
+    ![Bewaking](media/alert-metric-classic/AlertRulesButton.png)
 
 3. Selecteer de **metrische waarschuwing toevoegen (klassiek)** opdracht in en vul de velden.
 
-    ![Waarschuwing toevoegen](./media/alerts-metric-classic/AddAlertOnlyParamsPage.png)
+    ![Waarschuwing toevoegen](media/alert-metric-classic/AddAlertOnlyParamsPage.png)
 
 4. **Naam** de waarschuwingsregel. Kies vervolgens een **beschrijving**, die ook wordt weergegeven in e-mailmeldingen.
 

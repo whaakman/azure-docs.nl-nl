@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/06/2018
+ms.date: 10/31/2018
 ms.author: jingwang
-ms.openlocfilehash: 958d1ea09ce4d85afc59af412e1050efc6290a1a
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 7dc60c18e105c9be190b5bfede786f61a65feec3
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39002242"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50416933"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Kopiëren en afstemmingshandleiding van activiteit
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -56,7 +56,7 @@ Als een verwijzing naar een onderstaande tabel ziet u het nummer van de doorvoer
 Die u moet weten:
 
 * Doorvoer wordt berekend met behulp van de volgende formule: [grootte van de gegevens lezen uit bron] / [Copy Activity uitvoeringsduur].
-* De prestaties van verwijzing getallen in de tabel zijn gemeten met behulp van [TPC-H](http://www.tpc.org/tpch/) gegevensset in een activiteit die één exemplaar wordt uitgevoerd.
+* De prestaties van verwijzing getallen in de tabel zijn gemeten met behulp van [TPC-H](http://www.tpc.org/tpch/) gegevensset in een activiteit die één exemplaar wordt uitgevoerd. Testbestanden voor bestandsgebaseerde winkels zijn meerdere bestanden met 10GB groot.
 * In de Azure-gegevensopslag zijn de bron en sink in dezelfde Azure-regio.
 * Voor hybride kopiëren tussen on-premises en cloud gegevensarchieven, elk knooppunt zelfgehoste Cloudintegratieruntime werd uitgevoerd op een computer die gescheiden van het gegevensarchief met onderstaande specificatie is. Als een enkele activiteit werd uitgevoerd, gebruikt de kopieerbewerking alleen een klein deel van de testmachine CPU, geheugen of netwerkbandbreedte.
     <table>
@@ -76,7 +76,7 @@ Die u moet weten:
 
 
 > [!TIP]
-> U kunt hogere doorvoer bereiken met behulp van meer gegevens integratie eenheden (DIU) dan de standaard maximale DIUs 32 voor cloud-naar-cloud copy activity uitvoeren zijn toegestaan. Bijvoorbeeld, met 100 DIUs, kunt u bereiken kopiëren van gegevens van Azure-Blob in Azure Data Lake Store op **1.0GBps**. Zie de [integratie gegevenseenheden](#data-integration-units) sectie voor meer informatie over deze functie en de ondersteunde scenario. Neem contact op met [ondersteuning van Azure](https://azure.microsoft.com/support/) meer DIUs aanvragen.
+> U kunt hogere doorvoer bereiken met behulp van meer gegevens integratie eenheden (DIU). Bijvoorbeeld, met 100 DIUs, kunt u bereiken kopiëren van gegevens van Azure-Blob in Azure Data Lake Store op **1.0GBps**. Zie de [integratie gegevenseenheden](#data-integration-units) sectie voor meer informatie over deze functie en de ondersteunde scenario. 
 
 ## <a name="data-integration-units"></a>Eenheden van de integratie van gegevens
 
@@ -94,7 +94,7 @@ Als u wilt deze standaardwaarde onderdrukken, Geef een waarde op voor de **dataI
 Hier ziet u de daadwerkelijk gebruikte eenheden van de integratie van gegevens voor elk exemplaar dat wordt uitgevoerd in de kopieeractiviteit uitvoer bij het bewaken van een activiteit die wordt uitgevoerd. Informatie over de details van [kopiëren activiteitenbewaking](copy-activity-overview.md#monitoring).
 
 > [!NOTE]
-> Als u meer DIUs voor een hogere doorvoer nodig hebt, neem dan contact op met [ondersteuning van Azure](https://azure.microsoft.com/support/). Instellen van 8 en hoger momenteel werkt alleen als u **meerdere bestanden kopiëren van Blob-opslag/Data Lake Store/Amazon S3/cloud FTP-/ cloud SFTP naar een andere cloud gegevensarchieven**.
+> Instellen van DIUs **groter is dan 4** op dit moment werkt alleen als u **meerdere bestanden kopiëren van Blob-opslag/Data Lake Storage/Amazon S3/cloud FTP/cloud SFTP naar een andere cloudgegevens worden opgeslagen.**.
 >
 
 **Voorbeeld:**

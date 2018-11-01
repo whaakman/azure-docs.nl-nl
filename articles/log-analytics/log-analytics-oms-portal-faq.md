@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 49aed496d8c125da8c2269186b569693c794d290
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: fc9ed37ef24e776336124bf097def2f6a00ee83e
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49404559"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50419789"
 ---
 # <a name="common-questions-for-transition-from-oms-portal-to-azure-portal-for-log-analytics-users"></a>Veelgestelde vragen voor overgang van OMS-portal naar Azure-portal voor Log Analytics-gebruikers
 Log Analytics gebruikt een eigen portal met de OMS-portal de naam in eerste instantie de configuratie ervan beheren en analyseren van verzamelde gegevens.  Alle functionaliteit van deze portal is verplaatst naar de Azure-portal waar deze blijft op worden ontwikkeld.
@@ -32,7 +32,7 @@ Nee. Er zijn geen wijzigingen aangebracht in Log Analytics zelf, dus er is niets
 ## <a name="where-do-i-find-log-analytics-in-azure"></a>Waar vind ik Log Analytics in Azure?
 Meld u aan bij de Azure-portal op [https://portal.azure.com](https://portal.azure.com).  Klik op **alle services**, en typ in de lijst met resources **Log Analytics**. Selecteer **Log Analytics** en selecteer vervolgens uw werkruimte. De overzichtspagina voor de werkruimte wordt weergegeven.
 
-![Log Analytics-werkruimte](media/log-analytics-new-portal/log-analytics.png)
+![Log Analytics-werkruimte](media/log-analytics-oms-portal-faq/log-analytics.png)
 
 ## <a name="how-do-i-manage-permissions"></a>Hoe beheer ik machtigingen?
 Als u geen toegang tot uw Log Analytics-werkruimte in de Azure-portal hebt, moet u het configureren van uw machtigingen met behulp van [Azure op rollen gebaseerde toegang](../active-directory/role-based-access-control-configure.md). Zie voor meer informatie over het beheren van machtigingen voor de werkruimte [werkruimten beheren](../log-analytics/log-analytics-manage-access.md#manage-accounts-and-users). Zie voor meer informatie over het beheren van machtigingen voor waarschuwingen [aan de slag met rollen, machtigingen en beveiliging met Azure Monitor](../monitoring-and-diagnostics/monitoring-roles-permissions-security.md).
@@ -40,12 +40,12 @@ Als u geen toegang tot uw Log Analytics-werkruimte in de Azure-portal hebt, moet
 ## <a name="how-do-i-create-a-new-workspace"></a>Hoe kan ik een nieuwe werkruimte maken? 
 Klik in de lijst met werkruimten in Azure portal, op **toevoegen** in de lijst met werkruimten.  Zie voor meer informatie, [een Log Analytics-werkruimte maken in Azure portal](../log-analytics/log-analytics-quick-create-workspace.md).
 
-![Overzichtspagina](media/log-analytics-new-portal/new-workspace.png)
+![Overzichtspagina](media/log-analytics-oms-portal-faq/new-workspace.png)
 
 ## <a name="where-is-my-overview-page"></a>Waar zijn mijn overzichtspagina?
 De belangrijkste scherm in de OMS-portal wordt weergegeven de tegels voor alle beheeroplossingen die zijn geïnstalleerd in uw werkruimte en alle aangepaste weergaven die u hebt gemaakt. Deze dezelfde weergave is beschikbaar in de Azure-portal. Selecteer in uw werkruimte **werkruimte overzicht**.
 
-![Overzichtspagina](media/log-analytics-new-portal/overview.png)
+![Overzichtspagina](media/log-analytics-oms-portal-faq/overview.png)
 
 ## <a name="how-do-i-open-log-search-and-view-designer"></a>Hoe open ik zoeken in Logboeken en Designer bekijken?
 Beide **zoeken in logboeken** en **Weergaveontwerper** zijn rechts naast beschikbaar op de startpagina en in het menu links van uw werkruimte in de Azure-portal voor **overzicht**.
@@ -53,7 +53,7 @@ Beide **zoeken in logboeken** en **Weergaveontwerper** zijn rechts naast beschik
 ## <a name="where-do-i-find-settings"></a>Waar vind ik de instellingen?
 Veel van de instellingen in de **instellingen** sectie van de OMS-portal zijn beschikbaar in de **geavanceerde instellingen** menu in de Azure-portal voor de werkruimte.
 
-![Geavanceerde instellingen](media/log-analytics-new-portal/advanced-settings.png)
+![Geavanceerde instellingen](media/log-analytics-oms-portal-faq/advanced-settings.png)
 
 De volgende secties bevatten een volledige lijst van hoe u toegang krijgen tot instellingen die reeds waren eerder beschikbaar was in de **instellingen** sectie van de OMS-portal.
 
@@ -118,7 +118,7 @@ De [mijn Dashboard](../log-analytics/log-analytics-dashboards.md) functie in Log
 ## <a name="how-do-i-check-my-usage"></a>Hoe kan ik mijn gebruik controleren?
 U kunt nu eenvoudig bekijken en beheren van uw gebruik en kosten van Log Analytics door te selecteren **gebruik en geraamde kosten** in uw werkruimte.
 
-![Gebruik en geraamde kosten](media/log-analytics-new-portal/usage.png)
+![Gebruik en geraamde kosten](media/log-analytics-oms-portal-faq/usage.png)
 
 
 ## <a name="can-i-still-use-the-classic-portal"></a>Kan ik nog steeds de klassieke portal gebruiken?

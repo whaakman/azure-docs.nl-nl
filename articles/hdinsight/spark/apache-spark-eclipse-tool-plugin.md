@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/30/2017
 ms.author: jasonh
-ms.openlocfilehash: 836bdccbf3f8887a47da38b47b414722c878be04
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: ab3f4dcdc5a5ad8528080c90fa6c17f9493d19ac
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43046009"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50420299"
 ---
 # <a name="use-azure-toolkit-for-eclipse-to-create-spark-applications-for-an-hdinsight-cluster"></a>Azure Toolkit voor Eclipse gebruiken voor het maken van Spark-toepassingen voor een HDInsight-cluster
 
@@ -32,7 +32,7 @@ Gebruik HDInsight-hulpprogramma's in Azure Toolkit voor Eclipse Spark-toepassing
 ## <a name="prerequisites"></a>Vereisten
 
 * Apache Spark-cluster in HDInsight. Zie [Apache Spark-clusters maken in Azure HDInsight](apache-spark-jupyter-spark-sql.md) voor instructies.
-* Oracle Java Development Kit versie 8, die wordt gebruikt voor de Eclipse IDE-runtime. U kunt dit ook downloaden via de [Oracle website](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
+* Oracle Java Development Kit versie 8, die wordt gebruikt voor de Eclipse IDE-runtime. U kunt dit ook downloaden via de [Oracle website](https://aka.ms/azure-jdks).
 * Eclipse IDE. In dit artikel wordt gebruikgemaakt van Eclipse Neon. U kunt installeren vanuit de [Eclipse website](https://www.eclipse.org/downloads/).
 
 

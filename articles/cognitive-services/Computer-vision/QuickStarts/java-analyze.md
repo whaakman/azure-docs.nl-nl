@@ -10,12 +10,12 @@ ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: pafarley
-ms.openlocfilehash: 6dae10262c40a127cb24dd40f0d5389c0cdd7c20
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: bfbdba780e9de1b89737cf2a6aa02f7de82a5df7
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49340015"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50414927"
 ---
 # <a name="quickstart-analyze-a-remote-image-using-the-rest-api-and-java-in-computer-vision"></a>Snelstart: Een externe afbeelding analyseren met behulp van de REST API en Java in Computer Vision
 
@@ -25,7 +25,7 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 
 ## <a name="prerequisites"></a>Vereisten
 
-- U moet [Java&trade; Platform, Standard Edition Development Kit 7 of 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) (JDK 7 of 8) hebben geïnstalleerd.
+- U moet [Java&trade; Platform, Standard Edition Development Kit 7 of 8](https://aka.ms/azure-jdks) (JDK 7 of 8) hebben geïnstalleerd.
 - U moet beschikken over een abonnementssleutel voor Computer Vision. Zie [Abonnementssleutels verkrijgen](../Vision-API-How-to-Topics/HowToSubscribe.md) voor meer informatie over het verkrijgen van een abonnementssleutel.
 
 ## <a name="create-and-run-the-sample-application"></a>De voorbeeldtoepassing maken en uitvoeren

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: mareat
-ms.openlocfilehash: db3b08ae8092661e6ffa0f2dd7e460f341a8d013
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 3030fdcec95d91b75974465ad30f707837263367
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43666056"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50414774"
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-in-azure-using-network-watcher-and-graylog"></a>Beheren en analyseren van flow logboeken van netwerkbeveiligingsgroepen in Azure met behulp van Network Watcher en Graylog
 
@@ -38,7 +38,7 @@ Stroomlogboeken van netwerk zijn ingeschakeld met behulp van Network Watcher. St
 
 ### <a name="enable-network-security-group-flow-logging"></a>Stroomlogboeken van netwerkbeveiligingsgroep netwerk inschakelen
 
-Voor dit scenario moet u netwerk stroomlogboeken van netwerkbeveiligingsgroep ingeschakeld op ten minste één netwerkbeveiligingsgroep in uw account hebben. Voor instructies over het inschakelen van het netwerk stroomlogboeken, raadpleegt u het volgende artikel [Inleiding tot stroomlogboeken voor netwerkbeveiligingsgroepen](network-watcher-nsg-flow-logging-overview.md).
+Voor dit scenario moet u netwerk stroomlogboeken van netwerkbeveiligingsgroep ingeschakeld op ten minste één netwerkbeveiligingsgroep in uw account hebben. Voor instructies over het inschakelen van het netwerk stroomlogboeken, raadpleegt u het volgende artikel [Inleiding tot stroomlogboeken voor netwerkbeveiligingsgroepen](network-watcher-nsg-flow-logging-overview.md).
 
 ### <a name="setting-up-graylog"></a>Instellen van Graylog
 
@@ -51,7 +51,7 @@ In dit voorbeeld wordt de minimale Graylog-instellingen (zoals) slechts één ex
 
 Graylog kan worden geïnstalleerd op tal van manieren, afhankelijk van uw platform en voorkeuren. Raadpleeg voor een volledige lijst van mogelijke installatiemethoden van Graylog officiële [documentatie](http://docs.graylog.org/en/2.2/pages/installation.html). De servertoepassing Graylog wordt uitgevoerd op Linux-distributies en heeft de volgende vereisten:
 
--  Oracle Java SE 8 of hoger: [van Oracle-documentatie voor installatie](http://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html)
+-  Java SE 8 of hoger: [Azul Azure JDK-documentatie](https://aka.ms/azure-jdks)
 -  Elastische 2.x zoeken (2.1.0 of hoger)- [installatiedocumentatie voor Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/2.4/_installation.html)
 -  MongoDB 2.4 of hoger: [MongoDB-documentatie voor installatie](https://docs.mongodb.com/manual/administration/install-on-linux/)
 
@@ -244,4 +244,4 @@ Door de Network Watcher integratie met Graylog, hebt u nu een handige en gecentr
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Meer informatie over het visualiseren van uw stroomlogboeken van netwerkbeveiligingsgroepen met Power BI recentst [Visualize netwerkbeveiligingsgroep stromen logboeken met Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md).
+Meer informatie over het visualiseren van uw stroomlogboeken van netwerkbeveiligingsgroepen met Power BI recentst [Visualize netwerkbeveiligingsgroep stromen logboeken met Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md).

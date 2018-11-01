@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: a95cdbb48371cf960211f55bf077cea9db783db5
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 3c8202f762c65d72417020b0524e415e55076eb0
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48248326"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50415259"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-using-azure-monitor"></a>Maken, weergeven en beheren van waarschuwingen voor activiteitenlogboeken met behulp van Azure Monitor  
 
@@ -43,11 +43,11 @@ Gebruik de volgende procedure:
 1. Selecteer in Azure portal, **Monitor** > **waarschuwingen**
 2. Klik op **nieuwe waarschuwingsregel** aan de bovenkant van de **waarschuwingen** venster.
 
-     ![Nieuwe waarschuwingsregel](./media/monitor-alerts-unified/AlertsPreviewOption.png)
+     ![Nieuwe waarschuwingsregel](media/alert-activity-log/AlertsPreviewOption.png)
 
      De **maken regel** venster wordt weergegeven.
 
-      ![Opties voor nieuwe waarschuwingsregel](./media/monitoring-activity-log-alerts-new-experience/create-new-alert-rule-options.png)
+      ![Opties voor nieuwe waarschuwingsregel](media/alert-activity-log/create-new-alert-rule-options.png)
 
 3. **Onder de voorwaarde voor waarschuwing definiëren,** geeft u de volgende informatie en op **gedaan**.
 
@@ -57,7 +57,7 @@ Gebruik de volgende procedure:
 
     > u kunt een resource, resourcegroep of een hele abonnement voor de activiteit logboeksignaal selecteren.
 
-    **Target voorbeeldgegevens waarschuwingsweergave** ![doel selecteren](./media/monitoring-activity-log-alerts-new-experience/select-target.png)
+    **Target voorbeeldgegevens waarschuwingsweergave** ![doel selecteren](media/alert-activity-log/select-target.png)
 
     - Onder **doel Criteria**, klikt u op **criteria toevoegen** en alle beschikbare signalen voor het doel worden weergegeven, met inbegrip van die uit verschillende categorieën van **activiteitenlogboek**; met naam van de apparaatcategorie in toegevoegd **-controleservice** naam.
 
@@ -67,7 +67,7 @@ Gebruik de volgende procedure:
 
     **Scherm criteria toevoegen**
 
-    ![criteria toevoegen](./media/monitoring-activity-log-alerts-new-experience/add-criteria.png)
+    ![criteria toevoegen](media/alert-activity-log/add-criteria.png)
 
     **Tijd van de geschiedenis**: gebeurtenissen beschikbaar voor de geselecteerde bewerking is, kunnen worden weergegeven gedurende de afgelopen 6/12/24 uur (of) in de afgelopen Week.
 
@@ -79,7 +79,7 @@ Gebruik de volgende procedure:
 
         Voorbeeld signaal graph met waarschuwingslogica toegepast:
 
-        ![ criteria die zijn geselecteerd](./media/monitoring-activity-log-alerts-new-experience/criteria-selected.png)
+        ![ criteria die zijn geselecteerd](media/alert-activity-log/criteria-selected.png)
 
 4. Onder **waarschuwingsregels details definiëren**, geef de volgende informatie op:
 
@@ -99,20 +99,20 @@ Gebruik de volgende procedure:
 
 U kunt ook een eenvoudige vergelijking voor informatie over voorwaarden waarop de waarschuwingsregels voor activiteitenlogboeken, kunnen worden gemaakt is om te verkennen of filteren van gebeurtenissen via [activiteitenlogboek in Azure portal](monitoring-overview-activity-logs.md#query-the-activity-log-in-the-azure-portal). In Azure controleren: activiteitenlogboek, een kunt filteren of nodig gebeurtenis zoeken en vervolgens een waarschuwing te maken met behulp van de **waarschuwing voor activiteitenlogboek toevoegen** knop; vervolgens stappen 4 en hoger zoals vermeld in de zelfstudie hierboven.
     
- ![ waarschuwing toevoegen met het activiteitenlogboek](./media/monitoring-activity-log-alerts-new-experience/add-activity-log.png)
+ ![ waarschuwing toevoegen met het activiteitenlogboek](media/alert-activity-log/add-activity-log.png)
     
 
 ### <a name="view-and-manage-in-azure-portal"></a>Weergeven en beheren in Azure portal
 
 1. Vanuit Azure-portal, klikt u op **Monitor** > **waarschuwingen** en klikt u op **regels beheren** op linksboven in het venster.
 
-    ![ regels voor waarschuwingen beheren](./media/monitoring-activity-log-alerts-new-experience/manage-alert-rules.png)
+    ![ regels voor waarschuwingen beheren](media/alert-activity-log/manage-alert-rules.png)
 
     De lijst met beschikbare regels wordt weergegeven.
 
 2. Zoek de regel voor het logboek van activiteit te wijzigen.
 
-    ![ waarschuwingsregels activiteit zoeken](./media/monitoring-activity-log-alerts-new-experience/searth-activity-log-rule-to-edit.png)
+    ![ waarschuwingsregels activiteit zoeken](media/alert-activity-log/searth-activity-log-rule-to-edit.png)
 
     U kunt de beschikbare filters - _abonnement_, _resourcegroep_, _Resource_, _signaaltype_, of _Status_  te vinden van de activiteit regel die u wilt bewerken.
 
@@ -122,7 +122,7 @@ U kunt ook een eenvoudige vergelijking voor informatie over voorwaarden waarop d
 
 3.  Selecteer de regel en dubbelklik erop om het bewerken van de opties voor de regel. De benodigde wijzigingen aanbrengen en klik vervolgens op **opslaan**.
 
-    ![ regels voor waarschuwingen beheren](./media/monitoring-activity-log-alerts-new-experience/activity-log-rule-edit-page.png)
+    ![ regels voor waarschuwingen beheren](media/alert-activity-log/activity-log-rule-edit-page.png)
 
 4.  U kunt uitschakelen, inschakelen of verwijderen van een regel. Selecteer de gewenste optie aan de bovenkant van het venster nadat u de regel zoals beschreven in stap 2 hebt geselecteerd.
 

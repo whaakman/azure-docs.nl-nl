@@ -1,6 +1,6 @@
 ---
-title: Inbraakdetectie netwerk met Azure-netwerk-Watcher en open-source hulpprogramma's uitvoeren | Microsoft Docs
-description: Dit artikel wordt beschreven hoe u Azure-netwerk-Watcher en open source-hulpprogramma's om uit te voeren inbraakdetectie netwerk
+title: Netwerk indringers detecteren met Azure Network Watcher en open-source hulpprogramma's | Microsoft Docs
+description: In dit artikel wordt beschreven hoe u gebruik van Azure Network Watcher en open source-hulpprogramma's voor het netwerk indringers detecteren
 services: network-watcher
 documentationcenter: na
 author: jimdial
@@ -14,26 +14,26 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: aff1b5f9e8860d3b8dc09b37684bb8a4ac2bf134
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 9d77952a96bff6cc2d50ecbd4bde7e499f20de6d
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "23864222"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50420027"
 ---
-# <a name="perform-network-intrusion-detection-with-network-watcher-and-open-source-tools"></a>Inbraakdetectie netwerk met de netwerk-Watcher en open-source hulpprogramma's uitvoeren
+# <a name="perform-network-intrusion-detection-with-network-watcher-and-open-source-tools"></a>Netwerk indringers detecteren met Network Watcher en open-sourcehulpprogramma 's
 
-Pakket mogelijk zijn een belangrijk onderdeel voor de implementatie van network inbraakdetectie detectiesystemen (id's) en Network Security Monitoring (NSM) uitvoeren. Er zijn verschillende hulpmiddelen van de open-source-id's die pakket opnamen verwerken en zoek naar de handtekeningen van mogelijke aanvallen en schadelijke activiteiten. Met behulp van het pakket worden opgegeven door de netwerk-Watcher, kunt u uw netwerk voor eventuele schadelijke beveiligingsrisico's of beveiligingsproblemen analyseren.
+Pakketopnamen zijn een belangrijk onderdeel voor het implementeren van netwerksystemen voor het detecteren van indringers (id's) en Network Security Monitoring (NSM) uitvoeren. Er zijn verschillende hulpmiddelen van de open-source-id's die pakketopnamen verwerken en zoek naar handtekeningen van mogelijke aanvallen en schadelijke activiteiten. Met behulp van het pakket wordt vastgelegd, opgegeven door de Network Watcher, kunt u uw netwerk voor eventuele schadelijke indringers of beveiligingsproblemen analyseren.
 
-Dergelijke open-source hulpprogramma is Suricata, een id-engine die gebruikmaakt van rulesets netwerkverkeer te bewaken en waarschuwingen wordt geactiveerd wanneer verdachte gebeurtenissen optreden. Suricata biedt een met meerdere threads-engine, wat betekent dat netwerkverkeeranalyse met hogere snelheid en efficiëntie kan uitvoeren. Ga voor meer informatie over Suricata en de mogelijkheden ervan naar hun website op https://suricata-ids.org/.
+Een dergelijke open-source-hulpprogramma is Suricata, een engine voor id's die gebruikmaakt van rulesets netwerkverkeer te bewaken en activeert waarschuwingen wanneer er verdachte gebeurtenissen plaatsvinden. Suricata biedt een engine voor meerdere threads, wat betekent dat het een netwerkverkeeranalyse met hogere snelheid en efficiëntie kunt uitvoeren. Voor meer informatie over Suricata en de mogelijkheden ervan, bezoekt u hun website op https://suricata-ids.org/.
 
 ## <a name="scenario"></a>Scenario
 
-Dit artikel wordt uitgelegd hoe u uw omgeving uit te voeren inbraakdetectie netwerk met behulp van de netwerk-Watcher Suricata en de elastische Stack instelt. Netwerk-Watcher biedt u de pakket-opnamen gebruikt voor het detecteren van indringers netwerk uitvoeren. Suricata verwerkt de opnamen van pakket en de trigger-waarschuwingen op basis van pakketten die overeenkomen met de opgegeven ruleset van bedreigingen. Deze waarschuwingen worden opgeslagen in een logboekbestand op uw lokale machine. Met behulp van de elastische Stack, kunnen de logboeken die worden gegenereerd door Suricata worden geïndexeerd en gebruikt voor het maken van een Kibana dashboard, zonder dat u een visuele representatie van de logboekbestanden en een middel snel om inzicht te krijgen voor mogelijke beveiligingsproblemen van het netwerk.  
+In dit artikel wordt uitgelegd hoe u uw omgeving instellen op het netwerk indringers detecteren met behulp van Network Watcher, Suricata en de Elastic Stack. Network Watcher biedt u de pakketopnamen gebruikt voor het netwerk indringers detecteren. Suricata verwerkt de pakketopnamen en trigger waarschuwingen op basis van pakketten die overeenkomen met de opgegeven ruleset van bedreigingen. Deze waarschuwingen worden opgeslagen in een logboekbestand op uw lokale computer. Met behulp van de Elastic Stack, kunnen de logboeken die worden gegenereerd door Suricata worden geïndexeerd en gebruikt voor het maken van een Kibana-dashboard, zodat u met een visuele weergave van de logboeken en een manier om te snel inzicht krijgt in de mogelijke beveiligingsproblemen van het netwerk.  
 
-![Toepassingsscenario eenvoudige web][1]
+![scenario voor eenvoudige web-toepassing][1]
 
-Beide open-source hulpprogramma's kunnen worden ingesteld op een virtuele machine van Azure zodat u kunt deze analyse in uw eigen Azure netwerkomgeving uitvoeren.
+Beide open-sourcehulpprogramma's kunnen worden ingesteld op een Azure-VM, zodat u kunt om uit te voeren van deze analyse uit binnen uw eigen Azure-netwerkomgeving.
 
 ## <a name="steps"></a>Stappen
 
@@ -41,7 +41,7 @@ Beide open-source hulpprogramma's kunnen worden ingesteld op een virtuele machin
 
 Voor alle andere methoden van installatie, gaat u naar http://suricata.readthedocs.io/en/latest/install.html
 
-1. Voer in de opdrachtregeloptie terminal van uw virtuele machine in de volgende opdrachten:
+1. Voer de volgende opdrachten in de opdrachtregelterminal van uw virtuele machine:
 
     ```
     sudo add-apt-repository ppa:oisf/suricata-stable
@@ -53,7 +53,7 @@ Voor alle andere methoden van installatie, gaat u naar http://suricata.readthedo
 
 ### <a name="download-the-emerging-threats-ruleset"></a>Het ruleset opkomende bedreigingen downloaden
 
-In dit stadium hoeft u niet alle regels voor Suricata om uit te voeren. U kunt uw eigen regels kunt maken als er specifieke bedreigingen met uw netwerk die u wilt detecteren of u kunt ook gebruik ontwikkeld regelsets van een aantal providers, zoals opkomende bedreigingen of VRT regels uit Snort. We de vrij toegankelijk opkomende bedreigingen ruleset hier gebruiken:
+In dit stadium is er geen regels voor Suricata om uit te voeren. U kunt uw eigen regels kunt maken als er zijn specifieke bedreigingen voor uw netwerk die u wilt detecteren of u kunt ook gebruik ontwikkeld regelsets uit een aantal providers, zoals opkomende bedreigingen of VRT regels uit Snort. We hier de vrij toegankelijke opkomende bedreigingen ruleset gebruiken:
 
 Download de regelset en kopieer deze naar de map:
 
@@ -63,25 +63,26 @@ tar zxf emerging.rules.tar.gz
 sudo cp -r rules /etc/suricata/
 ```
 
-### <a name="process-packet-captures-with-suricata"></a>Proces pakket worden vastgelegd met Suricata
+### <a name="process-packet-captures-with-suricata"></a>Proces-pakket wordt vastgelegd met Suricata
 
-Voor het verwerken van pakket worden vastgelegd met behulp van Suricata, voer de volgende opdracht:
+Voor het verwerken van pakket vastgelegd met behulp van Suricata, voer de volgende opdracht uit:
 
 ```
 sudo suricata -c /etc/suricata/suricata.yaml -r <location_of_pcapfile>
 ```
-U kunt de resulterende waarschuwingen controleren door het bestand fast.log worden gelezen:
+Om te controleren of de daaruit voortkomende waarschuwingen, het fast.log-bestand te lezen:
 ```
 tail -f /var/log/suricata/fast.log
 ```
 
-### <a name="set-up-the-elastic-stack"></a>Instellen van de elastische Stack
+### <a name="set-up-the-elastic-stack"></a>Instellen van de Elastic Stack
 
-Terwijl de logboeken die Suricata produceert waardevolle informatie bevatten over wat er in onze netwerk gebeurt, zijn deze logboekbestanden niet het gemakkelijkst worden gelezen en begrepen. Door Suricata te koppelen aan de elastische Stack, kunnen we een Kibana-dashboard maken wat ons te zoeken, grafiek, analyseren en inzichten worden afgeleid van onze Logboeken is toegestaan.
+Terwijl de logboeken die Suricata produceert waardevolle informatie bevatten over wat op ons netwerk gebeurt er, zijn deze logboekbestanden niet het gemakkelijkst worden gelezen en begrepen. Suricata in contact met de Elastic Stack, kunnen we een Kibana-dashboard maken wat kunnen we zoeken, in een grafiek, analyseren en inzichten die zijn afgeleid van onze Logboeken.
 
 #### <a name="install-elasticsearch"></a>Elasticsearch installeren
 
-1. De elastische Stack versie 5.0 en hoger vereist Java 8. Voer de opdracht `java -version` uw versie controleren. Als u nog geen java installeren, Raadpleeg de documentatie op [van Oracle-website](http://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html)
+1. De Elastic Stack versie 5.0 en hoger is vereist voor Java 8. Voer de opdracht `java -version` om uw versie te controleren. Als u geen java geïnstalleerd hebt, Raadpleeg de documentatie op de [Azure ondersteund JDK](https://aka.ms/azure-jdks).
+
 1. Download het juiste binaire pakket voor uw systeem:
 
     ```
@@ -90,15 +91,15 @@ Terwijl de logboeken die Suricata produceert waardevolle informatie bevatten ove
     sudo /etc/init.d/elasticsearch start
     ```
 
-    Andere installatiemethoden kunnen worden gevonden op [Elasticsearch installatie](https://www.elastic.co/guide/en/beats/libbeat/5.2/elasticsearch-installation.html)
+    Andere installatiemethoden kunnen worden gevonden op [Elasticsearch-installatie](https://www.elastic.co/guide/en/beats/libbeat/5.2/elasticsearch-installation.html)
 
-1. Controleer of Elasticsearch met de opdracht is uitgevoerd:
+1. Controleren of Elasticsearch wordt uitgevoerd met de opdracht:
 
     ```
     curl http://127.0.0.1:9200
     ```
 
-    U ziet een reactie vergelijkbaar met het volgende:
+    U ziet een antwoord ongeveer als volgt uit:
 
     ```
     {
@@ -115,7 +116,7 @@ Terwijl de logboeken die Suricata produceert waardevolle informatie bevatten ove
     }
     ```
 
-Zie voor verdere instructies voor het installeren van elastische zoeken naar de pagina [installatie](https://www.elastic.co/guide/en/elasticsearch/reference/5.2/_installation.html)
+Raadpleeg voor verdere instructies voor installeren elastische zoeken naar de pagina [installatie](https://www.elastic.co/guide/en/elasticsearch/reference/5.2/_installation.html)
 
 ### <a name="install-logstash"></a>Logstash installeren
 
@@ -125,7 +126,7 @@ Zie voor verdere instructies voor het installeren van elastische zoeken naar de 
     curl -L -O https://artifacts.elastic.co/downloads/logstash/logstash-5.2.0.deb
     sudo dpkg -i logstash-5.2.0.deb
     ```
-1. Vervolgens moet Logstash lezen uit de uitvoer van het bestand eve.json configureren. Maak een logstash.conf-bestand met:
+1. Vervolgens moeten we Logstash te lezen uit de uitvoer van eve.json bestand configureren. Maak een logstash.conf bestand met:
 
     ```
     sudo touch /etc/logstash/conf.d/logstash.conf
@@ -203,19 +204,19 @@ Zie voor verdere instructies voor het installeren van elastische zoeken naar de 
     }
     ```
 
-1. Zorg ervoor dat de juiste machtigingen heeft om het bestand eve.json zodat Logstash kan het bestand opnemen.
+1. Zorg ervoor dat u de juiste machtigingen heeft om het bestand eve.json geven zodat Logstash kan het bestand opnemen.
     
     ```
     sudo chmod 775 /var/log/suricata/eve.json
     ```
 
-1. Voer de opdracht Logstash starten:
+1. Start Logstash voert u de opdracht uit:
 
     ```
     sudo /etc/init.d/logstash start
     ```
 
-Raadpleeg voor meer informatie over het installeren van Logstash de [officiële documentatie](https://www.elastic.co/guide/en/beats/libbeat/5.2/logstash-installation.html)
+Voor verdere instructies over het installeren van Logstash, raadpleegt u de [officiële documentatie](https://www.elastic.co/guide/en/beats/libbeat/5.2/logstash-installation.html)
 
 ### <a name="install-kibana"></a>Kibana installeren
 
@@ -233,44 +234,44 @@ Raadpleeg voor meer informatie over het installeren van Logstash de [officiële 
     ./bin/kibana
     ```
 
-1. Als u wilt de webinterface voor uw Kibana weergeven, gaat u naar `http://localhost:5601`
-1. Voor dit scenario, het patroon index voor de logboeken Suricata is ' logstash-* "
+1. Als u de webinterface voor uw Kibana, gaat u naar `http://localhost:5601`
+1. In dit scenario voor de index-patroon gebruikt voor de logboeken Suricata is ' logstash-* "
 
-1. Als u weergeven van het dashboard Kibana op afstand wilt, maakt u een inkomende NSG-regel om toegang te kunnen **5601 poort**.
+1. Als u wilt om op afstand de Kibana-dashboard weer te geven, maakt u een inkomende NSG-regel toestaan van toegang tot **poort 5601**.
 
-### <a name="create-a-kibana-dashboard"></a>Een dashboard Kibana maken
+### <a name="create-a-kibana-dashboard"></a>Een Kibana-dashboard maken
 
-We hebben een voorbeelddashboard u trends en details weergeven in uw waarschuwingen opgegeven voor dit artikel.
+In dit artikel hebben we een voorbeelddashboard voor u trends en details weergeven in uw waarschuwingen verstrekt.
 
-1. Download het bestand dashboard [hier](https://aka.ms/networkwatchersuricatadashboard), het bestand visualisatie [hier](https://aka.ms/networkwatchersuricatavisualization), en het bestand opgeslagen zoekopdracht [hier](https://aka.ms/networkwatchersuricatasavedsearch).
+1. Download het dashboardbestand [hier](https://aka.ms/networkwatchersuricatadashboard), het bestand visualisatie [hier](https://aka.ms/networkwatchersuricatavisualization), en het bestand opgeslagen zoekopdracht [hier](https://aka.ms/networkwatchersuricatasavedsearch).
 
-1. Onder de **Management** tabblad van Kibana, gaat u naar **opgeslagen objecten** en alle drie bestanden te importeren. Klik vanuit de **Dashboard** tabblad kunt u openen en de voorbeelddashboard laden.
+1. Onder de **Management** tabblad van Kibana, gaat u naar **opgeslagen objecten** en alle drie bestanden te importeren. Klik vanuit de **Dashboard** tabblad kunt u openen en het voorbeelddashboard laden.
 
-U kunt ook uw eigen visualisaties en -dashboards naar metrische gegevens van uw eigen belang aangepast maken. Meer informatie over het maken van Kibana visualisaties van de Kibana [officiële documentatie](https://www.elastic.co/guide/en/kibana/current/visualize.html).
+U kunt ook uw eigen visualisaties en dashboards die zijn afgestemd op uw eigen nuttige meetgegevens beschikbaar maken. Meer informatie over het maken van Kibana visualisaties uit de Kibana [officiële documentatie](https://www.elastic.co/guide/en/kibana/current/visualize.html).
 
 ![kibana-dashboard][2]
 
-### <a name="visualize-ids-alert-logs"></a>Id's waarschuwing logboeken visualiseren
+### <a name="visualize-ids-alert-logs"></a>Id's waarschuwing logboeken te visualiseren
 
-De voorbeelddashboard biedt verschillende visualisaties van de waarschuwing Suricata-Logboeken:
+Het voorbeelddashboard van biedt verschillende visualisaties van de waarschuwing zich Suricata:
 
-1. Waarschuwingen per GeoIP – een map waarin de verdeling van waarschuwingen door het land van oorsprong op basis van geografische locatie (zoals bepaald door IP)
+1. Waarschuwingen op basis van GeoIP – een map waarin de verdeling van waarschuwingen op basis van het land van oorsprong op basis van geografische locatie (bepaald door IP)
 
     ![geo-ip][3]
 
-1. Top 10 waarschuwingen – een samenvatting van de 10 meest voorkomende geactiveerde waarschuwingen en de bijbehorende beschrijvingen. Te klikken op een afzonderlijke waarschuwing filtert u het dashboard om de informatie die betrekking hebben op die specifieke waarschuwing.
+1. Top 10 waarschuwingen – een samenvatting van de 10 meest frequente geactiveerde waarschuwingen en de bijbehorende beschrijvingen. Filters te klikken op een afzonderlijke waarschuwing in het dashboard om de gegevens met betrekking tot die specifieke waarschuwing.
 
     ![afbeelding 4][4]
 
-1. Aantal waarschuwingen: het totale aantal waarschuwingen geactiveerd door de ruleset
+1. Aantal waarschuwingen: het totale aantal waarschuwingen dat door het ruleset geactiveerd
 
     ![afbeelding 5][5]
 
-1. Top 20 bron/het doel IP-adressen/poorten - cirkeldiagrammen met de top 20 IP-adressen en poorten die waarschuwingen zijn gegenereerd op. U kunt filteren omlaag op specifieke IP-adressen/poorten om te zien hoeveel en welke soort waarschuwingen zijn geactiveerd.
+1. Top 20 bron-/ doel-IP-adressen/poorten - cirkeldiagrammen met de top 20 IP-adressen en poorten die waarschuwingen zijn geactiveerd door op. U kunt filteren, omlaag op specifieke IP-adressen/poorten om te zien hoeveel en welke soort waarschuwingen zijn geactiveerd.
 
     ![afbeelding 6][6]
 
-1. Waarschuwing samengevat: een tabel van specifieke details van elke afzonderlijke waarschuwingen samen te vatten. U kunt deze tabel om andere parameters van belang zijn voor elke waarschuwing te tonen.
+1. Waarschuwing overzicht-een tabel met een overzicht van specifieke details van elke afzonderlijke waarschuwing. U kunt deze tabel om andere parameters van belang zijn voor elke waarschuwing weer te geven.
 
     ![afbeelding 7][7]
 
@@ -278,13 +279,13 @@ Zie voor meer documentatie over het maken van aangepaste visualisaties en dashbo
 
 ## <a name="conclusion"></a>Conclusie
 
-Door een combinatie van pakket worden opgegeven door de netwerk-Watcher en open source-id's hulpprogramma's zoals Suricata, u inbraakdetectie netwerk voor een breed scala aan bedreigingen uitvoeren kunt. Deze dashboards kunnen u om snel trends en afwijkingen in uw netwerk als goed dig in de gegevens voor het detecteren van de belangrijkste oorzaken van waarschuwingen, zoals agents kwaadwillende gebruiker of kwetsbare poorten. Met deze geëxtraheerde gegevens, kunt u weloverwogen beslissingen over het reageren op en uw netwerk beveiligen door schadelijke inbraakdetectie pogingen en regels maken om te voorkomen dat toekomstige beveiligingsrisico's aan uw netwerk.
+Door een combinatie van pakket vastgelegd opgegeven door de Network Watcher en open source-id's hulpprogramma's zoals Suricata, u inbraakdetectie netwerk voor een breed scala aan bedreigingen uitvoeren kunt. Deze dashboards kunnen u om snel trends en afwijkingen in uw netwerk, als ook Duik in de gegevens voor het detecteren van de belangrijkste oorzaken van waarschuwingen, zoals de kwaadwillende Gebruikeragents of kwetsbaar poorten. Met deze opgehaalde gegevens, kunt u onderbouwde beslissingen over het reageren op uw netwerk beschermen tegen schadelijke indringingspogingen, en regels om te voorkomen dat toekomstige indringers om uw netwerk te maken.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Meer informatie over het activeren van pakket opnamen op basis van waarschuwingen in via [pakketopname voor proactieve netwerkbewaking met Azure Functions gebruiken](network-watcher-alert-triggered-packet-capture.md)
+Meer informatie over het activeren van pakketopnamen op basis van waarschuwingen, recentst [pakketopname gebruiken voor proactieve netwerkbewaking met Azure Functions](network-watcher-alert-triggered-packet-capture.md)
 
-Meer informatie over het visualiseren van uw NSG stroom logboeken met Power BI in via [visualiseren NSG loopt logboeken met Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
+Meer informatie over het visualiseren van uw NSG-stroomlogboeken met Power BI recentst [visualiseren NSG-stromen logboeken met Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
 
 
 

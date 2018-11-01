@@ -1,5 +1,5 @@
 ---
-title: Azure-services en -toepassingen bewaken met Grafana
+title: Azure-services en toepassingen met behulp van Grafana bewaken
 description: Route Azure Monitor en Application Insights gegevens, zodat u ze in Grafana bekijken kunt.
 services: azure-monitor
 keywords: ''
@@ -9,12 +9,12 @@ ms.date: 11/06/2017
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.component: ''
-ms.openlocfilehash: b4fbd1248f91e0766cca66d1c51033a8b338c324
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 75b1edf80f1dad5f0db48c11329effe080760820
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49957358"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50413142"
 ---
 # <a name="monitor-your-azure-services-in-grafana"></a>Bewaken van uw Azure-services in Grafana
 U kunt nu ook bewaken Azure-services en toepassingen van [Grafana](https://grafana.com/) met behulp van de [Azure Monitor-gegevensbron invoegtoepassing](https://grafana.com/plugins/grafana-azure-monitor-datasource). De invoegtoepassing worden verzameld voor prestatiegegevens van toepassingen die door de Application Insights-SDK worden verzameld, evenals infrastructuur gegevens geleverd door Azure Monitor. U kunt deze gegevens vervolgens weergeven in het Grafana-dashboard.
@@ -37,13 +37,13 @@ Gebruik de volgende stappen uit het instellen van een server Grafana uit Azure M
 ## <a name="log-in-to-grafana"></a>Meld u aan bij Grafana
 1. Nadat de implementatie is voltooid, selecteert u **gaat u naar de resourcegroep**. U ziet een lijst met nieuwe resources.
 
-    ![Grafana resource groepsobjecten](.\media\monitor-how-to-grafana\grafana1.png)
+    ![Grafana resource groepsobjecten](media/monitor-send-to-grafana/grafana1.png)
 
     Als u de netwerkbeveiligingsgroep selecteert (*grafana-nsg* in dit geval), ziet u dat poort 3000 wordt gebruikt voor toegang tot Grafana-server.
 
 2. Ga terug naar de lijst met resources en selecteer **openbaar IP-adres**. Met behulp van de waarden in dit scherm, typt u *http://<IP address>: 3000* of de  *<DNSName>: 3000* in uw browser. U ziet een aanmeldingspagina voor de Grafana-server die u net hebt gemaakt.
 
-    ![Aanmeldingsscherm van Grafana](.\media\monitor-how-to-grafana\grafana2.png)
+    ![Aanmeldingsscherm van Grafana](media/monitor-send-to-grafana/grafana2.png)
 
 3. Meld u aan met de naam van de gebruiker als *admin* en Grafana wachtwoord van de serverbeheerder u eerder hebt gemaakt.
 
@@ -51,7 +51,7 @@ Gebruik de volgende stappen uit het instellen van een server Grafana uit Azure M
 
 Wanneer is aangemeld, ziet u de Azure Monitor data source-invoegtoepassing is al opgenomen.
 
-![Grafana geeft Azure Monitor-invoegtoepassing](.\media\monitor-how-to-grafana\grafana3.png)
+![Grafana geeft Azure Monitor-invoegtoepassing](media/monitor-send-to-grafana/grafana3.png)
 
 1. Selecteer **gegevensbron toevoegen** om Azure Monitor en Application Insights te configureren.
 
@@ -70,7 +70,7 @@ Grafana maakt gebruik van een Azure Active Directory-service-principal verbindin
 
 4. Nadat u alle gegevens hebt ingevoerd, selecteert u **opslaan** en Grafana test de API. U ziet een bericht dat lijkt op de volgende uitvoer.  
 
-    ![Grafana geeft Azure Monitor-invoegtoepassing](.\media\monitor-how-to-grafana\grafana4-1.png)
+    ![Grafana geeft Azure Monitor-invoegtoepassing](media/monitor-send-to-grafana/grafana4-1.png)
 
 > [!NOTE]
 > Tijdens het configureren van de invoegtoepassing kunt u aangeven welke Azure-Cloud (openbaar, Azure US Government, Azure Duitsland of Azure China) u wilt dat de invoegtoepassing moet worden geconfigureerd op basis van.
@@ -83,7 +83,7 @@ Grafana maakt gebruik van een Azure Active Directory-service-principal verbindin
 
 2. Selecteer in het nieuwe dashboard, de **Graph**. U kunt experimenteren met andere grafieken opties, maar in dit artikel wordt gebruikgemaakt van *Graph* als voorbeeld.
 
-    ![Nieuwe Grafana-Dashboard](.\media\monitor-how-to-grafana\grafana5.png)
+    ![Nieuwe Grafana-Dashboard](media/monitor-send-to-grafana/grafana5.png)
 
 3. Een lege grafiek wordt weergegeven op uw dashboard.
 
@@ -93,14 +93,14 @@ Grafana maakt gebruik van een Azure Active Directory-service-principal verbindin
 
 Hieronder volgt een eenvoudig dashboard met twee grafieken. De naam van links ziet u het CPU-percentage van de twee virtuele machines. De grafiek aan de rechterkant ziet u de transacties in een Azure Storage-account onderverdeeld op basis van de transactie-API-type.
 
-![Grafana twee grafieken voorbeeld](.\media\monitor-how-to-grafana\grafana6.png)
+![Grafana twee grafieken voorbeeld](media/monitor-send-to-grafana/grafana6.png)
 
 
 ## <a name="optional-create-dashboard-playlists"></a>Optioneel: Dashboard afspeellijsten maken
 
 Een van de vele handige voorzieningen van Grafana is de dashboard-afspeellijst. U kunt meerdere dashboards maken en deze toevoegen aan een afspeellijst vindt bij het configureren van een interval voor elk dashboard om weer te geven. Selecteer **afspelen** om de dashboards bladeren door te geven. Kunt u ze aan een grote wall-monitor voor een bord' status' voor uw groep wilt weergeven.
 
-![Voorbeeld van de afspeellijst Grafana](.\media\monitor-how-to-grafana\grafana7.png)
+![Voorbeeld van de afspeellijst Grafana](media/monitor-send-to-grafana/grafana7.png)
 
 
 ## <a name="optional-monitor-your-custom-metrics-in-the-same-grafana-server"></a>Optioneel: Het bewaken van uw aangepaste metrische gegevens op dezelfde server Grafana
@@ -117,7 +117,7 @@ Hier vindt u referentiemateriaal artikelen over het gebruik van Telegraf, Influx
  - [Een oplossing voor bewaking voor Docker-hosts, containers en services in containers](https://stefanprodan.com/2016/a-monitoring-solution-for-docker-hosts-containers-and-containerized-services/)
 
 Hier volgt een afbeelding van een volledige Grafana-dashboard met metrische gegevens van Azure Monitor en Application Insights.
-![Voorbeeld van Grafana metrische gegevens](.\media\monitor-how-to-grafana\grafana8.png)
+![Voorbeeld van Grafana metrische gegevens](media/monitor-send-to-grafana/grafana8.png)
 
 
 ## <a name="clean-up-resources"></a>Resources opschonen

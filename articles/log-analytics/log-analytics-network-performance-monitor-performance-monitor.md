@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
 ms.component: ''
-ms.openlocfilehash: 1254afc1ad1c513c18d565be8a6543a6ee0ae94b
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 17a15ca00d7343064bde84860de91b62ff136cfe
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48040588"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50414114"
 ---
 # <a name="network-performance-monitor-solution-performance-monitoring"></a>Network Performance Monitor-oplossing: prestatiebewaking
 
@@ -33,12 +33,12 @@ De mogelijkheid van Prestatiemeter [Network Performance Monitor](log-analytics-n
 - Bewaak de status van het netwerk, zonder dat SNMP nodig.
 
 
-![Netwerkprestatiemeter](media/log-analytics-network-performance-monitor/npm-performance-monitor.png)
+![Netwerkprestatiemeter](media/log-analytics-network-performance-monitor-performance-monitor/npm-performance-monitor.png)
 
 ## <a name="configuration"></a>Configuratie
 Open de configuratie voor Network Performance Monitor te openen de [Network Performance Monitor oplossing](log-analytics-network-performance-monitor.md), en selecteer **configureren**.
 
-![Network Performance Monitor configureren](media/log-analytics-network-performance-monitor/npm-configure-button.png)
+![Network Performance Monitor configureren](media/log-analytics-network-performance-monitor-performance-monitor/npm-configure-button.png)
 
 ### <a name="create-new-networks"></a>Nieuwe netwerken maken
 
@@ -120,21 +120,21 @@ De Inzoomen op pagina ziet u dat de **DMZ2 DMZ1** netwerkkoppeling niet in orde 
 
 De Inzoomen op pagina ziet u alle subnetwerkkoppelingen in de **DMZ2 DMZ1** netwerkverbinding. Voor beide subnetwerkkoppelingen Gekruiste de latentie van de drempelwaarde, waardoor de netwerkkoppeling niet in orde. U kunt ook de latentie-trends van beide subnetwerkkoppelingen zien. Gebruik de Tijdselectie beheren in de grafiek om zich te richten op het bereik van de tijd die nodig is. Hier ziet u het tijdstip waarop die bij de piek het bereiken van latentie. Zoeken in de logboeken later voor deze periode is het probleem kunnen onderzoeken. Selecteer **knooppuntkoppelingen weergeven** verder inzoomen. 
  
- ![Pagina met koppelingen subnetwerk](media/log-analytics-network-performance-monitor/subnetwork-links.png) 
+ ![Pagina met koppelingen subnetwerk](media/log-analytics-network-performance-monitor-performance-monitor/subnetwork-links.png) 
 
 Net als bij de vorige pagina, Inzoomen op voor de specifieke subnetwerkkoppeling worden op deze pagina de samenstellende knooppuntkoppelingen. U kunt dezelfde acties uitvoeren hier als u in de vorige stap hebt gedaan. Selecteer **topologie weergeven** om weer te geven van de topologie tussen de twee knooppunten. 
  
- ![Pagina met koppelingen knooppunt](media/log-analytics-network-performance-monitor/node-links.png) 
+ ![Pagina met koppelingen knooppunt](media/log-analytics-network-performance-monitor-performance-monitor/node-links.png) 
 
 Alle paden tussen de twee geselecteerde knooppunten worden in de topologie-kaart getekend. U kunt de hop-by-hop '-topologie van routes tussen twee knooppunten op de kaart topologie kunt visualiseren. Het biedt u een helder beeld van het aantal routes bestaan tussen de twee knooppunten en wat de gegevenspakketten nemen paden. Netwerk-knelpunten worden weergegeven in het rood. Als u wilt een defecte netwerkverbinding of een foutieve netwerkapparaat vinden, bekijkt u de rode elementen op de kaart topologie. 
 
- ![Topologiedashboard met topologiekaart weer](media/log-analytics-network-performance-monitor/topology-dashboard.png) 
+ ![Topologiedashboard met topologiekaart weer](media/log-analytics-network-performance-monitor-performance-monitor/topology-dashboard.png) 
 
 U kunt bekijken, het verlies van gegevens, latentie en het aantal hops in elk pad in de **actie** deelvenster. Gebruik de schuifbalk om de details van de paden niet in orde weer te geven. De filters gebruiken om te selecteren van de paden met de slechte hops zodat de topologie voor alleen de geselecteerde paden wordt getekend. Als u wilt in- of buiten de topologiekaart weer wilt uitzoomen, gebruikt u het muiswiel. 
 
 In de volgende afbeelding is de hoofdoorzaak van het probleemgebieden naar het specifieke gedeelte van het netwerk worden weergegeven in de rode paden en hops. Selecteer een knooppunt in de kaart topologie om de eigenschappen van het knooppunt, waaronder de FQDN-naam en IP-adres weer te geven. Selecteren van een hop bevat het IP-adres van de hop. 
  
-![Topologiekaart weer met de eigenschappen van het knooppunt geselecteerd](media/log-analytics-network-performance-monitor/topology-dashboard-root-cause.png) 
+![Topologiekaart weer met de eigenschappen van het knooppunt geselecteerd](media/log-analytics-network-performance-monitor-performance-monitor/topology-dashboard-root-cause.png) 
 
 ## <a name="next-steps"></a>Volgende stappen
 [Zoeken in logboeken](log-analytics-log-searches.md) om gedetailleerde gegevens prestatierecords weer te geven.

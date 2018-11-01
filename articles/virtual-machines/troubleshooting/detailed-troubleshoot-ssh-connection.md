@@ -14,14 +14,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 12/13/2017
+ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 1173e4c9ec40e8b8fe9e24587258f7e7aad7c7f8
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: aedf06c5a5e225f0cafb81b17923d6c742da69eb
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48269459"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50418259"
 ---
 # <a name="detailed-ssh-troubleshooting-steps-for-issues-connecting-to-a-linux-vm-in-azure"></a>Gedetailleerde SSH probleemoplossing voor problemen die verbinding maken met een Linux-VM in Azure
 Er zijn veel mogelijke oorzaken waardoor de SSH-client mogelijk niet de SSH-service op de virtuele machine bereiken. Als u hebt gevolgd door de andere meer [algemene SSH stappen voor probleemoplossing](troubleshoot-ssh-connection.md), moet u het probleem verder worden opgelost. In dit artikel begeleidt u bij gedetailleerde stappen voor probleemoplossing om te bepalen waar de SSH-verbinding is mislukt en hoe u deze kunt oplossen.

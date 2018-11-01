@@ -1,4 +1,16 @@
-
+---
+author: alkohli
+ms.service: storsimple
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: alkohli
+ms.openlocfilehash: b397d77b525bdb63f2531634e397ec210d4a6202
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50164918"
+---
 #### <a name="to-configure-remote-management-on-cloud-appliance"></a>Extern beheer configureren op het cloudapparaat
 
 1. Klik in uw StorSimple-apparaatbeheerfunctie op **Apparaten**. Selecteer en klikt u op uw cloudapparaat in de lijst met apparaten die zijn verbonden met de service.

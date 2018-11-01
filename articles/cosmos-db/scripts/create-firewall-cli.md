@@ -14,12 +14,12 @@ ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 ms.date: 06/02/2017
 ms.author: sngun
-ms.openlocfilehash: c35b16ff88acf38e410131bcb2a6b6f369ce6cb2
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e86c66356fb5d2e191407c8f481c2de44103edfb
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46951930"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50413295"
 ---
 # <a name="azure-cosmos-db-create-a-firewall-using-the-azure-cli"></a>Azure Cosmos DB: een firewall maken met de Azure CLI
 
@@ -31,7 +31,7 @@ Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor 
 
 ## <a name="sample-script"></a>Voorbeeldscript
 
-[!code-azurecli-interactive[main](../../../cli_scripts/cosmosdb/secure-cosmosdb-create-firewall/secure-cosmosdb-create-firewall.sh?highlight=38-42 "Create an Azure Cosmos DB firewall")]
+[!code-azurecli-interactive[main](../../../cli_scripts/cosmosdb/secure-cosmosdb-create-firewall/secure-cosmosdb-create-firewall.sh "Create an Azure Cosmos DB firewall")]
 
 ## <a name="clean-up-deployment"></a>Opschonen van implementatie
 

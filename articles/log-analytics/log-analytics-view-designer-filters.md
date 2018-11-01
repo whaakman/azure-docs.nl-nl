@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 3851bfef71aab6553e109bb8108edd7bec182f0e
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 87cfcefd91652194adc0a5ca4580a8d00ba4d234
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041949"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50412743"
 ---
 # <a name="filters-in-log-analytics-views"></a>Filters in Log Analytics-weergaven
 Een **filter** in een [Log Analytics weergeven](log-analytics-view-designer.md) kunnen gebruikers de gegevens in de weergave filteren op de waarde van een bepaalde eigenschap zonder te wijzigen van de weergave zelf.  Bijvoorbeeld, kunnen gebruikers van de weergave voor het filteren van de weergave voor alleen de gegevens van een bepaalde computer of verzameling computers.  U kunt meerdere filters in één weergave die u wilt toestaan dat gebruikers om te filteren op meerdere eigenschappen maken.  In dit artikel wordt beschreven hoe u een filter gebruiken en toevoegen aan een aangepaste weergave.
@@ -28,12 +28,12 @@ Een **filter** in een [Log Analytics weergeven](log-analytics-view-designer.md) 
 ## <a name="using-a-filter"></a>Met behulp van een filter
 Klik op het bereik van de tijd aan de bovenkant van een weergave te openen van de vervolgkeuzelijst voor bereik van de tijd voor de weergave te wijzigen.
 
-![Voorbeeld van filter](media/log-analytics-view-designer/filters-example-time.png)
+![Voorbeeld van filter](media/log-analytics-view-designer-filters/filters-example-time.png)
 
 Klik op de **+** een filter met behulp van aangepaste filters die zijn gedefinieerd voor de weergave toe te voegen. Selecteer een waarde voor het filter ofwel uit de vervolgkeuzelijst of typ een waarde in. Doorgaan met het toevoegen van filters door te klikken op de **+**. 
 
 
-![Voorbeeld van filter](media/log-analytics-view-designer/filters-example-custom.png)
+![Voorbeeld van filter](media/log-analytics-view-designer-filters/filters-example-custom.png)
 
 Als u alle waarden voor een filter verwijdert, wordt met het filter niet langer toegepast.
 
@@ -42,7 +42,7 @@ Als u alle waarden voor een filter verwijdert, wordt met het filter niet langer 
 
 Maken van een filter van de **Filters** tabblad wanneer [bewerken van een weergave](log-analytics-view-designer.md).  Het filter voor de weergave van een globale is en is van toepassing op alle onderdelen in de weergave.  
 
-![Filterinstellingen](media/log-analytics-view-designer/filters-settings.png)
+![Filterinstellingen](media/log-analytics-view-designer-filters/filters-settings.png)
 
 De volgende tabel beschrijft de instellingen voor een filter.
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: apimpm
-ms.openlocfilehash: d359ad0e619e4d7784d763e70599ce784aa852cd
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 97ca4f69f4bf2aa814d51cc17970c1aead8399e8
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945806"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50414400"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Het opslaan en het configureren van de configuratie van uw API Management-service met behulp van Git
 
@@ -190,7 +190,8 @@ De hoofdmap `api-management` map bevat een `configuration.json` bestand die op h
     "DelegationEnabled": "False",
     "DelegationUrl": "",
     "DelegatedSubscriptionEnabled": "False",
-    "DelegationValidationKey": ""
+    "DelegationValidationKey": "",
+    "RequireUserSigninEnabled": "false"
   },
   "$ref-policy": "api-management/policies/global.xml"
 }
@@ -200,10 +201,11 @@ De eerste vier instellingen (`RegistrationEnabled`, `UserRegistrationTerms`, `Us
 
 | Identiteit | Toegewezen aan |
 | --- | --- |
-| RegistrationEnabled |**Anonieme gebruikers omleiden naar de aanmeldingspagina** selectievakje |
+| RegistrationEnabled |Aanwezigheid van **gebruikersnaam en wachtwoord** id-provider |
 | UserRegistrationTerms |**Gebruiksvoorwaarden bij gebruikersregistratie** tekstvak |
 | UserRegistrationTermsEnabled |**Gebruiksvoorwaarden weergeven op registratiepagina** selectievakje |
 | UserRegistrationTermsConsentRequired |**Toestemming vereisen** selectievakje |
+| RequireUserSigninEnabled |**Anonieme gebruikers omleiden naar de aanmeldingspagina** selectievakje |
 
 De volgende vier instellingen (`DelegationEnabled`, `DelegationUrl`, `DelegatedSubscriptionEnabled`, en `DelegationValidationKey`) toewijzen aan de volgende instellingen op de **delegering** tabblad de **Security** sectie.
 

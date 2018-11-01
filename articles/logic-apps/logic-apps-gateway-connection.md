@@ -3,19 +3,18 @@ title: Toegang tot gegevensbronnen on-premises voor Azure Logic Apps | Microsoft
 description: Maken en instellen van de on-premises gegevensgateway, zodat u gegevensbronnen on-premises vanuit logische apps openen kunt
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: estfan
-manager: jeconnoc
+ms.reviewer: arthii, LADocs
 ms.topic: article
-ms.date: 07/20/2018
-ms.reviewer: yshoukry, LADocs
-ms.suite: integration
-ms.openlocfilehash: 6b6006293d562dbc270dc77bc49da2027f171dd2
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.date: 10/01/2018
+ms.openlocfilehash: e8e8d85d2c95c1dda7271de72491594562b7d3c1
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233290"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50413703"
 ---
 # <a name="connect-to-data-sources-on-premises-from-azure-logic-apps-with-on-premises-data-gateway"></a>Verbinding maken met gegevensbronnen on-premises van Azure Logic Apps met on-premises gegevensgateway
 
@@ -34,18 +33,17 @@ Zie de volgende artikelen voor meer informatie over het gebruik van de gateway m
 
 * De gatewayinstallatie van uw nog niet is gekoppeld aan een gateway-resource in Azure. U kunt de gatewayinstallatie koppelen slechts aan één gateway-resource, die wordt uitgevoerd wanneer u de gateway-resource maakt en selecteer de gatewayinstallatie. Deze koppeling wordt de installatie van de gateway niet beschikbaar voor andere bronnen.
 
-* Wanneer u zich aanmeldt bij de Azure portal en de gateway-resource maakt, moet u de dezelfde aanmeldingsaccount die eerder gebruikt voor het was [installeren van de on-premises gegevensgateway](../logic-apps/logic-apps-gateway-install.md#requirements).
-U moet ook gebruiken dezelfde [Azure-abonnement](https://docs.microsoft.com/azure/architecture/cloud-adoption-guide/adoption-intro/subscription-explainer) die is gebruikt voor het installeren van de gateway. Als u een Azure-abonnement nog geen <a href="https://azure.microsoft.com/free/" target="_blank">zich aanmelden voor een gratis Azure-account</a>.
+* Wanneer u zich aanmeldt bij de Azure portal en de gateway-resource maakt, zorg ervoor dat u de dezelfde aanmeldingsaccount die eerder gebruikt voor het was [installeren van de on-premises gegevensgateway](../logic-apps/logic-apps-gateway-install.md#requirements) samen met dezelfde [Azure-abonnement ](https://docs.microsoft.com/azure/architecture/cloud-adoption-guide/adoption-intro/subscription-explainer) die is gebruikt voor het installeren van de gateway. Als u een Azure-abonnement nog geen <a href="https://azure.microsoft.com/free/" target="_blank">zich aanmelden voor een gratis Azure-account</a>.
 
-* Maken en onderhouden van de gateway-resource in Azure portal, uw [Windows-serviceaccount](../logic-apps/logic-apps-gateway-install.md#windows-service-account) moet ten minste beschikken over **Inzender** machtigingen. De on-premises gegevensgateway wordt uitgevoerd als een Windows-service en is ingesteld voor het gebruik `NT SERVICE\PBIEgwService` voor de Windows-service aanmeldingsreferenties. 
+* Maken en onderhouden van de gateway-resource in Azure portal, uw [Windows-serviceaccount](../logic-apps/logic-apps-gateway-install.md#windows-service-account) heeft ten minste **Inzender** machtigingen. De on-premises gegevensgateway wordt uitgevoerd als een Windows-service en is ingesteld voor het gebruik `NT SERVICE\PBIEgwService` voor de Windows-service aanmeldingsreferenties. 
 
   > [!NOTE]
   > De Windows-serviceaccount wijkt af van het account voor verbinding maken met on-premises gegevens gebruikt voor gegevensbronnen en werken met de Azure- of schoolaccount gebruikt om aan te melden bij cloudservices.
 
 ## <a name="download-and-install-gateway"></a>Gateway downloaden en installeren
 
-Voordat u kunt doorgaan met de stappen in dit artikel, moet u de gateway is al geïnstalleerd op een lokale computer hebben.
-en als u niet hebt gedaan, volgt u de stappen voor het [downloaden en installeren van de on-premises gegevensgateway](../logic-apps/logic-apps-gateway-install.md). 
+Voordat u kunt doorgaan met de stappen in dit artikel, zorg er dan voor dat uw gateway is al geïnstalleerd op een lokale computer.
+Als u niet hebt gedaan, volgt u de stappen voor het [downloaden en installeren van de on-premises gegevensgateway](../logic-apps/logic-apps-gateway-install.md). 
 
 <a name="create-gateway-resource"></a>
 

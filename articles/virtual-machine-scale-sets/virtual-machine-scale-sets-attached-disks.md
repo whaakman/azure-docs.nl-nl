@@ -3,7 +3,7 @@ title: Gekoppelde gegevensschijven met virtuele-machineschaalsets in Azure | Mic
 description: Leer gekoppelde gegevensschijven gebruiken met virtuele-machineschaalsets
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: gatneil
+author: mayanknayar
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 4/25/2017
-ms.author: negat
-ms.openlocfilehash: cfe49e7f4e3692518c890b48582a2f4a6aa16faa
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.author: manayar
+ms.openlocfilehash: 551d90661f845aa98a41ed7de0b75c657c234f52
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46952457"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50741399"
 ---
 # <a name="azure-virtual-machine-scale-sets-and-attached-data-disks"></a>Virtuele-machineschaalsets in Azure en gekoppelde gegevensschijven
 Voor het uitbreiden van uw beschikbare opslag bieden [virtuele-machineschaalsets](/azure/virtual-machine-scale-sets/) in Azure ondersteuning voor VM-instanties met gekoppelde gegevensschijven. U kunt gegevensschijven koppelen wanneer de schaalset wordt gemaakt of aan een bestaande schaalset.

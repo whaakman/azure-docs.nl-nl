@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: zarhoads
 ms.custom: mvc
-ms.openlocfilehash: bfeee293dfb86db2be8e799f60b5e025477293d5
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 913d1b9125bcfa57334e70dcca44965fdb3d5ba6
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465556"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50242055"
 ---
 # <a name="tutorial-install-applications-in-virtual-machine-scale-sets-with-the-azure-cli"></a>Zelfstudie: Toepassingen installeren in schaalsets voor virtuele machines met Azure CLI
 Als u toepassingen wilt uitvoeren op de exemplaren van een virtuele machine (VM) in een schaalset, moet u eerst de toepassingsonderdelen en de vereiste bestanden installeren. In een vorige zelfstudie hebt u geleerd om een aangepaste VM-installatiekopie te maken en te gebruiken voor het implementeren van uw VM-exemplaren. Deze aangepaste installatiekopie bevat handmatige installaties van toepassingen en configuraties. U kunt de installatie van toepassingen op een schaalset ook automatiseren nadat elk VM-exemplaar is geïmplementeerd. Bovendien kunt u toepassingen bijwerken die al worden uitgevoerd in een schaalset. In deze zelfstudie leert u het volgende:
@@ -49,7 +49,7 @@ Als u de aangepaste scriptextensie wilt gebruiken met de Azure CLI, moet u een J
 ## <a name="create-custom-script-extension-definition"></a>Definitie van de aangepaste scriptextensie maken
 Als u de aangepaste scriptextensie in actie wilt zien, maakt u een schaalset die de IIS-webserver installeert en de hostnaam levert van het VM-exemplaar in de schaalset. Met de volgende definitie van de aangepaste scriptextensie wordt er een voorbeeldscript gedownload vanuit GitHub, waarna de vereiste pakketten worden geïnstalleerd en de hostnaam van het VM-exemplaar wordt weggeschreven naar een standaard-HTML-pagina.
 
-Maak in uw huidige shell een bestand met de naam *customConfig.json* en plak de volgende configuratie in het bestand. Maak bijvoorbeeld het bestand in de Cloud Shell, niet op uw lokale computer. U kunt elke editor die u wilt gebruiken. Voer in de Cloud Shell `sensible-editor cloudConfig.json` in voor het maken van het bestand en om een overzicht van beschikbare editors te zien.
+Maak in uw huidige shell een bestand met de naam *customConfig.json* en plak de volgende configuratie in het bestand. Maak bijvoorbeeld het bestand in de Cloud Shell, niet op uw lokale computer. U kunt elke editor die u wilt gebruiken. Voer in de Cloud Shell `sensible-editor customConfig.json` in voor het maken van het bestand en om een overzicht van beschikbare editors te zien.
 
 ```json
 {

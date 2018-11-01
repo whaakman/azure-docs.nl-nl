@@ -4,10 +4,6 @@ description: Informatie over het gebruik van statuscontroles instanties achter L
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: timlt
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 46b152c5-6a27-4bfc-bea3-05de9ce06a57
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -15,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/04/2018
 ms.author: kumud
-ms.openlocfilehash: ecc33fc6078dac4affe3942f1be7e039ae9e9e70
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 134c7ab8156f3acb558e8b8a2da343961a6aad4e
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43695422"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50419330"
 ---
 # <a name="load-balancer-health-probes"></a>Load Balancer-tests voor status
 
@@ -95,7 +91,7 @@ Als u gebruik van Cloudservices en web-functies die gebruikmaken van w3wp.exe he
 
 Een HTTP / HTTPS-test mislukt wanneer:
 * Statustest-eindpunt retourneert een HTTP-responscode dan 200 (bijvoorbeeld, 403, 404 of 500). Hiermee wordt de statustest omlaag onmiddellijk gemarkeerd. 
-* Statustest-eindpunt helemaal niet reageert tijdens het een time-outperiode voor 31 seconde. Afhankelijk van de time-outwaarde die is ingesteld, meerdere aanvragen van de WebTest onbeantwoorde mogelijk gaan voordat de test wordt gemarkeerd als niet wordt uitgevoerd (dat wil zeggen, voordat u SuccessFailCount tests worden verzonden).
+* Statustest-eindpunt reageert helemaal niet tijdens de time-outperiode voor 31 seconde. Afhankelijk van de time-outwaarde die is ingesteld, meerdere aanvragen van de WebTest onbeantwoorde mogelijk gaan voordat de test wordt gemarkeerd als niet wordt uitgevoerd (dat wil zeggen, voordat u SuccessFailCount tests worden verzonden).
 * De verbinding via een TCP-opnieuw instellen van statustest-eindpunt wordt gesloten.
 
 #### <a name="resource-manager-templates"></a>Resource Manager-sjablonen
@@ -163,11 +159,11 @@ Een regel voor taakverdeling is een eenmalige statustest gedefinieerd de respect
 
 ### <a name="tcp-connections"></a>TCP-verbindingen
 
-Nieuwe TCP-verbindingen worden uitgevoerd naar back-end-exemplaar in orde is en heeft een gast-OS en de toepassing een nieuwe stroom accepteren.
+Nieuwe TCP-verbindingen slaagt met back-end-instantie die in orde is en heeft een gast-OS en de toepassing kan instemmen met een nieuwe stroom.
 
 Als de statustest van de instantie van een back-end is mislukt, blijven tot stand gebrachte TCP-verbindingen voor dit exemplaar van de back-end.
 
-Als alle tests voor alle exemplaren in een back-endpool mislukken, worden er geen nieuwe stromen worden verzonden naar de back-endpool. Standard Load Balancer toestaat tot stand gebrachte TCP stromen om door te gaan.  Basic Load Balancer wordt beëindigd als alle bestaande TCP-stromen naar de back-endpool.
+Als alle tests voor alle exemplaren in een back-endpool mislukken, worden er geen nieuwe stromen worden verzonden naar de back-endpool. Standard Load Balancer toestaat tot stand gebrachte TCP stromen om door te gaan.  Basic Load Balancer wordt beëindigd als alle TCP-stromen naar de back-endpool.
  
 Aangezien de stroom altijd tussen de client en de VM Gast-OS is, zal een groep met alle tests in een frontend mogelijk niet reageert op TCP-verbindingspogingen openen als er geen exemplaar in orde back-end is voor het ontvangen van de stroom.
 

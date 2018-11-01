@@ -1,4 +1,16 @@
-
+---
+author: conceptdev
+ms.service: app-service-mobile
+ms.topic: include
+ms.date: 08/23/2018
+ms.author: crdun
+ms.openlocfilehash: 3217383b105c022aef42d8000f3a41cefea542fe
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50133179"
+---
 1. Ga naar [Azure Portal].
 2. Klik op **App Services** > de back-end die u hebt gemaakt.
 3. Klik in de instellingen van de mobiele app op **Snelstartgids** > **Cordova**.

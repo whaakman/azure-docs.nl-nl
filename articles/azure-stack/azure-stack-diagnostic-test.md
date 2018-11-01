@@ -10,15 +10,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 10/24/2018
+ms.date: 10/31/2018
 ms.author: jeffgilb
 ms.reviewer: adshar
-ms.openlocfilehash: 671818ca8f8fa07b506252d5d4d0c7a768577b19
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 0720edeab7577f41ddbaa67e4643f1dfe57ebac0
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50087471"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50740311"
 ---
 # <a name="run-a-validation-test-for-azure-stack"></a>Uitvoeren van een validatietest voor Azure Stack
 
@@ -39,7 +39,7 @@ Wanneer u een probleem hebt, neem contact op met klantondersteuning van Microsof
     3. Open PowerShell als beheerder.
     4. Uitvoeren: `Enter-PSSession -ComputerName <ERCS-VM-name> -ConfigurationName PrivilegedEndpoint`
     5. Uitvoeren: `Test-AzureStack`
-4. Als u een rapport test **MISLUKKEN**Voer: `Get-AzureStackLog -FilterByRole SeedRing -OutputPath <Log output path>` de cmdlet haalt de logboeken van Test-AzureStack. Zie voor meer informatie over diagnostische logboeken [diagnostische hulpprogramma's voor Azure Stack](azure-stack-diagnostics.md). U moet niet verzamelen van Logboeken of neem contact op met Microsoft klantenondersteuning Services (CSS) als test rapport **waarschuwen**.
+4. Als u een rapport test **MISLUKKEN**Voer: `Get-AzureStackLog -FilterByRole SeedRing -OutputSharePath “<path>” -OutputShareCredential $cred` de cmdlet haalt de logboeken van Test-AzureStack. Zie voor meer informatie over diagnostische logboeken [diagnostische hulpprogramma's voor Azure Stack](azure-stack-diagnostics.md). U moet niet verzamelen van Logboeken of neem contact op met Microsoft klantenondersteuning Services (CSS) als test rapport **waarschuwen**.
 5. Verzendt de **SeedRing** logboeken aan de klantenservice van Microsoft voor Services. Klantondersteuning van Microsoft voor Services werkt samen met u het probleem op te lossen.
 
 ## <a name="reference-for-test-azurestack"></a>Naslaginformatie voor Test-AzureStack

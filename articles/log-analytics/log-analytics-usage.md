@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/11/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: d3714f7226de2a457f37e6ea4afa2b066ee460d1
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: c14013121517267445e89f43e228b03ba184f013
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49409132"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50415253"
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Gegevensgebruik analyseren in Log Analytics
 
@@ -49,12 +49,12 @@ Het **Log Analytics-gebruiksdashboard** bevat de volgende informatie:
     - Benodigde tijd voor het verzamelen en indexeren van gegevens  
 - Lijst met query's
 
-![Gebruiks- en kostendashboard](./media/log-analytics-manage-cost-storage/usage-estimated-cost-dashboard-01.png)<br>
+![Gebruiks- en kostendashboard](media/log-analytics-usage/usage-estimated-cost-dashboard-01.png)<br>
 )
 
 ### <a name="to-work-with-usage-data"></a>Werken met gebruiksgegevens
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
-2. Klik in Azure Portal op **Alle services**. Typ in de lijst met resources **Log Analytics**. Als u begint te typen, wordt de lijst gefilterd op basis van uw invoer. Selecteer **Log Analytics**.<br><br> ![Azure Portal](./media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br><br>  
+2. Klik in Azure Portal op **Alle services**. Typ in de lijst met resources **Log Analytics**. Als u begint te typen, wordt de lijst gefilterd op basis van uw invoer. Selecteer **Log Analytics**.<br><br> ![Azure Portal](media/log-analytics-usage/azure-portal-01.png)<br><br>  
 3. Selecteer een werkruimte in de lijst met Log Analytics-werkruimten.
 4. Selecteer **Gebruik en geschatte kosten** in de lijst in het linkerdeelvenster.
 5. Op het dashboard **Gebruik en geschatte kosten** kunt u het tijdsbereik wijzigen door **Tijd: afgelopen 24 uur** te selecteren en het tijdsinterval te wijzigen.<br><br> ![tijdsinterval](./media/log-analytics-usage/usage-time-filter-01.png)<br><br>

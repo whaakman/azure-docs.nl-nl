@@ -1,3 +1,16 @@
+---
+author: ggailey777
+ms.service: azure-functions
+ms.topic: include
+ms.date: 09/04/2018
+ms.author: glenga
+ms.openlocfilehash: a1bedf97f5ae7c48e5bcb47880a25ee1219b917b
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50134194"
+---
 Andere Quick Starts in deze verzameling zijn op deze Quick Start gebaseerd. Verwijder de resources niet als u van plan bent om te werken met volgende snelstartgidsen, zelfstudies of een van de services die u in deze snelstartgids hebt gemaakt.
 
 *Resources* verwijst in Azure naar functie-apps, functies, opslagaccounts enzovoort. Deze zijn gegroepeerd in *resourcegroepen*. U kunt alle resources in een groep verwijderen door de groep zelf te verwijderen. 

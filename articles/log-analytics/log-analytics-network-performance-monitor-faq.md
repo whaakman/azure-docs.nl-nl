@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2018
 ms.author: vinynigam
-ms.openlocfilehash: 2821f3fa07d8d9ada02da212084639c93e469d0b
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 91cfa35cd10772da0042566bdd9030f780329f93
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49408877"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50415182"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>Veelgestelde vragen over het netwerk Prestatiemeter-oplossing
 
-![Network Performance Monitor symbool](media/log-analytics-network-performance-monitor/npm-symbol.png)
+![Network Performance Monitor symbool](media/log-analytics-network-performance-monitor-faq/npm-symbol.png)
 
 In dit artikel bevat de antwoorden op veelgestelde vragen over (Netwerkprestatiemeter) in Azure
 
@@ -54,7 +54,7 @@ Voor ExpressRoute-bewaking functionaliteit, die moeten de Azure-knooppunten word
 ### <a name="which-protocol-among-tcp-and-icmp-should-be-chosen-for-monitoring"></a>Welk protocol TCP-en ICMP zo worden gekozen voor het bewaken van?
 Als u uw netwerk met behulp van Windows server-gebaseerde knooppunten worden bewaakt, raden wij aan u TCP als protocol voor bewaking omdat het biedt betere nauwkeurigheid. 
 
-ICMP wordt aanbevolen omdat dit platform staat niet toe dat de TCP-gegevens worden verzonden via onbewerkte sockets, en NPM is vereist voor het detecteren van de netwerktopologie voor Windows-desktops /-client op basis van een besturingssysteem knooppunten.
+ICMP wordt aanbevolen voor Windows-desktops /-client op basis van een besturingssysteem knooppunten. Dit platform is niet toegestaan voor TCP-gegevens worden verzonden via onbewerkte sockets, welke NPM voor het detecteren van de netwerktopologie.
 
 U kunt meer informatie krijgen over de relatieve voordelen van elk protocol [hier](log-analytics-network-performance-monitor-performance-monitor.md#choose-the-protocol).
 

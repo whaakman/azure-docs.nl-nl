@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 677cd65b011ed69868564617ff79b7a57947c230
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 2b9e7615fc0c2262c33ab5d7be39bdb99bc752bd
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49404440"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50412955"
 ---
 # <a name="connect-windows-computers-to-the-log-analytics-service-in-azure"></a>Windows-computers verbinden met de service Log Analytics in Azure
 
@@ -42,7 +42,7 @@ Voordat u de MMA (Microsoft Monitoring Agent) voor Windows installeert, hebt u e
 
 1. Klik in Azure Portal op **Alle services**. Typ in de lijst met resources **Log Analytics**. Als u begint te typen, wordt de lijst gefilterd op basis van uw invoer. Selecteer **Log Analytics**.
 2. In de lijst met Log Analytics-werkruimten, selecteer de werkruimte die u van plan bent over het configureren van de agent om te rapporteren aan.
-3. Selecteer **Geavanceerde instellingen**.<br><br> ![Geavanceerde instellingen van Log Analytics](media/log-analytics-quick-collect-azurevm/log-analytics-advanced-settings-01.png)<br><br>  
+3. Selecteer **Geavanceerde instellingen**.<br><br> ![Geavanceerde instellingen van Log Analytics](media/log-analytics-agent-windows/log-analytics-advanced-settings-01.png)<br><br>  
 4. Selecteer **Verbonden bronnen** en selecteer vervolgens **Windows-servers**.   
 5. Kopiëren en plakken in uw favoriete editor de **werkruimte-ID** en **primaire sleutel**.    
    
@@ -54,11 +54,11 @@ De volgende stappen uit installeren en configureren van de agent voor Log Analyt
 2. Klik op de pagina **Welkom** op **Volgende**.
 3. Lees de licentie op de pagina **Licentievoorwaarden** en klik op **Akkoord**.
 4. Op de pagina **Doelmap** wijzigt u desgewenst de standaardinstallatiemap en klikt u op **Volgende**.
-5. Op de **installatieopties voor Agent** pagina, kiest u de agent verbinden met Azure Log Analytics en klik vervolgens op **volgende**.   
+5. Op de pagina **Installatieopties voor agent** kiest u ervoor de agent verbinding te laten maken met Azure Log Analytics en klikt u op **Volgende**.   
 6. Ga op de pagina **Azure Log Analytics** als volgt te werk:
    1. Plak de **Werkruimte-id** en **Werkruimtesleutel (primaire sleutel)** die u eerder hebt gekopieerd.  Als u de computer wilt laten rapporteren bij een Log Analytics-werkruimte in de Azure Government-cloud, selecteert u **Azure US Government** in de vervolgkeuzelijst **Azure Cloud**.  
    2. Als de computer met de Log Analytics-service moet communiceren via een proxyserver, klikt u op **Geavanceerd** en geeft u de URL en het poortnummer van de proxyserver op.  Als er voor uw proxyserver verificatie is vereist, voert u de gebruikersnaam en het wachtwoord in voor verificatie met de proxyserver. Klik vervolgens op **Volgende**.  
-7. Klik op **Volgende** als u de vereiste configuratie-instellingen hebt voltooid.<br><br> ![Werkruimte-id en primaire sleutel plakken](media/log-analytics-quick-collect-windows-computer/log-analytics-mma-setup-laworkspace.png)<br><br>
+7. Klik op **Volgende** als u de vereiste configuratie-instellingen hebt voltooid.<br><br> ![Werkruimte-id en primaire sleutel plakken](media/log-analytics-agent-windows/log-analytics-mma-setup-laworkspace.png)<br><br>
 8. Controleer op de pagina **Gereed om te installeren** uw keuzes en klik op **Installeren**.
 9. Klik op de pagina **Configuratie voltooid** op **Voltooien**.
 
@@ -160,7 +160,7 @@ Als u wilt de productcode rechtstreeks vanaf het agent-installatiepakket ophalen
 
 Zodra de installatie van de agent is voltooid, is controle is verbonden en rapportage kan worden geconfigureerd op twee manieren.  
 
-Bij de computer in **Configuratiescherm**, zoek het item **Microsoft Monitoring Agent**.  Selecteer deze en klik op de **Azure Log Analytics** tabblad, de agent moet worden weergegeven een bericht weergegeven: **The Microsoft Monitoring Agent verbonden is met de Microsoft Operations Management Suite-service.**<br><br> ![Verbindingsstatus van MMA met Log Analytics](media/log-analytics-quick-collect-windows-computer/log-analytics-mma-laworkspace-status.png)
+Bij de computer in **Configuratiescherm**, zoek het item **Microsoft Monitoring Agent**.  Selecteer deze en klik op de **Azure Log Analytics** tabblad, de agent moet worden weergegeven een bericht weergegeven: **The Microsoft Monitoring Agent verbonden is met de Microsoft Operations Management Suite-service.**<br><br> ![Verbindingsstatus van MMA met Log Analytics](media/log-analytics-agent-windows/log-analytics-mma-laworkspace-status.png)
 
 U kunt ook een eenvoudige zoekopdrachten in Logboeken uitvoeren in Azure portal.  
 

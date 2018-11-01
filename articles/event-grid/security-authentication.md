@@ -6,14 +6,14 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 10/09/2018
+ms.date: 10/31/2018
 ms.author: babanisa
-ms.openlocfilehash: 2fd8712cbe5d34baed158a56e6f06b6235f5d4b2
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: a9bffe148339bfac89796405b771e9c2816eb0de
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49068181"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50741518"
 ---
 # <a name="event-grid-security-and-authentication"></a>Event Grid-beveiliging en verificatie 
 
@@ -37,7 +37,7 @@ Als u een ander type eindpunt, zoals Azure-functie op basis van een HTTP-trigger
 
 1. **ValidationCode handshake**: op het moment van de event-abonnement maken, EventGrid plaatst een 'abonnement validatiegebeurtenis' aan uw eindpunt. Het schema van deze gebeurtenis is vergelijkbaar met een andere EventGridEvent en het gegevensgedeelte van deze gebeurtenis bevat een `validationCode` eigenschap. Wanneer uw toepassing heeft vastgesteld dat de validatieaanvraag voor de voor een verwachte gebeurtenisabonnement is, moet de toepassingscode echo weer de validatiecode voor het EventGrid reageert. Dit mechanisme handshake wordt ondersteund in alle EventGrid versies.
 
-2. **ValidationURL handshake (handmatige handshake)**: In bepaalde gevallen hebt u geen controle over de broncode van het eindpunt te kunnen zijn voor het implementeren van de handshake ValidationCode op basis van. Bijvoorbeeld, als u een service van derden gebruiken (zoals [Zapier](https://zapier.com) of [IFTTT](https://ifttt.com/)), mogelijk niet via een programma reageert met de code voor validatie. Beginnen met 2018-05-01-preview-versie, EventGrid biedt nu ondersteuning voor een handshake handmatig worden gevalideerd. Als u een gebeurtenisabonnement met behulp van SDK/hulpprogramma's die gebruikmaken van deze nieuwe API-versie (2018-05-01-preview), EventGrid verzendt maakt een `validationUrl` eigenschap als onderdeel van de gegevens van het abonnement validatie-gebeurtenis. Voor het voltooien van de handshake alleen een GET aanvragen op die URL, via een REST-client of via uw webbrowser. De validatie van de opgegeven URL is alleen voor ongeveer 10 minuten geldig. Gedurende deze periode kan de Inrichtingsstatus van het gebeurtenisabonnement is `AwaitingManualAction`. Als u de handmatige validatie binnen 10 minuten niet voltooit, de Inrichtingsstatus is ingesteld op `Failed`. Hebt u om het gebeurtenisabonnement opnieuw voordat u de handmatige validatie probeert te maken.
+2. **ValidationURL handshake (handmatige handshake)**: In bepaalde gevallen hebt u geen controle over de broncode van het eindpunt voor het implementeren van de handshake ValidationCode op basis van. Bijvoorbeeld, als u een service van derden gebruiken (zoals [Zapier](https://zapier.com) of [IFTTT](https://ifttt.com/)), u via een programma kan niet reageren met de code voor validatie. Beginnen met 2018-05-01-preview-versie, EventGrid biedt nu ondersteuning voor een handshake handmatig worden gevalideerd. Als u een gebeurtenisabonnement maakt met een SDK of een hulpprogramma dat gebruikmaakt van API-versie 2018-05-01-preview of hoger, EventGrid verzendt een `validationUrl` eigenschap als onderdeel van de gegevens van het abonnement validatie-gebeurtenis. Voor het voltooien van de handshake alleen een GET aanvragen op die URL, via een REST-client of via uw webbrowser. De validatie van de opgegeven URL is alleen voor ongeveer 10 minuten geldig. Gedurende deze periode kan de Inrichtingsstatus van het gebeurtenisabonnement is `AwaitingManualAction`. Als u de handmatige validatie binnen 10 minuten niet voltooit, de Inrichtingsstatus is ingesteld op `Failed`. Hebt u het maken van het gebeurtenisabonnement opnieuw voordat u begint met het handmatig worden gevalideerd.
 
 Dit mechanisme van handmatige validatie is beschikbaar als preview. Als u de functie wilt gebruiken, moet u de [Event Grid-extensie](/cli/azure/azure-cli-extensions-list) voor de [Azure CLI](/cli/azure/install-azure-cli) installeren. U kunt deze installeren met `az extension add --name eventgrid`. Als u de REST-API, zorg ervoor dat u `api-version=2018-05-01-preview`.
 
@@ -93,7 +93,7 @@ Tijdens de event-abonnement maken, als er een foutbericht weergegeven zoals "de 
 
 ### <a name="event-delivery-security"></a>Gebeurtenis levering beveiliging
 
-U kunt de webhook-eindpunt kunt beveiligen door queryparameters toevoegen aan de webhook-URL bij het maken van een gebeurtenisabonnement. Stel een van deze queryparameters moet een geheim, zoals een [toegangstoken](https://en.wikipedia.org/wiki/Access_token) die de webhook kunt gebruiken voor het herkennen van de gebeurtenis is afkomstig van Event Grid met geldige machtigingen. Event Grid bevat deze queryparameters in elke bezorging van gebeurtenissen naar de webhook.
+U kunt de webhook-eindpunt kunt beveiligen door queryparameters toevoegen aan de webhook-URL bij het maken van een gebeurtenisabonnement. Stel een van deze queryparameters moet een geheim, zoals een [toegangstoken](https://en.wikipedia.org/wiki/Access_token). De webhook kunt gebruiken voor het herkennen van dat de gebeurtenis is afkomstig van Event Grid met geldige machtigingen. Event Grid bevat deze queryparameters in elke bezorging van gebeurtenissen naar de webhook.
 
 Tijdens het bewerken van het gebeurtenisabonnement, de queryparameters worden niet weergegeven of geretourneerd, tenzij de [--opnemen-full-eindpunt-url](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-show) parameter wordt gebruikt in Azure [CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest).
 
@@ -174,11 +174,11 @@ static string BuildSharedAccessSignature(string resource, DateTime expirationUtc
 
 ## <a name="management-access-control"></a>Beheer van Access Control
 
-Azure Event Grid kunt u bepalen het niveau van toegang krijgen tot verschillende gebruikers verschillende beheerbewerkingen zoals gebeurtenisabonnementen lijst, een nieuwe maken en genereren van sleutels. Event Grid maakt gebruik van Azure rol op basis van toegang controleren (RBAC).
+Azure Event Grid kunt u bepalen het niveau van toegang krijgen tot verschillende gebruikers verschillende beheerbewerkingen zoals gebeurtenisabonnementen lijst, een nieuwe maken en genereren van sleutels. Event Grid maakt gebruik van toegangsbeheer van Azure op basis van rollen (RBAC).
 
 ### <a name="operation-types"></a>Bewerkingstypen
 
-Azure event grid ondersteunt de volgende acties:
+Event Grid ondersteunt de volgende acties:
 
 * Microsoft.EventGrid/*/read
 * Microsoft.EventGrid/*/write
@@ -187,13 +187,17 @@ Azure event grid ondersteunt de volgende acties:
 * Microsoft.EventGrid/topics/listKeys/action
 * Microsoft.EventGrid/topics/regenerateKey/action
 
-De laatste drie bewerkingen retourneren mogelijk geheime gegevens die buiten het normale leesbewerkingen wordt gefilterd. Het raadzaam dat u toegang tot deze bewerkingen beperken. Aangepaste rollen kunnen worden gemaakt met [Azure PowerShell](../role-based-access-control/role-assignments-powershell.md), [Azure-opdrachtregelinterface (CLI)](../role-based-access-control/role-assignments-cli.md), en de [REST-API](../role-based-access-control/role-assignments-rest.md).
+De laatste drie bewerkingen retourneren mogelijk geheime gegevens die buiten het normale leesbewerkingen wordt gefilterd. Het raadzaam dat u toegang tot deze bewerkingen beperken. 
 
-### <a name="enforcing-role-based-access-check-rbac"></a>Rol afdwingen op basis van de toegangscontrole (RBAC)
+### <a name="built-in-roles"></a>Ingebouwde rollen
 
-Gebruik de volgende stappen uit om af te dwingen van RBAC voor verschillende gebruikers:
+Event Grid biedt twee ingebouwde rollen voor het beheren van abonnementen. Deze rollen zijn `EventSubscription Contributor (Preview)` en `EventSubscription Reader (Preview)`. Ze zijn belangrijk bij het implementeren van domeinen van de gebeurtenis. Zie voor meer informatie over de acties die is toegestaan, [gebeurtenis Domain - toegangsbeheer](event-domains.md#access-management).
 
-#### <a name="create-a-custom-role-definition-file-json"></a>Maak een aangepaste rol definitie-bestand (.json)
+U kunt [deze rollen toewijzen aan een gebruiker of groep](../role-based-access-control/quickstart-assign-role-user-portal.md).
+
+### <a name="custom-roles"></a>Aangepaste rollen
+
+Als u nodig hebt om op te geven van de machtigingen die verschillen van de ingebouwde rollen, kunt u aangepaste rollen maken.
 
 Hieronder vindt u voorbeeld Event Grid roldefinities die toestaat dat gebruikers verschillende acties uitvoeren.
 
@@ -201,18 +205,18 @@ Hieronder vindt u voorbeeld Event Grid roldefinities die toestaat dat gebruikers
 
 ```json
 {
-  "Name": "Event grid read only role",
-  "Id": "7C0B6B59-A278-4B62-BA19-411B70753856",
-  "IsCustom": true,
-  "Description": "Event grid read only role",
-  "Actions": [
-    "Microsoft.EventGrid/*/read"
-  ],
-  "NotActions": [
-  ],
-  "AssignableScopes": [
-    "/subscriptions/<Subscription Id>"
-  ]
+  "Name": "Event grid read only role",
+  "Id": "7C0B6B59-A278-4B62-BA19-411B70753856",
+  "IsCustom": true,
+  "Description": "Event grid read only role",
+  "Actions": [
+    "Microsoft.EventGrid/*/read"
+  ],
+  "NotActions": [
+  ],
+  "AssignableScopes": [
+    "/subscriptions/<Subscription Id>"
+  ]
 }
 ```
 
@@ -220,22 +224,22 @@ Hieronder vindt u voorbeeld Event Grid roldefinities die toestaat dat gebruikers
 
 ```json
 {
-  "Name": "Event grid No Delete Listkeys role",
-  "Id": "B9170838-5F9D-4103-A1DE-60496F7C9174",
-  "IsCustom": true,
-  "Description": "Event grid No Delete Listkeys role",
-  "Actions": [
-    "Microsoft.EventGrid/*/write",
-    "Microsoft.EventGrid/eventSubscriptions/getFullUrl/action"
-    "Microsoft.EventGrid/topics/listkeys/action",
-    "Microsoft.EventGrid/topics/regenerateKey/action"
-  ],
-  "NotActions": [
-    "Microsoft.EventGrid/*/delete"
-  ],
-  "AssignableScopes": [
-    "/subscriptions/<Subscription id>"
-  ]
+  "Name": "Event grid No Delete Listkeys role",
+  "Id": "B9170838-5F9D-4103-A1DE-60496F7C9174",
+  "IsCustom": true,
+  "Description": "Event grid No Delete Listkeys role",
+  "Actions": [
+    "Microsoft.EventGrid/*/write",
+    "Microsoft.EventGrid/eventSubscriptions/getFullUrl/action"
+    "Microsoft.EventGrid/topics/listkeys/action",
+    "Microsoft.EventGrid/topics/regenerateKey/action"
+  ],
+  "NotActions": [
+    "Microsoft.EventGrid/*/delete"
+  ],
+  "AssignableScopes": [
+    "/subscriptions/<Subscription id>"
+  ]
 }
 ```
 
@@ -243,37 +247,25 @@ Hieronder vindt u voorbeeld Event Grid roldefinities die toestaat dat gebruikers
 
 ```json
 {
-  "Name": "Event grid contributor role",
-  "Id": "4BA6FB33-2955-491B-A74F-53C9126C9514",
-  "IsCustom": true,
-  "Description": "Event grid contributor role",
-  "Actions": [
-    "Microsoft.EventGrid/*/write",
-    "Microsoft.EventGrid/*/delete",
-    "Microsoft.EventGrid/topics/listkeys/action",
-    "Microsoft.EventGrid/topics/regenerateKey/action",
-    "Microsoft.EventGrid/eventSubscriptions/getFullUrl/action"
-  ],
-  "NotActions": [],
-  "AssignableScopes": [
-    "/subscriptions/<Subscription id>"
-  ]
+  "Name": "Event grid contributor role",
+  "Id": "4BA6FB33-2955-491B-A74F-53C9126C9514",
+  "IsCustom": true,
+  "Description": "Event grid contributor role",
+  "Actions": [
+    "Microsoft.EventGrid/*/write",
+    "Microsoft.EventGrid/*/delete",
+    "Microsoft.EventGrid/topics/listkeys/action",
+    "Microsoft.EventGrid/topics/regenerateKey/action",
+    "Microsoft.EventGrid/eventSubscriptions/getFullUrl/action"
+  ],
+  "NotActions": [],
+  "AssignableScopes": [
+    "/subscriptions/<Subscription id>"
+  ]
 }
 ```
 
-#### <a name="create-and-assign-custom-role-with-azure-cli"></a>Maken en toewijzen van de aangepaste rol met Azure CLI
-
-Gebruik het volgende voor het maken van een aangepaste rol:
-
-```azurecli
-az role definition create --role-definition @<file path>
-```
-
-Als u wilt de rol toewijzen aan een gebruiker, gebruikt u:
-
-```azurecli
-az role assignment create --assignee <user name> --role "<name of role>"
-```
+U kunt maken van aangepaste rollen met [PowerShell](../role-based-access-control/custom-roles-powershell.md), [Azure CLI](../role-based-access-control/custom-roles-cli.md), en [REST](../role-based-access-control/custom-roles-rest.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 

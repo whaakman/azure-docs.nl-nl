@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: mareat
-ms.openlocfilehash: aa83ba1f428e70cd78cba2af6d39989179d5b30f
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 61354803f4fced7cd8fee31f10b5f72401f267da
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42060850"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50414944"
 ---
 # <a name="visualize-azure-network-watcher-nsg-flow-logs-using-open-source-tools"></a>Azure Network Watcher NSG stroomlogboeken visualiseren met open-sourcehulpprogramma 's
 
@@ -43,7 +43,7 @@ NSG-stroomlogboeken in contact met de Elastic Stack, kunnen we een Kibana-dashbo
 
 #### <a name="install-elasticsearch"></a>Elasticsearch installeren
 
-1. De Elastic Stack versie 5.0 en hoger is vereist voor Java 8. Voer de opdracht `java -version` om uw versie te controleren. Als u geen java installeren, Raadpleeg de documentatie op [van Oracle-website](http://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html).
+1. De Elastic Stack versie 5.0 en hoger is vereist voor Java 8. Voer de opdracht `java -version` om uw versie te controleren. Als u geen java installeren, als u geen java geïnstalleerd hebt, Raadpleeg de documentatie op de [Azure ondersteund JDK](https://aka.ms/azure-jdks).
 2. Download het juiste binaire pakket voor uw systeem:
 
    ```bash

@@ -12,12 +12,12 @@ ms.devlang: java
 ms.topic: article
 ms.date: 08/29/2018
 ms.author: routlaw
-ms.openlocfilehash: 1639194741fb343391f80790d0a2cc7f392218ac
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: f07d830e90045c11d870a921d091b45de6d2a89b
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50238112"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50418531"
 ---
 # <a name="java-developers-guide-for-app-service-on-linux"></a>Java developer's guide for App Service op Linux
 
@@ -235,7 +235,7 @@ Voor gedeelde bronnen op serverniveau:
 
 ## <a name="docker-containers"></a>Docker-containers
 
-Voor het gebruik van de JDK Zulu Azure wordt ondersteund in uw containers, zorg ervoor dat voor het ophalen en gebruiken van de vooraf gemaakte installatiekopieën die worden vermeld op [downloadpagina van Azul](https://www.azul.com/downloads/azure-only/zulu/#docker) of gebruik de `Dockerfile` voorbeelden uit de [Microsoft Java GitHub-opslagplaats](https://github.com/Microsoft/java/tree/master/docker).
+Voor het gebruik van de JDK Zulu Azure wordt ondersteund in uw containers, zorg ervoor dat voor het ophalen en de vooraf gemaakte installatiekopieën te gebruiken, zoals beschreven in de [Azul Zulu Enterprise ondersteund voor Azure-downloadpagina](https://www.azul.com/downloads/azure-only/zulu/) of gebruik de `Dockerfile` voorbeelden uit de [Microsoft Java GitHub-opslagplaats](https://github.com/Microsoft/java/tree/master/docker).
 
 ## <a name="runtime-availability-and-statement-of-support"></a>Runtime-beschikbaarheid en een overzicht van ondersteuning
 

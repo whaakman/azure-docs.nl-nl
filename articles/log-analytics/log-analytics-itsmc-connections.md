@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
 ms.component: ''
-ms.openlocfilehash: 190e173e035716431c92533e42ded97e147f21a7
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 4faea38817a546dbab02064d22a0813362f77b3d
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49409200"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50416457"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Verbinding maken met ITSM-producten en services met IT Service Management-Connector
 In dit artikel bevat informatie over het configureren van de verbinding tussen uw ITSM-product/service en de IT Service Management-Connector (ITSMC) in Log Analytics om uw werkitems centraal te beheren. Zie voor meer informatie over ITSMC [overzicht](log-analytics-itsmc-overview.md).
@@ -57,7 +57,7 @@ Gebruik de volgende procedure verbinding maken met uw exemplaar van System Cente
 
 2.  Onder **GEGEVENSBRONNEN voor WERKRUIMTE** klikt u op **ITSM-verbindingen**.
 
-    ![Nieuwe verbinding](./media/log-analytics-itsmc/add-new-itsm-connection.png)
+    ![Nieuwe verbinding](media/log-analytics-itsmc-connections/add-new-itsm-connection.png)
 
 3. Aan de bovenkant van het rechter deelvenster, klikt u op **toevoegen**.
 
@@ -78,7 +78,7 @@ Gebruik de volgende procedure verbinding maken met uw exemplaar van System Cente
 | **Gegevens synchroniseren** | Typ het aantal afgelopen dagen die u wilt dat de gegevens uit. **Maximumlimiet**: 120 dagen. |
 | **Nieuwe configuratie-item maken in de ITSM-oplossing** | Selecteer deze optie als u wilt maken van de configuratie-items in de ITSM-product. Als u selecteert, maakt Log Analytics de betrokken configuratie-items als configuratie-items (in het geval van niet-bestaande configuratie-items) in de ondersteunde ITSM-systeem. **Standaard**: uitgeschakeld. |
 
-![Service manager-verbinding](./media/log-analytics-itsmc/service-manager-connection.png)
+![Service manager-verbinding](media/log-analytics-itsmc-connections/service-manager-connection.png)
 
 **Wanneer er verbinding gemaakt met en gesynchroniseerd**:
 
@@ -128,14 +128,14 @@ Gebruik de volgende procedure om de hybride verbinding die verbinding maakt van 
 2. Klik op **instellingen** > **netwerken**.
 3. Onder **hybride verbindingen**, klikt u op **uw hybride-verbindingseindpunten configureren**.
 
-    ![Netwerken voor hybride verbinding](./media/log-analytics-itsmc/itsmc-hybrid-connection-networking-and-end-points.png)
+    ![Netwerken voor hybride verbinding](media/log-analytics-itsmc-connections/itsmc-hybrid-connection-networking-and-end-points.png)
 4. In de **hybride verbindingen** blade, klikt u op **hybride verbinding toevoegen**.
 
-    ![Hybride verbinding toevoegen](./media/log-analytics-itsmc/itsmc-new-hybrid-connection-add.png)
+    ![Hybride verbinding toevoegen](media/log-analytics-itsmc-connections/itsmc-new-hybrid-connection-add.png)
 
 5. In de **hybride verbindingen toevoegen** blade, klikt u op **maken nieuwe hybride verbinding**.
 
-    ![Nieuwe hybride verbinding](./media/log-analytics-itsmc/itsmc-create-new-hybrid-connection.png)
+    ![Nieuwe hybride verbinding](media/log-analytics-itsmc-connections/itsmc-create-new-hybrid-connection.png)
 
 6. Typ de volgende waarden:
 
@@ -146,14 +146,14 @@ Gebruik de volgende procedure om de hybride verbinding die verbinding maakt van 
     - **Locatie**: Selecteer de locatie.
     -  **Naam**: Geef een naam op voor de service bus als u deze maakt.
 
-    ![Hybride verbindingswaarden](./media/log-analytics-itsmc/itsmc-new-hybrid-connection-values.png)
+    ![Hybride verbindingswaarden](media/log-analytics-itsmc-connections/itsmc-new-hybrid-connection-values.png)
 6. Klik op **OK** sluiten de **hybride verbinding maken** blade en beginnen met het maken van de hybride verbinding.
 
     Zodra de hybride verbinding is gemaakt, wordt deze weergegeven op de blade.
 
 7. Nadat de hybride verbinding is gemaakt, selecteert u de verbinding en klikt u op **toevoegen geselecteerde hybride verbinding**.
 
-    ![Nieuwe hybride verbinding](./media/log-analytics-itsmc/itsmc-new-hybrid-connection-added.png)
+    ![Nieuwe hybride verbinding](media/log-analytics-itsmc-connections/itsmc-new-hybrid-connection-added.png)
 
 #### <a name="configure-the-listener-setup"></a>De listener-instellingen configureren
 
@@ -171,14 +171,14 @@ Gebruik de volgende procedure voor het configureren van de setup van listener vo
 
 De hybride verbinding is verbonden.
 
-![geslaagde hybride verbinding](./media/log-analytics-itsmc/itsmc-hybrid-connection-listener-set-up-successful.png)
+![geslaagde hybride verbinding](media/log-analytics-itsmc-connections/itsmc-hybrid-connection-listener-set-up-successful.png)
 > [!NOTE]
 
 > Nadat de hybride verbinding is gemaakt, controleren en de verbinding testen door naar de geïmplementeerde Service Manager-Web-app te gaan. Zorg ervoor dat de verbinding is geslaagd voordat u probeert verbinding maken met ITSMC in Azure.
 
 Het volgende voorbeeldafbeelding ziet u de details van de verbinding is geslaagd:
 
-![Hybride verbinding is getest](./media/log-analytics-itsmc/itsmc-hybrid-connection-test.png)
+![Hybride verbinding is getest](media/log-analytics-itsmc-connections/itsmc-hybrid-connection-test.png)
 
 ## <a name="connect-servicenow-to-it-service-management-connector-in-azure"></a>Verbinding maken met ServiceNow met IT Service Management-Connector in Azure
 
@@ -209,7 +209,7 @@ Gebruik de volgende procedure om een ServiceNow-verbinding te maken:
 1. In Azure portal, gaat u naar **alle Resources** en zoek naar **ServiceDesk(YourWorkspaceName)**
 
 2.  Onder **GEGEVENSBRONNEN voor WERKRUIMTE** klikt u op **ITSM-verbindingen**.
-    ![Nieuwe verbinding](./media/log-analytics-itsmc/add-new-itsm-connection.png)
+    ![Nieuwe verbinding](media/log-analytics-itsmc-connections/add-new-itsm-connection.png)
 
 3. Aan de bovenkant van het rechter deelvenster, klikt u op **toevoegen**.
 
@@ -232,7 +232,7 @@ Gebruik de volgende procedure om een ServiceNow-verbinding te maken:
 | **Gegevens synchroniseren** | Typ het aantal afgelopen dagen die u wilt dat de gegevens uit. **Maximumlimiet**: 120 dagen. |
 | **Nieuwe configuratie-item maken in de ITSM-oplossing** | Selecteer deze optie als u wilt maken van de configuratie-items in de ITSM-product. Als u selecteert, maakt ITSMC de betrokken configuratie-items als configuratie-items (in het geval van niet-bestaande configuratie-items) in de ondersteunde ITSM-systeem. **Standaard**: uitgeschakeld. |
 
-![ServiceNow-verbinding](./media/log-analytics-itsmc/itsm-connection-servicenow-connection-latest.png)
+![ServiceNow-verbinding](media/log-analytics-itsmc-connections/itsm-connection-servicenow-connection-latest.png)
 
 **Wanneer er verbinding gemaakt met en gesynchroniseerd**:
 
@@ -304,7 +304,7 @@ Gebruik de volgende procedure om een Provance verbinding te maken:
 1. In Azure portal, gaat u naar **alle Resources** en zoek naar **ServiceDesk(YourWorkspaceName)**
 
 2.  Onder **GEGEVENSBRONNEN voor WERKRUIMTE** klikt u op **ITSM-verbindingen**.
-    ![Nieuwe verbinding](./media/log-analytics-itsmc/add-new-itsm-connection.png)
+    ![Nieuwe verbinding](media/log-analytics-itsmc-connections/add-new-itsm-connection.png)
 
 3. Aan de bovenkant van het rechter deelvenster, klikt u op **toevoegen**.
 
@@ -326,7 +326,7 @@ Gebruik de volgende procedure om een Provance verbinding te maken:
 | **Gegevens synchroniseren** | Typ het aantal afgelopen dagen die u wilt dat de gegevens uit. **Maximumlimiet**: 120 dagen. |
 | **Nieuwe configuratie-item maken in de ITSM-oplossing** | Selecteer deze optie als u wilt maken van de configuratie-items in de ITSM-product. Als u selecteert, maakt ITSMC de betrokken configuratie-items als configuratie-items (in het geval van niet-bestaande configuratie-items) in de ondersteunde ITSM-systeem. **Standaard**: uitgeschakeld.|
 
-![Provance verbinding](./media/log-analytics-itsmc/itsm-connections-provance-latest.png)
+![Provance verbinding](media/log-analytics-itsmc-connections/itsm-connections-provance-latest.png)
 
 **Wanneer er verbinding gemaakt met en gesynchroniseerd**:
 
@@ -355,7 +355,7 @@ Gebruik de volgende procedure om een Provance verbinding te maken:
 1. In Azure portal, gaat u naar **alle Resources** en zoek naar **ServiceDesk(YourWorkspaceName)**
 
 2.  Onder **GEGEVENSBRONNEN voor WERKRUIMTE** klikt u op **ITSM-verbindingen**.
-    ![Nieuwe verbinding](./media/log-analytics-itsmc/add-new-itsm-connection.png)
+    ![Nieuwe verbinding](media/log-analytics-itsmc-connections/add-new-itsm-connection.png)
 
 3. Aan de bovenkant van het rechter deelvenster, klikt u op **toevoegen**.
 
@@ -378,7 +378,7 @@ Gebruik de volgende procedure om een Provance verbinding te maken:
 | **Nieuwe configuratie-item maken in de ITSM-oplossing** | Selecteer deze optie als u wilt maken van de configuratie-items in de ITSM-product. Als u selecteert, maakt ITSMC de betrokken configuratie-items als configuratie-items (in het geval van niet-bestaande configuratie-items) in de ondersteunde ITSM-systeem. **Standaard**: uitgeschakeld. |
 
 
-![Provance verbinding](./media/log-analytics-itsmc/itsm-connections-cherwell-latest.png)
+![Provance verbinding](media/log-analytics-itsmc-connections/itsm-connections-cherwell-latest.png)
 
 **Wanneer er verbinding gemaakt met en gesynchroniseerd**:
 
@@ -396,7 +396,7 @@ Voor het genereren van de client-ID-sleutel voor Cherwell, gebruikt u de volgend
 2. Klik op **Security** > **bewerken REST-API-clientinstellingen**.
 3. Selecteer **maken nieuwe client** > **clientgeheim**.
 
-    ![Cherwell gebruikers-id](./media/log-analytics-itsmc/itsmc-cherwell-client-id.png)
+    ![Cherwell gebruikers-id](media/log-analytics-itsmc-connections/itsmc-cherwell-client-id.png)
 
 
 ## <a name="next-steps"></a>Volgende stappen

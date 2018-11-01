@@ -113,11 +113,11 @@ Als u het hulpprogramma niet kunt gebruiken, kunnen de volgende stappen u helpen
 
 1. Maak een schatting van de edtu's of vCores die nodig zijn voor de groep als volgt:
 
-   Voor DTU gebaseerde aankoopmodel: MAX (<*totaal aantal DB's* X *gemiddelde DTU-gebruik per DB*>,<br>
-   <*aantal gelijktijdig piekende databases* X *piek-DTU-gebruik per DB*)
+   Voor DTU gebaseerde aankoopmodel: MAX (<*totaal aantal DB's* X *gemiddelde DTU-gebruik per DB* >,<br>
+   < *aantal gelijktijdig piekende databases* X *piek-DTU-gebruik per DB* >)
 
-   Voor vCore gebaseerde aankoopmodel: MAX (<*totaal aantal DB's* X *Gemiddeld gebruik per DB vCore*>,<br>
-   <*Aantal gelijktijdig piekende databases* X *vCore piekgebruik per DB*)
+   Voor vCore gebaseerde aankoopmodel: MAX (<*totaal aantal DB's* X *Gemiddeld gebruik per DB vCore* >,<br>
+   < *Aantal gelijktijdig piekende databases* X *vCore piekgebruik per DB* >)
 
 2. Schat hoeveel opslagruimte de groep nodig heeft door het aantal bytes op te tellen dat nodig is voor alle databases in de groep. Bepaal daarna hoe groot de eDTU-groep moet zijn om aan deze hoeveelheid opslag te voldoen.
 3. Voor de DTU gebaseerde aankoopmodel, zet u de grootste waarde van de eDTU-schatting uit stap 1 en stap 2. Voor het op vCore gebaseerde aankoopmodel, nemen de vCore-schatting uit stap 1.

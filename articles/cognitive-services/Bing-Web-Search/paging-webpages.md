@@ -11,12 +11,12 @@ ms.component: bing-web-search
 ms.topic: conceptual
 ms.date: 08/20/2018
 ms.author: erhopf
-ms.openlocfilehash: 4aa3509fcdfc6fd1bccb4db95a8c916a42ce23d2
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: e98407dface348dfdbc99a1146d50c46f3bb03a7
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46125269"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50739240"
 ---
 # <a name="how-to-page-through-results-from-the-bing-web-search-api"></a>Pagina met resultaten van de Bing webzoekopdrachten-API
 
@@ -61,4 +61,7 @@ Host: api.cognitive.microsoft.com
 
 De webzoekopdrachten-API retourneert resultaten die webpagina's bevatten en kunnen afbeeldingen, video's en nieuws. Wanneer u de lijst met zoekresultaten, u het wisselbestand worden de [WebAnswer](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#webanswer) antwoord en de andere antwoorden, zoals afbeeldingen of nieuws. Als u bijvoorbeeld `count` tot 50, je weer toegang krijgen 50 webpagina-resultaten, maar het antwoord kan resultaten voor de andere antwoorden ook bevatten. Het antwoord kan bijvoorbeeld 15 afbeeldingen en 4 nieuwsartikelen bevatten. Het is ook mogelijk dat de resultaten nieuws op de eerste pagina, maar niet de tweede pagina kunnen bevatten of vice versa.   
 
-Als u opgeeft de `responseFilter` queryparameter en omvatten geen webpagina's in de filterlijst, gebruikt u niet de `count` en `offset` parameters.  
+Als u opgeeft de `responseFilter` queryparameter en omvatten geen webpagina's in de filterlijst, gebruikt u niet de `count` en `offset` parameters. 
+
+> [!NOTE]
+> De `TotalEstimatedAnswers` veld is een schatting van het totale aantal zoekresultaten kunt u voor de huidige query ophalen.  Als u instelt `count` en `offset` parameters, de `TotalEstimatedAnswers` getal kan worden gewijzigd. 

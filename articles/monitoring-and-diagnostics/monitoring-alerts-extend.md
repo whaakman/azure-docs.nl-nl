@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 45682caedaaaac1c9d335a45db64f16d713dfd7f
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 60ecc2bc1d700c223d4a52b05e3b9362241f3f82
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233494"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50414607"
 ---
 # <a name="extend-log-analytics-alerts-to-azure-alerts"></a>Waarschuwingen van Log Analytics uitbreiden naar Azure-waarschuwingen
 Tot voor kort opgenomen Azure Log Analytics een eigen waarschuwing functionaliteit, die proactief te over voorwaarden op basis van Log Analytics-gegevens waarschuwen kan. U hebt beheerd waarschuwingsregels in de Microsoft Operations Management Suite-portal. Waarschuwingen voor verschillende services in Microsoft Azure is nu geïntegreerd in de nieuwe ervaring voor waarschuwingen. Deze optie is beschikbaar als **waarschuwingen** onder Azure Monitor in de Azure-portal en biedt ondersteuning voor waarschuwingen van activiteitenlogboeken, metrische gegevens en logboeken van Log Analytics en Azure Application Insights. 
@@ -35,7 +35,7 @@ Het proces van het verplaatsen van waarschuwingen van Log Analytics in Azure-waa
 
 Bij het plannen van waarschuwingen in Log Analytics-werkruimte worden uitgebreid naar Azure blijven te werken, en niet in dat een configuratie van de manier waarop inbreuk. Bij het plannen, uw waarschuwingen mogelijk niet beschikbaar voor het wijzigen van tijdelijk, maar u kunt doorgaan met het maken van nieuwe Azure-waarschuwingen tijdens deze periode. Als u probeert te bewerken of maken van waarschuwingen van de Operations Management Suite-portal, hebt u de mogelijkheid om door te gaan ze worden gemaakt van uw Log Analytics-werkruimte. U kunt ook om ze te maken van Azure-waarschuwingen in Azure portal.
 
- ![Schermafbeelding van de optie voor het maken van waarschuwingen van Log Analytics of Azure-waarschuwingen](./media/monitor-alerts-extend/ScheduledDirection.png)
+ ![Schermafbeelding van de optie voor het maken van waarschuwingen van Log Analytics of Azure-waarschuwingen](media/monitoring-alerts-extend/ScheduledDirection.png)
 
 > [!NOTE]
 > Waarschuwingen van Log Analytics uitbreiden naar Azure, worden er kosten in rekening gebracht op uw account. Met behulp van Azure-waarschuwingen voor query's op basis van Log Analytics-waarschuwingen is niet in rekening gebracht bij gebruik binnen de grenzen en voorwaarden die zijn vermeld in de [Azure Monitor prijsbeleid](https://azure.microsoft.com/pricing/details/monitor/).  
@@ -47,7 +47,7 @@ Als u wilt uw meldingen uitbreiden naar Azure-waarschuwingen, kunt u een wizard,
 ## <a name="experience-after-extending-your-alerts"></a>Ondervindt na het uitbreiden van uw waarschuwingen
 Nadat uw waarschuwingen worden uitgebreid naar Azure-waarschuwingen, ze nog steeds beschikbaar in de Operations Management Suite-portal voor het beheer niet anders dan voorheen.
 
-![Schermafbeelding van de Operations Management Suite-portal, met waarschuwingen die zijn vermeld](./media/monitor-alerts-extend/PostExtendList.png)
+![Schermafbeelding van de Operations Management Suite-portal, met waarschuwingen die zijn vermeld](media/monitoring-alerts-extend/PostExtendList.png)
 
 Wanneer u probeert te bewerken van een bestaande waarschuwing of een nieuwe waarschuwing maken in de Operations Management Suite-portal, wordt u automatisch omgeleid naar Azure-waarschuwingen.  
 

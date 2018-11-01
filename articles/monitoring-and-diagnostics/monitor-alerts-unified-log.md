@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: bcede1f985937058196b75a93f539cb34da73992
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 49607809d6bb8697cc6b7a4063a45d893b9e1eac
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49365059"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50421081"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Waarschuwingen in Azure Monitor
 Dit artikel vindt u details van waarschuwingen zijn een van de typen waarschuwingen die worden ondersteund in de [Azure-waarschuwingen](monitoring-overview-unified-alerts.md) en gebruikers van Azure-platform voor streaminganalyse gebruiken als basis voor waarschuwingen.
@@ -93,7 +93,7 @@ U hebt een scenario waarin u een waarschuwing wilt als een computer processorgeb
 
 De query maakt een gemiddelde waarde voor elke computer met 5 minuten durende intervallen.  Deze query worden uitgevoerd om de 5 minuten voor gegevens die worden verzameld in de vorige 30 minuten.  Hieronder ziet u voorbeeldgegevens voor de drie computers.
 
-![De resultaten van de voorbeeld-query](./media/monitor-alerts-unified/metrics-measurement-sample-graph.png)
+![De resultaten van de voorbeeld-query](media/monitor-alerts-unified-log/metrics-measurement-sample-graph.png)
 
 In dit voorbeeld zou er afzonderlijke waarschuwingen voor srv02 en srv03 worden gemaakt omdat ze de drempelwaarde 90% drie keer gedurende de periode geschonden.  Als de **waarschuwing activeren op basis van:** zijn gewijzigd in **opeenvolgend** en vervolgens een waarschuwing alleen voor srv03 zouden worden gemaakt omdat deze de drempelwaarde voor drie opeenvolgende steekproeven geschonden.
 

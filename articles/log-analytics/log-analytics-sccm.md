@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 28ddfea0f4127f402b82388a10ee150b30a65736
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: dfa0a4b637153d6fa3cce5c9b402587950686341
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954229"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50418072"
 ---
 # <a name="connect-configuration-manager-to-log-analytics"></a>Configuration Manager koppelen aan Log Analytics
 U kunt uw System Center Configuration Manager-omgeving koppelen aan Azure Log Analytics apparaat verzameling om gegevens te synchroniseren en verwijzen naar deze verzamelingen in Log Analytics en Azure Automation.  
@@ -49,7 +49,7 @@ In de volgende procedure, verleent u de *Inzender* rol in uw Log Analytics-werkr
 > U moet machtigingen opgeven in Log Analytics voor Configuration Manager. Anders ontvangt u een foutbericht weergegeven wanneer u de configuratiewizard in Configuration Manager gebruiken.
 >
 
-1. Klik in Azure Portal in de linkerbovenhoek op **Alle services**. Typ in de lijst met resources **Log Analytics**. Als u begint te typen, wordt de lijst gefilterd op basis van uw invoer. Selecteer **Log Analytics**.<br><br> ![Azure Portal](media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br><br>  
+1. Klik in Azure Portal in de linkerbovenhoek op **Alle services**. Typ in de lijst met resources **Log Analytics**. Als u begint te typen, wordt de lijst gefilterd op basis van uw invoer. Selecteer **Log Analytics**.<br><br> ![Azure Portal](media/log-analytics-sccm/azure-portal-01.png)<br><br>  
 2. In de lijst met Log Analytics-werkruimten, selecteer de werkruimte te wijzigen.
 3. Selecteer in het linkerdeelvenster **Access Control (IAM)**.
 4. In de Access Control-pagina, klikt u op **toevoegen** en de **machtigingen toevoegen** deelvenster wordt weergegeven.
@@ -101,7 +101,7 @@ Nadat u de eerste configuratie voor het apparaatverzamelingen importeren uit uw 
 
 1. Klik in Azure Portal in de linkerbovenhoek op **Alle services**. Typ in de lijst met resources **Log Analytics**. Als u begint te typen, wordt de lijst gefilterd op basis van uw invoer. Selecteer **Log Analytics**.
 2. Selecteer in de lijst met Log Analytics-werkruimten, de Configuration Manager is geregistreerd bij de werkruimte.  
-3. Selecteer **Geavanceerde instellingen**.<br><br> ![Geavanceerde instellingen van Log Analytics](media/log-analytics-quick-collect-azurevm/log-analytics-advanced-settings-01.png)<br><br>  
+3. Selecteer **Geavanceerde instellingen**.<br><br> ![Geavanceerde instellingen van Log Analytics](media/log-analytics-sccm/log-analytics-advanced-settings-01.png)<br><br>  
 4. Selecteer **computergroepen** en selecteer vervolgens **SCCM**.  
 5. Selecteer **Import Configuration Manager-verzamelingslidmaatschappen** en klik vervolgens op **opslaan**.  
    ![Computergroepen - SCCM-tabblad](./media/log-analytics-sccm/sccm-computer-groups01.png)

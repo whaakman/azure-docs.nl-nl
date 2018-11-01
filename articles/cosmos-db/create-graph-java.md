@@ -11,12 +11,12 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 03/26/2018
 ms.author: lbosq
-ms.openlocfilehash: 0c174b6979e1601d992b0e19d216d1b7211e51d3
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: bd857cbef3b052e85d0b666f211d5f158b8931c2
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43701028"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50420877"
 ---
 # <a name="azure-cosmos-db-create-a-graph-database-using-java-and-the-azure-portal"></a>Azure Cosmos DB: een grafiek maken met behulp van Java en Azure Portal
 
@@ -31,14 +31,14 @@ ms.locfileid: "43701028"
 
 Azure Cosmos DB is de globaal gedistribueerde multimodel-databaseservice van Microsoft. Met behulp van Azure Cosmos DB kunt u snel beheerde databases voor documenten, tabellen en grafieken maken en doorzoeken. 
 
-In deze snelstart maakt u een eenvoudige grafiekendatabase met behulp van de Azure Portal-hulpprogramma's voor Azure Cosmos DB. In deze snelstart leest u ook hoe u snel een Java-console-app kunt maken via een [Gremlin API-database](graph-introduction.md) met behulp van het OSS-stuurprogramma [Apache TinkerPop](http://tinkerpop.apache.org/). De instructies in deze snelstartgids kunnen worden uitgevoerd in elk besturingssysteem waarmee Java kan worden uitgevoerd. In deze snelstart leert u hoe u grafieken kunt maken en wijzigen in de gebruikersinterface of via een programma, afhankelijk van uw voorkeur. 
+In deze QuickStart maakt u een eenvoudige grafiekendatabase met behulp van de Azure Portal-hulpprogramma's voor Azure Cosmos DB. In deze snelstart leest u ook hoe u snel een Java-console-app kunt maken via een [Gremlin API-database](graph-introduction.md) met behulp van het OSS-stuurprogramma [Apache TinkerPop](http://tinkerpop.apache.org/). De instructies in deze snelstartgids kunnen worden uitgevoerd in elk besturingssysteem waarmee Java kan worden uitgevoerd. In deze QuickStart leert u hoe u grafieken kunt maken en wijzigen in de gebruikersinterface of via een programma, afhankelijk van uw voorkeur. 
 
 ## <a name="prerequisites"></a>Vereisten
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 Daarnaast doet u het volgende:
 
-* [Java Development Kit (JDK) 1.7+](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+* [Java Development Kit (JDK) 1.7+](https://aka.ms/azure-jdks)
     * Voer op Ubuntu `apt-get install default-jdk` uit om de JDK te installeren.
     * Zorg dat de omgevingsvariabele JAVA_HOME verwijst naar de map waarin de JDK is geïnstalleerd.
 * [Download](http://maven.apache.org/download.cgi) en [installeer](http://maven.apache.org/install.html) een binair [Maven](http://maven.apache.org/)-archief

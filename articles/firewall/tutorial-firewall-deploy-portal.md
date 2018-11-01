@@ -3,18 +3,17 @@ title: Azure Firewall implementeren en configureren met de Azure-portal
 description: In deze zelfstudie leert u hoe u Azure Firewall kunt implementeren en configureren via de Azure-portal.
 services: firewall
 author: vhorne
-manager: jpconnock
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 10/5/2018
+ms.date: 10/30/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 8fb459d197c15cf7760a924c7161fed59cc1caac
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 47a04df843ec307b54cc1d6597f9a3cf8668e291
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48801876"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50238825"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Zelfstudie: Azure Firewall implementeren en configureren met de Azure-portal
 
@@ -31,7 +30,7 @@ Netwerkverkeer is onderhevig aan de geconfigureerde firewallregels wanneer u het
 
 Toepassings- en netwerkregels worden opgeslagen in *regelverzamelingen*. Een regelverzameling is een lijst met regels die dezelfde actie en prioriteit hebben.  Een netwerkregelverzameling is een lijst met netwerkregels en een toepassingsregelverzameling is een lijst met toepassingsregels.
 
-Azure Firewall beschikt over NAT-regels, netwerkregels en toepassingsregels. Zie [Verwerkingslogica voor Azure Firewall-regels](rule-processing.md) voor meer informatie over de verwerkingslogica voor Azure Firewall-regels.
+Zie [Verwerkingslogica voor Azure Firewall-regels](rule-processing.md) voor meer informatie over de verwerkingslogica voor Azure Firewall-regels.
 
 In deze zelfstudie leert u het volgende:
 
@@ -42,8 +41,6 @@ In deze zelfstudie leert u het volgende:
 > * Toepassingsregels configureren
 > * Netwerkregels configureren
 > * De firewall testen
-
-
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
@@ -56,32 +53,32 @@ Voor deze zelfstudie maakt u één VNet met drie subnetten:
 
 Deze zelfstudie maakt gebruik van een vereenvoudigde netwerkconfiguratie voor gemakkelijke implementatie. Voor productie-implementaties wordt een [hub-en-spoke-model](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) aanbevolen, waarbij de firewall zich in zijn eigen VNet bevindt en workloadservers zich in gekoppelde VNets bevinden in dezelfde regio met één of meer subnetten.
 
-
-
 ## <a name="set-up-the-network-environment"></a>De netwerkomgeving instellen
+
 Maak eerst een resourcegroep met de resources die nodig zijn om de firewall te implementeren. Maak vervolgens een VNet, subnetten en testservers.
 
 ### <a name="create-a-resource-group"></a>Een resourcegroep maken
-1. Meld u aan bij de Azure Portal op [http://portal.azure.com](http://portal.azure.com).
-1. Klik op de startpagina van de Azure-portal op **Resourcegroepen** en klik vervolgens op **Toevoegen**.
-2. Bij **Resourcegroepnaam** typt u **Test-FW-RG**.
-3. Bij **Abonnement** selecteert u uw abonnement.
-4. Bij **Resourcegroeplocatie** selecteert u een locatie. Alle volgende resources die u maakt, moeten zich op dezelfde locatie bevinden.
-5. Klik op **Create**.
 
+1. Meld u aan bij de Azure Portal op [http://portal.azure.com](http://portal.azure.com).
+2. Klik op de startpagina van de Azure-portal op **Resourcegroepen** en klik vervolgens op **Toevoegen**.
+3. Bij **Resourcegroepnaam** typt u **Test-FW-RG**.
+4. Bij **Abonnement** selecteert u uw abonnement.
+5. Bij **Resourcegroeplocatie** selecteert u een locatie. Alle volgende resources die u maakt, moeten zich op dezelfde locatie bevinden.
+6. Klik op **Create**.
 
 ### <a name="create-a-vnet"></a>Een VNet maken
+
 1. Klik op de startpagina van de Azure-portal op **Alle services**.
 2. Klik onder **Netwerken** op **Virtuele netwerken**.
 3. Klik op **Add**.
 4. Bij **Naam** typt u **Test-FW-VN**.
 5. Bij **Adresruimte** typt u **10.0.0.0/16**.
-7. Bij **Abonnement** selecteert u uw abonnement.
-8. Bij **Resourcegroep** selecteert u **Bestaande gebruiken** en selecteert u vervolgens **Test-FW-RG**.
-9. Bij **Locatie** selecteert u dezelfde locatie die u eerder hebt gebruikt.
-10. Onder **Subnet** typt u bij **Naam** de naam **AzureFirewallSubnet**. De firewall zal zich in dit subnet bevinden, en de subnetnaam **moet** AzureFirewallSubnet zijn.
-11. Bij **Adresbereik** typt u **10.0.1.0/24**.
-12. Gebruik de andere standaardinstellingen en klik vervolgens op **Maken**.
+6. Bij **Abonnement** selecteert u uw abonnement.
+7. Bij **Resourcegroep** selecteert u **Bestaande gebruiken** en selecteert u vervolgens **Test-FW-RG**.
+8. Bij **Locatie** selecteert u dezelfde locatie die u eerder hebt gebruikt.
+9. Onder **Subnet** typt u bij **Naam** de naam **AzureFirewallSubnet**. De firewall zal zich in dit subnet bevinden, en de subnetnaam **moet** AzureFirewallSubnet zijn.
+10. Bij **Adresbereik** typt u **10.0.1.0/24**.
+11. Gebruik de andere standaardinstellingen en klik vervolgens op **Maken**.
 
 > [!NOTE]
 > De minimale grootte van het subnet AzureFirewallSubnet is /25.
@@ -138,13 +135,11 @@ Herhaal dit proces om nog een virtuele machine te maken, genaamd **Srv-Work**.
 
 Gebruik de informatie in de volgende tabel om de **Instellingen** voor de virtuele machine Srv-Work te configureren. De rest van de configuratie is hetzelfde als voor de virtuele machine Srv-Jump.
 
-
 |Instelling  |Waarde  |
 |---------|---------|
 |Subnet|Workload-SN|
 |Openbaar IP-adres|Geen|
 |Openbare poorten voor inkomend verkeer selecteren|Geen openbare poorten voor inkomend verkeer|
-
 
 ## <a name="deploy-the-firewall"></a>De firewall implementeren
 
@@ -168,7 +163,6 @@ Gebruik de informatie in de volgende tabel om de **Instellingen** voor de virtue
    Het duurt enkele minuten voordat deze is geïmplementeerd.
 4. Zodra de implementatie is voltooid, gaat u naar de resourcegroep **Test-FW-RG** en klikt u op de firewall **Test-FW01**.
 6. Noteer het privé-IP-adres. U zult het later gebruiken wanneer u de standaardroute maakt.
-
 
 ## <a name="create-a-default-route"></a>Een standaardroute maken
 
@@ -200,9 +194,7 @@ Voor het subnet **Workload-SN** configureert u de standaardroute voor uitgaand v
 18. Bij **Adres van de volgende hop** typt u het privé-IP-adres voor de firewall dat u eerder hebt genoteerd.
 19. Klik op **OK**.
 
-
 ## <a name="configure-application-rules"></a>Toepassingsregels configureren
-
 
 1. Open de resourcegroep **Test-FW-RG** en klik op de firewall **Test-FW01**.
 2. Klik op de pagina **Test-FW01** onder **Instellingen** op **Regels**.
@@ -244,7 +236,6 @@ Voor testdoeleinden in deze zelfstudie configureert u het primaire en secundaire
 6. Klik op **Opslaan**. 
 7. Start de virtuele machine **Srv-Work** opnieuw.
 
-
 ## <a name="test-the-firewall"></a>De firewall testen
 
 1. Controleer in de Azure-portal de netwerkinstellingen voor de virtuele machine **Srv-Work** en noteer het privé-IP-adres.
@@ -267,7 +258,6 @@ Nu u hebt geverifieerd dat de firewallregels werken:
 ## <a name="clean-up-resources"></a>Resources opschonen
 
 U kunt de firewall-resources voor de volgende zelfstudie bewaren. Als u ze niet meer nodig hebt, verwijdert u de resourcegroep **Test-FW-RG** om alle firewall-gerelateerde resources te verwijderen.
-
 
 ## <a name="next-steps"></a>Volgende stappen
 

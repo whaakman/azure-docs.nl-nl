@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/21/2018
 ms.author: erhopf
-ms.openlocfilehash: 5a2b478d39f14b993a389fc48e037e1980d83e52
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: f9f9b6758a74ac846e7b44ab9024620e6176218d
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49646141"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50414613"
 ---
 # <a name="quickstart-translate-text-with-the-translator-text-rest-api-java"></a>Snelstart: Tekst vertalen met de Translator Text REST API (Java)
 
@@ -23,7 +23,7 @@ In deze snelstartgids vertaalt u tekst vanuit één taal naar een andere taal me
 
 ## <a name="prerequisites"></a>Vereisten
 
-U moet over [JDK 7 of 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) beschikken om deze code te compileren en uit te voeren. U kunt een Java-IDE gebruiken als u daar graag mee werkt, maar u kunt ook een teksteditor gebruiken.
+U moet over [JDK 7 of 8](https://aka.ms/azure-jdks) beschikken om deze code te compileren en uit te voeren. U kunt een Java-IDE gebruiken als u daar graag mee werkt, maar u kunt ook een teksteditor gebruiken.
 
 Als u de Translator Text-API wilt gebruiken, moet u ook een abonnementssleutel hebben. Zie [Hoe u zich registreert voor de Translator Text-API](translator-text-how-to-signup.md).
 

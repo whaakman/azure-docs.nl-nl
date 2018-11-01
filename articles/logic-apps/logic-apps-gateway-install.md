@@ -6,15 +6,15 @@ ms.service: logic-apps
 ms.suite: integration
 author: ecfan
 ms.author: estfan
-ms.reviewer: yshoukry, LADocs
+ms.reviewer: arthii, LADocs
 ms.topic: article
-ms.date: 07/20/2018
-ms.openlocfilehash: 5fc4ccacaaedfc3fe6c77fa9a0ad693530bdde93
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.date: 10/01/2018
+ms.openlocfilehash: 2934eadce9e3e0d5e0375dff4eec359a33bd4479
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855422"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50420095"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>On-premises gegevensgateway installeren voor Azure Logic Apps
 
@@ -60,10 +60,12 @@ Zie de volgende artikelen voor meer informatie over het gebruik van de gateway m
 * Hier volgen de vereisten voor de lokale computer:
 
   **Minimale vereisten**
+
   * .NET Framework 4.5.2
   * 64-bits versie van Windows 7 of Windows Server 2008 R2 (of hoger)
 
   **Aanbevolen vereisten**
+
   * 8-core CPU
   * 8 GB geheugen
   * 64-bits versie van Windows Server 2012 R2 (of hoger)
@@ -75,11 +77,11 @@ Zie de volgende artikelen voor meer informatie over het gebruik van de gateway m
     > [!TIP]
     > Om latentie te beperken, kunt u de gateway zo dicht mogelijk bij uw gegevensbron, of op dezelfde computer, ervan uitgaande dat u gemachtigd installeren.
 
-  * De gateway installeren op een computer die verbonden met internet, altijd ingeschakeld, en *niet* gaat u naar de slaapstand. Anders wordt de gateway kan niet worden uitgevoerd. Prestaties dan ook, kunnen afnemen een draadloos netwerk.
+  * De gateway installeren op een computer die verbonden met internet, altijd ingeschakeld, en *niet* gaat u naar de slaapstand. Anders wordt de gateway kan niet worden uitgevoerd. 
+  Prestaties dan ook, kunnen afnemen een draadloos netwerk.
 
-  * Tijdens de installatie, kunt u alleen zich aanmelden met een [werk- of schoolaccount](../active-directory/sign-up-organization.md) die wordt beheerd door Azure Active Directory (Azure AD) en niet een Microsoft-account. 
-  Controleer ook of dit account is niet van een Azure B2B (Gast)-account. 
-  U moet ook de dezelfde aanmeldingsaccount gebruiken in Azure portal wanneer u de gatewayinstallatie registreren met het maken van een Azure-resource voor uw gateway. 
+  * Tijdens de installatie, kunt u alleen zich aanmelden met een [werk- of schoolaccount](../active-directory/sign-up-organization.md) die wordt beheerd door Azure Active Directory (Azure AD), bijvoorbeeld @contoso.onmicrosoft.com, en niet een Azure B2B (Gast)-account of met een persoonlijk Microsoft-account, zoals @hotmail.com of @outlook.com. 
+  Zorg ervoor dat u de dezelfde aanmeldingsaccount gebruiken wanneer u de gatewayinstallatie in Azure portal registreren met het maken van een gateway-resource. 
   Vervolgens kunt u deze gateway-resource selecteren wanneer u de verbinding van uw logische app met uw on-premises gegevensbron maken. 
   [Waarom moet ik een Azure AD werk- of schoolaccount?](#why-azure-work-school-account)
 
@@ -96,6 +98,19 @@ Zie de volgende artikelen voor meer informatie over het gebruik van de gateway m
   * Als u al een gateway die u hebt ingesteld met een installatieprogramma ouder dan versie 14.16.6317.4 hebt, kunt u de locatie van uw gateway niet wijzigen door het uitvoeren van het nieuwste installatieprogramma. Echter, kunt u het nieuwste installatieprogramma van het instellen van een nieuwe gateway met de locatie die u in plaats daarvan wilt.
   
     Als u een gateway-installatieprogramma dat ouder is dan versie 14.16.6317.4 hebben, maar u kunt uw gateway nog niet hebt geïnstalleerd, kunt u downloaden en gebruik in plaats daarvan het nieuwste installatieprogramma van.
+
+## <a name="high-availability-support"></a>Ondersteuning voor hoge beschikbaarheid
+
+De on-premises gegevensgateway biedt ondersteuning voor hoge beschikbaarheid wanneer u meer dan één gatewayinstallatie en deze als clusters instellen. Als u een bestaande gateway hebt wanneer u gaat u naar een andere gateway maakt, kunt u eventueel clusters met hoge beschikbaarheid maken. Gateways organiseren deze clusters in groepen die kunnen helpen voorkomen single point of failure. Alle on-premises data gateway connectors ondersteunen nu ook hoge beschikbaarheid.
+
+Bekijk deze vereisten en overwegingen voor het gebruik van de on-premises gegevensgateway:
+
+* U moet ten minste één gatewayinstallatie binnen hetzelfde Azure-abonnement als de primaire gateway en de herstelsleutel voor die installatie al hebben. 
+
+* De primaire gateway moet worden uitgevoerd als de gateway-update van November 2017 of later.
+
+Na het voldoen aan deze vereisten, wanneer u de volgende gateway maakt, selecteert **toevoegen aan een bestaand gatewaycluster**, selecteert u de primaire gateway voor uw cluster en de herstelsleutel voor die primaire gateway bevatten.
+Zie voor meer informatie, [clusters met hoge beschikbaarheid voor on-premises gegevensgateway](https://docs.microsoft.com/power-bi/service-gateway-high-availability-clusters).
 
 <a name="install-gateway"></a>
 
@@ -161,19 +176,6 @@ Zie de volgende artikelen voor meer informatie over het gebruik van de gateway m
 
 10. Nu registreren van uw gateway in Azure door [het maken van een Azure-resource voor de gatewayinstallatie](../logic-apps/logic-apps-gateway-connection.md). 
 
-## <a name="enable-high-availability"></a>Hoge beschikbaarheid inschakelen
-
-De on-premises gegevensgateway biedt ondersteuning voor hoge beschikbaarheid wanneer u meer dan één gatewayinstallatie en deze als clusters instellen. Als u een bestaande gateway hebt wanneer u gaat u naar een andere gateway maakt, kunt u eventueel clusters met hoge beschikbaarheid maken. Gateways organiseren deze clusters in groepen die kunnen helpen voorkomen single point of failure. Bekijk deze vereisten en overwegingen voor het gebruik van deze mogelijkheid:
-
-* Alleen sommige connectors bieden ondersteuning voor hoge beschikbaarheid, zoals de bestandssysteem-connector en anderen op de manier. 
-     
-* U moet ten minste één gatewayinstallatie binnen hetzelfde Azure-abonnement als de primaire gateway en de herstelsleutel voor die installatie al hebben. 
-
-* De primaire gateway moet worden uitgevoerd als de gateway-update van November 2017 of later.
-
-Na het voldoen aan deze vereisten, wanneer u de volgende gateway maakt, selecteert **toevoegen aan een bestaand gatewaycluster**, selecteert u de primaire gateway voor uw cluster en de herstelsleutel voor die primaire gateway bevatten.
-Zie voor meer informatie, [clusters met hoge beschikbaarheid voor on-premises gegevensgateway](https://docs.microsoft.com/power-bi/service-gateway-high-availability-clusters).
-
 <a name="update-gateway-installation"></a>
 
 ## <a name="change-location-migrate-restore-or-take-over-existing-gateway"></a>De locatie wijzigen, migreren, herstellen of bestaande gateway overnemen
@@ -226,7 +228,7 @@ PingReplyDetails (RTT) : 0 ms
 TcpTestSucceeded       : True
 ```
 
-Als **TcpTestSucceeded** niet is ingesteld op **waar**, uw gateway mogelijk geblokkeerd door een firewall. Als u worden uitgebreid wilt, vervangt de **ComputerName** en **poort** waarden met de waarden die worden vermeld onder [poorten configureren](#configure-ports) in dit artikel.
+Als **TcpTestSucceeded** niet is ingesteld op **waar**, uw gateway mogelijk geblokkeerd door een firewall. Als u worden uitgebreid wilt, vervangt u de **ComputerName** en **poort** waarden met de waarden die worden vermeld onder [poorten configureren](#configure-ports) in dit artikel.
 
 De firewall ook blokkeren mogelijk de verbindingen die de Azure Service Bus met de Azure-datacenters maakt. Als dit scenario gebeurt, goedkeuren (deblokkeren) alle IP-adressen voor de datacentra in uw regio. Voor deze IP-adressen, [ophalen van de Azure-IP-adressen lijst hier](https://www.microsoft.com/download/details.aspx?id=41653).
 
@@ -253,7 +255,7 @@ In sommige gevallen worden Azure Service Bus-verbindingen met IP-adressen in pla
 
 ### <a name="force-https-communication-with-azure-service-bus"></a>HTTPS-communicatie met Azure Service Bus afdwingen
 
-Bepaalde proxy's toestaan alleen voor de poorten 80 en 443-verkeer. Standaard treedt communicatie met Azure Service Bus op poorten dan poort 443.
+Bepaalde proxy's kunnen verkeer via alleen voor de poorten 80 en 443. Standaard treedt communicatie met Azure Service Bus op poorten dan poort 443.
 U kunt afdwingen dat de gateway communiceren met de Azure Service Bus via HTTPS in plaats van direct via TCP, maar als dit dus drastisch kan verlagen prestaties. Volg deze stappen voor het uitvoeren van deze taak:
 
 1. Blader naar de locatie voor de on-premises data gatewayclient, die meestal u hier vindt: ```C:\Program Files\On-premises data gateway\Microsoft.PowerBI.EnterpriseGateway.exe```
@@ -372,7 +374,7 @@ Deze stappen wordt beschreven wat er gebeurt wanneer een gebruiker in de cloud c
 
 ## <a name="troubleshooting"></a>Problemen oplossen
 
-In deze sectie worden enkele veelvoorkomende problemen die optreden tijdens het instellen en gebruiken van de on-premises gegevensgateway.
+In deze sectie worden enkele veelvoorkomende problemen die hebt u mogelijk tijdens het instellen en gebruiken van de on-premises gegevensgateway.
 
 **Q**: Waarom is mijn gatewayinstallatie mislukt? <br/>
 **Een**: dit probleem kan zich voordoen als de antivirussoftware op de doelcomputer verouderd is. U kunt de antivirussoftware bijwerken of uitschakelen van de antivirussoftware, maar alleen tijdens de installatie van de gateway en vervolgens de software opnieuw inschakelen.

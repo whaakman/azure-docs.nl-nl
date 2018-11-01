@@ -4,29 +4,26 @@ description: Informatie over hoe u met de Azure PowerShell-module een interne lo
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: jennoc
-tags: azure-resource-manager
-ms.assetid: c6c98981-df9d-4dd7-a94b-cc7d1dc99369
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 1b599e5b88026c06a6912ede9952497c489b0269
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
-ms.translationtype: HT
+ms.openlocfilehash: 4e99411ec56f25e249429e4e65bae4a8e7071cc1
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38697301"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50412683"
 ---
 # <a name="create-an-internal-load-balancer-by-using-the-azure-powershell-module"></a>Een interne load balancer maken met behulp van de Azure PowerShell-module
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](../load-balancer/load-balancer-get-started-ilb-arm-portal.md)
 > * [PowerShell](../load-balancer/load-balancer-get-started-ilb-arm-ps.md)
-> * [Azure-CLI](../load-balancer/load-balancer-get-started-ilb-arm-cli.md)
+> * [Azure CLI](../load-balancer/load-balancer-get-started-ilb-arm-cli.md)
 > * [Sjabloon](../load-balancer/load-balancer-get-started-ilb-arm-template.md)
 
 
@@ -92,7 +89,7 @@ New-AzureRmResourceGroup -Name NRP-RG -location "West US"
 
 Azure Resource Manager vereist dat er voor alle resourcegroepen een locatie wordt opgegeven. De locatie wordt gebruikt als de standaardlocatie voor alle resources in de resourcegroep. Gebruik altijd dezelfde resourcegroep voor alle opdrachten die betrekking hebben op het maken van de load balancer.
 
-In het bovenstaande voorbeeld is er een resourcegroep gemaakt met de naam **NRP-RG** en de locatie VS - west.
+In het bovenstaande voorbeeld is er een resourcegroep gemaakt met de naam **NRP-RG** en de locatie US - west.
 
 ## <a name="create-the-virtual-network-and-ip-address-for-the-front-end-ip-pool"></a>Het virtuele netwerk en een IP-adres voor de front-end-IP-pool maken
 

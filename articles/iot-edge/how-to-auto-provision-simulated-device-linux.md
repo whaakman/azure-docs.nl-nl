@@ -4,16 +4,16 @@ description: Een gesimuleerd TPM gebruiken op een Linux-VM voor het testen van a
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 06/27/2018
+ms.date: 10/31/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 2416d70e3c9d0f66ff755d8049e78e0275c89258
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 6d0d2adfb4a727ec93db6d44e6a3e8f923760b91
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232066"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50739665"
 ---
 # <a name="create-and-provision-an-edge-device-with-a-virtual-tpm-on-a-linux-virtual-machine"></a>Een Edge-apparaat met een virtuele TPM op een Linux-machine maken en inrichten
 
@@ -63,7 +63,7 @@ Als u fouten ziet tijdens het maken van de nieuwe virtuele switch, zorg ervoor d
 
    1. **Generatie opgeven**: Selecteer **van de 2e generatie**.
    2. **Configureren van netwerken**: Stel de waarde van **verbinding** aan de virtuele switch die u in de vorige sectie hebt gemaakt. 
-   3. **Installatie Oprtions**: Selecteer **een besturingssysteem installeren vanaf een opstartbare installatiekopie-bestand** en blader naar het schijfimage-bestand dat u lokaal hebt opgeslagen.
+   3. **Opties voor de installatie**: Selecteer **een besturingssysteem installeren vanaf een opstartbare installatiekopie-bestand** en blader naar het schijfimage-bestand dat u lokaal hebt opgeslagen.
 
 Het duurt een weergave-minuten om de nieuwe VM te maken. 
 
@@ -180,7 +180,7 @@ Gebruik de volgende stappen uit om TPM-toegang te geven. U kunt ook kunt u hetze
    Geslaagde uitvoer ziet er als volgt uit:
 
    ```output
-   crw------- 1 root root 10, 224 Jun 28 22:34 /dev/tpm0
+   crw------- 1 root iotedge 10, 224 Jul 20 16:27 /dev/tpm0
    ```
 
 8. Open de IoT Edge-runtime overschrijft bestand. 

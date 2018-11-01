@@ -10,16 +10,16 @@ ms.component: bing-video-search
 ms.topic: conceptual
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: 9b030312c562d1c0a6cbacfc7f424289dee2e8de
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: cd5d6ef6a75088d02bc34558f66ed520c230e06b
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47225562"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50741885"
 ---
 # <a name="paging-videos"></a>Wisselbestand-video 's
 
-Wanneer u de Video zoeken-API aanroept, retourneert Bing een lijst met resultaten. De lijst is een subset van het totale aantal resultaten die relevant zijn voor de query. Als u de geschatte totale aantal beschikbare resultaten, toegang krijgen tot de antwoord-object [totalEstimatedMatches](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videos-totalestimatedmatches) veld.  
+Wanneer u de Bing Video's zoeken-API aanroept, retourneert Bing een lijst met resultaten. De lijst is een subset van het totale aantal resultaten die relevant zijn voor de query. Als u de geschatte totale aantal beschikbare resultaten, toegang krijgen tot de antwoord-object [totalEstimatedMatches](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videos-totalestimatedmatches) veld.  
   
 Het volgende voorbeeld wordt de `totalEstimatedMatches` veld dat u een Video-antwoord bevat.  
   
@@ -65,3 +65,6 @@ Bijvoorbeeld, als u op de pagina 30 video's tegelijk wilt, stelt u `count` tot e
 
 > [!NOTE]
 > Wisselgeheugengebruik geldt alleen voor video's zoeken (/ video's / zoeken) en niet voor inzichten in video's (/ video's / details) of trending video's (/ video's / populair).
+
+> [!NOTE]
+> De `TotalEstimatedAnswers` veld is een schatting van het totale aantal zoekresultaten kunt u voor de huidige query ophalen.  Als u instelt `count` en `offset` parameters, de `TotalEstimatedAnswers` getal kan worden gewijzigd. 

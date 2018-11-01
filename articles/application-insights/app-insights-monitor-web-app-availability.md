@@ -11,15 +11,15 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/13/2018
+ms.date: 10/30/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: cf5f85d4f7e9dbe1278e9dc4290967d781b398f3
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 3869b47c4e435443bb569ae7b90df7fba9687ba7
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45632820"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50421251"
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>De beschikbaarheid en reactiesnelheid van een website bewaken
 Nadat u uw webtoepassing of website hebt geïmplementeerd op een server, kunt u tests instellen om de beschikbaarheid en responsiviteit te bewaken. [Azure Application Insights](app-insights-overview.md) verzendt regelmatig webaanvragen naar uw toepassing vanaf verschillende punten over de hele wereld. U wordt gewaarschuwd als uw toepassing niet of langzaam reageert.
@@ -47,7 +47,7 @@ Klik op **Alle resources** om de blade Overzicht van de nieuwe resource te opene
 ## <a name="setup"></a>Een URL-pingtest maken
 Open de blade Beschikbaarheid en voeg een test toe.
 
-![Vul in elk geval de URL van uw website in](./media/app-insights-monitor-web-app-availability/13-availability.png)
+![Vul in elk geval de URL van uw website in](./media/app-insights-monitor-web-app-availability/001-create-test.png)
 
 * **De URL** kan iedere webpagina zijn die u wilt testen, maar deze moet zichtbaar zijn vanaf het openbare internet. De URL kan een queryreeks bevatten. Zo kunt u bijvoorbeeld oefenen met uw database. Als de URL naar een omleiding is opgelost, kunnen we deze tot maximaal 10 omleidingen opvolgen.
 * **Parseren van afhankelijke aanvragen**: als deze optie is ingeschakeld, vraagt de test om afbeeldingen, scripts, stijlbestanden en andere bestanden die deel van de geteste webpagina uitmaken. De opgenomen reactietijd is inclusief de tijd die nodig is om deze bestanden op te halen. De test mislukt als al deze resources niet succesvol kunnen worden gedownload binnen de timeout voor de hele test. Als de optie niet is ingeschakeld, vraagt de test alleen het bestand op van de URL die u hebt opgegeven.
@@ -56,10 +56,10 @@ Open de blade Beschikbaarheid en voeg een test toe.
 
 * **Testfrequentie**: stel in hoe vaak de test wordt uitgevoerd vanaf elke testlocatie. Met een standaardfrequentie van vijf minuten en vijf testlocaties wordt uw site gemiddeld per minuut getest.
 
-* **Testlocaties** zijn de plaatsen van waaraf onze servers webaanvragen verzenden naar uw URL. Kies meer dan één testlocatie, zodat u problemen met uw website kunt onderscheiden van netwerkproblemen. U kunt maximaal 16 locaties selecteren.
+* **Testlocaties** zijn de plaatsen van waaraf onze servers webaanvragen verzenden naar uw URL. Onze minimum aantal aanbevolen testlocaties is vijf om te zorgen dat u problemen in uw website van netwerkproblemen onderscheiden kunt. U kunt maximaal 16 locaties selecteren.
 
-> [!NOTE] 
-> * Het is raadzaam testen vanaf meerdere locaties, om te voorkomen dat vals alarm die voortvloeien uit de tijdelijke problemen met een specifieke locatie.
+> [!NOTE]
+> * Het is raadzaam testen vanaf meerdere locaties met een minimum van vijf locaties. Zo wordt voorkomen dat vals alarm dat leiden tijdelijke problemen met een specifieke locatie tot kan. We hebben bovendien gevonden dat de optimale configuratie is dat het aantal testlocaties gelijk zijn aan de waarschuwingslocatie + 2. 
 > * De optie 'Afhankelijke aanvragen parseren' leidt tot een strengere controle inschakelen. De test kan mislukken voor aanvragen die mogelijk geen merkbare bij het handmatig bladeren door de site.
 
 * **Criteria voor succes**:
@@ -70,10 +70,12 @@ Open de blade Beschikbaarheid en voeg een test toe.
 
     **Inhoudsovereenkomst**: een tekenreeks, zoals 'Welkom!' Er wordt getest of er in elke respons een exacte (hoofdlettergevoelige) overeenkomst wordt gevonden. Het moet een eenvoudige tekenreeks zijn, zonder jokertekens. Als uw pagina-inhoud wordt gewijzigd, moet u deze tekenreeks mogelijk ook bijwerken.
 
+* **Voor waarschuwingslocatie**: We raden aan een minimum van 3/5 locaties. De optimale relatie tussen waarschuwingslocatie en het aantal testlocaties **waarschuwingslocatie** = **aantal testlocaties** - 2, met een minimum van vijf testen locaties.
+
 ## <a name="multi-step-web-tests"></a>Webtests met meerdere stappen
 U kunt een scenario bewaken dat bestaat uit een reeks URL's. Als u bijvoorbeeld een verkoopwebsite bewaakt, kunt u testen of het toevoegen van items aan de winkelwagen goed werkt.
 
-> [!NOTE] 
+> [!NOTE]
 > Er worden kosten in rekening gebracht voor webtests met meerdere stappen. [Prijsoverzicht](http://azure.microsoft.com/pricing/details/application-insights/).
 > 
 
@@ -266,7 +268,7 @@ Als uw test moet aanmelden met OAuth, is de algemene benadering:
 ## <a name="performance-tests"></a>Prestatietests
 U kunt een belastingtest op uw website uitvoeren. Zoals de beschikbaarheidstest kunt enkel- of meervoudige aanvragen sturen vanuit onze punten over de hele wereld verspreid. In tegenstelling tot een beschikbaarheidstest worden vele verzoeken verzonden, waarmee meerdere gelijktijdige gebruikers worden gesimuleerd.
 
-Open op de blade Overzicht **Instellingen**, **Prestatietests**. Wanneer u een test maakt, wordt u uitgenodigd om verbinding maken met of maak een Azure DevOps-account.
+Open op de blade Overzicht **Instellingen**, **Prestatietests**. Wanneer u een test maakt, wordt u uitgenodigd om verbinding maken met of een Azure DevOps-account maken.
 
 Wanneer de test voltooid is, worden de responstijden en succespercentages weergegeven.
 

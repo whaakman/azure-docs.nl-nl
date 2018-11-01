@@ -77,7 +77,7 @@ Hier volgen enkele voorbeelden die laten zien wat u kunt bereiken met aangepaste
   Dit scenario vereist twee roltoewijzingen.
 
   1. Wijs de ingebouwde **Inzender** rol op het niveau van data factory.
-  2. Een aangepaste rol maken met de machtiging * Microsoft.Resources/deployments/**. Deze aangepaste rol toewijzen aan de gebruiker op het niveau van de resourcegroep.
+  2. Een aangepaste rol maken met de machtiging *Microsoft.Resources/deployments/*\*. Deze aangepaste rol toewijzen aan de gebruiker op het niveau van de resourcegroep.
 
 - Laat een gebruiker bijwerken van een data factory vanuit PowerShell of de SDK, maar niet in de Azure-portal.
 

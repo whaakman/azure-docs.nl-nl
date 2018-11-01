@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: robb
 ms.component: alerts
-ms.openlocfilehash: 7565c536b5d24c859b164a960f74bd1e2ce97b63
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f044cf7e0b614d338ec9b294dfbf02c26c4351b1
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46960631"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50413857"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Overzicht van waarschuwingen in Microsoft Azure 
 
@@ -23,7 +23,7 @@ Dit artikel wordt beschreven welke waarschuwingen zijn, hun voordelen, en hoe u 
 ## <a name="what-are-alerts-in-microsoft-azure"></a>Wat zijn meldingen in Microsoft Azure?
 Waarschuwingen waarschuwen u proactief te wanneer belangrijke voorwaarden vindt u in uw bewakingsgegevens. Hiermee kunt u identificeren en oplossen van problemen voordat de gebruikers van uw systeem ziet u deze. 
 
-Dit artikel worden de waarschuwingen uniforme in Azure Monitor, nu met Log Analytics en Application Insights. De [waarschuwing ervaring](monitoring-overview-alerts.md)Waarschuwingstypen worden genoemd **klassieke waarschuwingen**. U kunt deze oudere werkwijze en oudere Waarschuwingstype weergeven door te klikken op **klassieke waarschuwingen weergeven** aan de bovenkant van de pagina van de waarschuwing. 
+Dit artikel worden de waarschuwingen uniforme in Azure Monitor, nu met Log Analytics en Application Insights. De [waarschuwing ervaring](monitoring-overview-alerts.md) Waarschuwingstypen worden genoemd **klassieke waarschuwingen**. U kunt deze oudere werkwijze en oudere Waarschuwingstype weergeven door te klikken op **klassieke waarschuwingen weergeven** aan de bovenkant van de pagina van de waarschuwing.
 
 
 ## <a name="overview"></a>Overzicht
@@ -142,7 +142,7 @@ U kunt de weergave filteren op de volgende waarden selecteren in het vervolgkeuz
 | Resourcetype | Selecteer een of meer resourcetypen. Alleen waarschuwingen met doelen van het geselecteerde type worden opgenomen in de weergave. Deze kolom is alleen beschikbaar nadat u een resourcegroep is opgegeven. |
 | Resource | Selecteer een resource. Alleen waarschuwingen met die bron als doel zijn opgenomen in de weergave. Deze kolom is alleen beschikbaar nadat u een resourcetype is opgegeven. |
 | Severity | Selecteer de ernst van een waarschuwing of selecteer *alle* om op te nemen van waarschuwingen van alle ernstcategorieën. |
-| Bewakingsvoorwaarde | Selecteer een controleconditie *alle* om op te nemen van waarschuwingen van voorwaarden. |
+| Monitorconditie | Selecteer een controleconditie *alle* om op te nemen van waarschuwingen van voorwaarden. |
 | Waarschuwingsstatus | Selecteer een waarschuwingsstatus *alle* om op te nemen van waarschuwingen van de volgende statussen. |
 | Service bewaken | Selecteer een service of selecteer *alle* om op te nemen alle services. Alleen de waarschuwingen die zijn gemaakt door regels die gebruikmaken van service als een doel zijn opgenomen. |
 | Tijdsbereik | Alleen waarschuwingen geactiveerd in het geselecteerde tijdvenster zijn opgenomen in de weergave. Ondersteunde waarden zijn het afgelopen uur, de afgelopen 24 uur, de afgelopen 7 dagen en de afgelopen 30 dagen. |

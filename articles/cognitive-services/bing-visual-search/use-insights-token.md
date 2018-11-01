@@ -10,12 +10,12 @@ ms.component: bing-visual-search
 ms.topic: conceptual
 ms.date: 5/16/2018
 ms.author: scottwhi
-ms.openlocfilehash: 2843097d8fa0deafe7dda13fab63856009a17836
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: c7464558dd7227303fd7a3cc8be71ca5e2d2cfca
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48887346"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50414961"
 ---
 # <a name="using-an-insights-token-to-get-insights-about-an-image"></a>Met behulp van een token inzichten om inzichten over een afbeelding te verkrijgen
 
@@ -244,7 +244,7 @@ namespace VisualSearchInsightsToken
 
 ### <a name="prerequisites"></a>Vereisten
 
-U hebt [JDK 7 of 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) nodig om deze code te compileren en uit te voeren. U kunt een Java-IDE gebruiken als u daar graag mee werkt, maar een teksteditor volstaat.
+U hebt [JDK 7 of 8](https://aka.ms/azure-jdks) nodig om deze code te compileren en uit te voeren. U kunt een Java-IDE gebruiken als u daar graag mee werkt, maar een teksteditor volstaat.
 
 In deze snelstartgids kunt u een code van een [gratis proefversie](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) of van een betaald abonnement gebruiken.
 

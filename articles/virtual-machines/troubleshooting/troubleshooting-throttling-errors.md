@@ -13,12 +13,12 @@ ms.topic: troubleshooting
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: vashan, rajraj, changov
-ms.openlocfilehash: b951d0b8d91729340cf382e70f72511fb009053e
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 15a4ff73476ce54f0617a88e040ac64d7288e9a8
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49386549"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50741110"
 ---
 # <a name="troubleshooting-api-throttling-errors"></a>Oplossen van problemen met API beperkingsfouten 
 
@@ -76,6 +76,18 @@ Content-Type: application/json; charset=utf-8
 Het beleid met het aantal resterende aanroepen van 0 is dit de bandbreedteregeling fout wordt geretourneerd. In dit geval is dat `HighCostGet30Min`. De algemene indeling van de antwoordtekst is de algemene indeling Azure Resource Manager API-fout (in overeenstemming met OData). De belangrijkste foutcode `OperationNotAllowed`, is een Compute Resource Provider wordt gebruikt voor het rapporteren van beperkingsfouten optreden (onder andere typen clientfouten). De `message` eigenschap van de interne fouten bevat een geserialiseerde JSON-structuur met de details van de schending van beperking.
 
 Zoals hierboven geïllustreerd, elke beperking fout bevat de `Retry-After` koptekst, die voorziet de client van het minimum aantal seconden moet worden gewacht voordat opnieuw wordt geprobeerd de aanvraag. 
+
+## <a name="api-call-rate-and-throttling-error-analyzer"></a>API-aanroepen snelheid en bandbreedtebeperking fout analyzer
+Een preview-versie van een functie voor probleemoplossing is beschikbaar voor de Compute-resourceprovider API. Deze PowerShell-cmdlets bieden statistieken over de snelheid van de API-aanvragen per tijdsinterval per bewerking en bandbreedtebeperking schendingen per groep van de bewerking (beleid):
+-   [Export-AzureRmLogAnalyticRequestRateByInterval](https://docs.microsoft.com/powershell/module/azurerm.compute/export-azurermloganalyticrequestratebyinterval)
+-   [Export-AzureRmLogAnalyticThrottledRequests](https://docs.microsoft.com/powershell/module/azurerm.compute/export-azurermloganalyticthrottledrequests)
+
+De API-aanroep statistieken kunnen bieden uitstekende inzicht in het gedrag van de client (s) van een abonnement en inschakelen van eenvoudige identificatie van de aanroep-patronen die zorgt ervoor beperkingen dat.
+
+Een beperking van de analyzer voor de tijd die is dat deze niet worden geteld aanvragen voor schijf- en snapshot resourcetypen (ter ondersteuning van beheerde schijven). Omdat het verzamelt gegevens van de CRP van telemetriegegevens, helpen deze ook niet bij het identificeren van fouten van ARM. Maar die kunnen worden geïdentificeerd eenvoudig op basis van de onderscheidende ARM antwoordheaders, zoals eerder is besproken.
+
+De PowerShell-cmdlets zijn met behulp van een REST-API, die kan worden eenvoudig aangeroepen rechtstreeks door clients (met nog geen officiële ondersteuning). Als u wilt zien van de indeling van de HTTP-aanvraag, moet u de cmdlets uitvoeren met - foutopsporing switch of verkeer rondsnuffelen op de uitvoering ervan met Fiddler.
+
 
 ## <a name="best-practices"></a>Aanbevolen procedures 
 

@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 5c37e2e3cabb81ed123146f283c7d568cc58816d
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 55e4195e2666aed371a5a5664b331184afcf5e36
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50242619"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50420962"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Azure Backup oplossen: problemen met de agent of de extensie
 
@@ -22,33 +22,60 @@ Dit artikel bevat stappen voor probleemoplossing waarmee u kunnen Azure Backup-f
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## <a name="vm-agent-unable-to-communicate-with-azure-backup"></a>VM-agent kan niet communiceren met Azure Backup
+## <a name="UserErrorGuestAgentStatusUnavailable-vm-agent-unable-to-communicate-with-azure-backup"></a>UserErrorGuestAgentStatusUnavailable - VM-agent kan niet communiceren met Azure Backup
 
-Foutbericht weergegeven: "VM-Agent kan niet communiceren met Azure Backup"<br>
-Foutcode: "UserErrorGuestAgentStatusUnavailable"
+**Foutcode**: UserErrorGuestAgentStatusUnavailable <br>
+**Foutbericht**: VM-Agent kan niet communiceren met Azure Backup<br>
 
-Nadat u hebt geregistreerd en plannen van een virtuele machine voor de Backup-service, start back-up van de taak door te communiceren met de VM-agent op een punt-in-time-momentopname. Een van de volgende voorwaarden mogelijk te voorkomen dat de momentopname die wordt geactiveerd. Wanneer een momentopname is niet geactiveerd, mislukken de back-up. De volgende stappen voor probleemoplossing in de volgorde weergegeven en voer de bewerking vervolgens opnieuw uit:
-
+Nadat u hebt geregistreerd en plannen van een virtuele machine voor de Backup-service, start back-up van de taak door te communiceren met de VM-agent op een punt-in-time-momentopname. Een van de volgende voorwaarden mogelijk te voorkomen dat de momentopname die wordt geactiveerd. Wanneer een momentopname is niet geactiveerd, mislukken de back-up. De volgende stappen voor probleemoplossing in de volgorde weergegeven en voer de bewerking vervolgens opnieuw uit:<br>
 **1 oorzaak: [de virtuele machine heeft geen internettoegang](#the-vm-has-no-internet-access)**  
 **2 oorzaak: [de agent is geïnstalleerd in de virtuele machine, maar het niet-reagerende (voor Windows-VM's)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**    
 **3 oorzaak: [de agent is geïnstalleerd in de virtuele machine is verouderd (voor Linux-VM's)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
 **4 oorzaak: [de status van de momentopname kan niet worden opgehaald, of een momentopname kan niet worden uitgevoerd](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**    
 **5 oorzaak: [de Backup-extensie om te werken of te laden is mislukt](#the-backup-extension-fails-to-update-or-load)**  
 
-## <a name="snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine"></a>De momentopnamebewerking is mislukt omdat de virtuele machine is niet met het netwerk verbonden
+## <a name="guestagentsnapshottaskstatuserror---could-not-communicate-with-the-vm-agent-for-snapshot-status"></a>GuestAgentSnapshotTaskStatusError - kan niet communiceren met de VM-agent voor de status van de momentopname
 
-Foutbericht weergegeven: 'Een momentopname van de bewerking is mislukt omdat er geen netwerkverbinding beschikbaar is op de virtuele machine'<br>
-Foutcode: "ExtensionSnapshotFailedNoNetwork"
+**Foutcode**: GuestAgentSnapshotTaskStatusError<br>
+**Foutbericht**: kan niet communiceren met de VM-agent voor de status van de momentopname <br>
+
+Nadat u hebt geregistreerd en plannen van een virtuele machine voor de Azure Backup-service, start back-up van de taak door te communiceren met de back-up VM-extensie om een point-in-time-momentopname. Een van de volgende voorwaarden mogelijk te voorkomen dat de momentopname die wordt geactiveerd. Als de momentopname niet is geactiveerd, kan een back-fout optreden. De volgende stappen voor probleemoplossing in de volgorde weergegeven en voer de bewerking vervolgens opnieuw uit:  
+**1 oorzaak: [de agent is geïnstalleerd in de virtuele machine, maar het niet-reagerende (voor Windows-VM's)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
+**2 oorzaak: [de agent is geïnstalleerd in de virtuele machine is verouderd (voor Linux-VM's)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
+**3 oorzaak: [de virtuele machine heeft geen internettoegang](#the-vm-has-no-internet-access)**
+
+## <a name="usererrorrpcollectionlimitreached---the-restore-point-collection-max-limit-has-reached"></a>UserErrorRpCollectionLimitReached - de limiet van het herstelpunt verzameling heeft bereikt
+
+**Foutcode**: UserErrorRpCollectionLimitReached <br>
+**Foutbericht**: herstelpunt voor de verzameling maximale limiet heeft bereikt. <br>
+Beschrijving:  
+* Dit probleem kan optreden als er een vergrendeling op de resourcegroep van de recovery-punt te voorkomen dat automatisch opschonen van het herstelpunt.
+* Dit probleem kan ook gebeuren als meerdere back-ups per dag worden geactiveerd. Op dit moment is het raadzaam van slechts één back-up per dag als de instant RPs zeven dagen worden bewaard en alleen 18 instant RPs kan worden gekoppeld aan een virtuele machine op een bepaald moment. <br>
+
+Aanbevolen actie:<br>
+U lost dit probleem, verwijder de vergrendeling van de resourcegroep en probeer het opnieuw als u wilt opschonen te activeren.
+
+> [!NOTE]
+    > Backup-service maakt een afzonderlijke resourcegroep dan de resourcegroep van de virtuele machine voor het opslaan van de verzameling van herstelpunt. Klanten wordt aangeraden niet aan het vergrendelen van de resourcegroep gemaakt voor gebruik door de Backup-service. De indeling van de naamgeving van de resourcegroep hebt gemaakt met Backup-service is: AzureBackupRG_`<Geo>`_`<number>` Eg: AzureBackupRG_northeurope_1
+
+
+**Stap 1: [Verwijder de vergrendeling van het herstelpunt resource-group](#remove_lock_from_the_recovery_point_resource_group)** <br>
+**Stap 2: [herstelpuntverzameling opschonen](#clean_up_restore_point_collection)**<br>
+
+## <a name="ExtensionSnapshotFailedNoNetwork-snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine"></a>ExtensionSnapshotFailedNoNetwork - momentopname is mislukt omdat er geen netwerkverbinding beschikbaar is op de virtuele machine
+
+**Foutcode**: ExtensionSnapshotFailedNoNetwork<br>
+**Foutbericht**: momentopname maken van de bewerking is mislukt omdat er geen netwerkverbinding beschikbaar is op de virtuele machine<br>
 
 Nadat u hebt geregistreerd en plannen van een virtuele machine voor de Azure Backup-service, start back-up van de taak door te communiceren met de back-up VM-extensie om een point-in-time-momentopname. Een van de volgende voorwaarden mogelijk te voorkomen dat de momentopname die wordt geactiveerd. Als de momentopname niet is geactiveerd, kan een back-fout optreden. De volgende stappen voor probleemoplossing in de volgorde weergegeven en voer de bewerking vervolgens opnieuw uit:    
 **1 oorzaak: [de virtuele machine heeft geen internettoegang](#the-vm-has-no-internet-access)**  
 **2 oorzaak: [de status van de momentopname kan niet worden opgehaald, of een momentopname kan niet worden uitgevoerd](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
 **3 oorzaak: [de Backup-extensie om te werken of te laden is mislukt](#the-backup-extension-fails-to-update-or-load)**  
 
-## <a name="vmsnapshot-extension-operation-failed"></a>Bewerking van VMSnapshot-extensie mislukt
+## <a name="ExtentionOperationFailed-vmsnapshot-extension-operation-failed"></a>ExtentionOperationFailed - bewerking van VMSnapshot-extensie is mislukt
 
-Foutbericht weergegeven: "bewerking van VMSnapshot-extensie mislukt"<br>
-Foutcode: "ExtentionOperationFailed"
+**Foutcode**: ExtentionOperationFailed <br>
+**Foutbericht**: bewerking van VMSnapshot-extensie is mislukt<br>
 
 Nadat u hebt geregistreerd en plannen van een virtuele machine voor de Azure Backup-service, start back-up van de taak door te communiceren met de back-up VM-extensie om een point-in-time-momentopname. Een van de volgende voorwaarden mogelijk te voorkomen dat de momentopname die wordt geactiveerd. Als de momentopname niet is geactiveerd, kan een back-fout optreden. De volgende stappen voor probleemoplossing in de volgorde weergegeven en voer de bewerking vervolgens opnieuw uit:  
 **1 oorzaak: [de status van de momentopname kan niet worden opgehaald, of een momentopname kan niet worden uitgevoerd](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
@@ -56,20 +83,10 @@ Nadat u hebt geregistreerd en plannen van een virtuele machine voor de Azure Bac
 **3 oorzaak: [de agent is geïnstalleerd in de virtuele machine, maar het niet-reagerende (voor Windows-VM's)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
 **4 oorzaak: [de agent is geïnstalleerd in de virtuele machine is verouderd (voor Linux-VM's)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**
 
-## <a name="backup-fails-because-the-vm-agent-is-unresponsive"></a>Back-up is mislukt omdat de VM-agent niet reageert
+## <a name="backupoperationfailed--backupoperationfailedv2---backup-fails-with-an-internal-error"></a>BackUpOperationFailed / BackUpOperationFailedV2 - back-up mislukt met een interne fout
 
-Foutmelding: 'Kan niet communiceren met de VM-agent voor de status van de momentopname' <br>
-Foutcode: "GuestAgentSnapshotTaskStatusError"
-
-Nadat u hebt geregistreerd en plannen van een virtuele machine voor de Azure Backup-service, start back-up van de taak door te communiceren met de back-up VM-extensie om een point-in-time-momentopname. Een van de volgende voorwaarden mogelijk te voorkomen dat de momentopname die wordt geactiveerd. Als de momentopname niet is geactiveerd, kan een back-fout optreden. De volgende stappen voor probleemoplossing in de volgorde weergegeven en voer de bewerking vervolgens opnieuw uit:  
-**1 oorzaak: [de agent is geïnstalleerd in de virtuele machine, maar het niet-reagerende (voor Windows-VM's)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
-**2 oorzaak: [de agent is geïnstalleerd in de virtuele machine is verouderd (voor Linux-VM's)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
-**3 oorzaak: [de virtuele machine heeft geen internettoegang](#the-vm-has-no-internet-access)**  
-
-## <a name="backup-fails-with-an-internal-error"></a>Back-up is mislukt met een interne fout
-
-Foutmelding: "back-up is mislukt met een interne fout: Voer de bewerking over een paar minuten" <br>
-Foutcode: 'BackUpOperationFailed' / "BackUpOperationFailedV2"
+**Foutcode**: BackUpOperationFailed / BackUpOperationFailedV2 <br>
+**Foutbericht**: back-up is mislukt met een interne fout: Voer de bewerking over een paar minuten <br>
 
 Nadat u hebt geregistreerd en plannen van een virtuele machine voor de Azure Backup-service, start back-up van de taak door te communiceren met de back-up VM-extensie om een point-in-time-momentopname. Een van de volgende voorwaarden mogelijk te voorkomen dat de momentopname die wordt geactiveerd. Als de momentopname niet is geactiveerd, kan een back-fout optreden. De volgende stappen voor probleemoplossing in de volgorde weergegeven en voer de bewerking vervolgens opnieuw uit:  
 **1 oorzaak: [de virtuele machine heeft geen internettoegang](#the-vm-has-no-internet-access)**  
@@ -101,7 +118,7 @@ Los het probleem, probeert u een van de volgende methoden:
 
 ##### <a name="allow-access-to-azure-storage-that-corresponds-to-the-region"></a>Toegang tot Azure storage die overeenkomt met de regio
 
-U kunt [servicetags](../virtual-network/security-overview.md#service-tags) om verbindingen naar de opslag van de specifieke regio te staan. Zorg ervoor dat de regel waarmee toegang tot het opslagaccount hogere prioriteit dan de regel die blokken toegang tot internet heeft. 
+U kunt [servicetags](../virtual-network/security-overview.md#service-tags) om verbindingen naar de opslag van de specifieke regio te staan. Zorg ervoor dat de regel waarmee toegang tot het opslagaccount hogere prioriteit dan de regel die blokken toegang tot internet heeft.
 
 ![Netwerkbeveiligingsgroep met opslag-tags voor een regio](./media/backup-azure-arm-vms-prepare/storage-tags-with-nsg.png)
 
@@ -112,7 +129,7 @@ Bekijk voor meer informatie over de stapsgewijze procedure servicetags configure
 
 Als u Azure Managed Disks gebruikt, moet u mogelijk een extra poort openen (poort 8443) op de firewalls.
 
-Als uw subnet niet beschikt over een route voor uitgaand verkeer van internet, moet u bovendien een service-eindpunt met servicetag "Microsoft.Storage" toevoegen aan uw subnet. 
+Als uw subnet niet beschikt over een route voor uitgaand verkeer van internet, moet u bovendien een service-eindpunt met servicetag "Microsoft.Storage" toevoegen aan uw subnet.
 
 ### <a name="the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms"></a>De agent op de virtuele machine is geïnstalleerd, maar het is niet meer reageert (voor Windows-VM's)
 
@@ -124,7 +141,7 @@ De VM-agent is beschadigd of de service is gestopt. De VM-agent opnieuw te insta
 4. Als de Windows Guest-Agent wordt weergegeven in **programma's en onderdelen**, verwijdert u de Windows Guest Agent.
 5. Download en installeer de [meest recente versie van de agent-MSI](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). U moet beheerdersrechten om de installatie te voltooien.
 6. Controleer of dat de Windows Guest Agent-services worden weergegeven in de services.
-7. Een on-demand back-up uitvoeren: 
+7. Een on-demand back-up uitvoeren:
     * Selecteer in de portal **nu back-up**.
 
 Controleer ook of die [Microsoft .NET 4.5 is geïnstalleerd](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) in de virtuele machine. .NET 4.5 is vereist voor de VM-agent kan communiceren met de service.
@@ -185,28 +202,41 @@ De extensie verwijderen:
 4. Selecteer **Vmsnapshot-extensie**.
 5. Selecteer **verwijderen**.
 
-Voor Linux-VM, als de VMSnapshot-extensie niet wordt weergegeven in de Azure-portal [bijwerken van de Azure Linux Agent](../virtual-machines/linux/update-agent.md), en voer de back-up. 
+Voor Linux-VM, als de VMSnapshot-extensie niet wordt weergegeven in de Azure-portal [bijwerken van de Azure Linux Agent](../virtual-machines/linux/update-agent.md), en voer de back-up.
 
 Uitvoeren van deze stappen zorgt ervoor dat de uitbreiding moet worden geïnstalleerd tijdens de volgende back-up.
 
-### <a name="backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock"></a>De Backup-service heeft geen toegangsmachtiging voor de oude herstelpunten verwijderd vanwege een vergrendeling van de groep resource
-Dit probleem is specifiek voor beheerde VM's waarin de gebruiker Hiermee vergrendelt u de resourcegroep. In dit geval kan de back-upservice niet oudere herstelpunten verwijderen. Omdat er een limiet van 18 herstelpunten zijn gemaakt, wordt de nieuwe back-ups worden niet gestart.
+### <a name="remove_lock_from_the_recovery_point_resource_group"></a>Verwijder de vergrendeling van de resourcegroep van recovery point
+1. Meld u aan bij [Azure Portal](http://portal.azure.com/).
+2. Ga naar **optie alle Resources**, selecteer de resourcegroep waarin u restore point verzameling in de volgende indeling AzureBackupRG_<Geo>_<number>.
+3. In de **instellingen** sectie, selecteer **vergrendelingen** om de vergrendelingen weer te geven.
+4. Als u wilt de vergrendeling verwijderen, selecteer het beletselteken en klik op **verwijderen**.
 
-#### <a name="solution"></a>Oplossing
+    ![Vergrendeling voor verwijderen ](./media/backup-azure-arm-vms-prepare/delete-lock.png)
 
-Los het probleem, verwijder de vergrendeling van de resourcegroep en voer de volgende stappen uit als u wilt verwijderen van de verzameling van herstelpunt: 
- 
-1. Verwijder de vergrendeling in de resourcegroep waarin de virtuele machine zich bevindt. 
-2. Installeer ARMClient Chocolatey met: <br>
-   https://github.com/projectkudu/ARMClient
-3. Aanmelden bij ARMClient: <br>
-    `.\armclient.exe login`
-4. Haal de verzameling van herstelpunt dat overeenkomt met de virtuele machine: <br>
-    `.\armclient.exe get https://management.azure.com/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Compute/restorepointcollections/AzureBackup_<VM-Name>?api-version=2017-03-30`
+### <a name="clean_up_restore_point_collection"></a> Herstelpuntverzameling opschonen
+Nadat de vergrendeling is verwijderd, moeten de herstelpunten worden opgeschoond. Als u wilt opschonen van de herstelpunten, gaat u als volgt een van de methoden:<br>
+* [Opschonen van de verzameling van herstelpunt door actieve ad-hoc back-up](#clean-up-restore-point-collection-by-running-ad-hoc-backup)<br>
+* [Opschonen van de verzameling van herstelpunt uit de portal die zijn gemaakt door de Backup-service](#clean-up-restore-point-collection-from-portal-created-by-backup-service)<br>
 
-    Voorbeeld: `.\armclient.exe get https://management.azure.com/subscriptions/f2edfd5d-5496-4683-b94f-b3588c579006/resourceGroups/winvaultrg/providers/Microsoft.Compute/restorepointcollections/AzureBackup_winmanagedvm?api-version=2017-03-30`
-5. De herstelpuntverzameling verwijderen: <br>
-    `.\armclient.exe delete https://management.azure.com/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Compute/restorepointcollections/AzureBackup_<VM-Name>?api-version=2017-03-30` 
-6. De volgende geplande back-up maakt automatisch een herstelpuntverzameling en nieuwe herstelpunten.
+#### <a name="clean-up-restore-point-collection-by-running-ad-hoc-backup"></a>Opschonen van de verzameling van herstelpunt door actieve ad-hoc back-up
+Na het verwijderen van vergrendeling-trigger voor een ad-hoc/handmatige back-up. Dit zorgt ervoor dat de herstelpunten worden automatisch opgeschoond. Met deze bewerking ad-hoc/handmatige mislukken van de eerste keer; verwacht het wordt echter voor zorgen automatisch op te schonen in plaats van handmatig verwijderen van herstelpunten. De volgende geplande back-up moet na opschonen slaagt.
 
-Zodra u klaar bent, kunt u het opnieuw plaatsen terug de vergrendeling op de VM-resourcegroep. 
+> [!NOTE]
+    > Automatisch op te schonen gebeurt na een paar uur van de ad-hoc/handmatige back-up activeren. Als uw geplande back-up nog steeds mislukt, wordt geprobeerd handmatig verwijderen van de verzameling van herstelpunt met behulp van de stappen die worden vermeld [hier](#clean-up-restore-point-collection-from-portal-created-by-backup-service).
+
+#### <a name="clean-up-restore-point-collection-from-portal-created-by-backup-service"></a>Opschonen van de verzameling van herstelpunt uit de portal die zijn gemaakt door de Backup-service<br>
+
+Schakelt u de terugzetbewerking handmatig verwijst verzameling die niet zijn uitgeschakeld vanwege de vergrendeling van de resourcegroep, de volgende stappen uit:
+1. Meld u aan bij [Azure Portal](http://portal.azure.com/).
+2. Op de **Hub** menu, klikt u op **alle resources**, selecteer de resourcegroep met de volgende indeling AzureBackupRG_`<Geo>`_`<number>` waar uw virtuele machine zich bevindt.
+
+    ![Vergrendeling voor verwijderen ](./media/backup-azure-arm-vms-prepare/resource-group.png)
+
+3. Klik op de resourcegroep, de **overzicht** blade wordt weergegeven.
+4. Selecteer **verborgen typen weergeven** optie om de verborgen resources weer te geven. Selecteer de verzamelingen terugzetten punt met de volgende indeling AzureBackupRG_`<VMName>`_`<number>`.
+
+    ![Vergrendeling voor verwijderen ](./media/backup-azure-arm-vms-prepare/restore-point-collection.png)
+
+5. Klik op **verwijderen**, voor het opschonen van de verzameling van herstelpunt.
+6. Voer opnieuw de back-upbewerking opnieuw uit.

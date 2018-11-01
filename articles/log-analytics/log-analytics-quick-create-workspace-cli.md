@@ -15,12 +15,12 @@ ms.topic: conceptal
 ms.date: 10/02/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 19334bd7a6c2d451e51237cc16462bae2cfffb0a
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: e3201562bd532084e528dddbee667bbafc39ede6
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041319"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50416538"
 ---
 # <a name="create-a-log-analytics-workspace-with-azure-cli-20"></a>Een Log Analytics-werkruimte maken met Azure CLI 2.0
 
@@ -123,7 +123,7 @@ De volgende parameters instelt een standaardwaarde:
 
 De implementatie kan enkele minuten duren. Als deze is voltooid, ziet u een bericht dat lijkt op de volgende mogelijkheden van het resultaat:
 
-![Voorbeeld van resultaat wanneer de implementatie is voltooid](./media/log-analytics-template-workspace-configuration/template-output-01.png)
+![Voorbeeld van resultaat wanneer de implementatie is voltooid](media/log-analytics-quick-create-workspace-cli/template-output-01.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 Nu dat u een werkruimte beschikbaar hebt, kunt u verzamelen van telemetrie bewaking configureren, uitvoeren van zoekopdrachten in Logboeken om die gegevens te analyseren en toevoegen van een oplossing om aanvullende gegevens en analytische informatie te bieden.  

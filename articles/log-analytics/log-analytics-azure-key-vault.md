@@ -15,16 +15,16 @@ ms.topic: conceptual
 ms.date: 02/09/2017
 ms.author: richrund
 ms.component: ''
-ms.openlocfilehash: 1c72421be6cfb266293c98d9ad06bd6adb35019b
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: be0a12bbb84db1e4016bd7126a38e750e6c0c3ad
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48043553"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50412819"
 ---
 # <a name="azure-key-vault-analytics-solution-in-log-analytics"></a>Azure Key Vault-analyse-oplossing in Log Analytics
 
-![Key Vault-symbool](./media/log-analytics-azure-keyvault/key-vault-analytics-symbol.png)
+![Key Vault-symbool](media/log-analytics-azure-key-vault/key-vault-analytics-symbol.png)
 
 Met de oplossing Azure Key Vault in Log Analytics kunt u de AuditEvent-logboeken van Azure Key Vault controleren.
 
@@ -46,10 +46,10 @@ Gebruik de volgende instructies om te installeren en configureren van de oplossi
 1. In de Azure-portal, gaat u naar de Key Vault-resource om te controleren
 2. Selecteer *diagnoselogboeken* om de volgende pagina te openen
 
-   ![afbeelding van Azure Key Vault-tegel](./media/log-analytics-azure-keyvault/log-analytics-keyvault-enable-diagnostics01.png)
+   ![afbeelding van Azure Key Vault-tegel](media/log-analytics-azure-key-vault/log-analytics-keyvault-enable-diagnostics01.png)
 3. Klik op *diagnostische gegevens inschakelen* om de volgende pagina te openen
 
-   ![afbeelding van Azure Key Vault-tegel](./media/log-analytics-azure-keyvault/log-analytics-keyvault-enable-diagnostics02.png)
+   ![afbeelding van Azure Key Vault-tegel](media/log-analytics-azure-key-vault/log-analytics-keyvault-enable-diagnostics02.png)
 4. Voor diagnostische gegevens inschakelen, klikt u op *op* onder *Status*
 5. Klik op het selectievakje voor *verzenden naar Log Analytics*
 6. Selecteer een bestaande Log Analytics-werkruimte of maak een werkruimte
@@ -81,7 +81,7 @@ De volgende tabel bevat de methoden voor het verzamelen van gegevens en andere i
 ## <a name="use-azure-key-vault"></a>Azure Key Vault gebruiken
 Nadat u [installeren van de oplossing](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.KeyVaultAnalyticsOMS?tab=Overview), de Key Vault-gegevens weergeven door te klikken op de **Azure Key Vault** tegel van de **overzicht** pagina van Log Analytics.
 
-![afbeelding van Azure Key Vault-tegel](./media/log-analytics-azure-keyvault/log-analytics-keyvault-tile.png)
+![afbeelding van Azure Key Vault-tegel](media/log-analytics-azure-key-vault/log-analytics-keyvault-tile.png)
 
 Nadat u op de **overzicht** herhalen, kunt u samenvattingen van uw logboekbestanden weergeven en vervolgens inzoomen op details voor de volgende categorieën:
 
@@ -90,9 +90,9 @@ Nadat u op de **overzicht** herhalen, kunt u samenvattingen van uw logboekbestan
 * Gemiddelde operationele latentie per bewerking
 * Quality of service voor bewerkingen met het aantal bewerkingen die meer dan 1000 ms nemen en een lijst met bewerkingen die meer dan 1000 ms
 
-![afbeelding van Azure Key Vault-dashboard](./media/log-analytics-azure-keyvault/log-analytics-keyvault01.png)
+![afbeelding van Azure Key Vault-dashboard](media/log-analytics-azure-key-vault/log-analytics-keyvault01.png)
 
-![afbeelding van Azure Key Vault-dashboard](./media/log-analytics-azure-keyvault/log-analytics-keyvault02.png)
+![afbeelding van Azure Key Vault-dashboard](media/log-analytics-azure-key-vault/log-analytics-keyvault02.png)
 
 ### <a name="to-view-details-for-any-operation"></a>Details van elke bewerking wilt weergeven
 1. Op de **overzicht** pagina, klikt u op de **Azure Key Vault** tegel.

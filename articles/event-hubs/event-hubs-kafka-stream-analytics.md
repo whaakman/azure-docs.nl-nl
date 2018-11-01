@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2018
 ms.author: spelluru
-ms.openlocfilehash: 497249baa10956c37762172bd0c48fad7be14e0b
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: e7d140f212dd2506f48b23fe99db5ba2be91dac9
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49319316"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50421030"
 ---
 # <a name="process-apache-kafka-for-event-hubs-events-using-stream-analytics"></a>Apache Kafka voor Event Hubs-gebeurtenissen verwerken met behulp van Stream Analytics 
 In dit artikel laat zien hoe gegevens streamen naar Event Hubs waarvoor Kafka is ingeschakeld en met Azure Stream Analytics te verwerken. Dit leidt u door de volgende stappen uit: 
@@ -35,7 +35,7 @@ U hoeft niet te wijzigen van uw clients protocol of uw eigen clusters worden uit
 Zorg ervoor dat u aan de volgende vereisten voldoet om deze snelstart uit te voeren:
 
 * Een Azure-abonnement. Als u nog geen account hebt, maakt u een [gratis account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) voordat u begint.
-* [Java Development Kit (JDK) 1.7+](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
+* [Java Development Kit (JDK) 1.7+](https://aka.ms/azure-jdks).
 * [Download](http://maven.apache.org/download.cgi) en [installeer](http://maven.apache.org/install.html) een binair Maven-archief.
 * [Git](https://www.git-scm.com/)
 * Een **Azure Storage-account**. Als u nog geen hebt, [maakt u er een](../storage/common/storage-quickstart-create-account.md) voordat u doorgaat. De uitvoergegevens worden opgeslagen in een Azure blob-opslag van de Stream Analytics-taak in dit scenario. 
@@ -208,7 +208,7 @@ Nadat u een Stream Analytics-taak zodanig hebt ingesteld dat een binnenkomende g
 In dit artikel hebt u geleerd u hoe u kunt streamen naar Event Hubs waarvoor Kafka is ingeschakeld zonder uw protocolclients te wijzigen of uw eigen clusters uit te voeren. Zie voor meer informatie over Event Hubs en Event Hubs voor Kafka, het volgende onderwerp:  
 
 * [Meer informatie over Event Hubs](event-hubs-what-is-event-hubs.md)
-* [Meer informatie over Eventhubs voor Kafka](event-hubs-for-kafka-ecosystem-overview.md)
-* [Meer voorbeelden van de Event Hubs voor Kafka GitHub verkennen](https://github.com/Azure/azure-event-hubs-for-kafka)
+* [Meer informatie over Event Hubs for Kafka](event-hubs-for-kafka-ecosystem-overview.md)
+* [Meer voorbeelden van de Event Hubs for Kafka-GitHub verkennen](https://github.com/Azure/azure-event-hubs-for-kafka)
 * Gebruik [MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) om [gebeurtenissen van Kafka on-premises te streamen naar Event Hubs waarvoor Kafka is ingeschakeld in de cloud](event-hubs-kafka-mirror-maker-tutorial.md).
 * Meer informatie over het streamen naar Kafka ingeschakelde Event Hubs met behulp [systeemeigen Kafka toepassingen](event-hubs-quickstart-kafka-enabled-event-hubs.md), [Apache Flink](event-hubs-kafka-flink-tutorial.md), of [Akka Streams](event-hubs-kafka-akka-streams-tutorial.md)

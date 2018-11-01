@@ -2,18 +2,18 @@
 title: 'Snelstart: Blobs uploaden, downloaden en vermelden met Node.js - Azure Storage'
 description: Maak een opslagaccount en een container in object(Blob)-opslag. Vervolgens gebruikt u de opslagclientbibliotheek voor Node.js om een blob in Azure Storage te uploaden, een blob te downloaden en de blobs in een container te vermelden.
 services: storage
-author: craigshoemaker
+author: tamram
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
 ms.date: 09/20/2018
-ms.author: cshoe
-ms.openlocfilehash: 1c62dbd6856ec7bf2663f0b70a47357b52528899
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.author: tamram
+ms.openlocfilehash: 267218b4b958251e6748fbae17ca1ac267cf3287
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47040809"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50140584"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-nodejs"></a>Snelstart: blobs downloaden, uploaden en vermelden met behulp van Node.js
 
@@ -336,7 +336,7 @@ console.log(`Container "${containerName}" is deleted`);
 ```
 
 ## <a name="clean-up-resources"></a>Resources opschonen
-Alle gegevens die zijn geschreven naar de opslagaccount worden automatisch verwijderd aan het einde van de voorbeeldcode. 
+Alle gegevens die zijn geschreven naar het opslagaccount worden automatisch verwijderd aan het einde van de voorbeeldcode. 
 
 ## <a name="resources-for-developing-nodejs-applications-with-blobs"></a>Resources voor het ontwikkelen van Node.js-toepassingen met blobs
 

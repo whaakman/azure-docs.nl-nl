@@ -15,12 +15,12 @@ ms.topic: conceptal
 ms.date: 08/23/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: edebeec493b025a81a99c0458344aafe59e769e9
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: c041437b610c56fd34667d9b8f3fe67080b3aafc
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48040871"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50419347"
 ---
 # <a name="create-a-log-analytics-workspace-in-the-azure-portal"></a>Een Log Analytics-werkruimte maken in Azure portal
 Dit is een unieke Log Analytics-omgeving met een eigen gegevensopslagplaats, gegevensbronnen en oplossingen in Azure portal die kunt u een Log Analytics-werkruimte instellen.  De stappen in dit artikel zijn vereist als u van plan bent voor het verzamelen van gegevens uit de volgende bronnen:
@@ -44,19 +44,19 @@ Meld u aan bij de Azure Portal op [https://portal.azure.com](https://portal.azur
 ## <a name="create-a-workspace"></a>Een werkruimte maken
 1. Klik in Azure Portal op **Alle services**. Typ in de lijst met resources **Log Analytics**. Als u begint te typen, wordt de lijst gefilterd op basis van uw invoer. Selecteer **Log Analytics**.
 
-    ![Azure Portal](media/log-analytics-quick-collect-azurevm/azure-portal-01.png)
+    ![Azure Portal](media/log-analytics-quick-create-workspace/azure-portal-01.png)
   
 2. Klik op **Maken** en geef uw keuze aan voor de volgende items:
 
-  * Geef een naam op voor de nieuwe **Log Analytics-werkruimte**, zoals *Standaardlawerkruimte*. 
+  * Geef een naam op voor de nieuwe **Log Analytics-werkruimte**, bijvoorbeeld *StandaardLAWerkruimte*. 
   * Selecteer een **abonnement** om te koppelen door een selectie in de vervolgkeuzelijst te maken als de geselecteerde standaardwaarde niet juist is.
   * Voor **resourcegroep**, kiest u een bestaande resource gebruiken groep al setup of maak een nieuwe.  
   * Selecteer een beschikbare **locatie**.  Zie voor meer informatie, die [Log Analytics is beschikbaar in regio's](https://azure.microsoft.com/regions/services/).
   * Als u een werkruimte maakt in een nieuw abonnement dat na 2 april 2018 is gemaakt, gebruikt deze automatisch de prijscategorie *Per GB*. De optie voor het selecteren van een prijscategorie is dan niet beschikbaar.  Als u een werkruimte voor een bestaand abonnement gemaakt vóór 2 April, of voor een abonnement dat is gekoppeld aan een bestaande Enterprise Agreement (EA)-inschrijving maakt, selecteert u uw gewenste prijscategorie.  Zie voor meer informatie over de afzonderlijke lagen [prijsinformatie voor Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/).
 
-        ![Create Log Analytics resource blade](media/log-analytics-quick-collect-azurevm/create-loganalytics-workspace-02.png)  
+        ![Create Log Analytics resource blade](media/log-analytics-quick-create-workspace/create-loganalytics-workspace-02.png)  
 
-3. Na het opgeven van de vereiste gegevens op de **Log Analytics-werkruimte** deelvenster, klikt u op **OK**.  
+3. Nadat u de vereiste gegevens hebt opgegeven in het deelvenster **Log Analytics-werkruimte**, klikt u op **OK**.  
 
 Terwijl de gegevens worden geverifieerd en de werkruimte wordt gemaakt, kunt u de voortgang bijhouden onder **Meldingen** in het menu. 
 

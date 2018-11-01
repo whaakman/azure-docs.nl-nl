@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 06/21/2018
 ms.author: richrund
 ms.component: ''
-ms.openlocfilehash: f1db673ad750a5d9d9d6bda9f41555d5e3affe8d
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: bc2b93312ed005154aa7d2530fb5493278a15c67
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48043082"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50418599"
 ---
 # <a name="azure-networking-monitoring-solutions-in-log-analytics"></a>Azure-netwerken bewakingsoplossingen in Log Analytics
 
@@ -70,7 +70,7 @@ De volgende tabel ziet u gegevens verzameling methoden en andere informatie over
 
 ## <a name="azure-application-gateway-analytics-solution-in-log-analytics"></a>Azure Application Gateway analytics-oplossing in Log Analytics
 
-![Azure Application Gateway Analytics symbool](./media/log-analytics-azure-networking/azure-analytics-symbol.png)
+![Azure Application Gateway Analytics symbool](media/log-analytics-azure-networking-analytics/azure-analytics-symbol.png)
 
 De volgende logboeken worden voor Toepassingsgateways ondersteund:
 
@@ -94,10 +94,10 @@ Gebruik de volgende instructies om te installeren en configureren van de oplossi
 1. In de Azure-portal, gaat u naar de Application Gateway-resource om te controleren
 2. Selecteer *diagnoselogboeken* om de volgende pagina te openen
 
-   ![afbeelding van Azure Application Gateway-resource](./media/log-analytics-azure-networking/log-analytics-appgateway-enable-diagnostics01.png)
+   ![afbeelding van Azure Application Gateway-resource](media/log-analytics-azure-networking-analytics/log-analytics-appgateway-enable-diagnostics01.png)
 3. Klik op *diagnostische gegevens inschakelen* om de volgende pagina te openen
 
-   ![afbeelding van Azure Application Gateway-resource](./media/log-analytics-azure-networking/log-analytics-appgateway-enable-diagnostics02.png)
+   ![afbeelding van Azure Application Gateway-resource](media/log-analytics-azure-networking-analytics/log-analytics-appgateway-enable-diagnostics02.png)
 4. Voor diagnostische gegevens inschakelen, klikt u op *op* onder *Status*
 5. Klik op het selectievakje voor *verzenden naar Log Analytics*
 6. Selecteer een bestaande Log Analytics-werkruimte of maak een werkruimte
@@ -117,7 +117,7 @@ Set-AzureRmDiagnosticSetting -ResourceId $gateway.ResourceId  -WorkspaceId $work
 ```
 
 ### <a name="use-azure-application-gateway-analytics"></a>Azure Application Gateway analytics gebruiken
-![afbeelding van Azure Application Gateway analytics tegel](./media/log-analytics-azure-networking/log-analytics-appgateway-tile.png)
+![afbeelding van Azure Application Gateway analytics tegel](media/log-analytics-azure-networking-analytics/log-analytics-appgateway-tile.png)
 
 Nadat u op de **Azure Application Gateway analytics** tegel in het overzicht kunt u samenvattingen van uw logboeken weergeven en vervolgens inzoomen op details voor de volgende categorieën:
 
@@ -130,9 +130,9 @@ Nadat u op de **Azure Application Gateway analytics** tegel in het overzicht kun
   * Status van de host voor Application Gateway
   * Maximum- en 95e percentiel voor Application Gateway mislukte aanvragen
 
-![afbeelding van Azure Application Gateway analytics-dashboard](./media/log-analytics-azure-networking/log-analytics-appgateway01.png)
+![afbeelding van Azure Application Gateway analytics-dashboard](media/log-analytics-azure-networking-analytics/log-analytics-appgateway01.png)
 
-![afbeelding van Azure Application Gateway analytics-dashboard](./media/log-analytics-azure-networking/log-analytics-appgateway02.png)
+![afbeelding van Azure Application Gateway analytics-dashboard](media/log-analytics-azure-networking-analytics/log-analytics-appgateway02.png)
 
 Op de **Azure Application Gateway analytics** dashboard, Controleer de samenvattingsinformatie in een van de blades, en klik op een om gedetailleerde informatie op de zoekpagina logboek weer te geven.
 
@@ -141,7 +141,7 @@ Op een van de log search pagina's, kunt u resultaten weergeven door de tijd, ged
 
 ## <a name="azure-network-security-group-analytics-solution-in-log-analytics"></a>Azure Network Security Group analytics solution in Log Analytics
 
-![Azure Network Security Group Analytics symbool](./media/log-analytics-azure-networking/azure-analytics-symbol.png)
+![Azure Network Security Group Analytics symbool](media/log-analytics-azure-networking-analytics/azure-analytics-symbol.png)
 
 > [!NOTE]
 > De oplossing Network Security Group analytics wordt verplaatst naar ondersteuning van de community, omdat de functionaliteit is vervangen door [Traffic Analytics](../network-watcher/traffic-analytics.md).
@@ -165,10 +165,10 @@ Gebruik de volgende instructies om te installeren en configureren van de oplossi
 1. In de Azure-portal, gaat u naar de resource van de Netwerkbeveiligingsgroep voor het bewaken van
 2. Selecteer *diagnoselogboeken* om de volgende pagina te openen
 
-   ![afbeelding van Azure Network Security Group-resource](./media/log-analytics-azure-networking/log-analytics-nsg-enable-diagnostics01.png)
+   ![afbeelding van Azure Network Security Group-resource](media/log-analytics-azure-networking-analytics/log-analytics-nsg-enable-diagnostics01.png)
 3. Klik op *diagnostische gegevens inschakelen* om de volgende pagina te openen
 
-   ![afbeelding van Azure Network Security Group-resource](./media/log-analytics-azure-networking/log-analytics-nsg-enable-diagnostics02.png)
+   ![afbeelding van Azure Network Security Group-resource](media/log-analytics-azure-networking-analytics/log-analytics-nsg-enable-diagnostics02.png)
 4. Voor diagnostische gegevens inschakelen, klikt u op *op* onder *Status*
 5. Klik op het selectievakje voor *verzenden naar Log Analytics*
 6. Selecteer een bestaande Log Analytics-werkruimte of maak een werkruimte
@@ -196,9 +196,9 @@ Nadat u op de **Azure Network Security Group analytics** tegel in het overzicht 
   * Regels voor netwerkbeveiligingsgroepen met toegestane stromen
   * MAC-adressen met toegestane stromen
 
-![afbeelding van Azure Network Security Group analytics-dashboard](./media/log-analytics-azure-networking/log-analytics-nsg01.png)
+![afbeelding van Azure Network Security Group analytics-dashboard](media/log-analytics-azure-networking-analytics/log-analytics-nsg01.png)
 
-![afbeelding van Azure Network Security Group analytics-dashboard](./media/log-analytics-azure-networking/log-analytics-nsg02.png)
+![afbeelding van Azure Network Security Group analytics-dashboard](media/log-analytics-azure-networking-analytics/log-analytics-nsg02.png)
 
 Op de **Azure Network Security Group analytics** dashboard, Controleer de samenvattingsinformatie in een van de blades, en klik op een om gedetailleerde informatie op de zoekpagina logboek weer te geven.
 

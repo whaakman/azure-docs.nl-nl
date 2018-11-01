@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
-ms.openlocfilehash: 708b80787337d549ebc5e66bca21e734620616ac
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: dde2983c57d0f3ec9c58537809f2d2d952b4a00e
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49388288"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50741943"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Opmerkingen bij de release van Microsoft Azure Storage Explorer
 
@@ -27,13 +27,110 @@ In dit artikel bevat de releaseopmerkingen voor Azure Storage Explorer 1.4.3 rel
 
 [Microsoft Azure Storage Explorer](./vs-azure-tools-storage-manage-with-storage-explorer.md) is een zelfstandige app waarmee u eenvoudig met Azure Storage-gegevens kunt werken via Windows, macOS en Linux.
 
+## <a name="version-150"></a>Versie 1.5.0
+29-10-2018
+
+### <a name="download-azure-storage-explorer-150"></a>Azure Storage Explorer 1.5.0 downloaden
+- [Azure Storage Explorer 1.5.0 voor Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [Azure Storage Explorer 1.5.0 voor Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [Azure Storage Explorer 1.5.0 voor Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
+
+### <a name="new"></a>Nieuw
+
+* U kunt nu [AzCopy v10 (Preview)](https://github.com/Azure/azure-storage-azcopy) voor het uploaden en downloaden van Blobs. Deze functie inschakelt gaat u naar het menu 'Experimentele' en klik vervolgens op 'Met AzCopy voor verbeterde Blob uploaden en downloaden'. Wanneer dit is ingeschakeld, wordt u AzCopy gebruikt in de volgende scenario's:
+   * Het uploaden van mappen en bestanden naar blob-containers, hetzij via de werkbalk of slepen en neerzetten.
+   * Het downloaden van mappen en bestanden, hetzij via het menu van de werkbalk of context.
+
+* Bovendien, als u met behulp van AzCopy:
+   * U kunt de AzCopy-opdracht gebruikt voor het uitvoeren van de overdracht naar het Klembord te kopiëren. Klik op 'AzCopy-opdracht naar Klembord kopiëren' in het activiteitenlogboek.
+   * U moet de blob-editor handmatig vernieuwen na het uploaden.
+   * Uploaden van bestanden voor toevoeg-blobs wordt niet ondersteund, .vhds als pagina-blobs worden geüpload en alle andere bestanden worden geüpload als blok-blobs.
+   * Fouten en conflicten die tijdens het uploaden of downloaden optreden niet worden weergegeven nadat een uploaden of downloaden is voltooid.
+
+Ten slotte wordt ondersteuning voor het gebruik van AzCopy voor bestandsshares in de toekomst worden binnenkort.
+* Electron versie 2.0.11 maakt nu gebruik van Storage Explorer.
+* Belangrijke leases kan nu alleen worden uitgevoerd op één blob op een tijdstip. U moet bovendien de naam van de blob waarvan u zijn belangrijke lease invoeren. Deze wijziging is aangebracht om te verminderen de kans op belangrijke per ongeluk een lease, met name in het geval van .vhds voor virtuele machines. #394
+* Als u ooit aanmelden problemen ondervindt, kunt u nu proberen opnieuw instellen van verificatie. Ga naar het menu 'Help' en klik op "Herstellen" voor toegang tot deze mogelijkheid. #419
+
+### <a name="fix"></a>Oplossen
+
+* Na de sterke gebruikersfeedback is het knooppunt van de emulator standaard opnieuw worden ingeschakeld. U kunt nog steeds extra emulator verbindingen via het dialoogvenster verbinding maken met toevoegen, maar als de emulator is geconfigureerd voor het gebruik van de standaard-poorten kunt u ook het knooppunt 'Emulator * standaardpoorten' onder ' Lokaal en gekoppeld/Storage-Accounts' gebruiken. #669
+* Storage Explorer kunt niet meer u de waarden van de blob-metagegevens waarvoor voorloopspatie of afsluitende spatie instellen. #760
+* De knop 'Aanmelden' is altijd ingeschakeld op dezelfde pagina's van het dialoogvenster verbinding maken. Het is nu uitgeschakeld wanneer dat nodig. #761
+* Snelle toegang wordt niet langer een fout gegenereerd in de console als er geen items voor Snelweergavetoegang hebt toegevoegd.
+
+### <a name="known-issues"></a>Bekende problemen
+
+* Detatching van een resource koppelen via SAS-URI, zoals een blob-container, mogelijk een fout die voorkomt dat andere bijlagen correct weergegeven. U kunt dit probleem omzeilen, vernieuwt u het knooppunt voor de. Zie #537 voor meer informatie.
+* Als u Visual Studio voor Mac en ooit een aangepaste AAD-configuratie hebt gemaakt, is het wellicht niet mogelijk om aan te melden. Verwijder de inhoud van het probleem te omzeilen, ~ /. IdentityService/AadConfigurations. Als dit dus niet u deblokkeren komt, stuur een reactie op dit probleem.
+* Azurite is nog niet volledig geïmplementeerd alle Storage-API's. Als gevolg hiervan kunnen er onverwachte fouten of problemen bij het gebruik van Azurite voor opslag.
+* In zeldzame gevallen kan de focus structuur ophalen vastgelopen op Snelweergavetoegang. Registreer de focus, kunt u Alles vernieuwen.
+* Uploaden vanaf uw OneDrive-map werkt niet vanwege een fout in NodeJS. De fout is opgelost, maar nog niet is geïntegreerd in Electron. Dit probleem omzeilen door bij om te uploaden of downloaden van een blob-container, kunt u de experimentele functie voor AzCopy.
+* Wanneer die gericht is op Azure Stack, mislukken bepaalde bestanden als toevoeg-blobs uploaden.
+* Na het klikken op 'Annuleren' voor een taak, duren het even voor die taak annuleren. Dit is omdat we de annuleren filter-oplossing beschreven hier gebruiken.
+* Als u de verkeerde PINCODE/Smartcard-certificaat kiest, moet u opnieuw opstarten om Opslagverkenner besluit vergeet.
+* Naam wijzigen van blobs (afzonderlijk of in een nieuwe naam blob-container) behoudt niet momentopnamen. Alle andere eigenschappen en metagegevens voor blobs, bestanden en entiteiten blijven behouden tijdens een naam.
+* Azure Stack biedt geen ondersteuning voor de volgende functies. Poging tot het gebruiken van deze functies tijdens het werken met Azure Stack kunnen resources leiden tot onverwachte fouten.
+   * Bestandsshares
+   * Toegangslagen
+   * Voorlopig verwijderen
+* De Electron-shell die door de Storage Explorer heeft problemen met sommige hardwareversnelling GPU (graphics processing unit). Als u Storage Explorer is een leeg (leeg) hoofdvenster weergeven, kunt u proberen Storage Explorer starten vanaf de opdrachtregel en GPU-versnelling uitschakelen door toe te voegen de `--disable-gpu` schakelen:
+
+    ```
+    ./StorageExplorer.exe --disable-gpu
+    ```
+
+* Voor Linux-gebruikers, moet u voor het installeren van [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* Voor gebruikers op Ubuntu 14.04, moet u ervoor zorgen GCC is bijgewerkt: dit kan worden gedaan door te voeren van de volgende opdrachten en vervolgens de computer opnieuw op te starten:
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
+* Voor gebruikers op Ubuntu 17.04, moet u GConf installeren, kunt u dit doen door te voeren van de volgende opdrachten en vervolgens de computer opnieuw op te starten:
+
+    ```
+    sudo apt-get install libgconf-2-4
+    ```
+
+## <a name="previous-releases"></a>Vorige versies
+
+* [Versie 1.4.4](#version-144)
+* [Versie 1.4.3](#version-143)
+* [Versie 1.4.2](#version-142)
+* [Versie 1.4.1](#version-141)
+* [Versie 1.3.0](#version-130)
+* [Versie 1.2.0](#version-120)
+* [Versie 1.1.0](#version-110)
+* [Versie 1.0.0](#version-100)
+* [Versie 0.9.6](#version-096)
+* [Versie 0.9.5](#version-095)
+* [Versie 0.9.4 en 0.9.3](#version-094-and-093)
+* [Versie 0.9.2](#version-092)
+* [Versie 0.9.1 tot en en 0.9.0](#version-091-and-090)
+* [Versie 0.8.16](#version-0816)
+* [Versie 0.8.14](#version-0814)
+* [Versie 0.8.13](#version-0813)
+* [Versie 0.8.12 en 0.8.11 en 0.8.10](#version-0812-and-0811-and-0810)
+* [Versie 0.8.9 en 0.8.8](#version-089-and-088)
+* [Versie 0.8.7](#version-087)
+* [Versie 0.8.6](#version-086)
+* [Versie 0.8.5](#version-085)
+* [Versie 0.8.4](#version-084)
+* [Versie 0.8.3](#version-083)
+* [Versie 0.8.2](#version-082)
+* [Versie 0.8.0](#version-080)
+* [Versie 0.7.20160509.0](#version-07201605090)
+* [Versie 0.7.20160325.0](#version-07201603250)
+* [Versie 0.7.20160129.1](#version-07201601291)
+* [Versie 0.7.20160105.0](#version-07201601050)
+* [Versie 0.7.20151116.0](#version-07201511160)
+
 ## <a name="version-144"></a>Versie 1.4.4
 10/15/2018
-
-### <a name="download-azure-storage-explorer-144"></a>Azure Storage Explorer 1.4.4 downloaden
-- [Azure Storage Explorer 1.4.4 voor Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [Azure Storage Explorer 1.4.4 voor Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [Azure Storage Explorer 1.4.4 voor Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
 
 ### <a name="hotfixes"></a>Hotfixes
 * De Azure Resource Management Api-versie is teruggedraaid als u wilt deblokkeren Azure US Government-gebruikers. [#696](https://github.com/Microsoft/AzureStorageExplorer/issues/696)
@@ -87,38 +184,6 @@ In dit artikel bevat de releaseopmerkingen voor Azure Storage Explorer 1.4.3 rel
     ```
     sudo apt-get install libgconf-2-4
     ```
-
-## <a name="previous-releases"></a>Vorige versies
-
-* [Versie 1.4.3](#version-143)
-* [Versie 1.4.2](#version-142)
-* [Versie 1.4.1](#version-141)
-* [Versie 1.3.0](#version-130)
-* [Versie 1.2.0](#version-120)
-* [Versie 1.1.0](#version-110)
-* [Versie 1.0.0](#version-100)
-* [Versie 0.9.6](#version-096)
-* [Versie 0.9.5](#version-095)
-* [Versie 0.9.4 en 0.9.3](#version-094-and-093)
-* [Versie 0.9.2](#version-092)
-* [Versie 0.9.1 tot en en 0.9.0](#version-091-and-090)
-* [Versie 0.8.16](#version-0816)
-* [Versie 0.8.14](#version-0814)
-* [Versie 0.8.13](#version-0813)
-* [Versie 0.8.12 en 0.8.11 en 0.8.10](#version-0812-and-0811-and-0810)
-* [Versie 0.8.9 en 0.8.8](#version-089-and-088)
-* [Versie 0.8.7](#version-087)
-* [Versie 0.8.6](#version-086)
-* [Versie 0.8.5](#version-085)
-* [Versie 0.8.4](#version-084)
-* [Versie 0.8.3](#version-083)
-* [Versie 0.8.2](#version-082)
-* [Versie 0.8.0](#version-080)
-* [Versie 0.7.20160509.0](#version-07201605090)
-* [Versie 0.7.20160325.0](#version-07201603250)
-* [Versie 0.7.20160129.1](#version-07201601291)
-* [Versie 0.7.20160105.0](#version-07201601050)
-* [Versie 0.7.20151116.0](#version-07201511160)
 
 ## <a name="version-143"></a>Versie 1.4.3
 10/11/2018

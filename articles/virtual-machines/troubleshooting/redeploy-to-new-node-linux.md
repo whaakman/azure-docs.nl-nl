@@ -11,14 +11,14 @@ ms.service: virtual-machines-linux
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 12/14/2017
+ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 8f8cab985ebc20290a94df34a9268ad2c1f169d3
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 99dfda23ee18bf9abb0172a2875c5564755780d6
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47413549"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50412649"
 ---
 # <a name="redeploy-linux-virtual-machine-to-new-azure-node"></a>Linux virtuele machine naar de nieuwe Azure-knooppunt opnieuw implementeren
 Als u problemen bij het oplossen van problemen SSH te maken krijgt of toegang tot toepassingen op een Linux virtuele machine (VM) in Azure, de virtuele machine opnieuw te implementeren kan helpen. Wanneer u een virtuele machine opnieuw implementeren, wordt de virtuele machine verplaatst naar een nieuw knooppunt in de Azure-infrastructuur en vervolgens wordt gebruikt door deze terug op. Alle configuratie-opties en bijbehorende resources worden bewaard. Dit artikel ziet u hoe u een virtuele machine met behulp van Azure CLI of Azure portal opnieuw implementeren.

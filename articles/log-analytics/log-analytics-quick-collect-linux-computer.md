@@ -16,12 +16,12 @@ ms.date: 08/02/2018
 ms.author: magoedte
 ms.custom: mvc
 ms.component: ''
-ms.openlocfilehash: 84bf6bb3ed4d639851b110c6db7b8b5dc8c3f87f
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 01ada4e0bcd266d99071988532221611711e2f1b
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49404250"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50418378"
 ---
 # <a name="configure-log-analytics-agent-for-linux-computers-in-a-hybrid-environment"></a>Log Analytics-agent configureren voor Linux-computers in een hybride omgeving
 [Azure Log Analytics](log-analytics-overview.md) kan gegevens rechtstreeks vanuit uw fysieke of virtuele Linux-computer in uw datacentrum of andere cloudomgeving verzamelen en onderbrengen in één opslagplaats voor uitvoerige analyse en correlatie.  In deze Quick Start wordt beschreven hoe u met een paar eenvoudige stappen gegevens van uw Linux-computer configureert en verzamelt.  Zie het volgende onderwerp, [Gegevens over Azure Virtual Machines verzamelen](log-analytics-quick-collect-azurevm.md), voor informatie over virtuele Linux-machines in Azure.  
@@ -34,7 +34,7 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 Meld u aan bij de Azure-portal op [https://portal.azure.com](https://portal.azure.com). 
 
 ## <a name="create-a-workspace"></a>Een werkruimte maken
-1. Klik in Azure Portal op **Alle services**. Typ in de lijst met resources **Log Analytics**. Als u begint te typen, wordt de lijst gefilterd op basis van uw invoer. Selecteer **Log Analytics**.<br><br> ![Azure Portal](media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br><br>  
+1. Klik in Azure Portal op **Alle services**. Typ in de lijst met resources **Log Analytics**. Als u begint te typen, wordt de lijst gefilterd op basis van uw invoer. Selecteer **Log Analytics**.<br><br> ![Azure Portal](media/log-analytics-quick-collect-linux-computer/azure-portal-01.png)<br><br>  
 2. Klik op **Maken** en geef uw keuze aan voor de volgende items:
 
   * Geef een naam op voor de nieuwe **Log Analytics-werkruimte**, bijvoorbeeld *StandaardLAWerkruimte*. OMS-werkruimten worden nu aangeduid als Log Analytics-werkruimten.   
@@ -43,7 +43,7 @@ Meld u aan bij de Azure-portal op [https://portal.azure.com](https://portal.azur
   * Selecteer de **Locatie** waarop uw virtuele machines zijn geïmplementeerd.  Bekijk [in welke regio's Log Analytics beschikbaar is](https://azure.microsoft.com/regions/services/) voor aanvullende informatie.  
   * Als u een werkruimte maakt in een nieuw abonnement dat na 2 april 2018 is gemaakt, gebruikt deze automatisch de prijscategorie *Per GB*. De optie voor het selecteren van een prijscategorie is dan niet beschikbaar.  Als u een werkruimte maakt voor een bestaand abonnement dat is gemaakt vóór 2 april, of voor een abonnement dat is gekoppeld aan een bestaande EA-inschrijving, kunt u hier uw gewenste prijscategorie selecteren.  Zie [Prijzen voor Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/) voor aanvullende informatie over de afzonderlijke lagen.
 
-        ![Create Log Analytics resource blade](./media/log-analytics-quick-collect-azurevm/create-loganalytics-workspace-02.png)<br>  
+        ![Create Log Analytics resource blade](media/log-analytics-quick-collect-linux-computer/create-loganalytics-workspace-02.png)<br>  
 
 3. Nadat u de vereiste gegevens hebt opgegeven in het deelvenster **Log Analytics-werkruimte**, klikt u op **OK**.  
 
@@ -56,7 +56,7 @@ Voordat u de Log Analytics-agent voor Linux installeert, hebt u eerst de werkrui
 
 1. Klik in Azure Portal in de linkerbovenhoek op **Alle services**. Typ in de lijst met resources **Log Analytics**. Als u begint te typen, wordt de lijst gefilterd op basis van uw invoer. Selecteer **Log Analytics**.
 2. Selecteer in de lijst met Log Analytics-werkruimten de *StandaardLAWerkruimte* die u eerder hebt gemaakt.
-3. Selecteer **Geavanceerde instellingen**.<br><br> ![Geavanceerde instellingen van Log Analytics](media/log-analytics-quick-collect-azurevm/log-analytics-advanced-settings-01.png)<br><br>  
+3. Selecteer **Geavanceerde instellingen**.<br><br> ![Geavanceerde instellingen van Log Analytics](media/log-analytics-quick-collect-linux-computer/log-analytics-advanced-settings-01.png)<br><br>  
 4. Selecteer **Verbonden bronnen** en selecteer vervolgens **Linux-servers**.   
 5. De waarde rechts van **Werkruimte-ID** en **Primaire sleutel**. Kopieer en plak beide in uw favoriete editor.   
 
@@ -107,7 +107,7 @@ Log Analytics kan gebeurtenissen uit de Linux Syslog en prestatiemeteritems verz
 3. Schakel in de tabel de ernstcategorieën **Info**, **Kennisgeving** en **Fouten opsporen** uit. 
 4. Klik op **Opslaan** bovenaan de pagina om de configuratie op te slaan.
 5. Selecteer **Linux-prestatiegegevens** om het verzamelen van prestatiemeteritems op een Linux-computer in te schakelen. 
-6. Wanneer u Linux-prestatiemeteritems voor een nieuwe Log Analytics-werkruimte voor het eerst configureert, krijgt u de optie om snel verschillende algemene prestatiemeteritems te maken. Ze worden weergegeven met een selectievakje ernaast.<br><br> ![Standaard Windows-prestatiemeteritems geselecteerd](media/log-analytics-quick-collect-azurevm/linux-perfcounters-default.png)<br> Klik op **De geselecteerde prestatiemeteritems toevoegen**.  Ze worden toegevoegd en vooraf ingesteld met een sample-interval van tien seconden.  
+6. Wanneer u Linux-prestatiemeteritems voor een nieuwe Log Analytics-werkruimte voor het eerst configureert, krijgt u de optie om snel verschillende algemene prestatiemeteritems te maken. Ze worden weergegeven met een selectievakje ernaast.<br><br> ![Standaard Windows-prestatiemeteritems geselecteerd](media/log-analytics-quick-collect-linux-computer/linux-perfcounters-default.png)<br> Klik op **De geselecteerde prestatiemeteritems toevoegen**.  Ze worden toegevoegd en vooraf ingesteld met een sample-interval van tien seconden.  
 7. Klik op **Opslaan** bovenaan de pagina om de configuratie op te slaan.
 
 ## <a name="view-data-collected"></a>Verzamelde gegevens weergeven
@@ -123,7 +123,7 @@ Voer de volgende opdracht op de Linux-computer uit om de agent te verwijderen.  
 
    `wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh --purge`
 
-U verwijdert de werkruimte door de eerder gemaakte Log Analytics-werkruimte te selecteren en op de resourcepagina op **Verwijderen** te klikken.<br><br> ![Log Analytics-resource verwijderen](media/log-analytics-quick-collect-azurevm/log-analytics-portal-delete-resource.png)
+U verwijdert de werkruimte door de eerder gemaakte Log Analytics-werkruimte te selecteren en op de resourcepagina op **Verwijderen** te klikken.<br><br> ![Log Analytics-resource verwijderen](media/log-analytics-quick-collect-linux-computer/log-analytics-portal-delete-resource.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 Nu u bezig bent met het verzamelen van operationele gegevens en prestatiegegevens van uw on-premises Windows-computer, kunt u beginnen met het verkennen, analyseren en het ondernemen van actie op gegevens die u *gratis* verzamelt.  

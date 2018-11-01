@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 904502e5c73127cca7920da2173edd013e55762f
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 6e587f79f0f77446ea5a61cbb989f3f1c3655e0a
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50242242"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50741756"
 ---
 # <a name="analyze-log-analytics-data-in-azure-monitor"></a>Analyseren van Log Analytics-gegevens in Azure Monitor
 
@@ -95,9 +95,9 @@ union Update, workspace("contoso-workspace").Update
 ```
 
 ## <a name="how-log-analytics-data-is-organized"></a>De rangschikking van Log Analytics-gegevens
-Wanneer u een query bouwen, start u door te bepalen welke tabellen bevatten de gegevens die u zoekt. Verschillende soorten gegevens zijn onderverdeeld in specifieke tabellen in elk [Log Analytics-werkruimte](log-analytics-quick-create-workspace.md).  Documentatie voor verschillende gegevensbronnen bevat de naam van het gegevenstype dat wordt gemaakt en een beschrijving van elk van de bijbehorende eigenschappen.  Veel query's worden alleen gegevens uit een enkele tabellen vereist, maar andere gebruiken misschien een verscheidenheid aan opties om op te nemen van gegevens uit meerdere tabellen.
+Wanneer u een query bouwen, start u door te bepalen welke tabellen bevatten de gegevens die u zoekt. Verschillende soorten gegevens zijn onderverdeeld in specifieke tabellen in elk [Log Analytics-werkruimte](log-analytics-quick-create-workspace.md).  Documentatie voor verschillende gegevensbronnen bevat de naam van het gegevenstype dat wordt gemaakt en een beschrijving van elk van de bijbehorende eigenschappen.  Veel query's worden alleen gegevens uit één tabel vereist, maar andere gebruiken misschien een verscheidenheid aan opties om op te nemen van gegevens uit meerdere tabellen.
 
-Terwijl [Application Insights](../application-insights/app-insights-overview.md) gegevens van de toepassing stores, zoals aanvragen, uitzonderingen, traceringen en gebruik in Log Analytics, deze gegevens worden opgeslagen in een andere partitie dan de andere logboekgegevens. U dezelfde querytaal gebruiken voor toegang tot deze gegevens, maar moet de [Application Insights-console](../application-insights/app-insights-analytics.md) of [Application Insights REST-API](https://dev.applicationinsights.io/) om deze te openen. U kunt [cross-resources query's](log-analytics-cross-workspace-search.md) om Application Insights-gegevens met andere gegevens in Log Analytics te combineren.
+Terwijl [Application Insights](../application-insights/app-insights-overview.md) gegevens van de toepassing stores, zoals aanvragen, uitzonderingen, traceringen en gebruik in Log Analytics, deze gegevens worden opgeslagen in een andere partitie dan de andere logboekgegevens. U dezelfde querytaal gebruiken voor toegang tot deze gegevens, maar moet gebruiken de [Application Insights-console](../application-insights/app-insights-analytics.md) of [Application Insights REST-API](https://dev.applicationinsights.io/) om deze te openen. U kunt [cross-resources query's](log-analytics-cross-workspace-search.md) om Application Insights-gegevens met andere gegevens in Log Analytics te combineren.
 
 
 ![Tabellen](media/log-analytics-queries/queries-tables.png)

@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory op Apps gebaseerde voorwaardelijke toegang | Microsoft Docs
-description: Meer informatie over hoe Azure Active Directory op Apps gebaseerde voorwaardelijke toegang werkt.
+title: Goedgekeurde client-apps vereisen voor toegang tot cloud-Apps met voorwaardelijke toegang in Azure Active Directory | Microsoft Docs
+description: Informatie over het goedgekeurde client-apps vereisen voor toegang tot cloud-Apps met voorwaardelijke toegang in Azure Active Directory.
 services: active-directory
 keywords: voorwaardelijke toegang tot apps, voorwaardelijke toegang met Azure AD, beveiligde toegang tot bedrijfsresources, beleid voor voorwaardelijke toegang
 documentationcenter: ''
@@ -17,18 +17,18 @@ ms.workload: identity
 ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: f34fc4c41094292db9bed1294ee7b26ec04c96c6
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 68c2178440264aa6a6efce074b299f4e3deaa10f
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39630599"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50415386"
 ---
-# <a name="azure-active-directory-app-based-conditional-access"></a>Azure Active Directory op Apps gebaseerde voorwaardelijke toegang  
+# <a name="how-to-require-approved-client-apps-for-cloud-app-access-with-conditional-access"></a>Procedure: Vereisen goedgekeurde client-apps voor toegang tot cloud-Apps met voorwaardelijke toegang 
 
-Uw werknemers gebruiken mobiele apparaten voor zowel privé- als werktaken. Terwijl te zorgen dat uw werknemers productief zijn kan, wilt u ook om te voorkomen dat gegevens verloren gaan. Met Azure Active Directory (Azure AD) op Apps gebaseerde voorwaardelijke toegang, kunt u de toegang beperken tot uw cloud-apps op client-apps die uw bedrijfsgegevens kunnen beveiligen.  
+Uw werknemers gebruiken mobiele apparaten voor zowel privé- als werktaken. Terwijl te zorgen dat uw werknemers productief zijn kan, wilt u ook om te voorkomen dat gegevens verloren gaan. Met voorwaardelijke toegang van Azure Active Directory (Azure AD), kunt u de toegang beperken tot uw cloud-apps op goedgekeurde client-apps die uw bedrijfsgegevens kunnen beveiligen.  
 
-In dit onderwerp wordt uitgelegd hoe u Azure AD op Apps gebaseerde voorwaardelijke toegang configureren.
+In dit onderwerp wordt uitgelegd hoe u toegangsbeleid voorwaarde waarvoor goedgekeurde client-apps configureren.
 
 ## <a name="overview"></a>Overzicht
 
@@ -36,7 +36,7 @@ Met [voorwaardelijke toegang voor Azure AD](overview.md), kunt u aanpassen hoe g
 
 U kunt [Intune beveiligingsbeleid voor apps](https://docs.microsoft.com/intune/app-protection-policy) om gegevens van uw bedrijf te beveiligen. Geen nodig oplossing voor mobile device management (MDM), waarmee u ter bescherming van uw bedrijfsgegevens met of zonder inschrijving van apparaten in een oplossing voor Apparaatbeheer voor Intune beveiligingsbeleid voor apps.
 
-Azure Active Directory op Apps gebaseerde voorwaardelijke toegang kunt u de toegang tot uw cloud-apps op client-apps die ondersteuning bieden voor Intune beveiligingsbeleid voor apps beperken. U kunt bijvoorbeeld toegang tot Exchange Online beperken voor de Outlook-app.
+Azure Active Directory voor voorwaardelijke toegang kunt u de toegang tot uw cloud-apps op client-apps die ondersteuning bieden voor Intune beveiligingsbeleid voor apps beperken. U kunt bijvoorbeeld toegang tot Exchange Online beperken voor de Outlook-app.
 
 In de terminologie voor voorwaardelijke toegang deze client-apps staat bekend als **goedgekeurde client-apps**.  
 
@@ -120,9 +120,9 @@ Voor het beleid voor voorwaardelijke toegang in deze stap moet u de volgende ond
 
     ![Voorwaardelijke toegang](./media/app-based-conditional-access/03.png)
 
-    b. Als **Client-apps**, selecteer **mobiele apps en bureaublad-apps**.
+    b. Als **Client-apps (preview)**, selecteer **mobiele apps en bureaublad-apps** en **moderne verificatieclients**.
 
-    ![Voorwaardelijke toegang](./media/app-based-conditional-access/04.png)
+    ![Voorwaardelijke toegang](./media/app-based-conditional-access/91.png)
 
 5. Als **besturingselementen voor toegang**, moet u beschikken over **goedgekeurde client-app (preview) vereisen** geselecteerde.
 
@@ -144,11 +144,11 @@ Voor het beleid voor voorwaardelijke toegang in deze stap moet u de volgende ond
 
     ![Voorwaardelijke toegang](./media/app-based-conditional-access/07.png)
 
-4. **Voorwaarden:** als **voorwaarden**, moet u configureren **Client-apps**. 
+4. **Voorwaarden:** als **voorwaarden**, moet u configureren **Client-apps (preview)**. 
 
-    a. Als **Client-apps**, selecteer **Exchange Active Sync**.
+    a. Als **Client-apps (preview)**, selecteer **mobiele apps en bureaubladclients** en **Exchange ActiveSync-clients**.
 
-    ![Voorwaardelijke toegang](./media/app-based-conditional-access/08.png)
+    ![Voorwaardelijke toegang](./media/app-based-conditional-access/92.png)
 
     b. Als **besturingselementen voor toegang**, moet u beschikken over **goedgekeurde client-app (preview) vereisen** geselecteerde.
 
@@ -201,9 +201,9 @@ Voor het beleid voor voorwaardelijke toegang in deze stap moet u de volgende ond
 
     ![Voorwaardelijke toegang](./media/app-based-conditional-access/03.png)
 
-    b. Als **Client-apps**, selecteer **mobiele apps en bureaublad-apps**.
+    b. Als **Client-apps (preview)**, selecteer **mobiele apps en bureaubladclients** en **moderne verificatieclients**.
 
-    ![Voorwaardelijke toegang](./media/app-based-conditional-access/04.png)
+    ![Voorwaardelijke toegang](./media/app-based-conditional-access/91.png)
 
 5. Als **besturingselementen voor toegang**, moet u beschikken over **goedgekeurde client-app (preview) vereisen** geselecteerde.
 
@@ -228,9 +228,9 @@ Voor het beleid voor voorwaardelijke toegang in deze stap moet u de volgende ond
 
 4. **Voorwaarden:** als **voorwaarden**, moet u configureren **Client-apps**:
 
-    a. Als **Client-apps**, selecteer **Exchange Active Sync**.
+    a. Als **Client-apps (preview)**, selecteer **mobiele apps en bureaubladclients** en **Exchange ActiveSync-clients**.
 
-    ![Voorwaardelijke toegang](./media/app-based-conditional-access/08.png)
+    ![Voorwaardelijke toegang](./media/app-based-conditional-access/92.png)
 
     b. Als **besturingselementen voor toegang**, moet u beschikken over **goedgekeurde client-app (preview) vereisen** geselecteerde.
 
@@ -285,9 +285,9 @@ Voor het beleid voor voorwaardelijke toegang in deze stap moet u de volgende ond
 
     ![Voorwaardelijke toegang](./media/app-based-conditional-access/03.png)
 
-    b. Als **Client-apps**, selecteer **mobiele apps en bureaublad-apps**.
+    b. Als **Client-apps (preview)**, selecteer **mobiele apps en bureaubladclients** en **moderne verificatieclients**.
 
-    ![Voorwaardelijke toegang](./media/app-based-conditional-access/04.png)
+    ![Voorwaardelijke toegang](./media/app-based-conditional-access/91.png)
 
 5. Als **besturingselementen voor toegang**, moet u het volgende zijn geselecteerd:
 
@@ -317,9 +317,9 @@ Voor het beleid voor voorwaardelijke toegang in deze stap moet u de volgende ond
 
 4. **Voorwaarden:** als **voorwaarden**, moet u configureren **Client-apps**. 
 
-    Als **Client-apps*, selecteer **Exchange Active Sync**.
+    Als **Client-apps (preview)**, selecteer **mobiele apps en bureaubladclients** en **Exchange ActiveSync-clients**.
 
-    ![Voorwaardelijke toegang](./media/app-based-conditional-access/08.png)
+    ![Voorwaardelijke toegang](./media/app-based-conditional-access/91.png)
 
 5. Als **besturingselementen voor toegang**, moet u beschikken over **goedgekeurde client-app (preview) vereisen** geselecteerde.
  
@@ -381,9 +381,9 @@ Voor het beleid voor voorwaardelijke toegang in deze stap moet u de volgende ond
 
     ![Voorwaardelijke toegang](./media/app-based-conditional-access/03.png)
 
-    b. Als **Client-apps**, selecteer **mobiele apps en bureaublad-apps**.
+    b. Als **Client-apps (preview)**, selecteer **mobiele apps en bureaublad-apps** en **moderne verificatieclients**.
 
-    ![Voorwaardelijke toegang](./media/app-based-conditional-access/04.png)
+    ![Voorwaardelijke toegang](./media/app-based-conditional-access/91.png)
 
 5. Als **besturingselementen voor toegang**, moet u het volgende zijn geselecteerd:
 
@@ -411,11 +411,11 @@ Voor het beleid voor voorwaardelijke toegang in deze stap moet u de volgende ond
 
     ![Voorwaardelijke toegang](./media/app-based-conditional-access/07.png)
 
-4. **Voorwaarden:** als **voorwaarden**, moet u configureren **Client-apps**. 
+4. **Voorwaarden:** als **voorwaarden**, moet u configureren **Client-apps (preview)**. 
 
-    Als **Client-apps**, selecteer **Exchange Active Sync**.
+    Als **Client-apps (preview)**, selecteer **mobiele apps en bureaubladclients** en **Exchange ActiveSync-clients**.
 
-    ![Voorwaardelijke toegang](./media/app-based-conditional-access/08.png)
+    ![Voorwaardelijke toegang](./media/app-based-conditional-access/92.png)
 
 5. Als **besturingselementen voor toegang**, moet u het volgende zijn geselecteerd:
 
@@ -446,4 +446,4 @@ Zie [apps en gegevens beschermen met Microsoft Intune](https://docs.microsoft.co
 
 Als u weten hoe u een beleid voor voorwaardelijke toegang configureren wilt, Zie [MFA vereisen voor specifieke apps met voorwaardelijke toegang van Azure Active Directory](app-based-mfa.md).
 
-Als u klaar om te configureren van beleid voor voorwaardelijke toegang voor uw omgeving bent, raadpleegt u de [aanbevolen procedures voor voorwaardelijke toegang in Azure Active Directory](best-practices.md). 
+Zie [Aanbevolen procedures voor voorwaardelijke toegang in Azure Active Directory](best-practices.md) als u klaar bent om beleid voor voorwaardelijke toegang in Azure Active Directory te configureren. 

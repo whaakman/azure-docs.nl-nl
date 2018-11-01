@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 7/11/2018
 ms.author: trinadhk
-ms.openlocfilehash: 855b75652fca421df12766f7711152d1e3ca2aeb
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: f293f642db2bd526e761ff570ce97a33845808b7
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39009250"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50412802"
 ---
 # <a name="use-role-based-access-control-to-manage-azure-backup-recovery-points"></a>Toegangsbeheer op basis van rollen gebruiken voor het beheren van Azure Backup-herstelpunten
 Met op rollen gebaseerd toegangsbeheer (RBAC) beschikt u over geavanceerd toegangsbeheer voor Azure. Met op rollen gebaseerd toegangsbeheer kunt u taken scheiden binnen uw team en alleen de mate van toegang verlenen aan gebruikers die nodig is om de taken uit te voeren.
@@ -34,19 +34,29 @@ Als u op zoek bent voor het definiëren van uw eigen rollen voor nog meer contro
 ## <a name="mapping-backup-built-in-roles-to-backup-management-actions"></a>Back-up ingebouwde rollen toewijzen aan back-upbeheer acties
 De volgende tabel bevat de acties voor back-up en de bijbehorende minimale RBAC-rol om uit te voeren die voor deze bewerking.
 
-| Bewerking voor het beheer | Minimale RBAC-rol vereist |
-| --- | --- |
-| Recovery Services-kluis maken | Inzender voor de resourcegroep van de kluis |
-| Back-up van virtuele Azure-machines inschakelen | Back-upoperator gedefinieerd op het bereik van de resourcegroep met de kluis, Inzender voor virtuele machines op virtuele machines |
-| On-demand back-up van virtuele machine | Back-upoperator |
-| VM herstellen | Back-upoperator, Resource-groep Inzender waarin de virtuele machine geïmplementeerd, wordt gebruikt op Vnet lezen en neem deel aan op het geselecteerde subnet |
-| Herstellen van afzonderlijke bestanden van back-up van VM-schijven | Back-upoperator, Inzender voor virtuele machines op virtuele machines |
-| Back-upbeleid voor back-up van virtuele Azure-machine maken | Back-Inzender |
-| Back-upbeleid van Azure VM backup wijzigen | Back-Inzender |
-| Back-upbeleid van Azure VM backup | Back-Inzender |
-| Back-up stoppen (met behoud van gegevens of verwijderen van gegevens) op virtuele machine back-up | Back-Inzender |
-| On-premises Windows Server/client-/ SCDPM of Azure Backup-Server registreren | Back-upoperator |
-| Geregistreerde on-premises Windows Server/client-/ SCDPM of Azure Backup-Server verwijderen | Back-Inzender |
+| Bewerking voor het beheer | Minimale RBAC-rol vereist | Bereik vereist |
+| --- | --- | --- |
+| Recovery Services-kluis maken | Inzender | Resourcegroep met de kluis |
+| Back-up van virtuele Azure-machines inschakelen | Back-upoperator | Resourcegroep met de kluis |
+| | Inzender voor virtuele machines | VM-resource |
+| On-demand back-up van virtuele machine | Back-upoperator | Recovery vault-resource |
+| VM herstellen | Back-upoperator | Resourcegroep waarin u de virtuele machine wordt geïmplementeerd |
+| | Inzender voor virtuele machines | Resourcegroep waarin u de virtuele machine wordt geïmplementeerd |
+| Niet-beheerde schijven VM back-up herstellen | Back-upoperator | Recovery vault-resource |
+| | Inzender voor virtuele machines | VM-resource |
+| | Inzender voor opslagaccounts | De resource van opslagaccount |
+| Beheerde schijven terugzetten van back-up van virtuele machine | Back-upoperator | Recovery vault-resource |
+| | Inzender voor virtuele machines | VM-resource |
+| | Inzender voor opslagaccounts | De resource van opslagaccount |
+| | Inzender | Resourcegroep waarmee beheerde schijf wordt hersteld |
+| Afzonderlijke bestanden herstellen vanaf back-up van virtuele machine | Back-upoperator | Recovery vault-resource |
+| | Inzender voor virtuele machines | VM-resource |
+| Back-upbeleid voor back-up van virtuele Azure-machine maken | Back-upinzender | Recovery vault-resource |
+| Back-upbeleid van Azure VM backup wijzigen | Back-upinzender | Recovery vault-resource |
+| Back-upbeleid van Azure VM backup | Back-upinzender | Recovery vault-resource |
+| Back-up stoppen (met behoud van gegevens of verwijderen van gegevens) op virtuele machine back-up | Back-upinzender | Recovery vault-resource |
+| On-premises Windows Server/client-/ SCDPM of Azure Backup-Server registreren | Back-upoperator | Recovery vault-resource |
+| Geregistreerde on-premises Windows Server/client-/ SCDPM of Azure Backup-Server verwijderen | Back-upinzender | Recovery vault-resource |
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Op rollen gebaseerd toegangsbeheer](../role-based-access-control/role-assignments-portal.md): aan de slag met RBAC in Azure portal.

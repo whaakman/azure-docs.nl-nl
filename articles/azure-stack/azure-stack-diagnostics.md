@@ -7,15 +7,15 @@ manager: femila
 cloud: azure-stack
 ms.service: azure-stack
 ms.topic: article
-ms.date: 09/27/2018
+ms.date: 10/31/2018
 ms.author: jeffgilb
 ms.reviewer: adshar
-ms.openlocfilehash: 5a9621ef9a8d6c545617e5bf3ef6f4197b70be88
-ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
+ms.openlocfilehash: 3dd3e3391cc2536f56a5e42610c09c85b4068234
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47419596"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50740550"
 ---
 # <a name="azure-stack-diagnostics-tools"></a>Azure Stack diagnostische hulpprogramma 's
 
@@ -86,32 +86,38 @@ if($s)
   Verzamelen van alle logboeken voor alle rollen:
 
   ```powershell
-  Get-AzureStackLog -OutputPath C:\AzureStackLogs
+  Get-AzureStackLog -OutputSharePath “<path>” -OutputShareCredential $cred
   ```
 
   Logboeken verzamelen van virtuele machines en BareMetal rollen:
 
   ```powershell
-  Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal
+  Get-AzureStackLog -OutputSharePath “<path>” -OutputShareCredential $cred -FilterByRole VirtualMachines,BareMetal
   ```
 
   Logboeken verzamelen van virtuele machines en BareMetal rollen, met datumfiltering voor de logboekbestanden voor de afgelopen 8 uur:
     
   ```powershell
-  Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8)
+  Get-AzureStackLog -OutputSharePath “<path>” -OutputShareCredential $cred -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8)
   ```
 
   Logboeken verzamelen van virtuele machines en BareMetal rollen, met datumfiltering voor de logboekbestanden voor de periode tussen de 8 uur geleden en 2 uur geleden:
 
   ```powershell
-  Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8) -ToDate (Get-Date).AddHours(-2)
+  Get-AzureStackLog -OutputSharePath “<path>” -OutputShareCredential $cred -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8) -ToDate (Get-Date).AddHours(-2)
   ```
 
 ### <a name="parameter-considerations-for-both-asdk-and-integrated-systems"></a>Parameter-overwegingen voor zowel ASDK en geïntegreerde systemen
 
 - Als de **FromDate** en **ToDate** parameters niet zijn opgegeven, wordt standaard logboeken voor de afgelopen vier uur worden verzameld.
-- Gebruik de **FilterByNode** parameter Logboeken filteren op computernaam. Bijvoorbeeld: ```Get-AzureStackLog -OutputPath <path> -FilterByNode azs-xrp01```
-- Gebruik de **FilterByLogType** parameter voor het filteren van Logboeken op type. U kunt kiezen om te filteren op bestand, delen of WindowsEvent. Bijvoorbeeld: ```Get-AzureStackLog -OutputPath <path> -FilterByLogType File```
+- Gebruik de **FilterByNode** parameter Logboeken filteren op computernaam. Bijvoorbeeld:
+```powershell
+Get-AzureStackLog -OutputSharePath “<path>” -OutputShareCredential $cred ` -FilterByNode azs-xrp01
+```
+- Gebruik de **FilterByLogType** parameter voor het filteren van Logboeken op type. U kunt kiezen om te filteren op bestand, delen of WindowsEvent. Bijvoorbeeld:
+```powershell
+Get-AzureStackLog -OutputSharePath “<path>” -OutputShareCredential $cred ` -FilterByLogType File
+```
 - U kunt de **TimeOutInMinutes** parameter voor de time-out voor de logboekverzameling instellen. Dit is standaard ingesteld op 150 (2,5 uur).
 - In versie 1805 en hoger, is de dump bestand logboekverzameling standaard uitgeschakeld. Als u wilt inschakelen, gebruikt u de **IncludeDumpFile** parameter overschakelen. 
 - Op dit moment kunt u de **FilterByRole** parameter voor de logboekverzameling filter door de volgende rollen:
@@ -127,7 +133,7 @@ if($s)
  |ACSMigrationService|Domain|KeyVaultInternalDataPlane|SQL|
  |ACSMonitoringService|EEG|KeyVaultNamingService|SRP|
  |ACSSettingsService|EventAdminRP|MDM|Storage|
- |ACSTableMaster|EventRP|MetricsAdminRP|StorageAccounts|
+ |ACSTableMaster|EventRP|MetricsAdminRP|storageAccounts|
  |ACSTableServer|ExternalDNS|MetricsRP|StorageController|
  |ACSWac|Fabric|MetricsServer|Tenant|
  |ADFS|FabricRing|MetricsStoreService|TraceCollector|

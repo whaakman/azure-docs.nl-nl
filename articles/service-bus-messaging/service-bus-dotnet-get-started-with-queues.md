@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 09/07/2018
 ms.author: spelluru
-ms.openlocfilehash: 30ff970a1f6243bbba6aa42046cf6e08c808f4e5
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 0d3cbc83c5d2558d7eba3de897477814df81893c
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49068857"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50242429"
 ---
 # <a name="get-started-with-service-bus-queues"></a>Aan de slag met Service Bus-wachtrijen
 
@@ -40,7 +40,7 @@ Deze zelfstudie bestaat uit de volgende stappen:
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-## <a name="1-create-a-namespace-using-the-azure-portal"></a>1. Een naamruimte maken met de Azure-portal
+## <a name="create-a-namespace-using-the-azure-portal"></a>Een naamruimte maken met de Azure-portal
 
 > [!NOTE] 
 > U kunt ook een Service Bus-naamruimte en berichtentiteiten maken met [PowerShell](/powershell/azure/get-started-azureps). Zie voor meer informatie [PowerShell gebruiken om Service Bus-resources te beheren](service-bus-manage-with-ps.md).
@@ -49,13 +49,13 @@ Als u al een Service Bus Messaging-naamruimte hebt gemaakt, gaat u naar het gede
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-## <a name="2-create-a-queue-using-the-azure-portal"></a>2. Een wachtrij maken met de Azure-portal
+## <a name="create-a-queue-using-the-azure-portal"></a>Een wachtrij maken met de Azure-portal
 
 Als u al een Service Bus-wachtrij hebt gemaakt, gaat u naar het gedeelte [Berichten naar de wachtrij verzenden](#3-send-messages-to-the-queue).
 
 [!INCLUDE [service-bus-create-queue-portal](../../includes/service-bus-create-queue-portal.md)]
 
-## <a name="3-send-messages-to-the-queue"></a>3. Berichten naar de wachtrij verzenden
+## <a name="send-messages-to-the-queue"></a>Berichten naar de wachtrij verzenden
 
 Maak een C#-consoletoepassing met Visual Studio om berichten naar de wachtrij te verzenden.
 
@@ -214,7 +214,7 @@ Start Visual Studio en maak een nieuwe **consoletoepassing (.NET Core)**.
    
       ![Berichtgrootte][queue-message]
 
-## <a name="4-receive-messages-from-the-queue"></a>4. Berichten ontvangen uit de wachtrij
+## <a name="receive-messages-from-the-queue"></a>Berichten ontvangen uit de wachtrij
 
 Als u berichten wilt ontvangen die u zojuist hebt verzonden, maakt u een andere .NET Core-consoletoepassing en installeert u het **Microsoft.Azure.ServiceBus** NuGet-pakket, zoals ook met de voorgaande verzendtoepassing is gedaan.
 

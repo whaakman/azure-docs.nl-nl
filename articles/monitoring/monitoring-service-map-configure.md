@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: daseidma;bwren
-ms.openlocfilehash: 9d574e7e8b0b285093aa0960243300dfe9f6d417
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 4461b98c56bcf99fc11aa9d89e6c6dc5961c86ac
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50248992"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50419517"
 ---
 # <a name="configure-service-map-in-azure"></a>Serviceoverzicht configureren in Azure
 Serviceoverzicht ontdekt automatisch toepassingsonderdelen op Windows- en Linux-systemen en wijst de communicatie tussen services toe. U kunt deze gebruiken om weer te geven van uw servers beschouwen zoals u ze--onderling verbonden systemen die kritieke services verlenen. Servicetoewijzing toont verbindingen tussen servers, processen en poorten in alle via TCP verbonden architectuur zonder configuratie vereist, dan een agent geïnstalleerd.
@@ -172,7 +172,7 @@ Zie voor meer informatie over het verzamelen van gegevens en gebruik de [privacy
 
 ## <a name="installation"></a>Installatie
 
-## <a name="azure-vm-extension"></a>Azure VM-extensie
+### <a name="azure-vm-extension"></a>Azure VM-extensie
 Er is een uitbreiding beschikbaar voor zowel Windows (DependencyAgentWindows)- als Linux (DependencyAgentLinux) en u kunt eenvoudig de agent voor afhankelijkheden implementeren naar uw Azure-VM's met een [Azure VM-extensie](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-features).  U kunt de agent voor afhankelijkheden op uw Windows en Linux-VM's met behulp van een PowerShell-script of rechtstreeks in de virtuele machine een Azure Resource Manager-sjabloon implementeren met de Azure VM-extensie.  Als u de agent met de Azure VM-extensie implementeert, worden de agents automatisch bijgewerkt naar de nieuwste versie.
 
 Voor het implementeren van de Azure VM-extensie met PowerShell, kunt u het volgende voorbeeld:

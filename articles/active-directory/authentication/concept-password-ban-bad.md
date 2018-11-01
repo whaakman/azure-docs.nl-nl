@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: rogoya
-ms.openlocfilehash: 1ad499e2703ff8376c063d933c0cc1f03765fc23
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: 4c5fead0a7f4634a8f5ee005114d24cae9a2590f
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "42054447"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50739818"
 ---
 # <a name="eliminate-bad-passwords-in-your-organization"></a>Onjuiste wachtwoorden in uw organisatie te elimineren
 
@@ -70,4 +70,4 @@ Helaas komt bevat uw wachtwoord een woord, woordgroep of patroon dat uw wachtwoo
 ## <a name="next-steps"></a>Volgende stappen
 
 * [De lijst met aangepaste uitgesloten wachtwoorden configureren](howto-password-ban-bad.md)
-* [Azure AD inschakelen protection agents on-premises wachtwoord](howto-password-ban-bad-on-premises.md)
+* [Azure AD inschakelen protection agents on-premises wachtwoord](howto-password-ban-bad-on-premises-deploy.md)

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 8cc654fca8e645253ffc79ef808075bdbe887530
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 31ee14369cc3f1c03d13c59e1239aa567bce3552
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48043291"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50419772"
 ---
 # <a name="reference-guide-to-view-designer-visualization-parts-in-log-analytics"></a>Naslaggids voor Weergaveontwerper visualisatie delen in Log Analytics
 Met behulp van Designer bekijken in Azure Log Analytics, kunt u aangepaste weergaven maken in Azure portal die tal van gegevensvisualisaties in uw Log Analytics-werkruimte. In dit artikel is een handleiding verwijzing naar de instellingen voor de visualisatie-onderdelen die beschikbaar in uw aangepaste weergaven zijn.
@@ -50,7 +50,7 @@ De volgende secties beschrijven de tegeltypen en de bijbehorende eigenschappen i
 ## <a name="list-of-queries-part"></a>Lijst met query's-onderdeel
 De lijst met query's onderdeel geeft een lijst van logboek zoekquery's. U kunt elke query om de resultaten weer te geven. De weergave bevat één query standaard, en u kunt selecteren **+ Query** toevoegen van extra query's.
 
-![Lijst met query's weergeven](media/log-analytics-view-designer/view-list-queries.png)
+![Lijst met query's weergeven](media/log-analytics-view-designer-parts/view-list-queries.png)
 
 | Instelling | Beschrijving |
 |:--- |:--- |
@@ -66,7 +66,7 @@ De lijst met query's onderdeel geeft een lijst van logboek zoekquery's. U kunt e
 ## <a name="number-and-list-part"></a>Aantal en de lijst met onderdeel
 De koptekst wordt weergegeven een enkel getal dat geeft het aantal records van een zoekquery logboek. De lijst bevat de bovenste tien resultaten van een query, met een grafiek die de relatieve waarde van een numerieke kolom of de wijziging na verloop van tijd aangeeft.
 
-![Lijst met query's weergeven](media/log-analytics-view-designer/view-number-list.png)
+![Lijst met query's weergeven](media/log-analytics-view-designer-parts/view-number-list.png)
 
 | Instelling | Beschrijving |
 |:--- |:--- |
@@ -95,7 +95,7 @@ De koptekst wordt weergegeven een enkel getal dat geeft het aantal records van e
 ## <a name="two-numbers-and-list-part"></a>Twee getallen en lijst onderdeel
 De header heeft twee getallen die een aantal records van de afzonderlijke log zoekquery's worden weergegeven. De lijst bevat de bovenste tien resultaten van een query, met een grafiek die de relatieve waarde van een numerieke kolom of de wijziging na verloop van tijd aangeeft.
 
-![Twee getallen en lijst weergeven](media/log-analytics-view-designer/view-two-numbers-list.png)
+![Twee getallen en lijst weergeven](media/log-analytics-view-designer-parts/view-two-numbers-list.png)
 
 | Instelling | Beschrijving |
 |:--- |:--- |
@@ -126,7 +126,7 @@ De header heeft twee getallen die een aantal records van de afzonderlijke log zo
 ## <a name="donut-and-list-part"></a>Ring en lijst
 De koptekst wordt weergegeven een enkel getal met een overzicht van de kolom van een waarde in een logboekquery. De Ring worden de resultaten van de top drie records grafisch weergegeven.
 
-![Ring en lijst weergeven](media/log-analytics-view-designer/view-donut-list.png)
+![Ring en lijst weergeven](media/log-analytics-view-designer-parts/view-donut-list.png)
 
 | Instelling | Beschrijving |
 |:--- |:--- |
@@ -167,7 +167,7 @@ De koptekst wordt weergegeven een enkel getal met een overzicht van de kolom van
 ## <a name="two-timelines-and-list-part"></a>Twee tijdlijnen en lijst onderdeel
 De resultaten van twee logboeken-query's weergegeven de koptekst na verloop van tijd als kolomdiagrammen, met een toelichting waarop een enkel getal met een overzicht van de kolom van een waarde in een logboekquery. De lijst bevat de bovenste tien resultaten van een query, met een grafiek die de relatieve waarde van een numerieke kolom of de wijziging na verloop van tijd aangeeft.
 
-![Twee tijdlijnen en lijst weergeven](media/log-analytics-view-designer/view-two-timelines-list.png)
+![Twee tijdlijnen en lijst weergeven](media/log-analytics-view-designer-parts/view-two-timelines-list.png)
 
 | Instelling | Beschrijving |
 |:--- |:--- |
@@ -199,7 +199,7 @@ De resultaten van twee logboeken-query's weergegeven de koptekst na verloop van 
 ## <a name="information-part"></a>Informatiegedeelte
 De koptekst wordt weergegeven voor statische tekst en een optionele koppeling. De lijst bevat een of meer items met een statische titel en tekst.
 
-![Informatie weergeven](media/log-analytics-view-designer/view-information.png)
+![Informatie weergeven](media/log-analytics-view-designer-parts/view-information.png)
 
 | Instelling | Beschrijving |
 |:--- |:--- |
@@ -220,7 +220,7 @@ De koptekst wordt weergegeven voor statische tekst en een optionele koppeling. D
 ## <a name="line-chart-callout-and-list-part"></a>Lijndiagram, bijschrift en lijst onderdeel
 De koptekst wordt een lijndiagram met meerdere reeksen uit een query voor tijd en een toelichting met de samengevatte waarde weergegeven. De lijst bevat de bovenste tien resultaten van een query, met een grafiek die de relatieve waarde van een numerieke kolom of de wijziging na verloop van tijd aangeeft.
 
-![Lijndiagram, bijschrift en lijst](media/log-analytics-view-designer/view-line-chart-callout-list.png)
+![Lijndiagram, bijschrift en lijst](media/log-analytics-view-designer-parts/view-line-chart-callout-list.png)
 
 | Instelling | Beschrijving |
 |:--- |:--- |
@@ -260,7 +260,7 @@ De koptekst wordt een lijndiagram met meerdere reeksen uit een query voor tijd e
 ## <a name="line-chart-and-list-part"></a>Grafiek en een lijst met onderdeel van regel
 Een lijndiagram met meerdere reeksen uit een query voor weergegeven de koptekst na verloop van tijd. De lijst bevat de bovenste tien resultaten van een query, met een grafiek die de relatieve waarde van een numerieke kolom of de wijziging na verloop van tijd aangeeft.
 
-![Regel grafiek en een lijst weergeven](media/log-analytics-view-designer/view-line-chart-callout-list.png)
+![Regel grafiek en een lijst weergeven](media/log-analytics-view-designer-parts/view-line-chart-callout-list.png)
 
 | Instelling | Beschrijving |
 |:--- |:--- |
@@ -296,7 +296,7 @@ Een lijndiagram met meerdere reeksen uit een query voor weergegeven de koptekst 
 ## <a name="stack-of-line-charts-part"></a>Stack van regel grafieken onderdeel
 De stack van lijndiagram weergegeven drie afzonderlijke lijndiagrammen, met meerdere reeksen uit een query voor gedurende een periode, zoals hier wordt weergegeven:
 
-![Stapel lijndiagrammen](media/log-analytics-view-designer/view-stack-line-charts.png)
+![Stapel lijndiagrammen](media/log-analytics-view-designer-parts/view-stack-line-charts.png)
 
 | Instelling | Beschrijving |
 |:--- |:--- |

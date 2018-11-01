@@ -9,14 +9,14 @@ ms.component: cosmosdb-mongo
 ms.custom: quick start connect, mvc
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 10/2/2017
+ms.date: 10/02/2017
 ms.author: sclyon
-ms.openlocfilehash: faba9b2999445152f700ddfa1a7e56983cbb03f4
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 4416af7c1afede89063c1d4289ad2603f7b2c5d0
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43700666"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50248520"
 ---
 # <a name="azure-cosmos-db-build-a-flask-app-with-the-mongodb-api"></a>Azure Cosmos DB: een Flask-app maken met de MongoDB-API
 
@@ -166,7 +166,7 @@ Als u van deze opslagplaats geen fork wilt maken, kunt u ook op de knop Implemen
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze snelstart hebt u geleerd hoe een Azure Cosmos DB-account kunt maken en een Flask-app kunt uitvoeren met de API voor MongoDB. Nu kunt u aanvullende gegevens in uw Cosmos DB-account importeren.
+In deze quickstart hebt u geleerd hoe een Azure Cosmos DB-account kunt maken en een Flask-app kunt uitvoeren met de API voor MongoDB. Nu kunt u aanvullende gegevens in uw Cosmos DB-account importeren.
 
 > [!div class="nextstepaction"]
 > [Gegevens importeren in Azure Cosmos DB voor de MongoDB-API](mongodb-migrate.md)

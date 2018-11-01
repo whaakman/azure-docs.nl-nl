@@ -8,19 +8,18 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 725f32fd-d0ad-49c7-b137-1cc246bf85d7
 ms.service: active-directory
-ms.component: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 10/30/2018
 ms.author: jeedes
-ms.openlocfilehash: 907cec2784b4ad22555f6b29efb6d670ce7d48d0
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 0437bd46537d8b7024618706aba12660abca5512
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39443644"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50414689"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-line-works"></a>Zelfstudie: Azure Active Directory-integratie met regel werkt
 
@@ -53,28 +52,28 @@ Als u wilt testen van de stappen in deze zelfstudie, moet u deze aanbevelingen v
 In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
 1. REGEL werkt vanuit de galerie toevoegen
-1. Configureren en testen van Azure AD eenmalige aanmelding
+2. Configureren en testen van Azure AD eenmalige aanmelding
 
 ## <a name="adding-line-works-from-the-gallery"></a>REGEL werkt vanuit de galerie toevoegen
 Voor het configureren van de integratie van regel werkt in Azure AD, moet u de regel werkt vanuit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
 
 **Om toe te voegen regel werkt vanuit de galerie, moet u de volgende stappen uitvoeren:**
 
-1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
 
-    ![De Azure Active Directory-knop][1]
+    ![image](./media/worksmobile-tutorial/selectazuread.png)
 
-1. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
+2. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
 
-    ![De blade Enterprise-toepassingen][2]
+    ![image](./media/worksmobile-tutorial/a_select_app.png)
     
-1. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
+3. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
 
-    ![De knop nieuwe toepassing][3]
+    ![image](./media/worksmobile-tutorial/a_new_app.png)
 
-1. Typ in het zoekvak **regel werkt**, selecteer **regel werkt** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
+4. Typ in het zoekvak **regel werkt**, selecteer **regel werkt** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
 
-    ![REGEL werkt in de lijst met resultaten](./media/worksmobile-tutorial/tutorial_lineworks_addfromgallery.png)
+     ![image](./media/worksmobile-tutorial/tutorial_lineworks_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en Azure AD eenmalige aanmelding testen
 
@@ -82,15 +81,13 @@ In deze sectie maakt u configureert en test Azure AD eenmalige aanmelding met re
 
 Voor eenmalige aanmelding om te werken, moet Azure AD om te weten wat de gebruiker equivalent in regel werkt in Azure AD aan een gebruiker is. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker in regel werkt tot stand worden gebracht.
 
-In regel werkt, wijs de waarde van de **gebruikersnaam** in Azure AD als de waarde van de **gebruikersnaam** de relatie van de koppeling tot stand brengen.
-
 Om te configureren en testen van Azure AD eenmalige aanmelding met regel werkt, moet u de volgende bouwstenen voltooien:
 
 1. **[Azure AD eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
-1. **[Maak een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-1. **[Maak een testgebruiker regel werkt](#create-a-line-works-test-user)**  : als u wilt een equivalent van Britta Simon in regel werkt die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
-1. **[Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-1. **[Eenmalige aanmelding testen](#test-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
+2. **[Maak een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
+3. **[Maak een testgebruiker regel werkt](#create-a-line-works-test-user)**  : als u wilt een equivalent van Britta Simon in regel werkt die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
+4. **[Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
+5. **[Eenmalige aanmelding testen](#test-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD eenmalige aanmelding configureren
 
@@ -98,132 +95,109 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
 **Voor het configureren van Azure AD eenmalige aanmelding met regel werkt, moet u de volgende stappen uitvoeren:**
 
-1. In de Azure-portal op de **regel werkt** toepassingspagina integratie, klikt u op **eenmalige aanmelding**.
+1. In de [Azure-portal](https://portal.azure.com/)op de **regel werkt** toepassing integratie weergeeft, schakelt **eenmalige aanmelding**.
 
-    ![Koppeling voor eenmalige aanmelding configureren][4]
+    ![image](./media/worksmobile-tutorial/b1_b2_select_sso.png)
 
-1. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
- 
-    ![In het dialoogvenster voor eenmalige aanmelding](./media/worksmobile-tutorial/tutorial_lineworks_samlbase.png)
+2. Op de **selecteert u een methode voor eenmalige aanmelding** dialoogvenster, klikt u op **Selecteer** voor **SAML** modus voor eenmalige aanmelding inschakelen.
 
-1. Op de **regel werkt domein en URL's** sectie, voert u de volgende stappen uit:
+    ![image](./media/worksmobile-tutorial/b1_b2_saml_sso.png)
 
-    ![REGEL werkt domein en URL's, eenmalige aanmelding informatie](./media/worksmobile-tutorial/tutorial_lineworks_url.png)
+3. Op de **instellen van eenmalige aanmelding met SAML** pagina, klikt u op **bewerken** te openen **SAML-basisconfiguratie** dialoogvenster.
 
-    a. In de **aanmeldings-URL** tekstvak, een URL met behulp van het volgende patroon: `https://auth.worksmobile.com/d/login/{domain}/?userId={ID@domain}`
+    ![image](./media/worksmobile-tutorial/b1-domains_and_urlsedit.png)
 
-    b. In de **id** tekstvak typt u de waarde: `worksmobile.com`
+4. Op de **SAML-basisconfiguratie** sectie, voert u de volgende stappen uit:
 
-    > [!NOTE] 
-    > Deze waarde is niet echt. Deze waarde bijwerken met de werkelijke aanmeldings-URL. Neem contact op met [regel werkt Client ondersteuningsteam](mailto:dl_ssoinfo@worksmobile.com) deze waarde op te halen.
+    a. In de **aanmeldings-URL** tekstvak typt u een URL met behulp van het volgende patroon: `https://auth.worksmobile.com/d/login/<domain>/?userId=<ID@domain>`
 
-1. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **Certificate(Raw)** en slaat u het certificaatbestand op uw computer.
+    b. In de **id** tekstvak typt u een URL: `worksmobile.com`
 
-    ![De downloadkoppeling certificaat](./media/worksmobile-tutorial/tutorial_lineworks_certificate.png) 
+    ![image](./media/worksmobile-tutorial/tutorial_lineworks_url.png)
 
-1. Klik op **opslaan** knop.
+5. Op de **instellen van eenmalige aanmelding met SAML** pagina, in de **SAML-handtekeningcertificaat** sectie, klikt u op **downloaden** voor het downloaden van de **certificaat (Raw)** en sla deze op uw computer.
 
-    ![Configureren van eenmalige aanmelding opslaan](./media/worksmobile-tutorial/tutorial_general_400.png)
+    ![image](./media/worksmobile-tutorial/tutorial_lineworks_certficate.png)
 
-1. Op de **regel werkt configuratie** sectie, klikt u op **configureren regel werkt** openen **aanmelding configureren** venster. Kopiëren de **afmelding-URL, SAML-entiteit-ID en Single Sign-On Service URL voor SAML-** uit de **Naslaggids sectie.**
+6. Op de **instellen van de regel werkt** sectie, kopieert u de juiste URL aan de hand van uw behoeften.
 
-    ![Configuratie van de regel werkt](./media/worksmobile-tutorial/tutorial_lineworks_configure.png) 
+    a. Aanmeldings-URL
 
-1. Het configureren van eenmalige aanmelding op **regel werkt** zijde, moet u voor het verzenden van de gedownloade **bestand, URL van de afmelding, SAML-entiteit-ID en Single Sign-On Service URL voor SAML-certificaat** naar [regel werkt ondersteunen team](mailto:dl_ssoinfo@worksmobile.com). Ze stelt u deze optie om de SAML SSO-verbinding instellen goed aan beide zijden.
+    b. Azure AD-id
 
-> [!TIP]
-> U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl het instellen van de app!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de  **Configuratie** sectie aan de onderkant. U kunt meer lezen over de documentatie voor embedded-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+    c. URL voor afmelden
+
+    ![image](./media/worksmobile-tutorial/d1_samlsonfigure.png) 
+
+7. Het configureren van eenmalige aanmelding op **regel werkt** aan clientzijde, lees de [documenten regel werkt SSO](https://developers.worksmobile.com/jp/document/1001080101) en configureer de instelling van een regel werkt.
+
+> [!NOTE]
+> U moet het gedownloade bestand voor certificaat .cert converteren naar PEM
+
 
 ### <a name="create-an-azure-ad-test-user"></a>Maak een testgebruiker Azure AD
 
 Het doel van deze sectie is het maken van een testgebruiker in Azure portal Britta Simon genoemd.
 
-   ![Maak een testgebruiker Azure AD][100]
+1. Selecteer in de Azure portal, in het linkerdeelvenster **Azure Active Directory**, selecteer **gebruikers**, en selecteer vervolgens **alle gebruikers**.
 
-**Als u wilt een testgebruiker maken in Azure AD, moet u de volgende stappen uitvoeren:**
+    ![image](./media/worksmobile-tutorial/d_users_and_groups.png)
 
-1. In de Azure portal, in het linkerdeelvenster klikt u op de **Azure Active Directory** knop.
+2. Selecteer **nieuwe gebruiker** aan de bovenkant van het scherm.
 
-    ![De Azure Active Directory-knop](./media/worksmobile-tutorial/create_aaduser_01.png)
+    ![image](./media/worksmobile-tutorial/d_adduser.png)
 
-1. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen**, en klik vervolgens op **alle gebruikers**.
+3. In de eigenschappen van de gebruiker de volgende stappen uitvoeren.
 
-    !['Gebruikers en groepen' en 'Alle gebruikers' koppelingen](./media/worksmobile-tutorial/create_aaduser_02.png)
+    ![image](./media/worksmobile-tutorial/d_userproperties.png)
 
-1. Om te openen de **gebruiker** in het dialoogvenster, klikt u op **toevoegen** aan de bovenkant van de **alle gebruikers** in het dialoogvenster.
+    a. In de **naam** veld **BrittaSimon**.
+  
+    b. In de **gebruikersnaam** veldtype **brittasimon@yourcompanydomain.extension**  
+    Bijvoorbeeld: BrittaSimon@contoso.com
 
-    ![De knop toevoegen](./media/worksmobile-tutorial/create_aaduser_03.png)
+    c. Selecteer **eigenschappen**, selecteer de **Show wachtwoord** selectievakje en noteer de waarde die wordt weergegeven in het wachtwoord.
 
-1. In de **gebruiker** dialoogvenster vak, voer de volgende stappen uit:
-
-    ![Het dialoogvenster gebruiker](./media/worksmobile-tutorial/create_aaduser_04.png)
-
-    a. In de **naam** in het vak **BrittaSimon**.
-
-    b. In de **gebruikersnaam** typt u het e-mailadres van gebruiker Britta Simon.
-
-    c. Selecteer de **wachtwoord weergeven** selectievakje en noteer de waarde die wordt weergegeven in de **wachtwoord** vak.
-
-    d. Klik op **Create**.
+    d. Selecteer **Maken**.
  
 ### <a name="create-a-line-works-test-user"></a>Maak een testgebruiker regel werkt
 
-In deze sectie maakt u een gebruiker met de naam van Britta Simon in regel werkt. Neem contact op met [regel werkt ondersteuningsteam](mailto:dl_ssoinfo@worksmobile.com) om toe te voegen de gebruikers in de regel werkt-platform.
+In deze sectie maakt u een gebruiker met de naam van Britta Simon in regel werkt. Toegang tot [beheerpagina van de regel werkt](https://admin.worksmobile.com) en voegt u de gebruikers in de regel werkt-platform.
 
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
 In deze sectie schakelt u Britta Simon gebruiken Azure eenmalige aanmelding door toegang te verlenen aan regel werkt.
 
-![De de gebruikersrol toewijzen][200] 
+1. Selecteer in de Azure portal, **bedrijfstoepassingen**, selecteer **alle toepassingen**.
 
-**Als u wilt toewijzen Britta Simon op regel werkt, moet u de volgende stappen uitvoeren:**
+    ![image](./media/worksmobile-tutorial/d_all_applications.png)
 
-1. Open de weergave toepassingen in de Azure-portal en gaat u naar de mapweergave en Ga naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
+2. Selecteer in de lijst met toepassingen, **regel werkt**.
 
-    ![Gebruiker toewijzen][201] 
+    ![image](./media/worksmobile-tutorial/tutorial_lineworks_app.png)
 
-1. Selecteer in de lijst met toepassingen, **regel werkt**.
+3. Selecteer in het menu aan de linkerkant, **gebruikers en groepen**.
 
-    ![De koppeling van de regel werkt in de lijst met toepassingen](./media/worksmobile-tutorial/tutorial_lineworks_app.png)  
+    ![image](./media/worksmobile-tutorial/d_leftpaneusers.png)
 
-1. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
+4. Selecteer de **toevoegen** knop en selecteer vervolgens **gebruikers en groepen** in de **toevoegen toewijzing** dialoogvenster.
 
-    ![De koppeling 'Gebruikers en groepen'][202]
+    ![image](./media/worksmobile-tutorial/d_assign_user.png)
 
-1. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
+4. In de **gebruikers en groepen** dialoogvenster Selecteer **Britta Simon** in de lijst met gebruikers, en klik op de **Selecteer** knop aan de onderkant van het scherm.
 
-    ![Het deelvenster toewijzing toevoegen][203]
-
-1. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
-
-1. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
-
-1. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
+5. In de **toevoegen toewijzing** dialoogvenster Selecteer de **toewijzen** knop.
     
 ### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
 In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
 
 Wanneer u op de tegel regel werkt in het toegangsvenster, u moet u automatisch aangemeld bij uw toepassing regel werkt.
-Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsvenster](../user-help/active-directory-saas-access-panel-introduction.md). 
+Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsvenster](../active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
-<!--Image references-->
-
-[1]: ./media/lineworks-tutorial/tutorial_general_01.png
-[2]: ./media/lineworks-tutorial/tutorial_general_02.png
-[3]: ./media/lineworks-tutorial/tutorial_general_03.png
-[4]: ./media/lineworks-tutorial/tutorial_general_04.png
-
-[100]: ./media/lineworks-tutorial/tutorial_general_100.png
-
-[200]: ./media/lineworks-tutorial/tutorial_general_200.png
-[201]: ./media/lineworks-tutorial/tutorial_general_201.png
-[202]: ./media/lineworks-tutorial/tutorial_general_202.png
-[203]: ./media/lineworks-tutorial/tutorial_general_203.png
 

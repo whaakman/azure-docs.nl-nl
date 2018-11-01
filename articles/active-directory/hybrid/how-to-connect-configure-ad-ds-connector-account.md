@@ -10,16 +10,16 @@ ms.topic: article
 ms.date: 10/12/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: b6fef23b3624703305a13b205b588c83dd135764
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: f57a5a2413103ddcf7484f3b1fc5b4170b7bdc98
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50094735"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50412853"
 ---
 # <a name="azure-ad-connectconfigure-ad-ds-connector-account-permissions"></a>Azure AD Connect: Accountmachtigingen voor AD DS-Connector configureren 
 
-Een nieuwe PowerShell-Module met de naam ADSyncConfig.psm1 werd geïntroduceerd in bouwen 1.1.880.0 (uitgebracht in augustus 2018), die bestaat uit een verzameling van cmdlets kunt u de juiste machtigingen voor Active Directory voor uw Azure AD Connect-implementatie configureren. 
+Een nieuwe PowerShell-Module met de naam [ADSyncConfig.psm1](reference-connect-adsyncconfig.md) werd geïntroduceerd in build 1.1.880.0 (uitgebracht in augustus 2018) een verzameling van cmdlets bevat kunt u de juiste Active Directory-machtigingen configureren voor uw Azure AD Verbinding met het maken van de implementatie. 
 
 ## <a name="overview"></a>Overzicht 
 De volgende PowerShell-cmdlets kan worden gebruikt voor installatie van Active Directory-machtigingen van de AD DS-Connector-account voor elke functie die u alleen om in te schakelen in Azure AD Connect. Om te voorkomen dat problemen ondervindt, moet u bereid Active Directory-machtigingen op voorhand voor wanneer u wilt installeren, Azure AD Connect met behulp van een aangepast domein-account verbinding maken met uw forest. Deze module ADSyncConfig kan ook worden gebruikt om machtigingen te configureren na de implementatie van Azure AD Connect.
@@ -49,7 +49,8 @@ Install-WindowsFeature RSAT-AD-Tools
 ```
 ![Configureren](media/how-to-connect-configure-ad-ds-connector-account/configure2.png)
 
->! [OPMERKING] U kunt ook het bestand kopiëren **C:\Program Files\Microsoft Azure Active Directory Connect\AdSyncConfig\ADSyncConfig.psm1** naar een domeincontroller waarop RSAT al heeft voor AD DS geïnstalleerd en deze PowerShell-module van daaruit gebruiken.
+>[!NOTE]
+>U kunt ook het bestand kopiëren **C:\Program Files\Microsoft Azure Active Directory Connect\AdSyncConfig\ADSyncConfig.psm1** naar een domeincontroller waarop RSAT al heeft voor AD DS geïnstalleerd en deze PowerShell-module van daaruit gebruiken.
 
 Als u wilt gaan met behulp van de ADSyncConfig die u wilt laden van de module in een Windows PowerShell-venster: 
 
@@ -118,7 +119,7 @@ Set-ADSyncBasicReadPermissions -ADConnectorAccountName <String> -ADConnectorAcco
 ```
 
 
-of; 
+Of; 
 
 ``` powershell
 Set-ADSyncBasicReadPermissions -ADConnectorAccountDN <String> [-ADobjectDN <String>] [<CommonParameters>] 
@@ -146,7 +147,7 @@ Om machtigingen voor het AD DS-Connector-account bij het gebruik van het kenmerk
 Set-ADSyncMsDsConsistencyGuidPermissions -ADConnectorAccountName <String> -ADConnectorAccountDomain <String> [-SkipAdminSdHolders] [<CommonParameters>] 
 ```
 
-of; 
+Of; 
 
 ``` powershell
 Set-ADSyncMsDsConsistencyGuidPermissions -ADConnectorAccountDN <String> [-ADobjectDN <String>] [<CommonParameters>] 
@@ -166,7 +167,7 @@ Set-ADSyncPasswordHashSyncPermissions -ADConnectorAccountName <String> -ADConnec
 ```
 
 
-of; 
+Of; 
 
 ``` powershell
 Set-ADSyncPasswordHashSyncPermissions -ADConnectorAccountDN <String> [<CommonParameters>] 
@@ -187,7 +188,7 @@ Set-ADSyncPasswordWritebackPermissions -ADConnectorAccountName <String> -ADConne
 ```
 
 
-of;
+Of;
 
 ``` powershell
 Set-ADSyncPasswordWritebackPermissions -ADConnectorAccountDN <String> [-ADobjectDN <String>] [<CommonParameters>] 
@@ -206,7 +207,7 @@ Voer het volgende als u wilt instellen van machtigingen voor de AD DS-Connector-
 ``` powershell
 Set-ADSyncUnifiedGroupWritebackPermissions -ADConnectorAccountName <String> -ADConnectorAccountDomain <String> [-SkipAdminSdHolders] [<CommonParameters>] 
 ```
-of; 
+Of; 
 
 ``` powershell
 Set-ADSyncUnifiedGroupWritebackPermissions -ADConnectorAccountDN <String> [-ADobjectDN <String>] [<CommonParameters>]
@@ -228,7 +229,7 @@ Set-ADSyncUnifiedGroupWritebackPermissions -ADConnectorAccountName <String> -ADC
 ```
 
 
-of; 
+Of; 
 
 ``` powershell
 Set-ADSyncUnifiedGroupWritebackPermissions -ADConnectorAccountDN <String> [-ADobjectDN <String>] [<CommonParameters>] 
@@ -252,7 +253,7 @@ Set-ADSyncExchangeMailPublicFolderPermissions -ADConnectorAccountName <String> -
 ```
 
 
-of; 
+Of; 
 
 ``` powershell
 Set-ADSyncExchangeMailPublicFolderPermissions -ADConnectorAccountDN <String> [-ADobjectDN <String>] [<CommonParameters>] 
@@ -301,3 +302,5 @@ Deze cmdlet wordt de volgende machtigingen ingesteld:
 - [Azure AD Connect: accounts en machtigingen](reference-connect-accounts-permissions.md)
 - [Snelle installatie](how-to-connect-install-express.md)
 - [Aangepaste installatie](how-to-connect-install-custom.md)
+- [ADSyncConfig verwijzing](reference-connect-adsyncconfig.md)
+

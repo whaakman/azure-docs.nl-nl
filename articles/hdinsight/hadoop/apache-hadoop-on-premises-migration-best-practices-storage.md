@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: f89cf9431d3d72b74bc856093108a7bc0ab5a0b4
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 4f4aedd1d85a83e6f55d5729b82b88e2e9e8c00d
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50221884"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50415930"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---storage-best-practices"></a>On-premises Apache Hadoop-clusters migreren naar Azure HDInsight - opslag aanbevolen procedures
 
@@ -47,23 +47,27 @@ Azure Storage biedt [voorlopig verwijderen voor blob-objecten](../../storage/blo
 U kunt maken [blob-momentopnamen](https://docs.microsoft.com/rest/api/storageservices/creating-a-snapshot-of-a-blob). Een momentopname is een alleen-lezen versie van een blob die moet worden uitgevoerd op een punt in tijd en biedt een manier om back-up van een blob. Nadat een momentopname is gemaakt, kan deze worden gelezen, gekopieerd, of verwijderd, maar niet gewijzigd.
 
 > [!Note]
-> Voor oudere versie van on-premises-on-premises Hadoop-distributies die beschikt niet over de 'wasbs'-certificaat moet worden geïmporteerd in het archief van de vertrouwensrelatie van Java. De volgende opdrachten kunnen worden gebruikt voor het importeren van certificaten in het archief van de vertrouwensrelatie Java:
+> Voor oudere versie van on-premises-on-premises Hadoop-distributies die beschikt niet over de 'wasbs'-certificaat moet worden geïmporteerd in het archief van de vertrouwensrelatie van Java.
 
-- Het ssl-certificaat van het Azure-Blob naar een bestand downloaden
+De volgende methoden kunnen worden gebruikt voor het importeren van certificaten in het archief van de vertrouwensrelatie Java:
+
+Het ssl-certificaat van het Azure-Blob naar een bestand downloaden
 
 ```bash
 echo -n | openssl s_client -connect <storage-account>.blob.core.windows.net:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' > Azure_Storage.cer
 ```
 
-- Het bovenstaande bestand importeren in de Java-vertrouwensarchief op alle knooppunten
+Het bovenstaande bestand importeren in de Java-vertrouwensarchief op alle knooppunten
 
 ```bash
 keytool -import -trustcacerts -keystore /path/to/jre/lib/security/cacerts -storepass changeit -noprompt -alias blobtrust -file Azure_Storage.cer
 ```
 
-- Controleer of het certificaat toegevoegd in het vertrouwensarchief met
+Controleer of het certificaat toegevoegd in het vertrouwensarchief met
 
-`keytool -list -v -keystore /path/to/jre/lib/security/cacerts`
+```bash
+keytool -list -v -keystore /path/to/jre/lib/security/cacerts
+```
 
 Raadpleeg voor meer informatie de volgende artikelen:
 
@@ -152,23 +156,31 @@ HDInsight standaard heeft volledige toegang tot gegevens in de Azure Storage-acc
     - storage_account_key: de sleutel voor het opslagaccount.
     - storage_container_name: de container in het opslagaccount dat u wilt toegang te beperken.
     - example_file_path: het pad naar een bestand dat is geüpload naar de container
+
 2. Het bestand SASToken.py wordt geleverd met de `ContainerPermissions.READ + ContainerPermissions.LIST` machtigingen en kan worden aangepast op basis van de use-case.
+
 3. Voer het script als volgt uit: `python SASToken.py`
+
 4. Wanneer het script is voltooid, wordt de SAS-token die vergelijkbaar is met de volgende tekst weergegeven: `sr=c&si=policyname&sig=dOAi8CXuz5Fm15EjRUu5dHlOzYNtcK3Afp1xqxniEps%3D&sv=2014-02-14`
 
 5. Als u wilt beperken van toegang tot een container met Shared Access Signature, moet u een aangepaste vermelding toevoegen aan de core-site-configuratie voor het cluster onder Ambari HDFS configuraties geavanceerde aangepaste eigenschap van de core-site toevoegen.
+
 6. Gebruik de volgende waarden voor de **sleutel** en **waarde** velden:
 
-    **Sleutel**: fs.azure.sas.YOURCONTAINER.YOURACCOUNT.blob.core.windows.net **waarde**: de SAS-sleutel die wordt geretourneerd door de Python-toepassing vanaf stap 4 hierboven
+    **Sleutel**: `fs.azure.sas.YOURCONTAINER.YOURACCOUNT.blob.core.windows.net` **waarde**: de SAS-sleutel die wordt geretourneerd door de Python-toepassing vanaf stap 4 hierboven.
 
 7. Klik op de **toevoegen** klikken om deze sleutel en waarde opslaan en klik vervolgens op de **opslaan** om op te slaan van de configuratiewijzigingen. Wanneer u hierom wordt gevraagd, een beschrijving van de wijziging ('toe te voegen toegang tot de SAS-opslag' bijvoorbeeld) toevoegen en klik vervolgens op **opslaan**.
+
 8. In de Ambari-webgebruikersinterface, HDFS Selecteer in de lijst aan de linkerkant en selecteer vervolgens **start opnieuw op alle betrokken** Vervolgkeuzelijst lijst aan de rechterkant van de Service-acties. Wanneer u hierom wordt gevraagd, selecteert u **alle opnieuw starten bevestigen**.
+
 9. Herhaal dit proces voor MapReduce2 en YARN.
 
 Er zijn drie belangrijke dingen om te weten over het gebruik van SAS-Tokens in Azure:
 
 1. Wanneer de SAS-tokens worden gemaakt met de machtigingen 'Lezen + LIST', ' schrijven en verwijderen ' gebruikers die toegang hebben tot de Blob-container met deze SAS-token niet mogelijk gegevens. Gebruikers die toegang tot de Blob-container met deze SAS-token en probeer het een schrijven of verwijderen van de bewerking ontvangt een bericht als `"This request is not authorized to perform this operation"`.
+
 2. Wanneer de SAS-tokens worden gegenereerd met `READ + LIST + WRITE` machtigingen (om te beperken `DELETE` alleen), opdrachten, zoals `hadoop fs -put` eerst schrijven naar een `\_COPYING\_` -bestand en probeer het vervolgens naar de naam van het bestand. Met deze bewerking HDFS wordt toegewezen aan een `copy+delete` voor WASB. Omdat de `DELETE` machtiging is niet opgegeven, de 'put"mislukken. De `\_COPYING\_` bewerking is een Hadoop-functie die bestemd zijn voor sommige gelijktijdigheidsbeheer. Er is momenteel geen manier om te beperken van alleen de bewerking 'DELETE' zonder dat ' "schrijfbewerkingen ook.
+
 3. Helaas, de hadoop Referentieprovider en de belangrijkste provider voor ontsleutelen (ShellDecryptionKeyProvider) op dit moment werken niet met de SAS-tokens en dus het momenteel niet worden beveiligd vanaf zichtbaarheid.
 
 Zie voor meer informatie, [gebruikt Azure Storage handtekeningen voor gedeelde toegang te beperken van toegang tot gegevens in HDInsight](../hdinsight-storage-sharedaccesssignature-permissions.md)
@@ -180,7 +192,9 @@ Alle gegevens die zijn geschreven naar Azure Storage automatisch versleuteld met
 - [Lokaal redundante opslag (LRS)](../../storage/common/storage-redundancy-lrs.md)
 - [Zone-redundante opslag (ZRS)](../../storage/common/storage-redundancy-zrs.md)
 - [Geografisch redundante opslag (GRS)](../../storage/common/storage-redundancy-grs.md)
-- [Geo-redundante opslag met leestoegang (RA-GRS)](../../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage) Azure Data Lake Storage biedt lokaal redundante opslag (LRS), maar u moet ook kritieke gegevens kopiëren naar een ander Data Lake Storage-account in een andere regio met een frequentie die is afgestemd op de behoeften van de plannen voor herstel na noodgevallen. Er zijn verschillende methoden om te kopiëren van gegevens, waaronder [ADLCopy](../../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md), DistCp, [Azure PowerShell](../../data-lake-store/data-lake-store-get-started-powershell.md), of [Azure Data Factory](../../data-factory/connector-azure-data-lake-store.md). Het is ook raadzaam om af te dwingen van het toegangsbeleid van Data Lake Storage-account om te voorkomen dat per ongeluk verwijderen.
+- [Geografisch redundante opslag met leestoegang (RA-GRS)](../../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage)
+
+Azure Data Lake Storage biedt lokaal redundante opslag (LRS), maar u moet ook kritieke gegevens kopiëren naar een ander Data Lake Storage-account in een andere regio met een frequentie die is afgestemd op de behoeften van het noodherstelplan. Er zijn verschillende methoden om te kopiëren van gegevens, waaronder [ADLCopy](../../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md), DistCp, [Azure PowerShell](../../data-lake-store/data-lake-store-get-started-powershell.md), of [Azure Data Factory](../../data-factory/connector-azure-data-lake-store.md). Het is ook raadzaam om af te dwingen van het toegangsbeleid van Data Lake Storage-account om te voorkomen dat per ongeluk verwijderen.
 
 Raadpleeg voor meer informatie de volgende artikelen:
 

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/19/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: df88e9025da305701dc7168f663cad2e8f5ac738
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 5b52fd41fc3e37078bbddc721c0c54af2c430b43
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42819996"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50419228"
 ---
 # <a name="unified-cross-component-transaction-diagnostics"></a>Diagnostische gegevens voor geïntegreerde tussen onderdelen transacties
 
@@ -38,7 +38,7 @@ Onderdelen zijn onafhankelijk implementeerbare onderdelen van uw toepassing gedi
 ## <a name="transaction-diagnostics-experience"></a>Ervaring van diagnostische gegevens voor transacties
 In deze weergave heeft vier belangrijke onderdelen: resultaten van de lijst, een grafiek transacties tussen onderdelen, een tijdreeks lijst met alle telemetrie met betrekking tot deze bewerking en het deelvenster met details voor elk geselecteerde telemetrie-item aan de linkerkant.
 
-![Belangrijke onderdelen](media/app-insights-e2eTxn-diagnostics/4partsCrossComponent.png)
+![Belangrijke onderdelen](media/app-insights-transaction-diagnostics/4partsCrossComponent.png)
 
 ## <a name="cross-component-transaction-chart"></a>Transacties tussen onderdelen grafiek
 
@@ -57,19 +57,19 @@ Aanroepen naar de andere onderdelen, met twee rijen bevatten: één rij vertegen
 
 In deze sectie bevat platte lijstweergave in een tijdreeks van alle telemetrie die betrekking hebben op deze transactie. Het bevat ook de aangepaste gebeurtenissen en traceringen die niet worden weergegeven in de grafiek transactie. U kunt deze lijst om telemetrie die is gegenereerd door een specifieke component per aanroep te filteren. U kunt een telemetrie-item selecteren in deze lijst om te zien van de bijbehorende [details aan de rechterkant](#details-of-the-selected-telemetry).
 
-![Volgorde van de tijd van alle telemetrie](media/app-insights-e2eTxn-diagnostics/allTelemetryDrawerOpened.png)
+![Volgorde van de tijd van alle telemetrie](media/app-insights-transaction-diagnostics/allTelemetryDrawerOpened.png)
 
 ## <a name="details-of-the-selected-telemetry"></a>Details van de geselecteerde telemetrie
 
 Dit samenvouwbare deelvenster toont de details van de transactie-grafiek of de lijst met geselecteerde items. 'Alles weergeven', worden alle van de standard-kenmerken die worden verzameld. Eventuele aangepaste kenmerken worden afzonderlijk weergegeven onder de norm die is ingesteld. Klik op de '...' onder de stack trace-venster om een optie voor het kopiëren van de tracering. 'Open profilertraces' of 'momentopname voor foutopsporing openen' ziet u code op diagnostische gegevens in deelvensters van de bijbehorende details.
 
-![Details van uitzondering](media/app-insights-e2eTxn-diagnostics/exceptiondetail.png)
+![Details van uitzondering](media/app-insights-transaction-diagnostics/exceptiondetail.png)
 
 ## <a name="search-results"></a>Zoekresultaten
 
 Dit samenvouwbare deelvenster toont de resultaten die voldoen aan de filtercriteria. Klik op een van de resultaten naar de details van de respectieve de 3 secties bovenstaande bijwerken. We proberen te vinden van voorbeelden die de details die beschikbaar is via alle onderdelen hebben, zelfs als de sampling van kracht is in een van deze waarschijnlijk zijn. Deze worden weergegeven als 'aanbevolen'-voorbeelden.
 
-![Zoekresultaten](media/app-insights-e2eTxn-diagnostics/searchResults.png)
+![Zoekresultaten](media/app-insights-transaction-diagnostics/searchResults.png)
 
 ## <a name="profiler-and-snapshot-debugger"></a>Profiler- en snapshot debugger
 
@@ -79,7 +79,7 @@ Als u Profiler werken niet ophalen kan, contact op met **serviceprofilerhelp@mic
 
 Als u Snapshot Debugger werken niet ophalen kan, contact op met **snapshothelp@microsoft.com**
 
-![Profiler-integratie](media/app-insights-e2eTxn-diagnostics/profilerTraces.png)
+![Profiler-integratie](media/app-insights-transaction-diagnostics/profilerTraces.png)
 
 ## <a name="faq"></a>Veelgestelde vragen
 

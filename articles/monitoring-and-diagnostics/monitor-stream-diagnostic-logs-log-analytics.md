@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/04/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: c419a3c44a38f72d56f2b7b362c62e683fc20c7f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 057ce4b93be27c27e27d49e61a89a7c2b9e46dc8
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46993014"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50421064"
 ---
 # <a name="stream-azure-diagnostic-logs-to-log-analytics"></a>Diagnostische logboeken naar Log Analytics in Azure Stream
 
@@ -44,21 +44,21 @@ De Log Analytics-werkruimte heeft geen zich in hetzelfde abonnement als de resou
 ## <a name="stream-diagnostic-logs-using-the-portal"></a>Stream diagnostische logboeken met behulp van de portal
 1. In de portal, gaat u naar Azure Monitor en klikt u op **diagnostische instellingen**
 
-    ![Sectie van Azure Monitor bewaking](media/monitoring-stream-diagnostic-logs-to-log-analytics/diagnostic-settings-blade.png)
+    ![Sectie van Azure Monitor bewaking](media/monitor-stream-diagnostic-logs-log-analytics/diagnostic-settings-blade.png)
 
 2. (Optioneel) de lijst met door de resourcegroep of resourcetype filteren en klik vervolgens op de resource waarvoor u wilt een diagnostische instelling instellen.
 
 3. Als er geen instellingen zijn op de resource hebt u geselecteerd, wordt u gevraagd om een instelling te maken. Klik op "Diagnostische gegevens inschakelen."
 
-   ![Diagnostische instelling - er zijn geen bestaande instellingen toevoegen](media/monitoring-stream-diagnostic-logs-to-log-analytics/diagnostic-settings-none.png)
+   ![Diagnostische instelling - er zijn geen bestaande instellingen toevoegen](media/monitor-stream-diagnostic-logs-log-analytics/diagnostic-settings-none.png)
 
    Als er bestaande instellingen op de resource, ziet u een lijst met instellingen die al zijn geconfigureerd voor deze resource. Klik op 'Diagnostische instelling toevoegen'.
 
-   ![Diagnostische instelling - bestaande instellingen toevoegen](media/monitoring-stream-diagnostic-logs-to-log-analytics/diagnostic-settings-multiple.png)
+   ![Diagnostische instelling - bestaande instellingen toevoegen](media/monitor-stream-diagnostic-logs-log-analytics/diagnostic-settings-multiple.png)
 
 3. Geef een naam van uw instelling en schakel het selectievakje voor **verzenden naar Log Analytics**, selecteer vervolgens een Log Analytics-werkruimte.
 
-   ![Diagnostische instelling - bestaande instellingen toevoegen](media/monitoring-stream-diagnostic-logs-to-log-analytics/diagnostic-settings-configure.png)
+   ![Diagnostische instelling - bestaande instellingen toevoegen](media/monitor-stream-diagnostic-logs-log-analytics/diagnostic-settings-configure.png)
 
 4. Klik op **Opslaan**.
 

@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/08/2018
 ms.author: rafats
-ms.openlocfilehash: 5811cb1e08ed5d02038da2a4460ae4b63580833b
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: ff432de59e5a5fdfeaad4c3a5361554ee32e21b0
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43696136"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50740005"
 ---
 # <a name="unique-keys-in-azure-cosmos-db"></a>Unieke sleutels in Azure Cosmos DB
 
@@ -130,7 +130,7 @@ Voorbeeld van JSON-document.
 De volgende opdracht-voorbeeld laat zien hoe een unieke index voor de voornaam, achternaam en e-mailbericht velden van de Gebruikersverzameling voor de MongoDB-API maken. Dit zorgt ervoor dat voor een combinatie van alle drie de velden op alle documenten in de verzameling. Voor MongoDB-API-verzamelingen, wordt de unieke index gemaakt nadat de verzameling is gemaakt, maar voordat het invullen van de verzameling.
 
 > [!NOTE]
-> De indeling van de unieke voor MongoDB-API-accounts is die afwijkt van de SQL API-accounts, waarvan u niet hebben om op te geven van de backslash (/) voordat u de veldnaam. 
+> De indeling van de unieke voor MongoDB-API-accounts is die afwijkt van de SQL API-accounts, waarvan u niet hebben om op te geven van het teken schuine streep (/) voordat u de veldnaam. 
 
 ```
 db.users.createIndex( { firstName: 1, lastName: 1, email: 1 }, { unique: true } )

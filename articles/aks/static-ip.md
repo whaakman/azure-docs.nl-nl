@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 09/26/2018
 ms.author: iainfou
-ms.openlocfilehash: 0e5d42dddf550d8c7d4a579afd8436343749a995
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 24b7e03808cb5df9fa4c122ca4c9317f723dac72
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233647"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50414638"
 ---
 # <a name="use-a-static-public-ip-address-with-the-azure-kubernetes-service-aks-load-balancer"></a>Gebruik een statisch openbaar IP-adres aan de load balancer van Azure Kubernetes Service (AKS)
 
@@ -93,9 +93,13 @@ kubectl apply -f load-balancer-service.yaml
 
 ## <a name="use-a-static-ip-address-outside-of-the-node-resource-group"></a>Gebruik een statisch IP-adres buiten de resourcegroep van knooppunt
 
-Met Kubernetes 1.10 of hoger, kunt u voor het gebruik van een statisch IP-adres dat buiten de resourcegroep van het knooppunt wordt gemaakt. De service-principal die worden gebruikt door het AKS-cluster moet zijn gemachtigd om de andere resourcegroep, met behulp van de volgende opdracht uit om SP-machtigingen te verlenen:
-```
-az role assignment create --assignee <SP Client ID> --role "Network Contributor" --scope /subscriptions/<subscription id>/resourceGroups/<resource group name>
+Met Kubernetes 1.10 of hoger, kunt u voor het gebruik van een statisch IP-adres dat buiten de resourcegroep van het knooppunt wordt gemaakt. De service-principal die worden gebruikt door het AKS-cluster moet zijn gemachtigd om de andere resourcegroep, zoals wordt weergegeven in het volgende voorbeeld:
+
+```azurecli
+az role assignment create\
+    --assignee <SP Client ID> \
+    --role "Network Contributor" \
+    --scope /subscriptions/<subscription id>/resourceGroups/<resource group name>
 ```
 
 Voor het gebruik van een IP-adres buiten de resourcegroep van het knooppunt, moet u een aantekening toevoegen aan de definitie van de Service. Het volgende voorbeeld wordt de aantekening aan de resourcegroep met de naam *myResourceGroup*. Geef uw eigen Resourcegroepnaam:

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2018
 ms.author: spelluru
-ms.openlocfilehash: 2edfa84530c147e1f716aef10c967ac36eadc922
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 2d17f4471383be623cb40276ec1e51257bf3fbce
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48251019"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50740371"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---resources"></a>Beheer van infrastructuur in Azure DevTest Labs - Resources
 In dit artikel komen de uitlijning en het beheer van resources voor DevTest Labs in uw organisatie. 
@@ -67,7 +67,7 @@ Het is raadzaam dat bedrijfseenheden en ontwikkeling-groepen die gekoppeld aan h
 
 U moet mogelijk ook rekening houden met geografische grenzen. Voor ontwikkelaars in de Noordoost Verenigde Staten (VS) kunnen bijvoorbeeld gebruiken een lab ingericht in VS-Oost 2. En ontwikkelaars in Dallas, Texas, en Denver, Colorado kunnen worden omgeleid naar het gebruik van een resource in VS Zuid-centraal. Als er een gezamenlijke inspanning met een externe partij, kunnen deze worden toegewezen aan een lab die niet wordt gebruikt door interne ontwikkelaars. 
 
-U kunt ook een lab voor een bepaald project in Visual Studio Team Services-teamproject. Vervolgens kunt toepassen u beveiliging door middel van een opgegeven Azure Active Directory-groep, waarmee u toegang krijgt tot beide set resources. Het virtuele netwerk dat is toegewezen aan het lab mag een andere grens consolideren van gebruikers.
+U kunt ook een lab voor een bepaald project binnen Azure DevOps-projecten. Vervolgens kunt toepassen u beveiliging door middel van een opgegeven Azure Active Directory-groep, waarmee u toegang krijgt tot beide set resources. Het virtuele netwerk dat is toegewezen aan het lab mag een andere grens consolideren van gebruikers.
 
 ## <a name="deletion-of-resources"></a>Het verwijderen van resources
 

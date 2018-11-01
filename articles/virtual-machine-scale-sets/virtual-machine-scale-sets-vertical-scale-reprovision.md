@@ -1,9 +1,9 @@
 ---
-title: Virtuele machine van Azure-schaalsets verticaal te schalen | Microsoft Docs
-description: Een virtuele Machine verticaal te schalen in reactie op waarschuwingen met Azure Automation bewaken
+title: Verticaal schalen Azure virtuele-machineschaalsets | Microsoft Docs
+description: Verticaal schalen van een virtuele Machine in reactie op waarschuwingen met Azure Automation
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: gatneil
+author: mayanknayar
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,35 +14,35 @@ ms.tgt_pltfrm: vm-multiple
 ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2016
-ms.author: negat
-ms.openlocfilehash: 6e4733e023d1dc27fb099216f9afea07fe07446c
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.author: manayar
+ms.openlocfilehash: 8080cdf78333eed9541311ba67221c713341a21a
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/20/2017
-ms.locfileid: "26781816"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50741569"
 ---
-# <a name="vertical-autoscale-with-virtual-machine-scale-sets"></a>Hiermee stelt u verticale automatisch geschaald met virtuele-machineschaalset
-Dit artikel wordt beschreven hoe u Azure verticaal te schalen [virtuele-Machineschaalsets](https://azure.microsoft.com/services/virtual-machine-scale-sets/) met of zonder reprovisioning. Raadpleeg voor verticale schaling van virtuele machines die zich niet in-schaalsets [verticaal schalen Azure virtuele machine met Azure Automation](../virtual-machines/windows/vertical-scaling-automation.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+# <a name="vertical-autoscale-with-virtual-machine-scale-sets"></a>Hiermee stelt u verticaal automatisch schalen met virtuele-machineschaalset
+Dit artikel wordt beschreven hoe u verticaal schaalt Azure [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/) met of zonder beëindiging. Raadpleeg voor verticaal schalen van virtuele machines die zich niet in schaalsets, [verticaal schalen met Azure Automation virtuele Azure-machine](../virtual-machines/windows/vertical-scaling-automation.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-Verticale schaling, ook wel bekend als *opschalen* en *omlaag schalen*houdt in oplopende of aflopende volgorde van de grootte van de virtuele machines (VM) in reactie op een werkbelasting. Dit gedrag met vergelijken [horizontaal schalen](virtual-machine-scale-sets-autoscale-overview.md), ook wel *uitschalen* en *schalen*, waarbij het aantal VM's afhankelijk van de werkbelasting wordt gewijzigd.
+Verticaal schalen, ook wel bekend als *omhoog schalen* en *omlaag schalen*houdt in oplopende of aflopende volgorde van de grootte van de virtuele machines (VM) in reactie op een workload. Dit gedrag met vergelijken [horizontaal schalen](virtual-machine-scale-sets-autoscale-overview.md), ook wel *uitschalen* en *inschalen*, waarbij het aantal virtuele machines wordt gewijzigd, afhankelijk van de werkbelasting.
 
-Reprovisioning betekent het verwijderen van een bestaande VM te vervangen door een nieuwe. Wanneer u vergroten of verkleinen van de grootte van virtuele machines in een virtuele-machineschaalset ingesteld, in sommige gevallen die u wilt vergroten of verkleinen bestaande virtuele machines en uw gegevens behouden, terwijl in andere gevallen moet u nieuwe virtuele machines van de nieuwe grootte implementeren. Dit document bevat informatie over beide gevallen.
+Beëindiging betekent dat een bestaande virtuele machine verwijderen en deze te vervangen door een nieuw exemplaar. Wanneer u vergroten of verkleinen van de grootte van virtuele machines in een virtuele-machineschaalset ingesteld, in sommige gevallen die u wilt vergroten of verkleinen van bestaande VM's en uw gegevens behouden, terwijl in andere gevallen u moet nieuwe virtuele machines van de nieuwe grootte te implementeren. In dit document bevat informatie over beide gevallen.
 
-Verticale schaling kan handig zijn wanneer:
+Verticaal schalen kan handig zijn wanneer:
 
-* Een service die is gebaseerd op virtuele machines is onder gebruikt (bijvoorbeeld in het weekend). De VM-grootte verminderen kunt maandelijkse kosten te verlagen.
-* VM-grootte toenemend omgaan met grotere verzoek zonder extra virtuele machines maken.
+* Een service die is gebouwd op virtuele machines is benut (bijvoorbeeld in het weekend). De VM-grootte te beperken, kan de maandelijkse kosten verminderen.
+* Steeds meer VM-grootte moet omgaan met grotere aanvraag zonder dat er extra virtuele machines gemaakt.
 
-U kunt instellen verticaal schalen om te worden geactiveerd op basis van metrische waarschuwingen op basis van uw virtuele-machineschaalset. Wanneer de waarschuwing is geactiveerd, deze gebeurtenis wordt gestart een webhook die een runbook die kan worden geschaald schaal omhoog of omlaag ingesteld triggers. Verticale schaling kan worden geconfigureerd met de volgende stappen:
+U kunt instellen verticaal schalen om te worden geactiveerd op basis van metrische waarschuwingen op basis van uw virtuele-machineschaalset. Als de waarschuwing is geactiveerd, deze gebeurtenis wordt gestart een webhook die een runbook met een opschaalmogelijkheid uw schaal ingesteld omhoog of omlaag triggers. Verticaal schalen kan worden geconfigureerd door de volgende stappen:
 
-1. Een Azure Automation-account maken met run as-functionaliteit.
-2. Verticale schaal van Azure Automation-runbooks voor virtuele-machineschaalsets in uw abonnement worden geïmporteerd.
+1. Maak een Azure Automation-account met run as-functionaliteit.
+2. Verticaal schalen van Azure Automation-runbooks voor virtuele-machineschaalsets importeren in uw abonnement.
 3. Een webhook toevoegen aan uw runbook.
-4. Een waarschuwing toevoegen aan uw virtuele-machineschaalset instellen met behulp van een webhook-melding.
+4. Een waarschuwing toevoegen aan uw VM-schaalset met behulp van een webhook-melding.
 
 > [!NOTE]
-> Verticale automatisch schalen kan alleen plaatsvinden binnen een bepaalde adresbereiken van VM-formaten. Vergelijk de specificaties van elke grootte voordat u besluit om te schalen van een aan een andere (hoger de waarde niet altijd wordt aangegeven in de VM-grootte groter). U kunt kiezen tussen de volgende paren van grootte schalen:
+> Verticaal automatisch schalen kan alleen plaatsvinden binnen bepaalde bereiken van VM-grootten. De specificaties van elke grootte vergelijken voordat u besluit te schalen van één naar een andere (hoe hoger de waarde geeft niet altijd aan grotere VM-grootte). U kunt kiezen om te schalen tussen de volgende sets grootten:
 > 
 > | VM-grootten paar schalen |  |
 > | --- | --- |
@@ -56,35 +56,35 @@ U kunt instellen verticaal schalen om te worden geactiveerd op basis van metrisc
 > 
 
 ## <a name="create-an-azure-automation-account-with-run-as-capability"></a>Een Azure Automation-Account maken met run as-functionaliteit
-Het eerste wat dat u moet doen is een Azure Automation-account dat als host fungeert voor de runbooks gebruikt voor het schalen van de virtuele machine scale set exemplaren maken. Recent [Azure Automation](https://azure.microsoft.com/services/automation/) geïntroduceerd van de functie 'Run As-account' is het instellen van de Service-Principal voor het automatisch uitvoeren van de runbooks namens een gebruiker. Zie voor meer informatie:
+Het eerste wat dat u moet doen is een Azure Automation-account dat als host fungeert voor de runbooks gebruikt voor het schalen van de exemplaren in de schaalset virtuele machine maken. Onlangs [Azure Automation](https://azure.microsoft.com/services/automation/) de 'Uitvoeren als-account'-functie waarmee de instelling van de Service-Principal voor het automatisch uitvoeren van de runbooks namens een gebruiker die is geïntroduceerd. Zie voor meer informatie:
 
 * [Runbooks verifiëren met een Azure Uitvoeren als-account](../automation/automation-sec-configure-azure-runas-account.md)
 
-## <a name="import-azure-automation-vertical-scale-runbooks-into-your-subscription"></a>Verticale schaal van Azure Automation-runbooks importeert in uw abonnement
-De runbooks die nodig zijn voor uw virtuele-machineschaalsets verticaal te schalen zijn al gepubliceerd in de galerie van Azure Automation Runbook. Als u wilt importeren stappen in uw abonnement de in dit artikel:
+## <a name="import-azure-automation-vertical-scale-runbooks-into-your-subscription"></a>Verticaal schalen van Azure Automation-runbooks in uw abonnement importeren
+De runbooks die nodig zijn voor uw schaalsets voor virtuele machines verticaal schalen zijn al gepubliceerd in de Azure Automation Runbook Gallery. Als u wilt importeren Volg in uw abonnement de stappen in dit artikel:
 
 * [Runbook- en galerieën voor Azure Automation](../automation/automation-runbook-gallery.md)
 
-Kies de optie Galerij bladeren in het menu Runbooks:
+Kies de optie Bladeren in galerie in het menu Runbooks:
 
 ![Runbooks moeten worden geïmporteerd][runbooks]
 
-De runbooks die moeten worden geïmporteerd, worden weergegeven. Selecteer het runbook op basis van of u wilt dat verticale met of zonder reprovisioning schalen:
+De runbooks die moeten worden geïmporteerd, worden weergegeven. Selecteer het runbook op basis van of u wilt dat verticaal schalen met of zonder beëindiging:
 
-![Galerie met Runbooks][gallery]
+![Runbookgalerie][gallery]
 
 ## <a name="add-a-webhook-to-your-runbook"></a>Een webhook toevoegen aan uw runbook
-Nadat u de runbooks hebt geïmporteerd, moet u een webhook toevoegen aan het runbook zodat deze kan worden geactiveerd door een waarschuwing van een virtuele-machineschaalset. De details van het maken van een webhook voor uw Runbook worden beschreven in dit artikel:
+Nadat u de runbooks hebt geïmporteerd, moet u een webhook toevoegen aan het runbook, zodat deze kan worden geactiveerd door een waarschuwing van een virtuele-machineschaalset. De details van het maken van een webhook voor het Runbook worden beschreven in dit artikel:
 
-* [Azure Automation-webhooks.](../automation/automation-webhooks.md)
+* [Azure Automation-webhooks](../automation/automation-webhooks.md)
 
 > [!NOTE]
-> Zorg ervoor dat u de webhook URI kopiëren voordat u sluit het dialoogvenster webhook want u dit adres in de volgende sectie moet.
+> Zorg ervoor dat u de URI van de webhook kopiëren voordat de webhook-dialoogvenster te sluiten als u dit adres in de volgende sectie.
 > 
 > 
 
 ## <a name="add-an-alert-to-your-virtual-machine-scale-set"></a>Een waarschuwing toevoegen aan uw virtuele-machineschaalset
-Hieronder wordt een PowerShell-script dat toont hoe u een waarschuwing toevoegt aan een virtuele-machineschaalset ingesteld. Raadpleeg het volgende artikel om op te halen van de naam van de metrische gegevens voor het starten van de waarschuwing in: [Azure Monitor automatisch schalen algemene metrische gegevens](../monitoring-and-diagnostics/insights-autoscale-common-metrics.md).
+Hieronder wordt een PowerShell-script dat laat zien hoe u een waarschuwing toevoegen aan een virtuele-machineschaalset ingesteld. Raadpleeg het volgende artikel om op te halen van de naam van de metrische waarde voor het starten van de waarschuwing in: [Azure Monitor autoscaling common metrics](../monitoring-and-diagnostics/insights-autoscale-common-metrics.md).
 
 ```
 $actionEmail = New-AzureRmAlertRuleEmail -CustomEmail user@contoso.com
@@ -113,17 +113,17 @@ Add-AzureRmMetricAlertRule  -Name  $alertName `
 ```
 
 > [!NOTE]
-> Het verdient aanbeveling voor het configureren van een redelijke tijdvenster voor de waarschuwing om te voorkomen dat verticaal schalen en de bijbehorende service-onderbreking, te vaak activering. U kunt een venster van minimaal 20-30 minuten of langer. U kunt een horizontale schaal als u wilt vermijden.
+> Het verdient aanbeveling een redelijke tijdvenster voor de waarschuwing configureren om te voorkomen dat verticaal schalen en eventuele bijbehorende onderbrekingen, te vaak wordt geactiveerd. Houd rekening met een venster van minimaal 20-30 minuten of langer. Houd rekening met een horizontaal schalen als u nodig hebt om te voorkomen dat een onderbreking.
 > 
 > 
 
 Zie de volgende artikelen voor meer informatie over het maken van waarschuwingen:
 
-* [Azure PowerShell Monitor Quick Start-voorbeelden](../monitoring-and-diagnostics/insights-powershell-samples.md)
+* [Voorbeelden van Azure Monitor PowerShell-snelstartgids](../monitoring-and-diagnostics/insights-powershell-samples.md)
 * [Azure Monitor platformoverschrijdende CLI Quick Start-voorbeelden](../monitoring-and-diagnostics/insights-cli-samples.md)
 
 ## <a name="summary"></a>Samenvatting
-In dit artikel hebt u geleerd eenvoudige verticaal vergroten/verkleinen voorbeelden. Met deze bouwstenen - Automation-account, runbooks, webhooks, waarschuwingen - kunt u een uitgebreide scala aan gebeurtenissen met een aangepaste set acties.
+In dit artikel hebt u geleerd eenvoudige voorbeelden van verticaal schalen. Met deze bouwstenen - Automation-account, runbooks, webhooks, waarschuwingen - kunt u verbinding maken met een uitgebreid scala aan gebeurtenissen met een aangepaste set acties.
 
 [runbooks]: ./media/virtual-machine-scale-sets-vertical-scale-reprovision/runbooks.png
 [gallery]: ./media/virtual-machine-scale-sets-vertical-scale-reprovision/runbooks-gallery.png

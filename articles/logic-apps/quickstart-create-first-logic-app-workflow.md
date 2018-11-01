@@ -11,12 +11,12 @@ ms.custom: mvc
 ms.date: 07/20/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 0f38aabf008f0335a6f9e21717aa38aefdd21615
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: fe2ca48c1cab3789f2bb501eaf00aeb9cd866b8c
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42022893"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233681"
 ---
 # <a name="quickstart-create-your-first-automated-workflow-with-azure-logic-apps---azure-portal"></a>Snelstart: maak uw eerste geautomatiseerde werkstroom met Azure Logic Apps - Azure-portal
 
@@ -178,7 +178,7 @@ Als u dit voorbeeld niet meer nodig hebt, verwijdert u de resourcegroep die uw l
 ## <a name="get-support"></a>Ondersteuning krijgen
 
 * Ga naar het [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps) (Forum voor Azure Logic Apps) als u vragen hebt.
-* Als u ideeën voor functies wilt indienen of erop wilt stemmen, gaat u naar de [website voor feedback van Logic Apps-gebruikers](http://aka.ms/logicapps-wish).
+* Als u ideeën voor functies wilt indienen of erop wilt stemmen, gaat u naar de [website voor feedback van Logic Apps-gebruikers](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Volgende stappen
 

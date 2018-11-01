@@ -4,20 +4,30 @@ description: Biedt een overzicht van bekende problemen in de Azure Migrate-servi
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 10/24/2018
+ms.date: 10/31/2018
 ms.author: raynew
-ms.openlocfilehash: a32b1b73a12242a6c6b1c29fbf116aff73515b46
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 0b2954ddfda0ab4c94ddf6176d76d8bcd937fa42
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50086740"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50413330"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Problemen met Azure Migrate oplossen
 
 ## <a name="troubleshoot-common-errors"></a>Veelvoorkomende problemen oplossen
 
 [Azure Migrate](migrate-overview.md) beoordeelt on-premises werkbelastingen voor migratie naar Azure. Gebruik dit artikel voor het oplossen van problemen bij het implementeren en met behulp van Azure Migrate.
+
+### <a name="i-am-using-the-continuous-discovery-ova-but-vms-that-are-deleted-in-my-on-premises-environment-are-still-being-shown-in-the-portal"></a>Ik ben met behulp van de continue detectie OVA, maar virtuele machines die zijn verwijderd in mijn on-premises-omgeving worden nog steeds wordt weergegeven in de portal.
+
+Het apparaat voor continue detectie toestel verzamelt alleen prestatiegegevens continu, detecteert niet elke configuratiewijziging in de on-premises-omgeving (dat wil zeggen VM toevoegen, verwijderen en schijf toevoegen, enz.). Als er een configuratiewijziging in de on-premises omgeving is, kunt u het volgende doen om de wijzigingen door te voeren in de portal:
+
+- Toevoegen van items (virtuele machines, schijven, kernen enz.): om deze wijzigingen in de Azure-portal door te voeren, kunt u de detectie vanaf het apparaat stoppen en opnieuw starten. Dit zorgt ervoor dat de wijzigingen worden bijgewerkt in het Azure Migrate-project.
+
+   ![Detectie stoppen](./media/troubleshooting-general/stop-discovery.png)
+
+- Verwijderen van VM’s: vanwege de manier waarop het apparaat is ontworpen, wordt het verwijderen van VM’s niet doorgevoerd, zelfs niet als u de detectie stopt en opnieuw start. Dit komt doordat gegevens uit volgende detecties worden toegevoegd aan de oudere detecties en niet worden overschreven. In dit geval kunt u eenvoudigweg de VM in de portal negeren door deze uit uw groep te verwijderen en de evaluatie opnieuw te berekenen.
 
 ### <a name="migration-project-creation-failed-with-error-requests-must-contain-user-identity-headers"></a>Maken van het project migratie is mislukt met fout *aanvragen moeten kopteksten voor gebruikersidentiteiten bevatten*
 
@@ -40,14 +50,6 @@ Om het verzamelen van prestatiegegevens voor schijven en het netwerk mogelijk, w
 Gaat u naar de **Essentials** sectie de **overzicht** pagina van het project voor het identificeren van de exacte locatie waar de metagegevens worden opgeslagen. De locatie wordt willekeurig geselecteerd binnen het geografische gebied Azure Migrate en u het pas wijzigen. Als u een project maken in een bepaalde regio wilt, kunt u de REST API's te maken van het migratieproject doorgeven van de gewenste regio.
 
    ![Projectlocatie](./media/troubleshooting-general/geography-location.png)
-
-### <a name="i-am-using-the-continuous-discovery-ova-but-vms-that-are-deleted-in-my-on-premises-environment-are-still-being-shown-in-the-portal"></a>Ik ben met behulp van de continue detectie OVA, maar virtuele machines die zijn verwijderd in mijn on-premises-omgeving worden nog steeds wordt weergegeven in de portal.
-
-Het apparaat voor continue detectie toestel verzamelt alleen prestatiegegevens continu, detecteert niet elke configuratiewijziging in de on-premises-omgeving (dat wil zeggen VM toevoegen, verwijderen en schijf toevoegen, enz.). Als er een configuratiewijziging in de on-premises-omgeving, kunt u het volgende om de wijzigingen in de portal weer te doen:
-
-1. Het toevoegen van items (virtuele machines, schijven, kernen enz.): als gevolg van deze wijzigingen in de Azure-portal, kunt u de detectie van het toestel stopt en start het opnieuw. Dit zorgt ervoor dat de wijzigingen in de Azure Migrate-project worden bijgewerkt.
-
-2. Het verwijderen van virtuele machines: vanwege de manier waarop het apparaat is ontworpen, verwijderen van virtuele machines wordt niet weergegeven, zelfs als u stopt en de detectie start. Dit komt doordat gegevens uit de volgende detecties zijn toegevoegd aan de oudere detecties en niet worden genegeerd. In dit geval kunt u de virtuele machine in de portal, gewoon negeren door verwijderen uit de groep en de evaluatie te berekenen.
 
 ## <a name="collector-errors"></a>Fouten in de logboekverzamelaar
 
@@ -219,9 +221,8 @@ Voor het verzamelen van Event Tracing voor Windows, het volgende doen:
 
 ## <a name="collector-error-codes-and-recommended-actions"></a>Collector-foutcodes en aanbevolen acties
 
-|           |                                |                                                                               |                                                                                                       |                                                                                                                                            |
-|-----------|--------------------------------|-------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
-| Foutcode | Naam van de fout                      | Bericht                                                                       | Mogelijke oorzaken                                                                                        | Aanbevolen actie                                                                                                                          |
+| Foutcode | Naam van de fout   | Bericht   | Mogelijke oorzaken | Aanbevolen actie  |
+| --- | --- | --- | --- | --- |
 | 601       | CollectorExpired               | De collector is verlopen.                                                        | De collector is verlopen.                                                                                    | Download een nieuwe versie van de collector en probeer het opnieuw.                                                                                      |
 | 751       | UnableToConnectToServer        | Kan geen verbinding maken met de vCenter-server %Name; vanwege de fout %ErrorMessage;     | Controleer het foutbericht voor meer informatie.                                                             | Los het probleem op en probeer het opnieuw.                                                                                                           |
 | 752       | InvalidvCenterEndpoint         | De server %Name; is geen vCenter-server.                                  | Geef de gegevens van de vCenter-server op.                                                                       | Probeer de bewerking opnieuw uit te voeren met de juiste vCenter-serverdetails.                                                                                   |

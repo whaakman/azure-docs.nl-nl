@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 06/22/2018
 ms.author: dobett
-ms.openlocfilehash: a4840fee22086bf6716f5f83ba86c4ac464377f9
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 3b2e25df74d0667b52429a7b998157c4d9e3fe56
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49364401"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50421098"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-the-telemetry-from-the-hub-with-a-back-end-application-java"></a>Snelstartgids: Telemetrie vanaf een apparaat verzenden naar een IoT-hub en de telemetrie lezen van de hub met een back-endtoepassing (Java)
 
@@ -33,7 +33,7 @@ Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://az
 
 De twee voorbeeldtoepassingen die u uitvoert in deze snelstartgids zijn geschreven in Java. Java SE 8 of hoger moet zijn geïnstalleerd op uw ontwikkelcomputer.
 
-U kunt Java voor meerdere platforms downloaden van [Oracle](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
+U kunt Java voor meerdere platforms downloaden van [Oracle](https://aka.ms/azure-jdks).
 
 Gebruik de volgende opdracht om de huidige versie van Java op uw ontwikkelcomputer te controleren:
 
@@ -57,9 +57,9 @@ Download het Java-voorbeeldproject van https://github.com/Azure-Samples/azure-io
 
 ## <a name="register-a-device"></a>Een apparaat registreren
 
-Een apparaat moet zijn geregistreerd bij uw IoT-hub voordat het verbinding kan maken. In deze quickstart gebruikt u de Azure Cloud Shell om een gesimuleerd apparaat te registreren.
+Een apparaat moet zijn geregistreerd bij uw IoT-hub voordat het verbinding kan maken. In deze snelstart gebruikt u Azure Cloud Shell om een gesimuleerd apparaat te registreren.
 
-1. Voer de volgende opdrachten uit in Azure Cloud Shell om de IoT Hub CLI-extensie toe te voegen en om de apparaat-id te maken. 
+1. Voer de volgende opdrachten uit in Azure Cloud Shell om de IoT Hub CLI-extensie toe te voegen en de apparaat-id te maken. 
 
    **YourIoTHubName**: vervang deze tijdelijke aanduiding door een door u gekozen naam voor de IoT-hub.
 

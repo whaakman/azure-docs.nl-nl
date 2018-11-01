@@ -9,10 +9,10 @@ ms.date: 10/15/2018
 ms.author: alkohli
 ms.component: common
 ms.openlocfilehash: 3a42f09967ec42b47947823025f2f0dcd081d1b1
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
+ms.lasthandoff: 10/31/2018
 ms.locfileid: "49352234"
 ---
 # <a name="azure-importexport-system-requirements"></a>Azure Import/Export-systeemvereisten
@@ -49,7 +49,7 @@ Zie voor meer informatie over de storage-accounts, [overzicht van Azure storage-
 Elke taak kan worden gebruikt voor het overbrengen van gegevens naar of van slechts één opslagaccount. Een taak één import/export kan niet met andere woorden, omvatten voor meerdere opslagaccounts. Zie voor meer informatie over het maken van een nieuw opslagaccount [over het maken van een Storage-Account](storage-quickstart-create-account.md).
 
 > [!IMPORTANT] 
-> De Azure Import Export-service biedt geen ondersteuning voor storage-accounts waarbij de [Virtual Network-Service-eindpunten](../../virtual-network/virtual-network-service-endpoints-overview.md) functie is ingeschakeld. 
+> De Azure Import Export-service biedt geen ondersteuning voor storage-accounts waarbij de [Virtual Network-Service-eindpunten](../../virtual-network/virtual-network-service-endpoints-overview.md) functie is ingeschakeld. 
 
 ## <a name="supported-storage-types"></a>Ondersteunde opslagtypen
 

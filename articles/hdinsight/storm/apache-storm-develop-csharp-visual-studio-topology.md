@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 11/27/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 371f8c1d69482381e3a400da6010825bc3ac7c1a
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 2765021d80701826644f095d22c650160001e907
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43697778"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50414893"
 ---
 # <a name="develop-c-topologies-for-apache-storm-by-using-the-data-lake-tools-for-visual-studio"></a>C#-topologieën ontwikkelen voor Apache Storm met behulp van de Data Lake-tools voor Visual Studio
 
@@ -57,7 +57,7 @@ Volg de stappen in voor het installeren van Data Lake tools voor Visual Studio, 
 
 Wanneer u een Storm-topologie vanuit Visual Studio hebt ingediend, genereert SCP.NET een zip-bestand dat de topologie en de afhankelijkheden bevat. Java wordt gebruikt voor het maken van deze zip-bestanden omdat het gebruikmaakt van een indeling die meer compatibel zijn met op basis van Linux-clusters.
 
-1. Installeer de Java Developer Kit (JDK) 7 of hoger op uw ontwikkelomgeving. Krijgt u de Oracle-JDK van [Oracle](http://www.oracle.com/technetwork/java/javase/downloads/index.html). U kunt ook [andere Java-distributies](http://openjdk.java.net/).
+1. Installeer de Java Developer Kit (JDK) 7 of hoger op uw ontwikkelomgeving. Krijgt u de Oracle-JDK van [Oracle](https://aka.ms/azure-jdks). U kunt ook [andere Java-distributies](http://openjdk.java.net/).
 
 2. De `JAVA_HOME` omgevingsvariabele moet verwijzen naar de map met Java.
 
@@ -70,30 +70,30 @@ using System;
 using System.IO;
 namespace ConsoleApplication2
 {
-   class Program
-   {
-       static void Main(string[] args)
-       {
-           string javaHome = Environment.GetEnvironmentVariable("JAVA_HOME");
-           if (!string.IsNullOrEmpty(javaHome))
-           {
-               string jarExe = Path.Combine(javaHome + @"\bin", "jar.exe");
-               if (File.Exists(jarExe))
-               {
-                   Console.WriteLine("JAVA Is Installed properly");
-                    return;
-               }
-               else
-               {
-                   Console.WriteLine("A valid JAVA JDK is not found. Looks like JRE is installed instead of JDK.");
-               }
-           }
-           else
-           {
-             Console.WriteLine("A valid JAVA JDK is not found. JAVA_HOME environment variable is not set.");
-           }
-       }  
-   }
+   class Program
+   {
+       static void Main(string[] args)
+       {
+           string javaHome = Environment.GetEnvironmentVariable("JAVA_HOME");
+           if (!string.IsNullOrEmpty(javaHome))
+           {
+               string jarExe = Path.Combine(javaHome + @"\bin", "jar.exe");
+               if (File.Exists(jarExe))
+               {
+                   Console.WriteLine("JAVA Is Installed properly");
+                    return;
+               }
+               else
+               {
+                   Console.WriteLine("A valid JAVA JDK is not found. Looks like JRE is installed instead of JDK.");
+               }
+           }
+           else
+           {
+             Console.WriteLine("A valid JAVA JDK is not found. JAVA_HOME environment variable is not set.");
+           }
+       }  
+   }
 }
 ```
 
@@ -451,11 +451,11 @@ U kunt Data Lake tools voor Visual Studio ook gebruiken om te maken van hybride 
 
 Voor een voorbeeld van een hybride-topologie, maak een project en selecteer **Storm hybride voorbeeld**. Dit Voorbeeldtype ziet u de volgende concepten:
 
-* **Java spout** en **C#-bolt**: gedefinieerd in **HybridTopology_javaSpout_csharpBolt**.
+* **Java spout** en  **C# bolt**: gedefinieerd in **HybridTopology_javaSpout_csharpBolt**.
 
     * Een transactionele versie is gedefinieerd in **HybridTopologyTx_javaSpout_csharpBolt**.
 
-* **C# spout** en **Java bolt**: gedefinieerd in **HybridTopology_csharpSpout_javaBolt**.
+* **C#spout** en **Java bolt**: gedefinieerd in **HybridTopology_csharpSpout_javaBolt**.
 
     * Een transactionele versie is gedefinieerd in **HybridTopologyTx_csharpSpout_javaBolt**.
 

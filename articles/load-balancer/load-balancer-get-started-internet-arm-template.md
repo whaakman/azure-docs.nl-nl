@@ -4,29 +4,26 @@ description: Meer informatie over het maken van een openbare load balancer in Re
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: timlt
-tags: azure-resource-manager
-ms.assetid: b24f4729-4559-4458-8527-71009d242647
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 8452d3a6e165bbcd6007d9dc2261e458746b475a
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
-ms.translationtype: HT
+ms.openlocfilehash: 0ca988fba91cd1d4a97ca376a6f3ff45fae214ac
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38687716"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50418973"
 ---
 # <a name="creating-a-public-load-balancer-using-a-template"></a>Een openbare load balancer maken met behulp van een sjabloon
 
 > [!div class="op_single_selector"]
 > * [Portal](../load-balancer/load-balancer-get-started-internet-portal.md)
 > * [PowerShell](../load-balancer/load-balancer-get-started-internet-arm-ps.md)
-> * [Azure-CLI](../load-balancer/load-balancer-get-started-internet-arm-cli.md)
+> * [Azure CLI](../load-balancer/load-balancer-get-started-internet-arm-cli.md)
 > * [Sjabloon](../load-balancer/load-balancer-get-started-internet-arm-template.md)
 
 

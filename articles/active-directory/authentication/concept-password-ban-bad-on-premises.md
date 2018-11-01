@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: jsimmons
-ms.openlocfilehash: 286f8e560ec653ed4f4f1cad5a2ae27b940f8d15
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: ca412e94f65c7e1ed9a547ec9dcabc62fac7d42f
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43781777"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50741824"
 ---
 # <a name="preview-enforce-azure-ad-password-protection-for-windows-server-active-directory"></a>Voorbeeld: Azure AD wachtwoordbeveiliging voor Windows Server Active Directory afdwingen
 
@@ -33,16 +33,6 @@ Er zijn drie softwareonderdelen die gezamenlijk protection voor Azure AD-wachtwo
 * Het DLL-bestand van DC-Agent wachtwoord filter ontvangt verzoeken van wachtwoord-validatie van het besturingssysteem en ze doorstuurt naar de Azure AD wachtwoord protection DC-agent-service lokaal wordt uitgevoerd op de domeincontroller.
 
 ![Hoe Azure AD wachtwoord beveiliging onderdelen samenwerken.](./media/concept-password-ban-bad-on-premises/azure-ad-password-protection.png)
-
-## <a name="requirements"></a>Vereisten
-
-* Alle machines waar Azure AD wachtwoord beveiliging onderdelen zijn geïnstalleerd met inbegrip van de domeincontrollers moeten worden uitgevoerd worden WindowsServer 2012 of hoger.
-* Alle machines waar Azure AD wachtwoord beveiliging onderdelen zijn geïnstalleerd met inbegrip van de domeincontrollers moeten de Universal C-runtime geïnstalleerd hebben. Dit gebeurt bij voorkeur volledig patches voor de machine via Windows Update. Anders een juiste specifieke update-pakket kan worden geïnstalleerd: Zie [bijwerken voor universele C tijdens Runtime in Windows](https://support.microsoft.com/help/2999226/update-for-universal-c-runtime-in-windows)
-* Verbinding met het netwerk moet bestaan tussen ten minste één domeincontroller in elk domein en ten minste één server die als host fungeert voor de proxy-service van Azure AD wachtwoord beveiliging.
-* Een Active Directory-domeincontroller die gebruikmaakt van de functionaliteit van de beveiliging wachtwoord beschikken over de DC-agent is geïnstalleerd.
-* Een Active Directory-domein met de DC agent-service-software gebruiken DFS-replicatie voor sysvol-replicatie.
-* Een globale beheerdersaccount om u te registreren van de proxy-service van Azure AD wachtwoord beveiliging met Azure AD.
-* Een account met Active Directory-domein administrator-bevoegdheden in het forest-hoofddomein.
 
 ### <a name="license-requirements"></a>Licentievereisten
 
@@ -70,7 +60,6 @@ Er zijn twee vereist installatieprogramma's voor beveiliging van de Azure AD-wac
 * Het verdient aanbeveling de DC-agent installeren op alle DC's om te controleren of wachtwoord NAP-afdwinging. 
 * Beveiliging van Azure AD-wachtwoord is niet een realtime toepassing beleidsengine. Mogelijk zijn er een vertraging in de tijd tussen een wachtwoordwijziging voor de configuratie van beleid en de tijd die het heeft bereikt en op alle domeincontrollers wordt afgedwongen.
 
-
 ## <a name="next-steps"></a>Volgende stappen
 
-[Wachtwoordbeveiliging in Azure AD implementeren](howto-password-ban-bad-on-premises.md)
+[Wachtwoordbeveiliging in Azure AD implementeren](howto-password-ban-bad-on-premises-deploy.md)

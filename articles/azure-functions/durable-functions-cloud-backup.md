@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 44e71c8e9256bdfd3a55cdd21a6658bccfd5daad
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 4fec410db81077fd454f29d3359dc3728aad4bff
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49987520"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50739614"
 ---
 # <a name="fan-outfan-in-scenario-in-durable-functions---cloud-backup-example"></a>Fan-uitgaand/fan-in-scenario in duurzame functies - back-voorbeeld van de Cloud
 
@@ -131,7 +131,7 @@ Content-Length: 20
 ```
 
 > [!NOTE]
-> De `HttpStart` -functie die u aanroept werkt alleen met inhoud voor JSON-indeling. Om deze reden de `Content-Type: application/json` -header is vereist en het pad naar de map is gecodeerd als een JSON-tekenreeks.
+> De `HttpStart` -functie die u aanroept werkt alleen met inhoud voor JSON-indeling. Om deze reden de `Content-Type: application/json` -header is vereist en het pad naar de map is gecodeerd als een JSON-tekenreeks. Bovendien HTTP-fragment wordt ervan uitgegaan er is een item in de `host.json` -bestand dat Hiermee verwijdert u de standaard `api/` voorvoegsel van alle functies URL van de HTTP-trigger. U vindt de opmaak voor deze configuratie in de `host.json` bestand in de voorbeelden.
 
 Triggers voor deze HTTP-aanvraag de `E2_BackupSiteContent` orchestrator en geeft de tekenreeks `D:\home\LogFiles` als parameter. Het antwoord bevat een koppeling om de status van de back-upbewerking ophalen:
 

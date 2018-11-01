@@ -8,12 +8,12 @@ ms.topic: howto
 ms.date: 09/24/2018
 ms.author: ancav
 ms.component: metrics
-ms.openlocfilehash: 826ff6a9be978d8ee2222b396ded0fc246caa91f
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: f8945ee49ff41a65548da5a3a3c374279bdcc435
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50092658"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50413584"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-using-a-resource-manager-template-for-a-windows-virtual-machine"></a>Verzenden van Guest OS metrische gegevens in de Azure Monitor-metriek opslaan met behulp van Resource Manager-sjabloon voor een virtuele machine van Windows
 
@@ -273,7 +273,7 @@ Voor het implementeren van de Resource Manager-sjabloon, maken we gebruik van Az
 
 3. Selecteer op de pagina Monitor **metrische gegevens**. 
 
-   ![Pagina van de metrische gegevens](./media/metrics-store-custom-rest-api/metrics.png) 
+   ![Pagina van de metrische gegevens](media/metrics-store-custom-guestos-resource-manager-vm/metrics.png) 
 
 4. Wijzig de aggregatie periode **afgelopen 30 minuten**.  
 

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 1c9c93c198b4d88da55ecd241e096e73e4a40d5d
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: aa9e91614152aed6a04fa748521991920a0ed569
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48042175"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50413057"
 ---
 # <a name="reference-guide-to-view-designer-tiles-in-log-analytics"></a>Naslaggids voor tegels in Log Analytics-ontwerper
 Met behulp van Designer bekijken in Azure Log Analytics, kunt u aangepaste weergaven maken in Azure portal die tal van gegevensvisualisaties in uw Log Analytics-werkruimte. In dit artikel is een referentie-handleiding voor de instellingen voor de tegels die beschikbaar in uw aangepaste weergaven zijn.
@@ -47,7 +47,7 @@ De volgende secties beschrijven de tegeltypen en de bijbehorende eigenschappen i
 ## <a name="number-tile"></a>Een tegel getal
 De **getal** tegel zowel het aantal records uit een logbestand-query en een label wordt weergegeven.
 
-![Een tegel getal](media/log-analytics-view-designer/tile-number.png)
+![Een tegel getal](media/log-analytics-view-designer-tiles/tile-number.png)
 
 | Instelling | Beschrijving |
 |:--- |:--- |
@@ -65,7 +65,7 @@ De **getal** tegel zowel het aantal records uit een logbestand-query en een labe
 ## <a name="two-numbers-tile"></a>Twee getallen tegel
 Deze tegel toont het aantal records uit twee verschillende logboeken-query's en een label voor elke.
 
-![Twee getallen tegel](media/log-analytics-view-designer/tile-two-numbers.png)
+![Twee getallen tegel](media/log-analytics-view-designer-tiles/tile-two-numbers.png)
 
 | Instelling | Beschrijving |
 |:--- |:--- |
@@ -86,7 +86,7 @@ Deze tegel toont het aantal records uit twee verschillende logboeken-query's en 
 ## <a name="donut-tile"></a>Ring-tegel
 De **ring** tegel geeft één getal met een overzicht van de kolom van een waarde in een logboekquery. De Ring worden de resultaten van de top drie records grafisch weergegeven.
 
-![Ring-tegel](media/log-analytics-view-designer/tile-donut.png)
+![Ring-tegel](media/log-analytics-view-designer-tiles/tile-donut.png)
 
 | Instelling | Beschrijving |
 |:--- |:--- |
@@ -110,7 +110,7 @@ De **ring** tegel geeft één getal met een overzicht van de kolom van een waard
 ## <a name="line-chart-tile"></a>Regel grafiek tegel
 Deze tegel is een lijndiagram met meerdere reeksen uit een logboekquery na verloop van tijd. 
 
-![Regel grafiek en een bijschrift tegel](media/log-analytics-view-designer/tile-line-chart.png)
+![Regel grafiek en een bijschrift tegel](media/log-analytics-view-designer-tiles/tile-line-chart.png)
 
 | Instelling | Beschrijving |
 |:--- |:--- |
@@ -131,7 +131,7 @@ Deze tegel is een lijndiagram met meerdere reeksen uit een logboekquery na verlo
 ## <a name="line-chart-and-callout-tile"></a>Regel grafiek en een bijschrift tegel
 Deze tegel is zowel een regel die meerdere reeksen uit een logbestand query's uitvoeren voor tijd en een toelichting met de samengevatte waarde weergegeven grafiek. 
 
-![Regel grafiek en een bijschrift tegel](media/log-analytics-view-designer/tile-line-chart-callout.png)
+![Regel grafiek en een bijschrift tegel](media/log-analytics-view-designer-tiles/tile-line-chart-callout.png)
 
 | Instelling | Beschrijving |
 |:--- |:--- |
@@ -156,7 +156,7 @@ Deze tegel is zowel een regel die meerdere reeksen uit een logbestand query's ui
 ## <a name="two-timelines-tile"></a>Twee tijdlijnen tegel
 De **twee tijdlijnen** tegel toont de resultaten van de twee logboeken-query's na verloop van tijd als kolomdiagrammen. Een bijschrift wordt weergegeven voor elke reeks. 
 
-![Twee tijdlijnen tegel](media/log-analytics-view-designer/tile-two-timelines.png)
+![Twee tijdlijnen tegel](media/log-analytics-view-designer-tiles/tile-two-timelines.png)
 
 | Instelling | Beschrijving |
 |:--- |:--- |

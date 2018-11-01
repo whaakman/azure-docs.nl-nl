@@ -3,19 +3,19 @@ title: Wat is de Academic Knowledge-API?
 titlesuffix: Azure Cognitive Services
 description: Gebruik de Academic Knowledge-API voor het interpreteren van query's van gebruikers en het ophalen van waardevolle informatie uit de Academic Graph.
 services: cognitive-services
-author: mvorvoreanu
+author: darrine
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: academic-knowledge
 ms.topic: overview
-ms.date: 03/27/2017
-ms.author: mivorvor
-ms.openlocfilehash: d08cd7124b232e50365e72753eba97c6309f401c
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.date: 10/30/2018
+ms.author: darrine
+ms.openlocfilehash: aa945eb8f0b79a6b0760650bd34dba55d80ef3a4
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48901207"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50240355"
 ---
 # <a name="academic-knowledge-api"></a>Academic Knowledge-API
 
@@ -32,13 +32,10 @@ De Academic Knowledge-API bestaat uit vier gerelateerde REST-eindpunten:
   1. **interpret**: Interpreteert een querytekenreeks van een gebruiker in natuurlijke taal. Retourneert interpretaties met aantekeningen voor een perfecte ervaring bij het automatisch voltooien van tekst die de gebruiker in een zoekvak typt.  
   2. **evaluate**: evalueert een query-expressie en retourneert resultaten in de vorm van Academic Knowledge-entiteiten.  
   3. **calchistogram**: berekent een histogram met de verdeling van attribuutwaarden voor de academische entiteiten die door een query-expressie zijn geretourneerd, zoals de verdeling van uitspraken per jaar van een bepaalde schrijver.  
-  4. **graph search**: Zoekt naar een opgegeven graafpatroon en retourneert de overeenkomende entiteitsresultaten.
-
+  
 Door deze API-methoden samen te gebruiken, kunt u een geavanceerde ervaring voor semantisch zoeken aanbieden. Aan de hand van een queryreeks van een gebruiker retourneert de methode **interpret** een versie met aantekeningen van de query en een gestructureerde query-expressie. Optioneel kan de query van de gebruiker worden voltooid op basis van de semantiek van de onderliggende academische gegevens. Als een gebruiker bijvoorbeeld de tekenreeks *latente s* typt, kan de methode **interpret** een set gerangschikte interpretaties retourneren die erop kan wijzen dat de gebruiker informatie wil over het onderzoeksgebied  *latente semantische analyse*, de paper *Latente structuuranalyse* of andere entiteitexpressies die beginnen met *latente s*. Deze informatie kan worden gebruikt om de gebruiker snel naar de gewenste zoekresultaten te leiden.
 
 De methode **evaluate** kan worden gebruikt om een set overeenkomende paper-entiteiten op te halen uit de academische kennisbank, terwijl de methode **calchistogram** geschikt is voor het berekenen van de verdeling van attribuutwaarden voor een set paper-entiteiten die kan worden gebruikt om de zoekresultaten verder te filteren.        
-
-De methode **graph search** heeft twee modi: *json* en *lambda*. In de *json*-modus is matching van graafpatronen mogelijk op basis van de graafpatronen die worden opgegeven met een JSON-object. In de *lambda*-modus worden op de server berekeningen uitgevoerd tijdens traversals van de graaf op basis van door de gebruiker opgegeven lambda-expressies.
 
 ## <a name="getting-started"></a>Aan de slag 
 Raadpleeg de subonderwerpen aan de linkerkant voor gedetailleerde informatie.  Teneinde de voorbeelden beter leesbaar te maken, bevatten de aanroepen van de REST-API tekens (zoals spaties) die niet zijn gecodeerd als een URL.  In uw code moet echter wel de juiste URL-codering worden toegepast.

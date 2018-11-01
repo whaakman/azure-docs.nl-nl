@@ -9,12 +9,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 08/12/2018
 ms.author: sngun
-ms.openlocfilehash: d2c4c890e1a1599e68fba1a0728061ec244f382f
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 241cd2fddf31373ed9ca208efb0612dd4332131c
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42058372"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50740974"
 ---
 # <a name="use-azure-cosmos-db-change-feed-to-visualize-real-time-data-analytics"></a>Gebruik Azure Cosmos DB-wijzigingenfeed voor het visualiseren van realtime gegevensanalyse
 
@@ -104,7 +104,7 @@ U maakt nu een verzameling voor het opslaan van gebeurtenissen voor e-commerce-s
    * Voor **opslagcapaciteit**, selecteer **onbeperkt**.  
    * Voor de **partitiesleutel** veld **/Item**. Dit is hoofdlettergevoelig, dus zorg ervoor dat u deze goed.  
    * Voor de **doorvoer** veld **10000**.  
-   * Klik op de knop **OK**.  
+   * Selecteer de knop **OK**.  
 
 3. Maak vervolgens een andere verzameling met de naam **leases** voor change feed verwerken. De verzameling leases coördineert de verwerking van de feed over meerdere werknemers wijzigen. Een verzameling afzonderlijke wordt gebruikt voor het opslaan van de leases met één lease per partitie.  
 
@@ -114,7 +114,7 @@ U maakt nu een verzameling voor het opslaan van gebeurtenissen voor e-commerce-s
    * Voor de **verzamelings-id** veld **leases**.  
    * Voor **opslagcapaciteit**, selecteer **vaste**.  
    * Laat de **doorvoer** veld ingesteld op de standaardwaarde.  
-   * Klik op de knop **OK**.
+   * Selecteer de knop **OK**.
 
 ## <a name="get-the-connection-string-and-keys"></a>De verbindingsreeks en de sleutels ophalen
 
@@ -207,7 +207,7 @@ Azure Stream Analytics is een volledig beheerde cloudservice voor de verwerking 
    * Laat **serialisatie-indeling voor gebeurtenissen** als **JSON**.  
    * Laat **veld Encoding** ingesteld op **UTF-8**.  
    * Laat **gebeurteniscompressietype** veld ingesteld op **geen**.  
-   * Klik op de knop **Opslaan**.
+   * Selecteer de knop **Opslaan**.
 
 5. Ga terug naar de pagina van de stream analytics-taak en selecteer **uitvoer**.  
 
@@ -219,10 +219,10 @@ Azure Stream Analytics is een volledig beheerde cloudservice voor de verwerking 
    * Laat de **groepswerkruimte** veld ingesteld op **verbinding met het laden van werkruimtes toestaan**.  
    * In de **gegevenssetnaam** veld **averagePrice**.  
    * In de **tabelnaam** veld **averagePrice**.  
-   * Klik op de **autoriseren** knop en volg de instructies voor het autoriseren van de verbinding met Power BI.  
-   * Klik op de knop **Opslaan**.  
+   * Selecteer de **autoriseren** knop en volg de instructies voor het autoriseren van de verbinding met Power BI.  
+   * Selecteer de knop **Opslaan**.  
 
-8. Ga vervolgens terug naar **streamjob1** en klikt u op **query bewerken**.
+8. Ga vervolgens terug naar **streamjob1** en selecteer **query bewerken**.
 
    ![Query bewerken](./media/changefeed-ecommerce-solution/edit-query.png)
  
@@ -235,9 +235,9 @@ Azure Stream Analytics is een volledig beheerde cloudservice voor de verwerking 
     FROM input  
     GROUP BY Action, TumblingWindow(second,5) 
    ```
-10. Klik vervolgens op **opslaan** in de linkerbovenhoek.  
+10. Selecteer vervolgens **opslaan** in de linkerbovenhoek.  
 
-11. Nu Ga terug naar **streamjob1** en klikt u op de **Start** knop aan de bovenkant van de pagina. Azure Stream Analytics kunt duurt enkele minuten om opnieuw te starten, maar uiteindelijk ziet u het wijzigen van 'Starting' in 'Actief'.
+11. Nu Ga terug naar **streamjob1** en selecteer de **Start** knop aan de bovenkant van de pagina. Azure Stream Analytics kunt duurt enkele minuten om opnieuw te starten, maar uiteindelijk ziet u het wijzigen van 'Starting' in 'Actief'.
 
 ## <a name="connect-to-power-bi"></a>Verbinding maken met Power BI
 
@@ -249,9 +249,9 @@ Power BI is een suite met hulpprogramma's voor business analytics voor het analy
 
 3. Selecteer **+ tegel toevoegen** in de rechterbovenhoek.  
 
-4. Selecteer **aangepaste Streaminggegevens**, klikt u vervolgens op de **volgende** knop.  
+4. Selecteer **aangepaste Streaminggegevens**en selecteer vervolgens de **volgende** knop.  
  
-5. Selecteer **averagePrice** van **uw GEGEVENSSETS**, klikt u vervolgens op **volgende**.  
+5. Selecteer **averagePrice** van **uw GEGEVENSSETS**en selecteer vervolgens **volgende**.  
 
 6. In de **Visualisatietype** Kies **gegroepeerde staafdiagram** uit de vervolgkeuzelijst. Onder **as**, actie toevoegen. Overslaan **legenda** zonder toe te voegen. Klik in de volgende sectie met de naam **waarde**, toevoegen **avg**. Selecteer **volgende**, klikt u vervolgens titel van de grafiek en selecteer **toepassen**. U ziet een nieuwe grafiek op uw dashboard.  
 
@@ -261,7 +261,7 @@ Power BI is een suite met hulpprogramma's voor business analytics voor het analy
    b. **Uitvoeralias:** top5Output, naam van gegevensset: top5, tabelnaam: top5  
    c. **Uitvoeralias:** uniqueVisitorCountOutput, naam van gegevensset: uniqueVisitorCount, tabelnaam: uniqueVisitorCount
 
-   Klik vervolgens op **query bewerken** en plak de volgende query's **hierboven** het u al hebt geschreven.
+   Selecteer vervolgens **query bewerken** en plak de volgende query's **hierboven** het u al hebt geschreven.
 
    ```sql
     /*TOP 5*/
@@ -329,9 +329,9 @@ Nu ziet u hoe u de nieuwe gegevens analysis tool kunt gebruiken om te verbinden 
 
    Toevoegen van een andere verzameling onder **changefeedlabdatabase** met de naam **topItems** met **onbeperkt** opslagcapaciteit. Schrijven **/Item** als de partitiesleutel.
 
-2. Klik op de **topItems** verzameling, en klikt u onder **schaal en instellingen** instellen de **Time to Live** moet **30 seconden** , zodat deze topItems bijgewerkt elke 30 seconden.
+2. Selecteer de **topItems** verzameling, en klikt u onder **schaal en instellingen** instellen de **Time to Live** moet **30 seconden** , zodat deze topItems bijgewerkt elke 30 seconden.
 
-   ![Gaat live over](./media/changefeed-ecommerce-solution/time-to-live.png)
+   ![Time To Live](./media/changefeed-ecommerce-solution/time-to-live.png)
 
 3. Als u wilt vullen de **topItems** verzameling met de meest aangeschaft items, Ga terug naar **streamjob1** en toevoegen van een nieuwe **uitvoer**. Selecteer **Cosmos DB**.
 

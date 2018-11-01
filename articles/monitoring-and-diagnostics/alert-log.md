@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 627c0ee5a2fab333b8a120867ab54ea76bc66823
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: fd183b5776f30b12d577a94be147eabef05d258f
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46976836"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50419364"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Maken, weergeven en beheren van waarschuwingen met behulp van Azure Monitor  
 
@@ -34,26 +34,26 @@ Gedetailleerde volgende is een stapsgewijze handleiding voor het gebruik van waa
 
 ### <a name="create-a-log-alert-rule-with-the-azure-portal"></a>Een waarschuwingsregel maken met de Azure portal
 1. In de [portal](https://portal.azure.com/), selecteer **Monitor** en kies onder de sectie MONITOR - **waarschuwingen**.  
-    ![Controle](./media/monitor-alerts-unified/AlertsPreviewMenu.png)
+    ![Controle](media/alert-log/AlertsPreviewMenu.png)
 
 1. Selecteer de **nieuwe waarschuwingsregel** knop een nieuwe waarschuwing maken in Azure.
-    ![Waarschuwing toevoegen](./media/monitor-alerts-unified/AlertsPreviewOption.png)
+    ![Waarschuwing toevoegen](media/alert-log/AlertsPreviewOption.png)
 
 1. De sectie waarschuwingen maken wordt weergegeven met de drie onderdelen die bestaan uit: *waarschuwingsvoorwaarde definiëren*, *Waarschuwingsdetails definiëren*, en *actiegroep definiëren*.
 
-    ![Regel maken](./media/monitor-alerts-unified/AlertsPreviewAdd.png)
+    ![Regel maken](media/alert-log/AlertsPreviewAdd.png)
 
 1.  De waarschuwingsvoorwaarde definiëren met behulp van de **Resource selecteren** koppeling en het doel op te geven door het selecteren van een resource. Filteren op het kiezen van de _abonnement_, _resourcetype_, en vereist _Resource_. 
 
     >[!NOTE]
 
     > Voor het maken van een logboek waarschuwing - Controleer of de **log** signaal is beschikbaar voor de geselecteerde resource voordat u doorgaat.
-    ![Resource selecteren](./media/monitor-alerts-unified/Alert-SelectResourceLog.png)
+    ![Resource selecteren](media/alert-log/Alert-SelectResourceLog.png)
 
  
 1. *Waarschuwingen voor activiteitenlogboeken*: Zorg ervoor dat **resourcetype** is een analytics-bron, zoals *Log Analytics* of *Application Insights* en aan te geven als **Log** , klikt u vervolgens één keer juiste **resource** is gekozen, klikt u op *gedaan*. Vervolgens gebruikt de **criteria toevoegen** om de lijst weergeven van signaal opties die beschikbaar zijn voor de resource en uit de lijst signaal **zoeken in Logboeken aangepaste** optie voor de gekozen monitor-service, zoals melden *Log Analytics* of *Application Insights*.
 
-   ![Selecteer een resource - aangepaste zoekopdrachten in Logboeken](./media/monitor-alerts-unified/AlertsPreviewResourceSelectionLog.png)
+   ![Selecteer een resource - aangepaste zoekopdrachten in Logboeken](media/alert-log/AlertsPreviewResourceSelectionLog.png)
 
    > [!NOTE]
 
@@ -61,7 +61,7 @@ Gedetailleerde volgende is een stapsgewijze handleiding voor het gebruik van waa
 
 1.  *Waarschuwingen voor activiteitenlogboeken*: eenmaal hebt geselecteerd, query voor waarschuwingen kan worden vermeld in de **zoekquery** veld; als de query-syntaxis is onjuist fout wordt in het veld in het rood weergegeven. Als de querysyntaxis juist - ter referentie wordt historische gegevens van de opgegeven query weergegeven als een grafiek met de optie voor het aanpassen van het tijdvenster van afgelopen zes uur voor de afgelopen week.
 
- ![Waarschuwingsregel configureren](./media/monitor-alerts-unified/AlertsPreviewAlertLog.png)
+ ![Waarschuwingsregel configureren](media/alert-log/AlertsPreviewAlertLog.png)
 
  > [!NOTE]
 
@@ -69,7 +69,7 @@ Gedetailleerde volgende is een stapsgewijze handleiding voor het gebruik van waa
 
     >  Het type van de meting van metrische gegevens van waarschuwingen met Application insights, kunt u opgeven welke specifieke variabele als u wilt de gegevens groeperen met behulp van de **cumulatieve op** optie; als de hieronder weergegeven:
 
-    ![statistische optie](./media/monitor-alerts-unified/aggregate-on.png)
+    ![statistische optie](media/alert-log/aggregate-on.png)
 
 1.  *Waarschuwingen voor activiteitenlogboeken*: met de visualisatie aanwezig is, **Alert Logic** kunnen worden geselecteerd in de weergegeven opties van de voorwaarde, aggregatie en ten slotte drempelwaarde. Ten slotte opgeven in de logica, de tijd om te beoordelen voor de opgegeven voorwaarde, met behulp van **periode** optie. Samen met hoe vaak waarschuwing moet worden uitgevoerd door het selecteren van **frequentie**.
 Voor **Logboekwaarschuwingen** waarschuwingen kunnen worden gebaseerd op:
@@ -83,7 +83,7 @@ Voor **Logboekwaarschuwingen** waarschuwingen kunnen worden gebaseerd op:
 
     - **Waarschuwingen onderdrukken**: wanneer u onderdrukking voor de waarschuwingsregel inschakelen, acties voor de regel zijn uitgeschakeld voor een gedefinieerde tijdsduur na het maken van een nieuwe waarschuwing. De regel wordt nog uitgevoerd en waarschuwing records gemaakt, mits de criteria wordt voldaan. Zodat u tijd kunt dit probleem oplossen zonder dat dubbele acties worden uitgevoerd.
 
-        ![Waarschuwingen onderdrukken voor Logboekwaarschuwingen](./media/monitor-alerts-unified/AlertsPreviewSuppress.png)
+        ![Waarschuwingen onderdrukken voor Logboekwaarschuwingen](media/alert-log/AlertsPreviewSuppress.png)
 
         > [!TIP]
         > Geef een onderdrukken waarschuwing die groter is dan de frequentie van de waarschuwing om ervoor te zorgen meldingen zonder overlap worden gestopt
@@ -98,19 +98,19 @@ Voor **Logboekwaarschuwingen** waarschuwingen kunnen worden gebaseerd op:
     - **E-mailmelding**: onderdrukt *e-mailonderwerp* in het e-mailbericht verzonden via actiegroep; als een of meer e-mailacties in de groep met deze actie bestaat. U kunt de hoofdtekst van het e-mailbericht niet wijzigen en dit veld is **niet** voor e-mailadres.
     - **Aangepaste Json-nettolading opnemen**: heeft voorrang op de JSON die wordt gebruikt door actiegroepen; van de webhook als een of meer webhookacties aanwezig zijn in de groep met deze actie. Gebruiker kan de indeling van JSON moet worden gebruikt voor alle webhooks die zijn geconfigureerd in de bijbehorende actie groep; opgeven Zie voor meer informatie over de opmaak van de webhook [webhookactie voor Logboekwaarschuwingen](monitor-alerts-unified-log-webhook.md). Webhook-optie weergeven wordt om te controleren of de indeling met behulp van de voorbeeld-JSON-gegevens geboden.
 
-        ![Actie onderdrukkingen voor Logboekwaarschuwingen](./media/monitor-alerts-unified/AlertsPreviewOverrideLog.png)
+        ![Actie onderdrukkingen voor Logboekwaarschuwingen](media/alert-log/AlertsPreviewOverrideLog.png)
 
 
 1. Als alle velden geldig zijn en met groene maatstreepjes de **maken van waarschuwingsregel** knop kan worden geklikt en wordt er een waarschuwing gemaakt in Azure Monitor - waarschuwingen. Alle waarschuwingen kunnen worden weergegeven van de Dashboard-waarschuwingen.
 
-    ![Het maken van regels](./media/monitor-alerts-unified/AlertsPreviewCreate.png)
+    ![Het maken van regels](media/alert-log/AlertsPreviewCreate.png)
 
     Binnen een paar minuten, wordt de waarschuwing is actief en wordt geactiveerd als eerder beschreven.
 
 Gebruikers kunnen ook hun analytics-query in voltooid [logboeken Analytics-pagina in Azure portal](../log-analytics/log-analytics-log-search-portals.md#log-analytics-page
 ) en pusht u deze om te maken van een waarschuwing via de knop 'Waarschuwing instellen' - en volg de instructies in stap 6 en hoger in de bovenstaande zelfstudie.
 
- ![Log Analytics - waarschuwing instellen](./media/monitor-alerts-unified/AlertsAnalyticsCreate.png)
+ ![Log Analytics - waarschuwing instellen](media/alert-log/AlertsAnalyticsCreate.png)
 
 ### <a name="view--manage-log-alerts-in-azure-portal"></a>Weergeven en beheren van waarschuwingen in Azure portal
 
@@ -122,7 +122,7 @@ Gebruikers kunnen ook hun analytics-query in voltooid [logboeken Analytics-pagin
 
 
 1. Selecteer de **regels beheren** knop op de bovenste balk, om te navigeren naar de beheersectie van regel - waar alle waarschuwingsregels gemaakt worden weergegeven, met inbegrip van waarschuwingen die zijn uitgeschakeld.
-    ![ regels voor waarschuwingen beheren](./media/monitoring-activity-log-alerts-new-experience/manage-alert-rules.png)
+    ![ regels voor waarschuwingen beheren](media/alert-log/manage-alert-rules.png)
 
 ## <a name="managing-log-alerts-using-azure-resource-template"></a>Beheren van waarschuwingen met behulp van Azure Resource-sjabloon
 Momenteel log waarschuwingen kunnen worden gemaakt met behulp van twee verschillende Resource-sjablonen, gebaseerd op welke analytics-platform in de waarschuwing wordt baseren (dat wil zeggen) Log Analytics of Application Insights.

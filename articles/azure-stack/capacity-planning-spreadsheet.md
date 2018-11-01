@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2018
+ms.date: 10/31/2018
 ms.author: jeffgilb
 ms.reviewer: prchint
-ms.openlocfilehash: 5ebddbf1fea49fbf868d15a544a18e5a8c6369fd
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: ec4d8ef43510c07e73ab18de227176d3c282b8e1
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078304"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50740838"
 ---
 # <a name="azure-stack-capacity-planner"></a>Azure Stack Capacity Planner
 De Azure Stack Capacity Planner is een werkblad gebruikt voor de capaciteitsplanning voor Azure Stack-resource. De Capaciteitsplanner biedt u de mogelijkheid om verschillende toewijzingen van computerbronnen ontwerpen en zien hoe deze zou passen in een selectie van hardware-aanbiedingen. Hieronder vindt u gedetailleerde instructies voor het gebruik van de Azure Stack-Calculator.
@@ -56,7 +56,7 @@ Dit hulpprogramma biedt twee methoden voor het toewijzen van resources van de vi
 ## <a name="definebyvmfootprint-instructions"></a>DefineByVMFootprint instructies
 Selecteer het tabblad 'DefineByVMFootprint' voor het maken van een model met één verzameling van verschillende grootten en aantallen van virtuele machines, en volgt u deze reeks stappen.
 
-1. In de rechterbovenhoek van dit werkblad voor het gebruik van besturingselementen van het opgegeven pull-keuzelijst om een initiële nummer te selecteren van servers (tussen 4 en 12) u wilt installeren in elk hardwaresysteem (SKU). Dit aantal servers kan worden gewijzigd op elk gewenst moment tijdens het modelleringsproces om te zien hoe dit van invloed is op de algemene beschikbare resources voor uw model voor brontoewijzing.
+1. In de rechterbovenhoek van dit werkblad voor het gebruik van besturingselementen van het opgegeven pull-keuzelijst om een initiële nummer te selecteren van servers (tussen 4 en 16) u wilt installeren in elk hardwaresysteem (SKU). Dit aantal servers kan worden gewijzigd op elk gewenst moment tijdens het modelleringsproces om te zien hoe dit van invloed is op de algemene beschikbare resources voor uw model voor brontoewijzing.
 2. Als u wilt dat als model voor verschillende VM-resource-toewijzingen op basis van een specifieke hardwareconfiguratie, vindt u in het blauw pull-keuzelijst direct onder het label 'Huidige SKU' in de rechterbovenhoek van de pagina. Haal deze keuzelijst met invoervak en selecteer de gewenste hardware-SKU.
 3. U bent nu klaar om te beginnen met het toevoegen van verschillende grootte VM's aan uw model. Als u wilt opnemen in een bepaald type van de virtuele machine, moet u een hoeveelheidswaarde invoeren in het blauwe vak wordt beschreven aan de linkerkant van de vermelding in die virtuele machine.
 
@@ -73,7 +73,7 @@ Selecteer het tabblad 'DefineByWorkloadFootprint' voor het maken van een model m
 > [!TIP]
 > Als u wilt wijzigen van de grootte van de opgegeven voor een virtuele machine van Azure Stack, Zie de opmerking in stap 3 in de vorige sectie.
 
-1. Gebruik van besturingselementen van het opgegeven pull-keuzelijst in de rechterbovenhoek van deze pagina om een initiële nummer te selecteren van servers (tussen 4 en 12) u wilt installeren in elk hardwaresysteem (SKU).
+1. Gebruik van besturingselementen van het opgegeven pull-keuzelijst in de rechterbovenhoek van deze pagina om een initiële nummer te selecteren van servers (tussen 4 en 16) u wilt installeren in elk hardwaresysteem (SKU).
 2. Als u wilt dat als model voor verschillende VM-resource-toewijzingen op basis van een specifieke hardwareconfiguratie, vindt u in het blauw pull-keuzelijst direct onder het label 'Huidige SKU' in de rechterbovenhoek van de pagina. Haal deze keuzelijst met invoervak en selecteer de gewenste hardware-SKU.
 3. Selecteer de grootte van de juiste voor elk van de gewenste Azure Stack-VM's op de pagina DefineByVMFootprint zoals hierboven is beschreven in stap 3 van DefineByVMFootprint instructies. De opslagruimte per virtuele machine is gedefinieerd in het werkblad DefineByVMFootprint.
 4. Vanaf de linkerbovenhoek van de pagina DefineByWorkloadFootprint, configuraties voor maximaal zes verschillende workloadtypen maken door te voeren van de hoeveelheid van elke VM-type dat is opgenomen in die werkbelasting. Dit wordt gedaan door het plaatsen van numerieke waarden in de kolom direct onder de naam van de Workload. Namen van de werkbelasting kunnen worden gewijzigd om het type van de werkbelastingen die worden ondersteund door deze bepaalde configuratie weer te geven.

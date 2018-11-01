@@ -15,16 +15,16 @@ ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
 ms.component: ''
-ms.openlocfilehash: b99c14e6022fa34d41caaa02bfc9feecb3c840ce
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 4f8261983feb8e655333f548b0b90f822eda30a6
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49407500"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50421183"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Azure verbinden met ITSM-hulpprogramma's met behulp van IT Service Management-Connector
 
-![Symbool van IT Service Management-Connector](./media/log-analytics-itsmc/itsmc-symbol.png)
+![Symbool van IT Service Management-Connector](media/log-analytics-itsmc-overview/itsmc-symbol.png)
 
 De IT Service Management Connector (ITSMC) kunt u verbinding maken met Azure en een ondersteunde IT Service Management (ITSM) product/service.
 
@@ -56,18 +56,18 @@ Voordat u een verbinding maken kunt, moet u de oplossing voor ITSM-Connector toe
 
 1.  Klik in Azure portal op **+ nieuw** pictogram.
 
-    ![Nieuwe Azure-resource](./media/log-analytics-itsmc/azure-add-new-resource.png)
+    ![Nieuwe Azure-resource](media/log-analytics-itsmc-overview/azure-add-new-resource.png)
 
 2.  Zoeken naar **IT Service Management Connector** in de Marketplace en klik op **maken**.
 
-    ![ITSMC oplossing toevoegen](./media/log-analytics-itsmc/add-itsmc-solution.png)
+    ![ITSMC oplossing toevoegen](media/log-analytics-itsmc-overview/add-itsmc-solution.png)
 
 3.  In de **OMS-werkruimte** sectie, selecteer de Azure Log Analytics-werkruimte waar u wilt installeren van de oplossing.
    >[!NOTE]
    >Als onderdeel van de lopende overgang van Microsoft Operations Management Suite (OMS) naar Azure Monitor, worden OMS-werkruimten nu aangeduid als Log Analytics-werkruimten.
 4.  In de **instellingen van de OMS-werkruimte** sectie, selecteer de resourcegroep waar u om de bron van de oplossing te maken.
 
-    ![ITSMC werkruimte](./media/log-analytics-itsmc/itsmc-solution-workspace.png)
+    ![ITSMC werkruimte](media/log-analytics-itsmc-overview/itsmc-solution-workspace.png)
     >[!NOTE]
     >Als onderdeel van de lopende overgang van Microsoft Operations Management Suite (OMS) naar Azure Monitor, worden OMS-werkruimten nu aangeduid als Log Analytics-werkruimten.
 
@@ -93,12 +93,12 @@ Nadat u uw ITSM-hulpprogramma's hebt voorbereid, de volgende stappen om een verb
 
 1.  Ga naar **alle Resources**, zoek naar **ServiceDesk(YourWorkspaceName)**.
 2.  Onder **GEGEVENSBRONNEN voor WERKRUIMTE** in het linkerdeelvenster klikt u op **ITSM-verbindingen**.
-    ![ITSM-verbindingen](./media/log-analytics-itsmc/itsm-connections.png)
+    ![ITSM-verbindingen](media/log-analytics-itsmc-overview/itsm-connections.png)
 
     Deze pagina bevat de lijst met verbindingen.
 3.  Klik op **verbinding toevoegen**.
 
-    ![ITSM-verbinding toevoegen](./media/log-analytics-itsmc/add-new-itsm-connection.png)
+    ![ITSM-verbinding toevoegen](media/log-analytics-itsmc-overview/add-new-itsm-connection.png)
 
 4.  Instellingen voor de verbinding opgeven, zoals beschreven in [de ITSMC-verbinding configureren met uw ITSM-producten en services-artikel](log-analytics-itsmc-connections.md).
 
@@ -106,7 +106,7 @@ Nadat u uw ITSM-hulpprogramma's hebt voorbereid, de volgende stappen om een verb
 
     > Standaard vernieuwt ITSMC configuratiegegevens van de verbinding eenmaal in elke 24 uur. Als u wilt vernieuwen van uw verbinding gegevens direct voor alle bewerkingen of de sjabloon-updates die u aanbrengt, klikt u op de **synchronisatie** knop op de blade van uw verbinding.
 
-    ![Verbinding vernieuwen](./media/log-analytics-itsmc/itsmc-connections-refresh.png)
+    ![Verbinding vernieuwen](media/log-analytics-itsmc-overview/itsmc-connections-refresh.png)
 
 
 ## <a name="using-the-solution"></a>De oplossing gebruiken
@@ -123,16 +123,16 @@ Gebruik de volgende procedure:
 1. Klik in Azure portal op **Monitor**.
 2. Klik in het linkerdeelvenster op **actiegroepen**. De **actiegroep toevoegen** venster wordt weergegeven.
 
-    ![Actiegroepen](media/log-analytics-itsmc/action-groups.png)
+    ![Actiegroepen](media/log-analytics-itsmc-overview/action-groups.png)
 
 3. Geef **naam** en **ShortName** voor de actiegroep. Selecteer de **resourcegroep** en **abonnement** waar u uw actiegroep maken.
 
-    ![Details van de actie-groepen](media/log-analytics-itsmc/action-groups-details.png)
+    ![Details van de actie-groepen](media/log-analytics-itsmc-overview/action-groups-details.png)
 
 4. Selecteer in de lijst met acties **ITSM** uit de vervolgkeuzelijst voor **actietype**. Geef een **naam** voor de actie en klikt u op **details bewerken**.
 5. Selecteer de **abonnement** waar uw Log Analytics-werkruimte zich bevindt. Selecteer de **verbinding** naam (de naam van de ITSM-Connector), gevolgd door de naam van uw werkruimte. Bijvoorbeeld, "MyITSMMConnector(MyWorkspace)."
 
-    ![Details van de ITSM-actie](./media/log-analytics-itsmc/itsm-action-details.png)
+    ![Details van de ITSM-actie](media/log-analytics-itsmc-overview/itsm-action-details.png)
 
 6. Selecteer **werkitem** type uit de vervolgkeuzelijst.
    Kies voor het gebruik van een bestaande sjabloon of vul de velden die vereist zijn door uw ITSM-product.
@@ -151,7 +151,7 @@ Op basis van uw configuratie bij het instellen van een verbinding, kan ITSM-conn
 
 De gegevens van het incident en wijzigingsaanvraag aanvragen kunnen worden gevisualiseerd met behulp van de ITSM-Connector-dashboard in de oplossing.
 
-![Log Analytics scherm](./media/log-analytics-itsmc/itsmc-overview-sample-log-analytics.png)
+![Log Analytics scherm](media/log-analytics-itsmc-overview/itsmc-overview-sample-log-analytics.png)
 
 Het dashboard bevat ook informatie over de connectorstatus van de die kan worden gebruikt als een beginpunt voor het analyseren van problemen met de verbindingen.
 
@@ -161,7 +161,7 @@ Serviceoverzicht wordt automatisch de toepassingsonderdelen op Windows en Linux-
 
 Als u van de oplossing Serviceoverzicht gebruikmaakt, kunt u de servicedeskitems gemaakt in de ITSM-oplossingen zoals wordt weergegeven in het volgende voorbeeld bekijken:
 
-![Log Analytics scherm](./media/log-analytics-itsmc/itsmc-overview-integrated-solutions.png)
+![Log Analytics scherm](media/log-analytics-itsmc-overview/itsmc-overview-integrated-solutions.png)
 
 Meer informatie: [Serviceoverzicht](../operations-management-suite/operations-management-suite-service-map.md)
 

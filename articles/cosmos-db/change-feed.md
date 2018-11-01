@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: rafats
-ms.openlocfilehash: b6d05c5e9bc59df9df7ef8840b70ab027b6e2f74
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 09f827e8784fe2a97c587524d70baf76ae4458ba
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48269493"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50741858"
 ---
 # <a name="working-with-the-change-feed-support-in-azure-cosmos-db"></a>Werken met de change feed support in Azure Cosmos DB
 
@@ -34,7 +34,7 @@ De **ondersteuning wijzigingenfeed** in Azure Cosmos DB kunt u efficiënt en sch
 
 ## <a name="how-does-change-feed-work"></a>Hoe wijzigingenfeed werk?
 
-Ondersteuning wijzigingenfeed in Azure Cosmos DB werkt door te luisteren naar een Azure Cosmos DB-verzameling van eventuele wijzigingen. Het voert vervolgens de gesorteerde lijst met documenten die zijn gewijzigd in de volgorde waarin ze zijn gewijzigd. De wijzigingen worden doorgevoerd, kunnen worden verwerkt asynchroon en incrementeel en de uitvoer kan worden verdeeld over een of meer consumenten voor parallelle verwerking. 
+Ondersteuning wijzigingenfeed in Azure Cosmos DB werkt door te luisteren naar een Azure Cosmos DB-verzameling van eventuele wijzigingen. Het voert vervolgens de gesorteerde lijst met documenten die zijn gewijzigd in de volgorde waarin ze zijn gewijzigd. De wijzigingen zijn persistent, kunnen asynchroon en incrementeel worden verwerkt, en de uitvoer kan naar een of meer consumenten worden gedistribueerd voor parallelle verwerking. 
 
 U kunt de wijzigingenfeed op drie verschillende manieren kunt lezen, zoals verderop in dit artikel wordt beschreven:
 
@@ -77,7 +77,7 @@ De volgende afbeelding ziet u hoe de feed ondersteuning voor het wijzigen van la
 Bovendien binnen uw [serverloze](http://azure.com/serverless) web en mobiele apps, kunt u gebeurtenissen bijhouden zoals wijzigingen in van uw klant-profiel, voorkeuren of locatie voor het activeren van bepaalde acties zoals pushmeldingen verzenden naar hun apparaten via [Azure Functions](#azure-functions). Als u gebruikmaakt van Azure Cosmos DB een game ontwikkelt, kunt u, bijvoorbeeld, gebruik wijzigingenfeed voor het implementeren van realtime scoreborden op basis van scores van voltooide games.
 
 <a id="azure-functions"></a>
-## <a name="using-azure-functions"></a>Met behulp van Azure Functions 
+## <a name="using-azure-functions"></a>Met behulp van Azure Functions 
 
 Als u Azure Functions, is de eenvoudigste manier om verbinding maken met een Azure Cosmos DB-wijzigingenfeed op een Azure Cosmos DB-trigger toevoegen aan uw Azure Functions-app. Wanneer u een Azure Cosmos DB-trigger in een Azure Functions-app maakt, u de Azure Cosmos DB-verzameling verbinden met selecteren en de functie wordt geactiveerd wanneer er een wijziging in de verzameling is gemaakt. 
 
@@ -114,9 +114,9 @@ In deze sectie u leert hoe u de SQL-SDK gebruiken om te werken met een feed wijz
     ```csharp
     FeedResponse pkRangesResponse = await client.ReadPartitionKeyRangeFeedAsync(
         collectionUri,
-        new FeedOptions
-            {RequestContinuation = pkRangesResponseContinuation });
-     
+        new FeedOptions
+            {RequestContinuation = pkRangesResponseContinuation });
+     
     partitionKeyRanges.AddRange(pkRangesResponse);
     pkRangesResponseContinuation = pkRangesResponse.ResponseContinuation;
     ```
@@ -125,29 +125,29 @@ In deze sectie u leert hoe u de SQL-SDK gebruiken om te werken met een feed wijz
 
     ```csharp
     foreach (PartitionKeyRange pkRange in partitionKeyRanges){
-        string continuation = null;
-        checkpoints.TryGetValue(pkRange.Id, out continuation);
-        IDocumentQuery<Document> query = client.CreateDocumentChangeFeedQuery(
-            collectionUri,
-            new ChangeFeedOptions
-            {
-                PartitionKeyRangeId = pkRange.Id,
-                StartFromBeginning = true,
-                RequestContinuation = continuation,
-                MaxItemCount = -1,
-                // Set reading time: only show change feed results modified since StartTime
-                StartTime = DateTime.Now - TimeSpan.FromSeconds(30)
-            });
-        while (query.HasMoreResults)
-            {
-                FeedResponse<dynamic> readChangesResponse = query.ExecuteNextAsync<dynamic>().Result;
+        string continuation = null;
+        checkpoints.TryGetValue(pkRange.Id, out continuation);
+        IDocumentQuery<Document> query = client.CreateDocumentChangeFeedQuery(
+            collectionUri,
+            new ChangeFeedOptions
+            {
+                PartitionKeyRangeId = pkRange.Id,
+                StartFromBeginning = true,
+                RequestContinuation = continuation,
+                MaxItemCount = -1,
+                // Set reading time: only show change feed results modified since StartTime
+                StartTime = DateTime.Now - TimeSpan.FromSeconds(30)
+            });
+        while (query.HasMoreResults)
+            {
+                FeedResponse<dynamic> readChangesResponse = query.ExecuteNextAsync<dynamic>().Result;
     
-                foreach (dynamic changedDocument in readChangesResponse)
-                    {
-                         Console.WriteLine("document: {0}", changedDocument);
-                    }
-                checkpoints[pkRange.Id] = readChangesResponse.ResponseContinuation;
-            }
+                foreach (dynamic changedDocument in readChangesResponse)
+                    {
+                         Console.WriteLine("document: {0}", changedDocument);
+                    }
+                checkpoints[pkRange.Id] = readChangesResponse.ResponseContinuation;
+            }
     }
     ```
 
@@ -165,13 +165,13 @@ In de code in stap 4 hierboven, de **ResponseContinuation** in de laatste regel 
 Uw matrix controlepunt wordt dus alleen te houden het LSN voor elke partitie. Maar als u niet te bekommeren om de partities wilt, controlepunten, LSN, begintijd, enz. de eenvoudigere optie is het gebruik van de change feed processor-bibliotheek.
 
 <a id="change-feed-processor"></a>
-## <a name="using-the-change-feed-processor-library"></a>Met behulp van de change feed processor-bibliotheek 
+## <a name="using-the-change-feed-processor-library"></a>Met behulp van de change feed processor-bibliotheek 
 
 De [Azure Cosmos DB change feed processor-bibliotheek](https://docs.microsoft.com/azure/cosmos-db/sql-api-sdk-dotnet-changefeed) kunt u eenvoudig gebeurtenisverwerking verdelen over meerdere consumenten worden gedistribueerd. Deze bibliotheek vereenvoudigt lezen wijzigingen in partities en meerdere threads die parallel werken.
 
 Het belangrijkste voordeel van change feed processor-bibliotheek is dat u hoeft te beheren van elke partitie en vervolgtoken en u hoeft op te vragen voor elke verzameling handmatig.
 
-De change feed processor-bibliotheek vereenvoudigt lezen wijzigingen in partities en meerdere threads die parallel werken.  Hiermee worden beheerd automatisch lezen wijzigingen over meerdere partities met behulp van een lease-mechanisme. Zoals u in de volgende afbeelding, ziet als u twee clients die van de change feed processor-bibliotheek gebruikmaken wordt gestart, verdelen zij het werk onderling. Als u doorgaat met het verhogen van de clients, houden ze het werk onderling verdelen.
+De change feed processor-bibliotheek vereenvoudigt lezen wijzigingen in partities en meerdere threads die parallel werken.  Hiermee worden beheerd automatisch lezen wijzigingen over meerdere partities met behulp van een lease-mechanisme. Zoals u in de volgende afbeelding, ziet als u twee clients die van de change feed processor-bibliotheek gebruikmaken wordt gestart, verdelen zij het werk onderling. Als u doorgaat met het verhogen van de clients, houden ze het werk onderling verdelen.
 
 ![Gedistribueerde verwerking van Azure Cosmos DB-wijzigingenfeed](./media/change-feed/change-feed-output.png)
 
@@ -433,7 +433,7 @@ Dus als u meerdere Azure Functions om te lezen maakt wijzigingenfeed dezelfde mo
 
 ### <a name="my-document-is-updated-every-second-and-i-am-not-getting-all-the-changes-in-azure-functions-listening-to-change-feed"></a>Mijn document elke seconde wordt bijgewerkt en ik krijg niet alle wijzigingen in Azure Functions luisteren als u wilt wijzigen van de feed.
 
-Azure Functions polls wijzigingenfeed voor elke 5 seconden, zodat tussen 5 seconden wijzigingen gaan verloren. Azure Cosmos DB slaat slechts één versie voor om de vijf seconden, zodat u de 5e wijziging in het document krijgt. Echter als u wilt om te gaan dan 5 seconden en wilt pollen Feed elke seconde wijzigen, kunt u de pollingtijd 'feedPollTime' configureren, Zie [Azure Cosmos DB-bindingen](../azure-functions/functions-bindings-cosmosdb.md#trigger---configuration). Dit is gedefinieerd in milliseconden met een standaardwaarde van 5000. Is mogelijk, maar niet aangeraden, als u wilt beginnen met branden meer CPU nodig is dan 1 seconde.
+Azure Functions polls wijzigingenfeed voor elke 5 seconden, zodat tussen 5 seconden wijzigingen gaan verloren. Azure Cosmos DB slaat slechts één versie voor om de vijf seconden, zodat u de 5e wijziging in het document krijgt. Echter als u wilt om te gaan dan 5 seconden en wilt pollen Feed elke seconde wijzigen, kunt u de pollingtijd 'feedPollDelay' configureren, Zie [Azure Cosmos DB-bindingen](../azure-functions/functions-bindings-cosmosdb.md#trigger---configuration). Dit is gedefinieerd in milliseconden met een standaardwaarde van 5000. Is mogelijk, maar niet aangeraden, als u wilt beginnen met branden meer CPU nodig is dan 1 seconde.
 
 ### <a name="i-inserted-a-document-in-the-mongo-api-collection-but-when-i-get-the-document-in-change-feed-it-shows-a-different-id-value-what-is-wrong-here"></a>Kan ik een document ingevoegd in de verzameling Mongo-API, maar wanneer ik het document in wijzigingenfeed, wordt een andere id-waarde. Wat is hier verkeerd?
 

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: 4e60425edaebf9e77b7e71f43fa3fe2f2ac3227c
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: a1dbc04a83e80281fb6cd516c546c1dddff6db37
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50221886"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50413792"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---infrastructure-best-practices"></a>On-premises Apache Hadoop-clusters migreren naar Azure HDInsight - best practices voor infrastructuur
 
@@ -45,11 +45,11 @@ Toepassingen of onderdelen die beschikbaar waren in clusters on-premises, maar g
 
 |**Toepassing**|**Integratie**
 |---|---|
-|Luchtstroom|IaaS of HDI-Edge-knooppunt
+|Luchtstroom|IaaS of HDInsight Edge-knooppunt
 |Alluxio|IaaS  
 |Arcadia|IaaS 
 |Atlas|Geen (alleen HDP)
-|Datameer|HDI-Edge-knooppunt
+|Datameer|HDInsight-Edge-knooppunt
 |Datastax (Cassandra)|IaaS (CosmosDB een alternatief in Azure)
 |DataTorrent|IaaS 
 |Drill|IaaS 
@@ -58,15 +58,15 @@ Toepassingen of onderdelen die beschikbaar waren in clusters on-premises, maar g
 |Mapador|IaaS 
 |Mongo|IaaS (CosmosDB een alternatief in Azure)
 |NiFi|IaaS 
-|Presto|IaaS of HDI-Edge-knooppunt
+|Presto|IaaS of HDInsight Edge-knooppunt
 |Python 2|PaaS 
 |Python 3|PaaS 
 |R|PaaS 
 |SAS|IaaS 
 |Vertica|IaaS (RESOURCEKLASSE alternatief op Azure)
 |Tableau|IaaS 
-|Waterlijn|HDI-Edge-knooppunt
-|StreamSets|HDI-Edge 
+|Waterlijn|HDInsight-Edge-knooppunt
+|StreamSets|HDInsight-Edge 
 |Palantir|IaaS 
 |Sailpoint|Iaas 
 
@@ -213,7 +213,7 @@ HDInsight kan worden verbonden met de on-premises netwerk met behulp van Azure V
 - Configureer DNS-naamomzetting tussen het virtuele netwerk en de on-premises netwerk.
 - Netwerkbeveiligingsgroepen of de gebruiker gedefinieerde routes (UDR) voor het beheren van netwerkverkeer configureren.
 
- Zie voor meer informatie het artikel [verbinding maken met HDInsight op uw on-premises netwerk](../connect-on-premises-network.md)
+Zie voor meer informatie het artikel [verbinding maken met HDInsight op uw on-premises netwerk](../connect-on-premises-network.md)
 
 ## <a name="next-steps"></a>Volgende stappen
 

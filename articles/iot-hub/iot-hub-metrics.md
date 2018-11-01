@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/25/2017
 ms.author: nberdy
-ms.openlocfilehash: f5da3759e97eaa2f89a393d55ae95eb6623fbc5d
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 34a561c5bb523b914f4b88dc8c6edc2bd00627d0
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158315"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50741926"
 ---
 # <a name="understand-iot-hub-metrics"></a>Informatie over metrische gegevens van IoT Hub
 
@@ -26,11 +26,15 @@ Metrische gegevens zijn standaard ingeschakeld. U kunt IoT Hub metrische gegeven
 
 2. Open de blade van uw IoT-hub. Van daaruit, klikt u op **metrische gegevens**.
    
-    ![Blade met metrische gegevens voor IoT-hub](./media/iot-hub-metrics/enable-metrics-1.png)
+    ![Schermopname die laat zien waar de optie metrische gegevens zich in de resourcepagina van de IoT Hub](./media/iot-hub-metrics/enable-metrics-1.png)
 
-3. U kunt de metrische gegevens weergeven voor uw IoT-hub en aangepaste weergaven van uw metrische gegevens maken op de blade metrische gegevens. U kunt uw metrische gegevens verzenden naar een Event Hubs-eindpunt of een Azure Storage-account door te klikken op **diagnostische instellingen**.
+3. U kunt de metrische gegevens weergeven voor uw IoT-hub en aangepaste weergaven van uw metrische gegevens maken op de blade metrische gegevens. 
    
-    ![Diagnostische instellingen](./media/iot-hub-metrics/enable-metrics-2.png)
+    ![Schermopname van de pagina metrische gegevens van IoT Hub](./media/iot-hub-metrics/enable-metrics-2.png)
+    
+4. U kunt uw metrische gegevens verzenden naar een Event Hubs-eindpunt of een Azure Storage-account door te klikken op **diagnostische instellingen**, klikt u vervolgens **diagnostische instelling toevoegen**
+
+   ![Schermopname die laat zien waar de knop diagnostische instellingen is](./media/iot-hub-metrics/enable-metrics-3.png)
 
 ## <a name="iot-hub-metrics-and-how-to-use-them"></a>IoT Hub metrische gegevens en hoe ze te gebruiken
 

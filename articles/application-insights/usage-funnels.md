@@ -14,12 +14,12 @@ ms.date: 07/17/2017
 ms.pm_owner: daviste;NumberByColors
 ms.reviewer: mbullwin
 ms.author: daviste
-ms.openlocfilehash: 2233fc1068891ec63dacaf5871eef7957c3ac7dc
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 3d4d6ba7e185b1cc5fdcee1633a11e579d8194e8
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139870"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50413958"
 ---
 # <a name="discover-how-customers-are-using-your-application-with-application-insights-funnels"></a>Ontdek hoe klanten uw toepassing gebruiken met Application Insights Trechters
 
@@ -40,7 +40,7 @@ Hier volgen de stappen waarmee ze hun trechter maken.
 De volgende schermafbeelding ziet u dat een voorbeeld van het type gegevens het programma Trechters wordt gegenereerd. De eigenaren van Fabrikam kunnen zien dat tijdens de afgelopen 90 dagen, 54.3 procent van hun klanten, die de startpagina van een klant-ticket gemaakt bezocht. Ze kunnen ook zien dat 2700 van hun klanten vanaf de startpagina ging bij de index werken. Dit kan duiden op een probleem met vernieuwen.
 
 
-![Schermafbeelding van Trechters met gegevens](./media/app-insights-understand-usage-patterns/funnel1.png)
+![Schermafbeelding van Trechters met gegevens](media/usage-funnels/funnel1.png)
 
 ### <a name="funnels-features"></a>Trechters functies
 De vorige schermafbeelding omvat vijf gemarkeerde gebieden. Dit zijn functies van Trechters. De volgende lijst over elk overeenkomend gebied in de schermafbeelding wordt toegelicht:

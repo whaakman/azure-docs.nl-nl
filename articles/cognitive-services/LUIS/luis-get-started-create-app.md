@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 12a660b49d1a81865c34ceda38f041de9be31eb1
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: cc4a1a7f99de657a6199985dd0c963eed741ac97
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47037470"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210020"
 ---
 # <a name="quickstart-use-prebuilt-home-automation-app"></a>Snelstart: Een vooraf gemaakte app voor huisautomatisering gebruiken
 
@@ -23,7 +23,7 @@ In deze snelstart maakt u een LUIS-app die gebruikmaakt van het vooraf gemaakte 
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor dit artikel hebt u een gratis LUIS-account nodig, dat u kunt maken in de LUIS-portal op [http://www.luis.ai](http://www.luis.ai). 
+Voor dit artikel hebt u een gratis LUIS-account nodig, dat u kunt maken in de LUIS-portal op [https://www.luis.ai](https://www.luis.ai). 
 
 ## <a name="create-a-new-app"></a>Een nieuwe app maken
 U kunt uw toepassingen maken en beheren in **Mijn apps**. 

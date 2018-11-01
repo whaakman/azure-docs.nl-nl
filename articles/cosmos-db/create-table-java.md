@@ -11,12 +11,12 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 04/10/2018
 ms.author: sngun
-ms.openlocfilehash: 349fe9eafc169d232c4434a2c536d2020d4ea76a
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 68f8963464cd11711bcc7c380fd745875ad94d16
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43702075"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50419177"
 ---
 # <a name="quickstart-build-a-table-api-app-with-java-and-azure-cosmos-db"></a>Quickstart: Een Table-API compileren met Java en Azure Cosmos DB
 
@@ -38,7 +38,7 @@ Azure Cosmos DB is de globaal gedistribueerde multimodel-databaseservice van Mic
 
 Daarnaast doet u het volgende: 
 
-* [Java Development Kit (JDK) 1.7+](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+* [Java Development Kit (JDK) 1.7+](https://aka.ms/azure-jdks)
     * Voer op Ubuntu `apt-get install default-jdk` uit om de JDK te installeren.
     * Zorg dat de omgevingsvariabele JAVA_HOME verwijst naar de map waarin de JDK is geïnstalleerd.
 * [Download](http://maven.apache.org/download.cgi) en [installeer](http://maven.apache.org/install.html) een binair [Maven](http://maven.apache.org/)-archief

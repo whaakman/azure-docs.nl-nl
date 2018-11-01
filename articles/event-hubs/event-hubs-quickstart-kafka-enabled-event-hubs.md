@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/01/2018
 ms.author: bahariri
-ms.openlocfilehash: 4b78cef29c64c5c4c522ad5c751c10bbf6a7057c
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 18224c3ebf3b5dd9920dcc4b4868ee8bb42e5f91
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49363415"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50418786"
 ---
 # <a name="stream-into-event-hubs-for-the-apache-kafka"></a>Streamen naar Event Hubs voor Apache Kafka
 Deze snelstart laat zien hoe u kunt streamen naar Event Hubs waarvoor Kafka is ingeschakeld zonder uw protocolclients te wijzigen of uw eigen clusters uit te voeren. U leert hoe u uw producenten kunt gebruiken en consumenten met Event Hubs waarvoor Kafka is ingeschakeld, kunnen praten met slechts een configuratiewijziging in uw toepassingen. Azure Event Hubs ondersteunt [Apache Kafka versie 1.0.](https://kafka.apache.org/10/documentation.html)
@@ -32,7 +32,7 @@ Zorg ervoor dat u aan de volgende vereisten voldoet om deze snelstart uit te voe
 
 * Lees het artikel [Event Hubs voor Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md) door.
 * Een Azure-abonnement. Als u nog geen account hebt, maakt u een [gratis account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) voordat u begint.
-* [Java Development Kit (JDK) 1.7+](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
+* [Java Development Kit (JDK) 1.7+](https://aka.ms/azure-jdks).
 * [Download](http://maven.apache.org/download.cgi) en [installeer](http://maven.apache.org/install.html) een binair Maven-archief.
 * [Git](https://www.git-scm.com/)
 * [Een Event Hubs-naamruimte waarvoor Kafka is ingeschakeld](event-hubs-create.md)

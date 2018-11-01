@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 11/20/2017
 ms.author: sngun
-ms.openlocfilehash: 225811195ffa01ce26f51fdbb78ee567c747c3d1
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 07c1edd53ff30cc3128443cb8984d1a5467c4395
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43282963"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50240049"
 ---
 # <a name="introduction-to-azure-cosmos-db-table-api"></a>Inleiding tot Azure Cosmos DB: tabel-API
 
@@ -36,7 +36,7 @@ Als u momenteel gebruikmaakt van Azure Table-opslag, levert overstappen naar de 
 | --- | --- | --- |
 | Latentie | Snel, maar geen bovengrens voor latentie. | Latentie van slechts enkele milliseconden voor lees- en schrijfbewerkingen, ondersteund door <10 ms latentie voor leesbewerkingen en <15 ms latentie voor schrijfbewerkingen in het 99e percentiel, op elke schaal, overal ter wereld. |
 | Doorvoer | Model voor variabele doorvoersnelheid. Tabellen hebben een schaalbaarheidslimiet van 20.000 bewerkingen/sec. | Zeer schaalbaar met [toegewezen gereserveerde doorvoer per tabel](request-units.md), op basis van serviceovereenkomsten. Accounts hebben geen bovengrens voor doorvoer en bieden ondersteuning voor > 10 miljoen bewerkingen/sec per tabel. |
-| Wereldwijde distributie | Eén regio met één optioneel leesbaar secundair leesgebied voor hoge beschikbaarheid. U kunt geen failover starten. | [Kant en klare wereldwijde distributie](distribute-data-globally.md) tussen 1 tot 30+ regio's. Ondersteuning voor [kant en klare wereldwijde distributie](regional-failover.md), op elk moment en overal ter wereld. |
+| Wereldwijde distributie | Eén regio met één optioneel leesbaar secundair leesgebied voor hoge beschikbaarheid. U kunt geen failover starten. | [Kant en klare wereldwijde distributie](distribute-data-globally.md) tussen 1 tot 30+ regio's. Ondersteuning voor [kant en klare wereldwijde distributie](high-availability.md), op elk moment en overal ter wereld. |
 | Indexeren | Alleen primaire index op PartitionKey en RowKey. Geen secundaire indexen. | Automatische en volledige indexering voor alle eigenschappen, geen indexbeheer. |
 | Query’s uitvoeren | Voor de queryuitvoering wordt een index gebruikt als primaire sleutel. In andere gevallen wordt er gescand. | Query's kunnen profiteren van de automatische indexering van eigenschappen voor een snelle uitvoertijden van query's. |
 | Consistentie | Sterke in primaire regio. Mogelijk in secundaire regio. | [Vijf goed gedefinieerde consistentieniveaus](consistency-levels.md) voor een wisselwerking tussen beschikbaarheid, latentie, doorvoer en consistentie op basis van uw toepassingsvereisten. |

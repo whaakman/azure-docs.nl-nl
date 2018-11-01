@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: 95b753a3be824b5815a70fee84913f1c129f2605
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 6b06b8eb8d5e18acd3107ec5cccac79fc7be7edc
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50221883"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50418174"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---data-migration-best-practices"></a>On-premises Apache Hadoop-clusters migreren naar Azure HDInsight - gegevens migratie aanbevolen procedures
 
@@ -100,14 +100,14 @@ Het hive-metastore kan worden gemigreerd met behulp van de scripts of met behulp
 
 #### <a name="hive-metastore-migration-using-scripts"></a>Hive-metastore migratie met behulp van scripts
 
-- Het Hive-DDLs van on-premises Hive-metastore genereren. Deze stap kan worden gedaan met behulp van een [wrapper bash-script](https://github.com/hdinsight/hdinsight.github.io/blob/master/hive/hive-export-import-metastore.md)
-- De gegenereerde DDL ter vervanging van HDFS-url met ADLS-WASB/ABFS URL's bewerken
-- De bijgewerkte DDL uitgevoerd op de metastore van het HDI-cluster
-- Zorg ervoor dat de versie van de Hive-metastore compatibel tussen on-premises en cloud
+1. Het Hive-DDLs van on-premises Hive-metastore genereren. Deze stap kan worden gedaan met behulp van een [wrapper bash-script]. (https://github.com/hdinsight/hdinsight.github.io/blob/master/hive/hive-export-import-metastore.md)
+1. De gegenereerde DDL ter vervanging van HDFS-url met ADLS-WASB/ABFS URL's bewerken
+1. De bijgewerkte DDL uitgevoerd op de metastore van het HDInsight-cluster
+1. Zorg ervoor dat de versie van de Hive-metastore compatibel tussen on-premises en cloud
 
 #### <a name="hive-metastore-migration-using-db-replication"></a>Hive-metastore migratie met behulp van replicatie voor DB
 
-- Instellen van de Database-replicatie tussen on-premises Hive-metastore DB en HDI metastore DB
+- Instellen van de Database-replicatie tussen on-premises Hive-metastore DB en HDInsight metastore DB
 - Gebruik "Hive MetaTool" vervangen door HDFS-url WASB/ADLS/ABFS URL's, bijvoorbeeld:
 
 ```bash
@@ -116,9 +116,9 @@ Het hive-metastore kan worden gemigreerd met behulp van de scripts of met behulp
 
 ### <a name="ranger"></a>Ranger
 
-- On-premises Ranger-beleidsregels exporteren naar xml-bestanden
-- On-premises bepaald op basis van HDFS paden naar WASB/ADLS met een hulpprogramma zoals XSLT transformeren
-- de beleidsregels die u aan bij de Ranger die worden uitgevoerd op HDI importeren
+- On-premises Ranger-beleidsregels exporteren naar xml-bestanden.
+- Transformeer on-premises bepaald op basis van HDFS paden naar WASB/ADLS met een hulpprogramma zoals XSLT.
+- Importeer de beleidsregels die u aan bij de Ranger die worden uitgevoerd op HDInsight.
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/04/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: ebbb231e7d9eefa8eb681b0e14c711e2c4f1fad7
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: f7efafe5e3080de15781496032b688bc5fa71df2
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49386516"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50418415"
 ---
 # <a name="unified-alerting--monitoring-in-azure-monitor-replaces-classic-alerting--monitoring"></a>Geïntegreerde waarschuwingen en -bewaking in Azure Monitor vervangt klassieke waarschuwingen en -bewaking
 
@@ -21,7 +21,7 @@ Azure Monitor is nu geworden am geïntegreerde volledige stack controleservice d
 
 Met de nieuwe Azure-bewaking en waarschuwingen platform op locatie zijn ingesteld, we zullen worden buiten gebruik stellen van het "klassieke" bewaking en waarschuwingen platform, die worden gehost in *klassieke waarschuwingen weergeven* sectie van de Azure-waarschuwingen worden afgeschaft door juni 2019.
 
- ![Klassieke waarschuwing in Azure portal](./media/monitoring-overview-alerts-classic/monitor-alert-screen2.png) 
+ ![Klassieke waarschuwing in Azure portal](media/monitoring-classic-retirement/monitor-alert-screen2.png) 
 
 We raden u aan de slag en opnieuw maken van uw waarschuwingen in het nieuwe platform. Voor klanten met een groot aantal waarschuwingen kunnen wij werken aan een geautomatiseerde manier om te verplaatsen van bestaande klassieke waarschuwingen naar de nieuwe waarschuwingensysteem zonder onderbreking of kosten toegevoegd.
 

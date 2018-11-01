@@ -4,8 +4,6 @@ description: In dit artikel laat zien hoe het configureren van load balancing en
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: jpconnock
-tags: azure-resource-manager
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -13,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: kumud
-ms.openlocfilehash: a6d442452fe5ffc61648b3c004c03f1756f8f57e
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 0759b6a8e3deb9bc1d04e41598e4eef9304ecd83
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47160652"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50416406"
 ---
 # <a name="configure-load-balancing-and-outbound-rules-in-standard-load-balancer-using-azure-cli"></a>Configureren van taakverdeling en regels voor uitgaand verkeer in de standaardversie van Load Balancer met behulp van Azure CLI
 
-In deze quickstart ziet u configureren hoe regels voor uitgaand verkeer in Standard Load Balancer met behulp van Azure CLI.  
+In deze Quick Start laat zien hoe u regels voor uitgaand verkeer in Standard Load Balancer configureren met behulp van Azure CLI.  
 
 Wanneer u klaar bent, de Load Balancer-resource bevat twee front-ends en regels die zijn gekoppeld aan deze: één voor binnenkomende en uitgaande.  Elke front-end bevat een verwijzing naar een openbaar IP-adres en deze scenario maakt gebruik van een ander openbaar IP-adres voor inkomend en uitgaand.   De load balancer-regel biedt alleen binnenkomende load balancing en de uitgaande regel bepaalt de uitgaande NAT opgegeven voor de virtuele machine.
 
@@ -63,7 +61,7 @@ Om toegang te krijgen tot uw web-app op internet, hebt u een openbaar IP-adres n
 
 ## <a name="create-outbound-public-ip-address"></a>Uitgaande openbare IP-adres maken 
 
-Maak een standaard IP-adres voor front-end-uitgaande van de Load Balancer-configuratie [az network public-ip maken](https://docs.microsoft.com/cli/azure/network/public-ip#create) met de naam *mypublicipoutbound* in *myresourcegroupoutbound*.
+Maak een standaard IP-adres voor het gebruik van Load Balancer frontend uitgaande configuratie [az network public-ip maken](https://docs.microsoft.com/cli/azure/network/public-ip#create).
 
 ```azurecli-interactive
   az network public-ip create --resource-group myresourcegroupoutbound --name mypublicipoutbound --sku standard
@@ -81,7 +79,7 @@ In deze sectie wordt beschreven hoe u de volgende onderdelen van de load balance
 
 ### <a name="create-load-balancer"></a>Load Balancer maken
 
-Een Load Balancer maken met de inkomende IP-adres met [az network lb maken](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest#create) met de naam *lb* die een binnenkomende frontend-IP-configuratie met de naam bevat *myfrontendinbound*, een back endadresgroep met de naam *bepool* dat is gekoppeld aan het openbare IP-adres *mypublicipinbound* die u in de vorige stap hebt gemaakt.
+Een Load Balancer maken met de inkomende IP-adres met [az network lb maken](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest#create) met de naam *lb* die een binnenkomende frontend-IP-configuratie en een back endadresgroep die is gekoppeld aan het openbare IP-adres bevat *mypublicipinbound* die u in de vorige stap hebt gemaakt.
 
 ```azurecli-interactive
   az network lb create \

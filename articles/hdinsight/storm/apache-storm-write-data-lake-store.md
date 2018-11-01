@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
-ms.openlocfilehash: 670d465f1481592862f5e653a508460c19be07d8
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 4e99ed88eb6a58308ecd972931ca877493504fea
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43049688"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50419827"
 ---
 # <a name="write-to-hdfs-from-apache-storm-on-hdinsight"></a>Schrijven naar HDFS van Apache Storm op HDInsight
 
@@ -29,7 +29,7 @@ Het project met deze topologie is beschikbaar als een download van [ https://git
 
 Als u wilt dit project compileren, moet u de volgende configuratie voor uw ontwikkelomgeving:
 
-* [Java JDK 1.8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) of hoger. HDInsight 3.5 of hoger vereist Java 8.
+* [Java JDK 1.8](https://aka.ms/azure-jdks) of hoger. HDInsight 3.5 of hoger vereist Java 8.
 
 * [Maven 3.x](https://maven.apache.org/download.cgi)
 
@@ -63,7 +63,7 @@ De volgende tabel bevat voorbeelden van het gebruik van het bestand-schema voor 
 
 Zie voor meer informatie de [HdfsBolt](http://storm.apache.org/releases/current/javadocs/org/apache/storm/hdfs/bolt/HdfsBolt.html) verwijzing op Apache.org.
 
-### <a name="example-configuration"></a>Voorbeeld van een configuratie
+### <a name="example-configuration"></a>Voorbeeldconfiguratie
 
 De volgende YAML is een fragment uit het `resources/writetohdfs.yaml` bestand opgenomen in het voorbeeld. Dit bestand definieert de Storm-topologie via de [lichtstroom](https://storm.apache.org/releases/1.1.2/flux.html) framework voor Apache Storm.
 

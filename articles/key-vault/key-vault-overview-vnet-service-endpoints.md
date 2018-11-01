@@ -50,7 +50,7 @@ Raadpleeg [configureren van Azure Key Vault Firewalls en virtuele netwerken](key
 > [!NOTE]
 > * Een maximaal 127 VNET-regels en 127 IPv4-regels zijn toegestaan. 
 > * Kleine adresbereiken met behulp van '/ 31' of '/ 32' voorvoegsel grootten worden niet ondersteund. Deze bereiken moeten worden geconfigureerd met behulp van afzonderlijke regels voor IP-adres.
-> * IP-netwerkregels zijn alleen toegestaan voor openbare IP-adressen. IP-adresbereiken is gereserveerd voor particuliere netwerken (zoals gedefinieerd in RFC 1918) zijn niet toegestaan in IP-regels. Particuliere netwerken bevatten adressen die met beginnen * 10.* *, * 172.16. **, en * 192.168. **. 
+> * IP-netwerkregels zijn alleen toegestaan voor openbare IP-adressen. IP-adresbereiken is gereserveerd voor particuliere netwerken (zoals gedefinieerd in RFC 1918) zijn niet toegestaan in IP-regels. Particuliere netwerken bevatten adressen die met beginnen *10.*\*, *172.16.*\*, en *192.168.*\*. 
 > * Alleen IPv4-adressen worden ondersteund op dit moment.
 
 ## <a name="trusted-services"></a>Betrouwbare services

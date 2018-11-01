@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/04/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: cbe6ddc2c4680028d5a4a0491756c7a7b9897c69
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: ed6b2fafbb3329e20985b75f55d29b52dcc5da57
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233239"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50415698"
 ---
 # <a name="extend-alerts-from-log-analytics-into-azure-alerts"></a>Waarschuwingen van Log Analytics uitbreiden naar Azure-waarschuwingen
 De functie alerts in Azure Log Analytics wordt vervangen door de Azure-waarschuwingen. Als onderdeel van deze overgang, wordt de waarschuwingen die u oorspronkelijk hebt geconfigureerd in Log Analytics worden uitgebreid naar Azure. Als u niet wachten tot deze worden automatisch verplaatst naar Azure wilt, kunt u het proces starten:
@@ -27,26 +27,26 @@ De functie alerts in Azure Log Analytics wordt vervangen door de Azure-waarschuw
 ## <a name="option-1-initiate-from-the-operations-management-suite-portal"></a>Optie 1: Initiëren vanuit de Operations Management Suite-portal
 De volgende stappen wordt beschreven hoe u waarschuwingen voor de werkruimte van de Operations Management Suite-portal uitbreiden.  
 
-1. Selecteer in de Azure portal, **alle services**. Typ in de lijst met resources **Log Analytics**. Als u begint te typen, wordt de lijst gefilterd op basis van uw invoer. Selecteer **Log Analytics**.
+1. Selecteer in de Azure-portal de optie **Alle services**. Typ in de lijst met resources **Log Analytics**. Als u begint te typen, wordt de lijst gefilterd op basis van uw invoer. Selecteer **Log Analytics**.
 2. In het deelvenster voor abonnementen van Log Analytics een werkruimte selecteren en selecteer vervolgens de **OMS-Portal** tegel.
-![Schermafbeelding van Log Analytics-abonnement in het deelvenster met OMS-Portal tegel gemarkeerd](./media/monitor-alerts-extend/azure-portal-01.png) 
+![Schermafbeelding van Log Analytics-abonnement in het deelvenster met OMS-Portal tegel gemarkeerd](media/monitoring-alerts-extend-tool/azure-portal-01.png) 
 3. Nadat u wordt omgeleid naar de Operations Management Suite-portal, selecteert u de **instellingen** pictogram.
-![Schermafbeelding van de Operations Management Suite-portal, met Instellingenpictogram gemarkeerd](./media/monitor-alerts-extend/oms-portal-settings-option.png) 
+![Schermafbeelding van de Operations Management Suite-portal, met Instellingenpictogram gemarkeerd](media/monitoring-alerts-extend-tool/oms-portal-settings-option.png) 
 4. Uit de **instellingen** weergeeft, schakelt **waarschuwingen**.  
 5. Selecteer **uitbreiden naar Azure**.
-![Schermafbeelding van de Operations Management Suite waarschuwingsinstellingen portalpagina met uitbreiden naar Azure is gemarkeerd](./media/monitor-alerts-extend/ExtendInto.png)
+![Schermafbeelding van de Operations Management Suite waarschuwingsinstellingen portalpagina met uitbreiden naar Azure is gemarkeerd](media/monitoring-alerts-extend-tool/ExtendInto.png)
 6. Een wizard drie stappen wordt weergegeven de **waarschuwingen** deelvenster. Lees het overzicht en selecteer **volgende**.
-![Schermafbeelding van stap 1 van de wizard](./media/monitor-alerts-extend/ExtendStep1.png)  
+![Schermafbeelding van stap 1 van de wizard](media/monitoring-alerts-extend-tool/ExtendStep1.png)  
 7. In de tweede stap ziet u een overzicht van voorgestelde wijzigingen aanbieding juiste [actiegroepen](monitoring-action-groups.md) voor de waarschuwingen. Als dezelfde acties zijn waargenomen in meer dan één waarschuwing, wordt de wizard een groep met één actie koppelen aan al deze voorstelt.  De naamconventie is als volgt: *WorkspaceName_AG_ #Number*. Om door te gaan, selecteert u **volgende**.
-![Schermafbeelding van stap 2 van de wizard](./media/monitor-alerts-extend/ExtendStep2.png)  
+![Schermafbeelding van stap 2 van de wizard](media/monitoring-alerts-extend-tool/ExtendStep2.png)  
 8. Selecteer in de laatste stap van de wizard, **voltooien**, en controleer of wanneer u wordt gevraagd het proces te starten. Geef eventueel een e-mailadres, zodat u wordt gewaarschuwd wanneer het proces is voltooid en alle waarschuwingen zijn verplaatst naar Azure-waarschuwingen.
-![Schermafbeelding van stap 3 van de wizard](./media/monitor-alerts-extend/ExtendStep3.png)
+![Schermafbeelding van stap 3 van de wizard](media/monitoring-alerts-extend-tool/ExtendStep3.png)
 
 Wanneer de wizard is voltooid, op de **waarschuwingsinstellingen** pagina, de optie voor het uitbreiden van waarschuwingen naar Azure is verwijderd. Op de achtergrond uw waarschuwingen worden verplaatst naar Azure en dit kan enige tijd duren. Tijdens de bewerking kan niet u wijzigingen aanbrengen op waarschuwingen van de Operations Management Suite-portal. Hier ziet u de huidige status van de banner aan de bovenkant van de portal. Als u een e-mailadres eerder hebt opgegeven, wordt een e-mail ontvangen wanneer het proces is voltooid.  
 
 
 Waarschuwingen worden weergegeven in de Operations Management Suite-portal, zelfs nadat ze zijn verplaatst naar Azure.
-![Schermafbeelding van de Operations Management Suite portalpagina waarschuwingsinstellingen](./media/monitor-alerts-extend/PostExtendList.png)
+![Schermafbeelding van de Operations Management Suite portalpagina waarschuwingsinstellingen](media/monitoring-alerts-extend-tool/PostExtendList.png)
 
 
 ## <a name="option-2-use-the-alertsversion-api"></a>Optie 2: De AlertsVersion API gebruiken
@@ -460,7 +460,7 @@ Tijdens het proces voor het uitbreiden van waarschuwingen, problemen kunnen voor
 > Als openbare Azure-cloud op basis van Log Analytics-gebruikers niet de volgende herstelstappen duren vóór 5 juli 2018, waarschuwingen in Azure wordt uitgevoerd, maar niet elke actie of een melding geactiveerd. Als u meldingen voor waarschuwingen, moet u handmatig bewerken en toevoegen [actiegroepen](monitoring-action-groups.md), of gebruik de voorgaande [aangepaste PowerShell-script](#option-3---using-custom-powershell-script).
 
 Hier volgen de herstelstappen uit voor elke fout:
-- **Fout: Bereik vergrendeling aanwezig is op het niveau van bronabonnement/resourcegroep voor schrijfbewerkingen**: ![schermafbeelding van de Operations Management Suite waarschuwingsinstellingen-portalpagina met bereik vergrendelen foutbericht gemarkeerd](./media/monitor-alerts-extend/ErrorScopeLock.png)
+- **Fout: Bereik vergrendeling aanwezig is op het niveau van bronabonnement/resourcegroep voor schrijfbewerkingen**: ![schermafbeelding van de Operations Management Suite waarschuwingsinstellingen-portalpagina met bereik vergrendelen foutbericht gemarkeerd](media/monitoring-alerts-extend-tool/ErrorScopeLock.png)
 
     Als bereik vergrendeling is ingeschakeld, beperkt de functie nieuwe wijzigingen in de groep abonnement of resourcegroep met de werkruimte van Log Analytics (Operations Management Suite). Het systeem is niet waarschuwingen uitbreiden naar Azure en de benodigde Actiegroepen maken.
     
@@ -468,7 +468,7 @@ Hier volgen de herstelstappen uit voor elke fout:
     
     Wanneer u de fout oplossen met behulp van de stappen in het artikel geïllustreerd, breidt Operations Management Suite uw waarschuwingen naar Azure binnen de geplande uitvoering van de volgende dag. U wilt geen verdere actie ondernemen of iets initiëren.
 
-- **Fout: Beleid aanwezig is op het niveau van bronabonnement/resourcegroep**: ![schermafbeelding van de Operations Management Suite waarschuwingsinstellingen-portalpagina met beleid voor het foutbericht is gemarkeerd](./media/monitor-alerts-extend/ErrorPolicy.png)
+- **Fout: Beleid aanwezig is op het niveau van bronabonnement/resourcegroep**: ![schermafbeelding van de Operations Management Suite waarschuwingsinstellingen-portalpagina met beleid voor het foutbericht is gemarkeerd](media/monitoring-alerts-extend-tool/ErrorPolicy.png)
 
     Wanneer [Azure Policy](../azure-policy/azure-policy-introduction.md) is toegepast, wordt een nieuwe resource in een abonnement of resourcegroep groep met de werkruimte van Log Analytics (Operations Management Suite) wordt beperkt. Het systeem is niet waarschuwingen uitbreiden naar Azure en de benodigde Actiegroepen maken.
     

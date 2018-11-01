@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
+ms.date: 10/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: cb004745cfbc6af185a06c4787fb34326eccc69a
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 25352d12e578c289ccb4ab8aab60dc55a444762e
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44381192"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50413499"
 ---
 # <a name="define-a-technical-profile-for-a-jwt-token-issuer-in-an-azure-active-directory-b2c-custom-policy"></a>Een technisch profiel voor een JWT-token certificaatverlener in een aangepast Azure Active Directory B2C-beleid definiëren
 
@@ -52,7 +52,7 @@ De **InputClaims**, **OutputClaims**, en **PersistClaims** elementen zijn leeg o
 | id_token_lifetime_secs | Nee | ID-levensduur van tokens. De standaardwaarde is 3600 seconden (1 uur). De minimumwaarde (inclusief) is 300 seconden (5 minuten). Het maximum (inclusief) is seconden 86,400 (24 uur). | 
 | refresh_token_lifetime_secs | Nee | Vernieuw de levensduur van tokens. De maximale periode waarbinnen een vernieuwingstoken kan worden gebruikt om een nieuw toegangstoken verkrijgen als uw toepassing het bereik offline_access is verleend. De standaardwaarde is 120,9600 seconden (14 dagen). De minimumwaarde (inclusief) is 86.400 seconden (24 uur). Het maximum (inclusief) is 7,776,000 seconden (90 dagen). | 
 | rolling_refresh_token_lifetime_secs | Nee | Levensduur van sliding window token vernieuwen. Nadat deze periode is verstreken wordt de gebruiker wordt gedwongen om te verifiëren, ongeacht de geldigheidsperiode van de meest recente vernieuwingstoken verkregen door de toepassing. Als u niet wilt om af te dwingen een levensduur van sliding window, stel de waarde van allow_infinite_rolling_refresh_token naar `true`. De standaardwaarde is 7,776,000 seconden (90 dagen). De minimumwaarde (inclusief) is 86.400 seconden (24 uur). Het maximum (inclusief) is 31,536,000 seconden (365 dagen). | 
-| rolling_refresh_token_lifetime_secs | Nee | Indien ingesteld op `true`, het vernieuwingstoken venster Verschuivend levensduur verloopt nooit. |
+| allow_infinite_rolling_refresh_token | Nee | Indien ingesteld op `true`, het vernieuwingstoken venster Verschuivend levensduur verloopt nooit. |
 | IssuanceClaimPattern | Ja | Hiermee bepaalt u de claim van verlener (iss). Een van de waarden:<ul><li>AuthorityAndTenantGuid - de iss-claim bevat de naam van uw domein, zoals `login.microsoftonline` of `tenant-name.b2clogin.com`, en uw tenant-id https://login.microsoftonline.com/00000000-0000-0000-0000-000000000000/v2.0/</li><li>AuthorityWithTfp - de iss-claim bevat de naam van uw domein, zoals `login.microsoftonline` of `tenant-name.b2clogin.com`, uw tenant-id en de naam van uw relying party-beleid. https://login.microsoftonline.com/tfp/00000000-0000-0000-0000-000000000000/b2c_1a_tp_sign-up-or-sign-in/v2.0/</li></ul> | 
 | AuthenticationContextReferenceClaimPattern | Nee | Besturingselementen voor de `acr` claimwaarde.<ul><li>Geen - Azure AD B2C niet de acr-claim uitgeven</li><li>PolicyId - de `acr` claim bevat de naam van het beleid</li></ul>De opties voor het instellen van deze waarde zijn TFP (vertrouwensbeleid framework) en ACR (authentication context verwijzing). Het verdient aanbeveling de waarde instelt op TFP, als u wilt de waarde instelt, zorg ervoor dat de `<Item>` met de `Key="AuthenticationContextReferenceClaimPattern"` bestaat en de waarde is `None`. Voeg in uw relying party-beleid, <OutputClaims> item, voegt u dit element `<OutputClaim ClaimTypeReferenceId="trustFrameworkPolicy" Required="true" DefaultValue="{policy}" />`. Ook voor zorgen dat uw beleid bevat het claimtype `<ClaimType Id="trustFrameworkPolicy"> <DisplayName>trustFrameworkPolicy</DisplayName>     <DataType>string</DataType> </ClaimType>` | 
 

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: maxluk
-ms.openlocfilehash: b3dd31c7890812dfa7e9e5740a48f094badc604e
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 51e1e7696ece46e63358b2ed6efa55bbf6ab01fd
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167338"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50420775"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-create-spark-applications-for-an-hdinsight-cluster"></a>Azure Toolkit voor IntelliJ gebruiken voor het maken van Spark-toepassingen voor een HDInsight-cluster
 
@@ -33,7 +33,7 @@ Voor het maken van uw project, geven de [Spark-toepassingen maken met de Azure T
 ## <a name="prerequisites"></a>Vereisten
 
 - Een Apache Spark-cluster in HDInsight Linux. Zie [Apache Spark-clusters maken in Azure HDInsight](apache-spark-jupyter-spark-sql.md) voor instructies.
-- Oracle Java Development Kit. U kunt installeren vanuit de [Oracle website](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
+- Oracle Java Development Kit. U kunt installeren vanuit de [Oracle website](https://aka.ms/azure-jdks).
 - IntelliJ IDEA. In dit artikel wordt versie 2017.1. U kunt installeren vanuit de [JetBrains website](https://www.jetbrains.com/idea/download/).
 
 ## <a name="install-azure-toolkit-for-intellij"></a>Azure Toolkit voor IntelliJ installeren

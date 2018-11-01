@@ -14,14 +14,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 05/11/2018
+ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 7d4deb0618b0e0802306e344fea6d259c0597fe2
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: f4d733e29d2ba8213e1832f2c604b726283ab3e1
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47413534"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50417392"
 ---
 # <a name="troubleshooting-specific-rdp-error-messages-to-a-windows-vm-in-azure"></a>Specifieke RDP-foutberichten aan een Windows-VM in Azure oplossen
 U ontvangt mogelijk een bericht specifieke fout bij het gebruik van extern bureaublad-verbinding met een Windows virtuele machine (VM) in Azure. Dit artikel worden enkele van de meestvoorkomende foutberichten die is aangetroffen, samen met stappen om op te lossen ze voor probleemoplossing. Als u problemen ondervindt bij het verbinding maken met uw virtuele machine met behulp van RDP echter niet een specifieke foutbericht worden weergegeven, raadpleegt u de [probleemoplossingsgids voor extern bureaublad](troubleshoot-rdp-connection.md).

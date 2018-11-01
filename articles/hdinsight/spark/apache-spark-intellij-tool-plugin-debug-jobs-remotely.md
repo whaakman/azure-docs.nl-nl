@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/28/2017
-ms.openlocfilehash: 1a7fcc11bf1b98d5feaeae07264e556acce2b14b
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 55f32b498b83203a3823999a2e31024266bf37bc
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45736070"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50413261"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-debug-spark-applications-remotely-in-hdinsight-through-vpn"></a>Azure-Toolkit voor IntelliJ fouten opsporen in Spark-toepassingen op afstand in HDInsight via VPN-verbinding
 
@@ -31,7 +31,7 @@ In dit artikel biedt stapsgewijze instructies over het gebruik van de HDInsight-
 ## <a name="prerequisites"></a>Vereisten
 * **Een Azure-abonnement**. Zie voor meer informatie, [een gratis proefversie van Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * **Een Apache Spark-cluster in HDInsight**. Zie [Apache Spark-clusters maken in Azure HDInsight](apache-spark-jupyter-spark-sql.md) voor instructies.
-* **Oracle Java development kit**. U kunt installeren vanuit de [Oracle website](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
+* **Oracle Java development kit**. U kunt installeren vanuit de [Oracle website](https://aka.ms/azure-jdks).
 * **IntelliJ IDEA**. In dit artikel wordt versie 2017.1. U kunt installeren vanuit de [JetBrains website](https://www.jetbrains.com/idea/download/).
 * **HDInsight-hulpprogramma's in Azure Toolkit voor IntelliJ**. HDInsight-hulpprogramma's voor IntelliJ zijn beschikbaar als onderdeel van de Azure Toolkit voor IntelliJ. Zie voor instructies over het installeren van de Azure Toolkit [Installeer Azure Toolkit voor IntelliJ](https://docs.microsoft.com/java/azure/intellij/azure-toolkit-for-intellij-installation).
 * **Aanmelden bij uw Azure-abonnement van IntelliJ IDEA**. Volg de instructies in [Azure-Toolkit voor IntelliJ Spark om toepassingen te maken voor een HDInsight-cluster](apache-spark-intellij-tool-plugin.md).

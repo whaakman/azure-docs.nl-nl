@@ -9,12 +9,12 @@ ms.date: 11/13/2017
 ms.service: application-insights
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ecda8621640223f1c27f32834f2e4a098da4aba6
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 75401614b6892402083af5192b691f00d82c8d05
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44301618"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50413618"
 ---
 # <a name="add-continuous-monitoring-to-your-release-pipeline"></a>Doorlopende bewaking toevoegen aan uw release-pijplijn
 
@@ -28,13 +28,13 @@ Azure DevOps-Services biedt nu ondersteuning voor doorlopende bewaking waarbij r
 
 2. Beweeg de muisaanwijzer over **Build and Release** > Selecteer **Releases** > Klik op de **plusteken** > **release-definitie maken** > Zoeken naar **bewaking** > **Azure App Service-implementatie met de voortdurende bewaking.**
 
-   ![Nieuwe Azure DevOps Services Release-pijplijn](.\media\app-insights-continuous-monitoring\001.png)
+   ![Nieuwe Azure DevOps Services Release-pijplijn](media/app-insights-vsts-continuous-monitoring/001.png)
 
 3. Klik op **toepassen.**
 
 4. Naast het rode uitroepteken selecteert u de tekst in het blauw naar **omgevingstaken weergeven.**
 
-   ![Taken van de omgeving weergeven](.\media\app-insights-continuous-monitoring\002.png)
+   ![Taken van de omgeving weergeven](media/app-insights-vsts-continuous-monitoring/002.png)
 
    Configuratievenster, gebruik de volgende tabel om de invoervelden in te vullen.
 
@@ -60,7 +60,7 @@ Azure DevOps-Services biedt nu ondersteuning voor doorlopende bewaking waarbij r
 
 3. Wijzigen van de beschikbaarheid **drempelwaarde** om te voldoen aan uw vereisten voor het niveau van service.
 
-   ![Waarschuwing voor wijzigen](.\media\app-insights-continuous-monitoring\003.png)
+   ![Waarschuwing voor wijzigen](media/app-insights-vsts-continuous-monitoring/003.png)
 
 4. Selecteer **OK** > **opslaan** > Voer een korte beschrijving > klikt u op **OK.**
 
@@ -68,13 +68,13 @@ Azure DevOps-Services biedt nu ondersteuning voor doorlopende bewaking waarbij r
 
 1. Klikt u op **pijplijn** > Selecteer de **vooraf** of **na de implementatie voorwaarden** symbool, afhankelijk van de fase waarvoor een doorlopende monitoring-gate.
 
-   ![Vóór de implementatie-voorwaarden](.\media\app-insights-continuous-monitoring\004.png)
+   ![Vóór de implementatie-voorwaarden](media/app-insights-vsts-continuous-monitoring/004.png)
 
 2. Stel **Gates** naar **ingeschakeld** > **goedkeuring gates**> klikt u op **toevoegen.**
 
 3. Selecteer **Azure Monitor** (deze optie geeft u de mogelijkheid tot Toegangswaarschuwingen zowel van Azure Monitor en Application Insights)
 
-    ![Azure Monitor](.\media\app-insights-continuous-monitoring\005.png)
+    ![Azure Monitor](media/app-insights-vsts-continuous-monitoring/005.png)
 
 4. Voer een **Gates time-out** waarde.
 
@@ -86,7 +86,7 @@ Als u implementatie gates toevoegt, wordt in een waarschuwing in Application Ins
 
 U ziet dat dit gedrag, selecteer **Releases** > Release met de rechtermuisknop op de naam **open** > **Logboeken.**
 
-![Logboeken](.\media\app-insights-continuous-monitoring\006.png)
+![Logboeken](media/app-insights-vsts-continuous-monitoring/006.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 

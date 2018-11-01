@@ -1,24 +1,24 @@
 ---
-title: Een echt apparaat toevoegen aan een Azure IoT Central-toepassing | Microsoft Docs
+title: Een echte apparaat toevoegen aan een Azure IoT Central-toepassing | Microsoft Docs
 description: Als operator kunt u een nieuw apparaat toevoegen aan uw Azure IoT Central-toepassing.
 author: sandeeppujar
 ms.author: sandeepu
-ms.date: 04/16/2018
+ms.date: 10/12/2018
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 984457968de5ef5e43b15201dac213cd96b4b0e2
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: c3b8f4f8188a6a28cca8b77f169a00657b11dfc5
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49309753"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50154808"
 ---
 # <a name="tutorial-add-a-real-device-to-your-azure-iot-central-application"></a>Zelfstudie: een nieuw apparaat toevoegen aan uw Azure IoT Central-toepassing
 
-In deze zelfstudie wordt getoond hoe u een echt apparaat aan uw Microsoft Azure IoT Central-toepassing kunt toevoegen en het kunt configureren.
+In deze zelfstudie wordt getoond hoe u en echt apparaat aan uw Microsoft Azure IoT Central-toepassing kunt toevoegen en het kunt configureren.
 
 Deze zelfstudie bestaat uit twee delen:
 
@@ -170,7 +170,7 @@ In de volgende stappen ziet u hoe u het [Node.js](https://nodejs.org/)-voorbeeld
 
 ## <a name="understand-how-client-code-maps-to-the-application"></a>Leren hoe clientcode aan toepassing wordt toegewezen
 
-In de vorige sectie hebt u een opzet gemaakt van een Node.js-project voor een toepassing waarmee u verbinding kunt maken met uw Azure IoT Central-toepassing. In deze sectie voegt u de code toe om:
+In de vorige sectie hebt u een opzet gemaakt van een Node.js-project voor een toepassing waarmee u verbinding kunt maken met uw Azure IoT Central-toepassing. In deze sectie voert u de code toe om:
 
 * Verbinding te maken met uw Azure IoT Central-toepassing.
 * Telemetrie te verzenden naar uw Azure IoT Central-toepassing.

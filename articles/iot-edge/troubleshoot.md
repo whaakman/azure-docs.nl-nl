@@ -8,12 +8,12 @@ ms.date: 06/26/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a63a31c5ceb4298829f85627196fea5d7a38ca4b
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 632a91e9c76f14bceace00c9cee29a189b604464
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49068499"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50740209"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Veelvoorkomende problemen en oplossingen voor Azure IoT Edge
 
@@ -21,7 +21,7 @@ Als u problemen hebt met het uitvoeren van Azure IoT Edge in uw omgeving, kunt u
 
 ## <a name="standard-diagnostic-steps"></a>Standaard diagnostische stappen 
 
-Wanneer u een probleem ondervindt, kunt u meer informatie verzamelen over de status van uw Azure IoT Edge-apparaat aan de hand van de containerlogboeken en -berichten die naar en van het apparaat worden doorgegeven. Gebruik de opdrachten en hulpprogramma's in deze sectie om informatie te verzamelen. 
+Wanneer u een probleem ondervindt, Leer meer over de status van uw IoT Edge-apparaat aan de hand van de containerlogboeken van de en de berichten die doorgeven naar en van het apparaat. Gebruik de opdrachten en hulpprogramma's in deze sectie om informatie te verzamelen. 
 
 ### <a name="check-the-status-of-the-iot-edge-security-manager-and-its-logs"></a>Controleer de status van de IoT Edge Security Manager en de logboeken:
 
@@ -108,7 +108,7 @@ Zodra de IoT Edge Security-Daemon wordt uitgevoerd, bekijkt u de logboeken van d
 
 ### <a name="view-the-messages-going-through-the-edge-hub"></a>Bekijk de berichten die via Edge hub gaan
 
-Bekijk de berichten die via Edge hub gaan en verzamel inzichten over updates van apparaateigenschappen met uitgebreide Logboeken uit de runtimecontainers edgeAgent en edgeHub. Als u wilt inschakelen op de uitgebreide logboeken op deze containers, instellen `RuntimeLogLevel` in uw configuratiebestand yaml. Open het bestand:
+U kunt de berichten die via Edge hub bekijken, en inzichten te verwerven uit uitgebreide Logboeken uit de runtimecontainers. Als u wilt inschakelen op de uitgebreide logboeken op deze containers, instellen `RuntimeLogLevel` in uw configuratiebestand yaml. Open het bestand:
 
 Op Linux:
 
@@ -122,7 +122,7 @@ In Windows:
    notepad C:\ProgramData\iotedge\config.yaml
    ```
 
-Standaard de `agent` element ziet er ongeveer als volgt:
+Standaard de `agent` element ziet er als volgt:
 
    ```yaml
    agent:
@@ -146,7 +146,7 @@ Vervang `env: {}` met:
 
 Sla het bestand op en start de IoT Edge security manager opnieuw.
 
-U kunt ook de berichten controleren die worden verzonden tussen IoT Hub en de IoT Edge-apparaten. Bekijk deze berichten met behulp van de [Azure IoT Toolkit](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)-extensie voor Visual Studio Code. Zie [Handig hulpprogramma bij het ontwikkelen met Azure IoT](https://blogs.msdn.microsoft.com/iotdev/2017/09/01/handy-tool-when-you-develop-with-azure-iot/) voor meer richtlijnen.
+U kunt ook de berichten controleren die worden verzonden tussen IoT Hub en de IoT Edge-apparaten. Bekijk deze berichten met behulp van de [Azure IoT Toolkit](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)-extensie voor Visual Studio Code. Zie voor meer informatie, [handig hulpmiddel bij het ontwikkelen met Azure IoT](https://blogs.msdn.microsoft.com/iotdev/2017/09/01/handy-tool-when-you-develop-with-azure-iot/).
 
 ### <a name="restart-containers"></a>Opnieuw opstarten van containers
 Na onderzoek van de logboeken en berichten voor meer informatie, kunt u proberen opnieuw te starten containers:
@@ -181,7 +181,7 @@ In Windows:
 
 ## <a name="edge-agent-stops-after-about-a-minute"></a>Edge Agent stopt na ongeveer een minuut
 
-De Edge Agent wordt gestart en wordt gedurende ongeveer een minuut uitgevoerd en vervolgens gestopt. De logboeken geven aan dat de Edge Agent verbinding probeert te maken met IoT Hub via AMQP en vervolgens ongeveer 30 seconden later verbinding probeert te maken met behulp van AMQP via websocket. Als dat mislukt, wordt de Edge Agent afgesloten. 
+De Edge Agent wordt gestart en wordt gedurende ongeveer een minuut uitgevoerd en vervolgens gestopt. De logboeken geven aan dat de Edge Agent probeert te verbinden met IoT Hub via AMQP en vervolgens verbinding probeert te maken met behulp van AMQP via WebSocket. Als dat mislukt, wordt de Edge Agent afgesloten. 
 
 Voorbeeld van Edge Agent-logboeken:
 
@@ -193,7 +193,7 @@ Voorbeeld van Edge Agent-logboeken:
 ```
 
 ### <a name="root-cause"></a>Hoofdoorzaak
-Een netwerkconfiguratie op het hostnetwerk verhindert dat de Edge Agent het netwerk bereikt. De agent probeert eerst verbinding maken via AMQP (poort 5671). Als dit niet lukt, probeert deze websockets (poort 443).
+Een netwerkconfiguratie op het hostnetwerk verhindert dat de Edge Agent het netwerk bereikt. De agent probeert eerst verbinding maken via AMQP (poort 5671). Als de verbinding is mislukt, probeert deze WebSockets (poort 443).
 
 De IoT Edge-runtime stelt een netwerk in voor elk van de modules waarmee moet worden gecommuniceerd. In Linux is dit netwerk een brugnetwerk. In Windows wordt NAT gebruikt. Dit probleem komt vaker voor op Windows-apparaten die gebruikmaken van Windows-containers die het NAT-netwerk gebruiken. 
 
@@ -235,7 +235,7 @@ Error parsing user input data: invalid hostname. Hostname cannot be empty or gre
 ```
 
 ### <a name="root-cause"></a>Hoofdoorzaak
-IoT Edge-runtime biedt alleen ondersteuning voor hostnamen die korter zijn dan 64 tekens lang zijn. Dit meestal is een probleem voor fysieke computers, maar kan zich voordoen bij het instellen van de runtime op een virtuele machine. De automatisch gegenereerde hostnamen voor Windows virtuele machines die worden gehost in Azure, meestal in het bijzonder te lang. 
+IoT Edge-runtime biedt alleen ondersteuning voor hostnamen die korter zijn dan 64 tekens lang zijn. Fysieke machines gewoonlijk lang hostnamen niet hebben, maar het probleem komt vaker voor op een virtuele machine. De automatisch gegenereerde hostnamen voor Windows virtuele machines die worden gehost in Azure, meestal in het bijzonder te lang. 
 
 ### <a name="resolution"></a>Oplossing
 Wanneer u deze fout ziet, kunt u deze kunt oplossen door de DNS-naam van uw virtuele machine configureren en vervolgens de DNS-naam als de hostnaam in de setup-opdracht in te stellen.
@@ -265,16 +265,16 @@ Wanneer u deze fout ziet, kunt u deze kunt oplossen door de DNS-naam van uw virt
 U kunt de stabiliteitsproblemen op beperkte apparaten, zoals de Raspberry Pi, ondervinden met name wanneer die wordt gebruikt als een gateway. Symptomen zijn buiten het geheugen uitzonderingen in de edge hub-module, downstream apparaten kunnen geen verbinding maken of het apparaat reageert verzenden van berichten over telemetrie na een paar uur.
 
 ### <a name="root-cause"></a>Hoofdoorzaak
-De edge hub, die deel van de edge-runtime uitmaakt, standaard is geoptimaliseerd voor prestaties en grote hoeveelheden geheugen wordt toegewezen. Dit is niet ideaal voor beperkte edge-apparaten en stabiliteitsproblemen kan veroorzaken.
+De edge hub, die deel van de edge-runtime uitmaakt, standaard is geoptimaliseerd voor prestaties en grote hoeveelheden geheugen wordt toegewezen. Deze optimalisatie is niet ideaal voor beperkte edge-apparaten en stabiliteitsproblemen kan veroorzaken.
 
 ### <a name="resolution"></a>Oplossing
-Voor de edge hub stelt de omgevingsvariabele **OptimizeForPerformance** naar **false**. Er zijn twee manieren om dit te doen:
+Voor de edge hub, stelt u een omgevingsvariabele **OptimizeForPerformance** naar **false**. Er zijn twee manieren om dit te doen:
 
 In de gebruikersinterface: 
 
 In de portal van *Apparaatdetails*->*Modules instellen*->*geavanceerde instellingen voor Edge-Runtime configureren*, maken van een omgevingsvariabele met de naam *OptimizeForPerformance* die is ingesteld op *false* voor de *Edge Hub*.
 
-![optimizeforperformance][img-optimize-for-perf]
+![optimizeforperformance](./media/troubleshoot/OptimizeForPerformanceFalse.png)
 
 **OR**
 
@@ -320,26 +320,24 @@ Error: Time:Thu Jun  4 19:44:58 2018 File:/usr/sdk/src/c/provisioning_client/ada
 ```
 
 ### <a name="root-cause"></a>Hoofdoorzaak
-De IoT Edge-daemon wordt afgedwongen proces-id in voor alle modules die verbinding maken met de edgeHub uit veiligheidsoverwegingen. Hiermee wordt gecontroleerd dat alle berichten worden verzonden door een module afkomstig van de belangrijkste proces-id van de module zijn. Als een bericht wordt verzonden door een module van de id van een ander proces dan in eerste instantie tot stand gebracht, wordt deze het bericht met een 404-fout-bericht negeren.
+De IoT Edge-daemon wordt afgedwongen proces-id in voor alle modules die verbinding maken met de edgeHub uit veiligheidsoverwegingen. Hiermee wordt gecontroleerd dat alle berichten worden verzonden door een module afkomstig van de belangrijkste proces-ID van de module zijn. Als een bericht wordt verzonden door een module van de ID van een ander proces dan in eerste instantie tot stand gebracht, wordt deze het bericht met een 404-fout-bericht negeren.
 
 ### <a name="resolution"></a>Oplossing
-Zorg ervoor dat de hetzelfde proces-id altijd door de aangepaste IoT Edge-module gebruikt wordt om berichten te verzenden naar de edgeHub. Bijvoorbeeld, zorg ervoor dat u `ENTRYPOINT` in plaats van `CMD` opdracht in uw Docker-bestand, aangezien `CMD` zal leiden tot een proces-id voor de module en een ander proces-id voor de bash-opdracht uitvoeren van de belangrijkste programma dat `ENTRYPOINT` zal leiden tot een een enkel proces-id.
+Zorg ervoor dat de hetzelfde proces-ID altijd door de aangepaste IoT Edge-module gebruikt wordt om berichten te verzenden naar de edgeHub. Bijvoorbeeld, zorg ervoor dat u `ENTRYPOINT` in plaats van `CMD` opdracht in uw Docker-bestand, aangezien `CMD` zal leiden tot een proces-ID voor de module en een ander proces-ID voor de bash-opdracht uitvoeren van de belangrijkste programma dat `ENTRYPOINT` zal leiden tot een een enkel proces-id.
 
 
 ## <a name="firewall-and-port-configuration-rules-for-iot-edge-deployment"></a>Firewall- en poortinstellingen configuratieregels voor IoT Edge-implementatie
-Azure IoT Edge kunt u communicatie tussen een on-premises Edge-server en Azure-cloud met ondersteunde protocollen van IoT Hub, Zie [een communicatieprotocol kiezen](../iot-hub/iot-hub-devguide-protocols.md). Voor een betere beveiliging zijn altijd communicatiekanalen tussen Azure IoT Edge en Azure IoT Hub geconfigureerd als uitgaande; Dit is gebaseerd op de [Services communicatiepatroon](https://blogs.msdn.microsoft.com/clemensv/2014/02/09/service-assisted-communication-for-connected-devices/), die minimaliseert de kwetsbaarheid voor aanvallen voor een schadelijke entiteit om te verkennen. Binnenkomende communicatie is alleen vereist voor specifieke scenario's waar Azure IoT Hub om berichten naar de Azure IoT Edge-server (bijvoorbeeld Cloud naar apparaatmessaging), moet deze opnieuw zijn beveiligd met een beveiligde TLS-kanalen en meer kunnen beveiligd met X.509 certificaten en TPM-apparaatmodules. De Azure IoT Edge Security Manager bepaalt hoe deze communicatie kan worden tot stand gebracht, Zie [IoT Edge Security Manager](../iot-edge/iot-edge-security-manager.md).
+Azure IoT Edge kunt u communicatie tussen een on-premises Edge-server en Azure-cloud met ondersteunde protocollen van IoT Hub, Zie [een communicatieprotocol kiezen](../iot-hub/iot-hub-devguide-protocols.md). Voor een betere beveiliging zijn altijd communicatiekanalen tussen Azure IoT Edge en Azure IoT-Hub geconfigureerd om uitgaand. Deze configuratie is gebaseerd op de [Services communicatiepatroon](https://blogs.msdn.microsoft.com/clemensv/2014/02/09/service-assisted-communication-for-connected-devices/), die minimaliseert de kwetsbaarheid voor aanvallen voor een schadelijke entiteit om te verkennen. Binnenkomende communicatie is alleen vereist voor specifieke scenario's waar Azure IoT Hub moeten push-berichten naar de Azure IoT Edge-apparaat. Cloud-naar-apparaat-berichten worden beschermd met behulp van beveiligde TLS-kanalen en verder kunnen beveiligd met X.509-certificaten en -modules voor TPM-apparaat. De Azure IoT Edge Security Manager bepaalt hoe deze communicatie kan worden tot stand gebracht, Zie [IoT Edge Security Manager](../iot-edge/iot-edge-security-manager.md).
 
 Hoewel IoT Edge verbeterde configuratie biedt voor het beveiligen van Azure IoT Edge-runtime en modules geïmplementeerd, is het nog steeds afhankelijk van de onderliggende machine en het netwerk. Het is dus van cruciaal belang om te controleren of het juiste netwerk en firewall-regels zijn ingesteld voor beveiligde Edge communicatie tussen de Cloud. De volgende kan worden gebruikt als richtlijn wanneer configuratie firewallregels voor de onderliggende servers waar Azure IoT Edge-runtime wordt gehost:
 
 |Protocol|Poort|binnenkomende|Uitgaand|Richtlijnen|
 |--|--|--|--|--|
 |MQTT|8883|GEBLOKKEERDE (standaard)|GEBLOKKEERDE (standaard)|<ul> <li>Uitgaand (uitgaand) te openen bij gebruik van MQTT als het communicatieprotocol configureren.<li>. 1883 voor MQTT wordt niet ondersteund door de IoT Edge. <li>Binnenkomende verbindingen voor (inkomend) moeten worden geblokkeerd.</ul>|
-|AMQP|5671|GEBLOKKEERDE (standaard)|OPEN (standaard)|<ul> <li>Standaard communicatieprotocol voor IoT Edge. <li> Moet worden geconfigureerd om te worden geopend als Azure IoT Edge is niet geconfigureerd voor andere ondersteunde protocollen of AMQP het gewenste communicatieprotocol is.<li>5672 voor AMQP wordt niet ondersteund door de IoT Edge.<li>Deze poort blokkeren wanneer Azure IoT Edge-gebruik een andere IoT-Hub ondersteund protocol.<li>Binnenkomende verbindingen voor (inkomend) moeten worden geblokkeerd.</ul></ul>|
-|HTTPS|443|GEBLOKKEERDE (standaard)|OPEN (standaard)|<ul> <li>Uitgaand (uitgaand) te openen op 443 configureren voor IoT Edge inrichten, dit is vereist bij het gebruik van handmatige scripts of Azure IoT Device Provisioning Service (DPS). <li>Inkomende (inkomend) verbinding moet Open zijn alleen voor specifieke scenario's: <ul> <li>  Als u een transparante gateway met leaf-apparaten die methodeaanvragen kunnen worden verzonden hebt. Poort 443 hoeft in dit geval niet te worden geopend voor externe netwerken verbinding maken met IoTHub of IoTHub-services leveren via Azure IoT Edge. De binnenkomende regel kan zo worden beperkt tot alleen binnenkomende (binnenkomend) openen van het interne netwerk. <li> Voor de Client naar apparaat (C2D)-scenario's.</ul><li>80 voor HTTP wordt niet ondersteund door de IoT Edge.<li>Als niet-HTTP-protocollen (bijvoorbeeld AMQP-, MQTT) kunnen niet worden geconfigureerd in de onderneming; de berichten kunnen worden verzonden via WebSockets. In dat geval wordt poort 443 gebruikt voor communicatie van de WebSocket.</ul>|
+|AMQP|5671|GEBLOKKEERDE (standaard)|OPEN (standaard)|<ul> <li>Standaard communicatieprotocol voor IoT Edge. <li> Moet worden geconfigureerd om te worden geopend als Azure IoT Edge is niet geconfigureerd voor andere ondersteunde protocollen of AMQP het gewenste communicatieprotocol is.<li>5672 voor AMQP wordt niet ondersteund door de IoT Edge.<li>Deze poort blokkeren wanneer Azure IoT Edge maakt gebruik van een andere IoT-Hub ondersteund protocol.<li>Binnenkomende verbindingen voor (inkomend) moeten worden geblokkeerd.</ul></ul>|
+|HTTPS|443|GEBLOKKEERDE (standaard)|OPEN (standaard)|<ul> <li>Configureer uitgaande (uitgaand) te openen op 443 voor IoT Edge wordt ingericht. Deze configuratie is vereist bij het gebruik van handmatige scripts of Azure IoT Device Provisioning Service (DPS). <li>Inkomende (inkomend) verbinding moet Open zijn alleen voor specifieke scenario's: <ul> <li>  Als u een transparante gateway met leaf-apparaten die methodeaanvragen kunnen worden verzonden hebt. Poort 443 hoeft in dit geval niet te worden geopend voor externe netwerken verbinding maken met IoTHub of IoTHub-services leveren via Azure IoT Edge. De binnenkomende regel kan zo worden beperkt tot alleen binnenkomende (binnenkomend) openen van het interne netwerk. <li> Voor de Client naar apparaat (C2D)-scenario's.</ul><li>80 voor HTTP wordt niet ondersteund door de IoT Edge.<li>Als niet-HTTP-protocollen (bijvoorbeeld AMQP of MQTT) kunnen niet worden geconfigureerd in de onderneming; de berichten kunnen worden verzonden via WebSockets. In dat geval wordt poort 443 gebruikt voor communicatie van de WebSocket.</ul>|
 
 
 ## <a name="next-steps"></a>Volgende stappen
-Denkt u dat u een fout op het IoT Edge-platform hebt gevonden? [Verzend een probleem](https://github.com/Azure/iotedge/issues) zodat we het product verder kunnen blijven verbeteren. 
+Denkt u dat u een fout op het IoT Edge-platform hebt gevonden? [Verzend een probleem](https://github.com/Azure/iotedge/issues) zodat we verder kunnen blijven verbeteren. 
 
-<!-- Images -->
-[img-optimize-for-perf]: ./media/troubleshoot/OptimizeForPerformanceFalse.png

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: 64e735a1090972a6e4cef85d1a51909e8550c536
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 02db6b4691beb4bfefa3815c87cf54f350219d81
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50221881"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50418004"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---architecture-best-practices"></a>On-premises Apache Hadoop-clusters migreren naar Azure HDInsight - architectuur van aanbevolen procedures
 
@@ -92,8 +92,7 @@ HDInsight maakt gebruik van Azure SQL Database voor Hive en Oozie metastores. Er
     - Clusters worden gemaakt en verwijderd zonder verlies van metagegevens zoals Hive-schema Oozie taakdetails.
     - Één metastore db kan worden gedeeld met andere soorten clusters
     - Metastore kan worden opgeschaald naar behoefte
-
-Zie het artikel voor meer informatie: [externe metagegevensopslag in Azure HDInsight gebruiken](../hdinsight-use-external-metadata-stores.md).
+    - Zie voor meer informatie, [externe metagegevensopslag in Azure HDInsight gebruiken](../hdinsight-use-external-metadata-stores.md).
 
 ## <a name="best-practices-for-hive-metastore"></a>Aanbevolen procedures voor Hive-Metastore
 
@@ -105,20 +104,20 @@ Enkele aanbevolen procedures voor HDInsight Hive-metastore zijn als volgt:
 - Back-up van de aangepaste metastore periodiek.
 - Houd de metastore en het HDInsight-cluster in dezelfde regio.
 - Controleer de metastore voor prestaties en beschikbaarheid met behulp van Azure SQL Database controleren hulpmiddelen, zoals Azure portal of Azure Log Analytics.
-- Voer de **tabel analyseren** opdracht zoals vereist voor het genereren van statistieken voor tabellen en kolommen. Bijvoorbeeld: `ANALYZE TABLE [table_name] COMPUTE STATISTICS`
+- Voer de **tabel analyseren** opdracht zoals vereist voor het genereren van statistieken voor tabellen en kolommen. Bijvoorbeeld `ANALYZE TABLE [table_name] COMPUTE STATISTICS`.
 
 ## <a name="best-practices-for-different-types-of-workloads"></a>Aanbevolen procedures voor verschillende typen workloads
 
 - Overweeg het gebruik van LLAP cluster voor interactieve Hive-query's met betere reactietijd [LLAP](https://cwiki.apache.org/confluence/display/Hive/LLAP) is een nieuwe functie in Hive 2.0 waarmee de caching van query's in het geheugen. LLAP maakt Hive-query's sneller en maximaal [26 x sneller dan Hive 1.x in sommige gevallen](https://hortonworks.com/blog/announcing-apache-hive-2-1-25x-faster-queries-much/).
-- Overweeg het gebruik van Spark-taken in plaats van Hive-taken
-- Impala-query's vervangen met LLAP query 's
-- Houd rekening met het vervangen van MapReduce-taken met Spark-taken
-- Houd rekening met lage latentie Spark batch-taken met behulp van Spark Structured Streaming taken vervangen
-- Gegevensindeling: overweeg het gebruik van Azure Data Factory(ADF) 2.0
-- Houd rekening met Ambari voor Clusterbeheer
-- Wijzigen van de opslag van gegevens van on-premises HDFS in WASB of ADLS of AD FS voor het verwerken van scripts
-- U kunt met het RBAC voor Ranger Hive-tabellen en controle
-- Overweeg het gebruik van cosmos DB in plaats van MongoDB of Cassandra
+- Overweeg het gebruik van Spark-taken in plaats van Hive-taken.
+- Houd rekening met het vervangen van impala-query's met LLAP query's.
+- Houd rekening met het vervangen van MapReduce-taken met Spark-taken.
+- Houd rekening met lage latentie Spark batch-taken met behulp van Spark Structured Streaming taken vervangen.
+- Overweeg het gebruik van Azure Data Factory (ADF) 2.0 gebruiken voor het indelen van.
+- Houd rekening met Ambari voor Clusterbeheer.
+- De opslag van gegevens van on-premises HDFS WASB of ADLS of AD FS wijzigen voor de verwerking van scripts.
+- U kunt met het RBAC voor Ranger Hive-tabellen en controle.
+- Overweeg het gebruik van cosmos DB in plaats van MongoDB of Cassandra.
 
 ## <a name="next-steps"></a>Volgende stappen
 

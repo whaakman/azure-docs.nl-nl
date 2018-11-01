@@ -10,12 +10,12 @@ ms.component: bing-web-search
 ms.topic: quickstart
 ms.date: 8/16/2018
 ms.author: erhopf
-ms.openlocfilehash: e0c1a038a0d63bcae8620c89462bdecfd88d8227
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 9fc9d35db50305b632f5d9c8bdfa13d28ab97980
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46121971"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50412972"
 ---
 # <a name="quickstart-use-java-to-call-the-bing-web-search-api"></a>Snelstart: Java gebruiken voor het aanroepen van de Bing Webzoekopdrachten-API  
 
@@ -27,7 +27,7 @@ Gebruik deze snelstart om voor het eerst de Bing Webzoekopdrachten-API aan te ro
 
 Voordat u verdergaat met deze snelstart moet u beschikken over:
 
-* [JDK 7 of 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+* [JDK 7 of 8](https://aka.ms/azure-jdks)
 * [GSON-bibliotheek](https://github.com/google/gson)
 * Een abonnementssleutel
 

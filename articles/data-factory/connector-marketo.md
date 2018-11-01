@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/15/2018
+ms.date: 10/31/2018
 ms.author: jingwang
-ms.openlocfilehash: efbc020f482a46621eb5c3e3cd6137d1114da6de
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 02d21db5c5fadb65ec63e41cbd9e2db8869ed2e7
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129604"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50415828"
 ---
 # <a name="copy-data-from-marketo-using-azure-data-factory-preview"></a>Gegevens kopiëren van Marketo met Azure Data Factory (Preview)
 
@@ -32,6 +32,9 @@ In dit artikel bevat een overzicht over het gebruik van de Kopieeractiviteit in 
 U kunt gegevens uit Marketo kopiëren naar een ondersteunde sink-gegevensopslag. Zie voor een lijst met gegevensarchieven die worden ondersteund als bronnen/put door de kopieeractiviteit, de [ondersteunde gegevensarchieven](copy-activity-overview.md#supported-data-stores-and-formats) tabel.
 
 Azure Data Factory biedt een ingebouwde stuurprogramma als connectiviteit wilt inschakelen, dus hoeft u stuurprogramma voor gebruik van deze connector handmatig installeren.
+
+>[!NOTE]
+>Deze connector Marketo is gebaseerd op de Marketo REST-API. Houd er rekening mee dat de Marketo heeft [limiet voor gelijktijdige aanvraag](http://developers.marketo.com/rest-api/) op servicezijde. Als u fouten zeggen bereikt "Fout bij het gebruik van REST-API: maximale snelheid overschreden '100' met in-20' seconden (606) ' of ' Fout bij het gebruik van REST-API: limiet voor gelijktijdige toegang"10"bereikt (615 kan) ', overwegen om te beperken van de uitvoeringen van de activiteit gelijktijdige kopiëren naar Verminder het aantal aanvragen naar de service.
 
 ## <a name="getting-started"></a>Aan de slag
 
