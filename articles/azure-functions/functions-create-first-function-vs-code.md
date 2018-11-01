@@ -147,7 +147,7 @@ In Visual Studio Code kunt u uw functieproject rechtstreeks in Azure publiceren.
 
 In dit artikel wordt ervan uitgegaan dat u een nieuwe functie-app maakt. Als u in een bestaande functie-app publiceert, wordt de inhoud van die app in Azure overschreven.
 
-1. Ga naar het gebied **Azure: Functions** en selecteer het pictogram Deploy to Function App (uitrollen naar functie-app).
+1. Ga naar het gebied **Azure: Functions** en selecteer het pictogram Deploy to Function App (Implementeren naar functie-app).
 
     ![Instellingen voor functie-app](./media/functions-create-first-function-vs-code/function-app-publish-project.png)
 
@@ -165,7 +165,7 @@ In dit artikel wordt ervan uitgegaan dat u een nieuwe functie-app maakt. Als u i
 
     De functie-app wordt gemaakt nadat u de locatie hebt gekozen. Nadat de functie-app is gemaakt en het implementatiepakket is toegepast, wordt er een melding weergegeven.
 
-1. Selecteer in de meldingen de optie **View Output** (Uitvoer weergeven) om de resultaten van het maken en uitrollen te bekijken, inclusief de Azure-resources die u hebt gemaakt.
+1. Selecteer in de meldingen de optie **View Output** (Uitvoer weergeven) om de resultaten van het maken en implementeren te bekijken, inclusief de Azure-resources die u hebt gemaakt.
 
     ![Uitvoer van het maken van de functie-app](./media/functions-create-first-function-vs-code/function-create-notifications.png)
 
