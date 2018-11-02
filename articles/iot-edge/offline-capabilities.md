@@ -8,12 +8,12 @@ ms.date: 09/20/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 30b85f15d8718e21af66634db5a4afd5623a77e6
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: d84df3e5e0b961b8a53044102f99205ee0fe9896
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49340168"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50914104"
 ---
 # <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices-preview"></a>Meer informatie over uitgebreide offline mogelijkheden voor IoT Edge-apparaten, modules en onderliggende apparaten (preview)
 
@@ -142,4 +142,4 @@ Vervang `<HostStoragePath>` en `<ModuleStoragePath>` opslagpad pad; de host en d
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Inschakelen van uitgebreide offline-bewerkingen in uw transparante gateway-scenario's voor [Linux](how-to-create-transparent-gateway-linux.md) of [Windows](how-to-create-transparent-gateway-windows.md) apparaten.
+Inschakelen van uitgebreide offline bewerkingen in uw [transparante gateway](how-to-create-transparent-gateway.md) scenario's.

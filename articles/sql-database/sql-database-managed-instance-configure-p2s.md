@@ -11,23 +11,23 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: carlrab, bonova, jovanpop
 manager: craigg
-ms.date: 10/05/2018
-ms.openlocfilehash: 370df2f13ddf9a2cf6613da95bd845ebfd0f253a
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.date: 11/01/2018
+ms.openlocfilehash: 8579eccfade83b3b3a016fc84429a914fbccd584
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48868176"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50912268"
 ---
-# <a name="configure-a-point-to-site-connection-to-an-azure-sql-database-managed-instance-from-on-premises"></a>Een punt-naar-site-verbinding naar een Azure SQL Database Managed Instance van on-premises configureren
+# <a name="quickstart-configure-a-point-to-site-connection-to-an-azure-sql-database-managed-instance-from-on-premises"></a>Snelstartgids: Een punt-naar-site-verbinding configureren naar een Azure SQL Database Managed Instance van on-premises
 
 In deze Quick Start ziet u hoe u verbinding maken met een Azure SQL Database Managed Instance via [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS) vanuit een on-premises clientcomputer via een punt-naar-site-verbinding. Zie voor meer informatie over punt-naar-site-verbindingen [over punt-naar-Site-VPN](../vpn-gateway/point-to-site-about.md)
 
 ## <a name="prerequisites"></a>Vereisten
 
-Deze Quick Start:
+Voor deze snelstartgids geldt het volgende:
 
-- Gebruikt als de wijst u de resources die in deze snelstartgids zijn gemaakt: [maken van een beheerd exemplaar](sql-database-managed-instance-get-started.md).
+- De resources die zijn gemaakt in de snelstartgids [Een Azure SQL Managed Instance maken](sql-database-managed-instance-get-started.md) vormen het uitgangspunt.
 - PowerShell 5.1 en Azure PowerShell 5.4.2 vereist of hoger uw on-premises client-computer.
 - Vereist de nieuwste versie van [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS) op uw on-premises client-computer
 
@@ -104,5 +104,5 @@ Nadat u verbinding hebt gemaakt, kunt u uw systeem en gebruikersdatabases bekijk
 ## <a name="next-steps"></a>Volgende stappen
 
 - Zie voor een snelstart van het verbinding maken vanaf een virtuele machine van Azure [een punt-naar-site-verbinding configureren](sql-database-managed-instance-configure-p2s.md)
-- Zie voor een overzicht van de opties voor de verbinding voor toepassingen, [verbinding maken met uw toepassingen naar Managed Instance](sql-database-managed-instance-connect-app.md).
-- Als u wilt een bestaande SQL Server-database herstellen van on-premises naar een beheerd exemplaar, kunt u de [Azure Database Migration Service (DMS) voor de migratie](../dms/tutorial-sql-server-to-managed-instance.md) om terug te zetten vanuit een back-upbestand van de database of de [T-SQL herstellen opdracht](sql-database-managed-instance-get-started-restore.md) om terug te zetten vanuit een back-upbestand van de database.
+- Zie [Verbinding maken tussen uw toepassing en het beheerde exemplaar van Azure SQL Database](sql-database-managed-instance-connect-app.md) voor een overzicht van de verbindingsopties voor toepassingen.
+- Als u een bestaande SQL Server-database van on-premises wilt herstellen naar een beheerd exemplaar, kunt u de [Azure Database Migration Service (DMS) voor migratie](../dms/tutorial-sql-server-to-managed-instance.md) gebruiken om de database terug te zetten vanuit een back-upbestand van de database. U gebruikt de opdracht [T-SQL RESTORE](sql-database-managed-instance-get-started-restore.md) als u de database wilt terugzetten vanuit een back-upbestand van de database.

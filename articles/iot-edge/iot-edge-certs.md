@@ -8,12 +8,12 @@ ms.date: 09/13/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a782a7341e53420dbc31fefc86007951df967a9e
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: af1a14f87eaf20a7f49a8fc6112c4f3c7595f6bd
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46313416"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50914363"
 ---
 # <a name="azure-iot-edge-certificate-usage-detail"></a>Azure IoT Edge-certificaat-gebruiksdetails
 
@@ -78,9 +78,9 @@ Omdat de fabrikant en de operator processen zijn gescheiden, zijn er enkele gevo
 
 ## <a name="devtest-implications"></a>Gevolgen voor ontwikkelen en testen
 
-Voor het vereenvoudigen van de ontwikkeling en testen van scenario's, biedt Microsoft een set [gemak scripts](https://github.com/Azure/azure-iot-sdk-c/tree/master/tools/CACertificates) voor het genereren van niet-productie-certificaten die geschikt zijn voor IoT Edge in het scenario voor transparante gateway.
+Voor het vereenvoudigen van de ontwikkeling en testen van scenario's, biedt Microsoft een set [gemak scripts](https://github.com/Azure/azure-iot-sdk-c/tree/master/tools/CACertificates) voor het genereren van niet-productie-certificaten die geschikt zijn voor IoT Edge in het scenario voor transparante gateway. Zie voor meer voorbeelden van hoe de scripts werken [configureren van een IoT Edge-apparaat om te fungeren als een transparante gateway](how-to-create-transparent-gateway.md).
 
-Deze scripts genereren van certificaten die de structuur van het certificaat-keten beschreven in dit artikel volgen. Voor [Linux](how-to-create-transparent-gateway-linux.md#certificate-creation) of [Windows](how-to-create-transparent-gateway-windows.md#certificate-creation). De volgende opdrachten de "CA-basiscertificaat' en een enkele"tussenliggende CA-certificaat' genereren.
+Deze scripts genereren van certificaten die de structuur van het certificaat-keten beschreven in dit artikel volgen. De volgende opdrachten de "CA-basiscertificaat' en een enkele"tussenliggende CA-certificaat' genereren.
 
 ```bash
 ./certGen.sh create_root_and_intermediate 
@@ -124,6 +124,4 @@ Hier ziet u de hiërarchie van certificaat diepte weergegeven in de schermafbeel
 
 [Informatie over Azure IoT Edge-modules](iot-edge-modules.md)
 
-[Een IoT Edge-apparaat gebruiken als een transparante gateway (Linux)](how-to-create-transparent-gateway-linux.md)
-
-[Een IoT Edge-apparaat gebruiken als een transparante gateway (Windows)](how-to-create-transparent-gateway-windows.md)
+[Een IoT Edge-apparaat om te fungeren als een transparante gateway configureren](how-to-create-transparent-gateway.md)

@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 robot: noindex
-ms.openlocfilehash: c74563ba98835403f12a4df048d7ff358014b826
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 07768ee1590fa087a1eb1486cb59ab0f57d02b64
+ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406667"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50747538"
 ---
 # <a name="connecting-cosmos-db-with-azure-search-using-indexers"></a>Cosmos DB verbinden met Azure Search met behulp van indexeerfuncties
 
@@ -48,6 +48,8 @@ Ondersteuning voor aanvullende API's is binnenkort. Om te helpen we prioriteit g
 ## <a name="prerequisites"></a>Vereisten
 
 Naast een Cosmos DB-account, moet u beschikken over een [Azure Search-service](search-create-service-portal.md). 
+
+U kunt in uw Cosmos DB-account of u wilt dat de verzameling moeten worden alle documenten automatisch te indexeren. Standaard alle documenten automatisch worden geïndexeerd, maar u kunt automatische indexering uitschakelen. Wanneer indexeren is uitgeschakeld, documenten zijn toegankelijk via alleen hun Self link-elementen of door query's met behulp van het document-id. Azure Search is vereist voor Cosmos DB automatische indexering zijn ingeschakeld in de verzameling die door Azure Search worden geïndexeerd. 
 
 <a name="Concepts"></a>
 ## <a name="azure-search-indexer-concepts"></a>Concepten van de indexeerfunctie Azure Search

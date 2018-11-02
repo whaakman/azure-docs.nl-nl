@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/17/2018
 ms.author: miradic
-ms.openlocfilehash: fbaf6b92a2605d284a749365d542c223e09f730d
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 1bee48225448a964da7caa2a7b284b274c52bea6
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49362599"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50914053"
 ---
 # <a name="introduction-to-auto-scaling"></a>Inleiding tot automatisch schalen
 Automatisch schalen is een extra functie van Service Fabric voor het dynamisch schalen van uw services op basis van de belasting van services rapporteren of op basis van hun gebruik van resources. Automatisch schalen biedt grote flexibiliteit en inrichting van extra exemplaren of partities van de service op aanvraag. De gehele functie voor automatisch schalen van proces is automatisch en transparant en zodra het instellen van uw beleid voor een service is niet nodig voor handmatige vergroten / verkleinen op het serviceniveau van de. Automatisch schalen kan worden ingeschakeld tijdens de aanmaak van de service of op elk gewenst moment door het bijwerken van de service.
@@ -41,7 +41,7 @@ Alle triggers die momenteel worden ondersteund werken met [logische meetwaarden]
 Er zijn twee methoden die momenteel worden ondersteund voor automatisch schalen. Het eerste item is bedoeld voor stateless services of voor containers wanneer automatisch schalen wordt uitgevoerd door het toevoegen of verwijderen van [exemplaren](service-fabric-concepts-replica-lifecycle.md). Stateful en stateless services, automatisch schalen kan ook worden uitgevoerd door toe te voegen of te verwijderen met de naam [partities](service-fabric-concepts-partitioning.md) van de service.
 
 > [!NOTE]
-> Er is momenteel ondersteuning voor slechts één schaalbeleid per service.
+> Er is momenteel ondersteuning voor slechts één schaalbeleid per service en slechts één vergroten/verkleinen trigger per beleid.
 
 ## <a name="average-partition-load-trigger-with-instance-based-scaling"></a>Gemiddelde partitie load trigger met schalen op basis van exemplaar
 Het eerste type van de trigger is gebaseerd op de belasting van de exemplaren in een servicepartitie stateless. Metrische gegevens geladen worden eerst geëffend om op te halen van de belasting voor elk exemplaar van een partitie en vervolgens deze waarden zijn gemiddeld over alle exemplaren van de partitie. Er zijn drie factoren die bepalen wanneer de service wordt aangepast:

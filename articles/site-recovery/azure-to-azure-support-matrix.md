@@ -5,19 +5,21 @@ services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.topic: conceptual
+ms.devlang: na
+ms.topic: article
 ms.date: 10/28/2018
 ms.author: raynew
-ms.openlocfilehash: f8f529ecc21e8d9ecf149edb8bdf45e8b20dc283
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: ad6bf2db44996684096deb2b351301e450d80249
+ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50241253"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50747963"
 ---
-# <a name="support-matrix-for-disaster-recovery-of-azure-vms-between-azure-regions"></a>Ondersteuningsmatrix voor herstel na noodgevallen van virtuele Azure-machines tussen Azure-regio 's
+# <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Ondersteuningsmatrix voor het repliceren van de ene Azure-regio naar een andere
 
 In dit artikel bevat een overzicht van ondersteunde configuraties en -onderdelen wanneer u herstel na noodgeval met replicatie, failover en herstel van virtuele Azure-machines van de ene Azure-regio naar een andere, implementeert met behulp van de [Azure Site Recovery](site-recovery-overview.md) service.
+
 
 ## <a name="deployment-method-support"></a>Ondersteuning voor implementatie-methode
 
@@ -32,10 +34,10 @@ In dit artikel bevat een overzicht van ondersteunde configuraties en -onderdelen
 ## <a name="resource-support"></a>Resource-ondersteuning
 
 **Resource-actie** | **Details**
---- | --- | --- 
+--- | --- | ---
 **Kluis verplaatsen tussen resourcegroepen** | Niet ondersteund
 **Compute/opslagnetwerk resources verplaatsen tussen resourcegroepen** | Wordt niet ondersteund.<br/><br/> Als u een virtuele machine of de bijbehorende onderdelen, zoals opslag/netwerk verplaatst nadat de virtuele machine repliceert, die u wilt uitschakelen en vervolgens weer inschakelen replicatie voor de virtuele machine.
-**Virtuele Azure-machines repliceren van één abonnement naar een andere voor herstel na noodgevallen** | Ondersteund binnen dezelfde Azure Active Directory-tenant. 
+**Virtuele Azure-machines repliceren van één abonnement naar een andere voor herstel na noodgevallen** | Ondersteund binnen dezelfde Azure Active Directory-tenant.
 **Virtuele machines migreren tussen regio's binnen de ondersteunde geografische clusters (binnen en tussen abonnementen)** | Ondersteund binnen dezelfde Azure Active Directory-tenant.
 **Migreren van VM's binnen dezelfde regio** | Wordt niet ondersteund.
 
@@ -77,8 +79,8 @@ Site Recovery biedt ondersteuning voor replicatie van virtuele Azure-machines me
 **Besturingssysteem** | **Details**
 --- | ---
 Windows Server 2016  | Server Core, Server met Bureaubladervaring
-Windows Server 2012 R2 | 
-Windows Server 2012 | 
+Windows Server 2012 R2 |
+Windows Server 2012 |
 Windows Server 2008 R2 | Met SP1 of hoger
 
 #### <a name="linux"></a>Linux
@@ -131,7 +133,7 @@ SUSE Linux Enterprise Server 12 (SP3 SP1, SP2) | 9.19 | SP1 3.12.49-11-default n
 SUSE Linux Enterprise Server 12 (SP3 SP1, SP2) | 9.18 | SP1 3.12.49-11-default naar 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default naar 3.12.74-60.64.93-default</br></br> SP2 4.4.21-69-default naar 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default naar 4.4.121-92.80-default</br></br>SP3 4.4.73-5-default naar 4.4.138-94.39-default |
 SUSE Linux Enterprise Server 12 (SP3 SP1, SP2) | 9.17 | SP1 3.12.49-11-default naar 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default naar 3.12.74-60.64.88-default</br></br> SP2 4.4.21-69-default naar 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default</br></br>SP3 4.4.73-5-default naar 4.4.126-94.22-default |
 
-## <a name="replicated-machines---linux-file-systemguest-storage"></a>Gerepliceerde machines - Linux-systeem/Gast bestandsopslag 
+## <a name="replicated-machines---linux-file-systemguest-storage"></a>Gerepliceerde machines - Linux-systeem/Gast bestandsopslag
 
 * -Bestandssystemen: ext3, ext4, ReiserFS (Suse Linux Enterprise Server alleen), XFS
 * Volume manager: LVM2
@@ -143,7 +145,7 @@ SUSE Linux Enterprise Server 12 (SP3 SP1, SP2) | 9.17 | SP1 3.12.49-11-default n
 **Instelling** | **Ondersteuning** | **Details**
 --- | --- | ---
 Grootte | Elke Azure-VM-grootte met ten minste 2 CPU-kernen en 1 GB RAM-geheugen | Controleer of [Azure VM-groottes](../virtual-machines/windows/sizes.md).
-Beschikbaarheidssets | Ondersteund | Als u replicatie voor een Azure VM met de standaardopties inschakelt, wordt een beschikbaarheidsset op basis van de bron regio-instellingen automatisch gemaakt. U kunt deze instellingen wijzigen. 
+Beschikbaarheidssets | Ondersteund | Als u replicatie voor een Azure VM met de standaardopties inschakelt, wordt een beschikbaarheidsset op basis van de bron regio-instellingen automatisch gemaakt. U kunt deze instellingen wijzigen.
 Beschikbaarheidszones | Niet ondersteund | Virtuele machines die worden geïmplementeerd in beschikbaarheidszones op dit moment niet te repliceren.
 Hybrid Use Benefit (HUB) | Ondersteund | Als de bron-VM een HUB-licentie ingeschakeld, een testfailover heeft of failover gebruikt VM ook de HUB-licentie.
 Schaalsets van virtuele machines | Niet ondersteund |
@@ -164,14 +166,14 @@ Een schijf toevoegen aan een gerepliceerde virtuele machine | Wordt niet onderst
 Deze tabel samengevat ondersteuning voor de Azure VM-besturingssysteem schijf, de gegevensschijf en de tijdelijke schijf.
 
 - Het is belangrijk om te bekijken van de limieten voor VM-schijf en de doelen voor [Linux](../virtual-machines/linux/disk-scalability-targets.md) en [Windows](../virtual-machines/windows/disk-scalability-targets.md) virtuele machines om eventuele prestatieproblemen te voorkomen.
-- Als u met de standaardinstellingen implementeert, maakt Site Recovery automatisch schijven en opslagaccounts op basis van de broninstellingen. 
-- Als u wilt aanpassen, controleert u of dat u de richtlijnen volgen. 
+- Als u met de standaardinstellingen implementeert, maakt Site Recovery automatisch schijven en opslagaccounts op basis van de broninstellingen.
+- Als u wilt aanpassen, controleert u of dat u de richtlijnen volgen.
 
 **Onderdeel** | **Ondersteuning** | **Details**
 --- | --- | ---
 Maximale grootte van de Besturingssysteemschijf | 2048 GB | [Meer informatie](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms) over VM-schijven.
 Tijdelijke schijf | Niet ondersteund | De tijdelijke schijf is altijd uitgesloten van replicatie.<br/><br/> Geen permanente gegevens op de tijdelijke schijf. [Meer informatie](../virtual-machines/windows/about-disks-and-vhds.md#temporary-disk).
-Maximale grootte van de gegevensschijf | 4095 GB | 
+Maximale grootte van de gegevensschijf | 4095 GB |
 Maximum aantal voor gegevens-schijf | Maximaal 64, in overeenstemming met de ondersteuning voor een specifieke Azure-VM-grootte | [Meer informatie](../virtual-machines/windows/sizes.md) over VM-grootten.
 Veranderingssnelheid van gegevens-schijf | Maximaal 10 MBps per schijf voor premium-opslag. Maximaal 2 MBps per schijf voor Standard-opslag. | Als de gemiddelde gegevenswijzigingssnelheid op de schijf is voortdurend hoger is dan de maximale, replicatie wordt niet actueel.<br/><br/>  Echter, als de maximale sporadisch wordt overschreden, replicatie kan bijwonen, maar ziet u mogelijk enigszins vertraagd herstelpunten.
 Gegevensschijf - standard storage-account | Ondersteund |
@@ -182,15 +184,22 @@ Redundantie | LRS en GRS worden ondersteund.<br/><br/> ZRS wordt niet ondersteun
 Opslag van koude en warme | Niet ondersteund | VM-schijven worden niet ondersteund op de opslag van koude en warme
 Opslagruimten | Ondersteund |         
 Versleuteling-at-rest (SSE) | Ondersteund | SSE is de standaardinstelling op storage-accounts.   
-Azure Disk Encryption (ADE) voor Windows | VM's zijn ingeschakeld voor [versleuteling met Azure AD-app](https://aka.ms/ade-aad-app) worden ondersteund. |
-Azure Disk Encryption (ADE) voor Linux | Niet ondersteund |
-Hot toevoegen/verwijderen van schijf    | Niet ondersteund | Als u toevoegen of verwijderen van de gegevensschijf op de virtuele machine, moet u replicatie voor de virtuele machine uitschakelen en vervolgens weer inschakelen.
-Schijf uitsluiten | Niet ondersteund | De tijdelijke schijf is uitgesloten standaard.
-Storage Spaces Direct  | Niet ondersteund 
-Scale-out bestandsserver  | Niet ondersteund 
+Azure Disk Encryption (ADE) voor Windows-besturingssysteem | VM's zijn ingeschakeld voor [versleuteling met Azure AD-app](https://aka.ms/ade-aad-app) worden ondersteund |
+Azure Disk Encryption (ADE) voor Linux-besturingssysteem | Niet ondersteund |
+Hot toevoegen of verwijderen-schijf | Niet ondersteund | Als u toevoegen of verwijderen van de gegevensschijf op de virtuele machine, moet u replicatie uitschakelen en inschakelen van replicatie opnieuw voor de virtuele machine.
+Schijf uitsluiten | Niet ondersteund|   Tijdelijke schijf is uitgesloten standaard.
+Storage Spaces Direct  | Niet ondersteund|
+Scale-out bestandsserver  | Niet ondersteund|
+LRS | Ondersteund |
+GRS | Ondersteund |
+RA-GRS | Ondersteund |
+ZRS | Niet ondersteund |  
+Opslag van koude en warme | Niet ondersteund | Schijven van virtuele machines worden niet ondersteund op de opslag van koude en warme
+Azure Storage-firewalls voor virtuele netwerken  | Ja | Zorg ervoor dat de vertrouwde Microsoft-services toegang hebben tot het opslagaccount als beperking van toegang tot het virtuele netwerk naar storage-accounts.
+Opslagaccounts voor algemeen gebruik V2 (zowel warme en koude laag) | Nee | Toename van de transactie kosten vergeleken aanzienlijk met algemeen gebruik V1-opslagaccounts
 
-
-
+>[!IMPORTANT]
+> Zorg ervoor dat u ziet dat de virtuele machine schijf schaalbaarheids- en prestatiedoelen voor [Linux](../virtual-machines/linux/disk-scalability-targets.md) of [Windows](../virtual-machines/windows/disk-scalability-targets.md) virtuele machines om eventuele prestatieproblemen te voorkomen. Als u de standaardinstellingen volgt, maakt Site Recovery de benodigde schijven en opslagaccounts op basis van de configuratie van de gegevensbron. Als u aanpassen en uw eigen instellingen selecteert, zorgt u ervoor dat u de schijf schaalbaarheids- en prestatiedoelen voor de bron-VM's volgt.
 
 ## <a name="replicated-machines---networking"></a>Gerepliceerde machines - netwerken
 **Configuratie** | **Ondersteuning** | **Details**
@@ -201,17 +210,18 @@ Een interne Load balancer | Ondersteund | Koppel de vooraf geconfigureerde load 
 Openbaar IP-adres | Ondersteund | Een bestaande openbare IP-adres koppelen aan de NIC. Of maak een openbaar IP-adres en koppel deze aan de NIC met behulp van een Azure Automation-script van een herstelplan te gaan.
 NSG op de NIC | Ondersteund | De NSG koppelen aan de NIC met behulp van een Azure Automation-script van een herstelplan te gaan.  
 NSG voor subnet | Ondersteund | De NSG koppelen aan het subnet met behulp van een Azure Automation-script van een herstelplan te gaan.
-Gereserveerd (statisch) IP-adres | Ondersteund | Als de NIC op de bron-VM een statisch IP-adres heeft en het doelsubnet de hetzelfde IP-adres is, deze toegewezen aan de failover VM.<br/><br/> Als het doelsubnet niet hetzelfde IP-adres beschikbaar is, wordt een van de beschikbare IP-adressen in het subnet is gereserveerd voor de virtuele machine.<br/><br/> U kunt ook opgeven een vast IP-adres en subnetmasker in **gerepliceerde items** > **instellingen** > **berekening en netwerk**  >  **Netwerkinterfaces**. 
-Dynamisch IP-adres | Ondersteund | Als de NIC op de broncomputer dynamische IP heeft-adressering, is het ook de NIC uitvoert voor virtuele machine op de standaard dynamisch.<br/><br/> U kunt dit wijzigen naar een vaste IP-adres indien nodig. 
+Gereserveerd (statisch) IP-adres | Ondersteund | Als de NIC op de bron-VM een statisch IP-adres heeft en het doelsubnet de hetzelfde IP-adres is, deze toegewezen aan de failover VM.<br/><br/> Als het doelsubnet niet hetzelfde IP-adres beschikbaar is, wordt een van de beschikbare IP-adressen in het subnet is gereserveerd voor de virtuele machine.<br/><br/> U kunt ook opgeven een vast IP-adres en subnetmasker in **gerepliceerde items** > **instellingen** > **berekening en netwerk**  >  **Netwerkinterfaces**.
+Dynamisch IP-adres | Ondersteund | Als de NIC op de broncomputer dynamische IP heeft-adressering, is het ook de NIC uitvoert voor virtuele machine op de standaard dynamisch.<br/><br/> U kunt dit wijzigen naar een vaste IP-adres indien nodig.
 Traffic Manager     | Ondersteund | U kunt Traffic Manager vooraf configureren zodat verkeer wordt doorgestuurd naar het eindpunt in de bronregio op gezette tijden en naar het eindpunt in de doelregio in het geval van failover.
 Azure DNS | Ondersteund |
 Aangepaste DNS  | Ondersteund |    
-Niet-geverifieerde proxy | Ondersteund | [Meer informatie](site-recovery-azure-to-azure-networking-guidance.md).   
-Geverifieerde proxy | Niet ondersteund | U kunt een virtuele machine die van een geverifieerde proxyserver voor de uitgaande connectiviteit gebruikmaakt kan niet repliceren     
-Site-naar-site-VPN | Ondersteund met of zonder ExpressRoute | Zorg ervoor dat de Udr en nsg's zodanig dat dus dat Site Recovery-verkeer niet wordt geleid naar on-premises zijn geconfigureerd. [Meer informatie](site-recovery-azure-to-azure-networking-guidance.md).
-VNET-naar-VNET-verbinding | Ondersteund |[Meer informatie](site-recovery-azure-to-azure-networking-guidance.md). 
-Service-eindpunten voor virtueel netwerk | Ondersteund | Houd er rekening mee dat Azure Storage-firewalls voor virtuele netwerken worden niet ondersteund. Bovendien, wordt niet waardoor er toegang tot specifieke Azure-netwerken op cacheopslagaccounts gebruikt voor het opslaan van gerepliceerde gegevens ondersteund.
+Niet-geverifieerde Proxy | Ondersteund | Raadpleeg [leidraad voor netwerken.](site-recovery-azure-to-azure-networking-guidance.md)    
+Geverifieerde Proxy | Niet ondersteund | Als de virtuele machine van een geverifieerde proxyserver voor de uitgaande connectiviteit gebruikmaakt, kan niet worden gerepliceerd met behulp van Azure Site Recovery.    
+Site-naar-Site-VPN met on-premises (met of zonder ExpressRoute)| Ondersteund | Zorg ervoor dat de Udr en nsg's zodanig dat het Site recovery-verkeer niet wordt doorgestuurd naar on-premises zijn geconfigureerd. Raadpleeg [leidraad voor netwerken.](site-recovery-azure-to-azure-networking-guidance.md)  
+VNET-naar-VNET-verbinding | Ondersteund | Raadpleeg [leidraad voor netwerken.](site-recovery-azure-to-azure-networking-guidance.md)  
+Service-eindpunten voor virtueel netwerk | Ondersteund | Zorg ervoor dat de vertrouwde Microsoft-services toegang hebben tot het opslagaccount als beperking van toegang tot het virtuele netwerk naar storage-accounts. 
 Versneld netwerken | Ondersteund | Versneld netwerken moet zijn ingeschakeld op de bron-VM. [Meer informatie](azure-vm-disaster-recovery-with-accelerated-networking.md).
+
 
 
 ## <a name="next-steps"></a>Volgende stappen

@@ -4,16 +4,16 @@ description: Klik hier voor meer informatie over het configureren van de Azure I
 author: kgremban
 manager: ''
 ms.author: kgremban
-ms.date: 09/24/2018
+ms.date: 11/01/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 6e6a1d2f758cabca41ac405a01de1f0d8bfd0a7b
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 72855058c5e8294eece55f8dbcdc501025c9aabf
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47037453"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50913220"
 ---
 # <a name="configure-an-iot-edge-device-to-communicate-through-a-proxy-server"></a>Een IoT Edge-apparaat om te communiceren via een proxyserver configureren
 
@@ -25,6 +25,18 @@ Een IoT Edge-apparaat om te werken met een proxyserver configureren, volgt deze 
 2. Configureer de Docker-daemon en de IoT Edge-daemon op uw apparaat om de proxyserver te gebruiken.
 3. Configureer de edgeAgent-eigenschappen in het bestand config.yaml op uw apparaat.
 4. Omgevingsvariabelen worden ingesteld voor de IoT Edge-runtime en andere IoT-Edge modules in het manifest van de implementatie. 
+
+## <a name="know-your-proxy-url"></a>De URL van uw proxy weet
+
+Voor het configureren van de Docker-daemon en de IoT Edge op uw apparaat, moet u de URL van uw proxy kent. 
+
+Proxy-URL's worden de volgende indeling: **protocol**://**proxy_host**:**proxy_poort**. 
+
+* De **protocol** via HTTP of HTTPS is. De Docker-daemon kan worden geconfigureerd met een van beide protocol, afhankelijk van de instellingen van uw container-register, maar de IoT Edge-daemon en runtime containers moeten altijd gebruik van HTTPS.
+
+* De **proxy_host** is een adres voor de proxyserver. Als uw proxyserver verificatie is vereist, kunt u uw referenties opgeven als onderdeel van de proxy_host in de indeling van **gebruiker**:**wachtwoord**@**proxy_host**. 
+
+* De **proxy_poort** is de netwerkpoort waarop de proxy op netwerkverkeer reageert. 
 
 ## <a name="install-the-runtime"></a>De runtime installeren
 
@@ -47,7 +59,7 @@ De Docker- en IoT Edge-daemons die worden uitgevoerd op uw IoT Edge-apparaat moe
 
 ### <a name="docker-daemon"></a>Docker-daemon
 
-Raadpleeg de documentatie voor Docker de Docker-daemon configureren met omgevingsvariabelen. De meeste containerregisters (inclusief DockerHub en Azure Container Registry) ondersteuning voor HTTPS-aanvragen, zodat de variabele die u moet instellen **HTTPS_PROXY**. Als u bent installatiekopieën binnenhaalt vanuit een register dat biedt geen ondersteuning voor transport layer security (TLS) en u moet instellen de **gebruikt**. 
+Raadpleeg de documentatie voor Docker de Docker-daemon configureren met omgevingsvariabelen. De meeste containerregisters (inclusief DockerHub en Azure Container Registry) ondersteuning voor HTTPS-aanvragen, zodat de parameter die u moet instellen is **HTTPS_PROXY**. Als u bent installatiekopieën binnenhaalt vanuit een register dat biedt geen ondersteuning voor transport layer security (TLS), dan moet u instellen de **gebruikt** parameter. 
 
 Kies het artikel dat van toepassing op uw Docker-versie: 
 
@@ -113,7 +125,9 @@ Open het bestand config.yaml op uw IoT Edge-apparaat. Op Linux-systemen, dit bes
 
 Zoek in het bestand config.yaml de **Edge Agent-module spec** sectie. De definitie van de Edge agent bevat een **env** parameter waar u omgevingsvariabelen kunt toevoegen. 
 
-![edgeAgent definitie](./media/how-to-configure-proxy-support/edgeagent-unedited.png)
+<!--
+![edgeAgent definition](./media/how-to-configure-proxy-support/edgeagent-unedited.png)
+-->
 
 Verwijder de accolades die tijdelijke aanduidingen voor de parameter env zijn, en voeg de nieuwe variabele op een nieuwe regel toe. Houd er rekening mee dat streepjes in YAML twee spaties zijn. 
 
@@ -201,7 +215,7 @@ Als u de **UpstreamProtocol** omgevingsvariabele in het bestand confige.yaml op 
 ```json
 "env": {
     "https_proxy": {
-        "value": "<proxy URL"
+        "value": "<proxy URL>"
     },
     "UpstreamProtocol": {
         "value": "AmqpWs"

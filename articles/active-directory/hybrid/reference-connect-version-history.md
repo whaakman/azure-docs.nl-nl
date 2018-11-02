@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 09/06/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: f0a9ac1700d635365ebea0c5966489ed3d2d797b
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 335db0130ae6dd3d11d6592208fdf37e762509e5
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50420237"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50914818"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Versiegeschiedenis van release
 Azure AD Connect het team van Azure Active Directory (Azure AD) regelmatig bijgewerkt met nieuwe functies en functionaliteit. Niet alle toevoegingen gelden voor alle doelgroepen.
@@ -48,7 +48,6 @@ Downloaden | [Azure AD Connect downloaden](http://go.microsoft.com/fwlink/?LinkI
 
 
 - Gewijzigd van de functionaliteit van kenmerk terugschrijven om ervoor te zorgen gehoste voicemail werkt zoals verwacht.  In bepaalde scenario's, is Azure AD het kenmerk msExchUcVoicemailSettings overschreven tijdens write-back met een null-waarde.  Azure AD wordt nu niet meer de on-premises-waarde van dit kenmerk gewist als de waarde van de cloud is niet ingesteld.
-- De verwerking van gewijzigde standaardregels verbeterd. U bent nu een melding als u wijzigingen hebt aangebracht in de standaardregels en opties voor het herstellen van de standaardregels worden aangeboden. 
 - Diagnostische gegevens in de Azure AD Connect-wizard voor het onderzoeken en identificeren van problemen met de netwerkverbinding met Azure AD toegevoegd. Deze dezelfde diagnostische gegevens kunnen ook worden uitgevoerd via Powershell direct met de Cmdlet Test - AdSyncAzureServiceConnectivity. 
 - Diagnostische gegevens in de Azure AD Connect-wizard voor het onderzoeken en identificeren van problemen met de netwerkverbinding naar AD toegevoegd. Deze dezelfde diagnostische gegevens kunnen ook worden uitgevoerd via Powershell direct met de functie Start ConnectivityValidation in de ADConnectivityTools Powershell-module.  Zie voor meer informatie [wat is de ADConnectivityTool PowerShell-Module?](how-to-connect-adconnectivitytools.md)
 - Een AD-schema versiecontrole vooraf voor de toegevoegd voor hybride Azure Active Directory-Join en write-back van apparaat 

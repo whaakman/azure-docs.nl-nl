@@ -27,11 +27,11 @@ Vier secundaire versies van Kubernetes biedt ondersteuning voor AKS:
 - De huidige secundaire versie die is uitgebracht upstream (n)
 - Drie vorige secundaire versies. Elke ondersteunde secundaire versie biedt ook ondersteuning voor twee stabiel patches.
 
-Bijvoorbeeld, als u AKS introduceert *1.11.x* vandaag de dag wordt ook ondersteund voor *1.10.a* + *1.10.b*, *1.9.c* + *1,9 d*, *1.8.e* + *1.8F* (waarbij de versies van de letters patch twee nieuwste stabiele builds zijn).
+Bijvoorbeeld, als u AKS introduceert *1.11.x* vandaag de dag wordt ook ondersteund voor *1.10.a* + *1.10.b*, *1.9.c* + *1,9 d*, *1.8.e*\ + *1.8F* (waarbij de versies van de letters patch twee nieuwste stabiele builds zijn).
 
 Wanneer een nieuwe secundaire versie is geïntroduceerd, zijn de oudste secundaire versie en patch-versies ondersteund buiten gebruik gesteld. 15 dagen vóór de release van de nieuwe secundaire versie en de komende versie buiten gebruik stellen, wordt een aankondiging gemaakt via de Azure-update-kanalen. In het voorbeeld hierboven waar *1.11.x* is uitgebracht, de buiten gebruik gestelde versies zijn *1.7.g* + *1.7.h*.
 
-Wanneer u een AKS-cluster in de portal of met de Azure CLI implementeert, wordt het cluster is altijd ingesteld op de secundaire versie van n-1 en de nieuwste patch. Bijvoorbeeld, als biedt ondersteuning voor AKS *1.11.x*, *1.10.a* + *1.10.b*, *1.9.c* + *1,9 d*, *1.8.e* + *1.8F*, is de standaardversie voor nieuwe clusters *1.10.b*.
+Wanneer u een AKS-cluster in de portal of met de Azure CLI implementeert, wordt het cluster is altijd ingesteld op de secundaire versie van n-1 en de nieuwste patch. Bijvoorbeeld, als biedt ondersteuning voor AKS *1.11.x*, *1.10.a* + *1.10.b*, *1.9.c* + *1,9 d*, *1.8.e*\ + *1.8F*, is de standaardversie voor nieuwe clusters *1.10.b*.
 
 ## <a name="list-currently-supported-versions"></a>Versies weergeven die momenteel worden ondersteund
 
@@ -62,7 +62,7 @@ KubernetesVersion    Upgrades
 
 Als u van gebruikmaakt de *n-4* versie, die u niet de SLO zijn. Als de upgrade van versie n-4 naar n-3 is voltooid, bent u in de Serviceniveaudoelstelling. Bijvoorbeeld:
 
-- Als de ondersteunde versies van AKS *1.10.a* + *1.10.b*, *1.9.c* + *1,9 d*, *1.8.e* + *1.8F* en u bent op *1.7.g* of *1.7.h*, u niet de SLO zijn.
+- Als de ondersteunde versies van AKS *1.10.a* + *1.10.b*, *1.9.c* + *1,9 d*, *1.8.e*\ + *1.8F* en u bent op *1.7.g* of *1.7.h*, u niet de SLO zijn.
 - Als de upgrade van *1.7.g* of *1.7.h* naar *1.8.e* of *1.8.f* is geslaagd, u bent terug op de Serviceniveaudoelstelling.
 
 Upgrades naar versies die ouder zijn dan *n-4* worden niet ondersteund. In dergelijke gevallen raden wij klanten nieuwe AKS-clusters maken en implementeren van hun workloads.

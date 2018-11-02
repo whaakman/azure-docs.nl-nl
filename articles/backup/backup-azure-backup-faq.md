@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: raynew
-ms.openlocfilehash: 42994a38aeab7f6da552f2f9073a806142511531
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 9fb955b6bce5b3d40def095180326fdc9aed33b1
+ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50095525"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50747895"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup - Veelgestelde vragen
 In dit artikel vindt u antwoorden op veelgestelde vragen over de Azure Backup-service.
@@ -44,7 +44,7 @@ Nee. Back-upgegevens die zijn opgeslagen in een kluis kan niet worden verplaatst
 Nee. Een Recovery Services-kluis kunt opslagopties alleen wijzigen voordat u een back-ups zijn opgeslagen.
 
 ### <a name="can-i-do-an-item-level-restore-ilr-for-vms-backed-up-to-a-recovery-services-vault"></a>Kan ik een Item niveau herstellen (ILR) voor virtuele machines een back-up naar een Recovery Services-kluis?
-Nee, ILR wordt niet ondersteund. 
+Nee, ILR wordt niet ondersteund.
 
 
 ## <a name="azure-backup-agent"></a>Azure Backup-agent
@@ -99,7 +99,7 @@ Ja. Maar u moet eerst instellen van DPM en installeer vervolgens de Azure Backup
 ## <a name="general-backup"></a>Algemene back-up
 
 ### <a name="are-there-limits-on-backup-scheduling"></a>Gelden er limieten voor back-upplanning?
-Ja. 
+Ja.
 - U kunt back-up van Windows Server of Windows machines maximaal drie keer per dag. U kunt het planningsbeleid ingesteld op dagelijks of wekelijks schema's.
 - U kunt back-up van DPM maximaal twee keer per dag. U kunt het planningsbeleid voor dagelijkse, wekelijkse, maandelijkse en jaarlijkse instellen.
 - U back-up van Azure-VM's één keer per dag.
@@ -110,12 +110,12 @@ Azure Backup biedt ondersteuning voor deze besturingssystemen voor back-ups van 
 
 **Besturingssysteem**| **SKU** |**Details**
 --- | --- | ---
-Werkstation | | 
+Werkstation | |
 Windows 10 64-bits | Enterprise, Pro, Home | Machines moeten worden uitgevoerd, de meest recente servicepacks en updates.
 Windows 8.1 64-bits | Enterprise, Pro | Machines moeten worden uitgevoerd, de meest recente servicepacks en updates.
 Windows 8 64-bits | Enterprise, Pro | Machines moeten worden uitgevoerd, de meest recente servicepacks en updates.
 Windows 7 64-bits | Ultimate, Enterprise, Professional, Home Premium Home Basic, Starter | Machines moeten worden uitgevoerd, de meest recente servicepacks en updates.
-Server | | 
+Server | |
 Windows Server 2016, 64-bits | Standard, Datacenter, Essentials | Dat de meest recente service packs/updates.
 Windows Server 2012 R2 64-bits | Standard, Datacenter, Foundation | Met de nieuwste service packs/updates.
 Windows Server 2012, 64-bits | Datacenter, Foundation, Standard | Met de nieuwste service packs/updates.
@@ -133,20 +133,20 @@ Voor back-ups van Azure virtuele machine Linux, Azure Backup ondersteunt [de lij
 Limieten voor grootte zijn als volgt:
 
 
-Besturingssysteem/machine | De maximale grootte van de gegevensbron 
---- | --- | --- 
-Windows 8 of hoger | 54.400 GB 
-Windows 7 |1700 GB 
-Windows Server 2012 of hoger | 54.400 GB 
-Windows Server 2008, Windows Server 2008 R2 | 1700 GB 
-Azure VM | 32 gegevensschijven<br/><br/> Gegevens schijf maximaal 4095 GB
+Besturingssysteem/machine | De maximale grootte van de gegevensbron
+--- | --- | ---
+Windows 8 of hoger | 54.400 GB
+Windows 7 |1700 GB
+Windows Server 2012 of hoger | 54.400 GB
+Windows Server 2008, Windows Server 2008 R2 | 1700 GB
+Azure VM | 16 gegevensschijven<br/><br/> Gegevens schijf maximaal 4095 GB
 
 ## <a name="how-is-the-data-source-size-determined"></a>Hoe wordt de grootte van de gegevens bepaald?
 
 In de volgende tabel wordt uitgelegd hoe de grootte voor elke gegevensbron wordt bepaald.
 
 **Gegevensbron** | **Details**
---- | --- 
+--- | ---
 Volume |De hoeveelheid gegevens die worden back-ups van één volume VM back-up wordt gemaakt.
 SQL Server-database |Grootte van één SQL-databasegrootte back-up wordt gemaakt.
 SharePoint | De som van de inhoud en configuratiedatabases in een SharePoint-farm back-up wordt gemaakt.
@@ -158,7 +158,7 @@ BMR/systeemstatus |Elke afzonderlijke kopie van de BMR of systeemstatus van de m
 
 Er is geen limiet voor de hoeveelheid gegevens die u kunt back-up met behulp van een Recovery Services-kluis.
 
-### <a name="if-i-cancel-a-backup-job-once-it-has-started-is-the-transferred-backup-data-deleted"></a>Als ik een back-uptaak annuleer nadat deze is gestart, worden de overgedragen back-upgegevens dan verwijderd? 
+### <a name="if-i-cancel-a-backup-job-once-it-has-started-is-the-transferred-backup-data-deleted"></a>Als ik een back-uptaak annuleer nadat deze is gestart, worden de overgedragen back-upgegevens dan verwijderd?
 Nee. Alle gegevens die naar de kluis zijn overgebracht voordat de back-uptaak is geannuleerd, blijven aanwezig in de kluis. Azure Backup gebruikt een controlepuntmechanisme waarmee tijdens de back-up van tijd tot tijd controlepunten worden toegevoegd aan de back-upgegevens. Omdat de back-upgegevens controlepunten bevatten, kan tijdens het volgende back-upproces de integriteit van de bestanden worden gecontroleerd. De volgende back-uptaak is incrementeel ten opzichte van de gegevens waarvan eerder een back-up is gemaakt. Incrementele back-ups dragen alleen nieuwe of gewijzigde gegevens over, zodat de bandbreedte beter wordt benut.
 
 Als u een back-uptaak voor een virtuele Azure-machine annuleert, worden eventuele overgedragen gegevens geannuleerd. De volgende back-uptaak draagt incrementele gegevens over van na de vorige succesvolle back-up-taak.
@@ -186,7 +186,7 @@ Nee. Alle gegevens die zijn overgedragen naar de kluis voordat de back-uptaak is
 ### <a name="are-the-retention-policies-for-dpm-and-windows-machines-without-dpm-the-same"></a>Het bewaarbeleid voor DPM en Windows-machines zonder DPM zijn hetzelfde?
 Ja, hebben ze beide dagelijkse, wekelijkse, maandelijkse en jaarlijkse retentiebeleid.
 
-### <a name="can-i-customize-retention-policies"></a>Kan ik voor het bewaren van aanpassen? 
+### <a name="can-i-customize-retention-policies"></a>Kan ik voor het bewaren van aanpassen?
 Ja, hebt u het beleid aanpassen. U kunt bijvoorbeeld wekelijks en dagelijks vereisten voor de bewaarperiode, maar niet jaarlijks en maandelijks configureren.
 
 ### <a name="can-i-use-different-times-for-backup-scheduling-and-retention-policies"></a>Kan ik verschillende keren gebruiken voor back-upplanning en beleid voor het bewaren?
@@ -208,7 +208,7 @@ De opslagarchitectuur van Azure Backup biedt u het beste van beide werelden door
 
 ### <a name="is-there-a-limit-on-the-number-of-recovery-points-that-can-be-created"></a>Geldt er een limiet voor het aantal herstelpunten dat kan worden gemaakt?
 
-U kunt maximaal 9999 herstelpunten maken per beveiligd exemplaar. Een beveiligd exemplaar is een computer, server (fysiek of virtueel) of werkbelasting waarvan een back-ups van Azure. 
+U kunt maximaal 9999 herstelpunten maken per beveiligd exemplaar. Een beveiligd exemplaar is een computer, server (fysiek of virtueel) of werkbelasting waarvan een back-ups van Azure.
 
 - Meer informatie over [back-up en retentie](./backup-introduction-to-azure-backup.md#backup-and-retention).
 - Meer informatie over [beschermde exemplaren](./backup-introduction-to-azure-backup.md#what-is-a-protected-instance)?
@@ -238,7 +238,7 @@ Ja. De gegevens in Azure is versleuteld in rust.
 - Versleuteling op opnieuw instellen wordt geleverd met de wachtwoordzin die u opgeeft wanneer back-up op Azure voor on-premises back-up.
 - Voor virtuele Azure-machines zijn gegevens versleuteld-op-opnieuw instellen met behulp van Storage Service Encryption (SSE).
 
-De back-upgegevens worden nooit door Microsoft ontsleuteld. 
+De back-upgegevens worden nooit door Microsoft ontsleuteld.
 
 
 ### <a name="what-is-the-minimum-length-of-encryption-the-key-used-to-encrypt-backup-data"></a>Wat is de minimale lengte van de sleutel die wordt gebruikt voor het versleutelen van back-upgegevens voor codering?

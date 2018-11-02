@@ -9,16 +9,16 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: raynew
-ms.openlocfilehash: 30b35d38c30d3ee9410a85824c53001ca95cf30b
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: dd11c50940dc35524b6d10c6043e906cc813498d
+ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50025936"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50748286"
 ---
 # <a name="prepare-to-back-up-azure-vms"></a>Voorbereiden op back-up van virtuele Azure-machines
 
-In dit artikel bevat de stappen voor het voorbereiden van uw omgeving voor de back-up van een Azure Resource Manager geïmplementeerde virtuele machine (VM). De stappen die worden weergegeven in de procedures gebruikt de Azure portal. Wanneer u back-up van een virtuele machine, worden de back-upgegevens of herstelpunten, opgeslagen in een Recovery Services back-upkluis. 
+In dit artikel bevat de stappen voor het voorbereiden van uw omgeving voor de back-up van een Azure Resource Manager geïmplementeerde virtuele machine (VM). De stappen die worden weergegeven in de procedures gebruikt de Azure portal. Wanneer u back-up van een virtuele machine, worden de back-upgegevens of herstelpunten, opgeslagen in een Recovery Services back-upkluis.
 
 
 
@@ -45,7 +45,7 @@ Als deze voorwaarden al in uw omgeving bestaat, gaat u verder met de [maakt u ee
 ## <a name="limitations-when-backing-up-and-restoring-a-vm"></a>Beperkingen bij het back-up en herstellen van een virtuele machine
 Voordat u uw omgeving hebt voorbereid, moet u deze beperkingen begrijpt:
 
-* Back-ups van virtuele machines met meer dan 32 gegevensschijven wordt niet ondersteund.
+* Back-ups van virtuele machines met meer dan 16 gegevensschijven wordt niet ondersteund.
 * Back-ups van virtuele Linux-machines versleuteld door middel van Linux Unified sleutel instellen (LUKS)-codering wordt niet ondersteund.
 * Wordt niet aanbevolen back-ups van virtuele machines met gedeelde clustervolumes (CSV) of Scale-Out bestandsserver. Als u klaar bent, wordt mislukken van CSV-schrijvers verwacht. Ze nodig hebben met betrekking tot alle virtuele machines die zijn opgenomen in de configuratie van het cluster tijdens de taak van een momentopname. Azure Backup biedt geen ondersteuning voor meerdere VM's.
 * Back-upgegevens bevat geen gekoppeld netwerkstations die zijn gekoppeld aan een virtuele machine.
@@ -194,7 +194,7 @@ De Backup-service installeert de back-upextensie, ongeacht of de virtuele machin
 ## <a name="establish-network-connectivity"></a>De netwerkverbinding tot stand brengen
 Voor het beheren van de momentopnamen van de VM, moet de back-upextensie verbinding met de Azure openbare IP-adressen. Time-out van de virtuele machine HTTP-aanvragen zonder de juiste verbinding met internet, en de back-upbewerking is mislukt. Als uw implementatie heeft toegangsbeperkingen erin--via een netwerkbeveiligingsgroep (NSG), bijvoorbeeld: Kies een van deze opties voor een duidelijk pad voor back-upverkeer:
 
-* [De Azure-datacenter-IP-bereiken van geaccepteerde](http://www.microsoft.com/en-us/download/details.aspx?id=41653).
+* [De Azure-datacenter-IP-bereiken van geaccepteerde](http://www.microsoft.com/download/details.aspx?id=41653).
 * Implementeer een HTTP-proxy-server voor het routeren van verkeer.
 
 Bij het bepalen van welke optie voor het gebruik, zijn de wisselwerking tussen beheerbaarheid, gedetailleerde controle en kosten.
@@ -205,7 +205,7 @@ Bij het bepalen van welke optie voor het gebruik, zijn de wisselwerking tussen b
 | Gebruik een HTTP-proxy |Nauwkeurige controle in de proxy die over de opslag URL's is toegestaan.<br><br>Één punt van internet toegang tot VM's.<br><br>Niet onderhevig aan Azure-IP-adres verandert. |Extra kosten voor het uitvoeren van een virtuele machine met de proxysoftware. |
 
 ### <a name="whitelist-the-azure-datacenter-ip-ranges"></a>Het Azure-datacenter geaccepteerde IP-bereiken
-Aan lijst met geaccepteerde IP-bereiken met de Azure-datacenter, Zie de [Azure-website](http://www.microsoft.com/en-us/download/details.aspx?id=41653) voor meer informatie over de IP-bereiken en de instructies.
+Aan lijst met geaccepteerde IP-bereiken met de Azure-datacenter, Zie de [Azure-website](http://www.microsoft.com/download/details.aspx?id=41653) voor meer informatie over de IP-bereiken en de instructies.
 
 U kunt verbindingen naar de opslag van de specifieke regio met behulp van [servicetags](../virtual-network/security-overview.md#service-tags). Zorg ervoor dat de regel waarmee toegang tot het opslagaccount hogere prioriteit dan de regel die Hiermee blokkeert u toegang tot internet heeft.
 

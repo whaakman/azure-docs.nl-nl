@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 11/01/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: jsimmons
-ms.openlocfilehash: c52c84a1311c30c19356bb8a1287b203faf476fc
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 89d64a28d2fe43464995e434c9f3807047b29492
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50743259"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50913633"
 ---
 # <a name="preview--azure-ad-password-protection-agent-version-history"></a>Voorbeeld: Versiegeschiedenis van Azure AD wachtwoord protection agent
 
@@ -23,6 +23,23 @@ ms.locfileid: "50743259"
 | --- |
 | Beveiliging van Azure AD-wachtwoord is een openbare preview-functie van Azure Active Directory. Zie voor meer informatie over previews [aanvullende gebruiksrechtovereenkomst voor Microsoft Azure-Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
 |     |
+
+## <a name="12250"></a>1.2.25.0
+
+Releasedatum: 01-11-2018
+
+Opgelost:
+
+* DC-agent en proxy-service moet niet meer mislukken vanwege certificaatfouten vertrouwen.
+* DC-agent en proxy-service beschikken over de aanvullende oplossingen voor FIPS-compatibele computers.
+* Proxy-service wordt nu werken alleen goed in een TLS 1.2 alleen-lezen-netwerkomgeving.
+* Secundaire prestaties en robuustheid oplossingen
+* Dankzij de verbeterde logboekregistratie
+
+Wijzigingen in:
+
+* De vereiste minimumversie van OS-niveau voor de Proxy-service is nu Windows Server 2012 R2. De minimaal vereiste besturingssysteemniveau hebben voor de DC-agent-service blijft op Windows Server 2012.
+* Het wachtwoord validatie-algoritme maakt gebruik van een uitgebreide teken normalisatie-tabel. Dit kan leiden tot wachtwoorden worden geweigerd en die zijn aanvaard in eerdere versies.
 
 ## <a name="12100"></a>1.2.10.0
 
@@ -45,8 +62,8 @@ Opgelost:
 > In-place upgrades van de DC-agentsoftware moet opnieuw worden opgestart.
 
 * DC-agent en proxy-service bieden nu ondersteuning voor die worden uitgevoerd op een server die is geconfigureerd voor het alleen gebruik compatibele FIPS-algoritmen.
-* Dankzij de verbeterde logboekregistratie
 * Secundaire prestaties en robuustheid oplossingen
+* Dankzij de verbeterde logboekregistratie
 
 ## <a name="11103"></a>1.1.10.3
 

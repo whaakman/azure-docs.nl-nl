@@ -12,12 +12,12 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 10/26/2018
 ms.author: glenga
-ms.openlocfilehash: 1918ed664a79a46f25cfc5162a28b311bea29cd8
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 18ff0e3fadad64f7bd7fe014a6dcec6a628ef1b9
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50740447"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50914546"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Handleiding voor ontwikkelaars van Azure Functions-JavaScript
 
@@ -76,7 +76,7 @@ Wanneer u de [ `async function` ](https://developer.mozilla.org/docs/Web/JavaScr
 
 Het volgende voorbeeld wordt een eenvoudige functie die registreert dat hij is geactiveerd en is onmiddellijk voltooid.
 
-``` javascript
+```javascript
 module.exports = async function (context) {
     context.log('JavaScript trigger function processed a request.');
 };
@@ -112,19 +112,24 @@ In JavaScript, [bindingen](functions-triggers-bindings.md) zijn geconfigureerd e
 ### <a name="reading-trigger-and-input-data"></a>Trigger voor lezen en invoergegevens
 Trigger en bindingen invoer (bindingen van `direction === "in"`) kunnen worden gelezen door een functie op drie manieren:
  - **_(Aanbevolen)_  Als parameters aan uw functie doorgegeven.** Ze worden doorgegeven aan de functie in dezelfde volgorde als waarin ze zijn gedefinieerd in *function.json*. Houd er rekening mee dat de `name` -eigenschap worden gedefinieerd *function.json* hoeft niet te overeenkomen met de naam van de parameter, maar het moet.
-   ``` javascript
+ 
+   ```javascript
    module.exports = async function(context, myTrigger, myInput, myOtherInput) { ... };
    ```
+   
  - **Als leden van de [ `context.bindings` ](#contextbindings-property) object.** Elk lid met de naam van de `name` -eigenschap worden gedefinieerd *function.json*.
-   ``` javascript
+ 
+   ```javascript
    module.exports = async function(context) { 
        context.log("This is myTrigger: " + context.bindings.myTrigger);
        context.log("This is myInput: " + context.bindings.myInput);
        context.log("This is myOtherInput: " + context.bindings.myOtherInput);
    };
    ```
+   
  - **Als invoer met de JavaScript [ `arguments` ](https://msdn.microsoft.com/library/87dw3w1k.aspx) object.** Dit is in wezen hetzelfde als invoer wordt doorgegeven als parameters, maar kunt u voor het afhandelen van dynamisch invoer.
-   ``` javascript
+ 
+   ```javascript
    module.exports = async function(context) { 
        context.log("This is myTrigger: " + arguments[1]);
        context.log("This is myInput: " + arguments[2]);
@@ -137,7 +142,8 @@ Uitvoer (bindingen van `direction === "out"`) door een functie in een aantal man
 
 U kunt gegevens toewijzen aan uitvoerbindingen in een van de volgende manieren. Deze methoden moeten niet worden gecombineerd.
 - **_[Aanbevolen voor meerdere uitvoer]_  Retourneren een object.** Als u van een asynchrone/Promise functie retourneren gebruikmaakt, kunt u een object met een toegewezen uitvoergegevens retourneren. In het volgende voorbeeld wordt de uitvoerbindingen zijn met de naam "httpResponse" en "queueOutput" in *function.json*.
-  ``` javascript
+
+  ```javascript
   module.exports = async function(context) {
       let retMsg = 'Hello, world!';
       return {
@@ -148,10 +154,12 @@ U kunt gegevens toewijzen aan uitvoerbindingen in een van de volgende manieren. 
       };
   };
   ```
+  
   Als u van een synchrone functie gebruikmaakt, kunt u terugkeren dit object met [ `context.done` ](#contextdone-method) (Zie het voorbeeld).
 - **_[Aanbevolen voor één uitvoer]_  Rechtstreeks een waarde retourneren en het gebruik van de naam van de binding $return.** Dit werkt alleen voor asynchrone/belofte functies retourneren. Zie het voorbeeld in [exporteren van een functie asynchrone](#exporting-an-async-function). 
 - **Toewijzen van waarden die moeten worden `context.bindings`**  kunt u waarden rechtstreeks aan context.bindings toewijzen.
-  ``` javascript
+
+  ```javascript
   module.exports = async function(context) {
       let retMsg = 'Hello, world!';
       context.bindings.httpResponse = {

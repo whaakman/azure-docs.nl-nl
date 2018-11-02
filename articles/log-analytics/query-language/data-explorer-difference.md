@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/29/2018
+ms.date: 10/31/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: e6d097749dae49cf6f1d710bcf01cf99dcd98a4c
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 65f3388074ff7a84c6e0516a64665019d5883ab1
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50244120"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50913169"
 ---
 # <a name="log-analytics-query-language-differences"></a>Meld u Analytics query language verschillen
 
@@ -63,11 +63,5 @@ De volgende operatoren ondersteuning voor specifieke functies van de Log Analyti
 
 ## <a name="next-steps"></a>Volgende stappen
 
-<<<<<<< HEAD:articles/log-analytics/query-language/data-explorer-difference.md
-- Ophalen van verwijzingen naar andere [resources voor het schrijven van Log Analytics-query's](kusto.md).
+- Ophalen van verwijzingen naar andere [resources voor het schrijven van Log Analytics-query's](query-language.md).
 - Toegang tot de volledige [verwijzen naar de documentatie voor Data Explorer-querytaal](/azure/kusto/query/).
-=======
-- Meer informatie over query's in [Log Analytics](../log-analytics-queries.md).
-- Doorloop een les schrijven op een [Log Analytics-query](/log-analytics/query-language/get-started-queries.md).
-- Toegang tot de volledige [referentiedocumentatie voor Kusto](/azure/kusto/query/).
->>>>>>> 4bccab5ecb17c887658a4d2ed1bab6b22bf29ffd:articles/log-Analytics/Query-Language/kusto.MD

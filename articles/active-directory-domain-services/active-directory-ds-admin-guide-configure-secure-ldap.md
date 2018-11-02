@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: ergreenl
-ms.openlocfilehash: de77050206c98832b274e8bdbda8026fc115610e
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 9188e7a8dc5364592772b95c302c59a16bfad2be
+ms.sourcegitcommit: 3dcb1a3993e51963954194ba2a5e42260d0be258
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50156218"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50754066"
 ---
 # <a name="configure-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>Veilige LDAP (LDAPS) voor een beheerd domein van Azure AD Domain Services configureren
 Dit artikel wordt beschreven hoe u beveiligde Lightweight Directory Access Protocol (LDAPS) kunt inschakelen voor uw Azure AD Domain Services beheerde domein. Secure LDAP wordt ook wel bekend als ' Lightweight Directory Access Protocol (LDAP) via Secure Sockets Layer (SSL) / Transport Layer Security (TLS)'.
@@ -45,7 +45,7 @@ Een geldig certificaat per de volgende richtlijnen aan te schaffen voordat u sec
 
 1. **Vertrouwde verlener** -het certificaat moet worden uitgegeven door een instantie die wordt vertrouwd door verbinding te maken met het beheerde domein met behulp van secure LDAP. Deze instantie is mogelijk een openbare certificeringsinstantie (CA) of een CA voor ondernemingen wordt vertrouwd door deze computers.
 2. **Levensduur** -het certificaat moet geldig zijn voor ten minste de komende 3-6 maanden. Toegang van Secure LDAP tot uw beheerde domein wordt onderbroken wanneer het certificaat is verlopen.
-3. **Naam van het onderwerp** -de naam van de certificaathouder op het certificaat moet een jokerteken voor uw beheerde domein. Bijvoorbeeld, als uw domein heet 'contoso100.com', de onderwerpnaam van het certificaat moet ' *. contoso100.com'. De DNS-naam (alternatieve onderwerpnaam) ingesteld op deze wildcard-naam.
+3. **Naam van het onderwerp** -de naam van de certificaathouder op het certificaat moet de naam van uw beheerde domein. Bijvoorbeeld, als uw domein heet 'contoso100.com', moet de onderwerpnaam van het certificaat 'contoso100.com'. 
 4. **Sleutelgebruik** -het certificaat moet worden geconfigureerd voor het volgende gebruikt: digitale handtekeningen en sleutelcodering.
 5. **Doel van het certificaat** -het certificaat moet geldig zijn voor SSL-serververificatie.
 

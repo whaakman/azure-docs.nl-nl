@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: bwren
-ms.openlocfilehash: d1fdec8e3a959aaeb68d4b63a1c71d6ef1ddd054
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: b2e7cc46a844ff866ae2d325b610653cd3179d8d
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406318"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50914563"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Office 365-oplossing in Azure (Preview)
 
@@ -30,7 +30,7 @@ De oplossing voor het beheer van Office 365 kunt u voor het bewaken van uw Offic
 - Activiteiten van beheerder voor het bijhouden van wijzigingen in de configuratie of hoge bevoegdheid bewerkingen bewaken.
 - Detecteren en onderzoeken van ongewenste gebruikersgedrag, die kan worden aangepast aan de behoeften van uw organisatie.
 - Illustratie van controle en naleving. U kunt bijvoorbeeld toegang bestandsbewerkingen op vertrouwelijke bestanden, die u met het proces voor controle en naleving helpen kunnen controleren.
-- Uitvoeren van operationele problemen oplossen met behulp van [zoekopdrachten](../log-analytics/log-analytics-log-search.md) boven op Office 365-activiteitsgegevens van uw organisatie.
+- Uitvoeren van operationele problemen oplossen met behulp van [zoekopdrachten](../log-analytics/log-analytics-queries.md) boven op Office 365-activiteitsgegevens van uw organisatie.
 
 ## <a name="prerequisites"></a>Vereisten
 Het volgende is vereist voordat u deze oplossing wordt geïnstalleerd en geconfigureerd.
@@ -72,7 +72,7 @@ De eerste stap is het maken van een toepassing in Azure Active Directory dat doo
     ![App-registratie toevoegen](media/monitoring-solution-office-365/add-app-registration.png)
 1. Voer een toepassing **naam** en **aanmeldings-URL**.  De naam moet beschrijvend zijn.  Gebruik _http://localhost_ voor de URL en blijf _Web-app / API_ voor de **toepassingstype**
     
-    ![Toepassing maken](media/monitoring-solution-office-365/create-application.png)
+    ![App maken](media/monitoring-solution-office-365/create-application.png)
 1. Klik op **maken** en informatie over de toepassing te valideren.
 
     ![Geregistreerde app](media/monitoring-solution-office-365/registered-app.png)
@@ -518,7 +518,7 @@ De volgende eigenschappen gelden voor alle Office 365-records.
 | OrganizationId | De GUID voor Office 365-tenant van uw organisatie. Deze waarde is altijd hetzelfde zijn voor uw organisatie, ongeacht de Office 365-service waarin dit zich voordoet. |
 | RecordType | Het type van de bewerking die wordt uitgevoerd. |
 | ResultStatus | Geeft aan of de actie (opgegeven in de eigenschap Operation) geslaagd of mislukt is. Mogelijke waarden zijn Succeeded, partiallysucceded en Failed. Voor een beheeractiviteit voor Exchange, is de waarde True of False. |
-| Gebruikers-id | De UPN (User Principal Name) van de gebruiker die de actie die heeft geresulteerd in de record is vastgelegd, heeft uitgevoerd bijvoorbeeld, my_name@my_domain_name. Houd er rekening mee dat records voor de activiteit uitgevoerd door systeemaccounts (zoals SHAREPOINT\system of NTAUTHORITY\SYSTEM) ook opgenomen worden. | 
+| UserId | De UPN (User Principal Name) van de gebruiker die de actie die heeft geresulteerd in de record is vastgelegd, heeft uitgevoerd bijvoorbeeld, my_name@my_domain_name. Houd er rekening mee dat records voor de activiteit uitgevoerd door systeemaccounts (zoals SHAREPOINT\system of NTAUTHORITY\SYSTEM) ook opgenomen worden. | 
 | UserKey | Een alternatieve ID voor de gebruiker die u in de eigenschap gebruikers-id.  Bijvoorbeeld: deze eigenschap wordt gevuld met de unieke ID voor passport (PUID) voor gebeurtenissen die worden uitgevoerd door gebruikers in SharePoint, OneDrive voor bedrijven en Exchange. Deze eigenschap kan ook dezelfde waarde opgeven als de gebruikers-id-eigenschap voor gebeurtenissen in andere services en gebeurtenissen die worden uitgevoerd door systeemaccounts|
 | UserType | Het type van de gebruiker die de bewerking heeft uitgevoerd.<br><br>Gemeente<br>Toepassing<br>DcAdmin<br>Reguliere<br>Gereserveerd<br>Service-Principal<br>Systeem |
 
@@ -709,6 +709,6 @@ De volgende tabel biedt voorbeeldzoekopdrachten in logboeken voor updaterecords 
 
 
 ## <a name="next-steps"></a>Volgende stappen
-* Gebruik Logboekzoekopdrachten in [Log Analytics](../log-analytics/log-analytics-log-searches.md) om gedetailleerde updategegevens weer te geven.
+* Gebruik Logboekzoekopdrachten in [Log Analytics](../log-analytics/log-analytics-log-search.md) om gedetailleerde updategegevens weer te geven.
 * [Maak uw eigen dashboards](../log-analytics/log-analytics-dashboards.md) om uw favoriete Office 365 zoekquery's weer te geven.
-* [Waarschuwingen maken](../log-analytics/log-analytics-alerts.md) om te worden proactief geïnformeerd over belangrijke Office 365-activiteiten.  
+* [Waarschuwingen maken](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) om te worden proactief geïnformeerd over belangrijke Office 365-activiteiten.  

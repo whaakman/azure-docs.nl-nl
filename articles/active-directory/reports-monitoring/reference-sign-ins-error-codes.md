@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 05/31/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 85df34445622a13488df590f5cb53bedb7b6ea93
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: ce06c72c9974b4887cc441344fd755bfd156a1ca
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42061319"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50914716"
 ---
 # <a name="sign-in-activity-report-error-codes-in-the-azure-active-directory-portal"></a>Foutcodes voor aanmeldactiviteitenrapporten in Azure Active Directory Portal
 
@@ -117,10 +117,10 @@ De volgende sectie biedt een volledig overzicht van alle mogelijke fouten en de 
 |50135|Wijzigen van wachtwoord is vereist vanwege accountrisico|
 |50136|MSA-sessie omleiden naar app, enkele MSA-sessie gedetecteerd |
 |50140|Deze fout is opgetreden vanwege de interrupt 'Aangemeld blijven' toen de gebruiker bezig was met aanmelden. [Open een ondersteuningsticket](../fundamentals/active-directory-troubleshooting-support-howto.md) met correlatie-id, aanvraag-id en een foutcode voor meer informatie. |
-|50143|Sessie komt niet overeen: sessie is ongeldig omdat de gebruikertenant niet overeenkomt met de domeinhint als gevolg van andere resource. [Open een ondersteuningsticket](../fundamentals/active-directory-troubleshooting-support-howto.md) met correlatie-id, aanvraag-id en een foutcode voor meer informatie.|
+|50143|Sessie komt niet overeen - sessie is ongeldig omdat de tenant van de gebruiker komt niet overeen met de domeinhint vanwege een andere resource.  [Open een ondersteuningsticket](../fundamentals/active-directory-troubleshooting-support-howto.md) met correlatie-ID, aanvraag-ID, en foutcode voor meer informatie.|
 |50144|Het Active Directory-wachtwoord van de gebruiker is verlopen. Genereer een nieuw wachtwoord voor de gebruiker of laat de eindgebruiker dit doen met de selfservice-resettool|
 |50146|Deze toepassing moet worden geconfigureerd met een ondertekeningssleutel specifiek voor de toepassing. De toepassing is niet met een dergelijke sleutel geconfigureerd, of de sleutel is verlopen of nog niet geldig. Neem contact op met de eigenaar van de toepassing|
-|50148|De codeverificatie komt niet overeen met de code-uitdaging opgegeven in de autorisatieaanvraag voor PKCE. Neem contact op met de ontwikkelaar van de toepassing. |
+|50148|De codeverificatie komt niet overeen met de code-uitdaging opgegeven in de autorisatieaanvraag voor PKCE. Neem contact op met de ontwikkelaar van de toepassing. |
 |50155|Apparaatverificatie is mislukt voor deze gebruiker|
 |50158|Er is niet aan de externe beveiligingsvraag voldaan|
 |50161|Claims verzonden door de externe provider zijn niet voldoende of ontbrekende claim gevraagd aan externe provider|
@@ -152,7 +152,7 @@ De volgende sectie biedt een volledig overzicht van alle mogelijke fouten en de 
 |70007|De toepassing heeft een niet-ondersteunde 'response_mode'-waarde geretourneerd bij het aanvragen van een token. Neem contact op met de eigenaar van de app|
 |70008|De opgegeven autorisatiecode of het vernieuwingstoken is verlopen - ingetrokken. Laat de gebruiker zich opnieuw aanmelden|
 |70011|Het bereik dat is aangevraagd door de toepassing is ongeldig. Neem contact op met de eigenaar van de toepassing|
-|70012|Er is een serverfout opgetreden tijdens het verifiëren van een MSA-gebruiker (consument). Probeer het opnieuw. Als dit probleem blijft bestaan, [opent u een ondersteuningsticket](../fundamentals/active-directory-troubleshooting-support-howto.md) |
+|70012|Er is een serverfout opgetreden tijdens het verifiëren van een MSA-gebruiker (consument). Probeer het opnieuw. Als de pogingen mislukken blijven, [een ondersteuningsticket openen](../fundamentals/active-directory-troubleshooting-support-howto.md) |
 |70018|Ongeldige verificatiecode doordat gebruiker verkeerde gebruikerscode typt voor apparaatcodestroom. Autorisatie niet is goedgekeurd|
 |70019|Verificatiecode verlopen. Laat de gebruiker zich opnieuw aanmelden|
 |70037|Onjuist antwoord op verificatievraag. Externe verificatiesessie is geweigerd.|
@@ -180,6 +180,7 @@ De volgende sectie biedt een volledig overzicht van alle mogelijke fouten en de 
 |90014| Er ontbreekt een vereist veld voor een protocolbericht, neem contact op met de eigenaar van de toepassing. Als u eigenaar van de toepassing bent, zorgt u ervoor dat u de vereiste parameters voor de aanmeldingsaanvraag hebt. |
 |90072| Het account moet eerst worden toegevoegd als een externe gebruiker in de tenant. Afmelden en aanmelden met een andere Azure AD account.|
 |90094| De toekenning zijn beheerdersrechten vereist. Vraag de beheerder van de tenant voor toestemming voor deze toepassing.|
+|500133| De verklaring valt niet binnen het bereik van geldige tijd. Zorg ervoor dat het toegangstoken niet voordat u deze gebruikt voor een verklaring van de gebruiker is verlopen of vraag een nieuw token.|
 
 ## <a name="next-steps"></a>Volgende stappen
 

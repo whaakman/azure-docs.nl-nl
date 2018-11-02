@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 10/31/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: b0b88622069801124aff5b44dc4b813838f41c73
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 331c536970445dacdb9afc9d3cfa5711b82bfbf0
+ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46315166"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50747249"
 ---
 # <a name="changing-the-azure-ad-connect-sync-service-account-password"></a>Het wachtwoord voor de Azure AD Connect sync-serviceaccount wijzigen
 Als u het wachtwoord voor de Azure AD Connect sync-serviceaccount wijzigen, zich de Synchronization Service niet kunnen starten goed totdat u hebt de versleutelingssleutel afgebroken en het wachtwoord voor de Azure AD Connect sync-serviceaccount opnieuw geïnitialiseerd. 
@@ -44,7 +44,7 @@ Eerst moet u het wachtwoord bij de Windows Service Control Manager te wijzigen. 
 Ten tweede onder bepaalde omstandigheden, kan als het wachtwoord is bijgewerkt, de synchronisatieservice niet meer ophalen de versleutelingssleutel via DPAPI. De synchronisatieservice kan zonder de versleutelingssleutel, de wachtwoorden die vereist zijn voor het synchroniseren van on-premises AD en Azure AD niet ontsleutelen.
 U ziet fouten, zoals:
 
-- Onder Windows Service Control Manager als u probeert te starten van de synchronisatieservice en de versleutelingssleutel, kan niet worden opgehaald mislukt met fout "**Windows kan de Microsoft Azure AD-synchronisatie niet starten op de lokale Computer. Controleer het gebeurtenislogboek van systeem voor meer informatie. Als dit een niet-Microsoft-service, neem contact op met de leverancier van de service en Raadpleeg servicespecifieke foutcode \*\*-21451857952**\*\*."
+- Onder Windows Service Control Manager als u probeert te starten van de synchronisatieservice en de versleutelingssleutel, kan niet worden opgehaald mislukt met fout "**Windows kan de Microsoft Azure AD-synchronisatie niet starten op de lokale Computer.** Controleer het gebeurtenislogboek van systeem voor meer informatie. **Als dit een niet-Microsoft-service, neem contact op met de leverancier van de service en Raadpleeg servicespecifieke foutcode \*\*-21451857952**\*\*."
 - In Windows-Logboeken, het logboek voor toepassingsgebeurtenissen bevat een fout opgetreden bij het **gebeurtenis-ID 6028** en het volgende foutbericht *"**de versleutelingssleutel van de server kan niet worden geopend.**"*
 
 Volg de procedures in om ervoor te zorgen dat u geen deze fouten ontvangt, [wordt de versleutelingssleutel van de Azure AD Connect Sync afgebroken](#abandoning-the-azure-ad-connect-sync-encryption-key) bij het wijzigen van het wachtwoord.
@@ -59,6 +59,8 @@ Gebruik de volgende procedures om de versleutelingssleutel af te breken.
 
 Als u afbreken van de versleutelingssleutel wilt, gebruikt u de volgende procedures om dit te doen.
 
+1. [De synchronisatieservice stoppen](#stop-the-synchronization-service)
+
 1. [De bestaande versleutelingssleutel afbreken](#abandon-the-existing-encryption-key)
 
 2. [Geef het wachtwoord van het AD DS-account](#provide-the-password-of-the-ad-ds-account)
@@ -66,6 +68,13 @@ Als u afbreken van de versleutelingssleutel wilt, gebruikt u de volgende procedu
 3. [Het wachtwoord van de Azure AD sync-account opnieuw initialiseren](#reinitialize-the-password-of-the-azure-ad-sync-account)
 
 4. [De synchronisatieservice niet starten](#start-the-synchronization-service)
+
+#### <a name="stop-the-synchronization-service"></a>De synchronisatieservice stoppen
+U kunt eerst de in de Windows Service Control Manager-service stoppen.  Zorg ervoor dat de service wordt niet uitgevoerd wanneer wordt geprobeerd om deze te stoppen.  Als dit het geval is, wacht u totdat deze is voltooid en deze vervolgens te stoppen.
+
+
+1. Ga naar Windows Service Control Manager (START → Services).
+2. Selecteer **Microsoft Azure AD Sync** en klik op stoppen.
 
 #### <a name="abandon-the-existing-encryption-key"></a>De bestaande versleutelingssleutel afbreken
 De bestaande versleutelingssleutel afbreken zodanig dat de nieuwe versleutelingssleutel kan worden gemaakt:

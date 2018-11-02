@@ -11,15 +11,15 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
-ms.date: 10/05/2018
-ms.openlocfilehash: 98d30d2987d42a2c4893e00c3ba2ea6acd471bef
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.date: 11/01/2018
+ms.openlocfilehash: 71e5ae2a6b486873df147e7c2c0518e1c47b09c7
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49318806"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50914002"
 ---
-# <a name="set-up-sql-data-sync-to-sync-data-between-azure-sql-database-and-sql-server-on-premises"></a>SQL Data Sync instellen om gegevens te synchroniseren tussen Azure SQL Database en SQL Server on-premises
+# <a name="tutorial-set-up-sql-data-sync-to-sync-data-between-azure-sql-database-and-sql-server-on-premises"></a>Zelfstudie: SQL Data Sync instellen om gegevens te synchroniseren tussen Azure SQL Database en SQL Server on-premises
 
 In deze zelfstudie leert u hoe u Azure SQL Data Sync instellen door het maken van een hybride synchronisatiegroep met zowel Azure SQL Database en SQL Server-exemplaren. De nieuwe groep voor synchronisatie volledig is geconfigureerd en gesynchroniseerd op de planning die u instelt.
 

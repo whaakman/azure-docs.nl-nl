@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/12/2016
 ms.author: crdun
-ms.openlocfilehash: bfbb72d6fd101932f00e12ad18ab079ec30a0d3a
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: c137f6cfdff9d043a656783f38ec9b894e644338
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42818817"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50913016"
 ---
 # <a name="add-push-notifications-to-your-windows-app"></a>Pushmeldingen toevoegen aan uw Windows-app
 
@@ -37,21 +37,23 @@ Als u het gedownloade quick start-serverproject niet gebruikt, moet u de push no
 
 ## <a name="register-your-app-for-push-notifications"></a>Uw app voor pushmeldingen registreren
 
-U moet uw app naar de Microsoft Store verzenden, moet u uw serverproject te integreren met Windows Notification Services (WNS) voor het verzenden van pushmeldingen configureren.
+U moet uw app naar de Microsoft Store verzenden en configureer vervolgens uw serverproject te integreren met [Windows Notification Services (WNS)](https://docs.microsoft.com/windows/uwp/design/shell/tiles-and-notifications/windows-push-notification-services--wns--overview) voor het verzenden van pushmeldingen.
 
 1. In Visual Studio Solution Explorer met de rechtermuisknop op het UWP-app-project, klikt u op **Store** > **App aan de Store koppelen...** .
 
     ![App koppelen aan Microsoft Store](./media/app-service-mobile-windows-store-dotnet-get-started-push/notification-hub-associate-uwp-app.png)
+
 2. In de wizard, klikt u op **volgende**, meld u aan met uw Microsoft-account, typ een naam voor uw app in **een nieuwe appnaam reserveren**, klikt u vervolgens op **Reserve**.
 3. Nadat de app-registratie is gemaakt, selecteert u de naam van de nieuwe app, klikt u op **volgende**, en klik vervolgens op **koppelen**. Hiermee wordt de vereiste registratiegegevens voor Microsoft Store toegevoegd aan het toepassingsmanifest.
-4. Navigeer naar de [Windows Dev Center](https://dev.windows.com/en-us/overview), voor aanmelding met uw Microsoft-account, klikt u op de nieuwe app-registratie in **mijn apps**, vouw vervolgens **Services**  >   **Pushmeldingen verzenden**.
-5. In de **Pushmeldingen** pagina, klikt u op **Live Services site** onder **Microsoft Azure Mobile Services**.
-6. In de registratiepagina geleid, noteer de waarde onder **toepassingsgeheimen** en de **pakket-SID**, waarmee u wordt vervolgens het configureren van de back-end van uw mobiele app.
+4. Navigeer naar de [Portal voor Appregistratie](https://apps.dev.microsoft.com/) en meld u aan met uw Microsoft-account. Klik op de Windows Store-app die u in de vorige stap hebt gekoppeld.
+5. In de registratiepagina geleid, noteer de waarde onder **toepassingsgeheimen** en de **pakket-SID**, waarmee u wordt vervolgens het configureren van de back-end van uw mobiele app.
 
     ![App koppelen aan Microsoft Store](./media/app-service-mobile-windows-store-dotnet-get-started-push/app-service-mobile-uwp-app-push-auth.png)
 
    > [!IMPORTANT]
    > Het clientgeheim en de pakket-SID zijn belangrijke beveiligingsreferenties. Deel deze waarden met niemand en distribueer ze niet met uw app. De **toepassings-Id** aan de geheime sleutel wordt gebruikt om verificatie van de Microsoft-Account te configureren.
+
+[App Center](https://docs.microsoft.com/appcenter/sdk/push/uwp#prerequisite---register-your-app-for-windows-notification-services-wns) bevat ook instructies voor het configureren van de UWP-apps voor pushmeldingen.
 
 ## <a name="configure-the-backend-to-send-push-notifications"></a>Configureren van de back-end om pushmeldingen te verzenden
 

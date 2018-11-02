@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2017
 ms.author: magoedte
-ms.openlocfilehash: e9ac4b7f7a0900f8b49f95c0db9ba5e9c962fa0e
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: c76b922d311a0e0bc5af2b4c8a95c2ef2ec09ba1
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49404032"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50914155"
 ---
 #  <a name="agent-health-solution-in-azure"></a>Oplossing status van agent in Azure
 De oplossing status van Agent in Azure kunt u meer informatie over voor alle van de agents die rapporteren rechtstreeks verbonden met Log Analytics, dat niet meer reageert zijn op de Log Analytics-werkruimte of vanuit een System Center Operations Manager-beheergroep en het verzenden van operationele de gegevens.  U kunt ook bijhouden hoeveel agents er zijn geïmplementeerd en waar deze zich geografisch gezien bevinden. Bovendien kunt u query's uitvoeren om op de hoogte te blijven van de verdeling van agents over Azure, andere cloudomgevingen of on-premises.    
@@ -39,7 +39,7 @@ Als uw System Center Operations Manager-beheergroep is verbonden met een Log Ana
 Zie [Operations Manager koppelen aan Log Analytics](../log-analytics/log-analytics-om-agents.md) voor meer informatie over de manier waarop uw management packs voor oplossingen worden bijgewerkt.
 
 ## <a name="configuration"></a>Configuratie
-De oplossing status van Agent toevoegen aan uw Log Analytics-werkruimte met behulp van de procedure beschreven in [oplossingen toevoegen](../log-analytics/log-analytics-add-solutions.md). Er is geen verdere configuratie nodig.
+De oplossing status van Agent toevoegen aan uw Log Analytics-werkruimte met behulp van de procedure beschreven in [oplossingen toevoegen](monitoring-solutions.md). Er is geen verdere configuratie nodig.
 
 
 ## <a name="data-collection"></a>Gegevensverzameling
@@ -118,4 +118,4 @@ De volgende tabel bevat voorbeelden van zoekopdrachten in logboeken voor records
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Zie [Understanding alerts in Log Analytics](../log-analytics/log-analytics-alerts.md) voor meer informatie over het genereren van waarschuwingen van Log Analytics.
+* Zie [Understanding alerts in Log Analytics](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) voor meer informatie over het genereren van waarschuwingen van Log Analytics.

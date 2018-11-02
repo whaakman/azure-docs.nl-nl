@@ -13,14 +13,14 @@ ms.workload: web
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2018
+ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: ab8750e5824cf9f7635d11a6b2be332b2f9a761c
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: b38291df576d1dbd180f741659dbc379ca006d8e
+ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44302585"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50748439"
 ---
 # <a name="deployment-faqs-for-web-apps-in-azure"></a>Veelgestelde vragen over de implementatie voor Web-Apps in Azure
 
@@ -79,7 +79,7 @@ FTP-problemen oplossen:
 
 ## <a name="how-do-i-publish-my-code-to-app-service"></a>Hoe kan ik mijn code publiceren naar App Service?
 
-De Azure-Quickstart is ontworpen om u te helpen bij het implementeren van uw app met behulp van de implementatiestack en de methode van uw keuze. Voor het gebruik van de Quick Start in Azure portal, gaat u naar **instellingen** > **Appimplementatie**.
+De Azure-Quickstart is ontworpen om u te helpen bij het implementeren van uw app met behulp van de implementatiestack en de methode van uw keuze. Voor het gebruik van de Quick Start in Azure portal, gaat u naar uw appservice onder **implementatie**, selecteer **snelstartgids**.
 
 ## <a name="why-does-my-app-sometimes-restart-after-deployment-to-app-service"></a>Waarom wordt mijn app soms opnieuw opgestart na de implementatie naar App Service?
 

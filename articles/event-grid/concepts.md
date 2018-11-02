@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: tomfitz
-ms.openlocfilehash: 2a288cdb96a1e1ff7e261d4782f7e02aee12868f
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 89f0f5847f157cff59a57f7958508e4f260355c3
+ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39621198"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50747555"
 ---
 # <a name="concepts-in-azure-event-grid"></a>Concepten in Azure Event Grid
 
@@ -48,7 +48,7 @@ Bij het ontwerpen van uw toepassing, hebt u flexibiliteit wanneer u beslist hoev
 
 ## <a name="event-subscriptions"></a>Gebeurtenisabonnementen
 
-Een abonnement aangeeft Event Grid waarmee de gebeurtenissen op een onderwerp waarin u geïnteresseerd bent in ontvangst. Bij het maken van het abonnement, geeft u een eindpunt voor het verwerken van de gebeurtenis. U kunt de gebeurtenissen die worden verzonden naar het eindpunt filteren. U kunt filteren op gebeurtenistype of onderwerp patroon. Zie voor meer informatie, [Event Grid-abonnementsschema](subscription-creation-schema.md).
+Een abonnement wordt Event Grid waarmee de gebeurtenissen op een onderwerp u geïnteresseerd bent in ontvangst. Bij het maken van het abonnement, geeft u een eindpunt voor het verwerken van de gebeurtenis. U kunt de gebeurtenissen die worden verzonden naar het eindpunt filteren. U kunt filteren op gebeurtenistype of onderwerp patroon. Zie voor meer informatie, [Event Grid-abonnementsschema](subscription-creation-schema.md).
 
 Zie voor voorbeelden van het maken van abonnementen:
 
@@ -58,9 +58,17 @@ Zie voor voorbeelden van het maken van abonnementen:
 
 Zie voor meer informatie over het ophalen van uw huidige event grid-abonnementen [Query Event Grid-abonnementen](query-event-subscriptions.md).
 
+## <a name="event-subscription-expiration"></a>Het abonnement is verlopen gebeurtenis
+
+De [Event Grid-extensie](/cli/azure/azure-cli-extensions-list) voor Azure CLI kunt u instellen dat een verlopen bij het maken van een gebeurtenisabonnement datum. Als u de REST-API gebruiken `api-version=2018-09-15-preview`
+
+Het gebeurtenisabonnement is automatisch verlopen na die datum. Instellen dat een verlopen voor gebeurtenisabonnementen die alleen nodig zijn voor een beperkte periode en u niet wilt zorgen maken over het opruimen van deze abonnementen. Bij het maken van een gebeurtenisabonnement voor het testen van een scenario, wilt u mogelijk een verloopdatum instellen. 
+
+Zie voor een voorbeeld van het instellen van een verlopen [abonneren met geavanceerde filters](how-to-filter-events.md#subscribe-with-advanced-filters).
+
 ## <a name="event-handlers"></a>Event Handlers
 
-Een gebeurtenis-handler is vanuit het perspectief van een Event Grid, de plaats waar de gebeurtenis wordt verzonden. De handler duurt enkele verdere actie voor het verwerken van de gebeurtenis. Event Grid biedt ondersteuning voor meerdere handler typen. U kunt een ondersteunde Azure-service of uw eigen webhook gebruiken als de handler. Afhankelijk van het type van de handler volgt Event Grid verschillende mechanismen voor het garanderen van de levering van de gebeurtenis. Voor HTTP-webhook gebeurtenis-handlers, de gebeurtenis is vaak herhaald totdat de handler statuscode retourneert `200 – OK`. Voor Azure Storage-wachtrij, worden de gebeurtenissen opnieuw uitgevoerd totdat de Queue-service kan de push-bewerking van het bericht in de wachtrij worden verwerkt.
+Een gebeurtenis-handler is vanuit het perspectief van een Event Grid, de plaats waar de gebeurtenis wordt verzonden. De handler duurt enkele verdere actie voor het verwerken van de gebeurtenis. Event Grid ondersteunt verschillende handler typen. U kunt een ondersteunde Azure-service of uw eigen webhook gebruiken als de handler. Afhankelijk van het type van de handler volgt Event Grid verschillende mechanismen voor het garanderen van de levering van de gebeurtenis. Voor HTTP-webhook gebeurtenis-handlers, de gebeurtenis is vaak herhaald totdat de handler statuscode retourneert `200 – OK`. Voor Azure Storage-wachtrij, worden de gebeurtenissen opnieuw uitgevoerd totdat de Queue-service is de bericht-push in de wachtrij verwerkt.
 
 Zie voor meer informatie over het implementeren van een van de ondersteunde Event Grid-handlers [gebeurtenis-handlers in Azure Event Grid](event-handlers.md).
 
@@ -74,7 +82,7 @@ Als Event Grid niet kan bevestigen dat een gebeurtenis is ontvangen door de abon
 
 ## <a name="batching"></a>Batchverwerking
 
-Wanneer u een aangepast onderwerp gebruikt, moeten altijd gebeurtenissen worden gepubliceerd in een matrix. Dit kan een batch van een voor scenario's met lage doorvoer, maar zijn voor grote volumes usecases, is het raadzaam dat u batch meerdere gebeurtenissen samen per publiceren voor het bereiken van hogere efficiëntie. Batches kunnen maximaal 1 MB zijn. Elke gebeurtenis moet nog steeds niet meer dan 64 KB.
+Wanneer u een aangepast onderwerp gebruikt, moeten altijd gebeurtenissen worden gepubliceerd in een matrix. Dit kan een batch van een voor scenario's met lage doorvoer, maar voor groot zijn, het wordt aanbevolen dat u batch-aantal gebeurtenissen gegroepeerd per publiceren voor het bereiken van hogere efficiëntie. Batches kunnen maximaal 1 MB zijn. Elke gebeurtenis nog steeds moet niet groter zijn dan 64 KB.
 
 ## <a name="next-steps"></a>Volgende stappen
 

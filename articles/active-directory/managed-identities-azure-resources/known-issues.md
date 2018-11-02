@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 12/12/2017
 ms.author: daveba
-ms.openlocfilehash: 2a759aea4288af2e90335b47244408d6a537e24b
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: fa872c184429e69eb46fb4da112c08ee9432f1c4
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44295578"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50913985"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>Veelgestelde vragen en bekende problemen met beheerde identiteiten voor Azure-resources
 
@@ -29,7 +29,7 @@ ms.locfileid: "44295578"
 ## <a name="frequently-asked-questions-faqs"></a>Veelgestelde vragen
 
 > [!NOTE]
-> Beheerde identiteiten voor een Azure-resources is de nieuwe naam voor de service die voorheen bekend als Managed Service Identity (MSI).
+> Beheerde identiteiten voor Azure-resources is de nieuwe naam voor de service die eerder de naam Managed Service Identity (MSI) had.
 
 ### <a name="does-managed-identities-for-azure-resources-work-with-azure-cloud-services"></a>Werkt beheerde identiteiten voor Azure-resources met Azure Cloud Services?
 
@@ -60,7 +60,7 @@ Zie voor meer informatie over Azure Instance Metadata Service [IMDS-documentatie
 
 Alle Linux-distributies ondersteund door Azure IaaS kunnen worden gebruikt met beheerde identiteiten voor Azure-resources via de IMDS-eindpunt. 
 
-Opmerking: De beheerde identiteit voor Azure-resources VM-extensie (gepland voor de afschaffing in januari 2019) biedt alleen ondersteuning voor de volgende Linux-distributies:
+De beheerde identiteit voor Azure-resources VM-extensie (gepland voor de afschaffing in januari 2019) biedt alleen ondersteuning voor de volgende Linux-distributies:
 - Stable van CoreOS
 - CentOS 7.1
 - Red Hat 7.2
@@ -124,16 +124,23 @@ Nadat de virtuele machine is gestart, kan de tag worden verwijderd met behulp va
 az vm update -n <VM Name> -g <Resource Group> --remove tags.fixVM
 ```
 
-## <a name="known-issues-with-user-assigned-identities"></a>Bekende problemen met de gebruiker toegewezen identiteiten
+### <a name="vm-extension-provisioning-fails"></a>VM-extensie mislukt inrichten
 
-- de gebruiker toegewezen identiteit toewijzingen zijn alleen beschikbaar voor virtuele machine en VMSS. Belangrijk: de gebruiker toegewezen identiteit toewijzingen in de komende maanden wordt gewijzigd.
-- Dubbele gebruiker toegewezen identiteiten op de dezelfde VM/VMSS, zorgt ervoor dat de VM/VMSS mislukken. Dit omvat identiteiten die worden toegevoegd met een ander hoofdlettergebruik. bijvoorbeeld MyUserAssignedIdentity en myuserassignedidentity. 
-- Inrichting van de VM-extensie (gepland voor de afschaffing in januari 2019) aan een virtuele machine kan mislukken vanwege DNS-lookup-fouten. Start de VM opnieuw op en probeer het opnieuw. 
-- Toevoegen van een 'niet-bestaande' door de gebruiker toegewezen identiteit zorgt ervoor dat de virtuele machine mislukt. 
-- Het maken van een gebruiker toegewezen identiteit met speciale tekens (dat wil zeggen onderstrepingstekens) in de naam, wordt niet ondersteund.
-- Identiteitsnamen van de gebruiker toegewezen zijn beperkt tot 24 tekens in voor de end-to-end-scenario. de gebruiker toegewezen identiteiten met namen die langer dan 24 tekens worden niet worden toegewezen.
+Inrichting van de VM-extensie kan mislukken vanwege DNS-lookup-fouten. Start de VM opnieuw op en probeer het opnieuw.
+ 
+> [!NOTE]
+> De VM-extensie is gepland voor de afschaffing van januari 2019. Het is raadzaam om dat u aan met behulp van het eindpunt IMDS verplaatsen.
+
+### <a name="transferring-a-subscription-between-azure-ad-directories"></a>Een abonnement wordt overgedragen tussen Azure AD-mappen
+
+Beheerde identiteiten doen niet bijgewerkt wanneer u een abonnement is verplaatst/overgedragen naar een andere map. Als gevolg hiervan is een bestaand systeem toegewezen of de gebruiker toegewezen identiteiten op beheerde verbroken. 
+
+Als tijdelijke oplossing nadat het abonnement is verplaatst, kunt u uitschakelen door het systeem toegewezen beheerde identiteiten en deze opnieuw inschakelen. U kunt op deze manier verwijderen en opnieuw maken van een beheerde gebruiker toegewezen identiteiten. 
+
+## <a name="known-issues-with-user-assigned-managed-identities"></a>Bekende problemen met beheerde identiteiten gebruiker toegewezen
+
+- Het maken van een gebruiker toegewezen beheerde identiteit met speciale tekens (dat wil zeggen onderstrepingstekens) in de naam, wordt niet ondersteund.
+- Identiteitsnamen van de gebruiker toegewezen zijn beperkt tot 24 tekens bestaan. Als de naam langer dan 24 tekens is, de identiteit niet worden toegewezen aan een resource (dat wil zeggen virtuele Machine.)
 - Als u de extensie van de beheerde identiteit-virtuele machine (gepland voor de afschaffing in januari 2019) gebruikt, is de ondersteunde limiet van 32 gebruiker toegewezen beheerde identiteiten. De ondersteunde limiet is zonder de extensie van de virtuele machine beheerde identiteit 512.  
-- Bij het toevoegen van een tweede gebruiker toegewezen identiteit, de clientID mogelijk niet beschikbaar is voor aanvragen tokens voor de VM-extensie. Als een risicobeperking start opnieuw op de beheerde identiteiten voor VM-extensie voor Azure-resources met de volgende twee bash-opdrachten:
- - `sudo bash -c "/var/lib/waagent/Microsoft.ManagedIdentity.ManagedIdentityExtensionForLinux-1.0.0.8/msi-extension-handler disable"`
- - `sudo bash -c "/var/lib/waagent/Microsoft.ManagedIdentity.ManagedIdentityExtensionForLinux-1.0.0.8/msi-extension-handler enable"`
-- Wanneer een virtuele machine een gebruiker toegewezen identiteit, maar geen systeem toegewezen identiteit heeft, worden in de portal gebruikersinterface ziet identiteiten voor een Azure-resources beheerd uitgeschakeld. Om in te schakelen op het systeem toegewezen identiteit, een Azure Resource Manager-sjabloon, een Azure-CLI of een SDK te gebruiken.
+- Een gebruiker toegewezen beheerde identiteit verplaatsen naar een andere resourcegroep zorgt ervoor dat de identiteit te kraken. Als gevolg hiervan niet mogelijk op aanvragen van tokens voor die identiteit. 
+- Een abonnement overbrengen naar een andere map, wordt geen bestaande gebruiker toegewezen beheerde identiteiten verbroken. 

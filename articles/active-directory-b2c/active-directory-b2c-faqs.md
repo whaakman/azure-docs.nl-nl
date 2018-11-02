@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/16/2017
+ms.date: 11/01/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 6b5cc1eff5c6d080854754ec5b3b62068f1cbb9c
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: d17e7abbb3b6e4f091e19b8ab6834461dedffc71
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39264712"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50914767"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: Veelgestelde vragen (FAQ) 
 Deze pagina vindt u antwoorden op veelgestelde vragen over de Azure Active Directory (Azure AD) B2C. Houd regelmatig op updates controleren.
@@ -72,7 +72,7 @@ De e-handtekening bevat de naam van de Azure AD B2C-tenant die u hebt opgegeven 
 1. Open de **Azure Active Directory** blade.
 1. Klik op de **eigenschappen** tabblad.
 1. Wijzig de **naam** veld.
-1. Klik op **opslaan** aan de bovenkant van de pagina.
+1. Klik bovenaan de pagina op **Opslaan**.
 
 Er is momenteel geen manier om te wijzigen de ' uit: ' op het e-mailbericht. Stemmen op [feedback.azure.com](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/15334335-fully-customizable-verification-emails) u geïnteresseerd bent in de hoofdtekst van het verificatie-e-mailbericht aan te passen.
 
@@ -80,7 +80,7 @@ Er is momenteel geen manier om te wijzigen de ' uit: ' op het e-mailbericht. Ste
 De Azure AD Graph API kunt u het hulpprogramma voor migratie van schrijven. Zie de [gebruikershandleiding voor de migratie](active-directory-b2c-user-migration.md) voor meer informatie.
 
 ### <a name="what-password-policy-is-used-for-local-accounts-in-azure-ad-b2c"></a>Welke wachtwoordbeleid wordt gebruikt voor lokale accounts in Azure AD B2C?
-Het wachtwoordbeleid van Azure AD B2C voor lokale accounts is gebaseerd op het beleid voor Azure AD. Azure AD B2C de gebruikersregistratie, meld u aan of aanmelden en het wachtwoord opnieuw instellen van beleidsregels gebruikt de sterkte 'sterk' wachtwoord en de wachtwoorden niet verloopt. Lees de [Azure AD-wachtwoordbeleid](https://msdn.microsoft.com/library/azure/jj943764.aspx) voor meer informatie.
+Het wachtwoordbeleid van Azure AD B2C voor lokale accounts is gebaseerd op het beleid voor Azure AD. Azure AD B2C de gebruikersregistratie, meld u aan of aanmelden en het wachtwoord opnieuw instellen van beleidsregels gebruikt de sterkte 'sterk' wachtwoord en de wachtwoorden niet verloopt. Lees de [Azure AD-wachtwoordbeleid](https://msdn.microsoft.com/library/azure/jj943764.aspx) voor meer informatie. Zie voor meer informatie over accountvergrendelingen en wachtwoorden [bedreigingen voor resources en -gegevens in Azure Active Directory B2C beheert](active-directory-b2c-reference-threat-management.md).
 
 ### <a name="can-i-use-azure-ad-connect-to-migrate-consumer-identities-that-are-stored-on-my-on-premises-active-directory-to-azure-ad-b2c"></a>Kan ik Azure AD Connect gebruiken voor het migreren van consumentidentiteiten uit die zijn opgeslagen op mijn on-premises Active Directory naar Azure AD B2C?
 Nee, Azure AD Connect is niet ontworpen om te werken met Azure AD B2C. Overweeg het gebruik van de [Graph API](active-directory-b2c-devquickstarts-graph-dotnet.md) voor gebruikersmigratie.  Zie de [gebruikershandleiding voor de migratie](active-directory-b2c-user-migration.md) voor meer informatie.

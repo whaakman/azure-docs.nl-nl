@@ -11,15 +11,15 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlrab, srbozovi, bonova
 manager: craigg
-ms.date: 09/13/2018
-ms.openlocfilehash: 08b8e37493ea7bc549a2352aaa6714ef7c65bfdb
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 11/01/2018
+ms.openlocfilehash: 97362cb91c16f91d637283df7a583f685124a21b
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47159513"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50913667"
 ---
-# <a name="configure-azure-vm-to-connect-to-an-azure-sql-database-managed-instance"></a>Azure virtuele machine verbinding maken met een Azure SQL Database Managed Instance configureren
+# <a name="quickstart-configure-azure-vm-to-connect-to-an-azure-sql-database-managed-instance"></a>Snelstartgids: Azure-VM verbinding maken met een Azure SQL Database Managed Instance configureren
 
 Deze QuickStart laat zien hoe het configureren van een virtuele Azure-machine verbinding maken met een Azure SQL Database Managed Instance met behulp van SQL Server Management Studio (SSMS). Zie voor een snelstart van hoe u verbinding maakt vanaf een on-premises clientcomputer met behulp van een punt-naar-site-verbinding [een punt-naar-site-verbinding configureren](sql-database-managed-instance-configure-p2s.md) 
 
@@ -37,7 +37,7 @@ De volgende stappen maakt u een nieuw subnet in het beheerd exemplaar VNet voor 
 
 1. Open de resourcegroep voor het beheerde exemplaar dat u hebt gemaakt in de [maken van een beheerd exemplaar](sql-database-managed-instance-get-started.md) quickstart en klik op het virtuele netwerk voor uw beheerde exemplaar en klik vervolgens op **subnetten**.
 
-   ![Beheerde exemplaar resources](./media/sql-database-managed-instance-configure-vm/resources.png)
+   ![Resources van beheerd exemplaar](./media/sql-database-managed-instance-configure-vm/resources.png)
 
 2. Klik op de **+** Meld u aan bij **Subnet** om een nieuw subnet te maken.
 
@@ -142,5 +142,5 @@ Nadat u verbinding hebt gemaakt, kunt u uw systeem en gebruikersdatabases bekijk
 ## <a name="next-steps"></a>Volgende stappen
 
 - Zie voor een snelstart van hoe u verbinding maakt vanaf een on-premises clientcomputer met behulp van een punt-naar-site-verbinding [een punt-naar-site-verbinding configureren](sql-database-managed-instance-configure-p2s.md).
-- Zie voor een overzicht van de opties voor de verbinding voor toepassingen, [verbinding maken met uw toepassingen naar Managed Instance](sql-database-managed-instance-connect-app.md).
-- Als u wilt een bestaande SQL Server-database herstellen van on-premises naar een beheerd exemplaar, kunt u de [Azure Database Migration Service (DMS) voor de migratie](../dms/tutorial-sql-server-to-managed-instance.md) om terug te zetten vanuit een back-upbestand van de database of de [T-SQL herstellen opdracht](sql-database-managed-instance-get-started-restore.md) om terug te zetten vanuit een back-upbestand van de database.
+- Zie [Verbinding maken tussen uw toepassing en het beheerde exemplaar van Azure SQL Database](sql-database-managed-instance-connect-app.md) voor een overzicht van de verbindingsopties voor toepassingen.
+- Als u een bestaande SQL Server-database van on-premises wilt herstellen naar een beheerd exemplaar, kunt u de [Azure Database Migration Service (DMS) voor migratie](../dms/tutorial-sql-server-to-managed-instance.md) gebruiken om de database terug te zetten vanuit een back-upbestand van de database. U gebruikt de opdracht [T-SQL RESTORE](sql-database-managed-instance-get-started-restore.md) als u de database wilt terugzetten vanuit een back-upbestand van de database.

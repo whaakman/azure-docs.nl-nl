@@ -1,6 +1,6 @@
 ---
-title: Een solution management bestand maken in Azure | Microsoft Docs
-description: Management-oplossingen bieden verpakte beheerscenario die klanten aan Azure-omgeving toevoegen kunnen.  Dit artikel biedt details over hoe u oplossingen voor het beheer moet worden gebruikt in uw eigen omgeving kunt maken of beschikbaar gesteld aan uw klanten.
+title: Het maken van een oplossingsbestand management in Azure | Microsoft Docs
+description: Beheeroplossingen bevatten verpakte beheerscenario's die klanten aan hun Azure-omgeving toevoegen kunnen.  In dit artikel vindt u informatie over hoe u oplossingen voor moet worden gebruikt in uw eigen omgeving kunt maken of beschikbaar wordt gesteld aan uw klanten.
 services: monitoring
 documentationcenter: ''
 author: bwren
@@ -15,32 +15,32 @@ ms.workload: infrastructure-services
 ms.date: 01/09/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 46e6ea791752045b0f1afbf1e83e43f498415e54
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 13da68f826f7077acec9a64d1aa0ea18c66be6ff
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33887886"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50914240"
 ---
-# <a name="creating-a-management-solution-file-in-azure-preview"></a>Een solution management bestand maken in Azure (Preview)
+# <a name="creating-a-management-solution-file-in-azure-preview"></a>Het maken van een oplossingsbestand management in Azure (Preview)
 > [!NOTE]
-> Dit is voorlopige documentatie voor het maken van de oplossingen in Azure die zich momenteel in preview. De hieronder beschreven schema kan worden gewijzigd.  
+> Dit is een voorlopige documentatie voor het maken van oplossingen in Azure die zich momenteel in preview. Er is geen schema die hieronder worden beschreven kan worden gewijzigd.  
 
-Oplossingen in Azure worden geïmplementeerd als [Resource Manager-sjablonen](../azure-resource-manager/resource-manager-template-walkthrough.md).  Leren van de belangrijkste taak bij het leren van het ontwerpen van oplossingen voor het [ontwerpen van een sjabloon](../azure-resource-manager/resource-group-authoring-templates.md).  Dit artikel bevat een unieke gegevens van sjablonen die worden gebruikt voor oplossingen en het configureren van standaardoplossing resources.
+Management-oplossingen in Azure worden geïmplementeerd als [Resource Manager-sjablonen](../azure-resource-manager/resource-manager-template-walkthrough.md).  Leren van de belangrijkste taak leren over het ontwerpen van oplossingen voor het [ontwerpen van een sjabloon](../azure-resource-manager/resource-group-authoring-templates.md).  Dit artikel bevat de unieke informatie van sjablonen voor oplossingen en het configureren van resources van de typische oplossing gebruikt.
 
 
 ## <a name="tools"></a>Hulpprogramma's
 
-Gebruik een teksteditor kunt u werken met oplossingsbestanden, maar we raden gebruik van de functies van Visual Studio of Visual Studio Code zoals beschreven in de volgende artikelen.
+Gebruik een teksteditor kunt u werken met oplossingsbestanden, maar het is raadzaam gebruik te maken van de functies die beschikbaar in Visual Studio of Visual Studio Code, zoals beschreven in de volgende artikelen.
 
-- [Maken en implementeren van Azure-resourcegroepen met Visual Studio](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
-- [Werken met Azure Resource Manager-sjablonen in Visual Studio Code](../azure-resource-manager/resource-manager-vs-code.md)
+- [Het maken en implementeren van Azure-resourcegroepen met Visual Studio](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
+- [Werken met Azure Resource Manager-sjablonen in Visual Studio Code](../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md)
 
 
 
 
 ## <a name="structure"></a>structuur
-De basisstructuur van een bestand van management-oplossing is hetzelfde als een [Resource Manager-sjabloon](../azure-resource-manager/resource-group-authoring-templates.md#template-format), die is als volgt.  Elk van de volgende secties wordt beschreven in de bovenste elementen en de inhoud in een oplossing.  
+De basisstructuur van een management-oplossingsbestand is hetzelfde als een [Resource Manager-sjabloon](../azure-resource-manager/resource-group-authoring-templates.md#template-format), die is als volgt.  Elk van de volgende secties wordt beschreven in de bovenste elementen en de inhoud ervan in een oplossing.  
 
     {
        "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -52,12 +52,12 @@ De basisstructuur van een bestand van management-oplossing is hetzelfde als een 
     }
 
 ## <a name="parameters"></a>Parameters
-[Parameters](../azure-resource-manager/resource-group-authoring-templates.md#parameters) zijn waarden die u nodig van de gebruiker hebt bij de installatie van de oplossing voor beheer.  Er zijn standaard parameters die alle oplossingen hebben en u kunt zo nodig extra parameters toevoegen voor uw specifieke oplossing.  Hoe gebruikers parameterwaarden wordt opgeven bij de installatie van uw oplossing afhankelijk van de specifieke parameter en hoe de oplossing wordt geïnstalleerd.
+[Parameters](../azure-resource-manager/resource-group-authoring-templates.md#parameters) zijn waarden die u nodig van de gebruiker hebt bij de installatie van de oplossing voor beheer.  Er zijn standaard parameters die alle oplossingen hebben, en kunt u aanvullende parameters zoals vereist voor uw specifieke oplossing toevoegen.  Hoe gebruikers parameterwaarden wordt opgeven bij de installatie van uw oplossing afhankelijk van de specifieke parameter en hoe de oplossing wordt geïnstalleerd.
 
-Wanneer een gebruiker [installeert uw beheeroplossing voor](monitoring-solutions.md#install-a-management-solution) via de Azure Marketplace of Azure QuickStart sjablonen wordt ze gevraagd om te selecteren een [werkruimte voor logboekanalyse en Automation-account](monitoring-solutions.md#log-analytics-workspace-and-automation-account).  Deze worden gebruikt voor het vullen van de waarden van elk van de standaard parameters.  De gebruiker niet gevraagd rechtstreeks waarden opgeven voor de standaard parameters, maar wordt ze gevraagd waarden opgeven voor elke extra parameters.
+Wanneer een gebruiker [installeert uw beheeroplossing voor](monitoring-solutions.md#install-a-management-solution) via de Azure Marketplace of een Azure-QuickStart-sjablonen selecteren ze wordt gevraagd een [Log Analytics-werkruimte en het Automation-account](monitoring-solutions.md#log-analytics-workspace-and-automation-account).  Deze worden gebruikt voor het vullen van de waarden van elk van de standaard parameters.  De gebruiker niet gevraagd naar rechtstreeks waarden opgeven voor de standard-parameters, maar ze wordt gevraagd waarden op te geven voor elke extra parameters.
 
 
-Een voorbeeld-parameter worden hieronder weergegeven.  
+Hieronder ziet u een voorbeeld-parameter.  
 
     "startTime": {
         "type": "string",
@@ -71,27 +71,27 @@ De volgende tabel beschrijft de kenmerken van een parameter.
 
 | Kenmerk | Beschrijving |
 |:--- |:--- |
-| type |Het gegevenstype voor de parameter. Het ingevoerde besturingselement weergegeven voor de gebruiker is afhankelijk van het gegevenstype.<br><br>Boole - vervolgkeuzelijst<br>String - tekstvak<br>int - tekstvak<br>SecureString - wachtwoordveld<br> |
+| type |Het gegevenstype voor de parameter. Het besturingselement voor tekstinvoer weergegeven voor de gebruiker, is afhankelijk van het gegevenstype.<br><br>Boole - vervolgkeuzelijst<br>tekenreeks - tekstvak<br>int - tekstvak<br>SecureString - veld wachtwoord<br> |
 | category |De categorie voor de parameter is optioneel.  Parameters in dezelfde categorie zijn gegroepeerd. |
-| Besturingselement |Aanvullende functionaliteit voor string-parameters.<br><br>datum/tijd - datum/tijd-besturingselement wordt weergegeven.<br>GUID - Guid-waarde wordt automatisch gegenereerd en de parameter niet wordt weergegeven. |
-| description |Optionele beschrijving voor de parameter.  Weergegeven van een ballon met informatie naast de parameter. |
+| Besturingselement |Aanvullende functionaliteit voor tekenreeksparameters.<br><br>datum/tijd - datum/tijd-besturingselement wordt weergegeven.<br>GUID - Guid-waarde wordt automatisch gegenereerd en de parameter niet wordt weergegeven. |
+| description |Optionele beschrijving voor de parameter.  In een ballon naast de parameter van de gegevens weergegeven. |
 
-### <a name="standard-parameters"></a>Standaard-parameters
-De volgende tabel bevat de standaardparameters voor alle beheeroplossingen voor.  Deze waarden worden ingevuld voor de gebruiker in plaats van het betreffende bevestigingsvenster wanneer uw oplossing wordt geïnstalleerd vanuit de Quick Start-sjablonen of Azure Marketplace.  De gebruiker moet waarden opgeven voor deze als de oplossing is geïnstalleerd met een andere methode.
+### <a name="standard-parameters"></a>Standard parameters
+De volgende tabel bevat de standaardparameters voor alle beheeroplossingen.  Deze waarden worden ingevuld voor de gebruiker in plaats van dat wordt gevraagd om ze als uw oplossing wordt geïnstalleerd vanuit de Azure Marketplace of Quickstart-sjablonen.  De gebruiker moet waarden opgeven voor deze als de oplossing wordt geïnstalleerd in een andere methode.
 
 > [!NOTE]
-> De gebruikersinterface in de Azure Marketplace en Quick Start-sjablonen worden de namen van parameters verwacht in de tabel.  Als u verschillende parameternamen gebruikt vervolgens de gebruiker wordt gevraagd om deze en ze niet automatisch ingevuld.
+> De gebruikersinterface in de Azure Marketplace en snelstartsjablonen verwacht dat de namen van parameters in de tabel.  Als u de namen van andere parameters gebruikt vervolgens de gebruiker wordt gevraagd voor hen en ze niet automatisch worden ingevuld.
 >
 >
 
 | Parameter | Type | Beschrijving |
 |:--- |:--- |:--- |
 | accountName |tekenreeks |Azure Automation-accountnaam. |
-| pricingTier |tekenreeks |De prijscategorie van de werkruimte voor logboekanalyse zowel Azure Automation-account. |
-| regionId |tekenreeks |De regio van het Azure Automation-account. |
-| SolutionName |tekenreeks |Naam van de oplossing.  Als u uw oplossing via snelstartsjablonen implementeert, moet vervolgens u definiëren solutionName als een parameter zodat definieert u een tekenreeks in plaats daarvan vereisen dat de gebruiker een opgeven. |
-| workspaceName |tekenreeks |Meld u aan de naam van de werkruimte Analytics. |
-| workspaceRegionId |tekenreeks |De regio van de werkruimte voor logboekanalyse. |
+| pricingTier |tekenreeks |De prijscategorie van Log Analytics-werkruimte en Azure Automation-account. |
+| regionId |tekenreeks |De regio van de Azure Automation-account. |
+| solutionName |tekenreeks |Naam van de oplossing.  Als u uw oplossing via Quickstart-sjablonen implementeren wilt, moet klikt u vervolgens u definiëren solutionName als een parameter zodat u kunt een tekenreeks in plaats daarvan vereisen dat de gebruiker om op te geven een definiëren. |
+| Werkruimtenaam |tekenreeks |Naam van log Analytics-werkruimte. |
+| workspaceRegionId |tekenreeks |De regio van de Log Analytics-werkruimte. |
 
 
 Hieronder volgt de structuur van de standaard parameters die u kunt kopiëren en plakken in uw oplossingsbestand.  
@@ -130,12 +130,12 @@ Hieronder volgt de structuur van de standaard parameters die u kunt kopiëren en
     }
 
 
-Raadpleeg de parameterwaarden in andere elementen van de oplossing met de syntaxis **parameters (parameter name)**.  Bijvoorbeeld, als u de naam van de werkruimte, gebruikt u **parameters('workspaceName')**
+U verwijst naar de parameterwaarden in andere elementen van de oplossing met de syntaxis van de **parameters ('parameternaam ')**.  Bijvoorbeeld, voor toegang tot de naam van de werkruimte, zou u **parameters('workspaceName')**
 
 ## <a name="variables"></a>Variabelen
-[Variabelen](../azure-resource-manager/resource-group-authoring-templates.md#variables) zijn waarden die u in de rest van de oplossing voor beheer gebruiken wilt.  Deze waarden zijn niet blootgesteld aan de gebruiker die de oplossing installeert.  Ze zijn bedoeld als de auteur van het met één locatie waar ze de waarden die u mogelijk meerdere keren worden gebruikt in de oplossing kunnen beheren. U moet alle waarden specifieke naar plaatsen uw oplossing in variabelen in harde code in plaats van de **resources** element.  Dit maakt de code beter leesbaar en kunt u eenvoudig wijzigen van deze waarden in latere versies.
+[Variabelen](../azure-resource-manager/resource-group-authoring-templates.md#variables) zijn waarden die u in de rest van de oplossing voor beheer gebruiken wilt.  Deze waarden worden niet blootgesteld aan de gebruiker installeren van de oplossing.  Ze zijn bedoeld om te voorzien van de auteur van één locatie waar ze de waarden die mogelijk meerdere keren wordt gebruikt in de oplossing kunnen beheren. U geen waarden specifieke moet plaatsen voor uw oplossing in de variabelen in plaats van code in de **resources** element.  Dit maakt de code beter leesbare en kunt u eenvoudig wijzigen van deze waarden in latere versies.
 
-Hieronder volgt een voorbeeld van een **variabelen** element met de gangbare parameters die worden gebruikt in oplossingen.
+Hieronder volgt een voorbeeld van een **variabelen** element met normale parameters die worden gebruikt in oplossingen.
 
     "variables": {
         "SolutionVersion": "1.1",
@@ -145,9 +145,9 @@ Hieronder volgt een voorbeeld van een **variabelen** element met de gangbare par
         "AutomationApiVersion": "2015-10-31"
     },
 
-U verwijzen naar variabelen binnen de oplossing met de syntaxis **variabelen ('variabele name')**.  Bijvoorbeeld, als u de variabele SolutionName, gebruikt u **variables('SolutionName')**.
+U kunt verwijzen naar waarden van variabelen met de oplossing met de syntaxis van de **variabelen ('variabele naam')**.  Bijvoorbeeld, voor toegang tot de SolutionName-variabele, zou u **variables('SolutionName')**.
 
-U kunt ook complexe variabelen definiëren die meerdere sets met waarden.  Dit zijn vooral handig beheersystemen waar het definiëren van meerdere eigenschappen voor verschillende soorten resources.  U kan bijvoorbeeld de oplossing variabelen hierboven weergegeven met de volgende herstructureren.
+U kunt ook complexe variabelen definiëren die meerdere sets met waarden.  Dit zijn vooral nuttig in oplossingen voor het beheer wanneer u meerdere eigenschappen voor verschillende soorten resources wilt definiëren.  Bijvoorbeeld, kan u de oplossing voor variabelen die wordt weergegeven boven aan de volgende herstructureren.
 
     "variables": {
         "Solution": {
@@ -159,21 +159,21 @@ U kunt ook complexe variabelen definiëren die meerdere sets met waarden.  Dit z
         "AutomationApiVersion": "2015-10-31"
     },
 
-In dit geval u verwijzen naar variabelen binnen de oplossing met de syntaxis **variables('variable name').property**.  Bijvoorbeeld, als u de naam van de oplossing variabele, gebruikt u **variables('Solution'). Naam**.
+In dit geval u verwijzen naar waarden van variabelen met de oplossing met de syntaxis van de **variables('variable name').property**.  Bijvoorbeeld, voor toegang tot de variabele de naam van oplossing, zou u **variables('Solution'). Naam**.
 
 ## <a name="resources"></a>Resources
-[Resources](../azure-resource-manager/resource-group-authoring-templates.md#resources) definiëren van de andere resources die uw beheeroplossing voor installeren en configureren.  Dit is het grootste en meest complexe gedeelte van de sjabloon.  U krijgt de structuur en een volledige beschrijving van de resource-elementen in [Azure Resource Manager-sjablonen samenstellen](../azure-resource-manager/resource-group-authoring-templates.md#resources).  Verschillende bronnen die u doorgaans definieert zijn aangegeven in de andere artikelen in deze documentatie. 
+[Resources](../azure-resource-manager/resource-group-authoring-templates.md#resources) definiëren van de verschillende bronnen die uw beheeroplossing voor installeren en configureren.  Dit is het grootste en meest complexe gedeelte van de sjabloon.  U krijgt de structuur en de volledige beschrijving van de resource-elementen in [Authoring Azure Resource Manager-sjablonen](../azure-resource-manager/resource-group-authoring-templates.md#resources).  Verschillende bronnen die u normaal gesproken definieert, worden beschreven in de andere artikelen in deze documentatie. 
 
 
 ### <a name="dependencies"></a>Afhankelijkheden
-De **dependsOn** element geeft een [afhankelijkheid](../azure-resource-manager/resource-group-define-dependencies.md) op een andere resource.  Wanneer de oplossing is geïnstalleerd, wordt een bron is niet gemaakt totdat alle afhankelijkheden ervan zijn gemaakt.  Bijvoorbeeld: uw oplossing mogelijk [een runbook start](monitoring-solutions-resources-automation.md#runbooks) wanneer deze geïnstalleerd met behulp van een [taak resource](monitoring-solutions-resources-automation.md#automation-jobs).  De bron van de taak is afhankelijk van de runbook-bron om ervoor te zorgen dat het runbook is gemaakt voordat de taak is gemaakt.
+De **dependsOn** element Hiermee geeft u een [afhankelijkheid](../azure-resource-manager/resource-group-define-dependencies.md) op een andere resource.  Wanneer de oplossing is geïnstalleerd, wordt een resource wordt niet gemaakt totdat alle bijbehorende afhankelijkheden zijn gemaakt.  Bijvoorbeeld: uw oplossing kan [een runbook starten](monitoring-solutions-resources-automation.md#runbooks) wanneer deze geïnstalleerd met behulp van een [taak resource](monitoring-solutions-resources-automation.md#automation-jobs).  De resource van de taak zou zijn afhankelijk van de runbook-resource om ervoor te zorgen dat het runbook is gemaakt voordat de taak is gemaakt.
 
-### <a name="log-analytics-workspace-and-automation-account"></a>Log Analytics-werkruimte en de Automation-account
-Oplossingen vereisen een [werkruimte voor logboekanalyse](../log-analytics/log-analytics-manage-access.md) bevat weergaven en een [Automation-account](../automation/automation-security-overview.md#automation-account-overview) runbooks en verwante resources bevat.  Deze moeten worden voldaan voordat de resources in de oplossing zijn gemaakt en moeten niet worden gedefinieerd in de oplossing zelf.  De gebruiker wordt [een werkruimte en de account opgeven](monitoring-solutions.md#log-analytics-workspace-and-automation-account) wanneer ze uw oplossing implementeren, maar als de auteur moet u rekening houden met de volgende punten.
+### <a name="log-analytics-workspace-and-automation-account"></a>Log Analytics-werkruimte en het Automation-account
+Managementoplossingen vereisen een [Log Analytics-werkruimte](../log-analytics/log-analytics-manage-access.md) weergaven bevatten en een [Automation-account](../automation/automation-security-overview.md#automation-account-overview) runbooks en verwante resources bevat.  Deze moeten beschikbaar zijn voordat de resources in de oplossing worden gemaakt en moeten niet worden gedefinieerd in de oplossing zelf.  De gebruiker wordt [geeft u een werkruimte en account](monitoring-solutions.md#log-analytics-workspace-and-automation-account) wanneer ze uw oplossing implementeren, maar u moet de volgende punten overwegen als de auteur.
 
 
-## <a name="solution-resource"></a>Oplossing resource
-Elke oplossing vereist een resource-vermelding in de **resources** element dat de oplossing zelf definieert.  Dit heeft een type **Microsoft.OperationsManagement/solutions** en hebben de volgende structuur. Dit omvat [standaardparameters](#parameters) en [variabelen](#variables) die meestal worden gebruikt om de eigenschappen van de oplossing te definiëren.
+## <a name="solution-resource"></a>Oplossing voor resource
+Elke oplossing vereist een resource-vermelding in de **resources** element waarin de oplossing zelf.  Dit is een type **Microsoft.OperationsManagement/solutions** en hebben de volgende structuur. Dit omvat [standaardparameters](#parameters) en [variabelen](#variables) die meestal worden gebruikt om de eigenschappen van de oplossing te definiëren.
 
 
     {
@@ -207,41 +207,41 @@ Elke oplossing vereist een resource-vermelding in de **resources** element dat d
 
 
 ### <a name="dependencies"></a>Afhankelijkheden
-De bron van de oplossing moet hebben, een [afhankelijkheid](../azure-resource-manager/resource-group-define-dependencies.md) op alle andere bronnen in de oplossing omdat ze bestaan moeten voordat de oplossing kan worden gemaakt.  U dit doen door het toevoegen van een vermelding voor elke resource in de **dependsOn** element.
+De bron van de oplossing moet hebben een [afhankelijkheid](../azure-resource-manager/resource-group-define-dependencies.md) voor elke andere resources in de oplossing omdat ze bestaan moeten voordat de oplossing kan worden gemaakt.  U dit doen door het toevoegen van een vermelding voor elke resource in de **dependsOn** element.
 
 ### <a name="properties"></a>Eigenschappen
-De oplossing-resource heeft de eigenschappen in de volgende tabel.  Dit omvat de resources waarnaar wordt verwezen en die deel uitmaken van de oplossing waarmee wordt gedefinieerd hoe de resource wordt beheerd nadat de oplossing is geïnstalleerd.  Elke resource in de oplossing moet worden weergegeven in ofwel de **referencedResources** of de **containedResources** eigenschap.
+De resource van de oplossing heeft de eigenschappen in de volgende tabel.  Dit omvat de resources waarnaar wordt verwezen en opgenomen in de oplossing waarmee wordt gedefinieerd hoe de resource wordt beheerd nadat de oplossing is geïnstalleerd.  Elke resource in de oplossing moet worden vermeld in ofwel de **referencedResources** of de **containedResources** eigenschap.
 
 | Eigenschap | Beschrijving |
 |:--- |:--- |
-| workspaceResourceId |ID van de werkruimte voor logboekanalyse in het formulier  *<Resource Group ID>/providers/Microsoft.OperationalInsights/workspaces/\<Werkruimtenaam\>*. |
+| workspaceResourceId |ID van de Log Analytics-werkruimte in de vorm  *<Resource Group ID>/providers/Microsoft.OperationalInsights/workspaces/\<Werkruimtenaam\>*. |
 | referencedResources |Lijst met resources in de oplossing die mogen niet worden verwijderd wanneer de oplossing wordt verwijderd. |
-| containedResources |Lijst met resources in de oplossing die moet worden verwijderd wanneer de oplossing wordt verwijderd. |
+| containedResources |Lijst met resources in de oplossing die moeten worden verwijderd wanneer de oplossing wordt verwijderd. |
 
-Het bovenstaande voorbeeld is voor een oplossing met een runbook, een schema en de weergave.  De planning en runbook zijn *waarnaar wordt verwezen* in de **eigenschappen** element zodat ze worden niet verwijderd wanneer de oplossing is verwijderd.  De weergave is *opgenomen* zodat het wordt verwijderd wanneer de oplossing wordt verwijderd.
+Het bovenstaande voorbeeld is voor een oplossing met een runbook, een planning en de weergave.  De planning en het runbook zijn *waarnaar wordt verwezen,* in de **eigenschappen** element zodat ze niet worden verwijderd wanneer de oplossing wordt verwijderd.  De weergave is *opgenomen* , zodat deze wordt verwijderd wanneer de oplossing wordt verwijderd.
 
 ### <a name="plan"></a>Plannen
-De **plan** entiteit van de oplossing-bron heeft de eigenschappen in de volgende tabel.
+De **plan** entiteit van de resource van de oplossing heeft de eigenschappen in de volgende tabel.
 
 | Eigenschap | Beschrijving |
 |:--- |:--- |
 | naam |Naam van de oplossing. |
 | versie |De versie van de oplossing zoals wordt bepaald door de auteur. |
-| product |Unieke tekenreeks voor het identificeren van de oplossing. |
+| product |De unieke tekenreeks voor het identificeren van de oplossing. |
 | Uitgever |Uitgever van de oplossing. |
 
 
 
 ## <a name="sample"></a>Voorbeeld
-Hier vindt u voorbeelden van oplossingsbestanden met de bron van een oplossing op de volgende locaties.
+Hier vindt u voorbeelden van een voor oplossingsbestanden met een resource van de oplossing op de volgende locaties.
 
 - [Automation-resources](monitoring-solutions-resources-automation.md#sample)
 - [Resources zoeken en waarschuwingen](monitoring-solutions-resources-searches-alerts.md#sample)
 
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Opgeslagen zoekopdrachten en waarschuwingen toevoegen](monitoring-solutions-resources-searches-alerts.md) bij uw systeem.
-* [Weergaven toevoegen](monitoring-solutions-resources-views.md) bij uw systeem.
-* [Runbooks en andere Automation-resources toevoegen](monitoring-solutions-resources-automation.md) bij uw systeem.
-* Lees meer over [Azure Resource Manager-sjablonen samenstellen](../azure-resource-manager/resource-group-authoring-templates.md).
-* Search [Azure-Snelstartsjablonen](https://azure.microsoft.com/documentation/templates) voor voorbeelden van andere Resource Manager-sjablonen.
+* [Opgeslagen zoekopdrachten en waarschuwingen toevoegen](monitoring-solutions-resources-searches-alerts.md) aan uw oplossing.
+* [Weergaven toevoegen](monitoring-solutions-resources-views.md) aan uw oplossing.
+* [Runbooks en andere Automation-resources toevoegen](monitoring-solutions-resources-automation.md) aan uw oplossing.
+* Lees meer over van [Authoring Azure Resource Manager-sjablonen](../azure-resource-manager/resource-group-authoring-templates.md).
+* Search [Azure-Snelstartsjablonen](https://azure.microsoft.com/documentation/templates) voor voorbeelden van verschillende Resource Manager-sjablonen.

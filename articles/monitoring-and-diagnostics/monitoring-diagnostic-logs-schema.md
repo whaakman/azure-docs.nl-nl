@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 10/11/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: 3b665ed0539a41ffeca87511154f3607a57cff4a
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 17efbfffde68208b76120d449f4e1d70e843fc7d
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49116190"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50914342"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Ondersteunde services, schema's en categorieën voor diagnostische logboeken van Azure
 
@@ -92,9 +92,11 @@ Het schema voor diagnostische logboeken van resources, is afhankelijk van de cat
 |Microsoft.Batch/batchAccounts|ServiceLog|Servicelogboeken|
 |Microsoft.Cdn/profiles/endpoints|CoreAnalytics|Hiermee worden de metrische gegevens van het eindpunt opgehaald, zoals bandbreedte, uitgaand verkeer enzovoort.|
 |Microsoft.ClassicNetwork/networksecuritygroups|Gebeurtenis voor stroomregel van netwerkbeveiligingsgroep|Gebeurtenis voor stroomregel van netwerkbeveiligingsgroep|
-|Microsoft.CognitiveServices/accounts|Controleren|Controleren|
+|Microsoft.CognitiveServices/accounts|Controleren|Controlelogboeken|
+|Microsoft.CognitiveServices/accounts|RequestResponse|Aanvraag- en antwoordlogboeken|
 |Microsoft.ContainerService/managedClusters|kube-apiserver|Kubernetes-API-Server|
 |Microsoft.ContainerService/managedClusters|kube-controller-manager|Kubernetes Controller Manager|
+|Microsoft.ContainerService/managedClusters|cluster-automatisch schalen|Kubernetes-Cluster automatisch schalen|
 |Microsoft.ContainerService/managedClusters|kube-planner|Kubernetes-Scheduler|
 |Microsoft.ContainerService/managedClusters|GUARD|Verificatie-Webhook|
 |Microsoft.CustomerInsights/hubs|AuditEvents|AuditEvents|
@@ -105,7 +107,7 @@ Het schema voor diagnostische logboeken van resources, is afhankelijk van de cat
 |Microsoft.DataLakeAnalytics/accounts|Aanvragen|Logboeken van de aanvraag|
 |Microsoft.DataLakeStore/accounts|Controleren|Controlelogboeken|
 |Microsoft.DataLakeStore/accounts|Aanvragen|Logboeken van de aanvraag|
-|Microsoft.DBforMySQL/servers|MySqlSlowLogs|Langzame-querylogboeken van MySQL|
+|Microsoft.DBforMySQL/servers|MySqlSlowLogs|MySQL-Server-logboeken|
 |Microsoft.DBforPostgreSQL/servers|PostgreSQLLogs|PostgreSQL-Server-logboeken|
 |Microsoft.Devices/IotHubs|Verbindingen|Verbindingen|
 |Microsoft.Devices/IotHubs|DeviceTelemetry|Telemetrie van apparaten|
@@ -128,6 +130,14 @@ Het schema voor diagnostische logboeken van resources, is afhankelijk van de cat
 |Microsoft.EventHub/namespaces|ArchiveLogs|Logboeken archiveren|
 |Microsoft.EventHub/namespaces|OperationalLogs|Operationele Logboeken|
 |Microsoft.EventHub/namespaces|AutoScaleLogs|Logboeken voor automatisch schalen|
+|Microsoft.Insights/AutoscaleSettings|AutoscaleEvaluations|Automatische schaalaanpassing gebruiken voor evaluaties|
+|Microsoft.Insights/AutoscaleSettings|AutoscaleScaleActions|Automatische schaalaanpassing gebruiken voor schaalacties|
+|Microsoft.IoTSpaces/Graph|Tracering|Tracering|
+|Microsoft.IoTSpaces/Graph|Operationeel|Operationeel|
+|Microsoft.IoTSpaces/Graph|Controleren|Controleren|
+|Microsoft.IoTSpaces/Graph|UserDefinedFunction|UserDefinedFunction|
+|Microsoft.IoTSpaces/Graph|Inkomend verkeer|Inkomend verkeer|
+|Microsoft.IoTSpaces/Graph|Uitgaand verkeer|Uitgaand verkeer|
 |Microsoft.KeyVault/vaults|AuditEvent|Controlelogboeken|
 |Microsoft.Logic/workflows|WorkflowRuntime|Diagnostische gebeurtenissen van de workflowruntime|
 |Microsoft.Logic/integrationAccounts|IntegrationAccountTrackingEvents|Gebeurtenissen van integratieaccounts bijhouden|
@@ -136,6 +146,8 @@ Het schema voor diagnostische logboeken van resources, is afhankelijk van de cat
 |Microsoft.Network/loadBalancers|LoadBalancerAlertEvent|Load Balancer waarschuwingsgebeurtenissen|
 |Microsoft.Network/loadBalancers|LoadBalancerProbeHealthStatus|De Integriteitsstatus van de Load Balancer-test|
 |Microsoft.Network/publicIPAddresses|DDoSProtectionNotifications|DDoS protection-meldingen|
+|Microsoft.Network/publicIPAddresses|DDoSMitigationFlowLogs|Logboeken van de beslissingen voor DDoS-risicobeperking flow|
+|Microsoft.Network/publicIPAddresses|DDoSMitigationReports|Rapporten van DDoS-oplossingen|
 |Microsoft.Network/virtualNetworks|VMProtectionAlerts|Waarschuwingen voor VM-beveiliging|
 |Microsoft.Network/applicationGateways|ApplicationGatewayAccessLog|Application Gateway-Toegangslogboek|
 |Microsoft.Network/applicationGateways|ApplicationGatewayPerformanceLog|Prestaties van toepassingsgateway|
@@ -151,6 +163,8 @@ Het schema voor diagnostische logboeken van resources, is afhankelijk van de cat
 |Microsoft.Network/virtualNetworkGateways|P2SDiagnosticLog|Diagnostische logboeken voor P2S|
 |Microsoft.Network/trafficManagerProfiles|ProbeHealthStatusEvents|Traffic Manager-test statusgebeurtenis resultaten|
 |Microsoft.Network/expressRouteCircuits|PeeringRouteLog|Peering Route-Table-Logboeken|
+|Microsoft.Network/frontdoors|FrontdoorAccessLog|Frontdoor Toegangslogboek|
+|Microsoft.Network/frontdoors|FrontdoorWebApplicationFirewallLog|Frontdoor Web Application Firewall-logboek|
 |Microsoft.PowerBIDedicated/capacities|Engine|Engine|
 |Microsoft.RecoveryServices/Vaults|AzureBackupReport|Azure Backup waarvoor gegevens zijn gerapporteerd|
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryJobs|Azure Site Recovery-taken|
@@ -173,10 +187,21 @@ Het schema voor diagnostische logboeken van resources, is afhankelijk van de cat
 |Microsoft.Sql/servers/databases|Deadlocks|Deadlocks|
 |Microsoft.Sql/servers/databases|Controleren|Controlelogboeken|
 |Microsoft.Sql/servers/databases|SQLSecurityAuditEvents|Controlegebeurtenis voor SQL-beveiliging|
-|Microsoft.Sql/servers/databases|SqlDw_Requests|SQL DW-aanvragen|
-|Microsoft.Sql/servers/databases|SqlDw_RequestSteps|SQL DW-aanvraag stappen|
+|Microsoft.Sql/servers/databases|DmsWorkers|DMS werknemers|
+|Microsoft.Sql/servers/databases|ExecRequests|Exec aanvragen|
+|Microsoft.Sql/servers/databases|RequestSteps|Stappen voor aanvraag|
+|Microsoft.Sql/servers/databases|SqlRequests|SQL-aanvragen|
+|Microsoft.Sql/servers/databases|Wachten op|Wachten op|
+|Microsoft.Sql/managedInstances|ResourceUsageStats|Statistieken voor het gebruik van resource|
+|Microsoft.Sql/managedInstances|SQLSecurityAuditEvents|Controlegebeurtenis voor SQL-beveiliging|
+|Microsoft.Sql/managedInstances/databases|SQLInsights|SQL-inzichten|
+|Microsoft.Sql/managedInstances/databases|QueryStoreRuntimeStatistics|Query Store Runtime-statistieken|
+|Microsoft.Sql/managedInstances/databases|QueryStoreWaitStatistics|Query Store wacht statistieken|
+|Microsoft.Sql/managedInstances/databases|Fouten|Fouten|
 |Microsoft.StreamAnalytics/streamingjobs|Uitvoering|Uitvoering|
 |Microsoft.StreamAnalytics/streamingjobs|Ontwerpen|Ontwerpen|
+|Microsoft.Web/sites|FunctionExecutionLogs|Logboekbestanden voor het uitvoeren van functie|
+|Microsoft.Web/sites/slots|FunctionExecutionLogs|Logboekbestanden voor het uitvoeren van functie|
 
 ## <a name="next-steps"></a>Volgende stappen
 

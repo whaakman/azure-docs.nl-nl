@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: tomsh
-ms.openlocfilehash: 0f738348dd0a000df8b1da299bb7b58ebc5a1165
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 50cfc2e8420d9f427b02c739f497d8546d880d7c
+ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47040090"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50747759"
 ---
 # <a name="azure-database-security-best-practices"></a>Aanbevolen beveiligingsprocedures voor Azure-database
 De beveiliging is een belangrijkste aandachtspunt voor het beheren van databases en het is altijd een prioriteit voor [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/). Uw databases kunnen nauw worden beveiligd om te voldoen aan meest regelgevingsbehoeften of beveiligingsvereisten, zoals HIPAA, ISO 27001/27002 en PCI DSS Level 1. Een huidige lijst van nalevingscertificeringen voor beveiliging is beschikbaar op de [Microsoft Trust Center site](http://azure.microsoft.com/support/trust-center/services/). U kunt ook uw databases in specifieke Azure-datacenters op basis van wettelijke eisen die plaatsen.
@@ -72,22 +72,18 @@ Voordelen zijn:
 
 > [!NOTE]
 > SQL Server-verificatie niet het Kerberos-beveiliging-protocol gebruiken.
->
->
 
 Als u SQL Server-verificatie gebruikt, moet u:
 
 - De sterke referenties beheren zelf.
 - De referenties in de connection string worden beveiligd.
-- De referenties die zijn doorgegeven via het netwerk van de webserver naar de database (potentieel) beveiligen. Zie voor meer informatie, [hoe: verbinding maken met SQL Server met behulp van SQL-verificatie in ASP.NET 2.0](https://msdn.microsoft.com/library/ms998300.aspx).
+- De referenties die zijn doorgegeven via het netwerk van de webserver naar de database (potentieel) beveiligen. Zie voor meer informatie, [hoe: verbinding maken met SQL Server met behulp van SQL-verificatie in ASP.NET 2.0](/previous-versions/msp-n-p/ff648340(v=pandp.10)).
 
 ### <a name="azure-active-directory-ad-authentication"></a>*Verificatie met Azure Active Directory (AD)*
 Azure AD-verificatie is een mechanisme van verbinding maken met Azure SQL Database en [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) met behulp van identiteiten in Azure AD. Met Azure AD-verificatie, kunt u de identiteit van databasegebruikers en andere Microsoft-services op één centrale locatie kunt beheren. Centrale ID-beheer biedt één plek voor het beheren van databasegebruikers en vereenvoudigt het beheer van machtigingen.
 
 > [!NOTE]
 > We raden het gebruik van Azure AD-verificatie via het gebruik van SQL Server-verificatie.
->
->
 
 Voordelen zijn:
 
@@ -112,12 +108,12 @@ De configuratiestappen zijn onder andere de volgende procedures om te configurer
 
 U kunt gedetailleerde informatie vinden in [gebruik Azure Active Directory-verificatie voor verificatie met SQL Database Managed Instance of SQL Data Warehouse](../sql-database/sql-database-aad-authentication.md).
 
-## <a name="protect-your-data-by-using-encryption"></a>Uw gegevens beschermen met behulp van versleuteling
-[Transparent data encryption voor Azure SQL-Database](https://msdn.microsoft.com/library/dn948096.aspx) beschermt gegevens op schijf en worden beschermd tegen onbevoegde toegang tot de hardware. Het voert realtime versleuteling en ontsleuteling van de database, gekoppelde back-ups en transactielogboekbestanden in rust zonder wijzigingen aan de toepassing. Transparante gegevensversleuteling versleutelt de opslag van een volledige database met behulp van een symmetrische sleutel met de naam de databaseversleutelingssleutel.
+## <a name="protect-your-data-by-using-encryption-and-row-level-security"></a>Uw gegevens beschermen met behulp van versleuteling en beveiliging op rijniveau
+[Transparent data encryption voor Azure SQL-Database](../sql-database/transparent-data-encryption-azure-sql.md) beschermt gegevens op schijf en worden beschermd tegen onbevoegde toegang tot de hardware. Het voert realtime versleuteling en ontsleuteling van de database, gekoppelde back-ups en transactielogboekbestanden in rust zonder wijzigingen aan de toepassing. Transparante gegevensversleuteling versleutelt de opslag van een volledige database met behulp van een symmetrische sleutel met de naam de databaseversleutelingssleutel.
 
 Zelfs als de volledige opslag wordt gecodeerd, is het belangrijk dat u ook het versleutelen van de database zelf. Dit is een implementatie van de verdediging in de diepte aanpak voor gegevensbeveiliging. Als u van Azure SQL Database gebruikmaakt en gevoelige gegevens (zoals een creditcard of sociaal-fiscale nummers bevatten) wilt beveiligen, kunt u databases met FIPS 140-2 gevalideerde 256-bits AES-versleuteling versleutelen. Deze versleuteling voldoet aan de vereisten van veel industrienormen (bijvoorbeeld, HIPAA en PCI).
 
-Bestanden met betrekking tot [extensie (BPE) van de buffer](https://docs.microsoft.com/sql/database-engine/configure-windows/buffer-pool-extension) worden niet versleuteld wanneer u een database met behulp van transparante gegevensversleuteling versleutelen. U moet system-versleuteling op bestandsniveau hulpprogramma's zoals [BitLocker](https://technet.microsoft.com/library/cc732774) of de [Encrypting File System (EFS)]() voor BPE-gerelateerde bestanden.
+Bestanden met betrekking tot [extensie (BPE) van de buffer](https://docs.microsoft.com/sql/database-engine/configure-windows/buffer-pool-extension) worden niet versleuteld wanneer u een database met behulp van transparante gegevensversleuteling versleutelen. U moet system-versleuteling op bestandsniveau hulpprogramma's zoals [BitLocker](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc732774(v=ws.11)) of de [Encrypting File System (EFS)](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc749610(v%3dws.10)) voor BPE-gerelateerde bestanden.
 
 Omdat een geautoriseerde gebruiker, zoals een beveiligingsbeheerder of databasebeheerder van een toegang hebben tot de gegevens, zelfs als de database is versleuteld met transparante gegevensversleuteling, moet u ook deze aanbevelingen volgen:
 
@@ -128,9 +124,9 @@ Omdat een geautoriseerde gebruiker, zoals een beveiligingsbeheerder of databaseb
 
 Andere manieren om uw gegevens te versleutelen die u kunt overwegen:
 
-- [Versleuteling op celniveau](https://msdn.microsoft.com/library/ms179331.aspx) om specifieke kolommen of zelfs cellen met gegevens met verschillende versleutelingssleutels te versleutelen.
-- [Altijd versleuteld](https://msdn.microsoft.com/library/mt163865.aspx), waardoor clients voor het versleutelen van gevoelige gegevens binnen clienttoepassingen en nooit onthullen de versleutelingssleutels voor de Database-Engine (SQL-Database of SQL Server). Als gevolg hiervan Always Encrypted biedt een scheiding tussen personen die eigenaar zijn van de gegevens (en het kunnen bekijken) en degenen die de gegevens beheren (maar geen toegang mogen hebben).
-- [Beveiliging op rijniveau](https://msdn.microsoft.com/library/dn765131), waardoor klanten voor het beheren van toegang tot rijen in een database-tabel op basis van de kenmerken van de gebruiker die een query wordt uitgevoerd. (Voorbeeld van de kenmerken zijn groep lidmaatschap en uitvoering van context).
+- [Versleuteling op celniveau](/sql/relational-databases/security/encryption/encrypt-a-column-of-data) om specifieke kolommen of zelfs cellen met gegevens met verschillende versleutelingssleutels te versleutelen.
+- [Altijd versleuteld](/sql/relational-databases/security/encryption/always-encrypted-database-engine), waardoor clients voor het versleutelen van gevoelige gegevens binnen clienttoepassingen en nooit onthullen de versleutelingssleutels voor de Database-Engine (SQL-Database of SQL Server). Als gevolg hiervan Always Encrypted biedt een scheiding tussen personen die eigenaar zijn van de gegevens (en het kunnen bekijken) en degenen die de gegevens beheren (maar geen toegang mogen hebben).
+- [Beveiliging op rijniveau](/sql/relational-databases/security/row-level-security), waardoor klanten voor het beheren van toegang tot rijen in een database-tabel op basis van de kenmerken van de gebruiker die een query wordt uitgevoerd. (Voorbeeld van de kenmerken zijn groep lidmaatschap en uitvoering van context).
 
 Organisaties die van versleuteling op databaseniveau niet gebruikmaken mogelijk gevoeliger voor aanvallen die de gegevens in SQL-databases.
 

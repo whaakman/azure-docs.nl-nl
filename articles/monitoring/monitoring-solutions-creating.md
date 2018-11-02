@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a07a17105b4d84b51689e9636cfacc7a3b5428ad
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 2f7871aac0469e5fb8eaaebef9ca48404609bab7
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39528024"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50912557"
 ---
 # <a name="design-and-build-a-management-solution-in-azure-preview"></a>Ontwerpen en bouwen van een oplossing in Azure (Preview)
 > [!NOTE]
@@ -30,7 +30,7 @@ ms.locfileid: "39528024"
 
 ## <a name="what-is-a-management-solution"></a>Wat is een beheeroplossing?
 
-Oplossingen voor bevatten Azure-resources die samenwerken om een bepaald beheerscenario.  Ze worden geïmplementeerd als [Resource Management-sjablonen](../azure-resource-manager/resource-manager-template-walkthrough.md) die bevatten meer informatie over het installeren en configureren van hun ingesloten resources, wanneer de oplossing is geïnstalleerd.
+Oplossingen voor bevatten Azure-resources die samenwerken om een bepaald beheerscenario.  Ze worden geïmplementeerd als [Resource Management-sjablonen](../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md) die bevatten meer informatie over het installeren en configureren van hun ingesloten resources, wanneer de oplossing is geïnstalleerd.
 
 De basic-strategie is om te beginnen de uw beheeroplossing voor het bouwen van de afzonderlijke onderdelen in uw Azure-omgeving.  Zodra u de functionaliteit die goed werkt hebt, klikt u vervolgens kunt u starten verpakking ze naar een [management oplossingsbestand]( monitoring-solutions-solution-file.md). 
 
@@ -49,7 +49,7 @@ Er zijn een aantal manieren om gegevensbronnen die kunnen worden verzameld in de
 Als u gegevens die niet toegankelijk zijn via een van de beschikbare gegevensbronnen nodig hebt, dan kunt u de [HTTP Data Collector API](../log-analytics/log-analytics-data-collector-api.md) waarmee u gegevens schrijven naar de Log Analytics-opslagplaats van een willekeurige client die een REST-API kunt aanroepen.  Aangepaste gegevensverzameling in een oplossing voor de meest voorkomende manier is het maken van een [runbook in Azure Automation](../automation/automation-runbook-types.md) die de vereiste gegevens verzamelt van Azure of externe resources en de Collector-API gebruikt om te schrijven naar de opslagplaats.  
 
 ### <a name="log-searches"></a>Zoekopdrachten in Logboeken
-[Zoekopdrachten](../log-analytics/log-analytics-log-searches.md) worden gebruikt om te extraheren en analyseren van gegevens in de Log Analytics-opslagplaats.  Ze worden gebruikt door weergaven en waarschuwingen naast de mogelijkheid van de gebruiker voor het uitvoeren van ad hoc-analyse van gegevens in de opslagplaats.  
+[Zoekopdrachten](../log-analytics/log-analytics-log-search.md) worden gebruikt om te extraheren en analyseren van gegevens in de Log Analytics-opslagplaats.  Ze worden gebruikt door weergaven en waarschuwingen naast de mogelijkheid van de gebruiker voor het uitvoeren van ad hoc-analyse van gegevens in de opslagplaats.  
 
 U moet alle query's waarvan u denkt is handig om de gebruiker dat, zelfs als ze niet worden gebruikt door alle weergaven of waarschuwingen definiëren.  Deze worden weergegeven die voor hen beschikbaar als opgeslagen zoekopdrachten in de portal en u kunt ook opnemen in een [lijstquery's visualisatie onderdeel](../log-analytics/log-analytics-view-designer-parts.md#list-of-queries-part) in uw aangepaste weergave.
 
@@ -58,7 +58,7 @@ U moet alle query's waarvan u denkt is handig om de gebruiker dat, zelfs als ze 
 
 Als het probleem kan mogelijk worden opgelost met een geautomatiseerd proces, zult u doorgaans een runbook maken in Azure Automation om uit te voeren van dit herstel.  De meeste Azure-services kunnen worden beheerd met [cmdlets](/powershell/azure/overview) die het runbook wilt gebruikmaken van dergelijke functies kunnen worden uitgevoerd.
 
-Als uw oplossing externe functionaliteit in reactie op een waarschuwing vereist, dan kunt u een [antwoord voor webhook](../log-analytics/log-analytics-alerts-actions.md).  Hiermee kunt u een externe webservice verzenden van gegevens uit de waarschuwing niet aanroepen.
+Als uw oplossing externe functionaliteit in reactie op een waarschuwing vereist, dan kunt u een [antwoord voor webhook](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md).  Hiermee kunt u een externe webservice verzenden van gegevens uit de waarschuwing niet aanroepen.
 
 ### <a name="views"></a>Weergaven
 Weergaven in Log Analytics worden gebruikt voor het visualiseren van gegevens uit de opslagplaats van Log Analytics.  Elke oplossing bevatten doorgaans één weergave met een [tegel](../log-analytics/log-analytics-view-designer-tiles.md) die wordt weergegeven op de belangrijkste dashboard van de gebruiker.  De weergave mag een willekeurig aantal [visualisatie delen](../log-analytics/log-analytics-view-designer-parts.md) voor verschillende visualisaties van de verzamelde gegevens voor de gebruiker.

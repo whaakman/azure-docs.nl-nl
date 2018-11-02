@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 55e4195e2666aed371a5a5664b331184afcf5e36
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 25c9cbcaf852aa07bcbe4f71bf69de366d4dbb87
+ms.sourcegitcommit: 3dcb1a3993e51963954194ba2a5e42260d0be258
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50420962"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50754032"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Azure Backup oplossen: problemen met de agent of de extensie
 
@@ -48,7 +48,6 @@ Nadat u hebt geregistreerd en plannen van een virtuele machine voor de Azure Bac
 
 **Foutcode**: UserErrorRpCollectionLimitReached <br>
 **Foutbericht**: herstelpunt voor de verzameling maximale limiet heeft bereikt. <br>
-Beschrijving:  
 * Dit probleem kan optreden als er een vergrendeling op de resourcegroep van de recovery-punt te voorkomen dat automatisch opschonen van het herstelpunt.
 * Dit probleem kan ook gebeuren als meerdere back-ups per dag worden geactiveerd. Op dit moment is het raadzaam van slechts één back-up per dag als de instant RPs zeven dagen worden bewaard en alleen 18 instant RPs kan worden gekoppeld aan een virtuele machine op een bepaald moment. <br>
 
@@ -59,7 +58,7 @@ U lost dit probleem, verwijder de vergrendeling van de resourcegroep en probeer 
     > Backup-service maakt een afzonderlijke resourcegroep dan de resourcegroep van de virtuele machine voor het opslaan van de verzameling van herstelpunt. Klanten wordt aangeraden niet aan het vergrendelen van de resourcegroep gemaakt voor gebruik door de Backup-service. De indeling van de naamgeving van de resourcegroep hebt gemaakt met Backup-service is: AzureBackupRG_`<Geo>`_`<number>` Eg: AzureBackupRG_northeurope_1
 
 
-**Stap 1: [Verwijder de vergrendeling van het herstelpunt resource-group](#remove_lock_from_the_recovery_point_resource_group)** <br>
+**Stap 1: [vergrendeling verwijderen uit de resourcegroep van de restore-punt](#remove_lock_from_the_recovery_point_resource_group)** <br>
 **Stap 2: [herstelpuntverzameling opschonen](#clean_up_restore_point_collection)**<br>
 
 ## <a name="ExtensionSnapshotFailedNoNetwork-snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine"></a>ExtensionSnapshotFailedNoNetwork - momentopname is mislukt omdat er geen netwerkverbinding beschikbaar is op de virtuele machine
@@ -95,6 +94,21 @@ Nadat u hebt geregistreerd en plannen van een virtuele machine voor de Azure Bac
 **4 oorzaak: [de status van de momentopname kan niet worden opgehaald, of een momentopname kan niet worden uitgevoerd](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
 **5 oorzaak: [de Backup-extensie om te werken of te laden is mislukt](#the-backup-extension-fails-to-update-or-load)**  
 **6 oorzaak: [Backup-service heeft geen toegangsmachtiging voor de oude herstelpunten verwijderd vanwege een vergrendeling van de groep resource](#backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock)**
+
+## <a name="usererrorunsupporteddisksize---currently-azure-backup-does-not-support-disk-sizes-greater-than-1023gb"></a>UserErrorUnsupportedDiskSize - momenteel Azure Backup biedt geen ondersteuning voor schijven groter dan 1023GB
+
+**Foutcode**: UserErrorUnsupportedDiskSize <br>
+**Foutbericht**: momenteel Azure Backup biedt geen ondersteuning voor schijven groter dan 1023 GB <br>
+
+Uw back-upbewerking kan mislukken wanneer back-ups van virtuele machine met de grootte van de schijf is groter dan 1023GB omdat uw vault niet naar de Azure VM-back-upstack V2 bijgewerkt is. Upgraden naar Azure VM Backup stack V2 biedt ondersteuning voor maximaal 4TB. Bekijk deze [voordelen](backup-upgrade-to-vm-backup-stack-v2.md), [overwegingen met betrekking tot](backup-upgrade-to-vm-backup-stack-v2.md#considerations-before-upgrade), en vervolgens gaat u verder met de upgrade Volg hiervoor de volgende [instructies](backup-upgrade-to-vm-backup-stack-v2.md#upgrade).  
+
+## <a name="usererrorstandardssdnotsupported---currently-azure-backup-does-not-support-standard-ssd-disks"></a>UserErrorStandardSSDNotSupported - momenteel Azure Backup biedt geen ondersteuning voor Standard-SSD-schijven
+
+**Foutcode**: UserErrorStandardSSDNotSupported <br>
+**Foutbericht**: momenteel Azure Backup biedt geen ondersteuning voor Standard-SSD-schijven <br>
+
+Azure Backup ondersteunt momenteel de Standard-SSD-schijven alleen voor die zijn bijgewerkt naar de Azure VM Backup-stack V2-kluizen. Bekijk deze [voordelen](backup-upgrade-to-vm-backup-stack-v2.md), [overwegingen met betrekking tot](backup-upgrade-to-vm-backup-stack-v2.md#considerations-before-upgrade), en vervolgens gaat u verder met de upgrade Volg hiervoor de volgende [instructies](backup-upgrade-to-vm-backup-stack-v2.md#upgrade).
+
 
 ## <a name="causes-and-solutions"></a>Oorzaken en oplossingen
 
@@ -208,7 +222,7 @@ Uitvoeren van deze stappen zorgt ervoor dat de uitbreiding moet worden geïnstal
 
 ### <a name="remove_lock_from_the_recovery_point_resource_group"></a>Verwijder de vergrendeling van de resourcegroep van recovery point
 1. Meld u aan bij [Azure Portal](http://portal.azure.com/).
-2. Ga naar **optie alle Resources**, selecteer de resourcegroep waarin u restore point verzameling in de volgende indeling AzureBackupRG_<Geo>_<number>.
+2. Ga naar **optie alle Resources**, selecteer de resourcegroep waarin u restore point verzameling in de volgende indeling AzureBackupRG_`<Geo>`_`<number>`.
 3. In de **instellingen** sectie, selecteer **vergrendelingen** om de vergrendelingen weer te geven.
 4. Als u wilt de vergrendeling verwijderen, selecteer het beletselteken en klik op **verwijderen**.
 
@@ -217,17 +231,17 @@ Uitvoeren van deze stappen zorgt ervoor dat de uitbreiding moet worden geïnstal
 ### <a name="clean_up_restore_point_collection"></a> Herstelpuntverzameling opschonen
 Nadat de vergrendeling is verwijderd, moeten de herstelpunten worden opgeschoond. Als u wilt opschonen van de herstelpunten, gaat u als volgt een van de methoden:<br>
 * [Opschonen van de verzameling van herstelpunt door actieve ad-hoc back-up](#clean-up-restore-point-collection-by-running-ad-hoc-backup)<br>
-* [Opschonen van de verzameling van herstelpunt uit de portal die zijn gemaakt door de Backup-service](#clean-up-restore-point-collection-from-portal-created-by-backup-service)<br>
+* [Opschonen van terugzetten wijst u het verzamelen van Azure portal](#clean-up-restore-point-collection-from-azure-portal)<br>
 
 #### <a name="clean-up-restore-point-collection-by-running-ad-hoc-backup"></a>Opschonen van de verzameling van herstelpunt door actieve ad-hoc back-up
 Na het verwijderen van vergrendeling-trigger voor een ad-hoc/handmatige back-up. Dit zorgt ervoor dat de herstelpunten worden automatisch opgeschoond. Met deze bewerking ad-hoc/handmatige mislukken van de eerste keer; verwacht het wordt echter voor zorgen automatisch op te schonen in plaats van handmatig verwijderen van herstelpunten. De volgende geplande back-up moet na opschonen slaagt.
 
 > [!NOTE]
-    > Automatisch op te schonen gebeurt na een paar uur van de ad-hoc/handmatige back-up activeren. Als uw geplande back-up nog steeds mislukt, wordt geprobeerd handmatig verwijderen van de verzameling van herstelpunt met behulp van de stappen die worden vermeld [hier](#clean-up-restore-point-collection-from-portal-created-by-backup-service).
+    > Automatisch op te schonen gebeurt na een paar uur van de ad-hoc/handmatige back-up activeren. Als uw geplande back-up nog steeds mislukt, wordt geprobeerd handmatig verwijderen van de verzameling van herstelpunt met behulp van de stappen die worden vermeld [hier](#clean-up-restore-point-collection-from-azure-portal).
 
-#### <a name="clean-up-restore-point-collection-from-portal-created-by-backup-service"></a>Opschonen van de verzameling van herstelpunt uit de portal die zijn gemaakt door de Backup-service<br>
+#### <a name="clean-up-restore-point-collection-from-azure-portal"></a>Opschonen van terugzetten wijst u het verzamelen van Azure portal <br>
 
-Schakelt u de terugzetbewerking handmatig verwijst verzameling die niet zijn uitgeschakeld vanwege de vergrendeling van de resourcegroep, de volgende stappen uit:
+Schakelt u de terugzetbewerking handmatig verwijst verzameling die niet zijn uitgeschakeld vanwege de vergrendeling van de resourcegroep, probeert u de volgende stappen uit:
 1. Meld u aan bij [Azure Portal](http://portal.azure.com/).
 2. Op de **Hub** menu, klikt u op **alle resources**, selecteer de resourcegroep met de volgende indeling AzureBackupRG_`<Geo>`_`<number>` waar uw virtuele machine zich bevindt.
 

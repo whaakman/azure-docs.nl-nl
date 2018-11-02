@@ -9,14 +9,14 @@ tags: top-support-issue,azure-service-management,azure-resource-manager
 ms.service: virtual-machines
 ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
-ms.date: 05/01/2018
+ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: 2ec5caab32e12411f5ccab4a9a6b98d3c4e57c0b
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 1de70b3ddea84fc0067a0e20ec613f01024f0ed4
+ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47413650"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50748031"
 ---
 # <a name="troubleshoot-storage-resource-deletion-errors"></a>Oplossen van fouten bij het verwijderen van het storage-resource
 
@@ -69,10 +69,7 @@ Opnieuw proberen te verwijderen van de storage-account, container of blob nadat 
 
 ### <a name="scenario-3-deleting-storage-account---identify-all-blobs-within-storage-account-that-are-attached-to-vms"></a>Scenario 3: Verwijderen van storage-account: alle blobs in de storage-account die zijn gekoppeld aan VM's identificeren
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
-2. Selecteer in het menu Hub **alle resources**. Ga naar het opslagaccount onder **Blob-Service** Selecteer **Containers**.
-
-    ![Schermafbeelding van de portal, met containers voor de opslagaccounts en het 'leasestatus"met 'Geleased' is gemarkeerd](./media/troubleshoot-vhds/utd-containers-sm.png)
-
+2. Selecteer in het menu Hub **alle resources**. Ga naar het opslagaccount onder **Blob-Service** Selecteer **Blobs**.
 3. In **Containers** deelvenster identificeren van alle containers waar **leasestatus** is **geleased** en volg [Scenario 2](#scenario-2-deleting-a-container---identify-all-blobs-within-container-that-are-attached-to-vms) voor elk  **Lease** container.
 4. Ga als volgt [stap 2](#step-2-delete-vm-to-detach-os-disk) en [stap 3](#step-3-detach-data-disk-from-the-vm) te verwijderen of meer virtuele machines met **OSDisk** en loskoppelen **DataDisk**. 
 

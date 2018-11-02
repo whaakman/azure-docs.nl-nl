@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/11/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: d750ac7a5ac847a8c1eb5a9c91bb42804c2eebe0
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 89d35197567c4bd44c5867dbb120d07e9f99d1e9
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49437158"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50746296"
 ---
 Wanneer u een virtuele Azure-machine maakt, moet u een [virtueel netwerk](../articles/virtual-network/virtual-networks-overview.md) (VNet) maken of een bestaand VNet gebruiken. U moet ook bepalen hoe uw virtuele machines kunnen worden geopend via de VNet. Het is belangrijk om [een planning te maken voordat u resources maakt](../articles/virtual-network/virtual-network-vnet-plan-design-arm.md) en ervoor te zorgen dat u op de hoogte bent van de [limieten van netwerkresources](../articles/azure-subscription-service-limits.md#networking-limits).
 
@@ -151,7 +151,7 @@ Deze tabel bevat de methoden die u kunt gebruiken voor het maken van een interne
 
 Virtuele machines kunnen worden gemaakt in dezelfde VNet en ze kunnen verbinding met elkaar maken met behulp van privé IP-adressen. Ze kunnen zelfs verbinding maken als ze zich in verschillende subnetten bevinden zonder de noodzaak een gateway te configureren of openbare IP-adressen te gebruiken. Als u virtuele machines in een VNet wilt plaatsen, maakt u de VNet, en als u elke virtuele machine maakt, wijst u deze toe aan de VNet en het subnet. VM's verkrijgen hun netwerkinstellingen tijdens de implementatie of tijdens het opstarten.  
 
-Aan virtuele machines wordt een IP-adres toegewezen wanneer deze worden geïmplementeerd. Als u meerdere virtuele machines in een VNet of subnet implementeert, worden er IP-adressen aan toegewezen als ze opstarten. Een dynamisch IP-adres (DIP) is het interne IP-adres dat is gekoppeld aan een virtuele machine. U kunt een statisch DIP toewijzen aan een virtuele machine. Als u een statisch DIP toewijst, moet u overwegen een specifiek subnet te gebruiken om te voorkomen dat een statisch DIP per ongeluk opnieuw wordt gebruikt voor een andere virtuele machine.  
+Aan virtuele machines wordt een IP-adres toegewezen wanneer deze worden geïmplementeerd. Als u meerdere virtuele machines in een VNet of subnet implementeert, worden er IP-adressen aan toegewezen als ze opstarten. U kunt ook een statisch IP-adres toewijzen aan een virtuele machine. Als u een statisch IP-adres toewijst, moet u overwegen een specifiek subnet om te voorkomen dat per ongeluk een statisch IP-adres voor een andere virtuele machine.  
 
 Als u een virtuele machine maakt en deze later wilt migreren naar een VNet, is het niet eenvoudig om de configuratie aan te passen. U moet de virtuele machine opnieuw implementeren in de VNet. De makkelijkste manier om de virtuele machine opnieuw te implementeren, is de virtuele machine te verwijderen, maar niet alle gekoppelde schijven te verwijderen, en vervolgens de virtuele machine opnieuw te maken met behulp van de oorspronkelijke schijven in de VNet. 
 

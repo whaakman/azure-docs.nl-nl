@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/16/2018
 ms.author: trinadhk
-ms.openlocfilehash: ba77ec34e7887f676ea3df101e87c1ea80fceec5
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: ff97d164ee8b2059e1b46377067041d6c381052b
+ms.sourcegitcommit: 3dcb1a3993e51963954194ba2a5e42260d0be258
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50414791"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50753964"
 ---
 # <a name="questions-about-the-azure-vm-backup-service"></a>Vragen over de Azure VM Backup-service
 In dit artikel vindt u antwoorden op veelgestelde vragen om u snel een beeld te geven van de verschillende onderdelen van Azure VM Backup. Sommige antwoorden bevatten koppelingen naar artikelen met uitgebreide informatie over het onderwerp. U kunt ook in het [discussieforum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup) vragen over de Azure Backup-service plaatsen.
@@ -48,13 +48,13 @@ Ja. Zelfs wanneer een virtuele machine is afgesloten back-ups werken en het hers
 Ja. Als het zich in de fase "Om momentopname te maken", kunt u back-uptaak annuleren. **U kunt een taak niet annuleren als de overdracht van gegevens van de momentopname uitgevoerd wordt**.
 
 ### <a name="i-enabled-resource-group-lock-on-my-backed-up-managed-disk-vms-will-my-backups-continue-to-work"></a>Ik resourcegroep vergrendeling ingeschakeld op mijn back-up virtuele machines op beheerde schijven. Worden mijn back-ups gewoon uitgevoerd?
-Als de gebruiker Hiermee vergrendelt u de resourcegroep, is back-up-service niet kunt verwijderen van de oudere herstelpunten. Vanwege dit nieuwe back-ups mislukken omdat er een limiet van maximaal 18 herstelpunten die zijn opgelegd vanuit de back-end. Als uw back-ups met een interne fout opgetreden na de RG-vergrendeling mislukken, volgt u deze [stappen voor het verwijderen van de herstelbewerking wijst verzameling](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#clean-up-restore-point-collection-from-portal-created-by-backup-service).
+Als de gebruiker Hiermee vergrendelt u de resourcegroep, is back-up-service niet kunt verwijderen van de oudere herstelpunten. Vanwege dit nieuwe back-ups mislukken omdat er een limiet van maximaal 18 herstelpunten die zijn opgelegd vanuit de back-end. Als uw back-ups met een interne fout opgetreden na de RG-vergrendeling mislukken, volgt u deze [stappen voor het verwijderen van de herstelbewerking wijst verzameling](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#clean-up-restore-point-collection-from-azure-portal).
 
 ### <a name="does-backup-policy-take-daylight-saving-timedst-into-account"></a>Back-upbeleid zomer-en opslaan van Time(DST) rekening gehouden?
 Nee. Let erop dat de datum en tijd op uw lokale computer wordt weergegeven in uw lokale tijd en met uw huidige afwijking van de zomer-en wintertijd. Dus kan de geconfigureerde tijd voor geplande back-ups afwijken van de lokale tijd vanwege de Zomertijd.
 
 ### <a name="maximum-of-how-many-data-disks-can-i-attach-to-a-vm-to-be-backed-up-by-azure-backup"></a>Maximum van het aantal gegevensschijven kunnen ik toevoegen aan een virtuele machine naar een back-up door Azure Backup?
-Azure Backup biedt nu ondersteuning voor back-up van virtuele machines met maximaal 32 schijven. Schijfondersteuning voor 32, krijgen [een upgrade uitvoeren naar Azure VM Backup-stack V2](backup-upgrade-to-vm-backup-stack-v2.md). Alle virtuele machines inschakelen van beveiliging vanaf 24 september 2018 wordt get wordt ondersteund.
+Azure Backup biedt nu ondersteuning voor back-up van virtuele machines met maximaal 16 schijven. Om op te halen van ondersteuning voor 16 schijven [een upgrade uitvoeren naar Azure VM Backup-stack V2](backup-upgrade-to-vm-backup-stack-v2.md). Alle virtuele machines inschakelen van beveiliging vanaf 24 september 2018 wordt get wordt ondersteund.
 
 ### <a name="does-azure-backup-support-standard-ssd-managed-disk"></a>Ondersteuning voor Azure back-Standard-SSD beheerde schijf?
 Azure Backup ondersteunt [Standard-SSD Managed Disks](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/), een nieuw type duurzame opslag voor Microsoft Azure Virtual machines. Dit wordt ondersteund voor beheerde schijven in [Azure VM Backup-stack V2](backup-upgrade-to-vm-backup-stack-v2.md).

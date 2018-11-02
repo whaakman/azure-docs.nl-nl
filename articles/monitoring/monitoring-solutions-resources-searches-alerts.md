@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 06/18/2018
 ms.author: bwren, vinagara
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8ec5f1cef3f9ca82953093d2086b615087db1a7f
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 154dedaf5e657803417e1bb113489c49f8879a26
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024757"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50914581"
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>Toevoegen van Log Analytics opgeslagen zoekopdrachten en waarschuwingen in management-oplossing (Preview)
 
@@ -27,13 +27,13 @@ ms.locfileid: "50024757"
 > Dit is een voorlopige documentatie voor het maken van oplossingen die zich momenteel in preview. Er is geen schema die hieronder worden beschreven kan worden gewijzigd.   
 
 
-[Beheeroplossingen](monitoring-solutions.md) omvatten [opgeslagen zoekopdrachten](../log-analytics/log-analytics-log-searches.md) in Log Analytics voor het analyseren van gegevens die zijn verzameld door de oplossing.  Ze kunnen ook definiëren [waarschuwingen](../log-analytics/log-analytics-alerts.md) aan de gebruiker waarschuwen of automatisch een actie uitvoeren in reactie op een belangrijk probleem.  In dit artikel wordt beschreven hoe u voor het definiëren van Log Analytics opgeslagen zoekopdrachten en waarschuwingen in een [Resource Manager-sjabloon](../resource-manager-template-walkthrough.md) , zodat ze kunnen worden opgenomen [beheeroplossingen](monitoring-solutions-creating.md).
+[Beheeroplossingen](monitoring-solutions.md) omvatten [opgeslagen zoekopdrachten](../log-analytics/log-analytics-log-search.md) in Log Analytics voor het analyseren van gegevens die zijn verzameld door de oplossing.  Ze kunnen ook definiëren [waarschuwingen](../log-analytics/log-analytics-alerts.md) aan de gebruiker waarschuwen of automatisch een actie uitvoeren in reactie op een belangrijk probleem.  In dit artikel wordt beschreven hoe u voor het definiëren van Log Analytics opgeslagen zoekopdrachten en waarschuwingen in een [Resource Manager-sjabloon](../resource-manager-template-walkthrough.md) , zodat ze kunnen worden opgenomen [beheeroplossingen](monitoring-solutions-creating.md).
 
 > [!NOTE]
 > De voorbeelden in dit artikel Gebruik parameters en variabelen die zijn vereist of gemeenschappelijke beheeroplossingen en wordt beschreven in [ontwerpen en bouwen van een oplossing in Azure](monitoring-solutions-creating.md)  
 
 ## <a name="prerequisites"></a>Vereisten
-In dit artikel wordt ervan uitgegaan dat u bent al bekend bent met het [maken van een oplossing voor](monitoring-solutions-creating.md) en de structuur van een [Resource Manager-sjabloon](../resource-group-authoring-templates.md) en de bestandsnaam van de oplossing.
+In dit artikel wordt ervan uitgegaan dat u bent al bekend bent met het [maken van een oplossing voor](monitoring-solutions-creating.md) en de structuur van een [Resource Manager-sjabloon](../azure-resource-manager/resource-group-authoring-templates.md) en de bestandsnaam van de oplossing.
 
 
 ## <a name="log-analytics-workspace"></a>Log Analytics-werkruimte
@@ -54,9 +54,9 @@ De volgende tabel bevat de API-versie voor de resource die in dit voorbeeld word
 
 
 ## <a name="saved-searches"></a>Opgeslagen zoekopdrachten
-Opnemen [opgeslagen zoekopdrachten](../log-analytics/log-analytics-log-searches.md) in een oplossing waarmee gebruikers query uitvoeren op gegevens die door uw oplossing worden verzameld.  Opgeslagen zoekopdrachten worden weergegeven onder **opgeslagen zoekopdrachten** in Azure portal.  Een opgeslagen zoekopdracht is ook vereist voor elke waarschuwing.   
+Opnemen [opgeslagen zoekopdrachten](../log-analytics/log-analytics-log-search.md) in een oplossing waarmee gebruikers query uitvoeren op gegevens die door uw oplossing worden verzameld.  Opgeslagen zoekopdrachten worden weergegeven onder **opgeslagen zoekopdrachten** in Azure portal.  Een opgeslagen zoekopdracht is ook vereist voor elke waarschuwing.   
 
-[Log Analytics opgeslagen zoekopdracht](../log-analytics/log-analytics-log-searches.md) resources zijn een type `Microsoft.OperationalInsights/workspaces/savedSearches` en hebben de volgende structuur.  Dit omvat de algemene variabelen en parameters zodat u kunt kopiëren en plak dit codefragment in uw oplossingsbestand en wijzig de namen van parameters. 
+[Log Analytics opgeslagen zoekopdracht](../log-analytics/log-analytics-log-search.md) resources zijn een type `Microsoft.OperationalInsights/workspaces/savedSearches` en hebben de volgende structuur.  Dit omvat de algemene variabelen en parameters zodat u kunt kopiëren en plak dit codefragment in uw oplossingsbestand en wijzig de namen van parameters. 
 
     {
         "name": "[concat(parameters('workspaceName'), '/', variables('SavedSearch').Name)]",

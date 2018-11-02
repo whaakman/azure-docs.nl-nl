@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: f55f81d1e28a7626dfe00f6bea349bf74e3a1d24
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 8cca69109f07cbcffe2a5d796262e51fc9233cc5
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50092771"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50914682"
 ---
 # <a name="how-to-onboard-the-azure-monitor-for-vms-preview"></a>Hoe zorgen voor onboarding Azure controleren voor virtuele machines (Preview)
 In dit artikel wordt beschreven hoe het instellen van Azure Monitor voor virtuele machines om te controleren van de status van het besturingssysteem van uw Azure virtual machines en detecteren en afhankelijkheden voor toepassingen die kunnen worden gehost op deze worden toegewezen.  
@@ -355,12 +355,12 @@ De volgende tabel bevat de beleidsdefinities die is opgegeven.
 |Naam |Beschrijving |Type |  
 |-----|------------|-----|  
 |[Preview]: Azure Monitor voor virtuele machines inschakelen |Azure Monitor inschakelen voor de virtuele Machines (VM's) in het opgegeven bereik (beheergroep, abonnement of resourcegroep). Log Analytics-werkruimte wordt als parameter. |Initiatief |  
-|[Preview]: implementatie van de Audit afhankelijkheid Agent-VM-installatiekopie (OS) niet-vermelde |Rapporten VM's als niet-compatibel als de VM-installatiekopie (OS) zich niet in de lijst die is gedefinieerd en de agent is niet geïnstalleerd. |Beleid |  
-|[Preview]: Audit Log Analytics-agentimplementatie – VM-installatiekopie (OS) niet-vermelde |Rapporten VM's als niet-compatibel als de VM-installatiekopie (OS) zich niet in de lijst die is gedefinieerd en de agent is niet geïnstalleerd. |Beleid |  
-|[Preview]: Agent voor afhankelijkheden voor virtuele Linux-machines implementeren |Agent voor afhankelijkheden implementeren voor Linux-VM's als de VM-installatiekopie (OS) in de lijst die is gedefinieerd en de agent is niet geïnstalleerd. |Beleid |  
-|[Preview]: Agent voor afhankelijkheden voor Windows-VM's implementeren |Afhankelijkheid Agent voor de Windows VM's implementeren als de VM-installatiekopie (OS) in de lijst die is gedefinieerd en de agent is niet geïnstalleerd. |Beleid |  
-|[Preview]: Log Analytics-Agent voor Linux-VM's implementeren |Implementeer Log Analytics-Agent voor Linux-VM's als de VM-installatiekopie (OS) in de lijst die is gedefinieerd en de agent is niet geïnstalleerd. |Beleid |  
-|[Preview]: Log Analytics-Agent voor Windows-VM's implementeren |Log Analytics-Agent voor Windows-VM's implementeren als de VM-installatiekopie (OS) in de lijst die is gedefinieerd en de agent is niet geïnstalleerd. |Beleid |  
+|[Preview]: implementatie van de Audit afhankelijkheid Agent-VM-installatiekopie (OS) niet-vermelde |Hiermee worden VM's gerapporteerd niet-compatibel als de VM-installatiekopie (OS) niet in de gedefinieerde lijst staat en de agent niet is geïnstalleerd. |Beleid |  
+|[Preview]: Audit Log Analytics-agentimplementatie – VM-installatiekopie (OS) niet-vermelde |Hiermee worden VM's gerapporteerd niet-compatibel als de VM-installatiekopie (OS) niet in de gedefinieerde lijst staat en de agent niet is geïnstalleerd. |Beleid |  
+|[Preview]: Agent voor afhankelijkheden voor virtuele Linux-machines implementeren |Afhankelijkheidsagent voor Linux-VM's implementeren als de VM-installatiekopie (OS) in de lijst is gedefinieerd en de agent niet is geïnstalleerd. |Beleid |  
+|[Preview]: Agent voor afhankelijkheden voor Windows-VM's implementeren |Afhankelijkheidsagent voor Windows-VM's implementeren als de VM-installatiekopie (OS) in de lijst is gedefinieerd en de agent niet is geïnstalleerd. |Beleid |  
+|[Preview]: Log Analytics-Agent voor Linux-VM's implementeren |Agent voor Log Analytics voor Linux-VM's implementeren als de VM-installatiekopie (OS) in de lijst is gedefinieerd en de agent niet is geïnstalleerd. |Beleid |  
+|[Preview]: Log Analytics-Agent voor Windows-VM's implementeren |Agent voor Log Analytics voor Windows-VM's implementeren als de VM-installatiekopie (OS) in de lijst is gedefinieerd en de agent niet is geïnstalleerd. |Beleid |  
 
 Zelfstandige beleid (niet opgenomen in het initiatief) 
 

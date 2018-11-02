@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: e4e793ac5735f7f3b07d285dea027a8f603b7964
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 0c9c254625ccca27a3525c45da0303f5e045ef44
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48237890"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50914325"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planning voor de implementatie van Azure Files Sync
 Gebruik Azure File Sync te centraliseren bestandsshares van uw organisatie in Azure Files, terwijl de flexibiliteit, prestaties en compatibiliteit van een on-premises bestandsserver. Azure File Sync transformeert Windows Server naar een snelle cache van uw Azure-bestandsshare. U kunt elk protocol dat beschikbaar is op Windows Server voor toegang tot uw gegevens lokaal, met inbegrip van SMB, NFS en FTPS gebruiken. U kunt zoveel caches hebben als u nodig hebt over de hele wereld.
@@ -27,13 +27,13 @@ Voordat u de details van de planning voor de implementatie van een Azure File Sy
 De Opslagsynchronisatieservice is de op het hoogste niveau Azure-resource voor Azure File Sync. De Opslagsynchronisatieservice-resource is een peer van de resource van het opslagaccount en kan op dezelfde manier worden geïmplementeerd op Azure-resourcegroepen. Een resource voor verschillende op het hoogste niveau van de resource van het opslagaccount is vereist omdat de Opslagsynchronisatieservice synchronisatierelaties met meerdere opslagaccounts via meerdere synchronisatiegroepen maken kunt. Een abonnement kan hebben meerdere Opslagsynchronisatieservice resources die zijn geïmplementeerd.
 
 ### <a name="sync-group"></a>Synchronisatiegroep
-Een synchronisatiegroep definieert de synchronisatie-topologie voor een set bestanden. Eindpunten in een synchronisatiegroep worden synchroon met elkaar. Als u bijvoorbeeld twee verschillende sets van bestanden die u wilt beheren met Azure File Sync hebt, zou u twee synchronisatiegroepen maken en verschillende eindpunten toevoegen aan elke groep voor synchronisatie. Een Opslagsynchronisatieservice kunt zoveel synchronisatiegroepen als u wilt hosten.  
+Een synchronisatiegroep definieert de synchronisatietopologie voor een verzameling bestanden. Eindpunten in een synchronisatiegroep worden synchroon met elkaar. Als u bijvoorbeeld twee verschillende sets van bestanden die u wilt beheren met Azure File Sync hebt, zou u twee synchronisatiegroepen maken en verschillende eindpunten toevoegen aan elke groep voor synchronisatie. Een Opslagsynchronisatieservice kunt zoveel synchronisatiegroepen als u wilt hosten.  
 
 ### <a name="registered-server"></a>Geregistreerde server
 De geregistreerde server-object vertegenwoordigt een vertrouwensrelatie tussen uw server (of cluster) en de Opslagsynchronisatieservice. U kunt zo veel servers naar een exemplaar van de Opslagsynchronisatieservice als u wilt registreren. Echter, een server (of cluster) kan worden geregistreerd met slechts één Opslagsynchronisatieservice tegelijk.
 
 ### <a name="azure-file-sync-agent"></a>Azure File Sync-agent
-De Azure File Sync-agent is een downloadbare pakket waarmee Windows-Server kan worden gesynchroniseerd met een Azure-bestandsshare. De Azure File Sync-agent heeft drie belangrijke onderdelen: 
+De Azure File Sync-agent is een downloadbaar pakket waardoor Windows Server met een Azure-bestandsshare kan worden gesynchroniseerd. De Azure File Sync-agent heeft drie belangrijke onderdelen: 
 - **FileSyncSvc.exe**: de achtergrond Windows-service die verantwoordelijk is voor het bewaken van wijzigingen op de servereindpunten, en voor het starten van synchronisatiesessies voor Azure.
 - **StorageSync.sys**: de Azure File Sync bestandssysteemfilter, die verantwoordelijk is voor cloudlagen bestanden naar Azure Files (wanneer cloud tiering is ingeschakeld).
 - **PowerShell-cmdlets voor beheer**: PowerShell-cmdlets die u gebruiken om te communiceren met de Microsoft.StorageSync Azure resourceprovider. U vindt deze op de volgende (standaard)-locaties:
@@ -41,7 +41,7 @@ De Azure File Sync-agent is een downloadbare pakket waarmee Windows-Server kan w
     - C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll
 
 ### <a name="server-endpoint"></a>Servereindpunt
-Een servereindpunt vertegenwoordigt een specifieke locatie op een geregistreerde server, bijvoorbeeld een map op een volume van de server. Meerdere servereindpunten kunnen zich op hetzelfde volume als de naamruimten niet overlappen (bijvoorbeeld `F:\sync1` en `F:\sync2`). U kunt cloud cloudlagen beleidsregels voor het eindpunt voor elke server afzonderlijk configureren. 
+Een servereindpunt representeert een bepaalde locatie op een geregistreerde server, bijvoorbeeld een map op een servervolume. Meerdere servereindpunten kunnen zich op hetzelfde volume als de naamruimten niet overlappen (bijvoorbeeld `F:\sync1` en `F:\sync2`). U kunt cloud cloudlagen beleidsregels voor het eindpunt voor elke server afzonderlijk configureren. 
 
 U kunt een servereindpunt via een koppelpunt maken. Opmerking: Stel de volgende parameter binnen het servereindpunt worden overgeslagen.  
 
@@ -242,7 +242,9 @@ Azure File Sync is alleen beschikbaar in de volgende regio's:
 | Azië - oost | Hongkong |
 | US - oost | Virginia |
 | US - oost 2 | Virginia |
+| US - noord-centraal | Illinois |
 | Europa - noord | Ierland |
+| US - zuid-centraal | Texas |
 | India - zuid | Chennai |
 | Azië - zuidoost | Singapore |
 | Verenigd Koninkrijk Zuid | Londen |
@@ -269,6 +271,7 @@ Ter ondersteuning van de failover-integratie tussen geografisch redundante opsla
 | US - oost             | US - west            |
 | US - oost 2           | US - centraal         |
 | Europa - noord        | Europa -west        |
+| US - noord-centraal    | US - zuid-centraal   |
 | India - zuid         | India - centraal      |
 | Azië - zuidoost      | Azië - oost          |
 | Verenigd Koninkrijk Zuid            | Verenigd Koninkrijk West            |
