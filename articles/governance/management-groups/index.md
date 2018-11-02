@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 9/28/2018
 ms.author: rithorn
-ms.openlocfilehash: 6b369c8209e62ff3c98b3fdf78378b403b0a0d2d
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: b5a99ff8cfc0a915b70c6d90b8aa04d020177d54
+ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48017650"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50748167"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Uw resources organiseren met Azure-beheergroepen
 
@@ -73,7 +73,7 @@ Wanneer een gebruiker start met het gebruik van beheergroepen, vindt er een proc
 
 ## <a name="trouble-seeing-all-subscriptions"></a>Problemen met de weergave van alle abonnementen
 
-Een aantal directory’s die vroeg in de preview (vóór 25 juni 2018) met managementgroepen zijn gaan werken, kunnen een probleem ervaren waarbij niet van alle abonnementen opname in de hiërarchie wordt gedwongen.  De reden hiervoor is dat de processen voor het afdwingen van opname van abonnementen in de hiërarchie zijn geïmplementeerd nadat een rol- of beleidstoewijzing is uitgevoerd in de hoofdbeheergroep in de directory.
+Bij een aantal directory's dat vroeg in de preview (vóór 25 juni 2018) met beheergroepen is gaan werken, kan zich een probleem voordoen waarbij niet van alle abonnementen opname in de hiërarchie wordt afgedwongen.  De reden hiervoor is dat de processen voor het afdwingen van opname van abonnementen in de hiërarchie zijn geïmplementeerd nadat een rol- of beleidstoewijzing is uitgevoerd in de hoofdbeheergroep in de directory.
 
 ### <a name="how-to-resolve-the-issue"></a>Het probleem oplossen
 
