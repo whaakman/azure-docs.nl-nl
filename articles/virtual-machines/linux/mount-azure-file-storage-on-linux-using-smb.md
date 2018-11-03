@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/28/2018
 ms.author: cynthn
-ms.openlocfilehash: 7cd7f0f37f0d351d1d50d4c15e7132f072b5125d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: fde8892f7a32d7b5405eef6661bbf29098325178
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46982202"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958675"
 ---
 # <a name="mount-azure-file-storage-on-linux-vms-using-smb"></a>Azure File storage koppelen op virtuele Linux-machines met behulp van SMB
 
@@ -100,6 +100,7 @@ Koppel de Azure-bestandsshare naar de lokale map.
 sudo mount -t cifs //$STORAGEACCT.file.core.windows.net/myshare /mnt/MyAzureFileShare -o vers=3.0,username=$STORAGEACCT,password=$STORAGEKEY,dir_mode=0777,file_mode=0777,serverino
 ```
 
+De bovenstaande opdracht maakt gebruik van de [koppelen](https://linux.die.net/man/8/mount) opdracht voor het koppelen van de Azure-bestandsshare en de opties die specifiek zijn voor [cifs](https://linux.die.net/man/8/mount.cifs). Met name de file_mode en dir_mode opties setbestanden en mappen op machtiging `0777`. De `0777` machtiging kunt lezen, schrijven en uitvoeren van machtigingen voor alle gebruikers. U kunt deze machtigingen wijzigen door de waarden vervangen door andere [chmod machtigingen](https://en.wikipedia.org/wiki/Chmod). U kunt ook andere [cifs](https://linux.die.net/man/8/mount.cifs) opties zoals groeps-id of gebruikers-id. 
 
 
 ## <a name="persist-the-mount"></a>De koppeling behouden

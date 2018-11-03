@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: fc9ed37ef24e776336124bf097def2f6a00ee83e
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 6f28a636f4df1343431762cf1eb8aec9b660f2e2
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50419789"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50962500"
 ---
 # <a name="common-questions-for-transition-from-oms-portal-to-azure-portal-for-log-analytics-users"></a>Veelgestelde vragen voor overgang van OMS-portal naar Azure-portal voor Log Analytics-gebruikers
 Log Analytics gebruikt een eigen portal met de OMS-portal de naam in eerste instantie de configuratie ervan beheren en analyseren van verzamelde gegevens.  Alle functionaliteit van deze portal is verplaatst naar de Azure-portal waar deze blijft op worden ontwikkeld.
@@ -82,7 +82,7 @@ De meeste instellingen voor de verbonden gegevensbron beheren de in de **geavanc
 | Linux-Servers   | **Geavanceerde instellingen** menu voor de werkruimte. |
 | Azure Storage     | **Geavanceerde instellingen** menu voor de werkruimte. |
 | System Center     | **Geavanceerde instellingen** menu voor de werkruimte. |
-| Office 365        | Zie de [documentatie voor Office 365-beheeroplossing](../operations-management-suite/oms-solution-office-365.md) voor informatie over de configuratie. |
+| Office 365        | Zie de [documentatie voor Office 365-beheeroplossing](../monitoring/monitoring-solution-office-365.md) voor informatie over de configuratie. |
 | Windows-telemetrie | Instellingenmenu voor de oplossing. Zie [Windows Analytics in Azure portal](/windows/deployment/update/windows-analytics-azure-portal) voor informatie over de configuratie. |
 | ITSM-Connector    | Zie [verbinding maken met ITSM-producten en services met IT Service Management Connector](../log-analytics/log-analytics-itsmc-connections.md) voor instructies voor uw ITSM-service te verbinden met Log Analytics. |
 

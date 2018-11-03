@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/23/2018
 ms.author: mbullwin
-ms.openlocfilehash: 1a46564c324edb1999a2e1b1d482817685df2893
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: 3fa41f894e3228310bae6a9407cfcc426c27bfdc
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39205983"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50963715"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-net"></a>Problemen met ontbrekende gegevens oplossen - Application Insights voor .NET
 ## <a name="some-of-my-telemetry-is-missing"></a>Aantal van mijn telemetrie ontbreekt
@@ -158,7 +158,7 @@ De gegevens afkomstig van scripts in de webpagina's.
 Zie [afhankelijkheidstelemetrie](app-insights-asp-net-dependencies.md) en [uitzonderingstelemetrie](app-insights-asp-net-exceptions.md).
 
 ## <a name="no-performance-data"></a>Er zijn geen prestatiegegevens
-Prestatiegegevens (CPU, IO-snelheid, enzovoort) is beschikbaar voor [Java-web-services](app-insights-java-collectd.md), [Windows-bureaublad-apps](app-insights-windows-desktop.md), [IIS web-apps en services als u statusmonitor installeert](app-insights-monitor-performance-live-website-now.md), en [Azure Cloudservices](app-insights-azure.md). u vindt deze onder instellingen voor Servers.
+Prestatiegegevens (CPU, IO-snelheid, enzovoort) is beschikbaar voor [Java-web-services](app-insights-java-collectd.md), [Windows-bureaublad-apps](app-insights-windows-desktop.md), [IIS web-apps en services als u statusmonitor installeert](app-insights-monitor-performance-live-website-now.md), en [Azure Cloudservices](app-insights-overview.md). u vindt deze onder instellingen voor Servers.
 
 ## <a name="no-server-data-since-i-published-the-app-to-my-server"></a>Er zijn geen gegevens (server) sinds ik de app is gepubliceerd naar Mijn server
 * Controleer dat u daadwerkelijk alle Microsoft gekopieerd. Application Insights-dll-bestanden naar de server, samen met Microsoft.Diagnostics.Instrumentation.Extensions.Intercept.dll

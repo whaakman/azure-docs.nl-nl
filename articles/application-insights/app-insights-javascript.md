@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 6d826702d8302246a225ebfcdf0a5987cf9d2045
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 46939e15100468eab0d5575546eb6bd58df4aacd
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167049"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50961072"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights voor webpagina’s
 Krijg inzicht in de prestaties en het gebruik van uw webpagina's of app. Wanneer u [Application Insights](app-insights-overview.md) toevoegt aan uw paginascript, krijgt u de beschikking over allerlei gegevens, zoals de tijden voor het laden van pagina’s en AJAX-aanroepen, tellingen en details van browseruitzonderingen en AJAX-fouten, evenals de aantallen gebruikers en sessies. Al deze gegevens kunnen worden gesegmenteerd op pagina, clientbesturingssysteem en browserversie, geografische locatie en andere dimensies. U kunt waarschuwingen instellen voor foutaantallen of het langzaam laden van de pagina. En door het invoegen van trace-aanroepen in JavaScript-code, kunt u bijhouden hoe de verschillende functies van uw webpaginatoepassing worden gebruikt.
@@ -230,7 +230,7 @@ De naam van de pagina mag dezelfde tekens als een URL bevatten, maar alles na '#
 ## <a name="usage-tracking"></a>Gebruik bijhouden
 Wilt u weten wat gebruikers met uw app doen?
 
-* [Meer informatie over de analysehulpmiddelen van de gebruiker-gedrag](app-insights-web-track-usage.md)
+* [Meer informatie over de analysehulpmiddelen van de gebruiker-gedrag](app-insights-usage-overview.md)
 * [Meer informatie over de API voor aangepaste gebeurtenissen en metrische gegevens](app-insights-api-custom-events-metrics.md).
 
 ## <a name="video"></a> Video
@@ -241,7 +241,7 @@ Wilt u weten wat gebruikers met uw app doen?
 
 
 ## <a name="next"></a> Volgende stappen
-* [Bijhouden van gebruik](app-insights-web-track-usage.md)
+* [Bijhouden van gebruik](app-insights-usage-overview.md)
 * [Aangepaste gebeurtenissen en metrische gegevens](app-insights-api-custom-events-metrics.md)
-* [Bouwen-meten-leren](app-insights-web-track-usage.md)
+* [Bouwen-meten-leren](app-insights-usage-overview.md)
 

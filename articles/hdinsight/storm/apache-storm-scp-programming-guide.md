@@ -4,17 +4,17 @@ description: Informatie over het gebruik van SCP.NET te maken. NET gebaseerde St
 services: hdinsight
 ms.service: hdinsight
 author: jasonwhowell
-ms.author: jasonwhowell
+ms.author: jasonh
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2016
-ms.openlocfilehash: daf9efb2f9044ed1395b0f2aa3663c2471406e2f
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: fb7a8ed81794e3a5c1a772fd242f5ef85a800365
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43045461"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50959202"
 ---
 # <a name="scp-programming-guide"></a>SCP-programmeergids
 SCP is een platform voor het bouwen van realtime, betrouwbare en consistente en hoogwaardige gegevensverwerking toepassing. Het is gebouwd boven [Apache Storm](http://storm.incubator.apache.org/) --een verwerkingssysteem die is ontworpen door de OSS-community's. Storm is ontworpen door Nathan Marz en is open source op Twitter. Hierbij wordt gebruikgemaakt van [Apache ZooKeeper](http://zookeeper.apache.org/), een ander Apache-project om in te schakelen zeer betrouwbare gedistribueerd beheer coördinatie en status. 

@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: spelluru
-ms.openlocfilehash: 293cde00e53171e848263df8564ec85f273c1a40
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 7d4b4a98c38757eb33c3f8713f662ed52a686924
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166330"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978652"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor-preview"></a>Metrische gegevens van Azure Service Bus in Azure Monitor (preview)
 
@@ -80,6 +80,8 @@ De volgende twee typen fouten zijn geclassificeerd als gebruikersfouten:
 | ------------------- | ----------------- |
 |Binnenkomende berichten (preview)|Het aantal gebeurtenissen of berichten die naar Service Bus wordt verzonden in een opgegeven periode.<br/><br/> Eenheid: aantal <br/> Aggregatietype: totaal <br/> Dimensie: EntityName|
 |Uitgaande berichten (preview)|Het aantal gebeurtenissen of berichten ontvangen van Service Bus gedurende een bepaalde periode.<br/><br/> Eenheid: aantal <br/> Aggregatietype: totaal <br/> Dimensie: EntityName|
+| Berichten (preview) | Het aantal berichten in een wachtrij/onderwerp. <br/><br/> Eenheid: aantal <br/> Aggregatietype: gemiddelde <br/> Dimensie: EntityName |
+| ActiveMessages (preview) | Het aantal actieve berichten in een wachtrij/onderwerp. <br/><br/> Eenheid: aantal <br/> Aggregatietype: gemiddelde <br/> Dimensie: EntityName |
 
 ## <a name="connection-metrics"></a>Metrische verbindingsgegevens
 

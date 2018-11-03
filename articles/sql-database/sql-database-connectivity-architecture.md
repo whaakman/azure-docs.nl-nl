@@ -7,17 +7,17 @@ ms.subservice: development
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: oslake
-ms.author: moslake
+author: srdan-bozovic-msft
+ms.author: srbozovi
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/24/2018
-ms.openlocfilehash: ca1ef9c402b370a8d1228e13d7fe3e13fd225f79
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.date: 11/02/2018
+ms.openlocfilehash: 11133a24f4446478dcc7f38ed50eb36de8843442
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986318"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978398"
 ---
 # <a name="azure-sql-database-connectivity-architecture"></a>Azure SQL Database Connectivity-architectuur
 
@@ -31,19 +31,30 @@ Het volgende diagram biedt een overzicht op hoog niveau van de architectuur van 
 
 De volgende stappen wordt beschreven hoe een verbinding met een Azure SQL-database via de Azure SQL Database-software load balancer (SLB) en de gateway van Azure SQL Database tot stand is gebracht.
 
-- Clients in Azure en buiten Azure verbinding met de SLB, die een openbaar IP-adres is en luistert op poort 1433.
-- De SLB zorgt ervoor dat verkeer naar de Azure SQL Database-gateway.
-- De gateway stuurt het verkeer naar de juiste proxy-middleware.
-- De proxy-middleware leidt het verkeer naar de juiste Azure SQL-database.
+- Clients verbinding maken met de SLB, die een openbaar IP-adres is en luistert op poort 1433.
+- De SLB verzendt verkeer naar de Azure SQL Database-gateway.
+- De gateway, afhankelijk van de effectieve verbindingsbeleid, omleidingen of proxy het verkeer naar de juiste proxy-middleware.
+- De proxy-middleware verzendt het verkeer naar de juiste Azure SQL-database.
 
 > [!IMPORTANT]
 > Elk van deze onderdelen is denial-of-service (DDoS) beveiliging ingebouwde op het netwerk en de app-laag gedistribueerd.
 
+## <a name="connection-policy"></a>Verbindingsbeleid voor
+
+Azure SQL Database ondersteunt de volgende drie opties voor de beleidsinstelling voor de verbinding van een SQL Database-server:
+
+- **Omleiding (aanbevolen):** Clients tot stand brengen van verbindingen rechtstreeks naar het knooppunt waarop de database wordt gehost. Als connectiviteit wilt inschakelen, moeten de clients de uitgaande firewallregels voor alle Azure-IP-adressen in de regio toestaan (probeer dit met behulp van de Netwerkbeveiligingsgroep groepen (NSG) met [servicetags](../virtual-network/security-overview.md#service-tags)), niet alleen de Azure SQL Database-Gateway-IP-adressen. Omdat de pakketten Ga rechtstreeks naar de database, zijn latentie en doorvoer prestaties beter.
+- **Proxy:** In deze modus, alle verbindingen worden geproxied via de Azure SQL Database-gateways. Als connectiviteit wilt inschakelen, moet de client uitgaande firewallregels waarmee alleen de Azure SQL Database-Gateway-IP-adressen (doorgaans twee IP-adressen per regio) hebben. In deze modus kiezen kan leiden tot hogere latentie en lagere doorvoer, afhankelijk van de aard van de werkbelasting. Wij raden het verbindingsbeleid omleiden ten opzichte van de Proxy verbindingsbeleid voor de laagste latentie en de hoogste doorvoer.
+- **Standaard:** dit is de verbindingsbeleid van kracht op alle servers na het maken, tenzij u expliciet het verbindingsbeleid naar de Proxy- of omleidings wijzigen. De effectieve beleid, is afhankelijk van of verbindingen zijn afkomstig uit in Azure (Redirect) en buiten Azure (Proxy).
+
 ## <a name="connectivity-from-within-azure"></a>Connectiviteit van in Azure
 
-Als u verbinding vanaf in Azure maakt, uw verbindingen hebben een verbindingsbeleid van **omleiden** standaard. Een beleid van **omleiden** betekent dat verbindingen wanneer de TCP-sessie is ingesteld op de Azure SQL-database, de clientsessie wordt vervolgens omgeleid naar de proxy-middleware met een wijziging in de bestemming virtueel IP-adres van die van de Azure De gateway van de SQL-Database met die van de proxy-middleware. Daarna worden alle volgende pakketten stromen rechtstreeks via de proxy-middleware, overslaan van de Azure SQL Database-gateway. Het volgende diagram illustreert dit netwerkverkeer.
+Als u verbinding maakt vanaf binnen Azure op een server die zijn gemaakt na 10 November 2018 uw verbindingen hebben een verbindingsbeleid van **omleiden** standaard. Een beleid van **omleiden** betekent dat verbindingen wanneer de TCP-sessie is ingesteld op de Azure SQL-database, de clientsessie wordt vervolgens omgeleid naar de proxy-middleware met een wijziging in de bestemming virtueel IP-adres van die van de Azure De gateway van de SQL-Database met die van de proxy-middleware. Daarna worden alle volgende pakketten stromen rechtstreeks via de proxy-middleware, overslaan van de Azure SQL Database-gateway. Het volgende diagram illustreert dit netwerkverkeer.
 
 ![overzicht van netwerkarchitectuur](./media/sql-database-connectivity-architecture/connectivity-from-within-azure.png)
+
+> [!IMPORTANT]
+> Als u SQL Database-Server hebt gemaakt vóór 10 November 2018 worden het verbindingsbeleid naar expliciet is ingesteld **Proxy**. Wanneer u service-eindpunten gebruikt, is het raadzaam het verbindingsbeleid naar wijzigen **omleiden** voor betere prestaties. Als u het verbindingsbeleid naar wijzigt **omleiden**, dient niet voldoende zijn voor uitgaand verkeer toestaan op uw NSG naar Azure SQL Database-gateway IP-adressen die hieronder worden vermeld, moet u toestaan uitgaande voor alle Azure SQL Database-IP's. Dit kan worden bewerkstelligd met behulp van de servicetags NSG (Netwerkbeveiligingsgroepen). Zie voor meer informatie, [servicetags](../virtual-network/security-overview.md#service-tags).
 
 ## <a name="connectivity-from-outside-of-azure"></a>De connectiviteit van buiten Azure
 
@@ -51,19 +62,11 @@ Als u verbinding vanaf buiten Azure maakt, uw verbindingen hebben een verbinding
 
 ![overzicht van netwerkarchitectuur](./media/sql-database-connectivity-architecture/connectivity-from-outside-azure.png)
 
-> [!IMPORTANT]
-> Wanneer u service-eindpunten met Azure SQL Database is het uw beleid **Proxy** standaard. Als u wilt inschakelen in uw VNet verbinding, moet u uitgaande verbindingen naar de Azure SQL Database-Gateway-IP-adressen die is opgegeven in de onderstaande lijst toestaan.
-
-Bij het gebruik van service-eindpunten is het raadzaam het verbindingsbeleid naar wijzigen **omleiden** voor betere prestaties. Als u het verbindingsbeleid naar wijzigt **omleiden** dient niet voldoende zijn voor uitgaand verkeer toestaan op uw NSG naar Azure SQL Database-gateway IP-adressen die hieronder worden vermeld, moet u toestaan uitgaande voor alle Azure SQL Database-IP's. Dit kan worden bewerkstelligd met behulp van de servicetags NSG (Netwerkbeveiligingsgroepen). Zie voor meer informatie, [servicetags](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
-
 ## <a name="azure-sql-database-gateway-ip-addresses"></a>Azure SQL Database-gateway-IP-adressen
 
 Als u wilt verbinding maken met een Azure SQL database vanuit on-premises bronnen, die u wilt toestaan dat uitgaand netwerkverkeer naar de Azure SQL Database-gateway voor uw Azure-regio. Uw verbindingen worden alleen via de gateway gaan wanneer u verbinding maakt in de Proxy-modus, dit de standaardinstelling is bij het verbinden van on-premises bronnen.
 
 De volgende tabel geeft een lijst van de primaire en secundaire IP-adressen van de Azure SQL Database-gateway voor alle regio's van gegevens. Voor sommige regio's zijn er twee IP-adressen. In deze regio's, het primaire IP-adres is het huidige IP-adres van de gateway en het tweede IP-adres is een failover-IP-adres. De failover-adres is het adres waarop we uw server te houden van de van hoge servicebeschikbaarheid mogelijk verplaatsen. Voor deze regio's raden wij u uitgaand naar beide IP-adressen toestaat. Het tweede IP-adres is eigendom van Microsoft en luistert niet op alle services totdat deze is geactiveerd door Azure SQL Database om verbindingen te accepteren.
-
-> [!IMPORTANT]
-> Als u verbinding vanaf binnen Azure maakt het verbindingsbeleid zich **omleiden** standaard (met uitzondering van de opdracht als u van service-eindpunten gebruikmaakt). Het wordt niet voldoende om toe te staan de volgende IP-adressen zijn. U moet alle Azure SQL Database IP-adressen toestaan. Als u verbinding vanaf binnen een VNet maakt, kan dit worden bewerkstelligd met behulp van de servicetags NSG (Netwerkbeveiligingsgroepen). Zie voor meer informatie, [servicetags](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
 
 | Naam regio | Primaire IP-adres | Secundaire IP-adres |
 | --- | --- |--- |

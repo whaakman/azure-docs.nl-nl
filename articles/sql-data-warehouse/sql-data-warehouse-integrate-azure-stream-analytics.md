@@ -10,17 +10,17 @@ ms.component: consume
 ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 6e9a6e9c7407939ea9e76cad569e870d578b37f9
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 3aca356b9caadc3a4ffee98ca7dc330eb1c520d8
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307358"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50962942"
 ---
 # <a name="use-azure-stream-analytics-with-sql-data-warehouse"></a>Azure Stream Analytics gebruiken met SQL datawarehouse
 Azure Stream Analytics is een volledig beheerde service met lage latentie, maximaal beschikbare, schaalbare complexe verwerking van gebeurtenissen die via het streamen van gegevens in de cloud. U leert de beginselen door te lezen [Inleiding tot Azure Stream Analytics][Introduction to Azure Stream Analytics]. U kunt vervolgens informatie over het maken van een end-to-end-oplossing met Stream Analytics door de volgende de [aan de slag met Azure Stream Analytics] [ Get started using Azure Stream Analytics] zelfstudie.
 
-In dit artikel leert u hoe u uw Azure SQL Data Warehouse-database gebruikt als een uitvoerlocatie voor uw Steam Analytics-taken.
+In dit artikel leert u hoe u uw Azure SQL Data Warehouse-database gebruikt als een uitvoerlocatie voor uw Stream Analytics-taken.
 
 ## <a name="prerequisites"></a>Vereisten
 Voer eerst via de volgende stappen uit in de [aan de slag met Azure Stream Analytics] [ Get started using Azure Stream Analytics] zelfstudie.  

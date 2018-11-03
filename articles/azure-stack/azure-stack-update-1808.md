@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/18/2018
+ms.date: 11/01/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 1ca305ab88e30c911bbded1e5ff97162e12f7652
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 1414fd7b559a1bf12cc26d218f4577bbdc986916
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49429062"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50964115"
 ---
 # <a name="azure-stack-1808-update"></a>Azure Stack 1808 update
 
@@ -157,6 +157,10 @@ Deze update bevat ook de oplossing voor het speculatieve uitvoering kant kanaal 
 - In bepaalde omstandigheden wanneer een update uw aandacht vereist, kan de bijbehorende waarschuwing niet worden gegenereerd. De status van de nauwkeurige, nog steeds worden weergegeven in de portal en wordt niet negatief beïnvloed.
 
 ### <a name="post-update-steps"></a>Stappen na het bijwerken
+
+> [!Important]  
+> Bereid u voor uw Azure Stack-implementatie voor extensie-host. Voorbereiden van uw systeem met behulp van de volgende richtlijnen [voorbereiden voor de host van de extensie voor Azure Stack](azure-stack-extension-host-prepare.md).
+
 Na de installatie van deze update toepasselijke Hotfixes te installeren. Raadpleeg voor meer informatie de volgende knowledge base-artikelen, evenals onze [beleid onderhoud](azure-stack-servicing-policy.md). 
 - [KB 4468920 – Azure Stack Hotfix Azure Stack Hotfix 1.1808.5.110](https://support.microsoft.com/help/4468920/)
 

@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 04/03/2017
 ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: 08ba5e7cbdc041a41f1d006d69980bf6efc00101
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 0f08e63d6cbf5be8667b1fd61556e3f33e31d06f
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44380283"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50957655"
 ---
 # <a name="have-a-classic-metric-alert-notify-a-non-azure-system-using-a-webhook"></a>Hebt u een klassieke waarschuwing voor metrische gegevens op de hoogte stellen een niet-Azure-systeem met behulp van een webhook
 U kunt webhooks gebruiken voor het routeren van een Azure waarschuwingsmelding met andere systemen voor na verwerking of aangepaste acties. U kunt een webhook gebruiken op een waarschuwing aan het wordt doorgestuurd naar services die de SMS-berichten, om aan te melden bugs, om de hoogte van een team via chatten of berichtenservices, of voor verschillende andere acties te verzenden. 
 
-In dit artikel wordt beschreven hoe u een webhook instellen op een Azure waarschuwing voor metrische gegevens. Ook ziet u hoe de nettolading voor de HTTP POST naar een webhook eruitziet. Zie voor meer informatie over de installatie en het schema voor een Azure-activiteit (waarschuwing bij gebeurtenissen), een waarschuwing [een webhook aanroepen op een waarschuwing voor een Azure-activiteitenlogboek](insights-auditlog-to-webhook-email.md).
+In dit artikel wordt beschreven hoe u een webhook instellen op een Azure waarschuwing voor metrische gegevens. Ook ziet u hoe de nettolading voor de HTTP POST naar een webhook eruitziet. Zie voor meer informatie over de installatie en het schema voor een Azure-activiteit (waarschuwing bij gebeurtenissen), een waarschuwing [een webhook aanroepen op een waarschuwing voor een Azure-activiteitenlogboek](monitor-alerts-unified-log-webhook.md).
 
 Azure-waarschuwingen Gebruik HTTP POST voor het verzenden van de inhoud van de waarschuwing in JSON-indeling naar een webhook-URI die u opgeeft bij het maken van de waarschuwing. Het schema is gedefinieerd verderop in dit artikel. De URI moet een geldige HTTP of HTTPS-eindpunt. Azure wordt één vermelding per aanvraag wanneer een waarschuwing wordt geactiveerd.
 

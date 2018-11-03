@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 09/29/2017
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 6f09e523b70e541c724ea53d0bd47215ad44d623
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 224d5673b374b9b30237d25113e07aaf6dd4feaf
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041983"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50960962"
 ---
 # <a name="automate-log-analytics-processes-with-the-connector-for-microsoft-flow"></a>Log Analytics processen automatiseren met de connector voor Microsoft Flow
 [Microsoft Flow](https://ms.flow.microsoft.com) kunt u geautomatiseerde werkstromen met behulp van honderden acties voor verschillende services maken. Uitvoer van een actie kan worden gebruikt als invoer voor andere zodat u kunt maken van de integratie tussen verschillende services.  De Azure Log Analytics-connector voor Microsoft Flow kunt u werkstromen kunnen opzetten waarmee gegevens opgehaald door bits-zoekopdrachten in Logboeken in Log Analytics bevatten.
@@ -79,7 +79,7 @@ De in dit artikel leert u hoe u een stroom maken die de resultaten van een logbo
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Meer informatie over [zoekopdrachten in Logboeken in Log Analytics](log-analytics-log-search-new.md).
+- Meer informatie over [zoekopdrachten in Logboeken in Log Analytics](log-analytics-log-search.md).
 - Meer informatie over [Microsoft Flow](https://ms.flow.microsoft.com).
 
 

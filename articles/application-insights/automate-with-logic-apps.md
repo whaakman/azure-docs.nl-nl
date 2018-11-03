@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/29/2017
 ms.author: mbullwin
-ms.openlocfilehash: 91b5c2c23445e5cd3445d1d5b640cb3ecb8e5e7a
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 1e9170c955f2a36d68600372e3dcdac2a63056c1
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44301188"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50957741"
 ---
 # <a name="automate-application-insights-processes-by-using-logic-apps"></a>Application Insights-processen automatiseren met behulp van Logic Apps
 
@@ -51,7 +51,7 @@ In deze zelfstudie leert u hoe u een logische app die gebruikmaakt van de algori
 
 1. In de **een actie kiezen** zoekvak, type **Azure Application Insights**.
 
-1. Onder **acties**, klikt u op **Preview query uitvoeren op Azure Application Insights-Analytics visualiseren**.
+1. Onder **acties**, klikt u op **Preview query uitvoeren op Azure Application Insights - Analytics visualiseren**.
 
     ![Logic App Designer 'Kies een actie' venster](./media/automate-with-logic-apps/flow2.png)
 
@@ -93,7 +93,7 @@ Wanneer u uw eigen query's maakt, controleert u of dat ze goed in Analytics werk
 
 1. Typ in het zoekvak **Office 365 Outlook**.
 
-1. Klik op **Office 365 Outlook: een e-mail verzenden**.
+1. Klik op **Office 365 Outlook - een e-mail verzenden**.
 
     ![Office 365 Outlook-selectie](./media/automate-with-logic-apps/flow2b.png)
 
@@ -132,7 +132,7 @@ Wanneer uw logische app wordt uitgevoerd, is de ontvangers die u hebt opgegeven 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Meer informatie over het maken van [Analytics-query's](app-insights-analytics-using.md).
+- Meer informatie over het maken van [Analytics-query's](../log-analytics/query-language/get-started-queries.md).
 - Meer informatie over [Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-what-are-logic-apps).
 
 

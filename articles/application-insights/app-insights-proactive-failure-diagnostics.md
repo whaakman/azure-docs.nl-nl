@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/09/2017
 ms.reviewer: yossiy
 ms.author: mbullwin
-ms.openlocfilehash: b566b204ca9cf13b412d750740836db8bf8930a5
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 8394584b2b4f8cbc47a6fdaadd754e8649c3f794
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47093982"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50960919"
 ---
 # <a name="smart-detection---failure-anomalies"></a>Slimme detectie: afwijkende fouten
 [Application Insights](app-insights-overview.md) automatisch ontvangt u een melding in bijna realtime als er een abnormale toename van mislukte aanvragen optreedt in uw web-app. Een ongewone stijging van het aantal HTTP-aanvragen of afhankelijkheidsaanroepen die worden gerapporteerd als mislukt wordt gedetecteerd. Voor aanvragen zijn mislukte aanvragen meestal met responscodes van 400 of hoger. Als u wilt, kunt u sorteren en onderzoeken van het probleem een analyse van de kenmerken van de fouten en verwante telemetrie vindt u in de melding. Er zijn ook koppelingen naar de Application Insights-portal voor verdere diagnose. De functie moet geen installatie of configuratie, zoals het machine learning-algoritmen gebruikt om te voorspellen van de normaal foutpercentage.
@@ -40,7 +40,7 @@ Hier volgt een waarschuwing voor een voorbeeld.
 U ziet dat u leest:
 
 * Het aantal fouten in vergelijking met een normale app-gedrag.
-* Hoe veel gebruikers beïnvloedt –, zodat u hoeveel weet zorgen te maken.
+* Hoeveel gebruikers betrof -, zodat u hoeveel weet zorgen te maken.
 * Een kenmerkend patroon dat is gekoppeld aan de fouten. In dit voorbeeld wordt een bepaalde responscode, de naam (bewerking) en de app-versie. Die onmiddellijk informatie over waar u om te beginnen met zoeken in uw code. Andere mogelijkheden kunnen een specifiek besturingssysteem browser of de client zijn.
 * De uitzondering, logboektraceringen en afhankelijkheidsfout (databases of andere externe componenten) weergegeven die zijn gekoppeld aan de wordt gekenmerkt fouten.
 * Koppelingen naar relevante zoekopdrachten op de telemetrie in Application Insights.
@@ -147,7 +147,7 @@ Deze diagnostische hulpprogramma's kunnen u de telemetrie van uw app controleren
 
 * [Metric explorer](app-insights-metrics-explorer.md)
 * [Search explorer](app-insights-diagnostic-search.md)
-* [Analytics - krachtige querytaal](app-insights-analytics-tour.md)
+* [Analytics - krachtige querytaal](../log-analytics/query-language/get-started-analytics-portal.md)
 
 Slimme detectie worden volledig automatisch uitgevoerd. Maar misschien u graag enkele meer waarschuwingen instellen?
 

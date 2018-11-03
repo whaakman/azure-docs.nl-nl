@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 10/03/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: 61ceea60962acc2e1ec032df49683e8a28381dd7
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 7f2ced1d6e5a7368fbf136d31889a763b3306e37
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49405358"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50964040"
 ---
 # <a name="wire-data-20-preview-solution-in-log-analytics"></a>Wire Data 2.0 (preview) in Log Analytics
 
@@ -33,7 +33,7 @@ Naast de Log Analytics-agent gebruikt de gegevens van Wire Data-oplossing Micros
 >[!NOTE]
 >Als u Serviceoverzicht al hebt geïmplementeerd of Serviceoverzicht overweegt of [Azure Monitor voor virtuele machines](../monitoring/monitoring-vminsights-overview.md), er is een nieuwe metrische gegevens verbindingsset te verzamelen en opslaan in Log Analytics die vergelijkbare informatie aan gegevens van Wire Data biedt.
 
-Standaard registreert Log Analytics gegevens voor CPU, geheugen, schijf en netwerkprestaties op basis van tellers die zijn ingebouwd in Windows en Linux, samen met andere prestatiemeteritems die u kunt opgeven. Het verzamelen van netwerk- en andere gegevens wordt voor elke agent in realtime uitgevoerd, met inbegrip van subnetten en protocollen op toepassingsniveau die door de computer worden gebruikt.  Wire Data kijkt naar netwerkgegevens op toepassingsniveau, niet naar die op de TCP-transportlaag.  De oplossing kijkt niet naar afzonderlijke ACK's en SYN's.  Zodra de handshake is voltooid, wordt dit als een live-verbinding beschouwd en wordt deze gemarkeerd als verbonden. Die verbinding blijft actief zolang beide zijden het erover eens zijn dat de socket geopend is en gegevens heen en weer kunnen worden gestuurd.  Wanneer een van beide zijden de verbinding sluit, wordt deze gemarkeerd als Verbroken.  Daarom wordt alleen de bandbreedte van voltooide pakketten meegeteld en wordt niet gemeld of pakketten opnieuw of niet zijn verzonden.
+Standaard registreert Log Analytics gegevens voor CPU, geheugen, schijf en netwerkprestaties op basis van tellers die zijn ingebouwd in Windows en Linux, samen met andere prestatiemeteritems die u kunt opgeven. Het verzamelen van netwerk- en andere gegevens wordt voor elke agent in realtime uitgevoerd, met inbegrip van subnetten en protocollen op toepassingsniveau die door de computer worden gebruikt.  Wire Data kijkt naar netwerkgegevens op toepassingsniveau, niet naar die op de TCP-transportlaag.  De oplossing kijkt niet naar afzonderlijke ACK's en SYN's.  Zodra de handshake is voltooid, wordt dit als een live-verbinding beschouwd en wordt deze gemarkeerd als verbonden. Die verbinding blijft actief zolang beide zijden het erover eens zijn dat de socket geopend is en gegevens heen en weer kunnen worden gestuurd.  Wanneer een van beide zijden de verbinding sluit, wordt deze gemarkeerd als Verbroken.  Daarom wordt alleen de bandbreedte van voltooide pakketten meegeteld en wordt niet gemeld of pakketten opnieuw of niet zijn verzonden.
 
 Als u [sFlow](http://www.sflow.org/) of andere software hebt gebruikt met het [NetFlow-protocol van Cisco](http://www.cisco.com/c/en/us/products/collateral/ios-nx-os-software/ios-netflow/prod_white_paper0900aecd80406232.html), zullen de statistieken en gegevens die u in gegevens van Wire Data ziet, u bekend voorkomen.
 
@@ -60,7 +60,7 @@ Wire Data haalt zijn gegevens uit de Microsoft-agent voor afhankelijkheden. De A
 
 | **Verbonden bron** | **Ondersteund** | **Beschrijving** |
 | --- | --- | --- |
-| Windows-agents | Ja | Wire Data analyseert en verzamelt gegevens van Windows-agentcomputers. <br><br> Naast de [Log Analytics-agent voor Windows](log-analytics-windows-agent.md), Windows-agents vereist de Microsoft-Agent voor afhankelijkheden. Zie de [ondersteunde besturingssystemen](../monitoring/monitoring-service-map-configure.md#supported-windows-operating-systems) voor een volledige lijst met versies van besturingssystemen. |
+| Windows-agents | Ja | Wire Data analyseert en verzamelt gegevens van Windows-agentcomputers. <br><br> Naast de [Log Analytics-agent voor Windows](log-analytics-agent-windows.md), Windows-agents vereist de Microsoft-Agent voor afhankelijkheden. Zie de [ondersteunde besturingssystemen](../monitoring/monitoring-service-map-configure.md#supported-windows-operating-systems) voor een volledige lijst met versies van besturingssystemen. |
 | Linux-agents | Ja | Wire Data analyseert en verzamelt gegevens van Linux-agentcomputers.<br><br> Naast de [Log Analytics-agent voor Linux](log-analytics-quick-collect-linux-computer.md), Linux-agents vereist de Microsoft-Agent voor afhankelijkheden. Zie de [ondersteunde besturingssystemen](../monitoring/monitoring-service-map-configure.md#supported-linux-operating-systems) voor een volledige lijst met versies van besturingssystemen. |
 | Beheergroep System Center Operations Manager | Ja | Wire Data analyseert en verzamelt gegevens van Windows- en Linux-agents in een verbonden [System Center Operations Manager-beheergroep](log-analytics-om-agents.md). <br><br> Er is een directe verbinding van de System Center Operations Manager-agentcomputer naar Log Analytics vereist. |
 | Azure Storage-account | Nee | Omdat Wire Data gegevens van agentcomputers verzamelt, zijn er geen gegevens te verzamelen van Azure Storage. |
@@ -197,7 +197,7 @@ In de volgende secties worden de ondersteunde besturingssystemen voor de agent v
 
 Voer de volgende stappen uit om Wire Data te configureren voor uw werkruimten.
 
-1. Schakel de Activity Log Analytics-oplossing in vanuit de [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WireData2OMS?tab=Overview) of met behulp van de procedure beschreven in [Log Analytics-oplossingen toevoegen vanuit de Oplossingengalerie](log-analytics-add-solutions.md).
+1. Schakel de Activity Log Analytics-oplossing in vanuit de [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WireData2OMS?tab=Overview) of met behulp van de procedure beschreven in [Log Analytics-oplossingen toevoegen vanuit de Oplossingengalerie](../monitoring/monitoring-solutions.md).
 2. Installeer de agent voor afhankelijkheden op elke computer waarop u gegevens wilt ophalen. De agent voor afhankelijkheden kan verbindingen met computers in de directe nabijheid controleren, zodat er wellicht geen agent op elke computer nodig is.
 
 > [!NOTE]
@@ -211,7 +211,7 @@ De agent voor afhankelijkheden wordt geïnstalleerd op computers met Windows via
 
 Gebruik de volgende stappen voor het installeren van de agent voor afhankelijkheden op elke computer met Windows:
 
-1. De volgende stappen in Log Analytics-agent installeren [gegevens verzamelen van Windows-computers die worden gehost in uw omgeving](log-analytics-windows-agent.md).
+1. De volgende stappen in Log Analytics-agent installeren [gegevens verzamelen van Windows-computers die worden gehost in uw omgeving](log-analytics-agent-windows.md).
 2. Download de Windows-agent voor afhankelijkheden met behulp van de koppeling in de vorige sectie en voer de agent uit met behulp van de volgende opdracht: `InstallDependencyAgent-Windows.exe`
 3. Volg de wizard om de agent te installeren.
 4. Als de agent voor afhankelijkheden niet start, controleert u de logboeken voor uitgebreide foutinformatie. Voor Windows-agents is dit de logboekmap: %Programfiles%\Microsoft Dependency Agent\logs.
@@ -373,7 +373,7 @@ Gebruik de volgende informatie om de oplossing te installeren en configureren.
 
 - De oplossing Wire Data verkrijgt gegevens van computers met Windows Server 2012 R2, Windows 8.1 en latere besturingssystemen.
 - Microsoft .NET Framework 4.0 of hoger is vereist op computers waarvan u draadgegevens wilt ophalen.
-- Voeg de oplossing Wire Data toe aan uw Log Analytics-werkruimte met behulp van de procedure die wordt beschreven in [Log Analytics-oplossingen toevoegen vanuit de Oplossingengalerie](log-analytics-add-solutions.md). Er is geen verdere configuratie nodig.
+- Voeg de oplossing Wire Data toe aan uw Log Analytics-werkruimte met behulp van de procedure die wordt beschreven in [Log Analytics-oplossingen toevoegen vanuit de Oplossingengalerie](../monitoring/monitoring-solutions.md). Er is geen verdere configuratie nodig.
 - Als u draadgegevens voor een specifieke oplossing wilt weergeven, moet de oplossing al zijn toegevoegd aan uw werkruimte.
 
 Nadat agents zijn geïnstalleerd en u de oplossing installeert, wordt de tegel Wire Data 2.0 weergegeven in de werkruimte.
@@ -451,4 +451,4 @@ Een record met het type _WireData_ is gemaakt voor elk type invoergegevens. Wire
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Zoeken in een logboek](log-analytics-log-searches.md) om gedetailleerde zoekrecords van Wire Data te bekijken.
+- [Zoeken in een logboek](log-analytics-log-search.md) om gedetailleerde zoekrecords van Wire Data te bekijken.

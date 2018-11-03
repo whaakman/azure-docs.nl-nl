@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/14/2018
 ms.author: mbullwin
-ms.openlocfilehash: cfcdf13f8aa4dfab9b361ccbb82ea4b2c3e2ca0d
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 5550bbb95b24e12510c69bc3952c346250786994
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42055474"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50960001"
 ---
 # <a name="import-data-into-analytics"></a>Gegevens importeren in Analytics
 
@@ -120,10 +120,10 @@ JSON-indeling
  
 Elke kolom wordt geïdentificeerd door de locatie, de naam en het type.
 
-* Locatie: gescheiden bestand deze indeling is de positie van de toegewezen waarde. Voor JSON-indeling is de jpath van de toegewezen sleutel.
-* Naam: de naam van de kolom die wordt weergegeven.
-* Type: het gegevenstype van die kolom.
- 
+* Locatie - is gescheiden bestand deze indeling de positie van de toegewezen waarde. Voor JSON-indeling is de jpath van de toegewezen sleutel.
+* Naam - de naam van de kolom die wordt weergegeven.
+* Type - het gegevenstype van die kolom.
+
 > [!NOTE]
 > Voorbeeldgegevens is gebruikt en de bestandsindeling worden van elkaar gescheiden, moet de schemadefinitie alle kolommen toewijzen en nieuwe kolommen toevoegen aan het einde.
 > 
@@ -137,7 +137,7 @@ Voor het importeren van gegevens te uploaden naar Azure storage, een toegangssle
 
 U kunt de volgende stappen handmatig uitvoeren of instellen van een geautomatiseerd systeem om dat te doen met regelmatige intervallen. U moet als volgt te werk voor elk gegevensblok dat u wilt importeren.
 
-1. De gegevens naar uploaden [Azure blob-opslag](../storage/blobs/storage-dotnet-how-to-use-blobs.md). 
+1. De gegevens naar uploaden [Azure blob-opslag](../storage/blobs/storage-quickstart-blobs-dotnet.md). 
 
  * Bobs kunnen bestaan uit een grootte van maximaal 1GB niet gecomprimeerd. Grote blobs van honderden MB zijn ideaal vanuit het oogpunt van prestaties.
  * U kunt deze gecomprimeerd met Gzip om tijd en latentie voor de gegevens zijn beschikbaar voor query's te verbeteren. Gebruik de `.gz` bestandsnaamextensie.
@@ -369,5 +369,5 @@ Gebruik deze code voor elke blob.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Rondleiding door de Log Analytics-querytaal](app-insights-analytics-tour.md)
+* [Rondleiding door de Log Analytics-querytaal](../log-analytics/query-language/get-started-analytics-portal.md)
 * Als u Logstash, gebruikt u de [Logstash-invoegtoepassing voor het verzenden van gegevens naar Application Insights](https://github.com/Microsoft/logstash-output-application-insights)

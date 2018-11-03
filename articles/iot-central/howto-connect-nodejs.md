@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 4702b0eb53897f173311c40469c912cf41751f24
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 9d97b14d52a33d6879ee92b38993f4526823c4a0
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50155147"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50963983"
 ---
 # <a name="connect-a-generic-client-application-to-your-azure-iot-central-application-nodejs"></a>Verbinding maken met een algemene clienttoepassing aan uw Azure IoT Central-toepassing (Node.js)
 
@@ -23,7 +23,7 @@ Dit artikel wordt beschreven hoe u als ontwikkelaar apparaat om een algemene Nod
 
 U hebt het volgende nodig om de stappen in dit artikel uit te voeren:
 
-1. Een Azure IoT Central-toepassing. Zie voor meer informatie, [maken van uw Azure IoT Central Application](howto-create-application.md).
+1. Een Azure IoT Central-toepassing. Zie voor meer informatie de [maken van een toepassing Quick Start](quick-deploy-iot-central.md).
 1. Een ontwikkelcomputer met [Node.js](https://nodejs.org/) versie 4.0.0 of hoger is geïnstalleerd. U kunt uitvoeren `node --version` vanaf de opdrachtregel om uw versie te controleren. Node.js is beschikbaar voor een groot aantal verschillende besturingssystemen.
 
 ## <a name="create-a-device-template"></a>Een apparaat-sjabloon maken

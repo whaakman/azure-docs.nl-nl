@@ -8,13 +8,13 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-ms.date: 10/03/2018
-ms.openlocfilehash: c2248f185c5c1c5dd8c4e1d4a24e6145a82ec5cb
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.date: 11/01/2018
+ms.openlocfilehash: 0796ab0a0923d9a04e07542c576883c004c63263
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091552"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50957725"
 ---
 # <a name="monitoring-in-azure-database-for-mysql"></a>Bewaking in Azure Database for MySQL
 Gegevens over uw servers te controleren, kunt u problemen op te optimaliseren voor uw workload. Azure Database for MySQL biedt verschillende metrische gegevens inzicht in het gedrag van uw server geven.
@@ -41,9 +41,10 @@ Deze metrische gegevens zijn beschikbaar voor Azure Database voor MySQL:
 |seconds_behind_master|Vertraging van replicatie in een paar seconden|Count|Het aantal seconden dat de replica-server is achtergebleven op basis van de hoofd-server.|
 |network_bytes_egress|Netwerk uit|Bytes|Uitgaand netwerkverkeer voor actieve verbindingen.|
 |network_bytes_ingress|Netwerk in|Bytes|Netwerk In voor de actieve verbindingen.|
+|backup_storage_used|Back-upopslag gebruikt|Bytes|De hoeveelheid back-upopslag gebruikt.|
 
 ## <a name="server-logs"></a>Serverlogboeken
-U kunt langzame query's op uw server logboekregistratie inschakelen. Deze logboeken zijn ook beschikbaar via Azure diagnostische logboeken in OMS Log Analytics, Event Hubs en Storage-Account. Voor meer informatie over logboekregistratie, gaat u naar de [serverlogboeken](concepts-server-logs.md) pagina.
+U kunt langzame query's op uw server logboekregistratie inschakelen. Deze logboeken zijn ook beschikbaar via Azure diagnostische logboeken in OMS Log Analytics, Event Hubs en Storage-Account. Voor meer informatie over logboekregistratie, gaat u naar de [serverlogboeken](concepts-server-logs.md) pagina.
 
 ## <a name="next-steps"></a>Volgende stappen
 - Zie [over het instellen van waarschuwingen](howto-alert-on-metric.md) voor hulp bij het maken van een waarschuwing voor metrische gegevens.

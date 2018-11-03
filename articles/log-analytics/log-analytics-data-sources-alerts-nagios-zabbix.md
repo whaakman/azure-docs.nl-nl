@@ -15,16 +15,16 @@ ms.workload: infrastructure-services
 ms.date: 04/13/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: eb129ebe6d63396934cbcda509d711cc63a5ee1b
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 9c2b5db4fe35227600e7ab8d94f2cc8701cf529b
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49402937"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50963760"
 ---
 # <a name="collect-alerts-from-nagios-and-zabbix-in-log-analytics-from-log-analytics-agent-for-linux"></a>Waarschuwingen verzamelen van Nagios en Zabbix in Log Analytics van Log Analytics-agent voor Linux 
 [!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)]
-[Nagios](https://www.nagios.org/) en [Zabbix](http://www.zabbix.com/) zijn open-source hulpprogramma's voor controle. U kunt waarschuwingen van deze hulpprogramma's verzamelen in Log Analytics om te kunnen analyseren ze samen met [waarschuwingen uit andere bronnen](log-analytics-alerts.md).  In dit artikel wordt beschreven hoe u de Log Analytics-agent voor Linux voor het verzamelen van waarschuwingen van deze systemen configureren.
+[Nagios](https://www.nagios.org/) en [Zabbix](http://www.zabbix.com/) zijn open-source hulpprogramma's voor controle. U kunt waarschuwingen van deze hulpprogramma's verzamelen in Log Analytics om te kunnen analyseren ze samen met [waarschuwingen uit andere bronnen](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md).  In dit artikel wordt beschreven hoe u de Log Analytics-agent voor Linux voor het verzamelen van waarschuwingen van deze systemen configureren.
  
 ## <a name="prerequisites"></a>Vereisten
 De Log Analytics-agent voor Linux ondersteunt verzamelen meldingen van Nagios tot versie 4.2.x en Zabbix maximaal versie 2.x.
@@ -80,7 +80,7 @@ Voor het verzamelen van waarschuwingen op de Nagios-server, moet u de volgende s
 
 
 ## <a name="alert-records"></a>Waarschuwing records
-U kunt waarschuwingen records van Nagios en Zabbix ophalen met behulp van [zoekopdrachten](log-analytics-log-searches.md) in Log Analytics.
+U kunt waarschuwingen records van Nagios en Zabbix ophalen met behulp van [zoekopdrachten](log-analytics-log-search.md) in Log Analytics.
 
 ### <a name="nagios-alert-records"></a>Nagios-waarschuwing records
 
@@ -118,5 +118,5 @@ Ontvang een waarschuwing die worden verzameld door Zabbix records hebben een **T
 
 
 ## <a name="next-steps"></a>Volgende stappen
-* Meer informatie over [waarschuwingen](log-analytics-alerts.md) in Log Analytics.
-* Meer informatie over [zoekopdrachten](log-analytics-log-searches.md) om de gegevens die worden verzameld van gegevensbronnen en oplossingen te analyseren. 
+* Meer informatie over [waarschuwingen](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) in Log Analytics.
+* Meer informatie over [zoekopdrachten](log-analytics-log-search.md) om de gegevens die worden verzameld van gegevensbronnen en oplossingen te analyseren. 

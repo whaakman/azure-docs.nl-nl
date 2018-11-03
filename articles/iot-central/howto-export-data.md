@@ -8,12 +8,12 @@ ms.date: 09/18/2018
 ms.topic: conceptual
 ms.service: iot-central
 manager: peterpr
-ms.openlocfilehash: 86128abd82ee41459a84fc7d9169042179807793
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 3231a956648b80d88059b7b0fc8f790e0e58be99
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47034906"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50962789"
 ---
 # <a name="export-your-data-in-azure-iot-central"></a>Uw gegevens in Azure IoT Central exporteren
 
@@ -26,10 +26,10 @@ In dit artikel wordt beschreven hoe u de functie continue export gebruiken in Az
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Een uitgebreide 30-daagse proefversie IoT Central-toepassing, of een betaalde toepassing.
-- Een Azure-account met een Azure-abonnement.
-- Hetzelfde Azure-account is een beheerder in uw IoT Central-toepassing.
-- Hetzelfde Azure-account heeft machtigingen voor het maken van een storage-account of toegang tot een bestaand opslagaccount in hetzelfde Azure-abonnement.
+- Een toepassing betalen per gebruik.
+- Een beheerder in uw IoT Central-toepassing met:
+    - in de Azure-abonnement die uw IoT Central-toepassing bevindt zich in een Azure-account
+    - machtigingen voor het maken van een storage-account of toegang krijgen tot een bestaand opslagaccount in deze Azure-abonnement
 
 ## <a name="types-of-data-to-export"></a>Typen gegevens exporteren
 

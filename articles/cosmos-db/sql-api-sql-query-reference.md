@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 08/19/2018
 ms.author: laviswa
-ms.openlocfilehash: 33614628926e53354db14886530d7ca44da61f0a
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: 762997492d18e9b14525dc6a196f98815f27fbbb
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42055481"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50979502"
 ---
 # <a name="azure-cosmos-db-sql-syntax-reference"></a>Naslaginformatie over Azure Cosmos DB SQL-syntaxis
 
@@ -2656,20 +2656,30 @@ ARRAY_SLICE (<arr_expr>, <num_expr> [, <num_expr>])
   
 -   `num_expr`  
   
-     Een geldige numerieke expressie is.  
-  
+     Numerieke op nul gebaseerde index op waarop u wilt beginnen met de matrix. Negatieve waarden kunnen worden gebruikt om op te geven van de startIndex ten opzichte van het laatste element van de matrix-dat wil zeggen 1 verwijst naar het laatste element in de matrix.  
+
+-   `num_expr`  
+
+     Maximum aantal elementen in de resulterende matrix.    
+
  **Typen retourneren**  
   
- Retourneert een Booleaanse waarde.  
+ Retourneert een matrixexpressie.  
   
  **Voorbeelden**  
   
- Het volgende voorbeeld over het verkrijgen van een onderdeel van een matrix met behulp van ARRAY_SLICE.  
+ Het volgende voorbeeld ziet hoe u verschillende segmenten van een matrix met behulp van ARRAY_SLICE.  
   
 ```  
 SELECT   
            ARRAY_SLICE(["apples", "strawberries", "bananas"], 1),  
-           ARRAY_SLICE(["apples", "strawberries", "bananas"], 1, 1)  
+           ARRAY_SLICE(["apples", "strawberries", "bananas"], 1, 1),
+           ARRAY_SLICE(["apples", "strawberries", "bananas"], -2, 1),
+           ARRAY_SLICE(["apples", "strawberries", "bananas"], -2, 2),
+           ARRAY_SLICE(["apples", "strawberries", "bananas"], 1, 0),
+           ARRAY_SLICE(["apples", "strawberries", "bananas"], 1, 1000),
+           ARRAY_SLICE(["apples", "strawberries", "bananas"], 1, -100)      
+  
 ```  
   
  Hier volgt de resultatenset.  
@@ -2677,10 +2687,15 @@ SELECT
 ```  
 [{  
            "$1": ["strawberries", "bananas"],   
-           "$2": ["strawberries"]  
-       }]  
+           "$2": ["strawberries"],
+           "$3": ["strawberries"],  
+           "$4": ["strawberries", "bananas"], 
+           "$5": [],
+           "$6": ["strawberries", "bananas"],
+           "$7": [] 
+}]  
 ```  
-  
+ 
 ###  <a name="bk_spatial_functions"></a> Ruimtelijke-functies  
  De volgende scalaire functies uitvoeren van een bewerking op een invoerwaarde voor de ruimtelijke index en een numerieke of Booleaanse waarde retourneren.  
   

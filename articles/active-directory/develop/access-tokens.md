@@ -16,12 +16,12 @@ ms.date: 10/23/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 3a3768e796284895b25eb62d00a58b20ca811540
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 18de5ce2f47b6593d4c8556af045f14ade957fb9
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49958938"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50979230"
 ---
 # <a name="azure-active-directory-access-tokens"></a>Azure Active Directory-toegangstokens
 
@@ -86,7 +86,7 @@ Claims zijn alleen aanwezig als een waarde bestaat om het te vullen. Uw app moet
 | Claim | Indeling | Beschrijving |
 |-----|--------|-------------|
 | `aud` | Tekenreeks, een URI van de App-ID | Hiermee geeft u de beoogde ontvanger van het token. In de toegangstokens te geven is de doelgroep van uw app toepassings-ID, toegewezen aan uw app in Azure portal. Uw app moet deze waarde te valideren en het token te negeren als de waarde komt niet overeen met. |
-| `iss` | Tekenreeks, een STS-URI | Identificeert de beveiligingstokenservice (STS) die wordt gemaakt en retourneert het token en de Azure AD-tenant waarin de gebruiker is geverifieerd. Als het token is uitgegeven door het v2.0-eindpunt, de URI wordt beëindigd `/v2.0`. De GUID die wordt aangegeven dat de gebruiker een consument gebruiker vanuit een Microsoft-account is `9188040d-6c67-4c5b-b112-36a304b66dad`. Uw app moet de GUID-gedeelte van de claim gebruiken om het beperken van de set van tenants die kunnen zich aanmelden bij de app, indien van toepassing. |
+| `iss` | Tekenreeks, een STS-URI | Identificeert de beveiligingstokenservice (STS) die wordt gemaakt en retourneert het token en de Azure AD-tenant waarin de gebruiker is geverifieerd. Als het token dat is uitgegeven, een v2.0-token is (Zie de `ver` claim), de URI eindigt `/v2.0`. De GUID die wordt aangegeven dat de gebruiker een consument gebruiker vanuit een Microsoft-account is `9188040d-6c67-4c5b-b112-36a304b66dad`. Uw app moet de GUID-gedeelte van de claim gebruiken om het beperken van de set van tenants die kunnen zich aanmelden bij de app, indien van toepassing. |
 |`idp`|Tekenreeks, meestal een STS-URI | Registreert de identiteitsprovider waarmee het onderwerp van het token is geverifieerd. Deze waarde is gelijk aan de waarde van de claim van verlener, tenzij het gebruikersaccount niet in dezelfde tenant als de verlener - gasten, bijvoorbeeld. Als de claim is niet aanwezig is, betekent dit dat de waarde van `iss` in plaats daarvan kan worden gebruikt.  Voor persoonlijke accounts worden gebruikt in een context orgnizational (bijvoorbeeld een persoonlijk account is uitgenodigd voor een Azure AD-tenant), de `idp` claim mogelijk 'live.com' of een STS URI met de tenant van Microsoft-account `9188040d-6c67-4c5b-b112-36a304b66dad`. |  
 | `iat` | int, een UNIX-timestamp | "Verleend aan" geeft aan wanneer de verificatie voor dit token is opgetreden. |
 | `nbf` | int, een UNIX-timestamp | De claim 'nbf"(niet voor) geeft de tijd waarbinnen de JWT moet niet worden geaccepteerd voor verwerking. |

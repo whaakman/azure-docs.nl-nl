@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/24/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 7c850eee67224d09ea2715a58c3cd8eca4ab07af
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: c248e126d99c7cb83895871ec24d41ffcfd84d29
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041897"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50960681"
 ---
 # <a name="monitor-active-directory-replication-status-with-log-analytics"></a>Status van de Active Directory-replicatie met Log Analytics controleren
 
@@ -34,7 +34,7 @@ Het AD-replicatiestatus-oplossingenpakket controleert regelmatig uw Active Direc
 Gebruik de volgende informatie om de oplossing te installeren en configureren.
 
 * U moet agenten installeren op domeincontrollers die lid van het domein zijn moet worden geëvalueerd. Of u moet agenten installeren op lidservers en configureren van de agents AD-replicatie om gegevens te verzenden naar Log Analytics. Zie voor meer informatie over hoe u Windows-computers verbinden met Log Analytics, [verbinding maken met Windows-computers naar Log Analytics](log-analytics-windows-agent.md). Als uw domeincontroller al deel van een bestaande System Center Operations Manager-omgeving die u wilt koppelen aan Log Analytics uitmaakt, Zie [Operations Manager verbinden met Log Analytics](log-analytics-om-agents.md).
-* De oplossing Active Directory Replication Status toevoegen aan uw Log Analytics-werkruimte met behulp van de procedure beschreven in [toevoegen Log Analytics-oplossingen uit de galerie van oplossingen](log-analytics-add-solutions.md).  Er is geen verdere configuratie nodig.
+* De oplossing Active Directory Replication Status toevoegen aan uw Log Analytics-werkruimte met behulp van de procedure beschreven in [toevoegen Log Analytics-oplossingen uit de galerie van oplossingen](../monitoring/monitoring-solutions.md).  Er is geen verdere configuratie nodig.
 
 ## <a name="ad-replication-status-data-collection-details"></a>Details van AD-replicatiestatus gegevens verzamelen
 De volgende tabel bevat de methoden voor het verzamelen van gegevens en andere informatie over hoe gegevens worden verzameld voor AD-replicatiestatus.
@@ -110,7 +110,7 @@ Wanneer u een item in een van de lijsten op klikt, ziet u aanvullende informatie
 
 ![AD-status replicatiefouten opgetreden in de zoekresultaten](./media/log-analytics-ad-replication-status/oms-ad-replication-search-details.png)
 
-Hier kunt kunt u verder filteren, wijzigen van de zoekopdracht, enzovoort. Zie voor meer informatie over het gebruik van zoeken in logboeken [zoekopdrachten](log-analytics-log-searches.md).
+Hier kunt kunt u verder filteren, wijzigen van de zoekopdracht, enzovoort. Zie voor meer informatie over het gebruik van zoeken in logboeken [zoekopdrachten](log-analytics-log-search.md).
 
 De **HelpLink** veld ziet u de URL van een TechNet-pagina met aanvullende informatie over de specifieke fout. U kunt kopiëren en plakken van deze koppeling in het browservenster om informatie over het oplossen van problemen en het verhelpen van de fout te bekijken.
 
@@ -154,4 +154,4 @@ Als u hulp bij het verbinden van een van uw domeincontrollers, vindt u de docume
 Als u niet wilt verbinding maken met een van uw domeincontrollers rechtstreeks Log Analytics of met System Center Operations Manager, raadpleegt u [om in te schakelen van een niet-domeincontroller AD-gegevens te verzenden naar Log Analytics](#to-enable-a-non-domain-controller-to-send-ad-data-to-oms).
 
 ## <a name="next-steps"></a>Volgende stappen
-* Gebruik [zoekopdrachten in Logboeken in Log Analytics](log-analytics-log-searches.md) om gedetailleerde gegevens van Active Directory-replicatie de status weer te geven.
+* Gebruik [zoekopdrachten in Logboeken in Log Analytics](log-analytics-log-search.md) om gedetailleerde gegevens van Active Directory-replicatie de status weer te geven.

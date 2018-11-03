@@ -15,24 +15,24 @@ ms.workload: infrastructure-services
 ms.date: 05/04/2017
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 297967f165e921fedbc7e7e952366a399fedc642
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: d86a4de5f54d0c1c492fa17081623366692712af
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48043937"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50959780"
 ---
 # <a name="take-action-with-an-automation-runbook-from-a-log-analytics-log-search-result"></a>Onderneem actie met een Automation-Runbook uit een zoekresultaat voor Log Analytics-logboek
 
 In een zoekresultaat log in Azure Log Analytics, kunt u nu selecteren **actie ondernemen** om uit te voeren van een Automation-runbook.  Het runbook kan worden gebruikt om het probleem op te lossen of een andere actie zoals zoals het verzamelen van informatie over probleemoplossing, een e-mail verzenden of een serviceaanvraag maakt op te nemen. 
 
 ## <a name="components-and-features-used"></a>Gebruikte onderdelen en functies
-* [Azure Automation-account](../automation/automation-offering-get-started.md)
-* [Log Analytics-werkruimte](../log-analytics/log-analytics-overview.md)
+* [Azure Automation-account](../automation/automation-quickstart-create-account.md)
+* [Log Analytics-werkruimte](log-analytics-queries.md)
 
 ## <a name="to-initiate-runbook-from-log-search"></a>Runbook van zoeken in Logboeken initiëren
 
-Actie ondernemen voor een gebeurtenis en een runbook in de resultaten van uw logboekbestanden voor zoeken initiëren, u beginnen met het maken van een logboekzoekopdracht en uit de resultaten kunt u een runbook op aanvraag aanroepen.  Dit kan worden bereikt vanaf de zoekfunctie van log in de [Azure-portal](../log-analytics/log-analytics-log-search-new.md).  In dit voorbeeld wordt een zoekopdracht in Logboeken uitvoert vanuit de Azure portal met een eenvoudige demonstratie van deze functie.
+Actie ondernemen voor een gebeurtenis en een runbook in de resultaten van uw logboekbestanden voor zoeken initiëren, u beginnen met het maken van een logboekzoekopdracht en uit de resultaten kunt u een runbook op aanvraag aanroepen.  Dit kan worden bereikt vanaf de zoekfunctie van log in de [Azure-portal](log-analytics-log-search.md).  In dit voorbeeld wordt een zoekopdracht in Logboeken uitvoert vanuit de Azure portal met een eenvoudige demonstratie van deze functie.
 
 1. Klik in de Azure-portal op **alle services** en selecteer **Log Analytics**.  
 2. Selecteer uw Log Analytics-werkruimte.
@@ -47,9 +47,9 @@ Actie ondernemen voor een gebeurtenis en een runbook in de resultaten van uw log
 
 6. Nadat u op **uitvoeren**, de pagina van de runbook-taak wordt geopend zodat u kunt de status van de taak controleren.   
 
-Als u een runbook dat is geconfigureerd om te worden [aangeroepen vanuit een Log Analytics-waarschuwing](../automation/automation-invoke-runbook-from-omsla-alert.md), heeft een invoerparameter **WebhookData** dat wil zeggen **Object** type.  Als de invoerparameter verplicht is, moet u de lijst met zoekresultaten doorgeven aan het runbook, zodat deze kan de tekenreeks in JSON-indeling converteren naar een objecttype zodat u kunt filteren op specifieke items waarnaar u in de runbook-activiteiten verwijst.  U dit doen door het selecteren van **zoekresultaat (Object)** uit de vervolgkeuzelijst.<br><br> ![Webhook-gegevensobject voor runbook-parameter selecteren](media/log-analytics-log-search-takeaction/select-runbook-and-properties.png)   
+Als u een runbook dat is geconfigureerd om te worden [aangeroepen vanuit een Log Analytics-waarschuwing](../automation/automation-create-alert-triggered-runbook.md), heeft een invoerparameter **WebhookData** dat wil zeggen **Object** type.  Als de invoerparameter verplicht is, moet u de lijst met zoekresultaten doorgeven aan het runbook, zodat deze kan de tekenreeks in JSON-indeling converteren naar een objecttype zodat u kunt filteren op specifieke items waarnaar u in de runbook-activiteiten verwijst.  U dit doen door het selecteren van **zoekresultaat (Object)** uit de vervolgkeuzelijst.<br><br> ![Webhook-gegevensobject voor runbook-parameter selecteren](media/log-analytics-log-search-takeaction/select-runbook-and-properties.png)   
     
 ## <a name="next-steps"></a>Volgende stappen
 
-* Controleer de [Log Analytics melden verwijzing naar de](log-analytics-search-reference.md) om alle zoekvelden en facetten beschikbaar in Log Analytics weer te geven.
-* Als u wilt weten hoe u automatisch een Automation-runbook aanroepen, Bekijk [een Azure Automation-runbook aanroepen vanuit een Log Analytics-waarschuwing](../automation/automation-invoke-runbook-from-omsla-alert.md).  
+* Controleer de [Log Analytics melden verwijzing naar de](log-analytics-log-search.md) om alle zoekvelden en facetten beschikbaar in Log Analytics weer te geven.
+* Als u wilt weten hoe u automatisch een Automation-runbook aanroepen, Bekijk [een Azure Automation-runbook aanroepen vanuit een Log Analytics-waarschuwing](../automation/automation-create-alert-triggered-runbook.md).  

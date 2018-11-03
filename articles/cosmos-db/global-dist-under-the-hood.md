@@ -8,33 +8,32 @@ ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: 21464ccfbd5712b18e46a271a93232dc3ba7d3c8
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 656742727b2bd85ac93211c74d82fe11d0bc0f46
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50244078"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50963894"
 ---
-# <a name="global-distribution---under-the-hood"></a>Wereldwijde distributie - achter de schermen
+# <a name="azure-cosmos-db-global-distribution---under-the-hood"></a>Azure DB Cosmos globale distributie - achter de schermen
 
-Azure Cosmos DB is een fundamentele service van Azure, zodat deze alle Azure-regio's over de hele wereld, waaronder het publiek, onafhankelijke, ministerie van defensie (DoD) en clouds voor de overheid geïmplementeerd. Binnen een datacenter, we implementeren en beheren van de Azure Cosmos DB-service op enorme 'tijdstempels' van machines, elk met lokale opslag toegewezen. Binnen een datacenter, is Azure Cosmos DB geïmplementeerd op veel clusters is elk mogelijk meerdere verschillende hardwaregeneraties. Machines binnen een cluster worden doorgaans verdeeld over foutdomeinen van 10 tot 20.
+Azure Cosmos DB is een fundamentele service van Azure, zodat deze alle Azure-regio's over de hele wereld, waaronder het publiek, onafhankelijke, ministerie van defensie (DoD) en clouds voor de overheid geïmplementeerd. Binnen een datacenter, we implementeren en beheren van de Azure Cosmos DB op zeer grote stempels van machines, elk met lokale opslag toegewezen. Binnen een datacenter, is Azure Cosmos DB geïmplementeerd op veel clusters is elk mogelijk meerdere verschillende hardwaregeneraties. Machines binnen een cluster worden doorgaans verdeeld over foutdomeinen van 10 tot 20. De volgende afbeelding toont de topologie van Cosmos DB globale distributie system:
 
-![Topologie](./media/global-dist-under-the-hood/distributed-system-topology.png)
- **-topologie**
+![-Topologie](./media/global-dist-under-the-hood/distributed-system-topology.png)
 
-Wereldwijde distributie in Azure Cosmos DB is een gebruiksklare: op elk gewenst moment, met een paar klikken of via een programma met één API-aanroep klant kunt toevoegen of verwijderen van de geografische regio's die zijn gekoppeld aan hun Cosmos-database. Een Cosmos-database wordt op zijn beurt bestaat uit een verzameling van Cosmos-containers. In Cosmos DB fungeren containers als de logische eenheden van de distributie en schaalbaarheid. De verzamelingen, tabellen en grafieken die u maakt zijn (intern) alleen Cosmos-containers. Containers zijn volledig schema-agnostische en geef een bereik voor een query. Alle gegevens in een Cosmos-container automatisch geïndexeerd bij opname. Automatische indexering, kunnen gebruikers de gegevens op te vragen zonder dat u hoeft te bekommeren om het schema of gedoe van indexbeheer, met name in een wereldwijd gedistribueerde installatie.  
-
-Zoals weergegeven in de volgende afbeelding, worden de gegevens in een container worden gedistribueerd in twee dimensies:  
+**Wereldwijde distributie in Azure Cosmos DB is een gebruiksklare:** op elk gewenst moment, met een paar klikken of via een programma met één API-aanroep, kunt u toevoegen of verwijderen van de geografische regio's die zijn gekoppeld aan hun Cosmos-database. Een Cosmos-database wordt op zijn beurt bestaat uit een verzameling van Cosmos-containers. In Cosmos DB fungeren containers als de logische eenheden van de distributie en schaalbaarheid. De verzamelingen, tabellen en grafieken die u maakt zijn (intern) alleen Cosmos-containers. Containers zijn volledig schema-agnostische en geef een bereik voor een query. Gegevens in een Cosmos-container automatisch geïndexeerd bij opname. Automatische indexering, kunnen gebruikers de gegevens op te vragen zonder dat u hoeft te bekommeren om het schema of gedoe van indexbeheer, met name in een wereldwijd gedistribueerde installatie.  
 
 - In een bepaalde regio, worden gegevens in een container gedistribueerd met behulp van een partitiesleutel, die u opgeeft en is transparant beheerd met behulp van de onderliggende resourcepartities (lokale distributie).  
+
 - Elke resourcepartitie wordt ook gerepliceerd in geografische regio's (wereldwijde distributie). 
 
 Wanneer een app met Cosmos DB elastisch schaalt de doorvoer (of meer opslagruimte verbruikt) voor een container van Cosmos, Cosmos DB transparant bewerkingen verwerkt (splitsen, klonen en verwijderen) in alle regio's. Onafhankelijk van de schaal, distributie of storingen, Cosmos DB altijd één integraal beeld van de gegevens in de containers die wereldwijd worden gedistribueerd naar een willekeurig aantal regio's bieden.  
 
-![Resourcepartities](./media/global-dist-under-the-hood/distribution-of-resource-partitions.png)
-**verdeling van de Resourcepartities**
+Zoals weergegeven in de volgende afbeelding, worden de gegevens in een container worden gedistribueerd in twee dimensies:  
 
-Fysiek, wordt een resourcepartitie geïmplementeerd door een groep van replica's met de naam van een replica-set. Elke machine als host fungeert voor honderden replica's die overeenkomt met de verschillende resourcepartities binnen een vaste set van processen, zoals wordt weergegeven in de vorige afbeelding. Replica's die overeenkomt met de resourcepartities dynamisch worden geplaatst en taakverdeling tussen de computers binnen een cluster en datacentrums binnen een regio.  
+![Resourcepartities](./media/global-dist-under-the-hood/distribution-of-resource-partitions.png)
+
+Een resourcepartitie wordt geïmplementeerd door een groep van replica's met de naam van een replica-set. Elke machine als host fungeert voor honderden replica's die met verschillende resourcepartities binnen een vaste set van processen, corresponderen zoals wordt weergegeven in de vorige afbeelding. Replica's die overeenkomt met de resourcepartities dynamisch worden geplaatst en taakverdeling tussen de computers binnen een cluster en datacentrums binnen een regio.  
 
 Een replica wordt een unieke behoort tot een Azure Cosmos DB-tenant. Elke replica als host fungeert voor een exemplaar van de Cosmos-DB [database-engine](https://www.vldb.org/pvldb/vol8/p1668-shukla.pdf), die de resources, evenals de bijbehorende indexen beheert. De database-engine van Cosmos DB is van invloed op een atom-record-sequence ' (ARS) gebaseerde typesysteem. De engine is agnostisch ten opzichte van het concept van een schema en de grens tussen de structuur en het exemplaar van de waarden van records vervagen. Cosmos DB realiseert volledige schema agnosticism door alles bij opname automatisch te indexeren op een efficiënte manier, waardoor gebruikers kunnen hun wereldwijd gedistribueerde gegevens op te vragen zonder dat u hoeft te bekommeren om schema's of indexbeheer.
 

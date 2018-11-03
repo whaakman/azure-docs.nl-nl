@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/27/2017
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 1a42c13bc0b441074829b1753c1d3cab8fbfaccf
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 6a197cf5667e1668b2007a5f552b813cb8ed68d3
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47407566"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50957825"
 ---
 # <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>Aan de slag met rollen, machtigingen en beveiliging met Azure Monitor
 Veel teams moeten strikt regelen de toegang tot gegevens en instellingen controleren. Bijvoorbeeld, als u de teamleden die uitsluitend over het bewaken van (ondersteuningstechnici, devops-technici) werken hebt of als u een provider van beheerde services gebruikt, kunt u ze om toegang te verlenen tot alleen bewakingsgegevens tijdens het beperken van de mogelijkheid om te maken, wijzigen, of resources verwijderen. In dit artikel laat zien hoe snel een ingebouwde bewaking RBAC-rol van toepassing op een gebruiker in Azure of bouw uw eigen aangepaste rol voor een gebruiker bent en beperkte machtigingen voor bewaking. Hierin worden vervolgens beveiligingsoverwegingen voor uw resources met betrekking tot Azure Monitor en het beperken van toegang tot de gegevens die ze bevatten.
@@ -186,5 +186,5 @@ Zie voor meer informatie, [Network security en Azure Storage](../storage/common/
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Meer informatie over RBAC en machtigingen in Resource Manager](../role-based-access-control/overview.md)
-* [Lees het overzicht van de bewaking in Azure](monitoring-overview.md)
+* [Lees het overzicht van de bewaking in Azure](../azure-monitor/overview.md)
 

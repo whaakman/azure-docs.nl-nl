@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 8ffeac78b809ea19163360e85d1c841c55b2364a
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: eb60afc21b7f8e21c4573e46165696c3461d3613
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 11/02/2018
-ms.locfileid: "50914615"
+ms.locfileid: "50963860"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Azure Monitor-partnerintegraties
 | Partners |  |  |
@@ -164,7 +164,7 @@ Turbonomic voorziet in automatisering van workloads voor hybride clouds door teg
 
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Meer informatie over Azure Monitor](monitoring-overview.md)
+* [Meer informatie over Azure Monitor](../azure-monitor/overview.md)
 * [Toegang tot metrische gegevens met behulp van de REST-API](monitoring-rest-api-walkthrough.md)
 * [Het activiteitenlogboek naar een service voor niet-Microsoft Stream](monitoring-stream-activity-logs-event-hubs.md)
 * [Diagnostische logboeken van de Stream naar een niet-Microsoft-service](monitoring-stream-diagnostic-logs-to-event-hubs.md)

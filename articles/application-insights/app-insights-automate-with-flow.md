@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/25/2017
 ms.author: mbullwin
-ms.openlocfilehash: 449a6274b67f3eb72ea6d8bd19f555fc59158d7e
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 60605e7bdeeef32889bc0ac104fa34bd66d4444d
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44299097"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50962874"
 ---
 # <a name="automate-azure-application-insights-processes-with-the-connector-for-microsoft-flow"></a>Azure Application Insights processen automatiseren met de connector voor Microsoft Flow
 
@@ -47,7 +47,7 @@ In deze zelfstudie leert u hoe u een stroom die gebruikmaakt van het algoritme A
 ### <a name="step-3-add-an-application-insights-action"></a>Stap 3: Een Application Insights-actie toevoegen
 1. Klik op **nieuwe stap**, en klik vervolgens op **een actie toevoegen**.
 1. Zoeken naar **Azure Application Insights**.
-1. Klik op **Preview query uitvoeren op Azure Application Insights-Analytics visualiseren**.
+1. Klik op **Preview query uitvoeren op Azure Application Insights - Analytics visualiseren**.
 
     ![Analytics-query-venster worden uitgevoerd](./media/app-insights-automate-with-flow/flow2.png)
 
@@ -85,7 +85,7 @@ Wanneer u uw eigen query's maakt, controleert u of dat ze goed in Analytics werk
 
 1. Klik op **nieuwe stap**, en klik vervolgens op **een actie toevoegen**.
 1. Zoeken naar **Office 365 Outlook**.
-1. Klik op **Office 365 Outlook: een e-mail verzenden**.
+1. Klik op **Office 365 Outlook - een e-mail verzenden**.
 
     ![Selectievenster voor Office 365 Outlook](./media/app-insights-automate-with-flow/flow2b.png)
 
@@ -125,7 +125,7 @@ Wanneer de stroom wordt uitgevoerd, wordt de ontvangers die u hebt opgegeven in 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Meer informatie over het maken van [Analytics-query's](app-insights-analytics-using.md).
+- Meer informatie over het maken van [Analytics-query's](../log-analytics/query-language/get-started-queries.md).
 - Meer informatie over [Microsoft Flow](https://ms.flow.microsoft.com).
 
 

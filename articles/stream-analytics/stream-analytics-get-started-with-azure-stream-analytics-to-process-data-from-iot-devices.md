@@ -3,18 +3,18 @@ title: Realtime IoT-gegevensstromen die Azure Stream Analytics gebruiken | Micro
 description: IoT-sensortags en -gegevensstromen met Stream Analytics en realtime-gegevensverwerking
 services: stream-analytics
 author: jasonwhowell
-ms.author: jasonh
+ms.author: mamccrea
 manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/28/2017
-ms.openlocfilehash: ea4d33b569ae0932d6091869c4825cf2b5e69664
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 8a4e5b180438203e345ef6c5323ab010f4757c0e
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43697710"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978073"
 ---
 # <a name="get-started-with-azure-stream-analytics-to-process-data-from-iot-devices"></a>Aan de slag met Azure Stream Analytics om gegevens te verwerken van IoT-apparaten
 In deze zelfstudie leert u hoe u stroomverwerkingslogica schrijft om gegevens te verzamelen van IoT-apparaten (Internet of Things). We gebruiken hier een echte IoT-gebruikstoepassing (Internet of Things) om aan te tonen hoe u snel en economisch een oplossing maakt.

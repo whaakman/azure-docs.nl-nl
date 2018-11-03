@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 10/30/2018
+ms.date: 11/02/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: jsimmons
-ms.openlocfilehash: 6832f6f9d09cbbfea6ccaa69160ad93209c7ac8c
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 1e5782ce3421cc5f0d2e0e51484d4bbe6b9eb6ab
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741177"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978635"
 ---
 # <a name="preview-azure-ad-password-protection-monitoring-reporting-and-troubleshooting"></a>Voorbeeld: Azure AD wachtwoord beveiliging bewaking, rapportage en probleemoplossing
 
@@ -24,13 +24,15 @@ ms.locfileid: "50741177"
 | Beveiliging van Azure AD-wachtwoord is een openbare preview-functie van Azure Active Directory. Zie voor meer informatie over previews [aanvullende gebruiksrechtovereenkomst voor Microsoft Azure-Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
 |     |
 
-Zijn essentiële taken na de implementatie van Azure AD-wachtwoordbeveiliging bewaking en rapportage. In dit artikel gaat in detail om u te helpen dat u leert waar elke service registreert informatie en hoe u een rapport over het gebruik van Azure AD-wachtwoordbeveiliging.
+Zijn essentiële taken na de implementatie van Azure AD wachtwoordbeveiliging, controle en rapportage. In dit artikel gaat in detail om u te helpen dat u leert waar elke service registreert informatie en hoe u een rapport over het gebruik van Azure AD-wachtwoordbeveiliging.
 
 ## <a name="on-premises-logs-and-events"></a>On-premises logboeken en gebeurtenissen
 
-### <a name="dc-agent-service"></a>DC-agent-service
+### <a name="dc-agent-admin-log"></a>DC agent admin-logboek
 
-Op elke domeincontroller de DC-agentsoftware service schrijft de resultaten van de validaties wachtwoord (en andere status) naar een lokale gebeurtenislogboek: \Applications en Services Logs\Microsoft\AzureADPasswordProtection\DCAgent\Admin
+Op elke domeincontroller schrijft de DC-agentsoftware service de resultaten van de validaties wachtwoord (en andere status) naar een lokale gebeurtenislogboek:
+
+`\Applications and Services Logs\Microsoft\AzureADPasswordProtection\DCAgent\Admin`
 
 Gebeurtenissen worden vastgelegd door de verschillende DC-agent-onderdelen met behulp van de volgende bereiken:
 
@@ -62,105 +64,157 @@ De sleutel wachtwoord-validatie-gerelateerde gebeurtenissen zijn als volgt:
 > [!TIP]
 > Binnenkomende wachtwoorden worden gevalideerd aan de hand van de lijst met Microsoft globale wachtwoord eerst; Als dat mislukt, wordt er is geen verdere verwerking uitgevoerd. Dit is hetzelfde gedrag omdat van wachtwoordwijzigingen in Azure wordt uitgevoerd.
 
-#### <a name="sample-event-log-message-for-event-id-10014-successful-password-set"></a>Bericht van de voorbeeld-gebeurtenislogboek voor gebeurtenis-ID 10014 geslaagde wachtwoorden in te stellen
+#### <a name="sample-event-log-message-for-event-id-10014-successful-password-set"></a>Voorbeeld van bericht van gebeurtenislogboek voor gebeurtenis-ID 10014 (geslaagde wachtwoorden in te stellen)
 
-Het gewijzigde wachtwoord voor de opgegeven gebruiker is gevalideerd als compatibel met het huidige Azure-wachtwoordbeleid.
+```
+The changed password for the specified user was validated as compliant with the current Azure password policy.
 
- Gebruikersnaam: BPL_02885102771 FullName:
+ UserName: BPL_02885102771
+ FullName:
+```
 
-#### <a name="sample-event-log-message-for-event-id-10017-and-30003-failed-password-set"></a>Bericht van de voorbeeld-gebeurtenislogboek voor gebeurtenis-ID 10017 en 30003 kan geen wachtwoorden in te stellen
+#### <a name="sample-event-log-message-for-event-id-10017-and-30003-failed-password-set"></a>Bericht van de voorbeeld-gebeurtenislogboek voor gebeurtenis-ID 10017 en 30003 (mislukte wachtwoorden in te stellen)
 
 10017:
 
-Het wachtwoord opnieuw instellen voor de opgegeven gebruiker is geweigerd omdat deze niet voldeed aan de huidige Azure-wachtwoordbeleid. Raadpleeg het gebeurtenislogboek van gecorreleerde bericht voor meer informatie.
+```
+The reset password for the specified user was rejected because it did not comply with the current Azure password policy. Please see the correlated event log message for more details.
 
- Gebruikersnaam: BPL_03283841185 FullName:
+ UserName: BPL_03283841185
+ FullName:
+```
 
 30003:
 
-Het wachtwoord opnieuw instellen voor de opgegeven gebruiker is geweigerd omdat deze overeenkomt met ten minste een van de tokens die aanwezig zijn in de lijst met wachtwoorden per tenant uitgesloten van het huidige Azure-wachtwoordbeleid.
+```
+The reset password for the specified user was rejected because it matched at least one of the tokens present in the per-tenant banned password list of the current Azure password policy.
 
- Gebruikersnaam: BPL_03283841185 FullName:
+ UserName: BPL_03283841185
+ FullName:
+```
 
-Enkele andere belangrijke gebeurtenislogboekberichten rekening mee moet houden zijn:
+#### <a name="sample-event-log-message-for-event-id-30001-password-accepted-due-to-no-policy-available"></a>Bericht van de voorbeeld-gebeurtenislogboek voor gebeurtenis-ID 30001 (wachtwoord geaccepteerd omdat er geen beleid beschikbaar)
 
-#### <a name="sample-event-log-message-for-event-id-30001"></a>Bericht van de voorbeeld-gebeurtenislogboek voor gebeurtenis-ID 30001
+```
+The password for the specified user was accepted because an Azure password policy is not available yet
 
-Het wachtwoord voor de opgegeven gebruiker is geaccepteerd omdat een Azure-wachtwoordbeleid nog niet beschikbaar is
+UserName: SomeUser
+FullName: Some User
 
-Gebruikersnaam: SomeUser FullName: een gebruiker
+This condition may be caused by one or more of the following reasons:%n
 
-Dit probleem kan worden veroorzaakt door een of meer van de volgende redenen: % n
+1. The forest has not yet been registered with Azure.
 
-1. Het forest is nog niet geregistreerd bij Azure.
+   Resolution steps: an administrator must register the forest using the Register-AzureADPasswordProtectionForest cmdlet.
 
-   Stappen voor het oplossen: een beheerder moet het forest met de cmdlet Register-AzureADPasswordProtectionForest registreren.
+2. An Azure AD password protection Proxy is not yet available on at least one machine in the current forest.
 
-2. Een Azure AD-wachtwoordbeveiliging Proxy is nog niet beschikbaar is op ten minste één computer in het huidige forest.
+   Resolution steps: an administrator must install and register a proxy using the Register-AzureADPasswordProtectionProxy cmdlet.
 
-   Stappen voor het oplossen: een beheerder moet installeren en registreren van een proxy met de cmdlet Register-AzureADPasswordProtectionProxy.
+3. This DC does not have network connectivity to any Azure AD password protection Proxy instances.
 
-3. Deze domeincontroller heeft geen netwerkverbinding met een Proxy-exemplaren van Azure AD wachtwoord beveiliging.
+   Resolution steps: ensure network connectivity exists to at least one Azure AD password protection Proxy instance.
 
-   Stappen voor het oplossen: Zorg ervoor dat er een netwerkverbinding met ten minste één Azure AD wachtwoord beveiliging Proxy-exemplaar.
+4. This DC does not have connectivity to other domain controllers in the domain.
 
-4. Deze domeincontroller heeft geen connectiviteit met andere domeincontrollers in het domein.
+   Resolution steps: ensure network connectivity exists to the domain.
+```
 
-   Stappen voor het oplossen: Zorg ervoor dat er een netwerkverbinding met het domein.
+#### <a name="sample-event-log-message-for-event-id-30006-new-policy-being-enforced"></a>Bericht van de voorbeeld-gebeurtenislogboek voor gebeurtenis-ID 30006 (het nieuwe beleid wordt afgedwongen)
 
-#### <a name="sample-event-log-message-for-event-id-30006"></a>Bericht van de voorbeeld-gebeurtenislogboek voor gebeurtenis-ID 30006
+```
+The service is now enforcing the following Azure password policy.
 
-De service is nu de volgende Azure-wachtwoordbeleid afdwingen.
-
+ Enabled: 1
  AuditOnly: 1
+ Global policy date: ‎2018‎-‎05‎-‎15T00:00:00.000000000Z
+ Tenant policy date: ‎2018‎-‎06‎-‎10T20:15:24.432457600Z
+ Enforce tenant policy: 1
+```
 
- Datum van globaal beleid: 2018-05-15T00:00:00.000000000Z
+#### <a name="dc-agent-operational-log"></a>DC-Agent operationele logboek
 
- Tenant-beleid datum: 2018-06-10T20:15:24.432457600Z
+De DC-agent-service wordt ook operationele met betrekking tot gebeurtenissen registreren bij het volgende logboekbestand:
 
- Afdwingen van tenantbeleid: 1
+`\Applications and Services Logs\Microsoft\AzureADPasswordProtection\DCAgent\Operational`
 
-#### <a name="dc-agent-log-locations"></a>DC-Agent logboeklocaties
+#### <a name="dc-agent-trace-log"></a>Traceerlogboek van DC-Agent
 
-De DC-agent-service wordt ook operationele-gerelateerde gebeurtenissen registreren bij het volgende logboekbestand: \Applications en Services Logs\Microsoft\AzureADPasswordProtection\DCAgent\Operational
+De DC-agent-service kan zich ook aanmelden uitgebreide foutopsporingsniveau traceringsgebeurtenissen voor het volgende logboekbestand:
 
-De DC-agent-service kunt zich ook aanmelden uitgebreide foutopsporingsniveau traceringsgebeurtenissen voor het volgende logboekbestand: \Applications en Services Logs\Microsoft\AzureADPasswordProtection\DCAgent\Trace
+`\Applications and Services Logs\Microsoft\AzureADPasswordProtection\DCAgent\Trace`
+
+Traceerlogboekregistratie is standaard uitgeschakeld.
 
 > [!WARNING]
-> Het traceerlogboek is standaard uitgeschakeld. Wanneer dit is ingeschakeld, wordt dit logboek ontvangt van een groot aantal gebeurtenissen en mogelijk van invloed op prestaties van domeincontrollers. Daarom dit uitgebreide logboek moet alleen worden ingeschakeld wanneer een probleem is vereist voor nader onderzoek en vervolgens alleen voor een minimale hoeveelheid tijd.
+>  Wanneer dit is ingeschakeld, wordt het traceerlogboek ontvangt van een groot aantal gebeurtenissen en mogelijk van invloed op prestaties van domeincontrollers. Daarom dit uitgebreide logboek moet alleen worden ingeschakeld wanneer een probleem is vereist voor nader onderzoek en vervolgens alleen voor een minimale hoeveelheid tijd.
+
+#### <a name="dc-agent-text-logging"></a>Logboekregistratie in een tekstbestand DC-Agent
+
+De DC-agent-service kan worden geconfigureerd om te schrijven naar een logboek met tekst door in te stellen van de volgende registerwaarde:
+
+HKLM\System\CurrentControlSet\Services\AzureADPasswordProtectionDCAgent\Parameters! EnableTextLogging = 1 (REG_DWORD-waarde)
+
+Logboekregistratie in een tekstbestand is standaard uitgeschakeld. Het opnieuw opstarten van de DC-agent-service is vereist voor wijzigingen in deze waarde pas van kracht. Wanneer de domeincontroller ingeschakeld agent-service worden geschreven naar een logboekbestand bevindt zich onder:
+
+`%ProgramFiles%\Azure AD Password Protection DC Agent\Logs`
+
+> [!TIP]
+> De tekstlogboek ontvangt de dezelfde foutopsporingsniveau vermeldingen die naar het traceerlogboek kunnen worden geregistreerd, maar is doorgaans in een indeling gemakkelijker om te controleren en analyseren.
+
+> [!WARNING]
+> Wanneer dit is ingeschakeld, wordt dit logboek ontvangt van een groot aantal gebeurtenissen en mogelijk van invloed op prestaties van domeincontrollers. Daarom dit uitgebreide logboek moet alleen worden ingeschakeld wanneer een probleem is vereist voor nader onderzoek en vervolgens alleen voor een minimale hoeveelheid tijd.
 
 ### <a name="azure-ad-password-protection-proxy-service"></a>Azure AD wachtwoord protection proxy-service
 
-De wachtwoordbeveiliging Proxy-service verzendt een minimale set gebeurtenissen in het volgende gebeurtenislogboek: \Applications en Services Logs\Microsoft\AzureADPasswordProtection\ProxyService\Operational
+#### <a name="proxy-service-event-logs"></a>Proxy-service-gebeurtenislogboeken
 
-De wachtwoordbeveiliging Proxy-service kan zich ook aanmelden uitgebreide foutopsporingsniveau traceringsgebeurtenissen naar het volgende logboekbestand: \Applications en Services Logs\Microsoft\AzureADPasswordProtection\ProxyService\Trace
+De Proxy-service verzendt een minimale set gebeurtenissen naar de volgende Logboeken:
+
+`\Applications and Services Logs\Microsoft\AzureADPasswordProtection\ProxyService\Admin`
+
+`\Applications and Services Logs\Microsoft\AzureADPasswordProtection\ProxyService\Operational`
+
+De Proxy-service kan zich ook aanmelden uitgebreide foutopsporingsniveau traceringsgebeurtenissen voor het volgende logboekbestand:
+
+`\Applications and Services Logs\Microsoft\AzureADPasswordProtection\ProxyService\Trace`
+
+Traceerlogboekregistratie is standaard uitgeschakeld.
 
 > [!WARNING]
-> Het traceerlogboek is standaard uitgeschakeld. Wanneer dit is ingeschakeld, dit logboek een groot aantal gebeurtenissen ontvangt en dit kan van invloed op prestaties van de proxyhost. Daarom dit logboek moet alleen worden ingeschakeld wanneer een probleem is vereist voor nader onderzoek en vervolgens alleen voor een minimale hoeveelheid tijd.
+> Wanneer dit is ingeschakeld, het traceerlogboek een groot aantal gebeurtenissen ontvangt en dit kan van invloed op prestaties van de proxyhost. Daarom dit logboek moet alleen worden ingeschakeld wanneer een probleem is vereist voor nader onderzoek en vervolgens alleen voor een minimale hoeveelheid tijd.
 
-### <a name="dc-agent-discovery"></a>DC-agentdetectie
+#### <a name="proxy-service-text-logging"></a>Logboekregistratie in een tekstbestand Proxy-service
 
-De `Get-AzureADPasswordProtectionDCAgent` cmdlet kan worden gebruikt om algemene informatie over de verschillende DC-agents die worden uitgevoerd in een domein of forest weer te geven. Deze informatie wordt opgehaald uit de serviceConnectionPoint-objecten die door de actieve DC-agent (s) zijn geregistreerd. Een voorbeeld van uitvoer van deze cmdlet is als volgt:
+De Proxy-service kan worden geconfigureerd om te schrijven naar een logboek met tekst door in te stellen van de volgende registerwaarde:
 
-```
-PS C:\> Get-AzureADPasswordProtectionDCAgent
-ServerFQDN            : bplChildDC2.bplchild.bplRootDomain.com
-Domain                : bplchild.bplRootDomain.com
-Forest                : bplRootDomain.com
-Heartbeat             : 2/16/2018 8:35:01 AM
-```
+HKLM\System\CurrentControlSet\Services\AzureADPasswordProtectionProxy\Parameters! EnableTextLogging = 1 (REG_DWORD-waarde)
 
-De verschillende eigenschappen worden bijgewerkt door elke agent-service van de DC bij benadering gebeurt op uurbasis. De gegevens zijn nog steeds onderworpen aan replicatievertraging van Active Directory.
+Logboekregistratie in een tekstbestand is standaard uitgeschakeld. Het opnieuw opstarten van de Proxy-service is vereist voor wijzigingen in deze waarde pas van kracht. Wanneer de service worden geschreven naar een logboekbestand bevindt zich onder Proxy ingeschakeld:
 
-Het bereik van de query van de cmdlet kan worden beïnvloed met behulp van de parameters Forest of -domein.
+`%ProgramFiles%\Azure AD Password Protection Proxy\Logs`
+
+> [!TIP]
+> De tekstlogboek ontvangt de dezelfde foutopsporingsniveau vermeldingen die naar het traceerlogboek kunnen worden geregistreerd, maar is doorgaans in een indeling gemakkelijker om te controleren en analyseren.
+
+> [!WARNING]
+> Wanneer dit is ingeschakeld, wordt dit logboek ontvangt van een groot aantal gebeurtenissen en mogelijk van invloed op prestaties van domeincontrollers. Daarom dit uitgebreide logboek moet alleen worden ingeschakeld wanneer een probleem is vereist voor nader onderzoek en vervolgens alleen voor een minimale hoeveelheid tijd.
+
+#### <a name="powershell-cmdlet-logging"></a>PowerShell-cmdlet-logboekregistratie
+
+De meeste van de Azure AD wachtwoordbeveiliging Powershell-cmdlets wordt geschreven naar een tekstlogboek bevindt zich onder:
+
+`%ProgramFiles%\Azure AD Password Protection Proxy\Logs`
+
+Als een cmdlet-fout optreedt en de oorzaak en/of-oplossing niet direct duidelijk is, kunnen deze tekstlogboeken ook worden geraadpleegd.
 
 ### <a name="emergency-remediation"></a>Herstel voor noodgevallen
 
-Als een erg vervelend situatie zich waar de DC-agentservice problemen veroorzaakt voordoet, kan de DC-agent-service worden onmiddellijk afgesloten. De DC-agent wachtwoord filter-dll roept de service niet actief en waarschuwing gebeurtenissen (10012, 10013), maar alle binnenkomende wachtwoorden gedurende die tijd worden geaccepteerd. De DC-agent-service kan vervolgens ook worden geconfigureerd via de Windows-Service Control Manager met een opstarttype 'Uitgeschakeld' indien nodig.
+Als een situatie zich waar de DC-agentservice problemen veroorzaakt voordoet, kan de DC-agent-service worden onmiddellijk afgesloten. Filter-dll voor de DC-agent-wachtwoord nog steeds roept de service niet actief en waarschuwing gebeurtenissen (10012, 10013), maar alle binnenkomende wachtwoorden gedurende die tijd worden geaccepteerd. De DC-agent-service kan vervolgens ook worden geconfigureerd via de Windows-Service Control Manager met een opstarttype 'Uitgeschakeld' indien nodig.
 
 ### <a name="performance-monitoring"></a>Prestatiebewaking
 
-De DC-agent-service-software wordt geïnstalleerd voor een prestatiemeteritem-object met de naam **Azure AD-wachtwoordbeveiliging**. De volgende prestatiemeteritems zijn momenteel beschikbaar:
+De DC-agent-service-software wordt geïnstalleerd voor een prestatiemeteritem-object met de naam **Protection voor Azure AD-wachtwoord**. De volgende prestatiemeteritems zijn momenteel beschikbaar:
 
 |Naam van het prestatiemeteritem voor prestaties | Beschrijving|
 | --- | --- |
@@ -182,6 +236,7 @@ Als de domeincontroller wordt opgestart naar Directory Services Repair Mode, det
 ## <a name="domain-controller-demotion"></a>Degradatie van domeincontrollers
 
 Als u het verlagen van een domeincontroller waarop de DC-agentsoftware nog steeds wordt ondersteund. Beheerders moeten rekening houden echter dat de DC-agentsoftware blijft actief en blijft het huidige wachtwoordbeleid afgedwongen tijdens de degradatie procedure. Nieuwe lokale wachtwoord van de beheerder (opgegeven als onderdeel van het degraderen) wordt gevalideerd, zoals elk ander wachtwoord. Microsoft raadt aan dat veilige wachtwoorden voor lokale Administrator-accounts worden gekozen als onderdeel van een domeincontroller degraderen procedure; maar de validatie van nieuwe lokale wachtwoord van de beheerder van de DC-agentsoftware mogelijk verstorend voor reeds bestaande degradatie operationele procedures.
+
 Zodra de degradatie is voltooid en de domeincontroller opnieuw is opgestart en wordt opnieuw uitgevoerd als een normale lidserver, wordt de DC-agentsoftware die wordt uitgevoerd in een passieve modus. Deze kan vervolgens worden verwijderd op elk gewenst moment.
 
 ## <a name="removal"></a>Verwijdering
@@ -189,35 +244,36 @@ Zodra de degradatie is voltooid en de domeincontroller opnieuw is opgestart en w
 Als deze wordt besloten dat u wilt de openbare preview-software en opschonen alle gerelateerde status verwijderen uit de domeinen en forests, kan deze taak worden uitgevoerd met behulp van de volgende stappen uit:
 
 > [!IMPORTANT]
-> Het is belangrijk dat u deze stappen in volgorde uitvoeren. Als een willekeurig exemplaar van de wachtwoordbeveiliging Proxy-service wordt wordt uitgevoerd, het object serviceConnectionPoint periodiek opnieuw maken, evenals periodiek de sysvol-status opnieuw te maken.
+> Het is belangrijk dat u deze stappen in volgorde uitvoeren. Als een willekeurig exemplaar van de Proxy-service actief wordt periodiek opnieuw gemaakt het object serviceConnectionPoint. Als een willekeurig exemplaar van de DC-agent-service actief wordt periodiek opnieuw gemaakt het object serviceConnectionPoint en de sysvol-status.
 
 1. Verwijder de wachtwoordbeveiliging proxysoftware van alle computers. Deze stap wordt **niet** moeten worden opgestart.
 2. Verwijder de DC-agentsoftware van alle domeincontrollers. Deze stap **vereist** opnieuw worden opgestart.
-3. Verwijder handmatig alle service connection points van proxy in elke naamgevingscontext voor domein. De locatie van deze objecten kan worden gedetecteerd met de volgende Active Directory Powershell-opdracht:
-   ```
+3. Verwijder handmatig alle service connection points van Proxy in elke naamgevingscontext voor domein. De locatie van deze objecten kan worden gedetecteerd met de volgende Active Directory Powershell-opdracht:
+
+   ```Powershell
    $scp = "serviceConnectionPoint"
-   $keywords = "{EBEFB703-6113-413D-9167-9F8DD4D24468}*"
+   $keywords = "{ebefb703-6113-413d-9167-9f8dd4d24468}*"
    Get-ADObject -SearchScope Subtree -Filter { objectClass -eq $scp -and keywords -like $keywords }
    ```
 
    Voer het sterretje niet weglaten ("*") aan het einde van de variabele waarde $keywords.
 
-   Het resulterende object gevonden de `Get-ADObject` opdracht kan worden doorgesluisd naar `Remove-ADObject`, of handmatig verwijderd. 
+   De resulterende objecten gevonden de `Get-ADObject` opdracht kan worden doorgesluisd naar `Remove-ADObject`, of handmatig verwijderd. 
 
 4. Verwijder handmatig alle connection points van de DC-agent in elke naamgevingscontext voor domein. Er kan ook een deze objecten per domeincontroller in het forest, afhankelijk van hoe ver de openbare preview-software is geïmplementeerd. De locatie van het object kan worden gedetecteerd met de volgende Active Directory Powershell-opdracht:
 
-   ```
+   ```Powershell
    $scp = "serviceConnectionPoint"
-   $keywords = "{B11BB10A-3E7D-4D37-A4C3-51DE9D0F77C9}*"
+   $keywords = "{2bac71e6-a293-4d5b-ba3b-50b995237946}*"
    Get-ADObject -SearchScope Subtree -Filter { objectClass -eq $scp -and keywords -like $keywords }
    ```
 
-   Het resulterende object gevonden de `Get-ADObject` opdracht kan worden doorgesluisd naar `Remove-ADObject`, of handmatig verwijderd.
+   De resulterende objecten gevonden de `Get-ADObject` opdracht kan worden doorgesluisd naar `Remove-ADObject`, of handmatig verwijderd.
 
 5. Verwijder handmatig de status van de configuratie van de op forestniveau. De status van het forest-configuratie wordt bijgehouden in een container in de configuratienaamgevingscontext van Active Directory. Het kan worden gedetecteerd en verwijderd als volgt:
 
-   ```
-   $passwordProtectonConfigContainer = "CN=Azure AD password protection,CN=Services," + (Get-ADRootDSE).configurationNamingContext
+   ```Powershell
+   $passwordProtectonConfigContainer = "CN=Azure AD Password Protection,CN=Services," + (Get-ADRootDSE).configurationNamingContext
    Remove-ADObject $passwordProtectonConfigContainer
    ```
 

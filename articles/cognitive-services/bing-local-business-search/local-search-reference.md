@@ -10,16 +10,16 @@ ms.component: bing-local-business
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: dc394093e9e2db223defe61229832ce5448bdfaa
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.openlocfilehash: 100d2a6163c6b2b7a7bf8a557e69e1082b48eaee
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50748680"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50979213"
 ---
 # <a name="bing-local-business-search-api-v7-reference"></a>Verwijzing van lokale bedrijven zoeken-API voor Bing versie 7
 
-De lokale bedrijven zoeken-API verzendt query uitvoeren op een zoekopdracht naar Bing om op te halen omvatten de resultaten bevatten restaurants, hotels of andere lokale bedrijven. Voor locaties, kunt de query de naam van de lokale bedrijven of Selecteer een categorie (bijvoorbeeld restaurants in de buurt) opgeven. Entiteitsresultaten zijn personen, plaatsen of dingen. Plaats in deze context is bedrijfsentiteiten, Staten, landen, enzovoort.  
+De lokale bedrijven zoeken-API verzendt een zoekopdracht naar Bing restaurants, hotels of andere lokale bedrijven omvatten de resultaten ophalen. Voor locaties, kunt de query de naam van de lokale bedrijven of Selecteer een categorie (bijvoorbeeld restaurants in de buurt) opgeven. Entiteitsresultaten zijn personen, plaatsen of dingen. Plaats in deze context is bedrijfsentiteiten, Staten, landen, enzovoort.  
 
 In deze sectie vindt u technische gegevens over de antwoordobjecten, en de query-parameters en headers die invloed hebben op de lijst met zoekresultaten. Zie voor meer voorbeelden die laten zien hoe aanvragen, [lokale bedrijven zoeken C# snelstartgids](quickstarts/local-quickstart.md) of [lokale bedrijven zoeken Java-quickstart](quickstarts/local-search-java-quickstart.md). 
   
@@ -37,7 +37,7 @@ Zie voor meer informatie over het toegestane gebruik en weergave van resultaten 
 Om aan te vragen lokale bedrijfsresultaten te verbeteren, verzendt u een GET-aanvraag naar: 
 
 ``` 
-https://api.cognitive.microsoft.com/bing/localbusinesses/v7.0/search
+https://api.cognitive.microsoft.com/bing/v7.0/localbusinesses/search
 
 ```
   

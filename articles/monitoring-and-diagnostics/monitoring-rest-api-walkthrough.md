@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/19/2018
 ms.author: mcollier
 ms.component: ''
-ms.openlocfilehash: 59e7ac5e2da733724c047f6842561ce87fb495bb
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 1d04c4335fcb2d7264d91e0b147c43828b3cff2e
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955300"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958743"
 ---
 # <a name="azure-monitoring-rest-api-walkthrough"></a>Azure Monitoring REST-API-overzicht
 In dit artikel laat zien hoe verificatie uitvoeren zodat uw code kunt u de [Microsoft Azure Monitor REST API-verwijzing](https://msdn.microsoft.com/library/azure/dn931943.aspx).         
@@ -54,7 +54,7 @@ New-AzureRmRoleAssignment -RoleDefinitionName Reader `
 
 ```
 
-Om te vragen de API van Azure Monitor, moet de clienttoepassing de eerder gemaakte service-principal gebruiken om te verifiëren. Het volgende voorbeeld PowerShell-script toont een benadering, met behulp van de [Active Directory Authentication Library](../active-directory/active-directory-authentication-libraries.md) (ADAL) om op te halen van de JWT-token voor verificatie. De JWT-token wordt doorgegeven als onderdeel van een HTTP-autorisatie-parameter in aanvragen aan de Azure Monitor REST API.
+Om te vragen de API van Azure Monitor, moet de clienttoepassing de eerder gemaakte service-principal gebruiken om te verifiëren. Het volgende voorbeeld PowerShell-script toont een benadering, met behulp van de [Active Directory Authentication Library](../active-directory/develop/active-directory-authentication-libraries.md) (ADAL) om op te halen van de JWT-token voor verificatie. De JWT-token wordt doorgegeven als onderdeel van een HTTP-autorisatie-parameter in aanvragen aan de Azure Monitor REST API.
 
 ```PowerShell
 $azureAdApplication = Get-AzureRmADApplication -IdentifierUri "https://localhost/azure-monitor"
@@ -694,7 +694,7 @@ Invoke-RestMethod -Uri $request `
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-* Controleer de [overzicht van de bewaking](monitoring-overview.md).
+* Controleer de [overzicht van de bewaking](../azure-monitor/overview.md).
 * Weergave de [ondersteunde metrische gegevens met Azure Monitor](monitoring-supported-metrics.md).
 * Controleer de [Microsoft Azure REST API-verwijzing bewaken](https://msdn.microsoft.com/library/azure/dn931943.aspx).
 * Controleer de [Azure Management-bibliotheek](https://msdn.microsoft.com/library/azure/mt417623.aspx).

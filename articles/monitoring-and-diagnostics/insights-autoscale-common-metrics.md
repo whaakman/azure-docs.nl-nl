@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/6/2016
 ms.author: ancav
 ms.component: autoscale
-ms.openlocfilehash: 48c53b1b0c037e6bcfea3be49fdd2110e1e694b3
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: c2a231de3eaa67a656fb90d6498d36a226ff8622
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46970699"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50963061"
 ---
 # <a name="azure-monitor-autoscaling-common-metrics"></a>Azure Monitor autoscaling common metrics
 Automatisch schalen in Azure Monitor kunt u het aantal actieve instanties omhoog of omlaag schalen op basis van telemetrische gegevens (metrische gegevens). Dit document beschrijft algemene metrische gegevens die u wilt gebruiken. U kunt de metrische gegevens van de resource schalen door te kiezen in de Azure-portal. U kunt echter ook elke meetwaarde kiezen uit een andere resource om te schalen door.
@@ -29,7 +29,7 @@ Als u VM-schaalsets en er geen specifieke metrische gegevens die worden vermeld,
 
 Als een bepaalde meetwaarde niet worden verzameld of overgedragen op de gewenste frequentie, kunt u de configuratie van de diagnostische gegevens bijwerken.
 
-Als geen van beide bovenstaande gevallen waar is, Controleer [PowerShell gebruiken voor het inschakelen van Azure Diagnostics in een virtuele machine met Windows](../virtual-machines/windows/ps-extensions-diagnostics.md) over PowerShell configureren en bijwerken van uw Azure VM Diagnostics-extensie om in te schakelen van de metrische gegevens. Dit artikel bevat ook een voorbeeldbestand voor de configuratie van diagnostische gegevens.
+Als geen van beide bovenstaande gevallen waar is, Controleer [PowerShell gebruiken voor het inschakelen van Azure Diagnostics in een virtuele machine met Windows](../virtual-machines/extensions/diagnostics-windows.md) over PowerShell configureren en bijwerken van uw Azure VM Diagnostics-extensie om in te schakelen van de metrische gegevens. Dit artikel bevat ook een voorbeeldbestand voor de configuratie van diagnostische gegevens.
 
 ### <a name="host-metrics-for-resource-manager-based-windows-and-linux-vms"></a>Metrische gegevens voor hosts voor Resource Manager gebaseerde Windows en Linux-machines
 De volgende hostniveau metrische gegevens worden standaard verzonden voor virtuele Azure-machines en VMSS in zowel Windows als Linux-exemplaren. Deze metrische gegevens over uw Azure-VM wordt beschreven, maar worden verzameld van de Azure VM-host in plaats van via de agent is geïnstalleerd op de Gast-VM. U kunt deze metrische gegevens in de regels voor automatisch schalen.

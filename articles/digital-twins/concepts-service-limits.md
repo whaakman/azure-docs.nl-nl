@@ -1,6 +1,6 @@
 ---
 title: Azure digitale dubbels openbare preview-Servicelimieten | Microsoft Docs
-description: Understanding Azure digitale dubbels openbare preview-Servicelimieten
+description: Informatie over dat Azure digitale dubbels openbare preview-Servicelimieten
 author: dwalthermsft
 manager: deshner
 ms.service: digital-twins
@@ -8,46 +8,46 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 10/26/2018
 ms.author: dwalthermsft
-ms.openlocfilehash: f9a3d934de47630ac3fd2356001014d006c2a4eb
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 86ae75118dd1311ea2ae92fb718fe4c58b8e5673
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212264"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50961752"
 ---
 # <a name="public-preview-service-limits"></a>Servicebeperkingen van de openbare preview
 
-Tijdens de **Public Preview**, Azure digitale dubbels heeft tijdelijke-abonnement, exemplaar en frequentielimieten die hieronder worden beschreven.
+Tijdens de openbare preview heeft digitale dubbels Azure de volgende tijdelijke abonnement, exemplaar en frequentielimieten toe.
 
 Deze beperkingen bestaan om te leren over de nieuwe service en de vele functies vereenvoudigen.
 
 > [!NOTE]
-> Deze limieten zal worden verhoogd en/of verwijderd door **algemene beschikbaarheid** (**GA**).
+> Deze limieten worden verhoogd of verwijderd door de algemene beschikbaarheid (GA).
 
 ## <a name="per-subscription-limits"></a>Limieten voor een per abonnement
 
-Tijdens de **Public Preview**, elk Azure-abonnement kunt maken of precies één exemplaar van Azure digitale dubbels uitgevoerd op een tijdstip.
+Elk Azure-abonnement kunt maken of slechts één exemplaar van Azure digitale dubbels tegelijk uitgevoerd tijdens de openbare preview.
 
 > [!TIP]
-> Verwijderen van uw exemplaar kunt u een nieuwe maken.
+> Als u uw exemplaar hebt verwijderd, kunt u een nieuwe maken.
 
 ## <a name="per-instance-limits"></a>Limieten per exemplaar
 
 Op zijn beurt kan elk exemplaar van Azure digitale dubbels hebben:
 
-- Een **IoTHub** Resource
-- Een **EventHub** -eindpunt voor het gebeurtenistype **DeviceMessage**
-- Maximaal drie **EventHub**, **ServiceBus**, of **EventGrid** eindpunten van het gebeurtenistype **SensorChange**, **SpaceChange** , **TopologyOperation**, of **UdfCustom**
+- Een **IoTHub** resource.
+- Een **EventHub** -eindpunt voor het gebeurtenistype **DeviceMessage**.
+- Maximaal drie **EventHub**, **ServiceBus**, of **EventGrid** eindpunten van het gebeurtenistype **SensorChange**, **SpaceChange** , **TopologyOperation**, of **UdfCustom**.
 
 ## <a name="management-api-limits"></a>Beheer-API-limieten
 
 De aanvraag frequentielimieten toe voor uw API Management zijn:
 
-- 100 aanvragen per seconde voor Management-API
-- Een enkele Management-API-query kan maximaal 1000 objecten retourneren
+- 100 aanvragen per seconde naar de API Management.
+- Maximaal 1000 objecten geretourneerd door een enkele Management-API-query. 
 
 > [!IMPORTANT]
-> Als u de limiet van 1000 object overschrijdt, kunt u ontvangt een foutmelding en moet uw query te vereenvoudigen.
+> Als u de limiet van 1000-object overschrijdt, kunt u een foutbericht krijgt en moet Vereenvoudig de query.
 
 ## <a name="udf-rate-limits"></a>Frequentielimieten UDF
 
@@ -58,13 +58,13 @@ De volgende limieten instellen voor het totale aantal alle de gebruiker gedefini
 
 > [!NOTE]
 > De volgende acties kunnen leiden tot extra frequentielimieten tijdelijk worden toegepast:
-> - Topologie object metagegevens bewerken
-> - UDF-definitie-updates
-> - Apparaten verzenden van telemetrie voor de eerste keer
+> - Wijzigingen in de metagegevens van een object topologie
+> - Wijzigingen in de UDF-definitie
+> - Apparaten die telemetrie voor de eerste keer verzenden
 
 ## <a name="device-telemetry-limits"></a>Apparaatlimieten telemetrie
 
-De limieten hieronder cap het totale aantal alle berichten die uw apparaten kunnen verzenden naar uw Azure digitale Twins-exemplaar:
+De volgende limieten gegevenslimiet het totale aantal alle berichten die uw apparaten naar uw Azure digitale Twins-exemplaar verzenden kunnen:
 
 - 100 berichten per seconde
 

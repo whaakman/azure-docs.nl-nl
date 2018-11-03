@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/31/2016
 ms.author: mbullwin
-ms.openlocfilehash: fe1fe5d270dd8eb871301a8ec81375f35b2568da
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 0083c157eab489943f94ed1453c66a5c8d2f291a
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47096579"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50960299"
 ---
 # <a name="smart-detection-in-application-insights"></a>Slimme detectie in Application Insights
  Slimme detectie waarschuwt automatisch u over potentiële prestatieproblemen in uw webtoepassing. Het voert proactieve analyse van de telemetrie die uw app naar verzendt [Application Insights](app-insights-overview.md). Als er een plotselinge toename van de foutpercentages of abnormale patronen in de prestaties van de client of server is, krijgt u een waarschuwing. Deze functie heeft geen configuratie nodig. Het werkt als uw toepassing zoveel telemetrie verzendt.
@@ -57,7 +57,7 @@ Deze diagnostische hulpprogramma's kunnen u de telemetrie van uw app controleren
 
 * [Metric explorer](app-insights-metrics-explorer.md)
 * [Search explorer](app-insights-diagnostic-search.md)
-* [Analytics - krachtige querytaal](app-insights-analytics-tour.md)
+* [Analytics - krachtige querytaal](../log-analytics/query-language/get-started-analytics-portal.md)
 
 Slimme detectie is volledig automatisch. Maar misschien u graag enkele meer waarschuwingen instellen?
 

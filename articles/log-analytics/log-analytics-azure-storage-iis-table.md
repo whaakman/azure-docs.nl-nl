@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 9f4aae578606e14711deaac87e232bad0158bfe9
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: f88290043f750122327ddb1fd9b381b6bc24110c
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041478"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50959321"
 ---
 # <a name="use-azure-blob-storage-for-iis-and-azure-table-storage-for-events-with-log-analytics"></a>Azure blob storage gebruiken voor IIS en Azure table storage voor gebeurtenissen met Log Analytics
 
@@ -53,7 +53,7 @@ Voor Log Analytics voor het verzamelen van deze Azure Diagnostics-Logboeken, moe
 >
 >
 
-Voor virtuele machines, die u hebt de mogelijkheid van het installeren van de [Log Analytics-agent](log-analytics-azure-vm-extension.md) met uw virtuele machine om in te schakelen als u meer inzicht te krijgen. Naast het IIS-logboeken en gebeurtenislogboeken analyseren, kunt u aanvullende analyse, waaronder configuratie bijhouden, SQL-evaluatie en update-evaluatie uitvoeren.
+Voor virtuele machines, die u hebt de mogelijkheid van het installeren van de [Log Analytics-agent](log-analytics-quick-collect-azurevm.md) met uw virtuele machine om in te schakelen als u meer inzicht te krijgen. Naast het IIS-logboeken en gebeurtenislogboeken analyseren, kunt u aanvullende analyse, waaronder configuratie bijhouden, SQL-evaluatie en update-evaluatie uitvoeren.
 
 ## <a name="enable-azure-diagnostics-in-a-virtual-machine-for-event-log-and-iis-log-collection"></a>Azure diagnostics in een virtuele machine inschakelen voor het logboek voor systeemgebeurtenissen en IIS het foutenlogboek van verzameling
 Gebruik de volgende procedure om in te schakelen van Azure diagnostics in een virtuele machine voor de gebeurtenis- en IIS logboekverzameling met behulp van de Microsoft Azure-portal.
@@ -151,7 +151,7 @@ In ongeveer 30 minuten bent u gegevens uit het opslagaccount in Log Analytics. U
 Gebruik de stappen in [Log Analytics configureren om te indexeren van Azure diagnostics](log-analytics-powershell-workspace-configuration.md#configuring-log-analytics-to-index-azure-diagnostics) PowerShell gebruiken om te lezen van Azure diagnostics die zijn geschreven naar table storage.
 
 U kunt meer precies een de gebeurtenissen die worden geschreven naar Azure Storage opgeven met behulp van Azure PowerShell.
-Zie voor meer informatie, [inschakelen van diagnostische gegevens in Azure Virtual Machines](../virtual-machines-dotnet-diagnostics.md).
+Zie voor meer informatie, [inschakelen van diagnostische gegevens in Azure Virtual Machines](../virtual-machines/virtual-machines-dotnet-diagnostics.md).
 
 U kunt inschakelen en Azure diagnostics met behulp van de volgende PowerShell-script bijwerken.
 U kunt dit script ook gebruiken met een aangepaste configuratie voor logboekregistratie.
@@ -194,5 +194,5 @@ Controleer het volgende voorbeeldscript, kopieert u het zo nodig wijzigen, het v
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Verzamelen van Logboeken en metrische gegevens voor Azure-services](log-analytics-azure-storage.md) voor ondersteunde Azure-services.
-* [Oplossingen inschakelen](log-analytics-add-solutions.md) om inzicht in de gegevens te bieden.
-* [Gebruik van zoekquery's](log-analytics-log-searches.md) om de gegevens te analyseren.
+* [Oplossingen inschakelen](../monitoring/monitoring-solutions.md) om inzicht in de gegevens te bieden.
+* [Gebruik van zoekquery's](log-analytics-log-search.md) om de gegevens te analyseren.

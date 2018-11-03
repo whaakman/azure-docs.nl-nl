@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: d2e4491f2ee21deedd674a5a8a64e4dd99149924
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 41e3f38817abbdd0cab9ab2c72d39cb6f3f69531
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49079347"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978175"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Algemene problemen in Azure Container Instances oplossen
 
@@ -102,7 +102,7 @@ az container create -g MyResourceGroup --name myapp --image ubuntu --command-lin
 
 ```azurecli-interactive 
 ## Deploying a Windows container
-az container create -g myResourceGroup --name mywindowsapp --os-type Windows --image windowsservercore:ltsc2016
+az container create -g myResourceGroup --name mywindowsapp --os-type Windows --image microsoft/windowsservercore:ltsc2016
  --command-line "ping -t localhost"
 ```
 
@@ -187,7 +187,7 @@ Om te controleren of de snelste opstarttijd van de Windows-container, gebruikt u
 
 ### <a name="windows-containers-slow-network-readiness"></a>Gereedheid voor Windows-containers langzaam netwerk
 
-Windows-containers kunnen geen binnenkomende of uitgaande connectiviteit worden voor maximaal 5 seconden op aanvankelijk maken. Na de initiële configuratie, moet op de juiste wijze containernetwerken hervat.
+Eerste gemaakt hebben Windows-containers geen binnenkomende of uitgaande connectiviteit tot 30 seconden (of langer, in uitzonderlijke gevallen). Als uw containertoepassing een internetverbinding moet, vertraging toevoegen en Pogingslogica om toe te staan van 30 seconden tot stand brengen van verbinding met Internet. Na de initiële configuratie, moet op de juiste wijze containernetwerken hervat.
 
 ## <a name="resource-not-available-error"></a>Resource niet beschikbaar-fout
 

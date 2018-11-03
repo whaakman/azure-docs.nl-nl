@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.workload: tbd
 ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: 3b06ec3b10edc39d770e5a724125e70afd5e5477
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: 46c05c7c6568a967aae8e50a5da9ae70779a6060
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43783580"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50959015"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights voor Azure Cloud Services
 [Microsoft Azure Cloud-service-apps](https://azure.microsoft.com/services/cloud-services/) kunnen met [Application Insights][start] worden gecontroleerd op beschikbaarheid, prestaties, fouten en gebruik door gegevens uit de Application Insights-SDK's te combineren met [Azure Diagnotics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics)-gegevens uit uw cloudservices. Op basis van de feedback die u krijgt over de prestaties en de effectiviteit van uw app tijdens het gebruik, kunt u weldoordachte beslissingen nemen over de richting van het ontwerp in elke fase van de ontwikkelingslevenscyclus.
@@ -96,7 +96,7 @@ Als u hebt besloten om een afzonderlijke Application Insights-resource voor elke
 
 Hiermee voegt u uw Application Insights-instrumentatiesleutels in de bestanden met de naam `ServiceConfiguration.*.cscfg` in. ([Voorbeeldcode](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/AzureEmailService/ServiceConfiguration.Cloud.cscfg)).
 
-Als u het niveau van diagnostische gegevens die naar Application Insights worden verzonden, wilt variëren, kunt u dat doen [door de `.cscfg`-bestanden rechtstreeks](app-insights-azure-diagnostics.md) te bewerken.
+Als u het niveau van diagnostische gegevens die naar Application Insights worden verzonden, wilt variëren, kunt u dat doen [door de `.cscfg`-bestanden rechtstreeks](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md) te bewerken.
 
 ## <a name="sdk"></a>De SDK installeren in elk project
 Deze optie voegt de mogelijkheid toe om aangepaste zakelijke telemetrie toe te voegen aan elke gewenste rol, voor een nadere analyse van de manier waarop uw toepassing werkt en wordt gebruikt.
@@ -151,7 +151,7 @@ Als u prestatiemeteritems en aantallen gebeurtenissen wilt zien, opent u [Metric
 
 ![Gegevens van Azure Diagnostics](./media/app-insights-cloudservices/23-wad.png)
 
-Gebruik [Search](app-insights-diagnostic-search.md) of een [Analytics-query](app-insights-analytics-tour.md) om te zoeken in de verschillende traceerlogboeken die door Azure Diagnostics zijn verzonden. Stel bijvoorbeeld dat u te maken krijgt met een onverwerkte uitzondering waardoor een rol is gecrasht en gerecycled. Deze informatie zou worden weergegeven in het toepassingskanaal van het Windows-gebeurtenislogboek. U kunt Search gebruiken om naar de fout in het Windows-gebeurtenislogboek te kijken en om de volledige stack-trace voor de uitzondering op te halen. Hierdoor kunt u de hoofdoorzaak van het probleem.
+Gebruik [Search](app-insights-diagnostic-search.md) of een [Analytics-query](../log-analytics/query-language/get-started-analytics-portal.md) om te zoeken in de verschillende traceerlogboeken die door Azure Diagnostics zijn verzonden. Stel bijvoorbeeld dat u te maken krijgt met een onverwerkte uitzondering waardoor een rol is gecrasht en gerecycled. Deze informatie zou worden weergegeven in het toepassingskanaal van het Windows-gebeurtenislogboek. U kunt Search gebruiken om naar de fout in het Windows-gebeurtenislogboek te kijken en om de volledige stack-trace voor de uitzondering op te halen. Hierdoor kunt u de hoofdoorzaak van het probleem.
 
 ![Zoeken in Azure Diagnostics](./media/app-insights-cloudservices/25-wad.png)
 
@@ -231,7 +231,7 @@ Hebt u uw app ontwikkeld voor .NET 4.6? 4.6 wordt niet automatisch ondersteund i
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Het verzenden van gegevens van Azure Diagnostics naar Application Insights configureren](app-insights-azure-diagnostics.md)
+* [Het verzenden van gegevens van Azure Diagnostics naar Application Insights configureren](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md)
 * [Het maken van Application Insights-resources automatiseren](app-insights-powershell.md)
 * [Azure Diagnostics automatiseren](app-insights-powershell-azure-diagnostics.md)
 * [Azure Functions](https://github.com/christopheranderson/azure-functions-app-insights-sample)

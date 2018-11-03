@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 09/14/2018
 ms.author: ancav
 ms.component: metrics
-ms.openlocfilehash: 15cac40e743f44ea7e0954c94683674ad9372a7a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5f6140b582b2412a164593bd2aa99bfbde5fb688
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46962944"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50964183"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Ondersteunde metrische gegevens met Azure Monitor
 Azure Monitor biedt verschillende manieren om te communiceren met metrische gegevens, zoals ze in het portaal grafieken, toegang hebben tot deze via de REST-API of uitvoeren van deze query's met behulp van PowerShell of CLI. Hieronder vindt u een volledige lijst van alle metrische gegevens op dit moment met metrische gegevens van Azure Monitor-pijplijn. Andere metrische gegevens is mogelijk beschikbaar in de portal of met verouderde API's. Deze lijst hieronder bevat alleen beschikbaar via de pijplijn voor het metrische gegevens van Azure Monitor samengevoegde metrische gegevens. Query's uitvoeren voor en toegang tot deze metrische gegevens gebruik de [2018-01-01-api-versie](https://docs.microsoft.com/rest/api/monitor/metricdefinitions)
@@ -360,22 +360,22 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 |Percentage CPU|Percentage CPU|Procent|Gemiddeld|Het percentage toegewezen berekeningseenheden dat momenteel door de virtuele machine(s) wordt gebruikt|Er zijn geen dimensies|
 |Netwerk in|Netwerk in|Bytes|Totaal|Het aantal ontvangen bytes op alle netwerkinterfaces door de virtuele machine(s) (binnenkomend verkeer)|Er zijn geen dimensies|
 |Netwerk uit|Netwerk uit|Bytes|Totaal|Het aantal verzonden bytes op alle netwerkinterfaces door de virtuele machine(s) (uitgaand verkeer)|Er zijn geen dimensies|
-|Gelezen bytes op de schijf|Gelezen bytes op de schijf|Bytes|Totaal|Totaal aantal gelezen bytes op de schijf tijdens de bewakingsperiode|Er zijn geen dimensies|
-|Geschreven bytes op de schijf|Geschreven bytes op de schijf|Bytes|Totaal|Totaal aantal geschreven bytes op de schijf tijdens de bewakingsperiode|Er zijn geen dimensies|
+|Gelezen bytes op de schijf|Gelezen bytes op de schijf|Bytes|Totaal|Totaal aantal gelezen bytes van schijf tijdens de controleperiode|Er zijn geen dimensies|
+|Geschreven bytes op de schijf|Geschreven bytes op de schijf|Bytes|Totaal|Totaal aantal bytes geschreven naar de schijf tijdens de controleperiode|Er zijn geen dimensies|
 |Leesbewerkingen op de schijf/seconde|Leesbewerkingen op de schijf/seconde|CountPerSecond|Gemiddeld|Gelezen IOP's op de schijf|Er zijn geen dimensies|
 |Schrijfbewerkingen op de schijf/seconde|Schrijfbewerkingen op de schijf/seconde|CountPerSecond|Gemiddeld|Geschreven IOP's op de schijf|Er zijn geen dimensies|
 |Resterend CPU-tegoed|Resterend CPU-tegoed|Count|Gemiddeld|Totale tegoed beschikbaar voor burst|Er zijn geen dimensies|
 |Verbruikt CPU-tegoed|Verbruikt CPU-tegoed|Count|Gemiddeld|Totale tegoed gebruikt door de virtuele machine|Er zijn geen dimensies|
-|Per schijf gelezen bytes per seconde|Van de gegevensschijf gelezen bytes per seconde (preview)|CountPerSecond|Gemiddeld|Totaal aantal van één schijf gelezen bytes per seconde tijdens de bewakingsperiode|SlotId|
-|Per schijf geschreven bytes per seconde|Naar de gegevensschijf geschreven bytes per seconde (preview)|CountPerSecond|Gemiddeld|Totaal aantal naar één schijf geschreven bytes per seconde tijdens de bewakingsperiode|SlotId|
-|Leesbewerkingen per schijf per seconde|Leesbewerkingen op de gegevensschijf per seconde (preview)|CountPerSecond|Gemiddeld|Totaal aantal uitgevoerde IOPS tijdens het lezen van één schijf tijdens de controleperiode|SlotId|
-|Schrijfbewerkingen per schijf per seconde|Schrijfbewerkingen op de gegevensschijf per seconde (preview)|CountPerSecond|Gemiddeld|Totaal aantal uitgevoerde IOPS tijdens het schrijven naar één schijf tijdens de controleperiode|SlotId|
-|Wachtrijomvang per schijf|Wachtrijomvang van de gegevensschijf (preview)|Count|Gemiddeld|Wachtrijomvang (of wachtrijlengte) voor de gegevensschijf|SlotId|
-|Per besturingssysteemschijf gelezen bytes per seconde|Van de besturingssysteemschijf gelezen bytes per seconde (preview)|CountPerSecond|Gemiddeld|Totaal aantal van één schijf gelezen bytes per seconde tijdens de bewakingsperiode voor de besturingssysteemschijf|Er zijn geen dimensies|
-|Per besturingssysteemschijf geschreven bytes per seconde|Naar de besturingssysteemschijf geschreven bytes per seconde (preview)|CountPerSecond|Gemiddeld|Totaal aantal naar één schijf geschreven bytes per seconde tijdens de bewakingsperiode voor de besturingssysteemschijf|Er zijn geen dimensies|
-|Leesbewerkingen per besturingssysteemschijf per seconde|Leesbewerkingen op de besturingssysteemschijf per seconde (preview)|CountPerSecond|Gemiddeld|Totaal aantal uitgevoerde IOPS tijdens het lezen van één schijf tijdens de controleperiode voor de besturingssysteemschijf|Er zijn geen dimensies|
-|Schrijfbewerkingen per besturingssysteemschijf per seconde|Schrijfbewerkingen op de besturingssysteemschijf per seconde (preview)|CountPerSecond|Gemiddeld|Totaal aantal uitgevoerde IOPS tijdens het schrijven naar één schijf tijdens de controleperiode voor de besturingssysteemschijf|Er zijn geen dimensies|
-|Wachtrijomvang per besturingssysteemschijf|Wachtrijomvang van de besturingssysteemschijf (preview)|Count|Gemiddeld|Wachtrijomvang (of wachtrijlengte) voor de besturingssysteemschijf|Er zijn geen dimensies|
+|Per schijf gelezen bytes per seconde|Van de gegevensschijf gelezen bytes per seconde (preview)|CountPerSecond|Gemiddeld|Totaal aantal Bytes per seconde voor het lezen van één schijf tijdens de controleperiode|SlotId|
+|Per schijf geschreven bytes per seconde|Naar de gegevensschijf geschreven bytes per seconde (preview)|CountPerSecond|Gemiddeld|Totaal aantal naar één schijf tijdens de controleperiode geschreven Bytes per seconde|SlotId|
+|Leesbewerkingen per schijf per seconde|Leesbewerkingen op de gegevensschijf per seconde (preview)|CountPerSecond|Gemiddeld|Totale IOPS uitgevoerde tijdens het lezen van één schijf tijdens de controleperiode|SlotId|
+|Schrijfbewerkingen per schijf per seconde|Schrijfbewerkingen op de gegevensschijf per seconde (preview)|CountPerSecond|Gemiddeld|Totale IOPS uitgevoerde tijdens het schrijven naar één schijf tijdens de controleperiode|SlotId|
+|Wachtrijomvang per schijf|Gegevensschijf Wachtrijdiepte (Preview)|Count|Gemiddeld|Wachtrijomvang (of wachtrijlengte) voor de gegevensschijf|SlotId|
+|Per besturingssysteemschijf gelezen bytes per seconde|Van de besturingssysteemschijf gelezen bytes per seconde (preview)|CountPerSecond|Gemiddeld|Totaal aantal Bytes per seconde van één schijf tijdens de controleperiode voor de besturingssysteemschijf gelezen.|Er zijn geen dimensies|
+|Per besturingssysteemschijf geschreven bytes per seconde|Naar de besturingssysteemschijf geschreven bytes per seconde (preview)|CountPerSecond|Gemiddeld|Totaal aantal naar één schijf tijdens de controleperiode voor de besturingssysteemschijf geschreven Bytes per seconde|Er zijn geen dimensies|
+|Leesbewerkingen per besturingssysteemschijf per seconde|Leesbewerkingen op de besturingssysteemschijf per seconde (preview)|CountPerSecond|Gemiddeld|Totale IOPS uitgevoerde tijdens het lezen van één schijf tijdens de controleperiode voor de besturingssysteemschijf|Er zijn geen dimensies|
+|Schrijfbewerkingen per besturingssysteemschijf per seconde|Schrijfbewerkingen op de besturingssysteemschijf per seconde (preview)|CountPerSecond|Gemiddeld|Totale IOPS uitgevoerde tijdens het schrijven naar één schijf tijdens de controleperiode voor de besturingssysteemschijf|Er zijn geen dimensies|
+|Wachtrijomvang per besturingssysteemschijf|Besturingssysteemschijf Wachtrijomvang (Preview)|Count|Gemiddeld|Wachtrijomvang (of wachtrijlengte) voor de besturingssysteemschijf|Er zijn geen dimensies|
 
 ## <a name="microsoftcomputevirtualmachinescalesets"></a>Microsoft.Compute/virtualMachineScaleSets
 
@@ -384,22 +384,22 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 |Percentage CPU|Percentage CPU|Procent|Gemiddeld|Het percentage toegewezen berekeningseenheden dat momenteel door de virtuele machine(s) wordt gebruikt|Er zijn geen dimensies|
 |Netwerk in|Netwerk in|Bytes|Totaal|Het aantal ontvangen bytes op alle netwerkinterfaces door de virtuele machine(s) (binnenkomend verkeer)|Er zijn geen dimensies|
 |Netwerk uit|Netwerk uit|Bytes|Totaal|Het aantal verzonden bytes op alle netwerkinterfaces door de virtuele machine(s) (uitgaand verkeer)|Er zijn geen dimensies|
-|Gelezen bytes op de schijf|Gelezen bytes op de schijf|Bytes|Totaal|Totaal aantal gelezen bytes op de schijf tijdens de bewakingsperiode|Er zijn geen dimensies|
-|Geschreven bytes op de schijf|Geschreven bytes op de schijf|Bytes|Totaal|Totaal aantal geschreven bytes op de schijf tijdens de bewakingsperiode|Er zijn geen dimensies|
+|Gelezen bytes op de schijf|Gelezen bytes op de schijf|Bytes|Totaal|Totaal aantal gelezen bytes van schijf tijdens de controleperiode|Er zijn geen dimensies|
+|Geschreven bytes op de schijf|Geschreven bytes op de schijf|Bytes|Totaal|Totaal aantal bytes geschreven naar de schijf tijdens de controleperiode|Er zijn geen dimensies|
 |Leesbewerkingen op de schijf/seconde|Leesbewerkingen op de schijf/seconde|CountPerSecond|Gemiddeld|Gelezen IOP's op de schijf|Er zijn geen dimensies|
 |Schrijfbewerkingen op de schijf/seconde|Schrijfbewerkingen op de schijf/seconde|CountPerSecond|Gemiddeld|Geschreven IOP's op de schijf|Er zijn geen dimensies|
 |Resterend CPU-tegoed|Resterend CPU-tegoed|Count|Gemiddeld|Totale tegoed beschikbaar voor burst|Er zijn geen dimensies|
 |Verbruikt CPU-tegoed|Verbruikt CPU-tegoed|Count|Gemiddeld|Totale tegoed gebruikt door de virtuele machine|Er zijn geen dimensies|
-|Per schijf gelezen bytes per seconde|Van de gegevensschijf gelezen bytes per seconde (preview)|CountPerSecond|Gemiddeld|Totaal aantal van één schijf gelezen bytes per seconde tijdens de bewakingsperiode|SlotId|
-|Per schijf geschreven bytes per seconde|Naar de gegevensschijf geschreven bytes per seconde (preview)|CountPerSecond|Gemiddeld|Totaal aantal naar één schijf geschreven bytes per seconde tijdens de bewakingsperiode|SlotId|
-|Leesbewerkingen per schijf per seconde|Leesbewerkingen op de gegevensschijf per seconde (preview)|CountPerSecond|Gemiddeld|Totaal aantal uitgevoerde IOPS tijdens het lezen van één schijf tijdens de controleperiode|SlotId|
-|Schrijfbewerkingen per schijf per seconde|Schrijfbewerkingen op de gegevensschijf per seconde (preview)|CountPerSecond|Gemiddeld|Totaal aantal uitgevoerde IOPS tijdens het schrijven naar één schijf tijdens de controleperiode|SlotId|
-|Wachtrijomvang per schijf|Wachtrijomvang van de gegevensschijf (preview)|Count|Gemiddeld|Wachtrijomvang (of wachtrijlengte) voor de gegevensschijf|SlotId|
-|Per besturingssysteemschijf gelezen bytes per seconde|De Besturingssysteemschijf gelezen Bytes per seconde|CountPerSecond|Gemiddeld|Totaal aantal van één schijf gelezen bytes per seconde tijdens de bewakingsperiode voor de besturingssysteemschijf|Er zijn geen dimensies|
-|Per besturingssysteemschijf geschreven bytes per seconde|Naar de besturingssysteemschijf geschreven bytes per seconde (preview)|CountPerSecond|Gemiddeld|Totaal aantal naar één schijf geschreven bytes per seconde tijdens de bewakingsperiode voor de besturingssysteemschijf|Er zijn geen dimensies|
-|Leesbewerkingen per besturingssysteemschijf per seconde|Leesbewerkingen op de besturingssysteemschijf per seconde (preview)|CountPerSecond|Gemiddeld|Totaal aantal uitgevoerde IOPS tijdens het lezen van één schijf tijdens de controleperiode voor de besturingssysteemschijf|Er zijn geen dimensies|
-|Schrijfbewerkingen per besturingssysteemschijf per seconde|Schrijfbewerkingen op de besturingssysteemschijf per seconde (preview)|CountPerSecond|Gemiddeld|Totaal aantal uitgevoerde IOPS tijdens het schrijven naar één schijf tijdens de controleperiode voor de besturingssysteemschijf|Er zijn geen dimensies|
-|Wachtrijomvang per besturingssysteemschijf|Wachtrijomvang van de besturingssysteemschijf (preview)|Count|Gemiddeld|Wachtrijomvang (of wachtrijlengte) voor de besturingssysteemschijf|Er zijn geen dimensies|
+|Per schijf gelezen bytes per seconde|Van de gegevensschijf gelezen bytes per seconde (preview)|CountPerSecond|Gemiddeld|Totaal aantal Bytes per seconde voor het lezen van één schijf tijdens de controleperiode|SlotId|
+|Per schijf geschreven bytes per seconde|Naar de gegevensschijf geschreven bytes per seconde (preview)|CountPerSecond|Gemiddeld|Totaal aantal naar één schijf tijdens de controleperiode geschreven Bytes per seconde|SlotId|
+|Leesbewerkingen per schijf per seconde|Leesbewerkingen op de gegevensschijf per seconde (preview)|CountPerSecond|Gemiddeld|Totale IOPS uitgevoerde tijdens het lezen van één schijf tijdens de controleperiode|SlotId|
+|Schrijfbewerkingen per schijf per seconde|Schrijfbewerkingen op de gegevensschijf per seconde (preview)|CountPerSecond|Gemiddeld|Totale IOPS uitgevoerde tijdens het schrijven naar één schijf tijdens de controleperiode|SlotId|
+|Wachtrijomvang per schijf|Gegevensschijf Wachtrijdiepte (Preview)|Count|Gemiddeld|Wachtrijomvang (of wachtrijlengte) voor de gegevensschijf|SlotId|
+|Per besturingssysteemschijf gelezen bytes per seconde|De Besturingssysteemschijf gelezen Bytes per seconde|CountPerSecond|Gemiddeld|Totaal aantal Bytes per seconde van één schijf tijdens de controleperiode voor de besturingssysteemschijf gelezen.|Er zijn geen dimensies|
+|Per besturingssysteemschijf geschreven bytes per seconde|Naar de besturingssysteemschijf geschreven bytes per seconde (preview)|CountPerSecond|Gemiddeld|Totaal aantal naar één schijf tijdens de controleperiode voor de besturingssysteemschijf geschreven Bytes per seconde|Er zijn geen dimensies|
+|Leesbewerkingen per besturingssysteemschijf per seconde|Leesbewerkingen op de besturingssysteemschijf per seconde (preview)|CountPerSecond|Gemiddeld|Totale IOPS uitgevoerde tijdens het lezen van één schijf tijdens de controleperiode voor de besturingssysteemschijf|Er zijn geen dimensies|
+|Schrijfbewerkingen per besturingssysteemschijf per seconde|Schrijfbewerkingen op de besturingssysteemschijf per seconde (preview)|CountPerSecond|Gemiddeld|Totale IOPS uitgevoerde tijdens het schrijven naar één schijf tijdens de controleperiode voor de besturingssysteemschijf|Er zijn geen dimensies|
+|Wachtrijomvang per besturingssysteemschijf|Besturingssysteemschijf Wachtrijomvang (Preview)|Count|Gemiddeld|Wachtrijomvang (of wachtrijlengte) voor de besturingssysteemschijf|Er zijn geen dimensies|
 
 ## <a name="microsoftcomputevirtualmachinescalesetsvirtualmachines"></a>Microsoft.Compute/virtualMachineScaleSets/virtualMachines
 
@@ -408,22 +408,22 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 |Percentage CPU|Percentage CPU|Procent|Gemiddeld|Het percentage toegewezen berekeningseenheden dat momenteel door de virtuele machine(s) wordt gebruikt|Er zijn geen dimensies|
 |Netwerk in|Netwerk in|Bytes|Totaal|Het aantal ontvangen bytes op alle netwerkinterfaces door de virtuele machine(s) (binnenkomend verkeer)|Er zijn geen dimensies|
 |Netwerk uit|Netwerk uit|Bytes|Totaal|Het aantal verzonden bytes op alle netwerkinterfaces door de virtuele machine(s) (uitgaand verkeer)|Er zijn geen dimensies|
-|Gelezen bytes op de schijf|Gelezen bytes op de schijf|Bytes|Totaal|Totaal aantal gelezen bytes op de schijf tijdens de bewakingsperiode|Er zijn geen dimensies|
-|Geschreven bytes op de schijf|Geschreven bytes op de schijf|Bytes|Totaal|Totaal aantal geschreven bytes op de schijf tijdens de bewakingsperiode|Er zijn geen dimensies|
+|Gelezen bytes op de schijf|Gelezen bytes op de schijf|Bytes|Totaal|Totaal aantal gelezen bytes van schijf tijdens de controleperiode|Er zijn geen dimensies|
+|Geschreven bytes op de schijf|Geschreven bytes op de schijf|Bytes|Totaal|Totaal aantal bytes geschreven naar de schijf tijdens de controleperiode|Er zijn geen dimensies|
 |Leesbewerkingen op de schijf/seconde|Leesbewerkingen op de schijf/seconde|CountPerSecond|Gemiddeld|Gelezen IOP's op de schijf|Er zijn geen dimensies|
 |Schrijfbewerkingen op de schijf/seconde|Schrijfbewerkingen op de schijf/seconde|CountPerSecond|Gemiddeld|Geschreven IOP's op de schijf|Er zijn geen dimensies|
 |Resterend CPU-tegoed|Resterend CPU-tegoed|Count|Gemiddeld|Totale tegoed beschikbaar voor burst|Er zijn geen dimensies|
 |Verbruikt CPU-tegoed|Verbruikt CPU-tegoed|Count|Gemiddeld|Totale tegoed gebruikt door de virtuele machine|Er zijn geen dimensies|
-|Per schijf gelezen bytes per seconde|Van de gegevensschijf gelezen bytes per seconde (preview)|CountPerSecond|Gemiddeld|Totaal aantal van één schijf gelezen bytes per seconde tijdens de bewakingsperiode|SlotId|
-|Per schijf geschreven bytes per seconde|Naar de gegevensschijf geschreven bytes per seconde (preview)|CountPerSecond|Gemiddeld|Totaal aantal naar één schijf geschreven bytes per seconde tijdens de bewakingsperiode|SlotId|
-|Leesbewerkingen per schijf per seconde|Leesbewerkingen op de gegevensschijf per seconde (preview)|CountPerSecond|Gemiddeld|Totaal aantal uitgevoerde IOPS tijdens het lezen van één schijf tijdens de controleperiode|SlotId|
-|Schrijfbewerkingen per schijf per seconde|Schrijfbewerkingen op de gegevensschijf per seconde (preview)|CountPerSecond|Gemiddeld|Totaal aantal uitgevoerde IOPS tijdens het schrijven naar één schijf tijdens de controleperiode|SlotId|
-|Wachtrijomvang per schijf|Wachtrijomvang van de gegevensschijf (preview)|Count|Gemiddeld|Wachtrijomvang (of wachtrijlengte) voor de gegevensschijf|SlotId|
-|Per besturingssysteemschijf gelezen bytes per seconde|Van de besturingssysteemschijf gelezen bytes per seconde (preview)|CountPerSecond|Gemiddeld|Totaal aantal van één schijf gelezen bytes per seconde tijdens de bewakingsperiode voor de besturingssysteemschijf|Er zijn geen dimensies|
-|Per besturingssysteemschijf geschreven bytes per seconde|Naar de besturingssysteemschijf geschreven bytes per seconde (preview)|CountPerSecond|Gemiddeld|Totaal aantal naar één schijf geschreven bytes per seconde tijdens de bewakingsperiode voor de besturingssysteemschijf|Er zijn geen dimensies|
-|Leesbewerkingen per besturingssysteemschijf per seconde|Leesbewerkingen op de besturingssysteemschijf per seconde (preview)|CountPerSecond|Gemiddeld|Totaal aantal uitgevoerde IOPS tijdens het lezen van één schijf tijdens de controleperiode voor de besturingssysteemschijf|Er zijn geen dimensies|
-|Schrijfbewerkingen per besturingssysteemschijf per seconde|Schrijfbewerkingen op de besturingssysteemschijf per seconde (preview)|CountPerSecond|Gemiddeld|Totaal aantal uitgevoerde IOPS tijdens het schrijven naar één schijf tijdens de controleperiode voor de besturingssysteemschijf|Er zijn geen dimensies|
-|Wachtrijomvang per besturingssysteemschijf|Wachtrijomvang van de besturingssysteemschijf (preview)|Count|Gemiddeld|Wachtrijomvang (of wachtrijlengte) voor de besturingssysteemschijf|Er zijn geen dimensies|
+|Per schijf gelezen bytes per seconde|Van de gegevensschijf gelezen bytes per seconde (preview)|CountPerSecond|Gemiddeld|Totaal aantal Bytes per seconde voor het lezen van één schijf tijdens de controleperiode|SlotId|
+|Per schijf geschreven bytes per seconde|Naar de gegevensschijf geschreven bytes per seconde (preview)|CountPerSecond|Gemiddeld|Totaal aantal naar één schijf tijdens de controleperiode geschreven Bytes per seconde|SlotId|
+|Leesbewerkingen per schijf per seconde|Leesbewerkingen op de gegevensschijf per seconde (preview)|CountPerSecond|Gemiddeld|Totale IOPS uitgevoerde tijdens het lezen van één schijf tijdens de controleperiode|SlotId|
+|Schrijfbewerkingen per schijf per seconde|Schrijfbewerkingen op de gegevensschijf per seconde (preview)|CountPerSecond|Gemiddeld|Totale IOPS uitgevoerde tijdens het schrijven naar één schijf tijdens de controleperiode|SlotId|
+|Wachtrijomvang per schijf|Gegevensschijf Wachtrijdiepte (Preview)|Count|Gemiddeld|Wachtrijomvang (of wachtrijlengte) voor de gegevensschijf|SlotId|
+|Per besturingssysteemschijf gelezen bytes per seconde|Van de besturingssysteemschijf gelezen bytes per seconde (preview)|CountPerSecond|Gemiddeld|Totaal aantal Bytes per seconde van één schijf tijdens de controleperiode voor de besturingssysteemschijf gelezen.|Er zijn geen dimensies|
+|Per besturingssysteemschijf geschreven bytes per seconde|Naar de besturingssysteemschijf geschreven bytes per seconde (preview)|CountPerSecond|Gemiddeld|Totaal aantal naar één schijf tijdens de controleperiode voor de besturingssysteemschijf geschreven Bytes per seconde|Er zijn geen dimensies|
+|Leesbewerkingen per besturingssysteemschijf per seconde|Leesbewerkingen op de besturingssysteemschijf per seconde (preview)|CountPerSecond|Gemiddeld|Totale IOPS uitgevoerde tijdens het lezen van één schijf tijdens de controleperiode voor de besturingssysteemschijf|Er zijn geen dimensies|
+|Schrijfbewerkingen per besturingssysteemschijf per seconde|Schrijfbewerkingen op de besturingssysteemschijf per seconde (preview)|CountPerSecond|Gemiddeld|Totale IOPS uitgevoerde tijdens het schrijven naar één schijf tijdens de controleperiode voor de besturingssysteemschijf|Er zijn geen dimensies|
+|Wachtrijomvang per besturingssysteemschijf|Besturingssysteemschijf Wachtrijomvang (Preview)|Count|Gemiddeld|Wachtrijomvang (of wachtrijlengte) voor de besturingssysteemschijf|Er zijn geen dimensies|
 
 ## <a name="microsoftcontainerinstancecontainergroups"></a>Microsoft.ContainerInstance/containerGroups
 
@@ -431,7 +431,7 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 |---|---|---|---|---|---|
 |CpuUsage|CPU-gebruik|Count|Gemiddeld|CPU-gebruik op alle kerngeheugens in millicores.|containerName|
 |MemoryUsage|Geheugengebruik|Bytes|Gemiddeld|Totaal geheugengebruik in bytes.|containerName|
-|NetworkBytesReceivedPerSecond|Netwerkbytes ontvangen per seconde|Bytes|Gemiddeld|Het ontvangen netwerkbytes per seconde.|Er zijn geen dimensies|
+|NetworkBytesReceivedPerSecond|Netwerkbytes ontvangen per seconde|Bytes|Gemiddeld|Het aantal bytes dat het netwerk per seconde heeft ontvangen.|Er zijn geen dimensies|
 |NetworkBytesTransmittedPerSecond|Netwerkbytes verzonden per seconde|Bytes|Gemiddeld|Het aantal bytes dat het netwerk per seconde heeft verzonden.|Er zijn geen dimensies|
 
 ## <a name="microsoftcontainerservicemanagedclusters"></a>Microsoft.ContainerService/managedClusters
@@ -587,8 +587,8 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 |devices.totalDevices|Totaal aantal apparaten (afgeschaft)|Count|Totaal|Aantal apparaten die zijn geregistreerd met uw IoT hub|Er zijn geen dimensies|
 |devices.connectedDevices.allProtocol|Verbonden apparaten (afgeschaft) |Count|Totaal|Aantal apparaten dat is verbonden met uw IoT-hub|Er zijn geen dimensies|
 |d2c.telemetry.egress.success|Routering: telemetrieberichten geleverd|Count|Totaal|Het aantal keren dat berichten zijn bezorgd bij alle eindpunten met behulp van IoT Hub-routering. Als een bericht wordt doorgestuurd naar meerdere eindpunten, wordt deze waarde verhoogd met één voor elke geslaagde levering. Als een bericht wordt bezorgd in het hetzelfde eindpunt meerdere keren, wordt deze waarde verhoogd met één voor elke geslaagde levering.|Er zijn geen dimensies|
-|d2c.telemetry.egress.dropped|Routering: telemetrieberichten verwijderd |Count|Totaal|Het aantal keren dat berichten door de IoT-Hub routering vanwege andere eindpunten zijn verwijderd. Deze waarde is, telt niet berichten die in de alternatieve route, zoals verwijderde berichten worden er niet bezorgd.|Er zijn geen dimensies|
-|d2c.telemetry.egress.orphaned|Routering: telemetrieberichten zwevende |Count|Totaal|Het aantal keren dat berichten door de IoT Hub routering zwevende omdat ze niet overeenkomen met alle regels voor doorsturen (met inbegrip van de alternatieve regel). |Er zijn geen dimensies|
+|d2c.telemetry.egress.dropped|Routering: telemetrieberichten verwijderd |Count|Totaal|Het aantal keren dat berichten door de IoT-Hub routering vanwege andere eindpunten zijn verwijderd. Deze waarde is, telt niet berichten die in de alternatieve route, zoals verwijderde berichten worden er niet bezorgd.|Er zijn geen dimensies|
+|d2c.telemetry.egress.orphaned|Routering: telemetrieberichten zwevende |Count|Totaal|Het aantal keren dat berichten door de IoT Hub routering zwevende omdat ze niet overeenkomen met alle regels voor doorsturen (met inbegrip van de alternatieve regel). |Er zijn geen dimensies|
 |d2c.telemetry.egress.Invalid|Routering: telemetrieberichten niet compatibel|Count|Totaal|Het aantal keren dat berichten worden verzonden vanwege compatibiliteitsproblemen met het eindpunt van de IoT-Hub routering kan niet. Deze waarde bevat geen nieuwe pogingen.|Er zijn geen dimensies|
 |d2c.telemetry.egress.fallback|Routering: berichten worden afgeleverd bij terugval|Count|Totaal|Het aantal keren dat het IoT-Hub routering berichten naar het eindpunt dat is gekoppeld aan de alternatieve route geleverd.|Er zijn geen dimensies|
 |d2c.endpoints.egress.eventHubs|Routering: berichten die naar Event Hub worden geleverd|Count|Totaal|Het aantal keren routering is IoT-Hub die berichten worden geleverd aan Event Hub-eindpunten.|Er zijn geen dimensies|
@@ -658,7 +658,7 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 |MongoRequestCharge|Mongo-aanvraag kosten in rekening gebracht|Count|Totaal|Mongo-Aanvraageenheden verbruikt|Databasenaam, CollectionName, regio, CommandName, foutcode|
 |MongoRequests|Mongo-aanvragen|Count|Count|Aantal aanvragen van Mongo|Databasenaam, CollectionName, regio, CommandName, foutcode|
 |TotalRequestUnits|Totaal aantal Aanvraageenheden|Count|Totaal|Aanvraag dat eenheden verbruikt|Databasenaam, CollectionName, regio, StatusCode|
-|TotalRequests|Totaalaantal aanvragen|Count|Count|Aantal aanvragen|Databasenaam, CollectionName, regio, StatusCode|
+|TotalRequests|Totaal aantal aanvragen|Count|Count|Aantal aanvragen|Databasenaam, CollectionName, regio, StatusCode|
 
 
 ## <a name="microsofteventgridtopics"></a>Microsoft.EventGrid/topics
@@ -975,7 +975,7 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 |Doorvoer|Doorvoer|BytesPerSecond|Totaal|Aantal bytes per seconde die de Application Gateway is geleverd|Er zijn geen dimensies|
 |UnhealthyHostCount|Aantal niet in orde Backendpool|Count|Gemiddeld|Aantal slechte back-end-hosts|BackendSettingsPool|
 |HealthyHostCount|Aantal in orde Backendpool|Count|Gemiddeld|Aantal in orde back-end-hosts|BackendSettingsPool|
-|TotalRequests|Totaalaantal aanvragen|Count|Totaal|Aantal geslaagde aanvragen die Application Gateway is bereikbaar|BackendSettingsPool|
+|TotalRequests|Totaal aantal aanvragen|Count|Totaal|Aantal geslaagde aanvragen die Application Gateway is bereikbaar|BackendSettingsPool|
 |FailedRequests|Mislukte aanvragen|Count|Totaal|Aantal mislukte aanvragen die Application Gateway is geleverd|BackendSettingsPool|
 |ResponseStatus|Reactiestatus|Count|Totaal|Status van de HTTP-antwoord geretourneerd door Application Gateway|HttpStatusGroup|
 |CurrentConnections|Huidige verbindingen|Count|Totaal|Telling van actieve verbindingen tot stand gebracht met Application Gateway|Er zijn geen dimensies|
@@ -1570,6 +1570,6 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 |MemoryPercentage|Geheugenpercentage|Procent|Gemiddeld|Geheugenpercentage|Exemplaar|
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Meer informatie over metrische gegevens in Azure Monitor](monitoring-overview-metrics.md)
-* [Waarschuwingen over metrische gegevens maken](insights-receive-alert-notifications.md)
+* [Meer informatie over metrische gegevens in Azure Monitor](../monitoring/monitoring-data-collection.md)
+* [Waarschuwingen over metrische gegevens maken](monitoring-overview-alerts.md)
 * [Metrische gegevens exporteren naar opslag, Event Hub of Log Analytics](monitoring-overview-of-diagnostic-logs.md)

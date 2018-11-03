@@ -9,12 +9,12 @@ ms.date: 11/06/2017
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.component: ''
-ms.openlocfilehash: 75b1edf80f1dad5f0db48c11329effe080760820
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 533fbfc42939299f99699a13513cd3b55c89cabc
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50413142"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50957281"
 ---
 # <a name="monitor-your-azure-services-in-grafana"></a>Bewaken van uw Azure-services in Grafana
 U kunt nu ook bewaken Azure-services en toepassingen van [Grafana](https://grafana.com/) met behulp van de [Azure Monitor-gegevensbron invoegtoepassing](https://grafana.com/plugins/grafana-azure-monitor-datasource). De invoegtoepassing worden verzameld voor prestatiegegevens van toepassingen die door de Application Insights-SDK worden verzameld, evenals infrastructuur gegevens geleverd door Azure Monitor. U kunt deze gegevens vervolgens weergeven in het Grafana-dashboard.
@@ -128,4 +128,4 @@ De kosten worden berekend wanneer er virtuele machines worden uitgevoerd, ongeac
 2. Klik op de pagina van uw resourcegroep **verwijderen**, type **Grafana** in het tekstvak in en klik vervolgens op **verwijderen**.
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Overzicht van Azure Monitor Metrics](monitoring-overview-metrics.md)
+* [Overzicht van Azure Monitor Metrics](../monitoring/monitoring-data-collection.md)

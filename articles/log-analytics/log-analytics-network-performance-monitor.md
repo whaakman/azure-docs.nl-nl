@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
 ms.component: ''
-ms.openlocfilehash: fc5ab802b39597d72f01f756c9bdb16597862e3c
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: d49360fe39b0df7fc1172c3927e8725af10f927d
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638193"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50963877"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Prestatiemeter-oplossing in Azure-netwerk
 
@@ -103,7 +103,7 @@ Network Performance Monitor maakt gebruik van synthetische transacties voor het 
 
 ### <a name="configure-the-solution"></a>De oplossing configureren 
 
-1. De oplossing Netwerkprestatiemeter toevoegen aan uw werkruimte uit de [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview). Ook kunt u de procedure beschreven in [toevoegen Log Analytics-oplossingen uit de galerie van oplossingen](log-analytics-add-solutions.md). 
+1. De oplossing Netwerkprestatiemeter toevoegen aan uw werkruimte uit de [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview). Ook kunt u de procedure beschreven in [toevoegen Log Analytics-oplossingen uit de galerie van oplossingen](../monitoring/monitoring-solutions.md). 
 2. Open uw Log Analytics-werkruimte en selecteer de **overzicht** tegel. 
 3. Selecteer de **Network Performance Monitor** tegel met het bericht *oplossing is aanvullende configuratie vereist*.
 
@@ -251,7 +251,7 @@ De topologie die wordt weergegeven in de kaart is laag-3-topologie en bevat geen
 
 ## <a name="log-analytics-search"></a>Analytics voor zoeken in Logboeken 
 
-Alle gegevens die wordt blootgesteld grafisch weergegeven via het dashboard Network Performance Monitor en inzoomen op pagina's zijn ook beschikbaar in [zoeken in Log Analytics](log-analytics-log-search-new.md). U kunt het uitvoeren van interactieve analyses van gegevens in de opslagplaats en correleren van gegevens uit verschillende bronnen. U kunt ook aangepaste waarschuwingen en weergaven maken en de gegevens exporteren naar Excel, Power BI, of een deelbaar koppeling. De **algemene query's** gebied in het dashboard heeft enkele handige query's die u als startpunt gebruiken kunt om te maken van uw eigen query's en rapporten. 
+Alle gegevens die wordt blootgesteld grafisch weergegeven via het dashboard Network Performance Monitor en inzoomen op pagina's zijn ook beschikbaar in [zoeken in Log Analytics](log-analytics-log-search.md). U kunt het uitvoeren van interactieve analyses van gegevens in de opslagplaats en correleren van gegevens uit verschillende bronnen. U kunt ook aangepaste waarschuwingen en weergaven maken en de gegevens exporteren naar Excel, Power BI, of een deelbaar koppeling. De **algemene query's** gebied in het dashboard heeft enkele handige query's die u als startpunt gebruiken kunt om te maken van uw eigen query's en rapporten. 
 
 ## <a name="alerts"></a>Waarschuwingen
 

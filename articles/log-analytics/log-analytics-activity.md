@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: dd404bf8766082148a2c5a1ae55189f5f82f9021
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: f5db8c4e8137d9758113210ad433278eb8f5a2ee
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49404066"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50962126"
 ---
 # <a name="collect-and-analyze-azure-activity-logs-in-log-analytics"></a>Verzamelen en analyseren van Azure-activiteitenlogboeken in Log Analytics
 
@@ -54,8 +54,8 @@ In tegenstelling tot de meeste andere Log Analytics-oplossingen, is niet-gegeven
 
 | Verbonden bron | Ondersteund | Beschrijving |
 | --- | --- | --- |
-| [Windows-agents](log-analytics-windows-agent.md) | Nee | De oplossing verzamelt geen informatie van Windows-agents. |
-| [Linux-agents](log-analytics-linux-agents.md) | Nee | De oplossing worden geen gegevens verzameld van Linux-agents. |
+| [Windows-agents](log-analytics-agent-windows.md) | Nee | De oplossing verzamelt geen informatie van Windows-agents. |
+| [Linux-agents](log-analytics-quick-collect-linux-computer.md) | Nee | De oplossing worden geen gegevens verzameld van Linux-agents. |
 | [SCOM-beheergroep](log-analytics-om-agents.md) | Nee | De oplossing worden geen gegevens verzameld van agents in een verbonden SCOM-beheergroep. |
 | [Azure Storage-account](log-analytics-azure-storage.md) | Nee | De oplossing verzamelt geen gegevens uit Azure storage. |
 
@@ -67,7 +67,7 @@ In tegenstelling tot de meeste andere Log Analytics-oplossingen, is niet-gegeven
 
 Voer de volgende stappen uit voor het configureren van de oplossing Activity Log Analytics voor uw werkruimten.
 
-1. Schakel de Activity Log Analytics-oplossing in vanuit de [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActivityOMS?tab=Overview) of met behulp van de procedure beschreven in [Log Analytics-oplossingen toevoegen vanuit de Oplossingengalerie](log-analytics-add-solutions.md).
+1. Schakel de Activity Log Analytics-oplossing in vanuit de [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActivityOMS?tab=Overview) of met behulp van de procedure beschreven in [Log Analytics-oplossingen toevoegen vanuit de Oplossingengalerie](../monitoring/monitoring-solutions.md).
 2. Configureer de activiteitenlogboeken naar uw Log Analytics-werkruimte.
     1. In de Azure-portal, selecteert u uw werkruimte en klik vervolgens op **Azure-activiteitenlogboek**.
     2. Klik op de naam van het abonnement voor elk abonnement.  
@@ -100,5 +100,5 @@ Gegevens van een activiteitenlogboek wordt alleen weergegeven *nadat* u uw activ
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Maak een [waarschuwing](log-analytics-alerts-creating.md) wanneer een bepaalde activiteit gebeurt.
-- Gebruik [zoeken in logboeken](log-analytics-log-searches.md) om gedetailleerde gegevens uit uw activiteitenlogboeken weer te geven.
+- Maak een [waarschuwing](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) wanneer een bepaalde activiteit gebeurt.
+- Gebruik [zoeken in logboeken](log-analytics-log-search.md) om gedetailleerde gegevens uit uw activiteitenlogboeken weer te geven.

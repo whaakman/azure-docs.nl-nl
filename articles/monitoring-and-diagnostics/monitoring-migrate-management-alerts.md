@@ -1,6 +1,6 @@
 ---
-title: Waarschuwingen van Azure op gebeurtenissen management migreren naar activiteitenlogboek van waarschuwingen
-description: Waarschuwingen op gebeurtenissen management worden op 1 oktober verwijderd. Voorbereiden door te migreren bestaande waarschuwingen.
+title: Azure-waarschuwingen op gebeurtenissen voor migreren naar waarschuwingen voor activiteitenlogboek
+description: Waarschuwingen over gebeurtenissen worden verwijderd op 1 oktober. Voorbereiden op migreren bestaande waarschuwingen.
 author: johnkemnetz
 services: monitoring
 ms.service: azure-monitor
@@ -8,29 +8,29 @@ ms.topic: conceptual
 ms.date: 08/14/2017
 ms.author: johnkem
 ms.component: alerts
-ms.openlocfilehash: 9e4302b780d0c08afbc791a0aec6bfd806aba161
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 21651c577dc6b519b139aa7bbfc6d03d8f2c6980
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35263701"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50962143"
 ---
-# <a name="migrate-azure-alerts-on-management-events-to-activity-log-alerts"></a>Waarschuwingen van Azure op gebeurtenissen management migreren naar activiteitenlogboek van waarschuwingen
+# <a name="migrate-azure-alerts-on-management-events-to-activity-log-alerts"></a>Azure-waarschuwingen op gebeurtenissen voor migreren naar waarschuwingen voor activiteitenlogboek
 
 
 > [!WARNING]
-> Waarschuwingen op gebeurtenissen management worden uitgeschakeld op of na oktober 1. Gebruik de volgende instructies uit om te begrijpen als u deze waarschuwingen hebben en deze als dit het geval migreert.
+> Waarschuwingen over gebeurtenissen worden uitgeschakeld op of na 1 oktober. Gebruik de onderstaande instructies om te begrijpen als u deze waarschuwingen hebben en migreren van de accounts als dit het geval is.
 >
 > 
 
 ## <a name="what-is-changing"></a>Wat wordt gewijzigd
 
-Monitor voor Azure (voorheen Azure Insights) aangeboden een mogelijkheid voor het maken van een waarschuwing geactiveerd op gebeurtenissen en meldingen naar de URL of e-mailadressen van een webhook gegenereerd. U hebt gemaakt een van deze waarschuwingen van de volgende manieren:
-* In de Azure-portal voor bepaalde resourcetypen onder bewaking -> waarschuwingen-waarschuwing toevoegen, waarbij 'Waarschuwen' is ingesteld op "Gebeurtenissen" >
+Azure Monitor (voorheen Azure Insights) aangeboden een mogelijkheid om te maken van een waarschuwing geactiveerd korting op gebeurtenissen en meldingen naar een webhook-URL of e-mailadressen die worden gegenereerd. U hebt gemaakt een van deze waarschuwingen een van de volgende manieren:
+* In de Azure-portal voor bepaalde resourcetypen onder bewaking -> waarschuwingen-waarschuwing toevoegen, waarbij 'Waarschuwen' is ingesteld op "Events" >
 * Door de cmdlet Add-AzureRmLogAlertRule PowerShell
-* Met behulp van rechtstreeks [de waarschuwing REST-API](http://docs.microsoft.com/rest/api/monitor/alertrules) met odata.type = 'ManagementEventRuleCondition' en dataSource.odata.type = "RuleManagementEventDataSource"
+* Met behulp van rechtstreeks [de waarschuwing REST-API](http://docs.microsoft.com/rest/api/monitor/alertrules) met odata.type = "ManagementEventRuleCondition" en dataSource.odata.type = "RuleManagementEventDataSource"
  
-De volgende PowerShell-script retourneert een lijst met alle waarschuwingen op gebeurtenissen die u in uw abonnement, evenals de voorwaarden op elke waarschuwing hebt.
+De volgende PowerShell-script retourneert een lijst van alle waarschuwingen voor gebeurtenissen die u in uw abonnement, evenals de voorwaarden op elke waarschuwing hebt.
 
 ```powershell
 Connect-AzureRmAccount
@@ -49,11 +49,11 @@ foreach ($alert in $alerts) {
 } 
 ```
 
-Als er geen waarschuwingen voor van Beheergebeurtenissen, wordt een reeks waarschuwingsberichten zoals deze uitvoer in de bovenstaande PowerShell-cmdlet:
+Hebt u geen waarschuwingen voor gebeurtenissen, wordt een reeks waarschuwingsberichten zoals deze in de bovenstaande PowerShell-cmdlet uitvoeren:
 
 `WARNING: The output of this cmdlet will be flattened, i.e. elimination of the properties field, in a future release to improve the user experience.`
 
-Deze waarschuwingsberichten kunnen worden genegeerd. Als u waarschuwingen op gebeurtenissen management hebt, wordt de uitvoer van deze PowerShell-cmdlet ziet er als volgt:
+Deze waarschuwingen kunnen worden genegeerd. Als u waarschuwingen op gebeurtenissen voor hebt, wordt de uitvoer van deze PowerShell-cmdlet ziet er als volgt:
 
 ```
 Alert Name: webhookEvent1
@@ -90,29 +90,29 @@ ResourceUri          : /subscriptions/<subscription-id>/resourceGroups/<resource
 ---------------------------------
 ```
 
-Elke waarschuwing wordt gescheiden door een gestreepte lijn en details opnemen in de bron-ID van de waarschuwing en de specifieke regel die wordt bewaakt.
+Elke waarschuwing wordt gescheiden door een gestreepte lijn en details omvatten de resource-ID van de waarschuwing en de specifieke regel die worden bewaakt.
 
-Deze functionaliteit is overgegaan naar [waarschuwingen van Azure controleren activiteit logboek](monitoring-activity-log-alerts.md). Deze nieuwe waarschuwingen kunnen u een voorwaarde instellen op activiteitenlogboek van gebeurtenissen en een melding ontvangen wanneer een nieuwe gebeurtenis overeenkomt met de voorwaarde. Ze bieden ook verschillende verbeteringen van waarschuwingen op gebeurtenissen management:
-* U kunt uw groep geadresseerden voor meldingen ('acties') hergebruiken over veel waarschuwingen met [actiegroepen](monitoring-action-groups.md), waardoor de complexiteit van het wijzigen van wie een waarschuwing moet ontvangen.
-* U kunt een melding ontvangen rechtstreeks op uw telefoon met SMS met groepen in te grijpen.
-* U kunt [activiteit logboek waarschuwingen maken met Resource Manager-sjablonen](monitoring-create-activity-log-alerts-with-resource-manager-template.md).
-* U kunt voorwaarden maken met de grotere flexibiliteit en complexiteit om te voldoen aan uw specifieke behoeften.
-* Meldingen worden sneller afgeleverd.
+Deze functionaliteit is overgegaan naar [waarschuwingen voor activiteitenlogboeken Azure Monitor](monitoring-activity-log-alerts.md). Deze nieuwe waarschuwingen kunnen u een voorwaarde instellen op gebeurtenissen in activiteitenlogboeken en een melding ontvangen wanneer een nieuwe gebeurtenis overeenkomt met de voorwaarde. Ze bieden ook verschillende verbeteringen van waarschuwingen over gebeurtenissen:
+* U kunt uw groep geadresseerden voor meldingen ('acties') opnieuw gebruiken voor veel waarschuwingen via [actiegroepen](monitoring-action-groups.md), waardoor de complexiteit van het wijzigen van wie een waarschuwing moet ontvangen.
+* U kunt een melding ontvangen rechtstreeks op uw telefoon met SMS met Actiegroepen.
+* U kunt [waarschuwingen voor activiteitenlogboeken maken met Resource Manager-sjablonen](alert-activity-log.md).
+* U kunt voorwaarden maken met grotere flexibiliteit en complexiteit om te voldoen aan uw specifieke behoeften.
+* Meldingen worden sneller geleverd.
  
-## <a name="how-to-migrate"></a>Het migreren
+## <a name="how-to-migrate"></a>Migreren
  
-Voor het maken van een nieuwe activiteit logboek waarschuwing, kunt u:
-* Ga als volgt [onze handleiding voor het maken van een waarschuwing in de Azure portal](monitoring-activity-log-alerts.md)
-* Meer informatie over hoe [een waarschuwing met een Resource Manager-sjabloon maken](monitoring-create-activity-log-alerts-with-resource-manager-template.md)
+Voor het maken van een nieuwe activiteit Log waarschuwing, kunt u:
+* Ga als volgt [onze handleiding voor het maken van een waarschuwing in Azure portal](monitoring-activity-log-alerts.md)
+* Meer informatie over het [een waarschuwing met behulp van Resource Manager-sjabloon maken](alert-activity-log.md)
  
-Waarschuwingen op het van Beheergebeurtenissen die u eerder hebt gemaakt wordt niet automatisch worden gemigreerd naar activiteit logboek waarschuwingen. U moet het voorgaande PowerShell-script gebruiken voor het weergeven van de waarschuwingen op gebeurtenissen voor dat u momenteel hebt geconfigureerd en deze handmatig opnieuw als de activiteit logboek waarschuwingen maken. Dit moet worden uitgevoerd vóór oktober 1, waarna waarschuwingen op gebeurtenissen management niet langer zichtbaar zijn in uw Azure-abonnement. Andere typen waarschuwingen van Azure, met inbegrip van metrische waarschuwingen van Azure controleren, Application Insights-waarschuwingen en Log Analytics waarschuwingen worden hierdoor niet beïnvloed door deze wijziging. Als u vragen hebt, kunt u boeken in de opmerkingen hieronder.
+Waarschuwingen over gebeurtenissen voor dat u eerder hebt gemaakt wordt niet automatisch worden gemigreerd naar waarschuwingen voor activiteitenlogboeken. U moet de voorgaande PowerShell-script gebruiken om de waarschuwingen op gebeurtenissen voor dat u momenteel hebt geconfigureerd en deze handmatig opnieuw als waarschuwingen voor activiteitenlogboeken maken weergeven. Dit moet worden uitgevoerd vóór 1 oktober, waarna waarschuwingen over gebeurtenissen niet langer zichtbaar is in uw Azure-abonnement. Andere typen waarschuwingen van Azure, met inbegrip van Azure Monitor metrische waarschuwingen, Application Insights-waarschuwingen en Log Analytics-waarschuwingen worden niet beïnvloed door deze wijziging. Als u vragen hebt, kunt u boeken in de opmerkingen hieronder.
 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Meer informatie over [Activity Log](monitoring-overview-activity-logs.md)
-* Configureer [activiteit logboek waarschuwingen per Azure-portal](monitoring-activity-log-alerts.md)
-* Configureer [activiteit logboek waarschuwingen via Resource Manager](monitoring-create-activity-log-alerts-with-resource-manager-template.md)
-* Controleer de [activiteit logboek waarschuwing webhook schema](monitoring-activity-log-alerts-webhook.md)
+* Meer informatie over [activiteitenlogboek](monitoring-overview-activity-logs.md)
+* Configureer [waarschuwingen voor activiteitenlogboeken via Azure portal](monitoring-activity-log-alerts.md)
+* Configureer [waarschuwingen voor activiteitenlogboeken via Resource Manager](alert-activity-log.md)
+* Controleer de [activiteit log waarschuwing webhook-schema](monitoring-activity-log-alerts-webhook.md)
 * Meer informatie over [servicemeldingen](monitoring-service-notifications.md)
 * Meer informatie over [actiegroepen](monitoring-action-groups.md)

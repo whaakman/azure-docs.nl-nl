@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 39e11f35870fa3a3573e5f1af467cfbd898a1563
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: 5f5bfe6c730f569f0cc902b0e0a132bfca645a45
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47182141"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50961684"
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>Optimalisatie van uw omgeving met de oplossing System Center Operations Manager Health Check (Preview)
 
@@ -212,7 +212,7 @@ Elke aanbeveling bevat richtlijnen over waarom het belangrijk is. Gebruik deze r
 
 ## <a name="use-health-check-focus-area-recommendations"></a>Gebruik statuscontrole focus gebied aanbevelingen
 
-Voordat u een oplossing status controleren in Log Analytics gebruiken kunt, moet u de oplossing geïnstalleerd hebben. Meer informatie over het installeren van oplossingen, Zie [installeren van een oplossing voor](log-analytics-add-solutions.md). Nadat deze is geïnstalleerd, kunt u het overzicht van de aanbevelingen weergeven met behulp van de System Center Operations Manager Health Check-tegel op de **overzicht** pagina voor uw werkruimte in de Azure-portal.
+Voordat u een oplossing status controleren in Log Analytics gebruiken kunt, moet u de oplossing geïnstalleerd hebben. Meer informatie over het installeren van oplossingen, Zie [installeren van een oplossing voor](../monitoring/monitoring-solutions.md). Nadat deze is geïnstalleerd, kunt u het overzicht van de aanbevelingen weergeven met behulp van de System Center Operations Manager Health Check-tegel op de **overzicht** pagina voor uw werkruimte in de Azure-portal.
 
 De beoordelingen samengevatte naleving voor uw infrastructuur en aanbevelingen voor inzoomen in weergeven.
 
@@ -238,7 +238,7 @@ Als u aanbevelingen die u wilt negeren hebt, kunt u een tekstbestand met Log Ana
     ```
 
     >[!NOTE]
-    > Als uw werkruimte is bijgewerkt naar de [nieuwe met Log Analytics-querytaal](log-analytics-log-search-upgrade.md), en vervolgens de bovenstaande query's gewijzigd in het volgende.
+    > Als uw werkruimte is bijgewerkt naar de [nieuwe met Log Analytics-querytaal](log-analytics-log-search.md), en vervolgens de bovenstaande query's gewijzigd in het volgende.
     >
     > `SCOMAssessmentRecommendationRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
@@ -263,7 +263,7 @@ Als u aanbevelingen die u wilt negeren hebt, kunt u een tekstbestand met Log Ana
     ```
 
     >[!NOTE]
-    > Als uw werkruimte is bijgewerkt naar de [nieuwe met Log Analytics-querytaal](log-analytics-log-search-upgrade.md), en vervolgens de bovenstaande query's gewijzigd in het volgende.
+    > Als uw werkruimte is bijgewerkt naar de [nieuwe met Log Analytics-querytaal](log-analytics-log-search.md), en vervolgens de bovenstaande query's gewijzigd in het volgende.
     >
     > `SCOMAssessmentRecommendationRecommendation | where RecommendationResult == "Ignore" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
@@ -304,4 +304,4 @@ Als u aanbevelingen die u wilt negeren hebt, kunt u een tekstbestand met Log Ana
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Zoeken in logboeken](log-analytics-log-searches.md) voor meer informatie over het analyseren van gedetailleerde gegevens voor System Center Operations Manager Health Check en aanbevelingen.
+- [Zoeken in logboeken](log-analytics-log-search.md) voor meer informatie over het analyseren van gedetailleerde gegevens voor System Center Operations Manager Health Check en aanbevelingen.

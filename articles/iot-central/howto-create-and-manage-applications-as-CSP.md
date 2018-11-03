@@ -5,15 +5,15 @@ services: iot-central
 ms.service: iot-central
 author: tbhagwat3
 ms.author: tanmayb
-ms.date: 07/09/2018
+ms.date: 10/29/2018
 ms.topic: conceptual
 manager: peterpr
-ms.openlocfilehash: d32e05e99543b30ee92ea455ae2f800b09d83661
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 5db215a3bf87ac42ac832a59ce39f7e72c45527f
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39009292"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50963350"
 ---
 # <a name="as-a-csp-create-and-manage-an-azure-iot-central-application-on-behalf-of-your-customer"></a>Als een CSP, maken en beheren van een Azure IoT Central-toepassing namens uw klant 
 
@@ -35,13 +35,13 @@ U komt terecht op de pagina Azure IoT Central Application Manager. Azure IoT Cen
 
 Voor het maken van een toepassing met Azure IoT Central, klikt u op de **nieuwe toepassing** tegel. Hiermee wordt de pagina voor het maken van de toepassing geladen. U moet Vul de velden op deze pagina en kies vervolgens **maken**. Vindt u meer informatie over elk van de velden hieronder in.
 
-![Toepassingspagina voor CSP's maken](media\howto-create-application-asCSP\image4-1.png)
+![Toepassingspagina voor CSP's maken](media\howto-create-application-asCSP\image4.png)
 
-![Toepassingspagina voor CSP's maken](media\howto-create-application-asCSP\image4-2.png)
+![Toepassingspagina voor CSP's maken](media\howto-create-application-asCSP\image4-1.png)
 
 ## <a name="payment-plan"></a>Betalingsschema
 
-Kunt u alleen betaald toepassingen maken als een CSP. Ter promotie van Azure IoT Central naar de klant, kunt u een proefversie afzonderlijk maken. Meer informatie over proefabonnementen en betaalde toepassingen in de [Azure IoT Central pagina met prijzen](https://azure.microsoft.com/pricing/details/iot-central/).
+U kunt alleen betalen per gebruik-toepassingen maken als een CSP. Ter promotie van Azure IoT Central naar de klant, kunt u een proefversie afzonderlijk maken. Meer informatie over de proef- en betalen per gebruik-toepassingen in de [Azure IoT Central pagina met prijzen](https://azure.microsoft.com/pricing/details/iot-central/).
 
 ## <a name="application-name"></a>Toepassingsnaam
 

@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 10/30/2018
+ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 7f5e1f2141a58f666367d253d5fc313499e64c9f
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 8b12e3cdc53b926f660e12b7cf4b79a8cb6f40c2
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50239387"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50960154"
 ---
 # <a name="troubleshoot-an-rdp-general-error-in-azure-vm"></a>Een algemene fout RDP in Azure VM oplossen
 
@@ -65,7 +65,7 @@ Dit probleem op te lossen [maakt u een back-up van de besturingssysteemschijf](.
 
 ### <a name="serial-console"></a>Seriële Console
 
-#### <a name="step-1-turn-on-remote-deskop"></a>Stap 1: Remote Desktop inschakelen
+#### <a name="step-1-turn-on-remote-desktop"></a>Stap 1: Extern bureaublad inschakelen
 
 1. Toegang tot de [seriële Console](serial-console-windows.md) hiervoor **ondersteuning en probleemoplossing** > **seriële console (Preview)**. Als de functie is ingeschakeld op de virtuele machine, kunt u de virtuele machine is verbinden.
 
@@ -76,94 +76,91 @@ Dit probleem op te lossen [maakt u een back-up van de besturingssysteemschijf](.
    ```
    ch -si 1
    ```
-4. Controleer de waarden van de registersleutels als volgt:
 
-   1. Zorg ervoor dat het RDP-onderdeel is ingeschakeld.
+#### <a name="step-2-check-the-values-of-rdp-registry-keys"></a>Stap 2: Controleer de waarden van registersleutels voor RDP:
+
+1. Controleer of het RDP-protocol is uitgeschakeld door beleid.
 
       ```
-      REM Get the local policy
+      REM Get the local policy 
       reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server " /v fDenyTSConnections
 
       REM Get the domain policy if any
       reg query "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v fDenyTSConnections
       ```
 
-      Als het domeinbeleid bestaat, wordt de installatie op het lokale beleid overschreven.
+      - Als het domeinbeleid bestaat, wordt de installatie op het lokale beleid overschreven.
+      - Als het domeinbeleid dat RDP is uitgeschakeld (1) en vervolgens de AD-updatebeleid van de domeincontroller wordt vermeld.
+      - Als het domeinbeleid dat RDP is ingeschakeld (0), is er geen update vereist.
+      - Als het domeinbeleid bestaat niet en het lokale beleid wordt bepaald dat RDP is uitgeschakeld (1), schakelt u RDP met behulp van de volgende opdracht uit: 
+      
+            reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnections /t REG_DWORD /d 0 /f
+                  
 
-         - Als het domeinbeleid dat RDP is uitgeschakeld (1) en vervolgens de AD-updatebeleid van de domeincontroller wordt vermeld.
-         - Als het domeinbeleid dat RDP is ingeschakeld (0), is er geen update vereist.
-
-      Als het domeinbeleid bestaat niet en het lokale beleid wordt bepaald dat RDP is uitgeschakeld (1), schakelt u RDP met behulp van de volgende opdracht uit:
-
-         ```
-         reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnections /t REG_DWORD /d 0 /f
-         ```
-
-   2. Controleer de huidige configuratie van de terminal server.
+2. Controleer de huidige configuratie van de terminal server.
 
       ```
       reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v TSEnabled
       ```
 
-   3. Als de opdracht 0 retourneert, wordt de terminal server uitgeschakeld. Schakel de terminal server vervolgens als volgt in:
+      Als de opdracht 0 retourneert, wordt de terminal server uitgeschakeld. Schakel de terminal server vervolgens als volgt in:
 
       ```
       reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v TSEnabled /t REG_DWORD /d 1 /f
       ```
 
-   4. De Terminal Server-module is ingesteld op modus leegmaken als de server zich op een terminal server-farm (extern bureaublad-services of Citrix). Controleer de huidige modus van de Terminal Server-module.
+3. De Terminal Server-module is ingesteld op modus leegmaken als de server zich op een terminal server-farm (extern bureaublad-services of Citrix). Controleer de huidige modus van de Terminal Server-module.
 
       ```
       reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v TSServerDrainMode
       ```
 
-   5. Als de opdracht 1 retourneert, wordt de Terminal Server-module verwijderen uit de modus ingesteld. Stel vervolgens de module naar de modus werkt als volgt:
+      Als de opdracht 1 retourneert, wordt de Terminal Server-module verwijderen uit de modus ingesteld. Stel vervolgens de module naar de modus werkt als volgt:
 
       ```
       reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v TSServerDrainMode /t REG_DWORD /d 0 /f
       ```
 
-   6. Controleer of u verbinding met de terminal server maken kunt.
+4. Controleer of u verbinding met de terminal server maken kunt.
 
       ```
       reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v TSUserEnabled
       ```
 
-   7. Als de opdracht 1 retourneert, kunt u geen verbinding maken met de terminal server. Schakel vervolgens de verbinding als volgt in:
+      Als de opdracht 1 retourneert, kunt u geen verbinding maken met de terminal server. Schakel vervolgens de verbinding als volgt in:
 
       ```
       reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v TSUserEnabled /t REG_DWORD /d 0 /f
       ```
-
-   8. Controleer de huidige configuratie van de RDP-listener.
+5. Controleer de huidige configuratie van de RDP-listener.
 
       ```
       reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp" /v fEnableWinStation
       ```
 
-   9. Als de opdracht 0 retourneert, wordt de RDP-listener is uitgeschakeld. Schakel de listener vervolgens als volgt in:
+      Als de opdracht 0 retourneert, wordt de RDP-listener is uitgeschakeld. Schakel de listener vervolgens als volgt in:
 
       ```
       reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp" /v fEnableWinStation /t REG_DWORD /d 1 /f
       ```
 
-   10. Controleer of u verbinding met de RDP-listener maken kunt.
+6. Controleer of u verbinding met de RDP-listener maken kunt.
 
       ```
       reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp" /v fLogonDisabled
       ```
 
-   11. Als de opdracht 1 retourneert, kunt u geen verbinding maken met de RDP-listener. Schakel vervolgens de verbinding als volgt in:
+   Als de opdracht 1 retourneert, kunt u geen verbinding maken met de RDP-listener. Schakel vervolgens de verbinding als volgt in:
 
       ```
       reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp" /v fLogonDisabled /t REG_DWORD /d 0 /f
       ```
 
-6. Start de VM opnieuw.
+7. Start de VM opnieuw.
 
-7. Afsluiten van het exemplaar CMD door te typen `exit`, en druk vervolgens op **Enter** twee keer.
+8. Afsluiten van het exemplaar CMD door te typen `exit`, en druk vervolgens op **Enter** twee keer.
 
-8. Start de VM opnieuw door te typen `restart`.
+9. Start de VM opnieuw door te typen `restart`, en maak verbinding met de virtuele machine.
 
 Als het probleem zich nog steeds voordoet, verplaatst naar de stap 2.
 
@@ -177,13 +174,13 @@ Zie voor meer informatie, [extern bureaublad verbinding verbreekt vaak in Azure 
 
 ### <a name="offline-repair"></a>Offline herstellen
 
-#### <a name="step-1-turn-on-remote-deskop"></a>Stap 1: Remote Desktop inschakelen
+#### <a name="step-1-turn-on-remote-desktop"></a>Stap 1: Extern bureaublad inschakelen
 
 1. [De besturingssysteemschijf koppelen aan een virtuele machine voor herstel](../windows/troubleshoot-recovery-disks-portal.md).
 2. Start een externe bureaubladverbinding met de virtuele machine voor herstel.
 3. Zorg ervoor dat de schijf is gemarkeerd als **Online** in de Schijfbeheer-console. Houd er rekening mee de stationsletter die is toegewezen aan de gekoppelde besturingssysteemschijf.
-3. Start een externe bureaubladverbinding met de virtuele machine voor herstel.
-4. Open een opdrachtprompt met verhoogde bevoegdheid-sessie (**als administrator uitvoeren**). Voer de volgende scripts. In dit script, we gaan ervan uit dat de stationsletter die is toegewezen aan de gekoppelde besturingssysteemschijf F. vervangen deze stationsletter door de juiste waarde voor uw virtuele machine.
+4. Start een externe bureaubladverbinding met de virtuele machine voor herstel.
+5. Open een opdrachtprompt met verhoogde bevoegdheid-sessie (**als administrator uitvoeren**). Voer de volgende scripts. In dit script, we gaan ervan uit dat de stationsletter die is toegewezen aan de gekoppelde besturingssysteemschijf F. vervangen deze stationsletter door de juiste waarde voor uw virtuele machine.
 
       ```
       reg load HKLM\BROKENSYSTEM F:\windows\system32\config\SYSTEM.hiv 
@@ -219,21 +216,21 @@ Zie voor meer informatie, [extern bureaublad verbinding verbreekt vaak in Azure 
       reg unload HKLM\BROKENSOFTWARE 
       ```
 
-3. Als de virtuele machine toegevoegd aan een domein is, controleert u de volgende registersleutel om te zien of er een Groepsbeleid die RDP wordt uitgeschakeld. 
+6. Als de virtuele machine toegevoegd aan een domein is, controleert u de volgende registersleutel om te zien of er een Groepsbeleid die RDP wordt uitgeschakeld. 
 
-   ```
-   HKLM\BROKENSOFTWARE\Policies\Microsoft\Windows NT\Terminal Services\fDenyTSConnectionS
-   ```
-
+      ```
+      HKLM\BROKENSOFTWARE\Policies\Microsoft\Windows NT\Terminal Services\fDenyTSConnectionS
+      ```
 
       Als de waarde van deze sleutel is ingesteld op 1 betekent dit dat RDP is uitgeschakeld door het beleid. Om extern bureaublad inschakelen via de GPO-beleid, wijzigt u het volgende beleid van de domeincontroller:
 
-   ```
-   Computer Configuration\Policies\Administrative Templates: Policy definitions\Windows Components\Remote Desktop Services\Remote Desktop Session Host\Connections\Allow users to connect remotely by using Remote Desktop Services
-   ```
+   
+      **Computer Configuration\Policies\Administrative sjablonen:**
 
-4. De schijf loskoppelen van de redden VM.
-5. [Maak een nieuwe virtuele machine van de schijf](../windows/create-vm-specialized.md).
+      Beleid definitions\Windows onderdelen\Extern Desktop Services\Remote bureaublad-sessie Host\Connections\Allow gebruikers op afstand verbinding kunnen maken met behulp van extern bureaublad-Services
+  
+7. De schijf loskoppelen van de redden VM.
+8. [Maak een nieuwe virtuele machine van de schijf](../windows/create-vm-specialized.md).
 
 Als het probleem zich nog steeds voordoet, verplaatst naar de stap 2.
 

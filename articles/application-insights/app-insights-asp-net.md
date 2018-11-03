@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: mbullwin
-ms.openlocfilehash: 86c0343a3492bf91eedda9303e3c6ac9cf86c4c3
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 498633d9f73c4a9b669ddd3469b62c01d2a19397
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46947316"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958709"
 ---
 # <a name="set-up-application-insights-for-your-aspnet-website"></a>Application Insights instellen voor uw ASP.NET-website
 
@@ -150,7 +150,7 @@ Er zijn ook andere onderwerpen die u kunt bekijken als u geïnteresseerd bent in
 
 * **[Met Application Insights werken in Visual Studio](app-insights-visual-studio.md)**<br/>Bevat informatie over foutopsporing met telemetrie, het doorzoeken van diagnostische gegevens en het in detail analyseren van code.
 * **[Werken met de Application Insights-portal](app-insights-dashboards.md)**<br/> Bevat informatie over dashboards, krachtige hulpprogramma's voor diagnose en analyse, waarschuwingen, een live afhankelijkheidskaart van uw toepassing en exportmogelijkheden voor telemetrie.
-* **[Analyse](app-insights-analytics-tour.md)**: de krachtige querytaal.
+* **[Analyse](../log-analytics/query-language/get-started-analytics-portal.md)**: de krachtige querytaal.
 
 ### <a name="alerts"></a>Waarschuwingen
 

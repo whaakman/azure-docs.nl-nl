@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/02/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 0c274b1ed3cbd0e00e96072adb2fca41541af686
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: fcdc14534e833ee394645e19cf8bc4bd9d6a7aaa
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49402657"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50961140"
 ---
 # <a name="connect-operations-manager-to-log-analytics"></a>Operations Manager verbinden met Log Analytics
 Als u uw bestaande investering in System Center Operations Manager wilt behouden en combineren met de uitgebreide mogelijkheden van Log Analytics, kunt u Operations Manager integreren met uw Log Analytics-werkruimte. Zo profiteert u van de mogelijkheden van Log Analytics, maar kunt u Operations Manager nog steeds gebruiken voor het volgende:
@@ -331,6 +331,6 @@ In de toekomst als u van plan uw beheergroep die u wilt een Log Analytics-werkru
 * Van het meest recente updatepakket dat op de beheergroep is toegepast. Voor Operations Manager 2012 is de bronmap ` %ProgramFiles%\Microsoft System Center 2012\Operations Manager\Server\Management Packs for Update Rollups` en voor 2012 R2 bevindt deze zich in `System Center 2012 R2\Operations Manager\Server\Management Packs for Update Rollups`.
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie [Log Analytics-oplossingen uit de galerie met oplossingen toevoegen](log-analytics-add-solutions.md) om functionaliteit toe te voegen en gegevens te verzamelen.
+Zie [Log Analytics-oplossingen uit de galerie met oplossingen toevoegen](../monitoring/monitoring-solutions.md) om functionaliteit toe te voegen en gegevens te verzamelen.
 
 

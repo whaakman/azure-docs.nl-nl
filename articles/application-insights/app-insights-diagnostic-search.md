@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: mbullwin
-ms.openlocfilehash: 1bf716d4e5a37739de2e820725449be2576054ea
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: bf722756ed04349a06cbcb7b9686e6340e8d4b6c
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47038764"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958403"
 ---
 # <a name="using-search-in-application-insights"></a>Zoeken in Application Insights gebruiken
 Search is een functie van [Application Insights](app-insights-overview.md) waarmee u kunt vinden en afzonderlijk telemetrie-items, zoals paginaweergaven, uitzonderingen, verkennen of webaanvragen. En u kunt weergeven, logboektraceringen en gebeurtenissen die u hebt gecodeerd.
 
-(Voor complexere query's over uw gegevens, gebruikt u [Analytics](app-insights-analytics-tour.md).)
+(Voor complexere query's over uw gegevens, gebruikt u [Analytics](../log-analytics/query-language/get-started-analytics-portal.md).)
 
 ## <a name="where-do-you-see-search"></a>Waar kan u Search zien?
 
@@ -102,7 +102,7 @@ Alle items met dezelfde eigenschapswaarde voor zoeken:
 ## <a name="search-the-data"></a>Zoeken naar de gegevens
 
 > [!NOTE]
-> Voor het schrijven van complexe query's, open [ **Analytics** ](app-insights-analytics-tour.md) vanaf de bovenkant van de blade zoeken.
+> Voor het schrijven van complexe query's, open [ **Analytics** ](../log-analytics/query-language/get-started-analytics-portal.md) vanaf de bovenkant van de blade zoeken.
 > 
 
 U kunt zoeken naar termen in een van de eigenschapswaarden. Dit is vooral handig als u hebt geschreven [aangepaste gebeurtenissen](app-insights-api-custom-events-metrics.md) met eigenschapswaarden. 
@@ -164,7 +164,7 @@ We niet de POST-gegevens automatisch vastleggen, maar u kunt [TrackTrace of log 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
 ## <a name="add"></a>Volgende stappen
-* [Schrijven van complexe query's in Analytics](app-insights-analytics-tour.md)
+* [Schrijven van complexe query's in Analytics](../log-analytics/query-language/get-started-analytics-portal.md)
 * [Logboeken en aangepaste telemetrie verzenden naar Application Insights](app-insights-asp-net-trace-logs.md)
 * [Beschikbaarheid en reactiesnelheid tests instellen](app-insights-monitor-web-app-availability.md)
 * [Problemen oplossen](app-insights-troubleshoot-faq.md)

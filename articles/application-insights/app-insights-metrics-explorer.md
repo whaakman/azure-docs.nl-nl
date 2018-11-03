@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/08/2017
 ms.author: mbullwin
-ms.openlocfilehash: 4c35f4366b2290164036316be8de730e20aa99bf
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 99ace7be05f186ac920aa9671946389e95e3a3a6
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47092659"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958114"
 ---
 # <a name="exploring-metrics-in-application-insights"></a>Metrische gegevens in Application Insights verkennen
 Metrische gegevens in [Application Insights] [ start] zijn gemeten waarden en aantallen gebeurtenissen die worden verzonden in telemetrie van uw toepassing. Ze helpen u prestatieproblemen detecteren en bekijk de trends in hoe uw toepassing wordt gebruikt. Er is een breed scala aan standaard metrische gegevens en u kunt ook uw eigen aangepaste metrische gegevens en gebeurtenissen maken.
@@ -194,14 +194,14 @@ In een grafiek met metrische gegevens, kunt u het pictogram Analytics rechtstree
 
     Als u wilt andere filters instellen op de verschillende grafieken, ze in verschillende blades maken, deze opslaan als afzonderlijke Favorieten. Als u wilt, kunt u deze vastmaken aan het dashboard zodat u ze naast elkaar kunt zien.
 * Als u een grafiek op een eigenschap die is niet gedefinieerd in de metriek groepeert, wordt er niets in de grafiek. Wist u 'groeperen op', of kies een eigenschap verschillende groepeerniveaus.
-* Prestatiegegevens (CPU, IO-snelheid, enzovoort) is beschikbaar voor Java-web-services, Windows-bureaublad-apps, [IIS web-apps en services als u statusmonitor installeert](app-insights-monitor-performance-live-website-now.md), en [Azure Cloud Services](app-insights-azure.md). Het is niet beschikbaar voor Azure websites.
+* Prestatiegegevens (CPU, IO-snelheid, enzovoort) is beschikbaar voor Java-web-services, Windows-bureaublad-apps, [IIS web-apps en services als u statusmonitor installeert](app-insights-monitor-performance-live-website-now.md), en [Azure Cloud Services](app-insights-overview.md). Het is niet beschikbaar voor Azure websites.
 
 ## <a name="video"></a>Video
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Bewaking met Application Insights wordt gebruikt](app-insights-web-track-usage.md)
+* [Bewaking met Application Insights wordt gebruikt](app-insights-usage-overview.md)
 * [Met behulp van diagnostische gegevens doorzoeken](app-insights-diagnostic-search.md)
 
 <!--Link references-->

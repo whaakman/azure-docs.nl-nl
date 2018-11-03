@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: ae02868500329763ea459f8fb81be17598fac4ec
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 0c85b65e9b6eabcb5c74e1d178c0f26235cdf624
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 11/02/2018
-ms.locfileid: "50914529"
+ms.locfileid: "50961820"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>Azure-Stream bewakingsgegevens naar een event hub voor gebruik door een extern hulpprogramma
 
@@ -27,8 +27,8 @@ Er zijn verschillende 'categorieën' van de gegevens te controleren binnen uw Az
 
 - **Toepassing door gegevens te controleren:** gegevens over de prestaties en functionaliteit van de code die u hebt geschreven en worden uitgevoerd op Azure. Voorbeelden van gegevens voor toepassingsbewaking zijn prestatietraces, toepassingslogboeken en telemetrie van de gebruiker. Toepassing bewakingsgegevens worden meestal verzameld in een van de volgende manieren:
   - Door het instrumenteren van uw code met een SDK, zoals de [Application Insights-SDK](../application-insights/app-insights-overview.md).
-  - Door het uitvoeren van een bewakingsagent die luistert naar nieuwe op de machine toepassingslogboeken uitvoeren van uw toepassing, zoals de [Windows Azure Diagnoseagent](./azure-diagnostics.md) of [Linux Azure Diagnoseagent](../virtual-machines/linux/diagnostic-extension.md).
-- **Gastbesturingssysteem door gegevens te controleren:** gegevens over het besturingssysteem waarop uw toepassing wordt uitgevoerd. Voorbeelden van Gast OS bewakingsgegevens zou zijn Linux syslog- of Windows-systeemgebeurtenissen. Voor het verzamelen van dit soort gegevens, moet u een agent wilt installeren, zoals de [Windows Azure Diagnoseagent](./azure-diagnostics.md) of [Linux Azure Diagnoseagent](../virtual-machines/linux/diagnostic-extension.md).
+  - Door het uitvoeren van een bewakingsagent die luistert naar nieuwe op de machine toepassingslogboeken uitvoeren van uw toepassing, zoals de [Windows Azure Diagnoseagent](./azure-diagnostics.md) of [Linux Azure Diagnoseagent](../virtual-machines/extensions/diagnostics-linux.md).
+- **Gastbesturingssysteem door gegevens te controleren:** gegevens over het besturingssysteem waarop uw toepassing wordt uitgevoerd. Voorbeelden van Gast OS bewakingsgegevens zou zijn Linux syslog- of Windows-systeemgebeurtenissen. Voor het verzamelen van dit soort gegevens, moet u een agent wilt installeren, zoals de [Windows Azure Diagnoseagent](./azure-diagnostics.md) of [Linux Azure Diagnoseagent](../virtual-machines/extensions/diagnostics-linux.md).
 - **Azure-resource door gegevens te controleren:** gegevens over de werking van een Azure-resource. Voor bepaalde typen Azure-resource, zoals virtuele machines, moet u er een gastbesturingssysteem en toepassingen om te controleren binnen die Azure-service is. De resource door gegevens te controleren is het hoogste niveau van de gegevens die beschikbaar zijn voor andere Azure-resources, zoals Network Security Groups, (omdat er is geen gastbesturingssysteem of de toepassing die wordt uitgevoerd in die bronnen). Deze gegevens kan worden verzameld met behulp van [instellingen voor resourcediagnose](./monitoring-overview-of-diagnostic-logs.md#diagnostic-settings).
 - **Azure-abonnement door gegevens te controleren:** gegevens over de werking en het beheer van een Azure-abonnement, evenals gegevens over de status en de werking van Azure zelf. De [activiteitenlogboek](./monitoring-overview-activity-logs.md) bevat de meeste abonnement, zoals service health incidenten en Azure Resource Manager-controle door gegevens te controleren. U kunt deze gegevens met behulp van een Logboekprofiel verzamelen.
 - **Azure-tenant door gegevens te controleren:** gegevens over de werking van op tenantniveau-Azure-services, zoals Azure Active Directory. Controles van de Azure Active Directory en aanmeldingen zijn voorbeelden van de tenant door gegevens te controleren. Deze gegevens kan worden verzameld met behulp van de diagnostische instelling van een tenant.
@@ -54,7 +54,7 @@ Azure-tenant door gegevens te controleren is momenteel alleen beschikbaar voor A
 
 ### <a name="azure-active-directory-data"></a>Azure Active Directory-gegevens
 
-Voor het verzenden van gegevens uit de Azure Active Directory-logboek in een Event Hubs-naamruimte, instellen van de diagnostische instelling van een tenant van uw AAD-tenant. [Deze handleiding volgt](../active-directory/reports-monitoring/quickstart-azure-monitor-stream-logs-to-event-hub.md) voor het instellen van de diagnostische instelling van een tenant.
+Voor het verzenden van gegevens uit de Azure Active Directory-logboek in een Event Hubs-naamruimte, instellen van de diagnostische instelling van een tenant van uw AAD-tenant. [Deze handleiding volgt](../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md) voor het instellen van de diagnostische instelling van een tenant.
 
 ## <a name="azure-subscription-monitoring-data"></a>Azure-abonnement door gegevens te controleren
 
@@ -71,7 +71,7 @@ Voor het verzenden van gegevens uit de Azure-activiteitenlogboek in een Event Hu
 
 Azure-resources verzenden twee soorten gegevens te controleren:
 1. [Diagnostische logboeken van resource](./monitoring-overview-of-diagnostic-logs.md)
-2. [Metrische gegevens](monitoring-overview-metrics.md)
+2. [Metrische gegevens](../monitoring/monitoring-data-collection.md)
 
 Beide typen gegevens worden verzonden naar een event hub met behulp van de diagnostische instelling van een resource. [Deze handleiding volgt](./monitoring-stream-diagnostic-logs-to-event-hubs.md) voor het instellen van de diagnostische instelling van een resource op een bepaalde resource. Een resource diagnostische instelling voor elke bron van waaruit u wenst te verzamelen van logboeken instellen.
 
@@ -119,5 +119,5 @@ Routering van uw bewakingsgegevens naar een event hub met Azure Monitor kunt u e
 ## <a name="next-steps"></a>Volgende stappen
 * [Het activiteitenlogboek naar een opslagaccount archiveren](monitoring-archive-activity-log.md)
 * [Lees het overzicht van de Azure-activiteitenlogboek](monitoring-overview-activity-logs.md)
-* [Instellen van een waarschuwing op basis van een activiteitenlogboek-gebeurtenis](insights-auditlog-to-webhook-email.md)
+* [Instellen van een waarschuwing op basis van een activiteitenlogboek-gebeurtenis](monitor-alerts-unified-log-webhook.md)
 

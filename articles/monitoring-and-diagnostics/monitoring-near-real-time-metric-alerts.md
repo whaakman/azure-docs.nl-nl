@@ -8,28 +8,21 @@ ms.topic: conceptual
 ms.date: 06/29/2018
 ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: 47dee26c84d96ebf5b0a421c2f10d18892d6d933
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: dae75d118ec46c5023f0bb347fe5fbefafb84c4a
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47227245"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50961501"
 ---
 # <a name="supported-resources-for-metric-alerts-in-azure-monitor"></a>Ondersteunde resources voor metrische waarschuwingen in Azure Monitor
 
-Azure Monitor nu ondersteunt een [nieuwe metrische Waarschuwingstype](monitoring-overview-unified-alerts.md) die heeft aanzienlijke voordelen boven de oudere [klassieke metrische waarschuwingen](insights-alerts-portal.md). Metrische gegevens zijn beschikbaar voor [lange lijst met Azure-services](monitoring-supported-metrics.md). De nieuwere waarschuwingen ondersteunen slechts een subset (groeiende) van de resourcetypen. In dit artikel geeft een lijst van deze subset.
+Azure Monitor biedt nu ondersteuning voor een nieuwe metrische Waarschuwingstype uit, met aanzienlijke voordelen boven de oudere [klassieke metrische waarschuwingen](insights-alerts-portal.md). Metrische gegevens zijn beschikbaar voor [lange lijst met Azure-services](monitoring-supported-metrics.md). De nieuwere waarschuwingen ondersteunen slechts een subset (groeiende) van de resourcetypen. In dit artikel geeft een lijst van deze subset.
 
-U kunt ook nieuwere metrische waarschuwingen voor populaire Log Analytics-Logboeken als metrische gegevens als onderdeel van de metrische gegevens van de logboeken hebt uitgepakt 
-- [Prestatiemeteritems](../log-analytics/log-analytics-data-sources-performance-counters.md) voor Windows en Linux-machines
-- [Heartbeat-records voor de status van Agent](../operations-management-suite/oms-solution-agenthealth.md)
-- [Updatebeheer](../operations-management-suite/oms-solution-update-management.md) records
-- [Gebeurtenisgegevens](../log-analytics/log-analytics-data-sources-windows-events.md) Logboeken
- 
-> [!NOTE]
-> Specifieke metrische gegevens en/of de dimensie wordt alleen weergegeven als de gegevens voor deze in de gekozen periode bestaat. Deze metrische gegevens zijn beschikbaar voor klanten met Azure Log Analytics-werkruimten in VS-Oost, West-Centraal VS en West-Europa. Metrische gegevens van Log Analytics is momenteel in openbare preview-versie en kan worden gewijzigd.
+U kunt de nieuwere metrische waarschuwingen ook gebruiken voor populaire Log Analytics-Logboeken als metrische gegevens hebt uitgepakt. Raadpleeg voor meer informatie, [metrische waarschuwingen voor logboeken](monitoring-metric-alerts-logs.md).
 
 ## <a name="portal-powershell-cli-rest-support"></a>Portal, PowerShell, CLI, REST-ondersteuning
-U kunt op dit moment nieuwere metrische waarschuwingen maken alleen in de Azure-portal [REST-API](https://docs.microsoft.com/rest/api/monitor/metricalerts/createorupdate) of [Resource Manager-sjablonen](monitoring-create-metric-alerts-with-templates.md). Ondersteuning voor het configureren van de nieuwere waarschuwingen met behulp van PowerShell en Azure CLI versie 2.0 en hoger is binnenkort beschikbaar.
+U kunt op dit moment nieuwere metrische waarschuwingen maken alleen in de Azure-portal [REST-API](https://docs.microsoft.com/rest/api/monitor/metricalerts/), of [Resource Manager-sjablonen](monitoring-create-metric-alerts-with-templates.md). Ondersteuning voor het configureren van de nieuwere waarschuwingen met behulp van PowerShell en Azure CLI versie 2.0 en hoger is binnenkort beschikbaar.
 
 ## <a name="metrics-and-dimensions-supported"></a>Metrische gegevens en dimensies ondersteund
 Nieuwere metrische waarschuwingen ondersteunt waarschuwingen voor metrische gegevens die gebruikmaken van dimensies. U kunt dimensies gebruiken voor het filteren van uw metrische gegevens naar het juiste niveau. Alle ondersteunde metrische gegevens, samen met de toepasselijke dimensies kunnen worden verkend en gevisualiseerd van [Azure Monitor - Metrics Explorer](monitoring-metric-charts.md).

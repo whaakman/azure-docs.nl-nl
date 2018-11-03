@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 94de5566db2395a3daf24c99a43cca6853e12cce
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: cca475f552495a42aabc60faf0bd57382f148120
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45736968"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958565"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Een apparaat MXChip IoT DevKit verbinden met uw Azure IoT Central-toepassing
 
@@ -23,7 +23,7 @@ Dit artikel wordt beschreven hoe u, als een apparaat-ontwikkelaar, een MXChip Io
 
 U hebt het volgende nodig om de stappen in dit artikel uit te voeren:
 
-1. Een Azure IoT Central-toepassing gemaakt op basis van de **voorbeeld Devkits** toepassingssjabloon. Zie voor meer informatie, [maken van uw Azure IoT Central Application](howto-create-application.md).
+1. Een Azure IoT Central-toepassing gemaakt op basis van de **voorbeeld Devkits** toepassingssjabloon. Zie voor meer informatie de [maken van een toepassing Quick Start](quick-deploy-iot-central.md).
 1. Een apparaat DevKit. Als u wilt een apparaat DevKit kopen, gaat u naar [MXChip IoT DevKit](http://mxchip.com/az3166).
 
 

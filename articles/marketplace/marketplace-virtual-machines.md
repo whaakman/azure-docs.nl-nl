@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: ellacroi
-ms.openlocfilehash: b8caeab7f08ffeee81492b01750cbb255e172872
-ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
+ms.openlocfilehash: d2ff854d291f65848c7e87b88d8020a835b3bdaa
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43144519"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958658"
 ---
 # <a name="virtual-machine-offer-publishing-guide"></a>Publicatiehandleiding voor virtuele Machine-aanbieding
 
@@ -29,18 +29,18 @@ Dit zijn de transactie-aanbiedingen die zijn geïmplementeerd en worden gefactur
 
 ## <a name="free-trial"></a>Gratis proefversie 
 
-U kunt ervoor zorgen dat gebruikers voor het testen van uw aanbieding door het openen van softwarelicenties beperkte termijn bij het gebruik van het model van de blling doen om uw eigen licentie (BYOL). Hieronder vindt u de vereisten voor het implementeren van deze aanbieding. 
+U kunt ervoor zorgen dat gebruikers voor het testen van uw aanbieding door het openen van softwarelicenties beperkte termijn bij het gebruik van het factureringsmodel doen om uw eigen licentie (BYOL). Hieronder vindt u de vereisten voor het implementeren van deze aanbieding. 
 
 |Vereisten  |Details  |
 |---------|---------|
-|Gratis proefperiode is afgelopen en evaluatiesoftware     |   De klant kan uw app gratis uitproberen gedurende een beperkte periode. De klant is niet vereist een licentie of abonnement om kosten te betalen voor uw aanbieding. Uw klanten zijn niet vereist om te betalen voor de onderliggende Microsoft eigen product of service. Alle opties voor proefversie worden geïmplementeerd naar uw Azure-abonnement. Hebt u enige controle van de kosten optimaliseren en het beheer. U kunt een gratis proefversie of interactieve demo. Ongeacht wat u kiest dient uw gratis proefversie de klant een vooraf bepaalde hoeveelheid tijd om te proberen uw aanbieding zonder extra kosten.|
+|Gratis proefperiode is afgelopen en evaluatiesoftware     |   Uw klanten kunnen uw app gratis uitproberen gedurende een beperkte periode. Opmerking moet een licentie of abonnement betalen voor uw aanbod, zijn uw klanten. Uw klanten zijn niet vereist om te betalen voor de onderliggende Microsoft eigen product of service. Alle opties voor proefversie worden geïmplementeerd naar uw Azure-abonnement. Hebt u enige controle van de kosten optimaliseren en het beheer. U kunt een gratis proefversie of interactieve demo. Ongeacht wat u kiest moet uw gratis proefversie bieden klanten een vooraf bepaalde hoeveelheid tijd om te proberen uw aanbieding zonder extra kosten.|
 |Eenvoudig kunnen worden geconfigureerd, kant-en-klare oplossing    |  Uw app moet zijn eenvoudig en snel te configureren en instellen.       |
 |Beschikbaarheid / uptime    |    Uw SaaS-app of -platform moet een uptime van ten minste 99,9% hebben.     |
 |Azure Active Directory     |    Uw aanbieding moet toestaan dat Azure Active Directory (Azure AD) voor federatieve eenmalige aanmelding (SSO) (Azure AD federatieve SSO) met toestemming ingeschakeld.     |
 
 ## <a name="test-drive"></a>Test Drive
 
-Een of meer virtuele machines via infrastructure-as-a-service(IaaS) of SaaS-apps te implementeren. Een voordeel van test drive publicatieoptie is de geautomatiseerde inrichting van een virtuele machine of de gehele oplossing onder leiding van een partner gehoste rondleiding. Een test uit biedt een evaluatie zonder extra kosten voor uw klant. De klant hoeft niet te worden van een bestaande Azure-klant contact opnemen met de proefversie. 
+Een of meer virtuele machines via infrastructuur-as-a-service (IaaS) of software-as-a-service (SaaS)-apps te implementeren. Een voordeel van test drive publicatieoptie is de geautomatiseerde inrichting van een virtuele machine of de gehele oplossing onder leiding van een partner gehoste rondleiding. Een test uit biedt een evaluatie zonder extra kosten voor uw klant. De klant hoeft niet te worden van een bestaande Azure-klant contact opnemen met de proefversie. 
 
 Neem contact op met ons op [amp testdrive](mailto:amp-testdrive@microsoft.com) aan de slag. 
 

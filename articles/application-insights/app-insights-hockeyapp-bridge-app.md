@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/30/2017
 ms.author: mbullwin
-ms.openlocfilehash: ce8946e5a022eea9281898d1518cc3e8bfb50ee5
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 1951f001de1b9d0667e5d4430454b32b5a3c890e
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47092502"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50957485"
 ---
 # <a name="exploring-hockeyapp-data-in-application-insights"></a>HockeyApp-gegevens in Application Insights verkennen
 
@@ -61,7 +61,7 @@ Analytics is een krachtig hulpprogramma voor ad-hoc uitvoeren van query's van uw
 
 ![Analyse](./media/app-insights-hockeyapp-bridge-app/05.png)
 
-* [Meer informatie over Analytics](app-insights-analytics-tour.md)
+* [Meer informatie over Analytics](../log-analytics/query-language/get-started-analytics-portal.md)
 
 ## <a name="continuous-export"></a>Continue export
 Continue Export kunt u uw gegevens exporteren naar een Azure Blob Storage-container. Dit is zeer nuttig als u nodig hebt voor uw gegevens langer duurt dan de bewaarperiode liggen die momenteel worden aangeboden door Application Insights. U kunt houden de gegevens in blob-opslag, in een SQL-Database, of uw favoriete oplossing voor gegevensopslag te verwerken.
@@ -69,5 +69,5 @@ Continue Export kunt u uw gegevens exporteren naar een Azure Blob Storage-contai
 [Meer informatie over de continue Export](app-insights-export-telemetry.md)
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Analyse van toepassing op uw gegevens](app-insights-analytics-tour.md)
+* [Analyse van toepassing op uw gegevens](../log-analytics/query-language/get-started-analytics-portal.md)
 

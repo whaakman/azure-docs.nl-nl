@@ -13,25 +13,27 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 06/09/2017
+ms.date: 10/23/2018
 ms.author: cynthn
-ms.openlocfilehash: cca9adb40557cf7bf9e1d4129fc6bd61cbf0df4f
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 373003eb8be0482ed96d7d11ecd879237f69b47a
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38618236"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50957162"
 ---
-# <a name="how-to-set-up-endpoints-on-a-classic-windows-virtual-machine-in-azure"></a>Over het instellen van eindpunten op een klassieke Windows-machine in Azure
-Alle Windows virtuele machines die u maakt in Azure met behulp van het klassieke implementatiemodel automatisch kunnen communiceren via een particulier netwerkkanaal met andere virtuele machines in de dezelfde cloudservice of een virtueel netwerk. Computers op het Internet of andere virtuele netwerken moeten echter eindpunten om te leiden van het binnenkomende netwerkverkeer op een virtuele machine. In dit artikel is ook beschikbaar voor [virtuele Linux-machines](../../linux/classic/setup-endpoints.md).
+# <a name="set-up-endpoints-on-a-windows-virtual-machine-by-using-the-classic-deployment-model"></a>Eindpunten instellen op een Windows-machine met behulp van het klassieke implementatiemodel
+Windows virtuele machines (VM's) die u in Azure maakt met behulp van het klassieke implementatiemodel kunnen automatisch communiceren via een privénetwerkkanaal met andere virtuele machines in de dezelfde cloudservice of een virtueel netwerk. Computers op het internet of andere virtuele netwerken moeten echter eindpunten om te leiden van het binnenkomende netwerkverkeer op een virtuele machine. 
+
+U kunt ook eindpunten instellen op [virtuele Linux-machines](../../linux/classic/setup-endpoints.md).
 
 > [!IMPORTANT]
-> Azure heeft twee verschillende implementatiemodellen voor het maken van en werken met resources: [Resource Manager en klassieke](../../../resource-manager-deployment-model.md). In dit artikel bevat informatie over met behulp van het klassieke implementatiemodel. U doet er verstandig aan voor de meeste nieuwe implementaties het Resource Manager-model te gebruiken.
+> Azure heeft twee verschillende implementatiemodellen voor het maken van en werken met resources: [Resource Manager en het klassieke model](../../../resource-manager-deployment-model.md). Dit artikel is van toepassing op het klassieke implementatiemodel. U doet er verstandig aan voor de meeste nieuwe implementaties het Resource Manager-model te gebruiken.  
 > [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
-In de **Resource Manager** implementatiemodel-eindpunten worden geconfigureerd met behulp van **Netwerkbeveiligingsgroepen (nsg's)**. Zie voor meer informatie, [toestaan van externe toegang tot uw virtuele machine via de Azure-portal](../nsg-quickstart-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+In de **Resource Manager** implementatiemodel eindpunten zijn geconfigureerd met behulp van **Netwerkbeveiligingsgroepen (nsg's)**. Zie voor meer informatie, [toestaan van externe toegang tot uw virtuele machine met behulp van de Azure-portal](../nsg-quickstart-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-Wanneer u een Windows-machine in Azure portal maakt, zijn algemene eindpunten, zoals die voor extern bureaublad- en Windows PowerShell voor externe toegang meestal automatisch voor u gemaakt. U kunt extra eindpunten configureren tijdens het maken van de virtuele machine of daarna indien nodig.
+Wanneer u een virtuele Windows-machine in Azure portal maakt, zijn algemene eindpunten, zoals eindpunten voor extern bureaublad- en Windows PowerShell voor externe toegang, meestal automatisch voor u gemaakt. U kunt later naar behoefte extra eindpunten configureren.
 
 [!INCLUDE [virtual-machines-common-classic-setup-endpoints](../../../../includes/virtual-machines-common-classic-setup-endpoints.md)]
 

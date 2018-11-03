@@ -1,5 +1,5 @@
 ---
-title: Waarschuwingen van Log Analytcs uitbreiden naar Azure
+title: Waarschuwingen van Log Analytics uitbreiden naar Azure
 description: Dit artikel beschrijft de hulpprogramma's en API waarmee u waarschuwingen van Log Analytics naar Azure-waarschuwingen kunt uitbreiden.
 author: msvijayn
 services: azure-monitor
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/04/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: ed6b2fafbb3329e20985b75f55d29b52dcc5da57
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: a470299df86f6b8f7fd61279af0334d01ef94f8d
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50415698"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50957418"
 ---
 # <a name="extend-alerts-from-log-analytics-into-azure-alerts"></a>Waarschuwingen van Log Analytics uitbreiden naar Azure-waarschuwingen
 De functie alerts in Azure Log Analytics wordt vervangen door de Azure-waarschuwingen. Als onderdeel van deze overgang, wordt de waarschuwingen die u oorspronkelijk hebt geconfigureerd in Log Analytics worden uitgebreid naar Azure. Als u niet wachten tot deze worden automatisch verplaatst naar Azure wilt, kunt u het proces starten:
@@ -470,7 +470,7 @@ Hier volgen de herstelstappen uit voor elke fout:
 
 - **Fout: Beleid aanwezig is op het niveau van bronabonnement/resourcegroep**: ![schermafbeelding van de Operations Management Suite waarschuwingsinstellingen-portalpagina met beleid voor het foutbericht is gemarkeerd](media/monitoring-alerts-extend-tool/ErrorPolicy.png)
 
-    Wanneer [Azure Policy](../azure-policy/azure-policy-introduction.md) is toegepast, wordt een nieuwe resource in een abonnement of resourcegroep groep met de werkruimte van Log Analytics (Operations Management Suite) wordt beperkt. Het systeem is niet waarschuwingen uitbreiden naar Azure en de benodigde Actiegroepen maken.
+    Wanneer [Azure Policy](../governance/policy/overview.md) is toegepast, wordt een nieuwe resource in een abonnement of resourcegroep groep met de werkruimte van Log Analytics (Operations Management Suite) wordt beperkt. Het systeem is niet waarschuwingen uitbreiden naar Azure en de benodigde Actiegroepen maken.
     
     Als u wilt oplossen, bewerkt u het beleid dat wordt veroorzaakt door de *[RequestDisallowedByPolicy](../azure-resource-manager/resource-manager-policy-requestdisallowedbypolicy-error.md)* fout, waardoor het maken van nieuwe resources voor uw abonnement of resourcegroep groep met de werkruimte. U kunt dit doen met behulp van de Azure-portal, PowerShell, Azure CLI of de API. U kunt acties om het juiste beleid dat wordt veroorzaakt door fouten controleren. Zie voor meer informatie, [activiteit bekijken om te controleren van acties](../azure-resource-manager/resource-group-audit.md). 
     

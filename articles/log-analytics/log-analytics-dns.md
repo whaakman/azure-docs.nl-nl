@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 9ac8d876e9c79e5aadfcf834e18e94f6ac8b3a30
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: a621cba2eda0156cbe191f330c805d2cca64b3ba
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49408469"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50960885"
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>Verzamel inzichten over uw DNS-infrastructuur met de oplossing DNS Analytics Preview
 
@@ -44,8 +44,8 @@ De volgende tabel beschrijft de verbonden bronnen die worden ondersteund door de
 
 | **Verbonden bron** | **Ondersteuning** | **Beschrijving** |
 | --- | --- | --- |
-| [Windows-agents](log-analytics-windows-agent.md) | Ja | De oplossing verzamelt DNS-gegevens van Windows-agents. |
-| [Linux-agents](log-analytics-linux-agents.md) | Nee | De oplossing verzamelt geen DNS-gegevens van directe Linux-agents. |
+| [Windows-agents](log-analytics-agent-windows.md) | Ja | De oplossing verzamelt DNS-gegevens van Windows-agents. |
+| [Linux-agents](log-analytics-quick-collect-linux-computer.md) | Nee | De oplossing verzamelt geen DNS-gegevens van directe Linux-agents. |
 | [System Center Operations Manager-beheergroep](log-analytics-om-agents.md) | Ja | De oplossing verzamelt DNS-gegevens van agents in een verbonden beheergroep van Operations Manager. Er is geen directe verbinding van de Operations Manager-agent naar Log Analytics vereist. Gegevens uit de beheergroep doorgestuurd naar de Log Analytics-werkruimte. |
 | [Azure Storage-account](log-analytics-azure-storage.md) | Nee | Azure storage wordt niet gebruikt door de oplossing. |
 
@@ -57,8 +57,8 @@ De oplossing verzamelt DNS-inventarisatie- en DNS-gebeurtenis met betrekking tot
 
 Gebruik de volgende informatie in de oplossing te configureren:
 
-- Hebt u een [Windows](log-analytics-windows-agent.md) of [Operations Manager](log-analytics-om-agents.md) -agent op elke DNS-server die u wilt bewaken.
-- U kunt de oplossing DNS Analytics toevoegen aan uw Log Analytics-werkruimte van de [Azure Marketplace](https://aka.ms/dnsanalyticsazuremarketplace). U kunt ook de procedure beschreven in [toevoegen Log Analytics-oplossingen uit de galerie van oplossingen](log-analytics-add-solutions.md).
+- Hebt u een [Windows](log-analytics-agent-windows.md) of [Operations Manager](log-analytics-om-agents.md) -agent op elke DNS-server die u wilt bewaken.
+- U kunt de oplossing DNS Analytics toevoegen aan uw Log Analytics-werkruimte van de [Azure Marketplace](https://aka.ms/dnsanalyticsazuremarketplace). U kunt ook de procedure beschreven in [toevoegen Log Analytics-oplossingen uit de galerie van oplossingen](../monitoring/monitoring-solutions.md).
 
 De oplossing start het verzamelen van gegevens zonder de noodzaak van verdere configuratie. Echter, kunt u de volgende configuratie voor het aanpassen van het verzamelen van gegevens.
 
@@ -190,4 +190,4 @@ Er zijn twee manieren waarop u feedback kunt geven:
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Zoeken in logboeken](log-analytics-log-searches.md) om gedetailleerde logboekbestanden DNS-records weer te geven.
+[Zoeken in logboeken](log-analytics-log-search.md) om gedetailleerde logboekbestanden DNS-records weer te geven.

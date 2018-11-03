@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: mamit
 ms.component: alerts
-ms.openlocfilehash: c4c8279a1d4638a1c5d889b53e2d9e89e458cc37
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 30b2d60868702c6113612668b8e4cf9975aa2c40
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39117614"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50962194"
 ---
 # <a name="unified-alerts-in-azure-monitor"></a>Geïntegreerde waarschuwingen in Azure Monitor
 
@@ -50,12 +50,12 @@ De ervaring voor geïntegreerde waarschuwingen maakt gebruik van de volgende con
 | Item | Definitie |
 |:---|:---|
 | Waarschuwingsregel | De definitie van de voorwaarde om een waarschuwing te maken. Een waarschuwingsregel bestaat uit een _doelresource_, _signaal_, _criteria_, en _logische_. Een waarschuwingsregel is alleen beschikbaar als het zich in een _ingeschakeld_ staat.
-| Doelresource | Definieert de specifieke resources en signalen die beschikbaar voor waarschuwingen zijn. Een doel kan een Azure-resource zijn.<br><br>Voorbeelden: virtuele machine, opslagaccount, virtuele-machineschaalset, Log Analytics-werkruimte, Application Insights-resource |
+| Doelbron | Definieert de specifieke resources en signalen die beschikbaar voor waarschuwingen zijn. Een doel kan een Azure-resource zijn.<br><br>Voorbeelden: virtuele machine, opslagaccount, virtuele-machineschaalset, Log Analytics-werkruimte, Application Insights-resource |
 | Signaal | De bron van gegevens die door de doelresource. Ondersteunde signaaltypen zijn *Metric*, *activiteitenlogboek*, *Application Insights*, en *Log*. |
 | Criteria | Combinatie van _signaal_ en _logische_ toegepast op een doelbron.<br><br>Voorbeelden: Percentage CPU > 70%, serverreactietijd > 4 ms, resultaattelling van een logbestand > 100 query, enzovoort |
 | Logica | Gebruiker gedefinieerde logica om te controleren of het signaal binnen verwacht de bereikwaarden. |
 | Bewerking | Actie om uit te voeren wanneer de waarschuwing wordt geactiveerd. Meerdere acties kunnen optreden wanneer een waarschuwing wordt geactiveerd. Deze waarschuwingen ondersteunen Actiegroepen.<br><br>Voorbeelden: e-mailen om u te e-mailadres, aanroepen van een webhook-URL |
-| Bewakingsvoorwaarde | Geeft aan of de voorwaarde die een metrische waarschuwing is opgelost. Waarschuwingsregels voor metrische gegevens voorbeeld van een bepaalde meetwaarde met regelmatige intervallen. Als de criteria in de waarschuwingsregel wordt voldaan, wordt een nieuwe waarschuwing gemaakt met de voorwaarde van 'gestart'.  Wanneer de metrische gegevens, verzameld als nog steeds aan de criteria wordt voldaan, gebeurt er niets.  Als niet aan de criteria wordt voldaan, is klikt u vervolgens de voorwaarde van de waarschuwing gewijzigd in 'omgezet'. De volgende keer dat de criteria wordt voldaan, wordt een nieuwe waarschuwing gemaakt met de voorwaarde 'gestart'. |
+| Monitorconditie | Geeft aan of de voorwaarde die een metrische waarschuwing is opgelost. Waarschuwingsregels voor metrische gegevens voorbeeld van een bepaalde meetwaarde met regelmatige intervallen. Als de criteria in de waarschuwingsregel wordt voldaan, wordt een nieuwe waarschuwing gemaakt met de voorwaarde van 'gestart'.  Wanneer de metrische gegevens, verzameld als nog steeds aan de criteria wordt voldaan, gebeurt er niets.  Als niet aan de criteria wordt voldaan, is klikt u vervolgens de voorwaarde van de waarschuwing gewijzigd in 'omgezet'. De volgende keer dat de criteria wordt voldaan, wordt een nieuwe waarschuwing gemaakt met de voorwaarde 'gestart'. |
 
 
 ## <a name="alert-pages"></a>Waarschuwing-pagina 's
@@ -82,9 +82,9 @@ U kunt een nieuwe waarschuwingsregel maken met de volgende drie stappen:
  
 Deze vereenvoudigde ontwerpproces moet langer u weten wat de bron controleren of vergelijken met seintjes die worden ondersteund voor het selecteren van een Azure-resource. De lijst met beschikbare signalen is automatisch gefilterd op basis van de doelresource die u hebt geselecteerd en die u begeleidt bij het definiëren van de logica van de waarschuwingsregel.
 
-U kunt meer informatie over het maken van regels voor waarschuwingen in [maken, weergeven en beheren van waarschuwingen via Azure Monitor](monitor-alerts-unified-usage.md).
+U kunt meer informatie over het maken van regels voor waarschuwingen in [maken, weergeven en beheren van waarschuwingen via Azure Monitor](alert-metric.md).
 
-Waarschuwingen zijn beschikbaar voor de verschillende Azure-services controleren. Zie voor informatie over hoe en wanneer het gebruik van elk van deze services [bewaking van Azure-toepassingen en bronnen](./monitoring-overview.md). De volgende tabel bevat een overzicht van de typen regels voor waarschuwingen die beschikbaar in Azure zijn. Het bevat ook wat er wordt momenteel ondersteund door de waarschuwing uniforme.
+Waarschuwingen zijn beschikbaar voor de verschillende Azure-services controleren. Zie voor informatie over hoe en wanneer het gebruik van elk van deze services [bewaking van Azure-toepassingen en bronnen](../azure-monitor/overview.md). De volgende tabel bevat een overzicht van de typen regels voor waarschuwingen die beschikbaar in Azure zijn. Het bevat ook wat er wordt momenteel ondersteund door de waarschuwing uniforme.
 
 | **Bron van de monitor** | **Signaaltype**  | **Beschrijving** | 
 |-------------|----------------|-------------|
@@ -188,7 +188,7 @@ U kunt de weergave filteren op de volgende waarden selecteren in het vervolgkeuz
 | Resourcetype | Selecteer een of meer resourcetypen. Alleen waarschuwingen met doelen van het geselecteerde type worden opgenomen in de weergave. Deze kolom is alleen beschikbaar nadat u een resourcegroep is opgegeven. |
 | Resource | Selecteer een resource. Alleen waarschuwingen met die bron als doel zijn opgenomen in de weergave. Deze kolom is alleen beschikbaar nadat u een resourcetype is opgegeven. |
 | Severity | Selecteer de ernst van een waarschuwing of selecteer *alle* om op te nemen van waarschuwingen van alle ernstcategorieën. |
-| Bewakingsvoorwaarde | Selecteer een controleconditie *alle* om op te nemen van waarschuwingen van voorwaarden. |
+| Monitorconditie | Selecteer een controleconditie *alle* om op te nemen van waarschuwingen van voorwaarden. |
 | Waarschuwingsstatus | Selecteer een waarschuwingsstatus *alle* om op te nemen van waarschuwingen van de volgende statussen. |
 | Service bewaken | Selecteer een service of selecteer *alle* om op te nemen alle services. Alleen de waarschuwingen die zijn gemaakt door regels die gebruikmaken van service als een doel zijn opgenomen. |
 | Tijdsbereik | Alleen waarschuwingen geactiveerd in het geselecteerde tijdvenster zijn opgenomen in de weergave. Ondersteunde waarden zijn het afgelopen uur, de afgelopen 24 uur, de afgelopen 7 dagen en de afgelopen 30 dagen. |
@@ -224,7 +224,7 @@ De detailpagina van het smart groep bevat de volgende secties.
 | Geschiedenis | Geeft een lijst van elke actie op die door de slimme groep en alle wijzigingen die zijn aangebracht. Dit is momenteel beperkt tot statuswijzigingen in de en waarschuwingen lidmaatschap. |
 
 ## <a name="next-steps"></a>Volgende stappen
-- [Informatie over het gebruik van de nieuwe ervaring voor waarschuwingen te maken, weergeven en beheren van waarschuwingen](monitor-alerts-unified-usage.md)
+- [Informatie over het gebruik van de nieuwe ervaring voor waarschuwingen te maken, weergeven en beheren van waarschuwingen](alert-metric.md)
 - [Meer informatie over waarschuwingen in de ervaring voor waarschuwingen](monitor-alerts-unified-log.md)
 - [Meer informatie over metrische waarschuwingen in de ervaring voor waarschuwingen](monitoring-near-real-time-metric-alerts.md)
-- [Meer informatie over waarschuwingen voor activiteitenlogboeken in de ervaring voor waarschuwingen](monitoring-activity-log-alerts-new-experience.md)
+- [Meer informatie over waarschuwingen voor activiteitenlogboeken in de ervaring voor waarschuwingen](alert-activity-log.md)

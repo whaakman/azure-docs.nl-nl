@@ -3,18 +3,18 @@ title: Inzicht in de uitvoer van Azure Stream Analytics
 description: Dit artikel beschrijft de opties voor uitvoer gegevens beschikbaar zijn in Azure Stream Analytics, met inbegrip van Power BI voor analyseresultaten.
 services: stream-analytics
 author: jasonwhowell
-ms.author: jasonh
+ms.author: mamccrea
 manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/22/2018
-ms.openlocfilehash: 396b843ecd17c15e9476bacb5e96545f963f0c4e
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.openlocfilehash: abf581430f7cf7020145b0217c387b8c2fc4f795
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50747844"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50979400"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Inzicht in de uitvoer van Azure Stream Analytics
 Dit artikel beschrijft de verschillende typen uitvoer beschikbaar voor een Azure Stream Analytics-taak. Uitvoer kunnen u opslaan en sla de resultaten van de Stream Analytics-taak. De uitvoergegevens die worden gebruikt, kunt u doen verdere bedrijfsanalyses en datawarehousing van uw gegevens. 
@@ -323,10 +323,11 @@ De volgende tabel worden enkele van de overwegingen voor de uitvoer batchverwerk
 | Azure Service Bus-wachtrij   | 256 KB per bericht</br> Zie ook [Service Bus is beperkt](../service-bus-messaging/service-bus-quotas.md) | Één gebeurtenis per bericht |
 | Azure Service Bus-onderwerp | 256 KB per bericht</br> Zie ook [Service Bus is beperkt](../service-bus-messaging/service-bus-quotas.md) | Één gebeurtenis per bericht |
 | Azure Cosmos DB   | Zie [limieten van Azure Cosmos DB](../azure-subscription-service-limits.md#azure-cosmos-db-limits) | Batch de grootte en frequentie is aangepast dynamisch op basis van cosmos DB-antwoorden schrijven. </br> Er is geen vooraf bepaalde beperkingen van Stream Analytics. |
-| Azure Functions   | | Standaardbatchgrootte is 246 KB. </br> Standaardaantal per batch is 100. </br> De batchgrootte is configureerbaar en kan worden vergroot of verkleind in de Stream Analytics [uitvoeropties](#azure-functions). 
+| Azure Functions   | | Batch-standaardgrootte is 256 KB. </br> Standaardaantal per batch is 100. </br> De batchgrootte is configureerbaar en kan worden vergroot of verkleind in de Stream Analytics [uitvoeropties](#azure-functions). 
 
 ## <a name="next-steps"></a>Volgende stappen
 > [!div class="nextstepaction"]
+
 > [Snelstart: Een Stream Analytics-taak maken met behulp van de Azure-portal](stream-analytics-quick-create-portal.md)
 
 <!--Link references-->

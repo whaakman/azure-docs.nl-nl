@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 12/19/2017
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 5822d32906419e8b0615dd8686ec47de28deb38f
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: d03af1398f8fd714246c88308ba615ae17010b39
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47182204"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50962024"
 ---
 # <a name="windows-and-linux-performance-data-sources-in-log-analytics"></a>Windows en Linux-gegevensbronnen van de prestaties die u in Log Analytics
 In Windows en Linux-prestatiemeteritems geven inzicht in de prestaties van de hardware-onderdelen, besturingssystemen en toepassingen.  Log Analytics kunt verzamelen van prestatiemeteritems op regelmatige intervallen voor analyse in de buurt van real-time (NRT) naast het verzamelen van prestatiegegevens voor langere termijn analyse en rapportage.
@@ -128,10 +128,10 @@ De volgende tabel bevat de objecten en de items die u in het configuratiebestand
 | Fysieke schijf | Gem. Schijfoverdrachten per seconde |
 | Fysieke schijf | Gem. Schijf sec/schrijven |
 | Fysieke schijf | Fysieke schijf Bytes per seconde |
-| Proces | PCT gemachtigde tijd |
-| Proces | PCT in gebruikersmodus |
-| Proces | Gebruikt geheugen kB |
-| Proces | Virtuele gedeeld geheugen |
+| Verwerken | PCT gemachtigde tijd |
+| Verwerken | PCT in gebruikersmodus |
+| Verwerken | Gebruikt geheugen kB |
+| Verwerken | Virtuele gedeeld geheugen |
 | Processor | Percentage DPC-tijd |
 | Processor | % Niet-actieve tijd |
 | Processor | Percentage interrupt-tijd |
@@ -227,5 +227,5 @@ De volgende tabel bevat voorbeelden van zoekopdrachten die prestatierecords opha
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Verzamelen van prestatiemeteritems van Linux-toepassingen](log-analytics-data-sources-linux-applications.md) met inbegrip van MySQL en Apache HTTP-Server.
-* Meer informatie over [zoekopdrachten](log-analytics-log-searches.md) om de gegevens die worden verzameld van gegevensbronnen en oplossingen te analyseren.  
+* Meer informatie over [zoekopdrachten](log-analytics-log-search.md) om de gegevens die worden verzameld van gegevensbronnen en oplossingen te analyseren.  
 * Verzamelde gegevens te exporteren [Power BI](log-analytics-powerbi.md) voor extra visualisaties en analyse.

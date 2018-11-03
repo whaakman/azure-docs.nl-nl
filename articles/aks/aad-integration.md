@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/09/2018
 ms.author: iainfou
-ms.openlocfilehash: bd7f8748dc5260ed6574a1b48632318e9399bca0
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 0dc0421baf1e5cb19be925072b5fffb989e23a3b
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48042118"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50979247"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service"></a>Azure Active Directory integreren met Azure Kubernetes Service
 
@@ -68,7 +68,9 @@ De eerste Azure AD-toepassing wordt gebruikt om op te halen van een groepslidmaa
 
   ![Graph-machtigingen van de toepassing instellen](media/aad-integration/delegated-permissions.png)
 
-7. Selecteer **gedaan**, kiest u *Microsoft Graph* uit de lijst met API's, selecteert u vervolgens **machtigingen verlenen**. Deze stap mislukt als het huidige account niet een tenantbeheerder is.
+  Selecteer **Done**.
+
+7. Kies *Microsoft Graph* uit de lijst met API's, selecteert u vervolgens **machtigingen verlenen**. Deze stap mislukt als het huidige account niet een tenantbeheerder is.
 
   ![Graph-machtigingen van de toepassing instellen](media/aad-integration/grant-permissions.png)
 
@@ -98,7 +100,9 @@ De tweede Azure AD-toepassing wordt gebruikt wanneer u zich aan met de Kubernete
 
   ![AKS AAD-servereindpunt toepassing selecteren](media/aad-integration/select-server-app.png)
 
-4. Selecteer **gedaan** en **machtigingen verlenen** om deze stap te voltooien.
+  Selecteer **gedaan**
+
+4. Selecteer uw API-server in de lijst en kies vervolgens **machtigingen verlenen**:
 
   ![Machtigingen verlenen](media/aad-integration/grant-permissions-client.png)
 

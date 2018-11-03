@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: c670ddf7543cc4a88827bed6a495c9f5d83d446f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 64a502133e671037c0ff665bc47989bdd32f8b6d
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46950917"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50979111"
 documentType: LandingData
 title: Documentatie voor virtuele Windows-machines
 metadata:
@@ -79,7 +79,6 @@ sections:
     - html: <a href="/azure/virtual-machines/windows/tutorial-govern-resources">VM's beheren</a>
     - html: <a href="/azure/virtual-machines/windows/tutorial-monitoring">Virtuele machines bewaken</a>
     - html: <a href="/azure/virtual-machines/windows/tutorial-azure-security">Beveiliging van virtuele machines beheren</a>
-    - html: <a href="/azure/virtual-machines/windows/tutorial-vsts-iis-cicd">Doorlopende integratiepijplijn maken met Visual Studio</a>
     - html: <a href="/azure/virtual-machines/windows/tutorial-iis-sql">Een SQL-/IIS-/.NET-stack installeren</a>
     - html: <a href="/azure/virtual-machines/windows/tutorial-secure-web-server">Een webserver beveiligen met SSL</a>
 - title: Uw vaardigheden ontwikkelen met Microsoft Learn
@@ -88,7 +87,7 @@ sections:
     style: cards
     className: cardsFTitle
     items:
-    - title: " Een virtuele Windows-machine maken in Azure"
+    - title: " Een virtuele Windows-machine maken in Azure"
       href: /learn/modules/create-windows-virtual-machine-in-azure/
       image:
         src: /learn/achievements/create-windows-virtual-machine-in-azure.svg

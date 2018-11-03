@@ -7,13 +7,13 @@ ms.author: raagyema
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 10/04/2018
-ms.openlocfilehash: 0794c1573c2eaa951b805573cf33f05923da83b4
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.date: 11/01/2018
+ms.openlocfilehash: 819c3b50c99471025e1eb2a98e47f60eee7ef518
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48867779"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50962602"
 ---
 # <a name="monitor-and-tune"></a>Controleren en afstemmen
 Gegevens over uw servers te controleren, kunt u problemen op te optimaliseren voor uw workload. Azure Database voor PostgreSQL biedt verschillende controle-opties te bieden inzicht in het gedrag van uw server.
@@ -39,6 +39,7 @@ Deze metrische gegevens zijn beschikbaar voor Azure Database voor PostgreSQL:
 |connections_failed|Mislukte verbindingen|Count|Het aantal mislukte verbindingen met de server.|
 |network_bytes_egress|Netwerk uit|Bytes|Uitgaand netwerkverkeer voor actieve verbindingen.|
 |network_bytes_ingress|Netwerk in|Bytes|Netwerk In voor de actieve verbindingen.|
+|backup_storage_used|Back-upopslag gebruikt|Bytes|De hoeveelheid back-upopslag gebruikt.|
 
 ## <a name="server-logs"></a>Serverlogboeken
 U kunt logboekregistratie op uw server inschakelen. Deze logboeken zijn ook beschikbaar via Azure diagnostische logboeken in [Log Analytics](../log-analytics/log-analytics-queries.md), Event Hubs en Storage-Account. Voor meer informatie over logboekregistratie, gaat u naar de [serverlogboeken](concepts-server-logs.md) pagina.

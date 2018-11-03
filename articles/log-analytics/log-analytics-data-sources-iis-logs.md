@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: bwren
 ms.comopnent: ''
-ms.openlocfilehash: 7b44c0712c4d88ec0bbb7a94f574c2a12faf3550
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 6670b6648a0f38879b57b05cb3c6c6e15ca832b4
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48040673"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958216"
 ---
 # <a name="iis-logs-in-log-analytics"></a>IIS-logboeken in Log Analytics
 Internet Information Services (IIS) slaat gebruikersactiviteit in logboekbestanden die kunnen worden verzameld door Log Analytics.  
@@ -80,5 +80,5 @@ De volgende tabel bevat voorbeelden van Logboeken-query's die IIS logboekrecords
 
 ## <a name="next-steps"></a>Volgende stappen
 * Log Analytics voor het verzamelen van andere configureren [gegevensbronnen](log-analytics-data-sources.md) voor analyse.
-* Meer informatie over [zoekopdrachten](log-analytics-log-searches.md) om de gegevens die worden verzameld van gegevensbronnen en oplossingen te analyseren.
+* Meer informatie over [zoekopdrachten](log-analytics-log-search.md) om de gegevens die worden verzameld van gegevensbronnen en oplossingen te analyseren.
 * Waarschuwingen configureren in Log Analytics om proactief te waarschuwen u van belang voorwaarden gevonden in de IIS-logboeken.

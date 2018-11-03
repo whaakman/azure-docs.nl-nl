@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 06/29/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 7c6d91da0634e7f847af01d1c057607ab095cdf6
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 7f3a90bf0dad2d0e9c6d51e942d88fb933b8ed1f
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49408205"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50961327"
 ---
 # <a name="application-insights-connector-management-solution-preview"></a>Application Insights-Connector-beheeroplossing (Preview)
 
@@ -44,8 +44,8 @@ Gegevens niet in tegenstelling tot de meeste andere Log Analytics-oplossingen, d
 
 | Verbonden bron | Ondersteund | Beschrijving |
 | --- | --- | --- |
-| [Windows-agents](log-analytics-windows-agent.md) | Nee | De oplossing verzamelt geen informatie van Windows-agents. |
-| [Linux-agents](log-analytics-linux-agents.md) | Nee | De oplossing worden geen gegevens verzameld van Linux-agents. |
+| [Windows-agents](log-analytics-agent-windows.md) | Nee | De oplossing verzamelt geen informatie van Windows-agents. |
+| [Linux-agents](log-analytics-quick-collect-linux-computer.md) | Nee | De oplossing worden geen gegevens verzameld van Linux-agents. |
 | [SCOM-beheergroep](log-analytics-om-agents.md) | Nee | De oplossing worden geen gegevens verzameld van agents in een verbonden SCOM-beheergroep. |
 | [Azure Storage-account](log-analytics-azure-storage.md) | Nee | De oplossing doet niet Verzamelingsgegevens van Azure storage. |
 
@@ -57,7 +57,7 @@ Gegevens niet in tegenstelling tot de meeste andere Log Analytics-oplossingen, d
 
 ## <a name="configuration"></a>Configuratie
 
-1. Inschakelen van de oplossing Azure Web Apps-analyse van de [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ApplicationInsights?tab=Overview) of met behulp van de procedure beschreven in [toevoegen Log Analytics-oplossingen uit de galerie van oplossingen](log-analytics-add-solutions.md).
+1. Inschakelen van de oplossing Azure Web Apps-analyse van de [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ApplicationInsights?tab=Overview) of met behulp van de procedure beschreven in [toevoegen Log Analytics-oplossingen uit de galerie van oplossingen](../monitoring/monitoring-solutions.md).
 2. Blader naar de [Azure-portal](https://portal.azure.com). Selecteer **alle services** Application Insights openen. Zoek vervolgens naar Application Insights. 
 3. Onder **abonnementen**, selecteert u een abonnement met Application Insights-resources en klik vervolgens onder **naam**, selecteer een of meer toepassingen.
 4. Klik op **Opslaan**.
@@ -267,4 +267,4 @@ Deze oplossing beschikt niet over een aantal voorbeelden van zoekopdrachten op h
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Gebruik [zoeken in logboeken](log-analytics-log-searches.md) om gedetailleerde informatie voor uw Application Insights-apps weer te geven.
+- Gebruik [zoeken in logboeken](log-analytics-log-search.md) om gedetailleerde informatie voor uw Application Insights-apps weer te geven.

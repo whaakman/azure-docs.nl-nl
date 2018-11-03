@@ -1,5 +1,5 @@
 ---
-title: Werken met georuimtelijke gegevens in Azure Cosmos DB | Microsoft Docs
+title: Werken met georuimtelijke gegevens in Azure Cosmos DB SQL API-account | Microsoft Docs
 description: Informatie over het maken, indexeren en query uitvoeren op ruimtelijke objecten met Azure Cosmos DB en de SQL-API.
 services: cosmos-db
 author: SnehaGunda
@@ -7,18 +7,18 @@ manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/20/2017
+ms.date: 11/01/2017
 ms.author: sngun
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1b1dcd9ba428618e1b234d76d5ad459eab0662aa
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 6ad59f14a0ade305bc9b1f9f125c21e9bdc39c0d
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50417554"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50961905"
 ---
-# <a name="working-with-geospatial-and-geojson-location-data-in-azure-cosmos-db"></a>Werken met georuimtelijke en GeoJSON locatiegegevens in Azure Cosmos DB
-In dit artikel bevat een inleiding tot de functionaliteit van georuimtelijke in [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). Na het lezen van dit, kunt u zich de volgende vragen beantwoorden:
+# <a name="use-geospatial-and-geojson-location-data-with-azure-cosmos-db-sql-api-account"></a>Georuimtelijke en GeoJSON locatiegegevens gebruiken met Azure Cosmos DB SQL API-account
+
+In dit artikel bevat een inleiding tot de functionaliteit van georuimtelijke in Azure Cosmos DB. Op dit moment opslaan en openen van georuimtelijke gegevens wordt ondersteund door Cosmos DB SQL API-accounts. Na het lezen van dit artikel, kunt u zich de volgende vragen beantwoorden:
 
 * Hoe kan ik ruimtelijke gegevens opslaan in Azure Cosmos DB?
 * Hoe kan ik georuimtelijke gegevens in Azure Cosmos DB in SQL en LINQ op te vragen?
@@ -133,9 +133,6 @@ public class UserProfile
     [JsonProperty("location")]
     public Point Location { get; set; }
 
-    [JsonProperty("profiletype")]
-    public string ProfileType { get; set; }
-
     // More properties
 }
 
@@ -154,7 +151,7 @@ Als u niet beschikt over de breedtegraad en lengtegraad informatie, maar de fysi
 Nu dat we kijken hoe u georuimtelijke gegevens invoegen, we gaan kijken hoe u query's van deze gegevens met behulp van Azure Cosmos DB met behulp van SQL en LINQ hebt genomen.
 
 ### <a name="spatial-sql-built-in-functions"></a>Ruimtelijke SQL ingebouwde functies
-Azure Cosmos DB ondersteunt de volgende Open georuimtelijke Consortium (OGC) ingebouwde functies voor georuimtelijke query's. Zie voor meer informatie over de volledige reeks ingebouwde functies in de SQL-taal [Query Azure Cosmos DB](sql-api-sql-query.md).
+Azure Cosmos DB ondersteunt de volgende Open georuimtelijke Consortium (OGC) ingebouwde functies voor georuimtelijke query's. Zie voor meer informatie over de volledige reeks ingebouwde functies in de SQL-taal, [Query Azure Cosmos DB](sql-api-sql-query.md).
 
 <table>
 <tr>
@@ -279,7 +276,7 @@ Hier volgt een voorbeeld van een LINQ-query waarmee wordt gezocht naar alle docu
 **LINQ-query voor afstand**
 
     foreach (UserProfile user in client.CreateDocumentQuery<UserProfile>(UriFactory.CreateDocumentCollectionUri("db", "profiles"))
-        .Where(u => u.ProfileType == "Public" && u.Location.Distance(new Point(32.33, -4.66)) < 30000))
+        .Where(u => u.ProfileType == "Public" && a.Location.Distance(new Point(32.33, -4.66)) < 30000))
     {
         Console.WriteLine("\t" + user);
     }

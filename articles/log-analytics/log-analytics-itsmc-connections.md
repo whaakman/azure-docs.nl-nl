@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
 ms.component: ''
-ms.openlocfilehash: 4faea38817a546dbab02064d22a0813362f77b3d
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: e504f8c4fb34084d613e7ab1e506187a856defef
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50416457"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50961837"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Verbinding maken met ITSM-producten en services met IT Service Management-Connector
 In dit artikel bevat informatie over het configureren van de verbinding tussen uw ITSM-product/service en de IT Service Management-Connector (ITSMC) in Log Analytics om uw werkitems centraal te beheren. Zie voor meer informatie over ITSMC [overzicht](log-analytics-itsmc-overview.md).
@@ -293,7 +293,7 @@ Zorg ervoor dat de volgende vereisten wordt voldaan:
 
 
 - ITSMC geïnstalleerd. Meer informatie: [toevoegen van de oplossing IT Service Management Connector](log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution).
-- Provance App moet worden geregistreerd bij Azure AD - en client-ID beschikbaar wordt gesteld. Zie voor gedetailleerde informatie [active directory-verificatie configureren](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md).
+- Provance App moet worden geregistreerd bij Azure AD - en client-ID beschikbaar wordt gesteld. Zie voor gedetailleerde informatie [active directory-verificatie configureren](../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md).
 
 - Gebruikersrol: beheerder.
 

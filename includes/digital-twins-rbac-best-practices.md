@@ -8,27 +8,27 @@ ms.topic: include
 ms.date: 09/27/2018
 ms.author: adgera
 ms.custom: include file
-ms.openlocfilehash: 075587df445b46c8b03c5448cebf8cd8b12f1179
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: a03f2b4e8d216db3764af03dc06b5188289ffc92
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49324075"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50964200"
 ---
-Toegangsbeheer op basis van rollen is een strategie voor beveiliging op basis van de overname voor het beheren van toegang, machtigingen en rollen. Onderliggende functies overnemen machtigingen van bovenliggende rollen. Machtigingen kunnen ook worden toegewezen zonder wordt overgenomen van een bovenliggende rol. Ze kunnen ook worden toegewezen aan een rol aanpassen naar behoefte.
+Op rollen gebaseerd toegangsbeheer is een strategie voor beveiliging op basis van de overname voor het beheren van toegang, machtigingen en rollen. Onderliggende functies overnemen machtigingen van bovenliggende rollen. Machtigingen kunnen ook worden toegewezen zonder wordt overgenomen van een bovenliggende rol. Ze kunnen ook worden toegewezen aan een rol aanpassen, indien nodig.
 
-Bijvoorbeeld, een **ruimte beheerder** moet mogelijk de wereldwijde toegang tot alle bewerkingen voor een opgegeven (met inbegrip van alle knooppunten onder of binnen het) worden uitgevoerd terwijl een **apparaat installatieprogramma** hoeft alleen *lezen* en *bijwerken* machtigingen voor apparaten en sensoren.
+Een beheerder van de ruimte moet mogelijk globale toegang tot alle bewerkingen voor een opgegeven ruimte worden uitgevoerd. Toegang tot bevat alle knooppunten onder of in de ruimte. Het installatieprogramma van een apparaat moet mogelijk alleen *lezen* en *bijwerken* machtigingen voor apparaten en sensoren.
 
-In elk geval rollen moeten worden verleend **precies en niet langer zijn dan de vereiste toegang** om te voldoen aan hun taken per de **principe van minimale bevoegdheden**, die een identiteit verleent *alleen*:
+In elk geval functies worden verleend *precies en niet langer zijn dan de vereiste toegang* om te voldoen aan hun taken per het principe van minimale bevoegdheden. Op basis van dit principe een identiteit die wordt verleend *alleen*:
 
 * De mate van toegang die nodig zijn om de taak te voltooien.
 * Een rol geschikt en zijn beperkt tot de taak is uitgevoerd.
 
 >[!IMPORTANT]
-> **Voer altijd het principe van minimale bevoegdheden**.
+> Voer altijd het principe van minimale bevoegdheden.
 
-Twee andere belangrijke Role-Based Access Control procedures te volgen:
+Twee andere belangrijke op rollen gebaseerde toegang besturingselement procedures te volgen:
 
 > [!div class="checklist"]
 > * Controleer regelmatig de roltoewijzingen om te controleren dat elke rol de juiste machtigingen heeft.
-> * Rollen en -toewijzingen moeten worden gereinigd-up zoals personen rollen of toewijzingen wijzigen.
+> * Opschonen van rollen en -toewijzingen wanneer personen rollen of toewijzingen wijzigen.

@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 03/16/2018
 ms.reviewer: mazhar
 ms.author: mbullwin
-ms.openlocfilehash: 2fa4242de6a953e82e3f81831c491125e9a7c3f3
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 5d61c3a3232645fc5f1c18696cf3232bf9b37aa2
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50026225"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50957719"
 ---
 # <a name="walkthrough-enabling-telemetry-for-microsoft-dynamics-crm-online-using-application-insights"></a>Walkthrough: Telemetrie inschakelen voor Microsoft Dynamics CRM Online met behulp van Application Insights
 Dit artikel leest u hoe u aan de telemetriegegevens van [Microsoft Dynamics CRM Online](https://www.dynamics.com/) met behulp van [Azure Application Insights](https://azure.microsoft.com/services/application-insights/). Behandelen we het complete proces van het Application Insights-script toevoegen aan uw toepassing, het vastleggen van gegevens en gegevensvisualisatie.
@@ -136,4 +136,4 @@ U kunt zelfs diepere analyse doen als u [exporteren van gegevens naar Microsoft 
 ## <a name="learn-more"></a>Meer informatie
 * [Wat is Application Insights?](app-insights-overview.md)
 * [Application Insights voor webpagina 's](app-insights-javascript.md)
-* [Meer voorbeelden en walkthroughs](app-insights-code-samples.md)
+* [Meer voorbeelden en walkthroughs](app-insights-overview.md)

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 4f9882ce94827e490b676fdf421095eae40420d5
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: be2fd826ffa658ec04bd937036e37bf55cbf65a4
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49407721"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50964132"
 ---
 # <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-log-analytics"></a>Optimalisatie van uw SQL-omgeving met de oplossing statuscontrole van SQL Server in Log Analytics
 
@@ -53,7 +53,7 @@ Nadat u de oplossing hebt toegevoegd en een beoordeling voltooid, samenvatting i
 
 Als u de statuscontrole voor uw SQL Server-servers, hiervoor een agent en de verbinding met Log Analytics met behulp van een van de volgende ondersteunde methodes:
 
-1. Installeer de [Microsoft Monitoring Agent (MMA)](log-analytics-windows-agent.md) als de server niet door System Center 2016 - Operations Manager of Operations Manager 2012 R2 bewaakt wordt.
+1. Installeer de [Microsoft Monitoring Agent (MMA)](log-analytics-agent-windows.md) als de server niet door System Center 2016 - Operations Manager of Operations Manager 2012 R2 bewaakt wordt.
 2. Als deze wordt bewaakt met System Center 2016 - Operations Manager of Operations Manager 2012 R2 en de beheergroep is niet geïntegreerd met de service Log Analytics, op de server een multihomed met Log Analytics voor het verzamelen van gegevens en door te sturen naar de service en nog steeds kan worden toegepast worden bewaakt door Operations Manager.  
 3. Anders, als uw Operations Manager-beheergroep is geïntegreerd met de service, moet u de domeincontrollers voor het verzamelen van gegevens toevoegen door de service die de stappen onder [toevoegen door agents beheerde computers](log-analytics-om-agents.md#connecting-operations-manager-to-log-analytics) nadat u hebt ingeschakeld de oplossing in uw werkruimte.  
 
@@ -184,7 +184,7 @@ Als u aanbevelingen die u wilt negeren hebt, kunt u een tekstbestand dat door Lo
     ```
 
     >[!NOTE]
-    > Als uw werkruimte is bijgewerkt naar de [nieuwe met Log Analytics-querytaal](log-analytics-log-search-upgrade.md), en vervolgens de bovenstaande query's gewijzigd in het volgende.
+    > Als uw werkruimte is bijgewerkt naar de [nieuwe met Log Analytics-querytaal](log-analytics-log-search.md), en vervolgens de bovenstaande query's gewijzigd in het volgende.
     >
     > `SQLAssessmentRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
@@ -209,7 +209,7 @@ Als u aanbevelingen die u wilt negeren hebt, kunt u een tekstbestand dat door Lo
     ```
 
     >[!NOTE]
-    > Als uw werkruimte is bijgewerkt naar de [nieuwe met Log Analytics-querytaal](log-analytics-log-search-upgrade.md), en vervolgens de bovenstaande query's gewijzigd in het volgende.
+    > Als uw werkruimte is bijgewerkt naar de [nieuwe met Log Analytics-querytaal](log-analytics-log-search.md), en vervolgens de bovenstaande query's gewijzigd in het volgende.
     >
     > `SQLAssessmentRecommendation | where RecommendationResult == "Ignored" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
@@ -265,4 +265,4 @@ Als u aanbevelingen die u wilt negeren hebt, kunt u een tekstbestand dat door Lo
 * Ja, Zie [aanbevelingen negeren](#ignore-recommendations) hierboven.
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Zoeken in logboeken](log-analytics-log-searches.md) voor meer informatie over het analyseren van gedetailleerde gegevens van de SQL-statuscontrole en aanbevelingen.
+* [Zoeken in logboeken](log-analytics-log-search.md) voor meer informatie over het analyseren van gedetailleerde gegevens van de SQL-statuscontrole en aanbevelingen.

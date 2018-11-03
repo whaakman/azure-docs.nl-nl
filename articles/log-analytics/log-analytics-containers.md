@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: d8f2701ca62eee261beaa49fe2a0719be7423a5b
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 824be21623892b8810ca4af5b885daf65bfb1594
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49408486"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50959151"
 ---
 # <a name="container-monitoring-solution-in-log-analytics"></a>Container Monitoring solution in Log Analytics
 
@@ -36,7 +36,7 @@ De oplossing laat zien welke containers worden uitgevoerd, welke containerinstal
 - Service Fabric
 - Red Hat OpenShift
 
-Als u geïnteresseerd bent in het controleren van de prestaties van uw workloads die zijn geïmplementeerd in Kubernetes-omgevingen die worden gehost in Azure Kubernetes Service (AKS), raadpleegt u [Monitor Azure Kubernetes Service](../monitoring/monitoring-container-health.md). De Container Monitoring-oplossing bevat geen ondersteuning voor het controleren van dit platform.  
+Als u geïnteresseerd bent in het controleren van de prestaties van uw workloads die zijn geïmplementeerd in Kubernetes-omgevingen die worden gehost in Azure Kubernetes Service (AKS), raadpleegt u [Monitor Azure Kubernetes Service](../monitoring/monitoring-container-insights-overview.md). De Container Monitoring-oplossing bevat geen ondersteuning voor het controleren van dit platform.  
 
 Het volgende diagram toont de relaties tussen verschillende hosts van de container en agents met Log Analytics.
 
@@ -97,11 +97,11 @@ De volgende tabel geeft een overzicht van de Docker-indeling en de bewaking van 
 ## <a name="installing-and-configuring-the-solution"></a>Installeren en configureren van de oplossing
 Gebruik de volgende informatie om de oplossing te installeren en configureren.
 
-1. Container Monitoring solution toevoegen aan uw Log Analytics-werkruimte van [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ContainersOMS?tab=Overview) of met behulp van de procedure beschreven in [toevoegen Log Analytics-oplossingen uit de galerie van oplossingen](log-analytics-add-solutions.md).
+1. Container Monitoring solution toevoegen aan uw Log Analytics-werkruimte van [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ContainersOMS?tab=Overview) of met behulp van de procedure beschreven in [toevoegen Log Analytics-oplossingen uit de galerie van oplossingen](../monitoring/monitoring-solutions.md).
 
 2. Installeer en Docker gebruiken met een Log Analytics-agent. Op basis van uw besturingssysteem en de Docker-orchestrator, kunt u de volgende methoden gebruiken om de agent te configureren.
   - Voor zelfstandige hosts:
-    - Installeren op ondersteunde Linux-besturingssystemen, en het uitvoeren van Docker en het vervolgens installeert en configureert de [Log Analytics-agent voor Linux](log-analytics-agent-linux.md).  
+    - Installeren op ondersteunde Linux-besturingssystemen, en het uitvoeren van Docker en het vervolgens installeert en configureert de [Log Analytics-agent voor Linux](log-analytics-quick-collect-linux-computer.md).  
     - In CoreOS, kunt u de Log Analytics-agent voor Linux niet uitvoeren. In plaats daarvan kunt u een beperkte versie van de Log Analytics-agent voor Linux uitvoeren. Beoordeling [Linux containerhosts met inbegrip van CoreOS](#for-all-linux-container-hosts-including-coreos) of [Azure Government Linux containerhosts met inbegrip van CoreOS](#for-all-azure-government-linux-container-hosts-including-coreos) als u met containers in Azure Government-Cloud werkt.
     - De Docker-Engine en -client installeren op Windows Server 2016 en Windows 10, en verbinding maken met een agent om te verzamelen en te verzenden naar Log Analytics. Beoordeling [installeren en configureren van Windows-containerhosts](#install-and-configure-windows-container-hosts) hebt u een Windows-omgeving.
   - Voor het indelen van Docker-meerdere host:
@@ -117,7 +117,7 @@ Gebruik de volgende informatie om de oplossing te installeren en configureren.
 Controleer de [Docker-Engine op Windows](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon) artikel voor meer informatie over het installeren en configureren uw Docker-Engines op computers waarop Windows wordt uitgevoerd.
 
 > [!IMPORTANT]
-> Docker moet worden uitgevoerd **voordat** u installeert de [Log Analytics-agent voor Linux](log-analytics-agent-linux.md) op uw hosts van de container. Als u de agent al hebt geïnstalleerd voordat u Docker installeert, moet u de Log Analytics-agent voor Linux opnieuw installeren. Zie voor meer informatie over Docker, de [Docker website](https://www.docker.com).
+> Docker moet worden uitgevoerd **voordat** u installeert de [Log Analytics-agent voor Linux](log-analytics-quick-collect-linux-computer.md) op uw hosts van de container. Als u de agent al hebt geïnstalleerd voordat u Docker installeert, moet u de Log Analytics-agent voor Linux opnieuw installeren. Zie voor meer informatie over Docker, de [Docker website](https://www.docker.com).
 
 
 ### <a name="install-and-configure-linux-container-hosts"></a>Installeer en configureer de hosts van de Linux-container
@@ -146,7 +146,7 @@ sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -v 
 
 **Overschakelen van het gebruik van een geïnstalleerde Linux-agent op een in een container**
 
-Als u eerder hebt gebruikt van de agent rechtstreeks-geïnstalleerd en u wilt gebruiken in plaats daarvan een agent die wordt uitgevoerd in een container, moet u eerst de Log Analytics-agent voor Linux te verwijderen. Zie [verwijderen van de Log Analytics-agent voor Linux](log-analytics-agent-linux.md) wilt weten hoe u de agent correct te verwijderen.  
+Als u eerder hebt gebruikt van de agent rechtstreeks-geïnstalleerd en u wilt gebruiken in plaats daarvan een agent die wordt uitgevoerd in een container, moet u eerst de Log Analytics-agent voor Linux te verwijderen. Zie [verwijderen van de Log Analytics-agent voor Linux](log-analytics-quick-collect-linux-computer.md) wilt weten hoe u de agent correct te verwijderen.  
 
 #### <a name="configure-a-log-analytics-agent-for-docker-swarm"></a>Configureren van een Log Analytics-agent voor Docker Swarm
 
@@ -190,8 +190,8 @@ Gebruik de volgende informatie om te maken van uw geheime informatie voor Docker
 #### <a name="configure-a-log-analytics-agent-for-red-hat-openshift"></a>Een Log Analytics-agent voor Red Hat OpenShift configureren
 Er zijn drie manieren om toe te voegen van de Log Analytics-agent voor Red Hat OpenShift om te beginnen met het verzamelen van bewakingsgegevens van de container.
 
-* [De Log Analytics-agent voor Linux installeren](log-analytics-agent-linux.md) rechtstreeks op elk knooppunt van OpenShift  
-* [Log Analytics VM-extensie inschakelen](log-analytics-azure-vm-extension.md) op elk knooppunt OpenShift is die zich bevinden in Azure  
+* [De Log Analytics-agent voor Linux installeren](log-analytics-quick-collect-linux-computer.md) rechtstreeks op elk knooppunt van OpenShift  
+* [Log Analytics VM-extensie inschakelen](log-analytics-quick-collect-azurevm.md) op elk knooppunt OpenShift is die zich bevinden in Azure  
 * De Log Analytics-agent installeren als een OpenShift-daemon-set  
 
 In deze sectie behandelen we de stappen die nodig zijn voor het installeren van de Log Analytics-agent als een OpenShift-daemon-set.  
@@ -476,15 +476,15 @@ Voor het gebruik van helm om Log Analytics-agent op uw Linux Kubernetes-omgeving
     LAST DEPLOYED: Tue Sep 19 20:37:46 2017
     NAMESPACE: default
     STATUS: DEPLOYED
- 
+ 
     RESOURCES:
     ==> v1/Secret
-    NAME            TYPE    DATA  AGE
-    omsagent-msoms  Opaque  3     17m
- 
+    NAME            TYPE    DATA  AGE
+    omsagent-msoms  Opaque  3     17m
+ 
     ==> v1beta1/DaemonSet
-    NAME            DESIRED  CURRENT  READY  UP-TO-DATE  AVAILABLE  NODE-SELECTOR  AGE
-    omsagent-msoms  3        3        3      3           3          <none>         17m
+    NAME            DESIRED  CURRENT  READY  UP-TO-DATE  AVAILABLE  NODE-SELECTOR  AGE
+    omsagent-msoms  3        3        3      3           3          <none>         17m
     ```
 Ga voor meer informatie naar [Container-oplossing Helm-diagram](https://aka.ms/omscontainerhelm).
 
@@ -524,9 +524,9 @@ Zie voor meer informatie over de configuratie van de Docker-daemon gebruikt in c
 
 #### <a name="install-windows-agents"></a>Windows-agents installeren
 
-Als u Windows- en Hyper-V-containers bewaken, installeert u Microsoft Monitoring Agent (MMA) op Windows-computers die containerhosts zijn. Voor computers waarop Windows wordt uitgevoerd in uw on-premises-omgeving, Zie [verbinding maken met Windows-computers naar Log Analytics](log-analytics-windows-agent.md). Voor virtuele machines die worden uitgevoerd in Azure, verbind deze met Log Analytics met behulp van de [extensie van virtuele machine](log-analytics-azure-vm-extension.md).
+Als u Windows- en Hyper-V-containers bewaken, installeert u Microsoft Monitoring Agent (MMA) op Windows-computers die containerhosts zijn. Voor computers waarop Windows wordt uitgevoerd in uw on-premises-omgeving, Zie [verbinding maken met Windows-computers naar Log Analytics](log-analytics-agent-windows.md). Voor virtuele machines die worden uitgevoerd in Azure, verbind deze met Log Analytics met behulp van de [extensie van virtuele machine](log-analytics-quick-collect-azurevm.md).
 
-U kunt Windows-containers die worden uitgevoerd in Service Fabric bewaken. Echter alleen [virtuele machines die worden uitgevoerd in Azure](log-analytics-azure-vm-extension.md) en [computers waarop Windows wordt uitgevoerd in uw on-premises omgeving](log-analytics-windows-agent.md) worden momenteel ondersteund voor Service Fabric.
+U kunt Windows-containers die worden uitgevoerd in Service Fabric bewaken. Echter alleen [virtuele machines die worden uitgevoerd in Azure](log-analytics-quick-collect-azurevm.md) en [computers waarop Windows wordt uitgevoerd in uw on-premises omgeving](log-analytics-agent-windows.md) worden momenteel ondersteund voor Service Fabric.
 
 U kunt controleren of de Container Monitoring solution juist is ingesteld voor Windows. Als u wilt controleren of het managementpack downloaden goed is, zoekt *ContainerManagement.xxx*. De bestanden moeten zich in de map C:\Program Files\Microsoft Monitoring Agent\Agent\Health State\Management servicepacks.
 
@@ -542,9 +542,9 @@ De oplossing Container Monitoring verzamelt verschillende metrische gegevens en 
 
 Gegevens worden elke drie minuten worden verzameld door de volgende typen van de agent.
 
-- [Log Analytics-agent voor Linux](log-analytics-linux-agents.md)
-- [Windows-agent](log-analytics-windows-agent.md)
-- [Log Analytics VM-extensie](log-analytics-azure-vm-extension.md)
+- [Log Analytics-agent voor Linux](log-analytics-quick-collect-linux-computer.md)
+- [Windows-agent](log-analytics-agent-windows.md)
+- [Log Analytics VM-extensie](log-analytics-quick-collect-azurevm.md)
 
 
 ### <a name="container-records"></a>Container-records
@@ -604,7 +604,7 @@ Zoeken in Logboeken met de informatie over de status van uw containers wordt geo
 
 ![Zoeken in Logboeken voor containers](./media/log-analytics-containers/containers-log-search.png)
 
-Hier kunt kunt u de zoekopdracht om te wijzigen om de gewenste informatie vindt dat u geïnteresseerd bent in bewerken. Zie voor meer informatie over zoekopdrachten in Logboeken, [zoekopdrachten in Logboeken in Log Analytics](log-analytics-log-searches.md).
+Hier kunt kunt u de zoekopdracht om te wijzigen om de gewenste informatie vindt dat u geïnteresseerd bent in bewerken. Zie voor meer informatie over zoekopdrachten in Logboeken, [zoekopdrachten in Logboeken in Log Analytics](log-analytics-log-search.md).
 
 ## <a name="troubleshoot-by-finding-a-failed-container"></a>Problemen oplossen met het vinden van een mislukte container
 
@@ -672,4 +672,4 @@ Opgeslagen query's is een standaardfunctie in Log Analytics. Door deze zijn opge
 Nadat u een query die u maakt, deze door te klikken op Opslaan **Favorieten** aan de bovenkant van de pagina voor zoeken in Logboeken. En vervolgens u gemakkelijk toegankelijk is vanuit de **mijn Dashboard** pagina.
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Zoeken in logboeken](log-analytics-log-searches.md) om gedetailleerde container gegevensrecords weer te geven.
+* [Zoeken in logboeken](log-analytics-log-search.md) om gedetailleerde container gegevensrecords weer te geven.

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/03/2018
 ms.author: v-daljep
 ms.component: ''
-ms.openlocfilehash: 3c80007a8188fb239a13aaa0ccc9ef2237a2d8d1
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: f43db05cac03d090116d227536e343c4a7bb0df4
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50025664"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958865"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Azure SQL Database controleren met Azure SQL Analytics (Preview)
 
@@ -46,8 +46,8 @@ Als de oplossing niet agents gebruikt voor het verbinding maken met de Log Analy
 | --- | --- | --- |
 | **[Azure Diagnostics](log-analytics-azure-storage.md)** | **Ja** | Azure-logboeken en metrische gegevens gegevens worden verzonden naar Log Analytics rechtstreeks door Azure. |
 | [Azure Storage-account](log-analytics-azure-storage.md) | Nee | Log Analytics lezen niet van de gegevens van een storage-account. |
-| [Windows-agents](log-analytics-windows-agent.md) | Nee | Direct Windows-agents niet worden gebruikt door de oplossing. |
-| [Linux-agents](log-analytics-linux-agents.md) | Nee | Directe Linux-agents niet worden gebruikt door de oplossing. |
+| [Windows-agents](log-analytics-agent-windows.md) | Nee | Direct Windows-agents niet worden gebruikt door de oplossing. |
+| [Linux-agents](log-analytics-quick-collect-linux-computer.md) | Nee | Directe Linux-agents niet worden gebruikt door de oplossing. |
 | [SCOM-beheergroep](log-analytics-om-agents.md) | Nee | Een directe verbinding van de SCOM-agent naar Log Analytics wordt niet gebruikt door de oplossing. |
 
 ## <a name="configuration"></a>Configuratie
@@ -124,7 +124,7 @@ De onderstaande tabel geeft een overzicht van perspectieven voor twee versies va
 | Time-outs | Biedt hiërarchische inzoomen in SQL-outs die hebben plaatsgevonden voor de databases. | Ja | Nee |
 | Blokkeringen | Biedt hiërarchische inzoomen in SQL-blockings die hebben plaatsgevonden voor de databases. | Ja | Nee |
 | Wachten op database | Biedt hiërarchische inzoomen in SQL wacht statistieken op het databaseniveau van de. Bevat overzichten van de totale wachttijd en de wachttijd per type wachten. |Ja | Ja |
-| Queryduur van de | Biedt hiërarchische inzoomen in de uitvoering van querystatistieken, zoals queryduur van de, CPU-gebruik, gegevens-IO en logboek-IO-gebruik. | Ja | Ja |
+| Queryduur | Biedt hiërarchische inzoomen in de uitvoering van querystatistieken, zoals queryduur van de, CPU-gebruik, gegevens-IO en logboek-IO-gebruik. | Ja | Ja |
 | Wachten op query | Biedt hiërarchische inzoomen in de wacht querystatistieken op categorie wachten. | Ja | Ja |
 
 ### <a name="intelligent-insights-report"></a>Intelligent Insights-rapport
@@ -192,7 +192,7 @@ Geautomatiseerde waarschuwingen in de oplossing is gebaseerd op een Log Analytic
 
 ### <a name="creating-alerts-for-azure-sql-database"></a>Het maken van waarschuwingen voor Azure SQL Database
 
-U kunt eenvoudig [waarschuwingen maken](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) met de gegevens die afkomstig zijn van Azure SQL Database-resources. Hier volgen enkele nuttige [zoeken in logboeken](log-analytics-log-searches.md) query's die u met een waarschuwing gebruiken kunt:
+U kunt eenvoudig [waarschuwingen maken](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) met de gegevens die afkomstig zijn van Azure SQL Database-resources. Hier volgen enkele nuttige [zoeken in logboeken](log-analytics-log-search.md) query's die u met een waarschuwing gebruiken kunt:
 
 *Hoge CPU-capaciteit op Azure SQL Database*
 
@@ -289,6 +289,6 @@ De oplossing is gratis te gebruiken, gebruik van diagnostische gegevens telemetr
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Gebruik [zoekopdrachten](log-analytics-log-searches.md) in Log Analytics om gedetailleerde Azure SQL-gegevens weer te geven.
+- Gebruik [zoekopdrachten](log-analytics-log-search.md) in Log Analytics om gedetailleerde Azure SQL-gegevens weer te geven.
 - [Maak uw eigen dashboards](log-analytics-dashboards.md) met Azure SQL-gegevens.
-- [Waarschuwingen maken](log-analytics-alerts.md) wanneer specifieke Azure SQL-gebeurtenissen plaatsvinden.
+- [Waarschuwingen maken](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) wanneer specifieke Azure SQL-gebeurtenissen plaatsvinden.

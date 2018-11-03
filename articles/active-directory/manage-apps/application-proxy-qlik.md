@@ -11,14 +11,14 @@ ms.workload: identity
 ms.topic: article
 ms.date: 09/06/2018
 ms.author: barbkess
-ms.reviewer: harshja
+ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: 5f103e9fe410374a551eb43d456d5993bdd36627
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 55e262e1855eb6ab50c2d32e7e8cd4bb9175a593
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44057049"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50962551"
 ---
 # <a name="application-proxy-and-qlik-sense"></a>De toepassingsproxy en Qlik Sense 
 Azure Active Directory-toepassingsproxy en Qlik Sense zijn een partnerschap aangegaan samen om te controleren of dat u zich eenvoudig kunt toepassingsproxy gebruiken voor externe toegang voor uw implementatie Qlik Sense.  
@@ -58,7 +58,11 @@ Volg dezelfde stappen als voor de toepassing #1, met de volgende uitzonderingen:
 ## <a name="testing"></a>Testen 
 Uw toepassing is nu gereed om te testen. Toegang tot de externe URL die u gebruikt voor het publiceren van QlikSense in #-toepassing 1 en meld u aan als een gebruiker die is toegewezen aan beide toepassingen.  
 
+## <a name="additional-references"></a>Aanvullende naslaginformatie
+Raadpleeg voor meer informatie over publiceren Qlik Sense met Application Proxy, de Qlik Community-artikel: [Azure AD met geïntegreerde Windows-verificatie met behulp van een Kerberos-beperkte overdracht met Qlik Sense](https://community.qlik.com/docs/DOC-20183).
+
 ## <a name="next-steps"></a>Volgende stappen
 
 - [Publiceren van toepassingen met toepassingsproxy](application-proxy-publish-azure-portal.md)
-- [Werken met Application Proxy connectors](application-proxy-connector-groups.md).
+- [Werken met Application Proxy connectors](application-proxy-connector-groups.md)
+

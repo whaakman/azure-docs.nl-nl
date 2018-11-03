@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: c87a4acb8ca333af73643a38ae1338c9c8769d13
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 123005a32315ba3972ed4f1c1784d3ac9460b101
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37341228"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958947"
 ---
 # <a name="streaming-azure-diagnostics-data-in-the-hot-path-by-using-event-hubs"></a>Streaming van Azure Diagnostics-gegevens in het dynamische pad met behulp van Event Hubs
 Diagnostische gegevens van Azure biedt flexibele manieren voor het verzamelen van Logboeken en metrische gegevens van virtuele machines (VM's) voor cloud services en resultaten overbrengen naar Azure Storage. Vanaf het tijdsbestek van maart 2016 (SDK 2.9 gebruikt), kunt u diagnostische gegevens verzenden naar aangepaste gegevensbronnen en gegevensoverdracht snelpad binnen enkele seconden met behulp van [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/).
@@ -42,7 +42,7 @@ Event Hubs receieving gegevens van Azure Diagnostics wordt ondersteund in de Clo
 * Bestaande configuraties van Azure Diagnostics in een toepassing met behulp van een *.wadcfgx* bestands- en een van de volgende methoden:
   * Visual Studio: [diagnostische gegevens configureren voor Azure Cloudservices en Virtual Machines](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md)
   * Windows PowerShell: [diagnostische gegevens in Azure Cloud Services met behulp van PowerShell inschakelen](../cloud-services/cloud-services-diagnostics-powershell.md)
-* Event Hubs-naamruimte is ingericht per artikel [aan de slag met Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
+* Event Hubs-naamruimte is ingericht per artikel [aan de slag met Event Hubs](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)
 
 ## <a name="connect-azure-diagnostics-to-event-hubs-sink"></a>Verbinding maken met Azure Diagnostics naar Event Hubs-sink
 Standaard verzendt Azure Diagnostics altijd logboeken en metrische gegevens naar een Azure Storage-account. Een toepassing kan ook gegevens naar Event Hubs verzenden door toe te voegen een nieuwe **Sinks** sectie onder de **PublicConfig** / **WadCfg** element van de *. wadcfgx* bestand. In Visual Studio, de *.wadcfgx* bestand wordt opgeslagen in het volgende pad: **Cloudserviceproject** > **rollen** > **() RoleName)** > **diagnostics.wadcfgx** bestand.
@@ -220,7 +220,7 @@ In de volgende afbeelding ziet u het dashboard van de Event Hubs in orde verzend
 ## <a name="view-hot-path-data"></a>Gegevens in de hot-pad
 Zoals eerder besproken, er worden veel gebruikt voor het luisteren naar en verwerken van Event Hubs-gegevens.
 
-Een eenvoudige benadering is het maken van een kleine test-consoletoepassing om te luisteren naar de event hub en de uitvoerstroom afdrukken. U kunt de volgende code, die wordt uitgelegd in meer detail in plaatsen [aan de slag met Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)), in een consoletoepassing.  
+Een eenvoudige benadering is het maken van een kleine test-consoletoepassing om te luisteren naar de event hub en de uitvoerstroom afdrukken. U kunt de volgende code, die wordt uitgelegd in meer detail in plaatsen [aan de slag met Event Hubs](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)), in een consoletoepassing.  
 
 Houd er rekening mee dat de consoletoepassing moet bevatten de [Event Processor Host NuGet-pakket](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost/).  
 
@@ -508,7 +508,7 @@ Beveiligde instellingen:
 ## <a name="next-steps"></a>Volgende stappen
 U kunt meer informatie over Event Hubs vinden via de volgende koppelingen:
 
-* [Event Hubs-overzicht](../event-hubs/event-hubs-what-is-event-hubs.md)
+* [Event Hubs-overzicht](../event-hubs/event-hubs-about.md)
 * [Een Event Hub maken](../event-hubs/event-hubs-create.md)
 * [Veelgestelde vragen over Event Hubs](../event-hubs/event-hubs-faq.md)
 

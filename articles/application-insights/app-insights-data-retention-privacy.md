@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: mbullwin
-ms.openlocfilehash: 5ea026de228f3c93eed04770ad931d072387aa95
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 86b7b87c8cc11be5c4f2c8892905bb6e6800e729
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49079069"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958871"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Verzameling, retentie en opslag van gegevens in Application Insights
 
@@ -173,7 +173,7 @@ TelemetryConfiguration.Active.TelemetryChannel = channel;
 
 Standaard `ServerTelemetryChannel` maakt gebruik van de huidige gebruiker lokale app-gegevensmap `%localAppData%\Microsoft\ApplicationInsights` of de tijdelijke map `%TMP%`. (Zie [implementatie](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/91e9c91fcea979b1eec4e31ba8e0fc683bf86802/src/ServerTelemetryChannel/Implementation/ApplicationFolderProvider.cs#L54-L84) hier.) Lokale opslag worden, een Linux-omgeving uitgeschakeld, tenzij een opslagmap is opgegeven.
 
-Het volgende codefragment laat zien hoe u om in te stellen `ServerTelemetryChannel.StorageFolder` in de `ConfigureServices()` -methode van uw `Startup.cs` klasse:
+Het volgende codefragment laat zien hoe u om in te stellen `ServerTelemetryChannel.StorageFolder` in de `ConfigureServices()`  -methode van uw `Startup.cs` klasse:
 
 ```
 services.AddSingleton(typeof(ITelemetryChannel), new ServerTelemetryChannel () {StorageFolder = "/tmp/myfolder"});
@@ -232,7 +232,7 @@ openssl s_client -connect bing.com:443 -tls1_2
 
 ## <a name="personal-data-stored-in-application-insights"></a>Persoonlijke gegevens die zijn opgeslagen in Application Insights
 
-Onze [Application Insights persoonsgegevens artikel](app-insights-customer-data.md) wordt dit probleem uitgebreid beschreven.
+Onze [Application Insights persoonsgegevens artikel](../log-analytics/log-analytics-personal-data-mgmt.md) wordt dit probleem uitgebreid beschreven.
 
 #### <a name="can-my-users-turn-off-application-insights"></a>Kunnen mijn gebruikers uitschakelen Application Insights?
 Niet rechtstreeks. Geen bieden we een switch die uw gebruikers werken kunnen aan het uitschakelen van Application Insights.
@@ -274,7 +274,7 @@ Voor [SDK's voor andere platforms][platforms], Zie de documenten.
 | Aanvragen |URL, duur, responscode |
 | Afhankelijkheden |Type (SQL, HTTP,...), de verbindingsreeks of de URI, synchronisatie/asynchrone, duur, geslaagd, SQL-instructie (met Status Monitor) |
 | **Uitzonderingen** |Type, **bericht**, stacks aanroepen, bestands- en regel number, thread-id van bron |
-| Crashes |Proces-id, proces-id van bovenliggende, crashes thread-id; toepassingspatch voor de, -id, build;  uitzonderingstype, adres, reason; verborgen symbolen en wordt geregistreerd, binaire begin- en -adressen, binaire naam en pad, cpu-type |
+| Oorzaken van crashes |Proces-id, proces-id van bovenliggende, crashes thread-id; toepassingspatch voor de, -id, build;  uitzonderingstype, adres, reason; verborgen symbolen en wordt geregistreerd, binaire begin- en -adressen, binaire naam en pad, cpu-type |
 | Tracering |**Bericht** en ernst |
 | Prestatiemeteritems |Tijd van processor, geheugen, snelheid van aanvragen, aantal uitzonderingen, proceseigen bytes, i/o-snelheid, aanvraagduur, lengte van aanvraagwachtrij |
 | Beschikbaarheid |Web test responscode, de duur van elke stap, de testnaam van de, timestamp, geslaagd, reactietijd, testlocatie |

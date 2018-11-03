@@ -6,14 +6,14 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: f5b91329f5287c1d8f76c98f27d9bc2fd464a11a
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 9eba9eef315f1ec6eb25ea21c1d4747ab002d078
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50633994"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958913"
 ---
-# <a name="manage-the-avere-vfxt-cluster"></a>Het Avere vFXT cluster beheren
+# <a name="manage-the-avere-vfxt-cluster"></a>Het Avere vFXT-cluster beheren
 
 Nadat het cluster is gemaakt, moet u mogelijk clusterknooppunten toevoegen of stoppen of opnieuw opstarten van het cluster. En wanneer uw project is voltooid. u moet weten stoppen en het cluster permanent verwijderen. 
 
@@ -83,7 +83,7 @@ Zoals Avere het Configuratiescherm probeer vfxt.py bewerkingen om te controleren
 
 vfxt.PY is vooraf geïnstalleerd in het cluster netwerkcontroller-VM. <!-- (If you want to install it on another system, refer to http://github.com/Azure/AvereSDK) xxx change when this repo goes  public -->
 
-Een volledige vfxt.py (Engelstalig) is beschikbaar op GitHub: <https://github.com/AvereSystems/vFXT.py/blob/master/docs/README.md> 
+Een volledige vfxt.py (Engelstalig) is beschikbaar op GitHub: [Clusterbeheer met vfxt.py in de Cloud](https://github.com/azure/averesdk/blob/master/docs/README.md)
 
 ### <a name="add-cluster-nodes-with-vfxtpy"></a>Clusterknooppunten met vfxt.py toevoegen
 
@@ -115,7 +115,7 @@ Als u het model niet gebruikt, moet u een opdracht als de volgende, met inbegrip
    --log ~/vfxt.log
 ```
 
-Lees voor meer informatie, [knooppunten toevoegen aan een cluster](https://github.com/AvereSystems/vFXT.py/blob/master/docs/using_vfxt_py.md#add-nodes-to-a-cluster) in de vfxt.py (Engelstalig).
+Lees voor meer informatie, [knooppunten toevoegen aan een cluster](https://github.com/Azure/AvereSDK/blob/master/docs/using_vfxt_py.md#add-nodes-to-a-cluster) in de vfxt.py (Engelstalig).
 
 ### <a name="stop-a-cluster-with-vfxtpy"></a>Een cluster met vfxt.py stoppen
 
@@ -129,7 +129,7 @@ vfxt.py --cloud-type azure --from-environment --stop --resource-group GROUPNAME 
 vfxt.py --cloud-type azure --from-environment --start --resource-group GROUPNAME --admin-password PASSWORD --management-address ADMIN_IP --location LOCATION --azure-network NETWORK --azure-subnet SUBNET --instances INSTANCE1_ID INSTANCE2_ID INSTANCE3_ID ...
 ```    
 
-Omdat het cluster is gestopt, moet u de exemplaar-id's om op te geven van de clusterknooppunten doorgeven. Lezen [op te geven welke cluster wijzigen](https://github.com/AvereSystems/vFXT.py/blob/master/docs/using_vfxt_py.md#specifying-which-cluster-to-modify) in de vfxt.py (Engelstalig) voor meer informatie.
+Omdat het cluster is gestopt, moet u de exemplaar-id's om op te geven van de clusterknooppunten doorgeven. Lezen [op te geven welke cluster wijzigen](https://github.com/Azure/AvereSDK/blob/master/docs/using_vfxt_py.md#specifying-which-cluster-to-modify) in de vfxt.py (Engelstalig) voor meer informatie.
 
 ### <a name="destroy-a-cluster-with-vfxtpy"></a>Vernietig een cluster met vfxt.py
 
@@ -139,8 +139,7 @@ vfxt.py --cloud-type azure --from-environment --destroy --resource-group GROUPNA
 
 De optie ``--quick-destroy`` kan worden gebruikt als u niet wilt schrijven gewijzigde gegevens uit de cache van het cluster.
 
-Lees de [vfxt.py (Engelstalig)](<https://github.com/AvereSystems/vFXT.py/blob/master/docs/README.md>) voor meer informatie.  
-<!-- change to final location when available -->
+Lees de [vfxt.py (Engelstalig)](<https://github.com/Azure/AvereSDK/blob/master/docs/README.md>) voor meer informatie.  
 
 ## <a name="manage-cluster-vms-from-the-azure-portal"></a>Cluster-VM's beheren vanuit Azure portal 
 

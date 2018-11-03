@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 10cd05bd40262815e3b27c861982debc18e5b4f3
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 152632c55fc21d2b49f6dfd8ae734833ea870898
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50142382"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978363"
 ---
 # <a name="profile-web-apps-running-on-an-azure-virtual-machine-or-virtual-machine-scale-set-with-application-insights-profiler"></a>Profiel web-apps die worden uitgevoerd op een Azure-machine of virtuele-machineschaalset met Application Insights Profiler
 U kunt Application Insights profiler voor deze services ook implementeren:
@@ -63,11 +63,8 @@ Deze pagina leidt u door de stappen die nodig zijn om op te halen die worden uit
 
 1. Implementeer uw toepassing.
 
-## <a name="enable-profiler-on-on-premises-servers"></a>Profiler inschakelen op on-premises servers
-
-Profiler inschakelen op een on-premises server is ook wel bekend als actieve Application Insights Profiler in de zelfstandige modus. Het niet gekoppeld aan Azure Diagnostics-extensie wijzigingen.
-
-Er zijn geen plannen voor de ondersteuning van officieel Profiler voor on-premises servers. Als u geïnteresseerd bent in te experimenteren met dit scenario, kunt u [downloaden ondersteuningscode](https://github.com/ramach-msft/AIProfiler-Standalone). We zijn *niet* die verantwoordelijk is voor het onderhouden van die code of voor het reageren op problemen en functieaanvragen die betrekking op de code hebben.
+## <a name="can-profiler-run-on-on-premises-servers"></a>Kan de profiler uitvoeren op on-premises servers?
+Er zijn geen plannen voor de ondersteuning van toepassing Insights Profiler voor on-premises servers. 
 
 ## <a name="next-steps"></a>Volgende stappen
 

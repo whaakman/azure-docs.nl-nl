@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: genli
-ms.openlocfilehash: 30a23010f326189ffd5886407d70e357abb9c53e
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 81e41ce6818a6f56ba5e6e888480f8b25979fb81
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42059427"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50979196"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemen met configuratie en beheer voor Azure Cloud Services: veelgestelde vragen
 
@@ -142,7 +142,7 @@ Zie de volgende documenten voor meer informatie:
 
 ### <a name="how-do-i-enable-wad-logging-for-cloud-services"></a>Hoe schakel ik WAD logboekregistratie voor Cloud Services?
 U kunt logboekregistratie in Windows Azure Diagnostics (WAD) via de volgende opties inschakelen:
-1. [Inschakelen vanuit Visual Studio](https://docs.microsoft.com/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#turn-on-diagnostics-in-cloud-service-projects-before-you-deploy-them)
+1. [Inschakelen vanuit Visual Studio](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#turn-on-diagnostics-in-cloud-service-projects-before-you-deploy-them)
 2. [Schakel via .net-code](https://docs.microsoft.com/azure/cloud-services/cloud-services-dotnet-diagnostics)
 3. [Schakel via Powershell](https://docs.microsoft.com/azure/cloud-services/cloud-services-diagnostics-powershell)
 
@@ -248,7 +248,7 @@ Zie voor meer informatie over het integreren van Azure Diagnostics met Applicati
 
 Zie voor meer informatie over het inschakelen van Application Insights voor Cloud Services, [Application Insights voor Azure Cloud Services](https://docs.microsoft.com/azure/application-insights/app-insights-cloudservices)
 
-Zie voor meer informatie over het inschakelen van logboekregistratie van Azure Diagnostics voor Cloud Services [diagnose instellen voor Azure Cloud Services en virtuele machines](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md#turn-on-diagnostics-in-cloud-service-projects-before-you-deploy-them)
+Zie voor meer informatie over het inschakelen van logboekregistratie van Azure Diagnostics voor Cloud Services [diagnose instellen voor Azure Cloud Services en virtuele machines](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#turn-on-diagnostics-in-cloud-service-projects-before-you-deploy-them)
 
 ## <a name="generic"></a>Algemene
 

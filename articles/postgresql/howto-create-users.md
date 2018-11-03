@@ -7,12 +7,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/16/2018
-ms.openlocfilehash: 05bdc841108bf1fb909375b6f2c6399f8121ceeb
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 45d1f55e60763724aeb1b1685c5c69696475a424
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49344648"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958097"
 ---
 # <a name="create-users-in-azure-database-for-postgresql-server"></a>Gebruikers maken in Azure Database for PostgreSQL-server 
 Dit artikel wordt beschreven hoe u gebruikers in een Azure Database for PostgreSQL-server kunt maken.
@@ -36,7 +36,7 @@ De gebruiker van het serverbeheerdersaccount kan worden gebruikt voor het maken 
    Voor verbinding met uw databaseserver moet u beschikken over de volledige servernaam en aanmeldingsreferenties van de beheerder. U kunt eenvoudig vinden voor de servernaam en aanmeldingsgegevens informatie van de server **overzicht** pagina of het **eigenschappen** pagina in de Azure portal. 
 
 2. De beheerdersaccount en het wachtwoord om verbinding met uw database-server te gebruiken. Gebruik uw favoriete clienthulpprogramma, zoals pgAdmin of psql.
-   Als u niet hoe u verbinding maakt weet, Zie [verbinding maken met de PostgreSQL-Database met behulp van psql in Cloud Shell](./quickstart-create-server-database-portal.md#connect-to-the-postgresql-database-by-using-psql-in-cloud-shell)
+   Als u niet hoe u verbinding maakt weet, Zie [de Snelstartgids](./quickstart-create-server-database-portal.md)
 
 3. Bewerken en voer de volgende SQL-code. Vervang de gebruikersnaam van uw nieuwe voor de tijdelijke aanduiding < new_user > en vervang het wachtwoord van de tijdelijke aanduiding door uw eigen sterk wachtwoord. 
 

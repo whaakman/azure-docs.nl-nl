@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: df1cada5e730189546f65d9799926807390db083
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: b61ee3c3baa4590dc8a2fbf91b1ff941626a01e4
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47432253"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50959817"
 ---
 # <a name="create-a-windows-virtual-machine-from-a-resource-manager-template"></a>Een Windows virtuele machine maken van een Resource Manager-sjabloon
 
@@ -53,9 +53,9 @@ Alle resources moeten worden geïmplementeerd in een [resourcegroep](../../azure
 
 ## <a name="create-the-files"></a>De bestanden maken
 
-In deze stap maakt u een sjabloon voor bestanden die worden geïmplementeerd en een parameterbestand waarmee de parameterwaarden voor de sjabloon. U maakt ook een bestand met autorisatieregels die wordt gebruikt voor het Azure Resource Manager-bewerkingen uitvoeren.
+In deze stap maakt u een sjabloon voor bestanden die worden geïmplementeerd en een parameterbestand waarmee de parameterwaarden voor de sjabloon. U maakt ook een bestand met autorisatieregels die wordt gebruikt voor het Azure Resource Manager-bewerkingen uitvoeren. 
 
-1. Maak een bestand met de naam *CreateVMTemplate.json* en voeg deze JSON-code toe:
+1. Maak een bestand met de naam *CreateVMTemplate.json* en voeg uw JSON-code toe. Vervang de waarde van `domainNameLabel` door uw eigen unieke naam.
 
     ```json
     {

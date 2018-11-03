@@ -5,15 +5,15 @@ services: virtual-machines-windows
 author: cynthn
 ms.service: virtual-machines-windows
 ms.topic: include
-ms.date: 03/11/2018
+ms.date: 11/01/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 89d35197567c4bd44c5867dbb120d07e9f99d1e9
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 73273447bcf534f6ffd4584673756c40e8509e21
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50746296"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50973767"
 ---
 Wanneer u een virtuele Azure-machine maakt, moet u een [virtueel netwerk](../articles/virtual-network/virtual-networks-overview.md) (VNet) maken of een bestaand VNet gebruiken. U moet ook bepalen hoe uw virtuele machines kunnen worden geopend via de VNet. Het is belangrijk om [een planning te maken voordat u resources maakt](../articles/virtual-network/virtual-network-vnet-plan-design-arm.md) en ervoor te zorgen dat u op de hoogte bent van de [limieten van netwerkresources](../articles/azure-subscription-service-limits.md#networking-limits).
 
@@ -36,9 +36,7 @@ Naast deze basisresources, moet u ook deze optionele resources overwegen:
 
 Een [netwerkinterface (NIC)](../articles/virtual-network/virtual-network-network-interface.md) is de onderlinge verbinding tussen een virtuele machine en een virtueel netwerk (VNet). Een virtuele machine moet ten minste één NIC hebben, maar kan er meer dan een hebben, afhankelijk van de grootte van de virtuele machine die u maakt. Meer informatie over het aantal NIC's van elke VM-grootte ondersteunt voor [Windows](../articles/virtual-machines/windows/sizes.md) of [Linux](../articles/virtual-machines/linux/sizes.md).
 
-U kunt een virtuele machine maken met meerdere NIC's, en u kunt ook toevoegen of verwijderen van NIC's gedurende de levensduur van een virtuele machine. Meerdere NIC's kunnen een virtuele machine verbinding maken met verschillende subnetten en verzenden of ontvangen van verkeer via de meest geschikte interface.
-
-Als de virtuele machine is toegevoegd aan een beschikbaarheidsset, moeten alle virtuele machines binnen de beschikbaarheidsset één NIC of meerdere NIC's hebben. Virtuele machines met meer dan één NIC hoeven niet hetzelfde aantal NIC's te hebben, maar ze moeten er allemaal ten minste twee hebben.
+U kunt een virtuele machine maken met meerdere NIC's, en u kunt ook toevoegen of verwijderen van NIC's gedurende de levensduur van een virtuele machine. Meerdere NIC's kunnen een virtuele machine verbinding maken met verschillende subnetten en verzenden of ontvangen van verkeer via de meest geschikte interface. Virtuele machines met een willekeurig aantal netwerkinterfaces kunnen bestaan in dezelfde beschikbaarheidsset, tot aan het aantal dat wordt ondersteund door de VM-grootte. 
 
 Elke NIC die is gekoppeld aan een virtuele machine moet bestaan op dezelfde locatie en in hetzelfde abonnement als de virtuele machine. Elke NIC moet zijn verbonden met een VNet die bestaat op dezelfde Azure-locatie en in hetzelfde abonnement als de NIC. Kunt u het subnet dat een virtuele machine is verbonden met nadat deze gemaakt, maar u kunt het VNet niet wijzigen. Aan elke NIC die is gekoppeld aan een virtuele machine wordt een MAC-adres toegewezen dat niet wordt gewijzigd totdat de virtuele machine wordt verwijderd.
 

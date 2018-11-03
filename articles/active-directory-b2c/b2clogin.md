@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/22/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 36025bf8460d690aab3b3617ad3341dfe7005e9e
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: f180b6b82613cdddf33a2128d25c49913b8fb128
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49649264"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978482"
 ---
 # <a name="set-redirect-urls-to-b2clogincom-for-azure-active-directory-b2c"></a>Set Omleidings-URL's op b2clogin.com voor Azure Active Directory B2C
 
@@ -62,7 +62,7 @@ Uw Azure AD B2C-toepassing waarschijnlijk verwijst naar `login.microsoftonline.c
 
 Als u MSAL, stelt u de **ValidateAuthority** naar `false`. Het volgende voorbeeld ziet u hoe u de eigenschap kunt instellen:
 
-```
+```CSharp
 this.clientApplication = new UserAgentApplication(
   env.auth.clientId,
   env.auth.loginAuthority,

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/25/2018
 ms.author: johnkem
 ms.component: activitylog
-ms.openlocfilehash: 7a5372174fcc7cd9552c00c9d283772c9863b815
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: af8248bb68068c20d62a2d8cc1e86fd9997a740c
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39257995"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50962960"
 ---
 # <a name="stream-the-azure-activity-log-to-event-hubs"></a>Stream het Azure-activiteitenlogboek naar Eventhubs
 U kunt streamen de [Azure Activity Log](monitoring-overview-activity-logs.md) in bijna realtime voor elke toepassing door een van beide:
@@ -101,5 +101,5 @@ Het schema voor het activiteitenlogboek is beschikbaar in [abonnement activiteit
 ## <a name="next-steps"></a>Volgende stappen
 * [Het activiteitenlogboek naar een opslagaccount archiveren](monitoring-archive-activity-log.md)
 * [Lees het overzicht van de Azure-activiteitenlogboek](monitoring-overview-activity-logs.md)
-* [Instellen van een waarschuwing op basis van een activiteitenlogboek-gebeurtenis](insights-auditlog-to-webhook-email.md)
+* [Instellen van een waarschuwing op basis van een activiteitenlogboek-gebeurtenis](monitor-alerts-unified-log-webhook.md)
 

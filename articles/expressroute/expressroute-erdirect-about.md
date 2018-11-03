@@ -2,26 +2,26 @@
 title: Over Azure ExpressRoute Direct | Microsoft Docs
 description: Deze pagina biedt een overzicht van ExpressRoute Direct (Preview)
 services: expressroute
-author: cherylmc
+author: mialdrid
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 09/21/2018
-ms.author: cherylmc
-ms.openlocfilehash: ce4bc88f6b599bb3f5f760b2ba83c81f2b6acc5f
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.date: 11/01/2018
+ms.author: mialdrid
+ms.openlocfilehash: 3b46f24edf10fee7001b35ffdd9fa218aa438e19
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49405175"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50959670"
 ---
 # <a name="about-expressroute-direct-preview"></a>Over ExpressRoute Direct (Preview)
 
-ExpressRoute Direct biedt klanten de mogelijkheid om rechtstreeks verbinding te maken met het wereldwijde netwerk van Microsoft op peeringlocaties die zich strategisch verdeeld over de hele wereld bevinden. ExpressRoute Direct biedt twee 100 Gbps-connectiviteit, die ondersteuning biedt voor actief/actief-verbindingen op schaal. 
+ExpressRoute Direct biedt klanten de mogelijkheid om rechtstreeks verbinding te maken met het wereldwijde netwerk van Microsoft op peeringlocaties die zich strategisch verdeeld over de hele wereld bevinden. ExpressRoute Direct biedt twee 100-Gbps-connectiviteit, die ondersteuning biedt voor actief/actief-verbindingen op schaal.
 
 Belangrijke functies van ExpressRoute Direct bevatten, maar niet beperkt tot:
 
-* Massale gegevensopname in services als Storage en Cosmos DB 
-* Fysieke isolatie voor branches waarvoor bepaalde wettelijke regels gelden waardoor speciale en geïsoleerde verbindingen een vereiste zijn, zoals het bankwezen, de overheid en de detailhandel 
+* Massale gegevensopname in services als Storage en Cosmos DB
+* Fysieke isolatie voor branches die worden geregeld en nodig toegewezen en geïsoleerd connectiviteit, zoals: bankieren-, overheids- en detailhandel
 * Gedetailleerde controle van circuitdistributie op basis van bedrijfsonderdelen
 
 > [!IMPORTANT]
@@ -31,7 +31,7 @@ Belangrijke functies van ExpressRoute Direct bevatten, maar niet beperkt tot:
 
 ## <a name="enroll-in-the-preview"></a>Registreren voor de preview-versie
 
-Voordat u ExpressRoute direct gebruikt, moet u eerst uw abonnement in de Preview-versie worden geregistreerd. Als u zich wilt inschrijven, stuurt u een e-mail met uw abonnements-id naar <ExpressRouteDirect@microsoft.com>. ExpressRoute Direct is een geavanceerde functie. Geef aanvullende informatie op:
+Voordat u ExpressRoute Direct gebruikt, moet u eerst uw abonnement in de Preview-versie worden geregistreerd. Als u wilt inschrijven, stuur een E-mail naar <ExpressRouteDirect@microsoft.com> door uw abonnements-ID, met inbegrip van de volgende gegevens:
 
 * Scenario's die u nodig hebt om uit te voeren met **ExpressRoute Direct**
 * Voorkeuren voor locatie - Zie [Partners en peeringlocaties](expressroute-locations-providers.md) voor een volledige lijst van alle locaties
@@ -41,10 +41,10 @@ Voordat u ExpressRoute direct gebruikt, moet u eerst uw abonnement in de Preview
 ## <a name="expressroute-using-a-service-provider-and-expressroute-direct"></a>ExpressRoute met behulp van een serviceprovider en ExpressRoute Direct
 
 | **ExpressRoute met behulp van een serviceprovider** | **ExpressRoute Direct** | 
-| --- | --- | 
-| Maakt gebruik van serviceprovider om in te schakelen voor snelle onboarding en connectiviteit in bestaande infrastructuur | 100 en Gbps-infrastructuur het volledige beheer van alle lagen
-| Kan worden geïntegreerd met honderden van met inbegrip van Ethernet- en MPLS-providers | Direct/toegewezen capaciteit voor gereguleerde industrieën en enorme gegevensopname | 
-| Circuits SKU's van 50 Mbps-10 Gbps | Circuits SKU's van 5 Gbps tot 100 Gbps (5 Gbps, 10 Gbps, 40 Gbps, 100 Gbps)
+| --- | --- |
+| Maakt gebruik van serviceproviders om in te schakelen voor snelle onboarding en connectiviteit in bestaande infrastructuur | 100 Gbps-infrastructuur en het volledige beheer van alle lagen
+| Kan worden geïntegreerd met honderden van met inbegrip van Ethernet- en MPLS-providers | Direct/toegewezen capaciteit voor gereguleerde industrieën en enorme gegevensopname |
+| Circuits SKU's van 50 Mbps naar 10 Gbps | Klanten kan een combinatie van de volgende circuit SKU's selecteren: 5 Gbps, 10 Gbps, 40 Gbps, 100 Gbps - beperkt tot een totaal van 200 Gbps
 | Geoptimaliseerd voor één tenant | Geoptimaliseerd voor één tenant/Cloud serviceproviders / meerdere bedrijfseenheden
 
 ## <a name="expressroute-direct-circuits"></a>ExpressRoute Direct-circuits
@@ -57,13 +57,13 @@ De functionaliteit in de meeste gevallen is gelijk aan-circuits die gebruikmaken
 
 ## <a name="circuit-skus"></a>Circuit-SKU 's
 
-ExpressRoute Direct biedt ondersteuning voor scenario's voor het opnemen van enorme gegevens in Azure storage en andere services big data. ExpressRoute circuits op ExpressRoute Direct nu ook ondersteuning voor **40 Gbps** en **100 Gbps** circuit SKU's. 
+ExpressRoute Direct biedt ondersteuning voor scenario's voor het opnemen van enorme gegevens in Azure storage en andere services big data. ExpressRoute circuits op ExpressRoute Direct nu ook ondersteuning voor **40 Gbps** en **100 Gbps** circuit SKU's.
 
 ## <a name="vlan-tagging"></a>VLAN-Tagging
 
 ExpressRoute Direct biedt ondersteuning voor zowel QinQ en Dot1Q VLAN-tagging.
 
-* **QinQ VLAN-Tagging** kunnen voor geïsoleerde Routeringsdomeinen op een per ExpressRoute-circuit gefactureerd. Azure dynamisch een S-Tag bij het maken van circuit kan worden toegewezen en kan niet worden gewijzigd. Elke peering van het circuit (privé- en Microsoft), wordt een unieke C-code gebruiken als het VLAN. De C-Tag is niet uniek zijn in circuits op de poorten die ExpressRoute rechtstreeks vereist. 
+* **QinQ VLAN-Tagging** kunnen voor geïsoleerde Routeringsdomeinen op een per ExpressRoute-circuit gefactureerd. Azure dynamisch een S-Tag bij het maken van circuit kan worden toegewezen en kan niet worden gewijzigd. Elke peering van het circuit (privé- en Microsoft), wordt een unieke C-code gebruiken als het VLAN. De C-Tag is niet uniek zijn in circuits op de poorten die ExpressRoute rechtstreeks vereist.
 
 * **Dot1Q VLAN-Tagging** kunt voor een enkel VLAN gelabeld op een per ExpressRoute directe poort paar gefactureerd. Een C-code die wordt gebruikt op een peering moet uniek zijn in alle circuits en op het paar van de poort ExpressRoute Direct-peerings.
 

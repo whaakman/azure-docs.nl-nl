@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 75faceb641382df29a93c44803af48dcfed142d4
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 796e10053df79f8f7106d98dd9c9be6083d9f719
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50421166"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50964149"
 ---
 # <a name="manage-workspaces"></a>Werkruimten beheren
 
@@ -52,7 +52,7 @@ Uit oogpunt van verbruik, wordt u aangeraden dat u werkruimten zo weinig mogelij
 * U bent aanbieder van beheerde services en moet de Log Analytics-gegevens voor elke klant geïsoleerd van de gegevens van andere klanten bewaren.
 * U beheert meerdere klanten en wilt dat elke klant / afdeling of bedrijfsgroep om te zien van hun eigen gegevens, maar niet de gegevens van anderen.
 
-Wanneer u Windows-agents gebruikt om gegevens te verzamelen, kunt u [elke agent configureren om te rapporteren aan een of meer werkruimten](log-analytics-windows-agents.md).
+Wanneer u Windows-agents gebruikt om gegevens te verzamelen, kunt u [elke agent configureren om te rapporteren aan een of meer werkruimten](log-analytics-agent-windows.md).
 
 Als u System Center Operations Manager gebruikt, kan elke beheergroep uit Operations Manager worden verbonden met slechts één werkruimte. U kunt Microsoft Monitoring Agent installeren op computers die worden beheerd door Operations Manager en de agent laten rapporteren over zowel Operations Manager als een andere Log Analytics-werkruimte.
 
@@ -73,7 +73,7 @@ U kunt gegevens van uw werkruimte in Azure Portal bekijken.
     ![Details van de werkruimte](./media/log-analytics-manage-access/workspace-overview-page.png)  
 
 ## <a name="manage-accounts-and-users"></a>Accounts en gebruikers beheren
-Elke werkruimte kunnen meerdere accounts worden gekoppeld, en elk account kan toegang hebben tot meerdere werkruimten. Toegang wordt beheerd [Azure op rollen gebaseerde toegang](../active-directory/role-based-access-control-configure.md). Deze toegangsrechten is van toepassing op de Azure-portal en de API-toegang.
+Elke werkruimte kunnen meerdere accounts worden gekoppeld, en elk account kan toegang hebben tot meerdere werkruimten. Toegang wordt beheerd [Azure op rollen gebaseerde toegang](../role-based-access-control/role-assignments-portal.md). Deze toegangsrechten is van toepassing op de Azure-portal en de API-toegang.
 
 
 Voor de volgende activiteiten zijn ook Azure-machtigingen vereist:
@@ -87,7 +87,7 @@ Voor de volgende activiteiten zijn ook Azure-machtigingen vereist:
 
 
 ### <a name="managing-access-to-log-analytics-using-azure-permissions"></a>Toegang tot Log Analytics beheren met behulp van Azure-machtigingen
-Volg de stappen in [Roltoewijzingen gebruiken voor het beheer van de toegang tot de resources van uw Azure-abonnement](../active-directory/role-based-access-control-configure.md) om toegang te verlenen tot de Log Analytics-werkruimte met behulp van Azure-machtigingen.
+Volg de stappen in [Roltoewijzingen gebruiken voor het beheer van de toegang tot de resources van uw Azure-abonnement](../role-based-access-control/role-assignments-portal.md) om toegang te verlenen tot de Log Analytics-werkruimte met behulp van Azure-machtigingen.
 
 Azure heeft twee ingebouwde gebruikersrollen voor Log Analytics:
 - Lezer van Log Analytics
@@ -146,7 +146,7 @@ Gebruik deze rollen om gebruikers toegang te geven op verschillende niveaus:
 - Resourcegroep: toegang tot alle werkruimten in de resourcegroep
 - Resource: alleen toegang tot de opgegeven werkruimte
 
-Het wordt aangeraden om toewijzingen uit te voeren op resourceniveau (werkruimte) omdat dan een nauwkeurig toegangsbeheer mogelijk is.  Gebruik [aangepaste rollen](../active-directory/role-based-access-control-custom-roles.md) om rollen te maken met de specifieke machtigingen die nodig zijn.
+Het wordt aangeraden om toewijzingen uit te voeren op resourceniveau (werkruimte) omdat dan een nauwkeurig toegangsbeheer mogelijk is.  Gebruik [aangepaste rollen](../role-based-access-control/custom-roles.md) om rollen te maken met de specifieke machtigingen die nodig zijn.
 
 ## <a name="link-an-existing-workspace-to-an-azure-subscription"></a>Een bestaande werkruimte koppelen aan een Azure-abonnement
 Alle werkruimten die zijn gemaakt na 26 september 2016 moeten op het moment van maken zijn gekoppeld aan een Azure-abonnement. Werkruimten die vóór deze datum zijn gemaakt, moeten bij aanmelding worden gekoppeld aan een werkruimte. Wanneer u de werkruimte maakt via Azure Portal of uw werkruimte koppelt aan een Azure-abonnement, wordt uw Azure Active Directory als uw organisatieaccount gekoppeld.
@@ -241,5 +241,5 @@ Uw nieuwe data-abonnement wordt weergegeven in het lint van de OMS-portal boven 
 ## <a name="next-steps"></a>Volgende stappen
 * Zie [Gegevens van computers in uw omgeving verzamelen met Log Analytics](log-analytics-concept-hybrid.md) voor het verzamelen van gegevens van computers in uw datacenter of andere cloudomgeving.
 * Zie [Gegevens verzamelen over Azure Virtual Machines](log-analytics-quick-collect-azurevm.md) voor het configureren van het verzamelen van gegevens van Azure VM's.  
-* [Log Analytics-oplossingen uit de galerie met oplossingen toevoegen](log-analytics-add-solutions.md) om functionaliteit toe te voegen en gegevens te verzamelen.
+* [Log Analytics-oplossingen uit de galerie met oplossingen toevoegen](../monitoring/monitoring-solutions.md) om functionaliteit toe te voegen en gegevens te verzamelen.
 

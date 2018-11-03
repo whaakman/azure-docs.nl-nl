@@ -15,19 +15,19 @@ ms.workload: infrastructure-services
 ms.date: 06/26/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: b8c3a2cc67c47753957963fc04b52f934b10ddfc
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 776033bde46f170295900d154cbbb3c7df73ab11
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041710"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50960256"
 ---
 # <a name="data-sources-in-log-analytics"></a>Gegevensbronnen in Log Analytics
 Log Analytics verzamelt gegevens van uw verbonden bronnen en slaat ze op in uw Log Analytics-werkruimte.  De gegevens die worden verzameld van elke wordt gedefinieerd door de gegevensbronnen die u configureert.  Gegevens in Log Analytics wordt opgeslagen als een set records.  Elke gegevensbron maakt van een bepaald type-records met elk type met een eigen set eigenschappen.
 
 ![Analytics-gegevens verzamelen](./media/log-analytics-data-sources/overview.png)
 
-Gegevensbronnen zijn anders dan [beheeroplossingen](log-analytics-add-solutions.md), die ook gegevens verzamelen uit de verbonden bronnen en -records maken in Log Analytics.  Naast het verzamelen van gegevens, omvatten oplossingen zoekopdrachten in Logboeken en weergaven om u te helpen u bij het analyseren van de werking van een bepaalde toepassing of service.
+Gegevensbronnen zijn anders dan [beheeroplossingen](../monitoring/monitoring-solutions.md), die ook gegevens verzamelen uit de verbonden bronnen en -records maken in Log Analytics.  Naast het verzamelen van gegevens, omvatten oplossingen zoekopdrachten in Logboeken en weergaven om u te helpen u bij het analyseren van de werking van een bepaalde toepassing of service.
 
 
 ## <a name="summary-of-data-sources"></a>Overzicht van gegevensbronnen
@@ -68,5 +68,5 @@ Alle gegevens die zijn verzameld door Log Analytics is in de werkruimte opgeslag
 
 ## <a name="next-steps"></a>Volgende stappen
 * Meer informatie over [oplossingen](../monitoring/monitoring-solutions.md) die functionaliteit toevoegen aan Log Analytics en ook gegevens verzamelen in de werkruimte.
-* Meer informatie over [zoekopdrachten](log-analytics-log-searches.md) om de gegevens die worden verzameld van gegevensbronnen en oplossingen te analyseren.  
-* Configureer [waarschuwingen](log-analytics-alerts.md) om proactief te waarschuwen u van kritieke gegevens die worden verzameld van gegevensbronnen en oplossingen.
+* Meer informatie over [zoekopdrachten](log-analytics-log-search.md) om de gegevens die worden verzameld van gegevensbronnen en oplossingen te analyseren.  
+* Configureer [waarschuwingen](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) om proactief te waarschuwen u van kritieke gegevens die worden verzameld van gegevensbronnen en oplossingen.

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/05/2018
 ms.author: gwallace
 ms.custom: include file
-ms.openlocfilehash: 34cae9172d9b024bd6866742d39d82ad496bfc52
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
-ms.translationtype: MT
+ms.openlocfilehash: abe7668ed16ddd5cc1b247207d3e80f7c1118137
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45570424"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50964541"
 ---
 | Resource | Maximumaantal |Opmerkingen|
 | --- | --- |---|
@@ -31,5 +31,6 @@ ms.locfileid: "45570424"
 | Maximale Runbook Job parameters grootte   | 512 kb||
 | Maximale Runbook-parameters   | 50|U kunt een JSON of XML-tekenreeks doorgeven aan een parameter en parseren met het runbook als u de parameterlimiet van 50 bereikt|
 | Maximumgrootte van webhook-nettolading |  512 kb|
+| Maximaal aantal dagen dat gegevens worden bewaard|30 dagen|
 
 **<sup>1</sup>**  een sandbox is een gedeelde omgeving die kan worden gebruikt door meerdere taken, taken met behulp van de sandbox zijn gebonden aan de resourcebeperkingen van de sandbox.

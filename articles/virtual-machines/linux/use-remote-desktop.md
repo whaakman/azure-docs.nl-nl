@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2018
 ms.author: cynthn
-ms.openlocfilehash: aa1891ecec139746d6051dcabdb3c9db4f6062c6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 44b0f8b3d11b737ad88f7d33b036b52d24b70e33
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46996346"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50960324"
 ---
 # <a name="install-and-configure-remote-desktop-to-connect-to-a-linux-vm-in-azure"></a>Installeren en configureren van extern bureaublad verbinding maken met een Linux-VM in Azure
 Linux virtuele machines (VM's) in Azure worden meestal beheerd vanaf de opdrachtregel met behulp van een secure shell (SSH)-verbinding. Wanneer er nieuwe voor Linux, of om snel oplossen van problemen met scenario's, kan het gebruik van extern bureaublad eenvoudiger zijn. Dit artikel wordt uitgelegd hoe u kunt installeren en configureren van een bureaublad-omgeving ([xfce](https://www.xfce.org)) en extern bureaublad ([xrdp](http://www.xrdp.org)) voor uw Linux-VM met het Resource Manager-implementatiemodel.
@@ -57,6 +57,7 @@ Nu dat u een desktop-omgeving is geïnstalleerd hebt, configureert u een extern 
 
 ```bash
 sudo apt-get install xrdp
+sudo systemctl enable xrdp
 ```
 
 Vertel xrdp welke desktopomgeving moet worden gebruikt wanneer u uw sessie starten. Xrdp voor het gebruik van xfce als uw desktopomgeving als volgt configureren:

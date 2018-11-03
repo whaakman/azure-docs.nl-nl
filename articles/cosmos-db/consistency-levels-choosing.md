@@ -1,5 +1,5 @@
 ---
-title: De juiste consistentieniveau voor uw toepassing kiezen | Microsoft Docs
+title: Kies de juiste consistentieniveau voor uw toepassing die gebruikmaakt van Azure Cosmos DB | Microsoft Docs
 description: Het kiezen van de juiste consistentieniveau voor uw toepassing in Azure Cosmos DB.
 keywords: consistentie, prestaties, azure cosmosdb, azure, Microsoft azure
 services: cosmos-db
@@ -9,42 +9,52 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: mjbrown
-ms.openlocfilehash: 4b438320ac75918d10880a4bcdccadca4eebec32
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 9234a57bdec3dfd7a1ccdba00b90a5c853dc1c5a
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50244183"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50960956"
 ---
 # <a name="choose-the-right-consistency-level-for-your-application"></a>Kies de juiste consistentieniveau voor uw toepassing
 
-Gedistribueerde databases die afhankelijk zijn van replicatie voor hoge beschikbaarheid, lage latentie of beide, moet het fundamentele verschil tussen het lezen van consistentie en beschikbaarheid, latentie en doorvoer. De meeste commercieel verkrijgbaar gedistribueerde databases stellen ontwikkelaars om te kiezen tussen de twee extreme consistentiemodellen: sterke consistentie en uiteindelijke consistentie. Azure Cosmos DB kunnen ontwikkelaars kiezen tussen vijf duidelijk gedefinieerde consistentiemodellen: sterk, gebonden veroudering, sessie, consistent voorvoegsel en mogelijk. Elk van deze consistentiemodellen is goed gedefinieerde, intuïtieve en kan worden gebruikt voor specifieke praktijkscenario's. Elk van de vijf consistentiemodellen wissen optimalisatie van de beschikbaarheid en prestaties biedt en worden ondersteund met uitgebreide Sla's. De volgende eenvoudige overwegingen krijgt u de juiste keuze maken in veel algemene scenario's.
+Gedistribueerde databases die afhankelijk zijn van replicatie voor hoge beschikbaarheid, lage latentie of beide, moet het fundamentele verschil tussen het lezen van consistentie en beschikbaarheid, latentie en doorvoer. De meeste commercieel verkrijgbaar gedistribueerde databases stellen ontwikkelaars om te kiezen tussen de twee extreme consistentiemodellen: sterke consistentie en uiteindelijke consistentie. Azure Cosmos DB kunnen ontwikkelaars kiezen tussen de vijf duidelijk gedefinieerde consistentiemodellen: sterk, gebonden veroudering, sessie, consistent voorvoegsel en mogelijk. Elk van deze consistentiemodellen is goed gedefinieerde, intuïtieve en kan worden gebruikt voor specifieke praktijkscenario's. Elk van de vijf consistentiemodellen bieden [zorgen voor beschikbaarheid en prestaties van een balans](consistency-levels-tradeoffs.md) en worden ondersteund door uitgebreide Sla's. De volgende eenvoudige overwegingen krijgt u de juiste keuze maken in veel algemene scenario's.
 
-## <a name="sql-api-or-table-api"></a>SQL-API of de tabel-API
+## <a name="sql-api-and-table-api"></a>SQL-API en Table-API
 
-- Sessieconsistentie is het optimale voor veel real-world scenario's, en is de aanbevolen optie. Zie voor meer informatie, [procedures voor sessietoken voor uw toepassing beheren](how-to-manage-consistency.md#utilize-session-tokens).
-- Als uw toepassing vereist een sterke consistentie, verdient het aanbeveling gebruik van het consistentieniveau gebonden veroudering.
-- Als u nodig dan degene die door sessieconsistentie en één cijfer milliseconde latentie voor schrijfbewerkingen strengere garanties voor consistentie hebt, verdient het aanbeveling gebruik van het consistentieniveau gebonden veroudering.  
-- Als uw toepassing uiteindelijke consistentie vereist, verdient het aanbeveling dat u consistentieniveau consistent voorvoegsel gebruiken.
-- Als u minder strikte consistentiegarantie dan wat wordt geleverd door sessieconsistentie, verdient het aanbeveling dat u consistentieniveau consistent voorvoegsel gebruiken.
+Houd rekening met de volgende punten als uw toepassing is gemaakt met behulp van Cosmos DB SQL API of de tabel-API
+
+- Sessieconsistentie is het optimale voor veel real-world scenario's, en is de aanbevolen optie. Voor meer informatie ziet, [procedures voor sessietoken voor uw toepassing beheren](how-to-manage-consistency.md#utilize-session-tokens).
+
+- Als uw toepassing vereist een sterke consistentie, is het aanbevolen dat u het consistentieniveau gebonden veroudering.
+
+- Als u nodig strengere hebt garandeert consistentie dan de opgegeven sessieconsistentie en één cijfer milliseconde latentie voor schrijfbewerkingen, is het raadzaam dat u veroudering consistentieniveau gebonden.  
+
+- Als uw toepassing uiteindelijke consistentie vereist, is het aanbevolen dat u consistent voorvoegsel consistentieniveau.
+
+- Als u minder strikte consistentiegarantie dan de opgegeven door sessieconsistentie nodig hebt, is het aanbevolen dat u consistent voorvoegsel consistentieniveau.
+
 - Als u nodig hebt voor de hoogst mogelijke beschikbaarheid en de laagste latentie, gebruikt u het niveau van uiteindelijke consistentie.
 
-## <a name="cassandra-mongodb-or-gremlin-api"></a>Cassandra, MongoDB of Gremlin-API
+## <a name="cassandra-mongodb-and-gremlin-api"></a>Cassandra, MongoDB en Gremlin-API
 
-- Zie voor meer informatie over de toewijzing tussen "Consistentieniveau lezen' van Apache Cassandra en Cosmos DB-consistentieniveaus, [consistentieniveaus en Cosmos DB-API's](consistency-levels-across-apis.md#cassandra-mapping).
+- Zie voor meer informatie over de toewijzing tussen 'Consistentieniveau lezen' aangeboden in Apache Cassandra en Cosmos DB-consistentieniveaus [consistentieniveaus en Cosmos DB-API's](consistency-levels-across-apis.md#cassandra-mapping).
+
 - Zie voor meer informatie over de toewijzing tussen 'Lezen bezorgdheid' van de MongoDB- en Azure Cosmos DB-consistentieniveaus, [consistentieniveaus en Cosmos DB-API's](consistency-levels-across-apis.md#mongo-mapping).
 
-## <a name="you-may-get-stronger-consistency-guarantees-in-practice"></a>Krijgt u mogelijk sterkere garanties voor consistentie in de praktijk
+## <a name="consistency-guarantees-in-practice"></a>Garanties voor consistentie in de praktijk
 
-Garanties voor consistentie voor een leesbewerking komen overeen met de nieuwheid en volgorde van de status van de database wordt aangevraagd. Lezen van consistentie is gekoppeld aan de bestelling en de doorgifte van de schrijfbewerkingen (update).  
+Krijgt u mogelijk sterkere garanties voor consistentie in de praktijk. Garanties voor consistentie voor een leesbewerking komen overeen met de nieuwheid en volgorde van de status van de database die u aanvraagt. Lezen van consistentie is gekoppeld aan de bestelling en de doorgifte van de bewerkingen voor schrijven/bijwerken.  
 
-Wanneer het consistentieniveau is ingesteld op **gebonden veroudering**, garandeert Microsoft dat de clients altijd de waarde van een vorige schrijven met een vertraging begrensd door het venster veroudering lezen.
+* Wanneer het consistentieniveau is ingesteld op **gebonden veroudering**, garandeert Microsoft dat de clients altijd de waarde van een vorige schrijven met een vertraging begrensd door het venster veroudering lezen.
 
-Wanneer het consistentieniveau is ingesteld op **sterke**, het venster veroudering is gelijk aan nul en de clients de meest recente toegezegde waarde van de schrijven lezen worden gegarandeerd.
+* Wanneer het consistentieniveau is ingesteld op **sterke**, het venster veroudering is gelijk aan nul en de clients de meest recente toegezegde waarde van de schrijfbewerking lezen worden gegarandeerd.
 
-Het venster veroudering is voor de resterende drie consistentieniveaus, grotendeels afhankelijk van uw workload. Bijvoorbeeld, als er geen schrijfbewerkingen plaatsvinden op de database, een leesbewerking met **uiteindelijke**, **sessie**, of **consistent voorvoegsel** consistentieniveaus waarschijnlijk te dragen aan hetzelfde resultaat als een leesbewerking met hoog consistentieniveau.
+* Het venster veroudering is voor de resterende drie consistentieniveaus, grotendeels afhankelijk van uw workload. Bijvoorbeeld, als er geen schrijfbewerkingen op de database, een leesbewerking met **uiteindelijke**, **sessie**, of **consistent voorvoegsel** consistentieniveaus waarschijnlijk opbrengst hetzelfde resultaat als een leesbewerking met hoog consistentieniveau.
 
-Als uw Cosmos DB-account is geconfigureerd met een consistentieniveau dan de sterke consistentie, vindt u de kans op uw clients om op te halen van sterk consistente (linearizable) leesbewerkingen voor uw workload(s) door te kijken Probabilistic Bounded Veroudering (PBS) metrische gegevens beschikbaar zijn in de Azure-portal [hier te zien voor het gebruik van de metriek PBS](how-to-manage-consistency.md#monitor-probabilistically-bounded-staleness-pbs-metric). Probabilistic gebonden veroudering wordt aangegeven hoe de uiteindelijke is uw uiteindelijke consistentie. Met deze metriek biedt een beter inzicht in hoe vaak u een sterkere consistentie dan het consistentieniveau die u hebt geconfigureerd op uw Cosmos DB-account. Met andere woorden, ziet u de kans (beschreven in milliseconden) op sterk consistente leesbewerkingen voor een combinatie van een schrijfbewerking en leesregio's aan.
+Als uw Cosmos DB-account is geconfigureerd met een consistentieniveau dan de sterke consistentie, vindt u de kans dat uw clients kunnen er sterke en consistente leesbewerkingen voor uw workloads door te kijken op de Probabilistic Bounded Staleness (PBS) metrische gegevens. Met deze metriek wordt weergegeven in de Azure-portal, voor meer informatie, Zie [over het gebruik van de metriek PBS](how-to-manage-consistency.md#monitor-probabilistically-bounded-staleness-pbs-metric) artikel.
+
+Probabilistic gebonden veroudering wordt aangegeven hoe de uiteindelijke is uw uiteindelijke consistentie. Met deze metriek biedt een beter inzicht in hoe vaak u krijgt een sterkere consistentie dan het consistentieniveau die u momenteel hebt geconfigureerd op uw Cosmos DB-account. U kunt met andere woorden, Zie de kans (gemeten in milliseconden) aan sterk consistente leesbewerkingen voor een combinatie van schrijven en leesregio's.
 
 ## <a name="next-steps"></a>Volgende stappen
 

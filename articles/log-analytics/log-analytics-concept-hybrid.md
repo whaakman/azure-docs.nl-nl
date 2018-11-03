@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 10/15/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 03133c6d6518444f8e6fb15cfa425969dbafdedc
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 6c58967255270231f61c59205ed12a9cdfec6897
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406871"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958692"
 ---
 # <a name="collect-data-in-a-hybrid-environment-with-log-analytics-agent"></a>Gegevens verzamelen in een hybride omgeving met Log Analytics-agent
 
@@ -127,6 +127,6 @@ Verbinden van uw on-premises computers rechtstreeks met Log Analytics kan worden
 
 * Beoordeling [gegevensbronnen](log-analytics-data-sources.md) om te begrijpen van de gegevensbronnen die beschikbaar zijn voor het verzamelen van gegevens van uw Windows- of Linux-systeem. 
 
-* Meer informatie over [zoekopdrachten](log-analytics-log-searches.md) om de gegevens die worden verzameld van gegevensbronnen en oplossingen te analyseren. 
+* Meer informatie over [zoekopdrachten](log-analytics-log-search.md) om de gegevens die worden verzameld van gegevensbronnen en oplossingen te analyseren. 
 
-* Meer informatie over [oplossingen](log-analytics-add-solutions.md) die functionaliteit toevoegen aan Log Analytics en ook gegevens verzamelen in Log Analytics-werkruimte.
+* Meer informatie over [oplossingen](../monitoring/monitoring-solutions.md) die functionaliteit toevoegen aan Log Analytics en ook gegevens verzamelen in Log Analytics-werkruimte.

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/23/2018
 ms.author: genli
-ms.openlocfilehash: 756417ee2f98549d648386c2471baa74889245a4
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 904387def0fd8842f196e80cfcf72d9dd1639458
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 11/02/2018
-ms.locfileid: "50914019"
+ms.locfileid: "50957690"
 ---
 # <a name="remote-desktop-services-isnt-starting-on-an-azure-vm"></a>Extern bureaublad-Services is niet gestart op een Azure VM
 
@@ -58,6 +58,7 @@ Dit probleem treedt op omdat Extern bureaublad-Services niet wordt uitgevoerd op
 
 - De Terminal Server-service is ingesteld op **uitgeschakelde**. 
 - De Terminal Server-service is gecrasht of vastgelopen. 
+- De Terminal Server is niet starten vanwege een onjuiste configuratie.
 
 ## <a name="solution"></a>Oplossing
 
@@ -98,16 +99,17 @@ Om dit probleem wilt oplossen, moet u de seriële Console gebruiken. Of anders [
 
     |  Fout |  Suggestie |
     |---|---|
-    |5 - TOEGANG IS GEWEIGERD |Zie [Terminal Server-service is gestopt vanwege een fout toegang geweigerd](#termService-service-is-stopped-because-of-an-access-denied-error). |
-    |1058 - ERROR_SERVICE_DISABLED  |Zie [Terminal Server-service is uitgeschakeld](#termService-service-is-disabled).  |
+    |5 - TOEGANG IS GEWEIGERD |Zie [Terminal Server-service is gestopt vanwege een fout toegang geweigerd](#termService-service-is-stopped-because-of-an-access-denied-problem). |   |1053 - ERROR_SERVICE_REQUEST_TIMEOUT  |Zie [Terminal Server-service is uitgeschakeld](#termService-service-is-disabled).  |  
+    |1058 - ERROR_SERVICE_DISABLED  |Zie [Terminal Server-service vastloopt of loopt vast](#termService-service-crashes-or-hangs).  |
     |1059 - ERROR_CIRCULAR_DEPENDENCY |[Neem contact op met ondersteuning voor](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) om uw probleem snel worden opgelost.|
+    |1067 - ERROR_PROCESS_ABORTED  |Zie [Terminal Server-service vastloopt of loopt vast](#termService-service-crashes-or-hangs).  |
     |1068 - ERROR_SERVICE_DEPENDENCY_FAIL|[Neem contact op met ondersteuning voor](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) om uw probleem snel worden opgelost.|
-    |1069 - ERROR_SERVICE_LOGON_FAILED  |[Neem contact op met ondersteuning voor](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) om uw probleem snel worden opgelost.    |
-    |1070 - ERROR_SERVICE_START_HANG   | [Neem contact op met ondersteuning voor](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) om uw probleem snel worden opgelost.  |
+    |1069 - ERROR_SERVICE_LOGON_FAILED  |Zie [Terminal Server-service is mislukt vanwege fout met aanmelding](#termService-service-fails-because-of-logon-failure) |
+    |1070 - ERROR_SERVICE_START_HANG   | Zie [Terminal Server-service vastloopt of loopt vast](#termService-service-crashes-or-hangs). |
     |1077 - ERROR_SERVICE_NEVER_STARTED   | Zie [Terminal Server-service is uitgeschakeld](#termService-service-is-disabled).  |
     |1079 - ERROR_DIFERENCE_SERVICE_ACCOUNT   |[Neem contact op met ondersteuning voor](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) om uw probleem snel worden opgelost. |
-    |1753   |[Neem contact op met ondersteuning voor](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) om uw probleem snel worden opgelost.   |
-
+    |1753   |[Neem contact op met ondersteuning voor](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) om uw probleem snel worden opgelost.   |   |5 - TOEGANG IS GEWEIGERD |Zie [Terminal Server-service is gestopt vanwege een fout toegang geweigerd](#termService-service-is-stopped-because-of-an-access-denied-error). |
+    
 #### <a name="termservice-service-is-stopped-because-of-an-access-denied-problem"></a>Terminal Server-service is gestopt vanwege een probleem met de toegang geweigerd
 
 1. Verbinding maken met [seriële Console](serial-console-windows.md#) en open een PowerShell-exemplaar.
@@ -139,7 +141,14 @@ Om dit probleem wilt oplossen, moet u de seriële Console gebruiken. Of anders [
    procmon /Terminate 
    ```
 
-5. Verzamelen van het bestand **c:\temp\ProcMonTrace.PML**. Open het met behulp van **procmon**. Vervolgens filteren op **resultaat is toegang geweigerd**, zoals weergegeven in de volgende schermafbeelding:
+5. Verzamelen van het bestand **c:\temp\ProcMonTrace.PML**:
+
+    1. [Een gegevensschijf koppelen aan de virtuele machine](../windows/attach-managed-disk-portal.md
+).
+    2. Seriële Console kunt u het bestand kopiëren naar het nieuwe station gebruiken. Bijvoorbeeld `copy C:\temp\ProcMonTrace.PML F:\`. In deze opdracht is F de stationsletter van de gekoppelde gegevensschijf.
+    3. De schijf loskoppelen en koppelt u deze op een actieve VM die Monitor processen ubstakke geïnstalleerd heeft.
+
+6. Open **ProcMonTrace.PML** met behulp van proces bewaken de werkende virtuele machine. Vervolgens filteren op **resultaat is toegang geweigerd**, zoals weergegeven in de volgende schermafbeelding:
 
     ![Filteren op resultaat in proces bewaken](./media/troubleshoot-remote-desktop-services-issues/process-monitor-access-denined.png)
 
@@ -168,6 +177,27 @@ Om dit probleem wilt oplossen, moet u de seriële Console gebruiken. Of anders [
 
 4. Probeer verbinding maken met virtuele machine met behulp van extern bureaublad.
 
+#### <a name="termservice-service-fails-because-of-logon-failure"></a>Terminal Server-service is mislukt vanwege fout met aanmelding
+
+1. Dit probleem treedt op als het account voor het opstarten van deze service is gewijzigd. Dit naar de standaardwaarde gewijzigd: 
+
+        sc config TermService obj= 'NT Authority\NetworkService'
+2. Start de service:
+
+        sc start TermService
+3. Probeer verbinding maken met virtuele machine met behulp van extern bureaublad.
+
+#### <a name="termservice-service-crashes-or-hangs"></a>Terminal Server-service vastloopt of loopt vast
+1. Als de status van de service is vastgelopen **vanaf** of **stoppen**, probeer de service te stoppen: 
+
+        sc stop TermService
+2. De service op een eigen container 'svchost' isoleren:
+
+        sc config TermService type= own
+3. Start de service:
+
+        sc start TermService
+4. Als de service is nog steeds niet kan worden gestart, [contact op met ondersteuning](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 ### <a name="repair-the-vm-offline"></a>Herstel de virtuele machine offline
 

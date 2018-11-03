@@ -1,19 +1,19 @@
 ---
 title: Connnect een Raspberry Pi tot uw Azure IoT Central-toepassing (C#) | Microsoft Docs
 description: Als ontwikkelaar in een apparaat, hoe u verbinding maken met een Raspberry Pi aan uw Azure IoT Central-toepassing met behulp van C#.
-author: dominicbetts
-ms.author: dobett
-ms.date: 01/22/2018
+author: viv-liu
+ms.author: viviali
+ms.date: 10/31/2018
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-manager: timlt
-ms.openlocfilehash: a9390ac9046ad1e0ec5a1689052ee99bf76ec6f4
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+manager: peterpr
+ms.openlocfilehash: 489a644bd2d17e2be3232ec522b9ed7e37d246ad
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45734232"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50956720"
 ---
 # <a name="connect-a-raspberry-pi-to-your-azure-iot-central-application-c"></a>Verbinding maken met een Raspberry Pi aan uw Azure IoT Central-toepassing (C#)
 
@@ -23,10 +23,10 @@ Dit artikel wordt beschreven hoe u, als een apparaat-ontwikkelaar, een Raspberry
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
-U hebt het volgende nodig om de stappen in dit artikel uit te voeren:
+Als u wilt de stappen in dit artikel hebt voltooid, moet u de volgende onderdelen:
 
 * [.NET core 2](https://www.microsoft.com/net) geïnstalleerd op uw ontwikkelcomputer. U moet ook een geschikte code-editor, zoals hebben [Visual Studio Code](https://code.visualstudio.com/).
-* Een Azure IoT Central-toepassing gemaakt op basis van de **voorbeeld Devkits** toepassingssjabloon. Zie voor meer informatie, [maken van uw Azure IoT Central Application](howto-create-application.md).
+* Een Azure IoT Central-toepassing gemaakt op basis van de **voorbeeld Devkits** toepassingssjabloon. Zie voor meer informatie de [maken van een toepassing Quick Start](quick-deploy-iot-central.md).
 * Een Raspberry Pi-apparaat met het besturingssysteem Raspbian.
 
 
@@ -34,10 +34,21 @@ U hebt het volgende nodig om de stappen in dit artikel uit te voeren:
 
 Een toepassing gemaakt op basis van de **voorbeeld Devkits** toepassingssjabloon bevat een **Raspberry Pi** apparaat sjabloon met de volgende kenmerken: 
 
-- Telemetrie waarin de metingen voor het apparaat **vochtigheid**, **temperatuur**, **druk te verlichten**, **Magnometer** (gemeten langs de X Y, Z-as), **Accelorometer** (gemeten langs de X, Y, Z-as) en **gyroscoop** (gemeten langs de X, Y, Z-as).
-- Instellingen van **spanning**, **huidige**,**ventilatorsnelheid** en een **IR** in-/ uitschakelen.
-- Eigenschappen van de apparaateigenschappen **die nummer** en **locatie** eigenschap in de cloud.
-
+- Telemetrie, waaronder de volgende metingen die het apparaat wordt verzameld:
+    - Vochtigheid
+    - Temperatuur
+    - Druk
+    - Magnetometer (X, Y, Z)
+    - Versnellingsmeter (X, Y, Z)
+    - Gyroscoop (X, Y, Z)
+- Instellingen
+    - Voltage
+    - Huidige
+    - Snelheid van ventilator
+    - IR in-/ uitschakelen.
+- Eigenschappen
+    - Aantal apparaateigenschappen die
+    - Cloud-locatie-eigenschap
 
 Raadpleeg voor volledige informatie van de configuratie van de sjabloon apparaat [Raspberry PI Apparaatdetails sjabloon](howto-connect-raspberry-pi-csharp.md#raspberry-pi-device-template-details)
 

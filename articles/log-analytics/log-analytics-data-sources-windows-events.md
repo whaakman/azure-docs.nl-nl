@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 12/11/2017
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 4e21c011f54382466bf614dc01fb9d51b514d998
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 0285b9208247aa84f56d127e734e8a5e87048ac6
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48044243"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50961361"
 ---
 # <a name="windows-event-log-data-sources-in-log-analytics"></a>Windows-gebeurtenislogboek gegevensbronnen in Log Analytics
 Windows-gebeurtenislogboeken zijn een van de meest voorkomende [gegevensbronnen](log-analytics-data-sources.md) voor het verzamelen van gegevens met behulp van Windows-agents, omdat veel toepassingen naar het Windows-gebeurtenislogboek schrijven.  U kunt gebeurtenissen verzamelen van standard logboeken zoals systeem- en naast het opgeven van een aangepaste logboeken die zijn gemaakt door toepassingen die u nodig hebt om te controleren.
@@ -40,7 +40,7 @@ Terwijl u de naam van een gebeurtenislogboek typt, biedt Log Analytics suggestie
 Log Analytics verzamelt elke gebeurtenis die overeenkomt met een geselecteerde ernst van een bewaakte gebeurtenislogboek als de gebeurtenis wordt gemaakt.  De agent registreert plaats daarvan in elk logboek voor systeemgebeurtenissen die het verzamelt uit.  Als de agent voor een bepaalde periode offline gaat, klikt u vervolgens verzamelt Log Analytics gebeurtenissen van waar het laatste afgebroken, zelfs als de gebeurtenissen die zijn gemaakt terwijl de agent offline was.  Er is het mogelijk om deze gebeurtenissen niet worden verzameld als het gebeurtenislogboek wordt verpakt met niet-geïnde gebeurtenissen wordt overschreven terwijl de agent offline is.
 
 >[!NOTE]
->Log Analytics verzamelt geen controlegebeurtenissen die zijn gemaakt door SQL Server vanuit de bron *MSSQLSERVER* met gebeurtenis-ID 18453 met trefwoorden - *klassieke* of *controle geslaagd* en sleutelwoord *0xa0000000000000*.
+>Log Analytics verzamelt geen controlegebeurtenissen die zijn gemaakt door SQL Server vanuit de bron *MSSQLSERVER* met gebeurtenis-ID 18453 met trefwoorden - *klassieke* of *controle geslaagd* en sleutelwoord *0xa0000000000000*.
 >
 
 ## <a name="windows-event-records-properties"></a>Windows-gebeurtenis registreert eigenschappen
@@ -76,6 +76,6 @@ De volgende tabel bevat voorbeelden van zoekopdrachten die Windows-gebeurtenis l
 
 ## <a name="next-steps"></a>Volgende stappen
 * Log Analytics voor het verzamelen van andere configureren [gegevensbronnen](log-analytics-data-sources.md) voor analyse.
-* Meer informatie over [zoekopdrachten](log-analytics-log-searches.md) om de gegevens die worden verzameld van gegevensbronnen en oplossingen te analyseren.  
+* Meer informatie over [zoekopdrachten](log-analytics-log-search.md) om de gegevens die worden verzameld van gegevensbronnen en oplossingen te analyseren.  
 * Gebruik [aangepaste velden](log-analytics-custom-fields.md) parseren van de gebeurtenis legt vast in afzonderlijke velden.
 * Configureer [verzamelen van prestatiemeteritems](log-analytics-data-sources-performance-counters.md) van uw Windows-agents.

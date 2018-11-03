@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/27/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 2c52baf47e0b1495a5abfa727ab8bc8d997a4283
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 8343c27693538480757a879e477ec77fba08de3d
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50418888"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958335"
 ---
 # <a name="manage-cost-by-controlling-data-volume-and-retention-in-log-analytics"></a>Kosten beheren door het gegevensvolume en retentie in Log Analytics beheren
 
@@ -78,7 +78,7 @@ De volgende stappen wordt beschreven hoe u een limiet voor het beheren van de ho
 5. Dagelijkse limiet is **OFF** standaard – klikt u op **ON** wilt inschakelen, en stelt de limiet voor het volume van gegevens in GB per dag.<br><br> ![Log Analytics configureren gegevenslimiet](media/log-analytics-manage-cost-storage/set-daily-volume-cap-01.png)
 
 ### <a name="alert-when-limit-reached"></a>Ontvang een waarschuwing wanneer de limiet is bereikt
-Terwijl we een visuele hint aanwezig in Azure portal wanneer uw limiet drempelwaarde wordt voldaan, wordt dit gedrag niet per se uitlijnen voor het beheren van operationele problemen die onmiddellijke aandacht.  Voor het ontvangen van een waarschuwingsmelding, kunt u een nieuwe waarschuwingsregel maken in Azure Monitor.  Zie voor meer informatie, [maken, weergeven en beheren van waarschuwingen](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md).      
+Terwijl we een visuele hint aanwezig in Azure portal wanneer uw limiet drempelwaarde wordt voldaan, wordt dit gedrag niet per se uitlijnen voor het beheren van operationele problemen die onmiddellijke aandacht.  Voor het ontvangen van een waarschuwingsmelding, kunt u een nieuwe waarschuwingsregel maken in Azure Monitor.  Zie voor meer informatie, [maken, weergeven en beheren van waarschuwingen](../monitoring-and-diagnostics/alert-metric.md).      
 
 Als u aan de slag te gaan, moet u hier de aanbevolen instellingen voor de waarschuwing zijn:
 

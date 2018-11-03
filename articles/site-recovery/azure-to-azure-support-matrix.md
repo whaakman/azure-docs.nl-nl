@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/28/2018
 ms.author: raynew
-ms.openlocfilehash: ad6bf2db44996684096deb2b351301e450d80249
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.openlocfilehash: 5cce3005a0058604136e05d9c3bf9700d5296bf3
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50747963"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50964052"
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Ondersteuningsmatrix voor het repliceren van de ene Azure-regio naar een andere
 
@@ -204,7 +204,7 @@ Opslagaccounts voor algemeen gebruik V2 (zowel warme en koude laag) | Nee | Toen
 ## <a name="replicated-machines---networking"></a>Gerepliceerde machines - netwerken
 **Configuratie** | **Ondersteuning** | **Details**
 --- | --- | ---
-NIC | Maximum aantal dat wordt ondersteund voor een pecifieke Azure VM-grootte | NIC's worden gemaakt wanneer de virtuele machine is gemaakt tijdens de failover.<br/><br/> Het aantal NIC's op de failover-VM, is afhankelijk van het aantal NIC's op de bron-VM wanneer replicatie is ingeschakeld. Als u toevoegen of verwijderen van een NIC nadat replicatie is ingeschakeld, wordt dit geen invloed op het aantal NIC's op de gerepliceerde virtuele machine na een failover.
+NIC | Maximum aantal dat wordt ondersteund voor een specifieke Azure-VM-grootte | NIC's worden gemaakt wanneer de virtuele machine is gemaakt tijdens de failover.<br/><br/> Het aantal NIC's op de failover-VM, is afhankelijk van het aantal NIC's op de bron-VM wanneer replicatie is ingeschakeld. Als u toevoegen of verwijderen van een NIC nadat replicatie is ingeschakeld, wordt dit geen invloed op het aantal NIC's op de gerepliceerde virtuele machine na een failover.
 Internet Load Balancer | Ondersteund | Koppel de vooraf geconfigureerde load balancer met behulp van een Azure Automation-script van een herstelplan te gaan.
 Een interne Load balancer | Ondersteund | Koppel de vooraf geconfigureerde load balancer met behulp van een Azure Automation-script van een herstelplan te gaan.
 Openbaar IP-adres | Ondersteund | Een bestaande openbare IP-adres koppelen aan de NIC. Of maak een openbaar IP-adres en koppel deze aan de NIC met behulp van een Azure Automation-script van een herstelplan te gaan.

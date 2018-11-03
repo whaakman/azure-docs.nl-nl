@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 0244673d50e22124e8a0678e202004f06b0bca00
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: e1f33551c02562bbd8b7cc6a4187f7135a06c60f
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47182617"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50961939"
 ---
 # <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-preview"></a>Capaciteit van de Hyper-V-virtuele machine met de oplossing capaciteit en prestaties (Preview) plannen
 
@@ -50,8 +50,8 @@ De volgende tabel beschrijft de verbonden bronnen die worden ondersteund door de
 
 | Verbonden bron | Ondersteuning | Beschrijving |
 |---|---|---|
-| [Windows-agents](log-analytics-windows-agent.md) | Ja | De oplossing verzamelt gegevens van de capaciteit en prestaties van Windows-agents. |
-| [Linux-agents](log-analytics-linux-agents.md) | Nee    | De oplossing verzamelt geen gegevens van de capaciteit en prestaties van rechtstreekse Linux-agents.|
+| [Windows-agents](log-analytics-agent-windows.md) | Ja | De oplossing verzamelt gegevens van de capaciteit en prestaties van Windows-agents. |
+| [Linux-agents](log-analytics-quick-collect-linux-computer.md) | Nee    | De oplossing verzamelt geen gegevens van de capaciteit en prestaties van rechtstreekse Linux-agents.|
 | [SCOM-beheergroep](log-analytics-om-agents.md) | Ja |De oplossing verzamelt gegevens van capaciteit en prestaties van agents in een verbonden SCOM-beheergroep. Een directe verbinding van de SCOM-agent naar Log Analytics is niet vereist.|
 | [Azure Storage-account](log-analytics-azure-storage.md) | Nee | Azure storage bevat geen gegevens voor capaciteit en prestaties.|
 
@@ -64,7 +64,7 @@ De volgende tabel beschrijft de verbonden bronnen die worden ondersteund door de
 
 Voer de volgende stap om de oplossing capaciteit en prestaties toevoegen aan uw werkruimte.
 
-- De oplossing capaciteit en prestaties toevoegen aan uw Log Analytics-werkruimte met behulp van de procedure beschreven in [toevoegen Log Analytics-oplossingen uit de galerie van oplossingen](log-analytics-add-solutions.md).
+- De oplossing capaciteit en prestaties toevoegen aan uw Log Analytics-werkruimte met behulp van de procedure beschreven in [toevoegen Log Analytics-oplossingen uit de galerie van oplossingen](../monitoring/monitoring-solutions.md).
 
 ## <a name="management-packs"></a>Management packs
 
@@ -138,4 +138,4 @@ De volgende tabel bevat voorbeelden van zoekopdrachten voor capaciteit en presta
 
 
 ## <a name="next-steps"></a>Volgende stappen
-* Gebruik [zoekopdrachten in Logboeken in Log Analytics](log-analytics-log-search.md) om gedetailleerde gegevens voor capaciteit en prestaties te bekijken.
+* Gebruik [zoekopdrachten in Logboeken in Log Analytics](log-analytics-queries.md) om gedetailleerde gegevens voor capaciteit en prestaties te bekijken.

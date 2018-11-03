@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: fd183b5776f30b12d577a94be147eabef05d258f
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 43ff945747915edb76da8b593b232e86778374ce
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50419364"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958505"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Maken, weergeven en beheren van waarschuwingen met behulp van Azure Monitor  
 
@@ -57,7 +57,7 @@ Gedetailleerde volgende is een stapsgewijze handleiding voor het gebruik van waa
 
    > [!NOTE]
 
-   > Waarschuwingen lijsten kunnen importeren analytics-query als signaaltype - **logboek (opgeslagen Query)**, zoals weergegeven in bovenstaande afbeelding. Gebruikers kunnen verbeteren van de query in Analytics en deze vervolgens opslaan voor toekomstig gebruik in waarschuwingen: meer informatie over het gebruik van opgeslagen query die beschikbaar zijn op [met zoeken in Logboeken in log analytics](../log-analytics/log-analytics-log-searches.md) of [gedeelde query in application insights Analytics](../log-analytics/log-analytics-overview.md). 
+   > Waarschuwingen lijsten kunnen importeren analytics-query als signaaltype - **logboek (opgeslagen Query)**, zoals weergegeven in bovenstaande afbeelding. Gebruikers kunnen verbeteren van de query in Analytics en deze vervolgens opslaan voor toekomstig gebruik in waarschuwingen: meer informatie over het gebruik van opgeslagen query die beschikbaar zijn op [met zoeken in Logboeken in log analytics](../log-analytics/log-analytics-log-searches.md) of [gedeelde query in application insights Analytics](../log-analytics/log-analytics-queries.md). 
 
 1.  *Waarschuwingen voor activiteitenlogboeken*: eenmaal hebt geselecteerd, query voor waarschuwingen kan worden vermeld in de **zoekquery** veld; als de query-syntaxis is onjuist fout wordt in het veld in het rood weergegeven. Als de querysyntaxis juist - ter referentie wordt historische gegevens van de opgegeven query weergegeven als een grafiek met de optie voor het aanpassen van het tijdvenster van afgelopen zes uur voor de afgelopen week.
 
@@ -132,7 +132,7 @@ Daarom de onderstaande sectie vindt u informatie over het gebruik van Resource-s
 ### <a name="azure-resource-template-for-log-analytics"></a>Azure-Resourcesjabloon voor Log Analytics
 Waarschuwingen voor logboeken voor Log Analytics worden gemaakt door waarschuwingsregels die een opgeslagen zoekopdracht op een vast interval uitvoert. Als de resultaten van de query overeenkomen met criteria opgegeven, wordt een waarschuwingsrecord gemaakt en een of meer acties worden uitgevoerd. 
 
-Resource-sjabloon voor Log analytics opgeslagen zoekopdracht en Log analytics-waarschuwingen zijn beschikbaar in Log Analytics-sectie van documentatie. Zie voor meer informatie, [toe te voegen met Log Analytics opgeslagen zoekopdrachten en waarschuwingen](../operations-management-suite/operations-management-suite-solutions-resources-searches-alerts.md); die bevat illustratieve voorbeelden, evenals de schemadetails van het.
+Resource-sjabloon voor Log analytics opgeslagen zoekopdracht en Log analytics-waarschuwingen zijn beschikbaar in Log Analytics-sectie van documentatie. Zie voor meer informatie, [toe te voegen met Log Analytics opgeslagen zoekopdrachten en waarschuwingen](../monitoring/monitoring-solutions-resources-searches-alerts.md); die bevat illustratieve voorbeelden, evenals de schemadetails van het.
 
 ### <a name="azure-resource-template-for-application-insights"></a>Azure-Resourcesjabloon voor Application Insights
 Waarschuwing voor Application Insights-resources heeft een type `Microsoft.Insights/scheduledQueryRules/`. Zie voor meer informatie over dit brontype [Azure Monitor - gepland Query regels API-verwijzing](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/).
@@ -246,5 +246,5 @@ Op de goede werking 201 te maken van waarschuwingsregel nieuwe status wordt gere
 * Meer informatie over [waarschuwingen voor activiteitenlogboeken in Azure-waarschuwingen](monitor-alerts-unified-log.md)
 * Inzicht in [webhookacties voor logboekwaarschuwingen](monitor-alerts-unified-log-webhook.md)
 * Meer informatie over [Application Insights](../application-insights/app-insights-analytics.md)
-* Meer informatie over [Log Analytics](../log-analytics/log-analytics-overview.md). 
+* Meer informatie over [Log Analytics](../log-analytics/log-analytics-queries.md). 
 

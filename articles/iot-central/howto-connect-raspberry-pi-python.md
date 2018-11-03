@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: b5632db57e902eef76860f85de6e76f85861090a
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: c478c2c4af12ecaa02e6700ec7faffc5b9862a00
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45728960"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958182"
 ---
 # <a name="connect-a-raspberry-pi-to-your-azure-iot-central-application-python"></a>Verbinding maken met een Raspberry Pi aan uw Azure IoT Central-toepassing (Python)
 
@@ -23,9 +23,9 @@ Dit artikel wordt beschreven hoe u, als een apparaat-ontwikkelaar, een Raspberry
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
-U hebt het volgende nodig om de stappen in dit artikel uit te voeren:
+Als u wilt de stappen in dit artikel hebt voltooid, moet u de volgende onderdelen:
 
-* Een Azure IoT Central-toepassing gemaakt op basis van de **voorbeeld Devkits** toepassingssjabloon. Zie voor meer informatie, [maken van uw Azure IoT Central Application](howto-create-application.md).
+* Een Azure IoT Central-toepassing gemaakt op basis van de **voorbeeld Devkits** toepassingssjabloon. Zie voor meer informatie de [maken van een toepassing Quick Start](quick-deploy-iot-central.md).
 * Een Raspberry Pi-apparaat met het besturingssysteem Raspbian. U moet een monitor, toetsenbord en muis die zijn verbonden met uw Raspberry Pi voor toegang tot de GUI-omgeving. De Raspberry Pi moet kunnen [verbinding maken met het internet](https://www.raspberrypi.org/learning/software-guide/wifi/).
 * (Optioneel) een [Sense Hat](https://www.raspberrypi.org/products/sense-hat/) bestuur van de invoegtoepassing voor de Raspberry Pi. Deze bord verzamelt telemetriegegevens van diverse sensoren tot verzendt naar uw Azure IoT Central-toepassing. Als u geen een **Sense Hat** -bord, kunt u in plaats daarvan een emulator gebruiken (beschikbaar als onderdeel van de installatiekopie Raspberry Pi).
 
@@ -33,17 +33,28 @@ U hebt het volgende nodig om de stappen in dit artikel uit te voeren:
 
 Een toepassing gemaakt op basis van de **voorbeeld Devkits** toepassingssjabloon bevat een **Raspberry Pi** apparaat sjabloon met de volgende kenmerken: 
 
-- Telemetrie waarin de metingen voor het apparaat **vochtigheid**, **temperatuur**, **druk te verlichten**, **Magnometer** (gemeten langs de X Y, Z-as), **Accelorometer** (gemeten langs de X, Y, Z-as), en **gyroscoop** (gemeten langs de X, Y, Z-as).
-- Instellingen van **spanning**, **huidige**,**ventilatorsnelheid** en een **IR** in-/ uitschakelen.
-- Eigenschappen van de apparaateigenschappen **die nummer** en **locatie** eigenschap in de cloud.
+- Telemetrie, waaronder de volgende metingen die het apparaat wordt verzameld:
+    - Vochtigheid
+    - Temperatuur
+    - Druk
+    - Magnetometer (X, Y, Z)
+    - Versnellingsmeter (X, Y, Z)
+    - Gyroscoop (X, Y, Z)
+- Instellingen
+    - Voltage
+    - Huidige
+    - Snelheid van ventilator
+    - IR in-/ uitschakelen.
+- Eigenschappen
+    - Aantal apparaateigenschappen die
+    - Cloud-locatie-eigenschap
 
-
-Raadpleeg voor volledige informatie van de configuratie van de sjabloon apparaat [Raspberry PI Apparaatdetails sjabloon](howto-connect-raspberry-pi-python.md#raspberry-pi-device-template-details)
+Raadpleeg voor de volledige details van de configuratie van de sjabloon apparaat [Raspberry PI Apparaatdetails sjabloon](howto-connect-raspberry-pi-python.md#raspberry-pi-device-template-details)
     
 
 ## <a name="add-a-real-device"></a>Echt apparaat toevoegen
 
-Voeg in uw Azure IoT Central-toepassing een echt apparaat uit de **Raspberry Pi** apparaat sjabloon en maak een notitie van de verbindingsgegevens van het apparaat (**bereik-ID, apparaat-ID, primaire sleutel**). Zie voor meer informatie, [een echt apparaat toevoegen aan uw Azure IoT Central toepassing](tutorial-add-device.md).
+In uw Azure IoT Central-toepassing toevoegen een echt apparaat uit de **Raspberry Pi** apparaat sjabloon en bijhouden van de verbindingsgegevens van het apparaat (**bereik-ID, apparaat-ID, primaire sleutel**). Zie voor meer informatie, [een echt apparaat toevoegen aan uw Azure IoT Central toepassing](tutorial-add-device.md).
 
 
 ### <a name="configure-the-raspberry-pi"></a>Configureer de Raspberry Pi

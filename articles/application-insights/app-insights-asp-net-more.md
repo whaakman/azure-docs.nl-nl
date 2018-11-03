@@ -1,6 +1,6 @@
 ---
 title: Haal meer uit Azure Application Insights | Microsoft Docs
-description: Na het aan de slag met Application Insights, volgt hier een samenvatting van de functies die u kunt verkennen.
+description: Nadat het aan de slag met Application Insights, als volgt een overzicht van de functies die u kunt verkennen.
 services: application-insights
 documentationcenter: .net
 author: mrbullwinkle
@@ -13,24 +13,24 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/03/2017
 ms.author: mbullwin
-ms.openlocfilehash: 2f03083367de4e818bdc953ab76c28ff687f0a48
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 5d46b446a71d75a20cc4771b651fbf107db31358
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35294333"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958438"
 ---
 # <a name="more-telemetry-from-application-insights"></a>Meer telemetrie van Application Insights
-Nadat u hebt [Application Insights toegevoegd aan uw ASP.NET-code](app-insights-asp-net.md), enkele dingen die u doen kunt om nog meer telemetrie ophalen. 
+Nadat u hebt [Application Insights toevoegen aan uw ASP.NET-code](app-insights-asp-net.md), er zijn enkele dingen die u doen kunt om nog meer telemetrie ophalen. 
 
 | Bewerking | Wat u krijgt|
 |---|---|
-|(IIS-servers) [Status Monitor installeren](http://go.microsoft.com/fwlink/?LinkId=506648) op elke servermachine.<br/>(Azure-web-apps) Open de blade Application Insights in het Azure Configuratiescherm voor de web-app.| [**Prestatiemeteritems**](app-insights-performance-counters.md)<br/>[**Uitzonderingen** ](app-insights-asp-net-exceptions.md) - gedetailleerde traceringen<br/>[**Afhankelijkheden**](app-insights-asp-net-dependencies.md)|
-|[De JavaScript-fragment toevoegen aan uw webpagina 's](app-insights-javascript.md)|[Pagina prestaties](app-insights-web-track-usage.md), browseruitzonderingen, AJAX-prestaties. Aangepaste telemetrie van de clientzijde.|
-|[Maak webtests voor beschikbaarheid](app-insights-monitor-web-app-availability.md)|Ontvang waarschuwingen als uw site uitvalt.|
-|[Zorg ervoor dat buildinfo.config](https://msdn.microsoft.com/library/dn449058.aspx) wordt gegenereerd door het MSBuild|[Aantekeningen in metrische grafieken bouwen](https://blogs.msdn.microsoft.com/visualstudioalm/2013/11/14/implementing-deployment-markers-in-application-insights/)
-|[Schrijven van aangepaste gebeurtenissen en metrische gegevens](app-insights-api-custom-events-metrics.md)|Zakelijke gebeurtenissen en metrische gegevens tellen, en meer gedetailleerde informatie over het gebruik bijhouden.|
-|[Profiel van uw live site](https://aka.ms/AIProfilerPreview)|Gedetailleerde functie tijdsinstellingen van uw live web-app|
+|(IIS-servers) [Installeer Status Monitor](http://go.microsoft.com/fwlink/?LinkId=506648) op elke servermachine.<br/>(Azure-web-apps) Open de Application Insights-blade in de Azure het Configuratiescherm voor de web-app.| [**Prestatiemeteritems**](app-insights-performance-counters.md)<br/>[**Uitzonderingen** ](app-insights-asp-net-exceptions.md) - gedetailleerde traceringen stack<br/>[**Afhankelijkheden**](app-insights-asp-net-dependencies.md)|
+|[Voeg het JavaScript-fragment toe aan uw webpagina 's](app-insights-javascript.md)|[Pagina prestaties](app-insights-usage-overview.md), browseruitzonderingen, prestaties van AJAX. Aangepaste telemetrie van de client-side.|
+|[Maak webtests voor beschikbaarheid](app-insights-monitor-web-app-availability.md)|Waarschuwingen ontvangen als uw site beschikbaar is|
+|[Zorg ervoor dat buildinfo.config](https://msdn.microsoft.com/library/dn449058.aspx) wordt gegenereerd door het MSBuild|[Maken van aantekeningen in grafieken met metrische gegevens](https://blogs.msdn.microsoft.com/visualstudioalm/2013/11/14/implementing-deployment-markers-in-application-insights/)
+|[Aangepaste gebeurtenissen en metrische gegevens schrijven](app-insights-api-custom-events-metrics.md)|Aantal zakelijke gebeurtenissen en metrische gegevens, en meer gedetailleerde informatie over gebruik bijhouden.|
+|[Profileren van uw live site](https://aka.ms/AIProfilerPreview)|Gedetailleerde functie tijdsinstellingen van uw live web-app|
 
 
 

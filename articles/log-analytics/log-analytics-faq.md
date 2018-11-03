@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 08a85cea75d692573f9e9e6c4bcd8bb61e03867f
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 403ac2fd0ab497239350c8b4a68a6b6f53bb24b4
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041966"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50963911"
 ---
 # <a name="log-analytics-faq"></a>Veelgestelde vragen over Log Analytics
 Dit Microsoft-FAQ is een lijst met veelgestelde vragen over Log Analytics in Microsoft Azure. Als u aanvullende vragen over Log Analytics hebt, gaat u naar de [discussieforum](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) en plaats uw vraag. Wanneer u een vraag is vaak wordt gevraagd, toevoegen we deze aan dit artikel zodat snel en eenvoudig kunnen worden gevonden.
@@ -88,7 +88,7 @@ Antwoord: deze regio is bij tijdelijke capaciteitslimiet. De limiet is gepland o
 
 ### <a name="q-does-log-analytics-use-the-same-agent-as-azure-security-center"></a>V. Log Analytics maakt gebruik dezelfde agent als Azure Security Center?
 
-A: in begin juni 2017, is Azure Security Center begonnen met behulp van de Microsoft Monitoring Agent voor het verzamelen en opslaan van gegevens. Zie voor meer informatie, [Azure Security Center-Platform migratie Veelgestelde vragen over](../security-center/security-center-platform-migration-faq.md).
+A: in begin juni 2017, is Azure Security Center begonnen met behulp van de Microsoft Monitoring Agent voor het verzamelen en opslaan van gegevens. Zie voor meer informatie, [Azure Security Center-Platform migratie Veelgestelde vragen over](../security-center/security-center-enable-data-collection.md).
 
 ### <a name="q-what-checks-are-performed-by-the-ad-and-sql-assessment-solutions"></a>V. Welke controles zijn uitgevoerd door de AD en SQL-evaluatie-oplossingen?
 
@@ -135,7 +135,7 @@ Log Analytics maakt gebruik van UTC-tijd en elke dag om middernacht UTC begint. 
 
 ### <a name="q-how-can-i-be-notified-when-data-collection-stops"></a>V. Hoe kan ik de hoogte gesteld wanneer het verzamelen van gegevens wordt gestopt?
 
-A: Gebruik de stappen [maken van een nieuwe waarschuwing](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) om te worden geïnformeerd wanneer het verzamelen van gegevens wordt gestopt.
+A: Gebruik de stappen [maken van een nieuwe waarschuwing](../monitoring-and-diagnostics/alert-metric.md) om te worden geïnformeerd wanneer het verzamelen van gegevens wordt gestopt.
 
 Bij het maken van de waarschuwing voor wanneer het verzamelen van gegevens stopt, stel de:
 
@@ -231,4 +231,4 @@ Type=WireData (ProcessName="C:\\Program Files\\Microsoft Monitoring Agent\\Agent
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Aan de slag met Log Analytics](log-analytics-get-started.md) voor meer informatie over Log Analytics en enkele minuten aan de slag.
+* [Aan de slag met Log Analytics](../azure-monitor/overview.md) voor meer informatie over Log Analytics en enkele minuten aan de slag.

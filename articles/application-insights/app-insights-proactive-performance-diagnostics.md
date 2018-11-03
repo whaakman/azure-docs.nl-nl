@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 05/04/2017
 ms.reviewer: antonfr
 ms.author: mbullwin
-ms.openlocfilehash: b0256e899d47e3b6f8141218c11e1a7a62ca8e1a
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 099e597982172bcea39fedd0fd1445f466eb2bc1
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50419721"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50960817"
 ---
 # <a name="smart-detection---performance-anomalies"></a>Slimme detectie: afwijkende prestaties
 
@@ -161,7 +161,7 @@ U ziet dat u leest:
 
 Application Insights wordt gezocht naar prestatieproblemen die mogelijk alleen van invloed op een gedeelte van uw gebruikers of alleen van invloed op gebruikers in sommige gevallen. Melding over het laden van pagina's is bijvoorbeeld langzamer zijn op één type browser dan op andere typen browsers, of als aanvragen langzamer worden uitgevoerd vanaf een bepaalde server. Deze kan ook problemen met de combinaties van de eigenschappen vinden, zoals trage pagina wordt geladen in één geografisch gebied voor clients met behulp van specifieke besturingssysteem.  
 
-Afwijkingen zoals deze zijn zeer moeilijk te detecteren door te inspecteren van de gegevens, maar zijn vaker voor dan u denkt. Vaak ze alleen surface wanneer uw klanten klagen. Op dat moment worden deze s te laat: de betrokken gebruikers zijn al overschakelen naar uw concurrenten!
+Afwijkingen zoals deze zijn zeer moeilijk te detecteren door te inspecteren van de gegevens, maar zijn vaker voor dan u denkt. Vaak ze alleen surface wanneer uw klanten klagen. Op dat moment zijn opgelost, het is te laat: de betrokken gebruikers zijn al overschakelen naar uw concurrenten!
 
 Op dit moment kijken onze algoritmen laadtijden voor pagina's, de reactietijden aanvraag op de server, en reactietijden voor afhankelijkheden.  
 
@@ -185,8 +185,8 @@ Deze diagnostische hulpprogramma's kunnen u de telemetrie van uw app controleren
 
 * [Profiler](app-insights-profiler.md) 
 * [Snapshot debugger](app-insights-snapshot-debugger.md)
-* [Analytische gegevens](app-insights-analytics-tour.md)
-* [Analytics slimme diagnostische gegevens](app-insights-analytics-diagnostics.md)
+* [Analytische gegevens](../log-analytics/query-language/get-started-analytics-portal.md)
+* [Analytics slimme diagnostische gegevens](app-insights-analytics.md)
 
 Slimme detectie worden volledig automatisch uitgevoerd. Maar misschien u graag enkele meer waarschuwingen instellen?
 

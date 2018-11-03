@@ -10,12 +10,12 @@ ms.service: billing
 ms.topic: article
 ms.date: 10/19/2018
 ms.author: byvinyal
-ms.openlocfilehash: c22f3dbc06dd43a31bf43634437c7f377dac8813
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
-ms.translationtype: MT
+ms.openlocfilehash: 702783ce581ba59b64892035eca3fb28787eec0f
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49457303"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958964"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure-abonnement en servicelimieten, quota's en beperkingen
 In dit document vindt u enkele van de meest algemene Microsoft Azure-limieten, die soms ook wel quotums genoemd. Dit document niet op dit moment betrekking hebben op alle Azure-services. Na verloop van tijd, wordt de lijst worden uitgebreid en bijgewerkt in verband met betrekking hebben op meer van het platform.
@@ -145,6 +145,8 @@ De volgende tabel worden de functies en limieten van de Basic, Standard en Premi
 [!INCLUDE [azure-virtual-network-limits](../includes/azure-virtual-network-limits.md)]
 
 #### <a name="application-gateway-limits"></a>Application Gateway-limieten
+
+De volgende tabel is van toepassing op v1, v2, Standard en WAF-SKU's, tenzij anders vermeld.
 [!INCLUDE [application-gateway-limits](../includes/application-gateway-limits.md)]
 
 #### <a name="network-watcher-limits"></a>Network Watcher beperkt

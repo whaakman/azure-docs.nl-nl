@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.component: ''
-ms.openlocfilehash: 06b3d97f4b2b7867f09a8c4e5fe974615e9b0c70
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 9569a9da81848c279db6d6d45b7621f84060387b
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50093417"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958624"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-data-store-for-a-windows-virtual-machine-classic"></a>Gastbesturingssysteem metrische gegevens verzenden naar de Azure Monitor-gegevensopslag voor een virtuele Windows-machine (klassiek)
 
@@ -45,7 +45,7 @@ Het proces dat wordt beschreven in dit artikel werkt alleen op klassieke virtuel
 
 ## <a name="create-a-service-principal"></a>Een service-principal maken
 
-Een service-principal maken in uw Azure Active Directory-tenant met behulp van de instructies op de [maken van een service-principal](../azure-resource-manager/resource-group-create-service-principal-portal.md). Let op het volgende tijdens dit proces te doorlopen: 
+Een service-principal maken in uw Azure Active Directory-tenant met behulp van de instructies op de [maken van een service-principal](../active-directory/develop/howto-create-service-principal-portal.md). Let op het volgende tijdens dit proces te doorlopen: 
 - Maak nieuwe clientgeheim voor deze app.
 - Sla de sleutel en de client-ID voor gebruik in latere stappen.
 

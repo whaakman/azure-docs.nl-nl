@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: f0a982e8a0cb358e29375e05c1752a33b15ec255
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: cedebbe1ba0dcf40af0f2f001f022ffaad175c70
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49319707"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50959627"
 ---
 # <a name="send-data-to-log-analytics-with-the-http-data-collector-api-public-preview"></a>Gegevens verzenden naar Log Analytics met de HTTP Data Collector-API (preview-versie)
 Dit artikel ziet u hoe u de API HTTP Data Collector gebruikt om gegevens te verzenden naar Log Analytics van een REST-API-client.  Dit wordt beschreven hoe u gegevens die zijn verzameld door het script of een toepassing opmaken, opnemen in een aanvraag en die aanvraag heeft geautoriseerd door Log Analytics.  Voorbeelden zijn bedoeld voor PowerShell, C# en Python.
@@ -98,7 +98,7 @@ Signature=Base64(HMAC-SHA256(UTF8(StringToSign)))
 
 De voorbeelden in de volgende secties hebben voorbeeldcode voor het maken van een autorisatie-header.
 
-## <a name="request-body"></a>Aanvraagtekst
+## <a name="request-body"></a>Aanvraagbody
 De hoofdtekst van het bericht moet zich in JSON. Er moet een of meer records met de eigenschap naam / waarde-paren opnemen in deze indeling:
 
 ```json
@@ -167,7 +167,7 @@ Als u de volgende vermelding, klikt u vervolgens verzonden voordat het recordtyp
 
 ![Voorbeeldrecord 4](media/log-analytics-data-collector-api/record-04.png)
 
-## <a name="data-limits"></a>Limieten voor gegevens
+## <a name="data-limits"></a>Gegevenslimieten
 Er zijn enkele beperkingen om de gegevens in de Log Analytics-gegevens-verzameling API geplaatst.
 
 * Maximaal 30 MB per post naar Log Analytics Data Collector-API. Dit is een maximale grootte voor een enkel bericht. Als de gegevens van één die boeken groter is dan 30 MB, moet u de gegevens tot een kleinere grootte segmenten splitsen en ze gelijktijdig te verzenden.
@@ -201,7 +201,7 @@ Deze tabel bevat de volledige reeks statuscodes die de service kan worden gereto
 Query uitvoeren op gegevens verzonden door de Log Analytics HTTP Data Collector-API, zoeken naar records met **Type** die gelijk is aan de **LogType** waarde die u hebt opgegeven, met het achtervoegsel **_CL**. Als u gebruikt bijvoorbeeld **MyCustomLog**, zou u alle records geretourneerd **Type = MyCustomLog_CL**.
 
 >[!NOTE]
-> Als uw werkruimte is bijgewerkt naar de [nieuwe met Log Analytics-querytaal](log-analytics-log-search-upgrade.md), en vervolgens de bovenstaande query's gewijzigd in het volgende.
+> Als uw werkruimte is bijgewerkt naar de [nieuwe met Log Analytics-querytaal](log-analytics-log-search.md), en vervolgens de bovenstaande query's gewijzigd in het volgende.
 
 > `MyCustomLog_CL`
 
@@ -470,6 +470,6 @@ post_data(customer_id, shared_key, body, log_type)
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-- Gebruik de [Log Search API](log-analytics-log-search-api.md) gegevens ophalen uit de opslagplaats van Log Analytics.
+- Gebruik de [Log Search API](log-analytics-log-search.md) gegevens ophalen uit de opslagplaats van Log Analytics.
 
 - Meer informatie over hoe u [een pijplijn maken met de API van Data Collector](log-analytics-create-pipeline-datacollector-api.md) met behulp van de werkstroom voor Logic Apps naar Log Analytics.

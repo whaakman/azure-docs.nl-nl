@@ -6,14 +6,14 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: 47773f9375927e4d8dfbfec922e4cf11e42ade04
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 359ada08f1d9df6b60fc27ca385f6003af498e17
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50633984"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958598"
 ---
-# <a name="deploy-the-vfxt-cluster"></a>De vFXT-cluster implementeren
+# <a name="deploy-the-vfxt-cluster"></a>Het vFXT-cluster implementeren
 
 Voor het maken van een cluster vFXT, is de eenvoudigste manier met een netwerkcontroller cluster, wordt een virtuele machine waarvoor de vereiste scripts, sjablonen en software-infrastructuur voor het maken en beheren van het cluster vFXT is.
 
@@ -30,7 +30,7 @@ Lees voor meer informatie over de stappen voor de implementatie van cluster en h
 
 Nadat u de instructies in dit document te volgen, hebt u een virtueel netwerk, een subnet, een domeincontroller en een cluster vFXT zoals wordt weergegeven in het volgende diagram:
 
-![diagram van vnet met optionele blob-opslag en een subnet met drie virtuele machines met het label vFXT knooppunten/vFXT cluster en één virtuele machine met het label clustercontroller gegroepeerd](media/avere-vfxt-deployment-500px.png)
+![diagram van vnet met optionele blob-opslag en een subnet met drie virtuele machines met het label vFXT knooppunten/vFXT cluster en één virtuele machine met het label clustercontroller gegroepeerd](media/avere-vfxt-deployment.png)
 
 Zorg ervoor dat u deze vereisten hebt opgelost voordat u begint:  
 
@@ -198,9 +198,7 @@ Ook vindt u ontbrekende informatie door te bladeren naar de pagina controller VM
 
 Als u wilt deze informatie van de Resource Manager-uitvoer van de sjabloon vinden, als volgt:
 
-1. Pictogram in het systeemvak op de bovenste balk van Azure portal, klik op **gaat u naar de resourcegroep**. Dit geeft de nieuwe resourcegroep met de controller en de vnet.
-
-   ![Meldingen sectie van de portal met 'Implementatie is voltooid' weergegeven en 'Ga naar de resourcegroep' en 'Vastmaken aan dashboard' knoppen](media/avere-vfxt-browse-to-rg.png)
+1. Ga naar de resourcegroep voor uw cluster-netwerkcontroller.
 
 1. Aan de linkerkant, klikt u op **implementaties**, en vervolgens **Microsoft.Template**.
 

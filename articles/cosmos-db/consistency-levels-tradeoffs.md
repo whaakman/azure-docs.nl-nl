@@ -1,5 +1,5 @@
 ---
-title: Beschikbaarheid en prestaties van optimalisatie voor verschillende consistentieniveaus | Microsoft Docs
+title: Beschikbaarheid en prestaties van optimalisatie voor verschillende consistentieniveaus in Azure Cosmos DB | Microsoft Docs
 description: Beschikbaarheid en prestaties van optimalisatie voor verschillende consistentieniveaus in Azure Cosmos DB.
 keywords: consistentie, prestaties, azure cosmosdb, azure, Microsoft azure
 services: cosmos-db
@@ -9,38 +9,41 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/20/2018
 ms.author: mjbrown
-ms.openlocfilehash: 061a7c223d0e1c6fa7384d7defe9f84f470236ce
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 8f36026c7e5802994b8cf22d60c6ecea052e6382
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50244071"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50963044"
 ---
-# <a name="availability-and-performance-tradeoffs-for-various-consistency-levels"></a>Beschikbaarheid en prestaties van optimalisatie voor verschillende consistentieniveaus
+# <a name="availability-and-performance-tradeoffs-for-various-consistency-levels-in-azure-cosmos-db"></a>Beschikbaarheid en prestaties van optimalisatie voor verschillende consistentieniveaus in Azure Cosmos DB
 
-Gedistribueerde databases die afhankelijk zijn van replicatie voor hoge beschikbaarheid, lage latentie of beide, moet het fundamentele verschil tussen het lezen van consistentie versus availability1, latency2 en doorvoer. Azure Cosmos DB nadert de consistentie van gegevens als een spectrum van de opties in plaats van de twee extreme varianten strong en uiteindelijke consistentie. Cosmos DB kan ontwikkelaars kiezen tussen vijf duidelijk gedefinieerde consistentiemodellen uit het spectrum consistentie (sterk naar zwak) – **sterke**, **gebonden veroudering**, **sessie** , **consistent voorvoegsel**, en **uiteindelijke**. Elk van de vijf consistentiemodellen wissen optimalisatie van de beschikbaarheid en prestaties biedt en worden ondersteund met uitgebreide Sla's.
+Gedistribueerde databases die afhankelijk zijn van replicatie voor hoge beschikbaarheid, lage latentie of beide, moet het fundamentele verschil tussen het lezen van consistentie en beschikbaarheid, latentie en doorvoer. Azure Cosmos DB nadert de consistentie van gegevens als een spectrum van de opties in plaats van de twee extreme varianten strong en uiteindelijke consistentie. Cosmos DB kan ontwikkelaars kiezen tussen de vijf duidelijk gedefinieerde consistentiemodellen uit het spectrum consistentie (sterk naar zwak) – **sterke**, **gebonden veroudering**, **sessie** , **consistent voorvoegsel**, en **uiteindelijke**. Elk van de vijf consistentiemodellen en nadelen van de beschikbaarheid en prestaties biedt en worden ondersteund met uitgebreide Sla's.
 
 ## <a name="consistency-levels-and-latency"></a>Consistentieniveaus en latentie
 
 - De **leeslatentie** voor alle consistentieniveaus is altijd gegarandeerd minder dan 10 milliseconden in het 99e percentiel, en wordt ondersteund door de SLA. Het gemiddelde (in het 50e percentiel) lezen latentie is doorgaans 2 milliseconden of minder.
-- Met uitzondering van Cosmos-accounts die verschillende regio's omvatten en geconfigureerd met de sterke consistentie, de **schrijflatentie** voor alle consistentieniveaus is altijd gegarandeerd minder dan 10 milliseconden in het 99e percentiel, en wordt ondersteund door de SLA. De latentie (in het 50e percentiel) gemiddelde schrijven is doorgaans 5 milliseconden of minder.
-- Voor de Cosmos-accounts met meerdere regio's die zijn geconfigureerd met sterke consistentie (momenteel in Preview), de **schrijflatentie** is gegarandeerd minder dan < (2 * RTT) + 10 milliseconden in het 99e percentiel. De RTT tussen het verst van een van de twee regio's die zijn gekoppeld aan uw Cosmos-account. De exacte RTT latentie is een functie van de snelheid van licht afstand en de exacte Azure netwerktopologie. Azure-netwerken biedt geen eventuele latentie Sla's voor de RTT tussen elke twee Azure-regio's. Replicatielatentie van cosmos DB worden weergegeven in Azure portal voor uw Cosmos-account, zodat u kunt voor het bewaken van de replicatielatentie tussen verschillende regio's die zijn gekoppeld aan uw Cosmos-account.
+
+- Met uitzondering van de Cosmos-accounts die meerdere regio's beslaan en zijn geconfigureerd met de sterke consistentie, de **schrijflatentie** voor de resterende consistentie niveaus is altijd gegarandeerd minder dan 10 milliseconden op de 99th percentiel. Deze schrijflatentie wordt ondersteund door de SLA. De latentie (in het 50e percentiel) gemiddelde schrijven is doorgaans 5 milliseconden of minder.
+
+- Voor de Cosmos-accounts waarvoor meerdere regio's die zijn geconfigureerd met sterke consistentie (momenteel in preview), de **schrijflatentie** is gegarandeerd minder dan < (2 * Round-trip tijd/RTT) + 10 milliseconden in het 99e percentiel. De RTT tussen een van de twee verst regio's die zijn gekoppeld aan uw Cosmos-account. De exacte RTT latentie is een functie van de snelheid van licht afstand en de exacte Azure netwerktopologie. Azure-netwerken biedt geen eventuele latentie Sla's voor de RTT tussen elke twee Azure-regio's. Replicatielatentie van cosmos DB worden weergegeven in Azure portal voor uw Cosmos-account, zodat u kunt voor het bewaken van de replicatielatentie tussen verschillende regio's die zijn gekoppeld aan uw Cosmos-account.
 
 ## <a name="consistency-levels-and-throughput"></a>Consistentieniveaus en doorvoer
 
-- Geef ongeveer 2 X leesdoorvoer in vergelijking met sterke en gebonden veroudering voor dezelfde hoeveelheid RU, sessie, consistent voorvoegsel en uiteindelijke consistentie.
-- Voor een bepaald type schrijfbewerking (bijvoorbeeld Insert, Replace, Upsert, verwijderen, enzovoort) is de doorvoer van schrijfbewerkingen voor ru's gelijk voor alle consistentieniveaus.
+- Voor hetzelfde aantal aanvraageenheden bieden de sessie, consistent voorvoegsel en uiteindelijke consistentie-niveaus ongeveer 2 X doorvoer in vergelijking met sterke en gebonden veroudering lezen.
+
+- Voor een bepaald type schrijfbewerking zoals invoegen, vervangen, upsert, verwijderen, enz. is de doorvoer van schrijfbewerkingen voor aanvraageenheden gelijk voor alle consistentieniveaus.
 
 ## <a name="consistency-levels-and-durability"></a>Consistentieniveaus en duurzaamheid
 
-Voordat een schrijfbewerking is bevestigd naar de client, de gegevens is blijvend zijn doorgevoerd op door een quorum van replicaties in de regio de schrijfbewerkingen accepteren. Bovendien, als de container is geconfigureerd met consistente indexeringsbeleid, de index is ook synchroon bijgewerkt, gerepliceerd en blijvend zijn doorgevoerd door het quorum van replica's voordat het schrijven naar de client is bevestigd. 
+Voordat een schrijfbewerking naar de client is bevestigd, hecht de gegevens blijvend van een quorum van replicaties in de regio waarin de schrijfbewerkingen zijn toegestaan. Bovendien, als de container is geconfigureerd met consistente indexeringsbeleid, de index is ook synchroon bijgewerkt, gerepliceerd en blijvend zijn doorgevoerd door het quorum van replica's voordat de bevestiging van de schrijfbewerking wordt verzonden naar de client.
 
-De volgende tabel geeft een overzicht van het venster van de mogelijke verlies van gegevens in het geval van een regionaal noodgeval voor de Cosmos-accounts die verschillende regio's omvatten.
+De volgende tabel geeft een overzicht van het venster van de mogelijke gegevens verloren gaan in het geval van een regionaal noodgeval voor de Cosmos-accounts die meerdere regio's omvatten.
 
-| **Consistentieniveau** | **Venster van mogelijk gegevensverlies in het geval van een regionaal noodgeval** |
+| **Consistentieniveau** | **Mogelijke gegevensverlies-venster met gegevens in het geval van een regionaal noodgeval** |
 | - | - |
 | Sterk | Nul |
-| Gebonden veroudering | Beperkt tot de "veroudering venster" geconfigureerd door de ontwikkelaar van de Cosmos-account |
+| Gebonden veroudering | Beperkt tot de "veroudering venster" u op de Cosmos-account configureren. |
 | Sessie | Maximaal 5 seconden |
 | Consistent prefix | Maximaal 5 seconden |
 | Mogelijk | Maximaal 5 seconden |

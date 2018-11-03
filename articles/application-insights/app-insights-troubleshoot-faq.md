@@ -13,21 +13,21 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: mbullwin
-ms.openlocfilehash: 4f063299a0bb454c8eaf3d38a0cb0a5fb20abcc8
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 60195f135b8b0e102a36c3573a341432f2e0c784
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47094075"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50959304"
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights: Veelgestelde vragen
 
 ## <a name="configuration-problems"></a>Configuratieproblemen
 *Ik ondervind problemen met het instellen van mijn:*
 
-* [.NET-app](app-insights-asp-net-troubleshoot-no-data.md)
+* [.NET app](app-insights-asp-net-troubleshoot-no-data.md)
 * [Bewaken van een app al actief](app-insights-monitor-performance-live-website-now.md#troubleshooting-runtime-configuration-of-application-insights)
-* [Azure diagnostics](app-insights-azure-diagnostics.md)
+* [Azure diagnostics](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md)
 * [Java-web-app](app-insights-java-troubleshoot.md)
 
 *Kan ik ophalen geen gegevens uit mijn server*
@@ -111,7 +111,7 @@ Van server-web-apps:
 
 Van [client webpagina's](app-insights-javascript.md):
 
-* [Aantal paginaweergaven](app-insights-web-track-usage.md)
+* [Aantal paginaweergaven](app-insights-usage-overview.md)
 * [AJAX-aanroepen](app-insights-asp-net-dependencies.md) aanvragen van een script uit te voeren.
 * Gegevens laden van pagina weergeven
 * Aantal gebruikers en sessies
@@ -119,7 +119,7 @@ Van [client webpagina's](app-insights-javascript.md):
 
 Uit andere bronnen, als u ze configureren:
 
-* [Azure diagnostics](app-insights-azure-diagnostics.md)
+* [Azure diagnostics](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md)
 * [Docker-containers](app-insights-docker.md)
 * [Tabellen importeren in Analytics](app-insights-analytics-import.md)
 * [Log Analytics](https://azure.microsoft.com/blog/omssolutionforappinsightspublicpreview/)

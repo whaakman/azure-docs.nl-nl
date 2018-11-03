@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 10/27/2017
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: c56a0239209f5c71130c9dd8173eed48f60a3b0a
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 92d456ae4db1b4016c1a3676b5adfd7cbc2e7867
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48042067"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50962772"
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-log-analytics"></a>Optimalisatie van uw Active Directory-omgeving met de oplossing statuscontrole van Active Directory in Log Analytics
 
@@ -53,7 +53,7 @@ Nadat u de oplossing hebt toegevoegd en een controle voltooid, samenvattende is 
 
 Als u de statuscontrole voor uw domeincontrollers die lid van het domein zijn moet worden geëvalueerd, hiervoor een agent en de verbinding met Log Analytics met behulp van een van de volgende ondersteunde methodes:
 
-1. Installeer de [Microsoft Monitoring Agent (MMA)](log-analytics-windows-agent.md) als de domeincontroller niet door System Center 2016 - Operations Manager of Operations Manager 2012 R2 bewaakt wordt.
+1. Installeer de [Microsoft Monitoring Agent (MMA)](log-analytics-agent-windows.md) als de domeincontroller niet door System Center 2016 - Operations Manager of Operations Manager 2012 R2 bewaakt wordt.
 2. Als deze wordt bewaakt met System Center 2016 - Operations Manager of Operations Manager 2012 R2 en de beheergroep is niet geïntegreerd met de Log Analytics-service, de domeincontroller kan worden multihomed met Log Analytics voor het verzamelen van gegevens en door te sturen naar de service en nog steeds worden bewaakt door Operations Manager.  
 3. Anders, als uw Operations Manager-beheergroep is geïntegreerd met de service, moet u de domeincontrollers voor het verzamelen van gegevens toevoegen door de service die de stappen onder [toevoegen door agents beheerde computers](log-analytics-om-agents.md#connecting-operations-manager-to-log-analytics) nadat u hebt ingeschakeld de oplossing in uw werkruimte.  
 
@@ -186,4 +186,4 @@ Na de volgende health controle wordt uitgevoerd, wordt standaard elke zeven dage
 * Ja, Zie [aanbevelingen negeren](#ignore-recommendations) hierboven.
 
 ## <a name="next-steps"></a>Volgende stappen
-* Gebruik [zoekopdrachten in Logboeken in Log Analytics](log-analytics-log-searches.md) voor meer informatie over het analyseren van gedetailleerde gegevens AD Health Check en aanbevelingen.
+* Gebruik [zoekopdrachten in Logboeken in Log Analytics](log-analytics-log-search.md) voor meer informatie over het analyseren van gedetailleerde gegevens AD Health Check en aanbevelingen.

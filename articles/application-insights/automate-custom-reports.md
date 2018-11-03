@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 06/25/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: a3f2021a1a1e0a0ff97c5966e151894fd7b6743b
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 1f94e297e784d000c829a50c077e7fa6d303333f
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45574638"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50962211"
 ---
 # <a name="automate-custom-reports-with-azure-application-insights-data"></a>Aangepaste rapporten met Azure Application Insights-gegevens automatiseren
 
@@ -160,7 +160,7 @@ Deze stappen zijn alleen van toepassing als u al een SendGrid-account geconfigur
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Meer informatie over het maken van [Analytics-query's](app-insights-analytics-using.md).
+* Meer informatie over het maken van [Analytics-query's](../log-analytics/query-language/get-started-queries.md).
 * Meer informatie over [Application Insights-gegevens via een programma uitvoeren van query's](https://dev.applicationinsights.io/)
 * Meer informatie over [Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-what-are-logic-apps).
 * Meer informatie over [Microsoft Flow](https://ms.flow.microsoft.com).

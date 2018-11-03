@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 08/15/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: bc16b71ad20e2cf2bc61a046336fe6a3618bc403
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 43713cd4d217f2b43a0966f4de4f3573d4ef9b09
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48269561"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50979536"
 ---
 # <a name="functions-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Functiereferentie voor Definitietaal van werkstroom in Azure Logic Apps
 
@@ -281,7 +281,7 @@ Als u wilt werken met JSON-objecten en XML-knooppunt, kunt u deze functies voor 
 <a name="alphabetical-list"></a>
 <a name="action"></a>
 
-### <a name="action"></a>actie
+### <a name="action"></a>action
 
 Retourneert de *huidige* actie-uitvoer in runtime, of waarden uit een andere naam en waarde-paren van JSON, die u aan een expressie toewijzen kunt. Deze functie verwijst naar de volledige actie-object, maar u kunt optioneel een eigenschap waarvoor u waarde wilt opgeven. Zie ook [actions()](../logic-apps/workflow-definition-language-functions-reference.md#actions).
 
@@ -451,7 +451,7 @@ En dit resultaat wordt weergegeven: `"Succeeded"`
 
 <a name="add"></a>
 
-### <a name="add"></a>toevoegen
+### <a name="add"></a>add
 
 Retourneert het resultaat van het toevoegen van twee getallen.
 
@@ -1751,7 +1751,7 @@ Deze voorbeelden wordt het eerste item vindt in deze verzamelingen:
 
 ```
 first('hello')
-first([0, 1, 2])
+first(createArray(0, 1, 2))
 ```
 
 En deze resultaten worden geretourneerd: 
@@ -1761,7 +1761,7 @@ En deze resultaten worden geretourneerd:
 
 <a name="float"></a>
 
-### <a name="float"></a>drijvend
+### <a name="float"></a>float
 
 De tekenreeksversie van een voor een drijvend-kommagetal converteren naar een werkelijke getal met drijvende komma. U kunt deze functie alleen als aangepaste parameters wordt doorgegeven aan een app, zoals een logische app.
 
@@ -2312,7 +2312,7 @@ intersection('<collection1>', '<collection2>', ...)
 In dit voorbeeld wordt gezocht naar de algemene items via deze matrices:  
 
 ```
-intersection([1, 2, 3], [101, 2, 1, 10], [6, 8, 1, 2])
+intersection(createArray(1, 2, 3), createArray(101, 2, 1, 10), createArray(6, 8, 1, 2))
 ```
 
 En retourneert een matrix met *alleen* deze items: `[1, 2]`
@@ -2343,7 +2343,7 @@ join([<collection>], '<delimiter>')
 In dit voorbeeld maakt u een tekenreeks van alle items in deze matrix met het opgegeven teken als scheidingsteken:
 
 ```
-join([a, b, c], '.')
+join(createArray('a', 'b', 'c'), '.')
 ```
 
 En dit resultaat wordt weergegeven: `"a.b.c"`
@@ -2375,7 +2375,7 @@ Deze voorbeelden vinden het laatste item in deze verzamelingen:
 
 ```
 last('abcd')
-last([0, 1, 2, 3])
+last(createArray(0, 1, 2, 3))
 ```
 
 En deze resultaten retourneert: 
@@ -2441,7 +2441,7 @@ Deze voorbeelden tellen het aantal items in deze verzamelingen:
 
 ```
 length('abcd')
-length([0, 1, 2, 3])
+length(createArray(0, 1, 2, 3))
 ```
 
 En dit resultaat te retourneren: `4`
@@ -2569,7 +2569,7 @@ Deze voorbeelden de hoogste waarde niet ophalen uit de reeks cijfers en de matri
 
 ```
 max(1, 2, 3)
-max([1, 2, 3])
+max(createArray(1, 2, 3))
 ```
 
 En dit resultaat te retourneren: `3`
@@ -2602,7 +2602,7 @@ Deze voorbeelden krijgen de laagste waarde in de reeks cijfers en de matrix:
 
 ```
 min(1, 2, 3)
-min([1, 2, 3])
+min(createArray(1, 2, 3))
 ```
 
 En dit resultaat te retourneren: `1`
@@ -3007,7 +3007,7 @@ skip([<collection>], <count>)
 In dit voorbeeld wordt één item, de waarde 0, van het begin van de opgegeven matrix verwijderd: 
 
 ```
-skip([0, 1, 2, 3], 1)
+skip(createArray(0, 1, 2, 3), 1)
 ```
 
 En retourneert deze matrix met de resterende items: `[1,2,3]`
@@ -3351,7 +3351,7 @@ Het opgegeven aantal items ophalen in deze voorbeelden uit het voorste deel van 
 
 ```
 take('abcde`, 3)
-take([0, 1, 2, 3, 4], 3)
+take(createArray(0, 1, 2, 3, 4), 3)
 ```
 
 En deze resultaten worden geretourneerd:
@@ -3626,7 +3626,7 @@ union([<collection1>], [<collection2>], ...)
 In dit voorbeeld wordt *alle* de items van deze verzamelingen: 
 
 ```
-union([1, 2, 3], [1, 2, 10, 101])
+union(createArray(1, 2, 3), createArray(1, 2, 10, 101))
 ```
 
 En dit resultaat wordt weergegeven: `[1, 2, 3, 10, 101]`

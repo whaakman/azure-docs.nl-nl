@@ -15,16 +15,16 @@ ms.topic: conceptual
 ms.date: 05/03/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 81eacf464c90d56c4ebeae1d1cefbd6f2f0fdab8
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: bb95caf7f50b52d2c423de31d4fda701f4c16b40
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49408537"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50963756"
 ---
 # <a name="computer-groups-in-log-analytics-log-searches"></a>Computergroepen in Log Analytics-zoekopdrachten
 
-Computergroepen in Log Analytics kunnen u aan het bereik [zoekopdrachten](log-analytics-log-search-new.md) aan een bepaalde set computers.  Elke groep wordt gevuld met computers met behulp van een query die u definieert of door het importeren van groepen van verschillende bronnen.  Wanneer de groep is opgenomen in een zoeken in Logboeken, zijn de resultaten beperkt tot de records die voldoen aan de computers in de groep.
+Computergroepen in Log Analytics kunnen u aan het bereik [zoekopdrachten](log-analytics-log-search.md) aan een bepaalde set computers.  Elke groep wordt gevuld met computers met behulp van een query die u definieert of door het importeren van groepen van verschillende bronnen.  Wanneer de groep is opgenomen in een zoeken in Logboeken, zijn de resultaten beperkt tot de records die voldoen aan de computers in de groep.
 
 ## <a name="creating-a-computer-group"></a>Het maken van een computergroep
 U kunt een computergroep maken in Log Analytics met behulp van een van de methoden in de volgende tabel.  In de onderstaande secties vindt u meer informatie over elke methode. 
@@ -136,5 +136,5 @@ Een record wordt gemaakt in de werkruimte voor logboekanalyse voor elke computer
 | TimeGenerated |Datum en tijd groep op de computer is gemaakt of bijgewerkt. |
 
 ## <a name="next-steps"></a>Volgende stappen
-* Meer informatie over [zoekopdrachten](log-analytics-log-searches.md) om de gegevens die worden verzameld van gegevensbronnen en oplossingen te analyseren.  
+* Meer informatie over [zoekopdrachten](log-analytics-log-search.md) om de gegevens die worden verzameld van gegevensbronnen en oplossingen te analyseren.  
 

@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 09/28/2017
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 3b1724853b4c874a1482a13c4de0ccb179f52f98
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 5247edc02a62f67755ce818645f66f616c5266ce
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041100"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50962398"
 ---
 # <a name="syslog-data-sources-in-log-analytics"></a>Syslog-gegevensbronnen in Log Analytics
 Syslog is een protocol voor het vastleggen van gebeurtenis die geldt voor Linux.  Toepassingen wordt berichten die kunnen worden opgeslagen op de lokale computer of worden geleverd met een Syslog-collector verzonden.  Wanneer de OMS-Agent voor Linux is geïnstalleerd, configureert het de lokale Syslog-daemon voor het doorsturen van berichten naar de agent.  De agent verzendt het bericht vervolgens naar Log Analytics waar een record wordt gemaakt in de OMS-opslagplaats.  
@@ -45,7 +45,7 @@ U kunt een nieuwe opslagruimte toevoegen door te klikken en de naam te typen **+
 Standaard worden alle wijzigingen in de configuratie automatisch doorgegeven naar alle agents.  Als u Syslog handmatig configureren op elke Linux-agent wilt, klikt u vervolgens het selectievakje *toepassen op de onderstaande configuratie op mijn Linux-machines*.
 
 ### <a name="configure-syslog-on-linux-agent"></a>Syslog configureren op Linux-agent
-Wanneer de [OMS-agent is geïnstalleerd op een Linux-client](log-analytics-linux-agents.md), het installeren van een standaard syslog-configuratiebestand dat bepaalt de opslagruimte en de ernst van de berichten die worden verzameld.  Dit bestand om de configuratie te wijzigen, kunt u wijzigen.  Het configuratiebestand is verschillend, afhankelijk van de Syslog-daemon die op de client is geïnstalleerd.
+Wanneer de [OMS-agent is geïnstalleerd op een Linux-client](log-analytics-quick-collect-linux-computer.md), het installeren van een standaard syslog-configuratiebestand dat bepaalt de opslagruimte en de ernst van de berichten die worden verzameld.  Dit bestand om de configuratie te wijzigen, kunt u wijzigen.  Het configuratiebestand is verschillend, afhankelijk van de Syslog-daemon die op de client is geïnstalleerd.
 
 > [!NOTE]
 > Als u de syslog-configuratie bewerken, moet u de syslog-daemon voor de wijzigingen pas van kracht opnieuw opstarten.
@@ -207,6 +207,6 @@ De volgende tabel bevat voorbeelden van Logboeken-query's die Syslog-records oph
 | Syslog &#124; summarize AggregatedValue = count() by faciliteit |Telling van Syslog-records door de faciliteit. |
 
 ## <a name="next-steps"></a>Volgende stappen
-* Meer informatie over [zoekopdrachten](log-analytics-log-searches.md) om de gegevens die worden verzameld van gegevensbronnen en oplossingen te analyseren.
+* Meer informatie over [zoekopdrachten](log-analytics-log-search.md) om de gegevens die worden verzameld van gegevensbronnen en oplossingen te analyseren.
 * Gebruik [aangepaste velden](log-analytics-custom-fields.md) parseren van gegevens van syslog-records in afzonderlijke velden.
-* [Linux-agents configureren](log-analytics-linux-agents.md) voor het verzamelen van andere typen gegevens.
+* [Linux-agents configureren](log-analytics-quick-collect-linux-computer.md) voor het verzamelen van andere typen gegevens.

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: dfa0a4b637153d6fa3cce5c9b402587950686341
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: ad5721ff7304629ba786b1fed308ccb05b4a5211
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50418072"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50962721"
 ---
 # <a name="connect-configuration-manager-to-log-analytics"></a>Configuration Manager koppelen aan Log Analytics
 U kunt uw System Center Configuration Manager-omgeving koppelen aan Azure Log Analytics apparaat verzameling om gegevens te synchroniseren en verwijzen naar deze verzamelingen in Log Analytics en Azure Automation.  
@@ -69,7 +69,7 @@ Als u wilt toevoegen van Log Analytics-verbinding, uw Configuration Manager-omge
    
 2. Op de **algemene** scherm, bevestigt u dat u de volgende acties hebt uitgevoerd en dat u details voor elk item hebben, en selecteer vervolgens **volgende**.
 
-   1. In Azure portal kunt u Configuration Manager als een webtoepassing en/of Web-API-app hebt geregistreerd, en dat u hebt de [client-ID van de registratie](../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md).
+   1. In Azure portal kunt u Configuration Manager als een webtoepassing en/of Web-API-app hebt geregistreerd, en dat u hebt de [client-ID van de registratie](../active-directory/develop/quickstart-v1-add-azure-ad-app.md).
    2. U kunt een geheime sleutel van de app voor de geregistreerde app in Azure Active Directory hebt gemaakt in de Azure-portal.  
    3. In de Azure-portal, kunt u de geregistreerde web-app hebt opgegeven met de machtiging voor toegang tot Log Analytics.  
       ![Verbinding met Log Analytics Wizard algemene pagina](./media/log-analytics-sccm/sccm-console-general01.png)
@@ -113,7 +113,7 @@ Nadat de verzamelingen die zijn geïmporteerd, kunt u zien hoeveel computers met
 
 ![Computergroepen - SCCM-tabblad](./media/log-analytics-sccm/sccm-computer-groups02.png)
 
-Wanneer u op een klikt, zoeken wordt geopend, ofwel alle van de geïmporteerde groepen of alle computers die deel uitmaken van elke groep. Met behulp van [zoeken in logboeken](log-analytics-log-searches.md), kun u gedetailleerde analyse van Configuration Manager-gegevens.
+Wanneer u op een klikt, zoeken wordt geopend, ofwel alle van de geïmporteerde groepen of alle computers die deel uitmaken van elke groep. Met behulp van [zoeken in logboeken](log-analytics-log-search.md), kun u gedetailleerde analyse van Configuration Manager-gegevens.
 
 ## <a name="next-steps"></a>Volgende stappen
-* Gebruik [zoeken in logboeken](log-analytics-log-searches.md) om gedetailleerde informatie over uw Configuration Manager-gegevens weer te geven.
+* Gebruik [zoeken in logboeken](log-analytics-log-search.md) om gedetailleerde informatie over uw Configuration Manager-gegevens weer te geven.

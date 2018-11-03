@@ -1,6 +1,6 @@
 ---
-title: Een klassieke webservice Retrain | Microsoft Docs
-description: Informatie over het programmatisch opnieuw trainen van een model en het bijwerken van de webservice voor het gebruik van het zojuist getrainde model in Azure Machine Learning.
+title: Een klassieke webservice opnieuw trainen | Microsoft Docs
+description: Leer hoe u programmatisch opnieuw trainen van een model en bijwerken van de webservice voor het gebruik van het zojuist getrainde model in Azure Machine Learning.
 services: machine-learning
 documentationcenter: ''
 author: YasinMSFT
@@ -15,66 +15,66 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.openlocfilehash: 6fc03865185b97fb1f34028239f647f97d5bd315
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 3de17375670d7697a298023dc79ffc2418cb7e42
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34836871"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50963754"
 ---
 # <a name="retrain-a-classic-web-service"></a>Een klassieke webservice opnieuw trainen
-De voorspellende webservice die u hebt geïmplementeerd is de standaardinstelling score-eindpunt. Standaardeindpunten worden gesynchroniseerd met de oorspronkelijke training en experimenten score berekenen en daarom het getrainde model voor het standaardeindpunt kan niet worden vervangen. Als u wilt opnieuw trainen van de webservice, moet u een nieuw eindpunt toevoegen aan de webservice. 
+De voorspellende webservice die u hebt geïmplementeerd is de standaardinstelling scoringeindpunt. Standaardeindpunten worden bewaard gesynchroniseerd met de oorspronkelijke training en scoren van experimenten en daarom het getrainde model voor het standaardeindpunt kan niet worden vervangen. Als u wilt de webservice opnieuw trainen, moet u een nieuw eindpunt toevoegen aan de webservice. 
 
 ## <a name="prerequisites"></a>Vereisten
-U moet een trainingsexperiment en een Voorspellend experiment hebt ingesteld zoals wordt weergegeven in [Retrain Machine Learning-modellen programmatisch](retrain-models-programmatically.md). 
+U moet een opleidingsexperiment en een Voorspellend experiment hebt ingesteld zoals wordt weergegeven in [opnieuw trainen Machine Learning-modellen programmatisch](retrain-models-programmatically.md). 
 
 > [!IMPORTANT]
-> De Voorspellend experiment moet worden geïmplementeerd als een klassiek machine learning-webservice. 
+> De Voorspellend experiment moet worden geïmplementeerd als een klassieke virtuele machine learning-webservice. 
 > 
 > 
 
-Zie voor meer informatie over webservices implementeren [Azure Machine Learning-webservice implementeren](publish-a-machine-learning-web-service.md).
+Zie voor meer informatie over webservices implementeren, [een Azure Machine Learning-webservice implementeren](publish-a-machine-learning-web-service.md).
 
 ## <a name="add-a-new-endpoint"></a>Een nieuw eindpunt toevoegen
-De voorspellende webservice die u hebt geïmplementeerd, bevat een standaardexemplaar score-eindpunt dat is gesynchroniseerd met de oorspronkelijke training en experimenten getrainde model score berekenen. Als u wilt uw webservice bijwerken met een nieuwe getraind model, moet u een nieuw score-eindpunt. 
+De voorspellende webservice die u hebt geïmplementeerd, bevat een standaardexemplaar scoringeindpunt dat worden bewaard gesynchroniseerd met de oorspronkelijke training en scoren experimenten getrainde model. Voor het bijwerken van uw webservice om met een nieuwe getrainde model, moet u een nieuw scoring-eindpunt maken. 
 
-Een nieuw score-eindpunt op de voorspellende webservice die kan worden bijgewerkt met het getrainde model maken:
+Een nieuw scoring-eindpunt, op de voorspellende webservice die kunnen worden bijgewerkt met het getrainde model maken:
 
 > [!NOTE]
-> Zorg ervoor dat u het eindpunt wilt toevoegen aan de voorspellende Web Service, niet de trainings-webservice. Als u correct zowel een trainings- en een Voorspellend webservice hebt geïmplementeerd, ziet u twee afzonderlijke webservices die worden vermeld. De voorspellende webservice moet eindigen met '[voorspellende exp.]'.
+> Zorg ervoor dat u het eindpunt wilt toevoegen aan de voorspellende webservice, niet de Training-webservice. Als u goed zowel een Training en een voorspellende webservice hebt geïmplementeerd, ziet u twee afzonderlijke services die worden vermeld. De voorspellende webservice moet eindigen met '[voorspellende exp.]'.
 > 
 > 
 
-Er zijn twee manieren waarop u een nieuw eindpunt bij een webservice kunt toevoegen:
+Er zijn twee manieren waarop u een nieuw eindpunt aan een webservice toevoegen kunt:
 
 1. Programmatisch
-2. Gebruik de Microsoft Azure Web Services-portal
+2. Gebruik de webservices van Microsoft Azure-portal
 
-### <a name="programmatically-add-an-endpoint"></a>Programmatisch een eindpunt toevoegen
-U kunt toevoegen scoreprofiel eindpunten voor de voorbeeldcode in dit [github-opslagplaats](https://github.com/raymondlaghaeian/AML_EndpointMgmt/blob/master/Program.cs).
+### <a name="programmatically-add-an-endpoint"></a>Een eindpunt via een programma toevoegen
+U kunt toevoegen scoring-eindpunten met behulp van de voorbeeldcode in dit [github-opslagplaats](https://github.com/hning86/azuremlps#add-amlwebserviceendpoint).
 
-### <a name="use-the-microsoft-azure-web-services-portal-to-add-an-endpoint"></a>De Microsoft Azure Web Services-portal gebruiken voor een eindpunt toevoegen
-1. Klik op webservices op de linkernavigatiebalk-kolom in Machine Learning Studio.
-2. Klik aan de onderkant van het dashboard van web service **beheren eindpunten preview**.
+### <a name="use-the-microsoft-azure-web-services-portal-to-add-an-endpoint"></a>Gebruik de webservices van Microsoft Azure-portal een eindpunt toevoegen
+1. In Machine Learning Studio, klikt u op de linkernavigatiekolom op Web Services.
+2. Klik aan de onderkant van het dashboard van de webservice op **beheren eindpunten preview**.
 3. Klik op **Add**.
-4. Typ een naam en beschrijving voor het nieuwe eindpunt. Selecteer het niveau van logboekregistratie en of de voorbeeldgegevens is ingeschakeld. Zie voor meer informatie over logboekregistratie [logboekregistratie inschakelen voor Machine Learning-webservices](web-services-logging.md).
+4. Typ een naam en beschrijving voor het nieuwe eindpunt. Selecteer het niveau van logboekregistratie en of de voorbeeldgegevens is ingeschakeld. Zie voor meer informatie over logboekregistratie, [logboekregistratie inschakelen voor Machine Learning-webservices](web-services-logging.md).
 
-## <a name="update-the-added-endpoints-trained-model"></a>Het toegevoegde eindpunt getraind model bijwerken
-De retraining om proces te voltooien, moet u het getrainde model van het nieuwe eindpunt dat u hebt toegevoegd bijwerken.
+## <a name="update-the-added-endpoints-trained-model"></a>Het getrainde model van het toegevoegde eindpunt bijwerken
+Als u wilt de retraining voltooien, moet u het getrainde model van het nieuwe eindpunt dat u hebt toegevoegd bijwerken.
 
-Als u het eindpunt met de voorbeeldcode hebt toegevoegd, dit omvat de locatie van de help-URL die is geïdentificeerd door de *HelpLocationURL* waarde in de uitvoer.
+Als u het eindpunt met behulp van de voorbeeldcode hebt toegevoegd, dit omvat de locatie van de help-URL die is geïdentificeerd door de *HelpLocationURL* waarde in de uitvoer.
 
-Voor het ophalen van de pad-URL:
+De pad-URL ophalen:
 
 1. Kopieer en plak de URL in uw browser.
-2. Klik op de koppeling van de Update-Resource.
+2. Klik op de koppeling resources bijwerken.
 3. Kopieer de POST-URL van de PATCH-aanvraag. Bijvoorbeeld:
    
-     DE URL VAN DE PATCH: https://management.azureml.net/workspaces/00bf70534500b34rebfa1843d6/webservices/af3er32ad393852f9b30ac9a35b/endpoints/newendpoint2
+     URL VAN DE PATCH: https://management.azureml.net/workspaces/00bf70534500b34rebfa1843d6/webservices/af3er32ad393852f9b30ac9a35b/endpoints/newendpoint2
 
-U kunt nu het getrainde model gebruiken om bij te werken het score-eindpunt dat u eerder hebt gemaakt.
+U kunt nu het getrainde model gebruiken om bij te werken het scoring-eindpunt dat u eerder hebt gemaakt.
 
-De volgende voorbeeldcode laat zien u hoe u de *BaseLocation*, *RelativeLocation*, *SasBlobToken*, en PATCH URL naar het eindpunt worden bijgewerkt.
+De volgende voorbeeldcode laat zien hoe u de *BaseLocation*, *RelativeLocation*, *SasBlobToken*, en de URL PATCH om bij te werken van het eindpunt.
 
     private async Task OverwriteModel()
     {
@@ -114,28 +114,28 @@ De volgende voorbeeldcode laat zien u hoe u de *BaseLocation*, *RelativeLocation
         }
     }
 
-De *apiKey* en de *endpointUrl* voor de aanroep kan worden verkregen van endpoint-dashboard.
+De *apiKey* en de *endpointUrl* voor de aanroep kan worden opgehaald van de eindpunt-dashboard.
 
-De waarde van de *naam* parameter in *Resources* moet overeenkomen met de naam van de Resource van het opgeslagen getraind Model in de Voorspellend experiment. De resourcenaam ophalen:
+De waarde van de *naam* parameter in *Resources* moet overeenkomen met de naam van de Resource van de opgeslagen getrainde Model in de Voorspellend experiment. Naam van de Resource ophalen:
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 2. Klik in het menu links op **Machine Learning**.
-3. Onder de naam, uw werkruimte op en klik op **webservices**.
-4. Klik onder de naam, **telling Model [voorspellende exp].** .
+3. Onder de naam, klikt u op uw werkruimte en klik vervolgens op **webservices**.
+4. Onder de naam, klikt u op **telling Model [voorspellende exp.]** .
 5. Klik op het nieuwe eindpunt dat u hebt toegevoegd.
-6. Klik op het dashboard endpoint **Update Resource**.
-7. U kunt vinden op de pagina Update Resource API-documentatie voor de webservice de **resourcenaam** onder **bij te werken bronnen**.
+6. Klik op het dashboard endpoint **resources bijwerken**.
+7. Op de pagina Update Resource-API-documentatie voor de webservice, u vindt de **resourcenaam** onder **bij te werken Resources**.
 
-Als uw SAS-token is verstreken voordat u klaar bent met het bijwerken van het eindpunt, moet u een GET met de taak-Id verkrijgen van een nieuw token uitvoeren.
+Als uw SAS-token is verlopen voordat u klaar bent met het bijwerken van het eindpunt, moet u een ophalen met de taak-Id verkrijgen van een nieuwe token uitvoeren.
 
 Wanneer de code met succes is uitgevoerd, kan het nieuwe eindpunt moet beginnen met het retrained model in ongeveer 30 seconden.
 
 ## <a name="summary"></a>Samenvatting
-De Retraining API's kunt u het getrainde model van een Voorspellend webservice inschakelen van scenario's zoals bijwerken:
+Met behulp van de Retraining API's, kunt u het getrainde model van een voorspellende webservice inschakelen van scenario's zoals bijwerken:
 
-* Periodieke model retraining met nieuwe gegevens.
-* Distributie van een model voor klanten met het doel van zodat ze opnieuw trainen van het model met hun eigen gegevens.
+* Periodieke model opnieuw trainen met nieuwe gegevens.
+* Distributie van een model voor klanten met het doel om ze opnieuw trainen het model met behulp van hun eigen gegevens.
 
 ## <a name="next-steps"></a>Volgende stappen
-[Het oplossen van de retraining van een klassieke Azure Machine Learning-webservice](troubleshooting-retraining-models.md)
+[Het oplossen van het opnieuw trainen van een klassieke Azure Machine Learning-webservice](troubleshooting-retraining-models.md)
 

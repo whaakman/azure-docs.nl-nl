@@ -4,19 +4,18 @@ titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
 ms.component: azds-kubernetes
-author: ghogen
-ms.author: ghogen
+author: iainfoulds
+ms.author: iainfou
 ms.date: 09/11/2018
 ms.topic: article
 description: Snelle Kubernetes-ontwikkeling met containers en microservices in Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers
-manager: douge
-ms.openlocfilehash: 3f30a62a2f351aecabc37206607c3e28ec5e3ab5
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: bca818cb4e13066f8a631111b75f50384e521ac1
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353355"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978890"
 ---
 # <a name="troubleshooting-guide"></a>Handleiding voor het oplossen van problemen
 
@@ -231,6 +230,16 @@ Deze fout treedt op als de Helm-client kan niet meer communiceren met de Tiller-
 
 ### <a name="try"></a>Probeer:
 Dit probleem wordt opgelost als de agentknooppunten in het cluster meestal opnieuw te starten.
+
+## <a name="azure-dev-spaces-proxy-can-interfere-with-other-pods-running-in-a-dev-space"></a>Azure Dev spaties proxy kan leiden tot problemen met andere schillen uitgevoerd in een dev-ruimte
+
+### <a name="reason"></a>Reden
+Wanneer u Dev spaties voor een naamruimte in uw AKS-cluster inschakelt, er een extra container met de naam _mindaro-proxy_ in elk van de pods die worden uitgevoerd binnen deze naamruimte is geïnstalleerd. Deze container onderschept aanroepen naar de services in de schil die integraal is voor Dev spaties team development mogelijkheden.
+
+Helaas kan dit leiden tot problemen met bepaalde services die in deze schillen uitgevoerd. Met name verstoort het schillen Redis-cache wordt uitgevoerd, waardoor-verbindingsfouten en fouten in de master/slave-communicatie.
+
+### <a name="try"></a>Probeer:
+U kunt de betrokken pod(s) verplaatsen naar een naamruimte in het cluster dat wordt _niet_ Dev spaties bevatten die zijn ingeschakeld, terwijl u verdergaat met het uitvoeren van de rest van uw toepassing binnen een naamruimte Dev spaties ingeschakeld. Dev opslagruimten wordt niet geïnstalleerd. de _mindaro-proxy_ container binnen Dev spaties ingeschakelde naamruimten.
 
 ## <a name="azure-dev-spaces-doesnt-seem-to-use-my-existing-dockerfile-to-build-a-container"></a>Azure Dev spaties lijkt niet te gebruiken van mijn bestaande docker-bestand voor het bouwen van een container 
 

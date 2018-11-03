@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 800fcc131cc6dc7b86444a00d60ad6c52599d334
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 1cb36eec6dd23d65298b2c011a194c015922d807
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955085"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50960987"
 ---
 # <a name="configure-collection-of-azure-paas-resource-metrics-with-log-analytics"></a>Verzamelen van metrische gegevens voor Azure PaaS-resources met Log Analytics configureren
 
@@ -81,7 +81,7 @@ U wordt gevraagd om te beantwoorden van dezelfde informatie als wanneer u het sc
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Meer informatie over [zoekopdrachten](log-analytics-log-searches.md) om de gegevens die worden verzameld van gegevensbronnen en oplossingen te analyseren. 
+* Meer informatie over [zoekopdrachten](log-analytics-log-search.md) om de gegevens die worden verzameld van gegevensbronnen en oplossingen te analyseren. 
 
 * Gebruik [aangepaste velden](log-analytics-custom-fields.md)(voor het parseren van de gebeurtenis legt vast in afzonderlijke velden.
 

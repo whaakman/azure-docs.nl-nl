@@ -13,12 +13,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: e77389411e52853efb52252a17c8612f0480fa61
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: ae033b944e93fe90392af9b17de883d791d3e4dc
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44298639"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958590"
 ---
 # <a name="deep-diagnostics-for-web-apps-and-services-with-application-insights"></a>Diepe diagnostische gegevens voor web-apps en services met Application Insights
 ## <a name="why-do-i-need-application-insights"></a>Waarom moet ik Application Insights?
@@ -114,10 +114,10 @@ En kunt u direct een voorbeeld van eventuele fouten of uitzonderingen te inspect
 
 ![Live foutgebeurtenissen](./media/app-insights-devops/live-stream-failures.png)
 
-## <a name="application-map"></a>Toepassingsoverzicht
+## <a name="application-map"></a>Toepassingskaart
 Overzicht van de toepassing detecteert automatisch de Toepassingstopologie van uw, waarin de informatie over de prestaties daarboven, zodat u eenvoudig bepalen knelpunten en problematische stromen in uw gedistribueerde omgeving. Hiermee kunt u voor het detecteren van afhankelijkheden voor toepassingen op Azure-Services. U kunt het probleem beoordelen door te begrijpen als deze met betrekking tot code of afhankelijkheid die betrekking hebben en ervaring van een enkele locatie Zoom in op gerelateerde diagnostische gegevens. Uw toepassing kan bijvoorbeeld worden mislukken vanwege een verslechtering van prestaties optreedt in de SQL-laag. Met overzicht van de toepassing, kunt u direct bekijken en Zoom in op de SQL Index Advisor of Queryinzichten optreden.
 
-![Toepassingsoverzicht](./media/app-insights-devops/050.png)
+![Toepassingskaart](./media/app-insights-devops/050.png)
 
 ## <a name="application-insights-analytics"></a>Application Insights Analytics
 Met [Analytics](app-insights-analytics.md), u kunt een willekeurige query's schrijven in een krachtige SQL-achtige taal.  Diagnose in de hele app-stack wordt het gemakkelijk verschillende perspectieven verbinding en u kunt de juiste vragen serviceprestaties correleren met zakelijke metrische gegevens en ervaring van de klant. 
@@ -172,7 +172,7 @@ Wanneer een waarschuwing wordt gegenereerd, kan Application Insights automatisch
 ## <a name="next-steps"></a>Volgende stappen
 Aan de slag met Application Insights is eenvoudig. De belangrijkste opties zijn:
 
-* Instrumenteer een web-app al actief. Dit biedt u alle telemetrie van de ingebouwde prestatiecontrole. Het is beschikbaar voor [Java](app-insights-java-live.md) en [IIS-servers](app-insights-monitor-performance-live-website-now.md), en ook voor [Azure web-apps](app-insights-azure.md).
+* Instrumenteer een web-app al actief. Dit biedt u alle telemetrie van de ingebouwde prestatiecontrole. Het is beschikbaar voor [Java](app-insights-java-live.md) en [IIS-servers](app-insights-monitor-performance-live-website-now.md), en ook voor [Azure web-apps](app-insights-overview.md).
 * Instrumenteer uw project tijdens de ontwikkeling. U kunt dit doen voor [ASP.NET](app-insights-asp-net.md) of [Java](app-insights-java-get-started.md) apps, evenals [Node.js](app-insights-nodejs.md) en een groot aantal [andere typen](app-insights-platforms.md). 
 * Instrument [elke webpagina](app-insights-javascript.md) door een korte codefragment toe te voegen.
 

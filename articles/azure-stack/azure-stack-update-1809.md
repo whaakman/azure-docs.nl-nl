@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/29/2018
+ms.date: 11/01/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 38a8cd35d123f58d6379ade4d900e86b36b416ec
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 00ce57dbff749d4ee906e0e7dae1d828ef85326f
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50240134"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50962058"
 ---
 # <a name="azure-stack-1809-update"></a>Azure Stack 1809 update
 
@@ -154,7 +154,8 @@ Klik op de hiervoor vermelde koppelingen voor meer informatie over deze beveilig
 
 ### <a name="post-update-steps"></a>Stappen na het bijwerken
 
-*Er zijn geen stappen na het bijwerken van update 1809.*
+> [!Important]  
+> Bereid u voor uw Azure Stack-implementatie voor extensie-host die door de volgende updatepakket is ingeschakeld. Voorbereiden van uw systeem met behulp van de volgende richtlijnen [voorbereiden voor de host van de extensie voor Azure Stack](azure-stack-extension-host-prepare.md).
 
 <!-- After the installation of this update, install any applicable Hotfixes. For more information view the following knowledge base articles, as well as our [Servicing Policy](azure-stack-servicing-policy.md).  
  - [Link to KB]()  

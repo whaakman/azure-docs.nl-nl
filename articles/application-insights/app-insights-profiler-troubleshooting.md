@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 28de0f8bdcaa730c5beea0c630d4e86e15642809
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 6013c0a1b404336ad7cca21edafb7adec5c7f7ca
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50142454"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978839"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>Problemen oplossen in- of Application Insights Profiler weergeven
 
@@ -46,16 +46,16 @@ De profiler schrijft traceringsberichten en aangepaste gebeurtenissen naar uw ap
 
 1. Als er aanvragen worden tijdens de periode rond de profiler is uitgevoerd, zorg ervoor dat aanvragen worden verwerkt door het gedeelte van uw toepassing met de profiler is ingeschakeld. Soms toepassingen bestaan uit meerdere onderdelen, maar Profiler is alleen beschikbaar voor sommige, niet alle onderdelen. De pagina configureren van Application Insights Profiler ziet u de onderdelen die traceringen hebt geüpload.
 
-### <a name="net-core-21-bug"></a>**.NET core 2.1 bug** 
+### <a name="net-core-21-bug"></a>.NET core 2.1 bug
 Er is een fout in de profiler-agent die voorkomt dat het uploaden van traceringen die zijn overgenomen uit toepassingen die worden uitgevoerd op ASP.NET Core 2.1. We wordt werken aan een oplossing en deze gereed binnenkort. De oplossing voor deze fout wordt geïmplementeerd door het einde van oktober.
 
-### <a name="other-things-to-check"></a>**Andere dingen om te controleren:**
+### <a name="other-things-to-check"></a>Andere dingen om te controleren:
 * Uw app wordt uitgevoerd op .NET Framework 4.6.
 * Als uw web-app een ASP.NET Core-toepassing is, service moet actief zijn ten minste ASP.NET Core 2.0.
 * Als de gegevens die u probeert weer te geven ouder dan een paar weken is, kunt u uw tijdfilter beperken en probeer het opnieuw. Traceringen worden na zeven dagen verwijderd.
 * Zorg ervoor dat proxy's of een firewall niet hebben toegang tot geblokkeerd https://gateway.azureserviceprofiler.net.
 
-### <a id="double-counting"></a>**Dubbele parallelle threads tellen**
+### <a id="double-counting"></a>Dubbele parallelle threads tellen
 
 In sommige gevallen kan is de totale tijd metrische gegevens in de stack-viewer hoger dan de duur van de aanvraag.
 
@@ -63,11 +63,11 @@ Deze situatie kan optreden wanneer twee of meer threads gekoppeld aan een aanvra
 
 Wanneer u parallelle threads in uw traceringen zien, moet u bepalen welke threads wachten, zodat u kunt het kritieke pad voor de aanvraag bekijken. In de meeste gevallen is gewoon de thread die snel een wachtstatus krijgt wacht op de andere threads. Zich concentreren op de andere threads en de tijd in de wachtrij-threads te negeren.
 
-### <a name="error-report-in-the-profiling-viewer"></a>**Foutrapport kan worden opgenomen in de viewer voor profilering**
+### <a name="error-report-in-the-profile-viewer"></a>Foutrapport kan worden opgenomen in de profiel-viewer
 Verzend een ondersteuningsticket in de portal. Moet u de correlatie-ID van het foutbericht opnemen.
 
 ## <a name="troubleshooting-profiler-on-app-services"></a>Het oplossen van problemen Profiler in App Services
-### <a name="for-the-profiler-to-work-properly"></a>**Voor de profiler goed te laten werken:**
+### <a name="for-the-profiler-to-work-properly"></a>Voor de profiler goed te laten werken:
 * Uw web-app service-plan moet Basic-laag of hoger.
 * Uw web-app moet de extensie Application Insights voor App-Services (2.6.5) geïnstalleerd hebben.
 * Uw web-app moet de **APPINSIGHTS_INSTRUMENTATIONKEY** app-instelling is geconfigureerd met de dezelfde instrumentatiesleutel die wordt gebruikt door de Application Insights-SDK.
@@ -82,7 +82,7 @@ Verzend een ondersteuningsticket in de portal. Moet u de correlatie-ID van het f
     
     ![Profiler-webtaak-logboek]
 
-### <a name="manual-installation"></a>**Handmatige installatie**
+### <a name="manual-installation"></a>Handmatige installatie
 
 Als u Profiler configureert, zijn er updates naar de web-app-instellingen. U kunt de updates handmatig toepassen als uw omgeving vereist. Een voorbeeld is mogelijk dat uw toepassing wordt uitgevoerd in een omgeving met Web-Apps voor PowerApps.
 
@@ -97,9 +97,9 @@ Als u Profiler configureert, zijn er updates naar de web-app-instellingen. U kun
 1. Installeer **Application Insights** uit de galerie met Azure Web Apps.
 1. Start opnieuw op de web-app.
 
-### <a name="too-many-active-profiling-sessions"></a>**Te veel actieve profilering sessies**
+### <a name="too-many-active-profiling-sessions"></a>Te veel actieve profilering sessies
 
-U kunt op dit moment Profiler inschakelen op maximaal vier Azure-web-apps en implementatiesites gebruiken die worden uitgevoerd in de dezelfde service-plan. Als de webtaak Profiler te veel actieve profilering sessies rapporteren is, verplaatst u enkele web-apps naar een andere service-plan.
+U kunt op dit moment Profiler inschakelen op maximaal vier Azure-web-apps en implementatiesites gebruiken die worden uitgevoerd in de dezelfde service-plan. Als u meer web-apps dan die wordt uitgevoerd in een app service-abonnement hebt, ziet u mogelijk een Microsoft.ServiceProfiler.Exceptions.TooManyETWSessionException gegenereerd door de profiler. De profiler afzonderlijk voor elke web-app wordt uitgevoerd en probeert een ETW-sessie voor elke app te starten. Maar er zijn een beperkt aantal ETW-sessies die in één keer actief kan zijn. Als de webtaak Profiler te veel actieve profilering sessies rapporteren is, verplaatst u enkele web-apps naar een andere service-plan.
 
 ### <a name="deployment-error-directory-not-empty-dhomesitewwwrootappdatajobs"></a>Implementatiefout: Directory niet leeg ' D:\\home\\site\\wwwroot\\App_Data\\taken
 

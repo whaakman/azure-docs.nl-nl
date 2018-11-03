@@ -5,21 +5,21 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 10/01/2018
+ms.date: 11/02/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 50bd22559c3695ac4161932652eb191084e2b46e
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 338035014cb8e34caa7aea688028a96d039b028c
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48017351"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50977665"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Zelfstudie: Maken en beheren van Azure budgetten
 
-Budgetten in Cost Management kunnen u plannen en station verantwoordelijkheid in de organisatie. Met budgetten, kunt u rekening gehouden met de Azure-services u gebruikt of zich abonneert op een specifieke periode. Ze helpen u anderen te informeren over hun uitgaven aan proactief kosten kunt beheren en controleren hoe uitgaven verloopt na verloop van tijd. U ziet hoe de bestedingslimiet vordert na verloop van tijd. Wanneer de budgetdrempels die u hebt gemaakt, worden overschreden, worden alleen meldingen worden geactiveerd. Geen van uw resources worden beïnvloed en uw verbruik is niet gestopt. U kunt budgetten gebruiken om te vergelijken en als u kosten analyseren uitgave bij te houden.
+Met budgetten in Cost Management kunt u de verantwoordelijkheid in de organisatie beter plannen en stimuleren. Met budgetten kunt u de Azure-services die u gebruikt of waarop u zich abonneert voor een specifieke periode bijhouden. Ze helpen u anderen te informeren over hun uitgaven aan proactief kosten kunt beheren en controleren hoe uitgaven verloopt na verloop van tijd. U ziet hoe de bestedingslimiet vordert na verloop van tijd. Wanneer de budgetdrempels die u hebt gemaakt, worden overschreden, worden alleen meldingen worden geactiveerd. Geen van uw resources worden beïnvloed en uw verbruik is niet gestopt. U kunt budgetten gebruiken om te vergelijken en als u kosten analyseren uitgave bij te houden.
 
 Budgetten automatisch opnieuw instellen aan het einde van een punt (maandelijks, per kwartaal of per jaar) voor hetzelfde budgetbedrag wanneer u een vervaldatum in de toekomst selecteert. Omdat ze opnieuw met hetzelfde budgetbedrag instelt, moet u afzonderlijke budgetten wanneer gebudgetteerde maken bedragen verschillen voor toekomstige perioden.
 
@@ -33,13 +33,13 @@ In deze zelfstudie leert u het volgende:
 
 ## <a name="prerequisites"></a>Vereisten
 
-Budgetten zijn beschikbaar voor alle Azure EA-klanten. U moet leestoegang tot een Azure EA-abonnement maken en beheren van budgetten hebben. Facturering EA-accounts worden niet ondersteund door budgetten.
+Budgetten zijn beschikbaar voor alle Azure EA-klanten. U moet leestoegang tot een Azure EA-abonnement hebben om budgetten te maken en beheren. U kunt afzonderlijke budgetten voor EA-abonnementen en resourcegroepen. U kan echter budgetten maken voor facturering van accounts EA.
 
-Budgetten wordt gemaakt in het abonnement of een niveau van de resourcegroep, afzonderlijk. De volgende Azure-machtigingen worden per abonnement voor budgetten door gebruikers en groepen ondersteund:
+De volgende Azure-machtigingen worden per abonnement voor budgetten door gebruikers en groepen ondersteund:
 
-- Eigenaar: kunt maken, wijzigen of verwijderen van budgetten voor een abonnement.
-- Inzender: kan maken, wijzigen of verwijderen van hun eigen budgetten. Kunt de hoeveelheid budget voor budgetten die zijn gemaakt door anderen.
-- Lezer: kunt budgetten die ze gemachtigd zijn om te bekijken.
+- Eigenaar: eigenaren kunnen budgetten voor een abonnement instellen, wijzigen en verwijderen.
+- Inzender: inzenders kunnen hun eigen budgetten instellen, wijzigen en verwijderen. Inzenders kunnen ook de budgetbedragen aanpassen voor budgetten die zijn gemaakt door anderen.
+- Lezer: lezers kunnen budgetten inzien waarvoor ze zijn gemachtigd.
 
 ## <a name="sign-in-to-azure"></a>Aanmelden bij Azure
 

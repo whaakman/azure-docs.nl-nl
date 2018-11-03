@@ -1,3 +1,16 @@
+---
+author: dominicbetts
+ms.service: iot-hub
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: dobett
+ms.openlocfilehash: 1807dc67d09b521e66314fb98535fb2c1225d34f
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50964550"
+---
 De volgende tabel bevat de limieten die aan de verschillende servicelagen (S1, S2, S3, F1) zijn gekoppeld. Voor informatie over de kosten van elke *eenheid* in elke laag raadpleegt u [Prijzen van IoT Hub](https://azure.microsoft.com/pricing/details/iot-hub/).
 
 | Resource | S1 Standard | S2 Standard | S3 Standard | F1 Free |

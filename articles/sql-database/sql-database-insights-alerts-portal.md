@@ -11,13 +11,13 @@ author: aamalvea
 ms.author: aamalvea
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 09/14/2018
-ms.openlocfilehash: 27f807c8f2f6b6a65ef95136047f5eed1b3aab02
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 11/02/2018
+ms.openlocfilehash: 11777013eca0ba3a759635ef99c2cfa04104e24b
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47159309"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978992"
 ---
 # <a name="use-azure-portal-to-create-alerts-for-azure-sql-database-and-data-warehouse"></a>Azure portal gebruiken om waarschuwingen te maken voor Azure SQL Database en Data Warehouse
 
@@ -44,19 +44,15 @@ U kunt configureren en informatie over met behulp van regels voor waarschuwingen
 
 ## <a name="create-an-alert-rule-on-a-metric-with-the-azure-portal"></a>Een waarschuwingsregel maken op een metrische waarde met de Azure-portal
 1. In de [portal](https://portal.azure.com/), zoek de resource die u geïnteresseerd bent in controle en selecteer deze.
-2. Deze stap is verschillend voor SQL-database en elastische pools ten opzichte van SQL DW: 
-
-   - **ALLEEN SQL-database en elastische pools**: Selecteer **waarschuwingen** of **waarschuwingsregels** onder de sectie bewaking. De tekst en het pictogram kunnen verschillen voor verschillende resources.  
+2. Selecteer **waarschuwingen (klassiek)** onder de sectie bewaking. De tekst en het pictogram kunnen verschillen voor verschillende resources.  
    
-     ![Bewaking](../monitoring-and-diagnostics/media/insights-alerts-portal/AlertRulesButton.png)
+     ![Bewaking](../monitoring-and-diagnostics/media/insights-alerts-portal/AlertsClassicButton.JPG)
   
-   - **SQL DW alleen**: Selecteer **bewaking** onder de sectie Algemene taken. Klik op de **DWU-gebruik** graph.
+   - **SQL DW alleen**: klik op de **DWU-gebruik** graph. Selecteer **klassieke waarschuwingen weergeven**
 
-     ![ALGEMENE TAKEN](../monitoring-and-diagnostics/media/insights-alerts-portal/AlertRulesButtonDW.png)
-
-3. Selecteer de **waarschuwing toevoegen** opdracht en vul de velden in.
+3. Selecteer de **metrische waarschuwing toevoegen (klassiek)** knop en vul de velden in.
    
-    ![Waarschuwing toevoegen](../monitoring-and-diagnostics/media/insights-alerts-portal/AddDBAlertPage.png)
+    ![Waarschuwing toevoegen](../monitoring-and-diagnostics/media/insights-alerts-portal/AddDBAlertPageClassic.JPG)
 4. **Naam** de waarschuwing regel en kies een **beschrijving**, die ook weergegeven in e-mailmeldingen.
 5. Selecteer de **Metric** u wilt controleren, en kies vervolgens een **voorwaarde** en **drempelwaarde** waarde voor de metrische gegevens. Ook voor kiezen de **periode** van de tijd waarop de regel voor metrische gegevens moet worden voldaan voordat de waarschuwing triggers. Bijvoorbeeld als u de periode 'PT5M' en de waarschuwing voor CPU ziet er uit meer dan 80%, de waarschuwing wordt geactiveerd wanneer de **gemiddelde** CPU gedurende vijf minuten meer dan 80% is geweest. Nadat de eerste trigger is het geval is, wordt deze opnieuw geactiveerd wanneer de gemiddelde CPU lager dan 80% meer dan vijf minuten is. De meting van CPU doet zich voor elke minuut. Raadpleeg de onderstaande tabel voor ondersteunde tijdvensters en typt u de aggregatie die elke waarschuwing gebruikt en niet alle waarschuwingen de gemiddelde waarde gebruiken.   
 6. Controleer **e-eigenaren...**  als u wilt dat beheerders en medebeheerders moet worden verzonden wanneer de waarschuwing wordt geactiveerd.

@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: ef1422db799db6d635ad9f03908e3a34f312e408
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 752a0262503550b9995ac76f648a132429203cce
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46974235"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50961429"
 ---
 # <a name="what-is-azure-diagnostics-extension"></a>Wat is Azure Diagnostics-extensie
-De Azure Diagnostics-extensie is een agent in Azure waarmee u het verzamelen van diagnostische gegevens op een geïmplementeerde toepassing. U kunt de extensie voor diagnostische gegevens gebruiken uit een aantal verschillende bronnen. Op dit moment ondersteund zijn Azure-Cloudservice (klassiek) Web- en werkrollen, virtuele Machines, Virtual Machine Scale sets en Service Fabric. Andere Azure-services hebben diagnostische gegevens van andere methoden. Zie [overzicht van de bewaking in Azure](monitoring-overview.md).
+De Azure Diagnostics-extensie is een agent in Azure waarmee u het verzamelen van diagnostische gegevens op een geïmplementeerde toepassing. U kunt de extensie voor diagnostische gegevens gebruiken uit een aantal verschillende bronnen. Op dit moment ondersteund zijn Azure-Cloudservice (klassiek) Web- en werkrollen, virtuele Machines, Virtual Machine Scale sets en Service Fabric. Andere Azure-services hebben diagnostische gegevens van andere methoden. Zie [overzicht van de bewaking in Azure](../azure-monitor/overview.md).
 
-## <a name="linux-agent"></a>Linux-Agent
-Een [Linux-versie van de extensie](../virtual-machines/linux/diagnostic-extension.md) is beschikbaar voor virtuele Machines waarop Linux wordt uitgevoerd. De statistieken die worden verzameld en het gedrag verschillen van de Windows-versie.
+## <a name="linux-agent"></a>Linux-agent
+Een [Linux-versie van de extensie](../virtual-machines/extensions/diagnostics-linux.md) is beschikbaar voor virtuele Machines waarop Linux wordt uitgevoerd. De statistieken die worden verzameld en het gedrag verschillen van de Windows-versie.
 
 ## <a name="data-you-can-collect"></a>Gegevens die u kunt verzamelen
 De Azure Diagnostics-extensie kan de volgende typen gegevens verzamelen:
@@ -42,7 +42,7 @@ De Azure Diagnostics-extensie kan de volgende typen gegevens verzamelen:
 ## <a name="data-storage"></a>Gegevensopslag
 De extensie slaat de gegevens op in een [Azure Storage-account](azure-diagnostics-storage.md) die u opgeeft.
 
-U kunt ook verzenden naar [Application Insights](../application-insights/app-insights-cloudservices.md). Een andere optie is om te streamen naar [Event Hub](../event-hubs/event-hubs-what-is-event-hubs.md), die vervolgens kunt u deze verzenden naar het controleren van niet-Azure-services.
+U kunt ook verzenden naar [Application Insights](../application-insights/app-insights-cloudservices.md). Een andere optie is om te streamen naar [Event Hub](../event-hubs/event-hubs-about.md), die vervolgens kunt u deze verzenden naar het controleren van niet-Azure-services.
 
 ### <a name="azure-monitor"></a>Azure Monitor
 U hebt ook de keuze van uw gegevens te verzenden naar Azure Monitor. Deze sink is op dit moment alleen van toepassing op prestatiemeteritems. Hiermee kunt u prestatiemeteritems verzamelde verzenden op de virtuele machine, VMSS, of in de cloud service naar Azure Monitor als aangepaste metrische gegevens. Biedt ondersteuning voor de Azure Monitor-sink:
@@ -53,7 +53,7 @@ U hebt ook de keuze van uw gegevens te verzenden naar Azure Monitor. Deze sink i
 Voor meer informatie over het configureren van deze sink, Raadpleeg de [documentatie voor Azure diagnostics-schema.](azure-diagnostics-schema-1dot3-and-later.md)
 
 ## <a name="versioning-and-configuration-schema"></a>Versiebeheer en configuratie-schema
-Zie [versiegeschiedenis van Azure Diagnostics en het Schema](azure-diagnostics-versioning-history.md).
+Zie [versiegeschiedenis van Azure Diagnostics en het Schema](azure-diagnostics-schema.md).
 
 
 ## <a name="next-steps"></a>Volgende stappen
@@ -68,16 +68,16 @@ Zie voor meer geavanceerde onderwerpen
 
 * [Met behulp van Azure Diagnostics voor Cloudservices met Application Insights](../application-insights/app-insights-cloudservices.md)
 * [De stroom van een Cloud Services-toepassing met Azure Diagnostics traceren](../cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md)
-* [PowerShell gebruiken voor het instellen van diagnostische gegevens op Cloud Services](../virtual-machines/windows/ps-extensions-diagnostics.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [PowerShell gebruiken voor het instellen van diagnostische gegevens op Cloud Services](../virtual-machines/extensions/diagnostics-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## <a name="virtual-machines"></a>Virtuele machines
 * Als u Visual Studio, Zie [Gebruik Visual Studio te traceren Azure Virtual Machines](../vs-azure-tools-debug-cloud-services-virtual-machines.md) aan de slag. Raadpleegt u
-* [Azure Diagnostics op een Azure-Machine instellen](../virtual-machines-dotnet-diagnostics.md)
+* [Azure Diagnostics op een Azure-Machine instellen](../virtual-machines/virtual-machines-dotnet-diagnostics.md)
 
 Zie voor meer geavanceerde onderwerpen
 
-* [PowerShell gebruiken voor het instellen van diagnostische gegevens op Azure Virtual Machines](../virtual-machines/windows/ps-extensions-diagnostics.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Een virtuele Windows-machine met controle en diagnostische gegevens met behulp van Azure Resource Manager-sjabloon maken](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [PowerShell gebruiken voor het instellen van diagnostische gegevens op Azure Virtual Machines](../virtual-machines/extensions/diagnostics-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Een virtuele Windows-machine met controle en diagnostische gegevens met behulp van Azure Resource Manager-sjabloon maken](../virtual-machines/extensions/diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## <a name="service-fabric"></a>Service Fabric
 Aan de slag op [bewaken van een Service Fabric-toepassing](../service-fabric/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md). Wanneer u in dit artikel, zijn er veel artikelen van andere Service Fabric diagnostische gegevens beschikbaar zijn in de navigatiestructuur aan de linkerkant.

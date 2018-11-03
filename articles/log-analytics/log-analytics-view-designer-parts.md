@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 31ee14369cc3f1c03d13c59e1239aa567bce3552
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: c59df6c1d28df2ffc63f3760e4d1fa47bda37b83
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50419772"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50964041"
 ---
 # <a name="reference-guide-to-view-designer-visualization-parts-in-log-analytics"></a>Naslaggids voor Weergaveontwerper visualisatie delen in Log Analytics
 Met behulp van Designer bekijken in Azure Log Analytics, kunt u aangepaste weergaven maken in Azure portal die tal van gegevensvisualisaties in uw Log Analytics-werkruimte. In dit artikel is een handleiding verwijzing naar de instellingen voor de visualisatie-onderdelen die beschikbaar in uw aangepaste weergaven zijn.
@@ -363,4 +363,4 @@ De volgende tabel beschrijft de instellingen voor de drempelwaarden:
 | Kleur |De kleur die geeft aan de drempelwaarde dat. |
 
 ## <a name="next-steps"></a>Volgende stappen
-* Meer informatie over [zoekopdrachten](log-analytics-log-searches.md) ter ondersteuning van de query's in de visualisatie delen.
+* Meer informatie over [zoekopdrachten](log-analytics-log-search.md) ter ondersteuning van de query's in de visualisatie delen.

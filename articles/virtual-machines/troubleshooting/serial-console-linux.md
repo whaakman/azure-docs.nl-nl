@@ -1,5 +1,5 @@
 ---
-title: Seriële Console van virtuele Azure-Machine | Microsoft Docs
+title: Seriële console van de virtuele Azure-machine voor Linux | Microsoft Docs
 description: Bidirectionele seriële console voor virtuele machines van Azure.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: harijay
-ms.openlocfilehash: 22128f027f0a218756e413653aa92ee097064587
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: a3d59d0e7575721dbb719944f27fd673ba41f469
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741705"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50963815"
 ---
 # <a name="virtual-machine-serial-console-for-linux"></a>Seriële console van de virtuele machine voor Linux
 
@@ -33,17 +33,17 @@ Zie voor de seriële console-documentatie voor Windows-VM's, [seriële console v
 
 ## <a name="prerequisites"></a>Vereisten 
 
-* De virtuele machine waarin u een seriële console wilt openen, moet de resource Manager-implementatiemodel gebruiken. Klassieke implementaties worden niet ondersteund. 
+- De virtuele machine waar u toegang wilt een seriële console tot krijgen moet de resource Manager-implementatiemodel gebruiken. Klassieke implementaties worden niet ondersteund. 
 
-* De virtuele machine waar u toegang een seriële console tot moet hebben [diagnostische gegevens over opstarten](boot-diagnostics.md) ingeschakeld. Selecteer **diagnostische gegevens over opstarten** uit de **ondersteuning en probleemoplossing** sectie.
+- De virtuele machine waar u toegang wilt een seriële console tot krijgen moet hebben [diagnostische gegevens over opstarten](boot-diagnostics.md) ingeschakeld. 
 
     ![De instellingen voor diagnostische gegevens over opstarten](./media/virtual-machines-serial-console/virtual-machine-serial-console-diagnostics-settings.png)
 
-Een account dat gebruikmaakt van een seriële console moet de [rol van inzender voor virtuele machines](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) voor de virtuele machine en de [diagnostische gegevens over opstarten](boot-diagnostics.md) storage-account: 
+- Een account dat gebruikmaakt van een seriële console moet de [rol van inzender voor virtuele machines](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) voor de virtuele machine en de [diagnostische gegevens over opstarten](boot-diagnostics.md) storage-account: 
 
-* De virtuele machine waar u toegang een seriële console tot moet een account op basis van wachtwoorden hebben. U kunt maken met de [wachtwoord opnieuw instellen](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) functie van de VM-extensie voor toegang. Selecteer **wachtwoord opnieuw instellen** uit de **ondersteuning en probleemoplossing** sectie. 
+    - De virtuele machine waar u toegang wilt een seriële console tot krijgen moet een account op basis van wachtwoorden hebben. U kunt maken met de [wachtwoord opnieuw instellen](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) functie van de VM-extensie voor toegang. Selecteer **wachtwoord opnieuw instellen** uit de **ondersteuning en probleemoplossing** sectie. 
 
-* Zie voor specifieke instellingen voor Linux-distributies, [seriële console van beschikbaarheid van de Linux-distributie](#serial-console-linux-distribution-availability).
+    - Zie voor specifieke instellingen voor Linux-distributies, [seriële console van beschikbaarheid van de Linux-distributie](#serial-console-linux-distribution-availability).
 
 
 
@@ -51,12 +51,14 @@ Een account dat gebruikmaakt van een seriële console moet de [rol van inzender 
 De seriële console voor virtuele machines is uitsluitend toegankelijk via de Azure-portal:
 
   1. Open de [Azure Portal](https://portal.azure.com).
+
   1. Selecteer in het menu links **virtuele machines**.
+
   1. Selecteer een virtuele machine in de lijst. De overzichtspagina voor de virtuele machine wordt geopend.
+
   1. Schuif omlaag naar de **ondersteuning en probleemoplossing** sectie en selecteer **seriële console**. Een nieuw deelvenster met de seriële console wordt geopend en wordt de verbinding wordt gestart.
 
-   ![Seriële console-venster voor Linux](./media/virtual-machines-serial-console/virtual-machine-linux-serial-console-connect.gif)
-
+     ![Seriële console-venster voor Linux](./media/virtual-machines-serial-console/virtual-machine-linux-serial-console-connect.gif)
 
 
 > [!NOTE] 

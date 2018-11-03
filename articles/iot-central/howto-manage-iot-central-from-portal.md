@@ -8,12 +8,12 @@ ms.author: tanmayb
 ms.date: 08/30/2018
 ms.topic: conceptual
 manager: peterpr
-ms.openlocfilehash: ff6978ddbf8718ad45a4265898109b7ac799d70c
-ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
+ms.openlocfilehash: 2977c3d1656bacf8ba8d34080641ea6c5cdf5bbe
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46468693"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50957103"
 ---
 # <a name="manage-iot-central-from-the-azure-portal"></a>IoT Central beheren vanuit Azure portal 
 Naast het maken en beheren van IoT Central-toepassingen van de IoT Central-website, kunt u ook IoT Central beheren vanuit Azure portal. In dit artikel begeleidt door middel van wat er mogelijk is en hoe u dit doet.
@@ -35,14 +35,14 @@ Klik nu op de knop 'Maken' om te zien van de vorm die u moet nemen om in te vull
 
 ![Beheerportal: IoT Central-resource](media\howto-manage-iot-central-from-portal\image0c.png)
 
-Vul de velden in het formulier. Dit formulier is vergelijkbaar met het formulier dat u nodig hebt om in te vullen om toepassingen te maken van de IoT Central-website. Voor meer informatie over het invullen van elk veld kunt u verwijzen naar de [maken van een toepassing IoT Central](https://docs.microsoft.com/ azure/iot-central/howto-create-application) document. 
+Vul de velden in het formulier. Dit formulier is vergelijkbaar met het formulier dat u nodig hebt om in te vullen om toepassingen te maken van de IoT Central-website. Bekijk voor meer informatie over het invullen van elk veld de [maken van een toepassing IoT Central](quick-deploy-iot-central.md) Quick Start. 
 
 ![Beheerportal: IoT Central-resource maken](media\howto-manage-iot-central-from-portal\image1.png)  
 
 Na het alle velden invullen, klikt u op de knop 'Maken'.
 
 ## <a name="manage-existing-iot-central-applications"></a>Bestaande IoT Central toepassingen beheren
-Als u al een Azure IoT Central-toepassing hebt u het kunt verwijderen, verplaatsen naar een ander abonnement of resourcegroep groep in Azure portal. U kunt 7 dagen proefversies van toepassingen in Azure portal niet zien, omdat er geen abonnement back-ups die proefversies.
+Als u al een Azure IoT Central-toepassing hebt u het kunt verwijderen, verplaatsen naar een ander abonnement of resourcegroep groep in Azure portal. U kunt de proefversie van toepassingen in Azure portal niet zien omdat er geen abonnement back-ups die proefversies.
 
 Als u wilt beginnen, klikt u op 'Alle resources' in het hoofdgedeelte voor navigatie-menu aan de linkerkant. Gebruik het zoekvak en typ de naam van uw toepassing vinden in de lijst met resources. Klik vervolgens op de IoT Central-toepassing die u wilt beheren.
 

@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
 ms.component: common
-ms.openlocfilehash: ffb355b4471bd8455f67e657d9557c3f372c3f4e
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: fa73062cc2fdfa3704088f37b2e4856e134a6dfe
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49470317"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50979026"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Probleemoplossingsgids voor Azure Storage Explorer
 
@@ -143,6 +143,12 @@ Als de proxy-instellingen juist zijn, hebt u mogelijk contact op met uw proxy-se
 ## <a name="unable-to-retrieve-children-error-message"></a>Foutbericht "Kan niet naar items ophalen"
 
 Als u met Azure via een proxy verbonden bent, of u de proxy-instellingen juist zijn. Als u zijn toegang tot een resource verleend aan de eigenaar van het abonnement of account, Controleer of u hebt gelezen of lijst met machtigingen voor die bron.
+
+## <a name="connection-string-does-not-have-complete-configuration-settings"></a>Verbindingsreeks heeft geen volledige configuratie-instellingen
+
+Als u dit foutbericht ontvangt, is het mogelijk dat u bent niet gemachtigd de benodigde om op te halen van de sleutels voor uw opslagaccount. Om te bevestigen of dit het geval is, gaat u naar de portal en zoek uw opslagaccount. U kunt dit snel doen met de rechtermuisknop te klikken op het knooppunt voor uw opslagaccount en te klikken op "Openen in Portal". Als u dit doet, gaat u naar de blade 'Toegangssleutel'. Als u bent niet gemachtigd om sleutels weer te geven ziet u een pagina met het bericht 'U hebt geen toegang'. Tijdelijke oplossing dit probleem, u kunt de accountsleutel ophalen van iemand anders en koppelen met de naam en sleutel, of u kunt vragen voor een SAS met de Storage-account en deze gebruiken om te koppelen van het Storage-account.
+
+Als u de accountsleutels ziet, klikt u vervolgens Vul een probleem op GitHub, zodat we kunt u het probleem is opgelost.
 
 ## <a name="issues-with-sas-url"></a>Problemen met SAS-URL
 Als u verbinding met een service met behulp van een SAS-URL en deze fout optreedt maakt:

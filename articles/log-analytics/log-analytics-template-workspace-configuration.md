@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 06/11/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: a715c300cc5490eef9dbe7971dabe1733fd47f49
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 833bb6838733395d83468be3d2960c7c237aa3fc
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49402213"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50957672"
 ---
 # <a name="manage-log-analytics-using-azure-resource-manager-templates"></a>Log Analytics beheren met Azure Resource Manager-sjablonen
 U kunt [Azure Resource Manager-sjablonen](../azure-resource-manager/resource-group-authoring-templates.md) maken en configureren van Log Analytics-werkruimten. Voorbeelden van de taken die u met sjablonen uitvoeren kunt zijn:
@@ -521,6 +521,6 @@ De galerie van Azure-quickstart-sjabloon bevat verschillende sjablonen voor Log 
 * [Een bestaand opslagaccount toevoegen aan Log Analytics](https://azure.microsoft.com/resources/templates/oms-existing-storage-account/)
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Windows-agent implementeren op virtuele Azure-machines met behulp van Resource Manager-sjabloon](../virtual-machines/windows/extensions-oms.md).
-* [Linux-agent implementeren op virtuele Azure-machines met behulp van Resource Manager-sjabloon](../virtual-machines/linux/extensions-oms.md).
+* [Windows-agent implementeren op virtuele Azure-machines met behulp van Resource Manager-sjabloon](../virtual-machines/extensions/oms-windows.md).
+* [Linux-agent implementeren op virtuele Azure-machines met behulp van Resource Manager-sjabloon](../virtual-machines/extensions/oms-linux.md).
 

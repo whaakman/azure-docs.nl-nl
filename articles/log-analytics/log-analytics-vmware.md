@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 38537f3e2884160a99d333f1414d3f45755cd4f9
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 9b0a9b8c976ce5ef9fb57a6f8bcfd076f370bb10
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49404610"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50963984"
 ---
 # <a name="vmware-monitoring-preview-solution-in-log-analytics"></a>VMware Monitoring (Preview) solution in Log Analytics
 
@@ -42,7 +42,7 @@ Gebruik de volgende informatie om de oplossing te installeren en configureren.
 vSphere ESXi-Host 5.5, 6.0 of 6.5
 
 #### <a name="prepare-a-linux-server"></a>Een Linux-server voorbereiden
-Maak een Linux-besturingssysteem VM voor het ontvangen van alle syslog-gegevens van de ESXi-hosts. De [Log Analytics Linux-agent](log-analytics-linux-agents.md) is het punt verzameling voor alle ESXi-host syslog-gegevens. U kunt meerdere ESXi-hosts kunt gebruiken om logboeken naar een enkel Linux-server, zoals in het volgende voorbeeld te sturen.
+Maak een Linux-besturingssysteem VM voor het ontvangen van alle syslog-gegevens van de ESXi-hosts. De [Log Analytics Linux-agent](log-analytics-quick-collect-linux-computer.md) is het punt verzameling voor alle ESXi-host syslog-gegevens. U kunt meerdere ESXi-hosts kunt gebruiken om logboeken naar een enkel Linux-server, zoals in het volgende voorbeeld te sturen.
 
 [!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)]  
 
@@ -131,7 +131,7 @@ In de **VMware** dashboardweergave, blades zijn gerangschikt op:
 
 Klik op een blade om Log Analytics search deelvenster waarin gedetailleerde informatie voor de blade te openen.
 
-Hier kunt kunt u de zoekopdracht om dit te wijzigen voor een bepaald bewerken. Zie voor meer informatie over het maken van zoekopdrachten in logboeken [vinden van gegevens met behulp van zoekopdrachten in Logboeken in Log Analytics](log-analytics-log-searches.md).
+Hier kunt kunt u de zoekopdracht om dit te wijzigen voor een bepaald bewerken. Zie voor meer informatie over het maken van zoekopdrachten in logboeken [vinden van gegevens met behulp van zoekopdrachten in Logboeken in Log Analytics](log-analytics-log-search.md).
 
 #### <a name="find-esxi-host-events"></a>ESXi-host evenementen zoeken
 Één ESXi-host genereert meerdere logboeken, op basis van hun processen. De oplossing VMware Monitoring zijn ze gecentraliseerd en bevat een overzicht van het aantal gebeurtenissen. Deze gecentraliseerde weergave helpt u begrijpen welke ESXi-host heeft een groot aantal gebeurtenissen en welke gebeurtenissen treden het vaakst in uw omgeving.
@@ -165,7 +165,7 @@ Zoekopdrachten opslaan is een standaardfunctie in Log Analytics en kunt u alle q
 ![DockerDashboardView](./media/log-analytics-vmware/dockerdashboardview.png)
 
 #### <a name="create-alerts-from-queries"></a>Waarschuwingen van query's maken
-Nadat u uw query's hebt gemaakt, wilt u mogelijk de query's gebruiken om u te waarschuwen wanneer specifieke gebeurtenissen plaatsvinden. Zie [waarschuwingen in Log Analytics](log-analytics-alerts.md) voor informatie over het maken van waarschuwingen. Zie voor meer voorbeelden van query's en voorbeelden van andere waarschuwingen, de [Monitor VMware met behulp van Log Analytics](https://blogs.technet.microsoft.com/msoms/2016/06/15/monitor-vmware-using-oms-log-analytics) blogbericht.
+Nadat u uw query's hebt gemaakt, wilt u mogelijk de query's gebruiken om u te waarschuwen wanneer specifieke gebeurtenissen plaatsvinden. Zie [waarschuwingen in Log Analytics](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) voor informatie over het maken van waarschuwingen. Zie voor meer voorbeelden van query's en voorbeelden van andere waarschuwingen, de [Monitor VMware met behulp van Log Analytics](https://blogs.technet.microsoft.com/msoms/2016/06/15/monitor-vmware-using-oms-log-analytics) blogbericht.
 
 ## <a name="frequently-asked-questions"></a>Veelgestelde vragen
 ### <a name="what-do-i-need-to-do-on-the-esxi-host-setting-what-impact-will-it-have-on-my-current-environment"></a>Wat moet ik doen op de ESXi host instellen? Wat zijn de gevolgen heeft dit op mijn huidige omgeving?
@@ -206,6 +206,6 @@ Kunnen er meerdere redenen zijn:
     d. Als het bestand bestaat niet of de gebruiker en de instelling voor het groepsbeleid onjuist is, neemt u corrigerende maatregelen door [een Linux-server voorbereiden](#prepare-a-linux-server).
 
 ## <a name="next-steps"></a>Volgende stappen
-* Gebruik [zoekopdrachten](log-analytics-log-searches.md) in Log Analytics om gedetailleerde VMware weer te geven gegevens te hosten.
+* Gebruik [zoekopdrachten](log-analytics-log-search.md) in Log Analytics om gedetailleerde VMware weer te geven gegevens te hosten.
 * [Maak uw eigen dashboards](log-analytics-dashboards.md) VMware hostgegevens weergeven.
-* [Waarschuwingen maken](log-analytics-alerts.md) wanneer specifieke VMware host gebeurtenissen plaatsvinden.
+* [Waarschuwingen maken](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) wanneer specifieke VMware host gebeurtenissen plaatsvinden.
