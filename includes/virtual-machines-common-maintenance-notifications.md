@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/02/2018
 ms.author: shants
 ms.custom: include file
-ms.openlocfilehash: b3f71c4710bd9711a3209dd55f8e680f63627c1b
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: b8d759c7b55608be780389991e6bb393f4f3fe9f
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50035102"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50981440"
 ---
 ## <a name="view-vms-scheduled-for-maintenance-in-the-portal"></a>Gepland voor onderhoud in de portal van de virtuele machines weergeven
 
@@ -49,17 +49,9 @@ U kunt gebruiken de Azure-portal en zoek naar virtuele machines die zijn gepland
 
 ## <a name="notification-and-alerts-in-the-portal"></a>Meldingen en waarschuwingen in de portal
 
-Een schema voor gepland onderhoud communiceert Azure met een e-mailbericht verzenden naar de abonnement-eigenaar en mede-eigenaars-groep. U kunt extra ontvangers en kanalen toevoegen aan deze communicatie met het maken van Azure-activiteit waarschuwingen. Zie voor meer informatie, [abonnement activiteiten met de Azure-activiteitenlogboek](../articles/monitoring-and-diagnostics/monitoring-overview-activity-logs.md).
+Een schema voor gepland onderhoud communiceert Azure met een e-mailbericht verzenden naar de abonnement-eigenaar en mede-eigenaars-groep. U kunt extra ontvangers en kanalen toevoegen aan deze communicatie met het maken van Azure-activiteit waarschuwingen. Zie voor meer informatie, [waarschuwingen voor activiteitenlogboek maken voor servicemeldingen](../articles/monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md).
 
-1. Meld u aan bij [Azure Portal](https://portal.azure.com).
-2. Selecteer in het menu aan de linkerkant, **Monitor**. 
-3. In de **Monitor - waarschuwingen (klassiek)** deelvenster, klikt u op **+ waarschuwing voor activiteitenlogboek toevoegen**.
-5. Vul de gegevens in de **waarschuwing voor activiteitenlogboek toevoegen** pagina en zorg ervoor dat u het volgende instellen in de **Criteria**:
-   - **Gebeurteniscategorie**: servicestatus
-   - **Services**: Virtual Machine Scale Sets en virtuele Machines
-   - **Type**: gepland onderhoud 
-    
-Zie voor meer informatie over het configureren van waarschuwingen voor activiteitenlogboeken, [waarschuwingen voor activiteitenlogboek maken](../articles/monitoring-and-diagnostics/monitoring-activity-log-alerts.md).
+Zorg ervoor dat u de **gebeurtenistype** als **gepland onderhoud** en **Services** als **Virtual Machine Scale Sets** en/of **Virtuele Machines**
     
     
 ## <a name="start-maintenance-on-your-vm-from-the-portal"></a>Onderhoud starten op de virtuele machine vanuit de portal

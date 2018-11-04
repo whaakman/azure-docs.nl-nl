@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: bc273b8979b29057163e02dc9605e631aef173f1
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 28c943b2588270af823c0712d4e510a4f018da3e
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50227176"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50981441"
 ---
 # <a name="use-infrastructure-automation-tools-with-virtual-machines-in-azure"></a>Infrastructuur automatiseringsprogramma's gebruiken met virtuele machines in Azure
 Als u wilt maken en beheren van virtuele Azure-machines (VM's) op een consistente manier op schaal, een vorm van automatisering doorgaans gewenst. Er zijn veel hulpprogramma's en oplossingen waarmee u kunt de volledige Azure-infrastructuur-implementatie en beheer van levenscyclus automatiseren. In dit artikel worden enkele van de infrastructuur voor automation-hulpprogramma's die u in Azure gebruiken kunt. Deze hulpprogramma's wordt vaak aanpassen aan een van de volgende methoden:
@@ -129,9 +129,9 @@ Leer hoe u het volgende doet:
 ## <a name="azure-devops-services"></a>Azure DevOps Services
 [Azure DevOps-Services](https://www.visualstudio.com/team-services/) is een suite met hulpprogramma's waarmee u delen en bijhouden code, gebruikt u geautomatiseerde builds en een volledige continue integratie en (CI/CD)-ontwikkelingspijplijn te maken. Azure DevOps-Services kan worden geïntegreerd met Visual Studio en andere editors voor het vereenvoudigen van gebruik. Azure DevOps-Services kan ook maken en configureren van Azure-VM's en code te implementeren.
 
-Leer hoe u het volgende doet:
+Meer informatie over:
 
-- [Maken van een pijplijn voor continue integratie met Azure DevOps Services](../articles/virtual-machines/windows/tutorial-vsts-iis-cicd.md).
+- [Azure DevOps-Services](https://docs.microsoft.com/azure/devops/user-guide/index?view=vsts).
 
 
 ## <a name="jenkins"></a>Jenkins
