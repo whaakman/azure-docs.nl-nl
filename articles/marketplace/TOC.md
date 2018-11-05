@@ -86,7 +86,18 @@
 ### [SaaS verkopen via Azure](./cloud-partner-portal-orig/cloud-partner-portal-saas-offer-subscriptions.md)
 ### [SaaS-API’s](./cloud-partner-portal-orig/cloud-partner-portal-saas-subscription-apis.md)
 
-## [Containers](./cloud-partner-portal-orig/cloud-partner-portal-containers-guide.md)
+<!-- Legacy ## [Containers](./cloud-partner-portal-orig/cloud-partner-portal-containers-guide.md) -->
+
+## [Aanbieding voor containers](./cloud-partner-portal/containers/cpp-containers-offer.md)
+### [Vereisten](./cloud-partner-portal/containers/cpp-prerequisites.md)
+### [Aanbieding voor containers maken](./cloud-partner-portal/containers/cpp-create-offer.md)
+#### [Tabblad voor aanbiedingsinstellingen](./cloud-partner-portal/containers/cpp-offer-settings-tab.md)
+#### [Tabblad voor SKU's](./cloud-partner-portal/containers/cpp-skus-tab.md)
+#### [Tabblad voor Marketplace](./cloud-partner-portal/containers/cpp-marketplace-tab.md)
+#### [Tabblad voor ondersteuning](./cloud-partner-portal/containers/cpp-support-tab.md)
+### [Technische activa voor containers maken](./cloud-partner-portal/containers/cpp-create-technical-assets.md)
+### [Aanbieding voor containers publiceren](./cloud-partner-portal/containers/cpp-publish-offer.md)
+### [Bestaande aanbieding bijwerken](./cloud-partner-portal/containers/cpp-update-existing-offer.md)
 
 ## [Aanbieding voor IoT Edge-module](./cloud-partner-portal/iot-edge-module/cpp-offer-process-parts.md)
 ### [Vereisten](./cloud-partner-portal/iot-edge-module/cpp-prerequisites.md)
