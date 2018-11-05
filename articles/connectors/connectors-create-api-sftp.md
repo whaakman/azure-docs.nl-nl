@@ -1,44 +1,50 @@
 ---
-title: Verbinding maken met SFTP-account vanuit Azure Logic Apps | Microsoft Docs
-description: Automatiseren van taken en werkstromen die bewaken, maken, beheren, verzenden en ontvangen van bestanden voor een SFTP-server met behulp van Azure Logic Apps
+title: Verbinding maken met SFTP-account - Azure Logic Apps | Microsoft Docs
+description: Automatiseren van taken en processen die bewaken, maken, beheren, verzenden en ontvangen van bestanden voor een SFTP-server via SSH met behulp van Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
 author: ecfan
 ms.author: estfan
-ms.reviewer: klam, LADocs
+ms.reviewer: divswa, klam, LADocs
 ms.assetid: 697eb8b0-4a66-40c7-be7b-6aa6b131c7ad
 ms.topic: article
 tags: connectors
-ms.date: 10/11/2018
-ms.openlocfilehash: 8eb5d85a56e03ba8ceb646a3fbe580f8d525d8a3
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.date: 10/26/2018
+ms.openlocfilehash: 3dbe40476757ba93f33d39f71c46bf58302b3570
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233698"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50979451"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-azure-logic-apps"></a>Controleren, maken en beheren van de SFTP-bestanden met behulp van Azure Logic Apps
 
-Met Azure Logic Apps en de SFTP-connector, kunt u geautomatiseerde taken en werkstromen die worden bewaakt, maken, verzenden en ontvangen van bestanden via uw account op een [SFTP](https://www.ssh.com/ssh/sftp/) server, samen met andere acties, bijvoorbeeld:
+Voor het automatiseren van taken die bewaken, maken, verzenden en ontvangen van bestanden op een [Secure File Transfer Protocol (SFTP)](https://www.ssh.com/ssh/sftp/) -server die u kunt bouwen en automatiseren van werkstromen voor gegevensintegratie met behulp van Azure Logic Apps en de SFTP-connector. SFTP is een netwerkprotocol dat bestandstoegang, bestandsoverdracht en bestandsbeheer ten opzichte van een betrouwbare gegevensstroom biedt. Hier volgen enkele voorbeelden van taken die kunt u automatiseren: 
 
 * Bewaken wanneer bestanden worden toegevoegd of gewijzigd.
 * Ophalen, maken, kopiëren, lijst, bijwerken en verwijderen van bestanden.
 * Inhoud van bestanden en metagegevens ophalen.
 * Pak archieven voor mappen.
 
-U kunt triggers die te antwoorden krijgen van uw SFTP-server en de uitvoer beschikbaar voor andere acties. U kunt acties in uw logische apps gebruiken voor het uitvoeren van taken met bestanden op uw SFTP-server. U kunt ook andere acties waarmee de uitvoer van de SFTP-acties hebben. Bijvoorbeeld, als u regelmatig bestanden uit uw SFTP-server ophalen, kunt u e-mailberichten over deze bestanden en hun inhoud verzenden met behulp van de connector voor Office 365 Outlook of Outlook.com-connector. Als u geen ervaring met logische apps, raadpleegt u [wat is Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
+In vergelijking met de [SFTP-SSH-connector](../connectors/connectors-sftp-ssh.md), de SFTP-connector kan lezen of schrijven maximaal 50 MB in grootte van bestanden, tenzij u [logische groepen te verdelen voor het verwerken van grote berichten](../logic-apps/logic-apps-handle-large-messages.md). Voor bestanden van maximaal 1 GB in grootte, gebruik de [SFTP-SSH-connector](../connectors/connectors-sftp-ssh.md). Voor bestanden die groter zijn dan 1 GB, kunt u de SFTP-SSH connector plus [logische groepen te verdelen voor grote berichten](../logic-apps/logic-apps-handle-large-messages.md). 
 
-> [!NOTE]
-> Voor bestanden die groter zijn dan 50 MB en om tot 1 GB, gebruiken de [SFTP-SSH-connector](../connectors/connectors-sftp-ssh.md). De SFTP-connector ondersteunt alleen de bestanden die zijn dan 50 MB of kleiner, tenzij u [logische groepen te verdelen voor het verwerken van grote berichten](../logic-apps/logic-apps-handle-large-messages.md). 
+U kunt triggers die gebeurtenissen op uw SFTP-server bewaken en uitvoer beschikbaar voor andere acties. U kunt acties waarmee verschillende taken worden uitgevoerd op uw SFTP-server gebruiken. U kunt ook andere acties in uw logische app de uitvoer van de SFTP-acties hebben. Bijvoorbeeld, als u regelmatig bestanden uit uw SFTP-server ophalen, kunt u e-mailmeldingen over deze bestanden en hun inhoud verzenden met behulp van de connector voor Office 365 Outlook of Outlook.com-connector.
+Als u geen ervaring met logische apps, raadpleegt u [wat is Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
 ## <a name="prerequisites"></a>Vereisten
 
 * Een Azure-abonnement. Als u nog geen abonnement op Azure hebt, <a href="https://azure.microsoft.com/free/" target="_blank">registreer u dan nu voor een gratis Azure-account</a>. 
 
-* Uw SFTP-host-server-adres en accountreferenties
+* Uw SFTP-server-adres en -account referenties, zodat uw logische app toegang tot uw SFTP-account. Gebruik de [Secure Shell (SSH)](https://www.ssh.com/ssh/protocol/) -protocol, moet u ook toegang tot een persoonlijke SSH-sleutel en de SSH-privésleutelwachtwoord. 
 
-   Uw referenties toestaan dat de logische app een verbinding maken en toegang tot uw SFTP-account.
+  > [!NOTE]
+  > 
+  > De SFTP-connector biedt ondersteuning voor deze persoonlijke sleutel indelingen: OpenSSH, ssh.com en PuTTY
+  > 
+  > Wanneer u uw logische app, maakt nadat u de SFTP-trigger of actie die u wilt toevoegen, moet u de verbindingsgegevens voor uw SFTP-server opgeven. 
+  > Als u een persoonlijke SSH-sleutel gebruikt, zorg ervoor dat u ***kopie*** de sleutel van uw SSH bestand met persoonlijke sleutel en ***plakken*** die sleutel in de details van de verbinding, ***niet handmatig invoeren of de sleutelbewerken***, waardoor de verbinding is mislukt. 
+  > Zie de volgende stappen in dit artikel voor meer informatie.
 
 * Basiskennis over [over het maken van logische apps](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
@@ -61,17 +67,48 @@ U kunt triggers die te antwoorden krijgen van uw SFTP-server en de uitvoer besch
    Als u wilt toevoegen een actie tussen fasen, de aanwijzer over de pijl tussen fasen. 
    Kies het plusteken (**+**) die wordt weergegeven, en selecteer vervolgens **een actie toevoegen**.
 
-1. Geeft u de benodigde informatie voor uw verbinding en kies vervolgens **maken**.
+1. Hiermee geeft u de benodigde informatie voor uw verbinding.
+
+   > [!IMPORTANT] 
+   >
+   > Wanneer u uw persoonlijke SSH-sleutel in de **persoonlijke SSH-sleutel** eigenschap, volgt u deze extra stappen uitvoeren, die ervoor te zorgen dat u de volledige en correcte waarde opgeven voor deze eigenschap. 
+   > Een ongeldige sleutel zorgt ervoor dat de verbinding is mislukt.
+   
+   Hoewel u een teksteditor gebruiken kunt, vindt hier u voorbeeld van de stappen die laten hoe goed Kopieer en plak uw sleutel zien met behulp van Notepad.exe als voorbeeld.
+    
+   1. Open uw persoonlijke SSH-sleutelbestand in een teksteditor. 
+   Kladblok gebruiken als deze stappen als in het voorbeeld.
+
+   1. Op de Kladblok **bewerken** in het menu **Alles selecteren**.
+
+   1. Selecteer **bewerken** > **kopie**.
+
+   1. In de SFTP-trigger of actie die u hebt toegevoegd, plak de *voltooid* sleutel die u hebt gekopieerd in de **persoonlijke SSH-sleutel** eigenschap, die ondersteuning biedt voor meerdere regels. 
+   ***Zorg ervoor dat u hebt geplakt*** de sleutel. ***Niet handmatig invoeren of bewerk de sleutel***.
+
+1. Wanneer u klaar bent voor het invoeren van gegevens van de verbinding kiezen **maken**.
 
 1. Geef de benodigde informatie voor uw geselecteerde trigger of actie en doorgaan met het ontwikkelen van uw logische app-werkstroom.
+
+## <a name="trigger-limits"></a>Trigger-limieten
+
+De SFTP-triggers werken door het bestandssysteem SFTP polling en op zoek naar een bestand dat is gewijzigd sinds de laatste polling. Sommige hulpprogramma's kunt u de tijdstempel behouden wanneer de bestanden worden gewijzigd. In dergelijke gevallen moet u deze functie uitschakelen zodat de trigger kunt werken. Hier volgen enkele algemene instellingen:
+
+| SFTP-client | Bewerking | 
+|-------------|--------| 
+| Winscp | Ga naar **opties** > **voorkeuren** > **Transfer** > **bewerken**  >  **Behouden timestamp** > **uitschakelen** |
+| Filezilla werkt | Ga naar **Transfer** > **tijdstempels van overgebrachte bestanden behouden** > **uitschakelen** | 
+||| 
+
+Als een trigger een nieuw bestand wordt gevonden, wordt de trigger wordt gecontroleerd dat het nieuwe bestand voltooid en geen gedeeltelijk geschreven is. Bijvoorbeeld, een bestand mogelijk wijzigingen wordt uitgevoerd wanneer de trigger wordt gecontroleerd voor de bestandsserver. Om te voorkomen dat een gedeeltelijk geschreven bestand retourneren, merkt de trigger de tijdstempel voor het bestand dat recente wijzigingen, maar niet direct dat bestand geretourneerd. De trigger retourneert het bestand alleen wanneer u een polling van de server opnieuw. Dit gedrag kan soms leiden tot een vertraging die is maximaal twee keer van de trigger polling-interval. 
 
 ## <a name="examples"></a>Voorbeelden
 
 ### <a name="sftp-trigger-when-a-file-is-added-or-modified"></a>SFTP-trigger: wanneer een bestand wordt toegevoegd of gewijzigd
 
-Deze trigger start een werkstroom voor logische Apps wanneer de trigger wordt gedetecteerd wanneer een bestand wordt toegevoegd of gewijzigd op een SFTP-server. Dus bijvoorbeeld, dat kunt u een voorwaarde die controleert of de inhoud van het bestand en beslist of om op te halen die inhoud toevoegen op basis van of die inhoud voldoet aan een opgegeven voorwaarde. Ten slotte kunt u een actie toevoegen die de inhoud van het bestand opgehaald en die inhoud opslaat in een map op de SFTP-server. 
+Deze trigger wordt een werkstroom voor logische app gestart wanneer een bestand wordt toegevoegd of gewijzigd op een SFTP-server. U kunt bijvoorbeeld een voorwaarde die controleert of de inhoud van het bestand en wordt de inhoud op basis van of de inhoud voldoet aan een opgegeven voorwaarde toevoegen. U kunt vervolgens een actie toevoegen die de bestandsinhoud opgehaald en die inhoud in een map op de SFTP-server geplaatst. 
 
-**Voorbeeld van de onderneming**: U kunt deze trigger gebruiken voor het bewaken van een SFTP-map voor nieuwe bestanden die staan voor klanten en orders. U kunt vervolgens een SFTP-actie zoals gebruiken **bestandsinhoud ophalen**, zodat u kunt de volgorde van de inhoud voor verdere verwerking ophalen en deze volgorde opslaan in een orderdatabase.
+**Voorbeeld van de onderneming**: U kunt deze trigger gebruiken voor het bewaken van een SFTP-map voor nieuwe bestanden die staan voor klanten en orders. U kunt vervolgens een SFTP-actie zoals gebruiken **bestandsinhoud ophalen** , zodat u de volgorde van de inhoud ophalen voor verdere verwerking en die volgorde opslaan in een orderdatabase.
 
 ### <a name="sftp-action-get-content"></a>SFTP-actie: inhoud ophalen
 

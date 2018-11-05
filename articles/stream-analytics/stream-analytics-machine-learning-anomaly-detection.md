@@ -31,7 +31,7 @@ De operator AnomalyDetection detecteert drie typen anomalieën:
 
 * **Browserpagina's met trage negatieve Trend**: een trage afname in de trend gedurende een periode.  
 
-Wanneer u de operator AnomalyDetection gebruikt, moet u de **Limit Duration** component. Deze component Hiermee geeft u dat het tijdsinterval (hoe ver terug in de geschiedenis van de huidige gebeurtenis) moet worden gehouden bij het detecteren van afwijkingen. Deze operator kan eventueel worden beperkt tot alleen de gebeurtenissen die overeenkomen met een bepaalde eigenschap of voorwaarde met behulp van de  **wanneer**  component. Deze operator kan eventueel ook verwerken voor groepen van gebeurtenissen afzonderlijk op basis van de sleutel die is opgegeven de **partitioneren door** component. Trainen en voorspellen optreden afzonderlijk voor elke partitie. 
+Wanneer u de operator AnomalyDetection gebruikt, moet u de **Limit Duration** component. Deze component Hiermee geeft u dat het tijdsinterval (hoe ver terug in de geschiedenis van de huidige gebeurtenis) moet worden gehouden bij het detecteren van afwijkingen. Deze operator kan eventueel worden beperkt tot alleen de gebeurtenissen die overeenkomen met een bepaalde eigenschap of voorwaarde met behulp van de  **wanneer** component.   Deze operator kan eventueel ook verwerken voor groepen van gebeurtenissen afzonderlijk op basis van de sleutel die is opgegeven de **partitioneren door** component. Trainen en voorspellen optreden afzonderlijk voor elke partitie. 
 
 ## <a name="syntax-for-anomalydetection-operator"></a>Syntaxis voor de operator AnomalyDetection
 
