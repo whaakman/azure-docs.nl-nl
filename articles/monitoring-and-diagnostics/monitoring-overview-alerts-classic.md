@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: robb
 ms.component: alerts
-ms.openlocfilehash: 7046a0c6ac84ad5f156098a26dcef2b8accd50af
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: c69a61f19b55cd325cd594173dbf3b5f2b4576b8
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46987642"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50962925"
 ---
 # <a name="what-are-classic-alerts-in-microsoft-azure"></a>Wat zijn klassieke waarschuwingen in Microsoft Azure?
 
@@ -29,7 +29,7 @@ Heeft afzonderlijke waarschuwingen mogelijkheden in de afgelopen Azure Monitor, 
 
 Klassieke waarschuwingen ziet u alleen in het scherm van de gebruiker klassieke waarschuwingen in de Azure Portal. Dit scherm wordt weergegeven in de **klassieke waarschuwingen weergeven** knop op het scherm waarschuwingen. 
 
- ![Waarschuwing keuzes in Azure portal](./media/monitoring-overview-alerts-classic/monitor-alert-screen2.png) 
+ ![Waarschuwing keuzes in Azure portal](./media/monitoring-overview-alerts-classic/monitor-alert-screen2.png)�
 
 De nieuwe ervaring voor waarschuwingen gebruiker heeft de volgende voordelen via de ervaring voor klassieke waarschuwingen:
 -   **Betere notification system** -actiegroepen, die zijn benoemde groepen van meldingen en acties die opnieuw kunnen worden gebruikt in meerdere waarschuwingen voor alle nieuwere waarschuwingen gebruiken. Gebruik geen actiegroepen klassieke metrische waarschuwingen en oudere Log Analytics-waarschuwingen.
@@ -82,21 +82,21 @@ De oudere metrische waarschuwingen wordt actiegroepen echter niet gebruiken. In 
 
 Webhooks maakt het mogelijk om automatisering en herstel, bijvoorbeeld:
     - Azure Automation Runbook
-    - Azure-functie
+    - Azure Functions
     - Logische App van Azure
     - Een service van derden
 
 ## <a name="next-steps"></a>Volgende stappen
 Informatie ophalen over de regels voor waarschuwingen en ze te configureren met behulp van:
 
-* Meer informatie over [metrische gegevens](monitoring-overview-metrics.md)
-* Configureer [klassieke metrische waarschuwingen via Azure portal](insights-alerts-portal.md)
-* Configureer [klassieke metrische waarschuwingen PowerShell](insights-alerts-powershell.md)
-* Configureer [klassieke metrische waarschuwingen opdrachtregelinterface (CLI)](insights-alerts-command-line-interface.md)
+* Meer informatie over [metrische gegevens](../monitoring/monitoring-data-collection.md)
+* Configureer [klassieke metrische waarschuwingen via Azure portal](alert-metric-classic.md)
+* Configureer [klassieke metrische waarschuwingen PowerShell](alert-metric-classic.md)
+* Configureer [klassieke metrische waarschuwingen opdrachtregelinterface (CLI)](alert-metric-classic.md)
 * Configureer [klassieke metrische waarschuwingen Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931945.aspx)
 * Meer informatie over [activiteitenlogboek](monitoring-overview-activity-logs.md)
 * Configureer [waarschuwingen voor activiteitenlogboeken via Azure portal](monitoring-activity-log-alerts.md)
-* Configureer [waarschuwingen voor activiteitenlogboeken via Resource Manager](monitoring-create-activity-log-alerts-with-resource-manager-template.md)
+* Configureer [waarschuwingen voor activiteitenlogboeken via Resource Manager](alert-activity-log.md)
 * Controleer de [activiteit log waarschuwing webhook-schema](monitoring-activity-log-alerts-webhook.md)
 * Meer informatie over [actiegroepen](monitoring-action-groups.md)
-* Configureer [nieuwere waarschuwingen](monitor-alerts-unified-usage.md)
+* Configureer [nieuwere waarschuwingen](alert-metric.md)

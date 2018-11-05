@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 10/16/2018
 ms.author: raiye
-ms.openlocfilehash: 5a9f8e332aae72d6fb0ce2f697a41391a51c44b6
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: c153e87224c596929440d814d30b94cc49d7ba76
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49376666"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978737"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Azure Guest OS releases en SDK compatibiliteitsmatrix
 Biedt dat u met actuele informatie over de meest recente Azure Guest OS releases voor Cloud Services. Deze informatie helpt u bij het plannen van uw upgradepad voordat een Gastbesturingssysteem wordt uitgeschakeld. Als u uw rollen gebruiken configureert *automatische* Guest OS-updates zoals beschreven in [Azure Gast OS Update-instellingen][Azure Guest OS Update Settings], niet is het essentieel dat u deze pagina hebt gelezen.
@@ -66,7 +66,7 @@ Het Gastbesturingssysteem April heeft uitgegeven.
 ## <a name="family-5-releases"></a>Familie 5-versies
 **Windows Server 2016**
 
-.NET framework is geïnstalleerd: 4.0, 4.5, 4.5.1, 4.5.2, 4.6, 4.6.1, 4.6.2
+.NET framework is geïnstalleerd: 3.5, 4.6.2
 
 > [!NOTE]
 > De RDP-wachtwoord voor de OS-familie 5 moet minimaal 10 tekens.
@@ -84,7 +84,7 @@ Het Gastbesturingssysteem April heeft uitgegeven.
 ## <a name="family-4-releases"></a>Family 4-versies
 **Windows Server 2012 R2**
 
-.NET framework is geïnstalleerd: 4.0, 4.5, 4.5.1, 4.5.2
+.NET framework is geïnstalleerd: 3.5, 4.5.1
 
 | Configuratietekenreeks | Releasedatum | Datum uitschakelen |
 | --- | --- | --- |
@@ -98,7 +98,7 @@ Het Gastbesturingssysteem April heeft uitgegeven.
 ## <a name="family-3-releases"></a>Type 3-versies
 **Windows Server 2012**
 
-.NET framework is geïnstalleerd: 4.0, 4.5, 4.5.1, 4.5.2
+.NET framework is geïnstalleerd: 3.5, 4.5
 
 | Configuratietekenreeks | Releasedatum | Datum uitschakelen |
 | --- | --- | --- |
@@ -112,7 +112,7 @@ Het Gastbesturingssysteem April heeft uitgegeven.
 ## <a name="family-2-releases"></a>Familie 2-versies
 **Windows Server 2008 R2 SP1**
 
-.NET framework is geïnstalleerd: 3.5, 4.0, 4.5, 4.5.1, 4.5.2
+.NET framework is geïnstalleerd: 3.5 (inclusief 2.0 en 3.0)
 
 | Configuratietekenreeks | Releasedatum | Datum uitschakelen |
 | --- | --- | --- |

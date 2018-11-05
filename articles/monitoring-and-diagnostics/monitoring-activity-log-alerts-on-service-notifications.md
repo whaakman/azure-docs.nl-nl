@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/09/2018
 ms.author: shtabriz
 ms.component: alerts
-ms.openlocfilehash: 221434a391f963a764ef36b9533cc8cfd0e16c01
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: a86a7188c488a634de7b0ac71657bea0105381c7
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43123445"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50961888"
 ---
 # <a name="create-activity-log-alerts-on-service-notifications"></a>Waarschuwingen voor activiteitenlogboek maken voor servicemeldingen
 ## <a name="overview"></a>Overzicht
@@ -36,7 +36,7 @@ Ook kunt u configureren die de waarschuwing moet worden verzonden naar:
 
 Raadpleeg [Actiegroepen maken en beheren](monitoring-action-groups.md) voor meer informatie over actiegroepen.
 
-Zie voor meer informatie over het configureren van de statusmeldingen notification service met behulp van Azure Resource Manager-sjablonen [Resource Manager-sjablonen](monitoring-create-activity-log-alerts-with-resource-manager-template.md).
+Zie voor meer informatie over het configureren van de statusmeldingen notification service met behulp van Azure Resource Manager-sjablonen [Resource Manager-sjablonen](alert-activity-log.md).
 
 ## <a name="create-an-alert-on-a-service-health-notification-for-a-new-action-group-by-using-the-azure-portal"></a>Een waarschuwing op een melding van de health service voor een nieuwe actiegroep maken met behulp van Azure portal
 1. In de [portal](https://portal.azure.com), selecteer **servicestatus**.
@@ -70,7 +70,7 @@ Zie voor meer informatie over het configureren van de statusmeldingen notificati
 
 1. Een lijst met ontvangers definiëren door te geven van de ontvanger:
 
-    a. **Naam**: Voer de naam, alias of id van de ontvanger.
+    a. **Naam**: Voer de naam van de ontvanger s, alias of id.
 
     b. **Actietype**: Selecteer SMS, e-mail, webhook, Azure-app en meer.
 

@@ -9,12 +9,12 @@ ms.date: 10/28/2018
 ms.author: moderakh
 ms.devlang: java
 ms.component: cosmosdb-sql
-ms.openlocfilehash: ef1d2d0751bf1b1a7ee88fbf37e44e6316dee8f8
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: efa2b60ccfc6af6cfb4a46e17b13a426d4e8c9fe
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249862"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958811"
 ---
 # <a name="troubleshooting-issues-when-using-java-async-sdk-with-azure-cosmos-db-sql-api-accounts"></a>Het oplossen van problemen bij het gebruik van Java-SDK voor asynchrone met Azure Cosmos DB SQL API-accounts
 In dit artikel bevat informatie over veelvoorkomende problemen, oplossingen, diagnostische stappen en hulpprogramma's bij het gebruik van [Java asynchrone ADK](sql-api-sdk-async-java.md) met Azure Cosmos DB SQL API-accounts.
@@ -48,7 +48,7 @@ Het aantal geopende bestanden ("nofile") moet groot genoeg is (op minste als dub
 
 ##### <a name="snat"></a>Azure SNAT (PAT) poortuitputting
 
-Als uw app is geïmplementeerd op Azure VM, standaard [Azure SNAT poorten](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#preallocatedports) tot stand brengen van verbindingen met een willekeurig eindpunt buiten uw virtuele machine worden gebruikt. Het aantal verbindingen van de virtuele machine met de Cosmos DB-eindpunt wordt beperkt door de [Azure SNAT configuratie](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#preallocatedports).
+Als uw app wordt geïmplementeerd op Azure VM zonder een openbaar IP-adres, standaard [Azure SNAT poorten](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#preallocatedports) tot stand brengen van verbindingen met een willekeurig eindpunt buiten uw virtuele machine worden gebruikt. Het aantal verbindingen van de virtuele machine met de Cosmos DB-eindpunt wordt beperkt door de [Azure SNAT configuratie](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#preallocatedports).
 
 De Azure-SNAT-poorten worden gebruikt wanneer uw Azure-VM een privé IP-adres heeft en een proces van de virtuele machine probeert te maken van een verbinding met een openbaar IP-adres. Er zijn dus twee oplossingen om te voorkomen dat Azure SNAT beperking:
     * Uw Azure Cosmos DB-service-eindpunt toevoegen aan het subnet van uw Azure VM-VNET, zoals uitgelegd in [VNET Service-eindpunt inschakelen](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview). Wanneer service-eindpunt is ingeschakeld, de aanvragen niet meer worden verzonden vanuit een openbare IP-adres naar cosmos DB in plaats daarvan het VNET en subnet-id is verzonden. Deze wijziging kan leiden tot firewall val als alleen openbare IP-adressen zijn toegestaan. Als u firewall gebruikt bij het inschakelen van service-eindpunt, voegt u firewallregels met behulp van het subnet [VNET ACL's](https://docs.microsoft.com/azure/virtual-network/virtual-networks-acl).

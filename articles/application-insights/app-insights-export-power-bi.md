@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/10/2018
 ms.author: mbullwin
-ms.openlocfilehash: fc651b3bc28e59c5c5a195211d811e206eee3e42
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 71d5c26c8c41c470e188291dea4a4dab2811a67e
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42058440"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50963112"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Power BI-kanaal van Application Insights
 [Power BI](http://www.powerbi.com/) is een suite met hulpprogramma's voor business die helpt u bij het analyseren van gegevens en inzichten te delen. Uitgebreide dashboards zijn beschikbaar op elk apparaat. U kunt gegevens uit verschillende bronnen, met inbegrip van Analytics-query's uit combineren [Azure Application Insights](app-insights-overview.md).
@@ -41,7 +41,7 @@ Als u wilt importeren in uw Application Insights-query, moet u de bureaubladvers
 Installeer [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/).
 
 ### <a name="export-an-analytics-query"></a>Exporteren van een Analytics-query
-1. [Analytics openen en uw query schrijven](app-insights-analytics-tour.md).
+1. [Analytics openen en uw query schrijven](../log-analytics/query-language/get-started-analytics-portal.md).
 2. Test en de query te verfijnen totdat u tevreden met de resultaten bent. Zorg ervoor dat de query correct wordt uitgevoerd in Analytics voordat u het exporteren.
 3. Op de **exporteren** menu, kiest u **Power BI (M)**. Bewaar het tekstbestand.
    
@@ -109,7 +109,7 @@ Als het verminderen van de gegevensset die afkomstig zijn van de Analytics-query
    * Vervang  **https://management.azure.com/subscriptions/...**
    * met  **https://api.applicationinsights.io/beta/apps/...**
 3. Ten slotte de referenties bijwerken naar een standaardschijf en gebruik van uw API-sleutel.
-  
+ �
 
 **Bestaand script**
  ```
@@ -155,5 +155,5 @@ Na de eerste import telkens het dashboard en de rapporten dagelijks bijgewerkt. 
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Power BI - informatie](http://www.powerbi.com/learning/)
-* [Analytics-zelfstudie](app-insights-analytics-tour.md)
+* [Analytics-zelfstudie](../log-analytics/query-language/get-started-analytics-portal.md)
 
