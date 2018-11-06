@@ -96,7 +96,7 @@ De licentie die wordt geleverd bij de OVF-sjabloon is een evaluatielicentie die 
 3. Voer in **Bron selecteren** de locatie van de gedownloade OVF in.
 4. Selecteer **Volgende** in **Beoordelingsdetails**.
 5. Accepteer de standaardinstellingen in **Naam en map selecteren** en **Configuratie selecteren**.
-6. Selecteer in **Opslag selecteren****Thick Provision Eager Zeroed** in **Indeling virtuele schijf selecteren**.
+6. Selecteer in **Opslag selecteren** **Thick Provision Eager Zeroed** in **Indeling virtuele schijf selecteren**.
 7. Accepteer de standaardinstellingen in de rest van de wizardpagina's.
 8. Bij **Gereed om te voltooien** selecteert u **Inschakelen na de implementatie** > **Voltooien** om de virtuele machine in te stellen met de standaardinstellingen.
 

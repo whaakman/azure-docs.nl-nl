@@ -2,6 +2,7 @@
 
 # Overzicht
 ## [Wat is Azure AD Domain Services?](active-directory-ds-overview.md)
+## [Veelgestelde vragen](active-directory-ds-faqs.md)
 ## Is dit geschikt voor u?
 ### [Vergelijken met Windows Server AD](active-directory-ds-comparison.md)
 ### [Vergelijken met Azure AD Join](active-directory-ds-compare-with-azure-ad-join.md)
@@ -55,7 +56,6 @@
 ## [Problemen met Secure LDAP oplossen](active-directory-ds-ldaps-troubleshoot.md)
 
 # Problemen oplossen
-## [Veelgestelde vragen](active-directory-ds-faqs.md)
 ## [Handleiding voor het oplossen van problemen](active-directory-ds-troubleshooting.md)
 ## [Problemen met betrekking tot waarschuwingen oplossen](active-directory-ds-troubleshoot-alerts.md)
 ### [Problemen met NSG-configuratie oplossen](active-directory-ds-troubleshoot-nsg.md)
