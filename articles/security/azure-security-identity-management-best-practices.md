@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/17/2018
 ms.author: barclayn
-ms.openlocfilehash: b1002d046014abd15452489e343ecf7c30b00d73
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: 64d940552f2790c08e8087f279990d0a6c595bac
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49311334"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51245720"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Azure-identiteitsbeheer en toegangsbeheer best practices voor beveiliging
 
-Veel Houd rekening met de identiteit van de nieuwe grens laag voor de beveiliging over die functie van het traditionele netwerk gerichte perspectief te nemen. Deze evolutie van het primaire pivot voor aandacht voor beveiliging en investeringen afkomstig zijn uit het feit dat netwerkverbindingen steeds poreuze zijn geworden en die defense perimeter mag niet zo effectief als ze eenmaal zijn voordat de explosie van [BYOD ](http://aka.ms/byodcg) apparaten en toepassingen.
+Veel Houd rekening met de identiteit van de nieuwe grens laag voor de beveiliging over die functie van het traditionele netwerk gerichte perspectief te nemen. Deze evolutie van het primaire pivot voor aandacht voor beveiliging en investeringen afkomstig zijn uit het feit dat netwerkverbindingen steeds poreuze zijn geworden en die defense perimeter mag niet zo effectief als ze eenmaal zijn voordat de explosie van [BYOD ](https://aka.ms/byodcg) apparaten en toepassingen.
 
 In dit artikel wordt besproken hoe een verzameling Azure-identiteitsbeheer en aanbevolen procedures voor de beveiliging van access control. Deze aanbevolen procedures zijn afgeleid van onze ervaring met [Azure AD](../active-directory/fundamentals/active-directory-whatis.md) en de ervaringen van klanten, zoals zelf.
 
@@ -51,7 +51,7 @@ Azure-identiteit en besturingselement best practices voor beveiliging die in dit
 
 ## <a name="treat-identity-as-the-primary-security-perimeter"></a>Identiteit behandelen als de primaire beveiligingsperimeter
 
-Veel Houd rekening met de identiteit van de primaire perimeter voor beveiliging. Dit is een overstap van de traditionele focus op de beveiliging van het netwerk. Netwerkverbindingen steeds meer poreuze, en dat defense perimeter kan niet worden zo effectief was voordat de explosie van [BYOD](http://aka.ms/byodcg) apparaten en toepassingen.
+Veel Houd rekening met de identiteit van de primaire perimeter voor beveiliging. Dit is een overstap van de traditionele focus op de beveiliging van het netwerk. Netwerkverbindingen steeds meer poreuze, en dat defense perimeter kan niet worden zo effectief was voordat de explosie van [BYOD](https://aka.ms/byodcg) apparaten en toepassingen.
 [Azure Active Directory (Azure AD)](../active-directory/active-directory-whatis.md) de Azure-oplossing voor identiteits-en toegang. Azure AD is een multitenant, cloudgebaseerde directory en identity management-service van Microsoft. Het combineert belangrijke directoryservices, toegangsbeheer voor toepassingen en identiteitsbeveiliging in één oplossing.
 
 De volgende secties worden aanbevolen procedures voor beveiliging identiteits- en toegangsbeheer op basis van Azure AD.

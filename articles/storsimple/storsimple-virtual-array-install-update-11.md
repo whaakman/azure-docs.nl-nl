@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/18/2018
 ms.author: alkohli
-ms.openlocfilehash: e10bd04f37951f93db8af083692b7a2fe25ac9b7
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 9d1229084410b6fe7c500a22f8e1e1aed1b8107d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39348349"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51227345"
 ---
 # <a name="install-update-11-on-your-storsimple-virtual-array"></a>Update 1.1 installeren op uw StorSimple Virtual Array
 
@@ -27,7 +27,7 @@ ms.locfileid: "39348349"
 
 Dit artikel beschrijft de stappen die nodig zijn voor het installeren van Update 1.1 op uw virtuele StorSimple-matrix via de lokale webgebruikersinterface en via de Azure-portal.
 
-U past u de software-updates of hotfixes voor uw StorSimple Virtual Array om up-to-date te houden. Voordat u een update toepast, wordt aangeraden dat u de volumes of shares offline op de host eerst neemt en klik vervolgens op het apparaat. Dit een mogelijkheid van beschadiging van gegevens wordt geminimaliseerd. Nadat de volumes of shares offline zijn, u moet ook rekening houden met een handmatige back-up van het apparaat.
+U past u de software-updates of hotfixes voor uw StorSimple Virtual Array om up-to-date te houden. Voordat u een update toepast, wordt aangeraden dat u de volumes of shares offline op de host eerst neemt en klik vervolgens op het apparaat. Dit minimaliseert de kans op beschadigde gegevens. Nadat de volumes of shares offline zijn, u moet ook rekening houden met een handmatige back-up van het apparaat.
 
 > [!IMPORTANT]
 > - Update 1.1 komt overeen met **10.0.10307.0** softwareversie op uw apparaat. Voor informatie over wat is er nieuw in deze update, gaat u naar [opmerkingen bij de Release voor 1.1 Update](storsimple-virtual-array-update-11-release-notes.md).
@@ -66,7 +66,7 @@ Voer de volgende stappen uit om te 1.1 Update downloaden via de Microsoft Update
 
 #### <a name="to-download-the-update-or-the-hotfix"></a>De update of de hotfix te downloaden
 
-1. Start Internet Explorer en navigeer naar [ http://catalog.update.microsoft.com ](http://catalog.update.microsoft.com).
+1. Start Internet Explorer en navigeer naar [ http://catalog.update.microsoft.com ](https://catalog.update.microsoft.com).
 
 2. Als u van de Microsoft Update-catalogus voor de eerste keer op deze computer gebruikmaakt, klikt u op **installeren** wanneer hierom wordt gevraagd voor het installeren van de invoegtoepassing Microsoft Update-catalogus.
 

@@ -11,12 +11,12 @@ ms.component: bing-image-search
 ms.topic: conceptual
 ms.date: 8/8/2018
 ms.author: aahi
-ms.openlocfilehash: c21741ebb8f68797b31a2ba1de4bb6f0f8d32cb7
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 621c2844b6952e5ea1f6b9f7c8bc2ed170fee310
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46297124"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51246783"
 ---
 # <a name="get-images-from-the-web-with-the-bing-image-search-api"></a>Afbeeldingen ophalen via het web met de Bing afbeeldingen zoeken-API
 
@@ -38,7 +38,7 @@ Host: api.cognitive.microsoft.com
 
 ## <a name="get-images-from-a-specific-web-domain"></a>Afbeeldingen ophalen uit een specifieke web-domein
 
-Als u afbeeldingen uit een bepaald domein wilt opvragen, gebruikt de query-operator [site:](http://msdn.microsoft.com/library/ff795613.aspx).
+Als u afbeeldingen uit een bepaald domein wilt opvragen, gebruikt de query-operator [site:](https://msdn.microsoft.com/library/ff795613.aspx).
 
 ```http
 GET https://api.cognitive.microsoft.com/bing/v7.0/images/search?q=sailing+dinghies+site:contososailing.com&mkt=en-us HTTP/1.1
@@ -71,7 +71,7 @@ Host: api.cognitive.microsoft.com
 * [licentie](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#license): installatiekopieën filteren op het type licentie dat is gekoppeld aan de site.
 * [grootte](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#size): Filter installatiekopieën op grootte, zoals de kleine afbeeldingen maximaal 200 x 200 pixels.
 
-Als u afbeeldingen uit een bepaald domein wilt opvragen, gebruikt de query-operator [site:](http://msdn.microsoft.com/library/ff795613.aspx).
+Als u afbeeldingen uit een bepaald domein wilt opvragen, gebruikt de query-operator [site:](https://msdn.microsoft.com/library/ff795613.aspx).
 
  > [!NOTE]
  > Antwoorden op query's met behulp van de `site:` operator advies inwinnen bij inhoud voor volwassenen ongeacht de [safeSearch](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#safesearch) instelling. Gebruik alleen `site:` bent u op de hoogte van de inhoud van het domein.

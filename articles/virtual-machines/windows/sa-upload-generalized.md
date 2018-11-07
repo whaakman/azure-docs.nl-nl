@@ -1,6 +1,6 @@
 ---
 title: Uploaden van een generalize VHD voor het maken van meerdere virtuele machines in Azure | Microsoft Docs
-description: Een gegeneraliseerde VHD uploaden naar Azure storage-account voor het maken van een Windows-VM voor gebruik met het implementatiemodel van Resource Manager.
+description: Een gegeneraliseerde VHD uploaden naar Azure storage-account te maken van een Windows-VM voor gebruik met het Resource Manager-implementatiemodel.
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
@@ -16,81 +16,82 @@ ms.topic: article
 ms.date: 05/18/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: be2ec6df33f5756dc080195bfad32e0c9079453c
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 199343fce4774ea643bc22c879efc6717aa0a510
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51244726"
 ---
 # <a name="upload-a-generalized-vhd-to-azure-to-create-a-new-vm"></a>Een gegeneraliseerde VHD uploaden naar Azure te maken van een nieuwe virtuele machine
 
-In dit onderwerp bevat informatie over het uploaden van een gegeneraliseerde onbeheerde schijf naar een opslagaccount en maak vervolgens een nieuwe virtuele machine met behulp van de geüploade schijf. Een algemene VHD-installatiekopie heeft al uw persoonlijke accountgegevens verwijderd met behulp van Sysprep. 
+In dit onderwerp bevat informatie over het uploaden van een gegeneraliseerde niet-beheerde schijf naar een opslagaccount en maak vervolgens een nieuwe virtuele machine met behulp van de geüploade schijf. Een gegeneraliseerde VHD-installatiekopie heeft al uw persoonlijke accountinformatie verwijderd met behulp van Sysprep. 
 
-Als u maken van een virtuele machine vanaf een speciale VHD in een opslagaccount wilt, Zie [een virtuele machine maken vanaf een speciale VHD](sa-create-vm-specialized.md).
+Als u een virtuele machine maken vanaf een gespecialiseerde VHD in een storage-account wilt, Zie [een virtuele machine maken vanaf een gespecialiseerde VHD](sa-create-vm-specialized.md).
 
-In dit onderwerp worden met behulp van storage-accounts, maar we raden klanten verplaatsen naar beheerd schijven te gebruiken. Zie voor een volledig overzicht van het voorbereiden, uploaden en een nieuwe virtuele machine maken met beheerde schijven [Maak een nieuwe virtuele machine vanaf een gegeneraliseerde VHD geüpload naar Azure met behulp van schijven beheerd](upload-generalized-managed.md).
+In dit onderwerp bevat informatie over storage-accounts, maar we raden klanten verplaatsen naar Managed Disks te gebruiken. Zie voor een volledige beschrijving van de procedure voorbereiden, uploaden en een nieuwe virtuele machine maken met beheerde schijven, [maken een nieuwe virtuele machine vanaf een gegeneraliseerde VHD uploaden naar Azure met behulp van Managed Disks](upload-generalized-managed.md).
 
 
 
 ## <a name="prepare-the-vm"></a>De virtuele machine voorbereiden
 
-Een gegeneraliseerde VHD heeft al uw persoonlijke accountgegevens verwijderd met behulp van Sysprep. Als u van plan bent om de VHD te maken van nieuwe virtuele machines van als afbeelding, moet u het volgende doen:
+Een gegeneraliseerde VHD heeft al uw persoonlijke accountinformatie verwijderd met behulp van Sysprep. Als u van plan bent de VHD als een installatiekopie gebruiken om te maken van nieuwe virtuele machines uit, moet u het:
   
   * [Voorbereiden van een Windows-VHD te uploaden naar Azure](prepare-for-upload-vhd-image.md). 
-  * De virtuele machine met behulp van Sysprep generalize
+  * Generaliseren met Sysprep de virtuele machine
 
-### <a name="generalize-a-windows-virtual-machine-using-sysprep"></a>Een virtuele Windows-machine met behulp van Sysprep generalize
-In deze sectie leest u hoe uw Windows-machine voor gebruik als een installatiekopie te generaliseren. Sysprep verwijdert alle persoonlijke gegevens over uw account, onder andere en voorbereiden van de machine moet worden gebruikt als een afbeelding. Zie voor meer informatie over Sysprep [hoe gebruik Sysprep: An Introduction](http://technet.microsoft.com/library/bb457073.aspx).
+### <a name="generalize-a-windows-virtual-machine-using-sysprep"></a>Een Windows virtuele machine met behulp van Sysprep generaliseren
+Deze sectie leest u hoe u uw Windows virtuele machine voor gebruik als een installatiekopie te generaliseren. Sysprep verwijdert onder meer al uw persoonlijke accountinformatie en de machine wordt voorbereid om als een installatiekopie te worden gebruikt. Raadpleeg [Sysprep gebruiken: een inleiding](https://technet.microsoft.com/library/bb457073.aspx) voor meer informatie over Sysprep.
 
-Zorg ervoor dat de serverfuncties die op de computer uitgevoerd worden ondersteund door Sysprep. Zie voor meer informatie [Sysprep-ondersteuning voor serverfuncties](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)
+Zorg ervoor dat de server-functies die worden uitgevoerd op de machine worden ondersteund door Sysprep. Zie voor meer informatie, [Sysprep-ondersteuning voor Server-rollen](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)
 
 > [!IMPORTANT]
-> Als u Sysprep voordat u uw VHD uploadt naar Azure voor het eerst uitvoert, controleert u of u hebt [uw virtuele machine voorbereid](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) voordat Sysprep wordt uitgevoerd. 
+> Als u Sysprep voordat u uw VHD uploadt naar Azure voor het eerst uitvoert, zorg ervoor dat u hebt [uw virtuele machine voorbereid](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) voordat Sysprep wordt uitgevoerd. 
 > 
 > 
 
 1. Meld u aan de virtuele machine van Windows.
-2. Open het venster opdrachtprompt als beheerder. Wijzig de map in **%windir%\system32\sysprep**, en voer vervolgens `sysprep.exe`.
-3. In de **hulpprogramma voor systeemvoorbereiding** dialoogvenster, **System Voer Out-of-Box Experience (OOBE)**, en zorg ervoor dat de **Generalize** selectievakje is ingeschakeld.
+2. Open het venster met de opdrachtprompt als beheerder. Wijzig de map in **%windir%\system32\sysprep**, en voer `sysprep.exe`.
+3. In het dialoogvenster **Hulpprogramma voor systeemvoorbereiding** selecteert u **OOBE (Out-of-Box Experience) van systeem starten** en zorgt u dat het selectievakje **Generaliseren** is ingeschakeld.
 4. In **afsluitopties**, selecteer **afsluiten**.
 5. Klik op **OK**.
    
-    ![Sysprep starten](./media/upload-generalized-managed/sysprepgeneral.png)
-6. Wanneer Sysprep is voltooid, afgesloten de virtuele machine. 
+    ![Sysprep start](./media/upload-generalized-managed/sysprepgeneral.png)
+6. Wanneer Sysprep is voltooid, wordt de virtuele machine afgesloten. 
 
 > [!IMPORTANT]
-> De virtuele machine niet opnieuw opstarten totdat u klaar bent met de VHD te uploaden naar Azure of een installatiekopie van het maken van de virtuele machine. Als de virtuele machine per ongeluk wordt opnieuw gestart met Sysprep om het opnieuw.
+> De virtuele machine niet opnieuw opstarten totdat u klaar bent de VHD uploaden naar Azure of het maken van een installatiekopie van de virtuele machine. Als de virtuele machine per ongeluk wordt opnieuw gestart met Sysprep om het opnieuw.
 > 
 > 
 
 
-## <a name="upload-the-vhd"></a>De VHD te uploaden
+## <a name="upload-the-vhd"></a>De VHD uploaden
 
-De VHD uploaden naar Azure storage-account.
+Upload de VHD naar een Azure storage-account.
 
 ### <a name="log-in-to-azure"></a>Meld u aan bij Azure.
-Als er geen PowerShell-versie 1.4 al of hoger is geïnstalleerd, lezen [installeren en configureren van Azure PowerShell](/powershell/azure/overview).
+Als u nog PowerShell-versie 1.4 hebt of hoger is geïnstalleerd, Lees [hoe u Azure PowerShell installeren en configureren](/powershell/azure/overview).
 
-1. Open Azure PowerShell en meld u bij uw Azure-account. Een pop-upvenster wordt geopend voor u de referenties van uw Azure-account in te voeren.
+1. Open Azure PowerShell en meld u aan bij uw Azure-account. Er wordt een pop-upvenster geopend voor u de referenties van uw Azure-account in te voeren.
    
     ```powershell
     Connect-AzureRmAccount
     ```
-2. Het abonnement-id's voor uw beschikbare abonnementen niet ophalen.
+2. Haal de abonnement-id's voor uw beschikbare abonnementen.
    
     ```powershell
     Get-AzureRmSubscription
     ```
-3. Instellen van het juiste abonnement met de abonnement-ID. Vervang `<subscriptionID>` met de ID van het juiste abonnement.
+3. Instellen van het juiste abonnement met behulp van de abonnements-ID. Vervang `<subscriptionID>` met de ID van het juiste abonnement.
    
     ```powershell
     Select-AzureRmSubscription -SubscriptionId "<subscriptionID>"
     ```
 
-### <a name="get-the-storage-account"></a>Het storage-account ophalen
-U moet een opslagaccount in Azure voor het opslaan van de installatiekopie van het geüploade VM. U kunt een bestaand opslagaccount gebruiken of een nieuwe maken. 
+### <a name="get-the-storage-account"></a>Het opslagaccount ophalen
+U moet een opslagaccount in Azure voor het opslaan van de geüploade VM-installatiekopie. U kunt een bestaand opslagaccount gebruiken of een nieuwe maken. 
 
-Als u wilt de beschikbare opslagruimte accounts weergeven, typt u:
+Als u wilt de beschikbare opslag-accounts weergeven, typt u:
 
 ```powershell
 Get-AzureRmStorageAccount
@@ -98,30 +99,30 @@ Get-AzureRmStorageAccount
 
 Als u een bestaand opslagaccount gebruiken wilt, gaat u verder met de [de VM-installatiekopie uploaden](#upload-the-vm-vhd-to-your-storage-account) sectie.
 
-Als u wilt maken van een opslagaccount, als volgt te werk:
+Als u nodig hebt voor het maken van een storage-account, als volgt te werk:
 
-1. U moet de naam van de resourcegroep waar het storage-account moet worden gemaakt. Voor meer informatie over de resourcegroepen die zich in uw abonnement, typt u:
+1. U moet de naam van de resourcegroep waar het opslagaccount dat moet worden gemaakt. Als u wilt weten van alle resourcegroepen in uw abonnement, typt u:
    
     ```powershell
     Get-AzureRmResourceGroup
     ```
 
-    Maken van een resourcegroep met de naam **myResourceGroup** in de **VS-West** regio, type:
+    Het maken van een resourcegroep met de naam **myResourceGroup** in de **VS-West** regio, type:
 
     ```powershell
     New-AzureRmResourceGroup -Name myResourceGroup -Location "West US"
     ```
 
-2. Maken van een opslagaccount met de naam **mystorageaccount** in deze resourcegroep met behulp van de [nieuw AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount) cmdlet:
+2. Maak een opslagaccount met de naam **mystorageaccount** in deze resourcegroep met behulp van de [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount) cmdlet:
    
     ```powershell
     New-AzureRmStorageAccount -ResourceGroupName myResourceGroup -Name mystorageaccount -Location "West US" `
         -SkuName "Standard_LRS" -Kind "Storage"
     ```
  
-### <a name="start-the-upload"></a>Het uploaden van starten 
+### <a name="start-the-upload"></a>Beginnen met uploaden 
 
-Gebruik de [toevoegen AzureRmVhd](/powershell/module/azurerm.compute/add-azurermvhd) cmdlet voor het uploaden van de installatiekopie naar een container in uw opslagaccount. In dit voorbeeld wordt het bestand geüpload **myVHD.vhd** van `"C:\Users\Public\Documents\Virtual hard disks\"` om een opslagaccount met de naam **mystorageaccount** in de **myResourceGroup** resourcegroep. Het bestand worden opgenomen in de container met de naam **mycontainer** en worden de nieuwe bestandsnaam **myUploadedVHD.vhd**.
+Gebruik de [Add-AzureRmVhd](/powershell/module/azurerm.compute/add-azurermvhd) cmdlet om de installatiekopie uploaden naar een container in uw storage-account. In dit voorbeeld wordt het bestand geüpload **myVHD.vhd** van `"C:\Users\Public\Documents\Virtual hard disks\"` naar een opslagaccount met de naam **mystorageaccount** in de **myResourceGroup** resourcegroep. Het bestand worden opgenomen in de container met de naam **mycontainer** en de nieuwe bestandsnaam worden **myUploadedVHD.vhd**.
 
 ```powershell
 $rgName = "myResourceGroup"
@@ -131,7 +132,7 @@ Add-AzureRmVhd -ResourceGroupName $rgName -Destination $urlOfUploadedImageVhd `
 ```
 
 
-Als dit lukt, kunt u krijgen een antwoord dat ziet er ongeveer als volgt:
+Als dit lukt, krijgt u een reactie die er ongeveer als volgt uitziet:
 
 ```powershell
 MD5 hash is being calculated for the file C:\Users\Public\Documents\Virtual hard disks\myVHD.vhd.
@@ -145,16 +146,16 @@ LocalFilePath           DestinationUri
 C:\Users\Public\Doc...  https://mystorageaccount.blob.core.windows.net/mycontainer/myUploadedVHD.vhd
 ```
 
-Afhankelijk van uw netwerkverbinding en de grootte van de VHD-bestand kan met deze opdracht duren om te voltooien.
+Afhankelijk van uw netwerkverbinding en de grootte van uw VHD-bestand kan met deze opdracht even om te voltooien.
 
 
 ## <a name="create-a-new-vm"></a>Een nieuwe virtuele machine maken 
 
-U kunt nu de geüploade VHD gebruiken voor het maken van een nieuwe virtuele machine. 
+U kunt nu de geüploade VHD gebruiken om een nieuwe VM te maken. 
 
 ### <a name="set-the-uri-of-the-vhd"></a>De URI van de VHD instellen
 
-De URI voor de VHD moet worden gebruikt, is in de indeling: https://**mystorageaccount**.blob.core.windows.net/**mycontainer**/**MyVhdName**VHD. In dit voorbeeld de VHD met de naam **myVHD** is in het opslagaccount **mystorageaccount** in de container **mycontainer**.
+De URI voor de VHD te gebruiken is in de indeling: https://**mystorageaccount**.blob.core.windows.net/**mycontainer**/**MyVhdName**VHD. In dit voorbeeld de VHD met de naam **myVHD** is in het opslagaccount **mystorageaccount** in de container **mycontainer**.
 
 ```powershell
 $imageURI = "https://mystorageaccount.blob.core.windows.net/mycontainer/myVhd.vhd"
@@ -162,16 +163,16 @@ $imageURI = "https://mystorageaccount.blob.core.windows.net/mycontainer/myVhd.vh
 
 
 ### <a name="create-a-virtual-network"></a>Een virtueel netwerk maken
-Maken van het vNet en het subnet van de [virtueel netwerk](../../virtual-network/virtual-networks-overview.md).
+Maak de vNet en subnet van de [virtueel netwerk](../../virtual-network/virtual-networks-overview.md).
 
-1. Het subnet maken. Het volgende voorbeeld maakt u een subnet met de naam **mySubnet** in de resourcegroep **myResourceGroup** met het adresvoorvoegsel van **10.0.0.0/24**.  
+1. Maak het subnet. Het volgende voorbeeld maakt u een subnet met de naam **mySubnet** in de resourcegroep **myResourceGroup** met het adresvoorvoegsel van **10.0.0.0/24**.  
    
     ```powershell
     $rgName = "myResourceGroup"
     $subnetName = "mySubnet"
     $singleSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix 10.0.0.0/24
     ```
-2. Maak het virtuele netwerk. Het volgende voorbeeld maakt u een virtueel netwerk met de naam **myVnet** in de **VS-West** locatie met het adresvoorvoegsel van **10.0.0.0/16**.  
+2. Maak het virtuele netwerk. Het volgende voorbeeld wordt een virtueel netwerk met de naam **myVnet** in de **VS-West** locatie met het adresvoorvoegsel van **10.0.0.0/16**.  
    
     ```powershell
     $location = "West US"
@@ -180,17 +181,17 @@ Maken van het vNet en het subnet van de [virtueel netwerk](../../virtual-network
         -AddressPrefix 10.0.0.0/16 -Subnet $singleSubnet
     ```    
 
-### <a name="create-a-public-ip-address-and-network-interface"></a>Een openbaar IP-adres en een netwerkinterface maken
+### <a name="create-a-public-ip-address-and-network-interface"></a>Een openbare IP-adres en een netwerkinterface maken
 Om te kunnen communiceren met de virtuele machine in het virtuele netwerk, hebt u een [openbaar IP-adres](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) en een netwerkinterface nodig.
 
-1. Een openbaar IP-adres maken. In dit voorbeeld wordt een openbaar IP-adres met de naam **myPip**. 
+1. Maak een openbaar IP-adres. In dit voorbeeld maakt u een openbaar IP-adres met de naam **myPip**. 
    
     ```powershell
     $ipName = "myPip"
     $pip = New-AzureRmPublicIpAddress -Name $ipName -ResourceGroupName $rgName -Location $location `
         -AllocationMethod Dynamic
     ```       
-2. Maken van de NIC. In dit voorbeeld wordt een NIC met de naam **myNic**. 
+2. Maken van de NIC. Dit voorbeeld maakt u een NIC met de naam **myNic**. 
    
     ```powershell
     $nicName = "myNic"
@@ -199,9 +200,9 @@ Om te kunnen communiceren met de virtuele machine in het virtuele netwerk, hebt 
     ```
 
 ### <a name="create-the-network-security-group-and-an-rdp-rule"></a>De netwerkbeveiligingsgroep en een RDP-regel maken
-Als u zich aanmelden bij uw virtuele machine met RDP, moet u een regel waarmee op poort 3389 van RDP-toegang hebben. 
+Als u zich aanmelden bij uw virtuele machine via RDP, moet u hebt een beveiligingsregel om RDP-toegang op poort 3389. 
 
-In dit voorbeeld maakt u een NSG met de naam **myNsg** die een regel aangeroepen bevat **myRdpRule** waarmee RDP-verkeer via poort 3389. Zie voor meer informatie over Nsg [openen van poorten voor een virtuele machine in Azure met behulp van PowerShell](nsg-quickstart-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Dit voorbeeld maakt u een NSG met de naam **myNsg** dat een regel met de naam bevat **myRdpRule** die RDP-verkeer toestaat via poort 3389. Zie voor meer informatie over nsg's [poorten openen voor een virtuele machine in Azure met behulp van PowerShell](nsg-quickstart-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ```powershell
 $nsgName = "myNsg"
@@ -216,15 +217,15 @@ $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $rgName -Location $loc
 ```
 
 
-### <a name="create-a-variable-for-the-virtual-network"></a>Een variabele voor het virtuele netwerk maken
-Een variabele voor het voltooide virtueel netwerk maken. 
+### <a name="create-a-variable-for-the-virtual-network"></a>Maak een variabele voor het virtuele netwerk
+Maak een variabele voor de voltooide virtuele netwerk. 
 
 ```powershell
 $vnet = Get-AzureRmVirtualNetwork -ResourceGroupName $rgName -Name $vnetName
 ```
 
 ### <a name="create-the-vm"></a>De virtuele machine maken
-De volgende PowerShell-script laat zien hoe de configuraties van virtuele machines instellen en gebruiken van de installatiekopie van het geüploade VM als de bron voor de nieuwe installatie.
+De volgende PowerShell-script laat zien hoe de configuraties van virtuele machines instellen en gebruiken van de geüploade VM-installatiekopie als bron voor de nieuwe installatie.
 
 
 
@@ -282,7 +283,7 @@ De volgende PowerShell-script laat zien hoe de configuraties van virtuele machin
 ```
 
 ## <a name="verify-that-the-vm-was-created"></a>Controleren of de virtuele machine is gemaakt
-Als u klaar is, ziet u de zojuist gemaakte virtuele machine in de [Azure-portal](https://portal.azure.com) onder **Bladeren** > **virtuele machines**, of met behulp van de volgende PowerShell-opdrachten:
+Als u klaar bent, ziet u de zojuist gemaakte virtuele machine in de [Azure-portal](https://portal.azure.com) onder **Bladeren** > **virtuele machines**, of met behulp van de volgende PowerShell opdrachten:
 
 ```powershell
     $vmList = Get-AzureRmVM -ResourceGroupName $rgName
@@ -290,6 +291,6 @@ Als u klaar is, ziet u de zojuist gemaakte virtuele machine in de [Azure-portal]
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie voor het beheren van uw nieuwe virtuele machine met Azure PowerShell [virtuele machines beheren met Azure Resource Manager en PowerShell](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Zie voor het beheren van uw nieuwe virtuele machine met Azure PowerShell, [virtuele machines beheren met Azure Resource Manager en PowerShell](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 

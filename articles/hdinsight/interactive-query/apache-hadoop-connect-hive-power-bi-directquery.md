@@ -1,25 +1,24 @@
 ---
 title: Interactive Query Hive-gegevens visualiseren met Power BI in Azure HDInsight
-description: Informatie over het gebruik van Microsoft Power BI om verwerkt door Azure HDInsight Interactive Query Hive-gegevens te visualiseren.
-keywords: hdinsight, hadoop, hive, interactive query, interactive hive, LLAP, directquery
+description: Microsoft Power BI gebruiken om gegevens uit Azure HDInsight Interactive Query Hive te visualiseren
 services: hdinsight
 ms.service: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 03/14/2018
-ms.openlocfilehash: 1779151f3768542c08ea62d2c9109d4cd66a1e3f
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.date: 11/06/2018
+ms.openlocfilehash: 46b5b3436a33c3f83d85cfb02028759d53d214af
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43041041"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51245270"
 ---
 # <a name="visualize-interactive-query-hive-data-with-microsoft-power-bi-using-direct-query-in-azure-hdinsight"></a>Interactive Query Hive-gegevens visualiseren met Microsoft Power BI met behulp van directquery in Azure HDInsight
 
-Leer hoe u Microsoft Power BI verbinden met Azure HDInsight Interactive Query-clusters en visualiseren van de Hive-gegevens met behulp van directquery. In deze zelfstudie hebt laden u de gegevens uit een Hive-tabel hivesampletable in Power BI. De Hive-tabel bevat de gebruiksgegevens van sommige mobiele telefoon. Vervolgens kunt u gegevens over gebruik op een wereldkaart brengt:
+In dit artikel wordt beschreven hoe u Microsoft Power BI verbinden met Azure HDInsight Interactive Query-clusters en Apache Hive-gegevens met behulp van directe query visualiseren. Het opgegeven voorbeeld laadt de gegevens van een hivesampletable Hive-tabel naar Power BI. De hivesampletable Hive-tabel bevat de gebruiksgegevens van sommige mobiele telefoon. Vervolgens kunt u gegevens over gebruik op een wereldkaart brengt:
 
 ![HDInsight Power BI het rapport met kaart](./media/apache-hadoop-connect-hive-power-bi-directquery/hdinsight-power-bi-visualization.png)
 
@@ -36,37 +35,49 @@ Voordat u verdergaat met dit artikel, hebt u de volgende items:
 De Hive-tabel hivesampletable wordt geleverd met alle HDInsight-clusters.
 
 1. Aanmelden bij Power BI Desktop.
-2. Klik op de **Start** tabblad **gegevens ophalen** uit de **externe gegevens** lint en selecteer vervolgens **meer**.
+
+2. Klik op de **Start** tabblad **gegevens ophalen** uit de **externe gegevens** lint en selecteer vervolgens **meer...** .
 
     ![Open HDInsight Power BI-gegevens](./media/apache-hadoop-connect-hive-power-bi-directquery/hdinsight-power-bi-open-odbc.png)
+    
 3. Uit de **gegevens ophalen** deelvenster, type **hdinsight** in het zoekvak in. Als er geen **HDInsight Interactive Query (bèta)**, moet u uw Power BI Desktop bijwerken naar de nieuwste versie.
-4. Klik op **HDInsight Interactive Query (bèta)**, en klik vervolgens op **Connect**.
-5. Klik op **doorgaan** sluiten de **Preview-connector** waarschuwingsvenster.
+
+4. Selecteer **HDInsight Interactive Query (bèta)**, en selecteer vervolgens **Connect**.
+
+5. Selecteer **doorgaan** sluiten de **Preview-connector** waarschuwingsvenster.
+
 6. Van **HDInsight Interactive Query**Selecteer of typ de volgende informatie:
 
     - **Server**: Voer de naam van het Interactive Query-cluster, bijvoorbeeld *myiqcluster.azurehdinsight.net*.
+
     - **Database**: voor deze zelfstudie voert u **standaard**.
+    
     - **Gegevensverbindingsmodus**: Selecteer voor deze zelfstudie **DirectQuery**.
 
-    ![HDInsight interactive query power bi directquery-verbinding](./media/apache-hadoop-connect-hive-power-bi-directquery/hdinsight-interactive-query-power-bi-connect.png)
+    ![HDInsight interactive query Power BI DirectQuery-verbinding](./media/apache-hadoop-connect-hive-power-bi-directquery/hdinsight-interactive-query-power-bi-connect.png)
+
 7. Klik op **OK**.
-8. Voer de referenties van de HTTP-gebruiker en klik vervolgens op **OK**.  De standaardgebruikersnaam is **admin**
+
+8. Voer de referenties van de HTTP-gebruiker en klik vervolgens op **OK**. De standaardgebruikersnaam is **admin**
+
 9. Selecteer in het linkerdeelvenster **hivesampletale**, en klik vervolgens op **Load**.
 
-    ![HDInsight interactive query power bi hivesampletable](./media/apache-hadoop-connect-hive-power-bi-directquery/hdinsight-interactive-query-power-bi-hivesampletable.png)
+    ![HDInsight interactive query Power BI hivesampletable](./media/apache-hadoop-connect-hive-power-bi-directquery/hdinsight-interactive-query-power-bi-hivesampletable.png)
 
-## <a name="visualize-data"></a>Gegevens visualiseren
+## <a name="visualize-data-on-a-map"></a>Visualiseer gegevens op een kaart
 
 Volgen op de laatste procedure.
 
 1. Selecteer in het deelvenster visualisaties **kaart**.  Het is een pictogram van globe.
 
     ![HDInsight Power BI worden aangepast rapport](./media/apache-hadoop-connect-hive-power-bi-directquery/hdinsight-power-bi-customize.png)
+    
 2. Selecteer in het deelvenster velden **land** en **devicemake**. Hier ziet u de gegevens op de kaart uitgezet.
+
 3. Vouw de kaart.
 
 ## <a name="next-steps"></a>Volgende stappen
-In dit artikel hebt u geleerd hoe u gegevens uit HDInsight met behulp van Power BI visualiseren.  Zie de volgende artikelen voor meer informatie:
+In dit artikel hebt u geleerd hoe u gegevens uit HDInsight met behulp van Power BI visualiseren.  Zie de volgende artikelen voor meer informatie over gegevensvisualisatie:
 
 * [Hive-gegevens visualiseren met Microsoft Power BI in Azure HDInsight met behulp van ODBC](../hadoop/apache-hadoop-connect-hive-power-bi.md). 
 * [Zeppelin gebruiken voor het uitvoeren van Hive-query's in Azure HDInsight](./../hdinsight-connect-hive-zeppelin.md).

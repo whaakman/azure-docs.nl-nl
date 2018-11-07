@@ -2,25 +2,25 @@
 title: Caffe gebruiken op Azure HDInsight Spark voor gedistribueerde deep learning
 description: Caffe gebruiken op Azure HDInsight Spark voor gedistribueerde deep learning
 services: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/17/2017
-ms.openlocfilehash: a7873996d83dbc79b4d44c58bd964c274f9c7709
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 71322869eb9272fb59b98a0e21b1f639129572b7
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39622912"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255916"
 ---
 # <a name="use-caffe-on-azure-hdinsight-spark-for-distributed-deep-learning"></a>Caffe gebruiken op Azure HDInsight Spark voor gedistribueerde deep learning
 
 
 ## <a name="introduction"></a>Inleiding
 
-Deep learning is van invloed op Alles van healthcare vervoer naar productie, en meer. Bedrijven deep learning moeilijke problemen wilt oplossen, wordt [afbeeldingsclassificatie](http://blogs.microsoft.com/next/2015/12/10/microsoft-researchers-win-imagenet-computer-vision-challenge/), [spraakherkenning](http://googleresearch.blogspot.jp/2015/08/the-neural-networks-behind-google-voice.html), opname-object en vertalen van de computer. 
+Deep learning is van invloed op Alles van healthcare vervoer naar productie, en meer. Bedrijven deep learning moeilijke problemen wilt oplossen, wordt [afbeeldingsclassificatie](https://blogs.microsoft.com/next/2015/12/10/microsoft-researchers-win-imagenet-computer-vision-challenge/), [spraakherkenning](http://googleresearch.blogspot.jp/2015/08/the-neural-networks-behind-google-voice.html), opname-object en vertalen van de computer. 
 
 Er zijn [veel populaire frameworks](https://en.wikipedia.org/wiki/Comparison_of_deep_learning_software), waaronder [Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/research/product/cognitive-toolkit/), [Tensorflow](https://www.tensorflow.org/), MXNet, Theano, enzovoort. Caffe is een van de grootste beroemdheid niet symbolische (imperatieve) neural network-frameworks en veelvuldig worden gebruikt in veel gebieden, met inbegrip van de computer vision. Bovendien [CaffeOnSpark](http://yahoohadoop.tumblr.com/post/139916563586/caffeonspark-open-sourced-for-distributed-deep) combineert Caffe met Apache Spark, in welk geval deep learning eenvoudig kan worden gebruikt op een bestaande Hadoop-cluster. Voor volledige oplossing learning kunt u deep learning met Spark ' ETL-pijplijnen, te reduceren system complexiteit en latentie.
 

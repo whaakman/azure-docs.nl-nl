@@ -7,24 +7,24 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 09/27/2017
-ms.author: maxluk
-ms.openlocfilehash: 434b3ecf65aaa5ecea81f5a9773f1bc6e8f6f2be
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.date: 11/06/2018
+ms.author: arindamc
+ms.openlocfilehash: 727ecdb06f9a43bf3722f82fa10b7a3304cf4958
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43092324"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255299"
 ---
 # <a name="monitor-cluster-performance"></a>Cluster-prestaties bewaken
 
-Bewaking van de status en prestaties van een HDInsight-cluster is het essentieel is voor het onderhouden van maximale prestaties en gebruik van resources. Controle kan ook helpen bij het adres mogelijk coderen of configuratiefouten van de cluster.
+Bewaking van de status en prestaties van een HDInsight-cluster is het essentieel is voor het onderhouden van optimale prestaties en gebruik van resources. Controle kan ook helpen bij het detecteren en fouten van configuratie van de cluster en de gebruiker code problemen.
 
-De volgende secties beschrijven over het optimaliseren van het laden van cluster, YARN wachtrij efficiëntie en toegankelijkheid van storage.
+De volgende secties wordt beschreven hoe u bewaken en optimaliseren van de belasting van uw clusters, YARN-wachtrijen en opslag bandbreedtebeperking problemen detecteren.
 
-## <a name="cluster-loading"></a>Het laden van cluster
+## <a name="monitor-cluster-load"></a>Monitor cluster laden
 
-Hadoop-clusters moeten in evenwicht laden op de knooppunten van het cluster. Deze balancing voorkomt dat verwerkingstaken wordt beperkt door het RAM-geheugen, CPU of schijfresources.
+Hadoop-clusters kunnen de meest optimale prestaties leveren wanneer de belasting van het cluster wordt evenredig verdeeld over alle knooppunten. Hierdoor kunnen de verwerkingstaken die worden uitgevoerd zonder te worden beperkt door het RAM-geheugen of CPU, schijfbronnen op afzonderlijke knooppunten.
 
 Als u een Kijk op de knooppunten van het cluster en hun laden, moet u zich aanmelden bij de [Ambari-Webgebruikersinterface](hdinsight-hadoop-manage-ambari.md)en selecteer vervolgens de **Hosts** tabblad. Uw hosts worden weergegeven door de volledig gekwalificeerde domeinnamen. Operationele status van elke host wordt weergegeven door een gekleurde integriteitsindicator:
 
@@ -47,15 +47,15 @@ Zie [beheren HDInsight-clusters met behulp van de Ambari-Webgebruikersinterface]
 
 ## <a name="yarn-queue-configuration"></a>Configuratie van de YARN-wachtrij
 
-Hadoop heeft verschillende services die op de gedistribueerde platform worden uitgevoerd. YARN (nog een andere Resource Negotiator) coördinaten van deze services, clusterbronnen toewijst en beheert de toegang tot een algemene gegevensset.
+Hadoop heeft verschillende services die op de gedistribueerde platform worden uitgevoerd. YARN (nog een andere Resource Negotiator) coördineert van deze services en resources van het cluster om ervoor te zorgen dat een elke belasting evenredig verdeeld over de cluster kan worden toegewezen.
 
-YARN verdeelt de verantwoordelijkheden van de twee van de JobTracker, resourcebeheer en -taak plannen/bewaking, in twee daemons: een globale ResourceManager en een per toepassing ApplicationMaster (uur).
+YARN verdeelt de verantwoordelijkheden van de twee van de JobTracker, resourcebeheer en -taak plannen/bewaking, in twee daemons: een globale Resource Manager en een per toepassing ApplicationMaster (uur).
 
-De ResourceManager is een *pure scheduler*, en uitsluitend arbitrates beschikbare resources tussen alle concurrerende toepassingen. De ResourceManager zorgt ervoor dat alle resources zich altijd in gebruik, optimaliseren voor verschillende constanten, sla's, zoals capaciteit gegarandeerd, enzovoort. De ApplicationMaster onderhandelt over resources uit de ResourceManager, en werkt met de NodeManager(s) uit te voeren en de containers en hun gebruik van resources bewaken.
+De Resource Manager is een *pure scheduler*, en uitsluitend arbitrates beschikbare resources tussen alle concurrerende toepassingen. De Resource Manager zorgt ervoor dat alle resources zich altijd in gebruik, optimaliseren voor verschillende constanten, sla's, zoals capaciteit gegarandeerd, enzovoort. De ApplicationMaster onderhandelt over de resources van de Resource Manager, en werkt met de NodeManager(s) uit te voeren en de containers en hun gebruik van resources bewaken.
 
 Wanneer u meerdere tenants deelt een groot cluster, is de concurrentie voor resources van het cluster. De CapacityScheduler is een pluggable scheduler die bij het resource helpt-wachtrij plaatsen van aanvragen voor delen. Ook biedt ondersteuning voor de CapacityScheduler *hiërarchische wachtrijen* om ervoor te zorgen dat resources worden gedeeld tussen de onderliggende wachtrijen van een organisatie, voordat de andere toepassingen wachtrijen gratis resources te gebruiken die zijn toegestaan.
 
-YARN kan we resources toewijzen aan deze wachtrijen, en laat u zien of al uw beschikbare resources zijn toegewezen. Als u informatie over uw wachtrijen, meld u aan bij de Ambari-Webgebruikersinterface, en selecteer vervolgens **YARN wachtrijbeheerder** in het menu bovenaan.
+YARN kan we resources toewijzen aan deze wachtrijen, en laat u zien of al uw beschikbare resources zijn toegewezen. Als u informatie over uw wachtrijen, zich aanmelden bij de Ambari-Webgebruikersinterface, en selecteer vervolgens **YARN wachtrijbeheerder** in het menu bovenaan.
 
 ![YARN-wachtrijbeheerder](./media/hdinsight-key-scenarios-to-monitor/yarn-queue-manager.png)
 
@@ -63,13 +63,13 @@ De wachtrijbeheerder van de YARN-pagina bevat een overzicht van de wachtrijen aa
 
 ![Pagina met details van YARN wachtrijbeheerder](./media/hdinsight-key-scenarios-to-monitor/yarn-queue-manager-details.png)
 
-Voor een meer gedetailleerde Kijk op uw wachtrijen van de Ambari-dashboard, selecteert u de **YARN** service in de lijst aan de linkerkant. Klik onder de **snelkoppelingen** in het vervolgkeuzemenu selecteren **ResourceManager UI** onder het actieve knooppunt.
+Voor een meer gedetailleerde Kijk op uw wachtrijen van de Ambari-dashboard, selecteert u de **YARN** service in de lijst aan de linkerkant. Klik vervolgens onder de **snelkoppelingen** in het vervolgkeuzemenu selecteren **Resource Manager UI** onder het actieve knooppunt.
 
-![ResourceManager UI menu koppeling](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui-menu.png)
+![Koppeling van Resource Manager-UI-menu](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui-menu.png)
 
-Selecteer in de UI ResourceManager **Scheduler** in het menu links. U ziet een lijst met uw wachtrijen onder *toepassingswachtrijen*. Hier ziet u de capaciteit die wordt gebruikt voor elk van de wachtrijen zijn, hoe goed de taken zijn verdeeld over deze, en of alle taken zijn beperkte capaciteit.
+Selecteer in het Resource Manager-UI **Scheduler** in het menu links. U ziet een lijst met uw wachtrijen onder *toepassingswachtrijen*. Hier ziet u de capaciteit die wordt gebruikt voor elk van de wachtrijen zijn, hoe goed de taken zijn verdeeld over deze, en of alle taken zijn beperkte capaciteit.
 
-![ResourceManager UI menu koppeling](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui.png)
+![Koppeling van Resource Manager-UI-menu](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui.png)
 
 ## <a name="storage-throttling"></a>Beperking van opslag
 

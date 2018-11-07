@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: apimpm
-ms.openlocfilehash: 160172b25f4bcdb04ac9f9649bca6b08e0be1b0d
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 1706364ca0281240b5b887bea219620c7b4add5e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48269069"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51246834"
 ---
 # <a name="api-management-caching-policies"></a>Cachebeleidsregels van API Management
-Dit onderwerp bevat een verwijzing voor de volgende API Management-beleid. Zie voor meer informatie over het toevoegen en configureren van beleid [beleidsregels in API Management](http://go.microsoft.com/fwlink/?LinkID=398186).  
+Dit onderwerp bevat een verwijzing voor de volgende API Management-beleid. Zie voor meer informatie over het toevoegen en configureren van beleid [beleidsregels in API Management](https://go.microsoft.com/fwlink/?LinkID=398186).  
   
 ##  <a name="CachingPolicies"></a> Cachebeleidsregels  
   
@@ -121,7 +121,7 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleid. Zie v
 |variëren-in-ontwikkelaars-groepen|Ingesteld op `true` cache antwoorden per gebruikersrol.|Ja||  
   
 ### <a name="usage"></a>Gebruik  
- Dit beleid kan worden gebruikt in het volgende beleid [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+ Dit beleid kan worden gebruikt in het volgende beleid [secties](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Beleid secties:** inkomend  
 -   **Beleid bereiken:** API, bewerking, product  
@@ -193,7 +193,7 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleid. Zie v
 |duur|Time-to-live van de vermeldingen in de cache in seconden opgegeven.|Ja|N/A|  
   
 ### <a name="usage"></a>Gebruik  
- Dit beleid kan worden gebruikt in het volgende beleid [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+ Dit beleid kan worden gebruikt in het volgende beleid [secties](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Beleid secties:** uitgaande    
 -   **Beleid bereiken:** API, bewerking, product  
@@ -237,7 +237,7 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleid. Zie v
 |naam van de variabele|Naam van de [contextvariabele](api-management-policy-expressions.md#ContextVariables) de looked van waarde wordt toegewezen aan, als de zoekopdracht is geslaagd. Als lookup in een ontbreekt resulteert, de variabele wordt toegewezen aan de waarde van de `default-value` kenmerk of `null`, als de `default-value` kenmerk wordt weggelaten.|Ja|N/A|  
   
 ### <a name="usage"></a>Gebruik  
- Dit beleid kan worden gebruikt in het volgende beleid [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+ Dit beleid kan worden gebruikt in het volgende beleid [secties](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Beleid secties:** inkomend, uitgaand back-end op fout  
 -   **Beleid bereiken:** globale, API, bewerking, product  
@@ -279,7 +279,7 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleid. Zie v
 |waarde|De waarde in de cache opgeslagen.|Ja|N/A|  
   
 ### <a name="usage"></a>Gebruik  
- Dit beleid kan worden gebruikt in het volgende beleid [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+ Dit beleid kan worden gebruikt in het volgende beleid [secties](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Beleid secties:** inkomend, uitgaand back-end op fout  
 -   **Beleid bereiken:** globale, API, bewerking, product  
@@ -316,7 +316,7 @@ De `cache-remove-value` Hiermee verwijdert u een item in de cache is geïdentifi
 |sleutel|De sleutel van de eerder in de cache waarde die moet worden verwijderd uit de cache.|Ja|N/A|  
   
 #### <a name="usage"></a>Gebruik  
- Dit beleid kan worden gebruikt in het volgende beleid [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) .  
+ Dit beleid kan worden gebruikt in het volgende beleid [secties](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) .  
   
 -   **Beleid secties:** inkomend, uitgaand back-end op fout  
 -   **Beleid bereiken:** globale, API, bewerking, product  

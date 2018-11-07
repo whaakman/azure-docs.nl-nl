@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/05/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 9ea901d51403096166b367a1586cb26d2d914e2d
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 08633b52e6b7cfef28635925ad9fcf34e065e9bf
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46312401"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51251795"
 ---
 # <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Azure AD Connect-synchronisatie: kenmerken gesynchroniseerd naar Azure Active Directory
 In dit onderwerp worden de kenmerken die door Azure AD Connect-synchronisatie worden gesynchroniseerd.  
@@ -376,7 +376,7 @@ In dit geval beginnen met de lijst van kenmerken in dit onderwerp en identificer
 Deze groep is een set kenmerken die worden gebruikt als de minimale kenmerken die nodig zijn voor een algemene workload of toepassing. Het kan worden gebruikt voor een werkbelasting niet wordt vermeld in een andere sectie of voor een niet-Microsoft-app. Dit expliciet wordt gebruikt voor het volgende:
 
 * Yammer (alleen gebruiker wordt gebruikt)
-* [Hybride Business-to-Business (B2B) organisatieoverstijgende samenwerking scenario's die worden aangeboden door resources, zoals SharePoint](http://go.microsoft.com/fwlink/?LinkId=747036)
+* [Hybride Business-to-Business (B2B) organisatieoverstijgende samenwerking scenario's die worden aangeboden door resources, zoals SharePoint](https://go.microsoft.com/fwlink/?LinkId=747036)
 
 Deze groep is een set kenmerken die kunnen worden gebruikt als de Azure AD-directory niet gebruikt wordt ter ondersteuning van Office 365, Dynamics of Intune. Er is een klein aantal belangrijke kenmerken.
 

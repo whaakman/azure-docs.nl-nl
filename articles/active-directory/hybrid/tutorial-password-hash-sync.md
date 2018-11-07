@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 09/17/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 81c88c90ff24cb5e0ab143237fb08678067ea993
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: f830a27e9caf032443c2b27bdd2f95fa8069bcf2
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46311708"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247276"
 ---
 # <a name="tutorial--integrate-a-single-ad-forest-using-password-hash-sync-phs"></a>Zelfstudie: Één AD-forest met behulp van synchronisatie van wachtwoordhashes (WHS) integreren
 
@@ -189,7 +189,7 @@ Nu moet maken van een Azure AD-tenant zodat we onze gebruikers naar de cloud kun
 ## <a name="create-a-global-administrator-in-azure-ad"></a>Een globale beheerder maken in Azure AD
 Nu dat we een Azure AD-tenant hebt, maakt er een globale beheerdersaccount.  Dit account wordt gebruikt voor het maken van het account van Azure AD-Connector tijdens de installatie van Azure AD Connect.  De Azure AD-Connector-account wordt gebruikt voor het schrijven van gegevens in Azure AD.   Voor het maken van de globale beheerder van account het volgende doen.
 
-1.  Onder **beheren**, selecteer **gebruikers**.</br>
+1.  Onder **Beheren**, selecteer **Gebruikers**.</br>
 ![Maken](media/tutorial-password-hash-sync/gadmin1.png)</br>
 2.  Selecteer **alle gebruikers** en selecteer vervolgens **+ nieuwe gebruiker**.
 3.  Geef een naam en de gebruikersnaam voor deze gebruiker. Dit is de globale beheerder voor de tenant. U wordt ook wilt wijzigen de **maprol** naar **globale beheerder.** U kunt ook het tijdelijke wachtwoord weergeven. Wanneer u klaar bent, selecteert u **maken**.</br>
@@ -218,13 +218,13 @@ Nu controleren we dat de gebruikers die we in onze on-premises directory hebben 
 
 1. Blader naar de [Azure-portal](https://portal.azure.com) en meld u aan met een account met een Azure-abonnement.
 2. Selecteer aan de linkerkant **Azure Active Directory**
-3. Onder **beheren**, selecteer **gebruikers**.
+3. Onder **Beheren**, selecteer **Gebruikers**.
 4. Controleer of u de nieuwe gebruikers in de tenant zien</br>
 ![Synchronisatie](media/tutorial-password-hash-sync/synch1.png)</br>
 
 ## <a name="test-signing-in-with-one-of-our-users"></a>Aanmelden met een van onze gebruikers testen
 
-1.  Blader naar [http://myapps.microsoft.com](http://myapps.microsoft.com)
+1.  Blader naar [http://myapps.microsoft.com](https://myapps.microsoft.com)
 2. Aanmelden met een gebruikersaccount dat is gemaakt in onze nieuwe tenant.  U moet aanmelding met de volgende notatie: (user@domain.onmicrosoft.com). Gebruik hetzelfde wachtwoord dat de gebruiker gebruikt voor aanmelding bij on-premises.</br>
 ![Controleer of](media/tutorial-password-hash-sync/verify1.png)</br>
 
@@ -233,6 +233,6 @@ U hebt nu is ingesteld, een hybride identiteit-omgeving die u gebruiken kunt om 
 ## <a name="next-steps"></a>Volgende stappen
 
 
-- [Hardware- en vereisten](how-to-connect-install-prerequisites.md) 
+- [Hardware en vereisten](how-to-connect-install-prerequisites.md) 
 - [Snelle instellingen](how-to-connect-install-express.md)
-- [Wachtwoord-hashsynchronisatie](how-to-connect-password-hash-synchronization.md)|
+- [Synchronisatie van wachtwoord-hashes](how-to-connect-password-hash-synchronization.md)|

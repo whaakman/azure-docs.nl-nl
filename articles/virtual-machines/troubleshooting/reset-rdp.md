@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 29faba8947e189072317f1e85ba6fe71e7805462
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 99b915f14aaa7d306d1bceb5bd4f6bb23abdb929
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50957842"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51245372"
 ---
 # <a name="reset-remote-desktop-services-or-its-administrator-password-in-a-windows-vm"></a>Extern bureaublad-Services of de administrator-wachtwoord in een Windows-VM opnieuw instellen
 Als u geen verbinding maken met een Windows virtuele machine (VM), kunt u uw lokale administrator-wachtwoord opnieuw instellen of opnieuw instellen van de extern bureaublad-Services-configuratie (niet ondersteund op Windows-domeincontrollers). Als u wilt het wachtwoord opnieuw instellen, gebruikt u Azure portal of de extensie voor VM-toegang in Azure PowerShell. Nadat u zich hebt aangemeld bij de virtuele machine, het wachtwoord opnieuw instellen voor de desbetreffende lokale beheerder.  
@@ -93,7 +93,7 @@ Eerst, zorg ervoor dat u hebt de [meest recente PowerShell-module geïnstalleerd
 
 - [Meer informatie over Azure VM-extensies en functies](../extensions/features-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-- [Verbinding maken met een Azure-machine met RDP of SSH](http://msdn.microsoft.com/library/azure/dn535788.aspx).
+- [Verbinding maken met een Azure-machine met RDP of SSH](https://msdn.microsoft.com/library/azure/dn535788.aspx).
 
 - [Problemen oplossen met extern bureaublad-verbindingen met een op basis van Windows Azure-machine](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
