@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/25/2018
+ms.date: 11/02/2018
 ms.author: ergreenl
-ms.openlocfilehash: 9188e7a8dc5364592772b95c302c59a16bfad2be
-ms.sourcegitcommit: 3dcb1a3993e51963954194ba2a5e42260d0be258
+ms.openlocfilehash: 850b721cfa78dde23ebc11944bf023de8798cec9
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50754066"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51236950"
 ---
 # <a name="configure-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>Veilige LDAP (LDAPS) voor een beheerd domein van Azure AD Domain Services configureren
 Dit artikel wordt beschreven hoe u beveiligde Lightweight Directory Access Protocol (LDAPS) kunt inschakelen voor uw Azure AD Domain Services beheerde domein. Secure LDAP wordt ook wel bekend als ' Lightweight Directory Access Protocol (LDAP) via Secure Sockets Layer (SSL) / Transport Layer Security (TLS)'.
@@ -45,7 +45,7 @@ Een geldig certificaat per de volgende richtlijnen aan te schaffen voordat u sec
 
 1. **Vertrouwde verlener** -het certificaat moet worden uitgegeven door een instantie die wordt vertrouwd door verbinding te maken met het beheerde domein met behulp van secure LDAP. Deze instantie is mogelijk een openbare certificeringsinstantie (CA) of een CA voor ondernemingen wordt vertrouwd door deze computers.
 2. **Levensduur** -het certificaat moet geldig zijn voor ten minste de komende 3-6 maanden. Toegang van Secure LDAP tot uw beheerde domein wordt onderbroken wanneer het certificaat is verlopen.
-3. **Naam van het onderwerp** -de naam van de certificaathouder op het certificaat moet de naam van uw beheerde domein. Bijvoorbeeld, als uw domein heet 'contoso100.com', moet de onderwerpnaam van het certificaat 'contoso100.com'. 
+3. **Naam van het onderwerp** -de naam van de certificaathouder op het certificaat moet uw beheerde domein. Bijvoorbeeld, als uw domein heet 'contoso100.com', moet de onderwerpnaam van het certificaat 'contoso100.com'. De DNS-naam (alternatieve onderwerpnaam) ingesteld op een wildcard-naam voor uw beheerde domein.
 4. **Sleutelgebruik** -het certificaat moet worden geconfigureerd voor het volgende gebruikt: digitale handtekeningen en sleutelcodering.
 5. **Doel van het certificaat** -het certificaat moet geldig zijn voor SSL-serververificatie.
 
@@ -83,7 +83,7 @@ Open op uw Windows-computer, een nieuwe PowerShell-venster als **beheerder** en 
 $lifetime=Get-Date
 New-SelfSignedCertificate -Subject contoso100.com `
   -NotAfter $lifetime.AddDays(365) -KeyUsage DigitalSignature, KeyEncipherment `
-  -Type SSLServerAuthentication -DnsName *.contoso100.com
+  -Type SSLServerAuthentication -DnsName *.contoso100.com, contoso100.com
 ```
 
 In het voorgaande voorbeeld, kunt u 'contoso100.com' vervangen door de DNS-domeinnaam van uw beheerde domein. Bijvoorbeeld, als u een beheerd domein met de naam 'contoso100.onmicrosoft.com' gemaakt, vervangen door 'contoso100.com' in het kenmerk onderwerp 'contoso100.onmicrosoft.com' en '*. contoso100.com' in het kenmerk van de DNS-naam met '*. contoso100.onmicrosoft.com').

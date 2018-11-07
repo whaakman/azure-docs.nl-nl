@@ -14,12 +14,12 @@ ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 02/14/2017
 ms.author: wesmc
-ms.openlocfilehash: a6c3314a981b46aa6f1cbca1f34392d1e1ae6c9a
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 6ea237c406a9d09b500a12755cd1fa99bb7d41cb
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47431641"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51234422"
 ---
 # <a name="aspnet-output-cache-provider-for-azure-redis-cache"></a>Provider voor de uitvoercache van ASP.NET voor Azure Redis-Cache
 Cacheprovider Redis is een opslagmechanisme voor out-of-process-voor de uitvoergegevens van de cache. Deze gegevens is specifiek bedoeld voor volledige HTTP-antwoorden (pagina-opslaan in uitvoercache). De provider wordt in de nieuwe uitvoer cache provider extensibility point die is geïntroduceerd in ASP.NET 4.
@@ -89,8 +89,8 @@ De kenmerken configureren met de waarden uit de cache-blade in de Microsoft Azur
   * De poort zonder SSL-beveiliging is standaard uitgeschakeld voor nieuwe caches. Geef true voor deze instelling in om de SSL-poort. Zie voor meer informatie over het inschakelen van de niet-SSL-poort, de [toegangspoorten](cache-configure.md#access-ports) sectie de [een cache configureren](cache-configure.md) onderwerp.
 * **database-id** – opgegeven welke database u wilt gebruiken voor cache uitvoergegevens. Indien niet opgegeven, wordt de standaardwaarde van 0 wordt gebruikt.
 * **applicationName** -sleutels worden opgeslagen in redis als `<AppName>_<SessionId>_Data`. Deze naamgevingsconventie schema kunt meerdere toepassingen delen dezelfde sleutel. Deze parameter is optioneel en als u niet beschikken over een standaardwaarde wordt gebruikt.
-* **connectionTimeoutInMilliseconds** : deze instelling kunt u de instelling connectTimeout in de StackExchange.Redis-client te negeren. Indien niet opgegeven, is de standaardinstelling connectTimeout van 5000 wordt gebruikt. Zie voor meer informatie, [configuratiemodel StackExchange.Redis](http://go.microsoft.com/fwlink/?LinkId=398705).
-* **operationTimeoutInMilliseconds** : deze instelling kunt u de instelling syncTimeout in de StackExchange.Redis-client te negeren. Indien niet opgegeven, is de standaardinstelling syncTimeout van 1000 wordt gebruikt. Zie voor meer informatie, [configuratiemodel StackExchange.Redis](http://go.microsoft.com/fwlink/?LinkId=398705).
+* **connectionTimeoutInMilliseconds** : deze instelling kunt u de instelling connectTimeout in de StackExchange.Redis-client te negeren. Indien niet opgegeven, is de standaardinstelling connectTimeout van 5000 wordt gebruikt. Zie voor meer informatie, [configuratiemodel StackExchange.Redis](https://go.microsoft.com/fwlink/?LinkId=398705).
+* **operationTimeoutInMilliseconds** : deze instelling kunt u de instelling syncTimeout in de StackExchange.Redis-client te negeren. Indien niet opgegeven, is de standaardinstelling syncTimeout van 1000 wordt gebruikt. Zie voor meer informatie, [configuratiemodel StackExchange.Redis](https://go.microsoft.com/fwlink/?LinkId=398705).
 
 Een instructie OutputCache toevoegen aan elke pagina die u wilt de uitvoer in de cache.
 
@@ -98,7 +98,7 @@ Een instructie OutputCache toevoegen aan elke pagina die u wilt de uitvoer in de
 <%@ OutputCache Duration="60" VaryByParam="*" %>
 ```
 
-In het vorige voorbeeld wordt de pagina in de cache-gegevens blijven in de cache gedurende 60 seconden en een andere versie van de pagina voor elke combinatie van parameters in de cache is opgeslagen. Zie voor meer informatie over de instructie OutputCache [ @OutputCache ](http://go.microsoft.com/fwlink/?linkid=320837).
+In het vorige voorbeeld wordt de pagina in de cache-gegevens blijven in de cache gedurende 60 seconden en een andere versie van de pagina voor elke combinatie van parameters in de cache is opgeslagen. Zie voor meer informatie over de instructie OutputCache [ @OutputCache ](https://go.microsoft.com/fwlink/?linkid=320837).
 
 Zodra deze stappen worden uitgevoerd, wordt uw toepassing is geconfigureerd voor het gebruik van de Redis-Provider voor de uitvoercache.
 

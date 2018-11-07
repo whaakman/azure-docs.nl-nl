@@ -12,18 +12,18 @@ ms.author: genemi
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: c9c3383719ed8001167a6dce42d2df3e58b6ca74
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 0da4626943a7223b24baac80121b5da0062c0d73
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161961"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51237074"
 ---
 # <a name="ring-buffer-target-code-for-extended-events-in-sql-database"></a>Doelcode ringbuffer voor uitgebreide gebeurtenissen in SQL-Database
 
 [!INCLUDE [sql-database-xevents-selectors-1-include](../../includes/sql-database-xevents-selectors-1-include.md)]
 
-Wilt u een codevoorbeeld voor de eenvoudigste snelle manier om gegevens vastleggen en het rapport voor een uitgebreide gebeurtenis tijdens een test. De eenvoudigste doel voor de gegevens van uitgebreide gebeurtenis is de [ringbuffer doel](http://msdn.microsoft.com/library/ff878182.aspx).
+Wilt u een codevoorbeeld voor de eenvoudigste snelle manier om gegevens vastleggen en het rapport voor een uitgebreide gebeurtenis tijdens een test. De eenvoudigste doel voor de gegevens van uitgebreide gebeurtenis is de [ringbuffer doel](https://msdn.microsoft.com/library/ff878182.aspx).
 
 In dit onderwerp wordt een voorbeeld van de Transact-SQL-code die:
 
@@ -50,8 +50,8 @@ In dit onderwerp wordt een voorbeeld van de Transact-SQL-code die:
 * SQL Server Management Studio (ssms.exe), in het ideale geval de meest recente maandelijkse updateversie. 
   U kunt de meest recente ssms.exe van downloaden:
   
-  * Onderwerp [SQL Server Management Studio downloaden](http://msdn.microsoft.com/library/mt238290.aspx).
-  * [Een directe koppeling naar de download.](http://go.microsoft.com/fwlink/?linkid=616025)
+  * Onderwerp [SQL Server Management Studio downloaden](https://msdn.microsoft.com/library/mt238290.aspx).
+  * [Een directe koppeling naar de download.](https://go.microsoft.com/fwlink/?linkid=616025)
 
 ## <a name="code-sample"></a>Codevoorbeeld
 
@@ -353,6 +353,6 @@ Andere onderwerpen voor het voorbeeld van code voor uitgebreide gebeurtenissen z
 <!--
 ('lock_acquired' event.)
 
-- Code sample for SQL Server: [Determine Which Queries Are Holding Locks](http://msdn.microsoft.com/library/bb677357.aspx)
-- Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](http://msdn.microsoft.com/library/bb630355.aspx)
+- Code sample for SQL Server: [Determine Which Queries Are Holding Locks](https://msdn.microsoft.com/library/bb677357.aspx)
+- Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](https://msdn.microsoft.com/library/bb630355.aspx)
 -->

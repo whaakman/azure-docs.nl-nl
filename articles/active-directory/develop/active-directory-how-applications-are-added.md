@@ -17,12 +17,12 @@ ms.date: 04/18/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: elisol, lenalepa
-ms.openlocfilehash: fb2bfc89322d81833b1961bfb866a773c5d1d475
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 8e806fc334faf85864ea9158d4f2ed6d107327ae
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39577227"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51241494"
 ---
 # <a name="how-and-why-applications-are-added-to-azure-ad"></a>Hoe en waarom worden toepassingen toegevoegd aan Azure AD
 
@@ -69,7 +69,7 @@ Net als objecten van de toepassing, worden service-principals ook gemaakt via me
 
 * Wanneer gebruikers zich aanmelden bij een toepassing van derden worden geïntegreerd met Azure AD
   * Tijdens het aanmelden, worden gebruikers gevraagd om machtigingen voor de toepassing om toegang tot hun profiel en andere machtigingen te geven. De eerste persoon toestemming geven zorgt ervoor dat een service-principal die de toepassing moet worden toegevoegd aan de map vertegenwoordigt.
-* Wanneer gebruikers zich aanmelden bij Microsoft online services zoals [Office 365](http://products.office.com/)
+* Wanneer gebruikers zich aanmelden bij Microsoft online services zoals [Office 365](https://products.office.com/)
   * Wanneer u zich op Office 365 abonneert of een proefversie starten, worden een of meer service-principals zijn gemaakt in de map voor de verschillende services die worden gebruikt om alle functionaliteit die is gekoppeld aan Office 365.
   * Sommige Office 365-services, zoals SharePoint maken service-principals regelmatig zodat beveiligde communicatie mogelijk tussen onderdelen, met inbegrip van werkstromen.
 * Wanneer een beheerder een toepassing toevoegt in de app-galerie (dit wordt ook een onderliggende app-object gemaakt)

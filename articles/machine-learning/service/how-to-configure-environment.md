@@ -9,13 +9,13 @@ ms.component: core
 ms.reviewer: larryfr
 manager: cgronlun
 ms.topic: conceptual
-ms.date: 10/24/2018
-ms.openlocfilehash: 6c2d5a776f603161ef730028168b91844c120aec
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.date: 11/6/2018
+ms.openlocfilehash: 8ce411e424d538a4a1f94300bfe5510658017f56
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158989"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238315"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Een ontwikkelomgeving configureren voor Azure Machine Learning
 
@@ -84,14 +84,40 @@ De Azure Machine Learning-SDK maakt gebruik van het configuratiebestand van de w
 
 Azure-notitieblokken en Azure Data Science Virtual Machines (Dsvm) zijn geconfigureerd voor samenwerking met de Azure Machine Learning-service. Deze omgevingen zijn vereiste onderdelen, zoals de Azure Machine Learning-SDK.
 
+### <a name="azure-notebooks"></a>Azure Notebooks
+
 - Azure-laptops is een Jupyter-Notebook-service in de Azure-cloud.
-- De Data Science Virtual Machine is een aangepaste virtuele machine (VM)-installatiekopie is ontworpen voor data science werk. Het bevat:
-  - Populaire hulpprogramma 's
-  - Geïntegreerde ontwikkelingsomgevingen (IDE's)
-  - Pakketten, zoals Jupyter Notebooks, PyCharm en Tensorflow
 - U moet nog steeds een configuratiebestand voor de werkruimte te gebruiken van deze omgevingen.
 
 Zie voor een voorbeeld van het gebruik van Azure-notitieblokken met de service Azure Machine Learning, [aan de slag met Azure Machine Learning-service](quickstart-get-started.md).
+
+### <a name="data-science-virtual-machines"></a>Virtuele machines voor datatechnologie
+
+- De Data Science Virtual Machine is een aangepaste virtuele machine (VM)-installatiekopie is ontworpen voor data science werk. Het bevat:
+  - Populaire data science-hulpprogramma 's
+  - Geïntegreerde ontwikkelingsomgevingen (IDE's), zoals PyCharm en RStudio
+  - Pakketten, zoals Jupyter Notebooks en Tensorflow
+
+De DSVM wordt geleverd met omgevingen met meerdere Anaconda al geïnstalleerd. Open een opdrachtprompt /-shell en gebruik een van de volgende opdrachten voor het activeren van de omgeving voor het gebruik van de Azure Machine Learning Python SDK zonder dat een installatie van het pakket:
+
+* Op de __Ubuntu__ DSVM, gebruikt u deze opdracht:
+
+    ```shell
+    conda activate py36
+    ```
+
+* Op de __Windows__ DSVM, gebruikt u deze opdracht:
+
+    ```shell
+    conda activate AzureML
+    ```
+
+Eenmaal in deze omgeving, kunt u direct importeren de SDK van Azure Machine Learning in de build-hulpprogramma van uw keuze, zonder dat u het pakket installeert.
+
+```python
+import azureml.core
+print(azureml.core.VERSION)
+```
 
 Zie voor meer informatie over de virtuele Machines voor Datatechnologie, [virtuele Machines voor Datatechnologie](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/).
 

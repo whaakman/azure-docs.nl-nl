@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 2d12ca26fb2aa5abddcf44b2e634b2f08b1fb01b
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: deb98c2c633200ab4be1d763a94fd2a04979a3b1
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38696247"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51235697"
 ---
 # <a name="add-an-internal-support-statement-to-a-lab-in-azure-devtest-labs"></a>Een interne ondersteuningsverklaring toevoegen aan een lab in Azure DevTest Labs
 
@@ -31,7 +31,7 @@ U kunt eenvoudig uitschakelen of een ondersteuningsverklaring bewerken nadat het
 
 ## <a name="steps-to-add-a-support-statement-to-an-existing-lab"></a>Stappen voor het toevoegen van een ondersteuningsverklaring aan een bestaande lab
 
-1. Meld u aan bij [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Meld u aan bij [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Selecteer indien nodig, **alle Services**, en selecteer vervolgens **DevTest Labs** in de lijst. (Uw lab mogelijk al worden weergegeven op het Dashboard onder **alle Resources**).
 1. Selecteer in het lab waarin u wilt toevoegen van een ondersteuningsverklaring uit de lijst met labs.  
 1. Op van het lab **overzicht** gedeelte **configuratie en het beleid**.  
@@ -55,7 +55,7 @@ Als u niet meer weergeven van dit bericht ondersteuning voor labgebruikers wilt,
 
 ## <a name="steps-for-users-to-view-the-support-message"></a>Stappen voor gebruikers om weer te geven van het bericht ondersteuning
 
-1. Uit de [Azure-portal](http://go.microsoft.com/fwlink/p/?LinkID=525040), selecteert u een lab.
+1. Uit de [Azure-portal](https://go.microsoft.com/fwlink/p/?LinkID=525040), selecteert u een lab.
 
 1. Op van het lab **overzicht** gedeelte **ondersteuning voor interne**.  
 

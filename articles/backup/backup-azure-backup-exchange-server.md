@@ -8,18 +8,18 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: adigan
-ms.openlocfilehash: 8fbe3e716971f4d82e6d24fb866334ffd626bf32
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 7e95fa0cc6b5f9476df68ab44e5dbc8bb5432d52
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945974"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51234445"
 ---
 # <a name="back-up-an-exchange-server-to-azure-backup-with-system-center-2012-r2-dpm"></a>Met System Center 2012 R2 DPM een back-up maken van een Exchange-server in Azure Backup
 Dit artikel wordt beschreven hoe u een System Center 2012 R2 Data Protection Manager (DPM)-server voor back-up van een Microsoft Exchange-server op Azure Backup configureren.  
 
 ## <a name="updates"></a>Updates
-Als u wilt registreren is de DPM-server met Azure Backup, moet u het nieuwste updatepakket voor System Center 2012 R2 DPM en de nieuwste versie van de Azure Backup-Agent installeren. Ophalen van de meest recente updatepakket installeren vanuit de [Microsoft-catalogus](http://catalog.update.microsoft.com/v7/site/Search.aspx?q=System%20Center%202012%20R2%20Data%20protection%20manager).
+Als u wilt registreren is de DPM-server met Azure Backup, moet u het nieuwste updatepakket voor System Center 2012 R2 DPM en de nieuwste versie van de Azure Backup-Agent installeren. Ophalen van de meest recente updatepakket installeren vanuit de [Microsoft-catalogus](https://catalog.update.microsoft.com/v7/site/Search.aspx?q=System%20Center%202012%20R2%20Data%20protection%20manager).
 
 > [!NOTE]
 > Voor de voorbeelden in dit artikel is versie 2.0.8719.0 van de Azure Backup-Agent is geïnstalleerd en Update Rollup 6 op System Center 2012 R2 DPM is geïnstalleerd.

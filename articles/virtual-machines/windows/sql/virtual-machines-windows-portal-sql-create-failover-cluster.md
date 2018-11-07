@@ -16,16 +16,16 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/11/2018
 ms.author: mikeray
-ms.openlocfilehash: 8e107c1721d5623239a694eba39b32e8a2a6089d
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 382027782044a5a1011976560b7460047544f521
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42058148"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51237961"
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Configureren van SQL Server-failovercluster-exemplaar op Azure Virtual Machines
 
-In dit artikel wordt uitgelegd hoe u een SQL Server Failover Cluster exemplaar (FCI) maken op Azure virtual machines in Resource Manager-model. Deze oplossing maakt gebruik van [Windows Server 2016 Datacenter edition Storage Spaces Direct \(S2D\) ](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview) als een op software gebaseerde virtuele SAN waarmee de opslag (gegevensschijven) worden gesynchroniseerd tussen de knooppunten (virtuele Azure-machines) in een Windows-Cluster. S2D is er nieuw in Windows Server 2016.
+In dit artikel wordt uitgelegd hoe u een SQL Server Failover Cluster exemplaar (FCI) maken op Azure virtual machines in Resource Manager-model. Deze oplossing maakt gebruik van [Windows Server 2016 Datacenter edition Storage Spaces Direct \(S2D\) ](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview) als een op software gebaseerde virtuele SAN waarmee de opslag (gegevensschijven) worden gesynchroniseerd tussen de knooppunten (virtuele Azure-machines) in een Windows-Cluster. S2D is er nieuw in Windows Server 2016.
 
 Het volgende diagram toont de volledige oplossing op Azure virtual machines:
 
@@ -44,7 +44,7 @@ Het vorige diagram toont:
    >[!NOTE]
    >Alle Azure-resources worden in het diagram worden in dezelfde resourcegroep bevinden.
 
-Zie voor meer informatie over S2D [Windows Server 2016 Datacenter edition Storage Spaces Direct \(S2D\)](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview).
+Zie voor meer informatie over S2D [Windows Server 2016 Datacenter edition Storage Spaces Direct \(S2D\)](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview).
 
 S2D ondersteunt twee soorten architecturen - geconvergeerde en hyper-geconvergeerd. De architectuur in dit document is hyper-geconvergeerd. Een hyper-geconvergeerde infrastructuur plaatst de opslag op de dezelfde servers die als host van de geclusterde toepassing. In deze architectuur is de opslag op elk knooppunt FCI van SQL Server.
 
@@ -52,13 +52,13 @@ S2D ondersteunt twee soorten architecturen - geconvergeerde en hyper-geconvergee
 
 Op Azure Virtual Machines die u kunt SQL Server betalen (betalen per gebruik) met behulp van licentie of hun eigen licentie mee (BYOL) VM-installatiekopieën. Het type van de afbeelding die u kiest is van invloed op hoe u in rekening worden gebracht.
 
-Met betalen per gebruik-licentieverlening is een failover clusterexemplaar (FCI) van SQL Server op Azure Virtual Machines leidt tot kosten in rekening gebracht voor alle knooppunten van FCI, met inbegrip van de passieve knooppunten. Zie voor meer informatie, [prijzen van SQL Server Enterprise Virtual Machines](http://azure.microsoft.com/pricing/details/virtual-machines/sql-server-enterprise/). 
+Met betalen per gebruik-licentieverlening is een failover clusterexemplaar (FCI) van SQL Server op Azure Virtual Machines leidt tot kosten in rekening gebracht voor alle knooppunten van FCI, met inbegrip van de passieve knooppunten. Zie voor meer informatie, [prijzen van SQL Server Enterprise Virtual Machines](https://azure.microsoft.com/pricing/details/virtual-machines/sql-server-enterprise/). 
 
-Klanten met Enterprise-overeenkomst met Software Assurance heeft het recht op het gebruik van één gratis passieve FCI-knooppunt voor elke actieve knooppunt. BYOL-VM-installatiekopieën gebruiken om te profiteren van dit voordeel In Azure, en gebruik vervolgens de licentie op de actieve en passieve knooppunten van de FCI. Zie voor meer informatie, [Enterprise Agreement](http://www.microsoft.com/en-us/Licensing/licensing-programs/enterprise.aspx).
+Klanten met Enterprise-overeenkomst met Software Assurance heeft het recht op het gebruik van één gratis passieve FCI-knooppunt voor elke actieve knooppunt. BYOL-VM-installatiekopieën gebruiken om te profiteren van dit voordeel In Azure, en gebruik vervolgens de licentie op de actieve en passieve knooppunten van de FCI. Zie voor meer informatie, [Enterprise Agreement](https://www.microsoft.com/en-us/Licensing/licensing-programs/enterprise.aspx).
 
 Betalen per gebruik en BYOL vergelijken licentiëring voor SQL Server op Azure Virtual Machines Zie [aan de slag met SQL-VM's](virtual-machines-windows-sql-server-iaas-overview.md#get-started-with-sql-vms).
 
-Zie voor meer informatie over licentieverlening SQL Server [prijzen](http://www.microsoft.com/sql-server/sql-server-2017-pricing).
+Zie voor meer informatie over licentieverlening SQL Server [prijzen](https://www.microsoft.com/sql-server/sql-server-2017-pricing).
 
 ### <a name="example-azure-template"></a>Voorbeeld van de Azure-sjabloon
 
@@ -71,12 +71,12 @@ Er zijn enkele dingen die u nodig hebt en een aantal dingen die u nodig hebt vol
 ### <a name="what-to-know"></a>Wat u moet weten
 U hebt een operationeel inzicht in de volgende technologieën:
 
-- [Windows-clustertechnologieën](http://technet.microsoft.com/library/hh831579.aspx)
-- [SQL Server-failovercluster-exemplaren](http://msdn.microsoft.com/library/ms189134.aspx).
+- [Windows-clustertechnologieën](https://technet.microsoft.com/library/hh831579.aspx)
+- [SQL Server-failovercluster-exemplaren](https://msdn.microsoft.com/library/ms189134.aspx).
 
 U hebt ook een algemeen begrip van de volgende technologieën:
 
-- [Hypergeconvergeerde oplossing met opslagruimten Direct in Windows Server 2016](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct)
+- [Hypergeconvergeerde oplossing met opslagruimten Direct in Windows Server 2016](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct)
 - [Azure-resourcegroepen](../../../azure-resource-manager/resource-group-portal.md)
 
 > [!IMPORTANT]
@@ -225,11 +225,11 @@ De volgende stap is het configureren van het failover-cluster met S2D. In deze s
    Invoke-Command  $nodes {Install-WindowsFeature Failover-Clustering -IncludeAllSubFeature -IncludeManagementTools}
    ```
 
-Voor een verwijzing naar de volgende stappen volgt u de instructies onder de stap 3 van [hypergeconvergeerde oplossing met opslagruimten Direct in Windows Server 2016](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-3-configure-storage-spaces-direct).
+Voor een verwijzing naar de volgende stappen volgt u de instructies onder de stap 3 van [hypergeconvergeerde oplossing met opslagruimten Direct in Windows Server 2016](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-3-configure-storage-spaces-direct).
 
 ### <a name="validate-the-cluster"></a>Het cluster valideren
 
-Deze handleiding verwijst naar de instructies onder [cluster valideren](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-31-run-cluster-validation).
+Deze handleiding verwijst naar de instructies onder [cluster valideren](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-31-run-cluster-validation).
 
 Valideren van het cluster in de gebruikersinterface of met PowerShell.
 
@@ -259,7 +259,7 @@ Nadat u het cluster valideren, moet u het failovercluster maakt.
 
 ### <a name="create-the-failover-cluster"></a>De failover-cluster maken
 
-Deze handleiding verwijst naar [het failovercluster maakt](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-32-create-a-cluster).
+Deze handleiding verwijst naar [het failovercluster maakt](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-32-create-a-cluster).
 
 Als u wilt het failovercluster maakt, hebt u het volgende nodig:
 - De namen van de virtuele machines die de clusterknooppunten.
@@ -276,19 +276,19 @@ New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAd
 
 Cloud-Witness is een nieuw type clusterquorum-witness die zijn opgeslagen in een Azure Storage-Blob. Hiermee verwijdert u de noodzaak van een afzonderlijke virtuele machine die als host fungeert voor een witness-share.
 
-1. [Maken van een cloud-witness voor het failovercluster](http://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness).
+1. [Maken van een cloud-witness voor het failovercluster](https://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness).
 
 1. Een blob-container maken.
 
 1. Sla de toegangssleutel en de URL van de container.
 
-1. De failover clusterquorum-witness configureren. Zie, [de quorum-witness configureren in de gebruikersinterface](http://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness#to-configure-cloud-witness-as-a-quorum-witness) in de gebruikersinterface.
+1. De failover clusterquorum-witness configureren. Zie, [de quorum-witness configureren in de gebruikersinterface](https://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness#to-configure-cloud-witness-as-a-quorum-witness) in de gebruikersinterface.
 
 ### <a name="add-storage"></a>Opslag toevoegen
 
-De schijven voor S2D moeten worden leeggemaakt en alle partities of andere gegevens. Om op te schonen schijven Volg [de stappen in deze handleiding](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-34-clean-disks).
+De schijven voor S2D moeten worden leeggemaakt en alle partities of andere gegevens. Om op te schonen schijven Volg [de stappen in deze handleiding](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-34-clean-disks).
 
-1. [Schakel Store opslagruimten Direct \(S2D\)](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-35-enable-storage-spaces-direct).
+1. [Schakel Store opslagruimten Direct \(S2D\)](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-35-enable-storage-spaces-direct).
 
    Met behulp van de volgende PowerShell kunt opslagruimten direct.  
 
@@ -298,7 +298,7 @@ De schijven voor S2D moeten worden leeggemaakt en alle partities of andere gegev
 
    In **Failoverclusterbeheer**, ziet u nu de opslaggroep.
 
-1. [Maak een volume](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-36-create-volumes).
+1. [Maak een volume](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-36-create-volumes).
 
    Een van de functies van S2D is dat deze automatisch wordt een opslaggroep gemaakt wanneer u deze inschakelt. U bent nu klaar om te maken van een volume. De PowerShell-commandlet `New-Volume` automatiseert het aanmaakproces volume, met inbegrip van opmaak, toe te voegen aan het cluster en het maken van een gedeeld clustervolume (CSV). Het volgende voorbeeld wordt een 800 GB (Gigabyte) CSV.
 
@@ -343,7 +343,7 @@ Nadat u de failover-cluster en alle clusteronderdelen van de, inclusief opslag h
 1. Klik op **knooppunt toevoegen aan een SQL Server-failovercluster**. Volg de instructies in de wizard installatie van SQL server en deze server toevoegen aan de FCI.
 
    >[!NOTE]
-   >Als u de installatiekopie van een Azure Marketplace-galerie met SQL Server gebruikt, is SQL Server-hulpprogramma's zijn opgenomen in de afbeelding. Als u deze installatiekopie niet hebt gebruikt, installeert u de SQL Server-hulpprogramma's afzonderlijk. Zie [downloaden van SQL Server Management Studio (SSMS)](http://msdn.microsoft.com/library/mt238290.aspx).
+   >Als u de installatiekopie van een Azure Marketplace-galerie met SQL Server gebruikt, is SQL Server-hulpprogramma's zijn opgenomen in de afbeelding. Als u deze installatiekopie niet hebt gebruikt, installeert u de SQL Server-hulpprogramma's afzonderlijk. Zie [downloaden van SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx).
 
 ## <a name="step-5-create-azure-load-balancer"></a>Stap 5: Azure load balancer maken
 
@@ -478,7 +478,7 @@ Test-failover van de FCI clusterfunctionaliteit valideren. Voer de volgende stap
 Connectiviteit wilt testen, moet u zich aanmelden bij een andere virtuele machine in hetzelfde virtuele netwerk. Open **SQL Server Management Studio** en maak verbinding met de naam van de SQL Server FCI.
 
 >[!NOTE]
->Zo nodig u kunt [SQL Server Management Studio downloaden](http://msdn.microsoft.com/library/mt238290.aspx).
+>Zo nodig u kunt [SQL Server Management Studio downloaden](https://msdn.microsoft.com/library/mt238290.aspx).
 
 ## <a name="limitations"></a>Beperkingen
 
@@ -491,10 +491,10 @@ Op Azure virtual machines, wordt MSDTC niet ondersteund op Windows Server 2016 e
 
 ## <a name="see-also"></a>Zie ook
 
-[S2D instellen met extern bureaublad (Azure)](http://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-storage-spaces-direct-deployment)
+[S2D instellen met extern bureaublad (Azure)](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-storage-spaces-direct-deployment)
 
-[Hypergeconvergeerde oplossing met opslagruimten direct](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct).
+[Hypergeconvergeerde oplossing met opslagruimten direct](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct).
 
-[Directe overzicht](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview)
+[Directe overzicht](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview)
 
 [SQL Server-ondersteuning voor S2D](https://blogs.technet.microsoft.com/dataplatforminsider/2016/09/27/sql-server-2016-now-supports-windows-server-2016-storage-spaces-direct/)
