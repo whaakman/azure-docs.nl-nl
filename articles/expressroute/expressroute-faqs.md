@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: cherylmc
-ms.openlocfilehash: 3af2b2a1b35a290746007d7f486473162a055b99
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 8cde172207717aca2af5dfa706f7d9c6d290c36e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50211363"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51239199"
 ---
 # <a name="expressroute-faq"></a>Veelgestelde vragen ExpressRoute
 
@@ -76,7 +76,7 @@ ExpressRoute ondersteunt [drie Routeringsdomeinen](expressroute-circuit-peerings
 
 ### <a name="microsoft-peering"></a>Microsoft-peering
 
-* [Office 365](http://aka.ms/ExpressRouteOffice365)
+* [Office 365](https://aka.ms/ExpressRouteOffice365)
 * Dynamics 365 
 * Power BI
 * Azure Active Directory
@@ -199,11 +199,7 @@ Ja. Virtuele machines die worden geïmplementeerd in virtuele netwerken die zijn
 
 ### <a name="can-i-use-site-to-site-connectivity-for-virtual-networks-in-conjunction-with-expressroute"></a>Kan ik site-naar-site-connectiviteit voor virtuele netwerken in combinatie met ExpressRoute gebruiken?
 
-Ja. ExpressRoute kan worden gecombineerd met site-naar-site VPN-verbindingen.
-
-### <a name="can-i-move-a-virtual-network-from-site-to-site--point-to-site-configuration-to-use-expressroute"></a>Kan ik een virtueel netwerk verplaatsen van site-naar-site / punt-naar-site-configuratie voor het gebruik van ExpressRoute?
-
-Ja. U moet een ExpressRoute-gateway binnen uw virtuele netwerk maken. Er is een kleine downtime die zijn gekoppeld aan het proces.
+Ja. ExpressRoute kan worden gecombineerd met site-naar-site VPN-verbindingen. Zie [configureren van ExpressRoute en site-naar-site-verbindingen naast elkaar](expressroute-howto-coexist-resource-manager.md).
 
 ### <a name="why-is-there-a-public-ip-address-associated-with-the-expressroute-gateway-on-a-virtual-network"></a>Waarom is er een openbaar IP-adres dat is gekoppeld aan de ExpressRoute-gateway in een virtueel netwerk?
 
@@ -287,7 +283,7 @@ Ja. ExpressRoute premium kosten gelden boven op de kosten voor ExpressRoute-circ
 
 1. Controleer de [ExpressRoute vereisten pagina](expressroute-prerequisites.md) om ervoor te zorgen dat u voldoet aan de vereisten.
 2. Om ervoor te zorgen dat aan de behoeften van uw connectiviteit wordt voldaan, bekijk de lijst van serviceproviders en locaties in de [ExpressRoute partners en locaties](expressroute-locations.md) artikel.
-3. Aan de hand van plan bent uw capaciteitsvereisten [netwerkplanning en prestatieafstemming voor Office 365](http://aka.ms/tune/).
+3. Aan de hand van plan bent uw capaciteitsvereisten [netwerkplanning en prestatieafstemming voor Office 365](https://aka.ms/tune/).
 4. Volg de stappen die worden vermeld in de werkstromen voor het instellen van connectiviteit [ExpressRoute-werkstromen voor circuitinrichting en circuitstatussen](expressroute-workflows.md).
 
 > [!IMPORTANT]
@@ -297,11 +293,11 @@ Ja. ExpressRoute premium kosten gelden boven op de kosten voor ExpressRoute-circ
 
 ### <a name="can-my-existing-expressroute-circuits-support-connectivity-to-office-365-services-and-dynamics-365"></a>Kunnen verbinding met Office 365-services en Dynamics 365-ondersteuning voor mijn bestaande ExpressRoute-circuits?
 
-Ja. Uw bestaande ExpressRoute-circuit kan worden geconfigureerd ter ondersteuning van de verbinding met Office 365-services. Zorg ervoor dat u hebt onvoldoende capaciteit om te verbinden met Office 365-services en dat u premium-invoegtoepassing hebt ingeschakeld. [Netwerkplanning en prestatieafstemming voor Office 365](http://aka.ms/tune/) helpt u van plan bent uw verbinding nodig heeft. Zie ook [maken en aanpassen van een ExpressRoute-circuit](expressroute-howto-circuit-classic.md).
+Ja. Uw bestaande ExpressRoute-circuit kan worden geconfigureerd ter ondersteuning van de verbinding met Office 365-services. Zorg ervoor dat u hebt onvoldoende capaciteit om te verbinden met Office 365-services en dat u premium-invoegtoepassing hebt ingeschakeld. [Netwerkplanning en prestatieafstemming voor Office 365](https://aka.ms/tune/) helpt u van plan bent uw verbinding nodig heeft. Zie ook [maken en aanpassen van een ExpressRoute-circuit](expressroute-howto-circuit-classic.md).
 
 ### <a name="what-office-365-services-can-be-accessed-over-an-expressroute-connection"></a>Welke Office 365 services zijn toegankelijk via een ExpressRoute-verbinding?
 
-Raadpleeg [Office 365-URL's en IP-adresbereiken](http://aka.ms/o365endpoints) pagina voor een bijgewerkte lijst met services die via ExpressRoute worden ondersteund.
+Raadpleeg [Office 365-URL's en IP-adresbereiken](https://aka.ms/o365endpoints) pagina voor een bijgewerkte lijst met services die via ExpressRoute worden ondersteund.
 
 ### <a name="how-much-does-expressroute-for-office-365-services-cost"></a>Wat kost ExpressRoute voor Office 365-services?
 

@@ -9,12 +9,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: mayg
-ms.openlocfilehash: 51d435d9edea5e341127cac89bc96a71c7bc8bb4
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: f96ed8659fc2f49b89199a813f9fab9d5f4af5a1
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50211890"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232168"
 ---
 # <a name="set-up-disaster-recovery-for-active-directory-and-dns"></a>Herstel na noodgevallen instellen voor Active Directory en DNS
 
@@ -44,7 +44,7 @@ Site Recovery kunt u de virtuele machine die als host fungeert voor de domeincon
 De domeincontroller die wordt gerepliceerd met behulp van Site Recovery wordt gebruikt voor [testfailover](#test-failover-considerations). Zorg ervoor dat het voldoet aan de volgende vereisten:
 
 1. De domeincontroller is een algemene catalogusserver.
-2. De domeincontroller moet de eigenaar van de FSMO-rol voor rollen die nodig zijn tijdens een test-failover. Anders wordt deze rollen moet worden [overgenomen](http://aka.ms/ad_seize_fsmo) na de failover.
+2. De domeincontroller moet de eigenaar van de FSMO-rol voor rollen die nodig zijn tijdens een test-failover. Anders wordt deze rollen moet worden [overgenomen](https://aka.ms/ad_seize_fsmo) na de failover.
 
 ### <a name="configure-vm-network-settings"></a>VM-netwerkinstellingen configureren
 Voor de virtuele machine die als host fungeert voor de domeincontroller of DNS-server, in Site Recovery, configureert u netwerkinstellingen onder de **berekening en netwerk** instellingen van de gerepliceerde virtuele machine. Dit zorgt ervoor dat de virtuele machine is gekoppeld aan het juiste netwerk na een failover.
@@ -93,7 +93,7 @@ De meeste toepassingen vereist de aanwezigheid van een domeincontroller of een D
 
 
 ### <a name="remove-references-to-other-domain-controllers"></a>Verwijzingen naar andere domeincontrollers verwijderen
-Wanneer u een testfailover hebt gestart, niet alle domeincontrollers in het testnetwerk opnemen. Als u wilt verwijderen verwijzingen naar andere domeincontrollers die aanwezig zijn in uw productieomgeving, moet u mogelijk [overnemen van FSMO-Active Directory-rollen](http://aka.ms/ad_seize_fsmo) en [metagegevens opruimen](https://technet.microsoft.com/library/cc816907.aspx) voor domeincontrollers ontbreekt .
+Wanneer u een testfailover hebt gestart, niet alle domeincontrollers in het testnetwerk opnemen. Als u wilt verwijderen verwijzingen naar andere domeincontrollers die aanwezig zijn in uw productieomgeving, moet u mogelijk [overnemen van FSMO-Active Directory-rollen](https://aka.ms/ad_seize_fsmo) en [metagegevens opruimen](https://technet.microsoft.com/library/cc816907.aspx) voor domeincontrollers ontbreekt .
 
 
 ### <a name="issues-caused-by-virtualization-safeguards"></a>Problemen veroorzaakt door de veiligheidsmaatregelen voor virtualisatie
@@ -180,7 +180,7 @@ Als de vorige voorwaarden wordt voldaan, is het waarschijnlijk dat de domeincont
 
     `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa\IgnoreGCFailures`
 
-    Zie voor meer informatie, [uitschakelen van de vereiste dat een globale-catalogusserver beschikbaar zijn voor het valideren van gebruikersaanmeldingen](http://support.microsoft.com/kb/241789).
+    Zie voor meer informatie, [uitschakelen van de vereiste dat een globale-catalogusserver beschikbaar zijn voor het valideren van gebruikersaanmeldingen](https://support.microsoft.com/kb/241789).
 
 ### <a name="dns-and-domain-controller-on-different-machines"></a>DNS- en domeincontroller op verschillende computers
 

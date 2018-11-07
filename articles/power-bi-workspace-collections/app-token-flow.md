@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: 54eefc9c488718dae25e35ef0c5f0f5c50dea16c
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: a51664144d0dba8eeb82999b212beaf79b4503b2
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43041738"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51236927"
 ---
 # <a name="authenticating-and-authorizing-with-power-bi-workspace-collections"></a>Verifiëren en autoriseren met Power BI-Werkruimteverzamelingen
 
@@ -170,7 +170,7 @@ Body
    
    ![App-tokenstroom - service rapport naar gebruiker verzenden](media/get-started-sample/token-6.png)
 
-Na **Power BI Workspace Collections** verzendt een rapport voor de gebruiker, de gebruiker het rapport in uw aangepaste app kunnen weergeven. Bijvoorbeeld, als u hebt geïmporteerd de [analyseren verkoop gegevens PBIX voorbeeld](http://download.microsoft.com/download/1/4/E/14EDED28-6C58-4055-A65C-23B4DA81C4DE/Analyzing_Sales_Data.pbix), de voorbeeldweb-app zou er als volgt uitzien:
+Na **Power BI Workspace Collections** verzendt een rapport voor de gebruiker, de gebruiker het rapport in uw aangepaste app kunnen weergeven. Bijvoorbeeld, als u hebt geïmporteerd de [analyseren verkoop gegevens PBIX voorbeeld](https://download.microsoft.com/download/1/4/E/14EDED28-6C58-4055-A65C-23B4DA81C4DE/Analyzing_Sales_Data.pbix), de voorbeeldweb-app zou er als volgt uitzien:
 
 ![Voorbeeld van het rapport ingesloten in de toepassing](media/get-started-sample/sample-web-app.png)
 

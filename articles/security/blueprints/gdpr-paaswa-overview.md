@@ -8,19 +8,19 @@ ms.service: security
 ms.topic: article
 ms.date: 05/14/2018
 ms.author: jomolesk
-ms.openlocfilehash: c51ce44d1f6c2dcacaed09a490e46ad3af1ec9dc
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 916b2177e6963ce51e644c2bcf9204cb1e110349
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406684"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51236581"
 ---
 # <a name="azure-security-and-compliance-blueprint---paas-web-application-for-gdpr"></a>Azure-beveiliging en naleving blauwdruk - PaaS-webtoepassing Avg
 
 ## <a name="overview"></a>Overzicht
 De General Data Protection Regulation (GDPR) bevat veel vereisten voor het verzamelen, opslaan en het gebruik van persoonlijke gegevens, met inbegrip van hoe organisaties identificeren en beveiligen van persoonlijke gegevens, aan transparantie te voldoen, detecteren en rapporteren schendingen van persoonlijke gegevens, en train privacy personeel en andere werknemers. De AVG personen biedt meer controle over hun persoonlijke gegevens en legt veel nieuwe verplichtingen voor organisaties die verzameld, verwerkt of persoonlijke gegevens te analyseren. De AVG legt een nieuwe regels voor organisaties die goederen en services naar mensen in de Europese Unie (EU) of die verzamelen en analyseren van gegevens van inwoners van de EU. De AVG is van toepassing, ongeacht waar een organisatie zich bevindt.
 
-Microsoft heeft Azure ontworpen met toonaangevende beveiligingsmaatregelen en privacybeleidsregels ter bescherming van de gegevens in de cloud, waaronder de categorieën van persoonlijke gegevens die zijn geïdentificeerd door de GDPR. Microsofts [contractvoorwaarden](http://aka.ms/Online-Services-Terms) Microsoft aan de vereisten van processors die zijn doorgevoerd.
+Microsoft heeft Azure ontworpen met toonaangevende beveiligingsmaatregelen en privacybeleidsregels ter bescherming van de gegevens in de cloud, waaronder de categorieën van persoonlijke gegevens die zijn geïdentificeerd door de GDPR. Microsofts [contractvoorwaarden](https://aka.ms/Online-Services-Terms) Microsoft aan de vereisten van processors die zijn doorgevoerd.
 
 Deze Azure-beveiliging en naleving blauwdruk biedt richtlijnen voor het implementeren van een platform als een geschikt is voor een eenvoudige webtoepassing voor de internetgerichte service (PaaS)-omgeving. Deze oplossing laat zien waar klanten kunnen voldoen aan de specifieke vereisten voor beveiliging en naleving van de AVG manieren en fungeert als een basis voor klanten om te bouwen en configureren van hun eigen PaaS-oplossingen voor web-toepassing in Azure. Klanten kunnen gebruikmaken van deze referentiearchitectuur en gaat u als volgt Microsofts [vier stappen](https://aka.ms/gdprebook) in hun op weg naar de GDPR-naleving:
 1. Detecteren: Identificeer welke persoonlijke gegevens bestaat en waar deze zich bevindt.

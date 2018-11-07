@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 03/21/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: afcda23faf4e9f0999442fa91d3c016e446c04db
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 718a8fb82c3d85baf94e2e9c316f40b964749912
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39524539"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51231360"
 ---
 # <a name="designing-highly-available-applications-using-ra-grs"></a>Maximaal beschikbare toepassingen met RA-GRS ontwerpen
 
@@ -149,7 +149,7 @@ Een andere overweging is hoe u voor het afhandelen van meerdere exemplaren van e
 
 U hebt drie belangrijkste opties voor het bewaken van de frequentie van nieuwe pogingen in de primaire regio om te bepalen wanneer Schakel over naar de secundaire regio en het wijzigen van de toepassing worden uitgevoerd in de modus alleen-lezen.
 
-*   Toevoegen van een handler voor de [ **opnieuw proberen** ](http://msdn.microsoft.com/library/microsoft.windowsazure.storage.operationcontext.retrying.aspx) gebeurtenis op de [ **OperationContext** ](http://msdn.microsoft.com/library/microsoft.windowsazure.storage.operationcontext.aspx) object die u doorgeeft aan uw opslag aanvragen: dit is de methode in dit artikel wordt weergegeven en gebruikt in het bijbehorende voorbeeld. Deze gebeurtenissen worden geactiveerd wanneer de client probeert om opnieuw een aanvraag, zodat u kunt om bij te houden hoe vaak de client op een primaire eindpunt herstelbare fouten tegenkomt.
+*   Toevoegen van een handler voor de [ **opnieuw proberen** ](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.operationcontext.retrying.aspx) gebeurtenis op de [ **OperationContext** ](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.operationcontext.aspx) object die u doorgeeft aan uw opslag aanvragen: dit is de methode in dit artikel wordt weergegeven en gebruikt in het bijbehorende voorbeeld. Deze gebeurtenissen worden geactiveerd wanneer de client probeert om opnieuw een aanvraag, zodat u kunt om bij te houden hoe vaak de client op een primaire eindpunt herstelbare fouten tegenkomt.
 
     ```csharp 
     operationContext.Retrying += (sender, arguments) =>
@@ -160,7 +160,7 @@ U hebt drie belangrijkste opties voor het bewaken van de frequentie van nieuwe p
     };
     ```
 
-*   In de [ **evalueren** ](http://msdn.microsoft.com/library/microsoft.windowsazure.storage.retrypolicies.iextendedretrypolicy.evaluate.aspx) methode in een beleid voor aangepaste opnieuw proberen, kunt u aangepaste code uitgevoerd wanneer een nieuwe poging plaatsvindt. Naast het op te nemen wanneer een nieuwe poging gebeurt, dit biedt u ook de mogelijkheid om te wijzigen van het gedrag voor opnieuw proberen.
+*   In de [ **evalueren** ](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.retrypolicies.iextendedretrypolicy.evaluate.aspx) methode in een beleid voor aangepaste opnieuw proberen, kunt u aangepaste code uitgevoerd wanneer een nieuwe poging plaatsvindt. Naast het op te nemen wanneer een nieuwe poging gebeurt, dit biedt u ook de mogelijkheid om te wijzigen van het gedrag voor opnieuw proberen.
 
     ```csharp 
     public RetryInfo Evaluate(RetryContext retryContext,

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 04/29/2016
 ms.author: hascipio; v-divte
-ms.openlocfilehash: af3e2ad623d8d7bfafe676411f9ae3fbee78aab8
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 79fb9869b37e82df3f41a50e4425e7c0cd08c841
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39714329"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255265"
 ---
 # <a name="technical-prerequisites-for-creating-a-virtual-machine-image-for-the-azure-marketplace"></a>Technische vereisten voor het maken van een VM-installatiekopie voor de Azure Marketplace
 Het proces aandachtig door voordat u begint gelezen en u begrijpt waar en waarom elke stap wordt uitgevoerd. Zo veel mogelijk, u moet voorbereiden van gegevens van uw bedrijf en andere gegevens, die nodig zijn hulpprogramma's downloaden en/of technische componenten maken voordat u begint met het proces voor het maken van aanbieding. Deze items moet wissen uit het controleren van dit artikel.  
@@ -30,7 +30,7 @@ U hebt de volgende items gereed is voordat u begint met het proces:
 * Afhankelijk van welk besturingssysteem u ontwikkelt, installeert u de [Azure PowerShell-cmdlets](https://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/WindowsAzurePowershellGet.3f.3f.3fnew.appids) of [Linux opdrachtregelinterface hulpprogramma](https://go.microsoft.com/fwlink/?LinkId=253472&clcid=0x409) uit de [Azure Downloads](https://azure.microsoft.com/downloads/) pagina.
 * Installeer Azure Storage Explorer vanaf CodePlex.
 * Download en installeer het hulpprogramma van de Test-certificering voor Azure Certified:
-  * [http://go.microsoft.com/fwlink/?LinkID=526913](http://go.microsoft.com/fwlink/?LinkID=526913). U moet een Windows-computer om uit te voeren van het certificeringshulpprogramma. Als u een Windows-computer beschikbaar hebt, kunt u het hulpprogramma met behulp van een Windows-VM in Azure uitvoeren.
+  * [http://go.microsoft.com/fwlink/?LinkID=526913](https://go.microsoft.com/fwlink/?LinkID=526913). U moet een Windows-computer om uit te voeren van het certificeringshulpprogramma. Als u een Windows-computer beschikbaar hebt, kunt u het hulpprogramma met behulp van een Windows-VM in Azure uitvoeren.
 
 ## <a name="platforms-supported"></a>Platforms die worden ondersteund
 U kunt ontwikkelen met Azure-VM's in Windows of Linux. Bepaalde elementen van het publicatieproces, zoals het maken van een Azure-compatibele virtuele harde schijf (VHD)--Gebruik verschillende hulpprogramma's en stappen, afhankelijk van welk besturingssysteem u gebruikt:  

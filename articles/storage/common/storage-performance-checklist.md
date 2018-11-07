@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: rogarana
 ms.component: common
-ms.openlocfilehash: 32881f815a714e355adf05c07a3cf114933f3fe9
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: f865768e6ebfd9e01de1bd7e69c1224b66f2ea5e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39531102"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51231785"
 ---
 # <a name="microsoft-azure-storage-performance-and-scalability-checklist"></a>Controlelijst voor prestaties en schaalbaarheid van Microsoft Azure Storage
 ## <a name="overview"></a>Overzicht
@@ -90,7 +90,7 @@ Elk van de Azure Storage-services heeft schaalbaarheidsdoelen voor capaciteit (G
 * [Berichten per seconde](#subheading39)  
 
 #### <a name="sub1bandwidth"></a>Schaalbaarheidsdoel bandbreedte voor alle Services
-Op het moment van schrijven zijn de bandbreedte-doelen in de Verenigde Staten voor een account voor geografisch redundante opslag (GRS) 10 Gigabit per seconde (Gbps) voor inkomend (gegevens verzonden naar het opslagaccount) en 20 Gbps voor uitgaande gegevens (gegevens verzonden van het opslagaccount). Voor een account met lokaal redundante opslag (LRS), de limieten zijn hogere: 20 Gbps voor inkomend verkeer en 30 Gbps voor uitgaand verkeer.  Internationale bandbreedtelimieten mogelijk lager en kunt u vinden op onze [schaalbaarheid doelen pagina](http://msdn.microsoft.com/library/azure/dn249410.aspx).  Zie voor meer informatie over de opties voor opslagredundantie, de koppelingen in [nuttige bronnen](#sub1useful) hieronder.  
+Op het moment van schrijven zijn de bandbreedte-doelen in de Verenigde Staten voor een account voor geografisch redundante opslag (GRS) 10 Gigabit per seconde (Gbps) voor inkomend (gegevens verzonden naar het opslagaccount) en 20 Gbps voor uitgaande gegevens (gegevens verzonden van het opslagaccount). Voor een account met lokaal redundante opslag (LRS), de limieten zijn hogere: 20 Gbps voor inkomend verkeer en 30 Gbps voor uitgaand verkeer.  Internationale bandbreedtelimieten mogelijk lager en kunt u vinden op onze [schaalbaarheid doelen pagina](https://msdn.microsoft.com/library/azure/dn249410.aspx).  Zie voor meer informatie over de opties voor opslagredundantie, de koppelingen in [nuttige bronnen](#sub1useful) hieronder.  
 
 #### <a name="what-to-do-when-approaching-a-scalability-target"></a>Wat te doen wanneer een schaalbaarheidsdoel nadert
 Als uw toepassing de prestatiedoelen voor een enkel opslagaccount nadert, Overweeg de overstap naar een van de volgende methoden:  
@@ -104,7 +104,7 @@ Als uw toepassing de prestatiedoelen voor een enkel opslagaccount nadert, Overwe
 De volgende koppelingen bieden aanvullende details op schaalbaarheidsdoelen:
 
 * Zie [Azure Storage Scalability and Performance Targets](storage-scalability-targets.md) voor informatie over schaalbaarheidsdoelen.
-* Zie [Azure Storage-replicatie](storage-redundancy.md) en de blogpublicatie [redundantieopties voor Azure-opslag en geografisch redundante opslag met leestoegang](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx) voor informatie over opties voor opslagredundantie.
+* Zie [Azure Storage-replicatie](storage-redundancy.md) en de blogpublicatie [redundantieopties voor Azure-opslag en geografisch redundante opslag met leestoegang](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx) voor informatie over opties voor opslagredundantie.
 * Voor actuele informatie over de prijzen voor Azure-services, Zie [Azure-prijzen](https://azure.microsoft.com/pricing/overview/).  
 
 ### <a name="subheading47"></a>Naamgevingsregels voor partities
@@ -149,7 +149,7 @@ Beide van deze technologieën kunt u onnodige belasting (en knelpunten) voorkome
 #### <a name="useful-resources"></a>Nuttige informatie
 Zie voor meer informatie over SAS [handtekeningen voor gedeelde toegang, deel 1: inzicht in het SAS-Model](../storage-dotnet-shared-access-signature-part-1.md).  
 
-Zie voor meer informatie over CORS [Cross-Origin Resource Sharing (CORS) ondersteuning voor de Azure Storage-Services](http://msdn.microsoft.com/library/azure/dn535601.aspx).  
+Zie voor meer informatie over CORS [Cross-Origin Resource Sharing (CORS) ondersteuning voor de Azure Storage-Services](https://msdn.microsoft.com/library/azure/dn535601.aspx).  
 
 ### <a name="caching"></a>Caching
 #### <a name="subheading7"></a>Ophalen van gegevens
@@ -159,7 +159,7 @@ In sommige gevallen kunt u bepalen dat uw toepassing wordt ervan uitgegaan dat d
 
 Configuratie, opzoeken en andere gegevens die altijd worden gebruikt door de toepassing zijn goede kandidaten voor opslaan in cache.  
 
-Zie voor een voorbeeld van hoe u aan de eigenschappen van een blob voor het detecteren van de datum van laatste wijziging met behulp van .NET [instellen en ophalen van eigenschappen en metagegevens](../blobs/storage-properties-metadata.md). Zie voor meer informatie over voorwaardelijke downloads [voorwaardelijk vernieuwen van een lokale kopie van een Blob](http://msdn.microsoft.com/library/azure/dd179371.aspx).  
+Zie voor een voorbeeld van hoe u aan de eigenschappen van een blob voor het detecteren van de datum van laatste wijziging met behulp van .NET [instellen en ophalen van eigenschappen en metagegevens](../blobs/storage-properties-metadata.md). Zie voor meer informatie over voorwaardelijke downloads [voorwaardelijk vernieuwen van een lokale kopie van een Blob](https://msdn.microsoft.com/library/azure/dd179371.aspx).  
 
 #### <a name="subheading8"></a>Uploaden van gegevens in Batches
 In bepaalde situaties toepassing, kunt u statistische gegevens lokaal en vervolgens regelmatig uploaden in een batch in plaats van elke hoeveelheid gegevens direct uploaden. Bijvoorbeeld, een webtoepassing ervoor kiezen om een logbestand van activiteiten: de toepassing kan de details van elke activiteit uploaden als dit als een Tabelentiteit gebeurt (hiervoor veel opslagbewerkingen) of het kan de details van computeractiviteit opslaan naar een lokale logboekbestand, en vervolgens regelmatig alle details van computeractiviteit als een bestand met scheidingstekens naar een blob uploaden. Als elke logboekvermelding 1KB groot is, kunt u duizenden in één 'Put Blob' transactie (u kunt een blob van 64MB in grootte in één transactie uploaden) uploaden. Natuurlijk, als de lokale computer voordat het uploaden vastloopt, wordt mogelijk verbroken sommige logboekgegevens: ontwikkelaar van de toepassing moet ontwerpen voor de mogelijkheid van client-apparaat of uploadfouten.  Als de activiteitsgegevens moeten worden gedownload voor timespans (niet slechts één activiteit), worden de blobs voorkeur boven tabellen.
@@ -178,7 +178,7 @@ U moet de limiet voor verbindingen voor het openen van alle verbindingen instell
 
 Zie de die taal documentatie om te bepalen hoe de verbindingslimiet instellen voor andere programmeertalen.  
 
-Zie voor meer informatie het blogbericht [Web Services: gelijktijdige verbindingen](http://blogs.msdn.com/b/darrenj/archive/2005/03/07/386655.aspx).  
+Zie voor meer informatie het blogbericht [Web Services: gelijktijdige verbindingen](https://blogs.msdn.com/b/darrenj/archive/2005/03/07/386655.aspx).  
 
 #### <a name="subheading10"></a>ThreadPool Min Threads te verhogen als synchrone code met asynchrone taken
 Deze code wordt de thread pool min-threads te verhogen:  
@@ -187,12 +187,12 @@ Deze code wordt de thread pool min-threads te verhogen:
 ThreadPool.SetMinThreads(100,100); //(Determine the right number for your application)  
 ```
 
-Zie voor meer informatie, [ThreadPool.SetMinThreads methode](http://msdn.microsoft.com/library/system.threading.threadpool.setminthreads%28v=vs.110%29.aspx).  
+Zie voor meer informatie, [ThreadPool.SetMinThreads methode](https://msdn.microsoft.com/library/system.threading.threadpool.setminthreads%28v=vs.110%29.aspx).  
 
 #### <a name="subheading11"></a>Profiteer van .NET 4.5 garbagecollection
 Gebruik .NET 4.5 of hoger voor de clienttoepassing om te profiteren van verbeterde prestaties in server garbagecollection.
 
-Zie voor meer informatie het artikel [een overzicht van de prestatieverbeteringen in .NET 4.5](http://msdn.microsoft.com/magazine/hh882452.aspx).  
+Zie voor meer informatie het artikel [een overzicht van de prestatieverbeteringen in .NET 4.5](https://msdn.microsoft.com/magazine/hh882452.aspx).  
 
 ### <a name="subheading12"></a>Niet-gebonden parallelle uitvoering
 Hoewel parallelle uitvoering ideaal voor prestaties zijn kan, Wees voorzichtig met het gebruik van niet-gebonden parallelle uitvoering (geen limiet voor het aantal threads en/of parallelle aanvragen) om te uploaden of downloaden van gegevens, met behulp van meerdere werknemers toegang tot meerdere partities (containers, wachtrijen, of Tabelpartities) in hetzelfde opslagaccount of voor toegang tot meerdere items in dezelfde partitie. Als de parallelle uitvoering niet-gebonden is, uw toepassing kan groter zijn dan het clientapparaat mogelijkheden of schaalbaarheid van het opslagaccount dat is gericht op wat resulteert in langere latentietijden en beperking.  
@@ -210,7 +210,7 @@ Houd er rekening mee dat fouten in de basisnetwerkverbinding kunnen opnieuw word
 De clientbibliotheken zich bewust zijn van welke fouten probeer het opnieuw te kunnen zijn en welke niet. Echter, als u uw eigen code op basis van de storage REST-API, houd er rekening mee er zijn enkele fouten die u moet niet opnieuw proberen: bijvoorbeeld 400 (foute aanvraag) antwoord geeft aan dat de clienttoepassing een aanvraag kan niet worden verwerkt omdat deze niet verzonden een verwachte indeling. Opnieuw verzenden van deze aanvraag wordt verwijderd, hetzelfde antwoord telkens, dus er geen punt is in het opnieuw proberen. Als u uw eigen code op basis van de storage REST-API schrijft, worden op de hoogte van de betekenis van de foutcodes en de juiste manier voor het opnieuw proberen (of uitschakelen) voor elk van deze.  
 
 #### <a name="useful-resources"></a>Nuttige informatie
-Zie voor meer informatie over foutcodes voor opslag, [Status en foutcodes](http://msdn.microsoft.com/library/azure/dd179382.aspx) op de website van Microsoft Azure.  
+Zie voor meer informatie over foutcodes voor opslag, [Status en foutcodes](https://msdn.microsoft.com/library/azure/dd179382.aspx) op de website van Microsoft Azure.  
 
 ## <a name="blobs"></a>Blobs
 Naast de bewezen procedures voor het [alle Services](#allservices) eerder is beschreven, de volgende beproefde procedures name van toepassing op de blob-service.  
@@ -236,7 +236,7 @@ Een van die afwegingen, is echter dat bij het kopiëren tussen opslagaccounts, e
 
 Houd er rekening mee dat snel exemplaren binnen hetzelfde opslagaccount zelf in het algemeen zijn voltooid.  
 
-Zie voor meer informatie, [kopiëren van de Blob](http://msdn.microsoft.com/library/azure/dd894037.aspx).  
+Zie voor meer informatie, [kopiëren van de Blob](https://msdn.microsoft.com/library/azure/dd894037.aspx).  
 
 #### <a name="subheading18"></a>AzCopy gebruiken
 Het Azure Storage-team heeft een opdrachtregelprogramma 'AzCopy' die is bedoeld om u te helpen bij bulksgewijs overbrengen van veel blobs naar, van, en voor opslagaccounts.  Dit hulpprogramma is geoptimaliseerd voor dit scenario en kan maar liefst maximale overdrachtssnelheid.  Het gebruik ervan wordt aangemoedigd voor bulksgewijs uploaden, downloaden en kopiëren scenario's. Zie voor meer informatie over deze en downloaden, [gegevensoverdracht met het AzCopy-opdrachtregelprogramma](storage-use-azcopy.md).  
@@ -266,7 +266,7 @@ Om u te veel blobs zijn snel uploaden, blobs parallel te uploaden. Dit is snelle
 ### <a name="subheading23"></a>Het juiste type blob kiezen
 Azure Storage ondersteunt twee typen blob: *pagina* blobs en *blok* blobs. Uw keuze van het blobtype heeft invloed op de prestaties en schaalbaarheid van uw oplossing voor een bepaalde gebruiksscenario. Blok-blobs zijn geschikt als u wilt uploaden van grote hoeveelheden gegevens efficiënt: bijvoorbeeld mogelijk een clienttoepassing foto's of video uploaden naar blob-opslag. Pagina-blobs geschikt als de toepassing nodig heeft om uit te voeren van willekeurige schrijfbewerkingen op de gegevens zijn: bijvoorbeeld Azure-VHD's worden opgeslagen als pagina-blobs.  
 
-Zie voor meer informatie, [blok-Blobs, toevoeg-Blobs en pagina-Blobs](http://msdn.microsoft.com/library/azure/ee691964.aspx).  
+Zie voor meer informatie, [blok-Blobs, toevoeg-Blobs en pagina-Blobs](https://msdn.microsoft.com/library/azure/ee691964.aspx).  
 
 ## <a name="tables"></a>Tabellen
 Naast de bewezen procedures voor het [alle Services](#allservices) eerder is beschreven, de volgende beproefde procedures name van toepassing op de table-service.  
@@ -286,12 +286,12 @@ Deze sectie vindt u enkele snelle configuratie-instellingen die u gebruiken kunt
 #### <a name="subheading25"></a>JSON gebruiken
 Vanaf versie van de service storage 2013-08-15, ondersteunt de table-service het gebruik van JSON in plaats van de AtomPub op basis van een XML-indeling voor het overbrengen van gegevens in een tabel. Dit nettoladingen met minder dan 75% kan verlagen en kan de prestaties van uw toepassing aanzienlijk verbeteren.
 
-Zie voor meer informatie het bericht [Microsoft Azure Tables: Inleiding tot JSON](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/05/windows-azure-tables-introducing-json.aspx) en [indeling nettolading voor servicebewerkingen tabel](http://msdn.microsoft.com/library/azure/dn535600.aspx).
+Zie voor meer informatie het bericht [Microsoft Azure Tables: Inleiding tot JSON](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/05/windows-azure-tables-introducing-json.aspx) en [indeling nettolading voor servicebewerkingen tabel](https://msdn.microsoft.com/library/azure/dn535600.aspx).
 
 #### <a name="subheading26"></a>Nagle uitschakelen
 Van Nagle algoritme wordt breed geïmplementeerd via TCP/IP-netwerken als ter verbetering van netwerkprestaties. Het is echter niet optimaal zijn in alle gevallen (zoals zeer interactieve omgevingen). Van Nagle-algoritme heeft een nadelige invloed op de prestaties van aanvragen voor de tabel en wachtrij-services voor Azure Storage, en moet u dit indien mogelijk uitschakelen.  
 
-Zie voor meer informatie onze blogbericht [van Nagle algoritme is niet beschrijvende voor kleine aanvragen](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/06/25/nagle-s-algorithm-is-not-friendly-towards-small-requests.aspx), waarin wordt uitgelegd waarom van Nagle algoritme slecht communiceert met de tabel en wachtrij aanvragen en laat zien hoe u deze in uw client uitschakelen de toepassing.  
+Zie voor meer informatie onze blogbericht [van Nagle algoritme is niet beschrijvende voor kleine aanvragen](https://blogs.msdn.com/b/windowsazurestorage/archive/2010/06/25/nagle-s-algorithm-is-not-friendly-towards-small-requests.aspx), waarin wordt uitgelegd waarom van Nagle algoritme slecht communiceert met de tabel en wachtrij aanvragen en laat zien hoe u deze in uw client uitschakelen de toepassing.  
 
 ### <a name="schema"></a>Schema
 Is de grootste één factor die van invloed is op de prestaties van de table-service het vertegenwoordigen en uw gegevens op te vragen. Hoewel elke toepassing verschilt, is deze sectie geeft een overzicht enkele algemene bewezen procedures die betrekking hebben op:  
@@ -320,7 +320,7 @@ Het patroon 'Alleen toevoegen' is een waar alle (of bijna alle) van het verkeer 
 ##### <a name="subheading29"></a>Gegevens van veel verkeer
 Als uw partitieschema in een enkele partitie waaraan alleen gegevens die veel meer dan andere partities worden gebruikt resulteert, ziet u mogelijk ook als beperking dat partitie het schaalbaarheidsdoel voor een enkele partitie nadert.  Is het beter om ervoor te zorgen dat uw partitieschema resulteert in geen enkele partitie nadert de prestatiedoelen.  
 
-#### <a name="querying"></a>Uitvoeren van query 's
+#### <a name="querying"></a>Uitvoeren van query's
 Deze sectie beschrijft bewezen procedures voor het uitvoeren van query's de table-service.  
 
 ##### <a name="subheading30"></a>Querybereik

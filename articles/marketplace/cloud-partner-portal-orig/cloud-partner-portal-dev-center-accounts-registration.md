@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: bdcd1d0cc9f9979d898410180d364716b344d641
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 8bfd4ca6a9bdac999653fa9448bf7e754e9e6180
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48809920"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51254465"
 ---
 <a name="create-a-microsoft-developer-account"></a>Een Microsoft Developer-account maken
 ====================================
@@ -133,7 +133,7 @@ Het Microsoft Developer Center wordt gebruikt om de bedrijfsgegevens op één ke
 
    ![Betaling registratie](./media/cloud-partner-portal-create-dev-center-registration/imgRegisterCo_09.png)
 
-10. Gegevens over uw account en Bevestig dat alles juist is. Lees en accepteer de voorwaarden en bepalingen van de [Microsoft Azure Marketplace-overeenkomst voor uitgevers](http://go.microsoft.com/fwlink/?LinkID=699560). Schakel het selectievakje in om aan te geven u hebt gelezen en akkoord gaat met deze voorwaarden.
+10. Gegevens over uw account en Bevestig dat alles juist is. Lees en accepteer de voorwaarden en bepalingen van de [Microsoft Azure Marketplace-overeenkomst voor uitgevers](https://go.microsoft.com/fwlink/?LinkID=699560). Schakel het selectievakje in om aan te geven u hebt gelezen en akkoord gaat met deze voorwaarden.
 
 11. Selecteer **voltooien** Bevestig uw inschrijving. Een bericht wordt verzonden naar uw e-mailadres.
 

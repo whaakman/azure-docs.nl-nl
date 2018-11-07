@@ -10,19 +10,19 @@ ms.component: content-moderator
 ms.topic: reference
 ms.date: 06/25/2017
 ms.author: sajagtap
-ms.openlocfilehash: f065310e3afeaf95af602e513421da6770c9583f
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: ecc22b097c14fc7597d8ee0e31f9691098a2211d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47222401"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51229744"
 ---
 # <a name="content-moderator-api-reference"></a>Referentie voor de Content Moderator-API
 
 U aan de slag met Azure Content Moderator API's in de volgende manieren: (Zie ook [referenties beheren](review-tool-user-guide/credentials.md).)
 
 - In de Azure-portal [abonneren op de Content Moderator-API's](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator).
-- Zich aanmelden voor de [Content Moderator-controlehulpprogramma](http://contentmoderator.cognitive.microsoft.com/). Zie [snelstartgids](quick-start.md).
+- Zich aanmelden voor de [Content Moderator-controlehulpprogramma](https://contentmoderator.cognitive.microsoft.com/). Zie [snelstartgids](quick-start.md).
 
 ## <a name="moderation-apis"></a>Beheer-API's
 

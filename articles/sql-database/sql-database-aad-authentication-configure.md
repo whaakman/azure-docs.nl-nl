@@ -12,12 +12,12 @@ ms.author: mireks
 ms.reviewer: vanto, carlrab
 manager: craigg
 ms.date: 10/05/2018
-ms.openlocfilehash: e0cc8759de6e204ec419053a70d263e21ca0dcf6
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 75108853929ea514a6b8660388d71736e74013e0
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48868629"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51234728"
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql"></a>Configureren en beheren van Azure Active Directory-verificatie met behulp van SQL
 
@@ -202,7 +202,7 @@ Zie voor meer informatie over de CLI-opdrachten, [SQL - az sql](https://docs.mic
 Op alle clientcomputers waarvan uw toepassingen of gebruikers verbinding maken met Azure SQL Database of Azure SQL Data Warehouse met behulp van Azure AD-identiteiten, moet u de volgende software installeren:
 
 - .NET framework 4.6 of hoger uit [ https://msdn.microsoft.com/library/5a4x27ek.aspx ](https://msdn.microsoft.com/library/5a4x27ek.aspx).
-- Azure Active Directory-Verificatiebibliotheek voor SQL Server (**ADALSQL. DLL-bestand**) is beschikbaar in meerdere talen (x86 en amd64) uit het Downloadcentrum op [Microsoft Active Directory-Verificatiebibliotheek voor Microsoft SQL Server](http://www.microsoft.com/download/details.aspx?id=48742).
+- Azure Active Directory-Verificatiebibliotheek voor SQL Server (**ADALSQL. DLL-bestand**) is beschikbaar in meerdere talen (x86 en amd64) uit het Downloadcentrum op [Microsoft Active Directory-Verificatiebibliotheek voor Microsoft SQL Server](https://www.microsoft.com/download/details.aspx?id=48742).
 
 U kunt voldoen aan deze voorwaarden voldoet:
 
@@ -249,14 +249,14 @@ CREATE USER [appName] FROM EXTERNAL PROVIDER;
 > [!TIP]
 > U kan niet rechtstreeks een gebruiker uit een Azure Active Directory dan de Azure Active Directory die is gekoppeld aan uw Azure-abonnement maken. Leden van andere Active Directory's die geïmporteerd gebruikers in de bijbehorende Active Directory zijn (ook wel externe gebruikers) kunnen echter worden toegevoegd aan een Active Directory-groep in de Active Directory-tenant. Als u een ingesloten databasegebruiker voor die AD-groep maakt, kunnen de gebruikers van de externe Active Directory toegang tot SQL-Database.
 
-Voor meer informatie over het maken van die database-gebruikers op basis van Azure Active Directory-identiteiten, Zie [CREATE USER (Transact-SQL)](http://msdn.microsoft.com/library/ms173463.aspx).
+Voor meer informatie over het maken van die database-gebruikers op basis van Azure Active Directory-identiteiten, Zie [CREATE USER (Transact-SQL)](https://msdn.microsoft.com/library/ms173463.aspx).
 
 > [!NOTE]
 > Verwijderen van de Azure Active Directory-beheerder voor Azure SQL-server wordt voorkomen dat een gebruiker van Azure AD-verificatie verbinding te maken met de server. Indien nodig, onbruikbaar Azure AD-gebruikers kunnen handmatig worden verwijderd door de beheerder van een SQL-Database.
 > [!NOTE]
 > Als u ontvangt een **verbinding is een time-out**, moet u instellen de `TransparentNetworkIPResolution` parameter van de verbindingsreeks op false. Zie voor meer informatie, [time-out verbindingsprobleem met .NET Framework 4.6.1 - TransparentNetworkIPResolution](https://blogs.msdn.microsoft.com/dataaccesstechnologies/2016/05/07/connection-timeout-issue-with-net-framework-4-6-1-transparentnetworkipresolution/).
 
-Wanneer u een gebruiker van een database maakt, krijgt die gebruiker de **CONNECT** machtiging en verbinding kunt maken aan die database als een lid van de **openbare** rol. In eerste instantie alleen machtigingen voor het beschikbaar voor de gebruiker zijn geen machtigingen verleend aan de **openbare** rol of machtigingen verleend aan de Azure AD-groepen dat ze lid van zijn. Wanneer u een Azure AD-gebruiker op basis van die database inricht, kunt u de gebruiker aanvullende machtigingen verlenen, dezelfde manier als u machtigingen aan een ander type gebruiker verlenen. Normaal gesproken machtigingen te verlenen, en gebruikers toevoegen aan rollen. Zie voor meer informatie, [Database-Engine machtiging Basics](http://social.technet.microsoft.com/wiki/contents/articles/4433.database-engine-permission-basics.aspx). Zie voor meer informatie over de speciale SQL-Database-functies, [Databases en aanmeldingen in Azure SQL Database beheren](sql-database-manage-logins.md).
+Wanneer u een gebruiker van een database maakt, krijgt die gebruiker de **CONNECT** machtiging en verbinding kunt maken aan die database als een lid van de **openbare** rol. In eerste instantie alleen machtigingen voor het beschikbaar voor de gebruiker zijn geen machtigingen verleend aan de **openbare** rol of machtigingen verleend aan de Azure AD-groepen dat ze lid van zijn. Wanneer u een Azure AD-gebruiker op basis van die database inricht, kunt u de gebruiker aanvullende machtigingen verlenen, dezelfde manier als u machtigingen aan een ander type gebruiker verlenen. Normaal gesproken machtigingen te verlenen, en gebruikers toevoegen aan rollen. Zie voor meer informatie, [Database-Engine machtiging Basics](https://social.technet.microsoft.com/wiki/contents/articles/4433.database-engine-permission-basics.aspx). Zie voor meer informatie over de speciale SQL-Database-functies, [Databases en aanmeldingen in Azure SQL Database beheren](sql-database-manage-logins.md).
 Een federatief domein-gebruikersaccount dat is geïmporteerd in een beheerd domein als een externe gebruiker moet de identiteit van de beheerde domein gebruiken.
 
 > [!NOTE]
@@ -354,7 +354,7 @@ Zie voor meer informatie, [SQL Server Security-Blog](https://blogs.msdn.microsof
 
 ### <a name="sqlcmd"></a>sqlcmd
 
-De volgende instructies, verbinding maken met behulp van versie 13.1 van sqlcmd, die beschikbaar via is de [Downloadcentrum](http://go.microsoft.com/fwlink/?LinkID=825643).
+De volgende instructies, verbinding maken met behulp van versie 13.1 van sqlcmd, die beschikbaar via is de [Downloadcentrum](https://go.microsoft.com/fwlink/?LinkID=825643).
 
 ```cmd
 sqlcmd -S Target_DB_or_DW.testsrv.database.windows.net  -G  

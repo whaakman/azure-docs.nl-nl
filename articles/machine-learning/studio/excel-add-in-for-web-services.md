@@ -13,19 +13,19 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 2/1/2018
-ms.openlocfilehash: 8fade171095ff6a9f4c10925089452d8925e11fe
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 0d0274b88a15688106f185ede87f576443bdadb0
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47095805"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51229352"
 ---
 # <a name="excel-add-in-for-azure-machine-learning-studio-web-services"></a>Excel-invoegtoepassing voor Azure Machine Learning Studio-webservices
 Excel maakt het eenvoudig om aan te roepen webservices rechtstreeks zonder code te schrijven.
 
 ## <a name="steps-to-use-an-existing-web-service-in-the-workbook"></a>Stappen voor het gebruik van een bestaande webservice in de werkmap
 
-1. Open de [Excel-voorbeeldbestand](http://aka.ms/amlexcel-sample-2), die de Excel-invoegtoepassing en de gegevens over passagiers op ramp met de Titanic bevat. 
+1. Open de [Excel-voorbeeldbestand](https://aka.ms/amlexcel-sample-2), die de Excel-invoegtoepassing en de gegevens over passagiers op ramp met de Titanic bevat. 
  
 > [!NOTE]
 > U ziet de lijst met de webservices die betrekking hebben op het bestand en onder een selectievakje voor "automatisch"voorspellen. Als u inschakelt auto-voorspellen de voorspellingen van **alle** uw services worden bijgewerkt wanneer er een wijziging is in de invoer. Als dit selectievakje is uitgeschakeld wordt u voor vernieuwing te klikken op 'Alle voorspellen' hebben. Voor het inschakelen van automatische-voorspellen op een service level gaat u naar stap 6.
@@ -85,7 +85,7 @@ Haal de API-sleutel voor uw webservice. Wanneer u deze actie is afhankelijk van 
 ## <a name="sharing-your-workbook"></a>Delen van uw werkmap
 Als u uw werkmap opslaat, wordt ook de API/primaire sleutel voor de web-services die u hebt toegevoegd opgeslagen. Dit betekent dat u moet de werkmap alleen delen met personen die u vertrouwt.
 
-Vragen in de volgende sectie van de opmerking of op onze [forum](http://go.microsoft.com/fwlink/?LinkID=403669&clcid=0x409).
+Vragen in de volgende sectie van de opmerking of op onze [forum](https://go.microsoft.com/fwlink/?LinkID=403669&clcid=0x409).
 
 [01]: ./media/excel-add-in-for-web-services/image1.png
 [02]: ./media/excel-add-in-for-web-services/image2.png

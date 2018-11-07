@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/07/2018
 ms.author: sethm
 ms.reviewer: jeffgo
-ms.openlocfilehash: a50f91d5cbbc0eac7080437c96144014dad651ee
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: d520a33fd6729f4a9d4778cfdb8d3380c9ac09b0
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44161762"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51237839"
 ---
 # <a name="use-azure-resource-manager-templates-in-azure-stack"></a>Azure Resource Manager-sjablonen maken in Azure Stack
 
@@ -30,7 +30,7 @@ U kunt Azure Resource Manager-sjablonen gebruiken om te implementeren en inricht
 
 Deze sjablonen kunnen worden geïmplementeerd met de Microsoft Azure Stack-portal, PowerShell, de opdrachtregel en Visual Studio.
 
-De volgende Quick Start-sjablonen zijn beschikbaar op [GitHub](http://aka.ms/azurestackgithub):
+De volgende Quick Start-sjablonen zijn beschikbaar op [GitHub](https://aka.ms/azurestackgithub):
 
 ## <a name="deploy-sharepoint-server-non-high-availability-deployment"></a>Implementatie van SharePoint-Server (implementatie met hoge beschikbaarheid)
 

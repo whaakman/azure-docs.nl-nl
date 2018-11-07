@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2017
 ms.author: fboylu
-ms.openlocfilehash: 04e0a694d3e8d978a21417e728feabf32f85299f
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 28900c39e658a2a8c66b2ded6f2d70b50bf17e80
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394592"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51231512"
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-predictive-maintenance-in-aerospace-and-other-businesses"></a>Technische handleiding aan de sjabloon Cortana Intelligence-oplossing voor predictief onderhoud in de lucht-en ruimtevaart en andere bedrijven
 
@@ -39,7 +39,7 @@ De doelstellingen van dit artikel zijn:
 - Laten zien hoe de oplossingssjabloon wijzigen.  
 
 > [!TIP]
-> U kunt downloaden en afdrukken een [PDF-versie van dit artikel](http://download.microsoft.com/download/F/4/D/F4D7D208-D080-42ED-8813-6030D23329E9/cortana-analytics-technical-guide-predictive-maintenance.pdf).
+> U kunt downloaden en afdrukken een [PDF-versie van dit artikel](https://download.microsoft.com/download/F/4/D/F4D7D208-D080-42ED-8813-6030D23329E9/cortana-analytics-technical-guide-predictive-maintenance.pdf).
 > 
 > 
 
@@ -47,7 +47,7 @@ De doelstellingen van dit artikel zijn:
 ![Predictief onderhoud-architectuur](./media/cortana-analytics-technical-guide-predictive-maintenance/predictive-maintenance-architecture.png)
 
 Wanneer u de oplossing implementeert, wordt Azure-services binnen de Cortana Analytics Suite (met inbegrip van de Event Hub, Stream Analytics, HDInsight, Machine Learning en Data Factory) geactiveerd. Het architectuurdiagram ziet hoe de Voorspellend onderhoud voor luchtvaart oplossingssjabloon is samengesteld. U kunt deze services in Azure portal door erop te klikken in het oplossingsdiagram van de sjabloon die zijn gemaakt met de implementatie van de oplossing (met uitzondering van HDInsight, dat is ingericht op aanvraag wanneer de gerelateerde pipeline-activiteiten zijn vereist om uit te voeren en onderzoeken verwijderd daarna).
-Download een [volledige versie van het diagram](http://download.microsoft.com/download/1/9/B/19B815F0-D1B0-4F67-AED3-A40544225FD1/ca-topologies-maintenance-prediction.png).
+Download een [volledige versie van het diagram](https://download.microsoft.com/download/1/9/B/19B815F0-D1B0-4F67-AED3-A40544225FD1/ca-topologies-maintenance-prediction.png).
 
 De volgende secties beschrijven de onderdelen van de oplossing.
 
@@ -67,7 +67,7 @@ De [Azure Event Hub](https://azure.microsoft.com/services/event-hubs/) -service 
 Gebruik [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) voor bijna realtime analyses over de invoerstroom uit de [Azure Event Hub](#azure-event-hub) service. Vervolgens publiceert u de resultaten naar een [Power BI](https://powerbi.microsoft.com) dashboard en archiveren van alle ruwe inkomende gebeurtenissen naar de [Azure Storage](https://azure.microsoft.com/services/storage/) service later worden verwerkt door de [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/)service.
 
 ### <a name="hdinsight-custom-aggregation"></a>Aangepaste HDInsight-aggregatie
-Voer [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) scripts (gecoördineerd door Azure Data Factory) met behulp van HDInsight voor het leveren van aggregaties van de ruwe gebeurtenissen gearchiveerd met behulp van de Azure Stream Analytics-service.
+Voer [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) scripts (gecoördineerd door Azure Data Factory) met behulp van HDInsight voor het leveren van aggregaties van de ruwe gebeurtenissen gearchiveerd met behulp van de Azure Stream Analytics-service.
 
 ### <a name="azure-machine-learning"></a>Azure Machine Learning
 Voorspellingen doen op de resterende levensduur (RUL) van een specifieke vliegtuigmotoren met behulp van de ingevoerde gegevens met [Azure Machine Learning-Service](https://azure.microsoft.com/services/machine-learning/) (gecoördineerd door Azure Data Factory). 
@@ -122,22 +122,22 @@ Deze sectie wordt beschreven voor de benodigde [pijplijnen en activiteiten](../.
 
 ![Azure Data Factory](./media/cortana-analytics-technical-guide-predictive-maintenance/azure-data-factory.png)
 
-Twee van de pijplijnen van deze factory bevat [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) scripts die worden gebruikt voor het partitioneren en de gegevens worden geaggregeerd. Wanneer die u hebt genoteerd, de scripts bevinden zich in de [Azure Storage](https://azure.microsoft.com/services/storage/) account is gemaakt tijdens de installatie. De locatie is: maintenancesascript\\\\script\\\\hive\\ \\ (of https://[Your oplossing name].blob.core.windows.net/maintenancesascript).
+Twee van de pijplijnen van deze factory bevat [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) scripts die worden gebruikt voor het partitioneren en de gegevens worden geaggregeerd. Wanneer die u hebt genoteerd, de scripts bevinden zich in de [Azure Storage](https://azure.microsoft.com/services/storage/) account is gemaakt tijdens de installatie. De locatie is: maintenancesascript\\\\script\\\\hive\\ \\ (of https://[Your oplossing name].blob.core.windows.net/maintenancesascript).
 
-Vergelijkbaar met [Azure Stream Analytics](#azure-stream-analytics-1) query's, de [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) scripts impliciete kennis over de indeling van de binnenkomende hebben en moet worden gewijzigd op basis van de gegevensindeling van uw.
+Vergelijkbaar met [Azure Stream Analytics](#azure-stream-analytics-1) query's, de [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) scripts impliciete kennis over de indeling van de binnenkomende hebben en moet worden gewijzigd op basis van de gegevensindeling van uw.
 
 #### <a name="aggregateflightinfopipeline"></a>*AggregateFlightInfoPipeline*
-Dit [pijplijn](../../data-factory/concepts-pipelines-activities.md) bevat één activiteit: een [HDInsightHive](../../data-factory/transform-data-using-hadoop-hive.md) activiteit met behulp van een [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) die wordt uitgevoerd een [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) script voor het partitioneren van de gegevens in plaatsen [Azure Storage](https://azure.microsoft.com/services/storage/) tijdens de [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) taak.
+Dit [pijplijn](../../data-factory/concepts-pipelines-activities.md) bevat één activiteit: een [HDInsightHive](../../data-factory/transform-data-using-hadoop-hive.md) activiteit met behulp van een [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) die wordt uitgevoerd een [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) script voor het partitioneren van de gegevens in plaatsen [Azure Storage](https://azure.microsoft.com/services/storage/) tijdens de [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) taak.
 
-De [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) script voor deze taak partitioneren is ***AggregateFlightInfo.hql***
+De [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) script voor deze taak partitioneren is ***AggregateFlightInfo.hql***
 
 #### <a name="mlscoringpipeline"></a>*MLScoringPipeline*
 Dit [pijplijn](../../data-factory/concepts-pipelines-activities.md) bevat verschillende activiteiten waarvan eindresultaat de beoordeelde voorspellingen is van de [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) experiment die zijn gekoppeld aan deze oplossingssjabloon.
 
 Activiteiten die zijn:
 
-* [HDInsightHive](../../data-factory/transform-data-using-hadoop-hive.md) activiteit met behulp van een [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) die wordt uitgevoerd een [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) script aggregatiefuncties en functie-engineering die nodig zijn voor de [Azure-Machine Learning](https://azure.microsoft.com/services/machine-learning/) experimenteren.
-  De [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) script voor deze taak partitioneren is ***PrepareMLInput.hql***.
+* [HDInsightHive](../../data-factory/transform-data-using-hadoop-hive.md) activiteit met behulp van een [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) die wordt uitgevoerd een [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) script aggregatiefuncties en functie-engineering die nodig zijn voor de [Azure-Machine Learning](https://azure.microsoft.com/services/machine-learning/) experimenteren.
+  De [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) script voor deze taak partitioneren is ***PrepareMLInput.hql***.
 * [Kopie](https://msdn.microsoft.com/library/azure/dn835035.aspx) activiteit die wordt verplaatst van de resultaten van de [HDInsightHive](../../data-factory/transform-data-using-hadoop-hive.md) activiteit naar een enkele [Azure Storage](https://azure.microsoft.com/services/storage/) blob toegankelijk is voor de [AzureMLBatchScoring](https://msdn.microsoft.com/library/azure/dn894009.aspx) de activiteit.
 * [AzureMLBatchScoring](https://msdn.microsoft.com/library/azure/dn894009.aspx) activiteit aanroepen de [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) experiment met resultaten in een enkel plaatsen [Azure Storage](https://azure.microsoft.com/services/storage/) blob.
 
@@ -241,5 +241,5 @@ Zorg ervoor dat u de gegevensgenerator stopt wanneer u de oplossing niet actief 
 De volgende twee hulpprogramma's zijn beschikbaar waarmee u meer informatie over de totale kosten die betrokken zijn bij het uitvoeren van de Voorspellend onderhoud voor luchtvaart oplossingssjabloon in uw abonnement:
 
 * [Microsoft Azure hulpprogramma Cost Estimator ontwikkeld (online)](https://azure.microsoft.com/pricing/calculator/)
-* [Microsoft Azure-hulpprogramma voor Cost Estimator ontwikkeld (desktop)](http://www.microsoft.com/download/details.aspx?id=43376)
+* [Microsoft Azure-hulpprogramma voor Cost Estimator ontwikkeld (desktop)](https://www.microsoft.com/download/details.aspx?id=43376)
 

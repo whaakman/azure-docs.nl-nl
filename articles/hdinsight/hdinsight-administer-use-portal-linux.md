@@ -1,33 +1,33 @@
 ---
-title: Beheer Hadoop-clusters in HDInsight met behulp van Azure portal
+title: Apache Hadoop-clusters in HDInsight met behulp van Azure portal beheren
 description: Leer hoe u HDInsight-clusters met behulp van de Azure portal maken en beheren.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/18/2018
-ms.author: jasonh
-ms.openlocfilehash: b00c88e526bf72f51df0d2a3d6a87fbd5bc1f991
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.author: hrasheed
+ms.openlocfilehash: b96712c3a920a70e121f0a72954680ced2ba96ff
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46991977"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51252289"
 ---
-# <a name="manage-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Hadoop-clusters in HDInsight beheren met behulp van de Azure-portal
+# <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Apache Hadoop-clusters in HDInsight beheren met behulp van de Azure-portal
 
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
-Met behulp van de [Azure-portal][azure-portal], kunt u Hadoop-clusters in Azure HDInsight beheren. Gebruik de tabselector boven voor informatie over het beheren van Hadoop-clusters in HDInsight met andere hulpprogramma's.
+Met behulp van de [Azure-portal][azure-portal], kunt u een Apache Hadoop-clusters in Azure HDInsight beheren. Gebruik de tabselector boven voor informatie over het beheren van Hadoop-clusters in HDInsight met andere hulpprogramma's.
 
 **Vereiste**
 
 Als u wilt volgen de stappen in dit artikel, moet u een **Azure-abonnement**. Zie [Gratis proefversie van Azure ophalen](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 ## <a name="open-the-azure-portal"></a>De Azure-portal openen
-1. Aanmelden bij [ https://portal.azure.com ](https://portal.azure.com).
+1. Meld u aan bij [https://portal.azure.com](https://portal.azure.com).
 2. Nadat u de portal opent, kunt u het volgende doen:
 
    * Klik op **een resource maken** in het menu links om een nieuwe cluster te maken:
@@ -69,7 +69,7 @@ Wanneer u een HDInsight-cluster maakt, moet u een Azure-abonnement opgeven. Het 
 Als u de fout NoRegisteredProviderFound of de fout MissingSubscriptionRegistration ontvangt, raadpleegt u [veelvoorkomende problemen oplossen Azure-implementatie met Azure Resource Manager](../azure-resource-manager/resource-manager-common-deployment-errors.md).
 
 ## <a name="list-and-show-clusters"></a>Clusters tonen en vermelden
-1. Aanmelden bij [ https://portal.azure.com ](https://portal.azure.com).
+1. Meld u aan bij [https://portal.azure.com](https://portal.azure.com).
 2. Klik op **HDInsight-Clusters** in het menu links om de bestaande clusters weer te geven. Als er geen **HDInsight-Clusters**, klikt u op **alle services** eerste.
 3. Klik op de naam van het cluster. Als de clusterlijst te lang is, kunt u filteren boven aan de pagina.
 4. Klik op een cluster op basis van de lijst om te zien van de overzichtspagina:
@@ -81,29 +81,32 @@ Als u de fout NoRegisteredProviderFound of de fout MissingSubscriptionRegistrati
     * **Verplaats**: het cluster wordt verplaatst naar een andere resourcegroep of een ander abonnement.
     * **Verwijder**: Hiermee verwijdert u het cluster.
 
-    **Linkermenu:**
+**Linkermenu:**
     * **Activiteitenlogboeken**: activiteitenlogboeken weergeven en query's uitvoeren.
     * **Toegangsbeheer (IAM)**: roltoewijzingen gebruiken.  Zie [roltoewijzingen gebruiken voor het beheren van toegang tot de resources van uw Azure-abonnement](../role-based-access-control/role-assignments-portal.md).
     * **Tags**: Hiermee kunt u instellen van sleutel/waarde-paren voor het definiëren van een aangepaste taxonomie van uw cloud-services. Bijvoorbeeld, u kunt maken met een sleutel met de naam **project**, en vervolgens een overeenkomende waarde gebruiken voor alle services die zijn gekoppeld aan een bepaald project.
-    * **Problemen vaststellen en oplossen**: informatie over probleemoplossing weergeven.
-    * **Hiermee vergrendelt u**: toevoegen van een vergrendeling om te voorkomen dat het cluster dat wordt gewijzigd of verwijderd.
-    * **Automatiseringsscript**: weergeven en exporteren van de Azure Resource Manager-sjabloon voor het cluster. U kunt op dit moment alleen het afhankelijke Azure storage-account exporteren. Zie [maken Linux gebaseerde Hadoop-clusters in HDInsight met behulp van Azure Resource Manager-sjablonen](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
+* **Problemen vaststellen en oplossen**: informatie over probleemoplossing weergeven.
     * **Snel aan de slag**: geeft informatie weer die u helpt aan de slag met HDInsight.
     * **Hulpprogramma's voor HDInsight**: Help-informatie voor HDInsight gerelateerde hulpprogramma's.
-    * **Abonnementsgebruik Core**: de gebruikte en beschikbare cores voor uw abonnement worden weergegeven.
-    * **Cluster schalen**: vergroten en verkleinen het aantal worker-clusterknooppunten. Zie[schalen van clusters](hdinsight-administer-use-management-portal.md#scale-clusters).
+**Instellingen**
+* **Clustergrootte**: selectievakje, vergroten en verkleinen het aantal worker-clusterknooppunten. Zie[schalen van clusters](hdinsight-administer-use-management-portal.md#scale-clusters).
+    * **De quotalimieten**: de gebruikte en beschikbare cores voor uw abonnement worden weergegeven.
     * **SSH en clusteraanmelding**: ziet u de instructies voor het verbinden met het cluster via Secure Shell (SSH)-verbinding. Zie [SSH gebruiken met HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) voor meer informatie.
-    * **HDInsight-Partner**: de huidige HDInsight-Partner toevoegen of verwijderen.
-    * **Externe Metastores**: de Hive- en Oozie metastores weergeven. De metastores kan alleen worden geconfigureerd tijdens het maken van het cluster. Zie [gebruik Hive/Oozie-metastore](hdinsight-hadoop-provision-linux-clusters.md#use-hiveoozie-metastore).
-    * **Scriptacties**: uitvoeren Bash-scripts in het cluster. Zie [aanpassen Linux gebaseerde HDInsight-clusters met Script Action](hdinsight-hadoop-customize-cluster-linux.md).
-    * **Toepassingen**: toevoegen/verwijderen HDInsight-toepassingen.  Zie [aangepaste HDInsight-toepassingen installeren](hdinsight-apps-install-custom-applications.md).
-    * **Bewaking**: het cluster in Azure Log Analytics controleren.
-    * **Eigenschappen**: de clustereigenschappen te bekijken.
+* **Data Lake Store Gen1**: configureren van toegang tot Data Lake Store Gen1.  Zie [Quick Start: clusters instellen in HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
     * **Storage-accounts**: de storage-accounts en de sleutels weergeven. De storage-accounts zijn geconfigureerd tijdens het maken van het cluster.
-    * **Data Lake Store-toegang**: configureren van toegang tot Data Lake worden opgeslagen.  Zie [Quick Start: clusters instellen in HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
+    * **Toepassingen**: toevoegen/verwijderen HDInsight-toepassingen.  Zie [aangepaste HDInsight-toepassingen installeren](hdinsight-apps-install-custom-applications.md).
+    * **Scriptacties**: uitvoeren Bash-scripts in het cluster. Zie [aanpassen Linux gebaseerde HDInsight-clusters met Script Action](hdinsight-hadoop-customize-cluster-linux.md).
+    * **HDInsight-Partner**: de huidige HDInsight-Partner toevoegen of verwijderen.
+    * **Eigenschappen**: de clustereigenschappen te bekijken.
+* **Hiermee vergrendelt u**: toevoegen van een vergrendeling om te voorkomen dat het cluster dat wordt gewijzigd of verwijderd.
+    * **Automatiseringsscript**: weergeven en exporteren van de Azure Resource Manager-sjabloon voor het cluster. U kunt op dit moment alleen het afhankelijke Azure storage-account exporteren. Zie [maken Linux gebaseerde Hadoop-clusters in HDInsight met behulp van Azure Resource Manager-sjablonen](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
+**Controle**
+* **Alters**: de waarschuwingen en acties beheren.
+    * **Metrische gegevens**: Controleer de metrische gegevens voor het cluster in Azure Log Analytics.
+* **Diagnose-instellingen**: instellingen op waar om op te slaan van de metrische gegevens van diagnose **ondersteuning en probleemoplossing**
     * **Resourcestatus**: Zie [overzicht van Azure resource health](../service-health/resource-health-overview.md).
     * **Nieuwe ondersteuningsaanvraag**: kunt u een ondersteuningsticket maken met Microsoft ondersteuning.
-    
+
 6. Klik op **eigenschappen**:
 
     De eigenschappen zijn:
@@ -144,6 +147,15 @@ Het cluster schalen functie kunt u het aantal worker-knooppunten die worden gebr
 > Alleen clusters met HDInsight versie 3.1.3 of hoger worden ondersteund. Als u de versie van het cluster niet zeker weet, kunt u de eigenschappenpagina controleren.  Zie [clusters tonen en vermelden](#list-and-show-clusters).
 >
 >
+**Voor het schalen van clusters**
+
+1. Aanmelden bij de [Portal][azure-portal].
+2. Klik op **HDInsight-Clusters** in het menu links.
+3. Klik op het cluster dat u wilt schalen.
+3. Klik op **Cluster schalen**.
+4. Voer **nummer van de Worker-knooppunten**. De limiet voor het aantal clusterknooppunten verschilt tussen Azure-abonnementen. U kunt contact opnemen met ondersteuning voor facturering om de limiet te verhogen.  De kostengegevens weerspiegelt de wijzigingen die u hebt aangebracht in het aantal knooppunten.
+
+    ![HDInsight hadoop hbase, storm spark schaal](./media/hdinsight-administer-use-portal-linux/hdinsight-portal-scale-cluster.png)
 
 De gevolgen van het wijzigen van het aantal gegevensknooppunten varieert voor elk type cluster die door HDInsight worden ondersteund:
 
@@ -188,15 +200,6 @@ De gevolgen van het wijzigen van het aantal gegevensknooppunten varieert voor el
     $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
     ```
 
-**Voor het schalen van clusters**
-
-1. Aanmelden bij de [Portal][azure-portal].
-2. Klik op **HDInsight-Clusters** in het menu links.
-3. Klik op het cluster dat u wilt schalen.
-3. Klik op **Cluster schalen**.
-4. Voer **nummer van de Worker-knooppunten**. De limiet voor het aantal clusterknooppunten verschilt tussen Azure-abonnementen. U kunt contact opnemen met ondersteuning voor facturering om de limiet te verhogen.  De kostengegevens weerspiegelt de wijzigingen die u hebt aangebracht in het aantal knooppunten.
-
-    ![HDInsight hadoop hbase, storm spark schaal](./media/hdinsight-administer-use-portal-linux/hdinsight-portal-scale-cluster.png)
 
 ## <a name="pauseshut-down-clusters"></a>Onderbreken/clusters afsluiten
 
@@ -339,7 +342,7 @@ Zie [beheren HDInsight-clusters met behulp van de Ambari-Webgebruikersinterface]
 ## <a name="browse-files"></a>Door bestanden bladeren
 Met behulp van de Azure-portal, kunt u de inhoud van de standaardcontainer bladeren.
 
-1. Aanmelden bij [ https://portal.azure.com ](https://portal.azure.com).
+1. Meld u aan bij [https://portal.azure.com](https://portal.azure.com).
 2. Klik op **HDInsight-Clusters** in het menu links om de bestaande clusters weer te geven.
 3. Klik op de naam van het cluster. Als de clusterlijst te lang is, kunt u filteren boven aan de pagina.
 4. Klik op **Opslagaccounts** in het linkermenu van het cluster.

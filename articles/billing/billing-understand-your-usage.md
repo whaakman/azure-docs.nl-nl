@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/31/2017
 ms.author: cwatson
-ms.openlocfilehash: a037f4837be65eb7eac76977a3728c7357e09463
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 83891e1abdb58b4fdae65cee3689195b8f35df12
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47394425"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230458"
 ---
 # <a name="understand-terms-on-your-microsoft-azure-detailed-usage-charges"></a>Meer informatie over de Microsoft Azure gedetailleerde gebruikskosten 
 
@@ -77,7 +77,7 @@ De sectie dagelijks gebruik van het CSV-bestand bevat informatie over het gebrui
 |Verbruikte service |De Azure-platform-service die u gebruikt |
 |Resourcegroep |De resourcegroep waarin de geïmplementeerde meter wordt uitgevoerd in. <br/><br/>Zie voor meer informatie [Overzicht van Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview). |
 |Exemplaar-id | De id voor de meter. <br/><br/> De id bevat de naam die u voor de meter opgeeft wanneer deze is gemaakt. Het is de naam van de resource of de volledig gekwalificeerde Resource-ID. Zie voor meer informatie, [Azure Resource Manager API](https://docs.microsoft.com/rest/api/resources/resources). |
-|Tags | Code die u aan de meter toewijst. Gebruik tags facturering om records te groeperen.<br/><br/>U kunt bijvoorbeeld tags gebruiken om kosten te verdelen van de afdeling die gebruikmaakt van de meter. Services die ondersteuning bieden voor uitgeven van tags zijn virtuele machines, opslag- en netwerkservices die zijn ingericht met behulp van de [Azure Resource Manager API](https://docs.microsoft.com/rest/api/resources/resources). Zie voor meer informatie, [ordenen van uw Azure-resources met tags](http://azure.microsoft.com/updates/organize-your-azure-resources-with-tags/). |
+|Tags | Code die u aan de meter toewijst. Gebruik tags facturering om records te groeperen.<br/><br/>U kunt bijvoorbeeld tags gebruiken om kosten te verdelen van de afdeling die gebruikmaakt van de meter. Services die ondersteuning bieden voor uitgeven van tags zijn virtuele machines, opslag- en netwerkservices die zijn ingericht met behulp van de [Azure Resource Manager API](https://docs.microsoft.com/rest/api/resources/resources). Zie voor meer informatie, [ordenen van uw Azure-resources met tags](https://azure.microsoft.com/updates/organize-your-azure-resources-with-tags/). |
 |Aanvullende informatie |Servicespecifieke metagegevens. Bijvoorbeeld, een type installatiekopie voor een virtuele machine. |
 |Service-informatie 1 |De naam van het project die op uw abonnement deel uitmaakt van de service |
 |Service-informatie 2 |Ouder veld met optionele servicespecifieke metagegevens |

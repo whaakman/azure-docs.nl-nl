@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 03/06/2018
 ms.author: danlep
-ms.openlocfilehash: 7bb49e48f3777304aa6f40cee40e0b7147994201
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 52338cc21e46b544c2abb79cd7094615c837a2e8
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49345234"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51233776"
 ---
 # <a name="set-up-a-windows-rdma-cluster-with-hpc-pack-to-run-mpi-applications"></a>Een Windows RDMA-cluster met HPC Pack instellen voor het uitvoeren van MPI-toepassingen
 Instellen van een Windows RDMA-cluster in Azure met [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) en [RDMA-compatibele HPC VM-grootten](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#rdma-capable-instances) parallelle Message Passing Interface (MPI)-toepassingen uit te voeren. Bij het instellen van RDMA-compatibele, op basis van Windows Server-knooppunten in een HPC Pack-cluster, wordt MPI-toepassingen efficiënt communiceren via een lage latentie en hoge doorvoer netwerk in Azure die is gebaseerd op technologie van remote direct memory access (RDMA).
@@ -51,19 +51,19 @@ Hieronder vindt u overwegingen en stappen om uit te breiden naar RDMA-compatibel
     De HPC Pack-installatie downloaden uit de [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=49922). Zie voor vereisten en instructies voor het voorbereiden voor de implementatie van een Azure burst [stap over op Azure Worker Instances met Microsoft HPC Pack](https://technet.microsoft.com/library/gg481749.aspx).
 2. **Een beheercertificaat in het Azure-abonnement configureren**
    
-    Configureer een certificaat voor het beveiligen van de verbinding tussen het hoofdknooppunt en Azure. Zie voor opties en -procedures, [scenario's voor het configureren van het Azure-Beheercertificaat voor HPC Pack](http://technet.microsoft.com/library/gg481759.aspx). HPC Pack installeert voor testimplementaties, een standaard Microsoft HPC Azure-Beheercertificaat u snel naar uw Azure-abonnement uploaden kunt.
+    Configureer een certificaat voor het beveiligen van de verbinding tussen het hoofdknooppunt en Azure. Zie voor opties en -procedures, [scenario's voor het configureren van het Azure-Beheercertificaat voor HPC Pack](https://technet.microsoft.com/library/gg481759.aspx). HPC Pack installeert voor testimplementaties, een standaard Microsoft HPC Azure-Beheercertificaat u snel naar uw Azure-abonnement uploaden kunt.
 3. **Een nieuwe cloudservice en een opslagaccount maken**
    
     De Azure portal gebruiken voor een cloudservice (klassiek) en een opslagaccount (klassiek) te maken voor de implementatie. Deze resources maken in een regio waar de H-serie, A8 en A9-grootte die u wilt gebruiken beschikbaar is. Zie [Azure-producten per regio](https://azure.microsoft.com/regions/services/).
 
 4. **Een Azure-knooppunt-sjabloon maken**
    
-    Gebruik de Wizard knooppunt in HPC Cluster Manager maken. Zie voor stappen [maken van een sjabloon voor Azure-knooppunt](http://technet.microsoft.com/library/gg481758.aspx#BKMK_Templ) in "Stappen om te implementeren Azure knooppunten met Microsoft HPC Pack".
+    Gebruik de Wizard knooppunt in HPC Cluster Manager maken. Zie voor stappen [maken van een sjabloon voor Azure-knooppunt](https://technet.microsoft.com/library/gg481758.aspx#BKMK_Templ) in "Stappen om te implementeren Azure knooppunten met Microsoft HPC Pack".
    
     Het is raadzaam een handmatige beschikbaarheid-beleid configureren in de sjabloon voor de eerste tests.
 5. **Knooppunten toevoegen aan het cluster**
    
-    Gebruik de Wizard knooppunten toevoegen in HPC Cluster Manager. Zie voor meer informatie, [Azure knooppunten toevoegen aan de Windows HPC-Cluster](http://technet.microsoft.com/library/gg481758.aspx#BKMK_Add).
+    Gebruik de Wizard knooppunten toevoegen in HPC Cluster Manager. Zie voor meer informatie, [Azure knooppunten toevoegen aan de Windows HPC-Cluster](https://technet.microsoft.com/library/gg481758.aspx#BKMK_Add).
    
     Wanneer de grootte van de knooppunten op te geven, selecteert u een van de RDMA-compatibele exemplaargrootten.
    
@@ -76,7 +76,7 @@ Hieronder vindt u overwegingen en stappen om uit te breiden naar RDMA-compatibel
     Selecteer de knooppunten en gebruik de **Start** actie in HPC Cluster Manager. Bij het inrichten is voltooid, selecteert u de knooppunten en gebruik de **Online brengen** actie in HPC Cluster Manager. De knooppunten zijn gereed voor het uitvoeren van taken.
 7. **Verzenden van taken naar het cluster**
    
-   Gebruik hulpprogramma's voor verzending van HPC Pack-taak cluster taken uit te voeren. Zie [Microsoft HPC Pack: Taakbeheer](http://technet.microsoft.com/library/jj899585.aspx).
+   Gebruik hulpprogramma's voor verzending van HPC Pack-taak cluster taken uit te voeren. Zie [Microsoft HPC Pack: Taakbeheer](https://technet.microsoft.com/library/jj899585.aspx).
 8. **Stoppen (inrichting) de knooppunten**
    
    Wanneer u klaar bent met taken die worden uitgevoerd, offline zetten van de knooppunten en gebruik de **stoppen** actie in HPC Cluster Manager.

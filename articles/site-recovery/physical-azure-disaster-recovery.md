@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 10/28/2018
 ms.author: raynew
-ms.openlocfilehash: 13ce074f8ec22bc80ee5c56f2127b3a5b4d788bf
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 4f4a61ad0c1b1fcab4773dcc16c5e22053c4158d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50215392"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230883"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>Herstel na noodgevallen naar Azure voor on-premises fysieke servers instellen
 
@@ -23,7 +23,7 @@ Deze zelfstudie leert u hoe u herstel na noodgevallen van on-premises fysieke Wi
 
 > [!div class="checklist"]
 > * Azure en on-premises vereisten instellen
-> * Maakt een Recovery Services-kluis voor Site Recovery 
+> * Een Recovery Services-kluis maken voor Site Recovery 
 > * Instellen van de bron en doel van de replicatie-omgevingen
 > * Een replicatiebeleid maken
 > * Replicatie inschakelen voor een server
@@ -51,7 +51,7 @@ Voordat u begint, houd er rekening mee dat:
 
 ### <a name="set-up-an-azure-account"></a>Een Azure-account instellen
 
-Ophalen van een Microsoft [Azure-account](http://azure.microsoft.com/).
+Ophalen van een Microsoft [Azure-account](https://azure.microsoft.com/).
 
 - U kunt beginnen met een [gratis proefversie](https://azure.microsoft.com/pricing/free-trial/).
 - Meer informatie over [prijzen voor Site Recovery](site-recovery-faq.md#pricing), en ontvang [prijsinformatie](https://azure.microsoft.com/pricing/details/site-recovery/).
@@ -157,10 +157,10 @@ Selecteer en controleer doelbronnen.
 
 ## <a name="create-a-replication-policy"></a>Een replicatiebeleid maken
 
-1. Klik op om een nieuw replicatiebeleid **infrastructuur voor Site Recovery** > **replicatiebeleid** > **+ replicatiebeleid**.
-2. In **replicatiebeleid maken**, een beleidsnaam opgeven.
-3. In **RPO-drempelwaarde**, de objective (RPO) herstelpuntlimiet opgeven. Deze waarde geeft aan hoe vaak gegevens herstelpunten worden gemaakt. Wanneer de continue replicatie deze limiet overschrijdt, wordt er een waarschuwing gegenereerd.
-4. In **bewaarperiode voor herstelpunten**, opgeven hoe lang (in uren) de bewaarperiode voor elk herstelpunt. Gerepliceerde VM’s kunnen worden hersteld naar een willekeurig punt in een tijdvenster. Bewaarperiode van 24 uur maximaal wordt ondersteund voor computers die worden gerepliceerd naar premium storage en 72 uur voor standard-opslag.
+1. Klik op **Infrastructuur voor Site Recovery** > **Herstelbeleid** > **+Herstelbeleid** om een nieuw replicatiebeleid te maken.
+2. Geef in **Replicatiebeleid maken** een beleidsnaam op.
+3. Geef in **RPO-drempelwaarde** de limiet van de Recovery Point Objective (RPO) op. Deze waarde geeft aan hoe vaak gegevens herstelpunten worden gemaakt. Wanneer de continue replicatie deze limiet overschrijdt, wordt er een waarschuwing gegenereerd.
+4. Geef in **Bewaarperiode van het herstelpunt** op hoelang (in uren) de bewaarperiode voor elk herstelpunt is. Gerepliceerde VM’s kunnen worden hersteld naar een willekeurig punt in een tijdvenster. Voor computers die worden gerepliceerd naar Premium Storage, wordt een bewaarperiode van maximaal 24 uur ondersteund, en 72 uur voor computers die naar Standard Storage worden gerepliceerd.
 5. In **frequentie App-consistente momentopname**, opgeven hoe vaak (in minuten) de herstelpunten met toepassingsconsistente momentopnamen worden gemaakt. Klik op **OK** om het beleid te maken.
 
     ![Beleid voor replicatie](./media/physical-azure-disaster-recovery/replication-policy.png)

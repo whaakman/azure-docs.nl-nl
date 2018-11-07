@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 03/03/2017
 ms.author: rogarana
 ms.component: common
-ms.openlocfilehash: a99375ae961e9239e5e8ea86db8b1b9b002b10c8
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 0f237b4d742c0c7de1e836e2b9d83502cfe1a30d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39526960"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230983"
 ---
 # <a name="storage-analytics"></a>Storage Analytics
 
@@ -169,7 +169,7 @@ De volgende acties uitgevoerd door Storage Analytics zijn factureerbaar:
 Als u een beleid voor Gegevensretentie hebt geconfigureerd, u betaalt geen voor verwijdertransacties wanneer Storage Analytics oude gegevens voor logboekregistratie en metrische gegevens worden verwijderd. Verwijdertransacties van een client zijn echter factureerbaar. Zie voor meer informatie over het bewaarbeleid [instellen van een bewaarbeleid voor gegevens van Storage Analytics](https://msdn.microsoft.com/library/azure/hh343263.aspx).
 
 ### <a name="understanding-billable-requests"></a>Understanding factureerbare aanvragen
-Elk verzoek aan de opslag van een serviceaccount is factureerbare of niet-factureerbaar. Opslaganalyse-logboeken elke afzonderlijke aanvraag aan een service, inclusief een statusbericht dat geeft aan hoe de aanvraag is verwerkt. Op deze manier in Storage Analytics metrische gegevens voor zowel een service en de API-bewerkingen van die service, inclusief de percentages en de telling van bepaalde statusberichten worden opgeslagen. Samen vormen kunt deze functies u analyseren van uw factureerbare aanvragen, breng verbeteringen aan op uw toepassing en onderzoeken van problemen met aanvragen voor uw services. Zie voor meer informatie over facturering [inzicht in Azure Storage Billing - bandbreedte, transacties en capaciteit](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx).
+Elk verzoek aan de opslag van een serviceaccount is factureerbare of niet-factureerbaar. Opslaganalyse-logboeken elke afzonderlijke aanvraag aan een service, inclusief een statusbericht dat geeft aan hoe de aanvraag is verwerkt. Op deze manier in Storage Analytics metrische gegevens voor zowel een service en de API-bewerkingen van die service, inclusief de percentages en de telling van bepaalde statusberichten worden opgeslagen. Samen vormen kunt deze functies u analyseren van uw factureerbare aanvragen, breng verbeteringen aan op uw toepassing en onderzoeken van problemen met aanvragen voor uw services. Zie voor meer informatie over facturering [inzicht in Azure Storage Billing - bandbreedte, transacties en capaciteit](https://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx).
 
 Wanneer Storage Analytics-gegevens bekijkt, kunt u de tabellen in de [Storage Analytics geregistreerde bewerkingen en statusberichten](https://msdn.microsoft.com/library/azure/hh343260.aspx) onderwerp om te bepalen welke aanvragen zijn factureerbaar. U kunt vervolgens uw logboeken en metrische gegevens om de statusberichten om te zien als u in de rekening zijn gebracht voor een bepaalde aanvraag te vergelijken. U kunt ook de tabellen in het vorige onderwerp gebruiken voor het onderzoeken van de beschikbaarheid van een storage-service of een afzonderlijke API-bewerking.
 

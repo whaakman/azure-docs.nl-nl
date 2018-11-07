@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2018
 ms.author: gokuma
-ms.openlocfilehash: 37a30055e567b27f4e215dac162642d4447a8e49
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 1b293ee8f0f83d727cd647cdcdcc424b4db7e5d3
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44298198"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240882"
 ---
 # <a name="provision-the-windows-data-science-virtual-machine-on-azure"></a>Inrichten van de Windows Data Science Virtual Machine van Azure
 De Microsoft Data Science Virtual Machine (DSVM) is een installatiekopie van Windows Azure virtuele machine (VM). Het is vooraf geïnstalleerd en geconfigureerd met verschillende hulpprogramma's die worden gebruikt voor gegevensanalyse en machine learning. De volgende hulpprogramma's zijn opgenomen:
@@ -186,7 +186,7 @@ Verschillende Azure-hulpprogramma's zijn geïnstalleerd op de virtuele machine:
 * **Microsoft Azure PowerShell** is een hulpprogramma dat wordt gebruikt voor het beheren van uw Azure-resources in de PowerShell-scripttaal. Het ook geïnstalleerd op de virtuele machine. 
 
 ### <a name="power-bi"></a>Power BI
-De **Power BI Desktop** is geïnstalleerd voor informatie over het bouwen van dashboards en visualisaties. Met dit hulpprogramma kunt gegevens ophalen uit verschillende bronnen, uw dashboards en rapporten maken en deze publiceren naar de cloud. Zie voor meer informatie de [Power BI](http://powerbi.microsoft.com) site. U kunt de Power BI desktop vinden op de **Start** menu. 
+De **Power BI Desktop** is geïnstalleerd voor informatie over het bouwen van dashboards en visualisaties. Met dit hulpprogramma kunt gegevens ophalen uit verschillende bronnen, uw dashboards en rapporten maken en deze publiceren naar de cloud. Zie voor meer informatie de [Power BI](https://powerbi.microsoft.com) site. U kunt de Power BI desktop vinden op de **Start** menu. 
 
 > [!NOTE]
 > U hebt een Microsoft Office 365-account voor toegang tot Power BI nodig. 
@@ -205,7 +205,7 @@ Elke gebruiker van de workbench moet een eenmalige actie ondernemen. Dubbelklik 
 De [Microsoft Web Platform Installer](https://www.microsoft.com/web/downloads/platform.aspx) wordt gebruikt om te zoeken en downloaden van andere Microsoft-ontwikkelhulpprogramma's. Er is ook een snelkoppeling naar het hulpprogramma dat is opgegeven op het bureaublad van Microsoft Data Science Virtual Machine.  
 
 ## <a name="important-directories-on-the-vm"></a>Belangrijke mappen op de virtuele machine
-| Item | Map |
+| Item | Directory |
 | --- | --- |
 | Jupyter-Notebook server-configuraties | C:\ProgramData\jupyter |
 | Jupyter-Notebook voorbeelden basismap | c:\dsvm\notebooks en c:\users\<gebruikersnaam > \notebooks |
@@ -228,7 +228,7 @@ De [Microsoft Web Platform Installer](https://www.microsoft.com/web/downloads/pl
 * De hulpprogramma's op de virtuele machine voor datatechnologie verkennen door het selecteren van de **Start** menu.
 * Meer informatie over Azure Machine Learning-Services en Workbench door naar het product te [snelstartgidsen en zelfstudies pagina](../service/index.yml). 
 * Navigeer naar **C:\Program Files\Microsoft\ML Server\R_SERVER\library\RevoScaleR\demoScripts** voor voorbeelden die gebruikmaken van de bibliotheek RevoScaleR in R die ondersteuning biedt voor gegevensanalyse op de grote schaal.  
-* Lees het artikel [tien dingen die u in de Data science Virtual Machine doen kunt](http://aka.ms/dsvmtenthings).
+* Lees het artikel [tien dingen die u in de Data science Virtual Machine doen kunt](https://aka.ms/dsvmtenthings).
 * Informatie over het bouwen van analytische oplossingen voor end-to-end systematisch met behulp van de [Team Data Science Process](../team-data-science-process/index.yml).
 * Ga naar de [Azure AI Gallery](http://gallery.cortanaintelligence.com) services voor machine learning en data analytics-voorbeelden die gebruikmaken van Azure Machine Learning en gerelateerde gegevens in Azure. We hebben ook een pictogram voor deze galerie beschikbaar op de **Start** menu en het bureaublad van de virtuele machine.
 

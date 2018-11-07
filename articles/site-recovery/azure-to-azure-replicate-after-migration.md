@@ -7,14 +7,14 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: ponatara
-ms.openlocfilehash: 3e26e40c26a27fdab1ec565dd4112b40acdd17d2
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: ae212bebf5a34e9a80f49a750735137d7a8814be
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39213364"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232661"
 ---
-# <a name="set-up-disaster-recovery-for-azure-vms-after-migration-to-azure"></a>Instellen van herstel na noodgevallen voor Azure-VM's na de migratie naar Azure 
+# <a name="set-up-disaster-recovery-for-azure-vms-after-migration-to-azure"></a>Herstel na noodgevallen instellen voor virtuele Azure-machines na migratie naar Azure 
 
 
 In dit artikel gebruiken nadat u hebt [on-premises machines hebt gemigreerd naar Azure VM's](tutorial-migrate-on-premises-to-azure.md) met behulp van de [Site Recovery](site-recovery-overview.md) service. In dit artikel helpt u bij het voorbereiden van de Azure VM's voor het instellen van herstel na noodgevallen naar een secundaire Azure-regio, met behulp van Site Recovery.
@@ -32,7 +32,7 @@ Voordat u herstel na noodgevallen instelt, zorg ervoor dat de migratie is voltoo
 De Azure [VM-agent](../virtual-machines/extensions/agent-windows.md) moet worden geïnstalleerd op de virtuele machine, zodat de Site Recovery kan worden gerepliceerd.
 
 
-1. Als u wilt de VM-agent installeren op virtuele machines waarop Windows wordt uitgevoerd, downloaden en uitvoeren van de [installatieprogramma van agent](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). U moet beheerdersbevoegdheden op de virtuele machine om de installatie te voltooien.
+1. Als u wilt de VM-agent installeren op virtuele machines waarop Windows wordt uitgevoerd, downloaden en uitvoeren van de [installatieprogramma van agent](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). U moet beheerdersbevoegdheden op de virtuele machine om de installatie te voltooien.
 2. De VM-agent op virtuele machines waarop Linux wordt uitgevoerd, installeert u de meest recente [Linux-agent](../virtual-machines/extensions/agent-linux.md). U moet een administrator-bevoegdheden om de installatie te voltooien. We raden dat u installeren vanuit de opslagplaats van uw distributie. Wordt niet aanbevolen voor het installeren van de Linux-VM-agent rechtstreeks vanuit GitHub. 
 
 

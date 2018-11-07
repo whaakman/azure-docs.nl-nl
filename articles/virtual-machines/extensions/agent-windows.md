@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
-ms.openlocfilehash: d93fc81241053418ea2ff0576d50cbaefa0df9fb
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: bba03d8e62c481e9eb5cce8468a6a84f5e492d2f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49428552"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51253989"
 ---
 # <a name="azure-virtual-machine-agent-overview"></a>Overzicht van Azure Virtual Machine Agent
 De Microsoft Azure Virtual Machine Agent (VM-Agent) is een veilige, lichte proces waarmee tussenkomst van de virtuele machine (VM) met de Azure-Infrastructuurcontroller wordt beheerd. De VM-Agent heeft een primaire rol bij het inschakelen en uitvoeren van de virtuele machine van Azure-extensies. VM-extensies inschakelen na de implementatie-configuratie van virtuele machine, zoals het installeren en configureren van software. VM-extensies worden ook recovery functies zoals het opnieuw instellen van het beheerderswachtwoord van een virtuele machine inschakelen. Zonder de Azure VM-Agent kunnen geen VM-extensies worden uitgevoerd.
@@ -60,7 +60,7 @@ Een virtuele machine u de PA geïnstalleerd op de virtuele machine hebt wordt op
 Als u geen Agents zijn geïnstalleerd, kunt u sommige Azure-services, zoals Azure Backup of Azure-beveiliging niet gebruiken. Deze services moeten een extensie worden geïnstalleerd. Als u een virtuele machine zonder de WinGA hebt geïmplementeerd, kunt u de nieuwste versie van de agent later installeren.
 
 ### <a name="manual-installation"></a>Handmatige installatie
-De Windows-VM-agent kan handmatig worden geïnstalleerd met een Windows installer-pakket. Handmatige installatie kan nodig zijn bij het maken van een aangepaste VM-installatiekopie die is geïmplementeerd in Azure. De Windows VM-Agent handmatig installeren [downloaden van het VM-Agent-installatieprogramma](http://go.microsoft.com/fwlink/?LinkID=394789).
+De Windows-VM-agent kan handmatig worden geïnstalleerd met een Windows installer-pakket. Handmatige installatie kan nodig zijn bij het maken van een aangepaste VM-installatiekopie die is geïmplementeerd in Azure. De Windows VM-Agent handmatig installeren [downloaden van het VM-Agent-installatieprogramma](https://go.microsoft.com/fwlink/?LinkID=394789).
 
 De VM-Agent kan worden geïnstalleerd door te dubbelklikken op het Windows installer-bestand. Voor een installatie automatisch of zonder toezicht van de VM-agent, voer de volgende opdracht:
 

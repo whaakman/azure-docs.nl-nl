@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/16/2016
 ms.author: garye
-ms.openlocfilehash: 8ff5c52b324c95bb48de0f9bbb1011ede737efb0
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: e18e1fb3e97dd9f846ee71be4f0fbb66aeca3d88
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387658"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238859"
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-demand-forecast-in-energy"></a>Technische handleiding aan de sjabloon Cortana Intelligence-oplossing voor vraagprognose in energie
 ## <a name="overview"></a>**Overzicht**
@@ -47,7 +47,7 @@ De [Azure Event Hub](https://azure.microsoft.com/services/event-hubs/) -service 
 De [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) service wordt gebruikt voor bijna realtime analyses over de invoerstroom uit de [Azure Event Hub](#azure-event-hub) service en publiceren van resultaten op een [Power BI](https://powerbi.microsoft.com)dashboard, evenals het archiveren van alle ruwe inkomende gebeurtenissen naar de [Azure Storage](https://azure.microsoft.com/services/storage/) service later worden verwerkt door de [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/) service.
 
 ### <a name="hdinsight-custom-aggregation"></a>Aangepaste HDInsight-aggregatie
-De Azure HDInsight-service wordt gebruikt om uit te voeren [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) scripts (gecoördineerd door Azure Data Factory) voor het leveren van aggregaties van de ruwe gebeurtenissen die zijn gearchiveerd met behulp van de Azure Stream Analytics-service.
+De Azure HDInsight-service wordt gebruikt om uit te voeren [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) scripts (gecoördineerd door Azure Data Factory) voor het leveren van aggregaties van de ruwe gebeurtenissen die zijn gearchiveerd met behulp van de Azure Stream Analytics-service.
 
 ### <a name="azure-machine-learning"></a>Azure Machine Learning
 De [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) -service (gecoördineerd door Azure Data Factory) wordt gebruikt om te maken van prognoses op toekomstig energieverbruik van een bepaalde regio op basis van de ontvangen invoer.
@@ -102,14 +102,14 @@ Deze sectie wordt beschreven voor de benodigde [pijplijnen](data-factory/concept
 
 ![](media/cortana-analytics-technical-guide-demand-forecast/ADF2.png)
 
-Vijf van de pijplijnen van deze factory bevat [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) scripts die worden gebruikt voor het partitioneren en de gegevens worden geaggregeerd. Wanneer die u hebt genoteerd, de scripts bevinden zich in de [Azure Storage](https://azure.microsoft.com/services/storage/) account is gemaakt tijdens de installatie. De locatie is: demandforecasting\\\\script\\\\hive\\ \\ (of https://[Your oplossing name].blob.core.windows.net/demandforecasting).
+Vijf van de pijplijnen van deze factory bevat [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) scripts die worden gebruikt voor het partitioneren en de gegevens worden geaggregeerd. Wanneer die u hebt genoteerd, de scripts bevinden zich in de [Azure Storage](https://azure.microsoft.com/services/storage/) account is gemaakt tijdens de installatie. De locatie is: demandforecasting\\\\script\\\\hive\\ \\ (of https://[Your oplossing name].blob.core.windows.net/demandforecasting).
 
-Vergelijkbaar met de [Azure Stream Analytics](#azure-stream-analytics-1) query's, de [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) scripts impliciete kennis op over de indeling van de binnenkomende, deze query's zou moeten worden gewijzigd op basis van uw gegevens formatteren en [functie-engineering](machine-learning/team-data-science-process/create-features.md) vereisten.
+Vergelijkbaar met de [Azure Stream Analytics](#azure-stream-analytics-1) query's, de [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) scripts impliciete kennis op over de indeling van de binnenkomende, deze query's zou moeten worden gewijzigd op basis van uw gegevens formatteren en [functie-engineering](machine-learning/team-data-science-process/create-features.md) vereisten.
 
 #### <a name="aggregatedemanddatato1hrpipeline"></a>*AggregateDemandDataTo1HrPipeline*
-Dit [pijplijn](data-factory/concepts-pipelines-activities.md) bevat één activiteit: een [HDInsightHive](data-factory/transform-data-using-hadoop-hive.md) activiteit met behulp van een [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) die wordt uitgevoerd een [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) het script op geaggregeerde gestreamde in vraaggegevens elke 10 seconden in onderstation instellen op elk uur regioniveau en plaats in [Azure Storage](https://azure.microsoft.com/services/storage/) via de Azure Stream Analytics-taak.
+Dit [pijplijn](data-factory/concepts-pipelines-activities.md) bevat één activiteit: een [HDInsightHive](data-factory/transform-data-using-hadoop-hive.md) activiteit met behulp van een [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) die wordt uitgevoerd een [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) het script op geaggregeerde gestreamde in vraaggegevens elke 10 seconden in onderstation instellen op elk uur regioniveau en plaats in [Azure Storage](https://azure.microsoft.com/services/storage/) via de Azure Stream Analytics-taak.
 
-De [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) script voor deze taak partitioneren is ***AggregateDemandRegion1Hr.hql***
+De [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) script voor deze taak partitioneren is ***AggregateDemandRegion1Hr.hql***
 
 #### <a name="loadhistorydemanddatapipeline"></a>*LoadHistoryDemandDataPipeline*
 Dit [pijplijn](data-factory/concepts-pipelines-activities.md) bevat twee activiteiten:
@@ -117,7 +117,7 @@ Dit [pijplijn](data-factory/concepts-pipelines-activities.md) bevat twee activit
 * [HDInsightHive](data-factory/transform-data-using-hadoop-hive.md) activiteit met behulp van een [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) die een Hive-script voor het per uur gegevens van geschiedenis van aanvraag in onderstation instellen op elk uur regioniveau aggregeren en plaatsen in Azure Storage tijdens de Azure Stream wordt uitgevoerd Analytics-taak
 * [Kopie](https://msdn.microsoft.com/library/azure/dn835035.aspx) activiteit die de samengevoegde gegevens uit Azure Storage-blob verplaatst naar de Azure SQL-Database die is ingericht als onderdeel van de installatie van de sjabloon oplossing.
 
-De [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) voor deze taak is een script ***AggregateDemandHistoryRegion.hql***.
+De [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) voor deze taak is een script ***AggregateDemandHistoryRegion.hql***.
 
 #### <a name="mlscoringregionxpipeline"></a>*MLScoringRegionXPipeline*
 Deze [pijplijnen](data-factory/concepts-pipelines-activities.md) bevatten verschillende activiteiten en waarvan de beoordeelde voorspellingen op basis van de Azure Machine Learning-experiment die zijn gekoppeld aan deze oplossingssjabloon wordt. Ze zijn bijna identiek, behalve in elk van deze verwerkt alleen de andere regio, wordt die werd uitgevoerd door verschillende RegionID doorgegeven in de pijplijn ADF en het hive-script voor elke regio.  
@@ -231,7 +231,7 @@ Zorg ervoor dat u de gegevensgenerator stopt wanneer u de oplossing niet actief 
 De volgende twee hulpprogramma's zijn beschikbaar waarmee u meer informatie over de totale kosten die betrokken zijn bij het uitvoeren van de on-Demand prognose voor energie-oplossingssjabloon in uw abonnement:
 
 * [Microsoft Azure hulpprogramma Cost Estimator ontwikkeld (online)](https://azure.microsoft.com/pricing/calculator/)
-* [Microsoft Azure-hulpprogramma voor Cost Estimator ontwikkeld (desktop)](http://www.microsoft.com/download/details.aspx?id=43376)
+* [Microsoft Azure-hulpprogramma voor Cost Estimator ontwikkeld (desktop)](https://www.microsoft.com/download/details.aspx?id=43376)
 
 ## <a name="acknowledgements"></a>**Bevestigingen**
 In dit artikel is geschreven door gegevenswetenschapper Yijing Chen en software-engineer Qiu Min bij Microsoft.

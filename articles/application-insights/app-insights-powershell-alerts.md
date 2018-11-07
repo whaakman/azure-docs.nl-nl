@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/31/2016
 ms.author: mbullwin
-ms.openlocfilehash: e7e0f6747beea43b55ae1a20da44cde3c070cd89
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 678a31b8c07b21e4bb2c43b8e8bc286d66ee4bab
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47091369"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51233742"
 ---
 # <a name="use-powershell-to-set-alerts-in-application-insights"></a>PowerShell gebruiken om waarschuwingen in te stellen in Application Insights
 U kunt de configuratie van automatiseren [waarschuwingen](app-insights-alerts.md) in [Application Insights](app-insights-overview.md).
@@ -35,7 +35,7 @@ Als u PowerShell met uw Azure-abonnement voordat u dit nog niet hebt gebruikt:
 
 Installeer de Azure Powershell-module op de computer waar u de scripts uit te voeren.
 
-* Installeer [Microsoft Web Platform Installer (versie 5 of hoger)](http://www.microsoft.com/web/downloads/platform.aspx).
+* Installeer [Microsoft Web Platform Installer (versie 5 of hoger)](https://www.microsoft.com/web/downloads/platform.aspx).
 * Gebruik het Microsoft Azure Powershell installeren
 
 ## <a name="connect-to-azure"></a>Verbinding maken met Azure
@@ -118,7 +118,7 @@ Dezelfde regel kan worden gebruikt voor de metrische gegevens gerapporteerd met 
 | `performanceCounter.requests_per_sec.value` |Snelheid van aanvragen voor ASP.NET |Snelheid per seconde van alle aanvragen aan de toepassing vanaf ASP.NET. |
 | `remoteDependencyFailed.durationMetric.count` |Afhankelijkheidsfouten |Het aantal mislukte aanroepen van de server-toepassing naar externe bronnen. |
 | `request.duration` |Serverreactietijd |Tijd tussen de ontvangst van een HTTP-aanvraag en het voltooien van het verzenden van de reactie. |
-| `request.rate` |Aanvraagsnelheid |Snelheid per seconde van alle aanvragen aan de toepassing. |
+| `request.rate` |Aanvraagsnelheid |Snelheid van alle aanvragen naar de toepassing per seconde. |
 | `requestFailed.count` |Mislukte aanvragen |Aantal HTTP-aanvragen dat heeft geresulteerd in een responscode > = 400 |
 | `view.count` |Paginaweergaven |Het aantal aanvragen van clientgebruikers voor webpagina's. Synthetisch verkeer is gefilterd. |
 | {uw eigen aangepaste metrische naam} |{De naam van de meetwaarde} |De waarde van de metrische gegevens die zijn gerapporteerd door [TrackMetric](app-insights-api-custom-events-metrics.md#trackmetric) of in de [metingen parameter van de aanroep van een tracering](app-insights-api-custom-events-metrics.md#properties). |

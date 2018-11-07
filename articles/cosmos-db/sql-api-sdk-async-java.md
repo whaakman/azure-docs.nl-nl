@@ -8,14 +8,14 @@ ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 09/05/2018
-ms.author: sngun
-ms.openlocfilehash: 57172927011532af9b14fa7ff09d6aad9bac1e92
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.date: 11/02/2018
+ms.author: moderakh
+ms.openlocfilehash: 80beeda607c83bc2a583c140779766952efcc568
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50417596"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51252867"
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Async Java SDK voor SQL-API: releaseopmerkingen en resources
 > [!div class="op_single_selector"]
@@ -52,6 +52,15 @@ De SQL-SDK voor Java-API asynchrone wijkt af van de Java-SDK van de SQL-API door
 </table></br>
 
 ## <a name="release-notes"></a>Releaseopmerkingen
+
+### <a name="a-name221221"></a><a name="2.2.1"/>2.2.1
+* Een NFE opgelost in het pad voor schrijven probeer het opnieuw.
+* Eindpunt management, een bug NFE vast.
+* Kwetsbaar afhankelijkheden bijgewerkt ([github #68](https://github.com/Azure/azure-cosmosdb-java/issues/68)).
+* Ondersteuning toegevoegd voor Netty netwerk logboekregistratie voor het oplossen van problemen.
+
+### <a name="a-name220220"></a><a name="2.2.0"/>2.2.0
+* Er is ondersteuning toegevoegd voor meerdere regio's schrijven.
 
 ### <a name="a-name210210"></a><a name="2.1.0"/>2.1.0
 * Er is ondersteuning toegevoegd voor de Proxy.
@@ -110,6 +119,8 @@ Een aanvraag voor het Cosmos DB met behulp van een buiten gebruik gestelde SDK w
 
 | Versie | Releasedatum | Vervaldatum |
 | --- | --- | --- |
+| [2.2.1](#2.1.0) |2 november 2018|--- |
+| [2.2.0](#2.2.1) |22 september 2018|--- |
 | [2.1.0](#2.1.0) |5 september 2018|--- |
 | [2.0.1](#2.0.1) |16 augustus 2018|--- |
 | [2.0.0](#2.0.0) |20 juni 2018|--- |

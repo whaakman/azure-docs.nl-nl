@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 90d810916599db50249a3e2ec677046c5af42a09
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 7e43a32a415e58925bda5195b3943afca315f9be
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39005846"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238179"
 ---
 # <a name="what-is-the-cloud-service-model-and-how-do-i-package-it"></a>Wat is het servicemodel van Cloud en hoe ik een pakket?
 Een cloudservice is gemaakt op basis van drie onderdelen, de servicedefinitie *(.csdef)*, de configuratie van de service *(.cscfg)*, en een servicepakket *(.cspkg)*. Zowel de **ServiceDefinition.csdef** en **ServiceConfig.cscfg** bestanden zijn gebaseerd op XML en beschrijven de structuur van de cloudservice en hoe deze geconfigureerd, samen met de naam het model. De **ServicePackage.cspkg** is een zipbestand dat is gegenereerd op basis van de **ServiceDefinition.csdef** en bevat onder andere alle vereiste binaire bestanden op basis van afhankelijkheden. Azure maakt een cloudservice van zowel de **ServicePackage.cspkg** en de **ServiceConfig.cscfg**.
@@ -144,7 +144,7 @@ Het configuratiebestand van de service wordt niet geleverd met de toepassing, ma
 U kunt verwijzen naar de [configuratieschema Service](https://msdn.microsoft.com/library/azure/ee758710.aspx) voor een beter beeld van het XML-schema dat hier wordt gebruikt, maar hier volgt een korte uitleg van de elementen:
 
 **exemplaren**  
-Hiermee configureert u het aantal actieve instanties voor de rol. Om te voorkomen dat uw cloudservice mogelijk niet langer beschikbaar is tijdens upgrades, is het raadzaam dat u meer dan één exemplaar van uw web gerichte rollen implementeren. Meer dan één exemplaar implementeert, u voldoet aan de richtlijnen in de [Azure Compute-Service Level Agreement (SLA)](http://azure.microsoft.com/support/legal/sla/), die garandeert dat externe connectiviteit van 99,95% voor internetgerichte rollen wanneer twee of meer rolinstanties geïmplementeerd voor een service.
+Hiermee configureert u het aantal actieve instanties voor de rol. Om te voorkomen dat uw cloudservice mogelijk niet langer beschikbaar is tijdens upgrades, is het raadzaam dat u meer dan één exemplaar van uw web gerichte rollen implementeren. Meer dan één exemplaar implementeert, u voldoet aan de richtlijnen in de [Azure Compute-Service Level Agreement (SLA)](https://azure.microsoft.com/support/legal/sla/), die garandeert dat externe connectiviteit van 99,95% voor internetgerichte rollen wanneer twee of meer rolinstanties geïmplementeerd voor een service.
 
 **ConfigurationSettings**  
 Hiermee configureert u de instellingen voor de exemplaren die worden uitgevoerd voor een rol. De naam van de `<Setting>` elementen moeten overeenkomen met de instellingsdefinities van de in het servicedefinitiebestand.

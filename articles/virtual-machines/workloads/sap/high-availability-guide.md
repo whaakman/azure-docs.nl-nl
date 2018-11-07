@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 12/07/2016
 ms.author: goraco
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1b2f6df1e5688bf9bc47056c7b05cf6ac16026c6
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: c6dddbdbc781869ef6a3c1a0a707eeb83941b92a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45634860"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51239318"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms"></a>Hoge beschikbaarheid voor SAP NetWeaver op virtuele Azure-machines
 
@@ -504,7 +504,7 @@ In Azure Resource Manager, hoeft u geen Azure-resourcegroep te gebruiken van Azu
 
 In Azure Resource Manager kunt u meerdere SAP-systeem-id (SID) ASCS/SCS exemplaren in één cluster installeren. Multi-SID-exemplaren zijn mogelijk vanwege ondersteuning voor meerdere IP-adressen voor elke Azure interne load balancer.
 
-Voor het gebruik van het model van de klassieke Azure-implementatie, volgt u de procedures in [SAP NetWeaver in Azure: Clustering SAP ASCS/SCS-exemplaren met behulp van Windows Server Failover Clustering in Azure met SIOS DataKeeper](http://go.microsoft.com/fwlink/?LinkId=613056).
+Voor het gebruik van het model van de klassieke Azure-implementatie, volgt u de procedures in [SAP NetWeaver in Azure: Clustering SAP ASCS/SCS-exemplaren met behulp van Windows Server Failover Clustering in Azure met SIOS DataKeeper](https://go.microsoft.com/fwlink/?LinkId=613056).
 
 > [!IMPORTANT]
 > Het is raadzaam dat u het implementatiemodel Azure Resource Manager voor uw SAP-installaties gebruiken. Het biedt veel voordelen die niet beschikbaar in het klassieke implementatiemodel. Meer informatie over Azure [implementatiemodellen][virtual-machines-azure-resource-manager-architecture-benefits-arm].   
@@ -1048,7 +1048,7 @@ Als u wilt toevoegen de registervermeldingen op beide clusterknooppunten van de 
 
 | Pad | HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |
 | --- | --- |
-| De naam van variabele |`KeepAliveTime` |
+| Naam van de variabele |`KeepAliveTime` |
 | Type variabele |REG_DWORD (decimaal) |
 | Waarde |120000 |
 | Koppeling naar documentatie |[https://technet.microsoft.com/library/cc957549.aspx](https://technet.microsoft.com/library/cc957549.aspx) |
@@ -1059,7 +1059,7 @@ Voegt u deze registervermeldingen van Windows op beide clusterknooppunten Window
 
 | Pad | HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |
 | --- | --- |
-| De naam van variabele |`KeepAliveInterval` |
+| Naam van de variabele |`KeepAliveInterval` |
 | Type variabele |REG_DWORD (decimaal) |
 | Waarde |120000 |
 | Koppeling naar documentatie |[https://technet.microsoft.com/library/cc957548.aspx](https://technet.microsoft.com/library/cc957548.aspx) |

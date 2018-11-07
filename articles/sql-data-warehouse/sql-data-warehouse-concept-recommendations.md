@@ -3,19 +3,19 @@ title: SQL Data Warehouse aanbevelingen - concepten | Microsoft Docs
 description: Meer informatie over aanbevelingen voor SQL Data Warehouse en hoe ze worden gegenereerd
 services: sql-data-warehouse
 author: kevinvngo
-manager: craigg
+manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-ms.date: 07/27/2018
+ms.date: 11/05/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 57bce631a570f549d46a9b0beefcb5adce4decfc
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 712eed36f3a68ee02668849207835e3c8bdb8238
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44380111"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232151"
 ---
 # <a name="sql-data-warehouse-recommendations"></a>Aanbevelingen voor SQL datawarehouse
 
@@ -39,4 +39,28 @@ Uit suboptimale statistieken kan grote invloed is op prestaties van query's, dit
 
 - [Het maken en bijwerken van tabelstatistieken](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistics)
 
-Als u wilt de lijst met betrokken tabellen zien door deze aanbevelingen, voer de volgende [T-SQL-script](https://github.com/Microsoft/sql-data-warehouse-samples/blob/master/samples/sqlops/MonitoringScripts/ImpactedTables). De advisor wordt continu uitgevoerd voor de dezelfde T-SQL-script voor het genereren van deze aanbevelingen.
+Als u wilt de lijst met betrokken tabellen zien door deze aanbevelingen, voer de volgende [T-SQL-script](https://github.com/Microsoft/sql-data-warehouse-samples/blob/master/samples/sqlops/MonitoringScripts/ImpactedTables). Advisor wordt continu uitgevoerd voor de dezelfde T-SQL-script voor het genereren van deze aanbevelingen.
+
+## <a name="replicate-tables"></a>Tabellen repliceren
+
+Voor gerepliceerde tabel aanbevelingen detecteert Advisor tabel kandidaten op basis van de volgende fysieke kenmerken:
+
+- Tabelgrootte gerepliceerd
+- Aantal kolommen
+- Tabel Distributietype
+- Aantal partities
+
+Advisor continu maakt gebruik van heuristiek zoals tabel toegang frequentie, op basis van een werkbelasting rijen geretourneerd, gemiddeld en drempelwaarden rond gegevens datawarehouse-grootte en de activiteit om ervoor te zorgen goede aanbevelingen worden gegenereerd. 
+
+Hierna wordt beschreven op basis van een werkbelasting methodiek voor die u in de Azure-portal voor elke aanbeveling gerepliceerde tabel vinden kan:
+
+- Scan Gem.-het gemiddelde percentage van de rijen die zijn geretourneerd uit de tabel voor elke tabeltoegang gedurende de afgelopen zeven dagen
+- Frequente lees-, geen update - geeft aan dat de tabel niet in de afgelopen zeven dagen bijgewerkt is tijdens de weergave van de activiteit voor het openen
+- Verhouding tussen lezen/bijwerken - de verhouding van hoe vaak de tabel is geopend ten opzichte van wanneer deze gedurende de afgelopen zeven dagen wordt bijgewerkt
+- Activiteit - Hiermee wordt het gebruik op basis van de activiteit voor het openen. Dit vergelijkt de activiteit voor het openen van tabel ten opzichte van de activiteit voor het openen van gemiddelde tabel in het datawarehouse gedurende de afgelopen zeven dagen. 
+
+Op dit moment wordt Advisor alleen weergegeven maximaal vier gerepliceerde tabel kandidaten in één keer met geclusterde columnstore-indexen meer prioriteit toekennen aan de hoogste activiteit.
+
+> [!IMPORTANT]
+> De aanbeveling gerepliceerde tabel is niet volledig bewijs en hierbij wordt geen rekening gegevensverplaatsingsbewerkingen account. Er wordt gewerkt aan toe te voegen als een heuristiek, maar in de tussentijd kunt u altijd uw workload moet valideren nadat de aanbeveling is toegepast. Neem contact op met sqldwadvisor@service.microsoft.com als u gerepliceerde tabel aanbevelingen die ervoor zorgt dat uw workload ontdekt aan gaat. Voor meer informatie over gerepliceerde tabellen, gaat u naar de volgende [documentatie](https://docs.microsoft.com/azure/sql-data-warehouse/design-guidance-for-replicated-tables#what-is-a-replicated-table).
+>

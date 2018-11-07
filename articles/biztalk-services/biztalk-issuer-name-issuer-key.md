@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: 78796b5dc62cb573f149c24d90205d26fb139cf7
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: eb5b4b3741b064a934833b3094c69db85e9ccabb
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39628644"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238706"
 ---
 # <a name="biztalk-services-issuer-name-and-issuer-key"></a>BizTalk Services: naam en sleutel van verlener
 
@@ -84,17 +84,17 @@ Naam van Service Bus-verlener en sleutel van verlener worden gebruikt door de Bi
 ## <a name="next"></a>Volgende
 Aanvullende onderwerpen voor Azure BizTalk Services:
 
-* [De Azure BizTalk Services SDK installeren](http://go.microsoft.com/fwlink/p/?LinkID=241589)<br/>
-* [Zelfstudie: Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=236944)<br/>
-* [De Azure BizTalk Services SDK gaan gebruiken](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
-* [Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=303664)<br/>
+* [De Azure BizTalk Services SDK installeren](https://go.microsoft.com/fwlink/p/?LinkID=241589)<br/>
+* [Zelfstudie: Azure BizTalk Services](https://go.microsoft.com/fwlink/p/?LinkID=236944)<br/>
+* [De Azure BizTalk Services SDK gaan gebruiken](https://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
+* [Azure BizTalk Services](https://go.microsoft.com/fwlink/p/?LinkID=303664)<br/>
 
 ## <a name="see-also"></a>Zie ook
-* [Hoe: ACS Management-Service gebruiken om te configureren van Service-identiteiten](http://go.microsoft.com/fwlink/p/?LinkID=303942)<br/>
-* [BizTalk Services: Developer, Basic, Standard en Premium-edities grafiek](http://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
-* [BizTalk Services: inrichten](http://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
-* [BizTalk Services: statusgrafiek voor de inrichting](http://go.microsoft.com/fwlink/p/?LinkID=329870)<br/>
-* [BizTalk Services: de tabbladen Dashboard, Bewaken en Schalen](http://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
-* [BizTalk Services: back-ups maken en herstellen](http://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>
-* [BizTalk Services: beperking](http://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
+* [Hoe: ACS Management-Service gebruiken om te configureren van Service-identiteiten](https://go.microsoft.com/fwlink/p/?LinkID=303942)<br/>
+* [BizTalk Services: Developer, Basic, Standard en Premium-edities grafiek](https://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
+* [BizTalk Services: inrichten](https://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
+* [BizTalk Services: statusgrafiek voor de inrichting](https://go.microsoft.com/fwlink/p/?LinkID=329870)<br/>
+* [BizTalk Services: de tabbladen Dashboard, Bewaken en Schalen](https://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
+* [BizTalk Services: back-ups maken en herstellen](https://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>
+* [BizTalk Services: beperking](https://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
 

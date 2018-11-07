@@ -1,6 +1,6 @@
 ---
 title: Hyperlapse Media-bestanden met Azure Media Hyperlapse | Microsoft Docs
-description: Azure Media Hyperlapse maakt smooth verstreken tijd video's van de eerste persoon of actie camera inhoud. Dit onderwerp leest het gebruik van Media indexeerfunctie.
+description: Azure Media Hyperlapse maakt smooth timelapsevideo's te versoepelen van de eerste persoon of het actie-camera-inhoud. In dit onderwerp laat zien hoe Media Indexer gebruiken.
 services: media-services
 documentationcenter: ''
 author: asolanki
@@ -14,36 +14,36 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/28/2018
 ms.author: adsolank
-ms.openlocfilehash: ed64a616538ed4699abc03225a2dcf27d164521f
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 268e679bb052bce4c972c940333147edc5c7d721
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788485"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242582"
 ---
 # <a name="hyperlapse-media-files-with-azure-media-hyperlapse"></a>Hyperlapse Media-bestanden met Azure Media Hyperlapse
-Azure Media Hyperlapse is een Media Processor (MP) die u smooth video's verstreken tijd van eerste persoon of actie camera inhoud maakt.  De cloud-gebaseerd op hetzelfde niveau naar [van Microsoft Research bureaublad Hyperlapse Pro en Hyperlapse mobiele telefoon](http://aka.ms/hyperlapse), Microsoft Hyperlapse voor Azure Media Services maakt gebruik van de grote schaal van de verwerking van Azure Media Services Media platform horizontaal schalen en parallelize bulksgewijs Hyperlapse verwerken.
+Azure Media Hyperlapse is een medium Processor (KP) die smooth timelapsevideo's te versoepelen worden gemaakt van de eerste persoon of het actie-camera-inhoud.  De cloud gebaseerde op hetzelfde niveau naar [van Microsoft Research bureaublad Hyperlapse Pro en telefonische Hyperlapse Mobile](https://aka.ms/hyperlapse), Microsoft Hyperlapse voor Azure Media Services maakt gebruik van de enorme schaal van de Azure Media Services Media verwerken platform voor horizontaal schalen en parallelliseren bulksgewijs Hyperlapse-verwerking.
 
 > [!IMPORTANT]
-> Microsoft Hyperlapse is ontworpen om te werken het beste op de eerste persoon inhoud met een zwevend camera. Hoewel u nog steeds camerabeelden kunt nog steeds werken, kunnen niet de prestaties en kwaliteit van de Azure Media Hyperlapse Media-Processor worden gegarandeerd voor andere typen inhoud.
+> Microsoft Hyperlapse is ontworpen om te werken het beste op de eerste persoon inhoud met een zwevend camera. Hoewel nog camerabeelden nog steeds werken kunt, kunnen niet de prestaties en kwaliteit van de Azure Media Hyperlapse Media-Processor worden gegarandeerd voor andere typen inhoud.
 > 
 > 
 
-Een Azure Media Hyperlapse taak als neemt invoer een MP4, MOV of WMV assetbestand samen met een configuratiebestand waarmee wordt aangegeven welke frames van video moeten zijn verstreken tijd en op welke snelheid (bijvoorbeeld de eerste 10.000 frames 2 x).  De uitvoer is een weergave gestabiliseerd en verstreken tijd van de video invoer.
+Een Azure Media Hyperlapse-taak wordt gebruikt als invoer een MP4-, MOV of WMV assetbestand samen met een configuratiebestand waarmee wordt aangegeven welke frames van de video moeten zijn verstreken tijd en op welke snelheid (bijvoorbeeld de eerste 10.000 frames op 2 x).  De uitvoer is een weergave gestabiliseerde en verstreken tijd van de video-invoer.
 
 ## <a name="hyperlapse-an-asset"></a>Hyperlapse een asset
 U moet eerst uw gewenste invoerbestand uploaden naar Azure Media Services.  Lees voor meer informatie over de concepten die betrokken zijn bij het uploaden en beheren van inhoud, de [inhoudsbeheer artikel](media-services-portal-vod-get-started.md).
 
 ### <a id="configuration"></a>Definitie van de configuratie voor Hyperlapse
-Nadat de inhoud van uw Media Services-account is, moet u uw configuratie-definitie maken.  De volgende tabel beschrijft de gebruiker gedefinieerde velden:
+Nadat de inhoud van uw Media Services-account is, moet u uw configuratie-definitie maken.  De volgende tabel beschrijft de gebruiker opgegeven velden:
 
 | Veld | Beschrijving |
 | --- | --- |
-| StartFrame |Het frame waarop de verwerking van de Microsoft Hyperlapse moet beginnen. |
+| StartFrame |Het frame waarop de Microsoft Hyperlapse-verwerking moet beginnen. |
 | NumFrames |Het aantal frames verwerken |
-| Snelheid |De factor waarmee de invoer video versnellen. |
+| Snelheid |De factor op waarmee de invoervideo versnellen. |
 
-Hier volgt een voorbeeld van een configuratiebestand overeenstemmende in XML en JSON:
+Hier volgt een voorbeeld van een configuratiebestand in overeenstemming in XML en JSON:
 
 **XML-definitie:**
 ```xml
@@ -76,13 +76,13 @@ Hier volgt een voorbeeld van een configuratiebestand overeenstemmende in XML en 
 ```
 
 ### <a id="sample_code"></a> Microsoft Hyperlapse met de AMS .NET SDK
-De volgende methode uploadt een mediabestand als een actief en maakt een taak met de Azure Media Hyperlapse Media-Processor.
+De volgende methode uploadt een mediabestand als een asset en maakt u een taak met de Azure Media Hyperlapse Media Processor.
 
 > [!NOTE]
-> U hebt al een CloudMediaContext binnen het bereik met de naam 'context' voor deze code werkt.  Lees voor meer informatie over deze de [inhoudsbeheer artikel](media-services-dotnet-get-started.md).
+> U hebt al een CloudMediaContext binnen het bereik met de naam 'context' voor deze code om te werken.  Lees voor meer informatie over dit de [inhoudsbeheer artikel](media-services-dotnet-get-started.md).
 > 
 > [!NOTE]
-> Het argument van de tekenreeks 'hyperConfig' wordt verwacht een conform de configuratie in JSON of XML-definitie zoals hierboven is beschreven.
+> Het tekenreeksargument 'hyperConfig' wordt verwacht in overeenstemming configuratie in JSON of XML-definitie, zoals hierboven beschreven.
 > 
 > 
 

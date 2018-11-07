@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: szark
-ms.openlocfilehash: 67796cc3cbb925bb18a917d17b8abb7c085de370
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 3aa2803550c445e0b30ff998cf3adb779515e487
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638190"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51235969"
 ---
 # <a name="information-for-non-endorsed-distributions"></a>Informatie over niet-goedgekeurde distributies
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -76,7 +76,7 @@ VHD-installatiekopieën op Azure beschikken over een virtuele grootte die is afg
 
 * De VHD- http://<mystorageaccount>.blob.core.windows.net/vhds/MyLinuxVM.vhd heeft een niet-ondersteunde virtuele grootte van 21475270656 bytes. De grootte moet een geheel getal (in MB/s).
 
-In dit geval vergroten of verkleinen van de virtuele machine met behulp van de Hyper-V Manager-console of de [grootte VHD](http://technet.microsoft.com/library/hh848535.aspx) PowerShell-cmdlet.  Als u niet worden uitgevoerd in een Windows-omgeving, wordt u aangeraden `qemu-img` te converteren (indien nodig) en het formaat van de VHD.
+In dit geval vergroten of verkleinen van de virtuele machine met behulp van de Hyper-V Manager-console of de [grootte VHD](https://technet.microsoft.com/library/hh848535.aspx) PowerShell-cmdlet.  Als u niet worden uitgevoerd in een Windows-omgeving, wordt u aangeraden `qemu-img` te converteren (indien nodig) en het formaat van de VHD.
 
 > [!NOTE]
 > Er is een [bekend probleem in qemu img](https://bugs.launchpad.net/qemu/+bug/1490611) versies > = 2.2.1 die in een onjuiste indeling VHD resulteert. Het probleem is opgelost in QEMU 2.6. Wordt u aangeraden hetzij `qemu-img` 2.2.0 of minder of 2.6 of hoger.
@@ -125,7 +125,7 @@ In dit geval vergroten of verkleinen van de virtuele machine met behulp van de H
 
 De Linux Integration Services (LIS) stuurprogramma's voor Hyper-V en Azure zijn bijgedragen rechtstreeks naar de upstream-Linux-kernel. Groot aantal distributies die een recente versie van de kernel Linux (zoals 3.x bevatten) al deze stuurprogramma's die beschikbaar zijn, of Geef anders backported versies van deze stuurprogramma's met hun kernels.  Deze stuurprogramma's worden voortdurend wordt bijgewerkt in de upstream-kernel met nieuwe oplossingen en functies, waar mogelijk raden wij aan die wordt uitgevoerd een [distributie die zijn goedgekeurd](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) die deze oplossingen en updates bevat.
 
-Als u een variant van Red Hat Enterprise Linux-versies 6.0-6.3 uitvoert, dan u moet voor het installeren van de [meest recente LIS-stuurprogramma's voor Hyper-V](http://go.microsoft.com/fwlink/p/?LinkID=254263&clcid=0x409). Beginnen met RHEL 6.4 + (en afleidingen van) de LIS-stuurprogramma's zijn al opgenomen in de kernel en dus geen aanvullende installatie-pakketten zijn vereist.
+Als u een variant van Red Hat Enterprise Linux-versies 6.0-6.3 uitvoert, dan u moet voor het installeren van de [meest recente LIS-stuurprogramma's voor Hyper-V](https://go.microsoft.com/fwlink/p/?LinkID=254263&clcid=0x409). Beginnen met RHEL 6.4 + (en afleidingen van) de LIS-stuurprogramma's zijn al opgenomen in de kernel en dus geen aanvullende installatie-pakketten zijn vereist.
 
 Als u een aangepaste kernel is vereist, raden wij een recente kernelversie (zoals 3.8 +). Voor distributies of leveranciers die hun eigen kernel onderhouden, moet u regelmatig backport de LIS-stuurprogramma's van de upstream-kernel voor uw aangepaste kernel.  Zelfs als u al een relatief recente kernelversie uitvoert, raden wij het bijhouden van een upstream-correcties in de LIS-stuurprogramma's en backport ze indien nodig. De locaties van de bronbestanden van de LIS-stuurprogramma zijn opgegeven in de [instaan](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/tree/MAINTAINERS) bestand in de structuur van Linux-kernel bron:
 ```

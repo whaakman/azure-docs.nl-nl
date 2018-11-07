@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 10/27/2016
 ms.author: sumuth
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: f145e879dab4484d647cf8ea21582958df0f0cd4
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: cce6555c71829110781a6dd13757078b105dbb41
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43665719"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230628"
 ---
 # <a name="faq-for-cleardb-mysql-databases-with-azure-app-service"></a>Veelgestelde vragen voor ClearDB MySql-databases met Azure App Service
 Deze Veelgestelde vragen vindt u antwoorden op veelgestelde vragen over het gebruik en het kopen van de ClearDB MySQL databases voor Azure Web Apps.
@@ -106,7 +106,7 @@ Indirect EA-klanten hun Azure Marketplace-abonnementen kunnen vinden op de **abo
 Toegang tot Azure Marketplace voor services van derden kan worden beheerd door de beheerders van uw Azure EA-inschrijving. Ze kunnen in- of uitschakelen opnieuw toegang 3e partij aankopen uit de Store in het beheren van Accounts en abonnementen onder het gedeelte Accounts in de Enterprise Portal.
 
 ## <a name="who-do-i-contact-for-questions-about-my-bill-for-cleardb-services-in-my-ea-subscription"></a>Wie moet ik contact opnemen voor vragen over mijn factuur voor ClearDB-services in mijn EA-abonnement?
-Neem contact op met [Enterprise Customer Support](http://aka.ms/AzureEntSupport) met betrekking tot facturering onder hun EA-inschrijving. Het ondersteuningsteam voor EA-Portal, wordt uw vraag worden beantwoord of uw probleem op te lossen.
+Neem contact op met [Enterprise Customer Support](https://aka.ms/AzureEntSupport) met betrekking tot facturering onder hun EA-inschrijving. Het ondersteuningsteam voor EA-Portal, wordt uw vraag worden beantwoord of uw probleem op te lossen.
 
 ## <a name="more-information"></a>Meer informatie
 [Veelgestelde vragen over Azure Marketplace](https://azure.microsoft.com/marketplace/faq/)

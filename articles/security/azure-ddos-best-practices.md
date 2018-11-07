@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2018
 ms.author: barclayn
-ms.openlocfilehash: 29aea0171c767b2188e3eac23b1d61ffbda8e284
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 37748aaa7f34a51d24091ee04608496ebd45fa90
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46986845"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51231620"
 ---
 # <a name="azure-ddos-protection-best-practices-and-reference-architectures"></a>Azure DDoS Protection: Best practices en referentiearchitecturen
 
@@ -28,7 +28,7 @@ Ontwerpen voor distributed denial of service (DDoS) vereist tolerantie plannen e
 
 ## <a name="types-of-attacks"></a>Typen aanvallen
 
-DDoS is een soort aanval waarmee wordt geprobeerd te weinig toepassingsresources. Het doel is van invloed op de beschikbaarheid van de toepassing en de mogelijkheid voor het verwerken van legitieme aanvragen. Aanvallen worden steeds meer geavanceerde en grotere in omvang en impact. DDoS-aanvallen kunnen worden gericht op een willekeurig eindpunt dat openbaar bereikbaar is via het internet.
+DDoS is een soort aanval waarmee wordt geprobeerd te weinig toepassingsresources. Het doel is van invloed op de beschikbaarheid van de toepassing en de mogelijkheid voor het verwerken van legitieme aanvragen. Aanvallen worden steeds meer geavanceerde en grotere in omvang en impact. DDoS-aanvallen kunnen worden gericht op elk eindpunt dat openbaar bereikbaar is via internet.
 
 Azure biedt continue bescherming tegen DDoS-aanvallen. Deze beveiliging is geïntegreerd in het Azure-platform, standaard en zonder extra kosten. 
 
@@ -75,7 +75,7 @@ Zorg ervoor dat beveiliging een prioriteit gedurende de hele levenscyclus van ee
 Ter bescherming van een service die wordt uitgevoerd op Microsoft Azure, moet u een goed begrip van de toepassingsarchitectuur van uw hebt en zich richten op de [vijf pijlers van softwarekwaliteit](https://docs.microsoft.com/azure/architecture/guide/pillars).
 Typische verkeer volumes, moet u weten het model connectiviteit tussen de toepassing en andere toepassingen en de service-eindpunten die zichtbaar zijn voor het openbare internet.
 
-Ervoor te zorgen dat een toepassing is flexibel genoeg om af te handelen van een denial of service die gericht op de toepassing zelf het belangrijkste is. Beveiliging en privacy zijn ingebouwd in het Azure-platform, vanaf de [Security Development Lifecycle (SDL)](https://www.microsoft.com/sdl/default.aspx). De SDL-adressen van beveiliging in elke ontwikkelingsfase en zorgt ervoor dat Azure voortdurend bijgewerkt wordt zodat deze nog beter beveiligen.
+Ervoor te zorgen dat een toepassing is flexibel genoeg om af te handelen van een denial of service die gericht op de toepassing zelf het belangrijkste is. Beveiliging en privacy zijn ingebouwd in het Azure-platform, vanaf de [Security Development Lifecycle (SDL)](https://www.microsoft.com/sdl/default.aspx). De SDL-adressen van beveiliging in elke ontwikkelingsfase en zorgt ervoor dat Azure voortdurend bijgewerkt wordt zodat deze nog beter beveiligen.
 
 ### <a name="design-for-scalability"></a>Ontwerpen voor schaalbaarheid
 
@@ -182,7 +182,7 @@ Cyberbeveiliging vereist constante innovatie in defense. Azure DDoS Standard pro
 
 Een DDoS-aanval die is doorgaans gericht op Azure-resources vereist zo weinig mogelijk tussenkomst vanuit het oogpunt van een gebruiker. Nog steeds, DDoS met risicobeperking als onderdeel van een strategie voor respons op incidenten te minimaliseren de gevolgen voor zakelijke continuïteit.
 
-### <a name="microsoft-threat-intelligence"></a>Microsoft threat intelligence
+### <a name="microsoft-threat-intelligence"></a>Bedreigingsinformatie van Microsoft
 
 Microsoft heeft een uitgebreide threat intelligence virtueel netwerk. Dit netwerk maakt gebruik van de collectieve kennis van een uitgebreide beveiligingscommunity die ondersteuning biedt voor Microsoft online services, Microsoft-partners en relaties in de beveiligingscommunity internet. 
 
@@ -265,7 +265,7 @@ In deze architectuur DDoS Protection standaard ingeschakeld op het virtuele netw
 
 #### <a name="paas-web-application"></a>PaaS-webtoepassing
 
-Deze referentiearchitectuur toont een Azure App Service-toepassing in één regio uitgevoerd. Deze architectuur laat zien dat een set bewezen procedures voor een webtoepassing die gebruikmaakt van [Azure App Service](https://azure.microsoft.com/documentation/services/app-service/) en [Azure SQL Database](https://azure.microsoft.com/documentation/services/sql-database/).
+Deze referentiearchitectuur toont een Azure App Service-toepassing in één regio uitgevoerd. Deze architectuur laat zien dat een set bewezen procedures voor een webtoepassing die gebruikmaakt van [Azure App Service](https://azure.microsoft.com/documentation/services/app-service/) en [Azure SQL Database](https://azure.microsoft.com/documentation/services/sql-database/).
 Een stand-by-regio is ingesteld voor failover-scenario's.
 
 ![Diagram van de referentiearchitectuur voor een PaaS-webtoepassing](media/azure-ddos-best-practices/image11.png)
@@ -300,6 +300,6 @@ Zie voor meer informatie over deze verwijzende architectuur, de [Azure HDInsight
 
 * [Productpagina van Azure DDoS Protection](https://azure.microsoft.com/services/ddos-protection/)
 
-* [Azure DDoS Protection-blog](http://aka.ms/ddosblog)
+* [Azure DDoS Protection-blog](https://aka.ms/ddosblog)
 
 * [Documentatie voor Azure DDoS Protection](../virtual-network/ddos-protection-overview.md)

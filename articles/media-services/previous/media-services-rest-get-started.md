@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: juliako
-ms.openlocfilehash: fbfb52b758089acf65f89c62f716d46d62b0f289
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 794c2cf6c52ead465d35d3d551cfe76e87c06787
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233817"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51237601"
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-rest"></a>Aan de slag met het leveren van inhoud op aanvraag met behulp van REST
 [!INCLUDE [media-services-selector-get-started](../../../includes/media-services-selector-get-started.md)]
@@ -460,7 +460,7 @@ De volgende code aanvragen van het coderingsprogramma-id.
 ### <a name="create-a-job"></a>Een taak maken
 Elke taak kan een of meer taken, afhankelijk van het type van de verwerking die u wilt bereiken hebben. U kunt taken en hun verwante taken via de REST-API maken op twee manieren: taken kunnen worden gedefinieerd inline via de navigatie-eigenschap van de taken op taak entiteiten of batchverwerking van OData. Batchverwerking maakt gebruik van de Media Services SDK. Voor de leesbaarheid van de codevoorbeelden in dit artikel zijn taken echter gedefinieerde inline. Zie voor informatie over batchverwerking, [Open Data Protocol (OData) batchverwerking](http://www.odata.org/documentation/odata-version-3-0/batch-processing/).
 
-Het volgende voorbeeld ziet u het maken en een taak met een die taak instellen op het coderen van een video op een specifieke oplossingsstatus en de kwaliteit te plaatsen. De volgende sectie van de documentatie bevat de lijst met alle de [taak voorinstellingen](http://msdn.microsoft.com/library/mt269960) ondersteund door de processor Media Encoder Standard.  
+Het volgende voorbeeld ziet u het maken en een taak met een die taak instellen op het coderen van een video op een specifieke oplossingsstatus en de kwaliteit te plaatsen. De volgende sectie van de documentatie bevat de lijst met alle de [taak voorinstellingen](https://msdn.microsoft.com/library/mt269960) ondersteund door de processor Media Encoder Standard.  
 
 **HTTP-aanvraag**
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/19/2018
 ms.author: barclayn
-ms.openlocfilehash: 263c04fd15240f365f2325c69d5cb25aa1a539f0
-ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
+ms.openlocfilehash: 86724ca49884f1072297ffcf4fc6498db5ae8ac3
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46465874"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51254635"
 ---
 # <a name="azure-data-security-and-encryption-best-practices"></a>Aanbevolen procedures voor Azure-gegevensbeveiliging en -versleuteling
 Ter bescherming van gegevens in de cloud, moet u rekening voor de mogelijke statussen in die uw gegevens zich kunnen voordoen en welke besturingselementen beschikbaar zijn voor die status zijn. Aanbevolen procedures voor Azure-gegevensbeveiliging en -versleuteling betrekking op de volgende gegevens statussen:
@@ -132,7 +132,7 @@ We raden aan dat u:
 - Labels die overeenkomen met uw zakelijke vereisten van toepassing. Bijvoorbeeld: een label met de naam 'zeer vertrouwelijk' voor alle documenten en e-mailberichten die topgeheime gegevens bevatten, om te classificeren en beveiligen van deze gegevens worden toegepast. Alleen geautoriseerde gebruikers kunnen vervolgens toegang tot deze gegevens, met de beperkingen die u opgeeft.
 - Configureer [Gebruiksregistratie voor Azure RMS](https://docs.microsoft.com/azure/information-protection/log-analyze-usage) zodat u kunt controleren hoe uw organisatie gebruikmaakt van de beveiligingsservice.
 
-Organisaties die zwakke op [gegevensclassificatie](http://download.microsoft.com/download/0/A/3/0A3BE969-85C5-4DD2-83B6-366AA71D1FE3/Data-Classification-for-Cloud-Readiness.pdf) en bestandsbeveiliging mogelijk gevoeliger voor gegevenslekken of misbruik van gegevens. Met de juiste Bestandsbeveiliging, kunt u gegevensstromen krijgt u inzicht in uw bedrijf, riskant gedrag detecteren en corrigerende maatregelen treffen, toegang tot documenten volgen, enzovoort analyseren.
+Organisaties die zwakke op [gegevensclassificatie](https://download.microsoft.com/download/0/A/3/0A3BE969-85C5-4DD2-83B6-366AA71D1FE3/Data-Classification-for-Cloud-Readiness.pdf) en bestandsbeveiliging mogelijk gevoeliger voor gegevenslekken of misbruik van gegevens. Met de juiste Bestandsbeveiliging, kunt u gegevensstromen krijgt u inzicht in uw bedrijf, riskant gedrag detecteren en corrigerende maatregelen treffen, toegang tot documenten volgen, enzovoort analyseren.
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie [Azure-beveiliging aanbevolen procedures en patronen](security-best-practices-and-patterns.md) voor meer best practices voor beveiliging moeten worden gebruikt wanneer bent u het ontwerpen, implementeren en beheren van uw cloudoplossingen met behulp van Azure.

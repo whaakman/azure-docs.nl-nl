@@ -1,8 +1,8 @@
 ---
 title: Verificatietokens doorgeven aan Azure Media Services | Microsoft Docs
-description: Ontdek hoe verificatietokens van de client verzendt met de service Azure Media Services-sleutellevering
+description: Meer informatie over het verzenden van verificatietokens van de client naar de Azure Media Services-sleutelleveringsservice
 services: media-services
-keywords: beveiliging van inhoud, DRM tokenverificatie
+keywords: beveiliging van inhoud, DRM-tokenverificatie
 documentationcenter: ''
 author: dbgeorge
 manager: jasonsue
@@ -15,25 +15,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2017
 ms.author: dwgeo
-ms.openlocfilehash: b6aca2928465b73e35ac15f01bb776b1f69add0b
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 204a2122f38306f2c883436fb13397b45fd91980
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788450"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51254618"
 ---
-# <a name="learn-how-clients-pass-tokens-to-the-azure-media-services-key-delivery-service"></a>Meer informatie over hoe clients tokens doorgeven aan de service Azure Media Services-sleutellevering
-Klanten wordt vaak vragen hoe een speler kan doorgeven tokens met de service Azure Media Services sleutellevering voor verificatie zodat Windows media player kan de sleutel verkrijgen. Media Services ondersteunt de eenvoudige web token (SWT) en JSON Web Token (JWT) geformatteerd. Tokenverificatie wordt toegepast op elk type sleutel, ongeacht of u common encryption of Advanced Encryption Standard (AES) envelop versleuteling in het systeem.
+# <a name="learn-how-clients-pass-tokens-to-the-azure-media-services-key-delivery-service"></a>Informatie over hoe clients tokens doorgeven aan de sleutel leveringsservice voor Azure Media Services
+Klanten vragen vaak hoe een speler kunt doorgeven tokens aan de sleutel leveringsservice voor Azure Media Services om te verifiëren, zodat de speler de sleutel kunt verkrijgen. Media Services biedt ondersteuning voor het simple webtoken (SWT) en JSON Web Token (JWT) geformatteerd. Tokenverificatie wordt toegepast op elk type sleutel, ongeacht of u algemene versleuteling of Advanced Encryption Standard (AES) envelop versleuteling in het systeem.
 
- Afhankelijk van de player en platform die is gericht, kunt u het token doorgeven met de speler in de volgende manieren:
+ Afhankelijk van de speler en het platform die is gericht, kunt u het token met de speler doorgeven in de volgende manieren:
 
-- Via het HTTP-autorisatie-header.
+- Via de HTTP-autorisatie-header.
     > [!NOTE]
-    > Het voorvoegsel 'Bearer' wordt verwacht per OAuth 2.0-specificaties. Een voorbeeld-speler met de configuratie van de token wordt gehost op de Azure Media Player [voorbeeldpagina](http://ampdemo.azureedge.net/). Kies de videobron stelt **AES (JWT-Token)** of **AES (SWT Token)**. Het token wordt doorgegeven via de autorisatie-header.
+    > Het voorvoegsel 'Bearer' wordt verwacht per de OAuth 2.0-specificaties. Een voorbeeld-speler met de configuratie van sessietoken wordt gehost op de Azure Media Player [demo pagina](http://ampdemo.azureedge.net/). Om in te stellen de videobron, kies **AES (JWT-Token)** of **AES (SWT Token)**. Het token wordt doorgegeven via de autorisatie-header.
 
 - Via het toevoegen van een URL queryparameter met ' token = tokenvalue. "  
     > [!NOTE]
-    > Het voorvoegsel 'Bearer' wordt niet verwacht. Omdat het token wordt verzonden via een URL, moet u de tokentekenreeks beveiligen. Hier volgt een C# voorbeeldcode die laat zien hoe u dit doen:
+    > Het voorvoegsel 'Bearer' wordt niet verwacht. Omdat het token wordt verzonden via een URL, moet u de token tekenreeks beveiligen. Hier volgt een C# voorbeeldcode die laat zien hoe u om dit te doen:
 
     ```csharp
     string armoredAuthToken = System.Web.HttpUtility.UrlEncode(authToken);
@@ -41,8 +41,8 @@ Klanten wordt vaak vragen hoe een speler kan doorgeven tokens met de service Azu
     Uri keyDeliveryUrlWithTokenParameter = new Uri(uriWithTokenParameter);
     ```
 
-- Via het veld CustomData.
-Deze optie wordt gebruikt voor PlayReady licentie overname alleen via het veld CustomData van de uitdaging PlayReady licentie overname. In dit geval wordt het token moet in het XML-document zoals hier wordt beschreven:
+- Via de CustomData-veld.
+Deze optie wordt gebruikt voor de PlayReady-licentie aanschaf alleen via de CustomData-veld van de PlayReady-licentie overname uitdaging. In dit geval moet het token in het XML-document zijn, zoals hier wordt beschreven:
 
     ```xml
     <?xml version="1.0"?>
@@ -50,9 +50,9 @@ Deze optie wordt gebruikt voor PlayReady licentie overname alleen via het veld C
         <Token></Token> 
     </CustomData>
     ```
-    Uw verificatietoken in het Token-element geplaatst.
+    Plaats uw verificatietoken in het Token-element.
 
-- Via een afspeellijst met alternatieve HTTP Live Streaming (HLS). Als u wilt configureren voor AES + HLS-tokenverificatie afspelen op iOS/Safari, moet u er een manier die u rechtstreeks in het token verzenden kunt niet. Zie voor meer informatie over hoe u de afspeellijst om dit scenario alternatieve [blogbericht](http://azure.microsoft.com/blog/2015/03/06/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/).
+- Via een alternatieve afspeellijst voor HTTP Live Streaming (HLS). Als u wilt configureren tokenverificatie voor AES + HLS afspelen op iOS/Safari, er is een manier die u rechtstreeks in het token verzenden kunt. Zie voor meer informatie over hoe u de afspeellijst voor dit scenario met alternatieve [blogbericht](https://azure.microsoft.com/blog/2015/03/06/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/).
 
 ## <a name="next-steps"></a>Volgende stappen
 

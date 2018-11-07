@@ -8,12 +8,12 @@ ms.assetid: 03332872-8d84-44a0-8a78-04fd30e14b18
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: 4386f87b6986e6ab1742a8d3c14a100fea112182
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: dd3cb108844cd009d74de42630511073021d94b1
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47406308"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238485"
 ---
 # <a name="get-started-with-azure-data-catalog"></a>Aan de slag met Azure Data Catalog
 Azure Data Catalog is een volledig beheerde cloudservice die als een registratie- en detectiesysteem voor gegevensassets van ondernemingen fungeert. Zie [Wat is Azure Data Catalog?](data-catalog-what-is-data-catalog.md) voor een gedetailleerd overzicht.
@@ -96,7 +96,7 @@ De database van Adventure Works ondersteunt standaardscenario’s voor het verwe
 Ga als volgt te werk om de voorbeelddatabase van Adventure Works te installeren:
 
 1. Download [Adventure Works 2014 Full Database Backup.zip](https://msftdbprodsamples.codeplex.com/downloads/get/880661) in CodePlex.
-2. Volg voor het herstellen van de database op uw machine de instructies in [Een back-up van een database herstellen met behulp van SQL Server Management Studio](http://msdn.microsoft.com/library/ms177429.aspx) of via de volgende stappen:
+2. Volg voor het herstellen van de database op uw machine de instructies in [Een back-up van een database herstellen met behulp van SQL Server Management Studio](https://msdn.microsoft.com/library/ms177429.aspx) of via de volgende stappen:
    1. Open SQL Server Management Studio en maak verbinding met de SQL Server Database Engine.
    2. Klik met de rechtermuisknop op **Databases** en klik op **Database terugzetten**.
    3. Klik onder **Database terugzetten** op de optie **Apparaat** voor **Bron**. Klik vervolgens op **Bladeren**.

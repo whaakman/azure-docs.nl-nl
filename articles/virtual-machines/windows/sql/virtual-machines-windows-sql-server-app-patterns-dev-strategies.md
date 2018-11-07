@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: ninarn
-ms.openlocfilehash: 18de5b3d71922effa72414a6a52b126a34076cf3
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 9ccf7d85b52759a3f2cd64facc6ee8d7255f0fac
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44722126"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51253173"
 ---
 # <a name="application-patterns-and-development-strategies-for-sql-server-in-azure-virtual-machines"></a>Toepassingspatronen en ontwikkelingsstrategieën voor SQL Server in Azure Virtual Machines
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-both-include.md)]
@@ -236,7 +236,7 @@ In Azure, kunt u Active Directory gebruiken als een zelfstandige clouddirectory 
 
 U kunt de volgende werkstroom in de opgegeven volgorde implementeren in meerdere lagen hybride toepassingspatroon:
 
-1. Bepalen welke toepassingen van de enterprise-database die worden teruggezet moeten naar de cloud met behulp van de [Microsoft Assessment and Planning (MAP) Toolkit](http://microsoft.com/map). De MAP Toolkit verzamelt inventaris-en prestatiegegevens van computers die u voor virtualisatie overweegt en aanbevelingen biedt over capaciteit en de evaluatie van planning.
+1. Bepalen welke toepassingen van de enterprise-database die worden teruggezet moeten naar de cloud met behulp van de [Microsoft Assessment and Planning (MAP) Toolkit](https://microsoft.com/map). De MAP Toolkit verzamelt inventaris-en prestatiegegevens van computers die u voor virtualisatie overweegt en aanbevelingen biedt over capaciteit en de evaluatie van planning.
 2. Plan de resources en de configuratie is vereist in het Azure-platform, zoals storage-accounts en virtuele machines.
 3. Instellen van de netwerkverbinding tussen het bedrijfsnetwerk on-premises en [Azure Virtual Network](../../../virtual-network/virtual-networks-overview.md). Als u de verbinding tussen het bedrijfsnetwerk on-premises en een virtuele machine in Azure instelt, moet u een van de volgende twee methoden gebruiken:
    

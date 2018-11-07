@@ -14,12 +14,12 @@ ms.date: 09/11/2018
 ms.author: barbkess
 ms.reviewer: asmalser
 ms.custom: it-pro
-ms.openlocfilehash: db008953b9aa596a64aceccacc0e4632ebfff596
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 72665ed4c25d2719ac5030bce59157a3ccd9dec7
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44720120"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51236003"
 ---
 # <a name="what-is-application-access-and-single-sign-on-with-azure-active-directory"></a>Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory?
 Eenmalige aanmelding betekent toegang te hebben tot alle toepassingen en bronnen die u nodig hebt om zaken te doen, aanmeldt slechts eenmaal met behulp van één gebruikersaccount. Nadat u bent aangemeld, u toegang hebt tot alle van de toepassingen die u nodig hebt zonder vereist is om te verifiëren (bijvoorbeeld, typ een wachtwoord) een tweede keer.
@@ -102,7 +102,7 @@ De [Azure Active Directory-Toepassingsgalerie](https://azure.microsoft.com/marke
 Hier volgen enkele tips voor het vinden van apps door welke mogelijkheden worden ondersteund:
 
 * Azure AD biedt ondersteuning voor automatische inrichting en ongedaan maken inrichting voor alle 'Aanbevolen' apps in de [Azure Active Directory-Toepassingsgalerie](https://azure.microsoft.com/marketplace/active-directory/all/).
-* Een lijst met federatieve toepassingen die specifiek ondersteuning bieden voor federatieve eenmalige aanmelding met behulp van een protocol zoals SAML, WS-Federation, of OpenID Connect vindt u [hier](http://social.technet.microsoft.com/wiki/contents/articles/20235.azure-active-directory-application-gallery-federated-saas-apps.aspx).
+* Een lijst met federatieve toepassingen die specifiek ondersteuning bieden voor federatieve eenmalige aanmelding met behulp van een protocol zoals SAML, WS-Federation, of OpenID Connect vindt u [hier](https://social.technet.microsoft.com/wiki/contents/articles/20235.azure-active-directory-application-gallery-federated-saas-apps.aspx).
 
 Als u uw toepassing hebt gevonden, kunt u beginnen door het volgen van stapsgewijze instructies in de app-galerie en in de Azure-portal om in te schakelen eenmalige aanmelding.
 

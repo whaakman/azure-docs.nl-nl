@@ -15,12 +15,12 @@ ms.custom: vs-azure
 ms.workload: azure-vs
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: 30e432b34cc586e1671c9ffdf7b48c3997e9eb23
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: f16bf06d03511223b54542ad7a389f78d37f3ea9
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42442383"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51235068"
 ---
 # <a name="debug-your-service-fabric-application-by-using-visual-studio"></a>Fouten opsporen in uw Service Fabric-toepassing met behulp van Visual Studio
 > [!div class="op_single_selector"]
@@ -68,7 +68,7 @@ U kunt tijd en geld besparen door te implementeren en opsporen van fouten in uw 
 Als uw Service Fabric-toepassingen worden uitgevoerd op een Service Fabric-cluster in Azure, bent u kunt deze rechtstreeks vanuit Visual Studio op afstand fouten opsporen.
 
 > [!NOTE]
-> De functie vereist [Service Fabric SDK 2.0](http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-VS2015) en [Azure SDK voor .NET 2.9](https://azure.microsoft.com/downloads/).    
+> De functie vereist [Service Fabric SDK 2.0](https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-VS2015) en [Azure SDK voor .NET 2.9](https://azure.microsoft.com/downloads/).    
 > 
 > 
 
@@ -112,7 +112,7 @@ Als uw Service Fabric-toepassingen worden uitgevoerd op een Service Fabric-clust
 U kan ook naar stream traceringen rechtstreeks vanuit een extern cluster-knooppunt met Visual Studio. Deze functie kunt u naar stream ETW-traceringsgebeurtenissen, die worden geproduceerd op het knooppunt van een Service Fabric-cluster.
 
 > [!NOTE]
-> Deze functie moet [Service Fabric SDK 2.0](http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-VS2015) en [Azure SDK voor .NET 2.9](https://azure.microsoft.com/downloads/).
+> Deze functie moet [Service Fabric SDK 2.0](https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-VS2015) en [Azure SDK voor .NET 2.9](https://azure.microsoft.com/downloads/).
 > Deze functie biedt alleen ondersteuning voor clusters die worden uitgevoerd in Azure.
 > 
 > 

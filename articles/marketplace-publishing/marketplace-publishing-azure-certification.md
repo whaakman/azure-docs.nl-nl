@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/05/2016
 ms.author: hascipio
-ms.openlocfilehash: aadc695b1f07d04f1fcc7f2f2e3ff90fb7f54849
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 300b94aea0c06092a5fb6bdecd49771ef1cd517d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39713999"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51234184"
 ---
 # <a name="get-pre-approved-via-the-microsoft-azure-certified-program"></a>Vooraf goedgekeurde via het Microsoft Azure Certified-programma
 In dit artikel vindt u instructies om te verkrijgen van Microsoft Azure Certified zodat u kunt uw oplossing in de Azure Marketplace publiceren en in aanmerking voor marketing voordelen komen. Voor een gedetailleerd overzicht van het Microsoft Azure Certified-programma en de voordelen ervan, gaat u naar [ http://azure.com/certified ](http://azure.com/certified).
@@ -34,7 +34,7 @@ In dit artikel vindt u instructies om te verkrijgen van Microsoft Azure Certifie
 3. Als u met een Partner Account Manager of een Partner DX Manager werkt,. vraag deze om te benoemen van uw oplossing voor het Azure Certified-programma of Ga naar de [Microsoft Azure Certified](http://createopportunity.azurewebsites.net) webpagina, vul het formulier in de toepassing en voer de e-mailadres van uw Partner-accountmanager of DX Partner Manager in het veld Sponsor contact op met Microsoft.
 
 > [!IMPORTANT]
-> **'Verkopen van'-landen** - om te kunnen verkopen van uw services op Microsoft Azure Marketplace, de geregistreerde entiteit moet afkomstig zijn van een van de goedgekeurde 'verkoop-van'-landen. Deze beperking is omwille van de betalings- en belasting. We zijn actief op zoek naar deze lijst van landen in de nabije toekomst uitvouwen, dus kom. Zie voor de volledige lijst 1b sectie van de [deelnamebeleid voor Azure Marketplace](http://go.microsoft.com/fwlink/?LinkID=526833).
+> **'Verkopen van'-landen** - om te kunnen verkopen van uw services op Microsoft Azure Marketplace, de geregistreerde entiteit moet afkomstig zijn van een van de goedgekeurde 'verkoop-van'-landen. Deze beperking is omwille van de betalings- en belasting. We zijn actief op zoek naar deze lijst van landen in de nabije toekomst uitvouwen, dus kom. Zie voor de volledige lijst 1b sectie van de [deelnamebeleid voor Azure Marketplace](https://go.microsoft.com/fwlink/?LinkID=526833).
 
 
 ## <a name="next-step"></a>Volgende stap

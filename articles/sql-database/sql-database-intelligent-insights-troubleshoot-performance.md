@@ -12,12 +12,12 @@ ms.author: v-daljep
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/20/2018
-ms.openlocfilehash: 1cbb46f5238c2019225ab724abaf49e878d19598
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 6dff1b2fe40acdef1fde95444d70f0bcfc120a64
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353863"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230033"
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Oplossen van prestatieproblemen met de Azure SQL Database met intelligente inzichten
 
@@ -167,7 +167,7 @@ Omdat een pagelatch een mechanisme voor interne controle van SQL-Database is, be
 
 Een methode voor het verwerken van vergrendeling conflicten wordt vervangen door een sequentiële Indexsleutel met een niet-aaneengesloten sleutel invoegen gelijkmatig wordt verdeeld over een bereik van de index. Normaal gesproken verdeelt een toonaangevende kolom in de index de belasting evenredig. Een andere methode om te overwegen Tabelpartities is. Het maken van een partitieschema met een berekende kolom in een gepartitioneerde tabel hash is een veelgebruikte manier voor het oplossen van conflicten overmatige vergrendeling. In het geval van pagelatch i/o-conflicten kunt Maak kennis met indexen u dit probleem verhelpen. 
 
-Zie voor meer informatie, [vaststellen en oplossen conflicten op SQL Server vergrendelingen](http://download.microsoft.com/download/B/9/E/B9EDF2CD-1DBF-4954-B81E-82522880A2DC/SQLServerLatchContention.pdf) (downloaden als PDF).
+Zie voor meer informatie, [vaststellen en oplossen conflicten op SQL Server vergrendelingen](https://download.microsoft.com/download/B/9/E/B9EDF2CD-1DBF-4954-B81E-82522880A2DC/SQLServerLatchContention.pdf) (downloaden als PDF).
 
 ## <a name="missing-index"></a>Ontbrekende Index
 

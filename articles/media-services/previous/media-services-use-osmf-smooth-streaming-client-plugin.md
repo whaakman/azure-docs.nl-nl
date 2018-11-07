@@ -1,6 +1,6 @@
 ---
-title: Smooth Streaming-invoegtoepassing voor de Media Open-Source Framework
-description: Informatie over het gebruik van de Azure Media Services Smooth Streaming-invoegtoepassing voor Adobe Open Source Media Framework.
+title: Smooth Streaming-invoegtoepassing voor Open Source Media Framework
+description: Meer informatie over het gebruik van de Azure Media Services Smooth Streaming-invoegtoepassing voor de Adobe Open Source Media Framework.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -14,51 +14,51 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
-ms.openlocfilehash: 6a4ae0697e59eb00e216fc29b154408e4d7a99b8
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 1664dc16e93fa825962690ec3ed5681478005d59
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33790410"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51229625"
 ---
-# <a name="how-to-use-the-microsoft-smooth-streaming-plugin-for-the-adobe-open-source-media-framework"></a>Het gebruik van de Microsoft-Smooth Streaming-invoegtoepassing voor Adobe Open-Source Media Framework
+# <a name="how-to-use-the-microsoft-smooth-streaming-plugin-for-the-adobe-open-source-media-framework"></a>Het gebruik van de Microsoft Smooth Streaming-invoegtoepassing voor Adobe Open Source Media Framework
 ## <a name="overview"></a>Overzicht
-De Microsoft Smooth Streaming-invoegtoepassing voor Open Source Media Framework 2.0 (SS voor OSMF) breidt de voorzieningen standaard van OSMF en inhoud afspelen Microsoft Smooth Streaming naar nieuwe en bestaande OSMF spelers toegevoegd. De invoegtoepassing worden Smooth Streaming afspelen mogelijkheden ook toegevoegd aan stroboscoop Media afspelen (SMP).
+De Microsoft Smooth Streaming-invoegtoepassing voor Open Source Media Framework 2.0 (SS voor OSMF) breidt de mogelijkheden van de standaardwaarde van OSMF en Microsoft Smooth Streaming inhoud afspelen toegevoegd aan nieuwe en bestaande OSMF spelers. De invoegtoepassing wordt afspelen van Smooth Streaming-mogelijkheden ook toegevoegd aan Strobe Media Playback (SMP).
 
 SS voor OSMF bevat twee versies van de invoegtoepassing:
 
 * Statische Smooth Streaming-invoegtoepassing voor OSMF (SWC)
 * Dynamische Smooth Streaming-invoegtoepassing voor OSMF (.swf)
 
-Dit document wordt ervan uitgegaan dat de lezer een algemene praktische kennis van OSMF en OSMF heeft invoegtoepassingen. Voor meer informatie over OSMF, Raadpleeg de documentatie van de [officiële OSMF site](http://osmf.org/).
+In dit document wordt ervan uitgegaan dat de lezer een algemene praktische kennis van OSMF en OSMF heeft-invoegtoepassingen. Voor meer informatie over OSMF, Raadpleeg de documentatie over de [officiële OSMF site](http://osmf.org/).
 
 ### <a name="smooth-streaming-plugin-for-osmf-20"></a>Smooth Streaming-invoegtoepassing voor OSMF 2.0
-De invoegtoepassing biedt ondersteuning voor laden en afspelen van Smooth Streaming inhoud op aanvraag met de volgende functies:
+De invoegtoepassing biedt ondersteuning voor het laden en het afspelen van Smooth Streaming inhoud op aanvraag met de volgende functies:
 
-* Afspelen op aanvraag Smooth Streaming (Play, onderbreken, Seek, Stop)
-* Live afspelen Smooth Streaming (Play)
-* Live DVR-functies (onderbreken, Seek, DVR afspelen, Ga-to-Live)
-* Ondersteuning voor een video-codecs - H.264
-* Ondersteuning voor audiocodecs - AAC
-* Meerdere audio taal overschakelen met ingebouwde OSMF-API 's
-* Maximale afspelen kwaliteit selectie met ingebouwde OSMF-API 's
-* Ter gesloten bijschriften met OSMF bijschriften-invoegtoepassing
+* Op aanvraag Smooth Streaming afspelen (afspelen, onderbreken, zoeken, Stop)
+* Live Smooth Streaming afspelen (Play)
+* Live DVR-functies (onderbreken, zoeken, DVR afspelen, Go-to-Live)
+* Ondersteuning voor video-codecs - H.264
+* Ondersteuning voor Audio - AAC-codecs
+* Meerdere gesproken taal overschakelen met ingebouwde OSMF-API 's
+* Max afspelen kwaliteit selectie met ingebouwde OSMF-API 's
+* Sidecar ondertiteling met bijschriften-invoegtoepassing voor OSMF
 * Adobe&reg; Flash&reg; Player 11,4 of hoger.
-* Deze versie ondersteunt alleen OSMF 2.0.
+* Deze versie biedt alleen ondersteuning voor OSMF 2.0.
 
 ## <a name="supported-features-and-known-issues"></a>Ondersteunde functies en bekende problemen
-Raadpleeg voor een volledige lijst van ondersteunde functies, niet-ondersteunde functies en bekende problemen [dit document](http://download.microsoft.com/download/3/1/B/31B63D97-574E-4A8D-BF8D-170744181724/Smooth_Streaming_Plugin_for_OSMF.pdf).
+Raadpleeg voor een volledige lijst van ondersteunde functies, niet-ondersteunde functies en bekende problemen, [dit document](https://download.microsoft.com/download/3/1/B/31B63D97-574E-4A8D-BF8D-170744181724/Smooth_Streaming_Plugin_for_OSMF.pdf).
 
-## <a name="loading-the-plugin"></a>Bij het laden van de invoegtoepassing
-OSMF invoegtoepassingen kunnen worden geladen (op het tijdstip van compilatie) statisch of dynamisch (tijdens runtime). De invoegtoepassing Smooth Streaming OSMF downloaden bevat versies van dynamische en statische.
+## <a name="loading-the-plugin"></a>Het laden van de invoegtoepassing
+OSMF invoegtoepassingen kunnen worden geladen (op compilatietijd) statisch of dynamisch (op het moment van uitvoering). De Smooth Streaming-invoegtoepassing voor OSMF download bevat zowel dynamische en statische-versies.
 
-* Statische laden: als u wilt laden statisch, een statische bibliotheek (SWC)-bestand is vereist. Statische plugins worden toegevoegd als een verwijzing naar de projecten en samenvoegen in de uiteindelijke uitvoer-bestand op het moment van compileren.
-* Dynamisch laden: dynamische taakverdeling, een vooraf gecompileerde (SWF)-bestand is vereist. Dynamische invoegtoepassingen zijn geladen in de runtime en niet zijn opgenomen in de projectuitvoer. (Gecompileerde uitvoer) Dynamische invoegtoepassingen kunnen worden geladen met behulp van HTTP- en protocollen.
+* Statische laden: voor het laden van statisch, een statische bibliotheek (SWC)-bestand is vereist. Statische invoegtoepassingen worden toegevoegd als een verwijzing naar de projecten en samenvoegen in de uiteindelijke uitvoer-bestand op het moment van compileren.
+* Dynamisch laden: als u wilt laden dynamisch, een vooraf gecompileerde (SWF)-bestand is vereist. Dynamische invoegtoepassingen zijn geladen in de runtime en niet zijn opgenomen in de projectuitvoer. (Gecompileerde uitvoer) Dynamische invoegtoepassingen kunnen worden geladen met behulp van HTTP- en protocollen.
 
-Zie voor meer informatie over statische en dynamische laden de officiële [OSMF invoegtoepassing pagina](http://osmf.org/dev/osmf/OtherPDFs/osmf_plugin_dev_guide.pdf).
+Zie voor meer informatie over het laden van statische en dynamische, de officiële [OSMF-invoegtoepassing pagina](http://osmf.org/dev/osmf/OtherPDFs/osmf_plugin_dev_guide.pdf).
 
 ### <a name="ss-for-osmf-static-loading"></a>SS voor OSMF statische laden
-Het onderstaande codefragment laat zien hoe de invoegtoepassing SS statisch voor OSMF laden en een basic video met behulp van de klasse OSMF MediaFactory afspelen. Voordat u met inbegrip van de SS voor OSMF code, zorg ervoor dat het project een verwijzing de statische 'MSAdaptiveStreamingPlugin v1.0.3 osmf2.0.swc'-invoegtoepassing bevat.
+Het onderstaande codefragment laat zien hoe de SS-invoegtoepassing voor OSMF statisch laden en een basic-video met behulp van de klasse OSMF MediaFactory afspelen. Voordat u met inbegrip van de SS voor OSMF code, zorg ervoor dat de projectverwijzing de statische 'MSAdaptiveStreamingPlugin v1.0.3 osmf2.0.swc'-invoegtoepassing bevat.
 
 ```
 package 
@@ -194,7 +194,7 @@ package
 
 
 ### <a name="ss-for-osmf-dynamic-loading"></a>SS voor OSMF dynamisch laden
-Het onderstaande codefragment laat zien hoe de SS-invoegtoepassing voor OSMF dynamisch laden en een eenvoudige afspelen video met behulp van de klasse OSMF MediaFactory. Voordat u met inbegrip van de SS voor OSMF code, de dynamische invoegtoepassing 'MSAdaptiveStreamingPlugin v1.0.3 osmf2.0.swf' naar de projectmap kopiëren als u wilt laden met bestandsprotocol of kopieer onder een webserver voor HTTP-belasting. Er is niet nodig om op te nemen 'MSAdaptiveStreamingPlugin v1.0.3 osmf2.0.swc' in de projectverwijzingen.
+Het onderstaande codefragment laat zien hoe de SS-invoegtoepassing voor OSMF dynamisch laden en afspelen van een eenvoudige video met de OSMF MediaFactory-klasse. Voordat u met inbegrip van de SS voor OSMF code, de dynamische invoegtoepassing 'MSAdaptiveStreamingPlugin v1.0.3 osmf2.0.swf' kopiëren naar de projectmap als u wilt laden met behulp van bestandsprotocol of kopieer onder een webserver gefilterd voor HTTP-taakverdeling. Er is niet nodig om op te nemen 'MSAdaptiveStreamingPlugin v1.0.3 osmf2.0.swc' in de project-referenties.
 
 {het pakket
 
@@ -327,15 +327,15 @@ Het onderstaande codefragment laat zien hoe de SS-invoegtoepassing voor OSMF dyn
     }
 }
 
-## <a name="strobe-media--playback-with-the-ss-odmf-dynamic-plugin"></a>Stroboscoop Media afspelen met de dynamische SS ODMF-invoegtoepassing
-De Smooth Streaming voor dynamische OSMF-invoegtoepassing is compatibel met [stroboscoop Media afspelen (SMP)](http://osmf.org/strobe_mediaplayback.html). U kunt de SS voor OSMF invoegtoepassing Smooth Streaming afspelen van inhoud toevoegen aan SMP gebruiken. U doet dit door kopiëren 'MSAdaptiveStreamingPlugin v1.0.3 osmf2.0.swf' onder een webserver voor HTTP-belasting met behulp van de volgende stappen uit:
+## <a name="strobe-media--playback-with-the-ss-odmf-dynamic-plugin"></a>Strobe Media afspelen met de dynamische ODMF SS-invoegtoepassing
+De Smooth Streaming voor OSMF-invoegtoepassing voor dynamische is compatibel met [Strobe Media Playback (SMP)](http://osmf.org/strobe_mediaplayback.html). U kunt de SS voor OSMF-invoegtoepassing Smooth Streaming inhoud afspelen toevoegen aan SMP. Om dit te doen, kopieert u 'MSAdaptiveStreamingPlugin v1.0.3 osmf2.0.swf' onder een webserver gefilterd voor HTTP-taakverdeling met behulp van de volgende stappen uit:
 
-1. Bladeren de [stroboscoop Media afspelen installatiepagina](http://osmf.org/dev/2.0gm/setup.html). 
-2. De src (bijvoorbeeld met een bron Smooth Streaming instellen http://devplatem.vo.msecnd.net/Sintel/Sintel_H264.ism/manifest) 
-3. De gewenste configuratiewijzigingen aanbrengen en klikt u op Preview en Update.
+1. Ga de [Strobe Media afspeelpagina setup](http://osmf.org/dev/2.0gm/setup.html). 
+2. Stel in de src op een bron Smooth Streaming, (bijvoorbeeld) http://devplatem.vo.msecnd.net/Sintel/Sintel_H264.ism/manifest) 
+3. De van de gewenste configuratiewijzigingen aanbrengen en klik op Preview-versie bijwerken.
    
-   **Opmerking** uw webserver inhoud moet een geldige crossdomain.xml. 
-4. Kopieer en plak de code in een eenvoudig HTML-pagina met behulp van uw favoriete teksteditor, zoals in het volgende voorbeeld:
+   **Houd er rekening mee** uw inhoud webserver moet een geldige crossdomain.xml. 
+4. Kopieer en plak de code in een eenvoudige HTML-pagina met behulp van uw favoriete teksteditor, zoals in het volgende voorbeeld:
 
         <html>
         <body>
@@ -360,7 +360,7 @@ De Smooth Streaming voor dynamische OSMF-invoegtoepassing is compatibel met [str
 
 
 
-1. Smooth Streaming OSMF-invoegtoepassing toevoegen aan de ingesloten code en opslaan.
+1. Smooth Streaming OSMF-invoegtoepassing toevoegen aan de ingesloten code en sla.
    
         <html>
         <object width="920" height="640"> 
@@ -380,10 +380,10 @@ De Smooth Streaming voor dynamische OSMF-invoegtoepassing is compatibel met [str
         </embed>
         </object>
         </html>
-2. De HTML-pagina opslaan en publiceren naar een webserver. Blader naar de gepubliceerde webpagina met uw favoriete Flash&reg; Player ingeschakeld internetbrowser (Internet Explorer, Chrome, Firefox, enzovoort).
-3. Profiteer van Smooth Streaming inhoud in Adobe&reg; Flash&reg; Player.
+2. Uw HTML-pagina opslaan en publiceren met een webserver. Blader naar de gepubliceerde webpagina wordt weergegeven met uw favoriete Flash&reg; Player ingeschakeld internetbrowser (Internet Explorer, Chrome, Firefox, enzovoort).
+3. Geniet van Smooth Streaming-inhoud in Adobe&reg; Flash&reg; Player.
 
-Zie voor meer informatie over algemene OSMF ontwikkeling de officiële [OSMF ontwikkeling pagina](http://osmf.org/resources.html).
+Zie voor meer informatie over algemene OSMF-ontwikkeling, de officiële [OSMF ontwikkeling pagina](http://osmf.org/resources.html).
 
 ## <a name="media-services-learning-paths"></a>Media Services-leertrajecten
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

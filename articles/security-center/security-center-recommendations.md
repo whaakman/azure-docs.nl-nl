@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/18/2018
 ms.author: rkarlin
-ms.openlocfilehash: 3af84e0659d1d62079c239ad6e650d31c9f9a6f1
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 5ea8718b90a82e904f54e5569d36f27146ffe5f1
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46125354"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51253156"
 ---
 # <a name="managing-security-recommendations-in-azure-security-center"></a>Aanbevelingen voor beveiliging in Azure Security Center beheren
 Dit document helpt u bij het gebruik van de aanbevelingen in Azure Security Center kunt u uw Azure-resources beveiligen.
@@ -90,7 +90,7 @@ Gebruik de onderstaande tabel als referentie om te begrijpen van de beschikbare 
 | [Controle en detectie van bedreigingen op SQL-servers inschakelen](security-center-enable-auditing-on-sql-servers.md) |Hiermee wordt aanbevolen dat u controle en detectie van bedreigingen voor Azure SQL-servers inschakelen. (Alleen voor azure SQL-service. Bevat geen SQL die worden uitgevoerd op uw virtuele machines.) |
 | [Controle en detectie van bedreigingen op SQL-databases inschakelen](security-center-enable-auditing-on-sql-databases.md) |Hiermee wordt aanbevolen dat u controle en detectie van bedreigingen voor Azure SQL-databases inschakelen. (Alleen voor azure SQL-service. Bevat geen SQL die worden uitgevoerd op uw virtuele machines.) |
 | [Transparent Data Encryption inschakelen voor SQL-databases](security-center-enable-transparent-data-encryption.md) |Hiermee wordt aanbevolen dat u versleuteling voor SQL-databases inschakelen. (Alleen azure SQL-service). |
-| [VM-agent inschakelen](security-center-enable-vm-agent.md) |Hiermee kunt u zien voor welke VM's de VM-agent is vereist. De VM-Agent moet worden geïnstalleerd op VM's voor het patchen van inrichten scannen, basislijnen te scannen en antimalwareprogramma's. De VM-agent wordt standaard geïnstalleerd op VM's die zijn geïmplementeerd vanuit Azure Marketplace. Het artikel [VM Agent and Extensions – Part 2)](http://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/) (VM-agent en -extensies – deel 2) bevat informatie over het installeren van de VM-agent. |
+| [VM-agent inschakelen](security-center-enable-vm-agent.md) |Hiermee kunt u zien voor welke VM's de VM-agent is vereist. De VM-Agent moet worden geïnstalleerd op VM's voor het patchen van inrichten scannen, basislijnen te scannen en antimalwareprogramma's. De VM-agent wordt standaard geïnstalleerd op VM's die zijn geïmplementeerd vanuit Azure Marketplace. Het artikel [VM Agent and Extensions – Part 2)](https://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/) (VM-agent en -extensies – deel 2) bevat informatie over het installeren van de VM-agent. |
 | [Schijfversleuteling toepassen](security-center-apply-disk-encryption.md) |Hiermee wordt aanbevolen om de VM-schijven te versleutelen met behulp van Azure Disk Encryption. (Voor VM's van Windows en Linux.) Versleuteling wordt aanbevolen voor het besturingssysteem en voor de gegevensvolumes op de VM. |
 | [Contactgegevens voor beveiliging verstrekken](security-center-provide-security-contact-details.md) |Gebruiker wordt aanbevolen dat u beveiliging bieden contact opnemen met informatie voor elk van uw abonnementen. Contactgegevens is een e-mailadres en telefoonnummer getal. De informatie die wordt gebruikt om contact met u als beveiligingsteam vindt dat uw resources zijn aangetast. |
 | [Besturingssysteemversie bijwerken](security-center-update-os-version.md) |Hiermee wordt aanbevolen dat u de versie van het besturingssysteem (OS) voor je Cloud Service naar de meest recente versie beschikbaar voor uw type besturingssysteem bijwerken.  Zie voor meer informatie over Cloud Services, de [overzicht van Cloud Services](../cloud-services/cloud-services-choose-me.md). |
@@ -140,7 +140,7 @@ In dit document, kunt u kennisgemaakt met aanbevelingen voor beveiliging in Secu
 * [Beheren en erop reageren op beveiligingswaarschuwingen in Azure Security Center](security-center-managing-and-responding-alerts.md) : informatie over het beheren van en reageren op beveiligingswaarschuwingen.
 * [Partneroplossingen controleren met Azure Security Center](security-center-partner-solutions.md): leer hoe u de integriteitsstatus van uw partneroplossingen kunt controleren.
 * [Azure Security Center FAQ](security-center-faq.md): raadpleeg veelgestelde vragen over het gebruik van de service.
-* [Azure-beveiligingsblog](http://blogs.msdn.com/b/azuresecurity/): lees blogberichten over de beveiliging en naleving van Azure.
+* [Azure-beveiligingsblog](https://blogs.msdn.com/b/azuresecurity/): lees blogberichten over de beveiliging en naleving van Azure.
 
 <!--Image references-->
 [1]: ./media/security-center-recommendations/recommendations-tile.png

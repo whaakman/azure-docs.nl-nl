@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: 90cf2d0ddbba47a856bf1299a101c5185873b5d8
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 6dc3fb97c912aa9ac66e3d40a8a0318a6938905c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39214409"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230288"
 ---
 # <a name="biztalk-services-backup-and-restore"></a>BizTalk Services: back-ups maken en herstellen
 
@@ -132,18 +132,18 @@ Als de Database bijhouden is verwijderd en de behoeften van de database is herst
 </table>
 
 ## <a name="next"></a>Volgende
-Voor het maken van Azure BizTalk Services, gaat u naar [BizTalk Services: inrichten](http://go.microsoft.com/fwlink/p/?LinkID=302280). Ga naar [Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=235197) om te beginnen met het maken van toepassingen.
+Voor het maken van Azure BizTalk Services, gaat u naar [BizTalk Services: inrichten](https://go.microsoft.com/fwlink/p/?LinkID=302280). Ga naar [Azure BizTalk Services](https://go.microsoft.com/fwlink/p/?LinkID=235197) om te beginnen met het maken van toepassingen.
 
 ## <a name="see-also"></a>Zie ook
-* [Back-up van BizTalk-Service](http://go.microsoft.com/fwlink/p/?LinkID=325584)
-* [BizTalk-Service te herstellen vanuit back-up](http://go.microsoft.com/fwlink/p/?LinkID=325582)
-* [BizTalk Services: Developer, Basic, Standard en Premium-edities grafiek](http://go.microsoft.com/fwlink/p/?LinkID=302279)
-* [BizTalk Services: inrichten](http://go.microsoft.com/fwlink/p/?LinkID=302280)
-* [BizTalk Services: statusgrafiek voor de inrichting](http://go.microsoft.com/fwlink/p/?LinkID=329870)
-* [BizTalk Services: de tabbladen Dashboard, Bewaken en Schalen](http://go.microsoft.com/fwlink/p/?LinkID=302281)
-* [BizTalk Services: beperking](http://go.microsoft.com/fwlink/p/?LinkID=302282)
-* [BizTalk Services: naam en sleutel van verlener](http://go.microsoft.com/fwlink/p/?LinkID=303941)
-* [De Azure BizTalk Services SDK gaan gebruiken](http://go.microsoft.com/fwlink/p/?LinkID=302335)
+* [Back-up van BizTalk-Service](https://go.microsoft.com/fwlink/p/?LinkID=325584)
+* [BizTalk-Service te herstellen vanuit back-up](https://go.microsoft.com/fwlink/p/?LinkID=325582)
+* [BizTalk Services: Developer, Basic, Standard en Premium-edities grafiek](https://go.microsoft.com/fwlink/p/?LinkID=302279)
+* [BizTalk Services: inrichten](https://go.microsoft.com/fwlink/p/?LinkID=302280)
+* [BizTalk Services: statusgrafiek voor de inrichting](https://go.microsoft.com/fwlink/p/?LinkID=329870)
+* [BizTalk Services: de tabbladen Dashboard, Bewaken en Schalen](https://go.microsoft.com/fwlink/p/?LinkID=302281)
+* [BizTalk Services: beperking](https://go.microsoft.com/fwlink/p/?LinkID=302282)
+* [BizTalk Services: naam en sleutel van verlener](https://go.microsoft.com/fwlink/p/?LinkID=303941)
+* [De Azure BizTalk Services SDK gaan gebruiken](https://go.microsoft.com/fwlink/p/?LinkID=302335)
 
 [BackupStatus]: ./media/biztalk-backup-restore/status-last-backup.png
 [Restore]: ./media/biztalk-backup-restore/restore-ui.png

@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 302607df2292fe7a67a8b6860dab19eef7f391a9
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 8577b6a1d0f57820cbdd4096b0e8412096ff3af3
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47160363"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232073"
 ---
 # <a name="event-file-target-code-for-extended-events-in-sql-database"></a>Doelcode gebeurtenisbestand voor uitgebreide gebeurtenissen in SQL-Database
 
@@ -25,7 +25,7 @@ ms.locfileid: "47160363"
 
 Wilt u een codevoorbeeld voor een robuuste manier vastleggen en rapport gegevens voor een uitgebreide gebeurtenis.
 
-In Microsoft SQL Server, de [gebeurtenisbestand doel](http://msdn.microsoft.com/library/ff878115.aspx) wordt gebruikt voor het opslaan van de uitvoer van de gebeurtenis naar een lokale harde schijf-bestand. Maar dergelijke bestanden zijn niet beschikbaar voor Azure SQL Database. We gebruiken de Azure Storage-service in plaats daarvan ter ondersteuning van het doel van de gebeurtenisbestand.
+In Microsoft SQL Server, de [gebeurtenisbestand doel](https://msdn.microsoft.com/library/ff878115.aspx) wordt gebruikt voor het opslaan van de uitvoer van de gebeurtenis naar een lokale harde schijf-bestand. Maar dergelijke bestanden zijn niet beschikbaar voor Azure SQL Database. We gebruiken de Azure Storage-service in plaats daarvan ter ondersteuning van het doel van de gebeurtenisbestand.
 
 In dit onderwerp biedt een codevoorbeeld van in twee fasen:
 
@@ -44,9 +44,9 @@ In dit onderwerp biedt een codevoorbeeld van in twee fasen:
 * SQL Server Management Studio (ssms.exe), in het ideale geval de meest recente maandelijkse updateversie. 
   U kunt de meest recente ssms.exe van downloaden:
   
-  * Onderwerp [SQL Server Management Studio downloaden](http://msdn.microsoft.com/library/mt238290.aspx).
-  * [Een directe koppeling naar de download.](http://go.microsoft.com/fwlink/?linkid=616025)
-* Hebt u de [Azure PowerShell-modules](http://go.microsoft.com/?linkid=9811175) geïnstalleerd.
+  * Onderwerp [SQL Server Management Studio downloaden](https://msdn.microsoft.com/library/mt238290.aspx).
+  * [Een directe koppeling naar de download.](https://go.microsoft.com/fwlink/?linkid=616025)
+* Hebt u de [Azure PowerShell-modules](https://go.microsoft.com/?linkid=9811175) geïnstalleerd.
   
   * De modules bieden opdrachten zoals - **New-AzureStorageAccount**.
 
@@ -506,11 +506,11 @@ SELECT 'AFTER__Updates', EmployeeKudosCount, * FROM gmTabEmployee;
 
 De bovenstaande Transact-SQL-script gebruikt de volgende systeemfunctie om te lezen van de event_file:
 
-* [sys.fn_xe_file_target_read_file (Transact-SQL)](http://msdn.microsoft.com/library/cc280743.aspx)
+* [sys.fn_xe_file_target_read_file (Transact-SQL)](https://msdn.microsoft.com/library/cc280743.aspx)
 
 Een uitleg van geavanceerde opties voor de weergave van gegevens van uitgebreide gebeurtenissen is beschikbaar op:
 
-* [Geavanceerde weergave van de doelgegevens van uitgebreide gebeurtenissen](http://msdn.microsoft.com/library/mt752502.aspx)
+* [Geavanceerde weergave van de doelgegevens van uitgebreide gebeurtenissen](https://msdn.microsoft.com/library/mt752502.aspx)
 
 
 ## <a name="converting-the-code-sample-to-run-on-sql-server"></a>Converteren van de voorbeeldcode om uit te voeren op de SQL Server
@@ -528,10 +528,10 @@ Stel dat u wilt de bovenstaande Transact-SQL-voorbeeld uitvoeren in Microsoft SQ
 Zie voor meer informatie over accounts en -containers in de Azure Storage-service:
 
 * [Het Blob storage gebruiken met .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md)
-* [Naamgeving van en verwijzen naar containers, blobs en metagegevens](http://msdn.microsoft.com/library/azure/dd135715.aspx)
-* [Werken met het Root-Container](http://msdn.microsoft.com/library/azure/ee395424.aspx)
-* [Les 1: Een opgeslagen toegangsbeleid en een shared access signature maken op een Azure-container](http://msdn.microsoft.com/library/dn466430.aspx)
-  * [Les 2: Een SQL Server-referentie met behulp van een shared access signature maken](http://msdn.microsoft.com/library/dn466435.aspx)
+* [Naamgeving van en verwijzen naar containers, blobs en metagegevens](https://msdn.microsoft.com/library/azure/dd135715.aspx)
+* [Werken met het Root-Container](https://msdn.microsoft.com/library/azure/ee395424.aspx)
+* [Les 1: Een opgeslagen toegangsbeleid en een shared access signature maken op een Azure-container](https://msdn.microsoft.com/library/dn466430.aspx)
+  * [Les 2: Een SQL Server-referentie met behulp van een shared access signature maken](https://msdn.microsoft.com/library/dn466435.aspx)
 * [Uitgebreide gebeurtenissen voor Microsoft SQL Server](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events)
 
 <!--

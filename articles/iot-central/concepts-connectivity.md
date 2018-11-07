@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: ad77f1f0a99fbdb355163e1bc83461c8c4eb75fa
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 7b2dd4e97d23f37c8261e51f3f65e78436493ddc
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50157697"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238726"
 ---
 # <a name="device-connectivity-in-azure-iot-central"></a>Connectiviteit van apparaten in Azure IoT Central
 
@@ -150,7 +150,7 @@ Apparaten kunt verbinden met IoT Central X509 met certificaten, er zijn drie bel
     
     Hieronder vindt u enkele hulpprogramma opdrachtregel-hulpprogramma's die kunt u voor het genereren van CA-certificaten en certificaten voor het apparaat.
 
-    * Als u MxChip hier is een [-opdrachtregelprogramma](http://aka.ms/iotcentral-docs-dicetool) voor het genereren van CA-certificaten toe te voegen aan uw IoT Central-app en controleer of de certificaten. 
+    * Als u MxChip hier is een [-opdrachtregelprogramma](https://aka.ms/iotcentral-docs-dicetool) voor het genereren van CA-certificaten toe te voegen aan uw IoT Central-app en controleer of de certificaten. 
 
     *   Gebruik deze [-opdrachtregelprogramma](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md ) naar
         * Maak de certificaatketen (Volg stap 2 in de GitHub-documenten). 
@@ -165,7 +165,7 @@ Apparaten kunt verbinden met IoT Central X509 met certificaten, er zijn drie bel
     Het apparaat met provisioning service informatie voor het inschakelen van het ophalen van de verbindingsgegevens en IoT Central, app-toewijzing wanneer overgeschakeld op programmeren.    
 
     **Verdere referene** 
-    *   Voorbeeldimplementatie voor [RaspberryPi.](http://aka.ms/iotcentral-docs-Raspi-releases)  
+    *   Voorbeeldimplementatie voor [RaspberryPi.](https://aka.ms/iotcentral-docs-Raspi-releases)  
 
     *   [Voorbeeld van apparaatclient in C.](https://github.com/Azure/azure-iot-sdk-c/blob/dps_symm_key/provisioning_client/devdoc/using_provisioning_client.md)
 

@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: article
 ms.date: 05/10/2018
 ms.author: v-jansko
-ms.openlocfilehash: d01a5a8a9a60bef315327721b9f55345bc3d1361
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: bbfffe948080c87feaa8c9f0a46ef9afd90eae96
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49645025"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51229676"
 ---
 # <a name="customize-your-text-translations"></a>Pas uw tekstomzettingen
 
@@ -37,7 +37,7 @@ Het aangepaste systeem is beschikbaar via een gewone aanroep van de Microsoft Tr
 
 Gezien het juiste type en de hoeveelheid trainingsgegevens het is niet ongebruikelijk dat u kunt verwachten winsten tussen 5 en 10, of zelfs nog meer BLEU verwijst op vertaalkwaliteit met behulp van aangepaste Translator.
 
-Meer informatie over de verschillende niveaus van aanpassen op basis van beschikbare gegevens kunnen u vinden in de [aangepaste Translator-gebruikershandleiding](http://aka.ms/CustomTranslatorDocs).
+Meer informatie over de verschillende niveaus van aanpassen op basis van beschikbare gegevens kunnen u vinden in de [aangepaste Translator-gebruikershandleiding](https://aka.ms/CustomTranslatorDocs).
 
 
 ## <a name="microsoft-translator-hub"></a>Microsoft Translator-Hub
@@ -53,7 +53,7 @@ De verouderde Microsoft Translator-Hub kan worden gebruikt voor de statistische 
 | SMT aanpassen | Ja   | Nee |
 | NMT aanpassen | Nee    | Ja |
 | Nieuwe uniforme spraakherkenning services aanpassen | Nee    | Ja |
-| [Geen tracering](http://www.aka.ms/notrace) | Ja   | Ja |
+| [Geen tracering](https://www.aka.ms/notrace) | Ja  | Ja |
 
 ## <a name="collaborative-translations-framework"></a>Gezamenlijke vertalingen Framework
 
@@ -65,4 +65,4 @@ De verouderde Microsoft Translator-Hub kan worden gebruikt voor de statistische 
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Een aangepaste taalsysteem met aangepaste Translator instellen](http://aka.ms/CustomTranslatorDocs)
+> [Een aangepaste taalsysteem met aangepaste Translator instellen](https://aka.ms/CustomTranslatorDocs)

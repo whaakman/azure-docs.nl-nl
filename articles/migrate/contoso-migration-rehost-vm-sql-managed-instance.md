@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 0e4576ad4f7eece543ef572073919bcf3ca3a4e9
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: ae719e6daa3c07ffe298cfefcc5a0a2846a49032
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49116139"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51231818"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-on-an-azure-vm-and-sql-database-managed-instance"></a>Migratie van Contoso: een on-premises-app op een virtuele machine van Azure en SQL Database Managed Instance Rehost
 
@@ -366,7 +366,7 @@ Na een failover naar Azure wil Contoso kunnen verbinding maken met de gereplicee
 Beheerders van Contoso moet ook deze items te controleren wanneer ze een failover worden uitgevoerd:
 
 - Er mogen geen Windows-updates in behandeling op de virtuele machine wanneer een failover wordt geactiveerd. Als Windows-updates in behandeling zijn, kunnen niet gebruikers Contoso aanmelden bij de virtuele machine totdat de update is voltooid.
-- Controleer na een failover, beheerders **diagnostische gegevens over opstarten** om een schermopname van de virtuele machine weer te geven. Als ze de diagnostische gegevens over het opstarten niet kunnen bekijken, moeten ze controleren dat de virtuele machine wordt uitgevoerd, en bekijk vervolgens [tips voor probleemoplossing](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
+- Controleer na een failover, beheerders **diagnostische gegevens over opstarten** om een schermopname van de virtuele machine weer te geven. Als ze de diagnostische gegevens over het opstarten niet kunnen bekijken, moeten ze controleren dat de virtuele machine wordt uitgevoerd, en bekijk vervolgens [tips voor probleemoplossing](https://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
 
 ## <a name="step-5-replicate-the-on-premises-vms-to-azure"></a>Stap 5: De on-premises VM's repliceren naar Azure
 

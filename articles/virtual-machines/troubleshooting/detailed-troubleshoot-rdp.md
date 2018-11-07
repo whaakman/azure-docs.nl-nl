@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 3b6b505be4a0084059d8c37a21099a784cacbed1
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: af36f033dbca6c9f594b3568bfe7567a959e2d2f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50414120"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51237149"
 ---
 # <a name="detailed-troubleshooting-steps-for-remote-desktop-connection-issues-to-windows-vms-in-azure"></a>Gedetailleerde stappen voor probleemoplossing voor problemen met extern bureaublad-verbinding Windows virtuele machines in Azure
 In dit artikel bevat gedetailleerde stappen voor probleemoplossing kunt vaststellen en oplossen van complexe extern bureaublad-fouten voor Azure-machines op basis van Windows.
@@ -130,7 +130,7 @@ Probeer opnieuw de verbinding vanaf uw computer. Als u nog steeds niet lukt om v
 * Windows Firewall of een andere lokale firewall heeft een uitgaande regel dat voorkomt verkeer van extern bureaublad dat.
 * Indringers detecteren of het netwerk bewaken die worden uitgevoerd op virtuele machine van Azure voorkomt dat extern bureaublad-verbindingen.
 
-Voor virtuele machines die zijn gemaakt met het klassieke implementatiemodel, kunt u een externe Azure PowerShell-sessie met de virtuele machine van Azure. Eerst moet u een certificaat installeren voor hosting van de virtuele machine-cloudservice. Ga naar [configureren beveiligde externe PowerShell-toegang tot Azure Virtual Machines](http://gallery.technet.microsoft.com/scriptcenter/Configures-Secure-Remote-b137f2fe) en download de **InstallWinRMCertAzureVM.ps1** scriptbestand naar uw lokale computer.
+Voor virtuele machines die zijn gemaakt met het klassieke implementatiemodel, kunt u een externe Azure PowerShell-sessie met de virtuele machine van Azure. Eerst moet u een certificaat installeren voor hosting van de virtuele machine-cloudservice. Ga naar [configureren beveiligde externe PowerShell-toegang tot Azure Virtual Machines](https://gallery.technet.microsoft.com/scriptcenter/Configures-Secure-Remote-b137f2fe) en download de **InstallWinRMCertAzureVM.ps1** scriptbestand naar uw lokale computer.
 
 Vervolgens installeert u Azure PowerShell als u dat nog niet gedaan hebt. Zie [Azure PowerShell installeren en configureren](/powershell/azure/overview).
 

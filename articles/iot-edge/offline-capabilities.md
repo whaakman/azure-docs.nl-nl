@@ -8,12 +8,12 @@ ms.date: 09/20/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: d84df3e5e0b961b8a53044102f99205ee0fe9896
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: c4ab33f4d706eb677b2b790ff871c1fb900846ff
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50914104"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51235629"
 ---
 # <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices-preview"></a>Meer informatie over uitgebreide offline mogelijkheden voor IoT Edge-apparaten, modules en onderliggende apparaten (preview)
 
@@ -46,7 +46,7 @@ Het volgende voorbeeld ziet u de werking van een IoT Edge-scenario in de offline
 
 ## <a name="restrictions-and-limits"></a>Beperkingen en limieten
 
-De uitgebreide offline-mogelijkheden die worden beschreven in dit artikel zijn beschikbaar in [IoT Edge versie 1.0.2 of hoger](https://github.com/Azure/azure-iotedge/releases). Eerdere versies hebben een subset van de offline functies. IoT Edge bestaande apparaten waarvoor geen uitgebreide mogelijkheden voor offline kunnen niet worden bijgewerkt door het veranderen van de runtimeversie, maar moeten opnieuw worden geconfigureerd met een nieuwe IoT Edge-apparaat-id te krijgen van deze functies. 
+De uitgebreide offline-mogelijkheden die worden beschreven in dit artikel zijn beschikbaar in [IoT Edge versie 1.0.4 of hoger](https://github.com/Azure/azure-iotedge/releases). Eerdere versies hebben een subset van de offline functies. IoT Edge bestaande apparaten waarvoor geen uitgebreide mogelijkheden voor offline kunnen niet worden bijgewerkt door het veranderen van de runtimeversie, maar moeten opnieuw worden geconfigureerd met een nieuwe IoT Edge-apparaat-id te krijgen van deze functies. 
 
 Uitgebreide offline ondersteuning is beschikbaar in alle regio's waar de IoT Hub verkrijgbaar, met uitzondering van VS-Oost en West-Europa is. 
 
@@ -56,34 +56,7 @@ IoT Edge-apparaten en hun apparaten toegewezen onderliggende kunnen worden gebru
 
 ## <a name="set-up-an-edge-device"></a>Een Edge-apparaat instellen
 
-Voor elk IoT Edge-apparaat dat u wilt uitvoeren tijdens perioden met uitgebreide offline en configureren van IoT Edge-runtime communiceert MQTT. 
-
 Voor een IoT Edge-apparaat uit te breiden zijn uitgebreide offline mogelijkheden voor het onderliggende IoT-apparaten, moet u op te geven van de bovenliggende / onderliggende relatie in Azure portal.
-
-### <a name="set-the-upstream-protocol-to-mqtt"></a>De upstream-protocol ingesteld op MQTT
-
-Configureer de Edge hub zowel de Edge agent om te communiceren met MQTT als de upstream-protocol. Dit protocol is gedeclareerd voor het gebruik van omgevingsvariabelen in het manifest van de implementatie. 
-
-In Azure portal, kunt u de Edge hub en de Edge agent moduledefinities openen door het selecteren van de **geavanceerde instellingen voor Edge-Runtime configureren** knop bij het instellen van modules voor een implementatie. Voor beide modules, maakt u een omgevingsvariabele met de naam **UpstreamProtocol** en stel de waarde op **MQTT**. 
-
-In de sjabloon voor de implementatie JSON, worden de omgevingsvariabelen worden gedefinieerd zoals wordt weergegeven in het volgende voorbeeld: 
-
-```json
-"edgeHub": {
-    "type": "docker",
-    "settings": {
-        "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
-        "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"8883/tcp\":[{\"HostPort\":\"8883\"}],\"443/tcp\":[{\"HostPort\":\"443\"}],\"5671/tcp\":[{\"HostPort\":\"5671\"}]}}}"
-    },
-    "env": {
-        "UpstreamProtocol": {
-            "value": "MQTT"
-        }
-    },
-    "status": "running",
-    "restartPolicy": "always"
-}
-```
 
 ### <a name="assign-child-devices"></a>Onderliggende apparaten toewijzen
 

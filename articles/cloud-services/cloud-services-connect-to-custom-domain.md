@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: jeconnoc
-ms.openlocfilehash: b05e20b5c99c6f1b5b1bf93ca781ec97284fba79
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: bb812699795f112023b579352ac3a52bef311d40
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39004912"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232644"
 ---
 # <a name="connecting-azure-cloud-services-roles-to-a-custom-ad-domain-controller-hosted-in-azure"></a>Azure Cloud Services-rollen verbinding te maken met een aangepaste AD-domeincontroller die wordt gehost in Azure
 Er wordt eerst een Virtueelnetwerk (VNet) instellen in Azure. Er wordt een Active Directory-domeincontroller (die worden gehost op een Azure-Machine) toevoegen aan het VNet. Vervolgens wordt er bestaande cloudservicerollen toevoegen aan de vooraf gemaakte VNet en verbind deze met de domeincontroller.
@@ -95,7 +95,7 @@ Als u wilt zich aanmeldt bij de virtuele machine, kunt u de RDP-bestand ophalen 
 Get-AzureRemoteDesktopFile -ServiceName $vmsvc1 -Name $vm1 -LocalPath <rdp-file-path>
 ```
 
-Nadat u bent aangemeld bij de virtuele machine, instellen van uw virtuele Machine als een AD-domeincontroller door de stapsgewijze handleiding volgen op [over het instellen van uw klant AD-domeincontroller](http://social.technet.microsoft.com/wiki/contents/articles/12370.windows-server-2012-set-up-your-first-domain-controller-step-by-step.aspx).
+Nadat u bent aangemeld bij de virtuele machine, instellen van uw virtuele Machine als een AD-domeincontroller door de stapsgewijze handleiding volgen op [over het instellen van uw klant AD-domeincontroller](https://social.technet.microsoft.com/wiki/contents/articles/12370.windows-server-2012-set-up-your-first-domain-controller-step-by-step.aspx).
 
 ## <a name="add-your-cloud-service-to-the-virtual-network"></a>Uw Cloudservice toevoegen aan het virtuele netwerk
 Vervolgens moet u uw cloud service-implementatie toevoegen aan de nieuwe VNet. U doet dit door uw cloud service cscfg te wijzigen door de relevante secties toe te voegen aan uw cscfg met behulp van Visual Studio of de editor van uw keuze.

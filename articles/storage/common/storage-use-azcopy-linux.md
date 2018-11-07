@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/26/2018
 ms.author: seguler
 ms.component: common
-ms.openlocfilehash: 1aff2ecdec83886d40d12b76e64a14a81451e89e
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 79aa9cd3e634238702419d01650c7ef29c4dbb95
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49386685"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242022"
 ---
 # <a name="transfer-data-with-azcopy-on-linux"></a>Gegevens overdragen met AzCopy voor Linux
 
@@ -357,7 +357,7 @@ azcopy \
     --dest-key <key>
 ```
 
-Wanneer u een blob zonder--sync-kopiëren-optie, kopieert een [serverzijde kopie](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) bewerking wordt uitgevoerd.
+Wanneer u een blob zonder--sync-kopiëren-optie, kopieert een [serverzijde kopie](https://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) bewerking wordt uitgevoerd.
 
 ### <a name="copy-single-blob-across-storage-accounts"></a>Één blob kopiëren tussen opslagaccounts
 
@@ -369,7 +369,7 @@ azcopy \
     --dest-key <key2>
 ```
 
-Wanneer u een blob zonder--sync-kopiëren-optie, kopieert een [serverzijde kopie](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) bewerking wordt uitgevoerd.
+Wanneer u een blob zonder--sync-kopiëren-optie, kopieert een [serverzijde kopie](https://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) bewerking wordt uitgevoerd.
 
 ### <a name="copy-single-blob-from-secondary-region-to-primary-region"></a>Één blob van de secundaire regio kopiëren naar primaire regio
 
@@ -488,7 +488,7 @@ azcopy \
     --dest-key <key2> \
     --recursive
 ```
-Wanneer u een bestand via bestandsshares kopiëren, een [serverzijde kopie](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) bewerking wordt uitgevoerd.
+Wanneer u een bestand via bestandsshares kopiëren, een [serverzijde kopie](https://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) bewerking wordt uitgevoerd.
 
 ### <a name="copy-from-file-share-to-blob"></a>Kopiëren van de bestandsshare naar de blob
 
@@ -500,7 +500,7 @@ azcopy \
     --dest-key <key2> \
     --recursive
 ```
-Wanneer u een bestand van de bestandsshare kopiëren naar de blob, een [serverzijde kopie](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) bewerking wordt uitgevoerd.
+Wanneer u een bestand van de bestandsshare kopiëren naar de blob, een [serverzijde kopie](https://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) bewerking wordt uitgevoerd.
 
 ### <a name="copy-from-blob-to-file-share"></a>Kopiëren van blob naar de bestandsshare
 
@@ -512,7 +512,7 @@ azcopy \
     --dest-key <key2> \
     --recursive
 ```
-Wanneer u een bestand van blob naar de bestandsshare kopiëren, een [serverzijde kopie](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) bewerking wordt uitgevoerd.
+Wanneer u een bestand van blob naar de bestandsshare kopiëren, een [serverzijde kopie](https://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) bewerking wordt uitgevoerd.
 
 ### <a name="synchronously-copy-files"></a>Synchroon kopiëren van bestanden
 U kunt opgeven de `--sync-copy` optie om gegevens te kopiëren van File Storage met File Storage, File Storage op Blob-opslag en Blob-opslag met File Storage synchroon. AzCopy wordt uitgevoerd met deze bewerking door te downloaden van de brongegevens naar het lokale geheugen, en vervolgens geüpload naar de bestemming. In dit geval standaard uitgaand verkeer kosten van toepassing is.
@@ -715,10 +715,10 @@ Zie de volgende bronnen voor meer informatie over Azure Storage en AzCopy:
 ### <a name="azure-storage-blog-posts"></a>Azure Storage-blogberichten:
 * [Aankondiging van AzCopy in Linux-Preview](https://azure.microsoft.com/blog/announcing-azcopy-on-linux-preview/)
 * [Maak kennis met de verplaatsing van Azure Storage-bibliotheek Gegevensvoorbeeld](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/)
-* [AzCopy: Introductie van synchrone kopiëren en aangepaste inhoudstype](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/01/13/azcopy-introducing-synchronous-copy-and-customized-content-type.aspx)
-* [AzCopy: Aankondiging van algemene beschikbaarheid van AzCopy 3.0 plus preview-versie van AzCopy 4.0 met ondersteuning voor tabel en bestand](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/10/29/azcopy-announcing-general-availability-of-azcopy-3-0-plus-preview-release-of-azcopy-4-0-with-table-and-file-support.aspx)
-* [AzCopy: Geoptimaliseerd voor scenario's voor grootschalige kopiëren](http://go.microsoft.com/fwlink/?LinkId=507682)
-* [AzCopy: Ondersteuning voor geografisch redundante opslag met leestoegang](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/04/07/azcopy-support-for-read-access-geo-redundant-account.aspx)
-* [AzCopy: Gegevens overdragen met modus voor opnieuw starten en SAS-token](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/09/07/azcopy-transfer-data-with-re-startable-mode-and-sas-token.aspx)
-* [AzCopy: Kopiëren van de Blob cross-account met behulp](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/04/01/azcopy-using-cross-account-copy-blob.aspx)
-* [AzCopy: Uploaden/downloaden van bestanden voor Azure-Blobs](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx)
+* [AzCopy: Introductie van synchrone kopiëren en aangepaste inhoudstype](https://blogs.msdn.com/b/windowsazurestorage/archive/2015/01/13/azcopy-introducing-synchronous-copy-and-customized-content-type.aspx)
+* [AzCopy: Aankondiging van algemene beschikbaarheid van AzCopy 3.0 plus preview-versie van AzCopy 4.0 met ondersteuning voor tabel en bestand](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/10/29/azcopy-announcing-general-availability-of-azcopy-3-0-plus-preview-release-of-azcopy-4-0-with-table-and-file-support.aspx)
+* [AzCopy: Geoptimaliseerd voor scenario's voor grootschalige kopiëren](https://go.microsoft.com/fwlink/?LinkId=507682)
+* [AzCopy: Ondersteuning voor geografisch redundante opslag met leestoegang](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/04/07/azcopy-support-for-read-access-geo-redundant-account.aspx)
+* [AzCopy: Gegevens overdragen met modus voor opnieuw starten en SAS-token](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/09/07/azcopy-transfer-data-with-re-startable-mode-and-sas-token.aspx)
+* [AzCopy: Kopiëren van de Blob cross-account met behulp](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/04/01/azcopy-using-cross-account-copy-blob.aspx)
+* [AzCopy: Uploaden/downloaden van bestanden voor Azure-Blobs](https://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx)

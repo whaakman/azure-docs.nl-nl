@@ -9,20 +9,20 @@ ms.assetid: 57143396-ab86-47dd-b6f8-613ba28c28d2
 ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 06/23/2017
-ms.openlocfilehash: daef00bc7b39326b79e5f56bf803dc6aad1ac0ff
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: b70de1e4494bb142da1cad0d0154b5dc7f765983
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47221931"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51233353"
 ---
 # <a name="get-started-with-u-sql-in-azure-data-lake-analytics"></a>Aan de slag met U-SQL in Azure Data Lake Analytics
 U-SQL is een taal die combineert verklarende SQL met imperatieve C# om u te laten verwerken van gegevens op elke schaal. Via de schaalbare, gedistribueerde query-mogelijkheid van U-SQL kunt u gegevens efficiënter analyseren in relationele winkels, zoals Azure SQL Database. U kunt met U-SQL, ongestructureerde gegevens verwerken door het schema toepassen op lezen en het invoegen van aangepaste logica en UDF's. U-SQL omvat daarnaast uitbreidbaarheid waarmee u heel nauwkeurig bepalen hoe u kunt om uit te voeren op schaal. 
 
 ## <a name="learning-resources"></a>Learning-resources
 
-* De [U-SQL-zelfstudie](http://aka.ms/usqltutorial) biedt aanwijzingen van de meeste van de U-SQL-taal. Dit document wordt aanbevolen voor alle ontwikkelaars die voor meer informatie over U-SQL lezen.
-* Voor gedetailleerde informatie over de **U-SQL-syntaxis**, Zie de [naslaginformatie U-SQL-taal](http://go.microsoft.com/fwlink/p/?LinkId=691348).
+* De [U-SQL-zelfstudie](https://aka.ms/usqltutorial) biedt aanwijzingen van de meeste van de U-SQL-taal. Dit document wordt aanbevolen voor alle ontwikkelaars die voor meer informatie over U-SQL lezen.
+* Voor gedetailleerde informatie over de **U-SQL-syntaxis**, Zie de [naslaginformatie U-SQL-taal](https://go.microsoft.com/fwlink/p/?LinkId=691348).
 * Om te begrijpen de **U-SQL-ontwerpplan**, Zie het blogbericht Visual Studio [Maak kennis met U-SQL: een taal die Big Data-verwerking eenvoudig maakt](https://blogs.msdn.microsoft.com/visualstudio/2015/09/28/introducing-u-sql-a-language-that-makes-big-data-processing-easy/).
 
 ## <a name="prerequisites"></a>Vereisten

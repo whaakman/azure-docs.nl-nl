@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 212afbd605e3a16da7be2c04492ec41875ff5b75
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 378eb8c1f2070e8f4b28c221369938e2ff04e2f3
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38666836"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255168"
 ---
 # <a name="manage-all-policies-for-a-lab-in-azure-devtest-labs"></a>Alle beleidsregels beheren voor een lab in Azure DevTest Labs
 
@@ -27,7 +27,7 @@ Azure DevTest Labs kunt u kosten beheren en minimale verspilling in uw labs door
 ## <a name="set-allowed-virtual-machine-sizes"></a>Set toegestane machinegrootten van virtuele
 Het beleid voor het instellen van de toegestane VM-grootten helpt bij het lab verspilling minimaliseren door te geven welke VM-grootten zijn toegestaan in het lab. Als dit beleid wordt geactiveerd, kunnen alleen VM-grootten uit deze lijst worden gebruikt om virtuele machines maken.
 
-1. In de [Azure-portal](http://go.microsoft.com/fwlink/p/?LinkID=525040), selecteert u een lab en selecteer vervolgens **configuratie en het beleid**.
+1. In de [Azure-portal](https://go.microsoft.com/fwlink/p/?LinkID=525040), selecteert u een lab en selecteer vervolgens **configuratie en het beleid**.
 
     ![Toegang tot de configuratie en het beleid van het lab](./media/devtest-lab-set-lab-policy/policies-menu.png)
 

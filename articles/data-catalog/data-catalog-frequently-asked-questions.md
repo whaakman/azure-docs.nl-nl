@@ -8,12 +8,12 @@ ms.assetid: 5c7e209a-458c-4bb4-96bb-7ed178f9528a
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: 9aaba38b7dc0cd2bf659c9d91c9d7660bd17a6dd
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: f08825c17c1ba61fc09edc1d8f2c226af8d4266f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47409181"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51231461"
 ---
 # <a name="azure-data-catalog-frequently-asked-questions"></a>Veelgestelde vragen over Azure Data Catalog
 In dit artikel vindt u antwoorden op veelgestelde vragen met betrekking tot de service Azure Data Catalog.
@@ -99,7 +99,7 @@ U kunt een object verwijderen uit de gegevenscatalogus door het object selectere
 Een expert is een persoon die een perspectief op de hoogte over een gegevensobject. Een object kan meerdere experts hebben. Een expert hoeft niet te worden van de 'eigenaar' voor een object, maar is gewoon iemand die weet hoe de gegevens kan en moet worden gebruikt.
 
 ## <a name="how-do-i-share-information-with-the-data-catalog-team-if-i-encounter-problems"></a>Hoe kan ik delen informatie met de Data Catalog-team als ik problemen ondervindt?
-Problemen melden, informatie delen, en stel vragen, gaat u naar de [forum van Azure Data Catalog](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409).
+Problemen melden, informatie delen, en stel vragen, gaat u naar de [forum van Azure Data Catalog](https://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409).
 
 ## <a name="does-the-catalog-work-with-another-data-source-that-im-interested-in"></a>Werkt de catalogus met een andere gegevensbron die ik ben geïnteresseerd in?
 We werken er hard aan meer gegevensbronnen toe te voegen aan Data Catalog. Als u wilt weergeven van een specifieke gegevensbron wordt ondersteund, suggestie (of het ondersteuningsteam van uw stem als deze al is voorgesteld) door te gaan naar de [gegevenscatalogus op de Azure-Forums voor Feedback](https://feedback.azure.com/forums/906052-data-catalog).
@@ -127,4 +127,4 @@ Selecteer de gegevensassets die in de catalogus met gegevens en klik vervolgens 
 Voor het bijwerken van de metagegevens voor de gegevensassets die al zijn geregistreerd in de catalogus, gewoon Registreer opnieuw de gegevensbron met de activa. Alle wijzigingen die in de gegevensbron, zoals kolommen worden toegevoegd of verwijderd uit de tabellen of weergaven, zijn bijgewerkt in de catalogus, maar aantekeningen die door gebruikers worden bewaard.
 
 ## <a name="my-question-isnt-answered-here-where-can-i-go-for-answers"></a>Mijn vraag niet wordt hier beantwoord. Waar vind ik antwoorden?
-Ga naar de [forum van Azure Data Catalog](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409). Er vragen vindt hier aankomen.
+Ga naar de [forum van Azure Data Catalog](https://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409). Er vragen vindt hier aankomen.

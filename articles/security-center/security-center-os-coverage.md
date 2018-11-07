@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/10/2018
+ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 279818e6b43e53206deb9e33591f75ef381a8962
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: f4bc90b2d1a80125ae88b4b5c4c11e42a34a985a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49319979"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240423"
 ---
 # <a name="platforms-and-features-supported-by-azure-security-center"></a>Platforms en functies die worden ondersteund door Azure Security Center
 
@@ -80,16 +80,16 @@ Virtuele machines die worden uitgevoerd in een cloudservice worden ook ondersteu
 |Beveiligingsconfiguraties|✔|✔|✔|✔|
 |Anti-malware|✔|✔|X|X|
 |JIT-VM-toegang|✔|X|✔|X|
-|Adaptieve toepassingsbesturingselementen|✔ (alleen Azure)|X|X|X|
+|Adaptieve toepassingsbesturingselementen|✔|X|X|X|
 |FIM|✔|✔|✔|✔|
 |Schijfversleuteling|✔|X|✔|X|
 |Implementatie van derden|✔|X|✔|X|
 |NSG's|✔|X|✔|X|
-|Filess V1|✔|✔|X|X|
+|Detectie van bedreigingen Filess|✔|✔|X|X|
 |Netwerktoewijzingen|✔|X|✔|X|
-|Adaptieve netwerk beveiligen|✔|X|✔|X|
+|Besturingselementen voor adaptieve netwerk|✔|X|✔|X|
 
-* Deze functies worden momenteel ondersteund in openbare preview.
+\* Deze functies worden momenteel ondersteund in openbare preview.
 
 
 ## <a name="supported-paas-features"></a>Ondersteunde PaaS-functies
@@ -103,26 +103,17 @@ Virtuele machines die worden uitgevoerd in een cloudservice worden ook ondersteu
 |BLOB storage-accounts *|✔| ✔|
 |App-services|✔| ✔|
 |Cloud services|✔| X|
-|Redis Cache|✔| X|
-|Service fabric|✔| X|
-|Azure Automation|✔| X|
-|Data Lake |✔| X|
-|Key Vault|✔| X|
-|Servicebus|✔| X|
-|Stream analytics|✔| X|
-|Batch|✔| X|
-|Logische apps|✔| X|
 |Vnet 's|✔| N.v.t.|
 |Subnetten|✔| N.v.t.|
 |NIC’s|✔| ✔|
 |NSG's|✔| N.v.t.|
 |Abonnement|✔| ✔|
 
-* Deze functies worden momenteel ondersteund in openbare preview.
+\* Deze functies worden momenteel ondersteund in openbare preview.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 - [Azure Security Center Planning and Operations Guide](security-center-planning-and-operations-guide.md) : meer informatie over het plannen en te begrijpen van de ontwerpoverwegingen die zich conformeerde aan Azure Security Center
 - [Beveiligingswaarschuwingen per type in Azure Security Center](security-center-alerts-type.md#virtual-machine-behavioral-analysis) : meer informatie over de virtuele machine gedragsanalyse en crash dump geheugenanalyse in Security Center
 - [Veelgestelde vragen over Azure Security Center](security-center-faq.md): raadpleeg veelgestelde vragen over het gebruik van de service
-- [Azure-Beveiligingsblog](http://blogs.msdn.com/b/azuresecurity/) : Lees blogberichten over de Azure-beveiliging en naleving
+- [Azure-Beveiligingsblog](https://blogs.msdn.com/b/azuresecurity/) : Lees blogberichten over de Azure-beveiliging en naleving

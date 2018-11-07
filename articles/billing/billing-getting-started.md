@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2018
 ms.author: cwatson
-ms.openlocfilehash: 6b497fd9f4280c36adcbeb4d94e469525c9dad6e
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: 3e7af4039ca5cd8aaadc36d3f87900e2127af7ab
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47422997"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255656"
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Voorkomen van onverwachte kosten met Azure-facturering en -kostenbeheer
 
@@ -142,7 +142,7 @@ Neem contact op met uw accountmanager of de Azure-partner om te beginnen.
 | Cloud Solution Provider (CSP) | Neem contact op met uw provider |
 | Azure-sponsoring | [Sponsorship-portal](https://www.microsoftazuresponsorships.com/) |
 
-Als u beheert IT voor een grote organisatie, raden wij aan lezen [Azure enterprise-platform](/azure/architecture/cloud-adoption-guide/subscription-governance) en de [enterprise IT-whitepaper](http://download.microsoft.com/download/F/F/F/FFF60E6C-DBA1-4214-BEFD-3130C340B138/Azure_Onboarding_Guide_for_IT_Organizations_EN_US.pdf) (PDF-download, alleen in het Engels).
+Als u beheert IT voor een grote organisatie, raden wij aan lezen [Azure enterprise-platform](/azure/architecture/cloud-adoption-guide/subscription-governance) en de [enterprise IT-whitepaper](https://download.microsoft.com/download/F/F/F/FFF60E6C-DBA1-4214-BEFD-3130C340B138/Azure_Onboarding_Guide_for_IT_Organizations_EN_US.pdf) (PDF-download, alleen in het Engels).
 
 #### <a name="EA"></a> Voorbeeld van Enterprise Agreement kosten weergaven in Azure Portal 
 

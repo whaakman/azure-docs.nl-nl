@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: mathoma
 manager: craigg
 ms.date: 09/25/2018
-ms.openlocfilehash: 25d13ba53eb5a8b411a557b5eaf05d278faa3733
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 3b979a9a7e93992ba593697fa9465fdadc1e58b9
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48869309"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240389"
 ---
 # <a name="replication-with-sql-database-managed-instance"></a>Replicatie met SQL Database Managed Instance
 
@@ -77,7 +77,7 @@ Ondersteunt:
 ## <a name="configure-publishing-and-distribution-example"></a>Voorbeeld van de publicatie en distributie configureren
 
 1. [Maken van een Azure SQL Database Managed Instance](sql-database-managed-instance-create-tutorial-portal.md) in de portal.
-2. [Maak een Azure Storage-Account](http://docs.microsoft.com/azure/storage/common/storage-create-storage-account#create-a-storage-account) voor de werkmap.
+2. [Maak een Azure Storage-Account](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account#create-a-storage-account) voor de werkmap.
 
    Zorg ervoor dat de opslagsleutels kopiëren. Zie [opslagtoegangssleutels bekijken en kopiëren](../storage/common/storage-account-manage.md#access-keys
 ).
@@ -85,11 +85,11 @@ Ondersteunt:
 
    Vervang in het van de voorbeeldscripts hieronder, `<Publishing_DB>` met de naam van deze database.
 
-4. Maak een databasegebruiker met SQL-verificatie voor de distributor. Zie, [databasegebruikers maken](http://docs.microsoft.com/azure/sql-database/sql-database-security-tutorial#creating-database-users). Gebruik een beveiligd wachtwoord.
+4. Maak een databasegebruiker met SQL-verificatie voor de distributor. Zie, [databasegebruikers maken](https://docs.microsoft.com/azure/sql-database/sql-database-security-tutorial#creating-database-users). Gebruik een beveiligd wachtwoord.
 
    In het van de voorbeeldscripts hieronder, gebruikt u `<SQL_USER>` en `<PASSWORD>` met dit Account voor SQL Server-database, gebruiker en wachtwoord.
 
-5. [Verbinding maken met het beheerde exemplaar van SQL Database](http://docs.microsoft.com/azure/sql-database/sql-database-connect-query-ssms).
+5. [Verbinding maken met het beheerde exemplaar van SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-connect-query-ssms).
 
 6. Voer de volgende query uit om toe te voegen van de distributor en de distributiedatabase.
 
@@ -197,4 +197,4 @@ De volgende functies worden niet ondersteund:
 
 ## <a name="see-also"></a>Zie ook
 
-- [Wat is een beheerd exemplaar?](http://docs.microsoft.com/azure/sql-database/sql-database-managed-instance)
+- [Wat is een beheerd exemplaar?](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance)

@@ -16,12 +16,12 @@ ms.date: 07/23/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: e896392404c23e88d697d45146f802576d6045d3
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: b7b8ccf7e84239db4eef0914346c453a2f205f91
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48870822"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51237890"
 ---
 # <a name="authorize-access-to-azure-active-directory-web-applications-using-the-oauth-20-code-grant-flow"></a>Toegang verlenen aan webtoepassingen voor Azure Active Directory met behulp van de OAuth 2.0-stroom voor het verlenen van code
 
@@ -183,7 +183,7 @@ Een geslaagde respons kan er als volgt:
 | refresh_token |Een vernieuwingstoken OAuth 2.0. De app kunt dit token gebruiken om aanvullende toegangstokens verkrijgen nadat het huidige toegangstoken is verlopen. Vernieuwen van tokens worden lange levensduur hebben en kan worden gebruikt voor toegang tot resources behouden gedurende langere tijd wordt opgelost. |
 | id_token |Een niet-ondertekende JSON Web Token (JWT) die een [ID-token](id-tokens.md). De app kan base64Url decoderen de segmenten van dit token informatie opvragen over de gebruiker die zijn aangemeld. De app kan de waarden in de cache en deze weer te geven, maar deze moet niet gebruiken voor autorisatie of grenzen voor netwerkbeveiliging. |
 
-Zie voor meer informatie over JSON-webtokens de [JWT IETF concept-specificatie](http://go.microsoft.com/fwlink/?LinkId=392344).   Voor meer informatie over `id_tokens`, Zie de [v1.0 OpenID Connect-stroom](v1-protocols-openid-connect-code.md).
+Zie voor meer informatie over JSON-webtokens de [JWT IETF concept-specificatie](https://go.microsoft.com/fwlink/?LinkId=392344).   Voor meer informatie over `id_tokens`, Zie de [v1.0 OpenID Connect-stroom](v1-protocols-openid-connect-code.md).
 
 ### <a name="error-response"></a>Foutbericht
 De eindpunt-fouten van token-uitgifte zijn HTTP-foutcodes, omdat het eindpunt van de token-uitgifte is door de client rechtstreeks aanroept. Naast de HTTP-statuscode, het eindpunt van de Azure AD-token-uitgifte ook een JSON-document met objecten die worden beschreven van de volgende fout geretourneerd.

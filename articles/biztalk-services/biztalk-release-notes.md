@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2016
 ms.author: deonhe
-ms.openlocfilehash: db79ee85c19e5f3cdced9b894aca48de4d7d1c42
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: f990aa086997d51e59df4285aabeccd31dcce822
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45576467"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51253428"
 ---
 # <a name="release-notes-for-azure-biztalk-services"></a>Opmerkingen bij de release voor Azure BizTalk Services
 
@@ -188,7 +188,7 @@ Houd rekening met een scenario waarbij u gedrag op basis van een naam voor het i
 
 ### <a name="bridges-continue-to-process-messages-even-when-the-sql-database-is-offline"></a>Bruggen blijven voor het verwerken van berichten, zelfs als de SQL-database offline is
 De BizTalk Services-bruggen blijven voor het verwerken van berichten voor een tijdje, zelfs als de Microsoft Azure SQL-Database (die de actieve informatie, zoals geïmplementeerde artefacten en pijplijnen opgeslagen), offline is. Dit komt doordat de BizTalk Services maakt gebruik van de artefacten in de cache en de brugconfiguratie.
-Als u niet dat de bruggen berichten verwerken wilt als de SQL-Database offline is, kunt u de BizTalk Services PowerShell-cmdlets gebruiken om te stoppen of onderbreken van de BizTalk Service. Zie [Azure BizTalk Service-Beheervoorbeeld](http://go.microsoft.com/fwlink/p/?LinkID=329019) voor de Windows PowerShell-cmdlets om taken te beheren.  
+Als u niet dat de bruggen berichten verwerken wilt als de SQL-Database offline is, kunt u de BizTalk Services PowerShell-cmdlets gebruiken om te stoppen of onderbreken van de BizTalk Service. Zie [Azure BizTalk Service-Beheervoorbeeld](https://go.microsoft.com/fwlink/p/?LinkID=329019) voor de Windows PowerShell-cmdlets om taken te beheren.  
 
 ### <a name="reading-the-xml-message-within-a-bridges-custom-code-component-includes-an-extra-bom-character"></a>Het lezen van de XML-bericht in het onderdeel van een brug van aangepaste code bevat een extra stuklijst-teken
 U hebt een scenario waarin u wilt lezen van een XML-bericht in een brug van aangepaste code. Als u de .NET API System.Text.Encoding.UTF8.GetString(bytes) een extra stuklijst teken is opgenomen in de uitvoer aan het begin van het bericht. Dus als u niet dat de uitvoer wilt naar de extra stuklijst teken bevatten, moet u ```System.IO.StreamReader().ReadToEnd()```.

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: ergreenl
-ms.openlocfilehash: 031c609ee5dcd04fc461af74b7f49973fbd290c3
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: dab1547ca17acaeda3cb168d78b342661ebe4615
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50157616"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230475"
 ---
 # <a name="administer-an-azure-active-directory-domain-services-managed-domain"></a>Een beheerd domein van Azure AD Domain Services beheren
 Dit artikel ziet u hoe u een beheerd domein van Azure Active Directory (AD) Domain Services beheren.
@@ -63,7 +63,7 @@ De eerste stap is het instellen van een Windows Server virtuele machine die is g
 ### <a name="remotely-administer-the-managed-domain-from-a-client-computer-for-example-windows-10"></a>Het beheerde domein op afstand te beheren vanaf een clientcomputer (bijvoorbeeld Windows 10)
 De instructies in dit artikel een Windows Server-machine voor het beheren van de AAD-DS beheerde domein. U kunt echter ook een virtuele machine voor Windows-client (bijvoorbeeld Windows 10) gebruiken om dit te doen.
 
-U kunt [Remote Server Administration Tools (RSAT) installeren](http://social.technet.microsoft.com/wiki/contents/articles/2202.remote-server-administration-tools-rsat-for-windows-client-and-windows-server-dsforum2wiki.aspx) op een Windows-client virtuele machine door de instructies te volgen op TechNet.
+U kunt [Remote Server Administration Tools (RSAT) installeren](https://social.technet.microsoft.com/wiki/contents/articles/2202.remote-server-administration-tools-rsat-for-windows-client-and-windows-server-dsforum2wiki.aspx) op een Windows-client virtuele machine door de instructies te volgen op TechNet.
 
 ## <a name="task-2---install-active-directory-administration-tools-on-the-virtual-machine"></a>Taak 2: Install Active Directory-beheerprogramma's op de virtuele machine
 De volgende stappen voor het installeren van de Active Directory-beheerprogramma's op de virtuele machine van een domein. Technet voor meer informatie Zie [informatie over het installeren en gebruiken van Remote Server Administration Tools](https://technet.microsoft.com/library/hh831501.aspx).

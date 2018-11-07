@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: article
 ms.date: 09/24/2018
-ms.openlocfilehash: dfa9da5102c2a47b14cbd70380b70b4561c3191d
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.openlocfilehash: 7eacc475145dac61db1717f1860e22cedd022262
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50748456"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51231444"
 ---
 # <a name="select-and-use-a-compute-target-to-train-your-model"></a>Selecteer en gebruik een compute-doel aan uw model te trainen
 
@@ -591,7 +591,7 @@ Deze laptops ophalen: [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Naslaginformatie over Azure Machine Learning-SDK](http://aka.ms/aml-sdk)
+* [Naslaginformatie over Azure Machine Learning-SDK](https://aka.ms/aml-sdk)
 * [Zelfstudie: een model trainen](tutorial-train-models-with-aml.md)
 * [Waar u modellen implementeren](how-to-deploy-and-where.md)
 * [Machine learning-pijplijnen met Azure Machine Learning-service bouwen](concept-ml-pipelines.md)

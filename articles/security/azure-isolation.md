@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 5710ebc1c52737e27aafa88eef5e9ae402f8e53f
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: a56d595ca88541779f5213c6b0ec88fc87913b6a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45579836"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51239046"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Isolatie in de openbare Cloud van Azure
 ##  <a name="introduction"></a>Inleiding
@@ -91,7 +91,7 @@ Azure RBAC heeft drie fundamentele rollen die betrekking hebben op alle resource
 
 - **Lezer** bestaande Azure-resources kunt bekijken.
 
-![Op rollen gebaseerde toegangsbeheer van Azure](./media/azure-isolation/azure-isolation-fig3.png)
+![Azure Role-Based Access Control](./media/azure-isolation/azure-isolation-fig3.png)
 
 De rest van de RBAC-rollen in Azure kunt beheer van specifieke Azure-resources. De rol Inzender voor virtuele machines kan bijvoorbeeld de gebruiker te maken en beheren van virtuele machines. Het is niet zodat ze toegang tot het Azure-netwerk of het subnet waarmee de virtuele machine verbinding maakt.
 
@@ -111,7 +111,7 @@ Bepaalde andere functies voor Azure Active Directory zijn onder andere:
 - [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/) voorziet in een maximaal beschikbare globale-identity management-service voor consumentgerichte toepassingen die kan worden opgeschaald naar honderden miljoenen identiteiten. De service kan worden geïntegreerd in zowel mobiele als webplatforms. Uw consumenten kunnen al uw toepassingen aanpasbare manier aanmelden met hun bestaande sociale accounts of door referenties te maken.
 
 ### <a name="isolation-from-microsoft-administrators--data-deletion"></a>Isolatie van Microsoft-beheerders & gegevens verwijderen
-Microsoft hecht sterke maatregelen om uw gegevens beschermen tegen ongeoorloofde toegang of gebruik door onbevoegden. Deze operationele processen en bediening worden ondersteund door de [voorwaarden voor onlineservices](http://aka.ms/Online-Services-Terms), die contractuele verplichtingen die toegang tot uw gegevens bieden bieden.
+Microsoft hecht sterke maatregelen om uw gegevens beschermen tegen ongeoorloofde toegang of gebruik door onbevoegden. Deze operationele processen en bediening worden ondersteund door de [voorwaarden voor onlineservices](https://aka.ms/Online-Services-Terms), die contractuele verplichtingen die toegang tot uw gegevens bieden bieden.
 
 -   Microsoft-technici hebt geen standaardtoegang tot uw gegevens in de cloud. In plaats daarvan, krijgen zij toegang onder beheer van toezicht, alleen indien nodig. Die de toegang is zorgvuldig beheerd en geregistreerd en ingetrokken wanneer deze niet meer nodig is.
 
@@ -119,7 +119,7 @@ Microsoft hecht sterke maatregelen om uw gegevens beschermen tegen ongeoorloofde
 
 Zakelijke services met gecontroleerde certificeringen zoals ISO/IEC 27001 worden regelmatig gecontroleerd door geaccrediteerde auditbedrijven die voeren proefaudits om te bevestigen dat toegang alleen voor legitieme zakelijke doeleinden uit en Microsoft. U kunt altijd toegang tot uw eigen klantgegevens op elk gewenst moment en om elke reden.
 
-Als u alle gegevens verwijdert, worden de gegevens, met inbegrip van alle exemplaren in de cache of back-up verwijderd in Microsoft Azure. Voor de services binnen de regeling vallen, die verwijderen wordt uitgevoerd om binnen 90 dagen na het einde van de bewaarperiode. (In-scope services zijn gedefinieerd in de sectie gegevensverwerking voorwaarden van onze [voorwaarden voor onlineservices](http://aka.ms/Online-Services-Terms).)
+Als u alle gegevens verwijdert, worden de gegevens, met inbegrip van alle exemplaren in de cache of back-up verwijderd in Microsoft Azure. Voor de services binnen de regeling vallen, die verwijderen wordt uitgevoerd om binnen 90 dagen na het einde van de bewaarperiode. (In-scope services zijn gedefinieerd in de sectie gegevensverwerking voorwaarden van onze [voorwaarden voor onlineservices](https://aka.ms/Online-Services-Terms).)
 
 Als een schijf gebruikt voor de opslag leidt dit tot slechtere een hardwarestoring optreedt, is het veilig [worden gewist of vernietigd](https://microsoft.com/en-us/trustcenter/privacy/you-own-your-data) voordat Microsoft wordt geretourneerd voor vervanging of reparatie van de fabrikant. Om ervoor te zorgen dat de gegevens kunnen niet worden hersteld door middel van de gegevens op de schijf overschreven.
 

@@ -1,24 +1,24 @@
 ---
-title: Hadoop op basis van een Windows-clusters in HDInsight met behulp van de Azure-portal beheren
-description: Informatie over het beheer van HDInsight-Service. Een HDInsight-cluster maken, opent u de interactieve JavaScript-console en open de console van de opdracht Hadoop.
+title: Windows-gebaseerde Apache Hadoop-clusters in HDInsight met behulp van de Azure-portal beheren
+description: Informatie over het beheer van HDInsight-Service. Een HDInsight-cluster maken, opent u de interactieve JavaScript-console en open de console van de opdracht Apache Hadoop.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/25/2017
-ms.author: jasonh
+ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 130f684b69a9cfa1936c2a9aa5175f3d5a7631ac
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 67138b9e98818f5d106c73cef027d0eb2515e9a8
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46970274"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51233912"
 ---
-# <a name="manage-windows-based-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Hadoop op basis van een Windows-clusters in HDInsight beheren met behulp van de Azure-portal
+# <a name="manage-windows-based-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Windows-gebaseerde Apache Hadoop-clusters in HDInsight beheren met behulp van de Azure-portal
 
-Met behulp van de [Azure-portal][azure-portal], kunt u Hadoop op basis van een Windows-clusters maken in Azure HDInsight, Hadoop-gebruikerswachtwoord wijzigen en inschakelen van Remote Desktop Protocol (RDP), zodat u krijgt de Hadoop-opdracht tot toegang -console op het cluster.
+Met behulp van de [Azure-portal][azure-portal], kunt u Windows-gebaseerde Apache Hadoop-clusters maken in Azure HDInsight, Hadoop-gebruikerswachtwoord wijzigen en Remote Desktop Protocol (RDP) inschakelen zodat u toegang hebt tot het Hadoop opdrachtconsole op het cluster.
 
 De informatie in dit artikel is alleen van toepassing op op basis van een venster HDInsight-clusters. Zie voor meer informatie over het beheren van clusters op basis van Linux [beheren van Hadoop-clusters in HDInsight met behulp van de Azure-portal](hdinsight-administer-use-portal-linux.md).
 
@@ -34,7 +34,7 @@ Voordat u dit artikel gaat lezen, moet u beschikken over het volgende:
 * **Azure Storage-account** -een HDInsight-cluster maakt gebruik van een Azure Blob storage-container als het standaardbestandssysteem. Zie voor meer informatie over hoe Azure Blob-opslag een naadloze ervaring met HDInsight-clusters biedt, [Azure Blob Storage gebruiken met HDInsight](hdinsight-hadoop-use-blob-storage.md). Zie voor meer informatie over het maken van een Azure Storage-account [over het maken van een Storage-Account](../storage/common/storage-create-storage-account.md).
 
 ## <a name="open-the-portal"></a>De Portal openen
-1. Aanmelden bij [ https://portal.azure.com ](https://portal.azure.com).
+1. Meld u aan bij [https://portal.azure.com](https://portal.azure.com).
 2. Nadat u de portal opent, kunt u het volgende doen:
 
    * Klik op **een resource maken** in het menu links om een nieuwe cluster te maken:
@@ -67,7 +67,7 @@ HDInsight werkt met een breed bereik van Hadoop-onderdelen. Zie voor een lijst v
 De installatie van aangepaste software op het cluster met behulp van de verbinding met extern bureaublad wordt niet ondersteund. U dient te vermijden voor het opslaan van alle bestanden op de schijven van het hoofdknooppunt als ze verloren gaan als u nodig hebt om opnieuw de clusters te maken. Het is raadzaam bestanden opslaan op Azure Blob-opslag. BLOB-opslag is permanent.
 
 ## <a name="list-and-show-clusters"></a>Clusters tonen en vermelden
-1. Aanmelden bij [ https://portal.azure.com ](https://portal.azure.com).
+1. Meld u aan bij [https://portal.azure.com](https://portal.azure.com).
 2. Klik op **HDInsight-Clusters** in het menu links.
 3. Klik op de naam van het cluster. Als de clusterlijst te lang is, kunt u filteren boven aan de pagina.
 4. Dubbelklik op een cluster in de lijst om de details weer te geven.
@@ -328,7 +328,7 @@ De referenties voor het cluster dat u hebt opgegeven bij het maken van de geven 
     De standaardwaarden voor verloopt op is een week.
 
    > [!NOTE]
-   > U kunt ook de HDInsight .NET SDK gebruiken om in te schakelen van extern bureaublad op een cluster. Gebruik de **EnableRdp** methode voor het HDInsight-client-object in de volgende manier: **client. EnableRdp (clusternaam, locatie, "rdpuser", "rdppassword", DateTime.Now.AddDays(6))**. Op dezelfde manier als wilt uitschakelen extern bureaublad op het cluster, kunt u **client. DisableRdp (clusternaam, locatie)**. Zie voor meer informatie over deze methoden, [HDInsight .NET SDK-referentie](http://go.microsoft.com/fwlink/?LinkId=529017). Dit is alleen van toepassing op HDInsight-clusters die worden uitgevoerd op Windows.
+   > U kunt ook de HDInsight .NET SDK gebruiken om in te schakelen van extern bureaublad op een cluster. Gebruik de **EnableRdp** methode voor het HDInsight-client-object in de volgende manier: **client. EnableRdp (clusternaam, locatie, "rdpuser", "rdppassword", DateTime.Now.AddDays(6))**. Op dezelfde manier als wilt uitschakelen extern bureaublad op het cluster, kunt u **client. DisableRdp (clusternaam, locatie)**. Zie voor meer informatie over deze methoden, [HDInsight .NET SDK-referentie](https://go.microsoft.com/fwlink/?LinkId=529017). Dit is alleen van toepassing op HDInsight-clusters die worden uitgevoerd op Windows.
    >
    >
 
