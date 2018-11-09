@@ -1,4 +1,4 @@
----
+﻿---
 title: Inhoud van de synchronisatie van een map in de cloud naar Azure App Service
 description: Informatie over het implementeren van uw app in Azure App Service via de synchronisatie van de inhoud van een map in de cloud.
 services: app-service
@@ -29,7 +29,7 @@ De implementatie van de synchronisatie van de inhoud op aanvraag wordt aangestuu
 
 Om in te schakelen synchronisatie van de inhoud, gaat u naar de pagina met uw App Service-app in de [Azure-portal](https://portal.azure.com).
 
-Klik in het menu links op **Implementatiecentrum** > **OneDrive** of **Dropbox** > **autoriseren**. Volg de aanwijzingen voor autorisatie. 
+Klik in het menu links op **Implementatiecentrum** > **OneDrive** of **Dropbox** > **Autoriseren**. Volg de aanwijzingen voor autorisatie. 
 
 ![](media/app-service-deploy-content-sync/choose-source.png)
 
@@ -42,9 +42,9 @@ In de **configureren** pagina, selecteert u de map die u wilt synchroniseren. De
 * **OneDrive**: `Apps\Azure Web Apps`
 * **Dropbox**: `Apps\Azure`
 
-Wanneer u klaar bent, klikt u op **doorgaan**.
+Wanneer u klaar bent, klikt u op **Doorgaan**.
 
-In de **samenvatting** pagina, Controleer uw opties en klik op **voltooien**.
+In de **Samenvatting** pagina, controleer uw opties en klik op **Voltooien**.
 
 ## <a name="synchronize-content"></a>Synchroniseren van inhoud
 
@@ -53,7 +53,7 @@ Als u synchroniseren van inhoud in uw map in de cloud met App Service wilt, gaat
 ![](media/app-service-deploy-content-sync/synchronize.png)
    
    > [!NOTE]
-   > Vanwege onderliggende verschillen in de API's, **OneDrive voor bedrijven** wordt niet ondersteund op dit moment. 
+   > Vanwege onderliggende verschillen in de API's wordt **OneDrive voor bedrijven** niet ondersteund op dit moment. 
    > 
    > 
 
