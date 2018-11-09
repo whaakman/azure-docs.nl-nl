@@ -46,7 +46,7 @@ Wanneer u klaar bent, klikt u op **Doorgaan**.
 
 In de **Samenvatting** pagina, controleer uw opties en klik op **Voltooien**.
 
-## <a name="synchronize-content"></a>Synchroniseer inhoud
+## <a name="synchronize-content"></a>Inhoud synchroniseren
 
 Als u inhoud in de map van de cloud met App Service wil synchroniseren, gaat u terug naar de **Implementatiecentrum** pagina en klik op **Sync**.
 
