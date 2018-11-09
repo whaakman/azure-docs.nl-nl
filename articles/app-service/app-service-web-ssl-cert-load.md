@@ -32,9 +32,9 @@ Als u App Service uw SSL-certificaten laat beheren, kunt u de certificaten afzon
 
 Om deze gebruiksaanwijzing te voltooien:
 
-- [Maak een App Service-app](/azure/app-service/)
-- [Wijs een aangepaste DNS-naam toe aan uw web-app](app-service-web-tutorial-custom-domain.md)
-- [Upload een SSL-certificaat](app-service-web-tutorial-custom-ssl.md) of [importeer een App Service Certificate](web-sites-purchase-ssl-web-site.md) naar uw web-app
+- [Een App Service-app maken](/azure/app-service/)
+- [Een aangepaste DNS-naam aan uw web-app toewijzen](app-service-web-tutorial-custom-domain.md)
+- [Een SSL-certificaat uploaden](app-service-web-tutorial-custom-ssl.md) of [importeren van een App Service Certificate](web-sites-purchase-ssl-web-site.md) aan uw web-app
 
 
 ## <a name="load-your-certificates"></a>Laden van uw certificaten
@@ -43,7 +43,7 @@ Voor het gebruik van een certificaat dat is geüpload naar of geïmporteerd in A
 
 In de <a href="https://portal.azure.com" target="_blank">Azure-portal</a>, opent u de web-app-pagina.
 
-Klik in het linkernavigatievenster op **SSL-instellingen**.
+Klik in het linkernavigatievenster op **SSL-certificaten**.
 
 ![Het certificaat is geüpload](./media/app-service-web-tutorial-custom-ssl/certificate-uploaded.png)
 
