@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 06/17/2018
 ms.author: jopapa
 ms.custom: mvc
-ms.openlocfilehash: a1705913e1656901d0a87a3cebb2eb69a6c7ad63
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 667c1fbce398e06f9f2a6edca21935ae1062a737
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43698584"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50740567"
 ---
 # <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-6-add-post-put-and-delete-functions-to-the-app"></a>Een MongoDB-app maken met Angular en Node voor Azure Cosmos DB - deel 6: de functies Post, Put en Delete aan de app toevoegen
 
@@ -88,13 +88,13 @@ Voltooi de stappen in [deel 5](tutorial-develop-mongodb-nodejs-part5.md) van de 
     });
     ```
 
-5. Controleer of alles werkt door de app uit te voeren. Sla uw wijzigingen op in Visual Studio Code, klik aan de linkerkant op de knop **Debug** ![pictogram Debug in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part6/debug-button.png) en klik vervolgens op de knop **Start Debugging** ![pictogram Start Debugging in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part6/start-debugging-button.png).
+5. Controleer of alles werkt door de app uit te voeren. Sla uw wijzigingen op in Visual Studio Code, selecteer aan de linkerkant de knop **Fouten opsporen** ![pictogram Fouten opsporen in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part6/debug-button.png) en selecteer vervolgens de knop **Start Debugging** ![pictogram Start Debugging in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part6/start-debugging-button.png).
 
 6. Ga terug naar de internetbrowser en open het tabblad Netwerk in de hulpmiddelen voor ontwikkelaars door op F12 te drukken (op de meeste computers). Ga naar [http://localhost:3000](http://localhost:3000) om de aanroepen te bekijken die via het netwerk zijn gedaan.
 
     ![Tabblad Netwerk in Chrome met een overzicht van de netwerkactiviteit](./media/tutorial-develop-mongodb-nodejs-part6/add-new-hero.png)
 
-7. Voeg een nieuwe hero toe door op de knop **Add New Hero** te klikken. Voer de id '999' in, de naam 'Fred' en de uitspraak 'Hello'. Klik vervolgens op **Save**. Op het tabblad Netwerk zou u een POST-aanvraag voor een nieuwe hero moeten zien. 
+7. Voeg een nieuwe hero toe door de knop **Add New Hero** te selecteren. Voer de id '999' in, de naam 'Fred' en de uitspraak 'Hello'. Selecteer vervolgens **Opslaan**. Op het tabblad Netwerk zou u een POST-aanvraag voor een nieuwe hero moeten zien. 
 
     ![Tabblad Netwerk in Chrome met de netwerkactiviteit voor de functies Get en Post](./media/tutorial-develop-mongodb-nodejs-part6/post-new-hero.png)
 
@@ -173,17 +173,17 @@ Voltooi de stappen in [deel 5](tutorial-develop-mongodb-nodejs-part5.md) van de 
     };
     ```
 
-4. De code is nu bijgewerkt. Klik op de knop **Restart** ![knop Restart in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part6/restart-debugger-button.png) in Visual Studio Code.
+4. De code is nu bijgewerkt. Selecteer de knop **Opnieuw opstarten** ![knop Opnieuw opstarten in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part6/restart-debugger-button.png) in Visual Studio Code.
 
-5. Vernieuw de pagina in uw internetbrowser en klik op de knop **Add New Hero**. Voeg een nieuwe hero toe met de id '9', de naam 'Starlord' en de uitspraak 'Hi’. Klik op de knop **Save** om de nieuwe hero op te slaan.
+5. Vernieuw de pagina in uw internetbrowser en selecteer de knop **Add New Hero**. Voeg een nieuwe hero toe met de id '9', de naam 'Starlord' en de uitspraak 'Hi’. Selecteer de knop **Opslaan** om de nieuwe hero op te slaan.
 
-6. Selecteer de hero **Starlord** en wijzig de uitspraak 'Hi' in 'Bye'. Klik vervolgens op de knop **Save**. 
+6. Selecteer de hero **Starlord** en wijzig de uitspraak 'Hi' in 'Bye'. Selecteer vervolgens de knop **Opslaan**. 
 
     U kunt nu de id selecteren op het tabblad Network om de payload weer te geven. In de payload kunt u zien dat de uitspraak nu is ingesteld op 'Bye'.
 
     ![De app Heroes en het tabblad Netwerk met de payload](./media/tutorial-develop-mongodb-nodejs-part6/put-hero-function.png) 
 
-    U kunt ook een van de hero's in de gebruikersinterface verwijderen en zien hoe lang het duurt om de bewerking Verwijderen te voltooien. Probeer dit uit door op de knop Verwijderen voor de hero met de naam Fred te klikken.
+    U kunt ook een van de hero's in de gebruikersinterface verwijderen en zien hoe lang het duurt om de bewerking Verwijderen te voltooien. Probeer dit uit door de knop Verwijderen voor de hero met de naam Fred te selecteren.
 
     ![De app Heroes en het tabblad Netwerk met de tijdsduur voor het voltooien van de functies](./media/tutorial-develop-mongodb-nodejs-part6/times.png) 
 

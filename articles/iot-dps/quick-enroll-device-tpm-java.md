@@ -1,6 +1,6 @@
 ---
 title: TPM-apparaat inschrijven bij Azure Device Provisioning Service met behulp van Java | Microsoft Docs
-description: 'Azure-quickstart: TPM-apparaat inschrijven bij Azure IoT Hub Device Provisioning Service met behulp van de Java service-SDK'
+description: 'Azure-snelstart: TPM-apparaat inschrijven bij Azure IoT Hub Device Provisioning Service met behulp van de Java service-SDK. In deze snelstart wordt gebruikgemaakt van afzonderlijke inschrijvingen.'
 author: wesmc7777
 ms.author: wesmc
 ms.date: 12/20/2017
@@ -10,19 +10,19 @@ services: iot-dps
 manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: 68f8125ddc0691346813bb31124fa3abd4976296
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 6b0068bc912de13590cd9bc7418ea6fcdb01189f
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "40234048"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50420486"
 ---
 # <a name="enroll-tpm-device-to-iot-hub-device-provisioning-service-using-java-service-sdk"></a>TPM-apparaat inschrijven bij IoT Hub Device Provisioning Service met behulp van de Java service-SDK
 
 [!INCLUDE [iot-dps-selector-quick-enroll-device-tpm](../../includes/iot-dps-selector-quick-enroll-device-tpm.md)]
 
 
-In deze stappen ziet u hoe u een gesimuleerd TPM-apparaat programmatisch inschrijft bij Azure IoT Hub Device Provisioning Services, met de [Java service-SDK](https://azure.github.io/azure-iot-sdk-java/service/) met behulp van een Java-voorbeeldtoepassing. Hoewel de Java service-SDK werkt op Windows- en Linux-computers, gebruiken we in dit artikel een Windows-ontwikkelcomputer om stapsgewijs het inschrijvingsproces te doorlopen.
+In deze stappen ziet u hoe u programmatisch een afzonderlijke inschrijving voor een gesimuleerd TPM-apparaat in Azure IoT Hub Device Provisioning Service kunt maken met behulp van de [Java service-SDK](https://azure.github.io/azure-iot-sdk-java/service/) en een Java-voorbeeldtoepassing. Hoewel de Java service-SDK werkt op Windows- en Linux-computers, gebruiken we in dit artikel een Windows-ontwikkelcomputer om stapsgewijs het inschrijvingsproces te doorlopen.
 
 Zorg ervoor dat u [IoT Hub Device Provisioning Service instelt met Azure Portal](./quick-setup-auto-provision.md) en [een TPM-apparaat simuleert](quick-create-simulated-device.md#simulatetpm) voordat u verdergaat.
 
@@ -30,9 +30,9 @@ Zorg ervoor dat u [IoT Hub Device Provisioning Service instelt met Azure Portal]
 
 ## <a name="prepare-the-development-environment"></a>De ontwikkelomgeving voorbereiden 
 
-1. Zorg ervoor dat [Java SE Development Kit 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) is geïnstalleerd op de computer. 
+1. Zorg ervoor dat [Java SE Development Kit 8](https://aka.ms/azure-jdks) is geïnstalleerd op de computer. 
 
-2. Stel omgevingsvariabelen in voor de Java-installatie. De `PATH`-variabele moet het volledige pad naar de map *jdk1.8.x\bin* bevatten. Als dit de eerste Java-installatie op de computer is, maakt u een nieuwe omgevingsvariabele met de naam `JAVA_HOME`, en laat u deze naar het volledige pad naar de map *jdk1.8.x* verwijzen. Op Windows-computer vindt u deze map meestal in de map *C:\\Program Files\\Java\\*. U kunt omgevingsvariabelen maken of bewerken door te zoeken naar **De omgevingsvariabelen van het systeem bewerken** in het **Configuratiescherm** van de Windows-computer. 
+2. Stel omgevingsvariabelen in voor de Java-installatie. De `PATH`-variabele moet het volledige pad naar de map *jdk1.8.x\bin* bevatten. Als dit de eerste Java-installatie op de computer is, maakt u een nieuwe omgevingsvariabele met de naam `JAVA_HOME`, en laat u deze naar het volledige pad naar de map *jdk1.8.x* verwijzen. Op Windows-computers vindt u deze map in de map *C:\\Program Files\\Java\\*. U kunt omgevingsvariabelen maken of bewerken door te zoeken naar **De omgevingsvariabelen van het systeem bewerken** in het **Configuratiescherm** van de Windows-computer. 
 
   U kunt controleren of Java goed is ingesteld op de computer door de volgende opdracht uit te voeren in het opdrachtvenster:
 

@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: timlt
-ms.openlocfilehash: 8c369ab05059e57f2e2a98339052c27292ac7c0d
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 8240cf5beb50ef16aa2bd03415e6bbff9a2f4250
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34628773"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50158139"
 ---
 <!---
 Purpose of an Overview article: 
@@ -25,7 +25,7 @@ Purpose of an Overview article:
 
 # <a name="what-is-azure-iot-central"></a>Wat is Azure IoT Central?
 
-Microsoft Azure IoT Central is een volledig beheerde Software-as-a-Service-oplossing voor IoT-software, waarmee u gemakkelijk producten kunt maken die de echte wereld en de digitale wereld met elkaar verbinden. U kunt uw productvisie voor verbonden apparaten als volgt tot leven wekken door:
+Azure IoT Central is een volledig beheerde software-als-een-dienst-oplossing voor IoT-software, waarmee u gemakkelijk producten kunt maken die de echte wereld en de digitale wereld met elkaar verbinden. U kunt uw productvisie voor verbonden apparaten als volgt tot leven wekken door:
 
 - Nieuwe inzichten af te leiden uit verbonden apparaten, om uw klanten betere producten en ervaringen te kunnen bieden.
 - Nieuwe zakelijke kansen voor uw organisatie te creëren.
@@ -65,7 +65,7 @@ Als maker gebruikt u Azure IoT Central om een aangepaste, in de cloud gehoste Io
 - Een cloudtoepassing die telemetriegegevens van uw apparaten ontvangt en die u in staat stelt om deze apparaten te beheren.
 - Meerdere apparaten waarop aangepaste code wordt uitgevoerd en die met uw cloudtoepassing zijn verbonden.
 
-U kunt een nieuwe Azure IoT Central-toepassing snel implementeren en deze vervolgens rechtstreeks in uw browser aanpassen aan uw specifieke vereisten. Als maker in Azure IoT Central kunt u de webgebaseerde hulpprogramma's gebruiken om een _apparaatsjabloon_ te maken voor de apparaten die verbinding maken met uw toepassing. Een apparaatsjabloon is de blauwdruk van een apparaatmodel, die alle apparaten hebben gemaakt op basis van de share voor apparaatsjablonen. Een apparaatsjabloon definieert de eigenschappen en het gedrag van een bepaald type apparaat, zoals:
+U kunt een nieuwe Azure IoT Central-toepassing snel implementeren en deze vervolgens rechtstreeks in uw browser aanpassen aan uw specifieke vereisten. Als maker in Azure IoT Central kunt u de webgebaseerde hulpprogramma's gebruiken om een _apparaatsjabloon_ te maken voor de apparaten die verbinding maken met uw toepassing. Een apparaatsjabloon is de blauwdruk van een apparaatmodel. Alle apparaten die van dezelfde apparaatsjabloon zijn gemaakt, delen dezelfde sjabloon. Een apparaatsjabloon definieert de eigenschappen en het gedrag van een bepaald type apparaat, zoals:
 
 - De telemetriegegevens die het verstuurt.
 - Bedrijfseigenschappen die kunnen worden gewijzigd door een operator.

@@ -12,27 +12,29 @@ ms.topic: tutorial
 ms.date: 09/05/2017
 ms.author: jopapa
 ms.custom: mvc
-ms.openlocfilehash: 5bb1aeadeb31728dcc2d9ac5fa0aeade31857169
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: e9a1b7951d111606d84e235864e3649a742e874e
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "41917571"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50741501"
 ---
 # <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-5-use-mongoose-to-connect-to-azure-cosmos-db"></a>Een MongoDB-app maken met Angular en Azure Cosmos DB - deel 5: Mongoose gebruiken om verbinding te maken met Azure Cosmos DB
 
-In deze meerdelige zelfstudie leert u hoe u een nieuwe [MongoDB API](mongodb-introduction.md)-app maakt in Node.js met Express, Angular en uw Azure Cosmos DB-database.
+In deze meerdelige zelfstudie leert u hoe u een nieuwe Node.js-app maakt met Express, Angular en een verbinding maakt tussen de app en een [Azure Cosmos DB MongoDB API](mongodb-introduction.md)-account.
 
 Deel 5 van de zelfstudie bouwt voort op [deel 4](tutorial-develop-mongodb-nodejs-part4.md) en beschrijft de volgende taken:
 
 > [!div class="checklist"]
 > * Mongoose gebruiken om verbinding te maken met Azure Cosmos DB
-> * Verbindingsreeksgegevens downloaden van Azure Cosmos DB
+> * Cosmos DB-verbindingsreeksgegevens ophalen
 > * Het hero-model maken
 > * De hero-service maken voor het ophalen van hero-gegevens
 > * De app lokaal uitvoeren
 
 ## <a name="video-walkthrough"></a>Video-overzicht
+
+Bekijk de volgende video om snel de stappen te leren die worden beschreven in dit document: 
 
 > [!VIDEO https://www.youtube.com/embed/sI5hw6KPPXI]
 
@@ -46,19 +48,24 @@ Voltooi de stappen in [deel 4](tutorial-develop-mongodb-nodejs-part4.md) van de 
 
 ## <a name="use-mongoose-to-connect-to-azure-cosmos-db"></a>Mongoose gebruiken om verbinding te maken met Azure Cosmos DB
 
-1. Installeer de mongoose npm-module, een API die normaal gesproken wordt gebruikt voor de communicatie met MongoDB.
+1. Installeer de module Mongoose npm, een API die wordt gebruikt om te praten met MongoDB.
 
     ```bash
     npm i mongoose --save
     ```
 
-2. Maak nu een bestand met de naam **mongo.js** in de map **server**. Aan dit bestand voegt u alle verbindingsgegevens voor de Azure Cosmos DB-database toe.
+2. Maak nu een nieuw bestand met de naam **mongo.js** in de map **server**. U gaat de verbindingsgegevens van uw Cosmos DB-account toevoegen aan dit bestand.
 
 3. Kopieer de volgende code in **mongo.js**. Deze code:
+
     * Vereist Mongoose.
-    * Overschrijft de Mongo-promise de basis-promise te gebruiken die in ES6/ES2015 en hoger is ingebouwd.
-    * Roept een env-bestand aan waarmee u bepaalde dingen kunt instellen op basis van de fase waarin u zich bevindt: fasering, productie of ontwikkeling. Dat bestand gaan we binnenkort maken.
-    * Bevat de MongoDB-verbindingsreeks, die wordt ingesteld in het env-bestand.
+
+    * Overschrijft de Mongo-promise om de basis-promise te gebruiken die is ingebouwd in ES6/ES2015 en een hoger versie.
+
+    * Roept een env-bestand aan waarmee u bepaalde dingen kunt instellen op basis van de fase waarin u zich bevindt: fasering, productie of ontwikkeling. U maakt dit bestand in de volgende sectie.
+
+    * Neem de MongoDB-verbindingsreeks op, die wordt ingesteld in het env-bestand.
+
     * Maakt een verbindingsfunctie die Mongoose aanroept.
 
     ```javascript
@@ -101,7 +108,7 @@ Voltooi de stappen in [deel 4](tutorial-develop-mongodb-nodejs-part4.md) van de 
 
 ## <a name="get-the-connection-string-information"></a>Verbindingsreeksgegevens ophalen
 
-1. Wijzig in **environment.js** de waarde van `port` in 10255. (U vindt de Cosmos DB-poort in Azure Portal)
+1. Wijzig in **environment.js** de waarde van `port` in 10255. (U vindt de Cosmos DB-poort in de Azure-portal)
 
     ```javascript
     const port = 10255;
@@ -123,9 +130,10 @@ Voltooi de stappen in [deel 4](tutorial-develop-mongodb-nodejs-part4.md) van de 
 
 ## <a name="create-a-hero-model"></a>Een Hero-model maken
 
-1.  Maak in het deelvenster Explorer het bestand **hero.model.js** onder de map **server**.
+1. Maak in het deelvenster Explorer het bestand **hero.model.js** onder de map **server**.
 
-2. Kopieer de volgende code in **hero,model.js**. Deze code:
+2. Kopieer de volgende code in **hero,model.js**. Deze code biedt de volgende functionaliteit:
+
    * Vereist Mongoose.
    * Maakt een nieuw schema met een id, een naam en een uitspraak.
    * Maakt een model aan de hand van het schema.
@@ -155,9 +163,10 @@ Voltooi de stappen in [deel 4](tutorial-develop-mongodb-nodejs-part4.md) van de 
 
 ## <a name="create-a-hero-service"></a>Een Hero-service maken
 
-1.  Maak in het deelvenster Explorer het bestand **hero.service.js** onder de map **server**.
+1. Maak in het deelvenster Explorer het bestand **hero.service.js** onder de map **server**.
 
 2. Kopieer de volgende code in **hero.service.js**. Deze code:
+
    * Haalt het zojuist gemaakte model op
    * Maakt verbinding met de database
    * Maakt een docquery-variabele die de methode hero.find gebruikt voor het definiëren van een query waarmee alle hero's worden geretourneerd.
@@ -213,13 +222,13 @@ Voltooi de stappen in [deel 4](tutorial-develop-mongodb-nodejs-part4.md) van de 
     function getHeroes(req, res) {
     ```
 
-    We staan nu even stil bij de aanroepreeks. Eerst komen we terecht bij `index.js`, waarmee de knooppuntserver wordt ingesteld. Merk op dat hiermee de routes worden ingesteld en gedefinieerd. Het bestand routes.js communiceert vervolgens met de hero-service. Deze wordt verteld functies op te halen, bijvoorbeeld getHeroes, en de aanvraag en respons door te geven. Hier pakt hero.service.js het model en maakt verbinding met Mongo. Vervolgens wordt getHeroes uitgevoerd als het wordt aangeroepen en geeft een respons terug van 200. Hierna verloopt het via de keten. 
+    We staan nu even stil bij de aanroepreeks. Eerst komen we terecht bij `index.js`, waarmee de knooppuntserver wordt ingesteld. Merk op dat hiermee de routes worden ingesteld en gedefinieerd. Het bestand routes.js communiceert vervolgens met de hero-service. Deze krijgt de opdracht functies op te halen, bijvoorbeeld getHeroes, en de aanvraag en respons door te geven. Hier pakt hero.service.js het model en maakt verbinding met Mongo. Vervolgens wordt getHeroes uitgevoerd als het wordt aangeroepen en geeft een respons terug van 200. Hierna verloopt het via de keten. 
 
 ## <a name="run-the-app"></a>De app uitvoeren
 
 1. We gaan nu de app opnieuw uitvoeren. Sla uw wijzigingen op in Visual Studio Code, klik aan de linkerkant op de knop **Debug** ![pictogram Debug in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part5/debug-button.png) en klik vervolgens op de knop **Start Debugging** ![pictogram Debug in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part5/start-debugging-button.png).
 
-3. Open in de browser de hulpmiddelen voor ontwikkelaars en het tabblad Network, en ga naar http://localhost:3000. Hier ziet u de toepassing.
+3. Open in de browser ontwikkelhulpprogramma's en het tabblad Netwerk, en ga naar http://localhost:3000. Hier ziet u de toepassing.
 
     ![Nieuw Azure Cosmos DB-account in Azure Portal](./media/tutorial-develop-mongodb-nodejs-part5/azure-cosmos-db-heroes-app.png)
 
@@ -227,7 +236,7 @@ Voltooi de stappen in [deel 4](tutorial-develop-mongodb-nodejs-part4.md) van de 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In dit deel van de zelfstudie hebt u het volgende gedaan:
+In dit deel van de zelfstudie hebt u de volgende taken uitgevoerd:
 
 > [!div class="checklist"]
 > * Mongoose API's gebruikt om de hero’s-app verbinding te laten maken met Azure Cosmos DB 

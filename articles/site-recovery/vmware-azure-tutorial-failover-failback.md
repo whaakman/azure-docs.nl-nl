@@ -1,20 +1,19 @@
 ---
-title: Failover- en failback-overschakeling uitvoeren van met Site Recovery naar Azure gerepliceerde VMware-VM’s en fysieke servers | Microsoft Docs
-description: Leer een failover-overschakeling uitvoeren van VMware-VM’s en fysieke servers naar Azure, en een failback naar de on-premises site, met Azure Site Recovery
-services: site-recovery
+title: Failover- en failback-overschakeling uitvoeren van VMware-VM’s en fysieke servers tijdens herstel na noodgeval in Azure met Site Recovery | Microsoft Docs
+description: Leer een failover-overschakeling uitvoeren van VMware-VM’s en fysieke servers naar Azure, en een failback naar de on-premises site, tijdens herstel na noodgeval, met Azure Site Recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 09/11/2018
+ms.date: 10/29/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 7e586e7e3ec8c16dcd215dbc11251d1b9fe928e1
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: a574c28cae449526ddc8fe0fbb9323fb14b7b6f1
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49457038"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215341"
 ---
 # <a name="fail-over-and-fail-back-vmware-vms-and-physical-servers-replicated-to-azure"></a>Failover- en failback-overschakeling uitvoeren van naar Azure gerepliceerde VMware-VM’s en fysieke servers
 

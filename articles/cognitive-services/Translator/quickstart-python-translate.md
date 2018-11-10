@@ -1,5 +1,5 @@
 ---
-title: 'Snelstart: Python gebruiken om tekst te vertalen - Translator Text-API'
+title: 'Snelstart: Tekst vertalen, Python - Translator Text-API'
 titleSuffix: Azure Cognitive Services
 description: In deze snelstart vertaalt u binnen tien minuten tekst vanuit één taal naar een andere taal met de Translator Text-API en Python.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 10/17/2018
 ms.author: erhopf
-ms.openlocfilehash: a9f848098f377a79ded07d3bbe41f212cb4a7e74
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 3ba8064a6d13cfe9d2a2ae2ac496cfa8302989cd
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945346"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50085975"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-translate-a-string-using-python"></a>Snelstart: de Translator Text-API gebruiken om een tekenreeks te vertalen met Python
 
@@ -102,7 +102,7 @@ body = [{
 }]
 ```
 
-Vervolgens maakt u een POST-aanvraag via de `requests`-module. Hier zijn drie argumenten voor nodig: de samengevoegde URL, de aanvraagheaders en de aanvraagbody:
+Vervolgens maakt u een POST-aanvraag met de `requests`-module. Hier zijn drie argumenten voor nodig: de samengevoegde URL, de aanvraagheaders en de aanvraagbody:
 
 ```python
 request = requests.post(constructed_url, headers=headers, json=body)
@@ -114,7 +114,7 @@ response = request.json()
 De laatste stap is het weergeven van de antwoorden. Met dit codefragment worden de resultaten verfraaid: de sleutels worden gesorteerd, er wordt gebruikgemaakt van inspringing en er worden item- en sleutelscheidingstekens opgegeven.
 
 ```python
-print(json.dumps(response, sort_keys=True, indent=4, separators=(',', ': ')))
+print(json.dumps(response, sort_keys=True, indent=4, ensure_ascii=False, separators=(',', ': ')))
 ```
 
 ## <a name="put-it-all-together"></a>Alles samenvoegen

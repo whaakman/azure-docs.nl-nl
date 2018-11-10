@@ -5,14 +5,14 @@ services: container-service
 author: seanmck
 ms.service: container-service
 ms.topic: troubleshooting
-ms.date: 09/13/2018
+ms.date: 11/05/2018
 ms.author: seanmck
-ms.openlocfilehash: e29308b7b1c17377cf1d627f2a32a2ba6ea4d077
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 01095ac4ed8e362f1a89a53b10b5da6a547feb57
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46314893"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51218629"
 ---
 # <a name="checking-for-kubernetes-best-practices-in-your-cluster"></a>Controleren op aanbevolen procedures voor Kubernetes in uw cluster
 
@@ -30,7 +30,7 @@ De [kube-advieshulpprogramma] [ kube-advisor-github] is van een enkele container
 Het hulpprogramma uitvoert op een cluster dat is geconfigureerd voor [op rollen gebaseerd toegangsbeheer (RBAC)](aad-integration.md), met de volgende opdrachten. De eerste opdracht maakt een Kubernetes-service-account. De tweede opdracht wordt het hulpprogramma wordt uitgevoerd in een schil met behulp van het serviceaccount en configureert u de schil voor verwijdering nadat deze is afgesloten. 
 
 ```bash
-kubectl apply -f https://raw.githubusercontent.com/Azure/kube-advisor/master/sa.yaml?token=ABLLDrNcuHMro9jQ0xduCaEbpzLupzQUks5bh3RhwA%3D%3D
+kubectl apply -f https://raw.githubusercontent.com/Azure/kube-advisor/master/sa.yaml
 
 kubectl run --rm -i -t kubeadvisor --image=mcr.microsoft.com/aks/kubeadvisor --restart=Never --overrides="{ \"apiVersion\": \"v1\", \"spec\": { \"serviceAccountName\": \"kube-advisor\" } }"
 ```
@@ -60,7 +60,7 @@ Er zijn geen aanvragen of limieten worden standaard ingesteld op pod-specificati
 Als uw cluster RBAC is ingeschakeld heeft, kunt u de migratiegegevens van de `ClusterRoleBinding` nadat u het hulpprogramma met de volgende opdracht hebt uitgevoerd:
 
 ```bash
-kubectl delete -f https://raw.githubusercontent.com/Azure/kube-advisor/master/sa.yaml?token=ABLLDrNcuHMro9jQ0xduCaEbpzLupzQUks5bh3RhwA%3D%3D
+kubectl delete -f https://raw.githubusercontent.com/Azure/kube-advisor/master/sa.yaml
 ```
 
 Als u het hulpprogramma voor een cluster waarvoor geen RBAC is ingeschakeld uitvoert, is er geen opschoning is vereist.

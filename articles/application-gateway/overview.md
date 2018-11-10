@@ -43,7 +43,7 @@ Behalve de functies die in dit artikel worden beschreven, biedt Application Gate
 
 - **5 keer betere prestaties voor SSL-offload** in vergelijking met de algemeen beschikbare SKU.
 
-Meer informatie over de preview-functies van de openbare preview van Application Gateway raadpleegt u [Automatisch schalen en zoneredundantie voor Application Gateway (openbare preview)](application-gateway-autoscaling-zone-redundant.md).
+Meer informatie over de preview-functies van de openbare preview van Application Gateway raadpleegt u [Automatisch schalen en zone-redundantie voor Application Gateway (openbare preview)](application-gateway-autoscaling-zone-redundant.md).
 
 ## <a name="azure-kubernetes-service-aks-ingress-controller-preview"></a>Ingangscontroller van Azure Kubernetes Service (AKS) (preview) 
 

@@ -3,18 +3,18 @@ title: ML-Services op HDInsight - Azure operationeel maken
 description: Informatie over het operationeel maken van ML-Services in Azure HDInsight.
 services: hdinsight
 ms.service: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 0a275405530c60c5e2f08a2af120382f81c2b6f8
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 3f93f96c6c9fc551b8b66167eab58861b0ac0b52
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43041368"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51005951"
 ---
 # <a name="operationalize-ml-services-cluster-on-azure-hdinsight"></a>ML-Services-cluster in Azure HDInsight operationeel maken
 

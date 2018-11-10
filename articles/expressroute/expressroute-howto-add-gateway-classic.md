@@ -4,23 +4,16 @@ description: Configureren van een VNet-gateway voor een klassieke implementatie 
 documentationcenter: na
 services: expressroute
 author: charwen
-manager: carmonm
-editor: ''
-tags: azure-service-management
-ms.assetid: 85ee0bc1-55be-4760-bfb4-34d9f2c96f30
 ms.service: expressroute
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 03/21/2017
+ms.date: 11/05/2018
 ms.author: charwen
-ms.openlocfilehash: ec7e4a326bc0d5e9393db28c83c9d859a93dc8a3
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
-ms.translationtype: MT
+ms.openlocfilehash: 82deca87f2410afab7b63f03b222db71db8d9b5c
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42054516"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51218218"
 ---
 # <a name="configure-a-virtual-network-gateway-for-expressroute-using-powershell-classic"></a>Een virtuele netwerkgateway configureren voor ExpressRoute met behulp van PowerShell (klassiek)
 > [!div class="op_single_selector"]

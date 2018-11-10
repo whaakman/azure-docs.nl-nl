@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 11/05/2018
 ms.author: juliako
-ms.openlocfilehash: dccbc6e57e970ec7089f81fccb33b741b9c00e74
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 26661a213b5df5424bf9ab9ad799345ae35620ea
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49376717"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51036764"
 ---
 # <a name="azure-media-services-v3-frequently-asked-questions"></a>Veelgestelde vragen over Azure Media Services v3
 
@@ -28,7 +28,7 @@ Nog niet. U kunt een van de ondersteunde SDK's gebruiken. Zie de zelfstudies en 
 
 ## <a name="is-there-an-api-for-configuring-media-reserved-units"></a>Is er een API voor het configureren van gereserveerde Media-eenheden?
 
-Het team van Media Services is ru's verwijderen in v3. Werk van de benodigde service is echter niet volledig. Tot die tijd kun klanten hebben de Azure portal of AMS v2-API's gebruiken om in te stellen ru's (zoals beschreven in [mediaverwerking schalen](../previous/media-services-scale-media-processing-overview.md). 
+U moet op dit moment AMS v2-API's gebruiken voor het configureren van gereserveerde media-eenheden (zoals beschreven in [mediaverwerking schalen](../previous/media-services-scale-media-processing-overview.md). 
 
 Bij het gebruik van **VideoAnalyzerPreset** en/of **AudioAnalyzerPreset**, Media Services-account ingesteld op 10 S3 gereserveerde Media-eenheden.
 

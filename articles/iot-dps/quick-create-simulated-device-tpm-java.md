@@ -1,6 +1,6 @@
 ---
 title: Een gesimuleerd TPM-apparaat met Java inrichten voor Azure IoT Hub | Microsoft Docs
-description: 'Azure-quickstart: een gesimuleerd TPM-apparaat met de SDK voor Java maken en inrichten voor Azure IoT Hub Device Provisioning Service'
+description: 'Azure-quickstart: een gesimuleerd TPM-apparaat met de SDK voor Java maken en inrichten voor Azure IoT Hub Device Provisioning Service. In deze quickstart wordt gebruikgemaakt van afzonderlijke registraties.'
 author: wesmc7777
 ms.author: wesmc
 ms.date: 04/09/2018
@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: b6c6e407e0bd54c4713056fdee12f7a4c355af97
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: c1426ebb5a64a1e0552cc35a736186fda60a5af1
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47030899"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50415148"
 ---
 # <a name="create-and-provision-a-simulated-tpm-device-using-java-device-sdk-for-azure-iot-hub-device-provisioning-service"></a>Een gesimuleerd TPM-apparaat met de SDK voor Java maken en inrichten voor Azure IoT Hub Device Provisioning Service
 
@@ -23,13 +23,19 @@ ms.locfileid: "47030899"
 
 In deze stappen wordt getoond hoe u een gesimuleerd apparaat maakt op een ontwikkelcomputer met Windows OS, de Windows TPM-simulator uitvoert als de [HSM (Hardware Security Module)](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) van het apparaat en het codevoorbeeld gebruikt om dit gesimuleerde apparaat te verbinden met Device Provisioning Service en uw IoT-hub. 
 
-Als u niet bekend bent met het proces van automatische inrichting, bekijk dan ook de [Concepten voor automatische inrichting](concepts-auto-provisioning.md). Controleer ook of u de stappen in [IoT Hub Device Provisioning Service instellen met Azure Portal](./quick-setup-auto-provision.md) hebt voltooid voordat u verdergaat. 
+Als u niet bekend bent met het proces van automatisch inrichten, bekijk dan ook de [Concepten voor automatische inrichting](concepts-auto-provisioning.md). Controleer ook of u de stappen in [IoT Hub Device Provisioning Service instellen met Azure Portal](./quick-setup-auto-provision.md) hebt voltooid voordat u verdergaat. 
+
+Azure IoT Device Provisioning Service ondersteunt twee typen registraties:
+- [Registratiegroepen](concepts-service.md#enrollment-group): voor het registreren van meerdere gerelateerde apparaten.
+- [Afzonderlijke registraties](concepts-service.md#individual-enrollment): voor het registreren van een enkel apparaat.
+
+In dit artikel worden afzonderlijke registraties gedemonstreerd.
 
 [!INCLUDE [IoT Device Provisioning Service basic](../../includes/iot-dps-basic.md)]
 
 ## <a name="prepare-the-environment"></a>De omgeving voorbereiden 
 
-1. Zorg ervoor dat [Java SE Development Kit 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) is geïnstalleerd op de computer.
+1. Zorg ervoor dat [Java SE Development Kit 8](https://aka.ms/azure-jdks) is geïnstalleerd op de computer.
 
 1. Download en installeer [Maven](https://maven.apache.org/install.html).
 
@@ -62,7 +68,7 @@ Als u niet bekend bent met het proces van automatische inrichting, bekijk dan oo
     cd provisioning/provisioning-samples/provisioning-tpm-sample
     ```
 
-1. Meld u aan bij Azure Portal, klik in het linkermenu op de knop **All resources** en open uw Device Provisioning-service. Noteer de waarden voor _Id Scope_ en _Provisioning Service Global Endpoint_.
+1. Meld u aan bij Azure Portal, klik in het linkermenu op de knop **Alle bronnen** en open Device Provisioning Service. Noteer de waarden voor _Id-bereik_ en _Globaal eindpunt voor inrichtingsservice_.
 
     ![Informatie over de Device Provisioning Service](./media/java-quick-create-simulated-device/extract-dps-endpoints.png)
 
@@ -82,14 +88,14 @@ Als u niet bekend bent met het proces van automatische inrichting, bekijk dan oo
     java -jar ./provisioning-tpm-sample-{version}-with-deps.jar
     ```
 
-1. Het programma wordt uitgevoerd. Noteer de waarden voor _Endorsement Key_ en _Registration Id_ voor de volgende sectie en laat het programma draaien.
+1. Het programma wordt uitgevoerd. Noteer de waarden voor _Goedkeuringssleutel_ en _Registratie-id_ voor de volgende sectie en houd het programma actief.
 
     ![Java TPM-apparaatprogramma](./media/java-quick-create-simulated-device/program.png)
     
 
 ## <a name="create-a-device-enrollment-entry"></a>Een vermelding voor apparaatinschrijving maken
 
-1. Meld u aan bij Azure Portal, klik in het linkermenu op de knop **All resources** en open uw Device Provisioning-service.
+1. Meld u aan bij Azure Portal, klik in het linkermenu op de knop **Alle bronnen** en open Device Provisioning Service.
 
 1. Selecteer **Manage enrollments** in de overzichtsblade van Device Provisioning Service. Selecteer het tabblad **Afzonderlijke registraties** en klik vervolgens op de knop **Afzonderlijke inschrijving toevoegen** bovenaan. 
 

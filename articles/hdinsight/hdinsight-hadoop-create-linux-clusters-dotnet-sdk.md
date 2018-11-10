@@ -1,6 +1,6 @@
 ---
-title: Met behulp van .NET - Azure HDInsight Hadoop-clusters maken
-description: Leer hoe u Hadoop, HBase, Storm of Spark-clusters maken in Linux voor HDInsight met behulp van de HDInsight .NET SDK.
+title: Apache Hadoop-clusters met behulp van .NET - Azure HDInsight maken
+description: Leer hoe u Apache Hadoop, Apache HBase, Apache Storm of Apache Spark-clusters maken in Linux voor HDInsight met behulp van de HDInsight .NET SDK.
 services: hdinsight
 author: mamccrea
 ms.reviewer: jasonh
@@ -9,19 +9,19 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: mamccrea
-ms.openlocfilehash: ea5c0d3b9f444601607ebcda8d139797eb8dd2ec
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 943d5aeccf949c1dd494dc8ec8fda0d782527749
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43093908"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51035677"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-the-net-sdk"></a>Op basis van Linux-clusters maken in HDInsight met behulp van de .NET SDK
 
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
 
-Informatie over het maken van een Hadoop-cluster in Azure HDInsight-cluster met de .NET SDK.
+Informatie over het maken van een Apache Hadoop-cluster in Azure HDInsight-cluster met de .NET SDK.
 
 > [!IMPORTANT]
 > De stappen in dit document wordt een cluster maken met een worker-knooppunt. Als u van plan bent op meer dan 32 worker-knooppunten op het maken van clusters of door te schalen van het cluster na het maken, moet u selecteert de grootte van een hoofdknooppunt met ten minste 8 kerngeheugens en 14GB RAM-geheugen.
