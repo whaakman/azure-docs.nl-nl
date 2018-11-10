@@ -4,17 +4,17 @@ description: Azure Resource Graph is een service in Azure waarmee op schaal comp
 services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 10/22/2018
 ms.topic: overview
 ms.service: resource-graph
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: d68183f4d0a928ac72f3f73ea5225ad174820cb7
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: e78b525e1e08a05b8de6071f9ddba0dfb29ff672
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47162097"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50087269"
 ---
 # <a name="what-is-azure-resource-graph"></a>Wat is Azure Resource Graph
 
@@ -31,7 +31,7 @@ In deze documentatie komt elke mogelijkheid gedetailleerd aan bod.
 
 ## <a name="how-does-resource-graph-complement-azure-resource-manager"></a>Hoe Resource Graph Azure Resource Manager aanvult
 
-Azure Resource Manager verzendt momenteel gegevens naar een beperkte resourcecache die verschillende resourcevelden beschikbaar maakt, met name Resourcenaam, Id, Type, Resourcegroep, Abonnementen en Locatie. Als u nu met meer resource-eigenschappen wilt werken, moet u elke afzonderlijke resourceprovider afzonderlijk aanroepen en de eigenschapsdetails voor elke resource afzonderlijk opvragen.
+Azure Resource Manager verzendt momenteel gegevens naar een beperkte resourcecache die verschillende resourcevelden beschikbaar maakt, met name Resourcenaam, Id, Type, Resourcegroep, Abonnementen en Locatie. Voorheen als er met meer resource-eigenschappen werd gewerkt, moest elke afzonderlijke resourceprovider afzonderlijk worden aangeroepen en de eigenschapsdetails voor elke resource afzonderlijk worden opgevraagd.
 
 Met Azure Resource Graph hebt u toegang tot de eigenschappen die de resourceproviders retourneren zonder dat u elke resourceprovider afzonderlijk moet aanroepen.
 
@@ -45,12 +45,11 @@ Voor meer informatie over bewerkingen en functies die kunnen worden gebruikt met
 
 ## <a name="permissions-in-azure-resource-graph"></a>Machtigingen in Azure Resource Graph
 
-Om Resource Graph te kunnen gebruiken, moet u gemachtigd zijn via [Op rollen gebaseerd toegangsbeheer](../../role-based-access-control/overview.md) (RBAC), met minimaal leestoegang tot de resources die u wilt zoeken. Als u geen `read`-machtigingen hebt voor de beheergroep, het abonnement, de resourcegroep of afzonderlijke resources, worden deze niet geretourneerd in de resultaten van een Resource Graph-query.
+Om Resource Graph te kunnen gebruiken, moet u over de juiste machtigingen beschikken in [Op rollen gebaseerd toegangsbeheer](../../role-based-access-control/overview.md) (RBAC), met minimaal leestoegang tot de resources die u wilt zoeken. Zonder ten minste `read`-machtigingen voor het Azure-object of de objectgroep worden er geen resultaten geretourneerd.
 
 ## <a name="running-your-first-query"></a>Uw eerste query uitvoeren
 
-Resource Graph ondersteunt zowel Azure CLI als Azure PowerShell. De structuur van het queryonderdeel is hetzelfde, ongeacht welke taal er wordt gebruikt. Ondersteuning voor Azure Resource Graph is nog niet standaard beschikbaar in de SDK. Er moet dus een extensie of module worden geladen om de benodigde opdrachten te kunnen verstrekken.
-Meer informatie over het inschakelen van Resource Graph in [Azure CLI](first-query-azurecli.md#add-the-resource-graph-extension) en [Azure PowerShell](first-query-powershell.md#add-the-resource-graph-module).
+Resource Graph ondersteunt zowel Azure CLI als Azure PowerShell. De query is voor beide talen hetzelfde gestructureerd. Meer informatie over het inschakelen van Resource Graph in [Azure CLI](first-query-azurecli.md#add-the-resource-graph-extension) en [Azure PowerShell](first-query-powershell.md#add-the-resource-graph-module).
 
 ## <a name="next-steps"></a>Volgende stappen
 

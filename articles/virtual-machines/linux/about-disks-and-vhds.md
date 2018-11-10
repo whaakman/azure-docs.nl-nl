@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 11/15/2017
 ms.author: rogarana
 ms.component: disks
-ms.openlocfilehash: feb3e60ee1b43ec85c81912fbce086858bb33742
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
-ms.translationtype: MT
+ms.openlocfilehash: 53b44d47d9421f1b37aef7ca4d30c2c753b79740
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39715927"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51218318"
 ---
 # <a name="about-disks-storage-for-azure-linux-vms"></a>Over de opslag van schijven voor virtuele Azure Linux-machines
 Net als elke andere computer gebruik virtuele machines in Azure schijven als een plaats voor het opslaan van een besturingssysteem, toepassingen en gegevens. Alle virtuele machines van Azure hebt ten minste twee schijven: de schijf van een Linux-besturingssysteem en een tijdelijke schijf. De besturingssysteemschijf is gemaakt op basis van een afbeelding, en zowel de besturingssysteemschijf en de installatiekopie van het virtuele harde schijven (VHD's) die zijn opgeslagen in Azure storage-account zijn. Virtuele machines hebben ook een of meer gegevensschijven die ook als virtuele harde schijven zijn opgeslagen.
@@ -37,8 +37,6 @@ Elke virtuele machine bevat een tijdelijke schijf. De tijdelijke schijf opslag o
 
 Op Linux virtuele machines, de schijf is doorgaans **/dev/sdb** en is geformatteerd en gekoppeld aan **mnt** door de Azure Linux Agent. De grootte van de tijdelijke schijf varieert, afhankelijk van de grootte van de virtuele machine. Zie voor meer informatie, [grootten voor virtuele Linux-machines](../windows/sizes.md).
 
-Zie voor meer informatie over hoe Azure gebruikt voor de tijdelijke schijf [inzicht krijgen in het tijdelijke station op Microsoft Azure Virtual Machines](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/)
-
 ## <a name="data-disk"></a>Gegevensschijf
 
 Een gegevensschijf is een VHD die gekoppeld aan een virtuele machine voor het opslaan van toepassingsgegevens, of andere gegevens die u wilt houden. Gegevensschijven worden geregistreerd als SCSI-stations en zijn gelabeld met een letter die u kiest. Elke gegevensschijf heeft een maximale capaciteit van 4095 GB. De grootte van de virtuele machine bepaalt hoeveel gegevensschijven die u aan het en het type opslag koppelen kunt die u kunt gebruiken voor het hosten van de schijven.
@@ -59,4 +57,3 @@ U kunt gegevensschijven toevoegen aan een virtuele machine op elk gewenst moment
 * [Een schijf koppelen](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) extra opslag toevoegen voor uw virtuele machine.
 * [Maken van een momentopname van een](snapshot-copy-managed-disk.md).
 * [Converteren naar managed disks](convert-unmanaged-to-managed-disks.md).
-

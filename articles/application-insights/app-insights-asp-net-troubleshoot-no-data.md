@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/23/2018
 ms.author: mbullwin
-ms.openlocfilehash: 3fa41f894e3228310bae6a9407cfcc426c27bfdc
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 47cf32a57fc4a2d0e20a9f2c242db1f3dec96fe5
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50963715"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228535"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-net"></a>Problemen met ontbrekende gegevens oplossen - Application Insights voor .NET
 ## <a name="some-of-my-telemetry-is-missing"></a>Aantal van mijn telemetrie ontbreekt
@@ -141,7 +141,7 @@ FIX:
     
     ![](./media/app-insights-asp-net-troubleshoot-no-data/ikey-check.png)
 * In de [home Microsoft Azure-dashboard](https://portal.azure.com), bekijk de servicestatus-kaart. Als er enkele waarschuwingen indicaties zijn, wacht u totdat ze weer terug bent op OK en vervolgens sluiten en uw Application Insights-toepassing-blade opnieuw open.
-* Controleer ook [onze blog status](http://blogs.msdn.com/b/applicationinsights-status/).
+* Controleer ook [onze blog status](https://blogs.msdn.com/b/applicationinsights-status/).
 * Hebt u een code te schrijven voor de [server-side SDK](app-insights-api-custom-events-metrics.md) die veranderen de instrumentatiesleutel in `TelemetryClient` exemplaren of in `TelemetryContext`? Of hebt u schrijft een [filter of steekproeven](app-insights-api-filtering-sampling.md) die kan worden gefilterd te veel?
 * Als u ApplicationInsights.config hebt bewerkt, zorgvuldig controleert u de configuratie van [TelemetryInitializers en TelemetryProcessors](app-insights-api-filtering-sampling.md). Een verkeerde naam type of de parameter kan leiden tot de SDK om geen gegevens te verzenden.
 
@@ -167,7 +167,7 @@ Prestatiegegevens (CPU, IO-snelheid, enzovoort) is beschikbaar voor [Java-web-se
 * WindowsServer 2008: Zorg ervoor dat u de volgende updates hebt geïnstalleerd: [KB2468871](https://support.microsoft.com/kb/2468871), [KB2533523](https://support.microsoft.com/kb/2533523), [KB2600217](https://support.microsoft.com/kb/2600217).
 
 ## <a name="i-used-to-see-data-but-it-has-stopped"></a>Ik gebruikt om gegevens te bekijken, maar deze is gestopt
-* Controleer de [status blog](http://blogs.msdn.com/b/applicationinsights-status/).
+* Controleer de [status blog](https://blogs.msdn.com/b/applicationinsights-status/).
 * Hebt u uw maandelijkse quotum van gegevenspunten bereikt? Open de instellingen/quotum en prijzen om erachter te komen. Als dit het geval is, kunt u uw abonnement upgraden of betalen voor extra capaciteit. Zie de [prijzen schema](https://azure.microsoft.com/pricing/details/application-insights/).
 
 ## <a name="i-dont-see-all-the-data-im-expecting"></a>Ik zie niet alle gegevens die ik verwacht

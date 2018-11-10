@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 04/04/2017
-ms.openlocfilehash: 240be0e7dc199a84130739244743d245b780b608
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 2f3d96908cbcb68ff01a6e43696a119bf21d02ce
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902073"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51226562"
 ---
 # <a name="overview-diagram-of-azure-machine-learning-studio-capabilities"></a>Overzichtsdiagram van de mogelijkheden van Azure Machine Learning Studio
 Het diagram **Overzicht van de mogelijkheden van Microsoft Azure Machine Learning Studio** geeft u een overzicht van hoe u Machine Learning Studio kunt gebruiken om een predictive analytics-model op te zetten en dit te implementeren in de Azure-cloud.
@@ -39,7 +39,7 @@ In dit diagram ziet u hoe al deze onderdelen in elkaar passen.
 ## <a name="download-the-machine-learning-studio-overview-diagram"></a>Het overzichtsdiagram voor Machine Learning Studio downloaden
 Download het diagram **Microsoft Azure Machine Learning Studio Capabilities Overview** (Overzicht van de mogelijkheden van Azure Machine Learning Studio) voor een algemeen overzicht van de mogelijkheden van Machine Learning Studio. Als u het diagram altijd bij de hand wilt hebben, kunt u het in A3-formaat afdrukken.
 
-**U kunt het overzichtsdiagram hier downloaden: [Microsoft Azure Machine Learning Studio Capabilities Overview](http://download.microsoft.com/download/C/4/6/C4606116-522F-428A-BE04-B6D3213E9E52/ml_studio_overview_v1.1.pdf)** (Overzicht van de mogelijkheden van Microsoft Azure Machine Learning Studio)
+**U kunt het overzichtsdiagram hier downloaden: [Microsoft Azure Machine Learning Studio Capabilities Overview](https://download.microsoft.com/download/C/4/6/C4606116-522F-428A-BE04-B6D3213E9E52/ml_studio_overview_v1.1.pdf)** (Overzicht van de mogelijkheden van Microsoft Azure Machine Learning Studio)
 
 ![Overzicht van de mogelijkheden van Microsoft Azure Machine Learning Studio][studio-overview]
 

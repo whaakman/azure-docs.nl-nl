@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: pbutlerm
-ms.openlocfilehash: d7f9dfee447cddc771e0e88ca5be04018b51dba2
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: a4117b41700446770e10ef799967ae4a43db342d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49431173"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51227753"
 ---
 # <a name="prepare-your-iot-edge-module-technical-assets"></a>Voorbereiden van uw IoT Edge-module technische activa
 
@@ -45,7 +45,7 @@ Uw IoT Edge-module moet een van de volgende opties voor platform ondersteunen.
 Ondersteuning voor alle laag 1-platformen worden ondersteund door de IoT Edge (zoals vastgelegd in [ondersteuning voor Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/support)). Deze optie wordt aangeraden omdat dit een betere klantervaring biedt. Kan de modules die voldoen aan deze criteria worden gepresenteerd. Er moet een module met behulp van deze optie platform:
 
 - Geef een `latest` tag en een versietag (bijvoorbeeld `1.0.1`) die zijn gebouwd met de GitHub-manifest tags [manifest-hulpprogramma](https://github.com/estesp/manifest-tool).
-- Gebruik de [het Marketplace-tabblad](./cpp-marketplace-tab.md) om toe te voegen een koppeling naar [compatibel IoT Edge gecertificeerde apparaten](http://aka.ms/iot-edge-certified). Deze koppeling wordt omgezet naar `http://aka.ms/iot-edge-certified`, een website waar klanten kunnen bladeren of zoeken naar apparaten gecertificeerd. Deze website is ook bekend als de [Azure IoT Edge Certified](https://catalog.azureiotsolutions.com/) apparaatcatalogus.
+- Gebruik de [het Marketplace-tabblad](./cpp-marketplace-tab.md) om toe te voegen een koppeling naar [compatibel IoT Edge gecertificeerde apparaten](https://aka.ms/iot-edge-certified). Deze koppeling wordt omgezet naar `http://aka.ms/iot-edge-certified`, een website waar klanten kunnen bladeren of zoeken naar apparaten gecertificeerd. Deze website is ook bekend als de [Azure IoT Edge Certified](https://catalog.azureiotsolutions.com/) apparaatcatalogus.
 
 #### <a name="a-subset-of-tier-1-platforms-supported-by-iot-edge"></a>Een subset van laag 1-platformen worden ondersteund door de IoT Edge
   

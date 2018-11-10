@@ -4,17 +4,17 @@ description: Gebruik Azure Resource Graph om een aantal geavanceerde query's uit
 services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 10/22/2018
 ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 934dff93b9a7f5d6755f55ad1073e01e586b1ca7
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: fbbdc4a67cd6f2e7d74031f7acc584bf0004bea4
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49647830"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50085373"
 ---
 # <a name="advanced-resource-graph-queries"></a>Geavanceerde query's van Resource Graph
 
@@ -31,11 +31,11 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 
 ## <a name="language-support"></a>Taalondersteuning
 
-Azure CLI (met een extensie) en Azure PowerShell (met een module) ondersteunen Azure Resource Graph. Controleer voordat u een van de volgende query's uitvoert of uw omgeving gereed is. Zie [Azure CLI](../first-query-azurecli.md#add-the-resource-graph-extension) en [Azure PowerShell](../first-query-powershell.md#add-the-resource-graph-module) voor stappen voor het installeren en valideren van uw gewenste shellomgeving.
+Azure CLI (met een extensie) en Azure PowerShell (met een module) ondersteunen Azure Resource Graph. Controleer voordat u een van de volgende query's uitvoert, of uw omgeving gereed is. Zie [Azure CLI](../first-query-azurecli.md#add-the-resource-graph-extension) en [Azure PowerShell](../first-query-powershell.md#add-the-resource-graph-module) voor stappen voor het installeren en valideren van uw gewenste shellomgeving.
 
-## <a name="vmss-capacity"></a>VMSS-capaciteit en -grootte opvragen
+## <a name="vmss-capacity"></a>Capaciteit en grootte van een virtuele-machineschaalset ophalen
 
-Met deze query zoekt u VMSS-resources (virtuele-machineschaalset) en verkrijgt u diverse informatie, waaronder de grootte van de virtuele machines en de capaciteit van de schaalset. Voor deze informatie wordt de functie `toint()` gebruikt om de capaciteit te converteren naar een waarde die kan worden gesorteerd. Hiermee worden ook de namen van de geretourneerde waarden gewijzigd in eigenschappen met aangepaste namen.
+Met deze query zoekt u virtuele-machineschaalsetresources en verkrijgt u diverse informatie, waaronder de grootte van de virtuele machines en de capaciteit van de schaalset. Deze query maakt gebruik van de functie `toint()` om de capaciteit te converteren naar een waarde die kan worden gesorteerd. Ten slotte worden de namen van de kolommen gewijzigd in eigenschappen met aangepaste namen.
 
 ```Query
 where type=~ 'microsoft.compute/virtualmachinescalesets'
@@ -75,7 +75,7 @@ Deze query zoekt virtuele machines die overeenkomen met een [reguliere expressie
 Met de **reguliere overeenkomstexpressie @** kunt u de betreffende reguliere expressie definiëren. Deze is **^Contoso(.*)[0-9]+$**. De definitie van deze reguliere expressie wordt als volgt uitgelegd:
 
 - `^`: Overeenkomst moet beginnen aan het begin van de tekenreeks.
-- `Contoso`: De hoofdtekenreeks die we zoeken (hoofdlettergevoelig).
+- `Contoso`: De hoofdlettergevoelige reeks.
 - `(.*)`: Een subexpressieovereenkomst:
   - `.`: Komt overeen met een willekeurig teken (met uitzondering van een nieuwe regel).
   - `*`: Komt nul keer of vaker overeen met vorig element.

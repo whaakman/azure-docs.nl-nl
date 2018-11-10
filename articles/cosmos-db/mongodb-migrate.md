@@ -4,93 +4,39 @@ description: Meer informatie over het gebruik van mongoimport en mongorestore vo
 keywords: mongoimport, mongorestore
 services: cosmos-db
 author: SnehaGunda
-manager: slyons
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/07/2018
-ms.author: sclyon
+ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 56d885fa4a52c907ef2b7eab10899191a1ac3acd
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: d3a7ddcd4a95660264bdf9609f54af39a05c97b3
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48248517"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50741025"
 ---
-# <a name="migrate-your-data-to-azure-cosmos-db-mongodb-api-account"></a>Gegevens migreren naar een Azure Cosmos DB MongoDB-API-account
+# <a name="tutorial-migrate-your-data-to-azure-cosmos-db-mongodb-api-account"></a>Zelfstudie: Gegevens migreren naar een Azure Cosmos DB MongoDB-API-account
 
-Als u gegevens wilt migreren van MongoDB naar een Azure Cosmos DB-account voor gebruik met de API voor MongoDB, moet u:
-
-* In het [MongoDB-downloadcentrum](https://www.mongodb.com/download-center) de communityserver downloaden en deze installeren.
-* De bestanden mongoimport.exe of mongorestore.exe gebruiken die zijn geïnstalleerd in de map 'installatiemap/bin'. 
-* De [API voor de MongoDB-verbindingsreeks](connect-mongodb-account.md) ophalen.
-
-Als u gegevens uit MongoDB importeert en deze wilt gebruiken met de SQL-API voor Azure Cosmos DB, moet u het [hulpprogramma voor gegevensmigratie](import-data.md) gebruiken om gegevens te importeren.
+In deze zelfstudie vindt u instructies voor het migreren van gegevens die zijn opgeslagen in MongoDB naar een Azure Cosmos DB MongoDB-API-account. Als u gegevens uit MongoDB importeert en deze wilt gebruiken met de SQL-API voor Azure Cosmos DB, moet u het [hulpprogramma voor gegevensmigratie](import-data.md) gebruiken om gegevens te importeren.
 
 Deze zelfstudie bestaat uit de volgende taken:
 
 > [!div class="checklist"]
-> * De verbindingsreeks ophalen
-> * MongoDB-gegevens importeren met mongoimport
-> * MongoDB-gegevens importeren met mongorestore
+> * Plan voor migratie
+> * Vereisten voor migratie
+> * Gegevens migreren met mongoimport
+> * Gegevens migreren met mongorestore
 
-## <a name="prerequisites"></a>Vereisten
+Voordat u gegevens naar het MongoDB-API-account migreert, moet u enkele MongoDB-voorbeeldgegevens hebben. Als u geen MongoDB-voorbeelddatabase hebt, kunt u de [MongoDB-communityserver](https://www.mongodb.com/download-center) downloaden en installeren, een voorbeelddatabase maken en mongoimport.exe of mongorestore.exe gebruiken om voorbeeldgegevens te uploaden. 
 
-* **Verhoog de doorvoer:** de duur van de gegevensmigratie is afhankelijk van de hoeveelheid doorvoer die u voor een afzonderlijke verzameling of een reeks verzamelingen instelt. Verhoog de doorvoer voor grotere gegevensmigraties. Nadat u de migratie hebt voltooid, verlaagt u de doorvoer om kosten te besparen. Zie [Prestatieniveaus en prijscategorieën in Azure Cosmos DB](performance-levels.md) voor meer informatie over het verhogen van de doorvoer in [Azure Portal](https://portal.azure.com).
-
-* **Schakel SSL in:** voor Azure Cosmos DB gelden strenge beveiligingsvereisten en -normen. Schakel SSL in wanneer u uw account gebruikt. De procedures in de rest van het artikel bevatten informatie over het inschakelen van SSL voor mongoimport en mongorestore.
-
-* **Maak Azure Cosmos DB-resources**: voordat u gegevens gaat migreren, maakt u vooraf alle tabellen vanuit Azure Portal. Als u migreert naar een Azure Cosmos DB-account dat doorvoer op databaseniveau heeft, moet u een partitiesleutel opgeven bij het maken van de Azure Cosmos DB-verzamelingen.
-
-## <a name="get-your-connection-string"></a>Verbindingsreeks ophalen 
-
-1. Klik in [Azure Portal](https://portal.azure.com) in het linkerdeelvenster op het item **Azure Cosmos DB**.
-1. Selecteer in het deelvenster **Abonnementen** uw accountnaam.
-1. Klik in de blade **Verbindingsreeks** op **Verbindingsreeks**.
-
-   Het rechterdeelvenster bevat alle informatie die u nodig hebt om verbinding te maken met uw account.
-
-   ![De blade Verbindingsreeks](./media/mongodb-migrate/ConnectionStringBlade.png)
-
-## <a name="migrate-data-by-using-mongoimport"></a>Gegevens migreren met mongoimport
-
-Als u gegevens wilt importeren in uw Azure Cosmos DB-account, moet u de volgende sjabloon gebruiken. Vul voor *host*, *gebruikersnaam* en *wachtwoord* de waarden in die gelden voor uw account.  
-
-Sjabloon:
-
-```bash
-    mongoimport.exe --host <your_hostname>:10255 -u <your_username> -p <your_password> --db <your_database> --collection <your_collection> --ssl --sslAllowInvalidCertificates --type json --file "C:\sample.json"
-```
-
-Voorbeeld:  
-
-```bash
-    mongoimport.exe --host cosmosdb-mongodb-account.documents.azure.com:10255 -u cosmosdb-mongodb-account -p tkvaVkp4Nnaoirnouenrgisuner2435qwefBH0z256Na24frio34LNQasfaefarfernoimczciqisAXw== --ssl --sslAllowInvalidCertificates --db sampleDB --collection sampleColl --type json --file "C:\Users\admin\Desktop\*.json"
-```
-
-## <a name="migrate-data-by-using-mongorestore"></a>Gegevens migreren met mongorestore
-
-Als u gegevens wilt herstellen voor de API voor een MongoDB-account, moet u de volgende sjabloon gebruiken om de import uit te voeren. Vul voor *host*, *gebruikersnaam* en *wachtwoord* de waarden in die gelden voor uw account.
-
-Sjabloon:
-
-```bash
-    mongorestore.exe --host <your_hostname>:10255 -u <your_username> -p <your_password> --db <your_database> --collection <your_collection> --ssl --sslAllowInvalidCertificates <path_to_backup>
-```
-
-Voorbeeld:
-
-```bash
-    mongorestore.exe --host cosmosdb-mongodb-account.documents.azure.com:10255 -u cosmosdb-mongodb-account -p tkvaVkp4Nnaoirnouenrgisuner2435qwefBH0z256Na24frio34LNQasfaefarfernoimczciqisAXw== --ssl --sslAllowInvalidCertificates ./dumps/dump-2016-12-07
-```
-    
-## <a name="steps-for-a-successful-migration"></a>Stappen voor een geslaagde migratie
+## <a name="plan-for-migration"></a>Plan voor migratie
 
 1. Maak van tevoren de verzamelingen en schaal deze:
         
-    * Azure Cosmos DB levert standaard een nieuwe MongoDB-verzameling met 1000 aanvraageenheden per seconde. Maak voordat u de migratie start met mongoimport of mongorestore van tevoren alle verzamelingen in [Azure Portal](https://portal.azure.com) of uit de MongoDB-stuurprogramma's en -hulpprogramma's. Als de omvang van uw gegevens groter is dan 10 GB is, moet u een [shardverzameling/gepartitioneerde verzameling](partition-data.md) met de betreffende shardsleutel maken.
+    * Azure Cosmos DB levert standaard een nieuwe MongoDB-verzameling met 1000 aanvraageenheden per seconde. Maak voordat u de migratie start met mongoimport of mongorestore van tevoren alle verzamelingen in [Azure Portal](https://portal.azure.com) of uit de MongoDB-stuurprogramma's en -hulpprogramma's. Als de omvang van uw gegevens groter is dan 10 GB, moet u een [gepartitioneerde verzameling](partition-data.md) met de betreffende shardsleutel maken.
 
     * Verhoog vlak voor de migratie in [Azure Portal](https://portal.azure.com) de doorvoer voor uw verzamelingen van 1000 aanvraageenheden per seconde voor één gepartitioneerde verzameling en 2500 aanvraageenheden per seconde voor een gedeelde verzameling. Met een hogere doorvoer voorkomt u frequentielimieten en kost migreren minder tijd. U kunt de doorvoer onmiddellijk na de migratie verminderen om kosten te besparen.
 
@@ -143,9 +89,9 @@ Voorbeeld:
     
     b. Voer een eenvoudige query uit voor de database: ```db.coll.find().limit(1)```. U ontvangt een antwoord dat lijkt op het volgende:
 
-        ```
-        Fetched 1 record(s) in 100(ms)
-        ```
+       ```bash
+       Fetched 1 record(s) in 100(ms)
+       ```
         
 1. Verwijder het ingevoegde document vóór de migratie zodat er geen dubbele documenten voorkomen. U kunt documenten met de volgende opdracht verwijderen: ```db.coll.remove({})```
 
@@ -169,16 +115,66 @@ Voorbeeld:
     
     *numInsertionWorkers = (10.000 RU’s x 0,1 s) / (24 x 10 RU’s) = 4,1666*
 
-1. Voer de laatste migratieopdracht uit:
+1. Voer de migratieopdracht uit. De opties voor het migreren van gegevens worden in de volgende secties beschreven.
 
    ```bash
-   mongoimport.exe --host cosmosdb-mongodb-account.documents.azure.com:10255 -u cosmosdb-mongodb-account -p wzRJCyjtLPNuhm53yTwaefawuiefhbauwebhfuabweifbiauweb2YVdl2ZFNZNv8IU89LqFVm5U0bw== --ssl --sslAllowInvalidCertificates --jsonArray --db dabasename --collection collectionName --file "C:\sample.json" --numInsertionWorkers 4 --batchSize 24
+   mongoimport.exe --host cosmosdb-mongodb-account.documents.azure.com:10255 -u cosmosdb-mongodb-account -p <Your_MongoDB_password> --ssl --sslAllowInvalidCertificates --jsonArray --db dabasename --collection collectionName --file "C:\sample.json" --numInsertionWorkers 4 --batchSize 24
    ```
    Of met mongorestore (zorg ervoor dat de doorvoer voor alle verzamelingen is ingesteld op of boven het aantal aanvraageenheden dat is gebruikt in de voorgaande berekeningen):
    
    ```bash
-   mongorestore.exe --host cosmosdb-mongodb-account.documents.azure.com:10255 -u cosmosdb-mongodb-account -p wzRJCyjtLPNuhm53yTwaefawuiefhbauwebhfuabweifbiauweb2YVdl2ZFNZNv8IU89LqFVm5U0bw== --ssl --sslAllowInvalidCertificates ./dumps/dump-2016-12-07 --numInsertionWorkersPerCollection 4 --batchSize 24
+   mongorestore.exe --host cosmosdb-mongodb-account.documents.azure.com:10255 -u cosmosdb-mongodb-account -p <Your_MongoDB_password> --ssl --sslAllowInvalidCertificates ./dumps/dump-2016-12-07 --numInsertionWorkersPerCollection 4 --batchSize 24
    ```
+
+## <a name="prerequisites-for-migration"></a>Vereisten voor migratie
+
+* **Verhoog de doorvoer:** de duur van de gegevensmigratie is afhankelijk van de hoeveelheid doorvoer die u voor een afzonderlijke verzameling of een reeks verzamelingen instelt. Verhoog de doorvoer voor grotere gegevensmigraties. Nadat u de migratie hebt voltooid, verlaagt u de doorvoer om kosten te besparen. Zie [Prestatieniveaus en prijscategorieën in Azure Cosmos DB](performance-levels.md) voor meer informatie over het verhogen van de doorvoer in [Azure Portal](https://portal.azure.com).
+
+* **Schakel SSL in:** voor Azure Cosmos DB gelden strenge beveiligingsvereisten en -normen. Schakel SSL in wanneer u uw account gebruikt. De procedures in de rest van het artikel bevatten informatie over het inschakelen van SSL voor mongoimport en mongorestore.
+
+* **Maak Azure Cosmos DB-resources**: voordat u gegevens gaat migreren, maakt u vooraf alle tabellen vanuit Azure Portal. Als u migreert naar een Azure Cosmos DB-account dat doorvoer op databaseniveau heeft, moet u een partitiesleutel opgeven wanneer u de Azure Cosmos DB-verzamelingen maakt.
+
+## <a name="get-your-connection-string"></a>Verbindingsreeks ophalen 
+
+1. Klik in [Azure Portal](https://portal.azure.com) in het linkerdeelvenster op het item **Azure Cosmos DB**.
+1. Selecteer in het deelvenster **Abonnementen** uw accountnaam.
+1. Klik in de blade **Verbindingsreeks** op **Verbindingsreeks**.
+
+   Het rechterdeelvenster bevat alle informatie die u nodig hebt om verbinding te maken met uw account.
+
+   ![De blade Verbindingsreeks](./media/mongodb-migrate/ConnectionStringBlade.png)
+
+## <a name="migrate-data-by-using-mongoimport"></a>Gegevens migreren met mongoimport
+
+Als u gegevens wilt importeren in uw Azure Cosmos DB-account, moet u de volgende sjabloon gebruiken. Vul voor *host*, *gebruikersnaam* en *wachtwoord* de waarden in die gelden voor uw account.  
+
+Sjabloon:
+
+```bash
+mongoimport.exe --host <your_hostname>:10255 -u <your_username> -p <your_password> --db <your_database> --collection <your_collection> --ssl --sslAllowInvalidCertificates --type json --file "C:\sample.json"
+```
+
+Voorbeeld:  
+
+```bash
+mongoimport.exe --host cosmosdb-mongodb-account.documents.azure.com:10255 -u cosmosdb-mongodb-account -p <Your_MongoDB_password> --ssl --sslAllowInvalidCertificates --db sampleDB --collection sampleColl --type json --file "C:\Users\admin\Desktop\*.json"
+```
+
+## <a name="migrate-data-by-using-mongorestore"></a>Gegevens migreren met mongorestore
+
+Als u gegevens wilt herstellen voor de API voor een MongoDB-account, moet u de volgende sjabloon gebruiken om de import uit te voeren. Vul voor *host*, *gebruikersnaam* en *wachtwoord* de waarden in die gelden voor uw account.
+
+Sjabloon:
+
+```bash
+mongorestore.exe --host <your_hostname>:10255 -u <your_username> -p <your_password> --db <your_database> --collection <your_collection> --ssl --sslAllowInvalidCertificates <path_to_backup>
+```
+
+Voorbeeld:
+
+```bash
+mongorestore.exe --host cosmosdb-mongodb-account.documents.azure.com:10255 -u cosmosdb-mongodb-account -p <Your_MongoDB_password> --ssl --sslAllowInvalidCertificates ./dumps/dump-2016-12-07
+```
 
 ## <a name="next-steps"></a>Volgende stappen
 

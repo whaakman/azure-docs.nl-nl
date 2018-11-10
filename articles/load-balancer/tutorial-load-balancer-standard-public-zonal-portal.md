@@ -63,7 +63,7 @@ Standard Load Balancer biedt alleen ondersteuning voor een standaard, openbaar I
 
 ## <a name="create-backend-servers"></a>Back-endservers maken
 
-In deze sectie gaat u een virtueel netwerk maken. U gaat ook twee virtuele machines maken in dezelfde zone (namelijk in zone 1) voor de regio die aan de back-endpool van de load balancer wordt toegevoegd. Vervolgens installeert u IIS op de virtuele machines om de zoneredundante Load Balancer te testen. Als u dit op één virtuele machine mislukt, mislukt de statustest voor de virtuele machine in dezelfde regio. Verkeer blijft worden aangeleverd door andere virtuele machines binnen dezelfde regio.
+In deze sectie gaat u een virtueel netwerk maken. U gaat ook twee virtuele machines maken in dezelfde zone (namelijk in zone 1) voor de regio die aan de back-endpool van de load balancer wordt toegevoegd. Vervolgens installeert u IIS op de virtuele machines om de zone-redundante Load Balancer te testen. Als u dit op één virtuele machine mislukt, mislukt de statustest voor de virtuele machine in dezelfde regio. Verkeer blijft worden aangeleverd door andere virtuele machines binnen dezelfde regio.
 
 ### <a name="create-a-virtual-network"></a>Een virtueel netwerk maken
 1. Selecteer **Een resource maken** > **Netwerken** > **Virtueel netwerk** linksboven in het scherm.  Voer deze waarden in voor het virtuele netwerk:

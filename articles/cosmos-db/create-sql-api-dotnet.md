@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 04/10/2018
 ms.author: sngun
 clicktale: true
-ms.openlocfilehash: 36265685b9bc43e95c6d7bc1e7a9ad3c52835b36
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 506d21589ee8c5d284bd9ffc430d8b1d40afb910
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46977992"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50741722"
 ---
 # <a name="quickstart-build-a-net-web-app-with-azure-cosmos-db-using-the-sql-api-and-the-azure-portal"></a>Snelstart: Een .NET-web-app met Azure Cosmos DB ontwikkelen met de SQL API en Azure Portal
 
@@ -120,7 +120,7 @@ De volgende codefragmenten zijn allemaal afkomstig uit het bestand DocumentDBRep
 
 Ga nu terug naar Azure Portal om de verbindingsreeksinformatie op te halen en kopieer deze in de app.
 
-1. Klik in [Azure Portal](http://portal.azure.com/), in uw Azure Cosmos DB-account, in het linker navigatiegedeelte op **Sleutels** en klik vervolgens op **Sleutels voor lezen/schrijven**. In de volgende stap gebruikt u de kopieerknoppen aan de rechterkant van het scherm om de URI en primaire sleutel in het bestand web.config te kopiëren.
+1. Ga in [Azure Portal](http://portal.azure.com/) naar uw Azure Cosmos DB-account en klik in de linkernavigatie op **Sleutels**. Klik vervolgens op **Sleutels voor lezen/schrijven**. In de volgende stap gebruikt u de kopieerknoppen aan de rechterkant van het scherm om de URI en primaire sleutel in het bestand web.config te kopiëren.
 
     ![Een toegangssleutel bekijken en kopiëren in Azure Portal, blade Sleutels](./media/create-sql-api-dotnet/keys.png)
 
@@ -139,15 +139,15 @@ Ga nu terug naar Azure Portal om de verbindingsreeksinformatie op te halen en ko
     `<add key="database" value="Tasks" />`    
     
 ## <a name="run-the-web-app"></a>De web-app uitvoeren
-1. Klik in Visual Studio met de rechtermuisknop op het project in **Solution Explorer** en klik vervolgens op **NuGet-pakketten beheren**. 
+1. Klik in Visual Studio met de rechtermuisknop op het project in **Solution Explorer** en selecteer vervolgens **NuGet-pakketten beheren**. 
 
 2. Typ in het NuGet-vak **Bladeren** *DocumentDB*.
 
 3. Installeer vanuit de resultaten de bibliotheek **Microsoft.Azure.DocumentDB**. Hiermee installeert u het pakket Microsoft.Azure.DocumentDB, evenals alle afhankelijkheden.
 
-4. Klik op Ctrl+F5 om de toepassing uit te voeren. Uw app wordt in uw browser weergegeven. 
+4. Druk op Ctrl+F5 om de toepassing uit te voeren. Uw app wordt in uw browser weergegeven. 
 
-5. Klik op **Nieuwe maken** in de browser en maak een paar nieuwe taken in uw taken-app.
+5. Selecteer **Nieuwe maken** in de browser en maak een paar nieuwe taken in uw taken-app.
 
    ![Taken-app met voorbeeldgegevens](./media/create-sql-api-dotnet/azure-comosdb-todo-app-list.png)
 

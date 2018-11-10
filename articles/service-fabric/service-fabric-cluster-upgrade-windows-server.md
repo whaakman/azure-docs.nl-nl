@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: 93b79b7adacdec18912d28bb9725e2dc77737d59
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 2190978b2583b2f5d8a1b10431c65fd24fe6842d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43050760"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228144"
 ---
 # <a name="upgrade-your-standalone-azure-service-fabric-cluster-on-windows-server"></a>Uw zelfstandige Azure Service Fabric-cluster op Windows Server upgraden 
 > [!div class="op_single_selector"]
@@ -43,9 +43,9 @@ U kunt uw cluster upgraden naar de nieuwe versie, alleen als u een productie-ach
 Twee afzonderlijke werkstromen kunnen u uw cluster bijwerken naar de meest recente versie of een ondersteunde versie van de Service Fabric. Er is een werkstroom voor clusters die verbonden zijn met de nieuwste versie automatisch downloaden. De andere werkstroom is voor clusters die niet verbonden zijn met het downloaden van de meest recente versie van Service Fabric.
 
 ### <a name="upgrade-clusters-that-have-connectivity-to-download-the-latest-code-and-configuration"></a>Bijwerken van clusters die verbonden zijn met het downloaden van de meest recente code en configuratie
-Volg deze stappen om uw cluster naar een ondersteunde versie upgraden als de clusterknooppunten over een internetverbinding beschikt op de [Microsoft Download Center](http://download.microsoft.com).
+Volg deze stappen om uw cluster naar een ondersteunde versie upgraden als de clusterknooppunten over een internetverbinding beschikt op de [Microsoft Download Center](https://download.microsoft.com).
 
-Voor clusters die verbonden met zijn de [Microsoft Download Center](http://download.microsoft.com), Microsoft controleert periodiek op de beschikbaarheid van de nieuwe Service Fabric-versies.
+Voor clusters die verbonden met zijn de [Microsoft Download Center](https://download.microsoft.com), Microsoft controleert periodiek op de beschikbaarheid van de nieuwe Service Fabric-versies.
 
 Wanneer een nieuwe Service Fabric-versie beschikbaar is, wordt het pakket gedownload naar het cluster en ingericht voor de upgrade. Daarnaast bevat het systeem om te informeren over de klant van deze nieuwe versie, een expliciete cluster status waarschuwing die vergelijkbaar is met het volgende:
 
@@ -106,7 +106,7 @@ Wanneer u het cluster: waarschuwing ziet, het volgende doen:
     Nadat u de betreffende leidde tot het terugdraaien van de problemen hebt opgelost, start u de upgrade opnieuw met de volgende dezelfde stappen als eerder beschreven.
 
 ### <a name="upgrade-clusters-that-have-no-connectivity-to-download-the-latest-code-and-configuration"></a>Bijwerken van clusters met *afwezig* voor het downloaden van de meest recente code en configuratie
-Volg deze stappen om uw cluster naar een ondersteunde versie upgraden als de clusterknooppunten geen internetverbinding met de [Microsoft Download Center](http://download.microsoft.com).
+Volg deze stappen om uw cluster naar een ondersteunde versie upgraden als de clusterknooppunten geen internetverbinding met de [Microsoft Download Center](https://download.microsoft.com).
 
 > [!NOTE]
 > Als u een cluster dat is niet met internet verbonden uitvoert, hebt u voor het bewaken van de Service Fabric-team-blog voor meer informatie over nieuwe releases. Het systeem kan een cluster: waarschuwing u nieuwe releases wordt niet weergegeven.  

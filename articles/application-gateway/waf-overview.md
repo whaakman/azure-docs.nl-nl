@@ -2,16 +2,16 @@
 title: Inleiding tot web application firewall (WAF) voor Azure Application Gateway
 description: In dit artikel bevat een overzicht van de web application firewall (WAF) voor Application Gateway
 services: application-gateway
-author: amsriva
+author: vhorne
 ms.service: application-gateway
-ms.date: 10/11/2018
+ms.date: 11/7/2018
 ms.author: amsriva
-ms.openlocfilehash: 10a67eab142287cf9303e54005b6b167e9890df0
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 4b03065c59eed8f0d72e2724e60b6d8908518727
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49068448"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51219525"
 ---
 # <a name="web-application-firewall-waf"></a>Web Application Firewall (WAF)
 
@@ -39,7 +39,7 @@ Dit zijn de belangrijkste voordelen van Application Gateway en Web Application F
 
 * U controleert op aanvallen tegen de webtoepassing door een real-time logboek van WAF te raadplegen. Dit logboek is geïntegreerd met [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md) om waarschuwingen en logboeken van WAF bij te houden en gemakkelijk trends te ontdekken.
 
-* WAF zal binnenkort worden geïntegreerd met Azure Security Center. Azure Security Center biedt een centraal overzicht van de beveiligingsstatus van al uw Azure-resources.
+* WAF is geïntegreerd met Azure Security Center. Azure Security Center biedt een centraal overzicht van de beveiligingsstatus van al uw Azure-resources.
 
 ### <a name="customization"></a>Aanpassing
 
@@ -47,11 +47,11 @@ Dit zijn de belangrijkste voordelen van Application Gateway en Web Application F
 
 ## <a name="features"></a>Functies
 
-- Beveiliging tegen SQL-injecties
-- Beveiliging tegen scripting op meerdere sites
-- Beveiliging tegen veelvoorkomende aanvallen via internet, zoals opdrachtinjectie, het smokkelen van HTTP-aanvragen, het uitsplitsen van HTTP-antwoorden en aanvallen waarbij een extern bestand wordt ingesloten
-- Beveiliging tegen schendingen van het HTTP-protocol
-- Beveiliging tegen afwijkingen van het HTTP-protocol, zoals een gebruikersagent voor de host en Accept-headers die ontbreken
+- Beveiliging van SQL-injectie
+- Cross-site scripting beveiliging
+- Algemene Web aanvallen beveiliging zoals opdracht injectie, HTTP-aanvraag smokkelen, HTTP-antwoorden en extern bestand opgenomen aanval
+- Beveiliging tegen schendingen van de HTTP-protocol
+- Beveiliging tegen afwijkingen van de HTTP-protocol zoals ontbrekende gebruikersagent host en accept-headers
 - Beveiliging tegen bots, crawlers en scanners
 - Detectie van veelvoorkomende onjuiste configuraties van toepassingen (dat wil zeggen, Apache, IIS, enz.)
 
@@ -74,13 +74,13 @@ Application Gateway ondersteunt twee regelsets, CRS 3.0 en CRS 2.2.9. Deze Core 
 
 Web Application Firewall is standaard geconfigureerd met CRS 3.0, maar u kunt ook versie 2.2.9 gebruiken. Het voordeel van CRS 3.0 is dat er minder fout-positieven worden geregistreerd dan met 2.2.9. U hebt de mogelijkheid om [regels aan uw behoeften aan te passen](application-gateway-customize-waf-rules-portal.md). Hieronder ziet u enkele voorbeelden van veelvoorkomende beveiligingsproblemen waartegen Web Application Firewall bescherming biedt:
 
-- Beveiliging tegen SQL-injecties
-- Beveiliging tegen scripting op meerdere sites
-- Beveiliging tegen veelvoorkomende aanvallen via internet, zoals opdrachtinjectie, het smokkelen van HTTP-aanvragen, het uitsplitsen van HTTP-antwoorden en aanvallen waarbij een extern bestand wordt ingesloten
-- Beveiliging tegen schendingen van het HTTP-protocol
-- Beveiliging tegen afwijkingen van het HTTP-protocol, zoals een gebruikersagent voor de host en Accept-headers die ontbreken
+- Beveiliging van SQL-injectie
+- Cross-site scripting beveiliging
+- Algemene Web aanvallen beveiliging zoals opdracht injectie, HTTP-aanvraag smokkelen, HTTP-antwoorden en extern bestand opgenomen aanval
+- Beveiliging tegen schendingen van de HTTP-protocol
+- Beveiliging tegen afwijkingen van de HTTP-protocol zoals ontbrekende gebruikersagent host en accept-headers
 - Beveiliging tegen bots, crawlers en scanners
-- Detectie van veelvoorkomende onjuiste configuraties van toepassingen (Apache, IIS, enzovoort)
+- Detectie van veelvoorkomende onjuiste configuraties van toepassingen (dat wil zeggen Apache, IIS, enz.)
 
 Zie voor een gedetailleerde lijst met regels en waartegen ze beveiliging bieden [Core rule set](#core-rule-sets).
 

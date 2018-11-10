@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 02/24/2017
 ms.author: juliako
-ms.openlocfilehash: 01b8ccc9fe6b5469408131bce68a903f15382998
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 04ee2daaf7b06f8e7bdd8de144a039474551ea11
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39222525"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51227039"
 ---
 # <a name="azure-sdk-for-net-29-release-notes"></a>Azure SDK voor .NET 2.9 opmerkingen bij de release
 
@@ -80,7 +80,7 @@ Deze updates omvat het volgende:
 
 * **Azure Data Lake Tools** voor Visual Studio nu samengevoegd met de Azure SDK voor .NET versie. Het hulpprogramma wordt automatisch geïnstalleerd wanneer u de Azure SDK installeert. 
   
-    Het hulpprogramma regelmatig wordt bijgewerkt, gaat u [hier](http://aka.ms/datalaketool) om de updates te downloaden.
+    Het hulpprogramma regelmatig wordt bijgewerkt, gaat u [hier](https://aka.ms/datalaketool) om de updates te downloaden.
 * **Server Explorer** nu kunt u Alles weergeven en maken van sommige entiteiten van de metagegevens van U-SQL. Zie voor meer informatie, [dit](https://azure.microsoft.com/documentation/services/data-lake-analytics/) blog.
 
 ## <a name="hdinsight-tools"></a>HDInsight-hulpprogramma 's

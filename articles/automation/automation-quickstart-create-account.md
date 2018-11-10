@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: automation
 ms.component: process-automation
 ms.custom: mvc
-ms.openlocfilehash: 701d2c348e91efed17c8c7828ace920914093b5a
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 6d473d8874208297e905a5d90a08ffd870ffa8a6
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49426189"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50091821"
 ---
 # <a name="create-an-azure-automation-account"></a>Een Azure Automation-account maken
 
@@ -35,6 +35,9 @@ Aanmelden bij Azure op https://portal.azure.com
 1. Voer de accountgegevens in. Kies bij **Een Uitvoeren als-account voor Azure maken**, de optie **Ja** zodat de artefacten die verificatie bij Azure vereenvoudigen, automatisch worden ingeschakeld. Het is belangrijk te weten dat bij het maken van een Automation-account de naam kan niet worden gewijzigd nadat deze is geselecteerd. Met één Automation-account kunt u resources in alle regio's en abonnementen voor een bepaalde tenant beheren. Als u daarmee klaar bent, klikt u op **Maken** om met de implementatie van het Automation-account te beginnen.
 
     ![Gegevens over uw Automation-account invoeren op de pagina](./media/automation-quickstart-create-account/create-automation-account-portal-blade.png)  
+
+    > [!NOTE]
+    > Zie [Beschikbare producten per regio](https://azure.microsoft.com/en-us/global-infrastructure/services/?products=automation&regions=all) voor een bijgewerkte lijst met locaties waarin u een Automation-account kunt implementeren.
 
 1. Wanneer de implementatie is voltooid, klikt u op ** **Alle Services**, selecteert u **Automation-accounts** en selecteert u het Automation-account dat u hebt gemaakt.
 

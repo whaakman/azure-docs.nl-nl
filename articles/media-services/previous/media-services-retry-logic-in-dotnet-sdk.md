@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2018
 ms.author: juliako
-ms.openlocfilehash: 0a4c9db8da046e901241bc383098013b2acc6bb2
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: a5171484bb4377e0f9cd84dc0a517f4ea84123e7
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50242259"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228314"
 ---
 # <a name="retry-logic-in-the-media-services-sdk-for-net"></a>Pogingslogica in de Media Services SDK voor .NET
 Als u werkt met Microsoft Azure-services, kunnen tijdelijke fouten optreden. Als er een tijdelijke fout optreedt in de meeste gevallen na een paar nieuwe pogingen de bewerking is geslaagd. De Media Services SDK voor .NET implementeert de logica voor nieuwe pogingen voor het afhandelen van tijdelijke fouten die zijn gekoppeld aan de uitzonderingen en fouten die worden veroorzaakt door webaanvragen, uitvoeren van query's, het opslaan van wijzigingen en -opslagbewerkingen.  Standaard wordt de Media Services SDK voor .NET vier pogingen uitgevoerd voordat de uitzondering aan uw toepassing opnieuw te genereren. Deze uitzondering moet vervolgens correct verwerken door de code in uw toepassing.  
@@ -49,7 +49,7 @@ De volgende tabel beschrijft de uitzonderingen die de Media Services SDK voor .N
 | Ioexception opgetreden |Nee |Ja |Nee |Nee |
 
 ### <a name="WebExceptionStatus"></a> Statuscodes WebException
-De volgende tabel ziet u welke foutcodes WebException logica voor opnieuw proberen is geïmplementeerd. De [WebExceptionStatus](http://msdn.microsoft.com/library/system.net.webexceptionstatus.aspx) opsomming definieert de statuscodes.  
+De volgende tabel ziet u welke foutcodes WebException logica voor opnieuw proberen is geïmplementeerd. De [WebExceptionStatus](https://msdn.microsoft.com/library/system.net.webexceptionstatus.aspx) opsomming definieert de statuscodes.  
 
 | Status | Webaanvraag | Storage | Query’s uitvoeren | SaveChanges |
 | --- | --- | --- | --- | --- |

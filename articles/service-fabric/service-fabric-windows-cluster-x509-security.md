@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: 8383d6afa4b6029aca3978c53eec1865d1d8c8ea
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: b23b2c46098fb53a3a08ff86c46cc6b6c9b936bb
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44721837"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228569"
 ---
 # <a name="secure-a-standalone-cluster-on-windows-by-using-x509-certificates"></a>Een zelfstandige cluster beveiligen op Windows met behulp van X.509-certificaten
 In dit artikel wordt beschreven hoe u beveiligde communicatie tussen de verschillende knooppunten van uw zelfstandige Windows-cluster. Ook wordt beschreven hoe u verificatie van clients die verbinding met dit cluster maken met behulp van X.509-certificaten. Verificatie zorgt ervoor dat alleen geautoriseerde gebruikers kunnen toegang krijgen het cluster en de geïmplementeerde toepassingen tot en beheertaken uitvoeren. Certificaatbeveiliging moet worden ingeschakeld op het cluster als het cluster is gemaakt.  
@@ -257,7 +257,7 @@ Als u van verlener winkels gebruikmaakt, klikt u vervolgens moet geen configurat
 ## <a name="acquire-the-x509-certificates"></a>De X.509-certificaten verkrijgen
 Als u wilt beveiligen van communicatie binnen het cluster, moet u eerst om op te halen van X.509-certificaten voor de clusterknooppunten. Als u wilt verbinding met dit cluster gemachtigde machines/gebruikers beperken, moet u bovendien het verkrijgen en installeren van certificaten voor de clientcomputers.
 
-Voor clusters die productieworkloads worden uitgevoerd, gebruikt u een [certificeringsinstantie (CA)](https://en.wikipedia.org/wiki/Certificate_authority)-ondertekend X.509-certificaat voor het beveiligen van het cluster. Zie voor meer informatie over het verkrijgen van deze certificaten [hoe u een certificaat verkrijgen](http://msdn.microsoft.com/library/aa702761.aspx).
+Voor clusters die productieworkloads worden uitgevoerd, gebruikt u een [certificeringsinstantie (CA)](https://en.wikipedia.org/wiki/Certificate_authority)-ondertekend X.509-certificaat voor het beveiligen van het cluster. Zie voor meer informatie over het verkrijgen van deze certificaten [hoe u een certificaat verkrijgen](https://msdn.microsoft.com/library/aa702761.aspx).
 
 Voor clusters die u voor test-doeleinden gebruikt, kunt u een zelfondertekend certificaat gebruiken.
 

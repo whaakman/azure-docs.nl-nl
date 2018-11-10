@@ -7,5 +7,5 @@
 | Maximumaantal functies per taak |60 |Er is een vaste limiet van 60 functies per Stream Analytics-taak. |
 | Maximum aantal Streaming-eenheden per taak |120 |Er is een vaste limiet van 120 Streaming-eenheden per Stream Analytics-taak. |
 | Maximumaantal taken per regio |1500 |Elk abonnement kan maximaal 1500 taken per geografische regio hebben. |
-| MB per referentiegegevens-blob | 100 | Referentiegegevens-blobs kunnen elk niet groter zijn dan 100 MB. |
+| MB per referentiegegevens-blob | 300 | Referentiegegevens-blobs mag niet groter is dan 300 MB. |
 
