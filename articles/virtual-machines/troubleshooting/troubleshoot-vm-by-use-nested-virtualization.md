@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: 425aa26c07675d57de6892adb5792eb5573f94b1
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.openlocfilehash: c84d015da907c8792f09d1d60e6bc8eddb7e2957
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50747980"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51005595"
 ---
 # <a name="troubleshoot-a-problem-azure-vm-by-using-nested-virtualization-in-azure"></a>Een probleem virtuele Azure-machine op te lossen met behulp van geneste virtualisatie in Azure
 
@@ -101,7 +101,7 @@ Voor het koppelen van de probleem-VM, moet de VM redden voldoen aan de volgende 
 
 11. Selecteer **later een virtuele harde schijf koppelen**.
 
-    ![afbeelding van het koppelen van een optie voor de virtuele hardeschijf Later de](/media/troubleshoot-vm-by-use-nested-virtualization/attach-disk-later.png)
+    ![afbeelding van het koppelen van een optie voor de virtuele hardeschijf Later de](media/troubleshoot-vm-by-use-nested-virtualization/attach-disk-later.png)
 
 12. Selecteer **voltooien** wanneer de virtuele machine wordt gemaakt.
 
@@ -109,11 +109,11 @@ Voor het koppelen van de probleem-VM, moet de VM redden voldoen aan de volgende 
 
 14. Selecteer **IDE-Controller 0**, selecteer **harde schijf**, en klik vervolgens op **toevoegen**.
 
-    ![afbeelding van de nieuwe vaste schijf wordt toegevoegd](/media/troubleshoot-vm-by-use-nested-virtualization/create-new-drive.png)    
+    ![afbeelding van de nieuwe vaste schijf wordt toegevoegd](media/troubleshoot-vm-by-use-nested-virtualization/create-new-drive.png)    
 
 15. In **fysieke harde schijf**, selecteert u de schijf van de virtuele machine die u hebt gekoppeld aan de virtuele Azure-machine van het probleem. Als u alle schijven die worden vermeld niet ziet, controleert u als de schijf is ingesteld op offline met behulp van Schijfbeheer.
 
-    ![afbeelding van de koppelt de schijf](/media/troubleshoot-vm-by-use-nested-virtualization/mount-disk.png)  
+    ![afbeelding van de koppelt de schijf](media/troubleshoot-vm-by-use-nested-virtualization/mount-disk.png)  
 
 
 17. Selecteer **Apply** en vervolgens **OK**.
@@ -130,11 +130,11 @@ Voor het koppelen van de probleem-VM, moet de VM redden voldoen aan de volgende 
 
 3.  Ga naar **alle resources**, zoekt u de naam van de schijf en selecteer vervolgens de schijf.
 
-     ![afbeelding van de zoekt naar de schijf](/media/troubleshoot-vm-by-use-nested-virtualization/search-disk.png)     
+     ![afbeelding van de zoekt naar de schijf](media/troubleshoot-vm-by-use-nested-virtualization/search-disk.png)     
 
 4. Klik op **virtuele machine maken**.
 
-     ![afbeelding van de maakt virtuele machine van de schijf](./media/troubleshoot-vm-by-use-nested-virtualization/create-vm-from-vhd.png) 
+     ![afbeelding van de maakt virtuele machine van de schijf](media/troubleshoot-vm-by-use-nested-virtualization/create-vm-from-vhd.png) 
 
 U kunt ook Azure PowerShell gebruiken om te maken van de virtuele machine van de schijf. Zie voor meer informatie, [de nieuwe virtuele machine maken van een bestaande schijf met behulp van PowerShell](../windows/create-vm-specialized.md#create-the-new-vm). 
 

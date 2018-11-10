@@ -1,12 +1,9 @@
 ---
-title: Meerdere Frontends voor Azure Load Balancer | Microsoft Docs
-description: Overzicht van meerdere Frontends op Azure Load Balancer
+title: Meerdere front-ends voor Azure Load Balancer | Microsoft Docs
+description: Overzicht van meerdere front-ends op Azure Load Balancer
 services: load-balancer
 documentationcenter: na
 author: chkuhtz
-manager: narayan
-editor: ''
-ms.assetid: 748e50cd-3087-4c2e-a9e1-ac0ecce4f869
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -14,22 +11,22 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2018
 ms.author: chkuhtz
-ms.openlocfilehash: cf8fa396e0518e1c847225dfc1d8f91c3421bd11
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: d435d2c491cf17356e96f7bbb05b1e22c8e04aca
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30181486"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51219355"
 ---
-# <a name="multiple-frontends-for-azure-load-balancer"></a>Meerdere Frontends voor Azure Load Balancer
+# <a name="multiple-frontends-for-azure-load-balancer"></a>Meerdere front-ends voor Azure Load Balancer
 
-Azure Load Balancer kunt u load balance services op meerdere poorten of meerdere IP-adressen. Laden van stromen verdelen over een set van virtuele machines kunt u openbare en interne load balancer definities.
+Azure Load Balancer kunt u saldo-services op meerdere poorten, meerdere IP-adressen of beide. Definities van openbare en interne load balancer kunt u saldo stromen laden in een set van virtuele machines.
 
-In dit artikel beschrijft de grondbeginselen van deze mogelijkheid, belangrijke concepten en beperkingen. Als u alleen weergeven van services op één IP-adres wilt, kunt u vinden vereenvoudigde instructies voor het [openbare](load-balancer-get-started-internet-portal.md) of [interne](load-balancer-get-started-ilb-arm-portal.md) load balancer-configuraties. Het toevoegen van meerdere frontends is incrementele naar een enkele frontend-configuratie. Met behulp van de concepten in dit artikel, kunt u een vereenvoudigde configuratie op elk gewenst moment uitbreiden.
+Dit artikel beschrijft de grondbeginselen van deze mogelijkheid, belangrijke concepten en beperkingen. Als u alleen weergeven van services op één IP-adres wilt, kunt u eenvoudige instructies voor het vinden [openbare](load-balancer-get-started-internet-portal.md) of [interne](load-balancer-get-started-ilb-arm-portal.md) load balancer-configuraties. Het toevoegen van meerdere front-ends is incrementeel ten opzichte van een enkele front-end-configuratie. Met behulp van de concepten in dit artikel, kunt u een vereenvoudigde configuratie op elk gewenst moment uitbreiden.
 
-Wanneer u een Azure Load Balancer definieert, zijn een front-end- en een back-end van toepassingen is geconfigureerd met regels worden verbonden. De health test waarnaar wordt verwezen door de regel wordt gebruikt om te bepalen hoe nieuwe stromen worden verzonden naar een knooppunt in de back-endpool. De frontend (aka VIP) wordt gedefinieerd door een 3-tuple bestaat uit een IP-adres (openbare of interne), een transportprotocol (UDP of TCP) en een poortnummer van de regel voor taakverdeling. De back-endpool is een verzameling van virtuele Machine IP-configuraties (onderdeel van de resource NIC) die verwijzen naar de back-endadresgroep voor Load Balancer.
+Wanneer u een Azure Load Balancer definieert, worden een front-end- en een back-end-groep-configuratie zijn verbonden met regels. De statustest waarnaar wordt verwezen door de regel wordt gebruikt om te bepalen hoe u met nieuwe stromen worden verzonden naar een knooppunt in de back-endpool. De front-end (ook wel VIP) wordt gedefinieerd door een 3-tuple bestaat uit een IP-adres (openbare of interne), een transportprotocol (UDP of TCP) en een poortnummer van de load balancer-regel. De back endpool is een verzameling van virtuele Machine IP-configuraties (onderdeel van de NIC-bron) die verwijzen naar de Load Balancer-back-endadresgroep.
 
-De volgende tabel bevat enkele voorbeeld-frontend-configuraties:
+De volgende tabel bevat enkele frontend-voorbeeld-configuraties:
 
 | Front-end | IP-adres | protocol | poort |
 | --- | --- | --- | --- |
@@ -38,72 +35,72 @@ De volgende tabel bevat enkele voorbeeld-frontend-configuraties:
 | 3 |65.52.0.1 |*UDP* |80 |
 | 4 |*65.52.0.2* |TCP |80 |
 
-De tabel bevat vier verschillende frontends. Frontends #1, #2 en &#3; zijn een enkele frontend met meerdere regels. Hetzelfde IP-adres wordt gebruikt, maar de poort of het protocol is verschillend voor elke frontend. Zijn een voorbeeld van meerdere frontends waar het dezelfde frontend-protocol en poort opnieuw worden gebruikt in meerdere frontends Frontends #1 en &#4;.
+De tabel bevat vier verschillende front-ends. Front-ends #1, #2 en 3 # zijn een één front met meerdere regels. Hetzelfde IP-adres wordt gebruikt, maar de poort of het protocol verschilt voor elk front-end. Front-ends #1 en #4 zijn een voorbeeld van meerdere front-ends, waarbij het dezelfde frontend-protocol en poort worden hergebruikt voor meerdere front-ends.
 
-Azure Load Balancer biedt flexibiliteit voor het definiëren van de load-balancingregels. Een regel verklaart hoe een adres en poort op de frontend is toegewezen aan het adres van het doel en de poort op de back-end. Of back-end-poorten zijn opnieuw gebruikt verschillende regels, is afhankelijk van het type van de regel. Elk type regel heeft bepaalde vereisten die invloed kunnen zijn op de host-configuratie en test ontwerp. Er zijn twee typen regels:
+Azure Load Balancer biedt flexibiliteit voor het definiëren van de load balancer-regels. Een regel verklaart hoe een adres en poort op het front-end is toegewezen aan de doel-adres en poort op de back-end. Wel of niet-back-end-poorten worden hergebruikt voor regels, is afhankelijk van het type van de regel. Elk type regel heeft specifieke vereisten die invloed kunnen zijn op de host-configuratie en test-ontwerp. Er zijn twee soorten regels:
 
-1. De standaardregel met geen back-end-poort opnieuw gebruiken
-2. De regel zwevend IP is waar back-end-poorten worden hergebruikt
+1. De standaardregel met geen back-end-poort niet opnieuw gebruiken
+2. De regel zwevend IP is waar de back-end-poorten worden hergebruikt
 
-Azure Load Balancer kunt u mix van beide regeltypen op de dezelfde load balancer-configuratie. De load balancer kunt gebruiken ze tegelijkertijd voor een bepaalde virtuele machine of een combinatie hiervan, zolang u de beperkingen van de regel naleeft. Welke regeltype dat u kiest, is afhankelijk van de vereisten van uw toepassing en de complexiteit van de ondersteuning van dat de configuratie. U moet evalueren welke regeltypen zijn het meest geschikt is voor uw scenario.
+Azure Load Balancer kunt u beide typen op de dezelfde load balancer-configuratie te combineren. De load balancer kunt ze tegelijkertijd gebruiken voor een bepaalde virtuele machine of een combinatie hiervan, zolang u houdt zich aan de beperkingen van de regel. Welke regeltype dat u kiest, is afhankelijk van de vereisten van uw toepassing en de complexiteit die configuratie ondersteunen. U moet evalueren welke regeltypen zijn vooral geschikt voor uw scenario.
 
-We verkennen deze scenario's verder door te beginnen met het standaardgedrag.
+Deze scenario's verder verkennen we door te beginnen met het standaardgedrag.
 
-## <a name="rule-type-1-no-backend-port-reuse"></a>Regeltype #1: Er is geen back-end-poort opnieuw gebruiken
+## <a name="rule-type-1-no-backend-port-reuse"></a>Regeltype #1: Er is geen back-end-poort niet opnieuw gebruiken
 
-![Meerdere frontend-afbeelding met de groene en paarse frontend](./media/load-balancer-multivip-overview/load-balancer-multivip.png)
+![Meerdere front-afbeelding met groene en paarse frontend](./media/load-balancer-multivip-overview/load-balancer-multivip.png)
 
-In dit scenario worden de frontends als volgt geconfigureerd:
+In dit scenario worden de front-ends als volgt geconfigureerd:
 
 | Front-end | IP-adres | protocol | poort |
 | --- | --- | --- | --- |
 | ![groen frontend](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 1 |65.52.0.1 |TCP |80 |
 | ![paarse frontend](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 2 |*65.52.0.2* |TCP |80 |
 
-Het DIP is de bestemming van de binnenkomende stroom. Elke virtuele machine wordt in de endadresgroep back-van de gewenste service op een unieke poort op een DIP. Deze service is gekoppeld aan de frontend via de regeldefinitie van een.
+Het DIP is het doel van de inkomende stroom. Elke virtuele machine wordt aangegeven dat de gewenste service op een unieke poort op een DIP in de back-endadresgroep. Deze service is gekoppeld aan de front-end via de regeldefinitie van een.
 
 We definiëren twee regels:
 
-| Regel | Frontend toewijzen | Voor back-endpool |
+| Regel | Kaart frontend | Aan de back-endpool |
 | --- | --- | --- |
-| 1 |![groen frontend](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) Frontend1:80 |![back-end](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) DIP1:80, ![back-end](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) DIP2:80 |
-| 2 |![VIP](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) Frontend2:80 |![back-end](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) DIP1:81, ![back-end](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) DIP2:81 |
+| 1 |![groen frontend](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) Frontend1:80 |![Back-end](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) DIP1:80, ![Back-end](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) DIP2:80 |
+| 2 |![VIP](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) Frontend2:80 |![Back-end](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) DIP1:81, ![Back-end](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) DIP2:81 |
 
-Het volledige toewijzen in Azure Load Balancer is nu als volgt:
+De toewijzing van het volledige in Azure Load Balancer is nu als volgt:
 
-| Regel | Frontend IP-adres | protocol | poort | Doel | poort |
+| Regel | Frontend-IP-adres | protocol | poort | Doel | poort |
 | --- | --- | --- | --- | --- | --- |
-| ![groen regel](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 1 |65.52.0.1 |TCP |80 |DIP IP-adres |80 |
-| ![paarse regel](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 2 |65.52.0.2 |TCP |80 |DIP IP-adres |81 |
+| ![groen regel](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 1 |65.52.0.1 |TCP |80 |IP-adres |80 |
+| ![paarse regel](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 2 |65.52.0.2 |TCP |80 |IP-adres |81 |
 
-Elke regel moet een stroom met een unieke combinatie van IP-adres en de doelpoort opleveren. De doelpoort van de stroom te variëren, kunnen meerdere regels stromen leveren aan de dezelfde DIP op verschillende poorten.
+Elke regel moet worden gegenereerd, een stroom met een unieke combinatie van de doel-IP-adres en doelpoort. De doelpoort van de stroom te variëren, kunnen meerdere regels stromen leveren aan de dezelfde DIP op verschillende poorten.
 
-Statuscontroles altijd omgeleid naar het DIP van een virtuele machine. U moet u zorgen dat uw test de status van de virtuele machine weerspiegelt.
+Statuscontroles zijn altijd worden omgeleid naar het DIP van een virtuele machine. U moet u zorgen dat uw test de status van de virtuele machine weerspiegelt.
 
-## <a name="rule-type-2-backend-port-reuse-by-using-floating-ip"></a>Regeltype #2: back-end-poort opnieuw gebruiken met behulp van zwevend IP
+## <a name="rule-type-2-backend-port-reuse-by-using-floating-ip"></a>Regeltype #2: back-end-poort opnieuw worden gebruikt met behulp van zwevend IP
 
-Azure Load Balancer biedt de flexibiliteit om te gebruiken als de frontend-poort over meerdere frontends ongeacht het regeltype dat u gebruikt. Bovendien worden sommige toepassingsscenario's liever of moeten u dezelfde poort moet worden gebruikt door meerdere exemplaren van een toepassing op een enkele virtuele machine in de back-endpool. Algemene voorbeelden poort hergebruik van omvatten clustering voor hoge beschikbaarheid, virtuele apparaten en het blootstellen van meerdere TLS eindpunten zonder opnieuw versleutelen.
+Azure Load Balancer biedt de flexibiliteit om te opnieuw gebruiken van de front-endpoort via meerdere front-ends, ongeacht het type van de regel die wordt gebruikt. Bovendien sommige toepassingsscenario de voorkeur geeft aan of vereisen dat dezelfde poort moet worden gebruikt door meerdere exemplaren van een toepassing op een enkele virtuele machine in de back-endpool. Algemene voorbeelden van poort hergebruik omvatten clustering voor hoge beschikbaarheid, virtuele apparaten en meerdere TLS-eindpunten zonder opnieuw te versleutelen om vrij te geven.
 
-Als u gebruiken als de back-endpoort over meerdere regels wilt, moet u zwevend IP inschakelen in de regeldefinitie van de.
+Als u de back-endpoort over meerdere regels gebruiken wilt, moet u zwevend IP inschakelen in het regeldefinitie van de.
 
-'Zwevend IP' is een Azure terminologie voor een deel van wat staat bekend als Direct Server retourneren (DSR). DSR bestaat uit twee delen: een stroom-topologie en een IP-schema. Op een niveau platform werkt Azure Load Balancer altijd in een topologie van de stroom DSR ongeacht of zwevend IP is ingeschakeld of niet. Dit betekent dat het uitgaande deel van een stroom altijd correct wordt herschreven om rechtstreeks stromen terug naar de oorsprong.
+'Zwevende IP-adres' is van het Azure-terminologie voor een gedeelte van wat staat bekend als directe Server retourneren (DSR). DSR bestaat uit twee delen: een stroom-topologie en een IP-schema. Op het niveau van een platform werkt de Azure Load Balancer altijd in een DSR-flow-topologie, ongeacht of zwevend IP is ingeschakeld of niet. Dit betekent dat het uitgaande deel van een stroom is altijd goed herschreven om Microsoft flow rechtstreeks naar de oorsprong.
 
-Met het regeltype standaard beschrijft Azure een traditionele load balancing-toewijzingsschema voor IP-adres voor eenvoudig te gebruiken. Zwevend IP inschakelen, wijzigt het schema voor het IP-van-adres om toe te staan voor de extra flexibiliteit, zoals hieronder wordt uitgelegd.
+Azure wordt aangegeven dat een traditionele load balancing-IP-adres toewijzingsschema voor het gebruiksgemak van het type van de regel standaard. Zwevend IP inschakelen, wijzigt het IP-adres toewijzingsschema om toe te staan voor meer flexibiliteit, zoals hieronder wordt uitgelegd.
 
-Het volgende diagram ziet u deze configuratie:
+Het volgende diagram illustreert deze configuratie:
 
-![Meerdere frontend-afbeelding met de groene en paarse frontend met DSR](./media/load-balancer-multivip-overview/load-balancer-multivip-dsr.png)
+![Meerdere front-afbeelding met groene en paarse frontend met DSR](./media/load-balancer-multivip-overview/load-balancer-multivip-dsr.png)
 
-In dit scenario heeft elke virtuele machine in de back-endpool drie netwerkinterfaces:
+Voor dit scenario heeft elke virtuele machine in de back-endpool drie netwerkinterfaces:
 
-* DIP: een virtuele NIC die is gekoppeld aan de virtuele machine (IP-configuratie van Azure NIC resource)
-* Frontend 1: een loopback-interface in het gastbesturingssysteem dat is geconfigureerd met IP-adres van de Frontend-1
-* Frontend 2: een loopback-interface in het gastbesturingssysteem dat is geconfigureerd met IP-adres van de Frontend-2
+* DIP: een virtuele NIC die is gekoppeld aan de virtuele machine (IP-configuratie van NIC-bron van Azure)
+* Frontend 1: een loopback-interface in het gastbesturingssysteem dat is geconfigureerd met IP-adres van front-end 1
+* Frontend 2: een loopback-interface in het gastbesturingssysteem dat is geconfigureerd met IP-adres van front-end 2
 
 > [!IMPORTANT]
-> De configuratie van de loopback-interfaces wordt uitgevoerd binnen het gastbesturingssysteem. Deze configuratie is niet uitgevoerd of worden beheerd door Azure. Zonder deze configuratie zijn werken de regels niet. Health test definities gebruiken het DIP van de virtuele machine in plaats van de loopback-interface die de Frontend DSR vertegenwoordigt. Daarom moet uw service test antwoorden opgeven voor een DIP-poort die overeenkomen met de status van de service op de loopback-interface die vertegenwoordigt de Frontend DSR aangeboden.
+> De configuratie van de loopback-interfaces wordt uitgevoerd binnen het gastbesturingssysteem te installeren. Deze configuratie is niet uitgevoerd of worden beheerd door Azure. Zonder deze configuratie worden werkt de regels niet. Health test definities gebruiken het DIP van de virtuele machine in plaats van de loopback-interface voor de DSR-Frontend. Uw service moet daarom testrespons opgeven voor een DIP-poort die overeenkomen met de status van de service die wordt aangeboden op de loopback-interface voor de DSR-Frontend.
 
-Stel de dezelfde frontend-configuratie zoals in het voorgaande scenario:
+Stel de dezelfde front-end-configuratie zoals in het voorgaande scenario:
 
 | Front-end | IP-adres | protocol | poort |
 | --- | --- | --- | --- |
@@ -114,29 +111,29 @@ We definiëren twee regels:
 
 | Regel | Front-end | Toewijzen aan de back-endpool |
 | --- | --- | --- |
-| 1 |![regel](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) Frontend1:80 |![back-end](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) Frontend1:80 (in VM1 en VM2) |
-| 2 |![regel](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) Frontend2:80 |![back-end](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) Frontend2:80 (in VM1 en VM2) |
+| 1 |![regel](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) Frontend1:80 |![Back-end](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) Frontend1:80 (in VM1 en VM2) |
+| 2 |![regel](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) Frontend2:80 |![Back-end](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) Frontend2:80 (in VM1 en VM2) |
 
 De volgende tabel ziet u de volledige toewijzing in de load balancer:
 
-| Regel | Frontend IP-adres | protocol | poort | Doel | poort |
+| Regel | Frontend-IP-adres | protocol | poort | Doel | poort |
 | --- | --- | --- | --- | --- | --- |
-| ![groen regel](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 1 |65.52.0.1 |TCP |80 |Zelfde als frontend (65.52.0.1) |Zelfde als frontend (80) |
-| ![paarse regel](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 2 |65.52.0.2 |TCP |80 |Zelfde als frontend (65.52.0.2) |Zelfde als frontend (80) |
+| ![groen regel](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 1 |65.52.0.1 |TCP |80 |hetzelfde als de front-end (65.52.0.1) |hetzelfde als de front-end (80) |
+| ![paarse regel](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 2 |65.52.0.2 |TCP |80 |hetzelfde als de front-end (65.52.0.2) |hetzelfde als de front-end (80) |
 
-Het doel van de binnenkomende stroom is de frontend-IP-adres op de loopback-interface in de virtuele machine. Elke regel moet een stroom met een unieke combinatie van IP-adres en de doelpoort opleveren. Hergebruik van de poort is door te variëren van het doel-IP-adres van de stroom, mogelijk op dezelfde virtuele machine. Uw service wordt blootgesteld aan de load balancer door deze te binden aan de frontend-IP-adres en poort van de respectieve loopback-interface.
+Het doel van de inkomende stroom is de front-end-IP-adres op de loopback-interface op de virtuele machine. Elke regel moet worden gegenereerd, een stroom met een unieke combinatie van de doel-IP-adres en doelpoort. Hergebruik van poort is door het doel-IP-adres van de stroom te variëren, mogelijk op dezelfde virtuele machine. Uw service wordt blootgesteld aan de load balancer door deze te binden aan van de front-end-IP-adres en poort van de respectieve loopback-interface.
 
-Merk op dat in dit voorbeeld de doelpoort niet wijzigt. Hoewel dit een zwevend IP-scenario is, ondersteunt Load Balancer van Azure ook het definiëren van een regel te herschrijven van de back-end-doelpoort en zodat deze verschilt van de frontend-doelpoort.
+U ziet in dit voorbeeld verandert niet de doelpoort. Hoewel dit een zwevend IP-scenario is, ondersteunt Azure Load Balancer ook definiëren van een regel te herschrijven van de back-end-doelpoort en gemakkelijk af van de frontend-doelpoort.
 
-Het regeltype zwevend IP vormt de basis van verschillende patronen van load balancer-configuratie. Een voorbeeld dat beschikbaar is de [SQL AlwaysOn met meerdere Listeners](../virtual-machines/windows/sql/virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md) configuratie. Na verloop van tijd documenteren we meer van deze scenario's.
+Het regeltype zwevend IP vormt de basis van verschillende patronen van load balancer-configuratie. Een voorbeeld dat beschikbaar is op dit moment is de [SQL AlwaysOn met meerdere Listeners](../virtual-machines/windows/sql/virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md) configuratie. Na verloop van tijd, zullen we documenteren meer van deze scenario's.
 
 ## <a name="limitations"></a>Beperkingen
 
-* Configuraties met meerdere frontend worden alleen ondersteund met IaaS VM's.
-* Met de regel zwevend IP moet uw toepassing de primaire IP-configuratie gebruiken voor uitgaande stromen. Als uw toepassing wordt gebonden aan de frontend-IP-adres geconfigureerd op de loopback-interface in het gastbesturingssysteem, Azure van snat omzetten is niet beschikbaar is voor het herschrijven van de uitgaande stroom en de stroom is mislukt.
-* Openbare IP-adressen hebben een invloed op de facturering. Zie voor meer informatie [prijzen van IP-adres](https://azure.microsoft.com/pricing/details/ip-addresses/)
-* Abonnement-beperkingen gelden. Zie voor meer informatie [Servicelimieten](../azure-subscription-service-limits.md#networking-limits) voor meer informatie.
+* Meerdere front-configuraties worden alleen ondersteund met IaaS-VM's.
+* Aan de regel zwevend IP moet uw toepassing de primaire IP-configuratie gebruiken voor uitgaande stromen. Als uw toepassing wordt gebonden aan de front-end-IP-adres geconfigureerd op de loopback-interface in het gastbesturingssysteem te installeren, Azure van SNAT is niet beschikbaar voor het herschrijven van de uitgaande stroom en de stroom is mislukt.
+* Openbare IP-adressen zijn van invloed op de facturering. Zie voor meer informatie, [prijzen van IP-adressen](https://azure.microsoft.com/pricing/details/ip-addresses/)
+* Limieten voor een abonnement van toepassing. Zie voor meer informatie, [Servicelimieten](../azure-subscription-service-limits.md#networking-limits) voor meer informatie.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Bekijk [uitgaande verbindingen](load-balancer-outbound-connections.md) om te begrijpen van de impact van meerdere frontends van uitgaande Verbindingsgedrag.
+- Beoordeling [uitgaande verbindingen](load-balancer-outbound-connections.md) om te begrijpen van de impact van meerdere front-ends op het gedrag van uitgaande verbindingen.

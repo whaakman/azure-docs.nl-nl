@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 05/04/2017
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 18f52c7b15bf22b363309cbdf1a060b3ab89d93d
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 21f030f692065357f5ab8d23aa6940fecfdeefc1
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50958523"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51004863"
 ---
 # <a name="collect-performance-counters-for-linux-applications-in-log-analytics"></a>Verzamelen van prestatiemeteritems voor Linux-toepassingen in Log Analytics 
 [!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)]
@@ -170,4 +170,4 @@ Nadat u de Log Analytics-agent voor Linux om gegevens te verzenden naar Log Anal
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Verzamelen van prestatiemeteritems](log-analytics-data-sources-performance-counters.md) van Linux-agents.
-* Meer informatie over [zoekopdrachten](log-analytics-log-search.md) om de gegevens die worden verzameld van gegevensbronnen en oplossingen te analyseren. 
+* Meer informatie over [zoekopdrachten](log-analytics-queries.md) om de gegevens die worden verzameld van gegevensbronnen en oplossingen te analyseren. 

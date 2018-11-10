@@ -8,12 +8,12 @@ ms.date: 06/26/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 4b4f9bd1c7390d64a0db08b55bfb777498a10cb0
-ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
+ms.openlocfilehash: 343264f90ecf067786db9c0096625b87b2dbd319
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43382702"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51004405"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-azure-functions-for-azure-iot-edge"></a>Visual Studio Code gebruiken om te ontwikkelen en fouten opsporen in Azure functions voor Azure IoT Edge
 
@@ -74,7 +74,7 @@ Er zijn vier items in de oplossing:
 
 ## <a name="develop-your-module"></a>Uw-module ontwikkelen
 
-De standaardcode voor het Azure-functie die wordt geleverd met de oplossing bevindt zich in **modules** > [Modulenaam van uw] > **EdgeHubTrigger-Csharp** > **run.csx** . De module en het bestand deployment.template.json zijn ingesteld zodat u kunt de oplossing te bouwen, deze naar het containerregister pushen en implementeren op een apparaat om te testen zonder code aan te starten. De module is gebouwd om te gewoon nemen invoer van een bron (in dit geval de tempSensor-module die gegevens simuleert) en doorgeven naar IoT Hub. 
+De standaardcode voor het Azure-functie die wordt geleverd met de oplossing bevindt zich in **modules** > [Modulenaam van uw] > **modulename.cs**. De module en het bestand deployment.template.json zijn ingesteld zodat u kunt de oplossing te bouwen, deze naar het containerregister pushen en implementeren op een apparaat om te testen zonder code aan te starten. De module is gebouwd om te gewoon nemen invoer van een bron (in dit geval de tempSensor-module die gegevens simuleert) en doorgeven naar IoT Hub. 
 
 Wanneer u klaar bent om de sjabloon van de Azure-functie met uw eigen code aanpassen, gebruikt u de [Azure IoT Hub SDK's](../iot-hub/iot-hub-devguide-sdks.md) modules bouwen dat adres de sleutel die nodig zijn voor IoT-oplossingen, zoals beveiliging, beheer van apparaten en betrouwbaarheid. 
 
@@ -93,7 +93,7 @@ Controleer de containerstatus van uw in Docker van VS Code explorer of door het 
 
    ![Selecteer debug-configuratie](./media/how-to-debug-csharp-function/select-debug-configuration.jpg)
 
-2. Navigeer naar `run.csx`. Voeg een onderbrekingspunt toe in de functie.
+2. Navigeer naar `modulename.cs`. Voeg een onderbrekingspunt toe in de functie.
 3. Selecteer **Start Debugging** of selecteer **F5**. Selecteer het proces om aan te koppelen.
 4. In de weergave van VS Code-debug ziet u de variabelen in het linkerdeelvenster. 
 

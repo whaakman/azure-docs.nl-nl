@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 7082edf43e53766d32bd967d0b894f6439eaa492
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: 760feae2c9b58e162dae487e240dda72099ed91b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42060572"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51227974"
 ---
 # <a name="azure-api-management-faqs"></a>Veelgestelde vragen over de Azure API Management
 De antwoorden op veelgestelde vragen, patronen en best practices voor Azure API Management.
@@ -77,7 +77,7 @@ U hebt verschillende opties als u wilt kopiëren van een API Management-exemplaa
 Ja, kunt u de API Management via een programma beheren met behulp van:
 
 * De [API Management REST-API](https://msdn.microsoft.com/library/azure/dn776326.aspx).
-* De [Beheerbibliotheek ApiManagement-Service van Microsoft Azure SDK](http://aka.ms/apimsdk).
+* De [Beheerbibliotheek ApiManagement-Service van Microsoft Azure SDK](https://aka.ms/apimsdk).
 * De [implementatie](https://docs.microsoft.com/powershell/module/wds) en [servicebeheer](https://docs.microsoft.com/powershell/azure/servicemanagement/overview) PowerShell-cmdlets.
 
 ### <a name="how-do-i-add-a-user-to-the-administrators-group"></a>Hoe voeg ik een gebruiker aan de groep Administrators?
@@ -104,7 +104,7 @@ Om in te stellen meerdere omgevingen, bijvoorbeeld een testomgeving en een produ
 * Dezelfde API's op verschillende tenants hosten.
 
 ### <a name="can-i-use-soap-with-api-management"></a>Kan ik SOAP gebruiken met API Management?
-[SOAP-Passthrough](http://blogs.msdn.microsoft.com/apimanagement/2016/10/13/soap-pass-through/) ondersteuning is nu beschikbaar. Beheerders kunnen de WSDL van de SOAP-service importeren en Azure API Management maakt u een SOAP-front-end. Portal-documentatie voor ontwikkelaars, testconsole, beleidsregels en analyses zijn beschikbaar voor de SOAP-services.
+[SOAP-Passthrough](https://blogs.msdn.microsoft.com/apimanagement/2016/10/13/soap-pass-through/) ondersteuning is nu beschikbaar. Beheerders kunnen de WSDL van de SOAP-service importeren en Azure API Management maakt u een SOAP-front-end. Portal-documentatie voor ontwikkelaars, testconsole, beleidsregels en analyses zijn beschikbaar voor de SOAP-services.
 
 ### <a name="is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules"></a>De constante API Management gateway-IP-adres is? Kan ik deze in de firewall-regels gebruiken?
 In alle lagen van API Management is het openbare IP-adres (VIP) van de API Management-tenant met enkele uitzonderingen statisch gedurende de levensduur van de tenant. De IP-adres verandert in deze omstandigheden:
@@ -126,7 +126,7 @@ Zie voor informatie over het configureren van een OAuth 2.0-autorisatie-server m
 API Management maakt gebruik van de [prestaties routeringsmethode voor verkeer](../traffic-manager/traffic-manager-routing-methods.md#performance) in implementaties van verschillende geografische locaties. Inkomend verkeer wordt doorgestuurd naar de dichtstbijzijnde API-gateway. Als één regio offline gaat, wordt het inkomende verkeer automatisch doorgestuurd naar de volgende dichtstbijzijnde gateway. Meer informatie over methoden voor het doorsturen in [methoden voor het doorsturen van Traffic Manager](../traffic-manager/traffic-manager-routing-methods.md).
 
 ### <a name="can-i-use-an-azure-resource-manager-template-to-create-an-api-management-service-instance"></a>Kan ik een Azure Resource Manager-sjabloon gebruiken voor het maken van een exemplaar van API Management-service?
-Ja. Zie de [Azure API Management-Service](http://aka.ms/apimtemplate) QuickStart-sjablonen.
+Ja. Zie de [Azure API Management-Service](https://aka.ms/apimtemplate) QuickStart-sjablonen.
 
 ### <a name="can-i-use-a-self-signed-ssl-certificate-for-a-back-end"></a>Kan ik een zelf-ondertekend SSL-certificaat voor een back-end gebruiken?
 Ja. Dit kan worden gedaan via PowerShell of door rechtstreeks verzenden naar de API. Hiermee wordt de validatie van certificaatketen uitschakelen en kunt u het gebruik van zelf-ondertekend of privé-ondertekende certificaten tijdens de communicatie van API Management met de back-end-services.

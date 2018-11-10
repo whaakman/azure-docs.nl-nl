@@ -9,19 +9,19 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/24/2018
-ms.openlocfilehash: 054cd54827dc11e57f249a270542ff81ff670912
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: da92f59c4e25ec012cd9ad389c9afac410ba28e1
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49649989"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51219304"
 ---
 # <a name="track-experiments-and-training-metrics-in-azure-machine-learning"></a>Bijhouden van experimenten en training metrische gegevens in Azure Machine Learning
 
 U kunt in de Azure Machine Learning-service uw experimenten volgen en controleren van metrische gegevens voor het verbeteren van het proces voor het model maken. In dit artikel leert u over de verschillende manieren om toe te voegen van logboekregistratie voor uw trainingsscript over het verzenden van het experiment met **start_logging** en **ScriptRunConfig**, het controleren van de voortgang van een actieve taak, en hoe u de resultaten van een uitvoering wilt weergeven. 
 
 >[!NOTE]
-> Code in dit artikel is getest met Azure Machine Learning SDK versie 0.168 
+> Code in dit artikel is getest met Azure Machine Learning SDK versie 0.1.74 
 
 ## <a name="list-of-training-metrics"></a>Overzicht van metrische gegevens voor training 
 
@@ -67,7 +67,6 @@ Voordat u logboekregistratie en het verzenden van een experiment toevoegt, moet 
 
   # make up an arbitrary name
   experiment_name = 'train-in-notebook'
-  exp = Experiment(workspace_object = ws, name = experiment_name)
   ```
   
 ## <a name="option-1-use-startlogging"></a>Optie 1: Start_logging gebruiken
@@ -103,7 +102,8 @@ Het volgende voorbeeld traint een eenvoudig model sklearn Ridge lokaal in een lo
 2. Experiment bijhouden met behulp van de Azure Machine Learning-service-SDK toevoegen en een persistente model uploaden naar het experiment record worden uitgevoerd. De volgende code wordt toegevoegd tags, Logboeken, en wordt een modelbestand geüpload naar het experiment uitvoeren.
 
   ```python
-  run = Run.start_logging(experiment = exp)
+  experiment = Experiment(workspace = ws, name = experiment_name)
+  run = experiment.start_logging()
   run.tag("Description","My first run!")
   run.log('alpha', 0.03)
   reg = Ridge(alpha = 0.03)
@@ -209,8 +209,8 @@ In dit voorbeeld is een vervolg op het basismodel sklearn Ridge van boven. Hierv
   ```python
   from azureml.core import ScriptRunConfig
 
-  src = ScriptRunConfig(source_directory = script_folder, script = 'train.py', run_config = run_config_user_managed)
-  run = exp.submit(src)
+  src = ScriptRunConfig(source_directory = './', script = 'train.py', run_config = run_config_user_managed)
+  run = experiment.submit(src)
   ```
   
 ## <a name="view-run-details"></a>Details van de uitvoering weergeven
@@ -248,11 +248,22 @@ De koppeling voor de uitvoering biedt u rechtstreeks naar de pagina de details v
   ![Schermafbeelding van de details van de uitvoering in Azure portal](./media/how-to-track-experiments/run-details-page-web.PNG)
 
 U kunt ook eventuele uitvoer of de logboeken voor de uitvoering weergeven of downloaden van de momentopname van het experiment dat u hebt verzonden, zodat u de map experiment met anderen kunt delen.
+### <a name="viewing-charts-in-run-details"></a>Grafieken weergeven in de details van uitvoering
+
+Er zijn verschillende manieren voor het gebruik van de logboekregistratie van API's gebruiken voor andere recordtypen van metrische gegevens tijdens een uitvoering en deze weergeven als grafieken in Azure portal. 
+
+|Geregistreerde waarde|Voorbeeldcode| Weergeven in portal|
+|----|----|----|
+|Meld u een matrix met numerieke waarden| `run.log_list(name='Fibonacci', value=[0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89])`|één variabele lijndiagram weer te geven|
+|Meld u één numerieke waarde met dezelfde metrische naam herhaaldelijk gebruikt (zoals vanuit een for-lus)| `for i in tqdm(range(-10, 10)):    run.log(name='Sigmoid', value=1 / (1 + np.exp(-i))) angle = i / 2.0`| Één variabele lijndiagram weer te geven|
+|Meld u een rij met 2 numerieke kolommen herhaaldelijk|`run.log_row(name='Cosine Wave', angle=angle, cos=np.cos(angle))   sines['angle'].append(angle)      sines['sine'].append(np.sin(angle))`|Twee variabelen lijndiagram weer te geven|
+|Logboektabel met 2 numerieke kolommen|`run.log_table(name='Sine Wave', value=sines)`|Twee variabelen lijndiagram weer te geven|
 
 ## <a name="example-notebooks"></a>Voorbeeld-laptops
 De volgende notebooks illustratie van concepten in dit artikel:
 * [01.Getting-Started/01.Train-within-notebook/01.Train-within-notebook.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/01.train-within-notebook)
 * [01.Getting-Started/02.Train-on-local/02.Train-on-local.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/02.train-on-local)
+* [01.Getting-Started/06.Logging-API/06.Logging-API.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/06.logging-api/06.logging-api.ipynb)
 
 Deze laptops ophalen: [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: barbkess
-ms.openlocfilehash: 2301c2eee2853617251053713b50f9915962027b
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: d34671d4197735ea2c30aafc8fd01a5893427ff3
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44356642"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51226840"
 ---
 # <a name="how-to-assign-users-to-applications"></a>Gebruikers toewijzen aan toepassingen
 
@@ -51,9 +51,9 @@ Voor een gebruiker toegang tot een toepassing, moeten ze eerst worden toegewezen
 
 6.  Een beheerder activeert [groepsbeheer met Self-service](https://docs.microsoft.com/azure/active-directory/active-directory-accessmanagement-self-service-group-management) waarmee een gebruiker voor deelname aan een groep die een toepassing is toegewezen aan, maar alleen **met voorafgaande goedkeuring van een geselecteerde set fiatteur**
 
-7.  Een beheerder een licentie toegewezen aan een gebruiker rechtstreeks voor een eerste toepassing van derden, zoals [Microsoft Office 365](http://products.office.com/)
+7.  Een beheerder een licentie toegewezen aan een gebruiker rechtstreeks voor een eerste toepassing van derden, zoals [Microsoft Office 365](https://products.office.com/)
 
-8.  Een beheerder wijst een licentie toe aan een groep die de gebruiker een lid van een eerste toepassing van derden, zoals is [Microsoft Office 365](http://products.office.com/)
+8.  Een beheerder wijst een licentie toe aan een groep die de gebruiker een lid van een eerste toepassing van derden, zoals is [Microsoft Office 365](https://products.office.com/)
 
 9.  Een [administrator toestemming heeft voor een toepassing](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent) moet worden gebruikt door alle gebruikers en voer vervolgens een gebruiker zich aanmeldt bij de toepassing
 

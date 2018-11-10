@@ -1,6 +1,6 @@
 ---
-title: Filters maken met Azure Media Services-REST-API | Microsoft Docs
-description: Dit onderwerp beschrijft het maken van filters zodat de client naar specifieke secties van de stroom van een stroom gebruiken kan. Media Services maakt dynamische manifesten zodat deze selectief streaming.
+title: Filters maken met Azure Media Services REST-API | Microsoft Docs
+description: In dit onderwerp wordt beschreven hoe u filters maken, zodat de client voor het specifieke secties van de stroom van een stroom gebruiken kunt. Media Services wordt gemaakt dynamische manifesten voor het bereiken van deze selectief streaming.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: juliako;cenkdin
-ms.openlocfilehash: 396abe0801d76af3820d302d40d2fc076754741b
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 50becbe517e98802c9a3af91b86f845df05378a7
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33790277"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51227515"
 ---
 # <a name="creating-filters-with-azure-media-services-rest-api"></a>Filters maken met Azure Media Services REST-API
 > [!div class="op_single_selector"]
@@ -28,14 +28,14 @@ ms.locfileid: "33790277"
 > 
 > 
 
-Media Services kunt vanaf 2,17 versie, u filters definiëren voor de activa. Deze filters zijn serverzijde regels waarmee uw klanten te kiezen voor handelingen zoals: afspelen alleen een gedeelte van een video (in plaats van de hele video afspelen), of geef alleen een subset van audio en video vertoningen dat uw klant apparaat (in plaats van kan verwerken alle de vertoningen die gekoppeld aan de asset zijn). Via dit filteren van uw assets wordt gearchiveerd **dynamische Manifest**s die zijn gemaakt op verzoek om te streamen van een video van uw klant op basis van opgegeven filter.
+Media Services kunt vanaf 2,17 release, u filters voor uw assets definiëren. Deze filters zijn serverzijde regels waarmee uw klanten om te kiezen voor handelingen zoals: afspelen alleen een gedeelte van een video (in plaats van de hele video afspelen), of alleen een subset van audio en video voorinstelling die van uw klant apparaat (in plaats van verwerken kan opgeven alle de voorinstelling die gekoppeld aan de asset zijn). Via dit filteren van uw activa is gearchiveerd **dynamische Manifest**s die zijn gemaakt op verzoek om te streamen van een video van uw klant op basis van opgegeven filter (s).
 
 Zie voor meer informatie over filters en dynamische Manifest, [dynamische manifesten overzicht](media-services-dynamic-manifest-overview.md).
 
-Dit artikel laat zien hoe u REST-API's maken, bijwerken en verwijderen van de filters. 
+In dit artikel laat zien hoe u REST API's maken, bijwerken en verwijderen van filters. 
 
 ## <a name="types-used-to-create-filters"></a>Typen die worden gebruikt om filters te maken
-De volgende typen worden gebruikt wanneer u filters maken:  
+De volgende typen worden gebruikt bij het maken van filters:  
 
 * [Filter](https://docs.microsoft.com/rest/api/media/operations/filter)
 * [AssetFilter](https://docs.microsoft.com/rest/api/media/operations/assetfilter)
@@ -44,14 +44,14 @@ De volgende typen worden gebruikt wanneer u filters maken:
 
 >[!NOTE]
 
->Bij het openen van entiteiten in Media Services, moet u specifieke header-velden en waarden instellen in uw HTTP-aanvragen. Zie voor meer informatie [Setup voor het ontwikkelen van Media Services REST API](media-services-rest-how-to-use.md).
+>Bij het openen van entiteiten in Media Services, moet u specifieke header-velden en waarden instellen in uw HTTP-aanvragen. Zie voor meer informatie, [instellen voor het ontwikkelen van Media Services REST API](media-services-rest-how-to-use.md).
 
 ## <a name="connect-to-media-services"></a>Verbinding met Media Services maken
 
-Zie voor meer informatie over de verbinding maken met de AMS API [toegang tot de API van Azure Media Services met Azure AD authentication](media-services-use-aad-auth-to-access-ams-api.md). 
+Zie voor meer informatie over het verbinding maken met de AMS-API [toegang tot de API van Azure Media Services met Azure AD-verificatie](media-services-use-aad-auth-to-access-ams-api.md). 
 
 ## <a name="create-filters"></a>Filters maken
-### <a name="create-global-filters"></a>Globale Filters maken
+### <a name="create-global-filters"></a>Algemene Filters maken
 Gebruik de volgende HTTP-aanvragen voor het maken van een globaal Filter:  
 
 #### <a name="http-request"></a>HTTP-aanvraag
@@ -68,7 +68,7 @@ Aanvraagheaders
     x-ms-client-request-id: 00000000-0000-0000-0000-000000000000 
     Host:media.windows.net 
 
-Aanvraagtekst 
+Aanvraagbody 
 
     {  
        "Name":"GlobalFilter",
@@ -121,7 +121,7 @@ Aanvraagheaders
     x-ms-client-request-id: 00000000-0000-0000-0000-000000000000 
     Host: media.windows.net  
 
-Aanvraagtekst 
+Aanvraagbody 
 
     {   
        "Name":"AssetFilter", 
@@ -157,8 +157,8 @@ Aanvraagtekst
     . . . 
 
 ## <a name="list-filters"></a>Lijst met filters
-### <a name="get-all-global-filters-in-the-ams-account"></a>Ophalen van alle globale **Filter**s in de AMS-account
-Filters weergeven door gebruik van de volgende HTTP-aanvragen: 
+### <a name="get-all-global-filters-in-the-ams-account"></a>Alle globale ophalen **Filter**s in de AMS-account
+Geef filters, gebruikt u de volgende HTTP-aanvragen: 
 
 #### <a name="http-request"></a>HTTP-aanvraag
     GET https://media.windows.net/API/Filters HTTP/1.1 
@@ -170,7 +170,7 @@ Filters weergeven door gebruik van de volgende HTTP-aanvragen:
     x-ms-version: 2.17 
     Host: media.windows.net 
 
-### <a name="get-assetfilters-associated-with-an-asset"></a>Ophalen van **AssetFilter**s die is gekoppeld aan een asset
+### <a name="get-assetfilters-associated-with-an-asset"></a>Ophalen **AssetFilter**s die zijn gekoppeld aan een asset
 #### <a name="http-request"></a>HTTP-aanvraag
     GET https://media.windows.net/API/Assets('nb%3Acid%3AUUID%3A536e555d-1500-80c3-92dc-f1e4fdc6c592')/AssetFilters HTTP/1.1 
     DataServiceVersion: 3.0 
@@ -182,7 +182,7 @@ Filters weergeven door gebruik van de volgende HTTP-aanvragen:
     x-ms-client-request-id: 00000000-0000-0000-0000-000000000000 
     Host: media.windows.net 
 
-### <a name="get-an-assetfilter-based-on-its-id"></a>Ophalen van een **AssetFilter** op basis van de bijbehorende Id
+### <a name="get-an-assetfilter-based-on-its-id"></a>Krijgen een **AssetFilter** op basis van de Id
 #### <a name="http-request"></a>HTTP-aanvraag
     GET https://media.windows.net/API/AssetFilters('nb%3Acid%3AUUID%3A536e555d-1500-80c3-92dc-f1e4fdc6c592__%23%23%23__TestFilter') HTTP/1.1 
     DataServiceVersion: 3.0 
@@ -194,16 +194,16 @@ Filters weergeven door gebruik van de volgende HTTP-aanvragen:
     x-ms-client-request-id: 00000000
 
 
-## <a name="update-filters"></a>Filters bijwerken
-Gebruik PATCH-, opslag- of MERGE bijwerken van een filter met de nieuwe eigenschapswaarden.  Zie voor meer informatie over deze bewerkingen [PATCH, PUT, MERGE](http://msdn.microsoft.com/library/dd541276.aspx).
+## <a name="update-filters"></a>Werk de filters
+PATCH-, PUT- of MERGE gebruik een filter bijwerken met nieuwe eigenschapswaarden.  Zie voor meer informatie over deze bewerkingen, [PATCH, PUT, samenvoegen](https://msdn.microsoft.com/library/dd541276.aspx).
 
-Als u een filter bijwerkt, kan het maximaal twee minuten duren voordat een streaming-eindpunt om te vernieuwen van de regels. Als de inhoud is uitgevoerd met dit filter (en in het cachegeheugen van proxy's en CDN caches), kan het bijwerken van dit filter leiden tot player-fouten. Wis de cache na het bijwerken van het filter. Als deze optie niet mogelijk is, kunt u overwegen een ander filter.  
+Als u een filter bijwerkt, kan het tot twee minuten voor streaming-eindpunt om te vernieuwen van de regels duren. Als de inhoud wordt aangeboden met dit filter (en caches in proxy's en CDN-cache), kan dit filter bijwerken resulteren in fouten player. De cache wissen na het bijwerken van het filter. Als deze optie niet mogelijk is is, kunt u overwegen een ander filter.  
 
-### <a name="update-global-filters"></a>Globale Filters bijwerken
+### <a name="update-global-filters"></a>Algemene Filters bijwerken
 Gebruik de volgende HTTP-aanvragen voor het bijwerken van een globaal filter: 
 
 #### <a name="http-request"></a>HTTP-aanvraag
-Headers voor aanvraag: 
+Aanvraagheaders: 
 
     MERGE https://media.windows.net/API/Filters('filterName') HTTP/1.1 
     DataServiceVersion:3.0 
@@ -217,7 +217,7 @@ Headers voor aanvraag:
     Host: media.windows.net 
     Content-Length: 384
 
-Hoofdtekst van de aanvraag: 
+Aanvraagtekst: 
 
     { 
        "Tracks":[   
@@ -243,7 +243,7 @@ Hoofdtekst van de aanvraag:
 Gebruik de volgende HTTP-aanvragen voor het bijwerken van een lokale filter: 
 
 #### <a name="http-request"></a>HTTP-aanvraag
-Headers voor aanvraag: 
+Aanvraagheaders: 
 
     MERGE https://media.windows.net/API/AssetFilters('nb%3Acid%3AUUID%3A536e555d-1500-80c3-92dc-f1e4fdc6c592__%23%23%23__TestFilter')  HTTP/1.1 
     DataServiceVersion: 3.0 
@@ -256,7 +256,7 @@ Headers voor aanvraag:
     x-ms-client-request-id: 00000000-0000-0000-0000-000000000000 
     Host: media.windows.net 
 
-Hoofdtekst van de aanvraag: 
+Aanvraagtekst: 
 
     { 
        "Tracks":[   
@@ -280,8 +280,8 @@ Hoofdtekst van de aanvraag:
 
 
 ## <a name="delete-filters"></a>Filters verwijderen
-### <a name="delete-global-filters"></a>Globale Filters verwijderen
-Gebruik de volgende HTTP-aanvragen voor het verwijderen van een globaal Filter:
+### <a name="delete-global-filters"></a>Algemene Filters verwijderen
+Als u wilt een globaal Filter verwijderen, gebruikt u de volgende HTTP-aanvragen:
 
 #### <a name="http-request"></a>HTTP-aanvraag
     DELETE https://media.windows.net/api/Filters('GlobalFilter') HTTP/1.1 
@@ -295,7 +295,7 @@ Gebruik de volgende HTTP-aanvragen voor het verwijderen van een globaal Filter:
 
 
 ### <a name="delete-local-assetfilters"></a>Lokale AssetFilters verwijderen
-Gebruik de volgende HTTP-aanvragen voor het verwijderen van een lokale AssetFilter:
+Als u wilt verwijderen van een lokale AssetFilter, gebruikt u de volgende HTTP-aanvragen:
 
 #### <a name="http-request"></a>HTTP-aanvraag
     DELETE https://media.windows.net/API/AssetFilters('nb%3Acid%3AUUID%3A536e555d-1500-80c3-92dc-f1e4fdc6c592__%23%23%23__LocalFilter') HTTP/1.1 
@@ -308,11 +308,11 @@ Gebruik de volgende HTTP-aanvragen voor het verwijderen van een lokale AssetFilt
     Host: media.windows.net 
 
 ## <a name="build-streaming-urls-that-use-filters"></a>Streaming-URL's die gebruikmaken van filters maken
-Zie voor meer informatie over het publiceren en leveren van uw assets [leveren van inhoud naar klanten overzicht](media-services-deliver-content-overview.md).
+Zie voor meer informatie over het publiceren en leveren van uw assets [inhoud leveren aan klanten overzicht](media-services-deliver-content-overview.md).
 
-De volgende voorbeelden laten zien hoe filters toevoegen aan uw streaming-URL's.
+De volgende voorbeelden ziet hoe u filters toevoegen aan uw streaming-URL's.
 
-**MPEG DASH** 
+**MPEG-DASH** 
 
     http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=mpd-time-csf, filter=MyFilter)
 

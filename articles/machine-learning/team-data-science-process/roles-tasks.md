@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: deguhath
-ms.openlocfilehash: 3e0e9a59d7f77355077fc1f7781eb3be4dbe0532
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: c245a844ae594f5d78b47a168ad5870f8aea10e9
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44296700"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51227770"
 ---
 # <a name="team-data-science-process-roles-and-tasks"></a>Team Data Science Process rollen en taken
 
@@ -66,7 +66,7 @@ Dit schema en de volgende, meer gedetailleerd overzicht van taken die zijn toege
 > [!NOTE]
 > De volgende instructies laten zien stappen over het instellen van een TDSP-omgeving en andere data science-taken in Azure DevOps. We geven over het uitvoeren van deze taken met Azure DevOps, omdat dat wat we gebruiken voor het implementeren van TDSP bij Microsoft. Azure DevOps vergemakkelijkt de samenwerking door de integratie van het beheer van de werkitems die deze taken volgen en een code hosting service die wordt gebruikt voor het delen van hulpprogramma's, versies organiseren en beveiliging op basis van rollen. U zijn kunt andere platforms, als u liever, voor het implementeren van de taken die worden beschreven door de TDSP. Maar afhankelijk van uw platform, sommige functies van Azure DevOps gebruikt mogelijk niet beschikbaar. 
 >
->Instructies hier wordt ook gebruikt de [Data Science Virtual Machine (DSVM)](http://aka.ms/dsvm) op de Azure cloud-als de analysebureaublad met verschillende populaire data science-hulpprogramma's vooraf is geconfigureerd en geïntegreerd met diverse Microsoft-software en Azure Services. U kunt de DSVM of andere ontwikkelomgeving gebruiken voor het implementeren van TDSP. 
+>Instructies hier wordt ook gebruikt de [Data Science Virtual Machine (DSVM)](https://aka.ms/dsvm) op de Azure cloud-als de analysebureaublad met verschillende populaire data science-hulpprogramma's vooraf is geconfigureerd en geïntegreerd met diverse Microsoft-software en Azure Services. U kunt de DSVM of andere ontwikkelomgeving gebruiken voor het implementeren van TDSP. 
 
 
 ## <a name="group-manager-tasks"></a>Groepsbeheerder taken

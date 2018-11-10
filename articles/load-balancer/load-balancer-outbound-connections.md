@@ -4,9 +4,6 @@ description: In dit artikel wordt uitgelegd hoe virtuele machines om te communic
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: jpconnock
-editor: ''
-ms.assetid: 5f666f2a-3a63-405a-abcd-b2e34d40e001
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -14,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/01/2018
 ms.author: kumud
-ms.openlocfilehash: 58ae89a6b9d7b9e3858358d290e3ecb197e0ac2b
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 1d851b60909d548a0735e3827cdfc7746fd8121d
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48249125"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51219712"
 ---
 # <a name="outbound-connections-in-azure"></a>Uitgaande verbindingen in Azure
 
@@ -45,7 +42,7 @@ Azure Load Balancer en verwante resources expliciet worden gedefinieerd als u [A
 | --- | --- | --- | --- |
 | [1. VM met een Instance Level Public IP-adres (met of zonder Load Balancer)](#ilpip) | SNAT, poort zich niet gebruikt. | TCP, UDP, ICMP, ESP | Azure maakt gebruik van het openbare IP-adres toegewezen aan de IP-configuratie van het exemplaar van de NIC. Het exemplaar heeft alle kortstondige poorten die beschikbaar zijn. |
 | [2. Een openbare Load Balancer die zijn gekoppeld aan een virtuele machine (geen Instance Level Public IP-adres op het exemplaar)](#lb) | SNAT met poort onechte (PAT) met behulp van de Load Balancer-front-ends | TCP, UDP |Azure deelt het openbare IP-adres van de openbare Load Balancer-front-ends met meerdere privé IP-adressen. Kortstondige poorten van de front-ends voor PAT maakt gebruik van Azure. |
-| [3. Standalone VM (Er is geen Load Balancer, geen Instance Level Public IP-adres)](#defaultsnat) | SNAT met poort onechte (PAT) | TCP, UDP | Azure automatisch een openbaar IP-adres voor SNAT aanwijst, deelt dit openbare IP-adres met meerdere privé IP-adressen van de beschikbaarheidsset en maakt gebruik van kortstondige poorten van dit openbare IP-adres. Dit is een alternatief scenario voor het voorgaande scenario's. Wordt niet aanbevolen als u nodig, zichtbaarheid en controle hebt. |
+| [3. Standalone VM (Er is geen Load Balancer, geen Instance Level Public IP-adres)](#defaultsnat) | SNAT met poort onechte (PAT) | TCP, UDP | Azure automatisch een openbaar IP-adres voor SNAT aanwijst, deelt dit openbare IP-adres met meerdere privé IP-adressen van de beschikbaarheidsset en maakt gebruik van kortstondige poorten van dit openbare IP-adres. Dit scenario is een opvang voor de bovenstaande scenario's. Wordt niet aanbevolen als u nodig, zichtbaarheid en controle hebt. |
 
 Als u niet dat een virtuele machine om te communiceren met eindpunten buiten Azure in openbare IP-adresruimte wilt, kunt u netwerkbeveiligingsgroepen (nsg's) gebruiken om de toegang zo nodig te blokkeren. De sectie [uitgaande connectiviteit te voorkomen dat](#preventoutbound) nsg's vindt u meer details. Hulp bij het ontwerpen, implementeren en beheren van een virtueel netwerk zonder een uitgaande toegang is buiten het bereik van dit artikel.
 
@@ -53,7 +50,7 @@ Als u niet dat een virtuele machine om te communiceren met eindpunten buiten Azu
 
 In dit scenario wordt heeft de virtuele machine een exemplaar van het niveau van openbare IP (ILPIP) zijn toegewezen. Wat betreft uitgaande verbindingen zijn, het maakt niet uit of de virtuele machine verdeeld wordt, of niet. In dit scenario heeft voorrang op de andere. Wanneer een ILPIP wordt gebruikt, wordt de virtuele machine de ILPIP gebruikt voor alle uitgaande stromen.  
 
-Een openbare IP die zijn toegewezen aan een virtuele machine is een 1:1-relatie (plaats 1:many) en geïmplementeerd als een stateless 1:1 NAT bevinden.  Poort onechte (PAT) wordt niet gebruikt en de virtuele machine heeft alle kortstondige poorten beschikbaar voor gebruik.
+Een openbaar IP-adres toegewezen aan een virtuele machine is een 1:1-relatie (in plaats van 1: veel) en geïmplementeerd als een stateless 1:1 NAT bevinden.  Poort onechte (PAT) wordt niet gebruikt en de virtuele machine heeft alle kortstondige poorten beschikbaar voor gebruik.
 
 Als uw toepassing veel uitgaande stromen initieert en u SNAT poortuitputting ondervindt, kunt u overwegen een [ILPIP SNAT beperkingen beperken](#assignilpip). Beoordeling [SNAT beheren uitputting](#snatexhaust) in zijn geheel toe.
 
@@ -75,7 +72,7 @@ Voor het controleren van de status van uitgaande verbindingen met Load Balancer 
 
 ### <a name="defaultsnat"></a>Scenario 3: Standalone VM zonder een Instance Level Public IP-adres
 
-In dit scenario wordt de virtuele machine maakt geen deel uit van een openbare Load Balancer-groep (en geen deel uitmaakt van een interne Standard Load Balancer-groep) en heeft geen een ILPIP-adres is toegewezen. Wanneer de virtuele machine een uitgaande stroom maakt, zet Azure privé IP-bronadres van de uitgaande stroom aan een openbare IP-adres. Het openbare IP-adres gebruikt voor deze uitgaande stroom kan niet worden geconfigureerd en worden niet meegeteld in openbare IP-resource-limiet van het abonnement. Dit openbare IP-adres behoort niet tot u en kan niet worden gereserveerd. Als u de virtuele machine of Beschikbaarheidsset of VMSS implementeren, wordt dit openbare IP-adres wordt uitgebracht en wordt een nieuw openbaar IP-adres aangevraagd. Gebruik dit scenario niet voor in de whitelist aan IP-adressen. In plaats daarvan gebruik een van de andere twee scenario's waarin u expliciet declareren het uitgaande scenario en de openbare IP-adres moet worden gebruikt voor de uitgaande connectiviteit.
+In dit scenario wordt de virtuele machine maakt geen deel uit van een openbare Load Balancer-groep (en geen deel uitmaakt van een interne Standard Load Balancer-groep) en heeft geen een ILPIP-adres is toegewezen. Wanneer de virtuele machine een uitgaande stroom maakt, zet Azure privé IP-bronadres van de uitgaande stroom aan een openbare IP-adres. Het openbare IP-adres gebruikt voor deze uitgaande stroom kan niet worden geconfigureerd en worden niet meegeteld in openbare IP-resource-limiet van het abonnement. Dit openbare IP-adres behoort niet tot u en kan niet worden gereserveerd. Als u de virtuele machine of Beschikbaarheidsset of VM-schaalset implementeren, wordt dit openbare IP-adres wordt uitgebracht en wordt een nieuw openbaar IP-adres aangevraagd. Gebruik dit scenario niet voor in de whitelist aan IP-adressen. In plaats daarvan gebruik een van de andere twee scenario's waarin u expliciet declareren het uitgaande scenario en de openbare IP-adres moet worden gebruikt voor de uitgaande connectiviteit.
 
 >[!IMPORTANT] 
 >In dit scenario geldt ook wanneer __alleen__ een interne Basic Load Balancer is gekoppeld. Scenario 3 is __niet beschikbaar__ wanneer een interne Standard Load Balancer is gekoppeld aan een virtuele machine.  U moet expliciet maken [scenario 1](#ilpip) of [scenario 2](#lb) naast het gebruik van een interne Standard Load Balancer.
@@ -106,7 +103,7 @@ U kunt onderdrukken een frontend-IP-adres voor uitgaande verbindingen met een ni
       ]
 ```
 
-Normaal gesproken deze optie standaard ingesteld op _false_ en geeft aan dat deze regel programma's voor uitgaande SNAT voor de bijbehorende virtuele machines in de back-endpool van de load balancer-regel.  Dit kan worden gewijzigd in _waar_ om te voorkomen dat de Load Balancer met behulp van het bijbehorende front-end-IP-adres voor uitgaande verbindingen voor de virtuele machine zich in de back-endpool van deze regel voor taakverdeling.  En u kunt ook nog steeds een specifiek IP-adres voor uitgaande stromen opgeven zoals beschreven in [meerdere scenario's gecombineerd](#combinations) ook.
+Normaal gesproken de `disableOutboundSnat` standaard ingesteld op de optie _false_ en geeft aan dat deze regel programma's voor uitgaande SNAT voor de bijbehorende virtuele machines in de back-endpool van de load balancer-regel. De `disableOutboundSnat` kan worden gewijzigd in _waar_ om te voorkomen dat de Load Balancer met behulp van het bijbehorende front-end-IP-adres voor uitgaande verbindingen voor de virtuele machines in de back-endadresgroep van deze regel voor taakverdeling.  En u kunt ook nog steeds een specifiek IP-adres voor uitgaande stromen opgeven zoals beschreven in [meerdere scenario's gecombineerd](#combinations) ook.
 
 #### <a name="load-balancer-basic"></a>Load Balancer Basic
 
@@ -187,7 +184,7 @@ SNAT poorten toewijzingen zijn specifieke IP-transportprotocol (TCP en UDP-worde
 
 ## <a name="problemsolving"></a> Problemen oplossen 
 
-Deze sectie is bedoeld om te beperken SNAT uitputting en andere scenario's die met uitgaande verbindingen in Azure optreden kunnen.
+Deze sectie is bedoeld om te beperken van SNAT uitgeput en die kunnen optreden met uitgaande verbindingen in Azure.
 
 ### <a name="snatexhaust"></a> Poortuitputting SNAT (PAT) beheren
 [Kortstondige poorten](#preallocatedports) gebruikt voor [PAT](#pat) vormen een onuitputtelijk resource, zoals beschreven in [Standalone VM zonder een Instance Level Public IP-adres](#defaultsnat) en [met Load Balancing virtuele machine zonder een Instantie-Level Public IP-adres](#lb).
@@ -219,7 +216,7 @@ Uw scenario toewijzen van een ILPIP verandert [Instance Level Public IP aan een 
 
 #### <a name="multifesnat"></a>Meerdere front-ends gebruiken
 
-Wanneer u een openbare Standard Load Balancer, die u toewijst [meerdere front-end-IP-adressen voor uitgaande verbindingen](#multife) en [Vermenigvuldig het aantal beschikbare poorten op de SNAT](#preallocatedports).  U moet maken van een front-end-IP-configuratie, de regel en de back-endpool voor het activeren van het programmeren van SNAT naar het openbare IP-adres van de front-end.  De regel niet hoeft te werken en een statustest hoeft niet te voltooien.  Als u meerdere front-ends voor gebruik, evenals Inkomend (in plaats van alleen voor uitgaande), moet u aangepaste statustests en om ervoor te zorgen betrouwbaarheid.
+Wanneer u een openbare Standard Load Balancer, die u toewijst [meerdere front-end-IP-adressen voor uitgaande verbindingen](#multife) en [Vermenigvuldig het aantal beschikbare poorten op de SNAT](#preallocatedports).  Maak een front-end-IP-configuratie, de regel en de back-endpool voor het activeren van het programmeren van SNAT naar het openbare IP-adres van de front-end.  De regel niet hoeft te werken en een statustest hoeft niet te voltooien.  Als u meerdere front-ends voor gebruik, evenals Inkomend (in plaats van alleen voor uitgaande), moet u aangepaste statustests en om ervoor te zorgen betrouwbaarheid.
 
 >[!NOTE]
 >In de meeste gevallen is uitputting van SNAT poorten het een teken van slecht ontwerp.  Zorg ervoor dat u weten waarom u uitput poorten zijn voordat u meer front-ends met SNAT poorten toevoegen.  U mogelijk een probleem dat tot mislukte later leiden kan worden maskeren.
@@ -228,7 +225,7 @@ Wanneer u een openbare Standard Load Balancer, die u toewijst [meerdere front-en
 
 [Vooraf toegewezen poorten](#preallocatedports) zijn toegewezen op basis van de grootte van de back-end-groep en onderverdeeld in lagen om onderbreking te minimaliseren als deel van de poorten moet opnieuw worden toegewezen om te voldoen aan de volgende grotere back-end-pool grootte laag.  Mogelijk hebt u een optie de intensiteit van het gebruik van SNAT-poort voor een bepaalde front-end verbeteren door het schalen van uw back-endpool naar de maximale grootte voor een bepaalde laag.  Dit is vereist voor de toepassing efficiënt uitschalen.
 
-2 virtuele machines in de back-endpool zou bijvoorbeeld 1024 SNAT poorten die per IP-configuratie, zodat u een totaal van 2048 SNAT poorten voor de implementatie beschikbaar.  Als de implementatie worden verhoogd tot 50 virtuele kunnen machines, zelfs als het aantal poorten blijft constante per virtuele machine, een totaal van 51,200 (50 x 1024) vooraf toegewezen SNAT poorten worden gebruikt door de implementatie.  Als u uitbreiden van uw implementatie wilt, controleert u het aantal [vooraf toegewezen poorten](#preallocatedports) per laag om te controleren of u uw scale-out naar het maximum voor de desbetreffende laag vorm.  In het voorgaande voorbeeld, als u had gekozen voor de schaal vergroten tot 51 in plaats van 50 instanties voortgang u naar de volgende laag en het einde van met minder SNAT poorten per VM ook zoals in totaal.
+Twee virtuele machines in de back-endpool zou bijvoorbeeld 1024 SNAT poorten die per IP-configuratie, zodat u een totaal van 2048 SNAT poorten voor de implementatie beschikbaar.  Als de implementatie worden verhoogd tot 50 virtuele kunnen machines, zelfs als het aantal poorten blijft constante per virtuele machine, een totaal van 51,200 (50 x 1024) vooraf toegewezen SNAT poorten worden gebruikt door de implementatie.  Als u uitbreiden van uw implementatie wilt, controleert u het aantal [vooraf toegewezen poorten](#preallocatedports) per laag om te controleren of u uw scale-out naar het maximum voor de desbetreffende laag vorm.  In het voorgaande voorbeeld, als u had gekozen voor de schaal vergroten tot 51 in plaats van 50 instanties voortgang u naar de volgende laag en het einde van met minder SNAT poorten per VM ook zoals in totaal.
 
 Als u de schaal vergroten tot de volgende grotere back-end-pool grootte laag, is er mogelijk voor een aantal uitgaande verbindingen met time-out als toegewezen poorten moeten opnieuw worden toegewezen.  Als u slechts enkele van de poorten SNAT, is uitschalen over de grootte van de volgende grotere back-end-groep niet van belang zijn.  De helft van de bestaande poorten wordt opnieuw telkens wanneer u naar de volgende laag van de back-end-groep worden toegewezen.  Als u niet dat dit wilt om te worden toegepast, moet u de vorm van uw implementatie om de laaggrootte van de.  Of zorg ervoor dat uw toepassing kan detecteren en probeer dit nodig is.  TCP-keepalives kan helpen in detecteren wanneer SNAT niet langer functie poorten vanwege opnieuw wordt toegewezen.
 
@@ -254,7 +251,7 @@ Als een NSG health test aanvragen van de code van de standaard AZURE_LOADBALANCE
 
 ## <a name="limitations"></a>Beperkingen
 - DisableOutboundSnat is niet beschikbaar als een optie bij het configureren van een regel in de portal voor taakverdeling.  Gebruik hulpprogramma's voor REST, sjabloon of -client in plaats daarvan.
-- Webwerkrollen zonder dat u een VNet en andere Microsoft-platform-services kunnen worden geopend als alleen een interne standaardversie van Load Balancer wordt gebruikt vanwege een neveneffect van hoe het pre-VNet-services en andere platform functie services. U moet niet afhankelijk zijn van dit neveneffect als de desbetreffende service zelf of het onderliggende platform kan zonder kennisgeving worden gewijzigd. U moet altijd aannemen dat u moet expliciet uitgaande verbinding maken indien gewenst bij het gebruik van een interne Standard Load Balancer alleen. De [SNAT standaard](#defaultsnat) scenario 3 wordt beschreven in dit artikel is niet beschikbaar.
+- Webwerkrollen zonder dat u een VNet en andere Microsoft-platform-services kunnen worden geopend als alleen een interne standaardversie van Load Balancer wordt gebruikt vanwege een neveneffect van hoe het pre-VNet-services en andere platform functie services. Vertrouw niet op dit neveneffect als de betreffende service zelf of het onderliggende platform kan zonder kennisgeving worden gewijzigd. U moet altijd aannemen dat u moet expliciet uitgaande verbinding maken indien gewenst bij het gebruik van een interne Standard Load Balancer alleen. De [SNAT standaard](#defaultsnat) scenario 3 wordt beschreven in dit artikel is niet beschikbaar.
 
 ## <a name="next-steps"></a>Volgende stappen
 

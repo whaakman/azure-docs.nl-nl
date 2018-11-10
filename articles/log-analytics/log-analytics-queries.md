@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: f5b3aa81a9a87d4dea45e4b2fefd58b1e8b04620
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
-ms.translationtype: MT
+ms.openlocfilehash: 2ab7e0c5d4a62b9c4fa0492b9bc9a19dfab36c74
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50957604"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51005050"
 ---
 # <a name="analyze-log-analytics-data-in-azure-monitor"></a>Analyseren van Log Analytics-gegevens in Azure Monitor
 
@@ -32,7 +32,7 @@ Logboekgegevens die zijn verzameld door Azure Monitor is opgeslagen in een Log A
 
 ## <a name="log-queries"></a>Logboeken-query 's
 
-U moet een logboekquery voor het ophalen van gegevens van Log Analytics.  Of u bent [analyseren van gegevens in de portal](log-analytics-log-search-portals.md), [configureren van een waarschuwingsregel](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) om te worden geïnformeerd over een bepaalde voorwaarde of bij het ophalen van gegevens met de [Log Analytics API](https://dev.loganalytics.io/), u wordt een query gebruiken om op te geven van de gegevens die u wilt.  In dit artikel wordt beschreven hoe de logboeken-query's worden gebruikt in Log Analytics en concepten die u weten moet voordat u een maakt.
+U moet een logboekquery voor het ophalen van gegevens van Log Analytics.  Of u bent [analyseren van gegevens in de portal](log-analytics-log-search-portals.md), [configureren van een waarschuwingsregel](../monitoring-and-diagnostics/alert-metric.md) om te worden geïnformeerd over een bepaalde voorwaarde of bij het ophalen van gegevens met de [Log Analytics API](https://dev.loganalytics.io/), u wordt een query gebruiken om op te geven van de gegevens die u wilt.  In dit artikel wordt beschreven hoe de logboeken-query's worden gebruikt in Log Analytics en concepten die u weten moet voordat u een maakt.
 
 
 

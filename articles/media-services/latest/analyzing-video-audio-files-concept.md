@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 10/23/2018
 ms.author: juliako
-ms.openlocfilehash: 90aa3551bb9e2d903fb0f66e3a9b464b0f4be928
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: a087c1a069e340c01f2eda657a3d0ecce768168c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49987610"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228127"
 ---
 # <a name="analyzing-video-and-audio-files"></a>Video-en audiobestanden analyseren
 
@@ -25,20 +25,29 @@ Azure Media Services v3 kunt u voor het extraheren van inzichten uit uw video en
 Voor het analyseren van uw inhoud met behulp van Media Services v3 voorinstellingen, maakt u een **transformeren** en het verzenden van een **taak** die gebruikmaakt van een van deze standaardinstellingen: **AudioAnalyzerPreset** of **VideoAnalyzerPreset**. Het volgende artikel ziet u hoe u **VideoAnalyzerPreset**: [zelfstudie: analyseren van video's met Azure Media Services](analyze-videos-tutorial-with-api.md).
 
 > [!NOTE]
-> Wanneer u een Video of Audio Analyzer voorinstellingen, gebruikt u de Azure portal om in te stellen van uw account 10 S3 gereserveerde Media-eenheden hebben. Zie voor meer informatie, [mediaverwerking schalen](../previous/media-services-scale-media-processing-overview.md).
+> Wanneer u voorinstellingen voor een Video of Audio Analyzer gebruikt, moet u de Azure-portal gebruiken om uw account in te stellen op 10 S3 Door media gereserveerde eenheden. Zie [Mediaverwerking schalen](../previous/media-services-scale-media-processing-overview.md) voor meer informatie.
 
-## <a name="audioanalyzerpreset"></a>AudioAnalyzerPreset
+## <a name="built-in-presets"></a>Ingebouwde voorinstellingen
 
-**AudioAnalyzerPreset** kunt u meerdere audio inzichten ophalen uit een audio- of -bestand. De uitvoer bevat een JSON-bestand (met de inzichten) en een VTT-bestand voor de audiotranscript. Deze definitie accepteert een eigenschap die Hiermee geeft u de taal van het invoerbestand in de vorm van een [BCP47](https://tools.ietf.org/html/bcp47) tekenreeks. De audio inzichten zijn onder andere:
+Media Services ondersteunt momenteel de volgende ingebouwde analyzer voorinstellingen:  
+
+|**Vooraf ingestelde naam**|**Scenario**|**Details**|
+|---|---|---|
+|**AudioAnalyzerPreset**|Audio analyseren|De definitie van een vooraf gedefinieerde set op basis van AI analysis-bewerkingen, met inbegrip van spraaktranscriptie toepassing. De vooraf ingestelde ondersteunt momenteel de verwerking van inhoud met een één audiotrack.<br/>U kunt de taal voor de nettolading van de audio opgeven in de invoer met behulp van de BCP-47-indeling van 'taal tag-regio' (bijvoorbeeld ' en-US'). De lijst met ondersteunde talen zijn 'en-US', "en-GB", "es-ES", 'es-MX', 'fr-FR', it-IT, ja-JP, pt-BR, zh-CN.|
+|**VideoAnalyzerPreset**|Analyse van audio en video|Inzichten (uitgebreide metagegevens) wordt geëxtraheerd uit de audio en video en voert een bestand met JSON-indeling. U kunt opgeven of u alleen audio inzicht wilt bij het verwerken van een videobestand. Zie voor meer informatie, [analyseren video](analyze-videos-tutorial-with-api.md).|
+
+### <a name="audioanalyzerpreset"></a>AudioAnalyzerPreset
+
+De vooraf gedefinieerde instellingen kunt u meerdere audio inzichten uit te extraheren uit een audio- of -bestand. De uitvoer bevat een JSON-bestand (met de inzichten) en een VTT-bestand voor de audiotranscript. Deze definitie accepteert een eigenschap die Hiermee geeft u de taal van het invoerbestand in de vorm van een [BCP47](https://tools.ietf.org/html/bcp47) tekenreeks. De audio inzichten zijn onder andere:
 
 * Audiotranscriptie – een transcript van de gesproken woorden met tijdstempels. Meerdere talen worden ondersteund
 * Sprekerherkenning indexeren – een toewijzing van de sprekers en de bijbehorende gesproken woorden
 * Sentimentanalyse voor spraak: de uitvoer van sentimentanalyse uitgevoerd op de audiotranscriptie
 * Trefwoorden: trefwoorden die worden opgehaald uit de audiotranscriptie.
 
-## <a name="videoanalyzerpreset"></a>VideoAnalyzerPreset
+### <a name="videoanalyzerpreset"></a>VideoAnalyzerPreset
 
-**VideoAnalyzerPreset** kunt u meerdere audio en video-inzichten ophalen uit een videobestand. De uitvoer bevat een JSON-bestand (met de inzichten), een VTT-bestand voor de videotranscriptie en een verzameling van miniatuurweergaven. Deze definitie accepteert ook een [BCP47](https://tools.ietf.org/html/bcp47) tekenreeks (die vertegenwoordigt de taal van de video) als een eigenschap. De inzichten in video's zijn onder andere de audio inzichten die hierboven worden vermeld en in de volgende extra items:
+De vooraf gedefinieerde instellingen kunt u meerdere audio en video-inzichten ophalen uit een videobestand. De uitvoer bevat een JSON-bestand (met de inzichten), een VTT-bestand voor de videotranscriptie en een verzameling van miniatuurweergaven. Deze definitie accepteert ook een [BCP47](https://tools.ietf.org/html/bcp47) tekenreeks (die vertegenwoordigt de taal van de video) als een eigenschap. De inzichten in video's zijn onder andere de audio inzichten die hierboven worden vermeld en in de volgende extra items:
 
 * Face volgen – de tijd gedurende welke gezichten aanwezig in de video zijn. Elk gezicht heeft een gezichts-id en bijbehorende verzameling van miniatuurweergaven
 * Visual tekst-de tekst die via optische tekenherkenning wordt gedetecteerd. De tekst is het tijd stempel en ook worden gebruikt om op te halen van trefwoorden (naast de audiotranscript)

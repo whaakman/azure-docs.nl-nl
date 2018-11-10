@@ -15,17 +15,17 @@ ms.topic: get-started-article
 ms.date: 07/13/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 7d11d238b921c63d1d2317371da07d8e49e8ac9d
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 41bbc2fd57617bb4bafb121f9c766b1f673dd075
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46301969"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228620"
 ---
 # <a name="azure-ad-connect-upgrade-from-dirsync"></a>Azure AD Connect: upgraden van DirSync
 Azure AD Connect is de opvolger van DirSync. In dit onderwerp vindt u de manieren voor het upgraden van DirSync. Deze stappen werken niet voor een upgrade van een andere versie van Azure AD Connect of Azure AD Sync.
 
-Zorg ervoor dat u, voordat u begint met de installatie van Azure AD Connect, [Azure AD Connect downloadt](http://go.microsoft.com/fwlink/?LinkId=615771) en de vereiste stappen in [Azure AD Connect: Hardware and prerequisites](how-to-connect-install-prerequisites.md) voltooit. In het bijzonder raden we u aan het volgende te lezen, omdat deze gebieden verschillen van DirSync:
+Zorg ervoor dat u, voordat u begint met de installatie van Azure AD Connect, [Azure AD Connect downloadt](https://go.microsoft.com/fwlink/?LinkId=615771) en de vereiste stappen in [Azure AD Connect: Hardware and prerequisites](how-to-connect-install-prerequisites.md) voltooit. In het bijzonder raden we u aan het volgende te lezen, omdat deze gebieden verschillen van DirSync:
 
 * De vereiste versie van .Net en PowerShell. Nieuwere versies zijn vereist op de server voor DirSync.
 * De proxyserverconfiguratie. Als u een proxyserver gebruikt om verbinding te maken met internet, moet deze instelling worden geconfigureerd voordat u een upgrade uitvoert. DirSync gebruikte altijd de proxyserver die was geconfigureerd voor de gebruiker die de installatie uitvoerde, maar Azure AD Connect gebruikt de instellingen van de machine.

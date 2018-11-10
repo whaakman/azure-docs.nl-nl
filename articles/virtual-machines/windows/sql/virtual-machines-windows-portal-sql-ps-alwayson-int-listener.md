@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/22/2017
 ms.author: mikeray
-ms.openlocfilehash: b4641c847db817df905f056847a26d003ac25fd1
-ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
+ms.openlocfilehash: ee7b403c2ebdc590bd428eff880769ae83632585
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43381792"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228212"
 ---
 # <a name="configure-one-or-more-always-on-availability-group-listeners---resource-manager"></a>Een of meer Always On availability group listeners - Resource Manager configureren
 Dit onderwerp wordt beschreven hoe u:
@@ -41,7 +41,7 @@ Verwante onderwerpen zijn onder andere:
 [!INCLUDE [Start your PowerShell session](../../../../includes/sql-vm-powershell.md)]
 
 ## <a name="configure-the-windows-firewall"></a>De Windows Firewall configureren
-De Windows Firewall voor SQL Server-toegang configureren. De firewall-regels toestaan TCP-verbindingen met de poorten gebruikt door de SQL Server-exemplaar en de listener-test. Zie voor gedetailleerde instructies [configureren van een Windows-Firewall for Database Engine Access](http://msdn.microsoft.com/library/ms175043.aspx#Anchor_1). Maak een inkomende regel voor de SQL Server-poort en de testpoort.
+De Windows Firewall voor SQL Server-toegang configureren. De firewall-regels toestaan TCP-verbindingen met de poorten gebruikt door de SQL Server-exemplaar en de listener-test. Zie voor gedetailleerde instructies [configureren van een Windows-Firewall for Database Engine Access](https://msdn.microsoft.com/library/ms175043.aspx#Anchor_1). Maak een inkomende regel voor de SQL Server-poort en de testpoort.
 
 Als u beperken van toegang met een Azure Network Security Group, zorg ervoor dat de regels voor toestaan de back-end SQL Server VM-IP-adressen bevatten, en de load balancer zwevend IP-adressen voor de AG-listener en core IP-adres van het cluster, indien van toepassing.
 
@@ -110,7 +110,7 @@ De front-endpoort is de poort die toepassingen gebruiken om verbinding maken met
 > Elk IP-adres vereist voor SQL Server-beschikbaarheidsgroepen, een specifieke testpoort. Als u één IP-adres op een load balancer testpoort 59999 gebruikt, kunnen geen andere IP-adressen op die load balancer testpoort 59999 gebruiken.
 
 * Zie voor meer informatie over de load balancer limieten **privé-front-end-IP per load balancer** onder [Netwerklimieten - Azure Resource Manager](../../../azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits).
-* Zie voor meer informatie over de beschikbaarheid van groep limieten [beperkingen (Availability Groups)](http://msdn.microsoft.com/library/ff878487.aspx#RestrictionsAG).
+* Zie voor meer informatie over de beschikbaarheid van groep limieten [beperkingen (Availability Groups)](https://msdn.microsoft.com/library/ff878487.aspx#RestrictionsAG).
 
 Het volgende script wordt een nieuw IP-adres toegevoegd aan een bestaande load balancer. De ILB maakt gebruik van de listener-poort voor de load balancer-front-endpoort. Deze poort kan niet de poort op die SQL Server luistert. Voor standaardexemplaren van SQL Server is de poort 1433. De load balancer-regel voor een beschikbaarheidsgroep vereist een zwevend IP (direct server return) zodat de back-end-poort hetzelfde als de front-endpoort is. Werk de variabelen voor uw omgeving. 
 
@@ -188,7 +188,7 @@ De verbinding wilt testen:
 De SQLCMD-verbinding wordt automatisch verbinding met elk exemplaar van SQL Server als host fungeert voor de primaire replica. 
 
 > [!NOTE]
-> Zorg ervoor dat de poort die u opgeeft geopend op de firewall van beide SQL-Servers is. Beide servers vereist een inkomende regel voor de TCP-poort die u gebruikt. Zie [toevoegen of bewerken firewallregel](http://technet.microsoft.com/library/cc753558.aspx) voor meer informatie. 
+> Zorg ervoor dat de poort die u opgeeft geopend op de firewall van beide SQL-Servers is. Beide servers vereist een inkomende regel voor de TCP-poort die u gebruikt. Zie [toevoegen of bewerken firewallregel](https://technet.microsoft.com/library/cc753558.aspx) voor meer informatie. 
 > 
 > 
 
@@ -205,9 +205,9 @@ Zie voor meer informatie, [configureren altijd op beschikbaarheidsgroep in Azure
 ## <a name="powershell-cmdlets"></a>PowerShell-cmdlets
 De volgende PowerShell-cmdlets gebruiken om te maken van een interne load balancer voor virtuele machines van Azure.
 
-* [Nieuwe-AzureRmLoadBalancer](http://msdn.microsoft.com/library/mt619450.aspx) wordt een load balancer. 
-* [Nieuwe AzureRMLoadBalancerFrontendIpConfig](http://msdn.microsoft.com/library/mt603510.aspx) maakt een front-end-IP-configuratie voor een load balancer. 
-* [Nieuwe-AzureRmLoadBalancerRuleConfig](http://msdn.microsoft.com/library/mt619391.aspx) maakt de regelconfiguratie van een voor een load balancer. 
-* [Nieuwe-AzureRmLoadBalancerBackendAddressPoolConfig](http://msdn.microsoft.com/library/mt603791.aspx) maakt u een back-end-pool-adresconfiguratie voor een load balancer. 
-* [Nieuwe-AzureRmLoadBalancerProbeConfig](http://msdn.microsoft.com/library/mt603847.aspx) maakt u een Testconfiguratie voor een load balancer.
-* [Remove-AzureRmLoadBalancer](http://msdn.microsoft.com/library/mt603862.aspx) Hiermee verwijdert u een load balancer uit een Azure-resourcegroep.
+* [Nieuwe-AzureRmLoadBalancer](https://msdn.microsoft.com/library/mt619450.aspx) wordt een load balancer. 
+* [Nieuwe AzureRMLoadBalancerFrontendIpConfig](https://msdn.microsoft.com/library/mt603510.aspx) maakt een front-end-IP-configuratie voor een load balancer. 
+* [Nieuwe-AzureRmLoadBalancerRuleConfig](https://msdn.microsoft.com/library/mt619391.aspx) maakt de regelconfiguratie van een voor een load balancer. 
+* [Nieuwe-AzureRmLoadBalancerBackendAddressPoolConfig](https://msdn.microsoft.com/library/mt603791.aspx) maakt u een back-end-pool-adresconfiguratie voor een load balancer. 
+* [Nieuwe-AzureRmLoadBalancerProbeConfig](https://msdn.microsoft.com/library/mt603847.aspx) maakt u een Testconfiguratie voor een load balancer.
+* [Remove-AzureRmLoadBalancer](https://msdn.microsoft.com/library/mt603862.aspx) Hiermee verwijdert u een load balancer uit een Azure-resourcegroep.

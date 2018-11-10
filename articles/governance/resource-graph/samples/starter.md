@@ -4,17 +4,17 @@ description: Gebruik Azure Resource Graph om een aantal starter query's uit te v
 services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 10/22/2018
 ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: ba3df8f0f7fa0443e64972647b6f146f756e62d6
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: d5b2bb719bcd5c2145740a02bc408385953ff739
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49646625"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50084527"
 ---
 # <a name="starter-resource-graph-queries"></a>Starter query's van Resource Graph
 
@@ -38,7 +38,7 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 
 ## <a name="language-support"></a>Taalondersteuning
 
-Azure CLI (met een extensie) en Azure PowerShell (met een module) ondersteunen Azure Resource Graph. Controleer voordat u een van de volgende query's uitvoert of uw omgeving gereed is. Zie [Azure CLI](../first-query-azurecli.md#add-the-resource-graph-extension) en [Azure PowerShell](../first-query-powershell.md#add-the-resource-graph-module) voor stappen voor het installeren en valideren van uw gewenste shellomgeving.
+Azure CLI (met een extensie) en Azure PowerShell (met een module) ondersteunen Azure Resource Graph. Controleer voordat u een van de volgende query's uitvoert, of uw omgeving gereed is. Zie [Azure CLI](../first-query-azurecli.md#add-the-resource-graph-extension) en [Azure PowerShell](../first-query-powershell.md#add-the-resource-graph-module) voor stappen voor het installeren en valideren van uw gewenste shellomgeving.
 
 ## <a name="count-resources"></a>Azure-resources tellen
 
@@ -58,7 +58,7 @@ Search-AzureRmGraph -Query "summarize count()"
 
 ## <a name="list-resources"></a>Een lijst van resources weergeven, gesorteerd op naam
 
-Zonder zich te beperken tot een bepaald type resource of een bepaalde eigenschap, retourneert deze query alleen de **naam**, het **type** en de **locatie** van de Azure-resources. `order by` wordt echter gebruikt om ze in oplopende (`asc`) volgorde te sorteren op de eigenschap **naam**.
+Deze query retourneert een willekeurig resourcetype, maar alleen de eigenschappen **naam**, **type** en **locatie**. De query maakt gebruik van `order by` om de eigenschappen in oplopende volgorde (`asc`) op de eigenschap **naam** te sorteren.
 
 ```Query
 project name, type, location
@@ -75,8 +75,7 @@ Search-AzureRmGraph -Query "project name, type, location | order by name asc"
 
 ## <a name="show-vms"></a>Alle virtuele machines weergeven, aflopend geordend op naam
 
-Als we alleen een lijst van virtuele machines willen (die het type `Microsoft.Compute/virtualMachines` hebben), kunnen we in plaats van alle Azure-resources op te vragen, de resultaten filteren op de eigenschap **type**.
-Net als in de vorige query verandert u met `desc` de `order by` in aflopend. De `=~` in de type-overeenkomst betekent in Resource Graph dat de sortering hoofdlettergevoelig is.
+Als u alleen virtuele machines wilt vermelden (die van het type `Microsoft.Compute/virtualMachines` zijn), kan een overeenkomst worden gezocht met de eigenschap **type** in de resultaten. Net als in de vorige query verandert u met `desc` de `order by` in aflopend. De `=~` in de type-overeenkomst betekent in Resource Graph dat de sortering hoofdlettergevoelig is.
 
 ```Query
 project name, location, type
@@ -112,7 +111,7 @@ Search-AzureRmGraph -Query "where type =~ 'Microsoft.Compute/virtualMachines' | 
 
 ## <a name="count-os"></a>Virtuele machines tellen op type besturingssysteem
 
-Voortbouwend op de vorige query, beperken we de Azure-resources nog steeds op het type `Microsoft.Compute/virtualMachines`, maar we beperken niet meer het aantal records dat wordt geretourneerd.
+Voortbouwend op de vorige query zijn we nog steeds een grens aan het stellen aan het aantal Azure-resources van het type `Microsoft.Compute/virtualMachines`, maar beperken we niet langer het aantal geretourneerde records.
 In plaats daarvan hebben we `summarize` en `count()` gebruikt om te definiëren hoe we de waarden willen groeperen en aggregeren op basis van de eigenschap. In dit voorbeeld is dat `properties.storageProfile.osDisk.osType`. Voor een voorbeeld van hoe deze tekenreeks er uitziet in het volledige object, raadpleegt u [Resources verkennen - detectie van virtuele machines](../concepts/explore-resources.md#virtual-machine-discovery).
 
 ```Query
@@ -165,7 +164,8 @@ Search-AzureRmGraph -Query "where type contains 'storage' | distinct type"
 
 ## <a name="list-publicip"></a>Een lijst van alle openbare IP-adressen weergeven
 
-Net als bij de vorige query vindt deze query alles dat een type heeft met het woord **publicIPAddresses**. Deze query borduurt voort op dit patroon om de resultaten uit te sluiten waarvan **properties.ipAddress** null is, zodat alleen **properties.ipAddress** wordt geretourneerd, en om de resultaten te `limit` tot de top 100. Afhankelijk van uw gekozen shell, kan het zijn dat u de aanhalingstekens tussen escape-tekens moet plaatsen.
+Net als bij de vorige query vindt deze query alles dat een type is met het woord **publicIPAddresses**.
+Deze query borduurt voort op dit patroon om de resultaten uit te sluiten waarvan **properties.ipAddress** null is, zodat alleen **properties.ipAddress** wordt geretourneerd, en om de resultaten te `limit` tot de top 100. Afhankelijk van uw gekozen shell, kan het zijn dat u de aanhalingstekens tussen escape-tekens moet plaatsen.
 
 ```Query
 where type contains 'publicIPAddresses' and properties.ipAddress != ''
@@ -215,7 +215,7 @@ az graph query -q "where tags.environment=~'internal' | project name"
 Search-AzureRmGraph -Query "where tags.environment=~'internal' | project name"
 ```
 
-Als het ook nodig is om op te geven welke tags een resource heeft en welke waarde die tags hebben, kan dit voorbeeld worden uitgebreid door de **tags** van de eigenschap toe te voegen aan het trefwoord `project`.
+Als u ook wilt opgeven welke tags plus de bijbehorende waarden een resource heeft, voegt u de eigenschap **tags** aan het trefwoord `project` toe.
 
 ```Query
 where tags.environment=~'internal'
@@ -232,7 +232,7 @@ Search-AzureRmGraph -Query "where tags.environment=~'internal' | project name, t
 
 ## <a name="list-specific-tag"></a>Een lijst weergeven van alle opslagaccounts met een specifieke tagwaarde
 
-Door de filtermogelijkheid van het vorige voorbeeld te combineren door het Azure-resourcetype te filteren op de eigenschap **type**, kunnen we onze zoekfunctie naar bepaalde typen Azure-resources beperken tot een specifieke tagnaam en een specifieke tagwaarde.
+Combineer de filterfunctie uit het vorige voorbeeld en filter het Azure-resourcetype op de eigenschap **type**. Deze query beperkt ook het zoeken naar specifieke typen Azure-resources met een specifieke tagnaam- en waarde.
 
 ```Query
 where type =~ 'Microsoft.Storage/storageAccounts'

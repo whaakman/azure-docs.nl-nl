@@ -10,12 +10,12 @@ ms.component: design
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 1fa31b23aa8df73b13e73da80096596bf1ce2db3
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 92e16104edb46298d6e503b7546449ed71041047
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44093293"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51005747"
 ---
 # <a name="azure-sql-data-warehouse---massively-parallel-processing-mpp-architecture"></a>Azure SQL datawarehouse - krachtige parallelle verwerking (MPP)-architectuur
 Meer informatie over hoe Azure SQL Data Warehouse combineert met massively parallelle verwerking (MPP) met Azure-opslag om hoge prestaties en schaalbaarheid te realiseren. 
@@ -23,7 +23,7 @@ Meer informatie over hoe Azure SQL Data Warehouse combineert met massively paral
 > [!VIDEO https://www.youtube.com/embed/PlyQ8yOb8kc]
 
 ## <a name="mpp-architecture-components"></a>Onderdelen van de MPP-architectuur
-SQL Data Warehouse maakt gebruik van een uitbreidbare architectuur voor de distributie van rekenkundige verwerking van gegevens over meerdere knooppunten. De eenheid van de schaal is een abstractie van de compute-kracht die bekend als een eenheid van datawarehouse staat. SQL Data Warehouse scheidt compute uit de opslag zodat waar u om te schalen in uw systeem onafhankelijk van de gegevens COMPUTE.
+SQL Data Warehouse maakt gebruik van een uitbreidbare architectuur voor de distributie van rekenkundige verwerking van gegevens over meerdere knooppunten. De eenheid van de schaal is een abstractie van de compute-kracht die bekend als staat een [datawarehouse unit](what-is-a-data-warehouse-unit-dwu-cdwu.md). SQL Data Warehouse scheidt compute uit de opslag zodat waar u om te schalen in uw systeem onafhankelijk van de gegevens COMPUTE.
 
 ![Architectuur van SQL Data Warehouse](media/massively-parallel-processing-mpp-architecture/massively-parallel-processing-mpp-architecture.png)
 

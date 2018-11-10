@@ -27,12 +27,12 @@ Zie voor meer informatie over de onderdelen van Blockchain Workbench [Azure Bloc
 
 Blockchain Workbench kunt u een grootboek blockchain, samen met een set van relevante Azure-services meestal gebruikt voor het bouwen van een blockchain-gebaseerde toepassing implementeren. Blockchain Workbench implementeren resulteert in de volgende Azure-services binnen een resourcegroep in uw Azure-abonnement wordt ingericht.
 
-* 1 event Grid-onderwerp
+* 1 Event Grid-Topic
 * 1-Service Bus Namespace
-* 1 application Insights
+* 1 Application Insights
 * 1 SQL-Database (Standard S0)
-* 2 app Services (standaard)
-* 2 azure-Sleutelkluizen
+* 2 App Services (standaard)
+* 2 Azure Key Vaults
 * 2 azure Storage-accounts (Standard LRS)
 * 2 virtuele-machineschaalsets (voor validatie en worker-knooppunten)
 * 2 virtuele netwerken (met inbegrip van de load balancer, netwerkbeveiligingsgroep en openbaar IP-adres voor elk virtueel netwerk)

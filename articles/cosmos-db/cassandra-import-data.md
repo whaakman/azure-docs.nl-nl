@@ -9,14 +9,14 @@ ms.author: govindk
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.reviewer: sngun
-ms.openlocfilehash: f73a201a25bb2f975e8a261a6c21aa7b066c3a7c
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 56fc07c6d775ee8015ce244acb7782607bda802a
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48247847"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50739784"
 ---
-# <a name="migrate-your-data-to-azure-cosmos-db-cassandra-api-account"></a>Gegevens migreren naar een Azure Cosmos DB Cassandra-API-account
+# <a name="tutorial-migrate-your-data-to-azure-cosmos-db-cassandra-api-account"></a>Zelfstudie: Gegevens migreren naar een Azure Cosmos DB Cassandra-API-account
 
 In deze zelfstudie vindt u instructies voor het migreren van Apache Cassandra-gegevens naar de Cassandra-API van Azure Cosmos DB. 
 
@@ -66,7 +66,7 @@ Nadat u de vereisten van uw bestaande workload hebt geïdentificeerd, maakt u ee
 
 * **Doorvoer verhogen**: de duur van de gegevensmigratie is afhankelijk van de hoeveelheid doorvoer die u voor de tabellen hebt ingericht in Azure Cosmos DB. Verhoog de doorvoer voor de duur van de migratie. Met een hogere doorvoer voorkomt u frequentielimieten en kost migreren minder tijd. Nadat u de migratie hebt voltooid, verlaagt u de doorvoer om kosten te besparen. Zie [Doorvoer instellen](set-throughput.md) voor Azure Cosmos DB-containers voor meer informatie over het verhogen van de doorvoer. Het is ook raadzaam om het Azure Cosmos DB-account in dezelfde regio te plaatsen als uw brondatabase. 
 
-* **SSL inschakelen**: voor Azure Cosmos DB gelden strenge beveiligingsvereisten en -normen. Schakel SSL in wanneer u uw account gebruikt. Wanneer u CQL gebruikt met SSH, hebt u een optie om SSL-informatie op te geven.
+* **Schakel SSL in:** voor Azure Cosmos DB gelden strenge beveiligingsvereisten en -normen. Schakel SSL in wanneer u uw account gebruikt. Wanneer u CQL gebruikt met SSH, hebt u een optie om SSL-informatie op te geven.
 
 ## <a name="options-to-migrate-data"></a>Mogelijkheden voor migreren van gegevens
 
@@ -101,7 +101,7 @@ Gebruik de volgende stappen om gegevens met Spark naar het Azure Cosmos DB Cassa
 
 - Verplaats gegevens naar een Cassandra API-eindpunt met behulp van een [tabel-kopieerbewerking](cassandra-spark-table-copy-ops.md) 
 
-Het migreren van gegevens met behulp van Spark-taken wordt aanbevolen als er gegevens aanwezig zijn in een bestaand cluster op virtuele Azure-machines of in een andere cloud. Hiervoor moet Spark voor eenmalige of regelmatige gegevensopname worden ingesteld als intermediair. U kunt deze migratie versnellen met behulp van ExpressRoute-connectiviteit tussen on-premises en Azure. 
+Het migreren van gegevens met behulp van Spark-taken wordt aanbevolen als er gegevens aanwezig zijn in een bestaand cluster op virtuele Azure-machines of in een andere cloud. Voor deze optie moet Spark voor eenmalige of regelmatige gegevensopname worden ingesteld als intermediair. U kunt deze migratie versnellen met behulp van ExpressRoute-connectiviteit tussen on-premises en Azure. 
 
 ## <a name="next-steps"></a>Volgende stappen
 

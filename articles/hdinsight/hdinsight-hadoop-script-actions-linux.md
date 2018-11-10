@@ -2,19 +2,19 @@
 title: Ontwikkeling van scriptacties met HDInsight op basis van Linux - Azure
 description: Informatie over het gebruik van Bash-scripts naar HDInsight op basis van Linux-clusters aanpassen. Het script action-functie van HDInsight kunt u uitvoeren van scripts tijdens of na het maken van clusters. Scripts kunnen worden gebruikt om de cluster-configuratie-instellingen wijzigen of andere software geïnstalleerd.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/10/2018
-ms.author: jasonh
-ms.openlocfilehash: 9a10620e3a388fa47076afd54e1789607e5ca47e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.author: hrasheed
+ms.openlocfilehash: 90bba26bf1fd941085568cacd4d005f10eaed1b8
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46986248"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51005390"
 ---
 # <a name="script-action-development-with-hdinsight"></a>Ontwikkeling van scriptacties met HDInsight
 

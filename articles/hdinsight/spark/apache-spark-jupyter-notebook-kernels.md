@@ -3,19 +3,19 @@ title: Kernels voor Jupyter-notebook in Spark-clusters in Azure HDInsight
 description: Meer informatie over de PySpark, PySpark3 en Spark kernels voor Jupyter-notitieblok met Spark-clusters in Azure HDInsight.
 keywords: jupyter-notebook in spark, spark jupyter
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 02/22/2018
-ms.author: jasonh
-ms.openlocfilehash: 98c9f260b4be1e335e22b5c68a76e9ffb7316236
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.author: hrasheed
+ms.openlocfilehash: d3694d49256b9844f6e3a76ce83f53be4b42ca48
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43697863"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51006087"
 ---
 # <a name="kernels-for-jupyter-notebook-on-spark-clusters-in-azure-hdinsight"></a>Kernels voor Jupyter-notebook in Spark-clusters in Azure HDInsight 
 

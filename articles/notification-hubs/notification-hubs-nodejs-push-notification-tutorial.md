@@ -15,12 +15,12 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: 49ee6b7fabe78c2328a2a772347c612ad38cfe7a
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 8e4c97a710cc9e6d3af4ebdd7dc97bda9f8d02ed
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44091718"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228433"
 ---
 # <a name="sending-push-notifications-with-azure-notification-hubs-and-nodejs"></a>Pushmeldingen verzenden met Azure Notification Hubs en Node.js
 [!INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
@@ -43,7 +43,7 @@ De behandelde scenario's zijn onder andere pushmeldingen verzenden naar toepassi
 Zie voor meer informatie over notification hubs, de [Vervolgstappen](#next) sectie.
 
 ## <a name="what-are-notification-hubs"></a>Wat is Notification Hubs?
-Azure Notification Hubs bieden een gemakkelijk te gebruiken, platformonafhankelijke, schaalbare infrastructuur voor het verzenden van pushmeldingen naar mobiele apparaten. Zie voor meer informatie over de service-infrastructuur, de [Azure Notification Hubs](http://msdn.microsoft.com/library/windowsazure/jj927170.aspx) pagina.
+Azure Notification Hubs bieden een gemakkelijk te gebruiken, platformonafhankelijke, schaalbare infrastructuur voor het verzenden van pushmeldingen naar mobiele apparaten. Zie voor meer informatie over de service-infrastructuur, de [Azure Notification Hubs](https://msdn.microsoft.com/library/windowsazure/jj927170.aspx) pagina.
 
 ## <a name="create-a-nodejs-application"></a>Een Node.js-toepassing maken
 De eerste stap in deze zelfstudie is het maken van een nieuwe lege Node.js-toepassing. Zie voor instructies over het maken van een Node.js-toepassing [maken en implementeren van een Node.js-toepassing naar Azure Web Site][nodejswebsite], [Node.js-Cloudservice] [ Node.js Cloud Service] met behulp van Windows PowerShell of [-website met WebMatrix][webmatrix].
@@ -141,11 +141,11 @@ De **MpnsService** object biedt een **verzenden** methode die kan worden gebruik
 * **Tags** -de label-id. Als er geen tag is opgegeven, wordt de melding wordt verzonden naar alle clients.
 * **Nettolading** -XML-nettolading van het bericht.
 * **Doelnaam**  -  `toast` voor pop-upmeldingen. `token` voor de tegel meldingen.
-* **NotificationClass** -de prioriteit van de melding. Zie de **HTTP-Header elementen** sectie van de [Pushmeldingen verzenden vanaf een server](http://msdn.microsoft.com/library/hh221551.aspx) document voor geldige waarden.
+* **NotificationClass** -de prioriteit van de melding. Zie de **HTTP-Header elementen** sectie van de [Pushmeldingen verzenden vanaf een server](https://msdn.microsoft.com/library/hh221551.aspx) document voor geldige waarden.
 * **Opties voor** - optioneel aanvraagheaders.
 * **Callback** -de callback-functie.
 
-Voor een lijst van geldige **TargetName**, **NotificationClass** en opties voor kopteksten, bekijk de [Pushmeldingen verzenden vanaf een server](http://msdn.microsoft.com/library/hh221551.aspx) pagina.
+Voor een lijst van geldige **TargetName**, **NotificationClass** en opties voor kopteksten, bekijk de [Pushmeldingen verzenden vanaf een server](https://msdn.microsoft.com/library/hh221551.aspx) pagina.
 
 Het volgende voorbeeld maakt gebruik van code de **MpnsService** exemplaar die worden weergegeven door de **NotificationHubService** een pop-upmelding verzenden:
 
@@ -165,7 +165,7 @@ De **WnsService** object biedt een **verzenden** methode die kan worden gebruikt
 * **Opties voor** - optioneel aanvraagheaders.
 * **Callback** -de callback-functie.
 
-Zie voor een lijst van geldige typen en aanvraagheaders [Push notification service aanvraag- en reactieheaders](http://msdn.microsoft.com/library/windows/apps/hh465435.aspx).
+Zie voor een lijst van geldige typen en aanvraagheaders [Push notification service aanvraag- en reactieheaders](https://msdn.microsoft.com/library/windows/apps/hh465435.aspx).
 
 De volgende code gebruikt de **WnsService** exemplaar die worden weergegeven door de **NotificationHubService** een pop-upmelding verzenden naar een UWP-app:
 

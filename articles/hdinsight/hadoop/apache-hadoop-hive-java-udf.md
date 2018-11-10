@@ -2,19 +2,19 @@
 title: Java-de gebruiker gedefinieerde functie (UDF's) met Hive in HDInsight - Azure
 description: Informatie over het maken van een op Java gebaseerde-de gebruiker gedefinieerde functie (UDF's) die geschikt is voor Hive. In dit voorbeeld UDF converteert een tabel met teksttekenreeksen naar kleine letters.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.author: jasonh
-ms.openlocfilehash: b2a4c7ce3ac91ade497ca59a8c2ca4fe642811a9
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.author: hrasheed
+ms.openlocfilehash: 3d8f1d75b8e61bd611f58ed953a8357fb4a47c78
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43047500"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51006240"
 ---
 # <a name="use-a-java-udf-with-hive-in-hdinsight"></a>Gebruik van een Java UDF met Hive in HDInsight
 

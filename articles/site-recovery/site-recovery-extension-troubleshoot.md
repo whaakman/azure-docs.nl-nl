@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 10/29/2018
 ms.author: asgang
-ms.openlocfilehash: 3090dd9e0d9681dbf77f052e9d324f2add0a1910
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: ddbfdc9928122373b82d043fac0777576c5fe99e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50215035"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51227470"
 ---
 # <a name="troubleshoot-issues-with-the-azure-site-recovery-agent"></a>Problemen oplossen met de Azure Site Recovery-agent
 
@@ -64,7 +64,7 @@ De VM-agent is beschadigd of de service is gestopt. De VM-agent opnieuw is geïn
 1. Bepalen of de ' Windows Azure Guest Agent-service ' wordt uitgevoerd in de VM-services (services.msc). Probeer het opnieuw starten de ' Windows Azure Guest Agent-service '.    
 2. Als de Windows Azure Guest Agent-service niet worden weergegeven in de services in het Configuratiescherm, gaat u naar **programma's en onderdelen** om te bepalen of de Windows Guest Agent-service is geïnstalleerd.
 4. Als de Windows Azure Guest-Agent wordt weergegeven in **programma's en onderdelen**, verwijdert u de Windows Guest Agent.
-5. Download en installeer de [meest recente versie van de agent-MSI](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). U moet beheerdersrechten om de installatie te voltooien.
+5. Download en installeer de [meest recente versie van de agent-MSI](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). U moet beheerdersrechten om de installatie te voltooien.
 6. Controleer of dat de Windows Azure Guest Agent-services wordt weergegeven in de services.
 7. Start de beveiligingstaak opnieuw.
 

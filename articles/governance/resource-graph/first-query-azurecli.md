@@ -4,17 +4,17 @@ description: Dit artikel helpt u bij de stappen om de Resource Graph-extensie vo
 services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 10/22/2018
 ms.topic: quickstart
 ms.service: resource-graph
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: df01a57cda063e301efbc4d99f3bac8dbb4b2e66
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: a252dd6698a5e4f724fcbbf821b01f63ab4f529b
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47054163"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50086808"
 ---
 # <a name="run-your-first-resource-graph-query-using-azure-cli"></a>Uw eerste Resource Graph-query uitvoeren met Azure CLI
 
@@ -28,7 +28,7 @@ Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure
 
 De extensie moet worden toegevoegd opdat Azure CLI query's kan uitvoeren voor Azure Resource Graph. Deze extensie werkt overal waar Azure CLI kan worden gebruikt, met inbegrip van [bash in Windows 10](/windows/wsl/install-win10), [Cloud Shell](https://shell.azure.com) (zowel zelfstandige als in de portal), de [Azure CLI Docker-installatiekopie](https://hub.docker.com/r/microsoft/azure-cli/), of lokaal geïnstalleerd.
 
-1. Controleer of de meest recente versie van Azure CLI is geïnstalleerd (minimaal **2.0.45**) Als deze nog niet is geïnstalleerd, voert u [deze instructies](/cli/azure/install-azure-cli-windows?view=azure-cli-latest) uit.
+1. Controleer of de meest recente versie van Azure CLI is geïnstalleerd (minimaal **2.0.45**). Als deze nog niet is geïnstalleerd, volgt u [deze instructies](/cli/azure/install-azure-cli-windows?view=azure-cli-latest) op.
 
 1. In de gewenste Azure CLI-omgeving kunt u deze importeren met de volgende opdracht:
 
@@ -49,7 +49,7 @@ De extensie moet worden toegevoegd opdat Azure CLI query's kan uitvoeren voor Az
 
 ## <a name="run-your-first-resource-graph-query"></a>Uw eerste Resource Graph-query uitvoeren
 
-Nu de Azure CLI-extensie is toegevoegd aan uw gewenste omgeving, kunt u een eenvoudige Resource Graph-query proberen uit te voeren. De query retourneert de eerste vijf Azure-resources met de **naam** en het **resourcetype** van elke resource.
+Nu de Azure CLI-extensie is toegevoegd aan uw gewenste omgeving, kunt u een eenvoudige Resource Graph-query uitvoeren. De query retourneert de eerste vijf Azure-resources met de **naam** en het **resourcetype** van elke resource.
 
 1. Voer als volgt uw eerste Azure Resource Graph-query uit met de extensie `graph` en de opdracht `query`:
 
@@ -73,7 +73,7 @@ Nu de Azure CLI-extensie is toegevoegd aan uw gewenste omgeving, kunt u een eenv
   > [!NOTE]
   > Net als bij de eerste query zal deze query waarschijnlijk per aanvraag een andere set resources opleveren als de query meerdere keren wordt uitgevoerd. De volgorde van de queryopdrachten is belangrijk. In dit voorbeeld komt `order by` na `limit`. Hiermee worden de queryresultaten eerst beperkt en daarna geordend.
 
-1. Werk de query als volgt bij om eerst te `order by` op de eigenschap **naam** en daarna de resultaten van de top 5 te `limit`:
+1. Werk de query als volgt bij om eerst te `order by` op de eigenschap **naam** en daarna de resultaten van de top vijf te `limit`:
 
    ```azurecli-interactive
    # Run Azure Resource Graph query with `order by` first, then with `limit`

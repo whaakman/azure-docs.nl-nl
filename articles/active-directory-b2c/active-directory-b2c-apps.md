@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/13/2018
+ms.date: 11/01/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 7410dadabf9fda2eb36531991d1d7ff3c3747e2c
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 7671a0a99e12463fcce5ff33fbcba7e8677dde05
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406514"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51006191"
 ---
 # <a name="applications-types-that-can-be-used-in-active-directory-b2c"></a>Typen toepassingen die kunnen worden gebruikt in Active Directory B2C
 
@@ -24,7 +24,7 @@ Azure Active Directory (Azure AD) B2C ondersteunt verificatie voor een verscheid
 Elke toepassing die gebruikmaakt van Azure AD B2C moet zijn geregistreerd in uw [Azure AD B2C-tenant](active-directory-b2c-get-started.md) met behulp van de [Azure Portal](https://portal.azure.com/). Het registratieproces voor de toepassing verzamelt en waarden, zoals toegewezen:
 
 * Een **toepassings-ID** die uniek voor uw toepassing.
-* Een **omleidings-URI** die kunnen worden gebruikt om te leiden reacties terug naar uw toepassing.
+* Een **antwoord-URL** die kunnen worden gebruikt om te leiden reacties terug naar uw toepassing.
 
 Elk verzoek dat naar Azure AD B2C wordt verzonden, geeft een **beleid** op. Een beleid regelt het gedrag van Azure AD. U kunt deze eindpunten ook gebruiken om een uiterst aanpasbare verzameling gebruikerservaringen te maken. Algemene beleidsregels zijn beleidsregels voor registratie, aanmelding en het bewerken van profielen. Als u niet bekend bent met beleidsregels, lees dan over het [uitbreidbaar beleidsframework](active-directory-b2c-reference-policies.md) van Azure AD B2C voordat u verder gaat.
 
@@ -112,9 +112,9 @@ In deze stroom voert de toepassing wordt uitgevoerd [beleid](active-directory-b2
 
 ## <a name="current-limitations"></a>Huidige beperkingen
 
-Azure AD B2C biedt momenteel geen ondersteuning voor de volgende typen apps, maar hier wordt aan gewerkt. 
+### <a name="application-not-supported"></a>Toepassing niet ondersteund 
 
-### <a name="daemonsserver-side-applications"></a>Daemons/server-side '-toepassingen
+#### <a name="daemonsserver-side-applications"></a>Daemons/server-side '-toepassingen
 
 Toepassingen die langlopende processen bevatten of die werken zonder de aanwezigheid van een gebruiker moeten ook een manier om toegang te krijgen tot beveiligde bronnen, zoals web-API's. Deze toepassingen kunnen verifiëren en tokens verkrijgen met behulp van de identiteit van de toepassing (in plaats van een gedelegeerde gebruikersidentiteit) en met behulp van de OAuth 2.0-client clientreferenties-stroom. Client referentie stroom is niet hetzelfde als op namens-stroom en op namens-stroom mogen niet worden gebruikt voor verificatie van de server-naar-server.
 
@@ -122,9 +122,60 @@ Hoewel client referentie stroom is momenteel niet ondersteund door Azure AD B2C,
 
 Als u de client referentie stroom instelt, Zie [Azure Active Directory v2.0 en de OAuth 2.0-client referenties stroom](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-protocols-oauth-client-creds). Een geslaagde verificatie resulteert in de ontvangst van een token dat is geformatteerd zodat deze kan worden gebruikt door Azure AD zoals beschreven in [naslaginformatie over Azure AD-tokens](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims).
 
-
-### <a name="web-api-chains-on-behalf-of-flow"></a>Web-API-ketens (namens-stroom)
+#### <a name="web-api-chains-on-behalf-of-flow"></a>Web-API-ketens (namens-stroom)
 
 Veel architecturen bevatten een web-API die een andere downstream web-API moet aanroepen, waarbij beide zijn beveiligd door Azure AD B2C. Dit scenario is gemeenschappelijk in systeemeigen clients met een web-API-back-end. Vervolgens wordt een onlineservice van Microsoft aangeroepen, zoals de Azure AD Graph API.
 
 Dit scenario met web-API-keten kan worden ondersteund met behulp van de OAuth 2.0 JWT bearer-referentietoekenning, ook wel de namens-stroom genoemd.  De namens-stroom is momenteel echter niet geïmplementeerd in Azure AD B2C.
+
+### <a name="reply-url-values"></a>Waarden voor antwoord-URL
+
+Toepassingen die zijn geregistreerd bij Azure AD B2C zijn momenteel beperkt tot een vast aantal waarden voor antwoord-URL's. De antwoord-URL voor webtoepassingen en services moet met het schema `https` beginnen. Alle waarden voor antwoord-URL's moeten één DNS-domein delen. U kunt bijvoorbeeld geen webtoepassing met een van deze antwoord-URL's registreren:
+
+`https://login-east.contoso.com`
+
+`https://login-west.contoso.com`
+
+Het registratiesysteem vergelijkt de volledige DNS-naam van de bestaande antwoord-URL met de DNS-naam van de antwoord-URL die u wilt toevoegen. De aanvraag voor het toevoegen van de DNS-naam mislukt als aan een van de volgende voorwaarden wordt voldaan:
+
+- De volledige DNS-naam van de nieuwe antwoord-URL komt niet overeen met de DNS-naam van de bestaande antwoord-URL.
+- De volledige DNS-naam van de nieuwe antwoord-URL is geen subdomein van de bestaande antwoord-URL.
+
+Als de toepassing bijvoorbeeld deze antwoord-URL heeft:
+
+`https://login.contoso.com`
+
+Dan kunt u er als volgt aan toevoegen:
+
+`https://login.contoso.com/new`
+
+In dit geval komt de DNS-naam precies overeen. Of u kunt dit doen:
+
+`https://new.login.contoso.com`
+
+In dit geval verwijst u naar een DNS-subdomein van login.contoso.com. Als u een toepassing hebt die login-east.contoso.com en login-west.contoso.com als antwoord-URL's heeft, moet u de antwoord-URL's in deze volgorde toevoegen:
+
+`https://contoso.com`
+
+`https://login-east.contoso.com`
+
+`https://login-west.contoso.com`
+
+U kunt de laatste twee toevoegen, omdat ze subdomeinen van de eerste antwoord-URL, contoso.com, zijn. 
+
+Wanneer u mobiele/native toepassingen maakt, definieert u een **omleidings-URI** in plaats van een **opnieuw afspelen URL**. Er zijn twee belangrijke overwegingen bij het kiezen van een omleidings-URI:
+
+- **Uniek**: het schema van de omleidings-URI moet voor elke toepassing uniek zijn. In het voorbeeld `com.onmicrosoft.contoso.appname://redirect/path`, `com.onmicrosoft.contoso.appname` het schema. Dit patroon moet worden gevolgd. Als twee toepassingen hetzelfde schema delen, ziet de gebruiker een **Kies app** dialoogvenster. Als de gebruiker een foute keuze maakt, mislukt de aanmelding.
+- **Volledig**: de omleidings-URI moet een schema en een pad hebben. Het pad moet ten minste één forward slash bevatten na het domein. Bijvoorbeeld, `//contoso/` werkt en `//contoso` is mislukt. Controleer of dat er zijn geen speciale tekens zoals onderstrepingstekens in de omleidings-URI.
+
+### <a name="faulted-apps"></a>Mislukte toepassingen
+
+Azure AD B2C-toepassingen moeten niet worden bewerkt:
+
+- Op andere appbeheerportals zoals de [Portal voor Appregistratie](https://apps.dev.microsoft.com/).
+- Met de Graph API of PowerShell.
+
+Als u de Azure AD B2C-toepassing buiten de Azure-portal hebt bewerkt, wordt een mislukte toepassing en is niet meer kan worden gebruikt met Azure AD B2C. U moet de toepassing verwijderen en deze opnieuw maken.
+
+Als u wilt verwijderen van de toepassing, gaat u naar de [Portal voor Appregistratie](https://apps.dev.microsoft.com/) en verwijdert u daar de toepassing. De toepassing is alleen zichtbaar als u de eigenaar van de toepassing bent (en niet een beheerder van de tenant).
+

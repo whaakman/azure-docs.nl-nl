@@ -1,6 +1,6 @@
 ---
-title: Beheer van basic lab-beleid in Azure DevTest Labs | Microsoft Docs
-description: Informatie over het aantal basic-beleid (instellingen) voor een testomgeving instellen in DevTest Labs
+title: Beheren van basisbeleid voor in Azure DevTest Labs | Microsoft Docs
+description: Meer informatie over het instellen van enkele van de basic-beleid (instellingen) voor een lab in DevTest Labs
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -14,81 +14,81 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 40b8fb360be7b08540e25886aaebe7f911607b6d
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 8cc529fbf9b24335be1bec07f81c732ced7a2b72
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33787547"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51227005"
 ---
-# <a name="manage-basic-policies-for-a-lab-in-azure-devtest-labs"></a>Basic beleid beheren voor een testomgeving in Azure DevTest Labs
+# <a name="manage-basic-policies-for-a-lab-in-azure-devtest-labs"></a>Basic-beleid voor een lab in Azure DevTest Labs beheren
 
-Azure DevTest Labs kunt u kosten te beheren en afval in uw labs minimaliseren door het beleid (instellingen) voor elke lab beheren. In dit artikel leert u aan de slag met beleid door leren hoe u kunt twee van de meest kritieke beleidsregels instellen - het aantal virtuele machines (VM) die kan worden gemaakt of door een enkele gebruiker geclaimd beperken en automatisch afsluiten te configureren. Het instellen van elk beleid lab Zie [labbeleidsregels definiëren in Azure DevTest Labs](devtest-lab-set-lab-policy.md).  
+Azure DevTest Labs kunt u kosten beheren en minimale verspilling in uw labs door het beheer van beleid (instellingen) voor elk lab. In dit artikel hebt u aan de slag met beleid door te leren hoe u kunt twee van de meest kritieke beleidsregels instellen - het aantal virtuele machines (VM) die kunnen worden gemaakt of geclaimd door één gebruiker te beperken en het configureren van automatisch afsluiten. Als u wilt bekijken over het instellen van elk lab-beleid, Zie [definiëren van beleid voor lab maken in Azure DevTest Labs](devtest-lab-set-lab-policy.md).  
 
-## <a name="accessing-a-labs-policies-in-azure-devtest-labs"></a>Toegang tot een lab-beleid in Azure DevTest Labs
-De volgende stappen begeleiden u bij het instellen van beleidsregels voor een testomgeving in Azure DevTest Labs:
+## <a name="accessing-a-labs-policies-in-azure-devtest-labs"></a>Openen van een lab-beleid in Azure DevTest Labs
+De volgende stappen begeleiden u bij het instellen van beleidsregels voor een lab in Azure DevTest Labs:
 
 Als u wilt weergeven (en wijzigen) op het beleid voor een testomgeving, de volgende stappen uit:
 
-1. Meld u aan bij [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Meld u aan bij [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Selecteer **alle services**, en selecteer vervolgens **DevTest Labs** uit de lijst.
+1. Selecteer **alle services**, en selecteer vervolgens **DevTest Labs** in de lijst.
 
-1. Selecteer de gewenste testomgeving uit de lijst van labs.   
+1. Selecteer de gewenste lab in de lijst met labs.   
 
 1. Selecteer **configuratie en het beleid**.
 
-    ![Deelvenster-beleid instellingen](./media/devtest-lab-set-lab-policy/policies-menu.png)
+    ![Deelvenster instellingen met beleid](./media/devtest-lab-set-lab-policy/policies-menu.png)
 
-1. De **configuratie en het beleid** deelvenster bevat een menu met instellingen die u kunt opgeven. Dit artikel behandelt alleen de instellingen voor **virtuele machines per gebruiker**, **automatisch afsluiten**, en **automatisch starten**. Zie voor meer informatie over de overige instellingen, [beheren van alle beleidsregels voor een testomgeving in Azure DevTest Labs](./devtest-lab-set-lab-policy.md). 
+1. De **configuratie en het beleid** deelvenster bevat een menu met instellingen die u kunt opgeven. Dit artikel behandelt alleen de instellingen voor **virtuele machines per gebruiker**, **Auto-shutdown**, en **automatisch starten**. Zie voor meer informatie over de resterende instellingen, [alle beleidsregels beheren voor een lab in Azure DevTest Labs](./devtest-lab-set-lab-policy.md). 
    
-## <a name="set-virtual-machines-per-user"></a>Set virtuele machines per gebruiker
-Het beleid voor **virtuele machines per gebruiker** kunt u het maximum aantal VM's die kunnen worden gemaakt door een afzonderlijke gebruiker opgeven. Als een gebruiker probeert te maken of een virtuele machine wanneer de gebruikerslimiet is bereikt, wordt een foutbericht geeft aan dat de virtuele machine kan niet gemaakt/geclaimd worden. 
+## <a name="set-virtual-machines-per-user"></a>Virtuele machines per gebruiker
+Het beleid voor **virtuele machines per gebruiker** kunt u het maximum aantal virtuele machines dat kan worden gemaakt door een afzonderlijke gebruiker opgeven. Als een gebruiker probeert te maken of te claimen van een virtuele machine wanneer de gebruikerslimiet is bereikt, wordt een foutbericht geeft aan dat de virtuele machine kan niet gemaakt/geclaimd worden. 
 
-1. Op de testomgeving **configuratie en het beleid** selecteert u **virtuele machines per gebruiker**.
+1. Op van het lab **configuratie en het beleid** in het menu **virtuele machines per gebruiker**.
    
     ![Virtuele machines per gebruiker](./media/devtest-lab-set-lab-policy/max-vms-per-user.png)
 
-1. Selecteer **Ja** beperken het aantal virtuele machines per gebruiker. Als u niet beperken het aantal virtuele machines per gebruiker wilt, schakelt u **Nee**. Als u selecteert **Ja**, Geef een numerieke waarde die aangeeft van het maximum aantal VM's die kunnen worden gemaakt of door een gebruiker geclaimd. 
+1. Selecteer **Ja** om te beperken van het aantal virtuele machines per gebruiker. Als u niet beperken, het aantal virtuele machines per gebruiker wilt, selecteert u **Nee**. Als u selecteert **Ja**, voer een numerieke waarde die aangeeft van het maximum aantal VM's die kunnen worden gemaakt of geclaimd door een gebruiker. 
 
-1. Selecteer **Ja** beperken het aantal virtuele machines met SSD (SSD-schijf). Als u niet wilt beperken het aantal virtuele machines die gebruik van SSD **Nee**. Als u selecteert **Ja**, voer een waarde die het maximum aantal VM's die kunnen worden gemaakt met SSD aangeeft. 
+1. Selecteer **Ja** om te beperken van het aantal virtuele machines met SSD (solid-state schijf). Als u niet wilt beperken, het aantal virtuele machines die gebruik van SSD **Nee**. Als u selecteert **Ja**, voer een waarde die aangeeft van het maximum aantal virtuele machines dat kan worden gemaakt met behulp van SSD. 
 
 1. Selecteer **Opslaan**.
 
-## <a name="set-auto-shutdown"></a>Stel automatisch afsluiten
-Het beleid voor automatisch afsluiten helpt te minimaliseren lab verspilling doordat u de tijd die dit lab virtuele machines afsluiten opgeven.
+## <a name="set-auto-shutdown"></a>Set automatisch afsluiten
+Het beleid voor automatisch afsluiten helpt bij het lab verspilling minimaliseren met de mogelijkheid om op te geven van de tijd die VM's van deze testomgeving afgesloten.
 
-1. Op de testomgeving **configuratie en het beleid** deelvenster **automatisch afsluiten**.
+1. Op van het lab **configuratie en het beleid** venster **Auto-shutdown**.
    
     ![Automatisch afsluiten](./media/devtest-lab-set-lab-policy/auto-shutdown.png)
 
-1. Selecteer **op** waarmee dit beleid en **uit** dat u deze uitschakelt.
+1. Selecteer **op** aan dit beleid inschakelt, en **uit** uitschakelen.
 
-1. Als u dit beleid inschakelt, geef de tijd (en tijdzone) de alle VM's in het huidige lab af te sluiten.
+1. Als u dit beleid inschakelt, geeft u de tijd (en tijdzone) om alle virtuele machines in de huidige testomgeving af te sluiten.
 
-1. Geef **Ja** of **Nee** voor de optie een melding te verzenden 15 minuten voordat de tijd opgegeven automatisch afsluiten. Als u ervoor kiest **Ja**, voer de URL-eindpunt van een webhook of e-mailadres opgeven van waar u de melding moet worden geplaatst of worden verzonden. De gebruiker ontvangt een melding en krijgt de mogelijkheid om uit te stellen voor het afsluiten.
+1. Geef **Ja** of **geen** voor de optie voor het verzenden van een melding 15 minuten voordat de tijd opgegeven automatisch afsluiten. Als u ervoor kiest **Ja**voert u een webhook-URL-eindpunt of een e-mailadres op te geven waar u de melding om te worden geplaatst of worden verzonden. De gebruiker melding ontvangt en de optie voor het uitstellen van het afsluiten is opgegeven.
 
-   Zie voor meer informatie over webhooks [maken van een webhook of API-functie voor Azure](../azure-functions/functions-create-a-web-hook-or-api-function.md). 
+   Zie voor meer informatie over webhooks [maken van een webhook of API Azure Function](../azure-functions/functions-create-a-web-hook-or-api-function.md). 
 
 1. Selecteer **Opslaan**.
 
-Eenmaal is ingeschakeld, geldt dit beleid voor alle VM's in het huidige lab. Als deze instelling uit een specifieke virtuele machine verwijderen, opent u de VM management deelvenster en wijzig de **automatisch afsluiten** instelling.
+Standaard eenmaal is ingeschakeld, dit beleid is van toepassing op alle virtuele machines in de huidige testomgeving. Als deze instelling uit een specifieke virtuele machine verwijderen, open deelvenster van de VM-management en wijzig de **Auto-shutdown** instelling.
 
-## <a name="set-auto-start"></a>Set automatisch starten
-Het beleid voor automatisch starten, kunt u opgeven wanneer de virtuele machines in het huidige lab moeten worden gestart.  
+## <a name="set-auto-start"></a>Set automatisch wordt gestart
+Het beleid voor automatisch starten kunt u om op te geven wanneer de virtuele machines in de huidige testomgeving moeten worden gestart.  
 
-1. Op de testomgeving **configuratie en het beleid** deelvenster **automatisch starten**.
+1. Op van het lab **configuratie en het beleid** venster **automatisch starten**.
    
     ![Automatisch starten](./media/devtest-lab-set-lab-policy/auto-start.png)
 
-2. Selecteer **op** waarmee dit beleid en **uit** dat u deze uitschakelt.
+2. Selecteer **op** aan dit beleid inschakelt, en **uit** uitschakelen.
 
-3. Als u dit beleid inschakelt, geeft u het geplande begintijdstip, tijdzone en de dagen van de week waarop de tijd van toepassing is. 
+3. Als u dit beleid inschakelt, geeft u de geplande begintijd, tijdzone en de dagen van de week waarop de tijd van toepassing is. 
 
 4. Selecteer **Opslaan**.
 
-Eenmaal is ingeschakeld, wordt dit beleid niet automatisch toegepast op alle virtuele machines in het huidige lab. Als u wilt toepassen met deze instelling naar een bestaande virtuele machine, van de VM management deelvenster open en wijzig de **automatisch starten** instelling.
+Eenmaal is ingeschakeld, wordt dit beleid niet automatisch toegepast op alle virtuele machines in de huidige testomgeving. Als u wilt deze instelling toepast op een bestaande virtuele machine, open deelvenster van de VM-management en wijzig de **automatisch starten** instelling.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Labbeleidsregels definiëren in Azure DevTest Labs](devtest-lab-set-lab-policy.md) -informatie over het aanpassen van andere labbeleidsregels.
+- [Het definiëren van beleid voor lab maken in Azure DevTest Labs](devtest-lab-set-lab-policy.md) -informatie over het wijzigen van andere lab-beleid.

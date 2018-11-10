@@ -8,16 +8,47 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 10/12/2018
+ms.date: 11/06/2018
 ms.author: wolfma
-ms.openlocfilehash: b5e4d239121b2449a45dfce826c99765f1c3f4be
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: e2c676932541866df081f6db54fa0b1ec4da7088
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49471133"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51218590"
 ---
 # <a name="release-notes"></a>Releaseopmerkingen
+
+## <a name="speech-service-sdk-110"></a>Spraakservice-SDK 1.1.0
+
+**Nieuwe functies**
+
+* Ondersteuning voor Android x86/x64.
+* Proxy-ondersteuning: In het object SpeechConfig kunt u nu een functie aanroepen om in te stellen van de proxy-informatie (hostnaam, poort, gebruikersnaam en wachtwoord). Deze functie is nog niet beschikbaar op iOS.
+* Verbeterde foutcode en berichten. Als een erkenning heeft een fout geretourneerd, deze al ingesteld `Reason` (in geannuleerde gebeurtenis) of `CancellationDetails` (in herkenningsresultaat) naar `Error`. De geannuleerde gebeurtenis bevat nu twee aanvullende leden, `ErrorCode` en `ErrorDetails`. Als de server heeft aanvullende foutinformatie met de gemelde fout geretourneerd, is het nu zijn beschikbaar in de nieuwe leden.
+
+**Verbeteringen**
+
+* Aanvullende verificatie toegevoegd in de configuratie voor de herkenning en toegevoegde extra foutbericht.
+* Verbeterde verwerking van ervaren stilte in het midden van een geluidsbestand.
+* NuGet-pakket: voor .NET Framework projecten te voorkomen dat bouwen met configuratie/platform.
+
+**Oplossingen voor problemen**
+
+* Verschillende uitzonderingen gevonden in de kenmerken die zijn opgelost. Bovendien worden uitzonderingen onderschept en geconverteerd naar geannuleerde gebeurtenis.
+* Een geheugenlek in de eigenschap management oplossen.
+* Probleem opgelost waarbij een audio-invoerbestand de herkenning kan vastlopen.
+* Een bug opgelost waar de gebeurtenissen na een sessie stop-gebeurtenis kunnen worden ontvangen.
+* Sommige racevoorwaarden in threading opgelost.
+* Een iOS compatibiliteitsprobleem dat leiden een crash tot kan opgelost.
+* Stabiliteitsverbeteringen voor ondersteuning van Android microfoon.
+* Een bug opgelost waarbij een kenmerk in JavaScript de opname-taal zou negeren.
+* Er is een bug te voorkomen dat de EndpointId instellen (in sommige gevallen) opgelost in JavaScript.
+* Gewijzigde parametervolgorde in AddIntent in JavaScript en toegevoegde ontbrekende AddIntent JavaScript-code.
+
+**Voorbeelden**
+
+* Voorbeeld van C++ toegevoegd voor pull-abonnementen en push stream gebruik in onze [voorbeeldopslagplaats](https://aka.ms/csspeech/samples).
 
 ## <a name="speech-service-sdk-101"></a>Spraakservice-SDK 1.0.1
 

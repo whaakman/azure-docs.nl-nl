@@ -1,6 +1,6 @@
 ---
 title: Netwerkcommunicatie bewaken - zelfstudie - Azure Portal | Microsoft Docs
-description: Informatie over het bewaken van netwerkcommunicatie tussen twee virtuele machines met de verbindingsmonitorfunctionaliteit van Azure Network Watcher.
+description: Ontdek hoe u de verbindingsmonitor-functie van Azure Network Watcher gebruikt om de netwerkcommunicatie tussen twee virtuele machines te bewaken.
 services: network-watcher
 documentationcenter: na
 author: jimdial
@@ -13,24 +13,25 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/27/2018
+ms.date: 10/25/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 9b13b8ae0b64dc84e476f5fc5da59ea30702fd8d
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 0c865b8bc129f4f2809f2dbb09a836efe4cee3d9
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34639024"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50093037"
 ---
 # <a name="tutorial-monitor-network-communication-between-two-virtual-machines-using-the-azure-portal"></a>Zelfstudie: Netwerkcommunicatie tussen twee virtuele machines bewaken met behulp van de Azure-portal
 
-Geslaagde communicatie tussen een virtuele machine (VM) en een eindpunt, zoals een andere virtuele machine, kan zijn essentieel voor uw organisatie. Soms ontstaan configuratiewijzigingen die de communicatie kunnen verbreken. In deze zelfstudie leert u het volgende:
+Geslaagde communicatie tussen een virtuele machine (VM) en een eindpunt, zoals een andere virtuele machine, kan zijn essentieel voor uw organisatie. Soms leiden configuratiewijzigingen ertoe dat deze communicatie wordt verbroken. In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
 > * Twee virtuele machines maken
-> * Communicatie tussen virtuele machines bewaken met de verbindingsmonitorfunctionaliteit van Network Watcher
-> * Een communicatieprobleem tussen twee virtuele machines vaststellen en meer informatie over hoe u het kunt oplossen
+> * Communicatie tussen virtuele machines bewaken met de verbindingsmonitor-functie van Network Watcher
+> * Waarschuwingen genereren in metrische gegevens van de verbindingsmonitor
+> * Een communicatieprobleem tussen twee virtuele machines vaststellen en wat u kunt doen om dit op te lossen
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
@@ -120,6 +121,19 @@ Maak een verbindingsmonitor om communicatie via TCP-poort 22 van *myVm1* naar *m
     | GEM. RETOUR          | Laat u de retourtijd weten voor het maken van de verbinding, in milliseconden. De verbindingsmonitor test de verbinding elke 60 seconden, zodat u de latentie gedurende een bepaalde periode kunt bewaken.                                         |
     | Hops                     | Verbindingsmonitor laat u de hops tussen de twee eindpunten weten. In dit voorbeeld is de verbinding tussen twee virtuele machines in hetzelfde virtuele netwerk. Er is dus maar één hop, naar het IP-adres 10.0.0.5. Als een bestaand systeem of aangepaste routes verkeer routeren tussen de virtuele machines via een VPN-gateway, of virtueel netwerkapparaat, worden bijvoorbeeld aanvullende hops weergegeven.                                                                                                                         |
     | STATUS                   | De groene selectievakjes voor elk eindpunt laten u weten dat elk eindpunt in orde is.    ||
+
+## <a name="generate-alerts"></a>Waarschuwingen genereren
+
+Waarschuwingen worden gemaakt door regels voor waarschuwingen in Azure Monitor en kunnen automatisch opgeslagen query's uitvoeren of aangepaste zoekopdrachten in logboeken met regelmatige tussenpozen. Via een gegenereerde waarschuwing kunnen automatisch een of meer acties worden uitgevoerd, zoals het op de hoogte stellen van iemand of het starten van een ander proces. Als u een waarschuwingsregel instelt, wordt de lijst met beschikbare metrische gegevens die u kunt gebruiken om waarschuwingen te genereren, bepaalt met de doelresource.
+
+1. Selecteer in de Azure-portal de service **Monitor** en selecteer vervolgens **Waarschuwingen** > **Nieuwe waarschuwingsregel**.
+2. Klik op **Doel selecteren** en selecteer vervolgens de resources die u als doel wilt instellen. Selecteer het **Abonnement** en stel **Resourcetype** in om te filteren op de verbindingsmonitor die u wilt gebruiken.
+
+    ![waarschuwingsscherm met een geselecteerd doel](./media/connection-monitor/set-alert-rule.png)
+1. Nadat u een doelresource hebt geselecteerd, selecteert u **Criteria toevoegen**. Network Watcher heeft [metrische gegevens over welke waarschuwingen u kunt maken](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts#metrics-and-dimensions-supported). Stel **Beschikbare signalen** in op de metrische gegevens ProbesFailedPercent en AverageRoundtripMs:
+
+    ![waarschuwingspagina met geselecteerde signalen](./media/connection-monitor/set-alert-signals.png)
+1. Vul de waarschuwingsdetails in, zoals de naam, beschrijving en ernst van de waarschuwingsregel. U kunt ook een actiegroep toevoegen aan de waarschuwing om het waarschuwingsantwoord te automatiseren en aan te passen.
 
 ## <a name="view-a-problem"></a>Een probleem weergeven
 

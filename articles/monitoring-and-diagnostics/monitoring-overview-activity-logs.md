@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: johnkem
 ms.component: activitylog
-ms.openlocfilehash: 40d1f73f4aed3f3f35f3f5c9de951e9b9fd271bc
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 538481088d6355729486c1d9fbaaa6af16a1b841
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50963316"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51006019"
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Abonnement-activiteit controleren met de Azure-activiteitenlogboek
 
@@ -34,9 +34,6 @@ U kunt gebeurtenissen ophalen uit het activiteitenlogboek is opgenomen met Azure
 
 > [!NOTE]
 >  [De nieuwere waarschuwingen](monitoring-overview-unified-alerts.md) biedt een verbeterde ervaring wanneer het maken en beheren van de activiteit zich waarschuwingsregels.  [Meer informatie](alert-activity-log.md).
-
-Bekijk de volgende video Maak kennis met het activiteitenlogboek.
-> [!VIDEO https://channel9.msdn.com/Blogs/Seth-Juarez/Logs-John-Kemnetz/player]
 
 
 ## <a name="categories-in-the-activity-log"></a>Categorieën in het activiteitenlogboek
@@ -70,7 +67,7 @@ Hier volgen enkele dingen die u met het activiteitenlogboek kunt doen:
 U kunt uw activiteitenlogboek weergeven op verschillende plaatsen binnen de Azure-portal:
 * De **activiteitenlogboek** die toegankelijk is door te zoeken naar het activiteitenlogboek onder **alle services** in het navigatiedeelvenster links.
 * **Monitor** standaard in het navigatiedeelvenster links wordt weergegeven. Het activiteitenlogboek is een gedeelte van Azure Monitor.
-* Van elke resource **resource**, bijvoorbeeld de configuratieblade voor een virtuele Machine. Het activiteitenlogboek is een van de secties op de meeste van deze resourceblades en de gebeurtenissen die zijn gerelateerd aan die specifieke resource te klikken op het automatisch gefilterd.
+* De meeste **resources**, bijvoorbeeld de configuratieblade voor een virtuele Machine. Het activiteitenlogboek is een gedeelte van de meeste resourceblades en de gebeurtenissen die zijn gerelateerd aan die specifieke resource te klikken op het automatisch gefilterd.
 
 U kunt het activiteitenlogboek is opgenomen door deze velden filteren in de Azure-portal:
 * TimeSpan - de begin- en -tijd voor gebeurtenissen.
@@ -84,11 +81,9 @@ U kunt het activiteitenlogboek is opgenomen door deze velden filteren in de Azur
 * Gebeurtenis gestart door - de 'beller' of de gebruiker die de bewerking heeft uitgevoerd.
 * Open search - dit is een open tekstzoekvak waarin wordt gezocht die tekenreeks voor alle velden in alle gebeurtenissen.
 
-Als u een set filters hebt gedefinieerd, kunt u deze opslaan als een query die blijven tussen sessies behouden als u ooit moet dezelfde query uitvoeren met deze filters toegepast opnieuw in de toekomst. U kunt een query ook vastmaken aan uw Azure-dashboard om altijd te controleren op specifieke gebeurtenissen.
+Als u een set filters hebt gedefinieerd, kunt u een query vastmaken aan uw Azure-dashboard om altijd te controleren op specifieke gebeurtenissen.
 
-Te klikken op 'Toepassen' uw query wordt uitgevoerd en alle overeenkomende gebeurtenissen tonen. Te klikken op elke gebeurtenis in de lijst bevat een overzicht van die gebeurtenis en de volledige onbewerkte JSON van die gebeurtenis.
-
-Voor nog meer voeding, klikt u op de **zoeken in logboeken** pictogram, waarin de gegevens van uw activiteitenlogboek in de [Log Analytics Activity Log Analytics-oplossing](../log-analytics/log-analytics-activity.md). De blade met activiteitenlogboek biedt een eenvoudige filter/browse-ervaring op Logboeken, maar Log Analytics kunt u draait, vragen en Visualiseer uw gegevens op een krachtigere manier.
+Voor nog meer voeding, klikt u op de **logboeken** pictogram, waarin de gegevens van uw activiteitenlogboek in de [Log Analytics Activity Log Analytics-oplossing](../log-analytics/log-analytics-activity.md). De blade met activiteitenlogboek biedt een eenvoudige filter/browse-ervaring op Logboeken, maar Log Analytics kunt u draait, vragen en Visualiseer uw gegevens op een krachtigere manier.
 
 ## <a name="export-the-activity-log-with-a-log-profile"></a>Exporteren van het activiteitenlogboek met een Logboekprofiel
 Een **Logboekprofiel** bepaalt hoe uw activiteitenlogboek wordt geëxporteerd. Met behulp van een Logboekprofiel, die u kunt configureren:
@@ -114,14 +109,14 @@ U kunt een storage-account of event hub-naamruimte die zich niet in hetzelfde ab
 Deze instellingen kunnen worden geconfigureerd via de optie "Export" in de blade met activiteitenlogboek in de portal. Ze kunnen ook programmatisch te worden geconfigureerd [met behulp van de Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931927.aspx), PowerShell-cmdlets of CLI. Een abonnement kan slechts één logboekprofiel hebben.
 
 ### <a name="configure-log-profiles-using-the-azure-portal"></a>Logboekprofielen met behulp van de Azure-portal configureren
-U kunt het activiteitenlogboek naar een Event Hub streamen of sla ze op een Storage-Account met behulp van de optie 'Exporteren' in de Azure-portal.
+U kunt het activiteitenlogboek naar een Event Hub streamen of sla ze op een Storage-Account met behulp van de optie 'Exporteren naar Event Hub' in de Azure-portal.
 
 1. Navigeer naar **activiteitenlogboek** via het menu aan de linkerkant van de portal.
 
-    ![Navigeer naar activiteitenlogboek in portal](./media/monitoring-overview-activity-logs/activity-logs-portal-navigate.png)
-2. Klik op de **exporteren** knop aan de bovenkant van de blade.
+    ![Navigeer naar activiteitenlogboek in portal](./media/monitoring-overview-activity-logs/activity-logs-portal-navigate-v2.png)
+2. Klik op de **exporteren naar Event Hub** knop aan de bovenkant van de blade.
 
-    ![De knop exporteren in de portal](./media/monitoring-overview-activity-logs/activity-logs-portal-export.png)
+    ![De knop exporteren in de portal](./media/monitoring-overview-activity-logs/activity-logs-portal-export-v2.png)
 3. In de blade die wordt weergegeven, kunt u het volgende selecteren:  
   * regio's waarvoor u wilt exporteren van gebeurtenissen
   * het Opslagaccount waarnaar u wilt opslaan van gebeurtenissen
