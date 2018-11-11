@@ -3,19 +3,19 @@ title: Herstellen van een component fout door onvoldoende geheugen in Azure HDIn
 description: Herstellen van een component fout door onvoldoende geheugen in HDInsight. De klant-scenario is een query voor veel grote tabellen.
 keywords: uit geheugen fout, OOM, Hive-instellingen
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.author: jasonh
-ms.openlocfilehash: 1ef4d8fa85a983c736fad73b652d8614c9a96ae5
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.author: hrasheed
+ms.openlocfilehash: 90bf59dd7733864c345bbbb59b6236ae7b9a9c36
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43109848"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51248301"
 ---
 # <a name="fix-a-hive-out-of-memory-error-in-azure-hdinsight"></a>Herstellen van een component fout door onvoldoende geheugen in Azure HDInsight
 
@@ -99,7 +99,7 @@ De **hive.auto.convert.join.noconditionaltask** in de hive-site.xml bestand is i
         </description>
       </property>
 
-Is het waarschijnlijk kaart join is de oorzaak van de Java-Heap-ruimte onze van geheugen. Zoals uitgelegd in het blogbericht [Hadoop Yarn-geheugeninstellingen in HDInsight](http://blogs.msdn.com/b/shanyu/archive/2014/07/31/hadoop-yarn-memory-settings-in-hdinsigh.aspx)wanneer Tez-uitvoeringsengine wordt gebruikt de heap gebruikte ruimte daadwerkelijk behoort tot de Tez-container. Zie de volgende afbeelding met een beschrijving van het geheugen van de container Tez.
+Is het waarschijnlijk kaart join is de oorzaak van de Java-Heap-ruimte onze van geheugen. Zoals uitgelegd in het blogbericht [Hadoop Yarn-geheugeninstellingen in HDInsight](https://blogs.msdn.com/b/shanyu/archive/2014/07/31/hadoop-yarn-memory-settings-in-hdinsigh.aspx)wanneer Tez-uitvoeringsengine wordt gebruikt de heap gebruikte ruimte daadwerkelijk behoort tot de Tez-container. Zie de volgende afbeelding met een beschrijving van het geheugen van de container Tez.
 
 ![Tez container geheugen diagram: Hive-fout door onvoldoende geheugen](./media/hdinsight-hadoop-hive-out-of-memory-error-oom/hive-out-of-memory-error-oom-tez-container-memory.png)
 

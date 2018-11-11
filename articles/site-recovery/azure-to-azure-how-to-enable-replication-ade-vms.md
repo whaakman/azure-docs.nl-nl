@@ -8,26 +8,26 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 09/28/2018
 ms.author: sutalasi
-ms.openlocfilehash: 5d1beb124bbb857d13aecad7bf0cef493d42dac5
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 6d47fe29dab37523913b96ebae0ef3ef31d11210
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48043274"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300571"
 ---
 # <a name="replicate-azure-disk-encryption-ade-enabled-virtual-machines-to-another-azure-region"></a>Azure disk encryption (ADE) ingeschakeld virtuele machines repliceren naar een andere Azure-regio
 
 In dit artikel wordt beschreven hoe u virtuele machines de replicatie van Azure disk encryption (ADE) is ingeschakeld, van een Azure-regio naar een andere inschakelen.
 
 >[!NOTE]
->Alleen Azure-VM's met Windows OS en [ingeschakeld voor versleuteling met Azure AD-app](https://aka.ms/ade-aad-app) worden momenteel ondersteund door Azure Site Recovery.
+>Alleen Azure-VM's met Windows die zijn [ingeschakeld voor versleuteling met Azure AD-app](https://aka.ms/ade-aad-app) worden momenteel ondersteund door Azure Site Recovery.
 >
 
 ## <a name="required-user-permissions"></a>Vereiste machtigingen
 
 Als u wilt inschakelen replicatie van virtuele machines ADE uit portal, de gebruiker moet beschikken over de onderstaande machtigingen.
 - Key vault-machtigingen
-    - lijst
+    - list
     - Maken
     - Ophalen
 
@@ -64,8 +64,8 @@ Als de gebruiker inschakelen van herstel na noodgeval (DR) beschikt niet over de
 6. Wacht totdat de resourcegroepen te laden en selecteer vervolgens de **resourcegroep** van uw VM's.
 7. Selecteer de virtuele machines in de lijst met virtuele machines die worden weergegeven. Alleen virtuele machines met Azure disk encryption is ingeschakeld, worden weergegeven in de lijst.
 8. Selecteer de **doellocatie**.
-9. **Versleuteling sleutelkluizen schijf**: Azure Site Recovery maakt standaard een nieuwe sleutelkluis in de doelregio met het achtervoegsel 'asr' op basis van de versleutelingssleutels voor bron VM-schijf met de naam. In het geval sleutelkluis gemaakt door Azure Site Recovery al bestaat, wordt dit opnieuw gebruikt. In de lijst zo nodig kunt u een andere key vault.
-10. **Sleutel voor versleuteling sleutelkluizen**: Azure Site Recovery maakt standaard een nieuwe sleutelkluis in de doelregio met het achtervoegsel 'asr' op basis van de versleutelingssleutels bron VM sleutel met de naam. In het geval sleutelkluis gemaakt door Azure Site Recovery al bestaat, wordt dit opnieuw gebruikt. In de lijst zo nodig kunt u een andere key vault.
+9. **Sleutelkluizen voor schijfversleuteling**: Azure Site Recovery maakt standaard een nieuwe sleutelkluis in de doelregio met het achtervoegsel 'asr' in de naam, op basis van de versleutelingssleutels voor de bron VM-schijf. In het geval dat de sleutelkluis die wordt gemaakt door Azure Site Recovery al bestaat, wordt deze opnieuw gebruikt. In de lijst zo nodig kunt u een andere key vault.
+10. **Sleutelkluizen voor sleutelversleuteling**: Azure Site Recovery maakt standaard een nieuwe sleutelkluis in de doelregio met het achtervoegsel 'asr' in de naam, op basis van de versleutelingssleutels voor de bron VM-sleutel. In het geval dat de sleutelkluis die wordt gemaakt door Azure Site Recovery al bestaat, wordt deze opnieuw gebruikt. In de lijst zo nodig kunt u een andere key vault.
 
 ## <a name="enable-replication"></a>Replicatie inschakelen
 
@@ -91,8 +91,8 @@ Deze procedure wordt ervan uitgegaan dat de primaire Azure-regio Oost-Azië is e
     - **Beheerde replicaschijven (als de bron-VM gebruikmaakt van beheerde schijven)**: Site Recovery maakt nieuwe beheerde replicaschijven in de doelregio voor het spiegelen van beheerde schijven van de bron-VM met hetzelfde opslagtype (Standard of premium) als de bron-VM van schijf beheerde.
     - **Storage-accounts in de cache**: Site Recovery moet extra opslagaccount met de naam cacheopslag in de bronregio. Alle wijzigingen die plaatsvinden op de bron-VM's worden bijgehouden en verzonden naar de cache-opslagaccount voor het repliceren van die naar de doellocatie.
     - **Beschikbaarheidsset**: Azure Site Recovery maakt standaard een nieuwe beschikbaarheidsset in de doelregio met de naam met achtervoegsel 'asr'. In het geval beschikbaarheidsset gemaakt door Azure Site Recovery al bestaat, wordt dit opnieuw gebruikt.
-    - **Versleuteling sleutelkluizen schijf**: Azure Site Recovery maakt standaard een nieuwe sleutelkluis in de doelregio met het achtervoegsel 'asr' op basis van de versleutelingssleutels voor bron VM-schijf met de naam. In het geval sleutelkluis gemaakt door Azure Site Recovery al bestaat, wordt dit opnieuw gebruikt.
-    - **Sleutel voor versleuteling sleutelkluizen**: Azure Site Recovery maakt standaard een nieuwe sleutelkluis in de doelregio met het achtervoegsel 'asr' op basis van de versleutelingssleutels bron VM sleutel met de naam. In het geval sleutelkluis gemaakt door Azure Site Recovery al bestaat, wordt dit opnieuw gebruikt.
+    - **Sleutelkluizen voor schijfversleuteling**: Azure Site Recovery maakt standaard een nieuwe sleutelkluis in de doelregio met het achtervoegsel 'asr' in de naam, op basis van de versleutelingssleutels voor de bron VM-schijf. In het geval dat de sleutelkluis die wordt gemaakt door Azure Site Recovery al bestaat, wordt deze opnieuw gebruikt.
+    - **Sleutelkluizen voor sleutelversleuteling**: Azure Site Recovery maakt standaard een nieuwe sleutelkluis in de doelregio met het achtervoegsel 'asr' in de naam, op basis van de versleutelingssleutels voor de bron VM-sleutel. In het geval dat de sleutelkluis die wordt gemaakt door Azure Site Recovery al bestaat, wordt deze opnieuw gebruikt.
     - **Beleid voor wachtwoordreplicatie**: Hiermee worden de instellingen voor recovery point bewaren geschiedenis en de app de momentopnamefrequentie gedefinieerd. Azure Site Recovery maakt standaard een nieuw replicatiebeleid met de standaardinstellingen van 24 uur voor de bewaarperiode voor herstelpunten en ' 60 minuten voor de frequentie voor app-consistente momentopname te maken.
 
 
@@ -104,7 +104,7 @@ U kunt de standaardinstellingen van de doel-gebruikt door Site Recovery kunt wij
 
 1. Klik op **aanpassen:** naast 'Doelabonnement' om te wijzigen van het doelabonnement standaard. Selecteer het abonnement uit de lijst met alle abonnementen die beschikbaar zijn in dezelfde Azure Active Directory (AAD)-tenant.
 
-2. Klik op **aanpassen:** naast ' Resource group, opslag, netwerk en beschikbaarheid wordt ingesteld om te wijzigen de hieronder standaardinstellingen:
+2. Klik op **aanpassen:** naast ' Resource group, netwerk, opslag en beschikbaarheidssets wijzigen de onderstaande standaardinstellingen:
     - In **doelresourcegroep**, selecteer de resourcegroep in de lijst met alle resourcegroepen in de doellocatie van het abonnement.
     - In **virtueel doelnetwerk**, het netwerk selecteren uit een lijst van het virtuele netwerk op de doellocatie.
     - In **beschikbaarheidsset**, u beschikbaarheid instellen op de virtuele machine, kunt toevoegen als ze deel uitmaken van een beschikbaarheidsset in de bronregio.

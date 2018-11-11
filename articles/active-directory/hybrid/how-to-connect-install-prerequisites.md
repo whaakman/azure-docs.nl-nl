@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/28/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 4dd3253b1d7ee159914f2d1fd6a8644bbc69c1f0
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 5205d7797e7d45266a4f54b842ad56f353abc6d6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50092788"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51252986"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Vereisten voor Azure AD Connect
 Dit onderwerp beschrijft de vereisten en de hardwarevereisten voor Azure AD Connect.
@@ -41,7 +41,7 @@ Voordat u Azure AD Connect installeert, zijn er enkele dingen die u nodig hebt.
 
 ### <a name="on-premises-active-directory"></a>On-premises Active Directory
 * Het AD-schema-versie en forest-functionaliteitsniveau moet WindowsServer 2003 of hoger. Domeincontrollers kunnen elke versie wordt uitgevoerd, zolang de schema- en forest niveau vereisten wordt voldaan.
-* Als u van plan bent om de functie te gebruiken **wachtwoord terugschrijven**, en vervolgens de domeincontrollers op Windows Server 2008 (met de meest recente SP) of hoger zijn moet. Als uw DC's op 2008 (pre-R2 worden), dan moet u ook toepassen [hotfix KB2386717](http://support.microsoft.com/kb/2386717).
+* Als u van plan bent om de functie te gebruiken **wachtwoord terugschrijven**, en vervolgens de domeincontrollers op Windows Server 2008 (met de meest recente SP) of hoger zijn moet. Als uw DC's op 2008 (pre-R2 worden), dan moet u ook toepassen [hotfix KB2386717](https://support.microsoft.com/kb/2386717).
 * De domeincontroller die wordt gebruikt door Azure AD moet beschrijfbaar zijn. Het is **niet ondersteund** het gebruik van een RODC (alleen-lezen domeincontroller) en Azure AD Connect niet voldoet aan alle omleidingen schrijven.
 * Is het **niet ondersteund** gebruik van on-premises forests/domeinen met behulp van "gestippeld" (de naam van een punt bevat ".") NetBIOS-namen.
 * Het verdient [de Active Directory-Prullenbak inschakelen](how-to-connect-sync-recycle-bin.md).
@@ -123,11 +123,11 @@ Azure AD Connect, is afhankelijk van Microsoft PowerShell en .NET Framework 4.5.
   * Microsoft PowerShell is standaard geïnstalleerd. Er is geen actie vereist.
   * .NET framework 4.5.1 en latere releases worden aangeboden via Windows Update. Zorg ervoor dat u de meest recente updates hebt geïnstalleerd met Windows Server in het Configuratiescherm.
 * Windows Server 2008 R2 en WindowsServer 2012
-  * De nieuwste versie van Microsoft PowerShell is beschikbaar in **Windows Management Framework 4.0**, beschikbaar op [Microsoft Download Center](http://www.microsoft.com/downloads).
-  * .NET framework 4.5.1 en latere versies zijn beschikbaar op [Microsoft Download Center](http://www.microsoft.com/downloads).
+  * De nieuwste versie van Microsoft PowerShell is beschikbaar in **Windows Management Framework 4.0**, beschikbaar op [Microsoft Download Center](https://www.microsoft.com/downloads).
+  * .NET framework 4.5.1 en latere versies zijn beschikbaar op [Microsoft Download Center](https://www.microsoft.com/downloads).
 * Windows Server 2008
-  * De nieuwste ondersteunde versie van PowerShell is beschikbaar in **Windows Management Framework 3.0**, beschikbaar op [Microsoft Download Center](http://www.microsoft.com/downloads).
-  * .NET framework 4.5.1 en latere versies zijn beschikbaar op [Microsoft Download Center](http://www.microsoft.com/downloads).
+  * De nieuwste ondersteunde versie van PowerShell is beschikbaar in **Windows Management Framework 3.0**, beschikbaar op [Microsoft Download Center](https://www.microsoft.com/downloads).
+  * .NET framework 4.5.1 en latere versies zijn beschikbaar op [Microsoft Download Center](https://www.microsoft.com/downloads).
 
 ### <a name="enable-tls-12-for-azure-ad-connect"></a>TLS 1.2 inschakelen voor Azure AD Connect
 Voorafgaand aan versie 1.1.614.0, Azure AD Connect standaard TLS 1.0 gebruikt voor het versleutelen van de communicatie tussen de synchronisatie-engine-server en Azure AD. U kunt dit wijzigen door het configureren van .net-toepassingen kunnen gebruikmaken van TLS 1.2 standaard op de server. Meer informatie over TLS 1.2 kan worden gevonden [Microsoft Security Advisory 2960358](https://technet.microsoft.com/security/advisory/2960358).

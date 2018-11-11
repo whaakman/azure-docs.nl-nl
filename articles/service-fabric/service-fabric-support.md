@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/24/2018
 ms.author: pkc
-ms.openlocfilehash: e22a2431ecae68278276b069bc199cfea60cd413
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 5d2edd3b4d8655133ef2835f0d0e579280123ae7
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44347355"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51249418"
 ---
 # <a name="azure-service-fabric-support-options"></a>Azure Service Fabric-ondersteuningsopties
 
@@ -27,7 +27,7 @@ Met het oog op de juiste ondersteuning voor uw Service Fabric-clusters die u op 
 
 ## <a name="report-production-issues-or-request-paid-support-for-azure"></a>Productieproblemen melden of betaalde ondersteuning aanvragen voor Azure
 
-Open een ticket voor ondersteuning voor het rapporteren van problemen met uw Service Fabric-cluster geïmplementeerd in Azure, [in Azure portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) of [Microsoft support portal](http://support.microsoft.com/oas/default.aspx?prid=16146).
+Open een ticket voor ondersteuning voor het rapporteren van problemen met uw Service Fabric-cluster geïmplementeerd in Azure, [in Azure portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) of [Microsoft support portal](https://support.microsoft.com/oas/default.aspx?prid=16146).
 
 Meer informatie over:
  
@@ -38,7 +38,7 @@ Meer informatie over:
 
 ## <a name="report-production-issues-or-request-paid-support-for-standalone-service-fabric-clusters"></a>Productieproblemen melden of betaalde ondersteuning aanvragen voor zelfstandige die service Fabric-clusters
 
-Voor het melden van on-premises problemen op uw Service Fabric-cluster geïmplementeerd, of op andere clouds, opent u een ticket voor professionele ondersteuning op [Microsoft support portal](http://support.microsoft.com/oas/default.aspx?prid=16146).
+Voor het melden van on-premises problemen op uw Service Fabric-cluster geïmplementeerd, of op andere clouds, opent u een ticket voor professionele ondersteuning op [Microsoft support portal](https://support.microsoft.com/oas/default.aspx?prid=16146).
 
 Meer informatie over:
 

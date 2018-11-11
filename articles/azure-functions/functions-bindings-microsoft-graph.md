@@ -9,16 +9,16 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/20/2017
 ms.author: cshoe
-ms.openlocfilehash: fa429553caf874dd634944a5fca6cd9283194bb4
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 3932ad18ceedb36a4a8c1f9fc78eb8aef27a8a4f
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50251104"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51301013"
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>Microsoft Graph-bindingen voor Azure Functions
 
-In dit artikel wordt uitgelegd hoe u kunt configureren en werken met Microsoft Graph-triggers en bindingen in Azure Functions. Met deze, kunt u Azure Functions gebruiken om te werken met gegevens, inzichten en gebeurtenissen van de [Microsoft Graph](https://graph.microsoft.io).
+In dit artikel wordt uitgelegd hoe u kunt configureren en werken met Microsoft Graph-triggers en bindingen in Azure Functions. Met deze, kunt u Azure Functions gebruiken om te werken met gegevens, inzichten en gebeurtenissen van de [Microsoft Graph](https://developer.microsoft.com/graph).
 
 De Microsoft Graph-extensie biedt de volgende bindingen:
 - Een [-verificatietoken Invoerbinding](#token-input) kunt u communiceren met alle Microsoft Graph-API.
@@ -834,7 +834,7 @@ Deze sectie bevat de volgende subgedeelten:
 * [Voorbeeld](#outlook-output---example)
 * [Kenmerken](#outlook-output---attributes)
 * [Configuratie](#outlook-output---configuration)
-* [Gebruik](#outlook-outnput---usage)
+* [Gebruik](#outlook-output---usage)
 
 ### <a name="outlook-output---example"></a>Uitvoer van de Outlook - voorbeeld
 

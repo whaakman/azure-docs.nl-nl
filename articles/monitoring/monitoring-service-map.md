@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/28/2018
 ms.author: magoedte
-ms.openlocfilehash: ad696168674e0c04c457c06a81d4e723981eee47
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 0f3bc7302bc28a9bef288e5e5e0b9b891a08b8dd
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50914750"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51252918"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Met behulp van de oplossing Serviceoverzicht in Azure
 Serviceoverzicht ontdekt automatisch toepassingsonderdelen op Windows- en Linux-systemen en wijst de communicatie tussen services toe. Met Service Map, kunt u uw servers weergeven in de manier waarop u kunt ze beschouwen: als onderling verbonden systemen die kritieke services verlenen. Servicetoewijzing toont verbindingen tussen servers, processen, binnenkomend en uitgaand verbinding latentie en poorten in alle via TCP verbonden architectuur, waarvoor geen configuratie vereist dan de installatie van een agent.
@@ -277,7 +277,7 @@ De **Updates voor virtuele machines** deelvenster worden gegevens uit de updateb
 ![Machine bijhouden deelvenster](media/monitoring-service-map/machine-updates.png)
 
 ## <a name="log-analytics-records"></a>Log Analytics-records
-Serviceoverzicht computer- en inventarisgegevens is beschikbaar voor [zoeken](../log-analytics/log-analytics-log-search.md) in Log Analytics. U kunt deze gegevens toepassen op scenario's met migratieplanning, analyse, detectie en het oplossen van prestaties op aanvraag.
+Serviceoverzicht computer- en inventarisgegevens is beschikbaar voor [zoeken](../log-analytics/log-analytics-queries.md) in Log Analytics. U kunt deze gegevens toepassen op scenario's met migratieplanning, analyse, detectie en het oplossen van prestaties op aanvraag.
 
 Een record wordt gegenereerd per uur voor elke unieke computernaam en het proces, naast de records die worden gegenereerd wanneer een proces of de computer wordt gestart of toegevoegd aan Service-kaart is. Deze records hebben de eigenschappen in de volgende tabellen. De velden en waarden in de ServiceMapComputer_CL-gebeurtenissen toewijzen aan velden van de bron van de Machine in de ServiceMap Azure Resource Manager-API. De velden en waarden in de gebeurtenissen ServiceMapProcess_CL worden toegewezen aan de velden van de proces-resource in de ServiceMap Azure Resource Manager-API. Het veld ResourceName_s komt overeen met het naamveld in de overeenkomende Resource Manager-resource. 
 
@@ -504,7 +504,7 @@ Zie voor meer informatie over het verzamelen van gegevens en het gebruik, de [pr
 
 
 ## <a name="next-steps"></a>Volgende stappen
-Meer informatie over [zoekopdrachten](../log-analytics/log-analytics-log-search.md) in Log Analytics om gegevens die worden verzameld door Serviceoverzicht te halen.
+Meer informatie over [zoekopdrachten](../log-analytics/log-analytics-queries.md) in Log Analytics om gegevens die worden verzameld door Serviceoverzicht te halen.
 
 
 ## <a name="troubleshooting"></a>Problemen oplossen

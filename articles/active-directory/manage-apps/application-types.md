@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: barbkess
-ms.openlocfilehash: 754a06cc8bb9cc6e660e2ac5f01ef2c40176eb05
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: f483be5866715ddf253daefb197ae3dd87e02d99
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44356756"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51249095"
 ---
 # <a name="unexpected-application-in-my-applications-list"></a>Onverwachte toepassing in de lijst met mijn toepassingen
 
@@ -59,13 +59,13 @@ Wanneer gefilterd op **alle toepassingen**, wordt de **alle toepassingen** **lij
 
 2.  Wanneer u zich aanmelden voor of aanmelden bij een 3<sup>rd</sup> party-toepassingen geïntegreerd met Azure Active Directory. Een voorbeeld hiervan is [Smartsheet](https://app.smartsheet.com/b/home) of [DocuSign](https://www.docusign.net/member/MemberLogin.aspx).
 
-3.  Wanneer u zich aanmelden voor, of een licentie toe te voegen aan een gebruiker of groep aan een eerste toepassing van derden, zoals [Microsoft Office 365](http://products.office.com/)
+3.  Wanneer u zich aanmelden voor, of een licentie toe te voegen aan een gebruiker of groep aan een eerste toepassing van derden, zoals [Microsoft Office 365](https://products.office.com/)
 
 4.  Wanneer u de registratie van een nieuwe toepassing toevoegen door het maken van een aangepaste toepassing met de [toepassingsregister](https://docs.microsoft.com/azure/active-directory/active-directory-app-registration)
 
 5.  Wanneer u de registratie van een nieuwe toepassing toevoegen door het maken van een aangepaste toepassing met de [V2.0-registratieportal voor toepassing](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-app-registration#visit-the-microsoft-app-registration-portal)
 
-6.  Wanneer u een toepassing toevoegen ontwikkelt u met behulp van Visual Studio [ASP.net-verificatiemethoden](http://www.asp.net/visual-studio/overview/2013/creating-web-projects-in-visual-studio#orgauthoptions) of [Connected Services](http://blogs.msdn.com/b/visualstudio/archive/2014/11/19/connecting-to-cloud-services.aspx)
+6.  Wanneer u een toepassing toevoegen ontwikkelt u met behulp van Visual Studio [ASP.net-verificatiemethoden](http://www.asp.net/visual-studio/overview/2013/creating-web-projects-in-visual-studio#orgauthoptions) of [Connected Services](https://blogs.msdn.com/b/visualstudio/archive/2014/11/19/connecting-to-cloud-services.aspx)
 
 7.  Wanneer u een service-principal-object met maakt de [Azure AD PowerShell-Module](/powershell/azure/install-adv2?view=azureadps-2.0)
 

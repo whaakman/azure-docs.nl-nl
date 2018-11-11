@@ -8,16 +8,16 @@ ms.topic: article
 ms.date: 06/27/2018
 ms.author: jamesbak
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: 44eec21f4687d2df64c59d41cdb02c6ef2268f82
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: b5d3a735bd490468e989ac29c9f082475cc7eab3
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39528694"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283361"
 ---
 # <a name="azure-data-lake-storage-gen2-preview-hierarchical-namespace"></a>Azure Preview van Data Lake Storage Gen2 hiërarchische naamruimte
 
-Een mechanisme waarmee Azure Data Lake Storage Gen2 Preview voor prestaties op schaal van de opslag van object en de prijzen van het bestandssysteem is de toevoeging van een **hiërarchische naamruimte**. Hiermee wordt de verzameling van objecten/bestanden binnen een account om te worden ingedeeld in een hiërarchie van mappen en geneste submappen op dezelfde manier als dat het bestandssysteem op uw computer is ingedeeld. Met de hiërarchische naamruimte die is ingeschakeld, biedt Data Lake Storage Gen2 de schaalbaarheid en rentabiliteit van objectopslag met semantiek van het bestandssysteem die bekend bij de analyse-engines en frameworks zijn.
+Een mechanisme waarmee Azure Data Lake Storage Gen2 Preview voor prestaties op schaal van de opslag van object en de prijzen van het bestandssysteem is de toevoeging van een **hiërarchische naamruimte**. Hiermee wordt de verzameling van objecten/bestanden binnen een account om te worden ingedeeld in een hiërarchie van mappen en geneste submappen op dezelfde manier als dat het bestandssysteem op uw computer is ingedeeld. Met de hiërarchische naamruimte die is ingeschakeld, wordt een opslagaccount kan de schaalbaarheid en rentabiliteit van objectopslag, voorzien van semantiek van het bestandssysteem die bekend bij de analyse-engines en frameworks zijn.
 
 ## <a name="the-benefits-of-the-hierarchical-namespace"></a>De voordelen van de hiërarchische naamruimte
 
@@ -26,7 +26,7 @@ Een mechanisme waarmee Azure Data Lake Storage Gen2 Preview voor prestaties op s
 
 De volgende voordelen zijn gekoppeld aan bestandssystemen die een hiërarchische naamruimte worden geïmplementeerd via blob-gegevens:
 
-- **Atomische Directory manipulatie:** Object winkels schatting maken van een directory-hiërarchie door een overeenkomst voor het insluiten van schuine streep (/) in de objectnaam om aan te duiden padsegmenten vast te stellen. Deze overeenkomst werkt voor het ordenen van objecten, biedt de overeenkomst geen ondersteuning voor bewerkingen zoals het verplaatsen, naam wijzigen of verwijderen van mappen. Zonder echte mappen moeten toepassingen verwerken mogelijk miljoenen afzonderlijke blobs om taken op het niveau van de directory. De hiërarchische naamruimte worden deze taken, daarentegen, verwerkt door het bijwerken van een afzonderlijke vermelding (de bovenliggende map). 
+- **Atomische directory manipulatie:** Object winkels schatting maken van een directory-hiërarchie door een overeenkomst voor het insluiten van schuine streep (/) in de objectnaam om aan te duiden padsegmenten vast te stellen. Deze overeenkomst werkt voor het ordenen van objecten, biedt de overeenkomst geen ondersteuning voor bewerkingen zoals het verplaatsen, naam wijzigen of verwijderen van mappen. Zonder echte mappen moeten toepassingen verwerken mogelijk miljoenen afzonderlijke blobs om taken op het niveau van de directory. De hiërarchische naamruimte worden deze taken, daarentegen, verwerkt door het bijwerken van een afzonderlijke vermelding (de bovenliggende map).
 
     Deze indrukwekkende optimalisatie is met name belangrijk voor veel big data analytics-frameworks. Hulpprogramma's, zoals Hive, Spark, enz. vaak uitvoer schrijven naar tijdelijke locaties en vervolgens de naam van de locatie aan het einde van de taak. Zonder de hiërarchische naamruimte, kan deze naam vaak langer duren dan de analytics-proces zelf. Lagere latentie van de taak is gelijk aan lagere totale eigendomskosten (TCO) voor werkbelastingen voor gegevensanalyse.
 

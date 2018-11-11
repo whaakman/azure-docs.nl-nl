@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/03/2017
 ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: 0f08e63d6cbf5be8667b1fd61556e3f33e31d06f
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: f2f96faf6bd8132422aeb3484547e4b6a1195a7f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50957655"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255537"
 ---
 # <a name="have-a-classic-metric-alert-notify-a-non-azure-system-using-a-webhook"></a>Hebt u een klassieke waarschuwing voor metrische gegevens op de hoogte stellen een niet-Azure-systeem met behulp van een webhook
 U kunt webhooks gebruiken voor het routeren van een Azure waarschuwingsmelding met andere systemen voor na verwerking of aangepaste acties. U kunt een webhook gebruiken op een waarschuwing aan het wordt doorgestuurd naar services die de SMS-berichten, om aan te melden bugs, om de hoogte van een team via chatten of berichtenservices, of voor verschillende andere acties te verzenden. 
@@ -101,8 +101,8 @@ De POST-bewerking bevat de volgende JSON-nettolading en het schema voor alle waa
 >
 
 ## <a name="next-steps"></a>Volgende stappen
-* Meer informatie over Azure-waarschuwingen en webhooks in de video [Azure integreert waarschuwingen met PagerDuty](http://go.microsoft.com/fwlink/?LinkId=627080).
-* Meer informatie over het [Azure Automation-scripts (runbooks) uit te voeren op Azure-waarschuwingen](http://go.microsoft.com/fwlink/?LinkId=627081).
+* Meer informatie over Azure-waarschuwingen en webhooks in de video [Azure integreert waarschuwingen met PagerDuty](https://go.microsoft.com/fwlink/?LinkId=627080).
+* Meer informatie over het [Azure Automation-scripts (runbooks) uit te voeren op Azure-waarschuwingen](https://go.microsoft.com/fwlink/?LinkId=627081).
 * Meer informatie over het [een logische app gebruiken voor het verzenden van een SMS-bericht via Twilio vanuit een Azure-waarschuwing](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app).
 * Meer informatie over het [gebruik van een logische app een Slack-bericht verzenden vanuit een Azure-waarschuwing](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app).
 * Meer informatie over het [gebruik van een logische app een bericht verzenden naar een Azure-wachtrij vanuit een Azure-waarschuwing](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app).

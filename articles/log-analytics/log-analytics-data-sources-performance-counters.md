@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 12/19/2017
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: d03af1398f8fd714246c88308ba615ae17010b39
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 15991faa61dc5f543b1b9db491bc1669daf219cc
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50962024"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51014207"
 ---
 # <a name="windows-and-linux-performance-data-sources-in-log-analytics"></a>Windows en Linux-gegevensbronnen van de prestaties die u in Log Analytics
 In Windows en Linux-prestatiemeteritems geven inzicht in de prestaties van de hardware-onderdelen, besturingssystemen en toepassingen.  Log Analytics kunt verzamelen van prestatiemeteritems op regelmatige intervallen voor analyse in de buurt van real-time (NRT) naast het verzamelen van prestatiegegevens voor langere termijn analyse en rapportage.
@@ -118,7 +118,7 @@ De volgende tabel bevat de objecten en de items die u in het configuratiebestand
 | Geheugen | Gebruikt geheugen in megabytes |
 | Netwerk | Totaal aantal verzonden Bytes |
 | Netwerk | Totaal aantal ontvangen Bytes |
-| Netwerk | Totaal aantal bytes |
+| Netwerk | Totaal aantal Bytes |
 | Netwerk | Totaal aantal verzonden pakketten |
 | Netwerk | Totaal aantal ontvangen pakketten |
 | Netwerk | Totaal aantal Rx-fouten |
@@ -227,5 +227,5 @@ De volgende tabel bevat voorbeelden van zoekopdrachten die prestatierecords opha
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Verzamelen van prestatiemeteritems van Linux-toepassingen](log-analytics-data-sources-linux-applications.md) met inbegrip van MySQL en Apache HTTP-Server.
-* Meer informatie over [zoekopdrachten](log-analytics-log-search.md) om de gegevens die worden verzameld van gegevensbronnen en oplossingen te analyseren.  
+* Meer informatie over [zoekopdrachten](log-analytics-queries.md) om de gegevens die worden verzameld van gegevensbronnen en oplossingen te analyseren.  
 * Verzamelde gegevens te exporteren [Power BI](log-analytics-powerbi.md) voor extra visualisaties en analyse.

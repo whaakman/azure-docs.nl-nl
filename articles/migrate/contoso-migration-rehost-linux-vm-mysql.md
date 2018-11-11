@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: raynew
-ms.openlocfilehash: c89ba62ae104d378dc99809e2d96ac993cd2bc35
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 2a7e7f13b68f06bb6c0e9be4730c7346e43e8e5b
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49115965"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51346572"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-linux-app-to-azure-vms-and-azure-mysql"></a>Migratie van Contoso: een on-premises Linux-app op Azure VM's en Azure MySQL Rehost
 
@@ -199,7 +199,7 @@ Na een failover naar Azure wil Contoso kunnen verbinding maken met de Azure VM's
 
 - Als u wilt openen via het internet, kunnen SSH in Linux on-premises virtuele machine vóór de migratie.  Voor Ubuntu dit kan worden voltooid met de volgende opdracht: **Sudo apt-get ssh in installeren -y**.
 - Na de failover, moeten ze controleren **diagnostische gegevens over opstarten** om een schermopname van de virtuele machine weer te geven.
-- Als dit niet werkt, moeten ze controleren dat de virtuele machine wordt uitgevoerd, en bekijk deze [tips voor probleemoplossing](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
+- Als dit niet werkt, moeten ze controleren dat de virtuele machine wordt uitgevoerd, en bekijk deze [tips voor probleemoplossing](https://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
 
 **Meer hulp nodig?**
 
@@ -399,7 +399,7 @@ Een testfailover uitvoeren controleren kunt of alles werkt zoals verwacht, vóó
 
 ### <a name="migrate-the-vm"></a>De virtuele machine migreren
 
-Voor het migreren van de virtuele machine, Contoso beheerders creats een herstelplan te gaan met de virtuele machine, en failover van het plan naar Azure.
+Voor het migreren van de virtuele machine, beheerders van Contoso een herstelplan te gaan met de virtuele machine maakt en failover van het plan naar Azure.
 
 1. Ze een plan maken en toevoegen **OSTICKETWEB** toe.
 

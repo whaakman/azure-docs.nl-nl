@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: d17e7abbb3b6e4f091e19b8ab6834461dedffc71
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 8cec3d3695eaff8719757dd022951b969de99f6a
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50914767"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51010640"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: Veelgestelde vragen (FAQ) 
 Deze pagina vindt u antwoorden op veelgestelde vragen over de Azure Active Directory (Azure AD) B2C. Houd regelmatig op updates controleren.
 
 ### <a name="why-cant-i-access-the-azure-ad-b2c-extension-in-the-azure-portal"></a>Waarom geen ik toegang tot de Azure AD B2C-extensie in de Azure-portal?
-Er zijn twee gangbare redenen voor de Azure AD-extensie waarom niet voor u werkt is.  Azure AD B2C vereist uw gebruikersrol in de map globale beheerder.  Neem contact op met uw beheerder als u denkt dat u toegang moet hebben.  Als u globale beheerder-bevoegdheden hebt, zorg ervoor dat u zich in een Azure AD B2C-map en niet in een Azure Active Directory-map.  Ziet u instructies voor het [het maken van een Azure AD B2C-directory](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant).
+Er zijn twee gangbare redenen voor de Azure AD-extensie waarom niet voor u werkt is.  Azure AD B2C vereist uw gebruikersrol in de map globale beheerder.  Neem contact op met uw beheerder als u denkt dat u toegang moet hebben.  Als u globale beheerder-bevoegdheden hebt, zorg ervoor dat u zich in een Azure AD B2C-map en niet in een Azure Active Directory-map.  Ziet u instructies voor het [het maken van een Azure AD B2C-tenant](tutorial-create-tenant.md).
 
 ### <a name="can-i-use-azure-ad-b2c-features-in-my-existing-employee-based-azure-ad-tenant"></a>Kan ik Azure AD B2C-functies gebruiken in mijn bestaande, op basis van een werknemer Azure AD-tenant?
 Azure AD en Azure AD B2C zijn afzonderlijke productaanbod en kunnen niet worden gecombineerd in dezelfde tenant.  Een Azure AD-tenant vertegenwoordigt een organisatie.  Een Azure AD B2C-tenant vertegenwoordigt een verzameling van identiteiten die worden gebruikt met relying party toepassingen.  Met aangepaste beleidsregels (in openbare preview), kan Azure AD B2C federeren naar Azure AD de verificatie van de werknemers toestaan in een organisatie.
@@ -39,12 +39,12 @@ Gebruikersaccounts voor toepassingen moeten altijd worden gemaakt via een regist
 ### <a name="which-social-identity-providers-do-you-support-now-which-ones-do-you-plan-to-support-in-the-future"></a>Welke sociale id-providers bieden u nu ondersteuning? Welke wilt u in de toekomst ondersteunen?
 We ondersteunen momenteel Facebook, Google +, LinkedIn, Amazon, Twitter (preview), WeChat (preview), Weibo (preview) en q (Preview). Ondersteuning voor andere populaire sociale id-providers op basis van vraag van klanten, zullen we toevoegen.
 
-Azure AD B2C heeft ook ondersteuning toegevoegd voor [aangepast beleid](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview-custom).  Deze [aangepast beleid](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview-custom) toestaan van een ontwikkelaar van hun eigen om beleid te maken die met een id-provider die ondersteuning biedt voor [OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) of SAML. 
+Azure AD B2C heeft ook ondersteuning toegevoegd voor [aangepast beleid](active-directory-b2c-overview-custom.md).  Deze [aangepast beleid](active-directory-b2c-overview-custom.md) toestaan van een ontwikkelaar van hun eigen om beleid te maken die met een id-provider die ondersteuning biedt voor [OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) of SAML. 
 
 Aan de slag met aangepast beleid door het uitchecken van onze [aangepast beleid beginnerspakket](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack).
 
 ### <a name="can-i-configure-scopes-to-gather-more-information-about-consumers-from-various-social-identity-providers"></a>Kan ik bereiken voor het verzamelen van informatie over gebruikers uit verschillende sociale id-providers configureren?
-Nee, maar deze functie is op ons schema groter. De standaard-bereiken die wordt gebruikt voor onze ondersteunde set sociale id-providers zijn:
+Nee. De standaard-bereiken die wordt gebruikt voor onze ondersteunde set sociale id-providers zijn:
 
 * Facebook: e-mailadres
 * Google +: e-mailadres
@@ -56,7 +56,7 @@ Nee, maar deze functie is op ons schema groter. De standaard-bereiken die wordt 
 Nee, u kunt hosten op uw toepassing een willekeurige plaats (in de cloud of on-premises). Nodig is om te communiceren met Azure AD B2C, is de mogelijkheid om te verzenden en ontvangen van HTTP-aanvragen op openbaar toegankelijke eindpunten.
 
 ### <a name="i-have-multiple-azure-ad-b2c-tenants-how-can-i-manage-them-on-the-azure-portal"></a>Ik heb meerdere Azure AD B2C-tenants. Hoe kan ik ze beheren in Azure portal?
-Voordat u het 'Azure AD B2C' in het menu links van de Azure-portal opent, moet u overschakelen naar de map die u wilt beheren.  Schakelen tussen mappen door te klikken op uw identiteit in de rechterbovenhoek van de Azure-portal en kies vervolgens een map in de vervolgkeuzelijst die wordt weergegeven.  Zie voor stapsgewijze met afbeeldingen, [navigeren naar Azure AD B2C-instellingen](active-directory-b2c-app-registration.md#navigate-to-b2c-settings).
+Voordat u het 'Azure AD B2C' in het menu links van de Azure-portal opent, moet u overschakelen naar de map die u wilt beheren.  Schakelen tussen mappen door te klikken op uw identiteit in de rechterbovenhoek van de Azure-portal en kies vervolgens een map in de vervolgkeuzelijst die wordt weergegeven.
 
 ### <a name="how-do-i-customize-verification-emails-the-content-and-the-from-field-sent-by-azure-ad-b2c"></a>Hoe aanpassen e-mails voor domeinverificatie (de inhoud en de ' uit: ' veld) die is verzonden door Azure AD B2C?
 U kunt de [functie huisstijl van bedrijf](../active-directory/fundamentals/customize-branding.md) om aan te passen van de inhoud van verificatie-e-mailberichten. Specifiek, kunnen deze twee elementen van het e-mailbericht worden aangepast:
@@ -74,7 +74,7 @@ De e-handtekening bevat de naam van de Azure AD B2C-tenant die u hebt opgegeven 
 1. Wijzig de **naam** veld.
 1. Klik bovenaan de pagina op **Opslaan**.
 
-Er is momenteel geen manier om te wijzigen de ' uit: ' op het e-mailbericht. Stemmen op [feedback.azure.com](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/15334335-fully-customizable-verification-emails) u geïnteresseerd bent in de hoofdtekst van het verificatie-e-mailbericht aan te passen.
+Er is momenteel geen manier om te wijzigen de ' uit: ' op het e-mailbericht.
 
 ### <a name="how-can-i-migrate-my-existing-user-names-passwords-and-profiles-from-my-database-to-azure-ad-b2c"></a>Hoe Migreer ik mijn bestaande gebruikersnamen, wachtwoorden en -profielen van mijn database naar Azure AD B2C?
 De Azure AD Graph API kunt u het hulpprogramma voor migratie van schrijven. Zie de [gebruikershandleiding voor de migratie](active-directory-b2c-user-migration.md) voor meer informatie.
@@ -113,8 +113,7 @@ Momenteel niet. Deze functie is op ons schema groter. Controleren van uw domein 
 ### <a name="how-do-i-delete-my-azure-ad-b2c-tenant"></a>Hoe kan ik mijn Azure AD B2C-tenant verwijderen?
 Volg deze stappen voor het verwijderen van uw Azure AD B2C-tenant:
 
-1. Volg deze stappen om [gaat u naar Azure AD B2C-instellingen](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) in Azure portal.
-1. Navigeer naar de **toepassingen**, **id-providers**, en **alle beleidsregels** en verwijder alle vermeldingen in elk van deze.
+1. Verwijder alle beleidsregels in uw Azure AD B2C-tenant.
 1. Nu aanmelden bij de [Azure-portal](https://portal.azure.com/) als beheerder van het abonnement. (Gebruik de dezelfde werk- of schoolaccount of hetzelfde Microsoft-account die u hebt gebruikt om u te registreren voor Azure.)
 1. Switch voor de Azure AD B2C-tenant die u wilt verwijderen.
 2. Navigeer naar de Active Directory-menu aan de linkerkant.

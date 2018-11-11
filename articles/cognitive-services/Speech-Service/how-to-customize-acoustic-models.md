@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: panosper
-ms.openlocfilehash: 81449889ae9218f2b59ea48f10c676dcee9aa8b1
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 70fc9c34599f27eb5d67b79ef823f8037ae55ba9
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49466083"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215239"
 ---
 # <a name="tutorial-create-a-custom-acoustic-model"></a>Zelfstudie: een aangepast akoestisch model maken
 
@@ -53,7 +53,7 @@ Een akoestische-gegevensset voor het aanpassen van het akoestische model bestaat
 * Alle audiobestanden in de gegevensset moeten worden opgeslagen in de WAV (RIFF)-audio-indeling.
 * De audio moet een samplefrequentie van 8 kHz of 16 kHz hebben en de sample-waarden moeten worden opgeslagen als niet-gecomprimeerde pulscodemodulatie (PCM) 16-bits gehele getallen met teken (shorts).
 * Alleen audiobestanden met één kanaal (mono) worden ondersteund.
-* De audiobestanden moeten tussen 100 microseconden en 1 minuut lang zijn. Elk audiobestand zou idealiter moeten beginnen en eindigen met minstens 100 microseconden stilte, en ergens tussen 500 microseconden en 1 seconde is gebruikelijk.
+* De audiobestanden kunnen in lengte variëren van 100 microseconden tot 1 minuut, hoewel ze idealiter circa 10-12 seconden lang zouden moeten zijn. Elk audiobestand zou idealiter moeten beginnen en eindigen met minstens 100 microseconden stilte, en ergens tussen 500 microseconden en 1 seconde is gebruikelijk.
 * Als uw gegevens achtergrondgeluid bevatten, is het aan te raden ook enkele voorbeelden met langere stiltesegmenten&mdash;bijvoorbeeld een paar seconden&mdash;in uw gegevens op te nemen, vóór en/of na de gesproken inhoud.
 * Elk audiobestand moet uit één utterance bestaan&mdash;bijvoorbeeld één zin bij dicteren, één zoekopdracht of één beurt van een dialoogsysteem.
 * Elk audiobestand in de gegevensset moet een unieke bestandsnaam hebben en de extensie moet 'wav' zijn.
@@ -69,7 +69,7 @@ Een akoestische-gegevensset voor het aanpassen van het akoestische model bestaat
 | Samplefrequentie | 8.000 Hz of 16.000 Hz |
 | Kanalen | 1 (mono) |
 | Sample-indeling | PCM, 16-bits gehele getallen |
-| Bestandsduur | 0,1 seconde < duur < 60 seconden |
+| Bestandsduur | 0,1 seconde < duur < 12 seconden | 
 | Stiltekraag | > 0,1 seconde |
 | Archiefindeling | .zip |
 | Maximale grootte archief | 2 GB |

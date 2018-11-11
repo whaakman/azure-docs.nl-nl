@@ -8,22 +8,22 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 06/27/2018
 ms.author: seguler
-ms.openlocfilehash: 065c4c4315bda209484cc1b2449980e55d4ac798
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 09703e203370a524b24f552c93161e4cb64d803d
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39522693"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281673"
 ---
 # <a name="use-distcp-to-copy-data-between-azure-storage-blobs-and-data-lake-storage-gen2-preview"></a>Distcp gebruiken om gegevens tussen Azure Storage-Blobs en Gen2 Preview van Data Lake-opslag te kopiëren
 
-Als u een HDInsight-cluster met toegang naar Gen2 Preview van Azure Data Lake Storage hebt, kunt u Hadoop-ecosysteem-hulpprogramma's zoals [Distcp](https://hadoop.apache.org/docs/stable/hadoop-distcp/DistCp.html) om gegevens te kopiëren **naar en uit** een HDInsight-cluster storage (WASB) in een gegevens Kan account Lake Storage Gen2. Dit artikel bevat instructies over het hulpprogramma Distcp gebruiken.
+Als u een HDInsight-cluster en zijn geregistreerd bij Azure Data Lake Storage Gen2 van Preview, kunt u Hadoop-ecosysteem-hulpprogramma's zoals [Distcp](https://hadoop.apache.org/docs/stable/hadoop-distcp/DistCp.html) om gegevens te kopiëren **naar en uit** een HDInsight-cluster storage (WASB) in een storage-account met Data Lake Storage Gen2 is ingeschakeld. Dit artikel bevat instructies over het hulpprogramma Distcp gebruiken.
 
 ## <a name="prerequisites"></a>Vereisten
 
 * **Een Azure-abonnement**. Zie [Gratis proefversie van Azure ophalen](https://azure.microsoft.com/pricing/free-trial/).
-* **Een Azure Storage-account met Azure Data Lake Storage (Preview)-functie ingeschakeld**. Zie voor instructies over het maken van een [een opslag Gen2 Preview van Azure Data Lake storage-account maken](quickstart-create-account.md)
-* **Azure HDInsight-cluster** met toegang tot een Data Lake Storage-account. Zie [gebruik Azure Data Lake Storage Gen2 met Azure HDInsight-clusters](use-hdi-cluster.md). Zorg ervoor dat u extern bureaublad inschakelen voor het cluster.
+* **Een Azure Storage-account met Data Lake Storage Gen2 (Preview)-functie ingeschakeld**. Zie voor instructies over het maken van een [een opslag Gen2 Preview van Azure Data Lake storage-account maken](quickstart-create-account.md)
+* **Azure HDInsight-cluster** met toegang tot een opslagaccount met Data Lake Storage Gen2 is ingeschakeld. Zie [gebruik Azure Data Lake Storage Gen2 met Azure HDInsight-clusters](use-hdi-cluster.md). Zorg ervoor dat u extern bureaublad inschakelen voor het cluster.
 
 ## <a name="use-distcp-from-an-hdinsight-linux-cluster"></a>Distcp gebruiken vanuit een HDInsight Linux-cluster
 
@@ -97,4 +97,4 @@ Wanneer de grootte van de gegevensset worden verplaatst groot is (bijvoorbeeld >
 
 * DistCp is beperkt tot slechts één mapper per bestand. U moet daarom niet meer mappers dan er bestanden hebben. Aangezien DistCp alleen een toewijzen aan een bestand toewijzen kunt, beperkt dit de hoeveelheid gelijktijdigheid die kan worden gebruikt om grote bestanden te kopiëren.
 
-* Hebt u een klein aantal grote bestanden, moet klikt u vervolgens u opsplitsen ze in segmenten van 256 MB-bestand waarin u meer mogelijke gelijktijdigheid. 
+* Hebt u een klein aantal grote bestanden, moet klikt u vervolgens u opsplitsen ze in segmenten van 256 MB-bestand waarin u meer mogelijke gelijktijdigheid.

@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: csharp
 ms.custom: mvc
-ms.openlocfilehash: 84072c7e5f7aa37e89fc1b93c1585167dd6d9f4b
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 8602f020481249282756a952a46b32bd9e768372
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41918616"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50241316"
 ---
 # <a name="enroll-the-device-to-an-iot-hub-using-the-azure-iot-hub-provisioning-service-client-net"></a>Het apparaat registreren bij een IoT-hub met behulp van IoT Hub Device Provisioning Service-client (.NET)
 
@@ -230,7 +230,7 @@ Start het apparaat zodat de registratie via de clienttoepassing met Device Provi
 
 ## <a name="verify-the-device-is-registered"></a>Controleren of het apparaat is geregistreerd
 
-Zodra het apparaat is opgestart, worden de volgende acties uitgevoerd. Zie de voorbeeldtoepassing van TPM-simulator [dps_client_sample](https://github.com/Azure/azure-iot-device-auth/blob/master/dps_client/samples/dps_client_sample/dps_client_sample.c) voor meer informatie. 
+Zodra het apparaat is opgestart, worden de volgende acties uitgevoerd. Zie het [voorbeeld Apparaatclient inrichten](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/provisioning/Samples/device) voor meer informatie. 
 
 1. Vanaf het apparaat wordt een registratie-aanvraag verzonden naar Device Provisioning Service.
 2. Voor TPM-apparaten wordt vanuit Device Provisioning Service een registratie-uitdaging teruggestuurd waarop het apparaat reageert. 

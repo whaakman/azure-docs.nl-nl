@@ -14,15 +14,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 09/13/2018
+ms.date: 11/06/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2deacb7d15f370c9182c3239493ed60f735d738c
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 6fbb09d41535bf811a42b204f4e3d38b87c2846c
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45736832"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51287945"
 ---
 # <a name="using-azure-for-hosting-and-running-sap-workload-scenarios"></a>Met behulp van Azure voor het hosten en uitvoeren van SAP-workloadscenario 's
 
@@ -35,6 +35,11 @@ De uniekheid van Azure voor SAP HANA is een unieke aanbieding waarmee Azure naas
 SAP-workloadscenario's in Azure die als host fungeert ook eisen van Identity integration en eenmalige aanmelding met behulp van Azure Active Directory aan verschillende onderdelen van SAP en SAP SaaS kunt maken of PaaS biedt. Een lijst van deze integratie en Single-Sign-On scenario's met Azure Active Directory (AAD) en SAP entiteiten wordt beschreven en wordt beschreven in de sectie ' AAD SAP Identity Integration en eenmalige aanmelding. "
 
 ## <a name="latest-changes"></a>Meest recente wijzigingen
+
+Informatie over het gebruik en de configuratie van [Azure Network Virtual Appliances](https://azure.microsoft.com/solutions/network-appliances/) in latentie kritieke communicatiepaden van SAP-systemen in:
+
+- [Overwegingen voor Azure Virtual Machines DBMS-implementatie voor de werkbelasting van SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general)
+- [Configuraties en bewerkingen van SAP HANA-infrastructuur in Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations)
 
 Documentatie over SAP HANA dynamische Opslaglagen voor Azure VM 's
 
@@ -66,7 +71,7 @@ Volgende stappen:
 ## <a name="sap-hana-on-azure-virtual-machines"></a>SAP HANA in virtuele machines op Azure
 Deze sectie van de documentatie bevat informatie over de verschillende aspecten van SAP HANA. Als een vereiste moet u bekend bent met de principal-services van Azure die elementaire services van Azure IaaS, dus meestal kennis van Azure compute, opslag en netwerken leveren. Veel van deze onderwerpen worden verwerkt in de SAP NetWeaver gerelateerde [Azure Planningshandleiding](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide). 
 
-De documentatie die specifiek is voor HANA op Azure bestaat uit deze lijst van de hun onderliggende artikelen en artikelen:
+De documentatie die specifiek is voor HANA op Azure bestaat uit deze lijst met artikelen en hun subarticles:
 
 - [Snelstartgids: Handmatige installatie van één exemplaar SAP HANA op Azure Virtual machines](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-get-started)
 - [SAP S/4HANA of BW/4HANA op Azure implementeren](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/cal-s4h)

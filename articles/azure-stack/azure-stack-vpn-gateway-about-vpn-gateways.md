@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/02/2018
 ms.author: sethm
-ms.openlocfilehash: 8f45535b0e75c3f95a56148ea92a343bb0d8a9f5
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: d94b7f7f2f032278f71053e5de8bb2935af01f3f
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49079256"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300146"
 ---
 # <a name="about-vpn-gateway-for-azure-stack"></a>Over VPN-gateway voor Azure Stack
 
@@ -33,7 +33,7 @@ Wanneer u een virtuele netwerkgateway maakt, geeft u het gatewaytype aan dat u w
 
 Elk virtueel netwerk kan twee virtuele netwerkgateways hebben, maar slechts één van elk type. Afhankelijk van de instellingen die u kiest, kunt u meerdere verbindingen maken voor één VPN-gateway. Een voorbeeld is een configuratie met meerdere Site-verbinding.
 
-Voordat u maken en configureren van VPN-Gateways voor Azure Stack, controleert u de [overwegingen voor Azure Stack-netwerken](/articles/azure-stack/user/azure-stack-network-differences.md) voor meer informatie over hoe configuraties voor Azure Stack verschillen van Azure.
+Voordat u maken en configureren van VPN-Gateways voor Azure Stack, controleert u de [overwegingen voor Azure Stack-netwerken](user/azure-stack-network-differences.md) voor meer informatie over hoe configuraties voor Azure Stack verschillen van Azure.
 
 >[!NOTE]
 >In Azure, moet de doorvoer van de bandbreedte voor VPN-gateway-SKU die u kiest, worden verdeeld over alle verbindingen die zijn verbonden met de gateway. Maar in Azure Stack, de waarde voor de bandbreedte voor de VPN-gateway-SKU wordt toegepast op elke verbinding-resource die is verbonden met de gateway.
@@ -71,7 +71,7 @@ De diagrammen en beschrijvingen in de volgende secties kunt u een verbinding sel
 
 ## <a name="site-to-site-and-multi-site-ipsecike-vpn-tunnel"></a>Site-naar-site en multi-site (IPsec-/IKE VPN-tunnel)
 
-### <a name="site-to-site"></a>Site-to-Site
+### <a name="site-to-site"></a>Site-naar-site
 
 Een site-naar-site-VPN-gatewayverbinding (S2S) is een verbinding via een VPN-tunnel met IPsec/IKE (IKEv1 of IKEv2). Dit type verbinding vereist een VPN-apparaat die zich on-premises en een openbaar IP-adres is toegewezen. Dit apparaat kan zich niet achter een NAT bevinden. S2S-verbindingen kunnen worden gebruikt voor cross-premises en hybride configuraties.
 

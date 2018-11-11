@@ -1,5 +1,5 @@
 ---
-title: Azure Batch transcriptie API
+title: De Azure Batch-transcriptie API gebruiken
 titlesuffix: Azure Cognitive Services
 description: Voorbeelden voor grote hoeveelheden audio-inhoud te transcriberen.
 services: cognitive-services
@@ -10,33 +10,31 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: panosper
-ms.openlocfilehash: bb87b9ae207da27d45d559903499177472ee1185
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: cd57e9a90b07447392fbff48017bb29f002ad29e
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50914206"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51035948"
 ---
-# <a name="batch-transcription"></a>Batchtranscriptie
+# <a name="use-batch-transcription"></a>Gebruik batch transcriptie
 
-Batch transcriptie is ideaal als u grote hoeveelheden audio in storage hebt. Met behulp van de Rest-API, kunt u verwijzen naar audio bestanden door de SAS-URI en asynchroon ontvangen transcripties.
+Batch transcriptie is ideaal als u grote hoeveelheden audio in storage hebt. U kunt met behulp van de REST-API, wijst u audio-bestanden door de handtekening voor gedeelde toegang (SAS) URI en asynchroon ontvangen transcripties.
 
-## <a name="batch-transcription-api"></a>Batch transcriptie API
+## <a name="the-batch-transcription-api"></a>De Batch-transcriptie API
 
-De Batch-transcriptie API biedt asynchrone spraak naar tekst transcriptie, samen met extra functies. Er is een REST-API blootstellen van methoden voor:
+De Batch-API voor transcriptie biedt asynchrone transcriptie van spraak naar tekst, samen met extra functies. Er is een REST-API die methoden voor het beschrijft:
 
 1. Het maken van batch verwerken van aanvragen
-
-2. Querystatus 
-
-3. Transcripties downloaden
+1. Querystatus 
+1. Transcripties downloaden
 
 > [!NOTE]
-> De Batch-API voor transcriptie is ideaal voor callcenters, die meestal worden verzameld duizenden uur aan audio. De API wordt geleid door een 'geactiveerd en vergeten' filosofie, waardoor u gemakkelijk grote hoeveelheid audio-opnamen transcriberen.
+> De Batch-API voor transcriptie is ideaal voor callcenters, die meestal worden verzameld duizenden uur aan audio. De API wordt geleid door een 'geactiveerd en vergeten' filosofie, waardoor u gemakkelijk grote hoeveelheden audio-opnamen transcriberen.
 
 ### <a name="supported-formats"></a>Ondersteunde indelingen
 
-De Batch-transcriptie API ondersteunt de volgende indelingen:
+De Batch-API voor transcriptie ondersteunt de volgende indelingen:
 
 Naam| Kanaal  |
 ----|----------|
@@ -44,51 +42,51 @@ MP3 |   Mono   |
 MP3 |  Stereo  | 
 wav |   Mono   |
 wav |  Stereo  |
+Opus|   Mono   |
+Opus|  Stereo  |
 
-Voor stereo audiostreams, wordt de linker- en -kanaal in Batch transcriptie gesplitst tijdens de transcriptie. De twee JSON-bestanden met het resultaat zijn alle gemaakt van één kanaal. De tijdstempels per utterance bieden de ontwikkelaar te maken van een geordende definitieve transcriptie. De volgende JSON-voorbeeld wordt de uitvoer van een kanaal.
+Voor stereo audiostreams, wordt de linker- en -kanaal in batch transcriptie gesplitst tijdens de transcriptie. De twee JSON-bestanden met het resultaat zijn alle gemaakt van één kanaal. De tijdstempels per utterance bieden de ontwikkelaar te maken van een geordende definitieve transcriptie. De uitvoer van een kanaal, inclusief eigenschappen voor het instellen van het filter voor scheldwoorden en het model interpunctie wordt weergegeven in de volgende JSON-voorbeeld:
 
 ```json
-       {
-        "recordingsUrl": "https://mystorage.blob.core.windows.net/cris-e2e-datasets/TranscriptionsDataset/small_sentence.wav?st=2018-04-19T15:56:00Z&se=2040-04-21T15:56:00Z&sp=rl&sv=2017-04-17&sr=b&sig=DtvXbMYquDWQ2OkhAenGuyZI%2BYgaa3cyvdQoHKIBGdQ%3D",
-        "resultsUrls": {
-            "channel_0": "https://mystorage.blob.core.windows.net/bestor-87a0286f-304c-4636-b6bd-b3a96166df28/TranscriptionData/24265e4c-e459-4384-b572-5e3e7795221f?sv=2017-04-17&sr=b&sig=IY2qd%2Fkgtz2PwRe2C88BphH4Hv%2F1VCb1UVJ33xsw%2BEY%3D&se=2018-04-23T14:48:24Z&sp=r"
-        },
-        "statusMessage": "None.",
-        "id": "0bb95356-ff06-469d-acc7-81f9144a269a",
-        "createdDateTime": "2018-04-20T14:11:57.167",
-        "lastActionDateTime": "2018-04-20T14:12:54.643",
-        "status": "Succeeded",
-        "locale": "en-US"
-    },
+{
+  "recordingsUrl": "https://contoso.com/mystoragelocation",
+  "models": [],
+  "locale": "en-US",
+  "name": "Transcription using locale en-US",
+  "description": "An optional description of the transcription.",
+  "properties": {
+    "ProfanityFilterMode": "Masked",
+    "PunctuationMode": "DictatedAndAutomatic"
+  },
 ```
 
 > [!NOTE]
-> De Batch-transcriptie API maakt gebruik van een REST-service voor het aanvragen van transcripties, hun status en de bijbehorende resultaten. U kunt de API vanuit een willekeurige taal gebruiken. De volgende sectie wordt beschreven hoe deze wordt gebruikt.
+> De Batch transcriptie-API maakt gebruik van een REST-service voor het aanvragen van transcripties, hun status en de bijbehorende resultaten. U kunt de API vanuit een willekeurige taal gebruiken. De volgende sectie wordt beschreven hoe de API wordt gebruikt.
 
 ## <a name="authorization-token"></a>Autorisatietoken
 
-Als met alle functies van de Speech-Service die u een abonnementssleutel van maakt de [Azure-portal](https://portal.azure.com) volgende onze [Get-Started guide](get-started.md). Als u van plan bent om op te halen transcripties van onze basislijn-modellen vervolgens is dit alles die wat u nodig om te doen. 
+Als met alle functies van de spraak-service die u een abonnementssleutel van maakt de [Azure-portal](https://portal.azure.com) door onze [introductiehandleiding](get-started.md). Als u van plan bent om op te halen transcripties van onze basislijn-modellen, is het maken van een sleutel alles die wat u nodig om te doen. 
 
-Als u van plan bent aanpassen en het gebruik van een aangepast model moet u deze sleutel subscritpion als volgt toevoegen aan de portal voor aangepaste spraak:
+Als u wilt aanpassen en gebruiken van een aangepast model, het abonnementssleutel toevoegen aan de portal voor aangepaste spraak door het volgende te doen:
 
 1. Aanmelden bij [aangepaste spraak](https://customspeech.ai).
 
-2. Selecteer **Abonnementen**.
+2. Selecteer in de rechterbovenhoek, **abonnementen**.
 
 3. Selecteer **verbinding maken met bestaande abonnement**.
 
-4. De abonnementssleutel en een alias toevoegen in de weergave die wordt weergegeven
+4. In het pop-upvenster, moet u de abonnementssleutel en een alias toevoegen.
 
-    ![Schermafbeelding van de aangepaste spraak abonnementen pagina](media/stt/Subscriptions.jpg)
+    ![Het venster abonnement toevoegen](media/stt/Subscriptions.jpg)
 
 5. Kopieer en plak deze sleutel in de clientcode in het volgende voorbeeld.
 
 > [!NOTE]
-> Als u van plan bent te gebruiken van een aangepast model, moet u de ID van dit model te. Houd er rekening mee dat dit niet de eindpunt-ID die u op de detailweergave van het eindpunt vinden is. Het is de model-ID die u ophalen kunt wanneer u de details van dit model selecteert.
+> Als u van plan bent te gebruiken van een aangepast model, moet u de ID van dit model te. Deze ID is niet de eindpunt-ID die u op de detailweergave van het eindpunt vinden. Het is de model-ID die u ophalen kunt wanneer u de details van dit model selecteert.
 
 ## <a name="sample-code"></a>Voorbeeldcode
 
-Pas de volgende voorbeeldcode met een abonnementssleutel en een API-sleutel. Hiermee kunt u een bearer-token verkrijgen.
+Pas de volgende voorbeeldcode met een abonnementssleutel en een API-sleutel. Deze actie kunt u een bearer-token verkrijgen.
 
 ```cs
      public static CrisClient CreateApiV2Client(string key, string hostName, int port)
@@ -103,7 +101,7 @@ Pas de volgende voorbeeldcode met een abonnementssleutel en een API-sleutel. Hie
         }
 ```
 
-Nadat u het token verkregen, moet u de SAS-URI die verwijst naar het audiobestand transcriptie vereisen. De rest van de code doorloopt de status en het resultaat wordt weergegeven. In eerste instantie stelt een van de sleutel, regio, modellen en het gebruik en de SA. zoals weergegeven in het onderstaande codefragment. Dit wordt gevolgd door de instantie van de client en de POST-aanvraag. 
+Nadat u de token, ophalen, geeft u de SAS-URI die verwijst naar het audiobestand waarvoor transcriptie. De rest van de code doorloopt de status en de resultaten worden weergegeven. Op het eerste gezicht instellen van de sleutel, regio, modellen en het gebruik en de SA, zoals wordt weergegeven in het volgende codefragment. Vervolgens maakt instantiëren u de client en de POST-aanvraag. 
 
 ```cs
             private const string SubscriptionKey = "<your Speech subscription key>";
@@ -111,19 +109,19 @@ Nadat u het token verkregen, moet u de SAS-URI die verwijst naar het audiobestan
             private const int Port = 443;
     
             // SAS URI 
-            private const string RecordingsBlobUri = "some SAS URI";
+            private const string RecordingsBlobUri = "SAS URI pointing to the file in Azure Blob Storage";
 
             // adapted model Ids
-            private static Guid AdaptedAcousticId = new Guid("some guid");
-            private static Guid AdaptedLanguageId = new Guid("some guid");
+            private static Guid AdaptedAcousticId = new Guid("guid of the acoustic adaptation model");
+            private static Guid AdaptedLanguageId = new Guid("guid of the language model");
 
-            // Creating a Batch transcription API Client
+            // Creating a Batch Transcription API Client
             var client = CrisClient.CreateApiV2Client(SubscriptionKey, HostName, Port);
             
             var transcriptionLocation = await client.PostTranscriptionAsync(Name, Description, Locale, new Uri(RecordingsBlobUri), new[] { AdaptedAcousticId, AdaptedLanguageId }).ConfigureAwait(false);
 ```
 
-Nu dat de aanvraag is gedaan de gebruiker kan uitvoeren en gegevens downloaden transcriptie resultaten als de code codefragment wordt getoond.
+Nu dat u de aanvraag hebt gemaakt, kunt u query's uitvoeren en downloaden van de resultaten transcriptie, zoals wordt weergegeven in het volgende codefragment:
 
 ```cs
   
@@ -141,13 +139,13 @@ Nu dat de aanvraag is gedaan de gebruiker kan uitvoeren en gegevens downloaden t
                             // we check to see if it was one of the transcriptions we created from this client.
                         if (!createdTranscriptions.Contains(transcription.Id))
                         {
-                            // not creted form here, continue
+                            // not created from here, continue
                             continue;
                         }
                             
                         completed++;
                             
-                        // if the transcription was successfull, check the results
+                        // if the transcription was successful, check the results
                         if (transcription.Status == "Succeeded")
                         {
                             var resultsUri = transcription.ResultsUrls["channel_0"];
@@ -155,7 +153,7 @@ Nu dat de aanvraag is gedaan de gebruiker kan uitvoeren en gegevens downloaden t
                             var filename = Path.GetTempFileName();
                             webClient.DownloadFile(resultsUri, filename);
                             var results = File.ReadAllText(filename);
-                            Console.WriteLine("Transcription succedded. Results: ");
+                            Console.WriteLine("Transcription succeeded. Results: ");
                             Console.WriteLine(results);
                         }
                     
@@ -173,30 +171,30 @@ Nu dat de aanvraag is gedaan de gebruiker kan uitvoeren en gegevens downloaden t
         }
 ```
 
-Onze [Swagger-document](https://westus.cris.ai/swagger/ui/index) biedt volledige informatie over het aanroepen van de bovenstaande. Het volledige voorbeeld dat hier wordt weergegeven is op [GitHub](https://github.com/PanosPeriorellis/Speech_Service-BatchTranscriptionAPI).
+Zie voor meer informatie over het aanroepen van de voorgaande onze [swagger-document](https://westus.cris.ai/swagger/ui/index). Voor het volledige voorbeeld dat hier wordt weergegeven, gaat u naar [GitHub](https://github.com/PanosPeriorellis/Speech_Service-BatchTranscriptionAPI).
 
 > [!NOTE]
-> In de bovenstaande code wordt de abonnementssleutel is van de spraak-resource die u in Azure portal maakt. Sleutels die zijn verkregen van de resource Custom Speech Service werken niet.
+> In de bovenstaande code wordt de abonnementssleutel is van de spraak-resource die u in Azure portal maakt. Sleutels die u via de Custom Speech Service resource werken niet.
 
-U ziet de asynchrone instellingen voor het plaatsen van audio en transcriptie status ontvangen. De client die gemaakt is een .NET-Http-client. Er is een `PostTranscriptions` methode voor het verzenden van de details van de audio-bestand en een `GetTranscriptions` methode om de resultaten te ontvangen. `PostTranscriptions` retourneert een ingang en `GetTranscriptions` gebruikt deze ingang voor het maken van een greep om op te halen van de status van de transcriptie.
+Noteer de asynchrone instellingen voor het plaatsen van audio en transcriptie status ontvangen. De client die u maakt, is een .NET-HTTP-client. Er is een `PostTranscriptions` methode voor het verzenden van de details van de audio-bestand en een `GetTranscriptions` methode voor het ontvangen van de resultaten. `PostTranscriptions` retourneert een ingang en `GetTranscriptions` gebruikt voor het maken van een greep om de status van de transcriptie.
 
-De huidige voorbeeldcode geeft geen aangepaste modellen. De service maakt gebruik van de basislijn-modellen voor te transcriberen van het bestand of de bestanden. Als u wilt de modellen opgeven, kunt u op dezelfde manier de model-id voor de akoestische en het taalmodel doorgeven. 
+De huidige voorbeeldcode opgeven niet een aangepast model. De service maakt gebruik van de basislijn-modellen voor te transcriberen van het bestand of de bestanden. U kunt doorgeven om op te geven de modellen, op dezelfde manier als de model-id voor de akoestische en het taalmodel. 
 
-Als u niet wilt gebruiken van de basislijn, moet u de model-id's voor zowel akoestische en modellen doorgeven.
+Als u niet wilt gebruiken van de basislijn, geeft u de model-id's voor zowel akoestische en modellen.
 
 > [!NOTE]
-> Voor basislijn transcriptie hebt u geen om aan te geven van de eindpunten van de basislijn-modellen. Als u gebruiken van aangepaste modellen wilt, bieden u de eindpunten id's als de [voorbeeld](https://github.com/PanosPeriorellis/Speech_Service-BatchTranscriptionAPI). Als u een akoestisch basislijn gebruiken met een basislijn taalmodel wilt, hoeft u alleen te declareren van het aangepaste model endpoint-ID. Microsoft detecteert het model voor de partner basislijn (niet het akoestisch of taal), en die wordt gebruikt om te voldoen aan de aanvraag transcriptie.
+> Voor basislijn transcripties hebt u geen om aan te geven van de eindpunten van de basislijn-modellen. Als u gebruiken van aangepaste modellen wilt, bieden u de eindpunten id's als de [voorbeeld](https://github.com/PanosPeriorellis/Speech_Service-BatchTranscriptionAPI). Als u een akoestisch basislijn gebruiken met een basislijn taalmodel wilt, hebt u alleen id van het eindpunt van het aangepaste model declareren Microsoft detecteert het model van de basislijn partner&mdash;of om akoestische of taal&mdash;en gebruikt deze om de transcriptie-aanvraag niet voltooien.
 
 ### <a name="supported-storage"></a>Ondersteunde opslag
 
-De enige opslag wordt ondersteund is momenteel Azure Blob-opslag.
+Momenteel de enige opslag ondersteund door Azure Blob-opslag.
 
-## <a name="downloading-the-sample"></a>Het voorbeeld downloaden
+## <a name="download-the-sample"></a>Het voorbeeld downloaden
 
-Het voorbeeld hieronder is op [GitHub](https://github.com/PanosPeriorellis/Speech_Service-BatchTranscriptionAPI).
+U kunt het voorbeeld in dit artikel vinden op [GitHub](https://github.com/PanosPeriorellis/Speech_Service-BatchTranscriptionAPI).
 
 > [!NOTE]
-> Normaal gesproken vereist een audiotranscriptie dat een tijdsduur die gelijk is aan de duur van het audiobestand, plus de overhead van een 2-3 minuten.
+> Een audiotranscriptie vereist gewoonlijk een tijdspanne gelijk zijn aan de duur van het audiobestand, plus een overhead van twee naar drie minuten.
 
 ## <a name="next-steps"></a>Volgende stappen
 

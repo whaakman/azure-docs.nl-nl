@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/15/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: c30c233fb1d413c6a55c7ec0af8c63ca60284b86
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: d29f01c7f953ed211b429e41b844a01c67e41054
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50960273"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282370"
 ---
 # <a name="scaling-throughput-in-azure-cosmos-db"></a>Schaal doorvoer in Azure Cosmos DB
 
@@ -25,7 +25,7 @@ U kunt ru's op een Cosmos-container of een Cosmos-database inrichten. Voor een c
 
 Voor doorvoer elastisch schalen, kunt u vergroten of verkleinen van de ingerichte RU/s op elk gewenst moment. Zie voor meer informatie, [hoe kan ik inrichten doorvoer](set-throughput.md) en flexibel schalen Cosmos-containers en databases. U kunt voor het wereldwijd schalen van doorvoer, toevoegen of verwijderen van regio's op uw Cosmos-account op elk gewenst moment. Zie voor meer informatie, [instructies toevoegen of verwijderen van regio's aan uw account Cosmos](how-to-manage-database-account.md#addremove-regions-from-your-database-account). Meerdere regio's koppelen aan een Cosmos-account is het belangrijk is in veel scenario's voor een lage latentie en [hoge beschikbaarheid](high-availability.md) over de hele wereld.
 
-## <a name="how-throughput-scaling-works"></a>Hoe schalen van doorvoer werkt
+## <a name="how-provisioned-throughput-is-distributed-across-regions"></a>hoe de ingerichte doorvoer is verdeeld over regio's
 
 Als u 'R'-me voor een Cosmos-container (of database) inricht, Cosmos DB zorgt ervoor dat 'R' ru's zijn beschikbaar in *elke* regio die is gekoppeld aan uw Cosmos-account. Telkens wanneer die u een nieuwe regio aan uw account toevoegen, inricht Cosmos DB automatisch 'R' ru's in de toegevoegde regio. De bewerkingen die worden uitgevoerd op basis van uw Cosmos-container worden ophalen 'R' ru's in elke regio gegarandeerd. U kunt selectief ru's toewijzen aan een specifieke regio. Het voor een Cosmos-container (of de database) ingerichte ru's worden ingericht voor alle regio's die zijn gekoppeld aan uw Cosmos-account.
 

@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 4663fc377e795e603bd2484ec4cf98578408501f
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 5369e16e0f1adc48eb019f3790dc900577c144af
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48248378"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51243656"
 ---
 # <a name="how-to-log-dialogs-in-a-conversation-learner-model"></a>Hoe u zich aanmeldt dialoogvensters in een model Conversatiecursist
 
@@ -23,7 +23,7 @@ In deze zelfstudie leert u hoe u doet eindgebruiker testen in de interface Conve
 
 ## <a name="video"></a>Video
 
-[![Zelfstudie 9-Preview](http://aka.ms/cl-tutorial-09-preview)](http://aka.ms/blis-tutorial-09)
+[![Zelfstudie 9-Preview](https://aka.ms/cl-tutorial-09-preview)](https://aka.ms/blis-tutorial-09)
 
 ## <a name="requirements"></a>Vereisten
 In deze zelfstudie is vereist dat de algemene zelfstudie bot wordt uitgevoerd

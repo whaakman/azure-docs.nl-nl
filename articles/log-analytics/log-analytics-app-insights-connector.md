@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 06/29/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 7f3a90bf0dad2d0e9c6d51e942d88fb933b8ed1f
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 2e59286822d49abeea522b5346ba531408559a7b
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50961327"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51014819"
 ---
 # <a name="application-insights-connector-management-solution-preview"></a>Application Insights-Connector-beheeroplossing (Preview)
 
@@ -191,7 +191,7 @@ Een record met een *type* van *ApplicationInsights* is gemaakt voor elk type inv
 | isSynthetic | Geeft aan of de aanvraag is gemaakt door een gebruiker of door de geautomatiseerde methode. True = gebruiker gegenereerde of = false geautomatiseerde methode |
 | SamplingRate | Percentage van de telemetrie die is gegenereerd door de SDK die wordt verzonden naar de portal. Het bereik 0,0 100,0. |
 | SampledCount | 100/(SamplingRate). Bijvoorbeeld, 4 =&gt; 25% |
-| IsAuthenticated | Waar of onwaar |
+| IsAuthenticated | waar of ONWAAR |
 | Bewerkings-id | Items die dezelfde bewerking ID als betrokken Items worden weergegeven in de portal. Meestal de aanvraag-ID |
 | ParentOperationID | ID van de bovenliggende bewerking |
 | OperationName |   |
@@ -267,4 +267,4 @@ Deze oplossing beschikt niet over een aantal voorbeelden van zoekopdrachten op h
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Gebruik [zoeken in logboeken](log-analytics-log-search.md) om gedetailleerde informatie voor uw Application Insights-apps weer te geven.
+- Gebruik [zoeken in logboeken](log-analytics-queries.md) om gedetailleerde informatie voor uw Application Insights-apps weer te geven.

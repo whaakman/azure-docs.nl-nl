@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: f6e8ed1725b7ba2a0cba8523ae03c0306337aba0
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: db976fb61c5659fbdcb7ba30aa4f619d52d441c4
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49402504"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51252391"
 ---
 # <a name="azure-database-security-checklist"></a>Controlelijst voor de beveiliging van Azure-database
 
@@ -34,7 +34,7 @@ Deze omvatten:
 -   Access management gebruiken
 -   Gegevensversleuteling
 -   SQL Database Auditing
--   Detectie van bedreigingen voor SQL-Database
+-   Detectie van bedreigingen voor SQL Database
 
 ## <a name="introduction"></a>Inleiding
 Cloud computing vereist nieuwe beveiliging paradigma's die niet veel gebruikers van de toepassing, databasebeheerders en programmeurs bekend zijn. Als gevolg hiervan zijn sommige organisaties willen implementeren van een cloud-infrastructuur voor gegevensbeheer vanwege waargenomen beveiligingsrisico's. Veel van dit probleem kan echter worden verholpen door een beter begrip van de beveiligingsfuncties die is ingebouwd in Microsoft Azure en Microsoft Azure SQL Database.
@@ -47,7 +47,7 @@ Het is raadzaam dat u leest de [Best Practices voor beveiliging op Azure-Databas
 | ------------ | -------- |
 |**Gegevens beveiligen**||
 | <br> Versleuteling in beweging/doorvoer| <ul><li>[Transport Layer Security](https://docs.microsoft.com/windows-server/security/tls/transport-layer-security-protocol), voor gegevensversleuteling bij het verplaatsen van gegevens naar de netwerken.</li><li>Database is vereist voor veilige communicatie van clients op basis van de [TDS (Tabular Data Stream)](https://msdn.microsoft.com/library/dd357628.aspx) protocol via TLS (Transport Layer Security).</li></ul> |
-|<br>Versleuteling 'at rest'| <ul><li>[De Transparent Data Encryption](http://go.microsoft.com/fwlink/?LinkId=526242)als inactieve gegevens fysiek worden opgeslagen in een digitale vorm.</li></ul>|
+|<br>Versleuteling 'at rest'| <ul><li>[De Transparent Data Encryption](https://go.microsoft.com/fwlink/?LinkId=526242)als inactieve gegevens fysiek worden opgeslagen in een digitale vorm.</li></ul>|
 |**Toegang beheren**||  
 |<br> Toegang tot de database | <ul><li>[Verificatie](https://docs.microsoft.com/azure/sql-database/sql-database-control-access) (Azure Active Directory-verificatie) AD-verificatie wordt gebruikt voor identiteiten die worden beheerd door Azure Active Directory.</li><li>[Autorisatie](https://docs.microsoft.com/azure/sql-database/sql-database-control-access) gebruikers de minimaal benodigde bevoegdheden verlenen.</li></ul> |
 |<br>Toegang tot toepassingen| <ul><li>[Beveiliging op rij](https://msdn.microsoft.com/library/dn765131) (met behulp van beveiligingsbeleid op hetzelfde moment beperken van de beveiliging op rijniveau toegang op basis van de identiteit, rol of uitvoering context van een gebruiker).</li><li>[Dynamic Data Masking](https://docs.microsoft.com/azure/sql-database/sql-database-dynamic-data-masking-get-started) (met behulp van machtigingen en -beleid, blootstelling van gevoelige gegevens door deze te maskeren voor niet-gemachtigde gebruikers)</li></ul>|

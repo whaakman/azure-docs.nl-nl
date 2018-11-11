@@ -17,12 +17,12 @@ ms.date: 07/18/2017
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 5a36c239e296d6f393c49932f1a369d8aae80b83
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: a9a7848069300d5f52d16585a55313643e02bc72
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46311106"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51244454"
 ---
 # <a name="manage-and-customize-active-directory-federation-services-by-using-azure-ad-connect"></a>Beheren en aanpassen van Active Directory Federation Services met behulp van Azure AD Connect
 Dit artikel wordt beschreven hoe u kunt beheren en aanpassen van Active Directory Federation Services (AD FS) met behulp van Azure Active Directory (Azure AD) Connect. Dit omvat ook andere algemene AD FS-taken die u moet uitvoeren voor een volledige configuratie van AD FS-farm.
@@ -81,7 +81,7 @@ Configureren van alternatieve aanmeldings-ID voor AD FS bestaat uit twee belangr
 
     ![Waarschuwing voor ontbrekende KB op 2012R2](./media/how-to-connect-fed-management/kbwarning.png)
 
-    Als u wilt herstellen van de configuratie in het geval van ontbrekende KB, installeert de vereiste [KB2919355](http://go.microsoft.com/fwlink/?LinkID=396590) en herstel daarna de vertrouwensrelatie met behulp van [herstellen AAD en AD FS-vertrouwensrelatie](#repairthetrust).
+    Als u wilt herstellen van de configuratie in het geval van ontbrekende KB, installeert de vereiste [KB2919355](https://go.microsoft.com/fwlink/?LinkID=396590) en herstel daarna de vertrouwensrelatie met behulp van [herstellen AAD en AD FS-vertrouwensrelatie](#repairthetrust).
 
 > [!NOTE]
 > Lees voor meer informatie over alternateID en stappen voor het handmatig configureren [Configuring Alternate Login ID](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/operations/configuring-alternate-login-id)

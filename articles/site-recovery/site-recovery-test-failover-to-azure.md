@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/28/2018
 ms.author: raynew
-ms.openlocfilehash: 6eb1ee90b22b9e37dcae900cd80f80cb549090e9
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 173a64181c1e8c051c6856fa8353f484540917e7
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50213947"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51249707"
 ---
 # <a name="run-a-disaster-recovery-drill-to-azure"></a>Noodherstelanalyse uitvoeren in Azure 
 
@@ -106,7 +106,7 @@ Als u verbinding maken met virtuele Azure-machines met behulp van RDP/SSH na een
 **Failover** | **Locatie** | **Acties**
 --- | --- | ---
 **Virtuele Azure-machine waarop Windows wordt uitgevoerd** | On-premises computer voordat de failover | Voor toegang tot de Azure-VM via internet, schakelt u RDP in en zorg ervoor dat TCP en UDP-regels zijn toegevoegd voor **openbare**, en die RDP is toegestaan voor alle profielen in **Windows Firewall**  >  **Toegestane Apps**.<br/><br/> Voor toegang tot de Azure-VM via een site-naar-site-verbinding, schakelt u RDP in op de machine en zorg ervoor dat RDP is toegestaan in de **Windows Firewall** -> **toegestane apps en functies**, voor **Domein en privé** netwerken.<br/><br/>  Zorg ervoor dat het besturingssysteem SAN-beleid is ingesteld op **OnlineAll**. [Meer informatie](https://support.microsoft.com/kb/3031135).<br/><br/> Zorg ervoor dat er geen Windows-updates in behandeling zijn op de virtuele machine wanneer u een failover activeert. Windows update kan worden gestart wanneer u een failover uitvoert, en kunt u zich niet aanmelden bij de virtuele machine totdat de update is voltooid.
-**Virtuele Azure-machine waarop Windows wordt uitgevoerd** | Virtuele Azure-machine na een failover |  [Voeg een openbaar IP-adres toe](https://aka.ms/addpublicip) voor de VM.<br/><br/> De regels voor netwerkbeveiligingsgroepen op de virtuele machine (en de Azure-subnet waarmee deze is verbonden) moeten binnenkomende verbindingen met de RDP-poort worden toegestaan.<br/><br/> Controleer **diagnostische gegevens over opstarten** om te controleren of een schermopname van de virtuele machine.<br/><br/> Als u geen verbinding kunt maken, controleert u dat de virtuele machine wordt uitgevoerd, en bekijk deze [tips voor probleemoplossing](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
+**Virtuele Azure-machine waarop Windows wordt uitgevoerd** | Virtuele Azure-machine na een failover |  [Voeg een openbaar IP-adres toe](https://aka.ms/addpublicip) voor de VM.<br/><br/> De regels voor netwerkbeveiligingsgroepen op de virtuele machine (en de Azure-subnet waarmee deze is verbonden) moeten binnenkomende verbindingen met de RDP-poort worden toegestaan.<br/><br/> Controleer **diagnostische gegevens over opstarten** om te controleren of een schermopname van de virtuele machine.<br/><br/> Als u geen verbinding kunt maken, controleert u dat de virtuele machine wordt uitgevoerd, en bekijk deze [tips voor probleemoplossing](https://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
 **Virtuele Azure-machine waarop Linux wordt uitgevoerd** | On-premises computer voordat de failover | Zorg ervoor dat de Secure Shell-service op de virtuele machine is ingesteld op automatisch wordt gestart bij het opstarten van het systeem.<br/><br/> Controleer of er in de firewallregels is ingesteld dat SSH-verbindingen zijn toegestaan.
 **Virtuele Azure-machine waarop Linux wordt uitgevoerd** | Virtuele Azure-machine na een failover | De regels voor netwerkbeveiligingsgroepen op de virtuele machine (en de Azure-subnet waarmee deze is verbonden) moeten binnenkomende verbindingen aan de SSH-poort worden toegestaan.<br/><br/> [Voeg een openbaar IP-adres toe](https://aka.ms/addpublicip) voor de VM.<br/><br/> Controleer **diagnostische gegevens over opstarten** voor een schermopname van de virtuele machine.<br/><br/>
 

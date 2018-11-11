@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/23/2016
 ms.author: ghogen
-ms.openlocfilehash: a114833b40fe834aa0108d1a2f3821f0b7cbddbc
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 5234f5c82e98fcb402cadf9a8a469a15bbb7ac6d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49321849"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51250812"
 ---
 # <a name="get-started-with-azure-queue-storage-and-visual-studio-connected-services-aspnet"></a>Aan de slag met Azure queue storage en Visual Studio verbonden Services (ASP.NET)
 
@@ -141,7 +141,7 @@ De volgende stappen laten zien hoe u een wachtrij maken:
   
     ![Wachtrij maken](./media/vs-storage-aspnet-getting-started-queues/create-queue-results.png)
 
-    Zoals eerder vermeld de **CloudQueue.CreateIfNotExists** methode retourneert **waar** alleen wanneer de wachtrij bestaat niet en is gemaakt. Dus als u de app uitvoert wanneer de wachtrij bestaat, retourneert de methode **false**. Als u wilt de app meerdere keren uitvoeren, moet u de wachtrij verwijderen voordat u de app nogmaals uit te voeren. Verwijderen van de wachtrij kan worden gedaan de **CloudQueue.Delete** methode. U kunt ook verwijderen de wachtrij met behulp van de [Azure-portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) of de [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md).  
+    Zoals eerder vermeld de **CloudQueue.CreateIfNotExists** methode retourneert **waar** alleen wanneer de wachtrij bestaat niet en is gemaakt. Dus als u de app uitvoert wanneer de wachtrij bestaat, retourneert de methode **false**. Als u wilt de app meerdere keren uitvoeren, moet u de wachtrij verwijderen voordat u de app nogmaals uit te voeren. Verwijderen van de wachtrij kan worden gedaan de **CloudQueue.Delete** methode. U kunt ook verwijderen de wachtrij met behulp van de [Azure-portal](https://go.microsoft.com/fwlink/p/?LinkID=525040) of de [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md).  
 
 ## <a name="add-a-message-to-a-queue"></a>Een bericht toevoegen aan een wachtrij
 

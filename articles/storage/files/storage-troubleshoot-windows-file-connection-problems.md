@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: 5e730e52d55f6c8c2dd02f69e3efa67017af152b
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 0496d9b3fde8b0194ddf57b3bbfec98eb7fda7fe
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50242973"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51250846"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Problemen met Azure Files oplossen in Windows
 
@@ -46,7 +46,7 @@ Windows 8, Windows Server 2012 en latere versies van elk systeem onderhandelen o
 
 ### <a name="cause-2-port-445-is-blocked"></a>2 oorzaak: Poort 445 is geblokkeerd
 
-Fout 53 of Systeemfout 67 kan zich voordoen als poort 445 uitgaande communicatie naar een Azure Files-datacenter wordt geblokkeerd. Overzicht van de ISP's die toestaan of weigeren van toegang via poort 445, Ga naar [TechNet](http://social.technet.microsoft.com/wiki/contents/articles/32346.azure-summary-of-isps-that-allow-disallow-access-from-port-445.aspx).
+Fout 53 of Systeemfout 67 kan zich voordoen als poort 445 uitgaande communicatie naar een Azure Files-datacenter wordt geblokkeerd. Overzicht van de ISP's die toestaan of weigeren van toegang via poort 445, Ga naar [TechNet](https://social.technet.microsoft.com/wiki/contents/articles/32346.azure-summary-of-isps-that-allow-disallow-access-from-port-445.aspx).
 
 Als u wilt weten of dit de reden achter het bericht "System error 53" is, kunt u Portqry query uitvoeren op het eindpunt TCP:445. Als het eindpunt TCP:445 wordt weergegeven als gefilterd, worden de TCP-poort is geblokkeerd. Hier volgt een voorbeeld van een query:
 

@@ -1,5 +1,5 @@
 ---
-title: Aanroepen van een beveiligde ASP.NET web-api in Azure Active Directory B2C | Microsoft Docs
+title: Een .NET-web-API aanroepen vanuit een .NET-web-app in Azure Active Directory B2C | Microsoft Docs
 description: Over het bouwen van een .NET-Web-app en aanroepen van een web-api met behulp van Azure Active Directory B2C en OAuth 2.0-toegangstokens.
 services: active-directory-b2c
 author: davidmu1
@@ -10,14 +10,14 @@ ms.topic: conceptual
 ms.date: 03/17/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 38ad6d8f3746d856d8c0a73520d55fad9d8344e6
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 7296954a17b21183eb8be2744b42289522cf7f57
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50157918"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51012493"
 ---
-# <a name="azure-ad-b2c-call-a-net-web-api-from-a-net-web-app"></a>Azure AD B2C: Een .NET-web-API aanroepen vanuit een .NET-web-app
+# <a name="call-a-net-web-api-from-a-net-web-app-in-azure-active-directory-b2c"></a>Een .NET-web-API aanroepen vanuit een .NET-web-app in Azure Active Directory B2C
 
 Met behulp van Azure AD B2C, kunt u beheer van krachtige identiteitsfuncties toevoegen aan uw web-apps en web-API's. In dit artikel wordt beschreven hoe u aanvragen toegangstokens en aanroepen voor het maken van een 'Takenlijst'.NET-web-app naar een .NET web-api.
 
@@ -31,10 +31,10 @@ In dit artikel omvat niet het implementeren van aanmelding, registratie en Profi
 Voor het bouwen van een webtoepassing die een web-aanroept api, moet u naar:
 
 1. [Een Azure AD B2C-tenant maken](active-directory-b2c-get-started.md).
-2. [Registreren van een web api](active-directory-b2c-app-registration.md#register-a-web-api).
-3. [Een web-app registreren](active-directory-b2c-app-registration.md#register-a-web-app).
+2. [Registreren van een web api](active-directory-b2c-app-registration.md).
+3. [Een web-app registreren](active-directory-b2c-app-registration.md).
 4. [Instellen van het beleid](active-directory-b2c-reference-policies.md).
-5. [Verlenen van de web app-machtigingen voor het gebruik van de web api](active-directory-b2c-access-tokens.md#publishing-permissions).
+5. [Verlenen van de web app-machtigingen voor het gebruik van de web api](active-directory-b2c-access-tokens.md).
 
 > [!IMPORTANT]
 > De clienttoepassing en web-API moeten dezelfde Azure AD B2C-directory gebruiken.

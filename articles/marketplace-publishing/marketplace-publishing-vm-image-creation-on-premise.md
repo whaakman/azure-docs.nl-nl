@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 04/29/2016
 ms.author: hascipio; v-divte
-ms.openlocfilehash: f68dadab96e27cc7b90f44681d87ffa7cce8126b
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: e5571a0933284a52d5567db0505ecaced6c6c336
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49390054"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51253496"
 ---
 # <a name="develop-an-on-premises-virtual-machine-image-for-the-azure-marketplace"></a>De installatiekopie van een on-premises virtuele machine ontwikkelen voor Azure Marketplace
 Het is raadzaam dat u Azure virtuele harde schijven (VHD's) rechtstreeks in de cloud ontwikkelen met behulp van Remote Desktop Protocol. Als u moet is het echter mogelijk om te downloaden van een VHD en het ontwikkelen met behulp van on-premises infrastructuur.  
@@ -71,7 +71,7 @@ Nadat u de blob-URL weet, kunt u de VHD downloaden met behulp van de [Azure-port
    ![tekenen](media/marketplace-publishing-vm-image-creation-on-premise/img07.png)
 
 ### <a name="download-a-vhd-by-using-powershell"></a>Een VHD downloaden met behulp van PowerShell
-Naast het gebruik van de Azure-portal, kunt u de [opslaan-AzureVhd](http://msdn.microsoft.com/library/dn495297.aspx) cmdlet voor het downloaden van het besturingssysteem-VHD.
+Naast het gebruik van de Azure-portal, kunt u de [opslaan-AzureVhd](https://msdn.microsoft.com/library/dn495297.aspx) cmdlet voor het downloaden van het besturingssysteem-VHD.
 
         Save-AzureVhd –Source <storageURIOfVhd> `
         -LocalFilePath <diskLocationOnWorkstation> `
@@ -139,7 +139,7 @@ Als volgt te werk om een container te maken.
 Nadat het opslagaccount en container zijn gemaakt, kunt u uw voorbereide VHD's uploaden. U kunt PowerShell, het Linux-opdrachtregelprogramma of andere Azure Storage-beheerhulpprogramma's gebruiken.
 
 ### <a name="upload-a-vhd-via-powershell"></a>Uploaden van een VHD via PowerShell
-Gebruik de [Add-AzureVhd](http://msdn.microsoft.com/library/dn495173.aspx) cmdlet.
+Gebruik de [Add-AzureVhd](https://msdn.microsoft.com/library/dn495173.aspx) cmdlet.
 
         Add-AzureVhd –Destination “http://mystorageaccount.blob.core.windows.net/containername/vmsku.vhd” -LocalFilePath “C:\Users\Administrator\Desktop\vmsku.vhd”
 

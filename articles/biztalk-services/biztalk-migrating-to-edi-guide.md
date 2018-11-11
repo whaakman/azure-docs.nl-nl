@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 07/31/2018
 ms.reviewer: jonfan, LADocs
 ms.suite: integration
-ms.openlocfilehash: 681cafc60661e16d70deb862da71f6baf80509fd
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 38fe0e4901977637be22670d09dccffdfa274304
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48856527"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51253819"
 ---
 # <a name="migrate-biztalk-server-edi-solutions-to-biztalk-services-technical-guide"></a>BizTalk Server EDI-oplossingen migreren naar BizTalk Services: technische handleiding
 
@@ -77,10 +77,10 @@ Zie **scenario's / berichtenstroom** in dit artikel voor het patroon van de stro
 ## <a name="agreements"></a>Overeenkomsten
 Als u bekend met de BizTalk Server 2010 handel Partner overeenkomsten voor EDI-verwerking gebruikt bent, zijn BizTalk Services handelspartnerovereenkomsten er waarschijnlijk bekend. De meeste van de instellingen van de overeenkomst zijn hetzelfde, en gebruik de dezelfde terminologie. In sommige gevallen kan de instellingen van de overeenkomst zijn veel eenvoudiger vergeleken met dezelfde instellingen in BizTalk Server. Microsoft Azure BizTalk Services ondersteunt X12 en EDIFACT, AS2-transport.
 
-Microsoft Azure BizTalk Services biedt ook een **TPM gegevensmigratie** hulpprogramma handelspartners en -overeenkomsten van BizTalk Server Trading Partner module migreren naar BizTalk Services-Portal. Het hulpprogramma voor gegevensmigratie TPM is beschikbaar als onderdeel van een pakket hulpprogramma's, die kan worden gedownload vanaf de [MABS SDK](http://go.microsoft.com/fwlink/p/?LinkId=235057). Het pakket bevat ook een Leesmij-bestand met instructies over het gebruik van het hulpprogramma en elementaire informatie over probleemoplossing voor het hulpprogramma.
+Microsoft Azure BizTalk Services biedt ook een **TPM gegevensmigratie** hulpprogramma handelspartners en -overeenkomsten van BizTalk Server Trading Partner module migreren naar BizTalk Services-Portal. Het hulpprogramma voor gegevensmigratie TPM is beschikbaar als onderdeel van een pakket hulpprogramma's, die kan worden gedownload vanaf de [MABS SDK](https://go.microsoft.com/fwlink/p/?LinkId=235057). Het pakket bevat ook een Leesmij-bestand met instructies over het gebruik van het hulpprogramma en elementaire informatie over probleemoplossing voor het hulpprogramma.
 
 ## <a name="schemas"></a>Schema 's
-BizTalk Services biedt EDI-schema's die kunnen worden gebruikt in oplossingen voor BizTalk Services.  BizTalk Server EDI-schema's kunnen bovendien ook worden gebruikt met BizTalk Services omdat het hoofdknooppunt van het EDI-schema hetzelfde voor BizTalk Server, evenals de BizTalk Services is. Zo kunt u zich rechtstreeks uw BizTalk Server EDI-schema's en deze gebruiken in de EDI-oplossingen die u hebt ontwikkeld met behulp van BizTalk Services. U kunt ook downloaden de schema's uit de [MABS SDK](http://go.microsoft.com/fwlink/p/?LinkId=235057).
+BizTalk Services biedt EDI-schema's die kunnen worden gebruikt in oplossingen voor BizTalk Services.  BizTalk Server EDI-schema's kunnen bovendien ook worden gebruikt met BizTalk Services omdat het hoofdknooppunt van het EDI-schema hetzelfde voor BizTalk Server, evenals de BizTalk Services is. Zo kunt u zich rechtstreeks uw BizTalk Server EDI-schema's en deze gebruiken in de EDI-oplossingen die u hebt ontwikkeld met behulp van BizTalk Services. U kunt ook downloaden de schema's uit de [MABS SDK](https://go.microsoft.com/fwlink/p/?LinkId=235057).
 
 ## <a name="maps-transforms"></a>Maps (transformaties)
 Kaarten in BizTalk Server heten transformaties in BizTalk Services. Toewijzingen van BizTalk Server migreren naar BizTalk Services wordt mogelijk een van de complexere taken om te realiseren (afhankelijk van de complexiteit van de kaart). De toewijzingsfunctie voor BizTalk Services gebruikt, wijkt af van het toewijzen van de BizTalk. Hoewel het toewijzen van de ziet er meestal hetzelfde, wordt de onderliggende toewijzingsindeling verschilt. De functoids (met de naam **kaart Operations** in BizTalk Services) beschikbaar voor de gebruikers ook verschillend zijn.  U kunt een BizTalk-kaart van kracht, rechtstreeks in BizTalk Services gebruiken. Niet alle functoids die beschikbaar zijn in BizTalk Server zijn ook beschikbaar als kaart bewerkingen in BizTalk Services.
@@ -93,23 +93,23 @@ Een ander voorbeeld van nieuwe functionaliteit van BizTalk Services transformeer
 Nog een ander voorbeeld is de **als-dan-anders** expressie kaart bewerking.  Een bewerking als-dan-anders doen is mogelijk in het toewijzen van de BizTalk, maar deze meerdere functoids om uit te voeren een ogenschijnlijk eenvoudige taak vereist.
 
 ### <a name="migrating-biztalk-server-maps"></a>BizTalk-Server migreren wordt toegewezen
-Microsoft Azure BizTalk Services biedt een hulpprogramma voor het migreren van BizTalk Server toegewezen aan de transformaties BizTalk Services. De **BTMMigrationTool** is beschikbaar als onderdeel van de **extra** pakket voorzien van de [BizTalk Services SDK downloaden](http://go.microsoft.com/fwlink/p/?LinkId=235057). Zie voor meer informatie over het hulpprogramma [omzetten in een BizTalk-kaart een transformatie van BizTalk Services](https://msdn.microsoft.com/library/windowsazure/hh949812.aspx).
+Microsoft Azure BizTalk Services biedt een hulpprogramma voor het migreren van BizTalk Server toegewezen aan de transformaties BizTalk Services. De **BTMMigrationTool** is beschikbaar als onderdeel van de **extra** pakket voorzien van de [BizTalk Services SDK downloaden](https://go.microsoft.com/fwlink/p/?LinkId=235057). Zie voor meer informatie over het hulpprogramma [omzetten in een BizTalk-kaart een transformatie van BizTalk Services](https://msdn.microsoft.com/library/windowsazure/hh949812.aspx).
 
-U kunt ook een voorbeeld van Sandro Pereira, BizTalk MVP, voor het kijken [maps voor BizTalk Server migreren naar BizTalk Services transformaties](http://social.technet.microsoft.com/wiki/contents/articles/23220.migrating-biztalk-server-maps-to-windows-azure-biztalk-services-wabs-maps.aspx).
+U kunt ook een voorbeeld van Sandro Pereira, BizTalk MVP, voor het kijken [maps voor BizTalk Server migreren naar BizTalk Services transformaties](https://social.technet.microsoft.com/wiki/contents/articles/23220.migrating-biztalk-server-maps-to-windows-azure-biztalk-services-wabs-maps.aspx).
 
 ## <a name="orchestrations"></a>Indelingen
 Als u nodig hebt voor het migreren van BizTalk Server-orchestration verwerking naar Microsoft Azure, moet de indelingen worden herschreven omdat Microsoft Azure biedt geen ondersteuning voor actieve BizTalk Server-indelingen.  U kunt de orchestration-functionaliteit in een Windows Workflow Foundation 4.0 (WF4)-service kan herschrijven.  Dit moet een volledig herschreven omdat er momenteel geen migratie van BizTalk Server-indelingen naar WF4. Hier volgen enkele resources voor Windows-werkstroom:
 
 * [*Over het integreren van een werkstroom WCF-Service met Service Bus-wachtrijen en onderwerpen* ](https://blogs.msdn.microsoft.com/paolos/2013/04/09/how-to-integrate-a-wcf-workflow-service-with-service-bus-queues-and-topics/) door Paolo Salvatori. 
-* [*Het bouwen van apps met Windows Workflow Foundation en Azure* sessie](http://go.microsoft.com/fwlink/p/?LinkId=237314) van de Conferentie Build 2011.
-* [*Windows Workflow Foundation Developer Center* ](http://go.microsoft.com/fwlink/p/?LinkId=237315) op MSDN.
+* [*Het bouwen van apps met Windows Workflow Foundation en Azure* sessie](https://go.microsoft.com/fwlink/p/?LinkId=237314) van de Conferentie Build 2011.
+* [*Windows Workflow Foundation Developer Center* ](https://go.microsoft.com/fwlink/p/?LinkId=237315) op MSDN.
 * [*Documentatie van Windows Workflow Foundation 4 (WF4)* ](https://msdn.microsoft.com/library/dd489441.aspx) op MSDN.
 
 ## <a name="other-considerations"></a>Andere overwegingen
 Hier volgen enkele overwegingen die u aanbrengen moet tijdens het gebruik van BizTalk Services.
 
 ### <a name="fallback-agreements"></a>Alternatieve overeenkomsten
-BizTalk Server EDI-verwerking heeft het concept van 'Terugval overeenkomsten'.  BizTalk Services biedt **niet** een concept terugval overeenkomst tot nu toe hebt.  Zie BizTalk documentatie onderwerpen [de rol van de overeenkomsten in de EDI-verwerking](http://go.microsoft.com/fwlink/p/?LinkId=237317) en [terugval overeenkomst eigenschappen of configureren van algemene](https://msdn.microsoft.com/library/bb245981.aspx) voor meer informatie over hoe alternatieve overeenkomsten worden gebruikt in BizTalk De server.
+BizTalk Server EDI-verwerking heeft het concept van 'Terugval overeenkomsten'.  BizTalk Services biedt **niet** een concept terugval overeenkomst tot nu toe hebt.  Zie BizTalk documentatie onderwerpen [de rol van de overeenkomsten in de EDI-verwerking](https://go.microsoft.com/fwlink/p/?LinkId=237317) en [terugval overeenkomst eigenschappen of configureren van algemene](https://msdn.microsoft.com/library/bb245981.aspx) voor meer informatie over hoe alternatieve overeenkomsten worden gebruikt in BizTalk De server.
 
 ### <a name="routing-to-multiple-destinations"></a>Routering naar meerdere bestemmingen
 BizTalk Services-bruggen, in de huidige status biedt geen ondersteuning voor routeren van berichten naar meerdere bestemmingen van een publish-subscribe-model. In plaats daarvan kunt u berichten van een brug BizTalk Services naar een Service Bus-onderwerp, die vervolgens uit meerdere abonnementen voor het bericht op meer dan één eindpunt versturen.

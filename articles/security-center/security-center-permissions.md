@@ -4,7 +4,7 @@ description: In dit artikel wordt uitgelegd hoe Azure Security Center maakt gebr
 services: security-center
 cloud: na
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 ms.assetid: ''
 ms.service: security-center
@@ -12,18 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/13/2017
-ms.author: terrylan
-ms.openlocfilehash: b93b57d50ccf5d5dfb092bdb71820da77f345878
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.date: 10/28/2018
+ms.author: rkarlin
+ms.openlocfilehash: 42220a94eb0d0259b8b410e7343ffbfe09e8bfa5
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44295459"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51007855"
 ---
 # <a name="permissions-in-azure-security-center"></a>Machtigingen in Azure Security Center
 
-Azure Security Center maakt gebruik van [Role-Based Access Control (RBAC)](../role-based-access-control/role-assignments-portal.md), waarmee u [ingebouwde rollen](../role-based-access-control/built-in-roles.md) die kunnen worden toegewezen aan gebruikers, groepen en services in Azure.
+Het Azure Beveiligingscentrum gebruikt [op rollen gebaseerd toegangsbeheer (RBAC)](../role-based-access-control/role-assignments-portal.md), dat [ingebouwde rollen](../role-based-access-control/built-in-roles.md) biedt die kunnen worden toegewezen aan gebruikers, groepen en services in Azure.
 
 Security Center beoordeelt de configuratie van uw resources om beveiligingsproblemen met zich mee en beveiligingsproblemen te identificeren. In Security Center ziet u alleen informatie met betrekking tot een bron wanneer u de rol van eigenaar, bijdrager of lezer voor het abonnement of de resourcegroep die deel uitmaakt van een resource om te worden toegewezen.
 
@@ -41,10 +41,10 @@ Naast deze rollen zijn er twee specifieke Security Center-rollen:
 
 De volgende tabel geeft de rollen en toegestane acties in Security Center. Een X geeft aan dat de actie is toegestaan voor die rol.
 
-| Functie | Beveiligingsbeleid bewerken | Beveiligingsaanbevelingen voor een resource toepassen | Negeren van waarschuwingen en aanbevelingen | Waarschuwingen weergeven en aanbevelingen |
+| Rol | Beveiligingsbeleid bewerken | Beveiligingsaanbevelingen voor een resource toepassen | Negeren van waarschuwingen en aanbevelingen | Waarschuwingen weergeven en aanbevelingen |
 |:--- |:---:|:---:|:---:|:---:|
 | Abonnementhouder | X | X | X | X |
-| Inzender abonnementen | X | X | X | X |
+| Bijdrager aan het abonnement | -- | X | X | X |
 | De eigenaar van de resourcegroep | -- | X | -- | X |
 | Inzender voor resourcegroep | -- | X | -- | X |
 | Lezer | -- | -- | -- | X |

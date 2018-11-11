@@ -10,12 +10,12 @@ ms.component: video-indexer
 ms.topic: overview
 ms.date: 10/10/2018
 ms.author: nolachar
-ms.openlocfilehash: cf761342bb434100920c3888f2f441b9f8c8de08
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 9936cd301cc8dad88ce1a2431f9253a15ab2da7f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49077914"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51251251"
 ---
 # <a name="what-is-video-indexer"></a>Wat is Video Indexer?
 
@@ -65,7 +65,7 @@ Hieronder vindt u enkele scenario's waarin Video Indexer van pas kan komen:
 
 - Betrokkenheid van gebruikers: video-inzichten kunnen worden gebruikt om de betrokkenheid van gebruikers te verbeteren door het positioneren van de relevante videomomenten aan gebruikers. Laten we als voorbeeld een educatieve video nemen waarin de eerste 30 minuten gaan over bollen en de 30 minuten daarna over piramiden. Een leerling die informatie zoekt over piramiden, zal het dan prettig vinden als de video start vanaf de markering voor 30 minuten en niet vanaf het begin.
 
-Raadpleeg dit [blog](http://aka.ms/videoindexerblog) voor meer informatie.
+Raadpleeg dit [blog](https://aka.ms/videoindexerblog) voor meer informatie.
 
 ## <a name="next-steps"></a>Volgende stappen
 

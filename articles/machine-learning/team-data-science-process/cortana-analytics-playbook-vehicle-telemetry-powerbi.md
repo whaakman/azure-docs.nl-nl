@@ -14,23 +14,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: deguhath
-ms.openlocfilehash: e6601093577eb9e3dfba4ed27e1e0510cad17de7
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 9f86d1d74f5139458999a8c91ac35ec76ac278c8
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39421046"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300928"
 ---
 # <a name="vehicle-telemetry-analytics-solution-template-power-bi-dashboard-setup-instructions"></a>Vehicle Telemetry Analytics-oplossing sjabloon Power BI-dashboard installatie-instructies
-Dit bevat menukoppelingen naar de hoofdstukken in deze playbook: 
-
-[!INCLUDE [cap-vehicle-telemetry-playbook-selector](../../../includes/cap-vehicle-telemetry-playbook-selector.md)]
 
 De Vehicle Telemetry Analytics-oplossing demonstreert hoe autodealers, autofabrikanten en verzekeringsmaatschappijen kunnen worden gebruikt u de mogelijkheden van Cortana Intelligence. Kan de aanvaller realtime en voorspellende inzichten in voertuigstatus en gewoonten voor het verbeteren van klantervaring, onderzoek en ontwikkeling te stimuleren en marketingcampagnes. Deze stapsgewijze instructies laten zien hoe het configureren van de Power BI-rapporten en dashboard nadat u de oplossing in uw abonnement implementeert. 
 
+De beknopte beschrijving van deze oplossing, Zie [Vehicle Telemetry Analytics-oplossing playbook](cortana-analytics-playbook-vehicle-telemetry.md).
+Als u wilt deze oplossing nog verder verkennen, Zie [Vehicle Telemetry Analytics-oplossing playbook: ontdeek de oplossing](cortana-analytics-playbook-vehicle-telemetry-deep-dive.md).
+
 ## <a name="prerequisites"></a>Vereisten
 * Implementeer de [Voertuigtelemetrieanalyse](https://gallery.cortanaintelligence.com/Solution/5bdb23f3abb448268b7402ab8907cc90) oplossing. 
-* [Power BI Desktop installeren](http://www.microsoft.com/download/details.aspx?id=45331).
+* [Power BI Desktop installeren](https://www.microsoft.com/download/details.aspx?id=45331).
 * Verkrijgen van een [Azure-abonnement](https://azure.microsoft.com/pricing/free-trial/). Als u geen Azure-abonnement hebt, aan de slag met het gratis Azure-abonnement.
 * Open Power BI-account.
 
@@ -68,7 +68,7 @@ Nadat de implementatie is voltooid, wordt de handmatige bewerking instructies.
 
    ![Power BI-aanmelden-venster](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/5-sign-into-powerbi.png)
    
-1. Selecteer **accepteren**. De app wordt gestart om uit te voeren.
+1. Selecteer **Accepteren**. De app wordt gestart om uit te voeren.
 
    ![Machtigingen voor Power BI-dashboard](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/6-powerbi-dashboard-permissions.png)
 
@@ -348,7 +348,7 @@ U het realtime dashboard gemaakt. Als u doorgaat CarEventGenerator.exe en Realti
 
 ### <a name="configure-power-bi-reports"></a>Power BI-rapporten configureren
 
-1. Open het bestand designer **ConnectedCarsPbiReport.pbix** met behulp van de Power BI Desktop. Als u er nog geen hebt, installeert u de Power BI Desktop uit de [Power BI Desktop installatie](http://www.microsoft.com/download/details.aspx?id=45331) website.
+1. Open het bestand designer **ConnectedCarsPbiReport.pbix** met behulp van de Power BI Desktop. Als u er nog geen hebt, installeert u de Power BI Desktop uit de [Power BI Desktop installatie](https://www.microsoft.com/download/details.aspx?id=45331) website.
 
 1. Selecteer **query's bewerken**.
 

@@ -1,20 +1,20 @@
 ---
-title: VM’s vanuit AWS migreren naar Azure met Site Recovery | Microsoft Docs
-description: In dit artikel wordt beschreven hoe u Windows-VM’s die worden uitgevoerd in AWS (Amazon Web Services), naar Azure migreert met behulp van Azure Site Recovery.
+title: AWS-VM's migreren naar Azure met de Azure Site Recovery-service | Microsoft Docs
+description: In dit artikel wordt beschreven hoe u virtuele Windows-machines die worden uitgevoerd op Amazon Web Services (AWS) naar Azure migreert met behulp van Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 10/10/2018
+ms.date: 10/28/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 04e7506562d29e37abb65b7a760fbc9bd707e2c6
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: cd33b7cb45bb165a120a7efe20eba962ec75e273
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078933"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51252136"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>AWS-VM’s (Amazon Web Services) migreren naar Azure
 
@@ -119,7 +119,7 @@ Selecteer op de pagina **Bron voorbereiden** de optie **+ Configuratieserver**.
 
 1. Gebruik een EC2-instantie waarop Windows Server 2012 R2 wordt uitgevoerd om een configuratieserver te maken en deze te registreren bij de recovery-kluis.
 2. Configureer de proxy op de EC2-instantie-VM die u als de configuratieserver gebruikt, zodat deze toegang heeft tot de [service-URL's](site-recovery-support-matrix-to-azure.md).
-3. Download [Geïntegreerde Setup van Microsoft Azure Site Recovery](http://aka.ms/unifiedinstaller_wus). U kunt dit downloaden naar de lokale computer en vervolgens kopiëren naar de VM die u gebruikt als de configuratieserver.
+3. Download [Geïntegreerde Setup van Microsoft Azure Site Recovery](https://aka.ms/unifiedinstaller_wus). U kunt dit downloaden naar de lokale computer en vervolgens kopiëren naar de VM die u gebruikt als de configuratieserver.
 4. Selecteer de knop **Downloaden** om de kluisregistratiesleutel te downloaden. Kopieer het gedownloade bestand naar de VM die u gebruikt als de configuratieserver.
 5. Klik op de VM met de rechtermuisknop op het installatieprogramma dat u hebt gedownload voor Geïntegreerde Setup van Microsoft Azure Site Recovery. Selecteer vervolgens **Als administrator uitvoeren**.
 

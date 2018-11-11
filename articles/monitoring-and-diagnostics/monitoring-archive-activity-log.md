@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: johnkem
 ms.component: activitylog
-ms.openlocfilehash: 6743d03b623084675f5043a7e158fa99e8aa39d2
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: ea29d9052c2389b0c7d145223d3660364cbf2c74
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44054002"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51016315"
 ---
 # <a name="archive-the-azure-activity-log"></a>De Azure-activiteitenlogboek archiveren
 In dit artikel laten we zien hoe u de Azure portal, PowerShell-Cmdlets of platformoverschrijdende CLI gebruiken kunt om te archiveren uw [ **Azure Activity Log** ](monitoring-overview-activity-logs.md) in een storage-account. Deze optie is handig als u wilt behouden het activiteitenlogboek is langer dan 90 dagen (met volledige controle over het bewaarbeleid) voor de controle-, statische analysis- of back-up opgenomen. Als u hoeft alleen de gebeurtenissen worden bewaard gedurende 90 dagen of minder u niet hoeft om in te stellen archiveren naar een opslagaccount, omdat gebeurtenissen in activiteitenlogboeken worden bewaard in de Azure-platform voor 90 dagen zonder in te schakelen archivering.
@@ -35,10 +35,10 @@ Als u wilt archiveren het activiteitenlogboek via een van de onderstaande method
 ## <a name="archive-the-activity-log-using-the-portal"></a>Met behulp van de portal activiteitenlogboek archiveren
 1. Klik in de portal op de **activiteitenlogboek** koppeling op de navigatiebalk aan de linkerkant. Als u een koppeling voor het activiteitenlogboek niet ziet, klikt u op de **alle Services** eerst koppelen.
    
-    ![Navigeer naar de blade met activiteitenlogboek](media/monitoring-archive-activity-log/act-log-portal-navigate.png)
-2. Aan de bovenkant van de blade, klikt u op **exporteren**.
+    ![Navigeer naar de blade met activiteitenlogboek](media/monitoring-archive-activity-log/activity-logs-portal-navigate-v2.png)
+2. Aan de bovenkant van de blade, klikt u op **exporteren naar Event Hub**.
    
-    ![Klik op de knop exporteren](media/monitoring-archive-activity-log/act-log-portal-export-button.png)
+    ![Klik op de knop exporteren](media/monitoring-archive-activity-log/activity-logs-portal-export-v2.png)
 3. In de blade die wordt weergegeven, schakel het selectievakje voor **exporteren naar een opslagaccount** en selecteer een opslagaccount.
    
     ![Een storage-account instellen](media/monitoring-archive-activity-log/act-log-portal-export-blade.png)
@@ -65,9 +65,9 @@ Als u wilt archiveren het activiteitenlogboek via een van de onderstaande method
 | Eigenschap | Vereist | Beschrijving |
 | --- | --- | --- |
 | StorageAccountId |Ja |Resource-ID van het Opslagaccount waarin u de activiteitenlogboeken worden opgeslagen. |
-| Locatie |Ja |Door komma's gescheiden lijst met regio's waarvoor u wilt verzamelen van gebeurtenissen in activiteitenlogboeken. U vindt een lijst van alle regio's voor uw abonnement met `(Get-AzureRmLocation).Location`. |
+| Locaties |Ja |Door komma's gescheiden lijst met regio's waarvoor u wilt verzamelen van gebeurtenissen in activiteitenlogboeken. U vindt een lijst van alle regio's voor uw abonnement met `(Get-AzureRmLocation).Location`. |
 | RetentionInDays |Nee |Het aantal dagen voor welke gebeurtenissen worden bewaard, tussen 1 en 2147483647. Een waarde van nul wordt de logboeken voor onbepaalde tijd opgeslagen (permanent). |
-| Categorie |Nee |Door komma's gescheiden lijst met categorieën van gebeurtenissen die moeten worden verzameld. Mogelijke waarden zijn schrijven, verwijderen en actie.  Als niet is opgegeven, klikt u vervolgens alle mogelijke waarden wordt aangenomen dat |
+| Categorieën |Nee |Door komma's gescheiden lijst met categorieën van gebeurtenissen die moeten worden verzameld. Mogelijke waarden zijn schrijven, verwijderen en actie.  Als niet is opgegeven, klikt u vervolgens alle mogelijke waarden wordt aangenomen dat |
 
 ## <a name="archive-the-activity-log-via-cli"></a>Archiveren van het activiteitenlogboek via CLI
 

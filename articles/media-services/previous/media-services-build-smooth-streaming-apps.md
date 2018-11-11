@@ -1,6 +1,6 @@
 ---
-title: Vloeiende Streaming van Windows Store-App-zelfstudie | Microsoft Docs
-description: Informatie over het gebruik van Azure Media Services een C# Windows Store-toepassing maken met een XML-MediaElement besturingselement Smooth Stream afspelen van inhoud.
+title: Smooth Streaming-zelfstudie voor Windows Store-Apps | Microsoft Docs
+description: Informatie over het gebruik van Azure Media Services maken een C# Windows Store-toepassing met een XML-MediaElement-besturingselement voor het afspelen van Smooth Stream inhoud.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -14,87 +14,87 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: juliako
-ms.openlocfilehash: f55e8aa652d65ea751a77742fa5823b09d9ee87b
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
-ms.translationtype: MT
+ms.openlocfilehash: e46ff880ff94abb2de2a9bef1464df0f6ac78fc6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788933"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51250795"
 ---
-# <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>Het bouwen van een Smooth Streaming van Windows Store-toepassing
+# <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>Over het bouwen van een toepassing met probleemloze Streaming Windows Store
 
-De Smooth Streaming Client SDK voor Windows 8 kunnen ontwikkelaars om Windows Store-toepassingen die kunnen op aanvraag en live-Smooth Streaming inhoud afspelen te bouwen. Naast het basic afspelen van inhoud Smooth Streaming, biedt de SDK ook uitgebreide functies zoals Microsoft PlayReady protection, kwaliteit niveau beperking, Live DVR, audiostroom overschakelen, luisteren naar statusupdates (zoals kwaliteit verandert) en foutgebeurtenissen, enzovoort. Zie voor meer informatie de ondersteunde functies van de [release-opmerkingen](http://www.iis.net/learn/media/smooth-streaming/smooth-streaming-client-sdk-for-windows-8-release-notes). Zie voor meer informatie [Player Framework voor Windows 8](http://playerframework.codeplex.com/). 
+De Smooth Streaming Client SDK voor Windows 8 biedt ontwikkelaars de mogelijkheid om Windows Store-toepassingen die on-demand en live Smooth Streaming inhoud kunnen spelen te bouwen. Naast de eenvoudige afspelen van Smooth Streaming-inhoud, biedt de SDK ook uitgebreide functies, zoals Microsoft PlayReady-bescherming, kwaliteit niveau beperking, Live DVR, audiostream overschakelen, luistert naar statusupdates (zoals kwaliteit verandert) en gebeurtenissen op foutniveau, enzovoort. Zie voor meer informatie van de ondersteunde functies, de [opmerkingen bij de release](http://www.iis.net/learn/media/smooth-streaming/smooth-streaming-client-sdk-for-windows-8-release-notes). Zie voor meer informatie, [Player Framework voor Windows 8](http://playerframework.codeplex.com/). 
 
-Deze zelfstudie bevat vier uitkomsten:
+In deze zelfstudie bevat vier lessen:
 
 1. Een eenvoudige Smooth Streaming Store-toepassing maken
-2. Toevoegen van een schuifbalk voor het beheren van de voortgang van de Media
+2. Toevoegen van een schuifregelaar voor het beheren van de voortgang van de Media
 3. Selecteer Streams Smooth Streaming
 4. Selecteer nummers Smooth Streaming
 
 ## <a name="prerequisites"></a>Vereisten
 > [!NOTE]
-> Windows Store-projecten versie 8.1 en lager worden niet ondersteund in Visual Studio 2017.  Zie [Geschikte platforms voor Visual Studio 2017 en compatibiliteit](https://www.visualstudio.com/en-us/productinfo/vs2017-compatibility-vs) voor meer informatie.
+> Windows Store-projecten versie 8.1 en oudere versies worden niet ondersteund in Visual Studio 2017.  Zie [Geschikte platforms voor Visual Studio 2017 en compatibiliteit](https://www.visualstudio.com/en-us/productinfo/vs2017-compatibility-vs) voor meer informatie.
 
 * Windows 8, 32-bits of 64-bits.
-* Versies voor Visual Studio 2012 via 2015.
-* [Microsoft Smooth Streaming Client SDK voor Windows 8](http://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Homehttp://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Home).
+* Versies voor Visual Studio 2012 tot 2015.
+* [Microsoft Smooth Streaming Client SDK voor Windows 8](https://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Home http://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Home).
 
-De voltooide oplossing voor elke les kan worden gedownload van MSDN Developer-codevoorbeelden (Codegalerie): 
+De voltooide oplossing voor elke les kan worden gedownload van MSDN Developer-codevoorbeelden (Code-galerie): 
 
-* [Les 1](http://code.msdn.microsoft.com/Smooth-Streaming-Client-0bb1471f) : een eenvoudige Windows 8-Smooth Streaming MediaPlayer 
-* [Les 2](http://code.msdn.microsoft.com/A-simple-Windows-8-Smooth-ee98f63a) : een eenvoudige Windows 8-Smooth Streaming MediaPlayer met een schuifregelaar beheren 
-* [Les 3](http://code.msdn.microsoft.com/A-Windows-8-Smooth-883c3b44) - een Windows 8-Smooth Streaming MediaPlayer met Stream-selectie  
-* [4 les](http://code.msdn.microsoft.com/A-Windows-8-Smooth-aa9e4907) - een Windows 8-Smooth Streaming MediaPlayer bij selectie bijhouden.
+* [Les 1](https://code.msdn.microsoft.com/Smooth-Streaming-Client-0bb1471f) : een eenvoudige Windows 8-Smooth Streaming van MediaPlayer 
+* [Les 2](https://code.msdn.microsoft.com/A-simple-Windows-8-Smooth-ee98f63a) : een eenvoudige Windows 8-Smooth Streaming van MediaPlayer met een schuifregelaar besturingselement 
+* [Les 3](https://code.msdn.microsoft.com/A-Windows-8-Smooth-883c3b44) - een Windows 8-Smooth Streaming van MediaPlayer bij selectie van Stream  
+* [Les 4](https://code.msdn.microsoft.com/A-Windows-8-Smooth-aa9e4907) - een Windows 8-Smooth Streaming van MediaPlayer bij selectie bijhouden.
 
 ## <a name="lesson-1-create-a-basic-smooth-streaming-store-application"></a>Les 1: Een eenvoudige Smooth Streaming Store-toepassing maken
 
-In deze les maakt u een Windows Store-toepassing met een MediaElement besturingselement Smooth Stream afspelen inhoud.  De actieve toepassing ziet eruit als:
+In deze les gaat uitvoeren maakt u een Windows Store-toepassing met een besturingselement MediaElement Smooth Stream afspelen inhoud.  De actieve App ziet eruit zoals:
 
 ![Voorbeeld van Smooth Streaming Windows Store-toepassing][PlayerApplication]
 
-Zie voor meer informatie over het ontwikkelen van Windows Store-toepassing [ontwikkelen geweldige Apps voor Windows 8](http://msdn.microsoft.com/windows/apps/br229512.aspx). Deze les bevat de volgende procedures:
+Zie voor meer informatie over het ontwikkelen van Windows Store-toepassing [ontwikkelen van geweldige Apps voor Windows 8](https://msdn.microsoft.com/windows/apps/br229512.aspx). In deze les bevat de volgende procedures:
 
 1. Een Windows Store-project maken
 2. Ontwerp van de gebruikersinterface (XAML)
-3. Wijzigen van de onderliggende-codebestand
-4. Compileren en de toepassing testen
+3. Wijzigen van het codebestand
+4. Samenstellen en testen van de toepassing
 
 **Een Windows Store-project maken**
 
-1. Uitvoeren van Visual Studio; 2012 via 2015-versies worden ondersteund.
+1. Visual Studio; uitvoeren 2012 tot 2015-versies worden ondersteund.
 2. Klik in het menu **FILE** op **Nieuw** en klik vervolgens op **Project**.
-3. In het dialoogvenster Nieuw Project typt of selecteert u de volgende waarden:
+3. Typ of Selecteer de volgende waarden in het dialoogvenster Nieuw Project:
 
 | Naam | Waarde |
 | --- | --- |
-| Sjabloongroep |Geïnstalleerd/sjablonen/Visual C# / van Windows Store |
+| Sjabloongroep |Geïnstalleerd/sjablonen/Visual C#Windows Store |
 | Template |Lege App (XAML) |
 | Naam |SSPlayer |
 | Locatie |C:\SSTutorials |
-| Naam van de oplossing |SSPlayer |
-| Map voor oplossing maken |(geselecteerd) |
+| De naam van oplossing |SSPlayer |
+| Map maken voor oplossing |(geselecteerd) |
 
 1. Klik op **OK**.
 
 **Een verwijzing naar de Smooth Streaming Client SDK toevoegen**
 
-1. In Solution Explorer met de rechtermuisknop op **SSPlayer**, en klik vervolgens op **verwijzing toevoegen**.
+1. Klik in Solution Explorer met de rechtermuisknop op **SSPlayer**, en klik vervolgens op **verwijzing toevoegen**.
 2. Typ of selecteer de volgende waarden:
 
 | Naam | Waarde |
 | --- | --- |
-| Referentie-groep |Windows-uitbreidingen |
+| Referentie-groep |Windows-/ extensies |
 | Referentie |Selecteer Microsoft Smooth Streaming Client SDK voor Windows 8 en Microsoft Visual C++ Runtime-pakket |
 
 1. Klik op **OK**. 
 
-Nadat de referenties zijn toegevoegd, moet u het doelplatform (x64 of x86), toe te voegen verwijzingen werkt niet voor platformconfiguratie Any CPU.  Klik in solution explorer ziet u gele waarschuwing is ingeschakeld voor deze referenties toegevoegd.
+Na het toevoegen van de referenties, moet u de betreffende platform (x64 of x86), toe te voegen verwijzingen werkt niet voor de configuratie van een CPU-platform.  Klik in solution explorer ziet u gele waarschuwing is ingeschakeld voor deze referenties toegevoegd.
 
-**Voor het ontwerpen van de gebruikersinterface player**
+**De gebruikersinterface van de speler ontwerpen**
 
-1. Klik in Solution Explorer, dubbelklik op **MainPage.xaml** om dit te openen in de ontwerpweergave.
-2. Zoek de **&lt;raster&gt;** en **&lt;/Grid&gt;** labels van de XAML-bestand en plak de volgende code tussen de twee labels:
+1. Klik in Solution Explorer dubbelklikt u op **MainPage.xaml** om dit te openen in de ontwerpweergave.
+2. Zoek de **&lt;raster&gt;** en **&lt;/Grid&gt;** tags van het XAML-bestand en plak de volgende code tussen de twee labels:
 
          <Grid.RowDefinitions>
 
@@ -139,23 +139,23 @@ Nadat de referenties zijn toegevoegd, moet u het doelplatform (x64 of x86), toe 
             <TextBox x:Name="txtStatus" FontSize="10" Width="700" VerticalAlignment="Center"/>
          </StackPanel>
    
-   Het besturingselement MediaElement wordt gebruikt voor het afspelen van media. De schuifregelaar sliderProgress met de naam wordt gebruikt in de volgende les waarmee de voortgang van de media.
-3. Druk op **CTRL + S** het bestand wilt opslaan.
+   Het besturingselement MediaElement wordt gebruikt voor het afspelen van media. Het besturingselement voor schuifregelaar met de naam sliderProgress wordt in de volgende les worden gebruikt voor het beheren van de voortgang van de media.
+3. Druk op **CTRL + S** op te slaan.
 
-Het besturingselement MediaElement biedt geen ondersteuning voor Smooth Streaming inhoud out-of-box. De Smooth Streaming als ondersteuning wilt inschakelen, moet u de handler byte-stroom Smooth Streaming door de bestandsnaamextensie en MIME-typen registreren.  Als u wilt registreren, moet u de methode MediaExtensionManager.RegisterByteStremHandler van de naamruimte Windows.Media gebruiken.
+Het besturingselement MediaElement biedt geen ondersteuning voor Smooth Streaming inhoud out-of-box. Als u wilt de Smooth Streaming-ondersteuning inschakelen, moet u de Smooth Streaming-byte-stream handler door bestandsnaamextensie en MIME-type registreren.  Als u wilt registreren, moet u de methode MediaExtensionManager.RegisterByteStremHandler van de naamruimte Windows.Media gebruiken.
 
-In dit XAML-bestand zijn sommige gebeurtenis-handlers gekoppeld aan de besturingselementen.  U moet deze gebeurtenis-handlers definiëren.
+In dit bestand XAML zijn sommige gebeurtenis-handlers gekoppeld aan de besturingselementen.  U moet deze gebeurtenis-handlers definiëren.
 
-**Wijzigen van de onderliggende-codebestand**
+**Wijzigen van het codebestand**
 
-1. In Solution Explorer met de rechtermuisknop op **MainPage.xaml**, en klik vervolgens op **weergavecode**.
+1. Klik in Solution Explorer met de rechtermuisknop op **MainPage.xaml**, en klik vervolgens op **Code weergeven**.
 2. Voeg het volgende toe aan de bovenkant van het bestand met de instructie:
    
         using Windows.Media;
-3. Aan het begin van de **MainPage** klasse, voegt u het volgende gegevenslid:
+3. Aan het begin van de **MainPage** klasse, de volgende gegevenslid toevoegen:
    
          private MediaExtensionManager extensions = new MediaExtensionManager();
-4. Aan het einde van de **MainPage** -constructor aan, voeg de volgende twee regels:
+4. Aan het einde van de **MainPage** constructor, voeg de volgende twee regels:
    
         extensions.RegisterByteStreamHandler("Microsoft.Media.AdaptiveStreaming.SmoothByteStreamHandler", ".ism", "text/xml");
         extensions.RegisterByteStreamHandler("Microsoft.Media.AdaptiveStreaming.SmoothByteStreamHandler", ".ism", "application/vnd.ms-sstr+xml");
@@ -203,52 +203,52 @@ In dit XAML-bestand zijn sommige gebeurtenis-handlers gekoppeld aan de besturing
          }
          # endregion
 
-Hier wordt de gebeurtenis-handler sliderProgress_PointerPressed gedefinieerd.  Er zijn meer works doen om het werkt, worden behandeld in de volgende les van deze zelfstudie.
-6. Druk op **CTRL + S** het bestand wilt opslaan.
+Hier wordt de gebeurtenis-handler sliderProgress_PointerPressed gedefinieerd.  Er zijn meer works te doen om het functioneert, waarvoor u in de volgende les gaat uitvoeren van deze zelfstudie.
+6. Druk op **CTRL + S** op te slaan.
 
-Het voltooide die het onderliggende-codebestand moet uitzien:
+Het voltooide die het codebestand dient er als volgt:
 
-![CodeView in Visual Studio of Smooth Streaming Windows Store-toepassing][CodeViewPic]
+![CodeView in Visual Studio van Smooth Streaming Windows Store-toepassing][CodeViewPic]
 
-**Om te compileren en de toepassing testen**
+**Compileren en de toepassing testen**
 
-1. Van de **bouwen** menu, klikt u op **Configuration Manager**.
-2. Wijziging **actieve oplossing platform** overeenkomen met uw ontwikkelplatform.
+1. Uit de **bouwen** menu, klikt u op **Configuration Manager**.
+2. Wijziging **Active oplossingsplatform** zodat deze overeenkomen met uw ontwikkelplatform.
 3. Druk op **F6** voor het compileren van het project. 
 4. Druk op **F5** om de toepassing uit te voeren.
-5. Aan de bovenkant van de toepassing, kunt u de standaard-URL voor Smooth Streaming of voer een andere. 
-6. Klik op **bron instellen**. Omdat **automatisch afspelen** is ingeschakeld standaard de media wordt afgespeeld.  U kunt bepalen de media met de **afspelen**, **onderbreken** en **stoppen** knoppen.  U kunt de Mediavolume met de verticale schuifbalk beheren.  Evenwel de horizontale schuifbalk voor het beheren van de voortgang van de media is volledig nog niet geïmplementeerd. 
+5. Aan de bovenkant van de toepassing, kunt u de standaard-URL voor Smooth Streaming of een andere invoeren. 
+6. Klik op **bron instellen**. Omdat **automatisch afspelen** is ingeschakeld standaard de media wordt afgespeeld.  U kunt bepalen de media met de **afspelen**, **onderbreken** en **stoppen** knoppen.  U kunt het Mediavolume met behulp van de verticale schuifbalk beheren.  Maar de horizontale schuifbalk voor het beheren van de voortgang van de media is volledig nog niet geïmplementeerd. 
 
-U kunt lesson1 hebt voltooid.  In deze les gebruikt u een besturingselement MediaElement Smooth Streaming inhoud afspelen.  In de volgende les voegt u een schuifregelaar voor het beheren van de voortgang van de inhoud Smooth Streaming.
+U kunt lesson1 hebt voltooid.  In deze les gaat uitvoeren gebruikt u een besturingselement MediaElement af te spelen Smooth Streaming-inhoud.  In de volgende les gaat uitvoeren voegt u een schuifregelaar voor het beheren van de voortgang van de Smooth Streaming-inhoud.
 
-## <a name="lesson-2-add-a-slider-bar-to-control-the-media-progress"></a>Les 2: Een schuifbalk voor het beheren van de voortgang van de Media toevoegen
+## <a name="lesson-2-add-a-slider-bar-to-control-the-media-progress"></a>Les 2: Een schuifregelaar voor het beheren van de voortgang van de Media toevoegen
 
-In les 1, kunt u een Windows Store-servicetoepassing gemaakt met een MediaElement XAML-besturingselement voor het afspelen Smooth Streaming media-inhoud.  Sommige functies basic media zoals starten, stoppen en onderbreken wordt geleverd.  In deze les wordt u een balk schuifregelaar toevoegen aan de toepassing.
+In les 1, kunt u een Windows Store-toepassing gemaakt met een besturingselement MediaElement XAML af te spelen Smooth Streaming media-inhoud.  Sommige functies van basic media, zoals starten, stoppen en onderbreken wordt geleverd.  In deze les gaat uitvoeren voegt u een besturingselement voor schuifregelaar balk aan de toepassing.
 
-In deze zelfstudie gebruiken we een timer voor het bijwerken van de positie van de schuifregelaar op basis van de huidige positie van het besturingselement MediaElement.  De schuifregelaar begin- en -tijd die ook moeten worden bijgewerkt in geval van een live-inhoud.  Dit kan beter worden verwerkt in de gebeurtenis adaptieve gegevensbron bijwerken.
+In deze zelfstudie gebruiken we een timer om bij te werken van de positie van de schuifregelaar op basis van de huidige positie van het besturingselement MediaElement.  De schuifregelaar begin- en tijd ook moeten worden bijgewerkt in het geval van live-inhoud.  Dit kan beter worden verwerkt in de gebeurtenis voor het bijwerken van adaptieve gegevensbron.
 
-Mediabronnen zijn objecten die mediagegevens genereren.  De bron-resolver een URL of byte-stroom accepteert en maakt de mediumbron voor de juiste voor die inhoud.  De bronoplossing is de standaardmethode voor de toepassingen voor het maken van media-bronnen. 
+Media-bronnen zijn de objecten die mediagegevens genereren.  De bron-resolver gebruikt van een stream-URL of bytes en de juiste mediabron voor die inhoud maakt.  De bronoplossing is de standaardmethode voor de toepassingen te maken van media-bronnen. 
 
-Deze les bevat de volgende procedures:
+In deze les bevat de volgende procedures:
 
-1. De handler Smooth Streaming registreren 
-2. De adaptieve bron manager niveau gebeurtenis-handlers toevoegen
-3. De adaptieve bron niveau gebeurtenis-handlers toevoegen
+1. De Smooth Streaming-handler registreren 
+2. De adaptieve bron manager op gebeurtenis-handlers toevoegen
+3. De adaptieve bron op gebeurtenis-handlers toevoegen
 4. Gebeurtenis-handlers MediaElement toevoegen
 5. Schuifregelaar gerelateerde code toevoegen
-6. Compileren en de toepassing testen
+6. Samenstellen en testen van de toepassing
 
-**De byte-stroom Smooth Streaming handler registreren en de propertyset doorgeven**
+**Voor het registreren van de handler byte-stream Smooth Streaming en de propertyset doorgeven**
 
-1. In Solution Explorer met de rechtermuisknop op **MainPage.xaml**, en klik vervolgens op **weergavecode**.
+1. Vanuit Solution Explorer, klik met de rechtermuisknop **MainPage.xaml**, en klik vervolgens op **Code weergeven**.
 2. Voeg het volgende toe aan het begin van het bestand met de instructie:
 
         using Microsoft.Media.AdaptiveStreaming;
-3. Toevoegen aan het begin van de klasse MainPage de gegevensleden van de volgende:
+3. Toevoegen aan het begin van de klasse MainPage, de gegevensleden van de volgende:
 
          private Windows.Foundation.Collections.PropertySet propertySet = new Windows.Foundation.Collections.PropertySet();             
          private IAdaptiveSourceManager adaptiveSourceManager;
-4. In de **MainPage** -constructor aan, voeg de volgende code na de **dit. Initialiseren van Components();**  lijn en de registratie van de regels die zijn geschreven in de vorige les code:
+4. In de **MainPage** constructor, voeg de volgende code na de **dit. Components(); initialiseren**  regel en de registratie van de regels die zijn geschreven in de vorige les code:
 
         // Gets the default instance of AdaptiveSourceManager which manages Smooth 
         //Streaming media sources.
@@ -256,7 +256,7 @@ Deze les bevat de volgende procedures:
         // Sets property key value to AdaptiveSourceManager default instance.
         // {A5CE1DE8-1D00-427B-ACEF-FB9A3C93DE2D}" must be hardcoded.
         propertySet["{A5CE1DE8-1D00-427B-ACEF-FB9A3C93DE2D}"] = adaptiveSourceManager;
-5. In de **MainPage** constructor wijzigen van de twee methoden RegisterByteStreamHandler toevoegen de beschreven parameters:
+5. In de **MainPage** constructor wijzigen van de twee methoden RegisterByteStreamHandler om toe te voegen de beschreven parameters:
 
          // Registers Smooth Streaming byte-stream handler for ".ism" extension and, 
          // "text/xml" and "application/vnd.ms-ss" mime-types and pass the propertyset. 
@@ -273,12 +273,12 @@ Deze les bevat de volgende procedures:
             ".ism", 
             "application/vnd.ms-sstr+xml", 
          propertySet);
-6. Druk op **CTRL + S** het bestand wilt opslaan.
+6. Druk op **CTRL + S** op te slaan.
 
-**De adaptieve bron manager niveau gebeurtenis-handler toevoegen**
+**De adaptieve bron manager op gebeurtenis-handler toevoegen**
 
-1. In Solution Explorer met de rechtermuisknop op **MainPage.xaml**, en klik vervolgens op **weergavecode**.
-2. In de **MainPage** klasse, voegt u het volgende gegevenslid:
+1. Vanuit Solution Explorer, klik met de rechtermuisknop **MainPage.xaml**, en klik vervolgens op **Code weergeven**.
+2. In de **MainPage** klasse, de volgende gegevenslid toevoegen:
    
      persoonlijke AdaptiveSource adaptiveSource = null;
 3. Aan het einde van de **MainPage** klasse, de volgende gebeurtenis-handler toevoegen:
@@ -291,16 +291,16 @@ Deze les bevat de volgende procedures:
          }
 
          # endregion Adaptive Source Manager Level Events
-4. Aan het einde van de **MainPage** -constructor aan, voeg de volgende regel om u te abonneren adaptieve bron gebeurtenis:
+4. Aan het einde van de **MainPage** constructor, voeg de volgende regel om u te abonneren op de gebeurtenis voor het openen van adaptieve bron:
    
          adaptiveSourceManager.AdaptiveSourceOpenedEvent += 
            new AdaptiveSourceOpenedEventHandler(mediaElement_AdaptiveSourceOpened);
-5. Druk op **CTRL + S** het bestand wilt opslaan.
+5. Druk op **CTRL + S** op te slaan.
 
-**Niveau gebeurtenis-handlers adaptieve bron toevoegen**
+**Adaptieve bron op gebeurtenis-handlers toevoegen**
 
-1. In Solution Explorer met de rechtermuisknop op **MainPage.xaml**, en klik vervolgens op **weergavecode**.
-2. In de **MainPage** klasse, voegt u het volgende gegevenslid:
+1. Vanuit Solution Explorer, klik met de rechtermuisknop **MainPage.xaml**, en klik vervolgens op **Code weergeven**.
+2. In de **MainPage** klasse, de volgende gegevenslid toevoegen:
    
      persoonlijke AdaptiveSourceStatusUpdatedEventArgs adaptiveSourceStatusUpdate;   persoonlijke Manifest manifestObject;
 3. Aan het einde van de **MainPage** klasse, de volgende gebeurtenis-handlers toevoegen:
@@ -326,7 +326,7 @@ Deze les bevat de volgende procedures:
          }
 
          # endregion Adaptive Source Level Events
-4. Aan het einde van de **mediaElement AdaptiveSourceOpened** methode, voeg de volgende code om u te abonneren op de gebeurtenissen:
+4. Aan het einde van de **mediaElement AdaptiveSourceOpened** methode, voeg de volgende code om u te abonneren op gebeurtenissen:
    
          adaptiveSource.ManifestReadyEvent +=
 
@@ -337,13 +337,13 @@ Deze les bevat de volgende procedures:
          adaptiveSource.AdaptiveSourceFailedEvent += 
 
             mediaElement_AdaptiveSourceFailed;
-5. Druk op **CTRL + S** het bestand wilt opslaan.
+5. Druk op **CTRL + S** op te slaan.
 
-Dezelfde gebeurtenissen zijn beschikbaar op adaptieve bron Manager niveau, die kan worden gebruikt voor het verwerken van de functionaliteit die gemeenschappelijk zijn voor alle media-elementen in de app. Elke AdaptiveSource omvat zijn eigen gebeurtenissen en worden alle gebeurtenissen voor AdaptiveSource trapsgewijs onder AdaptiveSourceManager.
+Dezelfde gebeurtenissen zijn beschikbaar op adaptieve bron Manager niveau, die kan worden gebruikt voor het verwerken van de functionaliteit voor alle media-elementen in de app. Elke AdaptiveSource zijn eigen gebeurtenissen bevat en worden alle gebeurtenissen voor AdaptiveSource trapsgewijs onder AdaptiveSourceManager.
 
-**Media-Element gebeurtenis-handlers toevoegen**
+**Gebeurtenis-handlers voor Media-Element toevoegen**
 
-1. In Solution Explorer met de rechtermuisknop op **MainPage.xaml**, en klik vervolgens op **weergavecode**.
+1. Vanuit Solution Explorer, klik met de rechtermuisknop **MainPage.xaml**, en klik vervolgens op **Code weergeven**.
 2. Aan het einde van de **MainPage** klasse, de volgende gebeurtenis-handlers toevoegen:
 
          # region Media Element Event Handlers
@@ -366,29 +366,29 @@ Dezelfde gebeurtenissen zijn beschikbaar op adaptieve bron Manager niveau, die k
          }
 
          # endregion Media Element Event Handlers
-3. Aan het einde van de **MainPage** -constructor aan, voeg de volgende code toe subscript op de gebeurtenissen:
+3. Aan het einde van de **MainPage** constructor, voeg de volgende code toe subscript op de gebeurtenissen:
 
          mediaElement.MediaOpened += MediaOpened;
          mediaElement.MediaEnded += MediaEnded;
          mediaElement.MediaFailed += MediaFailed;
-4. Druk op **CTRL + S** het bestand wilt opslaan.
+4. Druk op **CTRL + S** op te slaan.
 
-**Toevoegen van de schuifregelaar gerelateerde code**
+**Om toe te voegen schuifregelaar gerelateerde code**
 
-1. In Solution Explorer met de rechtermuisknop op **MainPage.xaml**, en klik vervolgens op **weergavecode**.
+1. Vanuit Solution Explorer, klik met de rechtermuisknop **MainPage.xaml**, en klik vervolgens op **Code weergeven**.
 2. Voeg het volgende toe aan het begin van het bestand met de instructie:
       
         using Windows.UI.Core;
-3. In de **MainPage** klasse, voeg de gegevensleden van de volgende:
+3. In de **MainPage** klasse, voeg de volgende gegevensleden toe:
    
          public static CoreDispatcher _dispatcher;
          private DispatcherTimer sliderPositionUpdateDispatcher;
-4. Aan het einde van de **MainPage** -constructor aan, voeg de volgende code:
+4. Aan het einde van de **MainPage** constructor, voeg de volgende code toe:
    
          _dispatcher = Window.Current.Dispatcher;
          PointerEventHandler pointerpressedhandler = new PointerEventHandler(sliderProgress_PointerPressed);
          sliderProgress.AddHandler(Control.PointerPressedEvent, pointerpressedhandler, true);    
-5. Aan het einde van de **MainPage** klasse, voeg de volgende code:
+5. Aan het einde van de **MainPage** klasse, voeg de volgende code toe:
 
          # region sliderMediaPlayer
          private double SliderFrequency(TimeSpan timevalue)
@@ -473,7 +473,7 @@ Dezelfde gebeurtenissen zijn beschikbaar op adaptieve bron Manager niveau, die k
          # endregion sliderMediaPlayer
       
 >[!NOTE]
->CoreDispatcher wordt gebruikt om wijzigingen aanbrengen in de gebruikersinterface-thread van niet-UI-Thread. In geval van een knelpunt op dispatcher-thread kunt developer dispatcher geleverd door de UI-element hij wil bijwerken gebruiken.  Bijvoorbeeld:
+>CoreDispatcher wordt gebruikt om wijzigingen aanbrengen in de UI-thread van niet-UI-Thread. In het geval van knelpunt op dispatcher-thread kunt ontwikkelaars gebruiken functie voor berichtverzending geleverd door de UI-element komt wil bijwerken.  Bijvoorbeeld:
    
          await sliderProgress.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () => { TimeSpan 
 
@@ -481,38 +481,38 @@ Dezelfde gebeurtenissen zijn beschikbaar op adaptieve bron Manager niveau, die k
          double absvalue  = (int)Math.Round(timespan.TotalSeconds, MidpointRounding.AwayFromZero); 
 
          sliderProgress.Maximum = absvalue; }); 
-6. Aan het einde van de **mediaElement_AdaptiveSourceStatusUpdated** methode, voeg de volgende code:
+6. Aan het einde van de **mediaElement_AdaptiveSourceStatusUpdated** methode, voeg de volgende code toe:
 
          setSliderStartTime(args.StartTime);
          setSliderEndTime(args.EndTime);
-7. Aan het einde van de **MediaOpened** methode, voeg de volgende code:
+7. Aan het einde van de **MediaOpened** methode, voeg de volgende code toe:
 
          sliderProgress.StepFrequency = SliderFrequency(mediaElement.NaturalDuration.TimeSpan);
          sliderProgress.Width = mediaElement.Width;
          setupTimer();
-8. Druk op **CTRL + S** het bestand wilt opslaan.
+8. Druk op **CTRL + S** op te slaan.
 
-**Om te compileren en de toepassing testen**
+**Compileren en de toepassing testen**
 
 1. Druk op **F6** voor het compileren van het project. 
 2. Druk op **F5** om de toepassing uit te voeren.
-3. Aan de bovenkant van de toepassing, kunt u de standaard-URL voor Smooth Streaming of voer een andere. 
+3. Aan de bovenkant van de toepassing, kunt u de standaard-URL voor Smooth Streaming of een andere invoeren. 
 4. Klik op **bron instellen**. 
 5. Test de schuifregelaar.
 
 U kunt les 2 hebt voltooid.  In deze les kunt u een schuifregelaar toegevoegd aan de toepassing. 
 
 ## <a name="lesson-3-select-smooth-streaming-streams"></a>Les 3: Selecteer Streams Smooth Streaming
-Smooth Streaming is in staat om inhoud te streamen met meerdere taal audio nummers die kunnen geselecteerd door de viewers worden.  In deze les schakelt u viewers streams selecteren. Deze les bevat de volgende procedures:
+Smooth Streaming is in staat om inhoud te streamen met meerdere taal-audionummers die kunnen geselecteerd door de viewers worden.  In deze les gaat uitvoeren schakelt u viewers streams selecteren. In deze les bevat de volgende procedures:
 
 1. De XAML-bestand wijzigen
 2. Wijzigen van het codebestand behand
-3. Compileren en de toepassing testen
+3. Samenstellen en testen van de toepassing
 
-**Het XAML-bestand te wijzigen**
+**Om de XAML-bestand te wijzigen**
 
-1. In Solution Explorer met de rechtermuisknop op **MainPage.xaml**, en klik vervolgens op **ontwerper**.
-2. Zoek &lt;Grid.RowDefinitions&gt;, en wijzig de RowDefinitions zodat ze eruitzien:
+1. Klik in Solution Explorer met de rechtermuisknop op **MainPage.xaml**, en klik vervolgens op **Weergaveontwerper**.
+2. Zoek &lt;Grid.RowDefinitions&gt;, en de RowDefinitions wijzigt, zodat ze ziet eruit als:
    
          <Grid.RowDefinitions>            
             <RowDefinition Height="20"/>
@@ -521,7 +521,7 @@ Smooth Streaming is in staat om inhoud te streamen met meerdere taal audio numme
             <RowDefinition Height="80"/>
             <RowDefinition Height="50"/>
          </Grid.RowDefinitions>
-3. In de &lt;raster&gt;&lt;/Grid&gt; tags, voeg de volgende code voor het definiëren van een besturingselement listbox zodat gebruikers kunnen de lijst met beschikbare stromen en streams selecteren:
+3. In de &lt;raster&gt;&lt;/Grid&gt; tags, voeg de volgende code voor het definiëren van een besturingselement keuzelijst, zodat gebruikers kunnen zien van de lijst met beschikbare streams, en selecteert u stromen:
 
          <Grid Name="gridStreamAndBitrateSelection" Grid.Row="3">
             <Grid.RowDefinitions>
@@ -546,11 +546,11 @@ Smooth Streaming is in staat om inhoud te streamen met meerdere taal audio numme
                 </ListBox>
             </StackPanel>
          </Grid>
-4. Druk op **CTRL + S** de wijzigingen wilt opslaan.
+4. Druk op **CTRL + S** de wijzigingen op te slaan.
 
-**Wijzigen van de onderliggende-codebestand**
+**Wijzigen van het codebestand**
 
-1. In Solution Explorer met de rechtermuisknop op **MainPage.xaml**, en klik vervolgens op **weergavecode**.
+1. Klik in Solution Explorer met de rechtermuisknop op **MainPage.xaml**, en klik vervolgens op **Code weergeven**.
 2. Voeg een nieuwe klasse toe binnen de naamruimte SSPlayer:
    
         #region class Stream
@@ -597,7 +597,7 @@ Smooth Streaming is in staat om inhoud te streamen met meerdere taal audio numme
             }
         }
         #endregion class Stream
-3. Voeg de volgende variabele definities aan het begin van de klasse MainPage:
+3. Aan het begin van de klasse MainPage, de volgende variabele definities hebt toegevoegd:
    
          private List<Stream> availableStreams;
          private List<Stream> availableAudioStreams;
@@ -740,13 +740,13 @@ Smooth Streaming is in staat om inhoud te streamen met meerdere taal audio numme
             }
         }
         #endregion stream selection
-5. De methode mediaElement_ManifestReady vinden, de volgende code aan het einde van de functie toevoegen:
+5. Zoek de methode mediaElement_ManifestReady, de volgende code aan het einde van de functie toevoegen:
    
         getStreams(manifestObject);
         refreshAvailableStreamsListBoxItemSource();
    
-    Dus wanneer MediaElement manifest klaar is, wordt de code een lijst van de beschikbare stromen wordt en vult de UI-keuzelijst met de lijst.
-6. Zoek de gebruikersinterface in de klasse MainPage knoppen klikt u op gebeurtenissen regio en voeg vervolgens de volgende functiedefinitie:
+    Dus als MediaElement manifest klaar is, de code wordt een lijst van de beschikbare stromen en vult de UI-keuzelijst met de lijst.
+6. Ga naar de gebruikersinterface binnen de klasse MainPage knoppen klikt u op gebeurtenissen regio en voegt u de functiedefinitie van de volgende:
    
         private void btnChangeStream_Click(object sender, RoutedEventArgs e)
         {
@@ -759,27 +759,27 @@ Smooth Streaming is in staat om inhoud te streamen met meerdere taal audio numme
             changeStreams(selectedStreams);
         }
 
-**Om te compileren en de toepassing testen**
+**Compileren en de toepassing testen**
 
 1. Druk op **F6** voor het compileren van het project. 
 2. Druk op **F5** om de toepassing uit te voeren.
-3. Aan de bovenkant van de toepassing, kunt u de standaard-URL voor Smooth Streaming of voer een andere. 
+3. Aan de bovenkant van de toepassing, kunt u de standaard-URL voor Smooth Streaming of een andere invoeren. 
 4. Klik op **bron instellen**. 
-5. De standaardtaal is audio_eng. Probeer schakelen tussen audio_eng en audio_es. Telkens wanneer, selecteert u een nieuwe stream, klikt u op de knop verzenden.
+5. De standaardtaal is audio_eng. Probeer om over te schakelen tussen audio_eng en audio_es. Wanneer, selecteert u een nieuwe stream, moet u klikken op de knop verzenden.
 
-U kunt les 3 hebt voltooid.  In deze les voegt u de functionaliteit om stromen te selecteren.
+Les 3 is voltooid.  In deze les gaat uitvoeren, moet u de functionaliteit om te kiezen streams toevoegen.
 
 ## <a name="lesson-4-select-smooth-streaming-tracks"></a>Les 4: Selecteer nummers Smooth Streaming
-Een presentatie Smooth Streaming kan meerdere videobestanden gecodeerd met verschillende kwaliteitsniveaus (bitsnelheden) en oplossingen bevatten. In deze les schakelt u gebruikers kunnen selecteren, houdt. Deze les bevat de volgende procedures:
+Een Smooth Streaming-presentatie kan bevatten meerdere videobestanden gecodeerd met verschillende kwaliteitsniveaus (bitsnelheden) en oplossingen. In deze les gaat uitvoeren schakelt u gebruikers de nummers selecteren. In deze les bevat de volgende procedures:
 
 1. De XAML-bestand wijzigen
 2. Wijzigen van het codebestand behand
-3. Compileren en de toepassing testen
+3. Samenstellen en testen van de toepassing
 
-**Het XAML-bestand te wijzigen**
+**Om de XAML-bestand te wijzigen**
 
-1. In Solution Explorer met de rechtermuisknop op **MainPage.xaml**, en klik vervolgens op **ontwerper**.
-2. Zoek de &lt;raster&gt; tag met de naam **gridStreamAndBitrateSelection**, de volgende code aan het einde van de tag toevoegen:
+1. Klik in Solution Explorer met de rechtermuisknop op **MainPage.xaml**, en klik vervolgens op **Weergaveontwerper**.
+2. Zoek de &lt;raster&gt; tag met de naam van de **gridStreamAndBitrateSelection**, de volgende code aan het einde van de tag toevoegen:
    
          <StackPanel Name="spBitRateSelection" Grid.Row="1" Grid.Column="1">
          <StackPanel Orientation="Horizontal">
@@ -797,9 +797,9 @@ Een presentatie Smooth Streaming kan meerdere videobestanden gecodeerd met versc
          </StackPanel>
 3. Druk op **CTRL + S** hij wijzigingen op te slaan
 
-**Wijzigen van de onderliggende-codebestand**
+**Wijzigen van het codebestand**
 
-1. In Solution Explorer met de rechtermuisknop op **MainPage.xaml**, en klik vervolgens op **weergavecode**.
+1. Klik in Solution Explorer met de rechtermuisknop op **MainPage.xaml**, en klik vervolgens op **Code weergeven**.
 2. Voeg een nieuwe klasse toe binnen de naamruimte SSPlayer:
    
         #region class Track
@@ -838,7 +838,7 @@ Een presentatie Smooth Streaming kan meerdere videobestanden gecodeerd met versc
             //public Track() { }
         }
         #endregion class Track
-3. Voeg de volgende variabele definities aan het begin van de klasse MainPage:
+3. Aan het begin van de klasse MainPage, de volgende variabele definities hebt toegevoegd:
    
         private List<Track> availableTracks;
 4. Voeg de volgende regio in de klasse MainPage:
@@ -939,11 +939,11 @@ Een presentatie Smooth Streaming kan meerdere videobestanden gecodeerd met versc
             }
         }
         #endregion track selection
-5. De methode mediaElement_ManifestReady vinden, de volgende code aan het einde van de functie toevoegen:
+5. Zoek de methode mediaElement_ManifestReady, de volgende code aan het einde van de functie toevoegen:
    
          getTracks(manifestObject);
          refreshAvailableTracksListBoxItemSource();
-6. Zoek de gebruikersinterface in de klasse MainPage knoppen klikt u op gebeurtenissen regio en voeg vervolgens de volgende functiedefinitie:
+6. Ga naar de gebruikersinterface binnen de klasse MainPage knoppen klikt u op gebeurtenissen regio en voegt u de functiedefinitie van de volgende:
    
          private void btnChangeStream_Click(object sender, RoutedEventArgs e)
          {
@@ -956,15 +956,15 @@ Een presentatie Smooth Streaming kan meerdere videobestanden gecodeerd met versc
             changeStreams(selectedStreams);
          }
 
-**Om te compileren en de toepassing testen**
+**Compileren en de toepassing testen**
 
 1. Druk op **F6** voor het compileren van het project. 
 2. Druk op **F5** om de toepassing uit te voeren.
-3. Aan de bovenkant van de toepassing, kunt u de standaard-URL voor Smooth Streaming of voer een andere. 
+3. Aan de bovenkant van de toepassing, kunt u de standaard-URL voor Smooth Streaming of een andere invoeren. 
 4. Klik op **bron instellen**. 
-5. Alle nummers van de videostream zijn standaard geselecteerd. Als u wilt experimenteren het bits tarief wordt gewijzigd, kunt u de laagste bitsnelheid beschikbaar selecteren en selecteer vervolgens de hoogste bitsnelheid beschikbaar. U moet op verzenden klikt na elke wijziging.  U kunt de videokwaliteit wijzigingen kan zien.
+5. Standaard worden alle van de nummers van de stroom van de video geselecteerd. Als u wilt experimenteren de bits-tarief wordt gewijzigd, kunt u de laagste bitsnelheid beschikbaar selecteren en selecteer vervolgens de hoogste bitsnelheid die beschikbaar is. Na elke wijziging moet u klikken op verzenden.  Hier ziet u de wijzigingen van de kwaliteit van video.
 
-U kunt les 4 hebt voltooid.  In deze les voegt u de functionaliteit om te kiezen houdt.
+Les 4 is voltooid.  In deze les gaat uitvoeren voegt u de functionaliteit om te kiezen sporen te wissen.
 
 ## <a name="media-services-learning-paths"></a>Media Services-leertrajecten
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
@@ -973,8 +973,8 @@ U kunt les 4 hebt voltooid.  In deze les voegt u de functionaliteit om te kiezen
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="other-resources"></a>Andere bronnen:
-* [Het bouwen van een toepassing Smooth Streaming Windows 8 JavaScript met geavanceerde functies](http://blogs.iis.net/cenkd/archive/2012/08/10/how-to-build-a-smooth-streaming-windows-8-javascript-application-with-advanced-features.aspx)
-* [Smooth Streaming technisch overzicht](http://www.iis.net/learn/media/on-demand-smooth-streaming/smooth-streaming-technical-overview)
+* [Over het bouwen van een toepassing met Smooth Streaming Windows 8 JavaScript met geavanceerde functies](http://blogs.iis.net/cenkd/archive/2012/08/10/how-to-build-a-smooth-streaming-windows-8-javascript-application-with-advanced-features.aspx)
+* [Technisch overzicht van Smooth Streaming](http://www.iis.net/learn/media/on-demand-smooth-streaming/smooth-streaming-technical-overview)
 
 [PlayerApplication]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-1.png
 [CodeViewPic]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-2.png

@@ -12,15 +12,15 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 11/06/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 25a8150a2fcf7cdd4e3c82478c0b3db3dad870b4
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: a7d77c0a2ce334c9909a621c55866a67e036f9cb
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48887561"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282778"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Quota en limieten voor Batch-service
 
@@ -45,17 +45,27 @@ Als u van plan bent om uit te voeren van productieworkloads in Batch, moet u mog
 
 Als u een Batch-account met de pooltoewijzingsmodus is ingesteld gemaakt op **gebruikersabonnement**, quota's anders worden toegepast. In deze modus worden Batch-VM's en andere resources gemaakt rechtstreeks in uw abonnement wanneer een groep wordt gemaakt. De Azure Batch kernquota's niet van toepassing op een account gemaakt in deze modus. In plaats daarvan de quota in uw abonnement voor regionale compute-resources en andere resources worden toegepast. Meer informatie over deze quota in [Azure-abonnement en Servicelimieten, quotums en beperkingen](../azure-subscription-service-limits.md).
 
+## <a name="pool-size-limits"></a>De maximale grootte van toepassingen
+
+| **Resource** | **Maximumaantal** |
+| --- | --- |
+| **Rekenknooppunten in [pool communicatie tussen knooppunten is ingeschakeld](batch-mpi.md)**  ||
+| Groepstoewijzingsmodus is ingesteld op batch-service | 100 |
+| Groepstoewijzingsmodus is ingesteld op batch-abonnement | 80 |
+| **Rekenknooppunten in [groep van toepassingen die zijn gemaakt met aangepaste VM-installatiekopie](batch-custom-images.md)**<sup>1</sup> ||
+| Toegewezen knooppunten | 2000 |
+| Knooppunten met lage prioriteit | 1000 |
+
+<sup>1</sup> voor pools die zijn van de communicatie tussen knooppunten Opmerking ingeschakeld.
+
 ## <a name="other-limits"></a>Andere limieten
 
 | **Resource** | **Maximumaantal** |
 | --- | --- |
-| [Gelijktijdige taken](batch-parallel-node-tasks.md) per knooppunt |4 x aantal kernen van knooppunt |
-| [Toepassingen](batch-application-packages.md) per Batch-account |20 |
-| Toepassingspakketten per toepassing |40 |
+| [Gelijktijdige taken](batch-parallel-node-tasks.md) per knooppunt | 4 x aantal kernen van knooppunt |
+| [Toepassingen](batch-application-packages.md) per Batch-account | 20 |
+| Toepassingspakketten per toepassing | 40 |
 | De maximale levensduur van taken | 7 dagen<sup>1</sup> |
-| Rekenknooppunten in [pool communicatie tussen knooppunten is ingeschakeld](batch-mpi.md) | 100 |
-| Toegewezen rekenknooppunten in [groep van toepassingen die zijn gemaakt met aangepaste VM-installatiekopie](batch-custom-images.md) | 2500 |
-| Met lage prioriteit in de rekenknooppunten [groep van toepassingen die zijn gemaakt met aangepaste VM-installatiekopie](batch-custom-images.md) | 1000 |
 
 <sup>1</sup> de maximale levensduur van een taak, wanneer deze wordt toegevoegd aan de taak wanneer deze is voltooid, is 7 dagen. Voltooide taken blijven voor onbepaalde tijd bestaan; gegevens voor taken die niet binnen de maximale levensduur zijn voltooid, zijn niet toegankelijk.
 
@@ -115,7 +125,7 @@ Batch-pools in de configuratie van de virtuele Machine automatisch geïmplemente
 * 1 [openbaar IP-adres](../virtual-network/virtual-network-ip-addresses-overview-arm.md)
 * 1 [netwerktaakverdeler](../load-balancer/load-balancer-overview.md)
 
-Deze resources worden toegewezen in het abonnement waarin het virtuele netwerk dat is opgegeven bij het maken van de Batch-pool. Deze resources worden beperkt door van het abonnement [resourcequota](../azure-subscription-service-limits.md). Als u van plan grote groep implementaties in een virtueel netwerk bent, controleert u de quota van het abonnement voor deze resources. Indien nodig, een verhoging in Azure portal door te selecteren **Help en ondersteuning**.
+Deze resources worden toegewezen in het abonnement waarin het virtuele netwerk dat is opgegeven bij het maken van de Batch-pool. De beperkingen die voor deze resources gelden, worden bepaald door de [resourcequota](../azure-subscription-service-limits.md) van het abonnement. Als u van plan grote groep implementaties in een virtueel netwerk bent, controleert u de quota van het abonnement voor deze resources. Indien nodig, een verhoging in Azure portal door te selecteren **Help en ondersteuning**.
 
 
 ## <a name="related-topics"></a>Verwante onderwerpen

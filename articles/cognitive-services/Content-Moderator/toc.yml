@@ -10,12 +10,10 @@ items:
     href: quick-start.md
   - name: De .NET SDK gebruiken
     items:
-    - name: Afbeeldingsinhoud bekijken
+    - name: Afbeeldingsinhoud op ongewenst materiaal analyseren
       href: image-moderation-quickstart-dotnet.md
-    - name: Tekstinhoud bekijken
+    - name: Tekstinhoud op ongewenst materiaal analyseren
       href: text-moderation-quickstart-dotnet.md
-    - name: Video-inhoud bekijken
-      href: video-moderation-api.md
 - name: Concepten
   items:
   - name: Beheer van afbeeldingen
@@ -36,6 +34,8 @@ items:
       items:
       - name: De .NET SDK gebruiken
         items:
+        - name: Video-inhoud bekijken
+          href: video-moderation-api.md
         - name: Installatiekopieën vergelijken met aangepaste lijsten
           href: image-lists-quickstart-dotnet.md
         - name: Tekst vergelijken met aangepaste voorwaarden
@@ -142,9 +142,9 @@ items:
     href: https://azure.microsoft.com/roadmap/?category=ai-machine-learning
   - name: Webinar op aanvraag
     href: https://info.microsoft.com/cognitive-services-content-moderator-ondemand.html
-ms.openlocfilehash: d162bcaefdde1aceb171d2ad83b5386e54cea890
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 03363242d1a3764415e9bdc5b985b7fa76076901
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49944152"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51012816"

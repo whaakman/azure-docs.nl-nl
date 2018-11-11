@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: article
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: f94a9d71dab4320e561d2de00af0e2af77ab4c3f
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: c3e0bd338c38165d3a372f60e12ff5ddaa05d2a0
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42057261"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51248279"
 ---
 # <a name="getting-started-with-azure-queue-storage-and-visual-studio-connected-services-webjob-projects"></a>Aan de slag met Azure Queue storage en Visual Studio verbonden services (webtaak projecten)
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
@@ -468,7 +468,7 @@ Uitvoer van de Console-methoden die u in een functie aanroepen of in de **Main()
 
 Console-uitvoer kan niet worden gekoppeld aan een bepaalde methodeaanroep omdat de-Console één thread, is terwijl veel taakfuncties kunnen worden uitgevoerd op hetzelfde moment. Daarom is de SDK biedt elke functieaanroepen met een eigen unieke log writer-object.
 
-Het schrijven van [tracering toepassingslogboeken](../app-service/web-sites-dotnet-troubleshoot-visual-studio.md#logsoverview), gebruiken **Console.Out** (wordt gemaakt van de logboeken die zijn gemarkeerd als INFO) en **Console.Error** (logboeken die zijn gemarkeerd als fout maakt). Een alternatief is het gebruik van [Trace- of TraceSource](http://blogs.msdn.com/b/mcsuksoldev/archive/2014/09/04/adding-trace-to-azure-web-sites-and-web-jobs.aspx)en waarmee u uitgebreid, waarschuwing, kritiek niveaus, naast informatie en de fout. Tracering van toepassingslogboeken worden weergegeven in de logboekbestanden web-app, Azure-tabellen, of, afhankelijk van hoe u uw Azure-web-app configureren voor Azure blobs. Geldt voor alle Console-uitvoer, weergegeven de meest recente 100 toepassingslogboeken ook in de Dashboard-pagina voor de webtaak, niet op de pagina voor een functie-aanroep.
+Het schrijven van [tracering toepassingslogboeken](../app-service/web-sites-dotnet-troubleshoot-visual-studio.md#logsoverview), gebruiken **Console.Out** (wordt gemaakt van de logboeken die zijn gemarkeerd als INFO) en **Console.Error** (logboeken die zijn gemarkeerd als fout maakt). Een alternatief is het gebruik van [Trace- of TraceSource](https://blogs.msdn.com/b/mcsuksoldev/archive/2014/09/04/adding-trace-to-azure-web-sites-and-web-jobs.aspx)en waarmee u uitgebreid, waarschuwing, kritiek niveaus, naast informatie en de fout. Tracering van toepassingslogboeken worden weergegeven in de logboekbestanden web-app, Azure-tabellen, of, afhankelijk van hoe u uw Azure-web-app configureren voor Azure blobs. Geldt voor alle Console-uitvoer, weergegeven de meest recente 100 toepassingslogboeken ook in de Dashboard-pagina voor de webtaak, niet op de pagina voor een functie-aanroep.
 
 Console-uitvoer wordt weergegeven in het Dashboard alleen als het programma wordt uitgevoerd in een Azure-webtaak niet als het programma lokaal wordt uitgevoerd of in een andere omgeving.
 
@@ -511,5 +511,5 @@ En in een Azure-tabel de **Console.Out** en **Console.Error** Logboeken als volg
 ![Foutenlogboek in tabel](./media/vs-storage-webjobs-getting-started-queues/tableerror.png)
 
 ## <a name="next-steps"></a>Volgende stappen
-In dit artikel is codevoorbeelden die laten hoe u algemene scenario's zien voor het werken met Azure-wachtrijen worden opgegeven. Zie voor meer informatie over het gebruik van Azure WebJobs en de WebJobs SDK [documentatiebronnen voor Azure WebJobs](http://go.microsoft.com/fwlink/?linkid=390226).
+In dit artikel is codevoorbeelden die laten hoe u algemene scenario's zien voor het werken met Azure-wachtrijen worden opgegeven. Zie voor meer informatie over het gebruik van Azure WebJobs en de WebJobs SDK [documentatiebronnen voor Azure WebJobs](https://go.microsoft.com/fwlink/?linkid=390226).
 

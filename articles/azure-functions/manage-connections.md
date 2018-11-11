@@ -2,19 +2,18 @@
 title: Over het beheren van verbindingen in Azure Functions
 description: Leer hoe u om te voorkomen dat problemen met de prestaties in Azure Functions met behulp van statische verbinding-clients.
 services: functions
-documentationcenter: ''
 author: ggailey777
 manager: jeconnoc
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 07/13/2018
+ms.date: 11/02/2018
 ms.author: glenga
-ms.openlocfilehash: 6a877bb7f21b129522b9ffeab22eb77d7a556d53
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: eb5c302c807f85f24f53fa1ba32ef4cd7b52274a
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44094796"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51036458"
 ---
 # <a name="how-to-manage-connections-in-azure-functions"></a>Over het beheren van verbindingen in Azure Functions
 
@@ -37,9 +36,13 @@ Hier vindt u enkele richtlijnen te volgen bij het gebruik van een client service
 - **Voer** maken van een enkele, statische-client die kan worden gebruikt door elke functie-aanroep.
 - **Houd rekening met** het maken van een enkele, statische-client in een gedeelde helperklasse als dezelfde service verschillende functies gebruiken.
 
-## <a name="httpclient-code-example"></a>Codevoorbeeld httpclient maakt
+## <a name="client-code-examples"></a>Client-codevoorbeelden
 
-Hier volgt een voorbeeld van de functiecode die wordt gemaakt van een statische [HttpClient](https://msdn.microsoft.com/library/system.net.http.httpclient(v=vs.110).aspx):
+Deze sectie wordt beschreven aanbevolen procedures voor het maken en gebruiken van clients in uw functiecode aan te geven.
+
+### <a name="httpclient-example-c"></a>Voorbeeld van HttpClient (C#)
+
+Hier volgt een voorbeeld van C# code die wordt gemaakt van een statische functie [HttpClient](https://msdn.microsoft.com/library/system.net.http.httpclient(v=vs.110).aspx):
 
 ```cs
 // Create a single, static HttpClient
@@ -54,7 +57,27 @@ public static async Task Run(string input)
 
 Een algemene vraag over de .NET [HttpClient](https://msdn.microsoft.com/library/system.net.http.httpclient(v=vs.110).aspx) is "Moet ik worden verwijdering mijn client?" In het algemeen is het verwijderen van objecten die worden geïmplementeerd `IDisposable` wanneer u klaar bent met behulp van deze. Maar u een statische client niet verwijderen omdat u niet worden uitgevoerd met behulp van deze wanneer de functie wordt beëindigd. U wilt dat de statische client live voor de duur van uw toepassing.
 
-## <a name="documentclient-code-example"></a>Voorbeeld van de DocumentClient-code
+### <a name="http-agent-examples-nodejs"></a>Voorbeelden van HTTP-agent (Node.js)
+
+Omdat deze beter verbinding opties voor beheer biedt, moet u de native [ `http.agent` ](https://nodejs.org/dist/latest-v6.x/docs/api/http.html#http_class_http_agent) klasse in plaats van niet-eigen methoden, zoals de `node-fetch` module. Verbindingsparameters zijn geconfigureerd met behulp van de opties op de `http.agent` klasse. Zie [nieuwe-Agent (\[opties\])](https://nodejs.org/dist/latest-v6.x/docs/api/http.html#http_new_agent_options) voor gedetailleerde opties beschikbaar zijn met de HTTP-agent.
+
+De globale `http.globalAgent` die worden gebruikt door `http.request()` heeft al deze waarden ingesteld op hun respectievelijke standaardwaarden ingesteld. De aanbevolen manier om de limieten configureren in de functies is het maximum aantal wereldwijd instellen. Het volgende voorbeeld wordt het maximum aantal sockets voor de functie-app:
+
+```js
+http.globalAgent.maxSockets = 200;
+```
+
+ Het volgende voorbeeld wordt een nieuwe HTTP-aanvraag met een aangepaste HTTP-agent alleen voor deze aanvraag.
+
+```js
+var http = require('http');
+var httpAgent = new http.Agent();
+httpAgent.maxSockets = 200;
+options.agent = httpAgent;
+http.request(options, onResponseCallback);
+```
+
+### <a name="documentclient-code-example-c"></a>Voorbeeld van de DocumentClient-code (C#)
 
 [DocumentClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient
 ) verbinding maakt met een Azure Cosmos DB-exemplaar. De documentatie van Azure Cosmos DB wordt aanbevolen dat u [een singleton-Azure Cosmos DB-client gebruiken voor de levensduur van uw toepassing](https://docs.microsoft.com/azure/cosmos-db/performance-tips#sdk-usage). Het volgende voorbeeld ziet u een patroon voor het uitvoeren van die in een functie:

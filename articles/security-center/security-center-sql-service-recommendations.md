@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/03/2017
+ms.date: 10/28/2018
 ms.author: terrylan
-ms.openlocfilehash: 45f5dc840f015793912e314ab3d47e54a409708e
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 177deb779ca3e3e9575a41ab9a37bb51d5e79df8
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46126663"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51008076"
 ---
 # <a name="protecting-azure-sql-service-and-data-in-azure-security-center"></a>Beveiligen van Azure SQL-service en -gegevens in Azure Security Center
 Azure Security Center analyseert de beveiligingsstatus van uw Azure-resources. Wanneer Security Center potentiële beveiligingsproblemen worden geïdentificeerd, worden er aanbevelingen die u bij het proces begeleiden van het configureren van de benodigde besturingselementen.  Aanbevelingen zijn van toepassing op Azure-resource-typen: virtuele machines (VM's), netwerk-, SQL en gegevens en toepassingen.
@@ -49,12 +49,26 @@ Als u op de database klikt om deze aanbeveling op te volgen, wordt **Controle en
 
 Als u controle wilt inschakelen, hoeft u alleen maar **AAN** te selecteren onder de optie **Controle**.
 
-## <a name="available-sql-service-and-data-recommendations"></a>Beschikbare SQL-service en aanbevelingen
-| Aanbeveling | Beschrijving |
-| --- | --- |
-| [Controle en detectie van bedreigingen op SQL-servers inschakelen](security-center-enable-auditing-on-sql-servers.md) |Hiermee wordt aanbevolen dat u controle en detectie van bedreigingen voor Azure SQL-servers (Azure SQL-service alleen; bevat geen SQL die worden uitgevoerd op uw virtuele machines) inschakelen. |
-| [Controle en detectie van bedreigingen op SQL-databases inschakelen](security-center-enable-auditing-on-sql-databases.md) |Hiermee wordt aanbevolen dat u controle en detectie van bedreigingen voor Azure SQL-databases (Azure SQL-service alleen; bevat geen SQL die worden uitgevoerd op uw virtuele machines) inschakelen. |
-| [Transparent Data Encryption inschakelen voor SQL-databases](security-center-enable-transparent-data-encryption.md) |Hiermee wordt aanbevolen dat u versleuteling voor SQL-databases (alleen voor Azure SQL-service inschakelen). |
+## <a name="data-and-storage-recommendations"></a>Aanbevelingen voor gegevens en opslag
+
+|Resourcetype|Beveiligingsscore|Aanbeveling|Beschrijving|
+|----|----|----|----|
+|Storage-account|20|Veilige overdracht naar storage-account vereisen|Veilige overdracht is een optie die ervoor zorgt dat uw storage-account om te accepteren van aanvragen van beveiligde verbindingen (HTTPS). Gebruik van HTTPS-verificatie tussen de server en de service garandeert en gegevens die onderweg zijn beschermd tegen aanvallen op toepassingslagen, zoals man-in-the-middle, niet kan worden afgeluisterd en sessiehijacking netwerk.|
+|Redis|20|Alleen beveiligde verbindingen met uw Redis-Cache inschakelen|Alleen verbindingen met SSL-beveiliging met Redis-Cache inschakelen. Gebruik van beveiligde verbindingen zorgt ervoor dat de verificatie tussen de server en de service en gegevens die onderweg zijn beschermd tegen aanvallen op toepassingslagen, zoals man-in-the-middle, niet kan worden afgeluisterd en sessiehijacking netwerk.|
+|SQL|15|Transparent Data Encryption inschakelen voor SQL-databases|Transparante gegevensversleuteling inschakelen om data-at-rest te beveiligen en de vereisten na te leven.|
+|SQL|15|Controleren voor SQL-servers inschakelen|Controle inschakelen voor Azure SQL-servers. (Alleen voor azure SQL-service. Bevat geen SQL die worden uitgevoerd op uw virtuele machines.)|
+|SQL|15|Controleren voor SQL-databases inschakelen|Controle inschakelen voor Azure SQL-databases. (Alleen voor azure SQL-service. Bevat geen SQL die worden uitgevoerd op uw virtuele machines.)|
+|Data lake analytics|15|Inschakelen van versleuteling-at-rest van de Data Lake Analytics|Transparent data encryption voor het beveiligen van gegevens in rust in uw Data Lake Analytics inschakelen. Versleuteling-at-rest is transparant, wat betekent dat de Data Lake Analytics automatisch gegevens voordat deze worden opgeslagen, versleutelt en ontsleutelt gegevens voordat ze worden opgehaald. Er zijn geen wijzigingen vereist in de in toepassingen en services die interactie met Data Lake Analytics vanwege versleuteling hebben. Versleuteling van inactieve minimaliseert het risico van gegevensverlies via fysieke diefstal en helpt ook bij het voldoen aan wettelijke vereisten.|
+|Data lake store|15|Inschakelen van versleuteling-at-rest voor de Data Lake Store|Transparent data encryption voor het beveiligen van gegevens in rust in uw Data Lake Store inschakelen. Versleuteling-at-rest is transparant, wat betekent dat de Data Lake Store versleutelt automatisch gegevens voordat deze worden opgeslagen, en ontsleutelt gegevens voordat ze worden opgehaald. U hebt geen wijzigingen aanbrengen in de toepassingen en services die interactie met Data Lake Store hebben voor versleuteling. Versleuteling van inactieve minimaliseert het risico van gegevensverlies via fysieke diefstal en helpt ook bij het voldoen aan wettelijke vereisten.|
+|Storage-account|15|Versleuteling inschakelen voor het Azure Storage-account|Schakel Azure Storage-Serviceversleuteling voor data-at-rest. Storage Service Encryption (SSE) werkt door het versleutelen van de gegevens wanneer deze worden geschreven naar Azure storage en voordat ophalen ontsleutelt. SSE is momenteel alleen beschikbaar voor de Azure Blob-service en kan worden gebruikt voor blok-blobs, pagina-blobs en toevoeg-blobs.|
+|Data lake analytics|5|Schakel diagnostische logboeken in Data Lake Analytics|Logboeken inschakelen en ze maximaal een jaar bewaren. Hiermee kunt u activiteit sporen onderzoek opnieuw maken wanneer een beveiligingsincident voordoet of uw netwerk is gecompromitteerd. |
+|Data lake store|5|Diagnostische logboeken in Azure Data Lake Store inschakelen|Logboeken inschakelen en ze maximaal een jaar bewaren. Hiermee kunt u activiteit sporen onderzoek opnieuw maken wanneer een beveiligingsincident voordoet of uw netwerk is gecompromitteerd. |
+|SQL|30|Beveiligingsproblemen voor uw SQL-databases herstellen|Evaluatie van beveiligingsproblemen SQL scant uw database voor beveiligingsproblemen en wordt aangegeven dat eventuele afwijkingen van aanbevolen procedures, zoals onjuiste configuraties, overmatige machtigingen en niet-beveiligde gevoelige gegevens. Het omzetten van de beveiligingsproblemen gevonden, kan de status van uw database security aanzienlijk verbeteren.|
+|SQL|20|Een Azure AD-beheerder voor SQL server inrichten|Inrichten van een Azure AD-beheerder voor uw SQL-server als Azure AD-verificatie wilt inschakelen. Azure AD-verificatie kunt u beheer van machtigingen vereenvoudigde en gecentraliseerde identiteitsbeheer van databasegebruikers en andere Microsoft-services.|
+|Storage-account|15|Onbeperkte netwerktoegang tot de storage-account uitschakelen|Audit onbeperkte toegang tot het netwerk in de firewall-instellingen van uw storage-account. In plaats daarvan network-regels configureren, zodat alleen toepassingen van toegestane netwerken toegang het opslagaccount tot hebben. Als u wilt toestaan verbindingen van specifieke Internet of on-premises clients, kan toegang worden verleend aan verkeer van specifieke Azure-netwerken of aan het openbare Internet-IP-adresbereiken.|
+|Storage-account|1||Opslagaccounts migreren naar nieuwe AzureRM-resources|Gebruik de nieuwe Azure Resource Manager-v2, voor uw storage-accounts voor verbeterde beveiliging, zoals: sterkere toegangsbeheer (RBAC), betere controle, op basis van Resource Manager-implementatie en beheer, de toegang tot beheerde identiteiten, toegang tot key vault voor geheimen, Azure AD gebaseerde verificatie en ondersteuning voor labels en resourcegroepen voor eenvoudiger beveiligingsbeheer.|
+
+
 
 ## <a name="see-also"></a>Zie ook
 Zie de volgende onderwerpen voor meer informatie over aanbevelingen die betrekking hebben op andere typen Azure-resources:

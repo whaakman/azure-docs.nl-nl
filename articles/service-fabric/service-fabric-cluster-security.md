@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/14/2018
 ms.author: aljo
-ms.openlocfilehash: e791ddd3ade2ff486f1c3ec123695ecc155353d6
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: aa0d209cf3da65bb3d50a6458ecc33cfcd85eecb
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45541901"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240593"
 ---
 # <a name="service-fabric-cluster-security-scenarios"></a>Service Fabric-clusterbeveiligingsscenario 's
 Een Azure Service Fabric-cluster is een resource waarvan u eigenaar bent. Het is uw verantwoordelijkheid voor het beveiligen van uw clusters om te voorkomen dat onbevoegde gebruikers verbinding maken met deze. Een beveiligd cluster is vooral belangrijk wanneer u bij het uitvoeren van productieworkloads op het cluster. Hoewel het mogelijk te maken van een niet-beveiligd cluster als-beheereindpunten met het openbare internet wordt aangegeven dat het cluster, anonieme gebruikers verbinding mee kunnen maken. Niet-beveiligde clusters worden niet ondersteund voor productieworkloads. 
@@ -85,7 +85,7 @@ Gebruikers aan wie de rol beheerder toegewezen hebben volledige toegang tot de m
 De beheerder en gebruiker client rollen ingesteld bij het maken van het cluster. Rollen toewijzen door afzonderlijke identiteiten (bijvoorbeeld met behulp van certificaten of Azure AD) voor elk Roltype. Zie voor meer informatie over instellingen voor toegangsbeheer standaard en het wijzigen van de standaardinstellingen, [Role-Based Access Control voor Service Fabric-clients](service-fabric-cluster-security-roles.md).
 
 ## <a name="x509-certificates-and-service-fabric"></a>X.509-certificaten en Service Fabric
-Digitale x.509-certificaten worden meestal gebruikt voor verificatie van clients en servers. Ze worden ook gebruikt voor het versleutelen en digitaal ondertekenen van berichten. Service Fabric maakt gebruik van X.509-certificaten voor het beveiligen van een cluster en beveiligingsfuncties van de toepassing opgeven. Zie voor meer informatie over digitale x.509-certificaten, [werken met certificaten](http://msdn.microsoft.com/library/ms731899.aspx). U gebruikt [Key Vault](../key-vault/key-vault-get-started.md) voor het beheren van certificaten voor Service Fabric-clusters in Azure.
+Digitale x.509-certificaten worden meestal gebruikt voor verificatie van clients en servers. Ze worden ook gebruikt voor het versleutelen en digitaal ondertekenen van berichten. Service Fabric maakt gebruik van X.509-certificaten voor het beveiligen van een cluster en beveiligingsfuncties van de toepassing opgeven. Zie voor meer informatie over digitale x.509-certificaten, [werken met certificaten](https://msdn.microsoft.com/library/ms731899.aspx). U gebruikt [Key Vault](../key-vault/key-vault-get-started.md) voor het beheren van certificaten voor Service Fabric-clusters in Azure.
 
 Enkele belangrijke aandachtspunten voor:
 
@@ -109,7 +109,7 @@ Aantal andere zaken te overwegen:
 
 * De **onderwerp** veld meerdere waarden kan hebben. Elke waarde wordt voorafgegaan door een initialisatie om aan te geven van het type. De initialisatie is meestal **CN** (voor *algemene naam*), bijvoorbeeld **CN = www.contoso.com**. 
 * De **onderwerp** veld mag leeg zijn. 
-* Als de optionele **alternatieve naam voor onderwerp** veld wordt ingevuld, moet de algemene naam van het certificaat en één vermelding per SAN hebben. Deze worden ingevoerd als **DNS-naam** waarden. Zie voor informatie over het genereren van certificaten met SAN's, [een alternatieve naam voor onderwerp toevoegen aan een certificaat voor secure LDAP](http://support.microsoft.com/kb/931351).
+* Als de optionele **alternatieve naam voor onderwerp** veld wordt ingevuld, moet de algemene naam van het certificaat en één vermelding per SAN hebben. Deze worden ingevoerd als **DNS-naam** waarden. Zie voor informatie over het genereren van certificaten met SAN's, [een alternatieve naam voor onderwerp toevoegen aan een certificaat voor secure LDAP](https://support.microsoft.com/kb/931351).
 * De waarde van de **beoogde doeleinden** veld van het certificaat moet een geschikte waarde, zoals bevatten **serververificatie** of **clientverificatie**.
 
 ### <a name="application-certificates-optional"></a>Toepassingscertificaten (optioneel)

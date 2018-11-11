@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: 02db6b4691beb4bfefa3815c87cf54f350219d81
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 62e15b5845ed9faa605f978f0d2fd427c9c3ee9b
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50418004"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51008178"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---architecture-best-practices"></a>On-premises Apache Hadoop-clusters migreren naar Azure HDInsight - architectuur van aanbevolen procedures
 
@@ -113,7 +113,7 @@ Enkele aanbevolen procedures voor HDInsight Hive-metastore zijn als volgt:
 - Houd rekening met het vervangen van impala-query's met LLAP query's.
 - Houd rekening met het vervangen van MapReduce-taken met Spark-taken.
 - Houd rekening met lage latentie Spark batch-taken met behulp van Spark Structured Streaming taken vervangen.
-- Overweeg het gebruik van Azure Data Factory (ADF) 2.0 gebruiken voor het indelen van.
+- Overweeg het gebruik van Azure Data Factory (ADF) 2.0 voor het indelen van.
 - Houd rekening met Ambari voor Clusterbeheer.
 - De opslag van gegevens van on-premises HDFS WASB of ADLS of AD FS wijzigen voor de verwerking van scripts.
 - U kunt met het RBAC voor Ranger Hive-tabellen en controle.

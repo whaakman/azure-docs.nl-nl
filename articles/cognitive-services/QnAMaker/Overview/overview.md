@@ -10,18 +10,20 @@ ms.component: qna-maker
 ms.topic: overview
 ms.date: 10/09/2018
 ms.author: tulasim
-ms.openlocfilehash: 742c18815445b038e85c33a96743790491976945
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: bd859183a13e0f8a21cdd2eabb464b718e949464
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48901104"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212213"
 ---
 # <a name="what-is-qna-maker"></a>Wat is QnA Maker?
 
-QnA Maker is een vraag-en-antwoord knowledge base (KB)-service die aangepaste machine learning intelligence toepast op een gebruikersvraag in natuurlijke taal om daarop het beste antwoord te kunnen geven.
+QnA Maker is een cloudgebaseerde API-service voor het maken van een vraag- en antwoordlaag over uw gegevens in gespreksstijl. 
 
-Met QnA Maker kunt u de cloudservice verrijken op basis van uw semi-gestructureerde inhoud, zoals FAQ-documenten (veelgestelde vragen), URL's, producthandleidingen en aangepaste vragen en antwoorden. In de eenvoudig te gebruiken [webportal](https://qnamaker.ai) kunt u uw service maken, beheren, trainen en publiceren zonder ontwikkelaarservaring. Wanneer de service is gepubliceerd op een eindpunt, kan een clienttoepassing zoals een chatbot de conversatie met een gebruiker beheren om vragen te krijgen en erop te reageren met antwoorden. 
+Met QnA Maker kunt u een kennisbank (KB) maken van uw semi-gestructureerde inhoud, zoals URL's naar FAQ's (veelgestelde vragen), producthandleidingen, ondersteuningsdocumenten en aangepaste vragen en antwoorden. De QnA Maker-service beantwoordt de in natuurlijke taal gestelde vragen van uw gebruikers door deze te koppelen aan de best mogelijke antwoorden uit de QnA's in uw kennisbank.
+
+In de eenvoudig te gebruiken [webportal](https://qnamaker.ai) kunt u uw service maken, beheren, trainen en publiceren zonder ontwikkelaarservaring. Wanneer de service is gepubliceerd op een eindpunt, kan een clienttoepassing zoals een chatbot de conversatie met een gebruiker beheren om vragen te krijgen en erop te reageren met antwoorden. 
 
 ![Overzicht](../media/qnamaker-overview-learnabout/overview.png)
 
@@ -29,7 +31,7 @@ Met QnA Maker kunt u de cloudservice verrijken op basis van uw semi-gestructuree
 
 QnA Maker biedt twee belangrijke services voor uw gegevens:
 
-* **Extractie**: gestructureerde vraag-antwoordgegevens worden geëxtraheerd uit semi-gestructureerde [gegevensbronnen](../Concepts/data-sources-supported.md), zoals veelgestelde vragen en producthandleidingen. Deze extractie kan worden gedaan bij het [maken](https://aka.ms/qnamaker-docs-createkb) van de KB of later, als onderdeel van het bewerkingsproces.
+* **Extractie**: gestructureerde vraag-antwoordgegevens worden geëxtraheerd uit gestructureerde en semi-gestructureerde [gegevensbronnen](../Concepts/data-sources-supported.md), zoals veelgestelde vragen en producthandleidingen. Deze extractie kan worden gedaan bij het [maken](https://aka.ms/qnamaker-docs-createkb) van de KB of later, als onderdeel van het bewerkingsproces.
 
 * **Matching**: nadat uw kennisbank [is getraind en getest](https://aka.ms/qnamaker-docs-trainkb), [publiceert](https://aka.ms/qnamaker-docs-publishkb) u deze. Dit maakt een eindpunt mogelijk voor uw QnA Maker-knowledge base, die u vervolgens kunt gebruiken in uw bot of clientapp. Dit eindpunt accepteert een gebruikersvraag en reageert met het beste antwoord in de knowledge base, samen met een betrouwbaarheidsscore voor de match.
 
@@ -53,11 +55,11 @@ QnA Maker biedt twee belangrijke services voor uw gegevens:
 
 ## <a name="qna-maker-architecture"></a>QnA Maker-architectuur
 
-QnA Maker-stack bestaat uit de volgende API-services:
+De architectuur van QnA Maker bestaat uit de volgende twee onderdelen:
 
 1. **QnA Maker-beheerservices**: de beheerervaring voor een QnA Maker-knowledge base die alle fasen omvat, van het maken tot en met het bijwerken, trainen en publiceren. Deze activiteiten kunnen worden uitgevoerd via de [portal](https://qnamaker.ai) of de [beheer-API's](https://aka.ms/qnamaker-v4-apis). 
 
-2. De **QnA Maker-voorspellingsservice**: dit is geïmplementeerd in uw Azure-abonnement in de door u opgegeven regio. Aangepaste KB-inhoud wordt opgeslagen in [Azure Search](https://azure.microsoft.com/services/search/) en het eindpunt wordt geïmplementeerd als een [app-service](https://azure.microsoft.com/services/app-service/). U kunt er ook voor kiezen om een ​​[Application Insights](https://azure.microsoft.com/services/application-insights/)-bron te implementeren voor analyse.
+2. De **QnA Maker-gegevens en -runtime**: deze is geïmplementeerd in uw Azure-abonnement in de door u opgegeven regio. Uw KB-inhoud wordt opgeslagen in [Azure Search](https://azure.microsoft.com/services/search/) en het eindpunt wordt geïmplementeerd als een [app-service](https://azure.microsoft.com/services/app-service/). U kunt er ook voor kiezen om een ​​[Application Insights](https://azure.microsoft.com/services/application-insights/)-bron te implementeren voor analyse.
 
 ![Architectuur](../media/qnamaker-overview-learnabout/architecture.png)
 

@@ -1,24 +1,24 @@
 ---
-title: Hive-bibliotheken toevoegen tijdens het HDInsight-cluster maken - Azure
-description: Informatie over het toevoegen van Hive-bibliotheken (jar-bestanden), met een HDInsight-cluster tijdens het maken van clusters.
+title: Apache Hive-bibliotheken toevoegen tijdens het HDInsight-cluster maken - Azure
+description: Informatie over het toevoegen van Apache Hive-bibliotheken (jar-bestanden), met een HDInsight-cluster tijdens het maken van clusters.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/27/2018
-ms.author: jasonh
+ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 40650c813efc8fe7389b0445c72007dbd97e3ce8
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: f9788c82e74b47d4550640a1069f6d97487eecc6
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43108683"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51035302"
 ---
-# <a name="add-custom-hive-libraries-when-creating-your-hdinsight-cluster"></a>Aangepaste Hive-bibliotheken toevoegen bij het maken van uw HDInsight-cluster
+# <a name="add-custom-apache-hive-libraries-when-creating-your-hdinsight-cluster"></a>Aangepaste Apache Hive-bibliotheken toevoegen bij het maken van uw HDInsight-cluster
 
-Informatie over het vooraf laden op HDInsight Hive-bibliotheken. Dit document bevat informatie over het gebruik van een scriptactie bibliotheken vooraf laden tijdens het maken van clusters. Bibliotheken die zijn toegevoegd met behulp van de stappen in dit document zijn wereldwijd beschikbaar in Hive - hoeft niet te gebruiken [toevoegen JAR](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Cli) te laden.
+Informatie over het vooraf laden Apache Hive-bibliotheken op HDInsight. Dit document bevat informatie over het gebruik van een scriptactie bibliotheken vooraf laden tijdens het maken van clusters. Bibliotheken die zijn toegevoegd met behulp van de stappen in dit document zijn wereldwijd beschikbaar in Hive - hoeft niet te gebruiken [toevoegen JAR](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Cli) te laden.
 
 ## <a name="how-it-works"></a>Hoe werkt het?
 

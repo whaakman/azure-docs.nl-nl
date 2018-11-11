@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 06/30/2018
-ms.openlocfilehash: 0bd894e99fd575fca734a101a1cde0f0a2979682
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: f24f15134bf189097f20f75ff0b23b72a3e48363
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45983740"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51299603"
 ---
 # <a name="limitations-in-azure-database-for-postgresql"></a>Beperkingen in Azure Database for PostgreSQL
 De volgende secties beschrijven de capaciteits- en functionele limieten in de database-service.
@@ -31,10 +31,10 @@ Het maximum aantal verbindingen per prijscategorie en vCores zijn als volgt:
 |Algemeen doel| 8| 480|
 |Algemeen doel| 16| 950|
 |Algemeen doel| 32| 1500|
-|Geoptimaliseerd geheugen| 2| 150|
-|Geoptimaliseerd geheugen| 4| 250|
-|Geoptimaliseerd geheugen| 8| 480|
-|Geoptimaliseerd geheugen| 16| 950|
+|Geoptimaliseerd geheugen| 2| 300|
+|Geoptimaliseerd geheugen| 4| 500|
+|Geoptimaliseerd geheugen| 8| 960|
+|Geoptimaliseerd geheugen| 16| 1900|
 
 Wanneer verbindingen de limiet overschrijdt, wordt de volgende fout:
 > Onherstelbare fout: er al te veel clients

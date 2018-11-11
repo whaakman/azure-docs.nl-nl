@@ -2,19 +2,19 @@
 title: Toegang beperken met handtekeningen voor gedeelde toegang - Azure HDInsight
 description: Informatie over het gebruik van handtekeningen voor gedeelde toegang HDInsight toegang tot gegevens die zijn opgeslagen in Azure storage-blobs beperken.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
-ms.author: jasonh
-ms.openlocfilehash: 76e40f5178457f366ed386dba7a1817ddde3c8ac
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.author: hrasheed
+ms.openlocfilehash: 08ffc3a9eb4942cb21c0a800d493b87b016d7f87
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43090225"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51016168"
 ---
 # <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>Azure Storage Shared Access Signatures gebruiken om u te beperken van toegang tot gegevens in HDInsight
 
@@ -45,7 +45,7 @@ HDInsight heeft volledige toegang tot gegevens in de Azure Storage-accounts die 
   * Een pythonscript waarmee u een storage-container, een opgeslagen beleid en een SAS voor gebruik met HDInsight maken kunt
   * Een PowerShell-script dat kan een HDInsight-cluster maken en configureren voor het gebruik van de SAS.
 
-## <a name="shared-access-signatures"></a>Handtekeningen voor gedeelde toegang
+## <a name="shared-access-signatures"></a>Shared Access Signatures
 
 Er zijn twee soorten handtekeningen voor gedeelde toegang:
 

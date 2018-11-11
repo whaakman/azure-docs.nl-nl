@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: overview
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: 6de1f6dfac028255a1cb49931e959c79b5fc4f40
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: e0fe2ade2e50ff549cb18f84a3c15830255ca0fb
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42023499"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51249588"
 ---
 # <a name="microsoft-authenticator-app"></a>Microsoft Authenticator-app
 
@@ -27,6 +27,6 @@ Met de Microsoft Authenticator-app kunt u uw accounts beveiligen met behulp van 
 
 |Artikel |Beschrijving |
 |------|------------|
-|[Aan de slag gaan met de Microsoft Authenticator-app](microsoft-authenticator-app-how-to.md)|Beschrijft waar en hoe u de Microsoft Authenticator-app kunt downloaden en installeren. Deze is beschikbaar voor [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594) en [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071).|
+|[Aan de slag gaan met de Microsoft Authenticator-app](microsoft-authenticator-app-how-to.md)|Beschrijft waar en hoe u de Microsoft Authenticator-app kunt downloaden en installeren. Deze is beschikbaar voor [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594) en [Windows Phone](https://go.microsoft.com/fwlink/?Linkid=825071).|
 |[Back-ups maken van accountreferenties en deze herstellen met de Microsoft Authenticator-app](microsoft-authenticator-app-backup-and-recovery.md)| Bevat informatie over back-up en herstel van uw accountreferenties met behulp van de Microsoft Authenticator-app.|
 |[Veelgestelde vragen over Microsoft Authenticator-app](microsoft-authenticator-app-faq.md)|Geeft antwoord op veelgestelde vragen over de app.|

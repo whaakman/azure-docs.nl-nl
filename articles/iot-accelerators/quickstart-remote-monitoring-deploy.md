@@ -7,20 +7,20 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 07/12/2018
+ms.date: 10/26/2018
 ms.author: dobett
-ms.openlocfilehash: 50005e38214bf22aa664c2d2b0cc4f86da412818
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: 365c6e41db865edf8384ca1f82210d9471808f94
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39144491"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50140854"
 ---
 # <a name="quickstart-try-a-cloud-based-remote-monitoring-solution"></a>Quickstart: Een cloudoplossing voor externe controle uitproberen
 
-In deze quickstart ziet u hoe u de Azure IoT-oplossingsverbetering voor externe controle implementeert om een cloudsimulatie voor externe controle uit te voeren. Nadat u de oplossingsverbetering hebt geïmplementeerd, gebruikt u de pagina met het **Oplossingsdashboard** om gesimuleerde apparaten te visualiseren in een kaart, en de **Onderhoudspagina** om te reageren op een waarschuwing van een gesimuleerde koelunit. U kunt deze oplossingsverbetering gebruiken als uitgangspunt voor uw eigen implementatie of als leermiddel.
+In deze snelstart ziet u hoe u de Azure IoT-oplossingsverbetering voor externe controle implementeert. In deze cloudoplossing gebruikt u de pagina **Dashboard** om gesimuleerde apparaten te visualiseren in een kaart, en de pagina **Onderhoud** om te reageren op een waarschuwing van een gesimuleerde koelunit. U kunt deze oplossingsverbetering gebruiken als uitgangspunt voor uw eigen implementatie of als leermiddel.
 
-Met de eerste implementatie wordt de oplossingsverbetering voor externe controle geconfigureerd voor een bedrijf met de naam Contoso. Contoso beheert een selectie met verschillende typen apparaten, zoals koelunits, geïmplementeerd in verschillende fysieke omgevingen. Vanaf een koelunit worden telemetriegegevens over de temperatuur, vochtigheid en druk verzonden naar de oplossingsverbetering voor externe controle.
+Met de eerste implementatie wordt de oplossingsverbetering geconfigureerd voor een bedrijf met de naam Contoso. Als operator bij Contoso beheert u een selectie met verschillende typen apparaten, zoals koelunits, geïmplementeerd in verschillende fysieke omgevingen. Vanaf een koelunit worden telemetriegegevens over de temperatuur, vochtigheid en druk verzonden naar de oplossingsverbetering voor externe controle.
 
 U hebt een actief Azure-abonnement nodig om deze snelstart te voltooien.
 
@@ -38,7 +38,7 @@ Klik op de tegel **Externe controle** op **Nu proberen**.
 
 Selecteer een **basisimplementatie** op de pagina **Oplossing voor externe controle maken**. Als u de oplossingsverbetering implementeert om te leren hoe deze werkt of om een demonstratie uit te voeren, kiest u de optie **Basis** om de kosten te minimaliseren.
 
-Kies **.NET** als de taal. De Java- en .NET-implementaties hebben identieke functies.
+Kies **.NET** als de taal. De Java- en .NET-implementaties hebben dezelfde functies.
 
 Voer een unieke **Oplossingsnaam** in voor de oplossingsverbetering voor externe controle. Voor deze quickstart noemen we die van ons **contoso-rm2**.
 
@@ -68,15 +68,15 @@ Klik op **Accepteren** om de machtigingsaanvraag te accepteren. Het oplossingsda
 
 Op het oplossingsdashboard wordt de volgende informatie weergegeven over de gesimuleerde apparaten van Contoso:
 
-* In **Apparaatstatistieken** worden samenvattingsgegevens weergegeven over de waarschuwingen en het totale aantal apparaten. In de standaardimplementatie heeft Contoso 10 gesimuleerde apparaten van verschillende typen.
+* In het paneel **Apparaatstatistieken** worden samenvattingsgegevens weergegeven over de waarschuwingen en het totale aantal apparaten. In de standaardimplementatie heeft Contoso 10 gesimuleerde apparaten van verschillende typen.
 
-* In **Apparaatlocaties** wordt weergegeven waar uw apparaten zich fysiek bevinden. Aan de kleur van de pin ziet u wanneer op het apparaat een waarschuwing optreedt.
+* In het paneel **Apparaatlocaties** wordt weergegeven waar uw apparaten zich fysiek bevinden. Aan de kleur van de pin ziet u wanneer op het apparaat een waarschuwing optreedt.
 
-* In **Waarschuwingen** worden de details over waarschuwingen van uw apparaten weergegeven.
+* In het paneel **Waarschuwingen** worden de details over waarschuwingen van uw apparaten weergegeven.
 
-* In **Telemetrie** worden de telemetriegegevens van uw apparaten weergegeven. U kunt verschillende telemetriestromen weergeven door bovenaan op de telemetrietypen te klikken.
+* In het paneel **Telemetrie** worden de telemetriegegevens van uw apparaten weergegeven. U kunt verschillende telemetriestromen weergeven door bovenaan op de telemetrietypen te klikken.
 
-* In **Analyse** wordt gecombineerde informatie weergegeven over de waarschuwingen van uw apparaten.
+* In het paneel **Analyse** wordt gecombineerde informatie weergegeven over de waarschuwingen van uw apparaten.
 
 ## <a name="respond-to-an-alert"></a>Reageren op een gebeurtenis
 
@@ -108,7 +108,7 @@ Als u wilt reageren op de koelunit, schuift u omlaag naar **Verwante informatie*
 
 [![Het apparaat selecteren en een actie plannen](./media/quickstart-remote-monitoring-deploy/maintenanceschedule-inline.png)](./media/quickstart-remote-monitoring-deploy/maintenanceschedule-expanded.png#lightbox)
 
-Kies in het deelvenster **Taken** de optie **Methode uitvoeren** en vervolgens de methode **EmergencyValveRelease**. Voeg de taaknaam **ChillerPressureRelease** toe en klik op **Toepassen**. Met deze instellingen wordt een taak gemaakt die onmiddellijk wordt uitgevoerd.
+Kies in het deelvenster **Taken** de optie **Methode uitvoeren** en vervolgens de methode **EmergencyValveRelease**. Voeg de taaknaam **ChillerPressureRelease** toe en klik op **Toepassen**. Met deze instellingen wordt een taak voor u gemaakt die onmiddellijk wordt uitgevoerd.
 
 Als u de taakstatus wilt bekijken, gaat u terug naar de **Onderhoudspagina** en bekijkt u de lijst met taken in de weergave **Taken**. Mogelijk moet u een aantal seconden wachten voordat u ziet dat de taak wordt uitgevoerd voor het verlichten van de druk op de kleppen van de koelunit:
 

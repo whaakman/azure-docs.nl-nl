@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/02/2017
 ms.author: mbullwin
-ms.openlocfilehash: 932e7447c59c7e9d8322a0e85b0843b0e836b840
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 262d2511879047d1723d3b15c4c107b80ba1c297
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47095504"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51250336"
 ---
 #  <a name="create-application-insights-resources-using-powershell"></a>Application Insights-resources maken met PowerShell
 Dit artikel leest u hoe u voor het automatiseren van het maken en bijwerken van de [Application Insights](app-insights-overview.md) resources automatisch met behulp van Azure Resource Management. U kunt bijvoorbeeld doen als onderdeel van een buildproces. Samen met de basic Application Insights-resource, kunt u [webtests voor beschikbaarheid](app-insights-monitor-web-app-availability.md)Stel [waarschuwingen](app-insights-alerts.md), stel de [prijzen schema](app-insights-pricing.md), en andere Azure-resources maken .
@@ -30,7 +30,7 @@ Als u PowerShell met uw Azure-abonnement voordat u dit nog niet hebt gebruikt:
 
 De Azure Powershell-module installeren op de computer waar u de scripts uit te voeren:
 
-1. Installeer [Microsoft Web Platform Installer (versie 5 of hoger)](http://www.microsoft.com/web/downloads/platform.aspx).
+1. Installeer [Microsoft Web Platform Installer (versie 5 of hoger)](https://www.microsoft.com/web/downloads/platform.aspx).
 2. Gebruik het Microsoft Azure Powershell installeren.
 
 ## <a name="create-an-azure-resource-manager-template"></a>Een Azure Resource Manager-sjabloon maken
@@ -448,6 +448,6 @@ Andere automation-artikelen:
 * [Waarschuwingen instellen](app-insights-powershell-alerts.md)
 * [Webtests maken](https://azure.microsoft.com/blog/creating-a-web-test-alert-programmatically-with-application-insights/)
 * [Diagnostische Azure-gegevens verzenden naar Application Insights](app-insights-powershell-azure-diagnostics.md)
-* [In Azure implementeren vanuit GitHub](http://blogs.msdn.com/b/webdev/archive/2015/09/16/deploy-to-azure-from-github-with-application-insights.aspx)
+* [In Azure implementeren vanuit GitHub](https://blogs.msdn.com/b/webdev/archive/2015/09/16/deploy-to-azure-from-github-with-application-insights.aspx)
 * [Release-aantekeningen maken](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1)
 

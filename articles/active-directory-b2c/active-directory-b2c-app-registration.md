@@ -1,134 +1,84 @@
 ---
-title: Toepassingsregistratie in Azure Active Directory B2C | Microsoft Docs
-description: Uw toepassing registreren met Azure Active Directory B2C
+title: Een toepassing registreren in Azure Active Directory B2C | Microsoft Docs
+description: Leer hoe u uw toepassing registreren bij Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 6/13/2017
+ms.date: 11/01/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 4f8a5b1ceda77ef254ad0c2afb7d2316581d778e
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 8068c4a8f38cd33a1a0547f5db5079bc75c76ec1
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49376393"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51013408"
 ---
-# <a name="azure-active-directory-b2c-register-your-application"></a>Azure Active Directory B2C: uw toepassing registreren
+# <a name="register-an-application-in-azure-active-directory-b2c"></a>Een toepassing registreren in Azure Active Directory B2C
 
-Met behulp van deze Quickstart kunt u binnen enkele minuten een toepassing registreren in een B2C-tenant van Microsoft Azure Active Directory (Azure AD). Wanneer u klaar bent, is de toepassing geregistreerd voor gebruik in de Azure Active Directory B2C-tenant.
+Om te bouwen een [toepassing](active-directory-b2c-apps.md) die consumenten zich kunnen registreren en aanmelden, moet u eerst de toepassing registreren met een Azure AD B2C-tenant. Dit artikel helpt u een toepassing registreren in een Azure Active Directory (Azure AD) B2C-tenant in een paar minuten. Wanneer u klaar bent, is de toepassing geregistreerd voor gebruik in de Azure Active Directory B2C-tenant.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Als u een toepassing wilt maken waarin consumenten zich kunnen registreren en aanmelden, moet u de toepassing eerst registreren bij een Azure Active Directory B2C-tenant. Haal uw eigen tenant op aan de hand van de stappen in [Een Azure AD B2C-tenant maken](active-directory-b2c-get-started.md).
+Haal uw eigen tenant met behulp van de stappen in [maken van een Azure Active Directory B2C-tenant](tutorial-create-tenant.md).
 
-Toepassingen die zijn gemaakt in Azure Portal, moeten vanaf dezelfde locatie worden beheerd. Als u de Azure AD B2C-toepassingen bewerkt met PowerShell of een andere portal, worden de toepassingen niet meer ondersteund en werken ze niet met Azure AD B2C. Zie voor meer informatie de sectie [Mislukte toepassingen](#faulted-apps). 
+Kies de volgende stappen op basis van het type van uw toepassing:
 
-Dit artikel bevat uitleg waarmee u met onze voorbeelden aan de slag kunt gaan. U kunt in de volgende artikelen meer over deze voorbeelden te weten komen.
+- [Een web-app registreren](#register-a-web-application)
+- [Een web-API registreren](#register-a-web-api)
+- [Een mobiele of native toepassing registreren](#register-a-mobile-or-native-application)
 
-## <a name="navigate-to-b2c-settings"></a>Navigeren naar de B2C-instellingen
+## <a name="register-a-web-application"></a>Een web-app registreren
 
-Meld u als globale beheerder van de B2C-tenant aan bij [Azure Portal](https://portal.azure.com/). 
+1. Zorg ervoor dat u de map met uw Azure AD B2C-tenant door te klikken op de **map- en abonnementsfilter** in het bovenste menu en de map waarin uw tenant te kiezen.
+2. Kies **alle services** in de linkerbovenhoek van de Azure portal en vervolgens zoeken naar en selecteer **Azure AD B2C**.
+3. Selecteer **toepassingen**, en selecteer vervolgens **toevoegen**.
+4. Voer een naam voor de toepassing. Bijvoorbeeld *testapp1*.
+5. Voor **inclusief web-app / web-API** en **impliciete stroom toestaan**, selecteer **Ja**.
+6. Voor **antwoord-URL**, voer eindpunt waarop Azure AD B2C tokens die door uw app worden aangevraagd moet retourneert. Bijvoorbeeld, kunt u dit instellen op het lokaal luisteren op `https://localhost:44316`. Als u het poortnummer dat nog niet weet, kunt u een tijdelijke aanduiding opgeven en dit later wijzigen.
+7. Klik op **Create**.
 
-[!INCLUDE [active-directory-b2c-switch-b2c-tenant](../../includes/active-directory-b2c-switch-b2c-tenant.md)]
+### <a name="create-a-client-secret"></a>Een clientgeheim maken
 
-[!INCLUDE [active-directory-b2c-portal-navigate-b2c-service](../../includes/active-directory-b2c-portal-navigate-b2c-service.md)]
+Als uw toepassing een web-API die zijn beveiligd door Azure AD B2C aanroept, moet u het toepassingsgeheim van een maken.
 
-## <a name="choose-next-steps-based-on-your-application-type"></a>Kies de volgende stappen op basis van het toepassingstype
+1. Selecteer **sleutels** en klik vervolgens op **sleutel genereren**. 
+2. Selecteer **opslaan** om de sleutel weer te geven. Noteer de waarde van **App-sleutel**. U gebruikt de waarde als het toepassingsgeheim in de code van uw toepassing.
+3. Selecteer **API-toegang**, klikt u op **toevoegen**, en selecteer uw web-API en scopes (machtigingen).
 
-* [Een web-app registreren](#register-a-web-app)
-* [Een web-API registreren](#register-a-web-api)
-* [Een mobiele of native toepassing registreren](#register-a-mobile-or-native-app)
- 
-### <a name="register-a-web-app"></a>Een web-app registreren
+## <a name="register-a-web-api"></a>Een web-API registreren
 
-[!INCLUDE [active-directory-b2c-register-web-app](../../includes/active-directory-b2c-register-web-app.md)]
+1. Zorg ervoor dat u de map met uw Azure AD B2C-tenant door te klikken op de **map- en abonnementsfilter** in het bovenste menu en de map waarin uw tenant te kiezen.
+2. Kies **alle services** in de linkerbovenhoek van de Azure portal en vervolgens zoeken naar en selecteer **Azure AD B2C**.
+3. Selecteer **toepassingen**, en selecteer vervolgens **toevoegen**.
+4. Voer een naam voor de toepassing. Bijvoorbeeld *testapp2*.
+5. Voor **inclusief web-app / web-API** en **impliciete stroom toestaan**, selecteer **Ja**.
+6. Voor **antwoord-URL**, voer eindpunt waarop Azure AD B2C tokens die door uw app worden aangevraagd moet retourneert. Bijvoorbeeld, kunt u dit instellen op het lokaal luisteren op `https://localhost:44316`. Als u het poortnummer dat nog niet weet, kunt u een tijdelijke aanduiding opgeven en dit later wijzigen.
+7. Voor **App ID URI**, voer de id die wordt gebruikt voor uw web-API. De volledige id-URI, inclusief het domein, wordt voor u gegenereerd. Bijvoorbeeld `https://contosotenant.onmicrosoft.com/api`.
+8. Klik op **Create**.
+9. Selecteer **gepubliceerd bereiken** om toe te voegen meer bereiken indien nodig. Standaard de `user_impersonation` bereik is gedefinieerd. De `user_impersonation` bereik biedt andere toepassingen de mogelijkheid om toegang tot deze API namens de aangemelde gebruiker. Als u wilt, de `user_impersonation` bereik kan worden verwijderd.
 
-### <a name="create-a-web-app-client-secret"></a>Een web-app-clientgeheim maken
+## <a name="register-a-mobile-or-native-application"></a>Een mobiele of native toepassing registreren
 
-Als de web-app een web-API aanroept die is beveiligd door Azure AD B2C, voert u deze stappen uit:
-   1. Maak een toepassingsgeheim door naar de blade **Sleutels** te gaan en op de knop **Sleutel genereren** te klikken. Noteer de waarde van **App-sleutel**. U gebruikt de waarde als het toepassingsgeheim in de code van uw toepassing.
-   2. Klik op **API-toegang**, klik op **Toevoegen** en selecteer uw web-API en bereiken (machtigingen).
+1. Zorg ervoor dat u de map met uw Azure AD B2C-tenant door te klikken op de **map- en abonnementsfilter** in het bovenste menu en de map waarin uw tenant te kiezen.
+2. Kies **alle services** in de linkerbovenhoek van de Azure portal en vervolgens zoeken naar en selecteer **Azure AD B2C**.
+3. Selecteer **toepassingen**, en selecteer vervolgens **toevoegen**.
+4. Voer een naam voor de toepassing. Bijvoorbeeld *testapp3*.
+5. Voor **inclusief web-app / web-API**, selecteer **Nee**.
+6. Voor **systeemeigen client opnemen**, selecteer **Ja**.
+7. Voor **omleidings-URI**, voer een [omleidings-URI met een aangepast schema](active-directory-b2c-apps.md). Zorg ervoor dat u kiest een goede omleidings-URI en omvatten geen speciale tekens zoals onderstrepingstekens bevatten.
+8. Klik op **Create**.
 
-> [!NOTE]
-> Een **toepassingsgeheim** is een belangrijke beveiligingsreferentie en moet op de juiste wijze worden beveiligd.
-> 
+### <a name="create-a-client-secret"></a>Een clientgeheim maken
 
-[Ga naar **Volgende stappen**](#next-steps)
+Als uw toepassing een web-API die zijn beveiligd door Azure AD B2C aanroept, moet u het toepassingsgeheim van een maken.
 
-### <a name="register-a-web-api"></a>Een web-API registreren
-
-[!INCLUDE [active-directory-b2c-register-web-api](../../includes/active-directory-b2c-register-web-api.md)]
-
-Klik op **Gepubliceerd bereiken** om eventueel meer bereiken toe te voegen. Standaard wordt het bereik 'user_impersonation' gedefinieerd. Dit bereik biedt andere toepassingen de mogelijkheid om namens de aangemelde gebruiker toegang te krijgen tot deze API. Als u wilt, kunt u het bereik user_impersonation verwijderen.
-
-[Ga naar **Volgende stappen**](#next-steps)
-
-### <a name="register-a-mobile-or-native-app"></a>Een mobiele of native toepassing registreren
-
-[!INCLUDE [active-directory-b2c-register-mobile-native-app](../../includes/active-directory-b2c-register-mobile-native-app.md)]
-
-[Ga naar **Volgende stappen**](#next-steps)
-
-## <a name="limitations"></a>Beperkingen
-
-### <a name="choosing-a-web-app-or-api-reply-url"></a>De antwoord-URL van een web-app of -API kiezen
-
-Toepassingen die zijn geregistreerd bij Azure AD B2C zijn momenteel beperkt tot een vast aantal waarden voor antwoord-URL's. De antwoord-URL voor webtoepassingen en services moet met het schema `https` beginnen. Alle waarden voor antwoord-URL's moeten één DNS-domein delen. U kunt bijvoorbeeld geen webtoepassing met een van deze antwoord-URL's registreren:
-
-`https://login-east.contoso.com`
-
-`https://login-west.contoso.com`
-
-Het registratiesysteem vergelijkt de volledige DNS-naam van de bestaande antwoord-URL met de DNS-naam van de antwoord-URL die u wilt toevoegen. De aanvraag voor het toevoegen van de DNS-naam mislukt als aan een van de volgende voorwaarden wordt voldaan:
-
-* De volledige DNS-naam van de nieuwe antwoord-URL komt niet overeen met de DNS-naam van de bestaande antwoord-URL.
-* De volledige DNS-naam van de nieuwe antwoord-URL is geen subdomein van de bestaande antwoord-URL.
-
-Als de toepassing bijvoorbeeld deze antwoord-URL heeft:
-
-`https://login.contoso.com`
-
-Dan kunt u er als volgt aan toevoegen:
-
-`https://login.contoso.com/new`
-
-In dit geval komt de DNS-naam precies overeen. Of u kunt dit doen:
-
-`https://new.login.contoso.com`
-
-In dit geval verwijst u naar een DNS-subdomein van login.contoso.com. Als u een toepassing hebt die login-east.contoso.com en login-west.contoso.com als antwoord-URL's heeft, moet u de antwoord-URL's in deze volgorde toevoegen:
-
-`https://contoso.com`
-
-`https://login-east.contoso.com`
-
-`https://login-west.contoso.com`
-
-U kunt de laatste twee toevoegen, omdat ze subdomeinen van de eerste antwoord-URL, contoso.com, zijn.
-
-### <a name="choosing-a-native-app-redirect-uri"></a>Een omleidings-URI voor een native app kiezen
-
-Er zijn twee belangrijke overwegingen bij het kiezen van een omleidings-URI voor mobiele/native toepassingen:
-
-* **Uniek**: het schema van de omleidings-URI moet voor elke toepassing uniek zijn. In het voorbeeld (com.onmicrosoft.contoso.app-naam://redirect/pad) is com.onmicrosoft.contoso.app-naam het schema. We raden aan dit patroon te volgen. Als twee toepassingen hetzelfde schema delen, ziet de gebruiker een dialoogvenster voor het kiezen van een app. Als de gebruiker een foute keuze maakt, mislukt de aanmelding.
-* **Volledig**: de omleidings-URI moet een schema en een pad hebben. Het pad moet ten minste één forward slash bevatten na het domein (zo werkt //contoso/ bijvoorbeeld wel en //contoso niet).
-
-Zorg ervoor dat er geen speciale tekens zoals onderstrepingstekens in de omleidings-URI staan.
-
-### <a name="faulted-apps"></a>Mislukte toepassingen
-
-B2C-toepassingen moeten niet worden bewerkt:
-
-* Op andere appbeheerportals zoals de [portal voor appregistratie](https://apps.dev.microsoft.com/).
-* Met Graph API of PowerShell
-
-Als u de Azure AD B2C-toepassing bewerkt zoals hierboven wordt beschreven en de toepassing opnieuw probeert te bewerken in Azure AD B2C-functies in Azure Portal, verandert deze in een mislukte toepassing die niet meer kan worden gebruikt met Azure AD B2C. U moet de toepassing verwijderen en deze opnieuw maken.
-
-Als u de toepassing wilt verwijderen, gaat u naar de [portal voor appregistratie](https://apps.dev.microsoft.com/) en verwijdert u daar de toepassing. De toepassing is alleen zichtbaar als u de eigenaar van de toepassing bent (en niet een beheerder van de tenant).
+1. Selecteer **sleutels** en klik vervolgens op **sleutel genereren**. 
+2. Selecteer **opslaan** om de sleutel weer te geven. Noteer de waarde van **App-sleutel**. U gebruikt de waarde als het toepassingsgeheim in de code van uw toepassing.
+3. Selecteer **API-toegang**, klikt u op **toevoegen**, en selecteer uw web-API en scopes (machtigingen).
 
 ## <a name="next-steps"></a>Volgende stappen
 

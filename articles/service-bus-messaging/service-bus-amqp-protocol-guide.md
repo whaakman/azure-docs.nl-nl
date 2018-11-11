@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/26/2018
 ms.author: clemensv
-ms.openlocfilehash: 75c6b5c34559ad17f662c895352bff5a58da00d4
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: b3c652baa515035fc91d2a5f7f962685b673a25e
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47395845"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51013323"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>AMQP 1.0 in Azure Service Bus en Event Hubs-protocolhandleiding
 
@@ -225,7 +225,7 @@ Elke eigenschap die nodig is om definieert toepassing moet worden toegewezen aan
 | bericht-id |Toepassingsspecifieke, vrije-id voor dit bericht. Gebruikt voor detectie van duplicaten. |[MessageId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId) |
 | gebruikers-id |Id van gebruiker toepassingsspecifieke, niet geïnterpreteerd door Service Bus. |Niet toegankelijk zijn via de Service Bus-API. |
 | tot |Toepassingsspecifieke doel-id niet geïnterpreteerd door Service Bus. |[Aan](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_To) |
-| Onderwerp |Bericht toepassingsspecifieke doel-id, niet geïnterpreteerd door Service Bus. |[Label](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Label) |
+| onderwerp |Bericht toepassingsspecifieke doel-id, niet geïnterpreteerd door Service Bus. |[Label](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Label) |
 | Antwoordadres |Antwoord-path toepassingsspecifieke indicator niet geïnterpreteerd door Service Bus. |[ReplyTo](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ReplyTo) |
 | correlatie-id |Toepassingsspecifieke correlatie-id niet geïnterpreteerd door Service Bus. |[correlationId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_CorrelationId) |
 | inhoudstype |Toepassingsspecifieke inhoudstype indicator voor de hoofdtekst van het niet geïnterpreteerd door Service Bus. |[contentType](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ContentType) |
@@ -391,7 +391,7 @@ Het mechanisme voor anonieme moet daarom worden ondersteund door de gekozen AMQP
 
 Zodra de verbinding en de sessie tot stand is gebracht, Bezig met koppelen van de koppelingen naar de *$cbs* knooppunt en het verzenden van de *put-token* aanvragen zijn de enige toegestane bewerkingen. Een geldig token moet worden ingesteld via een *put-token* aanvraag voor een bepaald knooppunt entiteit binnen 20 seconden nadat de verbinding is tot stand is gebracht, anders wordt de verbinding wordt eenzijdig verbroken door Service Bus.
 
-De client is voor het bijhouden van de geldigheidsduur van het token. Wanneer een token is verlopen, komt Service Bus onmiddellijk alle koppelingen voor de verbinding met de respectieve entiteit. Om te voorkomen dat een probleem opgetreden, de client het token voor het knooppunt kunt vervangen door een nieuw exemplaar op elk gewenst moment via de virtuele *$cbs* beheerknooppunt met dezelfde *put-token* gebaar en zonder ophalen in de de nettolading van de manier om verkeer dat stromen op verschillende koppelingen.
+De client is voor het bijhouden van de geldigheidsduur van het token. Wanneer een token is verlopen, komt Service Bus onmiddellijk alle koppelingen voor de verbinding met de respectieve entiteit. Als u wilt voorkomen dat het probleem optreedt, de client het token voor het knooppunt kunt vervangen door een nieuw exemplaar op elk gewenst moment via de virtuele *$cbs* beheerknooppunt met dezelfde *put-token* gebaar en zonder ophalen in de de nettolading van de manier om verkeer dat stromen op verschillende koppelingen.
 
 ### <a name="send-via-functionality"></a>Verzenden via functionaliteit
 

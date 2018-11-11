@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 8d3b3f419ceacbb9a6fe2b19cf68ea6873de536f
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 3b38cc265b4adfb301dc1165e02b17a8aa7c9589
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39171014"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51252544"
 ---
 # <a name="how-to-use-alternative-inputs"></a>Het gebruik van andere invoer
 
@@ -23,7 +23,7 @@ In deze zelfstudie laat zien hoe het veld "alternatieve invoer" gebruiken voor d
 
 ## <a name="video"></a>Video
 
-[![Zelfstudie 8-Preview](http://aka.ms/cl-tutorial-08-preview)](http://aka.ms/blis-tutorial-08)
+[![Zelfstudie 8-Preview](https://aka.ms/cl-tutorial-08-preview)](https://aka.ms/blis-tutorial-08)
 
 ## <a name="requirements"></a>Vereisten
 In deze zelfstudie is vereist dat de algemene zelfstudie bot wordt uitgevoerd
@@ -134,7 +134,7 @@ Laten we andere invoer naar het eerste dialoogvenster toevoegen:
 2. Klik op 'Wat is het weer' in het linkerdeelvenster:
     1. In andere invoer toevoegen, voert u 'weersvoorspelling'.
     2. Voer 'wordt deze regen?'
-    3. Klik op Submit wijzigingen.
+    3. Klik op wijzigingen verzenden.
 4. Klik op 'denver' in het linkerdeelvenster:
     1. Voer in de alternatieve invoer toevoegen, 'voor denver'.
     2. Voer 'Prognose voor austin'.

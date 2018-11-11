@@ -3,18 +3,18 @@ title: Verkeer met Azure-kaarten weergeven | Microsoft Docs
 description: Hoe verkeersgegevens weergeven op een Javascript-kaart
 author: jingjing-z
 ms.author: jinzh
-ms.date: 11/10/2018
+ms.date: 09/14/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 45f7913c5cc69f99b01ba1a911910273673856d3
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
-ms.translationtype: MT
+ms.openlocfilehash: 532001a0cda22903d0bdf807ee868aef211336e0
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51513758"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240083"
 ---
 # <a name="show-traffic-on-the-map"></a>Verkeer op de kaart weergeven
 
@@ -27,7 +27,7 @@ Dit artikel ziet u hoe u informatie over verkeer en incidenten weergeven op de k
 
 In de bovenstaande code wordt het eerste vereiste blok van code een kaartobject. U kunt zien [maken van een kaart](map-create.md) voor instructies.
 
-Maakt gebruik van het tweede codeblok [setTraffic](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#settraffic) functie in van de kaart [gebeurtenislistener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) functie om de verkeersstromen en incidenten op de kaart weer te geven.
+Maakt gebruik van het tweede codeblok [setTraffic](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#settraffic) functie van de kaart-klasse om de verkeersstromen en incidenten op de kaart weer te geven.
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: gokuma
-ms.openlocfilehash: faabdb4c2d2e434863a6bed0b2cd85a05c94eab1
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: df9edfee9d8a6a0736a040924bac736cfcb3633c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47395726"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51250914"
 ---
 # <a name="ten-things-you-can-do-on-the-windows-data-science-virtual-machine"></a>Tien dingen die u dit op de Windows Data Science Virtual Machine doen kunt
 
@@ -64,9 +64,9 @@ Hier ziet u hoe de installatie van de aangepaste omgeving eruitziet in Visual St
 
 ![PTVS Setup](./media/vm-do-ten-things/PTVSSetup.png)
 
-Zie de [documentatie bij PTVS](http://aka.ms/ptvsdocs) voor meer informatie over het maken van de Python-omgevingen.
+Zie de [documentatie bij PTVS](https://aka.ms/ptvsdocs) voor meer informatie over het maken van de Python-omgevingen.
 
-Nu u worden ingesteld om een nieuwe Python-project te maken. Navigeer naar **bestand** -> **nieuw** -> **Project** -> **Python** en selecteer het type Python-toepassing die u wilt maken. U kunt de Python-omgeving voor het huidige project instellen op de gewenste versie (Python 2.7 of 3.6) met de rechtermuisknop te klikken op de **Python-omgevingen**, Klik daarvoor **Python-omgevingen toevoegen/verwijderen**, en vervolgens de gewenste omgeving verzamelen. U vindt meer informatie over het werken met PTVS in het product [documentatie](http://aka.ms/ptvsdocs).
+Nu u worden ingesteld om een nieuwe Python-project te maken. Navigeer naar **bestand** -> **nieuw** -> **Project** -> **Python** en selecteer het type Python-toepassing die u wilt maken. U kunt de Python-omgeving voor het huidige project instellen op de gewenste versie (Python 2.7 of 3.6) met de rechtermuisknop te klikken op de **Python-omgevingen**, Klik daarvoor **Python-omgevingen toevoegen/verwijderen**, en vervolgens de gewenste omgeving verzamelen. U vindt meer informatie over het werken met PTVS in het product [documentatie](https://aka.ms/ptvsdocs).
 
 ## <a name="2-using-a-jupyter-notebook-to-explore-and-model-your-data-with-python-or-r"></a>2. Met behulp van een Jupyter-Notebook om te verkennen en modelleren van uw gegevens met Python of R
 De Jupyter-Notebook is een krachtige omgeving die voorziet in een browser gebaseerde "IDE' gegevens verkennen en modelleren. U kunt Python 2, 3 van Python of R (Open Source en het Microsoft R Server) gebruiken in een Jupyter-Notebook.
@@ -806,7 +806,7 @@ Hier volgen de stappen van de per-vereisten voor toegang tot Azure Cosmos DB van
 
 1. De Python-SDK van Azure Cosmos DB is al geïnstalleerd op de DSVM (uitvoeren ```pip install pydocumentdb --upgrade``` vanaf de opdrachtprompt om bij te werken)
 2. Maak een Azure Cosmos DB-account en een database van [Azure-portal](https://portal.azure.com)
-3. 'Azure Cosmos DB hulpprogramma voor migratie' downloaden van [hier](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d) en uitpakken naar een map van uw keuze
+3. 'Azure Cosmos DB hulpprogramma voor migratie' downloaden van [hier](https://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d) en uitpakken naar een map van uw keuze
 4. Importeren van JSON-gegevens (gegevens Vulkaan) die zijn opgeslagen op een [openbare blob](https://cahandson.blob.core.windows.net/samples/volcano.json) in Cosmos DB met de volgende opdrachtparameters aan het hulpprogramma voor migratie (dtui.exe uit de map waarin u het hulpprogramma voor migratie van Cosmos DB hebt geïnstalleerd). Geef de locatie van de bron en doel met de volgende parameters:
    
     `/s:JsonFile /s.Files:https://cahandson.blob.core.windows.net/samples/volcano.json /t:DocumentDBBulk /t.ConnectionString:AccountEndpoint=https://[DocDBAccountName].documents.azure.com:443/;AccountKey=[[KEY];Database=volcano /t.Collection:volcano1`

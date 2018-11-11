@@ -14,12 +14,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: b4c885758f572851f058edb6e7851d650faed9f9
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 683b77e47857e4efbe2c24425953e9a3d83177f9
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38972995"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50418839"
 ---
 # <a name="monitor-published-apis"></a>Gepubliceerde API's bewaken
 
@@ -36,11 +36,10 @@ In deze zelfstudie leert u het volgende:
 In de volgende video kunt u zien hoe u API Management kunt bewaken met Azure Monitor. 
 
 > [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Monitor-API-Management-with-Azure-Monitor/player]
->
->
 
 ## <a name="prerequisites"></a>Vereisten
 
++ Leer de [terminologie van Azure API Management](api-management-terminology.md).
 + Lees de volgende snelstartgids: [Een Azure API Management-exemplaar maken](get-started-create-service-instance.md).
 + Voltooi tevens de volgende zelfstudie: [Uw eerste API importeren en publiceren](import-and-publish.md).
 
@@ -55,17 +54,16 @@ API Management geeft elke minuut metrische gegevens vrij, waardoor u in vrijwel 
 * Niet-gemachtigde gateway-aanvragen: het aantal API-aanvragen die HTTP-responscodes hebben ontvangen, waaronder de nummers 401,403 en 429.
 * Overige gateway-aanvragen: het aantal API-aanvragen die HTTP-responscodes hebben ontvangen die niet in een van de bovenstaande categorieën vallen (bijvoorbeeld 418).
 
+![grafiek met metrische gegevens](./media/api-management-azure-monitor/apim-monitor-metrics.png)
+
 Metrische gegevens openen:
 
 1. Selecteer **Metrische gegevens** in het menu onder aan de pagina.
 
     ![metrics](./media/api-management-azure-monitor/api-management-metrics-blade.png)
 
-2. Selecteer in de vervolgkeuzelijst de gewenste metrische gegevens (u kunt meerdere gegevens toevoegen).  
-    Selecteer bijvoorbeeld **Totaal aantal gateway-aanvragen** en **Mislukte gateway-aanvragen** in de lijst met beschikbare metrische gegevens.
-3. De grafiek toont het totale aantal API-aanroepen. Ook het aantal mislukte API-aanroepen wordt getoond.
-
-    ![grafiek met metrische gegevens](./media/api-management-azure-monitor/apim-monitor-metrics.png)
+2. Selecteer in de vervolgkeuzelijst de gewenste metrische gegevens. Bijvoorbeeld: **Succesvolle gateway-aanvragen**. U kunt ook meer metrische gegevens aan de grafiek toevoegen.
+3. De grafiek toont het totale aantal geslaagde API-aanroepen.
 
 ## <a name="set-up-an-alert-rule-for-unauthorized-request"></a>Een waarschuwingsregel instellen voor een niet-gemachtigde aanvraag
 
@@ -102,6 +100,8 @@ Activiteitenlogboeken bieden inzicht in de bewerkingen die zijn uitgevoerd voor 
 
 U kunt activiteitenlogboeken in uw API Management-service openen. U kunt alle logboeken van al uw Azure-resources in Azure Monitor openen. 
 
+![activiteitenlogboeken](./media/api-management-azure-monitor/apim-monitor-activity-logs.png)
+
 Activiteitenlogboeken weergeven:
 
 1. Selecteer uw exemplaar van de APIM-service.
@@ -111,8 +111,6 @@ Activiteitenlogboeken weergeven:
 
 3. Selecteer het gewenste filterbereik en klik op **Toepassen**.
 
-    ![activiteitenlogboeken](./media/api-management-azure-monitor/apim-monitor-activity-logs.png)
-
 ## <a name="diagnostic-logs"></a>Diagnostische logboeken
 
 Diagnoselogboeken bieden uitgebreide informatie over bewerkingen en fouten die belangrijk zijn voor zowel controles als het oplossen van problemen. Diagnoselogboeken verschillen van activiteitenlogboeken. Activiteitenlogboeken bieden inzicht in de bewerkingen die zijn uitgevoerd op uw Azure-resources. Diagnoselogboeken bieden inzicht in bewerkingen die door de resources zelf zijn uitgevoerd.
@@ -120,7 +118,7 @@ Diagnoselogboeken bieden uitgebreide informatie over bewerkingen en fouten die b
 Diagnostische logboeken configureren:
 
 1. Selecteer uw exemplaar van de APIM-service.
-2. Klik op **Diagnostische logboeken**.
+2. Klik op **Diagnostische instellingen**.
 
     ![diagnostische logboeken](./media/api-management-azure-monitor/api-management-diagnostic-logs-blade.png)
 

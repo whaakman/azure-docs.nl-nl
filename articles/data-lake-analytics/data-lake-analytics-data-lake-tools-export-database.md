@@ -9,16 +9,16 @@ ms.assetid: dc9b21d8-c5f4-4f77-bcbc-eff458f48de2
 ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 11/27/2017
-ms.openlocfilehash: e4eea3cb4b16460c7e17bb6575c4e6cf8dda5a0a
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 7a4aae87cd704cf94c89c308c0c056ae5b9a8b4d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43047251"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51250999"
 ---
 # <a name="export-a-u-sql-database"></a>Een U-SQL-database exporteren
 
-In dit artikel leert u hoe u [Azure Data Lake Tools voor Visual Studio](http://aka.ms/adltoolsvs) voor het exporteren van een U-SQL-database als een enkel U-SQL-script en gedownloade resources. U kunt de geëxporteerde database importeren in een lokaal account in hetzelfde proces.
+In dit artikel leert u hoe u [Azure Data Lake Tools voor Visual Studio](https://aka.ms/adltoolsvs) voor het exporteren van een U-SQL-database als een enkel U-SQL-script en gedownloade resources. U kunt de geëxporteerde database importeren in een lokaal account in hetzelfde proces.
 
 Klanten beheren meestal meerdere omgevingen gebruiken voor ontwikkeling, testen en productie. Deze omgevingen worden gehost op zowel een lokaal account, op de lokale computer van een ontwikkelaar en in een Azure Data Lake Analytics-account in Azure. 
 
@@ -35,7 +35,7 @@ Alle Data Lake Analytics-accounts die u hebt machtigingen voor worden weergegeve
    
     ![Server Explorer - een database exporteren](./media/data-lake-analytics-data-lake-tools-export-database/export-database.png)
 
-     Als de **exporteren** menu-optie niet beschikbaar is, moet u [bijwerken van het hulpprogramma naar de meest recente versie release](http://aka.ms/adltoolsvs).
+     Als de **exporteren** menu-optie niet beschikbaar is, moet u [bijwerken van het hulpprogramma naar de meest recente versie release](https://aka.ms/adltoolsvs).
 
 ### <a name="step-2-configure-the-objects-that-you-want-to-export"></a>Stap 2: Configureer de objecten die u wilt exporteren
 

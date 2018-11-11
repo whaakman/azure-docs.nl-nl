@@ -14,12 +14,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: b94f6ad4c7c6f3b5e93cdb890e053a3d1678e161
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: eab00663918eadea485aed17a91ce01e5718c36e
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47094425"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50413669"
 ---
 # <a name="transform-and-protect-your-api"></a>Uw API transformeren en beveiligen 
 
@@ -39,9 +39,11 @@ In deze zelfstudie leert u het volgende:
 
 ## <a name="prerequisites"></a>Vereisten
 
++ Informatie over de [terminologie van Azure API Management](api-management-terminology.md).
++ Inzicht in het [beleidsconcept in Azure API Management](api-management-howto-policies.md).
 + Lees de volgende snelstartgids: [Een Azure API Management-exemplaar maken](get-started-create-service-instance.md).
 + Voltooi tevens de volgende zelfstudie: [Uw eerste API importeren en publiceren](import-and-publish.md).
- 
+
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
 ## <a name="transform-an-api-to-strip-response-headers"></a>Een API transformeren om antwoordheaders te verwijderen
@@ -57,21 +59,22 @@ Het oorspronkelijke antwoord zien:
 
 1. Selecteer in het APIM-service-exemplaar **API's** (onder **API MANAGEMENT**).
 2. Klik in de API-lijst op **Demo Conference API**.
-3. Selecteer de bewerking **GetSpeakers**.
-4. Klik bovenaan het scherm op het tabblad **Testen**.
-5. Klik onderaan het scherm op de knop **Verzenden**. 
+3. Klik bovenaan het scherm op het tabblad **Testen**.
+4. Selecteer de bewerking **GetSpeakers**.
+5. Klik onderaan het scherm op de knop **Verzenden**.
 
-    Zoals u kunt zien, ziet het oorspronkelijke antwoord er als volgt uit:
+Het oorspronkelijke antwoord moet er als volgt uitzien:
 
-    ![Beleidsregels](./media/transform-api/original-response.png)
+![Beleidsregels](./media/transform-api/original-response.png)
 
 ### <a name="set-the-transformation-policy"></a>Transformatiebeleid instellen
+
+![Beleid voor uitgaande verwerking instellen](./media/transform-api/04-ProtectYourAPI-01-SetPolicy-Outbound.png)
 
 1. Selecteer **Demo Conference API**.
 2. Selecteer boven in het scherm het tabblad **Ontwerp**.
 3. Selecteer **Alle bewerkingen**.
-4. Klik in het venster **Uitgaande verwerking** op het driehoekje (naast het potlood) en selecteer **Code-editor**.
-     ![Beleid bewerken](./media/set-edit-policies/set-edit-policies01.png)
+4. Klik in de sectie **Uitgaande verwerking** op het pictogram **</>**.
 5. Plaats de cursor in het **&lt;uitgaande&gt;** element.
 6. Klik in het rechtervenster onder **Transformatiebeleid** twee keer op **+ HTTP-header instellen** (om twee beleidsfragmenten in te voegen).
 
@@ -82,8 +85,8 @@ Het oorspronkelijke antwoord zien:
         <set-header name="X-AspNet-Version" exists-action="delete" />
 
     ![Beleidsregels](./media/transform-api/set-policy.png)
-8. Klik op de knop **Opslaan**.
 
+8. Klik op de knop **Opslaan**.
 
 ## <a name="replace-original-urls-in-the-body-of-the-api-response-with-apim-gateway-urls"></a>Oorspronkelijke URL's in de hoofdtekst van het API-antwoord vervangen door APIM-gateway-URL's
 
@@ -94,8 +97,8 @@ In deze sectie ziet u hoe u de oorspronkelijke URL's kunt verbergen die worden w
 Het oorspronkelijke antwoord zien:
 
 1. Selecteer **Demo Conference API**.
-2. Selecteer de bewerking **GetSpeakers**.
-3. Klik bovenaan het scherm op het tabblad **Testen**.
+2. Klik bovenaan het scherm op het tabblad **Testen**.
+3. Selecteer de bewerking **GetSpeakers**.
 4. Klik onderaan het scherm op de knop **Verzenden**. 
 
     Zoals u kunt zien, ziet het oorspronkelijke antwoord er als volgt uit:
@@ -107,7 +110,7 @@ Het oorspronkelijke antwoord zien:
 1. Selecteer **Demo Conference API**.
 2. Selecteer **Alle bewerkingen**.
 3. Selecteer boven in het scherm het tabblad **Ontwerp**.
-4. Klik in het venster **Uitgaande verwerking** op het driehoekje (naast het potlood) en selecteer **Code-editor**.
+4. Klik in de sectie **Uitgaande verwerking** op het pictogram **</>**.
 5. Plaats de cursor in het **&lt;uitgaande&gt;** element.
 6. Klik in het rechtervenster onder **Transformatiebeleid** twee keer op **+ Tekenreeks in hoofdtekst zoeken en vervangen**.
 7. Wijzig de **find-and-replace**-code (in het **\<uitgaande element\>**) om de URL te vervangen zodat deze overeenkomt met de APIM-gateway. Bijvoorbeeld:
@@ -118,13 +121,14 @@ Het oorspronkelijke antwoord zien:
 
 In deze sectie wordt beschreven hoe u beveiliging voor uw back-end-API kunt toevoegen door frequentielimieten te configureren. U kunt bijvoorbeeld het aantal aanroepen voor de API beperken, zodat deze niet wordt overbelast door ontwikkelaars. In dit voorbeeld is de limiet ingesteld op 3 aanroepen per 15 seconden voor elke abonnements-id. Na 15 seconden kan een ontwikkelaar de API opnieuw proberen aan te roepen.
 
+![Beleid voor binnenkomende verwerking instellen](./media/transform-api/04-ProtectYourAPI-01-SetPolicy-Inbound.png)
+
 1. Selecteer **Demo Conference API**.
 2. Selecteer **Alle bewerkingen**.
 3. Selecteer boven in het scherm het tabblad **Ontwerp**.
-4. Klik in het venster **Binnenkomende verwerking** op het driehoekje (naast het potlood) en selecteer **Code-editor**.
-5. Plaats de cursor in het **&lt;binnenkomende&gt;** element.
-6. Klik in het rechtervenster onder **Toegang tot beperkingsbeleid** op **+ Aantal oproepen per sleutel beperken**.
-7. Wijzig uw **rate-limit-by-key**-code (in het **\<inkomende\>** element) in de volgende code:
+4. Klik in de sectie **Binnenkomende verwerking** op het pictogram **</>**. Plaats de cursor in het **&lt;binnenkomende&gt;** element.
+5. Klik in het rechtervenster onder **Toegang tot beperkingsbeleid** op **+ Aantal oproepen per sleutel beperken**.
+6. Wijzig uw **rate-limit-by-key**-code (in het **\<inkomende\>** element) in de volgende code:
 
         <rate-limit-by-key calls="3" renewal-period="15" counter-key="@(context.Subscription.Id)" />
 
@@ -156,8 +160,8 @@ In de rest van deze sectie worden de beleidstransformaties getest die u in dit a
 ### <a name="test-the-stripped-response-headers"></a>De verwijderde anwoordheaders testen
 
 1. Selecteer **Demo Conference API**.
-2. Selecteer de bewerking **GetSpeakers**.
-3. Selecteer het tabblad **Testen**.
+2. Selecteer het tabblad **Testen**.
+3. Selecteer de bewerking **GetSpeakers**.
 4. Druk op **Verzenden**.
 
     Zoals u ziet, zijn de headers verwijderd:
@@ -167,8 +171,8 @@ In de rest van deze sectie worden de beleidstransformaties getest die u in dit a
 ### <a name="test-the-replaced-url"></a>De vervangen URL testen
 
 1. Selecteer **Demo Conference API**.
-2. Selecteer de bewerking **GetSpeakers**.
-3. Selecteer het tabblad **Testen**.
+2. Selecteer het tabblad **Testen**.
+3. Selecteer de bewerking **GetSpeakers**.
 4. Druk op **Verzenden**.
 
     Zoals u ziet, is de URL vervangen.
@@ -178,11 +182,12 @@ In de rest van deze sectie worden de beleidstransformaties getest die u in dit a
 ### <a name="test-the-rate-limit-throttling"></a>De frequentielimiet testen
 
 1. Selecteer **Demo Conference API**.
-2. Selecteer de bewerking **GetSpeakers**.
-3. Selecteer het tabblad **Testen**.
+2. Selecteer het tabblad **Testen**.
+3. Selecteer de bewerking **GetSpeakers**.
 4. Druk drie keer achter elkaar op **Verzenden**.
 
     Nadat de aanvraag 3 keer is verzonden, ontvangt u het antwoord **429 Te veel aanvragen**.
+
 5. Wacht ongeveer 15 seconden en druk opnieuw op **Verzenden**. Deze keer ontvangt u, als het goed is, het antwoord **200 OK**.
 
     ![Beperking](./media/transform-api/test-throttling.png)
@@ -190,8 +195,6 @@ In de rest van deze sectie worden de beleidstransformaties getest die u in dit a
 ## <a name="video"></a>Video
 
 > [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Rate-Limits-and-Quotas/player]
-> 
-> 
 
 ## <a name="next-steps"></a>Volgende stappen
 

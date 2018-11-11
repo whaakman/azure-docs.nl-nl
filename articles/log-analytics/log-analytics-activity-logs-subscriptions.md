@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: c078320ce31e0c51c7aef0bc0a2aa14e68ac2fc3
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 41e627d895f0276d372ee42df3e0a43fdadc4051
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48042858"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51016060"
 ---
 # <a name="collect-azure-activity-logs-into-log-analytics-across-subscriptions"></a>Azure-activiteitenlogboeken verzamelen in Log Analytics voor meerdere abonnementen
 
@@ -29,7 +29,7 @@ Als de Log Analytics-werkruimte zich in hetzelfde Azure-abonnement, of in een an
 
 ## <a name="overview"></a>Overzicht
 
-De strategie die in dit scenario wordt gebruikt, is het laten verzenden van gebeurtenissen door Azure Activity Log naar een [Event Hub](../event-hubs/event-hubs-what-is-event-hubs.md), waar een [logische app](../logic-apps/logic-apps-overview.md) deze naar uw Log Analytics-werkruimte verzendt. 
+De strategie die in dit scenario wordt gebruikt, is het laten verzenden van gebeurtenissen door Azure Activity Log naar een [Event Hub](../event-hubs/event-hubs-about.md), waar een [logische app](../logic-apps/logic-apps-overview.md) deze naar uw Log Analytics-werkruimte verzendt. 
 
 ![afbeelding van gegevensstroom van een activiteitenlogboek naar Log Analytics](media/log-analytics-activity-logs-subscriptions/data-flow-overview.png)
 

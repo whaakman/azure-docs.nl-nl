@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 052ef249f3367a562e5598b90533c0e52ed75df4
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: e23ff60a0a2ea10ace09130ba115e72b4e1c9ad7
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39171381"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51249809"
 ---
 # <a name="demo-pizza-order"></a>Demo: Pizza volgorde
 Deze demonstratie ziet u een pizza bot bestellen. Het ondersteunt ordening van een enkele pizza met deze functionaliteit:
@@ -26,7 +26,7 @@ Deze demonstratie ziet u een pizza bot bestellen. Het ondersteunt ordening van e
 
 ## <a name="video"></a>Video
 
-[![Demo Pizza-Preview](http://aka.ms/cl-demo-pizza-preview)](http://aka.ms/blis-demo-pizza)
+[![Demo Pizza-Preview](https://aka.ms/cl-demo-pizza-preview)](https://aka.ms/blis-demo-pizza)
 
 ## <a name="requirements"></a>Vereisten
 In deze zelfstudie is vereist dat de volgorde pizza bot wordt uitgevoerd

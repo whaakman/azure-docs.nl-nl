@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/28/2018
 ms.author: glenga
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 18e4adb47ecf8e6d44edea873a4b3cc73492b273
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 5e34aae62f871cba2a27a292242cff8e90c67934
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44301480"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228977"
 ---
 # <a name="how-to-manage-a-function-app-in-the-azure-portal"></a>Over het beheren van een functie-app in Azure portal 
 
@@ -50,7 +50,7 @@ Kan worden soms moeilijk te vinden van uw resources in de [Azure Portal]. Als u 
 
 De **instellingen** tabblad is waar u de runtimeversie van de functies die worden gebruikt door uw functie-app kunt bijwerken. Het is ook waar u de hostsleutels gebruikt om te beperken van HTTP-toegang tot alle functies die worden gehost door de functie-app beheren.
 
-Functions ondersteunt zowel verbruik die als host fungeert als App Service-hostingplannen. Zie voor meer informatie, [Kies de juiste service-plan voor Azure Functions](functions-scale.md). Functions voor het abonnement Consumption beter te voorspellen kunt u platformgebruik beperken door in te stellen van een dagelijks gebruiksquotum in gigabyte-seconden. Wanneer het quotum voor het dagelijkse gebruik wordt bereikt, wordt de functie-app is gestopt. Een functie-app gestopt als gevolg van het bestedingsquotum van bereiken kan opnieuw worden ingeschakeld vanuit dezelfde context als het tot stand brengen van de dagelijkse bestedingsquotum. Zie de [Azure Functions-pagina met prijzen](http://azure.microsoft.com/pricing/details/functions/) voor meer informatie over facturering.   
+Functions ondersteunt zowel verbruik die als host fungeert als App Service-hostingplannen. Zie voor meer informatie, [Kies de juiste service-plan voor Azure Functions](functions-scale.md). Functions voor het abonnement Consumption beter te voorspellen kunt u platformgebruik beperken door in te stellen van een dagelijks gebruiksquotum in gigabyte-seconden. Wanneer het quotum voor het dagelijkse gebruik wordt bereikt, wordt de functie-app is gestopt. Een functie-app gestopt als gevolg van het bestedingsquotum van bereiken kan opnieuw worden ingeschakeld vanuit dezelfde context als het tot stand brengen van de dagelijkse bestedingsquotum. Zie de [Azure Functions-pagina met prijzen](https://azure.microsoft.com/pricing/details/functions/) voor meer informatie over facturering.   
 
 ## <a name="platform-features-tab"></a>Tabblad voor platform-functies
 

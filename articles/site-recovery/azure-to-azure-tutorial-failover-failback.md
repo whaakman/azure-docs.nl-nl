@@ -1,20 +1,20 @@
 ---
-title: Een failover en failback uitvoeren van virtuele Azure-machines die zijn gerepliceerd naar een secundaire Azure-regio met Azure Site Recovery
-description: Informatie over hoe u een failover en failback uitvoert van virtuele Azure-machines die zijn gerepliceerd naar een secundaire Azure-regio met Azure Site Recovery
+title: Een failover- en failback-overschakeling uitvoeren van virtuele Azure IaaS-machines die zijn gerepliceerd naar een secundaire Azure-regio als onderdeel van herstel na een noodgeval met de Azure Site Recovery-service.
+description: Leer hoe u een failover- en failback-overschakeling kunt uitvoeren van virtuele Azure-machines die zijn gerepliceerd naar een secundaire Azure-regio als onderdeel van herstel na een noodgeval met de Azure Site Recovery-service.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 10/10/2018
+ms.date: 10/28/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: f7d6594910f3c703c2381515c3b93eb56ff4f675
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 9917656a3bc8fd8cfe7d71786dc39d296a2449c1
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49456504"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50239284"
 ---
 # <a name="fail-over-and-fail-back-azure-vms-between-azure-regions"></a>Failover en failback tussen Azure-regio's voor Azure-VM's
 
@@ -34,7 +34,7 @@ In deze zelfstudie wordt beschreven hoe u een failover van één virtuele Azure-
 ## <a name="prerequisites"></a>Vereisten
 
 - Zorg dat u een [herstelanalyse](azure-to-azure-tutorial-dr-drill.md) hebt uitgevoerd om te controleren of alles werkt zoals verwacht.
-- Controleer de eigenschappen van de virtuele machine voordat u de testfailover uitvoert. De virtuele machine moet voldoen aan [Azure-vereisten](azure-to-azure-support-matrix.md#support-for-replicated-machine-os-versions).
+- Controleer de eigenschappen van de virtuele machine voordat u de testfailover uitvoert. De virtuele machine moet voldoen aan [Azure-vereisten](azure-to-azure-support-matrix.md#replicated-machine-operating-systems).
 
 ## <a name="run-a-failover-to-the-secondary-region"></a>Een failover uitvoeren naar de secundaire regio
 

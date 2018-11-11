@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 02/16/2017
 ms.author: mikeray
-ms.openlocfilehash: e87b58ecd72291365f9eba70c807e3018c02ae07
-ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
+ms.openlocfilehash: 5e665cd0bcfdea436c2f493187c5bbea756f8f09
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43382736"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51248300"
 ---
 # <a name="configure-a-load-balancer-for-an-always-on-availability-group-in-azure"></a>Een load balancer voor een AlwaysOn-beschikbaarheidsgroep configureren in Azure
 In dit artikel wordt uitgelegd hoe u een load balancer voor een SQL Server Always On-beschikbaarheidsgroep maken in Azure virtuele machines die worden uitgevoerd met Azure Resource Manager. Een beschikbaarheidsgroep is een load balancer vereist bij de SQL Server-exemplaren op Azure virtual machines zijn. De load balancer slaat het IP-adres voor de beschikbaarheidsgroep-listener. Als een beschikbaarheidsgroep meerdere regio's omvat, moet elke regio een load balancer.
@@ -120,7 +120,7 @@ De test wordt gedefinieerd hoe Azure controleert of welke van de SQL Server-exem
 4.  Klik op **OK**. 
 
 > [!NOTE]
-> Zorg ervoor dat de poort die u opgeeft geopend op de firewall van zowel SQL Server-exemplaren is. Beide exemplaren vereisen een inkomende regel voor de TCP-poort die u gebruikt. Zie voor meer informatie, [toevoegen of bewerken firewallregel](http://technet.microsoft.com/library/cc753558.aspx). 
+> Zorg ervoor dat de poort die u opgeeft geopend op de firewall van zowel SQL Server-exemplaren is. Beide exemplaren vereisen een inkomende regel voor de TCP-poort die u gebruikt. Zie voor meer informatie, [toevoegen of bewerken firewallregel](https://technet.microsoft.com/library/cc753558.aspx). 
 > 
 > 
 
@@ -276,7 +276,7 @@ Nadat u de beschikbaarheidsgroep voor het gebruik van het nieuwe IP-adres hebt g
 Als een beschikbaarheidsgroep maakt deel uit van een gedistribueerde beschikbaarheidsgroep, moet de load balancer een extra regel. Deze regel wordt de poort die wordt gebruikt door de gedistribueerde beschikbaarheidsgroep-listener opgeslagen.
 
 >[!IMPORTANT]
->Deze stap is alleen van toepassing als de beschikbaarheidsgroep maakt deel uit van een [gedistribueerde beschikbaarheidsgroep](http://docs.microsoft.com/sql/database-engine/availability-groups/windows/configure-distributed-availability-groups). 
+>Deze stap is alleen van toepassing als de beschikbaarheidsgroep maakt deel uit van een [gedistribueerde beschikbaarheidsgroep](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/configure-distributed-availability-groups). 
 
 1. Maak een inkomende regel op de gedistribueerde beschikbaarheidsgroep-listener TCP-poort op elke server die deel uitmaakt van de gedistribueerde beschikbaarheidsgroep. In veel voorbeelden gebruikt de documentatie bij 5022. 
 
@@ -289,7 +289,7 @@ Als een beschikbaarheidsgroep maakt deel uit van een gedistribueerde beschikbaar
    |**Naam** |Een unieke naam voor de load balancer-regel voor de gedistribueerde beschikbaarheidsgroep. 
    |**Frontend-IP-adres** |Gebruik de dezelfde frontend-IP-adres als de beschikbaarheidsgroep.
    |**Protocol** |TCP
-   |**Poort** |5022: de poort voor de [gedistribueerde beschikbaarheidsgroep-listener-eindpunt](http://docs.microsoft.com/sql/database-engine/availability-groups/windows/configure-distributed-availability-groups).</br> Een beschikbare poort kan zijn.  
+   |**Poort** |5022: de poort voor de [gedistribueerde beschikbaarheidsgroep-listener-eindpunt](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/configure-distributed-availability-groups).</br> Een beschikbare poort kan zijn.  
    |**Back-endpoort** | 5022: gebruik dezelfde als waarde **poort**.
    |**Back-endpool** |De groep met de virtuele machines met de SQL Server-exemplaren. 
    |**Statustest** |Kies de test die u hebt gemaakt.

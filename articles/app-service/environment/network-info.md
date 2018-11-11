@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/29/2018
 ms.author: ccompy
-ms.openlocfilehash: 6d4f7fab0c36095d96cec0038a39744102e8972b
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 535f70658593ff5a9ae1642ae7a97646e3fefb63
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47433749"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51288251"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Aandachtspunten voor netwerken voor een App Service Environment #
 
@@ -33,7 +33,7 @@ Er zijn twee versies van App Service-omgeving: ASEv1 en ASEv2. Zie voor meer inf
 
 Alle aanroepen van een as-omgeving die gaat u naar het internet laat u het VNet via een VIP-adres toegewezen voor de as-omgeving. Het openbare IP-adres van deze VIP is het bron-IP-adres voor alle aanroepen van de as-omgeving die gaat u naar het internet. Als de apps in de as-omgeving aanroepen naar resources in uw VNet of via een VPN kunt, wordt de bron-IP is een van de IP-adressen in het subnet dat wordt gebruikt door de as-omgeving. Omdat de as-omgeving binnen het VNet is, kan het ook toegang tot bronnen binnen het VNet zonder extra configuratie. Als het VNet is verbonden met uw on-premises netwerk, wordt ook toegang tot resources er zonder aanvullende configuratie in apps in de as-omgeving hebben.
 
-![Externe as-omgeving][1] 
+![Externe as-omgeving][1] 
 
 Als u een externe as-omgeving hebt, wordt de openbare VIP is ook het eindpunt dat uw ASE-apps worden omgezet naar voor:
 
@@ -52,7 +52,7 @@ De normale app-poorten zijn:
 |----------|---------|-------------|
 |  HTTP/HTTPS  | Gebruiker worden geconfigureerd |  80, 443 |
 |  FTP/FTPS    | Gebruiker worden geconfigureerd |  21, 990, 10001-10020 |
-|  Visual Studio fouten opsporen op afstand  |  Gebruiker worden geconfigureerd |  4016, 4018, 4020, 4022 |
+|  Visual Studio fouten opsporen op afstand  |  Gebruiker worden geconfigureerd |  4020, 4022, 4024 |
 
 Dit geldt als u op een externe as-omgeving of in een ILB as-omgeving bent. Als u een externe as-omgeving, kunt u deze poorten op de openbare VIP bereikt. Als u een ILB as-omgeving, kunt u deze poorten op de ILB bereikt. Als u poort 443 te vergrendelen, kan het zijn dat er van invloed op sommige functies die beschikbaar zijn in de portal hebt gemaakt. Zie voor meer informatie, [Portal afhankelijkheden](#portaldep).
 
@@ -170,7 +170,7 @@ De eerste twee inkomende vereisten voor de as-omgeving naar de functie worden we
 
 Een standaardregel kunt de IP-adressen in het VNet om te communiceren met de ASE-subnet. Een andere standaardregel kunnen de load balancer, ook wel bekend als de openbare VIP en om te communiceren met de as-omgeving. De standaardregels Selecteer **standaardregels** naast de **toevoegen** pictogram. Als u een weigeren alle andere regel nadat de NSG-regels weergegeven, maar u voorkomen dat het verkeer tussen het VIP-adres en de as-omgeving. Om te voorkomen dat verkeer dat afkomstig is van binnen het VNet, Voeg uw eigen regel waarmee inkomend. Een bron die gelijk is aan AzureLoadBalancer gebruiken met een bestemming **eventuele** en een poortbereik van **\***. Omdat de NSG-regel wordt toegepast op het ASE-subnet, moet u geen specifieke worden in het doel.
 
-Als u een IP-adres aan uw app toegewezen, zorg ervoor dat u de poorten openen. De poorten Selecteer **App Service-omgeving** > **IP-adressen**.  
+Als u een IP-adres aan uw app toegewezen, zorg ervoor dat u de poorten openen. De poorten Selecteer **App Service-omgeving** > **IP-adressen**.  
 
 Alle items die wordt weergegeven in de volgende regels voor uitgaand verkeer nodig zijn, met uitzondering van het laatste item. Ze inschakelen netwerktoegang tot de ASE-afhankelijkheden die eerder in dit artikel zijn vermeld. Als u een van deze blokkeert, werkt niet meer de as-omgeving. Het laatste item in de lijst kunt uw as-omgeving om te communiceren met andere resources in uw VNet.
 
