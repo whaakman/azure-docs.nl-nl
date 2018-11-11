@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: cynthn
-ms.openlocfilehash: bbe8059b3a239570c2c9b25586dae9adbe25312d
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: e91f75299dddf0ac173499a531ea959292082a9f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37931375"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51246545"
 ---
 # <a name="how-to-reset-the-remote-desktop-service-or-its-login-password-in-a-windows-vm-created-using-the-classic-deployment-model"></a>Opnieuw instellen van de extern bureaublad-service of het aanmeldingswachtwoord in een Windows-VM gemaakt met behulp van het klassieke implementatiemodel
 > [!IMPORTANT]
-> Azure heeft twee verschillende implementatiemodellen voor het maken van en werken met resources: [Resource Manager en klassieke](../../../resource-manager-deployment-model.md). In dit artikel bevat informatie over met behulp van het klassieke implementatiemodel. U doet er verstandig aan voor de meeste nieuwe implementaties het Resource Manager-model te gebruiken. U kunt ook [deze stappen uitvoeren voor virtuele machines die zijn gemaakt met het Resource Manager-implementatiemodel](../reset-rdp.md).
+> Azure heeft twee verschillende implementatiemodellen voor het maken van en werken met resources: [Resource Manager en het klassieke model](../../../resource-manager-deployment-model.md). In dit artikel bevat informatie over met behulp van het klassieke implementatiemodel. U doet er verstandig aan voor de meeste nieuwe implementaties het Resource Manager-model te gebruiken. U kunt ook [deze stappen uitvoeren voor virtuele machines die zijn gemaakt met het Resource Manager-implementatiemodel](../reset-rdp.md).
 > [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 
@@ -59,7 +59,7 @@ $vm = Get-AzureVM -ServiceName "myCloudService" -Name "myVM"
 write-host $vm.VM.ProvisionGuestAgent
 ```
 
-Als de **write-host** opdracht geeft **waar**, de VM-Agent is geïnstalleerd. Als deze wordt weergegeven **False**, Zie de instructies en een koppeling naar de download in de [VM-Agent en -extensies - deel 2](http://go.microsoft.com/fwlink/p/?linkid=403947&clcid=0x409) Azure-blogbericht.
+Als de **write-host** opdracht geeft **waar**, de VM-Agent is geïnstalleerd. Als deze wordt weergegeven **False**, Zie de instructies en een koppeling naar de download in de [VM-Agent en -extensies - deel 2](https://go.microsoft.com/fwlink/p/?linkid=403947&clcid=0x409) Azure-blogbericht.
 
 Als u de virtuele machine met behulp van de portal hebt gemaakt, controleert u of `$vm.GetInstance().ProvisionGuestAgent` retourneert **waar**. Als dat niet het geval is, kunt u dit instellen met behulp van deze opdracht:
 
@@ -108,7 +108,7 @@ Als de uitbreiding van de toegang tot Azure-VM niet reageert en niet het wachtwo
 
 [Azure VM-extensies en functies](../extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-[Verbinding maken met een Azure-machine met RDP of SSH](http://msdn.microsoft.com/library/azure/dn535788.aspx)
+[Verbinding maken met een Azure-machine met RDP of SSH](https://msdn.microsoft.com/library/azure/dn535788.aspx)
 
 [Problemen oplossen met extern bureaublad-verbindingen met een op basis van Windows Azure-machine](../troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 

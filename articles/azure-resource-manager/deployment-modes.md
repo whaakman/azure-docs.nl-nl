@@ -9,22 +9,24 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/26/2018
+ms.date: 11/08/2018
 ms.author: tomfitz
-ms.openlocfilehash: 4d1b27c9b1694f987ea7461c16899f3e5ecb84d2
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: c4347254df59c62085b2bfb195496bf479cf7b35
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50140990"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51344573"
 ---
 # <a name="azure-resource-manager-deployment-modes"></a>Azure Resource Manager-implementatiemodi
+
 Bij het implementeren van uw resources, kunt u opgeven dat de implementatie een incrementele update of een volledige update is.  Het belangrijkste verschil tussen deze twee modi is hoe Resource Manager omgaat met bestaande resources in de resourcegroep die zich niet in de sjabloon. De standaardmodus is incrementeel.
 
 ## <a name="incremental-and-complete-deployments"></a>Incrementele en volledige implementaties
+
 Bij het implementeren van resources:
 
-* In de volledige modus Resource Manager **verwijdert** resources die aanwezig zijn in de resourcegroep, maar niet zijn opgegeven in de sjabloon. 
+* In de volledige modus Resource Manager **verwijdert** resources die aanwezig zijn in de resourcegroep, maar niet zijn opgegeven in de sjabloon.
 * In de Resource Manager-incrementele modus **blijft ongewijzigd** resources die aanwezig zijn in de resourcegroep, maar niet zijn opgegeven in de sjabloon.
 
 Voor beide modi wordt geprobeerd de Resource Manager om alle resources die zijn opgegeven in de sjabloon te maken. Als de resource al in de resourcegroep bestaat en de instellingen niet gewijzigd zijn, wordt de bewerking resulteert in geen wijziging. Als u de waarden van de eigenschappen voor een bron wijzigt, worden de resource wordt bijgewerkt met de nieuwe waarden. Als u probeert om bij te werken van de locatie of het type van een bestaande resource, mislukt de implementatie met een fout. In plaats daarvan implementeert u een nieuwe resource met de locatie of typ dat u nodig hebt.
@@ -64,12 +66,12 @@ Wanneer geïmplementeerd in **voltooid** Resource C-modus wordt verwijderd. De r
 
 Om in te stellen de implementatiemodus bij het implementeren met PowerShell, gebruikt u de `Mode` parameter.
 
-```powershell
+```azurepowershell-interactive
 New-AzureRmResourceGroupDeployment `
   -Mode Complete `
   -Name ExampleDeployment `
   -ResourceGroupName ExampleResourceGroup `
-  -TemplateFile c:\MyTemplates\storage.json 
+  -TemplateFile c:\MyTemplates\storage.json
 ```
 
 Om in te stellen de implementatiemodus bij het implementeren met Azure CLI, gebruikt u de `mode` parameter.
@@ -100,7 +102,7 @@ Wanneer u een [gekoppelde of geneste sjabloon](resource-group-linked-templates.m
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
+
 * Zie voor meer informatie over het maken van Resource Manager-sjablonen, [Authoring Azure Resource Manager-sjablonen](resource-group-authoring-templates.md).
 * Zie voor meer informatie over het implementeren van resources, [een toepassing implementeren met Azure Resource Manager-sjabloon](resource-group-template-deploy.md).
 * Als u de bewerkingen voor een resourceprovider, Zie [REST API van Azure](/rest/api/).
-

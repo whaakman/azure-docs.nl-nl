@@ -12,12 +12,12 @@ ms.author: mireks
 ms.reviewer: vanto, carlrab
 manager: craigg
 ms.date: 10/05/2018
-ms.openlocfilehash: 9d4ede9aee5261903a814cc2f29c788a2ba377f3
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 86e60f339af3d6d467b68d5d3b27d77a9861add1
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48869766"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51244068"
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-sql"></a>Azure Active Directory-verificatie gebruiken voor verificatie met behulp van SQL
 
@@ -35,7 +35,7 @@ Met Azure AD-verificatie, kunt u de identiteit van databasegebruikers en andere 
 - Deze kunt wachtwoorden moet opslaan elimineren door in te schakelen van geïntegreerde Windows-verificatie en andere vormen van authenticatie wordt ondersteund door Azure Active Directory.
 - Azure AD-verificatie gebruikt ingesloten databasegebruikers om identiteiten op databaseniveau te verifiëren.
 - Azure AD biedt ondersteuning voor verificatie op basis van tokens voor toepassingen die verbinding maken met SQL-Database.
-- Azure AD-verificatie ondersteunt AD FS (domein Federatie) of systeemeigen gebruikerswachtwoord verificatie voor een lokale Azure Active Directory zonder synchronisatie van domein.  
+- Azure AD-verificatie ondersteunt AD FS (domein Federatie) of systeemeigen gebruikerswachtwoord verificatie voor een lokale Azure Active Directory zonder synchronisatie van domein.  
 - Azure AD ondersteunt verbindingen van SQL Server Management Studio die gebruikmaken van Active Directory Universal-verificatie, waaronder multi-factor Authentication (MFA).  MFA omvat een robuuste verificatie met een scala aan gebruiksvriendelijke verificatieopties, telefonische oproepen, SMS-bericht, smartcards en pincode of mobiele app-meldingen. Zie voor meer informatie, [SSMS-ondersteuning voor Azure AD MFA met SQL Database en SQL Data Warehouse](sql-database-ssms-mfa-authentication.md).  
 
 > [!NOTE]  
@@ -118,10 +118,10 @@ Azure Active Directory-verificatie ondersteunt de volgende methoden voor het ver
 - U wordt aangeraden de verbindingstime-out ingesteld op 30 seconden.   
 - Azure Active Directory-verificatie wordt ondersteund door SQL Server 2016 Management Studio en SQL Server Data Tools voor Visual Studio 2015 (versie 14.0.60311.1April 2016 of hoger). (Azure AD-verificatie wordt ondersteund door de **.NET Framework Data Provider Pro SqlServer**; ten minste versie .NET Framework 4.6). Daarom de nieuwste versies van deze hulpprogramma's en -gegevenslaagtoepassingen (DAC en. BACPAC) kunt Azure AD-verificatie gebruiken.   
 - [ODBC versie 13.1](https://www.microsoft.com/download/details.aspx?id=53339) biedt echter ondersteuning voor Azure Active Directory-verificatie `bcp.exe` kan geen verbinding maken met behulp van Azure Active Directory-verificatie, omdat deze een oudere ODBC-provider gebruikt.   
-- `sqlcmd` biedt ondersteuning voor Azure Active Directory-verificatie die begint met versie 13.1 beschikbaar is via de [Downloadcentrum](http://go.microsoft.com/fwlink/?LinkID=825643).
-- SQL Server Data Tools voor Visual Studio 2015 vereist ten minste de April 2016-versie van de Data Tools (versie 14.0.60311.1). Azure AD-gebruikers worden momenteel niet weergegeven in SSDT-Objectverkenner. Als tijdelijke oplossing, bekijk de gebruikers in [sys.database_principals](https://msdn.microsoft.com/library/ms187328.aspx).   
+- `sqlcmd` biedt ondersteuning voor Azure Active Directory-verificatie die begint met versie 13.1 beschikbaar is via de [Downloadcentrum](https://go.microsoft.com/fwlink/?LinkID=825643).
+- SQL Server Data Tools voor Visual Studio 2015 vereist ten minste de April 2016-versie van de Data Tools (versie 14.0.60311.1). Azure AD-gebruikers worden momenteel niet weergegeven in SSDT-Objectverkenner. Als tijdelijke oplossing, bekijk de gebruikers in [sys.database_principals](https://msdn.microsoft.com/library/ms187328.aspx).   
 - [Microsoft JDBC-stuurprogramma 6.0 voor SQL Server](https://www.microsoft.com/download/details.aspx?id=11774) ondersteunt Azure AD-verificatie. Zie ook [instellen van de verbindingseigenschappen](https://msdn.microsoft.com/library/ms378988.aspx).   
-- PolyBase kan niet verifiëren met behulp van Azure AD-verificatie.   
+- PolyBase kan niet verifiëren met behulp van Azure AD-verificatie.   
 - Azure AD-verificatie wordt ondersteund voor SQL-Database door de Azure-portal **Database importeren** en **Database exporteren** blades. Importeren en exporteren met behulp van Azure AD-verificatie wordt ook ondersteund vanuit de PowerShell-opdracht.   
 - Azure AD-verificatie wordt ondersteund voor SQL Database Managed Instance en SQL Data Warehouse met behulp van CLI. Zie voor meer informatie, [configureren en beheren van Azure Active Directory-verificatie met SQL-Database of SQL Data Warehouse](sql-database-aad-authentication-configure.md) en [SQL Server - az sql server](https://docs.microsoft.com/cli/azure/sql/server).
 

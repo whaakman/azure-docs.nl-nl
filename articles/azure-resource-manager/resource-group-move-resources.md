@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/25/2018
+ms.date: 11/08/2018
 ms.author: tomfitz
-ms.openlocfilehash: e99d5d36fa46e9972e706d580e4dfb1d5f9e8bbc
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: c65f5364ccd4943d1d3e703ed27099408d3a2a27
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50093819"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51346589"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Resources verplaatsen naar een nieuwe resourcegroep of abonnement
 
@@ -28,11 +28,10 @@ Bij het verplaatsen van resources, worden zowel de brongroep en de doelgroep ver
 U kunt de locatie van de resource niet wijzigen. Verplaatsen van een resource alleen verplaatst naar een nieuwe resourcegroep. De nieuwe resourcegroep mogelijk een andere locatie, maar dat de locatie van de resource niet wijzigen.
 
 > [!NOTE]
-> Dit artikel wordt beschreven hoe u verplaatst resources binnen een bestaand Azure-account aanbod. Als u daadwerkelijk wijzigen van uw Azure-account wilt (zoals het upgraden van gratis naar betalen per gebruik)-aanbieding die u wilt converteren van uw abonnement. 
+> Dit artikel wordt beschreven hoe u verplaatst resources binnen een bestaand Azure-account aanbod. Als u daadwerkelijk wijzigen van uw Azure-account wilt (zoals het upgraden van gratis naar betalen per gebruik)-aanbieding die u wilt converteren van uw abonnement.
 > * Zie het upgraden van een gratis proefversie [uw gratis proefversie of Azure voor Microsoft Imagine-abonnement upgraden naar betalen per gebruik](..//billing/billing-upgrade-azure-subscription.md).
 > * Als u wilt wijzigen in een betalen per gebruik-account, Zie [wijzigen van uw Azure-betalen per gebruik-abonnement naar een andere aanbieding](../billing/billing-how-to-switch-azure-offer.md).
 > * Als u het abonnement niet kan omzetten [maken van een Azure-ondersteuningsaanvraag](../azure-supportability/how-to-create-azure-support-request.md). Selecteer **Abonnementsbeheer** voor het probleemtype.
->
 
 ## <a name="checklist-before-moving-resources"></a>Controlelijst voor het verplaatsen van resources
 
@@ -42,7 +41,7 @@ Voordat u een resource verplaatst, moeten er enkele belangrijke stappen worden u
 
   Voor Azure PowerShell gebruiken:
 
-  ```powershell
+  ```azurepowershell-interactive
   (Get-AzureRmSubscription -SubscriptionName <your-source-subscription>).TenantId
   (Get-AzureRmSubscription -SubscriptionName <your-destination-subscription>).TenantId
   ```
@@ -63,14 +62,14 @@ Voordat u een resource verplaatst, moeten er enkele belangrijke stappen worden u
 
   Gebruik de volgende opdrachten om op te halen van de registratiestatus voor PowerShell:
 
-  ```powershell
+  ```azurepowershell-interactive
   Set-AzureRmContext -Subscription <destination-subscription-name-or-id>
   Get-AzureRmResourceProvider -ListAvailable | Select-Object ProviderNamespace, RegistrationState
   ```
 
   Gebruik het volgende voor het registreren van een resourceprovider:
 
-  ```powershell
+  ```azurepowershell-interactive
   Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch
   ```
 
@@ -112,7 +111,7 @@ Neem contact op met [ondersteunen](https://portal.azure.com/#blade/Microsoft_Azu
 
 ## <a name="validate-move"></a>Verplaatsen valideren
 
-De [verplaatsingsbewerking valideren](/rest/api/resources/resources/resources_validatemoveresources) kunt u het testen van uw scenario verplaatsen zonder daadwerkelijk de resources te verplaatsen. Deze bewerking gebruiken om te bepalen als de verplaatsing slaagt. Als u wilt deze bewerking uitvoeren, moet u de:
+De [verplaatsingsbewerking valideren](/rest/api/resources/resources/validatemoveresources) kunt u het testen van uw scenario verplaatsen zonder daadwerkelijk de resources te verplaatsen. Deze bewerking gebruiken om te bepalen als de verplaatsing slaagt. Als u wilt deze bewerking uitvoeren, moet u de:
 
 * naam van de resourcegroep
 * Resource-ID van de doelresourcegroep
@@ -325,7 +324,6 @@ Dit zijn de beperkingen die nog niet worden ondersteund:
 * Virtual Machine Scale Sets met standaard SKU Load Balancer of een standaard SKU en openbare IP kan niet worden verplaatst.
 * Virtuele machines die zijn gemaakt op basis van Marketplace-resources met een abonnement dat is gekoppeld kan niet worden verplaatst tussen resourcegroepen of abonnementen. Inrichting ongedaan maken van de virtuele machine in het huidige abonnement en opnieuw implementeren in het nieuwe abonnement.
 
-
 ## <a name="virtual-networks-limitations"></a>Beperkingen voor virtuele netwerken
 
 Bij het verplaatsen van een virtueel netwerk, moet u ook de afhankelijke resources verplaatsen. Voor VPN-Gateways, moet u IP-adressen, virtuele netwerkgateways en alle bijbehorende verbindingsresources verplaatsen. Lokale netwerkgateways kunnen zich in een andere resourcegroep.
@@ -346,9 +344,9 @@ Wanneer u een Web-App verplaatst _binnen hetzelfde abonnement_, u kunt de geüpl
 
 Als u verplaatsen van het SSL-certificaat met de Web-App wilt, volgt u deze stappen:
 
-1.  Het geüploade certificaat verwijderen uit de Web-App.
-2.  Verplaats de Web-App.
-3.  Upload het certificaat naar de verplaatste Web-App.
+1. Het geüploade certificaat verwijderen uit de Web-App.
+2. Verplaats de Web-App.
+3. Upload het certificaat naar de verplaatste Web-App.
 
 ### <a name="moving-across-subscriptions"></a>Verplaatsen tussen abonnementen
 
@@ -503,7 +501,7 @@ Wanneer deze is voltooid, krijgt u een melding van het resultaat.
 
 Als u bestaande resources naar een andere resourcegroep of abonnement, gebruikt u de [Move-AzureRmResource](/powershell/module/azurerm.resources/move-azurermresource) opdracht. Het volgende voorbeeld ziet hoe u meerdere resources verplaatsen naar een nieuwe resourcegroep.
 
-```powershell
+```azurepowershell-interactive
 $webapp = Get-AzureRmResource -ResourceGroupName OldRG -ResourceName ExampleSite
 $plan = Get-AzureRmResource -ResourceGroupName OldRG -ResourceName ExamplePlan
 Move-AzureRmResource -DestinationResourceGroupName NewRG -ResourceId $webapp.ResourceId, $plan.ResourceId

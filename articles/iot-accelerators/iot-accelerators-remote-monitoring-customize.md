@@ -6,45 +6,47 @@ manager: timlt
 ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 01/17/2018
+ms.date: 11/09/2018
 ms.topic: conceptual
-ms.openlocfilehash: 59f2860168782d96bf82d0a27f9bb9eeed0f1020
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 53361ed460917fff42008283429967eff2e80ab2
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167491"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51345093"
 ---
 # <a name="customize-the-remote-monitoring-solution-accelerator"></a>De oplossingsverbetering voor externe bewaking aanpassen
 
-In dit artikel bevat informatie over hoe u toegang tot de broncode en aanpassen van de Remote Monitoring solution accelerator gebruikersinterface. Dit artikel wordt beschreven:
+In dit artikel bevat informatie over hoe u toegang tot de broncode en aanpassen van de Remote Monitoring solution accelerator gebruikersinterface.
+
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="prepare-a-local-development-environment-for-the-ui"></a>Een lokale ontwikkelomgeving voorbereiden in de gebruikersinterface
 
 De Remote Monitoring solution accelerator UI-code is geïmplementeerd met behulp van de React.js-framework. U vindt de broncode in de [azure-iot-pcs-remote-monitoring-webui](https://github.com/Azure/azure-iot-pcs-remote-monitoring-webui) GitHub-opslagplaats.
 
-Als u wilt wijzigingen aanbrengt in de gebruikersinterface, kunt u een kopie van het lokaal uitvoeren. De lokale kopie maakt verbinding met een geïmplementeerd exemplaar van de oplossing voor het uitvoeren van acties zoals het ophalen van telemetrie.
+Als u wilt wijzigingen aanbrengt in de gebruikersinterface, kunt u een kopie van het lokaal uitvoeren. Voor het voltooien van acties zoals het ophalen van telemetrie, is de lokale kopie maakt verbinding met een geïmplementeerd exemplaar van de oplossing.
 
 De volgende stappen beschrijven het proces voor het instellen van een lokale omgeving voor het ontwikkelen van de gebruikersinterface:
 
 1. Implementeer een **basic** exemplaar van de solution accelerator met behulp van de **pc's** CLI. Noteer de naam van uw implementatie en de referenties die u hebt opgegeven voor de virtuele machine. Zie voor meer informatie, [implementeren met behulp van de CLI](iot-accelerators-remote-monitoring-deploy-cli.md).
 
-1. Gebruik de Azure-portal of de [az CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) voor SSH-toegang tot de virtuele machine die als host fungeert voor de microservices in uw oplossing. Bijvoorbeeld:
+1. Om in te schakelen SSH-toegang tot de virtuele machine die als host fungeert voor de microservices in uw oplossing, de Azure-portal of de Azure Cloud Shell te gebruiken. Bijvoorbeeld:
 
-    ```sh
+    ```azurecli-interactive
     az network nsg rule update --name SSH --nsg-name {your solution name}-nsg --resource-group {your solution name} --access Allow
     ```
 
-    U moet alleen SSH-toegang inschakelen tijdens het testen en ontwikkeling. Als u SSH schakelt, [moet u dit opnieuw zo snel mogelijk uitschakelen](../security/azure-security-network-security-best-practices.md#disable-rdpssh-access-to-virtual-machines).
+    Alleen SSH-toegang inschakelen tijdens het testen en ontwikkeling. Als u SSH schakelt, [moet u dit uitschakelen als u klaar bent met het](../security/azure-security-network-security-best-practices.md#disable-rdpssh-access-to-virtual-machines).
 
-1. Gebruik de Azure-portal of de [az CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) om de naam en openbare IP-adres van uw virtuele machine te vinden. Bijvoorbeeld:
+1. De Azure-portal of de Azure Cloud Shell gebruiken om te zoeken naar de naam en het openbare IP-adres van uw virtuele machine. Bijvoorbeeld:
 
-    ```sh
+    ```azurecli-interactive
     az resource list --resource-group {your solution name} -o table
     az vm list-ip-addresses --name {your vm name from previous command} --resource-group {your solution name} -o table
     ```
 
-1. SSH gebruiken om te verbinden met uw virtuele machine met behulp van het IP-adres uit de vorige stap en de referenties die u hebt opgegeven toen u uitvoerde **pc's** om de oplossing te implementeren.
+1. Gebruik SSH om verbinding met uw virtuele machine te maken. Het IP-adres uit de vorige stap en de referenties die u hebt opgegeven toen u uitvoerde **pc's** om de oplossing te implementeren. De `ssh` opdracht is beschikbaar in de Azure Cloud Shell.
 
 1. Als u wilt toestaan dat de lokale UX om verbinding te maken, moet u de volgende opdrachten uitvoeren in de bash-shell in de virtuele machine:
 
@@ -62,7 +64,9 @@ De volgende stappen beschrijven het proces voor het instellen van een lokale omg
     REACT_APP_BASE_SERVICE_URL=https://{your solution name}.azurewebsites.net/
     ```
 
-1. Bij een opdrachtprompt in de lokale kopie van de `azure-iot-pcs-remote-monitoring-webui` map, voer de volgende opdrachten op de vereiste bibliotheken installeren en lokaal uitvoeren van de gebruikersinterface:
+1. Bij een opdrachtprompt, gaat u naar de lokale kopie van de `azure-iot-pcs-remote-monitoring-webui` map.
+
+1. Als u wilt de vereiste bibliotheken installeren en lokaal uitvoeren van de gebruikersinterface, voer de volgende opdrachten:
 
     ```cmd/sh
     npm install
@@ -73,131 +77,160 @@ De volgende stappen beschrijven het proces voor het instellen van een lokale omg
 
 ## <a name="customize-the-layout"></a>De indeling aanpassen
 
-Elke pagina in de oplossing voor externe controle bestaat uit een set besturingselementen, aangeduid als *panelen* in de broncode. Bijvoorbeeld, de **Dashboard** pagina bestaat uit vijf deelvensters: overzicht, kaart, waarschuwingen, Telemetrie en KPI's. U vindt de broncode dat elke pagina en de deelvensters in definieert de [pc's-remote-monitoring-webinterface](https://github.com/Azure/pcs-remote-monitoring-webui) GitHub-opslagplaats. Bijvoorbeeld, de code die definieert de **Dashboard** pagina, de indeling en de panelen op de pagina bevindt zich in de [src/onderdelen/pagina's / dashboard](https://github.com/Azure/pcs-remote-monitoring-webui/tree/master/src/components/pages/dashboard) map.
+Elke pagina in de oplossing voor externe controle bestaat uit een set besturingselementen, aangeduid als *panelen* in de broncode. De **Dashboard** pagina bestaat uit vijf deelvensters: overzicht, kaart, waarschuwingen, Telemetrie en Analytics. U vindt de broncode dat elke pagina en de deelvensters in definieert de [pc's-remote-monitoring-webinterface](https://github.com/Azure/pcs-remote-monitoring-webui) GitHub-opslagplaats. Bijvoorbeeld, de code die definieert de **Dashboard** pagina, de indeling en de panelen op de pagina bevindt zich in de [src/onderdelen/pagina's / dashboard](https://github.com/Azure/pcs-remote-monitoring-webui/tree/master/src/components/pages/dashboard) map.
 
-Omdat de panelen hun eigen lay-out en schaling beheren, kunt u eenvoudig de indeling van een pagina wijzigen. Bijvoorbeeld, de volgende wijzigingen aan de **PageContent** -element in de `src/components/pages/dashboard/dashboard.js` bestand wisselen de posities van de kaart en telemetrie panelen en wijzigt u de relatieve breedte van de kaart en KPI-deelvensters:
+Omdat de panelen hun eigen lay-out en schaling beheren, kunt u eenvoudig de indeling van een pagina wijzigen. Breng de volgende wijzigingen aan de **PageContent** -element in de `src/components/pages/dashboard/dashboard.js` van het bestand in:
+
+* De positie van de kaart en telemetrie panelen wisselen.
+* De relatieve breedte van de kaart en analyses panelen wijzigen.
 
 ```nodejs
-<PageContent className="dashboard-container" key="page-content">
+<PageContent className="dashboard-container">
   <Grid>
     <Cell className="col-1 devices-overview-cell">
       <OverviewPanel
+        activeDeviceGroup={activeDeviceGroup}
         openWarningCount={openWarningCount}
         openCriticalCount={openCriticalCount}
         onlineDeviceCount={onlineDeviceCount}
         offlineDeviceCount={offlineDeviceCount}
-        isPending={kpisIsPending || devicesIsPending}
-        error={devicesError || kpisError}
+        isPending={analyticsIsPending || devicesIsPending}
+        error={deviceGroupError || devicesError || analyticsError}
         t={t} />
     </Cell>
-    <Cell className="col-5">
+    <Cell className="col-6">
       <TelemetryPanel
+        timeSeriesExplorerUrl={timeSeriesParamUrl}
         telemetry={telemetry}
         isPending={telemetryIsPending}
-        error={telemetryError}
+        lastRefreshed={lastRefreshed}
+        error={deviceGroupError || telemetryError}
+        theme={theme}
         colors={chartColorObjects}
         t={t} />
     </Cell>
     <Cell className="col-3">
-      <CustAlarmsPanel
-        alarms={currentActiveAlarmsWithName}
-        isPending={kpisIsPending || rulesIsPending}
-        error={rulesError || kpisError}
-        t={t} />
+      <AlertsPanel
+        alerts={currentActiveAlertsWithName}
+        isPending={analyticsIsPending || rulesIsPending}
+        error={rulesError || analyticsError}
+        t={t}
+        deviceGroups={deviceGroups} />
     </Cell>
     <Cell className="col-4">
-    <PanelErrorBoundary msg={t('dashboard.panels.map.runtimeError')}>
+      <PanelErrorBoundary msg={t('dashboard.panels.map.runtimeError')}>
         <MapPanel
+          analyticsVersion={analyticsVersion}
           azureMapsKey={azureMapsKey}
           devices={devices}
-          devicesInAlarm={devicesInAlarm}
+          devicesInAlert={devicesInAlert}
           mapKeyIsPending={azureMapsKeyIsPending}
-          isPending={devicesIsPending || kpisIsPending}
-          error={azureMapsKeyError || devicesError || kpisError}
+          isPending={devicesIsPending || analyticsIsPending}
+          error={azureMapsKeyError || devicesError || analyticsError}
           t={t} />
       </PanelErrorBoundary>
     </Cell>
     <Cell className="col-6">
-      <KpisPanel
-        topAlarms={topAlarmsWithName}
-        alarmsPerDeviceId={alarmsPerDeviceType}
-        criticalAlarmsChange={criticalAlarmsChange}
-        warningAlarmsChange={warningAlarmsChange}
-        isPending={kpisIsPending || rulesIsPending || devicesIsPending}
-        error={devicesError || rulesError || kpisError}
+      <AnalyticsPanel
+        timeSeriesExplorerUrl={timeSeriesParamUrl}
+        topAlerts={topAlertsWithName}
+        alertsPerDeviceId={alertsPerDeviceType}
+        criticalAlertsChange={criticalAlertsChange}
+        isPending={analyticsIsPending || rulesIsPending || devicesIsPending}
+        error={devicesError || rulesError || analyticsError}
+        theme={theme}
         colors={chartColorObjects}
         t={t} />
     </Cell>
+    {
+      Config.showWalkthroughExamples &&
+      <Cell className="col-4">
+        <ExamplePanel t={t} />
+      </Cell>
+    }
   </Grid>
 </PageContent>
 ```
 
 ![Deelvenster-indeling wijzigen](./media/iot-accelerators-remote-monitoring-customize/layout.png)
 
-> [!NOTE]
-> De kaart is niet geconfigureerd in de lokale implementatie.
-
-U kunt ook toevoegen meerdere exemplaren van het paneel met dezelfde of verschillende versies als u [dupliceren en een deelvenster aanpassen](#duplicate-and-customize-an-existing-control). Het volgende voorbeeld laat zien hoe u twee exemplaren van het paneel telemetrie toevoegen door te bewerken de `src/components/pages/dashboard/dashboard.js` bestand:
+U kunt ook toevoegen meerdere exemplaren van het paneel met dezelfde of verschillende versies als u [dupliceren en een deelvenster aanpassen](#duplicate-and-customize-an-existing-control). Het volgende voorbeeld ziet u hoe u twee exemplaren van het paneel telemetrie toe te voegen. Deze wijzigingen wilt aanbrengen, bewerk de `src/components/pages/dashboard/dashboard.js` bestand:
 
 ```nodejs
-<PageContent className="dashboard-container" key="page-content">
+<PageContent className="dashboard-container">
   <Grid>
     <Cell className="col-1 devices-overview-cell">
       <OverviewPanel
+        activeDeviceGroup={activeDeviceGroup}
         openWarningCount={openWarningCount}
         openCriticalCount={openCriticalCount}
         onlineDeviceCount={onlineDeviceCount}
         offlineDeviceCount={offlineDeviceCount}
-        isPending={kpisIsPending || devicesIsPending}
-        error={devicesError || kpisError}
+        isPending={analyticsIsPending || devicesIsPending}
+        error={deviceGroupError || devicesError || analyticsError}
         t={t} />
     </Cell>
     <Cell className="col-3">
       <TelemetryPanel
+        timeSeriesExplorerUrl={timeSeriesParamUrl}
         telemetry={telemetry}
         isPending={telemetryIsPending}
-        error={telemetryError}
+        lastRefreshed={lastRefreshed}
+        error={deviceGroupError || telemetryError}
+        theme={theme}
         colors={chartColorObjects}
         t={t} />
     </Cell>
     <Cell className="col-3">
       <TelemetryPanel
+        timeSeriesExplorerUrl={timeSeriesParamUrl}
         telemetry={telemetry}
         isPending={telemetryIsPending}
-        error={telemetryError}
+        lastRefreshed={lastRefreshed}
+        error={deviceGroupError || telemetryError}
+        theme={theme}
         colors={chartColorObjects}
         t={t} />
     </Cell>
-    <Cell className="col-2">
-      <CustAlarmsPanel
-        alarms={currentActiveAlarmsWithName}
-        isPending={kpisIsPending || rulesIsPending}
-        error={rulesError || kpisError}
-        t={t} />
+    <Cell className="col-3">
+      <AlertsPanel
+        alerts={currentActiveAlertsWithName}
+        isPending={analyticsIsPending || rulesIsPending}
+        error={rulesError || analyticsError}
+        t={t}
+        deviceGroups={deviceGroups} />
     </Cell>
     <Cell className="col-4">
-    <PanelErrorBoundary msg={t('dashboard.panels.map.runtimeError')}>
+      <PanelErrorBoundary msg={t('dashboard.panels.map.runtimeError')}>
         <MapPanel
+          analyticsVersion={analyticsVersion}
           azureMapsKey={azureMapsKey}
           devices={devices}
-          devicesInAlarm={devicesInAlarm}
+          devicesInAlert={devicesInAlert}
           mapKeyIsPending={azureMapsKeyIsPending}
-          isPending={devicesIsPending || kpisIsPending}
-          error={azureMapsKeyError || devicesError || kpisError}
+          isPending={devicesIsPending || analyticsIsPending}
+          error={azureMapsKeyError || devicesError || analyticsError}
           t={t} />
       </PanelErrorBoundary>
     </Cell>
     <Cell className="col-6">
-      <KpisPanel
-        topAlarms={topAlarmsWithName}
-        alarmsPerDeviceId={alarmsPerDeviceType}
-        criticalAlarmsChange={criticalAlarmsChange}
-        warningAlarmsChange={warningAlarmsChange}
-        isPending={kpisIsPending || rulesIsPending || devicesIsPending}
-        error={devicesError || rulesError || kpisError}
+      <AnalyticsPanel
+        timeSeriesExplorerUrl={timeSeriesParamUrl}
+        topAlerts={topAlertsWithName}
+        alertsPerDeviceId={alertsPerDeviceType}
+        criticalAlertsChange={criticalAlertsChange}
+        isPending={analyticsIsPending || rulesIsPending || devicesIsPending}
+        error={devicesError || rulesError || analyticsError}
+        theme={theme}
         colors={chartColorObjects}
         t={t} />
     </Cell>
+    {
+      Config.showWalkthroughExamples &&
+      <Cell className="col-4">
+        <ExamplePanel t={t} />
+      </Cell>
+    }
   </Grid>
 </PageContent>
 ```
@@ -206,33 +239,30 @@ U kunt vervolgens verschillende telemetrie bekijken in elk Configuratiescherm:
 
 ![Meerdere telemetrie-panelen](./media/iot-accelerators-remote-monitoring-customize/multiple-telemetry.png)
 
-> [!NOTE]
-> De kaart is niet geconfigureerd in de lokale implementatie.
-
 ## <a name="duplicate-and-customize-an-existing-control"></a>Dubbele en aanpassen van een bestaand besturingselement
 
-De volgende stappen wordt beschreven hoe u de **alarmen** deelvenster als een voorbeeld van het dupliceren van een bestaande Configuratiescherm, wijzigen en de aangepaste versie gebruiken:
+De volgende stappen beschrijven het dupliceren van een bestaande Configuratiescherm, wijzigen en gebruik vervolgens de gewijzigde versie. De stappen wordt gebruikgemaakt van de **waarschuwingen** deelvenster als een voorbeeld:
 
-1. In de lokale kopie van de opslagplaats, maakt u een kopie van de **alarmen** map in de `src/components/pages/dashboard/panels` map. Noem de nieuwe kopie **cust_alarms**.
+1. In de lokale kopie van de opslagplaats, maakt u een kopie van de **waarschuwingen** map in de `src/components/pages/dashboard/panels` map. Noem de nieuwe kopie **cust_alerts**.
 
-1. In de **alarmsPanel.js** -bestand in de **cust_alarms** map, de naam van de klasse moet bewerken **CustAlarmsPanel**:
+1. In de **alertsPanel.js** -bestand in de **cust_alerts** map, de naam van de klasse moet bewerken **CustAlertsPanel**:
 
     ```nodejs
-    export class CustAlarmsPanel extends Component {
+    export class CustAlertsPanel extends Component {
     ```
 
 1. Voeg de volgende regel aan de `src/components/pages/dashboard/panels/index.js` bestand:
 
     ```nodejs
-    export * from './cust_alarms';
+    export * from './cust_alerts';
     ```
 
-1. Vervang `AlarmsPanel` met `CustAlarmsPanel` in de `src/components/pages/dashboard/dashboard.js` bestand:
+1. Vervang `alertsPanel` met `CustAlertsPanel` in de `src/components/pages/dashboard/dashboard.js` bestand:
 
     ```nodejs
     import {
       OverviewPanel,
-      CustAlarmsPanel,
+      CustAlertsPanel,
       TelemetryPanel,
       KpisPanel,
       MapPanel,
@@ -243,17 +273,17 @@ De volgende stappen wordt beschreven hoe u de **alarmen** deelvenster als een vo
     ...
 
     <Cell className="col-3">
-      <CustAlarmsPanel
-        alarms={currentActiveAlarmsWithName}
+      <CustAlertsPanel
+        alerts={currentActivealertsWithName}
         isPending={kpisIsPending || rulesIsPending}
         error={rulesError || kpisError}
         t={t} />
     </Cell>
     ```
 
-U hebt nu de oorspronkelijke vervangen **alarmen** Configuratiescherm met behulp van een kopie met de naam **CustAlarms**. Dit exemplaar is identiek aan de oorspronkelijke. U kunt nu de kopie wijzigen. Bijvoorbeeld, om te wijzigen van de kolom bestellen in de **alarmen** Configuratiescherm:
+U hebt nu de oorspronkelijke vervangen **waarschuwingen** Configuratiescherm met behulp van een kopie met de naam **CustAlerts**. Dit exemplaar is hetzelfde als het origineel. U kunt nu de kopie wijzigen. Bijvoorbeeld, om te wijzigen van de kolom bestellen in de **waarschuwingen** Configuratiescherm:
 
-1. Open het `src/components/pages/dashboard/panels/cust_alarms/alarmsPanel.js`-bestand.
+1. Open het `src/components/pages/dashboard/panels/cust_alerts/alertsPanel.js`-bestand.
 
 1. Wijzig de kolomdefinities zoals wordt weergegeven in het volgende codefragment:
 
@@ -272,13 +302,13 @@ U hebt nu de oorspronkelijke vervangen **alarmen** Configuratiescherm met behulp
     ];
     ```
 
-De volgende schermafbeelding ziet u de nieuwe versie van de **alarmen** Configuratiescherm:
+De volgende schermafbeelding ziet u de nieuwe versie van de **waarschuwingen** Configuratiescherm:
 
-![Paneel bijgewerkt](./media/iot-accelerators-remote-monitoring-customize/reorder-columns.png)
+![paneel waarschuwingen is bijgewerkt](./media/iot-accelerators-remote-monitoring-customize/reorder-columns.png)
 
 ## <a name="customize-the-telemetry-chart"></a>De telemetrie-grafiek aanpassen
 
-De grafiek telemetrie op de **Dashboard** pagina wordt gedefinieerd door de bestanden in de `src/components/pages/dashboard/panels/telemtry` map. De gebruikersinterface van de telemetrie opgehaald uit de back-end oplossing in de `src/services/telemetryService.js` bestand. De volgende stappen laten zien hoe u de geselecteerde periode weergegeven in de grafiek telemetrie tussen 15 minuten tot 5 minuten wijzigen:
+De bestanden in de `src/components/pages/dashboard/panels/telemtry` map definiëren de grafiek telemetrie op de **Dashboard** pagina. De gebruikersinterface van de telemetrie opgehaald uit de back-end oplossing in de `src/services/telemetryService.js` bestand. De volgende stappen laten zien hoe u de geselecteerde periode weergegeven in de grafiek telemetrie van 15 tot 5 minuten wijzigen:
 
 1. In de `src/services/telemetryService.js` bestand, zoek de aangeroepen functie **getTelemetryByDeviceIdP15M**. Maak een kopie van deze functie en de kopie als volgt wijzigen:
 
@@ -305,28 +335,29 @@ De telemetrie-grafiek toont de vijf minuten van telemetrische gegevens:
 
 ## <a name="add-a-new-kpi"></a>Een nieuwe KPI toevoegen
 
-De **Dashboard** pagina worden weergegeven voor KPI's in de **System KPI's** deelvenster. Deze KPI's worden berekend in de `src/components/pages/dashboard/dashboard.js` bestand. De KPI's worden weergegeven door de `src/components/pages/dashboard/panels/kpis/kpisPanel.js` bestand. De volgende stappen wordt beschreven hoe u om te berekenen en een nieuwe KPI-waarde weergegeven op de **Dashboard** pagina. Het voorbeeld is het toevoegen van een nieuwe Wijzigingspercentage in waarschuwingssignalen KPI:
+De **Dashboard** pagina worden weergegeven voor KPI's in de **Analytics** deelvenster. Deze KPI's worden berekend in de `src/components/pages/dashboard/dashboard.js` bestand. De KPI's worden weergegeven door de `src/components/pages/dashboard/panels/analytics/analyticsPanel.js` bestand. De volgende stappen wordt beschreven hoe u om te berekenen en een nieuwe KPI-waarde weergegeven op de **Dashboard** pagina. Het voorbeeld is het toevoegen van een nieuwe Wijzigingspercentage in waarschuwingssignalen KPI:
 
-1. Open het `src/components/pages/dashboard/dashboard.js`-bestand. Wijzig de **initialState** object om op te nemen een **warningAlarmsChange** eigenschap als volgt te werk:
+1. Open het `src/components/pages/dashboard/dashboard.js`-bestand. Wijzig de **initialState** object om op te nemen een **warningAlertsChange** eigenschap als volgt te werk:
 
     ```nodejs
     const initialState = {
       ...
 
-      // Kpis data
-      currentActiveAlarms: [],
-      topAlarms: [],
-      alarmsPerDeviceId: {},
-      criticalAlarmsChange: 0,
-      warningAlarmsChange: 0,
-      kpisIsPending: true,
-      kpisError: null,
+      // Analytics data
+      analyticsVersion: 0,
+      currentActiveAlerts: [],
+      topAlerts: [],
+      alertsPerDeviceId: {},
+      criticalAlertsChange: 0,
+      warningAlertsChange: 0,
+      analyticsIsPending: true,
+      analyticsError: null
 
       ...
     };
     ```
 
-1. Wijzig de **currentAlarmsStats** object om op te nemen **totalWarningCount** als een eigenschap:
+1. Wijzig de **currentAlertsStats** object om op te nemen **totalWarningCount** als een eigenschap:
 
     ```nodejs
     return {
@@ -341,46 +372,48 @@ De **Dashboard** pagina worden weergegeven voor KPI's in de **System KPI's** dee
 1. De nieuwe KPI berekenen. Zoek de berekening van het aantal kritieke waarschuwingen. De code dupliceren en de kopie als volgt wijzigen:
 
     ```nodejs
-    // ================== Warning Alarms Count - START
-    const currentWarningAlarms = currentAlarmsStats.totalWarningCount;
-    const previousWarningAlarms = previousAlarms.reduce(
-      (cnt, { severity }) => severity === 'warning' ? cnt + 1 : cnt,
+    // ================== Warning Alerts Count - START
+    const currentWarningAlerts = currentAlertsStats.totalWarningCount;
+    const previousWarningAlerts = previousAlerts.reduce(
+      (cnt, { severity }) => severity === Config.ruleSeverity.warning ? cnt + 1 : cnt,
       0
     );
-    const warningAlarmsChange = ((currentWarningAlarms - previousWarningAlarms) / currentWarningAlarms * 100).toFixed(2);
-    // ================== Warning Alarms Count - END
+    const warningAlertsChange = ((currentWarningAlerts - previousWarningAlerts) / currentWarningAlerts * 100).toFixed(2);
+    // ================== Warning Alerts Count - END
     ```
 
-1. Zodat de nieuwe **warningAlarmsChange** KPI in de KPI-stroom:
+1. Zodat de nieuwe **warningAlertsChange** KPI in de KPI-stroom:
 
     ```nodejs
     return ({
-      kpisIsPending: false,
+      analyticsIsPending: false,
+      analyticsVersion: this.state.analyticsVersion + 1,
 
-      // Kpis data
-      currentActiveAlarms,
-      topAlarms,
-      criticalAlarmsChange,
-      warningAlarmsChange,
-      alarmsPerDeviceId: currentAlarmsStats.alarmsPerDeviceId,
+      // Analytics data
+      currentActiveAlerts,
+      topAlerts,
+      criticalAlertsChange,
+      warningAlertsChange,
+      alertsPerDeviceId: currentAlertsStats.alertsPerDeviceId,
 
       ...
     });
     ```
 
-1. Zodat de nieuwe **warningAlarmsChange** KPI in de van statusgegevens die worden gebruikt om de gebruikersinterface weer te geven:
+1. Zodat de nieuwe **warningAlertsChange** KPI in de van statusgegevens die worden gebruikt om de gebruikersinterface weer te geven:
 
     ```nodejs
     const {
       ...
 
-      currentActiveAlarms,
-      topAlarms,
-      alarmsPerDeviceId,
-      criticalAlarmsChange,
-      warningAlarmsChange,
-      kpisIsPending,
-      kpisError,
+      analyticsVersion,
+      currentActiveAlerts,
+      topAlerts,
+      alertsPerDeviceId,
+      criticalAlertsChange,
+      warningAlertsChange,
+      analyticsIsPending,
+      analyticsError,
 
       ...
     } = this.state;
@@ -389,46 +422,47 @@ De **Dashboard** pagina worden weergegeven voor KPI's in de **System KPI's** dee
 1. Update voor de gegevens aan het deelvenster KPI's doorgegeven:
 
     ```node.js
-    <KpisPanel
-      topAlarms={topAlarmsWithName}
-      alarmsPerDeviceId={alarmsPerDeviceType}
-      criticalAlarmsChange={criticalAlarmsChange}
-      warningAlarmsChange={warningAlarmsChange}
-      isPending={kpisIsPending || rulesIsPending || devicesIsPending}
-      error={devicesError || rulesError || kpisError}
+    <AnalyticsPanel
+      timeSeriesExplorerUrl={timeSeriesParamUrl}
+      topAlerts={topAlertsWithName}
+      alertsPerDeviceId={alertsPerDeviceType}
+      criticalAlertsChange={criticalAlertsChange}
+      warningAlertsChange={warningAlertsChange}
+      isPending={analyticsIsPending || rulesIsPending || devicesIsPending}
+      error={devicesError || rulesError || analyticsError}
+      theme={theme}
       colors={chartColorObjects}
       t={t} />
     ```
 
-U bent nu klaar met de wijzigingen in de `src/components/pages/dashboard/dashboard.js` bestand. De volgende stappen beschrijven de wijzigingen aanbrengen in de `src/components/pages/dashboard/panels/kpis/kpisPanel.js` bestand om de nieuwe KPI weer te geven:
+U hebt nu de wijzigingen in de `src/components/pages/dashboard/dashboard.js` bestand. De volgende stappen beschrijven de wijzigingen aanbrengen in de `src/components/pages/dashboard/panels/analytics/analyticsPanel.js` bestand om de nieuwe KPI weer te geven:
 
 1. Wijzig de volgende regel code voor het ophalen van de nieuwe KPI-waarde als volgt:
 
     ```nodejs
-    const { t, isPending, criticalAlarmsChange, warningAlarmsChange, error } = this.props;
+    const { t, isPending, criticalAlertsChange, warningAlertsChange, alertsPerDeviceId, topAlerts, timeSeriesExplorerUrl, error } = this.props;
     ```
 
 1. Wijzig de markering om de nieuwe KPI-waarde als volgt weer te geven:
 
     ```nodejs
-    <div className="kpi-cell">
-      <div className="kpi-header">{t('dashboard.panels.kpis.criticalAlarms')}</div>
-      <div className="critical-alarms">
+    <div className="analytics-cell">
+      <div className="analytics-header">{t('dashboard.panels.analytics.criticalAlerts')}</div>
+      <div className="critical-alerts">
         {
-          criticalAlarmsChange !== 0 &&
-            <div className="kpi-percentage-container">
-              <div className="kpi-value">{ criticalAlarmsChange }</div>
-              <div className="kpi-percentage-sign">%</div>
+          !showOverlay &&
+            <div className="analytics-percentage-container">
+              <div className="analytics-value">{ !isNaN(criticalAlertsChange) ? criticalAlertsChange : 0 }</div>
+              <div className="analytics-percentage-sign">%</div>
             </div>
         }
       </div>
-      <div className="kpi-header">{t('Warning alarms')}</div>
-      <div className="critical-alarms">
+      <div className="critical-alerts">
         {
-          warningAlarmsChange !== 0 &&
-            <div className="kpi-percentage-container">
-              <div className="kpi-value">{ warningAlarmsChange }</div>
-              <div className="kpi-percentage-sign">%</div>
+          !showOverlay &&
+            <div className="analytics-percentage-container">
+              <div className="analytics-value">{ !isNaN(warningAlertsChange) ? warningAlertsChange : 0 }</div>
+              <div className="analytics-percentage-sign">%</div>
             </div>
         }
       </div>

@@ -15,18 +15,18 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/13/2017
 ms.author: mikeray
-ms.openlocfilehash: b71ba12f6c533d67b04366f05b9334e1993823fa
-ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
+ms.openlocfilehash: 2c0c8b49d3f7122b71a08bc57ac615ba9e0c0108
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43382025"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51239437"
 ---
 # <a name="introducing-sql-server-always-on-availability-groups-on-azure-virtual-machines"></a>Maak kennis met SQL Server Always On-beschikbaarheidsgroepen op Azure virtual machines #
 
 Dit artikel bevat beschikbaarheidsgroepen van SQL Server op Azure Virtual Machines. 
 
-AlwaysOn-beschikbaarheidsgroepen op Azure Virtual Machines zijn vergelijkbaar met AlwaysOn-beschikbaarheidsgroepen on-premises. Zie voor meer informatie, [Always On Availability Groups (SQL Server)](http://msdn.microsoft.com/library/hh510230.aspx). 
+AlwaysOn-beschikbaarheidsgroepen op Azure Virtual Machines zijn vergelijkbaar met AlwaysOn-beschikbaarheidsgroepen on-premises. Zie voor meer informatie, [Always On Availability Groups (SQL Server)](https://msdn.microsoft.com/library/hh510230.aspx). 
 
 Het diagram illustreert de onderdelen van een volledige SQL Server-beschikbaarheidsgroep in Azure Virtual Machines.
 

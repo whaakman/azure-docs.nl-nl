@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/03/2017
 ms.author: sngun
-ms.openlocfilehash: 2af93d149948071f78d0c684b812e84fa68db341
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 6ac0895ac31a815f00ca6c5fa1dfd325be2e3963
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50251121"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51245814"
 ---
 # <a name="azure-storage-table-design-guide-designing-scalable-and-performant-tables"></a>Ontwerphandleiding voor Azure Storage-tabel: Ontwerpen van schaalbare en performante tabellen
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
@@ -122,7 +122,7 @@ Het volgende voorbeeld ziet het ontwerp van een eenvoudige tabel om op te slaan 
 </table>
 
 
-Dit ontwerp gezocht tot nu toe die vergelijkbaar is met een tabel in een relationele database met de belangrijkste verschillen, wordt de verplichte kolommen en de mogelijkheid voor het opslaan van meerdere Entiteitstypen in dezelfde tabel. Naast elk van de gebruiker gedefinieerde eigenschappen zoals **FirstName** of **leeftijd** heeft een gegevenstype, zoals geheel getal of tekenreeks, net zoals een kolom in een relationele database. Hoewel in tegenstelling tot in een relationele database, de zonder schema aard van de Table-service betekent dat een eigenschap niet hetzelfde gegevenstype voor elke entiteit moet hebben. Voor het opslaan van complexe gegevenstypen in één eigenschap, moet u een geserialiseerde indeling zoals JSON of XML. Zie voor meer informatie over de tabel-service, zoals ondersteunde gegevenstypen, ondersteunde datumbereiken, naamgevingsregels en beperkingen [inzicht in het Table Service Data Model](http://msdn.microsoft.com/library/azure/dd179338.aspx).
+Dit ontwerp gezocht tot nu toe die vergelijkbaar is met een tabel in een relationele database met de belangrijkste verschillen, wordt de verplichte kolommen en de mogelijkheid voor het opslaan van meerdere Entiteitstypen in dezelfde tabel. Naast elk van de gebruiker gedefinieerde eigenschappen zoals **FirstName** of **leeftijd** heeft een gegevenstype, zoals geheel getal of tekenreeks, net zoals een kolom in een relationele database. Hoewel in tegenstelling tot in een relationele database, de zonder schema aard van de Table-service betekent dat een eigenschap niet hetzelfde gegevenstype voor elke entiteit moet hebben. Voor het opslaan van complexe gegevenstypen in één eigenschap, moet u een geserialiseerde indeling zoals JSON of XML. Zie voor meer informatie over de tabel-service, zoals ondersteunde gegevenstypen, ondersteunde datumbereiken, naamgevingsregels en beperkingen [inzicht in het Table Service Data Model](https://msdn.microsoft.com/library/azure/dd179338.aspx).
 
 Zoals u ziet, uw eigen keuze aan **PartitionKey** en **RowKey** is fundamenteel voor een goede tabelontwerp. Elke entiteit die zijn opgeslagen in een tabel moet een unieke combinatie van **PartitionKey** en **RowKey**. Net als bij de sleutels in een relationele database-tabel de **PartitionKey** en **RowKey** waarden worden geïndexeerd voor het maken van een geclusterde index waarmee snel zoeken; echter, de Table-service maakt niet alle secundaire indexen, zodat dit de enige twee geïndexeerde eigenschappen (enkele van de patronen die later wordt beschreven laten zien hoe u deze zichtbaar beperking kunt omzeilen) zijn.  
 
@@ -133,7 +133,7 @@ De accountnaam, de tabelnaam, en **PartitionKey** samen bepalen de partitie in d
 
 Een knooppunt van de afzonderlijke services in de tabel-service een of meer partities en de service schalen voltooien door dynamische taakverdeling partities over knooppunten. Als een knooppunt belast wordt, de table-service kunt *splitsen* het bereik van partities afgehandeld door dat knooppunt aan andere knooppunten; wanneer netwerkverkeer afneemt, de service kunt *samenvoegen* de partitie kan variëren van stille knooppunten terug op een enkel knooppunt.  
 
-Raadpleeg het artikel voor meer informatie over de interne details van de Table-service, en met name hoe partities worden beheerd door de service, [Microsoft Azure Storage: een maximaal beschikbare Cloudopslagservice met sterke consistentie](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx).  
+Raadpleeg het artikel voor meer informatie over de interne details van de Table-service, en met name hoe partities worden beheerd door de service, [Microsoft Azure Storage: een maximaal beschikbare Cloudopslagservice met sterke consistentie](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx).  
 
 ### <a name="entity-group-transactions"></a>Entiteit-groepstransacties
 Entiteit-groepstransacties (EGTs) zijn in de tabel-service, het enige ingebouwde mechanisme voor het uitvoeren van atomic updates voor meerdere entiteiten. EGTs worden ook aangeduid als *batch transacties* in sommige documentatie. EGTs kan alleen worden uitgevoerd op entiteiten die zijn opgeslagen in dezelfde partitie (delen dezelfde partitiesleutel in een bepaalde tabel), zodat telkens wanneer u atomische transactionele gedrag voor meerdere entiteiten die u nodig hebt om ervoor te zorgen dat deze entiteiten in dezelfde partitie. Dit is vaak een reden voor het bewaren van meerdere Entiteitstypen in dezelfde tabel (en de partitie) en meerdere tabellen voor verschillende Entiteitstypen niet gebruiken. Een enkele EGT kan worden uitgevoerd op maximaal 100 entiteiten.  Als u meerdere gelijktijdige EGTs voor verwerking verzendt, is het belangrijk om ervoor te zorgen dat die EGTs worden niet uitgevoerd op entiteiten die zijn gebruikt voor EGTs anders verwerking kan worden uitgesteld.
@@ -153,7 +153,7 @@ De volgende tabel bevat enkele van de sleutelwaarden rekening mee moet houden bi
 | Grootte van de **RowKey** |Een tekenreeks van 1 KB groot |
 | Grootte van een transactie entiteitsgroep |Een transactie mag maximaal 100 entiteiten en de payload moet minder dan 4 MB groot zijn. Een entiteit kunt slechts één keer bijwerken door een EGT. |
 
-Zie [Het gegevensmodel van de tabelservice](http://msdn.microsoft.com/library/azure/dd179338.aspx) voor meer informatie.  
+Zie [Het gegevensmodel van de tabelservice](https://msdn.microsoft.com/library/azure/dd179338.aspx) voor meer informatie.  
 
 ### <a name="cost-considerations"></a>Kostenoverwegingen
 Tabelopslag is relatief goedkope, maar u moet de geraamde kosten voor zowel het capaciteitsgebruik van en het aantal transacties opnemen als onderdeel van de evaluatie van een oplossing die gebruikmaakt van de Table-service. In veel scenario's voor het opslaan van gedenormaliseerde of dubbele gegevens om te verbeteren is de prestaties of de schaalbaarheid van uw oplossing echter een geldig benadering te nemen. Zie voor meer informatie over prijzen [prijzen voor Azure Storage](https://azure.microsoft.com/pricing/details/storage/).  
@@ -208,7 +208,7 @@ De volgende voorbeelden wordt ervan uitgegaan dat de table-service opslaat werkn
 | **Leeftijd** |Geheel getal |
 | **EmailAddress** |Reeks |
 
-De eerdere sectie [overzicht van Azure Table service](#overview) beschrijft een aantal van de belangrijkste functies van de Azure Table-service waarvoor een directe invloed op het ontwerpen van query. Dit resulteert in de volgende algemene richtlijnen voor het ontwerpen van query's tabel-service. De filtersyntaxis van de gebruikt in de onderstaande voorbeelden wordt uit de tabelservice REST-API voor meer informatie, Zie [entiteiten opvragen](http://msdn.microsoft.com/library/azure/dd179421.aspx).  
+De eerdere sectie [overzicht van Azure Table service](#overview) beschrijft een aantal van de belangrijkste functies van de Azure Table-service waarvoor een directe invloed op het ontwerpen van query. Dit resulteert in de volgende algemene richtlijnen voor het ontwerpen van query's tabel-service. De filtersyntaxis van de gebruikt in de onderstaande voorbeelden wordt uit de tabelservice REST-API voor meer informatie, Zie [entiteiten opvragen](https://msdn.microsoft.com/library/azure/dd179421.aspx).  
 
 * Een ***punt Query*** is de meest efficiënte zoekopdracht om te gebruiken en wordt aanbevolen om te worden gebruikt voor zoekopdrachten met hoog volume of zoekacties laagste latentie vereisen. Dergelijke query de indexen kunt gebruiken om te zoeken op een afzonderlijke entiteit efficiënt door op te geven op beide de **PartitionKey** en **RowKey** waarden. Bijvoorbeeld: $filter = (PartitionKey eq 'Verkoop') en (RowKey eq '2')  
 * Ten tweede beste is een ***Bereikquery*** die gebruikmaakt van de **PartitionKey** en filters op een scala aan **RowKey** die moeten worden geretourneerd van meer dan één entiteit. De **PartitionKey** waarde geeft een specifieke partitie en de **RowKey** waarden identificeren een subset van de entiteiten in de betreffende partitie. Bijvoorbeeld: $filter = PartitionKey eq 'Verkoop en RowKey ge van' en RowKey lt 'T'  
@@ -437,7 +437,7 @@ Als u een query voor een bereik van de werknemer entiteiten, kunt u een bereik i
 * Alle werknemers vinden op de afdeling verkoop met een werknemer-id in het gebruik van bereik 000100-000199: $filter = (PartitionKey eq 'Verkoop') en (RowKey ge 'empid_000100') en (RowKey le 'empid_000199')  
 * Aan alle werknemers in de afdeling verkoop met een e-mailadres begint met de letter 'a' gebruik zoeken: $filter = (PartitionKey eq 'Verkoop') en (RowKey ge 'email_a') en (RowKey lt 'email_b')  
   
-  De filtersyntaxis van de gebruikt in de bovenstaande voorbeelden is uit de tabelservice REST-API voor meer informatie, Zie [entiteiten opvragen](http://msdn.microsoft.com/library/azure/dd179421.aspx).  
+  De filtersyntaxis van de gebruikt in de bovenstaande voorbeelden is uit de tabelservice REST-API voor meer informatie, Zie [entiteiten opvragen](https://msdn.microsoft.com/library/azure/dd179421.aspx).  
 
 #### <a name="issues-and-considerations"></a>Problemen en overwegingen
 Beschouw de volgende punten als u besluit hoe u dit patroon wilt implementeren:  
@@ -491,7 +491,7 @@ Als u een query voor een bereik van de werknemer entiteiten, kunt u een bereik i
 * Alle werknemers vinden op de afdeling verkoop met een werknemer-id in het bereik **000100** naar **000199** gesorteerd werknemer-id gebruiken: $filter = (PartitionKey eq ' empid_Sales') en (RowKey ge '000100') en (RowKey le '000199')  
 * Alle werknemers vinden op de afdeling verkoop met een e-mailadres dat met 'a' gesorteerde e-mailadres gebruiken begint: $filter = (PartitionKey eq ' email_Sales') en (RowKey ge 'a') en (RowKey lt "b")  
 
-Houd er rekening mee dat de filtersyntaxis van de gebruikt in de bovenstaande voorbeelden is uit de tabelservice REST-API voor meer informatie, Zie [entiteiten opvragen](http://msdn.microsoft.com/library/azure/dd179421.aspx).  
+Houd er rekening mee dat de filtersyntaxis van de gebruikt in de bovenstaande voorbeelden is uit de tabelservice REST-API voor meer informatie, Zie [entiteiten opvragen](https://msdn.microsoft.com/library/azure/dd179421.aspx).  
 
 #### <a name="issues-and-considerations"></a>Problemen en overwegingen
 Beschouw de volgende punten als u besluit hoe u dit patroon wilt implementeren:  
@@ -1002,7 +1002,7 @@ Een optimale query retourneert een afzonderlijke entiteit op basis van een **Par
 
 U moet de prestaties van uw toepassing altijd volledig hebt getest in dergelijke scenario's.  
 
-Een query op de table-service kan maximaal 1000 entiteiten in één keer worden geretourneerd en kan worden uitgevoerd voor een maximum van vijf seconden. Als de resultatenset bevat meer dan 1000 entiteiten als de query is niet voltooid binnen de vijf seconden, of als de query overschrijdt de grens van de partitie, retourneert de Table-service een vervolgtoken zodat de clienttoepassing om aan te vragen van de volgende set entiteiten. Zie voor meer informatie over hoe voortzetting van tokens voor werk, [time-out voor query's en van paginering](http://msdn.microsoft.com/library/azure/dd135718.aspx).  
+Een query op de table-service kan maximaal 1000 entiteiten in één keer worden geretourneerd en kan worden uitgevoerd voor een maximum van vijf seconden. Als de resultatenset bevat meer dan 1000 entiteiten als de query is niet voltooid binnen de vijf seconden, of als de query overschrijdt de grens van de partitie, retourneert de Table-service een vervolgtoken zodat de clienttoepassing om aan te vragen van de volgende set entiteiten. Zie voor meer informatie over hoe voortzetting van tokens voor werk, [time-out voor query's en van paginering](https://msdn.microsoft.com/library/azure/dd135718.aspx).  
 
 Als u van de Storage-clientbibliotheek gebruikmaakt, kan deze voortzetting van tokens automatisch voor u verwerken, zoals het retourneert entiteiten uit de tabelservice. De volgende C# voorbeeldcode met behulp van de Storage-clientbibliotheek automatisch verwerkt voortzetting van tokens als de table-service deze in een antwoord geretourneerd:  
 

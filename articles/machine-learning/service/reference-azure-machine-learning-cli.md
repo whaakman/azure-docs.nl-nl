@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: jordane
 author: jpe316
 ms.date: 09/24/2018
-ms.openlocfilehash: 53e737f35904a90bb56ec15c8a8282f8775e3c3a
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 45ed1867d6d151250340bb21450b4b0d9b00e993
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49393488"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51243144"
 ---
 # <a name="what-is-the-azure-machine-learning-cli"></a>Wat is Azure Machine Learning CLI?
 
@@ -25,7 +25,7 @@ De extensie Azure Machine Learning-opdrachtregelinterface (CLI) is voor data sci
 
 + Verpakken, implementeren en bijhouden van de levenscyclus van machine learning-modellen
 
-Deze machine learning-CLI is een uitbreiding van [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) en is gebaseerd op de op Python gebaseerde <a href="http://aka.ms/aml-sdk" target="_blank">SDK</a> voor Azure Machine Learning-service.
+Deze machine learning-CLI is een uitbreiding van [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) en is gebaseerd op de op Python gebaseerde <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a> voor Azure Machine Learning-service.
 
 > [!NOTE]
 > De CLI is momenteel in een vroege preview en wordt bijgewerkt.

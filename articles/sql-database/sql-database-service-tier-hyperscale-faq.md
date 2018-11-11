@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/17/2018
-ms.openlocfilehash: 31f61a1d6dee19ada60a1024a235f6329d7d5ca0
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 661fd36b4451238f488bff1db60a901a8dabd5aa
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49377811"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242152"
 ---
 # <a name="faq-about-azure-sql-hyperscale-databases"></a>Veelgestelde vragen over zeer grootschalige Azure-SQL-databases
 
@@ -253,7 +253,7 @@ Ja. SQL Server die afkomstig zijn van andere gegevensbronnen dan is logische mig
 
 ### <a name="what-slas-are-provided-for-a-hyperscale-database"></a>Wat SLA's zijn opgegeven voor een grote database
 
-In het algemeen wordt geen Sla tijdens de openbare preview. Zeer grootschalige biedt echter dezelfde mate van hoge beschikbaarheid met aanbiedingen die momenteel SQL-database. Zie [SLA](http://azure.microsoft.com/support/legal/sla/).
+In het algemeen wordt geen Sla tijdens de openbare preview. Zeer grootschalige biedt echter dezelfde mate van hoge beschikbaarheid met aanbiedingen die momenteel SQL-database. Zie [SLA](https://azure.microsoft.com/support/legal/sla/).
 
 ### <a name="are-the-database-backups-managed-for-me-by-the-azure-sql-database-service"></a>De databaseback-ups worden beheerd voor mij door de service Azure SQL Database
 

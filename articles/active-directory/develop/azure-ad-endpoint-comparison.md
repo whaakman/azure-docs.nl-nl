@@ -17,12 +17,12 @@ ms.date: 09/27/2018
 ms.author: andret
 ms.reviewer: hirsin, andret
 ms.custom: aaddev
-ms.openlocfilehash: e393851535c36eb604d57cc4d7c7561a3ebb201b
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 215e0abe196620624dcca7f430aec4ee9b9612f2
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955418"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51288200"
 ---
 # <a name="comparing-the-azure-ad-v20-endpoint-with-the-v10-endpoint"></a>Vergelijking van de Azure AD v2.0-eindpunt met het eindpunt v1.0
 
@@ -41,7 +41,7 @@ Wanneer u een nieuwe toepassing ontwikkelt, is het belangrijk te weten van de ve
 
 * V1.0 zowel v2.0-eindpunten ook accepteren aanmeldingen van *[gastgebruikers](https://docs.microsoft.com/azure/active-directory/b2b/what-is-b2b)* van een Azure AD-directory voor toepassingen die zijn geconfigureerd als *[één tenant](single-and-multi-tenant-apps.md)* of voor *multitenant* toepassingen die zijn geconfigureerd om te verwijzen naar het eindpunt van de tenant-specifieke (`https://login.microsoftonline.com/{TenantId_or_Name}`).
 
-Het v2.0-eindpunt kunt u apps die accepteren aanmelding vanaf zowel persoonlijke en werk en school-accounts, zodat u de mogelijkheid om uw app volledig account-agnostische schrijven. Bijvoorbeeld, als uw app roept de [Microsoft Graph](https://graph.microsoft.io), enkele aanvullende functionaliteit en de gegevens is beschikbaar voor accounts, zoals hun SharePoint-sites of de Directory-gegevens werken. Maar voor veel bewerkingen, zoals [van een gebruiker e-mail lezen](https://graph.microsoft.io/docs/api-reference/v1.0/resources/message), dezelfde code toegang krijgen tot de e-mail voor zowel persoonlijke en werk-en schoolaccounts.
+Het v2.0-eindpunt kunt u apps die accepteren aanmelding vanaf zowel persoonlijke en werk en school-accounts, zodat u de mogelijkheid om uw app volledig account-agnostische schrijven. Bijvoorbeeld, als uw app roept de [Microsoft Graph](https://developer.microsoft.com/graph), enkele aanvullende functionaliteit en de gegevens is beschikbaar voor accounts, zoals hun SharePoint-sites of de Directory-gegevens werken. Maar voor veel bewerkingen, zoals [van een gebruiker e-mail lezen](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/message), dezelfde code toegang krijgen tot de e-mail voor zowel persoonlijke en werk-en schoolaccounts.
 
 Voor v2.0-eindpunt, kunt u een enkele library (MSAL) toegang te krijgen tot de consumenten, onderwijs- en enterprise werelden.
 

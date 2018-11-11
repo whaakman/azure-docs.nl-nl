@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/28/2018
+ms.date: 11/08/2018
 ms.author: jingwang
-ms.openlocfilehash: d3cddc729e40b5591922fc7b5c7d3d6a258219a7
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 5c45167255ec91030f07e550de223a7ebed93168
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955810"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51345756"
 ---
 #  <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Gegevens kopiëren naar of van Azure SQL Data Warehouse met behulp van Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
@@ -217,7 +217,7 @@ Om gegevens te kopiëren van of naar Azure SQL Data Warehouse, stel de **type** 
 | Eigenschap | Beschrijving | Vereist |
 |:--- |:--- |:--- |
 | type | De **type** eigenschap van de gegevensset moet worden ingesteld op **AzureSqlDWTable**. | Ja |
-| tableName | De naam van de tabel of weergave in de Azure SQL Data Warehouse-instantie waarnaar de gekoppelde service naar verwijst. | Ja |
+| tableName | De naam van de tabel of weergave in de Azure SQL Data Warehouse-instantie waarnaar de gekoppelde service naar verwijst. | Nee voor bron, Ja voor sink |
 
 #### <a name="dataset-properties-example"></a>Voorbeeld van de gegevensset-eigenschappen
 
@@ -257,7 +257,6 @@ Om gegevens te kopiëren van Azure SQL Data Warehouse, stel de **type** eigensch
 
 - Als de **sqlReaderQuery** is opgegeven voor de **SqlSource**, de Kopieeractiviteit deze query wordt uitgevoerd op basis van de bron van de Azure SQL Data Warehouse de gegevens op te halen. Of u kunt een opgeslagen procedure opgeven. Geef de **sqlReaderStoredProcedureName** en **storedProcedureParameters** als de opgeslagen procedure parameters nodig heeft.
 - Als u niet of opgeven **sqlReaderQuery** of **sqlReaderStoredProcedureName**, de kolommen die zijn gedefinieerd in de **structuur** sectie van de gegevensset JSON worden gebruikt om een query maken. `select column1, column2 from mytable` wordt uitgevoerd op Azure SQL Data Warehouse. Als de definitie van de gegevensset niet over de **structuur**, alle kolommen zijn geselecteerd uit de tabel.
-- Bij het gebruik **sqlReaderStoredProcedureName**, moet u nog steeds om op te geven van een dummy **tableName** eigenschap in de gegevensset JSON.
 
 #### <a name="sql-query-example"></a>Voorbeeld van de SQL-query
 
@@ -562,7 +561,7 @@ Wanneer u gegevens van of naar Azure SQL Data Warehouse kopieert, worden de volg
 | Datetimeoffset | DateTimeOffset |
 | decimaal | decimaal |
 | FILESTREAM-kenmerk (varbinary(max)) | Byte[] |
-| drijvende komma | Double-waarde |
+| Float | Double-waarde |
 | image | Byte[] |
 | int | Int32 |
 | geld | decimaal |

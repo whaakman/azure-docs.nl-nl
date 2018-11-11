@@ -15,15 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: deguhath
-ms.openlocfilehash: f87bc1d8140bea9ebb09e45d42b27e201b474026
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: ecdc6ae6c7e0c8a89d97611f41146d168bc74741
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39214339"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51344107"
 ---
 # <a name="parallel-bulk-data-import-using-sql-partition-tables"></a>Parallel bulkimporteren van gegevens met SQL-partitietabellen
-Dit document wordt beschreven hoe u kunt gepartitioneerde tabellen voor het snel parallelle bulkbewerkingen voor importeren van gegevens naar een SQL Server-database bouwen. Voor grote laden/overdracht van gegevens naar een SQL-database, het importeren van gegevens op de SQL-database en de volgende query's kan worden verbeterd met behulp van *gepartitioneerde tabellen en weergaven*. 
+
+Dit artikel wordt beschreven hoe u kunt gepartitioneerde tabellen voor het snel parallelle bulkbewerkingen voor importeren van gegevens naar een SQL Server-database bouwen. Voor grote laden/overdracht van gegevens naar een SQL-database, het importeren van gegevens op de SQL-database en de volgende query's kan worden verbeterd met behulp van *gepartitioneerde tabellen en weergaven*. 
 
 ## <a name="create-a-new-database-and-a-set-of-filegroups"></a>Maak een nieuwe database en een set bestandsgroepen
 * [Maak een nieuwe database](https://technet.microsoft.com/library/ms176061.aspx), als deze niet al bestaat.
@@ -102,7 +103,7 @@ Zie voor meer informatie, [gepartitioneerde tabellen maken en indexen](https://m
 * [De database wijzigen](https://msdn.microsoft.com/library/bb522682.aspx) transactie logboekregistratie schema wijzigen in BULK_LOGGED te minimaliseren overhead van logboekregistratie, bijvoorbeeld:
   
         ALTER DATABASE <database_name> SET RECOVERY BULK_LOGGED
-* Het laden van gegevens sneller, start u de bulksgewijze importbewerkingen parallel. Raadpleeg voor tips voor snellere bulksgewijs importeren van big data in SQL Server-databases, [1TB laden in minder dan 1 uur](http://blogs.msdn.com/b/sqlcat/archive/2006/05/19/602142.aspx).
+* Het laden van gegevens sneller, start u de bulksgewijze importbewerkingen parallel. Raadpleeg voor tips voor snellere bulksgewijs importeren van big data in SQL Server-databases, [1TB laden in minder dan 1 uur](https://blogs.msdn.com/b/sqlcat/archive/2006/05/19/602142.aspx).
 
 De volgende PowerShell-script is een voorbeeld van parallelle gegevens laden met BCP.
 

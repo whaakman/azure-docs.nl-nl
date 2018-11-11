@@ -1,6 +1,6 @@
 ---
-title: Azure-galerie AI aangepaste modules | Microsoft Docs
-description: Aangepaste machine learning-modules in AI-galerie van Azure detecteren.
+title: Azure AI Gallery aangepaste modules | Microsoft Docs
+description: Aangepaste machine learning-modules in Azure AI Gallery detecteren.
 services: machine-learning
 documentationcenter: ''
 author: YasinMSFT
@@ -15,81 +15,79 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2017
-ms.openlocfilehash: c53bab2e838425dfdd124e64c3d7d3114fa30429
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: fe58b335a029e558ce29871483589908f17c03cd
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34834427"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51345688"
 ---
-# <a name="discover-custom-machine-learning-modules-in-azure-ai-gallery"></a>Aangepaste machine learning-modules in AI-galerie van Azure detecteren
-[!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
+# <a name="discover-custom-machine-learning-modules-in-azure-ai-gallery"></a>Aangepaste machine learning-modules in Azure AI Gallery detecteren
 
-## <a name="custom-modules-for-machine-learning-studio"></a>Aangepaste modules voor Machine Learning Studio
-Azure AI-galerie biedt diverse [aangepaste modules](https://gallery.cortanaintelligence.com/customModules) die de mogelijkheden van Azure Machine Learning Studio uitbreiden. U kunt de modules gebruiken in uw experimenten, zodat u nog meer geavanceerde predictive analytics-oplossingen kunt ontwikkelen importeren.
+[Azure AI Gallery](http://gallery.cortanaintelligence.com) bevat verschillende [aangepaste modules](https://gallery.cortanaintelligence.com/customModules) die de mogelijkheden van Azure Machine Learning Studio uitbreiden. U kunt de te gebruiken in uw experimenten, zodat u kunt ook meer geavanceerde predictive analytics-oplossingen ontwikkelen modules importeren.
 
-Op dit moment wordt de galerie modules biedt op *time series analytics*, *koppeling regels*, *algoritmen clustering* (buiten k-means) en *visualisaties*, en andere hulpprogramma werkpaard modules.
+Op dit moment de galerie modules biedt op *time series-analytics*, *koppelingsregels voor*, *clustering algoritmen* (anders dan k-means), en  *Visualisaties*, en andere hulpprogramma werkpaard modules.
 
 
 ## <a name="discover"></a>Ontdekken
-Om te bladeren aangepaste modules [in de galerie](http://gallery.cortanaintelligence.com)onder **meer**, selecteer **aangepaste Modules**.
+Aangepaste modules Bladeren [in de galerie](http://gallery.cortanaintelligence.com)onder **meer**, selecteer **aangepaste Modules**.
 
 ![Aangepaste Modules op de startpagina van de galerie selecteren](./media/gallery-custom-modules/select-custom-modules-in-gallery.png)
 
-De **[aangepaste Modules](https://gallery.cortanaintelligence.com/customModules)** pagina geeft een lijst met modules populaire en onlangs toegevoegd. Als u wilt weergeven van alle aangepaste modules, selecteer de **alle** knop. Als u wilt zoeken naar een specifieke aangepaste module, selecteer **alle**, en selecteer vervolgens filtercriteria. Ook kunt u zoektermen op in de **Search** vak aan de bovenkant van de pagina Galerie.
+De **[aangepaste Modules](https://gallery.cortanaintelligence.com/customModules)** pagina geeft een lijst met onlangs toegevoegde en populaire modules. Als u wilt weergeven van alle aangepaste modules, selecteer de **alle** knop. Als u wilt zoeken naar een specifieke aangepaste module, selecteer **alle**, en selecteer vervolgens filtercriteria. Ook kunt u zoektermen op in de **zoeken** vak aan de bovenkant van de pagina van de galerie.
 
 ![Selecteer 'Zie alle' om te bladeren alle aangepaste modules](./media/gallery-custom-modules/click-see-all-for-all-custom-modules.png)
 
 ### <a name="understand"></a>Begrijpen
 
-Om te begrijpen hoe een aangepaste module voor gepubliceerde werkt, selecteert u de aangepaste module om de module detailpagina te openen. De detailpagina biedt een consistente en informatieve learning-ervaring. Bijvoorbeeld, de detailpagina markeert het doel van de module en geeft het verwachte invoer, uitvoer en parameters. De detailpagina heeft ook een koppeling naar de onderliggende gegevensbron code, die u kunt bekijken en aanpassen.
+Om te begrijpen hoe een gepubliceerde aangepaste module werkt, selecteert u de aangepaste module openen van de pagina met details van de module. De pagina met details biedt een consistente en informatieve leerervaring. Bijvoorbeeld, de detailpagina van het doel van de module worden gemarkeerd en een lijst met verwachte invoer, uitvoer en parameters. De pagina met details heeft ook een koppeling naar de onderliggende broncode, die u kunt bekijken en aanpassen.
 
-### <a name="comment-and-share"></a>Opmerking en -share
-Op een aangepaste module pagina details van de **opmerkingen** sectie, u kunt opmerkingen, feedback geven of vragen hebt over de module. U kunt zelfs de module delen met vrienden of collega's op Twitter of LinkedIn. U kunt ook een koppeling naar de pagina van de module details om uit te nodigen van andere gebruikers naar de pagina e.
+### <a name="comment-and-share"></a>Opmerking en delen
+Op een aangepaste module details pagina in de **opmerkingen** sectie, u kunt opmerkingen, feedback geven of vragen stellen over de module. U kunt de module ook delen met vrienden en collega's op Twitter of LinkedIn. U kunt ook een koppeling naar de pagina van de module details aan andere gebruikers uitnodigen voor het weergeven van de pagina e.
 
 ![Dit item delen met vrienden](./media/gallery-how-to-use-contribute-publish/share-links.png)
 
 ![Uw eigen opmerkingen toevoegen](./media/gallery-how-to-use-contribute-publish/comments.png)
 
 ## <a name="import"></a>Importeren
-U kunt een aangepaste module importeren uit de galerie naar uw eigen experimenten.
+U kunt een aangepaste module uit de galerie door uw eigen experimenten wilt importeren.
 
-Azure AI-galerie biedt twee manieren een kopie van de module importeren:
+Azure AI Gallery biedt twee methoden voor het importeren van een kopie van de module:
 
-* **In de galerie**. Als u een aangepaste module uit de galerie importeren, krijgt u ook een voorbeeldexperiment waarmee u een voorbeeld van het gebruik van de module.
-* **Vanuit Machine Learning Studio**. U kunt een aangepaste module importeren terwijl u in Machine Learning Studio werkt (in dit geval wordt er geen het voorbeeldexperiment).
+* **In de galerie**. Als u een aangepaste module vanuit de galerie importeren, krijgt u ook een voorbeeldexperiment waarmee u een voorbeeld van hoe u het gebruik van de module.
+* **Vanuit Machine Learning Studio**. U kunt een aangepaste module importeren terwijl u in Machine Learning Studio werkt (in dit geval niet u het voorbeeldexperiment ophalen).
 
 ### <a name="from-the-gallery"></a>In de galerie
 
 1. Open de pagina met details van de module in de galerie. 
-2. Selecteer **openen in Studio**.
+2. Selecteer **Open in Studio**.
    
-    ![Open aangepaste module uit de galerie](./media/gallery-custom-modules/open-custom-module-from-gallery.png)
+    ![Open aangepaste module op basis van de galerie](./media/gallery-custom-modules/open-custom-module-from-gallery.png)
    
-Elke aangepaste module bevat een voorbeeldexperiment die laat zien hoe u de module. Wanneer u selecteert **openen in Studio**, het voorbeeldexperiment in uw werkruimte van Machine Learning Studio wordt geopend. (Als u nog niet bent aangemeld bij Studio, u gevraagd om de eerste te ondertekenen in met behulp van uw Microsoft-account.)
+Elke aangepaste module bevat een voorbeeldexperiment die laat hoe u zien het gebruik van de module. Wanneer u selecteert **Open in Studio**, het voorbeeldexperiment wordt geopend in uw Machine Learning Studio-werkruimte. (Als u nog niet bent aangemeld bij Studio, u wordt gevraagd naar de eerst aanmeldt met uw Microsoft-account.)
 
-Naast het voorbeeldexperiment wordt de aangepaste module gekopieerd naar de werkruimte. Ook wordt deze geplaatst in het modulepalet met alle uw ingebouwde of aangepaste Machine Learning Studio-modules. U kunt het nu gebruiken in uw eigen experimenten, net als elke andere module in uw werkruimte.
+Naast het voorbeeldexperiment, wordt de aangepaste module gekopieerd naar uw werkruimte. Ook wordt deze geplaatst in het modulepalet, met alle uw ingebouwde of aangepaste Machine Learning Studio-modules. U kunt deze nu gebruiken in uw eigen experimenten, net als elke andere module in uw werkruimte.
 
 ### <a name="from-within-machine-learning-studio"></a>Vanuit Machine Learning Studio
 
-1. Selecteer in Machine Learning Studio **nieuw**.
-2. Selecteer **Module**. U kunt kiezen uit een lijst met modules galerie of een specifieke module zoeken met behulp van de **Search** vak.
-3. Wijs met de muis op een module en selecteer vervolgens **Import Module**. (Als u informatie over de module, selecteer **weergave in de galerie**. Hiermee gaat u naar de pagina van de module details in de galerie.)
+1. Selecteer in Machine Learning Studio, **nieuw**.
+2. Selecteer **Module**. U kunt kiezen uit een lijst met Gallery-modules, of een specifieke module vinden met behulp van de **zoeken** vak.
+3. Wijs met de muis op een module en selecteer vervolgens **Import-Module**. (Informatie over de module Selecteer **weergave in de galerie**. Hiermee gaat u naar de detailpagina van de module in de galerie.)
    
     ![Aangepaste module importeren in Machine Learning Studio](./media/gallery-custom-modules/add-custom-module-in-studio.png)
 
-De aangepaste module is gekopieerd naar de werkruimte en geplaatst in het modulepalet met de ingebouwde of aangepaste Machine Learning Studio-modules. U kunt het nu gebruiken in uw eigen experimenten, net als elke andere module in uw werkruimte.
+De aangepaste module is gekopieerd naar uw werkruimte en geplaatst in het modulepalet met de ingebouwde of aangepaste Machine Learning Studio-modules. U kunt deze nu gebruiken in uw eigen experimenten, net als elke andere module in uw werkruimte.
 
 ## <a name="use"></a>Gebruiken
 
-Ongeacht welke methode u kiest voor het importeren van een aangepaste module, wanneer u de module importeren, de module wordt geplaatst in het modulepalet in Machine Learning Studio. In het modulepalet kunt u de aangepaste module in een experiment in uw werkruimte, net als elke andere module.
+Ongeacht welke methode u kiest voor het importeren van een aangepaste module bij het importeren van de module, de module wordt geplaatst in het modulepalet in Machine Learning Studio. In het modulepalet kunt u de aangepaste module in een experiment in uw werkruimte, net als elke andere module.
 
-Een geïmporteerde module gebruiken:
+Het gebruik van een geïmporteerde module:
 
-1. Een experiment maken of open een bestaande experiment.
-2. Selecteer om uit te breiden, de lijst met aangepaste modules in uw werkruimte, in het modulepalet **aangepaste**. Er is het modulepalet links van het experimentcanvas.
+1. Een experiment maken of openen van een bestaand experiment.
+2. Selecteer om uit te breiden de lijst met aangepaste modules in uw werkruimte, in het modulepalet **aangepaste**. Het modulepalet is aan de linkerkant van het experimentcanvas.
    
-    ![Aangepaste Modulelijst in Studio palet](./media/gallery-custom-modules/custom-module-in-studio-palette.png)
+    ![Lijst met aangepaste module in Studio palet](./media/gallery-custom-modules/custom-module-in-studio-palette.png)
 3. Selecteer de module die u hebt geïmporteerd en sleep deze naar uw experiment.
 
 

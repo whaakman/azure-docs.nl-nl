@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 1047c117228b57f7361a1e386bc6cde7acbfdde8
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: d2400c09a7d18faccc94464158419c81962d4a86
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47042264"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282149"
 ---
 # <a name="tutorial-1-fix-unsure-predictions"></a>Zelfstudie 1: onzekere voorspellingen herstellen
 In deze zelfstudie leert u de voorspellingen van de app te verbeteren door de uitingen die worden ontvangen via het LUIS-HTTP-eindpunt (en waar LUIS niet zeker over is) te controleren of corrigeren. Bij sommige uitingen moet mogelijk de intentie worden gecontroleerd en bij andere de entiteit. Controleer de eindpuntuitingen regelmatig als onderdeel van uw geplande LUIS-onderhoud. 
@@ -43,9 +43,9 @@ Door de eindpuntuitingen te boordelen, kunt u de voorspelde intenties controlere
 
 ## <a name="use-existing-app"></a>Bestaande app gebruiken
 
-Ga door met de in de laatste zelfstudie gemaakt app, **HumanResources**. 
+Ga door met de in de laatste zelfstudie gemaakt app, **Human Resources**. 
 
-Als u niet over de app HumanResources uit de vorige zelfstudie beschikt, voert u de volgende stappen uit:
+Als u niet over de app Human Resources uit de vorige zelfstudie beschikt, voert u de volgende stappen uit:
 
 1.  Download het [JSON-bestand van de app](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-sentiment-HumanResources.json) en sla het op.
 
@@ -61,7 +61,7 @@ Als u niet over de app HumanResources uit de vorige zelfstudie beschikt, voert u
 
 ## <a name="review-endpoint-utterances"></a>Eindpuntuitingen controleren
 
-1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Selecteer in de linkernavigatiebalk **Eindpuntuitingen beoordelen**. De lijst is gefilterd voor de intentie **ApplyForJob**. 
 

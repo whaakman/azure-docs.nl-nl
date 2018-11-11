@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/3/2018
 ms.author: rkarlin
-ms.openlocfilehash: d82d52e05d85fbd5197f84f032a55dd9c74f9d1f
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: c41cb48e61b4c2bd1dc81e508c8218fad688bbaf
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44714425"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51241716"
 ---
-# <a name="security-alerts-map-and-threat-intelligence"></a>Beveiligingswaarschuwingen kaart en bedreigingsinformatie
+# <a name="security-alerts-map-and-threat-intelligence"></a>Overzicht beveiligingswaarschuwingen en informatie over bedreigingen
 In dit artikel helpt u bij het gebruik van de Azure Security Center security waarschuwingen kaart en beveiliging op basis van gebeurtenissen bedreigingsinformatiekaart beveiligingsgerelateerde om problemen te verhelpen.
 
 ## <a name="how-the-security-alerts-map-works"></a>Hoe werkt in de beveiligingswaarschuwingen worden toegewezen
@@ -106,4 +106,4 @@ In dit artikel hebt u geleerd hoe u bedreigingsinformatie in Security Center geb
 * [Beveiligingswaarschuwingen in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-alerts-type). Meer informatie over de verschillende typen beveiligingswaarschuwingen.
 * [Handleiding voor het oplossen van problemen met Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide). Informatie over het oplossen van veelvoorkomende problemen met Security Center.
 * [Veelgestelde vragen over Azure Security Center](security-center-faq.md). Zoek antwoorden op veelgestelde vragen over het gebruik van de service.
-* [Azure-beveiligingsblog](http://blogs.msdn.com/b/azuresecurity/). Raadpleeg de blogberichten over beveiliging en naleving in Azure.
+* [Azure-beveiligingsblog](https://blogs.msdn.com/b/azuresecurity/). Raadpleeg de blogberichten over beveiliging en naleving in Azure.

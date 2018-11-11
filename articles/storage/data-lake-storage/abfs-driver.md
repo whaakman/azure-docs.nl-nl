@@ -9,20 +9,20 @@ ms.author: jamesbak
 ms.date: 06/27/2018
 ms.service: storage
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: f618b925839d6f501635748734327293a2073b64
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: f1eacaa33fd5d0c70e8a1d3547fa40bf9d0d616c
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49384852"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282591"
 ---
 # <a name="the-azure-blob-filesystem-driver-abfs-a-dedicated-azure-storage-driver-for-hadoop"></a>Het bestandssysteem van Azure Blob-stuurprogramma (ABFS): een speciale Azure Storage-stuurprogramma voor Hadoop
 
-Een van de primaire methoden voor gegevens in de Preview van Azure Data Lake Storage Gen2 is via de [Hadoop FileSystem](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/index.html). Azure Data Lake Storage Gen2 is uitgerust met een bijbehorende stuurprogramma, het bestandssysteem van Azure Blob-stuurprogramma of `ABFS`. ABFS maakt deel uit van Apache Hadoop en is opgenomen in veel van de commerciële distributies van Hadoop. Dit stuurprogramma gebruikt, veel toepassingen en frameworks toegang tot gegevens in Data Lake Storage Gen2 zonder code expliciet verwijst naar de Data Lake Storage Gen2-service.
+Een van de primaire methoden voor gegevens in de Preview van Azure Data Lake Storage Gen2 is via de [Hadoop FileSystem](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/index.html). Data Lake Storage Gen2 kunnen gebruikers van Azure Blob Storage-toegang tot een nieuw stuurprogramma, het bestandssysteem van Azure Blob-stuurprogramma of `ABFS`. ABFS maakt deel uit van Apache Hadoop en is opgenomen in veel van de commerciële distributies van Hadoop. Dit stuurprogramma gebruikt, veel toepassingen en frameworks toegang tot gegevens in Azure Blob-opslag zonder code expliciet verwijzen naar Data Lake Storage Gen2.
 
 ## <a name="prior-capability-the-windows-azure-storage-blob-driver"></a>Eerdere mogelijkheid: stuurprogramma voor de Windows Azure Storage-Blob
 
-Het Windows Azure Storage-Blob-stuurprogramma of [WASB-stuurprogramma](https://hadoop.apache.org/docs/current/hadoop-azure/index.html) opgegeven van de oorspronkelijke ondersteuning voor Azure Storage-Blobs. Dit stuurprogramma uitgevoerd de moeilijke taak van het bestandssysteem toewijzing semantiek (zoals vereist door de interface Hadoop FileSystem) met die van het object opslaan stijlinterface beschikbaar is gemaakt door Azure Blob Storage. Dit stuurprogramma blijft ondersteuning bieden voor dit model, hoge prestaties toegang tot gegevens in Blobs, maar bevat een aanzienlijke hoeveelheid code voor het uitvoeren van deze toewijzing, waardoor het moeilijk te onderhouden. Bovendien enkele bewerkingen zoals [FileSystem.rename()](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/filesystem.html#boolean_renamePath_src_Path_d) en [FileSystem.delete()](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/filesystem.html#boolean_deletePath_p_boolean_recursive) vereisen dat het stuurprogramma voor het uitvoeren van een groot aantal bewerkingen (vanwege een object winkels gebrek wanneer toegepast op mappen ondersteuning voor mappen) die vaak leiden tot slechtere prestaties. De nieuwe Azure Data Lake Storage-service is ontworpen om te strijden tegen de inherente tekortkomingen van WASB.
+Het Windows Azure Storage-Blob-stuurprogramma of [WASB-stuurprogramma](https://hadoop.apache.org/docs/current/hadoop-azure/index.html) opgegeven van de oorspronkelijke ondersteuning voor Azure Blob Storage. Dit stuurprogramma uitgevoerd de moeilijke taak van het bestandssysteem toewijzing semantiek (zoals vereist door de interface Hadoop FileSystem) met die van het object opslaan stijlinterface beschikbaar is gemaakt door Azure Blob Storage. Dit stuurprogramma blijft ondersteuning bieden voor dit model, hoge prestaties toegang tot gegevens in Blobs, maar bevat een aanzienlijke hoeveelheid code voor het uitvoeren van deze toewijzing, waardoor het moeilijk te onderhouden. Bovendien enkele bewerkingen zoals [FileSystem.rename()](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/filesystem.html#boolean_renamePath_src_Path_d) en [FileSystem.delete()](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/filesystem.html#boolean_deletePath_p_boolean_recursive) vereisen dat het stuurprogramma voor het uitvoeren van een groot aantal bewerkingen (vanwege een object winkels gebrek wanneer toegepast op mappen ondersteuning voor mappen) die vaak leiden tot slechtere prestaties. Het stuurprogramma ABFS is ontworpen om te strijden tegen de inherente tekortkomingen van WASB.
 
 ## <a name="the-azure-blob-file-system-driver"></a>Het bestandssysteem van Azure Blob-stuurprogramma
 

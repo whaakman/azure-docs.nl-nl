@@ -5,15 +5,15 @@ services: virtual-machines-linux
 author: dlepow
 ms.service: virtual-machines-linux
 ms.topic: include
-ms.date: 09/24/2018
+ms.date: 11/08/2018
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: dc03f49a684bfeb43ffd8bac9f551a67f034a04f
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: c829b8d6fedaabfb9b43c6352c8188128cf36701
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47042874"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51333749"
 ---
 ## <a name="supported-distributions-and-drivers"></a>Ondersteunde distributies en stuurprogramma 's
 
@@ -30,13 +30,11 @@ NVIDIA CUDA-stuurprogramma's voor NC, NCv2, NCv3 en ND-serie VM's (optioneel voo
 
 ### <a name="nvidia-grid-drivers"></a>NVIDIA GRID-stuurprogramma 's
 
-Microsoft herdistribueert u installatieprogramma's van NVIDIA GRID-stuurprogramma voor NV en NVv2-serie VM's gebruikt als virtuele werkstations of voor virtuele toepassingen. Alleen deze GRID-stuurprogramma's installeren op Azure NV Virtual machines, alleen op de distributies die worden vermeld in de volgende tabel. Deze stuurprogramma's bevatten de licentieverlening voor GRID virtuele GPU-Software in Azure.
+Microsoft herdistribueert u installatieprogramma's van NVIDIA GRID-stuurprogramma voor NV en NVv2-serie VM's gebruikt als virtuele werkstations of voor virtuele toepassingen. Alleen deze GRID-stuurprogramma's installeren op Azure NV Virtual machines, alleen op de besturingssystemen die worden vermeld in de volgende tabel. Deze stuurprogramma's bevatten de licentieverlening voor GRID virtuele GPU-Software in Azure. U hoeft niet voor het instellen van een server met NVIDIA vGPU software-licentie.
 
 | Distributie | Stuurprogramma |
 | --- | -- |
 | Ubuntu 16.04 LTS<br/><br/>Red Hat Enterprise Linux 7.3 of 7.4<br/><br/>Op basis van centOS 7.3 of 7.4 | NVIDIA GRID 6.2, stuurprogramma-vertakking R390|
-
-
 
 > [!WARNING] 
 > Installatie van software van derden in Red Hat-producten kan invloed hebben op de ondersteuningsvoorwaarden van Red Hat. Zie het [Knowledge Base-artikel over Red Hat](https://access.redhat.com/articles/1067).

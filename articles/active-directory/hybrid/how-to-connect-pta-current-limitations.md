@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/04/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: acb3297b8d7af1a91563fb2f519e06bc49c65695
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: ae6964b36f837931f2278ceef0b330f9badb1d71
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46314620"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282710"
 ---
 # <a name="azure-active-directory-pass-through-authentication-current-limitations"></a>Azure Pass through-verificatie van Active Directory: Huidige beperkingen
 
@@ -54,7 +54,7 @@ Wachtwoord-Hashsynchronisatie inschakelen biedt de mogelijkheid tot failover-ver
 
 ## <a name="next-steps"></a>Volgende stappen
 - [Quick start-](how-to-connect-pta-quick-start.md): aan de slag met Azure AD Pass-through-verificatie.
-- [Migreren van AD FS naar Pass-through-verificatie](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx) -een uitgebreide handleiding voor het migreren van AD FS (of andere technologieën voor federatie) naar Pass-through-verificatie.
+- [Migreren van AD FS naar Pass-through-verificatie](https://aka.ms/ADFSTOPTADPDownload) -een uitgebreide handleiding voor het migreren van AD FS (of andere technologieën voor federatie) naar Pass-through-verificatie.
 - [Vergrendeling van het smart](../authentication/howto-password-smart-lockout.md): informatie over het configureren van de functie Smart Lockout op uw tenant om te beveiligen van gebruikersaccounts.
 - [Technische details](how-to-connect-pta-how-it-works.md): informatie over de werking van de functie voor Pass through-verificatie.
 - [Veelgestelde vragen over](how-to-connect-pta-faq.md): vind antwoorden op veelgestelde vragen over de functie voor Pass through-verificatie.

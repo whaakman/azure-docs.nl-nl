@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: barbkess
-ms.openlocfilehash: cf0e94b859b49eddb8e2471d5319b3cc4a2c17ba
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 7a7f959f54281dcce5b8d1349f5d6607f0e5da30
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44720290"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51345790"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Expressies schrijven voor kenmerktoewijzingen in Azure Active Directory
 Bij het configureren van inrichting tot een SaaS-toepassing, is een van de typen kenmerktoewijzingen die u kunt opgeven een expressie-toewijzing. Voor deze, moet u een script-achtige-expressie waarmee u uw gebruikers om gegevens te transformeren naar indelingen die meer geschikt is voor de SaaS-toepassing kunt schrijven.
@@ -37,7 +37,7 @@ De syntaxis voor expressies voor kenmerktoewijzingen is doet denken aan van Visu
 * Voor tekenreeksconstanten, als u een backslash (\) of een aanhalingsteken (") in de tekenreeks, moet moet deze worden voorafgegaan door het symbool backslash (\). Bijvoorbeeld: "de naam van bedrijf: \"Contoso\""
 
 ## <a name="list-of-functions"></a>Lijst met functies
-[Toevoeg-](#append) &nbsp; &nbsp; &nbsp; &nbsp; [FormatDateTime](#formatdatetime) &nbsp; &nbsp; &nbsp; &nbsp; [Join](#join) &nbsp; &nbsp; &nbsp; &nbsp; [Mid](#mid) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [NormalizeDiacritics](#normalizediacritics) [niet](#not) &nbsp; &nbsp; &nbsp; &nbsp; [vervangen](#replace) &nbsp; &nbsp; &nbsp; &nbsp; [SingleAppRoleAssignment](#singleapproleassignment) &nbsp; &nbsp; &nbsp; &nbsp; [StripSpaces](#stripspaces) &nbsp; &nbsp; &nbsp; &nbsp; [Switch](#switch)
+[Toevoeg-](#append) &nbsp; &nbsp; &nbsp; &nbsp; [FormatDateTime](#formatdatetime) &nbsp; &nbsp; &nbsp; &nbsp; [Join](#join) &nbsp; &nbsp; &nbsp; &nbsp; [Mid](#mid) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [NormalizeDiacritics](#normalizediacritics) [niet](#not) &nbsp; &nbsp; &nbsp; &nbsp; [vervangen](#replace) &nbsp; &nbsp; &nbsp; &nbsp; [SelectUniqueValue](#selectuniquevalue) &nbsp; &nbsp; &nbsp; &nbsp; [SingleAppRoleAssignment](#singleapproleassignment) &nbsp; &nbsp; &nbsp; &nbsp; [StripSpaces](#stripspaces) &nbsp; &nbsp; &nbsp; &nbsp; [Switch](#switch)
 
 - - -
 ### <a name="append"></a>Toevoegen
@@ -63,7 +63,7 @@ De syntaxis voor expressies voor kenmerktoewijzingen is doet denken aan van Visu
 | Naam | Vereiste / herhalende | Type | Opmerkingen |
 | --- | --- | --- | --- |
 | **Bron** |Vereist |Reeks |Doorgaans de naam van het kenmerk van het bronobject. |
-| **inputFormat** |Vereist |Reeks |De verwachte notatie van de bronwaarde. Zie voor ondersteunde indelingen [ http://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx ](http://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx). |
+| **inputFormat** |Vereist |Reeks |De verwachte notatie van de bronwaarde. Zie voor ondersteunde indelingen [ http://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx ](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx). |
 | **Uitvoerindeling** |Vereist |Reeks |Indeling van de uitvoerdatum. |
 
 - - -
@@ -152,6 +152,24 @@ Vervangt waarden binnen een tekenreeks. Het werkt anders, afhankelijk van de opg
 | **sjabloon** |Optioneel |Reeks |Wanneer **sjabloon** waarde is opgegeven, gaan we voor **oldValue** in de sjabloon en vervang deze door de bronwaarde. |
 
 - - -
+### <a name="selectuniquevalue"></a>SelectUniqueValue
+**Functie:**<br> SelectUniqueValue (uniqueValueRule1, uniqueValueRule2, uniqueValueRule3,...)
+
+**Beschrijving:**<br> Minimaal twee argumenten die zijn gedefinieerd met behulp van expressies aanmaakregels voor unieke waarde is vereist. De functie evalueert van elke regel en controleert vervolgens of de waarde uniek in de doel-app/directory gegenereerd. De eerste unieke waarde gevonden, worden de geretourneerd. Als alle waarden al in het doel bestaat, wordt de vermelding ophalen verwekt en de reden wordt vastgelegd in de auditlogboeken. Er is geen bovengrens voor het aantal argumenten die kan worden opgegeven.
+
+> [!NOTE]
+>1. Dit is een functie op het hoogste niveau, kunnen niet worden genest.
+>2. Deze functie is alleen bedoeld om te worden gebruikt voor bewerkingen voor het item maken. Wanneer u deze met een kenmerk, stel de **toepassen toewijzing** eigenschap **alleen tijdens het maken van databaseobject**.
+
+
+**Parameters:**<br> 
+
+| Naam | Vereiste / herhalende | Type | Opmerkingen |
+| --- | --- | --- | --- |
+| ** uniqueValueRule1... uniqueValueRuleN ** |Ten minste zijn 2 afhankelijk van de vereiste, geen hoofdletters |Reeks | Lijst met regels voor het genereren van unieke waarde om te evalueren |
+
+
+- - -
 ### <a name="singleapproleassignment"></a>SingleAppRoleAssignment
 **Functie:**<br> SingleAppRoleAssignment([appRoleAssignments])
 
@@ -238,6 +256,7 @@ NormalizeDiacritics([givenName])
 * **UITVOER**: "Zoe"
 
 ### <a name="output-date-as-a-string-in-a-certain-format"></a>Uitvoerdatum als een tekenreeks in een bepaalde indeling
+
 Wilt u datums verzenden naar een SaaS-toepassing in een bepaalde indeling. <br>
 U wilt bijvoorbeeld datums voor ServiceNow.
 
@@ -251,6 +270,7 @@ U wilt bijvoorbeeld datums voor ServiceNow.
 * **UITVOER**: "23-01-2015"
 
 ### <a name="replace-a-value-based-on-predefined-set-of-options"></a>Vervangen door een waarde op basis van vooraf gedefinieerde set opties
+
 U moet voor het definiëren van de tijdzone van de gebruiker op basis van de status opgeslagen in Azure AD. <br>
 Als de status code komt niet overeen met een van de vooraf gedefinieerde opties, gebruikt u standaardwaarde van 'Australië/Sydney'.
 
@@ -262,6 +282,26 @@ Als de status code komt niet overeen met een van de vooraf gedefinieerde opties,
 
 * **INVOER** (status): "QLD"
 * **UITVOER**: "Australië/Brisbane"
+
+### <a name="generate-unique-value-for-userprincipalname-upn-attribute"></a>Genereren van unieke waarde voor kenmerk userPrincipalName (UPN)
+
+Gebaseerd op van de gebruiker voornaam, de tweede voornaam en achternaam, moet u het genereren van een waarde op voor het UPN-kenmerk en controleer de uniek in de-AD-doeldirectory voordat u de waarde toewijzen aan het UPN-kenmerk.
+
+**Expressie:** <br>
+
+    SelectUniqueValue( 
+        Join("@", NormalizeDiacritics(StripSpaces(Join(".",  [PreferredFirstName], [PreferredLastName]))), "contoso.com"), 
+        Join("@", NormalizeDiacritics(StripSpaces(Join(".",  Mid([PreferredFirstName], 1, 1), [PreferredLastName]))), "contoso.com")
+        Join("@", NormalizeDiacritics(StripSpaces(Join(".",  Mid([PreferredFirstName], 1, 2), [PreferredLastName]))), "contoso.com")
+    )
+
+**Voorbeeld van invoer/uitvoer:**
+
+* **INVOER** (PreferredFirstName): "John"
+* **INVOER** (PreferredLastName): 'Smith'
+* **UITVOER**: "John.Smith@contoso.com' als UPN-waarde van John.Smith@contoso.com nog niet bestaat in de map
+* **UITVOER**: "J.Smith@contoso.com' als UPN-waarde van John.Smith@contoso.com al bestaat in de map
+* **UITVOER**: "Jo.Smith@contoso.com' als de bovenstaande twee UPN-waarden al in de map bestaat
 
 ## <a name="related-articles"></a>Gerelateerde artikelen
 * [Gebruiker inrichting/ongedaan maken van inrichting voor SaaS-toepassingen automatiseren](user-provisioning.md)

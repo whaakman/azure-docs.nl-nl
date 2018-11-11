@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: garye
-ms.openlocfilehash: cd08f6a31f431900a2cb7ed9ed222409f9583b55
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 32c7fca1b56e5426bc422b816279dd0919599f0f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49393368"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51243995"
 ---
 # <a name="cheat-sheet-for-an-automated-data-pipeline-for-azure-machine-learning-predictions"></a>Overzichtskaart voor een geautomatiseerde pijplijn voor voorspellingen van Azure Machine Learning
 De **Microsoft Azure Machine Learning geautomatiseerde data pipeline-overzichtskaart** helpt u door de technologie die u gebruiken navigeren kunt om uw gegevens op uw Machine Learning-webservice waar het kan worden beoordeeld door uw predictive analytics model.
@@ -31,7 +31,7 @@ Deze overzichtskaart begeleidt u bij de beslissingen die u wilt aanbrengen, en b
 ## <a name="download-the-machine-learning-automated-data-pipeline-cheat-sheet"></a>Het referentiemateriaal voor Machine Learning geautomatiseerde pijplijn downloaden
 Nadat u het referentiemateriaal voor hebt gedownload, kunt u het kunt afdrukken in a3-grootte (11 x 17.).
 
-Het referentiemateriaal voor hier downloaden:  **[Microsoft Azure Machine Learning geautomatiseerde pijplijn overzichtskaart van gegevens](http://download.microsoft.com/download/C/C/7/CC726F8B-2E6F-4C20-9B6F-AFBEE8253023/microsoft-machine-learning-operationalization-cheat-sheet_v1.pdf)**
+Het referentiemateriaal voor hier downloaden:  **[Microsoft Azure Machine Learning geautomatiseerde pijplijn overzichtskaart van gegevens](https://download.microsoft.com/download/C/C/7/CC726F8B-2E6F-4C20-9B6F-AFBEE8253023/microsoft-machine-learning-operationalization-cheat-sheet_v1.pdf)**
 
 ![Overzicht van de mogelijkheden van Microsoft Azure Machine Learning Studio][op-cheat-sheet]
 

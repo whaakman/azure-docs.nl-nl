@@ -1,6 +1,6 @@
 ---
-title: Azure-galerie AI wedstrijden | Microsoft Docs
-description: Wedstrijden in de galerie van Azure AI detecteren.
+title: Azure AI Gallery competities | Microsoft Docs
+description: Ontdek competities in de Azure AI Gallery.
 services: machine-learning
 documentationcenter: ''
 author: YasinMSFT
@@ -15,44 +15,44 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-ms.openlocfilehash: 54ca22d9a3e685f6ae1e1454569bab9d058ce4fe
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
-ms.translationtype: MT
+ms.openlocfilehash: 08434007c7ef66349cae2a368d3be94ee522bab1
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34834488"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242345"
 ---
-# <a name="discover-competitions-in-the-azure-ai-gallery"></a>Wedstrijden in de galerie van Azure AI detecteren
+# <a name="discover-competitions-in-the-azure-ai-gallery"></a>Competities in de Azure AI Gallery detecteren
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
-## <a name="cortana-intelligence-competitions"></a>Cortana Intelligence wedstrijden
-**[Wedstrijden](https://gallery.cortanaintelligence.com/competitions)**  bieden een interessante kans om van invloed zijn op de community van gegevenswetenschappers tot complexe oplossen met behulp van Cortana Intelligence Suite.
+## <a name="cortana-intelligence-competitions"></a>Cortana Intelligence-wedstrijden
+**[Competities](https://gallery.cortanaintelligence.com/competitions)**  bieden een vernieuwende en geavanceerde mogelijkheden voor deelname aan de community van gegevenswetenschappers complexe problemen met behulp van Cortana Intelligence Suite op te lossen.
 
-Zie voor antwoorden op veelgestelde vragen over wedstrijden, [Veelgestelde vragen over Microsoft Cortana Intelligence wedstrijden](competition-faq.md).
+Zie voor antwoorden op veelgestelde vragen over wedstrijden, [Veelgestelde vragen over Microsoft Cortana Intelligence competities](competition-faq.md).
 
 ## <a name="discover"></a>Ontdekken
-De **[wedstrijden](https://gallery.cortanaintelligence.com/competitions)** pagina ([aka.ms/CIComp](http://aka.ms/CIComp)) geeft een lijst met de meest populaire wedstrijden.
+De **[competities](https://gallery.cortanaintelligence.com/competitions)** pagina ([aka.ms/CIComp](https://aka.ms/CIComp)) geeft een lijst van de meest populaire competities.
 
-![Wedstrijden vanaf de startpagina van de galerie selecteren](./media/gallery-competitions/select-competitions-in-gallery.png)
+![Competities vanaf de startpagina van de galerie selecteren](./media/gallery-competitions/select-competitions-in-gallery.png)
 
  
- Klik op **alle** om alle wedstrijden weer te geven.
-Op deze pagina kunt u alle wedstrijden in de galerie bladeren. U kunt ook zoeken door filtercriteria voldoen aan de linkerkant van de pagina en invoeren zoektermen boven selecteren.
+ Klik op **alle** om alle competities weer te geven.
+Op deze pagina kunt u alle competities in de galerie bladeren. U kunt ook zoeken door te selecteren van filtercriteria voldoen aan de linkerkant van de pagina en voeren zoektermen aan de bovenkant.
 
- Klik op een concurrentie om te openen pagina van de concurrentie details en meer informatie lezen. Feedback geven op deze pagina die u kunt opmerkingen of vragen via het gedeelte met opmerkingen. U kunt deze zelfs delen met vrienden of collega's met behulp van de share-mogelijkheden van LinkedIn of Twitter. U kunt ook e-een koppeling naar de concurrentie om uit te nodigen van andere gebruikers op de pagina weer te geven.
+ Klik op een competitie voor het openen van de pagina met details van de concurrentie en meer informatie. Op deze pagina kunt u opmerkingen, feedback geven of vragen via de sectie met opmerkingen. U kunt deze ook delen met vrienden en collega's met behulp van de share-mogelijkheden van LinkedIn- of Twitter. U kunt ook per e-mail een koppeling naar de concurrentie om uit te nodigen van andere gebruikers om de pagina weer te geven.
 
 ![Dit item delen met vrienden](./media/gallery-how-to-use-contribute-publish/share-links.png)
 
 ![Uw eigen opmerkingen toevoegen](./media/gallery-how-to-use-contribute-publish/comments.png)
 
-## <a name="enter-a-competition"></a>Voer een concurrentie
-Als de concurrentie geopend is, is het de status op de detailpagina **Active**. Als u wilt de concurrentie invoeren, klikt u op **Voer concurrentie** en krijgt u instructies voor de bronnen die u nodig hebt en de stappen die u moet uitvoeren.
+## <a name="enter-a-competition"></a>Voer een competitie
+Als de concurrentie geopend is, is het de status op de detailpagina **Active**. Om in te voeren op de concurrentie, klikt u op **Voer competitie** en krijgt u instructies voor de resources die u nodig hebt en de stappen die u moet uitvoeren.
 
-![Concurrentie is actief](media/gallery-competitions/open-competition.png)
+![Competitie is actief](media/gallery-competitions/open-competition.png)
 
-Als de concurrentie is voltooid, wordt een lijst van winnaars weergegeven.
+Als de concurrentie is voltooid, wordt een lijst met winnaars weergegeven.
 
-**[BRENG ME NAAR DE GALERIE &GT;&GT;](http://gallery.cortanaintelligence.com)**
+**[TERUG NAAR DE GALERIE &GT;&GT;](http://gallery.cortanaintelligence.com)**
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 

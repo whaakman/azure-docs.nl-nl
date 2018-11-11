@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 03/28/2018
 ms.author: jingwang
-ms.openlocfilehash: a4f9e1111516d439f018e965883eb8268c83289c
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 25a1913fba3e66e65b3c785eb6ce1738c5f00a26
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954778"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247922"
 ---
 # <a name="create-a-data-factory-and-pipeline-using-net-sdk"></a>Een data factory en pijplijn maken met behulp van .NET SDK
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -38,7 +38,7 @@ Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure
 De procedures in dit artikel zijn gebaseerd op Visual Studio 2017. U kunt ook Visual Studio 2013 of 2015 gebruiken.
 
 ### <a name="azure-net-sdk"></a>Azure .NET SDK
-Download en installeer [Azure .NET SDK](http://azure.microsoft.com/downloads/) op uw computer.
+Download en installeer [Azure .NET SDK](https://azure.microsoft.com/downloads/) op uw computer.
 
 ## <a name="create-an-application-in-azure-active-directory"></a>Een toepassing maken in Azure Active Directory
 Volg de instructies in de secties van [dit artikel](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) om het volgende te doen: 

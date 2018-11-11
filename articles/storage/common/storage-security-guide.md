@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/31/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: cd7b475dc2bd4dade822a82f285c2e96c8d532d2
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 3d9da96e5bf6c88f76089dea930b02248cfa1d24
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138169"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51243791"
 ---
 # <a name="azure-storage-security-guide"></a>Azure Storage-beveiligingshandleiding
 
@@ -479,7 +479,7 @@ Bekijk deze bronnen voor meer informatie over CORS en het inschakelen ervan.
 * [Cross-Origin Resource Sharing (CORS) ondersteuning voor de Azure Storage-Services op MSDN](https://msdn.microsoft.com/library/azure/dn535601.aspx)
 
   Dit is de referentiedocumentatie voor de CORS-ondersteuning voor de Azure Storage-Services. Dit bevat koppelingen naar artikelen toe te passen op elke storage-service en toont een voorbeeld en wordt uitgelegd van elk element in het bestand CORS.
-* [Microsoft Azure Storage: Maak kennis met CORS](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/02/03/windows-azure-storage-introducing-cors.aspx)
+* [Microsoft Azure Storage: Maak kennis met CORS](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/02/03/windows-azure-storage-introducing-cors.aspx)
 
   Dit is een koppeling naar het blogartikel initiële aankondiging van CORS en het gebruik ervan weergegeven.
 
@@ -490,7 +490,7 @@ Bekijk deze bronnen voor meer informatie over CORS en het inschakelen ervan.
 
    Als u HTTPS, dit transport level security biedt, gebruik van MD5 controleren is overbodig en onnodige gebruiken kunt.
 
-   Voor meer informatie, bekijk de [overzicht van Azure Blob MD5](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/02/18/windows-azure-blob-md5-overview.aspx).
+   Voor meer informatie, bekijk de [overzicht van Azure Blob MD5](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/02/18/windows-azure-blob-md5-overview.aspx).
 2. **Hoe zit het met FIPS-naleving voor de Verenigde Staten Overheid?**
 
    De Verenigde Staten Federal Information Processing Standard (FIPS) definieert cryptografische algoritmen die zijn goedgekeurd voor gebruik door Amerikaanse Federale overheid computersystemen voor de beveiliging van gevoelige gegevens. Het inschakelen van FIPS-modus op een Windows server of het bureaublad wordt aan het besturingssysteem dat cryptografische algoritmen alleen FIPS-gevalideerde moeten worden gebruikt. Als een toepassing maakt gebruik van niet-compatibele algoritmen, worden de toepassingen wordt verbroken. With.NET Framework versie 4.5.2 of hoger gebruikt, verandert de toepassing automatisch de cryptografiealgoritmen voor het gebruik compatibele FIPS-algoritmen wanneer de computer zich in de FIPS-modus.

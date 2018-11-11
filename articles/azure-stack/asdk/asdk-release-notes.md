@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/26/2018
+ms.date: 11/07/2018
 ms.author: sethm
 ms.reviewer: misainat
-ms.openlocfilehash: 284a964162a2374287b42698b9a2021be36590dd
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
-ms.translationtype: MT
+ms.openlocfilehash: 8e8518cdf95e1b97bd4b641322c1b2a3fdc3bf9e
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158156"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282455"
 ---
 # <a name="asdk-release-notes"></a>Opmerkingen bij de release van ASDK  
 In dit artikel bevat informatie over verbeteringen, correcties en bekende problemen in Azure Stack Development Kit (ASDK). Als u niet zeker weet welke versie u uitvoert, kunt u [de portal gebruiken om te controleren](.\.\azure-stack-updates.md#determine-the-current-version).
@@ -99,6 +99,9 @@ Zie voor meer informatie, [Azure Stack syslog doorsturen](../azure-stack-integra
 
 
 #### <a name="compute"></a>Compute 
+
+<!-- TBD – IS, ASDK -->
+- Nadat een losgekoppelde schijf aan de dezelfde virtuele machine (VM) met dezelfde naam en LUN mislukt met foutmelding zoals **gegevens schijf 'datadisk' niet koppelen aan virtuele machine 'vm1'**. De fout treedt op omdat de schijf momenteel wordt losgekoppeld of de laatste koppelingsbewerking is mislukt. Wacht totdat de schijf volledig is losgekoppeld en vervolgens opnieuw of verwijderen/loskoppelen van de schijf expliciet opnieuw. De oplossing is om te koppelen met een andere naam of op een andere logische eenheid. 
 
 <!-- 3235634 – IS, ASDK -->
 - Het implementeren van VM's met grootten met een **v2** achtervoegsel; bijvoorbeeld, **Standard_A2_v2**, geef het achtervoegsel als **Standard_A2_v2** (kleine letters v). Gebruik geen **Standard_A2_V2** (V hoofdletters). Dit werkt in de globale Azure en is een inconsistentie in Azure Stack.

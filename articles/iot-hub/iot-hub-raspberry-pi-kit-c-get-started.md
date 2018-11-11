@@ -10,12 +10,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 04/11/2018
 ms.author: rangv
-ms.openlocfilehash: c8e2dcfef1db8bfe3d76ac917f8c14a4060e3968
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 20c26c5daa66edd7705e850f14a79a2cbe2964fc
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49318755"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515672"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-c"></a>Raspberry Pi verbinden met Azure IoT Hub (C)
 
@@ -43,7 +43,7 @@ Raspberry Pi verbinden met een IoT-hub die u maakt. Vervolgens voert u een voorb
 
 ## <a name="what-you-need"></a>Wat u nodig hebt
 
-![Wat u nodig hebt](media/iot-hub-raspberry-pi-kit-c-get-started/0_starter_kit.jpg)
+![Wat u nodig hebt](./media/iot-hub-raspberry-pi-kit-c-get-started/0_starter_kit.jpg)
 
 * Het bord Raspberry Pi 2 of Raspberry Pi 3.
 * Een actief Azure-abonnement. Als u een Azure-account geen [Azure een gratis proefaccount maken](https://azure.microsoft.com/free/) in een paar minuten.
@@ -65,7 +65,17 @@ De volgende items zijn optioneel:
 > Deze items zijn optioneel, omdat de ondersteuning voor het voorbeeld van code sensorgegevens gesimuleerde.
 >
 
-[!INCLUDE [iot-hub-get-started-create-hub-and-device](../../includes/iot-hub-get-started-create-hub-and-device.md)]
+## <a name="create-an-iot-hub"></a>Een IoT Hub maken
+
+[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
+
+### <a name="retrieve-connection-string-for-iot-hub"></a>Voor IoT hub-verbindingsreeks ophalen
+
+[!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
+
+## <a name="register-a-new-device-in-the-iot-hub"></a>Een nieuw apparaat registreren in de IoT-hub
+
+[!INCLUDE [iot-hub-include-create-device](../../includes/iot-hub-include-create-device.md)]
 
 ## <a name="setup-raspberry-pi"></a>Raspberry Pi instellen
 
@@ -89,11 +99,11 @@ Bereid de microSD-kaart voor de installatie van de installatiekopie van het Rasp
 1. Pi verbinden met de monitor, toetsenbord en muis, Pi starten en meld u vervolgens aan Raspbian met behulp van `pi` als de gebruikersnaam en `raspberry` als het wachtwoord.
 1. Klik op het pictogram Raspberry > **voorkeuren** > **Raspberry Pi configuratie**.
 
-   ![Het menu Raspbian voorkeuren](media/iot-hub-raspberry-pi-kit-c-get-started/1_raspbian-preferences-menu.png)
+   ![Het menu Raspbian voorkeuren](./media/iot-hub-raspberry-pi-kit-c-get-started/1_raspbian-preferences-menu.png)
 
 1. Op de **Interfaces** tabblad **SPI** en **SSH** naar **inschakelen**, en klik vervolgens op **OK**. Als u geen fysieke sensoren hebt en gesimuleerde sensorgegevens wilt gebruiken, is deze stap is optioneel.
 
-   ![SPI en SSH op Raspberry Pi inschakelen](media/iot-hub-raspberry-pi-kit-c-get-started/2_enable-spi-ssh-on-raspberry-pi.png)
+   ![SPI en SSH op Raspberry Pi inschakelen](./media/iot-hub-raspberry-pi-kit-c-get-started/2_enable-spi-ssh-on-raspberry-pi.png)
 
 > [!NOTE] 
 > Om in te schakelen SSH en SPI, vindt u meer referentiedocumenten op [raspberrypi.org](https://www.raspberrypi.org/documentation/remote-access/ssh/) en [RASPI-CONFIG](https://www.raspberrypi.org/documentation/configuration/raspi-config.md).
@@ -103,7 +113,7 @@ Bereid de microSD-kaart voor de installatie van de installatiekopie van het Rasp
 
 Gebruik de breadboard en meestal kabels verbinden met een LED en een BME280 Pi als volgt. Als u geen de sensor [deze sectie overslaan](#connect-pi-to-the-network).
 
-![De sensor en Raspberry Pi-verbinding](media/iot-hub-raspberry-pi-kit-c-get-started/3_raspberry-pi-sensor-connection.png)
+![De sensor en Raspberry Pi-verbinding](./media/iot-hub-raspberry-pi-kit-c-get-started/3_raspberry-pi-sensor-connection.png)
 
 De sensor BME280 kunt temperatuur en vochtigheid gegevens verzamelen. En de LED knippert als er een communicatie tussen het apparaat en de cloud. 
 
@@ -124,13 +134,13 @@ Klik om weer te geven [Raspberry Pi 2 en 3 pincode toewijzingen](https://develop
 
 Nadat u hebt BME280 is verbonden met uw Raspberry Pi, moet zijn, zoals onder afbeelding.
 
-![Verbonden Pi en BME280](media/iot-hub-raspberry-pi-kit-c-get-started/4_connected-pi.jpg)
+![Verbonden Pi en BME280](./media/iot-hub-raspberry-pi-kit-c-get-started/4_connected-pi.jpg)
 
 ### <a name="connect-pi-to-the-network"></a>Pi verbinding met het netwerk
 
 Pi inschakelen met behulp van de micro USB-kabel en de voeding. De Ethernet-kabel gebruiken om te verbinden met het bekabelde netwerk Pi of gaat u als volgt de [instructies van de basis van Raspberry Pi](https://www.raspberrypi.org/learning/software-guide/wifi/) Pi verbinden met het draadloze netwerk. Nadat uw Pi is verbonden met het netwerk, moet u Noteer de [IP-adres van uw Pi](https://learn.adafruit.com/adafruits-raspberry-pi-lesson-3-network-setup/finding-your-pis-ip-address).
 
-![Verbonden met het bekabelde netwerk](media/iot-hub-raspberry-pi-kit-c-get-started/5_power-on-pi.jpg)
+![Verbonden met het bekabelde netwerk](./media/iot-hub-raspberry-pi-kit-c-get-started/5_power-on-pi.jpg)
 
 
 ## <a name="run-a-sample-application-on-pi"></a>Een voorbeeld van toepassing op Pi uitvoeren
@@ -143,7 +153,7 @@ Pi inschakelen met behulp van de micro USB-kabel en de voeding. De Ethernet-kabe
    1. Download en installeer [PuTTY](http://www.putty.org/) voor Windows. 
    1. Kopieer het IP-adres van de sectie Pi in de Host-naam (of IP-adres) en SSH als het verbindingstype selecteren.
    
-   ![PuTTy](media/iot-hub-raspberry-pi-kit-node-get-started/7_putty-windows.png)
+   ![PuTTy](./media/iot-hub-raspberry-pi-kit-node-get-started/7_putty-windows.png)
    
    **Mac- en Ubuntu-gebruikers**
    
@@ -181,7 +191,7 @@ Pi inschakelen met behulp van de micro USB-kabel en de voeding. De Ethernet-kabe
    cmake . && make
    ```
    
-   ![Uitvoer maken](media/iot-hub-raspberry-pi-kit-c-get-started/7_build-output.png)
+   ![Uitvoer maken](./media/iot-hub-raspberry-pi-kit-c-get-started/7_build-output.png)
 
 1. De voorbeeldtoepassing uitvoeren met de volgende opdracht:
 
@@ -195,7 +205,7 @@ Pi inschakelen met behulp van de micro USB-kabel en de voeding. De Ethernet-kabe
 
 Hier ziet u de volgende uitvoer ziet u de sensorgegevens en de berichten die worden verzonden naar uw IoT-hub.
 
-![Uitvoer - sensorgegevens van Raspberry Pi verzonden naar uw IoT-hub](media/iot-hub-raspberry-pi-kit-c-get-started/8_run-output.png)
+![Uitvoer - sensorgegevens van Raspberry Pi verzonden naar uw IoT-hub](./media/iot-hub-raspberry-pi-kit-c-get-started/8_run-output.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 

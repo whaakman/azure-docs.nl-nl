@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 author: garyericson
 ms.author: garye
 ms.date: 09/24/2018
-ms.openlocfilehash: 4a867692d3ce509443e5aa94536075fdcd4bab84
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 1dac11b8ad71a936b33742b52c95ac998176baf7
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945957"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51244935"
 ---
 # <a name="what-is-azure-machine-learning-service-preview"></a>Wat is Azure Machine Learning-service (preview)?
 
@@ -48,7 +48,7 @@ U kunt de geïmplementeerde modellen beheren en meerdere uitvoeringen volgen ter
 Azure Machine Learning-service kan voor u automatisch een model genereren en het automatisch afstemmen.
 Zie [Zelfstudie: Automatisch een classificatiemodel trainen met Azure Automated Machine Learning](tutorial-auto-train-models.md) voor een voorbeeld.
 
-Of met de Azure Machine Learning <a href="http://aka.ms/aml-sdk" target="_blank">SDK</a> voor Python kunt u samen met open-source Python-pakketten uiterst nauwkeurige machine learning- en deep learning-modellen bouwen en trainen in een Azure Machine Learning-servicewerkruimte.
+Of met de Azure Machine Learning <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a> voor Python kunt u samen met open-source Python-pakketten uiterst nauwkeurige machine learning- en deep learning-modellen bouwen en trainen in een Azure Machine Learning-servicewerkruimte.
 U kunt kiezen uit veel machine learning-componenten die beschikbaar zijn in open-source Python-pakketten, zoals de volgende:
 
 - <a href="http://scikit-learn.org/stable/" target="_blank">Scikit-learn</a>
@@ -59,7 +59,7 @@ U kunt kiezen uit veel machine learning-componenten die beschikbaar zijn in open
 
 Als u eenmaal een model hebt, kunt u het gebruiken om een container (zoals Docker) te maken die lokaal kan worden geïmplementeerd om te testen en dan als productie-webservice in [Azure Container Instances](how-to-deploy-to-aci.md) of [Azure Kubernetes Service](how-to-deploy-to-aks.md).
 
-U kunt dan uw geïmplementeerde modellen beheren met de [Azure Portal](https://portal.azure.com/) of de [Azure Machine Learning CLI-extensie](https://review.docs.microsoft.com/azure/machine-learning/service/reference-azure-machine-learning-cli).
+U kunt dan uw geïmplementeerde modellen beheren met de [Azure Portal](https://portal.azure.com/) of de [Azure Machine Learning CLI-extensie](reference-azure-machine-learning-cli.md).
 U kunt de metrische gegevens van een model evalueren, nieuwe versies van het model opnieuw trainen en implementeren en dat allemaal terwijl u de experimenten van het model volgt.
 
 Bekijk [Volgende stappen](#next-steps) hieronder om te beginnen met Azure Machine Learning-service.
@@ -85,6 +85,8 @@ Als u geen abonnee bent, kunt u [gratis een Azure-account openen](https://azure.
 - Volg de volledige zelfstudie, [Train een installatiekopieclassificeringsmodel met Azure Machine Learning](tutorial-train-models-with-aml.md) om te leren hoe u modellen traint en implementeert met Azure Machine Learning-service
 
 - Zie [Zelfstudie: automatisch een classificeringsmodel trainen met Azure Automated Machine Learning](tutorial-auto-train-models.md) voor informatie over toestaan dat Azure Machine Learning automatisch uw model genereert en afstemt
+
+- Leer meer over [Machine Learning-pijplijnen](/azure/machine-learning/service/concept-ml-pipelines) om uw Machine Learning-scenario’s te bouwen, te optimaliseren en te beheren.
 
 - Zie [Azure Machine Learning-service, architectuur en concepten](concept-azure-machine-learning-architecture.md) voor een technisch, uitgebreid overzicht van de service
 

@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: sanpil
 author: sanpil
-ms.date: 09/24/2018
-ms.openlocfilehash: 45aa954d2f85267b2c7c9aa2a7ba04e436765433
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
-ms.translationtype: MT
+ms.date: 11/07/2018
+ms.openlocfilehash: 212488b74ba726012966787c7b2de633414e96a4
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50023920"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51245338"
 ---
 # <a name="pipelines-and-azure-machine-learning"></a>Pijplijnen en Azure Machine Learning
 
@@ -22,11 +22,11 @@ In dit artikel meer informatie over de machine learning-pijplijnen die u kunt ma
 
 ## <a name="what-are-machine-learning-pipelines"></a>Wat is machine learning-pijplijnen?
 
-Machine learning (ML) pijplijnen worden gebruikt door de datawetenschappers te bouwen, te optimaliseren en beheren van de machine learning-werkstromen. Een typische pijplijn bestaat uit een reeks stappen die betrekking hebben op de volgende gebieden:
-
+Met behulp van machine learning (ML) pijplijnen, gegevenswetenschappers, gegevensengineers en IT-professionals kan samenwerken in de stappen voor het:
 + Voorbereiden van gegevens, zoals normalizations en transformaties
-+ Modeltraining, zoals hyper-parameter afstemmen en valideren
-+ Implementatie van modellen en evaluatie  
++ Modeltraining
++ Model-evaluatie
++ Implementatie 
 
 Het volgende diagram toont een voorbeeld van de pijplijn:
 
@@ -38,7 +38,7 @@ De [Azure Machine Learning-SDK voor Python](#the-python-sdk-for-pipelines) maken
 
 Met pijplijnen, kunt u uw werkstroom met de eenvoud, de snelheid, draagbaarheid en hergebruik optimaliseren. Bij het bouwen van pijplijnen met Azure Machine Learning, kunt u zich richten op wat u het beste kent &mdash; machine learning &mdash; in plaats van infrastructuur.
 
-Met behulp van afzonderlijke stappen, maakt het mogelijk alleen de stappen die u nodig hebt bij het aanpassen en testen van de werkstroom opnieuw uit te voeren. Een stap is een rekenkundige eenheid in de pijplijn. Zoals u in het bovenstaande diagram, wordt de taak van het voorbereiden van gegevens kan betrekking hebben op veel stappen, waaronder, maar niet beperkt tot normalisering, transformatie, validatie en parametrisatie.
+Met behulp van afzonderlijke stappen, maakt het mogelijk alleen de stappen die u nodig hebt bij het aanpassen en testen van de werkstroom opnieuw uit te voeren. Een stap is een rekenkundige eenheid in de pijplijn. Zoals u in het bovenstaande diagram, wordt de taak van het voorbereiden van gegevens kan betrekking hebben op veel stappen, waaronder, maar niet beperkt tot normalisering, transformatie, validatie en parametrisatie. Gegevensbronnen en tussenliggende gegevens worden hergebruikt voor de pijplijn, welke bespaart tijd en resources berekenen. 
 
 Zodra de pijplijn is ontworpen, is er vaak meer aan te passen om de lus training van de pijplijn. Wanneer u een pijplijn, de run koppelingen naar de stappen die opnieuw worden gestart moeten, zoals een bijgewerkte trainingsscript opnieuw uitvoeren en slaat over wat er nog niet is gewijzigd. De dezelfde paradigma is van toepassing op ongewijzigd scripts die worden gebruikt voor het uitvoeren van de stap. 
 
@@ -59,7 +59,7 @@ De belangrijkste voordelen voor het bouwen van pijplijnen voor uw machine learni
 
 Python gebruiken om te maken van uw ML-pijplijnen. De SDK van Azure Machine Learning biedt imperatieve constructies voor sequentiëren en gebruik de stappen in uw pijplijnen wanneer niet afhankelijk van de gegevens aanwezig is. U kunt er interactie mee in Jupyter-notebooks of in een andere gewenste IDE. 
 
-Met behulp van declaratieve gegevensafhankelijkheden, kunt u uw taken optimaliseren. De SDK bevat een raamwerk van vooraf gemaakte modules voor algemene taken, zoals gegevens overdragen,-doel het maken COMPUTE en model van publiceren. Het framework kan worden uitgebreid voor het modelleren van uw eigen conventies door het implementeren van aangepaste stappen die herbruikbare voor pijplijnen zijn.
+Met behulp van declaratieve gegevensafhankelijkheden, kunt u uw taken optimaliseren. De SDK bevat een raamwerk van vooraf gemaakte modules voor algemene taken, zoals de overdracht van gegevens en model publiceren. Het framework kan worden uitgebreid voor het modelleren van uw eigen conventies door het implementeren van aangepaste stappen die herbruikbare voor pijplijnen zijn. COMPUTE-doelen en storage-resources kunnen ook rechtstreeks vanuit de SDK worden beheerd.
 
 Pijplijnen kunnen worden opgeslagen als sjabloon en kunnen worden geïmplementeerd op een REST-eindpunt, zodat u kunt batch scoring of retraining taken plannen.
 

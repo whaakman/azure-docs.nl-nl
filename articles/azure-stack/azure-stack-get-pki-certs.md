@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 10/22/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 9f88e71df7697156e0745aeaf6b989548bcc223f
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: a4a9fefa98d30d0f9815a935f000c8a663dffd21
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945108"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51514193"
 ---
 # <a name="azure-stack-certificates-signing-request-generation"></a>Azure Stack-certificaten genereren van de aanvraag ondertekenen
 
@@ -29,7 +29,7 @@ Het hulpprogramma Azure Stack gereedheid van de Registercontrole (AzsReadinessCh
  - **Standaard-certificaataanvragen**  
     Aanvraag volgens [PKI-certificaten genereren voor implementatie van Azure Stack](azure-stack-get-pki-certs.md).
  - **Platform-as-a-Service**  
-    (Optioneel) aanvragen platform-as-a-service (PaaS) namen voor certificaten die zijn opgegeven in [certificaatvereisten voor Azure Stack Public Key Infrastructure - optionele PaaS certificaten](azure-stack-pki-certs.md#optional-paas-certificates).
+    U kunt de namen van de platform-as-a-service (PaaS) voor certificaten die zijn opgegeven in aanvragen [certificaatvereisten voor Azure Stack Public Key Infrastructure - optionele PaaS certificaten](azure-stack-pki-certs.md#optional-paas-certificates).
 
 
 
@@ -102,7 +102,7 @@ Volg deze stappen voor het voorbereiden en valideren van de Azure Stack PKI-cert
 
     Als u wilt opnemen PaaS-Services, geef de switch ```-IncludePaaS```
 
-7. U kunt ook voor Dev/Test-omgevingen. Voor het genereren van een enkele aanvraag met meerdere onderwerp alternatieve namen toevoegen **- RequestType SingleCSR** parameter en de waarde (**niet** aanbevolen voor productie-omgevingen):
+7. U kunt ook voor Dev/Test-omgevingen voor het genereren van een enkele aanvraag met meerdere alternatieve namen voor onderwerpen toevoegen **- RequestType SingleCSR** parameter en de waarde (**niet** aanbevolen voor productie-omgevingen):
 
     ```PowerShell  
     New-AzsCertificateSigningRequest -RegionName $regionName -FQDN $externalFQDN -subject $subjectHash -RequestType SingleCSR -OutputRequestPath $OutputDirectory -IdentitySystem $IdentitySystem

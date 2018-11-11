@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2018
+ms.date: 11/09/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 51c76c552ef3a79f48637598a12f7a7be1823996
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: f3a83352e5aa7591d3f7b325adb542ba89e57fe5
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50961123"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515825"
 ---
 # <a name="validate-azure-stack-pki-certificates"></a>Valideren van Azure Stack PKI-certificaten
 
@@ -244,6 +244,22 @@ Volg deze stappen voor het voorbereiden en valideren van de Azure Stack PKI-cert
         Key Usage: OK
         Key Size: OK
     ```
+
+## <a name="certificates"></a>Certificaten
+
+| Directory | Certificaat |
+| ---    | ----        |
+| acsBlob | wildcard_blob_\< regio >\< externalFQDN > |
+| ACSQueue  |  wildcard_queue\< regio >\< externalFQDN > |
+| ACSTable  |  wildcard_table\< regio >\< externalFQDN > |
+| Beheerdersuitbreiding Host  |  wildcard_adminhosting\< regio >\< externalFQDN > |
+| Beheerportal  |  adminportal\< regio >\< externalFQDN > |
+| ARM-beheerder  |  adminmanagement\< regio >\< externalFQDN > |
+| ARM-algemeen  |  Management\< regio >\< externalFQDN > |
+| KeyVault  |  wildcard_vault\< regio >\< externalFQDN > |
+| KeyVaultInternal  |  wildcard_adminvault\< regio >\< externalFQDN > |
+| Host van de openbare-extensie  |  wildcard_hosting\< regio >\< externalFQDN > |
+| Openbare-Portal  |  Portal\< regio > _\< externalFQDN > |
 
 ## <a name="using-validated-certificates"></a>Met behulp van gevalideerde certificaten
 

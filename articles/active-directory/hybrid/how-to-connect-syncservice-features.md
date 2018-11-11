@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/25/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: fa7d0f98f8119ad34e0764423e99af4564f20387
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 8d351e41eac3c820b9295b3b5cf314428bebc746
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46311925"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242990"
 ---
 # <a name="azure-ad-connect-sync-service-features"></a>Functies van Azure AD Connect sync-service
 De synchronisatiefunctie van Azure AD Connect bestaat uit twee onderdelen:
@@ -30,7 +30,7 @@ De synchronisatiefunctie van Azure AD Connect bestaat uit twee onderdelen:
 
 Dit onderwerp wordt uitgelegd hoe u de volgende functies van de **Azure AD Connect-synchronisatieservice** werken en hoe kunt u ze configureren met behulp van Windows PowerShell.
 
-Deze instellingen zijn geconfigureerd door de [Azure Active Directory-Module voor Windows PowerShell](https://aka.ms/aadposh). Download en installeer deze afzonderlijk van Azure AD Connect. De cmdlets die zijn beschreven in dit onderwerp zijn geïntroduceerd in de [2016 maart-release (build 9031.1)](http://social.technet.microsoft.com/wiki/contents/articles/28552.microsoft-azure-active-directory-powershell-module-version-release-history.aspx#Version_9031_1). Als u niet de cmdlets die in dit onderwerp wordt beschreven hoeft of doen ze niet hetzelfde resultaat opleveren, Controleer of dat u de nieuwste versie uitvoeren.
+Deze instellingen zijn geconfigureerd door de [Azure Active Directory-Module voor Windows PowerShell](https://aka.ms/aadposh). Download en installeer deze afzonderlijk van Azure AD Connect. De cmdlets die zijn beschreven in dit onderwerp zijn geïntroduceerd in de [2016 maart-release (build 9031.1)](https://social.technet.microsoft.com/wiki/contents/articles/28552.microsoft-azure-active-directory-powershell-module-version-release-history.aspx#Version_9031_1). Als u niet de cmdlets die in dit onderwerp wordt beschreven hoeft of doen ze niet hetzelfde resultaat opleveren, Controleer of dat u de nieuwste versie uitvoeren.
 
 Als u wilt zien van de configuratie in uw Azure AD-directory, `Get-MsolDirSyncFeatures`.  
 ![Get-MsolDirSyncFeatures resultaat](./media/how-to-connect-syncservice-features/getmsoldirsyncfeatures.png)
@@ -59,7 +59,7 @@ De volgende instellingen zijn geconfigureerd door Azure AD Connect en kan niet w
 | DirectoryExtensions |[Azure AD Connect-synchronisatie: Directory-extensies](how-to-connect-sync-feature-directory-extensions.md) |
 | [DuplicateProxyAddressResiliency<br/>DuplicateUPNResiliency](#duplicate-attribute-resiliency) |Hiermee kunt een kenmerk in quarantaine geplaatst wanneer dit is een duplicaat van een ander object in plaats van het gehele object mislukt tijdens het exporteren. |
 | Wachtwoordhashsynchronisatie |[Implementatie van wachtwoord-hashsynchronisatie met Azure AD Connect-synchronisatie](how-to-connect-password-hash-synchronization.md) |
-|Pass-through-verificatie|[Aanmelden van gebruikers met Azure Active Directory Pass through-verificatie](how-to-connect-pta.md)|
+|Pass-through-verificatie|[Gebruikersaanmelding met Pass Through-verificatie in Azure Active Directory](how-to-connect-pta.md)|
 | UnifiedGroupWriteback |[Voorbeeld: Groep terugschrijven](how-to-connect-preview.md#group-writeback) |
 | UserWriteback |Momenteel niet ondersteund. |
 

@@ -1,6 +1,6 @@
 
 # Flexibiliteit van Azure
-## [Functiepagina flexibiliteit van Azure](http://azure.microsoft.com/features/resiliency)
+## [Functiepagina flexibiliteit van Azure](https://azure.microsoft.com/features/resiliency)
 ## [Flexibele toepassingen ontwerpen voor Azure](https://docs.microsoft.com/azure/architecture/resiliency/)
 
 # Hoge beschikbaarheid

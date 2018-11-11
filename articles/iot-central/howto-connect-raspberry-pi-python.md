@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: c478c2c4af12ecaa02e6700ec7faffc5b9862a00
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 90837092390cd2550805658471ff7aa884773371
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50958182"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51239590"
 ---
 # <a name="connect-a-raspberry-pi-to-your-azure-iot-central-application-python"></a>Verbinding maken met een Raspberry Pi aan uw Azure IoT Central-toepassing (Python)
 
@@ -64,11 +64,11 @@ De volgende stappen wordt beschreven hoe u downloaden en configureren van de Pyt
 * Hiermee verzendt Telemetrie en eigenschapwaarden naar Azure IoT Central.
 * Reageert op wijzigingen die u in Azure IoT Central instellen.
 
-Het configureren van het apparaat [Volg de stapsgewijze instructies op GitHub.](http://aka.ms/iotcentral-docs-Raspi-releases)
+Het configureren van het apparaat [Volg de stapsgewijze instructies op GitHub.](https://aka.ms/iotcentral-docs-Raspi-releases)
 
 
 > [!NOTE]
-> Zie voor meer informatie over de Raspberry Pi Python-voorbeeld de [Leesmij-bestand](http://aka.ms/iotcentral-docs-Raspi-releases) bestand op GitHub.
+> Zie voor meer informatie over de Raspberry Pi Python-voorbeeld de [Leesmij-bestand](https://aka.ms/iotcentral-docs-Raspi-releases) bestand op GitHub.
 
 
 1. Nadat het apparaat is geconfigureerd, moet uw apparaat starten die gegevens tijdelijk naar Azure IoT Central verzenden.

@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: 2cd77ee6df52940a800733209b7e384d72d98103
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ddc04d32f76515cb93d2cde3fe4eccaab7e4c291
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46962127"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51245355"
 ---
 # <a name="quickstart-remove-an-application-from-azure-active-directory"></a>Snelstart: Een toepassing verwijderen uit Azure Active Directory
 
@@ -69,7 +69,7 @@ Een subset van de toepassingen die worden weergegeven onder het filter **Alle ap
 
 In technische termen betekent dit dat deze toepassingen met meerdere tenants van een andere tenant zijn, en zijn geregistreerd bij uw tenant tijdens het toestemmingsproces. Om precies te zijn, worden deze toepassingen alleen vertegenwoordigd door een service-principal-object in uw tenant, zonder bijbehorend toepassingsobject. Zie [Toepassings- en service-principal-objecten in Azure Active Directory](app-objects-and-service-principals.md) voor meer informatie over de verschillen tussen toepassings- en service-principal-objecten.
 
-Als u de toegang van een toepassing met meerdere tenants tot uw directory wilt verwijderen (nadat u toestemming hebt verleend), moet de bedrijfsbeheerder de service-principal van de toepassing verwijderen. De beheerder moet globale beheerderstoegang hebben en kan deze verwijderen via Azure Portal of de [Azure Active Directory PowerShell-Cmdlets](http://go.microsoft.com/fwlink/?LinkId=294151) gebruiken.
+Als u de toegang van een toepassing met meerdere tenants tot uw directory wilt verwijderen (nadat u toestemming hebt verleend), moet de bedrijfsbeheerder de service-principal van de toepassing verwijderen. De beheerder moet globale beheerderstoegang hebben en kan deze verwijderen via Azure Portal of de [Azure Active Directory PowerShell-Cmdlets](https://go.microsoft.com/fwlink/?LinkId=294151) gebruiken.
 
 ## <a name="next-steps"></a>Volgende stappen
 

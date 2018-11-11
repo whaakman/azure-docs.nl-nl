@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2018
+ms.date: 11/07/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 1414fd7b559a1bf12cc26d218f4577bbdc986916
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
-ms.translationtype: MT
+ms.openlocfilehash: 2bee2211846125e47ab8e8e7638f388bd819e5b4
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50964115"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300877"
 ---
 # <a name="azure-stack-1808-update"></a>Azure Stack 1808 update
 
@@ -64,7 +64,7 @@ Deze update bevat de volgende verbeteringen voor Azure Stack.
 - **Marketplace-item voor Kubernetes**. U kunt nu met behulp van Kubernetes-clusters implementeren de [Kubernetes Marketplace-item](azure-stack-solution-template-kubernetes-cluster-add.md). Gebruikers kunnen selecteert u het Kubernetes-item en vul een aantal parameters voor het implementeren van een Kubernetes-cluster in Azure Stack. Het doel van de sjablonen is het eenvoudig te aan gebruikers voor het instellen van Kubernetes-implementaties voor ontwikkelen en testen in een paar stappen.
 
 <!-- | IS ASDK--> 
-- **Blockchain sjablonen**. U kunt nu uitvoeren [Ethereum consortium implementaties](azure-stack-ethereum.md) in Azure Stack. Vindt u drie nieuwe sjablonen in de [Azure Stack Quick Start-sjablonen](https://github.com/Azure/AzureStack-QuickStart-Templates). Hiermee kunt de gebruiker om te implementeren en configureren van een consortium voor meerdere leden Ethereum-netwerk met minimale kennis van Azure en Ethereum. Het doel van de sjablonen is het eenvoudig te aan gebruikers voor het instellen van Blockchain-implementaties voor ontwikkelen en testen in een paar stappen.
+- **Blockchain sjablonen**. U kunt nu uitvoeren [Ethereum consortium implementaties](user/azure-stack-ethereum.md) in Azure Stack. Vindt u drie nieuwe sjablonen in de [Azure Stack Quick Start-sjablonen](https://github.com/Azure/AzureStack-QuickStart-Templates). Hiermee kunt de gebruiker om te implementeren en configureren van een consortium voor meerdere leden Ethereum-netwerk met minimale kennis van Azure en Ethereum. Het doel van de sjablonen is het eenvoudig te aan gebruikers voor het instellen van Blockchain-implementaties voor ontwikkelen en testen in een paar stappen.
 
 <!-- | IS ASDK--> 
 - **De API-versie profiel 2017-03-09-profiel is bijgewerkt naar 2018-03-01-hybride**. API-profielen opgeven voor de Azure-resource-provider en de API-versie voor Azure REST-eindpunten. Zie voor meer informatie over profielen [beheren API-versieprofielen in Azure Stack](/azure/azure-stack/user/azure-stack-version-profiles).
@@ -253,8 +253,11 @@ Hier volgen na de installatie bekende problemen voor deze buildversie.
 
 ### <a name="compute"></a>Compute
 
+<!-- 3164607 – IS, ASDK -->
+- Nadat een losgekoppelde schijf aan de dezelfde virtuele machine (VM) met dezelfde naam en LUN mislukt met foutmelding zoals **gegevens schijf 'datadisk' niet koppelen aan virtuele machine 'vm1'**. De fout treedt op omdat de schijf momenteel wordt losgekoppeld of de laatste koppelingsbewerking is mislukt. Wacht totdat de schijf volledig is losgekoppeld en vervolgens opnieuw of verwijderen/loskoppelen van de schijf expliciet opnieuw. De oplossing is om te koppelen met een andere naam of op een andere logische eenheid. 
+
 <!-- 3099544 – IS, ASDK --> 
-- Wanneer u een nieuwe virtuele machine (VM) met behulp van de Azure Stack-portal maakt, en u de VM-grootte selecteert, wordt de kolom USD/maand weergegeven met een **niet beschikbaar** bericht. Deze kolom mag niet weergegeven. prijzen kolom, dat is het weergeven van de virtuele machine wordt niet ondersteund in Azure Stack.
+- Wanneer u een nieuwe virtuele machine maken met de Azure Stack-portal, en u de VM-grootte selecteert, wordt de kolom USD/maand weergegeven met een **niet beschikbaar** bericht. Deze kolom mag niet weergegeven. prijzen kolom, dat is het weergeven van de virtuele machine wordt niet ondersteund in Azure Stack.
 
 <!-- 3090289 – IS, ASDK --> 
 - Na het toepassen van de 1808 bijwerken, kunnen de volgende problemen optreden bij het implementeren van virtuele machines met Managed Disks:

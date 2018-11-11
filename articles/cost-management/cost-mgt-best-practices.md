@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/10/2018
+ms.date: 01/09/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: f52a849fee4005628fb6a8ad567d89f5046d4765
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 43a682568708ab0286328cf3e483ddc3d5cf9dd8
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46968065"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515349"
 ---
 # <a name="how-to-optimize-your-cloud-investment-with-azure-cost-management"></a>Over het optimaliseren van uw investeringen in de cloud met Azure Cost Management
 
@@ -186,10 +186,6 @@ Zie voor meer informatie, [wat zijn Azure-reserveringen?](../billing/billing-sav
 Als u al Windows Server of SQL Server-licenties in uw on-premises implementaties hebt, kunt u het programma Azure Hybrid Benefit gebruiken om op te slaan in Azure. Elke licentie dekt de kosten van het besturingssysteem (maximaal twee virtuele machines) met het voordeel van Windows Server, en u betaalt alleen voor de basisrekenkosten. Bestaande SQL Server-licenties kunt u tot 55 procent besparen op vcore opties voor SQL-Database. opties zijn onder andere SQL Server in virtuele Machines van Azure en SQL Server Integration Services.
 
 Zie voor meer informatie, [besparingscalculator Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/).
-
-#### <a name="monetary-commitment"></a>Monetaire toezegging
-
-Klanten die een Enterprise Agreement kunnen maken van een vooraf monetaire toezegging naar Microsoft. Samen met het leveren van een eenvoudige manier om toe te wijzen budgetten bronnen in de cloud, kunnen monetaire toezeggingen u hebt gereduceerde tarieven voor op Azure. Tarief kortingen kunnen leiden tot aanzienlijke kostenbesparingen realiseren voor uw organisatie.
 
 ### <a name="other-resources"></a>Meer informatie
 

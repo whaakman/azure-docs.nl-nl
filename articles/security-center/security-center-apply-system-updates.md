@@ -3,7 +3,7 @@ title: Systeemupdates in Azure Security Center toepassen | Microsoft Docs
 description: Dit document ziet u hoe u de aanbevelingen voor Azure Security Center implementeren **systeemupdates toepassen** en **opnieuw opstarten na systeemupdates**.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: e5bd7f55-38fd-4ebb-84ab-32bd60e9fa7a
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/11/2017
-ms.author: terrylan
-ms.openlocfilehash: 5f6747629139e85f1ae50364da807636937a464a
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.date: 10/28/2018
+ms.author: rkarlin
+ms.openlocfilehash: 7b5f4415351ad5b51b874e5dc17349160f65e9ef
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44301929"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240372"
 ---
 # <a name="apply-system-updates-in-azure-security-center"></a>Systeemupdates in Azure Security Center toepassen
 Azure Security Center bewaakt dagelijkse Windows en Linux-machines (VM's) en computers voor het besturingssysteemupdates ontbreken. Security Center wordt een lijst met beschikbare beveiligingsupdates en essentiële updates opgehaald van Windows Update of Windows Server Update Services (WSUS), afhankelijk van welke service is geconfigureerd op een Windows-computer. Security Center wordt ook gecontroleerd voor de meest recente updates in Linux-systemen. Als uw virtuele machine of computer het bijwerken van een systeem ontbreekt, wordt Security Center aangeraden dat u systeemupdates toepassen.
@@ -90,7 +90,7 @@ Zie de volgende onderwerpen voor meer informatie over het Beveiligingscentrum:
 * [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) (Beveiligingswaarschuwingen beheren en erop reageren in Azure Security Center): ontdek hoe u beveiligingswaarschuwingen kunt beheren en erop kunt reageren.
 * [Partneroplossingen bewaken met Azure Security Center](security-center-partner-solutions.md): leer hoe u de integriteitsstatus van uw partneroplossingen kunt bewaken.
 * [Azure Security Center FAQ](security-center-faq.md) (Veelgestelde vragen over Azure Security Center): raadpleeg veelgestelde vragen over het gebruik van de service.
-* [Azure-Beveiligingsblog](http://blogs.msdn.com/b/azuresecurity/) : Lees blogberichten over de Azure-beveiliging en naleving.
+* [Azure-Beveiligingsblog](https://blogs.msdn.com/b/azuresecurity/) : Lees blogberichten over de Azure-beveiliging en naleving.
 
 <!--Image references-->
 [1]: ./media/security-center-apply-system-updates/missing-system-updates.png

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 09/19/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: d042033981cba4e9d56b48543a7c6016a38efb53
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 2b04853e8d01ae559ce4ad982daba2928a6cd130
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50958536"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51244471"
 ---
 # <a name="log-analytics-data-security"></a>Meld u Analytics-gegevensbeveiliging
 Dit document is bedoeld voor specifieke informatie voor Log Analytics, dat een functie van Azure Monitor om te voorzien in de gegevens is op [Azure Trust Center](../security/security-microsoft-trust-center.md).  
@@ -36,7 +36,7 @@ De service Log Analytics beheert uw cloud-gebaseerde gegevens veilig met behulp 
 * Naleving
 * standaardcertificeringen van beveiliging
 
-Neem contact met ons vragen, suggesties, of problemen met betrekking tot een van de volgende informatie, met inbegrip van onze beveiligingsbeleid op [ondersteuningsopties voor Azure](http://azure.microsoft.com/support/options/).
+Neem contact met ons vragen, suggesties, of problemen met betrekking tot een van de volgende informatie, met inbegrip van onze beveiligingsbeleid op [ondersteuningsopties voor Azure](https://azure.microsoft.com/support/options/).
 
 ## <a name="sending-data-securely-using-tls-12"></a>Verzenden van gegevens veilig gebruik TLS 1.2 
 
@@ -86,7 +86,7 @@ De volgende tabel ziet u voorbeelden van gegevenstypen:
 | Status |StateChangeEventId, StateId, NewHealthState, OldHealthState, Context, TimeGenerated, TimeAdded, StateId2, BaseManagedEntityId, MonitorId, HealthState, LastModified, LastGreenAlertGenerated, DatabaseTimeModified |
 
 ## <a name="physical-security"></a>Fysieke beveiliging
-De Log Analytics-service wordt beheerd door Microsoft-personeel en alle activiteiten worden vastgelegd en kunnen worden gecontroleerd. Log Analytics wordt gebruikt als een Azure-Service en voldoet aan alle vereisten voor Azure-naleving en beveiliging. U vindt meer informatie over de fysieke beveiliging van Azure-assets op 18 pagina van de [beveiligingsoverzicht van Microsoft Azure](http://download.microsoft.com/download/6/0/2/6028B1AE-4AEE-46CE-9187-641DA97FC1EE/Windows%20Azure%20Security%20Overview%20v1.01.pdf). Fysieke toegangsrechten voor het beveiligen van gebieden worden gewijzigd binnen één werkdag voor iedereen die heeft niet langer verantwoordelijk is voor de Log Analytics-service, inclusief overdracht en beëindiging. U kunt meer informatie over de algemene fysieke infrastructuur, gebruiken we op [Microsoft-Datacenters](https://azure.microsoft.com/global-infrastructure/).
+De Log Analytics-service wordt beheerd door Microsoft-personeel en alle activiteiten worden vastgelegd en kunnen worden gecontroleerd. Log Analytics wordt gebruikt als een Azure-Service en voldoet aan alle vereisten voor Azure-naleving en beveiliging. U vindt meer informatie over de fysieke beveiliging van Azure-assets op 18 pagina van de [beveiligingsoverzicht van Microsoft Azure](https://download.microsoft.com/download/6/0/2/6028B1AE-4AEE-46CE-9187-641DA97FC1EE/Windows%20Azure%20Security%20Overview%20v1.01.pdf). Fysieke toegangsrechten voor het beveiligen van gebieden worden gewijzigd binnen één werkdag voor iedereen die heeft niet langer verantwoordelijk is voor de Log Analytics-service, inclusief overdracht en beëindiging. U kunt meer informatie over de algemene fysieke infrastructuur, gebruiken we op [Microsoft-Datacenters](https://azure.microsoft.com/global-infrastructure/).
 
 ## <a name="incident-management"></a>incidentbeheer
 Log Analytics heeft een incidentbeheerproces die voor alle Microsoft-services worden aangehouden. Om samen te vatten, we:

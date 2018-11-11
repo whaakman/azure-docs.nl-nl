@@ -15,19 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: deguhath
-ms.openlocfilehash: 7ed861a58b82435f9f50a5798ff821fcd6020096
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: c1cbd523b8c74bf1221dc47b832c35e9119493a9
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394130"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51346283"
 ---
 # <a name="create-hive-tables-and-load-data-from-azure-blob-storage"></a>Hive-tabellen maken en gegevens laden uit Azure Blob Storage
-In dit onderwerp geeft algemene Hive-query's die Hive-tabellen maken en gegevens laden vanuit Azure blob storage. Sommige richtlijnen zijn beschikbaar op de Hive-tabellen partitioneren en over het gebruik van de geoptimaliseerd rij kolommen (ORC) te verbeteren, opmaak.
 
-Dit **menu** koppelingen naar onderwerpen waarin wordt beschreven hoe u gegevens opnemen in de doelomgevingen waar de gegevens kunnen worden opgeslagen en verwerkt tijdens het Team Data Science Process (TDSP).
-
-[!INCLUDE [cap-ingest-data-selector](../../../includes/cap-ingest-data-selector.md)]
+In dit artikel geeft algemene Hive-query's die Hive-tabellen maken en gegevens laden vanuit Azure blob storage. Sommige richtlijnen zijn beschikbaar op de Hive-tabellen partitioneren en over het gebruik van de geoptimaliseerd rij kolommen (ORC) te verbeteren, opmaak.
 
 ## <a name="prerequisites"></a>Vereisten
 In dit artikel wordt ervan uitgegaan dat u hebt:

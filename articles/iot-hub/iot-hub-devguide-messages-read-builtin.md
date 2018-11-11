@@ -8,16 +8,16 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: dobett
-ms.openlocfilehash: e43d00fde0f76efa4398865757c44d94592b8291
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: 02ea4b94f8d1442360bebb36fdbba13d973f8555
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47585506"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242401"
 ---
 # <a name="read-device-to-cloud-messages-from-the-built-in-endpoint"></a>Apparaat-naar-cloud-berichten lezen van het geïntegreerde eindpunt
 
-Standaard berichten worden doorgestuurd naar het eindpunt van de ingebouwde service gerichte (**berichten/gebeurtenissen**) die compatibel is met [Event Hubs](http://azure.microsoft.com/documentation/services/event-hubs/
+Standaard berichten worden doorgestuurd naar het eindpunt van de ingebouwde service gerichte (**berichten/gebeurtenissen**) die compatibel is met [Event Hubs](https://azure.microsoft.com/documentation/services/event-hubs/
 ). Dit eindpunt is momenteel alleen beschikbaar gemaakte met behulp van de [AMQP](https://www.amqp.org/) -protocol op poort 5671. Een IoT-hub toont de volgende eigenschappen om te bepalen van het ingebouwde eindpunt van de Event Hub-compatibele-messaging **berichten/gebeurtenissen**.
 
 | Eigenschap            | Beschrijving |

@@ -11,21 +11,23 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/16/2016
+ms.date: 11/08/2018
 ms.author: mbullwin
-ms.openlocfilehash: f943f0e371b3092717a62a2e83a98211723e5302
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 4b7b663b95bee12848f4afe2d2f48504a4408266
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44304404"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515168"
 ---
 # <a name="annotations-on-metric-charts-in-application-insights"></a>Aantekeningen op grafieken met metrische gegevens in Application Insights
+
 Aantekeningen op [Metrics Explorer](app-insights-metrics-explorer.md) grafieken weergeven waar u een nieuwe build of andere belangrijke gebeurtenis hebt geïmplementeerd. Ze maken het gemakkelijk om te zien of uw wijzigingen geen effect op de prestaties van uw toepassing heeft. Ze automatisch kunnen worden gemaakt door de [systeem bouwen voor Azure DevOps Services](https://docs.microsoft.com/azure/devops/pipelines/tasks/). U kunt ook maken met aantekeningen voor het markeren van een gebeurtenis die u met wilt [ze worden gemaakt vanuit PowerShell](#create-annotations-from-powershell).
 
+> [!NOTE]
+> In dit artikel bevat de afgeschafte **klassieke metrische gegevens ervaring**. Aantekeningen zijn alleen beschikbaar in de klassieke ervaring en  **[werkmappen](app-insights-usage-workbooks.md)**. Voor meer informatie over de currrent metrische gegevens-ervaring, kunt u raadplegen [in dit artikel](../monitoring-and-diagnostics/monitoring-metric-charts.md).
+
 ![Voorbeeld van aantekeningen met zichtbaar correlatie met serverreactietijd](./media/app-insights-annotations/00.png)
-
-
 
 ## <a name="release-annotations-with-azure-devops-services-build"></a>Release-aantekeningen met Azure DevOps-Services-build
 

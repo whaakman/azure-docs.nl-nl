@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/14/2017
 ms.author: johnkem
 ms.component: alerts
-ms.openlocfilehash: 21651c577dc6b519b139aa7bbfc6d03d8f2c6980
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: fe854c6a33a950f9f937118b6048d547f1a2fe37
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50962143"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51245763"
 ---
 # <a name="migrate-azure-alerts-on-management-events-to-activity-log-alerts"></a>Azure-waarschuwingen op gebeurtenissen voor migreren naar waarschuwingen voor activiteitenlogboek
 
@@ -28,7 +28,7 @@ ms.locfileid: "50962143"
 Azure Monitor (voorheen Azure Insights) aangeboden een mogelijkheid om te maken van een waarschuwing geactiveerd korting op gebeurtenissen en meldingen naar een webhook-URL of e-mailadressen die worden gegenereerd. U hebt gemaakt een van deze waarschuwingen een van de volgende manieren:
 * In de Azure-portal voor bepaalde resourcetypen onder bewaking -> waarschuwingen-waarschuwing toevoegen, waarbij 'Waarschuwen' is ingesteld op "Events" >
 * Door de cmdlet Add-AzureRmLogAlertRule PowerShell
-* Met behulp van rechtstreeks [de waarschuwing REST-API](http://docs.microsoft.com/rest/api/monitor/alertrules) met odata.type = "ManagementEventRuleCondition" en dataSource.odata.type = "RuleManagementEventDataSource"
+* Met behulp van rechtstreeks [de waarschuwing REST-API](https://docs.microsoft.com/rest/api/monitor/alertrules) met odata.type = "ManagementEventRuleCondition" en dataSource.odata.type = "RuleManagementEventDataSource"
  
 De volgende PowerShell-script retourneert een lijst van alle waarschuwingen voor gebeurtenissen die u in uw abonnement, evenals de voorwaarden op elke waarschuwing hebt.
 

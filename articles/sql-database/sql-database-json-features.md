@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: dfbefd2ff4c2e99268c1e7e84154e93d58f542bb
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: c3f1cb7499be57be94cc387eb40d37c1710f2f75
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47163627"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230526"
 ---
 # <a name="getting-started-with-json-features-in-azure-sql-database"></a>Aan de slag met JSON-functies in Azure SQL Database
 Azure SQL Database kunt u parseren en query uitvoeren op gegevens die worden weergegeven in JavaScript Object Notation [(JSON)](http://www.json.org/) formatteren en exporteren van uw relationele gegevens als JSON-tekst.
@@ -201,5 +201,5 @@ Voor informatie over het integreren van JSON in uw toepassing, kunt u deze resou
 * [MSDN-documentatie](https://msdn.microsoft.com/library/dn921897.aspx)
 * [Channel 9-video](https://channel9.msdn.com/Shows/Data-Exposed/SQL-Server-2016-and-JSON-Support)
 
-Zie voor meer informatie over verschillende scenario's voor het integreren van JSON in uw toepassing, de demo's in deze [Channel 9-video](https://channel9.msdn.com/Events/DataDriven/SQLServer2016/JSON-as-a-bridge-betwen-NoSQL-and-relational-worlds) of zoeken van een scenario dat overeenkomt met uw use-case in [JSON blogberichten](http://blogs.msdn.com/b/sqlserverstorageengine/archive/tags/json/).
+Zie voor meer informatie over verschillende scenario's voor het integreren van JSON in uw toepassing, de demo's in deze [Channel 9-video](https://channel9.msdn.com/Events/DataDriven/SQLServer2016/JSON-as-a-bridge-betwen-NoSQL-and-relational-worlds) of zoeken van een scenario dat overeenkomt met uw use-case in [JSON blogberichten](https://blogs.msdn.com/b/sqlserverstorageengine/archive/tags/json/).
 

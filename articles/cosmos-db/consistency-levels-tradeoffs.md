@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/20/2018
 ms.author: mjbrown
-ms.openlocfilehash: 8f36026c7e5802994b8cf22d60c6ecea052e6382
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 0e4105d6f56a8eb45a83e970c85319cf25041781
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50963044"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51514771"
 ---
 # <a name="availability-and-performance-tradeoffs-for-various-consistency-levels-in-azure-cosmos-db"></a>Beschikbaarheid en prestaties van optimalisatie voor verschillende consistentieniveaus in Azure Cosmos DB
 
@@ -33,20 +33,6 @@ Gedistribueerde databases die afhankelijk zijn van replicatie voor hoge beschikb
 - Voor hetzelfde aantal aanvraageenheden bieden de sessie, consistent voorvoegsel en uiteindelijke consistentie-niveaus ongeveer 2 X doorvoer in vergelijking met sterke en gebonden veroudering lezen.
 
 - Voor een bepaald type schrijfbewerking zoals invoegen, vervangen, upsert, verwijderen, enz. is de doorvoer van schrijfbewerkingen voor aanvraageenheden gelijk voor alle consistentieniveaus.
-
-## <a name="consistency-levels-and-durability"></a>Consistentieniveaus en duurzaamheid
-
-Voordat een schrijfbewerking naar de client is bevestigd, hecht de gegevens blijvend van een quorum van replicaties in de regio waarin de schrijfbewerkingen zijn toegestaan. Bovendien, als de container is geconfigureerd met consistente indexeringsbeleid, de index is ook synchroon bijgewerkt, gerepliceerd en blijvend zijn doorgevoerd door het quorum van replica's voordat de bevestiging van de schrijfbewerking wordt verzonden naar de client.
-
-De volgende tabel geeft een overzicht van het venster van de mogelijke gegevens verloren gaan in het geval van een regionaal noodgeval voor de Cosmos-accounts die meerdere regio's omvatten.
-
-| **Consistentieniveau** | **Mogelijke gegevensverlies-venster met gegevens in het geval van een regionaal noodgeval** |
-| - | - |
-| Sterk | Nul |
-| Gebonden veroudering | Beperkt tot de "veroudering venster" u op de Cosmos-account configureren. |
-| Sessie | Maximaal 5 seconden |
-| Consistent prefix | Maximaal 5 seconden |
-| Mogelijk | Maximaal 5 seconden |
 
 ## <a name="next-steps"></a>Volgende stappen
 

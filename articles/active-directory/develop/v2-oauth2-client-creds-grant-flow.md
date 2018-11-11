@@ -17,12 +17,12 @@ ms.date: 01/07/2017
 ms.author: celested
 ms.reviewer: hirsin, dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 2dc1be6b861515cf34f8dd799fa732da530e82a1
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 05013905ddda232fb08e3b30892af5ac5a8320dc
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49985389"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51288999"
 ---
 # <a name="azure-active-directory-v20-and-the-oauth-20-client-credentials-flow"></a>Azure Active Directory v2.0 en de OAuth 2.0-clientreferentiestroom
 
@@ -52,7 +52,7 @@ Een gebruikelijk is het gebruik van een ACL testen voor een web-App of voor een 
 
 Dit type autorisatie is gebruikelijk voor daemons en service-accounts die toegang moeten krijgen tot gegevens die eigendom zijn van consumenten-gebruikers met persoonlijke Microsoft-accounts. Voor gegevens die eigendom zijn van organisaties, wordt u aangeraden dat u de benodigde machtiging via machtigingen van de toepassing krijgt.
 
-### <a name="application-permissions"></a>Machtigingen van de toepassing
+### <a name="application-permissions"></a>Toepassingsmachtigingen
 U kunt in plaats van ACL's, API's gebruiken om een set machtigingen van de toepassing zichtbaar te maken. De machtiging voor een toepassing te krijgen tot een toepassing door de beheerder van een organisatie en kan alleen worden gebruikt voor toegang tot gegevens die eigendom zijn van die organisatie en haar medewerkers. Microsoft Graph beschrijft bijvoorbeeld verschillende machtigingen van de toepassing het volgende doen:
 
 * E-mail in alle postvakken lezen
@@ -60,7 +60,7 @@ U kunt in plaats van ACL's, API's gebruiken om een set machtigingen van de toepa
 * E-mail met elke willekeurige gebruiker als afzender verzenden
 * Adreslijstgegevens lezen
 
-Voor meer informatie over de machtigingen van de toepassing, gaat u naar [Microsoft Graph](https://graph.microsoft.io).
+Voor meer informatie over de machtigingen van de toepassing, gaat u naar [Microsoft Graph](https://developer.microsoft.com/graph).
 
 Voor het gebruik van machtigingen van de toepassing in uw app, voer de stappen in de volgende secties besproken.
 
@@ -177,8 +177,8 @@ scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
 | tenant |Vereist | De directory-tenant de toepassing wil werken tegen in GUID of domeinnaam indeling. |
 | client_id |Vereist |De aanvraag-ID die de [Portal voor Appregistratie](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) toegewezen aan uw app. |
 | scope |Vereist |De waarde die wordt doorgegeven voor de `scope` parameter in deze aanvraag moet de resource identifier (URI van de toepassings-ID) van de resource die u wilt, aangebracht met de `.default` achtervoegsel. De waarde voor de Microsoft Graph-bijvoorbeeld heeft `https://graph.microsoft.com/.default`. Deze waarde informeert het v2.0-eindpunt dat van alle rechtstreekse Toepassingsmachtigingen die u voor uw app hebt geconfigureerd, er moet worden verleend een token voor de regels die zijn gekoppeld aan de resource die u wilt gebruiken. |
-| client_assertion_type |Vereist |De waarde moet liggen `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
-| client_assertion |Vereist | (Een JSON Web Token) een bewering die u wilt maken en te ondertekenen met het certificaat dat u geregistreerd als referenties voor uw toepassing. Meer informatie over [referenties van het certificaat](active-directory-certificate-credentials.md) voor informatie over het registreren van uw certificaat en de indeling van de verklaring.|
+| client_assertion_type |vereist |De waarde moet liggen `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
+| client_assertion |vereist | (Een JSON Web Token) een bewering die u wilt maken en te ondertekenen met het certificaat dat u geregistreerd als referenties voor uw toepassing. Meer informatie over [referenties van het certificaat](active-directory-certificate-credentials.md) voor informatie over het registreren van uw certificaat en de indeling van de verklaring.|
 | grant_type |Vereist |Moet `client_credentials`. |
 
 U ziet dat de parameters bijna hetzelfde als in het geval van de aanvraag van het gedeelde geheim zijn, behalve dat de waarde voor client_secret-parameter is vervangen door twee parameters: een client_assertion_type en client_assertion.

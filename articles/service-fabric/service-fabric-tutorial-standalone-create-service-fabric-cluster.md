@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 05/11/2018
 ms.author: dastanfo
 ms.custom: mvc
-ms.openlocfilehash: 36d65abb26435581f3e6c9c4a9fc46bb3dd538ce
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: b740aa205982bc0c1104b59e3ea89e2d5980d461
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39362769"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240338"
 ---
 # <a name="tutorial-install-and-create-service-fabric-cluster"></a>Zelfstudie: Service Fabric-cluster installeren en maken
 
@@ -37,7 +37,7 @@ In deel twee van de serie leert u het volgende:
 
 ## <a name="download-the-service-fabric-for-windows-server-package"></a>Het pakket Service Fabric voor Windows Server downloaden
 
-Service Fabric biedt een installatiepakket voor het maken van zelfstandige Service Fabric-clusters.  [Download het installatiepakket](http://go.microsoft.com/fwlink/?LinkId=730690) op uw lokale computer.  Zodra het pakket is gedownload, kopieert u het via de RDP-verbinding naar uw EC2-exemplaar en plakt u het op het bureaublad.
+Service Fabric biedt een installatiepakket voor het maken van zelfstandige Service Fabric-clusters.  [Download het installatiepakket](https://go.microsoft.com/fwlink/?LinkId=730690) op uw lokale computer.  Zodra het pakket is gedownload, kopieert u het via de RDP-verbinding naar uw EC2-exemplaar en plakt u het op het bureaublad.
 
 Selecteer het ZIP-bestand, open het contextmenu en selecteer **Alles uitpakken** > **Uitpakken**.  Als u de bestanden uitpakt, wordt er op het bureaublad een map gegenereerd met de naam van het ZIP-bestand.
 

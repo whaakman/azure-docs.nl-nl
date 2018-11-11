@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/08/2017
 ms.author: mbullwin
-ms.openlocfilehash: 99ace7be05f186ac920aa9671946389e95e3a3a6
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: cc9b3bd1d038bd8aa9c01e806e5448824011bc93
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50958114"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240746"
 ---
 # <a name="exploring-metrics-in-application-insights"></a>Metrische gegevens in Application Insights verkennen
 Metrische gegevens in [Application Insights] [ start] zijn gemeten waarden en aantallen gebeurtenissen die worden verzonden in telemetrie van uw toepassing. Ze helpen u prestatieproblemen detecteren en bekijk de trends in hoe uw toepassing wordt gebruikt. Er is een breed scala aan standaard metrische gegevens en u kunt ook uw eigen aangepaste metrische gegevens en gebeurtenissen maken.
@@ -180,7 +180,7 @@ Om te worden geïnformeerd via e-mail van ongebruikelijke waarden van elke meetw
 Als u gegevens continu exporteren wilt, zodat u deze extern kan verwerken, kunt u overwegen [continue export](app-insights-export-telemetry.md).
 
 ### <a name="power-bi"></a>Power BI
-Als u nog uitgebreider weergaven van uw gegevens wilt, kunt u [exporteren naar Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx).
+Als u nog uitgebreider weergaven van uw gegevens wilt, kunt u [exporteren naar Power BI](https://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx).
 
 ## <a name="analytics"></a>Analyse
 [Analytics](app-insights-analytics.md) is een veelzijdiger manier voor het analyseren van uw telemetrie met behulp van een krachtige querytaal. Gebruik deze optie als u wilt combineren, berekenen van resultaten van metrische gegevens of een grondig onderzoek van de recente prestaties van uw app uitvoeren. 

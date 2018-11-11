@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/05/2018
+ms.date: 11/08/2018
 ms.author: celested
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
-ms.openlocfilehash: dcc27992c318a970a86f1ff5c60723daeef881b6
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 0983c2235fba0cacbda53208e5dcad5b2878619c
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50914648"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51345484"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app-public-preview"></a>Hoe: geef optioneel claims voor uw Azure AD-app (Preview-versie)
 
@@ -42,7 +42,7 @@ Een van de doelstellingen van de [Azure AD v2.0-eindpunt](active-directory-appmo
 | Accounttype | V1.0-eindpunt | V2.0-eindpunt  |
 |--------------|---------------|----------------|
 | Persoonlijke Microsoft-account  | N.V.T. - RPS Tickets in plaats daarvan worden gebruikt | Binnenkort ondersteuning |
-| Azure AD-account          | Ondersteund                          | Ondersteund met aanvullende opmerkingen      |
+| Azure AD-account          | Ondersteund                          | Ondersteund met aanvullende opmerkingen |
 
 > [!IMPORTANT]
 > Apps die ondersteuning bieden voor zowel persoonlijke accounts en Azure AD (geregistreerd via de [portal voor app-registratie](https://apps.dev.microsoft.com)) optioneel claims kan niet worden gebruikt. Apps die zijn geregistreerd voor alleen Azure AD met behulp van het v2.0-eindpunt kunnen beschikt echter over de optionele claims die ze in het manifest wordt aangevraagd. In de Azure-portal, kunt u de toepassing manifest editor in de bestaande **App-registraties** ervaring voor het bewerken van de optionele claims. Echter, deze functionaliteit is nog niet beschikbaar met behulp van de editor van het manifest toepassing in de nieuwe **(Preview) van de App-registraties** optreden.
@@ -60,8 +60,6 @@ De set optioneel claims die standaard beschikbaar is voor toepassingen om te geb
 |-----------------------------|----------------|------------|-----------|--------|
 | `auth_time`                | Tijd wanneer de gebruiker laatste geverifieerd. Zie de OpenID Connect-specificatie.| JWT        |           |  |
 | `tenant_region_scope`      | De regio van de resource-tenant | JWT        |           | |
-| `signin_state`             | Meld u aan Status claim   | JWT        |           | waarden, retourneren 6 als vlaggen:<br> "dvc_mngd": het apparaat wordt beheerd<br> "dvc_cmp": apparaat is compatibel<br> "dvc_dmjd": apparaat is toegevoegd aan een domein<br> "dvc_mngd_app": het apparaat wordt beheerd via MDM<br> "inknownntwk": apparaat is een bekend netwerk van binnenuit.<br> "kmsi": houd Me aangemeld is gebruikt. <br> |
-| `controls`                 | Meerdere waarden claim met de sessiebesturingselementen afgedwongen door het beleid voor voorwaardelijke toegang. | JWT        |           | 3-waarden:<br> 'app_res': de app moet afdwingen meer granulaire beperkingen. <br> "ca_enf": afdwingen van voorwaardelijke toegang is uitgesteld en is nog steeds vereist. <br> "no_cookie": dit token is onvoldoende voor het uitwisselen van een cookie in de browser. <br>  |
 | `home_oid`                 | Voor gastgebruikers, de object-ID van de gebruiker in de starttenant van de gebruiker.| JWT        |           | |
 | `sid`                      | Sessie-ID die wordt gebruikt voor sessie-gebruiker die afmelden wordt weergegeven. | JWT        |           |         |
 | `platf`                    | Apparaatplatform    | JWT        |           | Beperkt tot beheerde apparaten die u kunnen controleren of apparaattype.|
@@ -76,6 +74,7 @@ De set optioneel claims die standaard beschikbaar is voor toepassingen om te geb
 | `xms_pl`                   | Gebruiker gewenste taal  | JWT ||De gebruiker de taal, bij voorkeur als instellen. Afkomstig uit de starttenant, in de Gast-scenario's. LLE CC opgemaakt ("en-us '). |
 | `xms_tpl`                  | Tenant van de taal van voorkeur| JWT | | De resource-tenant de taal, bij voorkeur als instellen. Opgemaakte LLE ('en'). |
 | `ztdid`                    | Zero-touch-implementatie-ID | JWT | | De apparaat-id die wordt gebruikt voor [Windows AutoPilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot) |
+|`email`                     | De adresseerbare e-mailadres voor deze gebruiker, als de gebruiker een heeft.  | JWT, SAML | | Deze waarde is standaard opgenomen als de gebruiker een gast in de tenant.  Voor beheerde gebruikers (die in de tenant), moet deze worden gevraagd via deze optionele claim of, op v2.0 alleen met het bereik OpenID.  Voor beheerde gebruikers het e-mailadres moet worden ingesteld in de [Office-beheerportal](https://portal.office.com/adminportal/home#/users).|  
 | `acct`             | Accountstatus gebruikers in de tenant. | JWT, SAML | | Als de gebruiker een lid van de tenant is, is de waarde `0`. Als ze een gast zijn, is de waarde `1`. |
 | `upn`                      | UserPrincipalName claim. | JWT, SAML  |           | Hoewel deze claim automatisch geïnstalleerd wordt, kunt u deze kunt opgeven als een optionele claim extra eigenschappen voor het wijzigen van het gedrag in het geval van de gebruiker Gast koppelen. <br> Aanvullende eigenschappen: <br> `include_externally_authenticated_upn` <br> `include_externally_authenticated_upn_without_hash` |
 

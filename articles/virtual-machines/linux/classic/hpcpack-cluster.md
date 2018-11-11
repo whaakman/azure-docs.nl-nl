@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: big-compute
 ms.date: 10/12/2016
 ms.author: danlep
-ms.openlocfilehash: 2d4091d8ad6a778405ee6bb916c399e0b144f21d
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 4156071c36b06be586b05ee98e9eeb0a9138e4bb
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39441524"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51246851"
 ---
 # <a name="get-started-with-linux-compute-nodes-in-an-hpc-pack-cluster-in-azure"></a>Aan de slag met Linux-rekenknooppunten in een HPC Pack-cluster in Azure
 Instellen van een [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029.aspx) -cluster in Azure met een hoofdknooppunt met Windows Server en diverse compute-knooppunten met een ondersteunde Linux-distributie. Verken opties voor het verplaatsen van gegevens tussen de Linux-knooppunten en het Windows-hoofdknooppunt van het cluster. Informatie over het verzenden van Linux HPC-taken naar het cluster.
@@ -186,7 +186,7 @@ U hebt verschillende mogelijkheden om gegevens tussen de Linux-knooppunten en he
 ### <a name="azure-file-storage"></a>Azure File storage
 De [Azure File](https://azure.microsoft.com/services/storage/files/) service biedt bestandsshares met behulp van het standaard SMB 2.1-protocol. Azure VM's en cloudservices kunnen bestandsgegevens delen tussen toepassingsonderdelen via gekoppelde shares en on-premises toepassingen hebben toegang tot bestandsgegevens in een share via de API van File storage. 
 
-Zie voor gedetailleerde stappen voor het maken van een Azure-bestandsshare en koppel deze op het hoofdknooppunt, [aan de slag met Azure File storage in Windows](../../../storage/files/storage-how-to-use-files-windows.md). Zie voor het koppelen van de Azure-bestandsshare op de Linux-knooppunten, [Azure File storage gebruiken met Linux](../../../storage/files/storage-how-to-use-files-linux.md). Als u permanente verbindingen instelt, Zie [Persisting verbindingen met Microsoft Azure Files](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx).
+Zie voor gedetailleerde stappen voor het maken van een Azure-bestandsshare en koppel deze op het hoofdknooppunt, [aan de slag met Azure File storage in Windows](../../../storage/files/storage-how-to-use-files-windows.md). Zie voor het koppelen van de Azure-bestandsshare op de Linux-knooppunten, [Azure File storage gebruiken met Linux](../../../storage/files/storage-how-to-use-files-linux.md). Als u permanente verbindingen instelt, Zie [Persisting verbindingen met Microsoft Azure Files](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx).
 
 In het volgende voorbeeld maakt u een Azure-bestandsshare op een storage-account. Open een opdrachtprompt en voer de volgende opdrachten voor het koppelen van de bestandsshare op het hoofdknooppunt:
 
@@ -271,7 +271,7 @@ Er zijn verschillende manieren voor het verzenden van taken naar de HPC Pack-clu
 
 Verzenden van taken in het cluster in Azure via HPC Pack GUI-hulpprogramma's en de HPC-webportal zijn dezelfde als die voor Windows-rekenknooppunten. Zie [HPC Pack Job Manager](https://technet.microsoft.com/library/ff919691.aspx) en [hoe u taken verzenden vanuit een on-premises clientcomputer](../../windows/hpcpack-cluster-submit-jobs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-Als u wilt verzenden van taken via de REST-API, verwijzen naar [maken en verzenden van taken met behulp van de REST-API in Microsoft HPC Pack](http://social.technet.microsoft.com/wiki/contents/articles/7737.creating-and-submitting-jobs-by-using-the-rest-api-in-microsoft-hpc-pack-windows-hpc-server.aspx). Als u wilt verzenden van taken in een Linux-client, ook verwijzen naar het Python-voorbeeld in de [HPC Pack SDK](https://www.microsoft.com/download/details.aspx?id=47756).
+Als u wilt verzenden van taken via de REST-API, verwijzen naar [maken en verzenden van taken met behulp van de REST-API in Microsoft HPC Pack](https://social.technet.microsoft.com/wiki/contents/articles/7737.creating-and-submitting-jobs-by-using-the-rest-api-in-microsoft-hpc-pack-windows-hpc-server.aspx). Als u wilt verzenden van taken in een Linux-client, ook verwijzen naar het Python-voorbeeld in de [HPC Pack SDK](https://www.microsoft.com/download/details.aspx?id=47756).
 
 ## <a name="clusrun-for-linux-nodes"></a>Clusrun voor Linux-knooppunten
 De HPC Pack [clusrun](https://technet.microsoft.com/library/cc947685.aspx) hulpprogramma kan worden gebruikt voor het uitvoeren van opdrachten op Linux-knooppunten via een opdrachtprompt of HPC Cluster Manager. Hier volgen enkele algemene voorbeelden.

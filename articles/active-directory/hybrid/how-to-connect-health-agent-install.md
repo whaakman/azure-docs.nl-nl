@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: c57e6d3e35994bea99e15f37ed0fb6aa2d108f74
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 337537e5f34eb823f7ca92a2b1f200c9c0c10428
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46303924"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247463"
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>De Azure AD Connect Health-agent installeren
 In dit document wordt beschreven hoe u de Azure AD Connect Health-agents installeert en configureert. U kunt de agents [hier](how-to-connect-install-roadmap.md#download-and-install-azure-ad-connect-health-agent) downloaden.
@@ -37,7 +37,7 @@ In de volgende tabel ziet u een lijst vereisten voor het gebruik van Azure AD Co
 | SSL-controle voor uitgaand verkeer is gefilterd of uitgeschakeld | De agentregistratiestap of het uploaden van gegevens kan mislukken als er in de netwerklaag een SSL-inspectie of blokkering is voor uitgaand verkeer. Meer informatie over het [instellen van SSL-inspectie](https://technet.microsoft.com/library/ee796230.aspx) |
 | Firewallpoorten op de server waarop de agent wordt uitgevoerd |De volgende firewallpoorten moeten open zijn, anders kan de agent niet communiceren met de eindpunten van de Azure AD Health-service.</br></br><li>TCP-poort 443</li><li>TCP-poort 5671</li> </br>Lees meer over [firewallpoorten inschakelen](https://technet.microsoft.com/library/ms345310(v=sql.100).aspx) |
 | Sta de volgende websites toe als verbeterde beveiliging van Internet Explorer is ingeschakeld |Als verbeterde beveiliging van Internet Explorer is ingeschakeld, moeten de volgende websites worden toegestaan op de server waarop u de agent wilt installeren.</br></br><li>https:\//login.microsoftonline.com</li><li>https:\//secure.aadcdn.microsoftonline-p.com</li><li>https:\//login.windows.net</li><li>De federatieve server van uw organisatie moet worden vertrouwd door Azure Active Directory. Bijvoorbeeld: https:\//sts.contoso.com</li> Lees meer over [Internet Explorer configureren](https://support.microsoft.com/help/815141/internet-explorer-enhanced-security-configuration-changes-the-browsing) |
-| Zorg ervoor dat PowerShell v4.0 of later is geïnstalleerd | <li>Windows Server 2008 R2 wordt geleverd met PowerShell versie 2.0, wat onvoldoende is voor de agent.  Werk PowerShell bij zoals wordt uitgelegd in [Agent-installatie op Windows Server 2008 R2-servers](#agent-installation-on-windows-server-2008-r2-servers).</li><li>Windows Server 2012 wordt geleverd met PowerShell v3.0, wat onvoldoende is voor de agent.  [Update](http://www.microsoft.com/download/details.aspx?id=40855) het Windows Management Framework.</li><li>Windows Server 2012 R2 en later wordt geleverd met een voldoende recente versie van PowerShell.</li>|
+| Zorg ervoor dat PowerShell v4.0 of later is geïnstalleerd | <li>Windows Server 2008 R2 wordt geleverd met PowerShell versie 2.0, wat onvoldoende is voor de agent.  Werk PowerShell bij zoals wordt uitgelegd in [Agent-installatie op Windows Server 2008 R2-servers](#agent-installation-on-windows-server-2008-r2-servers).</li><li>Windows Server 2012 wordt geleverd met PowerShell v3.0, wat onvoldoende is voor de agent.  [Update](https://www.microsoft.com/download/details.aspx?id=40855) het Windows Management Framework.</li><li>Windows Server 2012 R2 en later wordt geleverd met een voldoende recente versie van PowerShell.</li>|
 |FIPS uitschakelen|FIPS wordt niet ondersteund door Azure AD Connect Health-agents.|
 
 ### <a name="outbound-connectivity-to-the-azure-service-endpoints"></a>Uitgaande verbinding met de Azure-service-eindpunten
@@ -53,12 +53,12 @@ In de volgende tabel ziet u een lijst vereisten voor het gebruik van Azure AD Co
 ## <a name="download-and-install-the-azure-ad-connect-health-agent"></a>De Azure AD Connect Health-agent downloaden en installeren
 * Zorg dat u [voldoet aan de vereisten](how-to-connect-health-agent-install.md#requirements) voor Azure AD Connect Health.
 * Aan de slag met Azure AD Connect Health voor AD FS
-    * [Download de Azure AD Connect Health-agent voor AD FS.](http://go.microsoft.com/fwlink/?LinkID=518973)
+    * [Download de Azure AD Connect Health-agent voor AD FS.](https://go.microsoft.com/fwlink/?LinkID=518973)
     * [Zie de installatie-instructies](#installing-the-azure-ad-connect-health-agent-for-ad-fs).
 * Aan de slag met Azure AD Connect Health for Sync
-    * [Download en installeer de nieuwste versie van Azure AD Connect](http://go.microsoft.com/fwlink/?linkid=615771). De Health for Sync-agent wordt geïnstalleerd als onderdeel van de Azure AD Connect-installatie (versie 1.0.9125.0 of hoger).
+    * [Download en installeer de nieuwste versie van Azure AD Connect](https://go.microsoft.com/fwlink/?linkid=615771). De Health for Sync-agent wordt geïnstalleerd als onderdeel van de Azure AD Connect-installatie (versie 1.0.9125.0 of hoger).
 * Aan de slag met Azure AD Connect Health voor AD DS
-    * [Download de Azure AD Connect Health-agent voor AD DS](http://go.microsoft.com/fwlink/?LinkID=820540).
+    * [Download de Azure AD Connect Health-agent voor AD DS](https://go.microsoft.com/fwlink/?LinkID=820540).
     * [Zie de installatie-instructies](#installing-the-azure-ad-connect-health-agent-for-ad-ds).
 
 ## <a name="installing-the-azure-ad-connect-health-agent-for-ad-fs"></a>De Azure AD Connect Health-agent voor AD FS installeren
@@ -105,7 +105,7 @@ Stappen voor Windows Server 2008 R2-servers:
    * PowerShell ISE (van Windows-onderdelen) installeren
    * Installeer [Windows Management Framework 4.0](https://www.microsoft.com/download/details.aspx?id=40855).
    * Installeer Internet Explorer versie 10 of hoger op de server. (Dit is vereist voor de Health Service, zodat kan worden geverifieerd of u Azure-beheerdersreferenties gebruikt.)
-4. Voor meer informatie over het installeren van Windows PowerShell 4.0 voor Windows Server 2008 R2 raadpleegt u [dit](http://social.technet.microsoft.com/wiki/contents/articles/20623.step-by-step-upgrading-the-powershell-version-4-on-2008-r2.aspx) wiki-artikel.
+4. Voor meer informatie over het installeren van Windows PowerShell 4.0 voor Windows Server 2008 R2 raadpleegt u [dit](https://social.technet.microsoft.com/wiki/contents/articles/20623.step-by-step-upgrading-the-powershell-version-4-on-2008-r2.aspx) wiki-artikel.
 
 ### <a name="enable-auditing-for-ad-fs"></a>Controle inschakelen voor AD FS
 > [!NOTE]
@@ -175,7 +175,7 @@ Het basiscontroleniveau is standaard ingeschakeld. Meer informatie over de [AD F
 > De synchronisatieserver moet verschillen van de AD FS-server. Installeer de synchronisatieagent niet op uw AD FS-server.
 >
 
-De Azure AD Connect Health for Sync-agent wordt automatisch geïnstalleerd via de laatste build van Azure AD Connect. Als u Azure AD Connect Health for Sync wilt gebruiken, moet u de nieuwste verzie van Azure AD Connect downloaden en installeren. U kunt de nieuwste versie [hier](http://www.microsoft.com/download/details.aspx?id=47594) downloaden.
+De Azure AD Connect Health for Sync-agent wordt automatisch geïnstalleerd via de laatste build van Azure AD Connect. Als u Azure AD Connect Health for Sync wilt gebruiken, moet u de nieuwste verzie van Azure AD Connect downloaden en installeren. U kunt de nieuwste versie [hier](https://www.microsoft.com/download/details.aspx?id=47594) downloaden.
 
 Als u wilt controleren of de agent is geïnstalleerd, zoekt u de volgende services op de server. Als de configuratie is voltooid, moeten deze services worden uitgevoerd. Ze worden pas gestart wanneer de configuratie is voltooid.
 

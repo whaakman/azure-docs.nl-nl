@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 51e96065f726fadd528323157609034b5bb3f151
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 8cf5f262a758efe08ad73e2d8066ad4b736e76d1
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387885"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247718"
 ---
 # <a name="how-to-roll-x509-device-certificates"></a>Het verwijderen van certificaten voor x.509-apparaten
 
 Tijdens de levenscyclus van uw IoT-oplossing moet u certificaten implementeren. Twee van de belangrijkste redenen voor het verlengen van certificaten is een schending van de beveiliging en certificaten verlopen. 
 
-Rolling certificaten is een aanbevolen beveiligingsprocedure om te helpen beveiligen van uw systeem in het geval van een inbreuk. Als onderdeel van [wordt ervan uitgegaan dat inbreuk methodologie](http://download.microsoft.com/download/C/1/9/C1990DBA-502F-4C2A-848D-392B93D9B9C3/Microsoft_Enterprise_Cloud_Red_Teaming.pdf), Microsoft, wordt de noodzaak van reactieve beveiligingsprocessen die erin samen met preventieve maatregelen nemen. Certificaten voor uw apparaten ongedaan moet zijn opgenomen als onderdeel van deze beveiligingsprocessen. De frequentie in waarmee u uw certificaten implementeert, is afhankelijk van de beveiligingsvereisten van uw oplossing. Klanten met oplossingen met betrekking tot zeer gevoelige gegevens rolt certificaat per dag, terwijl anderen hun certificaten om de paar jaar implementeren.
+Rolling certificaten is een aanbevolen beveiligingsprocedure om te helpen beveiligen van uw systeem in het geval van een inbreuk. Als onderdeel van [wordt ervan uitgegaan dat inbreuk methodologie](https://download.microsoft.com/download/C/1/9/C1990DBA-502F-4C2A-848D-392B93D9B9C3/Microsoft_Enterprise_Cloud_Red_Teaming.pdf), Microsoft, wordt de noodzaak van reactieve beveiligingsprocessen die erin samen met preventieve maatregelen nemen. Certificaten voor uw apparaten ongedaan moet zijn opgenomen als onderdeel van deze beveiligingsprocessen. De frequentie in waarmee u uw certificaten implementeert, is afhankelijk van de beveiligingsvereisten van uw oplossing. Klanten met oplossingen met betrekking tot zeer gevoelige gegevens rolt certificaat per dag, terwijl anderen hun certificaten om de paar jaar implementeren.
 
 Rolling apparaatcertificaten omvatten bijwerken van het certificaat dat is opgeslagen op het apparaat en de IoT-hub. Daarna wordt het apparaat opnieuw kunt inrichten zelf met de IoT hub met behulp van normale [automatische inrichting](concepts-auto-provisioning.md) met de Device Provisioning Service.
 

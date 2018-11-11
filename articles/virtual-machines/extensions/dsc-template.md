@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 10/05/2018
 ms.author: robreed
-ms.openlocfilehash: e24353013110bfa95f23b75bbd81fd6d1048b95a
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: d55f6097e3e1eed508580676edcf008b0739034c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48830838"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230973"
 ---
 # <a name="desired-state-configuration-extension-with-azure-resource-manager-templates"></a>Desired State Configuration-extensie met Azure Resource Manager-sjablonen
 
@@ -167,7 +167,7 @@ Zie voor een lijst van de argumenten die beschikbaar voor een script voor de con
 | settings.configurationArguments |Verzameling |Hiermee definieert u de parameters die u wilt doorgeven aan uw DSC-configuratie. Deze eigenschap is niet versleuteld. |
 | settings.configurationData.url |tekenreeks |Geeft de URL waaruit u uw gegevens (.psd1)-configuratiebestand te downloaden om te gebruiken als invoer voor uw DSC-configuratie. Als de opgegeven URL is een SAS-token voor toegang vereist, stelt u de **protectedSettings.configurationDataUrlSasToken** eigenschap met de waarde van uw SAS-token. |
 | settings.privacy.dataCollection |tekenreeks |Hiermee of verzamelen van telemetriegegevens uitgeschakeld. De enige mogelijke waarden voor deze eigenschap zijn **inschakelen**, **uitschakelen**, **''**, of **$null**. Deze eigenschap verlaten leeg of null zijn, kunt telemetrie. De standaardwaarde is **''**. Zie voor meer informatie, [Azure DSC-extensie gegevensverzameling](https://blogs.msdn.microsoft.com/powershell/2016/02/02/azure-dsc-extension-data-collection-2/). |
-| settings.advancedOptions.downloadMappings |Verzameling |Hiermee definieert u alternatieve locaties van waaruit WMF gedownload. Zie voor meer informatie, [Azure DSC-extensie 2.8 en downloaden van de extensie afhankelijkheden toewijzen aan uw eigen locatie](http://blogs.msdn.com/b/powershell/archive/2015/10/21/azure-dsc-extension-2-2-amp-how-to-map-downloads-of-the-extension-dependencies-to-your-own-location.aspx). |
+| settings.advancedOptions.downloadMappings |Verzameling |Hiermee definieert u alternatieve locaties van waaruit WMF gedownload. Zie voor meer informatie, [Azure DSC-extensie 2.8 en downloaden van de extensie afhankelijkheden toewijzen aan uw eigen locatie](https://blogs.msdn.com/b/powershell/archive/2015/10/21/azure-dsc-extension-2-2-amp-how-to-map-downloads-of-the-extension-dependencies-to-your-own-location.aspx). |
 | protectedSettings.configurationArguments |Verzameling |Hiermee definieert u de parameters die u wilt doorgeven aan uw DSC-configuratie. Deze eigenschap is versleuteld. |
 | protectedSettings.configurationUrlSasToken |tekenreeks |Hiermee geeft u de SAS-token gebruiken voor toegang tot de URL die **settings.configuration.url** definieert. Deze eigenschap is versleuteld. |
 | protectedSettings.configurationDataUrlSasToken |tekenreeks |Hiermee geeft u de SAS-token gebruiken voor toegang tot de URL die **settings.configurationData.url** definieert. Deze eigenschap is versleuteld. |
@@ -324,7 +324,7 @@ Hier ziet u hoe de vorige indeling worden aangepast aan de huidige indeling:
 | protectedSettings.configurationUrlSasToken |settings.SasToken |
 | protectedSettings.configurationDataUrlSasToken |SAS-token van protectedSettings.DataBlobUri |
 
-## <a name="troubleshooting"></a>Probleemoplossing
+## <a name="troubleshooting"></a>Problemen oplossen
 
 Hier volgen enkele van de fouten die u mogelijk ondervindt en hoe u deze kunt oplossen.
 
@@ -340,7 +340,7 @@ Alleen de mogelijke waarden zijn... en de 'nieuwste' ".
 **Oplossing**: Wijzig de ongeldige waarde in een geldige waarde.
 Voor meer informatie, Zie de tabel in [Details](#details).
 
-### <a name="invalid-url"></a>De URL is ongeldig
+### <a name="invalid-url"></a>Ongeldige URL
 
 "ConfigurationData.url is '{0}'. Dit is geen geldige URL' ' DataBlobUri is '{0}'. Dit is geen geldige URL' ' Configuration.url is '{0}'. Dit is geen geldige URL'
 

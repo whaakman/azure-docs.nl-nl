@@ -3,19 +3,19 @@ title: Wat is Apache Hive en HiveQL - Azure HDInsight
 description: Apache Hive is een systeem voor het datawarehouse van gegevens voor Hadoop. U kunt gegevens die zijn opgeslagen in Hive HiveQL, met een query die vergelijkbaar met de Transact-SQL. In dit document leert u hoe u Hive en HiveQL gebruiken met Azure HDInsight.
 keywords: hiveql, wat hive, hadoop hiveql, is het gebruik van hive, hive, wat is er hive meer
 services: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/23/2018
-ms.openlocfilehash: 9f22766b0ecbaff027cf4b495624f892d4339d17
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 0401717da8c5548033bbbd7720bb1266646bbe48
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249340"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51241103"
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>Wat is Apache Hive en HiveQL op Azure HDInsight?
 
@@ -70,7 +70,7 @@ ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
 STORED AS TEXTFILE LOCATION '/example/data/';
 ```
 
-Hive biedt ook ondersteuning voor aangepaste **serializer/deserializers (serde-schrijfbewerking)** voor complexe of onregelmatig gestructureerde gegevens. Zie voor meer informatie de [over het gebruik van een aangepaste JSON serde-schrijfbewerking met HDInsight](http://blogs.msdn.com/b/bigdatasupport/archive/2014/06/18/how-to-use-a-custom-json-serde-with-microsoft-azure-hdinsight.aspx) document.
+Hive biedt ook ondersteuning voor aangepaste **serializer/deserializers (serde-schrijfbewerking)** voor complexe of onregelmatig gestructureerde gegevens. Zie voor meer informatie de [over het gebruik van een aangepaste JSON serde-schrijfbewerking met HDInsight](https://blogs.msdn.com/b/bigdatasupport/archive/2014/06/18/how-to-use-a-custom-json-serde-with-microsoft-azure-hdinsight.aspx) document.
 
 Zie voor meer informatie over ondersteunde bestandsindelingen in Hive, de [handmatige (taal https://cwiki.apache.org/confluence/display/Hive/LanguageManual)](https://cwiki.apache.org/confluence/display/Hive/LanguageManual)
 
@@ -106,7 +106,7 @@ Hive kan verder worden uitgebreid via **gebruikersgedefinieerde functies (UDF's)
 
 * [Een C#-de gebruiker gedefinieerde functie gebruiken met Hive](../hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md)
 
-* [Een aangepaste Hive-de gebruiker gedefinieerde functie toevoegen aan HDInsight](http://blogs.msdn.com/b/bigdatasupport/archive/2014/01/14/how-to-add-custom-hive-udfs-to-hdinsight.aspx)
+* [Een aangepaste Hive-de gebruiker gedefinieerde functie toevoegen aan HDInsight](https://blogs.msdn.com/b/bigdatasupport/archive/2014/01/14/how-to-add-custom-hive-udfs-to-hdinsight.aspx)
 
 * [Een voorbeeld van de gebruiker gedefinieerde functie datum/tijd-indeling converteren naar Hive timestamp Hive](https://github.com/Azure-Samples/hdinsight-java-hive-udf)
 

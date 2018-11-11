@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: robb
 ms.component: autoscale
-ms.openlocfilehash: 7a3083bd757a7aa5625799724d601f99fd7e2b14
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 8491f3f61746374b67e174ca5efff2fbf2fe5fbe
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50961293"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281894"
 ---
 # <a name="overview-of-autoscale-in-microsoft-azure-virtual-machines-cloud-services-and-web-apps"></a>Overzicht van automatisch schalen in een Microsoft Azure Virtual Machines, Cloud Services en Web-Apps
 Dit artikel wordt beschreven welke Microsoft Azure voor automatisch schalen is, de voordelen ervan, en hoe u aan de slag met behulp van deze.  
@@ -107,8 +107,8 @@ U kunt automatisch schalen via instellen
 | Web Apps |[Schalen van Web-Apps](monitoring-autoscale-get-started.md) |
 | Cloud Services |[Automatisch schalen van een Service in de Cloud](../cloud-services/cloud-services-how-to-scale-portal.md) |
 | Virtuele Machines: klassieke |[Beschikbaarheidssets voor klassieke virtuele machines schalen](https://blogs.msdn.microsoft.com/kaevans/2015/02/20/autoscaling-azurevirtual-machines/) |
-| Virtuele Machines: Windows-Schaalsets voor |[Schalen van virtuele-machineschaalset Hiermee stelt u in Windows](../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-powershell.md) |
-| Virtuele Machines: Schaalsets voor Linux |[Schalen van virtuele-machineschaalset Hiermee stelt u in Linux](../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-cli.md) |
+| Virtuele Machines: Windows-Schaalsets voor |[Schalen van virtuele-machineschaalset Hiermee stelt u in Windows](../virtual-machine-scale-sets/tutorial-autoscale-powershell.md) |
+| Virtuele Machines: Schaalsets voor Linux |[Schalen van virtuele-machineschaalset Hiermee stelt u in Linux](../virtual-machine-scale-sets/tutorial-autoscale-cli.md) |
 | Virtuele Machines: Voorbeeld van de Windows |[Geavanceerde configuratie van de voor automatisch schalen met behulp van Resource Manager-sjablonen voor VM-Schaalsets](insights-advanced-autoscale-virtual-machine-scale-sets.md) |
 | API Management-service|[Automatisch schalen van een Azure API Management-exemplaar](https://docs.microsoft.com/azure/api-management/api-management-howto-autoscale)
 

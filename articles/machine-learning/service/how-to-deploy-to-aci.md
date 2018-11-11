@@ -9,12 +9,12 @@ ms.author: raymondl
 author: raymondlaghaeian
 ms.reviewer: sgilley
 ms.date: 09/24/2018
-ms.openlocfilehash: 8a736516a598eee051b416834d2b737211e66b96
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: b004abb3959bbfe36fc200bf762114f88f3d2ead
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49429454"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51345033"
 ---
 # <a name="deploy-web-services-to-azure-container-instances"></a>Webservices implementeren in Azure Container Instances 
 
@@ -48,9 +48,12 @@ Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://az
 ## <a name="configure-an-image"></a>Een afbeelding van configureren
 
 Configureer de Docker-installatiekopie die wordt gebruikt voor het opslaan van alle modelbestanden.
-1. Maken van een scoring-script (score.py) [met behulp van deze instructies](tutorial-deploy-models-with-aml.md#create-scoring-script)
+1. Maken van een scoring-script (score.py) [met behulp van deze instructies](tutorial-deploy-models-with-aml.md#create-scoring-script).
 
-1. Maak een omgevingsbestand (myenv.yml) [met behulp van deze instructies](tutorial-deploy-models-with-aml.md#create-environment-file) 
+    > [!IMPORTANT]
+    > Het scoring-script ontvangt van clients verzonden gegevens en wordt doorgegeven aan het model voor het scoren. Documenteer de gegevensstructuur die het script en het model verwacht. Met deze documentatie wordt dingen gemakkelijker bij het bouwen van een client de webservice gebruiken.
+
+1. Maak een omgevingsbestand (myenv.yml) [met behulp van deze instructies](tutorial-deploy-models-with-aml.md#create-environment-file).
 
 1. Gebruik deze twee bestanden om te configureren van de Docker-installatiekopie in Python met behulp van de SDK, als volgt:
 
@@ -217,8 +220,7 @@ Deze methode biedt u de meeste controle over het maken en de namen van de onderd
 
 U kunt de webservice nu testen.
 
-<a name='test-web-service'/>
-## <a name="test-the-web-service"></a>De webservice testen
+## <a name="a-nametest-web-servicetest-the-web-service"></a><a name='test-web-service'/>De webservice testen
 
 De webservice is hetzelfde, ongeacht welke methode is gebruikt.  Voor voorspellingen, gebruikt de `run` methode van de service.  
 
@@ -261,4 +263,5 @@ service.delete()
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Meer informatie over het [implementeren in Azure Kubernetes Service](how-to-deploy-to-aks.md) voor implementatie op grote schaal. 
+* Meer informatie over het [verbruiken een ML-Model is geïmplementeerd als een webservice](how-to-consume-web-service.md).
+* Meer informatie over het [implementeren in Azure Kubernetes Service](how-to-deploy-to-aks.md) voor implementatie op grote schaal. 

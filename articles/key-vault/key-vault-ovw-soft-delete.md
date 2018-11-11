@@ -7,12 +7,12 @@ author: bryanla
 ms.author: bryanla
 manager: mbaldwin
 ms.date: 09/25/2017
-ms.openlocfilehash: ac34f03c896e9e2180b653c41faa7f7525a40e33
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 12b14b87a02619b21e80436c80a284c4011f8b33
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47407872"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300316"
 ---
 # <a name="azure-key-vault-soft-delete-overview"></a>Overzicht van Azure Key Vault-functie voor voorlopig verwijderen
 
@@ -44,7 +44,9 @@ Voorlopig verwijderen is een optionele Key Vault-gedrag en is **niet standaard i
 ### <a name="purge-protection--flag"></a>Vlag van de beveiliging verwijderen
 Beveiliging verwijderen (**--inschakelen opschonen beveiliging** in de Azure CLI) vlag is standaard uitgeschakeld. Als deze vlag is ingeschakeld, een kluis of een object status verwijderd kan niet worden verwijderd totdat is de bewaarperiode van 90 dagen verstreken. Deze kluis of het object kan nog steeds worden hersteld. Met deze markering biedt extra zekerheid voor klanten die een kluis of een object kan nooit worden definitief verwijderd totdat de bewaartermijn is verstreken. U kunt de vlag opschonen-beveiliging inschakelen alleen als de functie voor voorlopig verwijderen-vlag ingeschakeld is, of bij het maken van kluizen inschakelen beide voorlopig verwijderen en beveiliging verwijderen.
 
-[!NOTE] De vereiste voor het inschakelen van leegmaken van de beveiliging is hebt u voorlopig verwijderen zijn ingeschakeld. De opdracht uit om dit te doen in Azure CLI 2 is
+> [!NOTE] 
+   De vereiste voor het inschakelen van leegmaken van de beveiliging is hebt u voorlopig verwijderen zijn ingeschakeld.
+De opdracht uit om dit te doen in Azure CLI 2 is
 
 ```
 az keyvault create --name "VaultName" --resource-group "ResourceGroupName" --location westus --enable-soft-delete true --enable-purge-protection true

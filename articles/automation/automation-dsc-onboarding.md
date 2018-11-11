@@ -9,12 +9,12 @@ ms.author: robreed
 ms.topic: conceptual
 ms.date: 08/08/2018
 manager: carmonm
-ms.openlocfilehash: 554c575f338ebaa415ed21be8dc8b27eb79c3c0c
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: fea0a0dfd2e138fa4f33f4f489be74f5038b4ca6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45634401"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51244522"
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-state-configuration"></a>Onboarding van machines voor beheer met Azure Automation State Configuration
 
@@ -150,9 +150,9 @@ U kunt eenvoudig onboarding Amazon Web Services virtuele machines voor Configura
 
 On-premises Windows-computers en Windows-machines in niet-Azure-clouds (zoals Amazon Web Services) is ook toegevoegd aan Azure Automation State Configuration, zolang ze uitgaande toegang tot internet via een paar eenvoudige stappen hebben:
 
-1. Zorg ervoor dat de nieuwste versie van [WMF 5](http://aka.ms/wmf5latest) is geïnstalleerd op de machines die u voorbereiden voor Azure Automation State Configuration wilt.
+1. Zorg ervoor dat de nieuwste versie van [WMF 5](https://aka.ms/wmf5latest) is geïnstalleerd op de machines die u voorbereiden voor Azure Automation State Configuration wilt.
 1. Volg de aanwijzingen in de volgende sectie [ **genereren DSC metaconfigurations** ](#generating-dsc-metaconfigurations) voor het genereren van een map met de benodigde DSC-metaconfigurations.
-1. De PowerShell DSC-metaconfiguration op afstand van toepassing op de machines die u vrijgeven wilt. **De machine met deze opdracht wordt uitgevoerd vanaf moet de nieuwste versie van [WMF 5](http://aka.ms/wmf5latest) geïnstalleerd**:
+1. De PowerShell DSC-metaconfiguration op afstand van toepassing op de machines die u vrijgeven wilt. **De machine met deze opdracht wordt uitgevoerd vanaf moet de nieuwste versie van [WMF 5](https://aka.ms/wmf5latest) geïnstalleerd**:
 
    ```powershell
    Set-DscLocalConfigurationManager -Path C:\Users\joe\Desktop\DscMetaConfigs -ComputerName MyServer1, MyServer2
@@ -190,7 +190,7 @@ On-premises Linux-computers, Linux-machines in Azure en Linux-machines in niet-A
     Set-DscLocalConfigurationManager -CimSession $Session -Path C:\Users\joe\Desktop\DscMetaConfigs
     ```
 
-De machine met deze opdracht wordt uitgevoerd vanaf moet de nieuwste versie van [WMF 5](http://aka.ms/wmf5latest) geïnstalleerd.
+De machine met deze opdracht wordt uitgevoerd vanaf moet de nieuwste versie van [WMF 5](https://aka.ms/wmf5latest) geïnstalleerd.
 
 1. Als u de PowerShell DSC-metaconfigurations op afstand niet voor elke Linux-machine voor onboarding toepassen, kopieert u de metaconfiguration overeenkomt met die computer uit de map die u in stap 5 naar de Linux-machine. Roep vervolgens `SetDscLocalConfigurationManager.py` lokaal op elke Linux-machine u wilt voorbereiden in Azure Automation-staat configuratie:
 
@@ -207,7 +207,7 @@ Voor de algemeen onboarding voor een machine naar Azure Automation State Configu
 
 ### <a name="using-a-dsc-configuration"></a>Met behulp van een DSC-configuratie
 
-1. Open de VSCode (of uw favoriete editor) als een beheerder zijn in een virtuele machine in uw lokale omgeving. De machine moet de nieuwste versie van [WMF 5](http://aka.ms/wmf5latest) geïnstalleerd.
+1. Open de VSCode (of uw favoriete editor) als een beheerder zijn in een virtuele machine in uw lokale omgeving. De machine moet de nieuwste versie van [WMF 5](https://aka.ms/wmf5latest) geïnstalleerd.
 1. Kopieer het volgende script lokaal. Met dit script bevat een PowerShell DSC-configuratie voor het maken van metaconfigurations en een opdracht voor het maken van de metaconfiguration een vliegende start.
 
 > [!NOTE]

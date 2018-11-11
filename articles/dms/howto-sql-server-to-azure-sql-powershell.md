@@ -10,13 +10,13 @@ ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 10/09/2018
-ms.openlocfilehash: 0a4e88ed52e2da814d1b10dbc695c9c61b899ef1
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.date: 11/10/2018
+ms.openlocfilehash: 771b89fda4e37d9e8ba47df95f7fd57b41f792a3
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50248193"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515536"
 ---
 # <a name="migrate-sql-server-on-premises-to-azure-sql-database-using-azure-powershell"></a>On-premises SQL Server migreren naar Azure SQL Database met behulp van Azure PowerShell
 In dit artikel, migreert u de **Adventureworks2012** database hersteld naar een on-premises exemplaar van SQL Server 2016 of hoger met een Azure SQL Database met behulp van Microsoft Azure PowerShell. U kunt databases uit een on-premises SQL Server-exemplaar migreren naar Azure SQL Database met behulp van de `AzureRM.DataMigration` module in Microsoft Azure PowerShell.
@@ -61,7 +61,7 @@ U kunt een nieuw exemplaar van Azure Database Migration Service maken met behulp
 - *De naam van de Azure-resourcegroep*. U kunt [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup?view=azurermps-4.4.1) opdracht voor het maken van Azure-resourcegroep als eerder weergegeven en geeft de naam op als een parameter.
 - *Servicenaam*. Tekenreeks die overeenkomt met de naam van de gewenste unieke service voor Azure Database Migration Service 
 - *Locatie*. Hiermee geeft u de locatie van de service. Geef een locatie van een Azure data center, zoals VS-West of Zuidoost-Azië
-- *SKU*. Deze parameter komt overeen met de naam van de DMS-Sku. Namen van de momenteel ondersteunde Sku zijn *Basic_1vCore*, *Basic_2vCores*, *GeneralPurpose_4vCores*
+- *SKU*. Deze parameter komt overeen met de naam van de DMS-Sku. De naam van de momenteel ondersteunde Sku is *GeneralPurpose_4vCores*.
 - *Virtuele Subnet-id*. U kunt de cmdlet gebruiken [New-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig?view=azurermps-4.4.1) om een subnet te maken. 
 
 Het volgende voorbeeld wordt een service met de naam *MyDMS* in de resourcegroep *MyDMSResourceGroup* zich in de *VS-Oost* regio met behulp van een virtueel netwerk met de naam  *MyVNET* en subnet met de naam *MySubnet*.

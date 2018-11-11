@@ -1,7 +1,7 @@
 ---
-title: Gegevens importeren uit een bestand in Azure Machine Learning Studio | Microsoft Docs
-description: Informatie over het uploaden van een gegevensbestand training van de harde schijf naar Azure Machine Learning Studio. Hiermee maakt u een gegevensset-module in de werkruimte.
-keywords: gegevens, gegevensindeling, gegevenstypen, gegevensbronnen, trainingsgegevens importeren
+title: Gegevens uit een bestand importeren in Azure Machine Learning Studio | Microsoft Docs
+description: Informatie over het uploaden van een gegevensbestand training van de harde schijf voor Azure Machine Learning Studio. Hiermee maakt u een gegevensset-module in de werkruimte.
+keywords: gegevens, de indeling, gegevenstypen, gegevensbronnen, trainingsgegevens importeren
 services: machine-learning
 documentationcenter: ''
 author: heatherbshapiro
@@ -16,32 +16,31 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.openlocfilehash: 0365492b2814d686dd0bfa099e94717137b51725
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 70e159e7b7b2b5934cc584e9eb2e511d2b0ce0db
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34834767"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51346207"
 ---
-# <a name="import-training-data-from-a-file-on-your-hard-drive-into-machine-learning-studio"></a>Trainingsgegevens importeren uit een bestand op de harde schijf naar Machine Learning Studio
-[!INCLUDE [import-data-into-aml-studio-selector](../../../includes/machine-learning-import-data-into-aml-studio.md)]
+# <a name="import-training-data-from-a-file-on-your-hard-drive-into-machine-learning-studio"></a>Trainingsgegevens importeren uit een bestand op uw harde schijf in Machine Learning Studio
 
-Informatie over het uploaden van een gegevensbestand van de vaste schijf om te gebruiken als trainingsgegevens in Azure Machine Learning Studio. Door het importeren van het gegevensbestand, hebt u een gegevensset module klaar voor gebruik in uw werkruimte.
+Informatie over het uploaden van een gegevensbestand van de harde schijf om te gebruiken als het trainen van gegevens in Azure Machine Learning Studio. Door het importeren van het gegevensbestand, hebt u een module gegevensset klaar voor gebruik in uw werkruimte.
 
 ## <a name="steps-to-import-data-from-a-local-file"></a>Stappen voor het importeren van gegevens uit een lokaal bestand
-Om gegevens te importeren uit een lokale vaste schijf, het volgende doen:
+Als u wilt gegevens importeren uit een lokale vaste schijf, het volgende doen:
 
-1. Klik op **+ nieuw** aan de onderkant van het Machine Learning Studio-venster.
+1. Klik op **+ nieuw** aan de onderkant van het venster Machine Learning Studio.
 2. Selecteer **GEGEVENSSET** en **vanuit het lokale bestand**.
 3. In de **uploaden van een nieuwe gegevensset** dialoogvenster, blader naar het bestand dat u wilt uploaden
-4. Voer een naam, het gegevenstype te identificeren en optioneel een beschrijving invoeren. Een beschrijving wordt aanbevolen - Hiermee kunt u voor het vastleggen van alle kenmerken van de gegevens die u dat wilt bij gebruik van de gegevens in de toekomst onthoudt.
+4. Voer een naam, het gegevenstype te identificeren en optioneel een beschrijving invoeren. Een beschrijving wordt aanbevolen: Hiermee kunt u om vast te leggen van alle kenmerken van de gegevens die u wilt Houd er rekening mee bij het gebruik van de gegevens in de toekomst.
 5. Het selectievakje **dit is de nieuwe versie van een bestaande gegevensset** kunt u een bestaande gegevensset bijwerken met nieuwe gegevens. Klik op dit selectievakje in en geef vervolgens de naam van een bestaande gegevensset.
 
-![Uploaden van een nieuwe gegevensset](./media/import-data-from-local-file/upload-dataset.png)
+![Upload een nieuwe gegevensset](./media/import-data-from-local-file/upload-dataset.png)
 
-Tijdens het uploaden ziet u een bericht dat uw bestand wordt geüpload. Uploaden tijd is afhankelijk van de grootte van uw gegevens en de snelheid van de verbinding met de service. Als u dat het bestand wordt lange tijd duren, kunt u andere dingen in Machine Learning Studio doen terwijl u wacht. Echter, de browser te sluiten zorgt ervoor dat het uploaden van gegevens is mislukt.
+Tijdens het uploaden ziet u een bericht dat uw bestand wordt geüpload. Uploaden tijd is afhankelijk van de grootte van uw gegevens en de snelheid van de verbinding met de service. Als u weet dat het bestand wordt een lange tijd in beslag nemen, kunt u andere dingen in Machine Learning Studio doen terwijl u wacht. Echter, de browser te sluiten zorgt ervoor dat het uploaden van gegevens mislukt.
 
-## <a name="dataset-module-is-ready-for-use"></a>DataSet-module is gereed voor gebruik
-Nadat uw gegevens worden geüpload, wordt opgeslagen in een module gegevensset en is beschikbaar voor alle experimenten in uw werkruimte.
+## <a name="dataset-module-is-ready-for-use"></a>Module van de gegevensset is gereed voor gebruik
+Nadat uw gegevens is geüpload, wordt opgeslagen in een gegevensset-module en is beschikbaar voor een experiment in uw werkruimte.
 
-Wanneer u een experiment bewerkt, vindt u de gegevenssets die u hebt gemaakt in de **mijn gegevenssets** lijst onder de **gegevenssets opgeslagen** lijst in het modulepalet. U kunt slepen en neerzetten van de gegevensset naar het experimentcanvas wanneer u wilt de gegevensset gebruiken voor verdere analyse en machine learning.
+Wanneer u een experiment bewerkt, vindt u de gegevenssets die u hebt gemaakt in de **mijn gegevenssets** lijst onder de **opgeslagen gegevenssets** lijst in het modulepalet. U kunt slepen en neerzetten van de gegevensset naar het experimentcanvas wanneer u wilt gebruiken van de gegevensset voor verdere analyse en machine learning.

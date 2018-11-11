@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 8852fc75658298a2c6887d8fef154d5a0b59affd
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 482faaea7089e095da13a2bae5f5937e20d50616
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47159904"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51246749"
 ---
 # <a name="extended-events-in-sql-database"></a>Uitgebreide gebeurtenissen in SQL-Database
 [!INCLUDE [sql-database-xevents-selectors-1-include](../../includes/sql-database-xevents-selectors-1-include.md)]
@@ -32,15 +32,15 @@ In dit onderwerp wordt uitgelegd hoe de implementatie van uitgebreide gebeurteni
 
 Meer informatie over uitgebreide gebeurtenissen voor Azure SQL Database en Microsoft SQL Server, is beschikbaar op:
 
-- [Quick Start: Uitgebreide gebeurtenissen in SQL Server](http://msdn.microsoft.com/library/mt733217.aspx)
-- [Uitgebreide gebeurtenissen](http://msdn.microsoft.com/library/bb630282.aspx)
+- [Quick Start: Uitgebreide gebeurtenissen in SQL Server](https://msdn.microsoft.com/library/mt733217.aspx)
+- [Uitgebreide gebeurtenissen](https://msdn.microsoft.com/library/bb630282.aspx)
 
 ## <a name="prerequisites"></a>Vereisten
 
 In dit onderwerp wordt ervan uitgegaan dat u al enige kennis hebt van:
 
 - [Azure SQL Database-service](https://azure.microsoft.com/services/sql-database/).
-- [Uitgebreide gebeurtenissen](http://msdn.microsoft.com/library/bb630282.aspx) in Microsoft SQL Server.
+- [Uitgebreide gebeurtenissen](https://msdn.microsoft.com/library/bb630282.aspx) in Microsoft SQL Server.
 
 - Het grootste deel van onze documentatie over uitgebreide gebeurtenissen geldt voor zowel SQL Server en SQL-Database.
 
@@ -69,10 +69,10 @@ Verwante onderwerpen bieden twee voorbeelden van code:
 ## <a name="transact-sql-differences"></a>Verschillen Transact-SQL
 
 
-- Wanneer u uitvoert het [maken GEBEURTENIS sessie](http://msdn.microsoft.com/library/bb677289.aspx) opdracht op de SQL Server, gebruikt u de **op SERVER** component. Maar op de SQL-Database die u gebruikt de **op DATABASE** component in plaats daarvan.
+- Wanneer u uitvoert het [maken GEBEURTENIS sessie](https://msdn.microsoft.com/library/bb677289.aspx) opdracht op de SQL Server, gebruikt u de **op SERVER** component. Maar op de SQL-Database die u gebruikt de **op DATABASE** component in plaats daarvan.
 
 
-- De **op DATABASE** component is ook van toepassing op de [ALTER GEBEURTENIS sessie](http://msdn.microsoft.com/library/bb630368.aspx) en [neerzetten GEBEURTENIS sessie](http://msdn.microsoft.com/library/bb630257.aspx) Transact-SQL-opdrachten.
+- De **op DATABASE** component is ook van toepassing op de [ALTER GEBEURTENIS sessie](https://msdn.microsoft.com/library/bb630368.aspx) en [neerzetten GEBEURTENIS sessie](https://msdn.microsoft.com/library/bb630257.aspx) Transact-SQL-opdrachten.
 
 
 - Er is een best practice om op te nemen van de gebeurtenissessieoptie van **STARTUP_STATE = ON** in uw **maken GEBEURTENIS sessie** of **ALTER GEBEURTENIS sessie** instructies.
@@ -80,7 +80,7 @@ Verwante onderwerpen bieden twee voorbeelden van code:
 
 ## <a name="new-catalog-views"></a>Nieuwe catalogusweergaven
 
-De uitgebreide gebeurtenissen-functie wordt ondersteund door verschillende [weergaven van catalogus](http://msdn.microsoft.com/library/ms174365.aspx). Catalogusweergaven vertellen u *metagegevens of definities* van de gebruiker gemaakte event-sessies in de huidige database. De weergaven retourneren geen informatie over exemplaren van actieve gebeurtenissessies.
+De uitgebreide gebeurtenissen-functie wordt ondersteund door verschillende [weergaven van catalogus](https://msdn.microsoft.com/library/ms174365.aspx). Catalogusweergaven vertellen u *metagegevens of definities* van de gebruiker gemaakte event-sessies in de huidige database. De weergaven retourneren geen informatie over exemplaren van actieve gebeurtenissessies.
 
 | Naam van<br/>Catalogusweergave | Beschrijving |
 |:--- |:--- |
@@ -92,9 +92,9 @@ De uitgebreide gebeurtenissen-functie wordt ondersteund door verschillende [weer
 
 In Microsoft SQL Server, vergelijkbare catalogusweergaven hebben namen die zijn *.server\_*  in plaats van *.database\_*. Het naampatroon is, zoals **sys.server_event_%**.
 
-## <a name="new-dynamic-management-views-dmvshttpmsdnmicrosoftcomlibraryms188754aspx"></a>Nieuwe dynamische beheerweergaven [(DMV's)](http://msdn.microsoft.com/library/ms188754.aspx)
+## <a name="new-dynamic-management-views-dmvshttpsmsdnmicrosoftcomlibraryms188754aspx"></a>Nieuwe dynamische beheerweergaven [(DMV's)](https://msdn.microsoft.com/library/ms188754.aspx)
 
-Azure SQL-Database heeft [dynamische beheerweergave (DMV's)](http://msdn.microsoft.com/library/bb677293.aspx) die ondersteuning bieden voor uitgebreide gebeurtenissen. DMV's vertellen u *active* event-sessies.
+Azure SQL-Database heeft [dynamische beheerweergave (DMV's)](https://msdn.microsoft.com/library/bb677293.aspx) die ondersteuning bieden voor uitgebreide gebeurtenissen. DMV's vertellen u *active* event-sessies.
 
 | Naam van de DMV | Beschrijving |
 |:--- |:--- |
@@ -149,11 +149,11 @@ SELECT
 
 Hier vindt u doelen die de resultaten van de event-sessies op SQL-Database kunnen vastleggen:
 
-- [Doelringbuffer](http://msdn.microsoft.com/library/ff878182.aspx) -kort bevat gebeurtenisgegevens in het geheugen.
-- [Gebeurtenis teller doel](http://msdn.microsoft.com/library/ff878025.aspx) -telt alle gebeurtenissen die zich tijdens een sessie met uitgebreide gebeurtenissen voordoen.
-- [Doelgebeurtenisbestand](http://msdn.microsoft.com/library/ff878115.aspx) -volledige buffers schrijft naar een Azure Storage-container.
+- [Doelringbuffer](https://msdn.microsoft.com/library/ff878182.aspx) -kort bevat gebeurtenisgegevens in het geheugen.
+- [Gebeurtenis teller doel](https://msdn.microsoft.com/library/ff878025.aspx) -telt alle gebeurtenissen die zich tijdens een sessie met uitgebreide gebeurtenissen voordoen.
+- [Doelgebeurtenisbestand](https://msdn.microsoft.com/library/ff878115.aspx) -volledige buffers schrijft naar een Azure Storage-container.
 
-De [Event Tracing voor Windows (ETW)](http://msdn.microsoft.com/library/ms751538.aspx) API is niet beschikbaar voor uitgebreide gebeurtenissen op SQL-Database.
+De [Event Tracing voor Windows (ETW)](https://msdn.microsoft.com/library/ms751538.aspx) API is niet beschikbaar voor uitgebreide gebeurtenissen op SQL-Database.
 
 ## <a name="restrictions"></a>Beperkingen
 
@@ -195,8 +195,8 @@ De **gebeurtenisbestand** doel tegenkomen netwerklatentie of fouten tijdens het 
 - [Azure Storage-Cmdlets](https://docs.microsoft.com/powershell/module/Azure.Storage)
 - [Azure PowerShell gebruiken met Azure Storage](../storage/common/storage-powershell-guide-full.md) -bevat uitgebreide informatie over PowerShell en de Azure Storage-service.
 - [Het Blob storage gebruiken met .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md)
-- [CREATE CREDENTIAL (Transact-SQL)](http://msdn.microsoft.com/library/ms189522.aspx)
-- [EVENT-sessie (Transact-SQL) maken](http://msdn.microsoft.com/library/bb677289.aspx)
+- [CREATE CREDENTIAL (Transact-SQL)](https://msdn.microsoft.com/library/ms189522.aspx)
+- [EVENT-sessie (Transact-SQL) maken](https://msdn.microsoft.com/library/bb677289.aspx)
 - [Jonathan Kehayias blogberichten over uitgebreide gebeurtenissen in Microsoft SQL Server](http://www.sqlskills.com/blogs/jonathan/category/extended-events/)
 
 
@@ -209,6 +209,6 @@ Andere onderwerpen voor het voorbeeld van code voor uitgebreide gebeurtenissen z
 <!--
 ('lock_acquired' event.)
 
-- Code sample for SQL Server: [Determine Which Queries Are Holding Locks](http://msdn.microsoft.com/library/bb677357.aspx)
-- Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](http://msdn.microsoft.com/library/bb630355.aspx)
+- Code sample for SQL Server: [Determine Which Queries Are Holding Locks](https://msdn.microsoft.com/library/bb677357.aspx)
+- Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](https://msdn.microsoft.com/library/bb630355.aspx)
 -->

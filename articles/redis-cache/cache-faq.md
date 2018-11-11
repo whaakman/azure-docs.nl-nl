@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: wesmc
-ms.openlocfilehash: c5a18a2e8d58553e49797da418f76fc3f251e003
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 21b5050996428328bfda314b2f2242ed2a766e74
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50026038"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51239760"
 ---
 # <a name="azure-redis-cache-faq"></a>Veelgestelde vragen over Azure Redis Cache
 Meer informatie over de antwoorden op veelgestelde vragen, patronen en best practices voor Azure Redis Cache.
@@ -250,7 +250,7 @@ U kunt de opdrachten die wordt vermeld op [Redis-opdrachten](http://redis.io/com
 * `redis-cli -h <redis cache name>.redis.cache.windows.net -a <key>`
 
 > [!NOTE]
-> De Redis-opdrachtregelprogramma's werken niet met de SSL-poort, maar u kunt een hulpprogramma zoals `stunnel` veilig verbinden met de hulpprogramma's voor de SSL-poort door de aanwijzingen in de [aankondiging van ASP.NET-Sessiestatusprovider voor Redis-Preview Release](http://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx) blogbericht.
+> De Redis-opdrachtregelprogramma's werken niet met de SSL-poort, maar u kunt een hulpprogramma zoals `stunnel` veilig verbinden met de hulpprogramma's voor de SSL-poort door de aanwijzingen in de [aankondiging van ASP.NET-Sessiestatusprovider voor Redis-Preview Release](https://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx) blogbericht.
 >
 >
 
@@ -295,7 +295,7 @@ Redis-server biedt standaard geen ondersteuning voor SSL, maar Azure Redis Cache
 >
 >
 
-Hulpprogramma's zoals redis `redis-cli` werken niet met de SSL-poort, maar u kunt een hulpprogramma zoals `stunnel` veilig verbinden met de hulpprogramma's voor de SSL-poort door de aanwijzingen in de [aankondiging van ASP.NET-Sessiestatusprovider voor Redis Preview-versie](http://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx) blogbericht.
+Hulpprogramma's zoals redis `redis-cli` werken niet met de SSL-poort, maar u kunt een hulpprogramma zoals `stunnel` veilig verbinden met de hulpprogramma's voor de SSL-poort door de aanwijzingen in de [aankondiging van ASP.NET-Sessiestatusprovider voor Redis Preview-versie](https://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx) blogbericht.
 
 Zie voor instructies over het downloaden van de Redis-hulpprogramma's, de [hoe kan ik Redis-opdrachten uitvoeren?](#cache-commands) sectie.
 

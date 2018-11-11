@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/12/2018
+ms.date: 11/08/2018
 ms.author: jingwang
-ms.openlocfilehash: a4de054926339985b77f110bd00f77c5c8f7d705
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: cd137462235431f0a0c1562e15a32951fe2a41c5
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49957986"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51346697"
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>Gegevens kopiëren naar of van Azure SQL Database met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you use:"]
@@ -208,7 +208,7 @@ Instellen om gegevens te kopiëren van of naar Azure SQL Database, de **type** e
 | Eigenschap | Beschrijving | Vereist |
 |:--- |:--- |:--- |
 | type | De **type** eigenschap van de gegevensset moet worden ingesteld op **AzureSqlTable**. | Ja |
-| tableName | De naam van de tabel of weergave in de Azure SQL Database-instantie waarnaar de gekoppelde service naar verwijst. | Ja |
+| tableName | De naam van de tabel of weergave in de Azure SQL Database-instantie waarnaar de gekoppelde service naar verwijst. | Nee voor bron, Ja voor sink |
 
 #### <a name="dataset-properties-example"></a>Voorbeeld van de gegevensset-eigenschappen
 
@@ -248,7 +248,6 @@ Instellen om gegevens te kopiëren uit een Azure SQL Database, de **type** eigen
 
 - Als de **sqlReaderQuery** is opgegeven voor de **SqlSource**, Copy Activity in deze query wordt uitgevoerd op basis van de bron van de Azure SQL Database de gegevens op te halen. Of u kunt een opgeslagen procedure opgeven. Geef **sqlReaderStoredProcedureName** en **storedProcedureParameters** als de opgeslagen procedure parameters nodig heeft.
 - Als u niet of opgeven **sqlReaderQuery** of **sqlReaderStoredProcedureName**, de kolommen die zijn gedefinieerd in de **structuur** sectie van de gegevensset JSON worden gebruikt om een query maken. `select column1, column2 from mytable` wordt uitgevoerd op Azure SQL Database. Als de definitie van de gegevensset niet over de **structuur**, alle kolommen zijn geselecteerd uit de tabel.
-- Bij het gebruik **sqlReaderStoredProcedureName**, moet u nog steeds om op te geven van een dummy **tableName** eigenschap in de gegevensset JSON.
 
 #### <a name="sql-query-example"></a>Voorbeeld van de SQL-query
 
@@ -588,7 +587,7 @@ Wanneer u gegevens van of naar Azure SQL Database kopieert, worden de volgende t
 | Datetimeoffset |DateTimeOffset |
 | decimaal |decimaal |
 | FILESTREAM-kenmerk (varbinary(max)) |Byte[] |
-| drijvende komma |Double-waarde |
+| Float |Double-waarde |
 | image |Byte[] |
 | int |Int32 |
 | geld |decimaal |

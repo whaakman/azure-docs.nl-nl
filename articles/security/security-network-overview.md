@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: terrylan
-ms.openlocfilehash: 69818fdb8124b9afa176ccd4dfd74cf0f2f4b346
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: ad711fe998a3c250775c5d4f4d76305ffb7cf860
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233800"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51244590"
 ---
 # <a name="azure-network-security-overview"></a>Overzicht van de beveiliging van Azure-netwerk
 
@@ -144,7 +144,7 @@ Meer informatie:
 
 ## <a name="secure-remote-access-and-cross-premises-connectivity"></a>Veilige externe toegang en cross-premises connectiviteit
 
-Installatie, configuratie en beheer van de behoeften van uw Azure-resources op afstand worden uitgevoerd. Bovendien kunt u implementeren [hybride IT](http://social.technet.microsoft.com/wiki/contents/articles/18120.hybrid-cloud-infrastructure-design-considerations.aspx) -oplossingen waarbij on-premises onderdelen en in de openbare cloud van Azure. Deze scenario's vereisen veilige externe toegang.
+Installatie, configuratie en beheer van de behoeften van uw Azure-resources op afstand worden uitgevoerd. Bovendien kunt u implementeren [hybride IT](https://social.technet.microsoft.com/wiki/contents/articles/18120.hybrid-cloud-infrastructure-design-considerations.aspx) -oplossingen waarbij on-premises onderdelen en in de openbare cloud van Azure. Deze scenario's vereisen veilige externe toegang.
 
 Azure-netwerken ondersteunt de volgende veilige externe toegang-scenario's:
 
@@ -313,7 +313,7 @@ Meer informatie:
 
 ## <a name="azure-ddos-protection"></a>Azure DDoS Protection
 
-Distributed denial of service (DDoS)-aanvallen zijn enkele van de grootste problemen beschikbaarheid en beveiliging naar klanten die hun toepassingen naar de cloud wilt verplaatsen. Een DDoS-aanval wil de bronnen van een toepassing, waardoor de toepassing niet beschikbaar voor legitieme gebruikers. DDoS-aanvallen kunnen worden gericht op een willekeurig eindpunt dat openbaar bereikbaar is via het internet.
+DDoS-aanvallen (Distributed Denial of Service-aanvallen) vormen een van de grootste beschikbaarheids- en beveiligingsproblemen voor klanten die hun toepassingen verplaatsen naar de cloud. Met een DDoS-aanval wordt geprobeerd de resources van een toepassing uit te putten, waardoor de toepassing niet meer beschikbaar is voor legitieme gebruikers. DDoS-aanvallen kunnen worden gericht op elk eindpunt dat openbaar bereikbaar is via internet.
 Microsoft biedt DDoS protection, ook wel **Basic** als onderdeel van het Azure-Platform. Dit wordt geleverd zonder kosten en bevat altijd op bewakings- en realtime oplossing voor algemene op netwerkniveau-aanvallen. Naast de die deel uitmaakt van DDoS protection **Basic** kunt u de **Standard** optie. DDoS Protection Standard-functies zijn onder andere:
 
 * **Systeemeigen platform-integratie:** systeemeigen geïntegreerd in Azure. Bevat configuratie via de Azure-portal. DDoS Protection standaard begrijpt dat uw resources en resourceconfiguratie.

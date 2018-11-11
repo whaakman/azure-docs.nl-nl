@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: f633dd375d690a1c3e66a2a6e02ae69665dbe960
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: bd0bcd79bb21dc3973b34086f6dad21b47a95c2f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39170630"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240865"
 ---
 # <a name="demo-password-reset"></a>Demo: Wachtwoord opnieuw instellen
 Deze demonstratie ziet u een eenvoudige technische ondersteuning-bot die u bij het opnieuw instellen van wachtwoorden helpen kan. 
@@ -24,7 +24,7 @@ Hier ziet u hoe Conversatiecursist essentieel dialoogvenster stromen, zet meerde
 
 ## <a name="video"></a>Video
 
-[![Voorbeeld van de demo-wachtwoord](http://aka.ms/cl-demo-password-preview)](http://aka.ms/blis-demo-password)
+[![Voorbeeld van de demo-wachtwoord](https://aka.ms/cl-demo-password-preview)](https://aka.ms/blis-demo-password)
 
 ## <a name="requirements"></a>Vereisten
 In deze zelfstudie is vereist dat het wachtwoord opnieuw instellen van bot wordt uitgevoerd

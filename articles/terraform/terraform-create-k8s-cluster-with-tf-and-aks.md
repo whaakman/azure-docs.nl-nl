@@ -9,12 +9,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 09/08/2018
-ms.openlocfilehash: f261c59193349d55d407e6079002b75884273e84
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: fb4eabb247e6a4fe5550b2b23d34862c789bfaa1
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46960240"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232321"
 ---
 # <a name="create-a-kubernetes-cluster-with-azure-kubernetes-service-and-terraform"></a>Een Kubernetes-cluster maken met Azure Kubernetes Service en Terraform
 [Azure Kubernetes Service (AKS)](/azure/aks/) beheert uw gehoste Kubernetes-omgeving en zorgt dat de implementatie en het beheer van toepassingen in containers snel en eenvoudig zijn en geen kennis over het beheer van containers vereisen. Het verlicht ook de last van actieve bewerkingen en onderhoud door inrichten, upgraden en bronnen op aanvraag schalen mogelijk te maken, zonder uw toepassingen offline te brengen.
@@ -372,6 +372,6 @@ U kunt het gemaakte cluster controleren met de Kubernetes-hulpprogramma's.
 In dit artikel hebt u geleerd hoe u Terraform en AKS gebruikt om een Kubernetes-cluster te maken. Hier volgen enkele aanvullende resources met meer informatie over Terraform in Azure: 
 
  [Terraform Hub in Microsoft.com](https://docs.microsoft.com/azure/terraform/)  
- [Terraform Azure-documentatie voor providers](http://aka.ms/terraform)  
- [Terraform Azure-gegevensbron voor providers](http://aka.ms/tfgit)  
- [Terraform Azure-modules](http://aka.ms/tfmodules)
+ [Terraform Azure-documentatie voor providers](https://aka.ms/terraform)  
+ [Terraform Azure-gegevensbron voor providers](https://aka.ms/tfgit)  
+ [Terraform Azure-modules](https://aka.ms/tfmodules)

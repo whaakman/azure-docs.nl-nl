@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 07/16/2018
-ms.openlocfilehash: 0f836a857d6f9748416fda1526a1957af4fc51e4
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
-ms.translationtype: MT
+ms.openlocfilehash: beab191ff33939053da942b0ce7df22238b8acef
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47163593"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247310"
 ---
 # <a name="troubleshoot-issues-with-sql-data-sync"></a>Problemen oplossen met SQL Data Sync
 
@@ -146,7 +146,7 @@ De clientagent werkt niet, zelfs na het annuleren van de verwijdering.
 - **Resolutie**. U kunt deze twee oplossingen proberen:
 
     -   Gebruik services.msc opnieuw in te voeren van de referenties voor de clientagent.
-    -   Verwijder deze clientagent en installeer vervolgens een nieuwe. Download en installeer de nieuwste clientagent vanuit [Downloadcentrum](http://go.microsoft.com/fwlink/?linkid=221479).
+    -   Verwijder deze clientagent en installeer vervolgens een nieuwe. Download en installeer de nieuwste clientagent vanuit [Downloadcentrum](https://go.microsoft.com/fwlink/?linkid=221479).
 
 ### <a name="agent-list"></a> Mijn database wordt niet weergegeven in de lijst met agent
 

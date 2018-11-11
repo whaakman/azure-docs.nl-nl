@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: e6c6f36d877f220bcc8d83b75750f54f85dcc198
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: c7b9921d7eacb9b40e39f8e68d13357ce6bcfd78
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44299879"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51241545"
 ---
 # <a name="add-a-git-repository-to-store-custom-artifacts-and-resource-manager-templates"></a>Een Git-opslagplaats voor het opslaan van aangepaste artefacten en Resource Manager-sjablonen toevoegen
 
@@ -71,7 +71,7 @@ Een opslagplaats toevoegen aan uw testomgeving, moet u eerst, belangrijke inform
 10. Blijven de [verbinding maken met uw lab in de opslagplaats](#connect-your-lab-to-the-repository) sectie.
 
 ## <a name="connect-your-lab-to-the-repository"></a>Verbinding maken met uw lab in de opslagplaats
-1. Meld u aan bij [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Meld u aan bij [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 2. Selecteer **meer Services**, en selecteer vervolgens **DevTest Labs** uit de lijst met services.
 3. Selecteer in de lijst met labs, uw lab. 
 4. Selecteer **configuratie en het beleid** > **opslagplaatsen** > **+ toevoegen**.

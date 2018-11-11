@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2018
 ms.author: spelluru
-ms.openlocfilehash: 8f9504458b1f332193e8457bcc9cf41e85fd6aca
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 558df3fa70989aaf9ba182df3a918994c7dc9db6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38573397"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51243706"
 ---
 # <a name="add-owners-and-users-in-azure-devtest-labs"></a>Eigenaars en gebruikers toevoegen in Azure DevTest Labs
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/How-to-set-security-in-your-DevTest-Lab/player]
@@ -64,7 +64,7 @@ De volgende tabel ziet u de acties die kunnen worden uitgevoerd door gebruikers 
 Eigenaars en gebruikers kunnen worden toegevoegd op het niveau van het lab via Azure portal. Een gebruiker kan een externe gebruiker met een geldig zijn [Microsoft-account (MSA)](devtest-lab-faq.md#what-is-a-microsoft-account).
 De volgende stappen begeleiden u bij het proces van het toevoegen van een gebruiker of eigenaar aan een lab in Azure DevTest Labs:
 
-1. Meld u aan bij [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Meld u aan bij [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 2. Selecteer **alle services**, en selecteer vervolgens **DevTest Labs** in de lijst.
 3. Selecteer de gewenste lab in de lijst met labs.
 4. Selecteer op de blade van de testomgeving **configuratie en het beleid**. 
@@ -116,11 +116,11 @@ U vindt de `subscriptionId`, `labResourceGroup`, en `labName` waarden uit de lab
 ## <a name="add-an-owner-or-user-at-the-subscription-level"></a>Een eigenaar of gebruiker toevoegen op het abonnementsniveau
 Azure-machtigingen worden doorgevoerd van bovenliggend bereik aan het onderliggende bereik in Azure. Eigenaren van een Azure-abonnement met labs worden dus automatisch eigenaars van de labs. Deze tevens eigenaar van de virtuele machines en andere resources die zijn gemaakt door gebruikers van de testomgeving, en de service Azure DevTest Labs. 
 
-U kunt extra eigenaren toevoegen aan een lab via de blade van de testomgeving in de [Azure-portal](http://go.microsoft.com/fwlink/p/?LinkID=525040). Bereik van beheer van de eigenaar van de toegevoegde is echter meer gedetailleerde dan de scope van de eigenaar van het abonnement. Bijvoorbeeld, de toegevoegde eigenaars geen volledige toegang tot een aantal van de resources die in het abonnement zijn gemaakt door de DevTest Labs-service. 
+U kunt extra eigenaren toevoegen aan een lab via de blade van de testomgeving in de [Azure-portal](https://go.microsoft.com/fwlink/p/?LinkID=525040). Bereik van beheer van de eigenaar van de toegevoegde is echter meer gedetailleerde dan de scope van de eigenaar van het abonnement. Bijvoorbeeld, de toegevoegde eigenaars geen volledige toegang tot een aantal van de resources die in het abonnement zijn gemaakt door de DevTest Labs-service. 
 
 Eigenaar toevoegen aan een Azure-abonnement, de volgende stappen uit:
 
-1. Meld u aan bij [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Meld u aan bij [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 2. Selecteer **alle Services**, en selecteer vervolgens **abonnementen** in de lijst.
 3. Selecteer het gewenste abonnement.
 4. Selecteer **toegang** pictogram. 

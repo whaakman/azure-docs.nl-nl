@@ -6,14 +6,14 @@ author: charwen
 manager: rossort
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 09/07/2018
+ms.date: 11/05/2018
 ms.author: charwen
-ms.openlocfilehash: c267e5002fbd603e4bb749550c19e8d022ce4d54
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 96e2eb85bc96075e0673359910522f8e35bf5a5c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44162339"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51243808"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections-using-powershell"></a>ExpressRoute en Site-naar-Site-verbindingen configureren met behulp van PowerShell
 > [!div class="op_single_selector"]
@@ -27,7 +27,9 @@ Configuratie van gelijktijdige site-naar-site-VPN- en ExpressRoute-verbindingen 
 * U kunt een site-naar-site-VPN configureren als een beveiligd failoverpad voor ExpressRoute. 
 * U kunt ook site-naar-site-VPN's gebruiken om verbinding te maken met sites die niet zijn verbonden via ExpressRoute. 
 
-In dit artikel worden de stappen beschreven voor het configureren van beide scenario's. Dit artikel is van toepassing op het Resource Manager-implementatiemodel en maakt gebruik van PowerShell. U kunt ook deze scenario's met behulp van de Azure-Portal, hoewel documentatie nog niet beschikbaar is.
+In dit artikel worden de stappen beschreven voor het configureren van beide scenario's. Dit artikel is van toepassing op het Resource Manager-implementatiemodel en maakt gebruik van PowerShell. U kunt ook deze scenario's met behulp van Azure portal, hoewel documentatie nog niet beschikbaar is. U kunt de gateway eerst configureren. Er worden normaal gesproken geen downtime gebracht bij het toevoegen van een nieuwe gateway of de gatewayverbinding.
+
+
 
 >[!NOTE]
 >Als u een site-naar-site-VPN wilt maken via een ExpressRoute-circuit, raadpleegt u [dit artikel](site-to-site-vpn-over-microsoft-peering.md).
@@ -77,7 +79,7 @@ Deze procedure begeleidt u bij het maken van een VNet en van site-naar-site- en 
 
 1. Installeer de meest recente versie van de Azure PowerShell-cmdlets. Zie [Azure PowerShell installeren en configureren](/powershell/azure/overview) voor informatie over het installeren van de cmdlets. De cmdlets die u voor deze configuratie gebruikt, kunnen enigszins afwijken van de cmdlets waarmee u bekend bent. Zorg ervoor dat u de cmdlets gebruikt die in deze instructies worden vermeld.
 
-2. Meld u aan bij uw account en stel de omgeving in.
+2. Aanmelden bij uw account en stel de omgeving.
 
   ```powershell
   Connect-AzureRmAccount
@@ -209,7 +211,7 @@ Als u een virtueel netwerk hebt met maar één virtuele netwerkgateway (bijvoorb
 5. U beschikt nu over een virtueel netwerk zonder gateways. Als u nieuwe gateways wilt maken en de verbindingen wilt instellen, volgt u de stappen in de vorige sectie.
 
 ## <a name="to-add-point-to-site-configuration-to-the-vpn-gateway"></a>Punt-naar-site-configuratie toevoegen aan de VPN-gateway
-Volg onderstaande stappen om punt-naar-site-configuratie toe te voegen aan uw VPN-gateway in een installatie waarbij ze naast elkaar kunnen worden gebruikt.
+U kunt de stappen hieronder om het punt-naar-Site-configuratie toevoegen aan uw VPN-gateway in een co-existentie-instellingen op te volgen.
 
 1. Voeg een VPN-clientadresgroep toe.
 
@@ -224,7 +226,8 @@ Volg onderstaande stappen om punt-naar-site-configuratie toe te voegen aan uw VP
   $p2sCertMatchName = "RootErVpnCoexP2S" 
   $p2sCertToUpload=get-childitem Cert:\CurrentUser\My | Where-Object {$_.Subject -match $p2sCertMatchName} 
   if ($p2sCertToUpload.count -eq 1){write-host "cert found"} else {write-host "cert not found" exit} 
-  $p2sCertData = [System.Convert]::ToBase64String($p2sCertToUpload.RawData) Add-AzureRmVpnClientRootCertificate -VpnClientRootCertificateName $p2sCertFullName -VirtualNetworkGatewayname $azureVpn.Name -ResourceGroupName $resgrp.ResourceGroupName -PublicCertData $p2sCertData
+  $p2sCertData = [System.Convert]::ToBase64String($p2sCertToUpload.RawData) 
+  Add-AzureRmVpnClientRootCertificate -VpnClientRootCertificateName $p2sCertFullName -VirtualNetworkGatewayname $azureVpn.Name -ResourceGroupName $resgrp.ResourceGroupName -PublicCertData $p2sCertData
   ```
 
 Zie [Een punt-naar-site-verbinding configureren](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md) voor meer informatie over punt-naar-site-VPN.

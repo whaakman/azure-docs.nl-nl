@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/17/2016
 ms.author: roiyz
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 73e5e54e40223f7cd972e2bd2752add9ca82ff2b
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 0c19d32f6c6f491a91ba6c2219be9fd016b5ec34
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452340"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51243876"
 ---
 # <a name="understanding-and-using-the-azure-linux-agent"></a>Informatie over en het gebruik van de Azure Linux Agent
 
@@ -73,7 +73,7 @@ De gegevensstroom van het platform aan de agent vindt plaats via twee kanalen:
 De volgende systemen zijn getest en bekend is dat ze werken met de Azure Linux Agent:
 
 > [!NOTE]
-> Deze lijst kan verschillen van de officiële lijst met ondersteunde systemen op het Microsoft Azure-Platform, zoals hier wordt beschreven: [http://support.microsoft.com/kb/2805216](http://support.microsoft.com/kb/2805216)
+> Deze lijst kan verschillen van de officiële lijst met ondersteunde systemen op het Microsoft Azure-Platform, zoals hier wordt beschreven: [http://support.microsoft.com/kb/2805216](https://support.microsoft.com/kb/2805216)
 > 
 > 
 
@@ -344,6 +344,6 @@ Gebruikmaken van Ubuntu Cloudinstallatiekopieën [cloud-init](https://launchpad.
 
 * Zie voor meer informatie de volgende bronnen voor het configureren van het koppelpunt van de resource-schijf en wisselruimte op Ubuntu Cloudinstallatiekopieën tijdens het inrichten van:
   
-  * [Ubuntu-Wiki: Wisselen partities configureren](http://go.microsoft.com/fwlink/?LinkID=532955&clcid=0x409)
+  * [Ubuntu-Wiki: Wisselen partities configureren](https://go.microsoft.com/fwlink/?LinkID=532955&clcid=0x409)
   * [Aangepaste gegevens injecteren in een virtuele Machine van Azure](../windows/classic/inject-custom-data.md)
 

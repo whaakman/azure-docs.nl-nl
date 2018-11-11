@@ -1,6 +1,6 @@
 ---
 title: Gegevens verplaatsen naar en van Azure Blob-opslag | Microsoft Docs
-description: Gegevens verplaatsen van en naar Azure Blob-opslag
+description: Gegevens verplaatsen naar en van Azure Blob-opslag
 services: machine-learning,storage
 documentationcenter: ''
 author: deguhath
@@ -15,19 +15,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: deguhath
-ms.openlocfilehash: 717fdd2053cae28234458e197f8211ef25cf7f9d
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 7d0111b22df45577fccc3f4491f375ddd2e8b40f
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394388"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51344464"
 ---
-# <a name="move-data-to-and-from-azure-blob-storage"></a>Gegevens verplaatsen van en naar Azure Blob-opslag
-[!INCLUDE [cap-ingest-data-selector](../../../includes/cap-ingest-data-selector.md)]
+# <a name="move-data-to-and-from-azure-blob-storage"></a>Gegevens verplaatsen naar en van Azure Blob-opslag
 
-<!-- just in case, adding this to separate these two include references -->
+Het Team Data Science Process is vereist dat gegevens worden opgenomen of geladen in tal van verschillende opslagomgevingen worden verwerkt of geanalyseerd in de meest geschikte manier in elke fase van het proces.
+De volgende artikelen wordt beschreven hoe u gegevens verplaatsen naar en van Azure Blob-opslag met behulp van verschillende technologieën.
 
-[!INCLUDE [blob-storage-tool-selector](../../../includes/machine-learning-blob-storage-tool-selector.md)]
+* [Azure Storage-Explorer](move-data-to-azure-blob-using-azure-storage-explorer.md)
+* [AzCopy](move-data-to-azure-blob-using-azcopy.md)
+* [Python](move-data-to-azure-blob-using-python.md)
+* [SSIS](move-data-to-azure-blob-using-ssis.md)
 
 Methode die voor u geschikt is, is afhankelijk van uw scenario. De [scenario's voor geavanceerde analyses in Azure Machine Learning](plan-sample-scenarios.md) artikel helpt u bepalen welke resources u nodig hebt voor verschillende data science-werkstromen in de geavanceerde analytics-proces gebruikt.
 

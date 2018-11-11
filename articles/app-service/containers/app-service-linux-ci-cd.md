@@ -13,60 +13,52 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/29/2018
-ms.author: msangapu
-ms.openlocfilehash: 20ca63b7126a6800538129115ff339308c11d8c5
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.date: 11/08/2018
+ms.author: msangapu;yili
+ms.openlocfilehash: b26366edddc223b842cc5d38473bda42422f1840
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48867017"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51298526"
 ---
 # <a name="continuous-deployment-with-web-app-for-containers"></a>Doorlopende implementatie met Web App for Containers
 
 In deze zelfstudie configureert u continue implementatie voor een aangepaste containerinstallatiekopie van beheerde [Azure Container Registry](https://azure.microsoft.com/services/container-registry/) opslagplaatsen of [Docker Hub](https://hub.docker.com).
 
-## <a name="sign-in-to-azure"></a>Aanmelden bij Azure
+## <a name="enable-continuous-deployment-with-acr"></a>Doorlopende implementatie met ACR inschakelen
 
-Meld u aan bij [Azure Portal](https://portal.azure.com).
+![Schermafbeelding van de ACR-webhook](./media/app-service-webapp-service-linux-ci-cd/ci-cd-acr-02.png)
 
-## <a name="enable-the-continuous-deployment-feature"></a>De functie continue implementatie inschakelen
+1. Meld u aan bij [Azure Portal](https://portal.azure.com).
+2. Selecteer de **App Service** optie aan de linkerkant van de pagina.
+3. Selecteer de naam van de app waarvan u wilt om continue implementatie te configureren.
+4. Op de **Containerinstellingen** weergeeft, schakelt **enkele Container**
+5. Selecteer **Azure Container Registry**
+6. Selecteer **continue implementatie > op**
+7. Selecteer **opslaan** continue implementatie moet worden ingeschakeld.
 
-De functie continue implementatie inschakelen met behulp van [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) en uitvoeren van de volgende opdracht:
+## <a name="use-the-acr-webhook"></a>Gebruik de ACR-webhook
 
-```azurecli-interactive
-az webapp deployment container config --name name --resource-group myResourceGroup --enable-cd true
-```
+Als u continue implementatie is ingeschakeld, kunt u de zojuist gemaakte webhook bekijken op de pagina van uw Azure Container Registry-webhooks.
 
-In de [Azure-portal](https://portal.azure.com/), selecteer de **App Service** optie aan de linkerkant van de pagina.
+![Schermafbeelding van de ACR-webhook](./media/app-service-webapp-service-linux-ci-cd/ci-cd-acr-03.png)
 
-Selecteer de naam van de app die u wilt configureren van continue implementatie van Docker Hub.
+Klik in het Containerregister op Webhooks voor het weergeven van de huidige webhooks.
 
-Op de **Containerinstellingen** weergeeft, schakelt **op**, en selecteer vervolgens **opslaan** continue implementatie moet worden ingeschakeld.
+## <a name="enable-continuous-deployment-with-docker-hub-optional"></a>Inschakelen van continue implementatie met Docker Hub (optioneel)
 
-![Schermopname van app-instelling](./media/app-service-webapp-service-linux-ci-cd/step2.png)
+1. Meld u aan bij [Azure Portal](https://portal.azure.com).
+2. Selecteer de **App Service** optie aan de linkerkant van de pagina.
+3. Selecteer de naam van de app waarvan u wilt om continue implementatie te configureren.
+4. Op de **Containerinstellingen** weergeeft, schakelt **enkele Container**
+5. Selecteer **Docker Hub**
+6. Selecteer **continue implementatie > op**
+7. Selecteer **opslaan** continue implementatie moet worden ingeschakeld.
 
-## <a name="prepare-the-webhook-url"></a>Voorbereiden van de webhook-URL
+![Schermopname van app-instelling](./media/app-service-webapp-service-linux-ci-cd/ci-cd-docker-02.png)
 
-De webhook-URL ophalen met behulp van [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) en uitvoeren van de volgende opdracht:
-
-```azurecli-interactive
-az webapp deployment container show-cd-url --name sname1 --resource-group rgname
-```
-
-Noteer de webhook-URL. U hebt deze nodig in de volgende sectie.
-`https://<publishingusername>:<publishingpwd>@<sitename>.scm.azurewebsites.net/docker/hook`.
-
-U vindt uw `publishingusername` en `publishingpwd` door te downloaden van de web-app publiceren profiel met behulp van de Azure-portal.
-
-![Schermafbeelding van de webhook 2 toevoegen](./media/app-service-webapp-service-linux-ci-cd/step3-3.png)
-
-## <a name="add-a-webhook"></a>Een webhook toevoegen
-
-Als u wilt toevoegen van een webhook, volg de stappen in deze richtlijnen:
-
-- [Azure Container Registry](../../container-registry/container-registry-webhook.md) met behulp van de webhook-URL
-- [Webhooks voor Docker Hub](https://docs.docker.com/docker-hub/webhooks/)
+Kopieer de Webhook-URL. Als u wilt toevoegen een webhook voor Docker Hub, gaat u als volgt <a href="https://docs.docker.com/docker-hub/webhooks/" target="_blank">webhooks voor Docker Hub</a>.
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -2,19 +2,19 @@
 title: 'Azure Toolkit voor IntelliJ: Spark-toepassingen voor een HDInsight-cluster maken '
 description: De Azure Toolkit voor IntelliJ gebruiken voor het ontwikkelen van Spark-toepassingen die zijn geschreven in Scala, en deze verzenden naar een HDInsight Spark-cluster.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 10/11/2018
+ms.date: 11/08/2018
 ms.author: maxluk
-ms.openlocfilehash: 51e1e7696ece46e63358b2ed6efa55bbf6ab01fd
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: ff7cfcd56158bd38d031a29a21247fb9eb6b91f9
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50420775"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51289067"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-create-spark-applications-for-an-hdinsight-cluster"></a>Azure Toolkit voor IntelliJ gebruiken voor het maken van Spark-toepassingen voor een HDInsight-cluster
 
@@ -195,7 +195,7 @@ Na het maken van een Scala-toepassing, kunt u deze indient aan het cluster.
        > [!NOTE]
        > Als u wilt uploaden uw JARs waarnaar wordt verwezen en bestanden waarnaar wordt verwezen, Raadpleeg: [over het uploaden van resources aan het cluster](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-storage-explorer)
                          
-    * **Pad uploaden**: kunt u de opslaglocatie voor het verzenden van Jar of Scala, een project resources aangeven. Er zijn drie opslagtypen ondersteund: **Azure Blob**, **interactieve sessie Spark gebruiken voor het uploaden van artefacten**, en **cluster standaardopslagaccount gebruiken**. In de schermafbeelding hieronder volgt een voorbeeld van Azure Blob.
+    * **Pad uploaden**: kunt u de opslaglocatie voor het verzenden van Jar of Scala, een project resources aangeven. Er zijn drie opslagtypen ondersteund: **Azure Blob**, **interactieve sessie Spark gebruiken voor het uploaden van artefacten**, en **cluster standaardopslagaccount gebruiken**, en **ADLS Gen1**. In de schermafbeelding hieronder volgt een voorbeeld van Azure Blob.
 
         ![Het dialoogvenster voor het indienen van Spark](./media/apache-spark-intellij-tool-plugin/hdi-submit-spark-upload-storage-types.png)
 
@@ -258,26 +258,25 @@ Azure Toolkit voor IntelliJ bevat standaard het Spark-clusters van al uw Azure a
 U kunt Spark lokale Console(Scala) uitvoeren of Spark Livy interactieve sessie Console(Scala) uitvoeren.
 
 ### <a name="spark-local-consolescala"></a>Lokale Console(Scala) Spark
-1. U moet de afhankelijkheden handmatig toevoegen. In het menu **bestand**->**projectstructuren**->**projectinstellingen**->**bibliotheken**, Klik vervolgens op **+**, kiest u **van Maven...** . Voer **org.apache.spark:spark-repl_2.11:2.1.0** in het pop-updialoogvenster. Na het toevoegen van de afhankelijkheden in bibliotheken, moet u de afhankelijkheid verplaatsen naar de eerste regel in **Modules** in **projectstructuren** venster. Voordat u doorgaat, wijzigt de **bereik** naar **Runtime**.
-
-    ![Lokale Console afhankelijkheid bibliotheken toevoegen](./media/apache-spark-intellij-tool-plugin/local-console-add-dependency-libraries.png)
-
-    ![Lokale Console verplaatsen naar de eerste regel](./media/apache-spark-intellij-tool-plugin/local-console-move-first-line.png)
-
-2. Instellen van de configuratie als u geen voordat hebt. In **uitvoeren/Debug configuraties** venster, klikt u op **+** -> **Azure HDInsight Spark**, selecteer tabblad **lokaal uitvoeren**, kiest u de main-klasse en klik vervolgens op **OK**.
+1. Instellen van de configuratie als u geen voordat hebt. In **uitvoeren/Debug configuraties** venster, klikt u op **+** -> **Azure HDInsight Spark**, selecteer tabblad **lokaal uitvoeren**en **op afstand uitvoeren in Cluster**, kiest u de main-klasse en klik vervolgens op **OK**.
 
     ![Configuratie van de lokale Console](./media/apache-spark-intellij-tool-plugin/console-set-configuration.png)
  
-3. Open het bestand overeenkomt uw main-klasse-bestand en klik met de rechtermuisknop **Spark Console**, klikt u vervolgens op **uitvoeren Spark lokale Console(Scala)**. Of Ga naar het menu **extra**->**Spark-Console**->**lokale Console(Scala) Spark uitgevoerd** om te starten van de console.
+2. Open het bijbehorende main-klasse-bestand en klik met de rechtermuisknop **Spark Console**, klikt u vervolgens op **uitvoeren Spark lokale Console(Scala)**. Of Ga naar het menu **extra**->**Spark-Console**->**lokale Console(Scala) Spark uitgevoerd** om te starten van de console. Twee dialoogvensters wordt vervolgens weergegeven om aan te vragen u als u wilt dat automatisch de afhankelijkheden oplossen. Klik op knop **automatisch oplossen**.
+
+    ![Spark automatisch Fix1](./media/apache-spark-intellij-tool-plugin/console-auto-fix1.png)
+
+    ![Spark automatisch Fix2](./media/apache-spark-intellij-tool-plugin/console-auto-fix2.png)
 
     ![Spark lokale toegangspunt](./media/apache-spark-intellij-tool-plugin/spark-console-local-entry-script.png)
 
-4. Nadat u hebt lokale console is gestart. Deze ziet eruit als hieronder. U kunt iets dat die u wilt doen. Voer bijvoorbeeld **sc.appName**, drukt u op ctrl + Enter, wordt het resultaat weergegeven.
+3. Nadat u hebt lokale console is gestart. Deze ziet eruit als hieronder. U kunt iets dat die u wilt doen. Voer bijvoorbeeld **sc.appName**, drukt u op ctrl + Enter, wordt het resultaat weergegeven. U kunt de lokale console door te klikken op de rode knop beëindigen.
 
     ![Resultaat van de lokale Console](./media/apache-spark-intellij-tool-plugin/local-console-result.png)
 
+
 ### <a name="spark-livy-interactive-session-consolescala"></a>Spark-Livy interactieve sessie Console(Scala)
-Het wordt alleen ondersteund op IntelliJ 2018.2.
+Het wordt alleen ondersteund op IntelliJ 2018.2 en 2018.3.
 
 1. Instellen van de configuratie als u geen voordat hebt. In **uitvoeren/Debug configuraties** venster, klikt u op **+** -> **Azure HDInsight Spark**, selecteer tabblad **op afstand uitvoeren in een Cluster** , kiest u de clusternaam en de main-klasse en klik vervolgens op **OK**.
 
@@ -290,6 +289,11 @@ Het wordt alleen ondersteund op IntelliJ 2018.2.
 3. Na het starten van de console is, kunt u iets dat die u wilt doen. Voer bijvoorbeeld **sc.appName**, drukt u op ctrl + Enter, wordt het resultaat weergegeven.
 
     ![Resultaat van interactieve Console](./media/apache-spark-intellij-tool-plugin/interactive-console-result.png)
+
+### <a name="send-selection-to-spark-console"></a>Selectie naar Spark Console verzenden
+Het is handig voor u forsee het scriptresultaat door sommige codes te sturen naar de lokale console of via Livy interactieve sessie Console(Scala). U kunt sommige codes in het bestand Scala markeren en vervolgens met de rechtermuisknop op **selectie verzenden naar Spark Console**. De geselecteerde codes worden verzonden naar de console en worden uitgevoerd. Het resultaat wordt na de codes in de console worden weergegeven. De console Controleer de fouten als bestaande. 
+
+   ![Selectie naar Spark Console verzenden](./media/apache-spark-intellij-tool-plugin/send-selection-to-console.png)
 
 ## <a name="convert-existing-intellij-idea-applications-to-use-azure-toolkit-for-intellij"></a>Converteren van bestaande IntelliJ IDEA-toepassingen met Azure Toolkit voor IntelliJ
 U kunt de bestaande Spark Scala converteren toepassingen die u hebt gemaakt in IntelliJ IDEA voor compatibiliteit met Azure-Toolkit voor IntelliJ. Vervolgens kunt u de invoegtoepassing voor het verzenden van de toepassingen naar een HDInsight Spark-cluster.
@@ -333,11 +337,7 @@ Deze fouten optreden omdat de heapgrootte is niet groot genoeg zijn voor Spark o
 ![Opties toe te voegen aan het vak 'VM-opties' in IntelliJ](./media/apache-spark-intellij-tool-plugin/change-heap-size.png)
 
 ## <a name="faq"></a>Veelgestelde vragen
-Wanneer een cluster te koppelen, ik zou u de referenties van de opslag bieden voorstellen.
-
-![Cluster koppelen, Geef een opslag-referentie](./media/apache-spark-intellij-tool-plugin/link-cluster-with-storage-credential-intellij.png)
-
-Er zijn twee modi voor het verzenden van de taken. Als storage-referentie is opgegeven, wordt de batchmodus worden gebruikt om de taak te verzenden. Anders, interactieve modus wordt gebruikt. Als het cluster bezet is, kunt u de onderstaande foutmelding krijgen.
+Als het cluster bezet is, kunt u de onderstaande foutmelding krijgen.
 
 ![Intellij de foutmelding wanneer cluster bezet](./media/apache-spark-intellij-tool-plugin/intellij-interactive-cluster-busy-upload.png)
 

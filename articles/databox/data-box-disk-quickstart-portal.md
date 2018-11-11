@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 09/07/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to quickly deploy Data Box Disk so as to import data into Azure.
-ms.openlocfilehash: ca0fb177c8b6a16cf624fd4533c9c9040e6d9dee
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: f84eda2269df0bbe7186a2f1a9abb9c594b75455
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49365231"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51245066"
 ---
 # <a name="quickstart-deploy-azure-data-box-disk-using-the-azure-portal-preview"></a>Quickstart: De Azure Data Box Disk implementeren met de Azure-portal (preview)
 
@@ -31,11 +31,11 @@ Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://az
 
 Voordat u begint:
 
-- Zorg ervoor dat uw abonnement is ingeschakeld voor de Azure Data Box-service. [Registreer u voor de service](http://aka.ms/azuredataboxfromdiskdocs) om uw abonnement in te schakelen voor deze service.
+- Zorg ervoor dat uw abonnement is ingeschakeld voor de Azure Data Box-service. [Registreer u voor de service](https://aka.ms/azuredataboxfromdiskdocs) om uw abonnement in te schakelen voor deze service.
 
 ## <a name="sign-in-to-azure"></a>Aanmelden bij Azure
 
-Meld u aan bij de Azure Portal op [http://aka.ms/azuredataboxfromdiskdocs](http://aka.ms/azuredataboxfromdiskdocs).
+Meld u aan bij de Azure Portal op [http://aka.ms/azuredataboxfromdiskdocs](https://aka.ms/azuredataboxfromdiskdocs).
 
 ## <a name="order"></a>Bestellen
 
@@ -70,11 +70,11 @@ Deze stap neemt ongeveer 5 minuten in beslag.
     3. Voer het Data Box Disk-ontgrendelingsprogramma uit en geef de wachtwoordsleutel op. Voor elke schijf die opnieuw wordt geplaatst, voert u het ontgrendelingshulpprogramma opnieuw uit en geeft de wachtwoordsleutel op. **Gebruik niet het BitLocker-dialoogvenster of de BitLocker-sleutel voor het ontgrendelen van de schijf.** Ga naar [Schijven ontgrendelen op een Windows-client]() of [Schijven ontgrendelen op een Linux-client]() voor meer informatie over het ontgrendelen van schijven.
     4. De stationsletter die is toegewezen aan de schijf wordt weergegeven in het hulpprogramma. Noteer de letter van het schijfstation. Deze wordt in de volgende stappen gebruikt.
 
-## <a name="copy-data-and-verify"></a>Gegevens kopiëren en verifiëren
+## <a name="copy-data-and-validate"></a>Gegevens kopiëren en valideren
 
 De duur van deze bewerking hangt af van de hoeveelheid gegevens. 
 
-1. Het station bevat de mappen *PageBlob*, *BlockBlob* en *AzureImportExport*. De gegevens die als blok-blobs moeten worden geïmporteerd in de *BlockBlob*-map, kunt u slepen en neerzetten om ze te kopiëren. Kopieer op dezelfde manier VHD-/VHDX-gegevens naar de *PageBlob*-map.
+1. Het station bevat de mappen *PageBlob*, *BlockBlob* en *DataBoxDiskImport*. De gegevens die als blok-blobs moeten worden geïmporteerd in de *BlockBlob*-map, kunt u slepen en neerzetten om ze te kopiëren. Kopieer op dezelfde manier VHD-/VHDX-gegevens naar de *PageBlob*-map.
 
     Er wordt voor elke submap onder de *BlockBlob*- en *PageBlob*-map een container gemaakt in het Azure-opslagaccount. Alle bestanden onder de mappen *BlockBlob* en *PageBlob* worden naar een standaardcontainer `$root` onder het Azure-opslagaccount gekopieerd.
 
@@ -82,7 +82,7 @@ De duur van deze bewerking hangt af van de hoeveelheid gegevens.
     > - Alle containers en blobs moeten voldoen aan de [Azure-naamgevingsregels](data-box-disk-limits.md#azure-block-blob-and-page-blob-naming-conventions). Als u zich niet aan deze regels houdt, mislukt de gegevensupload naar Azure.
     > - Zorg ervoor dat de bestanden de ~4,75 TiB voor blok-blobs en ~8 TiB voor pagina-blobs niet overschrijden.
 
-2. (Optioneel) Zodra het kopiëren is voltooid, is het raadzaam de `DataBoxDiskValidation.cmd` in de map *AzureImportExport* uit te voeren om controlesommen te genereren voor validatie. Afhankelijk van de gegevensgrootte kan deze stap enige tijd in beslag nemen. 
+2. (Optioneel) Zodra het kopiëren is voltooid, is het raadzaam om de `DataBoxDiskValidation.cmd` in de map *DataBoxDiskImport* uit te voeren om controlesommen te genereren voor validatie. Afhankelijk van de gegevensgrootte kan deze stap enige tijd in beslag nemen. 
 3. Ontkoppel de schijf. 
 
 

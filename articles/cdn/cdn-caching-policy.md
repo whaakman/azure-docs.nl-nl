@@ -1,6 +1,6 @@
 ---
-title: Azure CDN cachebeleid in Azure Media Services beheren | Microsoft Docs
-description: Informatie over het beheren van Azure CDN cachebeleid in Azure Media Services.
+title: Beheren van Azure CDN-beleid voor caching in Azure Media Services | Microsoft Docs
+description: Informatie over het beheren van Azure CDN-beleid voor caching in Azure Media Services.
 services: media-services,cdn
 documentationcenter: .NET
 author: juliako
@@ -14,36 +14,36 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/04/2017
 ms.author: juliako
-ms.openlocfilehash: dce8d588a78b028223776e3ade737d4abd26094b
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: ac94370b1c6a8f48ad55f0e277d93cd2f8388cb1
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33765282"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242599"
 ---
-# <a name="manage-azure-cdn-caching-policy-in-azure-media-services"></a>Azure CDN cachebeleid in Azure Media Services beheren
-Azure Media Services biedt dat HTTP gebaseerde adaptief streamen en progressief downloaden. HTTP op basis van streaming is zeer schaalbaar voordelen opslaan in cache in de proxy- en CDN lagen, evenals van caching aan clientzijde. Streaming-eindpunten bevat algemene streaming mogelijkheden en configuratie voor cache-HTTP-headers. Streaming-eindpunten ingesteld HTTP-Cache-Control: maximumleeftijd en -Expires-koppen. U kunt meer informatie ophalen voor HTTP-headers cache van [W3.org](http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html).
+# <a name="manage-azure-cdn-caching-policy-in-azure-media-services"></a>Azure CDN-beleid voor caching in Azure Media Services beheren
+Azure Media Services biedt HTTP op basis van adaptief streamen en progressief downloaden. HTTP op basis van streaming is zeer schaalbaar met de voordelen van opslaan in cache in de proxy- en CDN-lagen, evenals caching aan clientzijde. Streaming-eindpunten biedt algemene mogelijkheden voor streamen en ook de configuratie van cache-HTTP-headers. HTTP-Cache-Control streaming-eindpunten worden ingesteld: max-age en Expires-koppen. U krijgt meer informatie voor HTTP-headers cache van [W3.org](http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html).
 
-## <a name="default-caching-headers"></a>Standaard opslaan in cache headers
-Standaard is voor streaming-eindpunten 3 dagen cache headers voor op aanvraag streamen gegevens (echte media fragmenten/segmenten) en manifest(playlist) toepassen. Streaming-eindpunten toepassing 3 dagen cache headers voor gegevens (echte media fragmenten/segmenten) en 2 seconden in de cache-header voor manifest(playlist) aanvragen voor live streamen. Wanneer live programma verandert in op-verzoek (live archiveren), klikt u vervolgens op aanvraag streamen cache headers van toepassing.
+## <a name="default-caching-headers"></a>Standaard Caching-headers
+Streaming-eindpunten past standaard drie dagen cache headers voor on-demand streaming-gegevens (echte media fragmenten/segmenten) en manifest(playlist). Streaming-eindpunten toepassen drie dagen cache headers voor gegevens (echte media fragmenten/segmenten) en 2 seconden in de cache-header voor manifest(playlist) aanvragen voor live streamen. Wanneer u live programma kunnen op de vraag (live archief), wordt vervolgens on-demand streaming cache headers van toepassing.
 
-## <a name="azure-cdn-integration"></a>Integratie van Azure CDN
-Azure Media Services biedt [CDN geïntegreerd](https://azure.microsoft.com/updates/azure-media-services-now-fully-integrated-with-azure-cdn/) voor streaming-eindpunten. Cache-control van headers is van toepassing op dezelfde manier als streaming-eindpunten naar CDN ingeschakeld streaming-eindpunten. Azure maakt gebruik van CDN streaming-eindpunt geconfigureerd cachewaarden om te definiëren van de levensduur van de objecten intern in de cache en deze waarde ook wordt de levering van cache headers instellen. Wanneer met behulp van CDN streaming-eindpunten is ingeschakeld, wordt het niet raadzaam kleine cachewaarden in te stellen. Kleine instellingswaarden de prestaties verminderen en de voordelen van CDN verminderen. Het is niet toegestaan in te stellen cache headers kleiner is dan 600 seconden voor CDN ingeschakeld streaming-eindpunten.
+## <a name="azure-cdn-integration"></a>Azure CDN-integratie
+Azure Media Services biedt [geïntegreerde CDN](https://azure.microsoft.com/updates/azure-media-services-now-fully-integrated-with-azure-cdn/) voor streaming-eindpunten. Cache-control-headers is van toepassing op dezelfde manier zoals streaming-eindpunten naar het CDN-streaming-eindpunten ingeschakeld. Azure CDN maakt gebruik van streaming-eindpunt cachewaarden voor het definiëren van de levensduur van de objecten intern in de cache geconfigureerd en gebruikt deze waarde ook naar de cache-headers voor de levering instellen. Het verdient aanbeveling niet om in te stellen kleine cache bij het gebruik van CDN-streaming-eindpunten ingeschakeld. Kleine instellingswaarden invloed hebben op de prestaties en verminder het voordeel van het CDN. Het is niet toegestaan om in te stellen de cache-headers kleiner is dan 600 seconden voor CDN-streaming-eindpunten ingeschakeld.
 
 > [!IMPORTANT]
->Azure Media Services is volledig geïntegreerd met Azure CDN. Met een enkele klik, kunt u alle beschikbare Azure CDN-providers integreren met uw streaming-eindpunt met inbegrip van producten standard en premium. Zie voor meer informatie dit [aankondiging](https://azure.microsoft.com/blog/standardstreamingendpoint/).
+>Azure Media Services is volledig geïntegreerd met Azure CDN. Met één klik, kunt u alle beschikbare providers voor Azure CDN integreren met uw streaming-eindpunt met inbegrip van producten voor standard en premium. Zie voor meer informatie dit [aankondiging](https://azure.microsoft.com/blog/standardstreamingendpoint/).
 > 
-> Kosten van de gegevens van streaming-eindpunt naar CDN alleen opgehaald uitgeschakeld als de CDN is ingeschakeld via het streaming-eindpunt API's of met behulp van Azure portal streaming-eindpunt sectie. Handmatige integratie of rechtstreeks maken van een CDN-eindpunt met CDN-API's of portal sectie uitschakelen niet voor de kosten van de gegevens.
+> Kosten voor gegevens van streaming-eindpunt naar het CDN haalt alleen uitgeschakeld als het CDN is ingeschakeld via het streaming-eindpunt API's of met behulp van de streaming-eindpunt-gedeelte van Azure portal. Handmatige integratie of rechtstreeks het maken van een CDN-eindpunt met behulp van CDN API's of portal sectie uitschakelen niet de kosten voor gegevens.
 
 ## <a name="configuring-cache-headers-with-azure-media-services"></a>Cache-headers configureren met Azure Media Services
-U kunt Azure-portal of Azure Media Services-API's gebruiken voor het configureren van de cache met de headerwaarden.
+U kunt Azure portal of Azure Media Services-API's om waarden voor cache-header te configureren.
 
-1. Raadpleeg voor het configureren van cache-headers met Azure portal [Streaming-eindpunten beheren](../media-services/previous/media-services-portal-manage-streaming-endpoints.md) sectie het Streaming-eindpunt configureren.
-2. Azure Media Services REST-API [StreamingEndpoint](https://msdn.microsoft.com/library/azure/dn783468.aspx#StreamingEndpointCacheControl).
-3. Azure Media Services .NET SDK [StreamingEndpointCacheControl eigenschappen](http://go.microsoft.com/fwlink/?LinkId=615302).
+1. Als u wilt configureren met behulp van Azure portal cache-headers, verwijzen naar [Streaming-eindpunten beheren](../media-services/previous/media-services-portal-manage-streaming-endpoints.md) sectie configureren van de Streaming-eindpunt.
+2. Azure Media Services REST API, [streamingendpoint zo](https://msdn.microsoft.com/library/azure/dn783468.aspx#StreamingEndpointCacheControl).
+3. Azure Media Services .NET SDK, [StreamingEndpointCacheControl eigenschappen](https://go.microsoft.com/fwlink/?LinkId=615302).
 
-## <a name="cache-configuration-precedence-order"></a>Voorkeursvolgorde cache-configuratie
+## <a name="cache-configuration-precedence-order"></a>Volgorde van prioriteit voor cache-configuratie
 1. Azure Media Services geconfigureerd cachewaarde overschrijft de standaardwaarde.
-2. Als er geen handmatige configuratie, wordt standaardwaarden toepassen.
-3. Door standaard twee seconden cache headers is van toepassing op live streaming manifest(playlist) ongeacht de configuratie van Azure Media of Azure Storage en onderdrukken deze waarde is niet beschikbaar.
+2. Als er geen handmatige configuratie is, wordt standaardwaarden toepassen.
+3. Door standaard 2 seconden cache headers is van toepassing op live streaming manifest(playlist), ongeacht de configuratie van Azure Media of Azure Storage en overschrijft deze waarde is niet beschikbaar.
 

@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 02/28/2017
 ms.author: seguler
 ms.component: common
-ms.openlocfilehash: 86a14d12f6621524ef26e2a869d4be532105dc77
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: a62af881efd4f6f3422db19850a0ce9987c6ae7b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45732333"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51245117"
 ---
 # <a name="using-azure-storage-with-a-hudson-continuous-integration-solution"></a>Azure Storage gebruiken met een Hudson CI-oplossing
 ## <a name="overview"></a>Overzicht
@@ -146,7 +146,7 @@ Het volgende biedt een overzicht van de onderdelen van de Blob-service.
 
 * **Storage-account**: alle toegang tot Azure Storage vindt plaats via een opslagaccount. Dit is het hoogste niveau van de naamruimte voor toegang tot blobs. Een account kan een onbeperkt aantal containers bevatten, zolang de totale grootte onder 100 TB is.
 * **Container**: een container is een groepering van een reeks blobs. Alle blobs moeten zich in een container bevinden. Een account kan een onbeperkt aantal containers bevatten. Een container kan een onbeperkt aantal blobs bevatten.
-* **BLOB**: een bestand van willekeurig type en grootte. Er zijn twee typen die kunnen worden opgeslagen in Azure Storage-blobs: blok- en pagina-blobs. De meeste bestanden zijn blok-blobs. Eén blok-blob kan maximaal 200 GB groot zijn. In deze zelfstudie maakt gebruik van blok-blobs. Pagina-blobs, een ander blobtype, kunnen tot 1 TB in grootte, en zijn efficiënter zijn bij het bereiken van de bytes in een bestand regelmatig worden gewijzigd. Zie voor meer informatie over blobs [blok-Blobs, toevoeg-Blobs en pagina-Blobs](http://msdn.microsoft.com/library/azure/ee691964.aspx).
+* **BLOB**: een bestand van willekeurig type en grootte. Er zijn twee typen die kunnen worden opgeslagen in Azure Storage-blobs: blok- en pagina-blobs. De meeste bestanden zijn blok-blobs. Eén blok-blob kan maximaal 200 GB groot zijn. In deze zelfstudie maakt gebruik van blok-blobs. Pagina-blobs, een ander blobtype, kunnen tot 1 TB in grootte, en zijn efficiënter zijn bij het bereiken van de bytes in een bestand regelmatig worden gewijzigd. Zie voor meer informatie over blobs [blok-Blobs, toevoeg-Blobs en pagina-Blobs](https://msdn.microsoft.com/library/azure/ee691964.aspx).
 * **URL-indeling**: Blobs kunnen worden opgevraagd met de volgende URL-indeling:
   
     `http://storageaccount.blob.core.windows.net/container_name/blob_name`
@@ -162,6 +162,6 @@ Het volgende biedt een overzicht van de onderdelen van de Blob-service.
 * [Azure Storage SDK voor Java](https://github.com/azure/azure-storage-java)
 * [Azure Storage Client SDK-referentie](http://dl.windowsazure.com/storage/javadoc/)
 * [REST-API voor Azure Storage-services](https://msdn.microsoft.com/library/azure/dd179355.aspx)
-* [Blog van het Azure Storage-team](http://blogs.msdn.com/b/windowsazurestorage/)
+* [Blog van het Azure Storage-team](https://blogs.msdn.com/b/windowsazurestorage/)
 
 Voor meer informatie gaat u naar [Azure voor Java-ontwikkelaars](/java/azure).

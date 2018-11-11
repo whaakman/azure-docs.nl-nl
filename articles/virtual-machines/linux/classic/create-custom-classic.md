@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2017
 ms.author: cynthn
-ms.openlocfilehash: 507d9e12a37d7bf187a3e56b04cb47ac0104773d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d8e469289f72fe892ea7c3da99972e6326c75eb9
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46982022"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242533"
 ---
 # <a name="how-to-create-a-classic-linux-vm-with-the-azure-classic-cli"></a>Een klassieke virtuele Linux-machine maken met de klassieke Azure-CLI
 > [!IMPORTANT] 
@@ -35,7 +35,7 @@ In dit onderwerp beschrijft hoe u een Linux-machine (VM) maken met de Azure klas
 * De virtuele machine toe te voegen aan een beschikbaarheidsset of een locatie
 
 > [!IMPORTANT]
-> Als u wilt dat uw virtuele machine gebruik van een virtueel netwerk, zodat u verbinding met deze rechtstreeks door de hostnaam of het instellen van cross-premises verbindingen maken kunt, zorg ervoor dat u het virtuele netwerk opgeeft bij het maken van de virtuele machine. Een virtuele machine kan worden geconfigureerd als u wilt deelnemen aan een virtueel netwerk alleen wanneer u de virtuele machine maakt. Zie voor meer informatie over virtuele netwerken, [Azure Virtual Network Overview](http://go.microsoft.com/fwlink/p/?LinkID=294063).
+> Als u wilt dat uw virtuele machine gebruik van een virtueel netwerk, zodat u verbinding met deze rechtstreeks door de hostnaam of het instellen van cross-premises verbindingen maken kunt, zorg ervoor dat u het virtuele netwerk opgeeft bij het maken van de virtuele machine. Een virtuele machine kan worden geconfigureerd als u wilt deelnemen aan een virtueel netwerk alleen wanneer u de virtuele machine maakt. Zie voor meer informatie over virtuele netwerken, [Azure Virtual Network Overview](https://go.microsoft.com/fwlink/p/?LinkID=294063).
 > 
 > 
 

@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
 ms.date: 10/02/2018
-ms.openlocfilehash: 885d867d0733ef923d327d8d6a36fc1588fd4961
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: ec7b956f080837b297bac56e6237ac0672601ce7
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48801009"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51344481"
 ---
 # <a name="secure-azure-machine-learning-web-services-with-ssl"></a>Azure Machine Learning-webservices met SSL beveiligde
 
@@ -53,9 +53,8 @@ Wanneer u een certificaat aanvraagt, moet u de volledig gekwalificeerde domeinna
 > [!TIP]
 > Als de certificeringsinstantie kan niet het certificaat en sleutel als PEM-gecodeerde bestanden opgeeft, kunt u een hulpprogramma zoals [OpenSSL](https://www.openssl.org/) om de opmaak te wijzigen.
 
-> [!IMPORTANT]
-> Zelfondertekende certificaten moeten worden gebruikt alleen voor ontwikkeling. Ze moeten niet worden gebruikt in de productieomgeving. Als u een zelfondertekend certificaat gebruikt, raadpleegt u de [gebruikmaakt van de webservices met zelfondertekende certificaten](#self-signed) sectie voor specifieke instructies.
-
+> [!WARNING]
+> Zelfondertekende certificaten moeten worden gebruikt alleen voor ontwikkeling. Ze moeten niet worden gebruikt in de productieomgeving. Zelfondertekende certificaten kunnen leiden tot problemen in uw client toepassingen. Zie voor meer informatie de documentatie voor de netwerkbibliotheken die wordt gebruikt in uw clienttoepassing.
 
 ## <a name="enable-ssl-and-deploy"></a>SSL inschakelen en implementeren
 
@@ -119,91 +118,8 @@ Vervolgens moet u uw DNS om te verwijzen naar de webservice bijwerken.
 
   Werk de DNS-server op het tabblad "Configuratie" van het 'openbare IP-adres' van het AKS-cluster, zoals weergegeven in de afbeelding. U vindt het openbare IP-adres als een van de resourcetypen die is gemaakt op basis van de resourcegroep met de AKS-knooppunten van de agent en andere netwerkresources.
 
-  ![Azure Machine Learning-service: beveiligen met SSL-webservices](./media/how-to-secure-web-service/aks-public-ip-address.png)
+  ![Azure Machine Learning-service: beveiligen met SSL-webservices](./media/how-to-secure-web-service/aks-public-ip-address.png)Self-
 
-## <a name="consume-authenticated-services"></a>Geverifieerde services gebruiken
+## <a name="next-steps"></a>Volgende stappen
 
-### <a name="how-to-consume"></a>Het gebruik van 
-+ **Voor ACI en AKS**: 
-
-  Meer informatie over webservices in deze artikelen gebruiken voor ACI en AKS webservices:
-  + [Implementeren naar ACI](how-to-deploy-to-aci.md)
-
-  + [Implementeren naar AKS](how-to-deploy-to-aks.md)
-
-+ **Voor FPGA**:  
-
-  De volgende voorbeelden laten zien hoe u een geverifieerde FPGA-service in Python en C# gebruiken.
-  Vervang `authkey` met de primaire of secundaire sleutel die is geretourneerd bij de implementatie van de service.
-
-  Python-voorbeeld:
-    ```python
-    from amlrealtimeai import PredictionClient
-    client = PredictionClient(service.ipAddress, service.port, use_ssl=True, access_token="authKey")
-    image_file = R'C:\path_to_file\image.jpg'
-    results = client.score_image(image_file)
-    ```
-
-  C#-voorbeeld:
-    ```csharp
-    var client = new ScoringClient(host, 50051, useSSL, "authKey");
-    float[,] result;
-    using (var content = File.OpenRead(image))
-        {
-            IScoringRequest request = new ImageRequest(content);
-            result = client.Score<float[,]>(request);
-        }
-    ```
-
-### <a name="set-the-authorization-header"></a>De autorisatie-header instellen
-Andere clients gRPC kunnen aanvragen verifiëren door in te stellen van een autorisatie-header. De algemene aanpak is het maken van een `ChannelCredentials` -object dat combineert `SslCredentials` met `CallCredentials`. Dit wordt toegevoegd aan de autorisatie-header van de aanvraag. Zie voor meer informatie over het implementeren van ondersteuning voor uw specifieke headers [ https://grpc.io/docs/guides/auth.html ](https://grpc.io/docs/guides/auth.html).
-
-De volgende voorbeelden ziet u hoe het instellen van de koptekst in C# en gaat u naar:
-
-+ C# gebruikt om in te stellen de header:
-    ```csharp
-    creds = ChannelCredentials.Create(baseCreds, CallCredentials.FromInterceptor(
-                          async (context, metadata) =>
-                          {
-                              metadata.Add(new Metadata.Entry("authorization", "authKey"));
-                              await Task.CompletedTask;
-                          }));
-    
-    ```
-
-+ Go gebruiken om in te stellen de header:
-    ```go
-    conn, err := grpc.Dial(serverAddr, 
-        grpc.WithTransportCredentials(credentials.NewClientTLSFromCert(nil, "")),
-        grpc.WithPerRPCCredentials(&authCreds{
-        Key: "authKey"}))
-    
-    type authCreds struct {
-        Key string
-    }
-    
-    func (c *authCreds) GetRequestMetadata(context.Context, uri ...string) (map[string]string, error) {
-        return map[string]string{
-            "authorization": c.Key,
-        }, nil
-    }
-    
-    func (c *authCreds) RequireTransportSecurity() bool {
-        return true
-    }
-    ```
-
-<a id="self-signed"></a>
-
-## <a name="consume-services-with-self-signed-certificates"></a>Services gebruiken met zelfondertekende certificaten
-
-Er zijn twee manieren om te zorgen dat de client om te verifiëren met een server die is beveiligd met een zelfondertekend certificaat:
-
-* Stel op het clientsysteem de `GRPC_DEFAULT_SSL_ROOTS_FILE_PATH` omgevingsvariabele op het clientsysteem om te verwijzen naar het certificaatbestand.
-
-* Bij het maken van een `SslCredentials` object, de inhoud van het certificaatbestand doorgeven aan de constructor.
-
-Met behulp van een van beide methoden zorgt ervoor dat de gRPC gebruik van het certificaat als het basiscertificaat.
-
-> [!IMPORTANT]
-> gRPC accepteert geen niet-vertrouwde certificaten. Met behulp van een niet-vertrouwd certificaat mislukken met een `Unavailable` statuscode. De details van de fout bevatten `Connection Failed`.
+Meer informatie over het [verbruiken een ML-Model is geïmplementeerd als een webservice](how-to-consume-web-service.md).

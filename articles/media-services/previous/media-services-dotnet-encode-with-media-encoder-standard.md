@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: juliako;anilmur
-ms.openlocfilehash: 7b0de5e149b8b64252f90a01f66642c15fb25ddc
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 426ebb90a0d7716b14664f874db259a0cca2aa7e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50247789"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51241086"
 ---
 # <a name="encode-an-asset-with-media-encoder-standard-using-net"></a>Een asset coderen met Media Encoder Standard met .NET 
 Encoding-taken behoren tot de vaakst uitgevoerde bewerkingen in Media Services. U creëert coderingstaken om mediabestanden te converteren van de ene naar de andere indeling. Wanneer u codeert, kunt u de Media Services ingebouwde Media Encoder. U kunt ook een coderingsprogramma geleverd door een partner Media Services; coderingsprogramma's van derden zijn beschikbaar via de Azure Marketplace. 
 
-In dit artikel laat zien hoe uw assets met Media Encoder Standard (MES) coderen met .NET. Media Encoder Standard is geconfigureerd met een van de standaardinstellingen van het coderingsprogramma's die worden beschreven [hier](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
+In dit artikel laat zien hoe uw assets met Media Encoder Standard (MES) coderen met .NET. Media Encoder Standard is geconfigureerd met een van de standaardinstellingen van het coderingsprogramma's die worden beschreven [hier](https://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
 
 Het wordt aanbevolen om altijd bronbestanden van uw coderen in een adaptive bitrate MP4-set en zet de set met de gewenste indeling via de [dynamische verpakking](media-services-dynamic-packaging-overview.md). 
 
@@ -39,7 +39,7 @@ Als uw uitvoerasset opslag versleuteld is, moet u het leveringsbeleid voor Asset
 [Indelingen en codecs voor](media-services-media-encoder-standard-formats.md)
 
 ### <a name="mes-presets"></a>MES-standaardinstellingen
-Media Encoder Standard is geconfigureerd met een van de standaardinstellingen van het coderingsprogramma's die worden beschreven [hier](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
+Media Encoder Standard is geconfigureerd met een van de standaardinstellingen van het coderingsprogramma's die worden beschreven [hier](https://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
 
 ### <a name="input-and-output-metadata"></a>Invoer en uitvoer van metagegevens
 Wanneer u een invoer asset (of activa) met behulp van MES codeert, krijgt u een uitvoerasset op de succesvolle voltooiing van deze taak coderen. De uitvoerasset bevat video, audio, miniaturen, het manifest, enz. op basis van de vooraf ingestelde standaardcodering die u gebruikt.

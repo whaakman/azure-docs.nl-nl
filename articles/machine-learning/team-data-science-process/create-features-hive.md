@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/21/2017
 ms.author: deguhath
-ms.openlocfilehash: bca1e609570d9ea0dee9845969de8bb4b29cc1ff
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 97283b75b24cbdaf40e7dffd05d9826ce7e88af4
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42061401"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51344906"
 ---
 # <a name="create-features-for-data-in-a-hadoop-cluster-using-hive-queries"></a>Functies maken voor gegevens in een Hadoop-cluster met behulp van Hive-query 's
 Dit document wordt beschreven hoe u functies maken voor gegevens die zijn opgeslagen in een Azure HDInsight Hadoop-cluster met behulp van Hive-query's. Deze Hive-query's gebruikt ingesloten Hive User-Defined-functies (UDF's), de scripts die worden geleverd.
@@ -29,9 +29,7 @@ De bewerkingen die nodig zijn voor het maken van de functies kunnen geheugeninte
 
 Voorbeelden van de query's die worden gepresenteerd zijn specifiek voor de [NYC Taxi reisgegevens](http://chriswhong.com/open-data/foil_nyc_taxi/) scenario's zijn ook beschikbaar [GitHub-opslagplaats](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts). Deze query's al hebben gegevensschema opgegeven en kunnen worden verzonden om uit te voeren. Parameters die gebruikers stemmen kunnen, zodat de prestaties van Hive-query's kan worden verbeterd worden ook beschreven in de laatste sectie.
 
-[!INCLUDE [cap-create-features-data-selector](../../../includes/cap-create-features-selector.md)]
-
-Dit **menu** koppelingen naar onderwerpen waarin wordt beschreven hoe u functies maken voor gegevens in verschillende omgevingen. Deze taak is een stap in de [Team Data Science Process (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+Deze taak is een stap in de [Team Data Science Process (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
 ## <a name="prerequisites"></a>Vereisten
 In dit artikel wordt ervan uitgegaan dat u hebt:

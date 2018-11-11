@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 10/01/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: b1333eda0fa0bffdf3852f24414511f55acc090e
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 11cc6a69b8072fca0639da5e517a39c22645710e
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49395631"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300503"
 ---
 # <a name="install-and-use-the-log-analytics-views-for-azure-active-directory"></a>Installeren en de Log Analytics-weergaven gebruiken voor Azure Active Directory
 
@@ -42,7 +42,7 @@ Voor de Log Analytics-weergaven, hebt u het volgende nodig:
 
 1. Navigeer naar uw Log Analytics-werkruimte. Om dit te doen, en Ga eerst naar de [Azure-portal](https://portal.azure.com) en selecteer **alle services**. Type **Log Analytics** in het tekstvak in en selecteer **Log Analytics**. Selecteer de werkruimte die u de activiteitenlogboeken, doorgestuurd als onderdeel van de vereisten.
 2. Selecteer **Weergaveontwerper**, selecteer **importeren** en selecteer vervolgens **bestand kiezen** voor het importeren van de weergaven van uw lokale computer.
-3. Selecteer de weergaven die u hebt gedownload van de vereisten en selecteer **opslaan** om op te slaan van het importeren. Doe dit voor de **Azure AD-Account inrichten gebeurtenissen** weergave **aanmeldingen gebeurtenissen** weergeven en de **gebruikers uitvoeren van toestemming geven** weergeven.
+3. Selecteer de weergaven die u hebt gedownload van de vereisten en selecteer **opslaan** om op te slaan van het importeren. Doe dit voor de **Azure AD-Account inrichten gebeurtenissen** weergeven en de **aanmeldingen gebeurtenissen** weergeven.
 
 ## <a name="use-the-views"></a>Gebruik de weergaven
 
@@ -52,7 +52,6 @@ Voor de Log Analytics-weergaven, hebt u het volgende nodig:
 
     * **Azure AD-Account wordt ingericht gebeurtenissen**: deze weergave toont rapporten met betrekking tot het controleren van inrichting activiteit, zoals het aantal nieuwe gebruikers die zijn ingericht en inrichtingsfouten, aantal gebruikers bijgewerkt en fouten en het aantal gebruikers bijwerken verlopen en bijbehorende fouten.    
     * **Aanmeldingen gebeurtenissen**: in deze weergave ziet u de meest relevante rapporten met betrekking tot het controleren van de aanmelding, activiteit, zoals aanmeldingen per toepassing, gebruiker, apparaat, evenals een samenvatting weergegeven voor het bijhouden van het aantal aanmeldingen na verloop van tijd.
-    * **Gebruikers voeren toestemming geven**: deze weergave toont rapporten met betrekking tot toestemming van de gebruiker, zoals de toestemming verleent door de gebruiker, -aanmeldingen door gebruikers die toestemming verleend, evenals aanmeldingen per toepassing voor alle toepassingen op basis van toestemming. 
 
 3. Selecteer een van deze weergaven om door te gaan met de afzonderlijke rapporten. U kunt ook waarschuwingen instellen op een van de rapportparameters. Bijvoorbeeld, stel een waarschuwing voor telkens wanneer er een fout aanmelden is. Om dit te doen, selecteert u eerst de **aanmeldingen gebeurtenissen** weergave, selecteer **aanmelden fouten na verloop van tijd** rapport en selecteer vervolgens **Analytics** openen van de pagina met details met de werkelijke query achter het rapport. 
 

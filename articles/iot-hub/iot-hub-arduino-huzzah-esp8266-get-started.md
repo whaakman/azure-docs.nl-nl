@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/11/2018
 ms.author: rangv
-ms.openlocfilehash: ea7754c9bf755a5fc00823629df17317be0f8901
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: e49a3063d6314947c59c5ae863077748d997f2b5
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39343675"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515468"
 ---
 # <a name="connect-adafruit-feather-huzzah-esp8266-to-azure-iot-hub-in-the-cloud"></a>Adafruit Feather HUZZAH ESP8266 verbinden met Azure IoT Hub in de cloud
 
 [!INCLUDE [iot-hub-get-started-device-selector](../../includes/iot-hub-get-started-device-selector.md)]
 
-![Verbinding tussen DHT22 Feather HUZZAH ESP8266 en IoT-Hub](media/iot-hub-arduino-huzzah-esp8266-get-started/1_connection-hdt22-feather-huzzah-iot-hub.png)
+![Verbinding tussen DHT22 Feather HUZZAH ESP8266 en IoT-Hub](./media/iot-hub-arduino-huzzah-esp8266-get-started/1_connection-hdt22-feather-huzzah-iot-hub.png)
 
 ## <a name="what-you-do"></a>Wat u allemaal doen
 
@@ -38,7 +38,7 @@ Adafruit Feather HUZZAH ESP8266 verbinden met een IoT-hub die u maakt. Vervolgen
 
 ## <a name="what-you-need"></a>Wat u nodig hebt
 
-![Onderdelen die nodig zijn voor de zelfstudie](media/iot-hub-arduino-huzzah-esp8266-get-started/2_parts-needed-for-the-tutorial.png)
+![Onderdelen die nodig zijn voor de zelfstudie](./media/iot-hub-arduino-huzzah-esp8266-get-started/2_parts-needed-for-the-tutorial.png)
 
 Als u wilt deze bewerking is voltooid, moet u de volgende onderdelen van uw Feather HUZZAH ESP8266 Starter Kit:
 
@@ -62,7 +62,17 @@ De volgende items zijn optioneel in het geval u een sensor geen hebt. U hebt ook
 * Een breadboard
 * M/M meestal kabels
 
-[!INCLUDE [iot-hub-get-started-create-hub-and-device](../../includes/iot-hub-get-started-create-hub-and-device.md)]
+## <a name="create-an-iot-hub"></a>Een IoT Hub maken
+
+[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
+
+### <a name="retrieve-connection-string-for-iot-hub"></a>Voor IoT hub-verbindingsreeks ophalen
+
+[!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
+
+## <a name="register-a-new-device-in-the-iot-hub"></a>Een nieuw apparaat registreren in de IoT-hub
+
+[!INCLUDE [iot-hub-include-create-device](../../includes/iot-hub-include-create-device.md)]
 
 ## <a name="connect-feather-huzzah-esp8266-with-the-sensor-and-your-computer"></a>Verbinding maken met Feather HUZZAH ESP8266 met de sensor en uw computer
 
@@ -72,7 +82,7 @@ In deze sectie maakt verbinding u de sensoren met het mededelingenbord. Vervolge
 
 De kabels breadboard en meestal gebruiken om de verbinding als volgt. Als u geen een sensor, deze sectie overslaan omdat u gesimuleerde sensorgegevens in plaats daarvan kunt gebruiken.
 
-![Naslaginformatie over verbindingen](media/iot-hub-arduino-huzzah-esp8266-get-started/17_connections_on_breadboard.png)
+![Naslaginformatie over verbindingen](./media/iot-hub-arduino-huzzah-esp8266-get-started/17_connections_on_breadboard.png)
 
 Voor sensor pincodes, gebruikt u de volgende bedrading:
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/23/2017
-ms.openlocfilehash: 9d2cfeb780687e1bf0e61173b3550e26f4019115
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: a107907dd01b15015c644f835239f6f90b948296
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47394145"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51245831"
 ---
 # <a name="walkthrough-develop-a-predictive-analytics-solution-for-credit-risk-assessment-in-azure-machine-learning"></a>Procedure: een predictive analytics-oplossing opzetten voor kredietrisicobeoordeling in Azure Machine Learning
 
@@ -57,4 +57,4 @@ Voer de volgende stappen uit als u deze oplossing voor kredietrisicobeoordeling 
 > [!TIP] 
 > In de [Azure AI Gallery](https://gallery.cortanaintelligence.com) vindt u een werkende kopie van het experiment dat we in deze rondleiding hebt ontwikkeld. Ga naar **[Walkthrough - Credit risk prediction](https://gallery.cortanaintelligence.com/Experiment/Walkthrough-Credit-risk-prediction-1)** en klik op **Open in Studio** om een kopie van het experiment naar uw Machine Learning Studio-werkruimte te downloaden.
 > 
-> Deze rondleiding is gebaseerd op een vereenvoudigde versie van het voorbeeldexperiment [Binary Classification: Credit risk prediction](http://go.microsoft.com/fwlink/?LinkID=525270), dat eveneens beschikbaar is in de [galerij](http://gallery.cortanaintelligence.com/).
+> Deze rondleiding is gebaseerd op een vereenvoudigde versie van het voorbeeldexperiment [Binary Classification: Credit risk prediction](https://go.microsoft.com/fwlink/?LinkID=525270), dat eveneens beschikbaar is in de [galerij](http://gallery.cortanaintelligence.com/).

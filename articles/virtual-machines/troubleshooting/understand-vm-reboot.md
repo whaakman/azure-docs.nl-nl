@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: f50be01d067032b1143a80e56ccb5d49d899d4d6
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: c1f48e3273ac0a237c72565acf25049b763dba8a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50415964"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51246664"
 ---
 # <a name="understand-a-system-reboot-for-azure-vm"></a>Meer informatie over een systeem opnieuw is opgestart voor de virtuele machine van Azure
 
@@ -108,7 +108,7 @@ De duur van het afsluiten kan is zo kort vijf minuten maar aanzienlijk langer. H
 
 **I/o van meer dan beperkt**
 
-Virtuele machines mogelijk tijdelijk uitgeschakeld wanneer de i/o-aanvragen zijn consistent beperkt omdat het volume van de i/o-bewerkingen per seconde (IOPS) groter is dan de i/o-limieten voor de schijf. (Standard disk-opslag is beperkt tot 500 IOPS.) Gebruik schijfsegmentering of configureren van de opslagruimte in de Gast-VM, afhankelijk van de werkbelasting voor het oplossen van dit probleem. Zie voor meer informatie, [Azure VM's configureren voor optimale opslagprestaties](http://blogs.msdn.com/b/mast/archive/2014/10/14/configuring-azure-virtual-machines-for-optimal-storage-performance.aspx).
+Virtuele machines mogelijk tijdelijk uitgeschakeld wanneer de i/o-aanvragen zijn consistent beperkt omdat het volume van de i/o-bewerkingen per seconde (IOPS) groter is dan de i/o-limieten voor de schijf. (Standard disk-opslag is beperkt tot 500 IOPS.) Gebruik schijfsegmentering of configureren van de opslagruimte in de Gast-VM, afhankelijk van de werkbelasting voor het oplossen van dit probleem. Zie voor meer informatie, [Azure VM's configureren voor optimale opslagprestaties](https://blogs.msdn.com/b/mast/archive/2014/10/14/configuring-azure-virtual-machines-for-optimal-storage-performance.aspx).
 
 Hogere IOPS-limieten zijn beschikbaar via Azure Premium Storage met maximaal 80.000 IOPS. Zie voor meer informatie, [High-Performance Premium Storage](../windows/premium-storage.md).
 

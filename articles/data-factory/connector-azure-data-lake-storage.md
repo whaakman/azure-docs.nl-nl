@@ -8,14 +8,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 08/07/2018
+ms.date: 11/09/2018
 ms.author: jingwang
-ms.openlocfilehash: 65495209714c37e5e166545ed7ed029e36c258c0
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 2fad3ad8bc6e1c0ca87038af6c461d863065fc95
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42055667"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51345960"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen2-preview-using-azure-data-factory-preview"></a>Gegevens kopiëren naar of van Azure Data Lake Storage Gen2 Preview met behulp van Azure Data Factory (Preview)
 
@@ -34,6 +34,9 @@ Deze connector ondersteunt name:
 
 >[!TIP]
 >Als u de hiërarchische naamruimte inschakelt, bestaat er momenteel geen interoperabiliteit van bewerkingen tussen de Blob en ADLS Gen2 API's. Als u de fout van bereikt "ErrorCode FilesystemNotFound =" met het gedetailleerde bericht als "het opgegeven bestandssysteem bestaat niet.", dit wordt veroorzaakt door de opgegeven sink bestandssysteem is gemaakt via de Blob-API in plaats van ADLS Gen2 API elders. Los het probleem, Geef een nieuwe bestandssysteem met een naam die niet als de naam van een Blob-container bestaat en ADF maakt automatisch dit bestandssysteem tijdens het kopiëren van gegevens.
+
+>[!NOTE]
+>Als u Hiermee _'Vertrouwde Microsoft-services voor toegang tot dit storage-account toestaan'_ optie voor Azure Storage firewall-instellingen, met behulp van Azure Integration Runtime verbinding maken met Data Lake Storage Gen2 mislukken met niet-toegestane fout, als ADF worden niet behandeld als vertrouwde Microsoft-service. Gebruik zelfgehoste Cloudintegratieruntime zoals verbinding maken via in plaats daarvan.
 
 ## <a name="get-started"></a>Aan de slag
 
@@ -84,7 +87,7 @@ Zie voor een volledige lijst van de secties en eigenschappen die beschikbaar zij
 | Eigenschap | Beschrijving | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type van de gegevensset moet worden ingesteld op **AzureBlobFSFile**. |Ja |
-| folderPath | Pad naar de map in de Data Lake Storage Gen2. Filteren op jokerteken wordt niet ondersteund. Voorbeeld: rootfolder/submap /. |Ja |
+| folderPath | Pad naar de map in de Data Lake Storage Gen2. Filteren op jokerteken wordt niet ondersteund. Indien niet opgegeven, wordt deze verwijst naar de hoofdmap. Voorbeeld: rootfolder/submap /. |Nee |
 | fileName | **Naam of het jokerteken filter** voor de bestanden die onder het opgegeven 'folderPath'. Als u een waarde voor deze eigenschap niet opgeeft, wordt de gegevensset verwijst naar alle bestanden in de map. <br/><br/>Voor het filter toegestane jokertekens zijn: `*` (komt overeen met nul of meer tekens) en `?` (komt overeen met nul of één teken).<br/>-Voorbeeld 1: `"fileName": "*.csv"`<br/>-Voorbeeld 2: `"fileName": "???20180427.txt"`<br/>Gebruik `^` als escape voor als de bestandsnaam van uw werkelijke jokertekens of deze escape-teken in.<br/><br/>Wanneer de bestandsnaam is niet opgegeven voor een uitvoergegevensset en **preserveHierarchy** is niet opgegeven in de activiteit-sink, de kopieeractiviteit wordt automatisch gegenereerd met de naam van het bestand met het volgende patroon: "*gegevens. [ uitvoering van activiteit-id GUID]. [GUID als FlattenHierarchy]. [de indeling als geconfigureerd]. [compressie als geconfigureerd]* ". Een voorbeeld is 'Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.gz'. |Nee |
 | Indeling | Als u wilt kopiëren van bestanden als tussen winkels op basis van bestanden (binaire kopie), moet u de sectie indeling in de invoer en uitvoer gegevenssetdefinities overslaan.<br/><br/>Als u wilt parseren of bestanden met een specifieke indeling genereren, de volgende indeling bestandstypen worden ondersteund: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, en **ParquetFormat**. Stel de **type** eigenschap onder **indeling** op een van deze waarden. Zie voor meer informatie de [tekstindeling](supported-file-formats-and-compression-codecs.md#text-format), [JSON-indeling](supported-file-formats-and-compression-codecs.md#json-format), [Avro-indeling](supported-file-formats-and-compression-codecs.md#avro-format), [Orc-indeling](supported-file-formats-and-compression-codecs.md#orc-format), en [Parquet-indeling ](supported-file-formats-and-compression-codecs.md#parquet-format) secties. |Nee (alleen voor binaire kopie-scenario) |
 | Compressie | Geef het type en het niveau van compressie voor de gegevens. Zie voor meer informatie, [ondersteunde indelingen en codecs voor compressie](supported-file-formats-and-compression-codecs.md#compression-support).<br/>Ondersteunde typen zijn **GZip**, **Deflate**, **BZip2**, en **ZipDeflate**.<br/>Ondersteunde niveaus zijn **optimale** en **snelst**. |Nee |

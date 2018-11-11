@@ -3,7 +3,7 @@ title: Service Fabric-Azure-bestanden Volume stuurprogramma (Preview) | Microsof
 description: Service Fabric ondersteunt het gebruik van Azure Files met back-volumes in de container. Dit is momenteel in preview.
 services: service-fabric
 documentationcenter: other
-author: mani-ramaswamy
+author: TylerMSFT
 manager: timlt
 editor: ''
 ms.assetid: ab49c4b9-74a8-4907-b75b-8d2ee84c6d90
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 6/10/2018
-ms.author: subramar
-ms.openlocfilehash: 0ce1ca09327fa0bd7fbbb82b8dc3c3bdc70d5028
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.author: twhitney, subramar
+ms.openlocfilehash: fabb44f9369dd7b7050ae353ab94263f140aae48
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50239369"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51346402"
 ---
 # <a name="service-fabric-azure-files-volume-driver-preview"></a>Service Fabric-stuurprogramma voor Azure Files-Volume (Preview)
 De invoegtoepassing Azure Files-volume is een [Docker volume invoegtoepassing](https://docs.docker.com/engine/extend/plugins_volume/) waarmee de [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) op basis van volumes voor Docker-containers. Deze invoegtoepassing Docker-volume wordt geleverd als een Service Fabric-toepassing die kan worden geïmplementeerd naar Service Fabric-clusters. Het doel is voor Azure Files op basis van volumes voor andere toepassingen met Service Fabric-containers die zijn geïmplementeerd in het cluster.
@@ -166,12 +166,11 @@ In de **Volume** -element in het bovenstaande codefragment de invoegtoepassing A
 - **Bestemming** -dit label is de locatie die het volume is gekoppeld aan binnen de container die wordt uitgevoerd. Dus kan niet de bestemming een locatie die al in uw container bestaat worden
 
 Zoals wordt weergegeven in de **DriverOption** elementen in het bovenstaande codefragment de volume-invoegtoepassing voor Azure Files ondersteunt de volgende stuurprogrammaopties:
+- **Sharenaam** -naam van de bestanden van de Azure-bestandsshare waarmee het volume voor de container.
+- **storageAccountName** : naam van de Azure storage-account met de Azure Files-bestand delen.
+- **storageAccountKey** -toegangssleutel voor de Azure storage-account met de Azure Files-share.
+- **storageAccountFQDN** -domeinnaam die is gekoppeld aan de storage-account. Als storageAccountFQDN niet opgegeven is, wordt met behulp van de standaard-suffix(.file.core.windows.net) met storageAccountName domeinnaam gevormd.  
 
-Stuurprogrammaopties ondersteund:
-- **Sharenaam** -naam van de bestanden van de Azure-bestandsshare waarmee het volume voor de container
-- **storageAccountName** : naam van de Azure storage-account met de Azure Files-bestand delen
-- **storageAccountKey** -toegangssleutel voor de Azure storage-account met de Azure Files-share
-- **storageAccountFQDN** -domeinnaam die is gekoppeld aan de storage-account. Als storageAccountFQDN niet opgegeven is, wordt met behulp van de standaard-suffix(.file.core.windows.net) met storageAccountName domeinnaam gevormd. 
     ```xml
     - Example1: 
         <DriverOption Name="shareName" Value="myshare1" />
@@ -184,6 +183,7 @@ Stuurprogrammaopties ondersteund:
         <DriverOption Name="storageAccountKey" Value="mykey2" />
         <DriverOption Name="storageAccountFQDN" Value="myaccount2.file.core.chinacloudapi.cn" />
     ```
+
 ## <a name="using-your-own-volume-or-logging-driver"></a>Met behulp van uw eigen volume of de stuurprogramma-logboekregistratie
 Service Fabric kunt u ook het gebruik van uw eigen aangepaste [volume](https://docs.docker.com/engine/extend/plugins_volume/) of [logboekregistratie](https://docs.docker.com/engine/admin/logging/overview/) stuurprogramma's. Als het volume/logboekregistratie Docker stuurprogramma is niet geïnstalleerd op het cluster, kunt u deze handmatig installeren met behulp van de RDP/SSH-protocollen. U kunt de installatie met deze protocollen via uitvoeren een [virtuele-machineschaalset opstarten script](https://azure.microsoft.com/resources/templates/201-vmss-custom-script-windows/) of een [SetupEntryPoint script](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-model#describe-a-service).
 

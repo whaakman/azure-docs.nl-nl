@@ -15,15 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: deguhath
-ms.openlocfilehash: f67bab33413b0048fc93d5f62e88984acaa25fd6
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 0afa8d92aaa60cd70f378595054506c8e9f7daee
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49393232"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51344685"
 ---
 # <a name="move-data-from-an-on-premises-sql-server-to-sql-azure-with-azure-data-factory"></a>Gegevens verplaatsen van een on-premises SQL server naar SQL Azure met Azure Data Factory
-In dit onderwerp wordt beschreven hoe gegevens uit een on-premises SQL Server-Database verplaatsen naar een SQL Azure-Database via Azure Blob Storage met behulp van de Azure Data Factory (ADF).
+
+In dit artikel laat zien hoe gegevens uit een on-premises SQL Server-Database verplaatsen naar een SQL Azure-Database via Azure Blob Storage met behulp van de Azure Data Factory (ADF).
 
 Zie voor een tabel met een overzicht van verschillende opties voor het verplaatsen van gegevens naar een Azure SQL Database, [gegevens verplaatsen naar een Azure SQL Database voor Azure Machine Learning](move-sql-azure.md).
 

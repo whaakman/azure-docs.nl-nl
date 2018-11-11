@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 08/27/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 6e3026ea3aca897ab63f4ad7d72eac438fdb7199
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 8aec6ae3532acaaa5d039ee9db8745927c66957b
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389108"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51288778"
 ---
 # <a name="oms-portal-moving-to-azure"></a>OMS-portal naar Azure verplaatsen
 
@@ -55,7 +55,7 @@ Raadpleeg [Veelgestelde vragen voor overgang van OMS-portal naar Azure-portal vo
 Beheer van Azure portal toegang is een uitgebreidere en krachtiger zijn dan de toegangsbeheer in de OMS-Portal. Zie [werkruimten beheren](log-analytics-manage-access.md#manage-accounts-and-users) voor meer informatie over toegangsbeheer in Log Analytics.
 
 > [!NOTE]
-> Eerdere versies van dit artikel wordt aangegeven dat de machtigingen zou automatisch worden geconverteerd van de OMS-portal naar de Azure-portal. Deze automatische conversatie niet meer is gepland en u moet de conversie zelf uitvoeren.
+> Eerdere versies van dit artikel wordt aangegeven dat de machtigingen zou automatisch worden geconverteerd van de OMS-portal naar de Azure-portal. Deze automatische conversie niet meer is gepland en u moet de conversie zelf uitvoeren.
 
 Mogelijk hebt u al bepaalde toegang in Azure portal in welk geval u hoeft te wijzigen. Er zijn een aantal gevallen waar u geen geschikte toegang kan hebben in dat geval uw beheerder moet u machtigingen toewijzen.
 

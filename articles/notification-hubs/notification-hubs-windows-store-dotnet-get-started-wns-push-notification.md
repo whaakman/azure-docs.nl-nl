@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: c3bb170800508d5a546573850f445b2a8991ea8c
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 37d9f433f39b60609870913a13f23e5a6e419476
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38597741"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51246494"
 ---
 # <a name="tutorial-send-notifications-to-universal-windows-platform-apps-by-using-azure-notification-hubs"></a>Zelfstudie: Meldingen verzenden naar Universal Windows Platform-apps met behulp van Azure Notification Hubs
 
@@ -57,7 +57,7 @@ Als u pushmeldingen naar UWP-apps wilt verzenden, koppelt u uw app aan de Window
 1. Typ een naam voor uw app en selecteer **Productnaam reserveren**. Hiermee maakt u een nieuwe Windows Store-registratie voor uw app.
 
     ![Naam van de Store-app](./media/notification-hubs-windows-store-dotnet-get-started/store-app-name.png)
-1. Vouw **Appbeheer** uit, selecteer **WNS/MPNS**, selecteer **WNS/MPNS** en selecteer vervolgens **Live Services site**. Meld u aan bij uw Microsoft-account. De **portal voor app-registratie** wordt in een nieuw tabblad geopend. U kunt ook rechtstreeks naar de [portal voor app-registratie](http://apps.dev.microsoft.com) gaan en daar de naam van uw app selecteren om deze pagina te openen.
+1. Vouw **Appbeheer** uit, selecteer **WNS/MPNS**, selecteer **WNS/MPNS** en selecteer vervolgens **Live Services site**. Meld u aan bij uw Microsoft-account. De **portal voor app-registratie** wordt in een nieuw tabblad geopend. U kunt ook rechtstreeks naar de [portal voor app-registratie](https://apps.dev.microsoft.com) gaan en daar de naam van uw app selecteren om deze pagina te openen.
 
     ![WNS MPNS-pagina](./media/notification-hubs-windows-store-dotnet-get-started/wns-mpns-page.png)
 1.   Noteer het wachtwoord voor **Toepassingsgeheim** en de **beveiligings-id (SID) van uw pakket**.

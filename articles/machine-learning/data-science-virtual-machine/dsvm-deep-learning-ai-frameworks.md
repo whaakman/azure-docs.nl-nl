@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: gokuma
-ms.openlocfilehash: 234e9233e69877c9afe79a5a053a4310d013a9ab
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: fbe3aeac3918142388edfa8cd053badd362d7fd7
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49646107"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51241919"
 ---
 # <a name="deep-learning-and-ai-frameworks"></a>Deep Learning en AI-frameworks
-De [Data Science Virtual Machine](http://aka.ms/dsvm) (DSVM) en de [Deep Learning VM](http://aka.ms/dsvm/deeplearning) ondersteunt een aantal frameworks voor deep learning bij het opbouwen van kunstmatige intelligentie (AI)-toepassingen met Voorspellend en cognitieve functionaliteit, zoals afbeeldingen en language understanding. 
+De [Data Science Virtual Machine](https://aka.ms/dsvm) (DSVM) en de [Deep Learning VM](https://aka.ms/dsvm/deeplearning) ondersteunt een aantal frameworks voor deep learning bij het opbouwen van kunstmatige intelligentie (AI)-toepassingen met Voorspellend en cognitieve functionaliteit, zoals afbeeldingen en language understanding. 
 
 Hier volgen de details voor alle deep learning-frameworks beschikbaar is op de DSVM.
 

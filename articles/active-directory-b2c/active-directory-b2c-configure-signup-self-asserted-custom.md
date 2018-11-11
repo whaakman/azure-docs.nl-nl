@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/29/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 37492e22b5615ae0b266bc8b2bb6d8f039fdaabe
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 6b2a6d84fffecbe30bd2a47c795ee6143458ee2b
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43336852"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51344992"
 ---
 # <a name="azure-active-directory-b2c-modify-sign-up-to-add-new-claims-and-configure-user-input"></a>Azure Active Directory B2C: Wijzigen sign up nieuwe claims toevoegen en configureren van de invoer van de gebruiker.
 
@@ -277,8 +277,8 @@ Geverifieerd met het e-mailbericht is standaard ingeschakeld in de `<TechnicalPr
 
 ## <a name="next-steps"></a>Volgende stappen
 
-De nieuwe claim naar de stromen voor sociaal account aanmeldingen toevoegen door het wijzigen van de hieronder vermelde TechnicalProfiles. Deze worden gebruikt door account sociale/federatieve aanmeldingen te schrijven en lezen van de gebruikersgegevens met behulp van de alternativeSecurityId als de locator.
-```xml
-<TechnicalProfile Id="AAD-UserWriteUsingAlternativeSecurityId">
-<TechnicalProfile Id="AAD-UserReadUsingAlternativeSecurityId">
-```
+Als uw beleid sociale accounts ondersteunt, moet u de nieuwe claim naar de stromen voor sociaal account aanmeldingen toevoegen door het veranderen van de hieronder vermelde technische profielen. Deze claims worden gebruikt door sociaal account aanmeldingen voor het verzamelen en het schrijven van gegevens van de gebruiker.
+
+1. Ga naar het technische profiel **SelfAsserted sociale** en de uitvoerclaim toe te voegen. De volgorde van de claims in **OutputClaims** bepaalt de volgorde die Azure AD B2C de claims in het scherm wordt weergegeven. Bijvoorbeeld `<OutputClaim ClaimTypeReferenceId="city" />`.
+2. Ga naar het technische profiel **AAD-UserWriteUsingAlternativeSecurityId** en toevoegen van de claim permanent behouden. Bijvoorbeeld `<PersistedClaim ClaimTypeReferenceId="city" />`.
+3. Ga naar het technische profiel **AAD-UserReadUsingAlternativeSecurityId** en de uitvoerclaim toe te voegen. Bijvoorbeeld `<OutputClaim ClaimTypeReferenceId="city" />`.

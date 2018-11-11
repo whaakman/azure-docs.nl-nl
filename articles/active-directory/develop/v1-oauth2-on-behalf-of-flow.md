@@ -1,6 +1,6 @@
 ---
-title: Service-to-service verificatie met Azure AD met behulp van OAuth 2.0-conceptspecificatie op-andere gebruikers-Of-| Microsoft Docs
-description: In dit artikel wordt beschreven hoe u gebruik van HTTP-berichten voor het implementeren van service-to-service-verificatie met behulp van de OAuth 2.0 op namens-stroom.
+title: Azure Active Directory service-naar-service-verificatie die gebruikmaakt van de OAuth 2.0-conceptspecificatie op-andere gebruikers-Of-| Microsoft Docs
+description: In dit artikel wordt beschreven hoe u gebruik van HTTP-berichten voor het implementeren van service-naar-serviceverificatie met het OAuth 2.0 op namens-stroom.
 services: active-directory
 documentationcenter: .net
 author: navyasric
@@ -17,86 +17,108 @@ ms.date: 06/06/2017
 ms.author: celested
 ms.reviewer: hirsin, nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: a231b79bebd9684281edea48dfe7cf5f57ccdacb
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: ab9f2638de6f74944eb27f024be3000209554cdf
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986012"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51345129"
 ---
-# <a name="service-to-service-calls-using-delegated-user-identity-in-the-on-behalf-of-flow"></a>Service-serviceaanroepen met behulp van gedelegeerde gebruikersidentiteit in de On-Behalf-Of-stroom
+# <a name="service-to-service-calls-that-use-delegated-user-identity-in-the-on-behalf-of-flow"></a>Service-naar-service aanroepen die gebruik gedelegeerde gebruikersidentiteit in de On-Behalf-Of-stroom
 
 [!INCLUDE [active-directory-develop-applies-v1](../../../includes/active-directory-develop-applies-v1.md)]
 
-De OAuth 2.0 namens (OBO) stroom fungeert de use-case waar een toepassing wordt aangeroepen met een service of web-API, dat op zijn beurt vereist is voor het aanroepen van een andere service of web-API. Het idee is dat de gemachtigde gebruiker identiteits- en machtigingen via de aanvraagketen doorgegeven. Voor de middelste laag service voor geverifieerde aanvragen versturen naar de downstream-service, moet deze voor het beveiligen van een toegangstoken van Azure Active Directory (Azure AD), namens de gebruiker.
+De stroom voor OAuth 2.0 namens (OBO) kan een toepassing die een service of een web-API om door te geven van de verificatie van de gebruiker op een andere service of web-API aanroept. De stroom OBO geeft de gemachtigde gebruiker identiteits- en machtigingen via de aanvraagketen. Voor de middelste laag service voor geverifieerde aanvragen versturen naar de downstream-service, moet het toegangstoken op uit Azure Active Directory (Azure AD) beveiligen namens de gebruiker.
 
 > [!IMPORTANT]
-> Vanaf mei 2018, een `id_token` kan niet worden gebruikt voor de stroom op-andere gebruikers-Of - kuuroorden moeten slagen voor een **toegang** token gebruikt voor een middelste laag vertrouwelijke client om uit te voeren OBO stromen. Zie [beperkingen](#client-limitations) voor meer informatie waarop clients op-andere gebruikers-Of aanroepen kunnen uitvoeren.
+> Vanaf mei 2018, een `id_token` kan niet worden gebruikt voor de On-Behalf-Of-stroom.  Apps van één pagina (kuuroorden) moeten een toegangstoken doorgeven aan een vertrouwelijke client van de middelste laag om uit te voeren OBO stromen. Zie voor meer informatie over de clients die kunnen worden uitgevoerd op-andere gebruikers-Of aanroepen [beperkingen](#client-limitations).
 
 ## <a name="on-behalf-of-flow-diagram"></a>On-Behalf-Of stroomdiagram
-Wordt ervan uitgegaan dat de gebruiker is geverifieerd op een toepassing met behulp van de [OAuth 2.0-autorisatiecode verlenen stroom](v1-protocols-oauth-code.md). De toepassing is op dit moment een toegangstoken (token A) met claims van de gebruiker en toestemming voor toegang tot de middelste laag web-API (A-API). Nu moet API A maken van een geverifieerde aanvraag naar de downstream web-API (API-B).
 
-De volgende stappen de stroom op-andere gebruikers-Of vormen en met behulp van het volgende diagram worden uitgelegd.
+De OBO-stroom wordt gestart nadat de gebruiker is geverifieerd in een toepassing die gebruikmaakt van de [OAuth 2.0-autorisatiecode verlenen stroom](v1-protocols-oauth-code.md). Op dat moment een toegangstoken (token A) in de toepassing wordt verzonden op de middelste laag web API (A-API) met claims van de gebruiker en de toestemming voor toegang tot API A. API A maakt vervolgens een geverifieerde aanvraag voor de downstream web-API (API-B).
 
-![OAuth 2.0 op namens-stroom](./media/v1-oauth2-on-behalf-of-flow/active-directory-protocols-oauth-on-behalf-of-flow.png)
-
+De stroom op-andere gebruikers-Of deel uitmaken van deze stappen: ![namens-stroom voor OAuth 2.0](./media/v1-oauth2-on-behalf-of-flow/active-directory-protocols-oauth-on-behalf-of-flow.png)
 
 1. De clienttoepassing doet een aanvraag bij API A met het token A.
-2. API A wordt geverifieerd op het eindpunt van de Azure AD-token-uitgifte en vraagt een token voor toegang tot API B.
-3. Het eindpunt van de Azure AD-token-uitgifte van de A-API-referenties met een token valideert en problemen met het toegangstoken voor API-B (token B).
-4. De B-token is ingesteld in de autorisatie-header van de aanvraag voor API B.
-5. Gegevens van de beveiligde resource wordt geretourneerd door API B.
+1. API A wordt geverifieerd op het eindpunt van de Azure AD-token-uitgifte en vraagt een token voor toegang tot API B.
+1. Het eindpunt van de Azure AD-token-uitgifte van de A-API-referenties met een token valideert en problemen met het toegangstoken voor API-B (token B).
+1. De aanvraag voor API B bevat token B in de autorisatie-header.
+1. B-API retourneert gegevens van de beveiligde resource.
 
 >[!NOTE]
->De claim doelgroep in een toegangstoken dat wordt gebruikt voor het aanvragen van een token voor een downstream-service moet de id van de service die de aanvraag OBO en het token moet worden ondertekend met de Azure Active Directory algemene ondertekeningssleutel (dit is de standaardinstelling voor toepassingen die zijn geregistreerd via **App-registraties** in de portal)
+>De claim doelgroep in een toegangstoken dat wordt gebruikt voor het aanvragen van een token voor een downstream-service moet de ID van de service die de OBO-aanvraag. Het token ook moet zijn ondertekend met de globale ondertekeningssleutel van Azure Active Directory (dit is de standaardinstelling voor toepassingen die zijn geregistreerd via **App-registraties** in de portal).
 
 ## <a name="register-the-application-and-service-in-azure-ad"></a>De toepassing en de service in Azure AD registreren
-Zowel de clienttoepassing en de middelste laag service registreren in Azure AD.
+
+Registreer de middelste laag en de clienttoepassing in Azure AD.
+
 ### <a name="register-the-middle-tier-service"></a>De middelste laag service registreren
+
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
-2. Klik op de bovenste balk van uw account en klikt u onder de **Directory** kiest u de Active Directory-tenant waar u wilt registreren van uw toepassing.
-3. Klik op **meer Services** in het navigatievenster aan de linkerkant, en kies **Azure Active Directory**.
-4. Klik op **App-registraties** en kies **nieuwe toepassing registreren**.
-5. Geef een beschrijvende naam voor de toepassing en selecteer het toepassingstype. Op basis van het type toepassing set de aanmeldings-URL- of Omleidings-URL aan de basis-URL. Klik op **maken** om de toepassing te maken.
-6. Terwijl u nog in de Azure-portal, kiest u uw toepassing en klik op **instellingen**. Kies in het menu instellingen **sleutels** en voeg een sleutel - Selecteer een duur van de sleutel van 1 jaar of twee jaar. Wanneer u deze pagina opslaat, waarde van de sleutel wordt weergegeven, kopiëren en opslaan van de waarde in een veilige locatie - moet u deze sleutel later naar de toepassingsinstellingen configureren in uw implementatie - waarde van deze sleutel, worden niet opnieuw wordt weergegeven, noch worden opgehaald door een andere manier , dus neem vastleggen zodra deze zichtbaar zijn vanaf de Azure-Portal is.
+1. Op de bovenste balk, selecteert u uw account en kijk onder de **Directory** om te selecteren van een Active Directory-tenant voor uw toepassing.
+1. Selecteer **meer Services** in het linkerdeelvenster en kies **Azure Active Directory**.
+1. Selecteer **App-registraties** en vervolgens **nieuwe toepassing registreren**.
+1. Geef een beschrijvende naam voor de toepassing en selecteer het toepassingstype.
+    1. De aanmeldings-URL of de omleidings-URL, afhankelijk van het type ingesteld op de basis-URL.
+    1. Selecteer **maken** om de toepassing te maken.
+1. Het genereren van een clientgeheim vóór het afsluiten van de Azure-portal.
+    1. In de Azure-portal, kiest u uw toepassing en selecteer **instellingen**.
+    1. Selecteer **sleutels** in het menu instellingen en voeg een sleutel met een duur van de sleutel van één jaar of twee jaar.
+    1. Als u deze pagina opslaat, wordt de sleutelwaarde in de Azure-portal weergegeven. Kopieer en bewaar de sleutelwaarde op een veilige locatie.
+
+    > [!IMPORTANT]
+    > U moet de sleutel voor het configureren van de toepassingsinstellingen in uw implementatie. De waarde van deze sleutel niet opnieuw wordt weergegeven en is het niet worden opgehaald door een andere manier. Noteer deze zodra deze zichtbaar in de Azure portal is.
 
 ### <a name="register-the-client-application"></a>De clienttoepassing registreren
+
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
-2. Klik op de bovenste balk van uw account en klikt u onder de **Directory** kiest u de Active Directory-tenant waar u wilt registreren van uw toepassing.
-3. Klik op **meer Services** in het navigatievenster aan de linkerkant, en kies **Azure Active Directory**.
-4. Klik op **App-registraties** en kies **nieuwe toepassing registreren**.
-5. Geef een beschrijvende naam voor de toepassing en selecteer het toepassingstype. Op basis van het type toepassing set de aanmeldings-URL- of Omleidings-URL aan de basis-URL. Klik op **maken** om de toepassing te maken.
-6. Machtigingen configureren voor uw toepassing - in het menu instellingen, kiest u de **vereiste machtigingen** sectie, klikt u op **toevoegen**, klikt u vervolgens **Select an API**, en typ de naam van de middelste laag service in het tekstvak. Klik vervolgens op **Selecteer machtigingen** en selecteer ' toegang *servicenaam*'.
+1. Op de bovenste balk, selecteert u uw account en kijk onder de **Directory** om te selecteren van een Active Directory-tenant voor uw toepassing.
+1. Selecteer **meer Services** in het linkerdeelvenster en kies **Azure Active Directory**.
+1. Selecteer **App-registraties** en vervolgens **nieuwe toepassing registreren**.
+1. Geef een beschrijvende naam voor de toepassing en selecteer het toepassingstype.
+   1. De aanmeldings-URL of de omleidings-URL, afhankelijk van het type ingesteld op de basis-URL.
+   1. Selecteer **maken** om de toepassing te maken.
+1. Machtigingen configureren voor uw toepassing.
+   1. Kies in het menu instellingen de **vereiste machtigingen** uit en selecteer vervolgens **toevoegen** en **Select an API**.
+   1. Typ de naam van de middelste laag service in het tekstveld.
+   1. Kies **Selecteer machtigingen** en selecteer vervolgens **de naam van de Access-service**.
 
 ### <a name="configure-known-client-applications"></a>Bekende clienttoepassingen configureren
-In dit scenario heeft de middelste laag service geen tussenkomst van de gebruiker om op te halen van de gebruiker toestemming voor toegang tot de downstream-API. Daarom moet de optie om toegang te verlenen aan de downstream-API worden gepresenteerd vooraf als onderdeel van de toestemming stap tijdens de verificatie.
-Om dit te bereiken, volgt u de stappen hieronder om expliciet verbindt de clientapp-registratie in Azure AD met de registratie van de middelste laag service, die de toestemming vereist door de client en de middelste laag in een enkel dialoogvenster worden samengevoegd.
-1. Navigeer naar de registratie van de middelste laag service, en klik op **Manifest** om het manifest editor te openen.
-2. Zoek in het manifest, het `knownClientApplications` eigenschap matrix, en de Client-ID van de clienttoepassing toevoegen als een element.
-3. Het manifest opslaan door te klikken op de opslagbewerking knop.
 
-## <a name="service-to-service-access-token-request"></a>Service aan service-toegangstokenaanvraag
-Een HTTP POST voor het aanvragen van een toegangstoken maken voor de tenant-specifieke Azure AD-eindpunt met de volgende parameters.
+In dit scenario moet de middelste laag service om op te halen van de gebruiker toestemming voor toegang tot de downstream-API zonder tussenkomst van de gebruiker. De optie om toegang te verlenen aan de downstream-API moet tijdens de verificatie van voorgrond als onderdeel van de stap toestemming worden aangeboden.
+
+Volg de stappen hieronder om expliciet verbindt de clientapp-registratie in Azure AD met registratie van de middelste laag service. Met deze bewerking worden de toestemming vereist door de client en de middelste laag in een enkel dialoogvenster samengevoegd.
+
+1. Ga naar de registratie van de middelste laag service en selecteer **Manifest** om het manifest editor te openen.
+1. Zoek de `knownClientApplications` eigenschap matrix en de client-ID van de clienttoepassing toevoegen als een element.
+1. Het manifest opslaan door **opslaan**.
+
+## <a name="service-to-service-access-token-request"></a>Service-naar-service toegangstokenaanvraag
+
+Een HTTP POST voor het aanvragen van een toegangstoken maken voor de tenant-specifieke Azure AD-eindpunt met de volgende parameters:
 
 ```
 https://login.microsoftonline.com/<tenant>/oauth2/token
 ```
-Er zijn twee mogelijke situaties, afhankelijk van of de clienttoepassing moet worden beveiligd door een gedeeld geheim, of een certificaat kiest.
+
+De clienttoepassing wordt beveiligd door een gedeeld geheim of door een certificaat.
 
 ### <a name="first-case-access-token-request-with-a-shared-secret"></a>Eerste geval: aanvraag voor een toegangstoken met een gedeeld geheim
+
 Wanneer u een gedeeld geheim, bevat een tokenaanvraag voor de service-naar-service toegang tot de volgende parameters:
 
 | Parameter |  | Beschrijving |
 | --- | --- | --- |
-| grant_type |Vereist | Het type van het token aan te vragen. Omdat een OBO-aanvraag maakt gebruik van een JWT-toegangstoken, de waarde moet **urn: ietf:params:oauth:grant-type: jwt-bearer**. |
-| bevestiging |Vereist | De waarde van het toegangstoken wordt gebruikt in de aanvraag. |
-| client_id |Vereist | De App-ID die wordt toegewezen aan de aanroepende service tijdens de registratie met Azure AD. U kunt de App-ID vinden in de Azure Management Portal op **Active Directory**, klikt u op de map en klik vervolgens op de naam van de toepassing. |
-| client_secret |Vereist | De sleutel geregistreerd voor de aanroepende service in Azure AD. Deze waarde moet zijn vermeld op het moment van inschrijving. |
-| Bron |Vereist | De App-ID-URI van de ontvangende service (beveiligde resource). U kunt de URI van de App-ID vinden in de Azure Management Portal op **Active Directory**, klikt u op de map, klikt u op de naam van de toepassing, klikt u op **alle instellingen** en klik vervolgens op **eigenschappen**. |
-| requested_token_use |Vereist | Hiermee geeft u op hoe de aanvraag moet worden verwerkt. In de stroom op-andere gebruikers-Of de waarde moet **on_behalf_of**. |
-| scope |Vereist | Een spatie gescheiden lijst met bereiken voor het token aan te vragen. Voor de OpenID Connect, het bereik **openid** moet worden opgegeven.|
+| grant_type |vereist | Het type van het token aan te vragen. Een aanvraag OBO maakt gebruik van een JSON Web Token (JWT), zodat de waarde moet **urn: ietf:params:oauth:grant-type: jwt-bearer**. |
+| bevestiging |vereist | De waarde van het toegangstoken wordt gebruikt in de aanvraag. |
+| client_id |vereist | De app-ID die wordt toegewezen aan de aanroepende service tijdens de registratie met Azure AD. Ga voor de app-ID in Azure portal, selecteert u **Active Directory**, kiest u de map en selecteer vervolgens de naam van de toepassing. |
+| client_secret |vereist | De sleutel geregistreerd voor de aanroepende service in Azure AD. Deze waarde moet zijn vermeld op het moment van inschrijving. |
+| Bron |vereist | De app-ID-URI van de ontvangende service (beveiligde resource). Als u wilt de app-ID-URI vinden in de Azure-portal, selecteert u **Active Directory** en kiest u de map. Naam van de toepassing selecteert, kiest u **alle instellingen**, en selecteer vervolgens **eigenschappen**. |
+| requested_token_use |vereist | Hiermee geeft u op hoe de aanvraag moet worden verwerkt. In de stroom op-andere gebruikers-Of de waarde moet **on_behalf_of**. |
+| scope |vereist | Een spatie gescheiden lijst met bereiken voor het token aan te vragen. Voor de OpenID Connect, het bereik **openid** moet worden opgegeven.|
 
 #### <a name="example"></a>Voorbeeld
+
 De volgende HTTP-POST vraagt een toegangstoken voor de https://graph.windows.net web-API. De `client_id` identificeert de service die door het toegangstoken worden aangevraagd.
 
 ```
@@ -116,22 +138,24 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 ```
 
 ### <a name="second-case-access-token-request-with-a-certificate"></a>Tweede geval: aanvraag voor een toegangstoken met een certificaat
+
 Een service-naar-service toegangstokenaanvraag met een certificaat bevat de volgende parameters:
 
 | Parameter |  | Beschrijving |
 | --- | --- | --- |
-| grant_type |Vereist | Het type van het token aan te vragen. Omdat een OBO-aanvraag maakt gebruik van een JWT-toegangstoken, de waarde moet **urn: ietf:params:oauth:grant-type: jwt-bearer**. |
-| bevestiging |Vereist | De waarde van het token wordt gebruikt in de aanvraag. |
-| client_id |Vereist | De App-ID die wordt toegewezen aan de aanroepende service tijdens de registratie met Azure AD. U kunt de App-ID vinden in de Azure Management Portal op **Active Directory**, klikt u op de map en klik vervolgens op de naam van de toepassing. |
-| client_assertion_type |Vereist |De waarde moet liggen `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
-| client_assertion |Vereist | (Een JSON Web Token) een bewering die u wilt maken en te ondertekenen met het certificaat dat u geregistreerd als referenties voor uw toepassing. Meer informatie over [referenties van het certificaat](active-directory-certificate-credentials.md) voor informatie over het registreren van uw certificaat en de indeling van de verklaring.|
-| Bron |Vereist | De App-ID-URI van de ontvangende service (beveiligde resource). U kunt de URI van de App-ID vinden in de Azure Management Portal op **Active Directory**, klikt u op de map, klikt u op de naam van de toepassing, klikt u op **alle instellingen** en klik vervolgens op **eigenschappen**. |
-| requested_token_use |Vereist | Hiermee geeft u op hoe de aanvraag moet worden verwerkt. In de stroom op-andere gebruikers-Of de waarde moet **on_behalf_of**. |
-| scope |Vereist | Een spatie gescheiden lijst met bereiken voor het token aan te vragen. Voor de OpenID Connect, het bereik **openid** moet worden opgegeven.|
+| grant_type |vereist | Het type van het token aan te vragen. Een aanvraag OBO maakt gebruik van een JWT-toegangstoken, zodat de waarde moet **urn: ietf:params:oauth:grant-type: jwt-bearer**. |
+| bevestiging |vereist | De waarde van het token wordt gebruikt in de aanvraag. |
+| client_id |vereist | De app-ID die wordt toegewezen aan de aanroepende service tijdens de registratie met Azure AD. Ga voor de app-ID in Azure portal, selecteert u **Active Directory**, kiest u de map en selecteer vervolgens de naam van de toepassing. |
+| client_assertion_type |vereist |De waarde moet liggen `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
+| client_assertion |vereist | Een JSON Web Token die u maakt en meld u aan met het certificaat dat u geregistreerd als referenties voor uw toepassing. Zie [referenties van het certificaat](active-directory-certificate-credentials.md) voor meer informatie over assertion indeling en over het registreren van uw certificaat.|
+| Bron |vereist | De app-ID-URI van de ontvangende service (beveiligde resource). Als u wilt de app-ID-URI vinden in de Azure-portal, selecteert u **Active Directory** en kiest u de map. Naam van de toepassing selecteert, kiest u **alle instellingen**, en selecteer vervolgens **eigenschappen**. |
+| requested_token_use |vereist | Hiermee geeft u op hoe de aanvraag moet worden verwerkt. In de stroom op-andere gebruikers-Of de waarde moet **on_behalf_of**. |
+| scope |vereist | Een spatie gescheiden lijst met bereiken voor het token aan te vragen. Voor de OpenID Connect, het bereik **openid** moet worden opgegeven.|
 
-U ziet dat de parameters bijna hetzelfde als in het geval van de aanvraag van het gedeelde geheim zijn, behalve dat de waarde voor client_secret-parameter is vervangen door twee parameters: een client_assertion_type en client_assertion.
+Deze parameters zijn bijna hetzelfde net als bij de aanvraag van het gedeelde geheim, behalve dat de `client_secret parameter` wordt vervangen door twee parameters: `client_assertion_type` en `client_assertion`.
 
 #### <a name="example"></a>Voorbeeld
+
 De volgende HTTP-POST vraagt een toegangstoken voor de https://graph.windows.net web-API met een certificaat. De `client_id` identificeert de service die door het toegangstoken worden aangevraagd.
 
 ```
@@ -151,8 +175,9 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 &scope=openid
 ```
 
-## <a name="service-to-service-access-token-response"></a>Service aan service access token antwoord
-Een geslaagde reactie is een JSON OAuth 2.0-antwoord met de volgende parameters.
+## <a name="service-to-service-access-token-response"></a>Service-naar-service toegang token antwoord
+
+Een geslaagd antwoord is een JSON OAuth 2.0-antwoord met de volgende parameters:
 
 | Parameter | Beschrijving |
 | --- | --- |
@@ -160,12 +185,13 @@ Een geslaagde reactie is een JSON OAuth 2.0-antwoord met de volgende parameters.
 | scope |Het bereik van de toegang is verleend in het token. |
 | expires_in |De hoeveelheid tijd die het toegangstoken ongeldig (in seconden is). |
 | expires_on |De tijd wanneer het toegangstoken is verlopen. De datum wordt weergegeven als het aantal seconden vanaf 1970-01-01T0:0:0Z UTC tot de vervaltijd. Deze waarde wordt gebruikt om te bepalen van de levensduur van tokens in de cache. |
-| Bron |De App-ID-URI van de ontvangende service (beveiligde resource). |
+| Bron |De app-ID-URI van de ontvangende service (beveiligde resource). |
 | access_token |Het aangevraagde toegangstoken. De aanroepende service kunt u dit token gebruiken om te verifiëren bij de ontvangende service. |
-| id_token |De aangevraagde id-token. De aanroepende service kunt dit gebruiken om te controleren of de identiteit van de gebruiker en beginnen met een sessie met de gebruiker. |
+| id_token |De aangevraagde ID-token. De aanroepende service kunt u dit token gebruiken om te controleren of de identiteit van de gebruiker en beginnen met een sessie met de gebruiker. |
 | refresh_token |Het vernieuwingstoken dat voor de aangevraagde toegangstoken. De aanroepende service kunt u dit token gebruiken om aan te vragen van een andere toegangstoken nadat het huidige toegangstoken is verlopen. |
 
 ### <a name="success-response-example"></a>Voorbeeld van de reactie geslaagd
+
 Het volgende voorbeeld toont een geslaagd antwoord op een verzoek om een token voor de https://graph.windows.net web-API.
 
 ```
@@ -184,7 +210,8 @@ Het volgende voorbeeld toont een geslaagd antwoord op een verzoek om een token v
 ```
 
 ### <a name="error-response-example"></a>Foutvoorbeeld antwoord
-Een foutbericht wordt geretourneerd door Azure AD-token-eindpunt bij het verkrijgen van een toegangstoken voor de downstream-API, als de downstream-API een beleid voor voorwaardelijke toegang zoals multi-factor authentication instellen op het heeft. De middelste laag service moet deze fout naar de clienttoepassing surface, zodat de clienttoepassing kan de tussenkomst van de gebruiker om te voldoen aan het beleid voor voorwaardelijke toegang verlenen.
+
+Het eindpunt van de Azure AD-token retourneert een foutbericht als er wordt geprobeerd een toegangstoken verkrijgen voor een downstream-API die is ingesteld met een beleid voor voorwaardelijke toegang (bijvoorbeeld, meervoudige verificatie). De middelste laag service moet deze fout naar de clienttoepassing surface, zodat de clienttoepassing kan de tussenkomst van de gebruiker om te voldoen aan het beleid voor voorwaardelijke toegang verlenen.
 
 ```
 {
@@ -199,64 +226,76 @@ Een foutbericht wordt geretourneerd door Azure AD-token-eindpunt bij het verkrij
 ```
 
 ## <a name="use-the-access-token-to-access-the-secured-resource"></a>Gebruik het toegangstoken voor toegang tot de beveiligde bron
-Nu de middelste laag service het token verkregen gebruiken kunt boven aan de geverifieerde aanvragen versturen naar de downstream web-API, door het instellen van het token in de `Authorization` header.
+
+De middelste laag service het toegangstoken verkregen kunt gebruiken voor geverifieerde aanvragen versturen naar de downstream web-API door in te stellen van het token in de `Authorization` header.
 
 ### <a name="example"></a>Voorbeeld
+
 ```
 GET /me?api-version=2013-11-08 HTTP/1.1
 Host: graph.windows.net
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6InowMzl6ZHNGdWl6cEJmQlZLMVRuMjVRSFlPMCIsImtpZCI6InowMzl6ZHNGdWl6cEJmQlZLMVRuMjVRSFlPMCJ9.eyJhdWQiOiJodHRwczovL2dyYXBoLndpbmRvd3MubmV0IiwiaXNzIjoiaHR0cHM6Ly9zdHMud2luZG93cy5uZXQvMjYwMzljY2UtNDg5ZC00MDAyLTgyOTMtNWIwYzUxMzRlYWNiLyIsImlhdCI6MTQ5MzQyMzE2OCwibmJmIjoxNDkzNDIzMTY4LCJleHAiOjE0OTM0NjY5NTEsImFjciI6IjEiLCJhaW8iOiJBU1FBMi84REFBQUE1NnZGVmp0WlNjNWdBVWwrY1Z0VFpyM0VvV2NvZEoveWV1S2ZqcTZRdC9NPSIsImFtciI6WyJwd2QiXSwiYXBwaWQiOiI2MjUzOTFhZi1jNjc1LTQzZTUtOGU0NC1lZGQzZTMwY2ViMTUiLCJhcHBpZGFjciI6IjEiLCJlX2V4cCI6MzAyNjgzLCJmYW1pbHlfbmFtZSI6IlRlc3QiLCJnaXZlbl9uYW1lIjoiTmF2eWEiLCJpcGFkZHIiOiIxNjcuMjIwLjEuMTc3IiwibmFtZSI6Ik5hdnlhIFRlc3QiLCJvaWQiOiIxY2Q0YmNhYy1iODA4LTQyM2EtOWUyZi04MjdmYmIxYmI3MzkiLCJwbGF0ZiI6IjMiLCJwdWlkIjoiMTAwMzNGRkZBMTJFRDdGRSIsInNjcCI6IlVzZXIuUmVhZCIsInN1YiI6IjNKTUlaSWJlYTc1R2hfWHdDN2ZzX0JDc3kxa1l1ekZKLTUyVm1Zd0JuM3ciLCJ0aWQiOiIyNjAzOWNjZS00ODlkLTQwMDItODI5My01YjBjNTEzNGVhY2IiLCJ1bmlxdWVfbmFtZSI6Im5hdnlhQGRkb2JhbGlhbm91dGxvb2sub25taWNyb3NvZnQuY29tIiwidXBuIjoibmF2eWFAZGRvYmFsaWFub3V0bG9vay5vbm1pY3Jvc29mdC5jb20iLCJ1dGkiOiJ4Q3dmemhhLVAwV0pRT0x4Q0dnS0FBIiwidmVyIjoiMS4wIn0.cqmUVjfVbqWsxJLUI1Z4FRx1mNQAHP-L0F4EMN09r8FY9bIKeO-0q1eTdP11Nkj_k4BmtaZsTcK_mUygdMqEp9AfyVyA1HYvokcgGCW_Z6DMlVGqlIU4ssEkL9abgl1REHElPhpwBFFBBenOk9iHddD1GddTn6vJbKC3qAaNM5VarjSPu50bVvCrqKNvFixTb5bbdnSz-Qr6n6ACiEimiI1aNOPR2DeKUyWBPaQcU5EAK0ef5IsVJC1yaYDlAcUYIILMDLCD9ebjsy0t9pj_7lvjzUSrbMdSCCdzCqez_MSNxrk1Nu9AecugkBYp3UVUZOIyythVrj6-sVvLZKUutQ
 ```
-## <a name="service-to-service-calls-using-a-saml-assertion-obtained-with-an-oauth20-on-behalf-of-flow"></a>Service-to-Service aanroepen met behulp van een SAML-verklaring verkregen met een OAuth 2.0 op namens-stroom
 
-Sommige OAuth op basis van web services nodig voor toegang tot andere webservice-API's die SAML-asserties ondertekend in niet-interactieve stromen accepteren.  Azure Active Directory biedt een SAML-verklaring in reactie op een stroom op-andere gebruikers-of met een op SAML gebaseerde webservice als een doelbron. 
+## <a name="saml-assertions-obtained-with-an-oauth20-obo-flow"></a>SAML-asserties ondertekend met een stroom voor OAuth 2.0 OBO verkregen
 
->[!NOTE] 
->Dit is een uitbreiding van de OAuth 2.0-namens-stroom waarmee op basis van OAuth2-toepassing met toegang tot web service API-eindpunten die SAML-tokens gebruiken die niet-standaard.  
+Sommige OAuth gebaseerde webservices nodig voor toegang tot andere webservice-API's die SAML-asserties ondertekend in niet-interactieve stromen accepteren. Azure Active Directory biedt een SAML-verklaring in reactie op een On-Behalf-Of-stroom die gebruikmaakt van een SAML gebaseerde webservice als een doelbron.
 
->[!TIP]
->Als u een beveiligd SAML-webservice uit een front-endwebtoepassing aanroept, kunt u gewoon de API aanroepen en starten van een stroom normale interactieve verificatie dat door de gebruikers wordt gebruikt bestaande sessie.  U hoeft alleen te overwegen om een stroom OBO wanneer de aanroep van een service-to-service is vereist voor een SAML-token voor gebruikerscontext.
+>[!NOTE]
+>Dit is een uitbreiding van de OAuth 2.0 namens-stroom waarmee een OAuth2-toepassing voor toegang tot web service API-eindpunten die SAML-tokens gebruiken die niet-standaard.
 
-### <a name="obtain-a-saml-token-using-an-obo-request-with-a-shared-secret"></a>Een SAML-token met behulp van een OBO-aanvraag met een gedeeld geheim ophalen
-Een service-naar-service-aanvraag voor het verkrijgen van een SAML-verklaring bevat de volgende parameters:
+> [!TIP]
+> Wanneer u een SAML-beveiligde webservice vanuit een front-end-web-App aanroepen, kunt u gewoon de API aanroepen en een stroom normale interactieve verificatie met de bestaande sessie van de gebruiker te initiëren. U hoeft alleen het gebruik van een flow OBO wanneer de aanroep van een service-naar-service is vereist voor een SAML-token voor gebruikerscontext.
+
+### <a name="obtain-a-saml-token-by-using-an-obo-request-with-a-shared-secret"></a>Een SAML-token ophalen met behulp van een OBO-aanvraag met een gedeeld geheim
+
+Een service-naar-service-aanvraag voor een SAML-verklaring bevat de volgende parameters:
 
 | Parameter |  | Beschrijving |
 | --- | --- | --- |
-| grant_type |Vereist | Het type van het token aan te vragen. Voor een aanvraag met behulp van een JWT, de waarde moet **urn: ietf:params:oauth:grant-type: jwt-bearer**. |
-| bevestiging |Vereist | De waarde van het toegangstoken wordt gebruikt in de aanvraag.|
-| client_id |Vereist | De App-ID die wordt toegewezen aan de aanroepende service tijdens de registratie met Azure AD. U kunt de App-ID vinden in de Azure Management Portal op **Active Directory**, klikt u op de map en klik vervolgens op de naam van de toepassing. |
-| client_secret |Vereist | De sleutel geregistreerd voor de aanroepende service in Azure AD. Deze waarde moet zijn vermeld op het moment van inschrijving. |
-| Bron |Vereist | De App-ID-URI van de ontvangende service (beveiligde resource). Dit is de resource die de doelgroep van het SAML-token.  U kunt de URI van de App-ID vinden in de Azure Management Portal op **Active Directory**, klikt u op de map, klikt u op de naam van de toepassing, klikt u op **alle instellingen** en klik vervolgens op **eigenschappen**. |
-| requested_token_use |Vereist | Hiermee geeft u op hoe de aanvraag moet worden verwerkt. In de stroom op-andere gebruikers-Of de waarde moet **on_behalf_of**. |
-| requested_token_type | Vereist | Hiermee geeft u het type token dat is aangevraagd.  De waarde kan zijn ' urn: ietf:params:oauth:token-type: saml2 "of" urn: ietf:params:oauth:token-type: saml1 ", afhankelijk van de vereisten van de bron waartoe toegang wordt verkregen. |
+| grant_type |vereist | Het type van het token aan te vragen. Voor een aanvraag die gebruikmaakt van een JWT, de waarde moet **urn: ietf:params:oauth:grant-type: jwt-bearer**. |
+| bevestiging |vereist | De waarde van het toegangstoken wordt gebruikt in de aanvraag.|
+| client_id |vereist | De app-ID die wordt toegewezen aan de aanroepende service tijdens de registratie met Azure AD. Ga voor de app-ID in Azure portal, selecteert u **Active Directory**, kiest u de map en selecteer vervolgens de naam van de toepassing. |
+| client_secret |vereist | De sleutel geregistreerd voor de aanroepende service in Azure AD. Deze waarde moet zijn vermeld op het moment van inschrijving. |
+| Bron |vereist | De app-ID-URI van de ontvangende service (beveiligde resource). Dit is de resource die de doelgroep van het SAML-token. Als u wilt de app-ID-URI vinden in de Azure-portal, selecteert u **Active Directory** en kiest u de map. Naam van de toepassing selecteert, kiest u **alle instellingen**, en selecteer vervolgens **eigenschappen**. |
+| requested_token_use |vereist | Hiermee geeft u op hoe de aanvraag moet worden verwerkt. In de stroom op-andere gebruikers-Of de waarde moet **on_behalf_of**. |
+| requested_token_type | vereist | Hiermee geeft u het type token dat is aangevraagd. De waarde kan zijn **urn: ietf:params:oauth:token-type: saml2** of **urn: ietf:params:oauth:token-type: saml1** afhankelijk van de vereisten van de gebruikte resource. |
 
+Het antwoord bevat een SAML-token dat is gecodeerd in UTF8 en Base64url.
 
-Het antwoord bevat een UTF8 en Base64url gecodeerd SAML token. 
+- **SubjectConfirmationData voor een SAML-verklaring afkomstig is van een aanroep van OBO**: als de doeltoepassing moet een waarde van de ontvanger in **SubjectConfirmationData**, en vervolgens de waarde moet een niet-jokertekens antwoord-URL in de configuratie van de bron-toepassing.
+- **Het knooppunt SubjectConfirmationData**: het knooppunt mag niet een **InResponseTo** omdat het geen deel uit van een SAML-antwoord van het kenmerk. De toepassing die is ontvangen van het SAML-token moet accepteren van de SAML-verklaring zonder een **InResponseTo** kenmerk.
 
-SubjectConfirmationData voor een SAML-verklaring afkomstig is van een aanroep van OBO: als de doeltoepassing is een waarde van de ontvanger in SubjectConfirmationData vereist, wordt deze moet worden ingesteld als een niet-jokertekens antwoord-URL in de configuratie van de resource-toepassing.
-
-Het knooppunt SubjectConfirmationData mag niet een kenmerk InResponseTo bevatten, omdat het geen deel uit van een SAML-antwoord.  De toepassing die is ontvangen van de SAML-token moet worden geaccepteerd van de SAML-verklaring zonder een kenmerk InResponseTo.
-
-Toestemming: Als u wilt een SAML-token met gebruikersgegevens op een OAuth-stroom ontvangen, toestemming moet hebben gekregen.  Raadpleeg https://docs.microsoft.com/azure/active-directory/develop/v1-permissions-and-consent voor informatie over machtigingen en het verkrijgen van goedgekeurd door een beheerder.
+- **Toestemming geven**: toestemming moet worden verleend voor het ontvangen van een SAML-token met gebruikersgegevens op een OAuth-stroom. Zie voor meer informatie over machtigingen en toestemming voor het verkrijgen van beheerder [machtigingen en toestemming in het eindpunt van de Azure Active Directory v1.0](https://docs.microsoft.com/azure/active-directory/develop/v1-permissions-and-consent).
 
 ### <a name="response-with-saml-assertion"></a>Antwoord met SAML-verklaring
 
 | Parameter | Beschrijving |
 | --- | --- |
-| token_type |Geeft aan dat de waarde van het token. Het enige type dat Azure AD ondersteunt **Bearer**. Zie voor meer informatie over bearer-tokens, de [OAuth 2.0 machtiging Framework: Bearer Token gebruik (RFC 6750)](http://www.rfc-editor.org/rfc/rfc6750.txt). |
+| token_type |Geeft aan dat de waarde van het token. Het enige type dat Azure AD ondersteunt **Bearer**. Zie voor meer informatie over het bearer-tokens [OAuth 2.0 machtiging Framework: Bearer Token gebruik (RFC 6750)](http://www.rfc-editor.org/rfc/rfc6750.txt). |
 | scope |Het bereik van de toegang is verleend in het token. |
 | expires_in |De hoeveelheid tijd die het toegangstoken ongeldig (in seconden is). |
 | expires_on |De tijd wanneer het toegangstoken is verlopen. De datum wordt weergegeven als het aantal seconden vanaf 1970-01-01T0:0:0Z UTC tot de vervaltijd. Deze waarde wordt gebruikt om te bepalen van de levensduur van tokens in de cache. |
-| Bron |De App-ID-URI van de ontvangende service (beveiligde resource). |
-| access_token |De SAML-verklaring wordt geretourneerd in de access_token-parameter. |
+| Bron |De app-ID-URI van de ontvangende service (beveiligde resource). |
+| access_token |De parameter die het SAML-verklaring retourneert. |
 | refresh_token |Het vernieuwingstoken. De aanroepende service kunt u dit token gebruiken om aan te vragen van een andere toegangstoken nadat de huidige SAML-verklaring is verlopen. |
 
-token_type: Bearer expires_in:3296 ext_expires_in:0 expires_on:1529627844 resource:https://api.contoso.com access_token: <Saml assertion> issued_token_type:urn:ietf:params:oauth:token-type: saml2 refresh_token: <Refresh token>
+- token_type: Bearer
+- expires_in: 3296
+- ext_expires_in: 0
+- expires_on: 1529627844
+- bron: `https://api.contoso.com`
+- access_token: \<SAML-verklaring\>
+- issued_token_type: urn: ietf:params:oauth:token-type: saml2
+- refresh_token: \<vernieuwingstoken\>
 
 ## <a name="client-limitations"></a>Clientbeperkingen
-Openbare clients met jokertekens antwoord-URL's niet gebruiken een `id_token` voor OBO stromen. Een vertrouwelijke client kan echter nog steeds inwisselen toegangstokens die zijn verkregen via de impliciete stroom, zelfs als de openbare-client heeft een jokerteken redirect die URI geregistreerd.
+
+Openbare clients met jokertekens antwoord-URL's niet gebruiken een `id_token` voor OBO stromen. Echter nog steeds een vertrouwelijke client kunt inwisselen **toegang** tokens die zijn verkregen via de impliciete stroom, zelfs als de openbare-client een jokerteken heeft omleidings-URI die zijn geregistreerd.
 
 ## <a name="next-steps"></a>Volgende stappen
-Meer informatie over het OAuth 2.0-protocol en een andere manier voor het uitvoeren van service-to-service-verificatie met behulp van clientreferenties.
-* [Serviceverificatie met behulp van OAuth 2.0-clientreferenties in Azure AD-service](v1-oauth2-client-creds-grant-flow.md)
+
+Meer informatie over het OAuth 2.0-protocol en een andere manier voor het uitvoeren van service-naar-service-verificatie die gebruikmaakt van clientreferenties:
+
+* [Service-verificatie met behulp van OAuth 2.0-clientreferenties in Azure AD-service](v1-oauth2-client-creds-grant-flow.md)
 * [OAuth 2.0 in Azure AD](v1-protocols-oauth-code.md)

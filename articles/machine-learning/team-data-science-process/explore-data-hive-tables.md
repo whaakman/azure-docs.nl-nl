@@ -15,19 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: deguhath
-ms.openlocfilehash: 79d40617ae4f9cd83d04cad213e5d8fd76b03876
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 84bc7ee08c6c98e76c3814f8a59dfa300db9d22d
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42055141"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51344569"
 ---
 # <a name="explore-data-in-hive-tables-with-hive-queries"></a>Gegevens in Hive-tabellen verkennen met Hive-query's
-Dit document bevat een voorbeeld van Hive-scripts die worden gebruikt om gegevens in Hive-tabellen in een HDInsight Hadoop-cluster te verkennen.
 
-De volgende **menu** koppelingen naar onderwerpen waarin wordt beschreven hoe u hulpprogramma's gebruiken om gegevens te verkennen vanuit verschillende omgevingen voor opslag.
+Dit artikel bevat een voorbeeld van Hive-scripts die worden gebruikt om gegevens in Hive-tabellen in een HDInsight Hadoop-cluster te verkennen.
 
-[!INCLUDE [cap-explore-data-selector](../../../includes/cap-explore-data-selector.md)]
+Deze taak is een stap in de [Team Data Science Process](overview.md).
 
 ## <a name="prerequisites"></a>Vereisten
 In dit artikel wordt ervan uitgegaan dat u hebt:

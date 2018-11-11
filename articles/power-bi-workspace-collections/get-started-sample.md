@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/25/2017
 ms.author: maghan
-ms.openlocfilehash: cd7da8d2bbd684df29432bb924bdae3cd9ac7e64
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: a2e1604a51b8343d926dda3b258d38b19266deeb
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43044434"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51246681"
 ---
 # <a name="get-started-with-power-bi-workspace-collections-sample"></a>Aan de slag met Power BI Workspace Collections-voorbeeld
 
@@ -26,9 +26,9 @@ Met **Microsoft Power BI Workspace Collections**, kunt u Power BI-rapporten inte
 
 Voordat we verdergaan, u wilt opslaan in de volgende bronnen: ze u helpen bij het Power BI-rapporten te integreren in de voorbeeld-app en uw eigen apps.
 
-* [Voorbeeld werkruimte web-app](http://go.microsoft.com/fwlink/?LinkId=761493)
+* [Voorbeeld werkruimte web-app](https://go.microsoft.com/fwlink/?LinkId=761493)
 * [Power BI-werkruimte verzamelingen API-verwijzing](https://msdn.microsoft.com/library/azure/mt711507.aspx)
-* [Power BI .NET-SDK ](http://go.microsoft.com/fwlink/?LinkId=746472) (beschikbaar via NuGet)
+* [Power BI .NET-SDK ](https://go.microsoft.com/fwlink/?LinkId=746472) (beschikbaar via NuGet)
 * [Voorbeeld van het JavaScript-rapport insluiten](https://microsoft.github.io/PowerBI-JavaScript/demo)
 
 > [!NOTE]
@@ -38,7 +38,7 @@ Voordat we verdergaan, u wilt opslaan in de volgende bronnen: ze u helpen bij he
 
 Laten we eens via uw Visual Studio-ontwikkelomgeving instellen voor toegang tot de onderdelen die nodig zijn om uit te voeren van de voorbeeld-app.
 
-1. Downloaden en pak deze uit de [Power BI Workspace Collections - een rapport integreren in een web-app](http://go.microsoft.com/fwlink/?LinkId=761493) op GitHub.
+1. Downloaden en pak deze uit de [Power BI Workspace Collections - een rapport integreren in een web-app](https://go.microsoft.com/fwlink/?LinkId=761493) op GitHub.
 2. Open **Power BI-embedded.sln** in Visual Studio. U moet mogelijk om uit te voeren de **-updatepakket** opdracht in de NuGet Package Manager-Console om bij te werken van de pakketten die worden gebruikt in deze oplossing.
 3. Bouw de oplossing.
 4. Voer de **ProvisionSample** console-app. In de voorbeeld-console-app inrichten van een werkruimte en een PBIX-bestand importeren.
@@ -51,7 +51,7 @@ Laten we eens via uw Visual Studio-ontwikkelomgeving instellen voor toegang tot 
 8. Kopieer en sla de zojuist gemaakte **werkruimte-ID** voor gebruik verderop in dit artikel. Na de **werkruimte-ID** is gemaakt, kunt u deze vinden de **Azure-portal**.
 
     ![Werkruimte-ID in Azure portal](media/get-started-sample/workspace-id.png)
-9. Voor het importeren van een PBIX-bestand in uw **werkruimte**, Selecteer optie **6. PBIX-Desktop-bestand importeren in een bestaande werkruimte**. Als u een PBIX-bestand bij de hand hebt, kunt u downloaden de [Retail Analysis Sample PBIX](http://go.microsoft.com/fwlink/?LinkID=780547).
+9. Voor het importeren van een PBIX-bestand in uw **werkruimte**, Selecteer optie **6. PBIX-Desktop-bestand importeren in een bestaande werkruimte**. Als u een PBIX-bestand bij de hand hebt, kunt u downloaden de [Retail Analysis Sample PBIX](https://go.microsoft.com/fwlink/?LinkID=780547).
 10. Als u hierom wordt gevraagd, voert u een beschrijvende naam voor uw **gegevensset**.
 
 Hier ziet u een antwoord weergegeven zoals:
@@ -83,7 +83,7 @@ De voorbeeld-web-app is een voorbeeldtoepassing die Hiermee maakt u rapporten di
     ```
 3. Voer de **EmbedSample** webtoepassing.
 
-Zodra u uitvoert het **EmbedSample** webtoepassing, het linkernavigatievenster moet bevatten een **rapporten** menu. Als u wilt weergeven van het rapport dat u hebt geïmporteerd, vouw **rapporten**, en klikt u op een rapport. Als u hebt geïmporteerd de [Retail Analysis Sample PBIX](http://go.microsoft.com/fwlink/?LinkID=780547), de voorbeeldweb-app zou er als volgt:
+Zodra u uitvoert het **EmbedSample** webtoepassing, het linkernavigatievenster moet bevatten een **rapporten** menu. Als u wilt weergeven van het rapport dat u hebt geïmporteerd, vouw **rapporten**, en klikt u op een rapport. Als u hebt geïmporteerd de [Retail Analysis Sample PBIX](https://go.microsoft.com/fwlink/?LinkID=780547), de voorbeeldweb-app zou er als volgt:
 
 ![Voorbeeld Linkernavigatie in de voorbeeldtoepassing](media/get-started-sample/sample-left-nav.png)
 

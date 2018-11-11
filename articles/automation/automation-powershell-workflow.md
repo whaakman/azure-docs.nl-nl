@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 05/04/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 4b48400920176055e7eb166c7502c06e67b29185
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 00f6f84a2065a67e999149e4b0f9e28f18e5e297
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37436358"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51239420"
 ---
 # <a name="learning-key-windows-powershell-workflow-concepts-for-automation-runbooks"></a>Leren van concepten van belangrijke Windows PowerShell-werkstroom voor Automation-runbooks
 
@@ -22,7 +22,7 @@ Azure Automation-Runbooks worden geïmplementeerd als Windows PowerShell-werkstr
 
 Een werkstroom is een opeenvolging van geprogrammeerde, verbonden stappen waarmee langlopende taken wordt uitgevoerd of de coördinatie vereisen van meerdere stappen op meerdere apparaten of beheerde knooppunten. De voordelen van een werkstroom op een normaal script omvatten de mogelijkheid een actie tegen meerdere apparaten tegelijkertijd uitvoeren en de mogelijkheid voor het automatisch herstellen van fouten. Een Windows PowerShell-werkstroom is een Windows PowerShell-script dat gebruikmaakt van Windows Workflow Foundation. Terwijl de werkstroom is geschreven met Windows PowerShell-syntaxis en gelanceerd door Windows PowerShell, wordt verwerkt door Windows Workflow Foundation.
 
-Zie voor meer informatie over de onderwerpen in dit artikel, [aan de slag met Windows PowerShell-werkstroom](http://technet.microsoft.com/library/jj134242.aspx).
+Zie voor meer informatie over de onderwerpen in dit artikel, [aan de slag met Windows PowerShell-werkstroom](https://technet.microsoft.com/library/jj134242.aspx).
 
 ## <a name="basic-structure-of-a-workflow"></a>De basisstructuur van een werkstroom
 
@@ -45,9 +45,9 @@ PowerShell workflow-code ziet er bijna identiek zijn aan PowerShell-script-code,
 
 ### <a name="activities"></a>Activiteiten
 
-Een activiteit is een specifieke taak in een werkstroom. Net zoals een script van een of meer opdrachten bestaat, wordt een werkstroom bestaat uit een of meer activiteiten die worden uitgevoerd in een reeks. Windows PowerShell-werkstroom converteert automatisch veel van de Windows PowerShell-cmdlets voor activiteiten wanneer deze een werkstroom wordt uitgevoerd. Wanneer u een van deze cmdlets in uw runbook opgeeft, wordt de bijbehorende activiteit uitgevoerd door Windows Workflow Foundation. Voor die cmdlets zonder een bijbehorende activiteit, voert Windows PowerShell-werkstroom automatisch de cmdlet uit binnen een [InlineScript](#inlinescript) activiteit. Er is een set cmdlets die zijn uitgesloten en kan niet worden gebruikt in een werkstroom, tenzij u ze expliciet in een InlineScript-blok opneemt. Zie voor meer informatie over deze concepten [met behulp van activiteiten in Script Workflows](http://technet.microsoft.com/library/jj574194.aspx).
+Een activiteit is een specifieke taak in een werkstroom. Net zoals een script van een of meer opdrachten bestaat, wordt een werkstroom bestaat uit een of meer activiteiten die worden uitgevoerd in een reeks. Windows PowerShell-werkstroom converteert automatisch veel van de Windows PowerShell-cmdlets voor activiteiten wanneer deze een werkstroom wordt uitgevoerd. Wanneer u een van deze cmdlets in uw runbook opgeeft, wordt de bijbehorende activiteit uitgevoerd door Windows Workflow Foundation. Voor die cmdlets zonder een bijbehorende activiteit, voert Windows PowerShell-werkstroom automatisch de cmdlet uit binnen een [InlineScript](#inlinescript) activiteit. Er is een set cmdlets die zijn uitgesloten en kan niet worden gebruikt in een werkstroom, tenzij u ze expliciet in een InlineScript-blok opneemt. Zie voor meer informatie over deze concepten [met behulp van activiteiten in Script Workflows](https://technet.microsoft.com/library/jj574194.aspx).
 
-Werkstroomactiviteiten delen een aantal gemeenschappelijke parameters configureren hun werking. Zie voor meer informatie over de algemene werkstroomparameters [about_WorkflowCommonParameters](http://technet.microsoft.com/library/jj129719.aspx).
+Werkstroomactiviteiten delen een aantal gemeenschappelijke parameters configureren hun werking. Zie voor meer informatie over de algemene werkstroomparameters [about_WorkflowCommonParameters](https://technet.microsoft.com/library/jj129719.aspx).
 
 ### <a name="positional-parameters"></a>Positionele parameters
 
@@ -152,7 +152,7 @@ Terwijl de InlineScript-activiteiten kunnen essentieel zijn in bepaalde werkstro
 * U kunt geen gebruiken [parallelle uitvoering](#parallel-processing) binnen een InlineScriptBlock.
 * InlineScript dit beïnvloedt de schaalbaarheid van de werkstroom omdat deze de Windows PowerShell-sessie voor de hele lengte van het InlineScript-blok bevat.
 
-Zie voor meer informatie over het gebruik van InlineScript [Windows PowerShell-opdrachten uitvoeren in een werkstroom](http://technet.microsoft.com/library/jj574197.aspx) en [about_InlineScript](http://technet.microsoft.com/library/jj649082.aspx).
+Zie voor meer informatie over het gebruik van InlineScript [Windows PowerShell-opdrachten uitvoeren in een werkstroom](https://technet.microsoft.com/library/jj574197.aspx) en [about_InlineScript](https://technet.microsoft.com/library/jj649082.aspx).
 
 ## <a name="parallel-processing"></a>Parallelle verwerking
 
@@ -291,7 +291,7 @@ workflow CreateTestVms
 
 Dit is niet vereist als u tijdens de verificatie met behulp van een uitvoeren als-account geconfigureerd met een service-principal.
 
-Zie voor meer informatie over controlepunten, [controlepunten toevoegen aan een Scriptwerkstroom](http://technet.microsoft.com/library/jj574114.aspx).
+Zie voor meer informatie over controlepunten, [controlepunten toevoegen aan een Scriptwerkstroom](https://technet.microsoft.com/library/jj574114.aspx).
 
 ## <a name="next-steps"></a>Volgende stappen
 

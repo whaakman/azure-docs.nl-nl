@@ -14,12 +14,12 @@ ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 05/01/2017
 ms.author: wesmc
-ms.openlocfilehash: 047d23184ccf640dd6510faca9f508eef0dc50cb
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: e007b23b6e4a55e2a939994e8f95d01fc24cc529
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44050810"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51241567"
 ---
 # <a name="aspnet-session-state-provider-for-azure-redis-cache"></a>ASP.NET-sessiestatusprovider voor Azure Redis-Cache
 Azure Redis Cache biedt een sessiestatusprovider die u gebruiken kunt voor het opslaan van uw sessie staat in het geheugen met Redis-Cache in plaats van een SQL Server-database. Uw cache voor het eerst configureert voor het gebruik van de sessiestatusprovider voor opslaan in cache, en configureer vervolgens uw ASP.NET-toepassing voor de cache met behulp van het Redis-Cache-sessie status NuGet-pakket.
@@ -94,11 +94,11 @@ De kenmerken configureren met de waarden uit de cache-blade in de Microsoft Azur
 * **retryTimeoutInMilliseconds** – bewerkingen die mislukken opnieuw kunnen worden uitgevoerd tijdens deze periode, in milliseconden opgegeven. De eerste poging gebeurt na 20 milliseconden en vervolgens nieuwe pogingen uitgevoerd per seconde totdat het retryTimeoutInMilliseconds-interval is verstreken. Direct na deze periode, is de bewerking opnieuw een laatste keer uitgevoerd. Als de bewerking nog steeds mislukt, wordt de uitzondering terug naar de aanroeper, afhankelijk van de instelling throwOnError opgetreden. De standaardwaarde is 0, wat betekent er geen nieuwe pogingen dat.
 * **database-id** – Hiermee geeft u op welke database u wilt gebruiken voor de uitvoergegevens van de cache. Indien niet opgegeven, wordt de standaardwaarde van 0 wordt gebruikt.
 * **applicationName** -sleutels worden opgeslagen in redis als `{<Application Name>_<Session ID>}_Data`. Deze naamgevingsconventie schema kunt meerdere toepassingen delen de dezelfde Redis-exemplaar. Deze parameter is optioneel en als u niet beschikken over een standaardwaarde wordt gebruikt.
-* **connectionTimeoutInMilliseconds** : deze instelling kunt u de instelling connectTimeout in de StackExchange.Redis-client te negeren. Indien niet opgegeven, is de standaardinstelling connectTimeout van 5000 wordt gebruikt. Zie voor meer informatie, [configuratiemodel StackExchange.Redis](http://go.microsoft.com/fwlink/?LinkId=398705).
-* **operationTimeoutInMilliseconds** : deze instelling kunt u de instelling syncTimeout in de StackExchange.Redis-client te negeren. Indien niet opgegeven, is de standaardinstelling syncTimeout van 1000 wordt gebruikt. Zie voor meer informatie, [configuratiemodel StackExchange.Redis](http://go.microsoft.com/fwlink/?LinkId=398705).
+* **connectionTimeoutInMilliseconds** : deze instelling kunt u de instelling connectTimeout in de StackExchange.Redis-client te negeren. Indien niet opgegeven, is de standaardinstelling connectTimeout van 5000 wordt gebruikt. Zie voor meer informatie, [configuratiemodel StackExchange.Redis](https://go.microsoft.com/fwlink/?LinkId=398705).
+* **operationTimeoutInMilliseconds** : deze instelling kunt u de instelling syncTimeout in de StackExchange.Redis-client te negeren. Indien niet opgegeven, is de standaardinstelling syncTimeout van 1000 wordt gebruikt. Zie voor meer informatie, [configuratiemodel StackExchange.Redis](https://go.microsoft.com/fwlink/?LinkId=398705).
 * **redisSerializerType** -deze instelling kunt u aangepaste serialisatie van sessie-inhoud die wordt verzonden naar Redis opgeven. Het opgegeven type moet implementeren `Microsoft.Web.Redis.ISerializer` en openbare constructor zonder parameters moet worden gedeclareerd. Standaard `System.Runtime.Serialization.Formatters.Binary.BinaryFormatter` wordt gebruikt.
 
-Zie voor meer informatie over deze eigenschappen op de oorspronkelijke blogberichtaankondiging [aankondiging van ASP.NET-Sessiestatusprovider voor Redis](http://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx).
+Zie voor meer informatie over deze eigenschappen op de oorspronkelijke blogberichtaankondiging [aankondiging van ASP.NET-Sessiestatusprovider voor Redis](https://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx).
 
 Vergeet niet te opmerkingen bij de standaard InProc-sessie status sectie provider in de web.config.
 

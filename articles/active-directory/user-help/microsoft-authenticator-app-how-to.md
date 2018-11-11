@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
 ms.reviewer: librown
-ms.openlocfilehash: a88a0d9105942502b634f3be7c3279167ea590c6
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: d5ea6f18fb288711bae67b6840ddb5b8bb9942c2
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49393249"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51245440"
 ---
 # <a name="get-started-with-the-microsoft-authenticator-app"></a>Aan de slag met de Microsoft Authenticator-app
 
@@ -39,7 +39,7 @@ U kunt ook de Microsoft Authenticator-app gebruiken met niet-Microsoft-accounts.
 
 ## <a name="install-the-app"></a>De app installeren
 
-De Microsoft Authenticator-app is beschikbaar voor [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594) en [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071). Als u de beste ervaring, moet u toestaan dat de app meldingen te ontvangen wanneer u wordt gevraagd. 
+De Microsoft Authenticator-app is beschikbaar voor [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594) en [Windows Phone](https://go.microsoft.com/fwlink/?Linkid=825071). Als u de beste ervaring, moet u toestaan dat de app meldingen te ontvangen wanneer u wordt gevraagd. 
 
 ## <a name="add-accounts-to-the-app"></a>Accounts toevoegen aan de app.
 
@@ -51,7 +51,7 @@ Voor een persoonlijk Microsoft-account (één waarmee u zich aanmeldt bij Outloo
 
 ### <a name="add-a-work-or-school-account"></a>Een werk- of schoolaccount toevoegen
 
-1. Indien mogelijk, gaat u naar de [aanvullende beveiligingsverificatie](http://aka.ms/mfasetup) scherm op een andere computer of apparaat. Zie voor meer informatie over het registreren op dit scherm [wijzigen van uw beveiligingsinstellingen](multi-factor-authentication-end-user-manage-settings.md#where-to-find-the-settings-page) of neem contact op met uw beheerder.
+1. Indien mogelijk, gaat u naar de [aanvullende beveiligingsverificatie](https://aka.ms/mfasetup) scherm op een andere computer of apparaat. Zie voor meer informatie over het registreren op dit scherm [wijzigen van uw beveiligingsinstellingen](multi-factor-authentication-end-user-manage-settings.md#where-to-find-the-settings-page) of neem contact op met uw beheerder.
 
     >[!Note]
     >Als uw beheerder heeft ingeschakeld op de beveiliging info preview-ervaring, kunt u de instructies in de [beveiligingsgegevens ingesteld voor het gebruik van een verificator-app](security-info-setup-auth-app.md) sectie.

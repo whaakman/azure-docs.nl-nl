@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: mikeray
-ms.openlocfilehash: 10b4fec92752e44048454e8b63e90fd9b7fecba0
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 449df8e49eb63cb6e52cd4ec25dafc2bb0851347
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50023182"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51241756"
 ---
 # <a name="configure-an-external-listener-for-always-on-availability-groups-in-azure"></a>Een externe listener configureren voor Always On Availability Groups in Azure
 > [!div class="op_single_selector"]
@@ -127,7 +127,7 @@ Voor toegang tot de listener van buiten het virtuele netwerk, moet u extern/open
 
     sqlcmd -S "mycloudservice.cloudapp.net,<EndpointPort>" -d "<DatabaseName>" -U "<LoginId>" -P "<Password>"  -Q "select @@servername, db_name()" -l 15
 
-In tegenstelling tot het vorige voorbeeld, moet SQL-verificatie worden gebruikt, omdat de aanroeper niet kan windows-verificatie via internet gebruiken. Zie voor meer informatie, [AlwaysOn-beschikbaarheidsgroep in Azure VM: Client Connectiviteitsscenario's](http://blogs.msdn.com/b/sqlcat/archive/2014/02/03/alwayson-availability-group-in-windows-azure-vm-client-connectivity-scenarios.aspx). Wanneer u SQL-verificatie gebruikt, zorg ervoor dat u dezelfde aanmeldgegevens op beide replica's maakt. Zie voor meer informatie over het oplossen van aanmeldingen met Availability Groups [aanmeldingen toewijzen of gebruik van SQL database-gebruiker om te verbinden met andere replica's en toewijzen aan de beschikbaarheidsdatabases opgenomen](http://blogs.msdn.com/b/alwaysonpro/archive/2014/02/19/how-to-map-logins-or-use-contained-sql-database-user-to-connect-to-other-replicas-and-map-to-availability-databases.aspx).
+In tegenstelling tot het vorige voorbeeld, moet SQL-verificatie worden gebruikt, omdat de aanroeper niet kan windows-verificatie via internet gebruiken. Zie voor meer informatie, [AlwaysOn-beschikbaarheidsgroep in Azure VM: Client Connectiviteitsscenario's](https://blogs.msdn.com/b/sqlcat/archive/2014/02/03/alwayson-availability-group-in-windows-azure-vm-client-connectivity-scenarios.aspx). Wanneer u SQL-verificatie gebruikt, zorg ervoor dat u dezelfde aanmeldgegevens op beide replica's maakt. Zie voor meer informatie over het oplossen van aanmeldingen met Availability Groups [aanmeldingen toewijzen of gebruik van SQL database-gebruiker om te verbinden met andere replica's en toewijzen aan de beschikbaarheidsdatabases opgenomen](https://blogs.msdn.com/b/alwaysonpro/archive/2014/02/19/how-to-map-logins-or-use-contained-sql-database-user-to-connect-to-other-replicas-and-map-to-availability-databases.aspx).
 
 Als wordt altijd op replica's in verschillende subnetten, clients moeten opgeven **MultisubnetFailover = True** in de verbindingsreeks. Dit resulteert in parallelle verbindingspogingen met replica's in de verschillende subnetten. Houd er rekening mee dat dit scenario geldt ook voor de implementatie van een regio-overschrijdende AlwaysOn-beschikbaarheidsgroep.
 

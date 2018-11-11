@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/29/2017
 ms.author: muralikk
 ms.component: common
-ms.openlocfilehash: 0be0d6c9613b4160a6c4c5cc3b63336fcf67d5c2
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: b16a476f1960c79c378cd3aa18eae789c289eb54
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50025615"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51244029"
 ---
 # <a name="preparing-hard-drives-for-an-import-job"></a>Harde schijven voorbereiden voor een importtaak
 
@@ -309,7 +309,7 @@ Als de gegevens groter dan de grootte van de schijf is, wordt het hulpprogramma 
 
 #### <a name="where-can-i-find-previous-version-of-waimportexport-tool"></a>Waar vind ik de vorige versie van WAImportExport hulpprogramma?
 
-WAImportExport hulpprogramma heeft alle functies waarop WAImportExport V1-hulpprogramma. WAImportExport hulpprogramma kan gebruikers meerdere bronnen opgeven en schrijven naar meerdere schijven. Bovendien kan een eenvoudig meerdere bronlocaties van waaruit de gegevens moeten worden gekopieerd in één CSV-bestand beheren. Als u ondersteuning voor SAS- of wilt kopiëren van één bron naar één schijf nodig hebt, u kunt echter [WAImportExport V1 Tool downloaden](http://go.microsoft.com/fwlink/?LinkID=301900&amp;clcid=0x409) en verwijzen naar [WAImportExport V1 verwijzing](storage-import-export-tool-how-to-v1.md) voor hulp bij het gebruik van WAImportExport V1 .
+WAImportExport hulpprogramma heeft alle functies waarop WAImportExport V1-hulpprogramma. WAImportExport hulpprogramma kan gebruikers meerdere bronnen opgeven en schrijven naar meerdere schijven. Bovendien kan een eenvoudig meerdere bronlocaties van waaruit de gegevens moeten worden gekopieerd in één CSV-bestand beheren. Als u ondersteuning voor SAS- of wilt kopiëren van één bron naar één schijf nodig hebt, u kunt echter [WAImportExport V1 Tool downloaden](https://go.microsoft.com/fwlink/?LinkID=301900&amp;clcid=0x409) en verwijzen naar [WAImportExport V1 verwijzing](storage-import-export-tool-how-to-v1.md) voor hulp bij het gebruik van WAImportExport V1 .
 
 #### <a name="what-is-a-session-id"></a>Wat is er een sessie-ID?
 

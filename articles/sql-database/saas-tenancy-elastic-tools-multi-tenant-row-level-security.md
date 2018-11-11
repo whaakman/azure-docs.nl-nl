@@ -12,12 +12,12 @@ ms.author: vanto
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: d669e7beb2d0e41ff26408d4f71c3e1648c41e3a
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 6d701878886cb1d5cc20a57614a474537f06a728
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50242565"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242905"
 ---
 # <a name="multi-tenant-applications-with-elastic-database-tools-and-row-level-security"></a>Multitenant-toepassingen met elastische Databasehulpprogramma's en beveiliging op rijniveau
 
@@ -41,7 +41,7 @@ Het doel is om de elastische database-clientbibliotheek gebruiken [gegevensafhan
 
 - Gebruik Visual Studio (2012 of hoger)
 - Drie Azure SQL-databases maken
-- Download voorbeeldproject: [elastische DB-hulpprogramma's voor Azure SQL - Multitenant Shards](http://go.microsoft.com/?linkid=9888163)
+- Download voorbeeldproject: [elastische DB-hulpprogramma's voor Azure SQL - Multitenant Shards](https://go.microsoft.com/?linkid=9888163)
   - Vul de gegevens voor uw databases aan het begin van **Program.cs** 
 
 Dit project wordt uitgebreid beschreven in een [elastische DB-hulpprogramma's voor Azure SQL - integratie met Entity Framework](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md) door het toevoegen van ondersteuning voor multitenant shard-databases. Het project bouwt een eenvoudige consoletoepassing voor het maken van blogs en berichten. Het project omvat vier tenants, plus twee multitenant shard-databases. Deze configuratie wordt weergegeven in het voorgaande diagram. 
@@ -254,7 +254,7 @@ GO
 ```
 
 > [!TIP]
-> In een complexe project moet u mogelijk het predicaat op honderden tabellen toevoegen, die mogelijk moeite. Er is een helper opgeslagen procedure die automatisch genereert een beveiligingsbeleid en voegt een predicaat toe op alle tabellen in een schema. Zie voor meer informatie het blogbericht op [Row-Level Security toepassen op alle tabellen - helper-script (blog)](http://blogs.msdn.com/b/sqlsecurity/archive/2015/03/31/apply-row-level-security-to-all-tables-helper-script).
+> In een complexe project moet u mogelijk het predicaat op honderden tabellen toevoegen, die mogelijk moeite. Er is een helper opgeslagen procedure die automatisch genereert een beveiligingsbeleid en voegt een predicaat toe op alle tabellen in een schema. Zie voor meer informatie het blogbericht op [Row-Level Security toepassen op alle tabellen - helper-script (blog)](https://blogs.msdn.com/b/sqlsecurity/archive/2015/03/31/apply-row-level-security-to-all-tables-helper-script).
 
 Als u opnieuw de voorbeeldtoepassing uitvoert, Zie tenants nu alleen rijen die deel uitmaken van deze. De toepassing kan niet verder, invoegen van rijen die deel uitmaken van tenants, andere zijn dan de momenteel verbonden met de database voor shard. De app kan de tenant-id in alle rijen zichtbaar wordt bovendien niet bijwerken. Als de app probeert te doen, wordt een DbUpdateException gegeven.
 
@@ -342,7 +342,7 @@ GO
 ### <a name="maintenance"></a>Onderhoud
 
 - **Toevoegen van nieuwe shards**: de T-SQL-script waarmee u beveiliging op Rijniveau op alle nieuwe shards uitvoeren, anders query's in deze shards worden niet gefilterd.
-- **Nieuwe tabellen toe te voegen**: een FILTEREN en BLOCK-predicaat toevoegen aan het beveiligingsbeleid op alle shards worden gewijzigd wanneer er een nieuwe tabel wordt gemaakt. Query's op de nieuwe tabel zijn anders niet gefilterd. Deze toevoeging kan worden geautomatiseerd met behulp van een DDL-trigger, zoals beschreven in [toepassen Row-Level Security automatisch naar de zojuist gemaakte tabellen (blog)](http://blogs.msdn.com/b/sqlsecurity/archive/2015/05/22/apply-row-level-security-automatically-to-newly-created-tables.aspx).
+- **Nieuwe tabellen toe te voegen**: een FILTEREN en BLOCK-predicaat toevoegen aan het beveiligingsbeleid op alle shards worden gewijzigd wanneer er een nieuwe tabel wordt gemaakt. Query's op de nieuwe tabel zijn anders niet gefilterd. Deze toevoeging kan worden geautomatiseerd met behulp van een DDL-trigger, zoals beschreven in [toepassen Row-Level Security automatisch naar de zojuist gemaakte tabellen (blog)](https://blogs.msdn.com/b/sqlsecurity/archive/2015/05/22/apply-row-level-security-automatically-to-newly-created-tables.aspx).
 
 ## <a name="summary"></a>Samenvatting
 
@@ -358,7 +358,7 @@ Hulpmiddelen voor elastic database en beveiliging op rijniveau kunnen worden geb
 
 ## <a name="questions-and-feature-requests"></a>Vragen en Functieaanvragen
 
-Voor vragen contact met ons op de [forum van SQL-Database](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted). En voeg de functieaanvragen die naar de [forum met feedback van SQL-Database](https://feedback.azure.com/forums/217321-sql-database/).
+Voor vragen contact met ons op de [forum van SQL-Database](https://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted). En voeg de functieaanvragen die naar de [forum met feedback van SQL-Database](https://feedback.azure.com/forums/217321-sql-database/).
 
 
 <!--Image references-->

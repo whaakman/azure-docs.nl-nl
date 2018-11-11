@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 08/15/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 43713cd4d217f2b43a0966f4de4f3573d4ef9b09
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: a0c7dcf848bfe6e5128117169a48adfbf9483f9b
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50979536"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51346759"
 ---
 # <a name="functions-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Functiereferentie voor Definitietaal van werkstroom in Azure Logic Apps
 
@@ -535,7 +535,7 @@ addHours('<timestamp>', <hours>, '<format>'?)
 | --------- | -------- | ---- | ----------- | 
 | <*Tijdstempel*> | Ja | Reeks | De tekenreeks met het tijdstempel | 
 | <*Uur*> | Ja | Geheel getal | Het positieve of negatieve aantal uren om toe te voegen | 
-| <*Indeling*> | Nee | Reeks | Een van beide een [één indelingsopgave](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) of een [aangepast](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). De standaardnotatie voor de tijdstempel is ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (jjjj-MM-ddT:mm:ss:fffffffK), die voldoet aan [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) en behoudt u informatie over de tijdzone. |
+| <*Indeling*> | Nee | Reeks | Een van beide een [één indelingsopgave](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) of een [aangepast](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). De standaardnotatie voor de tijdstempel is ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (jjjj-MM-ddTHH:mm:ss:fffffffK), die voldoet aan [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) en behoudt u informatie over de tijdzone. |
 ||||| 
 
 | Retourwaarde | Type | Beschrijving | 
@@ -577,7 +577,7 @@ addMinutes('<timestamp>', <minutes>, '<format>'?)
 | --------- | -------- | ---- | ----------- | 
 | <*Tijdstempel*> | Ja | Reeks | De tekenreeks met het tijdstempel | 
 | <*minuten*> | Ja | Geheel getal | Het positieve of negatieve aantal minuten om toe te voegen | 
-| <*Indeling*> | Nee | Reeks | Een van beide een [één indelingsopgave](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) of een [aangepast](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). De standaardnotatie voor de tijdstempel is ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (jjjj-MM-ddT:mm:ss:fffffffK), die voldoet aan [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) en behoudt u informatie over de tijdzone. |
+| <*Indeling*> | Nee | Reeks | Een van beide een [één indelingsopgave](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) of een [aangepast](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). De standaardnotatie voor de tijdstempel is ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (jjjj-MM-ddTHH:mm:ss:fffffffK), die voldoet aan [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) en behoudt u informatie over de tijdzone. |
 ||||| 
 
 | Retourwaarde | Type | Beschrijving | 
@@ -649,7 +649,7 @@ addSeconds('<timestamp>', <seconds>, '<format>'?)
 | --------- | -------- | ---- | ----------- | 
 | <*Tijdstempel*> | Ja | Reeks | De tekenreeks met het tijdstempel | 
 | <*seconden*> | Ja | Geheel getal | Het positieve of negatieve aantal seconden dat wordt toegevoegd | 
-| <*Indeling*> | Nee | Reeks | Een van beide een [één indelingsopgave](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) of een [aangepast](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). De standaardnotatie voor de tijdstempel is ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (jjjj-MM-ddT:mm:ss:fffffffK), die voldoet aan [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) en behoudt u informatie over de tijdzone. |
+| <*Indeling*> | Nee | Reeks | Een van beide een [één indelingsopgave](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) of een [aangepast](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). De standaardnotatie voor de tijdstempel is ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (jjjj-MM-ddTHH:mm:ss:fffffffK), die voldoet aan [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) en behoudt u informatie over de tijdzone. |
 ||||| 
 
 | Retourwaarde | Type | Beschrijving | 
@@ -692,7 +692,7 @@ addToTime('<timestamp>', <interval>, '<timeUnit>', '<format>'?)
 | <*Tijdstempel*> | Ja | Reeks | De tekenreeks met het tijdstempel | 
 | <*interval*> | Ja | Geheel getal | Het aantal eenheden van de opgegeven tijd toe te voegen | 
 | <*timeUnit*> | Ja | Reeks | De tijdseenheid voor gebruik met *interval*: 'Tweede', 'Minute', 'Uur', 'Dag', 'Week', 'Month', 'Year' | 
-| <*Indeling*> | Nee | Reeks | Een van beide een [één indelingsopgave](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) of een [aangepast](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). De standaardnotatie voor de tijdstempel is ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (jjjj-MM-ddT:mm:ss:fffffffK), die voldoet aan [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) en behoudt u informatie over de tijdzone. |
+| <*Indeling*> | Nee | Reeks | Een van beide een [één indelingsopgave](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) of een [aangepast](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). De standaardnotatie voor de tijdstempel is ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (jjjj-MM-ddTHH:mm:ss:fffffffK), die voldoet aan [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) en behoudt u informatie over de tijdzone. |
 ||||| 
 
 | Retourwaarde | Type | Beschrijving | 
@@ -1129,7 +1129,7 @@ convertFromUtc('<timestamp>', '<destinationTimeZone>', '<format>'?)
 | --------- | -------- | ---- | ----------- | 
 | <*Tijdstempel*> | Ja | Reeks | De tekenreeks met het tijdstempel | 
 | <*destinationTimeZone*> | Ja | Reeks | De naam voor de doel-tijdzone. Zie voor meer informatie, [tijdzone-id's](https://docs.microsoft.com/previous-versions/windows/embedded/gg154758(v=winembedded.80)). | 
-| <*Indeling*> | Nee | Reeks | Een van beide een [één indelingsopgave](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) of een [aangepast](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). De standaardnotatie voor de tijdstempel is ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (jjjj-MM-ddT:mm:ss:fffffffK), die voldoet aan [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) en behoudt u informatie over de tijdzone. |
+| <*Indeling*> | Nee | Reeks | Een van beide een [één indelingsopgave](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) of een [aangepast](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). De standaardnotatie voor de tijdstempel is ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (jjjj-MM-ddTHH:mm:ss:fffffffK), die voldoet aan [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) en behoudt u informatie over de tijdzone. |
 ||||| 
 
 | Retourwaarde | Type | Beschrijving | 
@@ -1172,7 +1172,7 @@ convertTimeZone('<timestamp>', '<sourceTimeZone>', '<destinationTimeZone>', '<fo
 | <*Tijdstempel*> | Ja | Reeks | De tekenreeks met het tijdstempel | 
 | <*sourceTimeZone*> | Ja | Reeks | De naam voor de tijdzone van de bron. Zie voor meer informatie, [tijdzone-id's](https://docs.microsoft.com/previous-versions/windows/embedded/gg154758(v=winembedded.80)). | 
 | <*destinationTimeZone*> | Ja | Reeks | De naam voor de doel-tijdzone. Zie voor meer informatie, [tijdzone-id's](https://docs.microsoft.com/previous-versions/windows/embedded/gg154758(v=winembedded.80)). | 
-| <*Indeling*> | Nee | Reeks | Een van beide een [één indelingsopgave](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) of een [aangepast](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). De standaardnotatie voor de tijdstempel is ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (jjjj-MM-ddT:mm:ss:fffffffK), die voldoet aan [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) en behoudt u informatie over de tijdzone. |
+| <*Indeling*> | Nee | Reeks | Een van beide een [één indelingsopgave](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) of een [aangepast](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). De standaardnotatie voor de tijdstempel is ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (jjjj-MM-ddTHH:mm:ss:fffffffK), die voldoet aan [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) en behoudt u informatie over de tijdzone. |
 ||||| 
 
 | Retourwaarde | Type | Beschrijving | 
@@ -1214,7 +1214,7 @@ convertToUtc('<timestamp>', '<sourceTimeZone>', '<format>'?)
 | --------- | -------- | ---- | ----------- | 
 | <*Tijdstempel*> | Ja | Reeks | De tekenreeks met het tijdstempel | 
 | <*sourceTimeZone*> | Ja | Reeks | De naam voor de tijdzone van de bron. Zie voor meer informatie, [tijdzone-id's](https://docs.microsoft.com/previous-versions/windows/embedded/gg154758(v=winembedded.80)). | 
-| <*Indeling*> | Nee | Reeks | Een van beide een [één indelingsopgave](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) of een [aangepast](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). De standaardnotatie voor de tijdstempel is ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (jjjj-MM-ddT:mm:ss:fffffffK), die voldoet aan [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) en behoudt u informatie over de tijdzone. |
+| <*Indeling*> | Nee | Reeks | Een van beide een [één indelingsopgave](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) of een [aangepast](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). De standaardnotatie voor de tijdstempel is ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (jjjj-MM-ddTHH:mm:ss:fffffffK), die voldoet aan [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) en behoudt u informatie over de tijdzone. |
 ||||| 
 
 | Retourwaarde | Type | Beschrijving | 
@@ -1802,7 +1802,7 @@ formatDateTime('<timestamp>', '<format>'?)
 | Parameter | Vereist | Type | Beschrijving | 
 | --------- | -------- | ---- | ----------- | 
 | <*Tijdstempel*> | Ja | Reeks | De tekenreeks met het tijdstempel | 
-| <*Indeling*> | Nee | Reeks | Een van beide een [één indelingsopgave](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) of een [aangepast](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). De standaardnotatie voor de tijdstempel is ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (jjjj-MM-ddT:mm:ss:fffffffK), die voldoet aan [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) en behoudt u informatie over de tijdzone. |
+| <*Indeling*> | Nee | Reeks | Een van beide een [één indelingsopgave](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) of een [aangepast](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). De standaardnotatie voor de tijdstempel is ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (jjjj-MM-ddTHH:mm:ss:fffffffK), die voldoet aan [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) en behoudt u informatie over de tijdzone. |
 ||||| 
 
 | Retourwaarde | Type | Beschrijving | 
@@ -1896,7 +1896,7 @@ getFutureTime(<interval>, <timeUnit>, <format>?)
 | --------- | -------- | ---- | ----------- | 
 | <*interval*> | Ja | Geheel getal | Het aantal eenheden van de opgegeven tijd om af te trekken | 
 | <*timeUnit*> | Ja | Reeks | De tijdseenheid voor gebruik met *interval*: 'Tweede', 'Minute', 'Uur', 'Dag', 'Week', 'Month', 'Year' | 
-| <*Indeling*> | Nee | Reeks | Een van beide een [één indelingsopgave](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) of een [aangepast](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). De standaardnotatie voor de tijdstempel is ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (jjjj-MM-ddT:mm:ss:fffffffK), die voldoet aan [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) en behoudt u informatie over de tijdzone. | 
+| <*Indeling*> | Nee | Reeks | Een van beide een [één indelingsopgave](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) of een [aangepast](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). De standaardnotatie voor de tijdstempel is ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (jjjj-MM-ddTHH:mm:ss:fffffffK), die voldoet aan [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) en behoudt u informatie over de tijdzone. | 
 ||||| 
 
 | Retourwaarde | Type | Beschrijving | 
@@ -1938,7 +1938,7 @@ getPastTime(<interval>, <timeUnit>, <format>?)
 | --------- | -------- | ---- | ----------- | 
 | <*interval*> | Ja | Geheel getal | Het aantal eenheden van de opgegeven tijd om af te trekken | 
 | <*timeUnit*> | Ja | Reeks | De tijdseenheid voor gebruik met *interval*: 'Tweede', 'Minute', 'Uur', 'Dag', 'Week', 'Month', 'Year' | 
-| <*Indeling*> | Nee | Reeks | Een van beide een [één indelingsopgave](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) of een [aangepast](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). De standaardnotatie voor de tijdstempel is ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (jjjj-MM-ddT:mm:ss:fffffffK), die voldoet aan [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) en behoudt u informatie over de tijdzone. | 
+| <*Indeling*> | Nee | Reeks | Een van beide een [één indelingsopgave](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) of een [aangepast](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). De standaardnotatie voor de tijdstempel is ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (jjjj-MM-ddTHH:mm:ss:fffffffK), die voldoet aan [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) en behoudt u informatie over de tijdzone. | 
 ||||| 
 
 | Retourwaarde | Type | Beschrijving | 
@@ -3056,7 +3056,7 @@ startOfDay('<timestamp>', '<format>'?)
 | Parameter | Vereist | Type | Beschrijving | 
 | --------- | -------- | ---- | ----------- | 
 | <*Tijdstempel*> | Ja | Reeks | De tekenreeks met het tijdstempel | 
-| <*Indeling*> | Nee | Reeks | Een van beide een [één indelingsopgave](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) of een [aangepast](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). De standaardnotatie voor de tijdstempel is ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (jjjj-MM-ddT:mm:ss:fffffffK), die voldoet aan [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) en behoudt u informatie over de tijdzone. |
+| <*Indeling*> | Nee | Reeks | Een van beide een [één indelingsopgave](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) of een [aangepast](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). De standaardnotatie voor de tijdstempel is ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (jjjj-MM-ddTHH:mm:ss:fffffffK), die voldoet aan [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) en behoudt u informatie over de tijdzone. |
 ||||| 
 
 | Retourwaarde | Type | Beschrijving | 
@@ -3087,7 +3087,7 @@ startOfHour('<timestamp>', '<format>'?)
 | Parameter | Vereist | Type | Beschrijving | 
 | --------- | -------- | ---- | ----------- | 
 | <*Tijdstempel*> | Ja | Reeks | De tekenreeks met het tijdstempel | 
-| <*Indeling*> | Nee | Reeks | Een van beide een [één indelingsopgave](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) of een [aangepast](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). De standaardnotatie voor de tijdstempel is ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (jjjj-MM-ddT:mm:ss:fffffffK), die voldoet aan [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) en behoudt u informatie over de tijdzone. |
+| <*Indeling*> | Nee | Reeks | Een van beide een [één indelingsopgave](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) of een [aangepast](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). De standaardnotatie voor de tijdstempel is ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (jjjj-MM-ddTHH:mm:ss:fffffffK), die voldoet aan [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) en behoudt u informatie over de tijdzone. |
 ||||| 
 
 | Retourwaarde | Type | Beschrijving | 
@@ -3118,7 +3118,7 @@ startOfMonth('<timestamp>', '<format>'?)
 | Parameter | Vereist | Type | Beschrijving | 
 | --------- | -------- | ---- | ----------- | 
 | <*Tijdstempel*> | Ja | Reeks | De tekenreeks met het tijdstempel | 
-| <*Indeling*> | Nee | Reeks | Een van beide een [één indelingsopgave](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) of een [aangepast](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). De standaardnotatie voor de tijdstempel is ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (jjjj-MM-ddT:mm:ss:fffffffK), die voldoet aan [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) en behoudt u informatie over de tijdzone. |
+| <*Indeling*> | Nee | Reeks | Een van beide een [één indelingsopgave](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) of een [aangepast](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). De standaardnotatie voor de tijdstempel is ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (jjjj-MM-ddTHH:mm:ss:fffffffK), die voldoet aan [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) en behoudt u informatie over de tijdzone. |
 ||||| 
 
 | Retourwaarde | Type | Beschrijving | 
@@ -3295,7 +3295,7 @@ subtractFromTime('<timestamp>', <interval>, '<timeUnit>', '<format>'?)
 | <*Tijdstempel*> | Ja | Reeks | De tekenreeks met het tijdstempel | 
 | <*interval*> | Ja | Geheel getal | Het aantal eenheden van de opgegeven tijd om af te trekken | 
 | <*timeUnit*> | Ja | Reeks | De tijdseenheid voor gebruik met *interval*: 'Tweede', 'Minute', 'Uur', 'Dag', 'Week', 'Month', 'Year' | 
-| <*Indeling*> | Nee | Reeks | Een van beide een [één indelingsopgave](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) of een [aangepast](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). De standaardnotatie voor de tijdstempel is ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (jjjj-MM-ddT:mm:ss:fffffffK), die voldoet aan [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) en behoudt u informatie over de tijdzone. | 
+| <*Indeling*> | Nee | Reeks | Een van beide een [één indelingsopgave](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) of een [aangepast](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). De standaardnotatie voor de tijdstempel is ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (jjjj-MM-ddTHH:mm:ss:fffffffK), die voldoet aan [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) en behoudt u informatie over de tijdzone. | 
 ||||| 
 
 | Retourwaarde | Type | Beschrijving | 
@@ -3350,7 +3350,7 @@ take([<collection>], <count>)
 Het opgegeven aantal items ophalen in deze voorbeelden uit het voorste deel van deze verzamelingen:
 
 ```
-take('abcde`, 3)
+take('abcde', 3)
 take(createArray(0, 1, 2, 3, 4), 3)
 ```
 
@@ -3921,7 +3921,7 @@ Desgewenst kunt u een andere indeling met de <*indeling*> parameter.
 
 | Parameter | Vereist | Type | Beschrijving | 
 | --------- | -------- | ---- | ----------- | 
-| <*Indeling*> | Nee | Reeks | Een van beide een [één indelingsopgave](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) of een [aangepast](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). De standaardnotatie voor de tijdstempel is ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (jjjj-MM-ddT:mm:ss:fffffffK), die voldoet aan [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) en behoudt u informatie over de tijdzone. | 
+| <*Indeling*> | Nee | Reeks | Een van beide een [één indelingsopgave](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) of een [aangepast](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). De standaardnotatie voor de tijdstempel is ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (jjjj-MM-ddTHH:mm:ss:fffffffK), die voldoet aan [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) en behoudt u informatie over de tijdzone. | 
 ||||| 
 
 | Retourwaarde | Type | Beschrijving | 

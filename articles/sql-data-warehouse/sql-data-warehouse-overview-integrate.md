@@ -10,12 +10,12 @@ ms.component: consume
 ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 221d5d05906e7e162013c0d4cdddc01a95f4024c
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 5b302be582bd22a7b38601c90f5fe475062afb26
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43302699"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51239668"
 ---
 # <a name="integrate-other-services-with-sql-data-warehouse"></a>Andere services integreren met SQL Data Warehouse
 Naast de kernfunctionaliteit kunnen SQL Data Warehouse gebruikers om te integreren met veel van de andere services in Azure. Enkele van deze services zijn onder andere:
@@ -33,7 +33,7 @@ Power BI-integratie kunt u de compute-kracht van SQL Data Warehouse combineren m
 * **Verbinding maken met directe**: een meer geavanceerde verbinding met logisch pushdown op basis van SQL Data Warehouse. Pushdown biedt snellere analyses op grotere schaal.
 * **Openen in Power BI**: de knop 'Openen in Power BI' geeft informatie over het exemplaar aan Power BI voor een simplifed manier om verbinding te maken.
 
-Zie voor meer informatie, [integreren met Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md), of de [Power BI-documentatie](http://blogs.msdn.com/b/powerbi/archive/2015/06/24/exploring-azure-sql-data-warehouse-with-power-bi.aspx).
+Zie voor meer informatie, [integreren met Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md), of de [Power BI-documentatie](https://blogs.msdn.com/b/powerbi/archive/2015/06/24/exploring-azure-sql-data-warehouse-with-power-bi.aspx).
 
 ## <a name="azure-data-factory"></a>Azure Data Factory
 Azure Data Factory biedt gebruikers een beheerd platform voor het maken van complexe uitpakken en laden van pijplijnen. SQL Data Warehouse-integratie met Azure Data Factory bevat:

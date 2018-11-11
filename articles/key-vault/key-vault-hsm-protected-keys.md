@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/27/2018
 ms.author: barclayn
-ms.openlocfilehash: 31998c3b9cc151e96d0b2e0b85895603698f493b
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: f027ced7d6e317bfdf101cb792d9f2f2b7612242
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44303215"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247740"
 ---
 # <a name="how-to-generate-and-transfer-hsm-protected-keys-for-azure-key-vault"></a>Het genereren en overdragen met HSM beveiligde sleutels voor Azure Key Vault
 
@@ -61,7 +61,7 @@ Zie de volgende tabel voor een lijst met vereisten voor het meenemen van uw eige
 | Een abonnement op Azure |Voor het maken van een Azure Key Vault, moet u een Azure-abonnement: [zich aanmelden voor een gratis proefversie](https://azure.microsoft.com/pricing/free-trial/) |
 | De Azure Key Vault Premium-servicelaag voor de ondersteuning van met HSM beveiligde sleutels |Zie voor meer informatie over de service-lagen en mogelijkheden voor Azure Key Vault, de [prijzen van Azure Key Vault](https://azure.microsoft.com/pricing/details/key-vault/) website. |
 | Thales HSM, smartcards en voor ondersteuningssoftware |U moet toegang hebben tot een Thales Hardware Security Module en operationele basiskennis hebben van Thales HSM's. Zie [Thales Hardware Security Module](https://www.thales-esecurity.com/msrms/buy) voor de lijst met compatibele modellen of om aan te schaffen van een HSM, als u niet hebt. |
-| De volgende hardware en software:<ol><li>Een offline x64 werkstation met een minimale Windows-besturingssysteem Windows 7 en Thales nShield-software ten minste versie 11.50.<br/><br/>Als dit werkstation Windows 7 wordt uitgevoerd, moet u [Microsoft .NET Framework 4.5 installeren](http://download.microsoft.com/download/b/a/4/ba4a7e71-2906-4b2d-a0e1-80cf16844f5f/dotnetfx45_full_x86_x64.exe).</li><li>Een werkstation dat is verbonden met Internet en heeft een minimumversie Windows-besturingssysteem van Windows 7 en [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.7.0) **minimaal versie 1.1.0** geïnstalleerd.</li><li>Een USB-station of ander draagbaar opslagapparaat met ten minste 16 MB vrije ruimte.</li></ol> |Uit veiligheidsoverwegingen, wordt u aangeraden dat de eerste werkstation niet is verbonden met een netwerk. Deze aanbeveling is echter niet via een programma afgedwongen.<br/><br/>Houd er rekening mee dat in de volgende instructies wordt dit werkstation aangeduid als niet-verbonden werkstation.</p></blockquote><br/>Bovendien als uw tenantsleutel bedoeld voor een productienetwerk is, raden wij aan dat u een tweede, afzonderlijk werkstation te downloaden van de toolset en de tenant-sleutel te uploaden. Maar voor testdoeleinden kunt u hetzelfde werkstation gebruiken als het eerste.<br/><br/>Houd er rekening mee dat in de volgende instructies wordt dit tweede werkstation aangeduid als het met Internet verbonden werkstation.</p></blockquote><br/> |
+| De volgende hardware en software:<ol><li>Een offline x64 werkstation met een minimale Windows-besturingssysteem Windows 7 en Thales nShield-software ten minste versie 11.50.<br/><br/>Als dit werkstation Windows 7 wordt uitgevoerd, moet u [Microsoft .NET Framework 4.5 installeren](https://download.microsoft.com/download/b/a/4/ba4a7e71-2906-4b2d-a0e1-80cf16844f5f/dotnetfx45_full_x86_x64.exe).</li><li>Een werkstation dat is verbonden met Internet en heeft een minimumversie Windows-besturingssysteem van Windows 7 en [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.7.0) **minimaal versie 1.1.0** geïnstalleerd.</li><li>Een USB-station of ander draagbaar opslagapparaat met ten minste 16 MB vrije ruimte.</li></ol> |Uit veiligheidsoverwegingen, wordt u aangeraden dat de eerste werkstation niet is verbonden met een netwerk. Deze aanbeveling is echter niet via een programma afgedwongen.<br/><br/>Houd er rekening mee dat in de volgende instructies wordt dit werkstation aangeduid als niet-verbonden werkstation.</p></blockquote><br/>Bovendien als uw tenantsleutel bedoeld voor een productienetwerk is, raden wij aan dat u een tweede, afzonderlijk werkstation te downloaden van de toolset en de tenant-sleutel te uploaden. Maar voor testdoeleinden kunt u hetzelfde werkstation gebruiken als het eerste.<br/><br/>Houd er rekening mee dat in de volgende instructies wordt dit tweede werkstation aangeduid als het met Internet verbonden werkstation.</p></blockquote><br/> |
 
 ## <a name="generate-and-transfer-your-key-to-azure-key-vault-hsm"></a>Genereren en uw sleutel overdragen naar Azure Key Vault HSM
 
@@ -101,7 +101,7 @@ Sluit de Azure PowerShell-venster niet.
 
 ### <a name="step-13-download-the-byok-toolset-for-azure-key-vault"></a>Stap 1.3: Download de BYOK-toolset van Azure Key Vault
 
-Ga naar het Microsoft Download Center en [download de Azure Key Vault BYOK-hulpmiddelenset](http://www.microsoft.com/download/details.aspx?id=45345) voor uw geografische regio of het exemplaar van Azure. Gebruik de volgende informatie om te identificeren van de naam van het pakket downloaden en de bijbehorende SHA-256-pakket-hash:
+Ga naar het Microsoft Download Center en [download de Azure Key Vault BYOK-hulpmiddelenset](https://www.microsoft.com/download/details.aspx?id=45345) voor uw geografische regio of het exemplaar van Azure. Gebruik de volgende informatie om te identificeren van de naam van het pakket downloaden en de bijbehorende SHA-256-pakket-hash:
 
 - - -
 **Verenigde Staten:**

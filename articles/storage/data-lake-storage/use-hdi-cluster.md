@@ -7,20 +7,20 @@ ms.service: storage
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: jamesbak
-ms.openlocfilehash: 3869d83ada1cbe0b234694b6acae88b6f68fc2dd
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: 8c79107a0081b1c7478ffe8ceb44ec67e1f618c4
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43782274"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283662"
 ---
 # <a name="use-azure-data-lake-storage-gen2-preview-with-azure-hdinsight-clusters"></a>Gen2 Preview van Azure Data Lake Storage gebruiken met Azure HDInsight-clusters
 
-Voor het analyseren van gegevens in HDInsight-cluster, kunt u in een willekeurige combinatie van Azure Storage, Azure Data Lake Storage Gen1 en Gen2 Preview van Azure Data Lake Storage de gegevens opslaan. Alle opties voor opslag kunnen u HDInsight-clusters die worden gebruikt voor berekeningen zonder verlies van gebruikersgegevens veilig verwijderen.
+Voor het analyseren van gegevens in een HDInsight-cluster, kunt u in een willekeurige combinatie van Azure Blob Storage, Azure Blob Storage met Azure Data Lake Storage Gen2 Preview ingeschakeld of Azure Data Lake Storage Gen1 de gegevens opslaan. Alle opties voor opslag kunnen u HDInsight-clusters die worden gebruikt voor berekeningen zonder verlies van gebruikersgegevens veilig verwijderen.
 
-Hadoop ondersteunt een notatie van het standaardbestandssysteem. Het standaardbestandssysteem impliceert een standaardschema en instantie. De toepassing kan ook worden gebruikt om relatieve paden om te zetten. Tijdens het HDInsight-cluster maken, kunt u een blob-container in Azure Storage of Azure Data Lake Storage opgeven als het standaardbestandssysteem. U kunt ook met HDInsight 3.5, kunt u ook Azure Storage of Azure Data Lake Storage als het standaardbestandssysteem met een paar uitzonderingen.
+Hadoop ondersteunt een notatie van het standaardbestandssysteem. Het standaardbestandssysteem impliceert een standaardschema en instantie. De toepassing kan ook worden gebruikt om relatieve paden om te zetten. Tijdens het HDInsight-cluster maken, kunt u een blob-container in Azure Storage of de hiërarchische naamruimte die worden aangeboden door Data Lake Storage Gen2 als het standaardbestandssysteem. U kunt ook met HDInsight 3.5, kunt u een container of de hiërarchische naamruimte als het standaardbestandssysteem met een paar uitzonderingen.
 
-In dit artikel leert u hoe Azure Data Lake Storage Gen2 werkt met HDInsight-clusters. Zie voor meer informatie over het maken van een HDInsight-cluster [instellen HDInsight-clusters met behulp van Azure Data Lake Storage met Hadoop, Spark, Kafka en meer](quickstart-create-connect-hdi-cluster.md).
+In dit artikel leert u hoe Data Lake Storage Gen2 werkt met HDInsight-clusters. Zie voor meer informatie over het maken van een HDInsight-cluster [instellen HDInsight-clusters met behulp van Azure Data Lake Storage met Hadoop, Spark, Kafka en meer](quickstart-create-connect-hdi-cluster.md).
 
 Azure Storage is een robuuste, algemene opslagoplossing die naadloos kan worden geïntegreerd met HDInsight. HDInsight kunt Azure Data Lake Storage gebruiken als het standaardbestandssysteem voor het cluster. Via een interface van Hadoop distributed file system (HDFS), kan de volledige set onderdelen in HDInsight rechtstreeks op de bestanden in Azure Data Lake Storage werken.
 
@@ -49,13 +49,13 @@ Hier volgen enkele overwegingen bij het gebruik van een Azure Storage-account me
 * **Openbare bestanden in opslagaccounts die niet zijn verbonden met een cluster** tonen alleen-lezen toegang tot de bestanden in het bestandssysteem.
   
   > [!NOTE]
-  > Bestand met de openbare systemen kunnen u een lijst van alle bestanden die beschikbaar zijn in het bestandssysteem en toegang tot metagegevens. Bestand met de openbare systemen kunnen u toegang krijgt tot bestanden alleen als u de exacte URL weet. Zie voor meer informatie, [toegang tot containers en blobs beperken](http://msdn.microsoft.com/library/windowsazure/dd179354.aspx) (de regels voor containers en blobs werkt de voorgrondkleur dezelfde bestanden en het bestandssysteem).
+  > Bestand met de openbare systemen kunnen u een lijst van alle bestanden die beschikbaar zijn in het bestandssysteem en toegang tot metagegevens. Bestand met de openbare systemen kunnen u toegang krijgt tot bestanden alleen als u de exacte URL weet. Zie voor meer informatie, [toegang tot containers en blobs beperken](https://msdn.microsoft.com/library/windowsazure/dd179354.aspx) (de regels voor containers en blobs werkt de voorgrondkleur dezelfde bestanden en het bestandssysteem).
  
 * **Persoonlijke bestandssystemen in opslagaccounts die niet zijn verbonden met een cluster** niet toestaan toegang tot bestanden in het bestandssysteem, tenzij u het opslagaccount definieert wanneer u de WebHCat-taken verzendt. Redenen voor deze beperking worden verderop in dit artikel beschreven.
 
 De storage-accounts die zijn gedefinieerd in het proces voor het maken en de sleutels worden opgeslagen in *%HADOOP_HOME%/conf/core-site.xml* op de clusterknooppunten. Het standaardgedrag van HDInsight is het gebruik van de opslagaccounts die zijn gedefinieerd in de *core-site.xml* bestand. U kunt deze instelling wijzigen instellen met [Ambari](../../hdinsight/hdinsight-hadoop-manage-ambari.md)
 
-Meerdere WebHCat-taken, waaronder Hive, MapReduce, Hadoop-streaming en Pig, kunnen een beschrijving van opslagaccounts en metagegevens bevatten. (Deze benadering op dit moment werkt voor Pig met opslagaccounts, maar niet voor metagegevens.) Zie [Using an HDInsight Cluster with Alternate Storage Accounts and Metastores](http://social.technet.microsoft.com/wiki/contents/articles/23256.using-an-hdinsight-cluster-with-alternate-storage-accounts-and-metastores.aspx) (Een HDInsight-cluster gebruiken met alternatieve opslagaccounts en metastores) voor meer informatie.
+Meerdere WebHCat-taken, waaronder Hive, MapReduce, Hadoop-streaming en Pig, kunnen een beschrijving van opslagaccounts en metagegevens bevatten. (Deze benadering op dit moment werkt voor Pig met opslagaccounts, maar niet voor metagegevens.) Zie [Using an HDInsight Cluster with Alternate Storage Accounts and Metastores](https://social.technet.microsoft.com/wiki/contents/articles/23256.using-an-hdinsight-cluster-with-alternate-storage-accounts-and-metastores.aspx) (Een HDInsight-cluster gebruiken met alternatieve opslagaccounts en metastores) voor meer informatie.
 
 ## <a id="benefits"></a>Voordelen van Azure Storage
 
@@ -80,13 +80,13 @@ Bepaalde MapReduce-taken en -pakketten kunnen tussenliggende resultaten generere
 > [!NOTE]
 > De meeste HDFS-opdrachten (bijvoorbeeld `ls`, `copyFromLocal` en `mkdir`) nog steeds werken zoals verwacht. Alleen de opdrachten die specifiek voor de AD FS, zoals zijn `fschk` en `dfsadmin`, verschillend gedrag weergeven in Azure storage.
 
-## <a name="create-an-data-lake-storage-file-system"></a>Maken van een Data Lake Storage-bestandssysteem
+## <a name="create-a-data-lake-storage-file-system"></a>Maken van een Data Lake Storage-bestandssysteem
 
 Voor het gebruik van het bestandssysteem, maakt u eerst een [Azure Storage-account][azure-storage-create]. Als onderdeel van dit proces geeft u een Azure-regio waar het opslagaccount dat wordt gemaakt. Het cluster en het opslagaccount moeten worden gehost in dezelfde regio. De SQL Server-database van de Hive-metastore en Oozie-metastore moeten zich ook in dezelfde regio bevinden.
 
-Ongeacht waar deze zich bevinden, wordt elke blob die u maakt behoort tot een bestandssysteem in uw Azure Data Lake Storage-account. 
+Ongeacht waar deze zich bevinden, wordt elke blob die u maakt behoort tot een bestandssysteem in uw storage-account.
 
-Het standaardbestandssysteem voor het Data Lake Storage slaat de cluster-specifieke informatie, zoals Taakgeschiedenis en logboekbestanden. Geen een bestandssysteem van de standaard Data Lake Storage niet delen met meerdere HDInsight-clusters. Hierdoor kan de taakgeschiedenis beschadigd raken. Het wordt aanbevolen om een ander bestandssysteem gebruiken voor elk cluster en gedeelde gegevens op een gekoppelde storage-account dat is opgegeven in de implementatie van alle relevante cluster in plaats van het standaardopslagaccount plaatsen. Zie [HDInsight-clusters maken][hdinsight-creation] voor meer informatie over het configureren van gekoppelde opslagaccounts. Nadat het oorspronkelijke HDInsight-cluster is verwijderd, kunt u echter een standaardbestandssysteem voor opslag gebruiken. Voor HBase-clusters, kunt u de HBase-tabelschema en de gegevens behouden door het maken van een nieuw HBase-cluster met behulp van de standaard-blobcontainer die wordt gebruikt door een verwijderd HBase-cluster dat is verwijderd.
+Het standaardbestandssysteem voor het Data Lake Storage Gen2 worden clusterspecifieke gegevens, zoals Taakgeschiedenis en logboekbestanden opgeslagen. Geen een bestandssysteem van de standaard Data Lake Storage Gen2 niet delen met meerdere HDInsight-clusters. Hierdoor kan de taakgeschiedenis beschadigd raken. Het wordt aanbevolen om een ander bestandssysteem gebruiken voor elk cluster en gedeelde gegevens op een gekoppelde storage-account dat is opgegeven in de implementatie van alle relevante cluster in plaats van het standaardopslagaccount plaatsen. Zie [HDInsight-clusters maken][hdinsight-creation] voor meer informatie over het configureren van gekoppelde opslagaccounts. Nadat het oorspronkelijke HDInsight-cluster is verwijderd, kunt u echter een standaardbestandssysteem voor opslag gebruiken. Voor HBase-clusters, kunt u de HBase-tabelschema en de gegevens behouden door het maken van een nieuw HBase-cluster met behulp van de standaard-blobcontainer die wordt gebruikt door een verwijderd HBase-cluster dat is verwijderd.
 
 [!INCLUDE [secure-transfer-enabled-storage-account](../../../includes/hdinsight-secure-transfer.md)]
 
@@ -132,7 +132,7 @@ Als u [geïnstalleerd en geconfigureerd, Azure PowerShell][powershell-install], 
     New-AzureStorageContainer -Name $containerName -Context $destContext
 
 > [!NOTE]
-> Het maken van een container is gelijk aan het maken van een bestandssysteem in Azure Data Lake-opslag.
+> Het maken van een container is gelijk aan het maken van een bestandssysteem in Data Lake Storage Gen2.
 
 ### <a name="use-azure-cli"></a>Azure CLI gebruiken
 
@@ -164,7 +164,7 @@ Gebruik de volgende opdracht om een container te maken:
     azure storage container create <CONTAINER_NAME> --account-name <STORAGE_ACCOUNT_NAME> --account-key <STORAGE_ACCOUNT_KEY>
 
 > [!NOTE]
-> Het maken van een container is gelijk aan het maken van een bestandssysteem in Azure Data Lake-opslag.
+> Het maken van een container is gelijk aan het maken van een bestandssysteem in Data Lake Storage Gen2.
 
 ## <a name="address-files-in-azure-storage"></a>Bestanden in Azure Storage adresseren
 
@@ -174,7 +174,7 @@ Het URI-schema om bestanden in Azure Storage vanuit HDInsight te openen:
 
 Het URI-schema biedt niet-versleutelde toegang (met de *abfs:* voorvoegsel) en SSL-versleutelde toegang (met *abfss*). Wordt u aangeraden *abfss* waar mogelijk, zelfs bij het openen van gegevens die zich in dezelfde regio in Azure.
 
-* &lt;FILE_SYSTEM_NAME&gt; identificeert het pad van het Azure Data Lake Storage-bestandssysteem.
+* &lt;FILE_SYSTEM_NAME&gt; identificeert het pad van het bestandssysteem Data Lake Storage Gen2.
 * &lt;Accountnaam&gt; wordt de naam van Azure Storage-account. Een FQDN (Fully Qualified Domain Name) is vereist.
 
     Als de waarden voor &lt;FILE_SYSTEM_NAME&gt; noch &lt;accountnaam&gt; is opgegeven, wordt het standaardbestandssysteem gebruikt. Voor de bestand op het standaardbestandssysteem kunt u een relatief of een absoluut pad gebruiken. Bijvoorbeeld, de *hadoop-mapreduce-examples.jar* -bestand dat wordt geleverd met HDInsight-clusters kan worden aangeduid met behulp van een van de volgende paden:
@@ -205,9 +205,9 @@ In dit artikel hebt u geleerd hoe u HDFS-compatibele Azure-opslag kunt gebruiken
 Zie voor meer informatie:
 
 * [Het stuurprogramma ABFS Hadoop-bestandssysteem voor Azure Data Lake Storage Gen2](abfs-driver.md)
-* [Inleiding tot Azure Data Lake-opslag](introduction.md)
-* [HDInsight-clusters met behulp van Azure Data Lake Storage met Hadoop, Spark, Kafka en meer instellen](quickstart-create-connect-hdi-cluster.md)
-* [Opnemen van gegevens in Azure Data Lake Storage distcp gebruiken](use-distcp.md)
+* [Inleiding tot Azure Data Lake Storage Gen2](introduction.md)
+* [HDInsight-clusters met behulp van Azure Data Lake Storage Gen2 met Hadoop, Spark, Kafka en meer instellen](quickstart-create-connect-hdi-cluster.md)
+* [Opname van gegevens in Azure Data Lake Storage Gen2 distcp gebruiken](use-distcp.md)
 
 [powershell-install]: /powershell/azureps-cmdlets-docs
 [hdinsight-creation]: ../../hdinsight/hdinsight-hadoop-provision-linux-clusters.md

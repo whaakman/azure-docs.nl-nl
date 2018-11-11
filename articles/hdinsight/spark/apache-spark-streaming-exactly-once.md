@@ -3,17 +3,17 @@ title: Taken met Spark Streaming precies maken-eenmaal gebeurtenis verwerken - A
 description: Over het instellen van Spark Streaming voor het verwerken van een gebeurtenis slechts eenmaal.
 services: hdinsight
 ms.service: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 01/26/2018
-ms.openlocfilehash: ae170e90cede26bd6a43fcc10b93fcd7490d838f
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.date: 11/06/2018
+ms.openlocfilehash: 6c39eb02e9610e0020ab2abe8a192dabf0b768d9
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39618818"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51241310"
 ---
 # <a name="create-spark-streaming-jobs-with-exactly-once-event-processing"></a>Taken met Spark Streaming precies maken-eenmaal gebeurtenis verwerken
 
@@ -61,13 +61,21 @@ Controlepunten zijn ingeschakeld in Spark Streaming in twee stappen.
 
 1. In het object StreamingContext het opslagpad voor de controlepunten te configureren:
 
-    Val ws nieuwe StreamingContext (spark, Seconds(1)) ssc.checkpoint("/path/to/checkpoints") =
+    ```Scala
+    val ssc = new StreamingContext(spark, Seconds(1))
+    ssc.checkpoint("/path/to/checkpoints")
+    ```
 
     In HDInsight, moeten deze controlepunten worden opgeslagen op de standaardopslag die is gekoppeld aan het cluster, Azure Storage of Azure Data Lake Store.
 
 2. Geef vervolgens een controlepunt-interval (in seconden) op de DStream. Tijdens een interval, de gegevens van de gebruikersstatus is afgeleid van de invoer gebeurtenis persistent gemaakt met storage. Gegevens van de permanente status kunnen de berekening die nodig zijn tijdens het opnieuw opbouwen van de status van de bron-gebeurtenis verminderen.
 
-    Val regels ssc.socketTextStream ('hostnaam"9999) = lines.checkpoint(30) ssc.start() ssc.awaitTermination()
+    ```Scala
+    val lines = ssc.socketTextStream("hostname", 9999)
+    lines.checkpoint(30)
+    ssc.start()
+    ssc.awaitTermination()
+    ```
 
 ### <a name="use-idempotent-sinks"></a>Gebruik idempotent sinks
 

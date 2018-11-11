@@ -9,12 +9,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 3/12/2018
-ms.openlocfilehash: 1ec6228993c516ce2974c64bfa5b6dcdf63e7f91
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: a162d0c19bef28e6e4566d39c2dc3b82a87a4aa9
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49343823"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242089"
 ---
 # <a name="use-an-azure-marketplace-image-to-create-a-terraform-linux-virtual-machine-with-managed-identities-for-azure-resources"></a>Een Microsoft Azure Marketplace-installatiekopie gebruiken om een virtuele Terraform Linux-machine te maken met een beheerde identiteit voor Azure-resources
 
@@ -97,9 +97,9 @@ In het vorige script werd het mechanisme [AZ CLI v 2.0 interactive log-in](https
 In dit artikel hebt u geleerd hoe u een virtuele Terraform Linux-machine in Azure instelt. Hier volgen een aantal aanvullende resources voor meer informatie over Terraform in Azure: 
 
  [Terraform Hub in Microsoft.com](https://docs.microsoft.com/azure/terraform/)  
- [Terraform Azure-documentatie voor providers](http://aka.ms/terraform)  
- [Terraform Azure-gegevensbron voor providers](http://aka.ms/tfgit)  
- [Terraform Azure-modules](http://aka.ms/tfmodules)
+ [Terraform Azure-documentatie voor providers](https://aka.ms/terraform)  
+ [Terraform Azure-gegevensbron voor providers](https://aka.ms/tfgit)  
+ [Terraform Azure-modules](https://aka.ms/tfmodules)
  
 
 

@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: lizross
 ms.reviewer: asteen
-ms.openlocfilehash: 1caf69ee822ec11e8797ca23c9c163d36344edc7
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: d0d07e235c33877ede7f47a6095482b2acec18d0
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44719984"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51239833"
 ---
 # <a name="what-is-the-myapps-portal"></a>Wat is de MyApps-portal?
 
@@ -83,7 +83,7 @@ Als u wilt aanmelden bij op basis van wachtwoorden eenmalige aanmelding, moet u 
 >
 U kunt de extensie downloaden rechtstreeks vanuit de volgende sites:
 - [Chrome](https://go.microsoft.com/fwlink/?linkid=866367)
-- [Microsoft Edge](https://go.microsoft.com/fwlink/?linkid=845176)
+- [Edge](https://go.microsoft.com/fwlink/?linkid=845176)
 - [Firefox](https://go.microsoft.com/fwlink/?linkid=866366)
 
 Als u een URL voor mijn Apps dan `https://myapps.microsoft.com`, de standaard-URL configureren door het volgende te doen:
@@ -137,7 +137,7 @@ Als u een Azure-beheerder bent en u bent aangemeld bij Azure portal met behulp v
 Om te testen een *verschillende* gebruiker account, het volgende doen:
 
 1. Selecteer in de rechterbovenhoek van de Azure portal of de MyApps-portal, **Afmelden**. 
-2. Ga naar de [MyApps-portal](http://myapps.microsoft.com).
+2. Ga naar de [MyApps-portal](https://myapps.microsoft.com).
 3. Typ de gebruikersnaam en het wachtwoord voor het account in uw directory die u wilt testen op de aanmeldingspagina.
 
 

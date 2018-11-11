@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 6430bf524ac81af242bf7afb4c2c8196309806ab
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: fc70089517bbc1aa90f95f1e0231f2c67f930090
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391672"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242191"
 ---
 # <a name="use-the-azure-importexport-service-for-offline-copy-of-data-to-azure-data-lake-storage-gen1"></a>Gebruik de Azure Import/Export-service voor het offline kopiëren van gegevens naar Azure Data Lake Storage Gen1
 In dit artikel leert u hoe u wilt kopiëren van grote gegevenssets (> 200 GB) in Azure Data Lake Storage Gen1 met behulp van methoden voor offline-exemplaar, zoals de [Azure Import/Export-service](../storage/common/storage-import-export-service.md). Het bestand dat wordt gebruikt als voorbeeld in dit artikel is specifiek, 339,420,860,416 bytes of ongeveer 319 GB op schijf. Noemen we deze 319GB.tsv bestand.
@@ -52,7 +52,7 @@ Volg de instructies in [met behulp van de Azure Import/Export-service](../storag
 
 1. Aanschaffen van een harde schijf die voldoet aan de vereisten voor de Azure Import/Export-service moet worden gebruikt.
 2. Identificeer de Azure storage-account waar de gegevens worden gekopieerd nadat deze is verzonden naar de Azure-datacenter.
-3. Gebruik de [Azure Import/Export-hulpprogramma](http://go.microsoft.com/fwlink/?LinkID=301900&clcid=0x409), een opdrachtregelprogramma. Hier volgt een voorbeeld-codefragment dat laat zien hoe u het hulpprogramma te gebruiken.
+3. Gebruik de [Azure Import/Export-hulpprogramma](https://go.microsoft.com/fwlink/?LinkID=301900&clcid=0x409), een opdrachtregelprogramma. Hier volgt een voorbeeld-codefragment dat laat zien hoe u het hulpprogramma te gebruiken.
 
     ````
     WAImportExport PrepImport /sk:<StorageAccountKey> /t: <TargetDriveLetter> /format /encrypt /logdir:e:\myexportimportjob\logdir /j:e:\myexportimportjob\journal1.jrn /id:myexportimportjob /srcdir:F:\demo\ExImContainer /dstdir:importcontainer/vf1/

@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 2/1/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: 9b2f4dbf1e87aa5aa035bfd9071fed7be74a9c07
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 023674f05dda6c2da8edddb843277dd07a513162
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978984"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51244624"
 ---
 # <a name="use-the-ai-toolkit-for-azure-iot-edge"></a>Gebruik de AI-werkset voor Azure IoT Edge
 
@@ -27,4 +27,4 @@ Breng de kracht van kunstmatige intelligentie, machine learning en geavanceerde 
 
 De AI-werkset voor Azure IoT Edge is een verzameling van scripts, code en implementeerbare containers. Voorbeelden zijn onder meer Voorspellend onderhoud, classificatie van afbeeldingen, en spraakverwerking, evenals aangepaste modelimplementatie via Azure Machine Learning en Azure IoT Hub. Modellen die zijn opgenomen in de werkset kunnen worden gebruikt als-is, maar alle broncode en gegevens zijn beschikbaar voor ontwikkelaars om aan te passen op basis van hun behoeften.
 
-De AI-werkset voor Azure IoT Edge openbare GitHub-opslagplaats kunt u vinden op [aka.ms/AI-werkset](http://aka.ms/AI-toolkit).
+De AI-werkset voor Azure IoT Edge openbare GitHub-opslagplaats kunt u vinden op [aka.ms/AI-werkset](https://aka.ms/AI-toolkit).

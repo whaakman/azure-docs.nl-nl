@@ -4,16 +4,16 @@ description: Hierin wordt beschreven hoe resourcedefinitie beleid wordt gebruikt
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 10/30/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 0ff56b86243956d1fa6b51a6dfd14af9e00d8367
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: b5c7d0c6d54272518b19ffec0d8f02ebbcfe55d9
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212774"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283287"
 ---
 # <a name="azure-policy-definition-structure"></a>Structuur van Azure-beleidsdefinities
 
@@ -123,12 +123,12 @@ In de beleidsregel u verwijzen naar parameters met de volgende `parameters` impl
 
 ## <a name="definition-location"></a>Definitielocatie
 
-Tijdens het maken van een definitie van een beleid of initiatief, is het belangrijk dat u de locatie van de definitie opgeven.
+Tijdens het maken van een initiatief of het beleid, is het nodig zijn om de definitielocatie te geven. De locatie van de definitie moet een beheergroep of een abonnement en bepaalt u het bereik waarvoor de initiatief of het beleid kan worden toegewezen. Resources moet directe leden van of kinderen binnen de hiërarchie van de locatie van de definitie om de doelgroep voor het toewijzen van te zijn.
 
-De locatie van de definitie bepaalt het bereik waarvoor de definitie van het beleid of initiatief kan worden toegewezen aan. De locatie kan worden opgegeven als een beheergroep of een abonnement.
+Als de locatie van de definitie a:
 
-> [!NOTE]
-> Als u van plan bent om toe te passen deze beleidsdefinitie bij meerdere abonnementen, is de locatie moet een beheergroep met de abonnementen die u het initiatief of het beleid wilt toewijzen.
+- **Abonnement** - alleen de resources in dat abonnement aan het beleid kunnen worden toegewezen.
+- **Beheergroep** - alleen resources in de onderliggende beheergroepen en onderliggende abonnementen kunnen worden toegewezen op het beleid. Als u van plan bent om toe te passen van de beleidsdefinitie bij meerdere abonnementen, is de locatie moet een beheergroep met deze abonnementen.
 
 ## <a name="display-name-and-description"></a>Weergavenaam en beschrijving
 
@@ -146,7 +146,7 @@ In de **vervolgens** blok, definieert u het effect dat gebeurt er wanneer de **a
         <condition> | <logical operator>
     },
     "then": {
-        "effect": "deny | audit | append | auditIfNotExists | deployIfNotExists"
+        "effect": "deny | audit | append | auditIfNotExists | deployIfNotExists | disabled"
     }
 }
 ```
@@ -232,7 +232,8 @@ Beleid ondersteunt de volgende typen effect:
 - **Audit**: genereert een waarschuwingsgebeurtenis in het activiteitenlogboek, maar niet de aanvraag is mislukt
 - **Toevoeg-**: voegt de gedefinieerde set velden toe aan de aanvraag
 - **AuditIfNotExists**: kunt controleren als een resource niet bestaat
-- **DeployIfNotExists**: implementeert een resource als deze niet al bestaat.
+- **DeployIfNotExists**: implementeert een resource als deze niet al bestaat
+- **Uitgeschakelde**: resources voor naleving van de beleidsregel niet worden geëvalueerd
 
 Voor **append**, moet u de volgende gegevens opgeven:
 
@@ -247,6 +248,18 @@ Voor **append**, moet u de volgende gegevens opgeven:
 De waarde kan een tekenreeks of een JSON-indeling-object zijn.
 
 Met **AuditIfNotExists** en **DeployIfNotExists** kunt u het bestaan van een resource gerelateerde evalueren en toepassen van een regel en een bijbehorende effect wanneer deze resource niet bestaat. U kunt bijvoorbeeld vereisen dat een network watcher wordt geïmplementeerd voor alle virtuele netwerken. Zie voor een voorbeeld van de controle wanneer een VM-extensie niet is geïmplementeerd, [Audit als extensie is niet opgenomen](../samples/audit-ext-not-exist.md).
+
+De **DeployIfNotExists** effect vereist de **roleDefinitionId** eigenschap in de **details** gedeelte van de beleidsregel. Zie voor meer informatie, [herstel - beleidsdefinitie configureren](../how-to/remediate-resources.md#configure-policy-definition).
+
+```json
+"details": {
+    ...
+    "roleDefinitionIds": [
+        "/subscription/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/{roleGUID}",
+        "/providers/Microsoft.Authorization/roleDefinitions/{builtinroleGUID}"
+    ]
+}
+```
 
 Zie voor meer informatie over elk effect, de volgorde van de evaluatie, eigenschappen en voorbeelden, [Understanding beleid effecten](effects.md).
 

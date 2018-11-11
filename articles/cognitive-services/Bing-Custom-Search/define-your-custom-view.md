@@ -10,16 +10,16 @@ ms.component: bing-custom-search
 ms.topic: conceptual
 ms.date: 09/28/2017
 ms.author: v-brapel
-ms.openlocfilehash: a74e6a6a90a242d4d1b2fd71a5fc6cf949ea55cb
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 5e168608202f81f698221b52315de83e9713feab
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48815253"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282917"
 ---
 # <a name="configure-your-custom-search-experience"></a>Uw aangepaste zoekervaring configureren
 
-Een aangepaste zoekinstantie kunt u de zoekfunctie om op te nemen alleen inhoud van websites die uw gebruikers het belangrijkst aanpassen. In plaats van een zoekopdracht in het hele web uitvoert, doorzoekt Bing alleen het segment de status van de web-waarin u bent geïnteresseerd. Gebruik voor het maken van uw aangepaste weergave van de website de Bing Custom Search [portal](https://customsearch.ai). Zie voor meer informatie over het aanmelden bij de portal [maken van uw eerste exemplaar van de Bing Custom Search](https://docs.microsoft.com/azure/cognitive-services/bing-custom-search/quick-start). 
+Een aangepaste zoekinstantie kunt u de zoekfunctie om op te nemen alleen inhoud van websites die uw gebruikers het belangrijkst aanpassen. In plaats van een zoekopdracht in het hele web uitvoert, doorzoekt Bing alleen het segment de status van de web-waarin u bent geïnteresseerd. Als u een aangepaste weergave van het web wilt maken, gebruikt u de [portal](https://customsearch.ai) van Bing Aangepaste zoekopdrachten. Zie voor meer informatie over het aanmelden bij de portal [maken van uw eerste exemplaar van de Bing Custom Search](https://docs.microsoft.com/azure/cognitive-services/bing-custom-search/quick-start). 
 
 De portal kunt u een search-exemplaar dat Hiermee geeft u de domeinen, subpagina's en webpagina's die u wilt dat Bing om te zoeken naar en die u niet wilt dat deze om te zoeken naar maken. Naast het opgeven van de URL's van de inhoud die u kent, kunt u ook vragen suggestie voor inhoud die u mogelijk wilt toevoegen aan uw weergave in de portal. 
 
@@ -64,7 +64,7 @@ Op deze manier kunt u segmenten toevoegen aan de lijst met geblokkeerde (tenzij 
 
 ## <a name="pinned-list"></a>Lijst met vastgehouden
 
-De portal kunt u een specifieke webpagina aan het begin van het zoekresultaat vastmaken als de gebruiker een specifieke zoekterm invoert. De **vastgehouden** tabblad bevat een lijst met query term en webpagina-paren die de webpagina die wordt weergegeven als het beste resultaat voor een specifieke query opgeven. Zie voor meer informatie over het vastmaken van resultaten [positie aanpassen](#adjustrank).
+In de portal kunt u een specifieke webpagina vastmaken aan de bovenkant van de zoekresultaten voor wanneer de gebruiker een specifieke zoekterm invoert. De **vastgehouden** tabblad bevat een lijst met query term en webpagina-paren die de webpagina die wordt weergegeven als het beste resultaat voor een specifieke query opgeven. Bovendien wordt alleen geïndexeerde webpagina's worden weergegeven in zoekopdrachten. Zie voor meer informatie over het vastmaken van resultaten [positie aanpassen](#adjustrank). 
 
 Resultaten vast te maken is niet beschikbaar voor de afbeeldingen zoeken en optreedt in video's zoeken.
 
@@ -175,7 +175,7 @@ Als u geabonneerd op aangepaste zoekopdrachten op het juiste niveau (Zie de [pri
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Aanroepen van uw aangepaste zoekopdrachten](./search-your-custom-view.md)
-- [Configureren van uw gehoste gebruikersinterface-ervaring](./hosted-ui.md)
-- [Decoration markeringen gebruiken om te markeren van tekst](./hit-highlighting.md)
-- [Pagina webpagina 's](./page-webpages.md)
+- [Aangepaste zoekopdrachten aanroepen](./search-your-custom-view.md)
+- [Gehoste UI-ervaring configureren](./hosted-ui.md)
+- [Decoratiemarkeringen gebruiken om tekst te markeren](./hit-highlighting.md)
+- [Bladeren door webpagina's](./page-webpages.md)

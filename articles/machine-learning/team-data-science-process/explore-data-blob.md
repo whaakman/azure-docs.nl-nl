@@ -15,19 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: deguhath
-ms.openlocfilehash: b80fcecf28eaaf05e7fc199a9c318fd4148b9212
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.openlocfilehash: b617ae1a1df0ed220d03e0124aa9dafd9fc2388c
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46497855"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51345994"
 ---
 # <a name="explore-data-in-azure-blob-storage-with-pandas"></a>Gegevens verkennen in Azure blob-opslag met pandas
-Dit document wordt uitgelegd hoe u gegevens die zijn opgeslagen in Azure blob-container met verkennen [pandas](http://pandas.pydata.org/) Python-pakket.
 
-De volgende **menu** koppelingen naar onderwerpen waarin wordt beschreven hoe u hulpprogramma's gebruiken om gegevens te verkennen vanuit verschillende omgevingen voor opslag. Deze taak is een stap in de [Data Science Process](overview.md).
+In dit artikel wordt uitgelegd hoe u gegevens die zijn opgeslagen in Azure blob-container met verkennen [pandas](http://pandas.pydata.org/) Python-pakket.
 
-[!INCLUDE [cap-explore-data-selector](../../../includes/cap-explore-data-selector.md)]
+Deze taak is een stap in de [Team Data Science Process](overview.md).
 
 ## <a name="prerequisites"></a>Vereisten
 In dit artikel wordt ervan uitgegaan dat u hebt:

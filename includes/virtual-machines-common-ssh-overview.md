@@ -5,15 +5,15 @@ services: virtual-machines-linux
 author: dlepow
 ms.service: virtual-machines-linux
 ms.topic: include
-ms.date: 04/16/2018
+ms.date: 11/08/2018
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 0363b719e2587226282257e19e58e3c4e55c2219
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: cff3d7bfb89d5b03f986da32edc148efcfb7e7bd
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47454382"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51506302"
 ---
 ## <a name="overview-of-ssh-and-keys"></a>Overzicht van SSH en sleutels
 
@@ -21,7 +21,7 @@ SSH is een versleutelde verbinding-protocol waarmee veilige aanmeldingen via nie
 
 * De *openbare sleutel* op uw Linux-VM of een andere service die u wilt gebruiken met openbare-sleutelcryptografie is geplaatst.
 
-* De *privésleutel* biedt u voor uw Linux-VM wanneer u een SSH-verbinding om uw identiteit te verifiëren. Houd deze privésleutel geheim. Deel deze niet.
+* De *privésleutel* op uw lokale systeem wordt gebruikt door een SSH-client voor uw identiteit te verifiëren wanneer u verbinding met uw Linux-VM maakt. Houd deze privésleutel geheim. Deel deze niet.
 
 Afhankelijk van het beveiligingsbeleid van uw organisatie, kunt u een enkel openbaar / persoonlijk sleutelpaar voor toegang tot meerdere Azure-VM's en services opnieuw gebruiken. U hoeft niet een afzonderlijke combinatie van sleutel voor elke virtuele machine of service die u wilt openen. 
 

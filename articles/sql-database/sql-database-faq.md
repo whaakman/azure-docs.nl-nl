@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/22/2018
-ms.openlocfilehash: 7bb692735cb3541fb05b2c39dd7325fa74a00034
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: c9b343bba59776ca735fa5c2cbddf03ec5c92b47
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232202"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242820"
 ---
 # <a name="sql-database-frequently-asked-questions-faq"></a>Veelgestelde vragen (FAQ) SQL-Database
 
@@ -27,7 +27,7 @@ De huidige versie van SQL Database is V12. Versie V11 buiten gebruik gesteld.
 
 ## <a name="what-is-the-sla-for-sql-database"></a>Wat is de SLA voor SQL-Database
 
-Wij garanderen ten minste 99,99% van de tijd, krijgt u connectiviteit tussen uw Microsoft Azure SQL Database en onze Internet-gateway, ongeacht uw servicelaag. 0,01% is gereserveerd voor patches en upgrades failovers. Zie voor meer informatie, [SLA](http://azure.microsoft.com/support/legal/sla/). Zie voor meer informatie over de architectuur van de beschikbaarheid van Azure SQL Database [hoge beschikbaarheid en Azure SQL Database](sql-database-high-availability.md).
+Wij garanderen ten minste 99,99% van de tijd, krijgt u connectiviteit tussen uw Microsoft Azure SQL Database en onze Internet-gateway, ongeacht uw servicelaag. 0,01% is gereserveerd voor patches en upgrades failovers. Zie voor meer informatie, [SLA](https://azure.microsoft.com/support/legal/sla/). Zie voor meer informatie over de architectuur van de beschikbaarheid van Azure SQL Database [hoge beschikbaarheid en Azure SQL Database](sql-database-high-availability.md).
 
 ## <a name="can-i-control-when-patching-downtime-occurs"></a>Ik kan bepalen wanneer patches downtime plaatsvindt
 

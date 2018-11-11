@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 5c16f06d0cc031cd9b51a3c6cf0beb149a19aeb4
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 9cf37e611dce5705a4c866f25afa59e5c1602ec4
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39001436"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282200"
 ---
 # <a name="certificates-overview-for-azure-cloud-services"></a>Overzicht van certificaten voor Azure Cloud Services
 Certificaten worden gebruikt in Azure cloud Services ([service-certificaten](#what-are-service-certificates)) en om te verifiëren bij de beheer-API ([beheercertificaten](#what-are-management-certificates)). In dit onderwerp biedt een algemeen overzicht van beide typen certificaten hoe naar [maken](#create) en [implementeren](#deploy) ze naar Azure.
@@ -27,6 +27,9 @@ Certificaten worden gebruikt in Azure cloud Services ([service-certificaten](#wh
 Certificaten die worden gebruikt in Azure zijn x.509 v3-certificaten en kunnen worden ondertekend door een andere vertrouwde certificaat of ze zijn zelf-ondertekend. Een zelfondertekend certificaat is ondertekend door de maker van een eigen, dus deze wordt niet vertrouwd standaard. De meeste browsers kunnen dit probleem te negeren. U moet alleen zelfondertekende certificaten bij het ontwikkelen en testen van uw cloudservices gebruiken. 
 
 Certificaten die worden gebruikt door Azure kunnen bevatten een particuliere of openbare sleutel. Certificaten hebben een vingerafdruk die biedt een manier om ze te identificeren op ondubbelzinnige wijze. Deze vingerafdruk wordt gebruikt in de Azure [configuratiebestand](cloud-services-configure-ssl-certificate-portal.md) om te bepalen welk certificaat een cloudservice moeten gebruiken. 
+
+>[!Note]
+>Azure Cloud Services accepteert geen AES256 SHA256 gecodeerde certificaat.
 
 ## <a name="what-are-service-certificates"></a>Wat zijn service-certificaten?
 Service-certificaten zijn gekoppeld aan cloud services en inschakelen van beveiligde communicatie naar en van de service. Als u een Webrol hebt geïmplementeerd, wilt u wilt opgeven van een certificaat met een daarvoor beschikbare HTTPS-eindpunt kan worden geverifieerd. Service-certificaten, gedefinieerd in de servicedefinitie van uw, worden automatisch geïmplementeerd op de virtuele machine waarop een exemplaar van uw rol is. 

@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 99e0b22b663f6edab9646111b390186a6f89a90f
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 1521bba188fcd7d8bade88196fe687929f414f93
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47035178"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283509"
 ---
 # <a name="tutorial-6-group-and-extract-related-data"></a>Zelfstudie 6: Groeperen en gerelateerde gegevens ophalen
 In deze zelfstudie voegt u een samengestelde entiteit die u wilt de opgehaalde gegevens van verschillende typen in een enkele containerentiteit bundelen. De clienttoepassing kan door de gegevens bundeling, gerelateerde gegevens in verschillende gegevenstypen eenvoudig extraheren.
@@ -26,13 +26,13 @@ De samengestelde entiteit is geschikt voor dit type gegevens omdat de gegevens:
 
 * Aan elkaar zijn gerelateerd. 
 * Verschillende Entiteitstypen gebruiken.
-* Moet worden gegroepeerd en verwerkt door de client-app als een eenheid met gegevens.
+* Moet als eenheid informatie worden gegroepeerd en verwerkt door de client-app.
 
-**In deze zelfstudie leert u hoe u:**
+**In deze zelfstudie leert u het volgende:**
 
 <!-- green checkmark -->
 > [!div class="checklist"]
-> * Gebruik bestaande zelfstudie-app
+> * Bestaande zelfstudie-app gebruiken
 > * Een samengestelde entiteit toevoegen 
 > * Trainen
 > * Publiceren
@@ -40,16 +40,16 @@ De samengestelde entiteit is geschikt voor dit type gegevens omdat de gegevens:
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## <a name="use-existing-app"></a>Gebruik bestaande app
-Ga door met de app hebt gemaakt in de laatste zelfstudie, met de naam **Personeelszaken**. 
+## <a name="use-existing-app"></a>Bestaande app gebruiken
+Ga door met de in de laatste zelfstudie gemaakt app, **Human Resources**. 
 
-Als u de app Personeelszaken uit de vorige zelfstudie hebt, gebruikt u de volgende stappen uit:
+Als u niet over de app Human Resources uit de vorige zelfstudie beschikt, voert u de volgende stappen uit:
 
-1.  Download en sla [app JSON-bestand](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-hier-HumanResources.json).
+1.  Download het [JSON-bestand van de app](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-hier-HumanResources.json) en sla het op.
 
-2. De JSON importeren in een nieuwe app.
+2. Importeer de JSON in een nieuwe app.
 
-3. Uit de **beheren** sectie, op de **versies** tabblad en noem het klonen van de versie `composite`. Klonen is een uitstekende manier om te experimenteren met verschillende functies van LUIS zonder dat de oorspronkelijke versie wordt gewijzigd. Omdat de versienaam van de wordt gebruikt als onderdeel van de URL-route, kan niet de naam van de tekens die niet toegestaan in een URL zijn bevatten.
+3. Ga naar het gedeelte **Beheren**, open het tabblad **Versies**, kloon de versie en noem deze `composite`. Klonen is een uitstekende manier om te experimenteren met verschillende functies van LUIS zonder dat de oorspronkelijke versie wordt gewijzigd. Omdat de versienaam wordt gebruikt als onderdeel van de URL-route, kan de naam geen tekens bevatten die niet zijn toegestaan in een URL.
 
 
 ## <a name="composite-entity"></a>Samengestelde entiteit
@@ -97,7 +97,7 @@ De opgehaalde gegevens van het eindpunt moet deze gegevens bevatten en terug in 
 ]
 ```
 
-1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Op de **Intents** weergeeft, schakelt **MoveEmployee** intentie. 
 
@@ -153,7 +153,7 @@ De opgehaalde gegevens van het eindpunt moet deze gegevens bevatten en terug in 
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## <a name="get-intent-and-entities-from-endpoint"></a>Doel en entiteiten ophalen van eindpunt 
+## <a name="get-intent-and-entities-from-endpoint"></a>Intenties en entiteiten ophalen van eindpunt 
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 

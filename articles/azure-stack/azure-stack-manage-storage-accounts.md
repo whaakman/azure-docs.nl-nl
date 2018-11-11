@@ -14,12 +14,12 @@ ms.topic: get-started-article
 ms.date: 09/28/2018
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 35c15613192ac12a7d4c64cbe28f62200724d311
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: af7500d6bf12ef34e6919aa255185a87525310b3
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452272"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240712"
 ---
 # <a name="manage-storage-accounts-in-azure-stack"></a>Storage-accounts in Azure Stack beheren
 Informatie over het beheren van storage-accounts in Azure Stack om te zoeken, herstellen en het vrijmaken van opslagcapaciteit op basis van bedrijfsbehoeften.
@@ -136,8 +136,8 @@ U kunt ook PowerShell gebruiken om op te heffen expliciet de bewaarperiode en on
 **Capaciteit vrij te maken met behulp van PowerShell:**   
 
 1. Bevestig dat u hebt Azure PowerShell is geïnstalleerd en geconfigureerd. Als dat niet het geval is, gebruik de volgende instructies: 
-   * Zie voor de meest recente versie van Azure PowerShell installeren en deze koppelen aan uw Azure-abonnement, [hoe u Azure PowerShell installeren en configureren](http://azure.microsoft.com/documentation/articles/powershell-install-configure/).
-   Zie voor meer informatie over Azure Resource Manager-cmdlets, [met behulp van Azure PowerShell met Azure Resource Manager](http://go.microsoft.com/fwlink/?LinkId=394767)
+   * Zie voor de meest recente versie van Azure PowerShell installeren en deze koppelen aan uw Azure-abonnement, [hoe u Azure PowerShell installeren en configureren](https://azure.microsoft.com/documentation/articles/powershell-install-configure/).
+   Zie voor meer informatie over Azure Resource Manager-cmdlets, [met behulp van Azure PowerShell met Azure Resource Manager](https://go.microsoft.com/fwlink/?LinkId=394767)
 2. Voer de volgende cmdlets:
 
 > [!NOTE]  

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: raynew
-ms.openlocfilehash: 06169ff8e084882eb9a2dbe71c89c3b2a40b384b
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 4dac0ed85500e4339f6389f05113dfd68b72c5ff
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50214083"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51244335"
 ---
 # <a name="remove-servers-and-disable-protection"></a>Servers verwijderen en beveiliging uitschakelen
 
@@ -34,7 +34,7 @@ Als u virtuele VMware-machines of fysieke Windows/Linux-servers naar Azure repli
 3. Houd er rekening mee de ID van de VMM-server.
 4. Maak replicatiebeleid voor van clouds op de VMM-server die u wilt verwijderen.  In **Site Recovery-infrastructuur** > **voor System Center VMM** >  **replicatiebeleid**, dubbelklik op het bijbehorende beleid. Met de rechtermuisknop op de cloud > **koppeling verbreken**.
 5. Verwijder de VMM-server of het actieve knooppunt. In **Site Recovery-infrastructuur** > **voor System Center VMM** > **VMM-Servers**, met de rechtermuisknop op de server > **verwijderen** .
-6. Als de VMM-server zich in een niet-verbonden status, downloadt en voert u de [script voor opschoning](http://aka.ms/asr-cleanup-script-vmm) op de VMM-server. Open PowerShell met de **als Administrator uitvoeren** optie, voor het wijzigen van het uitvoeringsbeleid voor het bereik van standaard (LocalMachine /). Geef de ID van de VMM-server die u wilt verwijderen in het script. Het script Hiermee verwijdert u de registratie en cloudkoppeling bij van de server.
+6. Als de VMM-server zich in een niet-verbonden status, downloadt en voert u de [script voor opschoning](https://aka.ms/asr-cleanup-script-vmm) op de VMM-server. Open PowerShell met de **als Administrator uitvoeren** optie, voor het wijzigen van het uitvoeringsbeleid voor het bereik van standaard (LocalMachine /). Geef de ID van de VMM-server die u wilt verwijderen in het script. Het script Hiermee verwijdert u de registratie en cloudkoppeling bij van de server.
 5. Het script voor opschoning uitvoeren op een secundaire VMM-server.
 6. Het script voor opschoning uitvoeren op een andere passieve VMM-clusterknooppunten die de Provider geïnstalleerd hebben.
 7. De Provider op de VMM-server handmatig verwijderen. Als u een cluster hebt, verwijderen van alle knooppunten.

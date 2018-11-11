@@ -10,16 +10,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/28/2018
 ms.author: lbosq
-ms.openlocfilehash: bf91ec77f8d7248c6fa2047636f295c187f626c8
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 7e9de68866b5e5849d0e48ad5073fc7b89fbb1ca
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078219"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51239301"
 ---
 # <a name="using-a-partitioned-graph-in-azure-cosmos-db"></a>Met behulp van een gepartitioneerde grafiek in Azure Cosmos DB
 
-Een van de belangrijkste functies van de Gremlin-API in Azure Cosmos DB is de mogelijkheid om grootschalige grafieken via horizontale schaalbaarheid. Dit proces wordt bereikt door de [mogelijkheden in Azure Cosmos DB partitioneren](partition-data.md#how-does-partitioning-work), waardoor het gebruik van containers, die onafhankelijk in de opslag en doorvoer schalen kunnen. Azure Cosmos DB ondersteunt de volgende typen containers voor alle API's:
+Een van de belangrijkste functies van de Gremlin-API in Azure Cosmos DB is de mogelijkheid om grootschalige grafieken via horizontale schaalbaarheid. Dit proces wordt bereikt door de [mogelijkheden in Azure Cosmos DB partitioneren](partition-data.md), waardoor het gebruik van containers, die onafhankelijk in de opslag en doorvoer schalen kunnen. Azure Cosmos DB ondersteunt de volgende typen containers voor alle API's:
 
 - **Vaste container**: deze containers een grafiek kunnen opslaan in grootte met een maximum van 10.000 aanvraageenheden per seconde dat is toegewezen maximaal 10 GB-database. Voor het maken van een vaste container is het niet nodig om op te geven van een belangrijke eigenschap van de partitie in de gegevens.
 

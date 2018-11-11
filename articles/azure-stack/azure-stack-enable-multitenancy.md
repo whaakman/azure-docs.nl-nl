@@ -11,14 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2018
+ms.date: 11/6/2018
 ms.author: patricka
-ms.openlocfilehash: a1c516ebbeb33d2aa92f6a0e3031a2b2d9fb4e9c
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.reviewer: bryanr
+ms.openlocfilehash: fbf62e53ffe3fc3540086137955417bec56e7825
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50026157"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240168"
 ---
 # <a name="multi-tenancy-in-azure-stack"></a>Multitenancy in Azure Stack
 
@@ -26,9 +27,9 @@ ms.locfileid: "50026157"
 
 U kunt Azure Stack ter ondersteuning van gebruikers van meerdere tenants van Azure Active Directory (Azure AD) om services te gebruiken in Azure Stack kunt configureren. Neem bijvoorbeeld het volgende scenario:
 
- - U bent de Service-beheerder van contoso.onmicrosoft.com, waarin Azure Stack is geïnstalleerd.
- - Mary is de Directory-beheerder van fabrikam.onmicrosoft.com, waar gastgebruikers ook kunnen zich bevinden. 
- - Koos het bedrijf ontvangt IaaS en PaaS-services van uw bedrijf en moet toestaan dat gebruikers van de Gast-map (fabrikam.onmicrosoft.com) om te melden en Azure Stack-resources gebruiken in contoso.onmicrosoft.com.
+- U kunt de Service-beheerder van contoso.onmicrosoft.com, waarin Azure Stack is geïnstalleerd.
+- Mary is de Directory-beheerder van fabrikam.onmicrosoft.com, waar gastgebruikers ook kunnen zich bevinden.
+- Koos het bedrijf ontvangt IaaS en PaaS-services van uw bedrijf en moet toestaan dat gebruikers van de Gast-map (fabrikam.onmicrosoft.com) om te melden en Azure Stack-resources gebruiken in contoso.onmicrosoft.com.
 
 Deze handleiding bevat de stappen die nodig zijn, in de context van dit scenario multitenancy configureren in Azure Stack. In dit scenario, moet u en Mary stappen voor het inschakelen van gebruikers van Fabrikam aanmelden en-services uit de Azure Stack-implementatie in Contoso gebruiken voltooien.  
 
@@ -50,6 +51,8 @@ Er zijn enkele vereisten ter compensatie van voordat u multitenancy in Azure Sta
 In deze sectie configureert u Azure Stack-aanmeldingen dat van Fabrikam Azure AD directory-tenants.
 
 Onboard de Gast Directory-Tenant (Fabrikam) naar Azure Stack door het configureren van Azure Resource Manager om te accepteren van gebruikers en service-principals van de Gast directory-tenant.
+
+De Service-beheerder van contoso.onmicrosoft.com wordt uitgevoerd de volgende opdrachten.
 
 ````PowerShell  
 ## The following Azure Resource Manager endpoint is for the ASDK. If you are in a multinode environment, contact your operator or service provider to get the endpoint.
@@ -76,11 +79,11 @@ Register-AzSGuestDirectoryTenant -AdminResourceManagerEndpoint $adminARMEndpoint
 
 ### <a name="configure-guest-directory"></a>Gastenlijst configureren
 
-Nadat u de stappen in de Azure Stack-map, moet de Mary toestemming geven met Azure Stack toegang tot de Gast-directory en de Azure Stack registreren bij de Gast-map. 
+Zodra de beheerder van de Azure Stack / operator de Fabrikam-map moet worden gebruikt met Azure Stack is ingeschakeld, koos Azure Stack met directory-tenant van Fabrikam moet registreren.
 
 #### <a name="registering-azure-stack-with-the-guest-directory"></a>Azure Stack registreren met de Gast-map
 
-Nadat de Gast directory-beheerder toestemming voor Azure Stack voor toegang tot de map van Fabrikam gegeven heeft, moet koos Azure Stack registreren bij Fabrikam van directory-tenant.
+De Directory-beheerder van Fabrikam Mary wordt uitgevoerd de volgende opdrachten in de Gast directory fabrikam.onmicrosoft.com.
 
 ````PowerShell
 ## The following Azure Resource Manager endpoint is for the ASDK. If you are in a multinode environment, contact your operator or service provider to get the endpoint.
@@ -99,14 +102,14 @@ Register-AzSWithMyDirectoryTenant `
 > Als uw Azure Stack-beheerder in de toekomst nieuwe services of updates installeert, moet u mogelijk met dit script opnieuw uitvoeren.
 >
 > Voer dit script opnieuw uit op elk gewenst moment om te controleren of de status van de Azure Stack-toepassingen in uw directory.
-> 
+>
 > Als u problemen met het maken van virtuele machines in Managed Disks (geïntroduceerd bij de update 1808), een nieuwe opgevallen **schijf Resource Provider** is toegevoegd, die met dit script opnieuw te worden uitgevoerd.
 
 ### <a name="direct-users-to-sign-in"></a>Directe gebruikers zich aanmelden
 
 Nu dat u en Mary de stappen voor onboarding Mary directory hebt voltooid, kan Fabrikam gebruikers zich aanmelden door Mary sturen.  Fabrikam-gebruikers (dat wil zeggen, de gebruikers met het achtervoegsel fabrikam.onmicrosoft.com) zich aanmelden door naar de pagina https://portal.local.azurestack.external.  
 
-Mary leidt een [externe principals](../role-based-access-control/rbac-and-directory-admin-roles.md) in de map Fabrikam (dat wil zeggen, de gebruikers in de map Fabrikam zonder het achtervoegsel van fabrikam.onmicrosoft.com) aan te melden met https://portal.local.azurestack.external/fabrikam.onmicrosoft.com.  Als ze niet van deze URL gebruikmaken, ze worden verzonden naar de standaardmap (Fabrikam) en een foutbericht weergegeven dat de beheerder heeft niet toegestaan.
+Mary leidt een [externe principals](../role-based-access-control/rbac-and-directory-admin-roles.md) in de map Fabrikam (dat wil zeggen, de gebruikers in de map Fabrikam zonder het achtervoegsel van fabrikam.onmicrosoft.com) aan te melden met https://portal.local.azurestack.external/fabrikam.onmicrosoft.com.  Als ze deze URL niet gebruikt, ze worden verzonden naar de standaardmap (Fabrikam) en een foutbericht weergegeven dat de beheerder nog niet is toegestaan.
 
 ## <a name="disable-multi-tenancy"></a>Multitenancy uitschakelen
 

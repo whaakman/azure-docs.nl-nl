@@ -8,12 +8,12 @@ ms.author: grhuynh
 ms.service: genomics
 ms.topic: quickstart
 ms.date: 12/07/2017
-ms.openlocfilehash: b8afaf9675dfac29449769e1f2ab323417376897
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 152aa51c6dee12216dc9e5fac70f43f638c2c8da
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50026208"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242854"
 ---
 # <a name="quickstart-run-a-workflow-through-the-microsoft-genomics-service"></a>Snelstartgids: een werkstroom uitvoeren via de service Microsoft Genomics
 
@@ -177,4 +177,4 @@ Nadat de werkstroom is voltooid, kunt u de uitvoerbestanden weergeven in uw Azur
 
 
 ## <a name="next-steps"></a>Volgende stappen
-In dit artikel hebt u voorbeeldinvoergegevens geüpload naar Azure Storage, en een werkstroom verzonden naar de Microsoft Genomics-service via de Python-client voor `msgen`. Ga voor meer informatie over andere invoerbestandstypen die kunnen worden gebruikt met de Microsoft Genomics-service naar de volgende pagina's: [paired FASTQ](quickstart-input-pair-FASTQ.md) | [BAM](quickstart-input-BAM.md) | [Multiple FASTQ or BAM](quickstart-input-multiple.md) (gekoppelde FASTQ/BAM/Meerdere FASTQ of BAM). U kunt ook deze zelfstudie lezen met behulp van de [Azure notebook tutorial](http://aka.ms/genomicsnotebook) (Zelfstudie in Azure-notitieblokken).
+In dit artikel hebt u voorbeeldinvoergegevens geüpload naar Azure Storage, en een werkstroom verzonden naar de Microsoft Genomics-service via de Python-client voor `msgen`. Ga voor meer informatie over andere invoerbestandstypen die kunnen worden gebruikt met de Microsoft Genomics-service naar de volgende pagina's: [paired FASTQ](quickstart-input-pair-FASTQ.md) | [BAM](quickstart-input-BAM.md) | [Multiple FASTQ or BAM](quickstart-input-multiple.md) (gekoppelde FASTQ/BAM/Meerdere FASTQ of BAM). U kunt ook deze zelfstudie lezen met behulp van de [Azure notebook tutorial](https://aka.ms/genomicsnotebook) (Zelfstudie in Azure-notitieblokken).

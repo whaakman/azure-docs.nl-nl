@@ -10,12 +10,12 @@ ms.component: academic-knowledge
 ms.topic: overview
 ms.date: 10/30/2018
 ms.author: darrine
-ms.openlocfilehash: aa945eb8f0b79a6b0760650bd34dba55d80ef3a4
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 02675b8cdc8c509764b20893bde54b50bec74a50
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50240355"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242140"
 ---
 # <a name="academic-knowledge-api"></a>Academic Knowledge-API
 
@@ -23,7 +23,7 @@ Welkom bij de Academic Knowledge-API. Met deze service kunt u query’s van gebr
 
 De MAG-gegevens worden afgeleid van de Bing-webindex en van een interne kennisbank van Bing. Als resultaat van de continue indexering door Bing, levert deze API altijd actuele informatie van internet na detectie en indexering door Bing. Op basis van deze gegevensset maken de Academic Knowledge-API's een kennisgedreven, interactieve dialoog mogelijk waarin reactief zoeken naadloos wordt gecombineerd met proactieve suggesties, waardevolle zoekresultaten uit de graaf met onderzoeksverslagen en histogramdistributies van de attribuutwaarden voor een set documenten en gerelateerde entiteiten.
 
-Zie [http://aka.ms/academicgraph](http://aka.ms/academicgraph) voor meer informatie over de Microsoft Academic Graph.
+Zie [http://aka.ms/academicgraph](https://aka.ms/academicgraph) voor meer informatie over de Microsoft Academic Graph.
 
 De Academic Knowledge-API is verplaatst van Cognitive Services Preview naar Cognitive Services Labs. De nieuwe startpagina voor het project is [https://labs.cognitive.microsoft.com/en-us/project-academic-knowledge](https://labs.cognitive.microsoft.com/en-us/project-academic-knowledge). Uw bestaande API-sleutel blijft werken tot 24 mei 2018. Na deze datum moet u een nieuwe API-sleutel genereren. De betaalde preview-versie is niet meer beschikbaar wanneer uw bestaande sleutel is verlopen. Neem contact op met ons team als de gratis laag van de API niet toereikend is voor uw doeleinden. 
 

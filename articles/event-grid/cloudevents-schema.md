@@ -6,24 +6,26 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 07/13/2018
+ms.date: 11/07/2018
 ms.author: babanisa
-ms.openlocfilehash: 4f1f0e95ae74ef41ed91be55f4c964671e8f723b
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 3865a94192a65a2cb8a761cc1da30317f605548b
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39044546"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51287197"
 ---
 # <a name="use-cloudevents-schema-with-event-grid"></a>Gebruik een CloudEvents-schema met Event Grid
 
-Naast de [gebeurtenisschema in het standaard](event-schema.md), gebeurtenissen in systeemeigen ondersteuning biedt voor Azure Event Grid de [CloudEvents JSON-schema](https://github.com/cloudevents/spec/blob/master/json-format.md). [Een CloudEvents](http://cloudevents.io/) is een [open standaard-specificatie](https://github.com/cloudevents/spec/blob/master/spec.md) voor het beschrijven van gebeurtenisgegevens in een veelgebruikte manier.
+Naast de [gebeurtenisschema in het standaard](event-schema.md), gebeurtenissen in systeemeigen ondersteuning biedt voor Azure Event Grid de [CloudEvents JSON-schema](https://github.com/cloudevents/spec/blob/master/json-format.md). [Een CloudEvents](http://cloudevents.io/) is een [open specificatie](https://github.com/cloudevents/spec/blob/master/spec.md) voor het beschrijven van gebeurtenisgegevens.
 
 Een CloudEvents vereenvoudigt interoperabiliteit door te geven van een gemeenschappelijk gebeurtenisschema voor het publiceren en gebruiken van cloud op basis van gebeurtenissen. Dit schema kunt u uniform tooling standard manieren van Routering en verwerken van gebeurtenissen en universele manieren om bij het deserialiseren van de buitenste gebeurtenisschema. U kunt werken eenvoudiger verschillende platforms integreren met een gemeenschappelijk schema.
 
 Een CloudEvents wordt build door verschillende [samenwerkers](https://github.com/cloudevents/spec/blob/master/community/contributors.md), waaronder Microsoft, via de [Cloud Native Compute Foundation](https://www.cncf.io/). Het is momenteel beschikbaar als versie 0.1.
 
 In dit artikel wordt beschreven hoe u een CloudEvents-schema met Event Grid gebruiken.
+
+## <a name="install-preview-feature"></a>Preview-functie installeren
 
 [!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
 
@@ -65,7 +67,7 @@ Een CloudEvents v0.1 heeft de volgende eigenschappen beschikbaar:
 | cloudEventsVersion | Reeks   | "0.1"                            | De versie van de specificatie van een CloudEvents die maakt gebruik van de gebeurtenis        | *doorgegeven*
 | source             | URI      | "/ mycontext"                     | Beschrijving van de gebeurtenisproducent                                       | onderwerp #subject
 | gebeurtenis-id            | Reeks   | '1234-1234-1234'                 | ID van de gebeurtenis                                                    | id
-| eventTime          | Timestamp| "2018-04-05T17:31:00Z"           | Timestamp van wanneer de gebeurtenis heeft plaatsgevonden (optioneel)                    | eventTime
+| eventTime          | Tijdstempel| "2018-04-05T17:31:00Z"           | Timestamp van wanneer de gebeurtenis heeft plaatsgevonden (optioneel)                    | eventTime
 | schemaURL          | URI      | "https://myschema.com"           | Een koppeling naar het schema dat het kenmerk heeft (optioneel) | *niet gebruikt*
 | contentType        | Reeks   | 'application/json'               | Beschrijf de coderingsindeling van de gegevens (optioneel)                       | *niet gebruikt*
 | Extensies         | Kaart      | {"extra": "vA", "extB", "vB"}  | Alle aanvullende metagegevens (optioneel)                                 | *niet gebruikt*
@@ -73,7 +75,7 @@ Een CloudEvents v0.1 heeft de volgende eigenschappen beschikbaar:
 
 Zie voor meer informatie de [een CloudEvents-specificatie](https://github.com/cloudevents/spec/blob/master/spec.md#context-attributes).
 
-De waarden van de headers voor gebeurtenissen die worden geleverd in de een CloudEvents-schema en het Event Grid-schema zijn hetzelfde, met uitzondering van `content-type`. Voor een CloudEvents-schema dat headerwaarde is `"content-type":"application/cloudevents+json; charset=utf-8"`. Voor Event Grid-schema, dat headerwaarde is `"content-type":"application/json; charset=utf-8"`.
+De waarden van de headers voor gebeurtenissen die worden geleverd in de een CloudEvents-schema en het Event Grid-schema zijn hetzelfde, behalve voor `content-type`. Voor een CloudEvents-schema dat headerwaarde is `"content-type":"application/cloudevents+json; charset=utf-8"`. Voor Event Grid-schema, dat headerwaarde is `"content-type":"application/json; charset=utf-8"`.
 
 ## <a name="configure-event-grid-for-cloudevents"></a>Event Grid voor een CloudEvents configureren
 
@@ -91,12 +93,12 @@ Voor alle gebeurtenis schema's, wordt in Event Grid validatie vereist bij het pu
 
 ### <a name="input-schema"></a>Invoer schema
 
-Om het invoerschema op een aangepast onderwerp op een CloudEvents, gebruikt u de volgende parameter in de Azure CLI bij het maken van uw aangepaste onderwerp `--input-schema cloudeventv01schema`. Het aangepaste onderwerp dat nu wordt verwacht dat binnenkomende gebeurtenissen in een CloudEvents v0.1-indeling.
+U kunt de invoer-schema voor een aangepast onderwerp instellen bij het maken van het aangepaste onderwerp.
 
-Gebruik het volgende voor het maken van een event grid-onderwerp:
+Gebruik voor Azure CLI:
 
-```azurecli
-# if you have not already installed the extension, do it now.
+```azurecli-interactive
+# If you have not already installed the extension, do it now.
 # This extension is required for preview features.
 az extension add --name eventgrid
 
@@ -107,24 +109,50 @@ az eventgrid topic create \
   --input-schema cloudeventv01schema
 ```
 
+Gebruik voor PowerShell:
+
+```azurepowershell-interactive
+# If you have not already installed the module, do it now.
+# This module is required for preview features.
+Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery
+
+New-AzureRmEventGridTopic `
+  -ResourceGroupName gridResourceGroup `
+  -Location westcentralus `
+  -Name <topic_name> `
+  -InputSchema CloudEventV01Schema
+```
+
 De huidige versie van een CloudEvents biedt geen ondersteuning voor batchverwerking van gebeurtenissen. Voor het publiceren van gebeurtenissen met CloudEvent schema naar een onderwerp, elke gebeurtenis afzonderlijk te publiceren.
 
 ### <a name="output-schema"></a>Uitvoerschema
 
-Om in te stellen het uitvoerschema op een gebeurtenisabonnement op een CloudEvents, gebruikt u de volgende parameter in de Azure CLI bij het maken van het gebeurtenisabonnement `--event-delivery-schema cloudeventv01schema`. Gebeurtenissen voor dit gebeurtenisabonnement worden nu in een CloudEvents v0.1 indeling worden geleverd.
+U stelt het uitvoerschema wanneer u het gebeurtenisabonnement maken.
 
-Gebruik het volgende voor het maken van een gebeurtenisabonnement:
+Gebruik voor Azure CLI:
 
-```azurecli
+```azurecli-interactive
+topicID=$(az eventgrid topic show --name <topic-name> -g gridResourceGroup --query id --output tsv)
+
 az eventgrid event-subscription create \
   --name <event_subscription_name> \
-  --topic-name <topic_name> \
-  -g gridResourceGroup \
+  --source-resource-id $topicID \
   --endpoint <endpoint_URL> \
   --event-delivery-schema cloudeventv01schema
 ```
 
-De huidige versie van de een CloudEvents biedt geen ondersteuning voor batchverwerking van gebeurtenissen. Een gebeurtenisabonnement die geconfigureerd voor het schema CloudEvent ontvangt afzonderlijk elke gebeurtenis. Op dit moment kunt u een Event Grid-trigger voor een Azure Functions-app wanneer de gebeurtenis wordt geleverd in de een CloudEvents-schema. U moet een HTTP-trigger. Zie voor meer voorbeelden van de implementatie van een HTTP-trigger die ontvangt gebeurtenissen in het schema een CloudEvents [een HTTP-trigger gebruiken als een trigger Gebeurtenisraster](../azure-functions/functions-bindings-event-grid.md#use-an-http-trigger-as-an-event-grid-trigger).
+Gebruik voor PowerShell:
+```azurepowershell-interactive
+$topicid = (Get-AzureRmEventGridTopic -ResourceGroupName gridResourceGroup -Name <topic-name>).Id
+
+New-AzureRmEventGridSubscription `
+  -ResourceId $topicid `
+  -EventSubscriptionName <event_subscription_name> `
+  -Endpoint <endpoint_URL> `
+  -DeliverySchema CloudEventV01Schema
+```
+
+De huidige versie van de een CloudEvents biedt geen ondersteuning voor batchverwerking van gebeurtenissen. Een gebeurtenisabonnement die geconfigureerd voor het schema CloudEvent ontvangt afzonderlijk elke gebeurtenis. Op dit moment kunt u een Event Grid-trigger voor een Azure Functions-app wanneer de gebeurtenis wordt geleverd in de een CloudEvents-schema. Gebruik een HTTP-trigger. Zie voor meer voorbeelden van de implementatie van een HTTP-trigger die ontvangt gebeurtenissen in het schema een CloudEvents [een HTTP-trigger gebruiken als een trigger Gebeurtenisraster](../azure-functions/functions-bindings-event-grid.md#use-an-http-trigger-as-an-event-grid-trigger).
 
 ## <a name="next-steps"></a>Volgende stappen
 

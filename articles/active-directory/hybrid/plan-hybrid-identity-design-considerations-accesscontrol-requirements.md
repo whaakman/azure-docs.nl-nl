@@ -16,12 +16,12 @@ ms.date: 05/30/2018
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 8a40acda189507c1589373a48166ed1668e30650
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: a92d3237300fcd29fecf49d78b2866f8bd7e6a6b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46313661"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247701"
 ---
 # <a name="determine-access-control-requirements-for-your-hybrid-identity-solution"></a>Vereisten voor toegangsbeheer voor uw oplossing voor hybride identiteit bepalen
 Wanneer een organisatie hun hybride identiteitsoplossing ontwerpt, kunnen ze deze kans ook gebruiken om te controleren van vereisten voor gegevenstoegang voor de resources die ze van plan bent om het beschikbaar maken voor gebruikers. De toegang tot de cross-alle vier pijlers van identiteit, die zijn:
@@ -34,7 +34,7 @@ Wanneer een organisatie hun hybride identiteitsoplossing ontwerpt, kunnen ze dez
 De volgende secties wordt betrekking op verificatie en autorisatie in meer details, beheer en controle maken deel uit van de levenscyclus van hybride identiteit. Lezen [beheertaken voor hybride identiteit bepalen](plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md) voor meer informatie over deze mogelijkheden.
 
 > [!NOTE]
-> Lezen [de vier pijlers van identiteit - identiteitsbeheer in de leeftijd van hybride IT](http://social.technet.microsoft.com/wiki/contents/articles/15530.the-four-pillars-of-identity-identity-management-in-the-age-of-hybrid-it.aspx) voor meer informatie over elk van deze onderdelen.
+> Lezen [de vier pijlers van identiteit - identiteitsbeheer in de leeftijd van hybride IT](https://social.technet.microsoft.com/wiki/contents/articles/15530.the-four-pillars-of-identity-identity-management-in-the-age-of-hybrid-it.aspx) voor meer informatie over elk van deze onderdelen.
 > 
 > 
 

@@ -1,6 +1,6 @@
 ---
 title: 'Problemen oplossen: Maken en verbinding maken met een Machine Learning-werkruimte | Microsoft Docs'
-description: Oplossingen voor algemene problemen bij het maken en verbinding maken met een Azure Machine Learning-werkruimte
+description: Oplossingen voor veelvoorkomende problemen bij het maken en verbinding te maken met een Azure Machine Learning-werkruimte
 services: machine-learning
 documentationcenter: ''
 author: heatherbshapiro
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.openlocfilehash: 262c9af4e0f3ee34dc89986affacb6c0d8a0d801
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 1d53e13798f24fa6225b0a587dde71b4f34f48fc
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34835719"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51243382"
 ---
 # <a name="troubleshooting-guide-create-and-connect-to-an-machine-learning-workspace"></a>Gids voor probleemoplossing: een Machine Learning-werkruimte maken en hiermee verbinding maken
 Deze handleiding bevat oplossingen voor enkele uitdagingen vaak aangetroffen bij het instellen van Azure Machine Learning-werkruimten.
@@ -28,25 +28,25 @@ Deze handleiding bevat oplossingen voor enkele uitdagingen vaak aangetroffen bij
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
 ## <a name="workspace-owner"></a>Eigenaar van de werkruimte
-Om te openen van een werkruimte in Machine Learning Studio, moet u zijn aangemeld bij de Microsoft-Account dat u gebruikt voor het maken van de werkruimte of moet u een uitnodiging ontvangen van de eigenaar van het koppelen van de werkruimte. U kunt de werkruimte, inclusief de mogelijkheid om toegang te configureren beheren vanuit de Azure-portal.
+Als u wilt een werkruimte opent in Machine Learning Studio, u moet zijn aangemeld bij de Microsoft-Account dat u gebruikt voor het maken van de werkruimte, of moet u een uitnodiging ontvangen van de eigenaar voor deelname aan de werkruimte. U kunt de werkruimte, inclusief de mogelijkheid om toegang te configureren beheren vanuit Azure portal.
 
-Zie voor meer informatie over het beheren van een werkruimte [Een Azure Machine Learning-werkruimte beheren].
+Zie voor meer informatie over het beheren van een werkruimte [een Azure Machine Learning-werkruimte beheren].
 
 [Een Azure Machine Learning-werkruimte beheren]: manage-workspace.md
 
 ## <a name="allowed-regions"></a>Toegestane regio 's
-Machine Learning is momenteel beschikbaar in een beperkt aantal regio's. Als uw abonnement niet onder een van deze gebieden, kan het foutbericht wordt weergegeven, "U hebt geen abonnementen in de toegestane regio's."
+Machine Learning is momenteel beschikbaar in een beperkt aantal regio's. Als uw abonnement niet onder een van deze regio's, ziet u mogelijk het foutbericht, "U hebt geen abonnementen in de toegestane regio's."
 
-Als u wilt dat een regio worden toegevoegd aan uw abonnement, een nieuw Microsoft-ondersteuningsverzoek maken vanuit de Azure-portal, kiest u **facturering** als het probleemtype en volg de aanwijzingen om uw aanvraag te verzenden.
+Als u wilt dat een regio worden toegevoegd aan uw abonnement, een nieuwe Microsoft-ondersteuningsaanvraag maken vanuit Azure portal, kiest u **facturering** als het probleemtype, en volg de aanwijzingen om uw aanvraag te verzenden.
 
 ## <a name="storage-account"></a>Storage-account
-Er moet een opslagaccount voor het opslaan van gegevens voor de Machine Learning-service. U kunt een bestaand opslagaccount gebruiken of u kunt een nieuw opslagaccount maken wanneer u de nieuwe Machine Learning-werkruimte maken (als u het quotum voor het maken van een nieuw opslagaccount hebt).
+De Machine Learning-service moet een storage-account voor het opslaan van gegevens. U kunt een bestaand opslagaccount gebruiken of u kunt een nieuw opslagaccount maken bij het maken van de nieuwe Machine Learning-werkruimte (als u een quotum voor het maken van een nieuw opslagaccount hebt).
 
-Nadat de nieuwe Machine Learning-werkruimte is gemaakt, kunt u zich aanmeldt bij Machine Learning Studio via het Microsoft-account dat u gebruikt voor het maken van de werkruimte. Als u het foutbericht 'Werkruimte niet gevonden' (vergelijkbaar met de volgende schermopname) optreden, gebruik de volgende stappen uit om uw browsercookies te verwijderen.
+Nadat de nieuwe Machine Learning-werkruimte is gemaakt, kunt u zich aanmelden voor Machine Learning Studio met behulp van het Microsoft-account dat u gebruikt voor het maken van de werkruimte. Als u het foutbericht 'Werkruimte niet gevonden' (vergelijkbaar met de volgende schermafbeelding), gebruik de volgende stappen uit om uw browsercookies te verwijderen.
 
-![Werkruimte niet gevonden][screen3]
+![De werkruimte niet vinden][screen3]
 
-**Browsercookies verwijderen**
+**Browsercookies te verwijderen**
 
 1. Als u Internet Explorer gebruikt, klikt u op de **extra** in de rechterbovenhoek en selecteer **Internetopties**.  
 
@@ -56,15 +56,15 @@ Nadat de nieuwe Machine Learning-werkruimte is gemaakt, kunt u zich aanmeldt bij
 
 ![Tabblad Algemeen][screen5]
 
-3. In de **Browsegeschiedenis verwijderen** dialoogvenster zorg **Cookies en websitegegevens** is geselecteerd en klik op **verwijderen**.
+3. In de **Browsegeschiedenis verwijderen** dialoogvenster vak, zorg ervoor dat **Cookies en websitegegevens** is geselecteerd en klik op **verwijderen**.
 
 ![Verwijderen van cookies][screen6]
 
-Nadat de cookies die zijn verwijderd, start de browser opnieuw en gaat u naar de [Microsoft Azure Machine Learning](https://studio.azureml.net) pagina. Wanneer u wordt gevraagd om een gebruikersnaam en wachtwoord, typt u hetzelfde Microsoft-account dat u gebruikt voor het maken van de werkruimte.
+Nadat de cookies die zijn verwijderd, opnieuw opstarten van de browser en ga vervolgens naar de [Microsoft Azure Machine Learning](https://studio.azureml.net) pagina. Wanneer u wordt gevraagd een gebruikersnaam en wachtwoord, typt u hetzelfde Microsoft-account dat u gebruikt voor het maken van de werkruimte.
 
 ## <a name="comments"></a>Opmerkingen
 
-Ons doel is om de ervaring van de Machine Learning zo weinig mogelijk. Neem na de eventuele opmerkingen en problemen op de [Azure Machine Learning-forum](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=MachineLearning) om ons u beter van dienst te helpen.
+Ons doel is om de Machine Learning-ervaring zo weinig mogelijk. Boek eventuele opmerkingen en problemen op de [Azure Machine Learning-forum](https://social.msdn.microsoft.com/Forums/windowsazure/home?forum=MachineLearning) zodat u beter van dienst.
 
 [screen1]:media/troubleshooting-creating-ml-workspace/screen1.png
 [screen2]:media/troubleshooting-creating-ml-workspace/screen2.png

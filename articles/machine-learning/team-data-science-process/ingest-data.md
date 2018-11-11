@@ -15,19 +15,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: deguhath
-ms.openlocfilehash: d045bd37a4b3192672cc1bd37bc4bd14ea8d5402
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: a5db14b99a81c373fbc72f523798e1f3bbdf9285
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34837181"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51344498"
 ---
 # <a name="load-data-into-storage-environments-for-analytics"></a>Gegevens voor analysedoeleinden in opslagomgevingen laden
-Het Team gegevens wetenschap proces vereist dat gegevens worden ingenomen of in verschillende omgevingen voor andere opslag worden verwerkt of geanalyseerd in het meest geschikt in elke fase van het proces van geladen. Gegevensbestemmingen meestal gebruikt voor verwerking bevatten Azure Blob Storage, Azure SQL-databases en SQL Server op virtuele machine in Azure HDInsight (Hadoop) en Azure Machine Learning. 
 
-[!INCLUDE [cap-ingest-data-selector](../../../includes/cap-ingest-data-selector.md)]
+Het Team Data Science Process is vereist dat gegevens worden opgenomen of geladen in tal van verschillende opslagomgevingen worden verwerkt of geanalyseerd in de meest geschikte manier in elke fase van het proces. Gegevensbestemmingen gebruikte voor de verwerking van bevatten Azure Blob Storage, SQL Azure-databases, SQL Server op virtuele machine van Azure, HDInsight (Hadoop) en Azure Machine Learning. 
 
-Dit **menu** koppelingen naar onderwerpen waarin wordt beschreven hoe u opnemen van gegevens in deze omgevingen waarin de gegevens worden opgeslagen en verwerkt als doel.
+De volgende artikelen wordt beschreven hoe u gegevens opnemen in verschillende doelomgevingen waar de gegevens worden opgeslagen en verwerkt.
 
-Technische en zakelijke behoeften, evenals de initiële locatie opmaken en de doel-omgevingen waarin de gegevens worden ingenomen moeten zodat de doelstellingen van uw analyse wordt bepaald door de grootte van uw gegevens. Het is niet ongewoon is voor een scenario dat gegevens worden verplaatst tussen de verschillende omgevingen voor de verschillende taken die zijn vereist om een Voorspellend model samen te stellen. Deze reeks taken kan bijvoorbeeld bevatten gegevensverkenning, vooraf verwerken, opruimen, omlaag steekproeven en training model.
+* Naar/van [Azure Blob-opslag](move-azure-blob.md)
+* Naar [SQL Server op Azure VM](move-sql-server-virtual-machine.md)
+* Naar [Azure SQL-database](move-sql-azure.md)
+* Naar [Hive-tabellen](move-hive-tables.md)
+* Naar [SQL gepartitioneerde tabellen](parallel-load-sql-partitioned-tables.md)
+* Van [On-premises SQL Server](move-sql-azure-adf.md)
 
+Formatteer technische en zakelijke behoeften, evenals de oorspronkelijke locatie en grootte van uw gegevens, bepaalt de doelomgevingen waarin de gegevens worden opgenomen moeten voor het bereiken van de doelstellingen van uw analyse. Het is niet ongebruikelijk dat voor een scenario dat gegevens worden verplaatst tussen verschillende omgevingen voor de verschillende taken die zijn vereist om te maken van een Voorspellend model. Deze reeks taken kan bijvoorbeeld bevatten gegevensverkenning, vooraf verwerken, opruimen, down-sampling en modeltraining.

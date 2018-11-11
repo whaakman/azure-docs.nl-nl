@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: mbullwin
-ms.openlocfilehash: 86b7b87c8cc11be5c4f2c8892905bb6e6800e729
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 1994c714f691177b526b44e277fea705d18b4335
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50958871"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51245695"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Verzameling, retentie en opslag van gegevens in Application Insights
 
@@ -108,9 +108,9 @@ Microsoft gebruikt de gegevens alleen om te kunnen bieden u de service.
 * Nee. Uw toepassing kan overal worden uitgevoerd in de hosts van uw eigen on-premises of in de Cloud.
 
 ## <a name="how-secure-is-my-data"></a>Hoe veilig zijn mijn gegevens?
-Application Insights is een Azure-Service. Beleidsregels voor veiligheid zijn beschreven in de [whitepaper voor Azure-beveiliging, Privacy en naleving](http://go.microsoft.com/fwlink/?linkid=392408).
+Application Insights is een Azure-Service. Beleidsregels voor veiligheid zijn beschreven in de [whitepaper voor Azure-beveiliging, Privacy en naleving](https://go.microsoft.com/fwlink/?linkid=392408).
 
-De gegevens worden opgeslagen in Microsoft Azure-servers. Voor accounts in Azure Portal, accountbeperkingen worden beschreven in de [Azure-beveiliging, Privacy en naleving document](http://go.microsoft.com/fwlink/?linkid=392408).
+De gegevens worden opgeslagen in Microsoft Azure-servers. Voor accounts in Azure Portal, accountbeperkingen worden beschreven in de [Azure-beveiliging, Privacy en naleving document](https://go.microsoft.com/fwlink/?linkid=392408).
 
 Toegang tot uw gegevens door medewerkers van Microsoft is beperkt. We toegang tot uw gegevens alleen met uw toestemming en als deze nodig voor het ondersteunen van uw gebruik van Application Insights is. 
 

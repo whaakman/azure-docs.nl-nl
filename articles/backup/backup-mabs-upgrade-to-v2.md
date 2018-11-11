@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: adigan
-ms.openlocfilehash: a458a46f3775a593f369d5acb967fc90d61efde8
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 4f1e0c14d3a835b9f6d739511186bdcc19917a7a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39628338"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230972"
 ---
 # <a name="install-azure-backup-server-v2"></a>Azure Backup Server v2 installeren
 
@@ -103,7 +103,7 @@ Een volume toevoegen in de Administrator-Console:
 
   Als u toevoegen van een schijf wilt, wordt de schijf moet behoren tot een beveiligingsgroep met verouderde opslag. U kunt deze schijven alleen voor deze beveiligingsgroepen. Als back-up-Server geen bronnen met verouderde beveiliging heeft, wordt de schijf wordt niet weergegeven.
 
-  Zie voor meer informatie over het toevoegen van schijven [schijven om te verhogen verouderde opslag toevoegen](http://docs.microsoft.com/system-center/dpm/upgrade-to-dpm-2016#adding-disks-to-increase-legacy-storage). U kunt een schijf een beschrijvende naam geven.
+  Zie voor meer informatie over het toevoegen van schijven [schijven om te verhogen verouderde opslag toevoegen](https://docs.microsoft.com/system-center/dpm/upgrade-to-dpm-2016#adding-disks-to-increase-legacy-storage). U kunt een schijf een beschrijvende naam geven.
 
 
 ### <a name="assign-workloads-to-volumes"></a>Workloads toewijzen aan volumes
@@ -160,7 +160,7 @@ Een beveiligingsgroep maken:
 
   ![Pagina van de toewijzing van schijfopslag controleren](./media/backup-mabs-upgrade-to-v2/create-a-protection-group-6.png)
 
-  Opslagvolumes die zijn gebaseerd op de workloadvolumes (ingesteld met behulp van PowerShell) en de beschikbare opslag. U kunt de opslagvolumes wijzigen door het selecteren van andere volumes in de vervolgkeuzelijst. Als u de waarde voor **Doelopslag**, de waarde voor **beschikbare schijfopslag** dynamisch gewijzigd in overeenstemming met waarden onder **vrije ruimte** en ** Te weinig ingerichte ruimte**.
+  Opslagvolumes die zijn gebaseerd op de workloadvolumes (ingesteld met behulp van PowerShell) en de beschikbare opslag. U kunt de opslagvolumes wijzigen door het selecteren van andere volumes in de vervolgkeuzelijst. Als u de waarde voor **Doelopslag**, de waarde voor **beschikbare schijfopslag** dynamisch gewijzigd in overeenstemming met waarden onder **vrije ruimte** en  **Te weinig ingerichte ruimte**.
 
   Als de gegevensbronnen groeien zoals verwacht, de waarde voor de **te weinig ingerichte ruimte** kolom in **beschikbare schijfopslag** weergegeven hoeveel extra opslag die nodig is. Gebruik deze waarde om u te helpen uw opslagbehoeften voor goede back-ups plannen. Als de waarde nul is, zijn er geen problemen met de opslag in de nabije toekomst. Als de waarde een ander getal dan nul is, hoeft u niet voldoende opslag toegewezen (op basis van het beveiligingsbeleid en de gegevensgrootte van uw beveiligde leden).
 
@@ -175,13 +175,13 @@ Bijwerken van beveiligingsgroepen voor het gebruik van Modern Backup Storage is 
 
 1. Selecteer in de System Center 2016 DPM Administrator-Console de **Protection** functie. In de **Beveiligingsgroepslid** lijst, met de rechtermuisknop op het lid en selecteer vervolgens **beveiliging van lid stoppen**.
 
-  ![Beveiliging van lid stoppen](http://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-stop-protection1.png)
+  ![Beveiliging van lid stoppen](https://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-stop-protection1.png)
 
 2. In de **verwijderen uit groep** dialoogvenster vak, controleert u de gebruikte schijfruimte en de beschikbare vrije ruimte voor de opslaggroep. De standaardwaarde is te laat u de herstelpunten op de schijf en ze verlopen volgens het bijbehorende bewaarbeleid. Selecteer **OK**.
 
   Als u de gebruikte schijfruimte onmiddellijk geretourneerd aan de vrije opslaggroep wilt, selecteert u de **replica op schijf verwijderen** selectievakje in om de back-upgegevens (en herstelpunten) te verwijderen die zijn gekoppeld aan dit lid.
 
-  ![Dialoogvenster groep verwijderen](http://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-retain-data.png)
+  ![Dialoogvenster groep verwijderen](https://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-retain-data.png)
 
 3. Maak een beveiligingsgroep die gebruikmaakt van Modern Backup Storage. De niet-beveiligde gegevensbronnen opnemen.
 
@@ -194,7 +194,7 @@ Schijfopslag toevoegen:
 
 1. Selecteer in de System Center 2016 DPM Administrator-Console **Management** > **schijfopslag** > **toevoegen**.
 
-  ![Dialoogvenster schijfopslag toevoegen](http://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-add-disk-storage.png)
+  ![Dialoogvenster schijfopslag toevoegen](https://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-add-disk-storage.png)
 
 2. In de **schijfopslag toevoegen** in het dialoogvenster, selecteer **schijven toevoegen**.
 

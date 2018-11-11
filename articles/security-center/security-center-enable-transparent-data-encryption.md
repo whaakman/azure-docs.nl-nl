@@ -3,7 +3,7 @@ title: Transparent Data Encryption in Azure Security Center inschakelen | Micros
 description: Dit document wordt beschreven hoe u de Azure Security Center-aanbeveling kunt implementeren **Transparent Data Encryption inschakelen**.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: e4be8a0e-2118-4ee9-a266-69e52d9f7f8e
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/02/2017
-ms.author: terrylan
-ms.openlocfilehash: 13e47de8ff25451f7d4185927477d524d519ce2a
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.date: 10/28/2018
+ms.author: rkarlin
+ms.openlocfilehash: 1f49930449c5ca342159f2a4eca3d7167dfed925
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44299556"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51244641"
 ---
 # <a name="enable-transparent-data-encryption-in-azure-security-center"></a>Transparent Data Encryption in Azure Security Center inschakelen
 Azure Security Center wordt aanbevolen dat u transparante gegevensversleuteling (TDE) voor SQL-databases inschakelen als TDE is nog niet ingeschakeld. TDE beschermt uw gegevens en helpt u bij het voldoen aan nalevingsvereisten door het versleutelen van uw database, gekoppelde back-ups en transactielogboekbestanden in rust, zonder wijzigingen aan uw toepassing. Voor meer informatie over meer Zie [Transparent Data Encryption met Azure SQL Database](https://msdn.microsoft.com/library/dn948096).
@@ -57,7 +57,7 @@ Zie de volgende onderwerpen voor meer informatie over het Beveiligingscentrum:
 * [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) (Beveiligingswaarschuwingen beheren en erop reageren in Azure Security Center): ontdek hoe u beveiligingswaarschuwingen kunt beheren en erop kunt reageren.
 * [Partneroplossingen bewaken met Azure Security Center](security-center-partner-solutions.md): leer hoe u de integriteitsstatus van uw partneroplossingen kunt bewaken.
 * [Azure Security Center FAQ](security-center-faq.md) (Veelgestelde vragen over Azure Security Center): raadpleeg veelgestelde vragen over het gebruik van de service.
-* [Azure-Beveiligingsblog](http://blogs.msdn.com/b/azuresecurity/) --de meest recente Azure-beveiliging nieuws en informatie.
+* [Azure-Beveiligingsblog](https://blogs.msdn.com/b/azuresecurity/) --de meest recente Azure-beveiliging nieuws en informatie.
 
 <!--Image references-->
 [1]: ./media/security-center-enable-tde-on-sql-databases/enable-tde.png

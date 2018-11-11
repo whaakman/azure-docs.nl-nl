@@ -5,14 +5,14 @@ services: event-grid
 author: tfitzmac
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 10/29/2018
+ms.date: 11/05/2018
 ms.author: tomfitz
-ms.openlocfilehash: 24337863d4e3f8e093c2e33afbb39364ec37516d
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: fd33ca723bd00b4a9c25009ef5b4f444487244f0
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50252185"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281945"
 ---
 # <a name="understand-event-filtering-for-event-grid-subscriptions"></a>Informatie over gebeurtenis voor Event Grid-abonnementen filteren
 
@@ -57,9 +57,9 @@ De JSON-syntaxis voor het filteren op gebeurtenistype is:
 
 Als u wilt filteren op de waarden in de gegevensvelden en de vergelijkingsoperator opgeeft, gebruikt u de optie voor Geavanceerd filteren. In Geavanceerd filteren, geeft u de:
 
-* operator - het type van de vergelijking.
+* operatortype - het type van de vergelijking.
 * sleutel - het veld in de gegevens van de gebeurtenis die u voor het filteren gebruikt. Het kan een getal, een Booleaanse waarde of een tekenreeks zijn.
-* waarden zijn: de waarden te vergelijken met de sleutel.
+* de waarde of waarden zijn: de waarde of waarden te vergelijken met de sleutel.
 
 De JSON-syntaxis voor het gebruik van geavanceerde filters is:
 
@@ -67,14 +67,14 @@ De JSON-syntaxis voor het gebruik van geavanceerde filters is:
 "filter": {
   "advancedFilters": [
     {
-      "Operator": "NumberGreaterThanOrEquals",
-      "Key": "Data.Key1",
-      "Values": 5
+      "operatorType": "NumberGreaterThanOrEquals",
+      "key": "Data.Key1",
+      "value": 5
     },
     {
-      "Operator": "StringContains",
-      "Key": "Subject",
-      "Values": ["container1", "container2"]
+      "operatorType": "StringContains",
+      "key": "Subject",
+      "values": ["container1", "container2"]
     }
   ]
 }
@@ -122,7 +122,7 @@ Gebeurtenissen in de Cloud het gebeurtenissenschema, de volgende waarden voor de
 * eventTypeVersion
 * De gegevens van de gebeurtenis (zoals Data.key1)
 
-Gebruik de gegevensvelden gebeurtenis (zoals Data.key1 Data.key1.key2) voor aangepaste invoerschema.
+Gebruik de gegevensvelden gebeurtenis (zoals Data.key1) voor aangepaste invoerschema.
 
 ### <a name="values"></a>Waarden
 
@@ -140,7 +140,7 @@ Geavanceerd filteren, heeft de volgende beperkingen:
 * Vijf geavanceerde filters per event grid-abonnement
 * 512 tekens per string-waarde
 * Vijf waarden voor **in** en **niet in** operators
-* De sleutel kan slechts twee niveaus van geneste (zoals data.key1.key2) hebben.
+* De sleutel kan slechts één niveau van geneste (zoals data.key1) hebben.
 
 Dezelfde sleutel kan worden gebruikt in meer dan één filter.
 

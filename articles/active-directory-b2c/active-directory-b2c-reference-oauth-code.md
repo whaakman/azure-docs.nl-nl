@@ -10,17 +10,15 @@ ms.topic: conceptual
 ms.date: 08/16/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: c6ab5ede0b8af6c601cc53e044a3e6902fbd2e11
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: d388242b4b0c882d60a83227a37af997b1ceb1f6
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43340807"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282642"
 ---
 # <a name="azure-active-directory-b2c-oauth-20-authorization-code-flow"></a>Azure Active Directory B2C: OAuth 2.0-autorisatiecodestroom
 U kunt de OAuth 2.0-autorisatiecode verlenen in apps die zijn geïnstalleerd op een apparaat toegang te krijgen tot beveiligde bronnen, zoals web-API's. Met behulp van de Azure Active Directory B2C (Azure AD B2C)-implementatie van OAuth 2.0, kunt u registratie, aanmelding toevoegen en andere identiteitsbeheer taken naar uw mobiele en bureaublad-apps. In dit artikel is taalonafhankelijk. In het artikel wordt beschreven hoe u berichten verzenden en ontvangen HTTP zonder gebruik van een open source-bibliotheken.
-
-<!-- TODO: Need link to libraries -->
 
 De OAuth 2.0-autorisatiecodestroom wordt beschreven in [sectie 4.1 van de OAuth 2.0-specificatie](http://tools.ietf.org/html/rfc6749). U kunt deze gebruiken voor verificatie en autorisatie in de meeste [toepassingstypen](active-directory-b2c-apps.md), met inbegrip van webtoepassingen en systeemeigen geïnstalleerde toepassingen. U kunt de OAuth 2.0-autorisatiecodestroom veilig toegangstokens verkrijgen en vernieuwen van tokens voor uw toepassingen, die kunnen worden gebruikt voor toegang tot resources die worden beveiligd door een [autorisatieserver](active-directory-b2c-reference-protocols.md).  Het vernieuwingstoken dat kan de client en nieuwe toegang verkrijgen (vernieuwen) tokens wanneer het toegangstoken is verlopen, doorgaans na een uur.
 
@@ -80,7 +78,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 | redirect_uri |Vereist |De omleidings-URI van uw app, waarbij verificatiereacties worden verzonden en ontvangen door uw app. Het moet een van de omleidings-URI's die u hebt geregistreerd in de portal exact overeenkomen, behalve dat het moet URL gecodeerd. |
 | scope |Vereist |Een door spaties gescheiden lijst met bereiken. Een waarde één scope geeft u aan Azure Active Directory (Azure AD) beide van de machtigingen die worden aangevraagd. Met behulp van de client-ID als het bereik geeft aan dat uw app moet een toegangstoken dat kan worden gebruikt voor uw eigen service of web-API, vertegenwoordigd door de dezelfde client-ID.  De `offline_access` bereik geeft aan dat uw app een vernieuwingstoken voor lange levensduur hebben toegang tot bronnen moet. Ook kunt u de `openid` bereik om aan te vragen van een ID-token van Azure AD B2C. |
 | response_mode |Aanbevolen |De methode die u gebruikt voor het verzenden van de resulterende autorisatiecode terug naar de app. Kan het zijn `query`, `form_post`, of `fragment`. |
-| state |Aanbevolen |Een waarde die is opgenomen in de aanvraag die in het token antwoord wordt geretourneerd. Kan het zijn een reeks van inhoud die u wilt gebruiken. Normaal gesproken wordt een willekeurig gegenereerde unieke waarde gebruikt voor cross-site-aanvraag kunnen worden vervalst aanvallen te voorkomen. De status wordt ook gebruikt voor het coderen van informatie over de status van de gebruiker in de app voordat de verificatieaanvraag heeft plaatsgevonden. Bijvoorbeeld, de pagina die de gebruiker was op, of het beleid dat werd uitgevoerd. |
+| state |Aanbevolen |Een waarde die is opgenomen in de aanvraag die kan bestaan uit een tekenreeks van de inhoud die u wilt gebruiken. Normaal gesproken wordt een willekeurig gegenereerde unieke waarde gebruikt voor cross-site-aanvraag kunnen worden vervalst aanvallen te voorkomen. De status wordt ook gebruikt voor het coderen van informatie over de status van de gebruiker in de app voordat de verificatieaanvraag heeft plaatsgevonden. Bijvoorbeeld, de pagina die de gebruiker was op, of het beleid dat werd uitgevoerd. |
 | p |Vereist |Het beleid dat wordt uitgevoerd. Dit is de naam van een beleid dat is gemaakt in uw Azure AD B2C-directory. De beleidswaarde voor de naam moet beginnen met **b2c\_1\_**. Zie voor meer informatie over het beleid, [ingebouwde beleidsregels van Azure AD B2C](active-directory-b2c-reference-policies.md). |
 | prompt |Optioneel |Het type van de interactie van de gebruiker die is vereist. Op dit moment de enige geldige waarde is `login`, waardoor de gebruiker zijn referenties invoeren voor deze aanvraag. Eenmalige aanmelding wordt pas van kracht. |
 

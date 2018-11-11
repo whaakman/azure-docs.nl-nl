@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 05/30/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 6d916e884e7764a1ba5ebaf224750f38e7d7673e
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: d85157c3f1aafd33a2b996168f2f9eac613a209c
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46313892"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51344879"
 ---
 # <a name="azure-active-directory-hybrid-identity-design-considerations"></a>Ontwerpoverwegingen voor Azure Active Directory Hybrid Identity
 Consumenten-apparaten worden de zakelijke wereld proliferating en cloud-gebaseerde software-as-a-service (SaaS)-toepassingen zijn eenvoudig vast te stellen. Als gevolg hiervan, is het beheer van toegang tot de toepassing van gebruikers voor interne-datacenters en cloud-platformen lastig.  
@@ -58,10 +58,10 @@ U ontvangt bij het ontwerp dat het beste aan uw vereisten voldoet alleen na het 
 
 | Hybride identiteit fase | De lijst met onderwerpen |
 | --- | --- |
-| ID-vereisten bepalen |[Bedrijfsbehoeften vaststellen](plan-hybrid-identity-design-considerations-business-needs.md)<br> [Bepaal de vereisten voor directory-synchronisatie](plan-hybrid-identity-design-considerations-directory-sync-requirements.md)<br> [Bepaal de vereisten voor meervoudige verificatie](plan-hybrid-identity-design-considerations-multifactor-auth-requirements.md)<br> [Een strategie voor hybride identiteit ingebruikname definiëren](plan-hybrid-identity-design-considerations-identity-adoption-strategy.md) |
+| Identiteitsvereisten vaststellen |[Bedrijfsbehoeften vaststellen](plan-hybrid-identity-design-considerations-business-needs.md)<br> [Bepaal de vereisten voor directory-synchronisatie](plan-hybrid-identity-design-considerations-directory-sync-requirements.md)<br> [Bepaal de vereisten voor meervoudige verificatie](plan-hybrid-identity-design-considerations-multifactor-auth-requirements.md)<br> [Een strategie voor hybride identiteit ingebruikname definiëren](plan-hybrid-identity-design-considerations-identity-adoption-strategy.md) |
 | Plan voor het verbeteren van de beveiliging van gegevens via een goede oplossing voor identiteitsbeheer |[Bepalen van de beveiligingsvereisten voor gegevens](plan-hybrid-identity-design-considerations-dataprotection-requirements.md) <br> [Bepaal de vereisten voor inhoudsbeheer](plan-hybrid-identity-design-considerations-contentmgt-requirements.md)<br> [Vereisten voor toegangsbeheer bepalen](plan-hybrid-identity-design-considerations-accesscontrol-requirements.md)<br> [Bepaal de vereisten voor respons op incidenten](plan-hybrid-identity-design-considerations-incident-response-requirements.md) <br> [Gegevensbeveiligingsstrategie definiëren](plan-hybrid-identity-design-considerations-data-protection-strategy.md) |
-| Plan voor de levenscyclus van hybride identiteit |[Beheertaken voor hybride identiteit bepalen](plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md) <br> [Synchronisatie Management](plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md)<br> [Acceptatiestrategie voor hybride identiteit management bepalen](plan-hybrid-identity-design-considerations-lifecycle-adoption-strategy.md) |
+| De levenscyclus van een hybride identiteit plannen |[Beheertaken voor hybride identiteit bepalen](plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md) <br> [Synchronisatie Management](plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md)<br> [Acceptatiestrategie voor hybride identiteit management bepalen](plan-hybrid-identity-design-considerations-lifecycle-adoption-strategy.md) |
 
-## <a name="download-this-guide"></a>Deze handleiding downloaden
-U kunt downloaden een PDF-versie van de handleiding ontwerpoverwegingen voor hybride identiteit van de [Technet-galerie](https://gallery.technet.microsoft.com/Azure-Hybrid-Identity-b06c8288). 
+## <a name="next-steps"></a>Volgende stappen
+[ID-vereisten bepalen](plan-hybrid-identity-design-considerations-business-needs.md)
 

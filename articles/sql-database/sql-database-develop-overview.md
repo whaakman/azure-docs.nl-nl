@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: genemi
 manager: craigg
 ms.date: 06/20/2018
-ms.openlocfilehash: 58f902edcd417809d1bb47a231cb1c2ac2f579d1
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 707e10f77bf00ed12f09a23e490105f52ceed4ab
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47063588"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51241596"
 ---
 # <a name="sql-database-application-development-overview"></a>Overzicht van SQL Database-toepassing voor ontwikkelaars
 In dit artikel leest u meer over de algemene zaken waar ontwikkelaars van op de hoogte moeten zijn voor het schrijven van code om verbinding te maken met Azure SQL Database.
@@ -61,7 +61,7 @@ Wanneer er een tijdelijke fout optreedt bij het verbinden met SQL Database, moet
 
 ## <a name="managing-connections"></a>Verbindingen beheren
 * In de verbindingslogica van de client overschrijft u de standaardtime-out zodat deze 30 seconden bedraagt.  De standaardwaarde van 15 seconden is te kort voor verbindingen die afhankelijk zijn van internet.
-* Als u een [verbindingsgroep](http://msdn.microsoft.com/library/8xx3tyca.aspx) gebruikt, zorgt u ervoor dat de verbinding wordt verbroken zodra uw programma er niet actief meer gebruik van maakt en wanneer uw programma niet wordt voorbereid om opnieuw verbinding te maken.
+* Als u een [verbindingsgroep](https://msdn.microsoft.com/library/8xx3tyca.aspx) gebruikt, zorgt u ervoor dat de verbinding wordt verbroken zodra uw programma er niet actief meer gebruik van maakt en wanneer uw programma niet wordt voorbereid om opnieuw verbinding te maken.
 
 ## <a name="network-considerations"></a>Aandachtspunten voor netwerken
 * Zorg er op de computer die als host fungeert voor uw clientprogramma voor dat de firewall uitgaande TCP-communicatie toestaat via poort 1433.  Meer informatie: [configureren van een Azure SQL Database-firewall](sql-database-configure-firewall-settings.md).

@@ -14,17 +14,17 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 05/15/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 819a2f81ca5403a3656bf713cf0ee3ae58050a4b
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 04c68308739f641e892a335832725ba87e36f7af
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39003110"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242123"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Aan de slag met Azure Cloud Services en ASP.NET
 
 ## <a name="overview"></a>Overzicht
-Deze zelfstudie laat zien hoe u een .NET-toepassing met meerdere lagen maakt met een ASP.NET MVC-front-end en deze implementeert in een [Azure-cloudservice](cloud-services-choose-me.md). De toepassing gebruikt [Azure SQL Database](http://msdn.microsoft.com/library/azure/ee336279), de [Azure Blob-service](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage) en de [Azure Queue-service](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern). U kunt [het Visual Studio-project downloaden uit de ](http://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4) uit de MSDN-codegalerie.
+Deze zelfstudie laat zien hoe u een .NET-toepassing met meerdere lagen maakt met een ASP.NET MVC-front-end en deze implementeert in een [Azure-cloudservice](cloud-services-choose-me.md). De toepassing gebruikt [Azure SQL Database](https://msdn.microsoft.com/library/azure/ee336279), de [Azure Blob-service](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage) en de [Azure Queue-service](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern). U kunt [het Visual Studio-project downloaden uit de ](https://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4) uit de MSDN-codegalerie.
 
 In de zelfstudie leert u hoe u de toepassing lokaal maakt en uitvoert, hoe u deze in Azure implementeert en uitvoert in de cloud, en hoe u deze van het begin af aan bouwt. Desgewenst kunt u de toepassing eerst van het begin af aan bouwen en vervolgens later de test doen en stappen implementeren.
 
@@ -36,7 +36,7 @@ De toepassing is een bulletinboard voor advertenties. Gebruikers maken een adver
 De toepassing maakt gebruik van het [wachtrijgerichte werkpatroon](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) om de CPU te ontlasten bij het maken van miniatuurweergaven voor een back-endproces (een CPU-intensieve bewerking).
 
 ## <a name="alternative-architecture-web-apps-and-webjobs"></a>Alternatieve architectuur: Web Apps en WebJobs
-Deze zelfstudie laat zien hoe u de front-end en back-end uitvoert in een cloudservice van Azure. Het is ook mogelijk om de front-end uit te voeren in een [Azure Web App](/azure/app-service/) en de functie [WebJobs](http://go.microsoft.com/fwlink/?LinkId=390226) te gebruiken voor de back-end. Zie [Aan de slag met de Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki) voor een zelfstudie waarin gebruik wordt gemaakt van WebJobs. Zie [Vergelijking van Azure-websites, cloudservices en virtuele machines](../app-service/choose-web-site-cloud-service-vm.md) voor meer informatie over het kiezen van de services die het meest geschikt zijn voor uw scenario.
+Deze zelfstudie laat zien hoe u de front-end en back-end uitvoert in een cloudservice van Azure. Het is ook mogelijk om de front-end uit te voeren in een [Azure Web App](/azure/app-service/) en de functie [WebJobs](https://go.microsoft.com/fwlink/?LinkId=390226) te gebruiken voor de back-end. Zie [Aan de slag met de Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki) voor een zelfstudie waarin gebruik wordt gemaakt van WebJobs. Zie [Vergelijking van Azure-websites, cloudservices en virtuele machines](../app-service/choose-web-site-cloud-service-vm.md) voor meer informatie over het kiezen van de services die het meest geschikt zijn voor uw scenario.
 
 ## <a name="what-youll-learn"></a>Wat u leert
 * De computer klaarmaken voor het ontwikkelen van Azure door de Azure SDK te installeren.
@@ -71,7 +71,7 @@ Wanneer een gebruiker een afbeelding uploadt, slaat de front-end (die wordt uitg
 [!INCLUDE [install-sdk](../../includes/install-sdk-2017-2015-2013.md)]
 
 ## <a name="download-and-run-the-completed-solution"></a>De voltooide oplossing downloaden en uitvoeren
-1. Download de [voltooide oplossing](http://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4) en pak deze uit.
+1. Download de [voltooide oplossing](https://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4) en pak deze uit.
 2. Start Visual Studio.
 3. Kies in het menu **File** de optie **Open Project**, ga naar de locatie waar u de oplossing hebt gedownload en open het oplossingsbestand.
 4. Druk op CTRL + SHIFT + B om de oplossing te bouwen.
@@ -81,7 +81,7 @@ Wanneer een gebruiker een afbeelding uploadt, slaat de front-end (die wordt uitg
 6. Als u Visual Studio 2015 of hoger gebruikt, wijzigt u de SQL Server-verbindingsreeks in het *Web.config*-toepassingsbestand van het ContosoAdsWeb-project en in het *ServiceConfiguration.Local.cscfg*-bestand van het ContosoAdsCloudService-project. Wijzig in beide gevallen '(localdb)\v11.0' in '(localdb)\MSSQLLocalDB'.
 7. Druk op CTRL + F5 om de toepassing uit te voeren.
 
-    Wanneer u een cloudserviceproject lokaal uitvoert, roept Visual Studio automatisch de Azure-*rekenemulator* en de Azure-*opslagemulator* aan. De rekenemulator maakt gebruik van bronnen van de computer om de webrol- en werkrolomgeving te simuleren. De opslagemulator maakt gebruik van een [SQL Server Express LocalDB](http://msdn.microsoft.com/library/hh510202.aspx)-database om Azure-cloudopslag te simuleren.
+    Wanneer u een cloudserviceproject lokaal uitvoert, roept Visual Studio automatisch de Azure-*rekenemulator* en de Azure-*opslagemulator* aan. De rekenemulator maakt gebruik van bronnen van de computer om de webrol- en werkrolomgeving te simuleren. De opslagemulator maakt gebruik van een [SQL Server Express LocalDB](https://msdn.microsoft.com/library/hh510202.aspx)-database om Azure-cloudopslag te simuleren.
 
     De eerste keer dat u een cloudserviceproject uitvoert, duurt het ongeveer een minuut voordat de emulator opstart. Nadat de emulator is opgestart, wordt de standaardbrowser geopend met de startpagina van de toepassing.
 
@@ -232,7 +232,7 @@ Azure-opslagaccountverbindingsreeksen voor het webrolroject en het werkrolprojec
 1. Klik in **Solution Explorer** met de rechtermuisknop op **ContosoAdsWeb** (onder **Roles** in het **ContosoAdsCloudService**-project) en klik vervolgens op **Properties**.
 
     ![Roleigenschappen](./media/cloud-services-dotnet-get-started/roleproperties.png)
-2. Klik op het tabblad **Settings**. Kies in de vervolgkeuzelijst **Service Configuration** de optie **Cloud**.
+2. Klik op het tabblad **Settings**. Kies in de vervolgkeuzelijst Service Configuration de optie **Cloud**.
 
     ![Cloudconfiguratie](./media/cloud-services-dotnet-get-started/sccloud.png)
 3. Selecteer de vermelding **StorageConnectionString**. Aan de rechterkant van de regel ziet u nu een knop met weglatingstekens (**...**). Klik op deze knop om het dialoogvenster **Create Storage Account Connection String** te openen.
@@ -311,7 +311,7 @@ De `<Instances>`-instelling geeft het aantal virtuele machines aan waarop de wer
 >
 
 ## <a name="create-the-application-from-scratch"></a>De toepassing vanaf het begin maken
-Als u de [voltooide toepassing](http://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4) nog niet hebt gedownload, doe dit dan nu. U kopieert de bestanden uit het gedownloade project naar het nieuwe project.
+Als u de [voltooide toepassing](https://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4) nog niet hebt gedownload, doe dit dan nu. U kopieert de bestanden uit het gedownloade project naar het nieuwe project.
 
 Het maken van de Contoso Ads-toepassing omvat de volgende stappen:
 
@@ -549,7 +549,7 @@ queueClient.DefaultRequestOptions.RetryPolicy = new LinearRetry(TimeSpan.FromSec
 imagesQueue = queueClient.GetQueueReference("images");
 ```
 
-Het grootste deel van de controllercode is typerend voor het werken met een Entity Framework-gegevensmodel met behulp van een DbContext-klasse. Een uitzondering is de HttpPost `Create`-methode, waarmee een bestand wordt geüpload en opgeslagen in blobopslag. De modelbinder levert een [HttpPostedFileBase](http://msdn.microsoft.com/library/system.web.httppostedfilebase.aspx)-object aan de methode.
+Het grootste deel van de controllercode is typerend voor het werken met een Entity Framework-gegevensmodel met behulp van een DbContext-klasse. Een uitzondering is de HttpPost `Create`-methode, waarmee een bestand wordt geüpload en opgeslagen in blobopslag. De modelbinder levert een [HttpPostedFileBase](https://msdn.microsoft.com/library/system.web.httppostedfilebase.aspx)-object aan de methode.
 
 ```csharp
 [HttpPost]
@@ -766,8 +766,8 @@ In het kader van deze 'Aan de slag'-zelfstudie is de Contoso Ads-toepassing met 
 
 Hier volgen enkele voorbeelden, in oplopende volgorde van complexiteit, van cloudservicetoepassingen waarin meer code wordt gebruikt:
 
-* [PhluffyFotos](http://code.msdn.microsoft.com/PhluffyFotos-Sample-7ecffd31). Qua concept soortgelijk aan Contoso Ads, maar met meer functies en meer code.
-* [Azure Cloud Service-toepassing met meerdere lagen die opslagtabellen, wachtrijen en blobs bevat](http://code.msdn.microsoft.com/windowsazure/Windows-Azure-Multi-Tier-eadceb36). Introduceert Azure Storage-tabellen, evenals blobs en wachtrijen. Deze toepassing is gebaseerd op een oudere versie van de Azure SDK voor .NET. Voor gebruik met de huidige versie is een aantal wijzigingen nodig.
+* [PhluffyFotos](https://code.msdn.microsoft.com/PhluffyFotos-Sample-7ecffd31). Qua concept soortgelijk aan Contoso Ads, maar met meer functies en meer code.
+* [Azure Cloud Service-toepassing met meerdere lagen die opslagtabellen, wachtrijen en blobs bevat](https://code.msdn.microsoft.com/windowsazure/Windows-Azure-Multi-Tier-eadceb36). Introduceert Azure Storage-tabellen, evenals blobs en wachtrijen. Deze toepassing is gebaseerd op een oudere versie van de Azure SDK voor .NET. Voor gebruik met de huidige versie is een aantal wijzigingen nodig.
 
 Zie [Echte cloud-apps ontwikkelen met Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/introduction) voor algemene informatie over ontwikkelen voor de cloud.
 

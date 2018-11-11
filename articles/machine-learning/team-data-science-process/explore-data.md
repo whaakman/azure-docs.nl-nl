@@ -1,6 +1,6 @@
 ---
-title: Verken de gegevens in de procedure voor wetenschappelijke gegevens Team | Microsoft Docs
-description: Hoe gegevens in verschillende omgevingen voor opslag.
+title: Gegevens verkennen in Team Data Science Process | Microsoft Docs
+description: Klik hier voor meer informatie over het verkennen van gegevens in verschillende omgevingen voor opslag.
 services: machine-learning,storage
 documentationcenter: ''
 author: deguhath
@@ -13,24 +13,23 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/09/2017
+ms.date: 11/08/2018
 ms.author: deguhath
-ms.openlocfilehash: 168d2852d8905735b450850c8bb32a1ae07a620d
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 55d92fedbb67d21d34464b792b3600eb6964840b
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34837287"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51345518"
 ---
 # <a name="explore-data-in-the-team-data-science-process"></a>Gegevens verkennen in Team Data Science Process
-Dit document wordt beschreven hoe gegevens in omgevingen met vier verschillende opslag die doorgaans worden gebruikt in het proces van de wetenschappelijke gegevens verkennen:
 
-* **Azure blob-container** gegevens is verkend met behulp van de [Pandas](http://pandas.pydata.org/) Python-pakket.
-* **SQL Server** gegevens is verkend met behulp van SQL en met behulp van een programmeertaal zoals Python.
-* **Hive-tabel** gegevens is verkend met behulp van Hive-query's.
-* **Azure Machine Learning (AML) Studio** gegevens is verkend met AML-modules.
+Gegevens verkennen is een stap in de [Team Data Science Process](overview.md).
 
-De volgende **menu** koppelingen naar de onderwerpen waarin wordt beschreven hoe u gegevens uit verschillende omgevingen met opslag verkennen met behulp van deze hulpprogramma's. 
+De volgende artikelen wordt beschreven hoe u gegevens verkennen in drie verschillende opslagomgevingen die meestal worden gebruikt in de Data Science Process:
 
-[!INCLUDE [cap-explore-data-selector](../../../includes/cap-explore-data-selector.md)]
+* Verken [Azure blob-container](explore-data-blob.md) gegevens met de [Pandas](http://pandas.pydata.org/) Python-pakket.
+* Verken [SQL Server](explore-data-sql-server.md) gegevens met behulp van SQL en met behulp van een programmeertaal zoals Python.
+* Verken [Hive-tabel](explore-data-hive-tables.md) gegevens met behulp van Hive-query's.
 
+Daarnaast kunnen de video [voorverwerking van de gegevens in Azure Machine Learning Studio](https://azure.microsoft.com/documentation/videos/preprocessing-data-in-azure-ml-studio/), beschrijving van de meest gebruikte modules voor het opschonen en transformeren van gegevens in Azure Machine Learning Studio.

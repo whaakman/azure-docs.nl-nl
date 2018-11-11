@@ -10,12 +10,12 @@ ms.component: core
 ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 9/24/2018
-ms.openlocfilehash: f221d160685dd12fb18a611432911baa60ebc6f7
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 4d25e147044053aa76afe2da482b71c24efc2325
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48888065"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242871"
 ---
 # <a name="development-environment-for-azure-machine-learning"></a>Ontwikkelomgeving voor Azure Machine Learning 
 
@@ -59,7 +59,7 @@ Het is raadzaam [Visual Studio Code](https://code.visualstudio.com/), zoals het 
 
 ## <a name="data-science-virtual-machine"></a>Data Science Virtual Machine
 
-De Data Science Virtual Machine (DSVM) is een combinatie van de vorige omgevingen. Het is een virtuele machine op de Azure-Platform met Jupyter-Notebooks, Visual Studio Code en de Azure Machine Learning SDK vooraf zijn geïnstalleerd. Het maken van de virtuele machine is complexer dan Azure Notebooks, maar minder complex is dan het instellen van een virtuele machine helemaal. Omdat de vereiste software is vooraf geïnstalleerd in de VM-installatiekopie, kunt u beginnen met het experimenteren met Azure Machine Learning snel nadat de virtuele machine is gemaakt.
+De Data Science Virtual Machine (DSVM) is een combinatie van de vorige omgevingen. Het is een virtuele machine op de Azure-Platform met Jupyter-Notebooks, Visual Studio Code en de Azure Machine Learning SDK vooraf zijn geïnstalleerd. Omdat de vereiste software is vooraf geïnstalleerd in de VM-installatiekopie, kunt u beginnen met het experimenteren met Azure Machine Learning snel nadat de virtuele machine is gemaakt.
 
 De DSVM kunt u selecteren die rekenresources die u nodig, zoals CPU, GPU en geheugen hebt. Het is ook vooraf geïnstalleerd met andere editors, zoals PyCharm en populaire machine learning-software, zoals TensorFlow, Keras en PyTorch. Als de software die u nodig hebt, is niet geïnstalleerd, kunt u deze zelf installeren.
 

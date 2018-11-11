@@ -15,15 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2017
 ms.author: deguhath
-ms.openlocfilehash: 95403e71367f111877c6f317c63811333bd054dd
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 76b67112ade2d160f281533c4be7d41c98087398
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49395187"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51345535"
 ---
 # <a name="operationalize-spark-built-machine-learning-models"></a>Met Spark gebouwde machine learning-modellen
-[!INCLUDE [machine-learning-spark-modeling](../../../includes/machine-learning-spark-modeling.md)]
 
 In dit onderwerp laat zien hoe om te zetten van een opgeslagen machine learning-model (ML) met behulp van Python op HDInsight Spark-clusters. Het wordt beschreven hoe u machine learning-modellen die zijn gebouwd met behulp van Spark MLlib laden en opgeslagen in Azure Blob Storage (WASB), en hoe ze met gegevenssets die ook zijn opgeslagen in WASB te beoordelen. Het laat zien hoe u de ingevoerde gegevens vooraf te verwerken, transformeren met behulp van de functies indexering en codering in de werkset MLlib functies, en over het maken van een object voor gelabelde punt die kan worden gebruikt als invoer voor het scoren met het ML-modellen. De modellen die worden gebruikt voor het scoren bevatten lineaire regressie, logistieke regressie, willekeurige Forest-modellen en kleurovergang versterking structuur modellen.
 

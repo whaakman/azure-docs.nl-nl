@@ -14,18 +14,18 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 02b4ad8aea3904ba0e99a5ea4d4d035f970e171a
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 5ad106d45c8bae2d41e0bde74b27f80f4d8ab79b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48810032"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51241273"
 ---
 <a name="delete-an-offersku-from-azure-marketplace"></a>Een aanbieding/SKU verwijderen uit Azure Marketplace 
 ==========================================
 
 Er kunnen diverse redenen zijn waarom u besluit uw aanbieding uit de Marketplace te verwijderen. Nieuwe klanten kunnen niet meer kopen of implementeren van uw aanbieding, maar bestaande klanten wordt niet beïnvloed.
-Aanbieding beëindigen is het proces van beëindiging van de service en/of licentieovereenkomst tussen u en uw bestaande klanten. Richtlijnen en beleidsregels met betrekking tot de aanbieding verwijderen en beëindigen vallen onder [Microsoft Marketplace-overeenkomst voor uitgevers](http://go.microsoft.com/fwlink/?LinkID=699560) (Zie de sectie
+Aanbieding beëindigen is het proces van beëindiging van de service en/of licentieovereenkomst tussen u en uw bestaande klanten. Richtlijnen en beleidsregels met betrekking tot de aanbieding verwijderen en beëindigen vallen onder [Microsoft Marketplace-overeenkomst voor uitgevers](https://go.microsoft.com/fwlink/?LinkID=699560) (Zie de sectie
 7) en de [beleidsregels voor deelname aan](https://azure.microsoft.com/support/legal/marketplace/participation-policies/) (Zie de sectie 6.2). De verschillende ondersteunde scenario's verwijderen en de stappen die u kunt uitvoeren worden besproken.
 
 <a name="delete-a-live-sku-from-azure-marketplace"></a>Een live SKU verwijderen uit Azure Marketplace 

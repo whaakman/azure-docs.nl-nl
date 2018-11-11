@@ -6,16 +6,16 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: 359ada08f1d9df6b60fc27ca385f6003af498e17
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: eb0f5a4a4219c63334e0a5be3ea4378c3c317bec
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50958598"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51288098"
 ---
 # <a name="deploy-the-vfxt-cluster"></a>Het vFXT-cluster implementeren
 
-Voor het maken van een cluster vFXT, is de eenvoudigste manier met een netwerkcontroller cluster, wordt een virtuele machine waarvoor de vereiste scripts, sjablonen en software-infrastructuur voor het maken en beheren van het cluster vFXT is.
+De eenvoudigste manier om een vFXT-cluster maken in Azure is met een cluster-netwerkcontroller. De clustercontroller is een virtuele machine met de vereiste scripts, sjablonen en software-infrastructuur voor het maken en beheren van het cluster vFXT.
 
 U een nieuwe vFXT-cluster implementeert, bevat deze stappen:
 
@@ -82,7 +82,7 @@ In de **instellingen** sectie:
 * Virtueel netwerk-resourcegroep, naam en de subnetnaam van de - Typ de namen van bestaande resources (als u een bestaand vnet) of typ de nieuwe namen als het maken van een nieuw vnet
 * **Naam van de domeincontroller** -een naam voor de netwerkcontroller-VM instellen
 * De standaardwaarde is de gebruikersnaam van beheerder controller- `azureuser`
-* SSH-sleutel - plakken de openbare sleutel koppelen aan de gebruikersnaam van de beheerder. Lezen [maken en gebruiken van SSH-sleutels](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys) als u hulp nodig hebt.
+* SSH-sleutel - plakken de openbare sleutel koppelen aan de gebruikersnaam van de beheerder. Lezen [maken en gebruiken van SSH-sleutels](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows) als u hulp nodig hebt.
 
 Onder **voorwaarden en bepalingen**: 
 
@@ -93,16 +93,13 @@ Onder **voorwaarden en bepalingen**:
 
 Klik op **aankoop** wanneer u klaar bent. Na vijf of zes minuten is het knooppunt van de domeincontroller actief en werkend.
 
-U moet naar de pagina van de uitvoer voor het verzamelen van informatie die nodig is voor het cluster. Lezen [invoer nodig is voor cluster maken](#inputs-needed-for-cluster-creation) voor meer informatie.
+Ga naar de uitvoer-pagina voor het verzamelen van de controller-informatie die u nodig hebt om het cluster te maken. Lezen [informatie nodig voor het maken van het cluster](#information-needed-to-create-the-cluster) voor meer informatie.
 
 ### <a name="create-controller---azure-marketplace-image"></a>Controller - Azure Marketplace-installatiekopie maken
 
-De sjabloon domeincontroller vinden door te zoeken naar de Azure Marketplace voor de naam van de ``Avere``. Selecteer de **Avere vFXT voor Azure-Controller** sjabloon. 
+De sjabloon domeincontroller vinden door te zoeken naar de Azure Marketplace voor de naam van de ``Avere``. Selecteer de **Avere vFXT voor Azure-Controller** sjabloon.
 
 Als u hebt nog niet gedaan, accepteer de voorwaarden en programmatische toegang inschakelen voor de Marketplace-installatiekopie door te klikken op de 'wilt implementeren via een programma?" koppeling onder de **maken** knop.
-
-> [!NOTE] 
-> Tijdens de eerste week van de algemene beschikbaarheid (en met 31 oktober - 7 November 2018), moet u de opdrachtregeloptie te gebruiken om te accepteren voor twee software-installatiekopieën in plaats van deze procedure te volgen. Volg de instructies in [accepteren software vooraf](avere-vfxt-prereqs.md#accept-software-terms-in-advance). 
 
 ![Schermafbeelding van een koppeling naar programmatische toegang, die lager dan de knop maken is](media/avere-vfxt-deploy-programmatically.png)
 
@@ -125,7 +122,7 @@ Vul in het eerste deelvenster of bevestig deze eenvoudige opties:
   * Selecteer de gebruikersnaam en wachtwoord of openbare SSH-sleutel (aanbevolen).
   
     > [!TIP] 
-    > Een SSH-sleutel is veiliger. Lezen [maken en gebruiken van SSH-sleutels](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys) als u hulp nodig hebt. 
+    > Een SSH-sleutel is veiliger. Lezen [maken en gebruiken van SSH-sleutels](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows) als u hulp nodig hebt. 
   * Geef de gebruikersnaam 
   * Plak de SSH-sleutel, of geef en Bevestig het wachtwoord
 * **Regels voor binnenkomende poort** - als via een openbaar IP-adres, open poort 22 (SSH)
@@ -172,29 +169,31 @@ Als u van Azure Blob-opslag voor uw back-end-gegevensopslag gebruikmaakt, moet u
 
   ![Schermafbeelding van Azure portal met aantekeningen voor de stappen voor het maken van het service-eindpunt](media/avere-vfxt-service-endpoint.png)
 
-## <a name="gather-needed-inputs"></a>Vereiste invoer verzamelen
+## <a name="information-needed-to-create-the-cluster"></a>Informatie die nodig is om het cluster te maken
 
-U moet de volgende informatie om het cluster te maken. 
+Nadat u de netwerkcontroller cluster hebt gemaakt, zorg ervoor dat de informatie die u nodig hebt voor de volgende stappen. 
 
-Als u het knooppunt van de domeincontroller met behulp van de Resource Manager-sjabloon hebt gemaakt, kunt u [ophalen van de gegevens uit de uitvoer van de sjabloon](#finding-template-output). 
+De informatie die nodig zijn voor het verbinding maken met de domeincontroller: 
 
-Verbinding maken met de controller nodig: 
-
-* Controller-gebruikersnaam en SSH-sleutel of het wachtwoord
+* Controller-gebruikersnaam en SSH-sleutel (of het wachtwoord)
 * IP-adres van controller of een andere methode verbinding maken met de VM-controller
 
-Nodig voor het maken van clusters: 
+De informatie die nodig is voor het cluster: 
 
 * Resourcegroepnaam
 * Azure-locatie 
 * Naam van virtueel netwerk
 * Subnetnaam
-* Knooppunt-clusterrolnaam op
+* Knooppunt-clusterrolnaam op: deze naam is ingesteld bij het maken van de rol, beschreven [hieronder](#create-the-cluster-node-access-role)
 * Naam van het opslagaccount als het maken van een Blob-container
 
-Ook vindt u ontbrekende informatie door te bladeren naar de pagina controller VM-gegevens. Bijvoorbeeld, klikt u op **alle resources** en zoek de naam van de domeincontroller, en klik vervolgens op de naam van de domeincontroller om de details te bekijken.
+Als u het knooppunt van de domeincontroller met behulp van de Resource Manager-sjabloon hebt gemaakt, krijgt u de gegevens uit de [uitvoer van de sjabloon](#find-template-output). 
 
-### <a name="finding-template-output"></a>Uitvoer van de sjabloon zoeken
+Als u de Azure Marketplace-installatiekopie te maken van de controller gebruikt, verstrekt u de meeste van deze objecten rechtstreeks. 
+
+Geen ontbrekende items vinden door te bladeren naar de pagina controller VM-gegevens. Bijvoorbeeld, klikt u op **alle resources** en zoek de naam van de domeincontroller, en klik vervolgens op de naam van de domeincontroller om de details te bekijken.
+
+### <a name="find-template-output"></a>Uitvoer van de sjabloon zoeken
 
 Als u wilt deze informatie van de Resource Manager-uitvoer van de sjabloon vinden, als volgt:
 
@@ -215,7 +214,7 @@ U doet de rest van de implementatiestappen, moet u verbinding maken met de clust
 1. De methode voor het verbinding maken met uw clustercontroller is afhankelijk van uw installatie.
 
    * Als de controller een openbaar IP-adres, SSH aan van de controller-IP-adres als de gebruikersnaam van de beheerder heeft instellen (bijvoorbeeld ``ssh azureuser@40.117.136.91``).
-   * Als de domeincontroller heeft geen een openbaar IP-adres, gebruikt u een [ExpressRoute](https://docs.microsoft.com/azure/expressroute/) of een VPN-verbinding met uw vnet.
+   * Als de domeincontroller heeft geen een openbaar IP-adres, gebruikt u een VPN of [ExpressRoute](https://docs.microsoft.com/azure/expressroute/) verbinding met uw vnet.
 
 1. Na het aanmelden bij de domeincontroller, verifiëren door te voeren `az login`. De verificatiecode die is opgegeven in de shell kopiëren en vervolgens een webbrowser gebruiken om te laden [ https://microsoft.com/devicelogin ](https://microsoft.com/devicelogin) en verifiëren met het Microsoft-systeem. Ga terug naar de shell om bevestiging.
 
@@ -292,15 +291,18 @@ RESOURCE_GROUP=
 Sla het bestand en afsluiten.
 
 ### <a name="run-the-script"></a>Het script uitvoeren
+
 Voer het script door de bestandsnaam die u hebt gemaakt. (Voorbeeld: `./create-cloudbacked-cluster-west1`)  
 
-Houd rekening met het uitvoeren van deze opdracht in een [terminal multiplexer](http://linuxcommand.org/lc3_adv_termmux.php) zoals `screen` of `tmux` in het geval de verbinding wordt verbroken.  
+> [!TIP]
+> Houd rekening met het uitvoeren van deze opdracht in een [terminal multiplexer](http://linuxcommand.org/lc3_adv_termmux.php) zoals `screen` of `tmux` in het geval de verbinding wordt verbroken.  
+
 De uitvoer wordt ook vastgelegd in `~/vfxt.log`.
 
 Wanneer het script is voltooid, kopieert u het beheer van IP-adres, die nodig voor het Clusterbeheer is.
 
 ![Vanaf de opdrachtregel-uitvoer van het script voor het weergeven van het beheer van IP-adres aan het einde](media/avere-vfxt-mgmt-ip.png)
 
-### <a name="next-step"></a>Volgende stap
+## <a name="next-step"></a>Volgende stap
 
 Nu dat het cluster actief is en u weet dat het beheer van IP-adres, kunt u [verbinding maken met het cluster-configuratieprogramma](avere-vfxt-cluster-gui.md) ondersteuning inschakelen en het toevoegen van opslag, indien nodig.

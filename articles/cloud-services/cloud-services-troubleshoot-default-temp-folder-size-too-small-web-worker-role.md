@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 06/15/2018
 ms.author: v-six
-ms.openlocfilehash: 5d60c5f2d759f3329997762270e9a0335ebbe1e9
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 4757b20e1a3d9830c2d52a5fbc85fd935b27fb62
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47095962"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51245032"
 ---
 # <a name="default-temp-folder-size-is-too-small-on-a-cloud-service-webworker-role"></a>Standaard is TEMP map te klein voor een cloud service web/worker-rol
 De tijdelijke standaardmap van een werknemer of web cloudservicerol heeft een maximale grootte van 100 MB, die volledig op een bepaald moment kan vormen. In dit artikel wordt beschreven hoe om te voorkomen dat met de beschikbare ruimte voor de tijdelijke map.
@@ -71,8 +71,8 @@ namespace WorkerRole1
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-Lees een blog waarin wordt beschreven [verhogen van de grootte van de Azure Web Role ASP.NET tijdelijke map](http://blogs.msdn.com/b/kwill/archive/2011/07/18/how-to-increase-the-size-of-the-windows-azure-web-role-asp-net-temporary-folder.aspx).
+Lees een blog waarin wordt beschreven [verhogen van de grootte van de Azure Web Role ASP.NET tijdelijke map](https://blogs.msdn.com/b/kwill/archive/2011/07/18/how-to-increase-the-size-of-the-windows-azure-web-role-asp-net-temporary-folder.aspx).
 
 Meer weergeven [artikelen over probleemoplossing](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/vs-azure-tools-debugging-cloud-services-overview.md) voor cloudservices.
 
-Voor informatie over het oplossen van problemen met de rol van de cloud service met behulp van Azure PaaS computer diagnostische gegevens, bekijken [van Kevin Williamson blogserie](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
+Voor informatie over het oplossen van problemen met de rol van de cloud service met behulp van Azure PaaS computer diagnostische gegevens, bekijken [van Kevin Williamson blogserie](https://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).

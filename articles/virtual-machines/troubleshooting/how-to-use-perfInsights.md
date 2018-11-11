@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 75d630b91a1380102fd285edfb11effa22f47859
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 29af7ad8b582682189320185c460597af53cf6d8
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50413216"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51243910"
 ---
 # <a name="how-to-use-perfinsights"></a>PerfInsights gebruiken
 
-[PerfInsights](http://aka.ms/perfinsightsdownload) is een hulpprogramma voor zelfhulp diagnostische gegevens verzamelt, analyseert de diagnostische gegevens en biedt een rapport voor het oplossen van problemen met prestaties van Windows-virtuele machine in Azure. PerfInsights kan worden uitgevoerd op virtuele machines als een zelfstandig hulpprogramma, rechtstreeks vanuit de portal met behulp van [Prestatiediagnoses voor Azure virtual machines](performance-diagnostics.md), of door het installeren van [Azure prestaties diagnostische VM-extensie ](performance-diagnostics-vm-extension.md).
+[PerfInsights](https://aka.ms/perfinsightsdownload) is een hulpprogramma voor zelfhulp diagnostische gegevens verzamelt, analyseert de diagnostische gegevens en biedt een rapport voor het oplossen van problemen met prestaties van Windows-virtuele machine in Azure. PerfInsights kan worden uitgevoerd op virtuele machines als een zelfstandig hulpprogramma, rechtstreeks vanuit de portal met behulp van [Prestatiediagnoses voor Azure virtual machines](performance-diagnostics.md), of door het installeren van [Azure prestaties diagnostische VM-extensie ](performance-diagnostics-vm-extension.md).
 
 Als u problemen met de prestaties met virtuele machines, ondervindt voordat u contact opnemen met ondersteuning, moet u dit hulpprogramma uitvoeren.
 
@@ -190,7 +190,7 @@ Zie voor meer informatie over deze optie [installeren Azure prestaties diagnosti
 Als u wilt de PerfInsights-hulpprogramma uitvoert, de volgende stappen uit:
 
 
-1. Download [PerfInsights.zip](http://aka.ms/perfinsightsdownload).
+1. Download [PerfInsights.zip](https://aka.ms/perfinsightsdownload).
 
 2. Het bestand PerfInsights.zip de blokkering opheffen. U doet dit door met de rechtermuisknop op het bestand PerfInsights.zip en selecteer **eigenschappen**. In de **algemene** tabblad **opheffen van blokkeringen**, en selecteer vervolgens **OK**. Dit zorgt ervoor dat het hulpprogramma wordt uitgevoerd zonder eventuele extra beveiliging wordt gevraagd.  
 

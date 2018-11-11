@@ -9,12 +9,12 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.openlocfilehash: 1c498bb857b717682f943af96b222d9712b5d389
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: ba2ce12fcfad14b0910144b1a95efd44be54811f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49409217"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51245644"
 ---
 # <a name="connecting-azure-sql-database-to-azure-search-using-indexers"></a>Azure SQL Database verbinding te maken met Azure Search met behulp van indexeerfuncties
 
@@ -140,7 +140,7 @@ Het antwoord moet er ongeveer als volgt uitzien:
     }
 
 Uitvoeringsgeschiedenis bevat maximaal 50 van de meest recentelijk uitgevoerde uitvoeringen, die in de omgekeerde volgorde worden gesorteerd (zodat de meest recente uitvoering in het antwoord eerste komt).
-Meer informatie over het antwoord kunt vinden [indexeerfunctie Status ophalen](http://go.microsoft.com/fwlink/p/?LinkId=528198)
+Meer informatie over het antwoord kunt vinden [indexeerfunctie Status ophalen](https://go.microsoft.com/fwlink/p/?LinkId=528198)
 
 ## <a name="run-indexers-on-a-schedule"></a>Indexeerfuncties volgens een planning wordt uitgevoerd
 Ook kunt u instellen dat de indexeerfunctie periodiek wordt uitgevoerd volgens een schema. Om dit te doen, voeg de **planning** eigenschap bij het maken of bijwerken van de indexeerfunctie. In het volgende voorbeeld toont een PUT-aanvraag voor het bijwerken van de indexeerfunctie:
