@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 11/06/2018
 ms.author: tulasim
-ms.openlocfilehash: f927e5b7ff65b82aef9d4224d22296e0fa48ad59
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: adcefe8fed927aca2533ea811bac56f0b92288de
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47451881"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51279704"
 ---
 # <a name="edit-a-knowledge-base"></a>Een knowledge base bewerken
 
@@ -54,7 +54,7 @@ Afhankelijk van bijgewerkt van Knowledge Base **management prijscategorie** word
     >[!NOTE]
     Verlaat de pagina voordat u op bij het opslaan en train, blijven de wijzigingen niet behouden.
 
-## <a name="add-a-qna-pair"></a>Een set QnA toevoegen
+## <a name="add-a-qna-pair"></a>Een QnA-set toevoegen
 
 Selecteer **QnA toevoegen paar** naar een nieuwe rij toevoegt aan de tabel knowledge base.
 
@@ -89,6 +89,12 @@ Metagegevens paren toevoegen door het filterpictogram selecteren
 3. **Paginering** kunt u voor het beheren van grote knowledge bases
 
     ![Zoeken, pagineren, groep](../media/qnamaker-how-to-edit-kb/search-paginate-group.png)
+
+## <a name="delete-knowledge-bases"></a>Knowledge bases verwijderen
+
+Verwijderen van een knowledge base (KB) is een permanente bewerking. Het kan niet ongedaan worden gemaakt. Voordat u verwijdert een knowledge base, moet u de knowledge base van exporteren de **instellingen** pagina van de QnA Maker-portal. 
+
+Als u uw KB met deelt [samenwerkers](collaborate-knowledge-base.md) vervolgens verwijderd, maar iedereen toegang tot de KB verliest. 
 
 ## <a name="next-steps"></a>Volgende stappen
 

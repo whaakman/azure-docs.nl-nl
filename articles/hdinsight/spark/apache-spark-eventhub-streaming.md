@@ -3,18 +3,18 @@ title: 'Zelfstudie: Gegevens van Azure Event Hubs met Apache Spark in Azure HDIn
 description: Apache Spark in Azure HDInsight verbinden met Azure Event Hubs en de streaming gegevens verwerken.
 services: hdinsight
 ms.service: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive,mvc
 ms.topic: conceptual
-ms.date: 06/14/2018
-ms.openlocfilehash: 9cdb5ae31e2743b5ebe877ddd8d6680423e3d9b2
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.date: 11/06/2018
+ms.openlocfilehash: eb2145d2e7b787bafa0b546449282454f7059999
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43046249"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283407"
 ---
 # <a name="tutorial-process-tweets-using-azure-event-hubs-and-spark-in-hdinsight"></a>Zelfstudie: Een proces tweet met behulp van Azure Event Hubs en Spark in HDInsight
 
@@ -73,18 +73,14 @@ U kunt deze event hub gebruiken voor het opslaan van tweets.
     ![Geef de naam van een event hub voor Spark streaming voorbeeld](./media/apache-spark-eventhub-streaming/hdinsight-provide-event-hub-name-for-spark-streaming.png "bieden u de naam van een event hub voor Spark streaming-voorbeeld")
 5. Selecteer **maken** om de naamruimte te maken.
 
-6. Open de event hub-naamruimte met behulp van de volgende instructies:
+7. Open de event hub-naamruimte met behulp van de volgende instructies:
 
     1. Selecteer in de portal **alle services**.
     2. Voer in het filtervak **eventhubs**.
-    3. Dubbelklik op de naamruimte die u hebt gemaakt.
+    3. Selecteer de zojuist gemaakte naamruimte.
     4. Selecteer **+ Event Hub**.
 
-6. Selecteer de zojuist gemaakte naamruimte in de lijst Event Hubs-naamruimte.      
-5. Selecteer **Event Hubs**, en selecteer vervolgens **+ Event Hub** te maken van een nieuwe Event Hub.
-  
-
-6. Voer de volgende waarden in:
+8. Voer de volgende waarden in:
 
     - Naam: Geef een naam voor uw Event Hub.
     - Partitie-aantal: 10
@@ -92,12 +88,12 @@ U kunt deze event hub gebruiken voor het opslaan van tweets.
    
     ![Details van event hub bieden voor Spark streaming voorbeeld](./media/apache-spark-eventhub-streaming/hdinsight-provide-event-hub-details-for-spark-streaming-example.png "details van event hub bieden voor Spark streaming-voorbeeld")
 
-7. Selecteer **Maken**.
-8. Selecteer **beleid voor gedeelde toegang** voor de naamruimte (Opmerking: het is niet het toegangsbeleid van event hub die wordt gedeeld) en selecteer vervolgens **RootManageSharedAccessKey**.
+9. Selecteer **Maken**.
+10. Selecteer **beleid voor gedeelde toegang** voor de naamruimte (Opmerking: het is niet het toegangsbeleid van event hub die wordt gedeeld) en selecteer vervolgens **RootManageSharedAccessKey**.
     
      ![Event Hub-beleid instellen voor de Spark-streaming voorbeeld](./media/apache-spark-eventhub-streaming/hdinsight-set-event-hub-policies-for-spark-streaming-example.png "ingesteld Event Hub-beleid voor de Spark-streaming-voorbeeld")
 
-9. Sla de waarden van **primaire sleutel** en **verbindingsreeks-primaire sleutel** voor gebruik verderop in de zelfstudie.
+11. Sla de waarden van **primaire sleutel** en **verbindingsreeks-primaire sleutel** voor gebruik verderop in de zelfstudie.
 
      ![Event Hub-beleid-sleutels weergeven voor de Spark-streaming voorbeeld](./media/apache-spark-eventhub-streaming/hdinsight-view-event-hub-policy-keys.png "weergave Event Hub-beleid sleutels voor het voorbeeld van Spark-streaming")
 
@@ -222,7 +218,7 @@ Moet u een andere Jupyter-notebook maken en geef deze de naam **ReadTweetsFromEv
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Met HDInsight worden uw gegevens opgeslagen in Azure Storage of Azure Data Lake Store, zodat u een cluster veilig kunt verwijderen wanneer dit niet wordt gebruikt. Voor een HDInsight-cluster worden ook kosten in rekening gebracht, zelfs wanneer het niet wordt gebruikt. Aangezien de kosten voor het cluster vaak zoveel hoger zijn dan de kosten voor opslag, is het financieel gezien logischer clusters te verwijderen wanneer ze niet worden gebruikt. Als u direct verder wilt met de zelfstudie, is het beter om het cluster te behouden.
+Met HDInsight worden uw gegevens opgeslagen in Azure Storage of Azure Data Lake Store, zodat u een cluster veilig kunt verwijderen wanneer dit niet wordt gebruikt. Voor een HDInsight-cluster worden ook kosten in rekening gebracht, zelfs wanneer het niet wordt gebruikt. Als u van plan bent om te werken onmiddellijk op de volgende zelfstudie, is het raadzaam het cluster bewaren, anders gaan en het cluster verwijdert.
 
 Open het cluster in Azure Portal en selecteer **Verwijderen**.
 

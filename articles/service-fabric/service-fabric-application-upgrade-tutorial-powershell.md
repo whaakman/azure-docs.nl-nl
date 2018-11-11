@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: c1005d60df0b1cfd3b24be954ab4ff1b18c8f7a8
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 0f134bdb4f77034dd124027fc960d172d25db721
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44348766"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515315"
 ---
 # <a name="service-fabric-application-upgrade-using-powershell"></a>Upgrade van de service Fabric-toepassing met behulp van PowerShell
 > [!div class="op_single_selector"]
@@ -79,13 +79,13 @@ Nu, bouw het project door te selecteren alleen de **ActorService** project, en v
 ## <a name="step-3--decide-on-health-policies-and-upgrade-parameters"></a>Stap 3: Statusbeleid hebt bepaald en Upgradeparameters
 Maak uzelf vertrouwd met de [parameters toepassingsupgrade](service-fabric-application-upgrade-parameters.md) en de [upgradeproces](service-fabric-application-upgrade.md) om op te halen van een goed begrip van de verschillende parameters voor het bijwerken, time-outs en health criterium toegepast. Voor dit scenario is het criterium voor evaluatie van health service ingesteld op de standaardwaarde (en aanbevolen) waarden, wat betekent dat alle services en -exemplaren moeten zijn *in orde* na de upgrade.  
 
-Maar laten we vergroten de *HealthCheckStableDuration* tot 60 seconden (zodat de services van ten minste 20 seconden voordat de upgrade wordt uitgevoerd op het volgende updatedomein in orde zijn).  We gaan ook instellen de *UpgradeDomainTimeout* moet 1200 seconden en de *UpgradeTimeout* 3000 seconden zijn.
+Maar laten we vergroten de *HealthCheckStableDuration* 180 seconden (zodat de services van ten minste 120 seconden voordat de upgrade wordt uitgevoerd op het volgende updatedomein in orde zijn).  We gaan ook instellen de *UpgradeDomainTimeout* moet 1200 seconden en de *UpgradeTimeout* 3000 seconden zijn.
 
 Tot slot gaan we ook stelt de *UpgradeFailureAction* terug te draaien. Deze optie is vereist voor Service Fabric om terug te draaien de toepassing naar de vorige versie als er problemen ondervindt tijdens de upgrade. Dus bij het starten van de upgrade (in stap 4), zijn de volgende parameters opgegeven:
 
 FailureAction = terugdraaien
 
-HealthCheckStableDurationSec = 60
+HealthCheckStableDurationSec 180 =
 
 UpgradeDomainTimeoutSec = 1200
 

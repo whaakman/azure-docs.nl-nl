@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/27/2018
 ms.author: bwren
-ms.openlocfilehash: a810de5c3c70322560bb45bcc2aee5cf0798cea9
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 8aa79d66801ff30fedc725913696d5cfa3c9626f
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50248707"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282818"
 ---
 # <a name="monitoring-data-collected-by-azure-monitor"></a>Door gegevens te controleren die worden verzameld door Azure Monitor
 [Azure Monitor](../azure-monitor/overview.md) is een service waarmee u uw toepassingen en de resources die ze erop dat vertrouwen bewaken. Centrale op deze functie is opslag van Telemetrie en andere gegevens van bewaakte resources. Dit artikel bevat een volledige beschrijving van hoe deze gegevens worden opgeslagen en gebruikt door Azure Monitor.
@@ -98,7 +98,7 @@ Er zijn drie fundamentele bronnen van metrische gegevens die door Azure Monitor 
 Taken die u met metrische gegevens uitvoeren kunt omvatten het volgende:
 
 - Gebruik [Metrics explorer](../monitoring-and-diagnostics/monitoring-metric-charts.md) verzamelde metrische gegevens analyseren en ze op een grafiek te tekenen. De prestaties van een resource (zoals een virtuele machine, de website of de logische app) bijhouden door grafieken om vast te maken een [Azure-dashboard](../azure-portal/azure-portal-dashboards.md).
-- Configureer een [waarschuwingsregel voor metrische gegevens](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) die duurt of een melding verzendt [automatische actie](../monitoring-and-diagnostics/monitoring-action-groups.md) wanneer de metriek een drempelwaarde overschrijdt.
+- Configureer een [waarschuwingsregel voor metrische gegevens](../monitoring-and-diagnostics/alert-metric.md) die duurt of een melding verzendt [automatische actie](../monitoring-and-diagnostics/monitoring-action-groups.md) wanneer de metriek een drempelwaarde overschrijdt.
 - Gebruik [voor automatisch schalen](../monitoring-and-diagnostics/monitoring-overview-autoscale.md) vergroten of verkleinen van resources op basis van een metriek een drempelwaarde overschrijden.
 - Metrische gegevens doorsturen naar Log Analytics om metrische gegevens, samen met logboekgegevens te analyseren en voor het opslaan van de metrische waarden voor langer dan 93 dagen. 
 - Metrische gegevens naar Stream een [Event Hub](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md) te routeren [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) of met externe systemen.
@@ -138,7 +138,7 @@ Logboeken die worden verzameld door Azure Monitor worden opgeslagen in Log Analy
 Log Analytics kan gegevens verzamelen uit diverse bronnen, zowel binnen Azure en on-premises bronnen. Bronnen van gegevens die worden geschreven naar Log Analytics omvatten het volgende:
 
 - [Activiteitenlogboeken](../log-analytics/log-analytics-activity.md) van Azure-resources met informatie over de configuratie en de status en [diagnostische logboeken](../monitoring-and-diagnostics/monitor-stream-diagnostic-logs-log-analytics.md) die inzicht geven in hun werking.
-- Agents op [Windows](../log-analytics/log-analytics-windows-agent.md) en [Linux](../log-analytics/log-analytics-linux-agents.md) virtuele machines die telemetrie vanuit de Gast-besturingssysteem en toepassingen naar Log Analytics volgens verzenden [gegevensbronnen](../log-analytics/log-analytics-data-sources.md) die u configureert.
+- Agents op [Windows](../log-analytics/log-analytics-windows-agent.md) en [Linux](../log-analytics/log-analytics-quick-collect-linux-computer.md) virtuele machines die telemetrie vanuit de Gast-besturingssysteem en toepassingen naar Log Analytics volgens verzenden [gegevensbronnen](../log-analytics/log-analytics-data-sources.md) die u configureert.
 - Toepassingsgegevens verzameld door [Application Insights](https://docs.microsoft.com/azure/application-insights/).
 - Gegevens die inzicht bieden in een bepaalde toepassing of service van [bewakingsoplossingen](../monitoring/monitoring-solutions.md) of functies zoals Container Insights, inzichten van de virtuele machine of Resource Group inzichten.
 - Beveiligingsgegevens die zijn verzameld door [Azure Security Center](https://docs.microsoft.com/azure/security-center/).

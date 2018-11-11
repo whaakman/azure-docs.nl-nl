@@ -10,12 +10,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 04/11/2018
 ms.author: rangv
-ms.openlocfilehash: 2dd9b14ebd7e64a1073ab773b2f1ac8d8c05ac0a
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: a2d067f71b7b68944e479cfd27c1dbf414762af8
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39185244"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51514873"
 ---
 # <a name="connect-raspberry-pi-online-simulator-to-azure-iot-hub-nodejs"></a>Raspberry Pi online simulator verbinden met Azure IoT Hub (Node.js)
 
@@ -59,9 +59,13 @@ Klik op de knop Start Raspberry Pi online simulator.
 <a href="https://azure-samples.github.io/raspberry-pi-web-simulator/#GetStarted" target="_blank">Starten van de Simulator Raspberry Pi</a>
 
 Er zijn drie gebieden in de websimulator.
+
 1. Assemblagegebied - het circuit standaard is dat een Pi verbinding moet met een sensor BME280 en een LED maken. Het gebied in de preview-versie is vergrendeld zodat momenteel niet mogelijk is aanpassingen.
+
 2. Gebied - een online code-editor voor u code met Raspberry Pi coderen. De standaard-voorbeeldtoepassing helpt om sensorgegevens te verzamelen BME280 sensor en verzendt naar uw Azure-IoT-Hub. De toepassing is volledig compatibel met echte Pi-apparaten. 
+
 3. Geïntegreerde consolevenster - er wordt de uitvoer van uw code. Er zijn drie knoppen aan de bovenkant van het venster.
+
    * **Voer** -de toepassing uitvoert in het gebied met coderen.
    * **Opnieuw instellen van** -opnieuw instellen van het coderen gebied met de standaard-voorbeeldtoepassing.
    * **Vouw/uit te breiden** -aan de rechterkant is voor u het consolevenster vouwen/uitbreiden om een knop.
@@ -71,8 +75,17 @@ De Raspberry Pi-websimulator is nu beschikbaar in preview-versie. We willen graa
 
 ![Overzicht van Pi online simulator](media/iot-hub-raspberry-pi-web-simulator/0_overview.png)
 
-[!INCLUDE [iot-hub-get-started-create-hub-and-device](../../includes/iot-hub-get-started-create-hub-and-device.md)]
+## <a name="create-an-iot-hub"></a>Een IoT Hub maken
 
+[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
+
+### <a name="retrieve-connection-string-for-iot-hub"></a>Voor IoT hub-verbindingsreeks ophalen
+
+[!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
+
+## <a name="register-a-new-device-in-the-iot-hub"></a>Een nieuw apparaat registreren in de IoT-hub
+
+[!INCLUDE [iot-hub-include-create-device](../../includes/iot-hub-include-create-device.md)]
 
 ## <a name="run-a-sample-application-on-pi-web-simulator"></a>Een voorbeeld-App uitvoeren op Pi-websimulator
 
@@ -80,7 +93,6 @@ De Raspberry Pi-websimulator is nu beschikbaar in preview-versie. We willen graa
    ![Vervang de verbindingsreeks van apparaat](media/iot-hub-raspberry-pi-web-simulator/1_connectionstring.png)
 
 2. Klik op **uitvoeren** of type `npm start` de toepassing uit te voeren.
-
 
 Ziet u de volgende uitvoer ziet u de sensorgegevens en de berichten die worden verzonden naar uw IoT-hub ![uitvoer - sensorgegevens van Raspberry Pi verzonden naar uw IoT-hub](media/iot-hub-raspberry-pi-web-simulator/2_run_application.png)
 

@@ -12,14 +12,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: powershell
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/20/2018
+ms.date: 11/08/2018
 ms.author: tomfitz
-ms.openlocfilehash: 7cda2a406c6c49e9252bfd5840e8f943e5b7043f
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: 0ecb497e9b07119f6c32149a875f27ee7c338d74
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39205796"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51344634"
 ---
 # <a name="manage-resources-with-azure-powershell"></a>Resources beheren met Azure PowerShell
 
@@ -56,7 +56,7 @@ In dit artikel implementeert u een virtuele machine en de bijbehorende virtuele 
 * [Inzender voor netwerken](../role-based-access-control/built-in-roles.md#network-contributor)
 * [Inzender voor opslagaccounts](../role-based-access-control/built-in-roles.md#storage-account-contributor)
 
-In plaats van de rollen toe te wijzen aan individuele gebruikers, is het vaak eenvoudiger [een Azure Active Directory-groep te maken](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md) voor gebruikers die vergelijkbare acties moeten ondernemen. U wijst dan de juiste rol aan die groep toe. Ter vereenvoudiging van dit artikel maakt u een Azure Active Directory-groep zonder leden. U kunt aan deze groep wel een rol voor een bereik toewijzen. 
+In plaats van de rollen toe te wijzen aan individuele gebruikers, is het vaak eenvoudiger [een Azure Active Directory-groep te maken](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md) voor gebruikers die vergelijkbare acties moeten ondernemen. U wijst dan de juiste rol aan die groep toe. Ter vereenvoudiging van dit artikel maakt u een Azure Active Directory-groep zonder leden. U kunt aan deze groep wel een rol voor een bereik toewijzen.
 
 Het volgende voorbeeld wordt een groep gemaakt en wijst deze toe aan de rol Inzender voor virtuele machines voor de resourcegroep. Om uit te voeren de `New-AzureAdGroup` opdracht, moet u een van beide gebruikt de [Azure Cloud Shell](/azure/cloud-shell/overview) of [downloaden van de Azure AD PowerShell-module](https://www.powershellgallery.com/packages/AzureAD/).
 
@@ -74,7 +74,7 @@ Normaal gesproken herhaalt u het proces voor **Inzender voor netwerken** en **In
 
 ## <a name="azure-policy"></a>Azure Policy
 
-[Azure Policy](../azure-policy/azure-policy-introduction.md) helpt u ervoor dat alle resources in het abonnement te voldoen aan de bedrijfsnormen. Uw abonnement heeft al meerdere beleidsdefinities. Als u wilt zien van de beschikbare beleidsdefinities, gebruikt u:
+[Azure-beleid](../azure-policy/azure-policy-introduction.md) helpt u ervoor te zorgen dat alle resources in het abonnement voldoen aan de bedrijfsnormen. Uw abonnement heeft al meerdere beleidsdefinities. Als u wilt zien van de beschikbare beleidsdefinities, gebruikt u:
 
 ```azurepowershell-interactive
 (Get-AzureRmPolicyDefinition).Properties | Format-Table displayName, policyType
@@ -211,11 +211,12 @@ Remove-AzureRmResourceLock -LockName LockNSG `
 
 U kunt de opdracht [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) gebruiken om de resourcegroep, de VM en alle gerelateerde resources te verwijderen wanneer u ze niet meer nodig hebt.
 
-```powershell
+```azurepowershell-interactive
 Remove-AzureRmResourceGroup -Name myResourceGroup
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
+
 * Zie voor meer informatie over het controleren van uw virtuele machines, [controleren en bijwerken van een Windows-Machine met Azure PowerShell](../virtual-machines/windows/tutorial-monitoring.md).
 * Voor meer informatie over het gebruik van Azure Security Center voor het implementeren van de aanbevolen beveiligingsprocedures, [beveiliging van virtuele machines bewaken met behulp van Azure Security Center](../virtual-machines/windows/tutorial-azure-security.md).
 * U kunt bestaande resources verplaatsen naar een nieuwe resourcegroep. Zie voor voorbeelden van [verplaatsen van Resources aan de nieuwe resourcegroep of abonnement](resource-group-move-resources.md).

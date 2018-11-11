@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2018
 ms.author: shvija
-ms.openlocfilehash: c4a9a3189f3de101528871e4dba95bf7a76b9846
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: a3f7245d8a648249a4e7179cc02982eae8561037
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42746911"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51280570"
 ---
 # <a name="event-hubs-features-overview"></a>Overzicht van de functies van de Event Hubs
 
@@ -28,13 +28,21 @@ Dit artikel is gebaseerd op de informatie in de [overzichtsartikel](event-hubs-w
 ## <a name="namespace"></a>Naamruimte
 Een Event Hubs-naamruimte biedt een unieke scoping container, waarnaar wordt verwezen door de [volledig gekwalificeerde domeinnaam](https://en.wikipedia.org/wiki/Fully_qualified_domain_name), in die u een of meer eventhubs of Kafka-onderwerpen maakt. 
 
+## <a name="event-hubs-for-apache-kafka"></a>Event Hubs voor Apache Kafka
+
+[Deze functie](event-hubs-for-kafka-ecosystem-overview.md) biedt een eindpunt waarmee klanten een om te communiceren met Event Hubs met behulp van het Kafka-protocol. Deze integratie biedt klanten een Kafka-eindpunt. Deze aanbieding kunnen klanten hun bestaande Kafka-toepassingen om te communiceren met Event Hubs, zodat een alternatief voor het uitvoeren van hun eigen Kafka-clusters configureren. Eventhubs voor Apache Kafka biedt ondersteuning voor Kafka-protocol 1.0 en hoger. 
+
+Met deze integratie kunt wilt u niet Kafka-clusters uitvoeren of ze beheren met Zookeeper. Hiermee kunt u ook werkt met bepaalde van de meest veeleisende functies van Event Hubs, zoals automatisch vergroten en Geo-noodherstel vastleggen.
+
+Deze integratie kunt ook toepassingen, zoals de Maker van de Mirror of framework, zoals Kafka verbinding maken om te werken clusterless met alleen wijzigingen in de configuratie. 
+
 ## <a name="event-publishers"></a>Gebeurtenisuitgevers
 
-Elke entiteit die gegevens naar een event hub verzendt, is een gebeurtenisproducent-, of *gebeurtenisuitgever*. Gebeurtenisuitgevers kunnen gebeurtenissen publiceren met HTTPS of AMQP 1.0. Gebeurtenisuitgevers gebruiken een Shared Access Signature-token (SAS) om zichzelf te identificeren bij een Event Hub en kunnen een unieke identiteit hebben of een algemene SAS-token gebruiken.
+Elke entiteit die gegevens naar een event hub verzendt, is een gebeurtenisproducent-, of *gebeurtenisuitgever*. Gebeurtenisuitgevers kunnen gebeurtenissen publiceren met HTTPS of AMQP 1.0 of Kafka 1.0 en hoger. Gebeurtenisuitgevers gebruiken een Shared Access Signature-token (SAS) om zichzelf te identificeren bij een Event Hub en kunnen een unieke identiteit hebben of een algemene SAS-token gebruiken.
 
 ### <a name="publishing-an-event"></a>Een gebeurtenis publiceren
 
-U kunt een gebeurtenis publiceren met AMQP 1.0 of HTTPS. Eventhubs biedt [-clientbibliotheken en -klassen](event-hubs-dotnet-framework-api-overview.md) voor het publiceren van gebeurtenissen naar een event hub vanaf .NET-clients. Voor andere runtimes en platforms kunt u een AMQP 1.0-client gebruiken, zoals [Apache Qpid](http://qpid.apache.org/). U kunt gebeurtenissen afzonderlijk of batchgewijs publiceren. Eén publicatie (exemplaar met gebeurtenisgegevens) heeft een limiet van 256 kB, ongeacht of het om één gebeurtenis of om een batch gaat. Het publiceren van gebeurtenissen die groter zijn dan deze drempelwaarde resulteert in een fout. Het is voor uitgevers een best practice om niets te weten over de partities binnen Event Hub en alleen een *partitiesleutel* (zie volgende sectie) of hun identiteit via de SAS-token op te geven.
+U kunt een gebeurtenis publiceren met AMQP 1.0, Kafka 1.0 (en hoger) of HTTPS. Eventhubs biedt [-clientbibliotheken en -klassen](event-hubs-dotnet-framework-api-overview.md) voor het publiceren van gebeurtenissen naar een event hub vanaf .NET-clients. Voor andere runtimes en platforms kunt u een AMQP 1.0-client gebruiken, zoals [Apache Qpid](http://qpid.apache.org/). U kunt gebeurtenissen afzonderlijk of batchgewijs publiceren. Eén publicatie (exemplaar met gebeurtenisgegevens) heeft een limiet van 1 MB, ongeacht of het één gebeurtenis of om een batch. Het publiceren van gebeurtenissen die groter zijn dan deze drempelwaarde resulteert in een fout. Het is voor uitgevers een best practice om niets te weten over de partities binnen Event Hub en alleen een *partitiesleutel* (zie volgende sectie) of hun identiteit via de SAS-token op te geven.
 
 De keuze om AMQP of HTTPS te gebruiken, geldt specifiek voor het gebruiksscenario. AMQP vereist de inrichting van een permanente bidirectionele socket naast Transport Layer Security (TLS) of SSL/TLS. AMQP gaat gepaard met hogere netwerkkosten tijdens de initialisatie van de sessie. Voor HTTPS is echter extra SSL-overhead vereist voor elke aanvraag. AMQP biedt betere prestaties voor regelmatige uitgevers.
 

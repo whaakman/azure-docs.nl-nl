@@ -11,13 +11,13 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: mathoma
 manager: craigg
-ms.date: 09/25/2018
-ms.openlocfilehash: eae7f97799e38d5a4b09e3f193a84b423dced780
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.date: 11/09/2018
+ms.openlocfilehash: abf41f48ffa08867fd0f06ff88da00ca65286803
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48869326"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515706"
 ---
 # <a name="replication-to-sql-database-single-and-pooled-databases"></a>Replicatie naar SQL Database single en gepoolde databases
 
@@ -65,7 +65,7 @@ SQL Server-replicatie kan worden geconfigureerd met één en gepoolde databases 
 
 1. De publicatie van een transactionele replicatie op een on-premises SQL Server-database maken.  
 2. Op de on-premises SQL Server gebruikt de **Wizard nieuwe abonnement** of Transact-SQL-instructies voor het maken van een abonnement op Azure SQL Database-push.  
-3. De initiële gegevensset is doorgaans een momentopname die is gemaakt door de Snapshot Agent en gedistribueerd en toegepast door de Agent voor softwaredistributie. De initiële gegevensset kan ook worden opgegeven door een back-up of andere middelen, zoals SQL Server Integration Services.  
+3. In Azure SQL Database is de initiële gegevensset een momentopname die is gemaakt door de Snapshot Agent en gedistribueerd en toegepast door de Agent voor softwaredistributie.   
 
 ### <a name="data-migration-scenario"></a>Scenario voor migratie van gegevens  
 

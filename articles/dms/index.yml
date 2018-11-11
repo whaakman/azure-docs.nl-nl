@@ -1,0 +1,75 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: a314401883d0325029ce50502f85c335458e3959
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51285047"
+documentType: LandingData
+title: Documentatie voor Azure Database Migration Service
+metadata:
+  document_id: 83ceabb5-fb4f-a709-3fd2-37d024409f31
+  title: Documentatie voor Azure Database Migration Service - zelfstudies | Microsoft Docs
+  meta.description: Learn how to enable seamless migrations from multiple database sources to Azure Data platforms with minimal downtime by using Azure Database Migration Service.
+  services: functions
+  author: pochiraju
+  manager: craigg
+  ms.service: dms
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 10/30/2018
+  ms.author: rajpo
+abstract:
+  description: Azure Database Migration Service maakt naadloze migratie van meerdere databasebronnen naar Azure-gegevensplatforms mogelijk met slechts minimale downtime. De service maakt gebruik van de Data Migration Assistant voor het genereren van evaluatierapporten. De aanbevelingen hierin kunnen dienen als leidraad bij het doorvoeren van de wijzigingen die nodig zijn voordat u een migratie uitvoert. Wanneer u klaar bent om met het migratieproces te beginnen, voert de Azure Database Migration Service alle vereiste stappen uit.
+  aside:
+    image:
+      alt: 
+      height: 110
+      src: media/video-thumb-intro2dms.png
+      width: 250
+    title: Kennismaking met Azure DMS (1:30)
+    href: https://www.microsoft.com/en-us/videoplayer/embed/RE2IqVu
+    width: 250
+sections:
+- title: QuickStarts van vijf minuten
+  items:
+  - type: paragraph
+    text: 'Leer hoe u een on-premises SQL-server naar Azure SQL Database migreert met behulp van de Database Migration Service:'
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: https://docs.microsoft.com/media/common/i_portal.svg
+      text: Azure-portal
+      href: /azure/dms/quickstart-create-data-migration-service-portal
+- title: Zelfstudies met stapsgewijze instructies
+  items:
+  - type: paragraph
+    text: 'Leer hoe u databases migreert met behulp van de Database Migration Service:'
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="/azure/dms/tutorial-sql-server-to-azure-sql">SQL Server offline migreren naar Azure SQL Database met behulp van DMS</a>
+    - html: <a href="/azure/dms/tutorial-sql-server-azure-sql-online">SQL Server online migreren naar Azure SQL Database met behulp van DMS</a>
+    - html: <a href="/azure/dms/tutorial-sql-server-to-managed-instance">SQL Server offline migreren naar Azure SQL Database Managed Instance met behulp van DMS</a>
+    - html: <a href="/azure/dms/tutorial-sql-server-managed-instance-online">SQL Server online migreren naar Azure SQL Database Managed Instance met behulp van DMS</a>
+    - html: <a href="/azure/dms/tutorial-mysql-azure-mysql-online">MySQL online migreren naar Azure Database for MySQL met behulp van DMS</a>
+    - html: <a href="/azure/dms/tutorial-postgresql-azure-postgresql-online">PostgreSQL online migreren naar Azure Database for PostgreSQL met behulp van DMS</a>
+- title: Voorbeelden
+  items:
+  - type: list
+    style: unordered
+    className: spaced noBullet
+    items:
+    - html: <a href="/azure/dms/howto-sql-server-to-azure-sql-powershell">SQL Server on-premises migreren naar Azure SQL DB met behulp van Azure PowerShell</a>
+    - html: <a href="/azure/dms/howto-sql-server-to-azure-sql-mi-powershell">SQL Server on-premises migreren naar Azure SQL DB Managed Instance met behulp van Azure PowerShell</a>
+- title: Naslaginformatie
+  items:
+  - type: list
+    style: unordered
+    className: spaced noBullet
+    items:
+    - html: <a href="/azure/dms/pre-reqs">Overzicht van vereisten voor het gebruik van de Azure Database Migration Service</a>
+    - html: <a href="/azure/dms/faq">Veelgestelde vragen over het gebruik van de Azure Database Migration Service</a>
+    - html: <a href="/azure/dms/known-issues-azure-sql-online">Bekende problemen/migratiebeperkingen bij online migratie naar Azure SQL DB</a>

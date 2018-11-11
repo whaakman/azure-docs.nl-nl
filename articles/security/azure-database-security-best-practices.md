@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: tomsh
-ms.openlocfilehash: 50cfc2e8420d9f427b02c739f497d8546d880d7c
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.openlocfilehash: cceea9fa613d2a2428427bfe73eb50550db6c69a
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50747759"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281622"
 ---
 # <a name="azure-database-security-best-practices"></a>Aanbevolen beveiligingsprocedures voor Azure-database
-De beveiliging is een belangrijkste aandachtspunt voor het beheren van databases en het is altijd een prioriteit voor [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/). Uw databases kunnen nauw worden beveiligd om te voldoen aan meest regelgevingsbehoeften of beveiligingsvereisten, zoals HIPAA, ISO 27001/27002 en PCI DSS Level 1. Een huidige lijst van nalevingscertificeringen voor beveiliging is beschikbaar op de [Microsoft Trust Center site](http://azure.microsoft.com/support/trust-center/services/). U kunt ook uw databases in specifieke Azure-datacenters op basis van wettelijke eisen die plaatsen.
+De beveiliging is een belangrijkste aandachtspunt voor het beheren van databases en het is altijd een prioriteit voor [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/). Uw databases kunnen nauw worden beveiligd om te voldoen aan meest regelgevingsbehoeften of beveiligingsvereisten, zoals HIPAA, ISO 27001/27002 en PCI DSS Level 1. Een huidige lijst van nalevingscertificeringen voor beveiliging is beschikbaar op de [Microsoft Trust Center site](https://azure.microsoft.com/support/trust-center/services/). U kunt ook uw databases in specifieke Azure-datacenters op basis van wettelijke eisen die plaatsen.
 
 In dit artikel wordt besproken hoe een verzameling van aanbevolen beveiligingsprocedures voor Azure-database. Deze aanbevolen procedures zijn afgeleid van onze ervaring met beveiliging van de Azure database en de ervaringen van klanten zoals zelf.
 
@@ -122,7 +122,7 @@ Omdat een geautoriseerde gebruiker, zoals een beveiligingsbeheerder of databaseb
 - Zorg ervoor dat gebruikers en toepassingen afzonderlijke accounts gebruiken om te verifiëren. Op deze manier kunt u de machtigingen verleend aan gebruikers en toepassingen beperken en het risico op schadelijke activiteiten worden verminderd.
 - Op databaseniveau beveiliging implementeren met behulp van de vaste databaserollen (zoals db_datareader of db_datawriter). Of u kunt aangepaste functies voor uw toepassing naar expliciete machtigingen verlenen voor objecten in de geselecteerde database maken.
 
-Andere manieren om uw gegevens te versleutelen die u kunt overwegen:
+Voor andere manieren om uw gegevens te beveiligen, kunt u overwegen:
 
 - [Versleuteling op celniveau](/sql/relational-databases/security/encryption/encrypt-a-column-of-data) om specifieke kolommen of zelfs cellen met gegevens met verschillende versleutelingssleutels te versleutelen.
 - [Altijd versleuteld](/sql/relational-databases/security/encryption/always-encrypted-database-engine), waardoor clients voor het versleutelen van gevoelige gegevens binnen clienttoepassingen en nooit onthullen de versleutelingssleutels voor de Database-Engine (SQL-Database of SQL Server). Als gevolg hiervan Always Encrypted biedt een scheiding tussen personen die eigenaar zijn van de gegevens (en het kunnen bekijken) en degenen die de gegevens beheren (maar geen toegang mogen hebben).

@@ -15,15 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2017
 ms.author: deguhath
-ms.openlocfilehash: 6fa59a176eaea08b612eb32eeb608fa7373d5c36
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: e368c7185dae28f553c5fcad48b1ec6faebc7700
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51249741"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51346011"
 ---
 # <a name="advanced-data-exploration-and-modeling-with-spark"></a>Met Spark verkennen en modelleren van geavanceerde gegevens
-[!INCLUDE [machine-learning-spark-modeling](../../../includes/machine-learning-spark-modeling.md)]
 
 In dit scenario maakt gebruik van HDInsight Spark gegevens verkennen en binaire classificatie en met behulp van kruisvalidatie regressiemodellen trainen en hyperparameter optimalisatie van een steekproef van de NYC taxi reis en ritbedrag 2013-gegevensset. Dit leidt u door de stappen van de [Data Science Process](https://aka.ms/datascienceprocess), end-to-end, met behulp van een HDInsight Spark-cluster voor verwerkings- en Azure-blobs voor het opslaan van de gegevens en de modellen. Het proces worden verkend en visualiseert gegevens voorgelegd aan van een Azure Storage-Blob en vervolgens de gegevens voor het bouwen van voorspellende modellen voorbereid. Python is gebruikt om de oplossing en om de relevante grafieken weer te geven. Deze modellen zijn bouwen met behulp van de toolkit Spark MLlib binaire classificatie- en regressiemodellen modelleren om taken te voeren. 
 

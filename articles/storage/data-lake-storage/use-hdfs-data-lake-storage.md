@@ -8,23 +8,23 @@ ms.topic: article
 ms.date: 06/27/2018
 ms.author: artek
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: c59331c772e140fccfefb89eef086a35837171e1
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: c5f11cbb12b727f5f308d7a71c51706fa8ec373f
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45576972"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277083"
 ---
 # <a name="using-the-hdfs-cli-with-data-lake-storage-gen2"></a>De HDFS-CLI gebruiken met Data Lake Storage Gen2
 
-Azure Data Lake Storage Gen2 Preview kunt u beheren en toegang tot gegevens, net zoals u zou met doen een [Hadoop Distributed File System (HDFS)](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). Of hebt u een HDInsight-cluster die is gekoppeld of een Apache Spark-taak uitvoeren met Azure Databricks analyses uitvoeren op gegevens die zijn opgeslagen in Azure Data Lake Storage Gen2 kunt u opdrachtregelinterface (CLI) kunt gebruiken om te halen en de geladen gegevens te manipuleren. De rest van het artikel bevat een overzicht van de opties die u hebt tijdens de [Azure Storage-team is bezig met toevoegen van ondersteuning voor Azure Storage Explorer en Azure-portal](https://azure.microsoft.com/roadmap/).
+Azure Data Lake Storage Gen2 Preview kunt u beheren en toegang tot gegevens, net zoals u zou met doen een [Hadoop Distributed File System (HDFS)](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). Of u een HDInsight-cluster die is gekoppeld of een Apache Spark-taak uitvoeren met Azure Databricks analyses uitvoeren op gegevens die zijn opgeslagen in een Azure Storage-account hebt, kunt u opdrachtregelinterface (CLI) kunt gebruiken om te halen en de geladen gegevens te manipuleren.
 
 ## <a name="hdfs-cli-with-hdinsight"></a>HDFS-CLI met HDInsight
 
 HDInsight biedt toegang tot het Distributed File System dat lokaal wordt gekoppeld aan de rekenknooppunten. Dit bestandssysteem is toegankelijk via de shell die rechtstreeks communiceert met de HDFS- en andere bestandssystemen die ondersteuning biedt voor Hadoop. Hieronder vindt u de veelgebruikte opdrachten en de koppelingen naar nuttige informatiebronnen.
 
 >[!IMPORTANT]
->De facturering voor het gebruik van HDInsight-clusters begint zodra er een cluster is gemaakt en stopt als een cluster wordt verwijderd. Facturering is pro-rata per minuut berekend, dus u altijd uw cluster verwijderen moet wanneer deze niet meer gebruikt wordt (meer informatie over het [een cluster verwijderen](../../hdinsight/hdinsight-delete-cluster.md)). Gegevens die zijn opgeslagen in Azure Data Lake Storage Gen2 blijft echter bestaan, zelfs nadat u een HDInsight-cluster wordt verwijderd.
+>HDInsight-cluster facturering begint nadat een cluster is gemaakt en stopt als een cluster wordt verwijderd. De facturering wordt pro-rato per minuut berekend, dus u moet altijd uw cluster verwijderen wanneer het niet meer wordt gebruikt. Zie voor informatie over het verwijderen van een cluster, onze [artikel van het onderwerp](../../hdinsight/hdinsight-delete-cluster.md). Gegevens die zijn opgeslagen in een opslagaccount met Data Lake Storage Gen2 ingeschakeld blijft echter bestaan, zelfs nadat u een HDInsight-cluster wordt verwijderd.
 
 Voor een lijst van bestanden of mappen:
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 8201e1569bd3030a205ab0ec5adb8a1f39a0ecc3
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 0ee38eb32886c050eb87b2d6ed91252ee7bcfea0
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50960732"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51280691"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Webhookacties voor waarschuwingsregels
 Wanneer een [waarschuwing is gemaakt in Azure](alert-log.md), hebt u de optie [configureren met behulp van actiegroepen](monitoring-action-groups.md) een of meer acties uit te voeren.  In dit artikel beschrijft de verschillende webhookacties die beschikbaar zijn en meer informatie over het configureren van de aangepaste JSON-indeling webhook.
@@ -79,7 +79,7 @@ Zorg ervoor dat als u wilt opnemen zoekresultaten in een aangepaste payload, **I
 In deze sectie wordt een voorbeeld van payload voor webhook voor Logboekwaarschuwingen, met inbegrip van wanneer de nettolading van standard is en wanneer de aangepaste.
 
 > [!NOTE]
-> Om ervoor te zorgen voor compatibiliteit, standaard webhookpayload voor waarschuwingen met behulp van Azure Log Analytics is hetzelfde als [Log Analytics-waarschuwing management](../log-analytics/log-analytics-alerts-creating.md). Maar voor logboekwaarschuwingen met behulp van [Application Insights](../application-insights/app-insights-analytics.md), de standaard webhookpayload is gebaseerd op schema van de actiegroep.
+> Om ervoor te zorgen voor compatibiliteit, standaard webhookpayload voor waarschuwingen met behulp van Azure Log Analytics is hetzelfde als [Log Analytics-waarschuwing management](../monitoring-and-diagnostics/alert-metric.md). Maar voor logboekwaarschuwingen met behulp van [Application Insights](../application-insights/app-insights-analytics.md), de standaard webhookpayload is gebaseerd op schema van de actiegroep.
 
 ### <a name="standard-webhook-for-log-alerts"></a>Standard Webhook voor Logboekwaarschuwingen 
 Deze voorbeelden hebben een dummy-nettolading met slechts twee kolommen en twee rijen vermeld.

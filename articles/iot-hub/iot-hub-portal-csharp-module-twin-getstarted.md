@@ -9,12 +9,12 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: dobett
-ms.openlocfilehash: 2c7857cd787e9298e94def5341d61238c5bb3a78
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 00b093b5567d85e7f12373020dfaa5f3ca7b0530
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49321156"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51514397"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-the-portal-and-net-device"></a>Aan de slag met IoT Hub-module-id's en moduledubbels met behulp van de portal en .NET
 
@@ -24,8 +24,9 @@ ms.locfileid: "49321156"
 
 In deze zelfstudie leert u het volgende:
 
-1. Een module-id in de portal maken. 
-1. SDK voor .NET-apparaten gebruiken om de moduledubbel vanuit uw apparaat bij te werken.
+1. het maken van de identiteit van een module in de portal. 
+
+2. het gebruik van .NET SDK apparaatupdate de moduledubbel van uw apparaat.
 
 > [!NOTE]
 > Raadpleeg het artikel [Azure IoT-SDKs][lnk-hub-sdks] voor meer informatie over de verschillende Azure IoT-SDK's die u kunt gebruiken om beide toepassingen zo te maken dat ze zowel op het apparaat als op de back-end van uw oplossing kunnen worden uitgevoerd.
@@ -36,21 +37,17 @@ Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 * Visual Studio 2015 of Visual Studio 2017.
 * Een actief Azure-account. (Als u geen account hebt, kunt u binnen een paar minuten een [gratis account][lnk-free-trial] maken.)
 
-[!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
+## <a name="create-an-iot-hub"></a>Een IoT Hub maken
 
-## <a name="create-a-device-identity-in-the-portal"></a>Een apparaat-id in de portal maken
+[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-U hebt nu uw IoT Hub. Open [portal](https://portal.azure.com) en ga naar uw IoT Hub. Klik op IoT-apparaten en klik vervolgens op Toevoegen om een apparaat-id te maken. Geef deze de naam **MyFirstDevice**. 
+### <a name="retrieve-connection-string-for-iot-hub"></a>Voor IoT hub-verbindingsreeks ophalen
 
-  ![Apparaat-id maken][8]
+[!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
 
-Nadat de apparaat-id is opgeslagen, kunt u in de lijst met apparaat-id's zien dat MyFirstDevice is gemaakt.
+## <a name="register-a-new-device-in-the-iot-hub"></a>Een nieuw apparaat registreren in de IoT-hub
 
-  ![Apparaat-id gemaakt][11]
-
-Klik nu op de rij. De apparaatgegevens worden weergegeven.
-
-  ![Apparaatdetails][10]
+[!INCLUDE [iot-hub-include-create-device](../../includes/iot-hub-include-create-device.md)]
 
 ## <a name="create-a-module-identity-in-the-portal"></a>Een module-id in de portal maken
 
@@ -173,14 +170,11 @@ Als u aan de slag wilt gaan met IoT Hub en andere IoT-scenario's wilt verkennen,
 
 
 <!-- Images. -->
-[8]:./media\iot-hub-portal-csharp-module-twin-getstarted/create-device-id.JPG
-[9]:./media\iot-hub-portal-csharp-module-twin-getstarted/create-module-id.JPG
-[10]:./media\iot-hub-portal-csharp-module-twin-getstarted/device-details.JPG
-[11]:./media\iot-hub-portal-csharp-module-twin-getstarted/device-id-created.JPG
-[12]:./media\iot-hub-portal-csharp-module-twin-getstarted/module-details.JPG
-[13]: ./media\iot-hub-csharp-csharp-module-twin-getstarted/update-twins-csharp1.JPG
-[14]: ./media\iot-hub-csharp-csharp-module-twin-getstarted/install-sdk.png
-[15]: ./media\iot-hub-csharp-csharp-module-twin-getstarted/module-detail.JPG
+[9]:./media/iot-hub-portal-csharp-module-twin-getstarted/create-module-id.JPG
+[12]:./media/iot-hub-portal-csharp-module-twin-getstarted/module-details.JPG
+[13]: ./media/iot-hub-csharp-csharp-module-twin-getstarted/update-twins-csharp1.JPG
+[14]: ./media/iot-hub-csharp-csharp-module-twin-getstarted/install-sdk.png
+[15]: ./media/iot-hub-csharp-csharp-module-twin-getstarted/module-detail.JPG
 <!-- Links -->
 [lnk-hub-sdks]: iot-hub-devguide-sdks.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/

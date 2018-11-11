@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/19/2016
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: f2a48756252f538adc7d813aafe6dbfbf3a270b5
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 2b27b8605e23a4c4333f6f1a9c9dd12444fd43fb
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50416679"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277117"
 ---
 # <a name="send-cloud-service-virtual-machine-or-service-fabric-diagnostic-data-to-application-insights"></a>Cloud Service, virtuele Machine of Service Fabric diagnostische gegevens verzenden naar Application Insights
 Cloudservices, virtuele Machines, Virtual Machine Scale Sets en Service Fabric alle gebruiken de Azure Diagnostics-extensie om gegevens te verzamelen.  Azure diagnostics verzendt gegevens naar Azure Storage-tabellen.  U kunt echter ook alle pipe of een subset van de gegevens naar andere locaties met behulp van Azure Diagnostics-extensie 1.5 of hoger.
@@ -217,4 +217,4 @@ In de vorige configuratie hebben de volgende regels in de volgende betekenis:
 ## <a name="next-steps"></a>Volgende stappen
 * Meer informatie over het [uw Azure diagnostics-gegevens weergeven](https://docs.microsoft.com/azure/application-insights/app-insights-cloudservices#view-azure-diagnostic-events) in Application Insights.
 * Gebruik [PowerShell](../cloud-services/cloud-services-diagnostics-powershell.md) om in te schakelen van de Azure diagnostics-extensie voor uw toepassing.
-* Gebruik [Visual Studio](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md) om in te schakelen van de Azure diagnostics-extensie voor uw toepassing
+* Gebruik [Visual Studio](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines) om in te schakelen van de Azure diagnostics-extensie voor uw toepassing

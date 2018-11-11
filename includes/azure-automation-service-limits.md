@@ -5,20 +5,21 @@ services: automation
 author: georgewallace
 ms.service: automation
 ms.topic: include
-ms.date: 04/05/2018
+ms.date: 11/07/2018
 ms.author: gwallace
 ms.custom: include file
-ms.openlocfilehash: abe7668ed16ddd5cc1b247207d3e80f7c1118137
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
-ms.translationtype: HT
+ms.openlocfilehash: 70cdd5a9d0482c24dfeb2037ae56b86cd9339fcf
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50964541"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51285765"
 ---
 | Resource | Maximumaantal |Opmerkingen|
 | --- | --- |---|
 | Maximumaantal nieuwe taken die elke 30 seconden per Automation-Account (niet-geplande taken) kunnen worden verzonden |100 |Wanneer deze limiet wordt bereikt, mislukken de volgende aanvragen om een taak te maken. De client ontvangt een foutbericht.|
 | Maximumaantal gelijktijdige taken die worden uitgevoerd op hetzelfde exemplaar van de tijd per Automation-Account (niet-geplande taken) |200 |Wanneer deze limiet wordt bereikt, mislukken de volgende aanvragen om een taak te maken. De client ontvangt een foutbericht.|
+| Maximale opslaggrootte van de metagegevens van de taak voor een rolling periode van 30 dagen. | 10GB (ongeveer 4 miljoen taken)|Wanneer deze limiet wordt bereikt, mislukken de volgende aanvragen om een taak te maken. |
 | Maximumaantal modules die elke 30 seconden per Automation-Account kan worden geïmporteerd |5 ||
 | Maximale grootte van een Module |100 MB ||
 | Tijd voor de taak uitvoeren - gratis laag |500 minuten per abonnement per kalendermaand ||

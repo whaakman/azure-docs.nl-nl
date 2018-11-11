@@ -15,19 +15,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: deguhath
-ms.openlocfilehash: fc4b2d0beef1c91cd937ba901974796441657441
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 8c4946ebef8d17d2016d482010768207d5e859ff
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51234762"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300945"
 ---
 # <a name="vehicle-telemetry-analytics-solution-playbook-deep-dive-into-the-solution"></a>Vehicle Telemetry Analytics-oplossing playbook: ontdeek de oplossing
-Dit bevat menukoppelingen naar de secties van dit playbook: 
 
-[!INCLUDE [cap-vehicle-telemetry-playbook-selector](../../../includes/cap-vehicle-telemetry-playbook-selector.md)]
+In dit artikel zoomt in op in elk van de fasen weergegeven in de architectuur van de oplossing. Instructies en aanwijzingen voor aanpassing worden opgenomen. 
 
-In dit document zoomt in op in elk van de fasen weergegeven in de architectuur van de oplossing. Instructies en aanwijzingen voor aanpassing worden opgenomen. 
+De beknopte beschrijving van deze oplossing, Zie [Vehicle Telemetry Analytics-oplossing playbook](cortana-analytics-playbook-vehicle-telemetry.md).
+
 
 ## <a name="data-sources"></a>Gegevensbronnen
 De oplossing maakt gebruik van twee verschillende gegevensbronnen:
@@ -675,3 +675,7 @@ Dit document bevat een gedetailleerde Inzoomen op van de Vehicle Telemetry Analy
 * [Mogelijkheden van Azure Data Factory gegevens verplaatsen](../../data-factory/copy-activity-overview.md)
 * [Azure Data Factory .NET-activiteit](../../data-factory/transform-data-using-dotnet-custom-activity.md)
 * [Azure Data Factory .NET-activiteit gebruikt voor het voorbereiden van de voorbeeldgegevens van Visual Studio-oplossing](https://go.microsoft.com/fwlink/?LinkId=717077) 
+
+## <a name="next-steps"></a>Volgende stappen
+
+Zie voor informatie over het configureren van de Power BI-rapporten en dashboards voor deze oplossing, [Vehicle Telemetry Analytics-oplossing sjabloon Power BI-dashboard installatie-instructies](cortana-analytics-playbook-vehicle-telemetry-powerbi.md).

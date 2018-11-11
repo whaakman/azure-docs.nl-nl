@@ -1,6 +1,6 @@
 ---
-title: Verken de gegevens in virtuele Machine van SQL Server op Azure | Microsoft Docs
-description: Klik hier voor meer informatie over het verkennen van gegevens die zijn opgeslagen in een virtuele SQL Server-machine in Azure.
+title: Gegevens in SQL Server-VM op Azure verkennen | Microsoft Docs
+description: Klik hier voor meer informatie over het verkennen van gegevens die zijn opgeslagen in een SQL Server-VM op Azure.
 services: machine-learning
 documentationcenter: ''
 author: deguhath
@@ -15,27 +15,26 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: deguhath
-ms.openlocfilehash: d96852006377123f6e9d17c3ae5b79fe930c1e1c
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 546d75172b9e6dbd77d63c36e5b8cebd0835a582
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34836793"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51345603"
 ---
 # <a name="explore-data-in-sql-server-virtual-machine-on-azure"></a>Gegevens in virtuele SQL Server-machine verkennen in Azure
-Dit document wordt beschreven hoe gegevens die zijn opgeslagen in een virtuele SQL Server-machine in Azure. Dit kan worden gedaan door gegevens worsteling met SQL of via een programmeertaal zoals Python.
 
-De volgende **menu** koppelingen naar onderwerpen waarin wordt beschreven hoe u gegevens uit verschillende omgevingen met opslag verkennen met behulp van hulpprogramma's. Deze taak is een stap in de Cortana Analytics proces (CAP).
+In dit artikel wordt uitgelegd hoe u gegevens die zijn opgeslagen in een SQL Server-VM op Azure te verkennen. Dit kan worden gedaan door data wrangling met behulp van SQL of met behulp van een programmeertaal zoals Python.
 
-[!INCLUDE [cap-explore-data-selector](../../../includes/cap-explore-data-selector.md)]
+Deze taak is een stap in de [Team Data Science Process](overview.md).
 
 > [!NOTE]
-> De voorbeeld-SQL-instructies in dit document wordt ervan uitgegaan dat gegevens in SQL Server worden. Als dat niet, raadpleegt u het procesoverzicht in cloud wetenschappelijke voor informatie over het verplaatsen van uw gegevens naar SQL Server.
+> De voorbeeld-SQL-instructies in dit document wordt ervan uitgegaan dat gegevens in SQL Server. Als dit niet is, kunt u verwijzen naar de cloud data science process kaart voor informatie over het verplaatsen van uw gegevens naar SQL Server.
 > 
 > 
 
-## <a name="sql-dataexploration"></a>SQL-gegevens met SQL-scripts verkennen
-Hier volgen enkele voorbeelden SQL-scripts die kunnen worden gebruikt om te verkennen gegevensarchieven in SQL Server.
+## <a name="sql-dataexploration"></a>Verken SQL-gegevens met SQL-scripts
+Hier volgen enkele voorbeelden SQL-scripts die kunnen worden gebruikt voor het verkennen van SQL Server voor gegevensopslag.
 
 1. Het aantal opmerkingen per dag
    
@@ -46,31 +45,31 @@ Hier volgen enkele voorbeelden SQL-scripts die kunnen worden gebruikt om te verk
 3. Het aantal niveaus in de combinatie van twee categorische kolommen ophalen 
    
     `select <column_a>, <column_b>,count(*) from <tablename> group by <column_a>, <column_b>`
-4. De verdeling voor numerieke kolommen ophalen
+4. De verdeling van de numerieke kolommen ophalen
    
     `select <column_name>, count(*) from <tablename> group by <column_name>`
 
 > [!NOTE]
-> Voor een voorbeeld, kunt u de [NYC Taxi gegevensset](http://www.andresmh.com/nyctaxitrips/) en verwijzen naar de met de titel IPNB [IPython laptop- en SQL Server met de gegevens van de NYC worsteling](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-sql-walkthrough.ipynb) voor een end-to-end-procedure.
+> Voor een voorbeeld, kunt u de [NYC Taxi gegevensset](http://www.andresmh.com/nyctaxitrips/) en verwijzen naar de met de titel IPNB [NYC Data wrangling met behulp van IPython Notebook en SQL Server](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-sql-walkthrough.ipynb) voor een overzicht van end-to-end.
 > 
 > 
 
-## <a name="python"></a>SQL-gegevens met behulp van Python verkennen
-Met behulp van Python gegevens verkennen en functies genereren wanneer de gegevens in SQL Server is vergelijkbaar met het verwerken van gegevens in Azure blob met behulp van Python, zoals beschreven in [proces Azure Blob-gegevens in uw omgeving van de wetenschappelijke gegevens](data-blob.md). De gegevens moeten worden geladen uit de database in een pandas DataFrame en vervolgens verder kunnen worden verwerkt. We Documenteer het proces van het verbinden met de database en de gegevens in de DataFrame in deze sectie te laden.
+## <a name="python"></a>Verken SQL-gegevens met Python
+Met behulp van Python voor gegevens verkennen en het genereren van functies als de gegevens in SQL Server is vergelijkbaar met het verwerken van gegevens in Azure blob met behulp van Python, zoals beschreven in [proces Azure Blob-gegevens in uw data science-omgeving](data-blob.md). De gegevens moeten worden geladen uit de database in een pandas DataFrame en vervolgens verder kunnen worden verwerkt. We leggen het proces van verbinding met de database en het laden van de gegevens in het DataFrame in deze sectie.
 
-Indeling van de volgende verbindingsreeks kan worden gebruikt voor het verbinden met een SQL Server-database met Python pyodbc (vervang servername, dbname, gebruikersnaam en wachtwoord op uw specifieke waarden) met:
+De volgende indeling van de verbindingsreeks kan worden gebruikt voor het verbinding maken met een SQL Server-database vanuit Python met behulp van pyodbc (vervang servername, dbname, gebruikersnaam en wachtwoord met uw specifieke waarden):
 
     #Set up the SQL Azure connection
     import pyodbc    
     conn = pyodbc.connect('DRIVER={SQL Server};SERVER=<servername>;DATABASE=<dbname>;UID=<username>;PWD=<password>')
 
-De [Pandas bibliotheek](http://pandas.pydata.org/) in Python voorziet in een uitgebreide set van gegevensstructuren en hulpprogramma's voor gegevensanalyse voor gegevensmanipulatie voor het programmeren van Python. De volgende code leest de resultaten van een SQL Server-database in een kader Pandas-gegevens geretourneerd:
+De [Pandas bibliotheek](http://pandas.pydata.org/) in Python biedt u een uitgebreide set gegevensstructuren en hulpprogramma's voor gegevensanalyse voor gegevensmanipulatie voor Python programmeren. De volgende code leest de resultaten van een SQL Server-database in een gegevensframe Pandas:
 
     # Query database and load the returned results in pandas data frame
     data_frame = pd.read_sql('''select <columnname1>, <cloumnname2>... from <tablename>''', conn)
 
-Nu u met de DataFrame Pandas werken kunt zoals besproken in het onderwerp [proces Azure Blob-gegevens in uw omgeving van de wetenschappelijke gegevens](data-blob.md).
+Nu u met de Pandas DataFrame werken kunt zoals beschreven in het onderwerp [proces Azure Blob-gegevens in uw data science-omgeving](data-blob.md).
 
-## <a name="the-team-data-science-process-in-action-example"></a>De procedure van wetenschappelijke gegevens Team in actie voorbeeld
-Zie voor een voorbeeld van de end-to-end-overzicht van het Cortana-Analytics-proces met een openbare gegevensset, [het Team gegevens wetenschappelijke processen in actie: met behulp van SQL Server](sql-walkthrough.md).
+## <a name="the-team-data-science-process-in-action-example"></a>Het Team Data Science Process in actie voorbeeld
+Zie voor een overzicht van end-to-end-voorbeeld van het Cortana Analytics-proces met behulp van een openbare gegevensset, [het Team Data Science Process in actie: met behulp van SQL Server](sql-walkthrough.md).
 

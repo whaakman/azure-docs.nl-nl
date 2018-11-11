@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/23/2018
 ms.author: sethm
 ms.reviewer: harik
-ms.openlocfilehash: f00b175fed36fbe2b28f1d11843bb17c54ac3873
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 0bbe2ee7436cc03a3780da096a498769d66eb505
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50086961"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277933"
 ---
 # <a name="azure-stack-servicing-policy"></a>Azure Stack servicebeleid
 Dit artikel wordt beschreven voor het uitvoeren van onderhoud beleid voor geïntegreerde Azure Stack-systemen, en wat u moet doen om te voorkomen dat uw systeem in een ondersteunde status. 
@@ -55,7 +55,7 @@ Als u wilt doorgaan om ondersteuning te ontvangen, moet u uw Azure Stack-impleme
 
 Bijvoorbeeld, als de meest recente beschikbare versie van de update 1805 is en de vorige twee updatepakketten versies 1804 en 1803 zijn, blijven zowel 1803 1804 en ondersteuning. 1802 is echter ondersteuning vervalt. Het beleid geldt wanneer er geen versie voor een maand of twee. Bijvoorbeeld, als de huidige versie 1805 is en er geen 1804 release is, blijven de vorige twee updatepakketten 1803 en 1802 ondersteund.
 
-Microsoft-software-updatepakketten zijn niet cumulatief en de vorige updatepakket als een vereiste vereisen. Als u besluit om een of meer updates uit te stellen, kunt u overwegen de totale runtime als u wilt ontvangen naar de nieuwste versie. 
+Microsoft-software-updatepakketten zijn niet cumulatief en vereisen dat de vorige update of hotfix als een vereiste. Als u besluit om een of meer updates uit te stellen, kunt u overwegen de totale runtime als u wilt ontvangen naar de nieuwste versie. 
 
 ## <a name="get-support"></a>Ondersteuning krijgen
 Azure Stack volgt hetzelfde ondersteuningsproces als Azure. Enterprise-klanten kunnen gaat u als volgt de procedure beschreven in [over het maken van een Azure-ondersteuningsaanvraag](/azure/azure-supportability/how-to-create-azure-support-request). Als u een klant bent van een Cloud Service Provider (CSP), neem dan contact op met uw CSP voor ondersteuning.  Zie voor meer informatie de [Veelgestelde vragen over Azure-ondersteuning](https://azure.microsoft.com/support/faq/). 

@@ -5,14 +5,14 @@ services: event-grid
 author: tfitzmac
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 10/29/2018
+ms.date: 11/07/2018
 ms.author: tomfitz
-ms.openlocfilehash: 6d7e9e5a4c60c16c505b0b69f14d22ebd868c1c0
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.openlocfilehash: fd0b2bda91ecb9b717f4cfe366c45bc95b21fd8e
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50748218"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277555"
 ---
 # <a name="filter-events-for-event-grid"></a>Gebeurtenissen filteren op Event Grid
 
@@ -181,30 +181,17 @@ Het volgende voorbeeld van de Resource Manager-sjabloon maakt u een abonnement v
 
 ## <a name="filter-by-operators-and-data"></a>Operators en filteren
 
-Voor het gebruik van Geavanceerd filteren, moet u een preview-extensie voor Azure CLI installeren. U kunt [CloudShell](/azure/cloud-shell/quickstart) of Azure CLI lokaal te installeren.
+U kunt voor meer flexibiliteit bij het filteren van operators en eigenschappen van de gegevens te filteren van gebeurtenissen gebruiken.
 
-### <a name="install-extension"></a>De extensie installeren
-
-In CloudShell:
-
-* Als u de uitbreiding eerder hebt geïnstalleerd, bijgewerkt `az extension update -n eventgrid`
-* Als u de uitbreiding eerder nog niet hebt geïnstalleerd, installeren `az extension add -n eventgrid`
-
-Voor een lokale installatie:
-
-1. Azure CLI lokaal te verwijderen.
-1. Installeer de [meest recente versie](/cli/azure/install-azure-cli) van Azure CLI.
-1. Start-opdrachtvenster.
-1. Vorige versies van de extensie verwijderen `az extension remove -n eventgrid`
-1. De extensie installeren `az extension add -n eventgrid`
-
-U bent nu klaar voor gebruik van Geavanceerd filteren.
+[!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
 
 ### <a name="subscribe-with-advanced-filters"></a>Abonneren met geavanceerde filters
 
 Zie voor meer informatie over de operators en de sleutels die u voor Geavanceerd filteren gebruiken kunt, [Geavanceerd filteren](event-filtering.md#advanced-filtering).
 
-Het volgende voorbeeld wordt een aangepast onderwerp. Het is geabonneerd op het aangepaste onderwerp en filtert op een waarde in het gegevensobject. Gebeurtenissen die door de eigenschap kleur is ingesteld op blauw, rood of groen worden verzonden naar het abonnement.
+Deze voorbeelden wordt een aangepast onderwerp maken. Ze op het aangepaste onderwerp te abonneren en filteren op een waarde in het gegevensobject. Gebeurtenissen die door de eigenschap kleur is ingesteld op blauw, rood of groen worden verzonden naar het abonnement.
+
+Gebruik voor Azure CLI:
 
 ```azurecli-interactive
 topicName=<your-topic-name>
@@ -225,9 +212,33 @@ az eventgrid event-subscription create \
 
 U ziet dat een [vervaldatum](concepts.md#event-subscription-expiration) is ingesteld voor het abonnement.
 
+Gebruik voor PowerShell:
+
+```azurepowershell-interactive
+$topicName = <your-topic-name>
+$endpointURL = <endpoint-URL>
+
+New-AzureRmResourceGroup -Name gridResourceGroup -Location eastus2
+New-AzureRmEventGridTopic -ResourceGroupName gridResourceGroup -Location eastus2 -Name $topicName
+
+$topicid = (Get-AzureRmEventGridTopic -ResourceGroupName gridResourceGroup -Name $topicName).Id
+
+$expDate = '<mm/dd/yyyy hh:mm:ss>' | Get-Date
+$AdvFilter1=@{operator="StringIn"; key="Data.color"; Values=@('blue', 'red', 'green')}
+
+New-AzureRmEventGridSubscription `
+  -ResourceId $topicid `
+  -EventSubscriptionName <event_subscription_name> `
+  -Endpoint $endpointURL `
+  -ExpirationDate $expDate `
+  -AdvancedFilter @($AdvFilter1)
+```
+
 ### <a name="test-filter"></a>Test-filter
 
-Als u wilt testen of het filter, een gebeurtenis te verzenden met het kleurveld is ingesteld op groen.
+Als u wilt testen of het filter, een gebeurtenis te verzenden met het kleurveld is ingesteld op groen. Omdat groen is een van de waarden in het filter, de gebeurtenis naar het eindpunt wordt geleverd.
+
+Gebruik voor Azure CLI:
 
 ```azurecli-interactive
 topicEndpoint=$(az eventgrid topic show --name $topicName -g gridResourceGroup --query "endpoint" --output tsv)
@@ -238,17 +249,60 @@ event='[ {"id": "'"$RANDOM"'", "eventType": "recordInserted", "subject": "myapp/
 curl -X POST -H "aeg-sas-key: $key" -d "$event" $topicEndpoint
 ```
 
-De gebeurtenis wordt verzonden naar het eindpunt.
+Gebruik voor PowerShell:
 
-Als u wilt testen in een scenario waarin de gebeurtenis niet verzonden, een gebeurtenis te verzenden met het kleurveld is ingesteld op geel.
+```azurepowershell-interactive
+$endpoint = (Get-AzureRmEventGridTopic -ResourceGroupName gridResourceGroup -Name $topicName).Endpoint
+$keys = Get-AzureRmEventGridTopicKey -ResourceGroupName gridResourceGroup -Name $topicName
+
+$eventID = Get-Random 99999
+$eventDate = Get-Date -Format s
+
+$htbody = @{
+    id= $eventID
+    eventType="recordInserted"
+    subject="myapp/vehicles/cars"
+    eventTime= $eventDate
+    data= @{
+        model="SUV"
+        color="green"
+    }
+    dataVersion="1.0"
+}
+
+$body = "["+(ConvertTo-Json $htbody)+"]"
+
+Invoke-WebRequest -Uri $endpoint -Method POST -Body $body -Headers @{"aeg-sas-key" = $keys.Key1}
+```
+
+Als u wilt testen in een scenario waarin de gebeurtenis niet verzonden, een gebeurtenis te verzenden met het kleurveld is ingesteld op geel. Gele is niet een van de waarden die zijn opgegeven in het abonnement, zodat de gebeurtenis wordt niet geleverd aan uw abonnement.
+
+Gebruik voor Azure CLI:
 
 ```azurecli-interactive
 event='[ {"id": "'"$RANDOM"'", "eventType": "recordInserted", "subject": "myapp/vehicles/cars", "eventTime": "'`date +%Y-%m-%dT%H:%M:%S%z`'", "data":{ "model": "SUV", "color": "yellow"},"dataVersion": "1.0"} ]'
 
 curl -X POST -H "aeg-sas-key: $key" -d "$event" $topicEndpoint
 ```
+Gebruik voor PowerShell:
 
-Gele is niet een van de waarden die zijn opgegeven in het abonnement, zodat de gebeurtenis wordt niet geleverd aan uw abonnement.
+```azurepowershell-interactive
+$htbody = @{
+    id= $eventID
+    eventType="recordInserted"
+    subject="myapp/vehicles/cars"
+    eventTime= $eventDate
+    data= @{
+        model="SUV"
+        color="yellow"
+    }
+    dataVersion="1.0"
+}
+
+$body = "["+(ConvertTo-Json $htbody)+"]"
+
+Invoke-WebRequest -Uri $endpoint -Method POST -Body $body -Headers @{"aeg-sas-key" = $keys.Key1}
+```
 
 ## <a name="next-steps"></a>Volgende stappen
 

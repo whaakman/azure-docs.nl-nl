@@ -2,25 +2,25 @@
 title: Log Analytics gebruiken voor Azure HDInsight-clusters controleren
 description: Informatie over het gebruik van Azure Log Analytics voor het bewaken van taken die worden uitgevoerd in een HDInsight-cluster.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 06/15/2018
-ms.author: jasonh
-ms.openlocfilehash: 1a526bfdd951e4dc2897ec52c03bfbe96ee14d4c
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.date: 11/05/2018
+ms.author: hrasheed
+ms.openlocfilehash: 531cfb32b3433e0a376845a81a3ea5e13e6f1d11
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49403675"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51278681"
 ---
 # <a name="use-azure-log-analytics-to-monitor-hdinsight-clusters"></a>Azure Log Analytics gebruiken voor het HDInsight-clusters controleren
 
 Meer informatie over het inschakelen van Azure Log Analytics voor het bewaken van bewerkingen voor Hadoop-cluster in HDInsight en het toevoegen van een Hdinsight voor controle.
 
-[Log Analytics](../log-analytics/log-analytics-overview.md) is een service die uw cloud en on-premises omgevingen voor het onderhouden van hun beschikbaarheid en prestaties. De service verzamelt gegevens afkomstig van resources in uw cloud- en on-premises omgevingen en van andere bewakingsprogramma's om analyse over meerdere resources aan te bieden.
+[Log Analytics](../log-analytics/log-analytics-overview.md) is een service in Azure Monitor die uw cloud en on-premises omgevingen voor het onderhouden van hun beschikbaarheid en prestaties. De service verzamelt gegevens afkomstig van resources in uw cloud- en on-premises omgevingen en van andere bewakingsprogramma's om analyse over meerdere resources aan te bieden.
 
 Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
@@ -40,7 +40,7 @@ Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.
   Zie voor instructies over het maken van een HDInsight-cluster [aan de slag met Azure HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 
 > [!NOTE]
-> Het verdient aanbeveling om zowel het HDInsight-cluster en de Log Analytics-werkruimte in dezelfde regio voor betere prestaties. Houd er rekening mee dat Azure Log Analytics is niet beschikbaar in alle Azure-regio's.
+> Het verdient aanbeveling om zowel het HDInsight-cluster en de Log Analytics-werkruimte in dezelfde regio voor betere prestaties. Azure Log Analytics is niet beschikbaar in alle Azure-regio's.
 
 ## <a name="enable-log-analytics-by-using-the-portal"></a>Log Analytics met behulp van de portal inschakelen
 

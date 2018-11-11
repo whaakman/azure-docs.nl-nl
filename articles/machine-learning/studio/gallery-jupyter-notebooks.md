@@ -1,6 +1,6 @@
 ---
-title: Azure AI galerie Jupyter-notebooks | Microsoft Docs
-description: Detecteren van Jupyter notebooks in de galerie van Azure AI.
+title: Azure AI Gallery Jupyter-notebooks | Microsoft Docs
+description: Ontdek Jupyter notebooks onder in de Azure AI Gallery.
 services: machine-learning
 documentationcenter: ''
 author: heatherbshapiro
@@ -15,60 +15,58 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-ms.openlocfilehash: 336949d3c3c23041d1907ae2b2a9151ca626d94f
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 81a2f444012085782c377de050e7cb5445f8ebb3
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34834638"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51344651"
 ---
-# <a name="discover-jupyter-notebooks-in-the-azure-ai-gallery"></a>Jupyter-Notebooks in de galerie van Azure AI detecteren
-[!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
+# <a name="discover-jupyter-notebooks-in-the-azure-ai-gallery"></a>Jupyter notebooks onder in de Azure AI Gallery detecteren
 
-## <a name="jupyter-notebooks"></a>Jupyter Notebooks
-**[Jupyter-Notebooks](https://gallery.cortanaintelligence.com/notebooks)**  code, gegevensvisualisaties en documentatie opnemen in een enkele, interactieve canvas.
-Laptops in de galerie bieden zelfstudies en gedetailleerde uitleg van geavanceerde machine learning-technieken en oplossingen.
+**[Jupyter-Notebooks](https://gallery.cortanaintelligence.com/notebooks)**  in [Azure AI Gallery](http://gallery.cortanaintelligence.com) code, gegevensvisualisaties en documentatie opnemen in een enkele, interactief canvas.
+Notitieblokken in de galerie bieden zelfstudies en gedetailleerde uitleg van geavanceerde machine learning-technieken en oplossingen.
 
 ## <a name="discover"></a>Ontdekken
-  Als u wilt bladeren voor laptops in de galerie, opent u de [galerie](http://gallery.cortanaintelligence.com) en klik op **notitieblokken** aan de bovenkant van de startpagina van de galerie.
+  Als u wilt bladeren voor notebooks in de galerie, opent u de [galerie](http://gallery.cortanaintelligence.com) en klikt u op **notitieblokken** aan de bovenkant van de startpagina van de galerie.
 
- De **[Jupyter-Notebooks](https://gallery.cortanaintelligence.com/notebooks)** pagina geeft een lijst met de meest populaire laptops.
-Klik op **alle** om alle notitieblokken weer te geven.
-Op deze pagina kunt u alle notitieblokken in de galerie bladeren. U kunt ook zoeken door filtercriteria voldoen aan de linkerkant van de pagina en invoeren zoektermen boven selecteren.
+ De **[Jupyter-Notebooks](https://gallery.cortanaintelligence.com/notebooks)** pagina geeft een lijst van de meest populaire notebooks.
+Klik op **alle** om weer te geven van alle notitieblokken.
+Op deze pagina kunt u alle notitieblokken in de galerie bladeren. U kunt ook zoeken door te selecteren van filtercriteria voldoen aan de linkerkant van de pagina en voeren zoektermen aan de bovenkant.
 
- Klik op een laptop open pagina van de notebook details en meer informatie lezen. Feedback geven op deze pagina die u kunt opmerkingen of vragen via het gedeelte met opmerkingen. U kunt deze zelfs delen met vrienden of collega's met behulp van de share-mogelijkheden van LinkedIn of Twitter. U kunt ook e-een koppeling naar de notebook om uit te nodigen van andere gebruikers op de pagina weer te geven.
+ Klik op een notitieblok voor het openen van de pagina met details van het notitieblok en meer informatie. Op deze pagina kunt u opmerkingen, feedback geven of vragen via de sectie met opmerkingen. U kunt deze ook delen met vrienden en collega's met behulp van de share-mogelijkheden van LinkedIn- of Twitter. U kunt ook per e-mail een koppeling naar het notitieblok om uit te nodigen van andere gebruikers om de pagina weer te geven.
 
 ![Dit item delen met vrienden](./media/gallery-how-to-use-contribute-publish/share-links.png)
 
 ![Uw eigen opmerkingen toevoegen](./media/gallery-how-to-use-contribute-publish/comments.png)
 
 ## <a name="download"></a>Downloaden
-U kunt een kopie van uw laptop downloaden uit de galerie in uw werkruimte van Machine Learning Studio.
+U kunt een kopie van uw laptop uit de galerie downloaden naar uw Machine Learning Studio-werkruimte.
 
 ### <a name="download-from-the-gallery"></a>Downloaden uit de galerie
 Een kopie van een laptop downloaden uit de galerie:
 
-1. Open de notebook detailpagina in de galerie
-2. Klik op **openen in Studio**
+1. Open de pagina met details van het notitieblok in de galerie
+2. Klik op **Open in Studio**
 3. Selecteer de regio en de werkruimte die u wilt gebruiken
    
     ![Jupyter-notebook openen vanuit de galerie](./media/gallery-jupyter-notebooks/open-notebook-from-gallery.png)
 
-Wanneer u klikt op **openen in Studio**, de laptop is geladen in de werkruimte van Machine Learning Studio en (als u bent nog niet aangemeld bij Studio, wordt u gevraagd aan te melden met je Microsoft-account voordat de laptop is geopend gekopieerd naar de werkruimte). U vindt de notebook later door te klikken op **notitieblokken** aan de linkerkant van de startpagina Studio.
+Wanneer u klikt op **Open in Studio**, de notebook wordt geladen in uw Machine Learning Studio-werkruimte en (indien u bent niet al aangemeld bij Studio, wordt u gevraagd zich aanmelden met uw Microsoft-account voordat de laptop is geopend gekopieerd naar uw werkruimte). U vindt de notebook het later opnieuw door te klikken op **notitieblokken** aan de linkerkant van de startpagina van Studio.
 
 ### <a name="download-in-machine-learning-studio"></a>In Machine Learning Studio downloaden
-U kunt een van de dezelfde galerie laptops ook openen terwijl u in Machine Learning Studio werkt:
+U kunt een van de dezelfde galerie notebooks ook openen terwijl u in Machine Learning Studio werkt:
 
-1. Klik in Machine Learning Studio **+ nieuw**
-2. Selecteer **Notebook** -er wordt een lijst van laptops uit de galerie weergegeven dat u kunt kiezen uit of u een specifieke notebook met behulp van het zoekvak kunt vinden
-3. Wijs met de muis op een laptop en selecteer **Open Notebook**
+1. In Machine Learning Studio, klikt u op **+ nieuw**
+2. Selecteer **Notebook** -een lijst met notebooks uit de galerie wordt weergegeven dat u kunt kiezen uit of u specifieke notebook met behulp van het zoekvak kunt vinden
+3. Wijs met de muis op een laptop en selecteer **Notebook openen**
    
-    ![Open galerie notebook uit in Machine Learning Studio](./media/gallery-jupyter-notebooks/open-notebook-from-studio.png)
+    ![Galerie met Open-notebook vanuit in Machine Learning Studio](./media/gallery-jupyter-notebooks/open-notebook-from-studio.png)
 
-Een kopie van de laptop is gedownload en geopend in uw werkruimte in de sectie Jupyter-Notebooks in Machine Learning Studio.
-De notebook wordt weergegeven, samen met uw andere notitieblokken op de **notitieblokken** pagina van Studio (op het [Studio startpagina](https://studio.azureml.net/), klikt u op **notitieblokken** aan de linkerkant).
+Een kopie van de notebook wordt gedownload en geopend in uw werkruimte in de sectie Jupyter-Notebooks in Machine Learning Studio.
+De notebook wordt weergegeven, samen met uw andere notebooks, op de **notitieblokken** pagina van Studio (op de [Studio startpagina](https://studio.azureml.net/), klikt u op **notitieblokken** aan de linkerkant).
 
-**[BRENG ME NAAR DE GALERIE &GT;&GT;](http://gallery.cortanaintelligence.com)**
+**[TERUG NAAR DE GALERIE &GT;&GT;](http://gallery.cortanaintelligence.com)**
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 

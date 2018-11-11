@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: sanpil
 author: sanpil
 ms.date: 11/07/2018
-ms.openlocfilehash: 212488b74ba726012966787c7b2de633414e96a4
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 59a35cd7ca3af446853d518fc7e7d48d2321ff10
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51245338"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51278970"
 ---
 # <a name="pipelines-and-azure-machine-learning"></a>Pijplijnen en Azure Machine Learning
 
@@ -43,6 +43,8 @@ Met behulp van afzonderlijke stappen, maakt het mogelijk alleen de stappen die u
 Zodra de pijplijn is ontworpen, is er vaak meer aan te passen om de lus training van de pijplijn. Wanneer u een pijplijn, de run koppelingen naar de stappen die opnieuw worden gestart moeten, zoals een bijgewerkte trainingsscript opnieuw uitvoeren en slaat over wat er nog niet is gewijzigd. De dezelfde paradigma is van toepassing op ongewijzigd scripts die worden gebruikt voor het uitvoeren van de stap. 
 
 Met Azure Machine Learning, kunt u verschillende toolkits en frameworks, zoals Microsoft Cognitive Toolkit of TensorFlow voor elke stap in de pijplijn. Azure coördinaten tussen de verschillende [compute-doelen](concept-azure-machine-learning-architecture.md) u gebruiken zodat de tussentijdse gegevens kunnen worden gedeeld met de downstream compute-doelen eenvoudig. 
+
+U kunt [bijhouden van de metrische gegevens voor uw experimenten pijplijn](https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-track-experiments) rechtstreeks in Azure portal. 
 
 ## <a name="key-advantages"></a>Belangrijkste voordelen
 

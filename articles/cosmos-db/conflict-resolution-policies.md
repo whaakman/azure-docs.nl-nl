@@ -7,18 +7,18 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/26/2018
 ms.author: mjbrown
-ms.openlocfilehash: c682b61a39224f2c80db8fe5fa153ea5e5d82922
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 1b2a122cc8a04d4f0044ecb0fe0341357bc29c0f
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50958550"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51514822"
 ---
 # <a name="conflict-types-and-resolution-policies"></a>Conflicttypen en resolutie beleidsregels
 
 Een conflict veroorzaakt en conflictoplossing beleidsregels zijn van toepassing als uw Cosmos-account is geconfigureerd met meerdere regio's worden geschreven.
 
-Voor Cosmos DB-accounts die zijn geconfigureerd met meerdere regio's voor schrijven, worden Bijwerkconflicten kunnen optreden wanneer meerdere schrijvers hetzelfde item in meerdere regio's tegelijkertijd bijwerken. Update veroorzaakt een conflict in de volgende drie categorieën ingedeeld:
+Voor Cosmos-accounts die zijn geconfigureerd met meerdere regio's voor schrijven, worden Bijwerkconflicten kunnen optreden wanneer meerdere schrijvers hetzelfde item in meerdere regio's tegelijkertijd bijwerken. Update veroorzaakt een conflict in de volgende drie categorieën ingedeeld:
 
 1. **Invoegen van conflicten:** deze conflicten kunnen optreden wanneer een toepassing tegelijkertijd twee of meer items met dezelfde unieke index (bijvoorbeeld de eigenschap ID) van twee of meer regio's voegt. In dit geval alle schrijfbewerkingen in eerste instantie kunnen slagen in hun respectieve lokale regio's, maar op basis van het conflict resolutie beleid dat u kiest, slechts één item met de ID van de oorspronkelijke is definitief doorgevoerd.
 

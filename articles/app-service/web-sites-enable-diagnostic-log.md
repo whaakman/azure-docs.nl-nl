@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 5cd56abd02c55dbf72c92ed070f9988fae2b6762
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 0c22072d0eaa328fdf786421344e8ef2caaa575c
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49365251"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515655"
 ---
 # <a name="enable-diagnostics-logging-for-web-apps-in-azure-app-service"></a>Diagnostische logboekregistratie inschakelen voor web-apps in Azure App Service
 ## <a name="overview"></a>Overzicht
-Azure bevat ingebouwde diagnosefuncties voor de ondersteuning bij foutopsporing in een [App Service-web-app](http://go.microsoft.com/fwlink/?LinkId=529714). In dit artikel leert u hoe u Diagnostische logboekregistratie inschakelen en instrumentatie kunt toevoegen aan uw toepassing, evenals hoe u toegang tot de gegevens die zijn vastgelegd door Azure.
+Azure bevat ingebouwde diagnosefuncties voor de ondersteuning bij foutopsporing in een [App Service-web-app](https://go.microsoft.com/fwlink/?LinkId=529714). In dit artikel leert u hoe u Diagnostische logboekregistratie inschakelen en instrumentatie kunt toevoegen aan uw toepassing, evenals hoe u toegang tot de gegevens die zijn vastgelegd door Azure.
 
-In dit artikel wordt de [Azure-portal](https://portal.azure.com), Azure PowerShell, en de Azure-opdrachtregelinterface (Azure CLI) om te werken met diagnostische logboeken. Zie voor meer informatie over het werken met diagnostische logboeken met behulp van Visual Studio [probleemoplossing voor Azure in Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md).
+In dit artikel wordt de [Azure-portal](https://portal.azure.com) en Azure CLI om te werken met diagnostische logboeken. Zie voor meer informatie over het werken met diagnostische logboeken met behulp van Visual Studio [probleemoplossing voor Azure in Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md).
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -37,10 +37,10 @@ U kunt inschakelen of uitschakelen van de volgende soorten logboeken:
 
 * **Gedetailleerde fout logboekregistratie** -gedetailleerde foutinformatie voor HTTP-statuscodes die duiden op een fout (statuscode 400 of hoger). Deze kan informatie om te bepalen waarom de server heeft geretourneerd met de foutcode bevatten.
 * **Kan geen aanvraag tracering** -gedetailleerde informatie over mislukte aanvragen, met inbegrip van een tracering van de IIS-componenten gebruikt voor het verwerken van de aanvraag en de tijd die in elk onderdeel. Dit is handig als u probeert te verhogen van de prestaties van de site of isolatie van wat de oorzaak is van een specifieke HTTP-fout worden geretourneerd.
-* **Web Server-logboekregistratie** -informatie over HTTP-transacties met behulp van de [uitgebreide W3C-logboekbestandsindeling](http://msdn.microsoft.com/library/windows/desktop/aa814385.aspx). Dit is handig bij het bepalen van de algemene metrische sitegegevens, zoals het aantal aanvragen dat is verwerkt of het aantal aanvragen afkomstig zijn van een specifiek IP-adres.
+* **Web Server-logboekregistratie** -informatie over HTTP-transacties met behulp van de [uitgebreide W3C-logboekbestandsindeling](https://msdn.microsoft.com/library/windows/desktop/aa814385.aspx). Dit is handig bij het bepalen van de algemene metrische sitegegevens, zoals het aantal aanvragen dat is verwerkt of het aantal aanvragen afkomstig zijn van een specifiek IP-adres.
 
 ### <a name="application-diagnostics"></a>Application diagnostics
-Application diagnostics kunt u voor het vastleggen van gegevens die worden geproduceerd door een web-App. ASP.NET-toepassingen kunnen gebruikmaken van de [System.Diagnostics.Trace](http://msdn.microsoft.com/library/36hhw2t6.aspx) klasse om informatie te registreren in het toepassingslogboek van diagnostische gegevens. Bijvoorbeeld:
+Application diagnostics kunt u voor het vastleggen van gegevens die worden geproduceerd door een web-App. ASP.NET-toepassingen kunnen gebruikmaken van de [System.Diagnostics.Trace](https://msdn.microsoft.com/library/36hhw2t6.aspx) klasse om informatie te registreren in het toepassingslogboek van diagnostische gegevens. Bijvoorbeeld:
 
     System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
 
@@ -65,7 +65,7 @@ Voor **toepassingslogboeken**, kunt u de optie voor het systeem van bestand tijd
 
 Voor **webserverlogboeken**, kunt u **opslag** of **bestandssysteem**. Selecteren **opslag** kunt u een opslagaccount en een blob-container die de logboeken worden geschreven om te selecteren. 
 
-Als u Logboeken op het bestandssysteem opslaat, kunnen de bestanden worden geopend door de FTP of gedownload als een Zip-archief met behulp van de Azure PowerShell of Azure-opdrachtregelinterface (Azure CLI).
+Als u Logboeken op het bestandssysteem opslaat, kunnen de bestanden worden geopend door de FTP of gedownload als een Zip-archief met behulp van Azure CLI.
 
 Standaard logboeken worden niet automatisch verwijderd (met uitzondering van **toepassingslogboeken (bestandssysteem)**). Als u wilt verwijderen automatisch logboeken, instellen de **bewaarperiode (dagen)** veld.
 
@@ -84,20 +84,16 @@ Hoewel alle drie opslaglocaties de dezelfde algemene informatie voor de vastgele
 > [!NOTE]
 > Gegevens die zijn opgeslagen **tabelopslag** of **blobopslag** kunnen alleen worden geopend met behulp van een storage-client of een toepassing die u rechtstreeks met deze systemen voor opslag werken kunt. Bijvoorbeeld, Visual Studio 2013 bevat een Opslagverkenner die kunnen worden gebruikt om te verkennen, tabel of blob storage en HDInsight toegang tot de gegevens die zijn opgeslagen in blob-opslag. U kunt ook schrijven met een toepassing die toegang heeft tot Azure Storage met behulp van een van de [Azure-SDK's](https://azure.microsoft.com/downloads/).
 >
-> [!NOTE]
-> Diagnostische gegevens kan ook worden ingeschakeld vanuit Azure PowerShell met behulp van de **Set-AzureWebsite** cmdlet. Als u Azure PowerShell nog niet hebt geïnstalleerd, of zijn niet geconfigureerd voor het gebruik van uw Azure-abonnement, Zie [installeren en configureren van Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.6.0).
->
->
 
 ## <a name="download"></a> Hoe: Logboeken downloaden
-Diagnostische gegevens die zijn opgeslagen in het bestandssysteem van de web-app is toegankelijk via FTP. Het kan ook worden gedownload als een Zip-archief met behulp van Azure PowerShell of de Azure-opdrachtregelinterface.
+Diagnostische gegevens die zijn opgeslagen in het bestandssysteem van de web-app is toegankelijk via FTP. Het kan ook worden gedownload als een Zip-archief met behulp van Azure CLI.
 
 De mapstructuur die de logboeken worden opgeslagen in is als volgt:
 
 * **Toepassingslogboeken** -/LogFiles/toepassing /. Deze map bevat een of meer tekstbestanden met gegevens die worden geproduceerd door logboekregistratie van toepassingen.
 * **Kan geen aanvraag traceringen** -/ logboekbestanden/W3SVC ### /. Deze map bevat een XSL-bestand en een of meer XML-bestanden. Zorg ervoor dat u de XSL-bestand in dezelfde map downloaden als het XML-bestand bestand(en) omdat het XSL-bestand functionaliteit biedt voor het formatteren en filteren van de inhoud van de XML-bestanden wanneer deze wordt bekeken in Internet Explorer.
 * **Gedetailleerde foutenlogboeken** -/LogFiles/DetailedErrors /. Deze map bevat een of meer htm-bestanden met uitgebreide informatie voor HTTP-fouten die zich hebben voorgedaan.
-* **Web Server-logboeken** -/LogFiles/http/RawLogs. Deze map bevat een of meer tekstbestanden geformatteerd met het [uitgebreide W3C-logboekbestandsindeling](http://msdn.microsoft.com/library/windows/desktop/aa814385.aspx).
+* **Web Server-logboeken** -/LogFiles/http/RawLogs. Deze map bevat een of meer tekstbestanden geformatteerd met het [uitgebreide W3C-logboekbestandsindeling](https://msdn.microsoft.com/library/windows/desktop/aa814385.aspx).
 * **Implementatielogboeken** -/ logboekbestanden/Git. Deze map bevat de logboeken die worden gegenereerd door de interne implementatieprocessen die worden gebruikt door Azure-web-apps, evenals de logboeken voor Git-implementaties. U vindt hier ook Logboeken onder D:\home\site\deployments-implementatie.
 
 ### <a name="ftp"></a>FTP
@@ -106,19 +102,7 @@ Zie het openen van een FTP-verbinding met de FTP-server van uw app [uw app imple
 
 Nadat het is verbonden met uw web-app FTP/S-server, opent de **logboekbestanden** map waar de logbestanden worden opgeslagen.
 
-### <a name="download-with-azure-powershell"></a>Met Azure PowerShell downloaden
-Voor het downloaden van de logboekbestanden, start u een nieuw exemplaar van Azure PowerShell en gebruik de volgende opdracht:
-
-    Save-AzureWebSiteLog -Name webappname
-
-Deze opdracht slaat u de logboeken voor de web-app die is opgegeven door de **-naam** parameter naar een bestand met de naam **logs.zip** in de huidige map.
-
-> [!NOTE]
-> Als u Azure PowerShell nog niet hebt geïnstalleerd, of zijn niet geconfigureerd voor het gebruik van uw Azure-abonnement, Zie [installeren en configureren van Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.6.0).
->
->
-
-### <a name="download-with-azure-command-line-interface"></a>Met Azure-opdrachtregelinterface downloaden
+### <a name="download-with-azure-cli"></a>Met Azure CLI downloaden
 De logboekbestanden met behulp van de Azure-opdrachtregelinterface downloaden, opent u een nieuwe opdrachtprompt, PowerShell, Bash of Terminal-sessie en voer de volgende opdracht:
 
     az webapp log download --resource-group resourcegroupname --name webappname
@@ -126,7 +110,7 @@ De logboekbestanden met behulp van de Azure-opdrachtregelinterface downloaden, o
 Deze opdracht slaat u de logboeken voor de web-app met de naam 'webappname' naar een bestand met de naam **diagnostics.zip** in de huidige map.
 
 > [!NOTE]
-> Als u niet de Azure-opdrachtregelinterface (Azure CLI) hebt geïnstalleerd, of zijn niet geconfigureerd voor het gebruik van uw Azure-abonnement, Zie [over het gebruik van Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).
+> Als u Azure CLI nog niet hebt geïnstalleerd, of zijn niet geconfigureerd voor het gebruik van uw Azure-abonnement, Zie [over het gebruik van Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).
 >
 >
 
@@ -143,7 +127,7 @@ Visual Studio Application Insights biedt hulpprogramma's voor het filteren en zo
 [Meer informatie over de prestaties bijhouden met Application Insights](../application-insights/app-insights-azure-web-apps.md)
 
 ## <a name="streamlogs"></a> Hoe: Stream Logboeken
-Tijdens het ontwikkelen van een toepassing, is het vaak nuttig om te zien van logboekgegevens in near-real-time. U kunt de logboekinformatie voor streamen naar uw ontwikkelomgeving met behulp van Azure PowerShell of de Azure-opdrachtregelinterface.
+Tijdens het ontwikkelen van een toepassing, is het vaak nuttig om te zien van logboekgegevens in near-real-time. U kunt de logboekinformatie voor streamen naar uw ontwikkelomgeving met behulp van Azure CLI.
 
 > [!NOTE]
 > Bepaalde typen logboekregistratie buffer schrijven naar het logboekbestand, dit in niet-geordende gebeurtenissen in de stroom resulteren kan. De logboekvermelding van een toepassing die wordt uitgevoerd wanneer een gebruiker een pagina bezoeken kan bijvoorbeeld worden weergegeven in de stroom voordat de bijbehorende HTTP-vermelding voor de pagina-aanvraag.
@@ -153,29 +137,7 @@ Tijdens het ontwikkelen van een toepassing, is het vaak nuttig om te zien van lo
 >
 >
 
-### <a name="streaming-with-azure-powershell"></a>Streaming met Azure PowerShell
-Naar stream logboekinformatie, start u een nieuw exemplaar van Azure PowerShell en gebruik de volgende opdracht:
-
-    Get-AzureWebSiteLog -Name webappname -Tail
-
-Deze opdracht maakt verbinding met de web-app die is opgegeven door de **-naam** parameter en beginnen met streamen van gegevens naar de PowerShell-venster als gebeurtenissen op de web-app plaatsvinden. Alle informatie geschreven naar hebben die eindigt op .txt, .log of htm-bestanden die zijn opgeslagen in de map /LogFiles (d:/home/logboekbestanden) worden gestreamd naar de lokale console.
-
-Om te filteren op specifieke gebeurtenissen, zoals fouten, gebruikt u de **-bericht** parameter. Bijvoorbeeld:
-
-    Get-AzureWebSiteLog -Name webappname -Tail -Message Error
-
-Om te filteren op specifieke logboek typen, zoals HTTP, gebruikt u de **-pad** parameter. Bijvoorbeeld:
-
-    Get-AzureWebSiteLog -Name webappname -Tail -Path http
-
-Een lijst van beschikbare paden wilt bekijken, gebruikt u de parameter - ListPath.
-
-> [!NOTE]
-> Als u Azure PowerShell nog niet hebt geïnstalleerd, of zijn niet geconfigureerd voor het gebruik van uw Azure-abonnement, Zie [over het gebruik van Azure PowerShell](http://azure.microsoft.com/develop/nodejs/how-to-guides/powershell-cmdlets/).
->
->
-
-### <a name="streaming-with-azure-command-line-interface"></a>Streamen met Azure-opdrachtregelinterface
+### <a name="streaming-with-azure-cli"></a>Streaming met Azure CLI
 Om te streamen van logboekgegevens, opent u een nieuwe opdrachtprompt, PowerShell, Bash of Terminal-sessie en voer de volgende opdracht:
 
     az webapp log tail --name webappname --resource-group myResourceGroup
@@ -191,7 +153,7 @@ Om te filteren op specifieke logboek typen, zoals HTTP, gebruikt u de **--pad** 
     az webapp log tail --name webappname --resource-group myResourceGroup --path http
 
 > [!NOTE]
-> Als u de Azure Command-Line Interface niet hebt geïnstalleerd, of zijn niet geconfigureerd voor het gebruik van uw Azure-abonnement, Zie [hoe om te gebruiken Azure-opdrachtregelinterface](../cli-install-nodejs.md).
+> Als u Azure CLI nog niet hebt geïnstalleerd, of zijn niet geconfigureerd voor het gebruik van uw Azure-abonnement, Zie [over het gebruik van Azure CLI](../cli-install-nodejs.md).
 >
 >
 
@@ -264,7 +226,7 @@ Traceringen van mislukte aanvragen worden opgeslagen in de XML-bestanden met de 
 Logboeken met details zijn HTML-documenten die bieden meer gedetailleerde informatie over HTTP-fouten die zijn opgetreden. Omdat ze gewoon HTML-documenten, kunnen ze worden weergegeven via een webbrowser.
 
 ### <a name="web-server-logs"></a>Webserverlogboeken
-De web server-logboeken zijn geformatteerd met het [uitgebreide W3C-logboekbestandsindeling](http://msdn.microsoft.com/library/windows/desktop/aa814385.aspx). Deze informatie kan worden gelezen met behulp van een teksteditor of met behulp van hulpprogramma's zoals geparseerd [Logboekparser](http://go.microsoft.com/fwlink/?LinkId=246619).
+De web server-logboeken zijn geformatteerd met het [uitgebreide W3C-logboekbestandsindeling](https://msdn.microsoft.com/library/windows/desktop/aa814385.aspx). Deze informatie kan worden gelezen met behulp van een teksteditor of met behulp van hulpprogramma's zoals geparseerd [Logboekparser](https://go.microsoft.com/fwlink/?LinkId=246619).
 
 > [!NOTE]
 > De logboeken die worden geproduceerd door de Azure-web-apps bieden geen ondersteuning voor de **s-computername**, **s-IP-**, of **cs-version** velden.
@@ -274,7 +236,7 @@ De web server-logboeken zijn geformatteerd met het [uitgebreide W3C-logboekbesta
 ## <a name="nextsteps"></a> Volgende stappen
 * [WebApps controleren](web-sites-monitor.md)
 * [Oplossen van problemen met Azure-web-apps in Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md)
-* [Analyseren van web-Applogboeken in HDInsight](http://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)
+* [Analyseren van web-Applogboeken in HDInsight](https://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)
 
 > [!NOTE]
 > Als u aan de slag wilt met Azure App Service voordat u zich aanmeldt voor een Azure-account, gaat u naar [App Service uitproberen](https://azure.microsoft.com/try/app-service/). Hier kunt u direct een tijdelijke web-app maken in App Service. U hebt geen creditcard nodig en u gaat geen verplichtingen aan.

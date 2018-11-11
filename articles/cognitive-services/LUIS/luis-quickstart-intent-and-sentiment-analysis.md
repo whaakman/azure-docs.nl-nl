@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: ff5a47f977f34535c5ad1fde7e6cac5995e7f7dd
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 95d1c4ffe76cf4c652f347014a838f1250c0ca15
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47031455"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277474"
 ---
 # <a name="tutorial-9--extract-sentiment-of-overall-utterance"></a>Zelfstudie 9: het gevoel van een volledige uiting herkennen
 In deze zelfstudie maakt u een app die laat zien hoe u positieve, negatieve en neutrale gevoelens kunt extraheren uit utterances. Het gevoel wordt bepaald op basis van de gehele uiting.
@@ -47,9 +47,9 @@ Omdat dit een publicatie-instelling is, wordt deze niet weergegeven op de intent
 
 ## <a name="use-existing-app"></a>Bestaande app gebruiken
 
-Ga door met de in de laatste zelfstudie gemaakt app, **HumanResources**. 
+Ga door met de in de laatste zelfstudie gemaakt app, **Human Resources**. 
 
-Als u niet over de app HumanResources uit de vorige zelfstudie beschikt, voert u de volgende stappen uit:
+Als u niet over de app Human Resources uit de vorige zelfstudie beschikt, voert u de volgende stappen uit:
 
 1.  Download het [JSON-bestand van de app](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-keyphrase-HumanResources.json) en sla het op.
 
@@ -60,7 +60,7 @@ Als u niet over de app HumanResources uit de vorige zelfstudie beschikt, voert u
 ## <a name="employeefeedback-intent"></a>De intentie EmployeeFeedback 
 Voeg een nieuwe intentie toe om feedback van werknemers die tot het bedrijf behoren, vast te leggen. 
 
-1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Selecteer **Create new intent**.
 

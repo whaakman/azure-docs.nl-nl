@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 11/08/2018
 ms.author: juliako
-ms.openlocfilehash: c8e4e84d7ae0defdb053108dc668956062c47ea5
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: a4569505cb9a42f6682391a8b06725dea5e539dc
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50962381"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51344970"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Live streamen met Azure Media Services v3
 
@@ -44,11 +44,11 @@ Indien gewenst, kunt u ook toepassen **dynamisch filteren**, die kan worden gebr
 
 De volgende nieuwe verbeteringen zijn uitgevoerd in de nieuwste versie.
 
-- Nieuwe modus voor lage latentie voor live (10 seconden end-to-end).
+- Nieuwe modus voor lage latentie. Zie voor meer informatie, [latentie](#latency).
 - Verbeterde RTMP-ondersteuning (verbeterde stabiliteit en meer bron encoder-ondersteuning).
 - Beveiligde RTMPS opnemen.
 
-    Bij het maken van een LiveEvent u nu toegang tot 4 URL's voor opnemen. Opname van de 4 URL's zijn bijna identiek, hetzelfde streaming-token (AppId), alleen de poort nummer onderdeel verschilt. Twee van de URL's zijn primaire en back-up voor RTMPS.   
+    Als u een LiveEvent maakt, krijgt u 4 URL's voor opnemen. Opname van de 4 URL's zijn bijna identiek, hetzelfde streaming-token (AppId), alleen de poort nummer onderdeel verschilt. Twee van de URL's zijn primaire en back-up voor RTMPS.   
 - ondersteuning voor het transcoderen van 24 uur per dag. 
 - Verbeterde ondersteuning voor ad-signalering in RTMP via SCTE35.
 
@@ -82,7 +82,7 @@ Geef bij het maken van dit type LiveEvent, **geen** (LiveEventEncodingType.None)
 
 De volgende tabel vergelijkt de functies van de twee LiveEvent typen.
 
-| Functie | Pass Through-LiveEvent | Basic LiveEvent |
+| Functie | Pass Through-LiveEvent | Standard LiveEvent |
 | --- | --- | --- |
 | Single-bitrate-invoer is gecodeerd in meerdere bitsnelheden in de cloud |Nee |Ja |
 | Maximale resolutie, aantal lagen |4Kp30  |720p, 6 lagen, 30 fps |
@@ -94,7 +94,7 @@ De volgende tabel vergelijkt de functies van de twee LiveEvent typen.
 | Ondersteuning voor ad via SCTE35 inband-signalering|Ja |Ja |
 | Pass Through-CEA 608/708-ondertiteling |Ja |Ja |
 | Mogelijkheid om te herstellen van korte vertragingen in bijdrage feed |Ja |Nee (LiveEvent begint slating na 6 + seconden zonder invoergegevens)|
-| Ondersteuning voor niet-uniforme invoer GOPs |Ja |Nee – invoer moet worden gecorrigeerd 2 sec GOPs |
+| Ondersteuning voor niet-uniforme invoer GOPs |Ja |Nee – invoer moet worden gecorrigeerd GOPs 2 sec. |
 | Ondersteuning voor variabele frame tarief invoer |Ja |Nee – moet dat invoer framesnelheid worden opgelost.<br/>Kleine variaties zijn toegestaan, bijvoorbeeld tijdens hoge beweging schermen. Maar het coderingsprogramma kan niet verwijderen naar 10 frames per seconde. |
 | Automatisch-signalen van LiveEvent als invoer-kanaal is verbroken |Nee |Na 12 uur, als er geen LiveOutput uitgevoerd |
 
@@ -126,6 +126,20 @@ Een LiveEvent ondersteunt maximaal drie gelijktijdig actieve LiveOutputs zodat u
 Wanneer de stream naar de LiveEvent stroomt, kunt u de streaminggebeurtenis starten door een Asset, LiveOutput en StreamingLocator te maken. Hiermee wordt de stream gearchiveerd en beschikbaar maken aan kijkers via de [streamingendpoint zo](https://docs.microsoft.com/rest/api/media/streamingendpoints).
 
 Wanneer uw Media Services-account is gemaakt wordt een standaardstreaming-eindpunt wordt toegevoegd aan uw account in de status gestopt. Als u wilt uw inhoud wilt streamen en te profiteren van dynamische pakketten en dynamische versleuteling, is het streaming-eindpunt van waaruit u inhoud streamen wilt in de uitvoeringsstatus van.
+
+## <a name="latency"></a>Latentie
+
+Deze sectie wordt besproken typische resultaten die u ziet wanneer u de instellingen voor lage latentie en verschillende spelers. De resultaten variëren op basis van CDN en netwerklatentie.
+
+De nieuwe LowLatency als functie wilt gebruiken, kunt u instellen de **StreamOptionsFlag** naar **LowLatency** op de LiveEvent. Zodra de stroom actief en werkend is, kunt u de [Azure Media Player](http://ampdemo.azureedge.net/) (en) demo pagina toe en stel de opties voor afspelen 'Met lage latentie methodiek profiel' te gebruiken.
+
+### <a name="pass-through-liveevents"></a>Pass Through-LiveEvents
+
+||2s GOP lage latentie ingeschakeld|1s GOP lage latentie ingeschakeld|
+|---|---|---|
+|STREEPJES in AMP|per 10|8s versie|
+|HLS op systeemeigen iOS-speler|14s|per 10|
+|HLS. JS in Mixer-speler|30 s|16s versie|
 
 ## <a name="billing"></a>Billing
 

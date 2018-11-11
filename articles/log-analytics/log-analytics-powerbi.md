@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 03/19/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: c3e0494d813f625a23f55171953d9145411a7024
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 7cf4613f2fdceca3e869473ed3ec7f47fb417fcb
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50960293"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277645"
 ---
 # <a name="import-azure-log-analytics-data-into-power-bi"></a>Azure Log Analytics-gegevens importeren in Power BI
 
@@ -33,7 +33,7 @@ Om gegevens te importeren vanuit een Log Analytics-werkruimte in Power BI, kunt 
 ![Log Analytics met Power BI](media/log-analytics-powerbi/overview.png)
 
 ## <a name="export-query"></a>Query exporteren
-Maak eerst een [zoeken in logboeken](log-analytics-log-search-new.md) die de gegevens wordt geactiveerd vanuit Log Analytics dat u wilt vullen van de Power BI-gegevensset.  U deze query te exporteren [Power Query (M) taal](https://msdn.microsoft.com/library/mt807488.aspx) die kan worden gebruikt door Power BI Desktop.
+Maak eerst een [zoeken in logboeken](log-analytics-queries.md) die de gegevens wordt geactiveerd vanuit Log Analytics dat u wilt vullen van de Power BI-gegevensset.  U deze query te exporteren [Power Query (M) taal](https://msdn.microsoft.com/library/mt807488.aspx) die kan worden gebruikt door Power BI Desktop.
 
 1. Zoeken in Logboeken in Log Analytics om op te halen van de gegevens voor uw gegevensset maken.
 2. Als u de portal zoeken in Logboeken, klikt u op **Power BI**.  Als u de Analytics-portal, selecteert u **exporteren** > **Power BI Query (M)**.  Beide opties de query exporteren naar een tekstbestand met de naam **PowerBIQuery.txt**. 
@@ -81,5 +81,5 @@ De gegevensset gemaakt in Power BI heeft dezelfde gegevens die u eerder hebt gez
 
 
 ## <a name="next-steps"></a>Volgende stappen
-* Meer informatie over [zoekopdrachten](log-analytics-log-search.md) naar query's opbouwen die kunnen worden geëxporteerd naar Power BI.
-* Meer informatie over [Power BI](http://powerbi.microsoft.com) te maken van visualisaties op basis van Log Analytics-uitvoer.
+* Meer informatie over [zoekopdrachten](log-analytics-queries.md) naar query's opbouwen die kunnen worden geëxporteerd naar Power BI.
+* Meer informatie over [Power BI](https://powerbi.microsoft.com) te maken van visualisaties op basis van Log Analytics-uitvoer.

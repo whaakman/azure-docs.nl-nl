@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/15/2018
 ms.author: yijenj
-ms.openlocfilehash: 604eb528ef33a95993aa5b6d3ff6eebb77936aa2
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 7937f3d0db414d7a9cc2adaefd4324d49d734fcb
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50157935"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51280670"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Azure-partner klant gebruik attribution
 
@@ -66,7 +66,7 @@ De resource moet worden toegevoegd de **mainTemplate.json** of **azuredeploy.jso
 
 { // add this resource to the mainTemplate.json (do not add the entire file)
     "apiVersion": "2018-02-01",
-    "name": "pid-XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX" // use your generated GUID here
+    "name": "pid-XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX", // use your generated GUID here
     "type": "Microsoft.Resources/deployments",
     "properties": {
         "mode": "Incremental",
@@ -145,7 +145,7 @@ Alle registraties voor de sjabloon-GUID's moeten worden uitgevoerd via de Azure 
 
 Nadat u de GUID's aan uw sjabloon of in de gebruikersagent toevoegen en de GUID in de CPP registreert, worden alle implementaties worden bijgehouden. 
 
-1. Van toepassing op [Azure Marketplace](http://aka.ms/listonazuremarketplace) en krijg toegang tot de CPP.
+1. Van toepassing op [Azure Marketplace](https://aka.ms/listonazuremarketplace) en krijg toegang tot de CPP.
 
    * Partners zijn vereist voor het [hebt u een profiel in CPP](https://docs.microsoft.com/azure/marketplace/become-publisher). U kunt aangemoedigd om de aanbieding in Azure Marketplace of AppSource weer te geven.
    * Partners kunnen zich registreren voor meerdere GUID's.

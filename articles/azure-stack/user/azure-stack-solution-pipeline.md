@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/30/2018
+ms.date: 11/07/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: a9e601d0bd9a4d7879ecd205488c6a901a464021
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 77f9e52da8ada9cdf56d4a710bba65492cc17f75
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50419828"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51280738"
 ---
 # <a name="tutorial-deploy-apps-to-azure-and-azure-stack"></a>Zelfstudie: Apps implementeren in Azure en Azure Stack
 
@@ -292,7 +292,7 @@ U kunt een serviceverbinding maken met de volgende toewijzing:
 | Abonnementsnaam | name@contoso.com | Naam van gebruikersabonnement van Azure Stack. |
 | Service-Principal-client-ID | FF74AACF-XXXX-4776-93FC-C63E6E021D59 | De principal-ID van [dit](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#create-a-service-principal) sectie in dit artikel. |
 | Service-Principal-sleutel | THESCRETGOESHERE = | De sleutel van hetzelfde artikel (of het wachtwoord als u het script gebruikt). |
-| Tenant-id | D073C21E-XXXX-4AD0-B77E-8364FCA78A94 | De tenant-ID ophalen van de volgende de instructie op aan de tenant-id. De tenant-ID die u na de instructie op ophalen [ophalen van de tenant-ID](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#get-the-tenant-id).  |
+| Tenant-id | D073C21E-XXXX-4AD0-B77E-8364FCA78A94 | De tenant-ID die u na de instructie op ophalen [ophalen van de tenant-ID](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#get-the-tenant-id).  |
 | Verbinding: | Niet gecontroleerd | Controleer de verbindingsinstellingen voor de service-principal. |
 
 Nu het eindpunt is gemaakt, de DevOps op Azure Stack-verbinding is klaar voor gebruik. De build-agent in Azure Stack haalt de instructies van DevOps op en klikt u vervolgens de agent voor de communicatie met Azure Stack-eindpuntgegevens overbrengen.
@@ -317,7 +317,7 @@ U kunt een serviceverbinding maken met de volgende toewijzing:
 | Abonnementsnaam | name@contoso.com | Naam van gebruikersabonnement van Azure Stack. |
 | Service-Principal-client-ID | FF74AACF-XXXX-4776-93FC-C63E6E021D59 | De client-ID van de Service-Principal die u voor AD FS hebt gemaakt. |
 | Certificaat | `<certificate>` |  Het certificaatbestand converteren van PFX naar PEM. Certificaatinhoud PEM-bestand in dit veld plakken. <br> Converteren van PFX naar PEM:<br>`openssl pkcs12 -in file.pfx -out file.pem -nodes -password pass:<password_here>` |
-| Tenant-id | D073C21E-XXXX-4AD0-B77E-8364FCA78A94 | De tenant-ID ophalen van de volgende de instructie op aan de tenant-id. De tenant-ID die u na de instructie op ophalen [ophalen van de tenant-ID](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#get-the-tenant-id). |
+| Tenant-id | D073C21E-XXXX-4AD0-B77E-8364FCA78A94 | De tenant-ID die u na de instructie op ophalen [ophalen van de tenant-ID](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#get-the-tenant-id). |
 | Verbinding: | Niet gecontroleerd | Controleer de verbindingsinstellingen voor de service-principal. |
 
 Nu dat het eindpunt is gemaakt, is het Azure DevOps op Azure Stack-verbinding is klaar voor gebruik. De build-agent in Azure Stack instructies opgehaald uit Azure DevOps en vervolgens de agent voor de communicatie met Azure Stack-eindpuntgegevens overbrengen.

@@ -8,21 +8,21 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: kgremban
-ms.openlocfilehash: 6ae0217ed4b8833eb42a4719a1f2525461f9dcdd
-ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
+ms.openlocfilehash: d98a890cfb6bd388477ff3f14b81c8df02ece879
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43143645"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51287962"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>Kies de juiste IoT Hub-laag voor uw oplossing
 
-Elke IoT-oplossing is verschillend zijn, zodat Azure IoT Hub verschillende opties op basis van prijzen en schaal biedt. Dit artikel is bedoeld voor het evalueren van de behoeften van uw IoT-Hub. Raadpleeg voor meer informatie over Prijscategorieën van IoT Hub-prijzen [IoT Hub-prijzen](https://azure.microsoft.com/pricing/details/iot-hub). 
+Elke IoT-oplossing is verschillend zijn, zodat Azure IoT Hub verschillende opties op basis van prijzen en schaal biedt. Dit artikel is bedoeld voor het evalueren van de behoeften van uw IoT-Hub. Zie voor meer informatie over Prijscategorieën van IoT Hub-prijzen, [IoT Hub-prijzen](https://azure.microsoft.com/pricing/details/iot-hub). 
 
 Om te beslissen welke IoT Hub-laag is geschikt voor uw oplossing, Stel uzelf twee vragen:
 
 **Welke functies wilt ik gebruiken?**
-Azure IoT Hub biedt twee lagen, basis en standaard, die afwijken van het aantal functies die erdoor worden ondersteund. Als uw IoT-oplossing is gebaseerd op gegevens van apparaten verzamelen en analyseren van deze centraal zijn de basic-laag is waarschijnlijk geschikt is voor u. Als u wilt meer geavanceerde configuraties IoT-apparaten op afstand beheren of distribueren enkele van uw werklasten op de apparaten zelf gebruiken, moet u rekening houden de standard-laag. Voor gedetailleerde informatie van deze functies zijn opgenomen in elke laag blijven [Basic en standard-laag](#basic-and-standard-tiers).
+Azure IoT Hub biedt twee lagen, basis en standaard, die afwijken van het aantal functies die erdoor worden ondersteund. Als uw IoT-oplossing is gebaseerd op gegevens van apparaten verzamelen en analyseren van deze centraal, zijn de basic-laag is waarschijnlijk geschikt is voor u. Als u meer geavanceerde configuraties gebruiken wilt voor het IoT-apparaten op afstand beheren of distribueren enkele van uw werklasten op de apparaten zelf, kunt u de standard-laag moet overwegen. Voor gedetailleerde informatie van deze functies zijn opgenomen in elke laag blijven [Basic en standard-laag](#basic-and-standard-tiers).
 
 **Hoeveel gegevens wilt ik dagelijks verplaatsen?**
 Elke laag van IoT Hub is beschikbaar in drie grootten, op basis van hoeveel gegevens doorvoer ze kunnen worden verwerkt in elke dag. Deze grootten zijn numeriek geïdentificeerd als 1, 2 en 3. Met elke eenheid van een niveau 1 IoT-hub kan bijvoorbeeld 400 duizend berichten per dag, verwerken, terwijl een niveau 3-eenheid 300 miljoen kan verwerken. Voor meer informatie over de richtlijnen van de gegevens nog steeds [bericht doorvoer](#message-throughput).
@@ -31,7 +31,7 @@ Elke laag van IoT Hub is beschikbaar in drie grootten, op basis van hoeveel gege
 
 De prijscategorie standard van IoT Hub kunt u alle functies en is vereist voor een IoT-oplossingen te maken van de mogelijkheden met bi-directionele communicatie mogelijk te gebruiken. De basic-laag kunt een subset van de functies en is bedoeld voor IoT-oplossingen die hoeft alleen Unidirectioneel communicatie tussen apparaten en de cloud. Beide lagen bieden de dezelfde functies als verificatie en beveiliging.
 
-Nadat u uw IoT-hub die u van de basic-laag naar de prijscategorie standard upgraden kunt zonder dat uw bestaande bewerkingen wordt onderbroken. Zie voor meer informatie, [upgrade uitvoeren van uw IoT-hub](iot-hub-upgrade.md). Houd er rekening mee dat de maximale partitielimiet voor basic-laag IoT Hub 8 is en voor de standard-laag 32 is. De meeste IoT-hubs hoeft slechts 4 partities. De limiet van de partitie wordt gekozen bij IoT Hub wordt gemaakt en is gekoppeld aan de apparaat-naar-cloud-berichten naar het aantal gelijktijdige lezers van deze berichten. Deze waarde blijft ongewijzigd wanneer u van basic-laag naar de standard-laag migreert. Let ook op dat slechts één type [edition](https://azure.microsoft.com/pricing/details/iot-hub/) binnen een laag per IoT Hub kan worden gekozen. U kunt bijvoorbeeld een IoT-Hub maken met meerdere eenheden van S1, maar niet met een combinatie van eenheden van verschillende versies, zoals S1 en B3, of S1 en S2.
+Als u uw IoT-hub maakt, kunt u upgraden vanaf de basis-laag naar de prijscategorie standard zonder dat uw bestaande bewerkingen wordt onderbroken. Zie voor meer informatie, [upgrade uitvoeren van uw IoT-hub](iot-hub-upgrade.md). De maximale partitielimiet voor basic-laag IoT Hub is 8 en voor standard-laag is 32. De meeste IoT-hubs hoeft slechts 4 partities. De limiet van de partitie wordt gekozen bij IoT Hub wordt gemaakt en is gekoppeld aan de apparaat-naar-cloud-berichten naar het aantal gelijktijdige lezers van deze berichten. Deze waarde blijft ongewijzigd wanneer u van basic-laag naar de standard-laag migreert. Let ook op dat slechts één type [edition](https://azure.microsoft.com/pricing/details/iot-hub/) binnen een laag per IoT Hub kan worden gekozen. U kunt bijvoorbeeld een IoT-Hub maken met meerdere eenheden van S1, maar niet met een combinatie van eenheden van verschillende versies, zoals S1 en B3, of S1 en S2.
 
 | Mogelijkheid | Basislaag | Standaardlaag |
 | ---------- | ---------- | ------------- |
@@ -42,7 +42,7 @@ Nadat u uw IoT-hub die u van de basic-laag naar de prijscategorie standard upgra
 | [Device Provisioning Service](../iot-dps/about-iot-dps.md) | Ja | Ja |
 | [Controle en diagnose](iot-hub-monitor-resource-health.md) | Ja | Ja |
 | [Cloud-naar-apparaat-berichten](iot-hub-devguide-c2d-guidance.md) |   | Ja |
-| [Apparaatdubbels](iot-hub-devguide-device-twins.md), [moduledubbels](iot-hub-devguide-module-twins.md) en [Apparaatbeheer](iot-hub-device-management-overview.md) |   | Ja |
+| [Apparaatdubbels](iot-hub-devguide-device-twins.md), [moduledubbels](iot-hub-devguide-module-twins.md), en [Apparaatbeheer](iot-hub-device-management-overview.md) |   | Ja |
 | [Azure IoT Edge](../iot-edge/about-iot-edge.md) |   | Ja |
 
 IoT Hub biedt ook een gratis laag die is bedoeld voor test- en evaluatiedoeleinden. Het beschikt over alle mogelijkheden van de standard-laag, maar beperkt messaging-limiet. U upgraden niet van de laag gratis naar basis of standaard. 
@@ -115,7 +115,7 @@ Terwijl een enkele IoT-hub naar miljoenen apparaten schalen kunt, vereist soms b
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Zie voor meer informatie over de mogelijkheden van IoT-Hub en details van de prestaties, [IoT Hub-prijzen] [koppeling prijzen] of [IoT Hub-quota en vertragingen in][IoT Hub quotas and throttles].
+* Zie voor meer informatie over de mogelijkheden van IoT-Hub en details van de prestaties [IoT Hub-prijzen] [ lnk-pricing] of [IoT Hub-quota en vertragingen in] [ IoT Hub quotas and throttles].
 * Als u wilt wijzigen van de laag van uw IoT Hub, volg de stappen in [Upgrade van uw IoT-hub](iot-hub-upgrade.md).
 
 [lnk-pricing]: https://azure.microsoft.com/pricing/details/iot-hub

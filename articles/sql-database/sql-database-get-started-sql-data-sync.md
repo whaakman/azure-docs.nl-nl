@@ -11,13 +11,13 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
-ms.date: 11/01/2018
-ms.openlocfilehash: 71e5ae2a6b486873df147e7c2c0518e1c47b09c7
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.date: 11/07/2018
+ms.openlocfilehash: 0a248ec5137a6de43910b1d11184dfeda18601f5
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50914002"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51280344"
 ---
 # <a name="tutorial-set-up-sql-data-sync-to-sync-data-between-azure-sql-database-and-sql-server-on-premises"></a>Zelfstudie: SQL Data Sync instellen om gegevens te synchroniseren tussen Azure SQL Database en SQL Server on-premises
 
@@ -129,7 +129,7 @@ Op de **On-Premises configureren** pagina, doe dan het volgende:
 
     Als u ervoor hebt gekozen **maken van een nieuwe agent**, doe dan het volgende:
 
-   1. De clientsoftware van de sync-agent downloaden via de koppeling die is opgegeven en installeer deze op de computer waar de SQL-Server zich bevindt.
+   1. De clientsoftware van de sync-agent downloaden via de koppeling die is opgegeven en installeer deze op de computer waar de SQL-Server zich bevindt. U kunt ook de sync-agent van de gegevens rechtstreeks vanuit downloaden [SQL Azure Data Sync-Agent](https://www.microsoft.com/download/details.aspx?id=27693).
 
         > [!IMPORTANT]
         > U moet uitgaande TCP-poort 1433 openen in de firewall zodat de clientagent communiceren met de server.
@@ -253,35 +253,7 @@ Na het exporteren van een database als een `.bacpac` bestand en importeer het be
 
 ## <a name="faq-about-the-client-agent"></a>Veelgestelde vragen over de clientagent
 
-### <a name="why-do-i-need-a-client-agent"></a>Waarom moet ik een clientagent
-
-De SQL Data Sync-service communiceert met SQL Server-databases via de clientagent. Deze beveiligingsfunctie voorkomt dat rechtstreekse communicatie met databases achter een firewall. Wanneer de SQL Data Sync-service communiceert met de agent, dit gebeurt met behulp van versleutelde verbindingen en een unieke token of *agentsleutel*. De agent met behulp van de connection string en agent sleutel worden geverifieerd door de SQL Server-databases. Dit ontwerp biedt een hoge mate van beveiliging voor uw gegevens.
-
-### <a name="how-many-instances-of-the-local-agent-ui-can-be-run"></a>Hoeveel exemplaren van de lokale agent kan gebruikersinterface worden uitgevoerd
-
-Er kan slechts één exemplaar van de gebruikersinterface worden uitgevoerd.
-
-### <a name="how-can-i-change-my-service-account"></a>Hoe kan ik mijn serviceaccount wijzigen
-
-Nadat u een clientagent hebt geïnstalleerd, is de enige manier om de serviceaccount te wijzigen voor de installatie ongedaan en een nieuwe clientagent installeren met het nieuwe serviceaccount.
-
-### <a name="how-do-i-change-my-agent-key"></a>Hoe kan ik mijn agentsleutel wijzigen
-
-Een agentsleutel kan slechts één keer worden gebruikt door een agent. Het kan niet opnieuw worden gebruikt wanneer u verwijdert vervolgens een nieuwe agent opnieuw installeren en deze worden gebruikt door meerdere agents. Als u maken van een nieuwe sleutel voor een bestaande agent wilt, moet u ervoor dat dezelfde sleutel wordt vastgelegd met de clientagent en de SQL Data Sync-service zijn.
-
-### <a name="how-do-i-retire-a-client-agent"></a>Hoe ik een clientagent buiten gebruik stellen
-
-Als u onmiddellijk ongeldig te maken of buiten gebruik stellen van een agent, de sleutel in de portal opnieuw genereren, maar niet indienen in de gebruikersinterface van de Agent. Een sleutel opnieuw genereren, wordt de vorige sleutel ongeacht als de bijbehorende agent online of offline is ongeldig.
-
-### <a name="how-do-i-move-a-client-agent-to-another-computer"></a>Hoe verplaats ik een clientagent naar een andere computer
-
-Als u de lokale agent uitvoeren vanaf een andere computer wilt dan de momenteel op, kunt u het volgende doen:
-
-1. Installeer de agent op de gewenste computer.
-2. Meld u aan bij de portal voor SQL Data Sync en een agentsleutel genereren voor de nieuwe agent.
-3. De gebruikersinterface van de nieuwe agent gebruiken voor het indienen van de nieuwe agentsleutel.
-4. Wacht terwijl de clientagent downloadt de lijst met on-premises databases die eerder zijn geregistreerd.
-5. Databasereferenties opgeven voor alle databases die worden weergegeven als niet bereikbaar. Deze databases moet bereikbaar is vanaf de nieuwe computer waarop de agent is geïnstalleerd.
+Zie voor veelgestelde vragen over de clientagent [Agent Veelgestelde vragen over](sql-database-data-sync-agent.md#agent-faq).
 
 ## <a name="next-steps"></a>Volgende stappen
 

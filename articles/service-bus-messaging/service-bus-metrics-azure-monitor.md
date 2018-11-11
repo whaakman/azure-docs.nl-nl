@@ -7,14 +7,14 @@ author: spelluru
 manager: timlt
 ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 11/06/2018
 ms.author: spelluru
-ms.openlocfilehash: 7d4b4a98c38757eb33c3f8713f662ed52a686924
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: f02fa8ff80915c23f70db09a1dee393010795132
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978652"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277440"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor-preview"></a>Metrische gegevens van Azure Service Bus in Azure Monitor (preview)
 
@@ -29,7 +29,7 @@ Azure Monitor biedt een uniforme gebruikersinterfaces voor bewaking over de vers
 
 Azure Monitor biedt meerdere manieren voor toegang tot metrische gegevens. U kunt de toegang tot metrische gegevens via de [Azure-portal](https://portal.azure.com), of gebruik de Azure Monitor API's (REST en .NET) en oplossingen voor gegevensanalyse, zoals Log Analytics en Event Hubs. Zie voor meer informatie, [door gegevens te controleren die worden verzameld door Azure Monitor](../monitoring/monitoring-data-collection.md).
 
-Metrische gegevens zijn standaard ingeschakeld en u hebt toegang tot gegevens van de meest recente 30 dagen. Als u behouden van gegevens voor een langere periode wilt, kunt u metrische gegevens om een Azure Storage-account te archiveren. Dit is geconfigureerd in [diagnostische instellingen](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#diagnostic-settings) in Azure Monitor.
+Metrische gegevens zijn standaard ingeschakeld en u hebt toegang tot gegevens van de meest recente 30 dagen. Als u behouden van gegevens voor een langere periode wilt, kunt u metrische gegevens om een Azure Storage-account te archiveren. Deze waarde is geconfigureerd in [diagnostische instellingen](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#diagnostic-settings) in Azure Monitor.
 
 ## <a name="access-metrics-in-the-portal"></a>Toegang tot metrische gegevens in de portal
 
@@ -108,6 +108,54 @@ Azure Service Bus ondersteunt de volgende dimensies voor metrische gegevens in A
 |Dimensienaam|Beschrijving|
 | ------------------- | ----------------- |
 |EntityName| Service Bus ondersteunt berichtentiteiten onder de naamruimte.|
+
+## <a name="set-up-alerts-on-metrics"></a>Instellen van waarschuwingen over metrische gegevens
+
+1. Op de **metrische gegevens** tabblad van de **Service Bus Namespace** weergeeft, schakelt **waarschuwingen configureren**. 
+
+    ![Metrische gegevens over pagina - waarschuwingenmenu configureren](./media/service-bus-metrics-azure-monitor/metrics-page-configure-alerts-menu.png)
+2. Selecteer **doel selecteren**, en de volgende acties uitvoeren op de **selecteert u een resource** pagina: 
+    1. Selecteer **Service Bus-naamruimten** voor de **filteren op resourcetype** veld. 
+    2. Selecteer uw abonnement voor de **filteren op abonnement** veld.
+    3. Selecteer de **service bus-naamruimte** in de lijst. 
+    4. Selecteer **Done**. 
+    
+        ![Naamruimte selecteren](./media/service-bus-metrics-azure-monitor/select-namespace.png)
+1. Selecteer **criteria toevoegen**, en de volgende acties uitvoeren op de **signaallogica configureren** pagina:
+    1. Selecteer **metrische gegevens** voor **signaal type**. 
+    2. Selecteer een signaal. Bijvoorbeeld: **fouten (Preview) Service**. 
+
+        ![Selecteer de server-fouten](./media/service-bus-metrics-azure-monitor/select-server-errors.png)
+    1. Selecteer **groter is dan** voor **voorwaarde**.
+    2. Selecteer **totale** voor **Tijdaggregatie**. 
+    3. Voer **5** voor **drempelwaarde**. 
+    4. Selecteer **Done**.    
+
+        ![Voorwaarde opgeven](./media/service-bus-metrics-azure-monitor/specify-condition.png)    
+1. Op de **maken regel** pagina uit, vouw **Waarschuwingsdetails definiëren**, en voer de volgende acties:
+    1. Voer een **naam** voor de waarschuwing. 
+    2. Voer een **beschrijving** voor de waarschuwing.
+    3. Selecteer **ernst** voor de waarschuwing. 
+
+        ![Meldingsdetails](./media/service-bus-metrics-azure-monitor/alert-details.png)
+1. Op de **maken regel** pagina uit, vouw **actiegroep definiëren**, selecteer **nieuwe actiegroep**, en de volgende acties uitvoeren op de **pagina van de groep toevoegen actie**. 
+    1. Voer een naam voor de actiegroep.
+    2. Voer een korte naam voor de actiegroep. 
+    3. Selecteer uw abonnement. 
+    4. Selecteer een resourcegroep. 
+    5. Voor dit scenario voert u **e-mailbericht verzenden** voor **ACTIENAAM**.
+    6. Selecteer **e-mailadres/SMS/Push/stem** voor **ACTIETYPE**. 
+    7. Selecteer **details bewerken**. 
+    8. Op de **e-mailadres/SMS/Push/stem** pagina, de volgende acties uitvoeren:
+        1. Selecteer **e**. 
+        2. Type de **e-mailadres**. 
+        3. Selecteer **OK**.
+
+            ![Meldingsdetails](./media/service-bus-metrics-azure-monitor/add-action-group.png)
+        4. Op de **actiegroep toevoegen** weergeeft, schakelt **OK**. 
+1. Op de **maken regel** weergeeft, schakelt **waarschuwingsregel maken**. 
+
+    ![Maken van waarschuwingsregel knop](./media/service-bus-metrics-azure-monitor/create-alert-rule.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 

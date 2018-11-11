@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 67138b9e98818f5d106c73cef027d0eb2515e9a8
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 651a03f69a7664b68ce3fe5c512c59c01762a505
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51233912"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282472"
 ---
 # <a name="manage-windows-based-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Windows-gebaseerde Apache Hadoop-clusters in HDInsight beheren met behulp van de Azure-portal
 
@@ -22,9 +22,7 @@ Met behulp van de [Azure-portal][azure-portal], kunt u Windows-gebaseerde Apache
 
 De informatie in dit artikel is alleen van toepassing op op basis van een venster HDInsight-clusters. Zie voor meer informatie over het beheren van clusters op basis van Linux [beheren van Hadoop-clusters in HDInsight met behulp van de Azure-portal](hdinsight-administer-use-portal-linux.md).
 
-> [!IMPORTANT]
-> Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
-
+[!INCLUDE [windows-retirement-notice](../../includes/windows-retirement-notice.md)]
 
 ## <a name="prerequisites"></a>Vereisten
 

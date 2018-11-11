@@ -3,7 +3,7 @@
 
 # Aan de slag
 ## [Log Analytics](../log-analytics/log-analytics-get-started.md)
-## [Automatisering](../automation/automation-offering-get-started.md)
+## [Automation](/azure/automation/)
 ## [Een back-up maken](../backup/backup-introduction-to-azure-backup.md)
 ## [Site Recovery](../site-recovery/site-recovery-overview.md)
 
@@ -11,7 +11,7 @@
 # Procedures
 
 ## Analyseren
-### [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
+### [Log Analytics](../log-analytics/log-analytics-queries.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ## Automatiseren
 ### [Overzicht van Azure Automation](../automation/automation-intro.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 
@@ -20,7 +20,7 @@
 ### [Overzicht van Site Recovery](../site-recovery/site-recovery-overview.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 
 ## Beveiligen
-### [Resources bewaken](../security-center/security-center-monitoring.md)
+### [Resources controleren](../security-center/security-center-monitoring.md)
 ### [Reageren op beveiligingswaarschuwingen](../security-center/security-center-managing-and-responding-alerts.md)
 ### [Basislijnevaluatie](../security-center/security-center-customize-os-security-config.md)
 ### [Malware-evaluatie](../security-center/security-center-install-endpoint-protection.md)
@@ -41,7 +41,7 @@
 #### [Netwerkprestatiemeter](../log-analytics/log-analytics-network-performance-monitor.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Office 365](oms-solution-office-365.md)
 #### [Service Fabric-analyse](../log-analytics/log-analytics-service-fabric.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
-#### Serviceoverzicht
+#### Servicetoewijzing
 ##### [Gebruiken](../monitoring/monitoring-service-map.md)
 ##### [Configureren](../monitoring/monitoring-service-map-configure.md)
 ##### [Integratie met Operations Manager](../monitoring/monitoring-service-map-scom.md)

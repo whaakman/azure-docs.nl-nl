@@ -3,7 +3,7 @@ title: Azure AD Connect Health gebruiken met AD FS | Microsoft Docs
 description: Op deze Azure AD Connect Health-pagina vindt u informatie over het bewaken van uw on-premises AD FS-infrastructuur.
 services: active-directory
 documentationcenter: ''
-author: zhiweiw
+author: zhiweiwangmsft
 manager: mtillman
 editor: curtand
 ms.assetid: dc0e53d8-403e-462a-9543-164eaa7dd8b3
@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 04/26/2018
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 66dd3edefb44a0394216eeff58c6cccb5828c98b
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 7d93207e6a5f0acabcf348981e799e801c39f48b
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46302054"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51278834"
 ---
 # <a name="monitor-ad-fs-using-azure-ad-connect-health"></a>AD FS bewaken met Azure AD Connect Health
 De volgende documentatie is specifiek voor het bewaken van uw Azure AD FS-infrastructuur met Azure AD Connect Health. Zie [Using Azure AD Connect Health for Sync](how-to-connect-health-sync.md) (Engelstalig) voor informatie over het bewaken van Azure AD Connect (synchronisatie) met Azure AD Connect Health. Zie ook [Azure AD Connect Health gebruiken met AD DS](how-to-connect-health-adds.md) voor informatie over het bewaken van Active Directory Domain Services met Azure AD Connect Health.
@@ -128,7 +128,7 @@ Daarnaast is het mogelijk dat vanaf één IP-adres meerdere aanmeldpogingen voor
 
 > [!NOTE]
 > Om dit rapport te gebruiken, moet u controles voor AD FS hebben ingeschakeld. Ga voor meer informatie naar [Controles voor AD FS inschakelen](how-to-connect-health-agent-install.md#enable-auditing-for-ad-fs). <br />
-> Voor toegang tot de preview-versie is een machtiging als Globale beheerder of [Beveiligingslezer](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#security-reader) vereist.  
+> Voor toegang tot de preview-versie is een machtiging als Globale beheerder of [Beveiligingslezer](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#security-reader) vereist.  
 > 
 
 ### <a name="what-is-in-the-report"></a>Inhoud van het rapport

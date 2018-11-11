@@ -15,18 +15,18 @@ ms.workload: infrastructure-services
 ms.date: 01/09/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 13da68f826f7077acec9a64d1aa0ea18c66be6ff
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 21e280740d5d7f467ee70952febf858e0dc0b89d
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50914240"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51278205"
 ---
 # <a name="creating-a-management-solution-file-in-azure-preview"></a>Het maken van een oplossingsbestand management in Azure (Preview)
 > [!NOTE]
 > Dit is een voorlopige documentatie voor het maken van oplossingen in Azure die zich momenteel in preview. Er is geen schema die hieronder worden beschreven kan worden gewijzigd.  
 
-Management-oplossingen in Azure worden geïmplementeerd als [Resource Manager-sjablonen](../azure-resource-manager/resource-manager-template-walkthrough.md).  Leren van de belangrijkste taak leren over het ontwerpen van oplossingen voor het [ontwerpen van een sjabloon](../azure-resource-manager/resource-group-authoring-templates.md).  Dit artikel bevat de unieke informatie van sjablonen voor oplossingen en het configureren van resources van de typische oplossing gebruikt.
+Management-oplossingen in Azure worden geïmplementeerd als [Resource Manager-sjablonen](../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md).  Leren van de belangrijkste taak leren over het ontwerpen van oplossingen voor het [ontwerpen van een sjabloon](../azure-resource-manager/resource-group-authoring-templates.md).  Dit artikel bevat de unieke informatie van sjablonen voor oplossingen en het configureren van resources van de typische oplossing gebruikt.
 
 
 ## <a name="tools"></a>Hulpprogramma's

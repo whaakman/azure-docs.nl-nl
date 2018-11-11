@@ -1,20 +1,20 @@
 ---
-title: Met een webbrowser - Azure HDInsight Hadoop-clusters maken
-description: Leer hoe u Hadoop, HBase, Storm of Spark-clusters maken in Linux voor HDInsight met behulp van een webbrowser en de Azure previewportal.
+title: Apache Hadoop-clusters met een webbrowser - Azure HDInsight maken
+description: Leer hoe u Apache Hadoop, Apache HBase, Apache Storm of Apache Spark-clusters maken in Linux voor HDInsight met behulp van een webbrowser en de Azure previewportal.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 02/21/2018
-ms.author: jasonh
-ms.openlocfilehash: 77f4b8e8826dab014b81fdb6847755630ac44508
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.date: 11/06/2018
+ms.author: hrasheed
+ms.openlocfilehash: 8d5e29b89d65bc8777feac0c496b3253bc2a6763
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43104939"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51278987"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-the-azure-portal"></a>Op basis van Linux-clusters maken in HDInsight met behulp van de Azure portal
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -34,7 +34,7 @@ De Azure-portal wordt aangegeven dat de meeste van de eigenschappen van het clus
 
 
 1. Meld u aan bij de [Azure Portal](https://portal.azure.com).
-2. Klik op **+**, klikt u op **Intelligence en analyse**, en klik vervolgens op **HDInsight**.
+2. Klik op **+ een resource maken**, klikt u op **Analytics**, en klik vervolgens op **HDInsight**.
    
     ![Het maken van een nieuw cluster in Azure portal](./media/hdinsight-hadoop-create-linux-cluster-portal/hdinsight-create-cluster.png "het maken van een nieuw cluster in Azure portal")
 
@@ -47,10 +47,6 @@ De Azure-portal wordt aangegeven dat de meeste van de eigenschappen van het clus
     * Uit de **abonnement** vervolgkeuzelijst, selecteer het Azure-abonnement dat wordt gebruikt voor het cluster.
 
     * Klik op **clustertype**, en selecteer vervolgens het type van het cluster (Hadoop, Spark, enzovoort) die u wilt maken. Voor **besturingssysteem**, klikt u op **Linux** en selecteer vervolgens een versie. Gebruik de standaardversie als u niet weet wat u moet kiezen. Zie [HDInsight-clusterversies](hdinsight-component-versioning.md) voor meer informatie.
-
-        Voor Hadoop, Spark en interactieve Query clustertypen, u kunt ook selecteren voor het installeren van de **Enterprise-beveiligingspakket**. Enterprise-beveiligingspakket kunt beveiligingsfuncties, zoals Azure Active Directory-integratie en Apache Ranger voor de clusters. Zie voor meer informatie, [Enterprise-beveiligingspakket in Azure HDInsight](./domain-joined/apache-domain-joined-introduction.md).
-
-        ![Inschakelen van Enterprise-beveiligingspakket](./media/hdinsight-hadoop-create-linux-cluster-portal/hdinsight-enable-enterprise-security-package.png "Enterprise-beveiligingspakket inschakelen")
      
         > [!IMPORTANT]
         > HDInsight clusters worden geleverd in verschillende typen, die overeenkomen met de werkbelasting of technologie die het cluster is afgestemd op. Er is geen ondersteunde methode om een cluster die meerdere typen, zoals Storm en HBase op één cluster combineert te maken. 
@@ -69,7 +65,9 @@ De Azure-portal wordt aangegeven dat de meeste van de eigenschappen van het clus
 
     * Klik op **Volgende**.
 
-4. Voor **opslag**, opgeven of u wilt dat Azure Storage (WASB) of Data Lake-opslag als de standaardopslag. Bekijk de onderstaande tabel voor meer informatie.
+4. In **beveiligings- en netwerken**, kunt u verbinding maken met uw cluster met een virtueel netwerk met behulp van de opgegeven vervolgkeuzelijst. Selecteer een Azure-netwerk en het subnet als u wilt plaatsen van het cluster in een virtueel netwerk. Zie voor meer informatie over het gebruik van HDInsight met een Virtueelnetwerk, met inbegrip van specifieke configuratievereisten voor het Virtueelnetwerk, [mogelijkheden voor HDInsight uitbreiden met behulp van een Azure Virtual Network](hdinsight-extend-hadoop-virtual-network.md). Als u wilt gebruiken de **Enterprise-beveiligingspakket**, kunt u ook hier instructies volgen: [een HDInsight-cluster configureren met Enterprise-beveiligingspakket met behulp van Azure Active Directory Domain Services](https://docs.microsoft.com/en-us/azure/hdinsight/domain-joined/apache-domain-joined-configure-using-azure-adds).
+
+5. Voor **opslag**, opgeven of u wilt dat Azure Storage (WASB) of Data Lake-opslag als de standaardopslag. Bekijk de onderstaande tabel voor meer informatie.
 
     ![Het maken van een nieuw cluster in Azure portal](./media/hdinsight-hadoop-create-linux-cluster-portal/hdinsight-create-cluster-storage.png "het maken van een nieuw cluster in Azure portal")
 
@@ -84,7 +82,7 @@ De Azure-portal wordt aangegeven dat de meeste van de eigenschappen van het clus
     > [!WARNING]
     > Het gebruik van een extra opslagaccount op een andere locatie dan het HDInsight-cluster wordt niet ondersteund.
 
-5. Klik desgewenst op **toepassingen** voor het installeren van toepassingen die met HDInsight-clusters werken. Deze toepassingen kunnen zijn ontwikkeld door Microsoft, door onafhankelijke softwareleveranciers (ISV) of door u zelf. Zie voor meer informatie, [HDInsight installeren toepassingen](hdinsight-apps-install-applications.md#install-applications-during-cluster-creation).
+6. Klik desgewenst op **toepassingen** voor het installeren van toepassingen die met HDInsight-clusters werken. Deze toepassingen kunnen zijn ontwikkeld door Microsoft, door onafhankelijke softwareleveranciers (ISV) of door u zelf. Zie voor meer informatie, [HDInsight installeren toepassingen](hdinsight-apps-install-applications.md#install-applications-during-cluster-creation).
 
 
 6. Klik op **clustergrootte** informatie weergeven over de knooppunten die worden gebruikt voor dit cluster. Stel het aantal worker-knooppunten die u nodig hebt voor het cluster. De geschatte kosten van het uitvoeren van het cluster wordt ook weergegeven.
@@ -100,18 +98,10 @@ De Azure-portal wordt aangegeven dat de meeste van de eigenschappen van het clus
    
    Klik op **volgende** om op te slaan de prijsconfiguratie voor knooppunten.
 
-7. Klik op **geavanceerde instellingen** het configureren van andere optionele instellingen zoals het gebruik van **scriptacties** voor het aanpassen van een cluster voor het installeren van aangepaste onderdelen zijn of wanneer een **Virtueelnetwerk**. Bekijk de onderstaande tabel voor meer informatie.
+8. In **scriptacties**, kunt u een cluster om aangepaste onderdelen te installeren.  Gebruik deze optie als u een aangepast script gebruiken wilt voor het aanpassen van een cluster, wanneer het cluster wordt gemaakt. Zie voor meer informatie over scriptacties [aanpassen HDInsight-clusters met Script Action](hdinsight-hadoop-customize-cluster-linux.md).
+Klik op **Volgende**.
 
-    ![Prijscategorieën van knooppunten](./media/hdinsight-hadoop-create-linux-cluster-portal/hdinsight-create-cluster-advanced.png "geeft het aantal clusterknooppunten")
-
-    | Optie | Beschrijving |
-    |--------|-------------|
-    | **Scriptacties** | Gebruik deze optie als u een aangepast script gebruiken wilt voor het aanpassen van een cluster, wanneer het cluster wordt gemaakt. Zie voor meer informatie over scriptacties [aanpassen HDInsight-clusters met Script Action](hdinsight-hadoop-customize-cluster-linux.md). |
-    | **Virtueel netwerk** | Selecteer een Azure-netwerk en het subnet als u wilt plaatsen van het cluster in een virtueel netwerk. Zie voor meer informatie over het gebruik van HDInsight met een Virtueelnetwerk, met inbegrip van specifieke configuratievereisten voor het Virtueelnetwerk, [mogelijkheden voor HDInsight uitbreiden met behulp van een Azure Virtual Network](hdinsight-extend-hadoop-virtual-network.md). |
-
-    Klik op **Volgende**.
-
-8. Voor **samenvatting**, controleert u de gegevens die u eerder hebt ingevoerd en klik vervolgens op **maken**.
+9. Voor **samenvatting**, controleert u de gegevens die u eerder hebt ingevoerd en klik vervolgens op **maken**.
 
     ![Prijscategorieën van knooppunten](./media/hdinsight-hadoop-create-linux-cluster-portal/hdinsight-create-cluster-summary.png "geeft het aantal clusterknooppunten")
     
@@ -119,7 +109,7 @@ De Azure-portal wordt aangegeven dat de meeste van de eigenschappen van het clus
     > Het duurt enige tijd voor het cluster moet worden gemaakt, meestal ongeveer 15 minuten. Gebruik de tegel op het Startboard of de **meldingen** vermelding aan de linkerkant van de pagina om te controleren op het inrichtingsproces.
     > 
     > 
-12. Zodra het proces voor het maken is voltooid, klikt u op de tegel voor het cluster vanaf het Startboard. Het venster cluster bevat de volgende informatie.
+10. Zodra het proces voor het maken is voltooid, klikt u op de tegel voor het cluster vanaf het Startboard. Het venster cluster bevat de volgende informatie.
     
     ![Cluster-interface](./media/hdinsight-hadoop-create-linux-cluster-portal/hdinsight-create-cluster-completed.png "eigenschappen van het Cluster")
     

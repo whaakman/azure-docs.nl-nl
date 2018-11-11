@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2018
+ms.date: 11/09/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 00ce57dbff749d4ee906e0e7dae1d828ef85326f
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: f44b267a28abd64acdd6bc74a43f1c5be8daf0ab
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50962058"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515604"
 ---
 # <a name="azure-stack-1809-update"></a>Azure Stack 1809 update
 
@@ -39,7 +39,7 @@ De Azure Stack 1809 update build-nummer **1.1809.0.90**.
 
 Deze update bevat de volgende verbeteringen voor Azure Stack:
 
-- Met deze release, geïntegreerde Azure Stack-systemen ondersteunt configuraties van 4-16 knooppunten. U kunt de [Azure Stack Capacity Planner](http://aka.ms/azstackcapacityplanner) om te helpen bij de planning voor de Azure Stack-capaciteit en configuratie.
+- Met deze release, geïntegreerde Azure Stack-systemen ondersteunt configuraties van 4-16 knooppunten. U kunt de [Azure Stack Capacity Planner](https://aka.ms/azstackcapacityplanner) om te helpen bij de planning voor de Azure Stack-capaciteit en configuratie.
 
 - <!--  2712869   | IS  ASDK -->  **Azure Stack syslog-client (algemene beschikbaarheid)** deze client kunt u het doorsturen van controles, waarschuwingen en -logboeken met betrekking tot de Azure Stack-infrastructuur naar een syslog-server of security information en event management (SIEM) software extern naar Azure Stack. De syslog-client biedt nu ondersteuning voor de poort waarop de syslog-server luistert op te geven.
 
@@ -70,6 +70,17 @@ Deze update bevat de volgende verbeteringen voor Azure Stack:
 - <!-- 2702741 -  IS, ASDK --> Probleem opgelost in welke openbare IP-adressen die zijn geïmplementeerd met behulp van de dynamische toewijzing methode zijn niet gegarandeerd te behouden nadat een Stop-toewijzing is uitgegeven. Ze blijven nu behouden.
 
 - <!-- 3078022 - IS, ASDK --> Als een virtuele machine stop-deallocated voordat u 1808 is kan deze niet worden opnieuw worden toegewezen na de 1808 update.  Dit probleem is opgelost in 1809. Exemplaren die in deze status zijn en kunnen niet worden gestart kunnen worden gestart in 1809 met deze oplossing. Het probleem voorkomt ook dat dit probleem opnieuw optreedt.
+
+<!-- 3090289 – IS, ASDK --> 
+- Het probleem opgelost waarbij na het toepassen van de update 1808, kunnen de volgende problemen optreden bij het implementeren van virtuele machines met Managed Disks:
+
+   1. Als het abonnement is gemaakt vóór de update 1808 implementeren van virtuele machine met Managed Disks mislukken met een interne fout. Los de fout op door deze stappen voor elk abonnement uit te voeren:
+      1. Ga in de tenantportal naar **abonnementen** en zoek het abonnement. Klik op **Resourceproviders**, klikt u vervolgens op **Microsoft.Compute**, en klik vervolgens op **opnieuw registreren**.
+      2. Onder hetzelfde abonnement, gaat u naar **Access Control (IAM)**, en Controleer **Azure Stack – beheerde schijf** wordt vermeld.
+   2. Als u een omgeving met meerdere tenants hebt geconfigureerd, mislukken virtuele machines implementeren in een abonnement dat is gekoppeld aan een gast-map met een interne fout. U kunt de fout oplossen door de volgende stappen uit:
+      1. Van toepassing de [1808 Azure Stack-Hotfix](https://support.microsoft.com/help/4471992).
+      2. Volg de stappen in [in dit artikel](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) opnieuw configureren van elk van de Gast-mappen.
+
 
 ### <a name="changes"></a>Wijzigingen
 
@@ -128,7 +139,7 @@ Klik op de hiervoor vermelde koppelingen voor meer informatie over deze beveilig
 
 ### <a name="prerequisites"></a>Vereisten
 
-- De meest recente Azure Stack-Hotfix voor 1808 installeren voordat u 1809 toepast. Zie voor meer informatie, [KB 4468920 – Azure Stack Hotfix Azure Stack Hotfix 1.1808.5.110](https://support.microsoft.com/en-us/help/4468920).
+- De meest recente Azure Stack-Hotfix voor 1808 installeren voordat u 1809 toepast. Zie voor meer informatie, [KB 4471992 – Azure Stack Hotfix Azure Stack Hotfix 1.1808.7.113](https://support.microsoft.com/help/4471992/).
 
   > [!TIP]  
   > Abonneer u op de volgende *RRS* of *Atom* feeds, blijven van het Azure Stack Hotfixes:
@@ -157,9 +168,8 @@ Klik op de hiervoor vermelde koppelingen voor meer informatie over deze beveilig
 > [!Important]  
 > Bereid u voor uw Azure Stack-implementatie voor extensie-host die door de volgende updatepakket is ingeschakeld. Voorbereiden van uw systeem met behulp van de volgende richtlijnen [voorbereiden voor de host van de extensie voor Azure Stack](azure-stack-extension-host-prepare.md).
 
-<!-- After the installation of this update, install any applicable Hotfixes. For more information view the following knowledge base articles, as well as our [Servicing Policy](azure-stack-servicing-policy.md).  
- - [Link to KB]()  
- -->
+Na de installatie van deze update toepasselijke Hotfixes te installeren. Raadpleeg voor meer informatie de volgende knowledge base-artikelen, evenals onze [beleid onderhoud](azure-stack-servicing-policy.md).  
+- [KB 4471993 – Azure Stack Hotfix Azure Stack Hotfix 1.1809.3.96](https://support.microsoft.com/help/4471993/)  
 
 ## <a name="known-issues-post-installation"></a>Bekende problemen (na de installatie)
 

@@ -7,22 +7,22 @@ author: basilhariri
 manager: timlt
 ms.service: event-hubs
 ms.topic: article
-ms.date: 08/16/2018
+ms.date: 11/07/2018
 ms.author: bahariri
-ms.openlocfilehash: b1a046fdb62926d32c05bab5a1616b250911865b
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 7f452fe9797e688dc05b644c003117461b4f8bb9
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49352570"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277491"
 ---
-# <a name="azure-event-hubs-for-apache-kafka-preview"></a>Azure Event Hubs voor Apache Kafka (preview)
+# <a name="azure-event-hubs-for-apache-kafka"></a>Azure Eventhubs voor Apache Kafka 
 
 Eventhubs biedt een Kafka-eindpunt dat kan worden gebruikt door uw bestaande Kafka op basis van toepassingen als alternatief voor het uitvoeren van uw eigen Kafka-cluster. Biedt ondersteuning voor Eventhubs [Apache Kafka-protocol 1.0 en hoger](https://kafka.apache.org/documentation/), en werkt met uw bestaande Kafka-toepassingen, met inbegrip van MirrorMaker. 
 
 ## <a name="what-does-event-hubs-for-kafka-provide"></a>Wat biedt Event Hubs voor Kafka
 
-De Event Hubs voor Kafka-functie biedt een protocol hoofd boven op Azure Event Hubs die binaire compatibel is met Kafka-versies 1.0 en hoger voor zowel lezen van en schrijven naar het Kafka-onderwerpen. U kunt beginnen met behulp van het Kafka-eindpunt van uw toepassingen met een minimale configuratie wijzigen, maar er zijn geen codewijzigingen. U kunt de verbindingsreeks in configuraties om te verwijzen naar het Kafka-eindpunt beschikbaar gesteld door uw event hub in plaats van dat verwijst naar het Kafka-cluster bijwerken. Vervolgens kun u streaming-gebeurtenissen uit uw toepassingen die gebruikmaken van het Kafka-protocol in Event Hubs. 
+De Event Hubs voor Kafka-functie biedt een protocol hoofd boven op Azure Event Hubs die binaire compatibel is met Kafka-versies 1.0 en hoger voor zowel lezen van en schrijven naar het Kafka-onderwerpen. U kunt beginnen met behulp van het Kafka-eindpunt van uw toepassingen met een minimale configuratie wijzigen, maar er zijn geen codewijzigingen. U kunt de verbindingsreeks in configuraties om te verwijzen naar het Kafka-eindpunt beschikbaar gesteld door uw event hub in plaats van dat verwijst naar het Kafka-cluster bijwerken. Vervolgens kun u streaming-gebeurtenissen uit uw toepassingen die gebruikmaken van het Kafka-protocol in Event Hubs. Deze integratie biedt ook ondersteuning voor frameworks, zoals [Kafka verbinding](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/connect), deze bevindt zich momenteel in preview. 
 
 Conceptueel gezien Kafka en Event Hubs zijn bijna identiek zijn: ze zijn beide gepartitioneerde logboeken die is gebouwd voor het streamen van gegevens. De volgende tabel worden de concepten tussen Kafka- en Event Hubs toegewezen.
 
@@ -50,9 +50,9 @@ Azure Event Hubs SSL of TLS is vereist voor alle communicatie en Shared Access S
 
 De Event Hubs voor Kafka-functie kunt u met één protocol schrijven en lezen met een andere, zodat uw huidige Kafka producenten publiceren via Kafka kunt, en u lezers met Event Hubs, zoals Azure Stream Analytics of Azure Functions kunt toevoegen. Bovendien Event Hubs functies zoals [vastleggen](event-hubs-capture-overview.md) en [Geo-noodherstel](event-hubs-geo-dr.md) ook gebruiken in combinatie met de Event Hubs voor Kafka-functie.
 
-## <a name="features-that-are-not-supported-in-the-preview"></a>Functies die worden niet ondersteund in de Preview-versie
+## <a name="features-that-are-not-yet-supported"></a>Functies die nog niet ondersteund 
 
-De volgende Kafka-functies worden niet ondersteund voor de openbare preview van de Event Hubs voor Kafka-integratie:
+Hier volgt de lijst van Kafka-functies die nog niet ondersteund:
 
 *   Idempotent producent
 *   Transactie
@@ -61,18 +61,20 @@ De volgende Kafka-functies worden niet ondersteund voor de openbare preview van 
 *   Meld u compressie
 *   Partities toe te voegen aan een bestaand onderwerp
 *   Kafka met HTTP-API-ondersteuning
-*   Kafka verbinding maken
 *   Kafka Streams
 
 ## <a name="next-steps"></a>Volgende stappen
 
 In dit artikel opgegeven een inleiding tot Event Hubs voor Kafka. Zie de volgende koppelingen voor meer informatie:
 
-* [Over het maken van Kafka ingeschakeld Event Hubs](event-hubs-create-kafka-enabled.md)
-* [Stream naar Event Hubs van uw Kafka-toepassingen](event-hubs-quickstart-kafka-enabled-event-hubs.md)
-* [Meer voorbeelden van onze GitHub verkennen](https://github.com/Azure/azure-event-hubs-for-kafka)
-* Aan de slag met een [Event Hubs-zelfstudie](event-hubs-dotnet-standard-getstarted-send.md)
-* [Veelgestelde vragen over Event Hubs](event-hubs-faq.md)
+- [Over het maken van Kafka ingeschakeld Event Hubs](event-hubs-create-kafka-enabled.md)
+- [Stream naar Event Hubs van uw Kafka-toepassingen](event-hubs-quickstart-kafka-enabled-event-hubs.md)
+- [Een Kafka-broker in een Kafka-functionaliteit event hub spiegelen](event-hubs-kafka-mirror-maker-tutorial.md)
+- [Verbinding maken met Apache Spark naar een Kafka-functionaliteit event hub](event-hubs-kafka-spark-tutorial.md)
+- [Verbinding maken met Apache Flink naar een Kafka-functionaliteit event hub](event-hubs-kafka-flink-tutorial.md)
+- [Integratie van Kafka verbinding maken met een Kafka-functionaliteit event hub](event-hubs-kafka-connect-tutorial.md)
+- [Akka Streams verbinden met een Kafka-functionaliteit event hub](event-hubs-kafka-akka-streams-tutorial.md)
+- [Voorbeelden verkennen op onze GitHub](https://github.com/Azure/azure-event-hubs-for-kafka)
 
  
  

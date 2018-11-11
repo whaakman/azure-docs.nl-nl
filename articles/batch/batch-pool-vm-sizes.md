@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 11/07/2018
 ms.author: danlep
-ms.openlocfilehash: 987cbcc642152a4077cc895ad06e43ac56113497
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: 35e5d13ac358fa5edcb778253340de0f9e15c067
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45544061"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281274"
 ---
 # <a name="choose-a-vm-size-for-compute-nodes-in-an-azure-batch-pool"></a>Kies een VM-grootte voor rekenknooppunten in een Azure Batch-pool
 
@@ -42,8 +42,14 @@ Batch-pools in de configuratie van de virtuele Machine ondersteuning voor alle V
 | A-serie | Standard_A0 |
 | B-serie | Alle |
 
-M-serie VM's worden alleen ondersteund voor knooppunten met lage prioriteit.
+De volgende VM-grootten worden alleen ondersteund voor knooppunten met lage prioriteit:
 
+| Familie  | Ondersteunde grootten  |
+|---------|---------|
+| M-serie | Standard_M64ms |
+| M-serie | Standard_M128s |
+
+Andere VM-grootten in de M-serie zijn momenteel niet ondersteund.
 
 ### <a name="pools-in-cloud-service-configuration"></a>Groepen in de Cloud-serviceconfiguratie
 
@@ -55,6 +61,7 @@ Batch-pools in de Cloud-serviceconfiguratie ondersteunen alle [VM-grootten voor 
 | Av2-serie | Standard_A1_v2, Standard_A2_v2, Standard_A2m_v2 |
 
 ## <a name="restricted-vm-families"></a>Beperkte VM-families
+
 De volgende VM-families kunnen worden toegewezen in Batch-pools, maar u moet een bepaalde verhoging aanvragen (Zie [in dit artikel](batch-quota-limit.md#increase-a-quota)):
 * NCv2-serie
 * NCv3-serie

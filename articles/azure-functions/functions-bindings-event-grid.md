@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/04/2018
 ms.author: cshoe
-ms.openlocfilehash: 9430a2b72e2599f4a64103016fcae940cbc0a417
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: ac15b95c19fb0184e902ebb43146a76b6ba2faaf
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249192"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283730"
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Trigger Gebeurtenisraster voor Azure Functions
 
@@ -245,12 +245,12 @@ De volgende tabel beschrijft de binding configuratie-eigenschappen die u instelt
 
 ## <a name="usage"></a>Gebruik
 
-Voor C# en F #-functies in Azure 1.x functies, kunt u de volgende parametertypen voor de trigger van Event Grid:
+Voor C# en F# functies in Azure 1.x functies, kunt u de volgende parametertypen voor de trigger van Event Grid:
 
 * `JObject`
 * `string`
 
-Voor functies in Azure Functions C# en F # 2.x gebruikt, hebt u ook de mogelijkheid met het volgende parametertype voor de trigger van Event Grid:
+Voor C# en F# functies in Azure Functions 2.x gebruikt, hebt u ook de mogelijkheid met het volgende parametertype voor de trigger van Event Grid:
 
 * `Microsoft.Azure.EventGrid.Models.EventGridEvent`-Definieert de eigenschappen voor de overeenkomende velden op alle gebeurtenistypen.
 
@@ -358,6 +358,14 @@ Zie voor meer informatie over het maken van een abonnement [de blob storage-Quic
 ### <a name="get-the-system-key"></a>Het systeemsleutel ophalen
 
 U kunt de systeemsleutel krijgen met behulp van de volgende API (HTTP GET):
+
+#### <a name="version-2x-runtime"></a>Runtime versie 2.x
+
+```
+http://{functionappname}.azurewebsites.net/admin/host/systemkeys/eventgrid_extension?code={masterkey}
+```
+
+#### <a name="version-1x-runtime"></a>Versie 1.x runtime
 
 ```
 http://{functionappname}.azurewebsites.net/admin/host/systemkeys/eventgridextensionconfig_extension?code={masterkey}

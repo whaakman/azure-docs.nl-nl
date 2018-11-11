@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 3/26/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 6e5bbdf0d43b642816a58419c2ce1c186fd44acb
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 774c313086883bedf4f8e06a46715a438fc02e69
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50960749"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281197"
 ---
 # <a name="automatically-enable-diagnostic-settings-at-resource-creation-using-a-resource-manager-template"></a>Automatisch diagnostische instellingen inschakelen bij het maken van resources met behulp van Resource Manager-sjabloon
 In dit artikel laten we zien hoe u kunt een [Azure Resource Manager-sjabloon](../azure-resource-manager/resource-group-authoring-templates.md) diagnostische instellingen configureren op een resource als deze wordt gemaakt. Hiermee kunt u automatisch wilt streamen uw logboeken met diagnostische gegevens en metrische gegevens naar Event Hubs, archiveren in een Opslagaccount of ze naar Log Analytics verzenden wanneer een resource wordt gemaakt.
@@ -26,7 +26,7 @@ In dit artikel laten we zien hoe u kunt een [Azure Resource Manager-sjabloon](..
 De methode voor het inschakelen van diagnostische logboeken met behulp van Resource Manager-sjabloon, is afhankelijk van het resourcetype.
 
 * **Niet-Compute** resources (bijvoorbeeld, Network Security Groups, Logic Apps, automatisering) gebruiken [diagnostische instellingen die worden beschreven in dit artikel](monitoring-overview-of-diagnostic-logs.md#diagnostic-settings).
-* **COMPUTE** resources (WAD/LAD-indeling) gebruikt de [WAD/LAD-configuratiebestand in dit artikel beschreven](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md).
+* **COMPUTE** resources (WAD/LAD-indeling) gebruikt de [WAD/LAD-configuratiebestand in dit artikel beschreven](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines).
 
 In dit artikel wordt beschreven hoe u met behulp van een van beide methoden diagnosefuncties te configureren.
 

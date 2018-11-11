@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: ab7689cb18dcd11926abc2e9806885b1072e3886
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 6efcb7bccfdfab18a57e709d9fdfa8492b159b34
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50960171"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51278086"
 ---
 # <a name="archive-azure-diagnostic-logs"></a>Archiveren van diagnostische logboeken in Azure
 
@@ -26,7 +26,7 @@ In dit artikel laten we zien hoe u de Azure portal, PowerShell-Cmdlets, CLI of R
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voordat u begint, moet u [een opslagaccount maken](../storage/common/storage-create-storage-account.md) waarop uw logboeken met diagnostische gegevens kunnen worden gearchiveerd. Het is raadzaam dat u gebruik niet een bestaand opslagaccount met andere, niet-bewaking gegevens opgeslagen in het zodat u toegang tot bewakingsgegevens beter kunt beheren. Echter, als u ook van uw activiteitenlogboek en diagnostische gegevens naar een opslagaccount archiveren, het wellicht verstandig dat opslagaccount voor uw logboeken met diagnostische gegevens ook gebruiken om te houden van alle gegevens op een centrale locatie.
+Voordat u begint, moet u [een opslagaccount maken](../storage/common/storage-quickstart-create-account.md) waarop uw logboeken met diagnostische gegevens kunnen worden gearchiveerd. Het is raadzaam dat u gebruik niet een bestaand opslagaccount met andere, niet-bewaking gegevens opgeslagen in het zodat u toegang tot bewakingsgegevens beter kunt beheren. Echter, als u ook van uw activiteitenlogboek en diagnostische gegevens naar een opslagaccount archiveren, het wellicht verstandig dat opslagaccount voor uw logboeken met diagnostische gegevens ook gebruiken om te houden van alle gegevens op een centrale locatie.
 
 > [!NOTE]
 >  U kan momenteel niet archiveren gegevens aan een storage-account die achter een beveiligd virtueel netwerk.
@@ -161,7 +161,7 @@ Elke gebeurtenis wordt in het bestand PT1H.json opgeslagen in de matrix "records
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Downloaden van blobs voor analyse](../storage/blobs/storage-dotnet-how-to-use-blobs.md)
+* [Downloaden van blobs voor analyse](../storage/blobs/storage-quickstart-blobs-dotnet.md)
 * [Diagnostische logboeken van de Stream naar een Event Hubs-naamruimte](monitoring-stream-diagnostic-logs-to-event-hubs.md)
 * [Logboeken van Azure Active Directory met Azure Monitor archiveren](../active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md)
 * [Lees meer over de diagnostische logboeken](monitoring-overview-of-diagnostic-logs.md)

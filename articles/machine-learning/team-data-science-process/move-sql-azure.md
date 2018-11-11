@@ -15,21 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 5/04/2018
 ms.author: deguhath
-ms.openlocfilehash: 99141b7542cc9adadadda6ada670b644d3aba5f3
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 5fa86387861ca87f9280a4c900d9dd83db5f1a39
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49393640"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51344532"
 ---
 # <a name="move-data-to-an-azure-sql-database-for-azure-machine-learning"></a>Gegevens voor Azure Machine Learning verplaatsen naar een Azure SQL-database
-In dit onderwerp worden de opties voor het verplaatsen van gegevens uit platte bestanden (CSV-bestand of TSV-indeling) of gegevens die zijn opgeslagen in een on-premises SQL Server naar een Azure SQL-database. Deze taken voor het verplaatsen van gegevens naar de cloud maken deel uit van het Team Data Science Process.
+
+In dit artikel bevat een overzicht van de opties voor het verplaatsen van gegevens uit platte bestanden (CSV-bestand of TSV indelingen) of gegevens die zijn opgeslagen in een on-premises SQL Server naar een Azure SQL-database. Deze taken voor het verplaatsen van gegevens naar de cloud maken deel uit van het Team Data Science Process.
 
 Zie voor een onderwerp dat geeft een overzicht van de opties voor het verplaatsen van gegevens naar een on-premises SQL Server voor Machine Learning, [gegevens verplaatsen naar SQL Server op een virtuele machine van Azure](move-sql-server-virtual-machine.md).
-
-De volgende **menu** koppelingen naar onderwerpen waarin wordt beschreven hoe u gegevens opnemen in de doelomgevingen waar de gegevens kunnen worden opgeslagen en verwerkt tijdens het Team Data Science Process (TDSP).
-
-[!INCLUDE [cap-ingest-data-selector](../../../includes/cap-ingest-data-selector.md)]
 
 De volgende tabel geeft een overzicht van de opties voor het verplaatsen van gegevens naar een Azure SQL Database.
 

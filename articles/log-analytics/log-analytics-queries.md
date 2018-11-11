@@ -14,16 +14,16 @@ ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 2ab7e0c5d4a62b9c4fa0492b9bc9a19dfab36c74
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
-ms.translationtype: HT
+ms.openlocfilehash: 774ca8d0c893a5672c7f04f3530679204b7262c6
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51005050"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51513755"
 ---
 # <a name="analyze-log-analytics-data-in-azure-monitor"></a>Analyseren van Log Analytics-gegevens in Azure Monitor
 
-Logboekgegevens die zijn verzameld door Azure Monitor is opgeslagen in een Log Analytics-werkruimte die is gebaseerd op [Azure Data Explorer](/data-explorer). Het verzamelt telemetrie van een groot aantal bronnen en maakt gebruik van de [querytaal van Data Explorer](/kusto) ophalen en analyseren van gegevens.
+Logboekgegevens die zijn verzameld door Azure Monitor is opgeslagen in een Log Analytics-werkruimte die is gebaseerd op [Azure Data Explorer](/azure/data-explorer). Het verzamelt telemetrie van een groot aantal bronnen en maakt gebruik van de [querytaal van Data Explorer](/azure/kusto/query) ophalen en analyseren van gegevens.
 
 > [!NOTE]
 > Log Analytics is eerder beschouwd als een eigen service in Azure. Het is nu beschouwd als een onderdeel van Azure Monitor en richt zich op de opslag en analyse van gegevens met behulp van de querytaal. Functies die werden beschouwd als onderdeel van Log Analytics, zoals Windows en Linux-agents voor het verzamelen van gegevens, weergaven om bestaande gegevens en waarschuwingen te visualiseren om proactief te waarschuwen u van problemen, niet zijn gewijzigd, maar worden nu beschouwd als onderdeel van Azure Monitor.

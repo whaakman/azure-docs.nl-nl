@@ -10,12 +10,12 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 10/08/2018
 ms.author: glenga
-ms.openlocfilehash: 2c82007092f9ff93086d5caaf188f6922f4a8aea
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 888b9a256a68b77b91145bb3ccfeea820c97ccfa
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50086179"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515366"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>Ontwikkel Azure Functions met Visual Studio  
 
@@ -29,7 +29,7 @@ De Azure Functions-hulpprogramma's biedt de volgende voordelen:
 * Ontwikkel en implementeer vooraf gecompileerde C#-functies. Vooraf voldaan functions biedt een betere koude start prestaties dan C#-script op basis van functies. 
 * Uw functies in C#-code terwijl alle van de voordelen van Visual Studio-ontwikkeling. 
 
-Dit artikel leest u hoe de Azure Functions Tools voor Visual Studio 2017 gebruiken voor het ontwikkelen van uw functies in C#. U leert ook hoe u uw project kunt publiceren naar Azure als een .NET-assembly.
+Dit artikel bevat informatie over het gebruik van de Azure Functions Tools voor Visual Studio 2017 voor het ontwikkelen van C# functies en deze publiceren naar Azure. Voordat u dit artikel leest, moet u uitvoeren de [Functions-Snelstartgids voor Visual Studio](functions-create-your-first-function-visual-studio.md). 
 
 > [!IMPORTANT]
 > Combineer geen lokale ontwikkeling met portal-ontwikkeling in dezelfde functie-app. Wanneer u in een lokale-project met een functie-app publiceert, worden alle functies die u hebt ontwikkeld in de portal in het implementatieproces overschreven.
@@ -81,6 +81,9 @@ De projectsjabloon, maken een C#-project maakt, installeert de `Microsoft.NET.Sd
 * **host.JSON**: Hiermee kunt u de host van de functies configureren. Deze instellingen gelden zowel bij het uitvoeren van lokaal en in Azure. Zie voor meer informatie, [naslaginformatie over host.json](functions-host-json.md).
 
 * **Local.Settings.JSON**: onderhoudt instellingen die worden gebruikt bij het lokaal uitvoeren van functies. Deze instellingen worden niet gebruikt door Azure, ze worden gebruikt door de [Azure Functions Core Tools](functions-run-local.md). Dit bestand gebruiken om op te geven van de app-instellingen voor variabelen die zijn vereist door uw functies. Een nieuw item toevoegen aan de **waarden** matrix voor elke verbinding die is vereist voor de bindingen voor functions in uw project. Zie voor meer informatie, [lokale instellingenbestand](functions-run-local.md#local-settings-file) in het artikel Azure Functions Core Tools.
+
+    >[!IMPORTANT]
+    >Omdat het bestand local.settings.json kunt geheimen bevat, moet u deze uitgesloten van uw project broncodebeheer. De **kopiëren naar de map voor uitvoer geproduceerd** instellen voor dit bestand altijd moet **kopiëren indien nieuwer**. 
 
 Zie voor meer informatie, [Functions-klassebibliotheekproject](functions-dotnet-class-library.md#functions-class-library-project).
 
@@ -186,7 +189,7 @@ Zie voor meer informatie over het gebruik van Azure Functions Core Tools, [Code 
 
 Alle instellingen die u hebt toegevoegd in de local.settings.json moeten ook worden toegevoegd aan de functie-app in Azure. Deze instellingen worden niet automatisch geüpload wanneer u het project publiceren.
 
-De eenvoudigste manier om de vereiste instellingen uploaden naar uw functie-app in Azure is met de **Toepassingsinstellingen beheren...**  koppeling die wordt weergegeven nadat u uw project is gepubliceerd. 
+De eenvoudigste manier om de vereiste instellingen uploaden naar uw functie-app in Azure is met de **Toepassingsinstellingen beheren...**  koppeling die wordt weergegeven nadat u uw project is gepubliceerd.
 
 ![](./media/functions-develop-vs/functions-vstools-app-settings.png)
 
@@ -194,11 +197,13 @@ U ziet nu de **toepassingsinstellingen** dialoogvenster voor de functie-app, kun
 
 ![](./media/functions-develop-vs/functions-vstools-app-settings2.png)
 
+**Lokale** vertegenwoordigt een waarde in het bestand local.settings.json en **externe** is de huidige instelling in de functie-app in Azure.  Kies **-instelling toevoegen** om een nieuwe appinstelling te maken. Gebruik de **waarde invoeren tussen lokale** koppeling naar het kopiëren van een instellingswaarde voor de **externe** veld. Wijzigingen in behandeling is geschreven naar het bestand met lokale instellingen en de functie-app wanneer u selecteert **OK**.
+
 U kunt ook de toepassingsinstellingen in een van deze andere manieren beheren:
 
 * [Met behulp van de Azure-portal](functions-how-to-use-azure-function-app-settings.md#settings).
 * [Met behulp van de `--publish-local-settings` optie publiceren in Azure Functions Core Tools](functions-run-local.md#publish).
-* [Met behulp van de Azure CLI](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set). 
+* [Met behulp van de Azure CLI](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set).
 
 ## <a name="monitoring-functions"></a>Functions controleren
 

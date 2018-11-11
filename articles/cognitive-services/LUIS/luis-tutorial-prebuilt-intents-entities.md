@@ -1,7 +1,7 @@
 ---
 title: 'Zelfstudie 2: Vooraf gedefinieerde intents en entiteiten - gebruik vooraf gedefinieerde algemene utterances - extraheer algemene gegevens in LUIS'
 titleSuffix: Azure Cognitive Services
-description: Voeg vooraf gemaakte intents en entiteiten toe aan de zelfstudie-app Human Resources om snel intenties te kunnen voorspellen en gegevens te extraheren. U hoeft geen utterances met vooraf gedefinieerde entiteiten te labelen. De entiteit wordt automatisch gedetecteerd.
+description: Voeg vooraf gemaakte intenties en entiteiten toe aan de zelfstudie-app Human Resources om snel intenties te kunnen voorspellen en gegevens te extraheren. U hoeft utterances niet te labelen met vooraf gedefinieerde entiteiten. De entiteit wordt automatisch gedetecteerd.
 services: cognitive-services
 author: diberry
 manager: cgronlun
@@ -10,15 +10,15 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: d42aed76ecdbc2bd840e17517db2ca0b6ba11aa0
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: d73284ecf40b2dfcd4954c1ddee82bf92a8931b9
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47034430"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281792"
 ---
 # <a name="tutorial-2-identify-common-intents-and-entities"></a>Zelfstudie 2: Algemene intents en entiteiten identificeren
-In deze zelfstudie wijzigt u de Human Resources-app. Voeg vooraf gemaakte intents en entiteiten toe aan de zelfstudie-app Human Resources om snel intenties te kunnen voorspellen en gegevens te extraheren. U hoeft niet alle utterances met vooraf gedefinieerde entiteiten te labelen omdat de entiteit automatisch wordt gedetecteerd.
+In deze zelfstudie wijzigt u de Human Resources-app. Voeg vooraf gemaakte intenties en entiteiten toe aan de zelfstudie-app Human Resources om snel intenties te kunnen voorspellen en gegevens te extraheren. U hoeft niet alle utterances met vooraf gedefinieerde entiteiten te labelen omdat de entiteit automatisch wordt gedetecteerd.
 
 Met vooraf gecompileerde modellen van algemene onderwerpsdomeinen en gegevenstypen kunt u uw model snel compileren, maar ook een voorbeeld geven van hoe een model eruitziet. 
 
@@ -26,7 +26,7 @@ Met vooraf gecompileerde modellen van algemene onderwerpsdomeinen en gegevenstyp
 
 > [!div class="checklist"]
 > * Bestaande zelfstudie-app gebruiken
-> * Vooraf gemaakte intents toevoegen 
+> * Vooraf gemaakte intenties toevoegen 
 > * Vooraf gemaakte entiteiten toevoegen 
 > * Trainen 
 > * Publiceren 
@@ -35,9 +35,9 @@ Met vooraf gecompileerde modellen van algemene onderwerpsdomeinen en gegevenstyp
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="use-existing-app"></a>Bestaande app gebruiken
-Ga door met de in de laatste zelfstudie gemaakt app, **HumanResources**. 
+Ga door met de in de laatste zelfstudie gemaakt app, **Human Resources**. 
 
-Als u niet over de app HumanResources uit de vorige zelfstudie beschikt, voert u de volgende stappen uit:
+Als u niet over de app Human Resources uit de vorige zelfstudie beschikt, voert u de volgende stappen uit:
 
 1.  Download het [JSON-bestand van de app](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-intent-only-HumanResources.json) en sla het op.
 
@@ -45,18 +45,18 @@ Als u niet over de app HumanResources uit de vorige zelfstudie beschikt, voert u
 
 3. Ga naar het gedeelte **Beheren**, open het tabblad **Versies**, kloon de versie en noem deze `prebuilts`. Klonen is een uitstekende manier om te experimenteren met verschillende functies van LUIS zonder dat de oorspronkelijke versie wordt gewijzigd. Omdat de versienaam wordt gebruikt als onderdeel van de URL-route, kan de naam geen tekens bevatten die niet zijn toegestaan in een URL. 
 
-## <a name="add-prebuilt-intents"></a>Vooraf gemaakte intents toevoegen
-LUIS biedt verschillende vooraf gemaakte intents om u te helpen met algemene gebruikersintenties.  
+## <a name="add-prebuilt-intents"></a>Vooraf gemaakte intenties toevoegen
+LUIS biedt verschillende vooraf gemaakte intenties om u te helpen met algemene gebruikersintenties.  
 
-1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Selecteer **Add prebuilt intent**. 
 
 3. Zoeken naar `Utilities`. 
 
-    [ ![Schermopname van dialoogvenster met vooraf gemaakte intents met Utilities in het zoekvak](./media/luis-tutorial-prebuilt-intents-and-entities/prebuilt-intent-utilities.png)](./media/luis-tutorial-prebuilt-intents-and-entities/prebuilt-intent-utilities.png#lightbox)
+    [ ![Schermopname van dialoogvenster met vooraf gemaakte intenties met Utilities in het zoekvak](./media/luis-tutorial-prebuilt-intents-and-entities/prebuilt-intent-utilities.png)](./media/luis-tutorial-prebuilt-intents-and-entities/prebuilt-intent-utilities.png#lightbox)
 
-4. Selecteer de volgende intents en selecteer **Done**: 
+4. Selecteer de volgende intenties en selecteer **Done**: 
 
     * Utilities.Cancel
     * Utilities.Confirm

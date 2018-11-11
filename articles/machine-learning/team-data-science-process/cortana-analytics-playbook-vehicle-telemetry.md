@@ -15,19 +15,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2018
-ms.openlocfilehash: 02a12e917ed36367ffac1ac2e7a1fef1c6098ea7
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0594b9b40fdf8647f99946a31dbb47a95c9694ac
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46985364"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300350"
 ---
 # <a name="vehicle-telemetry-analytics-solution-playbook"></a>Vehicle Telemetry Analytics-oplossing playbook
-Dit bevat menukoppelingen naar de hoofdstukken in deze playbook: 
 
-[!INCLUDE [cap-vehicle-telemetry-playbook-selector](../../../includes/cap-vehicle-telemetry-playbook-selector.md)]
-
-## <a name="overview"></a>Overzicht
 Super computers buiten de testomgeving hebt verplaatst, maar staan geparkeerd in garages. Deze worden nu in uw auto's met allerlei sensoren wordt geplaatst. Dit soort sensoren geven ze de mogelijkheid om te volgen en controleren van miljoenen gebeurtenissen per seconde. 2020, zullen de meeste van deze voertuigen zijn verbonden met Internet. Toegang te krijgen tot deze grote hoeveelheid gegevens biedt meer veiligheid, betrouwbaarheid, en dus een betere aangedreven ervaring. Microsoft biedt deze droom werkelijkheid met Cortana Intelligence.
 
 Cortana Intelligence is een volledig beheerde big data en geavanceerde analyses waarmee u gebruiken kunt voor uw gegevens omzetten in slimme acties. Cortana Intelligence Vehicle Telemetry Analytics sjabloon van de oplossing toont aan hoe autodealers, autofabrikanten en verzekeringsmaatschappijen kunnen verkrijgen van realtime en voorspellende inzichten en rijgewoonten.
@@ -54,3 +50,8 @@ Deze oplossing toegang heeft tot twee verschillende gegevensbronnen:
 * **Gesimuleerde vehicle signalen en diagnostische gegevens**: een vehicle telematicssimulator verzendt de diagnostische gegevens en signalen die overeenkomen met de status van het voertuig en het sparen patroon op een bepaald tijdstip. 
 * **Vehicle catalogus**: deze referentiegegevensset VIN getallen toegewezen aan modellen.
 
+## <a name="next-steps"></a>Volgende stappen
+
+Als u wilt deze oplossing verder verkennen, Zie [Vehicle Telemetry Analytics-oplossing playbook: ontdeek de oplossing](cortana-analytics-playbook-vehicle-telemetry-deep-dive.md).
+
+Zie voor informatie over het configureren van de Power BI-rapporten en dashboards voor deze oplossing, [Vehicle Telemetry Analytics-oplossing sjabloon Power BI-dashboard installatie-instructies](cortana-analytics-playbook-vehicle-telemetry-powerbi.md).

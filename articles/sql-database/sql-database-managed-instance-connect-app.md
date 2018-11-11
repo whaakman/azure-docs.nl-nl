@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: bonova, carlrab
 manager: craigg
 ms.date: 09/14/2018
-ms.openlocfilehash: 0221965c51f2287cb6042c33b9ab3402e104abc3
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: fe73d5a2aa63cf127f5df835484cfcc75ef702aa
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48870475"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51514958"
 ---
 # <a name="connect-your-application-to-azure-sql-database-managed-instance"></a>Verbinding maken tussen uw toepassing en het beheerde exemplaar van Azure SQL Database
 
@@ -60,7 +60,7 @@ Als hebt u on-premises naar Azure-verbinding is gemaakt en u kunt geen verbindin
 Voor het beheerde exemplaar kan alleen worden verkregen via een privé IP-adres dus als u wilt openen vanaf uw developer-box, moet u eerst een verbinding tussen uw developer-box en het beheerde exemplaar VNet te maken. Om dit te doen, een punt-naar-Site-verbinding met een VNet met behulp van systeemeigen Azure certificaatverificatie te configureren. Zie voor meer informatie, [configureren van een punt-naar-site-verbinding verbinding maken met een Azure SQL Database Managed Instance vanaf on-premises computer](sql-database-managed-instance-configure-p2s.md).
 
 ## <a name="connect-from-on-premises-with-vnet-peering"></a>Verbinding maken vanaf on-premises met VNet-peering
-Een ander scenario geïmplementeerd door klanten is waarop het VPN-gateway is geïnstalleerd in een apart virtueel netwerk en een abonnement van de ene host Managed Instance. De twee virtuele etworks vervolgens aan elkaar zijn gekoppeld. Het volgende voorbeeld-Architectuurdiagram ziet hoe dit kan worden geïmplementeerd.
+Een ander scenario geïmplementeerd door klanten is waarop het VPN-gateway is geïnstalleerd in een apart virtueel netwerk en een abonnement van de ene host Managed Instance. De twee virtuele netwerken worden vervolgens gekoppeld. Het volgende voorbeeld-Architectuurdiagram ziet hoe dit kan worden geïmplementeerd.
 
 ![VNet-peering](./media/sql-database-managed-instance-connect-app/vnet-peering.png)
 
@@ -83,6 +83,10 @@ Een speciaal geval van Azure App Service verbinden met Managed Instance is wanne
 In dit scenario is geïllustreerd in het volgende diagram:
 
 ![geïntegreerde app-peering](./media/sql-database-managed-instance/integrated-app-peering.png)
+
+>[!NOTE]
+>De VNet-integratie-functie is niet geïntegreerd voor een app met een VNet met een ExpressRoute-Gateway. De VNet-integratie werkt niet, zelfs als de ExpressRoute-Gateway is geconfigureerd in de co-existentie-modus. Als u nodig hebt voor toegang tot resources via een ExpressRoute-verbinding, kunt u een App Service-omgeving, die wordt uitgevoerd in uw VNet kunt gebruiken.
+>
  
 ## <a name="troubleshooting-connectivity-issues"></a>Het oplossen van problemen met de netwerkverbinding
 

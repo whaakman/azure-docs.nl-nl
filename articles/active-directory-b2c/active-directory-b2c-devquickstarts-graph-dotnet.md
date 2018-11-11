@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/07/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 32a887d54a239db0c1e40458e1b304d899befff5
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 0f53d71cca70f9340689d3d01fb9c67090f917c5
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48870550"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277531"
 ---
 # <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>Azure AD B2C: De Azure AD Graph API gebruiken
 
@@ -66,8 +66,8 @@ U hebt nu een toepassing die gemachtigd om te maken is, lezen en bijwerken van g
 > 
 > 
 
-## <a name="configure-delete-permissions-for-your-application"></a>Machtigingen voor het verwijderen van uw toepassing configureren
-Op dit moment de *mapgegevens lezen en schrijven* machtiging heeft **niet** omvatten de mogelijkheid voor alle verwijderingen zoals het verwijderen van gebruikers. Als u wilt dat uw toepassing de mogelijkheid om gebruikers te verwijderen, moet u deze extra stappen uitvoeren die betrekking hebben op PowerShell, anders kunt u doorgaan naar de volgende sectie.
+## <a name="configure-delete-or-update-password-permissions-for-your-application"></a>Configureer verwijderen of wachtwoord machtigingen voor uw toepassing bijwerken
+Op dit moment de *mapgegevens lezen en schrijven* machtiging heeft **niet** de mogelijkheid om gebruikers te verwijderen of bijwerken van wachtwoorden van gebruikers. Als u wilt dat uw toepassing de mogelijkheid geven aan gebruikers van delete of update wachtwoorden, moet u deze extra stappen uitvoeren die betrekking hebben op PowerShell, anders kunt u doorgaan met de volgende sectie.
 
 Als u nog geïnstalleerd hebt, installeer eerst de [Azure AD PowerShell v1-module (MSOnline)](https://docs.microsoft.com/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0):
 
@@ -84,7 +84,7 @@ Na de installatie wordt de PowerShell-module verbinding maken met uw Azure AD B2
 Connect-MsolService
 ```
 
-Nu we gebruiken de **toepassings-ID** in het script hieronder om de toepassing de beheerdersrol van de gebruiker-account waarmee het verwijderen van gebruikers toewijzen. Deze rollen zijn bekende id's, dus u hoeft alleen de invoer is uw **toepassings-ID** in het onderstaande script.
+Nu we gebruiken de **toepassings-ID** in het script hieronder om de toepassing van de gebruikersrol administrator-account toewijzen. Deze rollen zijn bekende id's, dus u hoeft alleen de invoer is uw **toepassings-ID** in het onderstaande script.
 
 ```powershell
 $applicationId = "<YOUR_APPLICATION_ID>"
@@ -92,7 +92,7 @@ $sp = Get-MsolServicePrincipal -AppPrincipalId $applicationId
 Add-MsolRoleMember -RoleObjectId fe930be7-5e62-47db-91af-98c3a49a38b1 -RoleMemberObjectId $sp.ObjectId -RoleMemberType servicePrincipal
 ```
 
-Nu uw toepassing heeft ook machtigingen voor het verwijderen van gebruikers uit uw B2C-tenant.
+Nu uw toepassing heeft ook machtigingen voor gebruikers te verwijderen of bijwerken van wachtwoorden van uw B2C-tenant.
 
 ## <a name="download-configure-and-build-the-sample-code"></a>Download en bouw de voorbeeldcode configureren
 Eerst de voorbeeldcode downloaden en deze uitvoeren. We zullen vervolgens nog eens kijken.  U kunt [download de voorbeeldcode als ZIP-bestand](https://github.com/AzureADQuickStarts/B2C-GraphAPI-DotNet/archive/master.zip). U kunt dit ook klonen naar een map van uw keuze:

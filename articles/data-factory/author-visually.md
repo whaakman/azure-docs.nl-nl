@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/23/2018
+ms.date: 11/7/2018
 ms.author: shlo
-ms.openlocfilehash: 3db32dfe2d7b65535f7d30f76241b33ecca96c15
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 7a0d72ac67b329cb6d25be955205a2bbcef38e81
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49957952"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281690"
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Visueel ontwerpen in Azure Data Factory
 De Azure Data Factory gebruikersinterface gebruikerservaring (UX) kunt u visueel ontwerpen en resources van uw gegevensfactory implementeren zonder code te schrijven. U kunt slepen van activiteiten op een pijplijncanvas, testuitvoeringen uitvoeren, iteratief, fouten en implementeren en uw pijplijnuitvoeringen controleren. Er zijn twee benaderingen voor het gebruik van de UX om uit te voeren visueel ontwerpen:
@@ -142,7 +142,9 @@ Nadat u wijzigingen in de vertakking samenwerking zijn samengevoegd (`master` is
 
 ## <a name="author-with-github-integration"></a>Ontwerpen met GitHub-integratie
 
-Visueel ontwerpen met GitHub-integratie ondersteunt broncodebeheer en samenwerking voor het werk aan uw data factory-pijplijnen. U kunt een data factory koppelen aan een GitHub-account-opslagplaats voor broncodebeheer, samenwerking, versiebeheer. Een enkele GitHub-account kan meerdere opslagplaatsen hebben, maar een GitHub-opslagplaats kan worden gekoppeld aan slechts één data factory. Als u geen een GitHub-account of een opslagplaats hebt, volgt u [deze instructies](https://github.com/join) om uw resources te maken. De GitHub-integratie met Data Factory ondersteunt zowel openbare GitHub, evenals GitHub Enterprise.
+Visueel ontwerpen met GitHub-integratie ondersteunt broncodebeheer en samenwerking voor het werk aan uw data factory-pijplijnen. U kunt een data factory koppelen aan een GitHub-account-opslagplaats voor broncodebeheer, samenwerking, versiebeheer. Een enkele GitHub-account kan meerdere opslagplaatsen hebben, maar een GitHub-opslagplaats kan worden gekoppeld aan slechts één data factory. Als u geen een GitHub-account of een opslagplaats hebt, volgt u [deze instructies](https://github.com/join) om uw resources te maken.
+
+De GitHub-integratie met Data Factory ondersteunt zowel openbare GitHub (dat wil zeggen, [ https://github.com ](https://github.com)) en GitHub Enterprise. U kunt zowel openbare als persoonlijke GitHub-opslagplaatsen gebruiken met Data Factory zoals lang u hebt gelezen en schrijftoegang tot de opslagplaats in GitHub.
 
 U moet beheerdersmachtigingen voor de Azure-abonnement dat u gebruikt voor het configureren van een GitHub-opslagplaats.
 
@@ -164,11 +166,11 @@ U kunt een GitHub-opslagplaats met een data factory configureren via twee method
 
 **Van configuratiemethode 1 (openbare opslagplaats): we pagina aan de slag**
 
-In Azure Data Factory, gaat u naar de **aan de slag** pagina. Selecteer **Codeopslagplaats configureren**:
+In Azure Data Factory, gaat u naar de **aan de slag** pagina. Selecteer **Codeopslagplaats configureren**:
 
 ![Data Factory aan de slag-pagina](media/author-visually/github-integration-image1.png)
 
-De **instellingen opslagplaats** configuratie deelvenster wordt weergegeven:
+De **instellingen opslagplaats** configuratie deelvenster wordt weergegeven:
 
 ![Instellingen voor GitHub-opslagplaats](media/author-visually/github-integration-image2.png)
 
@@ -181,14 +183,14 @@ Het deelvenster ziet u de volgende code in de Azure-opslagplaatsen instellingen 
 | **RepositoryName**                                       | De naam van de opslagplaats in de GitHub-code. GitHub-accounts bevatten Git-opslagplaatsen voor het beheren van uw broncode. U kunt een nieuwe opslagplaats maken of een bestaande opslagplaats, die al in uw account.                                                                                                                                                                                                                              |                    |
 | **Samenwerking vertakking**                                 | De vertakking van uw GitHub-samenwerking die wordt gebruikt voor het publiceren. Standaard is het model. Deze instelling wijzigen in het geval u wilt publiceren van bronnen van een andere vertakking.                                                                                                                                                                                                                                                               |                    |
 | **Hoofdmap**                                          | De hoofdmap in de vertakking van uw GitHub-samenwerking.                                                                                                                                                                                                                                                                                                                                                                             |                    |
-| **Bestaande resources van Data Factory importeren naar opslagplaats** | Hiermee bepaalt u of bestaande resources van data factory importeren uit de UX **canvas voor ontwerpen** in een GitHub-opslagplaats. Schakel het in uw data factory-resources importeren in de bijbehorende Git-opslagplaats in JSON-indeling. Deze actie wordt elke resource afzonderlijk geëxporteerd (dat wil zeggen, de gekoppelde services en gegevenssets zijn geëxporteerd naar afzonderlijke betreffende JSON's). Wanneer dit selectievakje niet is ingeschakeld, wordt de bestaande resources zijn niet geïmporteerd. | Geselecteerde (standaard) |
+| **Bestaande resources van Data Factory importeren naar opslagplaats** | Hiermee bepaalt u of bestaande resources van data factory importeren uit de UX **Ontwerpcanvas** in een GitHub-opslagplaats. Schakel het in uw data factory-resources importeren in de bijbehorende Git-opslagplaats in JSON-indeling. Deze actie wordt elke resource afzonderlijk geëxporteerd (dat wil zeggen, de gekoppelde services en gegevenssets zijn geëxporteerd naar afzonderlijke betreffende JSON's). Wanneer dit selectievakje niet is ingeschakeld, wordt de bestaande resources zijn niet geïmporteerd. | Geselecteerde (standaard) |
 | **Vertakking voor het importeren van resources in**                       | Hiermee geeft u op in welke vertakking u de data factory-resources (pijplijnen, gegevenssets, gekoppelde services enzovoort) worden geïmporteerd. U kunt resources importeren in een van de volgende opties: een. Samenwerking b. Maak nieuwe c. Bestaande gebruiken                                                                                                                                                                                                     |                    |
 
 #### <a name="configuration-method-2-public-repo-ux-authoring-canvas"></a>Configuratiemethode 2 (openbare opslagplaats): UX canvas voor ontwerpen
 
-In de Azure Data Factory-UX **Ontwerpcanvas**, Ga naar uw data factory. Selecteer de **Data Factory** vervolgkeuzelijst en selecteer vervolgens **Codeopslagplaats configureren**.
+In de Azure Data Factory-UX **Ontwerpcanvas**, Ga naar uw data factory. Selecteer de **Data Factory** Vervolgkeuzelijst en selecteer vervolgens **Codeopslagplaats configureren**.
 
-Een configuratie-deelvenster wordt weergegeven. Zie voor meer informatie over de configuratie-instellingen, de beschrijvingen in *configuratiemethode 1* hierboven.
+Een configuratie-deelvenster wordt weergegeven. Zie voor meer informatie over de configuratie-instellingen, de beschrijvingen in *configuratiemethode 1* hierboven.
 
 ### <a name="configure-a-github-enterprise-repository-with-azure-data-factory"></a>Een opslagplaats met GitHub Enterprise configureren met Azure Data Factory
 
@@ -196,11 +198,11 @@ U kunt een opslagplaats met GitHub Enterprise configureren met een data factory 
 
  #### <a name="configuration-method-1-enterprise-repo-lets-get-started-page"></a>Van configuratiemethode 1 (Enterprise-opslagplaats): we pagina aan de slag
 
-In Azure Data Factory, gaat u naar de **aan de slag** pagina. Selecteer **Codeopslagplaats configureren**:
+In Azure Data Factory, gaat u naar de **aan de slag** pagina. Selecteer **Codeopslagplaats configureren**:
 
 ![Data Factory aan de slag-pagina](media/author-visually/github-integration-image1.png)
 
-De **instellingen opslagplaats** configuratie deelvenster wordt weergegeven:
+De **instellingen opslagplaats** configuratie deelvenster wordt weergegeven:
 
 ![Instellingen voor GitHub-opslagplaats](media/author-visually/github-integration-image3.png)
 
@@ -215,14 +217,14 @@ Het deelvenster ziet u de volgende code in de Azure-opslagplaatsen instellingen 
 | **RepositoryName**                                       | De naam van de opslagplaats in de GitHub-code. GitHub-accounts bevatten Git-opslagplaatsen voor het beheren van uw broncode. U kunt een nieuwe opslagplaats maken of een bestaande opslagplaats, die al in uw account.                                                                                                                                                                                                                              |                    |
 | **Samenwerking vertakking**                                 | De vertakking van uw GitHub-samenwerking die wordt gebruikt voor het publiceren. Standaard is het model. Deze instelling wijzigen in het geval u wilt publiceren van bronnen van een andere vertakking.                                                                                                                                                                                                                                                               |                    |
 | **Hoofdmap**                                          | De hoofdmap in de vertakking van uw GitHub-samenwerking.                                                                                                                                                                                                                                                                                                                                                                             |                    |
-| **Bestaande resources van Data Factory importeren naar opslagplaats** | Hiermee bepaalt u of bestaande resources van data factory importeren uit de UX **canvas voor ontwerpen** in een GitHub-opslagplaats. Schakel het in uw data factory-resources importeren in de bijbehorende Git-opslagplaats in JSON-indeling. Deze actie wordt elke resource afzonderlijk geëxporteerd (dat wil zeggen, de gekoppelde services en gegevenssets zijn geëxporteerd naar afzonderlijke betreffende JSON's). Wanneer dit selectievakje niet is ingeschakeld, wordt de bestaande resources zijn niet geïmporteerd. | Geselecteerde (standaard) |
+| **Bestaande resources van Data Factory importeren naar opslagplaats** | Hiermee bepaalt u of bestaande resources van data factory importeren uit de UX **Ontwerpcanvas** in een GitHub-opslagplaats. Schakel het in uw data factory-resources importeren in de bijbehorende Git-opslagplaats in JSON-indeling. Deze actie wordt elke resource afzonderlijk geëxporteerd (dat wil zeggen, de gekoppelde services en gegevenssets zijn geëxporteerd naar afzonderlijke betreffende JSON's). Wanneer dit selectievakje niet is ingeschakeld, wordt de bestaande resources zijn niet geïmporteerd. | Geselecteerde (standaard) |
 | **Vertakking voor het importeren van resources in**                       | Hiermee geeft u op in welke vertakking u de data factory-resources (pijplijnen, gegevenssets, gekoppelde services enzovoort) worden geïmporteerd. U kunt resources importeren in een van de volgende opties: een. Samenwerking b. Maak nieuwe c. Bestaande gebruiken                                                                                                                                                                                                     |                    |
 
 #### <a name="configuration-method-2-enterprise-repo-ux-authoring-canvas"></a>Configuratiemethode 2 (Enterprise-opslagplaats): UX canvas voor ontwerpen
 
-In de Azure Data Factory-UX **Ontwerpcanvas**, Ga naar uw data factory. Selecteer de **Data Factory** vervolgkeuzelijst en selecteer vervolgens **Codeopslagplaats configureren**.
+In de Azure Data Factory-UX **Ontwerpcanvas**, Ga naar uw data factory. Selecteer de **Data Factory** Vervolgkeuzelijst en selecteer vervolgens **Codeopslagplaats configureren**.
 
-Een configuratie-deelvenster wordt weergegeven. Zie voor meer informatie over de configuratie-instellingen, de beschrijvingen in *configuratiemethode 1* hierboven.
+Een configuratie-deelvenster wordt weergegeven. Zie voor meer informatie over de configuratie-instellingen, de beschrijvingen in *configuratiemethode 1* hierboven.
 
 ## <a name="use-the-expression-language"></a>Gebruik de expressietaal
 Expressies voor waarden van eigenschappen kunt u opgeven met behulp van de expressietaal die wordt ondersteund door Azure Data Factory.

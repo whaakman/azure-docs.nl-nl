@@ -1,6 +1,6 @@
 ---
 title: Implementeer de oplossing voor externe controle lokaal (via Visual Studio IDE) - Azure | Microsoft Docs
-description: In deze gebruiksaanwijzing laat zien hoe de oplossingsverbetering voor externe bewaking implementeren naar uw lokale computer met behulp van Visual Studio voor het testen en ontwikkeling.
+description: In deze gebruiksaanwijzing laat zien hoe de oplossingsverbetering voor externe bewaking implementeren naar uw lokale computer voor het testen en ontwikkeling.
 author: avneet723
 manager: hegate
 ms.author: avneet723
@@ -8,18 +8,18 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 10/25/2018
 ms.topic: conceptual
-ms.openlocfilehash: 5068f0277726b7c468aa24d0629c4350b60b78b5
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
-ms.translationtype: MT
+ms.openlocfilehash: c667782ef49f41cda8ccefc2f56e5f1265531037
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 11/08/2018
-ms.locfileid: "51287605"
+ms.locfileid: "51278817"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---visual-studio"></a>De bewaking op afstand oplossingsversnellers implementeren lokaal - Visual Studio
 
 [!INCLUDE [iot-accelerators-selector-local](../../includes/iot-accelerators-selector-local.md)]
 
-In dit artikel leest u hoe de oplossingsverbetering voor externe bewaking implementeren naar uw lokale computer voor het testen en ontwikkeling. U informatie over het uitvoeren van de microservices in Visual Studio. Een lokale microservices-implementatie maakt gebruik van de volgende cloudservices: IoT Hub, Cosmos DB, Azure stream Analytics en Azure Time Series Insights-services in de cloud.
+In dit artikel leest u hoe de oplossingsverbetering voor externe bewaking implementeren naar uw lokale computer voor het testen en ontwikkeling. Het artikel wordt beschreven hoe u kunt de microservices uitvoeren in Visual Studio. Een lokale microservices-implementatie maakt gebruik van de volgende cloudservices: IoT Hub, Cosmos DB, Azure stream Analytics en Azure Time Series Insights-services in de cloud.
 
 Als u wilt dat de oplossingsverbetering voor externe controle uitvoeren in Docker op uw lokale computer, raadpleegt u [Remote Monitoring solution accelerator lokaal - Docker implementeren](iot-accelerators-remote-monitoring-deploy-local-docker.md).
 
@@ -115,4 +115,14 @@ U kunt ook de lokale kopie van de bewaking op afstand opslagplaats gemaakt wanne
 
 ## <a name="next-steps"></a>Volgende stappen
 
+In deze zelfstudie heeft u het volgende geleerd:
+
+> [!div class="checklist"]
+> * Een lokale ontwikkelingsomgeving instellen
+> * De oplossingsversneller configureren
+> * De oplossingsversnellers implementeren
+> * Aanmelden bij de oplossingsversnellers
+
 Nu dat u de oplossing voor externe controle hebt geïmplementeerd, wordt de volgende stap is het [verkennen van de mogelijkheden van het oplossingsdashboard](quickstart-remote-monitoring-deploy.md).
+
+<!-- Next tutorials in the sequence -->

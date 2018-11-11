@@ -8,12 +8,12 @@ ms.date: 10/05/2017
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: d4253942ea5cd998bfd3806978e108413949f886
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 2513624aecff652e8a952b3255faf2ab9366f21a
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741425"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51288693"
 ---
 # <a name="understand-the-requirements-and-tools-for-developing-iot-edge-modules"></a>Informatie over de vereisten en hulpprogramma's voor het ontwikkelen van IoT Edge-modules
 
@@ -26,9 +26,9 @@ IoT Edge-runtime biedt de infrastructuur voor het integreren van de functionalit
 De IoT Edge hub biedt twee belangrijke functies: proxy naar IoT Hub en lokale communicatie.
 
 ### <a name="iot-hub-primitives"></a>IoT Hub primitieven
-IoT Hub ziet een module-exemplaar analogously aan een apparaat, in de zin dat deze:
+IoT Hub ziet u een exemplaar van de module analogously aan een apparaat, in de zin dat:
 
-* Er is een moduledubbel, die is uniek en geïsoleerd van de [apparaatdubbel](../iot-hub/iot-hub-devguide-device-twins.md) en de andere moduledubbels van het apparaat;
+* Er is een moduledubbel van die is uniek en geïsoleerd van de [apparaatdubbel](../iot-hub/iot-hub-devguide-device-twins.md) en de andere moduledubbels van het apparaat;
 * Er kunnen worden verzonden [apparaat-naar-cloud-berichten](../iot-hub/iot-hub-devguide-messaging.md);
 * kan de ontvangen [directe methoden](../iot-hub/iot-hub-devguide-direct-methods.md) speciaal bedoeld voor de identiteit.
 
@@ -41,7 +41,7 @@ Zie [ontwikkelen en implementeren van een IoT Edge-module op een gesimuleerd app
 ### <a name="device-to-cloud-messages"></a>Apparaat-naar-cloud-berichten
 Om in te schakelen complexe verwerking van apparaat-naar-cloud-berichten, IoT Edge hub biedt declaratieve routering van berichten tussen modules en tussen modules en IoT-Hub. Declaratieve routering kunt modules worden onderschept en verwerken van berichten verzonden door andere modules en het doorgeven ervan in complexe pijplijnen. Het artikel [modulesamenstelling](module-composition.md) wordt uitgelegd hoe u voor het opstellen van modules in complexe pijplijnen met behulp van routes.
 
-Een IoT Edge-module, kan anders dan een normale IoT Hub device-toepassing, apparaat-naar-cloud-berichten die via proxy door de lokale IoT Edge hub, worden om te worden verwerkt door ze ontvangen.
+Een IoT Edge-module, in plaats van een normale IoT Hub device-toepassing kan apparaat-naar-cloud-berichten die om te worden verwerkt door ze via proxy door de lokale IoT Edge hub worden ontvangen.
 
 IoT Edge hub doorgeven van berichten naar de module op basis van declaratieve routes die worden beschreven in de [modulesamenstelling](module-composition.md) artikel. Bij het ontwikkelen van een IoT Edge-module, kunt u deze berichten ontvangen door in te stellen bericht handlers.
 
@@ -58,7 +58,9 @@ Ten slotte worden verwerkt door de Edge hub apparaat-naar-cloud-berichten factur
 | $outputName | De uitvoer die wordt gebruikt voor het verzenden van het bericht. Kan niet leeg zijn. |
 
 ### <a name="connecting-to-iot-edge-hub-from-a-module"></a>Verbinding maken met IoT Edge hub vanuit een module
-Verbinding maken met de lokale IoT Edge hub vanuit een module bestaat uit twee stappen: de verbindingsreeks gebruiken op voorwaarde dat door de IoT Edge-runtime wanneer de module wordt gestart, en zorg ervoor dat uw toepassing accepteert het certificaat dat door de IoT Edge hub op het apparaat.
+Verbinding maken met de lokale IoT Edge hub vanuit een module bestaat uit twee stappen: 
+1. Gebruik de verbindingsreeks die is geleverd door de IoT Edge-runtime wanneer de module wordt gestart.
+2. Zorg ervoor dat uw toepassing accepteert het certificaat dat door de IoT Edge hub op het apparaat.
 
 Het maken van verbinding tekenreeks die moet worden gebruikt door de IoT Edge-runtime in de omgevingsvariabele wordt geïnjecteerd `EdgeHubConnectionString`. Dit maakt ze beschikbaar voor alle programma's die wil gebruiken.
 

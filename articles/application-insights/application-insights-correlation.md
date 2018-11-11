@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 04/09/2018
 ms.reviewer: sergkanz
 ms.author: mbullwin
-ms.openlocfilehash: d9b6f5c08eed5efceafc71feaf654ad8f4fcafa0
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: eb14a3bc76fef37cdff4ed49cdbb6a99eac40928
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49341120"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51280160"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Telemetriecorrelatie in Application Insights
 
@@ -66,7 +66,7 @@ Nu als de aanroep `GET /api/stock/value` aangebracht in een externe service die 
 
 ## <a name="correlation-headers"></a>Correlatie-headers
 
-Er wordt gewerkt aan RFC voorstel voor de [correlatie HTTP-protocol](https://github.com/lmolkova/correlation/blob/master/http_protocol_proposal_v1.md). Dit voorstel definieert twee headers:
+Er wordt gewerkt aan RFC voorstel voor de [correlatie HTTP-protocol](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md). Dit voorstel definieert twee headers:
 
 - `Request-Id` de unieke id van de aanroep uitvoeren
 - `Correlation-Context` -de naam van waarde-paren verzameling van de eigenschappen van gedistribueerde tracering uitvoeren
@@ -77,7 +77,7 @@ Application Insights definieert de [extensie](https://github.com/lmolkova/correl
 
 ### <a name="w3c-distributed-tracing"></a>W3C gedistribueerde tracering
 
-We worden overgezet naar voor (W3C gedistribueerde tracering indeling) [https://w3c.github.io/distributed-tracing/report-trace-context.html]. Hiermee wordt gedefinieerd:
+We overstappen naar [W3C gedistribueerde tracering indeling](https://w3c.github.io/trace-context/). Hiermee wordt gedefinieerd:
 - `traceparent` -unieke bewerkings-id en de unieke id van de aanroep uitvoert
 - `tracestate` -specifieke systeemcontext tracering uitvoert.
 
@@ -156,7 +156,7 @@ public class CloudRoleNameInitializer extends WebTelemetryInitializerBase {
     }
   }
 ```
-Via de [apparaat contextklasse](https://docs.microsoft.com/et-ee/java/api/com.microsoft.applicationinsights.extensibility.context._device_context) (alleen deze telemetrie-item is gemarkeerd)
+Via de [apparaat contextklasse](https://docs.microsoft.com/java/api/com.microsoft.applicationinsights.extensibility.context._device_context) (alleen deze telemetrie-item is gemarkeerd)
 ```Java
 telemetry.getContext().getDevice().setRoleName("My Component Name");
 ```

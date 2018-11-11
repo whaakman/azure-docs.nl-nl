@@ -9,16 +9,33 @@ ms.author: grhuynh
 ms.service: genomics
 ms.topic: article
 ms.date: 12/07/2017
-ms.openlocfilehash: 804076fdc653622336ac3b99c15df0bc027510d9
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 0129f186736ad2e4d6ea5c94c632bab73b92002c
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45730141"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51514686"
 ---
 # <a name="microsoft-genomics-common-questions"></a>Microsoft Genomics: Veelgestelde vragen
 
 In dit artikel geeft een lijst van de populairste query's die u mogelijk met betrekking tot Microsoft Genomics. Zie voor meer informatie over de service Microsoft Genomics [wat is Microsoft Genomics?](overview-what-is-genomics.md). Zie voor meer informatie over het oplossen van onze [Troubleshooting Guide](troubleshooting-guide-genomics.md). 
+
+## <a name="what-is-the-microsoft-genomics-service-gatk-4-promotion"></a>Wat is de Microsoft Genomics-service GATK 4 promotie?
+Tot het einde van het kalenderjaar 2018, is de service Microsoft Genomics 20 WGS wordt uitgevoerd met GATK4 gratis aanbieding. Om deel te nemen in het register van deze aanbieding [hier](https://aka.ms/msgatk4). 
+
+### <a name="what-are-the-common-issues-i-might-encounter-while-running-the-microsoft-genomics-service-gatk4-promotion"></a>Wat zijn de problemen die ik optreden tijdens het uitvoeren van de Microsoft Genomics-service GATK4 promotie
+Hier volgt de lijst met veelvoorkomende fouten die optreden en de aanbevolen oplossing:
+
+| **Bericht**                                                                                                                                                                                    | **Oorzaak**                                                                                                    | **Resolutie**                                                                                                                                                                                                       |
+|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `gatk4-promo` is niet ingeschakeld voor uw account. Zie voor meer informatie https://docs.microsoft.com/en-us/azure/genomics/frequently-asked-questions-genomics                               | U probeert te GATK4 werkstromen met de service Microsoft Genomics uitvoeren zonder dat wordt geactiveerd.       | Ga naar [hier](https://aka.ms/msgatk4) om uw account te activeren. Houd er rekening mee dat de proefversie aan het einde van het kalenderjaar 2018 verloopt. Niet mogelijk om te activeren van uw account voor de aanbiedingen worden uitgevoerd na deze datum. |
+| Hartelijk dank voor het uitproberen van `gatk4-promo`. De proefperiode is afgelopen. Voor meer informatie https://docs.microsoft.com/en-us/azure/genomics/frequently-asked-questions-genomics                  | De proefversie GATK4 aan het einde van het jaar is verlopen, en u probeert om aan te roepen de `gatk4-promo` naam_proces.  | U de parameter naam_proces, `gatk4`, in plaats van `gatk4-promo`. Dit is de officiële gatk4-versie en de werkstroom wordt in rekening gebracht als u deze parameter gebruikt.                                         |
+| Hartelijk dank voor het uitproberen van `gatk4-promo` hebt u al uw toegewezen uitvoerbewerkingen gebruikt. Zie voor meer informatie https://docs.microsoft.com/en-us/azure/genomics/frequently-asked-questions-genomics | U hebt ingediend al uw aanbiedingen 20 GATK4 wordt uitgevoerd.                               | Verzend een nieuwe gatk4 wordt uitgevoerd met naam_proces argument is ingesteld op `gatk4` in plaats van `gatk4-promo`. De werkstroom wordt in rekening gebracht wanneer u deze parameter gebruikt.                                                          |        
+
+
+## <a name="can-i-run-gatk4-workflows-on-microsoft-genomics-without-signing-up-for-the-gatk4-promotion"></a>Kan ik GATK4 werkstromen uitvoeren op Microsoft Genomics zonder zich registreren voor de promotie GATK4?
+Ja, in de service Microsoft Genomics config.txt-bestand, geeft de naam_proces te `gatk4`. Houd er rekening mee dat u wordt gefactureerd tegen normale tarieven voor facturering en de gratis 20 wordt uitgevoerd niet van toepassing op uw Microsoft Genomics-account.
+
 
 
 ## <a name="what-is-the-sla-for-microsoft-genomics"></a>Wat is de SLA voor Microsoft Genomics?
@@ -48,7 +65,7 @@ Ga naar Azure portal en open de pagina van uw Genomics-account. Onder de **Manag
 Ga naar Azure portal en open de pagina van uw Genomics-account. Onder de **Management** kop, kies **toegangssleutels**. U vindt er, zowel de API-URL en toegangssleutels van uw.
 
 ## <a name="why-do-i-need-two-access-keys"></a>Waarom moet ik twee toegangssleutels?
-U moet twee toegangssleutels in het geval u wilt bijwerken (sleutel opnieuw genereren) zonder dat gebruik van de service wordt onderbroken. U wilt bijvoorbeeld de eerste sleutel bijwerken. In dat geval kunt overstappen u alle nieuwe werkstromen naar de tweede sleutel. Klik, wacht u totdat de al actieve werkstromen met behulp van de eerste sleutel zijn voltooid. De sleutel alleen vervolgens bijwerken.
+U moet twee toegangssleutels in het geval u wilt bijwerken (sleutel opnieuw genereren) zonder dat gebruik van de service wordt onderbroken. Bijvoorbeeld, als u bijwerken van de eerste sleutel wilt, moet u alle nieuwe werkstromen voor het gebruik van de tweede sleutel hebben. Wacht tot alle werkstromen die gebruikmaken van de eerste sleutel om te voltooien voordat u de eerste sleutel bijwerkt.
 
 ## <a name="do-you-save-my-storage-account-keys"></a>Slaat u de sleutels van mijn storage-account?
 Sleutel van uw opslagaccount wordt gebruikt om te maken op korte termijn toegangstokens voor de Microsoft Genomics-service voor uw invoerbestanden lezen en schrijven van de uitvoerbestanden. De duur van het standaard-token is 48 uur. Duur van het token kan worden gewijzigd met de `-sas/--sas-duration` optie van de opdracht verzenden; de waarde is in uren.

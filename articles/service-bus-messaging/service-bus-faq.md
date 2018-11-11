@@ -6,14 +6,14 @@ author: spelluru
 manager: timlt
 ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 11/05/2018
 ms.author: spelluru
-ms.openlocfilehash: c851c8a9384acf909dc88d3565d49021e1ee67e9
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: a000c599ecf8287af57aec2f6e9d550bbe61f280
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49362010"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51279878"
 ---
 # <a name="service-bus-faq"></a>Veelgestelde vragen over Service Bus
 
@@ -21,7 +21,7 @@ Dit artikel worden enkele veelgestelde vragen over Microsoft Azure Service Bus. 
 
 ## <a name="general-questions-about-azure-service-bus"></a>Algemene vragen over Azure Service Bus
 ### <a name="what-is-azure-service-bus"></a>Wat is Azure Service Bus?
-[Azure Service Bus](service-bus-messaging-overview.md) is een asynchrone messaging cloudplatform waarmee u voor het verzenden van gegevens tussen systemen met elkaar zijn losgekoppeld. Microsoft biedt deze functie als een service, wat betekent dat u niet hoeft voor het hosten van uw eigen hardware om het te gebruiken.
+[Azure Service Bus](service-bus-messaging-overview.md) is een asynchrone messaging cloudplatform waarmee u voor het verzenden van gegevens tussen systemen met elkaar zijn losgekoppeld. Microsoft biedt deze functie als een service, wat betekent dat u niet hoeft voor het hosten van uw eigen hardware om deze te gebruiken.
 
 ### <a name="what-is-a-service-bus-namespace"></a>Wat is een Service Bus-naamruimte?
 Een [naamruimte](service-bus-create-namespace-portal.md) biedt een scoping container voor het verwerken van Service Bus-resources in uw toepassing. Het maken van een naamruimte is nodig om het gebruik van Service Bus en is een van de eerste stappen aan de slag.
@@ -78,6 +78,9 @@ Microsoft behoudt zich het recht om uit te schakelen van een klantaccount die de
 
 Net als bij andere services op Azure, wordt een reeks specifieke quota om ervoor te zorgen dat er geoorloofd gebruik van bronnen afgedwongen door Service Bus. U vindt meer informatie over deze quota's in de [overzicht van Service Bus-quota][Quotas overview].
 
+### <a name="how-to-handle-messages-of-size--1-mb"></a>Hoe voor het afhandelen van berichten van de grootte van > 1 MB?
+Service Bus messaging-services (wachtrijen en onderwerpen/abonnementen) toestaan om berichten te verzenden van de grootte van maximaal 256 KB (standard-laag) of 1 MB (premium-laag). Als u te maken met berichten die groter zijn dan 1 MB hebt, gebruikt u de claim patroon wordt beschreven in [dit blogbericht](https://www.serverless360.com/blog/deal-with-large-service-bus-messages-using-claim-check-pattern).
+
 ## <a name="troubleshooting"></a>Problemen oplossen
 ### <a name="what-are-some-of-the-exceptions-generated-by-azure-service-bus-apis-and-their-suggested-actions"></a>Wat zijn enkele van de uitzonderingen die worden gegenereerd door Azure Service Bus-API's en hun voorgestelde acties?
 Zie voor een lijst van mogelijke Service Bus-uitzonderingen, [uitzonderingen overzicht][Exceptions overview].
@@ -112,7 +115,7 @@ Move-AzureRmResource -DestinationResourceGroupName 'targetRG' -DestinationSubscr
 ## <a name="next-steps"></a>Volgende stappen
 Zie de volgende artikelen voor meer informatie over Service Bus:
 
-* [Introducing Azure Service Bus Premium (blogbericht)](http://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
+* [Introducing Azure Service Bus Premium (blogbericht)](https://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
 * [Introducing Azure Service Bus Premium (Channel 9)](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)
 * [Overzicht van Service Bus](service-bus-messaging-overview.md)
 * [Aan de slag met Service Bus-wachtrijen](service-bus-dotnet-get-started-with-queues.md)

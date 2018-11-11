@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 11/05/2018
+ms.date: 11/07/2018
 ms.author: juliako
-ms.openlocfilehash: 2f5c0ef63ba150fdad4aea1a0c65269611d56815
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 1c8bacf4c6cb22240609fb9f5dc0c3c456bc4531
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51247684"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51287537"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Hulp bij de migratie voor het verplaatsen van Media Services v2 naar v3
 
@@ -45,7 +45,7 @@ Als u een videoservice ontwikkeld vandaag nog hebt op de [oudere Media Services 
 * Introduceert het concept van [transformeert](transforms-jobs-concept.md) voor bestandsgebaseerde taak verwerken. Een transformatie kan worden gebruikt om herbruikbare buildconfiguraties, voor het maken van Azure Resource Manager-sjablonen en van Verwerkingsinstellingen tussen meerdere klanten of tenants isoleren.
 * Een Asset kan hebben [meerdere StreamingLocators](streaming-locators-concept.md) elk met verschillende instellingen voor dynamische pakketten en dynamische versleuteling.
 * [Inhoudsbeveiliging](content-key-policy-concept.md) biedt ondersteuning voor meerdere belangrijke functies.
-* U kunt live gebeurtenissen die tot 24 uur streamen.
+* U kunt live gebeurtenissen die tot 24 uur lang wanneer met behulp van Media Services voor een single-bitrate bijdrage transcodering feed in een uitvoerstroom met meerdere bitrates streamen.
 * Nieuwe met lage latentie live streaming ondersteuning op LiveEvents.
 * LiveEvent Preview biedt ondersteuning voor dynamische pakketten en dynamische versleuteling. Hierdoor kunnen de beveiliging van inhoud op Preview-versie, evenals DASH en HLS-verpakking.
 * LiveOutput is eenvoudiger dan de entiteit wordt in de v2-API's. 

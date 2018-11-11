@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: c7e7b100242d6ceb35172b872f2fb6ff7f4b402b
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: dd73ca876385cf81059228088f7b027f533315eb
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48886157"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277833"
 ---
 # <a name="tutorial-4-extract-contextually-related-patterns"></a>Zelfstudie 4: Contextgerelateerde patronen extraheren
 
@@ -49,7 +49,7 @@ Als u problemen ondervindt met de detectie van een enkele entiteit omdat het een
 > * Frasenlijst van steden maken
 > * Intenties en entiteiten ophalen van eindpunt
 
-[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+[!INCLUDE[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="use-existing-app"></a>Bestaande app gebruiken
 Ga door met de in de laatste zelfstudie gemaakt app, **Human Resources**. 
@@ -64,7 +64,7 @@ Als u niet over de app Human Resources uit de vorige zelfstudie beschikt, voert 
 
 ## <a name="create-new-entities"></a>Nieuwe entiteiten maken
 
-1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Selecteer **Entities** in de linkernavigatie. 
 
@@ -254,7 +254,7 @@ Plaatsnamen zijn net als persoonsnamen erg lastig omdat ze uit een combinatie va
 
 ## <a name="get-intent-and-entities-from-endpoint"></a>Intenties en entiteiten ophalen van eindpunt
 
-1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Ga naar het einde van de URL in het adres en voer `Move wayne berry from miami to mount vernon` in. De laatste parameter van de queryreeks is `q`, de utterance **query**. 
 
@@ -380,6 +380,8 @@ In deze zelfstudie detecteert de app Human Resources utterances over de verhuizi
 |--|--|--|
 |[Hiërarchisch (geen rollen)](luis-quickstart-intent-and-hier-entity.md)|Verhuis Jill Jones van **a-2349** naar **b-1298**|a-2349, b-1298|
 |Deze zelfstudie (met rollen)|Verhuis Billy Patterson van **Yuma** naar **Denver**.|Yuma, Denver|
+
+Zie [Rollen versus hiërarchische entiteiten](luis-concept-roles.md#roles-versus-hierarchical-entities) voor meer informatie.
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 

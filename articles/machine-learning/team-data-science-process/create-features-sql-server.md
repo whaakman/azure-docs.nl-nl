@@ -15,19 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/21/2017
 ms.author: deguhath
-ms.openlocfilehash: 89c4e6e6db087e27426598c3ead5142ad540c0c1
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 6729de763265355125100ccdaf0c5cd81e2bfd8d
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49393878"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51346540"
 ---
 # <a name="create-features-for-data-in-sql-server-using-sql-and-python"></a>Met SQL en Python functies maken voor gegevens in SQL Server
 Dit document laat zien hoe voor het genereren van functies voor gegevens die zijn opgeslagen op een SQL Server-VM in Azure waarmee algoritmen efficiënter Leer van de gegevens. U kunt SQL of een programmeertaal zoals Python gebruiken om deze taak te volbrengen. Beide methoden die hier.
 
-[!INCLUDE [cap-create-features-data-selector](../../../includes/cap-create-features-selector.md)]
-
-Dit **menu** koppelingen naar onderwerpen waarin wordt beschreven hoe u functies maken voor gegevens in verschillende omgevingen. Deze taak is een stap in de [Team Data Science Process (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+Deze taak is een stap in de [Team Data Science Process (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
 > [!NOTE]
 > Voor een voorbeeld, kunt u raadplegen de [NYC Taxi gegevensset](http://www.andresmh.com/nyctaxitrips/) en verwijzen naar de met de titel IPNB [NYC Data wrangling met behulp van IPython Notebook en SQL Server](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-sql-walkthrough.ipynb) voor een overzicht van end-to-end.

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: 752a0262503550b9995ac76f648a132429203cce
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: a40917ec24ede1107f7d8ae7f5fb2f0f03d1094c
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50961429"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51278324"
 ---
 # <a name="what-is-azure-diagnostics-extension"></a>Wat is Azure Diagnostics-extensie
 De Azure Diagnostics-extensie is een agent in Azure waarmee u het verzamelen van diagnostische gegevens op een geïmplementeerde toepassing. U kunt de extensie voor diagnostische gegevens gebruiken uit een aantal verschillende bronnen. Op dit moment ondersteund zijn Azure-Cloudservice (klassiek) Web- en werkrollen, virtuele Machines, Virtual Machine Scale sets en Service Fabric. Andere Azure-services hebben diagnostische gegevens van andere methoden. Zie [overzicht van de bewaking in Azure](../azure-monitor/overview.md).
@@ -60,7 +60,7 @@ Zie [versiegeschiedenis van Azure Diagnostics en het Schema](azure-diagnostics-s
 Kies welke service u wilt verzamelen van diagnostische gegevens op en gebruik de volgende artikelen aan de slag. Gebruik de algemene Azure diagnostics-koppelingen ter referentie voor specifieke taken.
 
 ## <a name="cloud-services-using-azure-diagnostics"></a>Cloudservices met Azure Diagnostics
-* Als u Visual Studio, Zie [Visual Studio gebruiken om een Cloud Services-toepassing](../vs-azure-tools-debug-cloud-services-virtual-machines.md) aan de slag. Raadpleegt u
+* Als u Visual Studio, Zie [Visual Studio gebruiken om een Cloud Services-toepassing](/visualstudio/azure/vs-azure-tools-debug-cloud-services-virtual-machines) aan de slag. Raadpleegt u
 * [Het bewaken van cloudservices met Azure Diagnostics](../cloud-services/cloud-services-how-to-monitor.md)
 * [Azure Diagnostics in een Cloud Services-toepassing instellen](../cloud-services/cloud-services-dotnet-diagnostics.md)
 
@@ -71,8 +71,8 @@ Zie voor meer geavanceerde onderwerpen
 * [PowerShell gebruiken voor het instellen van diagnostische gegevens op Cloud Services](../virtual-machines/extensions/diagnostics-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## <a name="virtual-machines"></a>Virtuele machines
-* Als u Visual Studio, Zie [Gebruik Visual Studio te traceren Azure Virtual Machines](../vs-azure-tools-debug-cloud-services-virtual-machines.md) aan de slag. Raadpleegt u
-* [Azure Diagnostics op een Azure-Machine instellen](../virtual-machines/virtual-machines-dotnet-diagnostics.md)
+* Als u Visual Studio, Zie [Gebruik Visual Studio te traceren Azure Virtual Machines](/visualstudio/azure/vs-azure-tools-debug-cloud-services-virtual-machines) aan de slag. Raadpleegt u
+* [Azure Diagnostics op een Azure-Machine instellen](/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines)
 
 Zie voor meer geavanceerde onderwerpen
 

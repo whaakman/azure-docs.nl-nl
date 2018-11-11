@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/16/2018
 ms.author: daveba
-ms.openlocfilehash: bdbe15a85ad4d2ef6918b7ab7e16942edde5096e
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 2f2f338f7c4ddb885bc909f49815783e616b94c8
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47220325"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300452"
 ---
 # <a name="create-list-delete-or-assign-a-role-to-a-user-assigned-managed-identity-using-the-azure-portal"></a>Maken, weergeven, verwijderen of een rol toewijzen aan een gebruiker toegewezen beheerde identiteit met Azure portal
 
@@ -33,11 +33,10 @@ In dit artikel leert u hoe u te maken, weergeven, verwijderen of een rol toewijz
 
 - Als u niet bekend met beheerde identiteiten voor Azure-resources bent, lees de [overzichtssectie](overview.md). **Lees de [verschil tussen een beheerde identiteit door het systeem is toegewezen en de gebruiker toegewezen](overview.md#how-does-it-work)**.
 - Als u nog geen Azure-account hebt, [registreer u dan voor een gratis account](https://azure.microsoft.com/free/) voordat u verdergaat.
-- Als u wilt de beheerbewerkingen in dit artikel uitvoert, moet uw account de volgende roltoewijzingen:
-    - [Beheerde identiteit Inzender](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) (lijst) rol te maken, lezen, bijwerken en verwijderen van een gebruiker toegewezen beheerde identiteit.
-    - [Beheerde identiteit Operator](/azure/role-based-access-control/built-in-roles#managed-identity-operator) rol te lezen (lijst) de eigenschappen van een gebruiker toegewezen beheerde identiteit.
 
 ## <a name="create-a-user-assigned-managed-identity"></a>Een door de gebruiker toegewezen beheerde identiteit maken
+
+Voor het maken van een gebruiker toegewezen beheerde identiteit, uw account moet de [beheerde identiteit Inzender](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) roltoewijzing.
 
 1. Aanmelden bij de [Azure-portal](https://portal.azure.com) met behulp van een account dat is gekoppeld aan het Azure-abonnement te maken van de gebruiker toegewezen beheerde identiteit.
 2. Typ in het zoekvak *beheerde identiteiten*, en klikt u onder **Services**, klikt u op **beheerde identiteiten**.
@@ -52,6 +51,8 @@ In dit artikel leert u hoe u te maken, weergeven, verwijderen of een rol toewijz
 
 ## <a name="list-user-assigned-managed-identities"></a>Lijst met door de gebruiker toegewezen identiteiten beheren
 
+Als u wilt lezen/lijst met een gebruiker toegewezen beheerde identiteit, uw account moet de [beheerde identiteit Operator](/azure/role-based-access-control/built-in-roles#managed-identity-operator) of [beheerde identiteit Inzender](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) roltoewijzing.
+
 1. Aanmelden bij de [Azure-portal](https://portal.azure.com) met behulp van een account dat is gekoppeld aan het Azure-abonnement om de beheerde gebruiker toegewezen identiteiten weer te geven.
 2. Typ in het zoekvak *beheerde identiteiten*, en klik onder Services op **beheerde identiteiten**.
 3. Een lijst van de gebruiker toegewezen beheerde identiteit voor uw abonnement wordt geretourneerd.  Aan de details van een gebruiker toegewezen beheerde identiteit klikt u op de naam ervan bekijken.
@@ -60,13 +61,17 @@ In dit artikel leert u hoe u te maken, weergeven, verwijderen of een rol toewijz
 
 ## <a name="delete-a-user-assigned-managed-identity"></a>Verwijderen van een gebruiker toegewezen beheerde identiteit
 
+Als u wilt verwijderen van een gebruiker toegewezen beheerde identiteit, uw account moet de [beheerde identiteit Inzender](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) roltoewijzing.
+
 1. Aanmelden bij de [Azure-portal](https://portal.azure.com) met behulp van een account dat is gekoppeld aan het Azure-abonnement te verwijderen van een gebruiker toegewezen beheerde identiteit.
 2. Selecteer de gebruiker toegewezen beheerde identiteit en klik op **verwijderen**.
 3. Kies in het bevestigingsvenster, **Ja**.
 
 ![Verwijderen van de gebruiker toegewezen beheerde identiteit](./media/how-to-manage-ua-identity-portal/delete-user-assigned-managed-identity-portal.png)
 
-## <a name="assign-a-role-to-a-user-assigned-managed-identity"></a>Een rol toewijzen aan een gebruiker toegewezen beheerde identiteit 
+## <a name="assign-a-role-to-a-user-assigned-managed-identity"></a>Een rol toewijzen aan een gebruiker toegewezen beheerde identiteit
+
+Als u wilt een rol toewijzen aan een gebruiker toegewezen beheerde identiteit, uw account moet de [Administrator voor gebruikerstoegang](/azure/role-based-access-control/built-in-roles#user-access-administrator) roltoewijzing.
 
 1. Aanmelden bij de [Azure-portal](https://portal.azure.com) met behulp van een account dat is gekoppeld aan het Azure-abonnement om de beheerde gebruiker toegewezen identiteiten weer te geven.
 2. Typ in het zoekvak *beheerde identiteiten*, en klik onder Services op **beheerde identiteiten**.

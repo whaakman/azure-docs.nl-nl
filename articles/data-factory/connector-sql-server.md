@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/12/2018
+ms.date: 11/08/2018
 ms.author: jingwang
-ms.openlocfilehash: b0e9f72bad685d569b4a09baecec8cebc33fefde
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: b528507d0f12cda72855db19aa28c7b06a4e26c1
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44717893"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51345204"
 ---
 # <a name="copy-data-to-and-from-sql-server-using-azure-data-factory"></a>Gegevens kopiëren naar en van SQL Server met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -119,7 +119,7 @@ Om gegevens te kopiëren van/naar SQL Server-database, stel de eigenschap type v
 | Eigenschap | Beschrijving | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type van de gegevensset moet worden ingesteld op: **SqlServerTable** | Ja |
-| tableName |De naam van de tabel of weergave in de SQL Server-exemplaar waarnaar de gekoppelde service verwijst. | Ja |
+| tableName |De naam van de tabel of weergave in de SQL Server-exemplaar waarnaar de gekoppelde service verwijst. | Nee voor bron, Ja voor sink |
 
 **Voorbeeld:**
 
@@ -159,7 +159,6 @@ Als u wilt kopiëren van gegevens uit SQL Server, stelt u het brontype in de kop
 
 - Als de **sqlReaderQuery** is opgegeven voor de SqlSource de Kopieeractiviteit deze query wordt uitgevoerd op basis van de SQL Server-bron, de gegevens op te halen. U kunt ook een opgeslagen procedure opgeven door op te geven de **sqlReaderStoredProcedureName** en **storedProcedureParameters** (als de opgeslagen procedure parameters zijn vereist).
 - Als u 'sqlReaderQuery' of 'sqlReaderStoredProcedureName' niet opgeeft, de kolommen die zijn gedefinieerd in de sectie "structuur" van de gegevensset JSON worden gebruikt om een query samen te stellen (`select column1, column2 from mytable`) op de SQL-Server uit te voeren. Als de definitie van de gegevensset geen 'de structuur', worden alle kolommen uit de tabel geselecteerd.
-- Bij het gebruik **sqlReaderStoredProcedureName**, moet u nog steeds om op te geven van een dummy **tableName** eigenschap in de gegevensset JSON.
 
 **Voorbeeld: met behulp van SQL-query**
 
@@ -489,7 +488,7 @@ Bij het kopiëren van gegevens van/naar SQL Server, worden de volgende toewijzin
 | binaire bestanden |Byte[] |
 | bits |Booleaans |
 | CHAR |Tekenreeks, Char] |
-| datum |DateTime |
+| date |DateTime |
 | Datum en tijd |DateTime |
 | datetime2 |DateTime |
 | Datetimeoffset |DateTimeOffset |

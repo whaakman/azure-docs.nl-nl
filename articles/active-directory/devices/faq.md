@@ -15,37 +15,17 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 72035c2f13f5a2a749feabbb26db5500f6c3fc0a
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 9402147e2dab7fbf52fc893f339f6f3b8e112377
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42058425"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515638"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Apparaatbeheer via Azure Active Directory Veelgestelde vragen
 
-**V: kan ik Android of iOS BYOD-apparaten registreren?**
-
-**A:** Ja, maar alleen bij Azure device registratieservice en voor hybride klanten. Het wordt niet ondersteund met on-premises device registratieservice in AD FS.
-
-**V: hoe kan ik een macOS-apparaat registreren?**
-
-**A:** om macOS-apparaat te registreren:
-
-1.  [Een nalevingsbeleid maken](https://docs.microsoft.com/intune/compliance-policy-create-mac-os)
-2.  [Definieer een beleid voor voorwaardelijke toegang voor macOS-apparaten](../active-directory-conditional-access-azure-portal.md) 
-
-**Opmerking:**
-
-- De gebruikers die zijn opgenomen in uw beleid voor voorwaardelijke toegang moeten een [een ondersteunde versie van Office voor Mac OS](../conditional-access/technical-reference.md#client-apps-condition) voor toegang tot resources. 
-
-- Uw gebruikers wordt gevraagd tijdens de eerste poging van de toegang tot het apparaat met behulp van de bedrijfsportal-App te registreren.
-
----
-
-**V: ik het apparaat recent geregistreerd. Waarom zie ik het apparaat niet onder Mijn gebruikersgegevens in Azure portal?**
-
-**A:** Windows 10-apparaten die zijn toegevoegd aan hybrid Azure AD, worden niet weergegeven bij de apparaten van de gebruiker.
+**V: ik het apparaat recent geregistreerd. Waarom zie ik het apparaat niet onder Mijn gebruikersgegevens in Azure portal? Of waarom is eigenaar van het apparaat gemarkeerd als N.V.T. voor hybride Azure AD gekoppelde apparaten? ** 
+ **A:** Windows 10-apparaten die zijn toegevoegd aan hybrid Azure AD, worden niet weergegeven bij de apparaten van de gebruiker.
 U moet alle apparaten weergeven in Azure portal gebruiken. U kunt ook PowerShell gebruiken [Get-MsolDevice](/powershell/module/msonline/get-msoldevice?view=azureadps-1.0) cmdlet.
 
 Alleen de volgende apparaten worden vermeld in de apparaten van de gebruiker:
@@ -58,12 +38,16 @@ Alleen de volgende apparaten worden vermeld in de apparaten van de gebruiker:
 
 **V: hoe weet ik wat de status van de apparaatregistratie van de client is?**
 
-**A:** u kunt de Azure-portal gebruiken, gaat u naar alle apparaten en zoeken naar het apparaat met behulp van apparaat-ID. Controleer de waarde onder de kolom van het type join.
-
-Als u controleren van de status van de lokale apparaatregistratie vanaf een geregistreerde apparaten wilt:
+**A:** u kunt de Azure-portal gebruiken, gaat u naar alle apparaten en zoeken naar het apparaat met behulp van apparaat-ID. Controleer de waarde onder de kolom van het type join. Soms, kan het apparaat zijn opnieuw instellen of opnieuw een installatiekopie gemaakt. Daarom is het essentieel dat ook de status van de apparaatregistratie op het apparaat te controleren:
 
 - Voor Windows 10 en Windows Server 2016 of hoger, voert u dsregcmd.exe status.
 - Voor eerdere versies van het besturingssysteem, voert u "%programFiles%\Microsoft werkplek Join\autoworkplace.exe"
+
+---
+
+**V: ik Zie de record van apparaat onder de gegevens van de gebruiker in Azure portal en ziet de status geregistreerd op het apparaat. Kom dat ik correct instellen voor het gebruik van voorwaardelijke toegang?**
+
+**A:** de apparaatstatus join, weergegeven in de apparaat-id, moet overeenkomen met die in Azure AD en voldoen aan de evaluatiecriteria van een voor voorwaardelijke toegang. Zie voor meer informatie, [vereisen beheerde apparaten voor toegang tot cloud-Apps met voorwaardelijke toegang](../conditional-access/require-managed-devices.md).
 
 ---
 
@@ -88,25 +72,6 @@ Voor versies van het eerdere Windows-besturingssysteem die zich on-premises AD-d
 3.  Typ `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /j"`.
 
 ---
-**V: hoe ik loskoppelen van een Azure AD join-apparaat lokaal op het apparaat?**
-
-**A:** 
-- Zorg dat u automatische inschrijving uitschakelen zodat de geplande taak het apparaat niet opnieuw registreren voor hybride Azure AD verbonden apparaten. Open vervolgens de opdrachtprompt als beheerder en typ `dsregcmd.exe /debug /leave`. U kunt ook worden deze opdracht uitgevoerd als een script op meerdere apparaten bulksgewijs loskoppelen.
-
-- Voor pure Azure AD verbonden apparaten, zorg ervoor dat u hebt een offline lokale administrator-account of maak een, kunt u zich niet aanmelden met de referenties van een Azure AD-gebruiker. Ga vervolgens naar **instellingen** > **Accounts** > **toegang tot werk of School**. Selecteer uw account en klik op **verbinding verbreken**. Volg de aanwijzingen en geef de referenties van de lokale beheerder wanneer hierom wordt gevraagd. Start opnieuw op het apparaat om het loskoppelen-proces te voltooien.
-
----
-
-**V: Mijn gebruikers kunnen niet zoeken naar printers uit Azure AD verbonden apparaten. Hoe kan ik afdrukken vanuit Azure AD Joined-apparaten inschakelen?**
-
-**A:** voor het implementeren van printers voor Azure AD verbonden apparaten, Zie [hybride cloud print](https://docs.microsoft.com/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy). U moet een Windows-Server on-premises implementatie van hybride cloud print. Afdrukservice cloud-gebaseerd is op dit moment niet beschikbaar. 
-
----
-
-**V: hoe maak ik verbinding met een externe Azure Active Directory toegevoegd apparaat? ** 
- **A:** Raadpleeg het artikel https://docs.microsoft.com/windows/client-management/connect-to-remote-aadj-pc voor meer informatie.
-
----
 
 **V: Waarom zie ik dubbele apparaatvermeldingen in Azure portal?**
 
@@ -128,7 +93,27 @@ Voor versies van het eerdere Windows-besturingssysteem die zich on-premises AD-d
 
 >[!Note] 
 >Voor ingeschreven apparaten, wordt u aangeraden wissen van het apparaat om ervoor te zorgen dat gebruikers geen toegang heeft tot de resources. Zie voor meer informatie, [apparaten inschrijven voor beheer in Intune](https://docs.microsoft.com/intune/deploy-use/enroll-devices-in-microsoft-intune). 
+---
 
+# <a name="azure-ad-join-faq"></a>Veelgestelde vragen over Azure AD Join
+
+**V: hoe ik loskoppelen van een Azure AD join-apparaat lokaal op het apparaat?**
+
+**A:** 
+- Zorg dat u automatische inschrijving uitschakelen zodat de geplande taak het apparaat niet opnieuw registreren voor hybride Azure AD verbonden apparaten. Open vervolgens de opdrachtprompt als beheerder en typ `dsregcmd.exe /debug /leave`. U kunt ook worden deze opdracht uitgevoerd als een script op meerdere apparaten bulksgewijs loskoppelen.
+
+- Voor pure Azure AD verbonden apparaten, zorg ervoor dat u hebt een offline lokale administrator-account of maak een, kunt u zich niet aanmelden met de referenties van een Azure AD-gebruiker. Ga vervolgens naar **instellingen** > **Accounts** > **toegang tot werk of School**. Selecteer uw account en klik op **verbinding verbreken**. Volg de aanwijzingen en geef de referenties van de lokale beheerder wanneer hierom wordt gevraagd. Start opnieuw op het apparaat om het loskoppelen-proces te voltooien.
+
+---
+
+**V: Mijn gebruikers kunnen niet zoeken naar printers uit Azure AD verbonden apparaten. Hoe kan ik afdrukken vanuit Azure AD Joined-apparaten inschakelen?**
+
+**A:** voor het implementeren van printers voor Azure AD verbonden apparaten, Zie [hybride cloud print](https://docs.microsoft.com/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy). U moet een Windows-Server on-premises implementatie van hybride cloud print. Afdrukservice cloud-gebaseerd is op dit moment niet beschikbaar. 
+
+---
+
+**V: hoe maak ik verbinding met een externe Azure Active Directory toegevoegd apparaat? ** 
+ **A:** Raadpleeg het artikel https://docs.microsoft.com/windows/client-management/connect-to-remote-aadj-pc voor meer informatie.
 
 ---
 
@@ -144,12 +129,6 @@ Voor versies van het eerdere Windows-besturingssysteem die zich on-premises AD-d
 
 ---
 
-**V: ik Zie de record van apparaat onder de gegevens van de gebruiker in Azure portal en ziet de status geregistreerd op het apparaat. Kom dat ik correct instellen voor het gebruik van voorwaardelijke toegang?**
-
-**A:** de apparaatstatus join, weergegeven in de apparaat-id, moet overeenkomen met die in Azure AD en voldoen aan de evaluatiecriteria van een voor voorwaardelijke toegang. Zie voor meer informatie, [vereisen beheerde apparaten voor toegang tot cloud-Apps met voorwaardelijke toegang](../conditional-access/require-managed-devices.md).
-
----
-
 **V: Waarom krijg ik een bericht 'gebruikersnaam of wachtwoord is onjuist' voor een apparaat dat ik net hebt toegevoegd aan Azure AD?**
 
 **A:** veelvoorkomende redenen waarom voor dit scenario zijn:
@@ -158,7 +137,7 @@ Voor versies van het eerdere Windows-besturingssysteem die zich on-premises AD-d
 
 - Uw computer staat kan niet communiceren met Azure Active Directory. Controleer of eventuele problemen met de netwerkverbinding.
 
-- Federatieve aanmelding is vereist voor uw federation-server voor de ondersteuning van een actieve WS-Trust-eindpunt. 
+- Federatieve aanmelding is vereist voor de federation-server voor de ondersteuning van WS-Trust-eindpunten en die toegankelijk zijn. 
 
 - U kunt Pass through-verificatie hebt ingeschakeld en de gebruiker heeft een tijdelijk wachtwoord dat moet worden gewijzigd bij de aanmelding.
 
@@ -170,14 +149,15 @@ Voor versies van het eerdere Windows-besturingssysteem die zich on-premises AD-d
 
 ---
 
-**V: Waarom is mijn poging voor deelname aan een PC mislukt maar ik heb foutgegevens niet ontvangen?**
+**V: waarom mijn poging tot het Azure AD join een PC is mislukt maar ik heb foutgegevens niet ontvangen?**
 
 **A:** een waarschijnlijke oorzaak is dat de gebruiker is aangemeld bij het apparaat met behulp van het ingebouwde lokale beheerdersaccount. Maak een andere lokale account voordat u Azure Active Directory Join gebruikt om de installatie te voltooien. 
 
-
 ---
 
-**V: waar vind ik het oplossen van informatie over de automatische apparaatregistratie?**
+# <a name="hybrid-azure-ad-join-faq"></a>Veelgestelde vragen over de hybride Azure AD Join
+
+**V: waar vind ik het oplossen van informatie voor het vaststellen van hybride Azure AD join fouten?**
 
 **A:** voor informatie over probleemoplossing, Zie:
 
@@ -188,3 +168,23 @@ Voor versies van het eerdere Windows-besturingssysteem die zich on-premises AD-d
 
 ---
 
+# <a name="azure-ad-register-faq"></a>Veelgestelde vragen over Azure AD registreren
+
+**V: kan ik Android of iOS BYOD-apparaten registreren?**
+
+**A:** Ja, maar alleen bij Azure device registratieservice en voor hybride klanten. Het wordt niet ondersteund met on-premises device registratieservice in AD FS.
+
+**V: hoe kan ik een macOS-apparaat registreren?**
+
+**A:** om macOS-apparaat te registreren:
+
+1.  [Een nalevingsbeleid maken](https://docs.microsoft.com/intune/compliance-policy-create-mac-os)
+2.  [Definieer een beleid voor voorwaardelijke toegang voor macOS-apparaten](../active-directory-conditional-access-azure-portal.md) 
+
+**Opmerking:**
+
+- De gebruikers die zijn opgenomen in uw beleid voor voorwaardelijke toegang moeten een [een ondersteunde versie van Office voor Mac OS](../conditional-access/technical-reference.md#client-apps-condition) voor toegang tot resources. 
+
+- Uw gebruikers wordt gevraagd tijdens de eerste poging van de toegang tot het apparaat met behulp van de bedrijfsportal-App te registreren.
+
+---

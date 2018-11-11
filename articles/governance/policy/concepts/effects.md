@@ -4,40 +4,46 @@ description: Azure Policy definition hebben verschillende effecten die bepalen h
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 10/30/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 54562401c830232d0a4bf90405cc5a2dbedcd8bc
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 4668b1fe6e59898d81fc71558e21acd1a89be767
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47055965"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51279489"
 ---
-# <a name="understand-policy-effects"></a>Gevolgen van beleid begrijpen
+# <a name="understand-policy-effects"></a>Inzicht in de effecten van het beleid
 
 Elke beleidsdefinitie in Azure Policy is één effect waarmee wordt bepaald wat er gebeurt tijdens het scannen van wanneer de **als** segment van de beleidsregel wordt geëvalueerd, zodat deze overeenkomt met de resource wordt gescand. De gevolgen kunnen ook zich anders gedragen als ze voor een nieuwe resource, een bijgewerkte resource of een bestaande resource zijn.
 
-Er zijn vijf effecten die in de beleidsdefinitie van een worden ondersteund:
+Er zijn momenteel zes effecten die in de beleidsdefinitie van een worden ondersteund:
 
 - Toevoegen
 - Controleren
 - AuditIfNotExists
 - Weigeren
 - DeployIfNotExists
+- Uitgeschakeld
 
 ## <a name="order-of-evaluation"></a>Volgorde van de evaluatie
 
 Wanneer een aanvraag maken of bijwerken van een resource via Azure Resource Manager wordt gedaan, wordt beleid verwerkt meerdere van de gevolgen voorafgaand aan de aanvraag toekent aan de juiste Resource Provider.
 Zo voorkomt u dat overbodige verwerkingstijd door een Resourceprovider als een resource niet aan de besturingselementen ontworpen governance van beleid voldoet. Beleid maakt een lijst met alle beleidsdefinities toegewezen, door een beleid of een initiatieftoewijzing, die door een bereik (min uitsluitingen) van toepassing op de resource en bereidt het evalueren van de resource op basis van elke definitie.
 
-- **Toevoeg-** wordt eerst geëvalueerd. Aangezien toevoegen kan de aanvraag wijzigen, een wijziging aangebracht door toevoegen mogelijk te voorkomen dat een controle of effect van het triggeren van weigeren.
+- **Uitgeschakelde** wordt eerst gecontroleerd om te bepalen als de beleidsregel moet worden geëvalueerd.
+- **Toevoeg-** wordt vervolgens geëvalueerd. Aangezien toevoegen kan de aanvraag wijzigen, een wijziging aangebracht door toevoegen mogelijk te voorkomen dat een controle of effect van het triggeren van weigeren.
 - **Weigeren** wordt vervolgens geëvalueerd. Weigeren voordat controleren, dubbele logboekregistratie van een resource die ongewenst is voorkomen door te evalueren.
 - **Audit** wordt vervolgens geëvalueerd vóór de aanvraag naar de Resource Provider.
 
 Zodra de aanvraag wordt geleverd bij de Resourceprovider en de Resource Provider een code van de status geslaagd retourneert **AuditIfNotExists** en **DeployIfNotExists** worden geëvalueerd om te bepalen of follow-up naleving-logboekregistratie of actie is vereist.
+
+## <a name="disabled"></a>Uitgeschakeld
+
+Dit effect is handig voor het testen van situaties en wanneer het effect heeft parameters in de beleidsdefinitie. Deze wordt mogelijk een één toewijzing van dit beleid uitschakelen door het wijzigen van de parameter toewijzing van het effect in plaats van alle toewijzingen van het beleid uit te schakelen.
 
 ## <a name="append"></a>Toevoegen
 

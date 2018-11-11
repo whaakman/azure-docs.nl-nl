@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/17/2018
 ms.author: miradic
-ms.openlocfilehash: 1bee48225448a964da7caa2a7b284b274c52bea6
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 8e57c071c9fd93a8581d574aeec2b23b38b3ab95
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50914053"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281651"
 ---
 # <a name="introduction-to-auto-scaling"></a>Inleiding tot automatisch schalen
 Automatisch schalen is een extra functie van Service Fabric voor het dynamisch schalen van uw services op basis van de belasting van services rapporteren of op basis van hun gebruik van resources. Automatisch schalen biedt grote flexibiliteit en inrichting van extra exemplaren of partities van de service op aanvraag. De gehele functie voor automatisch schalen van proces is automatisch en transparant en zodra het instellen van uw beleid voor een service is niet nodig voor handmatige vergroten / verkleinen op het serviceniveau van de. Automatisch schalen kan worden ingeschakeld tijdens de aanmaak van de service of op elk gewenst moment door het bijwerken van de service.
@@ -28,7 +28,9 @@ Een veelvoorkomend scenario waarbij automatisch schalen nuttig is is wanneer de 
 * Als alle exemplaren van de gateway met meer dan twee cores gemiddeld, schaalt u de gateway-service uit door één exemplaar van de meer toe te voegen. Hiervoor elk uur, maar er nooit meer dan zeven exemplaren in totaal.
 * Als alle exemplaren van de gateway met minder dan 0,5 kernen gemiddeld, schaalt u de service in door het verwijderen van één exemplaar. Hiervoor elk uur, maar minder dan drie exemplaren nooit in totaal hebben.
 
-Automatisch schalen wordt ondersteund voor containers en reguliere Service Fabric-services. De rest van dit artikel beschrijft de schaalbeleid is, manieren om te schakelen of om uit te schakelen automatisch schalen, en worden voorbeelden gegeven van hoe u deze functie wilt gebruiken.
+Automatisch schalen wordt ondersteund voor containers en reguliere Service Fabric-services. Als u wilt gebruiken voor automatisch schalen, moet u worden uitgevoerd op versie 6.2 of hoger van de Service Fabric-runtime. 
+
+De rest van dit artikel beschrijft de schaalbeleid is, manieren om te schakelen of om uit te schakelen automatisch schalen, en worden voorbeelden gegeven van hoe u deze functie wilt gebruiken.
 
 ## <a name="describing-auto-scaling"></a>Met een beschrijving van automatisch schalen
 Functie voor automatisch schalen van beleid kan worden gedefinieerd voor elke service in een Service Fabric-cluster. Elk beleid voor vergroten/verkleinen bestaat uit twee onderdelen:
@@ -41,7 +43,7 @@ Alle triggers die momenteel worden ondersteund werken met [logische meetwaarden]
 Er zijn twee methoden die momenteel worden ondersteund voor automatisch schalen. Het eerste item is bedoeld voor stateless services of voor containers wanneer automatisch schalen wordt uitgevoerd door het toevoegen of verwijderen van [exemplaren](service-fabric-concepts-replica-lifecycle.md). Stateful en stateless services, automatisch schalen kan ook worden uitgevoerd door toe te voegen of te verwijderen met de naam [partities](service-fabric-concepts-partitioning.md) van de service.
 
 > [!NOTE]
-> Er is momenteel ondersteuning voor slechts één schaalbeleid per service en slechts één vergroten/verkleinen trigger per beleid.
+> Er is momenteel ondersteuning voor slechts één schaalbeleid per service en slechts één vergroten/verkleinen trigger per schaalbeleid.
 
 ## <a name="average-partition-load-trigger-with-instance-based-scaling"></a>Gemiddelde partitie load trigger met schalen op basis van exemplaar
 Het eerste type van de trigger is gebaseerd op de belasting van de exemplaren in een servicepartitie stateless. Metrische gegevens geladen worden eerst geëffend om op te halen van de belasting voor elk exemplaar van een partitie en vervolgens deze waarden zijn gemiddeld over alle exemplaren van de partitie. Er zijn drie factoren die bepalen wanneer de service wordt aangepast:

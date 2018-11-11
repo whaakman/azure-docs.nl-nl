@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/07/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 2bee2211846125e47ab8e8e7638f388bd819e5b4
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: 0b40b8018715e6b680f42676dfaead0ac6e5bf7a
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300877"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51279140"
 ---
 # <a name="azure-stack-1808-update"></a>Azure Stack 1808 update
 
@@ -253,7 +253,7 @@ Hier volgen na de installatie bekende problemen voor deze buildversie.
 
 ### <a name="compute"></a>Compute
 
-<!-- 3164607 – IS, ASDK -->
+<!-- TBD – IS, ASDK -->
 - Nadat een losgekoppelde schijf aan de dezelfde virtuele machine (VM) met dezelfde naam en LUN mislukt met foutmelding zoals **gegevens schijf 'datadisk' niet koppelen aan virtuele machine 'vm1'**. De fout treedt op omdat de schijf momenteel wordt losgekoppeld of de laatste koppelingsbewerking is mislukt. Wacht totdat de schijf volledig is losgekoppeld en vervolgens opnieuw of verwijderen/loskoppelen van de schijf expliciet opnieuw. De oplossing is om te koppelen met een andere naam of op een andere logische eenheid. 
 
 <!-- 3099544 – IS, ASDK --> 

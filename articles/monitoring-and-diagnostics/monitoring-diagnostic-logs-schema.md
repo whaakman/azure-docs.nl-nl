@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 10/11/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: 17efbfffde68208b76120d449f4e1d70e843fc7d
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 035b12c85720817501da9f4ad580aa8e7da8fdc4
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50914342"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51280508"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Ondersteunde services, schema's en categorieën voor diagnostische logboeken van Azure
 
@@ -47,7 +47,7 @@ Het schema voor diagnostische logboeken van resources, is afhankelijk van de cat
 
 | Service | Schema en documenten |
 | --- | --- |
-| Azure Active Directory | [Overzicht](../active-directory/reports-monitoring/overview-activity-logs-in-azure-monitor.md), [Audit log schema](../active-directory/reports-monitoring/reference-azure-monitor-audit-log-schema.md) en [aanmeldingen schema](../active-directory/reports-monitoring/reference-azure-monitor-sign-ins-log-schema.md) |
+| Azure Active Directory | [Overzicht](../active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md), [Audit log schema](../active-directory/reports-monitoring/reference-azure-monitor-audit-log-schema.md) en [aanmeldingen schema](../active-directory/reports-monitoring/reference-azure-monitor-sign-ins-log-schema.md) |
 | Analysis Services | https://azure.microsoft.com/blog/azure-analysis-services-integration-with-azure-diagnostic-logs/ |
 | API Management | [Diagnostische logboeken van API Management](../api-management/api-management-howto-use-azure-monitor.md#diagnostic-logs) |
 | Toepassingsgateways |[Diagnostische logboekregistratie voor Application Gateway](../application-gateway/application-gateway-diagnostics.md) |

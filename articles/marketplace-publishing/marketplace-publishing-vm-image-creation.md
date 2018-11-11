@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio; v-divte
-ms.openlocfilehash: 2a3c317dc9abdb861a007be9aaed714089e9f453
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 2ec758d9457b75cd7e5f6f29757d3201f3a6d62e
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49388191"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283475"
 ---
 # <a name="guide-to-create-a-virtual-machine-image-for-the-azure-marketplace"></a>Handleiding voor het maken van een VM-installatiekopie voor de Azure Marketplace
 In dit artikel **stap 2**, helpt u bij het voorbereiden van de virtuele harde schijven (VHD's) dat u op Azure Marketplace implementeren wilt. Uw VHD's vormen de basis van uw SKU. Het proces verschilt, afhankelijk van of u een SKU op basis van Linux of Windows is gebaseerd. In dit artikel bevat informatie over beide scenario's. Dit proces kan worden uitgevoerd in combinatie met [van accountaanmaking en registratie][link-acct-creation].
@@ -148,11 +148,11 @@ Als u wilt een bestand met een extern bureaublad downloaden naar een lokale comp
 
         Get‐AzureRemoteDesktopFile ‐ServiceName “baseimagevm‐6820cq00” ‐Name “BaseImageVM” –LocalPath “C:\Users\Administrator\Desktop\BaseImageVM.rdp”
 
-Meer informatie over RDP kan worden gevonden op MSDN in het artikel [verbinding maken met een Azure-VM met RDP of SSH](http://msdn.microsoft.com/library/azure/dn535788.aspx).
+Meer informatie over RDP kan worden gevonden op MSDN in het artikel [verbinding maken met een Azure-VM met RDP of SSH](https://msdn.microsoft.com/library/azure/dn535788.aspx).
 
 **Een virtuele machine configureren en uw SKU maken**
 
-Nadat het besturingssysteem dat de VHD is gedownload, gebruikt u Hyper-v en configureert u een VM om te beginnen met het maken van uw SKU. Gedetailleerde stappen kunnen u vinden op de volgende TechNet-koppeling: [Hyper-v installeren en configureren van een virtuele machine](http://technet.microsoft.com/library/hh846766.aspx).
+Nadat het besturingssysteem dat de VHD is gedownload, gebruikt u Hyper-v en configureert u een VM om te beginnen met het maken van uw SKU. Gedetailleerde stappen kunnen u vinden op de volgende TechNet-koppeling: [Hyper-v installeren en configureren van een virtuele machine](https://technet.microsoft.com/library/hh846766.aspx).
 
 ### <a name="34-choose-the-correct-vhd-size"></a>3.4 de juiste VHD-grootte kiezen
 Het Windows-besturingssysteem VHD in uw VM-installatiekopie moet worden gemaakt als een VHD met vaste indeling van 128 GB.  
@@ -191,7 +191,7 @@ Voor meer informatie over VM-installatiekopieën, controleert u de volgende blog
 
 ### <a name="set-up-the-necessary-tools-powershell-and-azure-classic-cli"></a>De benodigde hulpprogramma's, PowerShell en Azure klassieke CLI instellen
 * [Het instellen van PowerShell](/powershell/azure/overview)
-* [Het instellen van Azure classic CLI](../cli-install-nodejs.md)
+* [Het instellen van Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)
 
 ### <a name="41-create-a-user-vm-image"></a>4.1 de VM-installatiekopie van een gebruiker maken
 #### <a name="capture-vm"></a>Virtuele machine vastleggen
@@ -427,63 +427,45 @@ Hieronder vindt u instructies voor het genereren van SAS-URL met behulp van Micr
 
 11. Herhaal deze stappen voor elke VHD in de SKU.
 
-**Azure klassieke CLI (aanbevolen voor niet-Windows & continue integratie)**
+**Azure CLI 2.0 (aanbevolen voor niet-Windows & continue integratie)**
 
 Hieronder vindt u instructies voor het genereren van SAS-URL met behulp van Azure classic CLI
 
 [!INCLUDE [outdated-cli-content](../../includes/contains-classic-cli-content.md)]
 
-1.  Downloaden van de klassieke Azure CLI uit [hier](https://azure.microsoft.com/documentation/articles/xplat-cli-install/). U vindt hier ook koppelingen naar de andere **[Windows](http://aka.ms/webpi-azure-cli)** en  **[MAC OS](http://aka.ms/mac-azure-cli)**.
+1.  Downloaden van Microsoft Azure CLI uit [hier](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). U vindt hier ook koppelingen naar de andere **[Windows](https://docs.microsoft.com/cli/azure/install-azure-cli-windows?view=azure-cli-latest)** en  **[MAC OS](https://docs.microsoft.com/cli/azure/install-azure-cli-macos?view=azure-cli-latest)**.
 
 2.  Zodra de App is gedownload, geïnstalleerd.
 
-3.  Maak een PowerShell-(of andere uitvoerbare bestand van het script) bestand met de volgende code en lokaal opslaan
+3.  Maak een Bash-(of andere uitvoerbare gelijkwaardige script) bestand met de volgende code en lokaal opslaan
 
-          $conn="DefaultEndpointsProtocol=https;AccountName=<StorageAccountName>;AccountKey=<Storage Account Key>"
-          azure storage container list vhds -c $conn
-          azure storage container sas create vhds rl <Permission End Date> -c $conn --start <Permission Start Date>  
+        export AZURE_STORAGE_ACCOUNT=<Storage Account Name>
+        EXPIRY=$(date -d "3 weeks" '+%Y-%m-%dT%H:%MZ')
+        CONTAINER_SAS=$(az storage container generate-sas --account-name -n vhds --permissions rl --expiry $EXPIRY -otsv)
+        BLOB_URL=$(az storage blob url -c vhds -n <VHD Blob Name> -otsv)
+        echo $BLOB_URL\?$CONTAINER_SAS
 
     Werk de volgende parameters in bovenstaande
 
-    a. **`<StorageAccountName>`**: Geef de naam van uw opslagaccount
+    a. **`<Storage Account Name>`**: Geef de naam van uw opslagaccount
 
-    b. **`<Storage Account Key>`**: Geef de sleutel van uw opslagaccount
+    b. **`<VHD Blob Name>`**: Geef de naam van uw VHD-blob.
 
-    c. **`<Permission Start Date>`**: Als u wilt beveiligen voor UTC-tijd, de dag vóór de huidige datum te selecteren. Bijvoorbeeld, als de huidige datum 26 oktober 2016 is waarde dan 25-10-2016. Als u Azure CLI versie 2.0 of hoger gebruikt, geeft u zowel de datum en tijd in de begin- en einddatums, bijvoorbeeld: 10-25-2016T00:00:00Z.
+    Selecteer een datum die ten minste drie weken na de begindatum (standaard ingesteld op de tijd van genereren van sas-token). Een voorbeeldwaarde is: **2018-10-11T23:56Z**.
 
-    d. **`<Permission End Date>`**: Selecteer een datum die ten minste drie weken na de **begindatum**. De waarde moet **02-11-2016**. Als u Azure CLI versie 2.0 of hoger gebruikt, geeft u zowel de datum en tijd in de begin- en einddatums, bijvoorbeeld: 11-02-2016T00:00:00Z.
+    Hieronder volgt de voorbeeldcode na het bijwerken van de juiste parameters exporteren AZURE_STORAGE_ACCOUNT = vhdstorage1ba78dfb6bc2d8 VERLOPEN = $(-d "3 weken" datum + %Y-%m-% dT % H: % MZ) CONTAINER_SAS = $(az storage container genereren van sas - n VHD's--machtigingen rl--verstrijken $ VERVALLEN - otsv) BLOB_URL = $(az storage blob url - c VHD's - n osdisk_1ba78dfb6b.vhd - otsv) $BLOB_URL echo\?$CONTAINER_SAS
 
-    Hieronder volgt de voorbeeldcode na het bijwerken van de juiste parameters
+4.  Voer het script uit en biedt u de SAS-URL voor het toegangsniveau van de container.
 
-          $conn="DefaultEndpointsProtocol=https;AccountName=st20151;AccountKey=TIQE5QWMKHpT5q2VnF1bb+NUV7NVMY2xmzVx1rdgIVsw7h0pcI5nMM6+DVFO65i4bQevx21dmrflA91r0Vh2Yw=="
-          azure storage container list vhds -c $conn
-          azure storage container sas create vhds rl 11/02/2016 -c $conn --start 10/25/2016  
-
-4.  Powershell-editor openen met 'Als Administrator uitvoeren'-modus en bestand openen in stap #3. U kunt een scripteditor die beschikbaar is op uw besturingssysteem.
-
-5.  Voer het script uit en biedt u de SAS-URL voor het toegangsniveau van de container
-
-    Hieronder wordt de uitvoer van de SAS-handtekening en kopieer het gemarkeerde gedeelte in Kladblok
-
-    ![tekenen](media/marketplace-publishing-vm-image-creation/img5.2_16.png)
-
-6.  Nu krijgt u het niveau van container SAS-URL en moet u de naam van de VHD toevoegen in het.
-
-    Niveau SAS-URL voor container #
-
-    `https://st20151.blob.core.windows.net/vhds?st=2016-10-25T07%3A00%3A00Z&se=2016-11-02T07%3A00%3A00Z&sp=rl&sv=2015-12-11&sr=c&sig=wnEw9RfVKeSmVgqDfsDvC9IHhis4x0fc9Hu%2FW4yvBxk%3D`
-
-7.  De naam van de VHD invoegen na de containernaam van de in het SAS-URL, zoals hieronder wordt weergegeven `https://st20151.blob.core.windows.net/vhds/<VHDName>?st=2016-10-25T07%3A00%3A00Z&se=2016-11-02T07%3A00%3A00Z&sp=rl&sv=2015-12-11&sr=c&sig=wnEw9RfVKeSmVgqDfsDvC9IHhis4x0fc9Hu%2FW4yvBxk%3D`
-
-    Voorbeeld:
-
-    TestRGVM201631920152.vhd is de naam van de VHD en vervolgens VHD SAS-URL
-
-    `https://st20151.blob.core.windows.net/vhds/ TestRGVM201631920152.vhd?st=2016-10-25T07%3A00%3A00Z&se=2016-11-02T07%3A00%3A00Z&sp=rl&sv=2015-12-11&sr=c&sig=wnEw9RfVKeSmVgqDfsDvC9IHhis4x0fc9Hu%2FW4yvBxk%3D`
+5.  Controleer uw SAS-URL.
 
     - Zorg ervoor dat uw installatiekopie-bestand met de naam en '.vhd' zich in de URI.
     -   Controleer in het midden van de handtekening, "sp rl =" wordt weergegeven. Dit toont aan dat toegang voor lezen en de lijst met succes is opgegeven.
     -   Controleer in het midden van de handtekening, "sr = c ' wordt weergegeven. Dit toont aan dat u toegang tot de container niveau hebt
+
+    Voorbeeld:
+
+    `https://vhdstorage1ba78dfb6bc2d8.blob.core.windows.net/vhds/osdisk_1ba78dfb6b.vhd?se=2018-10-12T00%3A04Z&sp=rl&sv=2018-03-28&sr=c&sig=...`
 
 8.  Om ervoor te zorgen dat de gegenereerde shared access signature-URI werkt, moet u deze in de browser testen. Het downloadproces moet worden gestart
 

@@ -1,6 +1,6 @@
 ---
 title: Een Machine Learning Studio-werkruimte maken | Microsoft Docs
-description: Het maken van een werkruimte voor Azure Machine Learning Studio
+description: Een werkruimte maken voor Azure Machine Learning Studio
 services: machine-learning
 author: heatherbshapiro
 ms.author: hshapiro
@@ -12,48 +12,45 @@ ms.component: studio
 ms.workload: data-services
 ms.topic: article
 ms.date: 12/07/2017
-ms.openlocfilehash: 94502cbb0946ad1568cf33716480406b17fd57ac
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 19cbb27221bfb95a0900eb7a604e540cb066037e
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34833951"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51345552"
 ---
 # <a name="create-and-share-an-azure-machine-learning-workspace"></a>Een Azure Machine Learning-werkruimte maken en delen
-Dit menukoppelingen naar onderwerpen waarin wordt beschreven hoe u de verschillende gegevens wetenschappelijke omgevingen gebruikt door de Cortana Analytics proces (CAP's).
 
-[!INCLUDE [data-science-environment-setup](../../../includes/cap-setup-environments.md)]
-
-U moet een Machine Learning-werkruimte hebt voor het gebruik van Azure Machine Learning Studio. Deze werkruimte bevat de hulpprogramma's die u nodig hebt om experimenten te maken, beheren en publiceren.
+Voor het gebruik van Azure Machine Learning Studio, moet u een Machine Learning Studio-werkruimte. Deze werkruimte bevat de hulpprogramma's die u nodig hebt om experimenten te maken, beheren en publiceren.
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
-### <a name="to-create-a-workspace"></a>Om een werkruimte te maken
-1. Aanmelden bij de [Azure-portal](https://portal.azure.com/)
+### <a name="to-create-a-workspace"></a>Een werkruimte maken
+1. Meld u aan bij [Azure Portal](https://portal.azure.com/)
 
     > [!NOTE]
-    > Als u wilt aanmelden en een werkruimte maken, moet u Azure-abonnementbeheerder. 
+    > Meld u aan en een werkruimte maken, moet u een beheerder zijn Azure-abonnement. 
     >
     > 
 
-2. Klik op **+ nieuw**
+2. Klik op **+ nieuwe**
 
-3. Typ in het zoekvak **Machine Learning Studio-werkruimte** en selecteer het overeenkomende item. Selecteer Klik **maken** aan de onderkant van de pagina.
+3. Typ in het zoekvak **Machine Learning Studio-werkruimte** en selecteert u het bijbehorende item. Selecteer klikt u vervolgens **maken** aan de onderkant van de pagina.
 
-4. Voer de werkruimtegegevens van uw:
+4. Voer uw werkruimte:
 
-    - De *Werkruimtenaam* mogelijk maximaal 260 tekens lang zijn, niet eindigen met een spatie. De naam kan niet deze tekens niet bevatten: `< > * % & : \ ? + /`
-    - De *web service-abonnement* u kiest (of maken), samen met de bijbehorende *prijscategorie* u selecteert, wordt gebruikt als u web-services uit deze werkruimte implementeert.
+    - De *Werkruimtenaam* mogelijk maximaal 260 tekens bevatten, niet eindigen op een spatie. De naam kan niet deze tekens niet bevatten: `< > * % & : \ ? + /`
+    - De *web service-plan* u kiest u (of maak), samen met de bijbehorende *prijscategorie* u selecteert, wordt gebruikt als u deze werkruimte-webservices implementeren.
 
-    ![Maak een nieuwe werkruimte](./media/create-workspace/create-new-workspace.png)
+    ![Een nieuwe werkruimte maken](./media/create-workspace/create-new-workspace.png)
 
 5. Klik op **Create**.
 
-Zodra de werkruimte is geïmplementeerd, kunt u deze kunt openen in Machine Learning Studio.
+Nadat de werkruimte is geïmplementeerd, kunt u deze kunt openen in Machine Learning Studio.
 
-1. Blader naar Machine Learning Studio [ https://studio.azureml.net/ ](https://studio.azureml.net/).
+1. Blader naar de Machine Learning Studio [ https://studio.azureml.net/ ](https://studio.azureml.net/).
 
-2. Selecteer uw werkruimte in de bovenste--rechterhoek.
+2. Selecteer uw werkruimte in de rechterbovenhoek rechterkant te klikken.
 
     ![Werkruimte selecteren](./media/create-workspace/open-workspace.png)
 
@@ -61,24 +58,24 @@ Zodra de werkruimte is geïmplementeerd, kunt u deze kunt openen in Machine Lear
 
     ![Open experimenten](./media/create-workspace/my-experiments.png)
 
-Zie voor meer informatie over het beheren van uw werkruimte [beheren van een Azure Machine Learning-werkruimte](manage-workspace.md).
-Als er een probleem bij het maken van uw werkruimte optreden, Raadpleeg [Troubleshooting guide: maken en verbinding maken met een Machine Learning-werkruimte](troubleshooting-creating-ml-workspace.md).
+Zie voor meer informatie over het beheren van uw werkruimte [een Azure Machine Learning-werkruimte beheren](manage-workspace.md).
+Als er een probleem opgetreden bij het maken van uw werkruimte, Zie [Troubleshooting guide: maken en verbinding maken met een Machine Learning-werkruimte](troubleshooting-creating-ml-workspace.md).
 
 
 ## <a name="sharing-an-azure-machine-learning-workspace"></a>Delen van een Azure Machine Learning-werkruimte
-Eenmaal een Machine Learning-werkruimte is gemaakt, kunt u gebruikers uitnodigen naar de werkruimte voor het delen van toegang tot uw werkruimte en alle bijbehorende experimenten, gegevenssets, laptops, enzovoort. U kunt gebruikers toevoegen in een van twee functies:
+Wanneer een Machine Learning-werkruimte is gemaakt, kunt u gebruikers uitnodigen aan uw werkruimte voor het delen van toegang tot uw werkruimte en alle bijbehorende experimenten, gegevenssets, laptops, enzovoort. U kunt gebruikers toevoegen in een van twee rollen:
 
 * **Gebruiker** -werkruimte van een gebruiker kunt maken, openen, wijzigen en verwijderen van experimenten, gegevenssets, enz. in de werkruimte.
-* **Eigenaar** - eigenaar kunt uitnodigen en gebruikers in de werkruimte naast wat een gebruiker verwijderen kunnen doen.
+* **De eigenaar van** - eigenaar kunt uitnodigen en gebruikers in de werkruimte, behalve wat een gebruiker verwijderen kunnen doen.
 
 > [!NOTE]
-> De administrator-account dat wordt gemaakt van de werkruimte wordt automatisch toegevoegd aan de werkruimte als eigenaar-werkruimte. Echter andere beheerders of gebruikers in het desbetreffende abonnement worden niet automatisch toegang tot de werkruimte - moet u ze expliciet uitnodigen.
+> De administrator-account dat wordt gemaakt van de werkruimte wordt automatisch toegevoegd aan de werkruimte als werkruimte eigenaar. Echter andere beheerders of gebruikers in het desbetreffende abonnement worden niet automatisch toegang verleend tot de werkruimte - moet u ze expliciet uitnodigen.
 > 
 > 
 
 ### <a name="to-share-a-workspace"></a>Voor het delen van een werkruimte
 
-1. Aanmelden bij Machine Learning Studio [https://studio.azureml.net/Home](https://studio.azureml.net/Home)
+1. Meld u aan bij Machine Learning Studio [https://studio.azureml.net/Home](https://studio.azureml.net/Home)
 
 2. Klik in het linkerdeelvenster op **instellingen**
 
@@ -90,14 +87,14 @@ Eenmaal een Machine Learning-werkruimte is gemaakt, kunt u gebruikers uitnodigen
 
 5. Voer een of meer e-mailadressen. De gebruikers moeten een geldig Microsoft-account of een organisatie-account (van Azure Active Directory).
 
-6. Selecteer of u wilt de gebruikers toevoegen als eigenaar of gebruiker.
+6. Selecteer of u wilt dat de gebruikers toevoegen als eigenaar of gebruiker.
 
 7. Klik op de **OK** vinkje knop.
 
-Elke gebruiker die u toevoegt, ontvangt een e-mail met instructies voor het aanmelden bij de gedeelde werkruimte.
+Elke gebruiker die u ontvangt een e-mailbericht met instructies voor het aanmelden bij de gedeelde werkruimte.
 
 > [!NOTE]
-> Voor gebruikers om te implementeren of beheren van webservices in deze werkruimte, moeten ze een bijdrager of een beheerder in de Azure-abonnement zijn. 
+> Gebruikers kunnen te implementeren of beheren van webservices in deze werkruimte, moeten ze een bijdrager of beheerder zijn in de Azure-abonnement. 
 
 
 

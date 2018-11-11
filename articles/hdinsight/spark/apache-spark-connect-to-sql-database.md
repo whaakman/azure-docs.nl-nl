@@ -2,19 +2,19 @@
 title: Apache Spark gebruiken om te lezen en schrijven van gegevens naar Azure SQL-database
 description: Meer informatie over het instellen van een verbinding tussen HDInsight Spark-cluster en een Azure SQL-database gegevens lezen, schrijven van gegevens en streaminggegevens naar een SQL-database
 services: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/01/2018
-ms.openlocfilehash: 2aec894da6b4e5ffd59fee12bc8476b25955c991
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: b8494150a060e02145eab3674bdd2dd62cdda225
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43045793"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277287"
 ---
 # <a name="use-hdinsight-spark-cluster-to-read-and-write-data-to-azure-sql-database"></a>HDInsight Spark-cluster gebruiken om te lezen en schrijven van gegevens naar Azure SQL-database
 
@@ -234,7 +234,7 @@ In deze sectie we streamen van gegevens in de **hvactable** dat u al hebt gemaak
         
          var streamingQuery = WriteToSQLQuery.start()
 
-1. Controleer of dat de gegevens worden gestreamd naar de **hvactable** door het uitvoeren van de volgende query in SQL Server Management Studio (SSMS). Wanneer u de query uitvoeren, wordt het aantal rijen in de tabel oplopende.
+1. Controleer of dat de gegevens worden gestreamd naar de **hvactable** door het uitvoeren van de volgende query in SQL Server Management Studio (SSMS). Telkens wanneer u de query uitvoert, ziet deze het aantal rijen in de tabel verhogen.
 
         SELECT COUNT(*) FROM hvactable
 
