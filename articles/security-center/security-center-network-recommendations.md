@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 9/12/2018
+ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: b1f7120b3758e35d818aedbcc3b85feca44f8c33
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: a7f21d0ebebbe2c811470de384cc5ee9a34ab060
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129655"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51006155"
 ---
 # <a name="protect-your-network-resources-in-azure-security-center"></a>Beveilig uw netwerkresources in Azure Security Center
 Azure Security Center analyseert voortdurend de beveiligingsstatus van uw Azure-resources voor best practices voor netwerkbeveiliging. Wanneer Security Center potentiële beveiligingsproblemen worden geïdentificeerd, worden er aanbevelingen die u bij het proces begeleiden van het configureren van de benodigde besturingselementen om te versterken en beschermen van uw resources.
@@ -126,6 +126,20 @@ In deze Topologieweergave geeft het eerste niveau Vnets. Weergegeven als de twee
 
 Het derde niveau wordt weergegeven in virtuele machines, vergelijkbaar met wat eerder is beschreven. U kunt klikken op elke bron uit voor meer informatie of het benodigde beveiligingsbeheer of de configuratie van toepassing.
 
+## <a name="network-recommendations"></a>Aanbevelingen voor netwerken
+
+|Resourcetype|Beveiligingsscore|Aanbeveling|Beschrijving|
+|----|----|----|----|
+|Machine|40|Netwerkbeveiligingsgroepen op virtuele machines inschakelen|Netwerkbeveiligingsgroepen voor het beheren van toegang tot het netwerk van uw virtuele machines inschakelen.|
+|Subnet|35|Netwerkbeveiligingsgroepen op subnetten inschakelen |Netwerkbeveiligingsgroepen voor het beheren van toegang tot het netwerk van de resources die zijn geïmplementeerd in uw subnetten inschakelen.|
+|Machine|30|Just-In-Time-netwerktoegangsbeheer toepassen|Just-in-time VM toegangsbeheer vergrendelen permanent toegang tot geselecteerde poorten van toepassing en kunnen gemachtigde gebruikers om ze te openen via het mechanisme voor dezelfde en voor een beperkte hoeveelheid tijd wordt opgelost.|
+|Machine|20|Toegang via een internetgericht eindpunt beperken|Beter beschermen de goups netwerk beveiliging van uw virtuele machines voor internetgerichte door het beperken van de toegang van uw bestaande regels voor toestaan.|
+|Machine|10|Een firewall van de volgende generatie toevoegen|Een volgende generatie Firewall (NGFW)-oplossing voor het beveiligen van uw virtuele machines van de internetgerichte toevoegen.|
+|Machine|5|Verkeer routeren via een gateway netwerkfirewall alleen|Om de implementatie van de volgende generatie firewall-oplossing hebt voltooid, moet het verkeer naar uw beveiligde virtuele machines voor internetgerichte alleen via de volgende generatie firewall-oplossing worden gerouteerd.|
+|VNet|5|DDoS-bescherming standaard inschakelen|Toepassingen met openbare IP-adressen in deze virtuele netwerken zijn niet beveiligd met de DDOS protection-service standard. Het wordt aanbevolen om het te beperken van protocol aanvallen en breng netwerk inschakelen.|
+|Machine|10|Een firewall van de volgende generatie toevoegen|dd een volgende generatie Firewall (NGFW)-oplossing om uw virtuele machines van de internetgerichte beter te beschermen.|
+|Machine|5|Verkeer routeren via een gateway netwerkfirewall alleen|Om de implementatie van de volgende generatie firewall-oplossing hebt voltooid, moet het verkeer naar uw beveiligde virtuele machines voor internetgerichte alleen via de volgende generatie firewall-oplossing worden gerouteerd.|
+VNET|5|DDoS-bescherming standaard inschakelen|Toepassingen met openbare IP-adressen in deze virtuele netwerken zijn niet beveiligd met de DDOS protection-service standard. Het wordt aanbevolen om het te beperken van protocol aanvallen en breng netwerk inschakelen.|
 ## <a name="see-also"></a>Zie ook
 Zie de volgende onderwerpen voor meer informatie over aanbevelingen die betrekking hebben op andere typen Azure-resources:
 

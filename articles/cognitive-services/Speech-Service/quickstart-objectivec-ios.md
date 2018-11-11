@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: quickstart
-ms.date: 10/12/2018
+ms.date: 11/06/2018
 ms.author: chlandsi
-ms.openlocfilehash: 8d6ecf251bb816eb0f41352af7c9d086c4aad751
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 7d1e05e13e55b8b7bc07eda71d63f96f12c81ff9
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49469772"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51219185"
 ---
 # <a name="quickstart-recognize-speech-in-objective-c-on-ios-using-the-speech-service-sdk"></a>Snelstart: Gesproken tekst herkennen in Objective-C in iOS met behulp van de Speech Service-SDK
 
@@ -32,7 +32,7 @@ In dit artikel leert u hoe u een iOS-toepassing in Objective-C maakt met behulp 
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-De huidige versie van de Speech SDK van Cognitive Services is `1.0.1`.
+De huidige versie van de Speech SDK van Cognitive Services is `1.1.0`.
 
 De Cognitive Services Speech-SDK voor Mac en iOS wordt momenteel gedistribueerd als een Cocoa-framework.
 Dit kan worden gedownload van https://aka.ms/csspeech/iosbinary. Download het bestand naar uw basismap.

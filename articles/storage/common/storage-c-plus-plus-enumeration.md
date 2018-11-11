@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: dineshm
 ms.component: common
-ms.openlocfilehash: 0a105122eccdfa671c806389908762941f23200c
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 6384af5368fe722d6c9307d56d8a071ebcd17bf0
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39525304"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51226971"
 ---
 # <a name="list-azure-storage-resources-in-c"></a>Azure Storage-resources in C++ weergeven
 Bewerkingen voor de aanbieding zijn sleutel te veel ontwikkelscenario's met Azure Storage. In dit artikel wordt beschreven hoe u zo efficiënt mogelijk het inventariseren van objecten in Azure Storage met behulp van de aanbieding beschikbaar in de Microsoft Azure Storage-clientbibliotheek voor C++ API's.
@@ -195,6 +195,6 @@ Zie de volgende bronnen voor meer informatie over Azure Storage en -clientbiblio
 * [Hoe u kunt Table Storage gebruiken met C++](../../cosmos-db/table-storage-how-to-use-c-plus.md)
 * [Hoe u Queue Storage gebruiken met C++](../storage-c-plus-plus-how-to-use-queues.md)
 * [Azure Storage-clientbibliotheek voor C++ API-documentatie.](http://azure.github.io/azure-storage-cpp/)
-* [Blog van het Azure Storage-team](http://blogs.msdn.com/b/windowsazurestorage/)
+* [Blog van het Azure Storage-team](https://blogs.msdn.com/b/windowsazurestorage/)
 * [Documentatie bij Azure Storage](https://azure.microsoft.com/documentation/services/storage/)
 

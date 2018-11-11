@@ -51,7 +51,7 @@ Alle geüploade en geïmporteerde SSL-certificaten voor deze web-app worden hier
 
 Klik in het linkernavigatievenster op **Toepassingsinstellingen**.
 
-Voeg een app-instelling toe met de naam `WEBSITE_LOAD_CERTIFICATES` en stel de waarde in van de vingerafdruk van het certificaat. Om meerdere certificaten toegankelijk te maken kan u de vingerafdrukken door komma's scheiden. Om alle certificaten toegankelijk te maken, kunt u de waarde instellen op `*`. Let op, hiermee plaatst u het certificaat in de `CurrentUser\My store`.
+Voeg een app-instelling toe met de naam `WEBSITE_LOAD_CERTIFICATES` en stel de waarde in van de vingerafdruk van het certificaat. Om meerdere certificaten toegankelijk te maken kan u de vingerafdrukken door komma's scheiden. Om alle certificaten toegankelijk te maken, kunt u de waarde instellen op `*`. Let op, hiermee plaatst u het certificaat in de `CurrentUser\My`.
 
 ![App-instelling configureren](./media/app-service-web-ssl-cert-load/configure-app-setting.png)
 

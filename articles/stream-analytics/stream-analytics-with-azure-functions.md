@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.workload: data-services
 ms.date: 04/09/2018
-ms.author: jasonh
+ms.author: mamccrea
 ms.reviewer: jasonh
-ms.openlocfilehash: 50ea4dafe7edfdeb851ad6d9cc42a7bca262e970
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 0a187bbc476738294e2f7f31de4e11ea92e604f9
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49985808"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50977991"
 ---
 # <a name="run-azure-functions-from-azure-stream-analytics-jobs"></a>Azure Functions uitvoeren vanuit Azure Stream Analytics-taken 
 
@@ -196,6 +196,13 @@ Volg de zelfstudie [Realtime fraudedetectie](stream-analytics-real-time-fraud-de
    Met deze opdracht wordt de waarde voor de opgegeven sleutel afgedrukt:
 
    ![Schermopname van uitvoer van Azure Redis Cache](./media/stream-analytics-with-azure-functions/image5.png)
+   
+## <a name="error-handling-and-retries"></a>Foutafhandeling en nieuwe pogingen
+In geval van een fout bij het verzenden van gebeurtenissen naar Azure Functions, wordt getracht de bewerking te voltooien. Er zijn echter fouten waarvoor geen nieuwe pogingen worden gedaan. Deze zijn:
+
+ 1. HttpRequestExceptions
+ 2. Aanvraagentiteit is te groot (HTTP-foutcode 413)
+ 3. ApplicationExceptions
 
 ## <a name="known-issues"></a>Bekende problemen
 

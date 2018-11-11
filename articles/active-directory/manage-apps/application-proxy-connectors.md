@@ -15,12 +15,12 @@ ms.date: 10/17/2018
 ms.author: barbkess
 ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: c9c21b9beb891a685d7e264ec55817c0045455bc
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 62738cda8ce37ec7ca50e1e3f285dc71a37113f7
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406274"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51036034"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Meer informatie over Azure AD Application Proxy connectors
 
@@ -32,7 +32,7 @@ Connectors zijn lichtgewicht agents die zich on-premises en de uitgaande verbind
 
 ## <a name="requirements-and-deployment"></a>Vereisten en implementatie
 
-Voor het implementeren van de toepassingsproxy is, moet u ten minste één connector, maar we raden aan twee of meer voor meer flexibiliteit. De connector installeren op een Windows Server 2012 R2 of 2016-machine. De connector moet kunnen communiceren met de service voor toepassingsproxy, evenals de on-premises toepassingen die u publiceert. 
+Voor het implementeren van de toepassingsproxy is, moet u ten minste één connector, maar we raden aan twee of meer voor meer flexibiliteit. De connector installeren op een Windows Server 2012 R2 of 2016-machine. De connector moet kunnen communiceren met de service voor toepassingsproxy, evenals de on-premises toepassingen die u publiceert. Application Proxy vereist ook TLS 1.2 op het onderliggende besturingssysteem uitgevoerd. Als u wilt wijzigen in TLS 1.2, volg de stappen in [inschakelen TLS 1.2](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-prerequisites#enable-tls-12-for-azure-ad-connect). Hoewel de inhoud voor Azure AD Connect, wordt deze procedure is hetzelfde voor alle .NET-clients.
 
 Zie voor meer informatie over de netwerkvereisten voor de connectorserver, [aan de slag met Application Proxy en installeren van een connector](application-proxy-enable.md).
 
@@ -113,7 +113,7 @@ Een andere factor die van invloed op prestaties wordt de kwaliteit van de netwer
 
 Zie voor meer informatie over het optimaliseren van uw netwerk [topologie overwegingen met betrekking tot het netwerk bij het gebruik van Azure Active Directory-toepassingsproxy](application-proxy-network-topology.md).
 
-## <a name="domain-joining"></a>Domeinen koppelen
+## <a name="domain-joining"></a>Toevoegen aan het domein
 
 Connectors kunnen uitvoeren op een computer die is niet-domein. Als u eenmalige aanmelding (SSO) voor toepassingen die gebruikmaken van geïntegreerde Windows-verificatie (IWA) wilt, moet u echter een domein-machine. In dit geval de connector-machines moeten worden toegevoegd aan een domein dat u kunt uitvoeren [Kerberos](https://web.mit.edu/kerberos) beperkte delegering namens de gebruikers voor de gepubliceerde toepassingen.
 

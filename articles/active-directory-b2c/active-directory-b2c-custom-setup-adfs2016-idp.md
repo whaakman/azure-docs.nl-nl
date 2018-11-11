@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/20/2018
+ms.date: 11/05/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 6f7fced5163476dc1de866474484f98d546d1901
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
-ms.translationtype: MT
+ms.openlocfilehash: 1def5686933a971b1192ec58bc72d64cbc5e8931
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945719"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51219321"
 ---
 # <a name="add-adfs-as-a-saml-identity-provider-using-custom-policies-in-azure-active-directory-b2c"></a>AD FS toevoegen als een SAML-id-provider met behulp van aangepaste beleidsregels in Azure Active Directory B2C
 
@@ -64,6 +64,7 @@ U kunt een AD FS-account als een claimprovider definiëren door toe te voegen aa
           <Metadata>
             <Item Key="WantsEncryptedAssertions">false</Item>
             <Item Key="PartnerEntity">https://your-ADFS-domain/federationmetadata/2007-06/federationmetadata.xml</Item>
+            <Item Key=" XmlSignatureAlgorithm">Sha256</Item>
           </Metadata>
           <CryptographicKeys>
             <Key Id="SamlAssertionSigning" StorageReferenceId="B2C_1A_ADFSSamlCert"/>
@@ -165,6 +166,15 @@ Open een browser en navigeer naar de URL. Controleer of u typt u de juiste URL e
 9. Selecteer **regel toevoegen**.  
 10. In **claimregelsjabloon**, selecteer **verzenden LDAP-kenmerken als claims**.
 11. Geef een **naam van Claimregel**. Voor de **kenmerkopslag**, selecteer **Active Directory selecteren**, voegt u de volgende claims en klik vervolgens op **voltooien** en **OK**.
+
+    | LDAP-attrubute | Type uitgaande claim |
+    | -------------- | ------------------- |
+    | Gebruiker-Principal-naam | userPricipalName |
+    | Achternaam | family_name |
+    | De opgegeven naam | given_name |
+    | E-Mail-adres | e-mail |
+    | Weergavenaam | naam |
+    
 12.  Op basis van het certificaattype, wellicht u stelt het HASH-algoritme. Selecteer op de relying party trust (B2C-Demo) eigenschappenvenster, de **Geavanceerd** tabblad en wijzig de **veilige hash-algoritme** naar `SHA-1` of `SHA-256`, en klikt u op **Ok**.  
 13. Selecteer in Serverbeheer **extra**, en selecteer vervolgens **AD FS Management**.
 14. Selecteer de relying party trust die u hebt gemaakt, selecteer **Update van Federatiemetagegevens**, en klik vervolgens op **Update**. 

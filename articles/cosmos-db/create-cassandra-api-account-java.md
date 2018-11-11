@@ -9,14 +9,14 @@ ms.service: cosmos-db
 ms.component: cosmosdb-cassandra
 ms.topic: tutorial
 ms.date: 09/24/2018
-ms.openlocfilehash: b5e3d87e026b65a602b7bdf2e52365d13b21f62f
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 1220bcc8445f13a4573f1a6d3181c172799638fb
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49166828"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50741779"
 ---
-# <a name="create-an-azure-cosmos-db-cassandra-api-account-database-and-a-table-by-using-a-java-application"></a>Een Cassandra-API-account, database en tabel maken in Azure Cosmos DB met behulp van een Java-toepassing
+# <a name="tutorial-create-an-azure-cosmos-db-cassandra-api-account-database-and-a-table-by-using-a-java-application"></a>Zelfstudie: Een Cassandra-API-account, database en tabel maken in Azure Cosmos DB met behulp van een Java-toepassing
 
 In deze zelfstudie wordt beschreven hoe u met een Java-toepassing een Cassandra-API-account maakt in Azure Cosmos DB, en een database (ook wel een keyspace genoemd) en een tabel toevoegt. De Java-toepassing gebruikt het [Java-stuurprogramma](https://github.com/datastax/java-driver) om een gebruikersdatabase te maken die gegevens bevat, zoals gebruikers-id, gebruikersnaam en plaats van de gebruiker.  
 
@@ -33,7 +33,7 @@ Deze zelfstudie bestaat uit de volgende taken:
 
 * Als u nog geen Azure-abonnement hebt, maakt u een  [gratis account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) aan voordat u begint. U kunt ook  [Azure Cosmos DB gratis uitproberen](https://azure.microsoft.com/try/cosmosdb/)  zonder Azure-abonnement, zonder kosten en zonder verplichtingen. 
 
-* Download de nieuwste versie van de [Java Development Kit (JDK)](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) 
+* Download de nieuwste versie van de [Java Development Kit (JDK)](https://aka.ms/azure-jdks) 
 
 * [Download](http://maven.apache.org/download.cgi) en [installeer](http://maven.apache.org/install.html) de binary archive van [Maven](http://maven.apache.org/) 
   - In Ubuntu kunt u  `apt-get install maven` uitvoeren om Maven te installeren. 
@@ -60,7 +60,7 @@ Deze zelfstudie bestaat uit de volgende taken:
 
 ## <a name="get-the-connection-details-of-your-account"></a>De verbindingsgegevens van uw account ophalen  
 
-Haal de gegevens van de verbindingsreeks op uit de Azure-portal en kopieer deze naar het configuratiebestand van Java. Hierdoor kan de app communiceren met de gehoste database. 
+Haal de gegevens van de verbindingsreeks op uit de Azure-portal en kopieer deze naar het configuratiebestand van Java. De verbindingsreeks stelt uw app in staat om te communiceren met de gehoste database. 
 
 1. Ga in de  [Azure-portal](http://portal.azure.com/) naar uw Cosmos DB-account. 
 

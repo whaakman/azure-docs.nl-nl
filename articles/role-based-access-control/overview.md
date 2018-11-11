@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 09/24/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 37498394bc163852d397337cf5728b4941ae45a7
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d264160fb3f1c14db3379a314e60efdadb6905b5
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46956503"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210411"
 ---
 # <a name="what-is-role-based-access-control-rbac"></a>Wat is toegangsbeheer op basis van rollen?
 
@@ -54,7 +54,7 @@ Een *beveiligings-principal* is een object dat een gebruiker, groep of service-p
 
 ![Beveiligings-principal voor een roltoewijzing](./media/overview/rbac-security-principal.png)
 
-- Gebruiker: een persoon een profiel heeft in Azure Active Directory. U kunt ook rollen toewijzen aan gebruikers in andere tenants. Zie [Azure Active Directory B2B](/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b) voor meer informatie over gebruikers in andere organisaties.
+- Gebruiker: een persoon een profiel heeft in Azure Active Directory. U kunt ook rollen toewijzen aan gebruikers in andere tenants. Zie [Azure Active Directory B2B](../active-directory/b2b/what-is-b2b.md) voor meer informatie over gebruikers in andere organisaties.
 - Groep: een aantal gebruikers dat in Azure Active Directory is gemaakt. Wanneer u een rol aan een groep toewijst, hebben alle gebruikers binnen die groep die rol. 
 - Service-principal: een beveiligings-id die wordt gebruikt door toepassingen of services om toegang tot specifieke Azure-resources te krijgen. U kunt het zien als een *gebruikersidentiteit* (gebruikersnaam en wachtwoord of certificaat) voor een toepassing.
 
@@ -130,3 +130,4 @@ Hier volgen de stappen op hoog niveau die RBAC gebruikt om te bepalen of u toega
 - [Snelstart: Grant access for a user using RBAC and the Azure portal](quickstart-assign-role-user-portal.md) (Snelstart: Toegang verlenen aan een gebruiker met op rollen gebaseerd toegangsbeheer en Azure Portal)
 - [Toegang beheren met op rollen gebaseerd toegangsbeheer en Azure Portal](role-assignments-portal.md)
 - [Inzicht in de verschillende rollen](rbac-and-directory-admin-roles.md)
+- [Een bedrijfscloud implementeren: resourcetoegangsbeheer in Azure](/azure/architecture/cloud-adoption/getting-started/azure-resource-access)

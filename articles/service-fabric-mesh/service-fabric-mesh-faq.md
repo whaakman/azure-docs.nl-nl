@@ -9,12 +9,12 @@ ms.date: 06/25/2018
 ms.topic: troubleshooting
 ms.service: service-fabric-mesh
 manager: timlt
-ms.openlocfilehash: d0ae7fbb22f6d98662f83968158182d447a75394
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
-ms.translationtype: MT
+ms.openlocfilehash: b32af29a123ce4d070e1bb68b5a43ba6d0d2c5e1
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39501964"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51218471"
 ---
 # <a name="commonly-asked-service-fabric-mesh-questions"></a>Veelgestelde vragen over Service Fabric NET
 Azure Service Fabric Mesh is een volledig beheerde service waarmee ontwikkelaars microservices-toepassingen kunnen implementeren zonder virtuele machines, opslag of netwerken hoeven te beheren. In dit artikel vindt u antwoorden op veelgestelde vragen.
@@ -27,24 +27,50 @@ Stel vragen, krijg antwoorden van Microsoft-technici en rapporteren van probleme
 
 **Wat zijn de kosten die deel uitmaken van de Preview-versie?**
 
-Er zijn geen kosten voor het implementeren van toepassingen of containers naar Mesh-preview. Maar u wordt aangeraden om te verwijderen van de resources die u implementeert en niet laten uitgevoerd, tenzij u actief wilt testen.
+Er zijn momenteel geen kosten voor het implementeren van toepassingen of containers naar de Mesh-preview. Maar we raden u aan de resources die u implementeert en niet laten verwijderen, tenzij u ze actief test uitgevoerd.
 
 **Is er een limiet van het aantal cores en RAM-geheugen?**
 
-Ja, de quota voor elk abonnement zijn:
+Ja, de quota voor elk abonnement zijn als volgt instellen:
 
 - Aantal toepassingen - 5 
-- Aantal kernen per toepassing tot en met 12 
+- Kernen per toepassing tot en met 12 
 - Totale RAM-geheugen per toepassing - 48 GB 
-- Aantal eindpunten netwerk en binnenkomende: 5  
-- Aantal Azure-Volumes die u koppelen kunt - 10 
+- Eindpunten netwerk en binnenkomende: 5  
+- Azure Volumes die u koppelen kunt - 10 
 - Aantal replica's Service – 3 
-- De grootste container die u kunt implementeren, is beperkt tot 4 kernen, 16 GB RAM-geheugen.
+- De grootste container die u kunt implementeren, is beperkt tot 4 kernen, 16GB RAM-geheugen.
 - U kunt gedeeltelijke kerngeheugens toewijzen aan uw containers in stappen van 0,5 kernen maximaal 6 kernen.
 
-**Kan ik mijn toepassing die 's nachts wordt uitgevoerd verlaten?**
+**Hoe lang kan ik mijn toepassing die is geïmplementeerd voor verlaten?**
 
-Ja, kunt u, maar u wordt aangeraden de resources die u implementeert en niet laten verwijderen wordt uitgevoerd, tenzij u actief wilt testen. Dit beleid in de toekomst kan worden gewijzigd en de resources kunnen worden verwijderd als ze zijn worden misbruikt.
+We hebben momenteel beperkt de levensduur van een toepassing in twee dagen. Dit is om optimaal gebruik te maken van de vrije kernen toegewezen aan de Preview-versie. Als gevolg hiervan u zijn alleen toegestaan om uit te voeren van een bepaalde implementatie continu gedurende 48 uur, waarna deze worden verwijderd door het systeem. Als dit gebeurt, kunt u controleren dat het systeem door het uitvoeren van afsluiten een `az mesh app show` opdracht in de Azure CLI en controleren als het resultaat `"status": "Failed", "statusDetails": "Stopped resource due to max lifetime policies for an application during preview. Delete the resource to continue."` 
+
+Bijvoorbeeld: 
+
+```cli
+chackdan@Azure:~$ az mesh app show --resource-group myResourceGroup --name helloWorldApp
+{
+  "debugParams": null,
+  "description": "Service Fabric Mesh HelloWorld Application!",
+  "diagnostics": null,
+  "healthState": "Ok",
+  "id": "/subscriptions/1134234-b756-4979-84re-09d671c0c345/resourcegroups/myResourceGroup/providers/Microsoft.ServiceFabricMesh/applications/helloWorldApp",
+  "location": "eastus",
+  "name": "helloWorldApp",
+  "provisioningState": "Succeeded",
+  "resourceGroup": "myResourceGroup",
+  "serviceNames": [
+    "helloWorldService"
+  ],
+  "services": null,
+  "status": "Failed",
+  "statusDetails": "Stopped resource due to max lifetime policies for an application during preview. Delete the resource to continue.",
+  "tags": {},
+  "type": "Microsoft.ServiceFabricMesh/applications",
+  "unhealthyEvaluation": null
+}
+```
 
 ## <a name="supported-container-os-images"></a>Ondersteunde OS containerinstallatiekopieën
 De volgende container OS-installatiekopieën kunnen worden gebruikt bij het implementeren van services.

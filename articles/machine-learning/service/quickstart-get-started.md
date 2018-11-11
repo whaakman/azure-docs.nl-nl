@@ -9,16 +9,16 @@ ms.reviewer: sgilley
 author: rastala
 ms.author: roastala
 ms.date: 09/24/2018
-ms.openlocfilehash: b81e40298eae0f0b44f37e7f8f16beaddad999a5
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 624564d61a7031cee910ab98e1b327b6f0205e28
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49456810"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50159006"
 ---
 # <a name="quickstart-use-the-azure-portal-to-get-started-with-azure-machine-learning"></a>Snelstart: de Azure-portal gebruiken om aan de slag te gaan met Azure Machine Learning
 
-In deze snelstart leert u de Azure-portal te gebruiken om een Azure Machine Learning-werkruimte te maken. Deze werkruimte is het basisblok in de cloud dat u gebruikt voor het experimenteren met en trainen en implementeren van machine learning-modellen met Machine Learning. 
+In deze snelstart leert u de Azure-portal te gebruiken om een Azure Machine Learning-werkruimte te maken. Deze werkruimte is het basisblok in de cloud dat u gebruikt voor het experimenteren met en trainen en implementeren van machine learning-modellen met Machine Learning. In deze snelstart wordt gebruikgemaakt van cloudresources en er is geen installatie vereist. Zie [Snelstart: Python gebruiken om aan de slag te gaan met Azure Machine Learning](quickstart-create-workspace-with-python.md) voor informatie over het configureren van uw eigen Jupyter-notebook-server in plaats daarvan.
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2F9Ad]
 
@@ -78,32 +78,9 @@ U ziet twee notitieblokken en een `config.json`-bestand. Dit configuratiebestand
 
 Klik op `01.run-experiment.ipynb` om het notitieblok te openen.
 
-U kunt de cellen één voor één uitvoeren met `Shift`+`Enter`. U kunt ook `Cells` > `Run All` selecteren om het hele notitieblok uit te voeren. Als er een sterretje [*] naast een cel staat, wordt deze uitgevoerd. Wanneer de code voor die cel is voltooid, verschijnt er een getal.
+U kunt de cellen één voor één uitvoeren met `Shift`+`Enter`. U kunt ook `Cells` > `Run All` selecteren om het hele notitieblok uit te voeren. Als er een sterretje [*] naast een cel staat, wordt deze uitgevoerd. Wanneer de code voor die cel is voltooid, verschijnt er een getal. 
 
-U wordt mogelijk gevraagd u aan te melden. Kopieer de code in het bericht. Vervolgens selecteert u de koppeling en plakt u de code in het nieuwe venster. Zorg ervoor dat u geen spatie voor of na de code kopieert. Meld u aan met hetzelfde account dat u in Azure Portal gebruikt.
-
- ![Aanmelden](./media/quickstart-get-started/login.png)
-
-In het notitieblok leest de tweede cel uit `config.json` om verbinding te maken met uw werkruimte.
-```
-ws = Workspace.from_config()
-```
-
-De derde codecel start een experiment met de naam my-first-experiment. Gebruik deze naam om informatie over de run op te zoeken in uw werkruimte.
-
-```
-experiment = Experiment(workspace_object=ws, name = "my-first-experiment")
-```
-
-Let in de laatste cel op de waarden die naar een logboekbestand worden geschreven.
-
-```
-# Log final results
-run.log("Final estimate: ",pi_estimate)
-run.log("Final error: ",math.pi-pi_estimate)
-```
-
-U kunt deze waarden na het uitvoeren van de code weergeven in uw werkruimte.
+Nadat u de uitvoering van alle cellen in de notebook hebt voltooid, kunt u de vastgelegde waarden weergeven in uw werkruimte.
 
 ## <a name="view-logged-values"></a>Logboekwaarden weergeven
 
@@ -121,11 +98,11 @@ Bekijk de informatie over de uitvoering die u zojuist hebt uitgevoerd. Schuif om
 
  ![Koppeling naar uitvoeringsgeschiedenis](./media/quickstart-get-started/report.png)
 
-U ziet plots die automatisch zijn gemaakt van de vastgelegde waarden.  
+U ziet plots die automatisch zijn gemaakt van de vastgelegde waarden. Wanneer u meerdere waarden met dezelfde naamparameter vastlegt, wordt automatisch een grafiek voor u gegenereerd.
 
    ![Geschiedenis weergeven](./media/quickstart-get-started/plots.png)
 
-Omdat er in de code om pi te schatten gebruik wordt gemaakt van willekeurige waarden, worden er in uw plots andere waarden weergegeven.
+Omdat er in de code om pi te schatten gebruik wordt gemaakt van willekeurige waarden, worden er in uw plots andere waarden weergegeven.  
 
 ## <a name="clean-up-resources"></a>Resources opschonen 
 

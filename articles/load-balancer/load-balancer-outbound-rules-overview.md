@@ -4,8 +4,6 @@ description: Gebruik regels voor uitgaand verkeer vertalingen uitgaand netwerkve
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: jpconnock
-tags: azure-resource-manager
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -13,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/19/2018
 ms.author: kumud
-ms.openlocfilehash: 0ba7ed902c6ecb7a328aa6db3d3855b88bed2813
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: ab09eb939d760a0f06be758fdf83591565aaf7d0
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49637559"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51219372"
 ---
 # <a name="load-balancer-outbound-rules"></a>Load Balancer-regels voor uitgaand
 
@@ -69,9 +67,9 @@ API-versie '2018-07-01' kan de definitie van een uitgaande regel als volgt zijn 
 
 Terwijl een uitgaande regel kan worden gebruikt met slechts één openbare IP-adres, vereenvoudigen uitgaande regels de belasting van de configuratie voor het schalen van uitgaande NAT. U kunt meerdere IP-adressen gebruiken om te plannen voor grootschalige scenario's en kunt u regels voor uitgaand verkeer te beperken door [SNAT bronuitputting](load-balancer-outbound-connections.md#snatexhaust) gevoelig patronen.  
 
-Elke extra IP-adres dat is opgegeven door een front-end biedt 64.000 kortstondige poorten voor Load Balancer om te gebruiken als SNAT poorten. Beschikken over een enkele front load balancing of inkomende NAT-regels, wordt de regel voor uitgaande breidt het begrip van de front-end en kunt meerdere front-ends per regel.  Met meerdere front-ends per regel, het aantal beschikbare poorten met SNAT wordt vermenigvuldigd met de openbare IP-adres en zeer grote scenario's kunnen worden ondersteund.
+Elke extra IP-adres dat is opgegeven door een front-end biedt 64.000 kortstondige poorten voor Load Balancer om te gebruiken als SNAT poorten. Beschikken over een enkele front load balancing of inkomende NAT-regels, wordt de regel voor uitgaande breidt het begrip van de front-end en kunt meerdere front-ends per regel.  Met meerdere front-ends per regel, het aantal beschikbare poorten met SNAT wordt vermenigvuldigd met de openbare IP-adres en grote scenario's kunnen worden ondersteund.
 
-Bovendien kunt u een [openbaar IP-voorvoegsel](https://aka.ms/lbpublicipprefix) rechtstreeks met een uitgaande regel.  Dit biedt voor eenvoudiger schalen en vereenvoudigde zwarte lijst plaatsen van stromen die afkomstig zijn van uw Azure-implementatie. U kunt een front-end-IP-configuratie in de Load Balancer-resource rechtstreeks verwijzen naar een openbare IP-adresvoorvoegsel configureren.  Hierdoor kunnen Load Balancer exclusieve controle over het openbare IP-voorvoegsel en de regel voor uitgaande automatisch gebruikmaken van alle openbare IP-adressen die zijn opgenomen in het openbare IP-voorvoegsel voor uitgaande verbindingen.  Elk van de IP-adressen binnen het bereik van het openbare IP-adresvoorvoegsel 64.000 kortstondige poorten per IP-adres voor de Load Balancer om te gebruiken als SNAT poorten opgeven.   
+Bovendien kunt u een [openbaar IP-voorvoegsel](https://aka.ms/lbpublicipprefix) rechtstreeks met een uitgaande regel.  Met openbare IP-biedt voorvoegsel voor het eenvoudiger schalen en vereenvoudigde wit-aanbieding van stromen die afkomstig zijn van uw Azure-implementatie. U kunt een front-end-IP-configuratie in de Load Balancer-resource rechtstreeks verwijzen naar een openbare IP-adresvoorvoegsel configureren.  Hierdoor kunnen Load Balancer exclusieve controle over het openbare IP-voorvoegsel en de regel voor uitgaande automatisch gebruikmaken van alle openbare IP-adressen die zijn opgenomen in het openbare IP-voorvoegsel voor uitgaande verbindingen.  Elk van de IP-adressen binnen het bereik van het openbare IP-adresvoorvoegsel 64.000 kortstondige poorten per IP-adres voor de Load Balancer om te gebruiken als SNAT poorten opgeven.   
 
 U kunt geen afzonderlijke openbare IP-adres-resources gemaakt op basis van het openbare IP-adresvoorvoegsel wanneer u deze optie als de regel voor uitgaande volledige controle over het openbare IP-voorvoegsel moet hebben.  Als u meer goed korrelig controle nodig hebt, kunt u afzonderlijke openbare IP-adresresource maken van het openbare IP-voorvoegsel en meerdere openbare IP-adressen afzonderlijk toewijzen aan de front-end van een regel voor uitgaande.
 

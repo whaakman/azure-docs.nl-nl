@@ -19,10 +19,10 @@ ms.locfileid: "48016931"
 
 In deze zelfstudie wordt beschreven hoe u in Azure een toepassingsgateway maakt met behulp van Azure PowerShell-cmdlets en het Azure Resource Manager-implementatiemodel. In deze zelfstudie wordt vooral gekeken naar de verschillen tussen de nieuwe SLU met automatische schaalaanpassing en de bestaande standaard-SKU, en dan met name de functies voor automatisch schalen, zoneredundantie en gereserveerde VIP's (statische IP-adressen).
 
-Meer informatie over automatisch schalen en zoneredundantie voor toepassingsgateways vindt u in [Automatisch schalen en zoneredundantie voor toepassingsgateway (openbare preview)](application-gateway-autoscaling-zone-redundant.md).
+Meer informatie over automatisch schalen en zone-redundantie voor toepassingsgateways vindt u in [Automatisch schalen en zone-redundantie voor toepassingsgateway (openbare preview)](application-gateway-autoscaling-zone-redundant.md).
 
 > [!IMPORTANT]
-> De SKU met automatisch schalen en zoneredundantie voor toepassingsgateways is momenteel in openbare preview. Deze preview wordt aangeboden zonder service level agreement en wordt niet aanbevolen voor productieworkloads. De reden hiervoor is dat bepaalde functies mogelijk niet worden ondersteund of beperkte mogelijkheden hebben. Raadpleeg voor meer informatie de [aanvullende gebruiksrechtovereenkomst voor Microsoft Azure-previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> De SKU met automatisch schalen en zone-redundantie voor toepassingsgateways is momenteel in openbare preview. Deze preview wordt aangeboden zonder service level agreement en wordt niet aanbevolen voor productieworkloads. De reden hiervoor is dat bepaalde functies mogelijk niet worden ondersteund of beperkte mogelijkheden hebben. Raadpleeg voor meer informatie de [aanvullende gebruiksrechtovereenkomst voor Microsoft Azure-previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 In deze zelfstudie leert u het volgende:
 
