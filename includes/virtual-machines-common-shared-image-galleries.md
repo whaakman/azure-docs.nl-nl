@@ -8,21 +8,21 @@ ms.topic: include
 ms.date: 09/20/2018
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: 6ad38d2dc1c5c41dc10685d680f70c59e7983cd2
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 8eca04478fd5aba292fcc47abac37b740b552dff
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50035174"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51210258"
 ---
-Gedeelde afbeeldingengalerie is een service waarmee u structuur en de organisatie om uw aangepaste VM-installatiekopieën maken. Galerie met installatiekopieën voor gedeelde biedt drie belangrijkste waardevoorstellen
+Gedeelde afbeeldingengalerie is een service waarmee u structuur en de organisatie om uw aangepaste VM-installatiekopieën maken. Galerie met installatiekopieën voor gedeelde biedt drie belangrijkste waardevoorstellen:
 - Eenvoudig beheer
-- Schalen van uw klant-installatiekopieën
+- Schalen van uw aangepaste installatiekopieën
 - Delen van uw installatiekopieën - delen van uw installatiekopieën aan andere gebruikers, service-principals of AD-groepen binnen uw organisatie, evenals de verschillende regio's met behulp van de replicatie voor meerdere regio 's
 
-Een beheerde installatiekopie is een kopie van een volledige VM (inclusief eventuele gekoppelde gegevensschijven) of alleen de besturingssysteemschijf, afhankelijk van hoe u de installatiekopie maken. Wanneer u een virtuele machine van de installatiekopie maakt, wordt de kopie van de VHD's in de afbeelding worden gebruikt voor het maken van de schijven voor de nieuwe virtuele machine. De installatiekopie van het beheerde blijft in de opslag en telkens opnieuw kan worden gebruikt om nieuwe virtuele machines maken.
+Een beheerde installatiekopie is een kopie van een volledige VM (inclusief eventuele gekoppelde gegevensschijven) of alleen de besturingssysteemschijf, afhankelijk van hoe u de installatiekopie maken. Wanneer u een virtuele machine van de installatiekopie maakt, wordt een kopie van de VHD's in de afbeelding worden gebruikt voor het maken van de schijven voor de nieuwe virtuele machine. De installatiekopie van het beheerde blijft in de opslag en telkens opnieuw kan worden gebruikt om nieuwe virtuele machines maken.
 
-Als u een groot aantal beheerde installatiekopieën die u moet onderhouden en wil graag zodat ze beschikbaar zijn in uw organisatie hebt, kunt u een galerie met installatiekopieën van de gedeelde als een opslagplaats waarmee u eenvoudig om te werken en het delen van uw afbeeldingen. De kosten voor het gebruik van een galerie met installatiekopieën van de gedeelde zijn alleen de kosten voor de opslag die door de installatiekopieën, plus eventuele kosten voor uitgaand netwerkverkeer voor het repliceren van installatiekopieën uit de regio van de gegevensbron naar de gepubliceerde regio's.
+Als u een groot aantal beheerde installatiekopieën die u moet onderhouden en wil graag zodat ze beschikbaar zijn in uw organisatie hebt, kunt u de galerie met installatiekopieën van een gedeeld als een opslagplaats waarmee u eenvoudig om te werken en het delen van uw installatiekopieën. De kosten voor het gebruik van de galerie met installatiekopieën van een gedeeld zijn alleen de kosten voor de opslag die door de installatiekopieën, plus eventuele kosten voor uitgaand netwerkverkeer voor het repliceren van installatiekopieën uit de regio van de gegevensbron naar de gepubliceerde regio's.
 
 De galerie met installatiekopieën van gedeelde functie heeft meerdere resourcetypen:
 
@@ -40,7 +40,7 @@ De galerie met installatiekopieën van gedeelde functie heeft meerdere resourcet
 
 ### <a name="regional-support"></a>Regionale ondersteuning
 
-Regionale ondersteuning voor gedeelde afbeeldingsgalerieën is beperkt, maar na verloop van tijd wilt uitbreiden. Voor Preview-versie, worden hier de lijsten van waar u, galerieën en regio's maken kunt waar een galerie kunt repliceren: 
+Regionale ondersteuning voor gedeelde afbeeldingsgalerieën beperkte Preview-versie is, maar na verloop van tijd wilt uitbreiden. Voor de beperkte Preview-versie is hier de lijst met regio's waar u galerieën kunt maken en de lijst met regio's waar u de galerie met installatiekopieën kunt repliceren: 
 
 | Galerie In maken  | Versie om te repliceren |
 |--------------------|----------------------|
@@ -61,19 +61,19 @@ Regionale ondersteuning voor gedeelde afbeeldingsgalerieën is beperkt, maar na 
 
 
 ## <a name="scaling"></a>Schalen
-Gedeelde galerie met installatiekopieën kunt u het aantal replica's die u wilt dat Azure te houden voor de installatiekopieën opgeven. Dit helpt bij implementatiescenario's voor meerdere VM's als de VM-implementaties kunnen worden verspreid naar verschillende replica's verminderen de kans dat het proces voor het maken van exemplaar wordt beperkt vanwege een overbelasting van een enkele replica.
+Gedeelde galerie met installatiekopieën kunt u het aantal replica's die u wilt dat Azure te houden van de installatiekopieën opgeven. Dit helpt bij implementatiescenario's voor meerdere VM's als de VM-implementaties kunnen worden verspreid naar verschillende replica's verminderen de kans dat het maken van de instantie wordt beperkt vanwege een overbelasting van een enkele replica verwerken.
 
 ![Afbeelding die laat zien hoe u installatiekopieën kunt schalen](./media/shared-image-galleries/scaling.png)
 
 
 ## <a name="replication"></a>Replicatie
-Gedeelde galerie met installatiekopieën kunt u uw installatiekopieën automatisch naar andere Azure-regio's repliceren. Elke versie van de installatiekopie gedeeld kan worden gerepliceerd naar verschillende regio's, afhankelijk van wat zinvol is voor uw organisatie. Een voorbeeld hiervan is altijd de meest recente installatiekopie repliceren in meerdere regio's, terwijl alle oudere versies alleen beschikbaar in de regio 1 zijn. Dit kan helpen opslaan op de opslagkosten voor versies van een gedeelde installatiekopie. De regio's gerepliceerd naar de versie van de installatiekopie van een gedeeld kunnen worden bijgewerkt na de aanmaaktijd. De tijd die nodig zijn om te repliceren naar verschillende regio's, is afhankelijk van de hoeveelheid gegevens wordt gekopieerd en het aantal regio's de versie is te repliceren. Dit kan enkele uren duren in sommige gevallen. Tijdens de replicatie plaatsvindt, kunt u de status van replicatie weergeven per regio. Nadat de installatiekopie-replicatie voltooid in een regio is, kunt u vervolgens een virtuele machine of met behulp van deze versie in de regio VMSS implementeren.
+Gedeelde galerie met installatiekopieën kunt u uw installatiekopieën automatisch naar andere Azure-regio's repliceren. De versie van elke installatiekopie gedeeld kan worden gerepliceerd naar verschillende regio's, afhankelijk van wat zinvol is voor uw organisatie. Een voorbeeld hiervan is altijd de meest recente installatiekopie repliceren in meerdere regio's, terwijl alle oudere versies alleen beschikbaar in de regio 1 zijn. Dit kan helpen opslaan op de opslagkosten voor versies van een gedeelde installatiekopie. De regio's voor die de versie van een gedeelde installatiekopie wordt gerepliceerd naar kunnen worden bijgewerkt na de aanmaaktijd. De tijd die nodig zijn om te repliceren naar verschillende regio's, is afhankelijk van de hoeveelheid gegevens wordt gekopieerd en het aantal regio's die worden gerepliceerd naar de versie. Dit kan enkele uren duren in sommige gevallen. Tijdens de replicatie plaatsvindt, kunt u de status van replicatie weergeven per regio. Nadat de installatiekopie-replicatie voltooid in een regio is, kunt u vervolgens een virtuele machine of met behulp van de versie van die installatiekopie in de regio VMSS implementeren.
 
 ![Afbeelding die laat zien hoe u installatiekopieën kunt repliceren](./media/shared-image-galleries/replication.png)
 
 
 ## <a name="access"></a>Access
-Als de gedeelde afbeeldingengalerie gedeelde installatiekopie en de versie van gedeelde installatiekopie zijn alle resources, ze kunnen worden gedeeld met de ingebouwde die systeemeigen Azure RBAC bepaalt. Met RBAC kunt u deze resources aan andere gebruikers, service-principals en groepen in uw organisatie delen. Het bereik van het delen van deze resources is binnen dezelfde AD-tenant. Wanneer een gebruiker toegang tot de versie van de gedeelde-installatiekopie heeft, kunnen ze een virtuele machine of een virtuele-machineschaalset in een van de abonnementen die ze toegang hebben tot binnen hetzelfde AD-tenant als de versie van de gedeelde-installatiekopie implementeren.  Hier volgt de delen matrix die helpt te begrijpen wat de gebruiker krijgt toegang tot:
+Als de galerie met installatiekopieën van gedeelde, gedeelde installatiekopie en de versie van gedeelde installatiekopie moet u alle resources zijn, kunnen ze worden gedeeld met de ingebouwde die systeemeigen Azure RBAC bepaalt. Met RBAC kunt u deze resources aan andere gebruikers, service-principals en groepen in uw organisatie delen. Het bereik van het delen van deze resources is binnen dezelfde Azure AD-tenant. Wanneer een gebruiker toegang tot de versie van de installatiekopie gedeeld heeft, kunnen ze een virtuele machine of een virtuele-Machineschaalset opgehaald in een van de abonnementen die ze toegang hebben tot binnen dezelfde Azure AD-tenant als de versie van de gedeelde installatiekopie implementeren.  Hier volgt de delen matrix die helpt te begrijpen wat de gebruiker krijgt toegang tot:
 
 | Gedeeld met gebruiker     | Galerie met gedeelde installatiekopieën | Gedeelde installatiekopie | De versie van gedeelde installatiekopie |
 |----------------------|----------------------|--------------|----------------------|
@@ -92,13 +92,13 @@ Er zijn geen extra kosten voor het gebruik van de galerie met installatiekopieë
 
 **V:** Hoe registreer ik me voor de gedeelde installatiekopie galerie openbare Preview?
  
- A. Om u te registreren voor de galerie met installatiekopieën van gedeelde openbare preview, moet u registreren voor de functie door het uitvoeren van de volgende opdrachten uit elk van de abonnementen waarin u van plan bent om te maken van een galerie met installatiekopieën van de gedeelde, de definitie van installatiekopie of installatiekopie versie resources, en ook waar u van plan bent om te implementeren van virtuele Machines met behulp van de versies van een installatiekopie.
+ A. Om u te registreren voor de galerie met installatiekopieën van gedeelde openbare preview, moet u registreren voor de functie door het uitvoeren van de volgende opdrachten uit elk van de abonnementen waarin u van plan bent om te maken van de galerie met installatiekopieën van een gedeelde, de definitie van installatiekopie of installatiekopie versie resources, en ook waar u van plan bent om te implementeren van virtuele Machines met behulp van de versies van een installatiekopie.
 
 **CLI**: 
 
 ```bash 
 az feature register --namespace Microsoft.Compute --name GalleryPreview
-az provider register -n Microsoft.Compute
+az provider register -name Microsoft.Compute
 ```
 
 **PowerShell**: 
@@ -119,7 +119,7 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
  
  Als u wilt zien de definities van de installatiekopie en de versies van een installatiekopie, moet u ook selecteren **verborgen typen weergeven**.
  
- Als u de resources voor de galerie met gedeelde installatiekopie voor abonnementen waarvoor u machtigingen hebt, gebruikt u de volgende opdracht uit in de Azure CLI:
+ Als u de galerie met installatiekopieën van gedeelde resources tussen abonnementen waarvoor u machtigingen hebt, gebruik de volgende opdracht in de Azure CLI:
 
  ```bash
  az account list -otsv --query "[].id" | xargs -n 1 az sig list --subscription
@@ -146,12 +146,12 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
 
 **V:** Kan ik de versie van een installatiekopie maken van een gespecialiseerde schijf?
 
- A. Nee, we op dit moment ondersteunen geen gespecialiseerde schijf als afbeeldingen. Als u een gespecialiseerde schijf hebt, moet u [een virtuele machine maken van de VHD](https://docs.microsoft.com/azure/virtual-machines/windows/create-vm-specialized-portal#create-a-vm-from-a-disk) door de specializeddisk koppelen aan een nieuwe virtuele machine. Nadat u een actieve virtuele machine hebt, moet u Volg de instructies voor het maken van een beheerde installatiekopie van het [Windows VM](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-custom-images) of [Linux-VM](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-custom-images). Zodra u een gegeneraliseerde installatiekopie van de beheerde hebt, kunt u het proces voor het maken van een gedeelde installatiekopie beschrijving en de versie van installatiekopie kunt starten.
+ A. Nee, we op dit moment ondersteunen geen gespecialiseerde schijf als afbeeldingen. Als u een gespecialiseerde schijf hebt, moet u [een virtuele machine maken van de VHD](https://docs.microsoft.com/azure/virtual-machines/windows/create-vm-specialized-portal#create-a-vm-from-a-disk) door de gespecialiseerde schijf koppelen aan een nieuwe virtuele machine. Nadat u een actieve virtuele machine hebt, moet u Volg de instructies voor het maken van een beheerde installatiekopie van het [Windows VM](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-custom-images) of [Linux-VM](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-custom-images). Zodra u een gegeneraliseerde installatiekopie van de beheerde hebt, kunt u het proces voor het maken van een gedeelde installatiekopie beschrijving en de versie van installatiekopie kunt starten.
 
 
 **V:** Kan ik een galerie met installatiekopieën van gedeelde, de definitie van installatiekopie en de versie van de installatiekopie via de Azure-portal maken?
 
- A. Nee, momenteel we bieden geen ondersteuning het maken van een van de galerie met installatiekopieën van gedeelde resources via Azure portal. We bieden echter ondersteuning voor het maken van de galerie met installatiekopieën van gedeelde resources via de CLI, sjablonen en SDK's. PowerShell ook binnenkort release.
+ A. Nee, momenteel we bieden geen ondersteuning het maken van een van de galerie met installatiekopieën van gedeelde resources via Azure portal. We bieden echter ondersteuning voor het maken van de galerie met installatiekopieën van gedeelde resources via de CLI, sjablonen en SDK's. PowerShell worden binnenkort ook uitgebracht.
 
  
 **V:** Nadat u hebt gemaakt, kan ik bijwerken definitie van de installatiekopie of versie van de installatiekopie? Wat voor soort gegevens kan ik aanpassen?
@@ -186,9 +186,9 @@ Installatiekopieversie:
 
  A. Nee, mag u de versies van een installatiekopie repliceert tussen regio's in een abonnement en worden gebruikt in andere abonnementen via RBAC.
 
-**V:** Kan ik versies van een installatiekopie voor AD-tenants delen? 
+**V:** Kan ik versies van een installatiekopie in Azure AD-tenants delen? 
 
- A. Momenteel gedeelde afbeeldingengalerie biedt Nee, geen ondersteuning voor het delen van de versies van een installatiekopie voor AD-tenants. Echter, u kunt de functie voor persoonlijke aanbiedingen op Azure Marketplace om dit te bereiken.
+ A. Momenteel gedeelde afbeeldingengalerie biedt Nee, geen ondersteuning voor het delen van de versies van een installatiekopie in Azure AD-tenants. Echter, u kunt de functie voor persoonlijke aanbiedingen op Azure Marketplace om dit te bereiken.
 
 
 **V:** Hoe lang duurt het repliceren van de versies van een installatiekopie in de doelregio's?
@@ -198,7 +198,7 @@ Installatiekopieversie:
 
 **V:** Hoeveel gedeelde installatiekopie galerieën kunnen ik in een abonnement maken?
 
- A. De quotumlimiet is 
+ A. Het standaardquotum is: 
 - 10 gedeelde afbeeldingsgalerieën per abonnement per regio
 - 200 definities van de installatiekopie, per abonnement per regio
 - 2000 versies van een installatiekopie, per abonnement per regio
@@ -239,4 +239,4 @@ De algemene aantal replica's in de CLI, gebruikt u de **--replica-count** argume
 
 **V:** Welke API-versie moet ik gebruiken om galerie met installatiekopieën van gedeelde, de definitie van installatiekopie, Installatiekopieversie en VM/VMSS buiten-versie van de installatiekopie te maken?
 
- A. Voor de virtuele machine en virtuele-machineschaalsets ingesteld met behulp van de versie van een installatiekopie implementaties, raden wij aan u API-versie 2018-04-01 of hoger. Als u wilt werken met gedeelde installatiekopie galerieën, definities van de installatiekopie en versies van een installatiekopie, raden wij aan u API-versie 2018-06-01. 
+ A. Voor implementaties van virtuele machine en virtuele-Machineschaalset met behulp van de versie van een installatiekopie, raden wij aan u API-versie 2018-04-01 of hoger. Als u wilt werken met gedeelde installatiekopie galerieën, definities van de installatiekopie en versies van een installatiekopie, raden wij aan u API-versie 2018-06-01. 

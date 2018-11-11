@@ -14,12 +14,12 @@ ms.custom: mvc
 ms.topic: overview
 ms.date: 09/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 799593758bf24924d91d38bd6a626b945247183b
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 41c8fd0092af035153b3161c4a6c3eb5c5ef3f1d
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44050235"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958896"
 ---
 # <a name="overview-of-application-insights-for-devops"></a>Overzicht van Application Insights voor DevOps
 
@@ -231,6 +231,6 @@ U kunt op verschillende manieren aan de slag, afhankelijk van de kenmerken van u
 * [ASP.NET-webtoepassing](app-insights-asp-net.md)
 * [Java-webtoepassing](app-insights-java-get-started.md)
 * [Node.js-webtoepassing](app-insights-nodejs.md)
-* Reeds geïmplementeerde apps die worden gehost op [IIS](app-insights-monitor-web-app-availability.md), [J2EE](app-insights-java-live.md) of [Azure](app-insights-azure.md).
+* Reeds geïmplementeerde apps die worden gehost op [IIS](app-insights-monitor-web-app-availability.md), [J2EE](app-insights-java-live.md) of [Azure](app-insights-overview.md).
 * [Webpagina's](app-insights-javascript.md): een app die uit één pagina bestaat of een normale webpagina; gebruik deze afzonderlijk of in aanvulling op een van de serveropties.
 * [Beschikbaarheidstests](app-insights-monitor-web-app-availability.md) voor het testen van uw app op het openbare internet.

@@ -15,12 +15,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: ccf27748699a49c569a43f041cbc5e3625055852
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: a39eebda5abb41e02ce7254e2084541e86ecee30
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39503414"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51229506"
 ---
 # <a name="what-is-azure-notification-hubs"></a>Wat is Azure Notification Hubs?
 Azure Notification Hubs biedt een eenvoudig te gebruiken en uitgeschaalde push-engine waarmee u vanuit elke back-end (cloud of on-premises) meldingen kunt verzenden naar ieder platform (iOS, Android, Windows, Kindle, Baidu, enzovoort). Notification Hubs is zeer geschikt voor zowel bedrijfs- als consumentenscenario's. Enkele voorbeelden:
@@ -40,7 +40,7 @@ Pushmeldingen zijn essentieel voor consumenten-apps om de betrokkenheid en het g
 Zie de volgende onderwerpen voor meer informatie over pushmeldingen voor enkele populaire platforms: 
 * [iOS](https://developer.apple.com/notifications/)
 * [Android](https://developer.android.com/guide/topics/ui/notifiers/notifications.html)
-* [Windows](http://msdn.microsoft.com/library/windows/apps/hh779725.aspx)
+* [Windows](https://msdn.microsoft.com/library/windows/apps/hh779725.aspx)
 
 ## <a name="how-push-notifications-work"></a>Hoe werken pushmeldingen?
 Pushmeldingen worden bezorgd via platformspecifieke infrastructuren, *PNS (Platform Notification System)* genoemd. Ze bieden essentiële pushfunctionaliteit voor het bezorgen van een bericht op een apparaat met een opgegeven ingang, en hebben geen algemene interface. Om een melding te verzenden naar alle klanten via de iOS-, Android- en Windows-versies van een app, moet de ontwikkelaar gebruikmaken van APNs (Apple Push Notification service), FCM (Firebase Cloud Messaging) en WNS (Windows Notification Service).

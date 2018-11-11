@@ -9,14 +9,14 @@ editor: jasonwhowell
 ms.service: mysql
 ms.devlang: azure-cli
 ms.topic: quickstart
-ms.date: 09/14/2018
+ms.date: 11/01/2018
 ms.custom: mvc
-ms.openlocfilehash: c5d76141de6f5d256c7591da928c1395e83a8362
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 6e6a22d450aa9b51aa16ebf5e712d65e924b7869
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47406019"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958386"
 ---
 # <a name="create-an-azure-database-for-mysql-server-using-azure-cli"></a>Een Azure-database voor MySQL-server maken met behulp van Azure CLI
 In deze Quick Start wordt beschreven hoe u Azure CLI gebruikt om binnen ongeveer vijf minuten een Azure-database voor MySQL-server in een Azure-resourcegroep te maken. De Azure CLI wordt gebruikt voor het maken en beheren van Azure-resources vanaf de opdrachtregel of in scripts.
@@ -47,16 +47,16 @@ Maak een Azure Database for MySQL-server met de opdracht **[az mysql server crea
 **Instelling** | **Voorbeeldwaarde** | **Beschrijving**
 ---|---|---
 naam | mydemoserver | Kies een unieke naam ter identificatie van de Azure Database voor MySQL-server. De servernaam mag alleen kleine letters, cijfers en het koppelteken (-) bevatten. en moet 3 tot 63 tekens lang zijn.
-resource-group | myResourceGroup | Geef de naam van de Azure-resourcegroep op.
-sku-name | GP_Gen4_2 | De naam van de SKU. Volgt de afkortingsconventie {prijscategorie}_{bewerking voor compute}_{vCores}. Onder deze tabel vindt u meer informatie over de parameter sku-name.
-backup-retention | 7 | Hoe lang een back-up moet worden bewaard. Eenheid is dagen. Het bereik is 7-35. 
-geo-redundant-backup | Uitgeschakeld | Of geografisch redundante back-ups voor deze server moeten worden ingeschakeld. Toegestane waarden: Ingeschakeld, Uitgeschakeld.
-location | WestUs | De Azure-locatie voor de server.
-ssl-enforcement | Ingeschakeld | Of SSL moet worden ingeschakeld voor deze server. Toegestane waarden: Ingeschakeld, Uitgeschakeld.
-storage-size | 51.200 | De opslagcapaciteit van de server (eenheid is megabytes). Geldige waarde voor storage-size is minimaal 5120 MB en kan worden vergroot met stappen van 1024 MB. Raadpleeg het document [Prijscategorieën](./concepts-pricing-tiers.md) voor meer informatie over opslaglimieten. 
-version | 5.7 | De hoofdversie van MySQL.
-admin-user | myadmin | De gebruikersnaam voor de beheerdersaanmelding. Deze mag niet **azure_superuser**, **admin**, **administrator**, **root**, **guest** of **public** zijn.
-admin-password | *veilig wachtwoord* | Het wachtwoord van de beheerder. Dit wachtwoord moet tussen 8 en 128 tekens bevatten. Uw wachtwoord moet tekens bevatten uit drie van de volgende categorieën: Nederlandse hoofdletters, Nederlandse kleine letters, cijfers (0-9) en niet-alfanumerieke tekens.
+resource-group | myResourceGroup | Geef de naam op van de Azure-resourcegroep.
+sku-name | GP_Gen4_2 | De naam van de SKU. Volgt de verkorte notatie voor conventie {prijscategorie}_{compute-generatie}_{vCores}. Onder deze tabel vindt u meer informatie over de parameter sku-name.
+backup-retention | 7 | Hoe lang een back-up moet worden bewaard. De eenheid is dagen. Het bereik is 7-35. 
+geo-redundant-backup | Uitgeschakeld | Of geografisch redundante back-ups moeten worden ingeschakeld voor deze server. Toegestane waarden: Ingeschakeld, Uitgeschakeld.
+location | westus | De Azure-locatie voor de server.
+ssl-enforcement | Ingeschakeld | Of ssl moet worden ingeschakeld voor deze server. Toegestane waarden: Ingeschakeld, Uitgeschakeld.
+storage-size | 51.200 | De opslagcapaciteit van de server (eenheid is MB). De minimale opslaggrootte is 5120 MB en deze kunt u ophogen in stappen van 1024 MB. Zie het document met [prijsinformatie](./concepts-pricing-tiers.md) voor meer informatie over de opslaglimieten. 
+versie | 5.7 | De hoofdversie van MySQL.
+admin-user | myadmin | De gebruikersnaam voor aanmelding als beheerder. De aanmeldingsnaam van de beheerder mag niet **azure_superuser**, **admin**, **administrator**, **root**, **guest** of **public** zijn.
+admin-password | *veilig wachtwoord* | Het wachtwoord van het beheerdersaccount. Dit wachtwoord moet tussen 8 en 128 tekens bevatten. Het wachtwoord moet tekens bevatten uit drie van de volgende categorieën: hoofdletters, kleine letters, cijfers en niet-alfanumerieke tekens.
 
 
 De parameterwaarde voor de sku-naam volgt de conventie {prijscategorie} \_{compute-generatie}\_{vCores}, zoals in de onderstaande voorbeelden:
@@ -66,7 +66,7 @@ De parameterwaarde voor de sku-naam volgt de conventie {prijscategorie} \_{compu
 
 Raadpleeg de documentatie over [prijscategorieën](./concepts-pricing-tiers.md) om de geldige waarden per regio en categorie te begrijpen.
 
-In het volgende voorbeeld wordt een MySQL 5.7-server in US - west gemaakt met de naam `mydemoserver` in uw resourcegroep `myresourcegroup` met aanmeldgegevens van de serverbeheerder `myadmin`. Dit is een **Gen 4**-server voor **Algemeen gebruik** met **twee vCores**. Vervang het `<server_admin_password>` door uw eigen waarde.
+In het volgende voorbeeld wordt een MySQL 5.7-server in US - west gemaakt met de naam `mydemoserver` in uw resourcegroep `myresourcegroup` met aanmeldgegevens van de serverbeheerder `myadmin`. Dit is een **Gen 4**-server voor **algemeen gebruik** met twee **vCores**. Vervang het `<server_admin_password>` door uw eigen waarde.
 ```azurecli-interactive
 az mysql server create --resource-group myresourcegroup --name mydemoserver  --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen4_2 --version 5.7
 ```
@@ -136,12 +136,12 @@ Het resultaat wordt in JSON-indeling weergegeven. Noteer de **fullyQualifiedDoma
 ```
 
 ## <a name="connect-to-the-server-using-the-mysqlexe-command-line-tool"></a>Verbinding maken met de server met het opdrachtregelprogramma mysql.exe
-Maak verbinding met de server met behulp van het opdrachtregelprogramma **mysql.exe**. U kunt MySQL [hier](https://dev.mysql.com/downloads/) downloaden en vervolgens op uw computer installeren. In plaats daarvan kunt u ook op de knop **Try It** klikken in codevoorbeelden, of op `>_` op de werkbalk rechtsboven in Azure Portal, en de **Azure Cloud Shell** starten.
+Maak verbinding met de server met behulp van het opdrachtregelprogramma **mysql.exe**. U kunt MySQL [hier](https://dev.mysql.com/downloads/) downloaden en vervolgens op uw computer installeren. 
 
 Typ de volgende opdrachten: 
 
 1. Maak verbinding met de server met behulp van het opdrachtregelprogramma **mysql**:
-```azurecli-interactive
+```bash
  mysql -h mydemoserver.mysql.database.azure.com -u myadmin@mydemoserver -p
 ```
 

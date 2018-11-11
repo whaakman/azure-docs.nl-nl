@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 10/23/2017
 ms.author: suhuruli
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 7fcf0b924868d755bc76f7d1e695e73afc4eae6a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: a7e71b4f93f3b890ea73e36052570f9047fc8f32
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46993388"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228229"
 ---
 # <a name="quickstart-deploy-a-java-reliable-services-application-to-service-fabric"></a>Snelstart: Een Java Reliable Services-toepassing maken voor Service Fabric
 
@@ -90,7 +90,7 @@ Maak uw eigen cluster om de toepassing te implementeren in een cluster in Azure.
 
 Party-clusters zijn kosteloze, tijdelijke Service Fabric-clusters die worden gehost in Azure en worden uitgevoerd door het Service Fabric-team. U kunt party-clusters gebruiken om toepassingen te implementeren en meer te weten te komen over het platform. Het cluster gebruikt één zelfondertekend certificaat voor beveiliging van knooppunt-naar-knooppunt en client-naar-knooppunt.
 
-Meld u aan en neem deel aan een [Linux-cluster](http://aka.ms/tryservicefabric). Download het PFX-certificaat naar uw computer door op de koppeling **PFX** te klikken. Klik op de koppeling **Leesmij** om het certificaatwachtwoord te vinden en instructies te krijgen over het configureren van verschillende omgevingen voor gebruik van het certificaat. Laat de pagina's **Welkom** en **Leesmij** geopend, want u hebt enkele instructies in de volgende stappen nodig.
+Meld u aan en neem deel aan een [Linux-cluster](https://aka.ms/tryservicefabric). Download het PFX-certificaat naar uw computer door op de koppeling **PFX** te klikken. Klik op de koppeling **Leesmij** om het certificaatwachtwoord te vinden en instructies te krijgen over het configureren van verschillende omgevingen voor gebruik van het certificaat. Laat de pagina's **Welkom** en **Leesmij** geopend, want u hebt enkele instructies in de volgende stappen nodig.
 
 > [!Note]
 > Er zijn per uur een beperkt aantal party-clusters beschikbaar. Als er een fout optreedt wanneer u zich probeert aan te melden voor een party-cluster, kunt u een bepaalde tijd wachten en het opnieuw proberen, maar u kunt ook deze stappen in [Een Service Fabric-cluster in Azure maken](service-fabric-tutorial-create-vnet-and-linux-cluster.md) volgen om een cluster in uw abonnement te maken.

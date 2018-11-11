@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 5f5bfe6c730f569f0cc902b0e0a132bfca645a45
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: c17c14b015531bf3f978ac30b013c80ad5be779e
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50961684"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51006512"
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>Optimalisatie van uw omgeving met de oplossing System Center Operations Manager Health Check (Preview)
 
@@ -238,7 +238,7 @@ Als u aanbevelingen die u wilt negeren hebt, kunt u een tekstbestand met Log Ana
     ```
 
     >[!NOTE]
-    > Als uw werkruimte is bijgewerkt naar de [nieuwe met Log Analytics-querytaal](log-analytics-log-search.md), en vervolgens de bovenstaande query's gewijzigd in het volgende.
+    > Als uw werkruimte is bijgewerkt naar de [nieuwe met Log Analytics-querytaal](log-analytics-queries.md), en vervolgens de bovenstaande query's gewijzigd in het volgende.
     >
     > `SCOMAssessmentRecommendationRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
@@ -263,7 +263,7 @@ Als u aanbevelingen die u wilt negeren hebt, kunt u een tekstbestand met Log Ana
     ```
 
     >[!NOTE]
-    > Als uw werkruimte is bijgewerkt naar de [nieuwe met Log Analytics-querytaal](log-analytics-log-search.md), en vervolgens de bovenstaande query's gewijzigd in het volgende.
+    > Als uw werkruimte is bijgewerkt naar de [nieuwe met Log Analytics-querytaal](log-analytics-queries.md), en vervolgens de bovenstaande query's gewijzigd in het volgende.
     >
     > `SCOMAssessmentRecommendationRecommendation | where RecommendationResult == "Ignore" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
@@ -304,4 +304,4 @@ Als u aanbevelingen die u wilt negeren hebt, kunt u een tekstbestand met Log Ana
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Zoeken in logboeken](log-analytics-log-search.md) voor meer informatie over het analyseren van gedetailleerde gegevens voor System Center Operations Manager Health Check en aanbevelingen.
+- [Zoeken in logboeken](log-analytics-queries.md) voor meer informatie over het analyseren van gedetailleerde gegevens voor System Center Operations Manager Health Check en aanbevelingen.

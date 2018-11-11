@@ -14,17 +14,17 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: fa82db289cd3080cc1e51027b609cc6c8aa66921
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 28fe85c6443701d5fb40d4f90dbec9ba445a234d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48809855"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230237"
 ---
 <a name="private-skus"></a>Privé-SKU 's
 ============
 
-Privé-SKU's kunt u de beschikbaarheid van SKU's beperken tot bepaalde klanten. Wanneer een SKU is gemarkeerd privé zijn, is het niet beschikbaar in alle openbare catalogus met inbegrip van [Azure Marketplace](http://azuremarketplace.microsoft.com) en de [Azure-portal](http://portal.azure.com). In de Azure-portal, kunnen alleen klanten die toegang hebben tot de SKU deze zien. Bovendien wordt deze ook gevraagd dat ze toegang tot persoonlijke aanbiedingen hebben.
+Privé-SKU's kunt u de beschikbaarheid van SKU's beperken tot bepaalde klanten. Wanneer een SKU is gemarkeerd privé zijn, is het niet beschikbaar in alle openbare catalogus met inbegrip van [Azure Marketplace](https://azuremarketplace.microsoft.com) en de [Azure-portal](http://portal.azure.com). In de Azure-portal, kunnen alleen klanten die toegang hebben tot de SKU deze zien. Bovendien wordt deze ook gevraagd dat ze toegang tot persoonlijke aanbiedingen hebben.
 
 >[!NOTE]
 >Privé-SKU's beschikken over nieuwe unieke SKU /-Plan-id's om te voorkomen dat een conflict met uw openbare SKU's.

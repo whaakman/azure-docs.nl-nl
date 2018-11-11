@@ -3,7 +3,7 @@ title: Beheren van endpoint protection-problemen met Azure Security Center | Mic
 description: Informatie over het beheren van endpoint protection-problemen in Azure Security Center.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: 1599ad5f-d810-421d-aafc-892e831b403f
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/23/2017
-ms.author: terrylan
-ms.openlocfilehash: a3ac23f3874b85da9c0641264ca6f9c55a7b0515
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.date: 10/28/2018
+ms.author: rkarlin
+ms.openlocfilehash: 834e6f2519fe745004894f3791591a3d0aa5757c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44300000"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51229438"
 ---
 # <a name="manage-endpoint-protection-issues-with-azure-security-center"></a>Problemen met endpoint protection met Azure Security Center beheren
 Azure Security Center bewaakt de status van bescherming tegen malware en rapporteert deze op de blade problemen van Endpoint protection. Security Center worden de kwesties, zoals de gedetecteerde bedreigingen en onvoldoende beveiliging, waardoor uw virtuele machines (VM's) en de computers kwetsbaar voor antimalwarebedreigingen gemarkeerd. Met behulp van de gegevens in onder **problemen met Endpoint protection**, kunt u een plan om alle vastgestelde problemen identificeren.
@@ -110,7 +110,7 @@ Zie de volgende documenten voor meer informatie over Security Center:
 * [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) (Beveiligingswaarschuwingen beheren en erop reageren in Azure Security Center): ontdek hoe u beveiligingswaarschuwingen kunt beheren en erop kunt reageren.
 * [Partneroplossingen bewaken met Azure Security Center](security-center-partner-solutions.md): leer hoe u de integriteitsstatus van uw partneroplossingen kunt bewaken.
 * [Azure Security Center FAQ](security-center-faq.md) (Veelgestelde vragen over Azure Security Center): raadpleeg veelgestelde vragen over het gebruik van de service.
-* [Azure-Beveiligingsblog](http://blogs.msdn.com/b/azuresecurity/) : Lees blogberichten over de Azure-beveiliging en naleving.
+* [Azure-Beveiligingsblog](https://blogs.msdn.com/b/azuresecurity/) : Lees blogberichten over de Azure-beveiliging en naleving.
 
 <!--Image references-->
 [1]:./media/security-center-install-endpoint-protection/compute.png

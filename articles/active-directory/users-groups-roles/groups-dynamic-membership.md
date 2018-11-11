@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 11/07/2018
+ms.date: 11/05/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: c2e50362de48991c818017b59632be3b0e74cb0b
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
-ms.translationtype: MT
+ms.openlocfilehash: 53c50ba75a16c58d7936a6f06de87218f67f5951
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282064"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51219593"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Regels voor dynamisch lidmaatschap voor groepen in Azure Active Directory
 
@@ -339,9 +339,7 @@ Naam van de aangepaste eigenschap kan worden gevonden in de map door het opvrage
 
 ## <a name="rules-for-devices"></a>Regels voor apparaten
 
-U kunt ook een regel waarmee apparaatobjecten voor lidmaatschap in een groep selecteert maken. U geen gebruikers en apparaten als leden van de beveiligingsgroep. De **organizationalUnit** kenmerk niet meer wordt weergegeven en mag niet worden gebruikt. Deze tekenreeks in bepaalde gevallen door Intune is ingesteld, maar wordt niet herkend door Azure AD, zodat er zijn geen apparaten zijn toegevoegd aan groepen op basis van dit kenmerk.
-
-De volgende apparaatkenmerken kunnen worden gebruikt.
+U kunt ook een regel waarmee apparaatobjecten voor lidmaatschap in een groep selecteert maken. U geen gebruikers en apparaten als leden van de beveiligingsgroep. De volgende apparaatkenmerken kunnen worden gebruikt.
 
  Apparaatkenmerk  | Waarden | Voorbeeld
  ----- | ----- | ----------------
@@ -357,6 +355,7 @@ De volgende apparaatkenmerken kunnen worden gebruikt.
  enrollmentProfileName | Naam van Apple-Inschrijvingsprofiel voor apparaten of Windows Autopilot-profiel | (device.enrollmentProfileName - eq "DEP iPhones")
  isRooted | waar onwaar | (device.isRooted - eq true)
  managementType | MDM (voor mobiele apparaten)<br>PC (voor computers die worden beheerd door de Intune-PC-agent) | (device.managementType - eq 'MDM')
+ organizationalUnit | de waarde van een tekenreeks die overeenkomt met de naam van de organisatie-eenheid ingesteld door een on-premises Active Directory | (device.organizationalUnit - eq "VS-pc's")
  deviceId | een geldige Azure AD-apparaat-ID | (device.deviceId - eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d")
  object-id | een geldige Azure AD-object-ID |  (device.objectId - eq 76ad43c9-32c5-45e8-a272-7b58b58f596d")
  systemLabels | een willekeurige tekenreeks die overeenkomt met de eigenschap voor Intune voor apparaten van de moderne werkplek tagging | (device.systemLabels-bevat "M365Managed")

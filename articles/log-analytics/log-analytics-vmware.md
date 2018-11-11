@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 9b0a9b8c976ce5ef9fb57a6f8bcfd076f370bb10
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: fe2407f67e2ef7a2eb14105db0fef10917f34ba9
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50963984"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51005220"
 ---
 # <a name="vmware-monitoring-preview-solution-in-log-analytics"></a>VMware Monitoring (Preview) solution in Log Analytics
 
@@ -131,7 +131,7 @@ In de **VMware** dashboardweergave, blades zijn gerangschikt op:
 
 Klik op een blade om Log Analytics search deelvenster waarin gedetailleerde informatie voor de blade te openen.
 
-Hier kunt kunt u de zoekopdracht om dit te wijzigen voor een bepaald bewerken. Zie voor meer informatie over het maken van zoekopdrachten in logboeken [vinden van gegevens met behulp van zoekopdrachten in Logboeken in Log Analytics](log-analytics-log-search.md).
+Hier kunt kunt u de zoekopdracht om dit te wijzigen voor een bepaald bewerken. Zie voor meer informatie over het maken van zoekopdrachten in logboeken [vinden van gegevens met behulp van zoekopdrachten in Logboeken in Log Analytics](log-analytics-queries.md).
 
 #### <a name="find-esxi-host-events"></a>ESXi-host evenementen zoeken
 Één ESXi-host genereert meerdere logboeken, op basis van hun processen. De oplossing VMware Monitoring zijn ze gecentraliseerd en bevat een overzicht van het aantal gebeurtenissen. Deze gecentraliseerde weergave helpt u begrijpen welke ESXi-host heeft een groot aantal gebeurtenissen en welke gebeurtenissen treden het vaakst in uw omgeving.
@@ -206,6 +206,6 @@ Kunnen er meerdere redenen zijn:
     d. Als het bestand bestaat niet of de gebruiker en de instelling voor het groepsbeleid onjuist is, neemt u corrigerende maatregelen door [een Linux-server voorbereiden](#prepare-a-linux-server).
 
 ## <a name="next-steps"></a>Volgende stappen
-* Gebruik [zoekopdrachten](log-analytics-log-search.md) in Log Analytics om gedetailleerde VMware weer te geven gegevens te hosten.
+* Gebruik [zoekopdrachten](log-analytics-queries.md) in Log Analytics om gedetailleerde VMware weer te geven gegevens te hosten.
 * [Maak uw eigen dashboards](log-analytics-dashboards.md) VMware hostgegevens weergeven.
 * [Waarschuwingen maken](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) wanneer specifieke VMware host gebeurtenissen plaatsvinden.

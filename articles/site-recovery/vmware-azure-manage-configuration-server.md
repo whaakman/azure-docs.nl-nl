@@ -1,18 +1,18 @@
 ---
 title: De configuratieserver voor VMware en fysieke server-noodherstel met Azure Site Recovery beheren | Microsoft Docs
-description: In dit artikel wordt beschreven hoe u een bestaande configuratieserver voor herstel na noodgevallen van virtuele VMware-machines en fysieke servers naar Azure met Azure Site RecoveryS beheren.
+description: In dit artikel wordt beschreven hoe u een bestaande configuratieserver voor herstel na noodgevallen van virtuele VMware-machines en fysieke servers naar Azure met Azure Site Recovery beheren.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: raynew
-ms.openlocfilehash: 4ac3871893e7e8161dc087f285eb3d802cd4a355
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: f76a55778a5d4c00060192bfaa704724d5fe1045
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50215137"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51219478"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vms"></a>De configuratieserver voor VMware-VM's beheren
 
@@ -137,10 +137,10 @@ U uitvoeren updatepakketten voor het bijwerken van de configuratieserver. Update
 - Als u 9.7, 9,8, 9,9 of 9.10 uitvoert, kunt u rechtstreeks naar 9.11 bijwerken.
 - Als u 9,6 of een eerdere versie uitvoert en u wilt upgraden naar 9.11, moet u eerst upgraden naar versie 9.7. voordat u 9.11.
 
-Koppelingen naar de updatepakketten voor het upgraden van alle versies van de configuratieserver zijn beschikbaar in de [wiki updates pagina](https://social.technet.microsoft.com/wiki/contents/articles/38544.azure-site-recovery-service-updates.aspx).
+Koppelingen naar de updatepakketten voor het upgraden van alle versies van de configuratieserver zijn beschikbaar in de [updates van de Azure-pagina](https://azure.microsoft.com/updates/?product=site-recovery).
 
 > [!IMPORTANT]
-> Bij elke nieuwe versie "n" van een Azure Site Recovery-component die is uitgebracht, alle versies hieronder 'N-4' wordt beschouwd als ondersteuning vervalt. Het is altijd verstandig om te upgraden naar de nieuwste beschikbare versies.
+> Bij elke nieuwe versie "n" van een Azure Site Recovery-onderdeel dat wordt uitgebracht, alle versies hieronder 'N-4' wordt beschouwd als ondersteuning vervalt. Het is altijd verstandig om te upgraden naar de nieuwste beschikbare versies.
 
 De server als volgt bijwerken:
 

@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 02/12/2018
 ms.author: sclyon
-ms.openlocfilehash: b0fba3cee298e55702629815da4649d9af315b25
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 1f21065414fec6bbe943014e954ecb45af2bb6b9
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43283023"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51227872"
 ---
 # <a name="introduction-to-azure-cosmos-db-mongodb-api"></a>Inleiding tot Azure Cosmos DB: MongoDB-API
 
@@ -66,5 +66,4 @@ Informatie over de Azure Cosmos DB MongoDB-API is geïntegreerd in de algemene d
 * Volg de zelfstudie [Studio 3T (MongoChef) gebruiken met Azure Cosmos DB](mongodb-mongochef.md) om te leren hoe u een verbinding maakt tussen een Azure Cosmos DB-database en de MongoDB-app in Studio 3T.
 * Volg de zelfstudie [Gegevens migreren naar Azure Cosmos DB met protocolondersteuning voor MongoDB](mongodb-migrate.md) om uw gegevens te importeren naar een API voor een MongoDB-database.
 * Maak verbinding met een API voor een MongoDB-account met behulp van [Robomongo](mongodb-robomongo.md).
-* Ontdek hoeveel RU’s uw bewerkingen gebruiken met de [opdracht GetLastRequestStatistics en de metrische gegevens in Azure Portal](set-throughput.md#GetLastRequestStatistics).
 * Meer informatie over het [configureren van leesvoorkeuren voor wereldwijd gedistribueerde apps](../cosmos-db/tutorial-global-distribution-mongodb.md).

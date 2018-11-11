@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2016
 ms.author: cephalin
-ms.openlocfilehash: a83b5dada8afff455375ae1606ecaac4c9ebe8e7
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: b140ccba2b45dbfb1e4413c9fbeb12e9fec6bc8a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42054453"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51227175"
 ---
 # <a name="configuring-a-custom-domain-name-for-a-web-app-in-azure-app-service-using-traffic-manager"></a>Een aangepaste domeinnaam voor een web-app configureren in Azure App Service met Traffic Manager
 [!INCLUDE [web-selector](../../includes/websites-custom-domain-selector.md)]
@@ -69,7 +69,7 @@ Zodra u klaar bent met het toevoegen of wijzigen van de DNS-records bij uw domei
 [!INCLUDE [modes](../../includes/custom-dns-web-site-enable-on-traffic-manager.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie het [Node.js Developer Center](http://azure.microsoft.com/develop/nodejs/) voor meer informatie.
+Zie het [Node.js Developer Center](https://azure.microsoft.com/develop/nodejs/) voor meer informatie.
 
 [!INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
 

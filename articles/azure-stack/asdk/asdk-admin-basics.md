@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 555bf95367ab0d3e6c4afe09edb6777899400dd8
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 66a2871e0c4b36959ccd8f08df5b6b7edd09f624
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49344665"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51227821"
 ---
 # <a name="asdk-administration-basics"></a>Basisprincipes van beheer ASDK 
 Er zijn verschillende dingen die u weten moet als u geen ervaring met Azure Stack Development Kit (ASDK)-beheer. Deze handleiding biedt een overzicht van uw rol als Azure Stack-operators in de evaluatieomgeving en hoe kunt zorgen dat uw testgebruikers snel productiever kunt worden.
@@ -43,7 +43,7 @@ Er zijn enkele aandachtspunten voor gebruikersaccounts die u houden moet rekenin
 ## <a name="what-tools-do-i-use-to-manage"></a>Welke hulpprogramma's kan ik gebruiken om te beheren?
 U kunt de [Azure Stack-Beheerdersportal](https://adminportal.local.azurestack.external) of PowerShell voor het beheren van Azure Stack. De eenvoudigste manier voor meer informatie over de basisconcepten is via de portal. Als u PowerShell gebruiken wilt, moet u voor het installeren van [PowerShell voor Azure Stack](asdk-post-deploy.md#install-azure-stack-powershell) en [de hulpprogramma's voor Azure Stack downloaden vanuit GitHub](asdk-post-deploy.md#download-the-azure-stack-tools).
 
-Azure Stack maakt gebruik van Azure Resource Manager als een onderliggende implementatie, beheer en organisatie-mechanisme. Als u Azure Stack beheren en ter ondersteuning van gebruikers, moet u meer informatie over Azure Resource Manager. U vindt meer informatie lezen van de [aan de slag met Azure Resource Manager-whitepaper](http://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf).
+Azure Stack maakt gebruik van Azure Resource Manager als een onderliggende implementatie, beheer en organisatie-mechanisme. Als u Azure Stack beheren en ter ondersteuning van gebruikers, moet u meer informatie over Azure Resource Manager. U vindt meer informatie lezen van de [aan de slag met Azure Resource Manager-whitepaper](https://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf).
 
 ## <a name="your-typical-responsibilities"></a>Uw gebruikelijke verantwoordelijkheden
 Uw gebruikers willen om services te gebruiken. Vanuit het perspectief is uw belangrijkste rol aan ze beschikbaar stellen van deze services. Met behulp van de ASDK, u kunt meer te weten welke services te bieden, en hoe u deze services beschikbaar is per [maken, plannen, aanbiedingen en quota's](asdk-offer-services.md). U moet ook items toevoegen aan de marketplace, zoals installatiekopieën voor virtuele machines. De eenvoudigste manier is om te [marketplace-items downloaden](asdk-marketplace-item.md) van Azure naar Azure Stack.

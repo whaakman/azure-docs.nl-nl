@@ -1,12 +1,9 @@
 ---
-title: De Load Balancer op meerdere IP-configuraties in Azure | Microsoft Docs
+title: Taakverdeling over meerdere IP-configuraties in Azure | Microsoft Docs
 description: Taakverdeling over de primaire en secundaire IP-configuraties.
 services: load-balancer
 documentationcenter: na
 author: anavinahar
-manager: narayan
-editor: na
-ms.assetid: 244907cd-b275-4494-aaf7-dcfc4d93edfe
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -14,14 +11,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: annahar
-ms.openlocfilehash: 12a978fc85d9502ce484859b436575b67364c9c4
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 8abbab59bc2df739774001f53419968337090c90
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2018
-ms.locfileid: "30261718"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51218692"
 ---
-# <a name="load-balancing-on-multiple-ip-configurations-using-powershell"></a>De Load Balancer op meerdere IP-configuraties met behulp van PowerShell
+# <a name="load-balancing-on-multiple-ip-configurations-using-powershell"></a>De taakverdeling op meerdere IP-configuraties met behulp van PowerShell
 
 > [!div class="op_single_selector"]
 > * [Portal](load-balancer-multiple-ip.md)
@@ -29,13 +26,13 @@ ms.locfileid: "30261718"
 > * [PowerShell](load-balancer-multiple-ip-powershell.md)
 
 
-Dit artikel wordt beschreven hoe u Azure Load Balancer met meerdere IP-adressen op een secundaire netwerkinterface (NIC). In dit scenario hebben we twee virtuele machines met Windows, elk met een primaire en een secundaire NIC. Elk van de secundaire NIC's heeft twee IP-configuraties. Elke virtuele machine fungeert als host van websites contoso.com en fabrikam.com. Elke website is gebonden aan een van de IP-configuraties voor de secundaire NIC. We Azure Load Balancer gebruiken om twee IP-adressen voor frontend, één voor elke website, voor het distribueren van het verkeer naar de respectieve IP-configuratie voor de website weer te geven. Dit scenario gebruikt hetzelfde poortnummer op zowel frontends, evenals het IP-adressen van zowel back-end-groep.
+Dit artikel wordt beschreven hoe u Azure Load Balancer met meerdere IP-adressen op een secundaire netwerkinterface (NIC). Voor dit scenario hebben we twee virtuele machines met Windows, elk met een primaire en een secundaire NIC. Elk van de secundaire NIC's heeft twee IP-configuraties. Elke virtuele machine als host fungeert voor websites contoso.com en fabrikam.com. Elke website is gebonden aan een van de IP-configuraties voor de secundaire NIC. We gebruiken Azure Load Balancer om twee IP-adressen voor front-end, één voor elke website, voor het distribueren van verkeer naar de respectieve IP-configuratie voor de website zichtbaar te maken. In dit scenario maakt gebruik van hetzelfde poortnummer in beide front-ends, evenals het IP-adressen van beide back-end-groep.
 
-![De installatiekopie van de Load Balancer-scenario](./media/load-balancer-multiple-ip/lb-multi-ip.PNG)
+![Afbeelding van LB-scenario](./media/load-balancer-multiple-ip/lb-multi-ip.PNG)
 
-## <a name="steps-to-load-balance-on-multiple-ip-configurations"></a>Stappen om taken te verdelen over meerdere IP-configuraties
+## <a name="steps-to-load-balance-on-multiple-ip-configurations"></a>Stappen voor het verdelen van meerdere IP-configuraties
 
-Volg onderstaande stappen voor het bereiken van het scenario in dit artikel wordt beschreven:
+Volg onderstaande stappen voor het bereiken van het scenario in dit artikel beschreven:
 
 1. Installeer Azure PowerShell. Zie [Azure PowerShell installeren en configureren](/powershell/azure/overview) voor informatie over het installeren van de nieuwste versie van Azure PowerShell, het selecteren van het abonnement en het aanmelden bij uw account.
 2. Maak een resourcegroep met de volgende instellingen:
@@ -47,20 +44,20 @@ Volg onderstaande stappen voor het bereiken van het scenario in dit artikel word
 
     Zie voor meer informatie stap 2 van [een resourcegroep maken](../virtual-machines/virtual-machines-windows-ps-create.md?toc=%2fazure%2fload-balancer%2ftoc.json).
 
-3. [Maken van een Beschikbaarheidsset](../virtual-machines/windows/tutorial-availability-sets.md?toc=%2fazure%2fload-balancer%2ftoc.json) uw virtuele machines bevatten. In dit scenario moet u de volgende opdracht gebruiken:
+3. [Maak een Beschikbaarheidsset](../virtual-machines/windows/tutorial-availability-sets.md?toc=%2fazure%2fload-balancer%2ftoc.json) aan uw virtuele machines bevatten. Gebruik de volgende opdracht in dit scenario:
 
     ```powershell
     New-AzureRmAvailabilitySet -ResourceGroupName "contosofabrikam" -Name "myAvailset" -Location "West Central US"
     ```
 
-4. Volg de instructies stappen 3 tot en met 5 in [maken van een virtuele machine van Windows](../virtual-machines/virtual-machines-windows-ps-create.md?toc=%2fazure%2fload-balancer%2ftoc.json) artikel voor het voorbereiden van het maken van een virtuele machine met een enkele netwerkinterfacekaart. 6.1 stap uit te voeren en de volgende opdracht gebruiken in plaats van stap 6.2:
+4. Volg de instructies stappen 3 t/m 5 in [maken van een Windows-VM](../virtual-machines/virtual-machines-windows-ps-create.md?toc=%2fazure%2fload-balancer%2ftoc.json) artikel voor het voorbereiden van het maken van een virtuele machine met een enkele NIC. Stap 6.1 uitvoeren en gebruik de volgende informatie in plaats van stap 6.2:
 
     ```powershell
     $availset = Get-AzureRmAvailabilitySet -ResourceGroupName "contosofabrikam" -Name "myAvailset"
     New-AzureRmVMConfig -VMName "VM1" -VMSize "Standard_DS1_v2" -AvailabilitySetId $availset.Id
     ```
 
-    Voltooi [maken van een virtuele machine van Windows](../virtual-machines/virtual-machines-windows-ps-create.md?toc=%2fazure%2fload-balancer%2ftoc.json) 6.3 via 6,8 stappen.
+    Voltooi [maken van een Windows-VM](../virtual-machines/virtual-machines-windows-ps-create.md?toc=%2fazure%2fload-balancer%2ftoc.json) 6.3 via 6,8 stappen.
 
 5. Een tweede IP-configuratie toevoegen aan elk van de virtuele machines. Volg de instructies in [meerdere IP-adressen toewijzen aan virtuele machines](../virtual-network/virtual-network-multiple-ip-addresses-powershell.md#add) artikel. Gebruik de volgende configuratieinstellingen:
 
@@ -74,9 +71,9 @@ Volg onderstaande stappen voor het bereiken van het scenario in dit artikel word
 
     U hoeft niet te koppelen van de secundaire IP-configuraties met openbare IP-adressen voor deze zelfstudie. Bewerk de opdracht voor het verwijderen van het openbare deel van de IP-koppeling.
 
-6. Voltooi de stappen 4 tot en met 6 van dit artikel opnieuw voor VM2. Zorg ervoor dat de naam van de VM naar VM2 vervangen wanneer dit te doen. Houd er rekening mee dat u niet wilt maken van een virtueel netwerk voor de tweede VM. U kunt of kan een nieuw subnet op basis van uw gebruiksvoorbeeld niet maken.
+6. Volg de stappen 4 t / m 6 van dit artikel nogmaals voor VM2. Zorg ervoor dat de naam van de virtuele machine voor VM2 vervangen bij het uitvoeren van deze. Houd er rekening mee dat u niet wilt maken van een virtueel netwerk voor de tweede virtuele machine. U kan of kan niet maken voor een nieuw subnet op basis van uw situatie.
 
-7. Twee openbare IP-adressen maken en deze opslaan op de juiste variabelen, zoals wordt weergegeven:
+7. Maak twee openbare IP-adressen en deze opslaan in de betreffende variabelen, zoals wordt weergegeven:
 
     ```powershell
     $publicIP1 = New-AzureRmPublicIpAddress -Name PublicIp1 -ResourceGroupName contosofabrikam -Location 'West Central US' -AllocationMethod Dynamic -DomainNameLabel contoso
@@ -93,7 +90,7 @@ Volg onderstaande stappen voor het bereiken van het scenario in dit artikel word
     $frontendIP2 = New-AzureRmLoadBalancerFrontendIpConfig -Name fabrikamfe -PublicIpAddress $publicIP2
     ```
 
-9. Uw back-end-adresgroepen, een test en de load-balancingregels maken:
+9. Uw back-end-adresgroepen, een test en de load balancer-regels maken:
 
     ```powershell
     $beaddresspool1 = New-AzureRmLoadBalancerBackendAddressPoolConfig -Name contosopool
@@ -105,13 +102,13 @@ Volg onderstaande stappen voor het bereiken van het scenario in dit artikel word
     $lbrule2 = New-AzureRmLoadBalancerRuleConfig -Name HTTPf -FrontendIpConfiguration $frontendIP2 -BackendAddressPool $beaddresspool2 -Probe $healthprobe -Protocol Tcp -FrontendPort 80 -BackendPort 80
     ```
 
-10. Zodra u deze resources die zijn gemaakt hebt, maakt u de load balancer:
+10. Wanneer u deze resources die zijn gemaakt hebt, maakt u de load balancer:
 
     ```powershell
     $mylb = New-AzureRmLoadBalancer -ResourceGroupName contosofabrikam -Name mylb -Location 'West Central US' -FrontendIpConfiguration $frontendIP1 -LoadBalancingRule $lbrule -BackendAddressPool $beAddressPool -Probe $healthProbe
     ```
 
-11. De tweede back-end-pool en frontend IP-adresconfiguratie toevoegen aan de zojuist gemaakte load balancer:
+11. De tweede back-end-pool en front-end IP-adresconfiguratie toevoegen aan uw zojuist gemaakte load balancer:
 
     ```powershell
     $mylb = Get-AzureRmLoadBalancer -Name "mylb" -ResourceGroupName $myResourceGroup | Add-AzureRmLoadBalancerBackendAddressPoolConfig -Name fabrikampool | Set-AzureRmLoadBalancer
@@ -121,7 +118,7 @@ Volg onderstaande stappen voor het bereiken van het scenario in dit artikel word
     Add-AzureRmLoadBalancerRuleConfig -Name HTTP -LoadBalancer $mylb -FrontendIpConfiguration $frontendIP2 -BackendAddressPool $beaddresspool2 -Probe $healthProbe -Protocol Tcp -FrontendPort 80 -BackendPort 80 | Set-AzureRmLoadBalancer
     ```
 
-12. De onderstaande opdrachten de NIC's ophalen en vervolgens beide IP-configuraties van elke secundaire NIC toe te voegen aan de back-end-adresgroep van de load balancer:
+12. De onderstaande opdrachten de NIC's ophalen en vervolgens beide IP-configuraties van elke secundaire NIC toevoegen aan de back-endadresgroep van de load balancer:
 
     ```powershell
     $nic1 = Get-AzureRmNetworkInterface -Name "VM1-NIC2" -ResourceGroupName "MyResourcegroup";
@@ -138,8 +135,8 @@ Volg onderstaande stappen voor het bereiken van het scenario in dit artikel word
     $nic2 | Set-AzureRmNetworkInterface
     ```
 
-13. Tot slot moet u DNS-bronrecords om te verwijzen naar de respectieve frontend-IP-adres van de Load Balancer configureren. U kunt uw domeinen in Azure DNS hosten. Zie voor meer informatie over het gebruik van Azure DNS met Load Balancer [met behulp van Azure DNS met andere Azure-services](../dns/dns-for-azure-services.md).
+13. Tot slot moet u DNS-resourcerecords om te verwijzen naar de respectieve frontend-IP-adres van de Load Balancer configureren. U kunt uw domeinen in Azure DNS hosten. Zie voor meer informatie over het gebruik van Azure DNS met Load Balancer [met behulp van Azure DNS met andere Azure-services](../dns/dns-for-azure-services.md).
 
 ## <a name="next-steps"></a>Volgende stappen
-- Meer informatie over het combineren van de load balancer-services in Azure in [met gelijke taakverdeling van services in Azure](../traffic-manager/traffic-manager-load-balancing-azure.md).
-- Meer informatie over hoe u verschillende typen logboeken kunt gebruiken in Azure te beheren en oplossen van de load balancer in [analytics aanmelden voor Azure Load Balancer](../load-balancer/load-balancer-monitor-log.md).
+- Meer informatie over het combineren van load balancing-services in Azure in [met load balancing-services in Azure](../traffic-manager/traffic-manager-load-balancing-azure.md).
+- Lees hoe u verschillende soorten logboeken in Azure kunt gebruiken om te beheren en problemen oplossen van load balancer in het [Log analytics voor Azure Load Balancer](../load-balancer/load-balancer-monitor-log.md).
