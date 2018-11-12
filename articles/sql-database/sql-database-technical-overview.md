@@ -13,12 +13,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: 1ae68e8eac3baca53cda603769a89bc6a84fd468
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 74e963abe5d2798f72bce8212c9f761f8f3297d1
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49405920"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51256932"
 ---
 # <a name="the-azure-sql-database-service"></a>De service Azure SQL Database
 
@@ -101,7 +101,7 @@ Daarnaast kan SQL Database [metrische gegevens en diagnostische logboeken verzen
 
 ## <a name="availability-capabilities"></a>Beschikbaarheid
 
-De toonaangevende serviceovereenkomst [(SLA)](http://azure.microsoft.com/support/legal/sla/) van Azure met 99,99% beschikbaarheid dankzij een wereldwijd netwerk van door Microsoft beheerde datacenters, zorgt u ervoor dat uw app continu (24 uur per dag, 7 dagen per week) in de lucht blijft. In het Azure-platform wordt elk exemplaar van Azure SQL Database volledig beheerd en zijn geen verlies en een hoge beschikbaarheid van gegevens gegarandeerd. Patches, back-ups, replicatie, foutdetectie, onderliggende potentiële hardware-, software- of netwerkfouten, de implementatie van bugfixes, failovers, database-upgrades en andere onderhoudstaken worden in Azure automatisch afgehandeld. Standaard-beschikbaarheid wordt bereikt door de lagen voor berekeningen en opslag te scheiden. Premium-beschikbaarheid wordt bereikt door de integratie van compute en opslag op een enkel knooppunt voor de prestaties en vervolgens implementeren technologie die vergelijkbaar is met Always On Availability Groups op de achtergrond. Zie voor een volledige beschrijving van de mogelijkheden voor hoge beschikbaarheid van Azure SQL Database, [beschikbaarheid van de SQL-Database](sql-database-high-availability.md). Daarnaast biedt SQL Database ingebouwde functies voor [bedrijfscontinuïteit en wereldwijde schaalbaarheid](sql-database-business-continuity.md), zoals:
+De toonaangevende serviceovereenkomst [(SLA)](https://azure.microsoft.com/support/legal/sla/) van Azure met 99,99% beschikbaarheid dankzij een wereldwijd netwerk van door Microsoft beheerde datacenters, zorgt u ervoor dat uw app continu (24 uur per dag, 7 dagen per week) in de lucht blijft. In het Azure-platform wordt elk exemplaar van Azure SQL Database volledig beheerd en zijn geen verlies en een hoge beschikbaarheid van gegevens gegarandeerd. Patches, back-ups, replicatie, foutdetectie, onderliggende potentiële hardware-, software- of netwerkfouten, de implementatie van bugfixes, failovers, database-upgrades en andere onderhoudstaken worden in Azure automatisch afgehandeld. Standaard-beschikbaarheid wordt bereikt door de lagen voor berekeningen en opslag te scheiden. Premium-beschikbaarheid wordt bereikt door de integratie van compute en opslag op een enkel knooppunt voor de prestaties en vervolgens implementeren technologie die vergelijkbaar is met Always On Availability Groups op de achtergrond. Zie voor een volledige beschrijving van de mogelijkheden voor hoge beschikbaarheid van Azure SQL Database, [beschikbaarheid van de SQL-Database](sql-database-high-availability.md). Daarnaast biedt SQL Database ingebouwde functies voor [bedrijfscontinuïteit en wereldwijde schaalbaarheid](sql-database-business-continuity.md), zoals:
 
 - **[Automatische back-ups](sql-database-automated-backups.md)**:
 
@@ -200,7 +200,7 @@ SQL Database ondersteunt het maken van toepassingen met Python, Java, Node.js, P
 - [DBA Stack Exchange](https://dba.stackexchange.com/questions/tagged/sql-server): stel hier uw vragen over databasebeheer
 - [Stack Overflow](http://stackoverflow.com/questions/tagged/sql-server): stel hier uw vragen over ontwikkeling
 - [MSDN-forums](https://social.msdn.microsoft.com/Forums/home?category=sqlserver): stel hier uw technische vragen
-- [Feedback](http://aka.ms/sqlfeedback): hier kunt u bugs rapporteren en functies aanvragen
+- [Feedback](https://aka.ms/sqlfeedback): hier kunt u bugs rapporteren en functies aanvragen
 - [Reddit](https://www.reddit.com/r/SQLServer/): vragen en antwoorden voor SQL Server
 
 ## <a name="next-steps"></a>Volgende stappen

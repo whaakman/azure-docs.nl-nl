@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2018
 ms.author: markvi
-ms.openlocfilehash: bea59f0d1ce1d1f3813c0b39a57b1f4e726fe2a5
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 24c7ddff1eea16fc2be3f99d04abd90ee0791f4c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50097895"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247293"
 ---
 # <a name="settings-and-data-roaming-faq"></a>Veelgestelde vragen over instellingen en gegevensroaming
 In dit artikel vindt u antwoorden op enkele vragen die IT-beheerders mogelijk over de instellingen en app-gegevens synchroniseren.
@@ -37,7 +37,7 @@ In dit artikel vindt u antwoorden op enkele vragen die IT-beheerders mogelijk ov
 * *Gebruiksgemak toegangsfuncties*, zoals thema met hoog contrast en Narrator, Vergrootglas.
 * *Andere Windows-instellingen*, zoals muisinstellingen.
 
-**Toepassingsgegevens**: universele Windows-apps instellingsgegevens naar een map voor zwervende schrijft en alle gegevens die naar deze map geschreven automatisch worden gesynchroniseerd. Het is aan de afzonderlijke app-ontwikkelaar een app om te profiteren van deze mogelijkheid te ontwerpen. Zie voor meer informatie over het ontwikkelen van een universele Windows-app die gebruikmaakt van roaming, het [appdata-API van storage](https://msdn.microsoft.com/library/windows/apps/mt299098.aspx) en de [Windows 8 appdata roaming ontwikkelaarsblog](http://blogs.msdn.com/b/windowsappdev/archive/2012/07/17/roaming-your-app-data.aspx).
+**Toepassingsgegevens**: universele Windows-apps instellingsgegevens naar een map voor zwervende schrijft en alle gegevens die naar deze map geschreven automatisch worden gesynchroniseerd. Het is aan de afzonderlijke app-ontwikkelaar een app om te profiteren van deze mogelijkheid te ontwerpen. Zie voor meer informatie over het ontwikkelen van een universele Windows-app die gebruikmaakt van roaming, het [appdata-API van storage](https://msdn.microsoft.com/library/windows/apps/mt299098.aspx) en de [Windows 8 appdata roaming ontwikkelaarsblog](https://blogs.msdn.com/b/windowsappdev/archive/2012/07/17/roaming-your-app-data.aspx).
 
 ## <a name="what-account-is-used-for-settings-sync"></a>Welk account wordt gebruikt voor synchronisatie van instellingen?
 In Windows 8.1, instellingen synchroniseren is altijd gebruikt voor consumenten-Microsoft-accounts. Zakelijke gebruikers heeft de mogelijkheid om te verbinden met hun Active Directory-domeinaccount toegang te krijgen tot de synchronisatie van instellingen voor een Microsoft-account. In Windows 10 verbonden deze functionaliteit wordt vervangen met een primaire/secundaire account-framework voor Microsoft-account.

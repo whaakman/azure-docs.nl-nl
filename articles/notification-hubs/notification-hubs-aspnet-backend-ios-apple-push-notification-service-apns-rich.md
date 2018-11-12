@@ -14,12 +14,12 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 04/25/2018
 ms.author: dimazaid
-ms.openlocfilehash: f2fa2b8b43a4840d8c6956efb7704327cca78d7c
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 8aad769da4d1c831dc0222c39daf86801a4f850b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232509"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51244284"
 ---
 # <a name="azure-notification-hubs-rich-push"></a>Azure Notification Hubs uitgebreide Push
 ## <a name="overview"></a>Overzicht
@@ -94,7 +94,7 @@ Op hoog niveau:
         }
    
    > [!NOTE]
-   > (optioneel) Raadpleeg [insluiten en toegang krijgen tot bronnen met behulp van Visual C# ](http://support.microsoft.com/kb/319292) voor meer informatie over het toevoegen en de projectresources te verkrijgen.
+   > (optioneel) Raadpleeg [insluiten en toegang krijgen tot bronnen met behulp van Visual C# ](https://support.microsoft.com/kb/319292) voor meer informatie over het toevoegen en de projectresources te verkrijgen.
    > 
    > 
 7. In **NotificationsController.cs**, definiëren **NotificationsController** met de volgende codefragmenten. Dit wordt een eerste op de achtergrond uitgebreide meldings-id naar apparaat verzonden en kan aan de clientzijde voor het ophalen van de installatiekopie van:

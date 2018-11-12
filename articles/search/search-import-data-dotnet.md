@@ -9,12 +9,12 @@ ms.service: search
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 01/13/2017
-ms.openlocfilehash: fb8fb153c7393af0e084cb96ee2f5e82fba5b220
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: dc59531b282f6c99dd399ac384a8c6264ee260ea
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31798050"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51258762"
 ---
 # <a name="upload-data-to-azure-search-using-the-net-sdk"></a>Gegevens uploaden naar Azure Search met behulp van de .NET SDK
 > [!div class="op_single_selector"]
@@ -29,7 +29,7 @@ In dit artikel wordt beschreven hoe u met behulp van de [Azure Search .NET SDK](
 Voordat u deze procedure begint, moet u al [een Azure Search-index hebben gemaakt](search-what-is-an-index.md). In dit artikel wordt ervan uitgegaan dat u al een `SearchServiceClient`-object hebt gemaakt, zoals uiteengezet in [Een Azure Search-index maken met de.NET SDK](search-create-index-dotnet.md#CreateSearchServiceClient).
 
 > [!NOTE]
-> Alle voorbeeldcode in dit artikel is geschreven in C#. U vindt de volledige broncode [op GitHub](http://aka.ms/search-dotnet-howto). Voor een uitgebreidere walkthrough van de voorbeeldcode kunt ook meer lezen over de [.NET-SDK voor Azure Search](search-howto-dotnet-sdk.md).
+> Alle voorbeeldcode in dit artikel is geschreven in C#. U vindt de volledige broncode [op GitHub](https://aka.ms/search-dotnet-howto). Voor een uitgebreidere walkthrough van de voorbeeldcode kunt ook meer lezen over de [.NET-SDK voor Azure Search](search-howto-dotnet-sdk.md).
 
 Om documenten in uw index te pushen met behulp van de .NET SDK, moet u het volgende doen:
 
