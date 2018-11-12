@@ -2,19 +2,19 @@
 title: Livy Spark gebruiken voor het verzenden van taken naar Spark-cluster in Azure HDInsight
 description: Leer hoe u Apache Spark REST-API gebruiken voor het indienen van Spark-taken op afstand met een Azure HDInsight-cluster.
 services: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 07/18/2018
-ms.openlocfilehash: 677c7d27d34725b75c5dfed70cc377735f5d7d61
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.date: 11/06/2018
+ms.openlocfilehash: 86a047fe291c7872fe275ba7246b9f3e59044723
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43045209"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51236820"
 ---
 # <a name="use-apache-spark-rest-api-to-submit-remote-jobs-to-an-hdinsight-spark-cluster"></a>Apache Spark REST API gebruiken voor het verzenden van externe taken naar een HDInsight Spark-cluster
 
@@ -152,9 +152,9 @@ Voer de volgende stappen uit:
    
     De laatste regel van de uitvoer laat zien dat de batch is verwijderd. Verwijderen van een taak, terwijl deze wordt uitgevoerd, ook beëindigt de taak. Als u een taak die is voltooid, of anders is, verwijdert deze Hiermee verwijdert u de informatie over de taak volledig.
 
-## <a name="using-livy-spark-on-hdinsight-35-clusters"></a>Met behulp van Livy Spark op HDInsight 3.5-clusters
+## <a name="updates-to-livy-configuration-starting-with-hdinsight-35-version"></a>Updates voor de configuratie van Livy vanaf versie 3.5 voor HDInsight
 
-HDInsight 3.5-cluster, wordt standaard gebruik van lokale paden naar bestanden met voorbeeldgegevens toegang of JAR-bestanden. We raden u aan het gebruik van de `wasb://` pad in plaats daarvan voor toegang tot JAR-bestanden of voorbeeldgegevens bestanden uit het cluster. Als u gebruiken, lokaal pad wilt, moet u de Ambari-configuratie dienovereenkomstig bijgewerkt. Dit doet u als volgt:
+HDInsight 3.5-clusters en uitschakelen hierboven standaard gebruik van lokale paden naar bestanden met voorbeeldgegevens toegang of JAR-bestanden. We raden u aan het gebruik van de `wasb://` pad in plaats daarvan voor toegang tot JAR-bestanden of voorbeeldgegevens bestanden uit het cluster. Als u gebruiken, lokaal pad wilt, moet u de Ambari-configuratie dienovereenkomstig bijgewerkt. Dit doet u als volgt:
 
 1. Ga naar de Ambari-portal voor het cluster. De Ambari-Webinterface is beschikbaar op uw HDInsight-cluster op https://**CLUSTERNAME**. azurehdidnsight.net, waarbij CLUSTERNAME de naam van uw cluster is.
 

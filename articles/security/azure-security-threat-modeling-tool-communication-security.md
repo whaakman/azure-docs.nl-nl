@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 7e8afc02c738a2bba445b1d84b7cb899dfbb93a0
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: bc724f57a25e2ca12d334192d2171899345e72de
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43301551"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247378"
 ---
 # <a name="security-frame-communication-security--mitigations"></a>Beveiliging Frame: Beveiligde communicatie | Oplossingen 
 | Product/Service | Artikel |
@@ -113,7 +113,7 @@ ms.locfileid: "43301551"
 | **Van toepassing technologieën** | Algemene |
 | **Kenmerken**              | EnvironmentType - Azure |
 | **Verwijzingen**              | [HTTPS op Azure App Service afdwingen](../app-service/app-service-web-tutorial-custom-ssl.md#enforce-https) |
-| **Stappen** | <p>Hoewel Azure al HTTPS voor Azure app services met een certificaat met jokertekens voor het domein kunt *. azurewebsites.net, deze HTTPS niet verplicht. Bezoekers kunnen nog steeds toegang tot de app via HTTP, die mogelijk van de app-beveiliging in gevaar en kan daarom HTTPS heeft moeten expliciet worden afgedwongen. ASP.NET MVC-toepassingen moeten gebruiken de [https vereisen filter](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) die ervoor zorgt dat een niet-beveiligde HTTP-aanvraag moet opnieuw worden verzonden via HTTPS.</p><p>U kunt ook kan de module herschrijven van URL's, dat opgenomen in Azure App Service is worden gebruikt om af te dwingen van HTTPS. Module herschrijven van URL's biedt ontwikkelaars de mogelijkheid om regels die worden toegepast op binnenkomende aanvragen voordat de aanvragen worden doorgegeven aan uw toepassing te definiëren. Regels voor het herschrijven van URL's zijn gedefinieerd in een web.config-bestand opgeslagen in de hoofdmap van de toepassing</p>|
+| **Stappen** | <p>Hoewel Azure al HTTPS voor Azure app services met een certificaat met jokertekens voor het domein kunt *. azurewebsites.net, deze HTTPS niet verplicht. Bezoekers kunnen nog steeds toegang tot de app via HTTP, die mogelijk van de app-beveiliging in gevaar en kan daarom HTTPS heeft moeten expliciet worden afgedwongen. ASP.NET MVC-toepassingen moeten gebruiken de [https vereisen filter](https://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) die ervoor zorgt dat een niet-beveiligde HTTP-aanvraag moet opnieuw worden verzonden via HTTPS.</p><p>U kunt ook kan de module herschrijven van URL's, dat opgenomen in Azure App Service is worden gebruikt om af te dwingen van HTTPS. Module herschrijven van URL's biedt ontwikkelaars de mogelijkheid om regels die worden toegepast op binnenkomende aanvragen voordat de aanvragen worden doorgegeven aan uw toepassing te definiëren. Regels voor het herschrijven van URL's zijn gedefinieerd in een web.config-bestand opgeslagen in de hoofdmap van de toepassing</p>|
 
 ### <a name="example"></a>Voorbeeld
 Het volgende voorbeeld bevat een eenvoudige herschrijven van URL's-regel die ervoor zorgt al het binnenkomende verkeer dat voor gebruik van HTTPS
@@ -156,7 +156,7 @@ Deze regel werkt door een HTTP-statuscode 301 (permanente omleiding) wanneer de 
 | **SDL-fase**               | Ontwikkelen |  
 | **Van toepassing technologieën** | SQL Azure  |
 | **Kenmerken**              | Versie van SQL - V12 |
-| **Verwijzingen**              | [Best Practices voor schrijven verbindingsreeksen voor SQL-Database beveiligen](http://social.technet.microsoft.com/wiki/contents/articles/2951.windows-azure-sql-database-connection-security.aspx#best) |
+| **Verwijzingen**              | [Best Practices voor schrijven verbindingsreeksen voor SQL-Database beveiligen](https://social.technet.microsoft.com/wiki/contents/articles/2951.windows-azure-sql-database-connection-security.aspx#best) |
 | **Stappen** | <p>Alle communicatie tussen de SQL-Database en een clienttoepassing worden versleuteld met behulp van Secure Sockets Layer (SSL) te allen tijde. SQL Database biedt geen ondersteuning voor niet-versleutelde verbindingen. Voor het valideren van certificaten met toepassingscode of hulpprogramma's, expliciet vraag een versleutelde verbinding en de certificaten niet vertrouwt. Als uw toepassingscode of hulpprogramma's geen een versleutelde verbinding aanvragen, ontvangen ze nog steeds versleutelde verbindingen</p><p>Echter mogelijk niet gevalideerd door de servercertificaten en daarom wordt wel vatbaar voor 'man in the middle'-aanvallen. Voor het valideren van certificaten met de code van de ADO.NET-toepassing instellen `Encrypt=True` en `TrustServerCertificate=False` in de verbindingsreeks van de database. Open het dialoogvenster verbinding maken met Server voor het valideren van certificaten via SQL Server Management Studio. Klik op verbinding op het tabblad Eigenschappen van de verbinding versleutelen</p>|
 
 ## <a id="encrypted-sqlserver"></a>Versleutelde communicatie met SQL server afdwingen

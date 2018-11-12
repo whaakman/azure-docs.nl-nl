@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/02/2017
-ms.openlocfilehash: 87695e6e7e1f1abce7204ebbbbed2b492297f177
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 77ae05c240dbb099528d7224a936d90416366816
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393295"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247769"
 ---
 # <a name="azure-machine-learning-frequently-asked-questions-billing-capabilities-limitations-and-support"></a>Veelgestelde vragen over Azure Machine Learning: facturering, mogelijkheden, beperkingen en ondersteuning
 U vindt hier een aantal veelgestelde vragen en de bijbehorende antwoorden die betrekking hebben op Azure Machine Learning, een cloudservice voor het ontwikkelen van voorspellende modellen en operationele oplossingen via webservices. Deze veelgestelde vragen gaan over het gebruik van de service, zoals het factureringsmodel, de mogelijkheden, beperkingen en ondersteuning.
 
 **Hebt u een vraag die u hier niet kunt vinden?**
 
-Azure Machine Learning heeft ook een forum op MSDN waar leden van de Data Science-community vragen kunnen stellen over Azure Machine Learning. Het forum wordt bewaakt door het Azure Machine Learning-team. Ga naar het [Azure Machine Learning-forum](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=MachineLearning) om antwoorden te zoeken of een nieuwe vraag te posten.
+Azure Machine Learning heeft ook een forum op MSDN waar leden van de Data Science-community vragen kunnen stellen over Azure Machine Learning. Het forum wordt bewaakt door het Azure Machine Learning-team. Ga naar het [Azure Machine Learning-forum](https://social.msdn.microsoft.com/Forums/windowsazure/home?forum=MachineLearning) om antwoorden te zoeken of een nieuwe vraag te posten.
 
 ## <a name="general-questions"></a>Algemene vragen
 **Wat is Azure Machine Learning?**
@@ -123,7 +123,7 @@ U vindt meer informatie over de ingebouwde beeldregistratiefunctie in het gedeel
 ### <a name="modules"></a>Modules
 **Het algoritme, de gegevensbron, de gegevensindeling of de gegevenstransformatiebewerking die ik zoek, staat niet in Azure Machine Learning Studio. Wat kan ik doen?**
 
-U kunt naar het [forum met feedback van gebruikers](http://go.microsoft.com/fwlink/?LinkId=404231) gaan om de functieaanvragen te zien die we volgen. Voeg uw stem toe aan een aanvraag als u een mogelijkheid zoekt die al eerder is aangevraagd. Als de mogelijkheid die u zoekt niet bestaat, maakt u een nieuwe aanvraag. In dit forum kunt u ook de status van uw aanvraag bekijken. We houden deze lijst nauwkeurig bij en werken de status van de beschikbaarheid van functies regelmatig bij. Bovendien kunt u indien nodig met de ingebouwde ondersteuning voor R en Python aangepaste transformaties maken.
+U kunt naar het [forum met feedback van gebruikers](https://go.microsoft.com/fwlink/?LinkId=404231) gaan om de functieaanvragen te zien die we volgen. Voeg uw stem toe aan een aanvraag als u een mogelijkheid zoekt die al eerder is aangevraagd. Als de mogelijkheid die u zoekt niet bestaat, maakt u een nieuwe aanvraag. In dit forum kunt u ook de status van uw aanvraag bekijken. We houden deze lijst nauwkeurig bij en werken de status van de beschikbaarheid van functies regelmatig bij. Bovendien kunt u indien nodig met de ingebouwde ondersteuning voor R en Python aangepaste transformaties maken.
 
 **Kan ik mijn bestaande code naar Machine Learning Studio overbrengen?**
 
@@ -182,7 +182,7 @@ Op dit moment kunt u alleen R gebruiken om nieuwe aangepaste modules te maken.
 ### <a name="r-module"></a>R-module
 **Welke R-pakketten zijn beschikbaar in Machine Learning Studio?**
 
-Machine Learning Studio ondersteunt momenteel ruim 400 CRAN R-pakketten. Hier vindt u de [huidige lijst](http://az754797.vo.msecnd.net/docs/RPackages.xlsx) van alle pakketten. Zie ook [Uw experiment uitbreiden met R](extend-your-experiment-with-r.md) voor meer informatie over hoe u deze lijst zelf kunt ophalen. Als het pakket dat u wilt niet in deze lijst staat, geeft u de naam op van het pakket op het [forum met feedback van gebruikers](http://go.microsoft.com/fwlink/?LinkId=404231).
+Machine Learning Studio ondersteunt momenteel ruim 400 CRAN R-pakketten. Hier vindt u de [huidige lijst](http://az754797.vo.msecnd.net/docs/RPackages.xlsx) van alle pakketten. Zie ook [Uw experiment uitbreiden met R](extend-your-experiment-with-r.md) voor meer informatie over hoe u deze lijst zelf kunt ophalen. Als het pakket dat u wilt niet in deze lijst staat, geeft u de naam op van het pakket op het [forum met feedback van gebruikers](https://go.microsoft.com/fwlink/?LinkId=404231).
 
 **Kan ik een aangepaste R-module maken?**
 
@@ -312,7 +312,7 @@ U vindt ook trainingsmateriaal op [Microsoft Virtual Academy](http://www.microso
 
 Voor technische ondersteuning voor Azure Machine Learning gaat u naar [de ondersteuning van Azure](https://azure.microsoft.com/support/options/) en selecteert u **Machine Learning**.
 
-Azure Machine Learning heeft ook een communityforum op MSDN waar u vragen kunt stellen over Azure Machine Learning. Het forum wordt bewaakt door het Azure Machine Learning-team. Ga naar het [Azure-forum](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=MachineLearning).
+Azure Machine Learning heeft ook een communityforum op MSDN waar u vragen kunt stellen over Azure Machine Learning. Het forum wordt bewaakt door het Azure Machine Learning-team. Ga naar het [Azure-forum](https://social.msdn.microsoft.com/Forums/windowsazure/home?forum=MachineLearning).
 
 ## <a name="billing-questions"></a>Vragen over facturering
 **Hoe werkt de facturering in Machine Learning?**

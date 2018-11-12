@@ -12,12 +12,12 @@ ms.author: daleche
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: a34745c5586fa90d3e167bb3be22e93dfa83b7af
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 99c7e73bb133349ef1c14295a49f278d64a15226
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041727"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51257956"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-sql-database"></a>Verbindingsproblemen met Azure SQL Database oplossen
 Wanneer de verbinding met Azure SQL Database is mislukt, ontvangt u [foutberichten](sql-database-develop-error-messages.md). In dit artikel is een gecentraliseerde onderwerp waarmee u problemen met Azure SQL Database. Dit introduceert [de algemene oorzaken](#cause) van verbindingsproblemen, raadt [een hulpprogramma voor probleemoplossing](#try-the-troubleshooter-for-azure-sql-database-connectivity-issues) die identiteit het probleem, en bevat de stappen voor probleemoplossing om op te lossen [tijdelijke fouten](#troubleshoot-transient-errors) en [permanente of niet-tijdelijke fouten](#troubleshoot-persistent-errors). 
@@ -79,8 +79,8 @@ Als de toepassing niet permanent verbinding maken met Azure SQL Database, duidt 
 4. Controleer de servicestatus in het dashboard. Als u denkt er is een regionale onderbreking dat, Zie [herstellen na een storing](sql-database-disaster-recovery.md) voor stappen om te herstellen naar een nieuwe regio.
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Zoeken in de documentatie op Microsoft Azure](http://azure.microsoft.com/search/documentation/)
-* [De meest recente updates voor de service Azure SQL Database bekijken](http://azure.microsoft.com/updates/?service=sql-database)
+* [Zoeken in de documentatie op Microsoft Azure](https://azure.microsoft.com/search/documentation/)
+* [De meest recente updates voor de service Azure SQL Database bekijken](https://azure.microsoft.com/updates/?service=sql-database)
 
 ## <a name="additional-resources"></a>Aanvullende resources
 * [Overzicht van de ontwikkeling van de SQL Database](sql-database-develop-overview.md)

@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: rafats
-ms.openlocfilehash: fea3455b31ff2ea7119fa4146aa84f855a3b6e35
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: cd3b5f49788282b535f07c6f84bf7e4002132ab9
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44054669"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51237584"
 ---
 # <a name="how-does-azure-cosmos-db-index-data"></a>Hoe gaat de gegevens van Azure Cosmos DB indexeren?
 
@@ -323,7 +323,7 @@ U kunt kiezen of u wilt dat de verzameling moeten worden alle documenten automat
 
 Met automatische indexering uitgeschakeld, kunt u nog steeds selectief alleen specifieke documenten toevoegen aan de index. Daarentegen, kunt u automatische indexering voor laten en selectief wilt uitsluiten van specifieke documenten. Indexeren in-of uitschakelen configuraties zijn nuttig wanneer u hebt alleen een subset van documenten die moeten worden opgevraagd.
 
-Het volgende voorbeeld toont hoe u een document expliciet opnemen met behulp van de [SQL-API .NET SDK](https://docs.microsoft.com/azure/cosmos-db/sql-api-sdk-dotnet) en de [RequestOptions.IndexingDirective](http://msdn.microsoft.com/library/microsoft.azure.documents.client.requestoptions.indexingdirective.aspx) eigenschap.
+Het volgende voorbeeld toont hoe u een document expliciet opnemen met behulp van de [SQL-API .NET SDK](https://docs.microsoft.com/azure/cosmos-db/sql-api-sdk-dotnet) en de [RequestOptions.IndexingDirective](https://msdn.microsoft.com/library/microsoft.azure.documents.client.requestoptions.indexingdirective.aspx) eigenschap.
 
     // If you want to override the default collection behavior to either
     // exclude (or include) a document in indexing,
@@ -413,7 +413,7 @@ Als zou u indexering beleidswijzigingen aanbrengen in uw Azure Cosmos DB-verzame
 ## <a name="performance-tuning"></a>Prestaties afstemmen
 De SQL-API's bevatten informatie over metrische gegevens voor prestaties, zoals de indexopslag die wordt gebruikt en de doorvoer-kosten (request units) voor elke bewerking. U kunt deze informatie gebruiken om te vergelijken van verschillende indexering beleidsregels, en voor het afstemmen van prestaties.
 
-Uitvoeren om te controleren of de opslaglimiet en het gebruik van een verzameling, een **HEAD** of **ophalen** aanvraag indient voor de verzameling-resource. Vervolgens, controleert de **x-ms-request-quotum** en de **x-ms-request-gebruik** headers. In de .NET SDK, de [DocumentSizeQuota](http://msdn.microsoft.com/library/dn850325.aspx) en [DocumentSizeUsage](http://msdn.microsoft.com/library/azure/dn850324.aspx) eigenschappen in [ResourceResponse < T\> ](http://msdn.microsoft.com/library/dn799209.aspx) deze overeenkomende waarden bevatten.
+Uitvoeren om te controleren of de opslaglimiet en het gebruik van een verzameling, een **HEAD** of **ophalen** aanvraag indient voor de verzameling-resource. Vervolgens, controleert de **x-ms-request-quotum** en de **x-ms-request-gebruik** headers. In de .NET SDK, de [DocumentSizeQuota](https://msdn.microsoft.com/library/dn850325.aspx) en [DocumentSizeUsage](https://msdn.microsoft.com/library/azure/dn850324.aspx) eigenschappen in [ResourceResponse < T\> ](https://msdn.microsoft.com/library/dn799209.aspx) deze overeenkomende waarden bevatten.
 
      // Measure the document size usage (which includes the index size) against   
      // different policies.
@@ -421,7 +421,7 @@ Uitvoeren om te controleren of de opslaglimiet en het gebruik van een verzamelin
      Console.WriteLine("Document size quota: {0}, usage: {1}", collectionInfo.DocumentQuota, collectionInfo.DocumentUsage);
 
 
-Voor het meten van de overhead van indexering voor elke schrijfbewerking (maken, bijwerken of verwijderen), Inspecteer de **x-ms-request-kosten in rekening gebracht** header (of een vergelijkbare [RequestCharge](http://msdn.microsoft.com/library/dn799099.aspx) eigenschap in [ ResourceResponse < T\> ](http://msdn.microsoft.com/library/dn799209.aspx) in de .NET SDK) voor het meten van het aantal aanvraageenheden die worden gebruikt door deze bewerkingen.
+Voor het meten van de overhead van indexering voor elke schrijfbewerking (maken, bijwerken of verwijderen), Inspecteer de **x-ms-request-kosten in rekening gebracht** header (of een vergelijkbare [RequestCharge](https://msdn.microsoft.com/library/dn799099.aspx) eigenschap in [ ResourceResponse < T\> ](https://msdn.microsoft.com/library/dn799209.aspx) in de .NET SDK) voor het meten van het aantal aanvraageenheden die worden gebruikt door deze bewerkingen.
 
      // Measure the performance (request units) of writes.     
      ResourceResponse<Document> response = await client.CreateDocumentAsync(UriFactory.CreateDocumentCollectionUri("db", "coll"), myDocument);              

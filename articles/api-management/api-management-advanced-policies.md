@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: cc327695a91a39c4d910a4f2421b22cc3b100627
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.openlocfilehash: 803fa89145d3a38b2df34666754fe8949a74eb53
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50747878"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51262332"
 ---
 # <a name="api-management-advanced-policies"></a>API Management Geavanceerde beleidsregels
-Dit onderwerp bevat een verwijzing voor de volgende API Management-beleid. Zie voor meer informatie over het toevoegen en configureren van beleid [beleidsregels in API Management](http://go.microsoft.com/fwlink/?LinkID=398186).
+Dit onderwerp bevat een verwijzing voor de volgende API Management-beleid. Zie voor meer informatie over het toevoegen en configureren van beleid [beleidsregels in API Management](https://go.microsoft.com/fwlink/?LinkID=398186).
 
 ##  <a name="AdvancedPolicies"></a> Geavanceerde beleidsregels
 
@@ -136,7 +136,7 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleid. Zie v
 |voorwaarde = "Booleaanse expressie &#124; Booleaanse constante"|De Booleaanse expressie of een constante geëvalueerd wanneer de die `when` beleidsverklaring wordt geëvalueerd.|Ja|
 
 ###  <a name="ChooseUsage"></a> Gebruik
- Dit beleid kan worden gebruikt in het volgende beleid [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+ Dit beleid kan worden gebruikt in het volgende beleid [secties](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
 
 -   **Beleid secties:** inkomend, uitgaand back-end op fout
 
@@ -247,7 +247,7 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleid. Zie v
 |Volg-omleidingen = "true &#124; false"|Geeft aan of omleidingen van de back-endservice worden gevolgd door de gateway of geretourneerd naar de aanroeper.|Nee|false|
 
 ### <a name="usage"></a>Gebruik
- Dit beleid kan worden gebruikt in het volgende beleid [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+ Dit beleid kan worden gebruikt in het volgende beleid [secties](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
 
 -   **Beleid secties:** back-end
 -   **Beleid bereiken:** alle bereiken
@@ -294,7 +294,7 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleid. Zie v
 |maximum aantal|Een geheel getal zijn. Hiermee geeft u een maximum aantal aanvragen die zijn toegestaan in te voeren van het beleid.|Ja|N/A|
 
 ### <a name="usage"></a>Gebruik
- Dit beleid kan worden gebruikt in het volgende beleid [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+ Dit beleid kan worden gebruikt in het volgende beleid [secties](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
 
 -   **Beleid secties:** inkomend, uitgaand back-end op fout
 
@@ -345,7 +345,7 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleid. Zie v
 |Partitiesleutel|Hiermee geeft u de waarde voor de partitietoewijzing wanneer berichten worden verzonden.|Optioneel. Dit kenmerk kan niet worden gebruikt als `partition-id` wordt gebruikt.|
 
 ### <a name="usage"></a>Gebruik
- Dit beleid kan worden gebruikt in het volgende beleid [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+ Dit beleid kan worden gebruikt in het volgende beleid [secties](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
 
 -   **Beleid secties:** inkomend, uitgaand back-end op fout
 
@@ -387,7 +387,7 @@ status code and media type. If no example or schema found, the content is empty.
 |inhoudstype|Hiermee geeft u `Content-Type` headerwaarde antwoord en wordt gebruikt voor het selecteren van de bijbehorende voorbeeld of schema.|Nee|Geen|
 
 ### <a name="usage"></a>Gebruik
- Dit beleid kan worden gebruikt in het volgende beleid [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+ Dit beleid kan worden gebruikt in het volgende beleid [secties](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
 
 -   **Beleid secties:** binnenkomende, uitgaande, bij fout
 
@@ -452,7 +452,7 @@ status code and media type. If no example or schema found, the content is empty.
 > Wanneer de `interval`, `max-interval` en `delta` zijn opgegeven, **exponentieel** interval opnieuw proberen algoritme wordt toegepast, waar de wachttijd tussen de pogingen exponentieel toeneemt van de waarde van `interval` naar de waarde `max-interval` op basis van de volgende forumula - `min(interval + (2^count - 1) * random(delta * 0.8, delta * 1.2), max-interval)`.
 
 ### <a name="usage"></a>Gebruik
- Dit beleid kan worden gebruikt in het volgende beleid [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) . Houd er rekening mee dat onderliggende beperkingen voor het gebruik van beleid, worden overgenomen door dit beleid.
+ Dit beleid kan worden gebruikt in het volgende beleid [secties](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) . Houd er rekening mee dat onderliggende beperkingen voor het gebruik van beleid, worden overgenomen door dit beleid.
 
 -   **Beleid secties:** inkomend, uitgaand back-end op fout
 
@@ -500,7 +500,7 @@ status code and media type. If no example or schema found, the content is empty.
 |antwoord-variabele-naam|De naam van de contextvariabele waarnaar wordt verwezen, bijvoorbeeld een upstream [Verzendaanvraag](api-management-advanced-policies.md#SendRequest) beleid en die een `Response` object|Optioneel.|
 
 ### <a name="usage"></a>Gebruik
- Dit beleid kan worden gebruikt in het volgende beleid [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+ Dit beleid kan worden gebruikt in het volgende beleid [secties](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
 
 -   **Beleid secties:** inkomend, uitgaand back-end op fout
 
@@ -572,7 +572,7 @@ status code and media type. If no example or schema found, the content is empty.
 |Er bestaat actie|Hiermee geeft u op welke actie moet worden uitgevoerd wanneer de koptekst is al opgegeven. Dit kenmerk moet een van de volgende waarden hebben.<br /><br /> -override - vervangt de waarde van de bestaande koptekst.<br />-skip: is geen vervanging voor de bestaande waarde voor header.<br />-append - de waarde wordt toegevoegd aan de bestaande waarde voor header.<br />-delete - verwijdert de header van de aanvraag.<br /><br /> Als de waarde `override` meerdere vermeldingen met dezelfde naam opnemen resulteert in de koptekst wordt ingesteld op basis van alle vermeldingen (die wordt vermeld meerdere keren); alleen de vermelde waarden worden ingesteld in het resultaat.|Nee|overschrijven|
 
 ### <a name="usage"></a>Gebruik
- Dit beleid kan worden gebruikt in het volgende beleid [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+ Dit beleid kan worden gebruikt in het volgende beleid [secties](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
 
 -   **Beleid secties:** inkomend, uitgaand back-end op fout
 
@@ -656,7 +656,7 @@ status code and media type. If no example or schema found, the content is empty.
 |Er bestaat actie|Hiermee geeft u op welke actie moet worden uitgevoerd wanneer de koptekst is al opgegeven. Dit kenmerk moet een van de volgende waarden hebben.<br /><br /> -override - vervangt de waarde van de bestaande koptekst.<br />-skip: is geen vervanging voor de bestaande waarde voor header.<br />-append - de waarde wordt toegevoegd aan de bestaande waarde voor header.<br />-delete - verwijdert de header van de aanvraag.<br /><br /> Als de waarde `override` meerdere vermeldingen met dezelfde naam opnemen resulteert in de koptekst wordt ingesteld op basis van alle vermeldingen (die wordt vermeld meerdere keren); alleen de vermelde waarden worden ingesteld in het resultaat.|Nee|overschrijven|
 
 ### <a name="usage"></a>Gebruik
- Dit beleid kan worden gebruikt in het volgende beleid [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+ Dit beleid kan worden gebruikt in het volgende beleid [secties](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
 
 -   **Beleid secties:** inkomend, uitgaand back-end op fout
 
@@ -695,7 +695,7 @@ Let op het gebruik van [eigenschappen](api-management-howto-properties.md) als w
 |wachtwoord = 'tekenreeks'|Het wachtwoord moet worden gebruikt voor verificatie met de proxy.|Nee|N/A|
 
 ### <a name="usage"></a>Gebruik
- Dit beleid kan worden gebruikt in het volgende beleid [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+ Dit beleid kan worden gebruikt in het volgende beleid [secties](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
 
 -   **Beleid secties:** inkomend
 
@@ -747,7 +747,7 @@ Let op het gebruik van [eigenschappen](api-management-howto-properties.md) als w
 |set-methode|Root-element. De waarde van het element Hiermee geeft u de HTTP-methode.|Ja|
 
 ### <a name="usage"></a>Gebruik
- Dit beleid kan worden gebruikt in het volgende beleid [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+ Dit beleid kan worden gebruikt in het volgende beleid [secties](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
 
 -   **Beleid secties:** inkomend, bij fout
 
@@ -794,7 +794,7 @@ Let op het gebruik van [eigenschappen](api-management-howto-properties.md) als w
 |reden = 'tekenreeks'|Een beschrijving van de reden voor het retourneren van de statuscode.|Ja|N/A|
 
 ### <a name="usage"></a>Gebruik
- Dit beleid kan worden gebruikt in het volgende beleid [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+ Dit beleid kan worden gebruikt in het volgende beleid [secties](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
 
 -   **Beleid secties:** uitgaand, back-end, bij fout
 -   **Beleid bereiken:** alle bereiken
@@ -829,7 +829,7 @@ Let op het gebruik van [eigenschappen](api-management-howto-properties.md) als w
 |waarde|De waarde van de variabele. Dit kan een expressie of een letterlijke waarde zijn.|Ja|
 
 ### <a name="usage"></a>Gebruik
- Dit beleid kan worden gebruikt in het volgende beleid [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+ Dit beleid kan worden gebruikt in het volgende beleid [secties](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
 
 -   **Beleid secties:** inkomend, uitgaand back-end op fout
 -   **Beleid bereiken:** alle bereiken
@@ -895,7 +895,7 @@ Let op het gebruik van [eigenschappen](api-management-howto-properties.md) als w
 |source|Letterlijke tekenreeks zinvol is voor de traceringsviewer voor en de bron van het bericht op te geven.|Ja|N/A|
 
 ### <a name="usage"></a>Gebruik
- Dit beleid kan worden gebruikt in het volgende beleid [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) .
+ Dit beleid kan worden gebruikt in het volgende beleid [secties](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) .
 
 -   **Beleid secties:** inkomend, uitgaand back-end op fout
 
@@ -963,7 +963,7 @@ Let op het gebruik van [eigenschappen](api-management-howto-properties.md) als w
 
 ### <a name="usage"></a>Gebruik
 
-Dit beleid kan worden gebruikt in het volgende beleid [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+Dit beleid kan worden gebruikt in het volgende beleid [secties](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
 
 -   **Beleid secties:** inkomend, uitgaand back-end
 -   **Beleid bereiken:** alle bereiken

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: bryanla
-ms.openlocfilehash: 60920aaa62d8472eaca8f929c62ce1c0af08f9a4
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 4b7192b0c406d2c5df42e3bb3e604f26c56c7bd4
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49385631"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51235187"
 ---
 # <a name="get-started-with-key-vault-certificates"></a>Aan de slag met Key Vault-certificaten
 De volgende scenario's worden enkele van de primaire gebruik van Key Vault de certificate management-service met inbegrip van de extra stappen vereist voor het maken van uw eerste certificaat in uw key vault.
@@ -56,7 +56,7 @@ Certificaten worden samengesteld uit drie onderling verbonden resources samen al
         -   Provider  
         -   Referenties: de referenties van de CA-account. Elke CA heeft een eigen specifieke gegevens.  
 
-     Zie voor meer informatie over het maken van accounts met CA-Providers, het bijbehorende bericht op de [Key Vault-blog](http://aka.ms/kvcertsblog).  
+     Zie voor meer informatie over het maken van accounts met CA-Providers, het bijbehorende bericht op de [Key Vault-blog](https://aka.ms/kvcertsblog).  
 
 **Stap 3.1** : Stel [contactpersonen van het certificaat](/rest/api/keyvault/setcertificatecontacts) voor meldingen. Dit is de contactpersoon voor de Key Vault-gebruiker. Deze stap worden niet afgedwongen door Key Vault.  
 

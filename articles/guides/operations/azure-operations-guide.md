@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 08/24/2018
 ms.author: mibender
-ms.openlocfilehash: c10e071100410f6d5d995d88657bdd85c08a9715
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: 07faf5efd1c7eec3e209a5d971185655cc949bb9
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47423490"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51250778"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Aan de slag voor Azure IT-operators
 
@@ -227,7 +227,7 @@ Zie voor meer informatie, [inzicht in het gebruik van de Microsoft Azure-resourc
 
 ### <a name="forecast-cost-with-the-pricing-calculator"></a>Prognose kosten met de prijscalculator
 
-De prijzen voor elke service in Azure is anders. Veel Azure-services bieden Basic, Standard en Premium-lagen. Elke categorie heeft meestal verschillende niveaus van prijs- prestatieverhouding. Met behulp van de [online prijscalculator](http://azure.microsoft.com/pricing/calculator), kunt u schattingen voor prijzen. De Rekenmachine bevat de flexibiliteit om kosten op een enkele bron of een groep resources te schatten.
+De prijzen voor elke service in Azure is anders. Veel Azure-services bieden Basic, Standard en Premium-lagen. Elke categorie heeft meestal verschillende niveaus van prijs- prestatieverhouding. Met behulp van de [online prijscalculator](https://azure.microsoft.com/pricing/calculator), kunt u schattingen voor prijzen. De Rekenmachine bevat de flexibiliteit om kosten op een enkele bron of een groep resources te schatten.
 
 ## <a name="azure-resource-manager"></a>Azure Resource Manager
 
@@ -415,7 +415,7 @@ Er zijn verschillende opties voor het implementeren van een storage-account.
 
 #### <a name="portal"></a>Portal
 
-Een storage-account implementeren met behulp van de Azure-portal vereist alleen een actief Azure-abonnement en de toegang tot een webbrowser. U kunt een nieuw opslagaccount implementeren in een nieuwe of bestaande resourcegroep. Nadat u de storage-account hebt gemaakt, kunt u een blob-container of bestandsshare maken met behulp van de portal. U kunt de tabel maken en storage-entiteiten via een programma in de wachtrij. Zie voor meer informatie, [een opslagaccount maken](../../storage/common/storage-quickstart-create-account.md).
+Een storage-account implementeren met behulp van de Azure-portal vereist alleen een actief Azure-abonnement en de toegang tot een webbrowser. U kunt een nieuw opslagaccount implementeren in een nieuwe of bestaande resourcegroep. Nadat u de storage-account hebt gemaakt, kunt u een blob-container of bestandsshare maken met behulp van de portal. U kunt de tabel maken en storage-entiteiten via een programma in de wachtrij. Zie [Een opslagaccount maken](../../storage/common/storage-quickstart-create-account.md) voor meer informatie.
 
 Naast het implementeren van een storage-account vanuit Azure portal, kunt u een Azure Resource Manager-sjabloon uit de portal implementeren. Dit implementeren en configureren van alle resources, zoals gedefinieerd in de sjabloon, met inbegrip van alle opslagaccounts. Zie voor meer informatie, [resources implementeren met Resource Manager-sjablonen en Azure portal](../../azure-resource-manager/resource-group-template-deploy-portal.md).
 

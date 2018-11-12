@@ -10,23 +10,23 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: maquaran
-ms.openlocfilehash: 3c97c89bde40357981d82dce8dd53febff25c8f3
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: bc31c7ebec7c1f7a02be65b15805fb48b1ef275d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50239879"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51260309"
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>Socialiseren met Azure Cosmos DB
 Opgenomen in een zeer onderling verbonden society betekent dat een bepaald moment in het leven u deel van uitmaken een **sociaal netwerk**. U sociale netwerken gebruiken om te Blijf op de hoogte vrienden, collega's, familie en soms om uw passie delen met mensen met een gemeenschappelijk belang.
 
 Als de technici en ontwikkelaars, u mogelijk hebt zich afgevraagd hoe deze netwerken opslaan en uw gegevens, interconnect of mogelijk hebt zelfs belast om te maken of een nieuwe sociaal netwerk voor een specifieke specialistische markt uzelf ontwerpen. Als de grote vraag daartoe zich voordoet: hoe worden al deze gegevens opgeslagen?
 
-Stel dat u een nieuwe en glanzend sociaal netwerk maakt, waar uw gebruikers artikelen met gerelateerde media, zoals afbeeldingen, video's of zelfs muziek kunnen plaatsen. Gebruikers kunnen opmerkingen over berichten en punten geven voor de classificaties. Er is een feed met berichten die gebruikers zien en kunnen werken met op de startpagina van de belangrijkste website. Dit complexe niet geluid (op het eerste), maar om het eenvoudig, te laten stoppen er (u kunt dieper ingaan op aangepaste kanalen op basis van relaties worden beïnvloed, maar deze groter is dan het doel van dit artikel).
+Stel dat u een nieuwe en glanzend sociaal netwerk maakt, waar uw gebruikers artikelen met gerelateerde media, zoals afbeeldingen, video's of zelfs muziek kunnen plaatsen. Gebruikers kunnen opmerkingen over berichten en punten geven voor de classificaties. Er is een feed met berichten die gebruikers zien en kunnen werken met op de startpagina van de belangrijkste website. Deze methode niet geluid complexe (op het eerste), maar om het eenvoudig, te laten stoppen er (u kunt dieper ingaan op aangepaste kanalen op basis van relaties worden beïnvloed, maar deze groter is dan het doel van dit artikel).
 
 Dus hoe slaat u deze en waar?
 
-Veel van u mogelijk ervaring op SQL-databases of ten minste begrip [relationele gegevens modelleren](https://en.wikipedia.org/wiki/Relational_model) en u misschien geneigd om te beginnen met het tekenen er ongeveer als volgt:
+Kan u ervaring hebt op SQL-databases of een notatie van [relationele gegevens modelleren](https://en.wikipedia.org/wiki/Relational_model) en u mogelijk gaan tekenen er ongeveer als volgt:
 
 ![Diagram waarin u ziet een relatieve relationele model](./media/social-media-apps/social-media-apps-sql.png) 
 
@@ -34,9 +34,9 @@ Een perfect genormaliseerde en mooi gegevensstructuur... die niet schalen.
 
 Geen, krijgt u me gegaan, ik heb gewerkt om alle mijn leven met SQL-databases, ze goed zijn, maar de net als elk patroon, praktijk en software-platform, is het niet ideaal voor elk scenario.
 
-Waarom SQL is niet om de beste keuze in dit scenario? We bekijken de structuur van een enkel bericht als ik wil dit item weergeven in een website of toepassing, moet ik een query uitvoeren met... Acht tabelsamenvoegingen (!) alleen om één enkel bericht, nu, afbeelding een stream van berichten die dynamisch worden geladen en worden weergegeven op het scherm en u ziet waar ben ik weer te geven.
+Waarom SQL is niet om de beste keuze in dit scenario? We bekijken de structuur van een enkel bericht als ik wil dit item weergeven in een website of toepassing, moet ik een query uitvoeren met... lid acht tables(!) alleen als u wilt weergeven van een enkel bericht, nu, ziet afbeelding een stream van berichten die dynamisch worden geladen en worden weergegeven op het scherm en u waar ik ben nu.
 
-U kunt, natuurlijk, een enorme SQL-exemplaar gebruiken met voldoende stroom voor het oplossen van duizenden query's met te veel koppelingen voor het bieden van uw inhoud, maar echt, waarom zou u, wanneer er bestaat een eenvoudigere oplossing?
+U kunt een enorme SQL-exemplaar gebruiken met voldoende stroom voor het oplossen van duizenden query's met veel koppelingen voor het bieden van uw inhoud, maar echt, waarom zou u, wanneer er bestaat een eenvoudigere oplossing?
 
 ## <a name="the-nosql-road"></a>De weg NoSQL
 In dit artikel begeleidt u bij het modelleren van gegevens van uw sociale platform met NoSQL-database van Azure [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) een rendabele methode terwijl u gebruikmaakt van andere Azure Cosmos DB functies zoals de [Gremlin-API](../cosmos-db/graph-introduction.md). Met behulp van een [NoSQL](https://en.wikipedia.org/wiki/NoSQL) benadering voor het opslaan van gegevens, JSON-indeling en toe te passen [denormalisatie](https://en.wikipedia.org/wiki/Denormalization), het eerder gecompliceerd bericht kan worden omgezet naar één [Document](https://en.wikipedia.org/wiki/Document-oriented_database):
@@ -59,7 +59,7 @@ In dit artikel begeleidt u bij het modelleren van gegevens van uw sociale platfo
         ]
     }
 
-En met een eenvoudige query uitvoeren, en er zijn geen joins kunnen worden verkregen. Dit is nog veel meer eenvoudig en snel en budget-wise, deze scan vereist minder resources om een beter resultaat te verkrijgen.
+En met een eenvoudige query uitvoeren, en er zijn geen joins kunnen worden verkregen. Deze query is veel eenvoudig en snel en budget-wise, deze scan vereist minder resources om een beter resultaat te verkrijgen.
 
 Azure Cosmos DB zorgt ervoor dat alle eigenschappen worden geïndexeerd met de automatische indexering die kunnen ook worden [aangepaste](indexing-policies.md). De aanpak van schema's kan we het opslaan van documenten met verschillende en dynamische structuren, misschien morgen die u wilt dat berichten naar een lijst met categorieën of die zijn gekoppeld aan deze hashtags, Cosmos DB zorgt de nieuwe documenten met de toegevoegde kenmerken zonder extra werk vereist door ons.
 
@@ -165,7 +165,7 @@ De kleinste stap een UserChunk, de minimale stukje informatie waarmee een gebrui
 
 De middelste stap wordt de gebruiker genoemd, is de volledige gegevens die zullen worden gebruikt op de meeste afhankelijk van de prestaties van query's op Cosmos DB, de meest gebruikte en kritieke. Deze bevat de informatie die wordt vertegenwoordigd door een UserChunk.
 
-De grootste waarde is van de gebruiker uitgebreid. Dit omvat alle kritieke gebruikersgegevens plus andere gegevens die niet echt nodig hebt om snel worden gelezen of gebruik de uiteindelijke (zoals de aanmeldingsprocedure) is. Deze gegevens kan worden opgeslagen buiten Cosmos DB in Azure SQL Database of Azure Storage-tabellen.
+De grootste waarde is van de gebruiker uitgebreid. Bevat alle essentiële gebruikersgegevens plus andere gegevens die niet echt nodig hebt om snel worden gelezen of het gebruik ervan is uiteindelijke (zoals de aanmeldingsprocedure). Deze gegevens kan worden opgeslagen buiten Cosmos DB in Azure SQL Database of Azure Storage-tabellen.
 
 Waarom zou u de gebruiker splitsen en ook deze informatie op te slaan op verschillende plaatsen? Omdat vanuit een oogpunt van prestaties, hoe groter de documenten, het costlier query's. Documenten dun, met de juiste informatie naar alle uw afhankelijk van de prestaties van query's voor uw sociale netwerken en opslaan van de extra informatie voor uiteindelijke scenario's zoals, volledig profiel bewerkt, aanmeldingen, gegevensanalyse voor gebruiksanalyse en Big Data, zelfs bewaren initiatieven. U echt niet zo belangrijk als het verzamelen van gegevens voor gegevensanalyse is langzamer, omdat deze wordt uitgevoerd op Azure SQL Database, u hebben betrekking op echter dat uw gebruikers een snelle en slanke ervaring hebben. Een gebruiker, die zijn opgeslagen op Cosmos DB, zou er als volgt:
 
@@ -216,12 +216,12 @@ Nu dat ik kreeg u aangesloten, denkt u waarschijnlijk na moet u enkele PhD in de
 
 Voor het bereiken van een van deze scenario's voor Machine Learning, kunt u [Azure Data Lake](https://azure.microsoft.com/services/data-lake-store/) het opnemen van de gegevens uit verschillende bronnen en gebruiken van [U-SQL](https://azure.microsoft.com/documentation/videos/data-lake-u-sql-query-execution/) voor het verwerken van de informatie en een uitvoer die kan worden gegenereerd door Azure Machine Learning worden verwerkt.
 
-Een andere optie beschikbaar is met [Microsoft Cognitive Services](https://www.microsoft.com/cognitive-services) voor het analyseren van uw gebruikers inhoud; niet alleen kunt u ze beter begrijpen (via het analyseren van schrijven met [Tekstanalyse-API](https://www.microsoft.com/cognitive-services/en-us/text-analytics-api)), maar u kunt ook ongewenste of volwassen inhoud detecteren en dienovereenkomstig kan reageren met [Computer Vision-API](https://www.microsoft.com/cognitive-services/en-us/computer-vision-api). Cognitive Services bevat veel out-of-the-box-oplossingen waarvoor niet alle soorten Machine Learning kennis wilt gebruiken.
+Een andere optie beschikbaar is met [Azure Cognitive Services](https://www.microsoft.com/cognitive-services) voor het analyseren van uw gebruikers inhoud; niet alleen kunt u ze beter begrijpen (via het analyseren van schrijven met [Tekstanalyse-API](https://www.microsoft.com/cognitive-services/en-us/text-analytics-api)), maar u ook kan ongewenste of volwassen inhoud detecteren en dienovereenkomstig kan reageren met [Computer Vision-API](https://www.microsoft.com/cognitive-services/en-us/computer-vision-api). Cognitive Services bevat veel out-of-the-box-oplossingen waarvoor niet alle soorten Machine Learning kennis wilt gebruiken.
 
 ## <a name="a-planet-scale-social-experience"></a>Een sociale ervaring op wereldwijde schaal
 Er is een laatste, maar niet in het minst belangrijk artikel ik moet rekening houden: **schaalbaarheid**. Bij het ontwerpen van een architectuur is het essentieel dat elk onderdeel in een eigen, ofwel schalen kunt omdat u nodig hebt om meer gegevens te verwerken of omdat u wilt een grotere geografische dekking (of beide!). Gelukkig heeft de fout te bereiken een complexe taak is een **kant en klare ervaring** met Cosmos DB.
 
-Cosmos DB biedt ondersteuning voor [dynamische partitioneren](https://azure.microsoft.com/blog/10-things-to-know-about-documentdb-partitioned-collections/) out-of-the-box door het automatisch maken van partities op basis van een bepaalde **partitiesleutel** (gedefinieerd als een van de kenmerken van uw documenten). De juiste partitiesleutel moet worden uitgevoerd tijdens de ontwerpfase te definiëren en waarmee u rekening moet houden de [aanbevolen procedures](../cosmos-db/partition-data.md#designing-for-partitioning) beschikbaar; in het geval van een sociale-ervaring, uw strategie voor partitioneren moet worden uitgelijnd met de manier waarop u query's (leesbewerkingen binnen hetzelfde uitvoeren partitie wenselijk zijn) en schrijven ("hotspots" voorkomen door te spreiden schrijfbewerkingen in meerdere partities). Sommige opties zijn: partities op basis van een tijdelijke sleutel (dag/maand/week), op inhoud categorie, per geografische regio, door gebruiker. Alles echt afhankelijk van hoe u de gegevens op te vragen en geef deze weer in uw sociale-ervaring. 
+Cosmos DB biedt ondersteuning voor [dynamische partitioneren](https://azure.microsoft.com/blog/10-things-to-know-about-documentdb-partitioned-collections/) out-of-the-box door het automatisch maken van partities op basis van een bepaalde **partitiesleutel** (gedefinieerd als een van de kenmerken van uw documenten). De juiste partitiesleutel te definiëren, moet worden uitgevoerd tijdens de ontwerpfase, voor meer informatie, Zie [kiest u de juiste partitiesleutel](partitioning-overview.md#choose-partitionkey) artikel. In het geval van een sociale-ervaring, uw strategie voor partitioneren moet worden uitgelijnd met de manier waarop u een query (leesbewerkingen binnen dezelfde partitie zijn wenselijk) en schrijven ("hotspots" voorkomen door te spreiden schrijfbewerkingen in meerdere partities). Sommige opties zijn: partities op basis van een tijdelijke sleutel (dag/maand/week), op inhoud categorie, per geografische regio, door gebruiker. Alles echt afhankelijk van hoe u de gegevens op te vragen en geef deze weer in uw sociale-ervaring. 
 
 Een interessante opgemerkt is dat uw query's worden uitgevoerd door Cosmos DB (met inbegrip van [statistische functies](https://azure.microsoft.com/blog/planet-scale-aggregates-with-azure-documentdb/)) voor alle partities in uw transparant, u hoeft niet alle logica toevoegen als uw gegevens groeien.
 

@@ -14,15 +14,15 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: b60e4f3547e049dc35c08ce115bdfcbbf6ebb18a
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 5345ca3a9c2f35b45669a3a54ecb42ca627cde32
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42058759"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51259816"
 ---
 # <a name="use-case---customer-profiling"></a>Use case: klantprofilering
-Azure Data Factory is een van vele services die worden gebruikt voor het implementeren van de Cortana Intelligence Suite van Oplossingsverbeteringen.  Bezoek voor meer informatie over Cortana Intelligence [Cortana Intelligence Suite](http://www.microsoft.com/cortanaanalytics). In dit document wordt beschreven een eenvoudige use-case zodat u kunt aan de slag met informatie over hoe Azure Data Factory analytics van veelvoorkomende problemen kunt oplossen.
+Azure Data Factory is een van vele services die worden gebruikt voor het implementeren van de Cortana Intelligence Suite van Oplossingsverbeteringen.  Bezoek voor meer informatie over Cortana Intelligence [Cortana Intelligence Suite](https://www.microsoft.com/cortanaanalytics). In dit document wordt beschreven een eenvoudige use-case zodat u kunt aan de slag met informatie over hoe Azure Data Factory analytics van veelvoorkomende problemen kunt oplossen.
 
 ## <a name="scenario"></a>Scenario
 Contoso is een gamingbedrijf dat wordt gemaakt van games voor meerdere platforms: game-consoles, handheld-apparaten en pc's (pc's). Spelers afspelen deze games, wordt groot volume aan gegevens waarmee de gebruikspatronen, gaming-stijl en voorkeuren van de gebruiker wordt bijgehouden geproduceerd.  In combinatie met demografische, regionale en de productgegevens, Contoso analyses uitvoeren waardoor ze over het verbeteren van spelers ervaring te helpen kunt uitvoeren en doel deze voor upgrades en in-game-aankopen. 

@@ -3,19 +3,19 @@ title: Apache Sqoop met Hadoop - Azure HDInsight
 description: Leer hoe u Apache Sqoop gebruiken om te importeren en exporteren tussen Hadoop op HDInsight en een Azure SQL Database.
 keywords: hadoop sqoop, sqoop
 services: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 03/26/2018
-ms.openlocfilehash: e9ee4ceb51b2de58010f3e6cf7feba9df64b9bad
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 6aa5627a0b5e8cb29f0ec68b948084a0bed30529
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43050166"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51259442"
 ---
 # <a name="use-apache-sqoop-to-import-and-export-data-between-hadoop-on-hdinsight-and-sql-database"></a>Apache Sqoop gebruiken om te importeren en exporteren van gegevens tussen Hadoop op HDInsight en SQL-Database
 
@@ -125,7 +125,7 @@ U kunt ook Sqoop gebruiken om te importeren en exporteren van gegevens uit SQL S
 
 * SQL Server moet worden geconfigureerd dat SQL-verificatie. Zie voor meer informatie de [een verificatiemodus kiezen](https://msdn.microsoft.com/ms144284.aspx) document.
 
-* U moet SQL Server configureren voor externe verbindingen kan accepteren. Zie voor meer informatie de [problemen oplossen met verbinding te maken met de SQL Server database engine](http://social.technet.microsoft.com/wiki/contents/articles/2102.how-to-troubleshoot-connecting-to-the-sql-server-database-engine.aspx) document.
+* U moet SQL Server configureren voor externe verbindingen kan accepteren. Zie voor meer informatie de [problemen oplossen met verbinding te maken met de SQL Server database engine](https://social.technet.microsoft.com/wiki/contents/articles/2102.how-to-troubleshoot-connecting-to-the-sql-server-database-engine.aspx) document.
 
 * Gebruik de volgende Transact-SQL-instructies gebruikt om te maken de **mobiledata** tabel:
 

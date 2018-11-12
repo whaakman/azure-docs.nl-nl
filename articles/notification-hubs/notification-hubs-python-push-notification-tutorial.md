@@ -14,17 +14,17 @@ ms.devlang: php
 ms.topic: article
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: b0aa61c86b08a4fe2eddb5eb1fb5b33c4cb901a0
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 68754f85347fe6bc075af513580697d1e7a83c18
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49386584"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247412"
 ---
 # <a name="how-to-use-notification-hubs-from-python"></a>Hoe u Notification Hubs gebruiken vanuit Python
 [!INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
 
-U kunt toegang tot alle functies van Notification Hubs vanuit een Java/PHP/Python/Ruby back-end met behulp van de Notification Hub REST-interface zoals beschreven in de MSDN-artikel [Notification Hubs REST-API's](http://msdn.microsoft.com/library/dn223264.aspx).
+U kunt toegang tot alle functies van Notification Hubs vanuit een Java/PHP/Python/Ruby back-end met behulp van de Notification Hub REST-interface zoals beschreven in de MSDN-artikel [Notification Hubs REST-API's](https://msdn.microsoft.com/library/dn223264.aspx).
 
 > [!NOTE]
 > Dit is een voorbeeld van referentie-implementatie voor het implementeren van de melding verzendt in Python en is niet de officieel ondersteunde meldingen Hub Python-SDK.
@@ -47,7 +47,7 @@ U kunt volgen de [zelfstudie aan de slag](notification-hubs-windows-store-dotnet
 > 
 
 ## <a name="client-interface"></a>Client-interface
-De belangrijkste clientinterface kan bieden dezelfde methoden die beschikbaar zijn in de [.NET Notification Hubs SDK](http://msdn.microsoft.com/library/jj933431.aspx). Deze interface kunt u de zelfstudies en voorbeelden die momenteel beschikbaar zijn op deze site rechtstreeks te vertalen en bijgedragen door de community op het internet.
+De belangrijkste clientinterface kan bieden dezelfde methoden die beschikbaar zijn in de [.NET Notification Hubs SDK](https://msdn.microsoft.com/library/jj933431.aspx). Deze interface kunt u de zelfstudies en voorbeelden die momenteel beschikbaar zijn op deze site rechtstreeks te vertalen en bijgedragen door de community op het internet.
 
 U vindt de code die zijn beschikbaar in de [Voorbeeld van Python-REST-wrapper].
 
@@ -64,7 +64,7 @@ Voor het verzenden van een pop-upmelding voor Windows:
 ## <a name="implementation"></a>Implementatie
 Als u nog niet hebt gedaan, volgt u de [zelfstudie aan de slag] omhoog naar de laatste sectie waar u hebt voor het implementeren van de back-end.
 
-De details voor het implementeren van een volledige REST-wrapper vindt op [MSDN](http://msdn.microsoft.com/library/dn530746.aspx). Deze sectie beschrijft de Python-implementatie van de belangrijkste stappen die nodig zijn voor toegang tot Notification Hubs REST-eindpunten en meldingen verzenden
+De details voor het implementeren van een volledige REST-wrapper vindt op [MSDN](https://msdn.microsoft.com/library/dn530746.aspx). Deze sectie beschrijft de Python-implementatie van de belangrijkste stappen die nodig zijn voor toegang tot Notification Hubs REST-eindpunten en meldingen verzenden
 
 1. De verbindingsreeks parseren
 2. Het verificatietoken genereren
@@ -96,7 +96,7 @@ Dit is de hoofdklasse uitvoering van de client, waarvan constructor de verbindin
 
 
 ### <a name="create-security-token"></a>Security-token maken
-De details van het token maken voor beveiliging zijn beschikbaar [hier](http://msdn.microsoft.com/library/dn495627.aspx).
+De details van het token maken voor beveiliging zijn beschikbaar [hier](https://msdn.microsoft.com/library/dn495627.aspx).
 Voeg de volgende methoden om de **NotificationHub** klasse om het token te maken op basis van de URI van de huidige aanvraag en de referenties die zijn geëxtraheerd uit de verbindingsreeks.
 
     @staticmethod
@@ -148,7 +148,7 @@ Eerste, kunnen gebruik definieert een klasse vertegenwoordigt een melding.
 
 Deze klasse is een container voor een systeemeigen meldingen instantie of een set eigenschappen van een melding van de sjabloon, een set van headers, met de indeling (systeemeigen platform of sjabloon) en platform-specifieke eigenschappen (zoals Apple verloopeigenschap en headers WNS).
 
-Raadpleeg de [documentatie voor Notification Hubs REST-API's](http://msdn.microsoft.com/library/dn495827.aspx) en de specifieke notification-platforms worden gebruikt voor alle beschikbare opties.
+Raadpleeg de [documentatie voor Notification Hubs REST-API's](https://msdn.microsoft.com/library/dn495827.aspx) en de specifieke notification-platforms worden gebruikt voor alle beschikbare opties.
 
 Met deze klasse schrijven verzenden Meldingsmethoden in de **NotificationHub** klasse.
 

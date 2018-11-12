@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 04/11/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 18a6234eb56902625fdcc8f150a41b7551d229cc
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 199095c3cffc8df7f9755f1f2c4bb5a1acba3748
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49318534"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51260377"
 ---
 # <a name="auditing-in-azure-sql-data-warehouse"></a>Auditing in Azure SQL datawarehouse
 
@@ -150,7 +150,7 @@ Er zijn verschillende methoden die u gebruiken kunt om blob auditing logboeken w
 ### <a name="database-level-policy-audit-logs"></a>De logboeken voor controle op databaseniveau beleid
 De logboeken voor controle op databaseniveau worden samengevoegd in een verzameling van Store tabellen met een **SQLDBAuditLogs** voorvoegsel in de Azure storage-account dat u hebt gekozen tijdens de installatie. U kunt met behulp van een hulpprogramma zoals logboekbestanden weergeven [Azure Storage Explorer](http://azurestorageexplorer.codeplex.com).
 
-Een rapportsjabloon vooraf geconfigureerde dashboard is beschikbaar als een [downloadbare Excel-werkblad](http://go.microsoft.com/fwlink/?LinkId=403540) waarmee u snel analyseren logboekgegevens. Als u de sjabloon op uw auditlogboeken, moet u Excel 2013 of later en Power Query, die u kunt [download hier](http://www.microsoft.com/download/details.aspx?id=39379).
+Een rapportsjabloon vooraf geconfigureerde dashboard is beschikbaar als een [downloadbare Excel-werkblad](https://go.microsoft.com/fwlink/?LinkId=403540) waarmee u snel analyseren logboekgegevens. Als u de sjabloon op uw auditlogboeken, moet u Excel 2013 of later en Power Query, die u kunt [download hier](https://www.microsoft.com/download/details.aspx?id=39379).
 
 De sjabloon bevat fictieve voorbeeldgegevens, en kunt u Power Query voor het importeren van uw auditlogboek rechtstreeks vanuit uw Azure storage-account instellen.
 

@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c94fd0bb68a03c64935c20fef1fab7b68c9c2c9b
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 83820440a6304886785a175b27614b45fdb98b13
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47032985"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51252221"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Een Windows Hybrid Runbook Worker implementeren
 
@@ -132,7 +132,7 @@ Voor het ontvangen van gedetailleerde informatie over de installatie, gebruikt u
 
 Runbooks kunt u elk van de activiteiten en gedefinieerd in de modules die zijn geïnstalleerd in uw omgeving Azure Automation-cmdlets. Deze modules worden niet automatisch geïmplementeerd naar on-premises computers, zodat u ze handmatig moet installeren. De uitzondering hierop is de Azure-module, dat wordt standaard geïnstalleerd en biedt toegang tot de cmdlets voor alle Azure-services en activiteiten voor Azure Automation.
 
-Omdat het primaire doel van de functie Hybrid Runbook Worker is om lokale resources te beheren, moet u waarschijnlijk voor het installeren van de modules die ondersteuning bieden voor deze resources. Zie voor meer informatie over het installeren van Windows PowerShell-modules [Modules installeren](http://msdn.microsoft.com/library/dd878350.aspx). 
+Omdat het primaire doel van de functie Hybrid Runbook Worker is om lokale resources te beheren, moet u waarschijnlijk voor het installeren van de modules die ondersteuning bieden voor deze resources. Zie voor meer informatie over het installeren van Windows PowerShell-modules [Modules installeren](https://msdn.microsoft.com/library/dd878350.aspx). 
 
 Modules die zijn geïnstalleerd moeten zich op een locatie waarnaar wordt verwezen door de **PSModulePath** omgevingsvariabele zodat ze automatisch van de hybrid worker importeren kan. Zie voor meer informatie, [wijzigen van het installatiepad PSModulePath](https://msdn.microsoft.com/library/dd878326%28v=vs.85%29.aspx).
 

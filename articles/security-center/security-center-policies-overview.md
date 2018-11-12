@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/3/2018
 ms.author: rkarlin
-ms.openlocfilehash: ab8a289ea0de263871b76788514052c09a6bf4da
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 3d2687f56b69174fde783060d994e3c01763ec94
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44295734"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51256626"
 ---
 # <a name="security-policy-settings"></a>Instellingen voor beveiligingsbeleid
 Dit artikel bevat een overzicht van de beveiliging beleidsinstellingen in Security Center.
@@ -56,4 +56,4 @@ In dit artikel hebt u geleerd over het beveiligingsbeleid in Azure Security Cent
 * [Partneroplossingen controleren met Azure Security Center](security-center-partner-solutions.md): leer hoe u de integriteitsstatus van uw partneroplossingen kunt controleren.
 - [Beveiliging van Azure Security Center gegevens](security-center-data-security.md): meer informatie over hoe Security Center beheert en beschermt gegevens.
 * [Veelgestelde vragen over Azure Security Center](security-center-faq.md): raadpleeg veelgestelde vragen over het gebruik van de service.
-* [Azure-Beveiligingsblog](http://blogs.msdn.com/b/azuresecurity/): ophalen van de meest recente Azure-beveiliging-nieuws en informatie.
+* [Azure-Beveiligingsblog](https://blogs.msdn.com/b/azuresecurity/): ophalen van de meest recente Azure-beveiliging-nieuws en informatie.

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/11/2018
 ms.author: dekapur
-ms.openlocfilehash: 7357577ea7aff467288578673110b1a6dda7ccef
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: c505feb20321d785a86cad0422470aa5c9a4311b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391044"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51259085"
 ---
 <a id="preparemachines"></a>
 
@@ -74,7 +74,7 @@ Hier volgen enkele aanbevolen specificaties voor elke machine die u wilt toevoeg
 De Clusterbeheerder implementeren en configureren van het cluster moet hebben [administrator-bevoegdheden](https://social.technet.microsoft.com/wiki/contents/articles/13436.windows-server-2012-how-to-add-an-account-to-a-local-administrator-group.aspx) op elk van de machines. U kunt Service Fabric niet installeren op een domeincontroller.
 
 ## <a name="download-the-service-fabric-standalone-package-for-windows-server"></a>Het zelfstandige pakket met Service Fabric voor Windows Server downloaden
-[Link - pakket met Service Fabric zelfstandige - Windows-Server downloaden](http://go.microsoft.com/fwlink/?LinkId=730690) en pak het pakket, met een implementatiecomputer die geen deel uitmaakt van het cluster of op een van de machines die een onderdeel van uw cluster zal zijn.
+[Link - pakket met Service Fabric zelfstandige - Windows-Server downloaden](https://go.microsoft.com/fwlink/?LinkId=730690) en pak het pakket, met een implementatiecomputer die geen deel uitmaakt van het cluster of op een van de machines die een onderdeel van uw cluster zal zijn.
 
 ## <a name="modify-cluster-configuration"></a>Configuratie van het cluster wijzigen
 Voor het maken van een zelfstandige cluster die u moet maken van een zelfstandige cluster ClusterConfig.json configuratiebestand, waarin wordt beschreven van de specificatie van het cluster. U kunt het configuratiebestand op de sjablonen die zijn gevonden op basis van de onderstaande koppeling. <br>

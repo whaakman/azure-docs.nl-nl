@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 3a62440b9fe44dfed14cfd9887d4d3cc2e4dbb92
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 6a0c4158b85a6bc6c9276eff19466fb742c6f442
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49430235"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51235918"
 ---
 # <a name="supplemental-lesson---dynamic-security"></a>Aanvullende les: Dynamische beveiliging
 
@@ -21,7 +21,7 @@ In deze aanvullende les gaat u een extra rol maken om dynamische beveiliging te 
   
 Als u dynamische beveiliging wilt implementeren, voegt u een tabel toe aan uw model met daarin de gebruikersnamen van gebruikers die verbinding mogen maken met het model en die objecten en gegevens in het model mogen raadplegen. Het model dat u maakt met behulp van deze zelfstudie is in de context van Adventure Works. Om deze les te voltooien, moet u echter een tabel toevoegen met gebruikers uit uw eigen domein. U hoeft niet de wachtwoorden te weten voor de gebruikersnamen die worden toegevoegd. U gaat een tabel EmployeeSecurity maken, met daarin een klein aantal gebruikers uit uw eigen domein, door werknemersgegevens te kopiëren uit een Excel-spreadsheet. In een praktijkscenario is de tabel met gebruikersnamen meestal een tabel uit een gegevensbron zoals een live database, bijvoorbeeld een tabel DimEmployee.  
   
-Voor het implementeren van dynamische beveiliging gaat u twee DAX-functies gebruiken: [USERNAME](http://msdn.microsoft.com/22dddc4b-1648-4c89-8c93-f1151162b93f) en [LOOKUPVALUE](http://msdn.microsoft.com/73a51c4d-131c-4c33-a139-b1342d10caab). Deze functies, toegepast in een formule voor een rijfilter, worden gedefinieerd in een nieuwe rol. Met behulp van de functie LOOKUPVALUE wordt in de formule een waarde opgehaald uit de tabel EmployeeSecurity. De formule geeft deze waarde vervolgens door aan de functie USERNAME. Deze functie geeft de gebruikersnaam aan van de aangemelde gebruiker die deel uitmaakt van deze rol. De gebruiker kan vervolgens alleen gegevens raadplegen die voldoen aan de rijfilters van de rol. In dit scenario gaat u instellen dat verkoopmedewerkers alleen gegevens van internetverkopen kunnen inzien voor de verkoopregio waarvan ze lid zijn.  
+Voor het implementeren van dynamische beveiliging gaat u twee DAX-functies gebruiken: [USERNAME](https://msdn.microsoft.com/22dddc4b-1648-4c89-8c93-f1151162b93f) en [LOOKUPVALUE](https://msdn.microsoft.com/73a51c4d-131c-4c33-a139-b1342d10caab). Deze functies, toegepast in een formule voor een rijfilter, worden gedefinieerd in een nieuwe rol. Met behulp van de functie LOOKUPVALUE wordt in de formule een waarde opgehaald uit de tabel EmployeeSecurity. De formule geeft deze waarde vervolgens door aan de functie USERNAME. Deze functie geeft de gebruikersnaam aan van de aangemelde gebruiker die deel uitmaakt van deze rol. De gebruiker kan vervolgens alleen gegevens raadplegen die voldoen aan de rijfilters van de rol. In dit scenario gaat u instellen dat verkoopmedewerkers alleen gegevens van internetverkopen kunnen inzien voor de verkoopregio waarvan ze lid zijn.  
   
 De taken die uniek zijn voor dit scenario van het tabellaire model Adventure Works, maar die niet noodzakelijkerwijs van toepassing zijn op een praktijkscenario, worden als zodanig aangegeven. Elke taak bevat aanvullende informatie over het doel van de taak.  
   

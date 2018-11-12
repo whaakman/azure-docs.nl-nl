@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 2fd0fe55b975010a1eaafeb455d61a6cb3ebff77
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 8e13ba0bcbd24dcc3cd08a0d2886f1da9d85de79
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46970920"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51249911"
 ---
 # <a name="structure-projects-with-the-team-data-science-process-template"></a>Projecten structureren met de sjabloon voor Team Data Science Process
 
@@ -54,7 +54,7 @@ Bekijk de volgende items *voordat* u een nieuw project maken:
 * De inhoud (met uitzondering van de wat is al aanwezig in de map 'docs') moet kleiner zijn dan 25 MB in grootte. Zie de opmerking die volgt op deze lijst.
 * Het voorbeeld\_gegevensmap is uitsluitend bedoeld voor kleine gegevensbestanden (minder dan 5 MB) waarmee u kunt testen van uw code of beginnen met vroege ontwikkelen.
 * Opslaan van bestanden, zoals Word en PowerPoint-bestanden, kunt de aanzienlijk verhogen voor de grootte van de map 'docs'. We adviseren dat u een gezamenlijke Wiki [SharePoint](https://products.office.com/sharepoint/collaboration), of een andere gezamenlijke bron voor het opslaan van deze bestanden.
-* Lees voor informatie over het verwerken van grote bestanden en de uitvoer in Machine Learning, [persistent maken van wijzigingen en het werken met grote bestanden](http://aka.ms/aml-largefiles).
+* Lees voor informatie over het verwerken van grote bestanden en de uitvoer in Machine Learning, [persistent maken van wijzigingen en het werken met grote bestanden](https://aka.ms/aml-largefiles).
 
 > [!NOTE]
 > Alle documentatie met betrekking tot inhoud (tekst, promoties, afbeeldingen en andere bestanden) die is *niet* gebruikt tijdens het uitvoeren van het project, dan het readme.md-bestand moet zich bevinden in de map met de naam 'docs' (zonder hoofdletters). De map 'docs' is een speciale map genegeerd door de uitvoering van Machine Learning, zodat de inhoud in deze map om onnodig compute-doelen niet gekopieerd. Objecten in deze map ook tellen niet mee voor het maximum van 25 MB voor de projectgrootte van het. De map 'docs', bijvoorbeeld, is de plaats voor het opslaan van grote afbeelding-bestanden die nodig zijn in de documentatie. Deze bestanden worden nog steeds door Git bijgehouden via de uitvoeringsgeschiedenis. 

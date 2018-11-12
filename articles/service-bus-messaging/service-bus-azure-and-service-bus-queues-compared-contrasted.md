@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 09/05/2018
 ms.author: spelluru
-ms.openlocfilehash: f48e9a5600dca1e13d6ee94a675d5bc824915118
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 0254762de49f37c591a7847fe9b40b3ecbabe1bd
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393958"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261057"
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Storage-wachtrijen en Service Bus-wachtrijen: overeenkomsten en verschillen
 In dit artikel analyseert de verschillen en overeenkomsten tussen de twee typen wachtrijen die momenteel worden aangeboden door Microsoft Azure: Storage-wachtrijen en Service Bus-wachtrijen. U kunt deze informatie gebruiken om de verschillende technologieën te vergelijken en tegen elkaar af te zetten zodat u een weloverwogen beslissing kunt nemen en de oplossing kiest die beste voldoet aan uw behoeften.
@@ -70,7 +70,7 @@ In deze sectie worden enkele van de fundamentele queuing mogelijkheden geboden d
 | Volgorde gegarandeerd |**Nee** <br/><br>Zie voor meer informatie, de eerste opmerking in de sectie 'Extra gegevens'.</br> |**Ja - First In First Out (FIFO)**<br/><br>(door het gebruik van messaging sessies) |
 | Aflevering gegarandeerd |**Op-één keer** |**Op-één keer**<br/><br/>**In de meeste eens** |
 | Atomische bewerking ondersteuning |**Nee** |**Ja**<br/><br/> |
-| Gedrag ontvangen |**Niet-blokkerende**<br/><br/>(uitgevoerd onmiddellijk als er geen nieuw bericht is gevonden.) |**Met/zonder time-out blokkeren**<br/><br/>(biedt long polling, of de ["Comet techniek"](http://go.microsoft.com/fwlink/?LinkId=613759))<br/><br/>**Niet-blokkerende**<br/><br/>(door het gebruik van .NET beheerde API alleen) |
+| Gedrag ontvangen |**Niet-blokkerende**<br/><br/>(uitgevoerd onmiddellijk als er geen nieuw bericht is gevonden.) |**Met/zonder time-out blokkeren**<br/><br/>(biedt long polling, of de ["Comet techniek"](https://go.microsoft.com/fwlink/?LinkId=613759))<br/><br/>**Niet-blokkerende**<br/><br/>(door het gebruik van .NET beheerde API alleen) |
 | Push-stijl-API |**Nee** |**Ja**<br/><br/>[OnMessage](/dotnet/api/microsoft.servicebus.messaging.queueclient.onmessage#Microsoft_ServiceBus_Messaging_QueueClient_OnMessage_System_Action_Microsoft_ServiceBus_Messaging_BrokeredMessage__) en **OnMessage** sessies .NET API. |
 | Modus ontvangen |**Een & Lease** |**Een & vergrendelen**<br/><br/>**Ontvangen en verwijderen** |
 | Exclusieve toegang-modus |**Op basis van een lease** |**Op basis van een vergrendeling** |

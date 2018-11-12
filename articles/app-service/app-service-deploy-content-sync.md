@@ -1,4 +1,4 @@
-﻿---
+---
 title: Inhoud van de synchronisatie van een map in de cloud naar Azure App Service
 description: Informatie over het implementeren van uw app in Azure App Service via de synchronisatie van de inhoud van een map in de cloud.
 services: app-service
