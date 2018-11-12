@@ -8,12 +8,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 06/25/2018
 ms.author: menchi
-ms.openlocfilehash: 94c7bd50b9c331370aaac802e0a453c5cdd8b7c1
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
+ms.openlocfilehash: 80d96bcb6b6073987f07ed6954f25023ab1133a4
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42055063"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247514"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-c-backend-and-c-device"></a>Aan de slag met IoT Hub identiteits- en module moduledubbel met behulp van back-end C en C-apparaat
 
@@ -31,7 +31,7 @@ Aan het einde van deze zelfstudie hebt u twee C-apps:
 
 Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 
-* Een actief Azure-account. (Als u geen account hebt, kunt u een [gratis Azure-account](http://azure.microsoft.com/pricing/free-trial/) binnen een paar minuten.)
+* Een actief Azure-account. (Als u geen account hebt, kunt u een [gratis Azure-account](https://azure.microsoft.com/pricing/free-trial/) binnen een paar minuten.)
 * Een IoT-Hub.
 * De meest recente [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c).
 

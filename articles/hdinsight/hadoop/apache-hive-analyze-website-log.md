@@ -2,19 +2,19 @@
 title: Hive met Hadoop gebruiken voor analyse van websitelogboeken - Azure HDInsight
 description: Meer informatie over het gebruik van Hive met HDInsight voor het analyseren van websitelogboeken. U moet een logboekbestand gebruiken als invoer in een HDInsight-tabel en gebruik HiveQL om de gegevens op te vragen.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/17/2016
-ms.author: jasonh
+ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 47175ed4bc01a43d1f21cbfc84b8a788f11b7338
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: c0a15bacd3aaf97a3caa54ee8bf70a9c4cf54663
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43048021"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51233589"
 ---
 # <a name="use-hive-with-windows-based-hdinsight-to-analyze-logs-from-websites"></a>Hive gebruiken met HDInsight op basis van Windows voor het analyseren van Logboeken van websites
 Leer hoe u HiveQL gebruiken met HDInsight voor het analyseren van Logboeken van een website. Websitelogboekanalyse kan worden gebruikt om te Segmenteer uw doelgroep op basis van de vergelijkbare activiteiten, Categoriseer bezoekers van de site op basis van demografische gegevens, en om erachter te komen de inhoud ze weergeven, de websites die ze afkomstig zijn uit, enzovoort.
@@ -34,7 +34,7 @@ In dit voorbeeld gebruikt u een HDInsight-cluster voor het analyseren van websit
 ## <a name="prerequisites"></a>Vereisten
 * U moet een Hadoop-cluster op Azure HDInsight hebt ingericht. Zie voor instructies [HDInsight-Clusters inrichten](../hdinsight-hadoop-provision-linux-clusters.md).
 * U moet Microsoft Excel 2013 of Excel 2010 is geïnstalleerd.
-* U moet hebben [stuurprogramma Microsoft Hive ODBC](http://www.microsoft.com/download/details.aspx?id=40886) gegevens van Hive in Excel importeren.
+* U moet hebben [stuurprogramma Microsoft Hive ODBC](https://www.microsoft.com/download/details.aspx?id=40886) gegevens van Hive in Excel importeren.
 
 ## <a name="to-run-the-sample"></a>Het voorbeeld uitvoeren
 1. Uit de [Azure-portal](https://portal.azure.com/), vanaf het Startboard (als u er in het cluster hebt vastgemaakt), klikt u op de tegel van het cluster waarop u wilt het voorbeeld uitvoert.

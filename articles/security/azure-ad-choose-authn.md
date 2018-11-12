@@ -9,12 +9,12 @@ ms.date: 04/12/2018
 ms.topic: article
 ms.service: active-directory
 ms.workload: identity
-ms.openlocfilehash: a322edbc6825261dde0fd926a362ca037739e06e
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: f1fd60774f5790a514e540984812fc1aaf6e38e0
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49388055"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238910"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Selecteer de juiste verificatiemethode voor uw Azure Active Directory-oplossing voor hybride identiteit 
 
@@ -68,6 +68,18 @@ De volgende sectie kunt u bepalen welke verificatiemethode is geschikt voor u me
 ## <a name="decision-tree"></a>Beslissingsstructuur
 
 ![Azure AD-verificatie-beslissingsstructuur](media/azure-ad/azure-ad-authn-image1.png)
+
+Als u meer informatie over de beslissing vragen:
+
+1. Azure AD kan worden verwerkt aanmelding voor gebruikers zonder afhankelijkheid van on-premises onderdelen om te controleren of wachtwoorden.
+2. Azure AD kunt afleveren aanmelden van gebruikers aan een vertrouwde verificatieprovider, zoals Microsoft van AD FS.
+3. Als u nodig hebt om toe te passen op gebruikersniveau Active Directory-beveiligingsbeleid, zoals account is verlopen, uitgeschakeld account, het wachtwoord is verlopen, account vergrendeld en aanmelden uur van elke gebruiker aanmelden, Azure AD is vereist voor sommige on-premises onderdelen.
+4. Aanmelden-functies niet systeemeigen worden ondersteund door Azure AD:
+   * Aanmelding met smartcards of certificaten.
+   * Aanmelding bij gebruik van on-premises MFA-Server.
+   * Meld u met behulp van 3e verificatie-oplossing van derden.
+   * Meerdere locaties on-premises-oplossing voor verificatie.
+5. Azure AD Identity Protection is vereist voor synchronisatie van Wachtwoordhashes, ongeacht welke methode u aanmelding u kiest, om het rapport 'Gebruikers met de referenties zijn gelekt'. Organisaties kunnen failover naar de synchronisatie van Wachtwoordhashes als hun primaire methode voor aanmelden is mislukt en is geconfigureerd voordat de gebeurtenis mislukt.
 
 ## <a name="detailed-considerations"></a>Gedetailleerde overwegingen
 
@@ -207,4 +219,4 @@ In de wereld van vandaag, bedreigingen aanwezig 24 uur per dag en worden gelever
 
 [Aan de slag](https://docs.microsoft.com/azure/active-directory/get-started-azure-ad) met Azure AD en de juiste verificatie-oplossing voor uw organisatie implementeert.
 
-Als u erover denkt over het migreren van federatieve verificatie in de cloud, meer informatie over [wijzigen van de aanmeldingsmethode](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-user-signin#changing-the-user-sign-in-method). Gebruiken om te plannen en implementeren van de migratie, [deze implementatie projectplannen](http://aka.ms/deploymentplans).
+Als u erover denkt over het migreren van federatieve verificatie in de cloud, meer informatie over [wijzigen van de aanmeldingsmethode](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-user-signin#changing-the-user-sign-in-method). Gebruiken om te plannen en implementeren van de migratie, [deze implementatie projectplannen](https://aka.ms/deploymentplans).

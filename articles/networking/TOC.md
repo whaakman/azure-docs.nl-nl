@@ -72,7 +72,7 @@
 ## [Auteursjablonen](/azure/azure-resource-manager/resource-group-authoring-templates?toc=%2fazure%2fnetworking%2ftoc.json)
 ## [Azure-roadmap](https://azure.microsoft.com/roadmap/?category=networking)
 ## [Communitysjablonen](https://azure.microsoft.com/resources/templates/)
-## [Netwerkblog](http://azure.microsoft.com/blog/topics/networking)
+## [Netwerkblog](https://azure.microsoft.com/blog/topics/networking)
 ## [Prijzen](https://azure.microsoft.com/pricing)
 ## [Prijscalculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Regionale beschikbaarheid](https://azure.microsoft.com/regions/services/)

@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: afc1ec8e171bc602f2698b4a36f249bc454cbed9
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: a4cd2cec56a15660a03ac111b1b8962d531479ad
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42059438"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51233674"
 ---
 # <a name="graphical-authoring-in-azure-automation"></a>Grafisch ontwerpen in Azure Automation
 
@@ -48,7 +48,7 @@ Het besturingselement bibliotheek is waar u het selecteert [activiteiten](#activ
 |:--- |:--- |
 | Cmdlets |Bevat alle cmdlets die kunnen worden gebruikt in uw runbook. Cmdlets zijn ingedeeld door de module. Alle modules die u hebt geïnstalleerd in uw automation-account zijn beschikbaar. |
 | Runbooks |Bevat de runbooks in uw automation-account. Deze runbooks kunnen worden toegevoegd aan het canvas om te worden gebruikt als onderliggende runbooks. Alleen runbooks van hetzelfde type als het runbook wordt bewerkt core worden weergegeven; Grafische worden runbooks alleen op PowerShell gebaseerde runbooks weergegeven, terwijl voor grafische PowerShell Workflow-runbooks alleen PowerShell-werkstroom runbooks worden weergegeven. |
-| Assets |Bevat de [automation-assets](http://msdn.microsoft.com/library/dn939988.aspx) in uw automation-account die kan worden gebruikt in uw runbook. Wanneer u een asset aan een runbook toevoegt, wordt een workflow-activiteit die de geselecteerde asset wordt toegevoegd. In het geval van een variabele assets, kunt u selecteren of toevoegen van een activiteit als u wilt ophalen van de variabele of stelt u de variabele. |
+| Assets |Bevat de [automation-assets](https://msdn.microsoft.com/library/dn939988.aspx) in uw automation-account die kan worden gebruikt in uw runbook. Wanneer u een asset aan een runbook toevoegt, wordt een workflow-activiteit die de geselecteerde asset wordt toegevoegd. In het geval van een variabele assets, kunt u selecteren of toevoegen van een activiteit als u wilt ophalen van de variabele of stelt u de variabele. |
 | Runbookbesturing |Runbook-controleactiviteiten die kunnen worden gebruikt bevat in uw huidige runbook. Een *koppelingspunten* neemt van meerdere invoergegevens en wacht totdat alle hebt voltooid voordat de werkstroom. Een *Code* activiteit wordt uitgevoerd voor een of meer regels met code van PowerShell of PowerShell-werkstroom, afhankelijk van het type grafisch runbook. U kunt deze activiteit gebruiken voor aangepaste code of functionaliteit die moeilijk te bereiken met andere activiteiten. |
 
 ### <a name="configuration-control"></a>Configuratiebeheer
@@ -191,7 +191,7 @@ Maak een koppeling tussen twee activiteiten op basis van de bronactiviteit selec
 
 Selecteer de koppeling naar de eigenschappen ervan configureren in de blade van de configuratie. Dit omvat het koppelingstype, die wordt beschreven in de volgende tabel:
 
-| Koppelingstype | Beschrijving |
+| Type koppeling | Beschrijving |
 |:--- |:--- |
 | Pijplijn |De doelactiviteit wordt eenmaal uitgevoerd voor elk objectuitvoer van de bronactiviteit. De doelactiviteit wordt niet uitgevoerd als de bronactiviteit in geen uitvoer resulteert. Uitvoer van de bronactiviteit is beschikbaar als een object. |
 | Volgorde |De doelactiviteit wordt slechts één keer uitgevoerd. Ontvangt deze een matrix met objecten uit de bronactiviteit. Uitvoer van de bronactiviteit is beschikbaar als een matrix met objecten. |
@@ -336,7 +336,7 @@ Gemaakt door elke activiteit die een uitgaande verbinding heeft geen gegevens wo
 
 ## <a name="powershell-expressions"></a>PowerShell-expressies
 
-Een van de voordelen van het grafisch ontwerpen biedt u de mogelijkheid om het bouwen van een runbook met minimale kennis van PowerShell. Op dit moment u hoeft te weten een deel van de PowerShell al voor het invullen van bepaalde [parameterwaarden](#activities) en voor de instelling [koppelen voorwaarden](#links-and-workflow). Deze sectie bevat een korte inleiding in expressies voor gebruikers die mogelijk niet bekend bent met het PowerShell. Volledige details van PowerShell zijn beschikbaar op [met Windows PowerShell-scripts](http://technet.microsoft.com/library/bb978526.aspx).
+Een van de voordelen van het grafisch ontwerpen biedt u de mogelijkheid om het bouwen van een runbook met minimale kennis van PowerShell. Op dit moment u hoeft te weten een deel van de PowerShell al voor het invullen van bepaalde [parameterwaarden](#activities) en voor de instelling [koppelen voorwaarden](#links-and-workflow). Deze sectie bevat een korte inleiding in expressies voor gebruikers die mogelijk niet bekend bent met het PowerShell. Volledige details van PowerShell zijn beschikbaar op [met Windows PowerShell-scripts](https://technet.microsoft.com/library/bb978526.aspx).
 
 ### <a name="powershell-expression-data-source"></a>Gegevensbron voor PowerShell-expressie
 U kunt een PowerShell-expressie gebruiken als een gegevensbron voor het vullen van de waarde van een [activiteitsparameter](#activities) met de resultaten van enige PowerShell-code. Dit kan een enkele regel code waarmee u een eenvoudige functie of meerdere regels die bepaalde complexe logica uitvoeren. Elke uitvoer van een opdracht dat niet is toegewezen aan een variabele worden uitgevoerd in de waarde van parameter.
@@ -414,7 +414,7 @@ U kunt deelnemen aan meerdere voorwaarden met behulp van een [logische operator]
 
 ### <a name="hashtables"></a>Hashtabellen
 
-[Hashtabellen](http://technet.microsoft.com/library/hh847780.aspx) zijn naam/waarde-paren die nuttig zijn voor een set waarden geretourneerd. Eigenschappen voor bepaalde activiteiten kunnen een hash-tabel in plaats van een eenvoudige waarde verwacht. U ziet ook als hash-tabel aangeduid als een woordenlijst.
+[Hashtabellen](https://technet.microsoft.com/library/hh847780.aspx) zijn naam/waarde-paren die nuttig zijn voor een set waarden geretourneerd. Eigenschappen voor bepaalde activiteiten kunnen een hash-tabel in plaats van een eenvoudige waarde verwacht. U ziet ook als hash-tabel aangeduid als een woordenlijst.
 
 U maakt een hash-tabel met de volgende syntaxis. Een hash-tabel kan een onbeperkt aantal vermeldingen bevatten, maar elk wordt gedefinieerd door een naam en waarde.
 

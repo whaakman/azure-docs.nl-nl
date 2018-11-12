@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio
-ms.openlocfilehash: 82580fbab68eab28a2027cd277213f1fb2a76e07
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 3556384d71649391d094172a136b863ed26fd2ad
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39715998"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51227396"
 ---
 > [!NOTE]
 > Deze documentatie is niet meer actueel en is niet nauwkeurig. In plaats daarvan gaat u naar de Azure Marketplace [Verkopershandleiding voor](https://docs.microsoft.com/azure/marketplace/seller-guide/cloud-partner-portal-seller-guide) voor hulp bij het publiceren van een aanbieding op Azure Marketplace.
@@ -28,7 +28,7 @@ ms.locfileid: "39715998"
 In dit artikel is bedoeld om ontwikkelaars maken, implementeren en beheren van hun oplossingen die worden vermeld in de Azure Marketplace voor andere Azure-klanten en partners aan te schaffen en te gebruiken.
 
 ## <a name="marketplace-publishing"></a>Marketplace-publicatie
-Als een Azure-uitgever, u kunt distribueren en uw innovatieve oplossing of service verkopen aan andere ontwikkelaars, ISV's, en IT-professionals in de Marketplace. Via de Marketplace, kunt u klanten die willen ontwikkelen snel hun cloud-Apps en mobiele oplossingen bereiken. Als uw oplossing is gericht op zakelijke gebruikers, kunt u rekening houden met de [AppSource](http://appsource.microsoft.com) marketplace.
+Als een Azure-uitgever, u kunt distribueren en uw innovatieve oplossing of service verkopen aan andere ontwikkelaars, ISV's, en IT-professionals in de Marketplace. Via de Marketplace, kunt u klanten die willen ontwikkelen snel hun cloud-Apps en mobiele oplossingen bereiken. Als uw oplossing is gericht op zakelijke gebruikers, kunt u rekening houden met de [AppSource](https://appsource.microsoft.com) marketplace.
 
 
 ## <a name="supported-types-of-solutions"></a>Ondersteunde typen oplossingen
@@ -51,7 +51,7 @@ Voor het publiceren van een virtuele machine [oplossing](https://createopportuni
 >[!NOTE]
 > Als u met een Partner Account Manager of een Partner DX Manager werkt, vraagt u ze aan het benoemen van uw oplossing voor het Azure Certified-programma. U kunt ook gaan naar de [Microsoft Azure Certified](http://createopportunity.azurewebsites.net) webpagina en vul het aanvraagformulier in. Voer het e-mailadres van uw Partner-accountmanager of DX Partner Manager in de **Neem contact op met Microsoft-Sponsor** vak.
 
-Als u voldoet aan de criteria in aanmerking te komen in de [deelnamebeleid voor Azure Marketplace](http://go.microsoft.com/fwlink/?LinkID=526833) en uw toepassing is goedgekeurd, zijn we aan de slag met u voor de onboarding uw oplossing in de Marketplace.
+Als u voldoet aan de criteria in aanmerking te komen in de [deelnamebeleid voor Azure Marketplace](https://go.microsoft.com/fwlink/?LinkID=526833) en uw toepassing is goedgekeurd, zijn we aan de slag met u voor de onboarding uw oplossing in de Marketplace.
 
 ### <a name="register-your-account-as-a-microsoft-seller"></a>Meld u aan uw account als een Microsoft-verkopers
 Registreren van uw Microsoft-account als een [Microsoft Developer-account](marketplace-publishing-accounts-creation-registration.md).

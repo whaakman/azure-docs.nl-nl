@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/12/2018
 ms.author: mabrigg
-ms.openlocfilehash: ae6539900e201f0559d998ad2d9be24c39d42e3b
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 608525a1f06a396c7df7d764f236f33af77dccc6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44713490"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51235340"
 ---
 # <a name="storage-accounts-in-azure-stack"></a>Opslagaccounts in Azure Stack
 Opslagaccounts bevatten Blob- en Tabelservices en de unieke naamruimte voor de objecten van uw opslaggegevens. De gegevens in uw account zijn standaard alleen beschikbaar voor u, de eigenaar van het opslagaccount.
@@ -38,4 +38,4 @@ Opslagaccounts bevatten Blob- en Tabelservices en de unieke naamruimte voor de o
 
 [Meer informatie over Azure storage-accounts](../storage/common/storage-create-storage-account.md)
 
-[Download de handleiding Azure Stack Azure consistente validatie](http://aka.ms/azurestacktp1doc)
+[Download de handleiding Azure Stack Azure consistente validatie](https://aka.ms/azurestacktp1doc)

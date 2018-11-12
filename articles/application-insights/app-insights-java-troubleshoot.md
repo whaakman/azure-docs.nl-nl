@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: mbullwin
-ms.openlocfilehash: 26899ea62b8caa872b6c99b94976c87f84ba7176
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: b74f40c093ca4cc62330de321ea2b53315b903db
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47091120"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247361"
 ---
 # <a name="troubleshooting-and-q-and-a-for-application-insights-for-java"></a>Probleemoplossing voor en antwoorden op vragen over Application Insights voor Java
 Vragen of problemen met [Azure Application Insights in Java][java]? Hier volgen enkele tips.
@@ -43,7 +43,7 @@ Vragen of problemen met [Azure Application Insights in Java][java]? Hier volgen 
 * Zorg ervoor dat voor het gebruik van dezelfde versie van Application Insights core, web-agent en appenders logboekregistratie om te voorkomen dat problemen conflict versie.
 
 #### <a name="i-used-to-see-data-but-it-has-stopped"></a>Ik gebruikt om gegevens te bekijken, maar deze is gestopt
-* Controleer de [status blog](http://blogs.msdn.com/b/applicationinsights-status/).
+* Controleer de [status blog](https://blogs.msdn.com/b/applicationinsights-status/).
 * Hebt u uw maandelijkse quotum van gegevenspunten bereikt? Open instellingen/quotum en prijzen om erachter te komen. Als dit het geval is, kunt u uw abonnement upgraden of betalen voor extra capaciteit. Zie de [prijzen schema](https://azure.microsoft.com/pricing/details/application-insights/).
 * Uw SDK onlangs bijgewerkt? Zorg ervoor dat alleen unieke SDK JAR-bestanden aanwezig zijn in de projectmap zijn. Er mag geen twee verschillende versies van de SDK die aanwezig zijn.
 * Bekijkt u de juiste AI-resource? Neem komt overeen met de sleutel van uw toepassing met de bron waar u telemetrie verwacht. Ze moeten hetzelfde zijn.

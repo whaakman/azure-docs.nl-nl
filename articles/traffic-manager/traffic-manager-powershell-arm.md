@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: kumud
-ms.openlocfilehash: 8dcd89415bdd48b2d8d5c8e1e699159e9d1129e5
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 8696f4780db8b98457b56dd7f1162553697023d4
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139472"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51237924"
 ---
 # <a name="using-powershell-to-manage-traffic-manager"></a>Met behulp van PowerShell voor het beheren van Traffic Manager
 
@@ -178,7 +178,7 @@ Elke Traffic Manager-profiel Hiermee geeft u een methode voor eenmalige routerin
 Geneste eindpunten zijn geconfigureerd op het bovenliggende-profiel met behulp van een bepaald eindpunt-type 'NestedEndpoints'. Bij het opgeven van geneste eindpunten:
 
 * Het eindpunt moet worden opgegeven met de parameter 'targetResourceId'
-* Als de methode 'Prestaties' Routering van verkeer wordt gebruikt, is de 'EndpointLocation' is vereist. Dit is anders is optioneel. De waarde moet een [geldig Azure-regionaam](http://azure.microsoft.com/regions/).
+* Als de methode 'Prestaties' Routering van verkeer wordt gebruikt, is de 'EndpointLocation' is vereist. Dit is anders is optioneel. De waarde moet een [geldig Azure-regionaam](https://azure.microsoft.com/regions/).
 * De 'Gewicht' en 'Prioriteit' zijn optioneel, als voor Azure-eindpunten.
 * De parameter 'MinChildEndpoints' is optioneel. De standaardwaarde is '1'. Als het aantal beschikbare eindpunten onder deze drempelwaarde valt, wordt het profiel van de bovenliggende beschouwt het onderliggende profiel 'verminderde' en verkeer naar de andere eindpunten in het profiel van de bovenliggende zorgt.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/10/2017
 ms.author: alkohli
-ms.openlocfilehash: c47da5b90c16e2d5b5709e2a6affc026238b9468
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 297282c03b842a095dba88f14b81df34b9c6d54f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38704518"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247565"
 ---
 # <a name="install-update-05-on-your-storsimple-virtual-array"></a>Update 0.5 installeren op uw StorSimple Virtual Array
 
@@ -27,7 +27,7 @@ ms.locfileid: "38704518"
 
 Dit artikel beschrijft de stappen die nodig zijn voor het installeren van Update 0.5 op uw StorSimple Virtual Array via de lokale webgebruikersinterface en via de Azure-portal. U moet toepassen van software-updates of hotfixes voor uw StorSimple Virtual Array om up-to-date te houden.
 
-Voordat u een update toepast, wordt aangeraden dat u de volumes of shares offline op de host eerst neemt en klik vervolgens op het apparaat. Dit een mogelijkheid van beschadiging van gegevens wordt geminimaliseerd. Nadat de volumes of shares offline zijn, u moet ook rekening houden met een handmatige back-up van het apparaat.
+Voordat u een update toepast, wordt aangeraden dat u de volumes of shares offline op de host eerst neemt en klik vervolgens op het apparaat. Dit minimaliseert de kans op beschadigde gegevens. Nadat de volumes of shares offline zijn, u moet ook rekening houden met een handmatige back-up van het apparaat.
 
 > [!IMPORTANT]
 > - Update 0.5 komt overeen met **10.0.10290.0** softwareversie op uw apparaat. Voor informatie over wat is er nieuw in deze update, gaat u naar [opmerkingen bij de Release van Update 0.5](storsimple-virtual-array-update-05-release-notes.md).
@@ -57,7 +57,7 @@ Voer de volgende stappen uit om de software-update te downloaden uit de Microsof
 
 #### <a name="to-download-the-update-or-the-hotfix"></a>De update of de hotfix te downloaden
 
-1. Start Internet Explorer en navigeer naar [ http://catalog.update.microsoft.com ](http://catalog.update.microsoft.com).
+1. Start Internet Explorer en navigeer naar [ http://catalog.update.microsoft.com ](https://catalog.update.microsoft.com).
 
 2. Als dit de eerste keer is dat u de Microsoft Update-catalogus op deze computer gebruikt, klikt u op **Installeren** wanneer u wordt gevraagd of u de invoegtoepassing voor de Microsoft Update-catalogus wilt installeren.
 

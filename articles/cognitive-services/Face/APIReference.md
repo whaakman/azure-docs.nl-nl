@@ -1,7 +1,21 @@
-titel: API-verwijzing - Face-API titleSuffix: Beschrijving van Azure Cognitive Services: API-verwijzing vindt u informatie over het beheer van de persoon, LargePersonGroup/PersonGroup Management, LargeFaceList/FaceList Management en Face-API's voor algoritmen.
-Services: de auteur van cognitive services: SteveMSFT manager: cgronlun
-
-MS.service: cognitive services ms.component: face-api ms.topic: verwijzen naar ms.date: 01-03-2018 ms.author: sbowles
+---
+title: API-verwijzing - Face-API
+titleSuffix: Azure Cognitive Services
+description: API-verwijzing bevat informatie over het beheer van de persoon, LargePersonGroup/PersonGroup Management, LargeFaceList/FaceList Management en Face-API's voor algoritmen.
+services: cognitive-services
+author: SteveMSFT
+manager: cgronlun
+ms.service: cognitive-services
+ms.component: face-api
+ms.topic: reference
+ms.date: 03/01/2018
+ms.author: sbowles
+ms.openlocfilehash: 21bda39c8b014b13fef0b96f554c4dff91b72743
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51287044"
 ---
 # <a name="api-reference"></a>API-naslaginformatie
 

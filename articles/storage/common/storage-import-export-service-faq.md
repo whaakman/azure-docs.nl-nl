@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/22/2018
 ms.author: alkohli
 ms.component: common
-ms.openlocfilehash: edaff86531a9c40064d25a046bbbb70f48b75c84
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: b53f679f6f93dd5d4889fbe51f8b5caf62fc1a36
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44027126"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51236714"
 ---
 # <a name="azure-importexport-service-frequently-asked-questions"></a>Azure Import/Export-service: veelgestelde vragen 
 Hier volgen vragen en antwoorden die u hebt wanneer u uw Azure Import/Export-service voor het overbrengen van gegevens naar Azure storage. De vragen en antwoorden zijn in de volgende categorieën onderverdeeld:
@@ -131,7 +131,7 @@ Max Page Blob-grootte is 1TB.
 ### <a name="does-azure-importexport-support-aes-256-encryption"></a>Azure Import/Export biedt ondersteuning voor AES-256-codering?
 Azure Import/Export-service maakt standaard gebruik van AES-128 bitlocker-versleuteling. U kunt dit wijzigen naar AES-256 door het handmatig versleutelen met bitlocker voordat de gegevens worden gekopieerd. 
 
-- Als u [WAImportExport V1](http://download.microsoft.com/download/0/C/D/0CD6ABA7-024F-4202-91A0-CE2656DCE413/WaImportExportV1.zip), hieronder volgt een voorbeeldopdracht
+- Als u [WAImportExport V1](https://download.microsoft.com/download/0/C/D/0CD6ABA7-024F-4202-91A0-CE2656DCE413/WaImportExportV1.zip), hieronder volgt een voorbeeldopdracht
     ```
     WAImportExport PrepImport /sk:<StorageAccountKey> /csas:<ContainerSas> /t: <TargetDriveLetter> [/format] [/silentmode] [/encrypt] [/bk:<BitLockerKey>] [/logdir:<LogDirectory>] /j:<JournalFile> /id:<SessionId> /srcdir:<SourceDirectory> /dstdir:<DestinationBlobVirtualDirectory> [/Disposition:<Disposition>] [/BlobType:<BlockBlob|PageBlob>] [/PropertyFile:<PropertyFile>] [/MetadataFile:<MetadataFile>] 
     ```
