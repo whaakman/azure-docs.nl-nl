@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: a621cba2eda0156cbe191f330c805d2cca64b3ba
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: bd72b93d31a25a6aa848fc08a7db4d9d0fcece9f
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50960885"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51010742"
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>Verzamel inzichten over uw DNS-infrastructuur met de oplossing DNS Analytics Preview
 
@@ -190,4 +190,4 @@ Er zijn twee manieren waarop u feedback kunt geven:
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Zoeken in logboeken](log-analytics-log-search.md) om gedetailleerde logboekbestanden DNS-records weer te geven.
+[Zoeken in logboeken](log-analytics-queries.md) om gedetailleerde logboekbestanden DNS-records weer te geven.

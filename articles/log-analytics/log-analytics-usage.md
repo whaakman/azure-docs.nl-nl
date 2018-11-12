@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/11/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 0ca9cf0ff75ea76cd2dc203fbdb37162ed1ace34
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: ad3deaad8c069cfb11bb0eb997d886807ecdb0f8
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50962755"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51006495"
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Gegevensgebruik analyseren in Log Analytics
 
@@ -58,7 +58,7 @@ Het **Log Analytics-gebruiksdashboard** bevat de volgende informatie:
 3. Selecteer een werkruimte in de lijst met Log Analytics-werkruimten.
 4. Selecteer **Gebruik en geschatte kosten** in de lijst in het linkerdeelvenster.
 5. Op het dashboard **Gebruik en geschatte kosten** kunt u het tijdsbereik wijzigen door **Tijd: afgelopen 24 uur** te selecteren en het tijdsinterval te wijzigen.<br><br> ![tijdsinterval](./media/log-analytics-usage/usage-time-filter-01.png)<br><br>
-6. Bekijk de blades voor de gebruikscategorie waarin gebieden worden weergegeven waarin u bent geïnteresseerd. Kies een blade en klik vervolgens op een item op de blade om meer details weer te geven in [Zoeken in logboeken](log-analytics-log-search.md).<br><br> ![voorbeeld van kpi voor gegevensgebruik](media/log-analytics-usage/data-volume-kpi-01.png)<br><br>
+6. Bekijk de blades voor de gebruikscategorie waarin gebieden worden weergegeven waarin u bent geïnteresseerd. Kies een blade en klik vervolgens op een item op de blade om meer details weer te geven in [Zoeken in logboeken](log-analytics-queries.md).<br><br> ![voorbeeld van kpi voor gegevensgebruik](media/log-analytics-usage/data-volume-kpi-01.png)<br><br>
 7. Bekijk op het dashboard Zoeken in logboeken de resultaten die zijn geretourneerd na de zoekopdracht.<br><br> ![voorbeeld van gebruik van zoeken in logboeken](./media/log-analytics-usage/usage-log-search-01.png)
 
 ## <a name="create-an-alert-when-data-collection-is-higher-than-expected"></a>Een waarschuwing instellen wanneer de gegevensverzameling groter is dan verwacht
@@ -173,7 +173,7 @@ Klik op **Alles weergeven...**  om de volledige lijst met computers die gegevens
 Gebruik [oplossingstargeting](../monitoring/monitoring-solution-targeting.md) om gegevens te verzamelen van alleen de vereiste groepen computers.
 
 ## <a name="next-steps"></a>Volgende stappen
-* Zie [Zoekopdrachten in logboeken in Log Analytics](log-analytics-log-search.md) voor meer informatie over het gebruik van de zoektaal. U kunt zoekquery’s gebruiken om aanvullende analyses uit te voeren op de gebruiksgegevens.
+* Zie [Zoekopdrachten in logboeken in Log Analytics](log-analytics-queries.md) voor meer informatie over het gebruik van de zoektaal. U kunt zoekquery’s gebruiken om aanvullende analyses uit te voeren op de gebruiksgegevens.
 * Gebruik de stappen in [Een nieuwe logboekwaarschuwing maken](../monitoring-and-diagnostics/alert-metric.md) om een melding te krijgen wanneer aan een zoekcriterium wordt voldaan.
 * Gebruik [oplossingstargeting](../monitoring/monitoring-solution-targeting.md) om gegevens te verzamelen van alleen de vereiste groepen computers.
 * Lees [Filterbeleid van Azure Security Center](../security-center/security-center-enable-data-collection.md) om een effectief beleid voor het verzamelen van beveiligingsgebeurtenissen te configureren.

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/24/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: c248e126d99c7cb83895871ec24d41ffcfd84d29
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 08d17566faa61c5dcac01a49f99f0f39eb280946
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50960681"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51009739"
 ---
 # <a name="monitor-active-directory-replication-status-with-log-analytics"></a>Status van de Active Directory-replicatie met Log Analytics controleren
 
@@ -110,7 +110,7 @@ Wanneer u een item in een van de lijsten op klikt, ziet u aanvullende informatie
 
 ![AD-status replicatiefouten opgetreden in de zoekresultaten](./media/log-analytics-ad-replication-status/oms-ad-replication-search-details.png)
 
-Hier kunt kunt u verder filteren, wijzigen van de zoekopdracht, enzovoort. Zie voor meer informatie over het gebruik van zoeken in logboeken [zoekopdrachten](log-analytics-log-search.md).
+Hier kunt kunt u verder filteren, wijzigen van de zoekopdracht, enzovoort. Zie voor meer informatie over het gebruik van zoeken in logboeken [zoekopdrachten](log-analytics-queries.md).
 
 De **HelpLink** veld ziet u de URL van een TechNet-pagina met aanvullende informatie over de specifieke fout. U kunt kopiëren en plakken van deze koppeling in het browservenster om informatie over het oplossen van problemen en het verhelpen van de fout te bekijken.
 
@@ -154,4 +154,4 @@ Als u hulp bij het verbinden van een van uw domeincontrollers, vindt u de docume
 Als u niet wilt verbinding maken met een van uw domeincontrollers rechtstreeks Log Analytics of met System Center Operations Manager, raadpleegt u [om in te schakelen van een niet-domeincontroller AD-gegevens te verzenden naar Log Analytics](#to-enable-a-non-domain-controller-to-send-ad-data-to-oms).
 
 ## <a name="next-steps"></a>Volgende stappen
-* Gebruik [zoekopdrachten in Logboeken in Log Analytics](log-analytics-log-search.md) om gedetailleerde gegevens van Active Directory-replicatie de status weer te geven.
+* Gebruik [zoekopdrachten in Logboeken in Log Analytics](log-analytics-queries.md) om gedetailleerde gegevens van Active Directory-replicatie de status weer te geven.

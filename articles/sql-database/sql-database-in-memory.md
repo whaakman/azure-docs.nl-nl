@@ -12,12 +12,12 @@ ms.author: jodebrui
 ms.reviewer: ''
 manager: craigg
 ms.date: 07/16/2018
-ms.openlocfilehash: 8fd430aa710c7e36133b40c7079b9d727774c68f
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: d850aff8ddb2a8b6cdd68620ae823d582c527581
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166925"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51229087"
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>Prestaties optimaliseren met behulp van technologieën In het geheugen in SQL-Database
 
@@ -57,11 +57,11 @@ Zie de volgende bronnen voor meer informatie.
 Gedetailleerde informatie over de technologieën:
 
 - [Overzicht van in-Memory OLTP en gebruiksscenario's](https://msdn.microsoft.com/library/mt774593.aspx) (met inbegrip van verwijzingen naar casestudy's en informatie aan de slag)
-- [Documentatie voor In-Memory OLTP](http://msdn.microsoft.com/library/dn133186.aspx)
+- [Documentatie voor In-Memory OLTP](https://msdn.microsoft.com/library/dn133186.aspx)
 - [Gids Columnstore-indexen](https://msdn.microsoft.com/library/gg492088.aspx)
 - Hybride transactionele/analytische verwerking (HTAP), ook wel bekend als [real-time operational analytics](https://msdn.microsoft.com/library/dn817827.aspx)
 
-Een snelle introductie op de In-Memory OLTP: [Quick Start-1: In-Memory OLTP-technologieën voor snellere prestaties met T-SQL](http://msdn.microsoft.com/library/mt694156.aspx) (een ander artikel om u te helpen aan de slag)
+Een snelle introductie op de In-Memory OLTP: [Quick Start-1: In-Memory OLTP-technologieën voor snellere prestaties met T-SQL](https://msdn.microsoft.com/library/mt694156.aspx) (een ander artikel om u te helpen aan de slag)
 
 Uitgebreide video's over de technologieën:
 
@@ -158,7 +158,7 @@ Voor een meer eenvoudig, maar visueel aantrekkelijker prestaties demo voor In-Me
 
 1. In de [Azure-portal](https://portal.azure.com/), maakt u een Premium en bedrijfskritiek-database op een server. Stel de **bron** met de AdventureWorksLT-voorbeelddatabase. Zie voor gedetailleerde instructies [uw eerste Azure SQL-database maken](sql-database-get-started-portal.md).
 
-2. Verbinding maken met de database met SQL Server Management Studio [(SSMS.exe)](http://msdn.microsoft.com/library/mt238290.aspx).
+2. Verbinding maken met de database met SQL Server Management Studio [(SSMS.exe)](https://msdn.microsoft.com/library/mt238290.aspx).
 
 3. Kopieer de [In-Memory OLTP Transact-SQL-script](https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/features/in-memory/t-sql-scripts/sql_in-memory_oltp_sample.sql) naar het Klembord. De T-SQL-script maakt u de objecten die nodig zijn In-Memory in de AdventureWorksLT-voorbeelddatabase die u in stap 1 hebt gemaakt.
 
@@ -291,9 +291,9 @@ In het ideale geval zou u van plan bent om uit te voeren ostress.exe op een Azur
 Op de virtuele machine of op elke host die u hebt Kies, installeert u de's opnieuw afspelen Markup Language (RML). De hulpprogramma's omvatten ostress.exe.
 
 Zie voor meer informatie:
-- De discussie ostress.exe in [voorbeelddatabase voor In-Memory OLTP](http://msdn.microsoft.com/library/mt465764.aspx).
-- [Voorbeeld van een Database voor In-Memory OLTP](http://msdn.microsoft.com/library/mt465764.aspx).
-- De [blog voor het installeren van ostress.exe](http://blogs.msdn.com/b/psssql/archive/2013/10/29/cumulative-update-2-to-the-rml-utilities-for-microsoft-sql-server-released.aspx).
+- De discussie ostress.exe in [voorbeelddatabase voor In-Memory OLTP](https://msdn.microsoft.com/library/mt465764.aspx).
+- [Voorbeeld van een Database voor In-Memory OLTP](https://msdn.microsoft.com/library/mt465764.aspx).
+- De [blog voor het installeren van ostress.exe](https://blogs.msdn.com/b/psssql/archive/2013/10/29/cumulative-update-2-to-the-rml-utilities-for-microsoft-sql-server-released.aspx).
 
 
 
@@ -379,7 +379,7 @@ Onze In-Memory-tests heeft aangetoond dat prestaties verbeterd door **negen keer
 In deze sectie maakt vergelijken u de i/o- en statistieken van de resultaten als u een columnstore-index ten opzichte van een traditionele b-tree-index.
 
 
-Realtime analyses over een OLTP-werkbelasting is het vaak het beste een niet-geclusterde columnstore-index te gebruiken. Zie voor meer informatie, [Columnstore-indexen beschreven](http://msdn.microsoft.com/library/gg492088.aspx).
+Realtime analyses over een OLTP-werkbelasting is het vaak het beste een niet-geclusterde columnstore-index te gebruiken. Zie voor meer informatie, [Columnstore-indexen beschreven](https://msdn.microsoft.com/library/gg492088.aspx).
 
 
 
@@ -493,7 +493,7 @@ In een database met de prijscategorie P2, kunt u verwachten dat ongeveer negen k
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [1 voor snel starten: In-Memory OLTP-technologieën voor snellere prestaties met T-SQL](http://msdn.microsoft.com/library/mt694156.aspx)
+- [1 voor snel starten: In-Memory OLTP-technologieën voor snellere prestaties met T-SQL](https://msdn.microsoft.com/library/mt694156.aspx)
 
 - [Gebruik In-Memory OLTP in een bestaande Azure SQL-toepassing](sql-database-in-memory-oltp-migration.md)
 
@@ -508,17 +508,17 @@ In een database met de prijscategorie P2, kunt u verwachten dat ongeveer negen k
 
 - [In-Memory OLTP in Azure SQL Database-blogbericht](https://azure.microsoft.com/blog/in-memory-oltp-in-azure-sql-database/)
 
-- [Meer informatie over In-Memory OLTP](http://msdn.microsoft.com/library/dn133186.aspx)
+- [Meer informatie over In-Memory OLTP](https://msdn.microsoft.com/library/dn133186.aspx)
 
 - [Meer informatie over de columnstore-indexen](https://msdn.microsoft.com/library/gg492088.aspx)
 
-- [Meer informatie over real-time operational analytics](http://msdn.microsoft.com/library/dn817827.aspx)
+- [Meer informatie over real-time operational analytics](https://msdn.microsoft.com/library/dn817827.aspx)
 
-- Zie [algemene patronen van de werkbelasting en overwegingen bij migraties](http://msdn.microsoft.com/library/dn673538.aspx) (welke optie beschrijft werkbelasting patronen waar In-Memory OLTP vaak aanzienlijke prestatievoordelen biedt)
+- Zie [algemene patronen van de werkbelasting en overwegingen bij migraties](https://msdn.microsoft.com/library/dn673538.aspx) (welke optie beschrijft werkbelasting patronen waar In-Memory OLTP vaak aanzienlijke prestatievoordelen biedt)
 
 #### <a name="application-design"></a>Het ontwerp van toepassing
 
-- [In-Memory OLTP (optimalisatie In het geheugen)](http://msdn.microsoft.com/library/dn133186.aspx)
+- [In-Memory OLTP (optimalisatie In het geheugen)](https://msdn.microsoft.com/library/dn133186.aspx)
 
 - [Gebruik In-Memory OLTP in een bestaande Azure SQL-toepassing](sql-database-in-memory-oltp-migration.md)
 
@@ -528,4 +528,4 @@ In een database met de prijscategorie P2, kunt u verwachten dat ongeveer negen k
 
 - [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx)
 
-- [SQL Server Data Tools (SSDT)](http://msdn.microsoft.com/library/mt204009.aspx)
+- [SQL Server Data Tools (SSDT)](https://msdn.microsoft.com/library/mt204009.aspx)

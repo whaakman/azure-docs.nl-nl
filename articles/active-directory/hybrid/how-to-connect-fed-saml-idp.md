@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: a197b3c7aa423323f984a793851a458733391e33
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 08d9566c3ce8f486465f0ed7fb5aab4419e592d8
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50243109"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228586"
 ---
 #  <a name="use-a-saml-20-identity-provider-idp-for-single-sign-on"></a>Een SAML 2.0-id-Provider (IdP) gebruiken voor eenmalige aanmelding op
 
@@ -167,7 +167,7 @@ Communicatie tussen uw id-provider van SAML 2.0 en Azure AD, moet u inschakelen.
 ## <a name="install-windows-powershell-for-sign-on-with-saml-20-identity-provider"></a>Windows PowerShell voor aanmelding met SAML 2.0-id-provider installeren
 Nadat u hebt uw SAML 2.0-id-provider voor gebruik met Azure AD-aanmelding geconfigureerd, wordt de volgende stap is om te downloaden en installeren van de Azure Active Directory-Module voor Windows PowerShell. Na de installatie, gebruikt u deze cmdlets naar uw Azure AD-domeinen configureren als federatieve domeinen.
 
-De Azure Active Directory-Module voor Windows PowerShell is een download voor het beheren van gegevens van uw organisatie in Azure AD. Deze module wordt een set cmdlets in Windows PowerShell; geïnstalleerd u voert deze cmdlets voor het instellen van eenmalige aanmelding toegang tot Azure AD en in inschakelen als u wilt alle cloudservices die u bent geabonneerd op. Zie voor instructies over het downloaden en installeren van de cmdlets [http://technet.microsoft.com/library/jj151815.aspx](http://technet.microsoft.com/library/jj151815.aspx)
+De Azure Active Directory-Module voor Windows PowerShell is een download voor het beheren van gegevens van uw organisatie in Azure AD. Deze module wordt een set cmdlets in Windows PowerShell; geïnstalleerd u voert deze cmdlets voor het instellen van eenmalige aanmelding toegang tot Azure AD en in inschakelen als u wilt alle cloudservices die u bent geabonneerd op. Zie voor instructies over het downloaden en installeren van de cmdlets [http://technet.microsoft.com/library/jj151815.aspx](https://technet.microsoft.com/library/jj151815.aspx)
 
 ## <a name="set-up-a-trust-between-your-saml-identity-provider-and-azure-ad"></a>Instellen van een vertrouwensrelatie tussen de SAML-identiteitsprovider en Azure AD
 Voordat u Federatie configureert op een Azure AD-domein, heeft dit een aangepast domein geconfigureerd. Het standaarddomein die wordt geleverd door Microsoft kunnen niet worden gefedereerd. Het standaarddomein van Microsoft eindigt op 'onmicrosoft.com'.
@@ -190,12 +190,12 @@ De volgende procedure begeleidt u bij het converteren van een bestaande standaar
 
     `<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol"> <KeyDescriptor use="signing"> <KeyInfo xmlns="http://www.w3.org/2000/09/xmldsig#"> <X509Data> <X509Certificate>MIIC5jCCAc6gAwIBAgIQLnaxUPzay6ZJsC8HVv/QfTANBgkqhkiG9w0BAQsFADAvMS0wKwYDVQQDEyRBREZTIFNpZ25pbmcgLSBmcy50ZWNobGFiY2VudHJhbC5vcmcwHhcNMTMxMTA0MTgxMzMyWhcNMTQxMTA0MTgxMzMyWjAvMS0wKwYDVQQDEyRBREZTIFNpZ25pbmcgLSBmcy50ZWNobGFiY2VudHJhbC5vcmcwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCwMdVLTr5YTSRp+ccbSpuuFeXMfABD9mVCi2wtkRwC30TIyPdORz642MkurdxdPCWjwgJ0HW6TvXwcO9afH3OC5V//wEGDoNcI8PV4enCzTYFe/h//w51uqyv48Fbb3lEXs+aVl8155OAj2sO9IX64OJWKey82GQWK3g7LfhWWpp17j5bKpSd9DBH5pvrV+Q1ESU3mx71TEOvikHGCZYitEPywNeVMLRKrevdWI3FAhFjcCSO6nWDiMqCqiTDYOURXIcHVYTSof1YotkJ4tG6mP5Kpjzd4VQvnR7Pjb47nhIYG6iZ3mR1F85Ns9+hBWukQWNN2hcD/uGdPXhpdMVpBAgMBAAEwDQYJKoZIhvcNAQELBQADggEBAK7h7jF7wPzhZ1dPl4e+XMAr8I7TNbhgEU3+oxKyW/IioQbvZVw1mYVCbGq9Rsw4KE06eSMybqHln3w5EeBbLS0MEkApqHY+p68iRpguqa+W7UHKXXQVgPMCpqxMFKonX6VlSQOR64FgpBme2uG+LJ8reTgypEKspQIN0WvtPWmiq4zAwBp08hAacgv868c0MM4WbOYU0rzMIR6Q+ceGVRImlCwZ5b7XKp4mJZ9hlaRjeuyVrDuzBkzROSurX1OXoci08yJvhbtiBJLf3uPOJHrhjKRwIt2TnzS9ElgFZlJiDIA26Athe73n43CT0af2IG6yC7e6sK4L3NEXJrwwUZk=</X509Certificate> </X509Data> </KeyInfo> </KeyDescriptor>` 
 
-Zie voor meer informatie over "Set-MsolDomainAuthentication": [ http://technet.microsoft.com/library/dn194112.aspx ](http://technet.microsoft.com/library/dn194112.aspx).
+Zie voor meer informatie over "Set-MsolDomainAuthentication": [ http://technet.microsoft.com/library/dn194112.aspx ](https://technet.microsoft.com/library/dn194112.aspx).
 
 >[!NOTE]
 >Gebruik moet worden uitgevoerd ' $ecpUrl = "https://WS2012R2-0.contoso.com/PAOS" "alleen als u een extensie ECP voor uw id-provider instellen. Exchange Online clients, met uitzondering van Outlook Web Application (OWA) afhankelijk zijn van een bericht op basis van actieve eindpunt. Als uw SAML 2.0 STS een actieve eindpunt die vergelijkbaar is met de Shibboleth ECP implementatie van een actieve eindpunt implementeert is het mogelijk dat het mogelijk dat deze rich clients om te communiceren met de Exchange Online-service.
 
-Nadat federation is geconfigureerd u wilt terugkeren naar 'niet-gefedereerde' (of 'beheerd'), maar deze wijziging wordt van maximaal twee uur en hiervoor nieuwe willekeurige wachtwoorden voor cloud-gebaseerde aanmelding toewijzen aan elke gebruiker. Overschakelen naar 'beheerd' kan in sommige scenario's vereist een fout in de instellingen opnieuw instellen. Zie voor meer informatie over de conversie van domein: [ http://msdn.microsoft.com/library/windowsazure/dn194122.aspx ](http://msdn.microsoft.com/library/windowsazure/dn194122.aspx).
+Nadat federation is geconfigureerd u wilt terugkeren naar 'niet-gefedereerde' (of 'beheerd'), maar deze wijziging wordt van maximaal twee uur en hiervoor nieuwe willekeurige wachtwoorden voor cloud-gebaseerde aanmelding toewijzen aan elke gebruiker. Overschakelen naar 'beheerd' kan in sommige scenario's vereist een fout in de instellingen opnieuw instellen. Zie voor meer informatie over de conversie van domein: [ http://msdn.microsoft.com/library/windowsazure/dn194122.aspx ](https://msdn.microsoft.com/library/windowsazure/dn194122.aspx).
 
 ## <a name="provision-user-principals-to-azure-ad--office-365"></a>Inrichten van gebruikersprincipals met Azure AD / Office 365
 Voordat u uw gebruikers met Office 365 verifiëren kunt, moet u Azure AD inrichten met gebruikersprincipals zijn die met de verklaring in de SAML 2.0-claim overeenkomen. Als deze gebruikersprincipals zijn niet bekend zijn bij Azure AD van tevoren regelen, worden klikt u vervolgens ze niet gebruikt voor federatieve aanmelding. Azure AD Connect of Windows PowerShell kan worden gebruikt voor het inrichten van gebruikersprincipals.
@@ -218,7 +218,7 @@ Deze procedure laat zien hoe een enkele gebruiker toevoegen aan Azure AD.
         -LicenseAssignment "samlp2test:ENTERPRISEPACK" 
         -UsageLocation "US" ` 
 
-Voor meer informatie over "New-MsolUser" Afhandeling, [http://technet.microsoft.com/library/dn194096.aspx](http://technet.microsoft.com/library/dn194096.aspx)
+Voor meer informatie over "New-MsolUser" Afhandeling, [http://technet.microsoft.com/library/dn194096.aspx](https://technet.microsoft.com/library/dn194096.aspx)
 
 >[!NOTE]
 >De waarde "UserPrinciplName" moet overeenkomen met de waarde die u voor 'IDPEmail' in het SAML 2.0-claim verzendt en de waarde "ImmutableID" moet overeenkomen met de waarde die wordt verzonden in uw bewering 'NameID'.

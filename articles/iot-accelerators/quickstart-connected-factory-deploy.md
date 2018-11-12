@@ -7,14 +7,14 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 07/12/2018
+ms.date: 10/26/2018
 ms.author: dobett
-ms.openlocfilehash: 649ce7bcd2d2e4ceb2fc397643f4dd0d3ef89c1e
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: 8cb604aee39f651770cb708f8dd92b6fbc0921f5
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39144510"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50138993"
 ---
 # <a name="quickstart-try-a-cloud-based-solution-to-manage-my-industrial-iot-devices"></a>Snelstart: Een cloudgebaseerde oplossing uitproberen voor het beheren van mijn industriële IoT-apparaten
 
@@ -32,13 +32,13 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 
 Wanneer u de oplossingsverbetering implementeert in uw Azure-abonnement, moet u bepaalde configuratieopties instellen.
 
-Meld u aan bij [azureiotsolutions.com](https://www.azureiotsolutions.com/Accelerators) met behulp van de referenties van uw Azure-account.
+Ga naar [Oplossingsverbeteringen van Microsoft Azure IoT](https://www.azureiotsolutions.com) en meld u aan met de referenties voor uw Azure-account.
 
-Klik op de tegel **Verbonden factory** op **Nu proberen**.
+Klik op de tegel **Verbonden factory**. Klik op de pagina **Verbonden factory** op **Nu proberen**:
 
-![Verbonden factory kiezen](./media/quickstart-connected-factory-deploy/connectedfactory.png)
+![Nu uitproberen](./media/quickstart-connected-factory-deploy/connectedfactory.png)
 
-Voer op de pagina **Oplossing voor verbonden factory maken** een unieke **oplossingsnaam** in voor uw oplossingsversneller voor verbonden factory’s. Deze naam is de naam van de Azure-resourcegroep die alle resources van de oplossingsversnellerresources bevat. Voor deze snelstart noemen we die van ons **MyDemoConnectedFactory**.
+Voer op de pagina **Oplossing voor verbonden factory maken** een unieke **oplossingsnaam** in voor uw oplossingsversneller voor verbonden factory’s. Deze naam is de naam van de Azure-resourcegroep die alle resources van de oplossingsversnellerresources bevat. In deze snelstart wordt de naam **MyDemoConnectedFactory** gebruikt.
 
 Selecteer het **Abonnement** en de **Regio** die u wilt gebruiken om de oplossingsverbetering te implementeren. U kiest meestal de regio die zich het meest in uw buurt bevindt. Voor deze snelstart gebruiken we **Visual Studio Enterprise** en **US - oost**. U moet een [globale beheerder of gebruiker](iot-accelerators-permissions.md) zijn in het abonnement.
 
@@ -66,7 +66,7 @@ De standaardweergave is het *dashboard*. U kunt naar andere gebieden van de port
 
 [![Oplossingsdashboard](./media/quickstart-connected-factory-deploy/dashboard-inline.png)](./media/quickstart-connected-factory-deploy/dashboard-expanded.png#lightbox)
 
-U gebruikt het dashboard om uw industriële IoT-apparaten te beheren. Verbonden factory gebruikt een hiërarchie om een algemene factoryconfiguratie weer te geven. Op het hoogste niveau van de hiërarchie bevindt zich de onderneming die een of meer factory's bevat, elke factory bevat productielijnen en elke productielijn bestaat uit stations. Op elk niveau kunt u OEE en KPI's weergeven, nieuwe knooppunten voor telemetrie publiceren en reageren op waarschuwingen.
+U gebruikt het dashboard om uw industriële IoT-apparaten te beheren. Verbonden factory gebruikt een hiërarchie om een algemene factoryconfiguratie weer te geven. Het hoogste niveau van de hiërarchie is de onderneming die een of meer factory's bevat. Elke factory bevat productielijnen en elke productielijn bestaat uit stations. Op elk niveau kunt u OEE en KPI's weergeven, nieuwe knooppunten voor telemetrie publiceren en reageren op waarschuwingen.
 
 Op het dashboard kunt u het volgende zien:
 
@@ -122,7 +122,7 @@ Als u met uw abonnement toegang hebt tot de [Bing Kaarten-API](iot-accelerators-
 
 ### <a name="alarms"></a>Waarschuwingen
 
-In het venster **Waarschuwingen** worden waarschuwingen weergegeven die worden gegenereerd wanneer een gemelde waarde of een berekende OEE-/KPI-waarde een geconfigureerde drempelwaarde overschrijdt. In dit venster worden waarschuwingen van elk niveau van de hiërarchie weergegeven, van stationsniveau tot het gehele bedrijf. Elke waarschuwing bevat een beschrijving, datum, tijd, locatie en het aantal instanties:
+In het venster **Waarschuwingen** worden waarschuwingen weergegeven die worden gegenereerd wanneer een gemelde waarde of een berekende OEE-/KPI-waarde een drempelwaarde overschrijdt. In dit venster worden waarschuwingen van elk niveau van de hiërarchie weergegeven, van stationsniveau tot het gehele bedrijf. Elke waarschuwing bevat een beschrijving, datum, tijd, locatie en het aantal instanties:
 
 [![Waarschuwingen](./media/quickstart-connected-factory-deploy/alarms-inline.png)](./media/quickstart-connected-factory-deploy/alarms-expanded.png#lightbox)
 
@@ -137,7 +137,7 @@ Klik op een van de waarschuwingen in de vervolgkeuzelijst **Kies een actie**, ki
 
 Klik op de grafiek in het paneel Waarschuwingen om de waarschuwingsgegevens verder te analyseren.
 
-Deze waarschuwingen worden gegenereerd door regels die zijn opgegeven in een configuratiebestand in de oplossingsversneller. Deze regels kunnen waarschuwingen genereren wanneer de OEE- of KPI-gegevens of de waarden van het OPC UA-knooppunt de geconfigureerde drempelwaarde overschrijden.
+Deze waarschuwingen worden gegenereerd door regels die zijn opgegeven in een configuratiebestand in de oplossingsversneller. Deze regels kunnen waarschuwingen genereren wanneer de OEE- of KPI-gegevens of de waarden van het OPC UA-knooppunt de drempelwaarde overschrijden. U kunt deze drempelwaarde instellen.
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 

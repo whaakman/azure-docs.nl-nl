@@ -1,10 +1,10 @@
 ---
-title: Schalen verwerken door toe te voegen codering eenheden - Azure media |  Microsoft Docs
-description: Meer informatie over het toevoegen van codering eenheden met .NET
+title: Schalen mediaverwerking door toe te voegen encoding-eenheden - Azure |  Microsoft Docs
+description: Meer informatie over het toevoegen van encoding-eenheden met .NET
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 33f7625a-966a-4f06-bc09-bccd6e2a42b5
 ms.service: media-services
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2017
+ms.date: 11/05/2018
 ms.author: juliako;milangada;
-ms.openlocfilehash: 913ee05a68ec6f87ef658abd88935c7360b30626
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 8f17d5e6d45b678f5c4a0c4318e74a18c42ff0c8
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788345"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51035713"
 ---
 # <a name="how-to-scale-encoding-with-net-sdk"></a>Codering schalen met .NET SDK
 > [!div class="op_single_selector"]
@@ -31,17 +31,13 @@ ms.locfileid: "33788345"
 > 
 > 
 
-> [!NOTE]
-> Zie [Aan de slag met de SDK voor Java-clients voor Azure Media Services](https://docs.microsoft.com/azure/media-services/media-services-java-how-to-use) om de nieuwste versie van de Java-SDK op te halen en te ontwikkelen met Java. <br/>
-> Als u de nieuwste PHP-SDK voor Media Services wilt downloaden, zoekt u versie 0.5.7 van het Microsoft/WindowAzure-pakket in de [Packagist-opslagplaats](https://packagist.org/packages/microsoft/windowsazure#v0.5.7).  
-
 ## <a name="overview"></a>Overzicht
 > [!IMPORTANT]
-> Leest de [overzicht](media-services-scale-media-processing-overview.md) voor meer informatie over het schalen van de verwerking van media.
+> Controleer de [overzicht](media-services-scale-media-processing-overview.md) voor meer informatie over het mediaverwerking schalen.
 > 
 > 
 
-Om te wijzigen van het type gereserveerde eenheid en het aantal gereserveerde eenheden met .NET SDK-codering, het volgende doen:
+Als u wilt wijzigen van de gereserveerde-eenheidstype en het aantal gereserveerde coderingseenheden met .NET SDK, het volgende doen:
 
     IEncodingReservedUnit encodingS1ReservedUnit = _context.EncodingReservedUnits.FirstOrDefault();
     encodingS1ReservedUnit.ReservedUnitType = ReservedUnitType.Basic; // Corresponds to S1
@@ -55,7 +51,7 @@ Om te wijzigen van het type gereserveerde eenheid en het aantal gereserveerde ee
 
 ## <a name="opening-a-support-ticket"></a>Een Ondersteuningsticket openen
 
-Elke Media Services-account kunt standaard maximaal 10 S2 of S3 Media gereserveerde eenheden (groepsbeleidsinstelling) of 25 S1 groepsbeleidsinstelling en 5 On-Demand Streaming gereserveerde eenheden schalen. U kunt een hogere limiet aanvragen door een ondersteuningsticket openen.
+Standaard kan elke Media Services-account worden geschaald tot maximaal 10 S2 of S3 gereserveerde Media-eenheden (groepsbeleidsinstelling) of 25 S1 groepsbeleidsinstelling en 5 On-Demand Streaming gereserveerde eenheden. U kunt een hogere limiet aanvragen door een ondersteuningsticket te openen.
 
 ## <a name="media-services-learning-paths"></a>Media Services-leertrajecten
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

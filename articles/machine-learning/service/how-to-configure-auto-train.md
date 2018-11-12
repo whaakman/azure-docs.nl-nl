@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 1aeb1315cfafbcdf3507a6e49d71e1f1e69b537c
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 5a539aebc9b1ccb5f52f89d511fc992ee6a24c81
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49430184"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51008943"
 ---
 # <a name="configure-your-automated-machine-learning-experiment"></a>Configureren van uw geautomatiseerde machine learning-experiment
 
@@ -192,7 +192,7 @@ Eigenschap |  Beschrijving | Standaardwaarde
 `max_time_sec` |    Beperkt de hoeveelheid tijd (seconden) een bepaalde iteratie nodig. Als een iteratie hoger is dan de opgegeven hoeveelheid, wordt die iteratie wordt geannuleerd. Als dat niet ingesteld, worden de iteratie blijft actief totdat deze is voltooid. |   Geen
 `n_cross_validations`   |Aantal cross-validatie splitsingen.| Geen
 `validation_size`   |Grootte van de validatie is ingesteld als percentage van alle training-voorbeeld.|  Geen
-`preprocess` | Waar/onwaar <br/>De waarde True schakelt experimenteren om uit te voeren voorverwerking van de invoer. Hieronder volgt een subset van voorverwerking<li>Ontbrekende gegevens: Imputes de ontbrekende gegevens numerieke met gemiddelde, tekst met de meeste exemplaar </li><li>Categorische waarden: Als het gegevenstype en het aantal unieke numerieke waarden minder dan 5 procent, omgezet in een hot-codering is </li><li>Enzovoort voor controle van de volledige lijst [de GitHub-opslagplaats](https://aka.ms/aml-notebooks)</li><br/>Opmerking: als gegevens sparse is u niet gebruiken voorverwerken = true |  False | 
+`preprocess` | Waar/onwaar <br/>De waarde True schakelt experimenteren om uit te voeren voorverwerking van de invoer. Hieronder volgt een subset van voorverwerking<li>Ontbrekende gegevens: Imputes de ontbrekende gegevens numerieke met gemiddelde, tekst met de meeste exemplaar </li><li>Categorische waarden: Als het gegevenstype en het aantal unieke numerieke waarden minder dan 5 procent, omgezet in een hot-codering is </li><li>Enzovoort voor controle van de volledige lijst [de GitHub-opslagplaats](https://aka.ms/aml-notebooks)</li><br/>Opmerking: als gegevens sparse is u niet gebruiken voorverwerken = true | False | 
 `blacklist_algos`   | Geautomatiseerde ML-experiment heeft veel verschillende algoritmen die er wordt geprobeerd. Configureer Automatische ML als u wilt uitsluiten van bepaalde algoritmen van het experiment. Dit is handig als u zich bewust bent verifiëringsalgoritme (s) werken niet goed voor uw gegevensset. Met uitzondering van de algoritmen kunt bespaart u compute-resources en trainingstijd.<br/>Toegestane waarden voor classificatie<br/><li>Logistieke regressie</li><li>SGD classificatie</li><li>MultinomialNB</li><li>BernoulliNB</li><li>SVM</li><li>LinearSVM</li><li>kNN</li><li>DT</li><li>RF</li><li>extra structuren</li><li>versterking van kleurovergang</li><li>lgbm_classifier</li><br/>Toegestane waarden voor regressie<br/><li>Elastische netto</li><li>Kleurovergang Gradient boosting regressor zijn</li><li>DT regressor zijn</li><li>kNN regressor zijn</li><li>Lasso lars</li><li>SGD regressor zijn</li><li>RF regressor zijn</li><li>extra structuren regressor zijn</li>|   Geen
 `verbosity` |Hiermee bepaalt u het niveau van logboekregistratie met gegevens wordt de meest uitgebreide en kritieke die de minste.<br/>Toegestane waarden zijn:<br/><li>logging.INFO</li><li>logboekregistratie. WAARSCHUWING</li><li>logboekregistratie. FOUT</li><li>logboekregistratie. KRITIEKE</li>  | logging.INFO</li> 
 `X` | Alle functies te trainen met |  Geen

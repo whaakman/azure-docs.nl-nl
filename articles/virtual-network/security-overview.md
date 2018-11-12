@@ -4,9 +4,6 @@ description: Meer informatie over netwerk- en toepassingsbeveiligingsgroepen. Be
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: get-started-article
@@ -14,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/26/2018
 ms.author: jdial
-ms.openlocfilehash: 79ea839a5b57a2b64b80feba8324764a23c05697
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e9a4aa1606e99057565891dc10d17ba9abf15d9c
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46987013"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50159074"
 ---
 # <a name="security-groups"></a>Beveiligingsgroepen
 <a name="network-security-groups"></a>
@@ -60,9 +57,9 @@ Uitgebreide beveiligingsregels vereenvoudigen de beveiligingsdefinitie voor virt
  De volgende servicetags zijn beschikbaar voor gebruik in de definitie van beveiligingsregels. De namen verschillen enigszins tussen [Azure-implementatiemodellen](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 * **VirtualNetwork** (Resource Manager) (**VIRTUAL_NETWORK** voor de klassieke versie): dit label omvat de adresruimte van het virtuele netwerk (alle CIDR-bereiken die zijn gedefinieerd voor het virtuele netwerk), alle verbonden on-premises adresruimten en [via peering gekoppelde](virtual-network-peering-overview.md) virtuele netwerken of virtuele netwerken die zijn verbonden via een [virtuele netwerkgateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-* **AzureLoadBalancer** (Resource Manager) (**AZURE_LOADBALANCER** voor klassiek): met deze tag wordt de load balancer voor de infrastructuur van Azure aangeduid. De tag wordt omgezet in het [IP-adres van een Azure-datacenter](https://www.microsoft.com/download/details.aspx?id=41653) van waaruit statuscontroles van Azure worden uitgevoerd. Als u de load balancer van Azure niet gebruikt, kunt u deze regel onderdrukken.
+* **AzureLoadBalancer** (Resource Manager) (**AZURE_LOADBALANCER** voor klassiek): met deze tag wordt de load balancer voor de infrastructuur van Azure aangeduid. De tag wordt omgezet in het [Virtuele IP-adres van de host](security-overview.md##azure-platform-considerations) (168.63.129.16) van waaruit statuscontroles van Azure worden uitgevoerd. Als u de load balancer van Azure niet gebruikt, kunt u deze regel onderdrukken.
 * **Internet** (Resource Manager) (**INTERNET** voor klassiek): met deze tag wordt de IP-adresruimte aangeduid die zich buiten het virtuele netwerk bevindt en bereikbaar is via internet. Dit adresbereik omvat ook de [openbare IP-adresruimte van Azure](https://www.microsoft.com/download/details.aspx?id=41653).
-* **AzureCloud** (alleen Resource Manager): deze tag geeft de IP-adresruimte voor Azure Resource Manager, inclusief openbare IP-adressen van het datacenter. Als u *AzureCloud* opgeeft als waarde, wordt verkeer naar AzureCloud toegestaan of geweigerd. Als u toegang tot AzureCloud alleen wilt toestaan in een specifieke [regio](https://azure.microsoft.com/regions), kunt u de regio opgeven. Als u toegang tot Azure AzureCloud bijvoorbeeld alleen wilt toestaan in de regio US - oost, kunt u *AzureCloud.EastUS* opgeven als servicetag. 
+* **AzureCloud** (alleen Resource Manager): deze tag geeft de IP-adresruimte voor Azure, inclusief alle [openbare IP-adressen van het datacenter](https://www.microsoft.com/download/details.aspx?id=41653). Als u *AzureCloud* opgeeft als waarde, wordt verkeer naar AzureCloud toegestaan of geweigerd. Als u toegang tot AzureCloud alleen wilt toestaan in een specifieke [regio](https://azure.microsoft.com/regions), kunt u de regio opgeven. Als u toegang tot Azure AzureCloud bijvoorbeeld alleen wilt toestaan in de regio US - oost, kunt u *AzureCloud.EastUS* opgeven als servicetag. 
 * **AzureTrafficManager** (Alleen Resource Manager): deze tag geeft de IP-adresruimte voor de Azure Traffic Manager test-IP-adressen. Meer informatie over de test-IP-adressen van Traffic Manager vindt u in de [Veelgestelde vragen over Azure Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs). 
 * **Storage** (alleen Resource Manager): deze tag geeft de IP-adresruimte voor de service Azure Storage aan. Als u *Storage* opgeeft als waarde, wordt verkeer naar de opslag toegestaan of geweigerd. Als u toegang tot opslag alleen wilt toestaan in een specifieke [regio](https://azure.microsoft.com/regions), kunt u de regio opgeven. Als u toegang tot Azure Storage bijvoorbeeld alleen wilt toestaan in de regio US - oost, kunt u *Storage.EastUS* opgeven als servicetag. De tag vertegenwoordigt de service, maar geen specifieke exemplaren van de service. De tag vertegenwoordigt bijvoorbeeld de service Azure Storage, maar geen specifiek Azure Storage-account. Alle adresvoorvoegsels die worden vertegenwoordigd door deze tag worden ook vertegenwoordigd door de tag **Internet**. 
 * **Sql** (alleen voor Resource Manager): deze tag geeft de adresvoorvoegsels aan van de services Azure SQL Database en Azure SQL Data Warehouse. Als u *Sql* opgeeft als waarde, wordt verkeer naar Sql toegestaan of geweigerd. Als u toegang tot Sql alleen wilt toestaan in een specifieke [regio](https://azure.microsoft.com/regions), kunt u de regio opgeven. Als u toegang tot Azure SQL Database bijvoorbeeld alleen wilt toestaan in de regio US - oost, kunt u *Sql.EastUS* opgeven als servicetag. De tag vertegenwoordigt de service, maar geen specifieke exemplaren van de service. De tag vertegenwoordigt bijvoorbeeld de service Azure SQL Database, maar geen specifieke SQL-database of -server. Alle adresvoorvoegsels die worden vertegenwoordigd door deze tag worden ook vertegenwoordigd door de tag **Internet**. 
@@ -79,7 +76,6 @@ Uitgebreide beveiligingsregels vereenvoudigen de beveiligingsdefinitie voor virt
 * **GatewayManager** (alleen voor Resource Manager): deze tag geeft de adresvoorvoegsels van de Azure GatewayManager-service. Als u *GatewayManager* opgeeft als waarde, wordt verkeer naar GatewayManager toegestaan of geweigerd. Als u alleen toegang wilt toestaan tot GatewayManager in een specifieke [regio](https://azure.microsoft.com/regions), kunt u de regio in de volgende indeling GatewayManager.[regionaam] specificeren. 
 * **AzureDataLake** (alleen voor Resource Manager): deze tag geeft de adresvoorvoegsels van de Azure Data Lake-service. Als u *AzureDataLake* opgeeft als waarde, wordt verkeer naar AzureDataLake toegestaan of geweigerd. 
 * **AzureActiveDirectory** (alleen voor Resource Manager): deze tag geeft de adresvoorvoegsels aan van de AzureActiveDirectory-service. Als u *AzureActiveDirectory* opgeeft als waarde, wordt verkeer naar AzureActiveDirectory toegestaan of geweigerd.  
-* **CorpNetSAW** (alleen voor Resource Manager): deze tag geeft de adresvoorvoegsels van de [CorpNetSAW-apparaten](../security/azure-security-iaas.md) die door Azure worden gebruikt. In sommige gevallen kunnen Azure-services deze servicetag gebruiken om toegang te vragen naar door de klant beheerde exemplaren, voor het verbeteren van de ondersteuning. Als u *CorpNetSAW* opgeeft als waarde, wordt verkeer naar CorpNetSAW toegestaan of geweigerd. 
 
 > [!NOTE]
 > Servicetags van Azure-services geven de adresvoorvoegsels van de specifieke cloud die wordt gebruikt. Regionale servicetags worden niet ondersteund op nationale clouds, alleen in de algemene indeling. Bijvoorbeeld *Storage* en *Sql*.

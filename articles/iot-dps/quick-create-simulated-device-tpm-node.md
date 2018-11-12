@@ -1,6 +1,6 @@
 ---
 title: Een gesimuleerd TPM-apparaat met behulp van Node.js inrichten voor Azure IoT Hub | Microsoft Docs
-description: 'Azure-snelstart: een gesimuleerd TPM-apparaat met de SDK voor Node.js maken en inrichten voor Azure IoT Hub Device Provisioning Service'
+description: 'Azure-quickstart: een gesimuleerd TPM-apparaat met de SDK voor Node.js maken en inrichten voor Azure IoT Hub Device Provisioning Service In deze quickstart wordt gebruikgemaakt van afzonderlijke inschrijvingen.'
 author: wesmc7777
 ms.author: wesmc
 ms.date: 04/09/2018
@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 956bdf4770bd2a42a9ede6f59c2aa80d44d9429a
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 8b2d49d9df2cc8db98004ad9c186511d8d5e2b87
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47041588"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50156643"
 ---
 # <a name="create-and-provision-a-simulated-tpm-device-using-nodejs-device-sdk-for-iot-hub-device-provisioning-service"></a>Een gesimuleerd TPM-apparaat maken en inrichten voor IoT Hub Device Provisioning Service met de apparaat-SDK voor Node.js
 
@@ -23,6 +23,12 @@ ms.locfileid: "47041588"
 In deze stappen wordt getoond hoe u een gesimuleerd apparaat maakt op een ontwikkelcomputer met Windows OS, de Windows TPM-simulator uitvoert als de [HSM (Hardware Security Module)](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) van het apparaat en het codevoorbeeld gebruikt om dit gesimuleerde apparaat te verbinden met Device Provisioning Service en uw IoT-hub. 
 
 Als u niet bekend bent met het proces van automatische inrichting, bekijk dan ook de [Concepten voor automatische inrichting](concepts-auto-provisioning.md). Controleer ook of u de stappen in [IoT Hub Device Provisioning Service instellen met Azure Portal](./quick-setup-auto-provision.md) hebt voltooid voordat u verdergaat. 
+
+Azure IoT Device Provisioning Service ondersteunt twee typen inschrijvingen:
+- [Inschrijvingsgroepen](concepts-service.md#enrollment-group): voor het inschrijven van meerdere gerelateerde apparaten.
+- [Afzonderlijke inschrijvingen](concepts-service.md#individual-enrollment): voor het inschrijven van een enkel apparaat.
+
+In dit artikel worden afzonderlijke registraties gedemonstreerd.
 
 [!INCLUDE [IoT Device Provisioning Service basic](../../includes/iot-dps-basic.md)]
 
@@ -130,7 +136,7 @@ Als u niet bekend bent met het proces van automatische inrichting, bekijk dan oo
 
 ## <a name="create-a-device-entry"></a>Apparaatvermelding maken
 
-1. Meld u aan bij Azure Portal, klik in het linkermenu op de knop **All resources** en open uw Device Provisioning-service.
+1. Meld u aan bij Azure Portal, klik in het linkermenu op de knop **Alle bronnen** en open Device Provisioning Service.
 
 1. Selecteer **Manage enrollments** in de overzichtsblade van Device Provisioning Service. Selecteer het tabblad **Afzonderlijke registraties** en klik vervolgens op de knop **Afzonderlijke inschrijving toevoegen** bovenaan. 
 

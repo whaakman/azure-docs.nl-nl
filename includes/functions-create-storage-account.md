@@ -1,8 +1,21 @@
+---
+author: ggailey777
+ms.service: azure-functions
+ms.topic: include
+ms.date: 09/04/2018
+ms.author: glenga
+ms.openlocfilehash: cf8c6f07eb38487dd29624b15be3637536be92fc
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50133021"
+---
 ## <a name="create-an-azure-storage-account"></a>Een Azure Storage-account maken
 
-Functies maakt gebruik van een algemene account in Azure Storage te onderhouden, status en andere informatie over uw functies. Een algemeen opslagaccount maken in de resourcegroep die u hebt gemaakt met behulp van de [az storage-account maken](/cli/azure/storage/account#create) opdracht.
+Functions gebruikt een account voor algemeen gebruik in Azure Storage om de status en andere gegevens van uw functies te onderhouden. Maak een algemeen opslagaccount in de resourcegroep die u hebt gemaakt, met behulp van de opdracht [az storage account create](/cli/azure/storage/account#create).
 
-In de volgende opdracht te vervangen door een globally unique identifier opslagaccountnaam waarin u zien hoe de `<storage_name>` tijdelijke aanduiding. Namen van opslagaccounts moeten tussen 3 en 24 tekens lang zijn en mogen alleen cijfers en kleine letters bevatten.
+Vervang in de volgende opdracht de tijdelijke aanduiding `<storage_name>` door een wereldwijd unieke opslagaccountnaam. Namen van opslagaccounts moeten tussen 3 en 24 tekens lang zijn en mogen alleen cijfers en kleine letters bevatten.
 
 ```azurecli-interactive
 az storage account create --name <storage_name> --location westeurope --resource-group myResourceGroup --sku Standard_LRS

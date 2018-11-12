@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: jsimmons
-ms.openlocfilehash: e728162da8221046b8496cced8671695c7794164
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: 92c8de0961f64eea8eef830ad99c7baa268099d9
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978380"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51007583"
 ---
 # <a name="preview-azure-ad-password-protection-operational-procedures"></a>Voorbeeld: Azure AD wachtwoord beveiliging operationele procedures
 
@@ -67,7 +67,7 @@ Deze instelling moet normaal gesproken blijven in de standaardstaat ingeschakeld
 
 De `Get-AzureADPasswordProtectionSummaryReport` cmdlet kan worden gebruikt voor het produceren van een overzicht van de activiteit. Een voorbeeld van uitvoer van deze cmdlet is als volgt:
 
-```Powershell
+```PowerShell
 Get-AzureADPasswordProtectionSummaryReport -DomainController bplrootdc2
 DomainController                : bplrootdc2
 PasswordChangesValidated        : 6677
@@ -83,7 +83,7 @@ PasswordSetErrors               : 1
 Het bereik van de rapportage van de cmdlet kan worden beïnvloed met behulp van een van de parameters-Forest, - domein of -DomainController. Een parameter niet opgeeft impliceert-Forest.
 
 > [!NOTE]
-> Deze cmdlet werkt door het openen van een Powershell-sessie op elke domeincontroller. Als u wilt slagen, Powershell-ondersteuning voor externe sessie moet zijn ingeschakeld op elke domeincontroller en de client moet voldoende bevoegdheden hebben. Voor meer informatie over vereisten voor Powershell-sessie 'Get-Help about_Remote_Troubleshooting' worden uitgevoerd in een Powershell-venster.
+> Deze cmdlet werkt door het openen van een PowerShell-sessie op elke domeincontroller. Als u wilt slagen, PowerShell-ondersteuning voor externe sessie moet zijn ingeschakeld op elke domeincontroller en de client moet voldoende bevoegdheden hebben. Voor meer informatie over vereisten voor PowerShell-sessie 'Get-Help about_Remote_Troubleshooting' worden uitgevoerd in een PowerShell-venster.
 
 > [!NOTE]
 > Deze cmdlet werkt volgens het gebeurtenislogboek voor elk DC agent-service beheer op afstand uitvoeren van query's. Als de gebeurtenislogboeken bevatten een groot aantal gebeurtenissen, kan de cmdlet lang duren om uit te voeren. Bulksgewijs netwerk query's van grote gegevenssets mogelijk ook van invloed op prestaties van domeincontrollers. Deze cmdlet moet daarom zorgvuldig worden gebruikt in een productieomgeving.
@@ -92,7 +92,7 @@ Het bereik van de rapportage van de cmdlet kan worden beïnvloed met behulp van 
 
 De `Get-AzureADPasswordProtectionDCAgent` cmdlet kan worden gebruikt om algemene informatie over de verschillende DC-agents die worden uitgevoerd in een domein of forest weer te geven. Deze informatie wordt opgehaald uit de serviceConnectionPoint-objecten die door de actieve DC-agent (s) zijn geregistreerd. Een voorbeeld van uitvoer van deze cmdlet is als volgt:
 
-```Powershell
+```PowerShell
 Get-AzureADPasswordProtectionDCAgent
 ServerFQDN            : bplChildDC2.bplchild.bplRootDomain.com
 Domain                : bplchild.bplRootDomain.com

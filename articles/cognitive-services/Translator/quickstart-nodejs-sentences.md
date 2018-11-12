@@ -1,127 +1,151 @@
 ---
 title: 'Snelstart: Zinlengtes ophalen, Node.js - Translator Text-API'
 titleSuffix: Azure Cognitive Services
-description: In deze snelstart vindt u de lengte van zinnen in tekst met behulp van de Translator Text-API met Node.js.
+description: In deze quickstart leert u hoe u zinlengtes kunt bepalen (in tekens) met behulp van Node.js en de Translator Text-API.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
-ms.date: 06/21/2018
+ms.date: 10/29/2018
 ms.author: erhopf
-ms.openlocfilehash: 60b7bf8de0f0f296d0efb49a1e08030c2d5999e3
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 08c01f8c73f8d25b824a97d31f1681d9a7eb302e
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49644897"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50249099"
 ---
-# <a name="quickstart-get-sentence-lengths-with-the-translator-text-rest-api-nodejs"></a>Snelstart: Zinlengtes ophalen met de Translator Text REST API (Node.js)
+# <a name="quickstart-use-the-translator-text-api-to-determine-sentence-length-with-nodejs"></a>Quickstart: De Translator Text-API gebruiken om zinlengtes te bepalen met Node.js
 
-In deze snelstartgids vindt u de lengte van zinnen in tekst met behulp van de Translator Text-API.
+In deze quickstart leert u hoe u zinlengtes kunt bepalen (in tekens) met behulp van Node.js en de Translator Text-API.
+
+Voor deze snelstart is een [Azure Cognitive Services-account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met een Translator Text-resource vereist. Als u geen account hebt, kunt u de [gratis proefversie](https://azure.microsoft.com/try/cognitive-services/) gebruiken om een abonnementssleutel op te halen.
 
 ## <a name="prerequisites"></a>Vereisten
 
-U hebt [Node.js 6](https://nodejs.org/en/download/) nodig om deze code uit te voeren.
+Voor deze snelstart zijn de volgende zaken vereist:
 
-Als u de Translator Text-API wilt gebruiken, moet u ook een abonnementssleutel hebben. Zie [Hoe u zich registreert voor de Translator Text-API](translator-text-how-to-signup.md).
+* [Node 8.12.x of hoger](https://nodejs.org/en/)
+* Een Azure-abonnementssleutel voor Translator Text
 
-## <a name="breaksentence-request"></a>BreakSentence-aanvraag
+## <a name="create-a-project-and-import-required-modules"></a>Een project maken en de vereiste modules importeren
 
-Met de volgende code wordt de brontekst in zinnen verdeeld met behulp van de methode [BreakSentence](./reference/v3-0-break-sentence.md).
-
-1. Maak een nieuw Node.js-project in uw favoriete code-editor.
-2. Voeg de onderstaande code toe.
-3. Vervang de waarde `subscriptionKey` door een geldige toegangssleutel voor uw abonnement.
-4. Voer het programma uit.
+Maak een nieuw project met uw favoriete IDE of editor. Kopieer dit codefragment naar uw project in een bestand met de naam `sentence-length.js`.
 
 ```javascript
-'use strict';
-
-let fs = require ('fs');
-let https = require ('https');
-
-// **********************************************
-// *** Update or verify the following values. ***
-// **********************************************
-
-// Replace the subscriptionKey string value with your valid subscription key.
-let subscriptionKey = 'ENTER KEY HERE';
-
-let host = 'api.cognitive.microsofttranslator.com';
-let path = '/breaksentence?api-version=3.0';
-
-let params = '';
-
-let text = 'How are you? I am fine. What did you do today?';
-
-let response_handler = function (response) {
-    let body = '';
-    response.on ('data', function (d) {
-        body += d;
-    });
-    response.on ('end', function () {
-        let json = JSON.stringify(JSON.parse(body), null, 4);
-        console.log(json);
-    });
-    response.on ('error', function (e) {
-        console.log ('Error: ' + e.message);
-    });
-};
-
-let get_guid = function () {
-  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
-    var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
-    return v.toString(16);
-  });
-}
-
-let BreakSentences = function (content) {
-    let request_params = {
-        method : 'POST',
-        hostname : host,
-        path : path + params,
-        headers : {
-            'Content-Type' : 'application/json',
-            'Ocp-Apim-Subscription-Key' : subscriptionKey,
-            'X-ClientTraceId' : get_guid (),
-        }
-    };
-
-    let req = https.request (request_params, response_handler);
-    req.write (content);
-    req.end ();
-}
-
-let content = JSON.stringify ([{'Text' : text}]);
-
-BreakSentences (content);
+const request = require('request');
+const uuidv4 = require('uuid/v4');
 ```
 
-## <a name="breaksentence-response"></a>BreakSentence-antwoord
+> [!NOTE]
+> Als u deze modules nog niet hebt gebruikt, moet u ze installeren voordat u het programma uitvoert. Voer voor het installeren van deze pakketten voert u `npm install request uuidv4` uit.
 
-Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u in het volgende voorbeeld kunt zien:
+Deze modules zijn vereist om de HTTP-aanvraag te maken en om een unieke id voor de `'X-ClientTraceId'`-header te maken.
+
+## <a name="set-the-subscription-key"></a>Abonnementssleutel instellen
+
+Deze code wordt gebruikt om te proberen de Translator Text-abonnementssleutel te lezen uit de omgevingsvariabele `TRANSLATOR_TEXT_KEY`. Als u niet bekend bent met omgevingsvariabelen, kunt u `subscriptionKey` als tekenreeks instellen en een opmerking plaatsen in de voorwaardelijke instructie.
+
+Kopieer deze code naar uw project:
+
+```javascript
+/* Checks to see if the subscription key is available
+as an environment variable. If you are setting your subscription key as a
+string, then comment these lines out.
+
+If you want to set your subscription key as a string, replace the value for
+the Ocp-Apim-Subscription-Key header as a string. */
+const subscriptionKey = process.env.TRANSLATOR_TEXT_KEY;
+if (!subscriptionKey) {
+  throw new Error('Environment variable for your subscription key is not set.')
+};
+```
+
+## <a name="configure-the-request"></a>De aanvraag configureren
+
+Met de methode `request()`, beschikbaar gesteld via de aanvraagmodule, kunt u de HTTP-methode, URL, aanvraagparameters, headers en de JSON-hoofdtekst doorgeven als een `options`-object. In dit codefragment configureert u de aanvraag:
+
+>[!NOTE]
+> Zie [Translator Text-API 3.0: regeleinden in woordenlijst](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-break-sentence) voor meer informatie over eindpunten, routes en aanvraagparameters.
+
+```javascript
+let options = {
+    method: 'POST',
+    baseUrl: 'https://api.cognitive.microsofttranslator.com/',
+    url: 'breaksentence',
+    qs: {
+      'api-version': '3.0',
+    },
+    headers: {
+      'Ocp-Apim-Subscription-Key': subscriptionKey,
+      'Content-type': 'application/json',
+      'X-ClientTraceId': uuidv4().toString()
+    },
+    body: [{
+          'text': 'How are you? I am fine. What did you do today?'
+    }],
+    json: true,
+};
+```
+
+### <a name="authentication"></a>Verificatie
+
+U kunt aanvragen het eenvoudigst verifiëren door uw abonnementssleutel op te geven als `Ocp-Apim-Subscription-Key`-header. Dat doen we in dit voorbeeld dan ook. Als alternatief kunt u in plaats van uw abonnementssleutel een toegangstoken gebruiken en het toegangstoken opgeven als `Authorization`-header voor het valideren van uw aanvraag. Zie [Verificatie](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication) voor meer informatie.
+
+## <a name="make-the-request-and-print-the-response"></a>De aanvraag maken en het antwoord afdrukken
+
+Vervolgens maakt u de aanvraag via de methode `request()`. Deze gebruikt het `options`-object dat in de vorige sectie is gemaakt, als het eerste argument, waarna het opgemaakte JSON-antwoord wordt afgedrukt.
+
+```javascript
+request(options, function(err, res, body){
+    console.log(JSON.stringify(body, null, 4));
+});
+```
+
+>[!NOTE]
+> In dit voorbeeld definieert u de HTTP-aanvraag in het `options`-object. De aanvraagmodule ondersteunt echter ook helpermethoden, zoals `.post` en `.get`. Zie [Helpermethoden](https://github.com/request/request#convenience-methods) voor meer informatie.
+
+## <a name="put-it-all-together"></a>Alles samenvoegen
+
+Dat was het. U hebt een eenvoudig programma gemaakt dat we de Translator Text-API zullen noemen. Er is een JSON-antwoord geretourneerd. Het is nu tijd om uw programma uit te voeren:
+
+```console
+node sentence-length.js
+```
+
+Als u uw code graag wilt vergelijken met de onze, kunt u het volledige voorbeeld vinden op [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-NodeJS).
+
+## <a name="sample-response"></a>Voorbeeldantwoord
 
 ```json
 [
-  {
-    "detectedLanguage": {
-      "language": "en",
-      "score": 1.0
-    },
-    "sentLen": [
-      13,
-      11,
-      22
-    ]
-  }
+    {
+        "sentLen": [
+            13,
+            11,
+            22
+        ]
+    }
 ]
 ```
 
+## <a name="clean-up-resources"></a>Resources opschonen
+
+Als u uw abonnementssleutel hebt vastgelegd in het programma, verwijdert u deze sleutel wanneer u klaar bent met de snelstart.
+
 ## <a name="next-steps"></a>Volgende stappen
 
-Bekijk de voorbeeldcode voor deze snelstartgids en andere, zoals vertaling en transliteratie, evenals andere Translator Text-voorbeeldprojecten op GitHub.
-
 > [!div class="nextstepaction"]
-> [Node.js-voorbeelden op GitHub bekijken](https://aka.ms/TranslatorGitHub?type=&language=javascript)
+> [Node.js-voorbeelden op GitHub bekijken](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-NodeJS)
+
+## <a name="see-also"></a>Zie ook
+
+Naast taaldetectie kunt u de Translator Text-API ook gebruiken voor het volgende:
+
+* [Tekst vertalen](quickstart-nodejs-translate.md)
+* [Tekst transcriberen](quickstart-nodejs-transliterate.md)
+* [Een taal identificeren op basis van de invoer](quickstart-nodejs-detect.md)
+* [Alternatieve vertalingen verkrijgen](quickstart-nodejs-dictionary.md)
+* [Een lijst ophalen van ondersteunde talen](quickstart-nodejs-languages.md)

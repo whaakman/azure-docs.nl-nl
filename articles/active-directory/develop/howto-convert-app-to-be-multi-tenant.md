@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: justhu, elisol
 ms.custom: aaddev
-ms.openlocfilehash: abca81e0db565c6c84d9be9df07b46c8c338030b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: MT
+ms.openlocfilehash: 61238482339250e45be36162e7eef252f78c74b1
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46960274"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51288982"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>Hoe: een Azure Active Directory-gebruiker met behulp van het patroon voor multitenant-toepassingen aanmelden
 
@@ -46,9 +46,9 @@ Laten we elke stap in detail kijken. U kunt ook rechtstreeks naar gaan [deze lij
 
 Web-app/API registreren in Azure AD zijn standaard één tenant. U kunt uw registratie voor meerdere tenants maken door op te sporen de **met meerdere Tenants** overschakelen op de **eigenschappen** deelvenster van de registratie van uw toepassing in de [Azure-portal] [ AZURE-portal] en instellen op **Ja**.
 
-Voordat een toepassing kan worden gemaakt met meerdere tenants, vereist Azure AD de URI van de App-ID van de toepassing moet globaal uniek. De URI van de App-ID is een van de manieren waarop die een toepassing in protocolberichten wordt aangeduid. Voor een toepassing met één tenant is het voldoende voor de URI van de App-ID moet uniek zijn in deze tenant. Voor een toepassing met meerdere tenants moet het globaal uniek zijn, zodat Azure AD de toepassing voor alle tenants vinden kan. Uniekheid van globale wordt afgedwongen door de URI van de App-ID in een hostnaam die overeenkomt met een geverifieerd domein van de Azure AD-tenant. 
+Voordat een toepassing kan worden gemaakt met meerdere tenants, vereist Azure AD de URI van de App-ID van de toepassing moet globaal uniek. De URI van de app-id is een van de manieren waarop een toepassing wordt geïdentificeerd in protocolberichten. Voor een toepassing met één tenant is het voldoende dat de URI van de app-id uniek is binnen die tenant. Voor een multitenant toepassing moet deze wereldwijd uniek zijn, zodat Azure Active Directory de toepassing in alle tenants kan vinden. Wereldwijde uniekheid wordt afgedwongen door te vereisen dat de URI van de app-id een hostnaam heeft die overeenkomt met een geverifieerd domein van de Azure Active Directory-tenant. 
 
-Apps die zijn gemaakt via Azure portal hebben een globaal unieke App-ID-URI instellen voor het maken van apps, maar u kunt deze waarde wijzigen. Bijvoorbeeld, als de naam van uw tenant contoso.onmicrosoft.com en vervolgens een geldige is App ID URI zou zijn `https://contoso.onmicrosoft.com/myapp`. Als uw tenant een geverifieerd domein van heeft `contoso.com`, en vervolgens een geldige URI voor de App-ID ook is `https://contoso.com/myapp`. Als de URI van de App-ID niet dit patroon volgen, instellen van een toepassing als u meerdere tenants is mislukt.
+Apps die zijn gemaakt via Azure portal hebben een globaal unieke App-ID-URI instellen voor het maken van apps, maar u kunt deze waarde wijzigen. Bijvoorbeeld, als de naam van uw tenant contoso.onmicrosoft.com en vervolgens een geldige is App ID URI zou zijn `https://contoso.onmicrosoft.com/myapp`. Als uw tenant een geverifieerd domein van heeft `contoso.com`, en vervolgens een geldige URI voor de App-ID ook is `https://contoso.com/myapp`. Als de URI van de app-id dit patroon niet volgt, mislukt het instellen van een multitenant toepassing.
 
 > [!NOTE] 
 > Systeemeigen client-registraties, evenals [v2.0 toepassingen](./active-directory-appmodel-v2-overview.md) standaard met meerdere tenants. U hoeft te doen aan deze toepassingsregistraties maken met meerdere tenants.
@@ -201,8 +201,8 @@ In dit artikel hebt u geleerd hoe u een toepassing bouwt die een gebruiker vanui
 [AAD-Samples-MT]: https://azure.microsoft.com/documentation/samples/?service=active-directory&term=multitenant
 [AAD-Why-To-Integrate]: ./active-directory-how-to-integrate.md
 [AZURE-portal]: https://portal.azure.com
-[MSFT-Graph-overview]: https://graph.microsoft.io/en-us/docs/overview/overview
-[MSFT-Graph-permision-scopes]: https://developer.microsoft.com/en-us/graph/docs/concepts/permissions_reference
+[MSFT-Graph-overview]: https://developer.microsoft.com/graph/docs/overview/overview
+[MSFT-Graph-permision-scopes]: https://developer.microsoft.com/graph/docs/concepts/permissions_reference
 
 <!--Image references-->
 [AAD-Sign-In]: ./media/active-directory-devhowto-multi-tenant-overview/sign-in-with-microsoft-light.png

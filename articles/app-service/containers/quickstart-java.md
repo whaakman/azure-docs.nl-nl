@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 03/07/2018
 ms.author: msangapu
 ms.custom: mvc
-ms.openlocfilehash: 92dde19e42c1adb6d83e1708106f844f228e8989
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: e286942f092d2e8c22824a18f5a6503d04a1be0c
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48239339"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50247552"
 ---
 # <a name="quickstart-create-a-java-web-app-in-app-service-on-linux"></a>Quickstart: Een Java web-app maken in Azure App Service in Linux
 
@@ -77,26 +77,7 @@ Voeg vervolgens de volgende invoegtoepassingsdefinitie toe aan het element `<bui
 
 
 > [!NOTE] 
-> In dit artikel werken we alleen met Java-apps die verpakt zijn in WAR-bestanden. De invoegtoepassing ondersteunt ook JAR-webtoepassingen. Gebruik de volgende alternatieve invoegtoepassingsdefinitie voor deze toepassingen. Deze configuratie implementeert een door Maven gebouwde JAR in `${project.build.directory}/${project.build.finalName}.jar` op uw lokale bestandssysteem.
->
->```xml
-><plugin>
->            <groupId>com.microsoft.azure</groupId>
->            <artifactId>azure-webapp-maven-plugin</artifactId>
->            <version>1.4.0</version>
->            <configuration>
->                <deploymentType>jar</deploymentType>
->
->           <!-- Web App information -->
->            <resourceGroup>${RESOURCEGROUP_NAME}</resourceGroup>
->            <appName>${WEBAPP_NAME}</appName>
->            <region>${REGION}</region>  
->
->                <!-- Java Runtime Stack for Web App on Linux-->
->                <linuxRuntime>jre8</linuxRuntime>
->            </configuration>
->         </plugin>
->```    
+> In dit artikel werken we alleen met Java-apps die verpakt zijn in WAR-bestanden. De invoegtoepassing biedt ook ondersteuning voor JAR-webtoepassingen. Ga naar [Een Java SE JAR-bestand implementeren in App Service in Linux](https://docs.microsoft.com/java/azure/spring-framework/deploy-spring-boot-java-app-with-maven-plugin?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) om dit uit te proberen.
 
 
 Werk de volgende tijdelijke aanduidingen bij in de configuratie van de invoegtoepassing:
@@ -127,8 +108,8 @@ Zodra de implementatie is voltooid, bladert u naar de geïmplementeerde toepassi
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze snelstart hebt u Maven gebruikt om een ​​Java web-app te maken, de [Maven-invoegtoepassing voor Azure Web Apps (Preview)](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin) geconfigureerd en vervolgens een in een webarchief verpakte Java-web-app geïmplementeerd naar App Service op Linux. Volg de onderstaande koppeling voor meer informatie over het gebruik van Java in Azure.
+In deze snelstart hebt u Maven gebruikt om een ​​Java web-app te maken, de [Maven-invoegtoepassing voor Azure Web Apps](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin) geconfigureerd en vervolgens een in een webarchief verpakte Java-app geïmplementeerd naar App Service in Linux. Als u wilt weten hoe u verbinding maakt met databases, logboekregistratie en bewaking instelt, beveiliging configureert en runtime-opties instelt, gaat u verder met de Java-handleiding voor ontwikkelaars voor App Service in Linux.
 
 > [!div class="nextstepaction"]
-> [Azure for Java Developers](https://docs.microsoft.com/java/azure/) (Azure voor Java-ontwikkelaars)
+> [Java-handleiding voor ontwikkelaars voor App Service in Linux](app-service-linux-java.md)
 

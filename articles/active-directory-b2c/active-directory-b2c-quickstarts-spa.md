@@ -7,87 +7,74 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: quickstart
-ms.date: 7/13/2018
+ms.date: 10/24/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 155cdaf51ac5725a315259a0d809ba644f64110c
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: f3c2eaf7277e63d8cc1311255d5809f73c6f5d19
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39048913"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50250357"
 ---
 # <a name="quickstart-set-up-sign-in-for-a-single-page-app-using-azure-active-directory-b2c"></a>Snelstartgids: aanmelden instellen voor een app met één pagina met Azure Active Directory B2C
 
-Azure Active Directory (Azure AD) B2C bevat functionaliteit voor identiteitsbeheer in de cloud ter bescherming van uw toepassing, bedrijf en klanten. Met Azure AD B2C zijn uw apps in staat om zich met behulp van open-standaardprotocollen te verifiëren bij sociaalnetwerk- en Enterprise-accounts.
-
-In deze snelstart gebruikt u een Azure AD B2C-voorbeeld-app met één pagina. Deze app wordt gebruikt voor het aanmelden via een id-provider voor sociale netwerken en voor het aanroepen van een met Azure AD B2C beveiligde web-API.
+Azure Active Directory (Azure AD) B2C bevat functionaliteit voor identiteitsbeheer in de cloud ter bescherming van uw toepassing, bedrijf en klanten. Met Azure AD B2C zijn uw toepassingen in staat om zich met behulp van open-standaardprotocollen te verifiëren bij sociaalnetwerk- en Enterprise-accounts. In deze snelstart gebruikt u een toepassing met één pagina. Deze toepassing wordt gebruikt voor het aanmelden via een id-provider voor sociale netwerken en voor het aanroepen van een met Azure AD B2C beveiligde web-API.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Vereisten
 
-* [Visual Studio 2017](https://www.visualstudio.com/downloads/) met de **ASP.NET- en webontwikkelworkload**.
-* [Node.js](https://nodejs.org/en/download/) installeren
-* Een Facebook-account.
+- [Visual Studio 2017](https://www.visualstudio.com/downloads/) met de **ASP.NET- en webontwikkelworkload**.
+- [Node.js](https://nodejs.org/en/download/) installeren
+- Een sociaalnetwerkaccount van Facebook, Google, Microsoft of Twitter.
+- [Download een ZIP-bestand ](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp/archive/master.zip) of kloon de voorbeeld-web-app vanuit GitHub.
 
-## <a name="download-the-sample"></a>Het voorbeeld downloaden
+    ```
+    git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp.git
+    ```
 
-[Download een ZIP-bestand ](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp/archive/master.zip) of kloon de voorbeeld-web-app vanuit GitHub.
+## <a name="run-the-application"></a>De toepassing uitvoeren
 
-```
-git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp.git
-```
+1. Start de server door de volgende opdrachten uit te voeren vanaf de Node.js-opdrachtprompt: 
 
-## <a name="run-the-sample-application"></a>De voorbeeldtoepassing uitvoeren
+    ```
+    cd active-directory-b2c-javascript-msal-singlepageapp
+    npm install && npm update
+    node server.js
+    ```
 
-Ga als volgt te werk om deze voorbeeldtoepassing uit te voeren vanaf de Node.js-opdrachtprompt: 
+    Server.js levert het poortnummer waarnaar de server op localhost luistert.
 
-```
-cd active-directory-b2c-javascript-msal-singlepageapp
-npm install && npm update
-node server.js
-```
+    ```
+    Listening on port 6420...
+    ```
 
-De Node.js-app levert het poortnummer waarnaar de app op localhost luistert.
+2. Blader naar de URL van de toepassing. Bijvoorbeeld `http://localhost:6420`.
 
-```
-Listening on port 6420...
-```
+## <a name="sign-in-using-your-account"></a>Aanmelden met uw account
 
-Blader naar de app-URL (`http://localhost:6420`) in een webbrowser.
+1. Klik op **Aanmelden** om de werkstroom te starten.
 
-![Voorbeeld-app in de browser](media/active-directory-b2c-quickstarts-spa/sample-app-spa.png)
+    ![Voorbeeld-app in de browser](media/active-directory-b2c-quickstarts-spa/sample-app-spa.png)
 
-## <a name="create-an-account"></a>Een account maken
+    In de voorbeeldtoepassing worden verschillende registratiemogelijkheden ondersteund. U kunt bijvoorbeeld een id-provider voor sociale netwerken gebruiken of een lokaal account maken met behulp van een e-mailadres. Voor deze snelstart gebruikt u een account van een id-provider voor sociale netwerken (Facebook, Google, Microsoft of Twitter). 
 
-Klik op de knop **Aanmelden** om de Azure AD B2C-werkstroom **Registreren of aanmelden** op basis van een Azure AD B2C-beleid te starten. 
+2. In Azure AD B2C wordt een aangepaste aanmeldingspagina voor het fictieve merk Wingtip Toys weergegeven voor de voorbeeldweb-app. Klik op de knop van de id-provider voor sociale netwerken die u wilt gebruiken om u aan te melden via een id-provider voor sociale netwerken.
 
-De voorbeeldtoepassing is bedoeld ter ondersteuning van verschillende registratiemogelijkheden, zoals het maken van een lokaal account met behulp van een e-mailadres. Gebruik een Facebook-account voor deze snelstartgids. 
-
-### <a name="sign-up-using-a-social-identity-provider"></a>Aanmelden met een id-provider voor sociale netwerken
-
-In Azure AD B2C wordt een aangepaste aanmeldingspagina voor het fictieve merk Wingtip Toys weergegeven voor de voorbeeldweb-app. 
-
-1. Klik op de knop van de Facebook-id-provider om u aan te melden via een id-provider voor sociale netwerken.
+    ![Provider voor aanmelden of registreren](media/active-directory-b2c-quickstarts-spa/sign-in-or-sign-up-spa.png)
 
     U moet zich verifiëren (aanmelden) met behulp van de referenties van uw sociaalnetwerkaccount en de toepassing autoriseren om informatie uit uw sociaalnetwerkaccount te lezen. Door toegang te verlenen, kan de toepassing profielgegevens van het sociaalnetwerkaccount ophalen, zoals uw naam en plaats. 
 
-2. Voltooi het aanmeldingsproces voor de id-provider door uw referenties in te voeren.
+3. Voltooi het aanmeldingsproces voor de id-provider.
 
-    De profielgegevens van uw nieuwe account worden ingevuld met informatie uit uw sociaalnetwerkaccount. 
+## <a name="access-a-protected-api-resource"></a>Toegang tot een beveiligde API-resource
 
-3. Werk de velden Weergavenaam, Functie en Plaats bij en klik op **Doorgaan**.  De ingevoerde waarden worden gebruikt voor uw Azure AD B2C-gebruikersaccountprofiel.
-
-    U hebt een nieuw Azure AD B2C-gebruikersaccount gemaakt dat gebruikmaakt van een id-provider. 
-
-## <a name="access-a-protected-web-api-resource"></a>Toegang tot een beveiligde web-API-resource
-
-Klik op de knop **Web-API aanroepen** om de weergavenaam van de web-API-aanroep als JSON-object te retourneren. 
+Klik op **Web-API aanroepen** om de weergavenaam van de web-API-aanroep als JSON-object te retourneren. 
 
 ![Web-API-reactie](media/active-directory-b2c-quickstarts-spa/call-api-spa.png)
 
-De voorbeeld-app met één pagina bevat een Azure AD-toegangstoken in de aanvraag voor de beveiligde web-API-resource om het JSON-object te kunnen retourneren.
+De voorbeeldtoepassing met één pagina bevat het toegangstoken van Azure AD in de aanvraag voor de beveiligde web-API-resource.
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
@@ -95,9 +82,9 @@ U kunt uw Azure AD B2C-tenant gebruiken voor andere snelstarts of zelfstudies vo
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze snelstart hebt u een voorbeeld van een voor Azure AD B2C geconfigureerde ASP.NET-app gebruikt. Deze app wordt gebruikt voor het aanmelden via een aangepaste aanmeldingspagina, het aanmelden via een id-provider voor sociale netwerken, het maken van een Azure AD B2C-account en het aanroepen van een met Azure AD B2C beveiligde web-API. 
+In deze snelstart hebt u een voorbeeldtoepassing met één pagina gebruikt. Deze app wordt gebruikt voor het aanmelden via een aangepaste aanmeldingspagina, het aanmelden via een id-provider voor sociale netwerken, het maken van een Azure AD B2C-account en het aanroepen van een met Azure AD B2C beveiligde web-API. 
 
-De volgende stap is het maken van uw eigen Azure AD B2C-tenant en het configureren van het voorbeeld voor uitvoering met deze tenant. 
+Aan de slag met het maken van uw eigen Azure AD B2C-tenant.
 
 > [!div class="nextstepaction"]
 > [Een Azure Active Directory B2C-tenant maken in Azure Portal](tutorial-create-tenant.md)

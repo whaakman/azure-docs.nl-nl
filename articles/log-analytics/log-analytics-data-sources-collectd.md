@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 05/02/2017
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: b7c1a378b2bd653b1a4dae12b4240c41461902cf
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 29fa8d0216ac5b986a758ef553814d53834793d9
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50961007"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51009722"
 ---
 # <a name="collect-data-from-collectd-on-linux-agents-in-log-analytics"></a>Gegevens verzamelen van verzamelde op Linux-agents in Log Analytics
 [Verzamelde](https://collectd.org/) is een open-source Linux-daemonwijzigingen die periodiek metrische gegevens voor prestaties van toepassingen en gegevens op systeem verzamelt. Van de voorbeeldtoepassingen bevatten de Java Virtual Machine (JVM), MySQL-Server en Nginx. In dit artikel bevat informatie over het verzamelen van prestatiegegevens van verzamelde in Log Analytics.
@@ -124,6 +124,6 @@ Voor het onderhouden van een vertrouwde model tussen metrische gegevens over inf
 | waarden] | CounterValue |
 
 ## <a name="next-steps"></a>Volgende stappen
-* Meer informatie over [zoekopdrachten](log-analytics-log-search.md) om de gegevens die worden verzameld van gegevensbronnen en oplossingen te analyseren. 
+* Meer informatie over [zoekopdrachten](log-analytics-queries.md) om de gegevens die worden verzameld van gegevensbronnen en oplossingen te analyseren. 
 * Gebruik [aangepaste velden](log-analytics-custom-fields.md) parseren van gegevens van syslog-records in afzonderlijke velden.
 

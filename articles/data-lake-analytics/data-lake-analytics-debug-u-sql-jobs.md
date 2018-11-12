@@ -9,18 +9,18 @@ ms.reviewer: jasonwhowell
 ms.assetid: bcd0b01e-1755-4112-8e8a-a5cabdca4df2
 ms.topic: conceptual
 ms.date: 11/30/2017
-ms.openlocfilehash: 1fd1ce54dea672b19baea84bbf3a40b4365093b8
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 11587d5a0520d42d554c13a525c3b57db82326aa
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43046215"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51229472"
 ---
 # <a name="debug-user-defined-c-code-for-failed-u-sql-jobs"></a>Fouten opsporen in de gebruiker gedefinieerde C#-code voor mislukte U-SQL-taken
 
 U-SQL biedt een uitbreidbaarheidsmodel met behulp van C#. In U-SQL-scripts is het eenvoudig C#-functies aanroepen en analytische functies die de declaratieve taal SQL-achtige biedt geen ondersteuning voor uitvoeren. Zie voor meer informatie voor U-SQL-uitbreidbaarheid, [handleiding voor het programmeren van U-SQL](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-u-sql-programmability-guide#use-user-defined-functions-udf). 
 
-In de praktijk code mogelijk moet opsporen van fouten, maar het is moeilijk fouten opsporen in een gedistribueerde taak met aangepaste code in de cloud met beperkte logboekbestanden. [Azure Data Lake Tools voor Visual Studio](http://aka.ms/adltoolsvs) bevat een functie met de naam **kan hoekpunt Debug**, waarmee u meer spoor eenvoudig fouten voor de fouten die optreden in uw aangepaste code. Wanneer U-SQL-taak is mislukt, de service blijft de status mislukt en het hulpprogramma kunt u de fout cloudomgeving downloaden naar de lokale computer voor foutopsporing. Het downloaden van het lokale bevat de volledige in de cloud-omgeving, met inbegrip van een invoer- en gebruikerscode.
+In de praktijk code mogelijk moet opsporen van fouten, maar het is moeilijk fouten opsporen in een gedistribueerde taak met aangepaste code in de cloud met beperkte logboekbestanden. [Azure Data Lake Tools voor Visual Studio](https://aka.ms/adltoolsvs) bevat een functie met de naam **kan hoekpunt Debug**, waarmee u meer spoor eenvoudig fouten voor de fouten die optreden in uw aangepaste code. Wanneer U-SQL-taak is mislukt, de service blijft de status mislukt en het hulpprogramma kunt u de fout cloudomgeving downloaden naar de lokale computer voor foutopsporing. Het downloaden van het lokale bevat de volledige in de cloud-omgeving, met inbegrip van een invoer- en gebruikerscode.
 
 De volgende video ziet u hoekpunt foutopsporing is mislukt in Azure Data Lake Tools voor Visual Studio.
 
@@ -64,7 +64,7 @@ Er zijn twee mogelijke situaties die de C#-broncode wordt vastgelegd:
 
 Als de broncode wordt geïmporteerd in de oplossing, kunt u de foutopsporingsprogramma's van Visual Studio (controle, variabelen, enzovoort) op het probleem op te lossen:
 
-1. Druk op **F5** foutopsporing te starten. De code wordt uitgevoerd totdat deze is gestopt door een uitzondering.
+1. Druk op **F5** om de foutopsporing te starten. De code wordt uitgevoerd totdat deze is gestopt door een uitzondering.
 
 2. Open het bronbestand van de code en Stel onderbrekingspunten, drukt u vervolgens op **F5** fouten opsporen in de code stap voor stap.
 

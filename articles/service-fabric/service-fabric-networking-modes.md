@@ -1,9 +1,9 @@
 ---
-title: Netwerken modi voor services van Azure Service Fabric-container configureren | Microsoft Docs
-description: Informatie over het instellen van de verschillende netwerken modi die worden ondersteund door Azure Service Fabric.
+title: Netwerkmodi voor Azure Service Fabric containerservices configureren | Microsoft Docs
+description: Meer informatie over het instellen van de verschillende netwerken modi die worden ondersteund door Azure Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: mani-ramaswamy
+author: TylerMSFT
 manager: timlt
 editor: ''
 ms.assetid: d552c8cd-67d1-45e8-91dc-871853f44fc6
@@ -13,29 +13,29 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
-ms.author: subramar
-ms.openlocfilehash: 869b87b8df3b1f532a33e943e728681b358ed8b4
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.author: twhitney, subramar
+ms.openlocfilehash: 1a0b7932d8dced086370027e1f8eecaf81841ab3
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36287623"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300776"
 ---
-# <a name="service-fabric-container-networking-modes"></a>Netwerken modi voor service Fabric-container
+# <a name="service-fabric-container-networking-modes"></a>Netwerkmodi voor service Fabric-containers
 
-Een Azure Service Fabric-cluster voor de container services maakt gebruik van **nat** netwerken modus standaard. Wanneer meer dan één containerservice op dezelfde poort luistert en nat-modus wordt gebruikt, kunnen implementatiefouten optreden. Ter ondersteuning van meerdere container op dezelfde poort luistert, Service Fabric biedt **Open** netwerken modus (versie 5.7 en hoger). In Open modus heeft elke containerservice een interne dynamisch toegewezen IP-adres dat ondersteuning biedt voor meerdere services op dezelfde poort luistert.  
+Een Azure Service Fabric-cluster voor de container services maakt gebruik van **nat** netwerken modus standaard. Als meer dan één containerservice op dezelfde poort luistert en nat-modus wordt gebruikt, worden fouten bij de implementatie kunnen optreden. Ter ondersteuning van meerdere containerservices op dezelfde poort luistert, Service Fabric biedt **Open** netwerken-modus (versie 5.7 en hoger). In de Open-modus, elke containerservice heeft een interne dynamisch toegewezen IP-adres dat ondersteuning biedt voor meerdere services op dezelfde poort luistert.  
 
-Als u een containerservice met een statisch eindpunt in uw servicemanifest hebt, kunt u maken en verwijderen van nieuwe services met behulp van de Open modus zonder implementatiefouten. Hetzelfde docker-compose.yml-bestand kan ook worden gebruikt met toewijzingen van statische poort voor het maken van meerdere services.
+Als u een containerservice met een statisch eindpunt in het servicemanifest hebt, kunt u maken en verwijderen van nieuwe services met behulp van Open-modus zonder fouten bij de implementatie. De dezelfde docker-compose.yml-bestand kan ook worden gebruikt met statische poorttoewijzingen te maken van meerdere services.
 
-Als een containerservice opnieuw wordt opgestart of naar een ander knooppunt in het cluster, wordt het IP-adres verandert. Om deze reden wordt niet aanbevolen voor het detecteren van containerservices met behulp van het dynamisch toegewezen IP-adres. Alleen de Service Fabric Naming Service of de DNS-Service moet worden gebruikt voor servicedetectie. 
+Wanneer een containerservice opnieuw wordt opgestart of naar een ander knooppunt in het cluster verplaatst, wordt het IP-adres verandert. Om deze reden wordt niet aanbevolen met dynamisch toegewezen IP-adres voor het detecteren van containerservices. Alleen de Service Fabric Naming-Service of de DNS-Service moet worden gebruikt voor de servicedetectie. 
 
 >[!WARNING]
->Azure kunt een totaal van 4096 IP-adressen per virtueel netwerk. De som van het aantal knooppunten en het aantal container service-exemplaren (die gebruikmaken van Open modus) kan niet groter zijn dan 4096 IP-adressen binnen een virtueel netwerk. Voor scenario's met high-density aangeraden netwerken nat-modus.
+>Met Azure kunt een totaal van 4096 IP-adressen per virtueel netwerk. De som van het aantal knooppunten en het aantal exemplaren van de container service (die gebruikmaakt van Open-modus) kan niet groter zijn dan 4096 IP-adressen binnen een virtueel netwerk. Voor scenario's met hoge dichtheid raden wij netwerken nat-modus.
 >
 
 ## <a name="set-up-open-networking-mode"></a>Open netwerken modus instellen
 
-1. De Azure Resource Manager-sjabloon instellen. In de **fabricSettings** sectie, schakelt u de DNS-Service en de IP-Provider: 
+1. Instellen van de Azure Resource Manager-sjabloon. In de **instelling fabricSettings** sectie, schakelt u de DNS-Service en de IP-Provider: 
 
     ```json
     "fabricSettings": [
@@ -78,7 +78,7 @@ Als een containerservice opnieuw wordt opgestart of naar een ander knooppunt in 
             ],
     ```
 
-2. De sectie network profiel instellen voor het toestaan van meerdere IP-adressen worden geconfigureerd op elk knooppunt van het cluster. Het volgende voorbeeld wordt een vijf IP-adressen per knooppunt voor een Windows-/ Linux-Service Fabric-cluster. U kunt vijf exemplaren van de service luistert op de poort op elk knooppunt hebben.
+2. De sectie netwerk profiel instellen om toe te staan van meerdere IP-adressen worden geconfigureerd op elk knooppunt van het cluster. Het volgende voorbeeld stelt u vijf IP-adressen per knooppunt voor een Windows/Linux Service Fabric-cluster. U kunt vijf exemplaren van de service luistert op de poort op elk knooppunt hebben.
 
     ```json
     "variables": {
@@ -175,7 +175,7 @@ Als een containerservice opnieuw wordt opgestart of naar een ander knooppunt in 
               }
    ```
  
-3. Voor Windows clusters, stelt u een regel voor Azure Netwerkbeveiligingsgroep (NSG) die wordt geopend poort UDP/53 voor het virtuele netwerk met de volgende waarden:
+3. Voor alleen voor Windows-clusters, stelt u een regel voor Azure Netwerkbeveiligingsgroep (NSG) die wordt geopend poort UDP/53 voor het virtuele netwerk met de volgende waarden:
 
    |Instelling |Waarde | |
    | --- | --- | --- |
@@ -187,7 +187,7 @@ Als een containerservice opnieuw wordt opgestart of naar een ander knooppunt in 
    |Bewerking | Toestaan  | |
    | | |
 
-4. Geef de modus voor netwerken in het toepassingsmanifest voor elke service: `<NetworkConfig NetworkType="Open">`. **Open** networking modus resultaten in de service een toegewijde IP-adres ophalen. Als een modus niet is opgegeven, de service wordt standaard ingesteld op **nat** modus. In het volgende voorbeeld van de manifest de `NodeContainerServicePackage1` en `NodeContainerServicePackage2` services kunnen elke luisteren op dezelfde poort (beide services luisteren `Endpoint1`). Wanneer Open netwerken modus wordt opgegeven, `PortBinding` configuraties kunnen niet worden opgegeven.
+4. Geef de modus voor netwerken in het toepassingsmanifest voor elke service: `<NetworkConfig NetworkType="Open">`. **Open** netwerken modus resultaten in de service aan een toegewezen IP-adres. Als een modus niet is opgegeven, de service standaard **nat** modus. In het volgende voorbeeld van de manifest de `NodeContainerServicePackage1` en `NodeContainerServicePackage2` services kunnen elk luisteren op dezelfde poort (beide services luisteren op `Endpoint1`). Als de Open VPN-modus is opgegeven, `PortBinding` configuraties kunnen niet worden opgegeven.
 
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
@@ -216,13 +216,13 @@ Als een containerservice opnieuw wordt opgestart of naar een ander knooppunt in 
     </ApplicationManifest>
     ```
 
-    U kunt combineren en overeenkomen met verschillende netwerken modi alle services in een toepassing voor een Windows-cluster. Sommige services kunnen Open modus gebruiken, terwijl andere nat-modus. Wanneer een service is geconfigureerd voor gebruik van nat-modus, moet de poort die de service luistert op uniek zijn.
+    U kunt combineren en deze verschillende netwerken modi in services binnen een toepassing voor een Windows-cluster. Sommige services kunnen Open modus gebruiken terwijl anderen nat-modus gebruiken. Wanneer een service is geconfigureerd voor gebruik van nat-modus, moet de poort die de service luistert uniek zijn.
 
     >[!NOTE]
-    >Op Linux-clusters wordt combineren netwerken modi voor verschillende services niet ondersteund. 
+    >Op Linux-clusters wordt met een combinatie van netwerkmodi voor andere services niet ondersteund. 
     >
 
-5. Wanneer de **Open** modus is ingeschakeld, de **eindpunt** definitie in het servicemanifest moet expliciet verwijzen naar het codepakket overeenkomt met het eindpunt, zelfs als het servicepakket slechts één code heeft pakket in het. 
+5. Wanneer de **Open** modus is ingeschakeld, de **eindpunt** definitie in het servicemanifest moet expliciet verwijzen naar de codepakket dat overeenkomt met het eindpunt, zelfs als de service-pakket slechts één code heeft pakket erin. 
    
    ```xml
    <Resources>
@@ -232,7 +232,7 @@ Als een containerservice opnieuw wordt opgestart of naar een ander knooppunt in 
    </Resources>
    ```
    
-6. Voor Windows wordt een VM opnieuw wordt opgestart het open netwerk opnieuw worden gemaakt. Dit is het beperken van het onderliggende probleem in de netwerkstack. Standaard is dat het netwerk. Als dit gedrag worden uitgeschakeld moet, kan de volgende configuratie worden gebruikt gevolgd door een upgrade van de configuratie.
+6. Voor Windows, een virtuele machine opnieuw opstarten zorgt ervoor dat het open netwerk opnieuw worden gemaakt. Dit is om een onderliggende probleem in de netwerkstack te verhelpen. Standaard is het netwerk opnieuw te maken. Als dit gedrag worden uitgeschakeld moet, kan de volgende configuratie worden gebruikt gevolgd door een upgrade van een configuratie.
 
 ```json
 "fabricSettings": [
@@ -250,6 +250,6 @@ Als een containerservice opnieuw wordt opgestart of naar een ander knooppunt in 
  
 ## <a name="next-steps"></a>Volgende stappen
 * [Inzicht krijgen in het Service Fabric-toepassingsmodel](service-fabric-application-model.md)
-* [Meer informatie over de Service Fabric-service manifest resources](https://docs.microsoft.com/azure/service-fabric/service-fabric-service-manifest-resources)
-* [Een Windows-container implementeren op Service Fabric op Windows Server 2016](service-fabric-get-started-containers.md)
-* [Implementeert een Docker-container op Service Fabric op Linux](service-fabric-get-started-containers-linux.md)
+* [Meer informatie over de Service Fabric service manifest-resources](https://docs.microsoft.com/azure/service-fabric/service-fabric-service-manifest-resources)
+* [Een Windows-container implementeren in Service Fabric in Windows Server 2016](service-fabric-get-started-containers.md)
+* [Een Docker-container implementeren in Service Fabric in Linux](service-fabric-get-started-containers-linux.md)

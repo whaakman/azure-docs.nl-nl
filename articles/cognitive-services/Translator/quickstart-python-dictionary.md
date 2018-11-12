@@ -1,239 +1,176 @@
 ---
-title: 'Snelstart: Alternatieve vertalingen zoeken, Python - Translator Text-API'
+title: 'Snelstart: Alternatieve vertalingen ophalen, Python - Translator Text-API'
 titleSuffix: Azure Cognitive Services
-description: In deze snelstart vindt u alternatieve vertalingen en voorbeelden van termen in context met behulp van de Translator Text-API met Python.
+description: In deze snelstart leert u hoe u alternatieve vertalingen en gebruiksvoorbeelden voor een bepaalde tekst kunt vinden met behulp van Python en de Translator Text-REST API.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
-ms.date: 06/21/2018
+ms.date: 10/21/2018
 ms.author: erhopf
-ms.openlocfilehash: cb8f6addd9fa68cd5a4683f52621b05dcd25e7b4
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 6e75ceb388b3111ea9ec31ba6bffded4077a019b
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49646406"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50248665"
 ---
-# <a name="quickstart-find-alternate-translations-with-the-translator-text-rest-api-python"></a>Snelstart: Alternatieve vertalingen zoeken met de Translator Text REST API (Python)
+# <a name="quickstart-use-the-translator-text-api-to-get-alternate-translations-using-python"></a>Snelstart: De Translator Text-API gebruiken om alternatieve vertalingen op te halen met behulp van Python
 
-In deze snelstartgids zoekt u details van mogelijke alternatieve vertalingen voor een term plus gebruiksvoorbeelden van deze alternatieve vertalingen met behulp van de Translator Text-API.
+In deze snelstart leert u hoe u alternatieve vertalingen en gebruiksvoorbeelden voor een bepaalde tekst kunt vinden met behulp van Python en de Translator Text-REST API.
+
+Voor deze snelstart is een [Azure Cognitive Services-account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met een Translator Text-resource vereist. Als u geen account hebt, kunt u de [gratis proefversie](https://azure.microsoft.com/try/cognitive-services/) gebruiken om een abonnementssleutel op te halen.
 
 ## <a name="prerequisites"></a>Vereisten
 
-U hebt [Python 3.x](https://www.python.org/downloads/) nodig om deze code uit te voeren.
+Voor deze snelstart zijn de volgende zaken vereist:
 
-Als u de Translator Text-API wilt gebruiken, moet u ook een abonnementssleutel hebben. Lees hoe u zich kunt [registreren voor de Translator Text-API](translator-text-how-to-signup.md).
+* Python 2.7.x of 3.x
+* Een Azure-abonnementssleutel voor Translator Text
 
-## <a name="dictionary-lookup-request"></a>Dictionary Lookup-aanvraag
+## <a name="create-a-project-and-import-required-modules"></a>Een project maken en de vereiste modules importeren
 
-Met het volgende haalt u alternatieve vertalingen voor een woord op met behulp van de methode [Dictionary Lookup](./reference/v3-0-dictionary-lookup.md).
-
-1. Maak een nieuw Python-project in uw favoriete code-editor.
-2. Voeg de onderstaande code toe.
-3. Vervang de waarde `subscriptionKey` door een geldige toegangssleutel voor uw abonnement.
-4. Voer het programma uit.
+Maak een nieuw Python-project met uw favoriete IDE of editor. Kopieer dit codefragment naar uw project in een bestand met de naam `dictionary-lookup.py`.
 
 ```python
 # -*- coding: utf-8 -*-
+import os, requests, uuid, json
+```
 
-import http.client, urllib.parse, uuid, json
+> [!NOTE]
+> Als u deze modules nog niet hebt gebruikt, moet u ze installeren voordat u het programma uitvoert. Voer voor het installeren van deze pakketten voert u `pip install requests uuid` uit.
 
-# **********************************************
-# *** Update or verify the following values. ***
-# **********************************************
+Met de eerste opmerking laat u de Python-vertaler weten dat UTF-8-codering moet worden gebruikt. De vereiste modules worden dan geïmporteerd voor het lezen van uw abonnementssleutel uit een omgevingsvariabele, voor het opstellen van de HTTP-aanvraag, voor het maken van een unieke id en voor het verwerken van het JSON-antwoord dat door de Translator Text-API wordt geretourneerd.
 
-# Replace the subscriptionKey string value with your valid subscription key.
-subscriptionKey = 'ENTER KEY HERE'
+## <a name="set-the-subscription-key-base-url-and-path"></a>De abonnementssleutel, de basis-URL en het pad instellen
 
-host = 'api.cognitive.microsofttranslator.com'
+In dit voorbeeld laat u de Translator Text-abonnementssleutel ophalen uit de omgevingsvariabele `TRANSLATOR_TEXT_KEY`. Als u niet bekend bent met omgevingsvariabelen, kunt u `subscriptionKey` als tekenreeks instellen en een opmerking plaatsen in de voorwaardelijke instructie.
+
+Kopieer deze code naar uw project:
+
+```python
+# Checks to see if the Translator Text subscription key is available
+# as an environment variable. If you are setting your subscription key as a
+# string, then comment these lines out.
+if 'TRANSLATOR_TEXT_KEY' in os.environ:
+    subscriptionKey = os.environ['TRANSLATOR_TEXT_KEY']
+else:
+    print('Environment variable for TRANSLATOR_TEXT_KEY is not set.')
+    exit()
+# If you want to set your subscription key as a string, uncomment the line
+# below and add your subscription key.
+#subscriptionKey = 'put_your_key_here'
+```
+
+Op dit moment is er één eindpunt beschikbaar voor Translator Text. Deze wordt ingesteld als de `base_url`. Met `path` wordt de `dictionary/lookup`-route ingesteld en wordt bepaald dat we versie 3 van de API willen gebruiken.
+
+De `params` worden gebruikt voor het instellen van de bron- en uitvoertalen. In dit voorbeeld wordt Engels en Spaans gebruikt: `en` en `es`.
+
+>[!NOTE]
+> Zie [Translator Text-API 3.0: in woordenlijst opzoeken](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-dictionary-lookup) voor meer informatie over eindpunten, routes en aanvraagparameters.
+
+```python
+base_url = 'https://api.cognitive.microsofttranslator.com'
 path = '/dictionary/lookup?api-version=3.0'
-
-params = '&from=en&to=fr';
-
-text = 'great'
-
-def lookup (content):
-
-    headers = {
-        'Ocp-Apim-Subscription-Key': subscriptionKey,
-        'Content-type': 'application/json',
-        'X-ClientTraceId': str(uuid.uuid4())
-    }
-
-    conn = http.client.HTTPSConnection(host)
-    conn.request ("POST", path + params, content, headers)
-    response = conn.getresponse ()
-    return response.read ()
-
-requestBody = [{
-    'Text' : text,
-}]
-content = json.dumps(requestBody, ensure_ascii=False).encode('utf-8')
-result = lookup (content)
-
-# Note: We convert result, which is JSON, to and from an object so we can pretty-print it.
-# We want to avoid escaping any Unicode characters that result contains. See:
-# https://stackoverflow.com/questions/18337407/saving-utf-8-texts-in-json-dumps-as-utf8-not-as-u-escape-sequence
-output = json.dumps(json.loads(result), indent=4, ensure_ascii=False)
-
-print (output)
+params = '&from=en&to=es';
+constructed_url = base_url + path + params
 ```
 
-## <a name="dictionary-lookup-response"></a>Dictionary Lookup-antwoord
+## <a name="add-headers"></a>Headers toevoegen
 
-Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u in het volgende voorbeeld kunt zien:
+U kunt aanvragen het eenvoudigst verifiëren door uw abonnementssleutel op te geven als `Ocp-Apim-Subscription-Key`-header. Dat doen we in dit voorbeeld dan ook. Als alternatief kunt u in plaats van uw abonnementssleutel een toegangstoken gebruiken en het toegangstoken opgeven als `Authorization`-header voor het valideren van uw aanvraag. Zie [Verificatie](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication) voor meer informatie.
 
-```json
-[
-  {
-    "normalizedSource": "great",
-    "displaySource": "great",
-    "translations": [
-      {
-        "normalizedTarget": "grand",
-        "displayTarget": "grand",
-        "posTag": "ADJ",
-        "confidence": 0.2783,
-        "prefixWord": "",
-        "backTranslations": [
-          {
-            "normalizedText": "great",
-            "displayText": "great",
-            "numExamples": 15,
-            "frequencyCount": 34358
-          },
-          {
-            "normalizedText": "big",
-            "displayText": "big",
-            "numExamples": 15,
-            "frequencyCount": 21770
-          },
-...
-        ]
-      },
-      {
-        "normalizedTarget": "super",
-        "displayTarget": "super",
-        "posTag": "ADJ",
-        "confidence": 0.1514,
-        "prefixWord": "",
-        "backTranslations": [
-          {
-            "normalizedText": "super",
-            "displayText": "super",
-            "numExamples": 15,
-            "frequencyCount": 12023
-          },
-          {
-            "normalizedText": "great",
-            "displayText": "great",
-            "numExamples": 15,
-            "frequencyCount": 10931
-          },
-...
-        ]
-      },
-...
-    ]
-  }
-]
-```
-
-## <a name="dictionary-examples-request"></a>Dictionary Examples-aanvraag
-
-Met het volgende haalt u contextvoorbeelden op van het gebruik van een term in de woordenlijst met behulp van de methode [Dictionary Examples](./reference/v3-0-dictionary-examples.md).
-
-1. Maak een nieuw Python-project in uw favoriete code-editor.
-2. Voeg de onderstaande code toe.
-3. Vervang de waarde `subscriptionKey` door een geldige toegangssleutel voor uw abonnement.
-4. Voer het programma uit.
+Kopieer dit codefragment naar uw project:
 
 ```python
-# -*- coding: utf-8 -*-
-
-import http.client, urllib.parse, uuid, json
-
-# **********************************************
-# *** Update or verify the following values. ***
-# **********************************************
-
-# Replace the subscriptionKey string value with your valid subscription key.
-subscriptionKey = 'ENTER KEY HERE'
-
-host = 'api.cognitive.microsofttranslator.com'
-path = '/dictionary/examples?api-version=3.0'
-
-params = '&from=en&to=fr';
-
-text = 'great'
-translation = 'formidable'
-
-def examples (content):
-
-    headers = {
-        'Ocp-Apim-Subscription-Key': subscriptionKey,
-        'Content-type': 'application/json',
-        'X-ClientTraceId': str(uuid.uuid4())
-    }
-
-    conn = http.client.HTTPSConnection(host)
-    conn.request ("POST", path + params, content, headers)
-    response = conn.getresponse ()
-    return response.read ()
-
-requestBody = [{
-    'Text' : text,
-    'Translation' : translation,
-}]
-content = json.dumps(requestBody, ensure_ascii=False).encode('utf-8')
-result = examples (content)
-
-# Note: We convert result, which is JSON, to and from an object so we can pretty-print it.
-# We want to avoid escaping any Unicode characters that result contains. See:
-# https://stackoverflow.com/questions/18337407/saving-utf-8-texts-in-json-dumps-as-utf8-not-as-u-escape-sequence
-output = json.dumps(json.loads(result), indent=4, ensure_ascii=False)
-
-print (output)
+headers = {
+    'Ocp-Apim-Subscription-Key': subscriptionKey,
+    'Content-type': 'application/json',
+    'X-ClientTraceId': str(uuid.uuid4())
+}
 ```
 
-## <a name="dictionary-examples-response"></a>Dictionary Examples-antwoord
+## <a name="create-a-request-to-find-alternate-translations"></a>Een aanvraag maken om alternatieve vertalingen te zoeken
 
-Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u in het volgende voorbeeld kunt zien:
+Definieer de tekenreeks (of tekenreeksen) die u wilt laten vertalen:
+
+```python
+# You can pass more than one object in body.
+body = [{
+    'text': 'Elephants'
+}]
+```
+
+Vervolgens maakt u een POST-aanvraag met de `requests`-module. Hier zijn drie argumenten voor nodig: de samengevoegde URL, de aanvraagheaders en de aanvraagbody:
+
+```python
+request = requests.post(constructed_url, headers=headers, json=body)
+response = request.json()
+```
+
+## <a name="print-the-response"></a>Het antwoord weergeven
+
+De laatste stap is het weergeven van de antwoorden. Met dit codefragment worden de resultaten verfraaid: de sleutels worden gesorteerd, er wordt gebruikgemaakt van inspringing en er worden item- en sleutelscheidingstekens opgegeven.
+
+```python
+print(json.dumps(response, sort_keys=True, indent=4, ensure_ascii=False, separators=(',', ': ')))
+```
+
+## <a name="put-it-all-together"></a>Alles samenvoegen
+
+Dat was het. U hebt een eenvoudig programma gemaakt dat we de Translator Text-API zullen noemen. Er is een JSON-antwoord geretourneerd. Het is nu tijd om uw programma uit te voeren:
+
+```console
+python dictionary-lookup.py
+```
+
+Als u uw code graag wilt vergelijken met de onze, kunt u het volledige voorbeeld vinden op [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Python).
+
+## <a name="sample-response"></a>Voorbeeldantwoord
 
 ```json
 [
-  {
-    "normalizedSource": "great",
-    "normalizedTarget": "formidable",
-    "examples": [
-      {
-        "sourcePrefix": "You have a ",
-        "sourceTerm": "great",
-        "sourceSuffix": " expression there.",
-        "targetPrefix": "Vous avez une expression ",
-        "targetTerm": "formidable",
-        "targetSuffix": "."
-      },
-      {
-        "sourcePrefix": "You played a ",
-        "sourceTerm": "great",
-        "sourceSuffix": " game today.",
-        "targetPrefix": "Vous avez été ",
-        "targetTerm": "formidable",
-        "targetSuffix": "."
-      },
-...
-    ]
-  }
+    {
+        "displaySource": "elephants",
+        "normalizedSource": "elephants",
+        "translations": [
+            {
+                "backTranslations": [
+                    {
+                        "displayText": "elephants",
+                        "frequencyCount": 1207,
+                        "normalizedText": "elephants",
+                        "numExamples": 5
+                    }
+                ],
+                "confidence": 1.0,
+                "displayTarget": "elefantes",
+                "normalizedTarget": "elefantes",
+                "posTag": "NOUN",
+                "prefixWord": ""
+            }
+        ]
+    }
 ]
 ```
+
+## <a name="clean-up-resources"></a>Resources opschonen
+
+Als u uw abonnementssleutel hebt vastgelegd in het programma, verwijdert u deze sleutel wanneer u klaar bent met de snelstart.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Bekijk de voorbeeldcode voor deze snelstartgids en andere, zoals vertaling en transliteratie, evenals andere Translator Text-voorbeeldprojecten op GitHub.
-
 > [!div class="nextstepaction"]
-> [Python-voorbeelden op GitHub bekijken](https://aka.ms/TranslatorGitHub?type=&language=python)
+> [Python-voorbeelden op GitHub bekijken](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Python)
+
+## <a name="see-also"></a>Zie ook
+
+Naast de transliteratie van tekst kunt u Translator Text-API ook gebruiken voor het volgende:
+
+* [Tekst vertalen](quickstart-python-translate.md)
+* [Tekst transcriberen](quickstart-python-transliterate.md)
+* [Een taal identificeren op basis van de invoer](quickstart-python-detect.md)
+* [Een lijst ophalen van ondersteunde talen](quickstart-python-languages.md)
+* [De zinlengte in invoer bepalen](quickstart-python-sentences.md)

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: 24ab8e5171ebb33a5f3be5c6bf08e361fff4e4cc
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 275eb5f32def94fa974f0cb180b9de9dcedf1a00
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50959542"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230917"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights"></a>Web-apps tijdens runtime instrumenteren met Application Insights
 
@@ -78,7 +78,7 @@ De Application Insights JavaScript-SDK is nu opgenomen in elke webpagina.
 Als uw app wordt gehost op een IIS-server, kunt u Application Insights inschakelen met Status Monitor.
 
 1. Meld u op uw IIS-webserver aan met beheerdersreferenties.
-2. Als Application Insights Status Monitor nog niet is geïnstalleerd, downloadt u het [Status Monitor-installatieprogramma](http://go.microsoft.com/fwlink/?LinkId=506648) en voert u deze uit. (Of u kunt het [Webplatforminstallatieprogramma](https://www.microsoft.com/web/downloads/platform.aspx) uitvoeren en hierin zoeken naar Application Insights Status Monitor).
+2. Als Application Insights Status Monitor nog niet is geïnstalleerd, downloadt u het [Status Monitor-installatieprogramma](https://go.microsoft.com/fwlink/?LinkId=506648) en voert u deze uit. (Of u kunt het [Webplatforminstallatieprogramma](https://www.microsoft.com/web/downloads/platform.aspx) uitvoeren en hierin zoeken naar Application Insights Status Monitor).
 3. In Status Monitor selecteert u de geïnstalleerde web-app of website die u wilt bewaken. Meld u aan met uw Azure-referenties.
 
     Configureer de resource waarvan u de resultaten wilt weergeven in de Application Insights-portal. (Normaal gesproken is het het beste om een nieuwe resource te maken. Selecteer een bestaande resource als u al [webtests][availability] of [clientbewaking][client] hebt voor deze app.) 

@@ -1,19 +1,19 @@
 ---
-title: Azure Virtual machines migreren tussen Azure-regio's met Azure Site Recovery | Microsoft Docs
+title: Azure IaaS VM's naar een andere Azure-regio migreren met behulp van de Azure Site Recovery-service | Microsoft Docs
 description: Azure Site Recovery gebruiken voor het migreren van virtuele Azure IaaS-machines van de ene Azure-regio naar een andere.
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 10/10/2018
+ms.date: 10/28/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 9bd5c1b2bad475dbb2c8ce216ed7d3f57ace0696
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 9ad994ad3dc1fc350a9a41c23574acfa2bae9629
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49067611"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212281"
 ---
 # <a name="migrate-azure-vms-to-another-region"></a>Virtuele Azure-machines migreren naar een andere regio
 

@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 09/12/2018
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: 7f71e92513aedb1eb9c394c1e8f547173cfb4dbe
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 4f7955c013ce7f45ebe6db8bb23eeec92303876e
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45604175"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50230928"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-by-using-a-net-web-app"></a>Snelstart: Een geheim uit Azure Key Vault instellen en ophalen met behulp van een .NET-web-app
 
@@ -25,7 +25,7 @@ In deze snelstart voert u de stappen uit die nodig zijn om een Azure-webtoepassi
 > * Een geheim opslaan in de sleutelkluis.
 > * Een geheim ophalen uit de sleutelkluis.
 > * Een Azure-webtoepassing maken.
-> * Schakel een [Beheerde identiteit](../active-directory/managed-identities-azure-resources/overview.md) in voor de web-app.
+> * Schakel een [beheerde service-identiteit](../active-directory/managed-identities-azure-resources/overview.md) in voor de web-app.
 > * De vereiste machtigingen verlenen aan de webtoepassing om gegevens te lezen uit de sleutelkluis.
 
 Lees voordat we verdergaan de [basisconcepten](key-vault-whatis.md#basic-concepts).
@@ -33,7 +33,7 @@ Lees voordat we verdergaan de [basisconcepten](key-vault-whatis.md#basic-concept
 >[!NOTE]
 >Key Vault is een centrale opslagplaats voor het opslaan van geheimen via een programma. Maar hiervoor moeten toepassingen en gebruikers eerst worden geverifieerd bij Key Vault, wat betekent dat ze een geheim moeten presenteren. Als u de aanbevolen procedures voor beveiliging wilt volgen, moet dit eerste geheim periodiek worden gerouleerd. 
 >
->Met [Beheerde identiteiten voor Azure-resources](../active-directory/managed-identities-azure-resources/overview.md) krijgen toepassingen die worden uitgevoerd in Azure, een identiteit die automatisch wordt beheerd door Azure. Dit helpt bij het oplossen van het *probleem van het introduceren van geheimen* zodat gebruikers en toepassingen aanbevolen procedures kunnen volgen en zich geen zorgen hoeven maken over het rouleren van het eerste geheim.
+>Met [beheerde service-identiteiten voor Azure-resources](../active-directory/managed-identities-azure-resources/overview.md) krijgen toepassingen die in Azure worden uitgevoerd, een identiteit die automatisch door Azure wordt beheerd. Dit helpt bij het oplossen van het *probleem van het introduceren van geheimen* zodat gebruikers en toepassingen aanbevolen procedures kunnen volgen en zich geen zorgen hoeven maken over het rouleren van het eerste geheim.
 
 ## <a name="prerequisites"></a>Vereisten
 

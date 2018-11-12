@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: ca93d97c3e0ddab0377ef437a04e7e3e31197b97
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 6967805044bb11e9aed3fe66d580df059f7a461a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166358"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51231392"
 ---
 # <a name="split-merge-security-configuration"></a>Beveiligingsconfiguratie splitsen en samenvoegen
 Voor het gebruik van de service voor splitsen/samenvoegen, moet u goed beveiliging configureren. De service maakt deel uit van de functie Elastic Scale van Microsoft Azure SQL Database. Zie voor meer informatie, [elastische schaal splitsen en samenvoegen-Service-zelfstudie](sql-database-elastic-scale-configure-deploy-split-and-merge.md).
@@ -29,21 +29,21 @@ Certificaten zijn geconfigureerd op twee manieren.
 2. [Clientcertificaten configureren](#to-configure-client-certificates) 
 
 ## <a name="to-obtain-certificates"></a>Om certificaten te verkrijgen
-Certificaten kunnen worden opgehaald van openbare certificeringsinstanties (CA's) of van de [Windows certificaatservice](http://msdn.microsoft.com/library/windows/desktop/aa376539.aspx). Dit zijn de meest geschikte methode om certificaten te verkrijgen.
+Certificaten kunnen worden opgehaald van openbare certificeringsinstanties (CA's) of van de [Windows certificaatservice](https://msdn.microsoft.com/library/windows/desktop/aa376539.aspx). Dit zijn de meest geschikte methode om certificaten te verkrijgen.
 
 Als deze opties niet beschikbaar zijn, kunt u genereren **zelfondertekende certificaten**.
 
 ## <a name="tools-to-generate-certificates"></a>Hulpprogramma's voor het genereren van certificaten
-* [makecert.exe](http://msdn.microsoft.com/library/bfsktky3.aspx)
-* [pvk2pfx.exe](http://msdn.microsoft.com/library/windows/hardware/ff550672.aspx)
+* [makecert.exe](https://msdn.microsoft.com/library/bfsktky3.aspx)
+* [pvk2pfx.exe](https://msdn.microsoft.com/library/windows/hardware/ff550672.aspx)
 
 ### <a name="to-run-the-tools"></a>Het hulpprogramma uitvoeren
-* Van een ontwikkelaar opdrachtprompt voor Visual Studio's, Zie [Visual Studio-opdrachtprompt](http://msdn.microsoft.com/library/ms229859.aspx) 
+* Van een ontwikkelaar opdrachtprompt voor Visual Studio's, Zie [Visual Studio-opdrachtprompt](https://msdn.microsoft.com/library/ms229859.aspx) 
   
     Als u hebt geïnstalleerd, gaat u naar:
   
         %ProgramFiles(x86)%\Windows Kits\x.y\bin\x86 
-* Ophalen van de WDK van [Windows 8.1: kits en hulpprogramma's downloaden](http://msdn.microsoft.com/windows/hardware/gg454513#drivers)
+* Ophalen van de WDK van [Windows 8.1: kits en hulpprogramma's downloaden](https://msdn.microsoft.com/windows/hardware/gg454513#drivers)
 
 ## <a name="to-configure-the-ssl-certificate"></a>Het SSL-certificaat configureren
 Een SSL-certificaat is vereist voor het versleutelen van de communicatie en de server te verifiëren. Kies het meest van toepassing van de volgende drie scenario's en voer alle stappen uit:

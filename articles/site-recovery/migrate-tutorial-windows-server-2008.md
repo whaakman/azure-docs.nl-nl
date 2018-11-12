@@ -1,38 +1,34 @@
 ---
 title: On-premises Windows Server 2008-servers migreren naar Azure met Azure Site Recovery | Microsoft Docs
-description: In dit artikel wordt beschreven hoe u on-premises Windows Server 2008-machines migreren naar Azure met behulp van Azure Site Recovery.
-services: site-recovery
-documentationcenter: ''
+description: In dit artikel wordt beschreven hoe u on-premises Windows Server 2008-machines naar Azure migreert met behulp van Azure Site Recovery.
 author: bsiva
 manager: abhemraj
-editor: raynew
-ms.assetid: ''
 ms.service: site-recovery
-ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.date: 09/22/2018
 ms.author: bsiva
-ms.openlocfilehash: d15a5b62a148e971c0740f01744fce308e502340
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
-ms.translationtype: MT
+ms.custom: MVC
+ms.openlocfilehash: 68a1367eec5392036797612e631a438b076b2cfc
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056033"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210462"
 ---
-# <a name="migrate-servers-running-windows-server-2008-to-azure"></a>Servers met Windows Server 2008 naar Azure migreren
+# <a name="migrate-servers-running-windows-server-2008-to-azure"></a>Servers waarop Windows Server 2008 wordt uitgevoerd, naar Azure migreren
 
-Deze zelfstudie leert u hoe u on-premises servers met Windows Server 2008 of 2008 R2 naar Azure migreert met behulp van Azure Site Recovery. In deze zelfstudie leert u het volgende:
+In deze zelfstudie leert u hoe u on-premises servers waarop Windows Server 2008 of 2008 R2 wordt uitgevoerd, naar Azure migreert met behulp van Azure Site Recovery. In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
-> * Uw on-premises omgeving voor de migratie voorbereiden
+> * Uw on-premises omgeving voorbereiden op migratie
 > * De doelomgeving instellen
 > * Een replicatiebeleid instellen
 > * Replicatie inschakelen
 > * Een testfailover uitvoeren om te controleren of alles goed werkt
-> * Failover naar Azure en de migratie voltooien
+> * Failover uitvoeren voor Azure en migratie voltooien
 
-De beperkingen en bekende problemen sectie, een lijst met enkele beperkingen en tijdelijke oplossingen voor bekende problemen die u kunnen tegenkomen tijdens het migreren van Windows Server 2008-machines naar Azure. 
+In de sectie over beperkingen en bekende problemen worden enkele beperkingen en tijdelijke oplossingen vermeldt voor bekende problemen die u kunt tegenkomen tijdens de migratie van Windows Server 2008-machines naar Azure. 
 
 
 ## <a name="supported-operating-systems-and-environments"></a>Ondersteunde besturingssystemen en omgevingen
@@ -40,62 +36,62 @@ De beperkingen en bekende problemen sectie, een lijst met enkele beperkingen en 
 
 |Besturingssysteem  | On-premises omgeving  |
 |---------|---------|
-|Windows Server 2008 SP2 - 32-bits en 64-bits (IA-32 en x86-64)</br>-Standaard</br>-Enterprise</br>-Datacenter   |     VMware-VM's, Hyper-V-machines en fysieke Servers    |
-|WindowsServer 2008 R2 SP1 - 64-bits</br>-Standaard</br>-Enterprise</br>-Datacenter     |     VMware-VM's, Hyper-V-machines en fysieke Servers|
+|Windows Server 2008 SP2: 32-bits en 64-bits (IA-32 en x86-64)</br>- Standard</br>- Enterprise</br>- Datacenter   |     VMware-VM's, Hyper-V-VM's en fysieke servers    |
+|Windows Server 2008 R2 SP1: 64-bits</br>- Standard</br>- Enterprise</br>- Datacenter     |     VMware-VM's, Hyper-V-VM's en fysieke servers|
 
 > [!WARNING]
-> - Migratie van Server Core-servers wordt niet ondersteund.
-> - Zorg ervoor dat u hebt de nieuwste servicepack en de Windows-updates die zijn geïnstalleerd voordat u migreert.
+> - Migratie van servers waarop Server Core wordt uitgevoerd, wordt niet ondersteund.
+> - Controleer vóór de migratie of het nieuwste servicepack en Windows-updates zijn geïnstalleerd.
 
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voordat u begint, is het handig om te controleren van de Azure Site Recovery-architectuur voor [migratie van VMware en fysieke servers](vmware-azure-architecture.md) of [migratie van Hyper-V virtuele machines](hyper-v-azure-architecture.md) 
+Voordat u begint, is het handig om de Azure Site Recovery-architectuur te controleren voor de [migratie van VMware- en fysieke servers](vmware-azure-architecture.md) of de [migratie van virtuele Hyper-V-machines](hyper-v-azure-architecture.md) 
 
-Als u wilt migreren van Hyper-V virtuele machines met Windows Server 2008 of Windows Server 2008 R2, volg de stappen in de [on-premises machines migreren naar Azure](migrate-tutorial-on-premises-azure.md) zelfstudie.
+Voor het migreren van virtuele Hyper-V-machines waarop Windows Server 2008 of Windows Server 2008 R2 wordt uitgevoerd, volgt u de stappen in de zelfstudie [On-premises machines migreren naar Azure](migrate-tutorial-on-premises-azure.md).
 
-De rest van deze zelfstudie leert u hoe u on-premises virtuele VMware-machines en fysieke servers met Windows Server 2008 of 2008 R2 kunt migreren.
+In het vervolg van deze zelfstudie kunt u zien hoe u on-premises virtuele VMware-machines en fysieke servers kunt migreren waarop Windows Server 2008 of 2008 R2 wordt uitgevoerd.
 
 
 ## <a name="limitations-and-known-issues"></a>Beperkingen en bekende problemen
 
-- De configuratieserver, de extra processervers en de mobility-service gebruikt voor het migreren van Windows Server 2008 SP2 servers moeten versie 9.19.0.0 actief of hoger van de Azure Site Recovery-software.
+- Op de configuratieserver, aanvullende processervers en de Mobility Service waarmee Windows Server 2008 SP2-servers worden gemigreerd, moet versie 9.19.0.0 of hoger van de Azure Site Recovery-software worden uitgevoerd.
 
-- Consistente herstelpunten voor toepassing en de functie van de consistentie van meerdere VM's worden niet ondersteund voor de replicatie van servers waarop Windows Server 2008 SP2 wordt uitgevoerd. Windows Server 2008 SP2-servers moeten worden gemigreerd naar een crashconsistent herstelpunt. Crash-consistente herstelpunten worden elke vijf minuten standaard gegenereerd. Met behulp van een replicatiebeleid met de frequentie van de momentopname van een geconfigureerde toepassing zorgt ervoor dat replicatiestatus kritieke vanwege het ontbreken van consistente herstelpunten voor toepassing inschakelen. Fout-positieven te voorkomen, stelt u de App-consistente frequentie in het replicatiebeleid op 'Uit' van de momentopname.
+- Toepassingsconsistente herstelpunten en de Multi-VM-consistentiefunctie worden niet ondersteund voor replicatie van servers waarop Windows Server 2008 SP2 wordt uitgevoerd. Windows Server 2008 SP2-servers moeten worden gemigreerd naar een crash-consistent herstelpunt. Crashconsistente herstelpunten worden standaard elke vijf minuten gegenereerd. Door gebruik te maken van een replicatiebeleid met een geconfigureerde, toepassingsconsistente momentopnamefrequentie, wordt de replicatiestatus kritiek vanwege het gebrek aan toepassingsconsistente herstelpunten. Om fout-positieven te voorkomen, stelt u de toepassingsconsistente momentopnamefrequentie in het replicatiebeleid in op Uit.
 
-- De servers die wordt gemigreerd, moet .NET Framework 3.5 Service Pack 1 voor de mobility-service om te werken.
+- Op de te migreren servers moet .NET Framework 3.5 Service Pack 1 zijn geïnstalleerd, opdat de Mobility Service kan functioneren.
 
-- Als uw server dynamische schijven heeft, merkt u wellicht in bepaalde configuraties, die deze schijven op de mislukte via server offline of weergegeven als externe schijven zijn gemarkeerd. Merkt u wellicht ook dat de status van de gespiegelde instellen voor gespiegelde volumes op de dynamische schijven is gemarkeerd als 'Is mislukt van redundantie'. U kunt dit probleem van diskmgmt.msc oplossen door handmatig importeren van deze schijven en ze opnieuw te activeren.
+- Als uw server dynamische schijven bevat, kan het in bepaalde configuraties voorkomen dat deze schijven op de server waarvoor failover is uitgevoerd, offline wordt gemarkeerd of als afwijkende schijven worden weergegeven. Het kan ook zijn dat de status van de gespiegelde set voor gespiegelde volumes op de dynamische schijven met Mislukte redundantie is gemarkeerd. U kunt dit probleem oplossen met diskmgmt.msc door deze schijven handmatig te importeren en ze opnieuw te activeren.
 
-- De servers die wordt gemigreerd, moeten het stuurprogramma vmstorfl.sys hebben. Failover kan mislukken als het stuurprogramma is niet aanwezig in de server die wordt gemigreerd. 
+- De te migreren servers moeten het stuurprogramma vmstorfl.sys hebben. Failover kan mislukken als het stuurprogramma niet op de te migreren server aanwezig is. 
   > [!TIP]
-  >Controleer of het stuurprogramma bij "C:\Windows\system32\drivers\vmstorfl.sys" aanwezig is. Als het stuurprogramma niet wordt gevonden, kunt u tijdelijke oplossing het probleem met het maken van een tijdelijk bestand in plaats. 
+  >Controleer of het stuurprogramma aanwezig is op C:\Windows\system32\drivers\vmstorfl.sys. Als u het stuurprogramma niet kunt vinden, kunt u als tijdelijke oplossing een dummybestand gebruiken. 
   >
-  > Open de opdrachtprompt (uitvoeren > cmd) en voer de volgende: "kopiëren nul c:\Windows\system32\drivers\vmstorfl.sys"
+  > Open de opdrachtprompt (run > cmd) en voer de volgende opdracht uit: copy nul c:\Windows\system32\drivers\vmstorfl.sys
 
-- Het is mogelijk dat er geen RDP naar Windows Server 2008 SP2-servers met de 32-bits besturingssysteem onmiddellijk nadat ze failover is uitgevoerd of de test-failover naar Azure. Start de mislukte via virtuele machine van Azure portal en probeer opnieuw verbinding te maken. Als u nog steeds kan geen verbinding maken, moet u controleren als de server is geconfigureerd voor het toestaan van verbindingen met extern bureaublad en zorg ervoor dat er geen firewall-regels of netwerkbeveiligingsgroepen blokkeren van de verbinding. 
+- Mogelijk kan RDP niet onmiddellijk worden uitgevoerd op Windows Server 2008 SP2-servers met het 32-bits besturingssysteem als er een failover of test-failover naar Azure op is uitgevoerd. Start de virtuele machine waarvoor failover is uitgevoerd, opnieuw op vanuit de Azure-portal en maak opnieuw verbinding. Als u nog steeds geen verbinding kunt maken, controleert u of de server is geconfigureerd zodat verbindingen via extern bureaublad zijn toegestaan. Controleer ook of er geen firewallregels of netwerkbeveiligingsgroepen de oorzaak zijn van het blokkeren van de verbinding. 
   > [!TIP]
-  > Een testfailover wordt ten zeerste aangeraden voordat u migreert servers. Zorg ervoor dat u ten minste één test is geslaagd failover hebt uitgevoerd op elke server die u wilt migreren. Als onderdeel van de failovertest uitvoert, verbinding maken met de test is mislukt op de machine en controleer of dingen werkt zoals verwacht.
+  > Voordat u de servers gaat migreren, wordt het uitvoeren van een testfailover sterk aangeraden. Zorg dat u ten minste één testfailover per te migreren server hebt uitgevoerd. Als onderdeel van de testfailover, maakt u verbinding met de machine waarvoor de testfailover is uitgevoerd en controleert u of alles naar behoren werkt.
   >
-  >De testfailover is niet-storende en helpt u bij het testen van migraties door u te maken van virtuele machines in een geïsoleerd netwerk van uw keuze. In tegenstelling tot de failoverbewerking tijdens de testfailover blijft gegevensreplicatie lag. U kunt uitvoeren als u wilt voordat u klaar bent om veel testfailovers. 
+  >Het testfailoverbewerking veroorzaakt geen storingen en u kunt er migraties mee testen door virtuele machines te maken in een geïsoleerd netwerk van uw keuze. Tijdens de testfailoverbewerking kan het repliceren van gegevens gewoon doorgaan, dit in tegenstelling tot bij een failoverbewerking. Voordat u gaat migreren, kunt u net zo veel testfailovers uitvoeren als u wilt. 
   >
   >
 
 
 ## <a name="getting-started"></a>Aan de slag
 
-De volgende taken voor het voorbereiden van de Azure-abonnement en on-premises VMware-/ fysieke omgeving uitvoeren:
+Voer de volgende taken uit om het Azure-abonnement en de on-premises VMware-/fysieke omgeving voor te bereiden:
 
 1. [Azure voorbereiden](tutorial-prepare-azure.md)
-2. On-premises voorbereiden [VMware](vmware-azure-tutorial-prepare-on-premises.md)
+2. On-premises [VMware](vmware-azure-tutorial-prepare-on-premises.md) voorbereiden
 
 
 ## <a name="create-a-recovery-services-vault"></a>Een Recovery Services-kluis maken
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com) > **Recovery Services**.
 2. Klik op **Een resource maken** > **Controle en beheer** > **Backup en Site Recovery**.
-3. In **naam**, geef de beschrijvende naam **W2K8 migratie**. Als u meer dan één abonnement hebt, selecteert u het gewenste abonnement.
-4. Maak een resourcegroep **w2k8migrate**.
+3. Bij **Naam** geeft u de beschrijvende naam **W2K8-migration** op. Als u meer dan één abonnement hebt, selecteert u het gewenste abonnement.
+4. Maak resourcegroep **w2k8migrate**.
 5. Geef een Azure-regio op. Zie Geografische beschikbaarheid in [Prijsinformatie voor Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/) om na te gaan welke regio's er worden ondersteund.
 6. Als u de kluis snel wilt kunnen openen via het dashboard, klikt u op **Vastmaken aan dashboard** en vervolgens op **Maken**.
 
@@ -104,10 +100,10 @@ De volgende taken voor het voorbereiden van de Azure-abonnement en on-premises V
 De nieuwe kluis wordt toegevoegd op het **Dashboard** onder **Alle resources** en op de hoofdpagina van **Recovery Services-kluizen**.
 
 
-## <a name="prepare-your-on-premises-environment-for-migration"></a>Uw on-premises omgeving voor de migratie voorbereiden
+## <a name="prepare-your-on-premises-environment-for-migration"></a>Uw on-premises omgeving voorbereiden op migratie
 
-- Voor het migreren van Windows Server 2008 virtuele machines waarop VMware, [instellen van de on-premises configuratieserver voor VMware](vmware-azure-tutorial.md#set-up-the-source-environment).
-- Als de configuratieserver kan niet ingesteld als een virtuele VMware-machine worden, [instellen van de configuratieserver op een on-premises fysieke server of virtuele machine](physical-azure-disaster-recovery.md#set-up-the-source-environment).
+- Als u virtuele Windows Server 2008-machines wilt migreren die onder VMware worden uitgevoerd, [stelt u de on-premises configuratieserver in onder VMware](vmware-azure-tutorial.md#set-up-the-source-environment).
+- Als de configuratieserver niet kan worden ingesteld als een virtuele VMware-machine, [stelt u de configuratieserver in op een on-premises fysieke server of virtuele machine](physical-azure-disaster-recovery.md#set-up-the-source-environment).
 
 ## <a name="set-up-the-target-environment"></a>De doelomgeving instellen
 
@@ -120,22 +116,22 @@ Selecteer en controleer doelbronnen.
 
 ## <a name="set-up-a-replication-policy"></a>Een replicatiebeleid instellen
 
-1. Klik op om een nieuw replicatiebeleid **infrastructuur voor Site Recovery** > **replicatiebeleid** > **+ replicatiebeleid**.
-2. In **replicatiebeleid maken**, een beleidsnaam opgeven.
-3. In **RPO-drempelwaarde**, de objective (RPO) herstelpuntlimiet opgeven. Een waarschuwing wordt gegenereerd als de replicatie-RPO deze limiet overschrijdt.
-4. In **bewaarperiode voor herstelpunten**, opgeven hoe lang (in uren) de bewaarperiode voor elk herstelpunt. Gerepliceerde VM’s kunnen worden hersteld naar een willekeurig punt in een tijdvenster. Bewaarperiode van 24 uur maximaal wordt ondersteund voor computers die worden gerepliceerd naar premium storage en 72 uur voor standard-opslag.
-5. In **frequentie App-consistente momentopname**, geef **uit**. Klik op **OK** om het beleid te maken.
+1. Klik op **Infrastructuur voor Site Recovery** > **Herstelbeleid** > **+Herstelbeleid** om een nieuw replicatiebeleid te maken.
+2. Geef in **Replicatiebeleid maken** een beleidsnaam op.
+3. Geef in **RPO-drempelwaarde** de limiet van de Recovery Point Objective (RPO) op. Wanneer de replicatie-RPO deze limiet overschrijdt, wordt er een waarschuwing gegenereerd.
+4. Geef in **Bewaarperiode van het herstelpunt** op hoelang (in uren) de bewaarperiode voor elk herstelpunt is. Gerepliceerde VM’s kunnen worden hersteld naar een willekeurig punt in een tijdvenster. Voor computers die worden gerepliceerd naar Premium Storage, wordt een bewaarperiode van maximaal 24 uur ondersteund, en 72 uur voor computers die naar Standard Storage worden gerepliceerd.
+5. Geef in **Frequentie van de app-consistente momentopname** **Uit** op. Klik op **OK** om het beleid te maken.
 
 Het beleid wordt automatisch gekoppeld aan de configuratieserver.
 
 > [!WARNING]
-> Zorg ervoor dat u opgeeft **OFF** in de App-consistente momentopname frequentie-instelling van het replicatiebeleid. Alleen crash-consistente herstelpunten worden ondersteund tijdens het repliceren van servers met Windows Server 2008. Het opgeven een andere waarde voor de frequentie van de App-consistente momentopname tot ONWAAR waarschuwingen leiden zal door in te schakelen replicatiestatus van de server kritieke vanwege een gebrek aan App-consistente herstelpunten.
+> Controleer of u **Uit** hebt opgegeven in de instelling Frequentie van de app-consistente momentopname van het replicatiebeleid. Alleen crashconsistente herstelpunten worden ondersteund tijdens het repliceren van servers waarop Windows Server 2008 wordt uitgevoerd. Als u een andere waarde opgeeft voor de frequentie van de app-consistente momentopname, leidt dat tot foutieve waarschuwingen. Het gevolg is dat de replicatiestatus van de server kritiek wordt vanwege gebrek aan app-consistente herstelpunten.
 
    ![Replicatiebeleid maken](media/migrate-tutorial-windows-server-2008/create-policy.png)
 
 ## <a name="enable-replication"></a>Replicatie inschakelen
 
-[Replicatie inschakelen](physical-azure-disaster-recovery.md#enable-replication) voor Windows Server 2008 SP2 / Windows Server 2008 R2 SP1-server moeten worden gemigreerd.
+[Schakel replicatie in](physical-azure-disaster-recovery.md#enable-replication) voor de Windows Server 2008 SP2-/Windows Server 2008 R2 SP1-server die wordt gemigreerd.
    
    ![Fysieke server toevoegen](media/migrate-tutorial-windows-server-2008/Add-physical-server.png)
 
@@ -143,11 +139,11 @@ Het beleid wordt automatisch gekoppeld aan de configuratieserver.
 
 ## <a name="run-a-test-migration"></a>Een testmigratie uitvoeren
 
-U kunt een test-failover van het repliceren van de servers na de initiële replicatie is voltooid en wordt deze de status van de server uitvoeren **beveiligde**.
+U kunt een testfailover van de replicatieservers uitvoeren als de initiële replicatie is voltooid en de server de status **Beschermd** heeft gekregen.
 
 Voer een [testfailover](tutorial-dr-drill-azure.md) naar Azure uit om te controleren of alles goed werkt.
 
-   ![Test-failover](media/migrate-tutorial-windows-server-2008/testfailover.png)
+   ![Testfailover](media/migrate-tutorial-windows-server-2008/testfailover.png)
 
 
 ## <a name="migrate-to-azure"></a>Migreren naar Azure
@@ -156,7 +152,7 @@ Een failover uitvoeren voor de machines die u wilt migreren.
 
 1. Klik in **Instellingen** > **Gerepliceerde items** op de machine > **Failover**.
 2. Selecteer in **Failover** een **Herstelpunt** waarnaar u de failover wilt uitvoeren. Selecteer het meest recente herstelpunt.
-3. Selecteer **Sluit de computer af voordat de failover wordt gestart**. Site Recovery zal proberen de server afsluiten voordat de failover wordt geactiveerd. De failover wordt voortgezet zelfs als het afsluiten is mislukt. U kunt de voortgang van de failover volgen op de pagina **Taken**.
+3. Selecteer **Sluit de computer af voordat de failover wordt gestart**. Site Recovery tracht de virtuele bronmachine af te sluiten voordat de failover wordt geactiveerd. De failover wordt voortgezet zelfs als het afsluiten is mislukt. U kunt de voortgang van de failover volgen op de pagina **Taken**.
 4. Controleer of de virtuele Azure-machine in Azure wordt weergegeven zoals verwacht.
 5. Klik in **Gerepliceerde items** met de rechtermuisknop op de virtuele machine > **Migratie voltooien**. Hiermee wordt het migratieproces voltooid, de replicatie voor de VM gestopt en Site Recovery-facturering voor de virtuele machine gestopt.
 

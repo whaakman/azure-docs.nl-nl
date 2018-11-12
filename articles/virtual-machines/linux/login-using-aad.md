@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/17/2018
 ms.author: cynthn
-ms.openlocfilehash: 2ec712dcce1295a91f552176ddcf6572d3f23ecc
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 8bf87f9d1d1ab6da4b034890f1fbe058199eca41
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46993558"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51007132"
 ---
 # <a name="log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Meld u aan bij een virtuele Linux-machine in Azure met behulp van Azure Active Directory-verificatie (Preview)
 
@@ -147,6 +147,20 @@ Voer desgevraagd uw Azure AD-aanmeldingsreferenties op de aanmeldingspagina. Het
     You have signed in to the Microsoft Azure Linux Virtual Machine Sign-In application on your device.
 
 Sluit het browservenster geopend, gaat u terug naar de SSH-prompt en druk op de **Enter** sleutel. U bent nu aangemeld op de virtuele Azure Linux-machine met de machtigingen van de rol als toegewezen, zoals *VM User* of *VM-beheerder*. Als uw gebruikersaccount is toegewezen de *beheerdersaanmelding bij virtuele Machine* rol, kunt u de `sudo` opdrachten waarvoor bevoegdheden op hoofdniveau uit te voeren.
+
+## <a name="sudo-and-aad-login"></a>Sudo en AAD-aanmelding
+
+De eerste keer met sudo, wordt u gevraagd een tweede keer verifiëren. Als u niet wilt dat deze opnieuw te verifiëren voor het uitvoeren van sudo, kunt u uw sudo-bestand bewerken `/aad/etc/sudoers.d/aad_admins` en vervang deze regel:
+
+```bash
+%aad_admins ALL=(ALL) ALL
+```
+Met deze regel:
+
+```bash
+%aad_admins ALL=(ALL) NOPASSWD:ALL
+```
+
 
 ## <a name="troubleshoot-sign-in-issues"></a>Problemen met aanmelden oplossen
 

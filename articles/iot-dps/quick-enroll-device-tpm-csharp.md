@@ -1,6 +1,6 @@
 ---
 title: TPM-apparaat inschrijven bij Azure Device Provisioning Service met behulp van C# | Microsoft Docs
-description: 'Azure-quickstart: TPM-apparaat inschrijven bij Azure IoT Hub Device Provisioning Service met behulp van de C# service-SDK'
+description: Azure-snelstart - TPM-apparaat inschrijven bij Azure IoT Hub Device Provisioning Service met behulp van de C# service-SDK. In deze snelstart wordt gebruik gemaakt van afzonderlijke inschrijvingen.
 author: wesmc7777
 ms.author: wesmc
 ms.date: 01/16/2018
@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: csharp
 ms.custom: mvc
-ms.openlocfilehash: 5c0ac54996f66f44d39389d8ed1bc0c40793933b
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 48409fec8a9edd8a56f6e0664e1451e9677c4281
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39528075"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50155031"
 ---
 # <a name="enroll-tpm-device-to-iot-hub-device-provisioning-service-using-c-service-sdk"></a>TPM-apparaat inschrijven bij IoT Hub Device Provisioning Service met behulp van de C# service-SDK
 
@@ -34,7 +34,7 @@ In deze stappen ziet u hoe u programmatisch een afzonderlijke inschrijving voor 
 ## <a name="get-the-connection-string-for-your-provisioning-service"></a>De verbindingsreeks voor de inrichtingsservice ophalen
 
 Voor het voorbeeld in deze quickstart hebt u de verbindingsreeks voor de inrichtingsservice nodig.
-1. Meld u aan bij Azure Portal, klik in het linkermenu op de knop **Alle bronnen** en open uw Device Provisioning Service. 
+1. Meld u aan bij Azure Portal, klik in het linkermenu op de knop **Alle bronnen** en open Device Provisioning Service. 
 2. Klik op **Gedeeld toegangsbeleid**. Klik vervolgens op het toegangsbeleid dat u wilt gebruiken om de eigenschappen te openen. Kopieer of noteer de verbindingsreeks van de primaire sleutel uit het venster **Toegangsbeleid**. 
 
     ![Verbindingsreeks voor de inrichtingsservice ophalen uit de portal](media/quick-enroll-device-tpm-csharp/get-service-connection-string.png)

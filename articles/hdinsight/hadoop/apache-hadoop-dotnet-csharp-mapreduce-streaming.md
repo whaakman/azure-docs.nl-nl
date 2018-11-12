@@ -2,19 +2,19 @@
 title: Gebruik C# met MapReduce met Hadoop in HDInsight - Azure
 description: Informatie over het gebruik van C# MapReduce om oplossingen te maken met Hadoop in Azure HDInsight.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/27/2018
-ms.author: jasonh
-ms.openlocfilehash: 91558ae4fd592c7490aef0a0f2fd930e970f498c
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.author: hrasheed
+ms.openlocfilehash: 4cf68ba16cf19a20686f323832ccd7e7d1b543bb
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43049060"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51010946"
 ---
 # <a name="use-c-with-mapreduce-streaming-on-hadoop-in-hdinsight"></a>Gebruik C# met MapReduce, streaming van Hadoop in HDInsight
 

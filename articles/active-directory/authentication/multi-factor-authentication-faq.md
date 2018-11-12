@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: b6f1185a94f865578d9a6514fb6841f8811b2230
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 58992c80344902674b2b21a71b07925c752911a4
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42054502"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230937"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Veelgestelde vragen over Azure multi-factor Authentication
 
@@ -145,7 +145,7 @@ Als uw organisatie geen oudere clients, moet u uw gebruikers te maken van app-wa
 
 Levering van SMS-berichten en de ontvangst van antwoorden in SMS in twee richtingen niet gegarandeerd omdat er hebt factoren die van invloed zijn op de betrouwbaarheid van de service. Deze factoren omvatten het land van de bestemming, de mobiele telefoon-provider en de signaalsterkte.
 
-Als uw gebruikers vaak problemen ondervindt met het ontvangen van SMS-berichten, laat ook de mobiele app of automatische oproep methode te gebruiken. De mobiele app kan meldingen zowel via mobiel en Wi-Fi-verbindingen ontvangen. Bovendien de mobiele app kunt verificatiecodes worden gegenereerd, zelfs wanneer het apparaat geen signaal helemaal heeft. De Microsoft Authenticator-app is beschikbaar voor [Android](http://go.microsoft.com/fwlink/?Linkid=825072), [IOS](http://go.microsoft.com/fwlink/?Linkid=825073), en [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071).
+Als uw gebruikers vaak problemen ondervindt met het ontvangen van SMS-berichten, laat ook de mobiele app of automatische oproep methode te gebruiken. De mobiele app kan meldingen zowel via mobiel en Wi-Fi-verbindingen ontvangen. Bovendien de mobiele app kunt verificatiecodes worden gegenereerd, zelfs wanneer het apparaat geen signaal helemaal heeft. De Microsoft Authenticator-app is beschikbaar voor [Android](https://go.microsoft.com/fwlink/?Linkid=825072), [IOS](https://go.microsoft.com/fwlink/?Linkid=825073), en [Windows Phone](https://go.microsoft.com/fwlink/?Linkid=825071).
 
 Als u de SMS-berichten gebruiken moet, wordt u aangeraden eenrichtings-SMS in plaats van SMS in twee richtingen indien mogelijk. SMS in één richting is betrouwbaarder en voorkomt dat gebruikers waarvoor globale SMS kosten worden berekend vanaf het beantwoorden van een SMS-bericht is verzonden vanaf een ander land.
 

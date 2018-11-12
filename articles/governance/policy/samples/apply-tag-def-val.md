@@ -6,69 +6,223 @@ author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
-ms.date: 09/18/2018
+ms.date: 10/29/2018
 ms.author: dacoulte
 ms.custom: mvc
-ms.openlocfilehash: 52316277a3e784e2d88f3d073f59b94124c08e5e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 3f900d39b0260836013f3e42e147654e1d7a2226
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46947644"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50214474"
 ---
 # <a name="apply-tag-and-its-default-value"></a>Tag met standaardwaarde toepassen
 
 Dit beleid voegt de opgegeven tagnaam en -waarde toe, als die tag niet is opgegeven. U geeft de tagnaam en -waarde op die moet worden toegepast.
 
+U kunt dit voorbeeldbeleid implementeren met behulp van:
+
+- [Azure Portal](#azure-portal)
+- [Azure PowerShell](#azure-powershell)
+- [Azure-CLI](#azure-cli)
+- [REST API](#rest-api)
+
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="sample-template"></a>Voorbeeldsjabloon
+## <a name="sample-policy"></a>Voorbeeldbeleid
+
+### <a name="policy-definition"></a>Beleidsdefinitie
+
+De volledige samengestelde JSON beleidsdefinitie, die wordt gebruikt door de REST-API, 'Deploy to Azure'-knoppen en handmatig in de portal.
 
 [!code-json[main](../../../../policy-templates/samples/built-in-policy/apply-default-tag-value/azurepolicy.json "Apply tag and its default value")]
 
-U kunt deze sjabloon implementeren met behulp van [Azure Portal](#deploy-with-the-portal), met [PowerShell](#deploy-with-powershell) of met de [Azure CLI](#deploy-with-azure-cli).
+> [!NOTE]
+> Als u een beleid handmatig in de portal maakt, gebruikt u de gedeelten **properties.parameters** en **properties.policyRule** van de bovenstaande code. Voeg de twee secties samen met accolades `{}` om er geldige JSON van te maken.
 
-## <a name="deploy-with-the-portal"></a>Implementeren met portal
+### <a name="policy-rules"></a>Beleidsregels
 
-[![Implementeren in Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?feature.customportal=false&microsoft_azure_policy=true&microsoft_azure_policy_policyinsights=true&feature.microsoft_azure_security_policy=true&microsoft_azure_marketplace_policy=true#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2Fbuilt-in-policy%2Fapply-default-tag-value%2Fazurepolicy.json)
+De JSON definieert de regels van het beleid, zoals gebruikt door Azure CLI en Azure PowerShell.
 
-## <a name="deploy-with-powershell"></a>Implementeren met PowerShell
+[!code-json[rule](../../../../policy-templates/samples/built-in-policy/apply-default-tag-value/azurepolicy.rules.json "Policy rules (JSON)")]
+
+### <a name="policy-parameters"></a>Beleidsparameters
+
+De JSON definieert de beleidsparameters, zoals gebruikt door Azure CLI en Azure PowerShell.
+
+[!code-json[parameters](../../../../policy-templates/samples/built-in-policy/apply-default-tag-value/azurepolicy.parameters.json "Policy parameters (JSON)")]
+
+|Naam |Type |Veld |Beschrijving |
+|---|---|---|---|
+|tagName |Tekenreeks |tags |Naam van de tag, bijvoorbeeld costCenter|
+|tagValue |Tekenreeks |tags |Waarde van de tag, bijvoorbeeld headquarter|
+
+Bij het maken van een toewijzing via PowerShell of Azure CLI kunnen de parameterwaarden worden doorgegeven als JSON in een tekenreeks of via een bestand met `-PolicyParameter` (PowerShell) of `--params` (Azure CLI).
+PowerShell ondersteunt ook `-PolicyParameterObject`, waarvoor de cmdlet een hashtabel met naam/waardeparen moet ontvangen waarin **Name** de parameternaam is en **Value** is de enkelvoudige waarde of matrix met waarden die tijdens toewijzing wordt doorgegeven.
+
+In deze voorbeeldparameter zijn een _tagName_ van **costCenter** en _tagValue_ van **headquarter** gedefinieerd.
+
+```json
+{
+    "tagName": {
+        "value": "costCenter"
+    },
+    "tagValue": {
+        "value": "headquarter"
+    }
+}
+```
+
+## <a name="azure-portal"></a>Azure Portal
+
+[![Implementeren in Azure](../media/deploy/deploybutton.png)](https://portal.azure.com/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2Fbuilt-in-policy%2Fapply-default-tag-value%2Fazurepolicy.json)
+[![Implementeren in Azure Gov](../media/deploy/deployGovbutton.png)](https://portal.azure.us/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2Fbuilt-in-policy%2Fapply-default-tag-value%2Fazurepolicy.json)
+
+## <a name="azure-powershell"></a>Azure PowerShell
 
 [!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh.md)]
 
-```azurepowershell-interactive
-$definition = New-AzureRmPolicyDefinition -Name "apply-default-tag-value" -DisplayName "Apply tag and its default value" -description "Applies a required tag and its default value if it is not specified by the user." -Policy 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/built-in-policy/apply-default-tag-value/azurepolicy.rules.json' -Parameter 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/built-in-policy/apply-default-tag-value/azurepolicy.parameters.json' -Mode All
-$definition
-$assignment = New-AzureRMPolicyAssignment -Name <assignmentname> -Scope <scope>  -tagName <tagName> -tagValue <tagValue> -PolicyDefinition $definition
-$assignment
-```
-
-### <a name="clean-up-powershell-deployment"></a>PowerShell-implementatie opschonen
-
-Gebruik de volgende opdracht om de resourcegroep, VM, en alle gerelateerde resources te verwijderen.
+### <a name="deploy-with-azure-powershell"></a>Implementeren met Azure PowerShell
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name myResourceGroup
+# Create the Policy Definition (Subscription scope)
+$definition = New-AzureRmPolicyDefinition -Name 'allowed-custom-images' -DisplayName 'Approved VM images' -description 'This policy governs the approved VM images' -Policy 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/built-in-policy/apply-default-tag-value/azurepolicy.rules.json' -Parameter 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/built-in-policy/apply-default-tag-value/azurepolicy.parameters.json' -Mode All
+
+# Set the scope to a resource group; may also be a subscription or management group
+$scope = Get-AzureRmResourceGroup -Name 'YourResourceGroup'
+
+# Set the Policy Parameter (JSON format)
+$policyparam = '{ "tagName": { "value": "costCenter" }, "tagValue": { "value": "headquarter" } }'
+
+# Create the Policy Assignment
+$assignment = New-AzureRmPolicyAssignment -Name 'apply-default-tag-value' -DisplayName 'Apply tag and its default value Assignment' -Scope $scope.ResourceId -PolicyDefinition $definition -PolicyParameter $policyparam
 ```
 
-## <a name="deploy-with-azure-cli"></a>Implementeren met Azure CLI
+### <a name="remove-with-azure-powershell"></a>Verwijderen met Azure PowerShell
+
+Voer de volgende opdrachten uit om de vorige toewijzing en definitie te verwijderen:
+
+```azurepowershell-interactive
+# Remove the Policy Assignment
+Remove-AzureRmPolicyAssignment -Id $assignment.ResourceId
+
+# Remove the Policy Definition
+Remove-AzureRmPolicyDefinition -Id $definition.ResourceId
+```
+
+### <a name="azure-powershell-explanation"></a>Toelichting van Azure PowerShell
+
+De scripts voor implementeren en verwijderen gebruiken de volgende opdrachten. Elke opdracht in de volgende tabel is een koppeling naar opdrachtspecifieke documentatie:
+
+| Opdracht | Opmerkingen |
+|---|---|
+| [New-AzureRmPolicyDefinition](/powershell/module/azurerm.resources/new-azurermpolicydefinition) | Hiermee maakt u een nieuwe Azure Policy-definitie. |
+| [Get-AzureRmResourceGroup](/powershell/module/azurerm.resources/get-azurermresourcegroup) | Hiermee vraagt u één resourcegroep op. |
+| [New-AzureRmPolicyAssignment](/powershell/module/azurerm.resources/new-azurermpolicyassignment) | Hiermee maakt u een nieuwe Azure Policy-toewijzing. In dit voorbeeld bieden we een definitie aan, maar er kan ook een initiatief nodig zijn. |
+| [Remove-AzureRmPolicyAssignment](/powershell/module/azurerm.resources/remove-azurermpolicyassignment) | Hiermee verwijdert u een bestaande Azure Policy-toewijzing. |
+| [Remove-AzureRmPolicyDefinition](/powershell/module/azurerm.resources/remove-azurermpolicydefinition) | Hiermee verwijdert u een bestaande Azure Policy-definitie. |
+
+## <a name="azure-cli"></a>Azure-CLI
 
 [!INCLUDE [sample-cli-install](../../../../includes/sample-cli-install.md)]
 
-```azurecli-interactive
-az policy definition create --name 'apply-default-tag-value' --display-name 'Apply tag and its default value' --description 'Applies a required tag and its default value if it is not specified by the user.' --rules 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/built-in-policy/apply-default-tag-value/azurepolicy.rules.json' --params 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/built-in-policy/apply-default-tag-value/azurepolicy.parameters.json' --mode All
-
-az policy assignment create --name <assignmentname> --scope <scope> --policy "apply-default-tag-value"
-```
-
-### <a name="clean-up-azure-cli-deployment"></a>Implementatie van Azure CLI opschonen
-
-Gebruik de volgende opdracht om de resourcegroep, VM, en alle gerelateerde resources te verwijderen.
+### <a name="deploy-with-azure-cli"></a>Implementeren met Azure CLI
 
 ```azurecli-interactive
-az group delete --name myResourceGroup --yes
+# Create the Policy Definition (Subscription scope)
+definition=$(az policy definition create --name 'apply-default-tag-value' --display-name 'Apply tag and its default value' --description 'Applies a required tag and its default value if it is not specified by the user' --rules 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/built-in-policy/apply-default-tag-value/azurepolicy.rules.json' --params 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/built-in-policy/apply-default-tag-value/azurepolicy.parameters.json' --mode All)
+
+# Set the scope to a resource group; may also be a subscription or management group
+scope=$(az group show --name 'YourResourceGroup')
+
+# Set the Policy Parameter (JSON format)
+policyparam='{ "tagName": { "value": "costCenter" }, "tagValue": { "value": "headquarter" } }'
+
+# Create the Policy Assignment
+assignment=$(az policy assignment create --name 'apply-default-tag-value' --display-name 'Apply tag and its default value Assignment' --scope `echo $scope | jq '.id' -r` --policy `echo $definition | jq '.name' -r` --params "$policyparam")
 ```
+
+### <a name="remove-with-azure-cli"></a>Verwijderen met Azure CLI
+
+Voer de volgende opdrachten uit om de vorige toewijzing en definitie te verwijderen:
+
+```azurecli-interactive
+# Remove the Policy Assignment
+az policy assignment delete --name `echo $assignment | jq '.name' -r`
+
+# Remove the Policy Definition
+az policy definition delete --name `echo $definition | jq '.name' -r`
+```
+
+### <a name="azure-cli-explanation"></a>Toelichting van Azure CLI
+
+| Opdracht | Opmerkingen |
+|---|---|
+| [az policy definition create](/cli/azure/policy/definition?view=azure-cli-latest#az-policy-definition-create) | Hiermee maakt u een nieuwe Azure Policy-definitie. |
+| [az group show](/cli/azure/group?view=azure-cli-latest#az-group-show) | Hiermee vraagt u één resourcegroep op. |
+| [az policy assignment create](/cli/azure/policy/assignment?view=azure-cli-latest#az-policy-assignment-create) | Hiermee maakt u een nieuwe Azure Policy-toewijzing. In dit voorbeeld bieden we een definitie aan, maar er kan ook een initiatief nodig zijn. |
+| [az policy assignment delete](/cli/azure/policy/assignment?view=azure-cli-latest#az-policy-assignment-delete) | Hiermee verwijdert u een bestaande Azure Policy-toewijzing. |
+| [az policy definition delete](/cli/azure/policy/definition?view=azure-cli-latest#az-policy-definition-delete) | Hiermee verwijdert u een bestaande Azure Policy-definitie. |
+
+Er zijn verschillende hulpprogramma's die u kunt gebruiken om te communiceren met de REST-API van Resource Manager, zoals [ARMClient](https://github.com/projectkudu/ARMClient) of PowerShell. Een voorbeeld van het aanroepen van een REST-API vanuit PowerShell vindt u in de sectie **Aliassen** van [Structuur van Azure-beleidsdefinities](../concepts/definition-structure.md#aliases).
+
+### <a name="deploy-with-rest-api"></a>Implementeren met REST-API
+
+- Maak de beleidsdefinitie (abonnementsbereik). Gebruik de [beleidsdefinitie](#policy-definition) geschreven in JSON voor de body van de aanvraag.
+
+  ```http
+  PUT https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policyDefinitions/apply-default-tag-value?api-version=2016-12-01
+  ```
+
+- Maak de beleidstoewijzing (scope van resourcegroep).
+
+  ```http
+  PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/YourResourceGroup/providers/Microsoft.Authorization/policyAssignments/apply-default-tag-value-assignment?api-version=2017-06-01-preview
+  ```
+
+  Gebruik het volgende JSON-voorbeeld voor de body van de aanvraag:
+
+  ```json
+  {
+      "properties": {
+          "displayName": "Apply tag and its default value Assignment",
+          "policyDefinitionId": "/subscriptions/<subscriptionId>/providers/Microsoft.Authorization/policyDefinitions/apply-default-tag-value",
+          "parameters": {
+              "tagName": {
+                  "value": "costCenter"
+              },
+              "tagValue": {
+                  "value": "headquarter"
+              }
+          }
+      }
+  }
+  ```
+
+### <a name="remove-with-rest-api"></a>Verwijderen met REST-API
+
+- Beleidstoewijzing verwijderen
+
+  ```http
+  DELETE https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policyAssignments/apply-default-tag-value-assignment?api-version=2017-06-01-preview
+  ```
+
+- Beleidsdefinitie verwijderen
+
+  ```http
+  DELETE https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policyDefinitions/apply-default-tag-value?api-version=2016-12-01
+  ```
+
+### <a name="rest-api-explanation"></a>Toelichting van REST-API
+
+| Service | Groep | Bewerking | Opmerkingen |
+|---|---|---|---|
+| Resourcebeheer | Definities voor beleid | [Maken](/rest/api/resources/policydefinitions/createorupdate) | Hiermee maakt u een nieuwe Azure Policy-definitie voor een abonnement. Alternatief: [Maken in beheergroep](/rest/api/resources/policydefinitions/createorupdateatmanagementgroup) |
+| Resourcebeheer | Beleidstoewijzingen | [Maken](/rest/api/resources/policyassignments/create) | Hiermee maakt u een nieuwe Azure Policy-toewijzing. In dit voorbeeld bieden we een definitie aan, maar er kan ook een initiatief nodig zijn. |
+| Resourcebeheer | Beleidstoewijzingen | [Verwijderen](/rest/api/resources/policyassignments/delete) | Hiermee verwijdert u een bestaande Azure Policy-toewijzing. |
+| Resourcebeheer | Definities voor beleid | [Verwijderen](/rest/api/resources/policydefinitions/delete) | Hiermee verwijdert u een bestaande Azure Policy-definitie. Alternatief: [Verwijderen in beheergroep](/rest/api/resources/policydefinitions/deleteatmanagementgroup) |
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Bekijk meer voorbeelden op [Voorbeelden van Azure Policy](index.md)
+- Aanvullende [voorbeelden van Azure Policy](index.md) bekijken
+- [Structuur van Azure Policy-definities](../concepts/definition-structure.md) bekijken

@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: deguhath
-ms.openlocfilehash: be6bda4f5c420d1e631690fc648f982d4910e198
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: 6688432342ff08d2ca177570cc6bbbe0095ccbe0
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47585982"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51229062"
 ---
 # <a name="scalable-data-science-with-azure-data-lake-an-end-to-end-walkthrough"></a>Schaalbare Gegevenswetenschap met Azure Data Lake: een end-to-end-overzicht
-In dit scenario ziet u hoe u Azure Data Lake gegevens verkennen en binaire classificatie-taken op een voorbeeld van de NYC taxi reis en ritbedrag gegevensset om te voorspellen of een tip door een fare wordt betaald. Dit leidt u door de stappen van de [Team Data Science Process](http://aka.ms/datascienceprocess), end-to-end, in gegevens ophalen als model voor training en vervolgens naar de implementatie van een webservice die het model publiceert.
+In dit scenario ziet u hoe u Azure Data Lake gegevens verkennen en binaire classificatie-taken op een voorbeeld van de NYC taxi reis en ritbedrag gegevensset om te voorspellen of een tip door een fare wordt betaald. Dit leidt u door de stappen van de [Team Data Science Process](https://aka.ms/datascienceprocess), end-to-end, in gegevens ophalen als model voor training en vervolgens naar de implementatie van een webservice die het model publiceert.
 
 ### <a name="azure-data-lake-analytics"></a>Azure Data Lake Analytics
 De [Microsoft Azure Data Lake](https://azure.microsoft.com/solutions/data-lake/) heeft alle mogelijkheden die nodig zijn om het voor gegevenswetenschappers eenvoudiger voor het opslaan van gegevens van elke grootte, vorm en snelheid en voor het uitvoeren van gegevensverwerking, geavanceerde analyses en machine learning modellen met hoge schaalbaarheid in een rendabele manier.   U betaalt op basis van per taak alleen wanneer de gegevens daadwerkelijk wordt verwerkt. Azure Data Lake Analytics bevat U-SQL, een taal die de declaratieve aard van SQL met de expressieve kracht van C# voor schaalbare combineert gedistribueerde query-mogelijkheden. Dit kunt u niet-gestructureerde gegevens worden verwerkt door het schema toepassen op lezen, aangepaste logica en de gebruiker gedefinieerde functies (UDF's) in te voegen en uitbreidbaarheid om in te schakelen fijnmazige controle over het uitvoeren van op grote schaal bevat. Zie voor meer informatie over het ontwerpplan achter U-SQL, [blogbericht voor Visual Studio](https://blogs.msdn.microsoft.com/visualstudio/2015/09/28/introducing-u-sql-a-language-that-makes-big-data-processing-easy/).
@@ -684,7 +684,7 @@ Het dashboard van de webservice wordt kort weergegeven:
 U hebt een data science-omgeving voor het bouwen van schaalbare end-to-end-oplossingen in Azure Data Lake gemaakt door te voeren in dit scenario. Deze omgeving is gebruikt voor het analyseren van grote openbare gegevensset, deze te zetten door de canonieke stappen van de Data Science Process van gegevens ophalen via het trainen van het model en vervolgens naar de implementatie van het model als een webservice. U-SQL is gebruikt om te verwerken, verkennen en de voorbeeldgegevens. Python en Hive zijn gebruikt met Azure Machine Learning Studio bouwen en implementeren van voorspellende modellen.
 
 ## <a name="whats-next"></a>Volgende stappen
-Het leertraject voor de [Team Data Science Process (TDSP)](http://aka.ms/datascienceprocess) vindt u koppelingen naar onderwerpen met een beschrijving van elke stap in het proces voor geavanceerde analyses. Er zijn een aantal scenario's die worden gespecificeerd op de [Team Data Science Process walkthroughs](walkthroughs.md) pagina die gebruikmaken van het gebruik van resources en services in verschillende predictive analytics-scenario's:
+Het leertraject voor de [Team Data Science Process (TDSP)](https://aka.ms/datascienceprocess) vindt u koppelingen naar onderwerpen met een beschrijving van elke stap in het proces voor geavanceerde analyses. Er zijn een aantal scenario's die worden gespecificeerd op de [Team Data Science Process walkthroughs](walkthroughs.md) pagina die gebruikmaken van het gebruik van resources en services in verschillende predictive analytics-scenario's:
 
 * [Het Team Data Science Process in actie: met behulp van SQL Data Warehouse](sqldw-walkthrough.md)
 * [Het Team Data Science Process in actie: met behulp van HDInsight Hadoop-clusters](hive-walkthrough.md)

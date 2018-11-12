@@ -1,23 +1,23 @@
 ---
-title: Analyseren van gegevens van vertragingen van vluchten met Hadoop in HDInsight - Azure
+title: Analyseren van gegevens van vertragingen van vluchten met Apache Hadoop in HDInsight - Azure
 description: Leer hoe u een Windows PowerShell-script gebruiken om een HDInsight-cluster maken, uitvoeren van een Hive-taak een taak Sqoop uitvoeren en verwijderen van het cluster.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/25/2017
-ms.author: jasonh
+ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 1d39fd1cf40834781375b2c7bd6cb801ccd3cb97
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: a7700de9bed7e5cfc003481a8e7d93720a767928
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43091895"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51036152"
 ---
 # <a name="analyze-flight-delay-data-by-using-hive-in-hdinsight"></a>Gegevens over vertraagde vluchten analyseren met behulp van Hive in HDInsight
-Hive biedt een manier van het Hadoop MapReduce-taken uitvoeren via een SQL-achtige scripttaal genaamd  *[HiveQL][hadoop-hiveql]*, die kunnen worden gebruikt voor samenvatten, uitvoeren van query's, en analyseren van grote hoeveelheden gegevens.
+Hive biedt een manier van het Apache Hadoop MapReduce-taken uitvoeren via een SQL-achtige scripttaal genaamd  *[HiveQL][hadoop-hiveql]*, die kunnen worden gebruikt voor het samenvatten, uitvoeren van query's en analyseren van grote hoeveelheden gegevens.
 
 > [!IMPORTANT]
 > De stappen in dit document moet een Windows-gebaseerde HDInsight-cluster. Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie. Zie voor stappen die met een cluster op basis van Linux werken [gegevens over vertraagde vluchten analyseren met behulp van Hive in HDInsight (Linux)](hdinsight-analyze-flight-delay-data-linux.md).

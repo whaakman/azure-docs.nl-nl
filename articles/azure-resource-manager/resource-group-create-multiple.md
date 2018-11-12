@@ -10,24 +10,24 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/10/2018
+ms.date: 11/02/2018
 ms.author: tomfitz
-ms.openlocfilehash: 8828ba3c91df7b0a2fde3c42ecd81bd4ee4d17a3
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: e1edf0ed0c9efcb9f0c81718621706550bf3c4d7
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46295934"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51012000"
 ---
-# <a name="deploy-multiple-instances-of-a-resource-or-property-in-azure-resource-manager-templates"></a>Meerdere exemplaren van een resource of eigenschap in Azure Resource Manager-sjablonen implementeren
+# <a name="deploy-more-than-one-instance-of-a-resource-or-property-in-azure-resource-manager-templates"></a>Meer dan één exemplaar van een resource of eigenschap in Azure Resource Manager-sjablonen implementeren
 
-Dit artikel ziet u hoe u in uw Azure Resource Manager-sjabloon voor het maken van meerdere exemplaren van een resource. Als u nodig hebt om op te geven of een resource wordt geïmplementeerd op alle, Zie [voorwaarde element](resource-manager-templates-resources.md#condition).
+Dit artikel ziet u hoe u in uw Azure Resource Manager-sjabloon voor het maken van meer dan één exemplaar van een resource. Als u nodig hebt om op te geven of een resource wordt geïmplementeerd op alle, Zie [voorwaarde element](resource-manager-templates-resources.md#condition).
 
 Zie voor een zelfstudie [zelfstudie: maken van meerdere exemplaren van resources met behulp van Resource Manager-sjablonen](./resource-manager-tutorial-create-multiple-instances.md).
 
 ## <a name="resource-iteration"></a>Herhaling van de resource
 
-Wanneer u tijdens de implementatie beslissen moet te maken van een of meer exemplaren van een resource, Voeg een `copy` element aan het brontype. In het element kopiëren geeft u het aantal iteraties en een naam op voor deze lus. De waarde van het aantal moet een positief geheel getal zijn en mag niet meer dan 800. 
+Wanneer u tijdens de implementatie beslissen moet te maken van een of meer exemplaren van een resource, Voeg een `copy` element aan het brontype. In het copy-element geeft u het aantal iteraties en een naam voor deze lus op. De waarde van het aantal moet een positief geheel getal zijn en mag niet meer dan 800. 
 
 De resource te maken van meerdere keren heeft de volgende notatie:
 
@@ -68,7 +68,7 @@ Hiermee maakt u deze namen:
 * storage1
 * storage2.
 
-U kunt een waarde in de functie copyIndex() doorgeven om de index offsetwaarde. Het aantal iteraties om uit te voeren is nog steeds opgegeven in het element kopiëren, maar de waarde van copyIndex wordt gecompenseerd door de opgegeven waarde. Dus in het volgende voorbeeld:
+Als u de indexwaarde wilt verschuiven, kunt u een waarde doorgeven in de functie copyIndex(). Het aantal iteraties om uit te voeren is nog steeds opgegeven in het element kopiëren, maar de waarde van copyIndex wordt gecompenseerd door de opgegeven waarde. Dus in het volgende voorbeeld:
 
 ```json
 "name": "[concat('storage', copyIndex(1))]",
@@ -111,9 +111,9 @@ Hiermee maakt u deze namen:
 * storagefabrikam
 * storagecoho
 
-Maakt de resources parallel standaard Resource Manager. Daarom staat niet de volgorde waarin ze worden gemaakt vast. U kunt echter om op te geven dat de resources worden geïmplementeerd in de reeks. Bijvoorbeeld bij het bijwerken van een productie-omgeving, kunt u de updates dus spreiden alleen een bepaald aantal op elk gewenst moment worden bijgewerkt.
+Maakt de resources parallel standaard Resource Manager. De volgorde waarin ze worden gemaakt, wordt niet gegarandeerd. U kunt echter om op te geven dat de resources worden geïmplementeerd in de reeks. Bijvoorbeeld bij het bijwerken van een productie-omgeving, kunt u de updates dus spreiden alleen een bepaald aantal op elk gewenst moment worden bijgewerkt.
 
-Als u wilt implementeren serie meerdere exemplaren van een resource, instellen `mode` naar **seriële** en `batchSize` aan het aantal exemplaren moeten worden geïmplementeerd op een tijdstip. Met de seriële modus maakt Resource Manager een afhankelijkheid op eerdere exemplaren in de lus, zodat deze niet één batch wordt gestart totdat de vorige batch is voltooid.
+Voor het implementeren serie van meer dan één exemplaar van een resource, stel `mode` naar **seriële** en `batchSize` aan het aantal exemplaren moeten worden geïmplementeerd op een tijdstip. Met de seriële modus maakt Resource Manager een afhankelijkheid op eerdere exemplaren in de lus, zodat deze niet één batch wordt gestart totdat de vorige batch is voltooid.
 
 Bijvoorbeeld: als u wilt implementeren serie opslagaccounts twee tegelijk, gebruiken:
 
@@ -148,10 +148,10 @@ De eigenschap mode accepteert ook **parallelle**, dit is de standaardwaarde.
 
 ## <a name="property-iteration"></a>De eigenschap herhaling
 
-Voor het maken van meerdere waarden voor een eigenschap van een resource, Voeg een `copy` -matrix in het eigenschapselement. Deze matrix bevat objecten en elk object bevat de volgende eigenschappen:
+Voor het maken van meer dan één waarde voor een eigenschap van een resource, Voeg een `copy` -matrix in het eigenschapselement. Deze matrix bevat objecten en elk object bevat de volgende eigenschappen:
 
-* naam - de naam van de eigenschap te maken van meerdere waarden voor
-* aantal - het aantal waarden om te maken
+* naam - de naam van de eigenschap te maken van verschillende waarden voor
+* aantal - het aantal waarden om te maken. De waarde van het aantal moet een positief geheel getal zijn en mag niet meer dan 800.
 * invoer - een object dat de waarden die moeten worden toegewezen aan de eigenschap bevat  
 
 Het volgende voorbeeld laat zien hoe om toe te passen `copy` met de eigenschap dataDisks op een virtuele machine:
@@ -381,7 +381,7 @@ U opgeven dat een resource na een andere resource wordt geïmplementeerd met beh
 <a id="looping-on-a-nested-resource" />
 
 ## <a name="iteration-for-a-child-resource"></a>Herhaling voor een onderliggende resource
-U kunt een lus kopiëren niet gebruiken voor een onderliggende resource. Voor het maken van meerdere exemplaren van een resource die u normaal gesproken als genest in een andere resource definieert, moet u die bron in plaats daarvan maken als een resource op het hoogste niveau. Definieert u de relatie met de bovenliggende resource via de eigenschappen van het type en de naam.
+U kunt een lus kopiëren niet gebruiken voor een onderliggende resource. Voor het maken van meer dan één exemplaar van een resource die u normaal gesproken als genest in een andere resource definieert, moet u die bron in plaats daarvan maken als een resource op het hoogste niveau. Definieert u de relatie met de bovenliggende resource via de eigenschappen van het type en de naam.
 
 Stel bijvoorbeeld dat u doorgaans een gegevensset definiëren als een onderliggende resource binnen een data factory.
 
@@ -403,7 +403,7 @@ Stel bijvoorbeeld dat u doorgaans een gegevensset definiëren als een onderligge
 }]
 ```
 
-Voor het maken van meerdere exemplaren van gegevenssets, verplaatst u deze buiten de data factory. De gegevensset moet zich op hetzelfde niveau bevindt als de data factory, maar het is nog steeds een onderliggende resource van de data factory. U behoudt de relatie tussen de gegevensset en data factory via de eigenschappen van het type en de naam. Omdat het type kan niet meer worden afgeleid van de positie in de sjabloon, moet u de volledig gekwalificeerde type in de indeling: `{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}`.
+Voor het maken van meer dan één gegevensset, moet u deze buiten de data factory verplaatsen. De gegevensset moet zich op hetzelfde niveau bevindt als de data factory, maar het is nog steeds een onderliggende resource van de data factory. U behoudt de relatie tussen de gegevensset en data factory via de eigenschappen van het type en de naam. Omdat het type kan niet meer worden afgeleid van de positie in de sjabloon, moet u de volledig gekwalificeerde type in de indeling: `{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}`.
 
 Geef een naam voor de gegevensset met de naam van de bovenliggende resource voor het maken van een bovenliggende/onderliggende relatie met een exemplaar van de data factory. Gebruik de indeling: `{parent-resource-name}/{child-resource-name}`.  
 
@@ -432,16 +432,16 @@ Het volgende voorbeeld ziet u de implementatie:
 
 ## <a name="example-templates"></a>Voorbeeldsjablonen
 
-De volgende voorbeelden ziet algemene scenario's voor het maken van meerdere resources of eigenschappen.
+De volgende voorbeelden ziet algemene scenario's voor het maken van meer dan één exemplaar van een resource of de eigenschap.
 
 |Template  |Beschrijving  |
 |---------|---------|
-|[Storage kopiëren](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copystorage.json) |Meerdere opslagaccounts met een index-nummer in de naam van de implementeert. |
-|[Opslagruimte voor de seriële](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/serialcopystorage.json) |Meerdere opslagaccounts één implementeert tegelijk. De naam bevat het indexnummer. |
-|[Opslag met een matrix kopiëren](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copystoragewitharray.json) |Hiermee wordt geïmplementeerd in meerdere opslagaccounts. De naam bevat een waarde van een matrix. |
-|[VM-implementatie met een variabele aantal gegevensschijven](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-windows-copy-datadisks) |Meerdere gegevensschijven met een virtuele machine implementeert. |
+|[Storage kopiëren](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copystorage.json) |Meer dan één opslagaccount met een index-nummer in de naam van de implementeert. |
+|[Opslagruimte voor de seriële](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/serialcopystorage.json) |Verschillende opslagaccounts één implementeert tegelijk. De naam bevat het indexnummer. |
+|[Opslag met een matrix kopiëren](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copystoragewitharray.json) |Verschillende opslagaccounts implementeert. De naam bevat een waarde van een matrix. |
+|[VM-implementatie met een variabele aantal gegevensschijven](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-windows-copy-datadisks) |Aantal gegevensschijven met een virtuele machine implementeert. |
 |[Kopieer variabelen](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copyvariables.json) |Ziet u de verschillende manieren van het doorlopen van variabelen. |
-|[Meerdere beveiligingsregels](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json) |Meerdere beveiligingsregels implementeert in een netwerkbeveiligingsgroep. Vormt de beveiligingsregels van een parameter. Zie voor de parameter [meerdere NSG parameterbestand](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.parameters.json). |
+|[Meerdere beveiligingsregels](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json) |Diverse beveiligingsregels implementeert in een netwerkbeveiligingsgroep. Vormt de beveiligingsregels van een parameter. Zie voor de parameter [meerdere NSG parameterbestand](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.parameters.json). |
 
 ## <a name="next-steps"></a>Volgende stappen
 

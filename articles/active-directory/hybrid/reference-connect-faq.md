@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 11/02/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 3cb44779f376dca1844f42f346ed0fa3bfaa93cf
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 50ec49c22c64780c8f887b12eef1dd0e75c379ed
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48269442"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51010601"
 ---
 # <a name="azure-active-directory-connect-faq"></a>Veelgestelde vragen over Azure Active Directory Connect
 
@@ -75,6 +75,9 @@ Nee, Azure AD Connect biedt geen ondersteuning voor on-premises-forests of domei
 
 **Vraag: is puur IPv6-omgeving die wordt ondersteund?**  
 Nee, Azure AD Connect biedt geen ondersteuning voor een pure IPv6-omgeving.
+
+**V: ik heb een omgeving met meerdere forests en het netwerk tussen de twee forests gebruikmaakt van NAT (Network Address Translation). Azure AD Connect is gebruik te maken tussen deze twee forests ondersteund?**</br>
+ Nee, met behulp van Azure AD Connect via NAT wordt niet ondersteund. 
 
 ## <a name="federation"></a>Federatie
 **V: wat moet ik doen als ik ontvang een e-mail waarin wordt gevraagd om mijn Office 365-certificaat te vernieuwen?**  

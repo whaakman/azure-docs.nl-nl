@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: d181835c6baf5a2a40bca04feaa4c115178ba086
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: a6f18222e5683d2d9663b699a8f6bab399d4f45b
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50093958"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51299857"
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Azure Stack-certificaatvereisten voor openbare-sleutelinfrastructuur
 
@@ -42,7 +42,7 @@ De volgende lijst beschrijft de vereisten voor certificaten die nodig zijn voor 
 - Voor implementatie en rotatie kunt u één certificaat die betrekking hebben op alle naamruimten in de naam van het onderwerp en SAN Subject Alternative Name () velden van het certificaat gebruiken of kunt u afzonderlijke-certificaten van elk van de naamruimten hieronder die de Azure Stack Services die u van plan bent om te gebruiken is vereist. Beide benaderingen vereisen het gebruik van jokertekens voor eindpunten, waar ze zijn vereist, zoals **KeyVault** en **KeyVaultInternal**. 
 - PFX-versleuteling van het certificaat moet 3DES. 
 - Het certificaat handtekeningalgoritme moet SHA1 niet. 
-- Opmaak van het certificaat moet PFX, als de openbare en persoonlijke sleutels vereist voor Azure Stack-installatie zijn. 
+- Opmaak van het certificaat moet PFX, als de openbare en persoonlijke sleutels vereist voor Azure Stack-installatie zijn. De persoonlijke sleutel moet het sleutelkenmerk van lokale computer ingesteld.
 - De PFX-versleuteling moet 3DES (dit is standaard bij het exporteren van een client voor Windows 10 of Windows Server 2016-certificaatarchief).
 - De certificaat-pfx-bestanden moeten een waarde 'Digitale handtekening' en 'Keyencipherment-bit' in het veld 'Sleutelgebruik' hebben.
 - De certificaat-pfx-bestanden moeten de waarden "Serververificatie (1.3.6.1.5.5.7.3.1)" en 'Clientverificatie (1.3.6.1.5.5.7.3.2)' in het veld 'Enhanced Key Usage' hebben.

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: a70bb09edb5ccaf4e216785933af80e2fcb2153a
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 924fea7a8a8e6fb1ab25584a49f38b25156d1ec6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49363603"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230509"
 ---
 # <a name="tutorial-create-and-use-a-custom-image-for-virtual-machine-scale-sets-with-azure-powershell"></a>Zelfstudie: Een aangepaste installatiekopie voor virtuele-machineschaalsets maken en gebruiken met Azure PowerShell
 Wanneer u een schaalset maakt, geeft u een installatiekopie op die moet worden gebruikt wanneer de VM-exemplaren zijn geïmplementeerd. Om het aantal taken na de implementatie van VM-exemplaren te verminderen, kunt u een aangepaste VM-installatiekopie gebruiken. Deze aangepaste VM-installatiekopie bevat alle geïnstalleerde toepassingen of configuraties die vereist zijn. Alle VM-exemplaren die in de schaalset zijn gemaakt, gebruiken de aangepaste VM-installatiekopie en zijn gereed voor uw toepassingsverkeer. In deze zelfstudie leert u het volgende:
@@ -76,7 +76,7 @@ We gaan een eenvoudige webserver voor het aanpassen van uw VM installeren. Bij i
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
 ```
 
-De laatste stap voor het voorbereiden van uw VM voor gebruik als een aangepaste installatiekopie is het generaliseren van de VM. Sysprep verwijdert al uw persoonlijke gegevens en configuraties en stelt de virtuele machine opnieuw in op een schone toestand voor toekomstige implementaties. Zie voor meer informatie [Sysprep gebruiken: een inleiding](http://technet.microsoft.com/library/bb457073.aspx).
+De laatste stap voor het voorbereiden van uw VM voor gebruik als een aangepaste installatiekopie is het generaliseren van de VM. Sysprep verwijdert al uw persoonlijke gegevens en configuraties en stelt de virtuele machine opnieuw in op een schone toestand voor toekomstige implementaties. Zie voor meer informatie [Sysprep gebruiken: een inleiding](https://technet.microsoft.com/library/bb457073.aspx).
 
 Voer Sysprep uit om de virtuele machine te generaliseren, en stel de virtuele machine in voor een out-of-the-box-ervaring. Als u klaar bent, instrueer dan Sysprep om de virtuele machine af te sluiten:
 

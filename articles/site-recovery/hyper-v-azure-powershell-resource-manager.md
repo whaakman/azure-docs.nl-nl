@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 10/16/2018
 ms.author: sutalasi
-ms.openlocfilehash: f8f690a4f94ee56cfaa5532fa090fada1a33bddf
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 4b008cc119951e50567218e332818585fb017e5a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50214780"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51229404"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-hyper-v-vms-using-powershell-and-azure-resource-manager"></a>Instellen van herstel na noodgevallen naar Azure voor Hyper-V-machines met behulp van PowerShell en Azure Resource Manager
 
@@ -24,7 +24,7 @@ In dit artikel wordt beschreven hoe u Windows PowerShell, samen met Azure Resour
 
 Azure PowerShell biedt voor het beheren van Azure met behulp van Windows PowerShell-cmdlets. Site Recovery PowerShell-cmdlets beschikbaar zijn met Azure PowerShell voor Azure Resource Manager kunt u beveiligen en herstellen van uw servers in Azure.
 
-U hoeft te worden van een deskundige PowerShell te gebruiken in dit artikel, maar u hoeft te begrijpen basisconcepten, zoals modules, cmdlets en sessies. Lezen [aan de slag met Windows PowerShell](http://technet.microsoft.com/library/hh857337.aspx), en [met behulp van Azure PowerShell met Azure Resource Manager](../powershell-azure-resource-manager.md).
+U hoeft te worden van een deskundige PowerShell te gebruiken in dit artikel, maar u hoeft te begrijpen basisconcepten, zoals modules, cmdlets en sessies. Lezen [aan de slag met Windows PowerShell](https://technet.microsoft.com/library/hh857337.aspx), en [met behulp van Azure PowerShell met Azure Resource Manager](../powershell-azure-resource-manager.md).
 
 > [!NOTE]
 > Microsoft-partners in het programma Cloud Solution Provider (CSP) kunnen configureren en beheren van beveiliging van de klant servers hun respectieve CSP-abonnementen (tenant-abonnementen).

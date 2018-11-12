@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/22/2018
-ms.openlocfilehash: abf581430f7cf7020145b0217c387b8c2fc4f795
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: 2ef599fe704b184e82de2d704753e3fb4a274a2a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50979400"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51257796"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Inzicht in de uitvoer van Azure Stream Analytics
 Dit artikel beschrijft de verschillende typen uitvoer beschikbaar voor een Azure Stream Analytics-taak. Uitvoer kunnen u opslaan en sla de resultaten van de Stream Analytics-taak. De uitvoergegevens die worden gebruikt, kunt u doen verdere bedrijfsanalyses en datawarehousing van uw gegevens. 
@@ -297,7 +297,7 @@ De volgende tabel geeft een overzicht van de partitie ondersteuning en het aanta
 | Uitvoertype | Ondersteuning voor partitioneren | Partitiesleutel  | Aantal uitvoer schrijvers | 
 | --- | --- | --- | --- |
 | Azure Data Lake Store | Ja | Gebruik {date} en {time} tokens in het patroon voor het voorvoegsel van pad. Kies de notatie voor datum, zoals jjjj/MM/DD, jjjj/MM/jjjj, MM-DD-JJJJ. HH wordt gebruikt voor de tijdnotatie. | De invoer voor het partitioneren van volgt [volledig worden opgestart query's](stream-analytics-scale-jobs.md). | 
-| Azure SQL Database | Ja | Op basis van de component PARTITION BY in de query | De invoer voor het partitioneren van volgt [volledig worden opgestart query's](stream-analytics-scale-jobs.md). | 
+| Azure SQL Database | Ja | Op basis van de component PARTITION BY in de query | De invoer voor het partitioneren van volgt [volledig worden opgestart query's](stream-analytics-scale-jobs.md). Voor meer informatie over het bereiken van betere prestaties van de netwerkdoorvoer schrijven wanneer u het laden van gegevens in SQL Azure-Database, gaat u naar [Azure Stream Analytics-uitvoer naar Azure SQL Database](stream-analytics-sql-output-perf.md). | 
 | Azure Blob Storage | Ja | Gebruik {date} en {time} tokens van de gebeurtenis velden in het pad-patroon. Kies de notatie voor datum, zoals jjjj/MM/DD, jjjj/MM/jjjj, MM-DD-JJJJ. HH wordt gebruikt voor de tijdnotatie. Als onderdeel van de [preview](https://aka.ms/ASApreview1), blob-uitvoer kan worden gepartitioneerd op een kenmerk met één aangepaste gebeurtenis {fieldname} of {datum/tijd:\<aanduiding >}. | De invoer voor het partitioneren van volgt [volledig worden opgestart query's](stream-analytics-scale-jobs.md). | 
 | Azure Event Hub | Ja | Ja | Is afhankelijk van de uitlijning van de partitie.</br> Als uitvoer van de uitvoer Event Hub-partitiesleutel is even uitgelijnd met upstream (vorige) querystap is het aantal schrijvers is hetzelfde van het aantal Event Hub-partities. Elke schrijver maakt gebruik van de EventHub [EventHubSender klasse](/dotnet/api/microsoft.servicebus.messaging.eventhubsender?view=azure-dotnet) voor het verzenden van gebeurtenissen naar de specifieke partitie. </br> Wanneer de uitvoer Event Hub-partitiesleutel is niet uitgelijnd met upstream (vorige) querystap is het aantal schrijvers is hetzelfde als het aantal partities in die de vorige stap. EventHubClient maakt gebruik van elke schrijver [SendBatchAsync klasse](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync?view=azure-dotnet) gebeurtenissen verzenden naar alle partities van de uitvoer. |
 | Power BI | Nee | Geen | Niet van toepassing. | 
@@ -306,6 +306,8 @@ De volgende tabel geeft een overzicht van de partitie ondersteuning en het aanta
 | Azure Service Bus-wachtrij | Ja | Automatisch gekozen. Het aantal partities is gebaseerd op de [Service Bus-SKU's en grootte](../service-bus-messaging/service-bus-partitioning.md). Partitiesleutel is een unieke integer-waarde voor elke partitie.| Hetzelfde als het aantal partities in de uitvoerwachtrij. |
 | Azure Cosmos DB | Ja | Token {partition} in het patroon voor de Collectienaam gebruiken. {partition}-waarde is gebaseerd op de component PARTITION BY in de query. | De invoer voor het partitioneren van volgt [volledig geparallelliseerd query's](stream-analytics-scale-jobs.md). |
 | Azure Functions | Nee | Geen | Niet van toepassing. | 
+
+Als de uitvoeradapter niet is gepartitioneerd, gebrek aan gegevens in één invoer partitie, zorgt ervoor dat een vertraging van maximaal het latere aankomst van tijd.  In dergelijke gevallen wordt de uitvoer naar een enkele writer wat leiden knelpunten in de pijplijn tot kan samengevoegd. Voor meer informatie over laat aankomst beleid, gaat u naar [overwegingen bij de volgorde van de Azure Stream Analytics gebeurtenis](stream-analytics-out-of-order-and-late-events.md).
 
 ## <a name="output-batch-size"></a>Batchgrootte voor uitvoer
 Azure Stream Analytics maakt gebruik van variabele grootte batches gebeurtenissen verwerken en naar uitvoer schrijven. Normaal gesproken de Stream Analytics-engine schrijft een bericht niet op een tijdstip en batches gebruikt voor efficiëntie. Wanneer zowel de inkomende en de uitgaande snelheid van gebeurtenissen hoog is, gebruikt het grotere batches. Wanneer de snelheid van uitgangsgebeurtenissen laag is, gebruikt het kleinere batches latentie laag te houden. 

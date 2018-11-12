@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: jsimmons
-ms.openlocfilehash: 6599d634ec1e13715bdd34b6e8ab6fbd9f4f3e61
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 02c2b7560a0a609f6d902af78877d5f0236615d3
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50743266"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51011490"
 ---
 # <a name="preview-deploy-azure-ad-password-protection"></a>Voorbeeld: Azure AD-wachtwoordbeveiliging implementeren
 
@@ -53,6 +53,13 @@ Zodra de functie is voor een redelijke termijn in de controlemodus is uitgevoerd
 * Alle machines waar Azure AD wachtwoord beveiliging onderdelen zijn geïnstalleerd met inbegrip van de domeincontrollers moeten de Universal C-runtime geïnstalleerd hebben.
 Dit gebeurt bij voorkeur volledig patches voor de machine via Windows Update. Anders een juiste specifieke update-pakket kan worden geïnstalleerd: Zie [bijwerken voor universele C tijdens Runtime in Windows](https://support.microsoft.com/help/2999226/update-for-universal-c-runtime-in-windows)
 * Verbinding met het netwerk moet bestaan tussen ten minste één domeincontroller in elk domein en ten minste één server die als host fungeert voor de proxy-service van Azure AD wachtwoord beveiliging. Deze connectiviteit moet de domeincontroller voor toegang tot de RPC-eindpunt-mapper-poort (135) en de RPC-server-poort op de proxy-service toestaan.  De RPC-server-poort is standaard een dynamische RPC-poort, maar kan worden geconfigureerd (Zie hieronder). Gebruik een statische poort.
+* Alle machines die als host fungeert voor de proxy-service van Azure AD wachtwoord beveiliging moeten netwerktoegang hebben tot de volgende eindpunten:
+
+    |Eindpunt |Doel|
+    | --- | --- |
+    |`https://login.microsoftonline.com`|Verificatieaanvragen|
+    |`https://enterpriseregistration.windows.net`|Functionaliteit van Azure AD wachtwoord beveiliging|
+
 * Een globale beheerdersaccount om u te registreren van de proxy-service van Azure AD wachtwoord beveiliging en het forest met Azure AD.
 * Een account met Active Directory-domein administrator-bevoegdheden in het forest-hoofddomein het Windows Server Active Directory-forest registreren bij Azure AD.
 * Een Active Directory-domein met de DC agent-service-software gebruiken DFS-replicatie voor sysvol-replicatie.
