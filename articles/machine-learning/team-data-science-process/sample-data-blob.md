@@ -1,6 +1,6 @@
 ---
-title: Voorbeeldgegevens in Azure blob storage | Microsoft Docs
-description: Voorbeeldgegevens in Azure Blob-opslag
+title: Voorbeeldgegevens in Azure blob-opslag | Microsoft Docs
+description: Voorbeeldgegevens in Azure Blob Storage
 services: machine-learning,storage
 documentationcenter: ''
 author: deguhath
@@ -15,27 +15,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: deguhath
-ms.openlocfilehash: ffb92df0e0727d02985ec26f61739cdc759d0f93
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 9f987daf8b0f111f8d527b2f18dc5e3428df282a
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34837664"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51344923"
 ---
 # <a name="heading"></a>Voorbeeldgegevens in Azure blob-opslag
-Dit document bevat informatie over steekproeven opgeslagen gegevens in Azure blob-opslag door programmatisch downloaden en vervolgens wordt met behulp van de procedures die zijn geschreven in Python.
 
-De volgende **menu** koppelingen naar onderwerpen waarin wordt beschreven hoe u voorbeeldgegevens uit verschillende omgevingen voor opslag. 
+In dit artikel bevat informatie over steekproef nemen voor gegevens die zijn opgeslagen in Azure blob-opslag programmatisch downloaden en vervolgens sampling met behulp van de procedures die zijn geschreven in Python.
 
-[!INCLUDE [cap-sample-data-selector](../../../includes/cap-sample-data-selector.md)]
+**Waarom sample van uw gegevens?**
+Als de gegevensset die u van plan bent om te analyseren groot is, is het doorgaans een goed idee om down-sampling van de gegevens om deze aan de grootte van een kleiner, maar representatieve en gemakkelijker. Dit vereenvoudigt het begrijpen van gegevens, verkennen en feature-engineering. De rol in het Cortana Analytics-proces is om in te schakelen, snel ontwikkelen van prototypen van de functies voor het verwerken van gegevens en machine learning-modellen.
 
-**Waarom een steekproef nemen uit uw gegevens?**
-Als de gegevensset die u wilt analyseren groot is, is het meestal een goed idee om de gegevens om deze aan de grootte van een kleinere maar representatief en gemakkelijker down-voorbeeld. Dit vereenvoudigt het begrip van de gegevens, exploratie en functie-engineering. De rol in de Cortana-Analytics-proces is om in te schakelen snel maken van een prototype van de functies voor het verwerken van gegevens en machine learning-modellen.
+Deze taak steekproeven is een stap in de [Team Data Science Process (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
-Deze taak steekproeven is een stap in de [Team gegevens wetenschap proces (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
-
-## <a name="download-and-down-sample-data"></a>De download- en omlaag voorbeeldgegevens
-1. De gegevens uit Azure blob storage met behulp van de blob-service van de volgende voorbeeldcode voor Python downloaden: 
+## <a name="download-and-down-sample-data"></a>Download en down-sampling van gegevens
+1. De gegevens uit Azure blob-opslag met behulp van de blobservice van de volgende voorbeeldcode voor Python downloaden: 
    
         from azure.storage.blob import BlobService
         import tables
@@ -53,14 +50,14 @@ Deze taak steekproeven is een stap in de [Team gegevens wetenschap proces (TDSP)
         t2=time.time()
         print(("It takes %s seconds to download "+blobname) % (t2 - t1))
 
-2. Gegevens lezen in een Pandas gegevens tijdskader uit het bestand gedownload hierboven.
+2. Lezen van gegevens in een Pandas gegevensframe uit het bestand gedownload hierboven.
    
         import pandas as pd
    
         #directly ready from file on disk
         dataframe_blobdata = pd.read_csv(LOCALFILE)
 
-3. Omlaag-voorbeeld de gegevens met behulp van de `numpy`van `random.choice` als volgt:
+3. Down-sampling van de gegevens met de `numpy`van `random.choice` als volgt:
    
         # A 1 percent sample
         sample_ratio = 0.01 
@@ -68,10 +65,10 @@ Deze taak steekproeven is een stap in de [Team gegevens wetenschap proces (TDSP)
         sample_rows = np.random.choice(dataframe_blobdata.index.values, sample_size)
         dataframe_blobdata_sample = dataframe_blobdata.ix[sample_rows]
 
-Nu kunt u werken met de bovenstaande gegevensframe met het voorbeeld 1 procent voor verdere verkenning en functie generatie.
+Nu kunt u werken met de bovenstaande gegevensframe met het voorbeeld 1 procent voor verdere exploratie en genereren van de functie.
 
-## <a name="heading"></a>Gegevens uploaden en lezen in Azure Machine Learning
-U kunt de volgende voorbeeldcode down-voorbeeld de gegevens en deze rechtstreeks in Azure Machine Learning gebruiken:
+## <a name="heading"></a>Gegevens uploaden en te lezen in Azure Machine Learning
+U kunt de volgende voorbeeldcode down-sampling van de gegevens en deze rechtstreeks in Azure Machine Learning te gebruiken:
 
 1. Het gegevensframe schrijven naar een lokaal bestand
    
@@ -99,7 +96,7 @@ U kunt de volgende voorbeeldcode down-voorbeeld de gegevens en deze rechtstreeks
         except:            
             print ("Something went wrong with uploading to the blob:"+ BLOBNAME)
 
-3. De gegevens lezen van de blob van Azure met Azure Machine Learning [importgegevens](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) zoals weergegeven in de onderstaande afbeelding:
+3. De gegevens lezen van de Azure-blob met Azure Machine Learning [importgegevens](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) zoals wordt weergegeven in de onderstaande afbeelding:
 
-![lezer blob](./media/sample-data-blob/reader_blob.png)
+![lezer-blob](./media/sample-data-blob/reader_blob.png)
 

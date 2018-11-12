@@ -12,20 +12,20 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/01/2018
+ms.date: 11/05/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 4574b140e2e17462a5ff696b913bb4ef7bcb0ad0
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 5714257fce53fafa148b8ae4d5a3addf3b872c6f
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39412753"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51035472"
 ---
 # <a name="azure-disconnected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Implementatie van Azure verbroken planningsbeslissingen voor Azure Stack-geïntegreerde systemen
 Nadat u hebt besloten [hoe u Azure Stack wordt integreren in uw hybride cloudomgeving](azure-stack-connection-models.md), kunt u vervolgens uw beslissingen voor de Azure Stack-implementatie te voltooien.
 
-Met de niet-verbonden via de Azure-implementatie-optie, u kunt implementeren en gebruiken van Azure Stack zonder een verbinding met Internet. Met de implementatie van een niet-verbonden bent u echter beperkt tot een AD FS-identiteitsarchief en het factureringsmodel op basis van capaciteit. 
+U kunt implementeren en gebruiken van Azure Stack zonder een verbinding met internet. Met de implementatie van een niet-verbonden bent u echter beperkt tot een AD FS-identiteitsarchief en het factureringsmodel op basis van capaciteit. 
 
 Kies deze optie als u:
 - Beveiligings- of andere beperkingen waarvoor u Azure Stack implementeren in een omgeving die niet is verbonden met Internet hebben.

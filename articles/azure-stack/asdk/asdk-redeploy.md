@@ -13,15 +13,15 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.custom: ''
-ms.date: 08/01/2018
+ms.date: 11/05/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: d166916ca54f3b8c26a418ff83093e53dcdbe515
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: ecdfb0f062ebad903d35401a2f5303d3e6d04b5d
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39413733"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51037376"
 ---
 # <a name="redeploy-the-asdk"></a>De ASDK opnieuw implementeren
 In dit artikel leert u hoe u de Azure Stack Development Kit (ASDK) in een niet-productieomgeving opnieuw implementeren. Omdat de ASDK upgraden wordt niet ondersteund, moet u helemaal opnieuw te implementeren om te verplaatsen naar een nieuwere versie. U kunt ook de ASDK herimplementatie op elk moment dat u alleen wilt helemaal opnieuw beginnen.
@@ -60,7 +60,10 @@ Als u wilt verwijderen van de registratie-resource, gebruikt u de **Remove-AzsRe
 3. U wordt gevraagd of u zich aanmeldt bij uw Azure-abonnement zowel de lokale installatie van de ASDK wanneer het script wordt uitgevoerd.
 4. Wanneer het script is voltooid, ziet u berichten die vergelijkbaar is met de volgende voorbeelden:
 
-    ` De-Activating Azure Stack (this may take up to 10 minutes to complete).` ` Your environment is now unable to syndicate items and is no longer reporting usage data.` ` Remove registration resource from Azure...` ` "Deleting the resource..." on target "/subscriptions/<subscription information>"` ` ********** End Log: Remove-AzsRegistration ********* `
+    ` De-Activating Azure Stack (this may take up to 10 minutes to complete).` ` Your environment is now unable to syndicate items and is no longer reporting usage data.`
+    ` Remove registration resource from Azure...`
+    ` "Deleting the resource..." on target "/subscriptions/<subscription information>"`
+    ` ********** End Log: Remove-AzsRegistration ********* `
 
 
 
@@ -95,7 +98,7 @@ Als u het script asdk installer.ps1 niet hebt gebruikt voor het installeren van 
 
 
 ## <a name="next-steps"></a>Volgende stappen
-[Na de installatie van de ASDK configuratietaken](asdk-post-deploy.md)
+[Boeken ASDK implementatietaken](asdk-post-deploy.md)
 
 
 

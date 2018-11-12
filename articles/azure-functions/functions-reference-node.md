@@ -12,12 +12,12 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 10/26/2018
 ms.author: glenga
-ms.openlocfilehash: 18ff0e3fadad64f7bd7fe014a6dcec6a628ef1b9
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: f99c0fe798baa272bc2c74e8a171dd6bc7ca4304
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50914546"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51036543"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Handleiding voor ontwikkelaars van Azure Functions-JavaScript
 
@@ -109,8 +109,8 @@ module.exports = async function (context, req) {
 ## <a name="bindings"></a>Bindingen 
 In JavaScript, [bindingen](functions-triggers-bindings.md) zijn geconfigureerd en gedefinieerd in de function.json van een functie. Functies werken met bindingen een aantal manieren.
 
-### <a name="reading-trigger-and-input-data"></a>Trigger voor lezen en invoergegevens
-Trigger en bindingen invoer (bindingen van `direction === "in"`) kunnen worden gelezen door een functie op drie manieren:
+### <a name="inputs"></a>Invoer
+Invoer zijn onderverdeeld in twee categorieën in Azure Functions: de invoer voor de werkstroomtrigger is en de andere is de aanvullende invoer. Trigger en andere invoer Bindingen (bindingen van `direction === "in"`) kunnen worden gelezen door een functie op drie manieren:
  - **_(Aanbevolen)_  Als parameters aan uw functie doorgegeven.** Ze worden doorgegeven aan de functie in dezelfde volgorde als waarin ze zijn gedefinieerd in *function.json*. Houd er rekening mee dat de `name` -eigenschap worden gedefinieerd *function.json* hoeft niet te overeenkomen met de naam van de parameter, maar het moet.
  
    ```javascript
@@ -137,7 +137,7 @@ Trigger en bindingen invoer (bindingen van `direction === "in"`) kunnen worden g
    };
    ```
 
-### <a name="writing-data"></a>Schrijven van gegevens
+### <a name="outputs"></a>Uitvoer
 Uitvoer (bindingen van `direction === "out"`) door een functie in een aantal manieren om te kunnen worden geschreven. In alle gevallen moet de `name` eigenschap van de binding zoals gedefinieerd in *function.json* komt overeen met de naam van het Objectlid naar worden geschreven in de functie. 
 
 U kunt gegevens toewijzen aan uitvoerbindingen in een van de volgende manieren. Deze methoden moeten niet worden gecombineerd.

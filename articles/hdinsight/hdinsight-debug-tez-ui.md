@@ -1,22 +1,22 @@
 ---
-title: Tez-gebruikersinterface gebruiken met HDInsight op basis van een Windows - Azure
-description: Informatie over het gebruik van de UI Tez fouten opsporen in Tez-taken in HDInsight HDInsight op basis van Windows.
+title: Apache Tez-gebruikersinterface gebruiken met HDInsight op basis van een Windows - Azure
+description: Informatie over het gebruik van de Apache Tez-gebruikersinterface om op te sporen Tez-taken in HDInsight HDInsight op basis van Windows.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 01/17/2017
-ms.author: jasonh
+ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: ff47d0a71e97ce4ec9fd04e1d0cb9e5592192d53
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: ecb613dd2f624b9e0910a0ddcdf931f4b266aa96
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43112184"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51036577"
 ---
-# <a name="use-the-tez-ui-to-debug-tez-jobs-on-windows-based-hdinsight"></a>De UI Tez gebruiken om op te sporen Tez-taken in HDInsight op basis van Windows
+# <a name="use-the-apache-tez-ui-to-debug-tez-jobs-on-windows-based-hdinsight"></a>De Apache Tez-gebruikersinterface gebruiken om op te sporen Tez-taken in HDInsight op basis van Windows
 De UI Tez kan worden gebruikt om op te sporen Hive-taken die Tez als de engine voor het uitvoeren gebruiken. De Tez UI worden gevisualiseerd met de taak een grafiek van verbonden items kunt inzoomen op elk item en statistieken en waardevolle informatie ophalen.
 
 > [!IMPORTANT]
@@ -26,13 +26,13 @@ De UI Tez kan worden gebruikt om op te sporen Hive-taken die Tez als de engine v
 * Een Windows-gebaseerde HDInsight-cluster. Zie voor stappen voor het maken van een nieuw cluster [aan de slag met HDInsight op basis van Windows](hdinsight-hadoop-tutorial-get-started-windows.md).
 
   > [!IMPORTANT]
-  > De Tez UI is alleen beschikbaar op Windows gebaseerde HDInsight-clusters die na 8 februari 2016 zijn gemaakt.
+  > De Apache Tez-gebruikersinterface is alleen beschikbaar op Windows gebaseerde HDInsight-clusters die na 8 februari 2016 zijn gemaakt.
   >
   >
 * Een extern bureaublad op basis van een Windows-client.
 
-## <a name="understanding-tez"></a>Inzicht in Tez
-Tez is een uitbreidbaar framework voor gegevensverwerking in Hadoop en biedt meer snelheden worden bereikt dan traditionele MapReduce-verwerking. U kunt Tez inschakelen door de volgende tekst op te nemen als onderdeel van een Hive-query:
+## <a name="understanding-apache-tez"></a>Wat is Apache Tez?
+Tez is een uitbreidbaar framework voor gegevensverwerking in Apache Hadoop, en biedt meer snelheden worden bereikt dan traditionele MapReduce-verwerking. U kunt Tez inschakelen door de volgende tekst op te nemen als onderdeel van een Hive-query:
 
     set hive.execution.engine=tez;
 

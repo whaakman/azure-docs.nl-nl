@@ -1,22 +1,22 @@
 ---
-title: Heapdumps voor Hadoop op HDInsight - Azure-services inschakelen
-description: Heapdumps voor Hadoop-services van HDInsight op basis van Linux-clusters voor foutopsporing en analyse inschakelen.
+title: Heapdumps voor Apache Hadoop-services op HDInsight - Azure inschakelen
+description: Heapdumps voor Apache Hadoop-services van HDInsight op basis van Linux-clusters voor foutopsporing en analyse inschakelen.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
-ms.author: jasonh
-ms.openlocfilehash: 7fa0ebb1946a856d02296b4ec752113ff8fecbd5
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.author: hrasheed
+ms.openlocfilehash: 966f05fba96cc829c3a11331e2a66609705f6f4f
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43095579"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51037679"
 ---
-# <a name="enable-heap-dumps-for-hadoop-services-on-linux-based-hdinsight"></a>Heapdumps voor Hadoop op Linux gebaseerde HDInsight-services inschakelen
+# <a name="enable-heap-dumps-for-apache-hadoop-services-on-linux-based-hdinsight"></a>Heapdumps voor Apache Hadoop-services op Linux gebaseerde HDInsight inschakelen
 
 [!INCLUDE [heapdump-selector](../../includes/hdinsight-selector-heap-dump.md)]
 
@@ -29,11 +29,11 @@ Heapdumps bevatten een momentopname van het geheugen van de toepassing, met inbe
 
 Heapdumps voor de volgende services, kunt u inschakelen:
 
-* **hcatalog** -tempelton
-* **hive** -hiveserver2, metastore, derbyserver
+* **Apache hcatalog** -tempelton
+* **Apache hive** -hiveserver2, metastore, derbyserver
 * **mapreduce** -jobhistoryserver
-* **yarn** -resourcemanager, nodemanager, timelineserver
-* **hdfs** -datanode, secondarynamenode, namenode
+* **Apache yarn** -resourcemanager, nodemanager, timelineserver
+* **Apache hdfs** -datanode, secondarynamenode, namenode
 
 U kunt ook heapdumps voor de kaart inschakelen en verminder processen die worden uitgevoerd door HDInsight.
 
@@ -49,7 +49,7 @@ Worden toegewezen en verminder processen zijn iets anders, omdat deze bewerkinge
 * **mapreduce.admin.reduce.child.java.opts**
 
 > [!NOTE]
-> U wordt aangeraden met Ambari te wijzigen van de scripts en de instellingen voor mapred-site.xml als de Ambari-ingang voor het repliceren van wijzigingen op knooppunten in het cluster. Zie de [met behulp van Ambari](#using-ambari) sectie voor specifieke stappen.
+> U wordt aangeraden gebruik Apache Ambari om te wijzigen van de scripts en de instellingen voor mapred-site.xml als de Ambari-ingang voor het repliceren van wijzigingen op knooppunten in het cluster. Zie de [met behulp van Ambari](#using-ambari) sectie voor specifieke stappen.
 
 ### <a name="enable-heap-dumps"></a>Heapdumps inschakelen
 

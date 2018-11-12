@@ -15,15 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: deguhath
-ms.openlocfilehash: acb02df7a1ca49e822062ec5658b4875388b85ab
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: 043d19e3917bcdac7e963225af7e614315e414bd
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47586016"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51344702"
 ---
 # <a name="overview-of-data-science-using-spark-on-azure-hdinsight"></a>Overzicht van gegevenswetenschap met Spark op Azure HDInsight
-[!INCLUDE [machine-learning-spark-modeling](../../../includes/machine-learning-spark-modeling.md)]
 
 Deze reeks onderwerpen ziet u hoe u HDInsight Spark algemene datatechnologietaken zoals gegevensopname, feature-engineering, modellen en model evaluatie voltooid. De gegevens die worden gebruikt, is een voorbeeld van de 2013 NYC taxi reis- en fare gegevensset. De gebouwde modellen zijn logistieke en lineaire regressie, willekeurige forests en kleurovergang boosted structuren. De onderwerpen laten ook zien hoe deze modellen worden opgeslagen in Azure blob storage (WASB) en hoe u kunt beoordelen en evalueren van de voorspellende prestaties. Meer geavanceerde onderwerpen besproken hoe modellen kunnen worden getraind met behulp van kruisvalidatie en hyper-parameter sweeping. Dit onderwerp verwijst ook naar de onderwerpen waarin wordt beschreven hoe u voor het instellen van het Spark-cluster die u nodig hebt voor de stappen in de scenario's. 
 

@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 04/24/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 8137a292045377c5dccb69c21a8118d0dc17874e
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 14e8eb7c73a1e2cf5047410d3571008c1cd1e1ca
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49069935"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51289271"
 ---
-# <a name="internet-of-things-security-from-the-ground-up"></a>Beveiliging van Internet of Things vanaf de grond
+# <a name="security-for-internet-of-things-iot-from-the-ground-up"></a>Beveiliging van Internet of Things (IoT) vanaf de grond
 
 Het Internet of Things (IoT) vormt de unieke uitdagingen voor de beveiliging, privacy en naleving voor bedrijven over de hele wereld. In tegenstelling tot traditionele cyber-technologie waar deze problemen draaien om software en hoe deze is geïmplementeerd, IoT heeft betrekking op wat er gebeurt wanneer de cyberaanvallen en de fysieke werelden geconvergeerd. IoT-oplossingen beveiligen, moet ervoor te zorgen dat beveiligde inrichting van apparaten, veilige connectiviteit tussen deze apparaten en de cloud en de bescherming van de beveiligde gegevens in de cloud tijdens verwerking en opslag. Op basis van deze functionaliteit werkt, zijn echter apparaten resource beperkt, geografische verdeling van implementaties en een groot aantal apparaten in een oplossing.
 

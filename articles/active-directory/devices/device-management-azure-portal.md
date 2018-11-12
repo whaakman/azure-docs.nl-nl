@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/26/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: bda1a9df8a58833a544dc065dee0110bccf3ec59
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 0497cba4cae66e63f710c9678f6d87c2f9fb8fb1
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138857"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515077"
 ---
 # <a name="how-to-manage-devices-using-the-azure-portal"></a>Over het beheren van apparaten met behulp van de Azure-portal
 
@@ -151,7 +151,7 @@ Als u wilt inschakelen / uitschakelen van een apparaat, hebt u twee opties:
 **Opmerking:**
 
 - U moet een globale beheerder in Azure AD inschakelen / uitschakelen van een apparaat. 
-- Als u een apparaat uitschakelt, wordt voorkomen dat een apparaat toegang tot uw Azure AD-resources. 
+- Als u een apparaat uitschakelt, wordt voorkomen dat een apparaat is verificatie met Azure AD, therby zo wordt voorkomen dat het apparaat toegang krijgen tot uw Azure AD-resources die zijn beveiligd door apparaat CA of met behulp van de referenties van uw WH4B. 
 
 
 
