@@ -19,11 +19,11 @@ ms.locfileid: "48242649"
 ---
 # <a name="get-information-about-your-azure-blockchain-workbench-database"></a>Informatie opvragen over uw Azure Blockchain Workbench-database
 
-In dit artikel ziet u hoe u gedetailleerde informatie kunt opvragen over eenAzure Blockchain Workbench-database.
+In dit artikel ziet u hoe u gedetailleerde informatie kunt opvragen over een Azure Blockchain Workbench-database.
 
 ## <a name="overview"></a>Overzicht
 
-Informatie over toepassingen, werkstromen de uitvoering van slimme contracten kunt u opvragen met behulp van weergaven van de SQL-database van Blockchain Workbench. Ontwikkelaars kunnen deze informatie gebruiken in combinatie met hulpprogramma's zoals Microsoft Excel, Power BI, Visual Studio en SQL Server Management Studio.
+Informatie over toepassingen, werkstromen en de uitvoering van slimme contracten kunt u opvragen met behulp views in de SQL-database van Blockchain Workbench. Ontwikkelaars kunnen deze informatie gebruiken in combinatie met hulpprogramma's zoals Microsoft Excel, Power BI, Visual Studio en SQL Server Management Studio.
 
 Ontwikkelaars hebben het volgende nodig om verbinding te kunnen maken met de database:
 
@@ -45,7 +45,7 @@ Verbinding maken met de database:
 
    ![Databasedetails](./media/getdb-details/workbench-db-details.png)
 
-Met behulp van de naam van de databaseserver en de database kunt u vanuit uw ontwikkel- of rapportageprogramma verbinding met de database Blockchain Workbench.
+Met behulp van de naam van de databaseserver en de database kunt u vanuit uw ontwikkel- of rapportageprogramma verbinding maken met de database Blockchain Workbench.
 
 ## <a name="next-steps"></a>Volgende stappen
 
