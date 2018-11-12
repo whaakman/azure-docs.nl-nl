@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 06/08/2017
 ms.author: trinadhk
-ms.openlocfilehash: 32eba23202eca1c71c4f3b01dcb364281cb2eb60
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 62b2744494fcd4d98bf75892dc95d86130dd04bb
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42056903"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261737"
 ---
 # <a name="security-features-to-help-protect-hybrid-backups-that-use-azure-backup"></a>Beveiligingsfuncties die u helpen hybride back-ups die gebruikmaken van Azure back-up beveiligen
 Opmerkingen over beveiligingsproblemen, zoals malware, ransomware en inbraakdetectie, verhogen. Deze beveiligingsproblemen met zich mee kunnen erg kostbaar zijn, in termen van gegevens en geld. Als u wilt beveiligen tegen dergelijke aanvallen, biedt Azure Backup nu beveiligingsfuncties ter bescherming van hybride back-ups. In dit artikel wordt uitgelegd hoe u inschakelen en gebruiken van deze functies, met behulp van een Azure Recovery Services-agent en de Azure Backup Server. Deze functies zijn onder andere:
@@ -110,10 +110,10 @@ De beveiligingsfuncties die worden vermeld in dit artikel biedt defense methoden
 | --- | --- | --- |
 | Beleid wijzigen |Het back-upbeleid kan niet worden gewijzigd. Fout: De huidige bewerking is mislukt vanwege een interne servicefout [0x29834]. Probeer het later opnieuw. Neem contact op met Microsoft Ondersteuning als het probleem zich blijft voordoen. |**Oorzaak:**<br/>Deze fout ontstaat wanneer beveiligingsinstellingen zijn ingeschakeld en u probeert te verminderen bewaartermijn hieronder de hierboven opgegeven minimumwaarden u van niet-ondersteunde versie gebruikmaakt (de ondersteunde versies zijn opgegeven in de eerste notitie van dit artikel). <br/>**Aanbevolen actie:**<br/> In dit geval moet u de bewaarperiode boven de minimale bewaartermijn opgegeven tijdsperiode (zeven dagen voor dagelijks, vier weken voor wekelijkse, drie weken voor maandelijks of één jaar voor jaarlijkse) instellen om door te gaan met het beleid gerelateerde updates. (Optioneel) de aanpak van voorkeur om bij te werken van de backup-agent, Azure Backup-Server en/of DPM UR gebruikmaken van alle beveiligingsupdates zou zijn. |
 | Wachtwoordzin wijzigen |De ingevoerde beveiligingspincode is onjuist. (ID: 100130) Geef de BEVEILIGINGSPINCODE op om deze bewerking te voltooien. |**Oorzaak:**<br/> Deze fout wordt geleverd bij het invoeren van ongeldige of verlopen BEVEILIGINGSPINCODE tijdens het uitvoeren van kritieke bewerking (zoals wachtwoordzin wijzigen). <br/>**Aanbevolen actie:**<br/> Als u wilt de bewerking is voltooid, moet u geldige BEVEILIGINGSPINCODE invoeren. Als de PINCODE, meld u aan bij Azure portal en navigeer naar de Recovery Services-kluis > Instellingen > Eigenschappen > BEVEILIGINGSPINCODE genereren. Gebruik deze PINCODE te wijzigen van de wachtwoordzin. |
-| Wachtwoordzin wijzigen |Bewerking is mislukt. ID: 120002 |**Oorzaak:**<br/>Deze fout ontstaat wanneer beveiligingsinstellingen zijn ingeschakeld, u probeert te wachtwoordzin wijzigen en u op niet-ondersteunde versie (geldige versies die zijn opgegeven in de eerste notitie van dit artikel bent).<br/>**Aanbevolen actie:**<br/> Als u wilt wijzigen wachtwoordzin, moet u eerst backup-agent bijwerken naar minimaal versie 2.0.9052 van minimale, Azure back-upserver voor minimale update 1, en/of DPM naar ten minste DPM 2012 R2 UR12 of DPM 2016 UR2 (downloadkoppelingen hieronder), en voer vervolgens geldig BEVEILIGINGSPINCODE. Als de PINCODE, meld u aan bij Azure portal en navigeer naar de Recovery Services-kluis > Instellingen > Eigenschappen > BEVEILIGINGSPINCODE genereren. Gebruik deze PINCODE te wijzigen van de wachtwoordzin. |
+| Wachtwoordzin wijzigen |Bewerking mislukt. ID: 120002 |**Oorzaak:**<br/>Deze fout ontstaat wanneer beveiligingsinstellingen zijn ingeschakeld, u probeert te wachtwoordzin wijzigen en u op niet-ondersteunde versie (geldige versies die zijn opgegeven in de eerste notitie van dit artikel bent).<br/>**Aanbevolen actie:**<br/> Als u wilt wijzigen wachtwoordzin, moet u eerst backup-agent bijwerken naar minimaal versie 2.0.9052 van minimale, Azure back-upserver voor minimale update 1, en/of DPM naar ten minste DPM 2012 R2 UR12 of DPM 2016 UR2 (downloadkoppelingen hieronder), en voer vervolgens geldig BEVEILIGINGSPINCODE. Als de PINCODE, meld u aan bij Azure portal en navigeer naar de Recovery Services-kluis > Instellingen > Eigenschappen > BEVEILIGINGSPINCODE genereren. Gebruik deze PINCODE te wijzigen van de wachtwoordzin. |
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Aan de slag met Azure Recovery Services-kluis](backup-azure-vms-first-look-arm.md) om in te schakelen van deze functies.
-* [Download de nieuwste Azure Recovery Services-agent](http://aka.ms/azurebackup_agent) om u te helpen bij het beveiligen van Windows-computers en bescherming van uw back-upgegevens tegen aanvallen.
+* [Download de nieuwste Azure Recovery Services-agent](https://aka.ms/azurebackup_agent) om u te helpen bij het beveiligen van Windows-computers en bescherming van uw back-upgegevens tegen aanvallen.
 * [Download de meest recente Azure Backup Server](https://aka.ms/latest_azurebackupserver) om u te helpen bij het beveiligen van workloads en bescherming van uw back-upgegevens tegen aanvallen.
 * [Download UR12 voor System Center 2012 R2 Data Protection Manager](https://support.microsoft.com/help/3209592/update-rollup-12-for-system-center-2012-r2-data-protection-manager) of [UR2 voor System Center 2016 Data Protection Manager downloaden](https://support.microsoft.com/help/3209593/update-rollup-2-for-system-center-2016-data-protection-manager) om u te helpen bij het beveiligen van workloads en bescherming van uw back-upgegevens tegen aanvallen.

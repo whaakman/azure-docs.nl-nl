@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: bwren
-ms.openlocfilehash: 6d09d12d25c2319e2dcfd8f65a8e5ac8ba86eeb9
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 9adc285ecdc7a88d03aef9abf0132c51f60b445a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50914274"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247429"
 ---
 # <a name="data-collection-details-for-management-solutions-in-azure"></a>Details van de verzameling gegevens voor de beheeroplossingen in Azure
 In dit artikel bevat een lijst met [beheeroplossingen](monitoring-solutions.md) beschikbaar van Microsoft met koppelingen naar de gedetailleerde documentatie.  Het bevat ook informatie over hun methode en de frequentie van verzamelen van gegevens in Log Analytics.  Gebruik de informatie in dit artikel om te identificeren van de verschillende oplossingen beschikbaar en om te begrijpen van de stroom en verbinding eisen voor verschillende oplossingen. 
@@ -79,4 +79,4 @@ Uitleg van de kolommen zijn als volgt:
 
 
 ## <a name="next-steps"></a>Volgende stappen
-* Meer informatie over het [query's maken](../log-analytics/log-analytics-log-search.md) voor het analyseren van gegevens die zijn verzameld door oplossingen voor beheer.
+* Meer informatie over het [query's maken](../log-analytics/log-analytics-queries.md) voor het analyseren van gegevens die zijn verzameld door oplossingen voor beheer.

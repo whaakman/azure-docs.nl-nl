@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: 718b57a801a9ba62a0154ae42da2ac0c0741f203
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8e25f98f1189f71943ece4a7877a86e29698689a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "22706645"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240508"
 ---
 # <a name="biztalk-services-editions-chart"></a>BizTalk Services: grafiek van edities
 
@@ -63,7 +63,7 @@ In de volgende tabel kunt u de verschillen zien.
 
 <tr>
 <td><strong>Beginprijs</strong></td>
-<td colspan="5"><a HREF="http://go.microsoft.com/fwlink/p/?LinkID=304011"> Prijzen van Azure BizTalk Services</a> <br/><br/> <a HREF="http://azure.microsoft.com/pricing/calculator/?scenario=full"> Azure-prijscalculator</a></td>
+<td colspan="5"><a HREF="https://go.microsoft.com/fwlink/p/?LinkID=304011"> Prijzen van Azure BizTalk Services</a> <br/><br/> <a HREF="https://azure.microsoft.com/pricing/calculator/?scenario=full"> Azure-prijscalculator</a></td>
 </tr>
 <tr>
 <td><strong>Minimale standaardconfiguratie</strong></td>
@@ -153,7 +153,7 @@ Inclusief TPM-overeenkomsten</td>
 <tr>
 <td><strong>Hoge beschikbaarheid</strong>
 <br/><br/>
-Voor Service Level Agreements (SLA) raadpleegt u <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=304011">Prijzen van Azure BizTalk Services</a>.
+Voor Service Level Agreements (SLA) raadpleegt u <a HREF="https://go.microsoft.com/fwlink/p/?LinkID=304011">Prijzen van Azure BizTalk Services</a>.
 </td>
 <td>Niet inbegrepen</td>
 <td>Niet inbegrepen</td>
@@ -242,17 +242,17 @@ De editie Free kan niet worden gemigreerd of 'opgeschaald' naar een andere laag.
 In de andere edities kunt u back-ups maken en deze herstellen om uw artefacten te migreren van één laag naar een andere. U kunt bijvoorbeeld een back-up maken van uw artefacten in de laag Standard en deze herstellen in de laag Premium. In [BizTalk Services: back-ups maken en herstellen](biztalk-backup-restore.md) worden de ondersteunde migratiepaden beschreven en ziet u van welke artefacten back-ups worden gemaakt. Houd er rekening mee dat er geen back-ups worden gemaakt van hybride verbindingen. Nadat u uw back-ups hebt hersteld in een nieuwe laag, kunt u de hybride verbindingen opnieuw maken.  
 
 #### <a name="is-the-biztalk-adapter-service-included-in-the-service-how-do-i-receive-the-software"></a>Maakt de BizTalk Adapter Service deel uit van de service? Hoe ontvang ik de software?
-Ja, de BizTalk Adapter Service en het BizTalk Adapter Pack zijn opgenomen in de Azure BizTalk Services SDK-[download](http://www.microsoft.com/download/details.aspx?id=39087).
+Ja, de BizTalk Adapter Service en het BizTalk Adapter Pack zijn opgenomen in de Azure BizTalk Services SDK-[download](https://www.microsoft.com/download/details.aspx?id=39087).
 
 ## <a name="next-steps"></a>Volgende stappen
-Als u Azure BizTalk Services wilt maken in de Azure Portal, gaat u naar [BizTalk Services: inrichten met de Azure Portal](biztalk-provision-services.md). Ga naar [Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=235197) om te beginnen met het maken van toepassingen.
+Als u Azure BizTalk Services wilt maken in de Azure Portal, gaat u naar [BizTalk Services: inrichten met de Azure Portal](biztalk-provision-services.md). Ga naar [Azure BizTalk Services](https://go.microsoft.com/fwlink/p/?LinkID=235197) om te beginnen met het maken van toepassingen.
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 * [BizTalk Services: inrichten met de Azure Portal](biztalk-provision-services.md)<br/>
 * [BizTalk Services: statusgrafiek voor de inrichting](biztalk-service-state-chart.md)<br/>
 * [BizTalk Services: de tabbladen Dashboard, Bewaken en Schalen](biztalk-dashboard-monitor-scale-tabs.md)<br/>
 * [BizTalk Services: back-ups maken en herstellen](biztalk-backup-restore.md)<br/>
 * [BizTalk Services: beperking](biztalk-throttling-thresholds.md)<br/>
 * [BizTalk Services: naam en sleutel van verlener](biztalk-issuer-name-issuer-key.md)<br/>
-* [De Azure BizTalk Services SDK gaan gebruiken](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
+* [De Azure BizTalk Services SDK gaan gebruiken](https://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
 

@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/16/2018
 ms.author: shvija
-ms.openlocfilehash: 63cc8a698c9e383c4b5908286d28b51d89842bdc
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: 236103861ce8a296c77f708dbb4a7cc7e03f10f3
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47585693"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51258949"
 ---
 # <a name="azure-event-hubs-event-processor-host-overview"></a>Overzicht van Azure Event Hubs Event Processor Host
 
 Azure Event Hubs is een krachtige service voor telemetrieopname die kan worden gebruikt voor streaming van miljoenen gebeurtenissen tegen lage kosten. In dit artikel wordt beschreven hoe u verbruiken opgenomen gebeurtenissen met behulp van de *Event Processor Host* (EPH); een intelligente consumeragent die het beheer van het plaatsen van controlepunten vereenvoudigt, overdracht en parallelle gebeurtenislezers.  
 
-De sleutel worden geschaald voor Event Hubs is het idee van de gepartitioneerde consumenten. In tegenstelling tot de [concurrerende consumenten](http://msdn.microsoft.com/library/dn568101.aspx) patroon, de basis van gepartitioneerd gebruik patroon kan grote schaal door te verwijderen van het knelpunt conflicten en end-to-end parallelle uitvoering te vergemakkelijken.
+De sleutel worden geschaald voor Event Hubs is het idee van de gepartitioneerde consumenten. In tegenstelling tot de [concurrerende consumenten](https://msdn.microsoft.com/library/dn568101.aspx) patroon, de basis van gepartitioneerd gebruik patroon kan grote schaal door te verwijderen van het knelpunt conflicten en end-to-end parallelle uitvoering te vergemakkelijken.
 
 ## <a name="home-security-scenario"></a>Beveiliging voor thuis-scenario
 

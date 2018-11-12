@@ -3,18 +3,18 @@ title: Cluster op HDInsight - Azure ML-Services beheren
 description: Informatie over het beheren van een ML-Services-cluster in Azure HDInsight.
 services: hdinsight
 ms.service: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 06/27/2018
-ms.openlocfilehash: 38a8366a586b032c3b11cbef8ee5f01ad2b822a5
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.date: 11/06/2018
+ms.openlocfilehash: 35b80223552181e44beac011f5fb541158466acc
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43702398"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255397"
 ---
 # <a name="manage-ml-services-cluster-on-azure-hdinsight"></a>Cluster op HDInsight van Azure ML-Services beheren
 
@@ -80,7 +80,7 @@ U ziet ook dat de zojuist toegevoegde gebruikers geen hoofdmapbevoegdheden in he
 
 ## <a name="connect-remotely-to-microsoft-ml-services"></a>Extern verbinding maken met Microsoft ML-Services
 
-U kunt toegang instellen voor het HDInsight Hadoop Spark compute-context van een extern exemplaar van ML-Client die wordt uitgevoerd op het bureaublad. Om dit te doen, moet u de opties (hdfsShareDir, shareDir, sshUsername, sshHostname, sshSwitches en sshProfileScript) wanneer het definiëren van de RxSpark compute-context op het bureaublad: voorbeeld:
+U kunt toegang instellen voor de HDInsight Spark-compute-context van een extern exemplaar van ML-Client die wordt uitgevoerd op het bureaublad. Om dit te doen, moet u de opties (hdfsShareDir, shareDir, sshUsername, sshHostname, sshSwitches en sshProfileScript) wanneer het definiëren van de RxSpark compute-context op het bureaublad: voorbeeld:
 
     myNameNode <- "default"
     myPort <- 0
@@ -226,16 +226,13 @@ Met een compute-context kunt u bepalen of een berekening lokaal op het Edge-knoo
         summary(modelSpark)
 
 
-   > [!NOTE]
-   > U kunt ook MapReduce gebruiken om de berekening te distribueren naar verschillende clusterknooppunten. Zie voor meer informatie over de compute-context, [Compute-context-opties voor het ML-Services op HDInsight-cluster](r-server-compute-contexts.md).
-
 ## <a name="distribute-r-code-to-multiple-nodes"></a>R-code distribueren naar meerdere knooppunten
 
 Met ML-Services op HDInsight, kunt u bestaande R-code en uitvoeren op meerdere knooppunten in het cluster met behulp van `rxExec`. Deze functie is handig bij het uitvoeren van een parameteropschoning of van simulaties. Hier volgt een voorbeeldcode van het gebruik van `rxExec`:
 
     rxExec( function() {Sys.info()["nodename"]}, timesToRun = 4 )
 
-Als u nog steeds de Spark- of MapReduce-context gebruikt, wordt door deze opdracht de knooppuntnaam geretourneerd voor het werkknooppunt waarop de code `(Sys.info()["nodename"])` wordt uitgevoerd. Bij een cluster van vier knooppunten verwacht u bijvoorbeeld voor het ontvangen van uitvoer is vergelijkbaar met het volgende codefragment:
+Als u nog steeds de Spark-context gebruikt, met deze opdracht de knooppuntnaam geretourneerd voor de worker-knooppunten die de code `(Sys.info()["nodename"])` op wordt uitgevoerd. Bij een cluster van vier knooppunten verwacht u bijvoorbeeld voor het ontvangen van uitvoer is vergelijkbaar met het volgende codefragment:
 
     $rxElem1
         nodename

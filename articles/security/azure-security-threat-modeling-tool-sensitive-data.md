@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: bcd2b2199628a7f717a7ce1d8eba032f5778379b
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 7f1bb400650a223a9f0b4249c33f7c480a1bc009
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43301458"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51262366"
 ---
 # <a name="security-frame-sensitive-data--mitigations"></a>Security Frame: Gevoelige gegevens | Oplossingen 
 | Product/Service | Artikel |
@@ -141,7 +141,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 | **SDL-fase**               | Ontwikkelen |  
 | **Van toepassing technologieën** | Algemene |
 | **Kenmerken**              | N/A  |
-| **Verwijzingen**              | [MSDN: automatisch aanvullen kenmerk](http://msdn.microsoft.com/library/ms533486(VS.85).aspx), [automatisch aanvullen gebruiken in HTML](http://msdn.microsoft.com/library/ms533032.aspx), [beveiligingslek met betrekking tot het opschonen van het HTML-](http://technet.microsoft.com/security/bulletin/MS10-071), [automatisch aanvullen., opnieuw?!](http://blog.mindedsecurity.com/2011/10/autocompleteagain.html) |
+| **Verwijzingen**              | [MSDN: automatisch aanvullen kenmerk](https://msdn.microsoft.com/library/ms533486(VS.85).aspx), [automatisch aanvullen gebruiken in HTML](https://msdn.microsoft.com/library/ms533032.aspx), [beveiligingslek met betrekking tot het opschonen van het HTML-](https://technet.microsoft.com/security/bulletin/MS10-071), [automatisch aanvullen., opnieuw?!](http://blog.mindedsecurity.com/2011/10/autocompleteagain.html) |
 | **Stappen** | Het automatisch aanvullen-kenmerk geeft aan of een formulier automatisch aanvullen in- of uitschakelen zijn moet. Als automatisch aanvullen is ingeschakeld, worden de waarden op basis van waarden die de gebruiker heeft ingevoerd voordat de browser automatisch aanvullen. Bijvoorbeeld, wanneer een nieuwe naam en het wachtwoord is ingevoerd in een formulier en het formulier wordt ingediend, de browser wordt gevraagd als het wachtwoord moet worden opgeslagen. Daarna wanneer het formulier wordt weergegeven, de naam en het wachtwoord worden automatisch ingevuld of zijn voltooid, zoals de naam van de opgegeven. Een aanvaller met lokale toegang, kan het wachtwoord niet-versleutelde tekst ophalen uit de cache van de browser. Automatisch aanvullen is standaard ingeschakeld en moet expliciet worden uitgeschakeld. |
 
 ### <a name="example"></a>Voorbeeld

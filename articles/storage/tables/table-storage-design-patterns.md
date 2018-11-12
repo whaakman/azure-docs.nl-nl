@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: sngun
 ms.component: tables
-ms.openlocfilehash: b06f5a66566c250eef608ddccc551aaebe24ef74
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: d055ea9b30732e1cc0fc4ae5471bae26adc08b35
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39522795"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238893"
 ---
 # <a name="table-design-patterns"></a>Tabelontwerppatronen
 Dit artikel beschrijft enkele patronen die geschikt is voor gebruik met oplossingen voor tabel-service. Ook ziet u hoe u enkele van de problemen en wisselwerking besproken in de andere artikelen van tabel storage ontwerp nagenoeg kunt oplossen. Het volgende diagram geeft een overzicht van de relaties tussen de verschillende patronen:  
@@ -48,7 +48,7 @@ Als u een query voor een bereik van de werknemer entiteiten, kunt u een bereik i
 * Vinden alle werknemers in de afdeling verkoop met een werknemer-ID in het bereik 000100-000199 gebruik: $filter = (PartitionKey eq 'Verkoop') en (RowKey ge 'empid_000100') en (RowKey le 'empid_000199')  
 * Aan alle werknemers in de afdeling verkoop met een e-mailadres begint met de letter 'a' gebruik zoeken: $filter = (PartitionKey eq 'Verkoop') en (RowKey ge 'email_a') en (RowKey lt 'email_b')  
   
-  Merk op dat de filtersyntaxis van de gebruikt in de bovenstaande voorbeelden uit de tabelservice REST-API voor meer informatie naar [entiteiten opvragen](http://msdn.microsoft.com/library/azure/dd179421.aspx).  
+  Merk op dat de filtersyntaxis van de gebruikt in de bovenstaande voorbeelden uit de tabelservice REST-API voor meer informatie naar [entiteiten opvragen](https://msdn.microsoft.com/library/azure/dd179421.aspx).  
 
 ### <a name="issues-and-considerations"></a>Problemen en overwegingen
 Beschouw de volgende punten als u besluit hoe u dit patroon wilt implementeren:  
@@ -104,7 +104,7 @@ Als u een query voor een bereik van de werknemer entiteiten, kunt u een bereik i
 * Alle werknemers vinden op de afdeling verkoop met een werknemer-ID in het bereik **000100** naar **000199** gesorteerd werknemer-ID gebruiken: $filter = (PartitionKey eq ' empid_Sales') en (RowKey ge '000100') en (RowKey le '000199')  
 * Alle werknemers vinden op de afdeling verkoop met een e-mailadres dat met 'a' gesorteerde e-mailadres gebruiken begint: $filter = (PartitionKey eq ' email_Sales') en (RowKey ge 'a') en (RowKey lt "b")  
 
-Merk op dat de filtersyntaxis van de gebruikt in de bovenstaande voorbeelden uit de tabelservice REST-API voor meer informatie naar [entiteiten opvragen](http://msdn.microsoft.com/library/azure/dd179421.aspx).  
+Merk op dat de filtersyntaxis van de gebruikt in de bovenstaande voorbeelden uit de tabelservice REST-API voor meer informatie naar [entiteiten opvragen](https://msdn.microsoft.com/library/azure/dd179421.aspx).  
 
 ### <a name="issues-and-considerations"></a>Problemen en overwegingen
 Beschouw de volgende punten als u besluit hoe u dit patroon wilt implementeren:  
@@ -617,7 +617,7 @@ Een optimale query retourneert een afzonderlijke entiteit op basis van een **Par
 
 U moet de prestaties van uw toepassing altijd volledig hebt getest in dergelijke scenario's.  
 
-Een query op de table-service kan maximaal 1000 entiteiten in één keer worden geretourneerd en kan worden uitgevoerd voor een maximum van vijf seconden. Als de resultatenset bevat meer dan 1000 entiteiten als de query is niet voltooid binnen de vijf seconden, of als de query overschrijdt de grens van de partitie, retourneert de Table-service een vervolgtoken zodat de clienttoepassing om aan te vragen van de volgende set entiteiten. Zie voor meer informatie over hoe voortzetting van tokens voor werk, [time-out voor query's en van paginering](http://msdn.microsoft.com/library/azure/dd135718.aspx).  
+Een query op de table-service kan maximaal 1000 entiteiten in één keer worden geretourneerd en kan worden uitgevoerd voor een maximum van vijf seconden. Als de resultatenset bevat meer dan 1000 entiteiten als de query is niet voltooid binnen de vijf seconden, of als de query overschrijdt de grens van de partitie, retourneert de Table-service een vervolgtoken zodat de clienttoepassing om aan te vragen van de volgende set entiteiten. Zie voor meer informatie over hoe voortzetting van tokens voor werk, [time-out voor query's en van paginering](https://msdn.microsoft.com/library/azure/dd135718.aspx).  
 
 Als u van de Storage-clientbibliotheek gebruikmaakt, kan deze voortzetting van tokens automatisch voor u verwerken, zoals het retourneert entiteiten uit de tabelservice. De volgende C# voorbeeldcode met behulp van de Storage-clientbibliotheek automatisch verwerkt voortzetting van tokens als de table-service deze in een antwoord geretourneerd:  
 
@@ -719,7 +719,7 @@ De Table-service is een *zonder schema* tabelarchief betekent dit dat één tabe
 <tr>
 <th>PartitionKey</th>
 <th>RowKey</th>
-<th>Timestamp</th>
+<th>Tijdstempel</th>
 <th></th>
 </tr>
 <tr>
@@ -811,7 +811,7 @@ Houd er rekening mee dat elke entiteit moet nog steeds **PartitionKey**, **RowKe
 <tr>
 <th>PartitionKey</th>
 <th>RowKey</th>
-<th>Timestamp</th>
+<th>Tijdstempel</th>
 <th></th>
 </tr>
 <tr>

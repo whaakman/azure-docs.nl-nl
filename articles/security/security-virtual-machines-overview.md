@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2018
 ms.author: terrylan
-ms.openlocfilehash: 631fe91bc72093cf5ad87779853df4901a27a068
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: fb053cb646d433d1e326747a4b48ed430583b847
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249111"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51259102"
 ---
 # <a name="azure-virtual-machines-security-overview"></a>Overzicht van beveiliging van Azure Virtual Machines
 
@@ -167,7 +167,7 @@ Virtuele Machines van Azure is gecertificeerd voor FISMA, FedRAMP, HIPAA, PCI DS
 Meer informatie:
 
 * [Vertrouwenscentrum van Microsoft: naleving](https://www.microsoft.com/en-us/trustcenter/compliance)
-* [Vertrouwde Cloud: Microsoft Azure-beveiliging, Privacy en naleving](http://download.microsoft.com/download/1/6/0/160216AA-8445-480B-B60F-5C8EC8067FCA/WindowsAzure-SecurityPrivacyCompliance.pdf)
+* [Vertrouwde Cloud: Microsoft Azure-beveiliging, Privacy en naleving](https://download.microsoft.com/download/1/6/0/160216AA-8445-480B-B60F-5C8EC8067FCA/WindowsAzure-SecurityPrivacyCompliance.pdf)
 
 ## <a name="confidential-computing"></a>Vertrouwelijke Computing
 

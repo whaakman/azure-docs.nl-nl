@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: bb9a2a884439b00f52adfa9b7c1010a4610a77f7
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 050308e1c8de160f1671ded991e550087299ae2f
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47401645"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51285803"
 ---
 # <a name="ultra-ssd-preview-managed-disks-for-azure-virtual-machine-workloads"></a>Ultra SSD (preview) Managed Disks voor Azure Virtual Machine-werkbelasting
 
@@ -23,7 +23,7 @@ Azure Ultra SSD (preview) biedt hoge doorvoer, een hoge IOPS en consistente lage
 
 **Beheerde schijven**: Ultra SSD's zijn alleen beschikbaar als beheerde schijven. Ultra SSD's kunnen niet worden geïmplementeerd als een niet-beheerde schijf of een pagina-blobs. Tijdens het maken van een beheerde schijf maken, geeft u de sku van de schijf als UltraSSD_LRS en geven van de grootte van de schijf, de IOPS en doorvoer die u nodig en Azure maakt en beheert de schijf voor u.  
 
-**Virtuele Machines**: Ultra SSD's zijn ontworpen om te werken met alle voorraadeenheden voor virtuele Azure-Machine Premium SSD is ingeschakeld, maar preview tijdens de VM-grootten beperkt tot ES/DS v3 VM-exemplaren zijn.
+**Virtuele Machines**: Ultra SSD's zijn ontworpen om te werken met alle voorraadeenheden voor virtuele Azure-Machine Premium SSD ingeschakeld; echter, omdat deze zich momenteel in Preview-versie, de virtuele machines-grootte ES/DS v3.
 
 **Dynamische Prestatieconfiguratie**: Ultra SSD's kunt u de prestaties van de schijf, samen met de behoeften van uw werkbelasting (IOPS en doorvoer) dynamisch wijzigen zonder te hoeven starten van uw virtuele machines.
 
@@ -55,7 +55,7 @@ De volgende tabel geeft een kort overzicht van verschillende configuraties die v
 
 ## <a name="pricing-and-billing"></a>Prijzen en facturering
 
-Wanneer u uiterst SSD's, zijn de volgende factureringsvoorwaarden van toepassing:
+Wanneer u uiterst SSD's, worden de volgende factureringsvoorwaarden toegepast:
 
 - Beheerde schijfgrootte
 - Beheerde schijf ingerichte IOPS
@@ -64,11 +64,11 @@ Wanneer u uiterst SSD's, zijn de volgende factureringsvoorwaarden van toepassing
 
 ### <a name="managed-disk-size"></a>Beheerde schijfgrootte
 
-Beheerde schijven worden in rekening gebracht op de ingerichte grootte. Azure wijst de ingerichte grootte (omhoog afgerond) toe aan de aanbieding voor schrijfgrootte die het dichtst in de buurt komt. Zie de tabel in Scalability and Performance Targets sectie hierboven voor meer informatie van de grootte van de schijven die worden aangeboden. Elke schijf wordt toegewezen aan een grootte van de ondersteunde ingerichte schijf en deze worden dienovereenkomstig op uurbasis gefactureerd. Bijvoorbeeld, als u een schijf 200 GiB Ultra SSD ingericht en deze na 20 uur, deze wordt toegewezen aan de aanbieding van de schijf grootte van 256 GB en u wordt gefactureerd voor de 256 GB voor 20 uur. Dit is, ongeacht de hoeveelheid feitelijke gegevens geschreven naar de schijf.
+Beheerde schijven worden in rekening gebracht op de VM-grootten die u choosed tijdens provisionning een nieuwe virtuele machine van Azure. Azure wijst de ingerichte grootte (omhoog afgerond) toe aan de aanbieding voor schrijfgrootte die het dichtst in de buurt komt. Zie de tabel in Scalability and Performance Targets sectie hierboven voor meer informatie van de grootte van de schijven die worden aangeboden. Elke schijf wordt toegewezen aan een grootte van de ondersteunde ingerichte schijf en worden kosten in rekening gebracht dienovereenkomstig op uurbasis. Bijvoorbeeld, als u een schijf 200 GiB Ultra SSD ingericht en deze na 20 uur, deze wordt toegewezen aan de aanbieding van de schijf grootte van 256 GB en u wordt gefactureerd voor de 256 GB voor 20 uur. Deze facturering is gebaseerd op verbruik van de compute-uur, ongeacht de hoeveelheid gegevens daadwerkelijk worden geschreven naar de schijf.
 
 ### <a name="managed-disk-provisioned-iops"></a>Beheerde schijf ingerichte IOPS
 
-IOP's zijn het aantal aanvragen dat uw toepassing naar de schijven in één seconde verzendt. Een i/o-bewerking kan worden op volgorde of willekeurige, leest of schrijft. Bijvoorbeeld schijfgrootte, wordt de ingerichte IOPS op uurbasis gefactureerd. Zie de tabel in Scalability and Performance Targets sectie hierboven voor meer informatie van de schijf IOP's die worden aangeboden.
+IOP's zijn het aantal aanvragen dat uw toepassing verzendt naar de schijven per seconde. Een i/o-bewerking kan worden sequentieel lezen of schrijven of willekeurige lezen of schrijven. Op basis van de grootte van de schijf of het aantal schijven die zijn gekoppeld aan de virtuele machine, worden het gemiddelde aantal IOP's gefactureerd op uurbasis. Zie de tabel in Scalability and Performance Targets sectie hierboven voor meer informatie van de schijf IOP's die worden aangeboden.
 
 ### <a name="managed-disk-provisioned-throughput"></a>Beheerde schijf ingerichte doorvoer
 

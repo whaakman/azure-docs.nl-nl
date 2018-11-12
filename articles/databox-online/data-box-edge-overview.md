@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: overview
 ms.date: 09/24/2018
 ms.author: alkohli
-ms.openlocfilehash: 6422482a31ad8022b795cb357c37ad8560781767
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: e99a3a7db7a934a8a72695c38ab952786579a640
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49166590"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232203"
 ---
 # <a name="what-is-azure-data-box-edge-preview"></a>Wat is Azure Data Box Edge (preview-versie)? 
 
@@ -60,7 +60,7 @@ Data Box Edge biedt de volgende mogelijkheden:
 |Mogelijkheid |Beschrijving  |
 |---------|---------|
 |Hoge prestaties     | Volledig geautomatiseerde en zeer geoptimaliseerde gegevensoverdracht en bandbreedte.|
-|Ondersteunde protocollen     | Ondersteuning voor het standaard SMB- en NFS-protocol voor gegevensopname. <br> Ga naar [Systeemvereisten voor Data Box Edge](http://aka.ms/dbe-docs) voor meer informatie over ondersteunde versies.|
+|Ondersteunde protocollen     | Ondersteuning voor het standaard SMB- en NFS-protocol voor gegevensopname. <br> Ga naar [Systeemvereisten voor Data Box Edge](https://aka.ms/dbe-docs) voor meer informatie over ondersteunde versies.|
 |Berekenen       |Gegevens kunnen worden geanalyseerd, verwerkt of gefilterd.|
 |Toegang tot gegevens     | Rechtstreekse gegevenstoegang vanuit Azure Storage Blobs en Azure Files met behulp van cloud-API’s voor aanvullende gegevensverwerking in de cloud.|
 |Snelle toegang     | Lokale cache op het apparaat voor snelle toegang tot laatst gebruikte bestanden.|
@@ -96,13 +96,13 @@ De Data Box Edge-oplossing bestaat uit een Data Box Edge-resource, een fysiek Da
 
     <!--![The Data Box Edge service in Azure portal](media/data-box-overview/data-box-Edge-service1.png)-->
 
-    Ga naar [De Data Box Edge-service gebruiken om uw Data Box Edge-apparaat te beheren](http://aka.ms/dbe-docs) voor meer informatie.
+    Ga naar [De Data Box Edge-service gebruiken om uw Data Box Edge-apparaat te beheren](https://aka.ms/dbe-docs) voor meer informatie.
 
 * **Lokale Data Box-webinterface**: Gebruik de lokale webinterface om diagnoses uit te voeren, het Data Box Edge-apparaat uit te schakelen of opnieuw op te starten, logboeken met kopieerbewerkingen te bekijken en contact op te nemen met Microsoft Ondersteuning om een serviceaanvraag in te dienen.
 
     <!--![The Data Box Edge local web UI](media/data-box-Edge-overview/data-box-Edge-local-web-ui.png)-->
 
-    Ga naar [De webgebaseerde gebruikersinterface gebruiken om uw Data Box te beheren](http://aka.ms/dbe-docs) voor informatie over het gebruik van de webgebaseerde gebruikersinterface.
+    Ga naar [De webgebaseerde gebruikersinterface gebruiken om uw Data Box te beheren](https://aka.ms/dbe-docs) voor informatie over het gebruik van de webgebaseerde gebruikersinterface.
 
 
 ## <a name="region-availability"></a>Beschikbaarheid in regio’s
@@ -137,9 +137,9 @@ Data Box Edge is in de preview-fase en u moet zich registreren. Voer de volgende
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- De [Systeemvereisten voor Data Box Edge](http://aka.ms/dbe-docs) lezen.
-- De [limieten voor Data Box Edge](http://aka.ms/dbe-docs) begrijpen.
-- [Azure Data Box Edge](http://aka.ms/dbe-docs) in de Azure-portal implementeren.
+- De [Systeemvereisten voor Data Box Edge](https://aka.ms/dbe-docs) lezen.
+- De [limieten voor Data Box Edge](https://aka.ms/dbe-docs) begrijpen.
+- [Azure Data Box Edge](https://aka.ms/dbe-docs) in de Azure-portal implementeren.
 
 
 

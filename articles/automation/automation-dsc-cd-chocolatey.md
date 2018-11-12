@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 08/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 43f4a37ce0425503337cffa58570f3468fca6b29
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: f685b584b701d2772ec5b3915facb97f0d15658a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45634246"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51259170"
 ---
 # <a name="usage-example-continuous-deployment-to-virtual-machines-using-automation-state-configuration-and-chocolatey"></a>Voorbeeld van gebruik: Continue implementatie voor virtuele Machines met behulp van de configuratie van de Automation-status en Chocolatey
 
@@ -87,7 +87,7 @@ Of er is de handmatige methode. De mapstructuur van een PowerShell-integratie-Mo
 Hiervoor moet een beetje aanpassen aan uw kant. Maar het is niet moeilijk en dit wordt gedaan slechts één keer per resource (tenzij u in de toekomst een upgrade uitvoert.) Zie dit artikel voor meer informatie over het ontwerpen van PowerShell-integratiemodules: [integratiemodules ontwerpen voor Azure Automation](https://azure.microsoft.com/blog/authoring-integration-modules-for-azure-automation/)
 
 - De module die u nodig hebt op uw werkstation, als volgt installeren:
-  - Installeer [Windows Management Framework, v5](http://aka.ms/wmf5latest) (niet nodig voor Windows 10)
+  - Installeer [Windows Management Framework, v5](https://aka.ms/wmf5latest) (niet nodig voor Windows 10)
   - `Install-Module –Name MODULE-NAME`    <: pakt de module op basis van de PowerShell Gallery
 - Kopieer de modulemap van `c:\Program Files\WindowsPowerShell\Modules\MODULE-NAME` naar een tijdelijke map
 - Voorbeelden en documentatie van de belangrijkste map verwijderen

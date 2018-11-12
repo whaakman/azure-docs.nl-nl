@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/21/2018
 ms.author: terrylan
-ms.openlocfilehash: 35650eec65fa9181d035c52e6b466985b483500c
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 98eee29dc6810d35ee1792c601e6d2f147602cae
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47036504"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51262179"
 ---
 # <a name="securing-paas-deployments"></a>PaaS-implementaties beveiligen
 
@@ -115,7 +115,7 @@ De volgende tabel geeft een lijst van de STRIDE-bedreigingen en enkele voorbeeld
 | Knoeien | Gegevensintegriteit | Valideer de SSL-certificaten. |
 | Afwijzing | Geen weerlegbaarheid | Inschakelen van Azure [controle en diagnose](https://docs.microsoft.com/azure/architecture/best-practices/monitoring). |
 | Openbaarmaking van informatie | Vertrouwelijkheid | Gevoelige gegevens in rust versleutelen met behulp van [service-certificaten](https://docs.microsoft.com/rest/api/appservice/certificates). |
-| DOS-aanval | Beschikbaarheid | Prestatiegegevens mogelijke situaties waarbij een denial-of-service controleren. Verbindingsfilters implementeren. |
+| Denial of service | Beschikbaarheid | Prestatiegegevens mogelijke situaties waarbij een denial-of-service controleren. Verbindingsfilters implementeren. |
 | Misbruik van bevoegdheden | Autorisatie | Gebruik [Privileged Identity Management](../active-directory/privileged-identity-management/subscription-requirements.md). |
 
 ## <a name="develop-on-azure-app-service"></a>Ontwikkelen op Azure App Service
@@ -151,7 +151,7 @@ Webtoepassingen zijn in toenemende mate het doel van aanvallen die gebruikmaken 
 ## <a name="monitor-the-performance-of-your-applications"></a>De prestaties van uw toepassingen controleren
 Bewaken is het verzamelen en analyseren van gegevens om te bepalen van de prestaties, status en beschikbaarheid van uw toepassing. Een effectieve bewakingsstrategie helpt u de gedetailleerde werking van de onderdelen van uw toepassing te begrijpen. Hiermee kunt u uw bedrijfstijd op de hoogte van kritieke problemen zodat u deze oplossen kunt voordat ze problemen worden vergroot. Hiermee kunt u ook afwijkingen die mogelijk die betrekking hebben.
 
-Gebruik [Azure Application Insights](http://azure.microsoft.com/documentation/services/application-insights) voor het bewaken van beschikbaarheid, prestaties en gebruik van uw toepassing, of deze in de cloud of on-premises wordt gehost. Met behulp van Application Insights, kunt u snel identificeren en fouten opsporen in uw toepassing zonder te wachten op een gebruiker ze heeft gerapporteerd. Met de informatie die u verzamelt, kunt u weloverwogen keuzes maken over het onderhoud en de verbeteringen van uw toepassing.
+Gebruik [Azure Application Insights](https://azure.microsoft.com/documentation/services/application-insights) voor het bewaken van beschikbaarheid, prestaties en gebruik van uw toepassing, of deze in de cloud of on-premises wordt gehost. Met behulp van Application Insights, kunt u snel identificeren en fouten opsporen in uw toepassing zonder te wachten op een gebruiker ze heeft gerapporteerd. Met de informatie die u verzamelt, kunt u weloverwogen keuzes maken over het onderhoud en de verbeteringen van uw toepassing.
 
 Application Insights heeft uitgebreide hulpmiddelen voor interactie met de gegevens die worden verzameld. Application Insights slaat zijn gegevens op in een gemeenschappelijke opslagplaats. Het kan profiteren van gedeelde functionaliteit zoals waarschuwingen, dashboards en diepgaande analyse met de Log Analytics-querytaal.
 

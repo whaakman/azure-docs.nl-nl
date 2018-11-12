@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: jingwang
-ms.openlocfilehash: 844440d22bc0a524e9e61bde457ee9f43fd367b2
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 6cab6559cb38b7d6d1dc2105b694acbcac85108c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42444609"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51262043"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Ondersteunde indelingen en codecs voor de compressie in Azure Data Factory
 
@@ -434,7 +434,7 @@ Als u de ORC-bestanden wilt parseren of de gegevens in ORC-indeling wilt schrijv
 ```
 
 > [!IMPORTANT]
-> Voor kopiëren gemachtigd door zelfgehoste Cloudintegratieruntime bijvoorbeeld tussen on-premises en cloud gegevensarchieven, als u niet ORC-bestanden kopieert **als-is**, moet u de JRE 8 (Java Runtime Environment) op uw computer IR installeren. Een 64-bits-IR is 64-bits JRE vereist. U vindt beide versies [hier](http://go.microsoft.com/fwlink/?LinkId=808605).
+> Voor kopiëren gemachtigd door zelfgehoste Cloudintegratieruntime bijvoorbeeld tussen on-premises en cloud gegevensarchieven, als u niet ORC-bestanden kopieert **als-is**, moet u de JRE 8 (Java Runtime Environment) op uw computer IR installeren. Een 64-bits-IR is 64-bits JRE vereist. U vindt beide versies [hier](https://go.microsoft.com/fwlink/?LinkId=808605).
 >
 
 Houd rekening met de volgende punten:
@@ -478,7 +478,7 @@ Als u de Parquet-bestanden wilt parseren of de gegevens in Parquet-indeling wilt
 ```
 
 > [!IMPORTANT]
-> Voor kopiëren gemachtigd door zelfgehoste Cloudintegratieruntime bijvoorbeeld tussen on-premises en cloud gegevensarchieven, als u niet Parquet-bestanden kopieert **als-is**, moet u de JRE 8 (Java Runtime Environment) op uw computer IR installeren. Een 64-bits-IR is 64-bits JRE vereist. U vindt beide versies [hier](http://go.microsoft.com/fwlink/?LinkId=808605).
+> Voor kopiëren gemachtigd door zelfgehoste Cloudintegratieruntime bijvoorbeeld tussen on-premises en cloud gegevensarchieven, als u niet Parquet-bestanden kopieert **als-is**, moet u de JRE 8 (Java Runtime Environment) op uw computer IR installeren. Een 64-bits-IR is 64-bits JRE vereist. U vindt beide versies [hier](https://go.microsoft.com/fwlink/?LinkId=808605).
 >
 
 Houd rekening met de volgende punten:

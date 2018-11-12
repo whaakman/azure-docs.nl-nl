@@ -8,12 +8,12 @@ ms.author: yanacai
 ms.reviewer: jasonwhowell
 ms.topic: conceptual
 ms.date: 03/01/2017
-ms.openlocfilehash: ae5334dcb93e34569131ab51dca99c310831082d
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 6a73ef058a76152678099eca3f1bd15590b0b03d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43052084"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238791"
 ---
 # <a name="run-and-test-u-sql-with-azure-data-lake-u-sql-sdk"></a>Uitvoeren en testen van U-SQL met Azure Data Lake U-SQL-SDK
 
@@ -36,7 +36,7 @@ De Data Lake U-SQL-SDK vereist de volgende afhankelijkheden:
 
     ![Data Lake Tools voor Visual Studio lokaal uitgevoerde Windows 10 SDK](./media/data-lake-analytics-data-lake-tools-local-run/data-lake-tools-for-visual-studio-local-run-windows-10-sdk.png)
 
-    - Installeer [Data Lake Tools voor Visual Studio](http://aka.ms/adltoolsvs). U vindt de voorverpakte Visual C++ en de Windows SDK-bestanden in C:\Program Files (x86) \Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Microsoft\ADL Tools\X.X.XXXX.X\CppSDK. De afhankelijkheden niet in dit geval automatisch door de U-SQL lokaal compiler vinden. U moet het pad CppSDK opgeven voor deze. U kunt de bestanden kopiëren naar een andere locatie of gebruik dit zo is.
+    - Installeer [Data Lake Tools voor Visual Studio](https://aka.ms/adltoolsvs). U vindt de voorverpakte Visual C++ en de Windows SDK-bestanden in C:\Program Files (x86) \Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Microsoft\ADL Tools\X.X.XXXX.X\CppSDK. De afhankelijkheden niet in dit geval automatisch door de U-SQL lokaal compiler vinden. U moet het pad CppSDK opgeven voor deze. U kunt de bestanden kopiëren naar een andere locatie of gebruik dit zo is.
 
 ## <a name="understand-basic-concepts"></a>Informatie over basisconcepten
 

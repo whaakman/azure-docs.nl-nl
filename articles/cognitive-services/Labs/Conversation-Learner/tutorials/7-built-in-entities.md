@@ -10,19 +10,19 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 84d73add5586aaaf130253a8122a4152e39bcbe9
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 2dbbf2a47cdc4240e5b0ba38658a4cb8d5307ff8
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39171364"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51260054"
 ---
 # <a name="how-to-add-pre-built-entities"></a>Vooraf gemaakte entiteiten toevoegen
 Deze zelfstudie laat zien hoe u entiteiten 'vooraf gemaakte' toevoegen aan uw model Conversatiecursist.
 
 ## <a name="video"></a>Video
 
-[![Zelfstudie 7-Preview](http://aka.ms/cl-tutorial-07-preview)](http://aka.ms/blis-tutorial-07)
+[![Zelfstudie 7-Preview](https://aka.ms/cl-tutorial-07-preview)](https://aka.ms/blis-tutorial-07)
 
 ## <a name="requirements"></a>Vereisten
 In deze zelfstudie is vereist dat de algemene zelfstudie bot wordt uitgevoerd

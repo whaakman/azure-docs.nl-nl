@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/13/2018
 ms.author: seguler
 ms.component: common
-ms.openlocfilehash: a0e2400163433ba5290525d0fe807ede624a31ed
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: c0672ddb3e6791fae3b9b8c04e9ff98827c9e22f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42059435"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51256728"
 ---
 # <a name="transfer-data-with-the-azcopy-on-windows"></a>Gegevens overdragen met het AzCopy voor Windows
 AzCopy is een opdrachtregelprogramma voor het kopiëren van gegevens naar/van Microsoft Azure Blob-, bestands- en Table-opslag met behulp van eenvoudige opdrachten die zijn ontworpen voor optimale prestaties. U kunt gegevens tussen een bestandssysteem en een opslagaccount of tussen opslagaccounts kopiëren.  
@@ -233,7 +233,7 @@ Laten we kijken verschillende manieren om te kopiëren van blobs van de ene loca
 AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer1 /Dest:https://myaccount.blob.core.windows.net/mycontainer2 /SourceKey:key /DestKey:key /Pattern:abc.txt
 ```
 
-Wanneer u een blob in een opslagaccount kopieert een [serverzijde kopie](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) bewerking wordt uitgevoerd.
+Wanneer u een blob in een opslagaccount kopieert een [serverzijde kopie](https://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) bewerking wordt uitgevoerd.
 
 ### <a name="copy-a-single-blob-from-one-storage-account-to-another"></a>Één blob van één opslagaccount naar de andere kopiëren
 
@@ -241,7 +241,7 @@ Wanneer u een blob in een opslagaccount kopieert een [serverzijde kopie](http://
 AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer1 /Dest:https://destaccount.blob.core.windows.net/mycontainer2 /SourceKey:key1 /DestKey:key2 /Pattern:abc.txt
 ```
 
-Wanneer u een blob tussen opslagaccounts kopiëren, een [serverzijde kopie](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) bewerking wordt uitgevoerd.
+Wanneer u een blob tussen opslagaccounts kopiëren, een [serverzijde kopie](https://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) bewerking wordt uitgevoerd.
 
 ### <a name="copy-a-single-blob-from-the-secondary-region-to-the-primary-region"></a>Één blob van de secundaire regio kopiëren naar de primaire regio
 
@@ -337,21 +337,21 @@ Laten we kijken op verschillende manieren om te kopiëren van bestanden in een A
 ```azcopy
 AzCopy /Source:https://myaccount1.file.core.windows.net/myfileshare1/ /Dest:https://myaccount2.file.core.windows.net/myfileshare2/ /SourceKey:key1 /DestKey:key2 /S
 ```
-Wanneer u een bestand via bestandsshares kopiëren, een [serverzijde kopie](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) bewerking wordt uitgevoerd.
+Wanneer u een bestand via bestandsshares kopiëren, een [serverzijde kopie](https://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) bewerking wordt uitgevoerd.
 
 ### <a name="copy-from-an-azure-file-share-to-blob-storage"></a>Kopiëren van een Azure-bestandsshare naar Blob-opslag
 
 ```azcopy
 AzCopy /Source:https://myaccount1.file.core.windows.net/myfileshare/ /Dest:https://myaccount2.blob.core.windows.net/mycontainer/ /SourceKey:key1 /DestKey:key2 /S
 ```
-Wanneer u een bestand van de bestandsshare kopiëren naar de blob, een [serverzijde kopie](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) bewerking wordt uitgevoerd.
+Wanneer u een bestand van de bestandsshare kopiëren naar de blob, een [serverzijde kopie](https://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) bewerking wordt uitgevoerd.
 
 ### <a name="copy-a-blob-from-blob-storage-to-an-azure-file-share"></a>Een blob kopiëren van Blob storage naar een Azure-bestandsshare
 
 ```azcopy
 AzCopy /Source:https://myaccount1.blob.core.windows.net/mycontainer/ /Dest:https://myaccount2.file.core.windows.net/myfileshare/ /SourceKey:key1 /DestKey:key2 /S
 ```
-Wanneer u een bestand van een blob naar een bestandsshare kopiëren, een [serverzijde kopie](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) bewerking wordt uitgevoerd.
+Wanneer u een bestand van een blob naar een bestandsshare kopiëren, een [serverzijde kopie](https://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) bewerking wordt uitgevoerd.
 
 ### <a name="synchronously-copy-files"></a>Synchroon kopiëren van bestanden
 
@@ -432,7 +432,7 @@ AzCopy wordt een JSON-gegevens-bestand gegenereerd in de blob-container met de v
 
     <account name>_<table name>_<timestamp>_<volume index>_<CRC>.json
 
-Het gegenereerde JSON-gegevensbestand volgt de indeling van de nettolading voor minimale metagegevens. Zie voor meer informatie over deze indeling nettolading [indeling nettolading voor servicebewerkingen tabel](http://msdn.microsoft.com/library/azure/dn535600.aspx).
+Het gegenereerde JSON-gegevensbestand volgt de indeling van de nettolading voor minimale metagegevens. Zie voor meer informatie over deze indeling nettolading [indeling nettolading voor servicebewerkingen tabel](https://msdn.microsoft.com/library/azure/dn535600.aspx).
 
 Houd er rekening mee dat bij het exporteren van tabellen tot blobs, AzCopy de tabelitems naar lokale tijdelijke bestanden gedownload en uploadt vervolgens deze entiteiten naar de blob. Deze tijdelijke bestanden worden geplaatst in de map voor het logboek met het standaardpad '<code>%LocalAppData%\Microsoft\Azure\AzCopy</code>', kunt u optie/Z: [logboek-bestanden en mappen] om te wijzigen van het logboek map bestandslocatie en dus de locatie van de tijdelijke gegevens-bestanden te wijzigen. De tijdelijke gegevens bestanden grootte wordt bepaald door uw tabelitems grootte en de grootte die u hebt opgegeven met de optie /SplitSize, hoewel het tijdelijke bestand in de lokale schijf wordt onmiddellijk verwijderd zodra deze is geüpload naar de blob, zorg ervoor dat u hebt onvoldoende lokale schijfruimte voor het opslaan van deze tijdelijke bestanden voordat ze worden verwijderd.
 
@@ -997,10 +997,10 @@ Zie de volgende bronnen voor meer informatie over Azure Storage en AzCopy:
 
 ### <a name="azure-storage-blog-posts"></a>Azure Storage-blogberichten:
 * [Maak kennis met de verplaatsing van Azure Storage-bibliotheek Gegevensvoorbeeld](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/)
-* [AzCopy: Introductie van synchrone kopiëren en aangepaste inhoudstype](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/01/13/azcopy-introducing-synchronous-copy-and-customized-content-type.aspx)
-* [AzCopy: Aankondiging van algemene beschikbaarheid van AzCopy 3.0 plus preview-versie van AzCopy 4.0 met ondersteuning voor tabel en bestand](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/10/29/azcopy-announcing-general-availability-of-azcopy-3-0-plus-preview-release-of-azcopy-4-0-with-table-and-file-support.aspx)
-* [AzCopy: Geoptimaliseerd voor scenario's voor grootschalige kopiëren](http://go.microsoft.com/fwlink/?LinkId=507682)
-* [AzCopy: Ondersteuning voor geografisch redundante opslag met leestoegang](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/04/07/azcopy-support-for-read-access-geo-redundant-account.aspx)
-* [AzCopy: Gegevens overdragen met modus voor opnieuw starten en SAS-token](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/09/07/azcopy-transfer-data-with-re-startable-mode-and-sas-token.aspx)
-* [AzCopy: Kopiëren van de Blob cross-account met behulp](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/04/01/azcopy-using-cross-account-copy-blob.aspx)
-* [AzCopy: Uploaden/downloaden van bestanden voor Azure-Blobs](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx)
+* [AzCopy: Introductie van synchrone kopiëren en aangepaste inhoudstype](https://blogs.msdn.com/b/windowsazurestorage/archive/2015/01/13/azcopy-introducing-synchronous-copy-and-customized-content-type.aspx)
+* [AzCopy: Aankondiging van algemene beschikbaarheid van AzCopy 3.0 plus preview-versie van AzCopy 4.0 met ondersteuning voor tabel en bestand](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/10/29/azcopy-announcing-general-availability-of-azcopy-3-0-plus-preview-release-of-azcopy-4-0-with-table-and-file-support.aspx)
+* [AzCopy: Geoptimaliseerd voor scenario's voor grootschalige kopiëren](https://go.microsoft.com/fwlink/?LinkId=507682)
+* [AzCopy: Ondersteuning voor geografisch redundante opslag met leestoegang](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/04/07/azcopy-support-for-read-access-geo-redundant-account.aspx)
+* [AzCopy: Gegevens overdragen met modus voor opnieuw starten en SAS-token](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/09/07/azcopy-transfer-data-with-re-startable-mode-and-sas-token.aspx)
+* [AzCopy: Kopiëren van de Blob cross-account met behulp](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/04/01/azcopy-using-cross-account-copy-blob.aspx)
+* [AzCopy: Uploaden/downloaden van bestanden voor Azure-Blobs](https://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx)

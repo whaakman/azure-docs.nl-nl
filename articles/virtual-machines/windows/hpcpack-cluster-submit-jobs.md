@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 ms.date: 05/14/2018
 ms.author: danlep
-ms.openlocfilehash: f2cf26bc9f980729e74c4a4e0b4e3f4b311fd754
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: ce8e2457c1d575e890174de3b9cf7faf6e16a7cb
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39421131"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51258813"
 ---
 # <a name="submit-hpc-jobs-from-an-on-premises-computer-to-an-hpc-pack-cluster-deployed-in-azure"></a>HPC-taken vanaf een on-premises computer verzenden naar een HPC Pack-cluster die in Azure is geïmplementeerd
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -37,7 +37,7 @@ Configureren van een on-premises clientcomputer voor het verzenden van taken naa
 ## <a name="step-1-install-and-configure-the-web-components-on-the-head-node"></a>Stap 1: Installeren en configureren van de webonderdelen op het hoofdknooppunt
 Zorg ervoor dat de webonderdelen van HPC Pack zijn geconfigureerd op het hoofdknooppunt van HPC Pack zodat een REST-interface voor het verzenden van taken naar het cluster via HTTPS. Als ze niet al zijn geïnstalleerd, moet u eerst de webonderdelen installeren door het uitvoeren van het installatiebestand HpcWebComponents.msi. Configureer vervolgens de onderdelen van de HPC PowerShell-script uit te voeren **Set HPCWebComponents.ps1**.
 
-Zie voor gedetailleerde procedures [de webonderdelen van Microsoft HPC Pack installeren](http://technet.microsoft.com/library/hh314627.aspx).
+Zie voor gedetailleerde procedures [de webonderdelen van Microsoft HPC Pack installeren](https://technet.microsoft.com/library/hh314627.aspx).
 
 > [!TIP]
 > Bepaalde Azure-quickstart-sjablonen voor clusters met HPC Pack installeren en configureren van de webonderdelen automatisch.
@@ -169,7 +169,7 @@ Probeer om te controleren of uw configuratie, uit te voeren taken op het cluster
 1. Als u wilt weergeven van de resultaten van de taak die u wilde verzenden, klikt u op de taak-ID en klik vervolgens op **taken** om de opdrachtuitvoer weer te geven (onder **uitvoer**).
 
 ## <a name="next-steps"></a>Volgende stappen
-* U kunt ook verzenden van taken naar de Azure-cluster met de [HPC Pack REST-API](http://social.technet.microsoft.com/wiki/contents/articles/7737.creating-and-submitting-jobs-by-using-the-rest-api-in-microsoft-hpc-pack-windows-hpc-server.aspx).
+* U kunt ook verzenden van taken naar de Azure-cluster met de [HPC Pack REST-API](https://social.technet.microsoft.com/wiki/contents/articles/7737.creating-and-submitting-jobs-by-using-the-rest-api-in-microsoft-hpc-pack-windows-hpc-server.aspx).
 * Als u verzenden van taken van de cluster van een client voor Linux wilt, raadpleegt u het Python-voorbeeld in de [HPC Pack 2012 R2 SDK en voorbeeldcode](https://www.microsoft.com/download/details.aspx?id=41633).
 
 <!--Image references-->

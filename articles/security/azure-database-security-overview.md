@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2018
 ms.author: TomSh
-ms.openlocfilehash: a61f3572037b1c62ea5ed4e0ac4496b057e2b96d
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 7ead955be3835f4ce3e602fe27a06c00d014195c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249048"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51262196"
 ---
 # <a name="azure-database-security-overview"></a>Overzicht van de beveiliging van Azure-database
 
@@ -35,7 +35,7 @@ Microsoft biedt extra manieren voor het enterprise-gegevens versleutelen:
 
 Azure SQL Database Auditing kunnen ondernemingen record Meld u gebeurtenissen naar een auditlogboek in Azure Storage. SQL Database Auditing kan ook worden geïntegreerd met Microsoft Power BI om het inzoomen op rapporten en analyses mogelijk te maken.
 
-Azure SQL-databases kunnen nauw worden beveiligd om te voldoen aan meest regelgevende of beveiligingsvereisten, zoals HIPAA, ISO 27001/27002 en PCI DSS Level 1. Een huidige lijst van nalevingscertificeringen voor beveiliging is beschikbaar op de [Microsoft Azure Trust Center site](http://azure.microsoft.com/support/trust-center/services/).
+Azure SQL-databases kunnen nauw worden beveiligd om te voldoen aan meest regelgevende of beveiligingsvereisten, zoals HIPAA, ISO 27001/27002 en PCI DSS Level 1. Een huidige lijst van nalevingscertificeringen voor beveiliging is beschikbaar op de [Microsoft Azure Trust Center site](https://azure.microsoft.com/support/trust-center/services/).
 
 In dit artikel worden de basisbeginselen besproken van het beveiligen van Microsoft Azure SQL-databases voor gestructureerde, in tabelvorm en relationele gegevens. Dit artikel helpt u in het bijzonder om aan de slag te gaan met resources voor gegevensbeveiliging, toegangsbeheer en proactieve controle.
 
@@ -44,7 +44,7 @@ In dit artikel worden de basisbeginselen besproken van het beveiligen van Micros
 SQL Database helpt uw gegevens beveiligd door te bieden van versleuteling:
 
 - Voor gegevens in beweging via [Transport Layer Security (TLS)](https://support.microsoft.com/kb/3135244).
-- Voor gegevens in rust via [transparante gegevensversleuteling](http://go.microsoft.com/fwlink/?LinkId=526242).
+- Voor gegevens in rust via [transparante gegevensversleuteling](https://go.microsoft.com/fwlink/?LinkId=526242).
 - Voor gegevens in gebruik door [Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx).
 
 Andere manieren om uw gegevens te versleutelen die u kunt overwegen:

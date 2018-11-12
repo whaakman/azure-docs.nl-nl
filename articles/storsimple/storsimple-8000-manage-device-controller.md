@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/19/2017
 ms.author: alkohli
-ms.openlocfilehash: 9a5be85b917682afeaecd67a4176edb7040d5b4b
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 5e461f340e1c58f64c6d645a1e47cfd811bc4de5
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50215426"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261703"
 ---
 # <a name="manage-your-storsimple-device-controllers"></a>Uw StorSimple-apparaat domeincontrollers beheren
 
@@ -117,7 +117,7 @@ De volgende stappen uitvoeren om uw Microsoft Azure StorSimple-apparaat opnieuw 
    
     `Reset-HcsFactoryDefault`
    
-    Als u wilt herstellen in plaats daarvan één controller, gebruikt u de [Reset-HcsFactoryDefault](http://technet.microsoft.com/library/dn688132.aspx) cmdlet met de `-scope` parameter.)
+    Als u wilt herstellen in plaats daarvan één controller, gebruikt u de [Reset-HcsFactoryDefault](https://technet.microsoft.com/library/dn688132.aspx) cmdlet met de `-scope` parameter.)
    
     Het systeem wordt meerdere keren opnieuw. U krijgt bericht wanneer het opnieuw instellen is voltooid. Afhankelijk van het systeemmodel duurt het 45-60 minuten voor een 8100-apparaat en 60-90 minuten voor een 8600 dit proces te voltooien.
    

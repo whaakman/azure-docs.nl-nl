@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2017
 ms.author: wesmc
-ms.openlocfilehash: 885258379e71ea945e41c4b43c34b35b16dd4a7a
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 91a2b112000e970b73420abaa26efc7de1caa626
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42060156"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261450"
 ---
 # <a name="how-to-scale-azure-redis-cache"></a>Het schalen van Azure Redis-Cache
 Azure Redis-Cache heeft een ander cache-aanbiedingen, waardoor u flexibiliteit bij de keuze van de grootte van de cache en functies. Nadat een cache is gemaakt, kunt u de grootte en de prijscategorie van de cache schalen als de vereisten van uw toepassing veranderen. Dit artikel ziet u hoe u de schaal van uw cache met behulp van de Azure-portal en hulpprogramma's, zoals Azure PowerShell en Azure CLI.
@@ -81,7 +81,7 @@ Aanroepen voor het schalen van uw Azure Redis-Cache-exemplaren met behulp van Az
 Zie voor meer informatie over het omhoog schalen met Azure CLI [instellingen van een bestaand Redis-Cache wijzigen](cache-manage-cli.md#scale).
 
 ### <a name="scale-using-maml"></a>Schaal met behulp van MAML
-Voor het schalen van uw Azure Redis Cache-exemplaren met behulp van de [Microsoft Azure Management-bibliotheken (MAML)](http://azure.microsoft.com/updates/management-libraries-for-net-release-announcement/), Roep de `IRedisOperations.CreateOrUpdate` methode en geeft u de nieuwe grootte voor de `RedisProperties.SKU.Capacity`.
+Voor het schalen van uw Azure Redis Cache-exemplaren met behulp van de [Microsoft Azure Management-bibliotheken (MAML)](https://azure.microsoft.com/updates/management-libraries-for-net-release-announcement/), Roep de `IRedisOperations.CreateOrUpdate` methode en geeft u de nieuwe grootte voor de `RedisProperties.SKU.Capacity`.
 
     static void Main(string[] args)
     {

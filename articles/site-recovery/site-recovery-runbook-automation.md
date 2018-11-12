@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: ruturajd@microsoft.com
-ms.openlocfilehash: 5da623d07c34114d82c2b818a7c06420ffb9c886
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 1853d8d23aeb96cda3148c6c9e7668b9c2c28924
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50211108"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51244012"
 ---
 # <a name="add-azure-automation-runbooks-to-recovery-plans"></a>Azure Automation-runbooks aan herstelplannen toevoegen
 In dit artikel wordt beschreven hoe Azure Site Recovery kan worden geïntegreerd met Azure Automation kunt u uw herstelplannen uitbreiden. Plannen voor herstel kunnen gecoördineerd herstel van virtuele machines die zijn beveiligd met Site Recovery. Plannen voor herstel werkt zowel voor replicatie naar een secundaire cloud, en voor replicatie naar Azure. Plannen voor herstel ook helpen met het herstel **accuraat**, **herhaalbare**, en **geautomatiseerde**. Als u uw virtuele machines naar Azure failover, een uitbreiding voor integratie met Azure Automation uw plannen voor herstel. U kunt deze gebruiken voor het uitvoeren van runbooks, deze bieden een krachtige geautomatiseerde taken.
@@ -252,8 +252,8 @@ Zie de volgende video voor een ander voorbeeld. Hierin wordt beschreven hoe u ee
 
 ## <a name="additional-resources"></a>Aanvullende resources
 * [Azure Automation-service uitvoeren als-account](../automation/automation-create-runas-account.md)
-* [Overzicht van Azure Automation](http://msdn.microsoft.com/library/azure/dn643629.aspx "overzicht van Azure Automation")
-* [Azure Automation-voorbeeldscripts](http://gallery.technet.microsoft.com/scriptcenter/site/search?f\[0\].Type=User&f\[0\].Value=SC%20Automation%20Product%20Team&f\[0\].Text=SC%20Automation%20Product%20Team "voorbeeldscripts voor Azure Automation")
+* [Overzicht van Azure Automation](https://msdn.microsoft.com/library/azure/dn643629.aspx "overzicht van Azure Automation")
+* [Azure Automation-voorbeeldscripts](https://gallery.technet.microsoft.com/scriptcenter/site/search?f\[0\].Type=User&f\[0\].Value=SC%20Automation%20Product%20Team&f\[0\].Text=SC%20Automation%20Product%20Team "voorbeeldscripts voor Azure Automation")
 
 ## <a name="next-steps"></a>Volgende stappen
 [Meer informatie](site-recovery-failover.md) over het uitvoeren van failovers.

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: jejiang
-ms.openlocfilehash: b45328425cff978377d5e05de487d42e786c063b
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 1e18db960b9e07ae412d0c41c4544ef6bb35977c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37345104"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261146"
 ---
 # <a name="manage-azure-cosmos-db-in-azure-storage-explorer"></a>Azure Cosmos DB beheren in Azure Storage Explorer
 
@@ -130,7 +130,7 @@ Door met de rechtermuisknop op een abonnement in het deelvenster Verkenner te kl
 
 2. Selecteer **Onbeperkt** om de partitiesleutel te kunnen opgeven. Klik vervolgens op **OK** om te voltooien.
 
-    Als bij het maken van een verzameling een partitiesleutel wordt gebruikt, kan de partitiesleutelwaarde van de verzameling niet meer worden gewijzigd. Zie [Ontwerp voor partitioneren](partition-data.md#designing-for-partitioning) voor informatie over partitiesleutelinstellingen.
+    Als bij het maken van een verzameling een partitiesleutel wordt gebruikt, kan de partitiesleutelwaarde van de verzameling niet meer worden gewijzigd.
 
     ![Partitiesleutel](./media/storage-explorer/partitionkey.png)
 

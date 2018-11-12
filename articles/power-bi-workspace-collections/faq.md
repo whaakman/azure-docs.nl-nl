@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/25/2017
 ms.author: maghan
-ms.openlocfilehash: e6e2c0b82f306e399454c1672c56e2933e3f1158
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: eed970d46c8a895001ce0a6d7d7f37acf6c02a55
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43040862"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51249197"
 ---
 # <a name="power-bi-workspace-collections-faq"></a>Power BI Workspace Collections Veelgestelde vragen
 
@@ -61,7 +61,7 @@ Zie onze servicedocumentatie voor meer informatie over het gebruik van de Power 
 Ja. Het inrichten en gebruiken van de Microsoft Power BI Workspace Collections-service kunt u uw bestaande Azure-abonnement.
 
 ## <a name="does-my-application-end-user-need-a-power-bi-license"></a>Hoeft de eindgebruiker van mijn toepassing een licentie voor Power BI?
-Nee. Eindgebruikers van uw toepassing zijn toegang tot de visualisaties in het app-gegevens niet de afzonderlijk vereist voor het kopen of de Power BI-abonnement. In het model van Power BI Workspace Collections u, als de provider van de toepassing, wordt in rekening gebracht voor de service via de Azure-verbruik-meter. Raadpleeg de [prijzen en licenties pagina](http://go.microsoft.com/fwlink/?LinkId=760527).
+Nee. Eindgebruikers van uw toepassing zijn toegang tot de visualisaties in het app-gegevens niet de afzonderlijk vereist voor het kopen of de Power BI-abonnement. In het model van Power BI Workspace Collections u, als de provider van de toepassing, wordt in rekening gebracht voor de service via de Azure-verbruik-meter. Raadpleeg de [prijzen en licenties pagina](https://go.microsoft.com/fwlink/?LinkId=760527).
 
 ## <a name="how-does-user-authentication-work-with-power-bi-workspace-collections"></a>Hoe werkt gebruikersverificatie met Power BI-Werkruimteverzamelingen?
 De Power BI Workspace Collections-service gebruikt de App-Tokens voor verificatie en autorisatie in plaats van expliciete verificatie van eindgebruikers. Uw toepassing beheert in de App-Token-model, verificatie en autorisatie voor uw eindgebruikers. Vervolgens, indien nodig, uw app wordt gemaakt
@@ -80,7 +80,7 @@ Ontwikkelaars/werknemers op werkt, of het bouwen van uw toepassing moet een AAD-
 U kunt de [documentatiepagina van Power BI Workspace Collections](get-started.md). U kunt bijhouden over deze service door naar de pagina de [Power BI-blog](https://powerbi.microsoft.com/blog/) of door naar de Power BI-ontwikkelaarscentrum op dev.powerbi.com te gaan. U kunt ook vragen op [Stackoverflow](http://stackoverflow.com/questions/tagged/powerbi).
 
 ## <a name="how-do-i-get-started"></a>Hoe ga ik aan de slag?
-U kunt nu aan de slag gratis! Als u een Azure-abonnement hebt, kunt u nu inrichten Power BI Workspace Collections vanuit Azure portal rechtstreeks. U kunt ook maken uw [gratis Azure-account](https://azure.microsoft.com/free/). Zodra u de Power BI Workspace Collections-service hebt ingericht, u kunt eenvoudig rechtstreeks gebruik van Power BI REST-API's of ontwikkelaar van de SDK is beschikbaar op [GitHub](http://go.microsoft.com/fwlink/?LinkID=746472). Voorbeelden vindt u op hoe u kunt gebruikmaken van de ontwikkelaar van de SDK.
+U kunt nu aan de slag gratis! Als u een Azure-abonnement hebt, kunt u nu inrichten Power BI Workspace Collections vanuit Azure portal rechtstreeks. U kunt ook maken uw [gratis Azure-account](https://azure.microsoft.com/free/). Zodra u de Power BI Workspace Collections-service hebt ingericht, u kunt eenvoudig rechtstreeks gebruik van Power BI REST-API's of ontwikkelaar van de SDK is beschikbaar op [GitHub](https://go.microsoft.com/fwlink/?LinkID=746472). Voorbeelden vindt u op hoe u kunt gebruikmaken van de ontwikkelaar van de SDK.
 
 ## <a name="see-also"></a>Zie ook
 

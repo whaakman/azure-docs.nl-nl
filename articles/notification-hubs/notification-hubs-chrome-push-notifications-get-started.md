@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: 0ec2e31ae3127d27e0f494222385e7f6d456aa65
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 248fd094a8655af2a21035267a6b8f69f268683d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50231862"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51262162"
 ---
 # <a name="tutorial-push-notifications-to-chrome-apps-with-azure-notification-hubs"></a>Zelfstudie: Pushmeldingen verzenden naar Chrome-apps met Azure Notification Hubs
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -29,7 +29,7 @@ ms.locfileid: "50231862"
 Deze zelfstudie laat zien u hoe u een Notification Hub maakt en pushmeldingen naar een Google Chrome-voorbeeldapp verzendt met behulp van [Google Cloud Messaging (GCM)](https://developers.google.com/cloud-messaging/). De Chrome-app wordt uitgevoerd in de context van een Google Chrome-browser en wordt geregistreerd bij de Notification Hub. 
 
 > [!NOTE]
-> Pushmeldingen in een Chrome-app zijn geen algemene meldingen in de browser. Ze zijn specifiek voor het uitbreidbaarheidsmodel van de browser (Zie [Overzicht van Chrome-apps] voor meer informatie). Chrome-apps kunnen niet alleen op de pc worden gebruikt, maar ook op mobiele apparaten (Android en iOS) via Apache Cordova. Zie [Chrome-apps op mobiele apparaten] (Chrome-apps op mobiele apparaten) voor meer informatie.
+> Pushmeldingen in een Chrome-app zijn geen algemene meldingen in de browser. Ze zijn specifiek voor het uitbreidbaarheidsmodel van de browser (Zie [Overzicht van Chrome-apps] voor meer informatie). Chrome-apps kunnen niet alleen op de pc worden gebruikt, maar ook op mobiele apparaten (Android en iOS) via Apache Cordova. Zie [Chrome-apps op mobiele apparaten] voor meer informatie.
 
 In deze zelfstudie voert u de volgende stappen uit:
 
@@ -362,7 +362,7 @@ De Chrome-app wordt gemaakt via JavaScript en u kunt uw favoriete tekstverwerkin
    * **registerWithGCM** is de eerste handler voor de knop, waardoor `chrome.gcm.register` GCM wordt aangeroepen om het huidige exemplaar van de Chrome-app te registreren.
    * **registerCallback** is de callbackfunctie die wordt aangeroepen wanneer de aanroep van de GCM-registratie wordt geretourneerd.
    * **registerWithNH** is de tweede handler voor de knop, waardoor wordt geregistreerd bij Notification Hubs. Deze ontvangt `hubName` en `connectionString` (door de gebruiker opgegeven) en stelt de REST-API-aanroep samen voor registratie bij Notification Hubs.
-   * **splitConnectionString** en **generateSaSToken** zijn hulpprogramma's voor het uitvoeren van de implementatie van JavaScript van een SaS-token, dat in alle REST-API-aanroepen moet worden gebruikt. Zie [Algemene begrippen](http://msdn.microsoft.com/library/dn495627.aspx) voor meer informatie.
+   * **splitConnectionString** en **generateSaSToken** zijn hulpprogramma's voor het uitvoeren van de implementatie van JavaScript van een SaS-token, dat in alle REST-API-aanroepen moet worden gebruikt. Zie [Algemene begrippen](https://msdn.microsoft.com/library/dn495627.aspx) voor meer informatie.
    * **sendNHRegistrationRequest** is de functie die een HTTP REST-aanroep naar Azure Notification Hubs maakt.
    * **registrationPayload** definieert de XML-nettolading van de registratie. Zie [REST-API maken voor de registratie van NH] voor meer informatie. Werk de registratie-id hierin bij met de informatie die is ontvangen van GCM.
    * **client** is een exemplaar van **XMLHttpRequest** die in de toepassing wordt gebruikt voor het maken van de HTTP POST-aanvraag. Werk de `Authorization`-header bij met `sasToken`. Als deze aanroep is voltooid, wordt dit exemplaar van de Chrome-app geregistreerd bij Azure Notification Hubs.
@@ -390,7 +390,7 @@ De Chrome-app wordt gemaakt via JavaScript en u kunt uw favoriete tekstverwerkin
 Voor testdoeleinden verzenden we Chrome-pushmeldingen met een .NET-consoletoepassing. 
 
 > [!NOTE]
-> U kunt pushmeldingen via Notification Hubs verzenden vanuit elke back-end via de openbare <a href="http://msdn.microsoft.com/library/windowsazure/dn223264.aspx">REST-interface</a>. Bekijk de [portal met documentatie](https://azure.microsoft.com/documentation/services/notification-hubs/) voor meer platformonafhankelijke voorbeelden.
+> U kunt pushmeldingen via Notification Hubs verzenden vanuit elke back-end via de openbare <a href="https://msdn.microsoft.com/library/windowsazure/dn223264.aspx">REST-interface</a>. Bekijk de [portal met documentatie](https://azure.microsoft.com/documentation/services/notification-hubs/) voor meer platformonafhankelijke voorbeelden.
 > 
 > 
 

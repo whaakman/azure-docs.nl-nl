@@ -2,18 +2,18 @@
 title: HDInsight met Virtual Network - Azure uitbreiden
 description: Meer informatie over het gebruik van Azure Virtual Network HDInsight verbinden met andere cloud-bronnen of bronnen in uw datacenter
 services: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 10/08/2018
-ms.openlocfilehash: 5ee249aee5d95f22f2e1f52d6356f09ea41ccd68
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.date: 11/06/2018
+ms.openlocfilehash: 62502e946922928b8b4179d38ce9f9ae55f9930d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945753"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238978"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Azure HDInsight met behulp van een Azure-netwerk uitbreiden
 
@@ -25,7 +25,7 @@ Informatie over het gebruik van HDInsight met een [Azure Virtual Network](../vir
 
 * Verbinding maken met HDInsight gegevens opslaat in een Azure-netwerk.
 
-* Rechtstreeks toegang hebben tot Hadoop-services die niet beschikbaar openbaar via internet zijn. Bijvoorbeeld, Kafka-API's of de HBase-Java-API.
+* Rechtstreeks toegang hebben tot de Apache Hadoop-services die niet beschikbaar openbaar via internet zijn. Bijvoorbeeld, Kafka-API's of de HBase-Java-API.
 
 > [!WARNING]
 > De informatie in dit document is een goed begrip van TCP/IP-netwerken vereist. Als u niet bekend met TCP/IP-netwerken bent, moet u samenwerken met iemand die dit voordat u wijzigingen in productienetwerken.
@@ -64,7 +64,7 @@ Gebruik de stappen in deze sectie om te ontdekken hoe u een nieuw HDInsight toev
 
     Eenmaal verbonden, wordt HDInsight geïnstalleerd in het netwerk van Resource Manager kan communiceren met resources in het klassieke netwerk.
 
-2. Geforceerde tunneling gebruiken Geforceerde tunneling is een subnetinstelling die ervoor zorgt het uitgaande internetverkeer met een apparaat voor controle dat en logboekregistratie. HDInsight biedt geen ondersteuning voor geforceerde tunneling. Verwijder geforceerde tunnels zijn voordat het installeren van HDInsight in een subnet, of een nieuw subnet maken voor HDInsight.
+2. Geforceerde tunneling gebruiken Geforceerde tunneling is een subnetinstelling die ervoor zorgt het uitgaande internetverkeer met een apparaat voor controle dat en logboekregistratie. HDInsight biedt geen ondersteuning voor geforceerde tunneling. Verwijder geforceerde tunnels zijn voordat u HDInsight implementeert in een bestaand subnet of maakt u een nieuw subnet met geen geforceerde tunnels voor HDInsight.
 
 3. Moet u netwerkbeveiligingsgroepen, de gebruiker gedefinieerde routes of de virtuele netwerkapparaten gebruiken om te beperken het verkeer naar of uit het virtuele netwerk?
 
@@ -121,7 +121,7 @@ De grootste uitdaging met een configuratie met meerdere netwerken is de naamomze
 
 Azure biedt naamomzetting voor Azure-services die zijn geïnstalleerd in een virtueel netwerk. Deze ingebouwde naamomzetting kan HDInsight verbinden met de volgende bronnen met behulp van een volledig gekwalificeerde domeinnaam (FQDN):
 
-* Een resource die beschikbaar is op het internet. Bijvoorbeeld microsoft.com, google.com.
+* Een resource die beschikbaar is op het internet. Bijvoorbeeld microsoft.com, windowsupdate.com.
 
 * Een resource die zich in hetzelfde Azure virtuele netwerk, met behulp van de __interne DNS-naam__ van de resource. Bijvoorbeeld, wanneer u de standaard-naamomzetting, zijn de volgende voorbeeld van de interne DNS-namen die aan HDInsight worker-knooppunten zijn toegewezen:
 
@@ -173,7 +173,7 @@ Zie voor meer informatie de [naamomzetting voor VM's en Rolexemplaren](../virtua
 
 ## <a name="directly-connect-to-hadoop-services"></a>Rechtstreeks verbinding maken met Hadoop-services
 
-U kunt verbinding maken met het cluster op https://CLUSTERNAME.azurehdinsight.net. Dit adres maakt gebruik van een openbaar IP-adres, die niet toegankelijk als u nsg's of udr's hebt gebruikt om te beperken van inkomend verkeer van internet. Bovendien wanneer u het cluster in een VNet implementeert u het kunt openen met behulp van de persoonlijke eindpunt https://CLUSTERNAME-int.azurehdinsight.net. Dit eindpunt wordt omgezet naar een privé IP-adres binnen het VNet voor toegang tot het cluster.
+U kunt verbinding maken met het cluster op https://CLUSTERNAME.azurehdinsight.net. Dit adres maakt gebruik van een openbaar IP-adres, die mogelijk niet bereikbaar als u nsg's hebt gebruikt om te beperken van inkomend verkeer van internet. Bovendien wanneer u het cluster in een VNet implementeert u het kunt openen met behulp van de persoonlijke eindpunt https://CLUSTERNAME-int.azurehdinsight.net. Dit eindpunt wordt omgezet naar een privé IP-adres binnen het VNet voor toegang tot het cluster.
 
 Voor verbinding met Ambari en andere webpagina's met het virtuele netwerk, gebruikt u de volgende stappen uit:
 
@@ -213,13 +213,13 @@ Het netwerkverkeer in een virtuele Azure-netwerken kan worden beheerd met behulp
 * **Netwerkbeveiligingsgroepen** (NSG) kunt u binnenkomend en uitgaand verkeer met het netwerk te filteren. Zie voor meer informatie de [netwerkverkeer filteren met netwerkbeveiligingsgroepen](../virtual-network/security-overview.md) document.
 
     > [!WARNING]
-    > HDInsight biedt geen ondersteuning voor het beperken van uitgaand verkeer.
+    > HDInsight biedt geen ondersteuning voor het beperken van uitgaand verkeer. Al het uitgaande verkeer moet worden toegestaan.
 
 * **Gebruiker gedefinieerde routes** (UDR) definiëren hoe verkeer stroomt tussen resources in het netwerk. Zie voor meer informatie de [gebruiker gedefinieerde routes en doorsturen via IP](../virtual-network/virtual-networks-udr-overview.md) document.
 
 * **Virtuele netwerkapparaten** repliceren van de functionaliteit van apparaten, zoals firewalls en routers. Zie voor meer informatie de [netwerkapparaten](https://azure.microsoft.com/solutions/network-appliances) document.
 
-Als een beheerde service vereist HDInsight onbeperkte toegang tot Azure status en management-services in de Azure-cloud. Wanneer u nsg's en udr's, moet u ervoor zorgen dat HDInsight deze services nog steeds met HDInsight communiceren kunnen.
+Als een beheerde service HDInsight vereist onbeperkte toegang tot de HDinsight-status en beheer van services voor binnenkomende en uitgaande verkeer van het VNET. Wanneer u nsg's en udr's, moet u ervoor zorgen dat deze services nog steeds met HDInsight-cluster communiceren kunnen.
 
 HDInsight wordt aangegeven dat services op verschillende poorten. Wanneer u een virtueel apparaat firewall gebruikt, moet u verkeer op de poorten die voor deze services toestaan. Zie de sectie [vereiste poorten] voor meer informatie.
 
@@ -233,8 +233,8 @@ Als u van plan over het gebruik van bent **netwerkbeveiligingsgroepen** of **geb
 
 3. Maak of wijzig de netwerkbeveiligingsgroepen of de gebruiker gedefinieerde routes voor het subnet dat u van plan bent voor het installeren van HDInsight in.
 
-    * __Netwerkbeveiligingsgroepen__: toestaan __inkomende__ verkeer op poort __443__ uit het IP-adressen.
-    * __Gebruiker gedefinieerde routes__: Maak een route naar elk IP-adres en stel de __volgende hoptype__ naar __Internet__.
+    * __Netwerkbeveiligingsgroepen__: toestaan __inkomende__ verkeer op poort __443__ uit het IP-adressen. Dit zorgt ervoor dat HDI-beheerservices van VNET buiten het cluster kunnen bereiken.
+    * __Gebruiker gedefinieerde routes__: als u van plan bent te gebruiken van udr's, een route voor elk IP-adres en stel de __volgende hoptype__ naar __Internet__. U moet ook andere uitgaand verkeer toestaan van het VNET zonder beperking. Bijvoorbeeld, kunt u al het andere verkeer doorsturen naar uw Azure firwall of netwerk virtueel apparaat (die wordt gehost in Azure) voor bewakingsdoeleinden, maar het uitgaande verkeer mag niet worden geblokkeerd.
 
 Zie voor meer informatie over netwerkbeveiligingsgroepen of de gebruiker gedefinieerde routes, de volgende documentatie:
 
@@ -242,9 +242,9 @@ Zie voor meer informatie over netwerkbeveiligingsgroepen of de gebruiker gedefin
 
 * [Gebruiker gedefinieerde routes](../virtual-network/virtual-networks-udr-overview.md)
 
-#### <a name="forced-tunneling"></a>Geforceerde tunneling
+#### <a name="forced-tunneling-to-on-premise"></a>Geforceerde tunneling on-premises
 
-Geforceerde tunneling vindt een door de gebruiker gedefinieerde routering configuratie waarin al het verkeer van een subnet naar een specifieke netwerk- of -locatie, zoals uw on-premises netwerk wordt geforceerd. HDInsight biedt __niet__ ondersteuning geforceerde tunneling.
+Geforceerde tunneling vindt een door de gebruiker gedefinieerde routering configuratie waarin al het verkeer van een subnet naar een specifieke netwerk- of -locatie, zoals uw on-premises netwerk wordt geforceerd. HDInsight biedt __niet__ ondersteuning geforceerde tunneling naar de on-premises netwerken. Als u gebruikmaakt van Azure-Firewall of een virtuele netweken-toepassing die wordt gehost in Azure, kunt u udr's gebruiken voor het verkeer te routeren voor controledoeleinden en al het uitgaande verkeer toestaan.
 
 ## <a id="hdinsight-ip"></a> Vereiste IP-adressen
 

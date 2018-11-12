@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/29/2018
 ms.author: mikeray
-ms.openlocfilehash: d75bb780a17653aaacbc74413fb4240a8052a983
-ms.sourcegitcommit: e45b2aa85063d33853560ec4bc867f230c1c18ce
+ms.openlocfilehash: 2d8a98e6ab38f4156b6e2f5bda81b44e1789a6ed
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43371482"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51253071"
 ---
 # <a name="complete-the-prerequisites-for-creating-always-on-availability-groups-on-azure-virtual-machines"></a>Voldoen aan de vereisten voor het maken van AlwaysOn-beschikbaarheidsgroepen op Azure virtual machines
 
@@ -35,7 +35,7 @@ Het volgende diagram ziet u wat u in de zelfstudie maken.
 
 ## <a name="review-availability-group-documentation"></a>Raadpleeg de documentatie voor beschikbaarheid van groep
 
-In deze zelfstudie wordt ervan uitgegaan dat u een basiskennis hebt van SQL Server Always On availability groups hebt. Als u niet bekend met deze technologie bent, Zie [overzicht van de Always On Availability Groups (SQL Server)](http://msdn.microsoft.com/library/ff877884.aspx).
+In deze zelfstudie wordt ervan uitgegaan dat u een basiskennis hebt van SQL Server Always On availability groups hebt. Als u niet bekend met deze technologie bent, Zie [overzicht van de Always On Availability Groups (SQL Server)](https://msdn.microsoft.com/library/ff877884.aspx).
 
 
 ## <a name="create-an-azure-account"></a>Maak een Azure-account
@@ -349,7 +349,7 @@ Nu dat u klaar bent met het configureren van Active Directory en de gebruikersob
 
 ## <a name="create-sql-server-vms"></a>SQL Server-VM's maken
 
-Maak drie extra virtuele machines. De oplossing vereist twee virtuele machines met SQL Server-exemplaren. Een derde virtuele machine fungeert als een witness. Windows Server 2016 kunt gebruiken een [cloud witness](http://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness), maar voor consistentie met eerdere besturingssystemen in dit document maakt gebruik van een virtuele machine voor een witness.  
+Maak drie extra virtuele machines. De oplossing vereist twee virtuele machines met SQL Server-exemplaren. Een derde virtuele machine fungeert als een witness. Windows Server 2016 kunt gebruiken een [cloud witness](https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness), maar voor consistentie met eerdere besturingssystemen in dit document maakt gebruik van een virtuele machine voor een witness.  
 
 Houd rekening met de volgende ontwerpbeslissingen nemen voordat u doorgaat.
 

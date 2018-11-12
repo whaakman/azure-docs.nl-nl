@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/22/2017
 ms.author: alkohli
-ms.openlocfilehash: 5a622eb5ae14a6c6b0c2dd4eceb6ffdb9733dcff
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 4f093251ce3c711cc060369abb27770157024d91
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38681533"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238689"
 ---
 # <a name="deploy-your-on-premises-storsimple-device-in-the-government-portal"></a>Implementeren van uw on-premises StorSimple-apparaat in Government-portal
 
@@ -67,7 +67,7 @@ Voer de volgende verplichte stappen uit om uw StorSimple-apparaat te configurere
 ## <a name="deployment-configuration-checklist"></a>Configuratiecontrolelijst voor implementatie
 Voordat u uw StorSimple-apparaat implementeert, moet u voor het verzamelen van gegevens voor de configuratie van de software op uw apparaat. De implementatie van het StorSimple-apparaat in uw omgeving verloopt gestroomlijnder wanneer u deze gegevens zoveel mogelijk op voorhand voorbereidt. Download en gebruik deze controlelijst om te weten de configuratiedetails terwijl u uw apparaat implementeert.
 
-[Configuratiecontrolelijst voor implementatie van StorSimple downloaden](http://www.microsoft.com/download/details.aspx?id=49159)
+[Configuratiecontrolelijst voor implementatie van StorSimple downloaden](https://www.microsoft.com/download/details.aspx?id=49159)
 
 ## <a name="deployment-prerequisites"></a>Vereisten voor implementatie
 In de volgende secties worden de configuratievereisten voor de StorSimple-apparaatbeheerfunctie en het StorSimple-apparaat toegelicht.

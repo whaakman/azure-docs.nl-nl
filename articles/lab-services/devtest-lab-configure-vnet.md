@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/05/2018
 ms.author: spelluru
-ms.openlocfilehash: 0141ea8a88c0322e6f56cbea56d3a43c923769af
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 8fb3b4ac748fcae2e3aad5b3bfb2a893340dc61a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38687785"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51256133"
 ---
 # <a name="configure-a-virtual-network-in-azure-devtest-labs"></a>Een virtueel netwerk configureren in Azure DevTest Labs
 Zoals uitgelegd in het artikel [een virtuele machine toevoegen aan een lab](devtest-lab-add-vm.md), wanneer u een virtuele machine in een testomgeving maken, kunt u een geconfigureerde virtueel netwerk. Bijvoorbeeld, moet u mogelijk toegang tot uw bedrijfsnetwerk-resources van uw virtuele machines met behulp van het virtuele netwerk dat is geconfigureerd met ExpressRoute of site-naar-site VPN.
@@ -29,7 +29,7 @@ In dit artikel wordt uitgelegd hoe u uw bestaande virtuele netwerk in Virtual Ne
 ## <a name="configure-a-virtual-network-for-a-lab-using-the-azure-portal"></a>Een virtueel netwerk voor een testomgeving met behulp van de Azure-portal configureren
 De volgende stappen helpen u bij het toevoegen van een bestaand virtueel netwerk (en het subnet) aan een lab zodat deze kan worden gebruikt bij het maken van een virtuele machine in het hetzelfde lab. 
 
-1. Meld u aan bij [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Meld u aan bij [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Selecteer **alle Services**, en selecteer vervolgens **DevTest Labs** in de lijst.
 1. Selecteer de gewenste lab in de lijst met labs. 
 1. Selecteer in het hoofdvenster van de testomgeving, **configuratie en het beleid**.

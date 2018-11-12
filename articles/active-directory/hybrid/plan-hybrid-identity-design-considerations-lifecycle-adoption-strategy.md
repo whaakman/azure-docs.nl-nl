@@ -16,12 +16,12 @@ ms.date: 05/30/2018
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 43aaddc224403f69f90452c024f24eab8c5bdcd2
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 5590f1fc3716582da090b8429f8bcf4fc7911dbe
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46311120"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51251760"
 ---
 # <a name="determine-hybrid-identity-lifecycle-adoption-strategy"></a>Acceptatiestrategie voor voor de levenscyclus van de identiteit van de hybride bepalen
 In deze taak definieert u de strategie voor het beheer van identiteit voor uw oplossing voor hybride identiteit om te voldoen aan de bedrijfsvereisten die u hebt gedefinieerd in [beheertaken voor hybride identiteit bepalen](plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md).
@@ -94,7 +94,7 @@ Bekijk de volgende tabel als u wilt vergelijken van de synchronisatie-opties:
 | Optie voor synchronisatie | Voordelen | Nadelen |
 | --- | --- | --- |
 | Synchronisatie op basis van (door middel van DirSync of AADConnect) |Gebruikers en groepen die zijn gesynchroniseerd vanaf on-premises en cloud <br>  **Beheer van beleidsregels**: accountbeleid kunnen worden ingesteld via Active Directory, waarmee de beheerder de mogelijkheid voor het beheren van beleid voor wachtwoorden, werkstation, beperkingen, lock-out besturingselementen, en meer, zonder dat extra taken in uit te voeren de cloud.  <br>  **Toegangsbeheer**: toegang beperken met de cloudservice, zodat de services kunnen worden geopend via de bedrijfsomgeving, via de online-servers, of beide. <br>  Minder ondersteuningsaanvragen worden ingediend: als gebruikers minder wachtwoorden te onthouden, ze zijn minder waarschijnlijk, deze vergeet. <br>  Beveiliging: Gebruikers-id's en gegevens worden beveiligd, omdat alle servers en services die worden gebruikt in de eenmalige aanmelding, worden beheerd en on-premises beheerd. <br>  Ondersteuning voor sterke verificatie: kunt u sterke verificatie (ook wel tweeledige verificatie genoemd) met de cloudservice. Echter, als u sterke verificatie, moet u eenmalige aanmelding. | |
-| Op basis van Federation (via AD FS) |Ingeschakeld door een beveiligingstokenservice (STS). Wanneer u een STS eenmalige aanmelding in om toegang te bieden met een Microsoft cloud-service configureert, maakt u een federatieve vertrouwensrelatie tussen uw on-premises STS en de federatieve domein dat u hebt opgegeven in uw Azure AD-tenant. <br> Hiermee kunnen eindgebruikers de dezelfde set referenties gebruiken om te verkrijgen van toegang tot meerdere resources <br>eindgebruikers hoeft te onderhouden van meerdere sets met referenties. Nog, de gebruikers hebben hun referenties aan elk van de deelnemende resources., B2B en B2C-scenario's ondersteund. |Gespecialiseerde personeel is vereist voor de implementatie en het onderhoud van toegewezen on-premises AD FS-servers. Er gelden beperkingen voor het gebruik van sterke verificatie als u van plan bent te gebruiken van AD FS voor de STS. Zie voor meer informatie, [geavanceerde opties configureren voor AD FS 2.0](http://go.microsoft.com/fwlink/?linkid=235649). |
+| Op basis van Federation (via AD FS) |Ingeschakeld door een beveiligingstokenservice (STS). Wanneer u een STS eenmalige aanmelding in om toegang te bieden met een Microsoft cloud-service configureert, maakt u een federatieve vertrouwensrelatie tussen uw on-premises STS en de federatieve domein dat u hebt opgegeven in uw Azure AD-tenant. <br> Hiermee kunnen eindgebruikers de dezelfde set referenties gebruiken om te verkrijgen van toegang tot meerdere resources <br>eindgebruikers hoeft te onderhouden van meerdere sets met referenties. Nog, de gebruikers hebben hun referenties aan elk van de deelnemende resources., B2B en B2C-scenario's ondersteund. |Gespecialiseerde personeel is vereist voor de implementatie en het onderhoud van toegewezen on-premises AD FS-servers. Er gelden beperkingen voor het gebruik van sterke verificatie als u van plan bent te gebruiken van AD FS voor de STS. Zie voor meer informatie, [geavanceerde opties configureren voor AD FS 2.0](https://go.microsoft.com/fwlink/?linkid=235649). |
 
 > [!NOTE]
 > Zie voor meer informatie, [uw on-premises identiteiten integreren met Azure Active Directory](whatis-hybrid-identity.md).

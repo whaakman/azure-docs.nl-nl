@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/28/2018
 ms.author: raynew
-ms.openlocfilehash: f600471e8a3602628a5040051f382e6e020f29d5
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: d53e8fe6588b7e1b068431a4cd530d0a80a603e6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50211414"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261873"
 ---
 # <a name="plan-capacity-for-hyper-v-vm-disaster-recovery"></a>Capaciteit plannen voor noodherstel van Hyper-V-VM 
 
@@ -43,7 +43,7 @@ U kunt het hulpprogramma uitvoeren in twee modi:
 
 
 ## <a name="run-the-quick-planner"></a>De snelle Planner uitvoeren
-1. Downloaden en openen [Site Recovery Capacity Planner](http://aka.ms/asr-capacity-planner-excel). U moet uitvoeren van macro's. Wanneer u wordt gevraagd, moet u selecties inschakelen bewerken en inhoud.
+1. Downloaden en openen [Site Recovery Capacity Planner](https://aka.ms/asr-capacity-planner-excel). U moet uitvoeren van macro's. Wanneer u wordt gevraagd, moet u selecties inschakelen bewerken en inhoud.
 
 2. In de **een planner-type selecteren** keuzelijst, selecteer **snelle Planner**.
 
@@ -81,7 +81,7 @@ U kunt het hulpprogramma uitvoeren in twee modi:
 
 ## <a name="run-the-detailed-planner"></a>De gedetailleerde Planner uitvoeren
 
-1. Downloaden en openen [Site Recovery Capacity Planner](http://aka.ms/asr-capacity-planner-excel). U moet uitvoeren van macro's. Wanneer u wordt gevraagd, moet u selecties inschakelen bewerken en inhoud.
+1. Downloaden en openen [Site Recovery Capacity Planner](https://aka.ms/asr-capacity-planner-excel). U moet uitvoeren van macro's. Wanneer u wordt gevraagd, moet u selecties inschakelen bewerken en inhoud.
 
 2. In **een planner-type selecteren**, selecteer **gedetailleerde Planner** uit de lijst.
 

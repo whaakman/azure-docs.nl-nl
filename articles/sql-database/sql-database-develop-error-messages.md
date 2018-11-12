@@ -13,12 +13,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/31/2018
-ms.openlocfilehash: 233e6e9bccd8729cd61514f2855799cf3d22d72b
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 71a23e982f1e4ae5609d4f9a160cd1861e043ea1
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50914665"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51251812"
 ---
 # <a name="sql-error-codes-for-sql-database-client-applications-database-connection-errors-and-other-issues"></a>SQL-foutcodes voor SQL Database-clienttoepassingen: Database-verbindingsfouten en andere problemen
 
@@ -45,7 +45,7 @@ Zie voor voorbeelden van de programmacode van logica voor opnieuw proberen:
 * [Verbindingsbibliotheken voor SQL-Database en SQL Server](sql-database-libraries.md) 
 * [Bewerkingen voor het oplossen van verbindingsfouten en tijdelijke fouten in SQL-Database](sql-database-connectivity-issues.md)
 
-Een bespreking van de *blokkerende periode* voor clients die gebruikmaken van ADO.NET is beschikbaar in [SQL Server-verbinding groeperen (ADO.NET)](http://msdn.microsoft.com/library/8xx3tyca.aspx).
+Een bespreking van de *blokkerende periode* voor clients die gebruikmaken van ADO.NET is beschikbaar in [SQL Server-verbinding groeperen (ADO.NET)](https://msdn.microsoft.com/library/8xx3tyca.aspx).
 
 ### <a name="transient-fault-error-codes"></a>Foutcodes voor tijdelijke fouten
 De volgende fouten tijdelijk zijn en opnieuw moeten worden uitgevoerd in de logica van toepassingen: 
@@ -94,8 +94,8 @@ Verwante onderwerpen:
 
 | Foutcode | Severity | Beschrijving |
 | ---:| ---:|:--- |
-| 10928 |20 |Resource-ID: %d. De limiet voor %s voor de database is %d en is bereikt. Zie voor meer informatie, [ http://go.microsoft.com/fwlink/?LinkId=267637 ](http://go.microsoft.com/fwlink/?LinkId=267637).<br/><br/>De Resource-ID geeft aan dat de resource die de limiet is bereikt. Voor werkthreads, de Resource-ID = 1. Voor de Resource-ID-sessies = 2.<br/><br/>Zie voor meer informatie over deze fout en hoe u deze kunt oplossen:<br/>• [Azure SQL Database-resourcebeperkingen](sql-database-service-tiers-dtu.md). |
-| 10929 |20 |Resource-ID: %d. De minimumgarantie voor %s is %d, maximumlimiet is %d, en het huidige gebruik voor de database is %d. De server is momenteel echter te druk bezet ter ondersteuning van aanvragen die groter zijn dan %d voor deze database. Zie voor meer informatie, [ http://go.microsoft.com/fwlink/?LinkId=267637 ](http://go.microsoft.com/fwlink/?LinkId=267637). Anders probeer het later opnieuw.<br/><br/>De Resource-ID geeft aan dat de resource die de limiet is bereikt. Voor werkthreads, de Resource-ID = 1. Voor de Resource-ID-sessies = 2.<br/><br/>Zie voor meer informatie over deze fout en hoe u deze kunt oplossen:<br/>• [Azure SQL Database-resourcebeperkingen](sql-database-service-tiers-dtu.md). |
+| 10928 |20 |Resource-ID: %d. De limiet voor %s voor de database is %d en is bereikt. Zie voor meer informatie, [ http://go.microsoft.com/fwlink/?LinkId=267637 ](https://go.microsoft.com/fwlink/?LinkId=267637).<br/><br/>De Resource-ID geeft aan dat de resource die de limiet is bereikt. Voor werkthreads, de Resource-ID = 1. Voor de Resource-ID-sessies = 2.<br/><br/>Zie voor meer informatie over deze fout en hoe u deze kunt oplossen:<br/>• [Azure SQL Database-resourcebeperkingen](sql-database-service-tiers-dtu.md). |
+| 10929 |20 |Resource-ID: %d. De minimumgarantie voor %s is %d, maximumlimiet is %d, en het huidige gebruik voor de database is %d. De server is momenteel echter te druk bezet ter ondersteuning van aanvragen die groter zijn dan %d voor deze database. Zie voor meer informatie, [ http://go.microsoft.com/fwlink/?LinkId=267637 ](https://go.microsoft.com/fwlink/?LinkId=267637). Anders probeer het later opnieuw.<br/><br/>De Resource-ID geeft aan dat de resource die de limiet is bereikt. Voor werkthreads, de Resource-ID = 1. Voor de Resource-ID-sessies = 2.<br/><br/>Zie voor meer informatie over deze fout en hoe u deze kunt oplossen:<br/>• [Azure SQL Database-resourcebeperkingen](sql-database-service-tiers-dtu.md). |
 | 40544 |20 |De database heeft het groottequotum bereikt. Partitioneer of verwijder gegevens, verwijder indexen of Raadpleeg de documentatie voor mogelijke oplossingen. |
 | 40549 |16 |Sessie is beëindigd omdat er een langlopende transactie. Probeer uw transactie te verkorten. |
 | 40550 |16 |De sessie is beëindigd omdat er te veel vergrendelingen heeft verkregen. Probeer het lezen of minder rijen in één transactie te wijzigen. |
@@ -109,7 +109,7 @@ De volgende fouten zijn met betrekking tot het maken en gebruiken van elastische
 | Foutcode | Severity | Beschrijving | Corrigerende maatregelen |
 |:--- |:--- |:--- |:--- |
 | 1132 | 17 |De opslag van de elastische pool is bereikt. Het opslaggebruik voor de elastische groep kan niet groter zijn dan (%d) MB/s. Er wordt geprobeerd gegevens te schrijven naar een database wanneer de limiet voor opslag van de elastische pool is bereikt. |Houd rekening met het aantal dtu's van toenemende en/of toe te voegen opslag aan de elastische pool indien mogelijk om te verhogen van de limiet voor opslag verminderen de opslag die wordt gebruikt door afzonderlijke databases binnen de elastische pool of databases verwijderen uit de elastische groep. |
-| 10929 | 16 |De minimumgarantie voor %s is %d, maximumlimiet is %d, en het huidige gebruik voor de database is %d. De server is momenteel echter te druk bezet ter ondersteuning van aanvragen die groter zijn dan %d voor deze database. Zie [ http://go.microsoft.com/fwlink/?LinkId=267637 ](http://go.microsoft.com/fwlink/?LinkId=267637) voor hulp. Anders probeer het later opnieuw. DTU / vCore-minimum per database. DTU / vCore maximum per database. Het totale aantal gelijktijdige werknemers (aanvragen) voor alle databases in de elastische groep probeert te overschrijden de limiet voor groep van toepassingen. |Vergroot het aantal dtu's of vCores van de elastische pool indien mogelijk om de limiet van de werknemer verhogen of databases uit de elastische pool te verwijderen. |
+| 10929 | 16 |De minimumgarantie voor %s is %d, maximumlimiet is %d, en het huidige gebruik voor de database is %d. De server is momenteel echter te druk bezet ter ondersteuning van aanvragen die groter zijn dan %d voor deze database. Zie [ http://go.microsoft.com/fwlink/?LinkId=267637 ](https://go.microsoft.com/fwlink/?LinkId=267637) voor hulp. Anders probeer het later opnieuw. DTU / vCore-minimum per database. DTU / vCore maximum per database. Het totale aantal gelijktijdige werknemers (aanvragen) voor alle databases in de elastische groep probeert te overschrijden de limiet voor groep van toepassingen. |Vergroot het aantal dtu's of vCores van de elastische pool indien mogelijk om de limiet van de werknemer verhogen of databases uit de elastische pool te verwijderen. |
 | 40844 | 16 |Database '%ls' op Server '%ls' is een '%ls' edition-database in een elastische pool en een relatie doorlopend kopiëren kan hebben.  |N/A |
 | 40857 | 16 |Elastische pool niet vinden voor de server: '%ls', naam elastische groep: '%ls'. Opgegeven elastische pool bestaat niet in de opgegeven server. | Geef een geldige elastische pool-naam. |
 | 40858 | 16 |Elastische pool '%ls' bestaat al in de server: '%ls'. Opgegeven elastische pool bestaat al in de opgegeven logische server. | Geef de naam van een nieuwe elastische pool. |

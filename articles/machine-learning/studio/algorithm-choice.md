@@ -12,12 +12,12 @@ ms.service: machine-learning
 ms.component: studio
 ms.topic: article
 ms.date: 12/18/2017
-ms.openlocfilehash: 92db2a86f5f698945cd2252476e951d658dc75ac
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: c3aa1bfe2cc1513d636452031de62da814af6cd7
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46959203"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51262298"
 ---
 # <a name="how-to-choose-algorithms-for-azure-machine-learning-studio"></a>Algoritmen kiezen voor Azure Machine Learning Studio
 
@@ -121,7 +121,7 @@ Sommige learning-algoritmen moeten u bepaalde veronderstellingen over de structu
 | [beslissingsforest met](https://msdn.microsoft.com/library/azure/dn906008.aspx) |● |○ | |6 | |
 | [besluit jungle](https://msdn.microsoft.com/library/azure/dn905976.aspx) |● |○ | |6 |Het geheugengebruik van laag |
 | [boosted-beslisboom](https://msdn.microsoft.com/library/azure/dn906025.aspx) |● |○ | |6 |Het geheugengebruik van grote |
-| [neurale netwerk](https://msdn.microsoft.com/library/azure/dn905947.aspx) |● | | |9 |[Aanvullende aanpassing is mogelijk](http://go.microsoft.com/fwlink/?LinkId=402867) |
+| [neurale netwerk](https://msdn.microsoft.com/library/azure/dn905947.aspx) |● | | |9 |[Aanvullende aanpassing is mogelijk](https://go.microsoft.com/fwlink/?LinkId=402867) |
 | [gemiddelde perceptron](https://msdn.microsoft.com/library/azure/dn906036.aspx) |○ |○ |● |4 | |
 | [voor ondersteuningsvectormachines](https://msdn.microsoft.com/library/azure/dn905835.aspx) | |○ |● |5 |Goed voor grote functiesets |
 | [lokaal diep voor ondersteuningsvectormachines](https://msdn.microsoft.com/library/azure/dn913070.aspx) |○ | | |8 |Goed voor grote functiesets |
@@ -130,7 +130,7 @@ Sommige learning-algoritmen moeten u bepaalde veronderstellingen over de structu
 | [Logistieke regressie](https://msdn.microsoft.com/library/azure/dn905853.aspx) | |● |● |5 | |
 | [beslissingsforest met](https://msdn.microsoft.com/library/azure/dn906015.aspx) |● |○ | |6 | |
 | [besluit jungle ](https://msdn.microsoft.com/library/azure/dn905963.aspx) |● |○ | |6 |Het geheugengebruik van laag |
-| [neurale netwerk](https://msdn.microsoft.com/library/azure/dn906030.aspx) |● | | |9 |[Aanvullende aanpassing is mogelijk](http://go.microsoft.com/fwlink/?LinkId=402867) |
+| [neurale netwerk](https://msdn.microsoft.com/library/azure/dn906030.aspx) |● | | |9 |[Aanvullende aanpassing is mogelijk](https://go.microsoft.com/fwlink/?LinkId=402867) |
 | [one-v-all](https://msdn.microsoft.com/library/azure/dn905887.aspx) |- |- |- |- |Controleer de eigenschappen van de twee klassen methode geselecteerd |
 | **Regressie** | | | | | |
 | [Lineair](https://msdn.microsoft.com/library/azure/dn905978.aspx) | |● |● |4 | |
@@ -138,7 +138,7 @@ Sommige learning-algoritmen moeten u bepaalde veronderstellingen over de structu
 | [beslissingsforest met](https://msdn.microsoft.com/library/azure/dn905862.aspx) |● |○ | |6 | |
 | [boosted-beslisboom](https://msdn.microsoft.com/library/azure/dn905801.aspx) |● |○ | |5 |Het geheugengebruik van grote |
 | [snelle forest kwantiel](https://msdn.microsoft.com/library/azure/dn913093.aspx) |● |○ | |9 |Distributies in plaats van punt voorspellingen |
-| [neurale netwerk](https://msdn.microsoft.com/library/azure/dn905924.aspx) |● | | |9 |[Aanvullende aanpassing is mogelijk](http://go.microsoft.com/fwlink/?LinkId=402867) |
+| [neurale netwerk](https://msdn.microsoft.com/library/azure/dn905924.aspx) |● | | |9 |[Aanvullende aanpassing is mogelijk](https://go.microsoft.com/fwlink/?LinkId=402867) |
 | [Poisson](https://msdn.microsoft.com/library/azure/dn905988.aspx) | | |● |5 |Technisch log-lineaire. Voor het voorspellen van tellingen |
 | [Volgnummer](https://msdn.microsoft.com/library/azure/dn906029.aspx) | | | |0 |Voor het voorspellen van positie-volgorde worden toegepast |
 | **Detectie van afwijkingen** | | | | | |
@@ -190,7 +190,7 @@ Te voorkomen boosted decision trees door te beperken hoe vaak ze kunnen onderver
 Neurale netwerken zijn brein geïnspireerde learning-algoritmen die betrekking hebben op [multiklasse](https://msdn.microsoft.com/library/azure/dn906030.aspx), [twee klassen](https://msdn.microsoft.com/library/azure/dn905947.aspx), en [regressie](https://msdn.microsoft.com/library/azure/dn905924.aspx) problemen. Ze zijn verkrijgbaar in een oneindige verschillende, maar de neurale netwerken in Azure Machine Learning zijn alle van de vorm van gerichte acyclische grafieken. Dit betekent dat dat invoerfuncties worden doorgegeven naar voren (nooit terug) via een reeks lagen voordat het wordt omgezet in de uitvoer. In elke laag worden invoer gewogen in verschillende combinaties, bij elkaar opgeteld en doorgegeven aan de volgende laag. Dankzij deze combinatie van eenvoudige berekeningen resulteert in de mogelijkheid om meer geavanceerde klasse grenzen en gegevens trends schijnbaar Magic-pakket. Netwerken veel lagen van de sortering voeren de 'deep learning' die helpt u bij het zo veel tech reporting en science fiction.
 
 Deze hoge prestaties gratis niet, maar. Neurale netwerken kunnen erg lang duren om te trainen, met name voor grote gegevenssets met veel functies. Ze hebben ook meer parameters dan de meeste algoritmen, wat betekent dat parameter sweeping de trainingstijd geweldige deals uitgebreid.
-En voor deze overachievers die willen [geven hun eigen netwerkstructuur](http://go.microsoft.com/fwlink/?LinkId=402867), de mogelijkheden zijn inexhaustible.
+En voor deze overachievers die willen [geven hun eigen netwerkstructuur](https://go.microsoft.com/fwlink/?LinkId=402867), de mogelijkheden zijn inexhaustible.
 
 ![Grenzen geleerd door neurale netwerken][6]
 ***de grenzen geleerd door neurale netwerken zijn complex en onregelmatige***

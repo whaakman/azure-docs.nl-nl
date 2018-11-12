@@ -12,12 +12,12 @@ ms.topic: get-started-article
 ms.date: 09/18/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 04d950b0a8001fd76e3754b73a9d7c4c5fe2893d
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 5da946ff0c9bdda91668999db2fccdd12a67c0d2
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49318636"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51253190"
 ---
 # <a name="azure-ad-connect-and-azure-ad-connect-health-installation-roadmap"></a>Installatieprocedure voor Azure AD Connect en Azure AD Connect Health
 
@@ -26,7 +26,7 @@ ms.locfileid: "49318636"
 > [!IMPORTANT]
 > Microsoft biedt geen ondersteuning voor het wijzigen of uitvoeren van Azure AD Connect-synchronisatie anders dan op de manier die officieel is gedocumenteerd. Alle andere acties kunnen resulteren in een inconsistente of niet-ondersteunde status van de Azure AD Connect-synchronisatie. Daarom biedt Microsoft geen technische ondersteuning voor dergelijke implementaties.
 
-U vindt de download voor Azure AD Connect op [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=615771).
+U vindt de download voor Azure AD Connect op [Microsoft Download Center](https://go.microsoft.com/fwlink/?LinkId=615771).
 
 | Oplossing | Scenario |
 | --- | --- |
@@ -41,7 +41,7 @@ U vindt de download voor Azure AD Connect op [Microsoft Download Center](http://
 ### <a name="next-steps-to-install-azure-ad-connect"></a>De volgende stappen om Azure AD Connect te installeren
 |Onderwerp |Koppeling|  
 | --- | --- |
-|Azure AD Connect downloaden | [Azure AD Connect downloaden](http://go.microsoft.com/fwlink/?LinkId=615771)|
+|Azure AD Connect downloaden | [Azure AD Connect downloaden](https://go.microsoft.com/fwlink/?LinkId=615771)|
 |Installeren met behulp van snelle instellingen | [Snelle installatie van Azure AD Connect](./how-to-connect-install-express.md)|
 |Installeren met behulp van aangepaste instellingen | [Aangepaste installatie van Azure AD Connect](./how-to-connect-install-custom.md)|
 |Upgraden van DirSync | [Upgraden van Azure AD-synchronisatiehulpprogramma (DirSync)](./how-to-dirsync-upgrade-get-started.md)|
@@ -141,12 +141,12 @@ Volg de volgende stappen om aan de slag te gaan met Azure AD Connect Health:
 ## <a name="download-and-install-azure-ad-connect-health-agent"></a>De Azure AD Connect Health-agent downloaden en installeren
 * Zorg dat u [voldoet aan de vereisten](how-to-connect-health-agent-install.md#requirements) voor Azure AD Connect Health.
 * Aan de slag met Azure AD Connect Health voor AD FS
-    * [Download de Azure AD Connect Health-agent voor AD FS.](http://go.microsoft.com/fwlink/?LinkID=518973)
+    * [Download de Azure AD Connect Health-agent voor AD FS.](https://go.microsoft.com/fwlink/?LinkID=518973)
     * [Zie de installatie-instructies](how-to-connect-health-agent-install.md#installing-the-azure-ad-connect-health-agent-for-ad-fs).
 * Aan de slag met Azure AD Connect Health for Sync
-    * [Download en installeer de nieuwste versie van Azure AD Connect](http://go.microsoft.com/fwlink/?linkid=615771). De Health for Sync-agent wordt geïnstalleerd als onderdeel van de Azure AD Connect-installatie (versie 1.0.9125.0 of hoger).
+    * [Download en installeer de nieuwste versie van Azure AD Connect](https://go.microsoft.com/fwlink/?linkid=615771). De Health for Sync-agent wordt geïnstalleerd als onderdeel van de Azure AD Connect-installatie (versie 1.0.9125.0 of hoger).
 * Aan de slag met Azure AD Connect Health voor AD DS
-    * [Download de Azure AD Connect Health-agent voor AD DS](http://go.microsoft.com/fwlink/?LinkID=820540).
+    * [Download de Azure AD Connect Health-agent voor AD DS](https://go.microsoft.com/fwlink/?LinkID=820540).
     * [Zie de installatie-instructies](how-to-connect-health-agent-install.md#installing-the-azure-ad-connect-health-agent-for-ad-ds).
 
 

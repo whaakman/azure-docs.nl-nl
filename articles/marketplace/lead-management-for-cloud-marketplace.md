@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: yijenj
-ms.openlocfilehash: 9d2745f1211aa6f818f89d9597867e1b3b2de03f
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 4e89664bf980717dbfd7994d6469fc4a412307a0
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49362650"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51258541"
 ---
 # <a name="lead-management-for-cloud-marketplace"></a>Beheer voor cloud-marketplace leiden
 
@@ -97,7 +97,7 @@ Zodra de technische instellen ingesteld is, moet u deze leads opnemen in uw huid
 
 **Wat zijn leads en waarom zijn ze belangrijk voor mij als uitgever op Marketplace?** 
 
-Leads zijn klanten die uw producten uit de Marketplace implementeert. Of het product wordt vermeld op [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us) of [AppSource](http://appsource.microsoft.com/), kunt u zich voor het ontvangen van leads van klanten die geïnteresseerd in uw product zijn als u de bestemming lead op uw aanbieding.  
+Leads zijn klanten die uw producten uit de Marketplace implementeert. Of het product wordt vermeld op [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us) of [AppSource](https://appsource.microsoft.com/), kunt u zich voor het ontvangen van leads van klanten die geïnteresseerd in uw product zijn als u de bestemming lead op uw aanbieding.  
 
 
 **Waar vind ik help bij het instellen van mijn lead bestemming?** 

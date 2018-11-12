@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2018
 ms.author: kgremban
-ms.openlocfilehash: 43b317cd9d1c9384a58e9d525fdd15d18eb63968
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: c91dad17016cd9619d2d42a3fcee04a7d14b5eab
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43246633"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242516"
 ---
 # <a name="send-email-notifications-about-azure-iot-hub-events-using-logic-apps"></a>E-mailmeldingen over gebeurtenissen van Azure IoT Hub verzenden met Logic Apps
 
@@ -28,7 +28,7 @@ In dit artikel wordt u stapsgewijs begeleid bij het maken van een voorbeeldconfi
 ## <a name="prerequisites"></a>Vereisten
 
 * Een e-mailaccount van een e-mailprovider die door Azure Logic Apps wordt ondersteund, bijvoorbeeld Office 365 Outlook, Outlook.com of Gmail. Dit e-mailaccount wordt gebruikt voor het verzenden van de gebeurtenismeldingen. Zie [Overzicht van connectors](https://docs.microsoft.com/connectors/) voor een volledige lijst met ondersteunde Logic App-connectors.
-* Een actief Azure-account. Als u nog geen account hebt, kunt u [een gratis account aanmaken](http://azure.microsoft.com/pricing/free-trial/).
+* Een actief Azure-account. Als u nog geen account hebt, kunt u [een gratis account aanmaken](https://azure.microsoft.com/pricing/free-trial/).
 * Een IoT Hub in Azure. Als u nog geen hub hebt gemaakt, leest u [Get started with IoT Hub](../iot-hub/iot-hub-csharp-csharp-getstarted.md) (Aan de slag met IoT Hub) voor stapsgewijze instructies. 
 
 ## <a name="create-a-logic-app"></a>Een logische app maken

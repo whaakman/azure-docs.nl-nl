@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: sachins
-ms.openlocfilehash: ef2b5fe6c9b70eaea5ab4db2d4a0ca59ff82dbb9
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 2c7e624344605b24e78962ac2b6d23278c06c0cc
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391892"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255145"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen1"></a>Aanbevolen procedures voor het gebruik van Azure Data Lake Storage Gen1
 
@@ -27,7 +27,7 @@ In dit artikel leert u over aanbevolen procedures en overwegingen voor het werke
 
 Azure Data Lake Storage Gen1 aanbiedingen POSIX besturingselementen voor toegang en gedetailleerde controle voor Azure Active Directory (Azure AD)-gebruikers, groepen en service-principals. Deze besturingselementen voor toegang kunnen worden ingesteld op de bestaande bestanden en mappen. De besturingselementen voor toegang kunnen ook worden gebruikt om te maken van de standaardwaarden die kunnen worden toegepast op nieuwe bestanden of mappen. Wanneer de machtigingen zijn ingesteld op bestaande mappen en de onderliggende objecten, moeten de machtigingen is doorgegeven recursief van elk object. Als zich een groot aantal bestanden, kan de machtigingen doorgeven lang duren. De tijd die nodig kan variëren tussen 30 tot 50 objecten dat per seconde wordt verwerkt. Daarom kan de map structuur- en gebruikersgroepen op de juiste wijze plannen. Anders kan dit leiden tot onverwachte vertragingen en problemen wanneer u met uw gegevens werkt. 
 
-Stel dat u hebt een map met 100.000 onderliggende objecten. Als u de ondergrens van 30-objecten dat per seconde wordt verwerkt, voor het bijwerken van de machtiging voor de hele map kunnen een uur duren. Meer informatie over Data Lake Storage Gen1 ACL's zijn beschikbaar op [toegangsbeheer in Azure Data Lake Storage Gen1](data-lake-store-access-control.md). Voor betere prestaties op ACL's recursief toewijzen, kunt u de Azure Data Lake Command-Line Tool. Het hulpprogramma maakt meerdere threads en recursieve navigatie logica voor het snel ACL's toepassen op miljoenen bestanden. Het hulpprogramma is beschikbaar voor Linux en Windows, en de [documentatie](https://github.com/Azure/data-lake-adlstool) en [downloads](http://aka.ms/adlstool-download) voor dit hulpprogramma u op GitHub vinden kunt. Deze dezelfde prestatieverbeteringen kunnen worden ingeschakeld door uw eigen hulpprogramma's die zijn geschreven met de Data Lake Storage Gen1 [.NET](data-lake-store-data-operations-net-sdk.md) en [Java](data-lake-store-get-started-java-sdk.md) SDK's.
+Stel dat u hebt een map met 100.000 onderliggende objecten. Als u de ondergrens van 30-objecten dat per seconde wordt verwerkt, voor het bijwerken van de machtiging voor de hele map kunnen een uur duren. Meer informatie over Data Lake Storage Gen1 ACL's zijn beschikbaar op [toegangsbeheer in Azure Data Lake Storage Gen1](data-lake-store-access-control.md). Voor betere prestaties op ACL's recursief toewijzen, kunt u de Azure Data Lake Command-Line Tool. Het hulpprogramma maakt meerdere threads en recursieve navigatie logica voor het snel ACL's toepassen op miljoenen bestanden. Het hulpprogramma is beschikbaar voor Linux en Windows, en de [documentatie](https://github.com/Azure/data-lake-adlstool) en [downloads](https://aka.ms/adlstool-download) voor dit hulpprogramma u op GitHub vinden kunt. Deze dezelfde prestatieverbeteringen kunnen worden ingeschakeld door uw eigen hulpprogramma's die zijn geschreven met de Data Lake Storage Gen1 [.NET](data-lake-store-data-operations-net-sdk.md) en [Java](data-lake-store-get-started-java-sdk.md) SDK's.
 
 ### <a name="use-security-groups-versus-individual-users"></a>Beveiligingsgroepen ten opzichte van afzonderlijke gebruikers gebruiken 
 

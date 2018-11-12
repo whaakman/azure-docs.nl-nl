@@ -1,25 +1,25 @@
 ---
-title: Upload gegevens voor Hadoop-taken in HDInsight
-description: Meer informatie over het uploaden en toegang tot gegevens voor Hadoop-taken in HDInsight met behulp van de klassieke Azure CLI, Azure Storage Explorer, Azure PowerShell, de Hadoop-opdrachtregels of Sqoop.
+title: Gegevens uploaden voor Apache Hadoop-taken in HDInsight
+description: Meer informatie over het uploaden van en toegang tot gegevens voor Apache Hadoop-taken in HDInsight met behulp van de klassieke Azure CLI, Azure Storage Explorer, Azure PowerShell, de Hadoop-opdrachtregels of Sqoop.
 keywords: etl-hadoop, ophalen van gegevens in hadoop, hadoop-gegevens voor laden
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
-ms.author: jasonh
+ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 05/14/2018
-ms.openlocfilehash: 44aaccee436011bd7d27bec87515fde0e898732e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 11/06/2018
+ms.openlocfilehash: 50e9162da5fda98d73ccfeea0776dc89ddd25dac
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46985976"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51256915"
 ---
 # <a name="upload-data-for-hadoop-jobs-in-hdinsight"></a>Upload gegevens voor Hadoop-taken in HDInsight
 
-Azure HDInsight biedt een volledig functionele Hadoop distributed file system (HDFS) ten opzichte van Azure Storage en Azure Data Lake Store. Azure Storage en Data lake Store zijn ontworpen als een HDFS-extensie voor een naadloze ervaring voor klanten. Hiermee kunt de volledige set onderdelen in het Hadoop-ecosysteem werkt rechtstreeks op de gegevens die deze beheert. Azure Storage en Data Lake Store zijn afzonderlijke bestandssystemen die zijn geoptimaliseerd voor opslag van gegevens en berekeningen kunt uitvoeren op die gegevens. Zie voor meer informatie over de voordelen van het gebruik van Azure Storage [Azure Storage gebruiken met HDInsight] [ hdinsight-storage] en [gebruik Data Lake Store met HDInsight](hdinsight-hadoop-use-data-lake-store.md).
+Azure HDInsight biedt een volledig functionele Hadoop distributed file system (HDFS) ten opzichte van Azure Storage en Azure Data Lake Storage (Gen1 en Gen2). Azure Storage en Data lake Storage Gen1 en Gen2 zijn ontworpen als HDFS-uitbreidingen voor een naadloze ervaring bieden aan klanten. Hiermee kunt de volledige set onderdelen in het Hadoop-ecosysteem werkt rechtstreeks op de gegevens die deze beheert. Azure Storage, Data Lake Storage Gen1 en Gen2 zijn afzonderlijke bestandssystemen die zijn geoptimaliseerd voor opslag van gegevens en berekeningen kunt uitvoeren op die gegevens. Zie voor meer informatie over de voordelen van het gebruik van Azure Storage [Azure Storage gebruiken met HDInsight][hdinsight-storage], [met Data Lake Storage Gen1 met HDInsight](hdinsight-hadoop-use-data-lake-store.md) en [ Data Lake Storage Gen2 gebruiken met HDInsight](../storage/data-lake-storage/use-hdi-cluster.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -29,7 +29,8 @@ Houd rekening met de volgende vereisten voordat u begint:
 * Kennis van de volgende twee artikelen:
 
     - [Azure Storage gebruiken met HDInsight][hdinsight-storage]
-    - [Gebruik Data Lake Store met HDInsight](hdinsight-hadoop-use-data-lake-store.md)
+    - [Data Lake Storage Gen1 gebruiken met HDInsight](hdinsight-hadoop-use-data-lake-store.md)
+    - [Data Lake Storage Gen2 gebruiken met HDInsight](../storage/data-lake-storage/use-hdi-cluster.md)   
 
 ## <a name="upload-data-to-azure-storage"></a>Gegevens uploaden naar Azure Storage
 
@@ -213,7 +214,7 @@ Voordat u het hulpprogramma gebruikt, moet u uw Azure-opslag account naam en de 
     Zodra het bestand is klaar met uploaden, kunt u het gebruiken van taken op het HDInsight-cluster.
 
 ### <a name="mount-azure-storage-as-local-drive"></a>Koppelen van een Azure-opslag als een lokaal station
-Zie [koppelen van een Azure-opslag als een lokaal station](http://blogs.msdn.com/b/bigdatasupport/archive/2014/01/09/mount-azure-blob-storage-as-local-drive.aspx).
+Zie [koppelen van een Azure-opslag als een lokaal station](https://blogs.msdn.com/b/bigdatasupport/archive/2014/01/09/mount-azure-blob-storage-as-local-drive.aspx).
 
 ### <a name="upload-using-services"></a>Uploaden met behulp van services
 #### <a name="azure-data-factory"></a>Azure Data Factory
@@ -304,6 +305,8 @@ Nu dat u hoe u gegevens in HDInsight krijgt begrijpt, leest u de volgende artike
 [hdinsight-use-sqoop]:hadoop/hdinsight-use-sqoop.md
 
 [hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
+[hdinsight-adls-gen1]: hdinsight-hadoop-use-data-lake-store.md
+[hdinsight-adls-gen2]: ../storage/data-lake-storage/use-hdi-cluster.md
 [hdinsight-submit-jobs]:hadoop/submit-apache-hadoop-jobs-programmatically.md
 [hdinsight-get-started]:hadoop/apache-hadoop-linux-tutorial-get-started.md
 

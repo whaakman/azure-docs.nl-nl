@@ -5,15 +5,15 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 03/21/2018
+ms.date: 11/06/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 605533f25b36a92a660301d28aa63cb2ecdd44f4
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: 9ae3a17c9756a38414ee25fd24f7d12d6179e95f
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37909975"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51285807"
 ---
 Wanneer u een virtuele netwerkgateway maakt, moet u de gewenste gateway-SKU opgeven. Selecteer de SKU die aan uw vereisten voldoet op basis van de typen werkbelasting, doorvoer, functies en SLA's.
 
@@ -29,7 +29,7 @@ De nieuwe VPN-gateway SKU's stroomlijnen de functiesets die worden aangeboden op
 
 | **SKU**| **Functies**|
 | ---    | ---         |
-|**Basic** (*)   | **Op route gebaseerde VPN**: 10 tunnels met P2S; geen RADIUS-verificatie voor P2S; geen IKEv2 voor P2S<br>**Op beleid gebaseerd VPN**: (IKEv1): 1 tunnel; geen P2S|
+|**Basic** (*)   | **Op route gebaseerde VPN**: 10 tunnels voor S2S-verbindingen /; geen RADIUS-verificatie voor P2S; geen IKEv2 voor P2S<br>**Op beleid gebaseerde VPN**: (IKEv1): 1/S2S-verbinding tunnel; geen P2S|
 | **VpnGw1, VpnGw2 en VpnGw3** | **Op route gebaseerde VPN**: maximaal 30 tunnels (*), P2S, BGP, actief-actief, aangepast IPsec/IKE-beleid, ExpressRoute/VPN co-existentie |
 |        |             |
 

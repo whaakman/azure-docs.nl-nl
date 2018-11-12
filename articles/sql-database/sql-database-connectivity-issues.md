@@ -13,12 +13,12 @@ ms.author: ninarn
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 08/01/2018
-ms.openlocfilehash: f381eaad61c98228ea9be2665ebed5878b666317
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: ee5542c72991a2aa8de94f5dc2e819eb5d311a27
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47064234"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51246800"
 ---
 # <a name="troubleshoot-diagnose-and-prevent-sql-connection-errors-and-transient-errors-for-sql-database"></a>Oplossen, opsporen en voorkomen van SQL-verbindingsfouten en tijdelijke fouten voor SQL-database
 In dit artikel wordt beschreven hoe om te voorkomen, oplossen, opsporen en oplossen van verbindingsfouten en tijdelijke fouten die uw clienttoepassing tegenkomt wanneer u de interactie met Azure SQL Database. Informatie over het configureren van de logica voor opnieuw proberen, de verbindingsreeks en andere verbindingsinstellingen aanpassen.
@@ -63,7 +63,7 @@ Wanneer uw programma met SQL Database via externe middleware communiceert, vraag
 ### <a name="interval-increase-between-retries"></a>De toename van het interval tussen nieuwe pogingen
 Het is raadzaam dat u 5 seconden voordat de eerste poging wacht. Opnieuw proberen na een vertraging van minder dan 5 seconden risico's overbelasting van de cloudservice. Voor elke opeenvolgende pogingen, de vertraging moet groeien exponentieel toeneemt, tot maximaal 60 seconden.
 
-Zie voor een bespreking van de blokkering voor clients die gebruikmaken van ADO.NET [SQL Server-verbinding (ADO.NET) groeperen](http://msdn.microsoft.com/library/8xx3tyca.aspx).
+Zie voor een bespreking van de blokkering voor clients die gebruikmaken van ADO.NET [SQL Server-verbinding (ADO.NET) groeperen](https://msdn.microsoft.com/library/8xx3tyca.aspx).
 
 Ook is het verstandig om in te stellen van een maximum aantal nieuwe pogingen voordat het programma zelf wordt beëindigd.
 
@@ -115,13 +115,13 @@ Als u deze test praktische, herkent uw programma een Runtimeparameter die ervoor
 <a id="net-sqlconnection-parameters-for-connection-retry" name="net-sqlconnection-parameters-for-connection-retry"></a>
 
 ## <a name="net-sqlconnection-parameters-for-connection-retry"></a>.NET SqlConnection-parameters voor de verbinding opnieuw proberen
-Als uw clientprogramma verbinding met SQL-Database maakt met behulp van de .NET Framework-klasse **System.Data.SqlClient.SqlConnection**, .NET 4.6.1 gebruiken of hoger (of .NET Core) zodat u de functie van de verbinding opnieuw proberen kunt. Zie voor meer informatie over de functie [deze webpagina](http://go.microsoft.com/fwlink/?linkid=393996).
+Als uw clientprogramma verbinding met SQL-Database maakt met behulp van de .NET Framework-klasse **System.Data.SqlClient.SqlConnection**, .NET 4.6.1 gebruiken of hoger (of .NET Core) zodat u de functie van de verbinding opnieuw proberen kunt. Zie voor meer informatie over de functie [deze webpagina](https://go.microsoft.com/fwlink/?linkid=393996).
 
 <!--
 2015-11-30, FwLink 393996 points to dn632678.aspx, which links to a downloadable .docx related to SqlClient and SQL Server 2014.
 -->
 
-Wanneer u bouwt de [verbindingsreeks](http://msdn.microsoft.com/library/System.Data.SqlClient.SqlConnection.connectionstring.aspx) voor uw **SqlConnection** object, de coördinatie van de waarden onder de volgende parameters:
+Wanneer u bouwt de [verbindingsreeks](https://msdn.microsoft.com/library/System.Data.SqlClient.SqlConnection.connectionstring.aspx) voor uw **SqlConnection** object, de coördinatie van de waarden onder de volgende parameters:
 
 * **ConnectRetryCount**:&nbsp;&nbsp;standaardwaarde is 1. Bereik is 0 tot en met 255.
 * **ConnectRetryInterval**:&nbsp;&nbsp;standaardwaarde is 1 seconde. Bereik ligt tussen 1 en 60.
@@ -211,7 +211,7 @@ Als uw programma geen verbinding maken met SQL Database, wordt een diagnostische
 Op een Windows-computer, kunt u proberen deze hulpprogramma's:
 
 * SQL Server Management Studio (ssms.exe), die verbinding maakt met behulp van ADO.NET
-* Sqlcmd.exe, die verbinding met behulp van maakt [ODBC](http://msdn.microsoft.com/library/jj730308.aspx)
+* Sqlcmd.exe, die verbinding met behulp van maakt [ODBC](https://msdn.microsoft.com/library/jj730308.aspx)
 
 Nadat uw programma is verbonden, moet u testen of een korte SQL SELECT-query werkt.
 
@@ -226,7 +226,7 @@ Op Linux, kunnen het nuttig zijn de volgende hulpprogramma's:
 * `nmap -sS -O 127.0.0.1`
   * Wijzig de Voorbeeldwaarde om te worden van uw IP-adres.
 
-Op Windows, de [PortQry.exe](http://www.microsoft.com/download/details.aspx?id=17148) hulpprogramma kan nuttig zijn. Hier volgt een voorbeeld van de uitvoering van die de poort situatie op een SQL Database-server een query uitgevoerd en die is uitgevoerd op een laptop:
+Op Windows, de [PortQry.exe](https://www.microsoft.com/download/details.aspx?id=17148) hulpprogramma kan nuttig zijn. Hier volgt een voorbeeld van de uitvoering van die de poort situatie op een SQL Database-server een query uitgevoerd en die is uitgevoerd op een laptop:
 
 ```
 [C:\Users\johndoe\]
@@ -253,7 +253,7 @@ Een onregelmatig terugkerend probleem is soms beste gediagnosticeerd door detect
 
 De client kan een diagnose helpen door logboekregistratie van alle fouten die worden aangetroffen. U kunt mogelijk de logboekvermeldingen correleren met foutgegevens die SQL-Database intern zelf registreert.
 
-Enterprise-bibliotheek 6 (EntLib60) biedt beheerde .NET-klassen om u te helpen bij het aanmelden. Zie voor meer informatie, [5 - net zo gemakkelijk als een logboek vallen: Gebruik de Logging Application Block](http://msdn.microsoft.com/library/dn440731.aspx).
+Enterprise-bibliotheek 6 (EntLib60) biedt beheerde .NET-klassen om u te helpen bij het aanmelden. Zie voor meer informatie, [5 - net zo gemakkelijk als een logboek vallen: Gebruik de Logging Application Block](https://msdn.microsoft.com/library/dn440731.aspx).
 
 <a id="h-diagnostics-examine-logs-errors" name="h-diagnostics-examine-logs-errors"></a>
 
@@ -262,8 +262,8 @@ Hier volgen enkele Transact-SQL SELECT-instructies die foutenlogboeken en andere
 
 | Query van logboek | Beschrijving |
 |:--- |:--- |
-| `SELECT e.*`<br/>`FROM sys.event_log AS e`<br/>`WHERE e.database_name = 'myDbName'`<br/>`AND e.event_category = 'connectivity'`<br/>`AND 2 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, e.end_time, GetUtcDate())`<br/>`ORDER BY e.event_category,`<br/>&nbsp;&nbsp;`e.event_type, e.end_time;` |De [sys.event_log](http://msdn.microsoft.com/library/dn270018.aspx) weergave biedt informatie over afzonderlijke gebeurtenissen, waaronder enkele die leiden tijdelijke fouten of fouten in de netwerkconnectiviteit tot kunnen.<br/><br/>U kunt in het ideale geval correleren de **start_time** of **end_time** waarden met informatie over wanneer uw clientprogramma problemen ondervonden.<br/><br/>U moet verbinding maken met de *master* database deze query uit te voeren. |
-| `SELECT c.*`<br/>`FROM sys.database_connection_stats AS c`<br/>`WHERE c.database_name = 'myDbName'`<br/>`AND 24 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, c.end_time, GetUtcDate())`<br/>`ORDER BY c.end_time;` |De [sys.database_connection_stats](http://msdn.microsoft.com/library/dn269986.aspx) weergave biedt samengevoegde tellingen van gebeurtenistypen voor aanvullende diagnostische gegevens.<br/><br/>U moet verbinding maken met de *master* database deze query uit te voeren. |
+| `SELECT e.*`<br/>`FROM sys.event_log AS e`<br/>`WHERE e.database_name = 'myDbName'`<br/>`AND e.event_category = 'connectivity'`<br/>`AND 2 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, e.end_time, GetUtcDate())`<br/>`ORDER BY e.event_category,`<br/>&nbsp;&nbsp;`e.event_type, e.end_time;` |De [sys.event_log](https://msdn.microsoft.com/library/dn270018.aspx) weergave biedt informatie over afzonderlijke gebeurtenissen, waaronder enkele die leiden tijdelijke fouten of fouten in de netwerkconnectiviteit tot kunnen.<br/><br/>U kunt in het ideale geval correleren de **start_time** of **end_time** waarden met informatie over wanneer uw clientprogramma problemen ondervonden.<br/><br/>U moet verbinding maken met de *master* database deze query uit te voeren. |
+| `SELECT c.*`<br/>`FROM sys.database_connection_stats AS c`<br/>`WHERE c.database_name = 'myDbName'`<br/>`AND 24 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, c.end_time, GetUtcDate())`<br/>`ORDER BY c.end_time;` |De [sys.database_connection_stats](https://msdn.microsoft.com/library/dn269986.aspx) weergave biedt samengevoegde tellingen van gebeurtenistypen voor aanvullende diagnostische gegevens.<br/><br/>U moet verbinding maken met de *master* database deze query uit te voeren. |
 
 <a id="d-search-for-problem-events-in-the-sql-database-log" name="d-search-for-problem-events-in-the-sql-database-log"></a>
 
@@ -309,12 +309,12 @@ database_xml_deadlock_report  2015-10-16 20:28:01.0090000  NULL   NULL   NULL   
 <a id="l-enterprise-library-6" name="l-enterprise-library-6"></a>
 
 ## <a name="enterprise-library-6"></a>Enterprise-bibliotheek 6
-Enterprise-bibliotheek 6 (EntLib60) is een structuur van .NET-klassen die helpt u bij het implementeren van krachtige clients van cloudservices, waarbij een van de service SQL Database is. Zie het zoeken van onderwerpen die zijn toegewezen aan elk gebied waarin EntLib60 kan helpen [Enterprise Library 6: April 2013](http://msdn.microsoft.com/library/dn169621%28v=pandp.60%29.aspx).
+Enterprise-bibliotheek 6 (EntLib60) is een structuur van .NET-klassen die helpt u bij het implementeren van krachtige clients van cloudservices, waarbij een van de service SQL Database is. Zie het zoeken van onderwerpen die zijn toegewezen aan elk gebied waarin EntLib60 kan helpen [Enterprise Library 6: April 2013](https://msdn.microsoft.com/library/dn169621%28v=pandp.60%29.aspx).
 
-Logica voor opnieuw proberen voor afhandeling van tijdelijke fouten is een gebied waarin EntLib60 kan helpen. Zie voor meer informatie, [4 - Perseverance, geheim van alle successen: Gebruik de afhandeling van Toepassingsblok fouten](http://msdn.microsoft.com/library/dn440719%28v=pandp.60%29.aspx).
+Logica voor opnieuw proberen voor afhandeling van tijdelijke fouten is een gebied waarin EntLib60 kan helpen. Zie voor meer informatie, [4 - Perseverance, geheim van alle successen: Gebruik de afhandeling van Toepassingsblok fouten](https://msdn.microsoft.com/library/dn440719%28v=pandp.60%29.aspx).
 
 > [!NOTE]
-> De broncode voor EntLib60 is beschikbaar voor openbare downloaden van de [Downloadcentrum](http://go.microsoft.com/fwlink/p/?LinkID=290898). Microsoft heeft geen plannen om te maken voor verdere updates voor de functie of onderhoud EntLib.
+> De broncode voor EntLib60 is beschikbaar voor openbare downloaden van de [Downloadcentrum](https://go.microsoft.com/fwlink/p/?LinkID=290898). Microsoft heeft geen plannen om te maken voor verdere updates voor de functie of onderhoud EntLib.
 >
 >
 
@@ -341,7 +341,7 @@ In de naamruimte **Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling.
 
 Hier zijn enkele koppelingen naar informatie over EntLib60:
 
-* Gratis eBook downloaden: [Developer's Guide voor Microsoft Enterprise Library, 2e editie](http://www.microsoft.com/download/details.aspx?id=41145).
+* Gratis eBook downloaden: [Developer's Guide voor Microsoft Enterprise Library, 2e editie](https://www.microsoft.com/download/details.aspx?id=41145).
 * Aanbevolen procedures: [algemene richtlijnen voor opnieuw proberen](../best-practices-retry-general.md) is een uitstekende uitgebreide beschrijving van de logica voor opnieuw proberen.
 * Downloaden van NuGet: [Enterprise Library - tijdelijke fouten afhandelen toepassing blokkeren 6.0](http://www.nuget.org/packages/EnterpriseLibrary.TransientFaultHandling/).
 

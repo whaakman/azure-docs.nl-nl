@@ -7,18 +7,18 @@ ms.date: 6/13/2018
 ms.topic: article
 ms.service: microsoft-docs
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: 7456785815dbefb2436713814965d90ba0e789ee
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: 1be05ac7216a65922927b94d1cc4ba2a893433b2
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39037268"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51250982"
 ---
 # <a name="resource-manager-vcpu-quota-increase-requests"></a>Resource Manager-vCPU-aanvragen voor het verhogen van quota
 
 Resource Manager-vCPU-quota worden afgedwongen op het regioniveau en de SKU-familie niveau.
-Meer informatie over hoe quota worden afgedwongen op de [Azure-abonnement en Servicelimieten](http://aka.ms/quotalimits) pagina.
-Voor meer informatie over SKU-Families, kunt u kosten en prestaties vergelijken op de [prijzen van virtuele Machines](http://aka.ms/pricingcompute) pagina.
+Meer informatie over hoe quota worden afgedwongen op de [Azure-abonnement en Servicelimieten](https://aka.ms/quotalimits) pagina.
+Voor meer informatie over SKU-Families, kunt u kosten en prestaties vergelijken op de [prijzen van virtuele Machines](https://aka.ms/pricingcompute) pagina.
 
 Volg de instructies hieronder gebruiken voor het maken van een ondersteuningsaanvraag via Azure 'Gebruik + quota' om een verhoging blade beschikbaar in de Azure-Portal. 
 
@@ -28,7 +28,7 @@ Volg de instructies hieronder gebruiken voor het maken van een ondersteuningsaan
 
    ![Abonnementen](./media/resource-manager-core-quotas-request/subscriptions.png)
 
-2. Selecteer het abonnement waarvoor een verbeterd quotum.
+2. Selecteer het abonnement waarvoor het quotum moet worden verhoogd.
 
    ![Abonnement selecteren](./media/resource-manager-core-quotas-request/select-subscription.png)
 

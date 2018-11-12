@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/10/2018
 ms.author: kumud
-ms.openlocfilehash: eaa44b4fff47f8e3385e86f5c86a090ff84a6bf8
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
-ms.translationtype: HT
+ms.openlocfilehash: e8d38aaff2e7f20a3935608bcf4d610828d2b84f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51218879"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261499"
 ---
 # <a name="log-analytics-for-public-basic-load-balancer"></a>Log analytics voor openbare Basic Load Balancer
 
@@ -143,7 +143,7 @@ U moet verbinding maken met uw opslagaccount en ophalen van vermeldingen in de J
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Uw Azure-auditlogboeken met Power BI visualiseren](http://blogs.msdn.com/b/powerbi/archive/2015/09/30/monitor-azure-audit-logs-with-power-bi.aspx) blogbericht.
+* [Uw Azure-auditlogboeken met Power BI visualiseren](https://blogs.msdn.com/b/powerbi/archive/2015/09/30/monitor-azure-audit-logs-with-power-bi.aspx) blogbericht.
 * [Bekijk en analyseer Azure-controlelogboeken in Power BI en meer](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/) blogbericht.
 
 ## <a name="next-steps"></a>Volgende stappen

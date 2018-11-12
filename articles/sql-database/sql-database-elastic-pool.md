@@ -12,12 +12,12 @@ ms.author: moslake
 ms.reviewer: ninarn, carlrab
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: 6721b260960cd38b68173a5d973a5716b99a26c0
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: a6e2be02f9954a036fdcb67a15c73cc82670834b
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50241205"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283560"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>Elastische pools kunt u beheren en schalen van meerdere Azure SQL-databases
 
@@ -113,10 +113,10 @@ Als u het hulpprogramma niet kunt gebruiken, kunnen de volgende stappen u helpen
 
 1. Maak een schatting van de edtu's of vCores die nodig zijn voor de groep als volgt:
 
-   Voor DTU gebaseerde aankoopmodel: MAX (<*totaal aantal DB's* X *gemiddelde DTU-gebruik per DB* >,<br>
+   Voor DTU gebaseerde aankoopmodel: MAX (<*totaal aantal DB's* X *gemiddelde DTU-gebruik per DB*>,<br>  
    <*aantal gelijktijdig piekende databases* X *piek-DTU-gebruik per DB*)
 
-   Voor vCore gebaseerde aankoopmodel: MAX (<*totaal aantal DB's* X *Gemiddeld gebruik per DB vCore* >,<br>
+   Voor vCore gebaseerde aankoopmodel: MAX (<*totaal aantal DB's* X *Gemiddeld gebruik per DB vCore*>,<br>  
    <*Aantal gelijktijdig piekende databases* X *vCore piekgebruik per DB*)
 
 2. Schat hoeveel opslagruimte de groep nodig heeft door het aantal bytes op te tellen dat nodig is voor alle databases in de groep. Bepaal daarna hoe groot de eDTU-groep moet zijn om aan deze hoeveelheid opslag te voldoen.

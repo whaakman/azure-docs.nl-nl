@@ -1,6 +1,6 @@
 ---
 title: Automatische back-up voor SQL Server 2014 Azure Virtual Machines | Microsoft Docs
-description: Verklaart de functie voor automatische back-up voor SQL Server 2014 virtuele machines in Azure wordt uitgevoerd. In dit artikel is specifiek voor virtuele machines met behulp van de Resource Manager.
+description: Verklaart de functie voor automatische back-up voor SQL Server 2014 VM's die worden uitgevoerd in Azure. In dit artikel is specifiek voor virtuele machines met Resource Manager.
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/03/2018
 ms.author: jroth
-ms.openlocfilehash: 43ce94653197933a13830003dd07e5b21be2a585
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 0a1ad6d50c624115bab7ad09ff0e30a36e7df500
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33894997"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51256609"
 ---
 # <a name="automated-backup-for-sql-server-2014-virtual-machines-resource-manager"></a>Automatische back-up voor virtuele Machines (Resource Manager) voor SQL Server 2014
 
@@ -27,12 +27,12 @@ ms.locfileid: "33894997"
 > * [SQL Server 2014](virtual-machines-windows-sql-automated-backup.md)
 > * [SQL Server 2016/2017](virtual-machines-windows-sql-automated-backup-v2.md)
 
-Automatische back-up configureert automatisch [Managed Backup naar Microsoft Azure](https://msdn.microsoft.com/library/dn449496.aspx) voor alle bestaande en nieuwe databases op een virtuele machine in Azure met SQL Server 2014 Standard of Enterprise. Hiermee kunt u voor het configureren van regelmatige back-ups die gebruikmaken van duurzame Azure blob-opslag. Automatische back-up is afhankelijk van de [uitbreiding voor SQL Server IaaS-Agent](virtual-machines-windows-sql-server-agent-extension.md).
+Automatische back-up configureert automatisch [Managed Backup naar Microsoft Azure](https://msdn.microsoft.com/library/dn449496.aspx) voor alle bestaande en nieuwe databases op een Azure-VM met SQL Server 2014 Standard of Enterprise. Hiermee kunt u het configureren van regelmatige back-ups die gebruikmaken van duurzame Azure blob-opslag. Automatische back-up is afhankelijk van de [SQL Server IaaS Agent-extensie](virtual-machines-windows-sql-server-agent-extension.md).
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
 ## <a name="prerequisites"></a>Vereisten
-Houd rekening met de volgende vereisten voor het gebruik van automatische back-up:
+Voor het gebruik van automatische back-up, houd rekening met de volgende vereisten:
 
 **Besturingssysteem**:
 
@@ -40,21 +40,21 @@ Houd rekening met de volgende vereisten voor het gebruik van automatische back-u
 - Windows Server 2012 R2
 - Windows Server 2016
 
-**SQL Server-versie /-editie**:
+**SQL Server-versie/editie**:
 
 - SQL Server 2014 Standard
 - SQL Server 2014 Enterprise
 
 > [!IMPORTANT]
-> Automatische back-up werkt met SQL Server 2014. Als u SQL Server 2016/2017 gebruikt, kunt u automatische back-up v2 back-up van uw databases. Zie voor meer informatie [automatische back-up v2 voor SQL Server 2016 Azure Virtual Machines](virtual-machines-windows-sql-automated-backup-v2.md).
+> Geautomatiseerde back-up werkt met SQL Server 2014. Als u van SQL Server 2016/2017 gebruikmaakt, kunt u automatische back-up v2 back-up van uw databases. Zie voor meer informatie, [v2 automatische back-up voor SQL Server 2016 Azure Virtual Machines](virtual-machines-windows-sql-automated-backup-v2.md).
 
 **Databaseconfiguratie**:
 
-- Doeldatabases moeten het volledige herstelmodel gebruiken. Zie voor meer informatie over de impact van het volledige herstelmodel op back-ups, [back-up onder het volledige herstelmodel](https://technet.microsoft.com/library/ms190217.aspx).
-- Doeldatabases moeten zich op het standaardexemplaar van SQL Server. Benoemde exemplaren wordt niet ondersteund door de SQL Server IaaS-extensie.
+- Doeldatabase moeten het volledige herstelmodel gebruiken. Zie voor meer informatie over de impact van het volledige herstelmodel op back-ups, [back-up onder het volledige herstelmodel](https://technet.microsoft.com/library/ms190217.aspx).
+- Doeldatabases zich op het standaardexemplaar van SQL Server. De SQL Server IaaS-extensie biedt geen ondersteuning voor benoemde exemplaren.
 
 > [!NOTE]
-> Automatische back-up is afhankelijk van de SQL Server IaaS-Agent-extensie. Huidige SQL-virtuele machine afbeeldingen deze extensie standaard toegevoegd. Zie voor meer informatie [uitbreiding voor SQL Server IaaS-Agent](virtual-machines-windows-sql-server-agent-extension.md).
+> Automatische back-up, is afhankelijk van de SQL Server IaaS Agent-extensie. Huidige galerie met installatiekopieën van de SQL-machines met deze extensie standaard toegevoegd. Zie voor meer informatie, [SQL Server IaaS Agent-extensie](virtual-machines-windows-sql-server-agent-extension.md).
 
 ## <a name="settings"></a>Instellingen
 
@@ -62,50 +62,50 @@ De volgende tabel beschrijft de opties die kunnen worden geconfigureerd voor aut
 
 | Instelling | Bereik (standaard) | Beschrijving |
 | --- | --- | --- |
-| **Automatische back-up** | In-of uitschakelen (uitgeschakeld) | Hiermee schakelt automatische back-up voor een virtuele machine in Azure met SQL Server 2014 Standard of Enterprise of. |
-| **Bewaarperiode** | 1 tot 30 dagen (30 dagen) | Het aantal dagen wilt bewaren van een back-up. |
-| **Opslagaccount** | Azure Storage-account | Een Azure storage-account moet worden gebruikt voor het opslaan van automatische back-up-bestanden in blob-opslag. Een container is gemaakt op deze locatie voor het opslaan van alle back-upbestanden. De naamconventie voor back-upbestand bevat de datum, tijd en de machinenaam van de. |
-| **Versleuteling** | In-of uitschakelen (uitgeschakeld) | Hiermee schakelt versleuteling of. Als versleuteling is ingeschakeld, de certificaten voor de back-up terugzetten bevinden zich in het opgegeven opslagaccount in dezelfde `automaticbackup` container met behulp van de dezelfde naamgevingsregel. Als het wachtwoord wordt gewijzigd, wordt een nieuw certificaat wordt gegenereerd met dit wachtwoord, maar het oude certificaat blijft voor het herstellen van eerdere back-ups. |
-| **Wachtwoord** | Wachtwoord tekst | Een wachtwoord voor versleutelingssleutels. Dit is alleen vereist als versleuteling is ingeschakeld. Om een versleutelde back-up herstellen, moet u het juiste wachtwoord en het bijbehorende certificaat dat is gebruikt op het moment dat de back-up is gehaald hebben. |
+| **Automatische back-up** | In-of uitschakelen (uitgeschakeld) | Hiermee schakelt automatische back-up voor een Azure-VM met SQL Server 2014 Standard of Enterprise of. |
+| **Bewaarperiode** | 1-30 dagen (30 dagen) | Het aantal dagen dat een back-up behouden. |
+| **Opslagaccount** | Azure Storage-account | Azure storage-account te gebruiken voor het opslaan van bestanden van geautomatiseerde back-ups in blob-opslag. Een container is gemaakt op deze locatie voor het opslaan van alle back-upbestanden. De naamconventie voor back-upbestand bevat de datum, tijd en de machinenaam van de. |
+| **Versleuteling** | In-of uitschakelen (uitgeschakeld) | Hiermee schakelt versleuteling of. Als versleuteling is ingeschakeld, de certificaten voor het herstellen van de back-up bevinden zich in het opgegeven opslagaccount in dezelfde `automaticbackup` container met behulp van de dezelfde naamgevingsregel. Als het wachtwoord wordt gewijzigd, wordt een nieuw certificaat met dit wachtwoord wordt gegenereerd, maar wordt het oude certificaat voor het herstellen van eerdere back-ups blijft. |
+| **Wachtwoord** | Wachtwoord-tekst | Een wachtwoord voor versleutelingssleutels. Dit is alleen vereist als versleuteling is ingeschakeld. Als u wilt een versleutelde back-ups hebt hersteld, moet u het juiste wachtwoord en het bijbehorende certificaat dat is gebruikt op het moment dat de back-up is gehaald hebben. |
 
 ## <a name="configure-in-the-portal"></a>Configureren in de portal
 
-U kunt de Azure portal gebruiken voor het configureren van automatische back-up tijdens het inrichten of voor een bestaande SQL Server 2014 virtuele machines.
+U kunt de Azure-portal gebruiken voor het configureren van automatische back-up tijdens het inrichten of voor bestaande SQL Server 2014-VM's.
 
 ## <a name="configure-new-vms"></a>Nieuwe virtuele machines configureren
 
-De Azure portal gebruiken voor automatische back-up configureren wanneer u een nieuwe virtuele Machine van SQL Server 2014 in het Resource Manager-implementatiemodel maakt.
+De Azure portal gebruiken voor het configureren van automatische back-up wanneer u een nieuwe virtuele Machine voor SQL Server 2014 in het Resource Manager-implementatiemodel maakt.
 
-In de **SQL Server-instellingen** deelvenster **automatische back-up**. De volgende schermopname van Azure portal bevat de **SQL automatische back-up** instellingen.
+In de **SQL Server-instellingen** venster **automatische back-up**. De volgende schermafbeelding van Azure portal bevat de **SQL automatische back-up** instellingen.
 
-![Configuratie SQL automatische back-up in Azure-portal](./media/virtual-machines-windows-sql-automated-backup/azure-sql-arm-autobackup.png)
+![Configuratie van SQL geautomatiseerde back-ups in Azure portal](./media/virtual-machines-windows-sql-automated-backup/azure-sql-arm-autobackup.png)
 
 ## <a name="configure-existing-vms"></a>Bestaande virtuele machines configureren
 
-Selecteer de virtuele machine van SQL Server voor een bestaande SQL Server-virtuele machines. Selecteer vervolgens de **SQL Server-configuratiebestand** sectie van de virtuele machine **instellingen**.
+Voor bestaande SQL Server virtuele machines, selecteert u uw virtuele machine van SQL Server. Selecteer vervolgens de **SQL Server-configuratie** sectie van de virtuele machine **instellingen**.
 
-![SQL automatische back-up voor de bestaande virtuele machines](./media/virtual-machines-windows-sql-automated-backup/azure-sql-rm-autobackup-existing-vms.png)
+![SQL automatische back-up voor bestaande VM 's](./media/virtual-machines-windows-sql-automated-backup/azure-sql-rm-autobackup-existing-vms.png)
 
-In de **SQL Server-configuratiebestand** deelvenster, klikt u op de **bewerken** knop in de automatische back-sectie.
+In de **SQL Server-configuratie** deelvenster, klikt u op de **bewerken** knop in de automatische back-sectie.
 
-![SQL automatische back-up voor de bestaande virtuele machines configureren](./media/virtual-machines-windows-sql-automated-backup/azure-sql-rm-autobackup-configuration.png)
+![SQL automatische back-up voor bestaande VM's configureren](./media/virtual-machines-windows-sql-automated-backup/azure-sql-rm-autobackup-configuration.png)
 
-Wanneer u klaar bent, klikt u op de **OK** knop aan de onderkant van de **SQL Server-configuratiebestand** instellingen uw wijzigingen op te slaan.
+Wanneer u klaar bent, klikt u op de **OK** knop aan de onderkant van de **SQL Server-configuratie** instellingen van uw wijzigingen op te slaan.
 
-Als u automatische back-up voor het eerst inschakelt, configureert Azure de SQL Server IaaS-Agent op de achtergrond. Gedurende deze tijd de Azure-portal mogelijk niet weergegeven of automatische back-up is geconfigureerd. Wacht enkele minuten voor de agent moet worden geïnstalleerd of geconfigureerd. Daarna wordt de Azure-portal overeenkomen met de nieuwe instellingen.
+Als u automatische back-up voor de eerste keer inschakelt, configureert Azure de SQL Server IaaS Agent op de achtergrond. Gedurende deze tijd de Azure-portal mogelijk niet weergegeven of automatische back-up is geconfigureerd. Wacht enkele minuten voor de agent moet worden geïnstalleerd of geconfigureerd. Daarna wordt de Azure-portal de nieuwe instellingen weergegeven.
 
 > [!NOTE]
-> U kunt ook automatische back-up-met een sjabloon configureren. Zie voor meer informatie [Azure quickstart-sjabloon voor automatische back-up](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-sql-existing-autobackup-update).
+> U kunt ook automatische Backup aan de hand van een sjabloon configureren. Zie voor meer informatie, [Azure quickstart-sjabloon voor automatische back-up](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-sql-existing-autobackup-update).
 
-## <a name="configure-with-powershell"></a>Configureer met PowerShell
+## <a name="configure-with-powershell"></a>Configureren met PowerShell
 
-U kunt PowerShell gebruiken voor het configureren van automatische back-up. Voordat u begint, moet u het volgende doen:
+U kunt PowerShell gebruiken om te configureren van automatische back-up. Voordat u begint, moet u:
 
-- [Download en installeer de nieuwste Azure PowerShell](http://aka.ms/webpi-azps).
-- Open Windows PowerShell en deze koppelen aan uw account met de **Connect-AzureRmAccount** opdracht.
+- [Download en installeer de nieuwste Azure PowerShell](https://aka.ms/webpi-azps).
+- Open Windows PowerShell en koppel deze aan uw account met de **Connect-AzureRmAccount** opdracht.
 
-### <a name="install-the-sql-iaas-extension"></a>De uitbreiding voor de SQL-IaaS installeren
-Als u een virtuele machine van SQL Server vanuit de Azure-portal hebt ingericht, de SQL Server IaaS-extensie al is geïnstalleerd. U kunt bepalen of het voor uw virtuele machine is geïnstalleerd door het aanroepen van **Get-AzureRmVM** opdracht en onderzoek de **extensies** eigenschap.
+### <a name="install-the-sql-iaas-extension"></a>De SQL IaaS-extensie installeren
+Als u een SQL-Server-machine vanuit Azure portal hebt ingericht, wordt de SQL Server IaaS-extensie moet al geïnstalleerd. U kunt bepalen of het voor uw virtuele machine is geïnstalleerd door het aanroepen van **Get-AzureRmVM** opdracht en onderzoek de **extensies** eigenschap.
 
 ```powershell
 $vmname = "vmname"
@@ -114,9 +114,9 @@ $resourcegroupname = "resourcegroupname"
 (Get-AzureRmVM -Name $vmname -ResourceGroupName $resourcegroupname).Extensions
 ```
 
-Als de uitbreiding van de SQL Server IaaS-Agent is geïnstalleerd, ziet u dat het weergegeven als 'SqlIaaSAgent' of 'SQLIaaSExtension'. **ProvisioningState** voor de extensie 'Geslaagd' moet ook worden weergegeven.
+Als de SQL Server IaaS Agent-extensie is geïnstalleerd, ziet u dat deze als 'SqlIaaSAgent' of 'SQLIaaSExtension' weergegeven. **ProvisioningState** voor de extensie moet ook "Geslaagd" weergegeven.
 
-Als dit is niet geïnstalleerd of niet ingericht, kunt u deze kunt installeren met de volgende opdracht. Naast de groep van de naam en de bron voor virtuele machine, moet u ook de regio opgeven (**$region**) waarin uw VM zich bevindt.
+Als het is niet geïnstalleerd of kan niet worden ingericht, kunt u deze installeren met de volgende opdracht. Naast de groep van de naam en resourcegroep voor virtuele machine, moet u ook de regio opgeven (**$region**) die uw virtuele machine bevindt zich in.
 
 ```powershell
 $region = "EASTUS2"
@@ -130,13 +130,13 @@ Set-AzureRmVMSqlServerExtension -VMName $vmname `
 
 ### <a id="verifysettings"></a> Controleer of de huidige instellingen
 
-Als u automatische back-up ingeschakeld tijdens het inrichten, kunt u PowerShell gebruiken om te controleren van uw huidige configuratie. Voer de **Get-AzureRmVMSqlServerExtension** opdracht en bekijk de **AutoBackupSettings** eigenschap:
+Als u automatische back-up ingeschakeld tijdens het inrichten, kunt u PowerShell gebruiken om uw huidige configuratie te controleren. Voer de **Get-AzureRmVMSqlServerExtension** opdracht en bekijk de **AutoBackupSettings** eigenschap:
 
 ```powershell
 (Get-AzureRmVMSqlServerExtension -VMName $vmname -ResourceGroupName $resourcegroupname).AutoBackupSettings
 ```
 
-Deze krijgt u uitvoer ziet er als volgt:
+Deze krijgt u uitvoer die vergelijkbaar is met het volgende:
 
 ```
 Enable                      : False
@@ -153,15 +153,15 @@ FullBackupWindowHours       :
 LogBackupFrequency          : 
 ```
 
-Als u de uitvoer ziet dat **inschakelen** is ingesteld op **False**, hebt u automatische back-up inschakelen. Goed nieuws is dat u inschakelen en configureren van automatische back-up op dezelfde manier. Zie de volgende sectie voor deze informatie.
+Als de uitvoer ziet u dat **inschakelen** is ingesteld op **False**, hebt u het inschakelen van automatische back-up. Het goede nieuws is dat u inschakelen en configureren van automatische back-up op dezelfde manier. Zie de volgende sectie voor deze informatie.
 
 > [!NOTE] 
-> Als u de instellingen onmiddellijk na een wijziging selectievakje, is het mogelijk dat u weer de oude configuratiewaarden krijgt. Wacht een paar minuten en controleer de instellingen opnieuw om er zeker van te zijn dat uw wijzigingen zijn toegepast.
+> Als u de instellingen controleren onmiddellijk na de wijziging, is het mogelijk dat u weer de oude configuratiewaarden krijgt. Wacht een paar minuten en controleer de instellingen opnieuw voor zorgen dat uw wijzigingen zijn toegepast.
 
 ### <a name="configure-automated-backup"></a>Automatische back-up configureren
-U kunt PowerShell gebruiken om in te schakelen van automatische back-up ook garantie voor de configuratie en het gedrag op elk gewenst moment wijzigen.
+U kunt PowerShell gebruiken om in te schakelen van automatische back-up evenals garantie voor de configuratie en het gedrag op elk gewenst moment wijzigen.
 
-Eerst, selecteer of maak een opslagaccount voor de back-upbestanden. Het volgende script selecteert een opslagaccount of gemaakt als deze niet bestaat.
+Eerst, selecteer of maak een opslagaccount voor de back-upbestanden. Het volgende script een storage-account geselecteerd of gemaakt als deze niet bestaat.
 
 ```powershell
 $storage_accountname = “yourstorageaccount”
@@ -175,9 +175,9 @@ If (-Not $storage)
 ```
 
 > [!NOTE]
-> Automatische back-up biedt geen ondersteuning voor back-ups van opslag in premium-opslag, maar het kan duren voordat de back-ups van VM-schijven die met Premium-opslag gebruiken.
+> Automatische back-up biedt geen ondersteuning voor back-ups van opslag in premium-opslag, maar het kan duren voordat de back-ups van VM-schijven die gebruikmaken van Premium Storage.
 
-Gebruik vervolgens de **nieuw AzureRmVMSqlServerAutoBackupConfig** opdracht inschakelen en configureren van de instellingen voor automatische back-up voor het opslaan van back-ups in de Azure storage-account. In dit voorbeeld worden de back-ups voor 10 dagen bewaard. De tweede opdracht **Set AzureRmVMSqlServerExtension**, updates van de opgegeven Azure-VM met deze instellingen.
+Gebruik vervolgens de **New-AzureRmVMSqlServerAutoBackupConfig** opdracht inschakelen en configureren van de automatische back-up-instellingen voor het opslaan van back-ups in de Azure storage-account. In dit voorbeeld worden de back-ups gedurende tien dagen bewaard. De tweede opdracht **Set-AzureRmVMSqlServerExtension**, updates van de opgegeven Azure-VM met deze instellingen.
 
 ```powershell
 $autobackupconfig = New-AzureRmVMSqlServerAutoBackupConfig -Enable `
@@ -188,12 +188,12 @@ Set-AzureRmVMSqlServerExtension -AutoBackupSettings $autobackupconfig `
     -VMName $vmname -ResourceGroupName $resourcegroupname
 ```
 
-Dit kan enige tijd duren om te installeren en configureren van de SQL Server IaaS-Agent.
+Het kan enkele minuten om te installeren en configureren van de SQL Server IaaS Agent duren.
 
 > [!NOTE]
-> Er zijn andere instellingen voor **nieuw AzureRmVMSqlServerAutoBackupConfig** die alleen van toepassing op SQL Server 2016 en automatische back-up v2. SQL Server 2014 biedt geen ondersteuning voor de volgende instellingen: **BackupSystemDbs**, **BackupScheduleType**, **FullBackupFrequency**, **FullBackupStartHour**, **FullBackupWindowInHours**, en **LogBackupFrequencyInMinutes**. Als u probeert deze instellingen te configureren op een virtuele machine van SQL Server 2014, er is geen fout, maar kunnen de instellingen niet toegepast. Als u het gebruik van deze instellingen op een virtuele machine van SQL Server 2016 wilt, Zie [automatische back-up v2 voor SQL Server 2016 Azure Virtual Machines](virtual-machines-windows-sql-automated-backup-v2.md).
+> Er zijn andere instellingen voor **New-AzureRmVMSqlServerAutoBackupConfig** die alleen van toepassing op SQL Server 2016 en automatische back-up v2. SQL Server 2014 biedt geen ondersteuning voor de volgende instellingen: **BackupSystemDbs**, **BackupScheduleType**, **FullBackupFrequency**,  **FullBackupStartHour**, **FullBackupWindowInHours**, en **LogBackupFrequencyInMinutes**. Als u probeert deze instellingen configureren op een virtuele machine van SQL Server 2014, worden er geen fout is opgetreden, maar de instellingen kunnen niet worden toegepast. Als u gebruiken van deze instellingen op een virtuele machine van SQL Server 2016 wilt, Zie [v2 automatische back-up voor SQL Server 2016 Azure Virtual Machines](virtual-machines-windows-sql-automated-backup-v2.md).
 
-Wijzig het vorige script om door te geven voor het inschakelen van versleuteling de **EnableEncryption** parameter samen met een wachtwoord (beveiligde tekenreeks) op voor de **CertificatePassword** parameter. Het volgende script kunt de instellingen voor automatische back-up in het vorige voorbeeld en versleuteling wordt toegevoegd.
+Als versleuteling wilt inschakelen, wijzigt u het vorige script om door te geven de **EnableEncryption** parameter samen met een wachtwoord (beveiligde tekenreeks) voor de **CertificatePassword** parameter. Het volgende script kunt de automatische back-up-instellingen in het vorige voorbeeld en versleuteling wordt toegevoegd.
 
 ```powershell
 $password = "P@ssw0rd"
@@ -208,11 +208,11 @@ Set-AzureRmVMSqlServerExtension -AutoBackupSettings $autobackupconfig `
     -VMName $vmname -ResourceGroupName $resourcegroupname
 ```
 
-Om te bevestigen dat de instellingen worden toegepast, [de configuratie van de automatische back-up](#verifysettings).
+Om te bevestigen van de instellingen worden toegepast, [controleren of de configuratie van de automatische back-up](#verifysettings).
 
-### <a name="disable-automated-backup"></a>Uitschakelen van automatische back-up
+### <a name="disable-automated-backup"></a>Automatische back-up uitschakelen
 
-Schakel automatische back-up uitvoeren hetzelfde script zonder de **-inschakelen** -parameter voor de **nieuw AzureRmVMSqlServerAutoBackupConfig** opdracht. Het ontbreken van de **-inschakelen** parameter geeft u de opdracht uit om de functie uitschakelen. Net als bij de installatie, kan het enkele minuten uitschakelen van automatische back-up duren.
+Als u wilt uitschakelen van automatische back-up, Voer hetzelfde script zonder de **-inschakelen** parameter voor de **New-AzureRmVMSqlServerAutoBackupConfig** opdracht. Het ontbreken van de **-inschakelen** parameter geeft u de opdracht uit om de functie uit te schakelen. Net als bij de installatie, kan het enkele minuten om uit te schakelen van automatische back-up duren.
 
 ```powershell
 $autobackupconfig = New-AzureRmVMSqlServerAutoBackupConfig -ResourceGroupName $storage_resourcegroupname
@@ -223,7 +223,7 @@ Set-AzureRmVMSqlServerExtension -AutoBackupSettings $autobackupconfig `
 
 ### <a name="example-script"></a>Voorbeeldscript
 
-Het volgende script geeft een set van variabelen die u aanpassen kunt als u wilt inschakelen en configureren van automatische back-up voor uw virtuele machine. In het geval is moet u wellicht aanpassen van het script op basis van uw vereisten. U moet bijvoorbeeld wijzigen als u versleuteling in-of uitschakelen van de back-up van systeemdatabases.
+Het volgende script geeft een reeks variabelen die u aanpassen kunt als u wilt inschakelen en configureren van automatische back-up voor uw virtuele machine. Mogelijk moet u in uw geval wordt het script op basis van uw behoeften aanpassen. U hoeft bijvoorbeeld wijzigingen aanbrengen, als u versleuteling in-of uitschakelen van de back-up van systeemdatabases.
 
 ```powershell
 $vmname = "yourvmname"
@@ -261,27 +261,27 @@ Set-AzureRmVMSqlServerExtension -AutoBackupSettings $autobackupconfig `
 
 ## <a name="monitoring"></a>Bewaking
 
-U hebt twee mogelijkheden voor het bewaken van automatische back-up op de SQL Server 2014. Omdat automatische back-up wordt de functie SQL Server Managed Backup gebruikt, zijn dezelfde technieken bewaking van toepassing op.
+U hebt twee manieren voor het controleren van automatische back-up van SQL Server 2014. Omdat de functie voor SQL Server Managed Backup maakt gebruik van automatische back-up, gelden dezelfde controle technieken voor beide.
 
-U kunt de status eerst opvragen door aan te roepen [msdb.smart_admin.sp_get_backup_diagnostics](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/managed-backup-sp-get-backup-diagnostics-transact-sql). Of een query is de [msdb.smart_admin.fn_get_health_status](https://docs.microsoft.com/sql/relational-databases/system-functions/managed-backup-fn-get-health-status-transact-sql) functie met tabelwaarden.
+U kunt de status eerst opvragen door het aanroepen van [msdb.smart_admin.sp_get_backup_diagnostics](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/managed-backup-sp-get-backup-diagnostics-transact-sql). Of een query is de [msdb.smart_admin.fn_get_health_status](https://docs.microsoft.com/sql/relational-databases/system-functions/managed-backup-fn-get-health-status-transact-sql) tabelfunctie.
 
 > [!NOTE]
-> Het schema voor back-up worden beheerd in SQL Server 2014 is **msdb.smart_admin**. In SQL Server 2016 dit gewijzigd in **msdb.managed_backup**, en de referentieonderwerpen gebruiken dit nieuwe schema. Voor SQL Server 2014, moet u blijven gebruiken, maar de **smart_admin** schema voor alle back-up beheerde objecten.
+> Het schema voor Managed Backup in SQL Server 2014 is **msdb.smart_admin**. In SQL Server 2016 dit gewijzigd in **msdb.managed_backup**, en de onderwerpen met naslaginformatie gebruiken dit nieuwe schema. Maar voor SQL Server 2014, u moet echter ook doorgaan met de **smart_admin** schema voor alle back-up beheerde objecten.
 
 Een andere optie is om te profiteren van de ingebouwde functie van Database Mail voor meldingen.
 
 1. Roep de [msdb.smart_admin.sp_set_parameter](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/managed-backup-sp-set-parameter-transact-sql) opgeslagen procedure voor het toewijzen van een e-mailadres voor de **SSMBackup2WANotificationEmailIds** parameter. 
-1. Schakel [SendGrid](../../../sendgrid-dotnet-how-to-send-email.md) de e-mailberichten verzenden vanuit de Azure VM.
-1. Gebruik de naam van de SMTP-server en de gebruiker voor het configureren van Database Mail. U kunt Database Mail configureren in SQL Server Management Studio of met Transact-SQL-opdrachten. Zie voor meer informatie [Database Mail](https://docs.microsoft.com/sql/relational-databases/database-mail/database-mail).
+1. Schakel [SendGrid](../../../sendgrid-dotnet-how-to-send-email.md) de e-mailberichten verzenden vanuit de Azure-VM.
+1. Gebruik de naam van de SMTP-server en de gebruiker om te configureren van Database Mail. U kunt Database Mail configureren in SQL Server Management Studio of met Transact-SQL-opdrachten. Zie voor meer informatie, [Database Mail](https://docs.microsoft.com/sql/relational-databases/database-mail/database-mail).
 1. [Configureren van SQL Server Agent voor het gebruik van Database Mail](https://docs.microsoft.com/sql/relational-databases/database-mail/configure-sql-server-agent-mail-to-use-database-mail).
-1. Controleer of de SMTP-poort zowel via de lokale firewall voor de virtuele machine en de netwerkbeveiligingsgroep voor de virtuele machine is toegestaan.
+1. Controleer of de SMTP-poort zowel via de firewall van de lokale VM en de netwerkbeveiligingsgroep voor de virtuele machine is toegestaan.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Automatische back-up configureert Managed Backup op Azure Virtual machines. Daarom is het belangrijk dat [Raadpleeg de documentatie voor back-up worden beheerd op SQL Server 2014](https://msdn.microsoft.com/library/dn449497(v=sql.120).aspx).
+Automatische back-up configureert u Managed Backup op Azure Virtual machines. Het is dus belangrijk om te [Raadpleeg de documentatie voor Managed Backup in SQL Server 2014](https://msdn.microsoft.com/library/dn449497(v=sql.120).aspx).
 
-U vindt aanvullende back-up en herstellen van de richtlijnen voor het SQL Server op Azure VM's in het volgende artikel: [back-up en herstel voor SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-backup-recovery.md).
+U vindt aanvullende back-up en herstellen van de richtlijnen voor het SQL Server op Azure Virtual machines in het volgende artikel: [back-up en herstel voor SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-backup-recovery.md).
 
-Zie voor meer informatie over andere beschikbare automatiseringstaken [uitbreiding voor SQL Server IaaS-Agent](virtual-machines-windows-sql-server-agent-extension.md).
+Zie voor meer informatie over andere beschikbare automatiseringstaken [SQL Server IaaS Agent-extensie](virtual-machines-windows-sql-server-agent-extension.md).
 
-Zie voor meer informatie over het uitvoeren van SQL Server op Azure Virtual machines [SQL Server op Azure Virtual Machines-overzicht](virtual-machines-windows-sql-server-iaas-overview.md).
+Zie voor meer informatie over het uitvoeren van SQL Server op Azure Virtual machines [SQL Server op Azure Virtual Machines overzicht](virtual-machines-windows-sql-server-iaas-overview.md).

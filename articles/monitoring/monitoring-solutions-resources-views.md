@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/16/2018
 ms.author: bwren
-ms.openlocfilehash: 27bec2b7fa53e7564841e6f89be7e4d81a9b9f1a
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: a0d543ebe435b616306690bfb5e3de63ecc1ff6c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50913033"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51259119"
 ---
 # <a name="views-in-management-solutions-preview"></a>Weergaven in oplossingen voor beheer (Preview)
 > [!NOTE]
@@ -90,7 +90,7 @@ Houd er rekening mee dat u de volledige weergave-resource uit het bestand met ge
 * Variabelen moeten worden gedefinieerd in de oplossing en gebruikt in de gewenste eigenschappen.
 
 ### <a name="log-analytics-api-version"></a>Log Analytics-API-versie
-Alle Log Analytics-resources in een Resource Manager-sjabloon gedefinieerd hebben een eigenschap **apiVersion** die de versie van de API moet worden gebruikt door de resource definieert.  Deze versie is verschillend voor weergaven met query's die gebruikmaken van de [verouderde systemen en de bijgewerkte querytaal](../log-analytics/log-analytics-log-search.md).  
+Alle Log Analytics-resources in een Resource Manager-sjabloon gedefinieerd hebben een eigenschap **apiVersion** die de versie van de API moet worden gebruikt door de resource definieert.  Deze versie is verschillend voor weergaven met query's die gebruikmaken van de [verouderde systemen en de bijgewerkte querytaal](../log-analytics/log-analytics-queries.md).  
 
  De volgende tabel worden de Log Analytics-API-versies voor weergaven in de verouderde en bijgewerkte werkruimten: 
 

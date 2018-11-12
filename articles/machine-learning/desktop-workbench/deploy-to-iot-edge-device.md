@@ -11,18 +11,18 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 08/24/2018
-ms.openlocfilehash: 24d3cf0c4b1a1283e7a6a7f61f0bb23dae7143d5
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 7322b07740d5dec85b6217e122fb262647527c96
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43112982"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51258405"
 ---
 # <a name="deploy-an-azure-machine-learning-model-to-an-azure-iot-edge-device"></a>Een Azure Machine Learning-model implementeert naar een Azure IoT Edge-apparaat
 
 Kunnen App in een Azure Machine Learning-modellen worden container als Docker op basis van webservices. Azure IoT Edge kunt u containers naar apparaten op afstand kunt implementeren. Deze services samen gebruiken om uw modellen aan de rand uitvoeren voor snellere reactietijden en minder gegevens worden overgebracht. 
 
-Extra scripts en instructies vindt u de [AI-werkset voor Azure IoT Edge](http://aka.ms/AI-toolkit).
+Extra scripts en instructies vindt u de [AI-werkset voor Azure IoT Edge](https://aka.ms/AI-toolkit).
 
 ## <a name="operationalize-the-model"></a>Het model operationeel maken
 

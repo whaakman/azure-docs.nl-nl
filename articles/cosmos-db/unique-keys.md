@@ -1,157 +1,65 @@
 ---
-title: Unieke sleutels in Azure Cosmos DB | Microsoft Docs
-description: Informatie over het gebruik van unieke sleutels in uw Azure Cosmos DB-database.
-services: cosmos-db
-keywords: de unieke key-beperking, schending van de unieke key-beperking
-author: rafats
-manager: kfile
-editor: monicar
+title: Unieke sleutels in Azure Cosmos DB
+description: Informatie over het gebruik van unieke sleutels in uw Azure Cosmos DB-database
+author: aliuy
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/08/2018
-ms.author: rafats
-ms.openlocfilehash: ff432de59e5a5fdfeaad4c3a5361554ee32e21b0
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.date: 10/30/2018
+ms.author: andrl
+ms.openlocfilehash: 36b57fd98de206641422d80bf3ea3d2a3853f578
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50740005"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51252561"
 ---
 # <a name="unique-keys-in-azure-cosmos-db"></a>Unieke sleutels in Azure Cosmos DB
 
-Unieke sleutels bieden ontwikkelaars de mogelijkheid om een laag van de integriteit van gegevens toevoegen aan de database. Door het maken van een unieke sleutel beleid wanneer u een container maakt, zorgt u ervoor dat een of meer waarden per [partitiesleutel](partition-data.md). Nadat een container is gemaakt met een unieke sleutel beleid, voorkomt u dat het maken van een nieuwe of bijgewerkte items met waarden dat er dubbele waarden die zijn opgegeven door de unieke key-beperking.   
+Unieke sleutels bieden u de mogelijkheid om een laag van de integriteit van gegevens toevoegen aan een Cosmos-container. Bij het maken van een Cosmos-container maakt u een unieke sleutel beleid. Met unieke sleutels u ervoor zorgen dat een of meer waarden in een logische partitie (u kunt garanderen uniekheid per [partitiesleutel](partition-data.md)). Als u een container met een unieke sleutel beleid hebt gemaakt, wordt voorkomen dat het maken van een nieuwe (of bijgewerkte) dubbele items in een logische partitie, zoals opgegeven door de unieke key-beperking. De partitiesleutel gecombineerd met de unieke sleutel garanties Uniekheid van een item binnen het bereik van de container.
 
-> [!NOTE]
-> Unieke sleutels worden ondersteund door de nieuwste versies van de [.NET](sql-api-sdk-dotnet.md) en [.NET Core](sql-api-sdk-dotnet-core.md) SQL SDK's, en de [MongoDB-API](mongodb-feature-support.md#unique-indexes). De tabel-API en de Gremlin-API bieden geen ondersteuning voor unieke sleutels op dit moment. 
-> 
->
+Neem bijvoorbeeld een Cosmos-container met e-mailadres als unieke key-beperking en `CompanyID` als de partitiesleutel. Door het configureren van de gebruiker e-mailadres dat een unieke sleutel, zorgt u ervoor elk item heeft een uniek e-mailadres binnen een bepaalde `CompanyID`. Twee objecten kunnen niet worden gemaakt met dubbele e-mailadressen en de dezelfde waarde voor de partitiesleutel.  
 
-## <a name="use-case"></a>Use-case
+Als u bieden gebruikers de mogelijkheid om te maken van meerdere items met hetzelfde e-mailadres, maar niet de dezelfde naam van de eerste, laatste en e-mailadres wilt, kunt u extra paden kan toevoegen aan het beleid voor unieke sleutels. In plaats van het maken van een unieke sleutel op basis van het e-mailadres, kunt u ook een unieke sleutel maken met een combinatie van de voornaam, achternaam en e-mailadres (een samengestelde unieke sleutel). In dit geval elke unieke combinatie van de drie waarden binnen een bepaalde `CompanyID` is toegestaan. De container kan bijvoorbeeld items met de volgende waarden waarin de unieke key-beperking is naleven van elk item bevatten.
 
-Als voorbeeld gaan we kijken hoe een gebruikersdatabase die zijn gekoppeld aan een [sociale toepassing](use-cases.md#web-and-mobile-applications) kan profiteren van een unieke sleutel beleid dat op e-mailadressen. Door het maken van de gebruiker e-mailadres dat een unieke sleutel, zorgt u ervoor elke record een unieke e-mailadres heeft en er zijn geen nieuwe records kunnen worden gemaakt met dubbele e-mailadressen. 
+|CompanyID|Voornaam|Achternaam|E-mailadres|
+|---|---|---|---|
+|Contoso|Gaby|Duperre|gaby@contoso.com |
+|Contoso|Gaby|Duperre|gaby@fabrikam.com|
+|Fabrikam|Gaby|Duperre|gaby@fabrikam.com|
+|Fabrikam|Ivan|Duperre|gaby@fabrikam.com|
+|Fabrkam|   |Duperre|gaby@fabraikam.com|
+|Fabrkam|   |   |gaby@fabraikam.com|
 
-Als u gebruikers mogelijk te maken wilt meerdere records met dezelfde e-mailadres, maar niet de dezelfde voornaam en achternaam en e-mailadres, u kunt andere paden toevoegen aan het beleid voor unieke sleutels. U kunt dus in plaats van het maken van een unieke sleutel op basis van een e-mailadres, een unieke sleutel die is een combinatie van de voornaam, achternaam en e-mailadres maken. In dit geval elke unieke combinatie van de drie paden is toegestaan, zodat de database kan items met het volgende pad-waarden bevatten. Elk van deze records zou slagen voor het beleid voor unieke sleutels.  
+Als u een ander item met de combinaties die worden vermeld in de bovenstaande tabel invoegen probeert, ontvangt u een foutbericht dat aangeeft dat de unieke key-beperking niet is voldaan. Ontvangt u een van beide "Resource met de opgegeven ID of naam bestaat al' of 'Resource met de opgegeven ID, naam of unieke index al bestaat' als een bericht geretourneerd.  
 
-**Toegestane waarden voor unieke sleutel van de voornaam, achternaam en e-mailadres**
+## <a name="defining-a-unique-key"></a>Een unieke sleutel definiëren
 
-|Voornaam|Achternaam|E-mailadres|
-|---|---|---|
-|Gaby|Duperre|gaby@contoso.com |
-|Gaby|Duperre|gaby@fabrikam.com|
-|Ivan|Duperre|gaby@fabrikam.com|
-|    |Duperre|gaby@fabrikam.com|
-|    |       |gaby@fabraikam.com|
+Alleen bij het maken van een Cosmos-container, kunt u unieke sleutels definiëren. Een unieke sleutel is afgestemd op een logische partitie. In het vorige voorbeeld, als u de container op basis van de postcode partitioneren verschijnen hebben dubbele items in elke logische partitie. Bij het maken van unieke sleutels zijn, houd rekening met de volgende eigenschappen:
 
-Als u een andere record met een van de combinaties die worden vermeld in de bovenstaande tabel invoegen probeert, ontvangt u een foutbericht dat aangeeft dat de unieke key-beperking niet is voldaan. De Azure Cosmos DB geretourneerde fout is "Resource met de opgegeven id of naam bestaat al." of "Resource met de opgegeven id, naam of unieke index al bestaat." 
+* U kunt een bestaande container voor het gebruik van een andere unieke sleutel niet bijwerken. Nadat een container is gemaakt met een unieke sleutel beleid, kunnen het beleid met andere woorden, kan niet worden gewijzigd.
 
-## <a name="using-unique-keys"></a>Met behulp van unieke sleutels
+* Als u een unieke sleutel voor een bestaande container instellen wilt, hebt u een nieuwe container maken met de unieke key-beperking en de juiste hulpprogramma voor gegevensmigratie gebruiken om te verplaatsen van de gegevens van bestaande container naar de nieuwe container. Voor SQL-containers, gebruikt u de [hulpprogramma voor gegevensmigratie](import-data.md) om gegevens te verplaatsen. Gebruik voor MongoDB-containers, [mongoimport.exe of mongorestore.exe](mongodb-migrate.md) om gegevens te verplaatsen.
 
-Unieke sleutels moeten worden gedefinieerd als de container is gemaakt en de unieke sleutel is afgestemd op de partitiesleutel. Als u wilt maken op het vorige voorbeeld, als u op basis van postcode partitioneren, hebt u kunnen de records uit de tabel gedupliceerd in elke partitie.
+* Een unieke sleutel beleid kan maximaal 16 pad waarden hebben (bijvoorbeeld: /firstName, /lastName, / adres/postcode). Het beleid voor elke unieke sleutels kan maximaal 10 unique key-beperkingen of combinaties en de gecombineerde paden voor elke beperking unique-index mag niet groter zijn dan 60 bytes. In het vorige voorbeeld, voornaam, achternaam en e-mailadres bij elkaar zijn slechts één beperking en drie van de 16 mogelijke paden wordt gebruikt.
 
-U kunt bestaande container voor het gebruik van unieke sleutels niet bijwerken.
+* Wanneer een container een unieke sleutel beleid, aanvraag-eenheid (RU) kosten in rekening gebracht heeft voor het maken, zijn bijwerken en verwijderen een item enigszins hoger.
 
-Nadat een container met een unieke sleutel beleid is gemaakt, kan het beleid kan niet worden gewijzigd, tenzij u de container opnieuw maken. Als u bestaande gegevens die u implementeren unieke sleutels wilt op hebt, de nieuwe container maken en gebruik vervolgens de juiste hulpprogramma voor gegevensmigratie de om gegevens te verplaatsen naar de nieuwe container. Voor SQL-containers, gebruikt u de [hulpprogramma voor gegevensmigratie](import-data.md). Gebruik voor MongoDB-containers, [mongoimport.exe of mongorestore.exe](mongodb-migrate.md).
+* Sparse unieke sleutels worden niet ondersteund. Als er enkele waarden uniek pad ontbreken, worden ze behandeld als null-waarden, die Neem deel aan de beperking voor uniekheid. Daarom kan kan er alleen worden één item met null-waarde om te voldoen aan deze beperking.
 
-Maximaal 16 pad waarden (bijvoorbeeld /firstName, /lastName, /address/zipCode, enzovoort) kan worden opgenomen in elke unieke sleutel. 
+* De unieke sleutelnamen zijn hoofdlettergevoelig. Neem bijvoorbeeld een container met de unieke key-beperking ingesteld op /address/zipcode. Als uw gegevens een veld met de naam postcode heeft, voegt het Cosmos DB 'null' als de unieke sleutel, omdat "Postcode" niet hetzelfde als "Postcode is". Vanwege deze hoofdlettergevoeligheid kunnen niet alle records met ZipCode worden ingevoegd omdat de 'null' dubbele strijdig zijn met de unieke key-beperking.
 
-Het beleid voor elke unieke sleutels kan maximaal 10 unique key-beperkingen of combinaties en de gecombineerde paden voor alle eigenschappen van de unieke index mag niet groter zijn dan 60 tekens. Dus het eerdere voorbeeld die gebruikmaakt van voornaam, achternaam, e-mailadres is slechts één beperking en deze maakt gebruik van drie van de 16 mogelijke paden die beschikbaar zijn. 
+## <a name="supported-apis-and-sdks"></a>Ondersteunde API's en SDK 's
 
-Aanvragen eenheid die in rekening worden gebracht voor het maken, bijwerken en verwijderen van een item zijn een enigszins hogere wanneer er een unieke sleutel beleid op de container. 
+De functie unieke sleutels wordt momenteel ondersteund door de volgende Cosmos DB-API's en client-SDK's: 
 
-Sparse unieke sleutels worden niet ondersteund. Als er waarden voor enkele unieke paden ontbreken, worden ze behandeld als een speciale null-waarde deel aan de beperking voor uniekheid neemt.
-
-## <a name="sql-api-sample"></a>SQL-API-voorbeeld
-
-Het volgende codevoorbeeld laat zien hoe u een nieuwe SQL-container maken met twee unique key-beperkingen. De eerste beperking is de voornaam, achternaam, e-beperking die wordt beschreven in het vorige voorbeeld. De tweede beperking is de gebruikers-adres/postcode. Een voorbeeld-JSON-bestand die gebruikmaakt van de paden in dit beleid met unieke sleutels volgt de voorbeeldcode. 
-
-```csharp
-// Create a collection with two separate UniqueKeys, one compound key for /firstName, /lastName,
-// and /email, and another for /address/zipCode.
-private static async Task CreateCollectionIfNotExistsAsync(string dataBase, string collection)
-{
-    try
-    {
-        await client.ReadDocumentCollectionAsync(UriFactory.CreateDocumentCollectionUri(dataBase, collection));
-    }
-    catch (DocumentClientException e)
-    {
-        if (e.StatusCode == System.Net.HttpStatusCode.NotFound)
-        {
-            DocumentCollection myCollection = new DocumentCollection();
-            myCollection.Id = collection;
-            myCollection.PartitionKey.Paths.Add("/pk");
-            myCollection.UniqueKeyPolicy = new UniqueKeyPolicy
-            {
-                UniqueKeys =
-                new Collection<UniqueKey>
-                {
-                    new UniqueKey { Paths = new Collection<string> { "/firstName" , "/lastName" , "/email" }}
-                    new UniqueKey { Paths = new Collection<string> { "/address/zipcode" } },
-          }
-            };
-            await client.CreateDocumentCollectionAsync(
-                UriFactory.CreateDatabaseUri(dataBase),
-                myCollection,
-                new RequestOptions { OfferThroughput = 2500 });
-        }
-        else
-        {
-            throw;
-        }
-    }
-```
-
-Voorbeeld van JSON-document.
-
-```json
-{
-    "id": "1",
-    "pk": "1234",
-    "firstName": "Gaby",
-    "lastName": "Duperre",
-    "email": "gaby@contoso.com",
-    "address": 
-        {            
-            "line1": "100 Some Street",
-            "line2": "Unit 1",
-            "city": "Seattle",
-            "state": "WA",
-            "zipcode": 98012
-        }
-    
-}
-```
-> [!NOTE]
-> Neem is notitie unieke sleutelnaam hoofdlettergevoelig. Zoals weergegeven in bovenstaande voorbeeld, is de unieke naam voor /address/zipcode ingesteld. Als uw gegevens postcode, wordt klikt u vervolgens ingevoegd unieke sleutel ' null' als postcode niet gelijk aan postcode is. En omdat deze hoofdlettergevoeligheid alle records met ZipCode niet kunnen worden ingevoegd als dubbele 'null' strijdig zijn met de unieke key-beperking.
-
-## <a name="mongodb-api-sample"></a>MongoDB-API-voorbeeld
-
-De volgende opdracht-voorbeeld laat zien hoe een unieke index voor de voornaam, achternaam en e-mailbericht velden van de Gebruikersverzameling voor de MongoDB-API maken. Dit zorgt ervoor dat voor een combinatie van alle drie de velden op alle documenten in de verzameling. Voor MongoDB-API-verzamelingen, wordt de unieke index gemaakt nadat de verzameling is gemaakt, maar voordat het invullen van de verzameling.
-
-> [!NOTE]
-> De indeling van de unieke voor MongoDB-API-accounts is die afwijkt van de SQL API-accounts, waarvan u niet hebben om op te geven van het teken schuine streep (/) voordat u de veldnaam. 
-
-```
-db.users.createIndex( { firstName: 1, lastName: 1, email: 1 }, { unique: true } )
-```
-## <a name="configure-unique-keys-by-using-azure-portal"></a>Unieke sleutels met behulp van Azure Portal configureren
-
-In de secties boven vindt voorbeelden van code die wordt weergegeven hoe u unique key-beperkingen kunt definiëren als een verzameling is gemaakt met behulp van de SQL-API of de MongoDB-API zijn. Maar het is ook mogelijk om te unieke sleutels definiëren wanneer u een verzameling via de web-UI in Azure portal maakt. 
-
-- Navigeer naar de **Data Explorer** in uw Cosmos DB-account
-- Klik op **nieuwe verzameling**
-- In de sectie unieke sleutels, ** u kunt de gewenste beperkingen voor unieke sleutels toevoegen door te klikken op **unieke sleutel toevoegen**
-
-![Unieke sleutels definiëren in Data Explorer](./media/unique-keys/unique-keys-azure-portal.png)
-
-- Als u maken van een unieke key-beperking voor het pad lastName wilt, die u toevoegt `/lastName`.
-- Als u maken van een unieke key-beperking voor de combinatie van de firstName lastName wilt, toevoegen `/lastName,/firstName`
-
-Klik wanneer klaar **OK** om de verzameling te maken.
+|-Clientstuurprogramma 's|SQL-API|Cassandra-API|MongoDB-API|Gremlin-API|Tabel-API|
+|---|---|---|---|---|---|
+|.NET|Ja|Nee|Ja|Nee|Nee|
+|Java|Ja|Nee|Ja|Nee|Nee|
+|Python|Ja|Nee|Ja|Nee|Nee|
+|Knooppunt/JS|Ja|Nee|Ja|Nee|Nee|
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In dit artikel hebt u geleerd hoe u unieke sleutels voor items in een database maken. Als u een container voor het eerst maakt, lees dan [partitioneren van gegevens in Azure Cosmos DB](partition-data.md) als unieke sleutels en partitiesleutels zijn afhankelijk van elkaar. 
-
-
+* Meer informatie over [logische partities](partition-data.md)

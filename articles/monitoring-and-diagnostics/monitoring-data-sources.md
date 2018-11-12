@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/12/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: f5d1968503c7aa82ba58c80eec886b19fc44b4f5
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: b01dafcda9ed8fe14e3f0d50daf25bae1658faee
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50913590"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282625"
 ---
 # <a name="consume-monitoring-data-from-azure"></a>Bewakingsgegevens van Azure gebruiken
 
@@ -24,17 +24,17 @@ In het Azure-platform, zijn we bijeenbrengt bewakingsgegevens op één plek met 
 | Gegevenstype | Categorie | Ondersteunde Services | Methoden voor toegang |
 | --- | --- | --- | --- |
 | Metrische gegevens van Azure Monitor-platform-niveau | Metrische gegevens | [Bekijk hier de lijst](monitoring-supported-metrics.md) | <ul><li>**REST-API:** [metrische API van Azure Monitor](https://docs.microsoft.com/rest/api/monitor/metrics)</li><li>**Storage blob of event hub:** [diagnostische instellingen](monitoring-overview-of-diagnostic-logs.md#diagnostic-settings)</li></ul> |
-| COMPUTE Gast OS metrische gegevens (zoals) prestatiemeteritems) | Metrische gegevens | [Windows](../virtual-machines-dotnet-diagnostics.md) en Linux-Machines (v2), [Cloudservices](../cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md), [Service Fabric](../service-fabric/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md) | <ul><li>**Storage-tabel of blob:** [Windows of Linux Azure diagnostics](../cloud-services/cloud-services-dotnet-diagnostics-storage.md)</li><li>**Event hub:** [Windows Azure diagnostics](azure-diagnostics-streaming-event-hubs.md)</li></ul> |
+| COMPUTE Gast OS metrische gegevens (zoals) prestatiemeteritems) | Metrische gegevens | [Windows](/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines) en Linux-Machines (v2), [Cloudservices](../cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md), [Service Fabric](../service-fabric/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md) | <ul><li>**Storage-tabel of blob:** [Windows of Linux Azure diagnostics](azure-diagnostics-storage.md)</li><li>**Event hub:** [Windows Azure diagnostics](azure-diagnostics-streaming-event-hubs.md)</li></ul> |
 | Aangepaste of toepassing metrische gegevens | Metrische gegevens | Elke toepassing die is geïnstrumenteerd met Application Insights | <ul><li>**REST-API:** [Application Insights REST-API](https://dev.applicationinsights.io/reference)</li></ul> |
 | Metrische opslaggegevens | Metrische gegevens | Azure Storage | <ul><li>**Storage-tabel:** [Storage Analytics](https://docs.microsoft.com/rest/api/storageservices/storage-analytics)</li></ul> |
 | Factureringsgegevens | Metrische gegevens | Alle Azure-services | <ul><li>**REST-API:** [Azure-Resource gebruiks- en RateCard API's](../billing/billing-usage-rate-card-overview.md)</li></ul> |
 | Activiteitenlogboek | Gebeurtenissen | Alle Azure-services | <ul><li>**REST-API:** [Azure Monitor gebeurtenissen API](https://docs.microsoft.com/rest/api/monitor/eventcategories)</li><li>**Storage blob of event hub:** [Logboekprofiel](monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile)</li></ul> |
 | Diagnostische logboeken van Azure Monitor | Gebeurtenissen | [Bekijk hier de lijst](monitoring-diagnostic-logs-schema.md) | <ul><li>**Storage blob of event hub:** [diagnostische instellingen](monitoring-overview-of-diagnostic-logs.md#diagnostic-settings)</li></ul> |
-| COMPUTE Gast OS-Logboeken (bv. IIS, ETW, syslogs) | Gebeurtenissen | [Windows](../virtual-machines-dotnet-diagnostics.md) en Linux-Machines (v2), [Cloudservices](../cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md), [Service Fabric](../service-fabric/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md) | <ul><li>**Storage-tabel of blob:** [Windows of Linux Azure diagnostics](../cloud-services/cloud-services-dotnet-diagnostics-storage.md)</li><li>**Event hub:** [Windows Azure diagnostics](azure-diagnostics-streaming-event-hubs.md)</li></ul> |
+| COMPUTE Gast OS-Logboeken (bv. IIS, ETW, syslogs) | Gebeurtenissen | [Windows](/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines) en Linux-Machines (v2), [Cloudservices](../cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md), [Service Fabric](../service-fabric/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md) | <ul><li>**Storage-tabel of blob:** [Windows of Linux Azure diagnostics](azure-diagnostics-storage.md)</li><li>**Event hub:** [Windows Azure diagnostics](azure-diagnostics-streaming-event-hubs.md)</li></ul> |
 | App Service-Logboeken | Gebeurtenissen | App-services | <ul><li>**Bestand, tabel of blob-opslag:** [Web-app diagnostische gegevens](../app-service/web-sites-enable-diagnostic-log.md)</li></ul> |
 | Opslaglogboeken | Gebeurtenissen | Azure Storage | <ul><li>**Storage-tabel:** [Storage Analytics](https://docs.microsoft.com/rest/api/storageservices/storage-analytics)</li></ul> |
 | Waarschuwingen van Beveiligingscentrum | Gebeurtenissen | Azure Security Center | <ul><li>**REST-API:** [beveiligingswaarschuwingen](https://msdn.microsoft.com/library/mt704050.aspx)</li></ul> |
-| Active Directory-rapportage | Gebeurtenissen | Azure Active Directory | <ul><li>**REST-API:** [Azure Active Directory graph API](../active-directory/active-directory-reporting-api-getting-started-azure-portal.md)</li></ul> |
+| Active Directory-rapportage | Gebeurtenissen | Azure Active Directory | <ul><li>**REST-API:** [Azure Active Directory graph API](../active-directory/reports-monitoring/concept-reporting-api.md)</li></ul> |
 | Security Center-resourcestatus | Status | [Alle ondersteunde resources](https://msdn.microsoft.com/library/mt704041.aspx#Anchor_1) | <ul><li>**REST-API:** [Security statussen](https://msdn.microsoft.com/library/mt704041.aspx)</li></ul> |
 | Status van resources | Status | Ondersteunde services | <ul><li>**REST-API:** [resourcestatus REST-API](https://azure.microsoft.com/blog/reduce-troubleshooting-time-with-azure-resource-health/)</li></ul> |
 | Metrische waarschuwingen van Azure Monitor | Meldingen | [Bekijk hier de lijst](monitoring-supported-metrics.md) | <ul><li>**Webhook:** [Azure metrische waarschuwingen](insights-webhooks-alerts.md)</li></ul> |

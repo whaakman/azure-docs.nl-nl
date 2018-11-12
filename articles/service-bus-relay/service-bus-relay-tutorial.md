@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: spelluru
-ms.openlocfilehash: 12902fef0a27aa0af5995d2fd6ab87d951413d1d
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 9c76e535fe0585ec6ff08a0c9dcab700d8eb5424
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857972"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51262009"
 ---
 # <a name="azure-wcf-relay-tutorial"></a>Zelfstudie over Azure WCF Relay
 
@@ -35,7 +35,7 @@ In de laatste drie stappen wordt beschreven hoe u een clienttoepassing maakt, ho
 
 Om deze handleiding volledig door te kunnen nemen, hebt u het volgende nodig:
 
-* [Microsoft Visual Studio 2015 of hoger](http://visualstudio.com). In deze zelfstudie wordt Visual Studio 2017.
+* [Microsoft Visual Studio 2015 of hoger](https://visualstudio.com). In deze zelfstudie wordt Visual Studio 2017.
 * Een actief Azure-account. Als u geen Azure-account hebt, kunt u binnen een paar minuten een gratis account maken. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/free/) voor meer informatie.
 
 ## <a name="create-a-service-namespace"></a>Een servicenaamruimte maken
@@ -55,7 +55,7 @@ Het servicecontract wordt aangegeven welke bewerkingen (de webserviceterminologi
 
 3. Installeer het Service Bus-pakket NuGet. Met dit pakket worden automatisch verwijzingen naar de Service Bus-bibliotheken en naar het **System.ServiceModel** van WCF toegevoegd. [System.ServiceModel](https://msdn.microsoft.com/library/system.servicemodel.aspx) is de naamruimte die programmatisch toegang biedt tot de basisfuncties van WCF. Service Bus maakt gebruik van veel van de objecten en kenmerken van WCF om servicecontracten te definiëren.
 
-    Klik in Solution Explorer met de rechtermuisknop op het project en klik vervolgens op **NuGet-pakketten beheren...** . Klik op het tabblad **Bladeren** en zoek vervolgens naar **WindowsAzure.ServiceBus**. Zorg ervoor dat de naam van het project is geselecteerd in het vak **Versie(s)**. Klik op **Installeren** en accepteer de gebruiksvoorwaarden.
+    Klik in Solution Explorer met de rechtermuisknop op het project en klik vervolgens op **NuGet-pakketten beheren...** . Klik op het tabblad Bladeren en zoek vervolgens naar **WindowsAzure.ServiceBus**. Zorg ervoor dat de naam van het project is geselecteerd in het vak **Versie(s)**. Klik op **Installeren** en accepteer de gebruiksvoorwaarden.
 
     ![][3]
 4. Dubbelklik in Solution Explorer op het bestand Program.cs om het in de editor te openen, als het bestand nog niet was geopend.
@@ -81,7 +81,7 @@ Het servicecontract wordt aangegeven welke bewerkingen (de webserviceterminologi
     ```
 
    > [!NOTE]
-   > De naamruimte van het servicecontract bevat meestal een schematische naam die ook versie-informatie bevat. Als u versie-informatie in de naamruimte van het servicecontract gebruikt, kunnen services grote wijzigingen isoleren door een nieuw servicecontract te definiëren met een nieuwe naamruimte en het beschikbaar te maken op een nieuw eindpunt. Op deze manier kunnen clients blijven gebruiken van het oude servicecontract zonder te worden bijgewerkt. De versie-informatie kan bestaan uit een datum of een buildnummer. Zie [Serviceversiebeheer](http://go.microsoft.com/fwlink/?LinkID=180498) voor meer informatie. Voor deze zelfstudie bevat de naam van de servicecontractnaamruimte geen versie-informatie.
+   > De naamruimte van het servicecontract bevat meestal een schematische naam die ook versie-informatie bevat. Als u versie-informatie in de naamruimte van het servicecontract gebruikt, kunnen services grote wijzigingen isoleren door een nieuw servicecontract te definiëren met een nieuwe naamruimte en het beschikbaar te maken op een nieuw eindpunt. Op deze manier kunnen clients blijven gebruiken van het oude servicecontract zonder te worden bijgewerkt. De versie-informatie kan bestaan uit een datum of een buildnummer. Zie [Serviceversiebeheer](https://go.microsoft.com/fwlink/?LinkID=180498) voor meer informatie. Voor deze zelfstudie bevat de naam van de servicecontractnaamruimte geen versie-informatie.
    >
    >
 8. Binnen de `IEchoContract` interface, een methode voor de enkelvoudige bewerking declareren de `IEchoContract` contract wordt weergegeven in de interface en de toepassing de `OperationContractAttribute` kenmerk aan de methode die u wilt weergeven als onderdeel van het public contract voor WCF Relay, als volgt:

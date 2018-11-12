@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: apimpm
-ms.openlocfilehash: 29e918733cc72010aa6aa5c0f42d613331eec2a2
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 6796ecd272c7a1ed1d29c89fbe06c87dc2d4601b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48044719"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242803"
 ---
 # <a name="api-management-transformation-policies"></a>API Management-beleidsregels voor transformatie
-Dit onderwerp bevat een verwijzing voor de volgende API Management-beleid. Zie voor meer informatie over het toevoegen en configureren van beleid [beleidsregels in API Management](http://go.microsoft.com/fwlink/?LinkID=398186).
+Dit onderwerp bevat een verwijzing voor de volgende API Management-beleid. Zie voor meer informatie over het toevoegen en configureren van beleid [beleidsregels in API Management](https://go.microsoft.com/fwlink/?LinkID=398186).
 
 ##  <a name="TransformationPolicies"></a> Transformatiebeleid
 
@@ -83,7 +83,7 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleid. Zie v
 |parseren van datum|Als de waarde `false` datumwaarden gewoon tijdens transformatie worden gekopieerd|Nee|true|
 
 ### <a name="usage"></a>Gebruik
- Dit beleid kan worden gebruikt in het volgende beleid [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+ Dit beleid kan worden gebruikt in het volgende beleid [secties](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
 
 -   **Beleid secties:** binnenkomende, uitgaande, bij fout
 
@@ -127,7 +127,7 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleid. Zie v
 |Houd rekening met-accepteren-header|Het kenmerk moet worden ingesteld op een van de volgende waarden.<br /><br /> -true - conversie van toepassing als XML is aangevraagd in de aanvraag Accept-header.<br />-ONWAAR - conversie altijd van toepassing.|Nee|true|
 
 ### <a name="usage"></a>Gebruik
- Dit beleid kan worden gebruikt in het volgende beleid [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+ Dit beleid kan worden gebruikt in het volgende beleid [secties](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
 
 -   **Beleid secties:** binnenkomende, uitgaande, bij fout
 
@@ -162,7 +162,7 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleid. Zie v
 |tot|De vervangende tekenreeks. Geef een nul lengte van de vervangende tekenreeks als u wilt verwijderen van de zoektekenreeks.|Ja|N/A|
 
 ### <a name="usage"></a>Gebruik
- Dit beleid kan worden gebruikt in het volgende beleid [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+ Dit beleid kan worden gebruikt in het volgende beleid [secties](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
 
 -   **Beleid secties:** inkomend, uitgaand back-end op fout
 
@@ -193,7 +193,7 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleid. Zie v
 |Omleidings-inhoud-URL 's|Root-element.|Ja|
 
 ### <a name="usage"></a>Gebruik
- Dit beleid kan worden gebruikt in het volgende beleid [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+ Dit beleid kan worden gebruikt in het volgende beleid [secties](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
 
 -   **Beleid secties:** inkomend, uitgaand
 
@@ -269,7 +269,7 @@ In dit voorbeeld stuurt het beleid de aanvraag door naar een service fabric-back
 |SF-listener-naam|Alleen van toepassing wanneer de back-end een Service Fabric-service is en is opgegeven met behulp van back-end-id. Service Fabric Reliable Services kunt u meerdere listeners in een service maken. Dit kenmerk wordt gebruikt om te selecteren van een specifieke listener wanneer een back-end van de betrouwbare Service meer dan één listener heeft. Als dit kenmerk niet opgegeven is, probeert API Management te gebruiken van een listener zonder een naam. Een listener zonder naam is normaal voor Reliable Services die slechts één listener hebt. |Nee|N/A|
 
 ### <a name="usage"></a>Gebruik
- Dit beleid kan worden gebruikt in het volgende beleid [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+ Dit beleid kan worden gebruikt in het volgende beleid [secties](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
 
 -   **Beleid secties:** inkomende, back-end
 
@@ -308,12 +308,12 @@ In dit voorbeeld stuurt het beleid de aanvraag door naar een service fabric-back
 
 ```xml
 <set-body>
-@{ 
-    string inBody = context.Request.Body.As<string>(preserveContent: true); 
-    if (inBody[0] =='c') { 
-        inBody[0] = 'm'; 
-    } 
-    return inBody; 
+@{ 
+    string inBody = context.Request.Body.As<string>(preserveContent: true); 
+    if (inBody[0] =='c') { 
+        inBody[0] = 'm'; 
+    } 
+    return inBody; 
 }
 </set-body>
 ```
@@ -321,14 +321,14 @@ In dit voorbeeld stuurt het beleid de aanvraag door naar een service fabric-back
 #### <a name="example-accessing-the-body-as-a-jobject-note-that-since-we-are-not-reserving-the-original-request-body-accesing-it-later-in-the-pipeline-will-result-in-an-exception"></a>Voorbeeld van de toegang tot de hoofdtekst als een jobject is leeggemaakt. Merk op dat sinds we zijn niet reserveren van de oorspronkelijke aanvraagtekst, toegang tot deze later in de pijplijn leidt tot een uitzondering.
 
 ```xml
-<set-body> 
-@{ 
-    JObject inBody = context.Request.Body.As<JObject>(); 
-    if (inBody.attribute == <tag>) { 
-        inBody[0] = 'm'; 
-    } 
-    return inBody.ToString(); 
-} 
+<set-body> 
+@{ 
+    JObject inBody = context.Request.Body.As<JObject>(); 
+    if (inBody.attribute == <tag>) { 
+        inBody[0] = 'm'; 
+    } 
+    return inBody.ToString(); 
+} 
 </set-body>
 
 ```
@@ -439,7 +439,7 @@ OriginalUrl.
 
 
 ### <a name="usage"></a>Gebruik
- Dit beleid kan worden gebruikt in het volgende beleid [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+ Dit beleid kan worden gebruikt in het volgende beleid [secties](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
 
 -   **Beleid secties:** inkomend, uitgaand back-end
 
@@ -510,7 +510,7 @@ OriginalUrl.
 |naam|Hiermee geeft u de naam van de header moet worden ingesteld.|Ja|N/A|
 
 ### <a name="usage"></a>Gebruik
- Dit beleid kan worden gebruikt in het volgende beleid [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+ Dit beleid kan worden gebruikt in het volgende beleid [secties](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
 
 -   **Beleid secties:** inkomend, uitgaand back-end op fout
 
@@ -570,7 +570,7 @@ OriginalUrl.
 |naam|Hiermee geeft u de naam van de query-parameter moet worden ingesteld.|Ja|N/A|
 
 ### <a name="usage"></a>Gebruik
- Dit beleid kan worden gebruikt in het volgende beleid [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+ Dit beleid kan worden gebruikt in het volgende beleid [secties](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
 
 -   **Beleid secties:** inkomende, back-end
 
@@ -648,7 +648,7 @@ OriginalUrl.
 |kopiëren-niet-overeenkomende parameters|Hiermee geeft u op of queryparameters in de inkomende aanvraag komt niet in de oorspronkelijke URL-sjabloon worden toegevoegd aan de URL die is gedefinieerd door de sjabloon opnieuw schrijven|Nee|true|
 
 ### <a name="usage"></a>Gebruik
- Dit beleid kan worden gebruikt in het volgende beleid [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+ Dit beleid kan worden gebruikt in het volgende beleid [secties](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
 
 -   **Beleid secties:** inkomend
 
@@ -712,7 +712,7 @@ OriginalUrl.
 |xsl: Stylesheet|Stylesheet hoofdelement. Ga als volgt de standaard alle elementen en kenmerken die zijn gedefinieerd binnen [XSLT-specificatie](http://www.w3.org/TR/xslt)|Ja|
 
 ### <a name="usage"></a>Gebruik
- Dit beleid kan worden gebruikt in het volgende beleid [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+ Dit beleid kan worden gebruikt in het volgende beleid [secties](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
 
 -   **Beleid secties:** inkomend, uitgaand
 
