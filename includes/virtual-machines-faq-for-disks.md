@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/03/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: c0045af02b307bff686d47dd8fc4aabb290711a4
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: dadff0dc501c20ef525fdfb7578cb391f29b3302
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49400354"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51264451"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Veelgestelde vragen over Azure IaaS VM-schijven en beheerde en onbeheerde premium-schijven
 
@@ -292,7 +292,7 @@ Er is geen nadeel aan het gebruik van TRIM op Azure-schijven in een premium of s
 
 **Wat is de grootste beheerde schijfgrootte voor het besturingssysteem en gegevensschijven worden ondersteund?**
 
-Het partitietype die Azure biedt ondersteuning voor een besturingssysteemschijf wordt de master bootrecord (MBR). De MBR-indeling ondersteunt een schijfgrootte maximaal 2 TiB. De maximale grootte die Azure biedt ondersteuning voor een besturingssysteemschijf is 2 TiB. Azure ondersteunt maximaal 32 TiB voor beheerde gegevensschijven. Beheerde schijf die groter zijn dan 4 TiB zijn beschikbaar als preview. Zie voor meer informatie over deze onze [blogbericht](http://aka.ms/azure-large-disk-32TB-preview-blog).
+Het partitietype die Azure biedt ondersteuning voor een besturingssysteemschijf wordt de master bootrecord (MBR). De MBR-indeling ondersteunt een schijfgrootte maximaal 2 TiB. De maximale grootte die Azure biedt ondersteuning voor een besturingssysteemschijf is 2 TiB. Azure ondersteunt maximaal 32 TiB voor beheerde gegevensschijven. Beheerde schijf die groter zijn dan 4 TiB zijn beschikbaar als preview. Zie voor meer informatie over deze onze [blogbericht](https://aka.ms/azure-large-disk-32TB-preview-blog).
 
 **Wat is de maximumgrootte van de niet-beheerde schijf voor het besturingssysteem en gegevensschijven worden ondersteund?**
 
@@ -309,7 +309,7 @@ U hoeft niet te upgraden van uw bestaande Azure-hulpprogramma's maken, koppelen 
 |Azure-hulpprogramma 's      | Ondersteunde versies                                |
 |-----------------|---------------------------------------------------|
 |Azure PowerShell | Versienummer 4.1.0: de release van juni 2017 of hoger|
-|Azure CLI v1     | Versienummer 0.10.13: de release van mei 2017 of hoger|
+|Azure CLI v1     | Versienummer 0.10.13: de release van mei 2017 of hoger|
 |Azure CLI versie 2     | Versienummer 2.0.12: de release van juli 2017 of hoger|
 |AzCopy           | Versienummer 6.1.0: de release van juni 2017 of hoger|
 

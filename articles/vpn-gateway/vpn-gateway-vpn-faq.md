@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 07/27/2018
 ms.author: yushwang
-ms.openlocfilehash: 94183b639c02f6a7d74e87e8f8335da67db113d6
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: a232ac111974444848aec82f3c7ab6236f82ac03
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49468174"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51037091"
 ---
 # <a name="vpn-gateway-faq"></a>Veelgestelde vragen VPN-gateways
 
@@ -65,7 +65,7 @@ Op beleid gebaseerde gateways implementeren op beleid gebaseerde VPN's. Op belei
 Op route gebaseerde gateways implementeren op route gebaseerde VPN's. Op route gebaseerde VPN's gebruiken 'routes' in de IP-doorstuurtabel of routeringstabel om pakketten naar de bijbehorende tunnelinterfaces te sturen. De tunnelinterfaces versleutelen of ontsleutelen de pakketten vervolgens naar en vanuit de tunnels. Het beleid of de verkeersselector voor op route gebaseerde VPN's is geconfigureerd als alles-naar-alles (of jokertekens).
 
 ### <a name="can-i-update-my-policy-based-vpn-gateway-to-route-based"></a>Kan ik mijn op beleid gebaseerde VPN-gateway bijwerken naar een op route gebaseerde gateway?
-Nee. Een gateway van het type Azure-Vnet kan niet worden gewijzigd van op beleid gebaseerd in op route gebaseerd, of andersom. De gateway moet worden verwijderd en opnieuw worden gemaakt. Dit duurt ongeveer 60 minuten. Het IP-adres van de gateway en ook de PSK (vooraf gedeelde sleutel) blijven niet behouden.
+Nee. Een gateway van het type Azure-Vnet kan niet worden gewijzigd van op beleid gebaseerd in op route gebaseerd, of andersom. De gateway moet worden verwijderd en opnieuw worden gemaakt. Dit duurt ongeveer 60 minuten. Het IP-adres van de gateway en ook de PSK (vooraf gedeelde sleutel) blijven niet behouden.
 1. Verwijder alle verbindingen die zijn gekoppeld aan de gateway die moet worden verwijderd.
 2. Gateway verwijderen:
 * [Azure Portal](vpn-gateway-delete-vnet-gateway-portal.md)
@@ -122,11 +122,11 @@ Ja. Zie [Configure force tunneling](vpn-gateway-about-forced-tunneling.md) (Gefo
 
 Ja, kunt u uw eigen VPN-gateways of -servers in Azure implementeren vanuit de Azure Marketplace of door uw eigen VPN-routers te implementeren. U moet in het virtuele netwerk zelfgedefinieerde routes configureren om ervoor te zorgen dat verkeer juist wordt gerouteerd tussen uw on-premises netwerken en de subnetten van het virtuele netwerk.
 
-### <a name="why-are-certain-ports-opened-on-my-vpn-gateway"></a>Waarom zijn bepaalde poorten geopend op mijn VPN-gateway?
+### <a name="gatewayports"></a>Waarom zijn bepaalde poorten geopend op mijn virtuele netwerkgateway?
 
 Deze zijn nodig voor communicatie met de Azure-infrastructuur. Ze zijn beveiligd (vergrendeld) met Azure-certificaten. Zonder de juiste certificaten kunnen externe entiteiten, waaronder de klanten van deze gateways, niets uitvoeren op de eindpunten.
 
-Een VPN-gateway is in feite een multihomed apparaat met één NIC die toegang heeft tot het privénetwerk van de klant en één NIC die is gericht op het openbare netwerk. Infrastructuurentiteiten van Azure hebben om wettelijke redenen geen toegang tot particuliere netwerken van klanten. Daarom moeten ze voor infrastructuurcommunicatie gebruikmaken van openbare eindpunten. De openbare eindpunten worden periodiek gescand door de beveiligingscontrole van Azure.
+Een virtuele netwerkgateway is in feite een multihomed apparaat met één NIC in het particuliere netwerk van de klant en één NIC die is gericht het openbare netwerk. Infrastructuurentiteiten van Azure hebben om wettelijke redenen geen toegang tot particuliere netwerken van klanten. Daarom moeten ze voor infrastructuurcommunicatie gebruikmaken van openbare eindpunten. De openbare eindpunten worden periodiek gescand door de beveiligingscontrole van Azure.
 
 ### <a name="more-information-about-gateway-types-requirements-and-throughput"></a>Meer informatie over gatewaytypen, vereisten en doorvoer
 

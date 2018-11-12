@@ -1,6 +1,6 @@
 ---
-title: Azure Service Fabric zelfstandige-pakket voor WindowsServer | Microsoft Docs
-description: Beschrijving en de inhoud van het pakket Azure Service Fabric Standalone voor Windows Server.
+title: Azure Service Fabric zelfstandige pakket voor WindowsServer | Microsoft Docs
+description: Beschrijving en de inhoud van het Azure Service Fabric zelfstandige pakket voor Windows Server.
 services: service-fabric
 documentationcenter: .net
 author: maburlik
@@ -13,49 +13,49 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/10/2017
 ms.author: maburlik
-ms.openlocfilehash: dccdd6518dd97299150892a5629809ea7f708838
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: afb6c8345cd71e7d39b7f3a0b2307c99cf31b449
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34209352"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51253330"
 ---
-# <a name="contents-of-service-fabric-standalone-package-for-windows-server"></a>Inhoud van de zelfstandige versie van Service Fabric-pakket voor Windows Server
-In de [gedownload](http://go.microsoft.com/fwlink/?LinkId=730690) zelfstandige voor Service Fabric-pakket, vindt u de volgende bestanden:
+# <a name="contents-of-service-fabric-standalone-package-for-windows-server"></a>Inhoud van Service Fabric zelfstandige pakket voor Windows Server
+In de [gedownload](https://go.microsoft.com/fwlink/?LinkId=730690) Service Fabric zelfstandige pakket, vindt u de volgende bestanden:
 
 | **Bestandsnaam** | **Korte beschrijving** |
 | --- | --- |
-| CreateServiceFabricCluster.ps1 |Een PowerShell-script dat wordt gemaakt van het cluster met de instellingen in ClusterConfig.json. |
-| RemoveServiceFabricCluster.ps1 |Een PowerShell-script dat wordt verwijderd van een cluster met de instellingen in ClusterConfig.json. |
-| AddNode.ps1 |Een PowerShell-script voor het toevoegen van een knooppunt aan een bestaande implementatie van cluster op de huidige computer. |
-| RemoveNode.ps1 |Een PowerShell-script voor het verwijderen van een knooppunt van een bestaand cluster met de huidige computer geïmplementeerd. |
-| CleanFabric.ps1 |Een PowerShell-script voor het reinigen van een zelfstandige Service Fabric-installatie buiten de huidige computer. Vorige MSI-installaties moeten worden verwijderd met behulp van hun eigen uninstallers gekoppeld. |
+| CreateServiceFabricCluster.ps1 |Een PowerShell-script dat maakt het cluster met de instellingen in ClusterConfig.json. |
+| RemoveServiceFabricCluster.ps1 |Een PowerShell-script dat een cluster met de instellingen in ClusterConfig.json verwijdert. |
+| AddNode.ps1 |Een PowerShell-script voor het toevoegen van een knooppunt aan een bestaand cluster op de huidige computer geïmplementeerd. |
+| RemoveNode.ps1 |Een PowerShell-script voor het verwijderen van een knooppunt van een bestaand cluster op basis van de huidige computer geïmplementeerd. |
+| CleanFabric.ps1 |Een PowerShell-script voor het opschonen van een zelfstandige installatie van Service Fabric uit de huidige computer. Vorige MSI-installaties moeten worden verwijderd met behulp van hun eigen gekoppelde uninstallers. |
 | TestConfiguration.ps1 |Een PowerShell-script voor het analyseren van de infrastructuur zoals opgegeven in de Cluster.json. |
-| DownloadServiceFabricRuntimePackage.ps1 |Een PowerShell-script gebruikt voor het downloaden van de meest recente pakket runtime buiten band zijn, voor scenario's waarin de implementatie machine niet is verbonden met internet. |
-| DeploymentComponentsAutoextractor.exe |Zichzelf uitpakkend archief met onderdelen voor implementatie door de zelfstandige pakket scripts gebruikt. |
-| EULA_ENU.txt |De licentievoorwaarden voor het gebruik van Microsoft Azure Service Fabric zelfstandig pakket met Windows Server. U kunt [download een exemplaar van de gebruiksrechtovereenkomst](http://go.microsoft.com/fwlink/?LinkID=733084) nu. |
+| DownloadServiceFabricRuntimePackage.ps1 |Een PowerShell-script gebruikt voor het downloaden van de meest recente runtimepakket buiten-bandbeheer, voor scenario's waarin de implementeren machine niet is verbonden met internet. |
+| DeploymentComponentsAutoextractor.exe |Zelfuitpakkend archief met onderdelen voor implementatie door het zelfstandige pakket scripts gebruikt. |
+| EULA_ENU.txt |De licentievoorwaarden voor het gebruik van Microsoft Azure Service Fabric-pakket voor zelfstandige Windows Server. U kunt [download een exemplaar van de gebruiksrechtovereenkomst](https://go.microsoft.com/fwlink/?LinkID=733084) nu. |
 | Leesmij |Een koppeling naar de release-opmerkingen en eenvoudige installatie-instructies. Dit is een subset van de instructies in dit document. |
-| ThirdPartyNotice.rtf |De aankondiging van de software van derden die zich in het pakket. |
-| Tools\Microsoft.Azure.ServiceFabric.WindowsServer.SupportPackage.zip |StandaloneLogCollector.exe die wordt uitgevoerd op aanvraag voor het verzamelen en traceerlogboeken uploaden naar Microsoft voor ondersteuning doel. |
-| Tools\ServiceFabricUpdateService.zip |Een hulpprogramma waarmee automatisch code upgrade inschakelen voor clusters waarvoor geen toegang tot internet. Meer informatie vindt u [hier](service-fabric-cluster-upgrade-windows-server.md)|
+| ThirdPartyNotice.rtf |Aankondiging van de software van derden die in het pakket. |
+| Tools\Microsoft.Azure.ServiceFabric.WindowsServer.SupportPackage.zip |StandaloneLogCollector.exe die wordt uitgevoerd op aanvraag voor het verzamelen en uploaden van logboeken met traceringen naar Microsoft voor ondersteuning van doel. |
+| Tools\ServiceFabricUpdateService.zip |Een hulpprogramma dat wordt gebruikt voor het inschakelen van automatisch code-upgrade voor clusters die geen toegang tot internet hebben. Meer informatie vindt [hier](service-fabric-cluster-upgrade-windows-server.md)|
 
 **Sjablonen** 
 | **Bestandsnaam** | **Korte beschrijving** |
 | --- | --- |
-| ClusterConfig.Unsecure.DevCluster.json |Een cluster voorbeeld configuratiebestand met de instellingen voor een onbeveiligde, drie-knooppunt, single-(of virtuele machine) ontwikkeling cluster, inclusief de gegevens voor elk knooppunt in het cluster. |
-| ClusterConfig.Unsecure.MultiMachine.json |Een cluster voorbeeld configuratiebestand met de instellingen voor een niet-beveiligde, meerdere (of virtuele machine)-cluster, inclusief de gegevens voor elke computer in het cluster. |
-| ClusterConfig.Windows.DevCluster.json |Een cluster voorbeeld configuratiebestand met de instellingen voor een veilige, drie-knooppunt, single-(of virtuele machine) ontwikkelcluster, inclusief de gegevens voor elk knooppunt in het cluster. Het cluster is beveiligd met behulp van [Windows identiteiten](https://msdn.microsoft.com/library/ff649396.aspx). |
-| ClusterConfig.Windows.MultiMachine.json |Een cluster voorbeeld configuratiebestand met de instellingen voor een veilige, cluster met meerdere (of virtuele machine) met behulp van Windows-beveiliging, met inbegrip van de gegevens voor elke machine die in het beveiligde cluster. Het cluster is beveiligd met behulp van [Windows identiteiten](https://msdn.microsoft.com/library/ff649396.aspx). |
-| ClusterConfig.x509.DevCluster.json |Een cluster voorbeeld configuratiebestand met de instellingen voor een veilige, drie-knooppunt, single-(of virtuele machine) ontwikkelcluster, inclusief de gegevens voor elk knooppunt in het cluster. Het cluster is beveiligd met x509 certificaten. |
-| ClusterConfig.x509.MultiMachine.json |Een cluster voorbeeld configuratiebestand met de instellingen voor het cluster veilige, meerdere (of virtuele machine), met inbegrip van de gegevens voor elk knooppunt in het beveiligde cluster. Het cluster is beveiligd met x509 certificaten. |
-| ClusterConfig.gMSA.Windows.MultiMachine.json |Een cluster voorbeeld configuratiebestand met de instellingen voor het cluster veilige, meerdere (of virtuele machine), met inbegrip van de gegevens voor elk knooppunt in het beveiligde cluster. Het cluster is beveiligd met [Group Managed Service Accounts](https://technet.microsoft.com/library/jj128431(v=ws.11).aspx). |
+| ClusterConfig.Unsecure.DevCluster.json |Een cluster voorbeeld configuratiebestand met de instellingen voor een niet-beveiligde, drie knooppunten, één machine (of virtuele machine) ontwikkelingscluster wijzigen, met inbegrip van de gegevens voor elk knooppunt in het cluster. |
+| ClusterConfig.Unsecure.MultiMachine.json |Een cluster voorbeeld configuratiebestand met de instellingen voor een niet-beveiligde, meerdere (of virtuele machine)-cluster, met inbegrip van de gegevens voor elke computer in het cluster. |
+| ClusterConfig.Windows.DevCluster.json |Een cluster voorbeeld configuratiebestand met de instellingen voor een veilige, drie knooppunten, één machine (of virtuele machine) ontwikkelingscluster, met inbegrip van de informatie voor elk knooppunt in het cluster. Het cluster is beveiligd met behulp van [Windows identiteiten](https://msdn.microsoft.com/library/ff649396.aspx). |
+| ClusterConfig.Windows.MultiMachine.json |Een cluster voorbeeld configuratiebestand met de instellingen voor een veilige, meerdere (of virtuele machine)-cluster met behulp van Windows-beveiliging, met inbegrip van de gegevens voor elke machine die in het beveiligde cluster. Het cluster is beveiligd met behulp van [Windows identiteiten](https://msdn.microsoft.com/library/ff649396.aspx). |
+| ClusterConfig.x509.DevCluster.json |Een cluster voorbeeld configuratiebestand met de instellingen voor een veilige, drie knooppunten, één machine (of virtuele machine) ontwikkelingscluster, met inbegrip van de gegevens voor elk knooppunt in het cluster. Het cluster is beveiligd met behulp van x509 certificaten. |
+| ClusterConfig.x509.MultiMachine.json |Een cluster voorbeeld configuratiebestand met de instellingen voor het cluster veilig, meerdere (of virtuele machine), met inbegrip van de gegevens voor elk knooppunt in het beveiligde cluster. Het cluster is beveiligd met behulp van x509 certificaten. |
+| ClusterConfig.gMSA.Windows.MultiMachine.json |Een cluster voorbeeld configuratiebestand met de instellingen voor het cluster veilig, meerdere (of virtuele machine), met inbegrip van de gegevens voor elk knooppunt in het beveiligde cluster. Het cluster is beveiligd met [Group Managed Service Accounts](https://technet.microsoft.com/library/jj128431(v=ws.11).aspx). |
 
-## <a name="cluster-configuration-samples"></a>Voorbeelden van de cluster-configuratie
-Meest recente versies van de configuratiesjablonen cluster kunnen worden gevonden op de GitHub-pagina: [zelfstandige Cluster configuratie voorbeelden](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples).
+## <a name="cluster-configuration-samples"></a>Voorbeelden van configuraties van cluster
+Meest recente versies van configuratiesjablonen voor cluster kunnen worden gevonden op de GitHub-pagina: [voorbeelden van configuraties voor zelfstandige Cluster](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples).
 
 ## <a name="independent-runtime-package"></a>Onafhankelijke Runtime-pakket
-De meest recente runtime-pakket wordt automatisch gedownload tijdens de implementatie van het cluster uit [- Service Fabric-Runtime - koppeling Download Windows Server](https://go.microsoft.com/fwlink/?linkid=839354).
+De meest recente runtimepakket wordt automatisch gedownload tijdens de implementatie van het cluster uit [koppeling downloaden - Service Fabric-Runtime - Windows Server](https://go.microsoft.com/fwlink/?linkid=839354).
 
 ## <a name="related"></a>Verwant
-* [Een zelfstandige Azure Service Fabric-cluster maken](service-fabric-cluster-creation-for-windows-server.md)
-* [Scenario's voor beveiliging van service Fabric-cluster](service-fabric-windows-cluster-windows-security.md)
+* [Een zelfstandig Azure Service Fabric-cluster maken](service-fabric-cluster-creation-for-windows-server.md)
+* [Service Fabric-clusterbeveiligingsscenario 's](service-fabric-windows-cluster-windows-security.md)

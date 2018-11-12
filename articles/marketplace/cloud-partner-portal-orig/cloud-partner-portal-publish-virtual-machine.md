@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 3b046022990e95e65ed02880bd3fefbd78bcad28
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: d77dad52e75253de02fd079d791861356c4c5e1f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387350"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247072"
 ---
 # <a name="publish-a-virtual-machine-to-azure-marketplace"></a>Een virtuele machine op Azure Marketplace publiceren
 
@@ -37,7 +37,7 @@ De volgende technische en niet-technische vereisten van toepassing op een virtue
 
 -   [Maken en testen van een Linux-VM vanaf een installatiekopie](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-upload-vhd)
 
--   [Een Windows VHD maken en uploaden ](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-prepare-for-upload-vhd-image?toc=/azure/virtual-machines/windows/toc.json)
+-   [Een Windows VHD maken en uploaden ](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-prepare-for-upload-vhd-image?toc=/azure/virtual-machines/windows/toc.json)
 
 -   [Maken en testen van een Windows-VM op basis van een installatiekopie](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-create-vm-generalized-managed?toc=/azure/virtual-machines/windows/toc.json)
 
@@ -60,7 +60,7 @@ De volgende technische en niet-technische vereisten van toepassing op een virtue
 
 -   U gaat ermee akkoord met de voorwaarden van de Deelnamebeleid voor Azure Marketplace en de overeenkomst voor uitgevers.
 
--   U stemt ermee in om te voldoen aan de [gebruiksvoorwaarden](https://azure.microsoft.com/support/legal/website-terms-of-use/) , [privacyverklaring van Microsoft](http://www.microsoft.com/privacystatement/default.aspx), en [overeenkomst van Microsoft Azure Certified-programma](https://azure.microsoft.com/support/legal/marketplace/certified-program-agreement/).
+-   U stemt ermee in om te voldoen aan de [gebruiksvoorwaarden](https://azure.microsoft.com/support/legal/website-terms-of-use/) , [privacyverklaring van Microsoft](https://www.microsoft.com/privacystatement/default.aspx), en [overeenkomst van Microsoft Azure Certified-programma](https://azure.microsoft.com/support/legal/marketplace/certified-program-agreement/).
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
@@ -211,7 +211,7 @@ In deze prijzen excel, worden de prijzen voor de verschillende regio's weergegev
 
 >[!IMPORTANT]
 >-   Prijzen kunnen niet worden gewijzigd nadat een aanbieding live meteen. Maar u nog steeds mogelijk kunnen toevoegen of verwijderen van ondersteunde regio's.
->-   Dit bedrag wordt in rekening gebracht voor de gebruiker naast [Azure\'prijzen voor virtuele machines s](http://aka.ms/vmpricingdetails).
+>-   Dit bedrag wordt in rekening gebracht voor de gebruiker naast [Azure\'prijzen voor virtuele machines s](https://aka.ms/vmpricingdetails).
 >-   Prijzen zijn ingesteld voor alle regio's in de lokale valuta, met behulp van de beschikbare wisselkoersen op het moment van prijzen.
 >-   Instellen of de prijs van elke regio afzonderlijk weergeven, de prijzen spreadsheet exporteren en importeren met aangepaste prijzen.
 
@@ -225,7 +225,7 @@ De volgende sectie om te voltooien, is de sectie VM-installatiekopieën. Voordat
 
 -   [Maken en testen van een Linux-VM vanaf een installatiekopie](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-upload-vhd)
 
--   [Het maken en uploaden van een Windows VHD ](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-prepare-for-upload-vhd-image?toc=/azure/virtual-machines/windows/toc.json)
+-   [Het maken en uploaden van een Windows VHD ](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-prepare-for-upload-vhd-image?toc=/azure/virtual-machines/windows/toc.json)
 
 -   [Maken en testen van een Windows-VM op basis van een installatiekopie](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-create-vm-generalized-managed?toc=/azure/virtual-machines/windows/toc.json)
 

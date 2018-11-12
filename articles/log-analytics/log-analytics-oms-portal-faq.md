@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 6f28a636f4df1343431762cf1eb8aec9b660f2e2
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 442371ffc63e32906d9faafc3b803bb5e6386905
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50962500"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283441"
 ---
 # <a name="common-questions-for-transition-from-oms-portal-to-azure-portal-for-log-analytics-users"></a>Veelgestelde vragen voor overgang van OMS-portal naar Azure-portal voor Log Analytics-gebruikers
 Log Analytics gebruikt een eigen portal met de OMS-portal de naam in eerste instantie de configuratie ervan beheren en analyseren van verzamelde gegevens.  Alle functionaliteit van deze portal is verplaatst naar de Azure-portal waar deze blijft op worden ontwikkeld.
@@ -35,7 +35,7 @@ Meld u aan bij de Azure-portal op [https://portal.azure.com](https://portal.azur
 ![Log Analytics-werkruimte](media/log-analytics-oms-portal-faq/log-analytics.png)
 
 ## <a name="how-do-i-manage-permissions"></a>Hoe beheer ik machtigingen?
-Als u geen toegang tot uw Log Analytics-werkruimte in de Azure-portal hebt, moet u het configureren van uw machtigingen met behulp van [Azure op rollen gebaseerde toegang](../active-directory/role-based-access-control-configure.md). Zie voor meer informatie over het beheren van machtigingen voor de werkruimte [werkruimten beheren](../log-analytics/log-analytics-manage-access.md#manage-accounts-and-users). Zie voor meer informatie over het beheren van machtigingen voor waarschuwingen [aan de slag met rollen, machtigingen en beveiliging met Azure Monitor](../monitoring-and-diagnostics/monitoring-roles-permissions-security.md).
+Als u geen toegang tot uw Log Analytics-werkruimte in de Azure-portal hebt, moet u het configureren van uw machtigingen met behulp van [Azure op rollen gebaseerde toegang](../role-based-access-control/role-assignments-portal.md). Zie voor meer informatie over het beheren van machtigingen voor de werkruimte [werkruimten beheren](../log-analytics/log-analytics-manage-access.md#manage-accounts-and-users). Zie voor meer informatie over het beheren van machtigingen voor waarschuwingen [aan de slag met rollen, machtigingen en beveiliging met Azure Monitor](../monitoring-and-diagnostics/monitoring-roles-permissions-security.md).
 
 ## <a name="how-do-i-create-a-new-workspace"></a>Hoe kan ik een nieuwe werkruimte maken? 
 Klik in de lijst met werkruimten in Azure portal, op **toevoegen** in de lijst met werkruimten.  Zie voor meer informatie, [een Log Analytics-werkruimte maken in Azure portal](../log-analytics/log-analytics-quick-create-workspace.md).
@@ -110,7 +110,7 @@ Beheren van oplossingen in de **oplossingen** menu voor de werkruimte.
 In de OMS-portal installeert oplossingen voor het beheer van de galerie van oplossingen en verwijderd uit **instellingen**. In de Azure-portal [installeren beheeroplossingen](../monitoring/monitoring-solutions.md#install-a-management-solution) vanuit Azure Marketplace. [Verwijderen van oplossingen](../monitoring/monitoring-solutions.md#remove-a-management-solution) uit de lijst met geïnstalleerde oplossingen.
 
 ## <a name="how-do-i-create-and-manage-alerts"></a>Hoe ik waarschuwingen maken en beheren?
-Regels voor waarschuwingen op basis van Log Analytics-query's worden nu beheerd de [geïntegreerde ervaring waarschuwingen](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md). Zie [voor het uitbreiden van waarschuwingen van Log Analytics in Azure-waarschuwingen](../monitoring-and-diagnostics/monitoring-alerts-extend-tool.md) voor meer informatie over het configureren en gebruiken van waarschuwingen in Azure portal.
+Regels voor waarschuwingen op basis van Log Analytics-query's worden nu beheerd de [geïntegreerde ervaring waarschuwingen](../monitoring-and-diagnostics/alert-metric.md). Zie [voor het uitbreiden van waarschuwingen van Log Analytics in Azure-waarschuwingen](../monitoring-and-diagnostics/monitoring-alerts-extend-tool.md) voor meer informatie over het configureren en gebruiken van waarschuwingen in Azure portal.
 
 ## <a name="how-do-i-access-my-dashboards"></a>Hoe krijg ik toegang tot Mijn dashboards?
 De [mijn Dashboard](../log-analytics/log-analytics-dashboards.md) functie in Log Analytics is afgeschaft. Deze functie u hebt een persoonlijke verzameling van onderdelen van de Weergaveontwerper toegestaan en wordt vervangen door de ingebouwde functionaliteit voor Azure-Dashboard. U kunt doorgaan met het visualiseren van gegevens in Log Analytics met behulp van [Weergaveontwerper](../log-analytics/log-analytics-view-designer.md) voor gedeelde weergaven. U kunt ook visualisaties uit deze weergaven of voor vastmaken [afzonderlijke query's](../log-analytics/log-analytics-tutorial-dashboards.md) aan Azure-Dashboards.

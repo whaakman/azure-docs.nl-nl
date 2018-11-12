@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/30/2018
 ms.author: rkarlin
-ms.openlocfilehash: 5638b71147592ae71c741ca86da68ddfec668af5
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: acb010b0169fd876bf540f7a4115dbabfeda923a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44299063"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51227192"
 ---
 # <a name="connecting-microsoft-azure-application-gateway-to-azure-security-center"></a>Microsoft Azure Application Gateway met Azure Security Center verbinden
 Dit document helpt u bij het configureren van de integratie met Application Gateway web application firewall (WAF) en Security Center.
@@ -61,4 +61,4 @@ In dit artikel hebt u geleerd hoe u de Application Gateway WAF in Security Cente
 * [Beveiligingsstatus controleren in Security Center](security-center-monitoring.md).
 * [Partneroplossingen controleren met Security Center](security-center-partner-solutions.md).
 * [Veelgestelde vragen over Azure Security Center](security-center-faq.md).
-* [Azure-beveiligingsblog](http://blogs.msdn.com/b/azuresecurity/).
+* [Azure-beveiligingsblog](https://blogs.msdn.com/b/azuresecurity/).

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: lmolkova
-ms.openlocfilehash: 2e4ff84c957540aa6863cd9836b1744e73c5b2f5
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 770d8950e25431e1edc496e0710cf199b45e5847
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854878"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283832"
 ---
 # <a name="distributed-tracing-and-correlation-through-service-bus-messaging"></a>Gedistribueerde tracering en correlatie via Service Bus-berichten
 
@@ -181,7 +181,7 @@ U kunt in elke gebeurtenis openen `Activity.Current` dat de huidige bewerkingsco
 
 #### <a name="logging-additional-properties"></a>Extra eigenschappen voor logboekregistratie
 
-`Activty.Current` biedt gedetailleerde context van de huidige bewerking en de bijbehorende bovenliggende klassen. Zie voor meer informatie, [activiteit documentatie](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) voor meer informatie.
+`Activity.Current` biedt gedetailleerde context van de huidige bewerking en de bijbehorende bovenliggende klassen. Zie voor meer informatie, [activiteit documentatie](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) voor meer informatie.
 Service Bus instrumentation bevat aanvullende informatie in de `Activity.Current.Tags` -ze hebben `MessageId` en `SessionId` wanneer deze beschikbaar zijn.
 
 Activiteiten die bijhouden 'Ontvangen', 'Peek' en 'ReceiveDeferred' gebeurtenis ook mogelijk `RelatedTo` tag. Deze unieke lijst bevat `Diagnostic-Id`(s) van berichten die als gevolg hiervan zijn ontvangen.

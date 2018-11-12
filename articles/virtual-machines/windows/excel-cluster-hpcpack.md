@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 06/01/2017
 ms.author: danlep
-ms.openlocfilehash: 4a6327fcfe6f6e6f3b8b5c6ecbd14b832b4134c5
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: f5b8d3aa69d6a141394395f012e5cc57873cafaf
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39421209"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51235932"
 ---
 # <a name="get-started-running-excel-and-soa-workloads-on-an-hpc-pack-cluster-in-azure"></a>Aan de slag met Excel- en SOA-workloads op een HPC Pack-cluster in Azure
 In dit artikel wordt beschreven hoe u een Microsoft HPC Pack 2012 R2-cluster op Azure virtual machines implementeren met behulp van een Azure-quickstart-sjabloon of optioneel een Azure PowerShell-script voor implementatie. Het cluster maakt gebruik van Azure Marketplace VM-installatiekopieën die zijn ontworpen voor het uitvoeren van Microsoft Excel of een service oriented architecture (SOA)-workloads met HPC Pack. U kunt het cluster gebruiken voor het uitvoeren van Excel HPC en SOA-services vanuit een on-premises clientcomputer. De Excel-HPC-services bevatten Excel-werkmap offloading en de gebruiker gedefinieerde functies van Excel of de UDF's.
@@ -225,7 +225,7 @@ Volg deze stappen voor het offloaden van een Excel-werkmap, zodat deze wordt uit
         </startup>
     </configuration>
     ```
-1. De client ingesteld voor het verzenden van taken naar de HPC Pack-cluster. Een optie is voor het downloaden van de volledige [HPC Pack 2012 R2 Update 3 installatie](http://www.microsoft.com/download/details.aspx?id=49922) en de HPC Pack-client installeren. U kunt ook downloaden en installeren de [client hulpprogramma's van HPC Pack 2012 R2 Update 3](https://www.microsoft.com/download/details.aspx?id=49923) en de juiste Visual C++ 2010 redistributable voor uw computer ([x64](http://www.microsoft.com/download/details.aspx?id=14632), [x86](https://www.microsoft.com/download/details.aspx?id=5555) ).
+1. De client ingesteld voor het verzenden van taken naar de HPC Pack-cluster. Een optie is voor het downloaden van de volledige [HPC Pack 2012 R2 Update 3 installatie](https://www.microsoft.com/download/details.aspx?id=49922) en de HPC Pack-client installeren. U kunt ook downloaden en installeren de [client hulpprogramma's van HPC Pack 2012 R2 Update 3](https://www.microsoft.com/download/details.aspx?id=49923) en de juiste Visual C++ 2010 redistributable voor uw computer ([x64](https://www.microsoft.com/download/details.aspx?id=14632), [x86](https://www.microsoft.com/download/details.aspx?id=5555) ).
 1. In dit voorbeeld gebruiken we een voorbeeld-Excel-werkmap met de naam ConvertiblePricing_Complete.xlsb. U kunt dit downloaden [hier](https://www.microsoft.com/en-us/download/details.aspx?id=2939).
 1. Kopieer de Excel-werkmap naar een werkmap zoals D:\Excel\Run.
 1. Open de Excel-werkmap. Op de **ontwikkelen** lint, klikt u op **COM-invoegtoepassingen** en bevestigt u dat de HPC Pack Excel COM-invoegtoepassing is geladen.
@@ -262,7 +262,7 @@ Als u wilt uitvoeren van Excel UDF's, volgt u de voorgaande stappen 1-3 voor het
 > 
 > 
 
-Nadat het cluster is geïmplementeerd, doorgaan met de volgende stappen voor het uitvoeren van een voorbeeld van een ingebouwde Excel UDF. Zie voor aangepaste Excel UDF's, deze [resources](http://social.technet.microsoft.com/wiki/contents/articles/1198.windows-hpc-and-microsoft-excel-resources-for-building-cluster-ready-workbooks.aspx) de XLL's bouwen en implementeren op de IaaS-cluster.
+Nadat het cluster is geïmplementeerd, doorgaan met de volgende stappen voor het uitvoeren van een voorbeeld van een ingebouwde Excel UDF. Zie voor aangepaste Excel UDF's, deze [resources](https://social.technet.microsoft.com/wiki/contents/articles/1198.windows-hpc-and-microsoft-excel-resources-for-building-cluster-ready-workbooks.aspx) de XLL's bouwen en implementeren op de IaaS-cluster.
 
 1. Open een nieuwe Excel-werkmap. Op de **ontwikkelen** lint, klikt u op **Add-Ins**. Klik vervolgens in het dialoogvenster op **Bladeren**, navigeer naar de map %CCP_HOME%Bin\XLL32 en selecteert u het voorbeeld ClusterUDF32.xll. Als de ClusterUDF32 niet op de clientcomputer bestaat, kopieert u deze in de map %CCP_HOME%Bin\XLL32 op het hoofdknooppunt.
    
@@ -280,7 +280,7 @@ Nadat het cluster is geïmplementeerd, doorgaan met de volgende stappen voor het
 Voor het uitvoeren algemene SOA-toepassingen op het cluster met HPC Pack IaaS, eerst gebruiken een van de methoden in stap 1 om het cluster te implementeren. Geef een algemene compute-knooppunt afbeelding in dit geval omdat u geen Excel nodig op de rekenknooppunten. Volg deze stappen.
 
 1. Bij het ophalen van het clustercertificaat, importeert u het op de clientcomputer onder Cert: \CurrentUser\Root.
-1. Installeer de [HPC Pack 2012 R2 Update 3 SDK](http://www.microsoft.com/download/details.aspx?id=49921) en [client hulpprogramma's van HPC Pack 2012 R2 Update 3](https://www.microsoft.com/download/details.aspx?id=49923). Deze hulpprogramma's kunnen u ontwikkelen en uitvoeren van de SOA-clienttoepassingen.
+1. Installeer de [HPC Pack 2012 R2 Update 3 SDK](https://www.microsoft.com/download/details.aspx?id=49921) en [client hulpprogramma's van HPC Pack 2012 R2 Update 3](https://www.microsoft.com/download/details.aspx?id=49923). Deze hulpprogramma's kunnen u ontwikkelen en uitvoeren van de SOA-clienttoepassingen.
 1. Download de HelloWorldR2 [voorbeeldcode](https://www.microsoft.com/download/details.aspx?id=41633). Open de HelloWorldR2.sln in Visual Studio 2010- of 2012. (In dit voorbeeld is momenteel niet compatibel met nieuwere versies van Visual Studio.)
 1. Maak eerst het EchoService-project. Vervolgens implementeert u de service met het IaaS-cluster op dezelfde manier als die u op een on-premises cluster implementeren. Zie de Readme.doc in HelloWordR2 voor gedetailleerde stappen. Wijzig en bouw de HellWorldR2 en andere projecten zoals beschreven in de volgende sectie voor het genereren van de SOA-clienttoepassingen die worden uitgevoerd op een Azure IaaS-cluster.
 
@@ -343,7 +343,7 @@ De configuratie is vergelijkbaar met het verbinding maken met een on-premises cl
 De SOA-clienttoepassing vereist geen wijzigingen, behalve de naam van de kop voor de volledige naam voor IaaS-cluster te wijzigen.
 
 ## <a name="next-steps"></a>Volgende stappen
-* Zie [deze resources](http://social.technet.microsoft.com/wiki/contents/articles/1198.windows-hpc-and-microsoft-excel-resources-for-building-cluster-ready-workbooks.aspx) voor meer informatie over het uitvoeren van Excel-werkbelastingen met HPC Pack.
+* Zie [deze resources](https://social.technet.microsoft.com/wiki/contents/articles/1198.windows-hpc-and-microsoft-excel-resources-for-building-cluster-ready-workbooks.aspx) voor meer informatie over het uitvoeren van Excel-werkbelastingen met HPC Pack.
 * Zie [SOA-Services beheren in Microsoft HPC Pack](https://technet.microsoft.com/library/ff919412.aspx) voor meer informatie over het implementeren en beheren van services met HPC Pack SOA.
 
 <!--Image references-->

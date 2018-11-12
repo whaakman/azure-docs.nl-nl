@@ -9,18 +9,18 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: ashmaka
-ms.openlocfilehash: 54646a7d4962c5dfe255d28bdb91d272062530dd
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: b7befb46da8674e0bec7d3f73ad33a12529ffc3a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39364271"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232372"
 ---
 # <a name="design-patterns-for-multitenant-saas-applications-and-azure-search"></a>Ontwerppatronen voor multitenant SaaS-toepassingen en Azure Search
 Een multitenant-toepassing is die de dezelfde services en mogelijkheden biedt naar een willekeurig aantal tenants die niet kan zien of de gegevens van een andere tenant delen. Dit document bespreekt strategieën voor tenant-isolatie voor multitenant-toepassingen die zijn gebouwd met Azure Search.
 
 ## <a name="azure-search-concepts"></a>Azure Search-concepten
-Als een oplossing voor search-as-a-service kunnen Azure Search ontwikkelaars uitgebreide zoekervaring toevoegen aan toepassingen zonder beheren van een infrastructuur of een expert in ophalen van gegevens is. Gegevens worden geüpload naar de service en vervolgens opgeslagen in de cloud. Met behulp van eenvoudige aanvragen aan de Azure Search-API, kunnen de gegevens vervolgens worden gewijzigd en doorzocht. Een overzicht van de service kan worden gevonden in [in dit artikel](http://aka.ms/whatisazsearch). Voordat u hierover te discussiëren ontwerppatronen, is het belangrijk om te begrijpen van enkele concepten in Azure Search.
+Als een oplossing voor search-as-a-service kunnen Azure Search ontwikkelaars uitgebreide zoekervaring toevoegen aan toepassingen zonder beheren van een infrastructuur of een expert in ophalen van gegevens is. Gegevens worden geüpload naar de service en vervolgens opgeslagen in de cloud. Met behulp van eenvoudige aanvragen aan de Azure Search-API, kunnen de gegevens vervolgens worden gewijzigd en doorzocht. Een overzicht van de service kan worden gevonden in [in dit artikel](https://aka.ms/whatisazsearch). Voordat u hierover te discussiëren ontwerppatronen, is het belangrijk om te begrijpen van enkele concepten in Azure Search.
 
 ### <a name="search-services-indexes-fields-and-documents"></a>Services, indexen, velden en documenten zoeken
 Wanneer u Azure Search, een zich abonneert op een *search-service*. Als u gegevens naar Azure Search is geüpload, wordt deze opgeslagen in een *index* binnen de search-service. Er is een aantal indexen binnen één service. Voor het gebruik van de vertrouwde concepten van databases, kan de search-service worden vergeleken met een database terwijl de indexen in een service kunnen worden vergeleken met tabellen in een database.
@@ -126,7 +126,7 @@ Deze methode kan worden gebruikt om de functionaliteit van afzonderlijke gebruik
 > 
 
 ## <a name="next-steps"></a>Volgende stappen
-Azure Search is een aantrekkelijke keuze voor veel toepassingen, [voor meer informatie over de robuuste mogelijkheden van de service](http://aka.ms/whatisazsearch). Bij het evalueren van de verschillende ontwerppatronen voor multitenant-toepassingen, houd rekening met de [verschillende Prijscategorieën](https://azure.microsoft.com/pricing/details/search/) en de desbetreffende [Servicelimieten](search-limits-quotas-capacity.md) om aan te passen beste Azure Search aan toepassing werkbelastingen en architecturen van elke omvang.
+Azure Search is een aantrekkelijke keuze voor veel toepassingen, [voor meer informatie over de robuuste mogelijkheden van de service](https://aka.ms/whatisazsearch). Bij het evalueren van de verschillende ontwerppatronen voor multitenant-toepassingen, houd rekening met de [verschillende Prijscategorieën](https://azure.microsoft.com/pricing/details/search/) en de desbetreffende [Servicelimieten](search-limits-quotas-capacity.md) om aan te passen beste Azure Search aan toepassing werkbelastingen en architecturen van elke omvang.
 
 Vragen over Azure Search en scenario's voor meerdere tenants kunnen worden omgeleid naar azuresearch_contact@microsoft.com.
 

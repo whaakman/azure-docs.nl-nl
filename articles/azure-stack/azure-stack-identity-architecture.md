@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/01/2018
+ms.date: 11/07/2018
 ms.author: patricka
-ms.reviewer: ''
-ms.openlocfilehash: f2d843b343fa830adf41352ae692ea98bed52ecc
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.reviewer: fiseraci
+ms.openlocfilehash: a16a6596d6bc33200f87a1dfd3b2ea5b02628e10
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44713643"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277814"
 ---
 # <a name="identity-architecture-for-azure-stack"></a>Architectuur voor cloudidentiteit voor Azure Stack
 Voordat u ervoor een id-provider kiest te gebruiken met Azure Stack, begrijpt u de belangrijke verschillen tussen de opties van Azure Active Directory (Azure AD) en Active Directory Federation Services (AD FS). 
@@ -44,7 +44,7 @@ De id-provider die u kunt uw opties, waaronder ondersteuning voor multitenancy b
 |Toepassingen kunnen id-provider gebruiken voor aanmelden |Ja |Ja. Vereist dat toepassingen om te federeren met on-premises AD FS-exemplaren. |
 
 ## <a name="topologies"></a>Topologieën
-De volgende secties dialoog de verschillende identiteit topologieën die u kunt gebruiken.
+De volgende secties worden de verschillende identiteit topologieën die u kunt gebruiken.
 
 ### <a name="azure-ad-single-tenant-topology"></a>Azure AD: één tenant-topologie 
 Wanneer u Azure Stack installeren en gebruiken van Azure AD, Azure Stack gebruikt standaard een topologie met één tenant. 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/28/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: afd2b31c5829015e11a3875c609ea3171006c501
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 70c19b394b5c5702a0ec0f18aa3bbd0c05e39dfd
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50914138"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51249792"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Azure Active Directory Pass through-verificatie: Snel starten
 
@@ -142,7 +142,7 @@ Ten tweede kunt u maken en uitvoeren van een script zonder toezicht implementati
         RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft Azure AD Connect Authentication Agent\Modules\" -moduleName "AppProxyPSModule" -Authenticationmode Credentials -Usercredentials $cred -Feature PassthroughAuthentication
 
 ## <a name="next-steps"></a>Volgende stappen
-- [Migreren van AD FS naar Pass-through-verificatie](http://aka.ms/adfstoptadp) -een uitgebreide handleiding voor het migreren van AD FS (of andere technologieën voor federatie) naar Pass-through-verificatie.
+- [Migreren van AD FS naar Pass-through-verificatie](https://aka.ms/adfstoptadp) -een uitgebreide handleiding voor het migreren van AD FS (of andere technologieën voor federatie) naar Pass-through-verificatie.
 - [Vergrendeling van het smart](../authentication/howto-password-smart-lockout.md): informatie over het configureren van de functie Smart Lockout op uw tenant om te beveiligen van gebruikersaccounts.
 - [Huidige beperkingen](how-to-connect-pta-current-limitations.md): informatie over welke scenario's met de Pass-through-verificatie worden ondersteund en welke niet.
 - [Technische details](how-to-connect-pta-how-it-works.md): informatie over de werking van de functie voor Pass through-verificatie.

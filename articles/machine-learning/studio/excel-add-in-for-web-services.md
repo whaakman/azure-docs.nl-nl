@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 2/1/2018
-ms.openlocfilehash: ed3fc6d1d2a4b674e2866d2e168fb72490575869
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
-ms.translationtype: MT
+ms.openlocfilehash: 0d0274b88a15688106f185ede87f576443bdadb0
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51281830"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51229352"
 ---
 # <a name="excel-add-in-for-azure-machine-learning-studio-web-services"></a>Excel-invoegtoepassing voor Azure Machine Learning Studio-webservices
 Excel maakt het eenvoudig om aan te roepen webservices rechtstreeks zonder code te schrijven.
@@ -28,7 +28,7 @@ Excel maakt het eenvoudig om aan te roepen webservices rechtstreeks zonder code 
 1. Open de [Excel-voorbeeldbestand](https://aka.ms/amlexcel-sample-2), die de Excel-invoegtoepassing en de gegevens over passagiers op ramp met de Titanic bevat. 
  
 > [!NOTE]
-> U ziet de lijst met de webservices die betrekking hebben op het bestand en onder een selectievakje voor "automatisch"voorspellen. Als u inschakelt auto-voorspellen de voorspellingen van **alle** uw services worden bijgewerkt telkens wanneer er een wijziging in de invoer is. Als dit selectievakje is uitgeschakeld wordt u voor vernieuwing te klikken op 'Alle voorspellen' hebben. Voor het inschakelen van automatische-voorspellen op een service level gaat u naar stap 6.
+> U ziet de lijst met de webservices die betrekking hebben op het bestand en onder een selectievakje voor "automatisch"voorspellen. Als u inschakelt auto-voorspellen de voorspellingen van **alle** uw services worden bijgewerkt wanneer er een wijziging is in de invoer. Als dit selectievakje is uitgeschakeld wordt u voor vernieuwing te klikken op 'Alle voorspellen' hebben. Voor het inschakelen van automatische-voorspellen op een service level gaat u naar stap 6.
 
 2. De webservice kiezen door erop te klikken-' Titanic nagelaten voorspelde (Excel-invoegtoepassing voorbeeld) [Score] ' in dit voorbeeld.
    

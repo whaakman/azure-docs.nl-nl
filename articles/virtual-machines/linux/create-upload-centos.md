@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2018
 ms.author: szark
-ms.openlocfilehash: 5328ee7e3e3035ebce1ff9fccbfc6e9ccfd86ee8
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 171180eb373553dfa0c971b22e3cf62e450829ed
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48888390"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51233596"
 ---
 # <a name="prepare-a-centos-based-virtual-machine-for-azure"></a>Een op CentOS gebaseerde virtuele Azure-machine voorbereiden
 * [Een CentOS 6.x virtuele machine voor Azure voorbereiden](#centos-6x)
@@ -29,7 +29,7 @@ ms.locfileid: "48888390"
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
 ## <a name="prerequisites"></a>Vereisten
-In dit artikel wordt ervan uitgegaan dat u al een CentOS hebt geïnstalleerd (of vergelijkbaar afgeleide) Linux-besturingssysteem op een virtuele harde schijf. Er bestaan meerdere hulpprogramma's voor het maken van VHD-bestanden, bijvoorbeeld een oplossing voor netwerkvirtualisatie zoals Hyper-V. Zie voor instructies [de Hyper-V-rol installeren en configureren van een virtuele Machine](http://technet.microsoft.com/library/hh846766.aspx).
+In dit artikel wordt ervan uitgegaan dat u al een CentOS hebt geïnstalleerd (of vergelijkbaar afgeleide) Linux-besturingssysteem op een virtuele harde schijf. Er bestaan meerdere hulpprogramma's voor het maken van VHD-bestanden, bijvoorbeeld een oplossing voor netwerkvirtualisatie zoals Hyper-V. Zie voor instructies [de Hyper-V-rol installeren en configureren van een virtuele Machine](https://technet.microsoft.com/library/hh846766.aspx).
 
 **Opmerkingen bij de installatie van centOS**
 

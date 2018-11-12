@@ -3,7 +3,7 @@ title: Toegang beperken via internetgerichte eindpunten in Azure Security Center
 description: Dit document wordt beschreven hoe u de Azure Security Center-aanbeveling kunt implementeren **toegang via een Internetgericht eindpunt beperken**.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: 727d88c9-163b-4ea0-a4ce-3be43686599f
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/03/2017
-ms.author: terrylan
-ms.openlocfilehash: 0b7de1f63f765705a78535ae04c1b844e06c029c
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.date: 10/28/2018
+ms.author: rkarlin
+ms.openlocfilehash: 8e404651fa315f630ff190c9e70ccdd3eec7f117
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44301154"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51229999"
 ---
 # <a name="restrict-access-through-internet-facing-endpoints-in-azure-security-center"></a>Toegang beperken via internetgerichte eindpunten in Azure Security Center
 Azure Security Center wordt aanbevolen dat u de toegang via internetgerichte eindpunten beperken als een van uw Netwerkbeveiligingsgroepen (nsg's) heeft een of meer binnenkomende regels waarmee toegang via 'een' bron-IP-adres. Toegang tot 'een' te openen, mogelijk kwaadwillende personen om toegang te krijgen tot uw resources. Security Center wordt aanbevolen dat u deze regels voor binnenkomende verbindingen om te beperken van toegang tot bron-IP-adressen die toegang nodig hebt.
@@ -66,7 +66,7 @@ Zie de volgende onderwerpen voor meer informatie over het Beveiligingscentrum:
 * [Beveiligingswaarschuwingen beheren en erop reageren in Azure Security Center](security-center-managing-and-responding-alerts.md): leer hoe u beveiligingswaarschuwingen kunt beheren en erop kunt reageren.
 * [Partneroplossingen bewaken met Azure Security Center](security-center-partner-solutions.md): leer hoe u de integriteitsstatus van uw partneroplossingen kunt bewaken.
 * [Azure Security Center FAQ](security-center-faq.md): raadpleeg veelgestelde vragen over het gebruik van de service.
-* [Azure Security Blog](http://blogs.msdn.com/b/azuresecurity/) (Azure-beveiligingsblog): hier vindt u het laatste nieuws over Azure-beveiliging en andere informatie.
+* [Azure Security Blog](https://blogs.msdn.com/b/azuresecurity/) (Azure-beveiligingsblog): hier vindt u het laatste nieuws over Azure-beveiliging en andere informatie.
 
 <!--Image references-->
 [1]: ./media/security-center-restrict-access-thru-internet-facing-endpoint/restrict-access-thru-internet-facing-endpoint.png

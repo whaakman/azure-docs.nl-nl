@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: 6aff31c662a845028a02cecd7a99837f92bc87e5
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 4b4230397da7d97b613b546f33a0cbb764675720
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394218"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50214814"
 ---
 # <a name="quickstart-create-an-azure-data-explorer-cluster-and-database"></a>Snelstart: een Azure Data Explorer-cluster en -database maken
 
@@ -31,11 +31,11 @@ U maakt een Azure Data Explorer-cluster in een Azure-resourcegroep, met een gede
 
 1. Selecteer de knop **Een resource maken** (+) in de linkerbovenhoek van de portal.
 
-1. Zoek naar *Azure Data Explorer* en selecteer vervolgens **Azure Data Explorer**.
+1. Zoek naar *Azure Data Explorer*.
 
    ![Resources zoeken](media/create-cluster-database-portal/search-resources.png)
 
-1. Selecteer in de rechterbenedenhoek **Maken**.
+1. Selecteer onder aan het scherm, onder **Azure Data Explorer**, de optie **Maken**.
 
 1. Voer een unieke naam in voor uw cluster, selecteer uw abonnement en maak een resourcegroep met de naam *test-resource-group*.
 
@@ -51,10 +51,12 @@ U maakt een Azure Data Explorer-cluster in een Azure-resourcegroep, met een gede
     | Abonnement | Uw abonnement | Selecteer het Azure-abonnement dat u wilt gebruiken voor uw cluster.|
     | Resourcegroep | *test-resource-group* | Maak een nieuwe resourcegroep. |
     | Locatie | *US - west* | Selecteer *US - west* voor deze snelstart. Selecteer voor een productiesysteem de regio die het beste voldoet aan uw behoeften.
-    | Rekenspecificatie | *D13_v2* | Selecteer de laagste prijsspecificatie voor deze snelstart. Selecteer voor een productiesysteem de specificatie die het beste voldoet aan uw behoeften.
+    | Specificaties voor rekenkracht | *D13_v2* | Selecteer de laagste prijsspecificatie voor deze snelstart. Selecteer voor een productiesysteem de specificatie die het beste voldoet aan uw behoeften.
     | | |
 
-1. Selecteer **Maken** om het cluster in te richten. Het inrichten duurt doorgaans ongeveer tien minuten. Selecteer **Meldingen** op de werkbalk (pictogram van een klok) om het inrichtingsproces te bewaken.
+1. Selecteer **Maken** om het cluster in te richten. Het inrichten duurt doorgaans ongeveer tien minuten. Selecteer in de werkbalk de optie **Meldingen** om het inrichtingsproces te controleren.
+
+    ![Meldingen](media/create-cluster-database-portal/notifications.png)
 
 1. Wanneer het proces is voltooid, selecteert u **Meldingen** en vervolgens **Ga naar resource**.
 

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 07/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 6c2f20f74ce90f2876ff4040d34a2ede94c92fb1
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: d193cfcd03eb4e686ba829e121fbf77e2e0c18a6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39577323"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51233011"
 ---
 # <a name="grow-your-business-in-the-marketplace"></a>Ontwikkel uw bedrijfsactiviteiten in de marketplace 
 Nadat u uw aanbieding in AppSource of in de Azure Marketplace hebt gepubliceerd, kunt u uw aanbieding gebruiken als een launchpad voor gezamenlijke (GTM)-activiteiten met go-to-market met Microsoft. Verkeer naar uw Marketplace-aanbieding te stimuleren en nurturing Marketplace leads, zijn bijvoorbeeld geweldige manieren om uw zakelijke groei te versnellen. 
@@ -229,7 +229,7 @@ Gebruik de volgende tabel ter bevordering van uw aanbieding of de app en voor to
 
 | Voordelen | Resources |
 |:--- |:--- |
-| Profiteer van uw belangrijkste voordelen | Als onderdeel van het Microsoft Partner Network ontvangt u een set van de belangrijkste voordelen van kan tijd en geld besparen. De voordelen kunt u versterking van uw mogelijkheden, beter klanten van dienst en verbindingen voor het bereiken van uw volledige bedrijf mogelijke te bouwen.<br>Voor meer informatie over de belangrijkste voordelen, gaat u naar [belangrijkste voordelen en vereisten](http://partner.microsoft.com/membership/core-benefits). |
+| Profiteer van uw belangrijkste voordelen | Als onderdeel van het Microsoft Partner Network ontvangt u een set van de belangrijkste voordelen van kan tijd en geld besparen. De voordelen kunt u versterking van uw mogelijkheden, beter klanten van dienst en verbindingen voor het bereiken van uw volledige bedrijf mogelijke te bouwen.<br>Voor meer informatie over de belangrijkste voordelen, gaat u naar [belangrijkste voordelen en vereisten](https://partner.microsoft.com/membership/core-benefits). |
 | Uw competentie voor het Cloudplatform behalen | Een competentie voor het verdienen, kunt u zelf te onderscheiden van andere Microsoft-partners. Verdienen een competentie helpt u bij gebruik van de technische expertise en klantsucces op de markt. Competentie is een vereiste voor veel belangrijke partner-programma's, zoals gezamenlijke verkoop.<br> Bezoek voor meer informatie over Cloud Platform-competentie [Cloudplatformcompetentie](https://partner.microsoft.com/membership/cloud-platform-competency). |
 | IP-CO-sell Ready geworden | Het is mogelijk dat u in aanmerking komen voor het IP-CO-sell Ready-programma, waarmee u rechtstreeks kunt samenwerken met Microsoft-verkopers en andere partners op verkoopkansen doel en het plannen van de account. Uw oplossing zichtbaar voor Microsoft-verkopers in de catalogus van de oplossing verkoper. Microsoft-verkopers worden beloond voor samenwerken en het verschil maken met u.<br> Voor meer informatie over het CO-sell Ready-programma, met inbegrip van de vereisten voor geschiktheid, gaat u naar [bevordering van uw bedrijf](https://partner.microsoft.com/reach-customers/promote-your-business). |
 

@@ -9,16 +9,16 @@ ms.author: gwallace
 ms.date: 05/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: e5414a7607c036f1d60f58e1eb047da1e54f4db9
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: 07452a97ba16d7745d48e210dd90ce077be64683
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47585337"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51233436"
 ---
 # <a name="credential-assets-in-azure-automation"></a>Referentieassets in Azure Automation
 
-Een Automation-referentieasset bevat een object dat beveiligingsreferenties, zoals een gebruikersnaam en wachtwoord bevat. Runbooks en DSC-configuraties kunnen-cmdlets die een PSCredential-object voor de verificatie accepteren gebruiken of ze kunnen extraheren de gebruikersnaam en het wachtwoord van de PSCredential-object om te bieden voor enkele toepassing of service-verificatie vereist. De eigenschappen van een referentie worden veilig opgeslagen in Azure Automation en kunnen worden geopend in het runbook of DSC-configuratie met de [Get-AutomationPSCredential](http://msdn.microsoft.com/library/system.management.automation.pscredential.aspx) activiteit.
+Een Automation-referentieasset bevat een object dat beveiligingsreferenties, zoals een gebruikersnaam en wachtwoord bevat. Runbooks en DSC-configuraties kunnen-cmdlets die een PSCredential-object voor de verificatie accepteren gebruiken of ze kunnen extraheren de gebruikersnaam en het wachtwoord van de PSCredential-object om te bieden voor enkele toepassing of service-verificatie vereist. De eigenschappen van een referentie worden veilig opgeslagen in Azure Automation en kunnen worden geopend in het runbook of DSC-configuratie met de [Get-AutomationPSCredential](https://msdn.microsoft.com/library/system.management.automation.pscredential.aspx) activiteit.
 
 [!INCLUDE [gdpr-dsr-and-stp-note.md](../../includes/gdpr-dsr-and-stp-note.md)]
 
@@ -53,7 +53,7 @@ De activiteiten in de volgende tabel worden gebruikt voor toegang tot de referen
 
 | Activiteiten | Beschrijving |
 |:--- |:--- |
-| Get-AutomationPSCredential |Hiermee haalt u een referentie op die moet worden gebruikt in een runbook of DSC-configuratie. Retourneert een [System.Management.Automation.PSCredential](http://msdn.microsoft.com/library/system.management.automation.pscredential) object. |
+| Get-AutomationPSCredential |Hiermee haalt u een referentie op die moet worden gebruikt in een runbook of DSC-configuratie. Retourneert een [System.Management.Automation.PSCredential](https://msdn.microsoft.com/library/system.management.automation.pscredential) object. |
 
 > [!NOTE]
 > Vermijd het gebruik van variabelen in de parameter-Name van Get-AutomationPSCredential omdat dit kan detecteren van afhankelijkheden tussen runbooks of DSC-configuraties bemoeilijken en referentieassets tijdens de ontwerpfase.
@@ -94,7 +94,7 @@ New-AzureAutomationCredential -AutomationAccountName "MyAutomationAccount" -Name
 
 ## <a name="using-a-powershell-credential"></a>Met behulp van een PowerShell-referentie
 
-Ophalen van een referentie-element in een runbook of DSC-configuratie met de **Get-AutomationPSCredential** activiteit. Hiermee wordt een [PSCredential-object](http://msdn.microsoft.com/library/system.management.automation.pscredential.aspx) die u kunt gebruiken met een activiteit of cmdlet waarvoor een PSCredential-parameter. U kunt ook de eigenschappen van het referentieobject u afzonderlijk ophalen. Het object heeft een eigenschap voor de gebruikersnaam en het veilig wachtwoord, of kunt u de **GetNetworkCredential** methode om terug te keren een [NetworkCredential](http://msdn.microsoft.com/library/system.net.networkcredential.aspx) object dat een niet-beveiligde versie van de het wachtwoord.
+Ophalen van een referentie-element in een runbook of DSC-configuratie met de **Get-AutomationPSCredential** activiteit. Hiermee wordt een [PSCredential-object](https://msdn.microsoft.com/library/system.management.automation.pscredential.aspx) die u kunt gebruiken met een activiteit of cmdlet waarvoor een PSCredential-parameter. U kunt ook de eigenschappen van het referentieobject u afzonderlijk ophalen. Het object heeft een eigenschap voor de gebruikersnaam en het veilig wachtwoord, of kunt u de **GetNetworkCredential** methode om terug te keren een [NetworkCredential](https://msdn.microsoft.com/library/system.net.networkcredential.aspx) object dat een niet-beveiligde versie van de het wachtwoord.
 
 ### <a name="textual-runbook-sample"></a>Tekstuele runbook-voorbeeld
 

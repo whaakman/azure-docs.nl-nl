@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: jeffgo
-ms.openlocfilehash: d24902b894a632e9fe8c57f2fb2b652b44ab128c
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 932b4c80912fa516a08c18cd581f96b5ea91e1dc
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42054496"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232297"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure-stack"></a>Een Red Hat gebaseerde virtuele machine voorbereiden voor Azure Stack
 
@@ -30,7 +30,7 @@ Raadpleeg voor informatie over Red Hat Enterprise Linux, [Red Hat en Azure Stack
 
 ## <a name="prepare-a-red-hat-based-virtual-machine-from-hyper-v-manager"></a>Een Red Hat gebaseerde virtuele machine op basis van Hyper-V Manager voorbereiden
 
-In deze sectie wordt ervan uitgegaan dat u al hebt een ISO-bestand van de Red Hat-website en de RHEL-installatiekopie hebt geïnstalleerd op een virtuele harde schijf (VHD). Zie voor meer informatie over het gebruik van Hyper-V-beheer voor het installeren van een besturingssysteeminstallatiekopie [de Hyper-V-rol installeren en configureren van een virtuele Machine](http://technet.microsoft.com/library/hh846766.aspx).
+In deze sectie wordt ervan uitgegaan dat u al hebt een ISO-bestand van de Red Hat-website en de RHEL-installatiekopie hebt geïnstalleerd op een virtuele harde schijf (VHD). Zie voor meer informatie over het gebruik van Hyper-V-beheer voor het installeren van een besturingssysteeminstallatiekopie [de Hyper-V-rol installeren en configureren van een virtuele Machine](https://technet.microsoft.com/library/hh846766.aspx).
 
 ### <a name="rhel-installation-notes"></a>Opmerkingen bij de installatie van de RHEL
 

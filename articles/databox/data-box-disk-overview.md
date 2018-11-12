@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: overview
-ms.date: 09/04/2018
+ms.date: 10/30/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand what Data Box Disk is and how it works so I can use it to import on-premises data into Azure.
-ms.openlocfilehash: 322c398bd6384821697e2b672825cc0805eb43ad
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: f965d455b3ada48caabb80458d44e841329cf787
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092895"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51229608"
 ---
 # <a name="what-is-azure-data-box-disk-preview"></a>Wat is Azure Data Box Disk? (Preview)
 
@@ -25,7 +25,7 @@ U kunt deze schijven snel configureren, verbinden en ontgrendelen via de Data Bo
 
 > [!IMPORTANT]
 > - Data Box Disk is in de preview-fase. Lees de [Azure-gebruiksvoorwaarden voor de preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voordat u deze oplossing implementeert. 
-> - U moet u registreren voor deze service. Ga naar de [Preview-portal](http://aka.ms/azuredataboxfromdiskdocs) om u te registreren.
+> - U moet u registreren voor deze service. Ga naar de [Preview-portal](https://aka.ms/azuredataboxfromdiskdocs) om u te registreren.
 > - Tijdens de preview-fase wordt Data Box Disk verzonden naar klanten in de Verenigde Staten en de Europese Unie. Ga naar [Beschikbaarheid in de regio](#region-availability) voor meer informatie.
 
 ## <a name="use-cases"></a>Gebruiksvoorbeelden
@@ -112,7 +112,7 @@ Tijdens de preview kan Data Box Disk gegevens overdragen in de volgende Azure-re
 
 ## <a name="pricing"></a>Prijzen
 
-Tijdens de preview is Data Box Disk gratis beschikbaar. Dit verandert wanneer Data Box Disk algemeen beschikbaar wordt.
+Ga naar de [pagina met prijzen voor preview-versies](https://azure.microsoft.com/pricing/details/storage/databox/disk/) voor meer informatie over prijzen.
 
 ## <a name="next-steps"></a>Volgende stappen
 

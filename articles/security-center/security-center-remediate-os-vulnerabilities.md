@@ -3,7 +3,7 @@ title: Beveiligingsconfiguraties in Azure Security Center herstellen | Microsoft
 description: Dit document wordt beschreven hoe u voor het implementeren van de aanbeveling van Azure Security Center, "Herstellen beveiligingsconfiguraties."
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: 991d41f5-1d17-468d-a66d-83ec1308ab79
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/10/2018
-ms.author: terrylan
-ms.openlocfilehash: 74bfc3435ad6d247dabd3a7cbf2910ede5f8c8ca
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.date: 10/28/2018
+ms.author: rkarlin
+ms.openlocfilehash: d4523a9e2d5a5466c1617930d14a8a2d25a0e16f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44296231"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238774"
 ---
 # <a name="remediate-security-configurations-in-azure-security-center"></a>Beveiligingsconfiguraties in Azure Security Center herstellen
 Azure Security Center analyseert dagelijks het besturingssysteem (OS) van uw virtuele machines (VM's) en de computers voor een configuratie die kan de virtuele machines en computers die meer kwetsbaar voor aanvallen. Security Center raadt aan dat u beveiligingsproblemen oplossen wanneer de configuratie van het besturingssysteem komt niet overeen met de aanbevolen configuratie van beveiligingsregels en er configuratiewijzigingen aanbevolen om deze beveiligingsproblemen te verhelpen.
@@ -107,7 +107,7 @@ Zie voor meer informatie over Security Center, de volgende bronnen:
 * Zie voor meer informatie over het beheren en reageren op beveiligingswaarschuwingen, [beheren en erop reageren op beveiligingswaarschuwingen in Azure Security Center](security-center-managing-and-responding-alerts.md).
 * Zie voor meer informatie over het bewaken van de status van uw partneroplossingen, [partneroplossingen bewaken met Azure Security Center](security-center-partner-solutions.md).
 * Zie voor antwoorden op veelgestelde vragen over het gebruik van de service [Veelgestelde vragen over Azure Security Center](security-center-faq.md).
-* Voor over de Azure-beveiliging en naleving blogberichten, Zie [Azure-Beveiligingsblog](http://blogs.msdn.com/b/azuresecurity/).
+* Voor over de Azure-beveiliging en naleving blogberichten, Zie [Azure-Beveiligingsblog](https://blogs.msdn.com/b/azuresecurity/).
 
 <!--Image references-->
 [1]: ./media/security-center-remediate-os-vulnerabilities/compute-blade.png

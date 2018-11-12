@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/15/2018
 ms.author: bwren
-ms.openlocfilehash: 5e9dc207d84a9a66d83f01f49c3aefe2d77a64fa
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
-ms.translationtype: MT
+ms.openlocfilehash: 4a5f820c9e6d39c65ef0942091b247c5d52fe17f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51281435"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51253207"
 ---
 # <a name="sources-of-data-in-azure-monitor"></a>Bronnen van de gegevens in Azure Monitor
 Dit artikel beschrijft de bronnen van de gegevens die zijn verzameld door Azure Monitor voor het bewaken van de status en prestaties van uw resources en de toepassingen die daarop worden uitgevoerd. Deze resources mogelijk in Azure, in een andere cloud of on-premises.  Zie [gegevens verzameld door Azure Monitor](monitoring-data-collection.md) voor meer informatie over hoe deze gegevens worden opgeslagen en hoe u deze kunt bekijken.
@@ -63,7 +63,7 @@ De meeste Azure-services wordt gegenereerd [platform metrische gegevens](monitor
 ### <a name="resource-diagnostic-logs"></a>Diagnostische logboeken van resource
 Terwijl het activiteitenlogboek informatie over de bewerkingen die worden uitgevoerd op een Azure-resources, resourceniveau bevat [diagnostische logboeken](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) inzicht geven in de werking van de resource zelf.   De configuratievereisten en de inhoud van deze logboeken [varieert per resourcetype](../monitoring-and-diagnostics/monitoring-diagnostic-logs-schema.md).
 
-U kunt rechtstreeks logboeken met diagnostische gegevens niet weergeven in Azure portal, maar u kunt [ze verzenden naar Azure storage voor het archiveren van](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md) en ze te exporteren [Event Hub](../event-hubs/event-hubs-about.md) voor omleiding naar andere services, of [in logboek Analytics](../monitoring-and-diagnostics/monitor-stream-diagnostic-logs-log-analytics.md) voor analyse. Sommige resources rechtstreeks naar Log Analytics kunnen schrijven terwijl anderen naar een opslagaccount voordat u schrijven [geïmporteerd in Log Analytics](../log-analytics/log-analytics-azure-storage-iis-table.md#use-the-azure-portal-to-collect-logs-from-azure-storage).
+U kunt rechtstreeks logboeken met diagnostische gegevens niet weergeven in Azure portal, maar u kunt [ze verzenden naar Azure storage voor het archiveren van](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md) en ze te exporteren [Event Hub](../event-hubs/event-hubs-what-is-event-hubs.md) voor omleiding naar andere services, of [in logboek Analytics](../monitoring-and-diagnostics/monitor-stream-diagnostic-logs-log-analytics.md) voor analyse. Sommige resources rechtstreeks naar Log Analytics kunnen schrijven terwijl anderen naar een opslagaccount voordat u schrijven [geïmporteerd in Log Analytics](../log-analytics/log-analytics-azure-storage-iis-table.md#use-the-azure-portal-to-collect-logs-from-azure-storage).
 
 ### <a name="monitoring-solutions"></a>Bewakingsoplossingen
  [Bewakingsoplossingen](monitoring-solutions.md) verzamelen van gegevens voor meer inzicht in de werking van een bepaalde service of toepassing. Verzamelen van gegevens in Log Analytics waar deze kan worden geanalyseerd op basis van de [querytaal](../log-analytics/log-analytics-queries.md) of [weergaven](../log-analytics/log-analytics-view-designer.md) die gewoonlijk zijn opgenomen in de oplossing.
@@ -81,7 +81,7 @@ Met de [Azure Diagnostics-extensie](../monitoring-and-diagnostics/azure-diagnost
 U kunt de Log Analytics-agent installeren op een [Windows](../log-analytics/log-analytics-agent-windows.md) of [Linux]() virtuele machine of fysieke computer. De virtuele machine kan worden uitgevoerd in Azure, een andere cloud of on-premises.  De agent maakt verbinding met Log Analytics ofwel rechtstreeks of via een [verbonden beheergroep van System Center Operations Manager](../log-analytics/log-analytics-om-agents.md) en kunt u het verzamelen van gegevens uit [gegevensbronnen](../log-analytics/log-analytics-data-sources.md) die u configureert of uit [beheeroplossingen](monitoring-solutions.md) die u meer inzicht geven in toepassingen die worden uitgevoerd op de virtuele machine.
 
 ### <a name="service-map"></a>Servicetoewijzing
-[Serviceoverzicht](../monitoring/monitoring-service-map.md) vereist een Agent voor afhankelijkheden op Windows en Linux-machines. Dit werkt met de Log Analytics-agent verzamelt gegevens over de processen die op de virtuele machine en de afhankelijkheden van externe processen worden uitgevoerd. Het deze gegevens worden opgeslagen in Log Analytics en bevat een console waarin de gegevens die het naast andere gegevens die zijn opgeslagen in Log Analytics verzamelt visueel worden weergegeven.
+[Serviceoverzicht](../operations-management-suite/operations-management-suite-service-map.md) vereist een Agent voor afhankelijkheden op Windows en Linux-machines. Dit werkt met de Log Analytics-agent verzamelt gegevens over de processen die op de virtuele machine en de afhankelijkheden van externe processen worden uitgevoerd. Het deze gegevens worden opgeslagen in Log Analytics en bevat een console waarin de gegevens die het naast andere gegevens die zijn opgeslagen in Log Analytics verzamelt visueel worden weergegeven.
 
 ## <a name="applications"></a>Toepassingen
 Naast de telemetrie die uw toepassing naar het gastbesturingssysteem schrijven kan, gedetailleerde bewaking wordt gedaan met [Application Insights](https://docs.microsoft.com/azure/application-insights/). Application Insights kunnen gegevens verzamelen vanuit toepassingen die worden uitgevoerd op een aantal verschillende platformen. De toepassing kan worden uitgevoerd in Azure, een andere cloud of on-premises.

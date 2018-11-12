@@ -1,6 +1,6 @@
 ---
-title: Oplossen van uw implementatie naar Kubernetes (K8) naar Azure Stack | Microsoft Docs
-description: Informatie over het oplossen van uw implementatie naar Kubernetes (K8) naar Azure Stack.
+title: Oplossen van uw implementatie naar Kubernetes met Azure Stack | Microsoft Docs
+description: Informatie over het oplossen van uw implementatie naar Kubernetes met Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 10/29/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: 7071e22d703ab7ec3a51eff02d1694fc04cb3417
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: f7f23a6d645a1d8e16e42e751050d8d91b49e2b3
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50231233"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51007822"
 ---
 # <a name="troubleshoot-your-deployment-to-kubernetes-to-azure-stack"></a>Oplossen van uw implementatie naar Kubernetes met Azure Stack
 
@@ -28,11 +28,11 @@ ms.locfileid: "50231233"
 > [!Note]  
 > Kubernetes in Azure Stack is in preview.
 
-Het volgende artikel kijkt naar het oplossen van uw Kubernetes-cluster. U kunt de implementatie-waarschuwing bekijken en de status van uw implementatie controleren door te kijken de elementen die zijn vereist voor de implementatie. Mogelijk moet u de implementatielogboeken te verzamelen uit uw Azure Stack of de Linux-VM's die als host fungeren voor Kubernetes. U moet bovendien samen met de beheerder van uw Azure Stack logboeken ophalen van een administratieve eindpunt.
+Het volgende artikel kijkt naar het oplossen van uw Kubernetes-cluster. U kunt de implementatie-waarschuwing bekijken en de status van uw implementatie controleren door de elementen die zijn vereist voor de implementatie. Mogelijk moet u de implementatielogboeken te verzamelen van Azure Stack of de Linux-VM's die als host fungeren voor Kubernetes. Mogelijk moet u ook samen met de beheerder van uw Azure Stack logboeken ophalen van een administratieve eindpunt.
 
 ## <a name="overview-of-deployment"></a>Overzicht van de implementatie
 
-Voordat u naar de stappen voor het oplossen van uw cluster, kunt u om te controleren van het implementatieproces van de Azure Stack Kubernetes-cluster. De implementatie maakt gebruik van een Azure Resource Manager-oplossingssjabloon te maken van de virtuele machines en installeert de ACS-Engine voor uw cluster.
+Voordat u het oplossen van uw cluster, is het raadzaam om te controleren van het implementatieproces van de Azure Stack Kubernetes-cluster. De implementatie maakt gebruik van een Azure Resource Manager-oplossingssjabloon te maken van de virtuele machines en de ACS-Engine voor uw cluster te installeren.
 
 ### <a name="deployment-workflow"></a>Implementatiewerkstroom
 
@@ -42,72 +42,72 @@ Het volgende diagram ziet u het algemene proces voor het implementeren van het c
 
 ### <a name="deployment-steps"></a>Implementatiestappen
 
-1. Verzamelt de invoerparameters van het marketplace-item.
+1. Invoerparameters verzamelen over de marketplace-item.
 
-    Voer de waarden die u nodig hebt voor het instellen van de Kubernetes cluster, waaronder:
-    -  **Gebruikersnaam** gebruikersnaam voor de virtuele Linux-Machines die deel van het Kubernetes-cluster uitmaken en DVM.
-    -  **Openbare SSH-sleutel** de sleutel die wordt gebruikt voor autorisatie voor alle Linux-machines gemaakt als onderdeel van de Kubernetes-cluster en DVM
-    -  **Service-Principal** de ID die wordt gebruikt door de Kubernetes Azure-cloud-provider. De Client-ID is als de toepassings-ID geïdentificeerd wanneer u uw service principal worden gemaakt. 
-    -  **Clientgeheim** ze sleutel u hebt gemaakt bij het maken van uw service-principal.
+    Voer de waarden die u nodig hebt voor het instellen van het Kubernetes-cluster, met inbegrip van:
+    -  **Gebruikersnaam**: de naam van de gebruiker voor de virtuele Linux-machines die deel van de Kubernetes-cluster en DVM uitmaken.
+    -  **Openbare SSH-sleutel**: de sleutel die wordt gebruikt voor de autorisatie van alle Linux-machines die zijn gemaakt als onderdeel van de Kubernetes-cluster en DVM.
+    -  **Service-Principal**: de ID die wordt gebruikt door de Kubernetes Azure-cloud-provider. De client-ID die wordt geïdentificeerd als de toepassings-ID bij het maken van uw service-principal. 
+    -  **Clientgeheim**: ze sleutel u hebt gemaakt tijdens het maken van uw service-principal.
 
-2. Implementatie van virtuele machine maakt en de extensie voor aangepaste scripts.
-    -  Hiermee maakt u de implementatie van Linux-VM met de marketplace-Linux-installatiekopie, **Ubuntu Server 16.04-LTS**.
-    -  Downloaden en uitvoeren voor klantenscripts vanuit de marketplace. Het script is de **aangepast Script voor Linux 2.0**.
-    -  Voert het aangepaste script DVM. Het script:
-        1. Hiermee haalt u het eindpunt van de galerie van Azure Resource Manager-metagegevenseindpunt.
-        2. Hiermee haalt u de resource-ID van het active directory van Azure Resource Manager-metagegevenseindpunt.
+2. De implementatie van virtuele machine maken en de extensie voor aangepaste scripts.
+    -  De implementatie van Linux-VM maken met behulp van de Linux-installatiekopie marketplace **Ubuntu Server 16.04-LTS**.
+    -  Downloaden en uitvoeren van de klant-script-extensie uit de marketplace. Het script is **aangepast Script voor Linux 2.0**.
+    -  Voer het aangepaste script DVM. Het script heeft de volgende taken:
+        1. Hiermee haalt u het eindpunt van de galerie van het eindpunt van de Azure Resource Manager-metagegevens.
+        2. Hiermee haalt u de active directory-resource-ID van het eindpunt van de Azure Resource Manager-metagegevens.
         3. Laadt het API-model voor de ACS-Engine.
         4. De ACS-Engine implementeert op het Kubernetes-cluster en het Azure Stack-cloud-profiel moet worden opgeslagen `/etc/kubernetes/azurestackcloud.json`.
-3. Master-VM's gemaakt.
+3. De master-VM's maken.
 
-    Gedownload en uitgevoerd voor klantenscripts.
+4. Downloaden en uitvoeren van de klant script-extensies.
 
-4. De master script wordt uitgevoerd.
+5. Voer het script master.
 
-    Het script:
-    - Installeert etcd, Docker en Kubernetes-resources, zoals kubelet. etcd is een gedistribueerde sleutel waardearchief dat een manier biedt voor het opslaan van gegevens in een computercluster. Docker biedt ondersteuning voor internetverkoop besturingssysteem niveau virtualizations bekend als containers. Kubelet is het knooppuntagent die wordt uitgevoerd op elk knooppunt Kubernetes.
+    Het script heeft de volgende taken:
+    - Installeert etcd, Docker en Kubernetes-resources, zoals kubelet. etcd is een gedistribueerde sleutel waardearchief dat een manier biedt voor het opslaan van gegevens in een computercluster. Docker biedt ondersteuning voor internetverkoop besturingssysteem-niveau virtualizations bekend als containers. Kubelet is het knooppuntagent die wordt uitgevoerd op elk knooppunt Kubernetes.
     - Stelt u de etcd-service.
-    - Stelt u Kubelet-service.
-    - Kubelet begint. Dit omvat het volgende:
-        1. API-Service wordt gestart.
-        2. Controller-service wordt gestart.
-        3. Scheduler-service wordt gestart.
-5. Agent-VM's gemaakt.
+    - Stelt u de kubelet-service.
+    - Kubelet begint. Deze taak omvat de volgende stappen uit:
+        1. De API-service wordt gestart.
+        2. Start de controllerservice.
+        3. De scheduler-service wordt gestart.
+6. Agent-VM's maken.
 
-    Gedownload en uitgevoerd van de klant-script-extensie.
+7. Downloaden en uitvoeren van de klant-script-extensie.
 
-6. Agent-script wordt uitgevoerd. Het aangepaste script van de agent:
-    - Etcd installeren.
-    - Kubelet-service instellen.
-    - Lid wordt van het Kubernetes-cluster.
+7. Voer het script van de agent. Het aangepaste script van de agent heeft de volgende taken:
+    - Etcd installeert
+    - Stelt u de kubelet-service
+    - Lid wordt van het Kubernetes-cluster
 
 ## <a name="steps-for-troubleshooting"></a>Stappen voor het oplossen van problemen
 
-U kunt Logboeken verzamelen op de virtuele machines met de ondersteuning van uw Kubernetes-cluster. U kunt ook het implementatielogbestand bekijken. U moet mogelijk ook om te communiceren met uw Azure Stack-beheerder om te controleren of de versie van Azure Stack u gebruikmaakt van en naar Logboeken ophalen uit Azure Stack met betrekking tot uw implementatie.
+U kunt Logboeken verzamelen op de virtuele machines die ondersteuning bieden voor uw Kubernetes-cluster. U kunt ook het implementatielogbestand bekijken. U moet mogelijk om te communiceren met de Azure Stack-beheerder om te controleren of de versie van Azure-Stack die u nodig hebt om te gebruiken en logboeken ophalen uit de Azure-Stack die gerelateerd zijn aan uw implementatie.
 
-1. Controleer de [Implementatiestatus](#review-deployment-status) en de [de logboeken kunt ophalen](#get-logs-from-a-vm) van het hoofdknooppunt in uw Kubernetes-cluster.
-2. U moet de meest recente versie van Azure Stack gebruiken. Als u niet zeker van uw versie van Azure Stack, moet u contact op met uw Azure Stack-beheerder. De Kubernetes-Cluster marketplace tijd 0.3.0 is Azure Stack-versie 1808 of hoger vereist.
-3.  Controleer uw virtuele machine maken van bestanden. Mogelijk hebt u de volgende problemen aangetroffen:  
+1. Controleer de [Implementatiestatus](#review-deployment-status) en [de logboeken kunt ophalen](#get-logs-from-a-vm) van het hoofdknooppunt in uw Kubernetes-cluster.
+2. Zorg ervoor dat u de meest recente versie van Azure Stack. Als u niet zeker weet welke versie u gebruikt, moet u contact op met uw Azure Stack-beheerder. De Kubernetes-cluster marketplace tijd 0.3.0 is Azure Stack-versie 1808 of hoger vereist.
+3.  Controleer uw virtuele machine maken van bestanden. U kunt de volgende problemen had:  
     - De openbare sleutel is mogelijk ongeldig. Bekijk de sleutel die u hebt gemaakt.  
-    - Het maken van VM kan een interne fout hebben geactiveerd of veroorzaakt een fout bij het maken. Fouten kunnen worden veroorzaakt door een aantal factoren, waaronder de beperkingen van de capaciteit voor uw Azure Stack-abonnement.
-    - Begint de volledig gekwalificeerde domeinnaam (FQDN) voor de virtuele machine met een dubbele voorvoegsel?
-4.  Als de virtuele machine **OK**, en de DVM geëvalueerd. Als de DVM een foutbericht weergegeven heeft:
+    - Maken van VM mogelijk een interne fout hebben geactiveerd of een fout bij het maken gestart. Een aantal factoren kan fouten veroorzaken, met inbegrip van de beperkingen van de capaciteit voor uw Azure Stack-abonnement.
+    - Zorg ervoor dat de volledig gekwalificeerde domeinnaam (FQDN) voor de virtuele machine wordt gestart met een dubbele voorvoegsel.
+4.  Als de virtuele machine **OK**, klikt u vervolgens de DVM evalueren. Als de DVM een foutbericht weergegeven heeft:
 
     - De openbare sleutel is mogelijk ongeldig. Bekijk de sleutel die u hebt gemaakt.  
-     - U moet contact opnemen met uw Azure Stack-beheerder om op te halen van de logboeken voor Azure Stack met behulp van de bevoegde eindpunten. Zie voor meer informatie, [diagnostische hulpprogramma's voor Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-diagnostics).
-5. Als u vragen over uw implementatie hebt, kunt u uw vragen of zien als iemand de vraag in al is beantwoord de [Azure Stack-Forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack). 
+    - Zo moet u contact op met uw Azure Stack-beheerder om op te halen van de logboeken voor Azure Stack met behulp van de bevoegde eindpunten. Zie voor meer informatie, [diagnostische hulpprogramma's voor Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-diagnostics).
+5. Als u een vraag over uw implementatie hebt, kunt u boeken of zien als iemand de vraag in al is beantwoord de [Azure Stack-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack). 
 
 ## <a name="review-deployment-status"></a>De implementatiestatus controleren
 
-U kunt de implementatiestatus controleren wanneer u implementeert uw Kubernetes-cluster om eventuele problemen te bekijken.
+Wanneer u uw Kubernetes-cluster implementeert, kunt u de status van de implementatie om te controleren op eventuele problemen bekijken.
 
 1. Open de [Azure Stack-portal](https://portal.local.azurestack.external).
-2. Selecteer **resourcegroepen**, en selecteer de naam van de resourcegroep die wordt gebruikt wanneer het Kubernetes-cluster implementeren.
-3. Selecteer **implementaties** en vervolgens de **implementatienaam**.
+2. Selecteer **resourcegroepen**, en selecteer vervolgens de naam van de resourcegroep die u hebt gebruikt bij het implementeren van het Kubernetes-cluster.
+3. Selecteer **implementaties**, en selecteer vervolgens de **implementatienaam**.
 
     ![Problemen oplossen](media/azure-stack-solution-template-kubernetes-trouble/azure-stack-kub-trouble-report.png)
 
-4.  Raadpleeg het venster voor het oplossen van problemen. Elke geïmplementeerde resources bevat de volgende informatie.
+4.  Raadpleeg het venster voor het oplossen van problemen. Elke geïmplementeerde resources bevat de volgende informatie:
     
     | Eigenschap | Beschrijving |
     | ----     | ----        |
@@ -115,21 +115,23 @@ U kunt de implementatiestatus controleren wanneer u implementeert uw Kubernetes-
     | Type | De resourceprovider en het type resource. |
     | Status | De status van het item. |
     | Tijdstempel | De UTC-timestamp van de tijd. |
-    | Bewerkingsdetails | De details van de bewerking, zoals de resourceprovider van die betrokken zijn bij de bewerking, het eindpunt van de resource en de naam van de resource. |
+    | Bewerkingsdetails | De details van de bewerking, zoals de resourceprovider die bij de bewerking, het eindpunt van de resource en de naam van de resource betrokken is. |
 
     Elk item heeft een pictogram voor de status van de groene of rode.
 
 ## <a name="get-logs-from-a-vm"></a>Logboeken van een virtuele machine ophalen
 
-U moet verbinding maken met de hoofd-VM's voor uw cluster, open een bash-prompt, en uitvoeren van een script voor het genereren van de logboeken. Het model kunt u vinden in de resourcegroep van uw cluster en de naam `k8s-master-<sequence-of-numbers>`. 
+Voor het genereren van de logboeken, moet u verbinding maken met de hoofd-VM's voor uw cluster, open een bash-prompt, en vervolgens een script uitvoeren. Het model virtuele machine kunt u vinden in de resourcegroep van uw cluster en de naam `k8s-master-<sequence-of-numbers>`. 
 
 ### <a name="prerequisites"></a>Vereisten
 
-U moet een bash vragen op de computer van uw gebruik voor het beheren van Azure Stack. Bash gebruiken om uit te voeren van de scripts die toegang hebben tot de logboeken. Op een Windows-machine, kunt u de geïnstalleerd met Git bash-prompt. Als u de meest recente versie van git, raadpleegt u [git downloads](https://git-scm.com/downloads).
+U moet een bash-prompt op de computer die u gebruikt voor het beheren van Azure Stack. Bash gebruiken om uit te voeren van de scripts die toegang hebben tot de logboeken. U kunt de bash-prompt die geïnstalleerd met Git gebruiken op een Windows-machine. Als u de meest recente versie van git, raadpleegt u [Git downloads](https://git-scm.com/downloads).
 
 ### <a name="get-logs"></a>Logboeken ophalen
 
-1. Open een bash-prompt. Als u git op een Windows-machine gebruikt, kunt u een bash-prompt openen vanaf het volgende pad: `c:\programfiles\git\bin\bash.exe`.
+Als u zich aanmeldt, moet u de volgende stappen uitvoeren:
+
+1. Open een bash-prompt. Als u Git op een Windows-machine gebruikt, kunt u een bash-prompt openen vanaf het volgende pad: `c:\programfiles\git\bin\bash.exe`.
 2. Voer de volgende bash-opdrachten:
 
     ```Bash  
@@ -140,23 +142,23 @@ U moet een bash vragen op de computer van uw gebruik voor het beheren van Azure 
     ```
 
     > [!Note]  
-    > Op Windows, moet u niet uitvoeren `sudo` en kunt u gewoon gebruik `chmod 744 getkuberneteslogs.sh`.
+    > Op Windows, moet u niet uitvoeren `sudo`. In plaats daarvan kunt u alleen gebruiken `chmod 744 getkuberneteslogs.sh`.
 
-3. Voer de volgende opdracht met de parameters bijgewerkt zodat deze overeenkomt met uw omgeving in de dezelfde sessie.
+3. Voer de volgende opdracht met de parameters bijgewerkt zodat deze overeenkomt met uw omgeving in de dezelfde sessie:
 
     ```Bash  
     ./getkuberneteslogs.sh --identity-file id_rsa --user azureuser --vmdhost 192.168.102.37
     ```
 
-    Controleer de parameters en stel de waarden op basis van uw omgeving.
+4. Controleer de parameters en stel de waarden op basis van uw omgeving.
     | Parameter           | Beschrijving                                                                                                      | Voorbeeld                                                                       |
     |---------------------|------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------|
-    | -i,-identiteits-bestand | Het bestand RSA persoonlijke sleutel om de kubernetes-hoofd-VM's verbinding te maken. De sleutel moeten beginnen met `-----BEGIN RSA PRIVATE KEY-----` | C:\data\privatekey.PEM                                                        |
+    | -i,-identiteits-bestand | De RSA bestand met persoonlijke sleutel om de Kubernetes hoofd-VM verbinding te maken. De sleutel moeten beginnen met `-----BEGIN RSA PRIVATE KEY-----` | C:\data\privatekey.PEM                                                        |
     | h-,--host          | Het openbare IP-adres of de volledig gekwalificeerde domeinnaam (FQDN) van de hoofd-VM's van de cluster in Kubernetes. De naam van de virtuele machine wordt gestart met `k8s-master-`.                       | IP: 192.168.102.37<br><br>FQDN-naam: k8s-12345.local.cloudapp.azurestack.external      |
-    | -u-,--gebruiker          | De gebruikersnaam van de Kubernetes-cluster master VM. U kunt deze naam instellen bij het configureren van de marketplace-item.                                                                    | azureuser                                                                     |
+    | -u-,--gebruiker          | De gebruikersnaam van de Kubernetes-cluster master VM. U stelt deze naam wanneer u de marketplace-item configureren.                                                                    | azureuser                                                                     |
     | -d--vmdhost       | Het openbare IP-adres of de FQDN-naam van de DVM. De naam van de virtuele machine wordt gestart met `vmd-`.                                                       | IP: 192.168.102.38<br><br>DNS: vmd-dnsk8-frog.local.cloudapp.azurestack.external |
 
-   Wanneer u de parameterwaarden in de toevoegt, deze kan als volgt uitzien:
+   Wanneer u uw parameterwaarden hebt toegevoegd, ziet deze er ongeveer als de volgende code uit:
 
     ```Bash  
     ./getkuberneteslogs.sh --identity-file "C:\secretsecret.pem" --user azureuser --vmdhost 192.168.102.37
@@ -167,15 +169,15 @@ U moet een bash vragen op de computer van uw gebruik voor het beheren van Azure 
     ![Gegenereerde logboeken](media/azure-stack-solution-template-kubernetes-trouble/azure-stack-generated-logs.png)
 
 
-4. De logboeken in de mappen die zijn gemaakt door de opdracht kunt ophalen. De opdracht maakt u een nieuwe map en tijdstempels deze.
+4. De logboeken in de mappen die zijn gemaakt door de opdracht kunt ophalen. De opdracht maakt u nieuwe mappen en tijdstempels ze.
     - KubernetesLogs*YYYY-MM-DD-XX-XX-XX-XXX*
         - Dvmlogs
         - Acsengine-kubernetes-dvm.log
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Kubernetes op Azure Stack implementeren](azure-stack-solution-template-kubernetes-deploy.md).
+[Kubernetes op Azure Stack implementeren](azure-stack-solution-template-kubernetes-deploy.md)
 
-[Een Kubernetes (voor de Azure Stack-operator) toevoegen aan de Marketplace](..\azure-stack-solution-template-kubernetes-cluster-add.md)
+[Een Kubernetes-cluster toevoegen aan de Marketplace (voor de Azure Stack-operator)](..\azure-stack-solution-template-kubernetes-cluster-add.md)
 
 [Kubernetes op Azure](https://docs.microsoft.com/azure/container-service/kubernetes/container-service-kubernetes-walkthrough)

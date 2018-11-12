@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 ms.author: maghan
-ms.openlocfilehash: 32be46fb0c41909ce8a8014b13843970555d366f
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 32be473ab93231805cdae097e3e984a2e74da973
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42059502"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51233079"
 ---
 # <a name="use-powershell-to-create-an-azure-vm-with-a-native-mode-report-server"></a>PowerShell gebruiken om een Azure VM te maken met een rapportserver in systeemeigen modus
 > [!IMPORTANT] 
@@ -90,7 +90,7 @@ In dit onderwerp wordt beschreven en begeleidt u bij de implementatie en configu
 
 Gebruik van HTTPS op de virtuele machine, moet u een vertrouwd SSL-certificaat. Afhankelijk van uw scenario, kunt u een van de volgende twee methoden gebruiken:
 
-* Een geldig SSL-certificaat dat is uitgegeven door een certificeringsinstantie (CA) en vertrouwd door Microsoft. De CA-basiscertificaten zijn vereist om te worden gedistribueerd via het Microsoft Root Certificate Program. Zie voor meer informatie over dit programma [Windows en Windows Phone 8 SSL Root Certificate Program (de CA's)](http://social.technet.microsoft.com/wiki/contents/articles/14215.windows-and-windows-phone-8-ssl-root-certificate-program-member-cas.aspx) en [Inleiding tot het Microsoft Root Certificate Program](http://social.technet.microsoft.com/wiki/contents/articles/3281.introduction-to-the-microsoft-root-certificate-program.aspx).
+* Een geldig SSL-certificaat dat is uitgegeven door een certificeringsinstantie (CA) en vertrouwd door Microsoft. De CA-basiscertificaten zijn vereist om te worden gedistribueerd via het Microsoft Root Certificate Program. Zie voor meer informatie over dit programma [Windows en Windows Phone 8 SSL Root Certificate Program (de CA's)](https://social.technet.microsoft.com/wiki/contents/articles/14215.windows-and-windows-phone-8-ssl-root-certificate-program-member-cas.aspx) en [Inleiding tot het Microsoft Root Certificate Program](https://social.technet.microsoft.com/wiki/contents/articles/3281.introduction-to-the-microsoft-root-certificate-program.aspx).
 * Een zelfondertekend certificaat. Zelfondertekende certificaten worden niet aanbevolen voor productie-omgevingen.
 
 ### <a name="to-use-a-certificate-created-by-a-trusted-certificate-authority-ca"></a>Een certificaat dat is gemaakt door een vertrouwde certificeringsinstantie (CA) te gebruiken
@@ -547,7 +547,7 @@ Om te controleren dat de poort is geopend, opent u een Windows PowerShell-venste
 
     get-netfirewallrule | where {$_.displayname -like "*report*"} | select displayname,enabled,action
 
-## <a name="verify-the-configuration"></a>Controleer de configuratie
+## <a name="verify-the-configuration"></a>De configuratie controleren
 Om te controleren of de functionaliteit van de server eenvoudig rapport nu werkt, open uw browser met beheerdersbevoegdheden en blader vervolgens naar de volgende server ad rapport Rapportbeheer URL's:
 
 * Op de virtuele machine, gaat u naar de URL van de rapportserver:

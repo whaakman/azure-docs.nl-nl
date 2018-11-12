@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/21/2018
 ms.author: barbkess
-ms.reviewer: asteen
-ms.openlocfilehash: 98dc3981e0f34ebfe7d8881d77b84cfe252e3f4f
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.reviewer: japere
+ms.openlocfilehash: 2d528c04a9301998220b5564330f20ed014b68d6
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44356752"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51036926"
 ---
-# <a name="problem-installing-the-application-proxy-agent-connector"></a>Problemen bij het installeren van de Toepassingsproxyagent
+# <a name="problem-installing-the-application-proxy-agent-connector"></a>Probleem bij het installeren van de connector voor de toepassingsproxyagent
 
 Microsoft AAD Application Proxy Connector is een intern Domeinonderdeel die gebruikmaakt van uitgaande verbindingen tot stand brengen van de verbinding van de beschikbare cloud-eindpunt met het interne domein.
 
@@ -63,13 +63,13 @@ Wanneer de installatie van een connector is mislukt, is de hoofdoorzaak meestal 
 
 ## <a name="verify-admin-is-used-to-install-the-connector"></a>Controleer of de beheerder wordt gebruikt om de connector te installeren
 
-**Doelstelling:** Controleer of de gebruiker die probeert te installeren van de connector is een beheerder met de juiste referenties. De gebruiker moet op dit moment een globale beheerder voor de installatie te voltooien.
+**Doelstelling:** Controleer of de gebruiker die probeert te installeren van de connector is een beheerder met de juiste referenties. Op dit moment moet de gebruiker een beheerder van de toepassing of globale beheerder voor de installatie te voltooien.
 
 **Om te controleren of dat de referenties correct zijn:**
 
 Verbinding maken met <https://login.microsoftonline.com> en gebruik de dezelfde referenties. Zorg ervoor dat de aanmelding is geslaagd. U kunt de gebruikersrol controleren door te gaan naar **Azure Active Directory**  - &gt; **gebruikers en groepen**  - &gt; **alle gebruikers**. 
 
-Selecteer uw gebruikersaccount, klikt u vervolgens 'Directory rol' in het resulterende menu. Controleer of de geselecteerde rol 'Globale beheerder'. Als u geen toegang tot alle pagina's die aan deze stappen, maar u bent niet een globale beheerder.
+Selecteer uw gebruikersaccount, klikt u vervolgens 'Directory rol' in het resulterende menu. Controleer of de geselecteerde rol ' beheerder van de toepassing ' of 'Globale beheerder'. Als u geen toegang tot alle pagina's die aan deze stappen bent, hebt u niet de vereiste functieservices.
 
 ## <a name="next-steps"></a>Volgende stappen
 [Meer informatie over Azure AD Application Proxy connectors](application-proxy-connectors.md)

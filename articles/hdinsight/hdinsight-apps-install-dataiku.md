@@ -1,6 +1,6 @@
 ---
 title: Dataiku DDS - Azure HDInsight voor gepubliceerde toepassing - installeren
-description: Installeren en gebruiken van de toepassing Dataiku DDS van derden Hadoop.
+description: Installeren en gebruiken van de toepassing Dataiku DDS van derden Apache Hadoop.
 services: hdinsight
 author: ashishthaps
 ms.reviewer: jasonh
@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: ashish
-ms.openlocfilehash: 64a6f393498ca90675712747afc8f9befc4b932f
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: feb94f450621e999da01f77f0b5550258377d6c9
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43105166"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51038260"
 ---
 # <a name="install-published-application---dataiku-dds"></a>Dataiku DDS voor gepubliceerde toepassing - installeren
 
-In dit artikel wordt beschreven hoe u wilt installeren en uitvoeren de [Dataiku DDS](https://www.dataiku.com/) gepubliceerd op Azure HDInsight Hadoop-toepassing. Zie voor een overzicht van het HDInsight-platform voor toepassingen en een lijst van beschikbare Independent Software Vendor (ISV) gepubliceerde toepassingen [Hadoop-toepassingen van derden installeren](hdinsight-apps-install-applications.md). Zie voor instructies voor de installatie van uw eigen toepassing [Aangepaste HDInsight-toepassingen installeren](hdinsight-apps-install-custom-applications.md).
+In dit artikel wordt beschreven hoe u wilt installeren en uitvoeren de [Dataiku DDS](https://www.dataiku.com/) gepubliceerd Apache Hadoop-toepassing in Azure HDInsight. Zie voor een overzicht van het HDInsight-platform voor toepassingen en een lijst van beschikbare Independent Software Vendor (ISV) gepubliceerde toepassingen [Hadoop-toepassingen van derden installeren](hdinsight-apps-install-applications.md). Zie voor instructies voor de installatie van uw eigen toepassing [Aangepaste HDInsight-toepassingen installeren](hdinsight-apps-install-custom-applications.md).
 
 ## <a name="about-dataiku-dss"></a>Over Dataiku DSS
 

@@ -3,7 +3,7 @@ title: De Azure AD Connect Health-agent installeren | Microsoft Docs
 description: Dit is de Azure AD Connect Health-pagina waarop wordt beschreven hoe u de agent voor AD FS en Sync installeert.
 services: active-directory
 documentationcenter: ''
-author: zhiweiw
+author: zhiweiwangmsft
 manager: mtillman
 editor: curtand
 ms.assetid: 1cc8ae90-607d-4925-9c30-6770a4bd1b4e
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 337537e5f34eb823f7ca92a2b1f200c9c0c10428
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: cb3ecff394aa8f2f80c61499e848d7d63806b37d
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51247463"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51279756"
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>De Azure AD Connect Health-agent installeren
 In dit document wordt beschreven hoe u de Azure AD Connect Health-agents installeert en configureert. U kunt de agents [hier](how-to-connect-install-roadmap.md#download-and-install-azure-ad-connect-health-agent) downloaden.

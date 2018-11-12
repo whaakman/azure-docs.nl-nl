@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/18/2018
 ms.author: kuhussai
 ms.component: blobs
-ms.openlocfilehash: 3aad10c398aa4f009ab29f4684cc500b6fb428e7
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 3a980abc7b9611cfd6a3933a54505b0208b67f50
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49427583"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51253717"
 ---
 # <a name="azure-blob-storage-premium-preview-hot-cool-and-archive-storage-tiers"></a>Azure Blob-opslag: Premium (preview), dynamische, statische en Archiefopslaglaag
 
@@ -65,7 +65,7 @@ Tijdens de Preview-versie, de Premium-laag voor access:
 - Is alleen beschikbaar in de volgende regio's: VS Oost 2, VS-centraal en VS-West
 - Biedt geen ondersteuning voor automatisch in lagen en beheer van de gegevenslevenscyclus
 
-Zie voor meer informatie over het registreren voor de preview van Premium access tier [Maak kennis met blobopslag van Azure Premium](http://aka.ms/premiumblob).
+Zie voor meer informatie over het registreren voor de preview van Premium access tier [Maak kennis met blobopslag van Azure Premium](https://aka.ms/premiumblob).
 
 ## <a name="hot-access-tier"></a>Hot Storage-toegangslaag
 

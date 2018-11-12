@@ -1,25 +1,25 @@
 ---
-title: Fouten opsporen en analyseren van Hadoop-services met heapdumps - Azure
-description: Automatisch heapdumps voor Hadoop-services te verzamelen en plaats binnen de Azure Blob storage-account voor foutopsporing en analyse.
+title: Fouten opsporen en analyseren van Apache Hadoop-services met heapdumps - Azure
+description: Automatisch heapdumps voor Apache Hadoop-services te verzamelen en plaats binnen de Azure Blob storage-account voor foutopsporing en analyse.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/25/2017
-ms.author: jasonh
+ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 35f7843ebf49e79d9045c72493bb38b218234288
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 2a399899c93addf966d3f2ec0e36d4b1c76b686f
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43099764"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51038304"
 ---
-# <a name="collect-heap-dumps-in-blob-storage-to-debug-and-analyze-hadoop-services"></a>Heapdumps verzamelen in Blob-opslag voor foutopsporing en analyseren van Hadoop-services
+# <a name="collect-heap-dumps-in-blob-storage-to-debug-and-analyze-apache-hadoop-services"></a>Heapdumps verzamelen in Blob-opslag voor foutopsporing en analyseren van Apache Hadoop-services
 [!INCLUDE [heapdump-selector](../../includes/hdinsight-selector-heap-dump.md)]
 
-Heapdumps bevatten een momentopname van het geheugen van de toepassing, met inbegrip van de waarden van variabelen op het moment dat de dump is gemaakt. Ze zijn daarom nuttig voor het oplossen van problemen die tijdens de uitvoering optreden. Heapdumps worden automatisch verzameld voor Hadoop-services en in de Azure Blob storage-account van een gebruiker in HDInsightHeapDumps geplaatst /.
+Heapdumps bevatten een momentopname van het geheugen van de toepassing, met inbegrip van de waarden van variabelen op het moment dat de dump is gemaakt. Ze zijn daarom nuttig voor het oplossen van problemen die tijdens de uitvoering optreden. Heapdumps worden automatisch verzameld voor Apache Hadoop-services en in de Azure Blob storage-account van een gebruiker in HDInsightHeapDumps geplaatst /.
 
 De verzameling van heapdumps voor verschillende services moet zijn ingeschakeld voor services op afzonderlijke clusters. De standaardwaarde voor deze functie is om te worden uitgeschakeld voor een cluster. Deze heapdumps kunnen oplopen, zodat u aangeraden wordt voor het bewaken van de Blob storage-account waar ze worden opgeslagen nadat de verzameling is ingeschakeld.
 
@@ -30,11 +30,11 @@ De verzameling van heapdumps voor verschillende services moet zijn ingeschakeld 
 ## <a name="eligible-services-for-heap-dumps"></a>In aanmerking komende services voor heapdumps
 Heapdumps voor de volgende services, kunt u inschakelen:
 
-* **hcatalog** -tempelton
-* **hive** -hiveserver2, metastore, derbyserver
+* **Apache hcatalog** -tempelton
+* **Apache hive** -hiveserver2, metastore, derbyserver
 * **mapreduce** -jobhistoryserver
-* **yarn** -resourcemanager, nodemanager, timelineserver
-* **hdfs** -datanode, secondarynamenode, namenode
+* **Apache yarn** -resourcemanager, nodemanager, timelineserver
+* **Apache hdfs** -datanode, secondarynamenode, namenode
 
 ## <a name="configuration-elements-that-enable-heap-dumps"></a>Configuratie-elementen die heapdumps inschakelen
 Als u wilt inschakelen op heapdumps voor een service, moet u de juiste configuratie-elementen in de sectie voor die service, die is opgegeven door instellen **service_name**.

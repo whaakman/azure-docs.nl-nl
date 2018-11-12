@@ -8,12 +8,12 @@ ms.date: 06/06/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: beb7574653375024f36912c4b3a37b01d2f59bd5
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 12c53b1fdad4ab8f55c000ca1cb4f08dab7c8a74
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50248391"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230361"
 ---
 # <a name="learn-how-to-deploy-modules-and-establish-routes-in-iot-edge"></a>Meer informatie over het implementeren van modules en routes instellen in IoT Edge
 
@@ -174,7 +174,7 @@ Het manifest van de implementatie kunt gewenste eigenschappen opgeven voor de mo
 
 IoT Hub wordt niet de moduledubbel op geen enkele manier wijzigen als u niet de gewenste eigenschappen van de moduledubbel in het manifest van de implementatie opgeeft, en kunt u zich op de gewenste eigenschappen programmatisch in te stellen.
 
-De dezelfde mechanismen waarmee u kunt wijzigen van apparaatdubbels worden gebruikt voor het wijzigen van moduledubbels. Zie voor meer informatie de [device twin Ontwikkelaarshandleiding voor](../iot-hub/iot-hub-devguide-device-twins.md).   
+De dezelfde mechanismen waarmee u kunt wijzigen van apparaatdubbels worden gebruikt voor het wijzigen van moduledubbels. Zie voor meer informatie de [module dubbele Ontwikkelaarshandleiding voor](../iot-hub/iot-hub-devguide-module-twins.md).   
 
 ## <a name="deployment-manifest-example"></a>Voorbeeld van de implementatie-manifest
 

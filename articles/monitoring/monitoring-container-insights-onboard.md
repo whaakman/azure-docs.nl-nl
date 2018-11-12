@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/04/2018
+ms.date: 11/05/2018
 ms.author: magoedte
-ms.openlocfilehash: 505abe8f3dc19458b3f0e18f349974199ae4ba58
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 2b7045f74a22732337ceb8dc9136da1c93ee7c2c
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212111"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51037784"
 ---
 # <a name="how-to-onboard-azure-monitor-for-containers-preview"></a>Hoe u ingebouwde Azure-Monitor voor containers (Preview) 
 In dit artikel wordt beschreven hoe u voor het instellen van Azure Monitor voor containers voor het bewaken van de prestaties van workloads die worden geïmplementeerd in Kubernetes-omgevingen en die worden gehost op [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/).
@@ -110,7 +110,7 @@ Wanneer u bewaking inschakelt, is het duurt ongeveer 15 minuten voordat u de gez
 ### <a name="enable-monitoring-from-aks-cluster-in-the-portal"></a>Schakel de bewaking van AKS-cluster in de portal
 Als u wilt inschakelen voor bewaking van uw AKS-container in Azure portal, het volgende doen:
 
-1. Selecteer in de Azure portal, **alle services**. 
+1. Selecteer in de Azure-portal de optie **Alle services**. 
 2. Begin met typen in de lijst met resources **Containers**.  
     De lijst gefilterd op basis van uw invoer. 
 3. Selecteer **Kubernetes-services**.  
@@ -244,7 +244,7 @@ Als u ervoor de Azure CLI gebruiken kiest, moet u eerst installeren en de CLI lo
 
     ```json
     {
-       "$schema": "https://schema.management.azure.com/  schemas/2015-01-01/deploymentParameters.json#",
+       "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
        "contentVersion": "1.0.0.0",
        "parameters": {
          "aksResourceId": {

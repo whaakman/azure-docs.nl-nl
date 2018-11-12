@@ -8,18 +8,18 @@ ms.author: tanmayb
 ms.date: 10/29/2018
 ms.topic: conceptual
 manager: peterpr
-ms.openlocfilehash: 5db215a3bf87ac42ac832a59ce39f7e72c45527f
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: dbc72e040f3d68ca77c036c41612f57616d1e74e
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50963350"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51016825"
 ---
 # <a name="as-a-csp-create-and-manage-an-azure-iot-central-application-on-behalf-of-your-customer"></a>Als een CSP, maken en beheren van een Azure IoT Central-toepassing namens uw klant 
 
 De Microsoft Cloud Solution Provider (CSP) is een Microsoft-Reseller-programma. De bedoeling is het bieden van onze kanaalpartners met een centrale programma tot wederverkoop van alle commerciële onlineservices van Microsoft. Meer informatie over de [programma Cloud Solution Provider](https://partner.microsoft.com/cloud-solution-provider).
 
-Als een CSP, kunt u maken en beheren van Microsoft Azure IoT Central toepassingen namens uw klanten via de [Microsoft Partner Center](https://partnercenter.microsoft.com/partner/home). Wanneer Azure IoT Central toepassingen worden gemaakt namens klanten met CSP's, net als bij andere CSP beheerde Azure-services, CSP's beheren de facturering voor klanten. Een post voor Azure IoT Central, wordt uw totale factuur in het Microsoft Partner Center weergegeven.
+Als een CSP, kunt u maken en beheren van Microsoft Azure IoT Central toepassingen namens uw klanten via de [Microsoft Partner Center](https://partnercenter.microsoft.com/partner/home). Wanneer Azure IoT Central toepassingen worden gemaakt namens klanten met CSP's, net als bij andere CSP beheerde Azure-services, CSP's beheren de facturering voor klanten. Een post voor Azure IoT Central verschijnt in uw totale factuur in het Microsoft Partner Center.
 
 Als u wilt beginnen, aanmelden bij uw account op de Microsoft-Partner-Portal en selecteer een klant voor wie u wilt maken van een Azure IoT Central-toepassing. Ga naar Service management voor de klant in het linkernavigatievenster.
 
@@ -29,7 +29,7 @@ Azure IoT Central vermeld als een service die beschikbaar zijn om te beheren. Kl
 
 ![Azure IoT Central beschikbaar voor het beheren](media\howto-create-application-asCSP\image2.png)
 
-U komt terecht op de pagina Azure IoT Central Application Manager. Azure IoT Central houdt context of u afkomstig van het Microsoft Partner Center is en of u voor het beheren van die specifieke klant afkomstig is. U ziet dit bevestigd in de koptekst van de pagina Toepassingsbeheer. Hier kunt u ofwel gaat u naar een bestaande toepassing dat u eerder hebt gemaakt voor de klant om te beheren of een nieuwe toepassing maken voor de klant.
+U komt terecht op de pagina Azure IoT Central Application Manager. Azure IoT Central houdt context of u afkomstig van het Microsoft Partner Center is en of u voor het beheren van die specifieke klant afkomstig is. U ziet dit bevestigd in de koptekst van de pagina Toepassingsbeheer. Hier kunt u ofwel navigeren naar een bestaande toepassing eerder voor de klant om te beheren of een nieuwe toepassing maken voor de klant die u hebt gemaakt.
 
 ![Manager voor CSP's maken](media\howto-create-application-asCSP\image3.png)
 
@@ -51,7 +51,7 @@ De naam van uw toepassing wordt weergegeven op de **Toepassingsbeheer** pagina e
 
 De URL van de toepassing is de koppeling naar uw toepassing. U kunt een bladwijzer toe opslaan in uw browser of met anderen delen.
 
-Wanneer u de naam voor uw toepassing invoert, wordt de URL van uw toepassing wordt automatisch gegenereerd. Als u liever, kunt u een andere URL voor uw toepassing. Elke Azure IoT Central-URL moet uniek zijn binnen Azure IoT Central. U ziet een foutbericht weergegeven als de URL die u kiest, wordt al gebruikt.
+Wanneer u de naam voor uw toepassing invoert, is de URL van uw toepassing automatisch gegenereerd. Als u liever, kunt u een andere URL voor uw toepassing. Elke Azure IoT Central-URL moet uniek zijn binnen Azure IoT Central. U ziet een foutbericht weergegeven als de URL die u kiest, wordt al gebruikt.
 
 ## <a name="directory"></a>Directory
 

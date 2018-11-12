@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: ramankum
 ms.custom: include file
-ms.openlocfilehash: 97e4e670d5db646cea28cb30e9ca95633cea2a8a
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 7fa7e6126c415a0a33b77b78975e8f4a533c4675
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49437069"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51263284"
 ---
 # <a name="high-performance-premium-storage-and-managed-disks-for-vms"></a>Krachtige Premium Storage en beheerde schijven voor virtuele machines
 
@@ -97,7 +97,7 @@ Dit zijn enkele van de functies die worden ondersteund in premium-opslag ingesch
     U kunt premium en standard disks gebruiken in de dezelfde VM voor Premium-opslag. Met Premium Storage kunt u een virtuele machine inrichten en meerdere permanente gegevensschijven koppelen aan de virtuele machine. Indien nodig, om te verhogen van de capaciteit en prestaties van het volume, kunt u voor uw schijven stripe.
 
     > [!NOTE]
-    > Als u premium-opslagschijven gegevens met behulp van stripe [opslagruimten](http://technet.microsoft.com/library/hh831739.aspx), instellen van opslagruimten met 1 kolom voor elke schijf die u gebruikt. Anders kan algehele prestaties van het striped volume lager is dan verwacht vanwege ongelijke distributie van verkeer op de schijven zijn. Standaard, in Serverbeheer, kunt u kolommen voor maximaal 8 schijven instellen. Als u meer dan 8 schijven hebt, kunt u PowerShell gebruiken om het volume te maken. Het aantal kolommen handmatig opgeven. Anders blijft de Serverbeheer-UI 8 kolommen gebruiken, zelfs als u meer schijven hebt. Bijvoorbeeld, hebt u 32 schijven in een stripeset één, 32 kolommen opgeven. Het aantal kolommen de virtuele schijf gebruikt opgeven de [New-VirtualDisk](http://technet.microsoft.com/library/hh848643.aspx) PowerShell-cmdlet gebruikt de *NumberOfColumns* parameter. Zie voor meer informatie, [overzicht van opslagruimten](http://technet.microsoft.com/library/hh831739.aspx) en [Veelgestelde vragen over de Storage Spaces](http://social.technet.microsoft.com/wiki/contents/articles/11382.storage-spaces-frequently-asked-questions-faq.aspx).
+    > Als u premium-opslagschijven gegevens met behulp van stripe [opslagruimten](https://technet.microsoft.com/library/hh831739.aspx), instellen van opslagruimten met 1 kolom voor elke schijf die u gebruikt. Anders kan algehele prestaties van het striped volume lager is dan verwacht vanwege ongelijke distributie van verkeer op de schijven zijn. Standaard, in Serverbeheer, kunt u kolommen voor maximaal 8 schijven instellen. Als u meer dan 8 schijven hebt, kunt u PowerShell gebruiken om het volume te maken. Het aantal kolommen handmatig opgeven. Anders blijft de Serverbeheer-UI 8 kolommen gebruiken, zelfs als u meer schijven hebt. Bijvoorbeeld, hebt u 32 schijven in een stripeset één, 32 kolommen opgeven. Het aantal kolommen de virtuele schijf gebruikt opgeven de [New-VirtualDisk](https://technet.microsoft.com/library/hh848643.aspx) PowerShell-cmdlet gebruikt de *NumberOfColumns* parameter. Zie voor meer informatie, [overzicht van opslagruimten](https://technet.microsoft.com/library/hh831739.aspx) en [Veelgestelde vragen over de Storage Spaces](https://social.technet.microsoft.com/wiki/contents/articles/11382.storage-spaces-frequently-asked-questions-faq.aspx).
     >
     > 
 
@@ -151,7 +151,9 @@ Als u premium storage-accounts voor niet-beheerde schijven gebruikt en uw toepas
 ### <a name="premium-storage-disk-limits"></a>Limieten voor Premium Storage-schijf
 Als u een premium-opslagschijf inricht, wordt de grootte van de schijf bepaalt de maximale IOPS en doorvoer (bandbreedte). Azure biedt acht GA typen premium-opslagschijven: P4 (beheerde schijven alleen), P6 (beheerde schijven alleen), P10, P15 (beheerde schijven alleen), P20, P30 of P40 of P50. Ook drie schijfgrootten preview: P60 P70 en P80. Elke schijftype voor premium storage heeft bepaalde limieten voor IOPS en doorvoer. Limieten voor de schijftypen worden beschreven in de volgende tabel:
 
-| Schijftype voor Premium-schijven  | P4    | P6    | P10    | P15    | P20    | P30              | P40             | P50             | P60             | P70                | P80                |
+Grootte die is gemarkeerd met een sterretje zijn momenteel in preview.
+
+| Schijftype voor Premium-schijven  | P4    | P6    | P10    | P15    | P20    | P30              | P40             | P50             | P60 *            | P70 *               | P80 *               |
 |---------------------|-------|-------|--------|--------|--------|------------------|-----------------|-----------------|-----------------|--------------------|--------------------|
 | Schijfgrootte           | 32 GiB| 64 GiB| 128 GiB| 256 GiB| 512 GiB| 1024 GiB (1 TiB) | 2048 GiB (2 TiB)| 4095 GiB (4 TiB)| 8192 giB (8 TiB)| 16.384 giB (16 TiB)| 32.767 giB (32 TiB)|
 | IOP's per schijf       | 120   | 240   | 500    | 1100   | 2300   | 5000             | 7500            | 7500            | 12.500          | 15.000             | 20,000             |
@@ -237,7 +239,7 @@ De volgende limieten gelden voor premium storage-blob-momentopnamen:
 
 Als u wilt behouden geografisch redundante kopieën van uw momentopnamen, kunt u momentopnamen van een premium storage-account naar een geografisch redundante standard storage-account kopiëren met behulp van AzCopy of kopiëren van de Blob. Zie voor meer informatie, [gegevensoverdracht met het AzCopy-opdrachtregelprogramma](../articles/storage/common/storage-use-azcopy.md) en [kopiëren van de Blob](/rest/api/storageservices/Copy-Blob).
 
-Zie voor gedetailleerde informatie over het uitvoeren van REST-bewerkingen voor pagina-blobs in een premium storage-account [servicebewerkingen met Azure Premium Storage-Blob](http://go.microsoft.com/fwlink/?LinkId=521969).
+Zie voor gedetailleerde informatie over het uitvoeren van REST-bewerkingen voor pagina-blobs in een premium storage-account [servicebewerkingen met Azure Premium Storage-Blob](https://go.microsoft.com/fwlink/?LinkId=521969).
 
 ### <a name="managed-disks"></a>Managed Disks
 
@@ -267,12 +269,12 @@ De volgende Linux-distributies zijn gevalideerd voor Azure Premium Storage. Voor
 | SUSE | SLES 12| 3.12.36-38.1+| SUSE-sles-12-prioriteit-v20150213 <br> SUSE-sles-12-v20150213 |
 | SUSE | SLES 11 SP4 | 3.0.101-0.63.1+ | &nbsp; |
 | CoreOS | 584.0.0+| 3.18.4+ | CoreOS 584.0.0 |
-| CentOS | 6.5, 6.6, 6.7, 7.0 | &nbsp; | [LIS4 vereist](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br> *Zie de opmerking in de volgende sectie* |
-| CentOS | 7.1+ | 3.10.0-229.1.2.el7+ | [Aanbevolen LIS4](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br> *Zie de opmerking in de volgende sectie* |
+| CentOS | 6.5, 6.6, 6.7, 7.0 | &nbsp; | [LIS4 vereist](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br> *Zie de opmerking in de volgende sectie* |
+| CentOS | 7.1+ | 3.10.0-229.1.2.el7+ | [Aanbevolen LIS4](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br> *Zie de opmerking in de volgende sectie* |
 | Red Hat Enterprise Linux (RHEL) | 6.8+, 7.2+ | &nbsp; | &nbsp; |
 | Oracle | 6.0+, 7.2+ | &nbsp; | UEK4 of RHCK |
-| Oracle | 7.0-7.1 | &nbsp; | UEK4 of RHCK met[LIS 4.1 +](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) |
-| Oracle | 6.4-6.7 | &nbsp; | UEK4 of RHCK met[LIS 4.1 +](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) |
+| Oracle | 7.0-7.1 | &nbsp; | UEK4 of RHCK met[LIS 4.1 +](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) |
+| Oracle | 6.4-6.7 | &nbsp; | UEK4 of RHCK met[LIS 4.1 +](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) |
 
 
 ### <a name="lis-drivers-for-openlogic-centos"></a>LIS-stuurprogramma's voor OpenLogic CentOS

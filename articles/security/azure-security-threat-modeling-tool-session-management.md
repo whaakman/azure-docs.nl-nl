@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 97953779f1132d89c7ad07abdb4e08c0f476f4b9
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: 182a0232b5317b1a375a20bdd4c6467578dc775b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43841810"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232739"
 ---
 # <a name="security-frame-session-management"></a>Frame beveiliging: Sessiebeheer
 | Product/Service | Artikel |
@@ -157,7 +157,7 @@ Het moet ook de gebruikerssessie door het aanroepen van Session.Abandon() method
 | **SDL-fase**               | Ontwikkelen |  
 | **Van toepassing technologieën** | Algemene |
 | **Kenmerken**              | EnvironmentType - on-premises |
-| **Verwijzingen**              | [httpCookies Element (ASP.NET-instellingenschema)](http://msdn.microsoft.com/library/ms228262(v=vs.100).aspx), [HttpCookie.Secure eigenschap](http://msdn.microsoft.com/library/system.web.httpcookie.secure.aspx) |
+| **Verwijzingen**              | [httpCookies Element (ASP.NET-instellingenschema)](https://msdn.microsoft.com/library/ms228262(v=vs.100).aspx), [HttpCookie.Secure eigenschap](https://msdn.microsoft.com/library/system.web.httpcookie.secure.aspx) |
 | **Stappen** | Cookies zijn normaal gesproken alleen toegankelijk is voor het domein waarvoor ze zijn binnen het bereik. Helaas, de definitie van 'domein' bevat geen het protocol, zodat cookies die zijn gemaakt via HTTPS toegankelijk via HTTP zijn. De "veilig" kenmerk geeft aan dat in de browser dat de cookie moet alleen worden beschikbaar gesteld via HTTPS. Zorg ervoor dat alle cookies ingesteld via HTTPS gebruiken de **beveiligde** kenmerk. De vereiste kan worden afgedwongen in het web.config-bestand door het kenmerk requireSSL instellen op true. Het is de aanpak van voorkeur omdat deze wordt afgedwongen de **beveiligde** kenmerk voor alle huidige en toekomstige cookies zonder de noodzaak om eventuele extra code hoeft te wijzigen.|
 
 ### <a name="example"></a>Voorbeeld

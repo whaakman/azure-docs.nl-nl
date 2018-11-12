@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: tamram
 ms.component: blobs
-ms.openlocfilehash: 5139f41832446add3431fc0f4e321af806342da2
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 092ffa5ed34a8e0a05b69c3fae86ab7299760ac2
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44296973"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51233096"
 ---
 # <a name="tutorial-encrypt-and-decrypt-blobs-in-microsoft-azure-storage-using-azure-key-vault"></a>Zelfstudie: Blobs versleutelen en ontsleutelen in Microsoft Azure Storage met behulp van Azure Key Vault
 ## <a name="introduction"></a>Inleiding
@@ -25,7 +25,7 @@ Zie voor informatie over Azure Key Vault, [wat is Azure Key Vault?](../../key-va
 
 Zie voor informatie over client-side encryption voor Azure Storage, [Client-Side-versleuteling en Microsoft Azure Storage in Azure Key Vault](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
-## <a name="prerequisites"></a>Vereiste onderdelen
+## <a name="prerequisites"></a>Vereisten
 U hebt het volgende nodig om deze zelfstudie te voltooien:
 
 * Een Azure Storage-account
@@ -225,4 +225,4 @@ Zie voor meer informatie over het gebruik van Microsoft Azure Storage met C# [Mi
 
 Zie voor meer informatie over de REST-API voor Blob [REST API voor Blob Service](https://msdn.microsoft.com/library/azure/dd135733.aspx).
 
-Voor de meest recente informatie over Microsoft Azure Storage, gaat u naar de [Blog van Microsoft Azure Storage-Team](http://blogs.msdn.com/b/windowsazurestorage/).
+Voor de meest recente informatie over Microsoft Azure Storage, gaat u naar de [Blog van Microsoft Azure Storage-Team](https://blogs.msdn.com/b/windowsazurestorage/).

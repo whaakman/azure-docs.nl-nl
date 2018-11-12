@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/27/2017
 ms.author: bwren
-ms.openlocfilehash: 2efaae7794cf5f12719d3d1420d9db6903592559
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 7ef7f6548cd3dd838889fd51ff0521428bbbc2aa
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50913186"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282676"
 ---
 # <a name="collect-data-in-log-analytics-with-an-azure-automation-runbook"></a>Gegevens verzamelen in Log Analytics met een Azure Automation-runbook
 U kunt een aanzienlijke hoeveelheid gegevens in Log Analytics verzamelt uit diverse bronnen, zoals [gegevensbronnen](../log-analytics/log-analytics-data-sources.md) op agents en ook [gegevens verzameld van Azure](../log-analytics/log-analytics-azure-storage.md).  Er zijn een's al waar moet u het verzamelen van gegevens die niet worden geopend via deze standaard bronnen.  In dergelijke gevallen kunt u de [HTTP Data Collector API](../log-analytics/log-analytics-data-collector-api.md) gegevens schrijven naar Log Analytics vanuit elke client REST-API.  Een veelgebruikte methode voor het uitvoeren van deze gegevensverzameling wordt met behulp van een runbook in Azure Automation.   
@@ -145,7 +145,7 @@ Azure Automation bevat een omgeving te [test uw runbook](../automation/automatio
     ![Post-uitvoer](media/monitoring-runbook-datacollect/post-output.png)
 
 ## <a name="5-verify-records-in-log-analytics"></a>5. Controleer de records in Log Analytics
-Zodra het runbook in de test is voltooid en u gecontroleerd dat de uitvoer is ontvangen, kunt u controleren dat de records zijn gemaakt met behulp van een [zoeken in Logboeken in Log Analytics](../log-analytics/log-analytics-log-search.md).
+Zodra het runbook in de test is voltooid en u gecontroleerd dat de uitvoer is ontvangen, kunt u controleren dat de records zijn gemaakt met behulp van een [zoeken in Logboeken in Log Analytics](../log-analytics/log-analytics-queries.md).
 
 ![De uitvoer van](media/monitoring-runbook-datacollect/log-output.png)
 
@@ -198,7 +198,7 @@ Zodra de planning is gemaakt, moet u instellen de parameterwaarden die telkens w
 8. Klik op **OK**. 
 
 ## <a name="9-verify-runbook-starts-on-schedule"></a>9. Controleer of u runbook wordt gestart volgens planning
-Wanneer een runbook wordt gestart, [wordt een taak gemaakt](../automation/automation-runbook-execution.md) en eventuele uitvoer in het logboek geregistreerd.  Dit zijn in feite dezelfde taken die het runbook worden verzameld.  U kunt controleren of dat het runbook wordt gestart zoals verwacht door het controleren van de taken voor het runbook nadat de begintijd voor de planning is verstreken.
+Telkens wanneer een runbook wordt gestart, [wordt een taak gemaakt](../automation/automation-runbook-execution.md) en eventuele uitvoer in het logboek geregistreerd.  Dit zijn in feite dezelfde taken die het runbook worden verzameld.  U kunt controleren of dat het runbook wordt gestart zoals verwacht door het controleren van de taken voor het runbook nadat de begintijd voor de planning is verstreken.
 
 ![Taken](media/monitoring-runbook-datacollect/jobs.png)
 

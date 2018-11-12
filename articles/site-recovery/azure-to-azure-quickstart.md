@@ -1,22 +1,22 @@
 ---
-title: Een Azure-VM repliceren naar een andere Azure-regio
-description: Deze snelstartgids bevat de stappen die nodig zijn voor het repliceren van een Azure-VM van de ene Azure-regio naar een andere regio.
+title: Herstel na noodgeval instellen voor een Azure IaaS-VM’s naar een secundaire Azure-regio
+description: Deze quickstart biedt de stappen die zijn vereist voor herstel na noodgeval van een Azure IaaS-VM tussen Azure-regio’s, met behulp van de Azure Site Recovery-service.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: quickstart
-ms.date: 10/19/2018
+ms.date: 10/28/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 623c45cbc82139090d893b8501c7d363c4443d67
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: e5f6cbec75a9f652cf05c9608c412e00489288b9
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49456161"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212927"
 ---
-# <a name="replicate-an-azure-vm-to-another-azure-region"></a>Een Azure-VM repliceren naar een andere Azure-regio
+# <a name="set-up-disaster-recovery-to-a-secondary-azure-region-for-an-azure-vm"></a>Herstel na noodgeval instellen naar een secundaire Azure-regio voor een Azure-VM 
 
 De service [Azure Site Recovery](site-recovery-overview.md) draagt bij aan uw strategie voor zakelijke continuïteit en noodherstel (BCDR) door te zorgen dat uw zakelijke apps actief blijven tijdens geplande en ongeplande uitval. Site Recovery beheert en orkestreert noodherstel van on-premises machines en virtuele Azure-machines (VM's), met inbegrip van replicatie, failover en herstel.
 

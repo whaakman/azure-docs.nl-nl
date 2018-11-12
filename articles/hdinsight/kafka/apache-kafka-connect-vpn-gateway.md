@@ -3,18 +3,18 @@ title: Verbinding maken met gebruik van virtuele netwerken - Azure HDInsight Kaf
 description: Leer hoe u rechtstreeks verbinding maken met Kafka in HDInsight via een Virtueelnetwerk van Azure. Leer hoe u verbinding maken met Kafka van ontwikkeling van clients met behulp van een VPN-gateway of van clients in uw on-premises netwerk via een VPN-gateway-apparaat.
 services: hdinsight
 ms.service: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/02/2018
-ms.openlocfilehash: 973563a0c9a986bb4dec785b4521566acb657d15
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.date: 11/06/2018
+ms.openlocfilehash: da98873b133d69d78271494b991b67caea1d5a11
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43042391"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283067"
 ---
 # <a name="connect-to-kafka-on-hdinsight-through-an-azure-virtual-network"></a>Verbinding maken met Kafka in HDInsight via een Azure-netwerk
 
@@ -35,7 +35,7 @@ HDInsight kan geen rechtstreekse verbinding met Kafka via het openbare internet.
     2. Een VPN-gateway die gebruikmaakt van een site-naar-site-configuratie maken. De configuratie die in dit document wordt gebruikt, maakt verbinding met een VPN-gateway-apparaat in uw on-premises netwerk.
     3. Maak een DNS-server in het virtuele netwerk.
     4. Doorsturen van tussen de DNS-server in elk netwerk configureren.
-    5. Kafka op HDInsight installeren in het virtuele netwerk.
+    5. Maken van een Kafka op HDInsight-cluster in het virtuele netwerk.
 
     Zie voor meer informatie de [verbinding maken met Kafka via een on-premises netwerk](#on-premises) sectie. 
 
@@ -43,8 +43,8 @@ HDInsight kan geen rechtstreekse verbinding met Kafka via het openbare internet.
 
     1. Maak een virtueel netwerk.
     2. Een VPN-gateway die gebruikmaakt van een punt-naar-site-configuratie maken. Deze configuratie kan worden gebruikt met zowel Windows als Mac OS-clients.
-    3. Kafka op HDInsight installeren in het virtuele netwerk.
-    4. Kafka voor IP-reclame configureren. Deze configuratie kan de client verbinding maken met behulp van IP-adressen in plaats van domeinnamen.
+    3. Maken van een Kafka op HDInsight-cluster in het virtuele netwerk.
+    4. Kafka voor IP-reclame configureren. Deze configuratie kan de client verbinding maken met behulp van de broker IP-adressen in plaats van domeinnamen.
     5. Download en gebruik van de VPN-client op het ontwikkelingssysteem.
 
     Zie voor meer informatie de [verbinding maken met Kafka met een VPN-client](#vpnclient) sectie.

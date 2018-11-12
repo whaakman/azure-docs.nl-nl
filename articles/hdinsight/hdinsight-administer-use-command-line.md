@@ -1,25 +1,25 @@
 ---
-title: Met behulp van Azure Classic CLI - Azure HDInsight Hadoop-clusters beheren
-description: Informatie over het gebruik van de klassieke Azure CLI voor het beheren van Hadoop-clusters in Azure HDInsight.
+title: Met behulp van Azure Classic CLI - Azure HDInsight Apache Hadoop-clusters beheren
+description: Informatie over het gebruik van de klassieke Azure CLI voor het beheren van Apache Hadoop-clusters in Azure HDInsight.
 services: hdinsight
 ms.reviewer: jasonh
-author: jasonwhowell
+author: tylerfox
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 05/14/2018
-ms.author: jasonh
-ms.openlocfilehash: 2586b9219eb145b2033fe2d8fc64b8ae72f34eda
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 11/06/2018
+ms.author: tyfox
+ms.openlocfilehash: d5d4c951bb104159730814f9b1b5820cb17f9f1a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46958285"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51234779"
 ---
-# <a name="manage-hadoop-clusters-in-hdinsight-using-the-azure-classic-cli"></a>Beheer Hadoop-clusters in HDInsight met behulp van de klassieke Azure-CLI
+# <a name="manage-apache-hadoop-clusters-in-hdinsight-using-the-azure-classic-cli"></a>Apache Hadoop-clusters in HDInsight met behulp van de klassieke Azure-CLI beheren
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
-Meer informatie over het gebruik van de [klassieke Azure-CLI](../cli-install-nodejs.md) voor het beheren van Hadoop-clusters in Azure HDInsight. De klassieke CLI is geïmplementeerd in Node.js. en kan worden gebruikt op elk platform dat ondersteuning biedt voor Node.js, zoals Windows, Mac en Linux.
+Meer informatie over het gebruik van de [klassieke Azure-CLI](../cli-install-nodejs.md) voor het beheren van Apache Hadoop-clusters in Azure HDInsight. De klassieke CLI is geïmplementeerd in Node.js. en kan worden gebruikt op elk platform dat ondersteuning biedt voor Node.js, zoals Windows, Mac en Linux.
 
 [!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
 
@@ -86,13 +86,6 @@ azure hdinsight cluster resize [options] <clusterName> <Target Instance Count>
 ```cli
 azure hdinsight cluster enable-http-access [options] <Cluster Name> <userName> <password>
 azure hdinsight cluster disable-http-access [options] <Cluster Name>
-```
-
-## <a name="enabledisable-rdp-access-for-a-cluster"></a>RDP-toegang voor een cluster in-of uitschakelen
-
-```cli
-azure hdinsight cluster enable-rdp-access [options] <Cluster Name> <rdpUserName> <rdpPassword> <rdpExpiryDate>
-azure hdinsight cluster disable-rdp-access [options] <Cluster Name>
 ```
 
 ## <a name="next-steps"></a>Volgende stappen

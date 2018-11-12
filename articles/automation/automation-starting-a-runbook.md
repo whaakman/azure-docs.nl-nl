@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 00143ab1f4aaba0f700e084d9225570c28713d0d
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: 020923a76c94b10165e95bb4c5950419595dff0b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "42057509"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51252340"
 ---
 # <a name="starting-a-runbook-in-azure-automation"></a>Een runbook starten in Azure Automation
 De volgende tabel om te bepalen de methode voor het starten van een runbook in Azure Automation die het meest geschikt is voor uw specifieke scenario. Dit artikel bevat informatie over het starten van een runbook met de Azure-portal en met Windows PowerShell. Meer informatie over de andere methoden zijn beschikbaar in andere documentatie die toegankelijk is via de onderstaande koppelingen.
@@ -66,7 +66,7 @@ While ($doLoop) {
 Get-AzureRmAutomationJobOutput –AutomationAccountName $AutomationAcct -Id $job.JobId -ResourceGroupName $ResourceGroup –Stream Output
 ```
 
-Als het runbook parameters vereist, wordt u deze als verstrekken moet een [hashtabel](http://technet.microsoft.com/library/hh847780.aspx) waarbij de sleutel van de hashtabel overeenkomt met de parameternaam en de waarde de waarde van parameter. Het volgende voorbeeld ziet hoe u een runbook met twee Reeksparameters met de naam FirstName en LastName, een geheel getal met de naam RepeatCount en een Boole-parameter met de naam Show start. Zie voor meer informatie over parameters [Runbookparameters](#Runbook-parameters) hieronder.
+Als het runbook parameters vereist, wordt u deze als verstrekken moet een [hashtabel](https://technet.microsoft.com/library/hh847780.aspx) waarbij de sleutel van de hashtabel overeenkomt met de parameternaam en de waarde de waarde van parameter. Het volgende voorbeeld ziet hoe u een runbook met twee Reeksparameters met de naam FirstName en LastName, een geheel getal met de naam RepeatCount en een Boole-parameter met de naam Show start. Zie voor meer informatie over parameters [Runbookparameters](#Runbook-parameters) hieronder.
 
 ```
 $params = @{"FirstName"="Joe";"LastName"="Smith";"RepeatCount"=2;"Show"=$true}

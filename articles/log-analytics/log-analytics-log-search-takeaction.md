@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 05/04/2017
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: d86a4de5f54d0c1c492fa17081623366692712af
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: c6206d4aa98ab3c9744f1f82840817b4bdb000ef
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50959780"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51016332"
 ---
 # <a name="take-action-with-an-automation-runbook-from-a-log-analytics-log-search-result"></a>Onderneem actie met een Automation-Runbook uit een zoekresultaat voor Log Analytics-logboek
 
@@ -32,7 +32,7 @@ In een zoekresultaat log in Azure Log Analytics, kunt u nu selecteren **actie on
 
 ## <a name="to-initiate-runbook-from-log-search"></a>Runbook van zoeken in Logboeken initiëren
 
-Actie ondernemen voor een gebeurtenis en een runbook in de resultaten van uw logboekbestanden voor zoeken initiëren, u beginnen met het maken van een logboekzoekopdracht en uit de resultaten kunt u een runbook op aanvraag aanroepen.  Dit kan worden bereikt vanaf de zoekfunctie van log in de [Azure-portal](log-analytics-log-search.md).  In dit voorbeeld wordt een zoekopdracht in Logboeken uitvoert vanuit de Azure portal met een eenvoudige demonstratie van deze functie.
+Actie ondernemen voor een gebeurtenis en een runbook in de resultaten van uw logboekbestanden voor zoeken initiëren, u beginnen met het maken van een logboekzoekopdracht en uit de resultaten kunt u een runbook op aanvraag aanroepen.  Dit kan worden bereikt vanaf de zoekfunctie van log in de [Azure-portal](log-analytics-queries.md).  In dit voorbeeld wordt een zoekopdracht in Logboeken uitvoert vanuit de Azure portal met een eenvoudige demonstratie van deze functie.
 
 1. Klik in de Azure-portal op **alle services** en selecteer **Log Analytics**.  
 2. Selecteer uw Log Analytics-werkruimte.
@@ -51,5 +51,5 @@ Als u een runbook dat is geconfigureerd om te worden [aangeroepen vanuit een Log
     
 ## <a name="next-steps"></a>Volgende stappen
 
-* Controleer de [Log Analytics melden verwijzing naar de](log-analytics-log-search.md) om alle zoekvelden en facetten beschikbaar in Log Analytics weer te geven.
+* Controleer de [Log Analytics melden verwijzing naar de](log-analytics-queries.md) om alle zoekvelden en facetten beschikbaar in Log Analytics weer te geven.
 * Als u wilt weten hoe u automatisch een Automation-runbook aanroepen, Bekijk [een Azure Automation-runbook aanroepen vanuit een Log Analytics-waarschuwing](../automation/automation-create-alert-triggered-runbook.md).  

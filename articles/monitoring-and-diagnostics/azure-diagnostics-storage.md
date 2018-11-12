@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 08/01/2016
 ms.author: jeconnoc
 ms.component: diagnostic-extension
-ms.openlocfilehash: 733c84ef9e6cee1a8ea488f0007ade1e72f39737
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: f9ae9e2edea1daf2fda825053c777521f042413d
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47033246"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51278919"
 ---
-# <a name="store-and-view-diagnostic-data-in-azure-storage"></a>Diagnostische gegevens van Store en weergeven in Azure Storage
+# <a name="store-and-view-diagnostic-data-in-azure-storage"></a>Diagnostische gegevens opslaan en weergeven in Azure Storage
 Diagnostische gegevens worden niet permanent opgeslagen, tenzij u deze naar de Microsoft Azure-opslagemulator of naar Azure storage overbrengen. Eenmaal in de opslag, kunnen deze worden bekeken met een van de verschillende beschikbare hulpprogramma's.
 
 ## <a name="specify-a-storage-account"></a>Geef een opslagaccount
@@ -73,7 +73,7 @@ Logboekgegevens worden opgeslagen in Blob of Table storage met de volgende namen
 ## <a name="tools-to-view-diagnostic-data"></a>Hulpprogramma's om diagnostische gegevens weer te geven
 Er zijn verschillende hulpprogramma's beschikbaar om weer te geven van de gegevens nadat deze zijn overgebracht naar de opslag. Bijvoorbeeld:
 
-* Server Explorer in Visual Studio - als u de Azure-hulpprogramma's hebt geïnstalleerd voor Microsoft Visual Studio, kunt u het Azure Storage-knooppunt in Server Explorer om alleen-lezen-blob- en tabelgegevens van uw Azure storage-accounts weer te geven. U kunt gegevens weergeven vanuit uw lokale emulator van de opslagaccount en ook van storage-accounts u hebt gemaakt voor Azure. Zie voor meer informatie, [surfen en Storage-Resources beheren met de Server Explorer](../vs-azure-tools-storage-resources-server-explorer-browse-manage.md).
+* Server Explorer in Visual Studio - als u de Azure-hulpprogramma's hebt geïnstalleerd voor Microsoft Visual Studio, kunt u het Azure Storage-knooppunt in Server Explorer om alleen-lezen-blob- en tabelgegevens van uw Azure storage-accounts weer te geven. U kunt gegevens weergeven vanuit uw lokale emulator van de opslagaccount en ook van storage-accounts u hebt gemaakt voor Azure. Zie voor meer informatie, [surfen en Storage-Resources beheren met de Server Explorer](/visualstudio/azure/vs-azure-tools-storage-resources-server-explorer-browse-manage).
 * [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) is een zelfstandige app waarmee u eenvoudig met Azure Storage-gegevens kunt werken via Windows, OSX en Linux.
 * [Azure Management Studio](http://www.cerebrata.com/products/azure-management-studio/introduction) met inbegrip van Azure Diagnostics Manager zodat u kunt weergeven, downloaden en beheren van de diagnostische gegevens die worden verzameld door de toepassingen die worden uitgevoerd op Azure.
 

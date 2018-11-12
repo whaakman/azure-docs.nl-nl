@@ -14,17 +14,17 @@ ms.topic: get-started-article
 ms.date: 09/28/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 1af54e3b0237d1d62ae7fb47939e7786fa1219b8
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 14ed452759aa74abf5eaa2ae37a39f6172889313
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434667"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51233317"
 ---
 # <a name="getting-started-with-azure-ad-connect-using-express-settings"></a>Aan de slag met Azure AD Connect met expresinstellingen
 **Expresinstellingen** van Azure AD Connect worden gebruikt wanneer u een singleforesttopologie hebt en [synchronisatie van wachtwoord-hash](how-to-connect-password-hash-synchronization.md) voor verificatie. **Expresinstellingen** is de standaardoptie en wordt gebruikt voor het meest geïmplementeerde scenario. U bent slechts enkele snelle klikken verwijderd van uitbreiding van uw on-premises directory naar de cloud.
 
-Zorg voordat u begint met de installatie van Azure AD Connect dat u [Azure AD Connect downloadt](http://go.microsoft.com/fwlink/?LinkId=615771) en de vereiste stappen in [Azure AD Connect: Hardware en vereisten](how-to-connect-install-prerequisites.md) voltooit.
+Zorg voordat u begint met de installatie van Azure AD Connect dat u [Azure AD Connect downloadt](https://go.microsoft.com/fwlink/?LinkId=615771) en de vereiste stappen in [Azure AD Connect: Hardware en vereisten](how-to-connect-install-prerequisites.md) voltooit.
 
 Zie [verwante documentatie](#related-documentation) voor andere scenario's als de expresinstellingen niet met uw topologie overeenkomen.
 

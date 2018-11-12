@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 06/21/2018
 ms.author: richrund
 ms.component: ''
-ms.openlocfilehash: 2ba921a45619c74af230b282c23adff502ae5b6d
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 7d93b8e37c2025ebe47f9351da26f0913107585d
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50961446"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51009365"
 ---
 # <a name="azure-networking-monitoring-solutions-in-log-analytics"></a>Azure-netwerken bewakingsoplossingen in Log Analytics
 
@@ -236,4 +236,4 @@ Gegevens die worden verzameld voordat de wijziging niet zichtbaar in de nieuwe o
 [!INCLUDE [log-analytics-troubleshoot-azure-diagnostics](../../includes/log-analytics-troubleshoot-azure-diagnostics.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
-* Gebruik [zoekopdrachten in Logboeken in Log Analytics](log-analytics-log-search.md) om weer te geven gedetailleerde gegevens van Azure diagnostics.
+* Gebruik [zoekopdrachten in Logboeken in Log Analytics](log-analytics-queries.md) om weer te geven gedetailleerde gegevens van Azure diagnostics.

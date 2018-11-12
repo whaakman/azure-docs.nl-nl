@@ -3,18 +3,18 @@ title: Wat zijn HDInsight en de Hadoop- en Spark-technologiestack? - Azure
 description: Een inleiding tot HDInsight en tot de Hadoop- en Spark-technologiestack en -onderdelen, inclusief Kafka, Hive, Storm en HBase voor analyse van big data.
 keywords: azure hadoop, hadoop azure, hadoop-inleiding, hadoop-informatie, hadoop-technologiestack, inleiding tot hadoop, informatie over hadoop, wat is een hadoop-cluster, wat is hadoop-cluster, waar wordt hadoop voor gebruikt
 services: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017, mvc
 ms.topic: overview
 ms.date: 05/07/2018
-ms.openlocfilehash: 840ade08f7dffb23beb9541da63855c4ead374e7
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 0c617f09c846811f876206e6045b640e63ad90b1
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49386979"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51007042"
 ---
 # <a name="what-is-azure-hdinsight-and-the-hadoop-technology-stack"></a>Wat is Azure HDInsight en de Hadoop-technologiestack?
 

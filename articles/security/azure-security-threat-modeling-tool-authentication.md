@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 23e219fa49146158c97f392427eee7c42c347a7a
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: b4b6e91f9b20166f63a4710f42726bf1d4090022
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307417"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51251556"
 ---
 # <a name="security-frame-authentication--mitigations"></a>Beveiliging-Frame: Verificatie | Oplossingen 
 | Product/Service | Artikel |
@@ -156,7 +156,7 @@ ms.locfileid: "43307417"
 | **SDL-fase**               | Ontwikkelen |  
 | **Van toepassing technologieën** | OnPrem, SQL Azure |
 | **Kenmerken**              | SQL-versie - MSSQL2012, versie van SQL - V12 |
-| **Verwijzingen**              | [Aanbevolen procedures voor beveiliging met ingesloten Databases](http://msdn.microsoft.com/library/ff929055.aspx) |
+| **Verwijzingen**              | [Aanbevolen procedures voor beveiliging met ingesloten Databases](https://msdn.microsoft.com/library/ff929055.aspx) |
 | **Stappen** | Het ontbreken van een wachtwoordbeleid afgedwongen verhogen de kans op een zwakke referentie in een ingesloten database tot stand wordt gebracht. Maak gebruik van Windows-verificatie. |
 
 ## <a id="authn-sas-tokens"></a>Per apparaatreferenties voor verificatie met behulp van SaS-tokens gebruiken

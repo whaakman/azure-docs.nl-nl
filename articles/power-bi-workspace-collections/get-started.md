@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: powerbi
 ms.date: 09/25/2017
 ms.author: maghan
-ms.openlocfilehash: b565955abaae44efe20291a6e46b57a5fec941d1
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: c736a9b4962de26f43dc79773149e834c37cbe85
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43046555"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51233402"
 ---
 # <a name="get-started-with-microsoft-power-bi-workspace-collections"></a>Aan de slag met werkruimteverzamelingen van Microsoft Power BI
 
@@ -79,7 +79,7 @@ Nadat u de verzameling met werkruimten hebt gemaakt, moet u een werkruimte maken
 
 ## <a name="create-power-bi-datasets-and-reports-to-embed-into-an-app-using-power-bi-desktop"></a>Power BI-gegevenssets en -rapporten maken om in een app in te sluiten met behulp van Power BI Desktop
 
-Nu u een exemplaar van Power BI voor uw toepassing hebt gemaakt en **toegangssleutels** hebt, moet u de Power BI-gegevenssets en -rapporten maken die u wilt insluiten. Gegevenssets en rapporten kunnen worden gemaakt met behulp van **Power BI Desktop**. U kunt [Power BI Desktop gratis](https://go.microsoft.com/fwlink/?LinkId=521662) downloaden. Of u downloadt de [Retail Analysis Sample PBIX](http://go.microsoft.com/fwlink/?LinkID=780547) als u snel aan de slag wilt.
+Nu u een exemplaar van Power BI voor uw toepassing hebt gemaakt en **toegangssleutels** hebt, moet u de Power BI-gegevenssets en -rapporten maken die u wilt insluiten. Gegevenssets en rapporten kunnen worden gemaakt met behulp van **Power BI Desktop**. U kunt [Power BI Desktop gratis](https://go.microsoft.com/fwlink/?LinkId=521662) downloaden. Of u downloadt de [Retail Analysis Sample PBIX](https://go.microsoft.com/fwlink/?LinkID=780547) als u snel aan de slag wilt.
 
 > [!NOTE]
 > Meer informatie over het gebruik van **Power BI Desktop** vindt u in [Aan de slag met Power BI Desktop](https://powerbi.microsoft.com/guided-learning/powerbi-learning-0-2-get-started-power-bi-desktop).

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 07a86345e49081320663d7706310a71a40ace134
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: fe6251f70ae62440bbbefc8c3aa5d92d934d8ba0
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43302104"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51249350"
 ---
 # <a name="security-frame-configuration-management--mitigations"></a>Beveiliging-Frame: Configuratiebeheer | Oplossingen 
 | Product/Service | Artikel |
@@ -210,7 +210,7 @@ Houd er rekening mee dat aanvragen validatie-functie wordt niet ondersteund en m
 | **SDL-fase**               | Ontwikkelen |  
 | **Van toepassing technologieën** | Algemene |
 | **Kenmerken**              | N/A  |
-| **Verwijzingen**              | [IE8 Security onderdeel V: uitgebreide bescherming](http://blogs.msdn.com/ie/archive/2008/07/02/ie8-security-part-v-comprehensive-protection.aspx), [MIME-type](http://en.wikipedia.org/wiki/Mime_type) |
+| **Verwijzingen**              | [IE8 Security onderdeel V: uitgebreide bescherming](https://blogs.msdn.com/ie/archive/2008/07/02/ie8-security-part-v-comprehensive-protection.aspx), [MIME-type](http://en.wikipedia.org/wiki/Mime_type) |
 | **Stappen** | De header X-inhoud-Type-opties is een HTTP-header die ontwikkelaars de mogelijkheid om op te geven biedt dat de inhoud ervan niet MIME-sniff worden moet. Deze header is ontworpen voor het beperken van aanvallen MIME bekijken. Voor elke pagina die gebruikers te beheren zijn inhoud kan bevatten, moet u de HTTP-Header X-inhoud-Type-opties: nosniff. Schakel de vereiste koptekst wereldwijd voor alle pagina's in de toepassing door kunt u een van de volgende doen|
 
 ### <a name="example"></a>Voorbeeld

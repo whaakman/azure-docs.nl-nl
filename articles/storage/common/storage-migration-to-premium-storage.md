@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/27/2017
 ms.author: yuemlu
 ms.component: common
-ms.openlocfilehash: c6256fc209a4ffa5308dc3b24794f8295c57f4ef
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 4ec0d4058c512ce420cd6e1bdc393b8043dbf1b6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39521775"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232548"
 ---
 # <a name="migrating-to-azure-premium-storage-unmanaged-disks"></a>Migreren naar Azure Premium Storage (niet-beheerde schijven)
 
@@ -54,10 +54,10 @@ De specificaties van de grootte van virtuele Azure-machine vindt u in [grootten 
 #### <a name="disk-sizes"></a>Schijfformaten
 Er zijn vijf typen schijven die kunnen worden gebruikt met de virtuele machine en elk heeft specifieke IOPs en doorvoer limieten. In overweging nemen deze limieten bij het kiezen van het schijftype voor uw virtuele machine op basis van de behoeften van uw toepassing in termen van capaciteit, prestaties, schaalbaarheid en piek wordt geladen.
 
-| Schijftype voor Premium-schijven  | P10   | P20   | P30            | P40            | P50            | 
+| Schijftype voor Premium-schijven  | P10   | P20   | P30            | P40            | P50            | 
 |:-------------------:|:-----:|:-----:|:--------------:|:--------------:|:--------------:|
-| Schijfgrootte           | 128 GB| 512 GB| 1024 GB (1 TB) | 2048 GB (2 TB) | 4095 GB (4 TB) | 
-| IOP's per schijf       | 500   | 2300  | 5000           | 7500           | 7500           | 
+| Schijfgrootte           | 128 GB| 512 GB| 1024 GB (1 TB) | 2048 GB (2 TB) | 4095 GB (4 TB) | 
+| IOP's per schijf       | 500   | 2300  | 5000           | 7500           | 7500           | 
 | Doorvoer per schijf | 100 MB per seconde | 150 MB per seconde | 200 MB per seconde | 250 MB per seconde | 250 MB per seconde |
 
 Te bepalen of er extra gegevensschijven die nodig zijn voor uw virtuele machine zijn afhankelijk van uw workload. U kunt meerdere permanente gegevensschijven koppelen aan uw virtuele machine. Indien nodig, kunt u op de schijven te verhogen van de capaciteit en prestaties van het volume stripe. (Zie Wat is er schijfsegmentering [hier](../../virtual-machines/windows/premium-storage-performance.md#disk-striping).) Als u Premium Storage-gegevensschijven met stripe [opslagruimten][4], moet u deze configureren met één kolom voor elke schijf die wordt gebruikt. De algehele prestaties van het striped volume kan anders zijn lager is dan verwacht vanwege een ongelijke distributie van verkeer voor de schijven. Voor Linux-VM's kunt u de *mdadm* hulpprogramma hiervoor ook. Zie artikel [Software-RAID configureren onder Linux](../../virtual-machines/linux/configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) voor meer informatie.
@@ -94,14 +94,14 @@ Als u wilt voorbereiden van de VHD's voor migratie, hebt u het volgende nodig:
 
 * Een Azure-abonnement, een storage-account en een container in het storage-account waarmee u uw VHD kunt kopiëren. Houd er rekening mee dat het doelopslagaccount een Standard of Premium Storage-account, afhankelijk van uw behoefte kan worden.
 * Een hulpprogramma voor het generaliseren van de VHD als u van plan bent om te maken van meerdere VM-exemplaren van deze. Bijvoorbeeld, sysprep voor Windows of virt-sysprep voor Ubuntu.
-* Een hulpprogramma voor het uploaden van het VHD-bestand naar het opslagaccount. Zie [gegevensoverdracht met het AzCopy-opdrachtregelprogramma](storage-use-azcopy.md) of gebruik een [Azure storage explorer](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx). Deze handleiding wordt beschreven voor het kopiëren van uw VHD met het AzCopy-hulpprogramma.
+* Een hulpprogramma voor het uploaden van het VHD-bestand naar het opslagaccount. Zie [gegevensoverdracht met het AzCopy-opdrachtregelprogramma](storage-use-azcopy.md) of gebruik een [Azure storage explorer](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx). Deze handleiding wordt beschreven voor het kopiëren van uw VHD met het AzCopy-hulpprogramma.
 
 > [!NOTE]
 > Als u ervoor de optie synchrone kopiëren met AzCopy kiest, voor optimale prestaties, kopieert u uw VHD door het uitvoeren van een van deze hulpprogramma's van een Azure-virtuele machine die zich in dezelfde regio als het doelopslagaccount. Als u een VHD van een Azure-VM in een andere regio kopieert, is het mogelijk dat de prestaties van uw langzamer.
 >
 > Voor een grote hoeveelheid gegevens te kopiëren over beperkte bandbreedte, kunt u overwegen [gebruik van de Azure Import/Export-service voor het overbrengen van gegevens naar Blob-opslag](../storage-import-export-service.md); Hiermee kunt u om over te dragen van uw gegevens door de verzending van harde schijven naar een Azure-datacenter. U kunt de Azure Import/Export-service gebruiken om gegevens te kopiëren naar een standard storage-account alleen. Zodra de gegevens zich in uw standard storage-account, kunt u een gebruiken de [kopie Blob API](https://msdn.microsoft.com/library/azure/dd894037.aspx) of AzCopy om over te dragen van de gegevens naar uw premium storage-account.
 >
-> Houd er rekening mee dat Microsoft Azure biedt alleen ondersteuning voor vaste grootte VHD-bestanden. VHDX-bestanden of dynamische VHD's worden niet ondersteund. Hebt u een dynamische VHD, kunt u deze converteren naar vaste grootte met behulp van de [Convert-VHD](http://technet.microsoft.com/library/hh848454.aspx) cmdlet.
+> Houd er rekening mee dat Microsoft Azure biedt alleen ondersteuning voor vaste grootte VHD-bestanden. VHDX-bestanden of dynamische VHD's worden niet ondersteund. Hebt u een dynamische VHD, kunt u deze converteren naar vaste grootte met behulp van de [Convert-VHD](https://technet.microsoft.com/library/hh848454.aspx) cmdlet.
 >
 >
 
@@ -123,7 +123,7 @@ Hieronder helpen we u bij deze 3 scenario's voor het voorbereiden van uw VHD.
 Als u een VHD die wordt gebruikt voor het maken van meerdere algemene Azure-VM-exemplaren uploaden wilt, moet u eerst de VHD met een hulpprogramma sysprep generaliseren. Dit is van toepassing op een VHD die on-premises of in de cloud. Sysprep verwijdert alle systeemspecifieke gegevens uit de VHD.
 
 > [!IMPORTANT]
-> Een momentopname of back-up van uw virtuele machine voordat u het generaliseren. Actieve sysprep gestopt en toewijzing ongedaan maken van het VM-exemplaar. Volg onderstaande stappen om sysprep de VHD van een Windows-besturingssysteem. Houd er rekening mee dat de Sysprep wordt uitgevoerd, moet u de virtuele machine afgesloten. Zie voor meer informatie over Sysprep [Sysprep overzicht](http://technet.microsoft.com/library/hh825209.aspx) of [technische documentatie van Sysprep](http://technet.microsoft.com/library/cc766049.aspx).
+> Een momentopname of back-up van uw virtuele machine voordat u het generaliseren. Actieve sysprep gestopt en toewijzing ongedaan maken van het VM-exemplaar. Volg onderstaande stappen om sysprep de VHD van een Windows-besturingssysteem. Houd er rekening mee dat de Sysprep wordt uitgevoerd, moet u de virtuele machine afgesloten. Zie voor meer informatie over Sysprep [Sysprep overzicht](https://technet.microsoft.com/library/hh825209.aspx) of [technische documentatie van Sysprep](https://technet.microsoft.com/library/cc766049.aspx).
 >
 >
 
@@ -163,7 +163,7 @@ U moet uw container pad en opslagaccountsleutel voor het verwerken van een van d
 ##### <a name="option-1-copy-a-vhd-with-azcopy-asynchronous-copy"></a>Optie 1: Kopieer geen VHD met AzCopy (asynchrone kopiëren)
 Met behulp van AzCopy, u kunt eenvoudig de VHD uploaden via Internet. Dit kan tijd duren, afhankelijk van de grootte van de VHD's. Vergeet niet om te controleren of limieten Inkomend/uitgaand verkeer van het opslagaccount wanneer u deze optie. Zie [Azure Storage Scalability and Performance Targets](storage-scalability-targets.md) voor meer informatie.
 
-1. Download en installeer AzCopy hier: [meest recente versie van AzCopy](http://aka.ms/downloadazcopy)
+1. Download en installeer AzCopy hier: [meest recente versie van AzCopy](https://aka.ms/downloadazcopy)
 2. Open Azure PowerShell en Ga naar de map waarin AzCopy wordt geïnstalleerd.
 3. Gebruik de volgende opdracht uit om te kopiëren van de VHD-bestand van 'Source' naar 'Doel'.
 
@@ -257,7 +257,7 @@ Een voorbeeld <Uri> mogelijk ***"https://storagesample.blob.core.windows.net/myc
 ##### <a name="option-2-using-azcopy-to-upload-the-vhd-file"></a>Optie 2: De VHD-bestand uploaden met behulp van AzCopy
 Met behulp van AzCopy, u kunt eenvoudig de VHD uploaden via Internet. Dit kan tijd duren, afhankelijk van de grootte van de VHD's. Vergeet niet om te controleren of limieten Inkomend/uitgaand verkeer van het opslagaccount wanneer u deze optie. Zie [Azure Storage Scalability and Performance Targets](storage-scalability-targets.md) voor meer informatie.
 
-1. Download en installeer AzCopy hier: [meest recente versie van AzCopy](http://aka.ms/downloadazcopy)
+1. Download en installeer AzCopy hier: [meest recente versie van AzCopy](https://aka.ms/downloadazcopy)
 2. Open Azure PowerShell en Ga naar de map waarin AzCopy wordt geïnstalleerd.
 3. Gebruik de volgende opdracht uit om te kopiëren van de VHD-bestand van 'Source' naar 'Doel'.
 

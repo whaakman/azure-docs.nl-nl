@@ -14,12 +14,12 @@ ms.topic: get-started-article
 ms.date: 09/28/2018
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: d979692ba32c596058d28c88f32e7e5872ab7ef9
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 00fa1a78155e1add547b8b165f52cf3c1fba2dfe
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452323"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51249894"
 ---
 # <a name="manage-storage-capacity-for-azure-stack"></a>Opslagcapaciteit voor Azure Stack beheren 
 
@@ -138,7 +138,7 @@ Migratie consolideert alle een blob van containers op de nieuwe share.
 > Migratie van blobs voor een container is een offline-bewerking die het gebruik van PowerShell vereist. Totdat de migratie is voltooid, wordt alle blobs voor de container die u wilt migreren offline blijven en kunnen niet worden gebruikt. U dient ook te vermijden upgraden van Azure Stack totdat alle doorlopende migratie is voltooid.
 
 #### <a name="to-migrate-containers-using-powershell"></a>Voor het migreren van containers met behulp van PowerShell
-1. Bevestigen dat u hebt [Azure PowerShell is geïnstalleerd en geconfigureerd](http://azure.microsoft.com/documentation/articles/powershell-install-configure/). Zie [Azure PowerShell gebruiken met Azure Resource Manager](http://go.microsoft.com/fwlink/?LinkId=394767) voor meer informatie.
+1. Bevestigen dat u hebt [Azure PowerShell is geïnstalleerd en geconfigureerd](https://azure.microsoft.com/documentation/articles/powershell-install-configure/). Zie [Azure PowerShell gebruiken met Azure Resource Manager](https://go.microsoft.com/fwlink/?LinkId=394767) voor meer informatie.
 2.  Controleer de container voor meer informatie over welke gegevens staan op de share die u wilt migreren. Voor het identificeren van de beste kandidaat containers voor migratie in een volume, gebruikt u de **Get-AzsStorageContainer** cmdlet:
 
     ````PowerShell  

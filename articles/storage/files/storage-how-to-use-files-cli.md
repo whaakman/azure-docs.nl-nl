@@ -5,18 +5,18 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: quickstart
-ms.date: 10/18/2018
+ms.date: 10/26/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: aab248ac7c9adf7d996406ec35e0317594ce0b68
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: cc94e309db3fd0e97e06b5be5884a0b6e7337cea
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945015"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50158972"
 ---
 # <a name="quickstart-create-and-manage-azure-file-shares-using-azure-cli"></a>Snelstart: Azure-bestandsshares maken en beheren met Azure CLI
-In deze handleiding worden de basisbeginselen besproken van het werken met [Azure-bestandsshares](storage-files-introduction.md) met behulp van Azure CLI. Azure-bestandsshares zijn net als andere bestandsshares, maar worden in de cloud opgeslagen en ondersteund door het Azure-platform. Azure-bestandsshares ondersteunen het SMB-protocol volgens de industriestandaard en bieden de mogelijkheid bestanden te delen tussen meerdere machines, toepassingen en instanties. 
+In deze handleiding worden de basisbeginselen besproken van het werken met [Azure-bestandsshares](storage-files-introduction.md) met behulp van Azure CLI. Azure-bestandsshares zijn net als andere bestandsshares, maar worden in de cloud opgeslagen en ondersteund door het Azure-platform. Azure-bestandsshares ondersteunen het SMB-protocol volgens de industriestandaard en bieden de mogelijkheid bestanden te delen tussen meerdere computers, toepassingen en exemplaren. 
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
@@ -78,10 +78,10 @@ az storage share create \
 
 De namen van shares mogen alleen kleine letters, cijfers en enkele afbreekstreepjes bevatten, maar mogen niet met een afbreekstreepje beginnen. Zie [Naming and referencing shares, directories, files, and metadata](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata) (Shares, mappen, bestanden en metagegevens een naam geven en hiernaar verwijzen) voor meer informatie over de naamgeving van bestandsshares en bestanden.
 
-## <a name="use-your-azure-file-share"></a>Uw Azure-bestandsshare gebruiken
-Azure Files biedt twee methoden voor het werken met bestanden en mappen in uw Azure-bestandsshare: het [SMB-protocol](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) volgens de industriestandaard en het [File REST-protocol](https://docs.microsoft.com/rest/api/storageservices/file-service-rest-api). 
+## <a name="use-your-azure-file-share"></a>Azure-bestandsshare gebruiken
+Azure Files biedt twee methoden voor het werken met bestanden en mappen in uw Azure-bestandsshare: het [SMB-protocol (Server Message Block)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) volgens de industriestandaard en het [File REST-protocol](https://docs.microsoft.com/rest/api/storageservices/file-service-rest-api). 
 
-Zie het volgende document op basis van uw besturingssysteem om een bestandsshare met SMB te koppelen:
+Zie het volgende document op basis van het besturingssysteem om een bestandsshare met SMB te koppelen:
 - [Linux](storage-how-to-use-files-linux.md)
 - [MacOS](storage-how-to-use-files-mac.md)
 - [Windows](storage-how-to-use-files-windows.md)
@@ -185,6 +185,80 @@ az storage file list \
 ```
 
 Hoewel de opdracht `az storage file copy start` handig is voor het verplaatsen van bestanden tussen Azure-bestandsshares en Azure Blob-opslagcontainers, is het beter om AzCopy te gebruiken voor grotere bewerkingen. (Groter voor wat betreft het aantal bestanden of de grootte van de verplaatste bestanden.) U vindt hier meer informatie over [AzCopy voor Linux](../common/storage-use-azcopy-linux.md) en [AzCopy voor Windows](../common/storage-use-azcopy.md). AzCopy moet lokaal zijn geïnstalleerd. AzCopy is niet beschikbaar in Cloud Shell. 
+
+## <a name="create-and-manage-share-snapshots"></a>Momentopnamen van shares maken en beheren
+Een andere handige taak die u kunt doen met een Azure-bestandsshare is het maken van een momentopname van de share. Een momentopname bevat voor een specifiek moment de actuele inhoud van een Azure-bestandsshare. Momentopnamen van een share zijn vergelijkbaar met bepaalde technologieën van besturingssystemen die u mogelijk al kent, zoals:
+
+- Momentopnamen van [Logical Volume Manager (LVM)](https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux)#Basic_functionality) voor Linux-systemen.
+- Momentopnamen van [Apple File System (APFS)](https://developer.apple.com/library/content/documentation/FileManagement/Conceptual/APFS_Guide/Features/Features.html) voor macOS
+- [Volume Shadow Copy Service (VSS)](https://docs.microsoft.com/windows/desktop/VSS/volume-shadow-copy-service-portal) voor Windows-bestandssystemen, zoals NTFS en ReFS. U kunt een momentopname van een share maken met de [`az storage share snapshot`](/cli/azure/storage/share#az_storage_share_snapshot)-opdracht:
+
+```azurecli-interactive
+SNAPSHOT=$(az storage share snapshot \
+    --account-name $STORAGEACCT \
+    --account-key $STORAGEKEY \
+    --name "myshare" \
+    --query "snapshot" | tr -d '"')
+```
+
+### <a name="browse-share-snapshot-contents"></a>Bladeren door inhoud van share-momentopnamen
+U kunt door de inhoud van een momentopname van een share bladeren door het tijdstempel van de momentopname dat u hebt vastgelegd in de variabele `$SNAPSHOT`, door te geven aan de opdracht `az storage file list`:
+
+```azurecli-interactive
+az storage file list \
+    --account-name $STORAGEACCT \
+    --account-key $STORAGEKEY \
+    --share-name "myshare" \
+    --snapshot $SNAPSHOT \
+    --output table
+```
+
+### <a name="list-share-snapshots"></a>Momentopnamen van shares opvragen
+Gebruik de volgende opdracht om een lijst weer te geven met de momentopnamen die u hebt gemaakt voor de share:
+
+```azurecli-interactive
+az storage share list \
+    --account-name $STORAGEACCT \
+    --account-key $STORAGEKEY \
+    --include-snapshot \
+    --query "[? name=='myshare' && snapshot!=null]" | tr -d '"'
+```
+
+### <a name="restore-from-a-share-snapshot"></a>Bestand herstellen vanuit een share-momentopname
+U kunt een bestand herstellen met behulp van de opdracht `az storage file copy start` die u eerder hebt gebruikt. Verwijder eerst het SampleUpload.txt-bestand dat u hebt geüpload, zodat u dit kunt herstellen vanuit de momentopname:
+
+```azurecli-interactive
+# Delete SampleUpload.txt
+az storage file delete \
+    --account-name $STORAGEACCT \
+    --account-key $STORAGEKEY \
+    --share-name "myshare" \
+    --path "myDirectory/SampleUpload.txt"
+ # Build the source URI for a snapshot restore
+URI=$(az storage account show \
+    --resource-group "myResourceGroup" \
+    --name $STORAGEACCT \
+    --query "primaryEndpoints.file" | tr -d '"')
+ URI=$URI"myshare/myDirectory/SampleUpload.txt?sharesnapshot="$SNAPSHOT
+ # Restore SampleUpload.txt from the share snapshot
+az storage file copy start \
+    --account-name $STORAGEACCT \
+    --account-key $STORAGEKEY \
+    --source-uri $URI \
+    --destination-share "myshare" \
+    --destination-path "myDirectory/SampleUpload.txt"
+```
+
+### <a name="delete-a-share-snapshot"></a>Een share-momentopname verwijderen
+U kunt een momentopname van een share verwijderen met behulp van de opdracht [`az storage share delete`](/cli/azure/storage/share#az_storage_share_delete). Gebruik de variabele die de verwijzing `$SNAPSHOT` naar de `--snapshot`-parameter bevat:
+
+```azurecli-interactive
+az storage share delete \
+    --account-name $STORAGEACCT \
+    --account-key $STORAGEKEY \
+    --name "myshare" \
+    --snapshot $SNAPSHOT
+```
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 Als u klaar bent, kunt u de opdracht [`az group delete`](/cli/azure/group#delete) gebruiken om de resourcegroep en alle bijbehorende resources te verwijderen: 

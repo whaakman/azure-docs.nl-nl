@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: erhopf
-ms.openlocfilehash: 7f3daf71f4d94371af5f7d98c4e03761d7217a2a
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: be2f6c49a260477e907f1f8f29f64b9eb08e6926
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50025834"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51038600"
 ---
 # <a name="speech-service-rest-apis"></a>Speech Service REST API 's
 
@@ -57,10 +57,12 @@ De volgende velden worden in de HTTP-aanvraagheader verzonden.
 
 ### <a name="audio-format"></a>Audio-indeling
 
-De audio wordt verzonden in de hoofdtekst van de HTTP `POST` aanvraag. Deze moet 16-bits WAV-indeling met één PCM-kanaal (mono) op 16 KHz van de volgende indelingen/codering.
+Audio wordt verzonden in de hoofdtekst van de HTTP `POST` aanvraag. Het moet zich binnen een van de indelingen in deze tabel:
 
-* WAV-indeling met PCM codec
-* Indeling met OPUS codec OGG
+| Indeling | Codec | Bitrate | Samplefrequentie |
+|--------|-------|---------|-------------|
+| WAV | PCM | 16-bits | 16 kHz, mono |
+| OGG | OPUS | 16-bits | 16 kHz, mono |
 
 >[!NOTE]
 >De bovenstaande indelingen worden ondersteund via REST-API en WebSocket in de Speech-Service. De [spraak SDK](/index.yml) momenteel alleen ondersteunt de WAV opmaken met PCM codec.
@@ -104,7 +106,7 @@ Hier volgt een typische aanvraag.
 ```HTTP
 POST speech/recognition/conversation/cognitiveservices/v1?language=en-US&format=detailed HTTP/1.1
 Accept: application/json;text/xml
-Content-Type: audio/wav; codec=audio/pcm; samplerate=16000
+Content-Type: audio/wav; codec="audio/pcm"; samplerate=16000
 Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY
 Host: westus.stt.speech.microsoft.com
 Transfer-Encoding: chunked
@@ -267,11 +269,11 @@ De HTTP-status van het antwoord geeft aan dat het slagen of algemene fouten.
 HTTP-code|Betekenis|Mogelijke oorzaak
 -|-|-|
 200|OK|De aanvraag is uitgevoerd. de antwoordtekst is een geluidsbestand.
-400 |Ongeldige aanvraag |Er ontbreekt een vereiste parameter ontbreekt, is leeg of null zijn. Of de waarde die wordt doorgegeven aan een vereiste of optionele parameter is ongeldig. Een veelvoorkomend probleem is een header die te lang is.
+400 |Onjuiste aanvraag |Er ontbreekt een vereiste parameter ontbreekt, is leeg of null zijn. Of de waarde die wordt doorgegeven aan een vereiste of optionele parameter is ongeldig. Een veelvoorkomend probleem is een header die te lang is.
 401|Niet geautoriseerd |De aanvraag is niet gemachtigd. Controleer of dat uw abonnementssleutel of token geldig is en in de juiste regio.
 413|Aanvraagentiteit te groot|De invoer SSML is langer dan 1024 tekens.
 429|Te veel aanvragen|U hebt het quotum of het aantal aanvragen dat is toegestaan voor uw abonnement overschreden.
-502|Ongeldige Gateway | Netwerk- of serverzijde probleem. Kan ook duiden op ongeldige kopteksten.
+502|Ongeldige gateway | Netwerk- of serverzijde probleem. Kan ook duiden op ongeldige kopteksten.
 
 Als de HTTP-status `200 OK`, de hoofdtekst van het antwoord bevat een audio-bestand in de gewenste indeling. Dit bestand kan worden afgespeeld, overgedragen of opgeslagen in een buffer of het bestand later afspelen of ander gebruik.
 

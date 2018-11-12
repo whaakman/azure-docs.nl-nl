@@ -4,12 +4,12 @@ ms.service: active-directory-b2c
 ms.topic: include
 ms.date: 11/03/2016
 ms.author: patricka
-ms.openlocfilehash: 9d5af21fb3b329623b14cb8742d9ec9c5d1bad46
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: fcd71f74e0b00934958828024094773e42496b66
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50133086"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51017267"
 ---
 [!INCLUDE [active-directory-b2c-portal-add-application](active-directory-b2c-portal-add-application.md)]
 
@@ -22,7 +22,7 @@ Gebruik de instellingen die zijn opgegeven in de tabel, om de web-API te registr
 | **Naam** | Contoso B2C-API | Voer een **Naam** in voor de toepassing waarmee de API wordt beschreven voor consumenten. | 
 | **Web-app / web-API opnemen** | Ja | Selecteer **Ja** voor een web-API. |
 | **Impliciete stroom toestaan** | Ja | Selecteer **Ja** als voor de toepassing wordt gebruikgemaakt van [Aanmelding via OpenID Connect](../articles/active-directory-b2c/active-directory-b2c-reference-oidc.md) |
-| **Antwoord-URL** | `https://localhost:44316/` | Antwoord-URL's zijn eindpunten waarop Azure AD B2C tokens retourneert die zijn aangevraagd voor de toepassing. Voer een [juiste](../articles/active-directory-b2c/active-directory-b2c-app-registration.md#choosing-a-web-app-or-api-reply-url) **antwoord-URL**in. In dit voorbeeld is de web-API lokaal en luistert deze op poort 44316. |
+| **Antwoord-URL** | `https://localhost:44316/` | Antwoord-URL's zijn eindpunten waarop Azure AD B2C tokens retourneert die zijn aangevraagd voor de toepassing. In dit voorbeeld is de web-API lokaal en luistert deze op poort 44316. |
 | **App-id-URI** | api | De app-id-URI is de id die wordt gebruikt voor de web-API. De volledige id-URI, inclusief het domein, wordt voor u gegenereerd. |
 
 Klik op **Maken** om uw toepassing te registreren.

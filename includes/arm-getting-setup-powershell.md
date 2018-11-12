@@ -1,8 +1,8 @@
-## <a name="setting-up-powershell-for-resource-manager-templates"></a>PowerShell in te stellen voor Resource Manager-sjablonen
-Voordat u Azure PowerShell met Resource Manager gebruiken kunt, moet u het recht Windows PowerShell en Azure PowerShell versies hebben.
+## <a name="setting-up-powershell-for-resource-manager-templates"></a>PowerShell instellen voor Resource Manager-sjablonen
+Voordat u Azure PowerShell met Resource Manager gebruiken kunt, moet u het recht Windows PowerShell en Azure PowerShell-versies hebben.
 
-### <a name="verify-powershell-versions"></a>Controleer of de PowerShell-versies
-Controleer of dat u Windows PowerShell versie 3.0 of 4.0 hebt. Ga voor de versie van Windows PowerShell, typ de volgende opdracht achter de opdrachtprompt van Windows PowerShell.
+### <a name="verify-powershell-versions"></a>Controleer of versies van PowerShell
+Controleer of dat u Windows PowerShell versie 3.0 of 4.0 hebt. Als u wilt zien welke versie van Windows PowerShell, typ de volgende opdracht achter de opdrachtprompt van Windows PowerShell.
 
     $PSVersionTable
 
@@ -19,12 +19,12 @@ U ontvangt het volgende type informatie:
     PSRemotingProtocolVersion      2.2
 
 
-Controleer de waarde van **PSVersion** 3.0 of 4.0. Als dit niet het geval is, Zie [Windows Management Framework 3.0](http://www.microsoft.com/download/details.aspx?id=34595) of [Windows Management Framework 4.0](http://www.microsoft.com/download/details.aspx?id=40855).
+Controleer de waarde van **PSVersion** 3.0 of 4.0 is. Als dit niet het geval is, Zie [Windows Management Framework 3.0](https://www.microsoft.com/download/details.aspx?id=34595) of [Windows Management Framework 4.0](https://www.microsoft.com/download/details.aspx?id=40855).
 
 ### <a name="set-your-azure-account-and-subscription"></a>Uw Azure-account en -abonnement instellen
-Als u nog geen Azure-abonnement hebt, kunt u activeren uw [voordelen als MSDN-abonnee](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) of zich aanmelden voor een [gratis proefversie](https://azure.microsoft.com/pricing/free-trial/).
+Als u nog een Azure-abonnement hebt, kunt u uw [voordelen als MSDN-abonnee](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) zich ook aanmelden voor een [gratis proefversie](https://azure.microsoft.com/pricing/free-trial/).
 
-Open een Azure PowerShell-opdrachtprompt en aanmelden bij Azure met deze opdracht.
+Een Azure PowerShell-opdrachtprompt openen en aanmelden bij Azure met deze opdracht.
 
     Connect-AzureRmAccount
 
@@ -45,7 +45,7 @@ U ontvangt het volgende type informatie:
     CurrentStorageAccountName :
     TenantId                  : 32fa88b4-86f1-419f-93ab-2d7ce016dba7
 
-U kunt de huidige Azure-abonnement instellen door het uitvoeren van deze opdrachten bij de Azure PowerShell-opdrachtprompt. Vervang alles binnen de aanhalingstekens, met inbegrip van de < en > tekens lang zijn en de juiste naam.
+U kunt het huidige Azure-abonnement instellen door het uitvoeren van deze opdrachten bij de Azure PowerShell-opdrachtprompt. Vervang alles binnen de aanhalingstekens in, met inbegrip van de < en > tekens, met de juiste naam.
 
     $subscr="<SubscriptionName from the display of Get-AzureRmSubscription>"
     Select-AzureRmSubscription -SubscriptionName $subscr -Current

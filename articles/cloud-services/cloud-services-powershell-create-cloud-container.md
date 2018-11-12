@@ -14,17 +14,17 @@ ms.tgt_pltfrm: powershell
 ms.workload: na
 ms.date: 11/18/2016
 ms.author: cawa
-ms.openlocfilehash: 0a05b4fadf2cd7e794680907d39f355882a4330c
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: fa2f957c862ca94bc102b38b8bb1deb0bc07be8a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42059097"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51226839"
 ---
 # <a name="use-an-azure-powershell-command-to-create-an-empty-cloud-service-container"></a>Een Azure PowerShell-opdracht gebruiken om te maken van een lege cloudservicecontainer
 In dit artikel wordt uitgelegd hoe u snel maken van een Cloud Services-container met behulp van Azure PowerShell-cmdlets. Volg de onderstaande stappen:
 
-1. Installeer de Microsoft Azure PowerShell-cmdlet uit de [Azure PowerShell downloadt](http://aka.ms/webpi-azps) pagina.
+1. Installeer de Microsoft Azure PowerShell-cmdlet uit de [Azure PowerShell downloadt](https://aka.ms/webpi-azps) pagina.
 2. Open de PowerShell-opdrachtprompt.
 3. Gebruik de [Add-AzureAccount](/powershell/module/servicemanagement/azure/add-azureaccount?view=azuresmps-4.0.0) aan te melden.
 

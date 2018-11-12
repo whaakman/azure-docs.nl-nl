@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 6/20/2018
 ms.author: amitsriva
-ms.openlocfilehash: 563194ea0b3e4bda2021c75c544d068f00d74ba7
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 3163d4d61dba958cdf71dd0470b943bba69b0191
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46963829"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51237193"
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>Back-endstatus, diagnostische logboeken en metrische gegevens voor Application Gateway
 
@@ -258,7 +258,7 @@ De firewall-logboek is gegenereerd, alleen als u deze voor elke application gate
 |ruleSetVersion     | Regelset versie die wordt gebruikt. Beschikbare waarden zijn 2.2.9 en 3.0.     |
 |regel-id     | Regel-ID van de activerende gebeurtenis.        |
 |message     | Gebruiksvriendelijke bericht voor de triggergebeurtenis. Meer informatie vindt u in de detailsectie.        |
-|actie     |  De actie die wordt uitgevoerd op de aanvraag. Beschikbare waarden zijn geblokkeerd en toegestaan.      |
+|action     |  De actie die wordt uitgevoerd op de aanvraag. Beschikbare waarden zijn geblokkeerd en toegestaan.      |
 |site     | De site waarvoor het logboek is gegenereerd. Op dit moment alleen Global vermeld omdat er regels zijn van toepassing.|
 |details     | De details van de triggergebeurtenis.        |
 |Details.Message     | Beschrijving van de regel.        |
@@ -337,7 +337,7 @@ Metrische gegevens zijn een functie voor bepaalde Azure-resources waar u prestat
 
    U kunt filteren op een per back-end-pool basis om weer te geven in orde/slecht hosts in een specifieke back-endpool.
 
-Blader naar een toepassingsgateway onder **bewaking** klikt u op **metrische gegevens**. Als u wilt de beschikbare waarden weergeven, selecteert u de **METRIC** vervolgkeuzelijst.
+Blader naar een toepassingsgateway onder **bewaking** klikt u op **metrische gegevens**. Om de beschikbare waarden te zien, selecteert u de vervolgkeuzelijst **METRISCH**.
 
 In de volgende afbeelding ziet u een voorbeeld met drie metrische gegevens weergegeven voor de laatste 30 minuten:
 
@@ -380,7 +380,7 @@ Voor meer informatie over webhooks en hoe u ze kunt gebruiken met waarschuwingen
 ## <a name="next-steps"></a>Volgende stappen
 
 * Prestatiemeteritems en gebeurtenislogboeken visualiseren met behulp van [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md).
-* [Uw Azure-activiteitenlogboek met Power BI visualiseren](http://blogs.msdn.com/b/powerbi/archive/2015/09/30/monitor-azure-audit-logs-with-power-bi.aspx) blogbericht.
+* [Uw Azure-activiteitenlogboek met Power BI visualiseren](https://blogs.msdn.com/b/powerbi/archive/2015/09/30/monitor-azure-audit-logs-with-power-bi.aspx) blogbericht.
 * [Bekijk en analyseer Azure-activiteitenlogboeken in Power BI en meer](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/) blogbericht.
 
 [1]: ./media/application-gateway-diagnostics/figure1.png

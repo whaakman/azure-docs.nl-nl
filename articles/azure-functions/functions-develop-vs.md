@@ -10,12 +10,12 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 10/08/2018
 ms.author: glenga
-ms.openlocfilehash: 888b9a256a68b77b91145bb3ccfeea820c97ccfa
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
-ms.translationtype: MT
+ms.openlocfilehash: b2676e8f86955a7601f9656f0a038b5ba904a462
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515366"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51036424"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>Ontwikkel Azure Functions met Visual Studio  
 
@@ -189,7 +189,7 @@ Zie voor meer informatie over het gebruik van Azure Functions Core Tools, [Code 
 
 Alle instellingen die u hebt toegevoegd in de local.settings.json moeten ook worden toegevoegd aan de functie-app in Azure. Deze instellingen worden niet automatisch geüpload wanneer u het project publiceren.
 
-De eenvoudigste manier om de vereiste instellingen uploaden naar uw functie-app in Azure is met de **Toepassingsinstellingen beheren...**  koppeling die wordt weergegeven nadat u uw project is gepubliceerd.
+De eenvoudigste manier om de vereiste instellingen uploaden naar uw functie-app in Azure is met de **Toepassingsinstellingen beheren...**  koppeling die wordt weergegeven nadat u uw project is gepubliceerd. 
 
 ![](./media/functions-develop-vs/functions-vstools-app-settings.png)
 
@@ -197,13 +197,11 @@ U ziet nu de **toepassingsinstellingen** dialoogvenster voor de functie-app, kun
 
 ![](./media/functions-develop-vs/functions-vstools-app-settings2.png)
 
-**Lokale** vertegenwoordigt een waarde in het bestand local.settings.json en **externe** is de huidige instelling in de functie-app in Azure.  Kies **-instelling toevoegen** om een nieuwe appinstelling te maken. Gebruik de **waarde invoeren tussen lokale** koppeling naar het kopiëren van een instellingswaarde voor de **externe** veld. Wijzigingen in behandeling is geschreven naar het bestand met lokale instellingen en de functie-app wanneer u selecteert **OK**.
-
 U kunt ook de toepassingsinstellingen in een van deze andere manieren beheren:
 
 * [Met behulp van de Azure-portal](functions-how-to-use-azure-function-app-settings.md#settings).
 * [Met behulp van de `--publish-local-settings` optie publiceren in Azure Functions Core Tools](functions-run-local.md#publish).
-* [Met behulp van de Azure CLI](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set).
+* [Met behulp van de Azure CLI](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set). 
 
 ## <a name="monitoring-functions"></a>Functions controleren
 

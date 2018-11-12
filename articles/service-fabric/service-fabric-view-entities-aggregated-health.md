@@ -1,6 +1,6 @@
 ---
-title: Het weergeven van Azure Service Fabric-entiteiten geaggregeerd health | Microsoft Docs
-description: Beschrijft hoe een query, bekijken en evalueren van de Azure Service Fabric-entiteiten geaggregeerde status, door middel van statusquery's en algemene query's.
+title: Samengevoegde status van Azure Service Fabric-entiteiten weergeven | Microsoft Docs
+description: Beschrijft hoe u query's uitvoeren, bekijken en evalueren van de Azure Service Fabric-entiteiten geaggregeerde status, door middel van statusquery's en algemene query's.
 services: service-fabric
 documentationcenter: .net
 author: oanapl
@@ -14,25 +14,25 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: 2e5d1045edbbc3c71cb0ccff34d2ba327a98a409
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: b6f6653381b5fcf80b9647c64334dfed1a2230bb
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34211854"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230849"
 ---
 # <a name="view-service-fabric-health-reports"></a>Service Fabric-statusrapporten weergeven
-Azure Service Fabric introduceert een [statusmodel](service-fabric-health-introduction.md) met health entiteiten op welke onderdelen van het systeem en watchdogs kunt rapport lokale voorwaarden die ze bewaken. De [health store](service-fabric-health-introduction.md#health-store) aggregeert alle health gegevens om te bepalen of de entiteiten in orde zijn.
+Azure Service Fabric introduceert een [statusmodel](service-fabric-health-introduction.md) met health-entiteiten in welke onderdelen van het systeem en watchdogs kunt rapport lokale voorwaarden die ze bewaken. De [health store](service-fabric-health-introduction.md#health-store) alle health-gegevens om te bepalen of entiteiten in orde zijn.
 
-Het cluster wordt automatisch gevuld met statusrapporten dat is verzonden door de onderdelen van het systeem. Meer informatie op [systeemstatusrapporten gebruiken om op te lossen](service-fabric-understand-and-troubleshoot-with-system-health-reports.md).
+Het cluster wordt automatisch gevuld met statusrapporten die zijn verzonden door de onderdelen van het systeem. Meer informatie [systeemstatusrapporten gebruiken om op te lossen](service-fabric-understand-and-troubleshoot-with-system-health-reports.md).
 
-Service Fabric bevat meerdere manieren om op te halen van de cumulatieve status van de entiteiten:
+Service Fabric biedt verschillende manieren om op te halen van de cumulatieve status van de entiteiten:
 
-* [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) of andere visualisatie hulpprogramma's
-* Statusquery's (via PowerShell, API of REST)
-* Algemene query's dat retourneren een lijst van entiteiten met status als een van de eigenschappen (via PowerShell, API of REST)
+* [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) of andere hulpprogramma's voor visualisatie
+* Statusquery's (via PowerShell, -API of REST)
+* Algemene query's dat retourneren een lijst van entiteiten die status als een van de eigenschappen (via PowerShell, -API of REST hebben)
 
-Ter illustratie van deze opties we gebruiken een lokaal cluster met vijf knooppunten en de [fabric: / WordCount-toepassing](http://aka.ms/servicefabric-wordcountapp). De **fabric: / WordCount** toepassing bevat twee standaardservices, een stateful service van het type `WordCountServiceType`, en een stateless service van het type `WordCountWebServiceType`. Ik heb gewijzigd de `ApplicationManifest.xml` vereisen zeven replica's voor de stateful service en één partitie zijn gericht. Omdat er slechts vijf knooppunten in het cluster, de onderdelen van het systeem een rapport een waarschuwing over de partitie van de service omdat deze lager dan het aantal doel is.
+Om te demonstreren van deze opties, gebruiken we een lokaal cluster met vijf knooppunten en de [fabric: / WordCount-toepassing](https://aka.ms/servicefabric-wordcountapp). De **fabric: / WordCount** toepassing bevat twee standaardservices, een stateful service van het type `WordCountServiceType`, en een stateless service van het type `WordCountWebServiceType`. Ik heb gewijzigd de `ApplicationManifest.xml` zeven replica's voor de stateful service en een partitie als doel vereist. Omdat er slechts vijf knooppunten in het cluster, rapport de onderdelen van het systeem een waarschuwing over de servicepartitie, omdat deze lager dan het aantal doel is.
 
 ```xml
 <Service Name="WordCountService">
@@ -45,11 +45,11 @@ Ter illustratie van deze opties we gebruiken een lokaal cluster met vijf knooppu
 ## <a name="health-in-service-fabric-explorer"></a>Status in Service Fabric Explorer
 Service Fabric Explorer biedt een visuele weergave van het cluster. In de onderstaande afbeelding ziet u dat:
 
-* De toepassing **fabric: / WordCount** is rood (fout) omdat er een foutgebeurtenis gemeld door **MyWatchdog** voor de eigenschap **beschikbaarheid**.
-* Een van de services ontvangt, **fabric: / WordCount/WordCountService** geel gekleurd (in de waarschuwing). De service is geconfigureerd met zeven replica's en het cluster heeft vijf knooppunten en daarom twee repicas kan niet worden geplaatst. Hoewel dit niet wordt weergegeven hier, de service-partitie geel is vanwege een rapport van `System.FM` mededeling dat `Partition is below target replica or instance count`. De gele partitie activeert de gele service.
+* De toepassing **fabric: / WordCount** is rood (fout), omdat er een foutgebeurtenis gemeld door **MyWatchdog** voor de eigenschap **beschikbaarheid**.
+* Een van de services, **fabric: / WordCount/WordCountService** wordt geel (in de waarschuwing). De service is geconfigureerd met zeven replica's en het cluster heeft vijf knooppunten, zodat twee repicas kan niet worden geplaatst. Hoewel deze wordt hier niet getoond, de servicepartitie monitor geel is vanwege een rapport van `System.FM` mededeling dat `Partition is below target replica or instance count`. De gele partitie wordt de gele service geactiveerd.
 * Het cluster is rood vanwege de rode toepassing.
 
-De evaluatie gebruikt standaardbeleidsregels van het clustermanifest en het toepassingsmanifest. Strikte beleidsregels zijn en niet een storing kan tolereren.
+Standaard-beleid van het clustermanifest en het manifest van de toepassing maakt gebruik van de evaluatie. Strikte beleidsregels zijn en niet een storing kan tolereren.
 
 Weergave van het cluster met Service Fabric Explorer:
 
@@ -59,52 +59,52 @@ Weergave van het cluster met Service Fabric Explorer:
 
 
 > [!NOTE]
-> Lees meer over [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
+> Meer informatie over [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
 >
 >
 
 ## <a name="health-queries"></a>Statusquery 's
-Service Fabric statusquery's beschrijft voor elk van de ondersteunde [Entiteitstypen](service-fabric-health-introduction.md#health-entities-and-hierarchy). Toegankelijk zijn via de API, met behulp van methoden op [FabricClient.HealthManager](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthmanager?view=azure-dotnet), PowerShell-cmdlets en REST. Deze query's retourneren voltooid statusgegevens van de entiteit: de geaggregeerde status, entiteit health gebeurtenissen onderliggende statussen (indien van toepassing), slechte evaluaties (als de entiteit is niet in orde) en statistieken van kinderen health (wanneer van toepassing).
+Service Fabric biedt statusquery's voor elk van de ondersteunde [Entiteitstypen](service-fabric-health-introduction.md#health-entities-and-hierarchy). Ze kunnen worden geopend via de API, met behulp van methoden op [FabricClient.HealthManager](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthmanager?view=azure-dotnet), PowerShell-cmdlets en REST. Deze query's retourneren statusinformatie over de entiteit: de geaggregeerde status, entiteit health-gebeurtenissen, statussen onderliggende (indien van toepassing), evaluaties met slechte status (als de entiteit niet in orde is) en kinderen health statistieken (wanneer van toepassing).
 
 > [!NOTE]
-> Een health-entiteit wordt geretourneerd wanneer het volledig is gevuld in de health store. De entiteit moet actief zijn (geen verwijderd) en een rapport. De bovenliggende entiteiten in de keten van de hiërarchie moeten ook systeemrapporten hebben. Als een van deze voorwaarden niet wordt voldaan, de status retourneren vraagt een [FabricException](https://docs.microsoft.com/dotnet/api/system.fabric.fabricexception) met [FabricErrorCode](https://docs.microsoft.com/dotnet/api/system.fabric.fabricerrorcode) `FabricHealthEntityNotFound` die ziet waarom de entiteit is niet geretourneerd.
+> Een health-entiteit wordt geretourneerd wanneer het volledig wordt gevuld in health store. De entiteit moet actief zijn (geen verwijderd) en een rapport. De bovenliggende entiteiten in de keten van de hiërarchie moeten ook systeemrapporten hebben. Als een van deze voorwaarden niet wordt voldaan, de status retourneren vraagt een [FabricException](https://docs.microsoft.com/dotnet/api/system.fabric.fabricexception) met [FabricErrorCode](https://docs.microsoft.com/dotnet/api/system.fabric.fabricerrorcode) `FabricHealthEntityNotFound` wordt uitgelegd waarom de entiteit niet wordt geretourneerd.
 >
 >
 
-De health-query's moeten in de entiteit-id is afhankelijk van het entiteitstype doorgeven. De query's accepteren optionele health beleidsparameters. Als er geen statusbeleid worden opgegeven, de [statusbeleid](service-fabric-health-introduction.md#health-policies) uit het cluster of application manifest worden gebruikt voor evaluatie. Als de manifesten geen definitie voor statusbeleid bevatten, worden de standaardbeleidsregels voor health gebruikt voor evaluatie. Het standaardbeleid voor health doen niet zonder fouten. De query's ook accepteren filters voor het retourneren van slechts gedeeltelijk onderliggende elementen of gebeurtenissen--de waarden die de opgegeven filters respecteren. Een ander filter kunt met uitzondering van de statistieken van de onderliggende elementen.
+De health-query's moeten in de entiteit-id, afhankelijk van het entiteitstype doorgeven. De query's accepteren optioneel health beleidsparameters. Als er geen statusbeleid zijn opgegeven, de [statusbeleid](service-fabric-health-introduction.md#health-policies) uit een manifest van het cluster of de toepassing worden gebruikt voor de evaluatie. Als de manifesten geen een definitie voor statusbeleid bevatten, worden de standaardbeleidsregels voor health gebruikt voor de evaluatie. De standaard-statusbeleid doen niet tolereren fouten. De query's ook accepteren filters voor het retourneren van slechts gedeeltelijke kinderen of gebeurtenissen--die aansluiten bij de opgegeven filters. Een ander filter kunt met uitzondering van de statistieken van de onderliggende items.
 
 > [!NOTE]
-> De uitvoerfilters worden toegepast op de server, zodat het bericht beantwoorden wordt verkleind. Het is raadzaam dat u de uitvoerfilters gebruiken om te beperken van de gegevens die zijn geretourneerd, in plaats van filters toepassen op de client.
+> De uitvoerfilters worden toegepast op de server, zodat de grootte van het bericht beantwoorden wordt verminderd. U wordt aangeraden dat u de uitvoerfilters gebruiken om te beperken van de gegevens die zijn geretourneerd, in plaats van filters toepassen op de client.
 >
 >
 
-De status van de entiteit bevat:
+Status van een entiteit bevat:
 
-* De cumulatieve status van de entiteit. Door de health store op basis van entiteit statusrapporten, onderliggende statussen (indien van toepassing) en statusbeleid wordt berekend. Lees meer over [entiteit de statusevaluatie](service-fabric-health-introduction.md#health-evaluation).  
+* De samengevoegde status van de entiteit. Door de health store op basis van de statusrapporten entiteit, onderliggende statussen (indien van toepassing) en statusbeleid wordt berekend. Meer informatie over [evalueren entiteit](service-fabric-health-introduction.md#health-evaluation).  
 * De health-gebeurtenissen voor de entiteit.
-* De verzameling van de status van alle onderliggende items voor de entiteiten die onderliggende elementen kunnen hebben. De statussen bevatten entiteit-id's en de geaggregeerde status. Als u de status voor een kind, aanroepen van de status van de query voor het entiteitstype onderliggende en in de onderliggende-id.
-* De slechte evaluaties die naar het rapport dat de status van de entiteit geactiveerd verwijzen als de entiteit is niet in orde. De beoordelingen zijn recursieve, met de onderliggende elementen health evaluaties waarmee huidige status is geactiveerd. Bijvoorbeeld, een watchdog een fout op basis van een replica gemeld. De toepassingsstatus bevat een onjuiste evaluatie vanwege een onjuiste service; de service is beschadigd vanwege een partitie in error; de partitie is beschadigd vanwege een replica in error; de replica is beschadigd vanwege het statusrapport watchdog-fout.
-* De health-statistieken voor alle typen voor onderliggende elementen van de entiteiten die onderliggende elementen hebben. Bijvoorbeeld, cluster-status toont het totale aantal toepassingen, services, partities, replica's en entiteiten in het cluster wordt geïmplementeerd. Servicestatus toont het totale aantal partities en replica's onder de opgegeven service.
+* De verzameling van statussen van alle onderliggende items voor de entiteiten die onderliggende elementen kunnen hebben. De statussen bevatten entiteit-id's en de geaggregeerde status. Als u de status voor een kind, aanroepen van de status van de query voor het type van de onderliggende entiteit en doorgeven in de onderliggende-id.
+* De evaluaties met slechte status die naar het rapport dat de status van de entiteit geactiveerd verwijzen als de entiteit niet in orde is. De beoordelingen zijn recursieve, met de health-evaluaties van kinderen waarmee huidige status is geactiveerd. Bijvoorbeeld een watchdog gerapporteerd voor een fout op basis van een replica. De status van de toepassing bevat een onjuiste evaluatie vanwege een slechte service; de service is niet in orde vanwege een partitie in de fout. de partitie heeft een slechte status vanwege een replica in een fout. de replica is niet in orde omdat het statusrapport watchdog-fout.
+* De health-statistieken voor alle onderliggende items typen van de entiteiten die onderliggende elementen hebben. Bijvoorbeeld clusterstatus toont het totale aantal toepassingen, services, partities, replica's en entiteiten in het cluster geïmplementeerd. Service health toont het totale aantal partities en replica's onder de opgegeven service.
 
-## <a name="get-cluster-health"></a>Status van de cluster ophalen
-Retourneert de status van de entiteit van het cluster en de statussen van toepassingen en de knooppunten (onderliggende elementen van het cluster) bevat. Invoer:
+## <a name="get-cluster-health"></a>Clusterstatus ophalen
+Retourneert de status van de cluster-entiteit en bevat de statussen van toepassingen en knooppunten (onderliggende items van het cluster). Invoer:
 
 * [Optioneel] Het cluster statusbeleid gebruikt voor het evalueren van de knooppunten en de Clustergebeurtenissen.
-* [Optioneel] De toepassing health beleid kaart met het statusbeleid dat wordt gebruikt voor het overschrijven van de application manifest beleidsregels.
-* [Optioneel] Filters voor gebeurtenissen, knooppunten en toepassingen die welke vermeldingen opgeeft van belang zijn en moeten worden geretourneerd in het resultaat (bijvoorbeeld alleen, fouten of waarschuwingen en fouten). Alle gebeurtenissen, knooppunten en toepassingen worden gebruikt voor het evalueren van de entiteitsstatus geaggregeerd, ongeacht het filter.
-* [Optioneel] Filter moeten worden uitgesloten van de van gezondheidsstatistieken.
-* [Optioneel] Opgenomen fabric: / System health statistieken in de health-statistieken. Alleen van toepassing wanneer de health-statistieken niet worden uitgesloten. Standaard bevatten de health-statistieken worden alleen de statistieken voor toepassingen en niet de systeemtoepassing.
+* [Optioneel] De toepassing health policy-toewijzing, met het statusbeleid dat wordt gebruikt voor het overschrijven van de application manifest beleidsregels.
+* [Optioneel] Filters voor gebeurtenissen, knooppunten en -toepassingen die welke items opgeven van belang zijn en moeten worden geretourneerd in het resultaat (bijvoorbeeld alleen, fouten of waarschuwingen en fouten). Alle gebeurtenissen, knooppunten en -toepassingen worden gebruikt om te evalueren van de entiteitsstatus samengevoegd, ongeacht het filter.
+* [Optioneel] Filteren als u wilt uitsluiten van de van gezondheidsstatistieken.
+* [Optioneel] Filter om op te nemen van fabric: / System health statistieken in de status van statistieken. Alleen van toepassing wanneer de health-statistieken niet worden uitgesloten. Standaard bevatten de health-statistieken worden alleen de statistieken voor gebruikerstoepassingen en niet de toepassing van het systeem.
 
 ### <a name="api"></a>API
-Als u het cluster health, maak een `FabricClient` en roept u de [GetClusterHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getclusterhealthasync) methode op de **HealthManager**.
+Als u de clusterstatus, maakt een `FabricClient` en roep de [GetClusterHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getclusterhealthasync) methode voor de **HealthManager**.
 
-De volgende aanroep wordt de status van het cluster:
+De volgende aanroep wordt de clusterstatus:
 
 ```csharp
 ClusterHealth clusterHealth = await fabricClient.HealthManager.GetClusterHealthAsync();
 ```
 
-De volgende code haalt de status van het cluster met behulp van een aangepaste cluster statusbeleid en filters voor knooppunten en toepassingen. Hiermee geeft u dat de health-statistieken de fabric bevatten: / statistieken van het systeem. Het maken van [ClusterHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.clusterhealthquerydescription), die de invoergegevens bevat.
+De volgende code haalt de clusterstatus met behulp van een beleid voor aangepaste cluster status en filters voor knooppunten en toepassingen. Dit geeft aan dat de health-statistieken de fabric bevatten: / statistieken van het systeem. Worden er [ClusterHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.clusterhealthquerydescription), die de invoergegevens bevat.
 
 ```csharp
 var policy = new ClusterHealthPolicy()
@@ -136,11 +136,11 @@ ClusterHealth clusterHealth = await fabricClient.HealthManager.GetClusterHealthA
 ```
 
 ### <a name="powershell"></a>PowerShell
-De cmdlet om op te halen van de status van het cluster is [Get-ServiceFabricClusterHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricclusterhealth). Eerst verbinding met het cluster met behulp van de [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) cmdlet.
+De cmdlet om op te halen van de clusterstatus is [Get-ServiceFabricClusterHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricclusterhealth). Eerst verbinding met het cluster met behulp van de [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) cmdlet.
 
-De status van het cluster is vijf knooppunten, de systeemtoepassing en fabric: / WordCount geconfigureerd zoals wordt beschreven.
+De status van het cluster is vijf knooppunten, het system-toepassing en de fabric: / WordCount geconfigureerd zoals wordt beschreven.
 
-De volgende cmdlet haalt de gezondheid van het cluster met behulp van standaard statusbeleid. De geaggregeerde status waarschuwing, omdat de fabric: / WordCount-toepassing bevindt zich in de waarschuwing. Houd er rekening mee hoe de slechte evaluaties gedetailleerde informatie bevat over de voorwaarden waarmee de geaggregeerde status is geactiveerd.
+De volgende cmdlet haalt de clusterstatus met behulp van het statusbeleid standaard. De samengevoegde status van de waarschuwing, omdat de fabric: / WordCount-toepassing is in de waarschuwing. Houd er rekening mee hoe de evaluaties met slechte status informatie bieden over de voorwaarden die de geaggregeerde status wordt geactiveerd.
 
 ```xml
 PS D:\ServiceFabric> Get-ServiceFabricClusterHealth
@@ -197,7 +197,7 @@ HealthStatistics        :
                           Application           : 0 Ok, 1 Warning, 0 Error
 ```
 
-De volgende PowerShell-cmdlet haalt de status van het cluster met een aangepaste toepassing-beleid. Deze filtert de resultaten om alleen de toepassingen en de knooppunten in de fout of waarschuwing. Als gevolg hiervan worden geen knooppunten geretourneerd, omdat ze allemaal in orde. Alleen de fabric: / WordCount-toepassing rekening wordt gehouden met het filter toepassingen. Omdat het aangepaste beleid bepaalt u moet overwegen waarschuwingen als fouten voor de fabric: / WordCount-toepassing, de toepassing wordt geëvalueerd als in de fout en is daarom het cluster.
+De volgende PowerShell-cmdlet haalt de status van het cluster met behulp van een aangepaste toepassing-beleid. Deze filtert de resultaten om alleen de toepassingen en knooppunten in een fout of waarschuwing. Als gevolg hiervan worden geen knooppunten geretourneerd, omdat ze allemaal in orde zijn. Alleen de fabric: / WordCount-toepassing rekening wordt gehouden met het filter toepassingen. Omdat het aangepaste beleid bepaalt u rekening moet houden waarschuwingen als fouten voor de fabric: / WordCount-toepassing, de toepassing zoals in de fout wordt geëvalueerd, en dus is het cluster.
 
 ```powershell
 PS D:\ServiceFabric> $appHealthPolicy = New-Object -TypeName System.Fabric.Health.ApplicationHealthPolicy
@@ -234,25 +234,25 @@ HealthEvents            : None
 ```
 
 ### <a name="rest"></a>REST
-U kunt de status van de cluster met krijgen een [GET-aanvraag](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-cluster) of een [POST-aanvraag](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-cluster-by-using-a-health-policy) die wordt beschreven in de hoofdtekst van het statusbeleid bevat.
+U krijgt de clusterstatus van het met een [GET-aanvraag](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-cluster) of een [POST-aanvraag](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-cluster-by-using-a-health-policy) die wordt beschreven in de hoofdtekst van het statusbeleid bevat.
 
-## <a name="get-node-health"></a>Ophalen van de gezondheid van knooppunt
-Retourneert de status van de entiteit van een knooppunt en de health-gebeurtenissen gemeld op het knooppunt bevat. Invoer:
+## <a name="get-node-health"></a>Knooppuntstatus ophalen
+Retourneert de status van een entiteit knooppunt en de health-gebeurtenissen gemeld op het knooppunt bevat. Invoer:
 
-* [Vereist] De knooppuntnaam waarin het knooppunt.
+* (Vereist) De naam van het knooppunt waarmee het knooppunt.
 * [Optioneel] De cluster health beleidsinstellingen gebruikt voor het evalueren van de status.
-* [Optioneel] Filters voor gebeurtenissen die aangeven welke posten van belang zijn en moeten worden geretourneerd in het resultaat (bijvoorbeeld alleen, fouten of waarschuwingen en fouten). Alle gebeurtenissen die worden gebruikt voor het evalueren van de entiteitsstatus geaggregeerd, ongeacht het filter.
+* [Optioneel] Filters voor gebeurtenissen die aangeven welke items van belang zijn en moeten worden geretourneerd in het resultaat (bijvoorbeeld alleen, fouten of waarschuwingen en fouten). Alle gebeurtenissen worden gebruikt voor het evalueren van de entiteitsstatus samengevoegd, ongeacht het filter.
 
 ### <a name="api"></a>API
-Als u het knooppunt status via de API, maakt u een `FabricClient` en roept u de [GetNodeHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getnodehealthasync) methode op de HealthManager.
+Als u de gezondheid van knooppunt via de API, maakt een `FabricClient` en roep de [GetNodeHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getnodehealthasync) methode voor de HealthManager.
 
-De volgende code wordt de status van het knooppunt voor de naam van het opgegeven knooppunt:
+De volgende code wordt de knooppuntstatus voor de naam van het opgegeven knooppunt:
 
 ```csharp
 NodeHealth nodeHealth = await fabricClient.HealthManager.GetNodeHealthAsync(nodeName);
 ```
 
-De volgende code haalt u de status van het knooppunt voor de naam van het opgegeven knooppunt en wordt doorgegeven in gebeurtenissen filteren en aangepast beleid via [NodeHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.nodehealthquerydescription):
+De volgende code wordt de knooppuntstatus voor de naam van het opgegeven knooppunt en wordt doorgegeven in de gebeurtenissen filteren en aangepaste beleid via [NodeHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.nodehealthquerydescription):
 
 ```csharp
 var queryDescription = new NodeHealthQueryDescription(nodeName)
@@ -265,8 +265,8 @@ NodeHealth nodeHealth = await fabricClient.HealthManager.GetNodeHealthAsync(quer
 ```
 
 ### <a name="powershell"></a>PowerShell
-De cmdlet om op te halen van de status van het knooppunt is [Get-ServiceFabricNodeHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricnodehealth). Eerst verbinding met het cluster met behulp van de [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) cmdlet.
-De volgende cmdlet wordt de status van het knooppunt met behulp van standaard statusbeleid opgehaald:
+De cmdlet om op te halen van de knooppuntstatus is [Get-ServiceFabricNodeHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricnodehealth). Eerst verbinding met het cluster met behulp van de [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) cmdlet.
+De volgende cmdlet wordt de knooppuntstatus opgehaald met behulp van standaard statusbeleid:
 
 ```powershell
 PS D:\ServiceFabric> Get-ServiceFabricNodeHealth _Node_1
@@ -303,26 +303,26 @@ _Node_0                     Ok
 ```
 
 ### <a name="rest"></a>REST
-U krijgt de gezondheid van knooppunt met een [GET-aanvraag](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-node) of een [POST-aanvraag](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-node-by-using-a-health-policy) die wordt beschreven in de hoofdtekst van het statusbeleid bevat.
+U krijgt de knooppuntstatus van het met een [GET-aanvraag](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-node) of een [POST-aanvraag](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-node-by-using-a-health-policy) die wordt beschreven in de hoofdtekst van het statusbeleid bevat.
 
-## <a name="get-application-health"></a>Toepassingsstatus ophalen
-Retourneert de status van een Toepassingsentiteit. De statussen van de geïmplementeerde toepassing en service onderliggende items bevat. Invoer:
+## <a name="get-application-health"></a>Status van de toepassing ophalen
+Hiermee wordt de status van een Toepassingsentiteit. De statussen van de geïmplementeerde toepassing en service onderliggende items bevat. Invoer:
 
-* [Vereist] De toepassingsnaam (URI) die de toepassing te identificeren.
-* [Optioneel] Het statusbeleid voor toepassing gebruikt voor het overschrijven van de application manifest beleidsregels.
-* [Optioneel] Filters voor gebeurtenissen, services en geïmplementeerde toepassingen die welke vermeldingen opgeeft van belang zijn en moeten worden geretourneerd in het resultaat (bijvoorbeeld alleen, fouten of waarschuwingen en fouten). Alle gebeurtenissen, services en geïmplementeerde toepassingen worden gebruikt voor het evalueren van de entiteitsstatus geaggregeerd, ongeacht het filter.
-* [Optioneel] Als u wilt uitsluiten van de health-statistieken filteren. Als niet wordt opgegeven, de statistieken health bevatten de ok, waarschuwing en fout aantal voor alle onderliggende objecten van toepassing: services, partities, replica's, geïmplementeerde toepassingen en geïmplementeerde servicepakketten.
+* (Vereist) De toepassingsnaam (URI) die de toepassing identificeert.
+* [Optioneel] Het statusbeleid voor de toepassing gebruikt voor het overschrijven van de application manifest beleidsregels.
+* [Optioneel] Filters voor gebeurtenissen, services en toepassingen die welke items opgeeft van belang zijn en moeten worden geretourneerd in het resultaat (bijvoorbeeld alleen, fouten of waarschuwingen en fouten). Alle gebeurtenissen, services en toepassingen worden gebruikt om te evalueren van de entiteitsstatus samengevoegd, ongeacht het filter.
+* [Optioneel] Als u wilt uitsluiten van de health-statistieken filteren. Als niet is opgegeven, de health-statistieken bevatten de ok, waarschuwing en het aantal fouten voor alle onderliggende items van toepassing: services, partities, replica's, geïmplementeerde toepassingen en servicepakketten wordt geïmplementeerd.
 
 ### <a name="api"></a>API
-Als u de toepassing health, maak een `FabricClient` en roept u de [GetApplicationHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getapplicationhealthasync) methode op de HealthManager.
+Als u de status van de toepassing, maak een `FabricClient` en roep de [GetApplicationHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getapplicationhealthasync) methode voor de HealthManager.
 
-De volgende code wordt de toepassingsstatus voor de opgegeven toepassingsnaam (URI):
+De volgende code wordt de status van de toepassing voor de opgegeven toepassingsnaam (URI):
 
 ```csharp
 ApplicationHealth applicationHealth = await fabricClient.HealthManager.GetApplicationHealthAsync(applicationName);
 ```
 
-De volgende code wordt de toepassingsstatus voor de opgegeven toepassingsnaam (URI), met filters en aangepaste beleidsregels opgegeven via [ApplicationHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.applicationhealthquerydescription).
+De volgende code wordt de status van de toepassing voor de opgegeven toepassingsnaam (URI), met filters en aangepaste beleidsregels die zijn opgegeven via [ApplicationHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.applicationhealthquerydescription).
 
 ```csharp
 HealthStateFilter warningAndErrors = HealthStateFilter.Error | HealthStateFilter.Warning;
@@ -351,7 +351,7 @@ ApplicationHealth applicationHealth = await fabricClient.HealthManager.GetApplic
 ```
 
 ### <a name="powershell"></a>PowerShell
-De cmdlet om op te halen van de toepassingsstatus is [Get-ServiceFabricApplicationHealth](/powershell/module/servicefabric/get-servicefabricapplicationhealth?view=azureservicefabricps). Eerst verbinding met het cluster met behulp van de [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) cmdlet.
+De cmdlet om op te halen van de status van de toepassing is [Get-ServiceFabricApplicationHealth](/powershell/module/servicefabric/get-servicefabricapplicationhealth?view=azureservicefabricps). Eerst verbinding met het cluster met behulp van de [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) cmdlet.
 
 De volgende cmdlet retourneert de status van de **fabric: / WordCount** toepassing:
 
@@ -421,7 +421,7 @@ HealthStatistics                :
                                   DeployedApplication   : 5 Ok, 0 Warning, 0 Error
 ```
 
-De volgende PowerShell-cmdlet wordt doorgegeven in een aangepast beleid. Deze filters ook onderliggende elementen en gebeurtenissen.
+De volgende PowerShell-cmdlet wordt doorgegeven in het aangepaste beleid. Deze filters ook onderliggende items en gebeurtenissen.
 
 ```powershell
 PS D:\ServiceFabric> Get-ServiceFabricApplicationHealth -ApplicationName fabric:/WordCount -ConsiderWarningAsError $true -ServicesFilter Error -EventsFilter Error -DeployedApplicationsFilter Error -ExcludeHealthStatistics
@@ -449,18 +449,18 @@ HealthEvents                    : None
 ```
 
 ### <a name="rest"></a>REST
-U krijgt toepassingsstatus met een [GET-aanvraag](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-an-application) of een [POST-aanvraag](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-an-application-by-using-an-application-health-policy) die wordt beschreven in de hoofdtekst van het statusbeleid bevat.
+U krijgt de status van de toepassing met een [GET-aanvraag](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-an-application) of een [POST-aanvraag](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-an-application-by-using-an-application-health-policy) die wordt beschreven in de hoofdtekst van het statusbeleid bevat.
 
 ## <a name="get-service-health"></a>Servicestatus ophalen
-Retourneert de status van een service-entiteit. Het bevat de statussen van de partitie. Invoer:
+Hiermee wordt de status van een service-entiteit. De statussen van de partitie bevat. Invoer:
 
-* [Vereist] De servicenaam (URI) dat de service identificeert.
-* [Optioneel] Het statusbeleid voor toepassing gebruikt voor het onderdrukken van het application manifest-beleid.
-* [Optioneel] Filters voor gebeurtenissen en partities die welke vermeldingen opgeeft van belang zijn en moeten worden geretourneerd in het resultaat (bijvoorbeeld alleen, fouten of waarschuwingen en fouten). Alle gebeurtenissen en partities worden gebruikt voor het evalueren van de entiteitsstatus geaggregeerd, ongeacht het filter.
-* [Optioneel] Filter moeten worden uitgesloten van de van gezondheidsstatistieken. Als dat niet wordt opgegeven, de statistieken van de status ok, waarschuwing, weergeven en fout tellen voor alle partities en replica's van de service.
+* (Vereist) De servicenaam (URI) dat de service identificeert.
+* [Optioneel] Het statusbeleid voor de toepassing gebruikt voor het overschrijven van het manifest beleid van toepassing.
+* [Optioneel] Filters voor gebeurtenissen en partities die welke items opgeeft van belang zijn en moeten worden geretourneerd in het resultaat (bijvoorbeeld alleen, fouten of waarschuwingen en fouten). Alle gebeurtenissen en partities worden gebruikt voor het evalueren van de entiteitsstatus samengevoegd, ongeacht het filter.
+* [Optioneel] Filteren als u wilt uitsluiten van de van gezondheidsstatistieken. Als dat niet wordt opgegeven, de statistieken van de status ok, waarschuwing, weergeven en fout telt voor alle partities en replica's van de service.
 
 ### <a name="api"></a>API
-Als u de status van de service via de API, maakt u een `FabricClient` en roept u de [GetServiceHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getservicehealthasync) methode op de HealthManager.
+Als u de status van de service via de API, maakt u een `FabricClient` en roep de [GetServiceHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getservicehealthasync) methode voor de HealthManager.
 
 Het volgende voorbeeld wordt de status van een service met de opgegeven service-naam (URI):
 
@@ -468,7 +468,7 @@ Het volgende voorbeeld wordt de status van een service met de opgegeven service-
 ServiceHealth serviceHealth = await fabricClient.HealthManager.GetServiceHealthAsync(serviceName);
 ```
 
-De volgende code haalt de servicestatus voor de opgegeven service-naam (URI), filters en aangepast beleid via geven [ServiceHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.servicehealthquerydescription):
+De volgende code verkrijgt de servicestatus voor de opgegeven servicenaam (URI), filters en via aangepaste beleid op te geven [ServiceHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.servicehealthquerydescription):
 
 ```csharp
 var queryDescription = new ServiceHealthQueryDescription(serviceName)
@@ -524,15 +524,15 @@ HealthStatistics      :
 U krijgt de status van de service met een [GET-aanvraag](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-service) of een [POST-aanvraag](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-service-by-using-a-health-policy) die wordt beschreven in de hoofdtekst van het statusbeleid bevat.
 
 ## <a name="get-partition-health"></a>Status van de partitie ophalen
-Retourneert de status van een entiteit van de partitie. De replica-statussen bevat. Invoer:
+Hiermee wordt de status van een entiteit partitie. Het bevat de replica-statussen. Invoer:
 
-* [Vereist] De partitie-ID (GUID) die de partitie identificeert.
-* [Optioneel] Het statusbeleid voor toepassing gebruikt voor het onderdrukken van het application manifest-beleid.
-* [Optioneel] Filters voor gebeurtenissen en replica's die welke vermeldingen opgeeft van belang zijn en moeten worden geretourneerd in het resultaat (bijvoorbeeld alleen, fouten of waarschuwingen en fouten). Alle gebeurtenissen en replica's worden gebruikt voor het evalueren van de entiteitsstatus geaggregeerd, ongeacht het filter.
-* [Optioneel] Filter moeten worden uitgesloten van de van gezondheidsstatistieken. Als niet wordt opgegeven, wordt de health-statistieken weergeven hoeveel replica's in ok, waarschuwing en fout statussen.
+* (Vereist) De partitie-ID (GUID) die de partitie identificeert.
+* [Optioneel] Het statusbeleid voor de toepassing gebruikt voor het overschrijven van het manifest beleid van toepassing.
+* [Optioneel] Filters voor gebeurtenissen en replica's die welke items opgeeft van belang zijn en moeten worden geretourneerd in het resultaat (bijvoorbeeld alleen, fouten of waarschuwingen en fouten). Alle gebeurtenissen en replica's worden gebruikt voor het evalueren van de entiteitsstatus samengevoegd, ongeacht het filter.
+* [Optioneel] Filteren als u wilt uitsluiten van de van gezondheidsstatistieken. Indien niet opgegeven, de health-statistieken laten zien hoeveel replica's in ok, waarschuwing en fout Staten.
 
 ### <a name="api"></a>API
-Als u de status van de partitie via de API, maakt u een `FabricClient` en roept u de [GetPartitionHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getpartitionhealthasync) methode op de HealthManager. Optionele als parameters wilt opgeven, maken [PartitionHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.partitionhealthquerydescription).
+Als u de status van de partitie via de API, maakt een `FabricClient` en roep de [GetPartitionHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getpartitionhealthasync) methode voor de HealthManager. Als u optionele parameters, maken [PartitionHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.partitionhealthquerydescription).
 
 ```csharp
 PartitionHealth partitionHealth = await fabricClient.HealthManager.GetPartitionHealthAsync(partitionId);
@@ -541,7 +541,7 @@ PartitionHealth partitionHealth = await fabricClient.HealthManager.GetPartitionH
 ### <a name="powershell"></a>PowerShell
 De cmdlet om op te halen van de status van de partitie is [Get-ServiceFabricPartitionHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricpartitionhealth). Eerst verbinding met het cluster met behulp van de [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) cmdlet.
 
-De volgende cmdlet wordt de status voor alle partities van de **fabric: / WordCount/WordCountService** -service en uitsluit replica statussen:
+De volgende cmdlet wordt de status voor alle partities van de **fabric: / WordCount/WordCountService** -service en uitgefilterd replica statussen:
 
 ```powershell
 PS D:\ServiceFabric> Get-ServiceFabricPartition fabric:/WordCount/WordCountService | Get-ServiceFabricPartitionHealth -ReplicasFilter None
@@ -613,17 +613,17 @@ HealthStatistics      :
 ```
 
 ### <a name="rest"></a>REST
-U kunt de status van de partitie met krijgen een [GET-aanvraag](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-partition) of een [POST-aanvraag](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-partition-by-using-a-health-policy) die wordt beschreven in de hoofdtekst van het statusbeleid bevat.
+U krijgt de status van de partitie met een [GET-aanvraag](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-partition) of een [POST-aanvraag](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-partition-by-using-a-health-policy) die wordt beschreven in de hoofdtekst van het statusbeleid bevat.
 
-## <a name="get-replica-health"></a>De status replica ophalen
-Retourneert de status van de replica van een stateful service of een staatloze service-exemplaar. Invoer:
+## <a name="get-replica-health"></a>Replica-status ophalen
+Hiermee wordt de status van een stateful service-replica of een stateless service-exemplaar. Invoer:
 
-* [Vereist] De partitie-ID (GUID) en de replica-ID waarmee de replica.
+* (Vereist) De partitie-ID (GUID) en de replica-ID waarmee de replica.
 * [Optioneel] De toepassing health beleidsparameters gebruikt voor het overschrijven van de application manifest beleidsregels.
-* [Optioneel] Filters voor gebeurtenissen die aangeven welke posten van belang zijn en moeten worden geretourneerd in het resultaat (bijvoorbeeld alleen, fouten of waarschuwingen en fouten). Alle gebeurtenissen die worden gebruikt voor het evalueren van de entiteitsstatus geaggregeerd, ongeacht het filter.
+* [Optioneel] Filters voor gebeurtenissen die aangeven welke items van belang zijn en moeten worden geretourneerd in het resultaat (bijvoorbeeld alleen, fouten of waarschuwingen en fouten). Alle gebeurtenissen worden gebruikt voor het evalueren van de entiteitsstatus samengevoegd, ongeacht het filter.
 
 ### <a name="api"></a>API
-Als u de status replica via de API, maakt u een `FabricClient` en roept u de [GetReplicaHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getreplicahealthasync) methode op de HealthManager. Geavanceerde als parameters wilt opgeven, gebruikt u [ReplicaHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.replicahealthquerydescription).
+Als u de status replica via de API, maakt u een `FabricClient` en roep de [GetReplicaHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getreplicahealthasync) methode voor de HealthManager. Gebruik het geavanceerde parameters opgeven [ReplicaHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.replicahealthquerydescription).
 
 ```csharp
 ReplicaHealth replicaHealth = await fabricClient.HealthManager.GetReplicaHealthAsync(partitionId, replicaId);
@@ -656,18 +656,18 @@ HealthEvents          :
 ```
 
 ### <a name="rest"></a>REST
-U krijgt de status replica met een [GET-aanvraag](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-replica) of een [POST-aanvraag](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-replica-by-using-a-health-policy) die wordt beschreven in de hoofdtekst van het statusbeleid bevat.
+U krijgt de status van de replica met een [GET-aanvraag](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-replica) of een [POST-aanvraag](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-replica-by-using-a-health-policy) die wordt beschreven in de hoofdtekst van het statusbeleid bevat.
 
 ## <a name="get-deployed-application-health"></a>Status van de geïmplementeerde toepassing ophalen
-Retourneert de status van een toepassing is geïmplementeerd op een knooppunt-entiteit. De statussen van de geïmplementeerde service-pakket bevat. Invoer:
+Hiermee wordt de status van een toepassing is geïmplementeerd op een knooppunt-entiteit. De statussen van de geïmplementeerde service-pakket bevat. Invoer:
 
-* [Vereist] De toepassingsnaam (URI) en de knooppuntnaam (tekenreeks) waarmee de geïmplementeerde toepassing worden geïdentificeerd.
-* [Optioneel] Het statusbeleid voor toepassing gebruikt voor het overschrijven van de application manifest beleidsregels.
-* [Optioneel] Filters voor gebeurtenissen en geïmplementeerde servicepakketten die welke vermeldingen opgeeft van belang zijn en moeten worden geretourneerd in het resultaat (bijvoorbeeld alleen, fouten of waarschuwingen en fouten). Alle gebeurtenissen en geïmplementeerde servicepakketten worden gebruikt voor het evalueren van de entiteitsstatus geaggregeerd, ongeacht het filter.
-* [Optioneel] Filter moeten worden uitgesloten van de van gezondheidsstatistieken. Als niet wordt opgegeven, weergeven de statistieken van de gezondheid van het aantal geïmplementeerde servicepakketten in de status ok, waarschuwing en fout.
+* (Vereist) De toepassingsnaam (URI) en een naam van het knooppunt (tekenreeks) waarmee de geïmplementeerde toepassing.
+* [Optioneel] Het statusbeleid voor de toepassing gebruikt voor het overschrijven van de application manifest beleidsregels.
+* [Optioneel] Filters voor gebeurtenissen en geïmplementeerde servicepakketten die welke items opgeeft van belang zijn en moeten worden geretourneerd in het resultaat (bijvoorbeeld alleen, fouten of waarschuwingen en fouten). Alle gebeurtenissen en geïmplementeerde servicepakketten worden gebruikt voor het evalueren van de entiteitsstatus samengevoegd, ongeacht het filter.
+* [Optioneel] Filteren als u wilt uitsluiten van de van gezondheidsstatistieken. Indien niet opgegeven, wordt in de health-statistieken het aantal geïmplementeerde servicepakketten in ok, waarschuwing en fout statussen weergeven.
 
 ### <a name="api"></a>API
-Als u de status van een toepassing is geïmplementeerd op een knooppunt via de API, maakt u een `FabricClient` en roept u de [GetDeployedApplicationHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getdeployedapplicationhealthasync) methode op de HealthManager. Gebruik het optionele parameters opgeven [DeployedApplicationHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.deployedapplicationhealthquerydescription).
+Als u de status van een toepassing is geïmplementeerd op een knooppunt via de API, maakt u een `FabricClient` en roep de [GetDeployedApplicationHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getdeployedapplicationhealthasync) methode voor de HealthManager. Gebruik het optionele parameters opgeven [DeployedApplicationHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.deployedapplicationhealthquerydescription).
 
 ```csharp
 DeployedApplicationHealth health = await fabricClient.HealthManager.GetDeployedApplicationHealthAsync(
@@ -675,9 +675,9 @@ DeployedApplicationHealth health = await fabricClient.HealthManager.GetDeployedA
 ```
 
 ### <a name="powershell"></a>PowerShell
-De cmdlet om op te halen van de status geïmplementeerde toepassing is [Get-ServiceFabricDeployedApplicationHealth](/powershell/module/servicefabric/get-servicefabricdeployedapplicationhealth?view=azureservicefabricps). Eerst verbinding met het cluster met behulp van de [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) cmdlet. Uitvoeren als u wilt weten waar een toepassing wordt geïmplementeerd, [Get-ServiceFabricApplicationHealth](/powershell/module/servicefabric/get-servicefabricapplicationhealth?view=azureservicefabricps) en kijk in de geïmplementeerde toepassing onderliggende elementen.
+De cmdlet om op te halen van de status van de geïmplementeerde toepassing is [Get-ServiceFabricDeployedApplicationHealth](/powershell/module/servicefabric/get-servicefabricdeployedapplicationhealth?view=azureservicefabricps). Eerst verbinding met het cluster met behulp van de [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) cmdlet. Als u wilt weten waar een toepassing wordt geïmplementeerd, worden uitgevoerd [Get-ServiceFabricApplicationHealth](/powershell/module/servicefabric/get-servicefabricapplicationhealth?view=azureservicefabricps) en kijken naar de geïmplementeerde toepassing onderliggende objecten.
 
-De volgende cmdlet wordt de status van de **fabric: / WordCount** toepassing geïmplementeerd op **_Node_2**.
+De volgende cmdlet wordt de status van de **fabric: / WordCount** toepassing die is geïmplementeerd op **_Node_2**.
 
 ```powershell
 PS D:\ServiceFabric> Get-ServiceFabricDeployedApplicationHealth -ApplicationName fabric:/WordCount -NodeName _Node_0
@@ -715,17 +715,17 @@ HealthStatistics                   :
 ```
 
 ### <a name="rest"></a>REST
-U krijgt de status geïmplementeerde toepassing met een [GET-aanvraag](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-deployed-application) of een [POST-aanvraag](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-deployed-application-by-using-a-health-policy) die wordt beschreven in de hoofdtekst van het statusbeleid bevat.
+U krijgt de status van de geïmplementeerde toepassing met een [GET-aanvraag](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-deployed-application) of een [POST-aanvraag](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-deployed-application-by-using-a-health-policy) die wordt beschreven in de hoofdtekst van het statusbeleid bevat.
 
-## <a name="get-deployed-service-package-health"></a>Status van geïmplementeerde service pakket ophalen
-Retourneert de status van een geïmplementeerde service pakket entiteit. Invoer:
+## <a name="get-deployed-service-package-health"></a>Pakket van geïmplementeerde servicestatus ophalen
+Hiermee wordt de status van een geïmplementeerde service package-entiteit. Invoer:
 
-* [Vereist] De toepassingsnaam (URI), knooppuntnaam (tekenreeks) en manifest servicenaam (tekenreeks) die het pakket geïmplementeerde service identificeren.
-* [Optioneel] Het statusbeleid voor toepassing gebruikt voor het onderdrukken van het application manifest-beleid.
-* [Optioneel] Filters voor gebeurtenissen die aangeven welke posten van belang zijn en moeten worden geretourneerd in het resultaat (bijvoorbeeld alleen, fouten of waarschuwingen en fouten). Alle gebeurtenissen die worden gebruikt voor het evalueren van de entiteitsstatus geaggregeerd, ongeacht het filter.
+* (Vereist) De toepassingsnaam (URI), de naam van het knooppunt (tekenreeks) en de service manifest van de naam (tekenreeks) die het pakket geïmplementeerde service identificeren.
+* [Optioneel] Het statusbeleid voor de toepassing gebruikt voor het overschrijven van het manifest beleid van toepassing.
+* [Optioneel] Filters voor gebeurtenissen die aangeven welke items van belang zijn en moeten worden geretourneerd in het resultaat (bijvoorbeeld alleen, fouten of waarschuwingen en fouten). Alle gebeurtenissen worden gebruikt voor het evalueren van de entiteitsstatus samengevoegd, ongeacht het filter.
 
 ### <a name="api"></a>API
-Als u de status van een geïmplementeerde service-pakket via de API, maakt u een `FabricClient` en roept u de [GetDeployedServicePackageHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getdeployedservicepackagehealthasync) methode op de HealthManager. Gebruik het optionele parameters opgeven [DeployedServicePackageHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.deployedservicepackagehealthquerydescription).
+Als u de status van een geïmplementeerde service-pakket via de API, maakt u een `FabricClient` en roep de [GetDeployedServicePackageHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getdeployedservicepackagehealthasync) methode voor de HealthManager. Gebruik het optionele parameters opgeven [DeployedServicePackageHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.deployedservicepackagehealthquerydescription).
 
 ```csharp
 DeployedServicePackageHealth health = await fabricClient.HealthManager.GetDeployedServicePackageHealthAsync(
@@ -733,9 +733,9 @@ DeployedServicePackageHealth health = await fabricClient.HealthManager.GetDeploy
 ```
 
 ### <a name="powershell"></a>PowerShell
-De cmdlet om op te halen van de status geïmplementeerde service-pakket is [Get-ServiceFabricDeployedServicePackageHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricdeployedservicepackagehealth). Eerst verbinding met het cluster met behulp van de [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) cmdlet. Als u wilt zien waar een toepassing wordt geïmplementeerd, [Get-ServiceFabricApplicationHealth](/powershell/module/servicefabric/get-servicefabricapplicationhealth?view=azureservicefabricps) en kijk in de geïmplementeerde toepassingen. Als u wilt zien welke service pakketten in een toepassing zijn, kijken naar de onderliggende geïmplementeerde service pakket in de [Get-ServiceFabricDeployedApplicationHealth](/powershell/module/servicefabric/get-servicefabricdeployedapplicationhealth?view=azureservicefabricps) uitvoer.
+De cmdlet om op te halen van de status geïmplementeerde service-pakket is [Get-ServiceFabricDeployedServicePackageHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricdeployedservicepackagehealth). Eerst verbinding met het cluster met behulp van de [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) cmdlet. Als u wilt zien waarop een toepassing wordt geïmplementeerd, [Get-ServiceFabricApplicationHealth](/powershell/module/servicefabric/get-servicefabricapplicationhealth?view=azureservicefabricps) en kijken naar de geïmplementeerde toepassingen. Als u wilt zien welke service-pakketten in een toepassing zijn, kijken naar de geïmplementeerde service pakket onderliggende objecten in de [Get-ServiceFabricDeployedApplicationHealth](/powershell/module/servicefabric/get-servicefabricdeployedapplicationhealth?view=azureservicefabricps) uitvoer.
 
-De volgende cmdlet wordt de status van de **WordCountServicePkg** servicepakket van de **fabric: / WordCount** toepassing geïmplementeerd op **_Node_2**. De entiteit heeft **System.Hosting** rapporten voor geslaagde pakket service en ingangspunt activering en succesvolle registratie van het type van de service.
+De volgende cmdlet wordt de status van de **WordCountServicePkg** servicepakket van de **fabric: / WordCount** toepassing die is geïmplementeerd op **_Node_2**. De entiteit heeft **System.Hosting** rapporten voor service-pakket en invoerpunt voor activeren is gelukt en succesvolle registratie van het type van de service.
 
 ```powershell
 PS D:\ServiceFabric> Get-ServiceFabricDeployedApplication -ApplicationName fabric:/WordCount -NodeName _Node_2 | Get-ServiceFabricDeployedServicePackageHealth -ServiceManifestName WordCountServicePkg
@@ -785,44 +785,44 @@ HealthEvents               :
 ```
 
 ### <a name="rest"></a>REST
-U kunt de status van de geïmplementeerde service pakket met krijgen een [GET-aanvraag](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-service-package) of een [POST-aanvraag](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-service-package-by-using-a-health-policy) die wordt beschreven in de hoofdtekst van het statusbeleid bevat.
+U krijgt een geïmplementeerde service pakket health gebruiken met een [GET-aanvraag](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-service-package) of een [POST-aanvraag](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-service-package-by-using-a-health-policy) die wordt beschreven in de hoofdtekst van het statusbeleid bevat.
 
-## <a name="health-chunk-queries"></a>Health chunk query 's
-Cluster met meerdere niveaus van kinderen (recursief) per invoer filters kunnen worden geretourneerd door de chunk statusquery's. Biedt ondersteuning voor geavanceerde filters waarmee een grote flexibiliteit bij het kiezen van de onderliggende items moeten worden geretourneerd. De filters kunnen onderliggende items opgeven door de unieke id of door andere groeps-id's en/of de statussen. Geen onderliggende elementen zijn standaard opgenomen in plaats van de health-opdrachten die altijd eerste niveau onderliggende elementen bevatten.
+## <a name="health-chunk-queries"></a>Query's van de gezondheid van segment
+Het segment statusquery's kunnen meerdere niveaus cluster kinderen (recursief), per invoer filters retourneren. Deze biedt ondersteuning voor geavanceerde filters waarmee u veel flexibiliteit bij het kiezen van de onderliggende objecten moeten worden geretourneerd. De filters kunnen onderliggende items door de unieke id of door andere groeps-id's en/of de statussen opgeven. Standaard zijn geen onderliggende items opgenomen, in plaats van health-opdrachten die altijd eerste niveau onderliggende elementen bevatten.
 
-De [statusquery's](service-fabric-view-entities-aggregated-health.md#health-queries) alleen eerste niveau onderliggende elementen van de opgegeven entiteit per vereist filters retourneren. Als u de onderliggende leden van de onderliggende elementen, moet u extra health API's voor elke entiteit van belang aanroepen. Op dezelfde manier als u de status van specifieke entiteiten, moet u voor elke gewenste entiteit één health API aanroepen. Chunk kunt geavanceerde filteren u de query voor het aanvragen van meerdere items in een query, de grootte van het bericht en het aantal berichten voor het minimaliseren van belang.
+De [statusquery's](service-fabric-view-entities-aggregated-health.md#health-queries) alleen onderliggende eerste niveau van de opgegeven entiteit per vereist filters retourneren. Als u de onderliggende objecten van de onderliggende objecten, moet u extra health API's aanroepen voor elke entiteit die van belang zijn. Op dezelfde manier als u de status van specifieke entiteiten, moet u een status-API aanroepen voor elke gewenste entiteit. Chunk kunt Geavanceerd filteren u de query om aan te vragen van meerdere items in één query, het minimaliseren van de grootte van het bericht en het aantal berichten van belang.
 
-De waarde van de query chunk is dat u de status voor meer cluster entiteiten (mogelijk alle cluster entiteiten starten in de hoofdmap van de vereiste) kunt krijgen in één aanroep. U kunt de gezondheid van complexe query zoals express:
+De waarde van de query segment, is dat u de status voor meer cluster entiteiten (mogelijk alle cluster entiteiten vanaf vereist hoofdmap) in één aanroep. U kunt de gezondheid van complexe query zoals express:
 
-* Retour alleen toepassingen in de fout en voor die toepassingen bevatten alle services in waarschuwing of fout. Voor de geretourneerde services omvatten alle partities.
-* Alleen de status van de opgegeven door de namen van de vier toepassingen retourneren.
-* Retourneert alleen de status van toepassingen van een type van de gewenste toepassing.
-* Retourneert alle geïmplementeerde entiteiten op een knooppunt. Retourneert alle toepassingen, alle toepassingen op het opgegeven knooppunt en alle geïmplementeerde servicepakketten op dat knooppunt geïmplementeerd.
+* Alleen toepassingen met geretourneerde fout, en voor deze toepassingen zijn alle services in waarschuwing of fout. Neem alle partities voor de geretourneerde services.
+* Retourneert alleen de status van de vier toepassingen, die zijn opgegeven met hun namen.
+* Retourneert alleen de status van toepassingen van een toepassingstype van de gewenste.
+* Alle geïmplementeerde entiteiten op een knooppunt retourneren. Alle toepassingen, retourneert alle toepassingen op het opgegeven knooppunt en alle geïmplementeerde servicepakketten op dat knooppunt geïmplementeerd.
 * Alle replica's in een fout geretourneerd. Retourneert alle toepassingen, services, partities en alleen replica's in de fout.
-* Retourneren van alle toepassingen. Voor een opgegeven service omvatten alle partities.
+* Retourneren van alle toepassingen. Neem alle partities voor een opgegeven service.
 
-Op dit moment wordt de status chunk query blootgesteld alleen voor de entiteit van het cluster. Een cluster health chunk, waarin wordt:
+De status chunk query wordt op dit moment blootgesteld alleen voor de cluster-entiteit. Het resultaat een cluster health segment, die bevat:
 
-* De status van het cluster geaggregeerd.
-* De health status chunk lijst met knooppunten die fungeren als invoer filters respecteren.
-* De health status chunk lijst met toepassingen die invoer filters respecteren. Elk segment application health-status bevat een lijst chunk met alle services die invoer filters en een chunk-lijst met alle geïmplementeerde toepassingen die de filters respecteren respecteren. Hetzelfde voor de onderliggende elementen van services en geïmplementeerde toepassingen. Op deze manier alle entiteiten in het cluster kunnen worden mogelijk geretourneerd als in een hiërarchische aangevraagd.
+* De status van de cluster geaggregeerd.
+* De status status chunk lijst met knooppunten die aansluiten bij invoer filters.
+* De status status chunk lijst met toepassingen die aansluiten bij invoer filters. Elk segment application health status bevat een lijst segment met alle services die aansluiten bij invoer filters en een chunk-lijst met alle geïmplementeerde toepassingen die aansluiten bij de filters. Hetzelfde voor de onderliggende objecten van services en toepassingen. Op deze manier alle entiteiten in het cluster kunnen worden mogelijk geretourneerd als in een hiërarchische manier aangevraagd.
 
 ### <a name="cluster-health-chunk-query"></a>Cluster health chunk query
-Retourneert de status van de entiteit van het cluster en de hiërarchische health status segmenten van vereiste onderliggende items bevat. Invoer:
+De status van de cluster-entiteit retourneert en de hiërarchische health state segmenten van vereiste onderliggende items bevat. Invoer:
 
 * [Optioneel] Het cluster statusbeleid gebruikt voor het evalueren van de knooppunten en de Clustergebeurtenissen.
-* [Optioneel] De toepassing health beleid kaart met het statusbeleid dat wordt gebruikt voor het overschrijven van de application manifest beleidsregels.
-* [Optioneel] Filters voor knooppunten en toepassingen die welke vermeldingen opgeeft van belang zijn en moeten worden geretourneerd in het resultaat. De filters zijn specifiek voor een entiteit of de groep van entiteiten of zijn van toepassing op alle entiteiten op dat niveau. De lijst met filters kan bevatten één algemene filter en/of filters voor specifieke id's voor fijnmazige entiteiten die door de query zijn geretourneerd. Als u niets opgeeft, worden de onderliggende elementen niet standaard geretourneerd.
-  Meer informatie over de filters op [NodeHealthStateFilter](https://docs.microsoft.com/dotnet/api/system.fabric.health.nodehealthstatefilter) en [ApplicationHealthStateFilter](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthstatefilter). De toepassing filters kunnen recursief geavanceerde filters voor kinderen opgeven.
+* [Optioneel] De toepassing health policy-toewijzing, met het statusbeleid dat wordt gebruikt voor het overschrijven van de application manifest beleidsregels.
+* [Optioneel] Filters voor knooppunten en -toepassingen die welke items opgeven van belang zijn en moeten worden geretourneerd in het resultaat. De filters zijn specifiek voor een entiteitsgroep van entiteiten of zijn van toepassing op alle entiteiten op dat niveau. De lijst met filters kan bevatten een algemeen filter-en/of filters voor specifieke id's voor gebruikerssegmentatie entiteiten geretourneerd door de query. Als dit leeg is, worden de onderliggende objecten niet standaard geretourneerd.
+  Meer informatie over de filters [NodeHealthStateFilter](https://docs.microsoft.com/dotnet/api/system.fabric.health.nodehealthstatefilter) en [ApplicationHealthStateFilter](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthstatefilter). De toepassing filters kunnen recursief geavanceerde filters opgeven voor kinderen.
 
-Het resultaat van het segment bevat de onderliggende items waarvan de filters respecteren.
+Het resultaat van het segment bevat de onderliggende objecten die aansluiten bij de filters.
 
-De query chunk levert op dit moment geen slechte evaluaties of entiteit gebeurtenissen. Deze extra informatie kan worden verkregen met behulp van de bestaande query van de cluster-status.
+Op dit moment retourneert de segment-query geen evaluaties met slechte status of entiteit gebeurtenissen. Deze extra gegevens kan worden verkregen met behulp van het bestaande cluster health query.
 
 ### <a name="api"></a>API
-Als u het cluster health chunk, maakt een `FabricClient` en roept u de [GetClusterHealthChunkAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getclusterhealthchunkasync) methode op de **HealthManager**. U kunt doorgeven [ClusterHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.clusterhealthchunkquerydescription) te beschrijven statusbeleid en geavanceerde filters.
+Als u de cluster health segment, maken een `FabricClient` en roep de [GetClusterHealthChunkAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getclusterhealthchunkasync) methode voor de **HealthManager**. U kunt doorgeven [ClusterHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.clusterhealthchunkquerydescription) om te beschrijven van statusbeleid en geavanceerde filters.
 
-De volgende code haalt cluster health chunk met geavanceerde filters.
+De volgende code verkrijgt cluster health segment met geavanceerde filters.
 
 ```csharp
 var queryDescription = new ClusterHealthChunkQueryDescription();
@@ -866,9 +866,9 @@ var result = await fabricClient.HealthManager.GetClusterHealthChunkAsync(queryDe
 ```
 
 ### <a name="powershell"></a>PowerShell
-De cmdlet om op te halen van de status van het cluster is [Get-ServiceFabricClusterChunkHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricclusterhealthchunk). Eerst verbinding met het cluster met behulp van de [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) cmdlet.
+De cmdlet om op te halen van de clusterstatus is [Get-ServiceFabricClusterChunkHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricclusterhealthchunk). Eerst verbinding met het cluster met behulp van de [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) cmdlet.
 
-De volgende code haalt knooppunten alleen als deze fout, met uitzondering van een specifiek knooppunt dat moet altijd worden geretourneerd.
+De volgende code verkrijgt knooppunten alleen als deze fout, met uitzondering van een bepaald knooppunt zijn, moet altijd worden geretourneerd.
 
 ```xml
 PS D:\ServiceFabric> $errorFilter = [System.Fabric.Health.HealthStateFilter]::Error;
@@ -894,7 +894,7 @@ NodeHealthStateChunks        :
 ApplicationHealthStateChunks : None
 ```
 
-De volgende cmdlet haalt cluster chunk met toepassingsfilters.
+De volgende cmdlet haalt cluster segment met toepassingsfilters.
 
 ```xml
 PS D:\ServiceFabric> $errorFilter = [System.Fabric.Health.HealthStateFilter]::Error;
@@ -1016,56 +1016,56 @@ ApplicationHealthStateChunks :
 ```
 
 ### <a name="rest"></a>REST
-U krijgt cluster health chunk gevonden met een [GET-aanvraag](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-cluster-using-health-chunks) of een [POST-aanvraag](https://docs.microsoft.com/rest/api/servicefabric/health-of-cluster) die statusbeleid en geavanceerde filters wordt beschreven in de hoofdtekst bevat.
+U krijgt cluster health segment met een [GET-aanvraag](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-cluster-using-health-chunks) of een [POST-aanvraag](https://docs.microsoft.com/rest/api/servicefabric/health-of-cluster) die statusbeleid en geavanceerde filters die worden beschreven in de hoofdtekst bevat.
 
 ## <a name="general-queries"></a>Algemene query 's
-Algemene query's retourneren een lijst met Service Fabric-entiteiten van een bepaald type. Ze beschikbaar worden gesteld via de API (via de methoden op **FabricClient.QueryManager**), PowerShell-cmdlets en REST. Deze query's samenvoegen subquery's uit meerdere onderdelen. Een ervan de [health store](service-fabric-health-introduction.md#health-store), die de geaggregeerde status voor elke queryresultaat wordt gevuld.  
+Algemene query's retourneren een lijst met Service Fabric-entiteiten van een bepaald type. Ze worden weergegeven via de API (via de methoden op **FabricClient.QueryManager**), PowerShell-cmdlets en REST. Deze query's samenvoegen subquery's uit meerdere onderdelen. Een van beide is de [health store](service-fabric-health-introduction.md#health-store), die de cumulatieve status van het resultaat van elke query wordt gevuld.  
 
 > [!NOTE]
-> Algemene query's terug van de cumulatieve status van de entiteit en bevatten geen uitgebreide statusgegevens. Als u een entiteit is niet in orde, kunt u met statusquery's voor alle de health-informatie, zoals gebeurtenissen, onderliggende statussen en slecht evaluaties opvolgen.
+> Algemene query's retourneren van de cumulatieve status van de entiteit en hebben geen uitgebreide statusgegevens. Als een entiteit niet in orde is, kunt u zich kunt opvolgen met statusquery's om op te halen van alle de health-informatie, met inbegrip van gebeurtenissen, statussen van de onderliggende en evaluaties met slechte status.
 >
 >
 
-Als algemene query's een onbekende status voor een entiteit retourneren, is het mogelijk dat de health store geen volledige gegevens over de entiteit. Het is ook mogelijk dat een subquery naar de health store niet geslaagd is (bijvoorbeeld: Er is een communicatiefout opgetreden of de health store is beperkt). Opvolgen met een status-query voor de entiteit. Als de subquery tijdelijke fouten, zoals netwerkproblemen aangetroffen, kan deze vervolgzelfstudie query slagen. Ook kan geven u meer informatie uit de store health over waarom de entiteit is niet beschikbaar gemaakt.
+Als algemene query's een onbekende status voor een entiteit retourneren, is het mogelijk dat de health store geen volledige gegevens over de entiteit. Het is ook mogelijk dat een subquery naar de health store niet geslaagd is (bijvoorbeeld, er is een communicatiefout is opgetreden of het statusarchief wordt beperkt). Contact opnemen met een status-query voor de entiteit. Als de subquery tijdelijke fouten, zoals netwerkproblemen aangetroffen, wordt deze follow-up query mogelijk wel. Ook kan geven u meer details in health store over waarom de entiteit is niet beschikbaar gemaakt.
 
 De query's met **HealthState** voor entiteiten zijn:
 
-* Lijst met knooppunten: de lijst met knooppunten in het cluster (wisselbare) retourneert.
+* Knooppuntenlijst: retourneert de lijst met knooppunten in het cluster (wisselbaar geheugen:).
   * API: [FabricClient.QueryClient.GetNodeListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getnodelistasync)
   * PowerShell: Get-ServiceFabricNode
-* Lijst met toepassingen: de lijst met toepassingen in het cluster (wisselbare) retourneert.
+* Lijst met toepassingen: retourneert de lijst met toepassingen in het cluster (wisselbaar geheugen:).
   * API: [FabricClient.QueryClient.GetApplicationListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getapplicationlistasync)
   * PowerShell: Get-ServiceFabricApplication
-* De lijst service: de lijst met services in een toepassing (wisselbare) retourneert.
+* Lijst met Services: retourneert de lijst met services in een toepassing (wisselbaar geheugen:).
   * API: [FabricClient.QueryClient.GetServiceListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getservicelistasync)
   * PowerShell: Get-ServiceFabricService
-* Lijst met partitie: de lijst met partities in een service (wisselbare) retourneert.
+* Partitielijst: retourneert de lijst met partities in een service (wisselbaar geheugen:).
   * API: [FabricClient.QueryClient.GetPartitionListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getpartitionlistasync)
   * PowerShell: Get-ServiceFabricPartition
-* Lijst met replica's: de lijst met replica's in een partitie (wisselbare) retourneert.
+* Lijst met replica's: retourneert de lijst met replica's in een partitie (wisselbaar geheugen:).
   * API: [FabricClient.QueryClient.GetReplicaListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getreplicalistasync)
   * PowerShell: Get-ServiceFabricReplica
-* Lijst met toepassingen geïmplementeerd: de lijst met geïmplementeerde toepassingen op een knooppunt retourneert.
+* Lijst met toepassingen geïmplementeerd: retourneert de lijst met geïmplementeerde toepassingen op een knooppunt.
   * API: [FabricClient.QueryClient.GetDeployedApplicationListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getdeployedapplicationlistasync)
   * PowerShell: Get-ServiceFabricDeployedApplication
-* De lijst van de service-pakket wordt geïmplementeerd: retourneert de lijst met servicepakketten in een geïmplementeerde toepassing.
+* De lijst van de service-pakket wordt geïmplementeerd: retourneert de lijst met service-pakketten in een geïmplementeerde toepassing.
   * API: [FabricClient.QueryClient.GetDeployedServicePackageListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getdeployedservicepackagelistasync)
   * PowerShell: Get-ServiceFabricDeployedApplication
 
 > [!NOTE]
-> Sommige van de query's wisselbare resultaten geretourneerd. Het retourtype van deze query's is een lijst die is afgeleid van [PagedList<T>](https://docs.microsoft.com/dotnet/api/system.fabric.query.pagedlist-1). Als de resultaten een bericht niet past alleen een pagina wordt geretourneerd en een ContinuationToken die houdt waarin de opsomming is gestopt. Aanroepen van dezelfde query- en in het vervolgtoken uit de vorige query ophalen van de volgende resultaten blijven.
+> Sommige van de query's retourneren pagina's met zoekresultaten. Het rendement van deze query's is een lijst die is afgeleid van [PagedList<T>](https://docs.microsoft.com/dotnet/api/system.fabric.query.pagedlist-1). Als de resultaten niet zijn voor een bericht geschikt, wordt alleen een pagina wordt geretourneerd en wordt een ContinuationToken die worden bijgehouden waar opsomming is gestopt. Doorgaan met het aanroepen van dezelfde query en van de eerdere query voor het ophalen van de volgende resultaten in het vervolgtoken dat wordt doorgegeven.
 >
 >
 
 ### <a name="examples"></a>Voorbeelden
-De volgende code haalt de slechte toepassingen in het cluster:
+De volgende code wordt de beschadigde toepassingen in het cluster:
 
 ```csharp
 var applications = fabricClient.QueryManager.GetApplicationListAsync().Result.Where(
   app => app.HealthState == HealthState.Error);
 ```
 
-De volgende cmdlet haalt de toepassingsgegevens voor de fabric: / WordCount-toepassing. U ziet dat de status op de waarschuwing.
+De volgende cmdlet haalt de Toepassingdetails voor de fabric: / WordCount-toepassing. U ziet dat de status bij waarschuwing is.
 
 ```powershell
 PS C:\> Get-ServiceFabricApplication -ApplicationName fabric:/WordCount
@@ -1085,7 +1085,7 @@ ApplicationParameters  : { "WordCountWebService_InstanceCount" = "1";
                          [ProcessId] -tid [ThreadId]","EnvironmentBlock":"_NO_DEBUG_HEAP=1\u0000"}]" }
 ```
 
-De volgende cmdlet wordt opgehaald van de services met een status van de fout:
+De volgende cmdlet haalt de services met een status van de fout:
 
 ```powershell
 PS D:\ServiceFabric> Get-ServiceFabricApplication | Get-ServiceFabricService | where {$_.HealthState -eq "Error"}
@@ -1101,14 +1101,14 @@ ServiceStatus          : Active
 HealthState            : Error
 ```
 
-## <a name="cluster-and-application-upgrades"></a>Cluster en de toepassing upgrades
-Tijdens een bewaakte upgrade van het cluster en de toepassing controleert Service Fabric health om ervoor te zorgen dat alles in orde blijft. Als een entiteit niet in orde is als geëvalueerd met behulp van de geconfigureerde statusbeleid, geldt de upgrade upgrade-specifiek beleid om te bepalen van de volgende actie. De upgrade kan worden onderbroken zodat gebruikersinteractie (zoals de vaststelling van de fout of wijzigen van beleid) of het mogelijk automatisch terugkeren naar de vorige versie goed.
+## <a name="cluster-and-application-upgrades"></a>Upgrades van cluster en de toepassing
+Tijdens een bewaakte upgrade van het cluster en de toepassing controleert Service Fabric health om ervoor te zorgen dat alles in orde blijft. Als een entiteit niet in orde is als geëvalueerd met behulp van de geconfigureerde statusbeleid, is de upgrade upgrade-specifiek beleid om te bepalen van de volgende actie van toepassing. De upgrade kan worden onderbroken als u wilt toestaan dat tussenkomst van de gebruiker (zoals de vaststelling van de fout of wijzigen van beleid) of deze mogelijk automatisch terugkeren naar de vorige versie van de goede.
 
-Tijdens een *cluster* bijwerkt, krijgt u de upgradestatus van het cluster. De upgradestatus omvat slecht evaluaties die verwijzen naar wat is er niet in orde in het cluster. Als de upgrade is teruggedraaid vanwege statusproblemen met de, onthoudt de upgradestatus van de laatste slecht redenen. Deze informatie kunt beheerders onderzoeken wat er mis ging nadat de upgrade is teruggedraaid of gestopt.
+Tijdens een *cluster* upgrade, krijgt u de upgradestatus van het cluster. De status van de upgrade bevat evaluaties met slechte status, die verwijzen naar wat in het cluster niet in orde is. Als de upgrade is teruggedraaid vanwege problemen met de status, onthoudt de upgradestatus weer de laatste redenen niet in orde. Deze informatie kan helpen beheerders onderzoeken wat er mis ging nadat de upgrade is teruggedraaid of gestopt.
 
-Op deze manier tijdens een *toepassing* bijwerkt, alle slechte beoordelingen zijn opgenomen in de upgradestatus van toepassing.
+Op deze manier tijdens een *toepassing* upgrade, alle evaluaties met slechte status zijn opgenomen in de upgradestatus van toepassing.
 
-Hieronder vindt u de status van de toepassing bijwerken voor een gewijzigde fabric: / WordCount-toepassing. Een watchdog heeft een fout gerapporteerd op een van de replica's. De upgrade is rolling omdat de statuscontroles niet worden nageleefd.
+Hieronder ziet u de status van de toepassing bijwerken voor een gewijzigde fabric: / WordCount-toepassing. Een watchdog heeft een fout gerapporteerd op een van de replica's. De upgrade is beschikbaar omdat de statuscontroles niet worden nageleefd.
 
 ```powershell
 PS C:\> Get-ServiceFabricApplicationUpgrade fabric:/WordCount
@@ -1162,12 +1162,12 @@ ForceRestart                  : False
 UpgradeReplicaSetCheckTimeout : 00:15:00
 ```
 
-Meer informatie over de [upgrade van de Service Fabric-toepassing](service-fabric-application-upgrade.md).
+Meer informatie over de [Service Fabric-toepassingsupgrade](service-fabric-application-upgrade.md).
 
 ## <a name="use-health-evaluations-to-troubleshoot"></a>Gebruik health evaluaties om op te lossen
-Wanneer er een probleem met het cluster of een toepassing wordt gebruikt, bekijkt u de status van het cluster of de toepassing te achterhalen wat is het probleem. De slechte evaluaties bieden informatie over wat de huidige slecht geactiveerd. Als u wilt, kunt u inzoomen op beschadigde onderliggende entiteiten voor het identificeren van de hoofdoorzaak te achterhalen.
+Wanneer er een probleem met het cluster of een toepassing is, bekijkt u de status van het cluster of de toepassing naar wat er mis is met deze functie. De evaluaties met slechte status vindt u informatie over wat de huidige status niet in orde geactiveerd. Als u wilt, kunt u zich kunt inzoomen op beschadigde onderliggende entiteiten om te identificeren van de hoofdoorzaak te achterhalen.
 
-Neem bijvoorbeeld een toepassing slecht omdat er een foutenrapport op een van de replica's. De volgende Powershell-cmdlet ziet u de slechte evaluaties:
+Neem bijvoorbeeld een toepassing niet in orde omdat er een foutenrapport op een van de replica's. De volgende Powershell-cmdlet ziet u de evaluaties met slechte status:
 
 ```powershell
 PS D:\ServiceFabric> Get-ServiceFabricApplicationHealth fabric:/WordCount -EventsFilter None -ServicesFilter None -DeployedApplicationsFilter None -ExcludeHealthStatistics
@@ -1234,17 +1234,17 @@ HealthEvents          :
 ```
 
 > [!NOTE]
-> De slechte evaluaties weergeven in dat de eerste reden de entiteit wordt geëvalueerd naar de huidige status. Mogelijk zijn er meerdere andere gebeurtenissen die deze status activeren, maar ze niet zijn doorgevoerd bij de evaluatie. Voor meer informatie, Inzoomen op de health-entiteiten om alle slechte rapporten in het cluster te achterhalen.
+> De evaluaties met slechte status weergegeven in dat de eerste reden de entiteit wordt geëvalueerd aan de huidige status. Mogelijk zijn er meerdere andere gebeurtenissen die deze status activeren, maar ze worden niet weergegeven in de evaluaties. Voor meer informatie, Inzoomen op de van statusentiteiten om de beschadigde rapporten in het cluster te achterhalen.
 >
 >
 
 ## <a name="next-steps"></a>Volgende stappen
 [Use system health reports to troubleshoot (Systeemstatusrapporten gebruiken om problemen op te lossen)](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
 
-[Aangepaste Service Fabric-statusrapporten toevoegen](service-fabric-report-health.md)
+[Aangepaste statusrapporten van Service Fabric toevoegen](service-fabric-report-health.md)
 
-[Het rapport en controleer de servicestatus van de](service-fabric-diagnostics-how-to-report-and-check-service-health.md)
+[Het servicestatus rapporteren en controleren](service-fabric-diagnostics-how-to-report-and-check-service-health.md)
 
-[Controle en diagnose van lokaal services](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
+[Controle en diagnose van services lokaal](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 
-[Upgrade van de service Fabric-toepassing](service-fabric-application-upgrade.md)
+[Service Fabric-toepassingsupgrade](service-fabric-application-upgrade.md)

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
-ms.openlocfilehash: 720b8584c201826e55099ad31667478b6aa57b27
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: bf6eca33eb1448eb84065fb7fe184d01e77feb61
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024509"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51036988"
 ---
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>Extensies voor virtuele machines en functies voor Linux
 
@@ -64,7 +64,7 @@ Bepaalde extensies worden niet ondersteund in alle besturingssystemen en verzend
 -Extensiepakketten zijn gedownload vanuit de opslagplaats van de extensie Azure Storage en extensie status uploaden naar Azure Storage worden geboekt. Als u [ondersteund](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support) versie van de agents, hoeft u niet voor toegang tot Azure Storage in de regio van de virtuele machine, zoals de agent kan worden gebruikt zodat de communicatie worden omgeleid naar de Azure-infrastructuurcontroller voor communicatie van agent. Als u van een niet-ondersteunde versie van de agent gebruikmaakt, moet u de uitgaande toegang tot Azure storage in die regio van de virtuele machine toestaan.
 
 > [!IMPORTANT]
-> Als u toegang tot hebben geblokkeerd *168.63.129.1* met behulp van de Gast-firewall, extensies mislukt, ongeacht de bovenstaande.
+> Als u toegang tot hebben geblokkeerd *168.63.129.16* met behulp van de Gast-firewall, extensies mislukt, ongeacht de bovenstaande.
 
 Agents kunnen alleen worden gebruikt voor het downloaden van extensiepakketten en rapporteringsstatus. Bijvoorbeeld, als een extensie installeren moet een script downloaden vanuit GitHub (aangepast Script) of moet toegang tot Azure Storage (Azure Backup), klikt u vervolgens aanvullende firewall/Network Security Group-poorten moeten worden geopend. Verschillende extensies hebben verschillende vereisten, omdat ze toepassingen in hun eigen rechts. Voor uitbreidingen waarvoor toegang tot Azure Storage, kunt u toegang met behulp van Azure NSG servicetags voor [opslag](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
 

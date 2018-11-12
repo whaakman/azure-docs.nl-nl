@@ -10,15 +10,15 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/24/2016
 ms.author: garye
-ms.openlocfilehash: 43a75c31c0f094bdcb7008a39140226815bda163
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 3f45f062cabaf31a10f24b01583575f5066bdaaf
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49390292"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51231518"
 ---
 # <a name="cortana-intelligence-solution-template-playbook-for-demand-forecasting-of-energy"></a>Sjabloon Playbook van Cortana Intelligence-oplossing voor vraagprognose van energie
-## <a name="executive-summary"></a>Uitvoeringssamenvatting
+## <a name="executive-summary"></a>Managementsamenvatting
 Internet of Things (IoT), alternatieve energiebronnen en big data in de afgelopen jaren hebben samengevoegd voor het maken van grote verkoopkansen in het hulpprogramma en de energie-domein. Op hetzelfde moment, hebben het hulpprogramma en de volledige energiesector verbruik plat maken om met klanten betere manieren voor het beheren van hun gebruik van energie veeleisende gezien. Daarom kan zijn het hulpprogramma en slimme grid bedrijven nodig voor het vernieuwen en vernieuwen zelf. Bovendien worden veel hulpprogramma's en energiebeheer rasters vaker het verouderde en zeer kostbaar zijn te onderhouden en beheren. Tijdens het afgelopen jaar werkt het team aan een aantal engagements binnen het domein energie. Tijdens deze betrokkenheid, Hiermee hebben we veel gevallen waarin de hulpprogramma's of ISV's (Independent Software Vendors) hebt op zoek was bij de prognoses voor toekomstige energievraag aangetroffen. Deze prognoses speelt een belangrijke rol in hun huidige en toekomstige activiteiten en de basis vormt voor verschillende gebruiksvoorbeelden zijn geworden. Het gaat hierbij om korte en lange termijn power load prognose, handel, taakverdeling, raster optimalisatie, enzovoort. BIG data en geavanceerde analyse (AA) methoden, zoals Machine Learning (ML) zijn de belangrijkste virtualisatielaag voor het produceren van nauwkeurige en betrouwbare prognoses.  
 
 In deze playbook we samengesteld de zakelijke en analytische richtlijnen die nodig zijn voor een geslaagde ontwikkeling en implementatie van de vraag naar energie prognose-oplossing. Deze voorgestelde richtlijnen kunnen u hulpprogramma's, gegevenswetenschappers en data-engineers bij het opstellen van volledig ingezette, cloudgebaseerde en on-demand prognose-oplossingen. Voor bedrijven die hun big data en geavanceerde analyse reis net begint, kan een dergelijke oplossing de basiswaarde in hun langetermijnstrategie slimme grid vertegenwoordigen.
@@ -43,7 +43,7 @@ Het derde deel van het document bevat informatie over de **technische implementa
 
 Het document bevat bovendien referentiemateriaal dat beschikbaar is die u gebruiken kunt om te krijgen meer inzicht in het domein en de technologie.
 
-Het is belangrijk te weten dat we niet van plan bent om te kunnen krijgen in dit document het diepere data science process de wiskundige en technische aspecten. Deze informatie kunnen u vinden in [documentatie voor Azure ML](http://azure.microsoft.com/services/machine-learning/) en [blogs](http://blogs.microsoft.com/blog/tag/azure-machine-learning/).
+Het is belangrijk te weten dat we niet van plan bent om te kunnen krijgen in dit document het diepere data science process de wiskundige en technische aspecten. Deze informatie kunnen u vinden in [documentatie voor Azure ML](https://azure.microsoft.com/services/machine-learning/) en [blogs](https://blogs.microsoft.com/blog/tag/azure-machine-learning/).
 
 ### <a name="target-audience"></a>Doelgroep
 De doelgroep voor dit document is zowel zakelijke als technische medewerkers die graag willen kennis en inzicht in Machine Learning op basis van oplossingen en hoe deze worden gebruikt om precies binnen het domein energie voorspellen.
@@ -176,7 +176,7 @@ Een eenvoudige formule voor het berekenen van de financiële voordelen van de vr
 
 Omdat Cortana Intelligence Suite voorziet in een prijsmodel voor betalen per gebruik, is er geen behoefte waarbij extra kosten voor een vaste prijs onderdeel op deze formule. Deze formule kan worden berekend op basis van een dagelijks, maandelijks of jaarlijks.
 
-Huidige Cortana Intelligence Suite en Azure ML-prijzen en abonnementen vindt [hier](http://azure.microsoft.com/pricing/details/machine-learning/).
+Huidige Cortana Intelligence Suite en Azure ML-prijzen en abonnementen vindt [hier](https://azure.microsoft.com/pricing/details/machine-learning/).
 
 ### <a name="solution-development-process"></a>Ontwikkelingsproces van oplossing
 Het ontwikkelingsproces van een vraag naar energie prognose-oplossing worden doorgaans 4 fasen, die allemaal we maken gebruik van cloud-gebaseerde technologieën en services in de Cortana Intelligence Suite.
@@ -187,7 +187,7 @@ Dit wordt geïllustreerd in het volgende diagram:
 
 De volgende alinea beschrijving van dit proces stap 4:
 
-1. **Het verzamelen van gegevens** : een geavanceerde op basis van analyseoplossing is gebaseerd op gegevens (Zie **gegevens wat**). Met name als het gaat om predictive analytics en prognoses, we zijn afhankelijk van continue, dynamische stroom van gegevens. In het geval van energie vraagprognose, deze gegevens kan worden opgevraagd rechtstreeks van slimme meters of al op een on-premises database worden samengesteld. We zijn ook afhankelijk van andere externe gegevensbronnen, zoals weer en temperatuur. Deze continue stroom van gegevens moet worden georganiseerd, gepland en opgeslagen. [Azure Data Factory](http://azure.microsoft.com/services/data-factory/) (ADF) is onze belangrijkste werkpaard voor het uitvoeren van deze taak.
+1. **Het verzamelen van gegevens** : een geavanceerde op basis van analyseoplossing is gebaseerd op gegevens (Zie **gegevens wat**). Met name als het gaat om predictive analytics en prognoses, we zijn afhankelijk van continue, dynamische stroom van gegevens. In het geval van energie vraagprognose, deze gegevens kan worden opgevraagd rechtstreeks van slimme meters of al op een on-premises database worden samengesteld. We zijn ook afhankelijk van andere externe gegevensbronnen, zoals weer en temperatuur. Deze continue stroom van gegevens moet worden georganiseerd, gepland en opgeslagen. [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) (ADF) is onze belangrijkste werkpaard voor het uitvoeren van deze taak.
 2. **Modellering** – voor nauwkeurige en betrouwbare energie prognoses, moet een (train) ontwikkelen en onderhouden van een geweldige model dat maakt gebruik van de historische gegevens en de betekenis en voorspellende patronen in de gegevens worden geëxtraheerd. Het gebied van Machine Learning (ML) heeft snel groeien met meer geavanceerde algoritmen die regelmatig worden ontwikkeld. Azure ML Studio biedt een optimale ervaring waarmee u kunt gebruikmaken van de meest geavanceerde algoritmen binnen een volledige werkstroom. Werkstroom wordt weergegeven in een diagram van een intuïtieve stroom en de gegevens voor te bereiden, het ophalen van functies, modelleren en model evaluatie bevat. De gebruiker kan op te halen in honderden verschillende modellen die zijn opgenomen in deze omgeving. Aan het einde van deze fase heeft een gegevenswetenschapper een werkende-model dat zich volledig geëvalueerd en klaar voor implementatie.
    
    Het volgende diagram wordt een afbeelding van een werkstroom:
@@ -387,7 +387,7 @@ Dit zijn de stappen die uitgevoerd als onderdeel van de prognose energiecyclus v
 7. De verwachte gegevens worden opgeslagen in een database die kan worden geopend door de end-verbruik-client.
 8. De client verbruik worden opgehaald van de prognoses, past deze weer in het raster en in overeenstemming met de vereiste use-case worden verbruikt.
 
-Het is belangrijk te weten dat deze volledige cyclus is volledig geautomatiseerd en volgens een schema wordt uitgevoerd. De volledige indeling van de cyclus van deze gegevens kan worden gedaan met behulp van hulpprogramma's zoals [Azure Data Factory](http://azure.microsoft.com/services/data-factory/).
+Het is belangrijk te weten dat deze volledige cyclus is volledig geautomatiseerd en volgens een schema wordt uitgevoerd. De volledige indeling van de cyclus van deze gegevens kan worden gedaan met behulp van hulpprogramma's zoals [Azure Data Factory](https://azure.microsoft.com/services/data-factory/).
 
 ### <a name="end-to-end-deployment-architecture"></a>Implementatie van de end-to-architectuur
 We moeten nagenoeg implementeert een energie demand prognose-oplossing op Cortana Intelligence, zorg ervoor dat de vereiste onderdelen zijn vastgesteld en correct geconfigureerd.

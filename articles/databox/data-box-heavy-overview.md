@@ -15,12 +15,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 09/24/2018
 ms.author: alkohli
-ms.openlocfilehash: 8ecef86841bcf13a469f9c0dc81f114bd54acdba
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0a5b7f93f9ac6cc5b1076881727a42fd5b95ff4b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946510"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51235153"
 ---
 # <a name="what-is-azure-data-box-heavy-preview"></a>Wat is Azure Data Box Heavy? (Preview)
 
@@ -31,7 +31,7 @@ Data Box Heavy is in de preview-fase en u kunt een apparaat aanvragen door u aan
 
 > [!IMPORTANT]
 > - Data Box Heavy is in de preview-fase. Lees de [Azure-gebruiksvoorwaarden voor de preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voordat u deze oplossing implementeert. 
-> - Meld u aan bij de [Preview-portal](http://aka.ms/) om een apparaat aan te vragen.
+> - Meld u aan bij de [Preview-portal](https://aka.ms/) om een apparaat aan te vragen.
 > - Tijdens de preview-fase wordt Data Box Heavy verzonden naar klanten in de Verenigde Staten en de Europese Unie. Ga naar [Beschikbaarheid in de regio](#region-availability) voor meer informatie.
 
 ## <a name="use-cases"></a>Gebruiksvoorbeelden
@@ -40,7 +40,7 @@ Data Box Heavy is ideaal voor het overbrengen van gegevens met een totale omvang
 
  - **Eenmalige migratie**: wanneer grote aantallen on-premises gegevens worden verplaatst naar Azure. 
      - Verplaatsen van een mediabibliotheek van offline tapes naar Azure, voor het maken van een online mediabibliotheek.
-     - Migreren van uw virtuele machines, SQL Server en toepassingen naar Azure.
+     - Uw virtuele machines, SQL Server en toepassingen migreren naar Azure
      - Verplaatsen van historische gegevens naar Azure voor gedetailleerde analyse en rapportage met HDInsight.
 
  - **Initiële bulkoverdracht**: wanneer eerst een grote overdracht plaatsvindt met Data Box Heavy (seed), gevolgd door incrementele overdrachten via het netwerk. 

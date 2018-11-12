@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 07/16/2018
-ms.openlocfilehash: beab191ff33939053da942b0ce7df22238b8acef
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 44bf04d3840009b9408ccfc51fdcefa7c7e116cb
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51247310"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51278936"
 ---
 # <a name="troubleshoot-issues-with-sql-data-sync"></a>Problemen oplossen met SQL Data Sync
 
@@ -112,143 +112,7 @@ Data Sync verwerken niet kringverwijzingen. Moet u deze kunt vermijden.
 
 ## <a name="client-agent-issues"></a>Problemen met client-agent
 
-- [De clientagent installeren, verwijderen of herstellen mislukt](#agent-install)
-
-- [De clientagent werkt niet nadat ik de verwijderen annuleren](#agent-uninstall)
-
-- [Mijn database wordt niet weergegeven in de lijst met agent](#agent-list)
-
-- [Clientagent niet wordt gestart (fout 1069)](#agent-start)
-
-- [Kan ik de agentsleutel kan niet worden verzonden](#agent-key)
-
-- [De clientagent kan niet worden verwijderd uit de portal als de gekoppelde on-premises database niet bereikbaar is](#agent-delete)
-
-- [Lokale Sync-Agent-app kan geen verbinding maken met de lokale synchronisatieservice](#agent-connect)
-
-### <a name="agent-install"></a> De clientagent installeren, verwijderen of herstellen mislukt
-
-- **Oorzaak**. Veel scenario's kan deze fout kunnen veroorzaken. Bekijk de logboeken om te bepalen van de oorzaak van deze fout.
-
-- **Resolutie**. Genereren om de oorzaak van de fout, en bekijk de logboeken van Windows Installer. U kunt aanmelden bij een opdrachtprompt inschakelen. Bijvoorbeeld, als het gedownloade bestand uit AgentServiceSetup.msi LocalAgentHost.msi, genereren en logboekbestanden bekijken met behulp van de volgende opdrachtregels uit:
-
-    -   Voor installaties: `msiexec.exe /i SQLDataSyncAgent-Preview-ENU.msi /l\*v LocalAgentSetup.InstallLog`
-    -   Voor verwijdert: `msiexec.exe /x SQLDataSyncAgent-se-ENU.msi /l\*v LocalAgentSetup.InstallLog`
-
-    U kunt ook inschakelen logboekregistratie in voor alle installaties die worden uitgevoerd door de Windows Installer. De Microsoft Knowledge Base-artikel [het inschakelen van logboekregistratie voor Windows Installer](https://support.microsoft.com/help/223300/how-to-enable-windows-installer-logging) biedt een oplossing met één muisklik logboekregistratie voor Windows Installer inschakelen. Het biedt ook de locatie van de logboeken.
-
-### <a name="agent-uninstall"></a> De clientagent werkt niet nadat ik de verwijderen annuleren
-
-De clientagent werkt niet, zelfs na het annuleren van de verwijdering.
-
-- **Oorzaak**. Dit gebeurt omdat de clientagent voor SQL Data Sync referenties niet opslaan.
-
-- **Resolutie**. U kunt deze twee oplossingen proberen:
-
-    -   Gebruik services.msc opnieuw in te voeren van de referenties voor de clientagent.
-    -   Verwijder deze clientagent en installeer vervolgens een nieuwe. Download en installeer de nieuwste clientagent vanuit [Downloadcentrum](https://go.microsoft.com/fwlink/?linkid=221479).
-
-### <a name="agent-list"></a> Mijn database wordt niet weergegeven in de lijst met agent
-
-Wanneer u probeert een bestaande SQL Server-database toevoegen aan een groep voor synchronisatie, kan de database niet wordt weergegeven in de lijst van agents.
-
-Dit probleem kunnen worden veroorzaakt door deze scenario's:
-
-- **Oorzaak**. De groep van agent en sync-client zich in verschillende datacenters.
-
-- **Resolutie**. De clientagent en de groep voor synchronisatie moeten zich in hetzelfde datacenter. Dit als u wilt instellen, hebt u twee opties:
-
-    -   Maak een nieuwe agent in het datacenter waar de synchronisatiegroep zich bevindt. Registreer vervolgens de database met die agent.
-    -   Verwijder de huidige groep voor synchronisatie. Maak vervolgens opnieuw de groep voor synchronisatie in het datacenter waar de agent zich bevindt.
-
-- **Oorzaak**. Lijst met databases van de clientagent niet actueel.
-
-- **Resolutie**. Stoppen en opnieuw opstarten van de client-agent-service.
-
-    De lokale agent downloadt de lijst met gekoppelde databases op de eerste verzending van de agentsleutel. Deze downloaden de lijst met gekoppelde databases op de volgende agent sleutel inzendingen niet. Databases die zijn geregistreerd tijdens het verplaatsen van een agent niet worden weergegeven in het oorspronkelijke exemplaar van de agent.
-
-### <a name="agent-start"></a> Clientagent niet wordt gestart (fout 1069)
-
-U ontdekt dat de agent niet wordt uitgevoerd op een computer die als host fungeert voor SQL Server. Wanneer u de agent handmatig te starten probeert, ziet u een dialoogvenster dat het bericht verschijnt ' fout 1069: de service is niet gestart vanwege een fout met aanmelding. "
-
-![Het dialoogvenster fout 1069 synchroniseren](media/sql-database-troubleshoot-data-sync/sync-error-1069.png)
-
-- **Oorzaak**. Een waarschijnlijke oorzaak van deze fout is dat het wachtwoord op de lokale server is gewijzigd sinds u de beveiligingsagent en het wachtwoord voor de agent hebt gemaakt.
-
-- **Resolutie**. Wachtwoord van de agent bijwerken op uw huidige serverwachtwoord:
-
-  1. Ga naar de SQL Data Sync client-agent-service.  
-    a. Selecteer **Start**.  
-    b. Voer in het zoekvak **services.msc**.  
-    c. Selecteer in de lijst met zoekresultaten **Services**.  
-    d. In de **Services** venster, Ga naar de vermelding voor **SQL Data Sync-Agent**.  
-  1. Met de rechtermuisknop op **SQL Data Sync-Agent**, en selecteer vervolgens **stoppen**.
-  1. Met de rechtermuisknop op **SQL Data Sync-Agent**, en selecteer vervolgens **eigenschappen**.
-  1. Op **eigenschappen van SQL Data Sync-Agent**, selecteer de **aanmelden** tabblad.
-  1. In de **wachtwoord** vak, Voer uw wachtwoord.
-  1. In de **wachtwoord bevestigen** vak, uw wachtwoord opnieuw invoeren.
-  1. Selecteer **Apply** en vervolgens **OK**.
-  1. In de **Services** venster met de rechtermuisknop op de **SQL Data Sync-Agent** service, en klik vervolgens op **Start**.
-  1. Sluit de **Services** venster.
-
-### <a name="agent-key"></a> Kan ik de agentsleutel kan niet worden verzonden
-
-Nadat u maakt of opnieuw maken van een sleutel voor een agent, die u wilt de sleutel via de toepassing SqlAzureDataSyncAgent indienen. Het verzenden is mislukt om te voltooien.
-
-![Fout bij het dialoogvenster synchronisatie - agentsleutel kan niet worden verzonden](media/sql-database-troubleshoot-data-sync/sync-error-cant-submit-agent-key.png)
-
-- **Vereisten**. Voordat u doorgaat, controleert u de volgende vereisten:
-
-  - De SQL Data Sync Windows-service wordt uitgevoerd.
-
-  - Het serviceaccount voor SQL Data Sync Windows-service heeft toegang tot het netwerk.
-
-  - De uitgaande 1433-poort is geopend in de lokale firewall-regel.
-
-  - Het lokale IP-adres is toegevoegd aan de server of database-firewall-regel voor de metagegevensdatabase voor synchronisatie.
-
-- **Oorzaak**. De agentsleutel identificatie unieke van elke lokale agent. De sleutel moet voldoen aan twee voorwaarden:
-
-  -   De sleutel van de client-agent op de SQL Data Sync-server en de lokale computer moet identiek zijn.
-  -   De sleutel van de client-agent kan slechts één keer worden gebruikt.
-
-- **Resolutie**. Als uw agent niet werkt, is omdat één of beide van deze voorwaarden niet wordt voldaan. Ophalen van de agent opnieuw werken:
-
-  1. Genereer een nieuwe sleutel.
-  1. De nieuwe sleutel van toepassing op de agent.
-
-  De nieuwe sleutel toepassen op de agent:
-
-  1. In Windows Verkenner, Ga naar de map voor agentinstallatie. De standaardinstallatiemap is C:\\Program Files (x86)\\Microsoft SQL Data Sync.
-  1. Dubbelklik op de bin-submap.
-  1. Open de toepassing SqlAzureDataSyncAgent.
-  1. Selecteer **indienen Agentsleutel**.
-  1. Plak de sleutel van het Klembord in de daarvoor bestemde ruimte.
-  1. Selecteer **OK**.
-  1. Sluit het programma.
-
-### <a name="agent-delete"></a> De clientagent kan niet worden verwijderd uit de portal als de gekoppelde on-premises database niet bereikbaar is
-
-Als een lokaal eindpunt (dat wil zeggen, een database) die is geregistreerd bij een SQL Data Sync-client-agent niet meer bereikbaar is, kan de clientagent kan niet worden verwijderd.
-
-- **Oorzaak**. De lokale agent kan niet worden verwijderd omdat de database niet bereikbaar is nog steeds geregistreerd bij de agent. Wanneer u probeert te verwijderen van de agent, wordt de verwijdering probeert te bereiken van de database, die is mislukt.
-
-- **Resolutie**. Gebruik 'geforceerd verwijderen' om de onbereikbaar database te verwijderen.
-
-> [!NOTE]
-> Als u synchronisatie metagegevenstabellen, blijven na een "geforceerd verwijderen', gebruik `deprovisioningutil.exe` om op te schonen ze.
-
-### <a name="agent-connect"></a> Lokale Sync-Agent-app kan geen verbinding maken met de lokale synchronisatieservice
-
-- **Resolutie**. Voer de volgende stappen uit:
-
-  1. Sluit de app.  
-  1. Open het deelvenster met Component Services.  
-    a. Voer in het zoekvak op de taakbalk **services.msc**.  
-    b. Dubbelklik in de lijst met zoekresultaten op **Services**.  
-  1. Stop de **SQL Data Sync** service.
-  1. Start opnieuw op de **SQL Data Sync** service.  
-  1. de app opnieuw openen.
+Zie voor het oplossen van problemen met de clientagent [Data Sync-Agent oplossen van problemen met](sql-database-data-sync-agent.md#agent-tshoot).
 
 ## <a name="setup-and-maintenance-issues"></a>Problemen met installatie en onderhoud
 

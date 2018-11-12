@@ -1,6 +1,6 @@
 ---
-title: Zakelijke understanding fase van de levenscyclus van de procedure voor het Team gegevens wetenschappelijke - Azure | Microsoft Docs
-description: De doelstellingen, taken en producten voor de bedrijven inzicht fase gegevenswetenschap projecten
+title: Bedrijven inzicht in fase van de levenscyclus van het Team Data Science Process - Azure | Microsoft Docs
+description: De doelen, taken en producten voor de fase van het inzicht in business van uw data-science-projecten
 services: machine-learning
 documentationcenter: ''
 author: deguhath
@@ -15,54 +15,54 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: deguhath
-ms.openlocfilehash: 6d8eedbbf4a682443e73ecb9cf9496f3cdd1cd9d
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 00dc359fc171afe470b1dfe8f38d0951085ec580
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34837198"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228297"
 ---
 # <a name="business-understanding"></a>Inzicht in het bedrijf
 
-In dit artikel bevat een overzicht van de doelstellingen, taken en producten die zijn gekoppeld aan de zakelijke understanding fase van het Team gegevens wetenschap proces (TDSP). Deze procedure biedt de levensduur van een aanbevolen die u kunt uw projecten voor gegevenswetenschap structuur. De levenscyclus geeft een overzicht van de belangrijke fasen die projecten doorgaans worden uitgevoerd, vaak iteratief:
+In dit artikel bevat een overzicht van de doelen, taken en producten die zijn gekoppeld aan de zakelijke understanding fase van het Team Data Science Process (TDSP). Deze procedure biedt de levensduur van een aanbevolen die u gebruiken kunt voor het structureren van uw data-science-projecten. De levenscyclus van geeft een overzicht van de belangrijke fasen die projecten doorgaans worden uitgevoerd, vaak iteratief:
 
-   1. **Wat voor bedrijven**
-   2. **Gegevensverzameling en begrijpen**
+   1. **Inzicht in het bedrijf**
+   2. **Gegevens verzamelen en begrijpen**
    3. **Modeling**
    4. **Implementatie**
-   5. **Acceptatie van de klant**
+   5. **Aanvaarding van de klant**
 
-Hier volgt een visuele representatie van de levenscyclus TDSP: 
+Hier volgt een visuele representatie van de TDSP-levenscyclus: 
 
-![TDSP levenscyclus](./media/lifecycle/tdsp-lifecycle2.png) 
+![TDSP-levenscyclus](./media/lifecycle/tdsp-lifecycle2.png) 
 
 
 ## <a name="goals"></a>Doelstellingen
-* Geef de belangrijkste variabelen die moeten fungeren als de doelen model en waarvan verwante metrische gegevens worden gebruikt, bepalen het succes van het project.
-* Identificeer de relevante gegevensbronnen die het bedrijf toegang heeft tot of nodig heeft om op te halen.
+* Geef de sleutel variabelen die fungeren als de doelen van het model en waarvan gerelateerde metrische gegevens worden gebruikt, bepalen het succes van het project.
+* Identificeer de relevante gegevensbronnen die het bedrijf heeft toegang tot of nodig heeft om op te halen.
 
-## <a name="how-to-do-it"></a>Hoe u dit doet
-Er zijn twee belangrijke taken in deze fase verholpen: 
+## <a name="how-to-do-it"></a>Hoe voer ik
+Er zijn twee belangrijke taken behandeld in deze fase: 
 
-   * **Definieer de doelstellingen van**: werken met uw klant en andere betrokkenen om te begrijpen en de zakelijke problemen te identificeren. Vragen die de zakelijke doelstellingen die zijn gericht op de wetenschappelijke gegevens technieken kunnen definiëren formuleren.
-   * **Identificeren van gegevensbronnen**: zoek de relevante gegevens die u helpt beantwoord de vragen die de doelstellingen van het project definiëren.
+   * **Doelstellingen bepalen**: werken met uw klant en andere betrokkenen om te begrijpen en de zakelijke problemen identificeren. Formuleren vragen die de zakelijke doelstellingen die zijn gericht op de data science-technieken kunnen definiëren.
+   * **De gegevensbronnen identificeren**: zoeken naar de relevante gegevens waarmee u beantwoord de vragen die de doelstellingen van het project definiëren.
 
-### <a name="define-objectives"></a>Definieer de doelstellingen
-1. Een centrale doel van deze stap is het identificeren van de belangrijkste zakelijke variabelen die de analyse nodig heeft om te voorspellen. We verwijzen naar deze variabelen als de *doelen model*, en gebruiken we de metrische gegevens die zijn gekoppeld aan deze om te bepalen van het succes van het project. Twee voorbeelden van dergelijke doelen zijn verkoopprognoses of de kans op een order fraude.
+### <a name="define-objectives"></a>Doelstellingen bepalen
+1. Een centrale doel van deze stap is het identificeren van de belangrijkste zakelijke variabelen die de analyse nodig heeft om te voorspellen. We verwijzen naar deze variabelen als de *model doelen*, en we de metrische gegevens die zijn gekoppeld aan deze gebruiken om te bepalen het succes van het project. Twee voorbeelden van dergelijke doelen zijn verkoopprognoses of de waarschijnlijkheid van een order fraude.
 
-2. Definieer de projectdoelstellingen door te vragen en '-kruis' vragen die betrokken, specifieke en niet-ambigue zijn verfijnen. Gegevenswetenschap is een proces dat gebruikmaakt van namen en getallen om dergelijke vragen te beantwoorden. Zie voor meer informatie over het kruis vragen de [werkwijze gegevenswetenschap](https://blogs.technet.microsoft.com/machinelearning/2016/03/28/how-to-do-data-science/) blog. U doorgaans gebruiken voor gegevenswetenschap of machine learning om de volgende vijf typen van vragen beantwoorden:
+2. Definieer de projectdoelstellingen waarin wordt gevraagd en "scherpe" vragen die betrokken, specifieke en ondubbelzinnige zijn verfijnen. Wetenschappelijke gegevens is een proces dat gebruikmaakt van namen en getallen om dergelijke vragen te beantwoorden. Zie voor meer informatie over sharp vragen te stellen, de [hoe u data science doet](https://blogs.technet.microsoft.com/machinelearning/2016/03/28/how-to-do-data-science/) blog. Doorgaans gebruikt u data science of machine learning om de vijf soorten vragen beantwoorden:
  
-   * Hoeveel of hoeveel? (regressie)
-   * Welke categorie? (indeling)
+   * Hoeveel of hoe vaak? (regressie)
+   * Welke categorie? (classificatie)
    * Welke groep? (clustering)
-   * Is dit vreemd? (afwijkingsdetectie)
+   * Is dit vreemd? (anomaliedetectie)
    * Welke optie moet worden gehouden? (aanbevolen)
 
-   Bepalen welke van deze vragen vraagt u en hoe beantwoorden bereikt uw bedrijfsdoelen.
+   Bepalen welke van deze vragen u vraagt en hoe beantwoorden bereikt uw bedrijfsdoelen.
 
-3. Definieer het projectteam door te geven van de rollen en verantwoordelijkheden van de leden. Ontwikkel een belangrijke mijlpaalplan dat u herhalen als u meer informatie detecteren. 
+3. Definieer het projectteam door op te geven van de rollen en verantwoordelijkheden van de leden. Ontwikkel een mijlpaalplan op hoog niveau die u herhalen als u meer informatie. 
 
-4. Definieer de maatstaven voor succes. U wilt bijvoorbeeld een klant verloop voorspelling bereiken. U moet een nauwkeurigheid van 'x' procent aan het einde van dit project drie maanden. U kunt met deze gegevens bieden verloop klant promoties te verlagen. De metrische gegevens moet **SMART**: 
+4. Definieer de maatstaven voor succes. U wilt bijvoorbeeld een gebruikersverloop bereiken. U moet een nauwkeurigheid van de 'x' procent aan het einde van dit project drie maanden. Met deze gegevens, kunt u de acties van de klant te verminderen verloop aanbieden. De metrische gegevens moet **slimme**: 
 
    * **S**pecifieke 
    * **M**easurable
@@ -70,31 +70,31 @@ Er zijn twee belangrijke taken in deze fase verholpen:
    * **R**elevant 
    * **T**ime-gebonden 
 
-### <a name="identify-data-sources"></a>Gegevensbronnen identificeren
-Identificeer de gegevensbronnen die bekende voorbeelden van antwoorden op uw vragen kruis bevatten. Zoek naar de volgende gegevens:
+### <a name="identify-data-sources"></a>De gegevensbronnen identificeren
+Identificeer gegevensbronnen die enkele voorbeelden van antwoorden op uw vragen sharp bevatten. Zoek naar de volgende gegevens:
 
-* Gegevens die relevant is voor de vraag. Hebt u de metingen van de functies die zijn gerelateerd aan het doel en doel?
-* Gegevens die een nauwkeurige weerspiegeling van het doel-model en de onderdelen van belang.
+* Gegevens die relevant is voor de vraag. Hebt u metingen van het doel en de functies die zijn gerelateerd aan het doel?
+* Gegevens die een nauwkeurig beeld geeft van de doel-model en de functies van belang zijn.
 
-Bijvoorbeeld: het kan gebeuren dat de bestaande systemen moeten verzamelen en meld u aanvullende soorten gegevens om het probleem op te lossen en verwezenlijking van de projectdoelstellingen. In dit geval is het raadzaam om te zoeken naar externe gegevensbronnen of bijwerken van systemen voor het verzamelen van nieuwe gegevens.
+Bijvoorbeeld, wellicht dat de bestaande systemen moeten verzamelen en meld u aanvullende soorten gegevens Verhelp het probleem en de project-doelen kan bereiken. In dit geval is het raadzaam om te zoeken naar externe gegevensbronnen of bijwerken van uw systemen voor het verzamelen van nieuwe gegevens.
 
 ## <a name="artifacts"></a>Artefacten
-Hier volgen de producten in deze fase:
+Dit zijn de producten in deze fase:
 
-   * [Freelance document](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Project/Charter.md): een standaardsjabloon is opgegeven in de definitie van TDSP project structuur. Het document Freelance is een levende-document. U kunt de sjabloon tijdens het project bijwerken als u nieuwe detecties en als zakelijke vereisten veranderen. De sleutel is te herhalen bij dit document nader bekijken, toe te voegen bij het detectieproces. Behouden van de klant en andere belanghebbenden betrokken bij het maken van de wijzigingen en duidelijk is de redenen waarom de wijzigingen aan te brengen.  
-   * [Gegevensbronnen](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Data_Report/Data%20Defintion.md#raw-data-sources): de **onbewerkte gegevensbronnen** sectie van de **gegevensdefinities** rapport dat gevonden in het project TDSP **rapport met inventarisatiegegevens** map bevat de gegevens bronnen. Deze sectie geeft de oorspronkelijke- en doellocaties voor de onbewerkte gegevens. In latere fasen verlopen, moet u extra details, zoals de scripts worden de gegevens verplaatsen naar uw omgeving analytische invullen.  
-   * [Gegevens woordenlijsten](https://github.com/Azure/Azure-TDSP-ProjectTemplate/tree/master/Docs/Data_Dictionaries): dit document vindt u beschrijvingen van de gegevens die door de client wordt geleverd. Deze beschrijvingen bevatten informatie over het schema (de gegevenstypen en informatie over de validatieregels, indien van toepassing) en de diagrammen entiteit relatie, indien beschikbaar.
+   * [Handvest document](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Project/Charter.md): een standard-sjabloon is opgegeven in de definitie van de TDSP-project-structuur. Het Handvest-document is een levend document. U kunt de sjabloon in het project bijwerken naarmate u nieuwe detecties en als zakelijke vereisten veranderen. De sleutel is het herhalen van dit document nader bekeken, als u wordt uitgevoerd via het detectieproces toe te voegen. Houd de klant en andere belanghebbenden betrokken zijn bij het maken van de wijzigingen en duidelijk de redenen voor de wijzigingen aan te brengen.  
+   * [Gegevensbronnen](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Data_Report/Data%20Defintion.md#raw-data-sources): de **onbewerkte gegevensbronnen** sectie van de **gegevensdefinities** rapport dat gevonden in de TDSP-project **rapport** map bevat de gegevens bronnen. In deze sectie wordt de oorspronkelijke en locaties voor de onbewerkte gegevens. In latere fasen, moet u aanvullende informatie zoals de scripts worden de gegevens verplaatsen naar uw analytische omgeving invullen.  
+   * [Gegevens woordenlijsten](https://github.com/Azure/Azure-TDSP-ProjectTemplate/tree/master/Docs/Data_Dictionaries): dit document bevat beschrijvingen van de gegevens die wordt geleverd door de client. Deze beschrijvingen bevatten informatie over het schema (de gegevenstypen en informatie over de validatieregels, indien van toepassing) en de entiteit-relation-diagrammen, indien beschikbaar.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 Hier vindt u koppelingen naar elke stap in de levenscyclus van de TDSP:
 
-   1. [Wat voor bedrijven](lifecycle-business-understanding.md)
-   2. [Gegevensverzameling en begrijpen](lifecycle-data.md)
+   1. [Inzicht in het bedrijf](lifecycle-business-understanding.md)
+   2. [Gegevens verzamelen en begrijpen](lifecycle-data.md)
    3. [Modeling](lifecycle-modeling.md)
    4. [Implementatie](lifecycle-deployment.md)
-   5. [Acceptatie van de klant](lifecycle-acceptance.md)
+   5. [Aanvaarding van de klant](lifecycle-acceptance.md)
 
-We bieden volledige end-to-end-scenario's die de stappen in het proces voor specifieke scenario's laten zien. De [voorbeeld-scenario's](walkthroughs.md) artikel bevat een lijst van de scenario's met koppelingen en beschrijvingen van de miniatuur. De scenario's te laten zien hoe cloud, 's voor on-premises en -services combineren in een werkstroom of pijplijn een intelligente toepassing maken. 
+We bieden volledige end-to-end-scenario's die laten zien van alle de stappen in het proces voor het specifieke scenario's. De [voorbeeld walkthroughs](walkthroughs.md) artikel geeft een lijst van de scenario's met koppelingen en beschrijvingen van miniaturen. De scenario's laten zien hoe u cloud, on-premises hulpprogramma's en services combineren in een werkstroom of een pijplijn te maken van een intelligente toepassingen. 
 
-Zie voor voorbeelden van hoe u de stappen uitvoeren in TDSPs die gebruikmaken van Azure Machine Learning Studio [de TDSP gebruiken met Azure Machine Learning](http://aka.ms/datascienceprocess).
+Zie voor meer voorbeelden van hoe u het uitvoeren van de stappen in TDSPs die gebruikmaken van Azure Machine Learning Studio [de TDSP gebruiken met Azure Machine Learning](https://aka.ms/datascienceprocess).

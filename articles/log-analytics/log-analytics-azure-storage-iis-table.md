@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: f88290043f750122327ddb1fd9b381b6bc24110c
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 83c7862e8a9e3ce069765f81607bfbbeee272be2
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50959321"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51278647"
 ---
 # <a name="use-azure-blob-storage-for-iis-and-azure-table-storage-for-events-with-log-analytics"></a>Azure blob storage gebruiken voor IIS en Azure table storage voor gebeurtenissen met Log Analytics
 
@@ -151,7 +151,7 @@ In ongeveer 30 minuten bent u gegevens uit het opslagaccount in Log Analytics. U
 Gebruik de stappen in [Log Analytics configureren om te indexeren van Azure diagnostics](log-analytics-powershell-workspace-configuration.md#configuring-log-analytics-to-index-azure-diagnostics) PowerShell gebruiken om te lezen van Azure diagnostics die zijn geschreven naar table storage.
 
 U kunt meer precies een de gebeurtenissen die worden geschreven naar Azure Storage opgeven met behulp van Azure PowerShell.
-Zie voor meer informatie, [inschakelen van diagnostische gegevens in Azure Virtual Machines](../virtual-machines/virtual-machines-dotnet-diagnostics.md).
+Zie voor meer informatie, [inschakelen van diagnostische gegevens in Azure Virtual Machines](/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines).
 
 U kunt inschakelen en Azure diagnostics met behulp van de volgende PowerShell-script bijwerken.
 U kunt dit script ook gebruiken met een aangepaste configuratie voor logboekregistratie.
@@ -195,4 +195,4 @@ Controleer het volgende voorbeeldscript, kopieert u het zo nodig wijzigen, het v
 ## <a name="next-steps"></a>Volgende stappen
 * [Verzamelen van Logboeken en metrische gegevens voor Azure-services](log-analytics-azure-storage.md) voor ondersteunde Azure-services.
 * [Oplossingen inschakelen](../monitoring/monitoring-solutions.md) om inzicht in de gegevens te bieden.
-* [Gebruik van zoekquery's](log-analytics-log-search.md) om de gegevens te analyseren.
+* [Gebruik van zoekquery's](log-analytics-queries.md) om de gegevens te analyseren.

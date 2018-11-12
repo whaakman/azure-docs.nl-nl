@@ -1,29 +1,29 @@
 ---
-title: Implementeren van de oplossing externe bewaking van Java - Azure | Microsoft Docs
-description: Deze zelfstudie leert u hoe u de oplossingsversneller bewaking op afstand met behulp van de CLI inricht.
+title: Implementeren van de oplossing voor externe controle met behulp van CLI - Azure | Microsoft Docs
+description: In deze gebruiksaanwijzing wordt beschreven hoe u voor het inrichten van de oplossingsversnellers bewaking op afstand met behulp van de CLI.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 09/12/2018
+ms.date: 10/30/2018
 ms.topic: conceptual
-ms.openlocfilehash: ddb0b5b1a0847200caa7d8d04ecdc9dab4c41d14
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 5704cc21b14d83ebc30cd29f52102c751cfb11f2
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49956694"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51248007"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-using-the-cli"></a>De oplossingsversnellers bewaking op afstand met behulp van de CLI implementeren
 
-Deze zelfstudie leert u hoe u de oplossingsverbetering voor externe controle inricht. U implementeert de oplossing met behulp van de CLI. U kunt ook de oplossing implementeren met het web gebaseerde gebruikersinterface op azureiotsuite.com, voor meer informatie over deze optie Zie [de oplossingsverbetering voor externe bewaking implementeren](quickstart-remote-monitoring-deploy.md).
+In deze gebruiksaanwijzing ziet u hoe u de oplossingsverbetering voor externe bewaking implementeert. U implementeert de oplossing met behulp van de CLI. U kunt ook de oplossing met behulp van de gebruikersinterface voor het web gebaseerde op azureiotsuite.com, voor meer informatie over deze optie Zie implementeren de[de oplossingsverbetering voor externe bewaking implementeren](quickstart-remote-monitoring-deploy.md) Quick Start.
 
 ## <a name="prerequisites"></a>Vereisten
 
 Als u wilt de oplossingsverbetering voor externe bewaking implementeert, moet u een actief Azure-abonnement.
 
-Als u geen account hebt, kunt u binnen een paar minuten een account voor de gratis proefversie maken. Zie [Gratis proefversie van Azure](http://azure.microsoft.com/pricing/free-trial/) voor meer informatie.
+Als u geen account hebt, kunt u binnen een paar minuten een account voor de gratis proefversie maken. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/) voor meer informatie.
 
 Als u wilt uitvoeren van de CLI, moet u [Node.js](https://nodejs.org/) geïnstalleerd op uw lokale computer.
 
@@ -37,7 +37,7 @@ npm install iot-solutions -g
 
 ## <a name="sign-in-to-the-cli"></a>Meld u aan bij de CLI
 
-Voordat u de oplossingsversnellers implementeren kunt, moet u zich aanmelden bij uw Azure-abonnement met de CLI als volgt:
+Voordat u de oplossingsversnellers implementeren kunt, moet u zich aanmelden bij uw Azure-abonnement met behulp van de CLI:
 
 ```cmd/sh
 pcs login
@@ -51,19 +51,20 @@ Wanneer u de oplossingsversneller implementeert, zijn er verschillende opties di
 
 | Optie | Waarden | Beschrijving |
 | ------ | ------ | ----------- |
-| SKU    | `basic`, `standard`, `local` | Een _basic_ implementatie bedoeld is voor testen en demonstraties, deze alle microservices op een enkele virtuele machine implementeert. Een _standard_ implementatie bedoeld is voor productie, deze implementeert de microservices naar meerdere virtuele machines. Een _lokale_ implementatie configureert u een Docker-container voor het uitvoeren van de microservices op uw lokale computer en maakt gebruik van Azure-services, zoals storage en Cosmos DB, in de cloud. |
+| SKU    | `basic`, `standard`, `local` | Een _basic_ implementatie bedoeld is voor testen en demonstraties, deze alle microservices op een enkele virtuele machine implementeert. Een _standard_ implementatie bedoeld is voor productie, deze implementeert de microservices naar meerdere virtuele machines. Een _lokale_ implementatie configureert u een Docker-container voor het uitvoeren van de microservices op uw lokale computer en maakt gebruik van Azure cloudservices, zoals opslag en Cosmos DB. |
 | Runtime | `dotnet`, `java` | Hiermee selecteert u de implementatie van de taal van de microservices. |
 
-Zie voor meer informatie over het gebruik van de lokale implementatie [die lokaal wordt uitgevoerd de oplossing voor externe controle](iot-accelerators-remote-monitoring-deploy-local.md).
+Zie voor meer informatie over het gebruik van de optie voor lokale implementatie, [die lokaal wordt uitgevoerd de oplossing voor externe controle](iot-accelerators-remote-monitoring-deploy-local.md).
 
-## <a name="basic-vs-standard-deployments"></a>Basic vs. Standard-implementaties
+## <a name="basic-and-standard-deployments"></a>Basic en standard-implementaties
+
+In deze sectie bevat een overzicht van de belangrijkste verschillen tussen een basic en standard-implementatie.
 
 ### <a name="basic"></a>Basic
-Eenvoudige implementatie is afgestemd op de oplossing die laat zien. Als u wilt de kosten van deze demonstratie verlagen, worden alle microservices geïmplementeerd in een enkele virtuele machine. Dit wordt niet beschouwd als een gereed is voor productie-architectuur.
 
-Onze standaard-implementatie-optie moet worden gebruikt wanneer u klaar bent voor het aanpassen van een architectuur gereed is voor productie, die is gebouwd voor schaal en uitbreidbaarheid.
+Eenvoudige implementatie is afgestemd op de oplossing die laat zien. Als u wilt verlagen, worden alle microservices worden geïmplementeerd in een enkele virtuele machine. Deze implementatie gebruik geen van een architectuur gereed is voor productie.
 
-Het maken van een eenvoudige oplossing zal leiden tot de volgende Azure-services ingericht in uw Azure-abonnement, kosten: 
+Een eenvoudige implementatie wordt gemaakt van de volgende services in uw Azure-abonnement:
 
 | Count | Resource                       | Type         | Gebruikt voor |
 |-------|--------------------------------|--------------|----------|
@@ -78,13 +79,11 @@ Het maken van een eenvoudige oplossing zal leiden tot de volgende Azure-services
 | 1     | [Azure Device Provisioning Service](https://docs.microsoft.com/azure/iot-dps/)        |       S1          | Inrichten van apparaten op schaal |
 | 1     | [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/)        |   S1: 1 eenheid              | Opslag voor analyse van berichten gegevens en maakt uitgebreide telemetrie |
 
-
-
 ### <a name="standard"></a>Standard
-De standaardimplementatie is een gereed is voor productie-implementatie een ontwikkelaar kunt aanpassen en uitbreiden om te voldoen aan hun behoeften. De optie standaard-implementatie moet worden gebruikt wanneer u klaar bent om aan te passen van een architectuur gereed is voor productie, die is gebouwd voor schaal en uitbreidbaarheid. Microservices voor toepassingen worden gebouwd als Docker-containers en geïmplementeerd met behulp van Azure Kubernetes Service (AKS). De orchestrator is verantwoordelijk voor de implementatie, schaling en beheer van de toepassing.
 
+Een standaardimplementatie is een gereed is voor productie-implementatie die een ontwikkelaar kunt aanpassen en uitbreiden. Gebruik de optie standaard-implementatie wanneer u klaar om aan te passen van een architectuur gereed is voor productie bent, die is gebouwd voor schaal en uitbreidbaarheid. Toepassing microservices worden gebouwd als Docker-containers en geïmplementeerd met behulp van de Azure Kubernetes Service. De Kubernetes-orchestrator implementeert, kan worden geschaald en beheert de microservices.
 
-Het maken van een standaardoplossing zal leiden tot de volgende Azure-services ingericht in uw Azure-abonnement, kosten:
+Een standaardimplementatie maakt de volgende services in uw Azure-abonnement:
 
 | Count | Resource                                     | SKU / grootte      | Gebruikt voor |
 |-------|----------------------------------------------|-----------------|----------|
@@ -99,9 +98,12 @@ Het maken van een standaardoplossing zal leiden tot de volgende Azure-services i
 | 1     | [Azure Device Provisioning Service](https://docs.microsoft.com/azure/iot-dps/)        |       S1          | Inrichten van apparaten op schaal |
 | 1     | [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/)        |   S1: 1 eenheid              | Opslag voor analyse van berichten gegevens en maakt uitgebreide telemetrie |
 
-> Informatie over de prijzen voor deze services vindt [hier](https://azure.microsoft.com/pricing). Gebruiksbedragen en factureringsgegevens voor uw abonnement kunnen worden gevonden in de [Azure Portal](https://portal.azure.com/).
+> [!NOTE]
+> U vindt informatie over prijzen voor deze services op [ https://azure.microsoft.com/pricing ](https://azure.microsoft.com/pricing). U kunt vinden, gebruik en facturering van details van uw abonnement in de [Azure Portal](https://portal.azure.com/).
 
 ## <a name="deploy-the-solution-accelerator"></a>De oplossingsversnellers implementeren
+
+Voorbeelden van implementatie:
 
 ### <a name="example-deploy-net-version"></a>Voorbeeld: .NET versie implementeren
 
@@ -121,14 +123,14 @@ pcs -t remotemonitoring -s standard -r java
 
 ### <a name="pcs-command-options"></a>Opties voor de opdracht pc 's
 
-Bij het uitvoeren van de `pcs` opdracht voor het implementeren van een oplossing wordt u gevraagd om:
+Bij het uitvoeren van de `pcs` opdracht voor het implementeren van een oplossing u wordt gevraagd om:
 
 - Een naam voor uw oplossing. Deze naam moet uniek zijn.
 - Het te gebruiken Azure-abonnement.
 - Een locatie.
 - Referenties voor de virtuele machines die als host fungeren voor de microservices. U kunt deze referenties gebruiken voor toegang tot de virtuele machines voor het oplossen van problemen.
 
-Wanneer de `pcs` opdracht is voltooid, wordt de URL van uw nieuwe implementatie van de oplossing accelerator weergegeven. De `pcs` opdracht maakt ook een bestand `{deployment-name}-output.json` met aanvullende informatie zoals de naam van de IoT-Hub die is ingericht voor u.
+Wanneer de `pcs` opdracht is voltooid, wordt de URL van uw nieuwe oplossingsverbetering weergegeven. De `pcs` opdracht maakt ook een bestand `{deployment-name}-output.json` die bevat informatie zoals de naam van de IoT-Hub die deze gemaakt.
 
 Voor meer informatie over de opdrachtregelparameters worden uitgevoerd:
 
@@ -140,7 +142,7 @@ Zie voor meer informatie over de CLI, [over het gebruik van de CLI](https://gith
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie heeft u het volgende geleerd:
+In deze handleiding, hebt u geleerd hoe u:
 
 > [!div class="checklist"]
 > * De oplossingsversneller configureren
@@ -149,4 +151,4 @@ In deze zelfstudie heeft u het volgende geleerd:
 
 Nu dat u de oplossing voor externe controle hebt geïmplementeerd, wordt de volgende stap is het [verkennen van de mogelijkheden van het oplossingsdashboard](./quickstart-remote-monitoring-deploy.md).
 
-<!-- Next tutorials in the sequence -->
+<!-- Next how-to guides in the sequence -->

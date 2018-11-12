@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 02/22/2016
 ms.author: ancav
 ms.component: autoscale
-ms.openlocfilehash: 49012c69a6dacaf76c95ea4c760e5951ecb6a9fb
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 2570e779f258e702f04166dffc3087195d01a983
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50958837"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283630"
 ---
 # <a name="advanced-autoscale-configuration-using-resource-manager-templates-for-vm-scale-sets"></a>Geavanceerd automatisch schalen configureren met behulp van Resource Manager-sjablonen voor VM-Schaalsets
 U kunt in- en scale-out in Virtual Machine Scale Sets op basis van prestaties metrische drempels, door een terugkerend schema, of door een bepaalde datum. U kunt ook e-mail en webhook-meldingen voor schaalacties configureren. In dit scenario ziet u een voorbeeld van het configureren van al deze objecten met behulp van Resource Manager-sjabloon voor een VM-Schaalset.
 
 > [!NOTE]
-> Hoewel in dit scenario de stappen beschreven voor VM-Schaalsets worden, de dezelfde informatie geldt voor automatisch schalen [Cloudservices](https://azure.microsoft.com/services/cloud-services/), [App Service - Web-Apps](https://azure.microsoft.com/services/app-service/web/), en [API Management-services](https://docs.microsoft.com/azure/api-management/api-management-key-concepts) Voor een eenvoudige schaalset in/uit-instelling op een VM-Schaalset zijn gebaseerd op een eenvoudige prestaties metrische gegevens zoals CPU, verwijzen naar de [Linux](../virtual-machine-scale-sets/virtual-machine-scale-sets-linux-autoscale.md) en [Windows](../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-powershell.md) documenten
+> Hoewel in dit scenario de stappen beschreven voor VM-Schaalsets worden, de dezelfde informatie geldt voor automatisch schalen [Cloudservices](https://azure.microsoft.com/services/cloud-services/), [App Service - Web-Apps](https://azure.microsoft.com/services/app-service/web/), en [API Management-services](https://docs.microsoft.com/azure/api-management/api-management-key-concepts) Voor een eenvoudige schaalset in/uit-instelling op een VM-Schaalset zijn gebaseerd op een eenvoudige prestaties metrische gegevens zoals CPU, verwijzen naar de [Linux](../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-cli.md) en [Windows](../virtual-machine-scale-sets/tutorial-autoscale-powershell.md) documenten
 >
 >
 

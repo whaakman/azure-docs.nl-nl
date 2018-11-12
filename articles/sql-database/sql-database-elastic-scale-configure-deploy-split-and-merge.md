@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/05/2018
-ms.openlocfilehash: 3aca6e29f7701a09fa54e778da180a0ead55deb2
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 253a50f50e94888a5d764e51a4ff49cc0c1424c6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50240729"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51253530"
 ---
 # <a name="deploy-a-split-merge-service-to-move-data-between-sharded-databases"></a>Een service voor het verplaatsen van gegevens tussen de shard-databases voor splitsen en samenvoegen implementeren
 
@@ -63,7 +63,7 @@ Raadpleeg voor gedetailleerde instructies voor het configureren van de beveiligi
 Voor de toepassing van een eenvoudig test-implementatie voor deze zelfstudie wordt een minimaal aantal configuratiestappen worden uitgevoerd aan de slag van de service en wordt uitgevoerd. Deze stappen schakelt u alleen het één machine /-account om te communiceren met de service wordt uitgevoerd.
 
 ### <a name="create-a-self-signed-certificate"></a>Een zelfondertekend certificaat maken
-Een nieuwe map maken en uitvoeren vanuit deze map de volgende opdracht uit via een [opdrachtprompt voor ontwikkelaars voor Visual Studio](http://msdn.microsoft.com/library/ms229859.aspx) venster:
+Een nieuwe map maken en uitvoeren vanuit deze map de volgende opdracht uit via een [opdrachtprompt voor ontwikkelaars voor Visual Studio](https://msdn.microsoft.com/library/ms229859.aspx) venster:
 
    ```
     makecert ^

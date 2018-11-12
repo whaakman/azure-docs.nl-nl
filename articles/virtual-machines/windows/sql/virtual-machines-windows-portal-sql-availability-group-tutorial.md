@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/30/2018
 ms.author: mikeray
-ms.openlocfilehash: 7dbbfb2d97b7015118edca3db3ae050ad07c51ee
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 42a4ea1e4dc352e56fbd65f69c9ed71e3b0c1038
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43667444"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238072"
 ---
 # <a name="configure-always-on-availability-group-in-azure-vm-manually"></a>Configure AlwaysOn-beschikbaarheidsgroep in Azure VM handmatig
 
@@ -35,7 +35,7 @@ Het diagram ziet wat u in de zelfstudie maken.
 
 ## <a name="prerequisites"></a>Vereisten
 
-De zelfstudie wordt ervan uitgegaan dat u een basiskennis hebben van SQL Server Always On Availability Groups. Als u meer informatie, Zie [overzicht van de Always On Availability Groups (SQL Server)](http://msdn.microsoft.com/library/ff877884.aspx).
+De zelfstudie wordt ervan uitgegaan dat u een basiskennis hebben van SQL Server Always On Availability Groups. Als u meer informatie, Zie [overzicht van de Always On Availability Groups (SQL Server)](https://msdn.microsoft.com/library/ff877884.aspx).
 
 De volgende tabel bevat de vereisten die u nodig hebt om te voltooien voordat u deze zelfstudie begint:
 
@@ -119,7 +119,7 @@ De andere SQL-Server toevoegen aan het cluster.
 
 ### <a name="add-a-cluster-quorum-file-share"></a>Een clusterquorum-bestandsshare toevoegen
 
-In dit voorbeeld gebruikt de Windows-cluster een bestandsshare te maken van een clusterquorum. In deze zelfstudie maakt gebruik van een knooppunt en bestandssharemeerderheid quorum. Zie voor meer informatie, [Quorumconfiguraties in een failovercluster](http://technet.microsoft.com/library/cc731739.aspx).
+In dit voorbeeld gebruikt de Windows-cluster een bestandsshare te maken van een clusterquorum. In deze zelfstudie maakt gebruik van een knooppunt en bestandssharemeerderheid quorum. Zie voor meer informatie, [Quorumconfiguraties in een failovercluster](https://technet.microsoft.com/library/cc731739.aspx).
 
 1. Verbinding maken met de file share witness lidserver met een extern bureaublad-sessiehost.
 
@@ -168,7 +168,7 @@ Vervolgens stelt u het clusterquorum.
 1. Op **Quorumwitness selecteren**, klikt u op **een bestandsshare-witness configureren**.
 
    >[!TIP]
-   >Windows Server 2016 biedt ondersteuning voor een cloud-witness. Als u dit type witness kiest, u hoeft niet een bestand witness delen. Zie voor meer informatie, [een cloudwitness voor een Failover-Cluster implementeren](http://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness). In deze zelfstudie maakt gebruik van een bestandssharewitness wordt ondersteund door eerdere besturingssystemen.
+   >Windows Server 2016 biedt ondersteuning voor een cloud-witness. Als u dit type witness kiest, u hoeft niet een bestand witness delen. Zie voor meer informatie, [een cloudwitness voor een Failover-Cluster implementeren](https://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness). In deze zelfstudie maakt gebruik van een bestandssharewitness wordt ondersteund door eerdere besturingssystemen.
 
 1. Op **bestandssharewitness configureren**, typt u het pad voor de share die u hebt gemaakt. Klik op **Volgende**.
 
@@ -515,7 +515,7 @@ De verbinding wilt testen:
 De SQLCMD-verbinding wordt automatisch verbinding met elk exemplaar van SQL Server als host fungeert voor de primaire replica.
 
 > [!TIP]
-> Zorg ervoor dat de poort die u opgeeft geopend op de firewall van beide SQL-Servers is. Beide servers vereist een inkomende regel voor de TCP-poort die u gebruikt. Zie voor meer informatie, [toevoegen of bewerken firewallregel](http://technet.microsoft.com/library/cc753558.aspx).
+> Zorg ervoor dat de poort die u opgeeft geopend op de firewall van beide SQL-Servers is. Beide servers vereist een inkomende regel voor de TCP-poort die u gebruikt. Zie voor meer informatie, [toevoegen of bewerken firewallregel](https://technet.microsoft.com/library/cc753558.aspx).
 
 ## <a name="next-steps"></a>Volgende stappen
 

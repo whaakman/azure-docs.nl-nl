@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 04/30/2018
 ms.author: jroth
-ms.openlocfilehash: 2b398f59aed1610825f495a6089990d393531305
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: d80526768c59bbb746408a026915b3228747e18a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38597403"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51251167"
 ---
 # <a name="configure-azure-key-vault-integration-for-sql-server-on-azure-virtual-machines-resource-manager"></a>Azure Key Vault-integratie configureren voor SQL Server op Azure Virtual Machines (Resource Manager)
 
@@ -29,7 +29,7 @@ ms.locfileid: "38597403"
 > * [Klassiek](../sqlclassic/virtual-machines-windows-classic-ps-sql-keyvault.md)
 
 ## <a name="overview"></a>Overzicht
-Er zijn meerdere functies van SQL Server-versleuteling, zoals [transparante gegevensversleuteling (TDE)](https://msdn.microsoft.com/library/bb934049.aspx), [versleuteling op kolom (CLE)](https://msdn.microsoft.com/library/ms173744.aspx), en [back-upversleuteling](https://msdn.microsoft.com/library/dn449489.aspx). Deze vormen van versleuteling moeten u de cryptografische sleutels die u voor versleuteling gebruikt opslaan en beheren. De service Azure Key Vault (AKV) is ontworpen voor het verbeteren van de beveiliging en beheer van deze sleutels op een beveiligde en maximaal beschikbare locatie. De [SQL Server-Connector](http://www.microsoft.com/download/details.aspx?id=45344) kan SQL Server om deze sleutels uit Azure Key Vault te gebruiken.
+Er zijn meerdere functies van SQL Server-versleuteling, zoals [transparante gegevensversleuteling (TDE)](https://msdn.microsoft.com/library/bb934049.aspx), [versleuteling op kolom (CLE)](https://msdn.microsoft.com/library/ms173744.aspx), en [back-upversleuteling](https://msdn.microsoft.com/library/dn449489.aspx). Deze vormen van versleuteling moeten u de cryptografische sleutels die u voor versleuteling gebruikt opslaan en beheren. De service Azure Key Vault (AKV) is ontworpen voor het verbeteren van de beveiliging en beheer van deze sleutels op een beveiligde en maximaal beschikbare locatie. De [SQL Server-Connector](https://www.microsoft.com/download/details.aspx?id=45344) kan SQL Server om deze sleutels uit Azure Key Vault te gebruiken.
 
 Als u SQL Server on-premises virtuele machines worden uitgevoerd, zijn er [stappen die u kunt volgen om toegang tot Azure Key Vault vanuit uw on-premises SQL Server-computer](https://msdn.microsoft.com/library/dn198405.aspx). Maar voor SQL Server in virtuele Azure-machines, kunt u tijd besparen met behulp van de *Azure Key Vault-integratie* functie.
 
