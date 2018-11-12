@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ericrad
-ms.openlocfilehash: d96058ae9415ccb361af8a281a4b65b3f69edfcd
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 7a7267faae2067a873ee11bfbf4ef3027b285a0b
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42746762"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51034946"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Azure Metadata Service: Geplande gebeurtenissen voor Windows-VM 's
 
@@ -42,7 +42,7 @@ Veel toepassingen kunnen profiteren van de tijd om voor te bereiden voor onderho
 - Gebeurtenisregistratie
 - Correct afsluiten 
 
-Met behulp van geplande gebeurtenissen van uw toepassing kan detecteren wanneer onderhoud zal optreden en taken te beperken de gevolgen ervan te activeren.  
+Met behulp van geplande gebeurtenissen van uw toepassing kan detecteren wanneer onderhoud zal optreden en taken te beperken de gevolgen ervan te activeren. Inschakelen van geplande gebeurtenissen, biedt uw virtuele machine een minimale hoeveelheid tijd voordat de activiteit onderhoud wordt uitgevoerd. Zie de sectie planning van de gebeurtenis hieronder voor meer informatie.
 
 Geplande gebeurtenissen biedt gebeurtenissen in de volgende gevallen gebruik:
 - Platform gestart onderhoud (bijvoorbeeld Host Update van het besturingssysteem)
@@ -71,7 +71,7 @@ De geplande gebeurtenissen-Service is samengesteld. Versies zijn verplicht en de
 > Eerdere versies van de Preview-versie van geplande gebeurtenissen {nieuwste} wordt ondersteund als de api-versie. Deze indeling wordt niet meer ondersteund en wordt in de toekomst afgeschaft.
 
 ### <a name="enabling-and-disabling-scheduled-events"></a>Inschakelen en uitschakelen van geplande gebeurtenissen
-Geplande gebeurtenissen is ingeschakeld voor uw service de eerste keer dat u een aanvraag voor gebeurtenissen. U moet een vertraagde reactie verwachten in de eerste aanroep van twee minuten.
+Geplande gebeurtenissen is ingeschakeld voor uw service de eerste keer dat u een aanvraag voor gebeurtenissen. U moet een vertraagde reactie verwachten in de eerste aanroep van twee minuten. U moet een query uitvoeren voor het eindpunt van de tijd tot tijd voor het detecteren van geplande onderhoudsgebeurtenissen, evenals de status van onderhoudsactiviteiten die worden uitgevoerd.
 
 Geplande gebeurtenissen is uitgeschakeld voor uw service als deze niet een aanvraag voor 24 uur.
 
@@ -110,6 +110,7 @@ In het geval waarbij er geplande gebeurtenissen, het antwoord bevat een reeks ge
     ]
 }
 ```
+De DocumentIncarnation is een ETag en biedt een eenvoudige manier om te controleren als de nettolading van de gebeurtenissen is gewijzigd sinds de laatste query.
 
 ### <a name="event-properties"></a>Eigenschappen van gebeurtenis
 |Eigenschap  |  Beschrijving |

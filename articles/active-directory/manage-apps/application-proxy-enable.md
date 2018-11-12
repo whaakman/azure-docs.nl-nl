@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/26/2018
 ms.author: barbkess
-ms.reviewer: harshja
+ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: 5227f756e807a30573733bd408144d869caac9ec
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 59ca9ca7711904fe7882aac4878bd62c597645d8
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39366472"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51034963"
 ---
 # <a name="get-started-with-application-proxy-and-install-the-connector"></a>Aan de slag met Application Proxy en de connector te installeren
 Dit artikel beschrijft de stappen die nodig zijn om Microsoft Azure AD-toepassingsproxy in te schakelen voor uw clouddirectory in Azure AD.
@@ -33,6 +33,7 @@ Voordat u de services voor toepassingsproxy kunt inschakelen en gebruiken, moet 
 * Een [basis- of premiumabonnement op Microsoft Azure AD](../fundamentals/active-directory-whatis.md) en een Azure AD-directory waarvan u een globale beheerder bent.
 * Een server met Windows Server 2012 R2 of 2016, waarop u de Connector voor toepassingsproxy kunt installeren. De server moet verbinding kunnen maken met de services voor toepassingsproxy in de cloud en de on-premises toepassingen die u publiceert.
   * Voor eenmalige aanmelding bij uw gepubliceerde toepassingen met behulp van Kerberos-beperkte overdracht, moet deze machine worden-domein in hetzelfde AD-domein als de toepassingen die u publiceert. Zie voor meer informatie, [KCD voor eenmalige aanmelding met Application Proxy](application-proxy-configure-single-sign-on-with-kcd.md).
+* TLS 1.2 op het onderliggende besturingssysteem uitgevoerd. Als u wilt wijzigen in TLS 1.2, volg de stappen in [inschakelen TLS 1.2](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-prerequisites#enable-tls-12-for-azure-ad-connect). Hoewel de inhoud voor Azure AD Connect, wordt deze procedure is hetzelfde voor alle .NET-clients.
 
 Als uw organisatie proxyservers gebruikt om verbinding met internet te maken, lezen [werken met bestaande on-premises proxy-servers](application-proxy-configure-connectors-with-proxy-servers.md) voor meer informatie over het configureren voordat u aan de slag met Application Proxy.
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/16/2018
 ms.author: jdial
 ms.custom: include file
-ms.openlocfilehash: d1c5c9a8709467c9f9ca87c841cffcf77a5b5f0b
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
-ms.translationtype: HT
+ms.openlocfilehash: e765739384aa7d18b95394cb0a9b2b6748174e7c
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51219894"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51525643"
 ---
 <a name="virtual-networking-limits-classic"></a>De volgende beperkingen gelden alleen voor netwerkresources die worden beheerd via het klassieke implementatiemodel voor elk abonnement. Meer informatie over het [weergeven van uw huidige brongebruik op basis van uw abonnementen](../articles/networking/check-usage-against-limits.md).
 
@@ -45,7 +45,7 @@ De volgende beperkingen gelden alleen voor netwerkresources die worden beheerd v
 | Virtuele netwerken |1000 |
 | Subnetten per virtueel netwerk |3000 |
 | Virtueel netwerk-peerings per Virtueelnetwerk |100 |
-| DNS-servers per virtueel netwerk |25 |
+| DNS-servers per virtueel netwerk |20 |
 | Privé-IP-adressen per virtueel netwerk |65536 |
 | Privé-IP-adressen per netwerkinterface |256 |
 | Gelijktijdige TCP of UDP-stromen per NIC van een virtuele machine of rolinstantie |500.000 |

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: abnarain
-ms.openlocfilehash: 2dc81a96f1e83c3a6b1ddee92f57b2f0bae4196d
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: cae81bd2b856ae0fb4a648c03cbec1f87f222902
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50248912"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51038465"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Maken en configureren van een zelf-hostende integratieruntime
 De integratieruntime (IR) is de rekeninfrastructuur die Azure Data Factory gebruikt zodat de mogelijkheden van de integratie van gegevens in verschillende netwerkomgevingen. Zie voor meer informatie over IR [overzicht van Integration runtime](concepts-integration-runtime.md).
@@ -148,6 +148,10 @@ Hier volgen de vereisten voor het TLS/SSL-certificaat dat wordt gebruikt voor he
 U kunt een bestaande zelf-hostende integration runtime-infrastructuur, die u hebt al ingesteld in een data factory opnieuw gebruiken. Hiermee kunt u maken een *gekoppelde zelf-hostende integratieruntime* in een andere data factory door te verwijzen naar een bestaande zelf-hostende IR (gedeeld).
 
 Als u wilt delen een zelf-hostende integratieruntime met behulp van PowerShell, Zie [een gedeelde zelf-hostende integratieruntime maken in Azure Data Factory met PowerShell](create-shared-self-hosted-integration-runtime-powershell.md).
+
+Bekijk de volgende video voor een 12 minuten durende inleiding en demonstratie van deze functie:
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Hybrid-data-movement-across-multiple-Azure-Data-Factories/player]
 
 ### <a name="terminology"></a>Terminologie
 

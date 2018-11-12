@@ -14,12 +14,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: c1c884e05d357db7e23574dbd31f206d6c3fe23c
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: 757c710ddca72ec6a1383b51a8b536d196e6cb8c
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "41918746"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50414463"
 ---
 # <a name="use-revisions-to-make-non-breaking-changes-safely"></a>Revisies gebruiken om vaste wijzigingen veilig in Azure API Management aan te brengen
 Wanneer uw API klaar is voor gebruik en daadwerkelijk wordt ingezet door ontwikkelaars, moet u op een bepaald moment wijzigingen aanbrengen aan die API, zonder dat dit gevolgen heeft voor clients die de API aanroepen. Het is ook handig om ontwikkelaars te informeren over de aangebrachte wijzigingen. We kunnen dit doen in Azure API Management met **revisies**. Zie voor meer informatie [Versies en revisies](https://blogs.msdn.microsoft.com/apimanagement/2017/09/14/versions-revisions/) en [API-versies met Azure API Management](https://blogs.msdn.microsoft.com/apimanagement/2017/09/13/api-versioning-with-azure-api-management/).
@@ -36,10 +36,13 @@ In deze zelfstudie leert u het volgende:
 
 ## <a name="prerequisites"></a>Vereisten
 
++ Informatie over de [terminologie van Azure API Management](api-management-terminology.md).
 + Lees de volgende snelstartgids: [Een Azure API Management-exemplaar maken](get-started-create-service-instance.md).
 + Voltooi tevens de volgende zelfstudie: [Uw eerste API importeren en publiceren](import-and-publish.md).
 
 ## <a name="add-a-new-revision"></a>Een nieuwe revisie toevoegen
+
+![API-revisie toevoegen](media/api-management-getstarted-revise-api/07-AddRevisions-01-AddNewRevision.png)
 
 1. Selecteer de pagina **API's**.
 2. Selecteer **Demo Conference API** in de lijst met API's (of een andere API die u wilt wijzigen).
@@ -48,8 +51,6 @@ In deze zelfstudie leert u het volgende:
 
     > [!TIP]
     > U kunt ook **Revisie toevoegen** kiezen uit het contextmenu (**...** ) van de API.
-    
-    ![Revisies-menu aan de bovenkant van scherm](media/api-management-getstarted-revise-api/TopMenu.PNG)
 
 5. Geef een beschrijving voor de nieuwe revisie, om te onthouden waar deze voor wordt gebruikt.
 6. Selecteer **Maken**
@@ -59,6 +60,8 @@ In deze zelfstudie leert u het volgende:
     > Uw oorspronkelijke API blijft in **Revisie 1**. Dit is de revisie die uw gebruikers blijven aanroepen, totdat u ervoor kiest om een andere revisie de huidige te maken.
 
 ## <a name="make-non-breaking-changes-to-your-revision"></a>Vaste wijzigingen aanbrengen in uw revisie
+
+![Revisie wijzigen](media/api-management-getstarted-revise-api/07-AddRevisions-02-MakeChanges.png)
 
 1. Selecteer **Demo Conference API** in de lijst met API's.
 2. Selecteer boven in het scherm het tabblad **Ontwerp**.
@@ -78,6 +81,7 @@ In deze zelfstudie leert u het volgende:
 1. Klik op het tabblad **Revisies** in het menu aan de bovenkant van de pagina.
 
     ![Het menu Revisie op het scherm Revisie.](media/api-management-getstarted-revise-api/RevisionsMenu.PNG)
+
 2. Open het contextmenu (**...** ) voor **Revisie 2**.
 3. Selecteer **Instellen als huidige**.
 4. Controleer **Op het openbare wijzigingenlogboek voor deze API plaatsen**, als u opmerkingen over deze wijziging wilt plaatsen. Geef een beschrijving op voor de wijziging die aan ontwikkelaars wordt weergegeven, bijvoorbeeld **Revisies testen. Nieuwe 'test'-bewerking toegevoegd.**

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: robb
 ms.component: alerts
-ms.openlocfilehash: c69a61f19b55cd325cd594173dbf3b5f2b4576b8
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 02e69a9e3442f276e89e8515fb506ddd876ad2d2
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50962925"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51015771"
 ---
 # <a name="what-are-classic-alerts-in-microsoft-azure"></a>Wat zijn klassieke waarschuwingen in Microsoft Azure?
 
@@ -29,7 +29,7 @@ Heeft afzonderlijke waarschuwingen mogelijkheden in de afgelopen Azure Monitor, 
 
 Klassieke waarschuwingen ziet u alleen in het scherm van de gebruiker klassieke waarschuwingen in de Azure Portal. Dit scherm wordt weergegeven in de **klassieke waarschuwingen weergeven** knop op het scherm waarschuwingen. 
 
- ![Waarschuwing keuzes in Azure portal](./media/monitoring-overview-alerts-classic/monitor-alert-screen2.png)�
+ ![Waarschuwing keuzes in Azure portal](./media/monitoring-overview-alerts-classic/monitor-alert-screen2.png)
 
 De nieuwe ervaring voor waarschuwingen gebruiker heeft de volgende voordelen via de ervaring voor klassieke waarschuwingen:
 -   **Betere notification system** -actiegroepen, die zijn benoemde groepen van meldingen en acties die opnieuw kunnen worden gebruikt in meerdere waarschuwingen voor alle nieuwere waarschuwingen gebruiken. Gebruik geen actiegroepen klassieke metrische waarschuwingen en oudere Log Analytics-waarschuwingen.

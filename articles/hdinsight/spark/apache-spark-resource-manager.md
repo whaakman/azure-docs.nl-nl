@@ -2,19 +2,19 @@
 title: Resources beheren voor Apache Spark-cluster in Azure HDInsight
 description: Meer informatie over het gebruik van resources beheren voor Spark-clusters op Azure HDInsight voor betere prestaties.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/23/2018
-ms.author: jasonh
-ms.openlocfilehash: d7395231662d79d284bdf061e651602dea392c28
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.author: hrasheed
+ms.openlocfilehash: 166d52322504e57e01a4bd798252fc956c1a3e44
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43051495"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51014581"
 ---
 # <a name="manage-resources-for-apache-spark-cluster-on-azure-hdinsight"></a>Resources beheren voor Apache Spark-cluster in Azure HDInsight 
 
@@ -76,7 +76,7 @@ De van de drie configuratieparameters kunnen worden geconfigureerd op het niveau
 2. De standaardwaarden zijn goede vier Spark-toepassingen gelijktijdig worden uitgevoerd op het cluster. U kunt deze waarden wijzigen via de gebruikersinterface, zoals wordt weergegeven in de volgende schermafbeelding:
 
     ![Parameters instellen met behulp van Ambari](./media/apache-spark-resource-manager/set-executor-parameters.png)
-3. Klik op **opslaan** om op te slaan van de configuratiewijzigingen. U wordt gevraagd aan de bovenkant van de pagina alle betrokken services opnieuw starten. Klik op **opnieuw**.
+3. Klik op **opslaan** om op te slaan van de configuratiewijzigingen. U wordt gevraagd aan de bovenkant van de pagina alle betrokken services opnieuw starten. Klik op **Opnieuw opstarten**.
 
     ![Services opnieuw starten](./media/apache-spark-resource-manager/restart-services.png)
 

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: barbkess
 ms.reviewer: jeedes
-ms.openlocfilehash: d7a5bf23f2855b43c4a2e4022568028d852c094b
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 0f6e690bc80ae8004fba4faf53c0403b0cb7edd9
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44719576"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51035333"
 ---
 # <a name="manage-certificates-for-federated-single-sign-on-in-azure-active-directory"></a>Certificaten voor federatieve eenmalige aanmelding in Azure Active Directory beheren
 In dit artikel bevat informatie over veelgestelde vragen en informatie met betrekking tot de certificaten die Azure Active Directory (Azure AD) maakt voor het maken van federatieve eenmalige aanmelding (SSO) met uw SaaS-toepassingen. Toepassingen toevoegen vanuit de galerie met Azure AD-app of met behulp van de sjabloon van een toepassing buiten de galerie. De toepassing configureren met behulp van de optie voor federatieve eenmalige aanmelding.
@@ -76,16 +76,20 @@ De volgende stappen uit voor vernieuwen moeten leiden tot aanzienlijke downtime 
 
     ![Een nieuw certificaat genereren](./media/manage-certificates-for-federated-single-sign-on/create_new_certficate.png)
 
-2. Selecteer de gewenste vervaldatum en -tijd voor het nieuwe certificaat en klik op **opslaan**.
+2. Selecteer de gewenste vervaldatum en -tijd voor het nieuwe certificaat en klik op **opslaan**. Een datum die met het bestaande certificaat overlapt te selecteren, zorgt u ervoor dat eventuele uitvaltijd vanwege het verlopen certificaat beperkt is. 
 
-3. Download het certificaat in de **SAML-handtekeningcertificaat** optie. Upload het nieuwe certificaat naar het scherm van de SaaS-toepassing-configuratie voor eenmalige aanmelding. Als u wilt leren hoe u dit doen voor uw specifieke SaaS-toepassing, klikt u op de **zelfstudie over configuratie weergave** koppeling.
+3. Als de app kan automatisch rollover van een certificaat, stelt u het nieuwe certificaat te activeren.  Meld u aan de app om te controleren of deze werkt.
+
+4. Als de app niet automatisch het nieuwe certificaat ophalen, maar kunt verwerken van meer dan één certificaat ondertekenen, voordat de oude versie is verlopen, upload het nieuwe knooppunt naar de app, en vervolgens gaat u terug naar de portal en het actieve certificaat. 
+
+5. Als de app slechts één certificaat tegelijk verwerken kan, kies een venster downtime, download het nieuwe certificaat te uploaden naar de toepassing, keert u terug naar de Azure-Portal en het nieuwe certificaat instellen als actief. 
    
-4. Activeer het nieuwe certificaat in Azure AD, selecteer de **nieuw certificaat activeren** selectievakje in en klik op de **opslaan** knop aan de bovenkant van de pagina. Dit wordt getotaliseerd via het nieuwe certificaat aan de Azure AD. De status van het certificaat wordt gewijzigd van **nieuw** naar **Active**. Vanaf dat moment begint Azure AD met behulp van het nieuwe certificaat voor ondertekening van het antwoord. 
+6. Activeer het nieuwe certificaat in Azure AD, selecteer de **nieuw certificaat activeren** selectievakje in en klik op de **opslaan** knop aan de bovenkant van de pagina. Dit wordt getotaliseerd via het nieuwe certificaat aan de Azure AD. De status van het certificaat wordt gewijzigd van **nieuw** naar **Active**. Vanaf dat moment begint Azure AD met behulp van het nieuwe certificaat voor ondertekening van het antwoord. 
    
     ![Een nieuw certificaat genereren](./media/manage-certificates-for-federated-single-sign-on/new_certificate_download.png)
 
 ## <a name="related-articles"></a>Verwante artikelen:
 * [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](../saas-apps/tutorial-list.md)
-* [Toepassingsbeheer in Azure Active Directory](what-is-application-management.md)
+* [Application Management in Azure Active Directory](what-is-application-management.md) (Toepassingsbeheer in Azure Active Directory)
 * [Toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](what-is-single-sign-on.md)
 * [Oplossen van problemen met SAML gebaseerde eenmalige aanmelding](../develop/howto-v1-debug-saml-sso-issues.md)

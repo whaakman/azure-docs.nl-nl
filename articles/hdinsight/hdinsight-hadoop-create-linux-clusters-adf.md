@@ -1,25 +1,25 @@
 ---
-title: 'Zelfstudie: On-demand Hadoop-clusters maken in Azure HDInsight met Data Factory '
-description: Informatie over het maken van on-demand Hadoop-clusters in HDInsight met behulp van Azure Data Factory.
+title: 'Zelfstudie: On-demand Apache Hadoop-clusters maken in Azure HDInsight met Data Factory '
+description: Informatie over het maken van on-demand Apache Hadoop-clusters in HDInsight met behulp van Azure Data Factory.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/07/2018
-ms.author: jasonh
-ms.openlocfilehash: 9e21c49e7a472830c19f61388739c35aac17c3ff
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.author: hrasheed
+ms.openlocfilehash: 76651874951255d9b01efdc6e91892f6852d948d
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955606"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51036373"
 ---
-# <a name="tutorial-create-on-demand-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>Zelfstudie: On-demand Hadoop-clusters in HDInsight met behulp van Azure Data Factory maken
+# <a name="tutorial-create-on-demand-apache-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>Zelfstudie: On-demand Apache Hadoop-clusters in HDInsight met behulp van Azure Data Factory maken
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-In dit artikel leert u over het maken van een Hadoop-cluster op aanvraag in Azure HDInsight met behulp van Azure Data Factory. Vervolgens gebruikt u gegevenspijplijnen in Azure Data Factory Hive-taken uitvoeren en verwijderen van het cluster. Aan het einde van deze zelfstudie leert u hoe u voor het operationeel maken van een big data-taak uitgevoerd waar het cluster te maken, taak uitvoeren en verwijderen van de cluster worden uitgevoerd volgens een schema.
+In dit artikel leert u hoe u een Apache Hadoop-cluster, on-demand, in Azure HDInsight met behulp van Azure Data Factory maakt. Vervolgens gebruikt u gegevenspijplijnen in Azure Data Factory Hive-taken uitvoeren en verwijderen van het cluster. Aan het einde van deze zelfstudie leert u hoe u voor het operationeel maken van een big data-taak uitgevoerd waar het cluster te maken, taak uitvoeren en verwijderen van de cluster worden uitgevoerd volgens een schema.
 
 Deze zelfstudie bestaat uit de volgende taken: 
 

@@ -1,6 +1,6 @@
 ---
-title: Inzicht krijgen in digitale dubbels Azure apparaatconnectiviteit en -verificatie | Microsoft Docs
-description: Gebruik Azure digitale dubbels om verbinding te verifiëren van apparaten
+title: Informatie over Azure digitale dubbele apparaat verbinding en verificatie | Microsoft Docs
+description: Digitale dubbels van Azure gebruiken om te verbinden en verificatie van apparaten
 author: lyrana
 manager: alinast
 ms.service: digital-twins
@@ -8,28 +8,28 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: lyrana
-ms.openlocfilehash: adfb4c369ea1b324da8562a5b0b245ebdecff602
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 42c1b0fbb6d87e9ed35d4ecce3971d8512eed4d4
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49324080"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51012459"
 ---
-# <a name="create-and-manage-role-assignments"></a>Maken en beheren van roltoewijzingen
+# <a name="create-and-manage-role-assignments"></a>Roltoewijzingen maken en beheren
 
 Azure van digitale dubbels maakt gebruik van op rollen gebaseerd toegangsbeheer ([RBAC](./security-role-based-access-control.md)) voor het beheren van toegang tot bronnen.
 
 De toewijzing van elke rol bevat:
 
-* Een **object-id** (een Azure Active Directory-ID, een service-principal-object-ID of een domeinnaam).
-* Een **object-id-type**.
-* Een **roldefinitie-ID**.
-* Een **ruimte pad**.
-* (In de meeste gevallen) Azure Active Directory **tenant-ID**.
+* **Object-id**: een Azure Active Directory-ID, service-principal-object-ID of domeinnaam
+* **Object-id-type**
+* **Roldefinitie-ID**
+* **Pad van de ruimte**
+* **Tenant-ID**: In de meeste gevallen tenant Azure Active Directory-ID
 
 ## <a name="role-definition-identifiers"></a>Rol van definitie-id 's
 
-De onderstaande tabel ziet u wat kan worden verkregen door het opvragen van de sitesysteemrollen /-API:
+De volgende tabel ziet u wat kan worden verkregen door het opvragen van de system/rollen API.
 
 | **Rol** | **ID** |
 | --- | --- |
@@ -41,11 +41,11 @@ De onderstaande tabel ziet u wat kan worden verkregen door het opvragen van de s
 | Gebruiker | b1ffdb77-c635-4E7E-ad25-948237d85b30 |
 | Ondersteuning voor gespecialiseerde | 6e46958b-dc62-4e7c-990c-c3da2e030969 |
 | Apparaat-installatieprogramma | b16dd9fe-4efe-467b-8c8c-720e2ff8817c |
-| GatewayDevice | d4c69766-e9bd-4e61-BFC1-d8b6e686c7a8 |
+| Gateway-apparaat | d4c69766-e9bd-4e61-BFC1-d8b6e686c7a8 |
 
 ## <a name="supported-objectidtypes"></a>Ondersteunde ObjectIdTypes
 
-De ondersteunde `ObjectIdTypes` zijn:
+De ondersteunde `ObjectIdTypes`:
 
 * `UserId`
 * `DeviceId`
@@ -62,15 +62,15 @@ HTTP POST /api/v1.0/roleassignments
 
 | **Naam** | **Vereist** | **Type** | **Beschrijving** |
 | --- | --- | --- | --- |
-| Rol-id| Ja |tekenreeks | De definitie rol-id. Definities van gebruikersrollen en hun-id's kunnen worden gevonden door het opvragen van de systeem-API. |
-| object-id | Ja |tekenreeks | De object-ID voor de roltoewijzing die moet worden opgemaakt op basis van het bijbehorende type. Voor de `DomainName` ObjectIdType, object-id moet beginnen met de `“@”` teken. |
-| objectIdType | Ja |tekenreeks | Het type van de roltoewijzing. Moet een van de volgende rijen in deze tabel. |
-| tenant-id | Varieert | tekenreeks |De tenant-id. Niet toegestaan voor `DeviceId` en `TenantId` ObjectIdTypes. Vereist voor `UserId` en `ServicePrincipalId` ObjectIdTypes. Dit is optioneel voor de domeinnaam ObjectIdType. |
-| pad * | Ja | tekenreeks |De volledige toegang tot het pad naar de `Space` object. Bijvoorbeeld: `/{Guid}/{Guid}` opgeven als een id de roltoewijzing voor de hele grafiek moet, `"/"` (geeft de hoofdmap). Echter, dat wil zeggen met behulp van afgeraden en **u moet altijd volgen op het principe van minimale bevoegdheden**. |
+| Rol-id| Ja |Reeks | De definitie rol-id. Definities van gebruikersrollen en hun-id vinden door het opvragen van de systeem-API. |
+| object-id | Ja |Reeks | De object-ID voor de roltoewijzing die moet worden opgemaakt op basis van het bijbehorende type. Voor de `DomainName` ObjectIdType, object-id moet beginnen met de `“@”` teken. |
+| objectIdType | Ja |Reeks | Het type van de roltoewijzing. Moet een van de volgende rijen in deze tabel. |
+| tenant-id | Varieert | Reeks |De tenant-id. Niet toegestaan voor `DeviceId` en `TenantId` ObjectIdTypes. Vereist voor `UserId` en `ServicePrincipalId` ObjectIdTypes. Dit is optioneel voor de domeinnaam ObjectIdType. |
+| pad * | Ja | Reeks |De volledige toegang tot het pad naar de `Space` object. Een voorbeeld is `/{Guid}/{Guid}`. Als een id de roltoewijzing voor de hele grafiek moet, geef `"/"`. Dit teken wordt aangegeven dat de hoofdmap, maar het gebruik ervan wordt afgeraden. Voer altijd het principe van minimale bevoegdheden. |
 
 ## <a name="sample-configuration"></a>Voorbeeldconfiguratie
 
-Een gebruiker moet beheerderstoegang tot een verdieping van een tenant-ruimte:
+In dit voorbeeld moet een gebruiker met beheerdersrechten toegang tot een verdieping van een tenant-ruimte.
 
   ```JSON
     {
@@ -82,7 +82,7 @@ Een gebruiker moet beheerderstoegang tot een verdieping van een tenant-ruimte:
     }
   ```
 
-Een toepassing die wordt uitgevoerd scenario's simuleren van apparaten en sensoren testen:
+In dit voorbeeld wordt een toepassing uitgevoerd Testscenario's, apparaten en sensoren te simuleren.
 
   ```JSON
     {
@@ -94,7 +94,7 @@ Een toepassing die wordt uitgevoerd scenario's simuleren van apparaten en sensor
     }
   ```
 
-Alle gebruikers die deel uitmaken van een domein wordt leestoegang voor opslagruimten, sensoren en gebruikers, met inbegrip van hun bijbehorende verwante objecten:
+Alle gebruikers die deel van een domein uitmaken ontvangen leestoegang voor opslagruimten, sensoren en gebruikers. Deze toegang bevat hun bijbehorende verwante objecten.
 
   ```JSON
     {
@@ -105,7 +105,7 @@ Alle gebruikers die deel uitmaken van een domein wordt leestoegang voor opslagru
     }
   ```
 
-Een roltoewijzing ophalen:
+Gebruiken om op te halen van een roltoewijzing ophalen
 
 ```plaintext
 HTTP GET /api/v1/roleassignments?path={path}
@@ -115,7 +115,7 @@ HTTP GET /api/v1/roleassignments?path={path}
 | --- | --- | --- | --- | --- |
 | Pad | Pad | True | Reeks | Het volledige pad naar de ruimte |
 
-Een roltoewijzing verwijderen:
+Gebruik verwijderen om te verwijderen van een roltoewijzing.
 
 ```plaintext
 HTTP DELETE /api/v1/roleassignments/{id}

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: rajraj
-ms.openlocfilehash: cf25d08fc9a0e1ae458d350be93af31447928ecb
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: c8ba9ac3150b5a84b2902afaaefcf78c76764fed
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49069451"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51036185"
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-image-upgrades"></a>Afbeelding van automatische besturingssysteemupgrades schaalset van virtuele machine van Azure
 
@@ -121,7 +121,7 @@ De load balancer-test kan worden verwezen de *networkProfile* van de schaal inge
   ...
 ```
 > [!NOTE]
-> Als u automatische Besturingssysteemupgrades voor Service Fabric, wordt de nieuwe installatiekopie van het besturingssysteem Updatedomein per Updatedomein voor hoge beschikbaarheid van de services die worden uitgevoerd in Service Fabric uitgerold. Zie voor meer informatie over de kenmerken van de duurzaamheid van Service Fabric-clusters, [deze documentatie](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster).
+> Als u automatische Besturingssysteemupgrades voor Service Fabric, wordt de nieuwe installatiekopie van het besturingssysteem Updatedomein per Updatedomein voor hoge beschikbaarheid van de services die worden uitgevoerd in Service Fabric uitgerold. Uw cluster moet voor het gebruik van automatische Besturingssysteemupgrades in Service Fabric worden geconfigureerd om te gebruiken de Duurzaamheidslaag Silver- of hoger. Zie voor meer informatie over de kenmerken van de duurzaamheid van Service Fabric-clusters, [deze documentatie](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster).
 
 ### <a name="keep-credentials-up-to-date"></a>Referenties up-to-date houden
 Als uw schaalset maakt gebruik van referenties voor toegang tot externe bronnen, bijvoorbeeld als een VM-extensie is geconfigureerd dat gebruikmaakt van een SAS-token voor storage-account, moet u om te controleren of dat de referenties worden up-to-date gehouden. Er zijn geen referenties, met inbegrip van certificaten en tokens verlopen, de upgrade mislukken als de eerste batch VM's blijven in een foutstatus.

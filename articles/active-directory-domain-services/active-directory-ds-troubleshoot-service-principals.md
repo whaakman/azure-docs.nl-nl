@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ergreenl
-ms.openlocfilehash: 5bc1212cc6e894cd82a60abb42f92893c0bb2d43
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: bba7c70a5078d309a55f898c24389d42a8a604ab
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39579541"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51035032"
 ---
 # <a name="troubleshoot-invalid-service-principal-configuration-for-your-managed-domain"></a>Ongeldige configuratie van de Service-Principal voor uw beheerde domein oplossen
 
@@ -45,7 +45,7 @@ Gebruik de volgende stappen uit om te bepalen welke service principals moeten op
 | 2565bd9d-da50-47d4-8b85-4c97f669dc36 | [Maak opnieuw een ontbrekende service-principal met PowerShell](#recreate-a-missing-service-principal-with-powershell) |
 | 443155a6-77f3-45e3-882b-22b3a8d431fb | [Opnieuw registreren bij de naamruimte Microsoft.AAD](#re-register-to-the-microsoft-aad-namespace-using-the-azure-portal) |
 | abba844e-bc0e-44b0-947a-dc74e5d09022  | [Opnieuw registreren bij de naamruimte Microsoft.AAD](#re-register-to-the-microsoft-aad-namespace-using-the-azure-portal) |
-| d87dcbc6-a371-462e-88e3-28ad15ec4e64 | [Service-principals die zelf corrigeren](#service-principals-that-self-correct) |
+| d87dcbc6-a371-462e-88e3-28ad15ec4e64 | [Opnieuw registreren bij de naamruimte Microsoft.AAD](#re-register-to-the-microsoft-aad-namespace-using-the-azure-portal) |
 
 ## <a name="recreate-a-missing-service-principal-with-powershell"></a>Maak opnieuw een ontbrekende Service-Principal met PowerShell
 Volg deze stappen als een service-principal met de ID ```2565bd9d-da50-47d4-8b85-4c97f669dc36``` ontbreekt in uw Azure AD-directory.
@@ -76,7 +76,7 @@ Om dit probleem op te lossen, typt u de volgende opdrachten in een PowerShell-ve
 
 
 ## <a name="re-register-to-the-microsoft-aad-namespace-using-the-azure-portal"></a>Opnieuw registreren bij de Microsoft AAD-naamruimte met behulp van de Azure portal
-Volg deze stappen als een service-principal met de ID ```443155a6-77f3-45e3-882b-22b3a8d431fb``` of ```abba844e-bc0e-44b0-947a-dc74e5d09022``` ontbreekt in uw Azure AD-directory.
+Volg deze stappen als een service-principal met de ID ```443155a6-77f3-45e3-882b-22b3a8d431fb``` of ```abba844e-bc0e-44b0-947a-dc74e5d09022``` of ```d87dcbc6-a371-462e-88e3-28ad15ec4e64``` ontbreekt in uw Azure AD-directory.
 
 **Oplossing:** gebruiken de volgende stappen uit om te herstellen van Domain Services op de map:
 
@@ -85,12 +85,6 @@ Volg deze stappen als een service-principal met de ID ```443155a6-77f3-45e3-882b
 3. Met de linker navigatielijst kiezen **Resourceproviders**
 4. Zoek naar 'Microsoft.AAD' in de tabel en klikt u op **opnieuw te registreren**
 5. Om te controleren of de waarschuwing is opgelost, de health-pagina voor uw beheerde domein te bekijken in twee uur.
-
-
-## <a name="service-principals-that-self-correct"></a>Service-Principals die zelf corrigeren
-Volg deze stappen als een service-principal met de ID ```d87dcbc6-a371-462e-88e3-28ad15ec4e64``` ontbreekt in uw Azure AD-directory.
-
-**Oplossing:** Azure AD Domain Services kan worden gedetecteerd wanneer deze specifieke service-principal ontbreekt, is onjuist geconfigureerd of is verwijderd. De service wordt automatisch opnieuw gemaakt deze service-principal. Echter, moet u de toepassing verwijderen en object dat de verwijderde toepassing werkte als wanneer de certificering wordt getotaliseerd via, de toepassing en het object niet langer mogelijk om te worden gewijzigd door de nieuwe service-principal. Dit zal leiden tot een nieuwe fout in uw domein. Volg de stappen in de [sectie voor AADDS105](#alert-aadds105-password-synchronization-application-is-out-of-date) om te voorkomen dat dit probleem. Controleer nadat de status van uw beheerde domein na twee uur om ervoor te zorgen dat de nieuwe service-principal is opnieuw gemaakt.
 
 
 ## <a name="alert-aadds105-password-synchronization-application-is-out-of-date"></a>Waarschuwing AADDS105: Wachtwoord synchronisatie van toepassing is verouderd
@@ -110,8 +104,8 @@ Om dit probleem op te lossen, typt u de volgende opdrachten in een PowerShell-ve
 2. Verwijder de oude toepassing en het object met behulp van de volgende PowerShell-opdrachten
 
     ```powershell
-    $app = Get-AzureADApplication -Filter "IdentifierUris eq 'https://sync.aaddc.activedirectory.windowsazure.com'"
-    Remove-AzureADApplication -ObjectId $app.ObjectId
+    $app = Get-AzureADApplication -Filter "IdentifierUris eq 'https://sync.aaddc.activedirectory.windowsazure.com'"
+    Remove-AzureADApplication -ObjectId $app.ObjectId
     $spObject = Get-AzureADServicePrincipal -Filter "DisplayName eq 'Azure AD Domain Services Sync'"
     Remove-AzureADServicePrincipal -ObjectId $app.ObjectId
     ```

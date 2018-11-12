@@ -1,5 +1,5 @@
-# [Documentatie voor Azure Marketplace en AppSource](index.md)  
-
+# [Documentatie voor Azure Marketplace en AppSource](index.md)
+## [Beleid voor classificatie en beoordeling](./rating-review-policies.md)   
 ## [Overzicht en voordelen van Azure Marketplace en AppSource](./marketplace-publishers-guide.md)  
 
 ### [Uitgever worden op de marketplace](./become-publisher.md)  
@@ -34,6 +34,14 @@
 <!-- Following section is for Cloud Partner Portal (CPP). -->
 
 # [Cloud Partner-portal](./cloud-partner-portal-orig/cloud-partner-portal-getting-started-with-the-cloud-partner-portal.md) 
+
+## Portalbeheer
+### [Accountregistratie ontwikkelaarscentrum](./cloud-partner-portal-orig/cloud-partner-portal-dev-center-accounts-registration.md)
+### [Persoonlijke SKU’s](./cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md)
+### [SEO-hulp](./cloud-partner-portal-orig/cloud-partner-portal-seo-guidance.md)
+### [Uitgeverprofiel beheren](./cloud-partner-portal-orig/cloud-partner-portal-manage-publisher-profile.md)
+### [Gebruikers beheren](./cloud-partner-portal-orig/cloud-partner-portal-manage-users.md)
+### [Naleving AVG](./cloud-partner-portal-orig/cloud-partner-portal-gdpr.md)
 
 ## [Virtuele-machineaanbieding](./cloud-partner-portal/virtual-machine/cpp-virtual-machine-offer.md)
 ### [Vereisten](./cloud-partner-portal/virtual-machine/cpp-prerequisites.md)
@@ -70,8 +78,7 @@
 ### [Automate offer publishing](./cloud-partner-portal-orig/cloud-partner-portal-automate-offer-publishing.md)
 -->
 
-## Azure-toepassingen
-### [Accountregistratie ontwikkelaarscentrum](./cloud-partner-portal-orig/cloud-partner-portal-dev-center-accounts-registration.md)
+## [Aanbieding voor Azure-toepassing](./cloud-partner-portal-orig/cpp-azure-app-offer.md)
 ### [Beheerde toepassing maken](./cloud-partner-portal-orig/cloud-partner-portal-managed-app-publish.md)
 ### [Oplossingssjabloon maken](./cloud-partner-portal-orig/cloud-partner-portal-solution-template-offer-publish.md)
 ### [Een beheeroplossing publiceren](./cloud-partner-portal-orig/cloud-partner-portal-management-solution-publish.md)
@@ -79,14 +86,12 @@
 ### [Aanbieding live laten gaan](./cloud-partner-portal-orig/cloud-partner-portal-managed-app-offer-go-live.md)
 ### [Bestaande aanbieding bijwerken](./cloud-partner-portal-orig/cloud-partner-portal-managed-app-offer-update.md)
 ### [Aanbieding verwijderen](./cloud-partner-portal-orig/cloud-partner-portal-managed-app-offer-delete.md)
-### [Aanbiedingen migreren](./cloud-partner-portal-orig/cloud-partner-portal-how-to-migrate-to-the-new-cloud-partner-portal.md)
+<!-- Obsolete ### [Migrate offers](./cloud-partner-portal-orig/cloud-partner-portal-how-to-migrate-to-the-new-cloud-partner-portal.md)  -->
 
-## SaaS-toepassingen
+## [Aanbieding voor SaaS-toepassing](./cloud-partner-portal-orig/cpp-saas-app-offer.md)
 ### [Technische publicatiehandleiding voor SaaS-toepassingen](./cloud-partner-portal-orig/cloud-partner-portal-saas-offers-tech-publishing-guide.md)
 ### [SaaS verkopen via Azure](./cloud-partner-portal-orig/cloud-partner-portal-saas-offer-subscriptions.md)
 ### [SaaS-API’s](./cloud-partner-portal-orig/cloud-partner-portal-saas-subscription-apis.md)
-
-<!-- Legacy ## [Containers](./cloud-partner-portal-orig/cloud-partner-portal-containers-guide.md) -->
 
 ## [Aanbieding voor containers](./cloud-partner-portal/containers/cpp-containers-offer.md)
 ### [Vereisten](./cloud-partner-portal/containers/cpp-prerequisites.md)
@@ -98,6 +103,7 @@
 ### [Technische activa voor containers maken](./cloud-partner-portal/containers/cpp-create-technical-assets.md)
 ### [Aanbieding voor containers publiceren](./cloud-partner-portal/containers/cpp-publish-offer.md)
 ### [Bestaande aanbieding bijwerken](./cloud-partner-portal/containers/cpp-update-existing-offer.md)
+<!-- Legacy ## [Containers](./cloud-partner-portal-orig/cloud-partner-portal-containers-guide.md) -->
 
 ## [Aanbieding voor IoT Edge-module](./cloud-partner-portal/iot-edge-module/cpp-offer-process-parts.md)
 ### [Vereisten](./cloud-partner-portal/iot-edge-module/cpp-prerequisites.md)
@@ -118,24 +124,16 @@
 ### [IoT Edge module FAQ](./cloud-partner-portal-orig/cloud-partner-portal-iot-edge-module-faq.md)
 -->
 
-## Leads beheren
-### [Klantenleads ophalen](./cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads.md)
-### [Azure-tabel](./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-azure-table.md)
-### [Dynamics](./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics.md)
-### [HTTPS-eindpunt](./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-https.md)
-### [Marketo](./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-marketo.md)
-### [Salesforce](./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-salesforce.md)
-
 <!-- ## [Cortana Intelligence](./cloud-partner-portal-orig/cloud-partner-portal-publish-cortana-intelligence-app.md)  -->
 
-## Dynamics 365 for Customer Engagement
+## [Aanbieding voor Dynamics 365 for Customer Engagement](./cloud-partner-portal-orig/cpp-customer-engagement-offer.md)
 ### [Oplossing maken](./cloud-partner-portal-orig/dynamics-365-solution-preparation.md)
 ### [Pakket maken](./cloud-partner-portal-orig/appSource-package-preparation.md)
 ### [SAS-sleutel genereren](./cloud-partner-portal-orig/store-your-appSource-package-to-azure-storage-and-generate-sas-key.md)
 ### [Aanbieding creëren](./cloud-partner-portal-orig/setup-your-application-in-the-publishing-portal.md)
 ### [Aanbieding publiceren](./cloud-partner-portal-orig/request-to-publish-the-app.md)
 
-## Dynamics 365 for Business Central
+## [Aanbieding voor Dynamics 365 for Business Central](./cloud-partner-portal-orig/cpp-business-central-offer.md)
 ### [Overzicht publiceren](./cloud-partner-portal-orig/d365-finance-overview-publish-your-app.md)
 ### [Nieuwe aanbieding maken](./cloud-partner-portal-orig/d365-finance-create-new-offer.md)
 ### [Aanbiedingsinstellingen](./cloud-partner-portal-orig/d365-finance-create-offer-settings.md)
@@ -143,7 +141,7 @@
 ### [Details storefront](./cloud-partner-portal-orig/d365-finance-create-storefront-details.md)
 ### [Publicatieproces](./cloud-partner-portal-orig/d365-finance-app-publishing-process.md)
 
-## Dynamics 365 for Operations
+## [Aanbieding voor Dynamics 365 for Operations](./cloud-partner-portal-orig/cpp-dynamics-365-operations-offer.md)
 ### [Vereisten](./cloud-partner-portal-orig/pre-requisites.md)
 ### [Hoe u kunt publiceren](./cloud-partner-portal-orig/manage-dynamics-365-for-operations.md)
 ### [LCS-abonnement](./cloud-partner-portal-orig/lcs-subscription.md)
@@ -151,6 +149,11 @@
 ### [Gegevensentiteiten](./cloud-partner-portal-orig/data-entities.md)
 ### [BPM en methodologieën](./cloud-partner-portal-orig/bpm-and-methodologies.md)
 ### [Help-wiki](./cloud-partner-portal-orig/help-wiki.md)
+
+## [Adviesservices](./cloud-partner-portal-orig/cloud-partner-portal-consulting-services-publishing-offer.md)
+## [Uitgeverprofiel beheren](./cloud-partner-portal-orig/cloud-partner-portal-manage-publisher-profile.md)
+## [Gebruikers beheren](./cloud-partner-portal-orig/cloud-partner-portal-manage-users.md)
+## [Naleving AVG](./cloud-partner-portal-orig/cloud-partner-portal-gdpr.md)
 
 ## Test Drive
 ### [Wat is Test Drive?](./cloud-partner-portal-orig/what-is-test-drive.md)
@@ -160,12 +163,15 @@
 ### [Transformatievoorbeelden voor Test Drive](./cloud-partner-portal-orig/transforming-examples-for-test-drive.md)
 ### [Marketing en aanbevolen procedures](./cloud-partner-portal-orig/marketing-and-best-practices.md)
 
-## [Adviesservices](./cloud-partner-portal-orig/cloud-partner-portal-consulting-services-publishing-offer.md)
-## [Uitgeverprofiel beheren](./cloud-partner-portal-orig/cloud-partner-portal-manage-publisher-profile.md)
-## [Gebruikers beheren](./cloud-partner-portal-orig/cloud-partner-portal-manage-users.md)
-## [Naleving AVG](./cloud-partner-portal-orig/cloud-partner-portal-gdpr.md)
+## Leads beheren
+### [Klantenleads ophalen](./cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads.md)
+### [Azure-tabel](./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-azure-table.md)
+### [Dynamics](./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics.md)
+### [HTTPS-eindpunt](./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-https.md)
+### [Marketo](./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-marketo.md)
+### [Salesforce](./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-salesforce.md)
 
-## Inzichten
+## Inzichten voor verkopers
 ### [Aan de slag](./cloud-partner-portal-orig/si-getting-started.md)
 ### [Nieuwe functies](./cloud-partner-portal-orig/si-changes.md)
 ### [Webanalyse](./cloud-partner-portal-orig/web-analytics.md)

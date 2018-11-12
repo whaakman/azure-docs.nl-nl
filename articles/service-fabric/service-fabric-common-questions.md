@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: chackdan
-ms.openlocfilehash: 70372f30ffaea1fafda3f76d4754489ae89a0a7c
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: cc86a18b0db67bf968006c42f5791e1ad7a093f0
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49390173"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51016690"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Veelgestelde vragen over Service Fabric
 
@@ -48,13 +48,9 @@ Een aantal punten die u daarbij in overweging moet nemen:
 
 ### <a name="do-service-fabric-nodes-automatically-receive-os-updates"></a>Ontvang Service Fabric-knooppunten automatisch updates van het besturingssysteem?
 
-Niet vandaag, maar dit is ook een algemene aanvraag die Azure wil leveren.
+U kunt [Virtual Machine Scale Stel automatische installatiekopie Update van het besturingssysteem](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) algemeen beschikbare functie vandaag nog.
 
-We hebben in de tussentijd [opgegeven van een toepassing](service-fabric-patch-orchestration-application.md) dat de besturingssystemen worden uitgevoerd onder uw Service Fabric-knooppunten patches en up-to-date blijven.
-
-De uitdaging met updates van het besturingssysteem is dat ze moeten doorgaans de computer, wat tot verlies van beschikbaarheid van tijdelijke leidt opnieuw worden opgestart. Zelfstandig gebruikt, die is geen probleem, omdat de Service Fabric wordt automatisch omleiden van verkeer voor de services die naar andere knooppunten. Echter, als updates van het besturingssysteem niet worden gecoördineerd in het cluster, is er kans dat veel knooppunten tegelijk uitvallen. Deze gelijktijdige opnieuw wordt opgestart kunnen leiden tot verlies van volledige beschikbaarheid voor een service of op minimaal voor een specifieke partitie (voor een stateful service).
-
-In de toekomst, willen we ondersteuning voor een update-beleid voor het besturingssysteem die volledig is geautomatiseerd en gecoördineerd in meerdere updatedomeinen, ervoor te zorgen dat de beschikbaarheid wordt gehandhaafd ondanks opnieuw wordt opgestart en andere onverwachte fouten.
+Voor clusters die niet worden uitgevoerd in Azure, hebben we [opgegeven van een toepassing](service-fabric-patch-orchestration-application.md) voor het vullen van de besturingssystemen worden uitgevoerd onder uw Service Fabric-knooppunten.
 
 ### <a name="can-i-use-large-virtual-machine-scale-sets-in-my-sf-cluster"></a>Kan ik grote virtuele-machineschaalsets gebruiken in mijn SF cluster? 
 

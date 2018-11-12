@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/06/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: 1a135b0e17889c544a99ad677e9fa42ad6de994c
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 507bbc9013d8b02084b639f8d9fac0c7d97503f4
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50231879"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51014275"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Problemen met Azure Files Sync oplossen
 Gebruik Azure File Sync te centraliseren bestandsshares van uw organisatie in Azure Files, terwijl de flexibiliteit, prestaties en compatibiliteit van een on-premises bestandsserver. Azure File Sync transformeert Windows Server naar een snelle cache van uw Azure-bestandsshare. U kunt elk protocol dat beschikbaar is op Windows Server voor toegang tot uw gegevens lokaal, met inbegrip van SMB, NFS en FTPS gebruiken. U kunt zoveel caches hebben als u nodig hebt over de hele wereld.
@@ -368,7 +368,7 @@ Deze fout treedt op wanneer de limiet voor opslag van Azure file share is bereik
 
     ![Een schermafbeelding van de Azure eigenschappen voor bestandsdeling.](media/storage-sync-files-troubleshoot/file-share-limit-reached-1.png)
 
-Als de share vol is en een quotum is niet ingesteld, is een mogelijke manier om dit probleem is opgelost zodat elke submap van de huidige servereindpunt in eigen servereindpunt in hun eigen afzonderlijke synchronisatiegroepen. Op deze manier, elke submap worden gesynchroniseerd naar afzonderlijke Azure-bestandsshares.
+Als de share vol is en een quotum is niet ingesteld, is een mogelijke manier om dit probleem is opgelost zodat elke submap van de huidige servereindpunt in een eigen servereindpunt in hun eigen afzonderlijke synchronisatiegroepen. Op deze manier, elke submap worden gesynchroniseerd naar afzonderlijke Azure-bestandsshares.
 
 <a id="-2134351824"></a>**De Azure-bestandsshare kan niet worden gevonden.**  
 | | |

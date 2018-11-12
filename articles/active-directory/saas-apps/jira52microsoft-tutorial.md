@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2018
+ms.date: 11/01/2018
 ms.author: jeedes
-ms.openlocfilehash: 85004852b4e67f1a3f030a5cf97abea7c16c5695
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 43ad99d4814923204b3b1993969bd6a0730530c5
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741739"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51016128"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jira-saml-sso-by-microsoft-v52"></a>Zelfstudie: Azure Active Directory-integratie met JIRA SAML SSO door Microsoft (V5.2)
 
@@ -62,7 +62,7 @@ Als u wilt testen van de stappen in deze zelfstudie, moet u deze aanbevelingen v
 **Ondersteunde versies:**
 
 * JIRA-Core- en Software: 5.2
-* JIRA biedt ook ondersteuning voor 6.0 en 7,12. Voor meer informatie klikt u op [JIRA SAML SSO door Microsoft](jiramicrosoft-tutorial.md)
+* JIRA biedt ook ondersteuning voor 6.0-7,12. Voor meer informatie klikt u op [JIRA SAML SSO door Microsoft](jiramicrosoft-tutorial.md)
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
 

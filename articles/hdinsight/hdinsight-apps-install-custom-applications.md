@@ -1,24 +1,24 @@
 ---
-title: Uw eigen aangepaste Hadoop-toepassingen installeren op Azure HDInsight
+title: Uw eigen aangepaste Apache Hadoop-toepassingen installeren op Azure HDInsight
 description: Informatie over het installeren van HDInsight-toepassingen op HDInsight-toepassingen.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.author: jasonh
-ms.openlocfilehash: 5e3194b856766502e4cc8c68ffa4bb936634adfa
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.author: hrasheed
+ms.openlocfilehash: b5870d53053511cb56f668943678aeb91bf23b3b
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46983137"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51035353"
 ---
-# <a name="install-custom-hadoop-applications-on-azure-hdinsight"></a>Aangepaste Hadoop-toepassingen installeren op Azure HDInsight
+# <a name="install-custom-apache-hadoop-applications-on-azure-hdinsight"></a>Aangepaste Apache Hadoop-toepassingen installeren op Azure HDInsight
 
-In dit artikel krijgt u informatie over het installeren van een Hadoop-toepassing op Azure HDInsight die niet is gepubliceerd in Azure Portal. De toepassing die u in dit artikel gaat installeren, heet [Hue](http://gethue.com/).
+In dit artikel leert u hoe u een Apache Hadoop-toepassing op Azure HDInsight, dat niet is gepubliceerd naar de Azure-portal installeert. De toepassing die u in dit artikel gaat installeren, heet [Hue](http://gethue.com/).
 
 Een HDInsight-toepassing is een toepassing die gebruikers kunnen installeren op een op Linux gebaseerd HDInsight-cluster.  Deze toepassingen kunnen zijn ontwikkeld door Microsoft, door onafhankelijke softwareleveranciers (ISV) of door u zelf.  
 
