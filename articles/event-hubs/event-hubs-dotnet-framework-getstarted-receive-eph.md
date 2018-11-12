@@ -14,29 +14,29 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/02/2018
 ms.author: shvija
-ms.openlocfilehash: 9e94357216690438446a738400c979d12f387df6
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: cb1d26082fe4fbbd14b2b77f54d1bc7697b3538d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49471081"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51227957"
 ---
 # <a name="receive-events-from-azure-event-hubs-using-the-net-framework"></a>Gebeurtenissen ontvangen van Azure Event Hubs met behulp van het .NET Framework
 
 ## <a name="introduction"></a>Inleiding
 
-Event Hubs is een service die grote hoeveelheden gebeurtenisgegevens (telemetrie) van verbonden apparaten en toepassingen verwerkt. Nadat u gegevens in Event Hubs hebt verzameld, kunt u de gegevens opslaan met behulp van een opslagcluster of transformeren met een provider van realtime-analyses. Deze functie voor grootschalige gebeurtenisverzameling en -verwerking is een belangrijk onderdeel van de architectuur van moderne toepassingen, met inbegrip van het Internet der dingen (IoT). Zie voor een gedetailleerd overzicht van Event Hubs [overzicht van Event Hubs](event-hubs-about.md) en [functies van Event Hubs](event-hubs-features.md).
+Event Hubs is een service die grote hoeveelheden gebeurtenisgegevens (telemetrie) van verbonden apparaten en toepassingen verwerkt. Nadat u gegevens in Event Hubs hebt verzameld, kunt u de gegevens opslaan met behulp van een opslagcluster of transformeren met een provider van realtime-analyses. Deze functie voor grootschalige gebeurtenisverzameling en -verwerking is een belangrijk onderdeel van de architectuur van moderne toepassingen, met inbegrip van het Internet der dingen (IoT). Zie [Overzicht van Event Hubs](event-hubs-about.md) en [Functies van Event Hubs](event-hubs-features.md) voor een gedetailleerd overzicht van Event Hubs.
 
-Deze zelfstudie laat zien hoe u een .NET Framework-consoletoepassing die berichten van een event hub met behulp van ontvangt de [Event Processor Host](event-hubs-event-processor-host.md). De [Event Processor Host](event-hubs-event-processor-host.md) is een .NET-klasse die het ontvangen van gebeurtenissen van eventhubs vereenvoudigt door permanente controlepunten beheren en parallelle ontvangst van deze eventhubs. Met behulp van de Event Processor Host, splitsen u gebeurtenissen over meerdere ontvangers, zelfs als deze worden gehost in verschillende knooppunten. In dit voorbeeld laat zien hoe u de Event Processor Host voor één ontvanger. De [Uitgeschaalde gebeurtenisverwerking] [ Scale out Event Processing with Event Hubs] voorbeeld ziet u hoe u de Event Processor Host met meerdere ontvangers.
+Deze zelfstudie laat zien hoe u een .NET Framework-consoletoepassing die berichten van een event hub met behulp van ontvangt de [Event Processor Host](event-hubs-event-processor-host.md). De [EventProcessorHost](event-hubs-event-processor-host.md) is een .NET-klasse die het ontvangen van gebeurtenissen van Event Hubs vereenvoudigt door permanente controlepunten en parallelle ontvangst van deze Event Hubs te beheren. Met de EventProcessorHost kunt u gebeurtenissen splitsen over meerdere ontvangers, zelfs als deze worden gehost in verschillende knooppunten. In dit voorbeeld wordt het gebruik van de EventProcessorHost gedemonstreerd voor één ontvanger. De [Uitgeschaalde gebeurtenisverwerking] [ Scale out Event Processing with Event Hubs] voorbeeld ziet u hoe u de Event Processor Host met meerdere ontvangers.
 
 ## <a name="prerequisites"></a>Vereisten
 
 Voor het voltooien van deze zelfstudie moet aan de volgende vereisten worden voldaan:
 
-* [Microsoft Visual Studio 2017 of hoger](http://visualstudio.com).
+* [Microsoft Visual Studio 2017 of hoger](https://visualstudio.com).
 
 ## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>Een Event Hubs-naamruimte en een Event Hub maken
-In de eerste stap gebruikt u [Azure Portal](https://portal.azure.com) om een naamruimte van het type Event Hubs te maken en de beheerreferenties te verkrijgen die de toepassing nodig heeft om met de Event Hub te communiceren. Als u wilt een naamruimte en een event hub maken, volgt u de procedure in [in dit artikel](event-hubs-create.md), gaat u verder met de volgende stappen in deze zelfstudie.
+In de eerste stap gebruikt u [Azure Portal](https://portal.azure.com) om een naamruimte van het type Event Hubs te maken en de beheerreferenties te verkrijgen die de toepassing nodig heeft om met de Event Hub te communiceren. Volg de procedure in [dit artikel](event-hubs-create.md) om een naamruimte en een Event Hub te maken en ga daarna verder met de volgende stappen in deze zelfstudie.
 
 [!INCLUDE [event-hubs-create-storage](../../includes/event-hubs-create-storage.md)]
 
@@ -113,7 +113,7 @@ Maak in Visual Studio een nieuw Visual C# bureaublad-app-project met behulp van 
     
       Deze klasse wordt aangeroepen door de **EventProcessorHost** om gebeurtenissen te verwerken die worden ontvangen van de Event Hub. De klasse `SimpleEventProcessor` gebruikt een stopwatch om periodiek de controlepuntmethode voor de context **EventProcessorHost** aan te roepen. Op deze manier gaat er nooit meer werk verloren dan in vijf minuten kan worden verwerkt, als de ontvanger opnieuw wordt opgestart.
 
-## <a name="update-the-main-method-to-use-simpleeventprocessor"></a>Bijwerken van de Main-methode voor het gebruik van SimpleEventProcessor
+## <a name="update-the-main-method-to-use-simpleeventprocessor"></a>De Main-methode bijwerken voor gebruik van SimpleEventProcessor
 
 1. Voeg in de klasse **Program** de volgende `using`-instructie toe aan het begin van het bestand:
     
@@ -151,7 +151,7 @@ Gefeliciteerd! U hebt nu met behulp van de EventProcessorHost berichten ontvange
 
 
 > [!NOTE]
-> In deze zelfstudie wordt één exemplaar van [EventProcessorHost](event-hubs-event-processor-host.md) gebruikt. Voor een betere doorvoer wordt aangeraden dat u meerdere exemplaren van voeren [EventProcessorHost](event-hubs-event-processor-host.md), zoals weergegeven in de [Uitgeschaalde gebeurtenisverwerking](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3) voorbeeld. In deze gevallen samen meerdere exemplaren automatisch met elkaar voor taakverdeling tussen de ontvangen gebeurtenissen. 
+> In deze zelfstudie wordt één exemplaar van [EventProcessorHost](event-hubs-event-processor-host.md) gebruikt. Voor een betere doorvoer raden we u aan om meerdere exemplaren van [EventProcessorHost](event-hubs-event-processor-host.md) uit te voeren, zoals wordt geïllustreerd in het voorbeeld [Uitgeschaalde gebeurtenisverwerking](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3). In die gevallen werken de meerdere instanties automatisch samen om de ontvangen gebeurtenissen gelijkmatig te verdelen. 
 
 ## <a name="next-steps"></a>Volgende stappen
 In deze snelstartgids hebt u .NET Framework-toepassing die berichten van een event hub ontvangen gemaakt. Zie voor meer informatie over het verzenden van gebeurtenissen naar een event hub met behulp van .NET Framework, [verzenden van gebeurtenissen van event hub - .NET Framework](event-hubs-dotnet-framework-getstarted-send.md).

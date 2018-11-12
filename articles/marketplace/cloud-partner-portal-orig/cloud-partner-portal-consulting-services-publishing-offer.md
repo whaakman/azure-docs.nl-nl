@@ -1,6 +1,6 @@
 ---
-title: Adviesservices | Microsoft Docs
-description: Handleiding voor het definiëren en een advies service-aanbieding publiceert.
+title: Azure en Dynamcis 365 Consulting-Service-aanbieding | Microsoft Docs
+description: Handleiding voor het definiëren en een Azure- of Dynamcis 365 advies service-aanbieding publiceren in de Cloud Partner-Portal.
 services: Azure, Marketplace, Cloud Partner Portal,
 documentationcenter: ''
 author: dan-wesley
@@ -12,19 +12,29 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/13/2018
+ms.date: 11/01/2018
 ms.author: pbutlerm
-ms.openlocfilehash: b3f6b9166afce9ca0cdeaa1c9dd6e10a5a976453
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 43f1e71486cedbeccb2c02388147a68756581e50
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48809949"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51037759"
 ---
-<a name="defining-and-publishing-your-consulting-services-offer"></a>Definiëren en publiceren van uw aanbieding Consulting Services
-======================================================
+# <a name="azure-and-dynamics-365-consulting-service-offer"></a>Azure en Dynamics 365 Consulting Service-aanbieding
 
-Deze handleiding is ontworpen om te definiëren en uw consulting services-aanbieding publiceren in de Cloud Partner-Portal.
+<table> <tr> <td>In deze sectie wordt uitgelegd hoe u een consulting Services publiceren naar de Microsoft <a href="https://azuremarketplace.microsoft.com">Azure Marketplace</a> of de <a href="https://appsource.microsoft.com">AppSource-Marketplace</a>. Oplossingen op basis van Microsoft <a href="https://dynamics.microsoft.com">Dynamics 365</a>, <a href="https://products.office.com">Office 365</a>, <a href="https://powerbi.microsoft.com">Power BI</a>, en <a href="https://powerapps.microsoft.com">PowerApps</a> komen in aanmerking wilt laten vermelden op AppSource. Andere aanbiedingen op basis van andere Microsoft- <a href="https://azure.microsoft.com/services">Azure-services</a> komen in aanmerking voor een vermelding op Azure Marketplace. </td> <td><img src="./media/consulting-services-publishing-offer/consulting-icon1.png"  alt="Microsoft consulting icon" /></td> </tr> </table>
+
+
+# <a name="publishing-benefits"></a>Publiceren voordelen
+
+Publiceren naar een van de Microsoft-marktplaatsen heeft aanzienlijke voordelen:
+
+- Uw bedrijf door gebruik te maken van het Microsoft-merk promoten.
+- Mogelijk meer dan 100 miljoen Office 365 en Dynamics 365-gebruikers op AppSource; bereiken bereik meer dan 200 duizend organisaties via Azure Marketplace.
+- Ontvang leads van hoge kwaliteit van deze marktplaatsen.
+- Uw services gepromoveerd door de Microsoft-teams voor veld en televerkoop ophalen.
+
 
 <a name="define-your-consulting-services-offer"></a>Uw aanbieding Consulting Services definiëren
 -------------------------------------
@@ -52,43 +62,36 @@ Voor het maken van een nieuwe aanbieding, voert u de volgende stappen uit:
 
 ### <a name="define-offer-settings"></a>Aanbieding instellingen definiëren
 
-Op het scherm Nieuw bieden is de eerste stap het maken van de identiteit van de aanbieding.
-De identiteit van de aanbieding bestaat uit drie onderdelen:
-
-1.  Aanbiedings-id
-2.  Uitgevers-ID
-3.  Naam
-
-Elk van deze onderdelen worden behandeld in de volgende secties.
+Op het scherm Nieuw bieden is de eerste stap het maken van de identiteit van de aanbieding.  De identiteit van de aanbieding bestaat uit drie onderdelen: **aanbiedings-ID**, **uitgevers-ID**, en **naam**.  Elk van deze onderdelen worden behandeld in de volgende secties.
 
 #### <a name="offer-id"></a>Aanbiedings-id
 
-Dit is een unieke naam die u maakt wanneer u de aanbieding voor het eerst verzendt. Deze moet bestaan alleen uit kleine letters, alfanumerieke tekens, streepjes of onderstrepingstekens bevatten. De ID is zichtbaar in de URL en gevolgen engine zoekresultaten. Bijvoorbeeld, *yourcompanyname\_exampleservice*
+Deze id is een unieke naam die u maakt wanneer u de aanbieding voor het eerst verzendt. Deze moet bestaan alleen uit kleine letters, alfanumerieke tekens, streepjes of onderstrepingstekens bevatten. De aanbiedings-ID is zichtbaar in de URL en gevolgen engine zoekresultaten. Bijvoorbeeld, *yourcompanyname\_exampleservice*
 
-Zoals u in het voorbeeld, de aanbiedings-ID wordt toegevoegd aan de de uitgevers-ID te maken van een unieke id. Dit wordt weergegeven als een permanente koppeling die kan worden gereserveerd en wordt geïndexeerd door de zoekmachines.
+Zoals u in het voorbeeld, haalt de aanbiedings-ID toegevoegd aan de uitgevers-ID te maken van een unieke id. Dit wordt weergegeven als een permanente koppeling die kan worden gereserveerd en wordt geïndexeerd door de zoekmachines. 
 
-**Nadat een aanbieding fungeert als live kunt\'t worden bijgewerkt**
+*Nadat een aanbieding gepubliceerd is, kan niet de id worden bijgewerkt*
 
 #### <a name="publisher-id"></a>Uitgevers-ID
 
-Dit is met betrekking tot uw account. Wanneer u bent aangemeld met uw organisatieaccount, worden de uitgevers-ID in de vervolgkeuzelijst weergegeven.
+Deze id is gerelateerd aan uw account. Wanneer u bent aangemeld met uw organisatieaccount, worden de uitgevers-ID in de vervolgkeuzelijst weergegeven.
 
 #### <a name="name"></a>Naam
 
-Dit is wat wordt weergegeven als de aanbiedingsnaam van de op AppSource of Azure Marketplace.
+Deze tekenreeks vormt wat wordt weergegeven als de aanbiedingsnaam van de op AppSource of Azure Marketplace.
 
 **Belangrijk:** alleen de naam van de service hier invoeren. Geen duur en het type van de service.
 
-Het volgende voorbeeld door Edgewater Fullscope laat zien hoe de aanbiedingsnaam van de is samengesteld. De aanbiedingsnaam van de wordt weergegeven als volgt:
+Het volgende voorbeeld door Edgewater Fullscope laat zien hoe de aanbiedingsnaam van de is samengesteld. De aanbiedingsnaam van de wordt weergegeven als:
 
 ![Het maken van een nieuw bieden Consulting Services](media/consulting-services-publishing-offer/cppsampleconsultingoffer.png)
 
 De naam van de aanbieding bestaat uit vier onderdelen:
 
--   **Duur:** definieert u dit in het tabblad met Details van de webwinkel van de editor. Duur kan worden uitgedrukt in uren, dagen of weken.
--   **Type van de service:** definieert u dit in het tabblad met Details van de webwinkel van de editor. Typen van de services zijn evaluatie, Briefing, implementatie, Proof-of-concept en Workshop.
--   **Voorzetsel:** die door de revisor is ingevoegd
--   **Naam:** dit is wat u hebt gedefinieerd in de pagina instellingen bieden.
+-   **Duur:** - gedefinieerd in de **Storefront Details** tabblad van de editor. Duur kan worden uitgedrukt in uren, dagen of weken.
+-   **Type van de service:** - gedefinieerd in de **Storefront Details** tabblad van de editor. Typen van de services zijn `Assessment`, `Briefing`, `Implementation`, `Proof of concept`, en `Workshop`.
+-   **Voorzetsel:** - ingevoegd door de revisor
+-   **Naam:** - gedefinieerd in de **instellingen bieden** pagina.
 
 De volgende lijst bevat enkele goed benoemde aanbieding namen:
 
@@ -124,7 +127,7 @@ De sectie van de informatie over de aanbieding bevat de volgende velden:
 
 ##### <a name="offer-summary"></a>Overzicht van aanbieding
 
-De samenvatting van de aanbieding is een korte beschrijving van uw aanbieding die wordt weergegeven onder de aanbiedingsnaam van de. U moet tekst zonder opmaak gebruiken bij het invoeren van de aanbieding samenvatting en mag geen regeleinden. De volgende zijn goede voorbeelden van samenvattingen van de aanbieding, samen met de bijbehorende namen van de aanbieding:
+De samenvatting van de aanbieding is een korte beschrijving van uw aanbieding die wordt weergegeven onder de aanbiedingsnaam van de. Tekst zonder opmaak gebruiken bij het invoeren van de aanbieding samenvatting en mag geen regeleinden. De volgende zijn goede voorbeelden van samenvattingen van de aanbieding, samen met de bijbehorende namen van de aanbieding:
 
 *Voorbeeld 1*
 
@@ -153,7 +156,7 @@ De samenvatting van de aanbieding is een korte beschrijving van uw aanbieding di
 
 ##### <a name="offer-description"></a>Beschrijving van aanbieding
 
-Dit is een beschrijving van de serviceaanbieding Consulting vallen. De beschrijving van een goede aanbieding bevat meer informatie over hoe de engagement eruit en wat is het einde product aan de klant. Het moet de klant te begrijpen wat ze downloaden duidelijk helpen.
+Beschrijving van de serviceaanbieding Consulting vallen. De beschrijving van een goede aanbieding bevat meer informatie over hoe de engagement eruit en wat is het einde product aan de klant. Het moet de klant te begrijpen wat ze downloaden duidelijk helpen.
 
 Geen e-mailbericht koppelingen of telefoonnummers voor contact met u opnemen in de beschrijving van uw aanbieding. Er is een Neem contact op met mij in uw aanbieding die u uploadt knop leidt tot het doel voor het beheer van potentiële klant die u in uw aanbieding.
 
@@ -161,7 +164,7 @@ De beschrijving van de aanbieding voert u in Markdown-indeling. Als u niet beken
 
 Met behulp van deze indelingen zorgt ervoor dat uw aanbieding heeft de maximale leesbaarheid voor klanten.
 
-De beschrijving van uw aanbieding kort te houden en voldoen aan het maximum aantal tekens als gebruikers niet graag werken te lezen veel tekst bevatten. U hebt nog steeds de optie voor het uploaden van marketing brochures, informatiebladen en andere documenten waarin uw aanbieding in meer detail beschreven.
+De beschrijving van uw aanbieding kort te houden en voldoen aan het maximum aantal tekens als gebruikers niet graag werken met lange tekst lezen. U hebt nog steeds de optie voor het uploaden van marketing brochures, informatiebladen en andere documenten waarin uw aanbieding in meer detail beschreven.
 
 Het volgende voorbeeld ziet u een goede beschrijving van de aanbieding en de bijbehorende naam en het Samenvatting:
 
@@ -223,7 +226,7 @@ Nieuwe Partner Center-ID, indien aanwezig.
 **MPN-ID**
 
 Voer een geheime sleutel voor het voorbeeld van uw aanbieding op AppSource voordat u doorgaat live.
-Dit is niet een wachtwoord.
+Deze id is niet een wachtwoord.
 
 #### <a name="listing-details"></a>De Details van aanbieding
 
@@ -287,4 +290,4 @@ Uploaden van maximaal vijf afbeeldingen met meer informatie over de aanbieding, 
 
 Nadat u de instellingen bieden, Storefront Details en contactpersonen hebt voltooid, selecteert u **publiceren** en geef een e-mailadres. Wanneer Microsoft gereed is voor uw aanbieding publiceren, ontvangt u een e-mailbericht wilt bekijken voordat u deze meteen live. U kunt terugkeren naar de portal om te controleren of de status van uw aanbieding op elk gewenst moment in-time.
 
-Aanbiedingen mogelijk in een 'Publiceren geannuleerd' of 'Publiceren is mislukt' status weergegeven gedurende het publicatieproces. Dit is een normaal onderdeel van het proces en kan Microsoft wijzigingen aanbrengen in uw aanbieding. Als u ziet uw aanbieding in 'Publiceren geannuleerd', laat staan in deze status.
+Aanbiedingen mogelijk in een 'Publiceren geannuleerd' of 'Publiceren is mislukt' status weergegeven gedurende het publicatieproces. Deze status is een normaal onderdeel van het proces en kan Microsoft wijzigingen aanbrengen in uw aanbieding. Als u ziet uw aanbieding in 'Publiceren geannuleerd', laat staan in deze status.

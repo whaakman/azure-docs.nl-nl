@@ -5,21 +5,21 @@ services: virtual-machines
 author: jonbeck7
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 07/06/2018
+ms.date: 11/06/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 0c071fbfb962de1bf077dfa720cd66bc06e42178
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: 3bd4adcd6df07aa47312223c559f0e9ed4fc0b14
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49312517"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51264184"
 ---
 <!-- F-series, Fs-series* -->
 
 COMPUTE-geoptimaliseerde VM-grootten hebben een hoog CPU-geheugenverhouding en zijn goed voor webservers met gemiddeld verkeer, netwerkapparatuur, batchprocessen en toepassingsservers. In dit artikel bevat informatie over het aantal vcpu's, gegevensschijven, en NIC's, evenals de doorvoer en netwerkbandbreedte opslag voor elke grootte in deze groepering.
 
-Fsv2-serie is gebaseerd op de Intel® Xeon® Platinum 8168-processor met een frequentie core op basis van de 2,7 GHz en een maximale single-core turbo frequentie van 3,7 GHz. Intel® AVX-512-instructies die nieuw zijn in schaalbare Intel-Processors, biedt tot een 2 X prestatieverhoging op vector verwerkingsworkloads op zowel enkele als dubbele precisie drijvende-kommaberekeningen. Met andere woorden: ze zijn zeer snel voor elke rekenkundige workload. 
+Fsv2-serie is gebaseerd op de Intel® Xeon® Platinum 8168-processor, met een langdurige alle essentiële Turbo kloksnelheid van 3,4 GHz en een maximale single-core turbo frequentie van 3,7 GHz. Intel® AVX-512-instructies die nieuw zijn in schaalbare Intel-Processors, biedt tot een 2 X prestatieverhoging op vector verwerkingsworkloads op zowel enkele als dubbele precisie drijvende-kommaberekeningen. Met andere woorden: ze zijn zeer snel voor elke rekenkundige workload. 
 
 Tegen een lagere prijs per uur is de Fsv2-serie de beste waarde in de prijs-prestatieverhouding in de Azure-portfolio, gebaseerd op de Azure Compute Unit (ACU) per vCPU. 
 

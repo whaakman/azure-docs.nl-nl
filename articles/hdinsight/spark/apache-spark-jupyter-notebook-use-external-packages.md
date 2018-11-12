@@ -2,19 +2,19 @@
 title: Aangepaste Maven-pakketten gebruiken met Jupyter in Spark op Azure HDInsight
 description: Stapsgewijze instructies over het configureren van Jupyter-notebooks met HDInsight Spark-clusters te gebruiken van aangepaste Maven-pakketten.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/09/2018
-ms.author: jasonh
-ms.openlocfilehash: c6ef336e694bffec00ff239733fd7f07ba5fb09e
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.author: hrasheed
+ms.openlocfilehash: 3d01f058101da9bbe790ef06ad7d78c556755bd6
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43040366"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51011592"
 ---
 # <a name="use-external-packages-with-jupyter-notebooks-in-apache-spark-clusters-on-hdinsight"></a>Externe pakketten gebruiken met Jupyter-notebooks in Apache Spark-clusters in HDInsight
 > [!div class="op_single_selector"]

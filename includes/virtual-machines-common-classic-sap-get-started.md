@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 3ad1f0638284ad1d9b65a5bb6f2d2b03e9c51e04
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 1983e7560c986df241e9c592aaaa6b646a99840f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50227219"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51264404"
 ---
 ## <a name="planning-and-implementation"></a>Planning en implementatie
 Titel: SAP NetWeaver op Azure Virtual Machines: Planning en implementatiehandleiding
@@ -18,7 +18,7 @@ Samenvatting: dit is het document waarmee u begint als u overweegt SAP NetWeaver
 
 Bijgewerkt: Augustus 2015
 
-[Deze handleiding nu downloaden](http://go.microsoft.com/fwlink/?LinkId=397963)
+[Deze handleiding nu downloaden](https://go.microsoft.com/fwlink/?LinkId=397963)
 
 ## <a name="deployment"></a>Implementatie
 Titel: SAP NetWeaver op Azure Virtual Machines – Implementatiehandleiding
@@ -27,7 +27,7 @@ Samenvatting: dit document bevat procedurele richtlijnen voor het implementeren 
 
 Bijgewerkt: September 2015
 
-[Deze handleiding nu downloaden](http://go.microsoft.com/fwlink/?LinkId=397964)
+[Deze handleiding nu downloaden](https://go.microsoft.com/fwlink/?LinkId=397964)
 
 ## <a name="sap-dbms-on-azure"></a>SAP DBMS in Azure
 Titel: SAP DBMS in Azure Deployment Guide
@@ -36,7 +36,7 @@ Samenvatting: dit document bevat plannings- en implementatie-informatie voor de 
 
 Bijgewerkt: December 2015
 
-[Deze handleiding nu downloaden](http://go.microsoft.com/fwlink/?LinkId=397965)
+[Deze handleiding nu downloaden](https://go.microsoft.com/fwlink/?LinkId=397965)
 
 ## <a name="sap-netweaver-on-azure"></a>SAP NetWeaver on Azure
 Titel: SAP NetWeaver - een Azure bouwen op basis van oplossing voor noodherstel
@@ -45,5 +45,5 @@ Samenvatting: dit document bevat een stapsgewijze richtlijnen voor het bouwen va
 
 Bijgewerkt: September 2015
 
-[Deze handleiding nu downloaden](http://go.microsoft.com/fwlink/?LinkID=521971)
+[Deze handleiding nu downloaden](https://go.microsoft.com/fwlink/?LinkID=521971)
 

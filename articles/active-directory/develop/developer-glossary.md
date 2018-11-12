@@ -17,12 +17,12 @@ ms.date: 11/16/2017
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: elisol
-ms.openlocfilehash: 8d219ecb2d8a6694da038044bcab883a5535e957
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: dc3bbab2242321ae736f3f2cefb1eed5e96e834e
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46999253"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51288727"
 ---
 # <a name="azure-active-directory-developer-glossary"></a>Woordenlijst voor Azure Active Directory-ontwikkelaars
 
@@ -69,7 +69,7 @@ De handeling van een partij voor legitieme referenties, die de basis voor het ma
 
 ## <a name="authorization"></a>Autorisatie
 
-De handeling van een geverifieerde security principal machtiging verlenen aan iets doen. Er zijn twee primaire gebruiksscenario's in de Azure AD-programmeermodel:
+De handeling van een geverifieerde security principal machtiging verlenen aan iets doen. Er zijn twee primaire gebruiksscenario's in het Azure AD-programmeermodel:
 
 * Tijdens een [autorisatie voor oauth2](#authorization-grant) stroom: wanneer de [resource-eigenaar](#resource-owner) verleent autorisatie voor de [clienttoepassing](#client-application), zodat de client toegang tot de resource de eigenaar van resources.
 * Tijdens de toegang tot door de client: zoals geïmplementeerd door de [resource-server](#resource-server), met de [claim](#claim) waarden die aanwezig zijn in de [toegangstoken](#access-token) naar beslissingen over toegangsbeheer op basis van deze.
@@ -120,7 +120,7 @@ Zie [naslaginformatie over Azure AD-tokens] [ AAD-Tokens-Claims] voor meer infor
 
 ## <a name="microsoft-identity-platform"></a>Microsoft identity-platform
 
-Microsoft identity-platform is een verbetering van de Azure Active Directory (Azure AD) identity-service en developer-platform. Deze service kunnen ontwikkelaars toepassingen ontwikkelen die zich in alle Microsoft-id's, ophalen van tokens voor het aanroepen van Microsoft Graph, andere Microsoft-APIs of API's waarmee ontwikkelaars hebt gemaakt. Het is een volledig functionele-platform, dat uit een authentication-service, bibliotheken, registratie van toepassingen en configuratie, volledige ontwikkelaarsdocumentatie, codevoorbeelden en andere inhoud voor ontwikkelaars bestaat. Het Microsoft identity-platform biedt ondersteuning voor standaardprotocollen zoals OAuth 2.0 en OpenID Connect. Zie [over Microsoft identity-platform](about-microsoft-identity-platform.md) voor meer informatie.
+Het Microsoft Identity Platform bouwt voort op de identiteitsservice en het ontwikkelaarsplatform van Azure Active Directory (Azure AD). Met het Microsoft Identity Platform kunnen ontwikkelaars toepassingen maken waarbij gebruikers zich met alle Microsoft-identiteiten kunnen aanmelden en waarmee tokens worden opgehaald voor het aanroepen van Microsoft Graph, andere Microsoft-API's of API's die door ontwikkelaars zijn gemaakt. Het is een volledig functionele-platform, dat uit een authentication-service, bibliotheken, registratie van toepassingen en configuratie, volledige ontwikkelaarsdocumentatie, codevoorbeelden en andere inhoud voor ontwikkelaars bestaat. Het Microsoft Identity Platform biedt ondersteuning voor standaardprotocollen als OAuth 2.0 en OpenID Connect. Zie [over Microsoft identity-platform](about-microsoft-identity-platform.md) voor meer informatie.
 
 ## <a name="multi-tenant-application"></a>toepassing met meerdere tenants
 
@@ -244,7 +244,7 @@ Gebruik de volgende sectie met opmerkingen uw feedback en help om te verfijnen e
 [AZURE-portal]: https://portal.azure.com
 [AAD-RBAC]: ../../role-based-access-control/role-assignments-portal.md
 [JWT]: https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-32
-[Microsoft-Graph]: https://graph.microsoft.io
+[Microsoft-Graph]: https://developer.microsoft.com/graph
 [O365-Perm-Ref]: https://msdn.microsoft.com/office/office365/howto/application-manifest
 [OAuth2-Access-Token-Scopes]: https://tools.ietf.org/html/rfc6749#section-3.3
 [OAuth2-AuthZ-Endpoint]: https://tools.ietf.org/html/rfc6749#section-3.1

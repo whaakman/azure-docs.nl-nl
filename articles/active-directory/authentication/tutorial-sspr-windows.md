@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 79a6636043499cffb7eded409cdc27c56de98e33
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: bec94e2017660e9804bbc232e0a3163afdaafcb6
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49430218"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277763"
 ---
 # <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>Azure AD-wachtwoord opnieuw instellen vanuit het aanmeldingsscherm
 
@@ -113,7 +113,7 @@ Wanneer u deze functionaliteit test met Extern bureaublad, wordt de koppeling Wa
 
 Als het Windows-vergrendelingsscherm is uitgeschakeld met een registersleutel of groepsbeleid, is **Wachtwoord opnieuw instellen** niet beschikbaar.
 
-Als Ctrl+Alt+Del wordt vereist door het beleid of meldingen voor het vergrendelen van het scherm zijn uitgeschakeld, werkt **Wachtwoord opnieuw instellen** niet. In Windows 10 19H1 wordt dit vereiste opgelost.
+Als Ctrl+Alt+Del wordt vereist door het beleid of meldingen voor het vergrendelen van het scherm zijn uitgeschakeld, werkt **Wachtwoord opnieuw instellen** niet.
 
 Het auditlogboek van Azure AD bevat informatie over het IP-adres en het ClientType waarvoor het wachtwoord opnieuw is ingesteld.
 

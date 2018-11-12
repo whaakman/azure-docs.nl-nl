@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: b4fdf094653a4b16dead6397fe8e1a9f1a0258b9
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 2ce6e7c796faf0c7377a33dabe1e8c05e81fde2f
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47162080"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51280694"
 ---
 # <a name="tutorial-4-extract-exact-text-matches"></a>Zelfstudie 4: Exacte tekstovereenkomsten extraheren
 In deze zelfstudie leert u hoe u gegevens ophaalt die overeenkomen met een vooraf gedefinieerde lijst met termen. Elk item in de lijst kan een lijst met synoniemen bevatten. Voor de Human Resources-app kan een werknemer worden geïdentificeerd aan de hand van enkele belangrijke gegevens, zoals naam, e-mailadres, telefoonnummer en sociaal-fiscaal nummer. 
@@ -41,7 +41,7 @@ Een entiteit List is een goede keuze voor dit type gegevens wanneer:
 > * Publiceren
 > * Intenties en entiteiten ophalen van eindpunt
 
-[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+[!INCLUDE[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="use-existing-app"></a>Bestaande app gebruiken
 Ga door met de in de laatste zelfstudie gemaakt app, **Human Resources**. 
@@ -57,7 +57,7 @@ Als u niet over de app Human Resources uit de vorige zelfstudie beschikt, voert 
 
 ## <a name="moveemployee-intent"></a>De intentie MoveEmployee
 
-1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Selecteer **Create new intent**. 
 
@@ -84,7 +84,7 @@ Als u niet over de app Human Resources uit de vorige zelfstudie beschikt, voert 
 
     Houd er rekening mee dat number en datetimeV2 in een vorige zelfstudie zijn toegevoegd en dat deze automatisch worden gelabeld wanneer ze worden gevonden in voorbeelden van utterances.
 
-    [!include[Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]  
+    [!INCLUDE[Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]  
 
 ## <a name="employee-list-entity"></a>De entiteit Employee List
 Nu de intentie **MoveEmployee** voorbeelden van utterances bevat, moet LUIS kunnen vaststellen wat een werknemer is. 

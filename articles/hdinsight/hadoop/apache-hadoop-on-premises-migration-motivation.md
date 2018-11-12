@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: f899c2fb871ee528219bd48e94de62746626447f
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 82792414da9df32524e48031089dc18d2dc521cc
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50416117"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51288115"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---motivation-and-benefits"></a>On-premises Apache Hadoop-clusters migreren naar Azure HDInsight - motivatie en voordelen
 
@@ -180,7 +180,7 @@ Deze sectie bevat sjabloon vragenlijsten zodat belangrijke informatie verzamelen
 |Gebruik Azure bewaking en waarschuwingen over Visual Studio-integratie van derden controleren|Gebruik Azure bewaking en waarschuwingen||
 |**Onderwerp**: **voorkeuren voor beveiliging** |||
 |Privé en beschermd gegevenspijplijn?|Ja||
-|Domein apparaat is toegevoegd aan cluster (ESPP)?|     Ja||
+|Domein apparaat is toegevoegd aan cluster (ESP)?|     Ja||
 |On-Premises AD-synchronisatie naar de Cloud?|     Ja||
 |Nee. van AD-gebruikers kunnen synchroniseren?|          100||
 |Op OK om te synchroniseren van wachtwoorden naar de cloud?|    Ja||

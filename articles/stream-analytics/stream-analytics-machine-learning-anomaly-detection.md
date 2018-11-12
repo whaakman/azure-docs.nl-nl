@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/09/2018
-ms.openlocfilehash: 2f35f54c7ec5ad169673aebe08602294270f470a
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
-ms.translationtype: HT
+ms.openlocfilehash: a2bf6ef44a8698e802d9bbc25689988498c55f13
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49364452"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300265"
 ---
 # <a name="anomaly-detection-in-azure-stream-analytics"></a>Anomaliedetectie in Azure Stream Analytics
 
@@ -31,7 +31,7 @@ De operator AnomalyDetection detecteert drie typen anomalieën:
 
 * **Browserpagina's met trage negatieve Trend**: een trage afname in de trend gedurende een periode.  
 
-Wanneer u de operator AnomalyDetection gebruikt, moet u de **Limit Duration** component. Deze component Hiermee geeft u dat het tijdsinterval (hoe ver terug in de geschiedenis van de huidige gebeurtenis) moet worden gehouden bij het detecteren van afwijkingen. Deze operator kan eventueel worden beperkt tot alleen de gebeurtenissen die overeenkomen met een bepaalde eigenschap of voorwaarde met behulp van de  **wanneer** component.   Deze operator kan eventueel ook verwerken voor groepen van gebeurtenissen afzonderlijk op basis van de sleutel die is opgegeven de **partitioneren door** component. Trainen en voorspellen optreden afzonderlijk voor elke partitie. 
+Wanneer u de operator AnomalyDetection gebruikt, moet u de **Limit Duration** component. Deze component Hiermee geeft u dat het tijdsinterval (hoe ver terug in de geschiedenis van de huidige gebeurtenis) moet worden gehouden bij het detecteren van afwijkingen. Deze operator kan eventueel worden beperkt tot alleen de gebeurtenissen die overeenkomen met een bepaalde eigenschap of voorwaarde met behulp van de **wanneer** component. Deze operator kan eventueel ook verwerken voor groepen van gebeurtenissen afzonderlijk op basis van de sleutel die is opgegeven de **partitioneren door** component. Trainen en voorspellen optreden afzonderlijk voor elke partitie. 
 
 ## <a name="syntax-for-anomalydetection-operator"></a>Syntaxis voor de operator AnomalyDetection
 
@@ -45,11 +45,11 @@ Wanneer u de operator AnomalyDetection gebruikt, moet u de **Limit Duration** co
 
 * **scalar_expression** -de scalaire expressie die de detectie van afwijkingen wordt uitgevoerd. Toegestane waarden voor deze parameter Float bevatten of dat een enkele (scalaire) retourwaarde van de gegevenstypen Bigint. De expressie met jokertekens **\*** is niet toegestaan. Scalaire expressie die bevatten geen andere analytische functies of externe functies. 
 
-* **partition_by_clause** : de `PARTITION BY <partition key>` component verdeelt het onderwijs en training over afzonderlijke partities. Met andere woorden, een afzonderlijke model zouden worden gebruikt per waarde van `<partition key>` en alleen gebeurtenissen met de waarde voor onderwijs en training in dit model zou worden gebruikt. Bijvoorbeeld, de volgende query treinen en scores a lezen op basis van andere meetwaarden van alleen de dezelfde sensor:
+* **partition_by_clause** : de `PARTITION BY <partition key>` component verdeelt het onderwijs en training over afzonderlijke partities. Met andere woorden, een afzonderlijke model zouden worden gebruikt per waarde van `<partition key>` en alleen gebeurtenissen met de waarde voor onderwijs en training in dit model zou worden gebruikt. Bijvoorbeeld, de volgende query treinen en scores a lezen op basis van andere meetwaarden van alleen de dezelfde sensor:
 
   `SELECT sensorId, reading, ANOMALYDETECTION(reading) OVER(PARTITION BY sensorId LIMIT DURATION(hour, 1)) FROM input`
 
-* **limit_duration component** `DURATION(<unit>, <length>)` -Hiermee geeft u het tijdsinterval (hoe ver terug in de geschiedenis van de huidige gebeurtenis) moet worden gehouden bij het detecteren van afwijkingen. Zie [DATEDIFF](https://msdn.microsoft.com/azure/stream-analytics/reference/datediff-azure-stream-analytics) voor een gedetailleerde beschrijving van de ondersteunde eenheden en hun afkortingen. 
+* **limit_duration component**  `DURATION(<unit>, <length>)` -Hiermee geeft u het tijdsinterval (hoe ver terug in de geschiedenis van de huidige gebeurtenis) moet worden gehouden bij het detecteren van afwijkingen. Zie [DATEDIFF](https://msdn.microsoft.com/azure/stream-analytics/reference/datediff-azure-stream-analytics) voor een gedetailleerde beschrijving van de ondersteunde eenheden en hun afkortingen. 
 
 * **when_clause** -Hiermee geeft u een Boole-voorwaarde voor de gebeurtenissen die zijn opgenomen in de berekening van de detectie van afwijkingen.
 
@@ -243,7 +243,7 @@ Wanneer de invoerstroom niet uniform, moet u de aggregatie-stap kunt transformer
 ## <a name="references"></a>Verwijzingen
 
 * [Detectie van afwijkingen: werken met machine learning voor het detecteren van afwijkingen in time series-gegevens](https://blogs.technet.microsoft.com/machinelearning/2014/11/05/anomaly-detection-using-machine-learning-to-detect-abnormalities-in-time-series-data/)
-* [Machine learning-anomaliedetectie-API](https://docs.microsoft.com/en-gb/azure/machine-learning/machine-learning-apps-anomaly-detection-api)
+* [Machine learning-anomaliedetectie-API](https://docs.microsoft.com/azure/machine-learning/machine-learning-apps-anomaly-detection-api)
 * [Time series-anomaliedetectie](https://msdn.microsoft.com/library/azure/mt775197.aspx)
 
 ## <a name="next-steps"></a>Volgende stappen

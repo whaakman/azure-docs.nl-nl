@@ -3,16 +3,16 @@ title: Problemen met YARN in Azure HDInsight oplossen
 description: Vind antwoorden op veelgestelde vragen over het werken met Apache Hadoop YARN en Azure HDInsight.
 services: hdinsight
 ms.service: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.topic: conceptual
 ms.date: 11/2/2017
-ms.openlocfilehash: f1f332164b5e954b2576f9fbde519241c7288006
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: c3904286fc998769b9a72522bd31d3a9797c55c2
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39596461"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51008042"
 ---
 # <a name="troubleshoot-yarn-by-using-azure-hdinsight"></a>Met YARN oplossen met behulp van Azure HDInsight
 

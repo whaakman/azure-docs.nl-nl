@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 10/27/2017
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 92d456ae4db1b4016c1a3676b5adfd7cbc2e7867
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: d40759a53842ca3c39e67850eb727897019a25ec
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50962772"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51012051"
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-log-analytics"></a>Optimalisatie van uw Active Directory-omgeving met de oplossing statuscontrole van Active Directory in Log Analytics
 
@@ -186,4 +186,4 @@ Na de volgende health controle wordt uitgevoerd, wordt standaard elke zeven dage
 * Ja, Zie [aanbevelingen negeren](#ignore-recommendations) hierboven.
 
 ## <a name="next-steps"></a>Volgende stappen
-* Gebruik [zoekopdrachten in Logboeken in Log Analytics](log-analytics-log-search.md) voor meer informatie over het analyseren van gedetailleerde gegevens AD Health Check en aanbevelingen.
+* Gebruik [zoekopdrachten in Logboeken in Log Analytics](log-analytics-queries.md) voor meer informatie over het analyseren van gedetailleerde gegevens AD Health Check en aanbevelingen.

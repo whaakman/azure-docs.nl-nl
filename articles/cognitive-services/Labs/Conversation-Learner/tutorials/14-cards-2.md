@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 1c7c88742c69041594006add76f7e3c642c64dec
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 99c474978d4da1d80669505330b2dc6220d7ca5f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39170569"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51226631"
 ---
 # <a name="how-to-use-cards-part-1-of-2"></a>Het gebruik van kaarten (deel 1 van 2)
 Deze zelfstudie laat zien hoe u een kaart invulbaar formulier toevoegen aan uw bot. U ziet hoe velden in het formulier in op entiteiten verplaatsen.
@@ -24,7 +24,7 @@ Conversatiecursist wordt verwacht dat de kaart definitiebestanden zich bevinden 
 
 ## <a name="video"></a>Video
 
-[![Zelfstudie 14-Preview](http://aka.ms/cl-tutorial-14-preview)](http://aka.ms/blis-tutorial-14)
+[![Zelfstudie 14-Preview](https://aka.ms/cl-tutorial-14-preview)](https://aka.ms/blis-tutorial-14)
 
 ## <a name="requirements"></a>Vereisten
 In deze zelfstudie is vereist dat de algemene zelfstudie bot wordt uitgevoerd

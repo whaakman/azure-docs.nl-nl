@@ -1,24 +1,24 @@
 ---
-title: Lege edge-knooppunten gebruiken op Hadoop-clusters in HDInsight - Azure
+title: Lege edge-knooppunten op Apache Hadoop-clusters in HDInsight - Azure gebruiken
 description: Hoe u een lege edge-knooppunt toevoegen aan een HDInsight-cluster die kan worden gebruikt als een client, en vervolgens testen/host uw HDInsight-toepassingen.
 services: hdinsight
 ms.reviewer: jasonh
-author: jasonwhowell
+author: hrasheed-msft
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 04/23/2018
-ms.author: jasonh
-ms.openlocfilehash: 1111f3c21e3c3718a9a010284a42ea469e04473d
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.date: 11/06/2018
+ms.author: hrasheed
+ms.openlocfilehash: 276f11bf889927ee74fa4e9078e147db6df78b9e
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43090385"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281367"
 ---
-# <a name="use-empty-edge-nodes-on-hadoop-clusters-in-hdinsight"></a>Lege edge-knooppunten op Hadoop-clusters in HDInsight gebruiken
+# <a name="use-empty-edge-nodes-on-apache-hadoop-clusters-in-hdinsight"></a>Lege edge-knooppunten op Apache Hadoop-clusters in HDInsight gebruiken
 
-Leer hoe u een lege edge-knooppunt toevoegen aan een HDInsight-cluster. Een lege edge-knooppunt is een Linux-machine met de dezelfde clienthulpprogramma's geïnstalleerd en geconfigureerd zoals in de hoofdknooppunten, maar met geen Hadoop-services die worden uitgevoerd. U kunt het edge-knooppunt gebruiken voor toegang tot het cluster en hosten van uw client-apps testen van uw clienttoepassingen. 
+Leer hoe u een lege edge-knooppunt toevoegen aan een HDInsight-cluster. Een lege edge-knooppunt is een Linux-machine met de dezelfde clienthulpprogramma's geïnstalleerd en geconfigureerd zoals in de hoofdknooppunten, maar met geen Apache Hadoop-services die worden uitgevoerd. U kunt het edge-knooppunt gebruiken voor toegang tot het cluster en hosten van uw client-apps testen van uw clienttoepassingen. 
 
 U kunt een lege edge-knooppunt toevoegen aan een bestaand HDInsight-cluster, naar een nieuw cluster bij het maken van het cluster. Toevoegen van een lege edge-knooppunt wordt uitgevoerd met behulp van Azure Resource Manager-sjabloon.  Het volgende voorbeeld laat zien hoe het werkt met behulp van een sjabloon:
 
@@ -66,7 +66,7 @@ Nadat u een edge-knooppunt hebt gemaakt, kunt u verbinding maken met het edge-kn
 > Als u een Apache-technologie gebruikt, kunt u mogelijk kunnen ondersteuning aanvragen via de Apache projectsites vinden op [ http://apache.org ](http://apache.org), zoals de [Hadoop](http://hadoop.apache.org/) site.
 
 > [!NOTE]
-> Hetzelfde als de clusters, edge-knooppunten zijn ook patch beheerd.  Zie voor meer informatie, [OS patches voor HDInsight](./hdinsight-os-patching.md).
+> Edge-knooppunten zijn, zoals de overige clusterknooppunten ook patch beheerd.  Zie voor meer informatie, [OS patches voor HDInsight](./hdinsight-os-patching.md).
 
 ## <a name="add-an-edge-node-to-an-existing-cluster"></a>Een edge-knooppunt toevoegen aan een bestaand cluster
 In deze sectie maakt u een Resource Manager-sjabloon gebruiken een edge-knooppunt toevoegen aan een bestaand HDInsight-cluster.  De Resource Manager-sjabloon kunt u vinden in [GitHub](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-add-edge-node/). De Resource Manager-sjabloon wordt de actie van een script dat zich bevindt in https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-hdinsight-linux-add-edge-node/scripts/EmptyNodeSetup.sh. Het script uitvoeren niet alle acties.  Het is om te demonstreren aanroepende scriptactie van Resource Manager-sjabloon.

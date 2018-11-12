@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: 123005a32315ba3972ed4f1c1784d3ac9460b101
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: d21b6235c91a7d2f14b8b39c07891efe967ef572
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50958947"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51278239"
 ---
 # <a name="streaming-azure-diagnostics-data-in-the-hot-path-by-using-event-hubs"></a>Streaming van Azure Diagnostics-gegevens in het dynamische pad met behulp van Event Hubs
 Diagnostische gegevens van Azure biedt flexibele manieren voor het verzamelen van Logboeken en metrische gegevens van virtuele machines (VM's) voor cloud services en resultaten overbrengen naar Azure Storage. Vanaf het tijdsbestek van maart 2016 (SDK 2.9 gebruikt), kunt u diagnostische gegevens verzenden naar aangepaste gegevensbronnen en gegevensoverdracht snelpad binnen enkele seconden met behulp van [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/).
@@ -40,7 +40,7 @@ Event Hubs receieving gegevens van Azure Diagnostics wordt ondersteund in de Clo
 * Azure Diagnostics-extensie 1.6 ([Azure SDK voor .NET 2.9 of hoger](https://azure.microsoft.com/downloads/) gericht op deze standaard)
 * [Visual Studio 2013 of hoger](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)
 * Bestaande configuraties van Azure Diagnostics in een toepassing met behulp van een *.wadcfgx* bestands- en een van de volgende methoden:
-  * Visual Studio: [diagnostische gegevens configureren voor Azure Cloudservices en Virtual Machines](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md)
+  * Visual Studio: [diagnostische gegevens configureren voor Azure Cloudservices en Virtual Machines](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines)
   * Windows PowerShell: [diagnostische gegevens in Azure Cloud Services met behulp van PowerShell inschakelen](../cloud-services/cloud-services-diagnostics-powershell.md)
 * Event Hubs-naamruimte is ingericht per artikel [aan de slag met Event Hubs](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)
 
@@ -70,7 +70,7 @@ Standaard verzendt Azure Diagnostics altijd logboeken en metrische gegevens naar
 
 In dit voorbeeld wordt de URL van de event hub is ingesteld op de volledig gekwalificeerde naamruimte van de event hub: Event Hubs-naamruimte + "/" + naam event hub.  
 
-De event hub URL wordt weergegeven in de [Azure-portal](http://go.microsoft.com/fwlink/?LinkID=213885) op het dashboard van de Event Hubs.  
+De event hub URL wordt weergegeven in de [Azure-portal](https://go.microsoft.com/fwlink/?LinkID=213885) op het dashboard van de Event Hubs.  
 
 De **Sink** naam kan worden ingesteld op een willekeurige geldige tekenreeks, zolang de dezelfde waarde consistent wordt gebruikt in het configuratiebestand.
 

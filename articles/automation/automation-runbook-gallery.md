@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/11/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 988f77dd0f8f31f6e31e5371ed263d4c4195c105
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: ca19ce2cca314950adc40bbf065dec80e7fa3e1f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45984870"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51227923"
 ---
 # <a name="runbook-and-module-galleries-for-azure-automation"></a>Runbook- en galerieën voor Azure Automation
 In plaats van het maken van uw eigen runbooks en modules in Azure Automation, kunt u toegang tot een verscheidenheid aan scenario's die al zijn gebouwd door Microsoft en de community.  U kunt deze scenario's zonder wijzigingen gebruiken of u kunt ze als uitgangspunt gebruiken en ze bewerken voor uw specifieke vereisten.
@@ -22,7 +22,7 @@ In plaats van het maken van uw eigen runbooks en modules in Azure Automation, ku
 Krijgt u runbooks uit de [Runbookgalerie](#runbooks-in-runbook-gallery) en -modules uit de [PowerShell Gallery](#modules-in-powerShell-gallery).  U kunt ook bijdragen aan de community door sharing-scenario's die u hebt ontwikkeld, Zie [een runbook toe te voegen aan de galerie](automation-runbook-gallery.md#adding-a-runbook-to-the-runbook-gallery)
 
 ## <a name="runbooks-in-runbook-gallery"></a>Runbooks in de Runbook-galerie
-De [Runbookgalerie](http://gallery.technet.microsoft.com/scriptcenter/site/search?f\[0\].Type=RootCategory&f\[0\].Value=WindowsAzure&f\[1\].Type=SubCategory&f\[1\].Value=WindowsAzure_automation&f\[1\].Text=Automation) biedt tal van runbooks van Microsoft en de community die u in Azure Automation importeren kunt. U kunt ofwel een runbook downloaden uit de galerie, die wordt gehost in de [TechNet Script Center](https://gallery.technet.microsoft.com/scriptcenter/site/upload), of u kunt runbooks rechtstreeks importeren uit de galerie in Azure portal.
+De [Runbookgalerie](https://gallery.technet.microsoft.com/scriptcenter/site/search?f\[0\].Type=RootCategory&f\[0\].Value=WindowsAzure&f\[1\].Type=SubCategory&f\[1\].Value=WindowsAzure_automation&f\[1\].Text=Automation) biedt tal van runbooks van Microsoft en de community die u in Azure Automation importeren kunt. U kunt ofwel een runbook downloaden uit de galerie, die wordt gehost in de [TechNet Script Center](https://gallery.technet.microsoft.com/scriptcenter/site/upload), of u kunt runbooks rechtstreeks importeren uit de galerie in Azure portal.
 
 U kunt alleen met de importeren rechtstreeks vanuit de Runbook-galerie met Azure portal. U kunt deze functie met behulp van Windows PowerShell niet uitvoeren.
 
@@ -37,7 +37,7 @@ U kunt alleen met de importeren rechtstreeks vanuit de Runbook-galerie met Azure
 3. Ga naar het galerie-item u wilt en selecteert u deze om de details ervan weer te geven. U kunt extra zoekparameters invoeren voor de uitgever en het type aan de linkerkant.
    
     ![Door galerie bladeren](media/automation-runbook-gallery/browse-gallery.png)
-5. Klik op **weergave SourceProject** om weer te geven van het item in de [TechNet Script Center](http://gallery.technet.microsoft.com/).
+5. Klik op **weergave SourceProject** om weer te geven van het item in de [TechNet Script Center](https://gallery.technet.microsoft.com/).
 6. Voor het importeren van een item, klikt u op de details ervan te bekijken en klik vervolgens op de **importeren** knop.
    
     ![Knop importeren](media/automation-runbook-gallery/gallery-item-detail.png)
@@ -45,7 +45,7 @@ U kunt alleen met de importeren rechtstreeks vanuit de Runbook-galerie met Azure
 8. Het runbook wordt weergegeven op de **Runbooks** tabblad voor het Automation-Account.
 
 ### <a name="adding-a-runbook-to-the-runbook-gallery"></a>Een runbook toe te voegen aan de runbookgalerie
-Microsoft raadt u runbooks toevoegen aan de Runbook-galerie waarvan u denkt dat nuttig is voor andere klanten.  U kunt een runbook door toevoegen [uploaden naar het Script Center](http://gallery.technet.microsoft.com/site/upload) rekening houdend met de volgende details.
+Microsoft raadt u runbooks toevoegen aan de Runbook-galerie waarvan u denkt dat nuttig is voor andere klanten.  U kunt een runbook door toevoegen [uploaden naar het Script Center](https://gallery.technet.microsoft.com/site/upload) rekening houdend met de volgende details.
 
 * U moet opgeven *Windows Azure* voor de **categorie** en *Automation* voor de **subcategorie** voor het runbook moet worden weergegeven de de wizard.  
 * Het uploaden, moet één .ps1 of .graphrunbook-bestand.  Als het runbook is vereist voor alle modules, onderliggende runbooks of assets, vervolgens u moet een lijst die in de beschrijving van het verzenden en in de sectie met opmerkingen van het runbook.  Hebt u een scenario voor het vereisen van meerdere runbooks, upload vervolgens elk afzonderlijk en de namen van de gerelateerde runbooks in elk van de bijbehorende beschrijvingen. Zorg ervoor dat u de dezelfde codes gebruiken, zodat ze in dezelfde categorie worden weergegeven. Een gebruiker moet lees de beschrijving om te weten dat andere runbooks vereist zijn het scenario om te werken.
@@ -100,7 +100,7 @@ PowerShell-modules bevatten cmdlets die u in uw runbooks gebruiken kunt en besta
 Python-Runbooks zijn beschikbaar in de [Script Center galerie](https://gallery.technet.microsoft.com/scriptcenter/site/search?f%5B0%5D.Type=RootCategory&f%5B0%5D.Value=WindowsAzure&f%5B1%5D.Type=ProgrammingLanguage&f%5B1%5D.Value=Python&f%5B1%5D.Text=Python&sortBy=Date&username=). U kunt bijdragen Python-runbooks aan de galerie Script Center. Wanneer u dit doet, zorg ervoor dat u de tag toevoegen **Python** tijdens het uploaden van uw inzending.
 
 ## <a name="requesting-a-runbook-or-module"></a>Een runbook of de module aanvragen
-U kunt aanvragen verzenden [User Voice](https://feedback.azure.com/forums/246290-azure-automation/).  Als u hulp nodig voor het schrijven van een runbook of een vraag over PowerShell hebt, stel een vraag aan onze [forum](http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home?forum=azureautomation&filter=alltypes&sort=lastpostdesc).
+U kunt aanvragen verzenden [User Voice](https://feedback.azure.com/forums/246290-azure-automation/).  Als u hulp nodig voor het schrijven van een runbook of een vraag over PowerShell hebt, stel een vraag aan onze [forum](https://social.msdn.microsoft.com/Forums/windowsazure/en-US/home?forum=azureautomation&filter=alltypes&sort=lastpostdesc).
 
 ## <a name="next-steps"></a>Volgende stappen
 * Om te beginnen met runbooks, Zie [maken of importeren van een runbook in Azure Automation](automation-creating-importing-runbook.md)

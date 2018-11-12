@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/18/2018
 ms.author: alkohli
-ms.openlocfilehash: 578fb3f8bfe68ccd9bbade0ad04f3a811a249c08
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: fb8c3fe9dd5ca207e4ae37faf9a5a1c4edfffc63
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37908341"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51233810"
 ---
 # <a name="storsimple-security-and-data-protection"></a>StorSimple-beveiliging en gegevensbescherming
 
@@ -35,7 +35,7 @@ De Microsoft Azure StorSimple-oplossing bestaat uit vier hoofdonderdelen die met
 * **StorSimple Device Manager-service die wordt gehost in Microsoft Azure** – de management-service die u gebruiken om te configureren en inrichten van het StorSimple-apparaat.
 * **StorSimple-apparaat** – een fysiek apparaat is geïnstalleerd in uw datacenter. Alle hosts en -clients die gegevens genereren verbinding maken met de StorSimple-apparaat en het apparaat de gegevens worden beheerd en verplaatst die naar de Azure-cloud indien van toepassing.
 * **Clients /-hosts die zijn verbonden met het apparaat** – de clients in uw infrastructuur die verbinding maken met het StorSimple-apparaat en die gegevens genereren die moet worden beveiligd.
-* **Cloudopslag** – de locatie in de Azure-cloud waar gegevens worden opgeslagen.
+* **Cloudopslag** – De locatie in de Azure-cloud waar gegevens worden opgeslagen.
 
 De volgende secties beschrijven de StorSimple-beveiligingsfuncties die helpen beschermen van elk van deze onderdelen en de gegevens die zijn opgeslagen op deze. Dit omvat ook een lijst met vragen die u over de beveiliging van Microsoft Azure StorSimple, en de bijbehorende antwoorden hebt mogelijk.
 
@@ -43,9 +43,9 @@ De volgende secties beschrijven de StorSimple-beveiligingsfuncties die helpen be
 
 De StorSimple Device Manager-service is een management-service die wordt gehost in Microsoft Azure en gebruikt voor het beheren van alle StorSimple-apparaten die uw organisatie heeft aangeschaft. U kunt toegang tot de service StorSimple Device Manager met behulp van referenties voor uw organisatie om aan te melden bij Azure portal via een webbrowser.
 
-Toegang tot de service StorSimple Device Manager vereist dat uw organisatie een Azure-abonnement met inbegrip van StorSimple. Uw abonnement bepaalt de functies die u in Azure portal openen kunt. Als uw organisatie beschikt niet over een Azure-abonnement en u wilt bekijken voor meer informatie over deze [zich registreren voor Azure als een organisatie](../active-directory/fundamentals/sign-up-organization.md).
+Toegang tot de service StorSimple Device Manager vereist dat uw organisatie een Azure-abonnement met inbegrip van StorSimple. Uw abonnement bepaalt tot welke functies u toegang hebt in de Azure-portal. Als uw organisatie beschikt niet over een Azure-abonnement en u wilt bekijken voor meer informatie over deze [zich registreren voor Azure als een organisatie](../active-directory/fundamentals/sign-up-organization.md).
 
-Omdat de service StorSimple Device Manager wordt gehost in Azure, wordt deze wordt beveiligd door de functies van Azure-beveiliging. Voor meer informatie over de beveiligingsfuncties die worden geleverd door Microsoft Azure, gaat u naar de [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/security/).
+Omdat de service StorSimple Device Manager wordt gehost in Azure, wordt deze wordt beveiligd door de functies van Azure-beveiliging. Ga naar het [Vertrouwenscentrum van Microsoft Azure](https://azure.microsoft.com/support/trust-center/security/) voor meer informatie over de beveiligingsfuncties die worden geleverd door Microsoft Azure.
 
 ## <a name="storsimple-device-protection"></a>Bescherming van de StorSimple-apparaat
 
@@ -53,7 +53,7 @@ Het StorSimple-apparaat is een on-premises hybride opslagapparaat met (Solid-Sta
 
 Alleen geautoriseerde StorSimple-apparaten kunnen aanmelden bij de StorSimple Device Manager-service die u hebt gemaakt in uw Azure-abonnement. Als u wilt toestaan dat een apparaat, moet u deze registreren bij de StorSimple Device Manager-service door op te geven van de serviceregistratiesleutel. De serviceregistratiesleutel is een 128-bits van een willekeurige sleutel gegenereerd in Azure portal.
 
-![Serviceregistratiesleutel](./media/storsimple-security/ServiceRegistrationKey.png)
+![serviceregistratiesleutel](./media/storsimple-security/ServiceRegistrationKey.png)
 
 Voor meer informatie over hoe een serviceregistratiesleutel ophalen, gaat u naar [stap 2: de serviceregistratiesleutel ophalen](storsimple-8000-deployment-walkthrough-u2.md#step-2-get-the-service-registration-key).
 
@@ -121,7 +121,7 @@ Voor meer informatie over StorSimple Snapshot Manager, gaat u naar [wat is StorS
 U wordt aangeraden gebruik te maken van de volgende richtlijnen om ervoor te zorgen dat de StorSimple-wachtwoorden sterke en goed beveiligde zijn:
 
 * Elke drie maanden van uw wachtwoord wijzigen. Wijzigen van de wachtwoorden wordt jaarlijks afgedwongen.
-* Sterke wachtwoorden gebruiken. Ga voor meer informatie naar [sterke wachtwoorden maken en deze beveiligen](http://blogs.microsoft.com/cybertrust/2014/08/25/create-stronger-passwords-and-protect-them/).
+* Sterke wachtwoorden gebruiken. Ga voor meer informatie naar [sterke wachtwoorden maken en deze beveiligen](https://blogs.microsoft.com/cybertrust/2014/08/25/create-stronger-passwords-and-protect-them/).
 * Gebruik altijd verschillende wachtwoorden voor verschillende mechanismen voor; elk van de wachtwoorden die u opgeeft moet uniek zijn.
 * Wachtwoorden niet delen met iedereen die is niet gemachtigd voor toegang tot het StorSimple-apparaat.
 * Geen spreken over een wachtwoord in het zicht van anderen of hint op de indeling van een wachtwoord.
@@ -166,7 +166,7 @@ De versleutelingssleutel voor servicegegevens en het certificaat voor versleutel
 
 Gegevens van het StorSimple-apparaat worden beheerd door op te slaan in lagen, lokaal en in de cloud, afhankelijk van de frequentie van gebruik. Alle hostmachines die zijn verbonden met het apparaat verzenden gegevens naar het apparaat en deze gegevens vervolgens naar de cloud, waar nodig verplaatst. Gegevens worden overgebracht van het apparaat naar de cloud veilig via Internet. Elk apparaat heeft een iSCSI-doel waarmee alle gedeelde volumes op het apparaat. Alle gegevens worden versleuteld voordat deze wordt verzonden naar de cloudopslag. 
 
-![Coderingssleutel voor cloudopslag](./media/storsimple-security/CloudStorageEncryption.png)
+![coderingssleutel voor cloudopslag](./media/storsimple-security/CloudStorageEncryption.png)
 
 Om te helpen de beveiliging en integriteit van gegevens naar de cloud verplaatst, kunt StorSimple u voor het definiëren van versleutelingssleutels voor cloud-opslag als volgt:
 
@@ -215,7 +215,7 @@ De StorSimple Device Manager voor zowel fysieke als virtuele serie verzamelt per
 - Gebruikers die toegang krijgen tot de gegevens die zich bevinden op de shares. Een lijst met gebruikers die toegang de sharegegevens tot krijgen wordt weergegeven en kan worden weergegeven. Deze lijst wordt ook verwijderd wanneer de shares wordt verwijderd. Dit geldt alleen voor virtuele StorSimple-matrices.
  * Om weer te geven van de lijst met gebruikers die toegang tot of naar een share verwijdert, voert u de stappen in [shares op de StorSimple Virtual Array beheren](storsimple-virtual-array-manage-shares.md)
 
-Voor meer informatie raadpleegt u het beleid van Microsoft Privacy [Trust Center](https://www.microsoft.com/trustcenter).
+Bekijk het Microsoft-privacybeleid in het [Vertrouwenscentrum](https://www.microsoft.com/trustcenter) voor meer informatie.
 
 ## <a name="frequently-asked-questions-faq"></a>Veelgestelde vragen
 

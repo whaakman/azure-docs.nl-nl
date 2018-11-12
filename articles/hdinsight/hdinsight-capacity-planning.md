@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/22/2017
 ms.author: maxluk
-ms.openlocfilehash: 4438cff0dcf5e896f39729d9871d4deb3207b4b8
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: c3bdad6f1c199dda867370126eb7dcf5c296a12d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43107992"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230424"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>Capaciteitsplanning voor HDInsight-clusters
 
@@ -38,7 +38,7 @@ HDInsight is beschikbaar in veel Azure-regio's. De dichtstbijzijnde regio, Zie d
 
 ### <a name="location-of-default-storage"></a>Locatie van standaardopslag
 
-De standaardopslag, een Azure Storage-account of een Azure Data Lake Store, moet zich in dezelfde locatie als uw cluster. Azure Storage is beschikbaar op alle locaties. Data Lake Store is beschikbaar in bepaalde regio's: Zie de huidige beschikbaarheid van de Data Lake Store onder *opslag* in [Azure-producten beschikbaar per regio](https://azure.microsoft.com/regions/services/).
+De standaardopslag, een Azure Storage-account of een Azure Data Lake Store, moet zich in dezelfde locatie als uw cluster. Azure Storage is beschikbaar op alle locaties. Gen1 met Data Lake Store is beschikbaar in bepaalde regio's: Zie de huidige beschikbaarheid van de Data Lake Store onder *opslag* in [Azure-producten beschikbaar per regio](https://azure.microsoft.com/regions/services/).
 
 ### <a name="location-of-existing-data"></a>Locatie van de bestaande gegevens
 
@@ -48,7 +48,7 @@ Als u al een storage-account of een Data Lake Store met uw gegevens en deze opsl
 
 Nadat u een HDInsight-cluster geïmplementeerd hebt, kunt u aanvullende Azure Storage-accounts koppelen of toegang tot andere Data Lake Stores. Alle opslagaccounts moeten zich bevinden op dezelfde locatie als uw cluster. Een Data Lake Store kunnen zich in een andere locatie, maar dit leiden bepaalde gegevens lezen/schrijven-latentie tot kan.
 
-Azure Storage heeft enkele [Capaciteitslimieten](../azure-subscription-service-limits.md#storage-limits), terwijl vrijwel onbeperkte Data Lake Store.
+Azure Storage heeft enkele [Capaciteitslimieten](../azure-subscription-service-limits.md#storage-limits), terwijl vrijwel onbeperkte Data Lake Store Gen1.
 
 Een cluster, hebben toegang tot een combinatie van verschillende opslagaccounts. Typische voorbeelden zijn onder meer:
 

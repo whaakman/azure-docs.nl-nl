@@ -6,14 +6,14 @@ author: trinadhk
 manager: shreeshd
 ms.service: backup
 ms.topic: conceptual
-ms.date: 7/11/2018
+ms.date: 11/1/2018
 ms.author: trinadhk
-ms.openlocfilehash: f293f642db2bd526e761ff570ce97a33845808b7
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: cf06fc9c12493e208832596a27b479dc9dfea942
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50412802"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51011320"
 ---
 # <a name="use-role-based-access-control-to-manage-azure-backup-recovery-points"></a>Toegangsbeheer op basis van rollen gebruiken voor het beheren van Azure Backup-herstelpunten
 Met op rollen gebaseerd toegangsbeheer (RBAC) beschikt u over geavanceerd toegangsbeheer voor Azure. Met op rollen gebaseerd toegangsbeheer kunt u taken scheiden binnen uw team en alleen de mate van toegang verlenen aan gebruikers die nodig is om de taken uit te voeren.
@@ -40,23 +40,27 @@ De volgende tabel bevat de acties voor back-up en de bijbehorende minimale RBAC-
 | Back-up van virtuele Azure-machines inschakelen | Back-upoperator | Resourcegroep met de kluis |
 | | Inzender voor virtuele machines | VM-resource |
 | On-demand back-up van virtuele machine | Back-upoperator | Recovery vault-resource |
-| VM herstellen | Back-upoperator | Resourcegroep waarin u de virtuele machine wordt geïmplementeerd |
+| VM herstellen | Back-upoperator | Recovery Services-kluis |
 | | Inzender voor virtuele machines | Resourcegroep waarin u de virtuele machine wordt geïmplementeerd |
+| | Inzender voor virtuele machines | Bron-VM waarvan een back-up is gemaakt |
 | Niet-beheerde schijven VM back-up herstellen | Back-upoperator | Recovery vault-resource |
-| | Inzender voor virtuele machines | VM-resource |
-| | Inzender voor opslagaccounts | De resource van opslagaccount |
+| | Inzender voor virtuele machines | Bron-VM waarvan een back-up is gemaakt |
+| | Inzender voor opslagaccounts | Opslagaccountresource waar opstartcyclus schijven kunnen worden hersteld |
 | Beheerde schijven terugzetten van back-up van virtuele machine | Back-upoperator | Recovery vault-resource |
-| | Inzender voor virtuele machines | VM-resource |
-| | Inzender voor opslagaccounts | De resource van opslagaccount |
-| | Inzender | Resourcegroep waarmee beheerde schijf wordt hersteld |
+| | Inzender voor virtuele machines | Bron-VM waarvan een back-up is gemaakt |
+| | Inzender voor opslagaccounts | Tijdelijke Opslagaccount dat is geselecteerd als onderdeel van herstellen voor het opslaan van gegevens uit de kluis voordat u deze te converteren naar beheerde schijven |
+| | Inzender | Resourcegroep waartoe de beheerde schijven worden hersteld |
 | Afzonderlijke bestanden herstellen vanaf back-up van virtuele machine | Back-upoperator | Recovery vault-resource |
-| | Inzender voor virtuele machines | VM-resource |
+| | Inzender voor virtuele machines | Bron-VM waarvan een back-up is gemaakt |
 | Back-upbeleid voor back-up van virtuele Azure-machine maken | Back-upinzender | Recovery vault-resource |
 | Back-upbeleid van Azure VM backup wijzigen | Back-upinzender | Recovery vault-resource |
 | Back-upbeleid van Azure VM backup | Back-upinzender | Recovery vault-resource |
 | Back-up stoppen (met behoud van gegevens of verwijderen van gegevens) op virtuele machine back-up | Back-upinzender | Recovery vault-resource |
 | On-premises Windows Server/client-/ SCDPM of Azure Backup-Server registreren | Back-upoperator | Recovery vault-resource |
 | Geregistreerde on-premises Windows Server/client-/ SCDPM of Azure Backup-Server verwijderen | Back-upinzender | Recovery vault-resource |
+
+> [!IMPORTANT]
+> Als u VM-Inzender bij een VM-resource-bereik opgeven en klik op back-up als onderdeel van de VM-instellingen, wordt deze 'Back-up inschakelen' scherm geopend, zelfs als de virtuele machine is al back-up gemaakt als de aanroep om te controleren of de status van de back-up werkt alleen op abonnementsniveau. Om dit te voorkomen, hetzij gaat u naar de kluis en opent u de back-upitem weergave van de virtuele machine of geef de rol Inzender voor virtuele machine op een abonnementsniveau. 
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Op rollen gebaseerd toegangsbeheer](../role-based-access-control/role-assignments-portal.md): aan de slag met RBAC in Azure portal.

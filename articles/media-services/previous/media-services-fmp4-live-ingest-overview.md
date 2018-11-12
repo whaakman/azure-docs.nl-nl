@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: cenkd;juliako
-ms.openlocfilehash: 88c152872ef8b571b8bc3e3f06ce486943e724b1
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: c6ff386913ed66cf4f74cb577bb8ca58e6932ada
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39443525"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228875"
 ---
 # <a name="azure-media-services-fragmented-mp4-live-ingest-specification"></a>Specificatie van Azure Media Services live gefragmenteerde MP4-liveopname
 Deze specificatie beschrijving van het protocol en de indeling voor gefragmenteerde MP4-opname op basis van live streaming voor Azure Media Services. Media Services biedt een service voor live streamen die klanten gebruiken kunnen voor het streamen van live-evenementen uit te zenden van inhoud in realtime met behulp van Azure als het cloud-platform. Dit document wordt ook beschreven aanbevolen procedures voor het bouwen van uiterst redundante en robuuste live mechanismen opnemen.
@@ -38,7 +38,7 @@ Het volgende diagram toont de architectuur op hoog niveau van de live-streamings
 ![stroom opnemen][image1]
 
 ## <a name="3-bitstream-format--iso-14496-12-fragmented-mp4"></a>3. Indeling voor bitstream – ISO 14496-12-gefragmenteerde MP4
-De draadindeling voor live streaming-opnameprotocol worden besproken dit document is gebaseerd op [ISO-14496-12]. Zie voor een gedetailleerde uitleg van gefragmenteerde MP4-indeling en -extensies zowel voor video-on-demand-bestanden en live streaming opnemen, [[MS-SSTR]](http://msdn.microsoft.com/library/ff469518.aspx).
+De draadindeling voor live streaming-opnameprotocol worden besproken dit document is gebaseerd op [ISO-14496-12]. Zie voor een gedetailleerde uitleg van gefragmenteerde MP4-indeling en -extensies zowel voor video-on-demand-bestanden en live streaming opnemen, [[MS-SSTR]](https://msdn.microsoft.com/library/ff469518.aspx).
 
 ### <a name="live-ingest-format-definitions"></a>Live opnemen indeling definities
 De volgende lijst bevat speciale indeling definities die van toepassing op live te worden opgenomen in Azure Media Services:
@@ -68,7 +68,7 @@ Hier volgen de gedetailleerde vereisten:
 1. Het coderingsprogramma niet moet gebruiken de `Events()` zelfstandig naamwoord zoals beschreven in 9.2 in [1] voor live-opname in Media Services.
 1. Als de HTTP POST-aanvraag wordt beëindigd of met een TCP-fout voorafgaand aan het einde van de stroom een optreedt time-out, moet het coderingsprogramma uitgeven van een nieuwe POST-aanvraag met behulp van een nieuwe verbinding en volg de bovenstaande vereisten. Het coderingsprogramma moet bovendien opnieuw verzenden van de vorige twee MP4-fragmenten voor elk nummer in de stroom en hervatten zonder een onderbreking in de tijdlijn van de media. Opnieuw verzenden van de laatste twee MP4-fragmenten voor elk nummer zorgt ervoor dat er geen gegevens verloren gaan. Met andere woorden, als een stroom zowel een audio- en een video traceren bevat en de huidige POST-aanvraag is mislukt, de encoder moet opnieuw verbinding maken en verzenden van de laatste twee fragmenten voor het audiospoor die eerder met succes zijn verzonden, en de laatste twee fragmenten voor de video bijhouden, die eerder met succes zijn verzonden, om ervoor te zorgen dat er geen gegevens verloren gaan. Het coderingsprogramma moet onderhouden van een "forward" buffer van media-fragmenten, die het opnieuw wanneer verbinding wordt gemaakt.
 
-## <a name="5-timescale"></a>5. tijdschaal
+## <a name="5-timescale"></a>5. Tijdschaal
 [[MS-SSTR] ](https://msdn.microsoft.com/library/ff469518.aspx) beschrijft het gebruik van tijdschaal voor **SmoothStreamingMedia** (sectie 2.2.2.1), **StreamElement** (sectie 2.2.2.3), **StreamFragmentElement** () Sectie 2.2.2.6), en **LiveSMIL** (sectie 2.2.7.3.1). Als de waarde tijdschaal niet aanwezig is, is de standaardwaarde gebruikt 10,000,000 (10 MHz). Hoewel de indelingsspecificatie Smooth Streaming niet gebruik van andere waarden tijdschaal blokkeert, meeste encoder-implementaties maken gebruik van deze standaard waarde (10 MHz) voor het genereren van Smooth Streaming opnemen van gegevens. Vanwege de [dynamische verpakking van Azure Media](media-services-dynamic-packaging-overview.md) functie, raden wij aan dat u een 90-KHz tijdschaal voor video-streams en 44,1 of 48.1 KHz voor audiostreams. Als andere tijdschaal waarden worden gebruikt voor verschillende gegevensstromen, kan de stream-niveau tijdschaal moet worden verzonden. Zie voor meer informatie, [[MS-SSTR]](https://msdn.microsoft.com/library/ff469518.aspx).     
 
 ## <a name="6-definition-of-stream"></a>6. Definitie van 'stream'
@@ -123,7 +123,7 @@ In deze sectie wordt besproken hoe service failover-scenario's. In dit geval wor
 ## <a name="8-encoder-failover"></a>8. Failover van het coderingsprogramma
 Failover van het coderingsprogramma is het tweede type failoverscenario dat moet worden verholpen voor een end-to-end levering van live streaming. In dit scenario treedt het probleem op aan de kant van het coderingsprogramma. 
 
-![failover van het coderingsprogramma][image5]
+![Failover van het coderingsprogramma][image5]
 
 De volgende verwachtingen zijn van toepassing uit de live-opname-eindpunt als encoder failover gebeurt:
 
@@ -137,7 +137,7 @@ De volgende verwachtingen zijn van toepassing uit de live-opname-eindpunt als en
 ## <a name="9-encoder-redundancy"></a>9. Coderingsprogramma redundantie
 Voor bepaalde kritieke live gebeurtenissen die aanvraag nog hogere beschikbaarheid en kwaliteit vereisen, het wordt aangeraden dat u actief / actief redundante coderingsprogramma's gebruiken voor een naadloze failover zonder verlies van gegevens.
 
-![coderingsprogramma redundantie][image6]
+![Coderingsprogramma redundantie][image6]
 
 Zoals wordt geïllustreerd in het volgende diagram, pushen twee groepen van encoders twee exemplaren van elke stroom tegelijkertijd naar de live-service. Deze instelling wordt ondersteund, omdat Media Services dubbele fragmenten op basis van de stream-ID en het fragment timestamp uitfilteren kunt. De resulterende live te streamen en te archiveren is één exemplaar van alle stromen die het best mogelijke aggregatie is van de twee bronnen. Bijvoorbeeld, in een hypothetische uiterste geval, zolang er is een coderingsprogramma (deze hebben niet hetzelfde account worden) uitgevoerd op een willekeurig moment in de tijd voor elke stroom, de resulterende live stream van de service is continue zonder verlies van gegevens. 
 
@@ -146,7 +146,7 @@ De vereisten voor dit scenario zijn bijna hetzelfde als de vereisten in het geva
 ## <a name="10-service-redundancy"></a>10. Serviceredundantie
 Voor zeer redundante wereldwijde distributie, moet u soms regio-overschrijdende back-up voor het afhandelen van regionale rampen hebben. Voortbouwend op de 'Encoder redundantie'-topologie, kunnen klanten kiezen om een redundante service-implementatie in een andere regio die verbonden met de tweede set coderingsprogramma's. Klanten kunnen ook werken met een Content Delivery Network-provider voor het implementeren van een globale Traffic Manager voor de twee implementaties naadloos om clientverkeer te routeren. De vereisten voor het coderingsprogramma's zijn hetzelfde als de aanvraag 'Encoder redundantie'. De enige uitzondering hierop is dat de tweede set encoders moet worden gekoppeld aan een andere live eindpunt opnemen. Het volgende diagram ziet u deze instellingen:
 
-![serviceredundantie][image7]
+![Serviceredundantie][image7]
 
 ## <a name="11-special-types-of-ingestion-formats"></a>11. Speciale typen opname-indelingen
 Deze sectie wordt besproken speciale typen van live-opname-indelingen die zijn ontworpen voor het afhandelen van specifieke scenario's.

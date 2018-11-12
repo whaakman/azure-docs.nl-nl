@@ -4,7 +4,7 @@ items:
 - name: Overzicht
   items:
   - name: Wat is de Azure Machine Learning-service?
-    displayName: AML, services
+    displayName: AML, services, overview
     href: overview-what-is-azure-ml.md
   - name: De werking van de service
     displayName: architecture
@@ -17,6 +17,7 @@ items:
   - name: Aan de slag - portal
     href: quickstart-get-started.md
   - name: Aan de slag - Python
+    displayName: create workspace
     href: quickstart-create-workspace-with-python.md
 - name: Zelfstudies
   items:
@@ -25,6 +26,7 @@ items:
   - name: Modellen implementeren, deel 2
     href: tutorial-deploy-models-with-aml.md
   - name: Geautomatiseerde machine learning-modellen trainen
+    displayName: automl
     href: tutorial-auto-train-models.md
 - name: Voorbeelden
   items:
@@ -34,6 +36,7 @@ items:
 - name: Concepten
   items:
   - name: Modelbeheer
+    displayName: deploy, deployment
     href: concept-model-management-and-deployment.md
   - name: Versnellen met FPGA's
     href: concept-accelerate-with-fpgas.md
@@ -51,13 +54,14 @@ items:
     - name: Een omgeving configureren
       href: how-to-configure-environment.md
     - name: VS Code-hulpprogramma's voor AI
+      displayName: Visual Studio Code, vscode
       items:
       - name: Aan de slag
         href: how-to-vscode-tools.md
       - name: Trainen en implementeren
         href: how-to-vscode-train-deploy.md
   - name: Gegevens voorbereiden
-    displayName: data prep, etl, elt
+    displayName: data prep, etl, elt, data preparation
     href: how-to-data-prep.md
     items:
     - name: Gegevens laden
@@ -69,6 +73,7 @@ items:
   - name: Modellen trainen
     items:
     - name: Een trainingsomgeving instellen
+      displayName: compute target, train
       href: how-to-set-up-training-targets.md
     - name: Toegang tot gegevens tijdens training
       href: how-to-access-data.md
@@ -79,13 +84,12 @@ items:
         href: how-to-train-pytorch.md
       - name: TensorFlow
         href: how-to-train-tensorflow.md
-  - name: Modellen afstemmen
-    items:
     - name: Hyperparameters afstemmen
       href: how-to-tune-hyperparameters.md
     - name: Experimenten en metrische gegevens bijhouden
       href: how-to-track-experiments.md
   - name: Machine learning automatiseren
+    displayName: automl
     href: how-to-automated-ml.md
     items:
     - name: Automatisch trainen configureren
@@ -101,8 +105,10 @@ items:
     - name: Waar modellen te implementeren
       href: how-to-deploy-and-where.md
     - name: Implementeren naar ACI
+      displayName: Azure Container Instances
       href: how-to-deploy-to-aci.md
     - name: Implementeren naar AKS
+      displayName: Azure Kubernetes
       href: how-to-deploy-to-aks.md
     - name: Implementeren naar FPGA's
       href: how-to-deploy-fpga-web-service.md
@@ -112,6 +118,9 @@ items:
       href: how-to-troubleshoot-deployment.md
     - name: Beveiligen met SSL
       href: how-to-secure-web-service.md
+    - name: Een geïmplementeerd model gebruiken
+      displayName: create client, client, consume
+      href: how-to-consume-web-service.md
   - name: Modellen bewaken
     items:
     - name: Gegevens verzamelen in een productieomgeving
@@ -126,6 +135,8 @@ items:
     href: http://aka.ms/aml-sdk
   - name: Data prep-SDK
     href: http://aka.ms/data-prep-sdk
+  - name: Monitoring-SDK
+    href: https://aka.ms/aml-monitoring-sdk
   - name: Machine learning-CLI
     href: reference-azure-machine-learning-cli.md
 - name: Resources
@@ -347,9 +358,9 @@ items:
       href: ../desktop-workbench/frequently-asked-questions.md
     - name: Oudere problemen
       href: ../desktop-workbench/known-issues-and-troubleshooting-guide.md
-ms.openlocfilehash: 23e715064db714765a11771182248978f9493bd2
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 8519a04730105537d5bd8639da54afafdf76590b
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50095072"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51344997"

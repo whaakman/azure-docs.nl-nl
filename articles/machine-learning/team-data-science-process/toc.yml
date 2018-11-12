@@ -121,31 +121,34 @@ items:
       href: plan-your-environment.md
   - name: Gegevens ophalen en begrijpen
     items:
-    - name: Gegevenslogistiek beheren
+    - name: Gegevens opnemen
+      displayName: move data, manage data logistics
       items:
       - name: Overzicht
         href: ingest-data.md
-      - name: Blob Storage
-        href: move-azure-blob.md
-      - name: Storage Explorer gebruiken
-        href: move-data-to-azure-blob-using-azure-storage-explorer.md
-      - name: AzCopy gebruiken
-        href: move-data-to-azure-blob-using-azcopy.md
-      - name: Python gebruiken
-        href: ../../storage/blobs/storage-python-how-to-use-blob-storage.md
-        maintainContext: true
-      - name: SSIS gebruiken
-        href: move-data-to-azure-blob-using-ssis.md
-      - name: Verplaatsen naar een virtuele machine
+      - name: Verplaatsen naar/vanuit blob-opslag
+        items:
+        - name: Overzicht
+          href: move-azure-blob.md
+        - name: Storage Explorer gebruiken
+          href: move-data-to-azure-blob-using-azure-storage-explorer.md
+        - name: AzCopy gebruiken
+          href: move-data-to-azure-blob-using-azcopy.md
+        - name: Python gebruiken
+          href: ../../storage/blobs/storage-python-how-to-use-blob-storage.md
+          maintainContext: true
+        - name: SSIS gebruiken
+          href: move-data-to-azure-blob-using-ssis.md
+      - name: Verplaatsen naar SQL op een VM
         href: move-sql-server-virtual-machine.md
-      - name: Verplaatsen naar een SQL-database
+      - name: Verplaatsen naar Azure SQL Database
         href: move-sql-azure.md
-      - name: In Hive-tabellen laden
+      - name: Verplaatsen naar Hive-tabellen
         href: move-hive-tables.md
-      - name: Laden uit on-premises SQL
-        href: move-sql-azure-adf.md
-      - name: Laden vanuit SQL-partitietabellen
+      - name: Verplaatsen naar gepartitioneerde SQL-tabellen
         href: parallel-load-sql-partitioned-tables.md
+      - name: Verplaatsen naar on-premises SQL
+        href: move-sql-azure-adf.md
     - name: Gegevens verkennen en visualiseren
       items:
       - name: Gegevens voorbereiden
@@ -154,11 +157,11 @@ items:
         items:
         - name: Overzicht
           href: explore-data.md
-        - name: Pandas gebruiken
+        - name: Blob-opslag in Azure verkennen
           href: explore-data-blob.md
-        - name: SQL-VM gebruiken
+        - name: SQL op een VM verkennen
           href: explore-data-sql-server.md
-        - name: Hive-tabellen gebruiken
+        - name: Hive-tabellen verkennen
           href: explore-data-hive-tables.md
       - name: Voorbeeldgegevens
         items:
@@ -235,9 +238,9 @@ items:
       items:
       - name: Overzicht
         href: cortana-analytics-playbook-vehicle-telemetry.md
-      - name: Playbook
+      - name: Gedetailleerde informatie over playbooks
         href: cortana-analytics-playbook-vehicle-telemetry-deep-dive.md
-      - name: Instellen
+      - name: Power BI instellen
         href: cortana-analytics-playbook-vehicle-telemetry-powerbi.md
 - name: Resources
   items:
@@ -269,9 +272,9 @@ items:
       href: http://stackoverflow.com/questions/tagged/azure-machine-learning
     - name: Video's
       href: https://azure.microsoft.com/resources/videos/index/?services=machine-learning
-ms.openlocfilehash: 7a0e7527b62fec7e3c0d65ad59f53709a13039eb
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 64047bdb6dc25a2e31c2c5e282e7706194ff0733
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50092471"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51344668"

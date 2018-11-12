@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 403ac2fd0ab497239350c8b4a68a6b6f53bb24b4
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: c79a44422944fd2049c47a6729a86d063dbcd15e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50963911"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232338"
 ---
 # <a name="log-analytics-faq"></a>Veelgestelde vragen over Log Analytics
 Dit Microsoft-FAQ is een lijst met veelgestelde vragen over Log Analytics in Microsoft Azure. Als u aanvullende vragen over Log Analytics hebt, gaat u naar de [discussieforum](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) en plaats uw vraag. Wanneer u een vraag is vaak wordt gevraagd, toevoegen we deze aan dit artikel zodat snel en eenvoudig kunnen worden gevonden.
@@ -158,7 +158,7 @@ A. Nee, is het niet mogelijk om te lezen uit verschillende tabellen of container
 
 ### <a name="q-what-ip-addresses-does-the-log-analytics-service-use-how-do-i-ensure-that-my-firewall-only-allows-traffic-to-the-log-analytics-service"></a>V. Welke IP-adressen wordt het gebruik van de service Log Analytics? Hoe kan ik ervoor zorgen dat mijn firewall alleen toestaat dat verkeer naar de Log Analytics-service?
 
-A. De service Log Analytics is gebaseerd op Azure. Log Analytics-IP-adressen zijn de [Microsoft Azure Datacenter IP-adresbereiken](http://www.microsoft.com/download/details.aspx?id=41653).
+A. De service Log Analytics is gebaseerd op Azure. Log Analytics-IP-adressen zijn de [Microsoft Azure Datacenter IP-adresbereiken](https://www.microsoft.com/download/details.aspx?id=41653).
 
 Als de service-implementaties worden gemaakt, wordt de werkelijke IP-adressen van de service Log Analytics wijzigen. De DNS-namen om toe te staan via de firewall zijn gedocumenteerd in [vereisten voor de](log-analytics-concept-hybrid.md#network-firewall-requirements).
 
@@ -170,7 +170,7 @@ Verkeer naar Log Analytics maakt gebruik van het ExpressRoute-circuit voor openb
 
 ### <a name="q-is-there-a-simple-and-easy-way-to-move-an-existing-log-analytics-workspace-to-another-log-analytics-workspaceazure-subscription"></a>V. Is er een eenvoudige en eenvoudige manier om een bestaande Log Analytics-werkruimte verplaatsen naar een andere Log Analytics-werkruimte/Azure-abonnement?
 
-A. De `Move-AzureRmResource` cmdlet kunt u een Log Analytics-werkruimte en een Automation-account van één Azure-abonnement verplaatsen naar een andere. Zie voor meer informatie, [Move-AzureRmResource](http://msdn.microsoft.com/library/mt652516.aspx).
+A. De `Move-AzureRmResource` cmdlet kunt u een Log Analytics-werkruimte en een Automation-account van één Azure-abonnement verplaatsen naar een andere. Zie voor meer informatie, [Move-AzureRmResource](https://msdn.microsoft.com/library/mt652516.aspx).
 
 Deze wijziging kan ook worden gemaakt in Azure portal.
 

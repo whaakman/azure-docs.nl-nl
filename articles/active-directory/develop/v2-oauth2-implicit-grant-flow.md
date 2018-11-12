@@ -17,12 +17,12 @@ ms.date: 10/02/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 1722f81c55c490d6030dd04e5907e93012051492
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: d063c5e5a5b81f16d8921864ab2e2a0c3504e334
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48817091"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51289016"
 ---
 # <a name="v20-protocols---spas-using-the-implicit-flow"></a>v2.0 protocollen - kuuroorden met behulp van de impliciete stroom
 
@@ -145,7 +145,7 @@ Nadat u hebt de id_token volledig gevalideerd, kunt u beginnen met een sessie me
 
 ## <a name="get-access-tokens"></a>Toegangstokens ophalen
 
-Nu dat u hebt de gebruiker aangemeld bij uw app met één pagina, kunt u toegangstokens krijgen voor het aanroepen van web API's die zijn beveiligd door Azure AD, zoals de [Microsoft Graph](https://graph.microsoft.io). Zelfs als u al een token met ontvangen de `token` response_type, kunt u deze methode gebruiken om te verkrijgen van tokens, voor aanvullende bronnen zonder te hoeven omleiden van de gebruiker zich opnieuw aanmelden.
+Nu dat u hebt de gebruiker aangemeld bij uw app met één pagina, kunt u toegangstokens krijgen voor het aanroepen van web API's die zijn beveiligd door Azure AD, zoals de [Microsoft Graph](https://developer.microsoft.com/graph). Zelfs als u al een token met ontvangen de `token` response_type, kunt u deze methode gebruiken om te verkrijgen van tokens, voor aanvullende bronnen zonder te hoeven omleiden van de gebruiker zich opnieuw aanmelden.
 
 In de normale OpenID Connect/OAuth-stroom, zou u dit doen door die een aanvraag verzendt naar het v2.0 `/token` eindpunt. Het v2.0-eindpunt biedt echter geen CORS-aanvragen, ondersteuning, zodat de AJAX-aanroepen voor het ophalen en vernieuwingstokens valt buiten de vraag. U kunt in plaats daarvan de impliciete stroom in een verborgen iframe gebruiken om op te halen van nieuwe-tokens voor andere web-API's: 
 

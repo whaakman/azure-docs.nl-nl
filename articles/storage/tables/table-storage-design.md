@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: sngun
 ms.component: tables
-ms.openlocfilehash: 783522997a752c4eac575316983bc6ef853c3f43
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: c5b18bce9d0cf78569d0c2fa02ad14c96ad09bd1
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39526909"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51237771"
 ---
 # <a name="design-scalable-and-performant-tables"></a>Schaalbare en beter bruikbare tabellen ontwerpen
 
@@ -37,7 +37,7 @@ Het volgende voorbeeld ziet het ontwerp van een eenvoudige tabel om op te slaan 
 <tr>
 <th>PartitionKey</th>
 <th>RowKey</th>
-<th>Timestamp</th>
+<th>Tijdstempel</th>
 <th></th>
 </tr>
 <tr>
@@ -121,7 +121,7 @@ Het volgende voorbeeld ziet het ontwerp van een eenvoudige tabel om op te slaan 
 </table>
 
 
-Tot nu toe, deze gegevens worden weergegeven die vergelijkbaar is met een tabel in een relationele database met de belangrijkste verschillen, wordt de verplichte kolommen en de mogelijkheid voor het opslaan van meerdere Entiteitstypen in dezelfde tabel. Bovendien elk van de gebruiker gedefinieerde eigenschappen zoals **FirstName** of **leeftijd** heeft een gegevenstype, zoals geheel getal of tekenreeks, net zoals een kolom in een relationele database. Hoewel in tegenstelling tot in een relationele database, de zonder schema aard van de Table-service betekent dat een eigenschap niet hetzelfde gegevenstype voor elke entiteit moet hebben. Voor het opslaan van complexe gegevenstypen in één eigenschap, moet u een geserialiseerde indeling zoals JSON of XML. Zie voor meer informatie over de tabel-service, zoals ondersteunde gegevenstypen, ondersteunde datumbereiken, naamgevingsregels en beperkingen [inzicht in het Table Service Data Model](http://msdn.microsoft.com/library/azure/dd179338.aspx).
+Tot nu toe, deze gegevens worden weergegeven die vergelijkbaar is met een tabel in een relationele database met de belangrijkste verschillen, wordt de verplichte kolommen en de mogelijkheid voor het opslaan van meerdere Entiteitstypen in dezelfde tabel. Bovendien elk van de gebruiker gedefinieerde eigenschappen zoals **FirstName** of **leeftijd** heeft een gegevenstype, zoals geheel getal of tekenreeks, net zoals een kolom in een relationele database. Hoewel in tegenstelling tot in een relationele database, de zonder schema aard van de Table-service betekent dat een eigenschap niet hetzelfde gegevenstype voor elke entiteit moet hebben. Voor het opslaan van complexe gegevenstypen in één eigenschap, moet u een geserialiseerde indeling zoals JSON of XML. Zie voor meer informatie over de tabel-service, zoals ondersteunde gegevenstypen, ondersteunde datumbereiken, naamgevingsregels en beperkingen [inzicht in het Table Service Data Model](https://msdn.microsoft.com/library/azure/dd179338.aspx).
 
 Uw eigen keuze aan **PartitionKey** en **RowKey** is fundamenteel voor een goede tabelontwerp. Elke entiteit die zijn opgeslagen in een tabel moet een unieke combinatie van **PartitionKey** en **RowKey**. Net als bij de sleutels in een relationele database-tabel de **PartitionKey** en **RowKey** waarden worden geïndexeerd voor het maken van een geclusterde index om in te schakelen snel op te zoeken. Echter, de Table-service maakt geen secundaire indexen, dus **PartitionKey** en **RowKey** zijn de enige geïndexeerde eigenschappen. Sommige van de patronen die worden beschreven in [tabel ontwerppatronen](table-storage-design-patterns.md) laten zien hoe u deze zichtbaar beperking kunt omzeilen.  
 
@@ -132,7 +132,7 @@ De accountnaam, de tabelnaam, en **PartitionKey** samen bepalen de partitie in d
 
 Een knooppunt van de afzonderlijke services in de tabel-service een of meer partities en de service schalen voltooien door dynamische taakverdeling partities over knooppunten. Als een knooppunt belast wordt, de table-service kunt *splitsen* het bereik van partities afgehandeld door dat knooppunt aan andere knooppunten; wanneer netwerkverkeer afneemt, de service kunt *samenvoegen* de partitie kan variëren van stille knooppunten terug op een enkel knooppunt.  
 
-Raadpleeg het artikel voor meer informatie over de interne details van de Table-service, en met name hoe partities worden beheerd door de service, [Microsoft Azure Storage: een maximaal beschikbare Cloudopslagservice met sterke consistentie](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx).  
+Raadpleeg het artikel voor meer informatie over de interne details van de Table-service, en met name hoe partities worden beheerd door de service, [Microsoft Azure Storage: een maximaal beschikbare Cloudopslagservice met sterke consistentie](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx).  
 
 ## <a name="entity-group-transactions"></a>Entiteit-groepstransacties
 Entiteit-groepstransacties (EGTs) zijn in de tabel-service, het enige ingebouwde mechanisme voor het uitvoeren van atomic updates voor meerdere entiteiten. EGTs worden soms ook aangeduid als *batch transacties*. EGTs kan alleen worden uitgevoerd op entiteiten die zijn opgeslagen in dezelfde partitie (dat wil zeggen, delen dezelfde partitiesleutel in een bepaalde tabel). Dus telkens wanneer u atomische transactionele gedrag voor meerdere entiteiten vereist, u ervoor zorgen moet dat deze entiteiten in dezelfde partitie zijn. Dit is vaak een reden voor het bewaren van meerdere Entiteitstypen in dezelfde tabel (en de partitie) en meerdere tabellen voor verschillende Entiteitstypen niet gebruiken. Een enkele EGT kan worden uitgevoerd op maximaal 100 entiteiten.  Als u meerdere gelijktijdige EGTs voor verwerking indient, is het belangrijk om ervoor te zorgen dat die EGTs worden niet uitgevoerd op entiteiten die betrekking hebben op EGTs; anders wordt de verwerking kan worden uitgesteld.
@@ -152,7 +152,7 @@ De volgende tabel worden enkele van de sleutelwaarden rekening mee moet houden b
 | Grootte van de **RowKey** |Een tekenreeks van 1 KB groot |
 | Grootte van een transactie entiteitsgroep |Een transactie mag maximaal 100 entiteiten en de payload moet minder dan 4 MB groot zijn. Een entiteit kunt slechts één keer bijwerken door een EGT. |
 
-Zie [Het gegevensmodel van de tabelservice](http://msdn.microsoft.com/library/azure/dd179338.aspx) voor meer informatie.  
+Zie [Het gegevensmodel van de tabelservice](https://msdn.microsoft.com/library/azure/dd179338.aspx) voor meer informatie.  
 
 ## <a name="cost-considerations"></a>Kostenoverwegingen
 Tabelopslag is relatief goedkope, maar u moet de geraamde kosten voor zowel het capaciteitsgebruik van en het aantal transacties opnemen als onderdeel van de evaluatie van een tabel-service-oplossing. In veel scenario's is gedenormaliseerde of dubbele gegevens opslaan om te verbeteren de prestaties of de schaalbaarheid van uw oplossing echter een geldig benadering. Zie voor meer informatie over prijzen [prijzen voor Azure Storage](https://azure.microsoft.com/pricing/details/storage/).  

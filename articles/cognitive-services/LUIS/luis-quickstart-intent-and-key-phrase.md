@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 8fa183c22b9b6830c57b0a16b7f5d20ca38e3ef3
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: d6feb24b1e59aee70204d8438f1a4c51f71d1835
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166517"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281809"
 ---
 # <a name="tutorial-8-extract-key-phrases-of-utterance"></a>Zelfstudie 8: Sleuteltermen extraheren uit een utterance
 In deze zelfstudie gebruikt u de vooraf gedefinieerde entiteit keyPhrase om belangrijke informatie te extraheren uit utterances. U hoeft utterances niet te labelen met vooraf gedefinieerde entiteiten. De entiteit wordt automatisch gedetecteerd.
@@ -43,9 +43,9 @@ Uw clienttoepassing kan deze waarden gebruiken, samen met andere geëxtraheerde 
 
 ## <a name="use-existing-app"></a>Bestaande app gebruiken
 
-Ga door met de in de laatste zelfstudie gemaakt app, **HumanResources**. 
+Ga door met de in de laatste zelfstudie gemaakt app, **Human Resources**. 
 
-Als u niet over de app HumanResources uit de vorige zelfstudie beschikt, voert u de volgende stappen uit:
+Als u niet over de app Human Resources uit de vorige zelfstudie beschikt, voert u de volgende stappen uit:
 
 1.  Download het [JSON-bestand van de app](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-simple-HumanResources.json) en sla het op.
 
@@ -56,11 +56,11 @@ Als u niet over de app HumanResources uit de vorige zelfstudie beschikt, voert u
 ## <a name="add-keyphrase-entity"></a>KeyPhrase-entiteit toevoegen 
 Voeg de vooraf gedefinieerde entiteit keyPhrase toe om belangrijke informatie op te halen uit utterances.
 
-1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Selecteer **Entities** in het menu aan de linkerkant.
 
-3. Selecteer **Manage prebuilt entities**.
+3. Selecteer **Add prebuilt entity**.
 
 4. Selecteer **keyPhrase** in het pop-updialoogvenster en selecteer vervolgens **Done**. 
 

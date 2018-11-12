@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2018
+ms.date: 11/01/2018
 ms.author: jeedes
-ms.openlocfilehash: 7d25b072ffc41608bca9e0b23116b2eb453dd160
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: f3f7fc3b837dd4eef9bab8ff34a36329436bad9a
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50740345"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51010725"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jira-saml-sso-by-microsoft"></a>Zelfstudie: Azure Active Directory-integratie met JIRA SAML SSO door Microsoft
 
@@ -43,7 +43,7 @@ Uw Microsoft Azure Active Directory-account met Atlassian JIRA-server gebruiken 
 Voor het configureren van Azure AD-integratie met JIRA SAML SSO door Microsoft, moet u de volgende items:
 
 - Een Azure AD-abonnement
-- JIRA-Core- en Software 6.0 7.8 of JIRA Service Desk 3.0 3.2 moeten geïnstalleerd en geconfigureerd op Windows 64-bits versie
+- JIRA-Core- en Software 6.0 7,12 of JIRA Service Desk 3.0 3.5 moeten geïnstalleerd en geconfigureerd op Windows 64-bits versie
 - JIRA-server is HTTPS-functionaliteit
 - Houd er rekening mee dat de ondersteunde versies voor JIRA-invoegtoepassing worden vermeld in onderstaande sectie.
 - JIRA-server bereikbaar is op internet met name naar Azure AD-aanmeldingspagina voor verificatie en moet kunnen ontvangen van het token uit Azure AD

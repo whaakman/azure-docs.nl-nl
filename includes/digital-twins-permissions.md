@@ -1,19 +1,19 @@
 ---
 title: bestand opnemen
 description: bestand opnemen
-services: azure-digital-twins
+services: digital-twins
 author: alinamstanciu
-ms.service: azure-digital-twins
+ms.service: digital-twins
 ms.topic: include
 ms.date: 09/19/2018
 ms.author: alinast
 ms.custom: include file
-ms.openlocfilehash: d08b7a1256a26d1d7d39481ba15a8637339063ea
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 1887efd741f4779a5186707d60b27ca66fc3c06f
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49322778"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283972"
 ---
 1. Open in de [Azure-portal](https://portal.azure.com) **Azure Active Directory** in het navigatievenster aan de linkerkant en open vervolgens het deelvenster **Eigenschappen**. Kopieer de **Map-id** naar een tijdelijk bestand. U gebruikt deze waarde om de voorbeeldtoepassing in de volgende sectie te configureren.
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: yuemlu
 ms.custom: include file
-ms.openlocfilehash: f1fe45283ef2886a50bf6a36e50e7ffe42055ee2
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: e266b239a44907e8e38e60cfc217aa21e46ab17e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49312524"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51264424"
 ---
 # <a name="cost-effective-standard-storage-and-unmanaged-and-managed-azure-vm-disks"></a>Rendabele standaardopslag en niet-beheerde en beheerde Azure-VM-schijven
 
@@ -61,10 +61,10 @@ In deze sectie beschrijven we de schaalbaarheids- en prestatiedoelen die u overw
 | **Resource** | **Standaardlimiet** |
 |--------------|-------------------|
 | TB per opslagaccount  | 500 TB |
-| Maximum aantal inkomende<sup>1</sup> per opslagaccount (VS-regio's) | 10 Gbps als GRS/ZRS ingeschakeld, 20 Gbps voor LRS |
-| Maximum aantal uitgaande<sup>1</sup> per opslagaccount (VS-regio's) | 20 Gbps als ingeschakeld RA-GRS/GRS/ZRS, 30 Gbps voor LRS |
-| Maximum aantal inkomende<sup>1</sup> per opslagaccount (Europese en Aziatische regio's) | 5 Gbps als GRS/ZRS ingeschakeld, 10 Gbps voor LRS |
-| Maximum aantal uitgaande<sup>1</sup> per opslagaccount (Europese en Aziatische regio's) | 10 Gbps als ingeschakeld RA-GRS/GRS/ZRS, 15 Gbps voor LRS |
+| Maximum aantal inkomende<sup>1</sup> per opslagaccount (VS-regio's) | 10 Gbps als GRS/ZRS ingeschakeld, 20 Gbps voor LRS |
+| Maximum aantal uitgaande<sup>1</sup> per opslagaccount (VS-regio's) | 20 Gbps als ingeschakeld RA-GRS/GRS/ZRS, 30 Gbps voor LRS |
+| Maximum aantal inkomende<sup>1</sup> per opslagaccount (Europese en Aziatische regio's) | 5 Gbps als GRS/ZRS ingeschakeld, 10 Gbps voor LRS |
+| Maximum aantal uitgaande<sup>1</sup> per opslagaccount (Europese en Aziatische regio's) | 10 Gbps als ingeschakeld RA-GRS/GRS/ZRS, 15 Gbps voor LRS |
 | Totale snelheid van aanvragen (ervan uitgaande dat de grootte van 1 KB-object) per opslagaccount | Maximaal 20.000 IOP's, entiteiten per seconde of berichten per seconde |
 
 <sup>1</sup> inkomend verwijst naar alle gegevens (aanvragen) die worden verzonden naar een opslagaccount. Uitgaande gegevens verwijst naar alle gegevens (reacties) worden ontvangen van een storage-account.
@@ -111,8 +111,8 @@ Als een beheerde schijf is gekoppeld aan een virtuele machine, worden bepaalde A
 
 Wanneer u de Standard-opslag, zijn de volgende factureringsvoorwaarden van toepassing:
 
-* Standard-opslag niet-beheerde schijven/gegevensgrootte 
-* Beheerde standaardschijven
+* Standard-opslag niet-beheerde schijven/gegevensgrootte
+* Standaard beheerde schijven
 * Standard storage-momentopnamen
 * Uitgaande gegevensoverdracht
 * Transacties
@@ -121,14 +121,16 @@ Wanneer u de Standard-opslag, zijn de volgende factureringsvoorwaarden van toepa
 
 **Beheerde schijven:** facturering voor standaard beheerde schijven, is afhankelijk van de ingerichte grootte van de schijf. Azure wijst de ingerichte grootte (afgerond) naar de dichtstbijzijnde Managed Disks-optie die zijn opgegeven in de onderstaande tabellen. Elke beheerde schijf wordt toegewezen aan een van de ondersteunde ingerichte grootte en dienovereenkomstig wordt gefactureerd. Bijvoorbeeld, als u een standaard beheerde schijf maken en een ingerichte grootte van 200 GiB opgeven, in rekening gebracht volgens de prijzen van het type S15 schijf.
 
-| **Standaard harde schijven die worden beheerd <br>schijftype** | **S4** | **S6** | **S10** | **S15** | **S20** | **S30** | **S40** | **S50** | **S60** | **S70** | **S80** |
+Grootte die is gemarkeerd met een sterretje zijn momenteel in preview.
+
+| **Standaard harde schijven die worden beheerd <br>schijftype** | **S4** | **S6** | **S10** | **S15** | **S20** | **S30** | **S40** | **S50** | **S60*** | **S70*** | **S80*** |
 |------------------|---------|---------|--------|--------|--------|----------------|----------------|----------------|----------------|----------------|----------------|
 | Schijfgrootte        | 32 GiB  | 64 GiB  | 128 GiB | 256 GiB | 512 GiB | 1024 giB (1 TiB) | 2048 giB (2 TiB) | 4.095 giB (4 TiB) | 8192 giB (8 TiB) | 16,385 giB (16 TiB) | 32.767 giB (32 TiB) |
 
 
 **Momentopnamen**: momentopnamen van schijven die standaard worden in rekening gebracht voor de extra capaciteit gebruikt door de momentopnamen. Zie voor meer informatie over momentopnamen [het maken van een momentopname van een Blob](/rest/api/storageservices/Creating-a-Snapshot-of-a-Blob).
 
-**Uitgaande gegevensoverdracht**: [uitgaande gegevensoverdrachten](https://azure.microsoft.com/pricing/details/data-transfers/) (gegevens die vanuit Azure-datacenters) worden gefactureerd voor bandbreedtegebruik.
+**Uitgaande gegevensoverdracht**: [uitgaande gegevensoverdrachten](https://azure.microsoft.com/pricing/details/data-transfers/) (gegevens die vanuit Azure-datacenters) worden gefactureerd voor bandbreedtegebruik.
 
 **Transactie**: Azure rekent $0.0036 per 100.000 transacties voor standard-opslag. Transacties bestaan zowel uit lees- als schrijfbewerkingen voor opslag.
 

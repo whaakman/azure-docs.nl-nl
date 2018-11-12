@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 10/29/2018
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 086acdd74932836627c600b5545bc4353052ad6f
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 05f878d244647a79a2b3e9d0c789ba811dad71ee
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50215443"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51012102"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Veelgestelde vragen - VMware naar Azure-replicatie
 
@@ -59,6 +59,8 @@ Kies voor het detecteren van de aan de slag procedure voor het implementeren van
 ### <a name="where-do-on-premises-vms-replicate-to"></a>Waar repliceer on-premises machines naar?
 Gegevens worden gerepliceerd naar Azure storage. Wanneer u een failover uitvoert, maakt Site Recovery automatisch virtuele Azure-machines uit de storage-account.
 
+## <a name="replication"></a>Replicatie
+
 ### <a name="what-apps-can-i-replicate"></a>Welke apps kan ik repliceren?
 U kunt elke app of de werkbelasting wordt uitgevoerd op een VMware-VM die aan de voldoet repliceren [replicatievereisten](vmware-physical-azure-support-matrix.md##replicated-machines). Site Recovery biedt ondersteuning voor toepassingsgevoelige replicatie, zodat apps kunnen worden failover is uitgevoerd en kan niet naar een intelligente status. Site Recovery kan worden geïntegreerd met Microsoft-toepassingen zoals SharePoint, Exchange, Dynamics, SQL Server en Active Directory, en werkt nauw samen met toonaangevende leveranciers zoals Oracle, SAP, IBM en Red Hat. Lees [hier](site-recovery-workload.md) meer informatie over workloadbeveiliging.
 
@@ -74,18 +76,17 @@ Ja, ExpressRoute kan worden gebruikt voor het repliceren van virtuele machines n
 Wanneer u naar Azure repliceren, replicatieverkeer bereikt de openbare eindpunten van een Azure Storage-account, dus u kunt alleen repliceren via het openbare internet met ExpressRoute (openbare peering) en VPN werkt niet.
 
 
-
-## <a name="what-are-the-replicated-vm-requirements"></a>Wat zijn de vereisten van de gerepliceerde VM's?
+### <a name="what-are-the-replicated-vm-requirements"></a>Wat zijn de vereisten van de gerepliceerde VM's?
 
 Voor replicatie, moet een ondersteund besturingssysteem op een VMware-VM worden uitgevoerd. Bovendien hebben de virtuele machine moet voldoen aan de vereisten voor Azure-VM's. [Meer informatie](vmware-physical-azure-support-matrix.md##replicated-machines) in de ondersteuningsmatrix.
 
-## <a name="how-often-can-i-replicate-to-azure"></a>Hoe vaak kan ik repliceren naar Azure?
+### <a name="how-often-can-i-replicate-to-azure"></a>Hoe vaak kan ik repliceren naar Azure?
 Replicatie is continue bij het repliceren van virtuele VMware-machines naar Azure.
 
-## <a name="can-i-extend-replication"></a>Kan ik replicatie verlengen?
+### <a name="can-i-extend-replication"></a>Kan ik replicatie verlengen?
 Uitgebreide of gekoppelde replicatie wordt niet ondersteund. Deze functie in aanvragen [Feedbackforum](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959-support-for-exisiting-extended-replication).
 
-## <a name="can-i-do-an-offline-initial-replication"></a>Kan ik een offline initiële replicatie?
+### <a name="can-i-do-an-offline-initial-replication"></a>Kan ik een offline initiële replicatie?
 Nee, dit wordt niet ondersteund. Aanvragen van deze functie in de [Feedbackforum](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from).
 
 ### <a name="can-i-exclude-disks"></a>Kan ik schijven uitsluiten?
@@ -141,7 +142,7 @@ We raden u aan om regelmatig geplande back-ups van de configuratieserver. Voor s
 Het installatieprogramma's zijn ondergebracht in de **%ProgramData%\ASR\home\svsystems\pushinstallsvc\repository** map op de configuratieserver.
 
 ## <a name="how-do-i-install-the-mobility-service"></a>Hoe installeer ik de Mobility-service?
-U installeert op elke virtuele machine die u repliceren wilt, met behulp van een [push-installatie](vmware-azure-install-mobility-service.md#install-mobility-service-by-push-installation-from-azure-site-recovery), of het handmatig installeren van [de gebruikersinterface](vmware-azure-install-mobility-service.md#install-mobility-service-manually-by-using-the-gui), of [met behulp van PowerShell](vmware-azure-install-mobility-service.md#install-mobility-service-manually-at-a-command-prompt). U kunt ook implementeren met behulp van een implementatieprogramma zoals [System Center Configuration Manager](vmware-azure-mobility-install-configuration-mgr.md), of [Azure Automation en DSC](vmware-azure-mobility-deploy-automation-dsc.md).
+U installeert op elke virtuele machine die u repliceren wilt, met behulp van een [push-installatie](vmware-azure-install-mobility-service.md), of [handmatige installatie](vmware-physical-mobility-service-install-manual.md) vanuit de gebruikersinterface of Powershell. U kunt ook implementeren met behulp van een implementatieprogramma zoals [System Center Configuration Manager](vmware-azure-mobility-install-configuration-mgr.md).
 
 
 

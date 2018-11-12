@@ -3,128 +3,65 @@ title: Installeren van de Mobility-Service voor herstel na noodgevallen van virt
 description: Informatie over het installeren van de Mobility-Service-agent voor herstel na noodgevallen van virtuele VMware-machines en fysieke servers naar Azure met behulp van de Azure Site Recovery-service.
 author: Rajeswari-Mamilla
 ms.service: site-recovery
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: ramamill
-ms.openlocfilehash: 145affbcff128e0ec599ad1f97c79260b0dcae5a
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 14be544c53bf3393466cfa33b2ad815f07d0005d
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212689"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51007413"
 ---
 # <a name="install-the-mobility-service-for-disaster-recovery-of-vmware-vms-and-physical-servers"></a>De Mobility-service voor herstel na noodgevallen van virtuele VMware-machines en fysieke servers installeren
 
-Azure Site Recovery Mobility Service is geïnstalleerd op virtuele VMware-machines en fysieke servers die u wilt repliceren naar Azure. De service schrijven van gegevens op een computer vastlegt en ze doorstuurt naar de processerver. Mobility-Service op elke computer (VMware-VM of fysieke server) die u wilt repliceren naar Azure te implementeren. U kunt de Mobility-Service op de servers en virtuele VMware-machines die u wilt beveiligen met behulp van de volgende manieren implementeren:
+Wanneer u herstel na noodgevallen voor VMware-VM's en fysieke servers met behulp van instellen [Azure Site Recovery](site-recovery-overview.md), u installeert de [Site Recovery Mobility service](vmware-physical-mobility-service-overview.md) op elke on-premises virtuele VMware-machine en de fysieke server.  De Mobility-service worden vastgelegd schrijven van gegevens op de machine, en ze doorstuurt naar de processerver van Site Recovery.
+
+## <a name="install-on-windows-machine"></a>Installeren op Windows-machine
+
+Op elke Windows-machine die u wilt beveiligen, doet u het volgende:
+
+1. Zorg ervoor dat er een netwerkverbinding tussen de computer en de processerver is. Als u geen afzonderlijke processerver hebt ingesteld, wordt wordt standaard het uitgevoerd op de configuratieserver.
+1. Maak een account dat op de processerver kan worden gebruikt voor toegang tot de computer. Het account moet beheerdersrechten, lokaal of domein hebben. Gebruik dit account alleen voor de push-installatie en agentupdates.
+2. Als u niet een domeinaccount, schakelt u toegangsbeheer voor externe gebruikers op de lokale computer als volgt uit:
+    - Voeg een nieuwe DWORD onder HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System registersleutel: **LocalAccountTokenFilterPolicy**. Stel de waarde voor **1**.
+    -  Om dit te doen bij een opdrachtprompt, voer de volgende opdracht:  
+   ' REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d
+3. Selecteer in Windows Firewall op de computer die u wilt beveiligen, **toestaan een app of functie via Firewall**. Schakel **bestands- en printerdeling** en **Windows Management Instrumentation (WMI)**. Voor computers die deel uitmaken van een domein, kunt u de firewall-instellingen configureren met behulp van een groepsbeleidsobject (GPO).
+
+   ![Firewallinstellingen](./media/vmware-azure-install-mobility-service/mobility1.png)
+
+4. Voeg het account toe dat u hebt gemaakt in CSPSConfigtool. Om dit te doen, moet u zich aanmelden bij uw configuratieserver.
+5. Open **cspsconfigtool.exe**. Het is beschikbaar als snelkoppeling op het bureaublad en in de map %ProgramData%\home\svsystems\bin.
+6. Op de **Accounts beheren** tabblad **-Account toevoegen**.
+7. Voeg het account toe dat u hebt gemaakt.
+8. Voer de referenties in die u gebruikt wanneer u replicatie voor een computer inschakelt.
+
+## <a name="install-on-linux-machine"></a>Installeren op Linux-machine
+
+Op elke Linux-machine die u wilt beveiligen, het volgende doen:
+
+1. Zorg ervoor dat er een netwerkverbinding tussen de Linux-machine en de processerver is.
+2. Maak een account dat op de processerver kan worden gebruikt voor toegang tot de computer. Het account moet een **rootgebruiker** zijn op de Linux-bronserver. Gebruik dit account alleen voor de push-installatie en voor updates.
+3. Controleer of het bestand /etc/hosts op de Linux-bronserver vermeldingen bevat die de lokale hostnaam toewijzen aan IP-adressen die zijn gekoppeld aan alle netwerkadapters.
+4. Installeer de meest recente openssh, openssh-server en openssl-pakketten op de computer die u wilt repliceren.
+5. Zorg ervoor dat SSH (Secure Shell) is ingeschakeld en wordt uitgevoerd op poort 22.
+4. SFTP-subsysteem en wachtwoordverificatie verificatie in het bestand sshd_config inschakelen. Om dit te doen, moet u zich aanmelden als **hoofdmap**.
+5. In de **/etc/ssh/sshd_config** bestand, zoek de regel die met begint **PasswordAuthentication**.
+6. Verwijder opmerkingen bij de regel en wijzig de waarde in **Ja**.
+7. Zoek de regel die met begint **subsysteem**, en verwijder opmerkingen bij de regel.
+
+      ![Linux](./media/vmware-azure-install-mobility-service/mobility2.png)
+
+8. Start de service **sshd** opnieuw.
+9. Voeg het account toe dat u hebt gemaakt in CSPSConfigtool. Om dit te doen, moet u zich aanmelden bij uw configuratieserver.
+10. Open **cspsconfigtool.exe**. Het is beschikbaar als snelkoppeling op het bureaublad en in de map %ProgramData%\home\svsystems\bin.
+11. Op de **Accounts beheren** tabblad **-Account toevoegen**.
+12. Voeg het account toe dat u hebt gemaakt.
+13. Voer de referenties in die u gebruikt wanneer u replicatie voor een computer inschakelt.
+
+## <a name="next-steps"></a>Volgende stappen
+
+Nadat de Mobility-Service is geïnstalleerd, in de Azure-portal, selecteert u **+ repliceren** om te beginnen met het beveiligen van deze VM's. Meer informatie over het inschakelen van replicatie voor [VMware VMs(vmware-azure-enable-replication.md) en [fysieke servers](physical-azure-disaster-recovery.md#enable-replication).
 
 
-* [Installeren met behulp van software-hulpprogramma's, zoals System Center Configuration Manager](vmware-azure-mobility-install-configuration-mgr.md)
-* [Met Azure Automation en Desired State Configuration (DSC Automation) installeren](vmware-azure-mobility-deploy-automation-dsc.md)
-* [Handmatig installeren vanuit de gebruikersinterface](vmware-azure-install-mobility-service.md#install-mobility-service-manually-by-using-the-gui)
-* [Handmatig installeren vanaf een opdrachtprompt](vmware-azure-install-mobility-service.md#install-mobility-service-manually-at-a-command-prompt)
-* [Installeren met behulp van de push-installatie van Site Recovery](vmware-azure-install-mobility-service.md#install-mobility-service-by-push-installation-from-azure-site-recovery)
-
-
->[!IMPORTANT]
-> Vanaf versie 9.7.0.0, **op Windows-VM's**, het installatieprogramma van de Mobility-Service installeert ook de meest recente beschikbare [Azure VM-agent](../virtual-machines/extensions/features-windows.md#azure-vm-agent). Wanneer failover optreedt van een computer naar Azure, de computer voldoet aan de vereisten voor het gebruik van een VM-extensie op de installatie van de agent.
-> </br>Op **virtuele Linux-machines**, WALinuxAgent moet handmatig worden geïnstalleerd.
-
-## <a name="prerequisites"></a>Vereisten
-Deze vereiste stappen voltooien voordat u de Mobility-Service handmatig op uw server installeren:
-1. Meld u aan bij de configuratieserver en open een opdrachtpromptvenster als beheerder.
-2. Wijzig de map in de bin-map en maak vervolgens een wachtwoordzin.
-
-    ```
-    cd %ProgramData%\ASR\home\svsystems\bin
-    genpassphrase.exe -v > MobSvc.passphrase
-    ```
-3. Store de wachtwoordzin op een veilige locatie. U kunt het bestand gebruiken tijdens de installatie van de Mobility-Service.
-4. Mobility Service-installatieprogramma's voor alle ondersteunde besturingssystemen zijn in de map %ProgramData%\ASR\home\svsystems\pushinstallsvc\repository.
-
-### <a name="mobility-service-installer-to-operating-system-mapping"></a>Mobility Service-installatieprogramma voor besturingssystemen systeemtoewijzing
-
-Voor een overzicht van besturingssysteem versies met een compatibele Mobility-Service-pakket verwijzen naar de lijst van [ondersteunde besturingssystemen voor VMware-machines en fysieke servers](vmware-physical-azure-support-matrix.md#replicated-machines).
-
-| Naam van de sjabloon in het bestand van installatieprogramma| Besturingssysteem |
-|---|--|
-|Microsoft-ASR\_UA\*Windows\*release.exe | Windows Server 2008 R2 SP1 (64-bits) </br> WindowsServer 2012 (64-bits) </br> Windows Server 2012 R2 (64-bits) </br> WindowsServer 2016 (64-bits) |
-|Microsoft-ASR\_UA\*RHEL6 64\*release.tar.gz | Red Hat Enterprise Linux (RHEL) 6.* (alleen 64-bits) </br> CentOS 6.* (alleen 64-bits) |
-|Microsoft-ASR\_UA\*RHEL7-64\*release.tar.gz | Red Hat Enterprise Linux (RHEL) 7.* (alleen 64-bits) </br> CentOS 7.* (alleen 64-bits) |
-|Microsoft-ASR\_UA\*SLES12 64\*release.tar.gz | SUSE Linux Enterprise Server 12 SP1, SP2, SP3 (alleen 64-bits)|
-|Microsoft-ASR\_UA\*SLES11-SP3-64\*release.tar.gz| SUSE Linux Enterprise Server 11 SP3 (alleen 64-bits)|
-|Microsoft-ASR\_UA\*SLES11-SP4-64\*release.tar.gz| SUSE Linux Enterprise Server 11 SP4 (alleen 64-bits)|
-|Microsoft-ASR\_UA\*OL6-64\*release.tar.gz | Oracle Enterprise Linux 6.4, 6.5 (alleen 64-bits)|
-|Microsoft-ASR\_UA\*UBUNTU-14.04-64\*release.tar.gz | Ubuntu Linux 14.04 (alleen 64-bits)|
-|Microsoft-ASR\_UA\*UBUNTU-16.04-64\*release.tar.gz | Ubuntu Linux 16.04 LTS server (alleen 64-bits)|
-|Microsoft-ASR_UA\*DEBIAN7-64\*release.tar.gz | Debian 7 (alleen 64-bits)|
-|Microsoft-ASR_UA\*DEBIAN8-64\*release.tar.gz | Debian 8 (alleen 64-bits)|
-
-## <a name="install-mobility-service-manually-by-using-the-gui"></a>Mobility-Service handmatig installeren met behulp van de gebruikersinterface
-
->[!IMPORTANT]
-> Als u een configuratieserver voor het repliceren van Azure IaaS virtuele machines van de ene Azure-abonnement/regio naar een andere gebruikt, moet u de installatiemethode gebaseerd vanaf de opdrachtregel gebruiken.
-
-[!INCLUDE [site-recovery-install-mob-svc-gui](../../includes/site-recovery-install-mob-svc-gui.md)]
-
-## <a name="install-mobility-service-manually-at-a-command-prompt"></a>Mobility-Service handmatig installeren achter de opdrachtprompt
-
-### <a name="command-line-installation-on-a-windows-computer"></a>Installatie vanaf de opdrachtregel op een Windows-computer
-[!INCLUDE [site-recovery-install-mob-svc-win-cmd](../../includes/site-recovery-install-mob-svc-win-cmd.md)]
-
-### <a name="command-line-installation-on-a-linux-computer"></a>Installatie vanaf de opdrachtregel op een Linux-computer
-[!INCLUDE [site-recovery-install-mob-svc-lin-cmd](../../includes/site-recovery-install-mob-svc-lin-cmd.md)]
-
-
-## <a name="install-mobility-service-by-push-installation-from-azure-site-recovery"></a>Push-installatie van Azure Site Recovery Mobility-Service installeren
-U kunt een push-installatie van Mobility Service doen met behulp van Site Recovery. Alle doelcomputers moeten voldoen aan de volgende vereisten.
-
-[!INCLUDE [site-recovery-prepare-push-install-mob-svc-win](../../includes/site-recovery-prepare-push-install-mob-svc-win.md)]
-
-[!INCLUDE [site-recovery-prepare-push-install-mob-svc-lin](../../includes/site-recovery-prepare-push-install-mob-svc-lin.md)]
-
-
-> [!NOTE]
-Nadat de Mobility-Service is geïnstalleerd, in de Azure-portal, schakelt u **+ repliceren** om te beginnen met het beveiligen van deze VM's.
-
-## <a name="update-mobility-service"></a>Mobility-Service bijwerken
-
-> [!WARNING]
-> Zorg ervoor dat de configuratieserver en scale-out processervers hoofddoelservers die deel van uw implementatie uitmaken voordat u begint met het bijwerken van Mobility Service op de beveiligde servers zijn bijgewerkt.
-
-1. Blader op de Azure-portal naar de *naam van uw kluis* > **gerepliceerde items** weergeven.
-2. Als de configuratieserver al naar de nieuwste versie bijgewerkt is, ziet u een melding die leest "de nieuwe agent bijwerken van Azure Site recovery-replicatie is beschikbaar. Klik om te installeren."
-
-     ![Venster gerepliceerde items](.\media\vmware-azure-install-mobility-service\replicated-item-notif.png)
-3. Selecteer de melding om de virtuele machine selectie pagina te openen.
-4. Selecteer de virtuele machines die u wilt upgraden van de mobility-service op en selecteer **OK**.
-
-     ![Lijst met items voor VM gerepliceerd](.\media\vmware-azure-install-mobility-service\update-okpng.png)
-
-De Mobility-Service-Update-taak wordt gestart voor elk van de geselecteerde virtuele machines.
-
-> [!NOTE]
-> [Lees meer](vmware-azure-manage-configuration-server.md) over het bijwerken van het wachtwoord voor het account dat wordt gebruikt voor het installeren van de Mobility-Service.
-
-## <a name="uninstall-mobility-service-on-a-windows-server-computer"></a>Verwijderen van de Mobility-Service op een computer met Windows Server
-Gebruik een van de volgende methoden voor het verwijderen van de Mobility-Service op een computer met Windows Server.
-
-### <a name="uninstall-by-using-the-gui"></a>Verwijderen met behulp van de gebruikersinterface
-1. Selecteer in het Configuratiescherm, **programma's**.
-2. Selecteer **Microsoft Azure Site Recovery Mobility Service/Master Target server**, en selecteer vervolgens **verwijderen**.
-
-### <a name="uninstall-at-a-command-prompt"></a>Bij een opdrachtprompt verwijderen
-1. Open een opdrachtpromptvenster als beheerder.
-2. Voer de volgende opdracht voor het verwijderen van de Mobility-Service:
-
-    ```
-    MsiExec.exe /qn /x {275197FC-14FD-4560-A5EB-38217F80CBD1} /L+*V "C:\ProgramData\ASRSetupLogs\UnifiedAgentMSIUninstall.log"
-    ```
-
-## <a name="uninstall-mobility-service-on-a-linux-computer"></a>Verwijderen van de Mobility-Service op een Linux-computer
-1. Op uw Linux-server, moet u zich aanmelden als een **hoofdmap** gebruiker.
-2. Ga naar /user/local/ASR in een terminal.
-3. Voer de volgende opdracht voor het verwijderen van de Mobility-Service:
-
-    ```
-    uninstall.sh -Y
-    ```

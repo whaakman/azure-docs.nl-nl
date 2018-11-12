@@ -1,5 +1,5 @@
 
-1. Voeg de volgende in het projectbestand MainPage.xaml.cs **met** instructies:
+1. Voeg het volgende toe in het projectbestand MainPage.xaml.cs **met behulp van** instructies:
    
         using System.Linq;        
         using Windows.Security.Credentials;
@@ -72,13 +72,13 @@
             return success;
         }
    
-    In deze versie van **AuthenticateAsync**, de app probeert te gebruiken van referenties die zijn opgeslagen de **PasswordVault** toegang tot de service. Een gewone aanmelden wordt ook uitgevoerd wanneer er geen opgeslagen referenties.
+    In deze versie van **AuthenticateAsync**, de app probeert te gebruiken van referenties die zijn opgeslagen de **PasswordVault** voor toegang tot de service. Een gewone aanmelding wordt ook uitgevoerd wanneer er geen opgeslagen referenties.
    
    > [!NOTE]
-   > Een token in cache mogelijk verlopen en verlopen van het token na verificatie kan ook optreden wanneer de app gebruikt wordt. Zie voor informatie over het bepalen of een token is verlopen, [controleren voor verlopen verificatietokens](http://aka.ms/jww5vp). Zie voor een oplossing voor het verwerken van de autorisatie fouten met betrekking tot verlopen tokens, het bericht [opslaan in cache en het verwerken van verlopen tokens in Azure Mobile Services SDK beheerd](http://blogs.msdn.com/b/carlosfigueira/archive/2014/03/13/caching-and-handling-expired-tokens-in-azure-mobile-services-managed-sdk.aspx). 
+   > Een token in cache is mogelijk verlopen en token verloopt na verificatie kan ook optreden wanneer de app gebruikt wordt. Zie voor informatie over het bepalen of een token is verlopen, [controleren voor verlopen verificatietokens](https://aka.ms/jww5vp). Zie voor een oplossing voor het afhandelen van autorisatiefouten met betrekking tot verlopen tokens, het bericht [Caching en verwerken van vervallen tokens in Azure Mobile Services SDK beheerd](https://blogs.msdn.com/b/carlosfigueira/archive/2014/03/13/caching-and-handling-expired-tokens-in-azure-mobile-services-managed-sdk.aspx). 
    > 
    > 
-3. Start de app tweemaal opnieuw.
+3. De app twee keer opnieuw opgestart.
    
-    Merk op dat op de eerste opstarten aanmelden met de provider is opnieuw vereist. Echter op de tweede keer opnieuw opstarten in cache opgeslagen referenties worden gebruikt en aanmelden wordt overgeslagen. 
+    U ziet dat op het eerste lid is, aanmelden met de provider is weer vereist. Echter op de tweede keer opnieuw opstarten referenties in de cache worden gebruikt en de aanmelding wordt overgeslagen. 
 

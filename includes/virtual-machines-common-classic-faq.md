@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 45a6bd349169265ef411d01a3601a27551847633
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 37dc96cf965181c5acba74449c684a08035e37b2
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50226806"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51264448"
 ---
 In dit artikel komen enkele veelgestelde vragen aan bod over virtuele machines van Azure die zijn gemaakt met het klassieke implementatiemodel.
 
@@ -22,9 +22,9 @@ Ja. Instructies voor het migreren vindt u hier:
 ## <a name="what-can-i-run-on-an-azure-vm"></a>Wat kan ik uitvoeren op een VM van Azure?
 Alle abonnees kunnen serversoftware uitvoeren op een virtuele machine van Azure. U kunt recente versies van Windows Server uitvoeren, evenals een aantal Linux-distributies. Zie deze artikelen voor meer informatie over ondersteuning:
 
-• Voor VM's van Windows -- [Ondersteuning van Microsoft-serversoftware voor Azure Virtual Machines](http://go.microsoft.com/fwlink/p/?LinkId=393550)
+• Voor VM's van Windows -- [Ondersteuning van Microsoft-serversoftware voor Azure Virtual Machines](https://go.microsoft.com/fwlink/p/?LinkId=393550)
 
-• Voor VM's van Linux -- [Linux op door Azure goedgekeurde distributies](http://go.microsoft.com/fwlink/p/?LinkId=393551)
+• Voor VM's van Linux -- [Linux op door Azure goedgekeurde distributies](https://go.microsoft.com/fwlink/p/?LinkId=393551)
 
 Voor het uitvoeren van ontwikkel- en testtaken voor installatiekopieën van Windows-clients zijn bepaalde versies van Windows 7 en Windows 8.1 beschikbaar voor MSDN-abonnees met Azure-voordelen en MSDN-abonnees met Pay-As-You-Go Dev/Test. Zie het Engelstalige blogbericht [Windows Client images for MSDN subscribers](https://azure.microsoft.com/blog/2014/05/29/windows-client-images-on-azure/) voor meer informatie, zoals instructies en beperkingen.
 
@@ -38,10 +38,10 @@ De functies van affiniteitsgroepen zijn al afgeschaft in het implementatiemodel 
 ## <a name="how-much-storage-can-i-use-with-a-virtual-machine"></a>Hoeveel opslagruimte kan ik gebruiken met een virtuele machine?
 Elke gegevensschijf kan maximaal 1 TB groot zijn. Het aantal gegevensschijven dat u kunt gebruiken, is afhankelijk van de grootte van de virtuele machine. Zie [Grootten voor virtuele machines](../articles/virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) voor meer informatie.
 
-Een Azure-opslagaccount biedt opslag voor de schijf met het besturingssysteem en eventuele gegevensschijven. Elke schijf is een VHD-bestand dat wordt opgeslagen als een pagina-blob. Zie [deze pagina](http://go.microsoft.com/fwlink/p/?LinkId=396819) voor prijsinformatie.
+Een Azure-opslagaccount biedt opslag voor de schijf met het besturingssysteem en eventuele gegevensschijven. Elke schijf is een VHD-bestand dat wordt opgeslagen als een pagina-blob. Zie [deze pagina](https://go.microsoft.com/fwlink/p/?LinkId=396819) voor prijsinformatie.
 
 ## <a name="which-virtual-hard-disk-types-can-i-use"></a>Welke typen virtuele harde schijf kan ik gebruiken?
-Azure ondersteunt alleen vaste, virtuele harde schijven met de indeling VHD. Als u een VHDX hebt die u wilt gebruiken in Azure, moet u deze eerst converteren met behulp van Hyper-V Manager of de cmdlet [convert-VHD](http://go.microsoft.com/fwlink/p/?LinkId=393656). Daarna gebruikt u de cmdlet [Add-AzureVHD](https://msdn.microsoft.com/library/azure/dn495173.aspx) (in de modus Service Management) om de VHD te uploaden naar een opslagaccount in Azure, zodat u de schijf kunt gebruiken met virtuele machines.
+Azure ondersteunt alleen vaste, virtuele harde schijven met de indeling VHD. Als u een VHDX hebt die u wilt gebruiken in Azure, moet u deze eerst converteren met behulp van Hyper-V Manager of de cmdlet [convert-VHD](https://go.microsoft.com/fwlink/p/?LinkId=393656). Daarna gebruikt u de cmdlet [Add-AzureVHD](https://msdn.microsoft.com/library/azure/dn495173.aspx) (in de modus Service Management) om de VHD te uploaden naar een opslagaccount in Azure, zodat u de schijf kunt gebruiken met virtuele machines.
 
 * Zie [Een virtuele harde schijf met het Linux-besturingssysteem maken en uploaden](../articles/virtual-machines/linux/classic/create-upload-vhd-classic.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json) voor instructies voor Linux.
 
@@ -50,7 +50,7 @@ Op veel punten zijn ze vergelijkbaar met Hyper-V-VM's van de 'eerste generatie',
 
 * Azure biedt geen consoletoegang tot een virtuele machine. Een virtuele machine is pas toegankelijk nadat deze volledig is opgestart.
 * VM's van Azure hebben in de meeste [grootten](../articles/virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) maar één virtuele netwerkadapter, wat betekent dat ze ook maar één extern IP-adres kunnen hebben. (De grootten A8 en A9 gebruiken een tweede netwerkadapter voor de communicatie van toepassingen tussen instanties in beperkte scenario's.)
-* VM's van Azure bieden geen ondersteuning voor functies van Hyper-V-VM's van de tweede generatie. Zie voor meer informatie over deze functies [Specificaties van virtuele machines voor Hyper-V](http://technet.microsoft.com/library/dn592184.aspx) en [Overzicht van virtuele machines van generatie 2](https://technet.microsoft.com/library/dn282285.aspx).
+* VM's van Azure bieden geen ondersteuning voor functies van Hyper-V-VM's van de tweede generatie. Zie voor meer informatie over deze functies [Specificaties van virtuele machines voor Hyper-V](https://technet.microsoft.com/library/dn592184.aspx) en [Overzicht van virtuele machines van generatie 2](https://technet.microsoft.com/library/dn282285.aspx).
 
 ## <a name="can-these-virtual-machines-use-my-existing-on-premises-networking-infrastructure"></a>Kunnen deze virtuele machines mijn bestaande, on-premises netwerkinfrastructuur gebruiken?
 Voor virtuele machines die zijn gemaakt in het klassieke implementatiemodel kunt u Azure Virtual Network gebruiken om uw bestaande infrastructuur uit te breiden. De methode is vergelijkbaar met het opzetten van een filiaal. U kunt virtuele particuliere netwerken (VPN's) inrichten en beheren in Azure, maar u kunt ze ook op een veilige manier verbinden met een on-premises IT-infrastructuur. Zie [Overzicht van Azure Virtual Network](../articles/virtual-network/virtual-networks-overview.md) voor meer informatie.
@@ -85,7 +85,7 @@ De term 'upgraden' betekent meestal overstappen naar een recentere versie van he
 * Gebruik voor VM's van Linux de hulpprogramma's en procedures voor pakketbeheer die beschikbaar zijn voor de distributie.
 * Voor een virtuele machine van Windows moet u de server migreren, bijvoorbeeld met het hulpprogramma voor migratie van Windows-servers. U moet niet proberen om het gastbesturingssysteem te upgraden terwijl dit deel uitmaakt van Azure. Dit wordt namelijk niet ondersteund vanwege het risico de toegang tot de virtuele machine te verliezen. Als er tijdens de upgrade problemen optreden, is de kans aanwezig dat u geen Extern bureaublad-sessie kunt starten en de problemen dus niet kunt oplossen.
 
-Zie [Functies en onderdelen migreren in Windows Server](http://go.microsoft.com/fwlink/p/?LinkId=396940) voor algemene informatie over de hulpprogramma's en processen voor het migreren van een computer met Windows Server.
+Zie [Functies en onderdelen migreren in Windows Server](https://go.microsoft.com/fwlink/p/?LinkId=396940) voor algemene informatie over de hulpprogramma's en processen voor het migreren van een computer met Windows Server.
 
 ## <a name="whats-the-default-user-name-and-password-on-the-virtual-machine"></a>Welke gebruikersnaam en welk wachtwoord worden standaard gebruikt op een virtuele machine?
 De installatiekopieën die worden verstrekt door Azure bevatten geen vooraf geconfigureerde gebruikersnaam en wachtwoord. Wanneer u een virtuele machine met behulp van een van deze installatiekopieën maakt, moet u een gebruikersnaam en wachtwoord, waarmee u zich aanmeldt bij de virtuele machine opgeven.
@@ -100,8 +100,8 @@ Aanvullende details:
 ## <a name="can-azure-run-anti-virus-on-my-virtual-machines"></a>Kan Azure een antivirusprogramma uitvoeren op mijn virtuele machines?
 Azure biedt verschillende opties voor antivirusoplossingen, maar het beheer hiervan moet u zelf regelen. Zo is het mogelijk dat u een afzonderlijk abonnement nodig hebt voor anti-malwaresoftware en moet u bepalen wanneer er scans worden uitgevoerd en updates worden geïnstalleerd. U kunt ondersteuning voor een antivirusprogramma toevoegen met behulp van een VM-extensie voor Microsoft Antimalware, Symantec Endpoint Protection of TrendMicro Deep Security Agent wanneer u een virtuele Windows-computer maakt. Dit kan trouwens ook op een later tijdstip. De extensies van Symantec en TrendMicro kunt u gebruiken met een gratis, tijdelijk proefabonnement of met een bestaand zakelijk abonnement. Microsoft Antimalware is gratis. Zie deze artikelen voor meer informatie:
 
-* [How to install and configure Symantec Endpoint Protection on a Windows VM](http://go.microsoft.com/fwlink/p/?LinkId=404207) (Symantec Endpoint Protection installeren en configureren op een VM van Azure)
-* [How to install and configure Trend Micro Deep Security as a Service on an Azure VM](http://go.microsoft.com/fwlink/p/?LinkId=404206) (Trend Micro Deep Security als een service installeren en configureren op een VM van Azure)
+* [How to install and configure Symantec Endpoint Protection on a Windows VM](https://go.microsoft.com/fwlink/p/?LinkId=404207) (Symantec Endpoint Protection installeren en configureren op een VM van Azure)
+* [How to install and configure Trend Micro Deep Security as a Service on an Azure VM](https://go.microsoft.com/fwlink/p/?LinkId=404206) (Trend Micro Deep Security als een service installeren en configureren op een VM van Azure)
 * [Deploying Antimalware Solutions on Azure Virtual Machines](https://azure.microsoft.com/blog/2014/05/13/deploying-antimalware-solutions-on-azure-virtual-machines/) (Antimalware-oplossingen implementeren op virtuele machines van Azure)
 
 ## <a name="what-are-my-options-for-backup-and-recovery"></a>Wat zijn de opties voor back-up en herstel?

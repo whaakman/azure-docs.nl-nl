@@ -1,36 +1,33 @@
 ---
-title: Toegang tot Hadoop YARN-toepassingslogboeken op Linux gebaseerde HDInsight - Azure
-description: Leer hoe u toegang tot YARN-toepassingslogboeken op een Linux gebaseerde HDInsight (Hadoop)-cluster met behulp van de opdrachtregel en een webbrowser.
+title: Toegang tot Apache Hadoop YARN-toepassingslogboeken op Linux gebaseerde HDInsight - Azure
+description: Leer hoe u toegang tot YARN-toepassingslogboeken op een Linux gebaseerde HDInsight (Apache Hadoop)-cluster met behulp van de opdrachtregel en een webbrowser.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/22/2018
-ms.author: jasonh
-ms.openlocfilehash: 179349d059fd75e2da01eb908a786e2e7ac91307
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.author: hrasheed
+ms.openlocfilehash: 302f2f96a7f17699411ab9fdbdb6ab1f9de149c8
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43092257"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277593"
 ---
-# <a name="access-yarn-application-logs-on-linux-based-hdinsight"></a>Toegang tot YARN-toepassingslogboeken op Linux gebaseerde HDInsight
+# <a name="access-apache-yarn-application-logs-on-linux-based-hdinsight"></a>Toegang tot Apache YARN-toepassingslogboeken op Linux gebaseerde HDInsight
 
-Leer hoe u toegang tot de logboeken van YARN (nog een andere Resource Negotiator)-toepassingen op een Hadoop-cluster in Azure HDInsight.
+Leer hoe u toegang tot de logboeken voor toepassingen op een Apache Hadoop-cluster in Azure HDInsight Apache YARN (nog een andere Resource Negotiator).
 
 > [!IMPORTANT]
-> Voor de stappen in dit document hebt u een HDInsight-cluster nodig dat werkt met Linux. Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie voor meer informatie, [versiebeheer van HDInsight-onderdeel](hdinsight-component-versioning.md#hdinsight-windows-retirement).
+> Voor de stappen in dit document hebt u een HDInsight-cluster nodig dat werkt met Linux. Linux is het enige besturingssysteem gebruikt op HDInsight versie 3.6 of hoger. Zie voor meer informatie, [versiebeheer van HDInsight-onderdeel](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="YARNTimelineServer"></a>YARN Timeline Server
 
-De [YARN Timeline Server](http://hadoop.apache.org/docs/r2.7.3/hadoop-yarn/hadoop-yarn-site/TimelineServer.html) biedt algemene informatie over voltooide toepassingen en frameworkspecifieke toepassingsinformatie via twee verschillende interfaces. Specifiek:
+De [Apache YARN Timeline Server](http://hadoop.apache.org/docs/r2.7.3/hadoop-yarn/hadoop-yarn-site/TimelineServer.html) biedt algemene informatie over voltooide toepassingen
 
-* Opslaan en ophalen van informatie over algemene toepassingen op HDInsight-clusters is ingeschakeld met versie 3.1.1.374 of hoger zijn.
-* Een onderdeel van de application framework-specifieke gegevens van de tijdlijn-Server is momenteel niet beschikbaar op HDInsight-clusters.
-
-Algemene informatie over toepassingen bevat het volgende type gegevens:
+YARN Timeline Server omvat het volgende type gegevens:
 
 * De toepassings-ID, een unieke id van een toepassing
 * De gebruiker die de toepassing is gestart

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 06/15/2018
 ms.author: v-six
-ms.openlocfilehash: 20b98fa9656c9c66a81ff98a70fcdbfb29d4dad6
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 2a9214b918883e493ebe5c93fc7f56e7ce9c77ec
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47093177"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51234491"
 ---
 # <a name="common-issues-that-cause-roles-to-recycle"></a>Algemene problemen waardoor rollen worden herhaald
 In dit artikel worden enkele van de veelvoorkomende oorzaken van problemen met implementatie beschreven en vindt u tips voor probleemoplossing voor u deze problemen oplossen. Een indicatie dat er een probleem met een toepassing is is wanneer de rolinstantie niet kan worden gestart, of deze cycli tussen de statussen initialiseren, bezet en stoppen.
@@ -64,7 +64,7 @@ Als u wilt uitvoeren van een Webrol onder SSL, moet u ervoor zorgen dat het geë
 ## <a name="next-steps"></a>Volgende stappen
 Meer weergeven [artikelen over probleemoplossing](https://azure.microsoft.com/documentation/articles/?tag=top-support-issue&product=cloud-services) voor cloudservices.
 
-Nog een rol recyclen van scenario's op weergeven [van Kevin Williamson blogserie](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
+Nog een rol recyclen van scenario's op weergeven [van Kevin Williamson blogserie](https://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
 
 [RoleEntryPoint]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.aspx
 [OnStart]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.onstart.aspx

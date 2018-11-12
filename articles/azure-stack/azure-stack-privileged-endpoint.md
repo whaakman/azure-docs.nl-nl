@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 10/22/2018
 ms.author: mabrigg
 ms.reviewer: fiseraci
-ms.openlocfilehash: f064521929bdaf0565a2993e12be62a3959ad567
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: df1f8d805c950bdfbe2c18f365a450a6d630891b
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945294"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300435"
 ---
 # <a name="using-the-privileged-endpoint-in-azure-stack"></a>Met behulp van het eindpunt van de bevoegde in Azure Stack
 
@@ -55,7 +55,7 @@ Voordat u deze procedure voor een geïntegreerd systeem, zorg er dan voor dat u 
       ````PowerShell
         winrm s winrm/config/client '@{TrustedHosts="<IP Address of Privileged Endpoint>"}'
       ````
-    - Als u de ADSK uitvoert, moet u zich aanmelden bij de host van development kit.
+    - Als u de ASDK uitvoert, moet u zich aanmelden bij de host van development kit.
 
 2. Open op de beveiligde virtuele machine die wordt uitgevoerd op de host van de levenscyclus van hardware of het werkstation met bevoegde toegang, een Windows PowerShell-sessie. Voer de volgende opdrachten tot stand brengen van een externe sessie op de virtuele machine die als host fungeert voor de PEP:
  
@@ -67,7 +67,7 @@ Voordat u deze procedure voor een geïntegreerd systeem, zorg er dan voor dat u 
           -ConfigurationName PrivilegedEndpoint -Credential $cred
       ````
       De `ComputerName` parameter is het IP-adres of de DNS-naam van een van de virtuele machines die als host fungeert voor de PEP. 
-    - Als u de ADSK uitvoert:
+    - Als u de ASDK uitvoert:
      
       ````PowerShell
         $cred = Get-Credential
@@ -127,7 +127,7 @@ Voor het importeren van de sessie PEP op uw lokale computer, moet u de volgende 
       ````PowerShell
         winrm s winrm/config/client '@{TrustedHosts="<IP Address of Privileged Endpoint>"}'
       ````
-    - Als u de ADSK uitvoert, moet u zich aanmelden bij de host van development kit.
+    - Als u de ASDK uitvoert, moet u zich aanmelden bij de host van development kit.
 
 2. Open op de beveiligde virtuele machine die wordt uitgevoerd op de host van de levenscyclus van hardware of het werkstation met bevoegde toegang, een Windows PowerShell-sessie. Voer de volgende opdrachten tot stand brengen van een externe sessie op de virtuele machine die als host fungeert voor de PEP:
  
@@ -139,7 +139,7 @@ Voor het importeren van de sessie PEP op uw lokale computer, moet u de volgende 
           -ConfigurationName PrivilegedEndpoint -Credential $cred
       ````
       De `ComputerName` parameter is het IP-adres of de DNS-naam van een van de virtuele machines die als host fungeert voor de PEP. 
-    - Als u de ADSK uitvoert:
+    - Als u de ASDK uitvoert:
      
       ````PowerShell
        $cred = Get-Credential

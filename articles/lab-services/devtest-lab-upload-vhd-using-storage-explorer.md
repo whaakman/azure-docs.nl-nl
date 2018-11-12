@@ -1,5 +1,5 @@
 ---
-title: VHD-bestand uploaden naar Azure DevTest Labs met behulp van Microsoft Azure Storage Explorer | Microsoft Docs
+title: VHD-bestand uploaden naar Azure DevTest Labs met Microsoft Azure Storage Explorer | Microsoft Docs
 description: VHD-bestand uploaden naar het lab storage-account met behulp van Microsoft Azure Storage Explorer
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
@@ -14,68 +14,68 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: cafb3ec2da335165a3b66c18d83930008c6d72e5
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 3f3b20ac21c0a871d3baad50098700b7cf3b3b9c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788044"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51235391"
 ---
 # <a name="upload-vhd-file-to-labs-storage-account-using-microsoft-azure-storage-explorer"></a>VHD-bestand uploaden naar het lab storage-account met behulp van Microsoft Azure Storage Explorer
 
 [!INCLUDE [devtest-lab-upload-vhd-selector](../../includes/devtest-lab-upload-vhd-selector.md)]
 
-In Azure DevTest Labs kunnen VHD-bestanden worden gebruikt voor het maken van aangepaste installatiekopieën die worden gebruikt voor het inrichten van virtuele machines. In dit artikel laat zien hoe u [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) een VHD-bestand uploaden naar een lab-opslagaccount. Nadat u uw VHD-bestand hebt geüpload de [Vervolgstappen sectie](#next-steps) geeft een lijst van sommige artikelen die laten zien hoe u een aangepaste installatiekopie van het geüploade VHD-bestand. Zie voor meer informatie over schijven en VHD's in Azure [over schijven en virtuele harde schijven voor virtuele machines](../virtual-machines/linux/about-disks-and-vhds.md)
+In Azure DevTest Labs, kunnen de VHD-bestanden worden gebruikt om aangepaste installatiekopieën, die worden gebruikt voor het inrichten van virtuele machines te maken. In dit artikel laat zien hoe u [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) een VHD-bestand uploaden naar storage-account van een lab. Als u uw VHD-bestand hebt geüpload de [sectie volgende stappen](#next-steps) geeft een lijst van sommige artikelen die laten zien hoe u een aangepaste installatiekopie van het geüploade VHD-bestand maken. Zie voor meer informatie over schijven en VHD's in Azure, [over schijven en VHD's voor virtuele machines](../virtual-machines/linux/about-disks-and-vhds.md)
 
 ## <a name="step-by-step-instructions"></a>Stapsgewijze instructies
 
-De volgende stappen helpt u bij het uploaden van een VHD-bestand voor het gebruik van DevTest Labs [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md).
+De volgende stappen helpen u bij het uploaden van een VHD-bestand voor het gebruik van DevTest Labs [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md).
 
-1. [Download en installeer de nieuwste versie van Microsoft Azure Storage Explorer](http://www.storageexplorer.com).
+1. [Download en installeer de nieuwste versie van de Microsoft Azure Storage Explorer](http://www.storageexplorer.com).
 
-1. Haal de naam van het lab-opslagaccount met de Azure portal:
+1. Haal de naam van de storage-account van de testomgeving met behulp van de Azure-portal:
 
-    1. Meld u aan bij [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+    1. Meld u aan bij [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
     
-    1. Selecteer **alle services**, en selecteer vervolgens **DevTest Labs** uit de lijst.
+    1. Selecteer **alle services**, en selecteer vervolgens **DevTest Labs** in de lijst.
     
-    1. Selecteer de gewenste testomgeving uit de lijst van labs.  
+    1. Selecteer de gewenste lab in de lijst met labs.  
     
-    1. Selecteer op de labblade **configuratie**. 
+    1. Selecteer op de blade van de testomgeving **configuratie**. 
     
-    1. Op de testomgeving **configuratie** blade Selecteer **aangepaste installatiekopieën (VHD's)**.
+    1. In het lab **configuratie** Selecteer **aangepaste installatiekopieën (VHD's)**.
     
-    1. Op de **aangepaste installatiekopieën** blade Selecteer **+ toevoegen**. 
+    1. Op de **aangepaste installatiekopieën** blade, selecteer **+ toevoegen**. 
     
-    1. Op de **aangepaste installatiekopie** blade Selecteer **VHD**.
+    1. Op de **aangepaste installatiekopie** Selecteer **VHD**.
     
-    1. Op de **VHD** blade Selecteer **een VHD uploaden met PowerShell**.
+    1. Op de **VHD** Selecteer **uploaden van een VHD met behulp van PowerShell**.
     
-        ![Virtuele harde schijf met behulp van PowerShell geüpload][0]
+        ![Met behulp van PowerShell VHD uploaden][0]
     
-    1. De **een installatiekopie uploaden met PowerShell** blade wordt een aanroep van de **Add-AzureVhd** cmdlet. De eerste parameter (*bestemming*) bevat de naam van het opslagaccount voor de testomgeving in de volgende indeling:
+    1. De **Upload een afbeelding met behulp van PowerShell** blade geeft een aanroep naar de **Add-AzureVhd** cmdlet. De eerste parameter (*bestemming*) bevat de naam van het opslagaccount voor de testomgeving in de volgende indeling:
     
         https://<STORAGE-ACCOUNT-NAME>.blob.core.windows.net/uploads/... 
 
-    1. Noteer de opslagaccountnaam omdat deze wordt gebruikt in latere stappen.
+    1. Noteer de naam van opslagaccount als deze wordt gebruikt in latere stappen.
     
-1. Verbinding maken met een Azure-abonnementsrekening met Opslagverkenner.
+1. Verbinding maken met een Azure-abonnement-account met behulp van Storage Explorer.
 
     > [!TIP] 
     > 
-    > Opslagverkenner ondersteunt verschillende verbindingsopties. Deze sectie ziet u verbinding maakt met een opslagaccount die is gekoppeld aan uw Azure-abonnement. Overzicht van de andere verbindingsopties ondersteund door Opslagverkenner verwijzen naar het artikel [aan de slag met Opslagverkenner](../vs-azure-tools-storage-manage-with-storage-explorer.md).
+    > Storage Explorer biedt ondersteuning voor verschillende verbindingsopties. In deze sectie ziet u verbinding maken met een opslagaccount dat is gekoppeld aan uw Azure-abonnement. Als u wilt zien van de andere verbindingsopties die worden ondersteund door de Storage Explorer, raadpleegt u het artikel [aan de slag met Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md).
  
     1. Open Storage Explorer.
     
-    1. Selecteer in Opslagverkenner **Azure Accountinstellingen**. 
+    1. Selecteer in Storage Explorer **Azure-Accountinstellingen**. 
     
         ![Azure-accountinstellingen][1]
     
-    1. Het linkerdeelvenster geeft de Microsoft-accounts die u hebt aangemeld. Selecteer **Een account toevoegen** om verbinding te maken met een ander account en volg de dialoogvensters om aan te melden met een Microsoft-account dat is gekoppeld aan ten minste één actief Azure-abonnement.
+    1. In het linkerdeelvenster ziet u zich hebt aangemeld bij Microsoft-accounts. Selecteer **Een account toevoegen** om verbinding te maken met een ander account en volg de dialoogvensters om aan te melden met een Microsoft-account dat is gekoppeld aan ten minste één actief Azure-abonnement.
     
         ![Een account toevoegen][2]
     
-    1. Wanneer u bent aangemeld met een Microsoft-account, worden in het linkerdeelvenster de Azure-abonnementen weergegeven die aan dat account zijn gekoppeld. Selecteer de Azure-abonnementen waarmee u wilt werken en selecteer vervolgens **Toepassen**. (Selecteren **alle abonnementen** Hiermee wordt de selectie van alle of geen van de vermelde Azure-abonnementen.)
+    1. Wanneer u bent aangemeld met een Microsoft-account, worden in het linkerdeelvenster de Azure-abonnementen weergegeven die aan dat account zijn gekoppeld. Selecteer de Azure-abonnementen waarmee u wilt werken en selecteer vervolgens **Toepassen**. (Selecteren **alle abonnementen** Hiermee wordt de selectie van alle of geen van de Azure-abonnementen.)
     
         ![Selecteer Azure-abonnementen][3]
     
@@ -83,43 +83,43 @@ De volgende stappen helpt u bij het uploaden van een VHD-bestand voor het gebrui
     
         ![Geselecteerde Azure-abonnementen][4]
 
-1. Zoek in het lab-opslagaccount:
+1. Zoek de storage-account van de testomgeving:
 
-    1. Zoek in het linkerdeelvenster van Opslagverkenner en vouw het knooppunt voor de Azure-abonnement dat eigenaar is van de testomgeving.
+    1. Zoek in het linkerdeelvenster van Opslagverkenner en vouw het knooppunt voor de Azure-abonnement dat eigenaar is van het lab.
     
     1. Vouw onder het knooppunt van het abonnement, **Opslagaccounts**.
 
-    1. De testomgeving storage accountknooppunt uitvouwen om te onthullen knooppunten voor **Blob-Containers**, **bestandsshares**, **wachtrijen**, en **tabellen**.
+    1. Vouw van het lab storage-account om weer te geven van de knooppunten voor **Blobcontainers**, **bestandsshares**, **wachtrijen**, en **tabellen**.
     
-    1. Vouw de **Blob-Containers** knooppunt.
+    1. Vouw de **Blobcontainers** knooppunt.
     
-    1. Selecteer de blob-container uploads aan de inhoud in het rechterdeelvenster.
+    1. Selecteer het uploaden van blob-container om de inhoud ervan in het rechterdeelvenster weer te geven.
         
-        ![Directory uploaden][5]
+        ![Map uploaden][5]
 
-1. Het VHD-bestand met Opslagverkenner uploaden:
+1. De VHD-bestand uploaden met Storage Explorer:
 
-    1. In het rechterdeelvenster Opslagverkenner ziet u een overzicht van de blobs in de **uploadt** blob-container van het lab-opslagaccount. Selecteer op de werkbalk van de editor blob **uploaden** 
+    1. In het rechter deelvenster van de Storage Explorer, ziet u een overzicht van de blobs in de **uploadt** blob-container van het opslagaccount van het lab. Selecteer op de werkbalk van de editor blob **uploaden** 
         
         ![Knop Uploaden][6]
     
-    1. Van de **uploaden** vervolgkeuzelijst, selecteer **bestanden uploaden...** .
+    1. Uit de **uploaden** vervolgkeuzelijst in het menu **bestanden uploaden...** .
     
     1. Op de **bestanden uploaden** dialoogvenster, selecteer het weglatingsteken.
         
         ![Bestand selecteren][8]  
 
-    1. Op de **Selecteer bestanden uploaden** dialoogvenster, blader naar het gewenste VHD-bestand en selecteer vervolgens selecteert u het **Open**.
+    1. Op de **bestanden selecteren voor uploaden** dialoogvenster, blader naar de gewenste VHD-bestand, selecteert u deze en selecteer vervolgens **Open**.
     
-    1. Wanneer u keert terug naar de **bestanden uploaden** dialoogvenster wijziging **Blob-type** naar **pagina-Blob**.
+    1. Wanneer geretourneerd naar de **bestanden uploaden** dialoogvenster wijziging **Blobtype** naar **pagina-Blob**.
     
     1. Selecteer **Uploaden**.
 
         ![Bestand selecteren][9]  
     
-    1. Opslagverkenner **activiteitenlogboek** deelvenster toont de downloadstatus (samen met koppelingen naar de upload geannuleerd). Het proces van het uploaden van een VHD-bestand kan worden langdurige, afhankelijk van de grootte van het VHD-bestand en de verbindingssnelheid. 
+    1. Opslagverkenner **activiteitenlogboek** deelvenster toont de downloadstatus (samen met koppelingen naar de upload annuleren). Het proces van het uploaden van een VHD-bestand mag langdurige, afhankelijk van de grootte van het VHD-bestand en de verbindingssnelheid. 
 
-        ![Uploadbestand status][10]  
+        ![Status van het bestand uploaden][10]  
 
 ## <a name="next-steps"></a>Volgende stappen
 

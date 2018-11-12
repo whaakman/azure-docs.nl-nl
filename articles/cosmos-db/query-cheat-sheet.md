@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: sngun
-ms.openlocfilehash: 432f61adaf736180a720aa23a7275e96fed4c733
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 22f8384105ed31ac2b11e0c6094b01549a270144
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43696928"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230866"
 ---
 # <a name="azure-cosmos-db-query-cheat-sheets"></a>Azure Cosmos DB-query-referentiemateriaal
 
@@ -25,7 +25,7 @@ Kies uit een download a4-formaat of A3-formaat.
 
 ## <a name="letter-sized-cheat-sheets"></a>Referentiemateriaal letter formaat
 
-Download de [referentiemateriaal voor Azure Cosmos DB-letter-formaat query](http://go.microsoft.com/fwlink/?LinkId=623215) als u wilt afdrukken op papier letter-formaat (8,5 "x 11").
+Download de [referentiemateriaal voor Azure Cosmos DB-letter-formaat query](https://go.microsoft.com/fwlink/?LinkId=623215) als u wilt afdrukken op papier letter-formaat (8,5 "x 11").
 
 ![Azure Cosmos DB-query referentiemateriaal - letter-formaat, SQL-API, JavaScript, MongoDB-API, Gremlin-API en Table-API-query's en-functies](./media/query-cheat-sheet/azure-cosmos-db-cheat-sheet-letter.png)
 

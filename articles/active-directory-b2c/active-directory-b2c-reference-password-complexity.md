@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/16/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 4b027f6cd57dfa48ba2e230371ffcad97b1f8ec4
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: b16ac10e10655bbc7e41d9336378228097ca19ff
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37445106"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51014717"
 ---
 # <a name="azure-ad-b2c-configure-complexity-requirements-for-passwords"></a>Azure AD B2C: Vereisten voor wachtwoordcomplexiteit voor wachtwoorden configureren
 
@@ -38,11 +38,10 @@ Hier zijn de soorten beleid waar wachtwoordcomplexiteit kan worden geconfigureer
 
 ## <a name="how-to-configure-password-complexity"></a>Wachtwoordcomplexiteit configureren
 
-1. Volg deze stappen om [gaat u naar Azure AD B2C-instellingen](active-directory-b2c-app-registration.md#navigate-to-b2c-settings).
 1. Open **registreren of aanmelden beleidsregels**.
-1. Selecteer een beleid en klikt u op **bewerken**.
-1. Open **wachtwoordcomplexiteit**.
-1. Wijzigen van de wachtwoordcomplexiteit voor dit beleid **eenvoudige**, **sterke**, of **aangepaste**.
+2. Selecteer een beleid en klikt u op **bewerken**.
+3. Open **wachtwoordcomplexiteit**.
+4. Wijzigen van de wachtwoordcomplexiteit voor dit beleid **eenvoudige**, **sterke**, of **aangepaste**.
 
 ### <a name="comparison-chart"></a>Vergelijkingstabel
 

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/30/2018
+ms.date: 10/31/2018
 ms.author: rkarlin
-ms.openlocfilehash: d8313ec66f8b71102e63751e7cf07885c899a7e8
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 16291e4f4915dd6328a2015407fa06dc8f62fba1
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44301035"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51011881"
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Veelgestelde vragen over Azure Security Center
 Deze Veelgestelde vragen vindt u antwoorden op vragen over Azure Security Center, een service die u bij het voorkomen helpt, detecteren en direct reageren op bedreigingen met verbeterde zichtbaarheid en controle over de beveiliging van uw Microsoft Azure-resources.
@@ -36,7 +36,7 @@ Azure Security Center helpt u bij het detecteren, voorkomen van en reageren op b
 ### <a name="how-do-i-get-azure-security-center"></a>Hoe krijg ik Azure Security Center?
 Azure Security Center is ingeschakeld met uw Microsoft Azure-abonnement en is toegankelijk vanuit de [Azure-portal](https://azure.microsoft.com/features/azure-portal/). ([Aanmelden bij de portal](https://portal.azure.com), selecteer **Bladeren**, en schuif naar **Security Center**).  
 
-## <a name="billing"></a>Facturering
+## <a name="billing"></a>Billing
 ### <a name="how-does-billing-work-for-azure-security-center"></a>Hoe werkt facturering voor Azure Security Center?
 Security Center wordt aangeboden in twee lagen:
 
@@ -45,7 +45,7 @@ De **gratis laag** biedt meer inzicht in de beveiligingsstatus van uw Azure-reso
 De **Standard-laag** geavanceerde threat detectiemogelijkheden, waaronder threat intelligence, gedragsanalyse, anomaliedetectie, beveiligingsincidenten en attribution rapporten van bedreigingen wordt toegevoegd. De prijscategorie Standard is gedurende de eerste 60 dagen gratis. Moet u ervoor kiest om door te gaan om de service langer dan 60 dagen te gebruiken, wordt automatisch gestart kosten in rekening gebracht voor de service.  Als u wilt bijwerken, selecteert u [prijscategorie](https://docs.microsoft.com/azure/security-center/security-center-pricing) in het beveiligingsbeleid.
 
 ## <a name="permissions"></a>Machtigingen
-Azure Security Center maakt gebruik van [Role-Based Access Control (RBAC)](../role-based-access-control/role-assignments-portal.md), waarmee u [ingebouwde rollen](../role-based-access-control/built-in-roles.md) die kunnen worden toegewezen aan gebruikers, groepen en services in Azure.
+Het Azure Beveiligingscentrum gebruikt [op rollen gebaseerd toegangsbeheer (RBAC)](../role-based-access-control/role-assignments-portal.md), dat [ingebouwde rollen](../role-based-access-control/built-in-roles.md) biedt die kunnen worden toegewezen aan gebruikers, groepen en services in Azure.
 
 Security Center beoordeelt de configuratie van uw resources om beveiligingsproblemen met zich mee en beveiligingsproblemen te identificeren. In Security Center ziet u alleen informatie met betrekking tot een bron wanneer u de rol van eigenaar, bijdrager of lezer voor het abonnement of de resourcegroep die deel uitmaakt van een resource om te worden toegewezen.
 
@@ -253,7 +253,7 @@ Als u wilt een beveiligingsbeleid alleen wijzigen, moet u een beveiligingsbeheer
 Zie voor informatie over het configureren van een beveiligingsbeleid, [beveiligingsbeleid instellen in Azure Security Center](security-center-policies.md).
 
 ### <a name="what-is-a-security-recommendation"></a>Wat is een beveiligingsaanbeveling?
-Azure Security Center analyseert de beveiligingsstatus van uw Azure-resources. Wanneer de potentiële beveiligingsproblemen worden geïdentificeerd, worden aanbevelingen worden gemaakt. De aanbevelingen begeleiden u bij het proces van het configureren van het vereiste besturingselement. Voorbeelden zijn:
+Azure Security Center analyseert de beveiligingsstatus van uw Azure-resources. Wanneer de potentiële beveiligingsproblemen worden geïdentificeerd, worden aanbevelingen worden gemaakt. De aanbevelingen begeleiden u bij het proces van het configureren van het vereiste besturingselement. Een aantal voorbeelden:
 
 * Inrichting van anti-malware om te identificeren en verwijderen van schadelijke software
 * [Netwerkbeveiligingsgroepen](../virtual-network/security-overview.md) en regels voor het verkeer naar virtuele machines beheren
@@ -285,7 +285,7 @@ De volgende Azure-resources worden bewaakt door Azure Security Center:
 * Virtuele machines (VM's) (met inbegrip van [Cloudservices](../cloud-services/cloud-services-choose-me.md))
 * Virtuele netwerken van Azure
 * Azure SQL-service
-* Azure-opslagaccount
+* Azure Storage-account
 * Azure-Web-Apps (in [App Service-omgeving](../app-service/environment/intro.md))
 * Oplossingen van partners die zijn geïntegreerd met uw Azure-abonnement, zoals een firewall voor webtoepassingen op virtuele machines en op App Service-omgeving
 
@@ -308,7 +308,7 @@ De latentie in Security Center gescand op beveiligingsproblemen, updates, en pro
 - Systeemupdates-gegevens wordt bijgewerkt binnen 24 uur
 - Problemen met Endpoint Protection: gegevens worden bijgewerkt binnen de 8 uur
 
-Security Center scant doorgaans voor nieuwe gegevens per uur. De latentie van bovenstaande waarden zijn een slechtste scenario waarbij er is een recente scan of een scan is mislukt.
+Security Center doorgaans scant op nieuwe gegevens elk uur, en Hiermee vernieuwt u de aanbevelingen dienovereenkomstig. 
 
 ### <a name="why-do-i-get-the-message-vm-agent-is-missing"></a>Waarom krijg ik het bericht 'VM-Agent is ontbrekende?'
 De VM-Agent moet worden geïnstalleerd op VM's om gegevens te verzamelen. De VM-agent wordt standaard geïnstalleerd op VM's die zijn geïmplementeerd vanuit Azure Marketplace. Zie voor meer informatie over het installeren van de VM-Agent op andere virtuele machines, het blogbericht [VM-Agent en -extensies](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-2/).

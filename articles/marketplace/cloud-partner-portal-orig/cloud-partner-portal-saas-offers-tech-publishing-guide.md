@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 9d73040f11549741643d96913c42df49594b8d41
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 7430e57ceaec8a280c17f1276d503919a9703182
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48809464"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228892"
 ---
 <a name="saas-application-technical-publishing-guide"></a>SaaS-toepassing technische Publicatiehandleiding voor
 ===========================================
@@ -34,7 +34,7 @@ Voor een overzicht van alle andere Marketplace-aanbiedingen, raadpleegt u de [Ma
 
 Portal voor publiceren op basis van rollen toegang biedt tot de portal zodat meerdere personen samen te werken voor het publiceren van een aanbieding. Zie voor meer informatie, [gebruikers beheren](./cloud-partner-portal-manage-users.md). 
 
-Voordat een aanbieding kan worden gepubliceerd namens een publisher-account, een van de personen met *eigenaar* rol moet instemmen met de [gebruiksvoorwaarden](https://azure.microsoft.com/support/legal/website-terms-of-use/), [Microsoft PrivacyStatement](http://www.microsoft.com/privacystatement/default.aspx), en [Microsoft Azure Certified-ProgramAgreement](https://azure.microsoft.com/support/legal/marketplace/certified-program-agreement/).
+Voordat een aanbieding kan worden gepubliceerd namens een publisher-account, een van de personen met *eigenaar* rol moet instemmen met de [gebruiksvoorwaarden](https://azure.microsoft.com/support/legal/website-terms-of-use/), [Microsoft PrivacyStatement](https://www.microsoft.com/privacystatement/default.aspx), en [Microsoft Azure Certified-ProgramAgreement](https://azure.microsoft.com/support/legal/marketplace/certified-program-agreement/).
 
 
 <a name="creating-an-offer"></a>Het maken van een aanbieding

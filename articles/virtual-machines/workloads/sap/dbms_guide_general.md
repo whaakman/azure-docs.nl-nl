@@ -13,15 +13,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/06/2018
+ms.date: 11/06/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3948c226f13f0ff358f9ca467f19cf0e48795911
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: bed053f812cc5c14e6cfe76b8a08b1ffe0cadcb3
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49429880"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51289118"
 ---
 # <a name="considerations-for-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Overwegingen voor Azure Virtual Machines DBMS-implementatie voor de werkbelasting van SAP
 [1114181]:https://launchpad.support.sap.com/#/notes/1114181
@@ -64,7 +64,7 @@ In het hele document, worden de volgende termen gebruikt:
 * SAP-onderdeel: Een afzonderlijke SAP-toepassing, zoals ECC, BW, Manager van de oplossing of EP  SAP-onderdelen kunnen worden gebaseerd op de traditionele ABAP- of Java-technologieën of een toepassing NetWeaver op basis van zoals zakelijke objecten.
 * SAP-omgeving: een of meer onderdelen van SAP logisch zijn gegroepeerd om uit te voeren van een zakelijke-functie, zoals ontwikkeling, QAS, Training, herstel na Noodgevallen of productie.
 * SAP-landschap: Deze term heeft betrekking op de gehele SAP-elementen in een klant IT landschap. De SAP-landschap bevat alle productie- en niet-productieomgevingen.
-* SAP-systeem: De combinatie van DBMS-laag en niveau van de toepassing van bijvoorbeeld een ontwikkelsysteem SAP ERP, SAP BW-testsysteem, SAP CRM productiesysteem, enzovoort. In de Azure-implementaties, is het niet ondersteund voor het delen van deze twee lagen tussen on-premises en Azure. Dit betekent dat die een SAP-systeem een is on-premises geïmplementeerd of deze is geïmplementeerd in Azure. U kunt echter de verschillende systemen van SAP-landschap dat in Azure of on-premises implementeren. U kunt bijvoorbeeld implementeert de SAP CRM-ontwikkeling en testen van systemen in Azure, maar de SAP CRM productie system on-premises.
+* SAP-systeem: De combinatie van DBMS-laag en niveau van de toepassing van bijvoorbeeld een ontwikkelsysteem SAP ERP, SAP BW-testsysteem, SAP CRM productiesysteem, enzovoort. In de Azure-implementaties, is het niet ondersteund voor het delen van deze twee lagen tussen on-premises en Azure. Als gevolg hiervan een SAP-systeem is een on-premises geïmplementeerd of deze is geïmplementeerd in Azure. U kunt echter de verschillende systemen van SAP-landschap dat in Azure of on-premises implementeren. U kunt bijvoorbeeld implementeert de SAP CRM-ontwikkeling en testen van systemen in Azure, maar de SAP CRM productie system on-premises.
 * Cross-Premises: Beschrijving van een scenario waarbij virtuele machines worden geïmplementeerd naar een Azure-abonnement dat site-naar-site, meerdere locaties of ExpressRoute-connectiviteit tussen de on-premises clientresources en Azure. In algemene Azure-documentatie en dit soort implementaties worden ook beschreven als Cross-Premises scenario's. De reden voor de verbinding is om de on-premises domeinen, on-premises Active Directory en DNS-on-premises uitbreiden naar Azure. Het on-premises-landschap is uitgebreid naar de Azure-assets van het abonnement. Met deze extensie, kunnen de virtuele machines deel uitmaken van de on-premises domein. Gebruikers van een domein van de on-premises domein toegang tot de servers en services kunnen worden uitgevoerd op deze VM's (zoals DBMS-services). On-premises communicatie en naamomzetting tussen VM's geïmplementeerd en virtuele machines die worden geïmplementeerd in Azure is mogelijk. In dit scenario is het meest voorkomende scenario voor het implementeren van SAP-assets op Azure. Zie voor meer informatie, [Planning en ontwerp voor VPN-gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-plan-design).
 
 > [!NOTE]
@@ -161,7 +161,7 @@ Als de vereiste IOPS is groter dan wat één VHD kan bieden, als al is vermeld m
 >
 
 ### <a name="managed-or-non-managed-disks"></a>Beheerde of niet-beheerde schijven
-Een Azure Storage-Account is niet alleen een met beheerdersrechten om voor te bereiden, maar ook een onderwerp met beperkingen. De beperkingen verschillen tussen Azure Standard Storage Accounst en Azure Premium Storage-Accounts. De exacte mogelijkheden en beperkingen worden vermeld in het artikel [Azure Storage Scalability and Performance Targets](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets)
+Een Azure Storage-Account is niet alleen een met beheerdersrechten om voor te bereiden, maar ook een onderwerp met beperkingen. De beperkingen verschillen tussen Azure Storage-Account en Azure Premium Storage-Accounts. De exacte mogelijkheden en beperkingen worden vermeld in het artikel [Azure Storage Scalability and Performance Targets](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets)
 
 Voor Azure Standard-opslag, is het belangrijk om terug te halen over de IOP's per opslagaccount geldt een limiet (rij waarin **totale snelheid van aanvragen voor** in het artikel [Azure Storage Scalability and Performance Targets](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets)). Er is bovendien een initiële limiet van het aantal Opslagaccounts per Azure-abonnement. Daarom moet u het saldo van VHD's voor grotere SAP-landschap tussen verschillende opslagaccounts om te voorkomen dat de grenzen van deze opslagaccounts te maken. Een tijdrovende werk wanneer u wordt gesproken over enkele honderden virtuele machines met meer dan duizend VHD's. 
 
@@ -276,7 +276,10 @@ Er zijn enkele aanbevolen procedures, heeft geleid uit honderden implementaties 
 > [!NOTE]
 > Moet u statische IP-adressen via Azure middelen toewijzen aan afzonderlijke vnic's. U moet statische IP-adressen binnen het gastbesturingssysteem niet toewijzen aan een vNIC. Sommige Azure-services zoals Azure Backup-Service is afhankelijk van het feit dat op minimaal de primaire vNIC is ingesteld op DHCP- en niet op de vaste IP-adressen. Zie ook het document [los problemen met Azure virtuele machine back-up](https://docs.microsoft.com/azure/backup/backup-azure-vms-troubleshoot#networking). Als u meerdere statische IP-adressen toewijzen aan een virtuele machine wilt, moet u meerdere vnic's toewijzen aan een virtuele machine.
 >
->
+
+
+> [!IMPORTANT]
+> Buiten-functionaliteit, maar meer belangrijke uit prestatieoverwegingen wordt niet ondersteund voor het configureren van [Azure Network Virtual Appliances](https://azure.microsoft.com/solutions/network-appliances/) in het communicatiepad tussen de SAP-toepassing en de DBMS-laag van een SAP NetWeaver Hybris of S/4HANA op basis van SAP-systeem. Aanvullende scenario's waarbij NVA's worden niet ondersteund in de communicatiepaden van de tussen Azure-VM's die staan voor de clusterknooppunten Linux Pacemaker en SBD apparaten zoals beschreven in zijn [hoge beschikbaarheid voor SAP NetWeaver op Azure VM's in SUSE Linux Enterprise Server voor SAP-toepassingen](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse). Of in de communicatie paden tussen Azure VM's en Windows Server SOFS instellen maximaal zoals beschreven in [Cluster een SAP ASCS/SCS-exemplaar op een Windows-failovercluster met behulp van een bestandsshare in Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-guide-wsfc-file-share). NVA's in communicatie paden kunnen eenvoudig de netwerklatentie tussen twee communicatie partners dubbele, doorvoer in kritieke paden tussen het niveau van de SAP-toepassing en de DBMS-laag kunt beperken. In sommige scenario's met klanten in acht genomen, NVA's kunnen leiden tot Pacemaker Linux-clusters in gevallen waarin de communicatie tussen de knooppunten van het Linux-Pacemaker om te communiceren met hun apparaat SBD via een NVA is mislukt.   
 
 Met behulp van twee virtuele machines voor uw productie-implementatie van de DBMS-systemen binnen een Azure-Beschikbaarheidsset plus een afzonderlijke routering voor de SAP-toepassingslaag en het beheer en bewerkingen verkeer naar de twee DBMS-VM's, de ruwe diagram zou er als volgt uitzien:
 
@@ -334,7 +337,7 @@ Voor documentatie over bepaalde DBMS-systemen, moet u deze artikelen:
 - [DBMS-implementatie voor SAP-werkbelasting in virtuele Azure-machines voor Oracle](dbms_guide_oracle.md)
 - [DBMS-implementatie voor SAP-werkbelasting in virtuele Azure-machines voor IBM DB2](dbms_guide_ibm.md)
 - [DBMS-implementatie voor SAP-werkbelasting in virtuele Azure-machines voor SAP ASE](dbms_guide_sapase.md)
-- [SAP maxDB, Live Cache en implementatie van de Server voor webinhoud op Azure](dbms_guide_maxdb.md)
+- [SAP maxDB, Cache voor Live en implementatie van de Server voor webinhoud op Azure](dbms_guide_maxdb.md)
 - [Bedieningsgids voor SAP HANA op Azure](hana-vm-operations.md)
 - [SAP HANA met hoge beschikbaarheid voor Azure virtual machines](sap-hana-availability-overview.md)
 - [Back-uphandleiding voor SAP HANA op Azure Virtual Machines](sap-hana-backup-guide.md)

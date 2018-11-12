@@ -12,12 +12,12 @@ ms.author: jodebrui
 ms.reviewer: MightyPen
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 8c683e86cd78f4c4ebe7a537c469c875b8ca07fe
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 4455e0c0f31c9026526820b50214efb83720da0d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47159836"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228042"
 ---
 # <a name="use-in-memory-oltp-to-improve-your-application-performance-in-sql-database"></a>Gebruik In-Memory OLTP voor het verbeteren van de prestaties van uw toepassing in SQL-Database
 [In-Memory OLTP](sql-database-in-memory.md) kan worden gebruikt voor het verbeteren van de prestaties van transactieverwerking en gegevensopname scenario's voor tijdelijke gegevens, in [Premium en bedrijfskritiek laag](sql-database-service-tiers-vcore.md) databases zonder dat de prijscategorie toeneemt. 
@@ -47,7 +47,7 @@ In SSMS, om het rapport te genereren:
 * In de **Objectverkenner**, met de rechtermuisknop op het databaseknooppunt van uw.
 * Klik op **rapporten** > **standaardrapporten** > **transactieoverzicht prestaties Analysis**.
 
-Zie voor meer informatie, [vaststellen als een tabel of een opgeslagen Procedure moet worden overgezet naar de In-Memory OLTP](http://msdn.microsoft.com/library/dn205133.aspx).
+Zie voor meer informatie, [vaststellen als een tabel of een opgeslagen Procedure moet worden overgezet naar de In-Memory OLTP](https://msdn.microsoft.com/library/dn205133.aspx).
 
 ## <a name="step-3-create-a-comparable-test-database"></a>Stap 3: Een vergelijkbare test maken
 Stel dat het rapport geeft aan dat de database bevat een tabel die voordeel hebben veel van wordt geconverteerd naar een tabel geoptimaliseerd voor geheugen. Het is raadzaam dat u eerst testen om te bevestigen dat de vermelding door te testen.
@@ -80,9 +80,9 @@ Gebruik deze migratieoptie:
    * De **tabel geheugen optimaliseren Advisor** wizard wordt weergegeven.
 3. In de wizard, klikt u op **validatie van de migratie** (of de **volgende** knop) om te zien als de tabel heeft een niet-ondersteunde functies die niet worden ondersteund in tabellen geoptimaliseerd voor geheugen. Zie voor meer informatie:
    
-   * De *controlelijst voor het optimaliseren van geheugen* in [geheugen optimalisatie Advisor](http://msdn.microsoft.com/library/dn284308.aspx).
-   * [Transact-SQL-Constructs niet wordt ondersteund door de In-Memory OLTP](http://msdn.microsoft.com/library/dn246937.aspx).
-   * [Migreren naar de In-Memory OLTP](http://msdn.microsoft.com/library/dn247639.aspx).
+   * De *controlelijst voor het optimaliseren van geheugen* in [geheugen optimalisatie Advisor](https://msdn.microsoft.com/library/dn284308.aspx).
+   * [Transact-SQL-Constructs niet wordt ondersteund door de In-Memory OLTP](https://msdn.microsoft.com/library/dn246937.aspx).
+   * [Migreren naar de In-Memory OLTP](https://msdn.microsoft.com/library/dn247639.aspx).
 4. Als de tabel geen niet-ondersteunde functies heeft, kan de advisor het werkelijke schema en de migratie van gegevens voor u uitvoeren.
 
 #### <a name="manual-t-sql"></a>Handmatige T-SQL
@@ -114,7 +114,7 @@ Een systeemeigen, gecompileerde, opgeslagen procedure moet op de component T-SQL
 * WITH NATIVE_COMPILATION
 * SCHEMABINDING: wat betekent dat tabellen waarvoor de opgeslagen procedure kan niet de kolomdefinities gewijzigd op een manier die van invloed zijn op de opgeslagen procedure, tenzij u de opgeslagen procedure verwijderen.
 
-Een systeemeigen module moet gebruiken een grote [ATOMIC-blokken](http://msdn.microsoft.com/library/dn452281.aspx) voor het transactiebeheer van de. Er is geen rol voor een expliciete BEGIN TRANSACTION of ROLLBACK TRANSACTION. Als uw code wordt gedetecteerd door een schending van een bedrijfsregel, kan het afsluiten atomic-blok met een [THROW](http://msdn.microsoft.com/library/ee677615.aspx) instructie.
+Een systeemeigen module moet gebruiken een grote [ATOMIC-blokken](https://msdn.microsoft.com/library/dn452281.aspx) voor het transactiebeheer van de. Er is geen rol voor een expliciete BEGIN TRANSACTION of ROLLBACK TRANSACTION. Als uw code wordt gedetecteerd door een schending van een bedrijfsregel, kan het afsluiten atomic-blok met een [THROW](https://msdn.microsoft.com/library/ee677615.aspx) instructie.
 
 ### <a name="typical-create-procedure-for-natively-compiled"></a>Typische CREATE PROCEDURE voor systeemeigen, gecompileerde
 Normaal gesproken is de T-SQL te maken van een systeemeigen, gecompileerde, opgeslagen procedure vergelijkbaar met de volgende sjabloon:
@@ -145,7 +145,7 @@ De migratiestappen zijn:
 2. Herschrijf de header zodat deze overeenkomt met de vorige sjabloon.
 3. Nagaan of de opgeslagen procedure T-SQL-code maakt gebruik van alle functies die worden niet ondersteund voor systeemeigen, gecompileerde, opgeslagen procedures. Implementeer oplossingen indien nodig.
    
-   * Zie voor meer informatie [migratieproblemen voor systeemeigen, gecompileerde, opgeslagen Procedures](http://msdn.microsoft.com/library/dn296678.aspx).
+   * Zie voor meer informatie [migratieproblemen voor systeemeigen, gecompileerde, opgeslagen Procedures](https://msdn.microsoft.com/library/dn296678.aspx).
 4. Wijzig de naam van de oude opgeslagen procedure met behulp van SP_RENAME. Of u gewoon.
 5. Voer uw bewerkte CREATE PROCEDURE T-SQL-script uit.
 
@@ -168,7 +168,7 @@ Houd rekening met de effecten van de prestaties van uw implementaties In het geh
 * [Bewaking van Azure SQL-database met behulp van de dynamische beheerweergave](sql-database-monitoring-with-dmvs.md)
 
 ## <a name="related-links"></a>Verwante koppelingen
-* [In-Memory OLTP (optimalisatie In het geheugen)](http://msdn.microsoft.com/library/dn133186.aspx)
-* [Inleiding tot systeemeigen, gecompileerde, opgeslagen Procedures](http://msdn.microsoft.com/library/dn133184.aspx)
-* [Geheugen optimalisatie Advisor](http://msdn.microsoft.com/library/dn284308.aspx)
+* [In-Memory OLTP (optimalisatie In het geheugen)](https://msdn.microsoft.com/library/dn133186.aspx)
+* [Inleiding tot systeemeigen, gecompileerde, opgeslagen Procedures](https://msdn.microsoft.com/library/dn133184.aspx)
+* [Geheugen optimalisatie Advisor](https://msdn.microsoft.com/library/dn284308.aspx)
 

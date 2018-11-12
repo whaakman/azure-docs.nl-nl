@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/03/2018
 ms.author: v-daljep
 ms.component: ''
-ms.openlocfilehash: f43db05cac03d090116d227536e343c4a7bb0df4
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: b20a142007b3422d071de47410f4c9cdd1ff62a7
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50958865"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51006733"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Azure SQL Database controleren met Azure SQL Analytics (Preview)
 
@@ -192,7 +192,7 @@ Geautomatiseerde waarschuwingen in de oplossing is gebaseerd op een Log Analytic
 
 ### <a name="creating-alerts-for-azure-sql-database"></a>Het maken van waarschuwingen voor Azure SQL Database
 
-U kunt eenvoudig [waarschuwingen maken](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) met de gegevens die afkomstig zijn van Azure SQL Database-resources. Hier volgen enkele nuttige [zoeken in logboeken](log-analytics-log-search.md) query's die u met een waarschuwing gebruiken kunt:
+U kunt eenvoudig [waarschuwingen maken](../monitoring-and-diagnostics/alert-metric.md) met de gegevens die afkomstig zijn van Azure SQL Database-resources. Hier volgen enkele nuttige [zoeken in logboeken](log-analytics-queries.md) query's die u met een waarschuwing gebruiken kunt:
 
 *Hoge CPU-capaciteit op Azure SQL Database*
 
@@ -289,6 +289,6 @@ De oplossing is gratis te gebruiken, gebruik van diagnostische gegevens telemetr
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Gebruik [zoekopdrachten](log-analytics-log-search.md) in Log Analytics om gedetailleerde Azure SQL-gegevens weer te geven.
+- Gebruik [zoekopdrachten](log-analytics-queries.md) in Log Analytics om gedetailleerde Azure SQL-gegevens weer te geven.
 - [Maak uw eigen dashboards](log-analytics-dashboards.md) met Azure SQL-gegevens.
 - [Waarschuwingen maken](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) wanneer specifieke Azure SQL-gebeurtenissen plaatsvinden.

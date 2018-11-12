@@ -1,6 +1,6 @@
 ---
-title: CONCEPT, zoals Web-Services in Azure Machine Learning-service in 59 tekens of minder. De naam van Azure Machine Learning bevatten. Titel hier testen https://moz.com/learn/seo/title-tag
-description: Deze tekenreeks beschrijving van het artikel in 115 tot 145 tekens. Het soort werkwoorden Zoekmachineoptimalisatie hier gebruiken. zoals - informatie over hoe u doet dit en die met behulp van de klant woorden. Deze informatie wordt weergegeven op de zoekopdracht pagina inline met de artikel-en datumstempel. Als uw para intro uw artikel opzet beschrijft, kunt u deze hier bewerkt voor lengte.
+title: CONCEPT zoals webservices in Azure Machine Learning-service in 59 tekens of minder. De naam Azure Machine Learning bevatten. Hier titel testen https://moz.com/learn/seo/title-tag
+description: Deze tekenreeks beschrijving van het artikel in 115 tot 145 tekens. Zoekmachineoptimalisatie actieve werkwoorden soort hier gebruiken. zoals - weten hoe u doet dit en die met behulp van de klant woorden. Deze informatie wordt weergegeven in de inline van de pagina zoeken met de datumstempel artikel. Als uw para inleiding de bedoeling van uw artikel beschrijft, kunt u deze hier bewerkt voor lengte.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -10,44 +10,44 @@ ms.author: your-msft-alias
 author: your-github-account-name
 ms.date: 04/10/2018
 ms.openlocfilehash: 759e76a75fffeb31d38439f59b219ad48ebf6277
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31793124"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51009253"
 ---
-# <a name="this-is-the-h1-and-the-article-title-that-shows-on-the-web"></a>Dit is de H1 en de titel van het artikel die wordt weergegeven op het web
+# <a name="this-is-the-h1-and-the-article-title-that-shows-on-the-web"></a>Dit is de H1 en de titel van het artikel waarin wordt weergegeven op het web
 
 ## <a name="section-here-h2"></a>Sectie hier H2 
-Hier lid. 
-**Deze zin vet is**
-*deze zin cursief is*
+Hier alinea. 
+**Deze zin is vet**
+*deze zin is cursief*
 
 Dit is een [hyperlink naar een artikel](template-concepts.md)
 
 Dit is een afbeelding:
 
-![Dit is een beschrijving van de afbeelding](media/overview-what-is-azure-ml/aml-concepts.png)
+![Dit is een beschrijving van afbeelding](media/overview-what-is-azure-ml/aml-concepts.png)
 
 ## <a name="section-here-h2"></a>Sectie hier H2
 Deze tabel bevat de koppen:
 
-|Column1  |Kolom2  |Column3  |
+|Kolom1  |Kolom2  |Kolom3  |
 |---------|---------|---------|
-|Row1|Waarde 1|Waarde A|
-|Row2|De waarde 2|Waarde B|
-|Row3|De waarde 3|Waarde C|
+|Row1|Waarde 1|Waarde van A|
+|Row2|Waarde 2|Waarde van B|
+|Row3|Waarde 3|Waarde C|
 
 ## <a name="section-here-h2"></a>Sectie hier H2
 Dit is een genummerde lijst:
 
-1. Eerste-item
+1. Eerste item
 
-   Dit lid wordt ingesprongen dezelfde afstand als het eerste item genummerde worden weergegeven.
+   Dit lid is dezelfde afstand als het eerste item in de genummerde worden ingesprongen.
 
 2. Tweede item
    - Deze zin is een opsommingsteken
-   - Deze zin is een nieuw opsommingsteken
+   - Deze zin is een ander opsommingsteken
 
 3. Derde item
 
@@ -55,7 +55,7 @@ Dit is een genummerde lijst:
 
 5. Vijfde item
 
-## <a name="this-list-is-bulleted-list"></a>Deze lijst bevat de lijst met opsommingstekens:
+## <a name="this-list-is-bulleted-list"></a>Deze lijst is de lijst met opsommingstekens:
 - Item 1
 - Item 2
 - Item 3

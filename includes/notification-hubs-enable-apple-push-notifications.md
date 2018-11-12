@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/28/2018
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: bf73f64cc1e1789b770d7fae5f62e0ec27425263
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: 8c8f3cd67186450fdcf65c177ea0353d297a3b01
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42915455"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51264251"
 ---
 ## <a name="generate-the-certificate-signing-request-file"></a>Het bestand met de aanvraag voor certificaatondertekening genereren
 
@@ -41,7 +41,7 @@ Vervolgens gaat u uw app registreren bij Apple, pushmeldingen inschakelen en het
 
 U moet u app bij Apple registreren en u voor pushmeldingen registeren om pushmeldingen te kunnen verzenden naar een iOS-app.  
 
-1. Als u uw app nog niet hebt geregistreerd, gaat u naar de [iOS-inrichtingsportal](http://go.microsoft.com/fwlink/p/?LinkId=272456), meldt u zich aan bij het Apple Developer Center met uw Apple ID, klikt u op **Id's**, klikt u vervolgens op **App-id's** en ten slotte op het **+**-teken om een nieuwe app te registreren.
+1. Als u uw app nog niet hebt geregistreerd, gaat u naar de [iOS-inrichtingsportal](https://go.microsoft.com/fwlink/p/?LinkId=272456), meldt u zich aan bij het Apple Developer Center met uw Apple ID, klikt u op **Id's**, klikt u vervolgens op **App-id's** en ten slotte op het **+**-teken om een nieuwe app te registreren.
 
     ![App-id-pagina van iOS-inrichtingsportal](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-ios-appids.png)
 
@@ -111,7 +111,7 @@ U moet u app bij Apple registreren en u voor pushmeldingen registeren om pushmel
 
 ## <a name="create-a-provisioning-profile-for-the-app"></a>Een inrichtingsprofiel voor de app maken
 
-1. Terug in de [iOS-inrichtingsportal](http://go.microsoft.com/fwlink/p/?LinkId=272456) selecteert u **Inrichtingsprofielen**, selecteert u **Alle** en klikt u vervolgens op de knop met het **+**-teken (plus) om een nieuw profiel te maken. U ziet de wizard **iOS-inrichtingsprofielen toevoegen**:
+1. Terug in de [iOS-inrichtingsportal](https://go.microsoft.com/fwlink/p/?LinkId=272456) selecteert u **Inrichtingsprofielen**, selecteert u **Alle** en klikt u vervolgens op de knop met het **+**-teken (plus) om een nieuw profiel te maken. U ziet de wizard **iOS-inrichtingsprofielen toevoegen**:
 
     ![Lijst met inrichtingsprofielen](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-new-provisioning-profile.png)
 

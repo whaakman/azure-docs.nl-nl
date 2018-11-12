@@ -9,15 +9,15 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: kgremban
-ms.openlocfilehash: a8160e677fa99d8cb691db39d7f29ba6eddbd261
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: be4d82577584e83e29f2511d51256fda0970e917
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47004676"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51263937"
 ---
 ## <a name="enabling-extended-offline-operation-preview"></a>Inschakelen van uitgebreide offline bewerking (Preview)
-Beginnen met de [v1.0.2 release](https://aka.ms/edge102) van de Edge-Runtime, de Edge-apparaat en downstream-verbinding te maken met deze apparaten kunnen worden geconfigureerd voor uitgebreide offline bewerking. 
+Met de [gebruikgemaakt van v1.0.4 release](https://github.com/Azure/azure-iotedge/releases/tag/1.0.4) van de Edge-Runtime, de Edge-apparaat en downstream-verbinding te maken met deze apparaten kunnen worden geconfigureerd voor uitgebreide offline bewerking. 
 
 Met deze mogelijkheid kunnen lokale modules of downstream-apparaten opnieuw worden geverifieerd met het Edge-apparaat, indien nodig en communiceren met elkaar met behulp van berichten en -methoden, zelfs wanneer de IoT-Hub is verbroken. Raadpleeg deze [blogbericht](https://aka.ms/iot-edge-offline) en [concept artikel](../articles/iot-edge/offline-capabilities.md) voor meer details en het bereik van deze mogelijkheid.
 
@@ -30,9 +30,5 @@ Voor het inschakelen van uitgebreide offline in een gatewayscenario voor tot sta
 1. Selecteer de apparaten die onderliggende en gebruikt u de pijl-rechts om te kiezen die om toe te voegen als onderliggende items uit de lijst met apparaten.
 
 1. Klik op **OK** om te bevestigen.
-
-1. In de **Modules instellen** scherm van de details van het Edge-apparaat, klikt u op **geavanceerde instellingen voor Edge-Runtime configureren**, en klikt u onder **Edge Hub** omgevingsvariabelen een vermelding toevoegen **UpstreamProtocol** met waarde **MQTT**. De dezelfde omgevingsvariabele toevoegen en de waarde voor de **Edge Agent** ook. 
-
-1. Klik op **opslaan** en zorg ervoor dat u **indienen** de wijzigingen na het klikken op **volgende** twee keer.
 
 Het Edge-apparaat en de onderliggende apparaten zijn nu beschikbaar voor uitgebreide offline bewerking.  

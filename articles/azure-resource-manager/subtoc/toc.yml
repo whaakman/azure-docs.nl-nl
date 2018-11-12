@@ -1,9 +1,19 @@
 items:
 - name: AKS
   items:
-  - name: Beheerde clusters
-    href: /azure/templates/Microsoft.ContainerService/managedClusters
+  - name: Alle versies
+    href: /azure/templates/Microsoft.ContainerService/aks-allversions
     maintainContext: true
+  - name: 31-03-2018
+    items:
+    - name: Beheerde clusters
+      href: /azure/templates/Microsoft.ContainerService/2018-03-31/managedClusters
+      maintainContext: true
+  - name: 31-08-2017
+    items:
+    - name: Beheerde clusters
+      href: /azure/templates/Microsoft.ContainerService/2017-08-31/managedClusters
+      maintainContext: true
 - name: Analysis Services
   items:
   - name: Servers
@@ -356,9 +366,29 @@ items:
     maintainContext: true
 - name: Container Service
   items:
-  - name: Containerservices
-    href: /azure/templates/Microsoft.ContainerService/containerServices
+  - name: Alle versies
+    href: /azure/templates/Microsoft.ContainerService/containerservices-allversions
     maintainContext: true
+  - name: 01-07-2017
+    items:
+    - name: Containerservices
+      href: /azure/templates/Microsoft.ContainerService/2017-07-01/containerServices
+      maintainContext: true
+  - name: 31-01-2017
+    items:
+    - name: Containerservices
+      href: /azure/templates/Microsoft.ContainerService/2017-01-31/containerServices
+      maintainContext: true
+  - name: 30-09-2016
+    items:
+    - name: Containerservices
+      href: /azure/templates/Microsoft.ContainerService/2016-09-30/containerServices
+      maintainContext: true
+  - name: 30-03-2016
+    items:
+    - name: Containerservices
+      href: /azure/templates/Microsoft.ContainerService/2016-03-30/containerServices
+      maintainContext: true
 - name: Cosmos DB
   items:
   - name: Database-accounts
@@ -1192,9 +1222,6 @@ items:
     - name: Adviseurs
       href: /azure/templates/Microsoft.Sql/servers/advisors
       maintainContext: true
-    - name: Beleidsregels controleren
-      href: /azure/templates/Microsoft.Sql/servers/auditingPolicies
-      maintainContext: true
     - name: Retentiekluizen voor back-ups voor de lange termijn
       href: /azure/templates/Microsoft.Sql/servers/backupLongTermRetentionVaults
       maintainContext: true
@@ -1209,9 +1236,6 @@ items:
       items:
       - name: Adviseurs
         href: /azure/templates/Microsoft.Sql/servers/databases/advisors
-        maintainContext: true
-      - name: Beleidsregels controleren
-        href: /azure/templates/Microsoft.Sql/servers/databases/auditingPolicies
         maintainContext: true
       - name: Controle-instellingen
         href: /azure/templates/Microsoft.Sql/servers/databases/auditingSettings
@@ -1466,9 +1490,9 @@ items:
         maintainContext: true
       maintainContext: true
     maintainContext: true
-ms.openlocfilehash: 773ae8c38cb98e9c8daff6ef2819d4a3dc687739
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 9ac010b00b474ad71c1bf4f6fcb394ade0480e48
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353948"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515689"

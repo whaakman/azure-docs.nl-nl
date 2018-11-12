@@ -6,18 +6,20 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 10/02/2018
+ms.date: 11/07/2018
 ms.author: tomfitz
-ms.openlocfilehash: f79fa096484edc34294ea0a69584e12788dba647
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: ce9df1d45de82c759883dc90d50c28551bf62cdf
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48043389"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51287301"
 ---
 # <a name="map-custom-fields-to-event-grid-schema"></a>Aangepaste velden toewijzen aan Event Grid-schema
 
 Als uw gebeurtenisgegevens komt niet overeen met de verwachte [Event Grid schema](event-schema.md), u kunt nog steeds Event Grid op route-gebeurtenis voor abonnees. In dit artikel wordt beschreven hoe u uw schema toegewezen aan het Event Grid-schema.
+
+## <a name="install-preview-feature"></a>Preview-functie installeren
 
 [!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
 
@@ -39,18 +41,18 @@ Hoewel deze indeling komt niet overeen met de vereiste schema, wordt er Event Gr
 
 ## <a name="create-custom-topic-with-mapped-fields"></a>Aangepast onderwerp maken met toegewezen velden
 
-Bij het maken van een aangepast onderwerp, Geef op hoe velden van uw oorspronkelijke gebeurtenis naar het event grid-schema toe te wijzen. Er zijn drie eigenschappen die u gebruiken om aan te passen van de toewijzing:
+Bij het maken van een aangepast onderwerp, Geef op hoe velden van uw oorspronkelijke gebeurtenis naar het event grid-schema toe te wijzen. Er zijn drie waarden die u gebruiken om aan te passen van de toewijzing:
 
-* De `--input-schema` parameter geeft u het type van het schema. De beschikbare opties zijn *cloudeventv01schema*, *customeventschema*, en *eventgridschema*. De standaardwaarde is eventgridschema. Gebruik customeventschema bij het maken van aangepaste toewijzing tussen het schema en het event grid-schema. Wanneer gebeurtenissen zich in een CloudEvents-schema, gebruikt u cloudeventv01schema.
+* De **invoerschema** waarde geeft het type van het schema. De beschikbare opties zijn een CloudEvents-schema, aangepaste gebeurtenisschema of Event Grid-schema. De standaardwaarde is Event Grid-schema. Bij het maken van aangepaste toewijzing tussen het schema en het event grid-schema, moet u aangepaste gebeurtenisschema gebruiken. Wanneer gebeurtenissen zich in een CloudEvents-schema, gebruikt u een Cloudevents-schema.
 
-* De `--input-mapping-default-values` parameter bepaalt de standaardwaarden voor de velden in het schema voor Event Grid. U kunt standaardwaarden instellen voor `subject`, `eventtype`, en `dataversion`. Meestal gebruikt u deze parameter wanneer uw aangepaste schema bevat geen een veld dat overeenkomt met een van deze drie velden. U kunt bijvoorbeeld opgeven die gegevensversie is altijd ingesteld op **1.0**.
+* De **standaardwaarden toewijzen** -eigenschap geeft de standaardwaarden voor de velden in het schema voor Event Grid. U kunt standaardwaarden instellen voor `subject`, `eventtype`, en `dataversion`. Meestal gebruikt u deze parameter wanneer uw aangepaste schema bevat geen een veld dat overeenkomt met een van deze drie velden. U kunt bijvoorbeeld opgeven die gegevensversie is altijd ingesteld op **1.0**.
 
-* De `--input-mapping-fields` parameter toegewezen velden uit uw schema naar het event grid-schema. Geeft u waarden in een door spaties gescheiden sleutel/waarde-paren. Gebruik de naam van het event grid-veld voor de naam van de sleutel. Gebruik de naam van het veld voor de waarde. U kunt de namen van de sleutels voor `id`, `topic`, `eventtime`, `subject`, `eventtype`, en `dataversion`.
+* De **velden toewijzen** waardetoewijzingen velden uit uw schema naar het event grid-schema. Geeft u waarden in een door spaties gescheiden sleutel/waarde-paren. Gebruik de naam van het event grid-veld voor de naam van de sleutel. Gebruik de naam van het veld voor de waarde. U kunt de namen van de sleutels voor `id`, `topic`, `eventtime`, `subject`, `eventtype`, en `dataversion`.
 
-Het volgende voorbeeld maakt u een aangepast onderwerp met een aantal toegewezen en standaardvelden:
+Als u wilt een aangepast onderwerp maken met Azure CLI, gebruikt u:
 
 ```azurecli-interactive
-# if you have not already installed the extension, do it now.
+# If you have not already installed the extension, do it now.
 # This extension is required for preview features.
 az extension add --name eventgrid
 
@@ -63,39 +65,77 @@ az eventgrid topic create \
   --input-mapping-default-values subject=DefaultSubject dataVersion=1.0
 ```
 
+Gebruik voor PowerShell:
+
+```azurepowershell-interactive
+# If you have not already installed the module, do it now.
+# This module is required for preview features.
+Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery
+
+New-AzureRmEventGridTopic `
+  -ResourceGroupName myResourceGroup `
+  -Name demotopic `
+  -Location eastus2 `
+  -InputSchema CustomEventSchema `
+  -InputMappingField @{eventType="myEventTypeField"} `
+  -InputMappingDefaultValue @{subject="DefaultSubject"; dataVersion="1.0" }
+```
+
 ## <a name="subscribe-to-event-grid-topic"></a>Abonneren op event grid-onderwerp
 
-Wanneer u zich abonneert op het aangepaste onderwerp, geeft u het schema dat u gebruiken wilt voor het ontvangen van de gebeurtenissen. U gebruikt de `--event-delivery-schema` parameter instelt op *cloudeventv01schema*, *eventgridschema*, of *inputeventschema*. De standaardwaarde is eventgridschema.
+Wanneer u zich abonneert op het aangepaste onderwerp, geeft u het schema dat u gebruiken wilt voor het ontvangen van de gebeurtenissen. U opgeven dat het een CloudEvents-schema, aangepaste gebeurtenisschema of Event Grid-schema. De standaardwaarde is Event Grid-schema.
 
-De voorbeelden in deze sectie gebruiken een Queue storage voor de gebeurtenis-handler. Zie voor meer informatie, [aangepaste gebeurtenissen routeren naar Azure Queue storage](custom-event-to-queue-storage.md).
-
-Het volgende voorbeeld zich abonneert op een event grid-onderwerp en de event grid-schema wordt gebruikt:
+Het volgende voorbeeld zich abonneert op een event grid-onderwerp en de Event Grid-schema wordt gebruikt. Gebruik voor Azure CLI:
 
 ```azurecli-interactive
+topicid=$(az eventgrid topic show --name demoTopic -g myResourceGroup --query id --output tsv)
+
 az eventgrid event-subscription create \
-  --topic-name demotopic \
-  -g myResourceGroup \
+  --source-resource-id $topicid \
   --name eventsub1 \
   --event-delivery-schema eventgridschema \
-  --endpoint-type storagequeue \
-  --endpoint <storage-queue-url>
+  --endpoint <endpoint_URL>
 ```
 
 Het volgende voorbeeld wordt de invoer-schema van de gebeurtenis:
 
 ```azurecli-interactive
 az eventgrid event-subscription create \
-  --topic-name demotopic \
-  -g myResourceGroup \
+  --source-resource-id $topicid \
   --name eventsub2 \
   --event-delivery-schema inputeventschema \
-  --endpoint-type storagequeue \
-  --endpoint <storage-queue-url>
+  --endpoint <endpoint_URL>
+```
+
+Het volgende voorbeeld zich abonneert op een event grid-onderwerp en de Event Grid-schema wordt gebruikt. Gebruik voor PowerShell:
+
+```azurepowershell-interactive
+$topicid = (Get-AzureRmEventGridTopic -ResourceGroupName myResourceGroup -Name demoTopic).Id
+
+New-AzureRmEventGridSubscription `
+  -ResourceId $topicid `
+  -EventSubscriptionName eventsub1 `
+  -EndpointType webhook `
+  -Endpoint <endpoint-url> `
+  -DeliverySchema EventGridSchema
+```
+
+Het volgende voorbeeld wordt de invoer-schema van de gebeurtenis:
+
+```azurepowershell-interactive
+New-AzureRmEventGridSubscription `
+  -ResourceId $topicid `
+  -EventSubscriptionName eventsub2 `
+  -EndpointType webhook `
+  -Endpoint <endpoint-url> `
+  -DeliverySchema CustomInputSchema
 ```
 
 ## <a name="publish-event-to-topic"></a>Gebeurtenis publiceren naar onderwerp
 
 U kunt nu een gebeurtenis verzenden naar het aangepaste onderwerp en het resultaat van de toewijzing te bekijken. Het volgende script voor het plaatsen van een gebeurtenis in de [voorbeeldschema](#original-event-schema):
+
+Gebruik voor Azure CLI:
 
 ```azurecli-interactive
 endpoint=$(az eventgrid topic show --name demotopic -g myResourceGroup --query "endpoint" --output tsv)
@@ -106,23 +146,43 @@ event='[ { "myEventTypeField":"Created", "resource":"Users/example/Messages/1000
 curl -X POST -H "aeg-sas-key: $key" -d "$event" $endpoint
 ```
 
-Bekijk nu uw Queue storage. De twee abonnementen gebeurtenissen in verschillende schema's geleverd.
+Gebruik voor PowerShell:
+
+```azurepowershell-interactive
+$endpoint = (Get-AzureRmEventGridTopic -ResourceGroupName myResourceGroup -Name demotopic).Endpoint
+$keys = Get-AzureRmEventGridTopicKey -ResourceGroupName myResourceGroup -Name demotopic
+
+$htbody = @{
+    myEventTypeField="Created"
+    resource="Users/example/Messages/1000"
+    resourceData= @{
+        someDataField1="SomeDataFieldValue"
+    }
+}
+
+$body = "["+(ConvertTo-Json $htbody)+"]"
+Invoke-WebRequest -Uri $endpoint -Method POST -Body $body -Headers @{"aeg-sas-key" = $keys.Key1}
+```
+
+Bekijk nu uw WebHook-eindpunt. De twee abonnementen gebeurtenissen in verschillende schema's geleverd.
 
 Het eerste abonnement gebruikt gebeurtenisschema in het raster. De indeling van de geleverde gebeurtenis is:
 
 ```json
 {
-  "Id": "016b3d68-881f-4ea3-8a9c-ed9246582abe",
-  "EventTime": "2018-05-01T20:00:25.2606434Z",
-  "EventType": "Created",
-  "DataVersion": "1.0",
-  "MetadataVersion": "1",
-  "Topic": "/subscriptions/<subscription-id>/resourceGroups/myResourceGroup/providers/Microsoft.EventGrid/topics/demotopic",
-  "Subject": "DefaultSubject",
-  "Data": {
+  "id": "aa5b8e2a-1235-4032-be8f-5223395b9eae",
+  "eventTime": "2018-11-07T23:59:14.7997564Z",
+  "eventType": "Created",
+  "dataVersion": "1.0",
+  "metadataVersion": "1",
+  "topic": "/subscriptions/<subscription-id>/resourceGroups/myResourceGroup/providers/Microsoft.EventGrid/topics/demotopic",
+  "subject": "DefaultSubject",
+  "data": {
     "myEventTypeField": "Created",
     "resource": "Users/example/Messages/1000",
-    "resourceData": { "someDataField1": "SomeDataFieldValue" } 
+    "resourceData": {
+      "someDataField1": "SomeDataFieldValue"
+    }
   }
 }
 ```
@@ -135,7 +195,9 @@ Het tweede abonnement gebruikt de invoer-schema. De indeling van de geleverde ge
 {
   "myEventTypeField": "Created",
   "resource": "Users/example/Messages/1000",
-  "resourceData": { "someDataField1": "SomeDataFieldValue" }
+  "resourceData": {
+    "someDataField1": "SomeDataFieldValue"
+  }
 }
 ```
 

@@ -26,7 +26,7 @@
 
 Vanaf 1 April 2017 wordt wordt elke taakrecord in uw account die ouder is dan 90 dagen automatisch verwijderd, samen met de bijbehorende onderliggende Taakrecords, zelfs als het totale aantal records lager dan het maximale quotum is. Als u de gegevens van de taak wilt archiveren, kunt u de code gebruiken die [hier](../articles/media-services/previous/media-services-dotnet-manage-entities.md) wordt beschreven.
 
-<sup>3</sup> bij het maken van een aanvraag om taakentiteiten weer te entiteiten, maximaal 1000 taken per aanvraag wordt geretourneerd. Als u alle ingediende taken moet bijhouden, kunt u Populaire/Overslaan gebruiken zoals wordt beschreven in [Queryopties van het OData-systeem](http://msdn.microsoft.com/library/gg309461.aspx).
+<sup>3</sup> bij het maken van een aanvraag om taakentiteiten weer te entiteiten, maximaal 1000 taken per aanvraag wordt geretourneerd. Als u alle ingediende taken moet bijhouden, kunt u Populaire/Overslaan gebruiken zoals wordt beschreven in [Queryopties van het OData-systeem](https://msdn.microsoft.com/library/gg309461.aspx).
 
 <sup>4</sup> Locators zijn niet ontworpen om toegangsbeheer per gebruiker te regelen. Gebruik DRM-oplossingen (Digital Rights Management) als u afzonderlijke gebruikers verschillende toegangsrechten wilt geven. Zie [deze](../articles/media-services/previous/media-services-content-protection-overview.md) sectie voor meer informatie.
 

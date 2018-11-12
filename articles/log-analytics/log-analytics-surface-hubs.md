@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: b33cbce582fde24e4cad6f0c208de3796a04f116
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 5f07488e526a15fb067d6ea7a265d069fbe3aee3
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50963333"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51009552"
 ---
 # <a name="monitor-surface-hubs-with-log-analytics-to-track-their-health"></a>Surface Hubs met Log Analytics voor het bijhouden van hun status controleren
 
@@ -87,5 +87,5 @@ Bewaking van uw Surface Hubs is met behulp van Log Analytics vergelijkbaar met b
 U kunt maken [waarschuwingen](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) op basis van bestaande of aangepaste zoekopdrachten. Met behulp van de gegevens die Log Analytics uit uw Surface Hubs verzamelt, kunt u zoeken naar problemen en een waarschuwing voor de voorwaarden die u voor uw apparaten definiëren.
 
 ## <a name="next-steps"></a>Volgende stappen
-* Gebruik [zoekopdrachten in Logboeken in Log Analytics](log-analytics-log-search.md) om gedetailleerde Surface Hub-gegevens weer te geven.
+* Gebruik [zoekopdrachten in Logboeken in Log Analytics](log-analytics-queries.md) om gedetailleerde Surface Hub-gegevens weer te geven.
 * Maak [waarschuwingen](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) om u te waarschuwen wanneer er problemen met uw Surface Hubs optreden.

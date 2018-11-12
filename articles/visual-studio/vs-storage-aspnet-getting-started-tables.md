@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/21/2016
 ms.author: ghogen
-ms.openlocfilehash: c9d9cd9616b263ca002e6fe7ad6c875cce10289b
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 518e14b991aa110a6ed55f984a66cd386a618f0f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42057275"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228960"
 ---
 # <a name="get-started-with-azure-table-storage-and-visual-studio-connected-services-aspnet"></a>Aan de slag met Azure table storage en Visual Studio verbonden Services (ASP.NET)
 [!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
@@ -173,7 +173,7 @@ De volgende stappen laten zien hoe u een tabel maken:
   
     ![Tabel maken](./media/vs-storage-aspnet-getting-started-tables/create-table-results.png)
 
-    Zoals eerder vermeld de **CloudTable.CreateIfNotExists** methode retourneert **waar** alleen wanneer de tabel bestaat niet en is gemaakt. Dus als u de app uitvoert wanneer de tabel bestaat, retourneert de methode **false**. Als u wilt de app meerdere keren uitvoeren, moet u de tabel verwijderen voordat u de app nogmaals uit te voeren. Verwijderen van de tabel kan worden gedaan de **CloudTable.Delete** methode. U kunt ook verwijderen voor de tabel met de [Azure-portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) of de [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md).  
+    Zoals eerder vermeld de **CloudTable.CreateIfNotExists** methode retourneert **waar** alleen wanneer de tabel bestaat niet en is gemaakt. Dus als u de app uitvoert wanneer de tabel bestaat, retourneert de methode **false**. Als u wilt de app meerdere keren uitvoeren, moet u de tabel verwijderen voordat u de app nogmaals uit te voeren. Verwijderen van de tabel kan worden gedaan de **CloudTable.Delete** methode. U kunt ook verwijderen voor de tabel met de [Azure-portal](https://go.microsoft.com/fwlink/p/?LinkID=525040) of de [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md).  
 
 ## <a name="add-an-entity-to-a-table"></a>Een entiteit toevoegen aan een tabel
 

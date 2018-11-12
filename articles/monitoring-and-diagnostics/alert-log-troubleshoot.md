@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 0e1cb2cdd6270590def11479cc5859d996d84caa
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.openlocfilehash: 5572c80879584e7f6df650263ae455a134ee4088
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50749023"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283594"
 ---
 # <a name="troubleshooting-log-alerts-in-azure-monitor"></a>Waarschuwingen voor het oplossen van problemen in Azure Monitor  
 
@@ -79,10 +79,10 @@ Afhankelijk van hoe de waarschuwingsregel is geconfigureerd, kunnen er verkeerd 
 ### <a name="alert-query-output-misunderstood"></a>Waarschuwing query-uitvoer verkeerd begrepen
 Voor waarschuwingen voor wordt de logica voor waarschuwingen geboden door de gebruiker via de analytics-query. De opgegeven analytics-query kunt gebruiken voor verschillende Big Data en wiskundige functies te maken van specifieke constructies. De waarschuwingen-service wordt de klant opgegeven query uitvoeren met intervallen opgegeven met de gegevens voor een periode die zijn opgegeven. waarschuwingen van de service maakt subtiele wijzigingen in query opgegeven - op basis van het Waarschuwingstype gekozen en hetzelfde in de sectie 'Een Query om te worden uitgevoerd' in configureren signaal logische scherm worden gelogd zoals hieronder weergegeven: ![Query moet worden uitgevoerd](./media/monitor-alerts-unified/LogAlertPreview.png)
  
-Wat wordt weergegeven in **query moet worden uitgevoerd** sectie is welke logboek alert-service wordt uitgevoerd; gebruiker kan uitvoeren voor de opgegeven query, evenals de timespan via [analyseportal](../log-analytics/log-analytics-log-search-portals.md) of [Tekstanalyse-API](https://docs.microsoft.com/en-us/rest/api/loganalytics/) -Als ze weten voordat u het maken van waarschuwingen willen, welke uitvoer Waarschuwingsquery mogelijk.
+Wat wordt weergegeven in **query moet worden uitgevoerd** sectie is welke logboek alert-service wordt uitgevoerd; gebruiker kan uitvoeren voor de opgegeven query, evenals de timespan via [analyseportal](../log-analytics/log-analytics-log-search-portals.md) of [Tekstanalyse-API](https://docs.microsoft.com/rest/api/loganalytics/) -Als ze weten voordat u het maken van waarschuwingen willen, welke uitvoer Waarschuwingsquery mogelijk.
  
 ## <a name="next-steps"></a>Volgende stappen
 
 * Meer informatie over [waarschuwingen voor activiteitenlogboeken in Azure-waarschuwingen](monitor-alerts-unified-log.md)
 * Meer informatie over [Application Insights](../application-insights/app-insights-analytics.md)
-* Meer informatie over [Log Analytics](../log-analytics/log-analytics-overview.md). 
+* Meer informatie over [Log Analytics](../log-analytics/log-analytics-queries.md). 

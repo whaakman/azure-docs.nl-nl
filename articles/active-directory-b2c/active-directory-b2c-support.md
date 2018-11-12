@@ -10,23 +10,24 @@ ms.topic: conceptual
 ms.date: 12/06/2016
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 4ceef533145bea75247eb26998b998552293ef63
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 04eae00d40470d5f6c992d9a0c8c9b0b49d7495f
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37449951"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51007634"
 ---
 # <a name="azure-active-directory-b2c-file-support-requests"></a>Azure Active Directory B2C: Ondersteuningsaanvragen bestand
 U kunt ondersteuningsaanvragen indienen voor Azure Active Directory (Azure AD) B2C in Azure portal met behulp van de volgende stappen uit:
 
-1. [Volg deze stappen om te navigeren naar de blade B2C-functies in Azure portal](active-directory-b2c-app-registration.md#navigate-to-b2c-settings).
-2. Overschakelen van uw B2C-tenant naar een andere tenant met een Azure-abonnement dat is gekoppeld aan deze. Normaal gesproken de laatste is uw werknemers of de standaardtenant voor u gemaakt wanneer u zich hebt geregistreerd voor een Azure-abonnement. Zie voor meer informatie, [hoe een Azure-abonnement is gerelateerd aan Azure AD](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
+1. Overschakelen van uw B2C-tenant naar een andere tenant met een Azure-abonnement dat is gekoppeld aan deze. Normaal gesproken de laatste is uw werknemers of de standaardtenant voor u gemaakt wanneer u zich hebt geregistreerd voor een Azure-abonnement. Zie voor meer informatie, [hoe een Azure-abonnement is gerelateerd aan Azure AD](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
    
     ![Ondersteuning voor-Switch-tenants](./media/active-directory-b2c-support/support-switch-dir.png)
+
 3. Na het overschakelen van tenants, klikt u op **Help en ondersteuning**.
    
     ![Ondersteuning voor-Help en ondersteuning](./media/active-directory-b2c-support/support-support.png)
+    
 4. Klik op **nieuwe ondersteuningsaanvraag**.
    
     ![Ondersteuning voor-nieuwe](./media/active-directory-b2c-support/support-new.png)

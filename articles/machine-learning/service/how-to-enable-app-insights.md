@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: marthalc
 author: marthalc
 ms.date: 10/01/2018
-ms.openlocfilehash: fa425a5ecd8cf8f4c7b3516534b4c4f0f4257850
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 962090340cad6bcd95245cffe16c25f08a98226b
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50085339"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300758"
 ---
 # <a name="monitor-your-azure-machine-learning-models-in-production-with-application-insights"></a>Uw Azure Machine Learning-modellen in productie met Application Insights bewaken
 
@@ -109,8 +109,11 @@ Als u wilt uitschakelen Application Insights, gebruik de volgende code:
 ## <a name="evaluate-data"></a>Gegevens evalueren
 Van uw service-gegevens worden opgeslagen in uw Application Insights-account, in dezelfde resourcegroep bevinden als uw Azure Machine Learning-service.
 Om dit te bekijken:
-1. Ga naar de resourcegroep in de [Azure-portal](https://portal.azure.com) en blader naar uw Application Insights-resource. 
-2. De **overzicht** tabblad ziet u de standaardset van metrische gegevens voor uw service.
+1. Ga naar de service Machine Learning-werkruimte in de [Azure-portal](https://portal.azure.com) en klik op de koppeling van Application Insights.
+
+    [![AppInsightsLoc](media/how-to-enable-app-insights/AppInsightsLoc.png)](./media/how-to-enable-app-insights/AppInsightsLoc.png#lightbox)
+
+1. Selecteer de **overzicht** tabblad om te bekijken van een set van metrische gegevens voor uw service.
 
    [![Overzicht](media/how-to-enable-app-insights/overview.png)](./media/how-to-enable-app-insights/overview.png#lightbox)
 
@@ -130,3 +133,7 @@ De [00. aan Started/13.enable-app-insights-in-production-service.ipynb](https://
 
 ## <a name="next-steps"></a>Volgende stappen
 U kunt ook gegevens verzamelen over uw modellen in productie. Lees het artikel [verzamelen van gegevens voor modellen in productie](how-to-enable-data-collection.md). 
+
+
+## <a name="other-references"></a>Verwijzingen naar andere
+* [Azure Monitor voor containers](https://docs.microsoft.com/azure/monitoring/monitoring-container-insights-overview?toc=%2fazure%2fmonitoring%2ftoc.json)

@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: b83e1ef752fede446b41153e3d486a872c2707f3
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 9158e6bfe07fc5d06b0685d77eff26644b594a8b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50227230"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51263988"
 ---
 VM-extensies kunnen u helpen bij het volgende:
 
@@ -42,10 +42,10 @@ De VM-agent wordt in de volgende situaties ingeschakeld:
       $vm.VM.ProvisionGuestAgent = $TRUE
       Update-AzureVM –Name $name –VM $vm.VM –ServiceName $svc
 
-* Wanneer u een VM-installatiekopie maakt die een geïnstalleerde VM-agent bevat. Wanneer de installatiekopie met de VM-agent ils gemaakt, kunt u de installatiekopie naar Azure uploaden. Voor een virtuele Windows-machine downloadt u het bestand [Windows VM Agent .msi](http://go.microsoft.com/fwlink/?LinkID=394789) en installeert u de VM-agent. Voor een Linux-VM, kunt u de VM-Agent installeren vanuit de GitHub-opslagplaats op <https://github.com/Azure/WALinuxAgent>. Raadpleeg de [Gebruikershandleiding voor Azure VM-agents voor Linux](../articles/virtual-machines/extensions/agent-linux.md) voor meer informatie over het installeren van de VM-agent op Linux.
+* Wanneer u een VM-installatiekopie maakt die een geïnstalleerde VM-agent bevat. Wanneer de installatiekopie met de VM-agent ils gemaakt, kunt u de installatiekopie naar Azure uploaden. Voor een virtuele Windows-machine downloadt u het bestand [Windows VM Agent .msi](https://go.microsoft.com/fwlink/?LinkID=394789) en installeert u de VM-agent. Voor een Linux-VM, kunt u de VM-Agent installeren vanuit de GitHub-opslagplaats op <https://github.com/Azure/WALinuxAgent>. Raadpleeg de [Gebruikershandleiding voor Azure VM-agents voor Linux](../articles/virtual-machines/extensions/agent-linux.md) voor meer informatie over het installeren van de VM-agent op Linux.
 
 > [!NOTE]
-> In PaaS wordt de VM-agent **WindowsAzureGuestAgent** genoemd. Deze is altijd beschikbaar op web- en werkrol-VM's. (Zie [Azure Role Architecture](http://blogs.msdn.com/b/kwill/archive/2011/05/05/windows-azure-role-architecture.aspx) (Architectuur van Azure-rollen) voor meer informatie.) Met de VM-agent voor rol-VM's kunnen nu extensies aan de cloudservice-VM's worden toegevoegd op dezelfde manier als voor permanente virtuele machines. Het grootste verschil tussen VM-extensies op rol-VM's en permanente VM's is het moment waarop de VM-extensies worden toegevoegd. In het geval van rol-VM's worden de extensies eerst toegevoegd aan de cloudservice en vervolgens aan de implementaties binnen die cloudservice.
+> In PaaS wordt de VM-agent **WindowsAzureGuestAgent** genoemd. Deze is altijd beschikbaar op web- en werkrol-VM's. (Zie [Azure Role Architecture](https://blogs.msdn.com/b/kwill/archive/2011/05/05/windows-azure-role-architecture.aspx) (Architectuur van Azure-rollen) voor meer informatie.) Met de VM-agent voor rol-VM's kunnen nu extensies aan de cloudservice-VM's worden toegevoegd op dezelfde manier als voor permanente virtuele machines. Het grootste verschil tussen VM-extensies op rol-VM's en permanente VM's is het moment waarop de VM-extensies worden toegevoegd. In het geval van rol-VM's worden de extensies eerst toegevoegd aan de cloudservice en vervolgens aan de implementaties binnen die cloudservice.
 >
 > Gebruik de cmdlet [Get-AzureServiceAvailableExtension](https://msdn.microsoft.com/library/azure/dn722498.aspx) om alle beschikbare rol-VM-extensies weer te geven.
 >

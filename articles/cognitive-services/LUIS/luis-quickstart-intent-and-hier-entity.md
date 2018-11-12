@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: a469bc600715b2e276d6654596da50d75659aadb
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: 3903f247df0bc9dc4bc27d61b195492c585d7634
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48831021"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282268"
 ---
 # <a name="tutorial-5-extract-contextually-related-data"></a>Zelfstudie 5: contextgerelateerde gegevens herkennen
 In deze zelfstudie zoekt u gerelateerde gegevens op basis van context. Een bestemmings- en doellocatie voor de fysieke verhuizing tussen twee gebouwen zijn bijvoorbeeld aan elkaar gerelateerd. Voor het maken van een werkorder zijn mogelijk beide gegevenselementen vereist - deze zijn aan elkaar gerelateerd.  
@@ -57,7 +57,7 @@ Als u niet over de app Human Resources uit de vorige zelfstudie beschikt, voert 
 ## <a name="remove-prebuilt-number-entity-from-app"></a>Vooraf gedefinieerde cijferentiteit uit app verwijderen
 Om de volledige utterance te zien en de onderliggende entiteiten Hierarchical te kunnen markeren, moet u de vooraf gedefinieerde cijferentiteit tijdelijk verwijderen.
 
-1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Selecteer **Entities** in het menu aan de linkerkant.
 
@@ -83,7 +83,7 @@ Om de volledige utterance te zien en de onderliggende entiteiten Hierarchical te
 
     In de zelfstudie [Entiteitslijst](luis-quickstart-intent-and-list-entity.md) wordt een werknemer aangeduid met zijn of haar naam, e-mailadres, toestelnummer, mobiele-telefoonnummer of het Amerikaanse burgerservicenummer. Deze werknemernummers worden in de utterances gebruikt. In de voorgaande utterances worden andere manieren gebruikt om de locatie van herkomst en de bestemmingslocatie aan te duiden: vet gemarkeerd. Er zijn slechts een klein aantal utterances die opzettelijk bestemmingen bevatten. Dit helpt LUIS om te begrijpen hoe deze locaties in de utterance worden geplaatst als de locatie van herkomst niet wordt opgegeven.     
 
-    [!include[Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]  
+    [!INCLUDE[Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]  
 
 ## <a name="create-a-location-entity"></a>Een entiteit Location maken
 LUIS moet kunnen vaststellen wat een locatie is door de herkomst en bestemming in de utterances van labels te voorzien. Als u de utterance in de tokenweergave (onbewerkte weergave) wilt zien, selecteert u de wisselknop op de balk boven de utterances met het label **Entities View**. Door de wisselknop te selecteren, kunt u ervoor zorgen dat voor het besturingselement het label **Entities View** wordt weergegeven.
@@ -119,7 +119,7 @@ De vooraf gedefinieerde cijferentiteit opnieuw toevoegen aan de toepassing.
 
 1. Selecteer **Entities** in het navigatiemenu aan de linkerkant.
 
-2. Selecteer de knop **Manage prebuilt entities**.
+2. Selecteer de knop **Add prebuilt entity**.
 
 3. Selecteer het **cijfer** uit de lijst met vooraf gedefinieerde entiteiten en selecteer vervolgens **Done**.
 
@@ -248,6 +248,10 @@ De locaties in dit voorbeeld zoals `a-1234` volgen een specifieke indeling met �
 ## <a name="clean-up-resources"></a>Resources opschonen
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
+
+## <a name="hierarchical-entities-versus-roles"></a>Hiërarchische entiteiten versus rollen
+
+Zie [Rollen versus hiërarchische entiteiten](luis-concept-roles.md#roles-versus-hierarchical-entities) voor meer informatie.
 
 ## <a name="next-steps"></a>Volgende stappen
 In deze zelfstudie hebt u een nieuwe intentie gemaakt en voorbeelduitingen toegevoegd voor de contextueel geleerde gegevens van bestemmings- en doellocaties. Zodra de app is getraind en gepubliceerd, kan een clienttoepassing die informatie gebruiken om een verplaatsingsticket te maken met de relevante informatie.

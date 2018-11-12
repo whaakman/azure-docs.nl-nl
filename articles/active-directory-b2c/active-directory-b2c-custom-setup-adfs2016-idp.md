@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/05/2018
+ms.date: 11/07/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 1def5686933a971b1192ec58bc72d64cbc5e8931
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
-ms.translationtype: HT
+ms.openlocfilehash: 31ae13fb84453a7014b66499c983e1f52554775e
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51219321"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51279123"
 ---
 # <a name="add-adfs-as-a-saml-identity-provider-using-custom-policies-in-azure-active-directory-b2c"></a>AD FS toevoegen als een SAML-id-provider met behulp van aangepaste beleidsregels in Azure Active Directory B2C
 
@@ -26,11 +26,11 @@ Dit artikel leest u hoe u aanmelden voor een gebruikersaccount van de AD FS insc
 ## <a name="prerequisites"></a>Vereisten
 
 - Voer de stappen in [aan de slag met aangepaste beleidsregels in Azure Active Directory B2C](active-directory-b2c-get-started-custom.md).
-- Zorg ervoor dat u toegang hebt tot de certificaat-pfx-bestand met de persoonlijke sleutel die is uitgegeven door AD FS.
+- Zorg ervoor dat u toegang tot een certificaat-pfx-bestand met een persoonlijke sleutel hebt. U kunt uw eigen ondertekend certificaat genereren en uploaden naar Azure AD B2C. Azure AD B2C gebruikt dit certificaat voor het ondertekenen van de SAML-aanvraag verzonden naar de SAML-identiteitsprovider.
 
 ## <a name="create-a-policy-key"></a>De beleidssleutel van een maken
 
-U moet uw AD FS-certificaat wordt opgeslagen in uw Azure AD B2C-tenant.
+U moet uw certificaat wordt opgeslagen in uw Azure AD B2C-tenant.
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
 2. Zorg ervoor dat u de map met uw Azure AD B2C-tenant door te klikken op de **map- en abonnementsfilter** in het bovenste menu en de map waarin uw tenant te kiezen.
@@ -38,7 +38,7 @@ U moet uw AD FS-certificaat wordt opgeslagen in uw Azure AD B2C-tenant.
 4. Selecteer op de pagina overzicht **Identiteitsfunctie: PREVIEW**.
 5. Selecteer **Beleidssleutels** en selecteer vervolgens **toevoegen**.
 6. Voor **opties**, kiest u `Upload`.
-7. Voer een **naam** voor de beleidssleutel. Bijvoorbeeld `ADFSSamlCert`. Het voorvoegsel `B2C_1A_` wordt automatisch toegevoegd aan de naam van uw sleutel.
+7. Voer een **naam** voor de beleidssleutel. Bijvoorbeeld `SamlCert`. Het voorvoegsel `B2C_1A_` wordt automatisch toegevoegd aan de naam van uw sleutel.
 8. Blader naar en selecteer het PFX-certificaatbestand met de persoonlijke sleutel.
 9. Klik op **Create**.
 

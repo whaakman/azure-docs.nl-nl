@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: febe5c58857aa9cee6f6cfd5855919075d10d58a
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: fdac7d1fd7fbcea28d6ce8e614e4968f168566ba
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50958080"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51010584"
 ---
 # <a name="custom-fields-in-log-analytics"></a>Aangepaste velden in Log Analytics
 De **aangepaste velden** functie van Log Analytics kunt u bestaande records in Log Analytics uitbreiden door uw eigen doorzoekbare velden toe te voegen.  Aangepaste velden worden automatisch ingevuld op basis van gegevens die zijn geëxtraheerd uit andere eigenschappen in dezelfde record.
@@ -46,9 +46,9 @@ De volgende secties vindt u de procedure voor het maken van een aangepast veld. 
 > 
 
 ### <a name="step-1--identify-records-that-will-have-the-custom-field"></a>Stap 1: records waarvan u het aangepaste veld identificeren
-De eerste stap is het identificeren van de records die het aangepaste veld krijgt.  U begint met een [standard logboekzoekopdracht](log-analytics-log-search.md) en selecteer vervolgens een record om te fungeren als het model dat Log Analytics leert uit.  Wanneer u opgeeft dat u wilt ophalen van gegevens naar een aangepast veld, de **veld extractie Wizard** wordt geopend waarin u valideren en verfijnen van de criteria.
+De eerste stap is het identificeren van de records die het aangepaste veld krijgt.  U begint met een [standard logboekzoekopdracht](log-analytics-queries.md) en selecteer vervolgens een record om te fungeren als het model dat Log Analytics leert uit.  Wanneer u opgeeft dat u wilt ophalen van gegevens naar een aangepast veld, de **veld extractie Wizard** wordt geopend waarin u valideren en verfijnen van de criteria.
 
-1. Ga naar **zoeken in logboeken** en gebruik een [query voor het ophalen van de records](log-analytics-log-search.md) waarvoor het aangepaste veld.
+1. Ga naar **zoeken in logboeken** en gebruik een [query voor het ophalen van de records](log-analytics-queries.md) waarvoor het aangepaste veld.
 2. Selecteer een record die Log Analytics wordt gebruikt om te fungeren als een model voor het extraheren van gegevens om in te vullen van het aangepaste veld.  U kunt de gegevens die u wilt extraheren uit deze record wordt geïdentificeerd en Log Analytics gebruikt deze informatie om te bepalen van de logica voor het vullen van het aangepaste veld voor alle vergelijkbare records.
 3. Klik op de knop aan de linkerkant van een teksteigenschap van de record en selecteer **velden uit te pakken**.
 4. De **veld extractie Wizard wordt geopend**, en de geselecteerde record wordt weergegeven in de **Hoofdvoorbeeld** kolom.  Het aangepaste veld worden gedefinieerd voor de records met dezelfde waarden in de eigenschappen die zijn geselecteerd.  
@@ -140,6 +140,6 @@ We kunnen nu het aangepaste veld, zoals een andere record eigenschap gebruiken. 
 ![Groeperen op query](media/log-analytics-custom-fields/query-group.png)
 
 ## <a name="next-steps"></a>Volgende stappen
-* Meer informatie over [zoekopdrachten](log-analytics-log-search.md) query's met behulp van aangepaste velden voor criteria bouwen.
+* Meer informatie over [zoekopdrachten](log-analytics-queries.md) query's met behulp van aangepaste velden voor criteria bouwen.
 * Monitor [aangepaste logboekbestanden](log-analytics-data-sources-custom-logs.md) die u met behulp van aangepaste velden parseren.
 
