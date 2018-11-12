@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: cshoe
-ms.openlocfilehash: 3066da9a492fc12dd8b333a089b8aabbbb647414
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 3f7b216be79be1307a5668d6686fd73a27ae5574
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50421353"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51237856"
 ---
 # <a name="run-a-cassandra-cluster-on-linux-in-azure-with-nodejs"></a>Een Cassandra-cluster worden uitgevoerd op Linux in Azure met behulp van Node.js
 
@@ -49,7 +49,7 @@ Cassandra kan worden geïmplementeerd naar één Azure-regio of in meerdere regi
 ### <a name="single-region-deployment"></a>Implementatie in één regio 's
 Laten we beginnen met een implementatie met één regio en harvest de geleerde lessen bij het maken van een model voor meerdere regio's. Azure-virtuele netwerken wordt gebruikt voor het maken van geïsoleerde subnetten, zodat de netwerkvereisten beveiliging de hierboven genoemde kunnen worden voldaan.  Ubuntu 14.04 LTS en Cassandra 2.08 maakt gebruik van de procedure beschreven in de implementatie van één regio wordt gemaakt. Het proces kan echter eenvoudig worden vastgesteld met de andere varianten van Linux. Hier volgen enkele van de systematische kenmerken van de implementatie van één regio.  
 
-**Hoge beschikbaarheid:** de Cassandra-knooppunten die worden weergegeven in afbeelding 1 op twee beschikbaarheidssets worden geïmplementeerd, zodat de knooppunten worden verdeeld tussen meerdere domeinen met fouten voor hoge beschikbaarheid. Virtuele machines van aantekeningen voorzien met elke beschikbaarheidsset is toegewezen aan 2 foutdomeinen. Azure maakt gebruik van het concept van foutdomein voor het beheren van niet-geplande uitvaltijd (bijvoorbeeld hardware- of hardwarestoringen). Het concept van het upgradedomein (bijvoorbeeld een host of Gast-OS patches of upgrades worden uitgevoerd, upgrades van toepassingen) wordt gebruikt voor het beheer van geplande uitvaltijd. Raadpleeg [herstel na noodgevallen en hoge beschikbaarheid voor Azure-toepassingen](http://msdn.microsoft.com/library/dn251004.aspx) voor de rol van de fout- en upgradedomeinen in het bereiken van hoge beschikbaarheid.
+**Hoge beschikbaarheid:** de Cassandra-knooppunten die worden weergegeven in afbeelding 1 op twee beschikbaarheidssets worden geïmplementeerd, zodat de knooppunten worden verdeeld tussen meerdere domeinen met fouten voor hoge beschikbaarheid. Virtuele machines van aantekeningen voorzien met elke beschikbaarheidsset is toegewezen aan 2 foutdomeinen. Azure maakt gebruik van het concept van foutdomein voor het beheren van niet-geplande uitvaltijd (bijvoorbeeld hardware- of hardwarestoringen). Het concept van het upgradedomein (bijvoorbeeld een host of Gast-OS patches of upgrades worden uitgevoerd, upgrades van toepassingen) wordt gebruikt voor het beheer van geplande uitvaltijd. Raadpleeg [herstel na noodgevallen en hoge beschikbaarheid voor Azure-toepassingen](https://msdn.microsoft.com/library/dn251004.aspx) voor de rol van de fout- en upgradedomeinen in het bereiken van hoge beschikbaarheid.
 
 ![Implementatie in één regio 's](./media/cassandra-nodejs/cassandra-linux1.png)
 

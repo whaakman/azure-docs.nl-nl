@@ -14,12 +14,12 @@ ms.topic: overview
 ms.date: 07/07/2016
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 3b1fb14fbb21876d0b3f7d98327353d54bb1cfb2
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 56d5f3b480ddb000f9118fbcc36e39817cb0bce8
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42022904"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238502"
 ---
 # <a name="azure-app-service-virtual-machines-service-fabric-and-cloud-services-comparison"></a>Vergelijking van Azure App Service, Virtual Machines, Service Fabric en Cloud Services
 
@@ -47,7 +47,7 @@ In de volgende tabel worden de mogelijkheden van App Service, Cloud Services, Vi
 | Ondersteuning voor WebMatrix |X | |X | | |
 | Toegang tot services als Service Bus, Storage, SQL Database |X |X |X |X | |
 | Laag voor web of webservices hosten van een architectuur met meerdere lagen |X |X |X |X | |
-| Middelste laag hosten van een architectuur met meerdere lagen |X |X |X |X |App Service-web-apps kunnen eenvoudig de middelste laag van een REST API hosten en de functie [WebJobs](http://go.microsoft.com/fwlink/?linkid=390226) kan taken voor achtergrondverwerking hosten. U kunt WebJobs uitvoeren op een speciale website om onafhankelijke schaalbaarheid voor die laag mogelijk te maken. |
+| Middelste laag hosten van een architectuur met meerdere lagen |X |X |X |X |App Service-web-apps kunnen eenvoudig de middelste laag van een REST API hosten en de functie [WebJobs](https://go.microsoft.com/fwlink/?linkid=390226) kan taken voor achtergrondverwerking hosten. U kunt WebJobs uitvoeren op een speciale website om onafhankelijke schaalbaarheid voor die laag mogelijk te maken. |
 | Geïntegreerde ondersteuning voor MySQL-as-a-service |X |X | | | |
 | Ondersteuning voor ASP.NET, klassieke ASP, Node.js, PHP, Python |X |X |X |X |Service Fabric ondersteunt het maken van een web-front-end met behulp van [ASP.NET 5](../service-fabric/service-fabric-reliable-services-communication-aspnetcore.md) en u kunt elk type toepassing (Node.js, Java enz.) implementeren als een [toepassing die door een gast kan worden uitgevoerd](../service-fabric/service-fabric-guest-executables-introduction.md). |
 | Uitschalen naar meerdere exemplaren zonder opnieuw te hoeven implementeren |X |X |X |X |Virtual Machines kan uitschalen naar meerdere exemplaren, maar de services die daarop worden uitgevoerd, moeten zijn geschreven om hiermee om te kunnen gaan. U moet een load balancer configureren voor het routeren van aanvragen voor de machines en ervoor zorgen dat u meer dan één VM-exemplaar hebt in de [beschikbaarheidsset](../virtual-machines/windows/manage-availability.md). |

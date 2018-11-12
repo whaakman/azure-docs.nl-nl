@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/14/2018
 ms.author: spelluru
-ms.openlocfilehash: adc9d64c4756e055b3ff9b772feebd80902d2c9f
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: ef1b8b2dd96a89a553239168d412d84e63a29f2a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857870"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51254584"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>Service Bus-toegangsbeheer met handtekeningen voor gedeelde toegang
 
@@ -57,7 +57,7 @@ Wanneer u een Service Bus-naamruimte hebt gemaakt, een beleidsregel met de naam 
 
 ## <a name="configuration-for-shared-access-signature-authentication"></a>Configuratie voor de Shared Access Signature-verificatie
 
-U kunt configureren dat de [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) -regel op Service Bus-naamruimten, wachtrijen of onderwerpen. Configureren van een [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) in een Service Bus abonnement wordt momenteel niet ondersteund, maar u kunt regels die zijn geconfigureerd in een naamruimte of onderwerp gebruiken voor beveiligde toegang tot abonnementen. Zie voor een voorbeeld van werken die deze procedure laat zien, de [met behulp van Shared Access Signature (SAS)-verificatie met Service Bus-abonnementen](http://code.msdn.microsoft.com/Using-Shared-Access-e605b37c) voorbeeld.
+U kunt configureren dat de [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) -regel op Service Bus-naamruimten, wachtrijen of onderwerpen. Configureren van een [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) in een Service Bus abonnement wordt momenteel niet ondersteund, maar u kunt regels die zijn geconfigureerd in een naamruimte of onderwerp gebruiken voor beveiligde toegang tot abonnementen. Zie voor een voorbeeld van werken die deze procedure laat zien, de [met behulp van Shared Access Signature (SAS)-verificatie met Service Bus-abonnementen](https://code.msdn.microsoft.com/Using-Shared-Access-e605b37c) voorbeeld.
 
 ![SAS](./media/service-bus-sas/service-bus-namespace.png)
 
@@ -102,7 +102,7 @@ Als u weet of u vermoedt dat een sleutel is geïnfecteerd en wordt u om in te tr
 
 De scenario's beschreven als volgt zijn de configuratie van autorisatieregels, het genereren van SAS-tokens en Clientautorisatie.
 
-Voor een volledig werkend voorbeeld van een Service Bus-toepassing die laat zien van de configuratie en maakt gebruik van SAS-autorisatie Zie [Shared Access Signature-verificatie met Service Bus](http://code.msdn.microsoft.com/Shared-Access-Signature-0a88adf8). Een gerelateerde voorbeeld illustreert het gebruik van SAS-autorisatieregels geconfigureerd op de naamruimten of -onderwerpen voor het beveiligen van Service Bus-abonnementen is hier beschikbaar: [met behulp van Shared Access Signature (SAS)-verificatie met Service Bus-abonnementen](http://code.msdn.microsoft.com/Using-Shared-Access-e605b37c).
+Voor een volledig werkend voorbeeld van een Service Bus-toepassing die laat zien van de configuratie en maakt gebruik van SAS-autorisatie Zie [Shared Access Signature-verificatie met Service Bus](https://code.msdn.microsoft.com/Shared-Access-Signature-0a88adf8). Een gerelateerde voorbeeld illustreert het gebruik van SAS-autorisatieregels geconfigureerd op de naamruimten of -onderwerpen voor het beveiligen van Service Bus-abonnementen is hier beschikbaar: [met behulp van Shared Access Signature (SAS)-verificatie met Service Bus-abonnementen](https://code.msdn.microsoft.com/Using-Shared-Access-e605b37c).
 
 ## <a name="access-shared-access-authorization-rules-on-an-entity"></a>Machtigingen voor gedeelde toegang toegangsregels voor een entiteit
 

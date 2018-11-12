@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: dobett
-ms.openlocfilehash: 12dd93edce365509488631e4ca27462256abfca8
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 43e2101f413985974b964f2261d852692bcac61d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452663"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51251437"
 ---
 # <a name="reference---iot-hub-endpoints"></a>Referentie - IoT-Hub-eindpunten
 
@@ -57,7 +57,7 @@ De volgende lijst beschrijft de eindpunten:
 
 * **Service-eindpunten**. Elke IoT-hub toont een set met eindpunten voor uw back-end oplossing om te communiceren met uw apparaten. Met één uitzondering, deze eindpunten zijn alleen toegankelijk met behulp van de [AMQP](https://www.amqp.org/) protocol. Het eindpunt van de methode aanroepen is toegankelijk via het HTTPS-protocol.
   
-  * *Apparaat-naar-cloud-berichten ontvangen*. Dit eindpunt is compatibel met [Azure Event Hubs](http://azure.microsoft.com/documentation/services/event-hubs/). Een back-end-service kunt gebruiken om te lezen de [apparaat-naar-cloud-berichten](iot-hub-devguide-messages-d2c.md) verzonden door uw apparaten. U kunt aangepaste eindpunten op uw IoT-hub naast deze ingebouwde eindpunt maken.
+  * *Apparaat-naar-cloud-berichten ontvangen*. Dit eindpunt is compatibel met [Azure Event Hubs](https://azure.microsoft.com/documentation/services/event-hubs/). Een back-end-service kunt gebruiken om te lezen de [apparaat-naar-cloud-berichten](iot-hub-devguide-messages-d2c.md) verzonden door uw apparaten. U kunt aangepaste eindpunten op uw IoT-hub naast deze ingebouwde eindpunt maken.
   
   * *Cloud-naar-apparaat-berichten verzenden en ontvangen van bevestigingen voor levering*. Deze eindpunten kunt u uw back-end oplossing voor het verzenden van betrouwbare [cloud-naar-apparaatberichten](iot-hub-devguide-messages-c2d.md), en de bijbehorende levering of verlopen bevestigingen ontvangen.
   

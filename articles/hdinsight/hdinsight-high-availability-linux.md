@@ -3,19 +3,19 @@ title: Hoge beschikbaarheid voor Hadoop - Azure HDInsight
 description: Meer informatie over hoe HDInsight-clusters betrouwbaarheid en beschikbaarheid verbeteren met behulp van een extra hoofdknooppunt. Meer informatie over hoe dit van invloed op Hadoop-services, zoals Ambari en Hive, en hoe u afzonderlijk verbinding maken met elke hoofdknooppunt met behulp van SSH.
 services: hdinsight
 ms.reviewer: jasonh
-author: jasonwhowell
+author: hrasheed-msft
 keywords: hoge beschikbaarheid voor hadoop
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 03/22/2018
-ms.author: jasonh
-ms.openlocfilehash: 33458794ad74b367f1278364d7b4ace30f7d13a8
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.author: hrasheed
+ms.openlocfilehash: d3326ef4bba5649f5420c1d92b6117d44edba47b
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46953580"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281979"
 ---
 # <a name="availability-and-reliability-of-hadoop-clusters-in-hdinsight"></a>Beschikbaarheid en betrouwbaarheid van Hadoop-clusters in HDInsight
 
@@ -23,8 +23,7 @@ HDInsight-clusters bieden twee hoofdknooppunten voor het verhogen van de beschik
 
 Hadoop realiseert hoge betrouwbaarheid en beschikbaarheid door te repliceren van services en gegevens op verschillende knooppunten in een cluster. Standard distributies van Hadoop hebben echter meestal alleen een enkel hoofdknooppunt. Een onderbreking van de één hoofdknooppunt kan leiden tot het cluster niet meer werken. HDInsight biedt twee hoofdknooppunten ter verbetering van de beschikbaarheid en betrouwbaarheid van Hadoop.
 
-> [!IMPORTANT]
-> Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
+[!INCLUDE [windows-retirement-notice](../../includes/windows-retirement-notice.md)]
 
 ## <a name="availability-and-reliability-of-nodes"></a>Beschikbaarheid en betrouwbaarheid van knooppunten
 
@@ -224,7 +223,7 @@ Gebruik de volgende koppelingen voor meer informatie over zaken die worden verme
 
 * [Naslaginformatie over de Ambari-REST](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)
 * [De klassieke Azure-CLI installeren en configureren](../cli-install-nodejs.md)
-* [Azure PowerShell installeren en configureren ](/powershell/azure/overview)
+* [installeren en configureren van Azure PowerShell](/powershell/azure/overview)
 * [HDInsight met behulp van Ambari beheren](hdinsight-hadoop-manage-ambari.md)
 * [HDInsight op basis van Linux-clusters inrichten](hdinsight-hadoop-provision-linux-clusters.md)
 

@@ -8,12 +8,12 @@ ms.topic: get-started-article
 ms.date: 07/11/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: f03872a125e4e4d2f1e0b458a31d67a07802f2c8
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: b1fb9be6c05edbd85a709632a001fe1c1b8b4c6c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387444"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247786"
 ---
 # <a name="introduction-to-azure-storage"></a>Kennismaking met Azure Storage
 
@@ -201,7 +201,7 @@ Azure Storage-resources zijn toegankelijk voor elke taal waarvoor HTTP/HTTPS-aan
 ### <a name="tools-and-utilities"></a>Hulpprogramma's
 * [Azure PowerShell-cmdlets voor Storage](https://docs.microsoft.com/powershell/module/azure.storage)
 * [Azure CLI-cmdlets voor Storage](https://docs.microsoft.com/cli/azure/storage)
-* [AzCopy-opdrachtregelprogramma](http://aka.ms/downloadazcopy)
+* [AzCopy-opdrachtregelprogramma](https://aka.ms/downloadazcopy)
 * [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) is een gratis, zelfstandige app van Microsoft waarmee u visueel met Azure Storage-gegevens kunt werken in Windows, macOS en Linux.
 * [Azure Storage-clienthulpprogramma’s](../storage-explorers.md)
 * [Azure Developer-hulpprogramma's](https://azure.microsoft.com/tools/)

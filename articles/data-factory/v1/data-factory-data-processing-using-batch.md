@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 511a0122b37f5f34097da38a645790d99212ad18
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: b8a9973738ac28a686488a816da0f7da5fe2ac3e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45737410"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238519"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Grootschalige gegevenssets verwerken met behulp van Data Factory en Batch
 > [!NOTE]
@@ -61,9 +61,9 @@ U kunt ook aangepaste .NET-activiteiten wilt verplaatsen of gegevens te verwerke
 ## <a name="architecture-of-a-sample-solution"></a>Architectuur van een Voorbeeldoplossing
   De architectuur die worden beschreven in dit artikel is bedoeld voor een eenvoudige oplossing. Het is ook relevant zijn voor complexe scenario's, zoals de modellering van financiële services, verwerking van afbeeldingen en rendering en genetische analysis risico.
 
-Het diagram illustreert hoe Data Factory regelt de verwerking en gegevensverplaatsing. U leert ook hoe Batch verwerkt de gegevens in een parallelle manier. Downloaden en afdrukken van het diagram voor eenvoudige verwijzing (11 x 17 inches of A3-grootte). Voor toegang tot het diagram zodat u het kunt afdrukken, Zie [HPC en gegevensindeling met behulp van Batch en Data Factory](http://go.microsoft.com/fwlink/?LinkId=717686).
+Het diagram illustreert hoe Data Factory regelt de verwerking en gegevensverplaatsing. U leert ook hoe Batch verwerkt de gegevens in een parallelle manier. Downloaden en afdrukken van het diagram voor eenvoudige verwijzing (11 x 17 inches of A3-grootte). Voor toegang tot het diagram zodat u het kunt afdrukken, Zie [HPC en gegevensindeling met behulp van Batch en Data Factory](https://go.microsoft.com/fwlink/?LinkId=717686).
 
-[![Grootschalige gegevensverwerking diagram](./media/data-factory-data-processing-using-batch/image1.png)](http://go.microsoft.com/fwlink/?LinkId=717686)
+[![Grootschalige gegevensverwerking diagram](./media/data-factory-data-processing-using-batch/image1.png)](https://go.microsoft.com/fwlink/?LinkId=717686)
 
 De volgende lijst beschrijft de basisstappen van het proces. De oplossing bevat code en uitleg om de end-to-end oplossing te bouwen.
 

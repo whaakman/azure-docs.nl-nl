@@ -11,23 +11,23 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: jamesbak
-ms.openlocfilehash: 8bfe069ba03aec2476d437f25ebb00f8a934c845
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: f421a3752e83a6a86193bb854e53bfc8322cfea4
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44025550"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51280551"
 ---
 # <a name="quickstart-set-up-clusters-in-hdinsight"></a>Snelstartgids: Clusters instellen in HDInsight
 
-In deze snelstartgids leert u het instellen en configureren van clusters in HDInsight met Hadoop, Spark, Kafka, Interactive Query, HBase, R Server of Storm. U leert ook hoe u ze toevoegen aan een domein, clusters aanpassen en koppelen aan [Gen2 Preview van Azure Data Lake Storage](introduction.md).
+In deze snelstartgids leert u hoe u kunt instellen en configureren van clusters in HDInsight met Hadoop, Spark, Kafka, Interactive Query, HBase, R Server of Storm. U leert ook hoe u ze toevoegen aan een domein, clusters aanpassen en koppelt u ze naar een opslagaccount met [preview van Azure Data Lake Storage Gen2](introduction.md) ingeschakeld.
 
 Een Hadoop-cluster bestaat uit meerdere virtuele machines (knooppunten) die worden gebruikt voor gedistribueerde verwerking van taken. Azure HDInsight verwerkt implementatiegegevens van de installatie en configuratie van afzonderlijke knooppunten, zodat u alleen algemene configuratie-informatie te verstrekken.
 
 > [!IMPORTANT]
 >De facturering voor het gebruik van HDInsight-clusters begint zodra er een cluster is gemaakt en stopt als een cluster wordt verwijderd. De facturering wordt pro-rato per minuut berekend, dus u moet altijd uw cluster verwijderen wanneer het niet meer wordt gebruikt. Meer informatie over het [een cluster verwijderen.](../../hdinsight/hdinsight-delete-cluster.md)
 
-Data Lake-opslag wordt gebruikt als de gegevenslaag in deze Quick Start. Met de eigen hiërarchische Namespace-Service en [Hadoop stuurprogramma](abfs-driver.md), Data Lake Storage is geoptimaliseerd voor gedistribueerde verwerking en analyse. In Data Lake-opslag opgeslagen gegevens zich blijft voordoen, zelfs nadat u een HDInsight-cluster wordt verwijderd.
+Een opslagaccount met de mogelijkheden van Data Lake Storage Gen2 wordt gebruikt als de gegevenslaag in deze Quick Start. Met de eigen service hiërarchische naamruimte en [Hadoop stuurprogramma](abfs-driver.md), Data Lake Storage Gen2 is geoptimaliseerd voor gedistribueerde verwerking en analyse. Gegevens die zijn opgeslagen in een opslagaccount met Data Lake Storage Gen2 ingeschakeld zich blijft voordoen, zelfs nadat u een HDInsight-cluster wordt verwijderd.
 
 ## <a name="cluster-setup-methods"></a>Cluster setup-methoden
 
@@ -44,7 +44,7 @@ De volgende tabel ziet u de verschillende methoden die u gebruiken kunt voor het
 
 ## <a name="quick-create-basic-cluster-setup"></a>Snel maken: Basic clusterinstallatie
 
-Dit artikel begeleidt u bij instellingen in de [Azure-portal](https://portal.azure.com), hier kunt u maken een HDInsight-cluster met *snelle invoer* of *aangepaste*. 
+Dit artikel begeleidt u bij instellingen in de [Azure-portal](https://portal.azure.com), hier kunt u maken een HDInsight-cluster met *snelle invoer* of *aangepaste*.
 
 ![hdinsight opties aangepaste snelle invoer maken](media/quickstart-create-connect-hdi-cluster/hdinsight-creation-options.png)
 
@@ -63,12 +63,11 @@ Volg de instructies op het scherm om een eenvoudige installatie doen. Meer infor
 [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md) helpt u het gebruik van de resources in uw toepassing als een groep, aangeduid als een Azure-resourcegroep. U kunt implementeren, bijwerken, bewaken of verwijderen van alle resources voor uw toepassing in één gecoördineerde bewerking.
 
 ## <a name="cluster-types"></a> Clustertypen en opties configureren
+
 Azure HDInsight biedt momenteel de volgende clustertypen, elk met een set met onderdelen voor bepaalde functies.
 
 > [!IMPORTANT]
-> HDInsight-clusters zijn beschikbaar in verschillende typen, elk voor een enkele workload of technologie. Er is geen ondersteunde methode om een cluster die meerdere typen, zoals Storm en HBase op één cluster combineert te maken. Als uw oplossing vereist technologieën die worden verdeeld over meerdere HDInsight-clustertypen, een [virtueel Azure-netwerk](https://docs.microsoft.com/azure/virtual-network) verbinding kunnen maken van de vereiste clustertypen. 
->
->
+> HDInsight-clusters zijn beschikbaar in verschillende typen, elk voor een enkele workload of technologie. Er is geen ondersteunde methode om een cluster die meerdere typen, zoals Storm en HBase op één cluster combineert te maken. Als uw oplossing vereist technologieën die worden verdeeld over meerdere HDInsight-clustertypen, een [virtueel Azure-netwerk](https://docs.microsoft.com/azure/virtual-network) verbinding kunnen maken van de vereiste clustertypen.
 
 | Clustertype | Functionaliteit |
 | --- | --- |
@@ -112,7 +111,7 @@ Hoewel een on-premises Hadoop-installatie gebruikmaakt van het Hadoop Distribute
 > [!WARNING]
 > Met behulp van een extra opslagaccount in een andere locatie van het HDInsight-cluster wordt niet ondersteund.
 
-Tijdens de configuratie voor het standaardeindpunt voor opslag geeft u Data Lake-opslag. De standaardopslag bevat toepassings- en Logboeken. Desgewenst kunt u aanvullende, gekoppelde Azure Data Lake Storage-accounts die toegang hebben tot het cluster. Het HDInsight-cluster en de afhankelijke opslagaccounts moeten zich in dezelfde Azure-locatie.
+Tijdens de configuratie voor het standaardeindpunt voor opslag geeft u Data Lake-opslag. De standaardopslag bevat toepassings- en Logboeken. U kunt desgewenst aanvullende gekoppelde opslagaccounts waarvoor Data Lake Storage Gen2 opgeven dat het cluster toegang heeft tot ingeschakeld. Het HDInsight-cluster en de afhankelijke opslagaccounts moeten zich in dezelfde Azure-locatie.
 
 ![Instellingen voor de opslag van cluster: HDFS-compatibele eindpunten van opslag](media/quickstart-create-connect-hdi-cluster/hdinsight-cluster-creation-storage2.png)
 
@@ -122,7 +121,8 @@ Tijdens de configuratie voor het standaardeindpunt voor opslag geeft u Data Lake
 [!INCLUDE [secure-transfer-enabled-storage-account](../../../includes/hdinsight-secure-transfer.md)]
 
 ### <a name="optional-metastores"></a>Optionele metastores
-U kunt optioneel Hive of Oozie metastores kunt maken. Echter niet alle clustertypen ondersteunen metastores en Azure SQL Data Warehouse is niet compatibel met metastores. 
+
+U kunt optioneel Hive of Oozie metastores kunt maken. Echter niet alle clustertypen ondersteunen metastores en Azure SQL Data Warehouse is niet compatibel met metastores.
 
 Zie voor meer informatie, [externe metagegevensopslag in Azure HDInsight gebruiken](../../hdinsight/hdinsight-use-external-metadata-stores.md).
 
@@ -137,7 +137,7 @@ Een HDInsight-metastore die is gemaakt voor een HDInsight-clusterversie kan niet
 
 ### <a name="oozie-metastore"></a>Oozie-metastore
 
-Voor betere prestaties bij het gebruik van Oozie, gebruikt u een aangepaste metastore. Een metastore biedt ook toegang tot taakgegevens Oozie nadat u uw cluster hebt verwijderd. 
+Voor betere prestaties bij het gebruik van Oozie, gebruikt u een aangepaste metastore. Een metastore biedt ook toegang tot taakgegevens Oozie nadat u uw cluster hebt verwijderd.
 
 > [!IMPORTANT]
 > U kunt een aangepaste Oozie-metastore kan niet opnieuw gebruiken. Voor het gebruik van een aangepaste Oozie-metastore, moet u een lege Azure SQL-Database opgeven bij het maken van het HDInsight-cluster.
@@ -146,8 +146,8 @@ Voor betere prestaties bij het gebruik van Oozie, gebruikt u een aangepaste meta
 
 U wordt gefactureerd voor gebruik voor knooppunt, zolang het cluster bestaat. Facturering wordt gestart wanneer een cluster is gemaakt en stopt als een cluster wordt verwijderd. Clusters kunnen niet worden toewijzing ongedaan gemaakt of in de wachtstand plaatsen.
 
-
 ### <a name="number-of-nodes-for-each-cluster-type"></a>Aantal knooppunten voor elk clustertype
+
 Elk clustertype heeft een eigen aantal knooppunten, terminologie voor knooppunten en standaard VM-grootte. In de volgende tabel is het aantal knooppunten voor elk knooppunttype tussen haakjes.
 
 | Type | Knooppunten | Diagram |
@@ -159,29 +159,30 @@ Elk clustertype heeft een eigen aantal knooppunten, terminologie voor knooppunte
 
 Zie voor meer informatie, [standaard configuratie en de virtuele machine knooppuntgrootten voor clusters](../../hdinsight/hdinsight-component-versioning.md#default-node-configuration-and-virtual-machine-sizes-for-clusters) in "Wat zijn de Hadoop-onderdelen en versies in HDInsight?"
 
-De kosten van HDInsight-clusters wordt bepaald door het aantal knooppunten en de grootte van virtuele machines voor de knooppunten. 
+De kosten van HDInsight-clusters wordt bepaald door het aantal knooppunten en de grootte van virtuele machines voor de knooppunten.
 
 Verschillende clustertypen hebben verschillende knooppunttypen, aantal knooppunten en knooppuntgrootten:
-* Hadoop-cluster het standaardtype: 
+* Hadoop-cluster het standaardtype:
     * Twee *hoofdknooppunten*  
     * Vier *gegevensknooppunten*
-* Storm-cluster het standaardtype: 
+* Storm-cluster het standaardtype:
     * Twee *Nimbus-knooppunten*
     * Drie *ZooKeeper-knooppunten*
-    * Vier *supervisorknooppunten* 
+    * Vier *supervisorknooppunten*
 
 Als u HDInsight slechts uitprobeert, raden wij dat u één gegevensknooppunt gebruiken. Zie voor meer informatie over de prijzen voor HDInsight [HDInsight prijzen](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409).
 
 > [!NOTE]
 > De limiet voor de clustergrootte verschilt per Azure-abonnementen. Neem contact op met [Azure ondersteuning voor facturering](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) om de limiet te verhogen.
->
 
-Wanneer u de Azure-portal gebruikt om het cluster te configureren, de grootte van het knooppunt is beschikbaar via de **knooppunt Prijscategorieën** blade. In de portal, kunt u ook de kosten die gepaard gaan met de grootte van verschillende bekijken. 
+Wanneer u de Azure-portal gebruikt om het cluster te configureren, de grootte van het knooppunt is beschikbaar via de **knooppunt Prijscategorieën** blade. In de portal, kunt u ook de kosten die gepaard gaan met de grootte van verschillende bekijken.
 
 ![Grootte van HDInsight VM](media/quickstart-create-connect-hdi-cluster/hdinsight-node-sizes.png)
 
-### <a name="virtual-machine-sizes"></a>Grootten van virtuele machines 
+### <a name="virtual-machine-sizes"></a>Grootten van virtuele machines
+
 Wanneer u clusters implementeert, kiest u de compute-resources op basis van de oplossing die u van plan bent om te implementeren. De volgende virtuele machines worden gebruikt voor HDInsight-clusters:
+
 * A- en D1-4-serie VM's: [General-purpose Linux VM-grootten](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-general)
 * D11-14-serie VM: [geoptimaliseerd voor geheugen Linux-VM-grootten](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory)
 
@@ -189,13 +190,13 @@ Om erachter te komen welke u waarde moeten gebruiken een VM-grootte opgeven tijd
 
 > [!IMPORTANT]
 > Als u meer dan 32 worker-knooppunten in een cluster, moet u de grootte van een hoofdknooppunt met ten minste 8 kerngeheugens en 14 GB aan RAM-geheugen.
->
->
 
-Zie voor meer informatie, [grootten voor virtuele machines](../../virtual-machines/windows/sizes.md). Zie voor meer informatie over de prijzen van de verschillende grootten [HDInsight prijzen](https://azure.microsoft.com/pricing/details/hdinsight).   
+Zie voor meer informatie, [grootten voor virtuele machines](../../virtual-machines/windows/sizes.md). Zie voor meer informatie over de prijzen van de verschillende grootten [HDInsight prijzen](https://azure.microsoft.com/pricing/details/hdinsight).
 
 ## <a name="custom-cluster-setup"></a>Aangepaste installatie
+
 Aangepaste cluster setup bouwt voort op de snelle instellingen maken en voegt de volgende opties:
+
 - [HDInsight-toepassingen](#hdinsight-applications)
 - [Grootte van cluster](#cluster-size)
 - Geavanceerde instellingen
@@ -218,8 +219,6 @@ Sommige systeemeigen Java-onderdelen, zoals Mahout en trapsgewijze, kunnen worde
 > Als u problemen met het JAR-bestanden implementeren met HDInsight-clusters hebt, of aanroepen van de JAR-bestanden op HDInsight-clusters, contact op met [Microsoft Support](https://azure.microsoft.com/support/options/).
 >
 > Trapsgewijze wordt niet ondersteund door HDInsight en is niet in aanmerking komen voor Microsoft Support. Zie voor lijsten met ondersteunde onderdelen, [wat is er nieuw in de clusterversies geleverd door HDInsight](../../hdinsight/hdinsight-component-versioning.md).
->
->
 
 Soms wilt u de volgende configuratiebestanden tijdens het maakproces configureren:
 
@@ -242,6 +241,7 @@ Soms wilt u de volgende configuratiebestanden tijdens het maakproces configurere
 Zie voor meer informatie, [aanpassen HDInsight-clusters met Bootstrap](../../hdinsight/hdinsight-hadoop-customize-cluster-bootstrap.md).
 
 ## <a name="advanced-settings-extend-clusters-with-a-virtual-network"></a>Geavanceerde instellingen: clusters met een virtueel netwerk uitbreiden
+
 Als uw oplossing vereist technologieën die worden verdeeld over meerdere HDInsight-clustertypen, een [virtueel Azure-netwerk](https://docs.microsoft.com/azure/virtual-network) verbinding kunnen maken van de vereiste clustertypen. Deze configuratie staat de clusters, en een code die u voor ze rechtstreeks kan communiceren met elkaar implementeren.
 
 Zie voor meer informatie over het gebruik van een Azure-netwerk met HDInsight [HDInsight uitbreiden met Azure virtual networks](../../hdinsight/hdinsight-extend-hadoop-virtual-network.md).

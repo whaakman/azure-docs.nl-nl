@@ -10,18 +10,18 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: mmercuri
 manager: femila
-ms.openlocfilehash: dcf31bd6b128115962e30dd6653364c4cd65047d
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: b4a816c887d1cca78ff845858dce29049946b09f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48242512"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51235986"
 ---
 # <a name="azure-blockchain-workbench-messaging-integration"></a>Azure Blockchain Workbench messaging-integratie
 
 Naast het bieden van een REST-API, biedt Azure Blockchain Workbench ook integratie op basis van berichten. Workbench publiceert grootboek gerichte gebeurtenissen via Azure Event Grid, waarmee de downstream consument opname van gegevens of maatregelen nemen op basis van deze gebeurtenissen. Voor deze clients waarvoor betrouwbare uitwisseling van berichten, levert Azure Blockchain Workbench berichten naar een Azure Service Bus-eindpunt.
 
-Ontwikkelaars hebben ook interesse in de mogelijkheid om externe systemen communiceren initiëren transacties voor het maken van gebruikers, contracten maken en bijwerken van opdrachten op een grootboek uitgedrukt. Terwijl deze functionaliteit is momenteel niet beschikbaar in openbare preview-versie, een steekproef die het biedt deze mogelijkheid kan worden gevonden op [ http://aka.ms/blockchain-workbench-integration-sample ](http://aka.ms/blockchain-workbench-integration-sample).
+Ontwikkelaars hebben ook interesse in de mogelijkheid om externe systemen communiceren initiëren transacties voor het maken van gebruikers, contracten maken en bijwerken van opdrachten op een grootboek uitgedrukt. Terwijl deze functionaliteit is momenteel niet beschikbaar in openbare preview-versie, een steekproef die het biedt deze mogelijkheid kan worden gevonden op [ http://aka.ms/blockchain-workbench-integration-sample ](https://aka.ms/blockchain-workbench-integration-sample).
 
 ## <a name="event-notifications"></a>Gebeurtenismeldingen
 

@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: sngun
-ms.openlocfilehash: 554718f0bb465ca757fc4dcf6c22d3b0dd80f2fb
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 3f0bf2c6c58afbbf9a1256fa5901591e535fe20c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50251087"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51250761"
 ---
 # <a name="azure-cosmos-db-faq"></a>Veelgestelde vragen over Azure Cosmos DB
 ## <a name="azure-cosmos-db-fundamentals"></a>Grondbeginselen van Azure Cosmos DB
@@ -36,7 +36,7 @@ Azure Cosmos DB is een goede keuze voor nieuwe web, mobiel, gaming en IoT-toepas
 ### <a name="how-does-azure-cosmos-db-offer-predictable-performance"></a>Hoe biedt Azure Cosmos DB voorspelbare prestaties?
 Een [aanvraageenheid](request-units.md) (ru/s) is de maateenheid voor doorvoer in Azure Cosmos DB. Een doorvoer van 1 RU komt overeen met de doorvoer van het ophalen van een document van 1 KB. Elke bewerking in Azure Cosmos DB, met inbegrip van leesbewerkingen, schrijfbewerkingen, SQL-query's en uitvoeringen van opgeslagen procedures, heeft een deterministische RU-waarde die gebaseerd op de doorvoer die is vereist om de bewerking te voltooien. In plaats van nadenken over de CPU, IO en geheugen en hoe ze elke invloed op de doorvoer van uw toepassing, kunt u denken in termen van één RU maateenheid.
 
-U kunt elke Azure Cosmos DB-container met een ingerichte doorvoer in termen van Aanvraageenheden aan doorvoer per seconde reserveren. U kunt voor toepassingen van elke omvang, benchmarken van afzonderlijke aanvragen voor het meten van de RU-waarden en inrichten van een container voor het afhandelen van het totaal aantal aanvraageenheden voor alle aanvragen. U kunt ook omhoog of omlaag doorvoer van uw container schalen naarmate de behoeften van uw toepassing veranderen. Voor meer informatie over aanvraageenheden en hulp bij het bepalen van de container moet, Zie [schatten van de doorvoer moet](request-units.md#estimating-throughput-needs) en probeer de [doorvoer calculator](https://www.documentdb.com/capacityplanner). De term *container* verwijst hier naar een verzameling van de SQL-API, Gremlin-API-grafiek, MongoDB-API-verzameling en Table-API-tabel. 
+U kunt elke Azure Cosmos DB-container met een ingerichte doorvoer in termen van Aanvraageenheden aan doorvoer per seconde reserveren. U kunt voor toepassingen van elke omvang, benchmarken van afzonderlijke aanvragen voor het meten van de RU-waarden en inrichten van een container voor het afhandelen van het totaal aantal aanvraageenheden voor alle aanvragen. U kunt ook omhoog of omlaag doorvoer van uw container schalen naarmate de behoeften van uw toepassing veranderen. Voor meer informatie over aanvraageenheden en hulp bij het bepalen van uw container nodig heeft, probeert de [doorvoer calculator](https://www.documentdb.com/capacityplanner). De term *container* verwijst hier naar een verzameling van de SQL-API, Gremlin-API-grafiek, MongoDB-API-verzameling en Table-API-tabel. 
 
 ### <a name="how-does-azure-cosmos-db-support-various-data-models-such-as-keyvalue-columnar-document-and-graph"></a>Hoe biedt Azure Cosmos DB ondersteuning voor verschillende gegevensmodellen zoals sleutel/waarde, in kolomvorm, document en een graaf?
 
@@ -462,7 +462,7 @@ De RU-kosten zijn gebaseerd op de werkset van de gegevens van het transport en n
 
 ### <a name="whats-the-maximum-scale-that-a-graph-database-can-have-in-azure-cosmos-db-gremlin-api"></a>Wat is de maximale schaal die een grafiekdatabase in Gremlin-API van Azure Cosmos DB hebben kunt? 
 
-Azure Cosmos DB maakt gebruik van [horizontale partitionering](partition-data.md) automatisch adres toename in de vereisten voor opslag en doorvoer. De maximale doorvoer en opslag van de capaciteit van een werkbelasting wordt bepaald door het aantal partities die gekoppeld aan een bepaalde verzameling zijn. Een verzameling Gremlin-API heeft echter een specifieke set richtlijnen om te controleren of een goede prestaties op schaal. Zie voor meer informatie en aanbevolen procedures, [best practices voor partitionering](partition-data.md#best-practices-when-choosing-a-partition-key) document. 
+Azure Cosmos DB maakt gebruik van [horizontale partitionering](partition-data.md) automatisch adres toename in de vereisten voor opslag en doorvoer. De maximale doorvoer en opslag van de capaciteit van een werkbelasting wordt bepaald door het aantal partities die gekoppeld aan een bepaalde verzameling zijn. Een verzameling Gremlin-API heeft echter een specifieke set richtlijnen om te controleren of een goede prestaties op schaal. Zie voor meer informatie over partitionering en aanbevolen procedures, [partitionering in Azure Cosmos DB](partition-data.md) artikel. 
 
 ### <a name="how-can-i-protect-against-injection-attacks-using-gremlin-drivers"></a>Hoe kan ik beveiligen tegen aanvallen via injectie met behulp van Gremlin-stuurprogramma's? 
 
