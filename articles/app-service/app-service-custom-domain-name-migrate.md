@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2017
 ms.author: cephalin
-ms.openlocfilehash: a5d031622103183fa9aa7a3f3771a055fc16edb2
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 632558760d0b4a00384763cc30de3b9241bb1ae6
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39049973"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300163"
 ---
 # <a name="migrate-an-active-dns-name-to-azure-app-service"></a>Een actieve DNS-naam migreren naar Azure App Service
 
@@ -60,6 +60,13 @@ De TXT-record die u nodig hebt, is afhankelijk van de DNS-record die u wilt migr
 | \* (jokertekens) | _awverify.\*_ | _&lt;AppName >. azurewebsites.net_ |
 
 Houd er rekening mee het recordtype van de DNS-naam die u wilt migreren in de pagina van uw DNS-records. App Service biedt ondersteuning voor toewijzingen van CNAME- en A-records.
+
+> [!NOTE]
+> Voor bepaalde providers, zoals CloudFlare, `awverify.*` is geen geldige record. Gebruik `*` alleen in plaats daarvan.
+
+> [!NOTE]
+> Jokertekens `*` records subdomeinen met een bestaande CNAME-record niet gevalideerd. Mogelijk moet u expliciet een TXT-record voor elk subdomein te maken.
+
 
 ### <a name="enable-the-domain-for-your-app"></a>Het domein voor uw app inschakelen
 

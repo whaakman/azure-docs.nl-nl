@@ -9,12 +9,12 @@ ms.service: event-hubs
 ms.topic: article
 ms.date: 10/07/2018
 ms.author: shvija
-ms.openlocfilehash: 4e0f762a69451ce0dc9ec00db5992fce0707f275
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
-ms.translationtype: HT
+ms.openlocfilehash: 9bd1649c0ec89abf660865971314becb6580852f
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282438"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300672"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Veelgestelde vragen over Eventhubs
 
@@ -50,7 +50,7 @@ Event Hubs Standard-laag biedt momenteel ondersteuning voor een maximale bewaarp
 ### <a name="how-do-i-monitor-my-event-hubs"></a>Hoe bewaak ik mijn Event Hubs?
 Eventhubs verzendt uitgebreide metrische gegevens die de status van uw resources te bieden [Azure Monitor](../azure-monitor/overview.md). Ook kunt u bij het bepalen van de algemene status van de Event Hubs-service niet alleen op het niveau van de naamruimte, maar ook op het entiteitsniveau van de. Meer informatie over welke bewaking wordt aangeboden voor [Azure Event Hubs](event-hubs-metrics-azure-monitor.md).
 
-## <a name="apache-kakfa-integration"></a>Integratie van Apache Kakfa
+## <a name="apache-kafka-integration"></a>Integratie van Apache Kafka
 
 ### <a name="how-do-i-integrate-my-existing-kafka-application-with-event-hubs"></a>Hoe Integreer ik mijn bestaande Kafka-toepassing met Event Hubs?
 Eventhubs biedt een Kafka-eindpunt dat kan worden gebruikt door uw bestaande Apache Kafka op basis van toepassingen. Een wijziging in de configuratie is het enige dat is vereist om de ervaring PaaS Kafka. Het biedt een alternatief voor het uitvoeren van uw eigen Kafka-cluster. Eventhubs biedt ondersteuning voor Apache Kafka 1.0 en nieuwere clientversies en werkt met uw bestaande toepassingen, hulpprogramma's en frameworks in Kafka. Zie voor meer informatie, [Event Hubs voor Kafka-opslagplaats](https://github.com/Azure/azure-event-hubs-for-kafka).

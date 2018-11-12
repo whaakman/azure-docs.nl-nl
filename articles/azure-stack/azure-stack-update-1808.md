@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/07/2018
+ms.date: 11/09/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 0b40b8018715e6b680f42676dfaead0ac6e5bf7a
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
-ms.translationtype: HT
+ms.openlocfilehash: a28168291c79dc54feb5ff572c609cdfb09a187f
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51279140"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515587"
 ---
 # <a name="azure-stack-1808-update"></a>Azure Stack 1808 update
 
@@ -64,12 +64,13 @@ Deze update bevat de volgende verbeteringen voor Azure Stack.
 - **Marketplace-item voor Kubernetes**. U kunt nu met behulp van Kubernetes-clusters implementeren de [Kubernetes Marketplace-item](azure-stack-solution-template-kubernetes-cluster-add.md). Gebruikers kunnen selecteert u het Kubernetes-item en vul een aantal parameters voor het implementeren van een Kubernetes-cluster in Azure Stack. Het doel van de sjablonen is het eenvoudig te aan gebruikers voor het instellen van Kubernetes-implementaties voor ontwikkelen en testen in een paar stappen.
 
 <!-- | IS ASDK--> 
-- **Blockchain sjablonen**. U kunt nu uitvoeren [Ethereum consortium implementaties](user/azure-stack-ethereum.md) in Azure Stack. Vindt u drie nieuwe sjablonen in de [Azure Stack Quick Start-sjablonen](https://github.com/Azure/AzureStack-QuickStart-Templates). Hiermee kunt de gebruiker om te implementeren en configureren van een consortium voor meerdere leden Ethereum-netwerk met minimale kennis van Azure en Ethereum. Het doel van de sjablonen is het eenvoudig te aan gebruikers voor het instellen van Blockchain-implementaties voor ontwikkelen en testen in een paar stappen.
+- **Blockchain sjablonen**. U kunt nu uitvoeren [Ethereum consortium implementaties](user/azure-stack-ethereum.md) in Azure Stack. Vindt u drie nieuwe sjablonen in de [snelstartsjablonen voor Azure Stack](https://github.com/Azure/AzureStack-QuickStart-Templates). Hiermee kunt de gebruiker om te implementeren en configureren van een consortium voor meerdere leden Ethereum-netwerk met minimale kennis van Azure en Ethereum. Het doel van de sjablonen is het eenvoudig te aan gebruikers voor het instellen van Blockchain-implementaties voor ontwikkelen en testen in een paar stappen.
 
 <!-- | IS ASDK--> 
 - **De API-versie profiel 2017-03-09-profiel is bijgewerkt naar 2018-03-01-hybride**. API-profielen opgeven voor de Azure-resource-provider en de API-versie voor Azure REST-eindpunten. Zie voor meer informatie over profielen [beheren API-versieprofielen in Azure Stack](/azure/azure-stack/user/azure-stack-version-profiles).
 
- ### <a name="fixed-issues"></a>Problemen opgelost
+### <a name="fixed-issues"></a>Problemen opgelost
+
 <!-- IS ASDK--> 
 - We het probleem voor het maken van een beschikbaarheidsset in de portal dat heeft geresulteerd in de set met een domein met fouten en een updatedomein van 1 is opgelost. 
 
@@ -162,7 +163,7 @@ Deze update bevat ook de oplossing voor het speculatieve uitvoering kant kanaal 
 > Bereid u voor uw Azure Stack-implementatie voor extensie-host. Voorbereiden van uw systeem met behulp van de volgende richtlijnen [voorbereiden voor de host van de extensie voor Azure Stack](azure-stack-extension-host-prepare.md).
 
 Na de installatie van deze update toepasselijke Hotfixes te installeren. Raadpleeg voor meer informatie de volgende knowledge base-artikelen, evenals onze [beleid onderhoud](azure-stack-servicing-policy.md). 
-- [KB 4468920 – Azure Stack Hotfix Azure Stack Hotfix 1.1808.5.110](https://support.microsoft.com/help/4468920/)
+- [KB 4468920 – Azure Stack Hotfix Azure Stack Hotfix 1.1808.7.113](https://support.microsoft.com/help/4471992/)
 
 
 ## <a name="known-issues-post-installation"></a>Bekende problemen (na de installatie)
@@ -253,7 +254,7 @@ Hier volgen na de installatie bekende problemen voor deze buildversie.
 
 ### <a name="compute"></a>Compute
 
-<!-- TBD – IS, ASDK -->
+<!-- 3164607 – IS, ASDK -->
 - Nadat een losgekoppelde schijf aan de dezelfde virtuele machine (VM) met dezelfde naam en LUN mislukt met foutmelding zoals **gegevens schijf 'datadisk' niet koppelen aan virtuele machine 'vm1'**. De fout treedt op omdat de schijf momenteel wordt losgekoppeld of de laatste koppelingsbewerking is mislukt. Wacht totdat de schijf volledig is losgekoppeld en vervolgens opnieuw of verwijderen/loskoppelen van de schijf expliciet opnieuw. De oplossing is om te koppelen met een andere naam of op een andere logische eenheid. 
 
 <!-- 3099544 – IS, ASDK --> 
@@ -266,7 +267,7 @@ Hier volgen na de installatie bekende problemen voor deze buildversie.
       1. Ga in de tenantportal naar **abonnementen** en zoek het abonnement. Klik op **Resourceproviders**, klikt u vervolgens op **Microsoft.Compute**, en klik vervolgens op **opnieuw registreren**.
       2. Onder hetzelfde abonnement, gaat u naar **Access Control (IAM)**, en Controleer **Azure Stack – beheerde schijf** wordt vermeld.
    2. Als u een omgeving met meerdere tenants hebt geconfigureerd, mislukken virtuele machines implementeren in een abonnement dat is gekoppeld aan een gast-map met een interne fout. U kunt de fout oplossen door de volgende stappen uit:
-      1. Van toepassing de [1808 Azure Stack-Hotfix](https://support.microsoft.com/help/4468920/).
+      1. Van toepassing de [1808 Azure Stack-Hotfix](https://support.microsoft.com/help/4471992/).
       2. Volg de stappen in [in dit artikel](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) opnieuw configureren van elk van de Gast-mappen.
       
 <!-- 3179561 - IS --> 
