@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/15/2018
 ms.author: jeffgilb
-ms.openlocfilehash: 37b8eff2d4ed89c90f1fa6f128673ed5bacaaa90
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 5d3073c3ed499ecdb20243e6db2b217aec3e1448
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49339947"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51254516"
 ---
 # <a name="azure-stack-administration-basics"></a>Basisbeginselen voor het beheer van Azure Stack
 Er zijn verschillende dingen die u weten moet als u geen ervaring met Azure Stack-beheer. Deze handleiding biedt een overzicht van uw rol als Azure Stack-operators, en wat u moet uw gebruikers ze snel worden productief laten weten.
@@ -81,7 +81,7 @@ Er zijn enkele aandachtspunten voor gebruikersaccounts die u houden moet rekenin
  
 U kunt de [beheerdersportal](azure-stack-manage-portals.md) of PowerShell voor het beheren van Azure Stack. De eenvoudigste manier voor meer informatie over de basisconcepten is via de portal. Als u PowerShell gebruiken wilt, zijn er stappen voor gegevensvoorbereiding. U moet [installeren](azure-stack-powershell-install.md) PowerShell, [downloaden](azure-stack-powershell-download.md) aanvullende modules en [configureren](azure-stack-powershell-configure-admin.md) PowerShell.
 
-Azure Stack maakt gebruik van Azure Resource Manager als een onderliggende implementatie, beheer en organisatie-mechanisme. Als u Azure Stack beheren en ter ondersteuning van gebruikers, leert u over de Resource Manager. Zie de [aan de slag met Azure Resource Manager](http://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf) technisch document.
+Azure Stack maakt gebruik van Azure Resource Manager als een onderliggende implementatie, beheer en organisatie-mechanisme. Als u Azure Stack beheren en ter ondersteuning van gebruikers, leert u over de Resource Manager. Zie de [aan de slag met Azure Resource Manager](https://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf) technisch document.
 
 ## <a name="your-typical-responsibilities"></a>Uw gebruikelijke verantwoordelijkheden
 

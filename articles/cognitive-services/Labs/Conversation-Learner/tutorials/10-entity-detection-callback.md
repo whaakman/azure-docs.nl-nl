@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: f168018a23d03ffb957da2dd1f67881420a21208
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: e9a3b0a2be58313266b949b907e4eb49a318a6dc
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39171100"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51260071"
 ---
 # <a name="how-to-use-entity-detection-callback"></a>Het gebruik van entiteit detectie terugbellen
 
@@ -23,7 +23,7 @@ In deze zelfstudie ziet u de callback van de detectie van entiteit en ziet u een
 
 ## <a name="video"></a>Video
 
-[![Zelfstudie-10-Preview](http://aka.ms/cl-tutorial-10-preview)](http://aka.ms/blis-tutorial-10)
+[![Zelfstudie-10-Preview](https://aka.ms/cl-tutorial-10-preview)](https://aka.ms/blis-tutorial-10)
 
 ## <a name="requirements"></a>Vereisten
 In deze zelfstudie vereist dat de `tutorialEntityDetectionCallback` bot wordt uitgevoerd.

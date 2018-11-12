@@ -6,16 +6,16 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 09/21/2018
 ms.author: snehaa
-ms.openlocfilehash: e39cf260cc4931fc0dddc4922479522cb521d08e
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 2f04fe103d010a64a77b7d80730cf80007c3c126
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49407058"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51256372"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure Migrate - Asked Frequently Questions (FAQ)
 
-Dit artikel bevat veelgestelde vragen over Azure Migrate. Hebt u geen verdere query's na het lezen van dit artikel, plaatst u deze op de [Azure Migrate forum](http://aka.ms/AzureMigrateForum).
+Dit artikel bevat veelgestelde vragen over Azure Migrate. Hebt u geen verdere query's na het lezen van dit artikel, plaatst u deze op de [Azure Migrate forum](https://aka.ms/AzureMigrateForum).
 
 ## <a name="general"></a>Algemeen
 
@@ -54,9 +54,9 @@ Azure Migrate ondersteunt momenteel VS-Oost en West-Centraal VS als de locaties 
 
 De verbinding kan worden via internet of het gebruik van ExpressRoute met openbare peering.
 
-### <a name="can-i-harden-the-vm-set-up-with-the-ova-template"></a>Kan ik beveiliging van de virtuele machine instellen met de. OVA-sjabloon?
+### <a name="can-i-harden-the-vm-set-up-with-the-ova-template"></a>Kan ik beveiliging van de virtuele machine met behulp van het OVA-sjabloon instellen?
 
-Extra onderdelen (zoals antivirusprogramma's) kunnen worden toegevoegd aan de. OVA-sjabloon is, zolang de communicatie en firewall-regels die zijn vereist voor het apparaat Azure Migrate werken worden gehandhaafd.   
+Extra onderdelen (zoals antivirusprogramma's) kunnen worden toegevoegd in het OVA-sjabloon, zolang de communicatie en firewall-regels die zijn vereist voor het apparaat Azure Migrate om te werken zijn ongewijzigd worden gelaten.   
 
 ## <a name="discovery"></a>Detectie
 
@@ -114,7 +114,7 @@ Het collector-apparaat verbinding maakt met de vCenter-Server (poort 443) met be
 
 Ja, een enkel collector-apparaat kan worden gebruikt voor het detecteren van meerdere vCenter-Servers, maar niet gelijktijdig. U moet de detecties na elkaar uitgevoerd.
 
-### <a name="is-the-ova-template-used-by-site-recovery-integrated-with-the-ova-used-by-azure-migrate"></a>Is de. OVA-sjabloon die wordt gebruikt door Site Recovery worden geïntegreerd met de. OVA die worden gebruikt door Azure Migrate?
+### <a name="is-the-ova-template-used-by-site-recovery-integrated-with-the-ova-used-by-azure-migrate"></a>Is het OVA-sjabloon die wordt gebruikt door Site Recovery geïntegreerd met het ova-bestand gebruikt door Azure Migrate?
 
 Er is momenteel geen-integratie. De. OVA-sjabloon in Site Recovery wordt gebruikt voor het instellen van een Site Recovery-configuratieserver voor replicatie van virtuele VMware-machine/fysieke server. De. OVA die worden gebruikt door Azure Migrate wordt gebruikt voor het detecteren van VMware-VM's beheerd door een vCenter-server voor de doeleinden van migratie-analyse.
 
@@ -141,9 +141,23 @@ Azure Migrate ondersteunt momenteel geen schatting van de kosten voor [Enterpris
 
 ## <a name="dependency-visualization"></a>Visualisatie van afhankelijkheden
 
+### <a name="what-is-dependency-visualization"></a>Wat is visualisatie van afhankelijkheden?
+
+Visualisatie van afhankelijkheden, kunt u groepen met VM's voor migratie met meer vertrouwen beoordelen door machineafhankelijkheden cross controleren voordat u een evaluatie uitvoert. Visualisatie van afhankelijkheden helpt u om ervoor te zorgen dat er niets is overgebleven, voorkomen van onverwachte storingen wanneer u naar Azure migreert. Azure Migrate maakt gebruik van de oplossing Serviceoverzicht in Log Analytics om in te schakelen visualisatie van afhankelijkheden.
+
 ### <a name="do-i-need-to-pay-to-use-the-dependency-visualization-feature"></a>Moet ik betalen voor het gebruik van de functie voor visualisatie van afhankelijkheden?
 
-Azure Migrate is zonder extra kosten beschikbaar. Meer informatie over prijzen voor Azure Migrate vindt u [hier](https://azure.microsoft.com/pricing/details/azure-migrate/).
+Nee. Meer informatie over prijzen voor Azure Migrate vindt u [hier](https://azure.microsoft.com/pricing/details/azure-migrate/).
+
+### <a name="do-i-need-to-install-anything-for-dependency-visualization"></a>Moet ik niets voor visualisatie van afhankelijkheden te installeren?
+
+Voor het gebruik van visualisatie van afhankelijkheden, die u wilt downloaden en installeren van agents op elke on-premises computer die u wilt evalueren. 
+
+- [Microsoft Monitoring agent(MMA)](https://docs.microsoft.com/azure/log-analytics/log-analytics-agent-windows) moet worden geïnstalleerd op elke computer.
+- De [agent voor afhankelijkheden](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure) moet worden geïnstalleerd op elke computer.
+- Bovendien, als u computers geen verbinding met internet hebt, moet u om te downloaden en Log Analytics-gateway installeren op deze.
+
+U hoeft niet deze agents op computers die u beoordelen wilt, tenzij u visualisatie van afhankelijkheden.
 
 ### <a name="can-i-use-an-existing-workspace-for-dependency-visualization"></a>Kan ik een bestaande werkruimte gebruiken voor visualisatie van afhankelijkheden?
 

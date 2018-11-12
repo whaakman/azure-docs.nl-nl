@@ -9,12 +9,12 @@ ms.author: omidm
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 06/26/2018
-ms.openlocfilehash: 052afbe185f9c66af3759775b38b6bf0f2c2e6b2
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: a2b209dc0204c390b16039ed1cf58b47f29629f1
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43783318"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51252102"
 ---
 # <a name="use-oozie-with-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Oozie gebruiken met Hadoop om te definiëren en een werkstroom uitvoeren op Azure HDInsight op basis van Linux
 
@@ -30,12 +30,12 @@ Leer hoe u Apache Oozie gebruiken met Hadoop op Azure HDInsight. Oozie is een we
 U kunt ook Oozie gebruiken voor het plannen van taken die specifiek voor een systeem, zoals Java-programma's of shell-scripts zijn.
 
 > [!NOTE]
-> Er is een andere optie voor het definiëren van werkstromen met HDInsight met Azure Data Factory. Zie voor meer informatie over Data Factory, [Pig en Hive met Data Factory gebruiken][azure-data-factory-pig-hive].
+> Er is een andere optie voor het definiëren van werkstromen met HDInsight met Azure Data Factory. Zie voor meer informatie over Data Factory, [Pig en Hive met Data Factory gebruiken][azure-data-factory-pig-hive]. Gebruik Oozie op clusters met Enterprise-beveiligingspakket Zie [Apache Oozie uitvoeren in HDInsight Hadoop-clusters met Enterprise-beveiligingspakket](domain-joined/hdinsight-use-oozie-domain-joined-clusters.md).
 
 
 ## <a name="prerequisites"></a>Vereisten
 
-* **Een HDInsight-cluster**: Zie [aan de slag met HDInsight op Linux](hadoop/apache-hadoop-linux-tutorial-get-started.md)
+* **Een gewone HDInsight-cluster**: Zie [aan de slag met HDInsight op Linux](hadoop/apache-hadoop-linux-tutorial-get-started.md)
 
 > [!IMPORTANT]
 > Voor de stappen in dit document hebt u een HDInsight-cluster nodig dat werkt met Linux. Linux is het enige besturingssysteem gebruikt op HDInsight versie 3.4 of hoger. Zie [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
@@ -513,7 +513,7 @@ Zie voor meer informatie over het gebruik van de REST-API voor Oozie [Oozie-webs
 De Oozie-webgebruikersinterface biedt webgebaseerde inzicht in de status van Oozie-taken op het cluster. Met de webgebruikersinterface kunt u de volgende informatie bekijken:
 
    * Taakstatus
-   * Taakdefinitie
+   * Jobdefinitie
    * Configuratie
    * Een grafiek van de acties in de taak
    * Logboeken voor de taak
@@ -599,7 +599,7 @@ U kunt de coördinator gebruiken om op te geven van een starten, een end en de f
     nano job.xml
     ```
 
-    De volgende wijzigingen aanbrengen:
+    Breng de volgende wijzigingen aan:
 
    * Instructies Oozie de coördinator-bestand in plaats van de werkstroom uit te voeren, wijzigen `<name>oozie.wf.application.path</name>` naar `<name>oozie.coord.application.path</name>`.
 

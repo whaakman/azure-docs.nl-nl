@@ -15,12 +15,12 @@ ms.component: report-monitor
 ms.date: 05/14/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: fe5bcce06ef02bae75bf9fdaf5702a99f485885c
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: e4aa4a87bec8f737405c90bb42bdb5fc60cb379a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42055665"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232994"
 ---
 # <a name="azure-active-directory-risk-events"></a>Azure Active Directory-risicogebeurtenissen
 
@@ -155,7 +155,7 @@ Deze risicogebeurtenis identificeert IP-adressen, niet de apparaten van de gebru
 
 U wordt aangeraden dat u contact opnemen met de gebruiker en scannen op apparaten van de gebruiker. Het is ook mogelijk dat de persoonlijke apparaat van een gebruiker is geïnfecteerd, of zoals eerder vermeld, dat iemand anders een geïnfecteerd apparaat uit hetzelfde IP-adres als de gebruiker gebruikt is. Geïnfecteerde apparaten zijn vaak geïnfecteerd met malware die nog niet zijn geïdentificeerd door de antivirussoftware, en kan ook duiden op als ongeldige gebruikers-gewoonten dat het apparaat worden geïnfecteerd hebben veroorzaakt.
 
-Zie voor meer informatie over het adres malware-infecties de [Malware Protection Center](http://go.microsoft.com/fwlink/?linkid=335773&clcid=0x409).
+Zie voor meer informatie over het adres malware-infecties de [Malware Protection Center](https://go.microsoft.com/fwlink/?linkid=335773&clcid=0x409).
 
 
 ### <a name="sign-ins-from-ip-addresses-with-suspicious-activity"></a>Aanmeldingen van IP-adressen met verdachte activiteit

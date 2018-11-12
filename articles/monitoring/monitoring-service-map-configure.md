@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
-ms.author: daseidma;bwren
-ms.openlocfilehash: 4461b98c56bcf99fc11aa9d89e6c6dc5961c86ac
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.author: bwren
+ms.openlocfilehash: 653ed7e4cdbd2df166e21acfd1e376638cad6290
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50419517"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51257221"
 ---
 # <a name="configure-service-map-in-azure"></a>Serviceoverzicht configureren in Azure
 Serviceoverzicht ontdekt automatisch toepassingsonderdelen op Windows- en Linux-systemen en wijst de communicatie tussen services toe. U kunt deze gebruiken om weer te geven van uw servers beschouwen zoals u ze--onderling verbonden systemen die kritieke services verlenen. Servicetoewijzing toont verbindingen tussen servers, processen en poorten in alle via TCP verbonden architectuur zonder configuratie vereist, dan een agent geïnstalleerd.

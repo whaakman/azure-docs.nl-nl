@@ -10,12 +10,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 01/02/2018
 ms.author: sngun
-ms.openlocfilehash: d8d05335b62d292bf61dbd3f3d565093b21f9253
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: c6c63b7b66114a8c35986b443bda78442b8edd7a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45574841"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51237737"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-java"></a>Tips voor betere prestaties voor Azure Cosmos DB en Java
 
@@ -25,7 +25,7 @@ ms.locfileid: "45574841"
 > * [.NET](performance-tips.md)
 > 
 
-Azure Cosmos DB is een snelle en flexibele gedistribueerde database die kan worden opgeschaald naadloos met een gegarandeerde latentie en doorvoer. U hoeft niet te grote architectuur wijzigingen aanbrengen of complexe code schrijven om te schalen van uw database met Azure Cosmos DB. Omhoog en omlaag schalen is net zo gemakkelijk als het maken van één API-aanroep of [SDK methodeaanroep](set-throughput.md#set-throughput-java). Omdat Azure Cosmos DB is toegankelijk via netwerkaanroepen er zijn echter client-side '-optimalisatie u maken kunt voor het behalen van optimale prestaties bij het gebruik van de [SQL Java SDK](documentdb-sdk-java.md).
+Azure Cosmos DB is een snelle en flexibele gedistribueerde database die kan worden opgeschaald naadloos met een gegarandeerde latentie en doorvoer. U hoeft niet te grote architectuur wijzigingen aanbrengen of complexe code schrijven om te schalen van uw database met Azure Cosmos DB. Omhoog en omlaag schalen is net zo gemakkelijk als het maken van één API-aanroep. Zie voor meer informatie, [over het inrichten van containerdoorvoer](how-to-provision-container-throughput.md) of [over het inrichten van database doorvoer](how-to-provision-database-throughput.md). Omdat Azure Cosmos DB is toegankelijk via netwerkaanroepen er zijn echter client-side '-optimalisatie u maken kunt voor het behalen van optimale prestaties bij het gebruik van de [SQL Java SDK](documentdb-sdk-java.md).
 
 Dus als u vraagt "hoe kan ik mijn de databaseprestaties verbeteren?" Houd rekening met de volgende opties:
 
@@ -93,7 +93,8 @@ Dus als u vraagt "hoe kan ik mijn de databaseprestaties verbeteren?" Houd rekeni
 
 5. **Uitstel getRetryAfterInMilliseconds tussenpozen implementeren**
 
-    Tijdens het Prestatietesten van, moet u load vergroten totdat een klein aantal aanvragen te maken met beperkingen. Als beperkt, moet de clienttoepassing uitstel op vertraging voor de server opgegeven interval. Respecteer de uitstel zorgt ervoor dat u besteden aan de minimale hoeveelheid tijd wachten tussen nieuwe pogingen. Ondersteuning voor beleid voor nieuwe pogingen is opgenomen in versie 1.8.0 en hoger van de [Java SDK](documentdb-sdk-java.md). Zie voor meer informatie, [meer dan gereserveerd doorvoerlimieten](request-units.md#RequestRateTooLarge) en [getRetryAfterInMilliseconds](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._document_client_exception.getretryafterinmilliseconds).
+    Tijdens het Prestatietesten van, moet u load vergroten totdat een klein aantal aanvragen te maken met beperkingen. Als beperkt, moet de clienttoepassing uitstel op vertraging voor de server opgegeven interval. Respecteer de uitstel zorgt ervoor dat u besteden aan de minimale hoeveelheid tijd wachten tussen nieuwe pogingen. Ondersteuning voor beleid voor nieuwe pogingen is opgenomen in versie 1.8.0 en hoger van de [Java SDK](documentdb-sdk-java.md). Zie voor meer informatie, [getRetryAfterInMilliseconds](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._document_client_exception.getretryafterinmilliseconds).
+
 6. **Uw client-workload uitschalen**
 
     Als u op het niveau van hoge doorvoer testen wilt (> 50.000 RU/s), de clienttoepassing kan knelpunt vanwege de machine beperking af op CPU- of -gebruik. Als u dit punt bereikt, kunt u blijven om de Azure Cosmos DB-account verder door uw client-toepassingen schalen over meerdere servers.

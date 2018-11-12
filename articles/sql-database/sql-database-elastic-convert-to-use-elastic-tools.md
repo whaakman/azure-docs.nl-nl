@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: e5039e299df30df4d49f24430af4b44837d65c44
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 03e1974a91a8c3cceacab777e28e8e4a01ccb313
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166357"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51251590"
 ---
 # <a name="migrate-existing-databases-to-scale-out"></a>Bestaande databases migreren voor uitschalen
 Uw bestaande uitgeschaalde shard databases met behulp van Azure SQL Database-hulpprogramma's voor databases eenvoudig te beheren (zoals de [Elastic Database-clientbibliotheek](sql-database-elastic-database-client-library.md)). Converteert u eerst een bestaande set met databases te gebruiken de [shard-Toewijzingsbeheer](sql-database-elastic-scale-shard-map-management.md). 
@@ -162,7 +162,7 @@ Gebruik het hulpprogramma voor splitsen en samenvoegen om gegevens te verplaatse
 Zie voor informatie over algemene gegevensarchitectuurpatronen van multitenant software as a service (SaaS)-databasetoepassingen, [Ontwerppatronen voor multitenant SaaS-toepassingen met Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md).
 
 ## <a name="questions-and-feature-requests"></a>Vragen en Functieaanvragen
-Voor vragen, gebruikt u de [forum van SQL-Database](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted) en voor functieaanvragen, toe te voegen aan de [forum met feedback van SQL-Database](https://feedback.azure.com/forums/217321-sql-database/).
+Voor vragen, gebruikt u de [forum van SQL-Database](https://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted) en voor functieaanvragen, toe te voegen aan de [forum met feedback van SQL-Database](https://feedback.azure.com/forums/217321-sql-database/).
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-convert-to-use-elastic-tools/listmapping.png

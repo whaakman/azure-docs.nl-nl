@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: ab338964a67991c0e97bf218f8aa004e0e5dfe38
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: f24a60ab9bdcf1231085de4edeeb89ce1edf4e80
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50418242"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51248466"
 ---
 # <a name="troubleshoot-slow-backup-of-files-and-folders-in-azure-backup"></a>Problemen met langzame back-ups van bestanden en mappen in Azure Backup
 In dit artikel bevat richtlijnen voor probleemoplossing zodat u de oorzaak van trage back-upprestaties voor bestanden en mappen wanneer u Azure Backup. Wanneer u back-up van bestanden met de Azure backup-agent, kan het back-upproces duurt langer dan verwacht. Deze vertraging kan worden veroorzaakt door een of meer van de volgende opties:
@@ -23,7 +23,7 @@ In dit artikel bevat richtlijnen voor probleemoplossing zodat u de oorzaak van t
 * [De backup-agent wordt uitgevoerd op een Azure-machine (VM).](#cause3)  
 * [U wilt maken van een groot aantal (miljoenen) bestanden.](#cause4)
 
-Voordat u begint met het oplossen van problemen, wordt aangeraden dat u downloadt en installeert de [meest recente Azure backup-agent](http://aka.ms/azurebackup_agent). We aanbrengen regelmatige updates in de backup-agent op verschillende problemen oplossen, functies toevoegen en de prestaties verbeteren.
+Voordat u begint met het oplossen van problemen, wordt aangeraden dat u downloadt en installeert de [meest recente Azure backup-agent](https://aka.ms/azurebackup_agent). We aanbrengen regelmatige updates in de backup-agent op verschillende problemen oplossen, functies toevoegen en de prestaties verbeteren.
 
 Ook wordt aangeraden dat u bekijkt de [Veelgestelde vragen over Azure Backup-service](backup-azure-backup-faq.md) om ervoor te zorgen dat u nog niet een van de algemene configuratieproblemen ondervindt.
 

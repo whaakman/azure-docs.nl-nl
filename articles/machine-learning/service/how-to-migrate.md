@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: haining
 author: haining
 ms.date: 09/24/2018
-ms.openlocfilehash: 9778d348cf49d4066f034931dc350a1f4a608ad2
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: e2b3545c020f41f25f19843eab158cfb1b419164
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48236581"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51253445"
 ---
 # <a name="migrate-to-the-latest-version-of-azure-machine-learning-service"></a>Migreren naar de nieuwste versie van Azure Machine Learning-service 
 
@@ -38,7 +38,7 @@ De volgende tabel en het artikel wordt uitgelegd wat u kunt doen met uw bestaand
 |Geregistreerde installatiekopieën|Nee|De implementatie van Docker-installatiekopie onder een nieuwe werkruimte opnieuw worden gemaakt.|
 |Geïmplementeerde webservices|Nee|Geen. Ze nog steeds als gaat gebruiken-is <br/>of [implementeren met behulp van het meest recente versie](#services).|
 |Experimenten en <br/>Modelbeheer-accounts|Nee|[Een werkruimte maken](#resources) in plaats daarvan.|
-|Machine learning CLI & SDK|Nee|Gebruik de nieuwe [CLI](reference-azure-machine-learning-cli.md) en [SDK](http://aka.ms/aml-sdk) voor nieuwe werk.|
+|Machine learning CLI & SDK|Nee|Gebruik de nieuwe [CLI](reference-azure-machine-learning-cli.md) en [SDK](https://aka.ms/aml-sdk) voor nieuwe werk.|
 
 
 Meer informatie over [wat gewijzigd in deze release](overview-what-happened-to-workbench.md)?
@@ -52,7 +52,7 @@ Meer informatie over [wat gewijzigd in deze release](overview-what-happened-to-w
 
 Resources, zoals uw experimenten-accounts, Modelbeheer-accounts en machine learning compute-omgeving kunnen niet worden gemigreerd naar de nieuwste versie van Azure Machine Learning-service. Zie de [tijdlijn](overview-what-happened-to-workbench.md#timeline) op hoe lang de activa blijven werken.
 
-Aan de slag met de meest recente versie van het maken van een werkruimte van Azure Machine Learning-service in de [Azure-portal](quickstart-get-started.md). Werkruimte-dashboard van de portal wordt ondersteund op Edge, Chrome en Firefox-browser.
+Aan de slag met de meest recente versie van het maken van een werkruimte van Azure Machine Learning-service in de [Azure-portal](quickstart-get-started.md). Het werkruimtedashboard van de portaal wordt alleen ondersteund in Edge, Chrome en Firefox.
 
 Deze nieuwe werkruimte is de Serviceresource op het hoogste niveau en kunt u alle van de nieuwste functies van Azure Machine Learning-service gebruiken. Meer informatie over dit [werkruimte en architectuur](concept-azure-machine-learning-architecture.md).
 
@@ -62,7 +62,7 @@ Deze nieuwe werkruimte is de Serviceresource op het hoogste niveau en kunt u all
 
 In plaats van dat uw projecten in een werkruimte in de cloud, projecten, zijn nu mappen op uw lokale computer in de nieuwste versie. Zie een diagram van de [meest recente architectuur](concept-azure-machine-learning-architecture.md). 
 
-Om door te gaan met behulp van de lokale directory met uw bestanden en scripts, geef de naam van de map in de ['experiment.submit'](http://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py) Python-opdracht, of met behulp van de CLI-opdracht 'az ml project koppelen'.
+Om door te gaan met behulp van de lokale directory met uw bestanden en scripts, geef de naam van de map in de ['experiment.submit'](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py) Python-opdracht, of met behulp van de CLI-opdracht 'az ml project koppelen'.
 
 Bijvoorbeeld:
 ```python

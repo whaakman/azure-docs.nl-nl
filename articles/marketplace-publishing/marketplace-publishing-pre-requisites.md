@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 08/18/2016
 ms.author: hascipio
-ms.openlocfilehash: 4f86d444a2f2b97fd8605d480db358813bc39fd3
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: ef19380372354b8f34343f9f94ebf6b384996f14
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39714186"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261550"
 ---
 # <a name="general-prerequisites-for-creating-an-offer-for-the-azure-marketplace"></a>Algemene vereisten voor het maken van een aanbieding voor Azure Marketplace
 Krijg inzicht in het algemeen, business-proces-georiënteerde vereisten die nodig zijn om te gaan met het proces voor het maken van aanbieding.
@@ -70,7 +70,7 @@ Dit is het abonnement die u gebruiken wilt voor het maken van uw VM-installatiek
 
 ## <a name="sell-from-countries"></a>'Verkopen van'-landen
 > [!WARNING]
-> Als u wilt uw services op Azure Marketplace verkopen, moet u ervoor zorgen dat uw geregistreerde entiteit van een van de goedgekeurde 'verkoop-van'-landen is. Deze beperking is omwille van de betalings- en belasting. We zijn actief op zoek naar deze lijst van landen in de nabije toekomst uitvouwen, dus kom. Zie voor de volledige lijst 1b sectie van de [deelnamebeleid voor Azure Marketplace](http://go.microsoft.com/fwlink/?LinkID=526833).
+> Als u wilt uw services op Azure Marketplace verkopen, moet u ervoor zorgen dat uw geregistreerde entiteit van een van de goedgekeurde 'verkoop-van'-landen is. Deze beperking is omwille van de betalings- en belasting. We zijn actief op zoek naar deze lijst van landen in de nabije toekomst uitvouwen, dus kom. Zie voor de volledige lijst 1b sectie van de [deelnamebeleid voor Azure Marketplace](https://go.microsoft.com/fwlink/?LinkID=526833).
 > 
 > 
 

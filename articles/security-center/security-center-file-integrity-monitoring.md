@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/21/2018
 ms.author: rkarlin
-ms.openlocfilehash: 56aa756230dc908157a5a3d244d379215935cd2f
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 0376f09d4d7d6c952cbef40751a2729045f68061
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46124113"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255828"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Bestandsintegriteit controleren in Azure Security Center
 Informatie over het configureren van bestand integriteit controleren (FIM) in Azure Security Center gebruikt deze stapsgewijze kennismaking.
@@ -211,7 +211,7 @@ In dit artikel hebt u geleerd bestand integriteit controleren (FIM) in Security 
 * [Beheren en erop reageren op beveiligingswaarschuwingen](security-center-managing-and-responding-alerts.md)--informatie over het beheren van en reageren op beveiligingswaarschuwingen.
 * [Partneroplossingen bewaken](security-center-partner-solutions.md) --informatie over het bewaken van de status van uw partneroplossingen.
 * [Security Center FAQ](security-center-faq.md): Raadpleeg Veelgestelde vragen over het gebruik van de service.
-* [Azure Security Blog](http://blogs.msdn.com/b/azuresecurity/) (Azure-beveiligingsblog): hier vindt u het laatste nieuws over Azure-beveiliging en andere informatie.
+* [Azure Security Blog](https://blogs.msdn.com/b/azuresecurity/) (Azure-beveiligingsblog): hier vindt u het laatste nieuws over Azure-beveiliging en andere informatie.
 
 <!--Image references-->
 [1]: ./media/security-center-file-integrity-monitoring/security-center-dashboard.png

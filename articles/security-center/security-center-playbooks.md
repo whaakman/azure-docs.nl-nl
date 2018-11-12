@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/09/2018
 ms.author: yurid
-ms.openlocfilehash: b9040158679b99ca71a6b973dec9804869351938
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 05245b2a7a4f7bf61052b13da5ee2a98be721f7c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44158293"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51259952"
 ---
 # <a name="security-playbook-in-azure-security-center-preview"></a>Beveiligingsplaybook in Azure Security Center (Preview)
 In dit document wordt uitgelegd hoe u beveiligingsplaybooks gebruikt in Azure Security Center voor het reageren op beveiligingsproblemen.
@@ -104,5 +104,5 @@ In dit document hebt u kunnen lezen hoe u playbooks gebruikt in Azure Security C
 * [Beveiligingswaarschuwingen in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-alerts-type). Meer informatie over de verschillende typen beveiligingswaarschuwingen.
 * [Handleiding voor het oplossen van problemen met Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide). Informatie over het oplossen van veelvoorkomende problemen met Security Center. 
 * [Veelgestelde vragen over Azure Security Center](security-center-faq.md). Raadpleeg de veelgestelde vragen over het gebruik van de service.
-* [Azure-beveiligingsblog](http://blogs.msdn.com/b/azuresecurity/). Raadpleeg de blogberichten over beveiliging en naleving in Azure.
+* [Azure-beveiligingsblog](https://blogs.msdn.com/b/azuresecurity/). Raadpleeg de blogberichten over beveiliging en naleving in Azure.
 

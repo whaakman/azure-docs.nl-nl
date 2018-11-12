@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: fbd11eb23b10800e115a63549f233e0239763420
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 09c869bf28b804d8fabe331c4a9c2d222accc1e5
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638139"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300367"
 ---
 # <a name="patterns-improve-prediction-accuracy"></a>Patronen verbeteren nauwkeurigheid
 Patronen zijn ontworpen voor betere nauwkeurigheid wanneer verschillende uitingen vergelijkbaar zijn.  Een patroon kunt u meer nauwkeurigheid voor een doel zonder op te geven veel meer uitingen krijgen. 
@@ -89,7 +89,7 @@ Om toe te voegen een **Pattern.any** entiteit in de sjabloon patroon rondom de P
 In deze voorbeelden van de titel book zijn niet de contextuele woorden van titel van het boek lastig te LUIS. LUIS weet waar de titel van het boek is beëindigd omdat deze in een patroon is en gemarkeerd met een entiteit Pattern.any.
 
 ### <a name="explicit-lists"></a>Expliciete lijsten
-Als het patroon bevat een Pattern.any, en de syntaxis van de patroon kunt u de mogelijkheid van een onjuist entiteiten extraheren op basis van de utterance, maakt u een [expliciete lijst](https://aka.ms/ExplicitList) via de API-uitzondering toestaan voor schrijven. 
+Als het patroon bevat een Pattern.any, en de syntaxis van de patroon kunt u de mogelijkheid van een onjuist entiteiten extraheren op basis van de utterance, maakt u een [expliciete lijst](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5ade550bd5b81c209ce2e5a8) via de API-uitzondering toestaan voor schrijven. 
 
 Stel bijvoorbeeld dat u hebt een patroon met beide optioneel syntaxis `[]`, en de syntaxis van de entiteit, `{}`, gecombineerde op een manier om gegevens te extraheren onjuist.
 
@@ -102,7 +102,7 @@ Houd rekening met het patroon [zoeken] e-mail over {subject} [van {persoon}]. In
 
 In de voorgaande tabel, de utterance `email about the man from La Mancha`, het onderwerp moet `the man from La Mancha` (titel van een boek), maar omdat het onderwerp de optionele word bevat `from`, de titel onjuist wordt voorspeld. 
 
-U kunt met het oplossen van deze uitzondering op het patroon, toevoegen `the man from la mancha` als een lijst met expliciete-overeenkomst voor de {subject} entiteit met de [API ontwerpen voor expliciete lijst](https://aka.ms/ExplicitList).
+U kunt met het oplossen van deze uitzondering op het patroon, toevoegen `the man from la mancha` als een lijst met expliciete-overeenkomst voor de {subject} entiteit met de [API ontwerpen voor expliciete lijst](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5ade550bd5b81c209ce2e5a8).
 
 ### <a name="syntax-to-mark-optional-text-in-a-template-utterance"></a>Syntaxis voor het markeren van optionele tekst in een sjabloon utterance
 Optionele tekst in de utterance met behulp van de syntaxis van reguliere expressie vierkant haakje sluiten, markeert `[]`. De optionele tekst kunt vierkante haken maximaal twee vierkante haken nesten.

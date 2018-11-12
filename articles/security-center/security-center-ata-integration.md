@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/05/2018
 ms.author: yurid
-ms.openlocfilehash: 1922bc25eb7072341848dd7081c31ba6b1f07a3c
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 6129c83e33d046c2fc9ce1724a27efce5efdfa0e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44298825"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51258796"
 ---
 # <a name="connecting-microsoft-advanced-threat-analytics-to-azure-security-center"></a>Maken van verbinding Microsoft Advanced Threat Analytics met Azure Security Center
 Dit document helpt u bij het configureren van de integratie tussen Microsoft Advanced Threat Analytics en Azure Security Center.
@@ -75,6 +75,6 @@ In dit document hebt u geleerd hoe u verbinding maken met Microsoft ATA met Secu
 * [Partneroplossingen controleren met Azure Security Center](security-center-partner-solutions.md): leer hoe u de integriteitsstatus van uw partneroplossingen kunt controleren.
 - [Beveiliging van Azure Security Center gegevens](security-center-data-security.md) -informatie over hoe gegevens worden beheerd en beveiligd in Security Center.
 * [Azure Security Center FAQ](security-center-faq.md): raadpleeg veelgestelde vragen over het gebruik van de service.
-* [Azure-Beveiligingsblog](http://blogs.msdn.com/b/azuresecurity/) : ophalen van de meest recente Azure-beveiliging-nieuws en informatie.
+* [Azure-Beveiligingsblog](https://blogs.msdn.com/b/azuresecurity/) : ophalen van de meest recente Azure-beveiliging-nieuws en informatie.
 
 

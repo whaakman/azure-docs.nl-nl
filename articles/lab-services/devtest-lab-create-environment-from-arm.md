@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2018
 ms.author: spelluru
-ms.openlocfilehash: 4dc61258df2311c4e7ccd4c05ebe077b3e2343eb
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: f2bf811bfb0856b7ceb2fca2fd84c0d9830fb65d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47222281"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255623"
 ---
 # <a name="create-multi-vm-environments-and-paas-resources-with-azure-resource-manager-templates"></a>Multi-VM-omgevingen en PaaS-resources met Azure Resource Manager-sjablonen maken
 
-De [Azure-portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) kunt u eenvoudig [één virtuele machine tegelijk toevoegen aan een lab](https://docs.microsoft.com/azure/devtest-lab/devtest-lab-add-vm). Als de omgeving meerdere virtuele machines bevat, moet elke virtuele machine echter worden afzonderlijk gemaakt. Voor scenario's zoals een Web-app voor meerdere lagen of een SharePoint-farm, een methode nodig om toe te staan voor het maken van meerdere virtuele machines in één stap. Met behulp van Azure Resource Manager-sjablonen, kunt u nu definieert de infrastructuur en configuratie van uw Azure-oplossing en herhaaldelijk implementeren meerdere virtuele machines in een consistente status. Deze functie biedt de volgende voordelen:
+De [Azure-portal](https://go.microsoft.com/fwlink/p/?LinkID=525040) kunt u eenvoudig [één virtuele machine tegelijk toevoegen aan een lab](https://docs.microsoft.com/azure/devtest-lab/devtest-lab-add-vm). Als de omgeving meerdere virtuele machines bevat, moet elke virtuele machine echter worden afzonderlijk gemaakt. Voor scenario's zoals een Web-app voor meerdere lagen of een SharePoint-farm, een methode nodig om toe te staan voor het maken van meerdere virtuele machines in één stap. Met behulp van Azure Resource Manager-sjablonen, kunt u nu definieert de infrastructuur en configuratie van uw Azure-oplossing en herhaaldelijk implementeren meerdere virtuele machines in een consistente status. Deze functie biedt de volgende voordelen:
 
 - Azure Resource Manager-sjablonen worden geladen rechtstreeks vanuit uw resourcebeheerbibliotheek (GitHub of Azure DevOps Services Git).
 - Wanneer geconfigureerd, uw gebruikers een omgeving kunnen maken door het verzamelen van een Azure Resource Manager-sjabloon via Azure portal, net als bij andere soorten [VM-basissen](./devtest-lab-comparing-vm-base-image-types.md).
@@ -64,7 +64,7 @@ Er zijn een aantal regels voor het ordenen van uw Azure Resource Manager-sjablon
 
 De volgende stappen helpen u bij het toevoegen van een opslagplaats aan uw testomgeving met behulp van de Azure portal. 
 
-1. Meld u aan bij [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Meld u aan bij [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Selecteer **alle Services**, en selecteer vervolgens **DevTest Labs** in de lijst.
 1. Selecteer de gewenste lab in de lijst met labs.   
 1. Op van het lab **overzicht** venster **configuratie en het beleid**.
@@ -94,7 +94,7 @@ De volgende sectie helpt u bij het maken van omgevingen van een Azure Resource M
 
 Nadat een opslagplaats voor Azure Resource Manager-sjablonen in het lab is geconfigureerd, kan uw labgebruikers een omgeving met behulp van Azure portal met de volgende stappen kunnen maken:
 
-1. Meld u aan bij [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Meld u aan bij [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Selecteer **alle Services**, en selecteer vervolgens **DevTest Labs** in de lijst.
 1. Selecteer de gewenste lab in de lijst met labs.   
 1. Selecteer in het deelvenster van de testomgeving **toevoegen +**.

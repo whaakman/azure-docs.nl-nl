@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: pbutlerm
-ms.openlocfilehash: f12a15a0d739ae6e98be3871fa8bb4104f49565c
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 74cde720af012b3355b813cf6da2b2bdf10b9b8e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48810071"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51257204"
 ---
 # <a name="publish-a-cortana-intelligence-offer-using-the-cloud-partner-portal"></a>Een Cortana Intelligence-aanbieding met behulp van de Cloud Partner-Portal publiceren
 
@@ -29,7 +29,7 @@ In dit artikel wordt beschreven hoe u een Cortana Intelligence-aanbieding met be
 
 De Cloud Partner-Portal biedt ondersteuning voor toegang tot de portal, waarmee medewerkers samen te werken aan het publiceren van een aanbieding op basis van rollen. Zie voor meer informatie, [Cloud Portal beheren-gebruikers](./cloud-partner-portal-manage-users.md).
 
-Voordat een aanbieding kan worden gepubliceerd namens een publisher-account, een van de personen met \"eigenaar\" rol moet instemmen met de [gebruiksvoorwaarden](https://azure.microsoft.com/support/legal/website-terms-of-use/), [privacyverklaring van Microsoft](http://www.microsoft.com/privacystatement/default.aspx), en [Microsoft Azure Certified-Programmaovereenkomst](https://azure.microsoft.com/support/legal/marketplace/certified-program-agreement/).
+Voordat een aanbieding kan worden gepubliceerd namens een publisher-account, een van de personen met \"eigenaar\" rol moet instemmen met de [gebruiksvoorwaarden](https://azure.microsoft.com/support/legal/website-terms-of-use/), [privacyverklaring van Microsoft](https://www.microsoft.com/privacystatement/default.aspx), en [Microsoft Azure Certified-Programmaovereenkomst](https://azure.microsoft.com/support/legal/marketplace/certified-program-agreement/).
 
 ## <a name="to-start-creating-a-cortana-inteligence-offer"></a>Om te beginnen met het maken van een aanbieding Cortana Inteligence
 
@@ -216,7 +216,7 @@ Partners kunnen twee soorten proefversie ervaringen bieden op AppSource.
 
         - [Optimalisatie van de voorraad Neal Analytics](https://appsource.microsoft.com/product/web-apps/neal_analytics.8066ad01-1e61-40cd-bd33-9b86c65fa73a?tab=Overview&tag=CISHome)
 
-- De **aanvraag voor proefversie** (**Partner geleid proefversies / PLT**) optie moet klanten om op te vullen van een formulier contactgegevens voor het vervolg van de partner. De partner follow-up en biedt een demonstratie of een proefversie van de app. Zie voor meer informatie, [AppSource testervaring scenario](http://aka.ms/trialexperienceforwebapps) video voor een overzicht op hoog niveau.
+- De **aanvraag voor proefversie** (**Partner geleid proefversies / PLT**) optie moet klanten om op te vullen van een formulier contactgegevens voor het vervolg van de partner. De partner follow-up en biedt een demonstratie of een proefversie van de app. Zie voor meer informatie, [AppSource testervaring scenario](https://aka.ms/trialexperienceforwebapps) video voor een overzicht op hoog niveau.
 
 >[!Note]
 >Gegevens ziet u dat **klant onder leiding van experimenten** hebben een hogere leadgeneratie mogelijke dan **Partner geleid proefversies**.

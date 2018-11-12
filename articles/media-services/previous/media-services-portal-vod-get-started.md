@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/07/2017
 ms.author: juliako
-ms.openlocfilehash: 11babf8a66c38354499ce85fad424fed04c07c15
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 340c4715f8b8cf0b73fc9db9612887f91d1700fb
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33780599"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51234508"
 ---
 # <a name="get-started-with-delivering-content-on-demand-by-using-the-azure-portal"></a>Aan de slag met het leveren van inhoud op aanvraag via Azure Portal
 [!INCLUDE [media-services-selector-get-started](../../../includes/media-services-selector-get-started.md)]
@@ -123,7 +123,7 @@ Een Shared Access Signature-URL heeft de volgende indeling:
 > 
 > 
 
-Als u een vervaldatum van een locator wilt bijwerken, kunt u een [REST API](https://docs.microsoft.com/rest/api/media/operations/locator#update_a_locator) of een [.NET API](http://go.microsoft.com/fwlink/?LinkID=533259) gebruiken. 
+Als u een vervaldatum van een locator wilt bijwerken, kunt u een [REST API](https://docs.microsoft.com/rest/api/media/operations/locator#update_a_locator) of een [.NET API](https://go.microsoft.com/fwlink/?LinkID=533259) gebruiken. 
 
 > [!NOTE]
 > Wanneer u de vervaldatum van een Shared Access Signature-locator bijwerkt, wordt de URL gewijzigd.

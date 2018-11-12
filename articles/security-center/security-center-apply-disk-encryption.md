@@ -3,7 +3,7 @@ title: Schijfversleuteling in Azure Security Center toe te passen | Microsoft Do
 description: Dit document wordt beschreven hoe u de Azure Security Center-aanbeveling kunt implementeren **schijfversleuteling toepassen**.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: 6cc7824a-8d6b-4a5f-ab40-e3bbaebc4a91
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/02/2017
-ms.author: terrylan
-ms.openlocfilehash: 20b55f993e8a570c737d5849af957b4c40089f61
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.date: 10/28/2018
+ms.author: rkarlin
+ms.openlocfilehash: d78e5ba030a8b68b99a92be8a830a365c2870c1f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44301617"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51235884"
 ---
 # <a name="apply-disk-encryption-in-azure-security-center"></a>Schijfversleuteling in Azure Security Center toepassen
 Azure Security Center adviseert schijfversleuteling toe te passen als u Windows of Linux-VM-schijven die niet zijn versleuteld met Azure Disk Encryption hebt. Schijfversleuteling kunt u uw Windows- en Linux IaaS-VM-schijven te versleutelen.  Versleuteling wordt aanbevolen voor het besturingssysteem en voor de gegevensvolumes op de VM.
@@ -61,7 +61,7 @@ Zie de volgende onderwerpen voor meer informatie over het Beveiligingscentrum:
 * [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) (Beveiligingswaarschuwingen beheren en erop reageren in Azure Security Center): ontdek hoe u beveiligingswaarschuwingen kunt beheren en erop kunt reageren.
 * [Aanbevelingen voor beveiliging in Azure Security Center beheren](security-center-recommendations.md) --Leer hoe aanbevelingen helpen u uw Azure-resources te beveiligen.
 * [Azure Security Center FAQ](security-center-faq.md) (Veelgestelde vragen over Azure Security Center): raadpleeg veelgestelde vragen over het gebruik van de service.
-* [Azure-Beveiligingsblog](http://blogs.msdn.com/b/azuresecurity/) : Lees blogberichten over de Azure-beveiliging en naleving.
+* [Azure-Beveiligingsblog](https://blogs.msdn.com/b/azuresecurity/) : Lees blogberichten over de Azure-beveiliging en naleving.
 
 <!--Image references-->
 [1]: ./media/security-center-apply-disk-encryption/apply-disk-encryption.png

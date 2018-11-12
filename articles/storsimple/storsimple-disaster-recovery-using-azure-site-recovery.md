@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/13/2017
 ms.author: vidarmsft
-ms.openlocfilehash: d6b8341f16cca29fe5bedca34749f47053a14ebb
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: c88df7ba1a9a60ffcda9a5235197037088abca4e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43666935"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51249265"
 ---
 # <a name="automated-disaster-recovery-solution-using-azure-site-recovery-for-file-shares-hosted-on-storsimple"></a>Automatisch herstel na noodgevallen oplossing met behulp van Azure Site Recovery voor bestandsshares die worden gehost op StorSimple
 ## <a name="overview"></a>Overzicht
@@ -43,7 +43,7 @@ Implementatie van een oplossing voor noodherstel voor één muisklik die gebruik
    - Bestandsshares die worden gehost op de volumes die zijn geconfigureerd op het StorSimple-opslagapparaat
    - [Azure Site Recovery services-kluis](../site-recovery/site-recovery-vmm-to-vmm.md) gemaakt in een Microsoft Azure-abonnement
 
-Bovendien als Azure uw site recovery, voert u de [Azure Virtual Machine Readiness Assessment tool](http://azure.microsoft.com/downloads/vm-readiness-assessment/) op virtuele machines om ervoor te zorgen dat ze compatibel met Azure-VM's en Azure Site Recovery zijn-services.
+Bovendien als Azure uw site recovery, voert u de [Azure Virtual Machine Readiness Assessment tool](https://azure.microsoft.com/downloads/vm-readiness-assessment/) op virtuele machines om ervoor te zorgen dat ze compatibel met Azure-VM's en Azure Site Recovery zijn-services.
 
 Om te voorkomen dat latentie problemen (dit kunnen leiden tot hogere kosten voor het), zorg ervoor dat u uw StorSimple-Cloudapparaat, automation-account en storage maakt (s) in dezelfde regio.
 
@@ -81,7 +81,7 @@ Deze stap is vereist dat u de on-premises bestand server-omgeving voorbereiden, 
 
 1. Installeer de VM-Agent op elk van de virtuele machines van de bestandsserver. Dit is vereist zodat u Azure automation-scripts op de mislukte over virtuele machines uitvoeren kunt.
    
-   1. [Download de agent](http://aka.ms/vmagentwin) naar `C:\\Users\\<username>\\Downloads`.
+   1. [Download de agent](https://aka.ms/vmagentwin) naar `C:\\Users\\<username>\\Downloads`.
    1. Open Windows PowerShell in de beheerdersmodus (als Administrator uitvoeren) en voer de volgende opdracht uit om te navigeren naar de downloadlocatie:  
          `cd C:\\Users\\<username>\\Downloads\\WindowsAzureVmAgent.2.6.1198.718.rd\_art\_stable.150415-1739.fre.msi`
          
@@ -168,16 +168,16 @@ U kunt een plan voor herstel in ASR voor het automatiseren van het failoverproce
 1. Klik in het automation-account op **variabelen** &gt; **toevoegen van een variabele** en voeg de volgende variabelen. U kunt kiezen voor het versleutelen van deze elementen. Deze variabelen zijn specifiek plan voor herstel. Als uw herstelplan, die in de volgende stap maakt u de naam is TestPlan, en vervolgens uw variabelen moeten worden TestPlan-StorSimRegKey, TestPlan-AzureSubscriptionName, enzovoort.
 
    - **BaseUrl**: de Resource Manager-url voor de Azure-cloud. Met behulp van ophalen **Get-AzureRmEnvironment | De naam van de Select-Object, ResourceManagerUrl** cmdlet.
-   - *RecoveryPlanName* **- ResourceGroupName**: de Resource Manager-groep met de StorSimple-resource.
-   - *RecoveryPlanName* **- ManagerName**: het StorSimple-resource met de StorSimple-apparaat.
-   - *RecoveryPlanName* **- DeviceName**: het StorSimple-apparaat met failover.
-   - *RecoveryPlanName* **- DeviceIpAddress**: het IP-adres van het apparaat (dit kan worden gevonden in de **apparaten** tabblad onder de sectie van de StorSimple Device Manager &gt; **instellingen** &gt; **Netwerk** &gt; **DNS-instellingen** groep).
-   - *RecoveryPlanName* **- VolumeContainers**: een tekenreeks met door komma's gescheiden van de volumecontainers die aanwezig zijn op het apparaat dat moet worden kan niet meer dan, bijvoorbeeld: volcon1, volcon2, volcon3.
-   - *RecoveryPlanName* **- TargetDeviceName**: het StorSimple-Cloudapparaat waarop de containers zijn failover mogelijk is.
-   - *RecoveryPlanName* **- TargetDeviceIpAddress**: het IP-adres van het doelapparaat (dit kan worden gevonden in de **virtuele Machine** sectie &gt; **instellingen** groep &gt; **netwerken** tabblad).
-   - *RecoveryPlanName* **- StorageAccountName**: naam van het opslagaccount waarin het script (die worden gebruikt op de via virtuele machine) worden opgeslagen. Dit kan een storage-account dat de ruimte vrij voor het opslaan van het script tijdelijk is zijn.
-   - *RecoveryPlanName* **- StorageAccountKey**: de toegangssleutel voor de bovenstaande storage-account.
-   - *RecoveryPlanName* **- VMGUIDS**: bij het beveiligen van een virtuele machine, Azure Site Recovery wijst elke virtuele machine een unieke ID waarmee de details van de mislukte uitvoert voor virtuele machine. Als u wilt de VMGUID, selecteer de **herstelservices** tabblad en klik op **beveiligde Item** &gt; **beveiligingsgroepen** &gt;  **Machines** &gt; **eigenschappen**. Als u meerdere virtuele machines hebt, kunt u vervolgens de GUID's als een door komma's gescheiden tekenreeks op toevoegen.
+   - * RecoveryPlanName ***- ResourceGroupName**: de Resource Manager-groep met de StorSimple-resource.
+   - * RecoveryPlanName ***- ManagerName**: het StorSimple-resource met de StorSimple-apparaat.
+   - * RecoveryPlanName ***- DeviceName**: het StorSimple-apparaat met failover.
+   - * RecoveryPlanName ***- DeviceIpAddress**: het IP-adres van het apparaat (dit kan worden gevonden in de **apparaten** tabblad onder de sectie van de StorSimple Device Manager &gt; **instellingen** &gt; **Netwerk** &gt; **DNS-instellingen** groep).
+   - * RecoveryPlanName ***- VolumeContainers**: een tekenreeks met door komma's gescheiden van de volumecontainers die aanwezig zijn op het apparaat dat moet worden kan niet meer dan, bijvoorbeeld: volcon1, volcon2, volcon3.
+   - * RecoveryPlanName ***- TargetDeviceName**: het StorSimple-Cloudapparaat waarop de containers zijn failover mogelijk is.
+   - * RecoveryPlanName ***- TargetDeviceIpAddress**: het IP-adres van het doelapparaat (dit kan worden gevonden in de **virtuele Machine** sectie &gt; **instellingen** groep &gt; **netwerken** tabblad).
+   - * RecoveryPlanName ***- StorageAccountName**: naam van het opslagaccount waarin het script (die worden gebruikt op de via virtuele machine) worden opgeslagen. Dit kan een storage-account dat de ruimte vrij voor het opslaan van het script tijdelijk is zijn.
+   - * RecoveryPlanName ***- StorageAccountKey**: de toegangssleutel voor de bovenstaande storage-account.
+   - * RecoveryPlanName ***- VMGUIDS**: bij het beveiligen van een virtuele machine, Azure Site Recovery wijst elke virtuele machine een unieke ID waarmee de details van de mislukte uitvoert voor virtuele machine. Als u wilt de VMGUID, selecteer de **herstelservices** tabblad en klik op **beveiligde Item** &gt; **beveiligingsgroepen** &gt;  **Machines** &gt; **eigenschappen**. Als u meerdere virtuele machines hebt, kunt u vervolgens de GUID's als een door komma's gescheiden tekenreeks op toevoegen.
 
     Bijvoorbeeld, als de naam van het herstelplan is fileServerpredayRP, vervolgens uw **variabelen**, **verbindingen** en **certificaten** tabblad moet als volgt worden weergegeven nadat u hebt toegevoegd alle assets.
 
@@ -289,7 +289,7 @@ Raadpleeg de [Active Directory-DR-oplossing](../site-recovery/site-recovery-acti
 
 #### <a name="to-perform-a-planned-failover"></a>Een geplande failover uitvoeren
 1. Selecteer in de Azure portal, **herstelservices** kluis &gt; **herstelplannen (Site Recovery)** &gt; **recoveryplan_name** gemaakt voor de VM-bestandsserver.
-1. Klik op de blade Recovery plan **meer** &gt; **geplande failover**.  
+1. Klik op de blade Recovery plan **meer** &gt; **geplande failover**.
 
    ![Plan voor herstel](./media/storsimple-disaster-recovery-using-azure-site-recovery/image9.png)
 1. Op de **geplande Failover bevestigen** blade, kiest u de bron- en doellocaties voor- en doel selecteren, netwerk en klik op het vinkje ✓ om de failoverproces te starten.
@@ -301,7 +301,7 @@ Tijdens een niet-geplande failover, het StorSimple-volumes zijn een failover naa
 
 #### <a name="to-perform-a-failover"></a>Een failover uitvoeren
 1. Selecteer in de Azure portal, **herstelservices** kluis &gt; **herstelplannen (Site Recovery)** &gt; **recoveryplan_name** gemaakt voor de VM-bestandsserver.
-1. Klik op de blade Recovery plan **meer** &gt; **Failover**.  
+1. Klik op de blade Recovery plan **meer** &gt; **Failover**.
 1. Op de **bevestigen Failover** blade, kiest u de bron en doel locaties.
 1. Selecteer **virtuele machines afsluiten en de nieuwste gegevens synchroniseren** om op te geven dat Site Recovery proberen moet de beveiligde virtuele machine uitschakelen en de gegevens te synchroniseren, zodat de meest recente versie van de gegevens wordt geen failover worden uitgevoerd.
 1. Na de failover wordt de virtuele machines in een doorvoering status in behandeling zijn. Klik op **doorvoeren** om door te voeren van de failover.
@@ -312,7 +312,7 @@ Tijdens een failback volumecontainers StorSimple zijn een failover naar het fysi
 
 #### <a name="to-perform-a-failback"></a>Een failback uitvoeren
 1. Selecteer in de Azure portal, **herstelservices** kluis &gt; **herstelplannen (Site Recovery)** &gt; **recoveryplan_name** gemaakt voor de VM-bestandsserver.
-1. Klik op de blade Recovery plan **meer** &gt; **geplande Failover**.  
+1. Klik op de blade Recovery plan **meer** &gt; **geplande Failover**.
 1. Kies de bron- en doellocaties, selecteer de geschikte synchronisatie van gegevens en opties voor het maken van virtuele machine.
 1. Klik op **OK** knop om het failback-proces te starten.
    
@@ -321,10 +321,10 @@ Tijdens een failback volumecontainers StorSimple zijn een failover naar het fysi
 ## <a name="best-practices"></a>Beste praktijken
 ### <a name="capacity-planning-and-readiness-assessment"></a>Capaciteit plannen en readiness assessment
 #### <a name="hyper-v-site"></a>Hyper-V-site
-Gebruik de [gebruiker Capaciteitsplanner](http://www.microsoft.com/download/details.aspx?id=39057) ontwerpen van de server-, opslag- en netwerkinfrastructuur voor uw Hyper-V replica-omgeving.
+Gebruik de [gebruiker Capaciteitsplanner](https://www.microsoft.com/download/details.aspx?id=39057) ontwerpen van de server-, opslag- en netwerkinfrastructuur voor uw Hyper-V replica-omgeving.
 
 #### <a name="azure"></a>Azure
-U kunt uitvoeren de [Azure Virtual Machine Readiness Assessment tool](http://azure.microsoft.com/downloads/vm-readiness-assessment/) op virtuele machines om ervoor te zorgen dat ze compatibel met Azure VM's en Azure Site Recovery-Services zijn. De Readiness Assessment Tool controleert de configuraties van virtuele machine en u wordt gewaarschuwd wanneer configuraties niet compatibel met Azure zijn. Deze geeft bijvoorbeeld een waarschuwing als een station groter dan 127 GB is.
+U kunt uitvoeren de [Azure Virtual Machine Readiness Assessment tool](https://azure.microsoft.com/downloads/vm-readiness-assessment/) op virtuele machines om ervoor te zorgen dat ze compatibel met Azure VM's en Azure Site Recovery-Services zijn. De Readiness Assessment Tool controleert de configuraties van virtuele machine en u wordt gewaarschuwd wanneer configuraties niet compatibel met Azure zijn. Deze geeft bijvoorbeeld een waarschuwing als een station groter dan 127 GB is.
 
 Capaciteitsplanning is opgebouwd uit ten minste twee belangrijke processen:
 

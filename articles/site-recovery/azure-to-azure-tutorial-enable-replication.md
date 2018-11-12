@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 10/28/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 63a45aa02eadd0b5739c1624af524883171a7055
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 8dc6b7da77988a789de04578d6653b192f58afa8
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50211193"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261720"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region"></a>Herstel na noodgevallen instellen van Azure-VM’s naar een secundaire Azure-regio
 
@@ -81,9 +81,9 @@ Als u een firewall-proxy op basis van URL’s gebruikt om de uitgaande connectiv
 
 Als u uitgaande connectiviteit wilt beheren met behulp van IP-adressen in plaats van URL's, neem dan de juiste datacenterbereiken, Office 365-adressen en service-eindpuntadressen op in de lijst met toegestane adressen, voor op IP gebaseerde firewalls, proxy- of NSG-regels.
 
-  - [Microsoft Azure Datacenter IP-bereiken](http://www.microsoft.com/en-us/download/details.aspx?id=41653)
-  - [Windows Azure Datacenter IP-bereiken in Duitsland](http://www.microsoft.com/en-us/download/details.aspx?id=54770)
-  - [Windows Azure Datacenter IP-bereiken in China](http://www.microsoft.com/en-us/download/details.aspx?id=42064)
+  - [Microsoft Azure Datacenter IP-bereiken](https://www.microsoft.com/en-us/download/details.aspx?id=41653)
+  - [Windows Azure Datacenter IP-bereiken in Duitsland](https://www.microsoft.com/en-us/download/details.aspx?id=54770)
+  - [Windows Azure Datacenter IP-bereiken in China](https://www.microsoft.com/en-us/download/details.aspx?id=42064)
   - [Office 365 URLs and IP address ranges (URL's en IP-adresbereiken voor Office 365)](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity)
   - [Site Recovery-service-eindpunt-IP-adressen](https://aka.ms/site-recovery-public-ips)
 

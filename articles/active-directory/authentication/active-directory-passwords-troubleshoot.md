@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 668882b8b39052c3c8e7d7b72c881a64c5c05a10
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 044a3bae75cb385e7a3542b920e0cb3b5bcedcd0
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49321787"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51233623"
 ---
 # <a name="troubleshoot-self-service-password-reset"></a>Oplossen van self-service voor wachtwoord opnieuw instellen
 
@@ -99,7 +99,7 @@ Er is een best practice bij het oplossen van problemen met wachtwoord terugschri
 | Code | Naam of het bericht | Beschrijving |
 | --- | --- | --- |
 | 6329 | PROBLEMEN: MMS(4924) 0x80230619: "een beperking voorkomt dat het wachtwoord wordt gewijzigd in de huidige versie die is opgegeven." | Deze gebeurtenis treedt op wanneer de service wachtwoord terugschrijven wordt geprobeerd om in te stellen van een wachtwoord op uw lokale directory die niet voldoet aan de leeftijd van wachtwoord, geschiedenis, complexiteit of filteren van de vereisten van het domein. <br> <br> Als u een minimale wachtwoordduur en het wachtwoord in die periode onlangs hebt gewijzigd, bent u niet kunt wijzigen van het wachtwoord opnieuw totdat de opgegeven leeftijd in uw domein is bereikt. Voor testdoeleinden, de minimale ouderdom van moet worden ingesteld op 0. <br> <br> Als u vereisten voor wachtwoordgeschiedenis ingeschakeld hebt, dan moet u een wachtwoord dat niet is gebruikt in de laatste *N* keer, waar u *N* is de instelling van de geschiedenis van wachtwoorden. Als u een wachtwoord dat is gebruikt in de afgelopen selecteert *N* time-out, ziet u een fout in dit geval. Voor testdoeleinden beschikt, moet de geschiedenis van apparaatwachtwoorden worden ingesteld op 0. <br> <br> Als u vereisten voor wachtwoordcomplexiteit hebt, worden ze allemaal afgedwongen wanneer de gebruiker probeert te wijzigen of opnieuw instellen van een wachtwoord. <br> <br> Als u wachtwoord schrijffilters zijn ingeschakeld en een gebruiker een wachtwoord selecteert dat voldoet niet aan de filtercriteria, klikt u vervolgens het opnieuw instellen of wijzigingsbewerking is mislukt. |
-| 6329 | MMS(3040): admaexport.cpp(2837): de server geen LDAP-wachtwoordbeheer beleid bevat. | Dit probleem treedt op als LDAP_SERVER_POLICY_HINTS_OID besturingselement (1.2.840.113556.1.4.2066) is niet ingeschakeld op de DC's. Voor het gebruik van de wachtwoordfunctie terugschrijven van wachtwoorden, moet u het besturingselement inschakelen. Om dit te doen, moet de DC's op Windows Server 2008 (met de meest recente SP) of later. Als uw DC's op 2008 (pre-R2 worden), dan moet u hotfix toepassen [KB2386717](http://support.microsoft.com/kb/2386717). |
+| 6329 | MMS(3040): admaexport.cpp(2837): de server geen LDAP-wachtwoordbeheer beleid bevat. | Dit probleem treedt op als LDAP_SERVER_POLICY_HINTS_OID besturingselement (1.2.840.113556.1.4.2066) is niet ingeschakeld op de DC's. Voor het gebruik van de wachtwoordfunctie terugschrijven van wachtwoorden, moet u het besturingselement inschakelen. Om dit te doen, moet de DC's op Windows Server 2008 (met de meest recente SP) of later. Als uw DC's op 2008 (pre-R2 worden), dan moet u hotfix toepassen [KB2386717](https://support.microsoft.com/kb/2386717). |
 | HR 8023042 | Synchronisatie-Engine heeft een fout hr geretourneerd = 80230402, bericht = een poging om op te halen van een object is mislukt, omdat er dubbele vermeldingen met de dezelfde anker zijn. | Deze fout treedt op wanneer de dezelfde gebruikers-ID is ingeschakeld in meerdere domeinen. Een voorbeeld is als u account- en -forests synchroniseert en de dezelfde gebruikers-ID aanwezig zijn en zijn ingeschakeld in elk forest hebben. <br> <br> Deze fout kan ook optreden als u een niet-unieke ankerkenmerk, zoals een alias of UPN en twee gebruikers die dezelfde ankerkenmerk delen. <br> <br> U lost dit probleem, moet u ervoor te zorgen dat er geen dubbele gebruikers binnen uw domeinen en dat u een unieke ankerkenmerk voor elke gebruiker gebruiken. |
 
 ### <a name="if-the-source-of-the-event-is-passwordresetservice"></a>Als de bron van de gebeurtenis PasswordResetService is
@@ -215,7 +215,7 @@ Het is raadzaam dat u deze stap uitvoeren nadat u de eerste twee stappen dat eer
 > Als u de out-of-the-box-synchronisatieregels hebt aangepast *back-up voordat u doorgaat met de upgrade en handmatig opnieuw nadat u klaar bent.*
 >
 
-1. Download de nieuwste versie van Azure AD Connect uit de [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=615771).
+1. Download de nieuwste versie van Azure AD Connect uit de [Microsoft Download Center](https://go.microsoft.com/fwlink/?LinkId=615771).
 1. Omdat u Azure AD Connect al hebt geïnstalleerd, moet u een in-place upgrade voor het bijwerken van uw Azure AD Connect-installatie naar de nieuwste versie uitvoeren.
 1. Het gedownloade pakket uitvoeren en volg de aanwijzingen op het scherm instructies voor het bijwerken van uw Azure AD Connect-computer.
 

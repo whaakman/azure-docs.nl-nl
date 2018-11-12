@@ -9,19 +9,19 @@ ms.component: content-moderator
 ms.topic: article
 ms.date: 06/25/2017
 ms.author: sajagtap
-ms.openlocfilehash: 911d62fc2baa50cce6d40f8b5bcc455f308d21d7
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: 5910961ee54c953ea241baf9bce78b79b0dfeaea
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49309652"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51260088"
 ---
 # <a name="manage-credentials"></a>Referenties beheren
 
 De referenties van uw Content Moderator worden gemaakt in de volgende locaties:
 
 - [Azure Portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator)
-- [De Content Moderator-controlehulpprogramma](http://contentmoderator.cognitive.microsoft.com/)
+- [De Content Moderator-controlehulpprogramma](https://contentmoderator.cognitive.microsoft.com/)
 
 In dit artikel wordt uitgelegd waar u kunt ze vinden en hun relatie met elkaar.
 

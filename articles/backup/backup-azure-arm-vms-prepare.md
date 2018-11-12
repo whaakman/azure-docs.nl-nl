@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: raynew
-ms.openlocfilehash: dd11c50940dc35524b6d10c6043e906cc813498d
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.openlocfilehash: 6de0d29895a6d12d3a5aa761c0c4c5148f62dd81
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50748286"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51256269"
 ---
 # <a name="prepare-to-back-up-azure-vms"></a>Voorbereiden op back-up van virtuele Azure-machines
 
@@ -182,8 +182,8 @@ Als u problemen met back-ups van de Azure-VM hebt, gebruikt u de volgende tabel 
 
 | **Bewerking** | **Windows** | **Linux** |
 | --- | --- | --- |
-| De VM-agent installeren |Download en installeer de [agent-MSI](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). U hebt Administrator-bevoegdheden nodig om de installatie te kunnen uitvoeren. |<li> Installeer de meest recente [Linux-agent](../virtual-machines/extensions/agent-linux.md). U hebt Administrator-bevoegdheden nodig om de installatie te kunnen uitvoeren. U wordt aangeraden de installatie van agent vanuit de opslagplaats van uw distributie. We **wordt niet aanbevolen** installeren Linux VM-agent rechtstreeks vanuit github.  |
-| De VM-agent bijwerken |Om de VM-agent bij te werken hoeft u alleen de [binaire bestanden voor de VM-agent](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) opnieuw te installeren. <br>Zorg ervoor dat er geen back-upbewerking wordt uitgevoerd terwijl de VM-agent wordt bijgewerkt. |Volg de instructies voor het [bijwerken van de Linux VM-agent](../virtual-machines/linux/update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Het is raadzaam om de agent vanuit de opslagplaats van uw distributie bijwerken. We **wordt niet aanbevolen** bijwerken Linux VM-agent rechtstreeks vanuit github.<br>Zorg ervoor dat er geen back-upbewerking wordt uitgevoerd terwijl de VM-agent wordt bijgewerkt. |
+| De VM-agent installeren |Download en installeer de [agent-MSI](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). U hebt Administrator-bevoegdheden nodig om de installatie te kunnen uitvoeren. |<li> Installeer de meest recente [Linux-agent](../virtual-machines/extensions/agent-linux.md). U hebt Administrator-bevoegdheden nodig om de installatie te kunnen uitvoeren. U wordt aangeraden de installatie van agent vanuit de opslagplaats van uw distributie. We **wordt niet aanbevolen** installeren Linux VM-agent rechtstreeks vanuit github.  |
+| De VM-agent bijwerken |Om de VM-agent bij te werken hoeft u alleen de [binaire bestanden voor de VM-agent](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) opnieuw te installeren. <br>Zorg ervoor dat er geen back-upbewerking wordt uitgevoerd terwijl de VM-agent wordt bijgewerkt. |Volg de instructies voor het [bijwerken van de Linux VM-agent](../virtual-machines/linux/update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Het is raadzaam om de agent vanuit de opslagplaats van uw distributie bijwerken. We **wordt niet aanbevolen** bijwerken Linux VM-agent rechtstreeks vanuit github.<br>Zorg ervoor dat er geen back-upbewerking wordt uitgevoerd terwijl de VM-agent wordt bijgewerkt. |
 | De installatie van de VM-agent valideren |<li>Ga naar de map *C:\WindowsAzure\Packages* in de Azure VM. <li>Het bestand WaAppAgent.exe moet hier aanwezig zijn.<li> Klik met de rechtermuisknop op het bestand, ga naar **Eigenschappen** en selecteer vervolgens het tabblad **Details**. In het veld Productversie moet versie 2.6.1198.718 of hoger worden weergegeven. |N/A |
 
 ### <a name="backup-extension"></a>Backup-extensie
@@ -194,7 +194,7 @@ De Backup-service installeert de back-upextensie, ongeacht of de virtuele machin
 ## <a name="establish-network-connectivity"></a>De netwerkverbinding tot stand brengen
 Voor het beheren van de momentopnamen van de VM, moet de back-upextensie verbinding met de Azure openbare IP-adressen. Time-out van de virtuele machine HTTP-aanvragen zonder de juiste verbinding met internet, en de back-upbewerking is mislukt. Als uw implementatie heeft toegangsbeperkingen erin--via een netwerkbeveiligingsgroep (NSG), bijvoorbeeld: Kies een van deze opties voor een duidelijk pad voor back-upverkeer:
 
-* [De Azure-datacenter-IP-bereiken van geaccepteerde](http://www.microsoft.com/download/details.aspx?id=41653).
+* [De Azure-datacenter-IP-bereiken van geaccepteerde](https://www.microsoft.com/download/details.aspx?id=41653).
 * Implementeer een HTTP-proxy-server voor het routeren van verkeer.
 
 Bij het bepalen van welke optie voor het gebruik, zijn de wisselwerking tussen beheerbaarheid, gedetailleerde controle en kosten.
@@ -205,7 +205,7 @@ Bij het bepalen van welke optie voor het gebruik, zijn de wisselwerking tussen b
 | Gebruik een HTTP-proxy |Nauwkeurige controle in de proxy die over de opslag URL's is toegestaan.<br><br>Één punt van internet toegang tot VM's.<br><br>Niet onderhevig aan Azure-IP-adres verandert. |Extra kosten voor het uitvoeren van een virtuele machine met de proxysoftware. |
 
 ### <a name="whitelist-the-azure-datacenter-ip-ranges"></a>Het Azure-datacenter geaccepteerde IP-bereiken
-Aan lijst met geaccepteerde IP-bereiken met de Azure-datacenter, Zie de [Azure-website](http://www.microsoft.com/download/details.aspx?id=41653) voor meer informatie over de IP-bereiken en de instructies.
+Aan lijst met geaccepteerde IP-bereiken met de Azure-datacenter, Zie de [Azure-website](https://www.microsoft.com/download/details.aspx?id=41653) voor meer informatie over de IP-bereiken en de instructies.
 
 U kunt verbindingen naar de opslag van de specifieke regio met behulp van [servicetags](../virtual-network/security-overview.md#service-tags). Zorg ervoor dat de regel waarmee toegang tot het opslagaccount hogere prioriteit dan de regel die Hiermee blokkeert u toegang tot internet heeft.
 
@@ -305,7 +305,7 @@ Set-AzureNetworkSecurityRule -Name "allow-proxy " -Action Allow -Protocol TCP -T
 ```
 
 ## <a name="questions"></a>Vragen?
-Als u vragen hebt of als er een functie die u wilt opnemen, Zie [Stuur ons feedback](http://aka.ms/azurebackup_feedback).
+Als u vragen hebt of als er een functie die u wilt opnemen, Zie [Stuur ons feedback](https://aka.ms/azurebackup_feedback).
 
 ## <a name="next-steps"></a>Volgende stappen
 Nu dat u uw omgeving voor back-ups van uw virtuele machine hebt voorbereid, wordt de volgende logische stap is het maken van een back-up. De planning artikel bevat meer gedetailleerde informatie over back-ups van virtuele machines.

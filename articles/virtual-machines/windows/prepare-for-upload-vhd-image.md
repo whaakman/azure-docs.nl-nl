@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 10/10/2018
 ms.author: genli
-ms.openlocfilehash: f9b950b1d85f50331d556a54b4237d78ec5c07ac
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 4d30cca0106e52706326bfd91a2d0dfb0a64ca04
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49388152"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51258451"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Een Windows VHD of VHDX te uploaden naar Azure voorbereiden
 Voordat u een Windows virtuele machines (VM van on-premises met Microsoft Azure) uploadt, moet u de virtuele harde schijf (VHD of VHDX) voorbereiden. Azure ondersteunt **alleen virtuele machines van generatie 1** die in de VHD-indeling en hebben een schijf met vaste grootte. De maximale grootte van de VHD is 1023 GB. U kunt een generatie 1 VM op basis van de VHDX-bestandssysteem en naar een dynamisch uitbreidbare schijf naar vaste VHD converteren. Maar u kunt een virtuele machine generatie niet wijzigen. Zie voor meer informatie, [maak ik een generatie 1 of 2 virtuele machine in Hyper-V](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
@@ -48,7 +48,7 @@ Nadat u de schijf converteren, moet u een virtuele machine die gebruikmaakt van 
 >De opdrachten in dit artikel moeten worden uitgevoerd op een PowerShell-sessie met verhoogde bevoegdheden.
 
 ### <a name="convert-disk-by-using-powershell"></a>Schijf converteren met behulp van PowerShell
-U kunt een virtuele schijf converteren met behulp van de [Convert-VHD](http://technet.microsoft.com/library/hh848454.aspx) opdracht in Windows PowerShell. Selecteer **als administrator uitvoeren** wanneer u begint met PowerShell. 
+U kunt een virtuele schijf converteren met behulp van de [Convert-VHD](https://technet.microsoft.com/library/hh848454.aspx) opdracht in Windows PowerShell. Selecteer **als administrator uitvoeren** wanneer u begint met PowerShell. 
 
 De volgende voorbeeldopdracht wordt geconverteerd van VHDX, zodat de VHD en van een dynamisch uitbreidbare schijf naar een vaste grootte:
 
@@ -58,7 +58,7 @@ Convert-VHD –Path c:\test\MY-VM.vhdx –DestinationPath c:\test\MY-NEW-VM.vhd 
 In deze opdracht, vervangt u de waarde voor '-pad ' door het pad naar de virtuele harde schijf die u wilt converteren en de waarde voor '-doelpad ' met het nieuwe pad en de naam van de schijf geconverteerd.
 
 ### <a name="convert-from-vmware-vmdk-disk-format"></a>Converteren van VMware VMDK-schijfindeling
-Als u een Windows VM-installatiekopie in de [VMDK-bestandsindeling](https://en.wikipedia.org/wiki/VMDK), converteren naar een VHD met behulp van de [Microsoft VM Converter](https://www.microsoft.com/download/details.aspx?id=42497). Zie voor meer informatie het blogartikel [een VMware VMDK converteren naar Hyper-V-VHD](http://blogs.msdn.com/b/timomta/archive/2015/06/11/how-to-convert-a-vmware-vmdk-to-hyper-v-vhd.aspx).
+Als u een Windows VM-installatiekopie in de [VMDK-bestandsindeling](https://en.wikipedia.org/wiki/VMDK), converteren naar een VHD met behulp van de [Microsoft VM Converter](https://www.microsoft.com/download/details.aspx?id=42497). Zie voor meer informatie het blogartikel [een VMware VMDK converteren naar Hyper-V-VHD](https://blogs.msdn.com/b/timomta/archive/2015/06/11/how-to-convert-a-vmware-vmdk-to-hyper-v-vhd.aspx).
 
 ## <a name="set-windows-configurations-for-azure"></a>Windows-configuratie voor Azure instellen
 
@@ -377,7 +377,7 @@ Zie voor meer informatie over het maken van een virtuele machine van een gespeci
 - [Een virtuele machine maken vanaf een gespecialiseerde schijf](create-vm-specialized.md)
 - [Een virtuele machine maken vanaf een gespecialiseerde VHD-schijf](https://docs.microsoft.com/azure/virtual-machines/windows/create-vm-specialized-portal?branch=master)
 
-Als u maken van een gegeneraliseerde installatiekopie wilt, moet u sysprep uitvoeren. Zie voor meer informatie over Sysprep [Sysprep gebruiken: een inleiding](http://technet.microsoft.com/library/bb457073.aspx). 
+Als u maken van een gegeneraliseerde installatiekopie wilt, moet u sysprep uitvoeren. Zie voor meer informatie over Sysprep [Sysprep gebruiken: een inleiding](https://technet.microsoft.com/library/bb457073.aspx). 
 
 Biedt ondersteuning voor deze generalisatie niet elke rol of de toepassing die geïnstalleerd op een Windows-computer. Dus voordat u deze procedure uitvoert, Zie het volgende artikel om ervoor te zorgen dat de rol van die computer wordt ondersteund door sysprep. Voor meer informatie, [Sysprep-ondersteuning voor serverfuncties](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles).
 
@@ -401,7 +401,7 @@ Biedt ondersteuning voor deze generalisatie niet elke rol of de toepassing die g
 ## <a name="complete-recommended-configurations"></a>Voert u de aanbevolen configuraties
 De volgende instellingen hebben geen invloed op de VHD uploaden. Echter, wordt aangeraden dat u deze hebt geconfigureerd.
 
-* Installeer de [Azure VM's Agent](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Vervolgens kunt u VM-extensies. De VM-extensies implementeren de meeste van de essentiële functionaliteit die u mogelijk wilt gebruiken met uw VM opnieuw instellen van wachtwoorden, zoals het configureren van RDP's, enzovoort. Zie voor meer informatie:
+* Installeer de [Azure VM's Agent](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Vervolgens kunt u VM-extensies. De VM-extensies implementeren de meeste van de essentiële functionaliteit die u mogelijk wilt gebruiken met uw VM opnieuw instellen van wachtwoorden, zoals het configureren van RDP's, enzovoort. Zie voor meer informatie:
 
     - [VM-Agent en -extensies – deel 1](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-1/)
     - [VM-Agent en -extensies – deel 2](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-2/)

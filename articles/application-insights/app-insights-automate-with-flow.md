@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/25/2017
 ms.author: mbullwin
-ms.openlocfilehash: 60605e7bdeeef32889bc0ac104fa34bd66d4444d
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 65909e13c75ae4d2577ea29f562b841a1eb20477
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50962874"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51256422"
 ---
 # <a name="automate-azure-application-insights-processes-with-the-connector-for-microsoft-flow"></a>Azure Application Insights processen automatiseren met de connector voor Microsoft Flow
 
@@ -34,7 +34,7 @@ U kunt ook aanvullende acties toevoegen. Microsoft Flow kunt u honderden acties 
 In deze zelfstudie leert u hoe u een stroom die gebruikmaakt van het algoritme Analytics automatisch-cluster op groepskenmerken in de gegevens voor een webtoepassing maakt. De stroom worden de resultaten automatisch verzonden via e-mail, slechts één voorbeeld van hoe u kunt Microsoft Flow en Application Insights Analytics samen gebruiken. 
 
 ### <a name="step-1-create-a-flow"></a>Stap 1: Een stroom maken
-1. Aanmelden bij [Microsoft Flow](http://flow.microsoft.com), en selecteer vervolgens **mijn stromen**.
+1. Aanmelden bij [Microsoft Flow](https://flow.microsoft.com), en selecteer vervolgens **mijn stromen**.
 1. Klik op **een stroom maken met een lege App**.
 
 ### <a name="step-2-create-a-trigger-for-your-flow"></a>Stap 2: Een trigger voor uw stroom maken

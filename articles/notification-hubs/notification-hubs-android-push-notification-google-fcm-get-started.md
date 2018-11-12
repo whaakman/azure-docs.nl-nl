@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: 2bc085989ff3bbbc50042c46b338f748a10aa87e
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 0ec429407324210fca824ebd0734ddb39bce56ac
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38232790"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51256558"
 ---
 # <a name="tutorial-push-notifications-to-android-devices-by-using-azure-notification-hubs-and-google-firebase-cloud-messaging"></a>Zelfstudie: Pushmeldingen naar Android-apparaten met Azure Notification Hubs en Google Firebase Cloud Messaging
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -45,7 +45,7 @@ In deze zelfstudie voert u de volgende stappen uit:
 ## <a name="prerequisites"></a>Vereisten
 U hebt een actief Azure-account nodig om deze zelfstudie te voltooien. Als u geen account hebt, kunt u binnen een paar minuten een gratis proefaccount maken. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/free/) voor meer informatie.
 
-* Naast een actief Azure-account, zoals hierboven vermeld, hebt u voor deze zelfstudie nog de meest recente versie van [Android Studio](http://go.microsoft.com/fwlink/?LinkId=389797) nodig.
+* Naast een actief Azure-account, zoals hierboven vermeld, hebt u voor deze zelfstudie nog de meest recente versie van [Android Studio](https://go.microsoft.com/fwlink/?LinkId=389797) nodig.
 * Android 2.3 of hoger voor Firebase Cloud Messaging.
 * Google Repository revisie 27 of hoger is vereist voor Firebase Cloud Messaging.
 * Google Play-Services 9.0.2 of hoger voor Firebase Cloud Messaging.

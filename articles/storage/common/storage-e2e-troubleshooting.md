@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 03/15/2017
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 41e7f5b4c36ad0bfed0ef5a9a31565474cf4d823
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: cf183b0a78ff3f7e442ea8052f37fc2df58aac54
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42060564"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51262315"
 ---
 # <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>End-to-end problemen oplossen met behulp van Azure Storage metrische gegevens en logboekregistratie, AzCopy en Message Analyzer
 [!INCLUDE [storage-selector-portal-e2e-troubleshooting](../../../includes/storage-selector-portal-e2e-troubleshooting.md)]
@@ -37,7 +37,7 @@ Om op te lossen met behulp van Microsoft Azure Storage-clienttoepassingen, kunt 
   
     Zie [een opslagaccount in Azure portal controleren](storage-monitor-storage-account.md) voor informatie over het configureren van bewaking in Azure portal.
 * **AzCopy**. Serverlogboeken voor Azure Storage worden opgeslagen als blobs, zodat u AzCopy gebruiken kunt om te kopiëren van blobs in de logboeken naar een lokale map voor analyse met behulp van Microsoft Message Analyzer. Zie [gegevensoverdracht met het AzCopy-opdrachtregelprogramma](storage-use-azcopy.md) voor meer informatie over AzCopy.
-* **Microsoft Message Analyzer**. Message Analyzer is een hulpprogramma dat logboekbestanden verbruikt en wordt weergegeven logboekgegevens in een visuele indeling waarmee u eenvoudig kunt filter, zoeken en groep-logboekgegevens in nuttig sets die u gebruiken kunt om fouten en problemen met de prestaties te analyseren. Zie [Microsoft Message Analyzer-besturingssysteem handleiding](http://technet.microsoft.com/library/jj649776.aspx) voor meer informatie over Message Analyzer.
+* **Microsoft Message Analyzer**. Message Analyzer is een hulpprogramma dat logboekbestanden verbruikt en wordt weergegeven logboekgegevens in een visuele indeling waarmee u eenvoudig kunt filter, zoeken en groep-logboekgegevens in nuttig sets die u gebruiken kunt om fouten en problemen met de prestaties te analyseren. Zie [Microsoft Message Analyzer-besturingssysteem handleiding](https://technet.microsoft.com/library/jj649776.aspx) voor meer informatie over Message Analyzer.
 
 ## <a name="about-the-sample-scenario"></a>Over de voorbeeldscenario
 Voor deze zelfstudie, kijken we naar de een scenario waarbij Azure Storage metrics geeft aan dat een laag percentage slagingspercentage voor een toepassing die Azure storage aanroept. De lage percentage voltooid percentage metrische gegevens (weergegeven als **PercentSuccess** in de [Azure-portal](https://portal.azure.com) en in de tabellen voor metrische gegevens) worden bijgehouden bewerkingen die slagen, maar die een HTTP-statuscode die groter is dan 299 retourneren. In de logboekbestanden van de server-side-opslag, deze bewerkingen worden geregistreerd met de transactiestatus van de **ClientOtherErrors**. Zie voor meer informatie over de metriek lage percentage voltooid [prestatiegegevens geven lage PercentSuccess of vermeldingen in het logboek analytics hebt bewerkingen met de status van ClientOtherErrors](storage-monitoring-diagnosing-troubleshooting.md#metrics-show-low-percent-success).
@@ -51,7 +51,7 @@ Voor onze voorbeeldscenario nadat we hebben vastgesteld dat het percentage volto
 ### <a name="some-causes-of-400-range-errors"></a>Enkele oorzaken van fouten van 400-bereik
 De volgende voorbeelden ziet u een voorbeeld van enkele fouten 400-bereik voor aanvragen voor Azure Blob Storage en hun mogelijke oorzaken. Een van deze fouten, evenals de fouten in de 300 bereik en het bereik 500 kan bijdragen aan een laag percentage voltooid-tarief.
 
-Houd er rekening mee dat in de lijsten hieronder ver ligt voltooid zijn. Zie [Status en foutcodes](http://msdn.microsoft.com/library/azure/dd179382.aspx) op MSDN voor meer informatie over algemene Azure Storage-fouten en fouten die specifiek zijn voor elk van de storage-services.
+Houd er rekening mee dat in de lijsten hieronder ver ligt voltooid zijn. Zie [Status en foutcodes](https://msdn.microsoft.com/library/azure/dd179382.aspx) op MSDN voor meer informatie over algemene Azure Storage-fouten en fouten die specifiek zijn voor elk van de storage-services.
 
 **Status 404 (niet gevonden) codevoorbeelden**
 
@@ -79,7 +79,7 @@ In deze zelfstudie gebruiken we Message Analyzer om te werken met drie verschill
 * De **HTTP-netwerk het traceringslogboek**, verzamelt gegevens over HTTP/HTTPS-aanvraag en respons gegevens, inclusief voor bewerkingen op basis van Azure Storage. In deze zelfstudie genereren we de netwerktracering via Message Analyzer.
 
 ### <a name="configure-server-side-logging-and-metrics"></a>Server-logboekregistratie en metrische gegevens configureren
-Eerst, we moet configureren voor Azure Storage-logboekregistratie en metrische gegevens, zodat we de gegevens van de clienttoepassing voor het analyseren van hebben. U kunt logboekregistratie en metrische gegevens op verschillende manieren - configureren de [Azure-portal](https://portal.azure.com), met behulp van PowerShell, of via een programma. Zie [metrische opslaggegevens inschakelen en weergeven van metrische gegevens](http://msdn.microsoft.com/library/azure/dn782843.aspx) en [vastleggen van Storage inschakelen en toegang krijgen tot logboekgegevens](http://msdn.microsoft.com/library/azure/dn782840.aspx) op MSDN voor meer informatie over het configureren van logboekregistratie en metrische gegevens.
+Eerst, we moet configureren voor Azure Storage-logboekregistratie en metrische gegevens, zodat we de gegevens van de clienttoepassing voor het analyseren van hebben. U kunt logboekregistratie en metrische gegevens op verschillende manieren - configureren de [Azure-portal](https://portal.azure.com), met behulp van PowerShell, of via een programma. Zie [metrische opslaggegevens inschakelen en weergeven van metrische gegevens](https://msdn.microsoft.com/library/azure/dn782843.aspx) en [vastleggen van Storage inschakelen en toegang krijgen tot logboekgegevens](https://msdn.microsoft.com/library/azure/dn782840.aspx) op MSDN voor meer informatie over het configureren van logboekregistratie en metrische gegevens.
 
 **Via de Azure-portal**
 
@@ -124,7 +124,7 @@ Als u wilt aan de slag met PowerShell voor Azure, Zie [hoe u Azure PowerShell in
     ```
 
 ### <a name="configure-net-client-side-logging"></a>.NET-clientzijde logboekregistratie configureren
-Schakel .NET diagnostische gegevens in het configuratiebestand van de toepassing (web.config of app.config) voor het configureren van client-side-logboekregistratie voor een .NET-toepassing. Zie [Client-side logboekregistratie met de .NET-Opslagclientbibliotheek](http://msdn.microsoft.com/library/azure/dn782839.aspx) en [Client-side logboekregistratie met de Microsoft Azure Storage SDK voor Java](http://msdn.microsoft.com/library/azure/dn782844.aspx) op MSDN voor meer informatie.
+Schakel .NET diagnostische gegevens in het configuratiebestand van de toepassing (web.config of app.config) voor het configureren van client-side-logboekregistratie voor een .NET-toepassing. Zie [Client-side logboekregistratie met de .NET-Opslagclientbibliotheek](https://msdn.microsoft.com/library/azure/dn782839.aspx) en [Client-side logboekregistratie met de Microsoft Azure Storage SDK voor Java](https://msdn.microsoft.com/library/azure/dn782844.aspx) op MSDN voor meer informatie.
 
 Het client-side-logboek bevat gedetailleerde informatie over hoe de client de aanvraag wordt voorbereid en ontvangt en verwerkt het antwoord.
 
@@ -160,7 +160,7 @@ Voor deze zelfstudie verzamelen en een netwerktracering eerst opslaan in Message
 > 
 > 
 
-Zie [met behulp van de functies voor het traceren van Network](http://technet.microsoft.com/library/jj674819.aspx) op Technet voor meer informatie.
+Zie [met behulp van de functies voor het traceren van Network](https://technet.microsoft.com/library/jj674819.aspx) op Technet voor meer informatie.
 
 ## <a name="review-metrics-data-in-the-azure-portal"></a>Bekijk metrische gegevens in Azure portal
 Zodra uw toepassing actief is geweest gedurende een bepaalde periode, kunt u lezen de grafieken met metrische gegevens die worden weergegeven in de [Azure-portal](https://portal.azure.com) om te zien hoe uw service heeft zijn uitgevoerd.
@@ -186,15 +186,15 @@ AzCopy.exe /Source:http://<storageaccountname>.blob.core.windows.net/$logs /Dest
 ```
 AzCopy is beschikbaar voor downloaden op de [Azure Downloads](https://azure.microsoft.com/downloads/) pagina. Zie voor meer informatie over het gebruik van AzCopy [gegevensoverdracht met het AzCopy-opdrachtregelprogramma](storage-use-azcopy.md).
 
-Zie voor meer informatie over het downloaden van server-side-Logboeken, [logboekgegevens downloaden Storage Logging](http://msdn.microsoft.com/library/azure/dn782840.aspx#DownloadingStorageLogginglogdata).
+Zie voor meer informatie over het downloaden van server-side-Logboeken, [logboekgegevens downloaden Storage Logging](https://msdn.microsoft.com/library/azure/dn782840.aspx#DownloadingStorageLogginglogdata).
 
 ## <a name="use-microsoft-message-analyzer-to-analyze-log-data"></a>Microsoft Message Analyzer gebruiken voor het analyseren van logboekgegevens
-Microsoft Message Analyzer is een hulpprogramma voor het vastleggen, weergeven en analyseren van protocol verkeer, gebeurtenissen en andere systemen of toepassingen berichten in scenario's voor het oplossen van problemen en diagnostische berichten. Message Analyzer ook kunt u laden, aggregeren en analyseren van gegevens uit logboek en opgeslagen logboekbestanden voor tracering. Zie voor meer informatie over Message Analyzer, [Microsoft Message Analyzer-besturingssysteem handleiding](http://technet.microsoft.com/library/jj649776.aspx).
+Microsoft Message Analyzer is een hulpprogramma voor het vastleggen, weergeven en analyseren van protocol verkeer, gebeurtenissen en andere systemen of toepassingen berichten in scenario's voor het oplossen van problemen en diagnostische berichten. Message Analyzer ook kunt u laden, aggregeren en analyseren van gegevens uit logboek en opgeslagen logboekbestanden voor tracering. Zie voor meer informatie over Message Analyzer, [Microsoft Message Analyzer-besturingssysteem handleiding](https://technet.microsoft.com/library/jj649776.aspx).
 
 Message Analyzer bevat activa voor de Azure-opslag die u helpen bij het analyseren van de server, client en netwerklogboeken. In deze sectie wordt besproken hoe u kunt deze hulpprogramma's gebruiken om het probleem van laag percentage voltooid in de opslaglogboeken.
 
 ### <a name="download-and-install-message-analyzer-and-the-azure-storage-assets"></a>Download en installeer Message Analyzer en de Azure Storage-activa
-1. Download [Message Analyzer](http://www.microsoft.com/download/details.aspx?id=44226) van het Microsoft Downloadcentrum en voer het installatieprogramma.
+1. Download [Message Analyzer](https://www.microsoft.com/download/details.aspx?id=44226) van het Microsoft Downloadcentrum en voer het installatieprogramma.
 2. Message Analyzer starten.
 3. Uit de **extra** in het menu **Asset Intelligence-beheerder**. In de **Asset Intelligence-beheerder** dialoogvenster, selecteer **Downloads**, vervolgens te filteren op **Azure Storage**. U ziet de activa van de Azure-opslag, zoals wordt weergegeven in de volgende afbeelding.
 4. Klik op **synchronisatie alle weergegeven objecten** voor het installeren van de Azure Storage-activa. De beschikbare elementen zijn onder andere:
@@ -231,7 +231,7 @@ Bepaal eerst het tijdsbestek dat u geïnteresseerd bent in het controleren van, 
 
 Als u nog steeds een grote hoeveelheid gegevens hebt, kunt klikt u vervolgens u om op te geven van een sessie te filteren dat uw logboekgegevens voordat u deze te laden. In de **sessie Filter** Schakel de **bibliotheek** klikken om een vooraf gedefinieerde filter kiezen; bijvoorbeeld, kiest u **globale tijd Filter I** filters uit de Azure-opslag om te filteren op een bepaalde periode. Vervolgens kunt u de filtercriteria om op te geven van het eerste en laatste timestamp voor het interval dat u wilt zien. U kunt ook filteren op een bepaalde statuscode te wijzigen; u kunt bijvoorbeeld alleen logboekvermeldingen waar de statuscode 404 wordt geladen.
 
-Zie voor meer informatie over het importeren van gegevens aan het logboek in Microsoft Message Analyzer [bij het ophalen van gegevens voor het clientbericht](http://technet.microsoft.com/library/dn772437.aspx) op TechNet.
+Zie voor meer informatie over het importeren van gegevens aan het logboek in Microsoft Message Analyzer [bij het ophalen van gegevens voor het clientbericht](https://technet.microsoft.com/library/dn772437.aspx) op TechNet.
 
 ### <a name="use-the-client-request-id-to-correlate-log-file-data"></a>De clientaanvraag-ID gebruiken voor het correleren van gegevens uit een bestand log
 De Azure Storage-clientbibliotheek genereert automatisch een unieke client-aanvraag-ID voor elke aanvraag. Deze waarde wordt geschreven naar het logboek van de client, het logboek voor de server en de netwerktracering, zodat u deze gebruiken kunt voor het correleren van gegevens in alle drie logboeken binnen Message Analyzer. Zie [clientaanvraag-ID](storage-monitoring-diagnosing-troubleshooting.md#client-request-id) vragen voor meer informatie over de client ID.
@@ -337,7 +337,7 @@ Met behulp van de gegevens die in de weergave-indelingen op deze twee tabbladen 
 Zodra u weet het adres van de blob die i/o de 404-fout dat, kunt u verder onderzoek. Als u de logboekvermeldingen voor andere berichten die zijn gekoppeld aan bewerkingen op dezelfde blob zoekt, kunt u controleren of de entiteit die door de client eerder verwijderd.
 
 ## <a name="analyze-other-types-of-storage-errors"></a>Andere soorten Opslagfouten analyseren
-Nu dat u bekend bent met Message Analyzer gebruiken om uw logboekgegevens te analyseren, kunt u analyseren andere typen fouten met de weergave-indelingen, kleurenregels en zoeken/filteren. In de tabellen hieronder vindt u enkele problemen die kunnen optreden en de filtercriteria kunt u ze kunt vinden. Zie voor meer informatie over het maken van filters en de Message Analyzer taal filteren [berichtgegevens filteren](http://technet.microsoft.com/library/jj819365.aspx).
+Nu dat u bekend bent met Message Analyzer gebruiken om uw logboekgegevens te analyseren, kunt u analyseren andere typen fouten met de weergave-indelingen, kleurenregels en zoeken/filteren. In de tabellen hieronder vindt u enkele problemen die kunnen optreden en de filtercriteria kunt u ze kunt vinden. Zie voor meer informatie over het maken van filters en de Message Analyzer taal filteren [berichtgegevens filteren](https://technet.microsoft.com/library/jj819365.aspx).
 
 | Om dit te onderzoeken... | Filterexpressie gebruiken... | Expressie is van toepassing op logboek (Client-, Server-, netwerk, alle) |
 | --- | --- | --- |
@@ -361,7 +361,7 @@ Nu dat u bekend bent met Message Analyzer gebruiken om uw logboekgegevens te ana
 Zie de volgende bronnen voor meer informatie over het oplossen van problemen met end-to-end-scenario's in Azure Storage:
 
 * [Monitor, diagnose, and troubleshoot Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md) (Bewaken, diagnosticeren en problemen oplossen in Microsoft Azure Storage)
-* [Storage Analytics](http://msdn.microsoft.com/library/azure/hh343270.aspx)
+* [Storage Analytics](https://msdn.microsoft.com/library/azure/hh343270.aspx)
 * [Een opslagaccount in Azure portal controleren](storage-monitor-storage-account.md)
 * [Gegevensoverdracht met het AzCopy-opdrachtregelprogramma](storage-use-azcopy.md)
-* [Microsoft Message Analyzer besturingssysteem-handleiding](http://technet.microsoft.com/library/jj649776.aspx)
+* [Microsoft Message Analyzer besturingssysteem-handleiding](https://technet.microsoft.com/library/jj649776.aspx)

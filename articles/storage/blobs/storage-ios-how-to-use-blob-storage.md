@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 03/21/2018
 ms.author: michaelhauss
 ms.component: blobs
-ms.openlocfilehash: 35cfa36aba8042bcc753c1005c8fd8dbcdb70e79
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 43e9acb79b363e8f2cb00f6a4676d450c097bf3e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39397669"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261992"
 ---
 # <a name="how-to-use-blob-storage-from-ios"></a>Het Blob storage gebruiken met iOS
 
@@ -382,8 +382,8 @@ Nu dat u hebt geleerd hoe u Blob-opslag op iOS gebruiken, volgt u deze koppeling
 * [Azure Storage-clientbibliotheek voor iOS](https://github.com/azure/azure-storage-ios)
 * [Azure Storage-iOS-referentiedocumentatie](http://azure.github.io/azure-storage-ios/)
 * [REST-API voor Azure Storage-services](https://msdn.microsoft.com/library/azure/dd179355.aspx)
-* [Blog van het Azure Storage-team](http://blogs.msdn.com/b/windowsazurestorage)
+* [Blog van het Azure Storage-team](https://blogs.msdn.com/b/windowsazurestorage)
 
-Als u vragen over deze bibliotheek hebt, kunt u plaatsen op onze [Azure MSDN-forum](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=windowsazuredata) of [Stack Overflow](http://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files).
+Als u vragen over deze bibliotheek hebt, kunt u plaatsen op onze [Azure MSDN-forum](https://social.msdn.microsoft.com/Forums/windowsazure/home?forum=windowsazuredata) of [Stack Overflow](http://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files).
 Hebt u suggesties voor functies voor Azure Storage, kunt u plaatsen op [Azure Storage Feedback](https://feedback.azure.com/forums/217298-storage/).
 

@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 11/15/2017
 ms.author: rogarana
 ms.component: disks
-ms.openlocfilehash: d6491ea1fd46d1dbd3d258a79a8d8e932173dae5
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: b1127475b873c5679946121e570ef2bb51f25be1
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50912285"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51234711"
 ---
 # <a name="about-disks-storage-for-azure-windows-vms"></a>Over schijfopslag voor Azure Windows VM 's
 
@@ -51,8 +51,9 @@ Azure maakt een besturingssysteemschijf, wanneer u een virtuele machine van een 
 
 U kunt gegevensschijven toevoegen aan een virtuele machine op elk gewenst moment door **koppelen** de schijf met de virtuele machine. U kunt een VHD die u hebt geüpload of gekopieerd naar uw storage-account gebruiken of een lege VHD die Azure voor u gemaakt. Een gegevensschijf koppelen wordt gekoppeld aan het VHD-bestand met de virtuele machine door een 'lease' op de VHD zodat deze kan niet worden verwijderd uit de opslag terwijl nog steeds gekoppeld.
 
-
 [!INCLUDE [storage-about-vhds-and-disks-windows-and-linux](../../../includes/storage-about-vhds-and-disks-windows-and-linux.md)]
+
+Voor de preview-grootten, Zie onze [Veelgestelde vragen over](faq-for-disks.md#new-disk-sizes-managed-and-unmanaged) voor meer informatie over welke regio's ze zijn beschikbaar in.
 
 ## <a name="one-last-recommendation-use-trim-with-unmanaged-standard-disks"></a>Een laatste aanbeveling: gebruik TRIM met niet-beheerde standaardschijven
 

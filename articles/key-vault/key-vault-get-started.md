@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/15/2018
 ms.author: barclayn
-ms.openlocfilehash: d0be0cbd9ff16acc1ecb209997a0c87cd4e43b36
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: a28bf1dc23d678c710d7bd6b13f067427e76ef41
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955086"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238396"
 ---
 # <a name="get-started-with-azure-key-vault"></a>Aan de slag met Azure Sleutelkluis
 Dit artikel helpt u aan de slag te gaan met Azure Key Vault met behulp van PowerShell en leidt u stapsgewijs door de volgende activiteiten:
@@ -36,7 +36,7 @@ Voordat u doorgaat, moet u bevestigen dat u hebt:
 
 - **Een Azure-abonnement**. Als u nog geen abonnement hebt, kunt u zich aanmelden voor een [gratis account](https://azure.microsoft.com/free/).
 - **Azure PowerShell**, **minimaal versie 1.1.0 of hoger**. Zie [Azure PowerShell installeren en configureren](/powershell/azure/overview) om Azure PowerShell te installeren en te koppelen aan uw Azure-abonnement. Als u Azure PowerShell al hebt geïnstalleerd, maar niet weet welke versie u hebt, typt u `(Get-Module azure -ListAvailable).Version` in de Azure PowerShell-console. Ook wanneer u een van de versies van Azure PowerShell versie 0.9.1 tot en met 0.9.8 hebt geïnstalleerd, kunt u deze zelfstudie gebruiken en zij er slechts enkele kleine wijzigingen van toepassing. U moet bijvoorbeeld de opdracht `Switch-AzureMode AzureResourceManager` gebruiken en bepaalde Azure Key Vault-opdrachten zijn gewijzigd. Zie [Azure Key Vault-cmdlets](/powershell/module/azurerm.keyvault/#key_vault) voor een overzicht van de Key Vault-cmdlets voor versie 0.9.1 tot en met versie 0.9.8.
-- **Een toepassing die kan worden geconfigureerd voor het gebruik van Key Vault**. Er is een voorbeeldtoepassing beschikbaar in het [Microsoft Downloadcentrum](http://www.microsoft.com/download/details.aspx?id=45343). Zie het bijbehorende **Leesmij**-bestand voor instructies.
+- **Een toepassing die kan worden geconfigureerd voor het gebruik van Key Vault**. Er is een voorbeeldtoepassing beschikbaar in het [Microsoft Downloadcentrum](https://www.microsoft.com/download/details.aspx?id=45343). Zie het bijbehorende **Leesmij**-bestand voor instructies.
 
 >[!NOTE]
 In dit artikel wordt ervan uitgegaan dat u de basisbeginselen kent van PowerShell en Azure. Zie [Aan de slag met Windows PowerShell](https://technet.microsoft.com/library/hh857337.aspx) voor meer informatie over PowerShell.

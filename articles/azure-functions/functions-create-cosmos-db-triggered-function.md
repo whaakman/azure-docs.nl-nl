@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 10/02/2018
 ms.author: glenga
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: eb909384805c96ce656cacf86adceedc55613c0f
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 4fc1c0b87aa5312be0ccac50681e952dc7f1c4ed
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49113655"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51251726"
 ---
 # <a name="create-a-function-triggered-by-azure-cosmos-db"></a>Een door Azure Cosmos DB geactiveerde functie maken
 
@@ -108,7 +108,7 @@ Vervolgens maakt u verbinding met het Azure Cosmos DB-account en maakt u de verz
     | **Verzamelings-id** | Items | De naam voor de nieuwe verzameling. Dit moet overeenkomen met de naam die is gedefinieerd in de functiebinding.  |
     | **Opslagcapaciteit** | Vast (10 GB)|Gebruik de standaardwaarde. Deze waarde is de opslagcapaciteit van de database. |
     | **Doorvoer** |400 RU| Gebruik de standaardwaarde. U kunt de doorvoer later opschalen als u de latentie wilt beperken. |
-    | **[Partitiesleutel](../cosmos-db/partition-data.md#best-practices-when-choosing-a-partition-key)** | /category|Een partitiesleutel waarmee gegevens gelijkmatig worden gedistribueerd naar elke partitie. Het is belangrijk dat u de juiste partitiesleutel selecteert bij het maken van een prestatieverzameling. | 
+    | **[Partitiesleutel](../cosmos-db/partition-data.md)** | /category|Een partitiesleutel waarmee gegevens gelijkmatig worden gedistribueerd naar elke partitie. Het is belangrijk dat u de juiste partitiesleutel selecteert bij het maken van een prestatieverzameling. | 
 
 1. Klik op **OK** om de verzameling Items te maken. Het kan even duren voor de verzameling is gemaakt.
 

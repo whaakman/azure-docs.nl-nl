@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: bryanla
-ms.openlocfilehash: 00a2c0d50a2476995dfb0d16d0cdbc5bd0ec313b
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: c5677dc07326fa16960e0d748f88e26f259c0485
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138984"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51262268"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>Over sleutels, geheimen en certificaten
 
@@ -398,7 +398,7 @@ Voordat de uitgever van een certificaat kan worden gemaakt in een Key Vault, moe
 
     -   De configuratie die moet worden gebruikt voor het maken van een object van de uitgever van de provider in de key vault biedt  
 
-Zie voor meer informatie over het maken van objecten van certificaatverlener uit de Certificates-portal, de [Key Vault-certificaten-blog](http://aka.ms/kvcertsblog)  
+Zie voor meer informatie over het maken van objecten van certificaatverlener uit de Certificates-portal, de [Key Vault-certificaten-blog](https://aka.ms/kvcertsblog)  
 
 Key Vault kunt u het maken van meerdere verlener objecten met andere verlener-providerconfiguratie. Zodra een verlener-object is gemaakt, kan de naam ervan in een of meerdere beleidsregels van het certificaat worden verwezen. Key Vault configuratie zoals opgegeven in het object verlener gebruiken bij het aanvragen van de x509 verwijzen naar het object verlener geeft certificaten van CA-provider tijdens het maken van het certificaat en de verlenging.  
 

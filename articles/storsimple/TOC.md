@@ -61,6 +61,7 @@
 
 ## Overzicht
 ### [Wat is de oplossing?](storsimple-overview.md)
+### [Opties voor gegevensoverdracht vergelijken](storsimple-8000-choose-storage-solution.md)
 ### [Leertraject voor StorSimple](https://azure.microsoft.com/documentation/learning-paths/storsimple-typical/)
 ### [Beveiligingsoverwegingen](storsimple-8000-security.md)
 ### [Beschikbaarheid in regio’s](storsimple-regions.md)
@@ -183,7 +184,7 @@
 #### [Vanaf apparaten van de 5000/7000-serie](storsimple-8000-migration-options.md)
 ##### [Naar apparaten uit StorSimple 8000-serie](storsimple-8000-migrate-from-5000-7000.md)
 ##### [Naar Azure File Sync](storsimple-5000-7000-afs-migration.md)
-#### [Vanaf andere opslagapparaten](http://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating Data to StorSimple Volumes_09-02-15.pdf)
+#### [Vanaf andere opslagapparaten](https://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating Data to StorSimple Volumes_09-02-15.pdf)
 
 ### Update
 #### [Update 5 (actueel) installeren](storsimple-8000-install-update-5.md)
@@ -248,8 +249,8 @@
 ## [Prijzen](https://azure.microsoft.com/pricing/details/storsimple/)
 ## [Prijscalculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Service-updates](https://azure.microsoft.com/updates/?product=storsimple)
-## [Ondersteuningsblog](http://blogs.msdn.com/b/storsimple/)
-## [Mededelingen van derden](http://download.microsoft.com/download/2/0/0/2003271D-69D5-4143-85A2-F1D8EA058F52/StorSimple TPNs.zip)
+## [Ondersteuningsblog](https://blogs.msdn.com/b/storsimple/)
+## [Mededelingen van derden](https://download.microsoft.com/download/2/0/0/2003271D-69D5-4143-85A2-F1D8EA058F52/StorSimple TPNs.zip)
 ## [Video's](https://azure.microsoft.com/documentation/videos/index/?services=storsimple)
 
 

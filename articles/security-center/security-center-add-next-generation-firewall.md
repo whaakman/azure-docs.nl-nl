@@ -3,7 +3,7 @@ title: Next generatiefirewall toevoegen in Azure Security Center | Microsoft Doc
 description: Dit document ziet u hoe u de aanbevelingen voor Azure Security Center implementeren **Next Generation Firewall toevoegen** en **Route traffice via ngfw STUREN alleen**.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: 48b99015-4db8-4ce8-85e4-b544c0fa203e
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/02/2017
-ms.author: terrylan
-ms.openlocfilehash: ff5c667318f961dddcab02cb1b2b679285d8c790
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.date: 10/28/2018
+ms.author: rkarlin
+ms.openlocfilehash: a0f472d32e878412532927327a36fe674d4cf6bb
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44294014"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261669"
 ---
 # <a name="add-a-next-generation-firewall-in-azure-security-center"></a>Next Generatiefirewall toevoegen in Azure Security Center
 Azure Security Center kan raden u aan next generatiefirewall (NGFW) via een Microsoft-partner uw beveiligingen verhogen. In dit document wordt u via een voorbeeld van hoe u dit doet.
@@ -68,7 +68,7 @@ Zie de volgende onderwerpen voor meer informatie over het Beveiligingscentrum:
 * [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) (Beveiligingswaarschuwingen beheren en erop reageren in Azure Security Center): ontdek hoe u beveiligingswaarschuwingen kunt beheren en erop kunt reageren.
 * [Partneroplossingen bewaken met Azure Security Center](security-center-partner-solutions.md): leer hoe u de integriteitsstatus van uw partneroplossingen kunt bewaken.
 * [Azure Security Center FAQ](security-center-faq.md) (Veelgestelde vragen over Azure Security Center): raadpleeg veelgestelde vragen over het gebruik van de service.
-* [Azure-Beveiligingsblog](http://blogs.msdn.com/b/azuresecurity/) : Lees blogberichten over de Azure-beveiliging en naleving.
+* [Azure-Beveiligingsblog](https://blogs.msdn.com/b/azuresecurity/) : Lees blogberichten over de Azure-beveiliging en naleving.
 
 <!--Image references-->
 [1]: ./media/security-center-add-next-gen-firewall/add-next-gen-firewall.png

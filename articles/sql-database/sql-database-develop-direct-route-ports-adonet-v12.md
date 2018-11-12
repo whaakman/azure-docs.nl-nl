@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: sstein
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 89802722e9e848b5cd5ede952287d5c934c142c3
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 594d181a5452317267157415bdaf68f572f0f0af
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49351316"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51260020"
 ---
 # <a name="ports-beyond-1433-for-adonet-45"></a>Poorten boven 1433 voor ADO.NET 4.5
 Dit onderwerp beschrijft het gedrag van de Azure SQL Database-verbindingen voor clients die gebruikmaken van ADO.NET 4.5 of hoger. 
@@ -48,7 +48,7 @@ Zorg ervoor dat de poort bereik van 11000 11999 en 14000-14999 op uw Azure-clien
 * Poorten in het bereik moet in het bijzonder vrij van andere uitgaande blokkeringen.
 * Op uw Azure-VM, de **Windows Firewall met geavanceerde beveiliging** Hiermee bepaalt u de poortinstellingen.
   
-  * Kunt u de [gebruikersinterface van de firewall](http://msdn.microsoft.com/library/cc646023.aspx) om toe te voegen een regel die u opgeeft de **TCP** protocol samen met een bereik met de syntaxis zoals **11000 11999**.
+  * Kunt u de [gebruikersinterface van de firewall](https://msdn.microsoft.com/library/cc646023.aspx) om toe te voegen een regel die u opgeeft de **TCP** protocol samen met een bereik met de syntaxis zoals **11000 11999**.
 
 ## <a name="version-clarifications"></a>Versie verduidelijkingen
 In deze sectie wordt uitleg gegeven over de monikers die naar versies van het product verwijzen. Het bevat ook enkele testpunten versies van producten.
@@ -65,9 +65,9 @@ In deze sectie wordt uitleg gegeven over de monikers die naar versies van het pr
 
 
 ## <a name="related-links"></a>Verwante koppelingen
-* ADO.NET 4.6 is uitgebracht op 20 juli 2015. Een aankondiging blog van het team van .NET is beschikbaar [hier](http://blogs.msdn.com/b/dotnet/archive/2015/07/20/announcing-net-framework-4-6.aspx).
-* ADO.NET 4.5 is uitgebracht op 15 augustus 2012. Een aankondiging blog van het team van .NET is beschikbaar [hier](http://blogs.msdn.com/b/dotnet/archive/2012/08/15/announcing-the-release-of-net-framework-4-5-rtm-product-and-source-code.aspx). 
-  * Er is een blogbericht over ADO.NET 4.5.1 beschikbaar [hier](http://blogs.msdn.com/b/dotnet/archive/2013/06/26/announcing-the-net-framework-4-5-1-preview.aspx).
+* ADO.NET 4.6 is uitgebracht op 20 juli 2015. Een aankondiging blog van het team van .NET is beschikbaar [hier](https://blogs.msdn.com/b/dotnet/archive/2015/07/20/announcing-net-framework-4-6.aspx).
+* ADO.NET 4.5 is uitgebracht op 15 augustus 2012. Een aankondiging blog van het team van .NET is beschikbaar [hier](https://blogs.msdn.com/b/dotnet/archive/2012/08/15/announcing-the-release-of-net-framework-4-5-rtm-product-and-source-code.aspx). 
+  * Er is een blogbericht over ADO.NET 4.5.1 beschikbaar [hier](https://blogs.msdn.com/b/dotnet/archive/2013/06/26/announcing-the-net-framework-4-5-1-preview.aspx).
 
 * Microsoft® ODBC Driver 17 voor SQL Server® - Windows, Linux en macOS https://www.microsoft.com/download/details.aspx?id=56567
 

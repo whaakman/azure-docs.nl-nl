@@ -3,7 +3,7 @@ title: Inschakelen van controle en detectie van bedreigingen op SQL-servers in A
 description: Dit document wordt beschreven hoe u de Azure Security Center-aanbeveling kunt implementeren **inschakelen controle en detectie van bedreigingen op SQL-servers**.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: 042fca4d-7dab-4172-8614-e8c21ccb4960
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2017
-ms.author: terrylan
-ms.openlocfilehash: fade8de73a35b75f6096a25af13335d679caffac
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.date: 10/28/2018
+ms.author: rkarlin
+ms.openlocfilehash: cc0c820fb2172466db917725a4f14e7ea5253fb5
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44300899"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51259901"
 ---
 # <a name="enable-auditing-and-threat-detection-on-sql-servers-in-azure-security-center"></a>Controle en detectie van bedreigingen op SQL-servers in Azure Security Center inschakelen
 Azure Security Center wordt aanbevolen dat u de controle en detectie van bedreigingen voor alle databases op uw Azure SQL-servers als controle is niet ingeschakeld. Controle en threat detection kunt u de naleving van regelgeving, inzicht in de databaseactiviteiten en inzicht verkrijgen in discrepanties en afwijkingen die kunnen wijzen op problemen voor het bedrijf of vermoedelijke beveiligingsschendingen.
@@ -58,7 +58,7 @@ Zie de volgende onderwerpen voor meer informatie over het Beveiligingscentrum:
 * [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) (Beveiligingswaarschuwingen beheren en erop reageren in Azure Security Center): ontdek hoe u beveiligingswaarschuwingen kunt beheren en erop kunt reageren.
 * [Partneroplossingen bewaken met Azure Security Center](security-center-partner-solutions.md): leer hoe u de integriteitsstatus van uw partneroplossingen kunt bewaken.
 * [Azure Security Center FAQ](security-center-faq.md) (Veelgestelde vragen over Azure Security Center): raadpleeg veelgestelde vragen over het gebruik van de service.
-* [Azure-Beveiligingsblog](http://blogs.msdn.com/b/azuresecurity/) --de meest recente Azure-beveiliging nieuws en informatie.
+* [Azure-Beveiligingsblog](https://blogs.msdn.com/b/azuresecurity/) --de meest recente Azure-beveiliging nieuws en informatie.
 
 <!--Image references-->
 [1]: ./media/security-center-enable-auditing-on-sql-server/enable-auditing-on-sql-servers.png

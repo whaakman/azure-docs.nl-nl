@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2018
 ms.author: fboylu
-ms.openlocfilehash: 8f42ee996dae476de3744239d4cc5f053722d52b
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 611896dc9428092a76a891168b48f6962d760e60
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50093208"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51254567"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>Azure AI-handleiding voor oplossingen voor Voorspellend onderhoud
 
@@ -431,13 +431,13 @@ Microsoft Azure biedt leertrajecten voor de basisconcepten achter PdM technieken
 |:-------------------|--------------|
 | [Leertraject voor PdM met behulp van structuren en willekeurige Forest](https://aischool.microsoft.com/learning-paths/1H5vH5wAYcAy88CoQWQcA8) | Public | 
 | [Leertraject voor PdM met behulp van Deep Learning](https://aischool.microsoft.com/learning-paths/FSIXxYkOGcauo0eUO8qAS) | Public |
-| [AI-ontwikkelaar op Azure](http://azure.microsoft.com/training/learning-paths/azure-ai-developer) | Public |
-| [Microsoft AI-School](http://aischool.microsoft.com/learning-paths) | Public |
+| [AI-ontwikkelaar op Azure](https://azure.microsoft.com/training/learning-paths/azure-ai-developer) | Public |
+| [Microsoft AI-School](https://aischool.microsoft.com/learning-paths) | Public |
 | [Azure AI-training vanuit GitHub](https://github.com/Azure/connectthedots/blob/master/readme.md) | Public |
 | [LinkedIn Learning](http://www.linkedin.com/learning) | Public |
 | [Microsoft AI-Youtube Webinars](https://www.youtube.com/watch?v=NvrH7_KKzoM&t=4s) | Public |
 | [Microsoft AI-Show](http://channel9.msdn.com/Shows/AI-Show) | Public |
-| [LearnAI@MS](http://learnanalytics.microsoft.com) | Partners |
-| [Microsoft Partner Network](http://learningportal.microsoft.com) | Partners |
+| [LearnAI@MS](https://learnanalytics.microsoft.com) | Partners |
+| [Microsoft Partner Network](https://learningportal.microsoft.com) | Partners |
 
 Bovendien zijn gratis MOOCS (massive open online cursussen) op AI aangeboden online door academische instellingen, zoals Stanford en MIT en andere educatieve bedrijven.

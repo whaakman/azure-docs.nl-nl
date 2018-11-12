@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 08/03/2016
 ms.author: hascipio;
-ms.openlocfilehash: e1f90650e71345957c2d353774cb8bef62c1868b
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: d4c7dce1876e9838fe986aebb7e38a09e8a82baf
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39715012"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51252969"
 ---
 # <a name="post-production-guide-for-virtual-machine-offers-in-the-azure-marketplace"></a>Na productie-handleiding voor de virtuele machine-aanbiedingen in de Azure Marketplace
 In dit artikel wordt uitgelegd hoe u een live virtuele machine-aanbieding in Azure Marketplace kunt bijwerken. Dit leidt u door het proces van het toevoegen van een of meer nieuwe SKU's op een bestaande aanbieding. Ook leidt u door het proces van het verwijderen van een live virtuele machine-aanbieding of de SKU van de Marketplace.
@@ -30,7 +30,7 @@ Nadat een aanbieding/SKU tijdelijk worden opgeslagen de [Azure-portal](http://po
 * **SKU-id**: In de portal voor publiceren, Ga naar **virtuele machines** en selecteert u uw aanbieding. Klik vervolgens op **SKU's** > **Voeg een SKU toe**.
 * **Uitgever Namespace**: In de portal voor publiceren, Ga naar **virtuele machines** > **scenario** > **Vertel ons over uw bedrijf**(te vinden onder "Stap 2 registreren van uw bedrijf") > **Publisher Namespace** > **Namespace**.
 
-Nadat de aanbieding/SKU wordt vermeld in de [Marketplace](http://azure.microsoft.com/marketplace), kunt u de volgende tekstvakken niet wijzigen:
+Nadat de aanbieding/SKU wordt vermeld in de [Marketplace](https://azure.microsoft.com/marketplace), kunt u de volgende tekstvakken niet wijzigen:
 
 * **ID bieden**: In de portal voor publiceren, Ga naar **virtuele machines** en selecteert u uw aanbieding. Klik vervolgens op **VM-INSTALLATIEKOPIEËN** > **bieden id**.
 * **SKU-id**: In de portal voor publiceren, Ga naar **virtuele machines** en selecteert u uw aanbieding. Klik vervolgens op **SKU's** > **Voeg een SKU toe**.
@@ -208,7 +208,7 @@ Om toe te voegen een nieuwe SKU in uw live aanbieding, de volgende stappen uit:
 1. Aanmelden bij de [portal voor publiceren](https://publish.windowsazure.com).
 2. Ga naar de **virtuele machines** tabblad, en selecteer uw aanbieding.
 3. Klik in het menu aan de linkerkant op de **SKU's** tabblad. Klik vervolgens op **Voeg een SKU toe**. 
-4. Voer in het dialoogvenster een **SKU-id** in kleine letters. Selecteer de **doen om uw eigen factureringsmodel license (BYOL)** selectievakje in als u wilt publiceren van de nieuwe SKU met een BYOL-model voor facturering. Schakel anders het selectievakje in. Klik op het maatstreepje voor het maken van een nieuwe SKU. Als u de BYOL-model voor facturering niet kiest, wordt het factureringsmodel automatisch ingesteld op elk uur. Als u wilt dat de gratis proefversie van 30 dagen voor het factureringsmodel per uur, selecteert u **één maand** voor **Is een gratis proefversie beschikbaar?** Selecteer anders **geen proefversie**. (**Is een gratis proefversie beschikbaar? ** wordt alleen weergegeven als u geen BYOL tijdens het maken van de nieuwe SKU hebt geselecteerd.)
+4. Voer in het dialoogvenster een **SKU-id** in kleine letters. Selecteer de **doen om uw eigen factureringsmodel license (BYOL)** selectievakje in als u wilt publiceren van de nieuwe SKU met een BYOL-model voor facturering. Schakel anders het selectievakje in. Klik op het maatstreepje voor het maken van een nieuwe SKU. Als u de BYOL-model voor facturering niet kiest, wordt het factureringsmodel automatisch ingesteld op elk uur. Als u wilt dat de gratis proefversie van 30 dagen voor het factureringsmodel per uur, selecteert u **één maand** voor **Is een gratis proefversie beschikbaar?** Selecteer anders **geen proefversie**. (**Is een gratis proefversie beschikbaar?**  wordt alleen weergegeven als u geen BYOL tijdens het maken van de nieuwe SKU hebt geselecteerd.)
 
    > [!IMPORTANT]
    > **De SKU van de Marketplace verbergen omdat moet altijd worden gekocht via een oplossingssjabloon** moet **Ja** *alleen* als u voor het publiceren van een oplossingssjabloon worden goedgekeurd. Anders wordt deze optie moet altijd worden **Nee**.

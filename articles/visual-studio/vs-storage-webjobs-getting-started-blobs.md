@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: 798073d5510e50ead35ed118b03e981d133cd32a
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 5a7c16e6ac565d1660fee02cb7df178344b195e7
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42059162"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51254397"
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-webjob-projects"></a>Aan de slag met Azure Blob storage en Visual Studio verbonden services (webtaak projecten)
 [!INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
@@ -217,5 +217,5 @@ Verwante onderwerpen in dit artikel besproken omvatten het volgende:
 * Schrijven Logboeken
 
 ## <a name="next-steps"></a>Volgende stappen
-In dit artikel is codevoorbeelden die laten hoe u algemene scenario's zien voor het werken met Azure-blobs worden opgegeven. Zie voor meer informatie over het gebruik van Azure WebJobs en de WebJobs SDK [documentatiebronnen voor Azure WebJobs](http://go.microsoft.com/fwlink/?linkid=390226).
+In dit artikel is codevoorbeelden die laten hoe u algemene scenario's zien voor het werken met Azure-blobs worden opgegeven. Zie voor meer informatie over het gebruik van Azure WebJobs en de WebJobs SDK [documentatiebronnen voor Azure WebJobs](https://go.microsoft.com/fwlink/?linkid=390226).
 

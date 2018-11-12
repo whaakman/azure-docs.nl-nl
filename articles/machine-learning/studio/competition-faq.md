@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
-ms.openlocfilehash: 693fd7b80d69c20971315d8636f27daeb0cacaee
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 28be219c35d382cbd141bb050b35893da02ab775
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50240882"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51256443"
 ---
 # <a name="microsoft-cortana-intelligence-competitions-faq"></a>Veelgestelde vragen over Microsoft Cortana Intelligence-wedstrijden
 **Wat is Cortana Intelligence-wedstrijden?**
 
-De Microsoft Cortana Intelligence-wedstrijden koppelt zijn netwerk van een wereldwijde community van liefhebbers van gezamenlijk het oplossen van enkele van's werelds meest complexe data science problemen. Cortana Intelligence-wedstrijden kunt liefhebbers van over de hele wereld te concurreren en zeer nauwkeurige en intelligente wetenschappelijk gegevensmodellen te bouwen. Deze gehoste competities zijn gebaseerd op de unieke gegevenssets die beschikbaar zijn gesteld openbaar voor de eerste keer. Deelnemers kunnen winnen beloningen of erkenning via de bovenste 10 openbare leaderboard ophalen. U kunt toegang tot de startpagina competities op [aka.ms/CIComp](http://aka.ms/CIComp).
+De Microsoft Cortana Intelligence-wedstrijden koppelt zijn netwerk van een wereldwijde community van liefhebbers van gezamenlijk het oplossen van enkele van's werelds meest complexe data science problemen. Cortana Intelligence-wedstrijden kunt liefhebbers van over de hele wereld te concurreren en zeer nauwkeurige en intelligente wetenschappelijk gegevensmodellen te bouwen. Deze gehoste competities zijn gebaseerd op de unieke gegevenssets die beschikbaar zijn gesteld openbaar voor de eerste keer. Deelnemers kunnen winnen beloningen of erkenning via de bovenste 10 openbare leaderboard ophalen. U kunt toegang tot de startpagina competities op [aka.ms/CIComp](https://aka.ms/CIComp).
 
 **Hoe vaak brengt Microsoft nieuwe competities?**
 
@@ -37,7 +37,7 @@ Voor algemene vragen, kunt u de [Microsoft Azure Machine Learning-forum](https:/
 
 **Hoe voer ik een competitie?**
 
-Toegang tot de [competities](https://gallery.cortanaintelligence.com/competitions) startpagina in de [Azure AI Gallery](https://gallery.cortanaintelligence.com/), of Ga naar [ http://aka.ms/CIComp ](http://aka.ms/CIComp). De startpagina geeft een lijst van alle competities die momenteel worden uitgevoerd. Elke competitie bevat gedetailleerde instructies en regels voor deelname, prijzen en duur van de pagina voor het registreren.
+Toegang tot de [competities](https://gallery.cortanaintelligence.com/competitions) startpagina in de [Azure AI Gallery](https://gallery.cortanaintelligence.com/), of Ga naar [ http://aka.ms/CIComp ](https://aka.ms/CIComp). De startpagina geeft een lijst van alle competities die momenteel worden uitgevoerd. Elke competitie bevat gedetailleerde instructies en regels voor deelname, prijzen en duur van de pagina voor het registreren.
 
 1. Zoek de competitie waarvoor die u wilt deelnemen, lees alle instructies en kunt u de video bekijken. Klik vervolgens op de **Voer competitie** knop en het Experiment Starter in uw bestaande Azure Machine Learning-werkruimte te kopiëren. Als u nog toegang tot een werkruimte hebt, moet u een vooraf. Voer het Experiment Starter, bekijk de metrische gegevens voor prestaties en uw creativiteit de vrije gebruiken om de prestaties van het model te verbeteren. U zult waarschijnlijk het merendeel van de tijd in deze stap.   
 
@@ -98,7 +98,7 @@ Microsoft controleert of u de resultaten van de persoonlijke leaderboard en er w
 
 **Hoe krijg ik het geld prijs als ik een wedstrijd winnen?**
 
-Als u een competitie winnaar bent, moet u een verklaring van geschiktheid, licentie en release van te ondertekenen. Dit formulier herhaalt de Competitieregels. Winnaars moeten een formulier invullen om ons belasting W-9 of een formulier W-8BEN als ze niet VS belastingbetalers. Wij nemen contact met alle winnaars als onderdeel van de beloningen overboeking proces met behulp van de registratie-e-mailbericht. Raadpleeg onze [voorwaarden en bepalingen](http://aka.ms/comptermsandconditions) voor meer informatie.
+Als u een competitie winnaar bent, moet u een verklaring van geschiktheid, licentie en release van te ondertekenen. Dit formulier herhaalt de Competitieregels. Winnaars moeten een formulier invullen om ons belasting W-9 of een formulier W-8BEN als ze niet VS belastingbetalers. Wij nemen contact met alle winnaars als onderdeel van de beloningen overboeking proces met behulp van de registratie-e-mailbericht. Raadpleeg onze [voorwaarden en bepalingen](https://aka.ms/comptermsandconditions) voor meer informatie.
 
 **Wat gebeurt er als meer dan één melding ontvangt de dezelfde score?**
 
@@ -114,5 +114,5 @@ De competitie platform ondersteunt momenteel alleen vermeldingen die zijn ingedi
 
 **Houd we oplossingen voor competities en vermeldingen van gebruikers?**
 
-Gebruikersvermeldingen worden alleen voor evaluatiedoeleinden gebruikt voor het identificeren van de winnende oplossingen bewaard. Raadpleeg onze [voorwaarden en bepalingen](http://aka.ms/comptermsandconditions) voor meer informatie.
+Gebruikersvermeldingen worden alleen voor evaluatiedoeleinden gebruikt voor het identificeren van de winnende oplossingen bewaard. Raadpleeg onze [voorwaarden en bepalingen](https://aka.ms/comptermsandconditions) voor meer informatie.
 

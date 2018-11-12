@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 11/15/2017
 ms.author: sngun
-ms.openlocfilehash: 0187bf51d36f16001f0f7f67f4f72f5f3df2e05d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: a41ffdb31cb54e1488c0f114632c605b92d4c444
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46974133"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255282"
 ---
 # <a name="build-mobile-applications-with-xamarin-and-azure-cosmos-db"></a>Mobiele toepassingen maken met Xamarin en Azure Cosmos DB
 
@@ -85,7 +85,7 @@ Volg deze stappen om de takenlijst-app aan te passen aan een takenlijst-app voor
 
   4. Pas de app aan om Resource Token Broker te verifiëren met Facebook en vraag de resourcetokens aan voor de aangemelde Facebook-gebruikers. U krijgt vervolgens toegang tot hun gegevens in de UserItems-verzameling.  
 
-U vindt een volledig codevoorbeeld van dit patroon op [Resource Token Broker op GitHub](http://aka.ms/documentdb-xamarin-todouser). In dit diagram wordt de oplossing weergegeven:
+U vindt een volledig codevoorbeeld van dit patroon op [Resource Token Broker op GitHub](https://aka.ms/documentdb-xamarin-todouser). In dit diagram wordt de oplossing weergegeven:
 
 ![Azure Cosmos DB-gebruikers en machtigingenbroker](media/mobile-apps-with-xamarin/documentdb-resource-token-broker.png)
 

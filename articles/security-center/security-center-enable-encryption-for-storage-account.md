@@ -3,7 +3,7 @@ title: Versleuteling inschakelen voor storage-account in Azure Security Center |
 description: Dit document ziet u hoe u de aanbevelingen voor Azure Security Center implementeren **versleuteling inschakelen voor Azure Storage-Account**.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: ''
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/20/2016
-ms.author: terrylan
-ms.openlocfilehash: 3765d150c63515337be13d821dce51944eae4655
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.date: 10/28/2018
+ms.author: rkarlin
+ms.openlocfilehash: 69fbbe13c2c6c8a2bb193054a9b8e613832005e2
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44298265"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51257313"
 ---
 # <a name="enable-encryption-for-azure-storage-account-in-azure-security-center"></a>Versleuteling inschakelen voor Azure storage-account in Azure Security Center
 Azure Security Center kan aanraden om Azure Storage-Serviceversleuteling voor data-at-rest in te schakelen.
@@ -63,7 +63,7 @@ Zie de volgende onderwerpen voor meer informatie over het Beveiligingscentrum:
 * [Beheren en erop reageren op beveiligingswaarschuwingen in Azure Security Center](security-center-managing-and-responding-alerts.md) -informatie over het beheren van en reageren op beveiligingswaarschuwingen.
 * [Aanbevelingen voor beveiliging in Azure Security Center beheren](security-center-recommendations.md) -informatie over hoe aanbevelingen u helpen bij uw Azure-resources te beveiligen.
 * [Veelgestelde vragen over Azure Security Center](security-center-faq.md) -Raadpleeg Veelgestelde vragen over het gebruik van de service.
-* [Azure-Beveiligingsblog](http://blogs.msdn.com/b/azuresecurity/) : Lees blogberichten over de Azure-beveiliging en naleving.
+* [Azure-Beveiligingsblog](https://blogs.msdn.com/b/azuresecurity/) : Lees blogberichten over de Azure-beveiliging en naleving.
 
 <!--Image references-->
 [1]: ./media/security-center-enable-encryption-for-storage-account/enable-encryption-for-storage-account.png

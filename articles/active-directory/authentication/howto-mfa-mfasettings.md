@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: a66a7537632aac2190cd39f13665bcd8d4ed6ce7
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: bae31b245cb83821490564c60f67e88898af06b3
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49114980"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51233283"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Azure multi-factor Authentication-instellingen configureren
 
@@ -363,8 +363,8 @@ Wanneer uw gebruikers hun account voor Azure multi-factor Authentication registr
 |:--- |:--- |
 | Bellen naar telefoon |Plaatst een geautomatiseerd telefoongesprek. De gebruiker beantwoordt het gesprek en drukt # in het toetsenblok van de telefoon om te verifiëren. Het telefoonnummer is niet gesynchroniseerd met on-premises Active Directory. |
 | Sms-bericht naar telefoon |Verzendt een SMS-bericht met een verificatiecode. De gebruiker wordt gevraagd de verificatiecode invoeren in de interface van aanmelding. Dit proces heet SMS in één richting. SMS in twee richtingen betekent dat de gebruiker tekst weer een bepaalde code moet. SMS in twee richtingen is afgeschaft en wordt niet ondersteund na 14 November 2018. Gebruikers die zijn geconfigureerd voor SMS in twee richtingen worden automatisch overgeschakeld naar de _oproep naar telefoon_ verificatie op dat moment.|
-| Melding via mobiele app |Verzendt een pushmelding naar uw telefoon of geregistreerd apparaat. De gebruiker de melding weergaven en **controleren** om verificatie te voltooien. De Microsoft Authenticator-app is beschikbaar voor [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072), en [iOS](http://go.microsoft.com/fwlink/?Linkid=825073). |
-| Verificatiecode via mobiele app |De Microsoft Authenticator-app genereert een nieuwe OATH-verificatiecode elke 30 seconden. De gebruiker voert de verificatiecode in de interface van aanmelding. De Microsoft Authenticator-app is beschikbaar voor [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072), en [iOS](http://go.microsoft.com/fwlink/?Linkid=825073). |
+| Melding via mobiele app |Verzendt een pushmelding naar uw telefoon of geregistreerd apparaat. De gebruiker de melding weergaven en **controleren** om verificatie te voltooien. De Microsoft Authenticator-app is beschikbaar voor [Windows Phone](https://go.microsoft.com/fwlink/?Linkid=825071), [Android](https://go.microsoft.com/fwlink/?Linkid=825072), en [iOS](https://go.microsoft.com/fwlink/?Linkid=825073). |
+| Verificatiecode via mobiele app |De Microsoft Authenticator-app genereert een nieuwe OATH-verificatiecode elke 30 seconden. De gebruiker voert de verificatiecode in de interface van aanmelding. De Microsoft Authenticator-app is beschikbaar voor [Windows Phone](https://go.microsoft.com/fwlink/?Linkid=825071), [Android](https://go.microsoft.com/fwlink/?Linkid=825072), en [iOS](https://go.microsoft.com/fwlink/?Linkid=825073). |
 
 ### <a name="enable-and-disable-verification-methods"></a>In- en uitschakelen van verificatiemethoden
 

@@ -1,7 +1,7 @@
 ---
-title: 'Infographic: Machine learning basisbeginselen - algoritme voorbeelden | Microsoft Docs'
-description: Een gemakkelijk te begrijpen overzicht van machine learning basisbeginselen bevat voorbeelden van de algoritme. De downloadbare infographic dekt de meeste machine learning-vragen.
-keywords: basisprincipes van machine learning, voorbeelden van algoritme machine learning voor beginnende gebruikers, machine learning vragen, populaire algoritmen, algoritme infographic
+title: 'Infographic: Basisbeginselen van Machine learning - algoritmevoorbeelden | Microsoft Docs'
+description: Een overzicht eenvoudig te begrijpen van de basisprincipes van machine learning bevat algoritmevoorbeelden. De downloadbare infographic dekt de meeste machine learning-vragen.
+keywords: basisprincipes van machine learning, algoritmevoorbeelden, machine learning voor beginners, machine learning vragen, populaire algoritmen, algoritme infographic
 services: machine-learning
 documentationcenter: ''
 author: heatherbshapiro
@@ -16,30 +16,30 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
-ms.openlocfilehash: a7d2d1e46847f6126ad2905e9f2d3ce52957dad5
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 8ef67add44428e08a1851a039e7e8c2c747e930d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34833355"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51253853"
 ---
 # <a name="downloadable-infographic-machine-learning-basics-with-algorithm-examples"></a>Downloadbare Infographic: basisbeginselen van Machine Learning met algoritmevoorbeelden
-Download deze gemakkelijk te begrijpen infographic overzicht van machine learning basisprincipes voor meer informatie over populaire algoritmen gebruikt om veelvoorkomende machine learning vragen te beantwoorden. Algoritme-voorbeelden laten zien hoe de machine learning beginnende begrijpen welke algoritmen moet gebruiken en wat ze gebruikt.
+Download dit overzicht infographic eenvoudig te begrijpen van de basisprincipes van machine learning voor meer informatie over populaire algoritmen gebruikt om veelvoorkomende machine learning vragen te beantwoorden. Algoritmevoorbeelden laten zien hoe de machine learning voor beginners te begrijpen welke algoritmen moet worden gebruikt en waarvoor ze gebruikt.
 
 ## <a name="popular-algorithms-in-machine-learning-studio"></a>Populaire algoritmen in Machine Learning Studio
-[Azure Machine Learning Studio](https://studio.azureml.net/) wordt geleverd met een grote bibliotheek met algoritmen voor predictive analytics. De infographic vier populaire families van algoritmen - regressie, afwijkingsdetectie, clustering en classificatie - identificeert en vindt u koppelingen naar werkende voorbeelden in de [AI-galerie van Azure](https://gallery.cortanaintelligence.com/). De galerie bevat voorbeeld experimenten en zelfstudies die laten zien hoe deze algoritmen in veel werkelijke oplossingen kunnen worden toegepast.
+[Azure Machine Learning Studio](https://studio.azureml.net/) wordt geleverd met een grote bibliotheek met algoritmen voor voorspellende analyses. De infographic vier populaire families van algoritmen - regressie, detectie van afwijkingen, clustering en classificatie - identificeert en vindt u koppelingen naar voorbeelden werken in de [Azure AI Gallery](https://gallery.cortanaintelligence.com/). De galerie bevat voorbeeldexperimenten en zelfstudies die laten zien hoe deze algoritmen in veel werkelijke oplossingen kunnen worden toegepast.
 
-## <a name="download-the-infographic-with-algorithm-examples"></a>De infographic met algoritme voorbeelden downloaden
-**[Download: Infographic van machine learning basisbeginselen met koppelingen naar algoritme voorbeelden (PDF)](http://download.microsoft.com/download/0/5/A/05AE6B94-E688-403E-90A5-6035DBE9EEC5/machine-learning-basics-infographic-with-algorithm-examples.pdf)**
+## <a name="download-the-infographic-with-algorithm-examples"></a>Download de infographic met algoritmevoorbeelden
+**[Downloaden: Infographic van de basisprincipes van machine learning met koppelingen naar algoritmevoorbeelden (PDF-bestand)](https://download.microsoft.com/download/0/5/A/05AE6B94-E688-403E-90A5-6035DBE9EEC5/machine-learning-basics-infographic-with-algorithm-examples.pdf)**
 
-![Infographic: Machine learning-basisbeginselen met voorbeelden van de algoritme. Populaire algoritmen. Machine learning voor beginnende gebruikers.](./media/basics-infographic-with-algorithm-examples/machine-learning-basics-infographic-with-algorithm-examples.png)
+![Infographic: Basisbeginselen van Machine learning met algoritmevoorbeelden. Populaire algoritmen. Machine learning voor beginners.](./media/basics-infographic-with-algorithm-examples/machine-learning-basics-infographic-with-algorithm-examples.png)
 
-## <a name="more-help-with-algorithms-for-beginners-and-advanced-users"></a>Meer hulp met algoritmen voor beginnende gebruikers en ervaren gebruikers
-* Zie voor een meer gedetailleerde bespreking van de verschillende typen van machine learning-algoritmen, hoe deze worden gebruikt en hoe u de juiste is voor uw oplossing kiest [algoritmen kiezen voor het Microsoft Azure Machine Learning](algorithm-choice.md).
-* Zie voor een lijst door de categorie van alle de machine learning-algoritmen in Machine Learning Studio [Model initialiseren] [ initialize-model] in de Machine Learning Studio algoritme en de Module Help.
-* Zie voor een volledige alfabetische lijst van algoritmen en modules in Machine Learning Studio [lijst A-Z van Machine Learning Studio-modules] [ a-z-list] in de Help van de Module en Machine Learning Studio-algoritme.
+## <a name="more-help-with-algorithms-for-beginners-and-advanced-users"></a>Meer hulp bij algoritmen voor beginners en ervaren gebruikers
+* Zie voor een uitgebreidere bespreking van de verschillende soorten machine learning-algoritmen, hoe ze worden gebruikt en hoe u de juiste is voor uw oplossing te kiezen, [algoritmen kiezen voor Microsoft Azure Machine Learning](algorithm-choice.md).
+* Zie voor een lijst op categorie van alle de machine learning-algoritmen in Machine Learning Studio, [Initialize Model] [ initialize-model] in de algoritme voor Machine Learning Studio en de Module Help.
+* Zie voor een volledige alfabetische lijst van algoritmen en modules in Machine Learning Studio, [alfabetische lijst van Machine Learning Studio-modules] [ a-z-list] in de Module Help en algoritme voor Machine Learning Studio.
 * Zie [Overzichtsdiagram van de mogelijkheden van Azure Machine Learning Studio](studio-overview-diagram.md) als u een diagram wilt downloaden en afdrukken met een overzicht van de mogelijkheden van Machine Learning Studio.
-* Zie voor een overzicht van de AI-galerie van Azure en veel community is opgesteld resources beschikbaar, [Share en het detecteren van bronnen in de galerie van Azure AI](gallery-how-to-use-contribute-publish.md).
+* Zie voor een overzicht van de Azure AI Gallery en de vele community is opgesteld beschikbare resources, [Share en het detecteren van bronnen in de Azure AI Gallery](gallery-how-to-use-contribute-publish.md).
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 

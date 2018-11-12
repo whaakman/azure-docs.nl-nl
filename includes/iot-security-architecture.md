@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 7407bed746f863a5daecfc98d2df89175ff35b5f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: a6564877c05dcd5c611c6bbf7a09c65ac2f1f406
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51264438"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51293191"
 ---
-# <a name="internet-of-things-security-architecture"></a>Internet of Things-beveiligingsarchitectuur
+# <a name="internet-of-things-iot-security-architecture"></a>Internet of Things (IoT)-beveiligingsarchitectuur
 
 Bij het ontwerpen van een systeem, is het belangrijk dat u de potentiële bedreigingen voor dat systeem te begrijpen en dienovereenkomstig, juiste beveiliging toevoegen wanneer het systeem worden ontworpen en ontworpen. Het is belangrijk om te ontwerpen van het product vanaf het begin rekening met beveiliging omdat informatie over hoe een aanvaller kan mogelijk een systeem kunt u ervoor dat de juiste oplossingen worden in plaats van het begin.
 
@@ -27,23 +27,23 @@ Het doel van risicomodel is om te begrijpen hoe een aanvaller kan een systeem en
 
 Veel ontwikkelteams werkzaamheden een uitstekende vastleggen van de functionele vereisten voor het systeem waarmee klanten profiteren. Identificeren van niet-duidelijk manieren dat iemand het systeem mogelijk misbruik is echter moeilijker. Risicomodel kunt ontwikkelteams begrijpen wat een aanvaller kan doen en waarom. Risicomodel is een gestructureerde proces waarmee een discussie over de beveiliging ontwerpbeslissingen maakt in het systeem, evenals wijzigingen in het ontwerp dat weg zijn aangebracht die gevolgen-beveiliging. Terwijl een risicomodel gewoon een document is, wordt in deze documentatie ook een ideale manier om ervoor te zorgen voor bedrijfscontinuïteit te waarborgen van de kennis, behoud van de lessen hebt geleerd en help nieuw team snel vrijgeven vertegenwoordigt. Ten slotte is het resultaat van risicomodel waarmee u rekening houden met andere aspecten van beveiliging, zoals welke beveiligingsverplichtingen die u wilt bieden aan uw klanten. Deze verplichtingen in combinatie met risicomodel kennis en station testen van uw Internet of Things (IoT)-oplossing.
 
-### <a name="when-to-threat-model"></a>Wanneer u het model van bedreigingen
+### <a name="when-to-do-threat-modeling"></a>Wanneer u moet modellering van bedreigingen
 
 [Risicomodel](https://www.microsoft.com/en-us/sdl/adopt/threatmodeling.aspx) biedt de grootste waarde wanneer u deze in de ontwerpfase opnemen. Wanneer u ontwerpt, hebt u de grootste flexibiliteit om wijzigingen aanbrengen in de bedreigingen te elimineren. Verwijderen van dreigingen standaard is het gewenste resultaat. Het is veel eenvoudiger dan oplossingen toevoegen, testen en ervoor te zorgen dat ze actueel blijven en bovendien die verwijdering is niet altijd mogelijk. Er wordt het moeilijker om te voorkomen van bedreigingen zoals een product meer volwassen wordt en uiteindelijk op zijn beurt vereist meer werk en vaak veel moeilijker compromissen dan threat modeling vroeg in de ontwikkeling.
 
-### <a name="what-to-threat-model"></a>Wat u moet het model van bedreigingen
+### <a name="what-to-consider-for-threat-modeling"></a>Wat u moet overwegen voor risicomodel
 
-U moet de oplossing als geheel model van bedreigingen en ook richt u zich op de volgende gebieden:
+U ziet op de oplossing als een geheel en ook zijn gericht op de volgende gebieden:
 
 * De beveiliging en privacy-functies
 * De functies waarvoor fouten beveiliging relevante zijn
 * De functies die grens van een vertrouwensrelatie touch
 
-### <a name="who-threat-models"></a>Die modellen van bedreigingen
+### <a name="who-performs-threat-modeling"></a>Wie risicomodel uitvoert
 
 Risicomodel is een proces zoals elk ander. Het is een goed idee om het document threat model, zoals elk ander onderdeel van de oplossing worden behandeld en te valideren. Veel ontwikkelteams werkzaamheden een uitstekende vastleggen van de functionele vereisten voor het systeem waarmee klanten profiteren. Identificeren van niet-duidelijk manieren dat iemand het systeem mogelijk misbruik is echter moeilijker. Risicomodel kunt ontwikkelteams begrijpen wat een aanvaller kan doen en waarom.
 
-### <a name="how-to-threat-model"></a>Het model van bedreigingen
+### <a name="how-to-perform-threat-modeling"></a>Het uitvoeren van risicomodel
 
 De threat modeling proces bestaat uit vier stappen; de stappen zijn:
 
@@ -57,16 +57,21 @@ De threat modeling proces bestaat uit vier stappen; de stappen zijn:
 Drie vuistregels waarmee u rekening moet houden bij het bouwen van een risicomodel:
 
 1. Diagram van een buiten-referentiearchitectuur maken.
-1. Reikwijdte mobiliteit beginnen. Bekijk een overzicht en inzicht in het systeem als geheel, deep wilt voordat. Deze aanpak zorgt ervoor dat u nader bekeken in de juiste plaatsen worden uitgevoerd.
-1. Station van het proces, niet toestaan dat het proces beslissingen. Als u een probleem in de fase modelleren gevonden en wilt verkennen, gaat u voor deze! Hoeft dat u moet deze stappen slavishly.
+
+2. Reikwijdte mobiliteit beginnen. Bekijk een overzicht en inzicht in het systeem als geheel, deep wilt voordat. Deze aanpak zorgt ervoor dat u nader bekeken in de juiste plaatsen worden uitgevoerd.
+
+3. Station van het proces, niet toestaan dat het proces beslissingen. Als u een probleem in de fase modelleren gevonden en wilt verkennen, gaat u voor deze! Hoeft dat u moet deze stappen slavishly.
 
 #### <a name="threats"></a>Bedreigingen
 
 De vier belangrijkste elementen van een risicomodel zijn:
 
 * Processen zoals webservices, Win32-services, en * nix daemons. Sommige complexe entiteiten (bijvoorbeeld veldgateways en sensoren) kunnen worden geabstraheerd als een proces wanneer een technische Inzoomen op deze gebieden niet mogelijk is.
+
 * Gegevensarchieven (overal gegevens worden opgeslagen, zoals een configuratiebestand of database)
+
 * Gegevensoverdracht (waarbij gegevens worden verplaatst tussen de andere elementen in de toepassing)
+
 * Externe entiteiten (Alles die communiceert met het systeem, maar is niet onder het beheer van de toepassing, zijn bijvoorbeeld gebruikers en satelliet feeds)
 
 Alle elementen in het architectuurdiagram zijn afhankelijk van verschillende bedreigingen; in dit artikel de verkorte STRIDE weergave. Lezen [Threat Modeling opnieuw, STRIDE](https://blogs.msdn.microsoft.com/larryosterman/2007/09/04/threat-modeling-again-stride/) voor meer informatie over de STRIDE-elementen.
@@ -101,11 +106,11 @@ De onderdelen binnen elke grens die ook worden onderworpen aan STRIDE, waardoor 
 
 De volgende secties worden besproken standaardonderdelen gewoonlijk in deze zones.
 
-### <a name="the-device-zone"></a>De apparaat-Zone
+### <a name="the-device-zone"></a>De apparaat-zone
 
 De apparaat-omgeving is de onmiddellijke fysieke ruimte rond het apparaat, waar fysieke toegang en/of 'lokale netwerk' digitale peer-to-peer-toegang tot het apparaat haalbaar is. Een 'lokale netwerk' wordt ervan uitgegaan dat een netwerk dat is uniek en geïsoleerd – maar een beperkt bereik draadloze radio-technologie waarmee peer-to-peer-communicatie van apparaten mogelijk naar het openbare Internet overbrugd. Dit gebeurt *niet* bevatten netwerk-virtualisatietechnologie die het maken van de illusie van een lokaal netwerk en het bevat ook geen openbare operator netwerken waarvoor twee apparaten om te communiceren via een openbaar netwerk ruimte als ze zijn om in te voeren van de relatie van een peer-to-peer-communicatie.
 
-### <a name="the-field-gateway-zone"></a>De Zone van de Gateway veld
+### <a name="the-field-gateway-zone"></a>De zone van de gateway veld
 
 Veldgateway is een apparaat/apparaat of bepaalde computersoftware voor algemeen gebruik-server die als factor voor communicatie en mogelijk, als een apparaat besturingssysteem en een apparaat gegevensverwerking hub fungeert. De zone van de gateway veld bevat het veldgateway zelf en alle apparaten die zijn gekoppeld aan deze. Als de naam al aangeeft, veldgateways buiten toegewezen gegevensverwerking faciliteiten fungeren, zijn meestal afhankelijk van locatie, zijn mogelijk onderworpen aan fysieke indringing en beperkte operationele redundantie. Alle als u wilt bijvoorbeeld een veldgateway is meestal een ding kan een touch en sabotage en wat de functie is.
 
@@ -135,7 +140,7 @@ Verbonden apparaten voor speciale doeleinden hebben een groot aantal potentiële
 
 Als u de interactie patronen ontdekken, bekijken "apparaat controle" en "apparaat" met hetzelfde niveau van aandacht tijdens risicomodel. 'Apparaatbeheer ' kan worden geclassificeerd als alle gegevens die met het doel van wijzigen of het gedrag van het naar de status of de status van de omgeving invloed op een apparaat wordt geleverd door een partij. 'Apparaatgegevens' kunnen worden geclassificeerd als alle informatie op die een apparaat naar een andere partij over de status en de waargenomen status van de omgeving verzendt.
 
-## <a name="threat-modeling-the-azure-iot-reference-architecture"></a>Threat modeling van de Azure IoT-referentiearchitectuur
+## <a name="performing-threat-modeling-for-the-azure-iot-reference-architecture"></a>Uitvoeren van threat modeling voor de Azure IoT-referentiearchitectuur
 
 Microsoft maakt gebruik van het framework eerder beschreven hiervoor threat modeling voor Azure IoT. De volgende sectie wordt het concrete voorbeeld van Azure IoT Reference Architecture om te demonstreren hoe om na te denken over threat modeling voor IoT en hoe de bedreigingen die verhelpen. In dit voorbeeld bevat vier hoofdgebieden van focus:
 

@@ -10,12 +10,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: sngun
-ms.openlocfilehash: 48555dc8d1cc027cb771e0ba0678c6cb12d6785f
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 233296a825653938da158fc70952c7fe7931498c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43697972"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261822"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-async-java"></a>Tips voor betere prestaties voor Azure Cosmos DB en Async Java
 
@@ -65,7 +65,7 @@ Dus als u vraagt "hoe kan ik mijn de databaseprestaties verbeteren?" Houd rekeni
 
 5. **Uitstel getRetryAfterInMilliseconds tussenpozen implementeren**
 
-    Tijdens het Prestatietesten van, moet u load vergroten totdat een klein aantal aanvragen te maken met beperkingen. Als beperkt, moet de clienttoepassing uitstel voor de server opgegeven interval. Respecteer de uitstel zorgt ervoor dat u besteden aan de minimale hoeveelheid tijd wachten tussen nieuwe pogingen. Zie voor meer informatie, [meer dan de doorvoerlimieten gereserveerd](request-units.md#RequestRateTooLarge) en DocumentClientException.getRetryAfterInMilliseconds.
+    Tijdens het Prestatietesten van, moet u load vergroten totdat een klein aantal aanvragen te maken met beperkingen. Als beperkt, moet de clienttoepassing uitstel voor de server opgegeven interval. Respecteer de uitstel zorgt ervoor dat u besteden aan de minimale hoeveelheid tijd wachten tussen nieuwe pogingen. 
 6. **Uw client-workload uitschalen**
 
     Als u op het niveau van hoge doorvoer testen wilt (> 50.000 RU/s), de clienttoepassing kan knelpunt vanwege de machine beperking af op CPU- of -gebruik. Als u dit punt bereikt, kunt u blijven om de Azure Cosmos DB-account verder door uw client-toepassingen schalen over meerdere servers.

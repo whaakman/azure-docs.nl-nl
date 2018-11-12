@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/25/2017
 ms.author: cbrooks
 ms.component: common
-ms.openlocfilehash: 7c01940c41067029bc3d47d19c2ded1d710cc2c6
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 51404c35b42d1c98116e74b5b7a47afe05b7d2a9
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49470061"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300554"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Azure Storage-Firewalls en virtuele netwerken configureren
 Azure Storage biedt een gelaagd beveiligingsmodel waarmee u uw storage-accounts naar een specifieke set toegestane netwerken beveiligen.  Als network-regels zijn geconfigureerd, kunnen alleen de toepassingen van toegestane netwerken toegang krijgen tot een storage-account.  Bij het aanroepen van een toegestane netwerk, blijven toepassingen juiste autorisatie (een geldige toegangssleutel of SAS-token) voor toegang tot het opslagaccount nodig.
@@ -201,7 +201,7 @@ Elk opslagaccount kan ondersteunen maximaal 100 IP-netwerkregels die kunnen word
 ### <a name="configuring-access-from-on-premises-networks"></a>Toegang vanaf on-premises netwerken configureren
 Als u wilt toegang verlenen vanuit uw on-premises netwerken aan uw storage-account met een regel voor IP-netwerk, moet u het internetgerichte IP-adressen die worden gebruikt door uw netwerk te identificeren.  Neem contact op met de netwerkbeheerder voor hulp.
 
-Als uw netwerk is verbonden met de Azure-netwerk met behulp van [ExpressRoute](/azure/expressroute/expressroute-introduction), elk circuit is geconfigureerd met twee openbare IP-adressen op de Microsoft Edge die worden gebruikt voor het verbinding maken met Microsoft-Services zoals Azure Storage met behulp van [Openbare azure-Peering](/azure/expressroute/expressroute-circuit-peerings#expressroute-routing-domains).  Als u wilt toestaan dat communicatie tussen uw circuit en Azure Storage, moet u IP-netwerkregels voor openbare IP-adressen van uw circuits maken.  Om te kunnen vinden van openbare IP-adressen van uw ExpressRoute-circuit, [open een ondersteuningsticket met ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) via Azure portal.
+Als uw netwerk is verbonden met de Azure-netwerk met behulp van [ExpressRoute](/azure/expressroute/expressroute-introduction), elk circuit is geconfigureerd met twee openbare IP-adressen op de Microsoft Edge die worden gebruikt voor het verbinding maken met Microsoft-Services zoals Azure Storage met behulp van [Openbare azure-Peering](/azure/expressroute/expressroute-circuit-peerings#expressroute-routing-domains).  Als u wilt toestaan dat communicatie tussen uw circuit en Azure Storage, moet u IP-netwerkregels voor openbare IP-adressen van uw circuits maken.  Om te kunnen vinden van openbare IP-adressen van uw ExpressRoute-circuit, [open een ondersteuningsticket met ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) via Azure portal.
 
 
 ### <a name="managing-ip-network-rules"></a>IP-netwerkregels beheren
@@ -294,7 +294,7 @@ Als de uitzondering 'Vertrouwde Microsoft Services' is ingeschakeld, worden de v
 |Azure Event Grid|Microsoft.EventGrid|Blob-opslag gebeurtenis publiceren inschakelen.  [Meer informatie](https://docs.microsoft.com/azure/event-grid/overview).|
 |Azure Event Hubs|Microsoft.EventHub|Gegevens met Event Hubs Capture archiveren.  [Meer informatie](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview).|
 |Azure-netwerken|Microsoft.Networking|Store en netwerk-verkeerslogboeken te analyseren.  [Meer informatie](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-overview).|
-|Azure Monitor|Microsoft.Insights| Kan het schrijven van gegevens naar een beveiligde storaage-account te controleren [meer](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security#monitoring-and-secured-Azure-storage-and-networks).|
+|Azure Monitor|Microsoft.Insights| Kan het schrijven van gegevens naar een beveiligde storage-account te controleren [meer](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security#monitoring-and-secured-Azure-storage-and-networks).|
 |
 
 

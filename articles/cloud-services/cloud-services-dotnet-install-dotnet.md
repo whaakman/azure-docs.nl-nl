@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/22/2018
 ms.author: jeconnoc
-ms.openlocfilehash: 3821e13fd968e458e463e90ef338da6637d8d8f2
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 698cae13b9e78de6318c28bde998e195540c513c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39622011"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51256796"
 ---
 # <a name="install-net-on-azure-cloud-services-roles"></a>Installeer .NET op Azure Cloud Services-rollen
 Dit artikel wordt beschreven hoe u versies van .NET Framework die niet geleverd met de Azure-Gastbesturingssysteem te installeren. U kunt .NET op het Gastbesturingssysteem gebruiken voor het configureren van uw web- en werkrollen cloudservicerollen.
@@ -34,7 +34,7 @@ Voor het installeren van .NET voor uw web- en werkrollen, omvatten het webinstal
 ## <a name="add-the-net-installer-to-your-project"></a>Het installatieprogramma voor .NET aan uw project toevoegen
 Kies voor het downloaden van het webinstallatieprogramma voor .NET Framework, de versie die u wilt installeren:
 
-* [.NET 4.7.2 web-installatieprogramma](http://go.microsoft.com/fwlink/?LinkId=863262)
+* [.NET 4.7.2 web-installatieprogramma](https://go.microsoft.com/fwlink/?LinkId=863262)
 * [.NET 4.6.2 web-installatieprogramma](https://www.microsoft.com/download/details.aspx?id=53345)
 
 Toevoegen van het installatieprogramma voor een *web* rol:

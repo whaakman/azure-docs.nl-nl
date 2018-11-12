@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/13/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: d7dbb808205c78b53277c6d916f5166a41c7e93d
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 227ef61ee4809d376c6ac5e8e8c1a7f9c364b7fc
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638423"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255759"
 ---
 # <a name="azure-storage-account-overview"></a>Overzicht van Azure storage-account
 
@@ -107,7 +107,7 @@ Azure Storage biedt verschillende opties voor toegang tot blok-blobgegevens op b
 De laag beschikbaar zijn:
 
 > [!NOTE]
-> De [Premium-laag voor access](../blobs/storage-blob-storage-tiers.md#premium-access-tier) beperkte Preview-versie beschikbaar is als een account voor lokaal redundante opslag (LRS) in de regio's Noord-Europa, VS Oost 2, VS-centraal en VS-West. Zie voor meer informatie over het registreren voor de Preview-versie, [Maak kennis met blobopslag van Azure Premium](http://aka.ms/premiumblob).
+> De [Premium-laag voor access](../blobs/storage-blob-storage-tiers.md#premium-access-tier) beperkte Preview-versie beschikbaar is als een account voor lokaal redundante opslag (LRS) in de regio's Noord-Europa, VS Oost 2, VS-centraal en VS-West. Zie voor meer informatie over het registreren voor de Preview-versie, [Maak kennis met blobopslag van Azure Premium](https://aka.ms/premiumblob).
 
 * De **warm** toegangslaag, die is geoptimaliseerd voor frequente toegang krijgen tot objecten in de storage-account. Toegang tot gegevens in de warme laag is meest rendabele, terwijl de kosten voor opslag enigszins hoger zijn. Nieuwe storage-accounts worden gemaakt in de warme laag standaard.
 * De **Cool** toegangslaag, die is geoptimaliseerd voor het opslaan van grote hoeveelheden gegevens die niet vaak worden geraadpleegd en die gedurende ten minste 30 dagen worden opgeslagen. Opslaan van gegevens in de koude laag rendabeler is, maar toegang tot die gegevens mogelijk iets duurder dan de toegang tot gegevens in de warme laag.

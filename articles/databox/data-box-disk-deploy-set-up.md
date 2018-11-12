@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 10/31/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: b3b686815b86e28c0473668825b89736b9af5bf1
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: f2e18db7bd1766901ffb36cc74172f4c8414135c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50740481"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232880"
 ---
 # <a name="tutorial-unpack-connect-and-unlock-azure-data-box-disk"></a>Zelfstudie: de Azure Data Box-schijf uitpakken, aansluiten en ontgrendelen
 
@@ -75,7 +75,7 @@ Voer de volgende stappen uit om uw schijven aan te sluiten en te ontgrendelen.
     In deze procedure gebruikt u alleen het hulpprogramma Data Box Disk Unlock. De andere twee hulpprogramma's worden later gebruikt.
 
     > [!div class="nextstepaction"]
-    > [Data Box Disk-toolset voor Windows downloaden](http://aka.ms/databoxdisktoolswin)         
+    > [Data Box Disk-toolset voor Windows downloaden](https://aka.ms/databoxdisktoolswin)         
 
 3. Pak de toolset uit op de computer die u gaat gebruiken om de gegevens te kopiëren. 
 4. Open op dezelfde computer een opdrachtpromptvenster of voer hierop Windows PowerShell uit als beheerder.
@@ -131,7 +131,7 @@ Voer de volgende stappen uit om uw schijven aan te sluiten en te ontgrendelen.
 2. Download de toolset van Data Box Data Box Disk voor Linux-clients.  
 
     > [!div class="nextstepaction"]
-    > [Data Box Disk-toolset voor Linux downloaden](http://aka.ms/databoxdisktoolslinux) 
+    > [Data Box Disk-toolset voor Linux downloaden](https://aka.ms/databoxdisktoolslinux) 
 
 3. Open een terminal op uw Linux-client. Ga naar de map waar u de software hebt gedownload. Wijzig de bestandsmachtigingen zodat u deze bestanden kunt uitvoeren. Typ de volgende opdracht: 
 

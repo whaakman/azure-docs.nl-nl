@@ -9,12 +9,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: ce1e3818edea6e0fdaedd33b6ec0c3214f475340
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 80208c83c96ba78db052017c2baa3bc0db63953f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43048553"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51258847"
 ---
 # <a name="row-level-security-with-power-bi-workspace-collections"></a>Beveiliging op rijniveau met Power BI-werkruimteverzamelingen
 
@@ -35,7 +35,7 @@ Om te profiteren van RLS, is het belangrijk dat u drie hoofdbegrippen; Gebruiker
 
 ### <a name="example"></a>Voorbeeld
 
-Voor de rest van dit artikel bieden we een voorbeeld van het ontwerpen van beveiliging op Rijniveau en gebruik binnen een ingesloten toepassing. Dit voorbeeld gebruiken de [Retail Analysis Sample](http://go.microsoft.com/fwlink/?LinkID=780547) PBIX-bestand.
+Voor de rest van dit artikel bieden we een voorbeeld van het ontwerpen van beveiliging op Rijniveau en gebruik binnen een ingesloten toepassing. Dit voorbeeld gebruiken de [Retail Analysis Sample](https://go.microsoft.com/fwlink/?LinkID=780547) PBIX-bestand.
 
 ![Voorbeeld-verkooprapport](media/row-level-security/scenario-2.png)
 
@@ -87,7 +87,7 @@ Filters kunnen nu ook stromen in de tabel Sales naar de **Item** tabel:
 1. **Bestand** -> **opties en instellingen** -> **Preview-functies** -> **inschakelen kruislings filteren in beide richtingen voor DirectQuery** .
 2. **Bestand** -> **opties en instellingen** -> **DirectQuery** -> **onbeperkte meting toestaan in de modus DirectQuery**.
 
-Voor meer informatie over het in twee richtingen kruislings filteren, downloaden de [in twee richtingen kruislings filteren in SQL Server Analysis Services 2016 en Power BI Desktop](http://download.microsoft.com/download/2/7/8/2782DF95-3E0D-40CD-BFC8-749A2882E109/Bidirectional%20cross-filtering%20in%20Analysis%20Services%202016%20and%20Power%20BI.docx) technisch document.
+Voor meer informatie over het in twee richtingen kruislings filteren, downloaden de [in twee richtingen kruislings filteren in SQL Server Analysis Services 2016 en Power BI Desktop](https://download.microsoft.com/download/2/7/8/2782DF95-3E0D-40CD-BFC8-749A2882E109/Bidirectional%20cross-filtering%20in%20Analysis%20Services%202016%20and%20Power%20BI.docx) technisch document.
 
 Dit al het werk dat moet worden aangebracht in Power BI Desktop hebt afgerond, maar er is een meer stuk werk dat moet worden gedaan om te maken van de beveiliging op Rijniveau regels dat hebben we gedefinieerd werk in Power BI Embedded. Gebruikers worden geverifieerd en geautoriseerd door de toepassing en App-tokens worden gebruikt voor die gebruikerstoegang verlenen tot een specifiek Power BI Embedded-rapport. Power BI Embedded beschikt niet over een specifieke informatie op die de gebruiker is. Voor een juiste werking van RLS moet u enkele aanvullende context doorgeven als onderdeel van uw app-token:
 

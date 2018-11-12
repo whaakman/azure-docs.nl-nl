@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/09/2017
 ms.author: juliako
-ms.openlocfilehash: e4f786eeb8994e44f827e5158811cae4a60453cc
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 2bb56ff6eaf311bee33b07ecb319127645db9961
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33780633"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51235102"
 ---
 # <a name="how-to-perform-live-streaming-with-on-premises-encoders-using-the-azure-portal"></a>Live streamen met on-premises coderingsprogramma's via Azure Portal
 > [!div class="op_single_selector"]
@@ -50,7 +50,7 @@ In de volgende stappen worden de taken beschreven voor het maken van algemene to
 >[!NOTE]
 >Controleer of het streaming-eindpunt van waar u inhoud wilt streamen, de status **Wordt uitgevoerd** heeft. 
     
-1. Sluit een videocamera aan op een computer. Start en configureer een on-premises live coderingsprogramma waarmee een multi-bitrate RTMP- of Fragmented MP4-stream wordt uitgevoerd. Zie [Azure Media Services RTMP-ondersteuning en live coderingsprogramma's](http://go.microsoft.com/fwlink/?LinkId=532824) voor meer informatie.
+1. Sluit een videocamera aan op een computer. Start en configureer een on-premises live coderingsprogramma waarmee een multi-bitrate RTMP- of Fragmented MP4-stream wordt uitgevoerd. Zie [Azure Media Services RTMP-ondersteuning en live coderingsprogramma's](https://go.microsoft.com/fwlink/?LinkId=532824) voor meer informatie.
    
     Deze stap kan ook worden uitgevoerd nadat u uw kanaal hebt gemaakt.
 2. Maak en start een doorvoerkanaal.

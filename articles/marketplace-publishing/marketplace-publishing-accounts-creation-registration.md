@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/04/2017
 ms.author: hascipio
-ms.openlocfilehash: 24dc50a6c78769877bdc07b9521a9d2e33837937
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 3b1d0a7476cff2be00aa44bb8b859261099298d8
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45579612"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51236684"
 ---
 # <a name="create-a-microsoft-developer-account"></a>Een Microsoft Developer-account maken
 Dit artikel helpt u bij het maken van de benodigde account en het registratieproces om te worden van een goedgekeurde Microsoft Developer voor de Azure Marketplace.
@@ -98,7 +98,7 @@ Het Microsoft Developer Center wordt gebruikt om de bedrijfsgegevens op één ke
     ![tekenen](media/marketplace-publishing-accounts-creation-registration/imgRegisterCo_04.png)
 
    > [!WARNING]
-   > **'Verkopen van'-landen:** om uw services op Azure Marketplace verkopen, uw geregistreerde entiteit moet van een van de goedgekeurde 'verkoop-van' landen bovengenoemde. Deze beperking is omwille van de betalings- en belasting. We zijn actief op zoek naar deze lijst van landen in de nabije toekomst uitvouwen, dus kom. Zie voor meer informatie de [deelnamebeleid voor Marketplace](http://go.microsoft.com/fwlink/?LinkID=526833).
+   > **'Verkopen van'-landen:** om uw services op Azure Marketplace verkopen, uw geregistreerde entiteit moet van een van de goedgekeurde 'verkoop-van' landen bovengenoemde. Deze beperking is omwille van de betalings- en belasting. We zijn actief op zoek naar deze lijst van landen in de nabije toekomst uitvouwen, dus kom. Zie voor meer informatie de [deelnamebeleid voor Marketplace](https://go.microsoft.com/fwlink/?LinkID=526833).
    >
    >
 5. Selecteer het Type' Account' als **bedrijf** en klik vervolgens op de **volgende** knop.
@@ -127,7 +127,7 @@ Het Microsoft Developer Center wordt gebruikt om de bedrijfsgegevens op één ke
 9. Voer uw betalingsgegevens om te betalen voor uw account. Als u een promotiecode die betrekking heeft op de kosten van de registratie hebt, kunt u dat hier invoeren. Anders creditcardgegevens (of of PayPal-nummer in de ondersteunde markten) bieden. Wanneer u klaar bent, klikt u op **volgende** op naar de **"Scherm"**.
 
     ![tekenen](media/marketplace-publishing-accounts-creation-registration/imgRegisterCo_09.png)
-10. Controleer uw accountgegevens en controleer of alles juist is. Klik, lees en accepteer de voorwaarden en bepalingen van de [Microsoft Azure Marketplace-overeenkomst voor uitgevers](http://go.microsoft.com/fwlink/?LinkID=699560). Schakel het selectievakje in om aan te geven u hebt gelezen en akkoord gaat met deze voorwaarden.
+10. Controleer uw accountgegevens en controleer of alles juist is. Klik, lees en accepteer de voorwaarden en bepalingen van de [Microsoft Azure Marketplace-overeenkomst voor uitgevers](https://go.microsoft.com/fwlink/?LinkID=699560). Schakel het selectievakje in om aan te geven u hebt gelezen en akkoord gaat met deze voorwaarden.
 11. Klik op **voltooien** Bevestig uw inschrijving. We sturen een bevestigingsbericht wordt weergegeven op uw e-mailadres.
 12. Als u van plan bent alleen gratis aanbiedingen publiceren, klikt u op **gaat u naar Azure Marketplace Publishing Portal** en kunt u doorgaan naar sectie 3 van dit document, [registreren van uw account in de portal voor publiceren](#3-register-your-account-in-the-publishing-portal).
 

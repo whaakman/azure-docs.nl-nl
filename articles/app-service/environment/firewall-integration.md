@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: ccompy
-ms.openlocfilehash: 5f2dd31488ae61bec061a81986a208bd328bf39b
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: ce0123528b3fb2454d8b83d59b5916363ae0e944
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093615"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51251573"
 ---
 # <a name="locking-down-an-app-service-environment"></a>Vergrendelen van een App Service Environment
 
@@ -28,7 +28,7 @@ Er zijn een aantal binnenkomende afhankelijkheden met een as-omgeving. Het inkom
 
 De uitgaande ASE-afhankelijkheden zijn bijna volledig gedefinieerd met FQDN's, die geen statische adressen achter ze hebben. Het ontbreken van statische adressen betekent dat Netwerkbeveiligingsgroepen (nsg's) kan niet worden gebruikt voor het vergrendelen van het uitgaande verkeer van een as-omgeving. De adressen wijzigen vaak genoeg dat kan niet een regels op basis van de huidige oplossing instellen en maakt u nsg's. 
 
-De oplossing voor beveiliging van de uitgaande adressen ligt in het gebruik van een firewall-apparaat dat uitgaand verkeer op basis van domeinnamen kunt beheren. Het Azure Networking-team heeft een nieuw netwerkapparaat in Preview-versie met de naam Azure Firewall plaatsen. De Firewall van Azure is geschikt beperken uitgaande HTTP en HTTPS-verkeer op basis van de DNS-naam van het doel is.  
+De oplossing voor beveiliging van de uitgaande adressen ligt in het gebruik van een firewall-apparaat dat uitgaand verkeer op basis van domeinnamen kunt beheren. Firewall van Azure kunt beperken uitgaande HTTP en HTTPS-verkeer op basis van de FQDN-naam van de bestemming.  
 
 ## <a name="configuring-azure-firewall-with-your-ase"></a>Firewall voor Azure configureren met de as-omgeving 
 
@@ -36,11 +36,11 @@ De stappen voor het vergrendelen van uitgaand verkeer vanuit uw ASE met Azure-Fi
 
 1. Een Azure-Firewall in het VNet waarin de as-omgeving is, of maken. [Azure Firewall documentatie bij](https://docs.microsoft.com/azure/firewall/)
 2. Selecteer de App-Tag voor Fully Qualified Domain Name Service-omgeving vanuit de gebruikersinterface van de Firewall voor Azure
-3. Een routetabel maken met de beheeradressen van [beheeradressen van App Service-omgeving]( https://docs.microsoft.com/azure/app-service/environment/management-addresses) met de volgende hop van Internet. De vermeldingen in de routetabel zijn vereist om te voorkomen dat problemen met asymmetrische routering. 
-4. Routes voor de IP-adresafhankelijkheden, zoals hieronder wordt vermeld in de afhankelijkheden van de IP-adres met de volgende hop Internet toevoegen. 
-5. Een route toevoegen aan de routetabel voor 0.0.0.0/0 met de volgende hop wordt uw netwerkapparaat met Firewall van Azure
-6. Service-eindpunten maken voor uw ASE-subnet naar Azure SQL en Azure Storage
-7. De routetabel die u hebt gemaakt met uw ASE-subnet toewijzen  
+3. Een routetabel maken met de beheeradressen van [beheeradressen van App Service-omgeving]( https://docs.microsoft.com/azure/app-service/environment/management-addresses) met de volgende hop van Internet. De vermeldingen in de routetabel zijn vereist om te voorkomen dat problemen met asymmetrische routering.
+4. Routes voor de IP-adresafhankelijkheden, zoals hieronder wordt vermeld in de afhankelijkheden van de IP-adres met de volgende hop Internet toevoegen.
+5. Een route toevoegen aan de routetabel voor 0.0.0.0/0 met de volgende hop wordt uw Azure-Firewall.
+6. Service-eindpunten maken voor uw ASE-subnet naar Azure SQL en Azure Storage.
+7. De routetabel die u hebt gemaakt met uw ASE-subnet toewijzen.
 
 ## <a name="application-traffic"></a>Toepassingsverkeer 
 

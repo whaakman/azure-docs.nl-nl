@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: 61776b19ba0ee273b78e3b0a6f610e5701251dd0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: fe56b84b881b2afce9da9a7f7dfe4637c3494aa8
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
-ms.locfileid: "26632717"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261958"
 ---
 # <a name="create-biztalk-services-using-the-azure-portal"></a>BizTalk Services maken met de Azure Portal
 
@@ -28,7 +28,7 @@ ms.locfileid: "26632717"
 > [!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)]
 
 > [!TIP]
-> Als u zich wilt aanmelden bij de Azure Portal, moet u een Azure-account en een Azure-abonnement hebben. Als u geen account hebt, kunt u binnen een paar minuten een account voor de gratis proefversie maken. Zie [Gratis proefversie van Azure](http://go.microsoft.com/fwlink/p/?LinkID=239738).
+> Als u zich wilt aanmelden bij de Azure Portal, moet u een Azure-account en een Azure-abonnement hebben. Als u geen account hebt, kunt u binnen een paar minuten een account voor de gratis proefversie maken. Zie [Gratis proefversie van Azure](https://go.microsoft.com/fwlink/p/?LinkID=239738).
 
 
 ## <a name="CreateService"></a>Een BizTalk Service maken
@@ -84,7 +84,7 @@ Deze vereisten zijn niet van toepassing op de editie Free.
 <br/><br/>
 Het Azure-account kan meerdere abonnementen hebben en worden beheerd door iedereen die is gemachtigd. De houder van uw Azure-account kan bijvoorbeeld een abonnement met de naam <em>BizTalkServiceAbonnement</em> maken en de BizTalk-beheerders binnen uw bedrijf (bijvoorbeeld ContosoBTSAdmins@live.com) toegang geven tot dit abonnement. In dit scenario melden de BizTalk-beheerders zich aan bij Azure en hebben zij volledige beheerdersrechten voor alle gehoste services in het abonnement, waaronder Azure BizTalk Services. De BizTalk-beheerders zijn niet de houders van het Azure-account en hebben daarom geen toegang tot factureringsgegevens.
 <br/><br/>
-<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=267577"> Abonnementen en opslagaccounts beheren in Azure</a> geeft u meer informatie.
+<a HREF="https://go.microsoft.com/fwlink/p/?LinkID=267577"> Abonnementen en opslagaccounts beheren in Azure</a> geeft u meer informatie.
 </td>
 </tr>
 <tr>
@@ -93,7 +93,7 @@ Het Azure-account kan meerdere abonnementen hebben en worden beheerd door iedere
 <br/><br/>
 Wanneer u een BizTalk Service maakt, kunt u een bestaande Azure SQL Server of Azure SQL Database gebruiken. U kunt ook automatisch een nieuwe server of database maken.
 <br/><br/>
-De schaal van de SQL Database wordt automatisch geconfigureerd. Meestal is de standaardschaal voldoende voor een BizTalk Service. Als u de schaal wijzigt, heeft dit invloed op de prijzen. Zie <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=234930"> Accounts en facturering in Azure SQL Database</a>
+De schaal van de SQL Database wordt automatisch geconfigureerd. Meestal is de standaardschaal voldoende voor een BizTalk Service. Als u de schaal wijzigt, heeft dit invloed op de prijzen. Zie <a HREF="https://go.microsoft.com/fwlink/p/?LinkID=234930"> Accounts en facturering in Azure SQL Database</a>
 <br/><br/>
 <strong>Opmerkingen</strong>
 <br/>
@@ -123,7 +123,7 @@ Meestal zijn de standaardinstellingen voor opslag voldoende voor een BizTalk Ser
 <br/><br/>
 Wanneer u een opslagaccount maakt, worden automatisch een primaire en secundaire sleutel gemaakt. Deze sleutels beheren de toegang tot uw opslagaccount. De BizTalk Service gebruikt automatisch de primaire sleutel.
 <br/><br/>
-Zie <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=285671">Opslag</a> voor meer informatie.
+Zie <a HREF="https://go.microsoft.com/fwlink/p/?LinkID=285671">Opslag</a> voor meer informatie.
 </td>
 </tr>
 
@@ -165,7 +165,7 @@ Hybride verbindingen worden gebruikt om verbinding te maken tussen een Azure-web
  Zie [Hybride verbindingen](integration-hybrid-connection-overview.md) voor meer informatie, waaronder het maken en beheren van hybride verbindingen.
 
 ## <a name="next-steps"></a>Volgende stappen
-Nu u een BizTalk Service hebt gemaakt, is het tijd om uzelf bekend te maken met [de tabbladen Dashboard, Bewaken en Schalen van BizTalk Services](biztalk-dashboard-monitor-scale-tabs.md). U kunt nu toepassingen maken met uw BizTalk Service. Ga naar [Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=235197) om te beginnen met het maken van toepassingen.
+Nu u een BizTalk Service hebt gemaakt, is het tijd om uzelf bekend te maken met [de tabbladen Dashboard, Bewaken en Schalen van BizTalk Services](biztalk-dashboard-monitor-scale-tabs.md). U kunt nu toepassingen maken met uw BizTalk Service. Ga naar [Azure BizTalk Services](https://go.microsoft.com/fwlink/p/?LinkID=235197) om te beginnen met het maken van toepassingen.
 
 ## <a name="see-also"></a>Zie ook
 * [BizTalk Services: grafiek van edities](biztalk-editions-feature-chart.md)<br/>
@@ -173,7 +173,7 @@ Nu u een BizTalk Service hebt gemaakt, is het tijd om uzelf bekend te maken met 
 * [BizTalk Services: back-ups maken en herstellen](biztalk-backup-restore.md)<br/>
 * [BizTalk Services: beperking](biztalk-throttling-thresholds.md)<br/>
 * [BizTalk Services: naam en sleutel van verlener](biztalk-issuer-name-issuer-key.md)<br/>
-* [De Azure BizTalk Services SDK gaan gebruiken](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
+* [De Azure BizTalk Services SDK gaan gebruiken](https://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
 * [Hybride verbindingen](integration-hybrid-connection-overview.md)
 
 [NewBizTalkService]: ./media/biztalk-provision-services/WABS_NewBizTalkService.png

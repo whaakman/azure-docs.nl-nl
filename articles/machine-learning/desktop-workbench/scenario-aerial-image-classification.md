@@ -12,12 +12,12 @@ services: machine-learning
 ms.workload: data-services
 ms.date: 12/13/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 5ca47c8234239b56a2d829903828dda8220d53cb
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e71de2d543c8f29b7195e74d574855bcbe739162
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46967605"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51260547"
 ---
 # <a name="aerial-image-classification"></a>Afbeeldingsclassificatie van
 
@@ -154,7 +154,7 @@ Nu maken we het opslagaccount dat hosts projectbestanden die moet worden gebruik
     az storage share create --account-name %STORAGE_ACCOUNT_NAME% --account-key %STORAGE_ACCOUNT_KEY% --name baitshare
     ```
 1. Laad in uw favoriete teksteditor de `settings.cfg` bestand van het Azure Machine Learning Workbench-project "Code" submap, en het storage-accountnaam en de sleutel invoegen, zoals wordt aangegeven. Opslaan en sluiten de `settings.cfg` bestand.
-1. Als u hebt nog niet gedaan, downloadt en installeert de [AzCopy](http://aka.ms/downloadazcopy) hulpprogramma. Zorg ervoor dat het uitvoerbare bestand van AzCopy op het systeempad door te typen van 'AzCopy' en druk op Enter om weer te geven van de bijbehorende documentatie.
+1. Als u hebt nog niet gedaan, downloadt en installeert de [AzCopy](https://aka.ms/downloadazcopy) hulpprogramma. Zorg ervoor dat het uitvoerbare bestand van AzCopy op het systeempad door te typen van 'AzCopy' en druk op Enter om weer te geven van de bijbehorende documentatie.
 1. Geef de volgende opdrachten kunt u alle van de voorbeeldgegevens, dat modellen en model trainingsscripts kopiëren naar de juiste locaties in uw storage-account:
 
     ```

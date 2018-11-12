@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: christoc;xpouyat;juliako
-ms.openlocfilehash: 79b2aa22307e4742d00d9422535d52c80485e2db
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 0a20f7629fbc102ae05c51c7388bbfd6915d6204
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249031"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51257359"
 ---
 # <a name="advanced-media-encoder-premium-workflow-tutorials"></a>Geavanceerde zelfstudies voor Media Encoder Premium Workflow
 ## <a name="overview"></a>Overzicht
@@ -939,9 +939,9 @@ Met de onderstaande eenvoudige guard-component, we kunnen controleren als trimmi
 ```
 
 ## <a name="also-see"></a>Zie ook
-[Introductie van Premium Encoding in Azure Media Services](http://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services)
+[Introductie van Premium Encoding in Azure Media Services](https://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services)
 
-[Het gebruik van Premium Encoding in Azure Media Services](http://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services)
+[Het gebruik van Premium Encoding in Azure Media Services](https://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services)
 
 [De inhoud op aanvraag met Azure mediaservice-codering](media-services-encode-asset.md#media-encoder-premium-workflow)
 
@@ -949,7 +949,7 @@ Met de onderstaande eenvoudige guard-component, we kunnen controleren als trimmi
 
 [Werkstroom voorbeeldbestanden](http://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows)
 
-[Azure Media Services Explorer-hulpmiddel](http://aka.ms/amse)
+[Azure Media Services Explorer-hulpmiddel](https://aka.ms/amse)
 
 ## <a name="media-services-learning-paths"></a>Media Services-leertrajecten
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
