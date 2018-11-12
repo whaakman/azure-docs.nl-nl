@@ -1,6 +1,6 @@
 ---
-title: Architectuur van Hadoop - Azure HDInsight
-description: Hierin worden de Hadoop-opslag en verwerking in HDInsight-clusters.
+title: Architectuur van Apache Hadoop - Azure HDInsight
+description: Hierin worden de Apache Hadoop-opslag en verwerking in HDInsight-clusters.
 services: hdinsight
 author: ashishthaps
 ms.author: ashishth
@@ -8,24 +8,24 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 01/19/2018
-ms.openlocfilehash: f22cb6a56e0ef81e3d7799b38e33113f8b175457
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.date: 11/06/2018
+ms.openlocfilehash: 066734c88890d5f1a6e42c5350db47d1a398b60a
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43699427"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277576"
 ---
-# <a name="hadoop-architecture-in-hdinsight"></a>Hadoop-architectuur in HDInsight
+# <a name="apache-hadoop-architecture-in-hdinsight"></a>Architectuur van Apache Hadoop in HDInsight
 
-Hadoop-bevat twee belangrijkste onderdelen: de Hadoop Distributed File System (HDFS) waarmee u opslag en nog een andere Resource Negotiator (YARN) waarmee de verwerking. Met storage en verwerkingsmogelijkheden voor wordt een cluster kan worden uitgevoerd van MapReduce-programma's, de gewenste verwerking van gegevens uit te voeren.
+Apache Hadoop-bevat twee belangrijkste onderdelen: de Hadoop Distributed File System (HDFS) waarmee u opslag en nog een andere Resource Negotiator (YARN) waarmee de verwerking. Met storage en verwerkingsmogelijkheden voor wordt een cluster kan worden uitgevoerd van MapReduce-programma's, de gewenste verwerking van gegevens uit te voeren.
 
 > [!NOTE]
 > Een HDFS wordt doorgaans niet geïmplementeerd in het HDInsight-cluster om opslag te bieden. In plaats daarvan wordt een HDFS-compatibele interfacelaag gebruikt door Hadoop-onderdelen. De mogelijkheid van de werkelijke opslag wordt verstrekt door Azure Storage of Azure Data Lake Store. Voor Hadoop, MapReduce-taken uitvoeren op het HDInsight-cluster worden uitgevoerd als een HDFS aanwezig zijn en dus geen wijzigingen in de ter ondersteuning van hun behoefte aan opslag vereist. Opslag is uitbestede in Hadoop op HDInsight, maar YARN verwerking blijft een belangrijk onderdeel. Zie voor meer informatie, [Inleiding tot Azure HDInsight](hadoop/apache-hadoop-introduction.md).
 
 Dit artikel bevat YARN en hoe deze coördineert de uitvoering van toepassingen op HDInsight.
 
-## <a name="yarn-basics"></a>YARN-basisbeginselen 
+## <a name="apache-yarn-basics"></a>Apache YARN-basisbeginselen 
 
 YARN regelt en stuurt gegevens worden verwerkt in Hadoop. YARN heeft twee belangrijke services die worden uitgevoerd als de processen op knooppunten in het cluster: 
 

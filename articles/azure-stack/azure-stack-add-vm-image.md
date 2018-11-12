@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: get-started-article
-ms.date: 09/05/2018
+ms.date: 11/05/2018
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.openlocfilehash: 7a5c6875f080655e69f549e45ec474958128754f
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: a0dc3405cc0e1deb25c1f2772a5018dad95b87e9
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45575810"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51036594"
 ---
 # <a name="make-a-virtual-machine-image-available-in-azure-stack"></a>De installatiekopie van een virtuele machine beschikbaar maken in Azure Stack
 
@@ -30,7 +30,7 @@ In Azure Stack, kunt u installatiekopieën van virtuele machines beschikbaar aan
 
 ## <a name="add-a-vm-image-through-the-portal"></a>Toevoegen van een VM-installatiekopie via de portal
 
-> [!NOTE]
+> [!NOTE]  
 > Met deze methode moet u de Marketplace-item afzonderlijk maken.
 
 Afbeeldingen moeten kunnen worden verwezen door een blob storage-URI. De installatiekopie voor een Windows- of Linux-besturingssysteem in VHD-indeling (niet VHDX) voorbereiden en vervolgens de installatiekopie uploaden naar een opslagaccount in Azure of Azure Stack. Als uw installatiekopie is al geüpload naar de blob-opslag in Azure of Azure Stack, kunt u stap 1 overslaan.
@@ -39,7 +39,7 @@ Afbeeldingen moeten kunnen worden verwezen door een blob storage-URI. De install
 
    - Azure Stack alleen ondersteunt generatie virtuele machine één (1) in de vaste schijf VHD-indeling. De vaste indeling structuren de logische schijf lineair binnen het bestand, zodat de schijf-offset X wordt opgeslagen op blob-offset X. Een kleine voettekst aan het einde van de blob beschrijft de eigenschappen van de VHD. Om te bevestigen of de schijf is opgelost, gebruikt u de [Get-VHD](https://docs.microsoft.com/powershell/module/hyper-v/get-vhd?view=win10-ps) PowerShell-opdracht.  
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     >  Azure Stack biedt geen ondersteuning voor dynamische schijf VHD's. Formaat van een dynamische schijf die is gekoppeld aan een virtuele machine laat u de virtuele machine in een foutstatus. Risico's te beperken, door de virtuele machine te verwijderen zonder te verwijderen van de VM schijf, een VHD-blob in een storage-account. Het omzetten van de VHD van een dynamische schijf naar een vaste schijf en de virtuele machine opnieuw te maken.
 
    * Is het efficiënter een afbeelding uploaden naar Azure Stack blob-opslag dan naar Azure blob-opslag omdat kost het minder tijd aan de installatiekopie pushen naar de opslagplaats voor installatiekopieën van Azure Stack.

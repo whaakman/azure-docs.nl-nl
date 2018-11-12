@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 10/18/2018
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: e8ca232f3c5664f69db800648b46abaf0822d6f1
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 092b6f2c3267a2c2cd2cc6304133134825bb7261
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49458136"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50230134"
 ---
 # <a name="quickstart-create-azure-resource-manager-templates-by-using-visual-studio-code"></a>Snelstart: Azure Resource Manager-sjablonen maken met Visual Studio Code
 
@@ -81,15 +81,15 @@ Als u wilt weten hoe u een sjabloon met behulp van Visual Studio Code bewerkt, v
     }
     ```
 
-    Als u de code in Visual Studio Code hebt geplakt, kunt u het element **value** opnieuw typen om een idee te krijgen van de intellisense-mogelijkheden van de extensie voor Resource Manager-hulpprogramma's.
+    Als u de code in Visual Studio Code hebt geplakt, kunt u het element **value** opnieuw typen om een idee te krijgen van de intelliSense-mogelijkheden van de extensie voor Resource Manager-hulpprogramma's.
 
-    ![Visual Studio Code-intellisense van Resource Manager-sjabloon](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/resource-manager-templates-visual-studio-code-intellisense.png)
+    ![Visual Studio Code-intelliSense van Resource Manager-sjabloon](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/resource-manager-templates-visual-studio-code-intellisense.png)
 
 2. Selecteer **Bestand**>**Opslaan** om het bestand op te slaan.
 
 ## <a name="deploy-the-template"></a>De sjabloon implementeren
 
-Er bestaan meerdere methoden voor het implementeren van sjablonen.  In deze snelstart gebruikt u Azure Cloud Shell. Cloud Shell ondersteunt zowel Azure CLI als Azure PowerShell. 
+Er bestaan meerdere methoden voor het implementeren van sjablonen.  In deze snelstart gebruikt u Azure Cloud Shell. Cloud Shell ondersteunt zowel Azure CLI als Azure PowerShell.
 
 1. Meld u aan bij [Azure Cloud Shell](https://shell.azure.com)
 

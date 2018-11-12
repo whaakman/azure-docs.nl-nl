@@ -10,27 +10,28 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 10/18/2018
+ms.date: 10/30/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: a3fc3e0cc30b379c84ac0ba12f733d2db4e41587
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 79572a364c2346ffd567cab7d3633ae398715210
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945787"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50239947"
 ---
-# <a name="tutorial-create-an-azure-resource-manager-template-for-deploying-an-encrypted-storage-account"></a>Zelfstudie: Een Azure Resource Manager-sjabloon maken voor het implementeren van een versleuteld opslagaccount
+# <a name="tutorial-deploy-an-encrypted-azure-storage-account-with-resource-manager-template"></a>Zelfstudie: Een versleuteld Azure Storage-account implementeren met een Resource Manager-sjabloon
 
-Uitleg over hoe u meer informatie kunt vinden om een Azure Resource Manager-sjabloon te voltooien.
+Meer informatie over het zoeken van de sjabloonschema-informatie en het gebruiken van deze informatie om Azure Resource Manager-sjablonen te maken.
 
-In deze zelfstudie gebruikt u een basissjabloon uit Azure-snelstartsjablonen om een Azure Storage-account te maken.  U past de basissjabloon door middel van referentiemateriaal voor sjablonen aan om een versleuteld opslagaccount te maken.
+In deze zelfstudie gebruikt u een basissjabloon uit Azure-snelstartsjablonen. U past de sjabloon aan door middel van referentiemateriaal voor sjablonen om een versleuteld opslagaccount te maken.
 
 Deze zelfstudie bestaat uit de volgende taken:
 
 > [!div class="checklist"]
 > * Een snelstartsjabloon openen
 > * Inzicht in de sjabloon
+> * De sjabloonverwijzing zoeken
 > * De sjabloon bewerken
 > * De sjabloon implementeren
 
@@ -44,7 +45,7 @@ Als u dit artikel wilt voltooien, hebt u het volgende nodig:
 
 ## <a name="open-a-quickstart-template"></a>Een snelstartsjabloon openen
 
-De in deze snelstart gebruikte sjabloon wordt [Create a standard storage account](https://azure.microsoft.com/resources/templates/101-storage-account-create/) (Standaardopslagaccount maken) genoemd. De sjabloon definieert een Azure Storage-accountresource.
+[Azure-snelstartsjablonen](https://azure.microsoft.com/resources/templates/) is een opslagplaats voor Resource Manager-sjablonen. In plaats van een sjabloon helemaal vanaf de basis te maken, kunt u een voorbeeldsjabloon zoeken en aanpassen. De in deze snelstart gebruikte sjabloon wordt [Create a standard storage account](https://azure.microsoft.com/resources/templates/101-storage-account-create/) (Standaardopslagaccount maken) genoemd. De sjabloon definieert een Azure Storage-accountresource.
 
 1. Selecteer in Visual Studio Code **Bestand**>**Bestand openen**.
 2. Plak de volgende URL in **Bestandsnaam**:
@@ -57,58 +58,22 @@ De in deze snelstart gebruikte sjabloon wordt [Create a standard storage account
 
 ## <a name="understand-the-schema"></a>Informatie over het schema
 
-Vouw vanuit VS Code de sjabloon samen naar het hoofdniveau. U hebt de eenvoudigste structuur met de volgende elementen:
+1. Vouw vanuit VS Code de sjabloon samen naar het hoofdniveau. U hebt de eenvoudigste structuur met de volgende elementen:
 
-![Eenvoudigste structuur voor Resource Manager-sjabloon](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-simplest-structure.png)
+    ![Eenvoudigste structuur voor Resource Manager-sjabloon](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-simplest-structure.png)
 
-* **$schema**: geef de locatie van het JSON-schemabestand op dat de versie van de sjabloontaal beschrijft.
-* **contentVersion**: geef een waarde op voor dit element om belangrijke wijzigingen in de sjabloon vast te leggen.
-* **parameters**: geef de waarden op die worden geleverd wanneer de implementatie wordt uitgevoerd om resource-implementatie aan te passen.
-* **variables**: geef de waarden op die worden gebruikt als JSON-fragmenten in de sjabloon voor het vereenvoudigen van sjabloontaalexpressies.
-* **resources**: geef de resourcetypen op die worden geïmplementeerd of bijgewerkt in een resourcegroep.
-* **outputs**: geef de waarden op die worden geretourneerd na de implementatie.
+    * **$schema**: geef de locatie van het JSON-schemabestand op dat de versie van de sjabloontaal beschrijft.
+    * **contentVersion**: geef een waarde op voor dit element om belangrijke wijzigingen in de sjabloon vast te leggen.
+    * **parameters**: geef de waarden op die worden geleverd wanneer de implementatie wordt uitgevoerd om resource-implementatie aan te passen.
+    * **variables**: geef de waarden op die worden gebruikt als JSON-fragmenten in de sjabloon voor het vereenvoudigen van sjabloontaalexpressies.
+    * **resources**: geef de resourcetypen op die worden geïmplementeerd of bijgewerkt in een resourcegroep.
+    * **outputs**: geef de waarden op die worden geretourneerd na de implementatie.
 
-## <a name="use-parameters"></a>Parameters gebruiken
+2. Vouw **Resources** uit. Er is een `Microsoft.Storage/storageAccounts`-resource gedefinieerd. Met de sjabloon maakt u een niet-versleuteld opslagaccount.
 
-Met parameters kunt u de implementatie aanpassen door waarden op te geven die voor een specifieke omgeving zijn aangepast. U gebruikt de parameters die in de sjabloon zijn gedefinieerd bij het instellen van waarden voor het opslagaccount.
+    ![Definitie opslagaccount Resource Manager-sjabloon](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-encrypted-storage-resource.png)
 
-![Parameters voor Resource Manager-sjablonen](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-parameters.png)
-
-In deze sjabloon worden twee parameters gedefinieerd. Er wordt een sjabloonfunctie gebruikt in location.defaultValue:
-
-```json
-"defaultValue": "[resourceGroup().location]",
-```
-
-De functie resourceGroup() retourneert een object dat de huidige resourcegroep vertegenwoordigt. Zie [Azure Resource Manager-sjabloonfuncties](./resource-group-template-functions.md) voor een overzicht van sjabloonfuncties.
-
-De parameters die zijn gedefinieerd in de sjabloon gebruiken:
-
-```json
-"location": "[parameters('location')]",
-"name": "[parameters('storageAccountType')]"
-```
-
-## <a name="use-variables"></a>Variabelen gebruiken
-
-Met variabelen kunt u waarden maken die in uw sjablonen kunnen worden gebruikt. Variabelen helpen sjablonen minder complex te maken.
-
-![Variabelen voor Resource Manager-sjablonen](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-variables.png)
-
-Deze sjabloon definieert één variabele: *storageAccountName*. In de definitie worden twee sjabloonfuncties gebruikt:
-
-- **concat()**: voegt tekenreeksen samen. Zie [concat](./resource-group-template-functions-string.md#concat) voor meer informatie.
-- **uniqueString()**: hiermee maakt u een deterministische hash-tekenreeks gebaseerd op de waarden die zijn geleverd als parameters. Elk Azure-opslagaccount moet een naam hebben die uniek is in heel Azure. Deze functie biedt een unieke tekenreeks. Zie [Tekenreeksfuncties](./resource-group-template-functions-string.md) voor meer tekenreeksfuncties.
-
-De variabele die is gedefinieerd in de sjabloon gebruiken:
-
-```json
-"name": "[variables('storageAccountName')]"
-```
-
-## <a name="edit-the-template"></a>De sjabloon bewerken
-
-Het doel van deze zelfstudie is om een sjabloon te definiëren voor het maken van een versleuteld opslagaccount.  Met de voorbeeldsjabloon wordt alleen een niet-versleuteld basisopslagaccount gemaakt. Als u de aan versleuteling gerelateerde configuratie wilt vinden, kunt u de sjabloonverwijzing van het Azure-opslagaccount gebruiken.
+## <a name="find-the-template-reference"></a>De sjabloonverwijzing zoeken
 
 1. Browse naar [Azure-sjablonen](https://docs.microsoft.com/azure/templates/).
 2. Voer in **Filteren op titel** **opslagaccounts** in.
@@ -120,17 +85,52 @@ Het doel van deze zelfstudie is om een sjabloon te definiëren voor het maken va
 
     ```json
     "encryption": {
-        "keySource": "Microsoft.Storage",
+      "services": {
+        "blob": {
+          "enabled": boolean
+        },
+        "file": {
+          "enabled": boolean
+        }
+      },
+      "keySource": "string",
+      "keyvaultproperties": {
+        "keyname": "string",
+        "keyversion": "string",
+        "keyvaulturi": "string"
+      }
+    },
+    ```
+
+    Op dezelfde pagina bevestigt de volgende beschrijving dat het object `encryption` wordt gebruikt om een versleuteld opslagaccount te maken.
+
+    ![Versleuteling opslagaccount Resource Manager-sjabloonverwijzing](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-resources-reference-storage-accounts-encryption.png)
+
+    En er zijn twee manieren voor het beheren van de versleutelingssleutel. U kunt door Microsoft beheerde sleutels gebruiken met Storage Service Encryption of u kunt uw eigen versleutelingssleutels gebruiken. Om deze zelfstudie eenvoudig te houden, gebruikt u de optie `Microsoft.Storage`. U hoeft dus geen Azure Key Vault te maken.
+
+    ![Versleutelingsobject opslagaccount Resource Manager-sjabloonverwijzing](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-resources-reference-storage-accounts-encryption-object.png)
+
+    Het versleutelingsobject moet er als volgt uitzien:
+
+    ```json
+    "encryption": {
         "services": {
             "blob": {
                 "enabled": true
+            },
+            "file": {
+              "enabled": true
             }
-        }
+        },
+        "keySource": "Microsoft.Storage"
     }
     ```
-5. Wijzig de sjabloon vanuit Visual Studio Code, zodat het uiteindelijke resources-element er als volgt uitziet:
-    
-    ![Versleutelde resources van opslagaccount in Resource Manager-sjabloon](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-encrypted-storage-resources.png)
+
+## <a name="edit-the-template"></a>De sjabloon bewerken
+
+Wijzig de sjabloon vanuit Visual Studio Code, zodat het resources-element er als volgt uitziet:
+
+![Versleutelde resources van opslagaccount in Resource Manager-sjabloon](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-encrypted-storage-resources.png)
 
 ## <a name="deploy-the-template"></a>De sjabloon implementeren
 

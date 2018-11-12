@@ -2,19 +2,19 @@
 title: Azure HDInsight-toepassingen publiceren
 description: Informatie over het maken van een HDInsight-toepassing en publiceert u het in de Azure Marketplace.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.author: jasonh
-ms.openlocfilehash: 1cfefc3463fee6e432170a16034175bb4267fad5
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.author: hrasheed
+ms.openlocfilehash: 4206301296c94bd0d24743854756ac6dd1d712dd
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43103567"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51014325"
 ---
 # <a name="publish-an-hdinsight-application-in-the-azure-marketplace"></a>Een HDInsight-toepassing publiceren in de Azure Marketplace
 U kunt een Azure HDInsight-toepassing installeren op een Linux gebaseerde HDInsight-cluster. In dit artikel leert u hoe u een HDInsight-toepassing publiceren in de Azure Marketplace. Raadpleeg voor algemene informatie over het publiceren op Azure Marketplace [een aanbieding publiceren in de Azure Marketplace](../marketplace/marketplace-publishers-guide.md).

@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: f98d640f032fed5f91df8e9d4fb55d3f20550339
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: c2581abc782558ca114cc3a5d4f6224d132bce5d
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48883921"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50139081"
 ---
 # <a name="integrate-speech-service"></a>Speech-service integreren
 Met de [Speech-service](https://docs.microsoft.com/azure/cognitive-services/Speech-Service/) kunt u één aanvraag gebruiken om audio te ontvangen en JSON-objecten met LUIS-voorspelling te retourneren. In dit artikel downloadt en gebruikt u een C#-project in Visual Studio om een utterance in te spreken in een microfoon en LUIS-voorspellingsinformatie te ontvangen. Het project maakt gebruik van het Speech [NuGet](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/)-pakket, dat al als referentie is opgenomen. 
@@ -39,7 +39,7 @@ Deze app heeft intenties, entiteiten en utterances gerelateerd aan het Human Res
 
 
 ## <a name="add-keyphrase-prebuilt-entity"></a>Vooraf gemaakte KeyPhrase-entiteit toevoegen
-Wanneer u de app hebt geïmporteerd, selecteert u **Entiteiten** en klikt u op **Vooraf gemaakte entiteiten beheren**. Voeg de entiteit **KeyPhrase** toe. De entiteit KeyPhrase extraheert het belangrijkste onderwerp uit de utterance.
+Wanneer u de app hebt geïmporteerd, selecteert u **Entiteiten** en klikt u op **Vooraf gemaakte entiteit toevoegen**. Voeg de entiteit **KeyPhrase** toe. De entiteit KeyPhrase extraheert het belangrijkste onderwerp uit de utterance.
 
 ## <a name="train-and-publish-the-app"></a>De app trainen en publiceren
 1. Selecteer, in de navigatiebalk rechtsboven, de knop **Train** om de LUIS-app te trainen.

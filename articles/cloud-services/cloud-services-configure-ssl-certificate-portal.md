@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/26/2017
 ms.author: jeconnoc
-ms.openlocfilehash: e3e7d271375cd9c3f49d8fedd963b5234dab7902
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: cf2fe10d6a0ab81ff71c948ee2defe6bc7edfd70
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39001521"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300186"
 ---
 # <a name="configuring-ssl-for-an-application-in-azure"></a>SSL configureren voor een toepassing in Azure
 
@@ -80,7 +80,7 @@ Uw toepassing moet worden geconfigureerd voor het gebruik van het certificaat en
 
    De **certificaten** gedeelte definieert de naam van onze certificaat, de locatie en de naam van de winkel waar deze zich bevinden.
 
-   Machtigingen (`permisionLevel` kenmerk) kan worden ingesteld op een van de volgende waarden:
+   Machtigingen (`permissionLevel` kenmerk) kan worden ingesteld op een van de volgende waarden:
 
    | Waarde van machtiging | Beschrijving |
    | --- | --- |

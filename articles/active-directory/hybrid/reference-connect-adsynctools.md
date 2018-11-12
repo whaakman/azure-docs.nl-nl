@@ -8,12 +8,12 @@ ms.workload: identity
 ms.date: 10/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: b1e95ade4793fd7d3acf396b00ee4f7d8b81b2f8
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 734387e7ce5fc27cb88c73601bdfd0f35d04b693
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50634017"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51288676"
 ---
 # <a name="azure-ad-connect--adsynctools-powershell-reference"></a>Azure AD Connect: ADSyncTools PowerShell-referentie
 De volgende documentatie bevat referentie-informatie voor de ADSyncTools.psm1 PowerShell-Module die is opgenomen in Azure AD Connect.
@@ -1102,7 +1102,8 @@ Accept wildcard characters: False
 ```
 
 #### <a name="-adwatermark"></a>-ADwatermark
-Als al wordt uitgevoerd als er domeinbeheerder is het niet nodig voor AD-referenties handmatige invoer van het watermerk, in plaats van XML-bestand bijvoorbeeld $ADwatermark = "TVNEUwMAAAAXyK9ir1zSAQAAAAAAAAAA(...)"
+Als al wordt uitgevoerd als domeinbeheerder is er niet nodig voor AD-referenties.
+Handmatige invoer van het watermerk, in plaats van XML-bestand bijvoorbeeld $ADwatermark = "TVNEUwMAAAAXyK9ir1zSAQAAAAAAAAAA(...)"
 
 ```yaml
 Type: String

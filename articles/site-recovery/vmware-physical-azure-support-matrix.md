@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/29/2018
+ms.date: 11/05/2018
 ms.author: raynew
-ms.openlocfilehash: b472ed1c32e64b8f8ac881c09f22590c49f39c75
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 076cd987cdc74cad07287c15ad52394ef304f251
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50215358"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51015363"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Ondersteuningsmatrix voor herstel na noodgevallen van virtuele VMware-machines en fysieke servers naar Azure
 
@@ -63,16 +63,9 @@ Site Recovery biedt ondersteuning voor replicatie van alle werkbelasting die wor
 --- | ---
 Instellingen van de computer | Machines die worden gerepliceerd naar Azure moeten voldoen aan [Azure-vereisten](#azure-vm-requirements).
 Windows-besturingssysteem | 64-bits Windows Server 2016 (Server Core, Server met Bureaubladervaring), Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 met op minimaal SP1. </br></br>  [Windows Server 2008 met op minste SP2 - 32-bits en 64-bits](migrate-tutorial-windows-server-2008.md) (alleen voor de migratie). </br></br> Windows 2016 Nano Server wordt niet ondersteund.
-Linux-besturingssysteem | Red Hat Enterprise Linux: 5.2 naar 5,11<b>\*\*</b>, 6.1-6.10<b>\*\*</b>, 7.0 naar 7.5 <br/><br/>CentOS: 5.2 naar 5,11<b>\*\*</b>, 6.1-6.10<b>\*\*</b>, 7.0 naar 7.5 <br/><br/>Ubuntu 14.04 LTS server[ (kernel-versies ondersteund)](#ubuntu-kernel-versions)<br/><br/>Ubuntu 16.04 LTS server[ (kernel-versies ondersteund)](#ubuntu-kernel-versions)<br/><br/>Debian 7/Debian 8[ (kernel-versies ondersteund)](#debian-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 12 SP1, SP2, SP3 [ (kernel-versies ondersteund)](#suse-linux-enterprise-server-12-supported-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 11 SP3<b>\*\*</b>, SUSE Linux Enterprise Server 11 SP4 * </br></br>Oracle Linux 6.4, 6.5, 6.6, 6.7 met Red Hat compatibele kernel of Unbreakable Enterprise Kernel versie 3 (UEK3) <br/><br/></br>* *Gerepliceerde machines upgraden van SUSE Linux Enterprise Server 11 SP3 naar SP4 wordt niet ondersteund. Als u wilt bijwerken, replicatie uitschakelen en inschakelen na de upgrade opnieuw.*</br></br><b>\*\*</b> *Raadpleeg [ondersteuning voor virtuele Linux-machines in Azure](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure) om te begrijpen van ondersteuning voor Linux en open source-technologie in Azure. Azure Site Recovery kunt u failover en Linux-servers in Azure uitvoert, maar Linux-leveranciers mogelijk beperken ondersteuning voor alleen deze versies van de verdeling ervan waarvoor geen einde van de levensduur is bereikt.*
+Linux-besturingssysteem | Red Hat Enterprise Linux: 5.2 naar 5,11<b>\*\*</b>, 6.1-6.10<b>\*\*</b>, 7.0 naar 7.5 <br/><br/>CentOS: 5.2 naar 5,11<b>\*\*</b>, 6.1-6.10<b>\*\*</b>, 7.0 naar 7.5 <br/><br/>Ubuntu 14.04 LTS server[ (kernel-versies ondersteund)](#ubuntu-kernel-versions)<br/><br/>Ubuntu 16.04 LTS server[ (kernel-versies ondersteund)](#ubuntu-kernel-versions)<br/><br/>Debian 7/Debian 8[ (kernel-versies ondersteund)](#debian-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 12 SP1, SP2, SP3 [ (kernel-versies ondersteund)](#suse-linux-enterprise-server-12-supported-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 11 SP3<b>\*\*</b>, SUSE Linux Enterprise Server 11 SP4 * </br></br>Oracle Linux 6.4, 6.5, 6.6, 6.7 met Red Hat compatibele kernel of Unbreakable Enterprise Kernel versie 3 (UEK3) <br/><br/></br>-Upgrade uitvoeren voor gerepliceerde machines van SUSE Linux Enterprise Server 11 SP3 naar SP4 wordt niet ondersteund. Als u wilt bijwerken, replicatie uitschakelen en inschakelen na de upgrade opnieuw.</br></br> - [Meer informatie](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure) over ondersteuning voor Linux en open source-technologie in Azure. Site Recovery deelt failover voor Linux-servers uitvoeren in Azure. Linux-leveranciers kunnen echter ondersteuning om alleen distributie-versies die nog niet hebt bereikt einde van de levenscyclus te beperken.<br/><br/> -In Linux-distributies, worden alleen de voorraad kernels die deel van de release-distributiepunt secundaire versie/update uitmaken ondersteund.<br/><br/> -Upgrade uitvoeren voor beveiligde machines over belangrijke Linux distributie versies wordt niet ondersteund. Als u wilt bijwerken, schakelt u replicatie uit, werk het besturingssysteem en schakelt u de replicatie opnieuw.<br/><br/> -Servers met Red Hat Enterprise Linux 5.2-5,11 of CentOS 5.2-5,11 moeten beschikken over de [onderdelen van Linux Integration Services (LIS)](https://www.microsoft.com/download/details.aspx?id=55106) geïnstalleerd voor de machines om op te starten in Azure.
 
 
->[!NOTE]
->
-> - Op Linux-distributies, worden alleen de voorraad kernels die deel van de release-distributiepunt secundaire versie/update uitmaken ondersteund.
->
-> - Beveiligde machines upgraden in belangrijke Linux distributie versies wordt niet ondersteund. Als u wilt bijwerken, schakelt u replicatie uit, werk het besturingssysteem en schakelt u de replicatie opnieuw.
->
-> - Servers met Red Hat Enterprise Linux 5.2 5,11 of CentOS 5.2-5,11 moet de [Services(LIS) van Linux Integration components](https://www.microsoft.com/en-us/download/details.aspx?id=55106) geïnstalleerd zodat de machines om op te starten in Azure.
 
 ### <a name="ubuntu-kernel-versions"></a>Ubuntu-kernel-versies
 
@@ -249,7 +242,7 @@ Verplaatsen van opslag, netwerk, Azure-VM's op resourcegroepen<br/><br/> Binnen 
 --- | --- | --- | --- | ---
 Configuratieserver | Coördineert de communicatie tussen on-premises VMware-servers en Azure <br/><br/> Geïnstalleerd op de on-premises VMware-servers | Nieuwe installatie, klikt u op [hier](vmware-azure-deploy-configuration-server.md). Voor bestaande onderdeel wilt bijwerken naar de nieuwste versie, klikt u op [hier](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server).
 Processerver|standaard geïnstalleerd op de configuratieserver. Deze ontvangt replicatiegegevens; Met caching, compressie en versleuteling, optimaliseert en verzendt dit naar Azure Storage. Naarmate uw implementatie groeit, kunt u extra, afzonderlijk processervers voor het afhandelen van grotere hoeveelheden replicatieverkeer kunt toevoegen.| Nieuwe installatie, klikt u op [hier](vmware-azure-set-up-process-server-scale.md). Voor bestaande onderdeel wilt bijwerken naar de nieuwste versie, klikt u op [hier](vmware-azure-manage-process-server.md#upgrade-a-process-server).
-Mobility-Service | Coördineert de replicatie tussen on-premises VMware-servers/fysieke servers en Azure/secundaire site<br/><br/> Geïnstalleerd op de VM met VMware of fysieke servers die u wilt repliceren | Nieuwe installatie, klikt u op [hier](vmware-azure-install-mobility-service.md). Voor bestaande onderdeel wilt bijwerken naar de nieuwste versie, klikt u op [hier](vmware-azure-install-mobility-service.md#update-mobility-service).
+Mobility-Service | Coördineert de replicatie tussen on-premises VMware-servers/fysieke servers en Azure/secundaire site<br/><br/> Geïnstalleerd op de VM met VMware of fysieke servers die u wilt repliceren | Nieuwe installatie, klikt u op [hier](vmware-azure-install-mobility-service.md). Voor bestaande onderdeel wilt bijwerken naar de nieuwste versie, klikt u op [hier](vmware-physical-mobility-service-overview.md#update-the-mobility-service).
 
 Voor meer informatie over de nieuwste functies en verbeteringen, klikt u op [hier](https://aka.ms/latest_asr_updates).
 

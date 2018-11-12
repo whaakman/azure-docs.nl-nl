@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/01/2018
+ms.date: 11/05/2018
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.openlocfilehash: 08d8822410545fb0ae3a2a99de00b38566c9834c
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: ec17f6923fc1c928f24fcb762daedbaea5b688ac
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42058668"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51035098"
 ---
 # <a name="infrastructure-backup-service-best-practices"></a>Aanbevolen procedures voor infrastructuur voor Backup-Service
 
@@ -52,9 +52,8 @@ De sleutel moet worden opgeslagen op een veilige locatie (bijvoorbeeld: openbare
 
 ### <a name="backups"></a>Back-ups
 
- - Infrastructuur voor moet back-up worden geactiveerd op verzoek. De aanbeveling is het back-up ten minste twee keer per dag.
  - Back-uptaken uitgevoerd terwijl het systeem wordt uitgevoerd, zodat er geen downtime naar de ervaringen voor of toepassingen is. Verwacht dat de back-uptaken 20-40 minuten voor een oplossing die is redelijk belast.
- - Met behulp van OEM geleverd instructiebestand, moeten handmatig back-netwerkswitches en de hardware-lifecycle-host (HLH) worden opgeslagen op de dezelfde back-upshare waar de infrastructuur voor back-Controller winkels besturingselement vlak voor back-upgegevens. Houd rekening met opslaan van de switch en HLH configuraties in de regio-map. Als u meerdere exemplaren van Azure Stack in dezelfde regio hebt, kunt u overwegen een id voor elke configuratie die deel uitmaakt van een schaaleenheid.
+ - Met behulp van OEM-instructies, moeten handmatig back-netwerkswitches en de hardware-lifecycle-host (HLH) worden opgeslagen op de dezelfde back-upshare waar de infrastructuur voor back-Controller winkels besturingselement vlak voor back-upgegevens. Houd rekening met opslaan van de switch en HLH configuraties in de regio-map. Als u meerdere exemplaren van Azure Stack in dezelfde regio hebt, kunt u overwegen een id voor elke configuratie die deel uitmaakt van een schaaleenheid.
 
 ### <a name="folder-names"></a>Namen van mappen
 
@@ -95,5 +94,6 @@ De volgende waarschuwingen worden ondersteund door het systeem:
 
 ## <a name="next-steps"></a>Volgende stappen
 
- - Bekijk het referentiemateriaal voor de [infrastructuur Backup-Service](azure-stack-backup-reference.md).  
- - Schakel de [infrastructuur back-upservice](azure-stack-backup-enable-backup-console.md).
+Bekijk het referentiemateriaal voor de [infrastructuur Backup-Service](azure-stack-backup-reference.md).
+
+Schakel de [infrastructuur back-upservice](azure-stack-backup-enable-backup-console.md).

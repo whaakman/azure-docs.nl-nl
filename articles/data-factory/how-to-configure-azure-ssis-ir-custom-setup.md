@@ -13,12 +13,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 2edaea1cfb02b250b27c47d58b6c1d1ef6501480
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: df020fc3a4e2f57730dea7329b08e1e46660e610
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50420265"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51037036"
 ---
 # <a name="customize-setup-for-the-azure-ssis-integration-runtime"></a>Setup voor de Azure-SSIS integratieruntime aanpassen
 
@@ -141,7 +141,7 @@ Voor het aanpassen van uw Azure-SSIS-IR, moet u de volgende zaken:
 
        1. Een `.NET FRAMEWORK 3.5` map een aangepaste instellingen bevat voor het installeren van een eerdere versie van .NET Framework die mogelijk vereist zijn voor aangepaste onderdelen op elk knooppunt van uw Azure-SSIS-IR.
 
-       1. Een `AAS` map een aangepaste instellingen bevat voor het installeren van clientbibliotheken op elk knooppunt van uw Azure-SSIS-IR waarmee uw Analysis Services-taken verbinding maken met Azure Analysis Services (AAS)-exemplaar met behulp van service-principal verificatie. Download eerst de meest recente **MSOLAP (amd64)** en **AMO** clientbibliotheken/Windows-installatieprogramma's - bijvoorbeeld `x64_15.0.900.108_SQL_AS_OLEDB.msi` en `x64_15.0.900.108_SQL_AS_AMO.msi` - van [hier](https://docs.microsoft.com/en-us/azure/analysis-services/analysis-services-data-providers), klikt u vervolgens upload deze allemaal samen met `main.cmd` in de container.  
+       1. Een `AAS` map een aangepaste instellingen bevat voor het installeren van clientbibliotheken op elk knooppunt van uw Azure-SSIS-IR waarmee uw Analysis Services-taken verbinding maken met Azure Analysis Services (AAS)-exemplaar met behulp van service-principal verificatie. Download eerst de meest recente **MSOLAP (amd64)** en **AMO** clientbibliotheken/Windows-installatieprogramma's - bijvoorbeeld `x64_15.0.900.108_SQL_AS_OLEDB.msi` en `x64_15.0.900.108_SQL_AS_AMO.msi` - van [hier](https://docs.microsoft.com/azure/analysis-services/analysis-services-data-providers), klikt u vervolgens upload deze allemaal samen met `main.cmd` in de container.  
 
        1. Een `BCP` map een aangepaste instellingen bevat voor het installeren van opdrachtregelprogramma's van SQL Server (`MsSqlCmdLnUtils.msi`), met inbegrip van het programma voor bulksgewijs kopiëren (`bcp`), op elk knooppunt van uw Azure-SSIS-IR.
 

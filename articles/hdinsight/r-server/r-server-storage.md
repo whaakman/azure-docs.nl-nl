@@ -3,18 +3,18 @@ title: Azure Storage-oplossingen voor ML-Services op HDInsight - Azure
 description: Meer informatie over de verschillende opslagopties met ML-Services op HDInsight
 services: hdinsight
 ms.service: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 4c3b36891030ae97f382d5e1d0623fa7c698dbf6
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 466cb9ea116030d3f6ee6b41809011dae9acc00b
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49395075"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51011201"
 ---
 # <a name="azure-storage-solutions-for-ml-services-on-azure-hdinsight"></a>Azure Storage-oplossingen voor ML-Services op Azure HDInsight
 

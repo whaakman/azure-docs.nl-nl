@@ -1,6 +1,6 @@
 ---
 title: StreamSets Data Collector - Azure HDInsight voor gepubliceerde toepassing - installeren
-description: Installeren en gebruiken van de toepassing StreamSets Data Collector van derden Hadoop.
+description: Installeren en gebruiken van de toepassing StreamSets Data Collector van derden Apache Hadoop.
 services: hdinsight
 author: ashishthaps
 ms.reviewer: jasonh
@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: ashish
-ms.openlocfilehash: 72ace99a8124b0a288e8facf630e947151169d0b
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: f963ae53e1396b1ef6279f2bd6502e5ab0cd23a1
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43106879"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51034554"
 ---
 # <a name="install-published-application---streamsets-data-collector"></a>StreamSets Data Collector voor gepubliceerde toepassing - installeren
 
-In dit artikel wordt beschreven hoe u wilt installeren en uitvoeren de [StreamSets Data Collector voor HDInsight](https://streamsets.com/) gepubliceerd op Azure HDInsight Hadoop-toepassing. Zie voor een overzicht van het HDInsight-platform voor toepassingen en een lijst van beschikbare Independent Software Vendor (ISV) gepubliceerde toepassingen [Hadoop-toepassingen van derden installeren](hdinsight-apps-install-applications.md). Zie voor instructies voor de installatie van uw eigen toepassing [Aangepaste HDInsight-toepassingen installeren](hdinsight-apps-install-custom-applications.md).
+In dit artikel wordt beschreven hoe u wilt installeren en uitvoeren de [StreamSets Data Collector voor HDInsight](https://streamsets.com/) gepubliceerd Apache Hadoop-toepassing in Azure HDInsight. Zie voor een overzicht van het HDInsight-platform voor toepassingen en een lijst van beschikbare Independent Software Vendor (ISV) gepubliceerde toepassingen [Hadoop-toepassingen van derden installeren](hdinsight-apps-install-applications.md). Zie voor instructies voor de installatie van uw eigen toepassing [Aangepaste HDInsight-toepassingen installeren](hdinsight-apps-install-custom-applications.md).
 
 ## <a name="about-streamsets-data-collector"></a>Over StreamSets Data Collector
 

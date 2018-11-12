@@ -1,6 +1,6 @@
 ---
-title: Informatie over apparaat sjabloon versiebeheer voor uw Azure IoT centrale apps | Microsoft Docs
-description: Uw apparaat sjablonen doorlopen door te maken van nieuwe versies en zonder enige impact op uw live verbonden apparaten
+title: Informatie over apparaat sjabloon versiebeheer voor apps in uw Azure IoT Central | Microsoft Docs
+description: Uw apparaatsjablonen herhalen met het maken van nieuwe versies en zonder enige impact op uw live verbonden apparaten
 author: sandeeppujar
 ms.author: sandeepu
 ms.date: 01/19/2018
@@ -8,25 +8,25 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: b125d822596675b138560c14c76f9a3120ce3424
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 3b9e6a59b44db9295d86e3bc8a8dda9ec9761f38
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34628824"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51009205"
 ---
 # <a name="create-a-new-device-template-version"></a>Maak een nieuwe versie van de apparaat-sjabloon
 
-Microsoft Azure IoT Central kunt snel ontwikkelen van IoT-toepassingen. U kunt snel sequentieel via uw apparaat sjabloonontwerpen toe te voegen, bewerken of verwijderen van metingen, instellingen of eigenschappen. Sommige van deze wijzigingen mogelijk Tussenkomende voor de momenteel verbonden apparaten. Azure IoT centraal identificeert deze grote wijzigingen en biedt een manier voor het implementeren van deze updates veilig naar de apparaten.
+Azure IoT Central kunnen snelle ontwikkeling van IoT-toepassingen. U kunt uw apparaat sjabloonontwerpen snel herhalen door toe te voegen, te bewerken of verwijderen van metingen, instellingen of eigenschappen. Het is mogelijk dat sommige van deze wijzigingen firewallverbinding voor de momenteel verbonden apparaten. Azure IoT Central identificeert deze belangrijke wijzigingen en biedt een manier om het veilig implementeren van deze updates op de apparaten.
 
-Een sjabloon van het apparaat heeft een versienummer als u dit hebt gemaakt. Standaard is het versienummer 1.0.0. Als u een apparaat-sjabloon bewerken, en als deze wijziging kan invloed hebben op actieve verbonden apparaten, Azure IoT centrale vraagt u een nieuwe versie van de apparaat-sjabloon maken.
+Een apparaat-sjabloon is een uniek versienummer op wanneer u deze maakt. Standaard is het versienummer 1.0.0. Als u een apparaat-sjabloon bewerken, en als deze wijziging kan gevolgen hebben voor live verbonden apparaten, Azure IoT Central vraagt u een nieuwe versie van de apparaat-sjabloon wilt maken.
 
 > [!NOTE]
-> Voor meer informatie Zie informatie over het maken van een sjabloon apparaat [een sjabloon van het apparaat instellen](howto-set-up-template.md)
+> Voor meer informatie over het maken van een apparaat-sjabloon raadpleegt [een apparaat-sjabloon instellen](howto-set-up-template.md)
 
 ## <a name="changes-that-prompt-a-version-change"></a>Wijzigingen die een versie vragen wijzigen
 
-Wijzigingen in de eigenschappen van de sjabloon voor het apparaat of instellingen gevraagd in het algemeen een wijziging versie.
+Wijzigingen in eigenschappen van de sjabloon voor het apparaat of instellingen gevraagd in het algemeen een wijziging versie.
 
 > [!NOTE]
 > Wijzigingen in de sjabloon van het apparaat niet vragen voor het maken van een nieuwe versie wanneer er geen apparaat of een apparaat op de meeste is verbonden.
@@ -35,37 +35,37 @@ De volgende lijst beschrijft de acties van de gebruiker waarvoor een nieuwe vers
 
 * Eigenschappen (vereist)
     * Toevoegen of verwijderen van een vereiste eigenschap
-    * Wijzigen van de naam van een eigenschap, veldnaam die door uw apparaten wordt gebruikt om berichten te verzenden.
+    * Wijzigen van de naam van het veld van een eigenschap, de naam van het veld dat wordt gebruikt door uw apparaten om berichten te verzenden.
 *  Eigenschappen (optioneel)
     * Een optionele eigenschap verwijderen
-    * Wijzigen van de naam van een eigenschap, veldnaam die door uw apparaten wordt gebruikt om berichten te verzenden.
+    * Wijzigen van de naam van het veld van een eigenschap, de naam van het veld dat wordt gebruikt door uw apparaten om berichten te verzenden.
     * Een optionele eigenschap wijzigen in een vereiste eigenschap
 *  Instellingen
     * Toevoegen of verwijderen van een instelling
-    * Wijzigen van de naam van een instelling voor de naam van het veld dat wordt gebruikt door uw apparaten verzenden en ontvangen van berichten.
+    * Wijzigen van de naam van het veld van een instelling voor de naam van het veld dat wordt gebruikt door uw apparaten te verzenden en ontvangen van berichten.
 
-## <a name="what-happens-on-version-change"></a>Wat gebeurt er op de versie wijzigen?
+## <a name="what-happens-on-version-change"></a>Wat gebeurt er op versie wijzigen?
 
-Wat gebeurt er met de regels en -dashboards voor apparaat wanneer er een wijziging versie?
+Wat gebeurt er met de regels en dashboards apparaat wanneer er een wijziging versie?
 
-**Regels** voorwaarden die afhankelijk van eigenschappen zijn kan bevatten. Als u een of meer van deze eigenschappen hebt verwijderd, kunnen deze regels worden onderverdeeld in de nieuwe versie van de apparaat-sjabloon. U kunt gaat u naar deze specifieke regels en bijwerken van de voorwaarden om op te lossen de regels. Regels voor de vorige versie moeten werken zonder impact.
+**Regels** voorwaarden die afhankelijk van eigenschappen zijn kan bevatten. Als u een of meer van deze eigenschappen hebt verwijderd, kunnen deze regels worden onderverdeeld in de nieuwe versie van de apparaat-sjabloon. U kunt gaat u naar deze specifieke regels en bijwerken van de voorwaarden om op te lossen van de regels. Regels voor de vorige versie, kunnen met geen invloed.
 
-**Apparaat dashboards** kunnen verschillende typen tegels bevatten. Sommige van de tegels mogelijk instellingen en eigenschappen bevatten. Wanneer een eigenschap of de instelling die wordt gebruikt in een tegel wordt verwijderd, is de tegel volledig of gedeeltelijk verbroken. U kunt gaat u naar de tegel en los het probleem door de tegel verwijderen of bijwerken van de inhoud van de tegel.
+**Apparaat dashboards** kunnen verschillende soorten tegels bevatten. Sommige van de tegels kunnen instellingen en eigenschappen bevatten. Wanneer een eigenschap of de instelling die wordt gebruikt in een tegel wordt verwijderd, wordt de tegel volledig of gedeeltelijk verbroken. U kunt naar de tegel en los het probleem door de tegel verwijderen of bijwerken van de inhoud van de tegel.
 
-## <a name="migrate-a-device-across-device-template-versions"></a>Een apparaat via apparaat sjabloonversies migreren
+## <a name="migrate-a-device-across-device-template-versions"></a>Migreren van een apparaat tussen versies van apparaat
 
-U kunt meerdere versies van de sjabloon van het apparaat kunt maken. Na verloop van tijd hebt u meerdere verbonden apparaten met behulp van deze sjablonen van het apparaat. U kunt apparaten van één versie van de sjabloon voor het apparaat naar de andere migreren. De volgende stappen beschrijven het migreren van een apparaat:
+U kunt meerdere versies van de apparaat-sjabloon maken. Na verloop van tijd hebt u meerdere verbonden apparaten met behulp van deze apparaatsjablonen. U kunt apparaten uit één versie van de sjabloon voor het apparaat naar de andere migreren. De volgende stappen wordt beschreven hoe u migreert van een apparaat:
 
 1. Ga naar de **Explorer** pagina.
 1. Selecteer het apparaat dat u wilt migreren naar een andere versie.
-1. Kies **apparaat migreren**.
+1. Kies **migreren apparaat**.
 1. Selecteer het versienummer dat u wilt migreren van het apparaat en kies **migreren**.
 
 ![Het migreren van een apparaat](media\howto-version-devicetemplate\pick-version.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-U hebt geleerd hoe sjabloonversies apparaat gebruiken in uw Azure IoT centrale toepassing, wordt hier de voorgestelde volgende stap:
+Nu dat u hebt geleerd hoe apparaat sjabloonversies in uw Azure IoT Central-toepassing gebruiken, volgt de voorgestelde volgende stap:
 
 > [!div class="nextstepaction"]
-> [Telemetrie-regels maken](howto-create-telemetry-rules.md)
+> [Over het maken van regels voor telemetrie](howto-create-telemetry-rules.md)

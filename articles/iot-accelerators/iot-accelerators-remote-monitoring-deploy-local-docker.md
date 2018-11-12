@@ -1,6 +1,6 @@
 ---
 title: Implementeren van de oplossing voor externe controle lokaal - Docker - Azure | Microsoft Docs
-description: In deze gebruiksaanwijzing laat zien hoe de oplossingsverbetering voor externe bewaking implementeren naar uw lokale computer voor het testen en ontwikkeling.
+description: In deze gebruiksaanwijzing laat zien hoe de oplossingsverbetering voor externe bewaking implementeren naar uw lokale computer met behulp van Docker voor testen en ontwikkeling.
 author: avneet723
 manager: hegate
 ms.author: avneet723
@@ -8,18 +8,18 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 10/25/2018
 ms.topic: conceptual
-ms.openlocfilehash: 91f43473a5648be5264038993f43b61887e0c363
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
-ms.translationtype: HT
+ms.openlocfilehash: 46cd16c1667d3b33501c1b5680baabf243509f67
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 11/08/2018
-ms.locfileid: "51284926"
+ms.locfileid: "51288541"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---docker"></a>De Remote Monitoring solution accelerator lokaal - Docker implementeren
 
 [!INCLUDE [iot-accelerators-selector-local](../../includes/iot-accelerators-selector-local.md)]
 
-In dit artikel leest u hoe de oplossingsverbetering voor externe bewaking implementeren naar uw lokale computer voor het testen en ontwikkeling. Het artikel wordt beschreven hoe u implementeert de microservices in lokale Docker-containers. Een lokale microservices-implementatie maakt gebruik van de volgende cloudservices: IoT Hub, Cosmos DB, Azure stream Analytics en Azure Time Series Insights-services in de cloud.
+In dit artikel leest u hoe de oplossingsverbetering voor externe bewaking implementeren naar uw lokale computer voor het testen en ontwikkeling. Leert u hoe u implementeert de microservices in lokale Docker-containers. Een lokale microservices-implementatie maakt gebruik van de volgende cloudservices: IoT Hub, Cosmos DB, Azure stream Analytics en Azure Time Series Insights-services in de cloud.
 
 Als u wilt dat de oplossingsverbetering voor externe controle uitvoeren in een IDE op uw lokale computer, raadpleegt u [Remote Monitoring solution accelerator lokaal - Visual Studio implementeren](iot-accelerators-remote-monitoring-deploy-local.md).
 
@@ -70,13 +70,13 @@ docker-compose up
 De eerste keer dat u deze opdracht uitvoert downloadt Docker de microservice-installatiekopieën van Docker hub kunt u de containers lokaal bouwen. Op het volgende wordt uitgevoerd, Docker de containers wordt onmiddellijk uitgevoerd.
 
 > [!TIP]
-> We publiceren vaak nieuwe Docker-installatiekopieën met nieuwe functionaliteit voor. U kunt de volgende reeks opdrachten worden opgeschoond gebruiken uw lokale Docker-containers en de bijbehorende afbeeldingen voordat u de meest recente waarden ophaalt. 
+> Microsoft publiceert regelmatig nieuwe Docker-installatiekopieën met nieuwe functionaliteit. U kunt de volgende reeks opdrachten worden opgeschoond gebruiken uw lokale Docker-containers en de bijbehorende afbeeldingen voordat u de meest recente waarden ophaalt:
 
-```cmd/sh
-docker list
-docker rm <list_of_containers>
-docker rmi <list_of_images>
-```
+    ```cmd/sh
+    docker list
+    docker rm <list_of_containers>
+    docker rmi <list_of_images>
+    ```
 
 U kunt een afzonderlijke shell gebruiken om de logboeken van de container weer te geven. Zoek eerst de container-ID met de `docker ps` opdracht. Gebruik vervolgens `docker logs {container-id} --tail 1000` om de laatste 1000 vermeldingen voor de opgegeven container weer te geven.
 
@@ -101,14 +101,4 @@ Gebruik de `docker-compose down --rmi all` opdracht voor het verwijderen van de 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie heeft u het volgende geleerd:
-
-> [!div class="checklist"]
-> * Een lokale ontwikkelingsomgeving instellen
-> * De oplossingsversneller configureren
-> * De oplossingsversnellers implementeren
-> * Aanmelden bij de oplossingsversnellers
-
 Nu dat u de oplossing voor externe controle hebt geïmplementeerd, wordt de volgende stap is het [verkennen van de mogelijkheden van het oplossingsdashboard](quickstart-remote-monitoring-deploy.md).
-
-<!-- Next tutorials in the sequence -->

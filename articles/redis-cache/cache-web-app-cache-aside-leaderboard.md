@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/30/2018
 ms.author: wesmc
-ms.openlocfilehash: b0f1ba7f0799fb9f8f58370a39758416eab43dc7
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: c2dffc178a017d8b16ea7a36407d8bbf62c6d642
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32195801"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50242140"
 ---
 # <a name="tutorial-create-a-cache-aside-leaderboard-on-aspnet"></a>Zelfstudie: Een cache-aside-leaderboard maken in ASP.NET
 
@@ -674,7 +674,7 @@ In deze sectie richt u een nieuwe SQL Azure-database in voor de app die moet wor
    | **Servernaam** | Een wereldwijd unieke naam | Zie [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Naamgevingsconventies) voor geldige servernamen. |
    | **Aanmeldgegevens van serverbeheerder** | Een geldige naam | Zie [Database-id's](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers) voor geldige aanmeldingsnamen. |
    | **Wachtwoord** | Een geldig wachtwoord | Uw wachtwoord moet uit ten minste 8 tekens bestaan en moet tekens bevatten uit drie van de volgende categorieën: hoofdletters, kleine letters, cijfers en niet-alfanumerieke tekens. |
-   | **Locatie** | *VS - oost* | Selecteer dezelfde regio als waarin u de cache en de App Service hebt gemaakt. |
+   | **Locatie** | *US - oost* | Selecteer dezelfde regio als waarin u de cache en de App Service hebt gemaakt. |
 
 1. Klik op **Vastmaken aan dashboard** en klik op **Maken** om de nieuwe database en server te maken.
 
@@ -731,7 +731,7 @@ Wanneer u klaar bent met de voorbeeldtoepassing uit de zelfstudie, kunt u de Azu
 > Het verwijderen van een resourcegroep kan niet ongedaan worden gemaakt. De resourcegroep en alle bijbehorende resources worden permanent verwijderd. Zorg ervoor dat u niet per ongeluk de verkeerde resourcegroep of resources verwijdert. Als u de resources voor het hosten van dit voorbeeld in een bestaande resourcegroep hebt gemaakt en deze groep ook resources bevat die u wilt behouden, kunt u elke resource afzonderlijk verwijderen via de respectievelijke blades.
 >
 
-1. Meld u aan bij de [Azure-portal](https://portal.azure.com) en klik op **Resourcegroepen**.
+1. Meld u aan bij [Azure Portal](https://portal.azure.com) en klik op **Resourcegroepen**.
 2. Typ de naam van de resourcegroep in het tekstvak **Items filteren...**.
 3. Klik op **...** rechts van de resourcegroep en klik op **Resourcegroep verwijderen**.
 

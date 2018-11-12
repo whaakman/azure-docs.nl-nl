@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/12/2018
 ms.author: dukek
 ms.component: alerts
-ms.openlocfilehash: 6163a099894a823614355f71a3e1af4a6a9026ec
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 3ce7c5111fa176bb7fa734f54084b9e14e7afbef
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44717672"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51016043"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Actiegroepen in Azure portal maken en beheren
 ## <a name="overview"></a>Overzicht ##
@@ -24,8 +24,8 @@ In dit artikel wordt beschreven hoe u maken en beheren van actiegroepen in Azure
 Elke actie bestaat uit de volgende eigenschappen:
 
 * **Naam**: een unieke id binnen de actiegroep.  
-* **Actietype**: verzenden van een telefoongesprek of SMS, een e-mail verzenden, een webhook aanroepen, gegevens verzenden naar een ITSM-hulpprogramma, een logische App aanroepen, een pushmelding verzenden naar de Azure-app of een Automation-runbook uitvoeren.
-* **Details**: de bijbehorende telefoon getal, e-mailadres, webhook URI of de gegevens van de ITSM-verbinding.
+* **Actietype**: de actie om uit te voeren. Voorbeelden zijn onder meer het verzenden van een stem oproep, SMS, e-mail; of verschillende soorten acties die automatisch wordt geactiveerd. Zie typen verderop in dit artikel. 
+* **Details**: de bijbehorende gegevens die per variëren *actietype*. 
 
 Zie voor meer informatie over het gebruik van Azure Resource Manager-sjablonen configureren actiegroepen [actie groep Resource Manager-sjablonen](monitoring-create-action-group-with-resource-manager-template.md).
 
@@ -57,64 +57,45 @@ Zie voor meer informatie over het gebruik van Azure Resource Manager-sjablonen c
 
 1. Selecteer **OK** te maken van de actiegroep.
 
-## <a name="action-specific-information"></a>Actie-specifieke informatie
-<dl>
-<dt>Azure app-Push</dt>
-<dd>Mogelijk hebt u maximaal 10 Apps van Azure-acties in een actiegroep.</dd>
-<dd>De Azure-app-actie ondersteunt op dit moment alleen ServiceHealth waarschuwingen. Andere waarschuwingen tijd worden genegeerd. Zie [waarschuwingen configureren wanneer er een melding van de health service wordt geplaatst](monitoring-activity-log-alerts-on-service-notifications.md).</dd>
-
-<dt>E-mail</dt>
-<dd>E-mailberichten ontvangt van de volgende e-mailadressen. Zorg ervoor dat uw e-mail filteren op de juiste wijze is geconfigureerd
-<ul>
-    <li>azure-noreply@microsoft.com</li>
-    <li>azureemail-noreply@microsoft.com</li>
-    <li>alerts-noreply@mail.windowsazure.com</li>
-</ul>
-</dd>
-<dd>Mogelijk hebt u maximaal 1000 e-mailacties in een actiegroep</dd>
-<dd>Zie de [snelheidsbeperking informatie](./monitoring-alerts-rate-limiting.md) artikel</dd>
-
-<dt>ITSM</dt>
-<dd>Mogelijk hebt u maximaal 10 ITSM-acties in een actiegroep</dd>
-<dd>ITSM-actie vereist een ITSM-verbinding. Meer informatie over het maken van een [ITSM-verbinding](../log-analytics/log-analytics-itsmc-overview.md).</dd>
-
-<dt>Logische App</dt>
-<dd>Mogelijk hebt u maximaal 10 acties van logische App in een actiegroep</dd>
-
-<dt>Runbook</dt>
-<dd>Mogelijk hebt u maximaal 10 Runbook-acties in een actiegroep</dd>
-<dd>Raadpleeg de [Servicelimieten van Azure-abonnement](../azure-subscription-service-limits.md) voor beperkingen met betrekking tot de Runbook-nettoladingen</dd>
-
-<dt>SMS</dt>
-<dd>Mogelijk hebt u maximaal 10 SMS-acties in een actiegroep</dd>
-<dd>Zie de [snelheidsbeperking informatie](./monitoring-alerts-rate-limiting.md) artikel</dd>
-<dd>Zie de [SMS waarschuwen gedrag](monitoring-sms-alert-behavior.md) artikel</dd>
-
-<dt>Stem</dt>
-<dd>Mogelijk hebt u maximaal 10 Voice-acties in een actiegroep</dd>
-<dd>Zie de [snelheidsbeperking informatie](./monitoring-alerts-rate-limiting.md) artikel</dd>
-
-<dt>Webhook</dt>
-<dd>Mogelijk hebt u maximaal 10 Webhook-acties in een actiegroep
-<dd>Logica voor opnieuw proberen - de time-outperiode voor een antwoord 10 seconden is. De webhook-aanroep is geprobeerd een maximum van 2 tijden wanneer de volgende HTTP-statuscodes worden geretourneerd: 408, 429, 503, 504 of het HTTP-eindpunt reageert niet. De eerste poging gebeurt na tien seconden. De tweede en laatste poging gebeurt na 100 seconden.</dd>
-<dd>Bron-IP-adresbereiken
-<ul>
-    <li>13.106.57.181</li>
-    <li>13.106.54.3</li>
-    <li>13.106.54.19</li>
-    <li>13.106.38.142</li>
-    <li>13.106.38.148</li>
-    <li>13.106.57.196</li>
-</ul>
-Voor het ontvangen van updates over wijzigingen in deze IP-adressen aangeraden dat u configureert een [statuswaarschuwing voor de Service](./monitoring-service-notifications.md) die voor informatieve meldingen over de service actiegroepen bewaakt.
-</dd>
-</dl>
-
 ## <a name="manage-your-action-groups"></a>Beheren van uw actiegroepen ##
 Nadat u een actiegroep die u hebt gemaakt, wordt het weergegeven in de **actiegroepen** sectie van de **Monitor** blade. Selecteer de actiegroep die u wilt beheren:
 
 * Toevoegen, bewerken of verwijderen van acties.
 * De actiegroep verwijderen.
+
+## <a name="action-specific-information"></a>Actie-specifieke informatie
+**Azure-app Pushmeldingen** -mogelijk hebt u maximaal 10 Apps van Azure-acties in een actiegroep. De Azure-app-actie ondersteunt op dit moment alleen ServiceHealth waarschuwingen. Andere waarschuwingen tijd worden genegeerd. Zie [waarschuwingen configureren wanneer er een melding van de health service wordt geplaatst](monitoring-activity-log-alerts-on-service-notifications.md).
+
+**E-mailbericht** -e-mailberichten ontvangt van de volgende e-mailadressen. Zorg ervoor dat uw e-mail filteren op de juiste wijze is geconfigureerd
+   - azure-noreply@microsoft.com
+   - azureemail-noreply@microsoft.com
+   - alerts-noreply@mail.windowsazure.com
+
+Mogelijk hebt u maximaal 1000 e-mailacties in een actiegroep. Zie de [snelheidsbeperking informatie](./monitoring-alerts-rate-limiting.md) artikel
+
+**ITSM** -mogelijk hebt u maximaal 10 ITSM-acties in een actie groep ITSM-actie vereist een ITSM-verbinding. Meer informatie over het maken van een [ITSM-verbinding](../log-analytics/log-analytics-itsmc-overview.md).
+
+**Logische App** -mogelijk hebt u maximaal 10 acties van logische App in een actiegroep
+
+**Runbook** -mogelijk hebt u maximaal 10 Runbook-acties in een actie groep verwijst naar de [Servicelimieten van Azure-abonnement](../azure-subscription-service-limits.md) voor beperkingen met betrekking tot de Runbook-nettoladingen
+
+**SMS** -mogelijk hebt u maximaal 10 SMS-acties in een actie groep zien de [snelheidsbeperking informatie](./monitoring-alerts-rate-limiting.md) Zie artikel de [SMS waarschuwen gedrag](monitoring-sms-alert-behavior.md) artikel
+
+**Stem** -mogelijk hebt u maximaal 10 Voice-acties in een actiegroep</dd>
+Zie de [snelheidsbeperking informatie](./monitoring-alerts-rate-limiting.md) artikel</dd>
+
+**Webhook** -mogelijk hebt u maximaal 10 Webhook-acties in een actiegroep. Logica voor opnieuw proberen - de time-outperiode voor een antwoord 10 seconden is. De webhook-aanroep is geprobeerd een maximum van 2 tijden wanneer de volgende HTTP-statuscodes worden geretourneerd: 408, 429, 503, 504 of het HTTP-eindpunt reageert niet. De eerste poging gebeurt na tien seconden. De tweede en laatste poging gebeurt na 100 seconden.
+
+Bron-IP-adresbereiken
+    - 13.106.57.181
+    - 13.106.54.3
+    - 13.106.54.19
+    - 13.106.38.142
+    - 13.106.38.148
+    - 13.106.57.196
+
+Voor het ontvangen van updates over wijzigingen in deze IP-adressen aangeraden dat u configureert een [statuswaarschuwing voor de Service](./monitoring-service-notifications.md) die voor informatieve meldingen over de service actiegroepen bewaakt.
+
 
 ## <a name="next-steps"></a>Volgende stappen ##
 * Meer informatie over [SMS waarschuwen gedrag](monitoring-sms-alert-behavior.md).  

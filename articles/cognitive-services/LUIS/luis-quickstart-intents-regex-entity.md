@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 06e212ef756fda9224b38b41c69c7c4eccfb9796
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 82d7e5ab57d9cf12c6917386282182faacb07725
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47159853"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282383"
 ---
 # <a name="tutorial-3-extract-well-formatted-data"></a>Zelfstudie 3: goed opgemaakte gegevens herkennen
 In deze zelfstudie bewerkt u de Human Resources-app om consistent opgemaakte gegevens te extraheren uit een uiting met behulp van de entiteit **Regular Expression (regex)**.
@@ -48,12 +48,12 @@ Een reguliere expressie is een goede keuze voor dit type gegevens wanneer:
 > * Publiceren
 > * Intenties en entiteiten ophalen van eindpunt
 
-[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+[!INCLUDE[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="use-existing-app"></a>Bestaande app gebruiken
-Ga door met de in de laatste zelfstudie gemaakt app, **HumanResources**. 
+Ga door met de in de laatste zelfstudie gemaakt app, **Human Resources**. 
 
-Als u niet over de app HumanResources uit de vorige zelfstudie beschikt, voert u de volgende stappen uit:
+Als u niet over de app Human Resources uit de vorige zelfstudie beschikt, voert u de volgende stappen uit:
 
 1. Download het [JSON-bestand van de app](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-prebuilts-HumanResources.json) en sla het op.
 
@@ -63,7 +63,7 @@ Als u niet over de app HumanResources uit de vorige zelfstudie beschikt, voert u
 
 ## <a name="findform-intent"></a>Intentie FindForm
 
-1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Selecteer **Create new intent**. 
 
@@ -90,7 +90,7 @@ Als u niet over de app HumanResources uit de vorige zelfstudie beschikt, voert u
 
     De toepassing is uitgebreid met de vooraf gedefinieerde entiteit Number (uit de vorige zelfstudie), waardoor elk formuliernummer een tag heeft. Dit is mogelijk niet voldoende voor uw clienttoepassing, maar het nummer wordt niet gelabeld met het type nummer. Door een nieuwe entiteit met een geschikte naam te maken, kan de clienttoepassing de entiteit op de juiste manier verwerken wanneer deze wordt geretourneerd door LUIS.
 
-    [!include[Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]  
+    [!INCLUDE[Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]  
 
 ## <a name="regular-expression-entity"></a>Een entiteit in de vorm van een reguliere expressie 
 De entiteit in de vorm van een gewone expressie die moet overeenkomen met het formuliernummer is `hrf-[0-9]{6}`. Deze gewone expressie zoekt overeenkomsten voor de letterlijke tekens `hrf-`, maar negeert varianten in hoofdlettergebruik en cultuur. De cijfers 0-9 moeten tot 6 cijfers exact overeenkomen.

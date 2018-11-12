@@ -1,5 +1,5 @@
 ---
-title: Understanding Azure digitale dubbels op rollen gebaseerd toegangsbeheer | Microsoft Docs
+title: Informatie over Azure digitale dubbels op rollen gebaseerd toegangsbeheer | Microsoft Docs
 description: Meer informatie over verificatie in digitale dubbels met op rollen gebaseerd toegangsbeheer.
 author: lyrana
 manager: alinast
@@ -8,31 +8,40 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: lyrana
-ms.openlocfilehash: 7a6d8565a0f85b4cb81d9f5f23b04fe6b2edc53e
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: b9ccdb9030a24520be8f24f757c279241f3a07e1
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49324132"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51014785"
 ---
 # <a name="role-based-access-control"></a>Op rollen gebaseerd toegangsbeheer
 
-Azure van digitale dubbels kunnen nauwkeurig toegangsbeheer voor specifieke gegevens, resources en acties in uw ruimtelijke grafiek. Dit gebeurt door middel van gedetailleerde rol en beheer van machtigingen met de naam _Role-Based Access Control_. Toegangsbeheer op basis van rollen bestaat uit _rollen_, of het niveau van machtigingen, en _roltoewijzingen_, of de koppeling van een rol voor een gebruiker of apparaat.
+Azure van digitale dubbels kunnen nauwkeurig toegangsbeheer voor specifieke gegevens, resources en acties in uw ruimtelijke grafiek. Dit gebeurt door middel van gedetailleerde rol en beheer van machtigingen op rollen gebaseerd toegangsbeheer (RBAC) genoemd. RBAC bestaat uit _rollen_ en _roltoewijzingen_. Rollen bepalen het niveau van machtigingen. Een rol koppelen roltoewijzingen aan een gebruiker of apparaat.
 
-Met behulp van Role-Based Access Control, kan machtiging worden verleend aan een gebruiker, een apparaat, een service-principal, een door de gebruiker gedefinieerde functie, alle gebruikers die behoren tot een domein of een tenant. De mate van toegang kan bovendien ook worden afgestemd.
+Met RBAC kunt kan machtigingen worden verleend aan:
 
-Toegangsbeheer op basis van rollen is uniek omdat dat machtigingen worden overgenomen in de ruimtelijke grafiek.
+- Een gebruiker.
+- Een apparaat.
+- Een service-principal.
+- Een door de gebruiker gedefinieerde functie. 
+- Alle gebruikers die deel uitmaken van een domein. 
+- Een tenant.
+ 
+De mate van toegang kan ook worden afgestemd.
 
-## <a name="what-can-i-do-with-role-based-access-control"></a>Wat kan ik doen met op rollen gebaseerd toegangsbeheer?
+RBAC is uniek in de betreffende machtigingen worden overgenomen in de ruimtelijke grafiek.
 
-Een ontwikkelaar kan Role-Based Access Control te gebruiken:
+## <a name="what-can-i-do-with-rbac"></a>Wat kan ik doen met op rollen gebaseerd toegangsbeheer?
 
-* Een gebruiker de mogelijkheid voor het beheren van apparaten voor een heel gebouw, of alleen voor een specifieke ruimte of floor verlenen.
+Een ontwikkelaar kan RBAC om te gebruiken:
+
+* Een gebruiker de mogelijkheid voor het beheren van apparaten voor een heel gebouw, of alleen voor een specifieke ruimte of een verdieping verlenen.
 * Verleen een beheerder wereldwijde toegang tot alle knooppunten van het ruimtelijke graph voor een hele grafiek of alleen voor een gedeelte van de grafiek.
 * Een ondersteuning voor gespecialiseerde lezen toegang verlenen tot de grafiek, met uitzondering van toegangssleutels.
 * Elk lid van een domein-leestoegang tot alle objecten voor graph verlenen.
 
-## <a name="role-based-access-control-best-practices"></a>Aanbevolen procedures voor toegang op basis van rollen beheren
+## <a name="rbac-best-practices"></a>Aanbevolen procedures voor RBAC
 
 [!INCLUDE [digital-twins-permissions](../../includes/digital-twins-rbac-best-practices.md)]
 
@@ -40,7 +49,7 @@ Een ontwikkelaar kan Role-Based Access Control te gebruiken:
 
 ### <a name="role-definitions"></a>Roldefinities
 
-Een **roldefinitie** is een verzameling van machtigingen en wordt ook wel genoemd een **rol**. De roldefinitie geeft een lijst van de toegestane bewerkingen, met inbegrip van *maken*, *lezen*, *bijwerken*, en *verwijderen*. Het geeft ook aan welke objecttypen deze machtigingen toepassen.
+De roldefinitie van een is een verzameling van machtigingen en die een rol wordt ook wel genoemd. De rol de definitie van een lijst met de toegestane bewerkingen, waaronder maken, lezen, bijwerken en verwijderen. Het geeft ook aan welke objecttypen deze machtigingen toepassen.
 
 De volgende rollen zijn beschikbaar in Azure, digitale dubbels:
 
@@ -49,24 +58,24 @@ De volgende rollen zijn beschikbaar in Azure, digitale dubbels:
 * **Apparaatbeheerder**: maken, lezen, bijwerken en verwijderen van machtigingen voor apparaten en apparaat-gerelateerde objecten. Leesmachtigingen voor opslagruimten.
 * **Sleutel beheerder**: maken, lezen, bijwerken en verwijderen van de machtiging voor toegang tot sleutels. Leesmachtigingen voor opslagruimten.
 * **Token van beheerder**: machtiging voor lezen en bijwerken voor toegang tot sleutels. Leesmachtigingen voor opslagruimten.
-* **Gebruiker**: leesmachtigingen voor opslagruimten, sensoren en gebruikers, met inbegrip van de bijbehorende verwante objecten.
+* **Gebruiker**: leesmachtigingen voor opslagruimten, sensoren en gebruikers, inclusief de bijbehorende verwante objecten.
 * **Ondersteuning voor gespecialiseerde**: leesmachtigingen voor alles, behalve de toegang tot sleutels.
-* **Apparaat-installatieprogramma**: machtiging voor lezen en bijwerken van apparaten en sensoren, met inbegrip van de bijbehorende verwante objecten. Leesmachtigingen voor opslagruimten.
-* **Gateway-apparaat**: machtiging voor sensoren maken. Leesmachtigingen voor apparaten en sensoren, verwante met inbegrip van de bijbehorende objecten.
+* **Apparaat-installatieprogramma**: update de machtigingen lezen en voor apparaten en sensoren, waaronder de bijbehorende verwante objecten. Leesmachtigingen voor opslagruimten.
+* **Gateway-apparaat**: machtiging voor sensoren maken. Leesmachtigingen voor apparaten en sensoren, verwante inclusief de bijbehorende objecten.
 
 >[!NOTE]
-> *De volledige definities voor de bovenstaande kunnen worden opgehaald door het opvragen van de system/rollen API.*
+> Query uitvoeren op het systeem/rollen API om op te halen van de volledige definities voor de vorige rollen.
 
 ### <a name="object-types"></a>Objecttypen
 
-De `ObjectIdType` verwijst naar het type van de identiteit die is een functie die wordt gegeven. Naast de `DeviceId` en `UserDefinedFunctionId` typen, de typen komen overeen met een eigenschap van een Azure Active Directory (Azure AD)-object:
+De `ObjectIdType` verwijst naar het type van de identiteit die is toegewezen aan een rol. Naast de `DeviceId` en `UserDefinedFunctionId` typen, de typen komen overeen met een eigenschap van een Azure Active Directory (Azure AD)-object:
   
 * De `UserId` type wijst een rol toe aan een gebruiker.
 * De `DeviceId` type een rol toewijst aan een apparaat.
-* De `DomainName` type wijst een rol toe aan een domein. Elke gebruiker met de opgegeven domeinnaam beschikt over de toegangsrechten van de bijbehorende rol.
-* De `TenantId` type wijst een rol toe aan een tenant. Elke gebruiker die behoort tot de opgegeven Azure AD-tenant-ID beschikt over de toegangsrechten van de bijbehorende rol.
+* De `DomainName` type wijst een rol toe aan een domein. Elke gebruiker met de opgegeven domeinnaam is de toegangsrechten van de bijbehorende rol.
+* De `TenantId` type wijst een rol toe aan een tenant. Elke gebruiker die tot de opgegeven behoort Azure AD-tenant-ID heeft de toegangsrechten van de bijbehorende rol.
 * De `ServicePrincipalId` type een rol toegewezen aan een service-principal-object-ID.
-* De `UserDefinedFunctionId` type een rol wordt toegewezen aan een door de gebruiker gedefinieerde functie (UDF's).
+* De `UserDefinedFunctionId` type wijst een rol toe aan een gebruiker gedefinieerde functie (UDF's).
 
 > [!div class="nextstepaction"]
 > [Query of de object-ID voor een gebruiker](https://docs.microsoft.com/powershell/module/azuread/get-azureaduser?view=azureadps-2.0)
@@ -79,9 +88,9 @@ De `ObjectIdType` verwijst naar het type van de identiteit die is een functie di
 
 ## <a name="role-assignments"></a>Roltoewijzingen
 
-Machtigingen zijn verleend aan een ontvanger door het maken van een roltoewijzing en ingetrokken door het verwijderen van een roltoewijzing. Een roltoewijzing Azure digitale dubbels wordt gekoppeld aan een object (gebruiker, Azure AD-tenant, enzovoort), deze rol, en een spatie. Vervolgens machtigingen op alle objecten die deel uitmaken van deze ruimte, met inbegrip van de gehele ruimtelijke grafiek eronder.
+Om machtigingen te verlenen aan een ontvanger, een roltoewijzing te maken. Om in te trekken machtigingen, de roltoewijzing te verwijderen. Een roltoewijzing Azure digitale dubbels wordt gekoppeld aan een object, zoals een gebruiker of een Azure AD-tenant met een rol en een spatie. Machtigingen worden verleend tot alle objecten die deel uitmaken van deze ruimte. De ruimte omvat de volledige ruimtelijke grafiek eronder.
 
-Bijvoorbeeld, een gebruiker krijgt een roltoewijzing met rol `DeviceInstaller` voor het hoofdknooppunt van een ruimtelijke grafiek, die een gebouw vertegenwoordigt. De gebruiker kan vervolgens lezen en bijwerken van apparaten die niet alleen voor dat knooppunt, maar alle andere onderliggende spaties in het gebouw.
+Bijvoorbeeld, een gebruiker een roltoewijzing met de rol wordt gegeven `DeviceInstaller` voor het hoofdknooppunt van een ruimtelijke grafiek, die een gebouw vertegenwoordigt. De gebruiker kan vervolgens lezen en bijwerken van apparaten voor dat knooppunt en alle andere onderliggende spaties in het gebouw.
 
 ## <a name="next-steps"></a>Volgende stappen
 

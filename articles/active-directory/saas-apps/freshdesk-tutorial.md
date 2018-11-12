@@ -4,7 +4,8 @@ description: Informatie over het configureren van eenmalige aanmelding tussen Az
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
+ms.reviewer: joflore
 ms.assetid: c2a3e5aa-7b5a-4fe4-9285-45dbe6e8efcc
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -12,15 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/17/2018
+ms.date: 11/02/2018
 ms.author: jeedes
-ms.reviewer: jeedes
-ms.openlocfilehash: 3f640d729d002e89c4968442e8d8ab761f78d090
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: b5968b83fc9beb481e2ad2c0cd44d2c284747fa1
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49115161"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51010810"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-freshdesk"></a>Zelfstudie: Azure Active Directory-integratie met FreshDesk
 
@@ -28,11 +28,11 @@ In deze zelfstudie leert u hoe u FreshDesk integreren met Azure Active Directory
 
 FreshDesk integreren met Azure AD biedt u de volgende voordelen:
 
-- U kunt beheren in Azure AD die toegang tot FreshDesk heeft
-- U kunt uw gebruikers automatisch ophalen aangemeld bij FreshDesk (Single Sign-On) met hun Azure AD-accounts inschakelen
-- U kunt uw accounts in één centrale locatie - Azure portal beheren
+- U kunt beheren in Azure AD die toegang tot FreshDesk heeft.
+- U kunt uw gebruikers automatisch ophalen aangemeld bij FreshDesk (Single Sign-On) met hun Azure AD-accounts inschakelen.
+- U kunt uw accounts in één centrale locatie - Azure portal beheren.
 
-Als u wilt graag meer informatie over de integratie van de SaaS-app met Azure AD, Zie [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Als u wilt graag meer informatie over de integratie van de SaaS-app met Azure AD, Zie [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -46,13 +46,12 @@ Voor het configureren van Azure AD-integratie met FreshDesk, moet u de volgende 
 
 Als u wilt testen van de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
 
-- U moet uw productie-omgeving, niet gebruiken als dit nodig is.
-- Als u geen een proefversie Azure AD-omgeving hebt, krijgt u een proefversie van één maand [hier](https://azure.microsoft.com/pricing/free-trial/).
+- Gebruik uw productie-omgeving, niet als dat nodig is.
+- Als u geen een proefversie Azure AD-omgeving hebt, kunt u [een proefversie van één maand krijgen](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
 
-In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving.
-Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
+In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
 1. FreshDesk uit de galerie toe te voegen
 2. Configureren en testen van Azure AD eenmalige aanmelding
@@ -65,33 +64,31 @@ Voor het configureren van de integratie van FreshDesk in Azure AD, moet u FreshD
 
 1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
 
-    ![Active Directory][1]
+    ![De Azure Active Directory-knop][1]
 
 2. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
 
-    ![Toepassingen][2]
+    ![De blade Enterprise-toepassingen][2]
 
-3. Klik op **toevoegen** knop boven aan het dialoogvenster.
+3. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
 
-    ![Toepassingen][3]
+    ![De knop nieuwe toepassing][3]
 
-4. Typ in het zoekvak **FreshDesk**. Selecteer **FreshDesk** vanuit het deelvenster met resultaten en selecteer vervolgens de **toevoegen** om toe te voegen van de toepassing.
+4. Typ in het zoekvak **FreshDesk**, selecteer **FreshDesk** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
 
-    ![Het maken van een Azure AD-testgebruiker](./media/freshdesk-tutorial/tutorial_freshdesk_addfromgallery.png)
+    ![FreshDesk in de lijst met resultaten](./media/freshdesk-tutorial/tutorial_freshdesk_addfromgallery.png)
 
-## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configureren en testen van Azure AD eenmalige aanmelding
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en Azure AD eenmalige aanmelding testen
 
 In deze sectie maakt u configureert en test Azure AD eenmalige aanmelding met FreshDesk op basis van een testgebruiker 'Julia steen' genoemd.
 
 Voor eenmalige aanmelding om te werken, moet Azure AD om te weten wat de gebruiker equivalent in FreshDesk is aan een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker in FreshDesk tot stand worden gebracht.
 
-Deze relatie koppeling tot stand is gebracht door toe te wijzen de waarde van de **gebruikersnaam** in Azure AD als de waarde van de **e-mailadres** in FreshDesk.
-
 Om te configureren en testen van Azure AD eenmalige aanmelding met FreshDesk, moet u de volgende bouwstenen voltooien:
 
 1. **[Configureren van Azure AD eenmalige aanmelding](#configuring-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
 2. **[Het maken van een Azure AD-testgebruiker](#creating-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-3. **[Het maken van een testgebruiker FreshDesk](#creating-a-freshdesk-test-user)**  : als u wilt een equivalent van Britta Simon in FreshDesk die is gekoppeld aan de Azure AD-weergave van haar hebben.
+3. **[Het maken van een testgebruiker FreshDesk](#creating-a-freshdesk-test-user)**  : als u wilt een equivalent van Britta Simon in FreshDesk die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
 4. **[Toewijzen van de Azure AD-testgebruiker](#assigning-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
 5. **[Eenmalige aanmelding testen](#testing-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
 
@@ -103,55 +100,65 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
 1. In de Azure-portal op de **FreshDesk** toepassingspagina integratie, klikt u op **eenmalige aanmelding**.
 
-    ![Eenmalige aanmelding configureren][4]
+    ![Koppeling voor eenmalige aanmelding configureren][4]
 
-2. Op de **eenmalige aanmelding** dialoogvenster als **modus** Selecteer **SAML gebaseerde aanmelding** voor eenmalige aanmelding inschakelen.
+2. Op de **selecteert u een methode voor eenmalige aanmelding** dialoogvenster, klikt u op **Selecteer** voor **SAML** modus voor eenmalige aanmelding inschakelen.
 
-    ![Eenmalige aanmelding configureren](./media/freshdesk-tutorial/tutorial_freshdesk_samlbase.png)
+    ![Eenmalige aanmelding configureren](common/tutorial_general_301.png)
 
-3. Op de **FreshDesk-domein en URL's** sectie, voert u de volgende stappen uit:
+3. Op de **instellen van eenmalige aanmelding met SAML** pagina, klikt u op **bewerken** pictogram openen **SAML-basisconfiguratie** dialoogvenster.
 
-    ![Eenmalige aanmelding configureren](./media/freshdesk-tutorial/tutorial_freshdesk_url.png)
+    ![Eenmalige aanmelding configureren](common/editconfigure.png)
+
+4. Op de **SAML-basisconfiguratie** sectie, voert u de volgende stappen uit:
+
+    ![FreshDesk-domein en URL's, eenmalige aanmelding informatie](./media/freshdesk-tutorial/tutorial_freshdesk_url.png)
 
     a. In de **aanmeldings-URL** tekstvak, een URL met behulp van het volgende patroon: `https://<tenant-name>.freshdesk.com` of een andere waarde Freshdesk is voorgesteld.
 
-    > [!NOTE]
-    > Houd er rekening mee dat dit niet de werkelijke waarde is. U moet de waarde bijwerken met de werkelijke aanmeldings-URL. Neem contact op met [FreshDesk-Client-ondersteuningsteam](https://freshdesk.com/helpdesk-software?utm_source=Google-AdWords&utm_medium=Search-IND-Brand&utm_campaign=Search-IND-Brand&utm_term=freshdesk&device=c&gclid=COSH2_LH7NICFVUDvAodBPgBZg) deze waarde op te halen.
-
-4. Uw toepassing wordt verwacht dat de SAML-asserties ondertekend in een specifieke indeling, waarvoor u aangepaste kenmerktoewijzingen toevoegen aan de configuratie van de SAML-token kenmerken. De volgende Schermafbeelding toont een voorbeeld voor deze. De standaardwaarde van **gebruikers-id** is **user.userprincipalname** maar **FreshDesk** wordt verwacht dat deze optie om te worden toegewezen met de e-mailadres van de gebruiker. Hiervoor kunt u **user.mail** kenmerk in de lijst of gebruik de waarde van het juiste kenmerk op basis van de organisatieconfiguratie van uw.
-
-    ![Eenmalige aanmelding configureren](./media/freshdesk-tutorial/tutorial_attribute.png)
-
-5. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **certificaat (Base64)** en slaat u het certificaatbestand op uw computer.
-
-    ![Eenmalige aanmelding configureren](./media/freshdesk-tutorial/tutorial_freshdesk_certificate.png)
+    b. In de **id (entiteits-ID)** tekstvak, een URL met behulp van het volgende patroon: `https://<tenant-name>.freshdesk.com` of een andere waarde Freshdesk is voorgesteld.
 
     > [!NOTE]
-    > Als u problemen hebt, raadpleegt u dit [koppeling](https://support.freshdesk.com/support/discussions/topics/317543).
+    > Deze waarden zijn niet echt. Werk deze waarden met de werkelijke aanmeldings-URL en -id. Neem contact op met [FreshDesk-Client-ondersteuningsteam](https://freshdesk.com/helpdesk-software?utm_source=Google-AdWords&utm_medium=Search-IND-Brand&utm_campaign=Search-IND-Brand&utm_term=freshdesk&device=c&gclid=COSH2_LH7NICFVUDvAodBPgBZg) om deze waarden te verkrijgen.
 
-6. Klik op **opslaan** knop.
+5. FreshDesk-toepassing wordt verwacht dat de SAML-asserties ondertekend in een specifieke indeling, waarvoor u aangepaste kenmerktoewijzingen toevoegen aan de configuratie van de SAML-token kenmerken. De volgende Schermafbeelding toont een voorbeeld voor deze. De standaardwaarde van **gebruikers-id** is **user.userprincipalname** maar **FreshDesk** wordt verwacht dat deze optie om te worden toegewezen met de e-mailadres van de gebruiker. Hiervoor kunt u **user.mail** kenmerk in de lijst of gebruik de waarde van het juiste kenmerk op basis van de organisatieconfiguratie van uw.
 
-    ![Eenmalige aanmelding configureren](./media/freshdesk-tutorial/tutorial_general_400.png)
+    ![image](./media/freshdesk-tutorial/i4-attribute.png)
 
-7. Installeer **OpenSSL** in uw systeem, als u niet hebt geïnstalleerd in uw systeem.
+6. In de **gebruikersclaims** sectie op de **gebruikerskenmerken en Claims** dialoogvenster SAML-token kenmerk configureren zoals wordt weergegeven in de bovenstaande afbeelding en voer de volgende stappen uit:
+    
+    a. Klik op **bewerkingspictogram** openen de **gebruikersclaims beheren** dialoogvenster.
+
+    ![image](./media/freshdesk-tutorial/i2-attribute.png)
+
+    ![image](./media/freshdesk-tutorial/i3-attribute.png)
+
+    b. Uit de **bronkenmerk** in de lijst met **user.mail**.
+
+    c. Klik op **Opslaan**.
+
+7. Op de **SAML-handtekeningcertificaat** pagina, in de **SAML-handtekeningcertificaat** sectie, klikt u op **downloaden** downloaden **certificaat (Base64)** en sla het certificaatbestand op uw computer.
+
+    ![De downloadkoppeling certificaat](./media/freshdesk-tutorial/tutorial_freshdesk_certificate.png)
 
 8. Open **opdrachtprompt** en voer de volgende opdrachten uit:
 
-    a. Voer `openssl x509 -inform DER -in FreshDesk.cer -out certificate.crt` waarde in de opdrachtprompt.
+    a. Voer `certutil.exe -dump FreshDesk.cer` waarde in de opdrachtprompt.
 
     > [!NOTE]
     > Hier **FreshDesk.cer** is het certificaat dat u hebt gedownload vanuit Azure portal.
 
-    b. Voer `openssl x509 -noout -fingerprint -sha256 -inform pem -in certificate.crt` waarde in de opdrachtprompt. 
-    
-    > [!NOTE]
-    > Hier **certificate.crt** is de uitvoer-certificaat dat wordt gegenereerd in de vorige stap.
+    b. Kopieer de **Cert Hash(sha256)** waarde en plak deze in Kladblok. 
 
-    c. Kopieer de **vingerafdruk** waarde en plak deze in Kladblok. Dubbele punten verwijderen uit de vingerafdruk en de uiteindelijke waarde van de vingerafdruk niet ophalen.
+9. Op de **instellen van FreshDesk** sectie, kopieert u de juiste URL aan de hand van uw behoeften.
 
-9. Op de **FreshDesk configuratie** sectie, klikt u op **FreshDesk configureren** om configureren aanmeldings-venster te openen. Kopieer de SAML Single Sign-On Service-URL en de URL van de afmelding van de **Naslaggids** sectie.
+    a. Aanmeldings-URL
 
-    ![Eenmalige aanmelding configureren](./media/freshdesk-tutorial/tutorial_freshdesk_configure.png)
+    b. Azure AD-id
+
+    c. URL voor afmelden
+
+    ![Configuratie van FreshDesk](common/configuresection.png)
 
 10. Meld u in een ander browservenster in uw bedrijf Freshdesk site als beheerder.
 
@@ -163,11 +170,11 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     b. Selecteer **SAML SSO**.
 
-    c. In de **aanmeldings-URL voor SAML** tekstvak plakken **Single Sign-On Service URL voor SAML** waarde die u hebt gekopieerd vanuit Azure portal.
+    c. In de **aanmeldings-URL voor SAML** tekstvak plakken **aanmeldings-URL** waarde die u hebt gekopieerd vanuit Azure portal.
 
-    d. In de **afmeldings-URL van** tekstvak plakken **afmelding URL** waarde die u hebt gekopieerd vanuit Azure portal.
+    d. In de **afmeldings-URL van** tekstvak plakken **afmeldings-URL van** waarde die u hebt gekopieerd vanuit Azure portal.
 
-    e. In de **Security certificaat vingerafdruk** tekstvak plakken **vingerafdruk** waarde die u eerder hebt na het verwijderen van de dubbele punten hebt verkregen.
+    e. In de **Security certificaat vingerafdruk** tekstvak plakken **Cert Hash(sha256)** waarde die u eerder hebt ontvangen.
   
     f. Klik op **Opslaan**.
 
@@ -175,33 +182,26 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
 Het doel van deze sectie is het maken van een testgebruiker in Azure portal Britta Simon genoemd.
 
-![Azure AD-gebruiker maken][100]
+1. Selecteer in de Azure portal, in het linkerdeelvenster **Azure Active Directory**, selecteer **gebruikers**, en selecteer vervolgens **alle gebruikers**.
 
-**Als u wilt een testgebruiker maken in Azure AD, moet u de volgende stappen uitvoeren:**
+    ![Azure AD-gebruiker maken][100]
 
-1. In de **Azure-portal**, klik op het navigatiedeelvenster links **Azure Active Directory** pictogram.
+2. Selecteer **nieuwe gebruiker** aan de bovenkant van het scherm.
 
-    ![Het maken van een Azure AD-testgebruiker](./media/freshdesk-tutorial/create_aaduser_01.png) 
+    ![Het maken van een Azure AD-testgebruiker](common/create_aaduser_01.png) 
 
-2. Ga naar **gebruikers en groepen** en klikt u op **alle gebruikers** om de lijst met gebruikers weer te geven.
+3. In de eigenschappen van de gebruiker de volgende stappen uitvoeren.
 
-    ![Het maken van een Azure AD-testgebruiker](./media/freshdesk-tutorial/create_aaduser_02.png) 
+    ![Het maken van een Azure AD-testgebruiker](common/create_aaduser_02.png)
 
-3. Aan de bovenkant van het dialoogvenster klikt u op **toevoegen** openen de **gebruiker** dialoogvenster.
+    a. In de **naam** veld **BrittaSimon**.
+  
+    b. In de **gebruikersnaam** veld, typt u **brittasimon@yourcompanydomain.extension**  
+    Bijvoorbeeld: BrittaSimon@contoso.com
 
-    ![Het maken van een Azure AD-testgebruiker](./media/freshdesk-tutorial/create_aaduser_03.png) 
+    c. Selecteer **eigenschappen**, selecteer de **Show wachtwoord** selectievakje en noteer de waarde die wordt weergegeven in het wachtwoord.
 
-4. Op de **gebruiker** dialoogvenster pagina, voert u de volgende stappen uit:
-
-    ![Het maken van een Azure AD-testgebruiker](./media/freshdesk-tutorial/create_aaduser_04.png) 
-
-    a. In de **naam** tekstvak, type **BrittaSimon**.
-
-    b. In de **gebruikersnaam** tekstvak, type de **e-mailadres** van BrittaSimon.
-
-    c. Selecteer **wachtwoord weergeven** en noteer de waarde van de **wachtwoord**.
-
-    d. Klik op **Create**.
+    d. Selecteer **Maken**.
 
 ### <a name="creating-a-freshdesk-test-user"></a>Het maken van een testgebruiker FreshDesk
 
@@ -214,11 +214,11 @@ In het geval van FreshDesk is inrichten een handmatige taak.
 
 2. Klik in het menu aan de bovenkant op **Admin**.
 
-   ![Beheerder](./media/freshdesk-tutorial/IC776772.png "Admin")
+    ![Beheerder](./media/freshdesk-tutorial/IC776772.png "Admin")
 
 3. In de **algemene instellingen** tabblad **Agents**.
   
-   ![Agents](./media/freshdesk-tutorial/IC776773.png "Agents")
+    ![Agents](./media/freshdesk-tutorial/IC776773.png "Agents")
 
 4. Klik op **nieuwe Agent**.
 
@@ -226,15 +226,15 @@ In het geval van FreshDesk is inrichten een handmatige taak.
 
 5. In het dialoogvenster voor informatie over agents, moet u de volgende stappen uitvoeren:
 
-   ![Agentgegevens](./media/freshdesk-tutorial/IC776775.png "agentgegevens")
+    ![Agentgegevens](./media/freshdesk-tutorial/IC776775.png "agentgegevens")
 
-   a. In de **e** tekstvak, typ de Azure AD e-mailadres van de Azure AD-account dat u inrichten wilt.
+    a. In de **e** tekstvak, typ de Azure AD e-mailadres van de Azure AD-account dat u inrichten wilt.
 
-   b. In de **volledige naam** tekstvak, typ de naam van de Azure AD-account dat u inrichten wilt.
+    b. In de **volledige naam** tekstvak, typ de naam van de Azure AD-account dat u inrichten wilt.
 
-   c. In de **titel** tekstvak typt u de titel van de Azure AD-account dat u inrichten wilt.
+    c. In de **titel** tekstvak typt u de titel van de Azure AD-account dat u inrichten wilt.
 
-   d. Klik op **Opslaan**.
+    d. Klik op **Opslaan**.
 
     >[!NOTE]
     >De houder van Azure AD-account ontvangt een e-mailbericht een koppeling om te bevestigen dat het account bevat voordat deze wordt geactiveerd.
@@ -244,19 +244,15 @@ In het geval van FreshDesk is inrichten een handmatige taak.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Toewijzen aan de gebruiker van de test Azure AD
 
-In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmelding in haar door toegang te verlenen aan vak.
+In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmelding door toegang te verlenen aan FreshDesk.
 
-![Gebruiker toewijzen][200]
-
-**Als u wilt toewijzen Britta Simon naar freshdesk kopiëren, moet u de volgende stappen uitvoeren:**
-
-1. Open de weergave toepassingen in de Azure-portal en gaat u naar de mapweergave en Ga naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
+1. Selecteer in de Azure portal, **bedrijfstoepassingen**, selecteer **alle toepassingen**.
 
     ![Gebruiker toewijzen][201]
 
 2. Selecteer in de lijst met toepassingen, **FreshDesk**.
 
-    ![Eenmalige aanmelding configureren](./media/freshdesk-tutorial/tutorial_freshdesk_app.png) 
+    ![Eenmalige aanmelding configureren](./media/freshdesk-tutorial/tutorial_freshdesk_app.png)
 
 3. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
 
@@ -266,17 +262,16 @@ In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmel
 
     ![Gebruiker toewijzen][203]
 
-5. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
+5. In de **gebruikers en groepen** dialoogvenster Selecteer **Britta Simon** in de lijst met gebruikers, en klik op de **Selecteer** knop aan de onderkant van het scherm.
 
-6. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
-
-7. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
+6. In de **toevoegen toewijzing** dialoogvenster Selecteer de **toewijzen** knop.
 
 ### <a name="testing-single-sign-on"></a>Eenmalige aanmelding testen
 
 In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
 
-Als u de FreshDesk-tegel in het toegangsvenster klikt, krijgt u rechtstreeks aanmeldingspagina aan u aangemeld bij uw FreshDesk-toepassing.
+Wanneer u op de tegel FreshDesk in het toegangsvenster, u moet u automatisch aangemeld bij uw FreshDesk-toepassing.
+Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsvenster](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
@@ -285,14 +280,13 @@ Als u de FreshDesk-tegel in het toegangsvenster klikt, krijgt u rechtstreeks aan
 
 <!--Image references-->
 
-[1]: ./media/freshdesk-tutorial/tutorial_general_01.png
-[2]: ./media/freshdesk-tutorial/tutorial_general_02.png
-[3]: ./media/freshdesk-tutorial/tutorial_general_03.png
-[4]: ./media/freshdesk-tutorial/tutorial_general_04.png
+[1]: common/tutorial_general_01.png
+[2]: common/tutorial_general_02.png
+[3]: common/tutorial_general_03.png
+[4]: common/tutorial_general_04.png
 
-[100]: ./media/freshdesk-tutorial/tutorial_general_100.png
+[100]: common/tutorial_general_100.png
 
-[200]: ./media/freshdesk-tutorial/tutorial_general_200.png
-[201]: ./media/freshdesk-tutorial/tutorial_general_201.png
-[202]: ./media/freshdesk-tutorial/tutorial_general_202.png
-[203]: ./media/freshdesk-tutorial/tutorial_general_203.png
+[201]: common/tutorial_general_201.png
+[202]: common/tutorial_general_202.png
+[203]: common/tutorial_general_203.png

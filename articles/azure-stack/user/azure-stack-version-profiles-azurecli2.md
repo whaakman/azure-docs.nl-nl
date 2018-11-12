@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 09/08/2018
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: 6042aa4dd8b26a0986737edc3c89b8e165ae970a
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 2c862dcaf5f9267265879faa8ac927ddf7515419
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49067700"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277270"
 ---
 # <a name="use-api-version-profiles-with-azure-cli-in-azure-stack"></a>API-versieprofielen gebruiken met Azure CLI in Azure Stack
 
@@ -139,6 +139,18 @@ Gebruik de volgende stappen uit om te verbinden met Azure Stack:
         --suffix-keyvault-dns ".vault.local.azurestack.external" \ 
         --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>
       ```
+    c. Om u te registreren de *gebruiker* in een omgeving Multitenancy gebruiken:
+
+      ```azurecli
+      az cloud register \ 
+        -n AzureStackUser \ 
+        --endpoint-resource-manager "https://management.local.azurestack.external" \ 
+        --suffix-storage-endpoint "local.azurestack.external" \ 
+        --suffix-keyvault-dns ".vault.local.azurestack.external" \ 
+        --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases> \
+        --endpoint-active-directory-resource-id=<URI of the ActiveDirectoryServiceEndpointResourceID> \
+        --profile 2018-03-01-hybrid
+      ```
 
 1. De actieve omgeving instellen met behulp van de volgende opdrachten.
 
@@ -223,7 +235,7 @@ Als de resourcegroep is gemaakt, voert de vorige opdracht de volgende eigenschap
 Er zijn enkele bekende problemen waarmee u rekening houden moet bij het gebruik van de CLI in Azure Stack:
 
  - De CLI interactieve modus Internet Explorer de `az interactive` opdracht wordt nog niet ondersteund in Azure Stack.
- - Als u de lijst met installatiekopieën van virtuele machines beschikbaar in Azure Stack, gebruikt de `az vm images list --all` opdracht in plaats van de `az vm image list` opdracht. Op te geven de `--all` optie zorgt ervoor dat antwoord retourneert alleen de installatiekopieën die beschikbaar in uw Azure Stack-omgeving zijn.
+ - Als u de lijst met installatiekopieën van virtuele machines beschikbaar in Azure Stack, gebruikt de `az vm image list --all` opdracht in plaats van de `az vm image list` opdracht. Op te geven de `--all` optie zorgt ervoor dat antwoord retourneert alleen de installatiekopieën die beschikbaar in uw Azure Stack-omgeving zijn.
  - Virtuele machine-installatiekopie aliassen die beschikbaar in Azure zijn is mogelijk niet van toepassing op Azure Stack. Wanneer u installatiekopieën van virtuele machines, moet u de volledige URN-parameter (Canonical: UbuntuServer:14.04.3-LTS:1.0.0) in plaats van de alias van de installatiekopie. Deze URN moet overeenkomen met de specificaties van de installatiekopie die is afgeleid van de `az vm images list` opdracht.
 
 ## <a name="next-steps"></a>Volgende stappen

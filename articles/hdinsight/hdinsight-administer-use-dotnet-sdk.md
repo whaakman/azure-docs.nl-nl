@@ -1,22 +1,22 @@
 ---
-title: Beheer Hadoop-clusters in HDInsight met .NET SDK - Azure
-description: Informatie over het uitvoeren van beheertaken voor de Hadoop-clusters in HDInsight met behulp van HDInsight .NET SDK.
+title: Apache Hadoop-clusters in HDInsight met .NET SDK - Azure beheren
+description: Informatie over het uitvoeren van beheertaken voor de Apache Hadoop-clusters in HDInsight met behulp van HDInsight .NET SDK.
 services: hdinsight
 ms.reviewer: jasonh
-author: jasonwhowell
+author: hrasheed-msft
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.author: jasonh
-ms.openlocfilehash: 0d8238d5f1dca15aaba0f8f5a6580df97164006a
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.author: hrasheed
+ms.openlocfilehash: a7c06d53e3823bd81707608f566f581fa44638fc
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43110796"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51037753"
 ---
-# <a name="manage-hadoop-clusters-in-hdinsight-by-using-net-sdk"></a>Hadoop-clusters in HDInsight beheren met behulp van .NET SDK
+# <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-net-sdk"></a>Apache Hadoop-clusters in HDInsight beheren met behulp van .NET SDK
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
 Informatie over het beheren van HDInsight-clusters met behulp van [HDInsight.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight).
@@ -142,12 +142,12 @@ Het cluster schalen functie kunt u het aantal worker-knooppunten die worden gebr
 
 De gevolgen van het wijzigen van het aantal gegevensknooppunten voor elk type cluster die door HDInsight worden ondersteund:
 
-* Hadoop
+* Apache Hadoop
   
     Het aantal worker-knooppunten in een Hadoop-cluster dat wordt uitgevoerd zonder gevolgen voor alle taken die in behandeling of wordt uitgevoerd, kunt u naadloos verhogen. Nieuwe taken kunnen ook worden verzonden terwijl de bewerking uitgevoerd wordt. Fouten in een bewerking voor vergroten/verkleinen probleemloos verwerkt zodat het cluster altijd in een functionele staat blijft.
   
     Wanneer een Hadoop-cluster is omlaag geschaald door het aantal gegevensknooppunten te verminderen, zijn sommige van de services in het cluster opnieuw opgestart. Dit zorgt ervoor dat alle actieve en in behandeling zijnde taken mislukken na het voltooien van de bewerking vergroten/verkleinen. U kunt echter de taken opnieuw zodra de bewerking voltooid is.
-* HBase
+* Apache HBase
   
     U kunt naadloos toevoegen of verwijderen van knooppunten in uw HBase-cluster, terwijl deze wordt uitgevoerd. Regionale Servers worden automatisch verdeeld binnen een paar minuten na voltooiing van de vergroten/verkleinen bewerking. U kunt echter ook handmatig de regionale servers verdelen door te melden bij het hoofdknooppunt van het cluster en de volgende opdrachten uitvoert vanuit een opdrachtpromptvenster:
   
@@ -156,7 +156,7 @@ De gevolgen van het wijzigen van het aantal gegevensknooppunten voor elk type cl
     >hbase shell
     >balancer
     ```
-* Storm
+* Apache Storm
   
     U kunt naadloos toevoegen of verwijderen van gegevensknooppunten naar uw Storm-cluster, terwijl deze wordt uitgevoerd. Maar na een geslaagde bewerking vergroten/verkleinen is voltooid, moet u opnieuw verdelen van de topologie.
   
@@ -192,9 +192,9 @@ HDInsight-clusters hebben de volgende HTTP-webservices (al deze services hebben 
 
 * ODBC
 * JDBC
-* Ambari
-* Oozie
-* Templeton
+* Apache Ambari
+* Apache Oozie
+* Apache Templeton
 
 Standaard worden deze services worden verleend om toegang te krijgen. U kunt in te trekken/verlenen toegang tot de. Om in te trekken:
 
@@ -246,19 +246,19 @@ foreach (var key in results.Configuration.Keys)
 
 Zie [voorbeelden van Hadoop MapReduce uitvoeren in HDInsight](hadoop/apache-hadoop-run-samples-linux.md).
 
-**Hive-taken indienen** 
+**Apache Hive-taken indienen** 
 
 Zie [uitvoeren Hive-query's met .NET SDK](hadoop/apache-hadoop-use-hive-dotnet-sdk.md).
 
-**Pig-taken indienen**
+**Apache Pig-taken indienen**
 
 Zie [uitvoeren Pig-taken met behulp van .NET SDK](hadoop/apache-hadoop-use-pig-dotnet-sdk.md).
 
-**Sqoop taken indienen**
+**Apache Sqoop taken indienen**
 
 Zie [Sqoop gebruiken met HDInsight](hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md).
 
-**Oozie-taken indienen**
+**Apache Oozie-taken indienen**
 
 Zie [gebruik Oozie met Hadoop om te definiëren en een werkstroom uitvoeren in HDInsight](hdinsight-use-oozie-linux-mac.md).
 

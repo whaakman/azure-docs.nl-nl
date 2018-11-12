@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/25/2018
 ms.author: jeedes
-ms.openlocfilehash: 420ec288b81e0bb12ae9f61a5eaf03880205cc55
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 04639e6d27854d9c25b97936b163cfaaa25fc375
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50247977"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51287435"
 ---
 # <a name="configure-an-openidoauth-application-from-the-azure-ad-app-gallery"></a>Een OpenID/OAuth-toepassing uit de galerie met Azure AD-app configureren
 
@@ -84,7 +84,7 @@ Het toestemmingsframework Azure AD kunt u meerdere tenants web- en native client
 
 Het framework is gebaseerd op een gebruiker of beheerder toestemming verlenen tot een toepassing die wordt gevraagd om te worden geregistreerd in de directory. De registratie kan betrekking hebben op toegang tot directorygegevens. Nadat toestemming is opgegeven, kan de clienttoepassing aanroepen van de Microsoft Graph API namens de gebruiker en de gegevens indien nodig kunnen gebruiken.
 
-De [Microsoft Graph API](https://graph.microsoft.io/) biedt toegang tot gegevens in Office 365, zoals:
+De [Microsoft Graph API](https://developer.microsoft.com/graph/) biedt toegang tot gegevens in Office 365, zoals:
 
 - Agenda's en berichten van Exchange.
 - Sites en -lijsten van SharePoint.

@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/22/2018
-ms.openlocfilehash: 5dba091f62e320d6f9a48bea0208ef74db351402
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: c690e9b864d4b2b378814b478ea4918a9f75fbba
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50095502"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51288524"
 ---
 # <a name="monitoring-azure-sql-database-using-dynamic-management-views"></a>Bewaking van Azure SQL-database met behulp van de dynamische beheerweergave
 
@@ -333,7 +333,7 @@ ORDER BY start_time ASC;
 
 ## <a name="identify-memory-grant-wait-performance-issues"></a>Geheugen verlenen wacht prestatieproblemen identificeren
 
-Als het hoogste wacht type `RESOURCE_SEMAHPORE` en u hebt geen hoge een probleem met de CPU, moet u een voor geheugentoewijzing in batchmodus wachten probleem.
+Als het hoogste wacht type `RESOURCE_SEMAHPORE` en u hebt een hoog CPU-gebruik probleem, moet u een voor geheugentoewijzing in batchmodus wachten probleem.
 
 ### <a name="determine-if-a-resourcesemahpore-wait-is-a-top-wait"></a>Bepalen of een `RESOURCE_SEMAHPORE` wacht is een bovenste wait
 
@@ -682,7 +682,7 @@ Voor de analyse van de SQL-Database, kunt u historische statistieken opvragen op
 
 ## <a name="monitoring-query-performance"></a>Bewaking van prestaties van query 's
 
-Trage of lang uitvoeren van query's kan aanzienlijke systeembronnen gebruiken. In deze sectie ziet u hoe u dynamische beheerweergaven gebruiken voor het detecteren van enkele veelvoorkomende problemen met de queryprestaties. De verwijzing naar een oudere, maar wel nog steeds nuttig voor het oplossen van problemen, is de [problemen met prestaties oplossen in SQL Server 2008](http://download.microsoft.com/download/D/B/D/DBDE7972-1EB9-470A-BA18-58849DB3EB3B/TShootPerfProbs2008.docx) artikel op Microsoft TechNet.
+Trage of lang uitvoeren van query's kan aanzienlijke systeembronnen gebruiken. In deze sectie ziet u hoe u dynamische beheerweergaven gebruiken voor het detecteren van enkele veelvoorkomende problemen met de queryprestaties. De verwijzing naar een oudere, maar wel nog steeds nuttig voor het oplossen van problemen, is de [problemen met prestaties oplossen in SQL Server 2008](https://download.microsoft.com/download/D/B/D/DBDE7972-1EB9-470A-BA18-58849DB3EB3B/TShootPerfProbs2008.docx) artikel op Microsoft TechNet.
 
 ### <a name="finding-top-n-queries"></a>Top N-query's zoeken
 

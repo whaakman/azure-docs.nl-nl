@@ -1,36 +1,35 @@
 ---
 title: 'Zelfstudie: Webverkeer routeren op basis van de URL - Azure CLI'
-description: Meer informatie over hoe u webverkeer routeert op basis van de URL naar specifieke, schaalbare servergroepen met behulp van de Azure CLI.
+description: In deze zelfstudie vindt u meer informatie over hoe u webverkeer routeert op basis van de URL naar specifieke, schaalbare servergroepen met behulp van de Azure CLI.
 services: application-gateway
 author: vhorne
-manager: jpconnock
 ms.service: application-gateway
 ms.topic: tutorial
-ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: f683d63683e903d947d0789a16a8efa48196d36a
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 68532ec4ae7e6d6b496ece8d08755555f756a60e
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50026191"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50413448"
 ---
 # <a name="tutorial-route-web-traffic-based-on-the-url-using-the-azure-cli"></a>Zelfstudie: Webverkeer routeren op basis van de URL met behulp van de Azure CLI
 
-U kunt de Azure CLI gebruiken om routering van webverkeer naar specifieke schaalbare servergroepen te configureren op basis van de URL die wordt gebruikt voor toegang tot uw toepassing. In deze zelfstudie maakt u een [Azure Application Gateway](application-gateway-introduction.md) met drie back-endpools met behulp van [Virtual Machine Scale Sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). Elk van de back-endpools heeft een specifiek doel, zoals algemene gegevens, afbeeldingen en video's.  Door verkeer te routeren om pools te scheiden, zorgt u ervoor dat uw klanten de informatie krijgen die ze nodig hebben wanneer ze deze nodig hebben.
+Als een IT-beheerder die webverkeer beheert, wilt u uw klanten of gebruikers helpen de informatie die ze nodig hebben zo snel mogelijk te verkrijgen. Een manier waarop u hun ervaring kunt optimaliseren is door verschillende soorten webverkeer naar verschillende serverbronnen te routeren. In deze zelfstudie leert u hoe u de Azure CLI gebruikt voor het instellen en configureren van Application Gateway-routering voor verschillende soorten verkeer vanaf uw toepassing. De routering stuurt het verkeer vervolgens door naar verschillende servergroepen op basis van de URL.
 
-Als u verkeersroutering wilt inschakelen, maakt u [routeringsregels](application-gateway-url-route-overview.md) die worden toegewezen aan listeners. Deze listeners luisteren vervolgens op specifieke poorten om te waaborgen dat webverkeer op de juiste servers binnenkomt in de pools.
+![Voorbeeld van URL-routering](./media/tutorial-url-route-cli/scenario.png)
 
 In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
-> * Het netwerk instellen
-> * Listeners, een toewijzing van URL-pad en regels maken
-> * Schaalbare back-endpools maken
-
-![Voorbeeld van URL-routering](./media/tutorial-url-route-cli/scenario.png)
+> * Een resourcegroep maken voor de netwerkresources die u nodig hebt
+> * De netwerkresources maken
+> * Een toepassingsgateway maken voor het verkeer dat afkomstig is van uw toepassing
+> * Servergroepen en regels voor doorsturen voor de verschillende soorten verkeer opgeven
+> * Een schaalset maken voor elke groep, zodat de toepassingen automatisch kunnen worden geschaald
+> * Een test uitvoeren zodat u kunt controleren of de verschillende soorten verkeer naar de juiste groep gaan
 
 U kunt deze zelfstudie desgewenst volgen met behulp van [Azure PowerShell](tutorial-url-route-powershell.md) of de [Azure-portal](create-url-route-portal.md).
 
@@ -42,17 +41,17 @@ Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor 
 
 ## <a name="create-a-resource-group"></a>Een resourcegroep maken
 
-Een resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. Maak een resourcegroep met [az group create](/cli/azure/group#create).
+Een resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. Maak een resourcegroep met behulp van `az group create`.
 
 In het volgende voorbeeld wordt de resourcegroep *myResourceGroupAG* gemaakt op de locatie *eastus*.
 
-```azurecli-interactive 
+```azurecli-interactive
 az group create --name myResourceGroupAG --location eastus
 ```
 
-## <a name="create-network-resources"></a>Netwerkbronnen maken 
+## <a name="create-network-resources"></a>Netwerkbronnen maken
 
-Maak het virtuele netwerk *myVNet* en het subnet *myAGSubnet* met [az network vnet create](/cli/azure/network/vnet#az-net). Vervolgens voegt u het subnet *myBackendSubnet*, dat voor de back-endservers vereist is, toe met [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network_vnet_subnet_create). Maak het openbare IP-adres *myAGPublicIPAddress* met [az network public-ip create](/cli/azure/network/public-ip#az-network_public_ip_create).
+Maak het virtuele netwerk *myVNet* en het subnet *myAGSubnet* met `az network vnet create`. Vervolgens voegt u het subnet *myBackendSubnet*, dat voor de back-endservers vereist is, toe met `az network vnet subnet create`. Maak het openbare IP-adres *myAGPublicIPAddress* met `az network public-ip create`.
 
 ```azurecli-interactive
 az network vnet create \
@@ -74,9 +73,9 @@ az network public-ip create \
   --name myAGPublicIPAddress
 ```
 
-## <a name="create-the-application-gateway-with-url-map"></a>Toepassingsgateway met URL-toewijzing maken
+## <a name="create-the-app-gateway-with-a-url-map"></a>De app-gateway maken met een URL-toewijzing
 
-Gebruik [az network application-gateway create](/cli/azure/network/application-gateway#create) om een toepassingsgateway met de naam *myAppGateway* te maken. Als u een toepassingsgateway met de Azure CLI maakt, geeft u configuratiegegevens op, zoals capaciteit, SKU en HTTP-instellingen. De toepassingsgateway wordt toegewezen aan *myAGSubnet* en *myAGPublicIPAddress*, die u eerder hebt gemaakt. 
+Gebruik `az network application-gateway create` om een toepassingsgateway met de naam *myAppGateway* te maken. Als u met de Azure CLI een toepassingsgateway maakt, geeft u configuratiegegevens op, zoals capaciteit, SKU en HTTP-instellingen. De toepassingsgateway wordt toegewezen aan *myAGSubnet* en *myAGPublicIPAddress*, die u eerder hebt gemaakt.
 
 ```azurecli-interactive
 az network application-gateway create \
@@ -96,16 +95,18 @@ az network application-gateway create \
 
  Het kan enkele minuten duren om de toepassingsgateway te maken. Nadat de toepassingsgateway is gemaakt, ziet u de volgende nieuwe functies:
 
-- *appGatewayBackendPool*: een toepassingsgateway moet ten minste één back-endadresgroep hebben.
-- *appGatewayBackendHttpSettings*: hiermee wordt aangegeven dat voor de communicatie poort 80 en een HTTP-protocol worden gebruikt.
-- *appGatewayHttpListener*: de standaard-listener die aan *appGatewayBackendPool* is gekoppeld.
-- *appGatewayFrontendIP*: hiermee wordt *myAGPublicIPAddress* aan *appGatewayHttpListener* toegewezen.
-- *rule1*: de standaardrouteringsregel die aan *appGatewayHttpListener* is gekoppeld.
 
+|Functie  |Beschrijving  |
+|---------|---------|
+|appGatewayBackendPool     |Een toepassingsgateway moet ten minste één back-endadresgroep hebben.|
+|appGatewayBackendHttpSettings     |Hiermee wordt aangegeven dat voor de communicatie poort 80 en een HTTP-protocol worden gebruikt.|
+|appGatewayHttpListener     |De standaard-listener die aan appGatewayBackendPool is gekoppeld|
+|appGatewayFrontendIP     |Hiermee wordt myAGPublicIPAddress aan appGatewayHttpListener toegewezen.|
+|rule1     |De standaardregel voor doorsturen die aan appGatewayHttpListener is gekoppeld.|
 
-### <a name="add-image-and-video-backend-pools-and-port"></a>Back-endpools en -poort voor afbeeldingen en video toevoegen
+### <a name="add-image-and-video-backend-pools-and-a-port"></a>Back-endpools en een poort voor afbeeldingen en video toevoegen
 
-Voeg de back-endpools *imagesBackendPool* en *videoBackendPool* toe aan de toepassingsgateway met [az network application-gateway address-pool create](/cli/azure/network/application-gateway#az-network_application_gateway_address-pool_create). U voegt de front-endpoorten voor de pools toe met [az network application-gateway frontend-port create](/cli/azure/network/application-gateway#az-network_application_gateway_frontend_port_create). 
+Voeg de back-endpools *imagesBackendPool* en *videoBackendPool* toe aan de toepassingsgateway met `az network application-gateway address-pool create`. U voegt de front-endpoort toe met `az network application-gateway frontend-port create`.
 
 ```azurecli-interactive
 az network application-gateway address-pool create \
@@ -125,9 +126,9 @@ az network application-gateway frontend-port create \
   --name port8080
 ```
 
-### <a name="add-backend-listener"></a>Back-endlistener toevoegen
+### <a name="add-a-backend-listener"></a>Een back-endlistener toevoegen
 
-Voeg back-endlistener *backendListener*, die voor het omleiden van verkeer nodig zijn, toe met [az network application-gateway http-listener create](/cli/azure/network/application-gateway#az-network_application_gateway_http_listener_create).
+Voeg de back-endlistener met de naam *backendListener* die nodig is om verkeer te routeren toe met behulp van `az network application-gateway http-listener create`.
 
 
 ```azurecli-interactive
@@ -139,9 +140,9 @@ az network application-gateway http-listener create \
   --gateway-name myAppGateway
 ```
 
-### <a name="add-url-path-map"></a>Toewijzing van URL-pad toevoegen
+### <a name="add-a-url-path-map"></a>Toewijzing van een URL-pad toevoegen
 
-URL-padtoewijzingen zorgen ervoor dat specifieke URL's naar specifieke back-endpools worden omgeleid. Maak de URL-padtoewijzingen *imagePathRule* en *videoPathRule* met [az network application-gateway url-path-map create](/cli/azure/network/application-gateway#az-network_application_gateway_url_path_map_create) en [az network application-gateway url-path-map rule create](/cli/azure/network/application-gateway#az-network_application_gateway_url_path_map_rule_create)
+URL-padtoewijzingen zorgen ervoor dat specifieke URL's naar specifieke back-endpools worden omgeleid. Maak URL-padtoewijzingen met de naam *imagePathRule* en *videoPathRule* met behulp van `az network application-gateway url-path-map create` en `az network application-gateway url-path-map rule create`.
 
 ```azurecli-interactive
 az network application-gateway url-path-map create \
@@ -164,9 +165,9 @@ az network application-gateway url-path-map rule create \
   --address-pool videoBackendPool
 ```
 
-### <a name="add-routing-rule"></a>Routeringsregel toevoegen
+### <a name="add-a-routing-rule"></a>Een routeringsregel toevoegen
 
-De routeringsregel koppelt de URL-toewijzingen aan de listener die u hebt gemaakt. Voeg de regel *rule2* toe met [az network application-gateway rule create](/cli/azure/network/application-gateway#az-network_application_gateway_rule_create).
+De routeringsregel koppelt de URL-toewijzingen aan de listener die u hebt gemaakt. Voeg een regel met de naam *rule2* toe met behulp van `az network application-gateway rule create`.
 
 ```azurecli-interactive
 az network application-gateway rule create \
@@ -179,7 +180,7 @@ az network application-gateway rule create \
   --address-pool appGatewayBackendPool
 ```
 
-## <a name="create-virtual-machine-scale-sets"></a>Schaalsets voor virtuele machines maken
+## <a name="create-vm-scale-sets"></a>VM-schaalsets maken
 
 In deze zelfstudie maakt u drie schaalsets voor virtuele machines die ondersteuning bieden voor de drie back-end-pools die u hebt gemaakt. U maakt schaalsets met de namen *myvmss1*, *myvmss2* en *myvmss3*. Elke schaalset bevat twee exemplaren van virtuele machines waarop u NGINX installeert.
 
@@ -233,7 +234,7 @@ done
 
 ## <a name="test-the-application-gateway"></a>De toepassingsgateway testen
 
-Gebruik [az network public-ip show](/cli/azure/network/public-ip#az-network_public_ip_show) om het openbare IP-adres van de toepassingsgateway op te halen. Kopieer het openbare IP-adres en plak het in de adresbalk van de browser. Zoals *http://40.121.222.19*, *http://40.121.222.19:8080/images/test.htm* of *http://40.121.222.19:8080/video/test.htm*.
+Gebruik az network public-ip show om het openbare IP-adres van de toepassingsgateway op te halen. Kopieer het openbare IP-adres en plak het in de adresbalk van de browser. Zoals *http://40.121.222.19*, *http://40.121.222.19:8080/images/test.htm* of *http://40.121.222.19:8080/video/test.htm*.
 
 ```azurecli-interactive
 az network public-ip show \
@@ -262,13 +263,6 @@ az group delete --name myResourceGroupAG --location eastus
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-
-In deze zelfstudie heeft u het volgende geleerd:
-
-> [!div class="checklist"]
-> * Het netwerk instellen
-> * Listeners, een toewijzing van URL-pad en regels maken
-> * Schaalbare back-endpools maken
 
 > [!div class="nextstepaction"]
 > [Een toepassingsgateway maken met een omleiding op basis van een URL-pad](./tutorial-url-redirect-cli.md)

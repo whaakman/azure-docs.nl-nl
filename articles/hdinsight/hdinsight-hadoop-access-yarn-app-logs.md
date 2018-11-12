@@ -2,25 +2,25 @@
 title: Toegang tot Hadoop YARN-toepassingslogboeken programmatisch - Azure
 description: Access-toepassing zich aanmeldt via een programma een Hadoop-cluster in HDInsight.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/25/2017
-ms.author: jasonh
+ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: e92f9f7bb49b0b7cc33c73a9c5eb2d0ca7532592
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: b7b93ca9c8638451d23a27edeed823e593a95b23
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43094398"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51035642"
 ---
-# <a name="access-yarn-application-logs-on-windows-based-hdinsight"></a>Toegang tot YARN-toepassingslogboeken in HDInsight op basis van Windows
-Dit document wordt uitgelegd hoe u toegang tot de logboeken van YARN-toepassingen die klaar bent met het op een Windows-gebaseerde Hadoop-cluster in Azure HDInsight
+# <a name="access-apache-yarn-application-logs-on-windows-based-hdinsight"></a>Toegang Apache YARN-toepassingslogboeken in HDInsight op basis van Windows
+Dit document wordt uitgelegd hoe u toegang tot de logboeken voor Apache YARN-toepassingen die klaar bent met het op een Windows-gebaseerde Hadoop-cluster in Azure HDInsight
 
 > [!IMPORTANT]
-> De informatie in dit document geldt alleen voor Windows-gebaseerde HDInsight-clusters. Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie. Zie voor meer informatie over het verkrijgen van toegang tot YARN-op Linux gebaseerde HDInsight-clusters logboeken [toegang tot YARN-toepassingslogboeken in Linux gebaseerde Hadoop op HDInsight](hdinsight-hadoop-access-yarn-app-logs-linux.md)
+> De informatie in dit document geldt alleen voor Windows-gebaseerde HDInsight-clusters. Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie. Zie voor meer informatie over het verkrijgen van toegang tot YARN-op Linux gebaseerde HDInsight-clusters logboeken [toegang Apache YARN-toepassingslogboeken in Linux gebaseerde Hadoop op HDInsight](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 >
 
 

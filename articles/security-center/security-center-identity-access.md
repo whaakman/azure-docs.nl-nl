@@ -12,21 +12,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/08/2018
+ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 17fd9907a5e3e3f4485b35c8e74d6e46fecb7fda
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 01c8f864d25a35d42abcd624e31728f4fee0d80c
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44303503"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51012068"
 ---
 # <a name="monitor-identity-and-access-in-azure-security-center-preview"></a>Identiteit en toegang bewaken in Azure Security Center (Preview)
 In dit artikel leest u hoe u Azure Security Center kunt gebruiken om de identiteit en toegangsactiviteiten van gebruikers te bewaken.
 
 > [!NOTE]
 > Identiteit en toegang bewaken is in preview en alleen beschikbaar op de prijscategorie Standard van Security Center. Bekijk de pagina [Prijzen](security-center-pricing.md) voor meer informatie over de tariefopties van Security Center.
->
 >
 
 Identiteit moet de controlelaag voor uw onderneming zijn. Het beveiligen van uw identiteit moet daarom de hoogste prioriteit hebben. De beveiligingsperimeter heeft zich ontwikkeld van een perimeter van het netwerk een perimeter-identiteit. Beveiliging wordt minder over het verdedigen van uw netwerk en meer informatie over uw gegevens beschermen, evenals de beveiliging van uw apps en gebruikers beheren. Tegenwoordig bevinden zich steeds meer gegevens en apps in de cloud en is identiteit het nieuwe perimeternetwerk.
@@ -56,7 +55,7 @@ Als u wilt doorgaan, selecteer **Identity & access** onder **Resources** of het 
 
 ![Dashboard van Security Center][1]
 
-## <a name="monitor-identity-and-access"></a>Monitor voor identiteits- en toegangsbeheer
+## <a name="monitor-identity-and-access"></a>Identiteit en toegang bewaken
 Onder **Identity & Access**, er zijn twee tabbladen:
 
 - **Overzicht**: aanbevelingen geïdentificeerd door Security Center.
@@ -107,18 +106,25 @@ Onder **abonnementen**, er is een lijst met abonnementen. De eerste kolom bevat 
 ## <a name="recommendations"></a>Aanbevelingen
 Gebruik de onderstaande tabel als referentie om te begrijpen van de beschikbare Identity & Access aanbevelingen en wat elke doet als u deze toepast.
 
-| Aanbeveling | Beschrijving |
-| --- | --- |
-| Meer dan één eigenaar van uw abonnement opgeven | Hiermee wordt aanbevolen dat u meer dan één abonnementseigenaar aanwijzen om de beheerder toegang redundantie. |
-| Maximaal 3 eigenaren voor uw abonnement opgeven | Hiermee wordt aanbevolen dat u minder dan 3 abonnementseigenaren aanwijzen om te reduceren van de mogelijkheden voor inbreuk op een gecomprimeerde eigenaar. |
-| MFA inschakelen voor accounts met eigenaarsmachtigingen voor uw abonnement | Hiermee wordt aanbevolen dat u multi-factor Authentication (MFA) voor alle abonnementsaccounts met administrator-bevoegdheden inschakelen om te voorkomen dat er inbreuk wordt gepleegd accounts of resources. |
-| MFA inschakelen voor accounts met schrijfmachtigingen voor uw abonnement | Hiermee wordt aanbevolen dat u multi-factor Authentication (MFA) voor alle abonnementsaccounts met schrijfmachtigingen inschakelen om te voorkomen dat er inbreuk wordt gepleegd accounts of resources. |
-| MFA inschakelen voor accounts met leesmachtigingen voor uw abonnement | Hiermee wordt aanbevolen dat u multi-factor Authentication (MFA) voor alle abonnementsaccounts met leesmachtigingen inschakelen om te voorkomen dat er inbreuk wordt gepleegd accounts of resources. |
-| Externe accounts met leesmachtigingen verwijderen van uw abonnement | Hiermee wordt aanbevolen dat u externe accounts met leesmachtigingen van uw abonnement verwijderen om onbewaakte toegang te voorkomen. |
-| Externe accounts met schrijfmachtigingen verwijderen van uw abonnement | Hiermee wordt aanbevolen dat u externe accounts met schrijfmachtigingen van uw abonnement verwijderen om onbewaakte toegang te voorkomen. |
-| Externe accounts met eigenaarsmachtigingen van uw abonnement verwijderen | Hiermee wordt aanbevolen dat u externe accounts met eigenaarsmachtigingen uit uw abonnement verwijderen om onbewaakte toegang te voorkomen. |
-| Afgeschafte accounts verwijderen van abonnement | Raadt u afgeschafte accounts van uw abonnementen. |
-| Afgeschafte accounts met eigenaarsmachtigingen verwijderen uit abonnement | Raadt u afgeschafte accounts met eigenaarsmachtigingen van uw abonnementen. |
+|Resourcetype|Beveiligingsscore|Aanbeveling|Beschrijving|
+|----|----|----|----|
+|Abonnement|50|MFA inschakelen voor de App voor Azure-accounts met eigenaarsmachtigingen voor uw abonnement|Schakel multi-factor Authentication (MFA) voor alle abonnementsaccounts met administrator-bevoegdheden om te voorkomen dat er inbreuk wordt gepleegd accounts of resources.|
+|Abonnement|50|Security center voor uw abonnementen inschakelen |Security center op al uw abonnementen voor geavanceerde detectie van bedreigingen, JIT, opname in de whitelist en geavanceerde aanbevelingen inschakelen |
+|Abonnement|50|Security center standard-laag van uw abonnementen inschakelen |Security center Standard-laag op al uw abonnementen voor geavanceerde detectie van bedreigingen, JIT, opname in de whitelist en geavanceerde aanbevelingen inschakelen.|
+|Abonnement|40|MFA inschakelen voor de App voor Azure-accounts met schrijfmachtigingen voor uw abonnement|Schakel multi-factor Authentication (MFA) voor alle abonnementsaccounts met schrijfmachtigingen om te voorkomen dat er inbreuk wordt gepleegd accounts of resources.|
+|Abonnement|30|Externe accounts met eigenaarsmachtigingen van uw abonnement verwijderen|Externe accounts met eigenaarsmachtigingen verwijderen uit uw abonnement om onbewaakte toegang te voorkomen. |
+|Abonnement|30|MFA inschakelen voor de App voor Azure-accounts met leesmachtigingen voor uw abonnement|Schakel multi-factor Authentication (MFA) voor alle abonnementsaccounts met leesmachtigingen om te voorkomen dat er inbreuk wordt gepleegd accounts of resources.|
+|Abonnement|25|Externe accounts met schrijfmachtigingen verwijderen van uw abonnement|Externe accounts met schrijfmachtigingen verwijderen uit uw abonnement om onbewaakte toegang te voorkomen. |
+|Abonnement|20|Afgeschafte accounts met eigenaarsmachtigingen van uw abonnement verwijderen|Afgeschafte accounts met eigenaarsmachtigingen verwijderen van uw abonnementen.|
+|Abonnement|5|Afgeschafte accounts verwijderen van uw abonnement|Afgeschafte accounts verwijderen van uw abonnementen voor toegang tot alleen actieve gebruikers. |
+|Abonnement|5|Meer dan één eigenaar van uw abonnement opgeven|Meer dan één abonnementseigenaar aanwijzen om de beheerder toegang redundantie.|
+|Abonnement|5|Maximaal 3 eigenaren voor uw abonnement opgeven|Minder dan 3 abonnementseigenaren aanwijzen om te reduceren van de mogelijkheden voor inbreuk op een gecomprimeerde eigenaar.|
+|Key Vault|5|Schakel diagnostische logboeken in Key Vault|Logboeken inschakelen en ze maximaal een jaar bewaren. Hiermee kunt u activiteit sporen onderzoek opnieuw maken wanneer een beveiligingsincident voordoet of uw netwerk is gecompromitteerd. |
+|Abonnement|15|Externe accounts met leesmachtigingen verwijderen van uw abonnement|Externe accounts met leesmachtigingen verwijderen uit uw abonnement om onbewaakte toegang te voorkomen.|
+|Abonnement|1|Contactgegevens voor beveiliging verstrekken|Neem contact op met de beveiligingsgegevens voor al uw abonnementen bevatten. Contactgegevens is een e-mailadres en telefoonnummer getal. De informatie wordt gebruikt om contact met u als beveiligingsteam vindt dat uw resources zijn aangetast|
+
+> ! [OPMERKING] Als u een beleid voor voorwaardelijke toegang die MFA vereist, maar stel uitsluitingen heeft gemaakt, de evaluatie van Security Center MFA aanbeveling rekening gehouden met het beleid voor niet-compatibel, omdat hij Hiermee sommige gebruikers zich aanmelden bij Azure zonder MFA.
+>
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie de volgende onderwerpen voor meer informatie over aanbevelingen die betrekking hebben op andere typen Azure-resources:

@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2018
 ms.author: markvi
-ms.openlocfilehash: b5f5fa74dca664d31c19055fadd9b66f84627b67
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: c6ec20b7467998d221858dfd852461ad33a64494
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50157102"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51035210"
 ---
 # <a name="group-policy-and-mdm-settings"></a>Instellingen voor Groepsbeleid en MDM
 Gebruik deze instellingen voor Groepsbeleid en het management (MDM)-instellingen voor mobiele apparaten alleen op apparaten in Bedrijfseigendom omdat deze beleidsregels worden toegepast op het hele apparaat van de gebruiker. Toepassen van een MDM-beleid om uit te schakelen van synchronisatie van instellingen voor een persoonlijk apparaat eigendom van gebruikers wordt negatieve invloed hebben op het gebruik van het apparaat. De accounts van andere gebruikers op het apparaat wordt bovendien ook worden beïnvloed door het beleid.

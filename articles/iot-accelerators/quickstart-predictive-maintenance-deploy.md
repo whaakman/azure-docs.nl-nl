@@ -7,14 +7,14 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 07/12/2018
+ms.date: 10/26/2018
 ms.author: dobett
-ms.openlocfilehash: 10ff6565ed8997a5cb87394aa0d743a0d94b67e0
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: c56bdb5968b5f5ada902aa9212282c3cfebe2eaf
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39144309"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50139836"
 ---
 # <a name="quickstart-try-a-cloud-based-solution-to-run-a-predictive-maintenance-analysis-on-my-connected-devices"></a>Quickstart: Een cloudoplossing uitproberen om een analyse voor predictief onderhoud uit te voeren op mijn verbonden apparaten
 
@@ -22,7 +22,7 @@ In deze quickstart ziet u hoe u de Azure IoT-oplossingsverbetering voor predicti
 
 In de simulatie is Fabrikam een regionale luchtvaartmaatschappij die zich toelegt op het leveren van een uitstekende klantervaring tegen concurrerende prijzen. Een oorzaak van vertragingen zijn onderhoudsproblemen, waarbij het onderhoud van vliegtuigmotoren een bijzondere uitdaging vormt. Motorproblemen tijdens de vlucht moeten koste wat kost worden voorkomen. Fabrikam inspecteert om die reden regelmatig de motoren en volgt een planning voor het plegen van onderhoud. Vliegtuigmotoren slijten echter niet allemaal even snel. Er wordt onnodig onderhoud uitgevoerd op motoren. En wat belangrijker is, er doen zich soms problemen voor die ervoor zorgen dat een vliegtuig aan de grond moet blijven totdat het onderhoud gereed is. Deze problemen kunnen erg kostbaar zijn, in het bijzonder als een vliegtuig zich op een locatie bevindt waar de juiste technici of onderdelen niet beschikbaar zijn.
 
-De motoren van de vliegtuigen van Fabrikam zijn uitgerust met sensoren die de toestand van de motor tijdens de vlucht in de gaten houden. Na jarenlang operationele gegevens van engines te hebben verzameld, hebben de gegevensanalisten van Fabrikam een model ontwikkeld waarmee ze de nog resterende bruikbare levensduur van een vliegtuigmotor kunnen voorspellen. Het model gebruikt een correlatie tussen gegevens van vier van de motorsensoren en de slijtage van de motor die uiteindelijk tot problemen leidt. Hoewel Fabrikam doorgaat met de regelmatige inspecties om de veiligheid te garanderen, kan het bedrijf nu de modellen gebruiken om na elke vlucht de resterende bruikbare levensduur van elke motor te berekenen. Fabrikam kan nu toekomstige probleempunten voorspellen en onderhoud plannen om de tijd die vliegtuigen aan de grond staan te minimaliseren en de operationele kosten te verlagen, terwijl tegelijkertijd de veiligheid van de passagiers en bemanning wordt gegarandeerd.
+De motoren van de vliegtuigen van Fabrikam zijn uitgerust met sensoren die de toestand van de motor tijdens de vlucht in de gaten houden. Fabrikam beschikt dankzij deze sensoren over jaren met gegevens over de werking van motoren en over fouten. De gegevensanalisten van Fabrikam gebruikten deze gegevens om een model te ontwikkelen om de resterende levensduur (RUL) van een vliegtuigmotor te voorspellen. Het model gebruikt een correlatie tussen gegevens van vier van de motorsensoren en de slijtage van de motor die uiteindelijk tot problemen leidt. Hoewel Fabrikam regelmatig veiligheidsinspecties blijft uitvoeren, kan het bedrijf nu de modellen gebruiken om na elke vlucht de resterende levensduur van elke motor te berekenen. Fabrikam is nu in staat om toekomstige probleempunten te voorspellen en om van tevoren onderhoud te plannen om de tijd die vliegtuigen aan de grond doorbrengen zo klein mogelijk te maken. Dankzij dit proces worden de bedrijfskosten verlaagd, terwijl de veiligheid van de passagiers en het personeel wordt gegarandeerd.
 
 U hebt een actief Azure-abonnement nodig om deze snelstart te voltooien.
 
@@ -32,11 +32,11 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 
 Wanneer u de oplossingsverbetering implementeert in uw Azure-abonnement, moet u bepaalde configuratieopties instellen.
 
-Meld u aan bij [azureiotsolutions.com](https://www.azureiotsolutions.com/Accelerators) met behulp van de referenties van uw Azure-account.
+Ga naar [Oplossingsverbeteringen van Microsoft Azure IoT](https://www.azureiotsolutions.com) en meld u aan met de referenties voor uw Azure-account.
 
-Selecteer **Nu proberen** op de tegel **Predictief onderhoud**.
+Klik op de tegel **Predictief onderhoud**. Klik op de pagina **Predictief onderhoud** op **Nu proberen**:
 
-![Predictief onderhoud kiezen](./media/quickstart-predictive-maintenance-deploy/predictivemaintenance.png)
+![Nu uitproberen](./media/quickstart-predictive-maintenance-deploy/predictivemaintenance.png)
 
 Voer op de pagina **Oplossing voor predictief onderhoud maken** een unieke **Oplossingsnaam** in voor de oplossingsverbetering voor predictief onderhoud. Voor deze quickstart gebruiken we **MijnPredictiefOnderhoud**.
 

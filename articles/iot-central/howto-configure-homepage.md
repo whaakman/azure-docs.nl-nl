@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 609dc8aa1305833fb3677de6fbe95cf490237a4a
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 8e79d05147cae5bf9c46fc1f7c0e7e98574383d5
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45731118"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51007617"
 ---
 ## <a name="configuring-homepage"></a>Startpagina configureren
 
-De startpagina is de pagina die wordt geladen wanneer gebruikers die toegang hebben, navigeer naar de URL van de toepassing. Als u de "Voorbeeld Contoso" of "Voorbeeld Devkits" Toepassingssjablonen geselecteerd tijdens het maken van uw toepassing, zal uw toepassing zijn vooraf gedefinieerde startpagina's. Als aan de andere kant kunt u de sjabloon van de toepassing 'Aangepaste Application' geselecteerd, wordt uw startpagina niet leeg zijn.
+De startpagina is de pagina die wordt geladen wanneer gebruikers die toegang tot de toepassing hebben gaat u naar de URL van de toepassing. Als u de "Voorbeeld Contoso" of "Voorbeeld Devkits" Toepassingssjablonen geselecteerd tijdens het maken van uw toepassing, zal uw toepassing zijn vooraf gedefinieerde startpagina's. Als aan de andere kant kunt u de sjabloon van de toepassing 'Aangepaste Application' geselecteerd, wordt uw startpagina niet leeg zijn.
 
 Bijvoorbeeld, als volgt de startpagina voor toepassingen op basis van de sjabloon 'Contoso voorbeeld'. Voor het aanpassen van de startpagina voor uw toepassing, selecteert u eerst **bewerken** in de rechterbovenhoek. 
 

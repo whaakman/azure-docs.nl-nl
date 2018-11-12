@@ -6,14 +6,14 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: 823bf50a54ff43fa95f7136c137e3d8f3303c3e0
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: d32c664049b7e7c1231e78c552e7c61d016fbe84
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50633932"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51286755"
 ---
-# <a name="prepare-to-create-the-avere-vfxt"></a>Voorbereidingen voor het maken van de vFXT Avere
+# <a name="prepare-to-create-the-avere-vfxt"></a>Voorbereiden op het maken van de Avere vFXT
 
 In dit artikel wordt uitgelegd dat de vereiste taken voor het maken van een Avere vFXT-cluster.
 
@@ -59,10 +59,10 @@ U moet voldoende quotum voor de volgende Azure-onderdelen hebben. Indien nodig, 
 
 |Azure-onderdeel|Quota|
 |----------|-----------|
-|Virtuele machines|3 of meer D16s_v3 of E32s_v3|
-|Premium-SSD-opslag|200 GB ruimte op de OS plus 1 TB tot 4 TB ruimte in cache per knooppunt |
-|Storage-account (optioneel) |v2|
-|Opslag van back-end-gegevens (optioneel) |Een nieuwe LRS Blob-container |
+|Virtuele machines|3 of meer D16s_v3's of E32s_v3's|
+|Premium SSD-opslag|200 GB ruimte in het besturingssysteem plus 1 tot 4 TB ruimte in de cache per knooppunt |
+|Opslagaccount (optioneel) |v2|
+|Back-endopslag van gegevens (optioneel) |Een nieuwe LRS Blob-container |
 
 ## <a name="accept-software-terms-in-advance"></a>Software vooraf voorwaarden accepteren
 
@@ -80,11 +80,10 @@ De software om voorwaarden te accepteren van tevoren:
     az account set --subscription abc123de-f456-abc7-89de-f01234567890
    ```
 
-1. Voert u deze opdracht voor het accepteren van de service en programmatische toegang inschakelen voor de vFXT Avere voor installatiekopieën van Azure-software: 
+1. Voert u deze opdracht voor het accepteren van de service en programmatische toegang inschakelen voor de vFXT Avere voor de installatiekopie van het Azure-software: 
 
    ```azurecli
    az vm image accept-terms --urn microsoft-avere:vfxt:avere-vfxt-controller:latest
-   az vm image accept-terms --urn microsoft-avere:vfxt:avere-vfxt-node:latest
    ```
 
 ## <a name="next-step-create-the-vfxt-cluster"></a>Volgende stap: maken van het cluster vFXT

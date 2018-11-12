@@ -1,29 +1,29 @@
 ---
-title: Failover en failback voor virtuele Hyper-V-machines gerepliceerd naar Azure met Site Recovery | Microsoft Docs
-description: Leer hoe u een failover uitvoert van virtuele Hyper-V-machines naar Azure en daarna een failback naar de on-premises site, beide met Azure Site Recovery
+title: Failover- en failback-overschakeling uitvoeren van Hyper-V-VM's naar Azure als onderdeel van herstel na een noodgeval met Azure Site Recovery | Microsoft Docs
+description: Leer hoe u failover- en failback-overschakeling kunt uitvoeren van Hyper-V-VM's naar Azure als onderdeel van herstel na een noodgeval met de Azure Site Recovery-service.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 10/10/2018
+ms.date: 10/28/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 31de654e6746cecf5aedabbfe481ab99b2aa3510
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 6dde345e360dc304578b626ee2678dd51fe56dc6
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49076980"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210513"
 ---
-# <a name="failover-and-failback-hyper-v-vms-replicated-to-azure"></a>Failover en failback van virtuele Hyper-V-machines gerepliceerd naar Azure
+# <a name="fail-over-and-fail-back-hyper-v-vms-replicated-to-azure"></a>Failover en failback voor virtuele Hyper-V-machines die zijn gerepliceerd naar Azure
 
-Deze zelfstudie beschrijft het uitvoeren van een failover van een virtuele Hyper-V-machine naar Azure. Nadat de failover is uitgevoerd, kunt u teruggaan naar de on-premises site wanneer deze weer beschikbaar is. In deze zelfstudie leert u het volgende:
+Deze zelfstudie beschrijft het uitvoeren van een failover van een virtuele Hyper-V-machine naar Azure. Nadat u een failover hebt uitgevoerd, valt u terug op uw on-premises site wanneer deze beschikbaar is. In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
 > * Controleren of de eigenschappen van de virtuele Hyper-V-machine in overeenstemming zijn met de Azure-vereisten
 > * Een failover naar Azure uitvoeren
-> * Een failback van Azure naar on-premises uitvoeren
+> * Failback van Azure naar on-premises
 > * Replicatie van on-premises virtuele machines omkeren om weer te repliceren naar Azure
 
 Dit is de vijfde zelfstudie in een reeks. In deze zelfstudie wordt ervan uitgegaan dat u de taken in de vorige zelfstudies al hebt voltooid.    

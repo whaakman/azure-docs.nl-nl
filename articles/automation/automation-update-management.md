@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/25/2018
+ms.date: 11/05/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 90a5be07b6939df1850bb1574c71254bb896f004
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 6d981d9dc7433d957819d0beb6aa6265882f1890
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50093822"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51037393"
 ---
 # <a name="update-management-solution-in-azure"></a>Oplossing voor updatebeheer in Azure
 
@@ -35,7 +35,7 @@ Het volgende diagram ziet u een conceptueel overzicht van het gedrag en de gegev
 
 ![Processtroom voor het beheer van bijwerken](media/automation-update-management/update-mgmt-updateworkflow.png)
 
-Updatebeheer kan worden gebruikt om systeemeigen Onboarding van machines in meerdere abonnementen in dezelfde tenant. Voor het beheren van computers in een andere tenant, moet u onboarding als [niet-Azure-machines](automation-onboard-solutions-from-automation-account.md#onboard-a-non-azure-machine).
+Updatebeheer kan worden gebruikt om systeemeigen Onboarding van machines in meerdere abonnementen in dezelfde tenant.
 
 Zodra een CVE release is, duurt het 2-3 uur voor de patch voor Linux-machines voor evaluatie wordt weergegeven.  Het duurt 15-12 uur voor de patch om weer te geven voor de beoordeling nadat deze is vrijgegeven voor Windows-machines.
 

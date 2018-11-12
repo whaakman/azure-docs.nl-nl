@@ -1,6 +1,6 @@
 ---
 title: Een gesimuleerd TPM-apparaat met C# inrichten voor Azure IoT Hub | Microsoft Docs
-description: 'Azure-quickstart: een gesimuleerd TPM-apparaat met de SDK voor C# maken en inrichten voor Azure IoT Hub Device Provisioning Service'
+description: Azure-snelstart - Een gesimuleerd TPM-apparaat maken en inrichten met de SDK voor C#-apparaat voor Azure IoT Hub Device Provisioning Service. In deze snelstart wordt gebruikgemaakt van afzonderlijke inschrijvingen.
 author: wesmc7777
 ms.author: wesmc
 ms.date: 04/09/2018
@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: fd16defdcd3c3cb0c78994e9259b55f3d687163b
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 812b707b9711d61d0a1326a86644e57ecbe84513
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47032645"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50157887"
 ---
 # <a name="create-and-provision-a-simulated-tpm-device-using-c-device-sdk-for-iot-hub-device-provisioning-service"></a>Een gesimuleerd TPM-apparaat met de SDK voor C# maken en inrichten voor IoT Hub Device Provisioning Service
 
@@ -23,6 +23,12 @@ ms.locfileid: "47032645"
 In deze stappen ziet u hoe u met de SDK voor C# voor Azure IoT Hub een gesimuleerd TPM-apparaat maakt op een ontwikkelcomputer met Windows OS en het codevoorbeeld gebruikt om dit gesimuleerde apparaat te verbinden met de Device Provisioning Service en uw IoT-hub. De voorbeeldcode gebruikt de Windows TPM-simulator als de [HSM (Hardware Security Module)](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) van het apparaat. 
 
 Als u niet bekend bent met het proces van automatische inrichting, bekijk dan ook de [Concepten voor automatische inrichting](concepts-auto-provisioning.md). Controleer ook of u de stappen in [IoT Hub Device Provisioning Service instellen met Azure Portal](./quick-setup-auto-provision.md) hebt voltooid voordat u verdergaat. 
+
+Azure IoT Device Provisioning Service ondersteunt twee typen inschrijvingen:
+- [Inschrijvingsgroepen](concepts-service.md#enrollment-group): voor het inschrijven van meerdere gerelateerde apparaten.
+- [Afzonderlijke inschrijvingen](concepts-service.md#individual-enrollment): voor het inschrijven van een enkel apparaat.
+
+In dit artikel worden afzonderlijke inschrijvingen gedemonstreerd.
 
 [!INCLUDE [IoT Device Provisioning Service basic](../../includes/iot-dps-basic.md)]
 
@@ -42,7 +48,7 @@ Als u niet bekend bent met het proces van automatische inrichting, bekijk dan oo
 ## <a name="provision-the-simulated-device"></a>Het gesimuleerde apparaat inrichten
 
 
-1. Meld u aan bij Azure Portal. Klik in het linkermenu op de knop **All resources** en open uw Device Provisioning-service. Noteer op de blade **Overzicht** de waarde voor **_Id-bereik_**.
+1. Meld u aan bij Azure Portal. Klik in het linkermenu op de knop **All resources** en open uw Device Provisioning-service. Noteer de waarde van het **_Id-bereik_** in de blade **Overzicht**.
 
     ![Bereik-id van provisioning-service kopiëren van portal-blade](./media/quick-create-simulated-device-tpm-csharp/copy-scope.png) 
 

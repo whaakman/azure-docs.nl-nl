@@ -10,27 +10,27 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 10/10/2018
+ms.date: 10/30/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 3a2edb898c8053627684818d7fe257fe3402df5f
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 601d022917adc71ff3a3c728c7b674ae47a632c4
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49645470"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50238475"
 ---
 # <a name="tutorial-integrate-azure-key-vault-in-resource-manager-template-deployment"></a>Zelfstudie: Azure Key Vault integreren in de Resource Manager-sjabloonimplementatie
 
 Ontdek hoe u geheime waarden uit Azure Key Vault ophaalt en hoe u geheime waarden als parameters opgeeft tijdens Resource Manager-implementatie. De waarde zelf wordt nooit getoond, omdat u alleen verwijst naar de Key Vault-id. Zie [Azure Key Vault gebruiken om veilig parameterwaarden door te geven tijdens de implementatie](./resource-manager-keyvault-parameter.md) voor meer informatie
 
-In deze zelfstudie maakt u een virtuele machine en enkele afhankelijke resources in het sjabloon dat ook wordt gebruikt in [Zelfstudie: Azure Resource Manager-sjablonen maken met afhankelijke resources](./resource-manager-tutorial-create-templates-with-dependent-resources.md). Het beheerderswachtwoord voor virtuele machines wordt opgehaald uit Azure Key Vault.
+In de zelfstudie [Resource-implementatievolgorde instellen](./resource-manager-tutorial-create-templates-with-dependent-resources.md) maakt u een virtuele machine, een virtueel netwerk en enkele andere afhankelijke resources. In deze zelfstudie past u de sjabloon zodanig aan dat het beheerderswachtwoord van de virtuele machine uit Azure Key Vault wordt opgehaald.
 
 Deze zelfstudie bestaat uit de volgende taken:
 
 > [!div class="checklist"]
 > * Key Vault voorbereiden
-> * Een snelstartsjabloon openen
+> * Snelstartsjabloon openen
 > * Het parameterbestand bewerken
 > * De sjabloon implementeren
 > * De implementatie valideren
@@ -42,13 +42,19 @@ Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.
 
 Als u dit artikel wilt voltooien, hebt u het volgende nodig:
 
-* [Visual Studio Code](https://code.visualstudio.com/) met de [extensie Resource Manager Tools](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites)
+* [Visual Studio Code](https://code.visualstudio.com/) met de [extensie Resource Manager Tools](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites).
+* Gebruik voor een verbeterde beveiliging een gegenereerd wachtwoord voor het beheerdersaccount van de virtuele machine. Hier volgt een voorbeeld voor het genereren van een wachtwoord:
+
+    ```azurecli-interactive
+    openssl rand -base64 32
+    ```
+    Azure Key Vault is ontworpen om cryptografische sleutels en andere geheimen te beveiligen. Zie [Zelfstudie: Azure Key Vault integreren in de Resource Manager-sjabloonimplementatie](./resource-manager-tutorial-use-key-vault.md) voor meer informatie. We raden u ook aan om uw wachtwoord elke drie maanden te wijzigen.
 
 ## <a name="prepare-the-key-vault"></a>Key Vault voorbereiden
 
 In dit gedeelte gebruikt u een Resource Manager-sjabloon om een sleutelkluis en een geheim te maken. Dit sjabloon doet het volgende:
 
-* Een sleutelkluis maken met de eigenschap **enabledForTemplateDeployment** ingeschakeld. Deze eigenschap moet de waarde 'true' hebben, anders kan tijdens het sjabloonimplementatieproces geen toegang worden verkregen tot de geheimen in deze sleutelkluis.
+* Een Key Vault maken die de eigenschap `enabledForTemplateDeployment` inschakelt. Deze eigenschap moet de waarde 'true' hebben, anders kan tijdens het sjabloonimplementatieproces geen toegang worden verkregen tot de geheimen in deze sleutelkluis.
 * Voeg een geheim toe aan de sleutelkluis.  In het geheim wordt het beheerderswachtwoord van de virtuele machine opgeslagen.
 
 Als u (als de gebruiker die het virtuele-machinesjabloon gaat implementeren) niet de eigenaar of inzender bent van de sleutelkluis, moet de eigenaar of inzender van de sleutelkluis u toegang verlenen tot de machtiging Microsoft.KeyVault/vaults/deploy/action voor de sleutelkluis. Zie [Azure Key Vault gebruiken om veilig parameterwaarden door te geven tijdens de implementatie](./resource-manager-keyvault-parameter.md) voor meer informatie
@@ -58,7 +64,9 @@ Uw Azure AD-gebruikersobject-id is in de sjabloon nodig om machtigingen te kunne
 1. Voer de volgende Azure PowerShell- of Azure CLI-opdracht uit.  
 
     ```azurecli-interactive
-    az ad user show --upn-or-object-id "<Your User Principle Name>" --query "objectId"
+    echo "Enter your email address that is associated with your Azure subscription):" &&
+    read upn &&
+    az ad user show --upn-or-object-id $upn --query "objectId" &&
     openssl rand -base64 32
     ```
     ```azurepowershell-interactive
@@ -95,21 +103,21 @@ Een sleutelkluis maken:
     ```json
     "enabledForTemplateDeployment": true,
     ```
-    `enabledForTemplateDeployment` is een Key Vault-eigenschap. Deze eigenschap moet de waarde 'true' hebben, anders kunt u tijdens de implementatie geen geheimen ophalen uit deze sleutelkluis. 
+    `enabledForTemplateDeployment` is een Key Vault-eigenschap. Deze eigenschap moet de waarde 'true' hebben, anders kunt u tijdens de implementatie geen geheimen ophalen uit deze sleutelkluis.
 6. Blader naar regel 89. Dit is de Key Vault-geheimdefinitie.
 7. Selecteer **Negeren** aan de onderkant van de pagina. U hebt geen wijzigingen aangebracht.
 8. Controleer of u alle waarden hebt opgegeven, zoals in de vorige schermafbeelding te zien is. Klik dan onder aan de pagina op **Kopen**.
 9. Selecteer het belpictogram (voor meldingen) bovenaan op de pagina om het deelvenster **Meldingen** te openen. Wacht tot de resource is geïmplementeerd.
-8. Selecteer **Ga naar de resourcegroep** in het deelvenster **Meldingen**. 
-9. Selecteer de naam van de sleutelkluis om die te openen.
-10. Selecteer **Toegangsbeleid** in het linkerdeelvenster. Uw naam (Active Directory) wordt vermeld, want anders hebt u het recht niet om de sleutelkluis te openen.
-11. Selecteer **Klik hierop om geavanceerde beleidsregels weer te geven**. U ziet dat **Toegang tot Azure Resource Manager inschakelen voor sjabloonimplementatie** is geselecteerd. Dit is nog een voorwaarde om er zeker van te zijn dat de Key Vault-integratie werkt.
+10. Selecteer **Ga naar de resourcegroep** in het deelvenster **Meldingen**. 
+11. Selecteer de naam van de sleutelkluis om die te openen.
+12. Selecteer **Toegangsbeleid** in het linkerdeelvenster. Uw naam (Active Directory) wordt vermeld, want anders hebt u het recht niet om de sleutelkluis te openen.
+13. Selecteer **Klik hierop om geavanceerde beleidsregels weer te geven**. U ziet dat **Toegang tot Azure Resource Manager inschakelen voor sjabloonimplementatie** is geselecteerd. Dit is nog een voorwaarde om er zeker van te zijn dat de Key Vault-integratie werkt.
 
-    ![Resource Manager-sjabloon - sleutelkluisintegratie - toegangsbeleid](./media/resource-manager-tutorial-use-key-vault/resource-manager-tutorial-key-vault-access-policies.png)    
-12. Selecteer **Eigenschappen** in het linkerdeelvenster.
-13. Kopieer de **resource-id**. U hebt deze id nodig bij het implementeren van de virtuele machine.  De indeling van de resource-id is:
+    ![Resource Manager-sjabloon - sleutelkluisintegratie - toegangsbeleid](./media/resource-manager-tutorial-use-key-vault/resource-manager-tutorial-key-vault-access-policies.png)
+14. Selecteer **Eigenschappen** in het linkerdeelvenster.
+15. Kopieer de **resource-id**. U hebt deze id nodig bij het implementeren van de virtuele machine.  De indeling van de resource-id is:
 
-    ```
+    ```json
     /subscriptions/<SubscriptionID>/resourceGroups/mykeyvaultdeploymentrg/providers/Microsoft.KeyVault/vaults/<KeyVaultName>
     ```
 
@@ -124,8 +132,17 @@ Azure-snelstartsjablonen is een opslagplaats voor Resource Manager-sjablonen. In
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json
     ```
 3. Selecteer **Openen** om het bestand te openen. Dit is hetzelfde scenario als in [Zelfstudie: Azure Resource Manager-sjablonen met afhankelijke resources maken](./resource-manager-tutorial-create-templates-with-dependent-resources.md).
-4. Selecteer **Bestand**>**Opslaan als** om het bestand op uw lokale computer op te slaan als **azuredeploy.json**.
-5. Herhaal stap 1-4 om de volgende URL te openen en sla het bestand dan op als **azuredeploy.parameters.json**.
+4. Er worden vijf resources gedefinieerd door de sjabloon:
+
+    * `Microsoft.Storage/storageAccounts`. Zie de [sjabloonverwijzing](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts).
+    * `Microsoft.Network/publicIPAddresses`. Zie de [sjabloonverwijzing](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses).
+    * `Microsoft.Network/virtualNetworks`. Zie de [sjabloonverwijzing](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks).
+    * `Microsoft.Network/networkInterfaces`. Zie de [sjabloonverwijzing](https://docs.microsoft.com/azure/templates/microsoft.network/networkinterfaces).
+    * `Microsoft.Compute/virtualMachines`. Zie de [sjabloonverwijzing](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines).
+
+    Het is handig om enige basiskennis te hebben van de sjabloon voordat u deze gaat aanpassen.
+5. Selecteer **Bestand**>**Opslaan als** om het bestand op uw lokale computer op te slaan als **azuredeploy.json**.
+6. Herhaal stap 1-4 om de volgende URL te openen en sla het bestand dan op als **azuredeploy.parameters.json**.
 
     ```url
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.parameters.json

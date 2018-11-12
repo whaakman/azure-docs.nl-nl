@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/25/2018
 ms.author: johnkem
 ms.component: activitylog
-ms.openlocfilehash: af8248bb68068c20d62a2d8cc1e86fd9997a740c
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 41965c4a498cfa4c1f0dfefaf7615e43083eb94c
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50962960"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51011830"
 ---
 # <a name="stream-the-azure-activity-log-to-event-hubs"></a>Stream het Azure-activiteitenlogboek naar Eventhubs
 U kunt streamen de [Azure Activity Log](monitoring-overview-activity-logs.md) in bijna realtime voor elke toepassing door een van beide:
@@ -39,10 +39,10 @@ Voor het bijwerken van het activiteitenlogboek logboekprofiel om op te nemen str
 ### <a name="via-the-azure-portal"></a>Via de Azure-portal
 1. Blader naar de **activiteitenlogboek** sectie met behulp van de **alle services** zoeken aan de linkerkant van de portal.
    
-   ![Activiteitenlogboek selecteren in de lijst met services in de portal](./media/monitoring-stream-activity-logs-event-hubs/activity.png)
-2. Selecteer de **exporteren** knop aan de bovenkant van het logboek.
+   ![Activiteitenlogboek selecteren in de lijst met services in de portal](./media/monitoring-stream-activity-logs-event-hubs/activity-logs-portal-navigate-v2.png)
+2. Selecteer de **exporteren naar Event Hub** knop aan de bovenkant van het logboek.
    
-   ![De knop exporteren in de portal](./media/monitoring-stream-activity-logs-event-hubs/export.png)
+   ![De knop exporteren in de portal](./media/monitoring-stream-activity-logs-event-hubs/activity-logs-portal-export-v2.png)
 
    Houd er rekening mee dat de filterinstellingen die u toegepast tijdens het bekijken van het activiteitenlogboek in de vorige weergave geen invloed op uw instellingen voor exporteren hebben. Dit zijn alleen voor het filteren van wat u ziet tijdens het bladeren door het activiteitenlogboek is opgenomen in de portal.
 3. Selecteer in de sectie die wordt weergegeven, **alle regio's**. Selecteer specifieke regio's niet.

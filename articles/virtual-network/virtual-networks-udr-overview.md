@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 97e192312619455c0055a917df880cc48eb082dd
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 9efb08922f3e6f78266baaf8ae623dd241c09522
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978901"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51037614"
 ---
 # <a name="virtual-network-traffic-routing"></a>Routering van verkeer in virtuele netwerken
 
@@ -167,7 +167,7 @@ Wanneer u het adresvoorvoegsel 0.0.0.0/0 overschrijft, wordt de standaardrouteri
         - Het apparaat moet het netwerkadres kunnen omzetten en doorsturen, of het verkeer via een proxy omleiden naar de doelresource in het subnet, en het verkeer terugleiden naar internet. 
     - **Gateway van virtueel netwerk**: als de gateway een ExpressRoute-gateway is, kan een on-premises apparaat dat met internet is verbonden het netwerkadres omzetten en doorsturen, of het verkeer via een proxy omleiden naar de doelresource in het subnet, via [privé-peering](../expressroute/expressroute-circuit-peerings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-private-peering) van ExpressRoute. 
 
-Als uw virtuele netwerk is verbonden met een Azure VPN-gateway, koppelt u geen routetabel aan het [gatewaysubnet](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub) met een route die als bestemming heeft: 0.0.0.0/0. Als u dit wel doet, functioneert de gateway mogelijk niet juist. Zie de vraag *Waarom zijn bepaalde poorten geopend op mijn VPN-gateway?* in de [Veelgestelde vragen over VPN Gateways](../vpn-gateway/vpn-gateway-vpn-faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#why-are-certain-ports-opened-on-my-vpn-gateway) voor meer informatie.
+Als uw virtuele netwerk is verbonden met een Azure VPN-gateway, koppelt u geen routetabel aan het [gatewaysubnet](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub) met een route die als bestemming heeft: 0.0.0.0/0. Als u dit wel doet, functioneert de gateway mogelijk niet juist. Zie de vraag *Waarom zijn bepaalde poorten geopend op mijn VPN-gateway?* in de [Veelgestelde vragen over VPN Gateways](../vpn-gateway/vpn-gateway-vpn-faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gatewayports) voor meer informatie.
 
 Zie [DMZ tussen Azure en uw on-premises datacenter](/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=%2fazure%2fvirtual-network%2ftoc.json) en [DMZ tussen Azure en internet](/azure/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2fazure%2fvirtual-network%2ftoc.json) voor uitgebreide informatie over de implementatie bij gebruik van virtuele netwerkgateways en virtuele apparaten tussen internet en Azure.
 

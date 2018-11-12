@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 04/10/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 5effed58ea0fab9051470a44be30fbb3a7fd7feb
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: aa5e0887f6dfb3e983c08d1bbcf1f56f41a9543d
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50962653"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51012799"
 ---
 # <a name="create-and-manage-alert-rules-in-log-analytics-with-rest-api"></a>Maken en beheren van regels voor waarschuwingen in Log Analytics met REST-API
 De Log Analytics Alert REST API kunt u waarschuwingen in Log Analytics maken en beheren.  Dit artikel bevat informatie over de API en enkele voorbeelden voor het uitvoeren van verschillende bewerkingen.
@@ -28,7 +28,7 @@ De Log Analytics Alert REST API kunt u waarschuwingen in Log Analytics maken en 
 De Log Analytics Search REST-API is RESTful en zijn toegankelijk via de Azure Resource Manager REST API. In dit document vindt u voorbeelden waarin de API is toegankelijk vanuit een PowerShell-opdrachtregel met [ARMClient](https://github.com/projectkudu/ARMClient), een open-source-opdrachtregelprogramma dat vereenvoudigt het aanroepen van de Azure Resource Manager-API. Het gebruik van ARMClient en PowerShell is een van de vele opties voor toegang tot de Log Analytics Search-API. Met deze hulpprogramma's, kunt u gebruikmaken van de RESTful API van Azure Resource Manager om aanroepen naar Log Analytics-werkruimten en zoeken in opdrachten in deze uitvoeren. De API uitvoer zoekresultaten aan u in JSON-indeling, zodat u kunt de lijst met zoekresultaten via een programma op veel verschillende manieren gebruiken.
 
 ## <a name="prerequisites"></a>Vereisten
-Waarschuwingen kunnen op dit moment alleen worden gemaakt met een opgeslagen zoekopdracht in Log Analytics.  U kunt verwijzen naar de [Log Search REST-API](log-analytics-log-search.md) voor meer informatie.
+Waarschuwingen kunnen op dit moment alleen worden gemaakt met een opgeslagen zoekopdracht in Log Analytics.  U kunt verwijzen naar de [Log Search REST-API](log-analytics-queries.md) voor meer informatie.
 
 ## <a name="schedules"></a>Planningen
 Een opgeslagen zoekopdracht kan een of meer schema's hebben. Het schema wordt gedefinieerd hoe vaak de zoekopdracht wordt uitgevoerd en het tijdsinterval op waarover de criteria wordt geïdentificeerd.
@@ -510,6 +510,6 @@ Gebruik de Put-methode met de ID van een bestaande actie om een webhookactie voo
 
 
 ## <a name="next-steps"></a>Volgende stappen
-* Gebruik de [REST-API voor het uitvoeren van zoekopdrachten in logboeken](log-analytics-log-search.md) in Log Analytics.
+* Gebruik de [REST-API voor het uitvoeren van zoekopdrachten in logboeken](log-analytics-queries.md) in Log Analytics.
 * Meer informatie over [waarschuwingen voor activiteitenlogboeken in azure-waarschuwingen](../monitoring-and-diagnostics/monitor-alerts-unified-log.md)
 

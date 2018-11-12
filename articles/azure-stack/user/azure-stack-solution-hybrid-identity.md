@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/28/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 7cea11f448f20ace2dd50454834e60ce3a3c3b70
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: e1ace09ba293cf80b2dbbe8f746eb7fd5bc8d7cb
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47584265"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51036390"
 ---
 # <a name="tutorial-configure-hybrid-cloud-identity-for-azure-and-azure-stack-applications"></a>Zelfstudie: Hybride cloud-identiteit voor Azure en Azure Stack-toepassingen configureren
 
@@ -74,7 +74,7 @@ De installatie van een Azure Stack is verbonden met Azure Active Directory met e
 Als u wilt verbinding maken met Azure Stack met behulp van code, gebruikmaken van de Azure Resource Manager-eindpunten API ophalen van de verificatie- en eindpunten van de grafiek voor uw Azure Stack-installatie en vervolgens verificatie uitvoeren met behulp van REST-aanvragen. U vindt een voorbeeld-clienttoepassing op [GitHub](https://github.com/shriramnat/HybridARMApplication).
 
 >[!Note]
->Als de Azure SDK voor uw taal naar keuze Azure API-profielen ondersteunt, werkt mogelijk niet de SDK met Azure Stack. Zie voor meer informatie over Azure API-profielen, de [API-versieprofielen beheren](https://docs.microsoft.com/da-dk/azure/azure-stack/user/azure-stack-version-profiles) artikel.
+>Als de Azure SDK voor uw taal naar keuze Azure API-profielen ondersteunt, werkt mogelijk niet de SDK met Azure Stack. Zie voor meer informatie over Azure API-profielen, de [API-versieprofielen beheren](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-version-profiles) artikel.
 
 ## <a name="next-steps"></a>Volgende stappen
 

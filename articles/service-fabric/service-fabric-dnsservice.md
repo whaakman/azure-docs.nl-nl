@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 7/20/2018
 ms.author: msfussell
-ms.openlocfilehash: 70ea33f2c3e3a79d1754b72d12e8fc27689e38ea
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 434f0639baa45dc83ee2fae4ec8b67a80517db14
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387935"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51035910"
 ---
 # <a name="dns-service-in-azure-service-fabric"></a>DNS-Service in Azure Service Fabric
 De DNS-Service is een optionele systeemservice waarmee u in uw cluster inschakelen kunt voor het detecteren van andere services met behulp van het DNS-protocol. 
@@ -43,6 +43,9 @@ Het volgende diagram laat zien hoe de DNS-service werkt voor gepartitioneerde st
 Dynamische poorten worden niet ondersteund door de DNS-service. Om op te lossen services beschikbaar gesteld op dynamische poorten, de [reverse proxy-service](./service-fabric-reverseproxy.md).
 
 ## <a name="enabling-the-dns-service"></a>De DNS-service inschakelen
+> [!NOTE]
+> DNS-service voor Service Fabric-services is nog niet ondersteund in Linux.
+
 Wanneer u een cluster met behulp van de portal maakt, de DNS-service is standaard ingeschakeld in de **omvatten DNS-service** selectievakje op de **clusterconfiguratie** menu:
 
 ![Het inschakelen van DNS-service via de portal](./media/service-fabric-dnsservice/enable-dns-service.png)
@@ -251,6 +254,8 @@ public class ValuesController : Controller
 
 ## <a name="known-issues"></a>Bekende problemen
 * Voor Service Fabric versie 6.3 en hoger is er een probleem met DNS-zoekacties voor de servicenamen met een koppelteken in de DNS-naam. Volgen voor meer informatie over dit probleem, de volgende [GitHub-probleem](https://github.com/Azure/service-fabric-issues/issues/1197). Een oplossing voor dit wordt binnenkort in de volgende 6.3 update. 
+
+* DNS-service voor Service Fabric-services is nog niet ondersteund in Linux. DNS-service wordt ondersteund voor containers in Linux. Handmatige oplossing met behulp van Fabric Client/ServicePartitionResolver is het alternatief beschikbaar.
 
 ## <a name="next-steps"></a>Volgende stappen
 Meer informatie over communicatie binnen het cluster met [verbinding maken en te communiceren met services](service-fabric-connect-and-communicate-with-services.md)

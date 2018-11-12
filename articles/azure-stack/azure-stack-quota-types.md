@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/30/2018
+ms.date: 11/08/2018
 ms.author: sethm
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 3c0ab236dd6fce10be0a50c435f04517e14c1387
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: ec84c87e047d6426d24ef339d1247c6cb53954dd
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49077592"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51299416"
 ---
 # <a name="quota-types-in-azure-stack"></a>Quotatypen in Azure Stack
 
@@ -31,15 +31,15 @@ ms.locfileid: "49077592"
 ## <a name="compute-quota-types"></a>COMPUTE quotatypen 
 | **Type** | **Standaardwaarde** | **Beschrijving** |
 | --- | --- | --- |
-| Maximumaantal virtuele machines | 20 | Het maximum aantal virtuele machines die een abonnement op deze locatie maken kunt. |
-| Maximumaantal cores van virtuele machine | 50 | Het maximum aantal kernen dat een abonnement op deze locatie maken kunt (bijvoorbeeld een A3-VM heeft vier kerngeheugens). |
+| Maximumaantal virtuele machines | 50 | Het maximum aantal virtuele machines die een abonnement op deze locatie maken kunt. |
+| Maximumaantal cores van virtuele machine | 100 | Het maximum aantal kernen dat een abonnement op deze locatie maken kunt (bijvoorbeeld een A3-VM heeft vier kerngeheugens). |
 | Max. aantal beschikbaarheidssets | 10 | Het maximale aantal beschikbaarheidssets die kunnen worden gemaakt op deze locatie. |
-| Hiermee stelt u het maximumaantal virtuele-machineschaalset | 20 | Het maximumaantal schaalsets voor virtuele machines dat kan worden gemaakt op deze locatie. |
+| Hiermee stelt u het maximumaantal virtuele-machineschaalset | 100 | Het maximumaantal schaalsets voor virtuele machines dat kan worden gemaakt op deze locatie. |
 
 ## <a name="storage-quota-types"></a>Opslagtypen quotum 
 | **Item** | **Standaardwaarde** | **Beschrijving** |
 | --- | --- | --- |
-| Maximale capaciteit (GB) |500 |Totaal voor de opslagcapaciteit die kan worden gebruikt door een abonnement op deze locatie. |
+| Maximale capaciteit (GB) |2048 |Totaal voor de opslagcapaciteit die kan worden gebruikt door een abonnement op deze locatie. |
 | Totale aantal opslagaccounts |20 |Het maximale aantal opslagaccounts die een abonnement op deze locatie maken kunt. |
 
 > [!NOTE]  
