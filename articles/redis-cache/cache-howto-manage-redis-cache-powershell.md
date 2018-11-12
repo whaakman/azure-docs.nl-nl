@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: wesmc
-ms.openlocfilehash: 11b399bdbbbe92d1e1544f4cbae0824140ce52c1
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: dabf3c7f98957a4b8ef0c59bdd80ca773f403912
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49364503"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255980"
 ---
 # <a name="manage-azure-redis-cache-with-azure-powershell"></a>Azure Redis-Cache met Azure PowerShell beheren
 > [!div class="op_single_selector"]
@@ -56,7 +56,7 @@ Als u het abonnement, moet u de volgende opdracht uitvoeren. In het volgende voo
 
 Voordat u Windows PowerShell met Azure Resource Manager gebruiken kunt, moet u het volgende:
 
-* Windows PowerShell versie 3.0 of 4.0. Als u wilt zien welke versie van Windows PowerShell, typ:`$PSVersionTable` en controleer of de waarde van `PSVersion` 3.0 of 4.0 is. Zie voor het installeren van een compatibele versie [Windows Management Framework 3.0](http://www.microsoft.com/download/details.aspx?id=34595) of [Windows Management Framework 4.0](http://www.microsoft.com/download/details.aspx?id=40855).
+* Windows PowerShell versie 3.0 of 4.0. Als u wilt zien welke versie van Windows PowerShell, typ:`$PSVersionTable` en controleer of de waarde van `PSVersion` 3.0 of 4.0 is. Zie voor het installeren van een compatibele versie [Windows Management Framework 3.0](https://www.microsoft.com/download/details.aspx?id=34595) of [Windows Management Framework 4.0](https://www.microsoft.com/download/details.aspx?id=40855).
 
 Als u gedetailleerde Help-informatie voor elke cmdlet die u in deze zelfstudie ziet, gebruikt u de cmdlet Get-Help.
 
@@ -781,9 +781,9 @@ De volgende opdracht uit beide knooppunten van de opgegeven cache opnieuw is opg
 Zie de volgende bronnen voor meer informatie over het gebruik van Windows PowerShell met Azure:
 
 * [Azure Redis-Cache-cmdlet-documentatie op MSDN](https://docs.microsoft.com/powershell/module/azurerm.rediscache/?view=azurermps-6.6.0)
-* [Azure Resource Manager-Cmdlets](http://go.microsoft.com/fwlink/?LinkID=394765): Leer hoe u met de cmdlets in de Azure Resource Manager-module.
+* [Azure Resource Manager-Cmdlets](https://go.microsoft.com/fwlink/?LinkID=394765): Leer hoe u met de cmdlets in de Azure Resource Manager-module.
 * [Uw Azure-resources beheren met behulp van resourcegroepen](../azure-resource-manager/resource-group-template-deploy-portal.md): meer informatie over het maken en beheren van resourcegroepen in Azure portal.
 * [Azure-blog](https://azure.microsoft.com/blog/): meer informatie over nieuwe functies in Azure.
-* [Windows PowerShell-blog](http://blogs.msdn.com/powershell): meer informatie over nieuwe functies in Windows PowerShell.
+* [Windows PowerShell-blog](https://blogs.msdn.com/powershell): meer informatie over nieuwe functies in Windows PowerShell.
 * ["Hey, Scripting Guy!" Blog](http://blogs.technet.com/b/heyscriptingguy/): real-world tips en trucs ophalen uit de Windows PowerShell-community.
 

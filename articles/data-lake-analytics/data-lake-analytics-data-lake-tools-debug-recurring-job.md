@@ -9,16 +9,16 @@ ms.assetid: dc9b21d8-c5f4-4f77-bcbc-eff458f48de2
 ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 05/20/2018
-ms.openlocfilehash: 33c3b91e7bf9fa64e3ba3f98a9396045753d0c2a
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 5a2935d559a967151c5bdc01c4b0806fe52179b4
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43045691"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51260037"
 ---
 # <a name="troubleshoot-an-abnormal-recurring-job"></a>Problemen met een abnormale terugkerende taak oplossen
 
-In dit artikel ziet u hoe u [Azure Data Lake Tools voor Visual Studio](http://aka.ms/adltoolsvs) het oplossen van problemen met terugkerende taken. Meer informatie over de pijplijn en terugkerende taken van de [blog Azure Data Lake en Azure HDInsight](https://blogs.msdn.microsoft.com/azuredatalake/2017/09/19/managing-pipeline-recurring-jobs-in-azure-data-lake-analytics-made-easy/).
+In dit artikel ziet u hoe u [Azure Data Lake Tools voor Visual Studio](https://aka.ms/adltoolsvs) het oplossen van problemen met terugkerende taken. Meer informatie over de pijplijn en terugkerende taken van de [blog Azure Data Lake en Azure HDInsight](https://blogs.msdn.microsoft.com/azuredatalake/2017/09/19/managing-pipeline-recurring-jobs-in-azure-data-lake-analytics-made-easy/).
 
 Terugkerende taken delen meestal dezelfde querylogica en vergelijkbare invoergegevens. Denk bijvoorbeeld aan dat u hebt een terugkerende taak elk etmaal maandag tot en met 8 uur voor het tellen van wekelijkse actieve gebruiker van de afgelopen week. De scripts voor deze taken delen één script-sjabloon die de querylogica bevat. De invoer voor deze taken zijn gegevens over gebruik voor de afgelopen week. Delen de dezelfde querylogica en vergelijkbare invoer doorgaans betekent dat de prestaties van deze taken vergelijkbaar en stabiel. Als een van uw terugkerende taken plotseling abnormaal, mislukt voert of veel vertraagt, kunt u naar:
 
@@ -39,7 +39,7 @@ Via **extra** > **Data Lake** > **taakweergave**, kunt u de taak-URL taak als we
  
 ### <a name="case-2-you-have-the-pipeline-for-the-recurring-job-but-not-the-url"></a>Geval 2: U hebt de pijplijn voor de periodieke taak, maar niet de URL
 
-In Visual Studio, kunt u pijplijn Browser via Server Explorer openen > uw Azure Data Lake Analytics-account > **pijplijnen**. (Als u dit knooppunt niet in Server Explorer vinden [download de meest recente invoegtoepassing](http://aka.ms/adltoolsvs).) 
+In Visual Studio, kunt u pijplijn Browser via Server Explorer openen > uw Azure Data Lake Analytics-account > **pijplijnen**. (Als u dit knooppunt niet in Server Explorer vinden [download de meest recente invoegtoepassing](https://aka.ms/adltoolsvs).) 
 
 ![Het knooppunt pijplijnen selecteren](./media/data-lake-analytics-data-lake-tools-debug-recurring-job/pipeline-browser.png)
 

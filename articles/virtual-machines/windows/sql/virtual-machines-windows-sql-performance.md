@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 09/26/2018
 ms.author: jroth
-ms.openlocfilehash: 0119c6642d68db6a90af07395882e620b1af08c6
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 395994e2ac017bcdadaca4defad4ec0f910cea17
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47394946"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51258126"
 ---
 # <a name="performance-guidelines-for-sql-server-in-azure-virtual-machines"></a>Prestatierichtlijnen voor SQL Server in Azure Virtual Machines
 
@@ -166,7 +166,7 @@ Voor virtuele machines die ondersteuning bieden voor Premium Storage (DS-serie, 
     ![SQL Data logboek-en back-up](./media/virtual-machines-windows-sql-performance/sql_server_default_data_log_backup_locations.png)
 * Vergrendelde pagina's vermindering van i/o- en eventuele activiteiten Paginering inschakelen. Zie voor meer informatie, [inschakelen van de vergrendeling pagina's in de optie geheugen (Windows)](https://msdn.microsoft.com/library/ms190730.aspx).
 
-* Als u SQL Server 2012 worden uitgevoerd, installeert u Service Pack 1 Cumulative Update 10. Deze update bevat de oplossing voor slechte prestaties op i/o tijdens het uitvoeren van select into-instructie van de tijdelijke tabel in SQL Server 2012. Zie voor meer informatie, dit [knowledge base-artikel](http://support.microsoft.com/kb/2958012).
+* Als u SQL Server 2012 worden uitgevoerd, installeert u Service Pack 1 Cumulative Update 10. Deze update bevat de oplossing voor slechte prestaties op i/o tijdens het uitvoeren van select into-instructie van de tijdelijke tabel in SQL Server 2012. Zie voor meer informatie, dit [knowledge base-artikel](https://support.microsoft.com/kb/2958012).
 
 * Houd rekening met alle gegevensbestanden comprimeren bij de overdracht in/uit van Azure.
 

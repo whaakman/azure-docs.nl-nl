@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/05/2018
 ms.author: spelluru
-ms.openlocfilehash: 13535dae82ef2c8896dad7d6221553d15e4e6a95
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: e616df772bf11d1247f96c78bea2392252f5e5d0
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38573808"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51259748"
 ---
 # <a name="view-the-monthly-estimated-lab-cost-trend-in-azure-devtest-labs"></a>De maandelijkse trend voor lab geschatte kosten weergeven in Azure DevTest Labs
 De functie Cost Management van DevTest Labs kunt u de kosten van uw lab bijhouden. In dit artikel laat zien hoe u de **maandelijkse geschatte Kostentrend** grafiek om de huidige kalendermaand geschatte kosten-tot-datum en het geplande einde van maand kosten voor de huidige kalendermaand weer te geven. In dit artikel leest u ook hoe labkosten beter te beheren door in te stellen de bestedingslimiet doelen en drempelwaarden die, na het verstrijken, trigger DevTest Labs om te rapporteren de resultaten aan u.
@@ -27,7 +27,7 @@ De functie Cost Management van DevTest Labs kunt u de kosten van uw lab bijhoude
 ## <a name="viewing-the-monthly-estimated-cost-trend-chart"></a>De grafiek maandelijkse Trend voor de geschatte kosten weergeven
 Als u wilt de grafiek maandelijkse Trend voor de geschatte kosten weergeven, de volgende stappen uit: 
 
-1. Meld u aan bij [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Meld u aan bij [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Selecteer indien nodig, **alle Services**, en selecteer vervolgens **DevTest Labs** in de lijst. (Uw lab mogelijk al worden weergegeven op het Dashboard onder **alle Resources**).
 1. Selecteer de gewenste lab in de lijst met labs.  
 1. Op van het lab **overzicht** gedeelte **configuratie en het beleid**.   

@@ -13,15 +13,15 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/05/2016
 ms.author: dariagrigoriu
-ms.openlocfilehash: a17260770f0b2e0a73585ce4108bd5625ac22229
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 79841887ce8413970cb7dff0ca0099d4e0745a68
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39436145"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51259306"
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>Referenties voor implementatie voor Azure App Service configureren
-[Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) ondersteunt twee soorten referenties voor [lokale Git-implementatie](app-service-deploy-local-git.md) en [FTP/S implementatie](app-service-deploy-ftp.md). Dit zijn niet gelijk zijn aan uw Azure Active Directory-referenties.
+[Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) ondersteunt twee soorten referenties voor [lokale Git-implementatie](app-service-deploy-local-git.md) en [FTP/S implementatie](app-service-deploy-ftp.md). Dit zijn niet gelijk zijn aan uw Azure Active Directory-referenties.
 
 * **De referenties op gebruikersniveau**: één set referenties voor de gehele Azure-account. Het kan worden gebruikt voor het implementeren in App Service voor apps, in elk abonnement dat het Azure-account gemachtigd is voor toegang tot. Dit zijn de standaardset van de referenties die u configureert in **App Services** > **&lt;app_name >** > **implementatiereferenties**. Dit is ook de standaardwaarde instellen die in de portal GUI wordt opgehaald (zoals de **overzicht** en **eigenschappen** van uw app [resourcepagina](../azure-resource-manager/resource-group-portal.md#manage-resources)).
 

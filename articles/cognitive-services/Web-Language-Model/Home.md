@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 08/12/2016
 ms.author: pibehre
 ROBOTS: NOINDEX
-ms.openlocfilehash: 79b126fc33175b7cd6df96ab07cd7b726d6065a7
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 39995ca44573fe50bf0c2a2510c2c19fb227ff1d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389935"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51241120"
 ---
 # <a name="what-is-the-web-language-model-api-preview"></a>Wat is de Web Language Model API? (Preview)
 
@@ -50,6 +50,6 @@ De Web Language Model API ondersteunt vier opzoekbewerkingen:
 
 Het volgende document bevat informatie over het ontwikkelen van deze taalmodellen en moet worden vermeld in onderzoekspublicaties die van deze service gebruikmaken:
 
-- [Een overzicht van corpus en toepassingen voor Microsoft Web N-gram](http://research.microsoft.com/apps/pubs/default.aspx?id=130762), NAACL HLT 2010
+- [Een overzicht van corpus en toepassingen voor Microsoft Web N-gram](https://research.microsoft.com/apps/pubs/default.aspx?id=130762), NAACL HLT 2010
 
 Klik [hier](https://academic.microsoft.com/#/search?iq=And%28Ty%3D'0'%2CRId%3D2145833060%29&q=papers%20citing%20an%20overview%20of%20microsoft%20web%20n%20gram%20corpus%20and%20applications&filters=&from=0&sort=0) voor een huidige lijst van documenten waarin naar dit werk wordt verwezen.

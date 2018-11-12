@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/10/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 41d27b9a173cc019549f1dea0c66ffcaa51fbb10
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 9cffbeae3e73682f5e76523de7ee607285c9fc75
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44719440"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238623"
 ---
 # <a name="azure-stack-deployment-planning-considerations"></a>Azure Stack-implementatie planningsoverwegingen
 Voordat u de Azure Stack Development Kit (ASDK) implementeert, controleert u uw development kit host-computer voldoet aan de vereisten die worden beschreven in dit artikel.
@@ -82,7 +82,7 @@ Als u implementeert met behulp van de AD FS-optie, moet u opnieuw implementeren 
 ### <a name="azure-active-directory-accounts"></a>Azure Active Directory-accounts
 Voor het Azure Stack implementeren met behulp van een Azure AD-account, moet u een Azure AD-account voorbereiden voordat u de PowerShell-script-implementatie uitvoert. Dit account wordt de globale beheerder voor de Azure AD-tenant. Het wordt gebruikt voor het inrichten en het delegeren van toepassingen en service-principals voor alle Azure Stack-services die interactie met Azure Active Directory en Graph API hebben. Het wordt ook gebruikt als de eigenaar van de provider standaardabonnement (die u kunt later wijzigen). U kunt aanmelden bij uw Azure Stack-systeem beheerdersportal met behulp van dit account.
 
-1. Maak een Azure AD-account dat mapbeheerder is voor ten minste één Azure AD. Als u er al een hebt, kunt u die gebruiken. Anders kunt u een gratis op [ https://azure.microsoft.com/free/ ](http://azure.microsoft.com/pricing/free/) (in China, gaat u naar <http://go.microsoft.com/fwlink/?LinkID=717821> in plaats daarvan). Als u van plan later bent [Azure Stack registreren bij Azure](asdk-register.md), moet u ook een abonnement hebben in dit zojuist gemaakte account.
+1. Maak een Azure AD-account dat mapbeheerder is voor ten minste één Azure AD. Als u er al een hebt, kunt u die gebruiken. Anders kunt u een gratis op [ https://azure.microsoft.com/free/ ](https://azure.microsoft.com/pricing/free/) (in China, gaat u naar <http://go.microsoft.com/fwlink/?LinkID=717821> in plaats daarvan). Als u van plan later bent [Azure Stack registreren bij Azure](asdk-register.md), moet u ook een abonnement hebben in dit zojuist gemaakte account.
    
     Sla deze referenties voor gebruik als de service-beheerder. Dit account kunt configureren en beheren van resourceclouds, gebruikersaccounts, tenantplannen, quota en prijzen. In de portal kunnen ze websiteclouds, persoonlijke clouds voor virtuele machines en plannen maken en gebruikersabonnementen beheren.
 1. Maak ten minste één test-gebruikersaccount in uw Azure AD zodat u kunt zich aanmelden als tenant development kit.

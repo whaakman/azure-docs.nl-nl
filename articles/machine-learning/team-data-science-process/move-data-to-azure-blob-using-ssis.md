@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: deguhath
-ms.openlocfilehash: 1a0d8106c6a48494a938ee7a9da6f43f467516f6
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 2fe57480f7d8e22cfffafec6845372718587958e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394014"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51258422"
 ---
 # <a name="move-data-to-or-from-azure-blob-storage-using-ssis-connectors"></a>Gegevens verplaatsen naar of van Azure Blob Storage met behulp van SSIS-connectors
 De [SQL Server Integration Services Feature Pack voor Azure](https://msdn.microsoft.com/library/mt146770.aspx) onderdelen verbinding maken met Azure, gegevens overdragen tussen Azure en on-premises gegevensbronnen en gegevens verwerken die zijn opgeslagen in Azure biedt.
@@ -31,7 +31,7 @@ Wanneer klanten zijn on-premises gegevens worden verplaatst naar de cloud, kunne
 
 Dit is doorgaans de eerste stap voor de [SQL](sql-walkthrough.md) en [HDInsight](hive-walkthrough.md) scenario's.
 
-Zie voor een bespreking van de canonieke scenario's die gebruikmaken van SSIS om uit te voeren van de behoeften van uw bedrijf gebruikt in scenario's voor hybride gegevensintegratie, [doen meer met SQL Server Integration Services Feature Pack voor Azure](http://blogs.msdn.com/b/ssis/archive/2015/06/25/doing-more-with-sql-server-integration-services-feature-pack-for-azure.aspx) blog.
+Zie voor een bespreking van de canonieke scenario's die gebruikmaken van SSIS om uit te voeren van de behoeften van uw bedrijf gebruikt in scenario's voor hybride gegevensintegratie, [doen meer met SQL Server Integration Services Feature Pack voor Azure](https://blogs.msdn.com/b/ssis/archive/2015/06/25/doing-more-with-sql-server-integration-services-feature-pack-for-azure.aspx) blog.
 
 > [!NOTE]
 > Raadpleeg voor een volledige Inleiding tot Azure blob-opslag, [grondbeginselen van Azure Blob](../../storage/blobs/storage-dotnet-how-to-use-blobs.md) en [Azure Blob-Service](https://msdn.microsoft.com/library/azure/dd179376.aspx).
@@ -47,10 +47,10 @@ Als u de taken die in dit artikel wordt beschreven, hebt u een Azure-abonnement 
 Gebruik de **SSIS-connectors**, moet u het downloaden:
 
 * **SQL Server 2014 of 2016 Standard (of hoger)**: installatie van SQL Server Integration Services bevat.
-* **Microsoft SQL Server 2014 of 2016 Integration Services Feature Pack voor Azure**: deze kunnen worden gedownload, respectievelijk uit de [SQL Server 2014 Integration Services](http://www.microsoft.com/download/details.aspx?id=47366) en [integratie met SQL Server 2016 Services](https://www.microsoft.com/download/details.aspx?id=49492) pagina's.
+* **Microsoft SQL Server 2014 of 2016 Integration Services Feature Pack voor Azure**: deze kunnen worden gedownload, respectievelijk uit de [SQL Server 2014 Integration Services](https://www.microsoft.com/download/details.aspx?id=47366) en [integratie met SQL Server 2016 Services](https://www.microsoft.com/download/details.aspx?id=49492) pagina's.
 
 > [!NOTE]
-> SSIS met SQL Server is geïnstalleerd, maar is niet opgenomen in de Express-versie. Zie voor informatie over welke toepassingen zijn opgenomen in de verschillende edities van SQL Server, [edities van SQL Server](http://www.microsoft.com/en-us/server-cloud/products/sql-server-editions/)
+> SSIS met SQL Server is geïnstalleerd, maar is niet opgenomen in de Express-versie. Zie voor informatie over welke toepassingen zijn opgenomen in de verschillende edities van SQL Server, [edities van SQL Server](https://www.microsoft.com/en-us/server-cloud/products/sql-server-editions/)
 > 
 > 
 

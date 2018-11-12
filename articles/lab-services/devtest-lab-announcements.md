@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: ecfaf24d1122b711a93e1335b79acbbc4235bdae
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: eedab085098c34cdac3c49a3892f7cb0d5824f1b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39049946"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51259918"
 ---
 # <a name="post-an-announcement-to-a-lab-in-azure-devtest-labs"></a>Het plaatsen van een aankondiging naar een lab in Azure DevTest Labs
 
@@ -35,7 +35,7 @@ De functie aankondiging is bedoeld om te worden gebruikt voor tijdelijke melding
 
 ## <a name="steps-to-post-an-announcement-in-an-existing-lab"></a>Stappen voor het plaatsen van een aankondiging in een bestaande lab
 
-1. Meld u aan bij [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Meld u aan bij [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Selecteer indien nodig, **alle Services**, en selecteer vervolgens **DevTest Labs** in de lijst. (Uw lab mogelijk al worden weergegeven op het Dashboard onder **alle Resources**).
 1. Selecteer in het lab waarin u wilt plaatsen van een aankondiging uit de lijst met labs.  
 1. Op van het lab **overzicht** gedeelte **configuratie en het beleid**.  
@@ -70,7 +70,7 @@ Als u niet meer weergeven van deze aankondiging voor labgebruikers wilt, Ga teru
 
 ## <a name="steps-for-users-to-view-an-announcement"></a>Stappen voor gebruikers om weer te geven van een aankondiging
 
-1. Uit de [Azure-portal](http://go.microsoft.com/fwlink/p/?LinkID=525040), selecteert u een lab.
+1. Uit de [Azure-portal](https://go.microsoft.com/fwlink/p/?LinkID=525040), selecteert u een lab.
 
 1. Als het lab een aankondiging voor geplaatst heeft, wordt een aankondiging wordt weergegeven boven aan de pagina overzicht van de testomgeving. Deze aankondiging is de titel van de aankondiging die is opgegeven tijdens het maken van de aankondiging.
 

@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 09/26/2018
+ms.date: 10/29/2018
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect remote users to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
-ms.openlocfilehash: 8a4c0c1426200e6c2d5041131fd0dd9cde4761cf
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: e3d1a79dc7dd775cea71df2f36a5f34d85f3e240
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47409283"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261805"
 ---
 # <a name="tutorial-create-a-point-to-site-connection-using-azure-virtual-wan-preview"></a>Zelfstudie: Een punt-naar-site-verbinding maken met Azure Virtual WAN (Preview)
 
@@ -49,7 +49,7 @@ Klik op **Proberen** om deze functie eenvoudig te registreren met Azure Cloud Sh
 >
 >
 
-Wanneer u op **TryIt** hebt geklikt om Azure Cloud Shell te openen, kopieert u de volgende opdrachten en plakt u deze:
+Wanneer u op **Proberen** hebt geklikt om Azure Cloud Shell te openen, kopieert en plakt u de volgende opdrachten:
 
 ```azurepowershell-interactive
 Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowP2SCortexAccess
@@ -79,7 +79,7 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
 
 ## <a name="openvwan"></a>2. Een virtueel WAN maken
 
-Open een browser, ga naar de [Azure-portal (preview)](http://aka.ms/azurevirtualwanpreviewfeatures) en meld u aan met uw Azure-account.
+Open een browser, ga naar de [Azure-portal (preview)](https://aka.ms/azurevirtualwanpreviewfeatures) en meld u aan met uw Azure-account.
 
 [!INCLUDE [Create a virtual WAN](../../includes/virtual-wan-tutorial-vwan-include.md)]
 
@@ -111,12 +111,13 @@ Een P2S-configuratie definieert de parameters om verbinding te maken met externe
 
 ## <a name="hub"></a>5. Hubtoewijzing bewerken
 
-1. Klik op de pagina voor uw virtuele WAN op **Punt-naar-site-configuraties**.
-2. Onder **Hub** ziet u een lijst met configuraties die nog niet aan een hub zijn gekoppeld.
-3. Selecteer de configuratie die u wilt koppelen en klik op **Hubtoewijzing bewerken**
-4. Selecteer in de vervolgkeuzelijst de hub(s) waaraan u de configuratie wilt koppelen.
-5. Klik op **Toewijzen**. 
-6. De bewerking kan 30 minuten duren.
+1. Klik op de pagina voor uw virtuele WAN op **Hubs**.
+2. Selecteer de hub waaraan u de punt-naar-site-configuratie wilt toewijzen.
+3. Klik op **"..."** en kies **Virtuele hub bewerken**
+4. Schakel het selectievakje **Punt-naar-site-gateway opnemen** in.
+5. Kies de **gateway-schaaleenheden** en de **punt-naar-site-configuratie**, en een **adresgroep** voor de clients.
+6. Klik op **Bevestigen**. 
+7. De bewerking kan dertig minuten duren.
 
 ## <a name="vnet"></a>6. Uw VNet verbinden met een hub
 
@@ -135,9 +136,10 @@ In deze stap brengt u de peering-verbinding tussen uw hub en een VNet tot stand.
 
 Gebruik het VPN-profiel om uw clients te configureren.
 
-1. Klik op de pagina voor uw virtuele WAN op **Punt-naar-site-configuraties**.
-2. Klik op **Punt-naar-site-profiel downloaden** aan de bovenkant van de pagina. 
-3. Wanneer het bestand gereed is, klikt u op de koppeling om het te downloaden.
+1. Klik op de pagina voor uw virtuele WAN op **Hubs**.
+2. Selecteer de hub waarvoor u het profiel wilt downloaden.
+3. Klik op **"..."** en kies **Profiel downloaden**. 
+4. Wanneer het bestand gereed is, klikt u op de koppeling om het te downloaden.
 4. Gebruik het profielbestand om de punt-naar-site-clients te configureren.
 
 ## <a name="device"></a>8. Punt-naar-site-clients configureren
@@ -147,7 +149,7 @@ Gebruik het gedownloade profiel om de clients voor externe toegang te configurer
 #### <a name="openvpn"></a>OpenVPN
 
 1.  Download en installeer de OpenVPN-client op de officiële website.
-2.  Download het VPN-profiel voor de gateway. Dit kan via het tabblad Punt-naar-site-configuraties in de Azure-portal of via New-AzureRmVpnClientConfiguration in PowerShell.
+2.  Download het VPN-profiel voor de gateway. Dit kan via het tabblad Punt-naar-site-configuraties in Azure Portal of via New-AzureRmVpnClientConfiguration in PowerShell.
 3.  Pak het profiel uit. Open het configuratiebestand vpnconfig.ovpn uit de map OpenVPN in Kladblok.
 4.  Vul het gedeelte P2S client certificate met de openbare P2S-clientcertificatcode in base64. In een certificaat met PEM-indeling kunt u gewoon het .cer-bestand openen en de base64-code tussen de headers van het certificaat kopiëren. Hier ziet u hoe u een certificaat kunt exporteren om de gecodeerde openbare sleutel te verkrijgen.
 5.  Vul in het gedeelte voor de persoonlijke sleutel de persoonlijke P2S-clientcertificaatsleutel in Base64 in. Bekijk hier hoe u de persoonlijke sleutel kunt uitpakken.
@@ -166,7 +168,7 @@ Gebruik het gedownloade profiel om de clients voor externe toegang te configurer
 #### <a name="openvpn"></a>OpenVPN
 
 1.  Download en installeer een OpenVPN-client, zoals TunnelBlik via https://tunnelblick.net/downloads.html 
-2.  Download het VPN-profiel voor de gateway. Dit kan via het tabblad Punt-naar-site-configuratie in de Azure-portal of via New-AzureRmVpnClientConfiguration in PowerShell.
+2.  Download het VPN-profiel voor de gateway. Dit kan via het tabblad Punt-naar-site-configuratie in Azure Portal of via New-AzureRmVpnClientConfiguration in PowerShell.
 3.  Pak het profiel uit. Open het configuratiebestand vpnconfig.ovpn uit de map OpenVPN in Kladblok.
 4.  Vul het gedeelte P2S client certificate met de openbare P2S-clientcertificatcode in base64. In een certificaat met PEM-indeling kunt u gewoon het .cer-bestand openen en de base64-code tussen de headers van het certificaat kopiëren. Hier ziet u hoe u een certificaat kunt exporteren om de gecodeerde openbare sleutel te verkrijgen.
 5.  Vul in het gedeelte voor de persoonlijke sleutel de persoonlijke P2S-clientcertificaatsleutel in Base64 in. Bekijk hier hoe u de persoonlijke sleutel kunt uitpakken.

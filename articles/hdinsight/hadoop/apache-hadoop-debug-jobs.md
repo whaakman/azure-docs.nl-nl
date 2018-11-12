@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: cd688ec1f5b7b46138a3b601f52b54dd6f3615e3
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 694129fa39a84deac118c35da52a0617fe805d6c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43046487"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261141"
 ---
 # <a name="analyze-hadoop-logs"></a>Hadoop-logboeken analyseren
 
@@ -59,7 +59,7 @@ Er zijn veel hulpprogramma's beschikbaar zijn voor toegang tot gegevens in deze 
 * Power Query voor Excel
 
 #### <a name="use-power-query-for-excel"></a>Gebruik Power Query voor Excel
-Power Query kan worden geïnstalleerd vanaf [Microsoft Power Query voor Excel](http://www.microsoft.com/en-us/download/details.aspx?id=39379). Zie de downloadpagina voor de systeemvereisten.
+Power Query kan worden geïnstalleerd vanaf [Microsoft Power Query voor Excel](https://www.microsoft.com/en-us/download/details.aspx?id=39379). Zie de downloadpagina voor de systeemvereisten.
 
 **Gebruik Power Query om te openen en analyseren van de service-logboek**
 
@@ -83,7 +83,7 @@ Power Query kan worden geïnstalleerd vanaf [Microsoft Power Query voor Excel](h
 U kunt nu Excel gebruiken om te filteren en sorteren indien nodig. U wilt opnemen van andere kolommen (zoals bericht) als u wilt inzoomen op problemen wanneer ze zich voordoen, maar selecteren en groeperen van de kolommen die hierboven worden beschreven, een goede beeld biedt van wat met Hadoop-services gebeurt er. Het hetzelfde idee kan worden toegepast op het bestand en hadoopinstalllog tabellen.
 
 #### <a name="use-visual-studio"></a>Visual Studio gebruiken
-**Gebruik Visual Studio**
+**Visual Studio gebruiken**
 
 1. Open Visual Studio.
 2. Uit de **weergave** menu, klikt u op **Cloud Explorer**. Of klik gewoon **CTRL +\, CTRL + X**.

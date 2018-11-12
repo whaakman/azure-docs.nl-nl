@@ -1,6 +1,6 @@
 ---
-title: Illustraties maken met Azure Media openen | Microsoft Docs
-description: Overzicht van Azure Media openen, een hulpprogramma voor het bouwen van media illustraties van activa
+title: Maak korte clips met Azure Media Clipper | Microsoft Docs
+description: Overzicht van Azure Media Clipper, een hulpprogramma voor het bouwen van mediaclips van assets
 services: media-services
 keywords: clip; subclip; codering; media
 author: dbgeorge
@@ -9,51 +9,51 @@ ms.author: dwgeo
 ms.date: 11/10/2017
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: f3822386d0d16b1feaf16853424329558a18f910
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 0fc04fb64e6d34c46f20b4ba5ff8a1ffc8da9c31
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788121"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51237907"
 ---
-# <a name="create-clips-with-azure-media-clipper"></a>Illustraties maken met Azure Media openen
-Azure Media openen is een gratis JavaScript-bibliotheek waarmee webontwikkelaars kunnen hun gebruikers met een interface bieden voor het maken van media illustraties. Dit hulpprogramma kan worden geïntegreerd in een webpagina en biedt API's voor het laden van assets en paginaknipsel taken verzenden.
+# <a name="create-clips-with-azure-media-clipper"></a>Maak korte clips met Azure Media Clipper
+Azure Media Clipper is een gratis JavaScript-bibliotheek waarmee webontwikkelaars om te voorzien van hun gebruikers een interface voor het maken van mediaclips. Dit hulpprogramma kan worden geïntegreerd in elke webpagina en bevat API's voor het laden van assets en kniptaken verzenden.
 
-Azure Media openen kunt u:
-- De vooraf lei Trim en na slate van live archieven 
-- Video highlights van AMS live gebeurtenissen, live archieven of fMP4 VOD bestanden opstellen 
-- Samenvoegen van video's uit meerdere bronnen 
-- Samenvatting fragmenten uit uw assets AMS-media maken 
-- Video's clip met frame nauwkeurigheid 
-- Dynamische filters voor manifest genereren via de bestaande live en VOD activa met nauwkeurigheid van de groep van afbeeldingen (GOP) 
-- Codering taken op basis van de bedrijfsmiddelen in uw media services-account maken
+Azure Media Clipper kunt u:
+- De vooraf slate Trim en na slate van live archieven 
+- Video hoogtepunten van AMS live-evenementen, live-archieven of fMP4 VOD bestanden opstellen 
+- Video's van meerdere bronnen samenvoegen 
+- Samenvatting korte clips van uw AMS-media-items maken 
+- Video's bijsnijden met frame nauwkeurigheid 
+- Dynamisch-manifestfilters genereren via de bestaande live en VOD activa met een nauwkeurigheid van de groep van afbeeldingen (GOP) 
+- Coderingstaken op basis van de activa in uw media services-account maken
 
-Voor het aanvragen van nieuwe functies bieden ideeën of feedback wilt geven, dienen bij [UserVoice voor Azure Media Services](http://aka.ms/amsvoice/). Als u hebt en specifieke problemen, vragen of zoeken naar fouten, verwijder de Media Services-team een lijn op amcinfo@microsoft.com.
+Voor het aanvragen van nieuwe functies bieden ideeën of feedback wilt geven, verzenden naar [UserVoice voor Azure Media Services](https://aka.ms/amsvoice/). Als u hebt en specifieke problemen, vragen of zoeken naar fouten, verwijder de Media Services-team een lijn op amcinfo@microsoft.com.
 
-De volgende afbeelding ziet u de interface openen: ![Azure Media openen](media/media-services-azure-media-clipper-overview/media-services-azure-media-clipper-interface.PNG)
+De volgende afbeelding ziet u de interface Clipper: ![Azure Media Clipper](media/media-services-azure-media-clipper-overview/media-services-azure-media-clipper-interface.PNG)
 
 ## <a name="release-notes"></a>Releaseopmerkingen
-Zie de volgende lijst voor het blogbericht openen, verschillende bekende problemen en changelog voor de nieuwste versie van de openen:
-- [blogbericht](https://azure.microsoft.com/blog/azure-media-clipper/)
+Zie de volgende lijst voor het blogbericht Clipper, verschillende bekende problemen en het wijzigingenlogboek voor de nieuwste versie van de Clipper:
+- [Blogbericht](https://azure.microsoft.com/blog/azure-media-clipper/)
 - [Lijst met bekende problemen](https://amp.azure.net/libs/amc/latest/docs/known_issues.html)
-- [Changelog](https://amp.azure.net/libs/amc/latest/docs/changelog.html)
+- [Het wijzigingenlogboek](https://amp.azure.net/libs/amc/latest/docs/changelog.html)
 
 ## <a name="browser-support"></a>Browserondersteuning
-Azure Media openen is gebouwd met behulp van moderne HTML5-technologieën en ondersteunt de volgende browsers:
+Azure Media Clipper is gebouwd met behulp van moderne HTML5-technologieën en ondersteunt de volgende browsers:
 
 - Microsoft Edge 13 +
 - Internet Explorer 11 +
 - Chrome 54 +
 - Safari 10 +
-- Firefox 50 +
+- Firefox meer dan 50
 
 > [!NOTE]
-> Alleen HTML5 afspelen van stromen van Azure Media Services wordt momenteel ondersteund.
+> Alleen HTML5 afspelen van stromen van Azure Media Services is momenteel niet ondersteund.
 
 ## <a name="language-support"></a>Taalondersteuning
-De widget openen is beschikbaar in de volgende 18 talen:
-- Chinees (Vereenvoudigd)
-- Chinees (Traditioneel)
+De widget Clipper is beschikbaar in de volgende 18 talen:
+- Chinees (vereenvoudigd)
+- Chinees (traditioneel)
 - Tsjechisch
 - Nederlands, Vlaams
 - Nederlands
@@ -72,4 +72,4 @@ De widget openen is beschikbaar in de volgende 18 talen:
 - Turks
 
 ## <a name="next-steps"></a>Volgende stappen
-Om aan de slag met Azure Media openen, lezen de [aan de slag](media-services-azure-media-clipper-getting-started.md) artikel voor meer informatie over het implementeren van de widget.
+Als u wilt aan de slag met Azure Media Clipper, lees de [aan de slag](media-services-azure-media-clipper-getting-started.md) artikel voor meer informatie over het implementeren van de widget.

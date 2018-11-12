@@ -1,5 +1,5 @@
 ---
-title: Inhoud sleutels maken met REST | Microsoft Docs
+title: Inhoudssleutels maken met REST | Microsoft Docs
 description: Informatie over het maken van de inhoud van de sleutels die beveiligde toegang tot bedrijfsmiddelen bieden.
 services: media-services
 documentationcenter: ''
@@ -14,40 +14,40 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: juliako
-ms.openlocfilehash: 83ba02aedebe69e15736975fbd73c7c7f221634f
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 9fb28d618a9375dec19e75d04ef0a6bc5de334b6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33790333"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242633"
 ---
-# <a name="create-content-keys-with-rest"></a>Inhoud sleutels met REST maken
+# <a name="create-content-keys-with-rest"></a>Inhoudssleutels maken met REST
 > [!div class="op_single_selector"]
 > * [REST](media-services-rest-create-contentkey.md)
 > * [.NET](media-services-dotnet-create-contentkey.md)
 > 
 > 
 
-U kunt met Media Services leveren versleutelde activa. Een **ContentKey** biedt veilige toegang tot uw **Asset**s. 
+Media Services kunt u versleutelde activa leveren. Een **ContentKey** biedt veilige toegang tot uw **Asset**s. 
 
-Wanneer u een nieuwe asset maken (bijvoorbeeld voordat u [bestanden uploaden](media-services-rest-upload-files.md)), kunt u de volgende versleutelingsopties: **StorageEncrypted**, **CommonEncryptionProtected**, of **EnvelopeEncryptionProtected**. 
+Wanneer u een nieuwe asset maken (bijvoorbeeld, voordat u [bestanden uploaden](media-services-rest-upload-files.md)), kunt u de volgende versleutelingsopties: **StorageEncrypted**, **CommonEncryptionProtected**, of **EnvelopeEncryptionProtected**. 
 
-Als u activa aan uw clients leveren, kunt u [configureren voor bedrijfsmiddelen die dynamisch worden versleuteld](media-services-rest-configure-asset-delivery-policy.md) met een van de volgende twee versleutelingen: **DynamicEnvelopeEncryption** of **DynamicCommonEncryption**.
+Wanneer u elementen aan uw clients leveren, kunt u [configureren voor activa dynamisch worden versleuteld](media-services-rest-configure-asset-delivery-policy.md) met een van de volgende twee coderingen: **DynamicEnvelopeEncryption** of  **DynamicCommonEncryption**.
 
-Versleutelde activa hebben moeten worden gekoppeld aan **ContentKey**s. In dit artikel wordt beschreven hoe een inhoudssleutel maken.
+Versleutelde assets moeten worden gekoppeld aan **ContentKey**s. In dit artikel wordt beschreven hoe u een inhoudssleutel maken.
 
-Hieronder vindt u algemene stappen voor het genereren van inhoud sleutels die u koppelen aan de activa die u wilt worden versleuteld. 
+Hier volgen de algemene stappen voor het genereren van inhoudssleutels dat u koppelt aan activa die u wilt worden versleuteld. 
 
-1. Willekeurig genereren een 16 bytes AES-sleutel (voor algemene en envelop versleuteling) of een 32-byte-AES-sleutel (voor versleuteling van opslag). 
+1. Willekeurig genereren van een 16-bytes AES-sleutel (voor gemeenschappelijke en envelope versleuteling) of een 32-byte-AES-sleutel (voor versleuteling van opslag). 
    
     Dit is de inhoudssleutel voor uw asset, wat betekent dat alle bestanden die zijn gekoppeld aan die asset moeten dezelfde inhoud sleutel gebruiken tijdens het ontsleutelen. 
-2. Roep de [GetProtectionKeyId](https://docs.microsoft.com/rest/api/media/operations/rest-api-functions#getprotectionkeyid) en [GetProtectionKey](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkey) methoden voor het ophalen van het juiste X.509-certificaat dat moet worden gebruikt om uw inhoud sleutel te versleutelen.
-3. Codeer uw inhoud sleutel met de openbare sleutel van het X.509-certificaat. 
+2. Roep de [GetProtectionKeyId](https://docs.microsoft.com/rest/api/media/operations/rest-api-functions#getprotectionkeyid) en [GetProtectionKey](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkey) methoden voor het ophalen van het juiste X.509-certificaat dat moet worden gebruikt voor het versleutelen van uw inhoudssleutel.
+3. Codeer uw inhoudssleutel met de openbare sleutel van het X.509-certificaat. 
    
-   Media Services .NET SDK gebruikmaakt van RSA met OAEP bij het uitvoeren van de codering.  U ziet een voorbeeld in de [EncryptSymmetricKeyData functie](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
-4. Een controlesomwaarde (op basis van het algoritme PlayReady AES-sleutel controlesom) berekend met behulp van de sleutel-id en een inhoudssleutel maken. Zie voor meer informatie de sectie 'PlayReady AES controlesom sleutelalgoritme' van het Object van de Header PlayReady document zich [hier](http://www.microsoft.com/playready/documents/).
+   Media Services .NET SDK gebruikt RSA OAEP bij het uitvoeren van de versleuteling.  U ziet een voorbeeld in de [EncryptSymmetricKeyData functie](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
+4. Een controlesomwaarde (op basis van de PlayReady-AES-algoritme voor belangrijke controlesom) berekend met behulp van de sleutel-id en een inhoudssleutel maken. Zie voor meer informatie de sectie 'PlayReady AES-sleutel controlesom algoritme' van het Object van de Header PlayReady-document zich [hier](https://www.microsoft.com/playready/documents/).
    
-   Het volgende voorbeeld met .NET berekent de controlesom met de GUID-deel van de sleutel-id en de inhoudssleutel wissen.
+   De volgende .NET-voorbeeld berekent de controlesom met behulp van het GUID-gedeelte van de sleutel-id en de wissen inhoudssleutel.
    
         public static string CalculateChecksum(byte[] contentKey, Guid keyId)
          {
@@ -66,21 +66,21 @@ Hieronder vindt u algemene stappen voor het genereren van inhoud sleutels die u 
              Array.Copy(array, array2, 8);
              return Convert.ToBase64String(array2);
          }
-5. Maak de inhoudssleutel met de **EncryptedContentKey** (geconverteerd naar base64-gecodeerde tekenreeks), **ProtectionKeyId**, **ProtectionKeyType**, **ContentKeyType**, en **controlesom** waarden die u in de vorige stappen hebt ontvangen.
+5. Maak de inhoudssleutel met de **EncryptedContentKey** (geconverteerd naar base64-gecodeerde tekenreeks), **ProtectionKeyId**, **ProtectionKeyType**,  **ContentKeyType**, en **controlesom** waarden die u in de vorige stappen hebt ontvangen.
 6. Koppel de **ContentKey** entiteit met uw **Asset** entiteit via de $links-bewerking.
 
-In dit artikel wordt het AES-sleutel genereren, het versleutelen van de sleutel en het berekenen van de controlesom niet weergegeven. 
+In dit artikel wordt niet weergegeven voor het genereren van een AES-sleutel, versleutelen van de sleutel en de controlesom berekenen. 
 
 >[!NOTE]
 
->Bij het openen van entiteiten in Media Services, moet u specifieke header-velden en waarden instellen in uw HTTP-aanvragen. Zie voor meer informatie [Setup voor het ontwikkelen van Media Services REST API](media-services-rest-how-to-use.md).
+>Bij het openen van entiteiten in Media Services, moet u specifieke header-velden en waarden instellen in uw HTTP-aanvragen. Zie voor meer informatie, [instellen voor het ontwikkelen van Media Services REST API](media-services-rest-how-to-use.md).
 
 ## <a name="connect-to-media-services"></a>Verbinding met Media Services maken
 
-Zie voor meer informatie over de verbinding maken met de AMS API [toegang tot de API van Azure Media Services met Azure AD authentication](media-services-use-aad-auth-to-access-ams-api.md). 
+Zie voor meer informatie over het verbinding maken met de AMS-API [toegang tot de API van Azure Media Services met Azure AD-verificatie](media-services-use-aad-auth-to-access-ams-api.md). 
 
 ## <a name="retrieve-the-protectionkeyid"></a>De ProtectionKeyId ophalen
-Het volgende voorbeeld laat zien hoe de ProtectionKeyId, de vingerafdruk van een certificaat voor het certificaat dat moet u bij het versleutelen van uw inhoudssleutel ophalen. Voer deze stap uit om ervoor te zorgen dat u al het juiste certificaat op uw computer.
+Het volgende voorbeeld laat zien hoe de ProtectionKeyId, de vingerafdruk van een certificaat voor het certificaat dat moet u bij het versleutelen van uw inhoudssleutel ophalen. Voer deze stap uit om ervoor te zorgen dat u al het juiste certificaat op uw computer hebt.
 
 Aanvraag:
 
@@ -94,7 +94,7 @@ Aanvraag:
     Host: media.windows.net
 
 
-Antwoord:
+Reactie:
 
     HTTP/1.1 200 OK
     Cache-Control: no-cache
@@ -112,7 +112,7 @@ Antwoord:
     {"odata.metadata":"https://wamsbayclus001rest-hs.cloudapp.net/api/$metadata#Edm.String","value":"7D9BB04D9D0A4A24800CADBFEF232689E048F69C"}
 
 ## <a name="retrieve-the-protectionkey-for-the-protectionkeyid"></a>De ProtectionKey voor de ProtectionKeyId ophalen
-Het volgende voorbeeld laat zien hoe voor het ophalen van het X.509-certificaat met behulp van de ProtectionKeyId dat u in de vorige stap hebt ontvangen.
+Het volgende voorbeeld laat zien hoe de X.509-certificaat met behulp van de ProtectionKeyId dat u in de vorige stap hebt ontvangen op te halen.
 
 Aanvraag:
 
@@ -128,7 +128,7 @@ Aanvraag:
 
 
 
-Antwoord:
+Reactie:
 
     HTTP/1.1 200 OK
     Cache-Control: no-cache
@@ -148,9 +148,9 @@ Antwoord:
     "value":"MIIDSTCCAjGgAwIBAgIQqf92wku/HLJGCbMAU8GEnDANBgkqhkiG9w0BAQQFADAuMSwwKgYDVQQDEyN3YW1zYmx1cmVnMDAxZW5jcnlwdGFsbHNlY3JldHMtY2VydDAeFw0xMjA1MjkwNzAwMDBaFw0zMjA1MjkwNzAwMDBaMC4xLDAqBgNVBAMTI3dhbXNibHVyZWcwMDFlbmNyeXB0YWxsc2VjcmV0cy1jZXJ0MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAzR0SEbXefvUjb9wCUfkEiKtGQ5Gc328qFPrhMjSo+YHe0AVviZ9YaxPPb0m1AaaRV4dqWpST2+JtDhLOmGpWmmA60tbATJDdmRzKi2eYAyhhE76MgJgL3myCQLP42jDusWXWSMabui3/tMDQs+zfi1sJ4Ch/lm5EvksYsu6o8sCv29VRwxfDLJPBy2NlbV4GbWz5Qxp2tAmHoROnfaRhwp6WIbquk69tEtu2U50CpPN2goLAqx2PpXAqA+prxCZYGTHqfmFJEKtZHhizVBTFPGS3ncfnQC9QIEwFbPw6E5PO5yNaB68radWsp5uvDg33G1i8IT39GstMW6zaaG7cNQIDAQABo2MwYTBfBgNVHQEEWDBWgBCOGT2hPhsvQioZimw8M+jOoTAwLjEsMCoGA1UEAxMjd2Ftc2JsdXJlZzAwMWVuY3J5cHRhbGxzZWNyZXRzLWNlcnSCEKn/dsJLvxyyRgmzAFPBhJwwDQYJKoZIhvcNAQEEBQADggEBABcrQPma2ekNS3Wc5wGXL/aHyQaQRwFGymnUJ+VR8jVUZaC/U/f6lR98eTlwycjVwRL7D15BfClGEHw66QdHejaViJCjbEIJJ3p2c9fzBKhjLhzB3VVNiLIaH6RSI1bMPd2eddSCqhDIn3VBN605GcYXMzhYp+YA6g9+YMNeS1b+LxX3fqixMQIxSHOLFZ1G/H2xfNawv0VikH3djNui3EKT1w/8aRkUv/AAV0b3rYkP/jA1I0CPn0XFk7STYoiJ3gJoKq9EMXhit+Iwfz0sMkfhWG12/XO+TAWqsK1ZxEjuC9OzrY7pFnNxs4Mu4S8iinehduSpY+9mDd3dHynNwT4="}
 
 ## <a name="create-the-contentkey"></a>De ContentKey maken
-Nadat u hebt opgehaald van het X.509-certificaat en de openbare sleutel voor het versleutelen van uw inhoud sleutel gebruikt, maakt u een **ContentKey** entiteit en stel de eigenschap dienovereenkomstig waarden.
+Nadat u hebt opgehaald van het X.509-certificaat en de openbare sleutel hebt gebruikt voor het versleutelen van uw inhoudssleutel, maakt u een **ContentKey** entiteit en stel de eigenschap dienovereenkomstig waarden.
 
-Een van de waarden die u wanneer instellen moet de inhoud maken sleutel is van het type. Kies een van de volgende waarden:
+Een van de waarden die u wanneer instellen moet maakt u de inhoud is van het type sleutel. Kies een van de volgende waarden:
 
     public enum ContentKeyType
     {
@@ -177,7 +177,7 @@ Een van de waarden die u wanneer instellen moet de inhoud maken sleutel is van h
     }
 
 
-Het volgende voorbeeld ziet u het maken van een **ContentKey** met een **ContentKeyType** ingesteld voor de versleuteling van opslag ('1') en de **ProtectionKeyType** ingesteld op '0' om aan te geven de key protection-ID is de vingerafdruk van het X.509-certificaat.  
+Het volgende voorbeeld ziet u hoe u maakt een **ContentKey** met een **ContentKeyType** instellen voor versleuteling van opslag ("1") en de **ProtectionKeyType** ingesteld op '0' om aan te geven die de key protection-ID is de vingerafdruk van het X.509-certificaat.  
 
 Aanvraag
 
@@ -201,7 +201,7 @@ Aanvraag
     }
 
 
-Antwoord:
+Reactie:
 
     HTTP/1.1 201 Created
     Cache-Control: no-cache
@@ -228,7 +228,7 @@ Antwoord:
     "Checksum":"calculated checksum"}
 
 ## <a name="associate-the-contentkey-with-an-asset"></a>De ContentKey koppelen aan een Asset
-Na het maken van de ContentKey koppelen aan uw Asset met behulp van de bewerking $links, zoals wordt weergegeven in het volgende voorbeeld:
+Na het maken van de ContentKey, koppel deze aan uw Asset met behulp van de bewerking $links, zoals wordt weergegeven in het volgende voorbeeld:
 
 Aanvraag:
 
@@ -245,7 +245,7 @@ Aanvraag:
 
     {"uri":"https://wamsbayclus001rest-hs.cloudapp.net/api/ContentKeys('nb%3Akid%3AUUID%3A01e6ea36-2285-4562-91f1-82c45736047c')"}
 
-Antwoord:
+Reactie:
 
     HTTP/1.1 204 No Content 
 

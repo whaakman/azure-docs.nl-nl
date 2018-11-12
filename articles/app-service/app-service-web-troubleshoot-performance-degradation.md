@@ -16,15 +16,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2016
 ms.author: cephalin
-ms.openlocfilehash: 3ec67488b238118067e771baf3dd5124308a84cf
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: b1ae61b5372fa1061448c02e7b5c589a167888c9
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44296190"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51237210"
 ---
 # <a name="troubleshoot-slow-web-app-performance-issues-in-azure-app-service"></a>Problemen met trage prestaties van web-app oplossen in Azure App Service oplossen
-Dit artikel helpt bij het oplossen van trage prestaties van web-app oplossen in [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714).
+Dit artikel helpt bij het oplossen van trage prestaties van web-app oplossen in [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714).
 
 Als u hulp nodig hebt op elk gewenst moment in dit artikel, u kunt contact opnemen met de Azure-experts op [het Azure MSDN en Stack Overflow-forums](https://azure.microsoft.com/support/forums/). U kunt ook ook een Azure-ondersteuning-incident indienen. Ga naar de [ondersteuning voor Azure site](https://azure.microsoft.com/support/options/) en klikt u op **ontvang ondersteuning**.
 
@@ -39,7 +39,7 @@ Dit probleem wordt vaak veroorzaakt door problemen met toepassingen niveau, zoal
 * toepassing met behulp van hoge geheugen/CPU
 * toepassing is gecrasht vanwege een uitzondering
 
-## <a name="troubleshooting-steps"></a>Stappen voor het oplossen van problemen
+## <a name="troubleshooting-steps"></a>Stappen voor probleemoplossing
 Oplossen van problemen kan worden onderverdeeld in drie verschillende taken, in opeenvolgende volgorde:
 
 1. [Bekijk en werking van de toepassing controleren](#observe)

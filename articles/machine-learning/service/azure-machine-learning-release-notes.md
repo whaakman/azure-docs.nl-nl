@@ -9,16 +9,53 @@ author: hning86
 ms.author: haining
 ms.reviewer: j-martens
 ms.date: 10/24/2018
-ms.openlocfilehash: 0927ae14d232ec2ce3a46bb66ed535deabbe0138
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 5ceb47f437f736829d0be10a856fe787fab944b0
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158683"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261569"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Releaseopmerkingen Azure Machine Learning-service
 
 In dit artikel meer informatie over de versies van de Azure Machine Learning-service. 
+
+## <a name="2018-11-05"></a>2018-11-05
+
+### <a name="azure-portal"></a>Azure Portal 
+De Azure-portal voor de Azure Machine Learning-service heeft de volgende updates:
+  * Een nieuwe **pijplijnen** tabblad voor gepubliceerde pijplijnen.
+  * Er is ondersteuning toegevoegd voor het koppelen van een bestaand HDInsight-cluster als een compute-doel.
+
+### <a name="azure-machine-learning-sdk-for-python-v0174"></a>Azure Machine Learning-SDK voor Python v0.1.74
+
++ **Belangrijke wijzigingen** 
+  * *Workspace.compute_targets, gegevensopslag, experimenten, afbeeldingen, modellen* en *webservices* zijn eigenschappen in plaats van methoden. Vervang bijvoorbeeld *Workspace.compute_targets()* met *Workspace.compute_targets*.
+  * *Run.get_context* Hiermee wordt vervangen *Run.get_submitted_run*. De laatste methode wordt verwijderd in toekomstige releases.
+  * *PipelineData* klasse verwacht nu een datastore-object als een parameter in plaats van datastore_name. Op deze manier *pijplijn* default_datastore in plaats van default_datastore_name accepteert.
+
++ **Nieuwe functies**
+  * De Azure Machine Learning-pijplijnen [voorbeeld notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/pipeline/pipeline-mpi-batch-prediction.ipynb) gebruikt nu MPI stappen.
+  * De widget RunDetails voor Jupyter-notitieblokken wordt bijgewerkt om weer te geven van een visualisatie van de pijplijn.
+
+### <a name="azure-machine-learning-data-prep-sdk-v040"></a>Azure Machine Learning-Dataprep SDK v0.4.0 
+ 
++ **Nieuwe functies**
+  * Aantal toegevoegd aan Gegevensprofiel 
+  * Aantal waarden en het Histogram is nu beschikbaar
+  * Meer percentielen in Gegevensprofiel
+  * De mediaan is beschikbaar in samenvatten
+  * Python 3.7 wordt nu ondersteund.
+  * Wanneer u een gegevensstroom met gegevensopslag bij een DataPrep-pakket opslaat, de datastore-gegevens persistent kunnen worden gemaakt als onderdeel van het DataPrep-pakket
+  * Schrijven naar het gegevensarchief wordt nu ondersteund. 
+        
++ **Bug opgelost**
+  * 64-bits geheel getal zonder teken overloop nu correct worden verwerkt op Linux
+  * Vaste onjuist tekstlabel voor bestanden in smart_read tekst zonder opmaak
+  * Kolom van het tekenreekstype wordt nu weergegeven in de weergave voor metrische gegevens
+  * Aantal is nu opgelost om ValueKinds toegewezen aan één veldtype in plaats van afzonderlijke bestanden weer te geven
+  * Write_to_csv mislukt langer wanneer het pad is opgegeven als een tekenreeks
+  * Wanneer u vervangen, mislukken waardoor "zoeken" leeg niet meer 
 
 ## <a name="2018-10-12"></a>2018-10-12
 
@@ -26,9 +63,6 @@ In dit artikel meer informatie over de versies van de Azure Machine Learning-ser
 
 + **Nieuwe functies**
   * Meerdere tenant ondersteuning bij het maken van nieuwe werkruimte.
-
-+ **Belangrijke wijzigingen**
-  * **In de volgende release toekomstige** *Workspace.compute_targets, gegevensopslag, experimenten, afbeeldingen, modellen* en *webservices* worden de eigenschappen in plaats van methoden. Vervang bijvoorbeeld *Workspace.compute_targets()* met *Workspace.compute_targets*.
 
 + **Fouten die zijn verholpen**
   * De versie van de bibliotheek pynacl moet niet meer worden vastgemaakt bij het implementeren van web service.
@@ -217,7 +251,7 @@ Welkom bij de derde update van Azure Machine Learning. Deze update bevat verbete
 **Nieuwe functies die aandacht vereisen**
 - [Ondersteuning voor SQL Server en Azure SQL-database als een gegevensbron](../desktop-workbench/data-prep-appendix2-supported-data-sources.md#types) 
 - [Deep Learning in Spark met GPU-ondersteuning met behulp van MMLSpark](https://github.com/Azure/mmlspark/blob/master/docs/gpu-setup.md)
-- [Alle AML-containers zijn compatibel met Azure IoT Edge-apparaten bij de implementatie (geen extra stappen vereist)](http://aka.ms/aml-iot-edge-blog)
+- [Alle AML-containers zijn compatibel met Azure IoT Edge-apparaten bij de implementatie (geen extra stappen vereist)](https://aka.ms/aml-iot-edge-blog)
 - Lijst met geregistreerde modellen en details bekijkt beschikbare Azure-portal
 - Toegang tot compute-doelen met behulp van SSH-sleutel gebaseerde verificatie naast de gebruikersnaam/wachtwoord gebaseerde toegang tot. 
 - Nieuwe patroon frequentie-Inspector in de gegevens voorbereiden ervaring. 
@@ -282,7 +316,7 @@ Zie voor meer informatie over het maken van compute-doelen [configureren van Azu
 - Toegevoegd `az ml datasource create` opdracht staat voor het maken van een gegevensbestand van de gegevensbron vanaf de opdrachtregel
 
 #### <a name="model-management-and-operationalization"></a>Modelbeheer- en uitoefening
-- [Alle AML-containers zijn compatibel met Azure IoT Edge-apparaten wanneer geoperationaliseerd (geen extra stappen vereist)](http://aka.ms/aml-iot-edge-blog) 
+- [Alle AML-containers zijn compatibel met Azure IoT Edge-apparaten wanneer geoperationaliseerd (geen extra stappen vereist)](https://aka.ms/aml-iot-edge-blog) 
 - Verbeteringen van de foutberichten in de CLI o16n
 - Oplossingen voor problemen in het beheerportal model UX  
 - Consistente letter hoofdlettergebruik voor model management kenmerken op de detailpagina met

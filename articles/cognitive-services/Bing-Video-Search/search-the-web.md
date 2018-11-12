@@ -10,12 +10,12 @@ ms.component: bing-video-search
 ms.topic: overview
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: cf37db9bffa8b2a54a6327c29ec806e0eefc8c91
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: e48a0a056628e0c863330de792f8edfaa48aae34
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47225409"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261856"
 ---
 # <a name="what-is-bing-video-search"></a>Wat is Bing Video's zoeken?
 
@@ -47,7 +47,7 @@ Alle aanvragen moeten worden verzonden vanaf een server.
 
 Als dit de eerste keer is van u een van de Bing-API's aanroept, moet u de header met de client-id weglaten. Voeg de client-id alleen toe als u eerder een Bing-API hebt aangeroepen en Bing een client-id heeft geretourneerd voor de combinatie van gebruiker en apparaat.
 
-Als u video's uit een bepaald domein wilt opvragen, gebruikt u de query-operator [site:](http://msdn.microsoft.com/library/ff795613.aspx).
+Als u video's uit een bepaald domein wilt opvragen, gebruikt u de query-operator [site:](https://msdn.microsoft.com/library/ff795613.aspx).
 
 ```http
 GET https://api.cognitive.microsoft.com/bing/v7.0/videos/search?q=sailing+dinghies+site:contososailing.com&mkt=en-us HTTP/1.1
@@ -131,7 +131,7 @@ De Bing Video's zoeken-API retourneert standaard alle video's die relevant zijn 
 - [videoLength](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videolength)&mdash;Video's filteren op videolengte (bijvoorbeeld video's die minder dan vijf minuten lang zijn)
 - [freshness](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#freshness)&mdash;Video's filteren op leeftijd (bijvoorbeeld video's die in de afgelopen week door Bing zijn gedetecteerd)
 
-Als u video's uit een bepaald domein wilt opvragen, gebruikt u de query-operator [site:](http://msdn.microsoft.com/library/ff795613.aspx) in de queryreeks.
+Als u video's uit een bepaald domein wilt opvragen, gebruikt u de query-operator [site:](https://msdn.microsoft.com/library/ff795613.aspx) in de queryreeks.
 
 > [!NOTE]
 > Als u de operator `site:` gebruikt, is het afhankelijk van de query mogelijk dat het antwoord inhoud voor volwassenen bevat, ongeacht de instelling van [safeSearch](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#safesearch). Gebruik `site:` alleen als u zich bewust bent van de inhoud op de site en uw scenario de mogelijkheid van inhoud voor volwassenen ondersteunt.

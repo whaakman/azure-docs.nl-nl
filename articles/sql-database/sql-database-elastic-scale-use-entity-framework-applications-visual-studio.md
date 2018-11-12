@@ -12,15 +12,15 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 695da176d2bc86fd67608cc28d14cf15a7728980
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 58b109651408a51ca7505c92d3875de63aae2cc6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161485"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261924"
 ---
 # <a name="elastic-database-client-library-with-entity-framework"></a>Elastische Database-clientbibliotheek met Entity Framework
-Dit document bevat de wijzigingen in een Entity Framework-toepassing die nodig zijn om te integreren met de [hulpmiddelen voor Elastic Database](sql-database-elastic-scale-introduction.md). De focus ligt op het samenstellen van [shard-Toewijzingsbeheer](sql-database-elastic-scale-shard-map-management.md) en [gegevensafhankelijke routering](sql-database-elastic-scale-data-dependent-routing.md) met het Entity Framework **Code First** benadering. De [Code-: nieuwe Database](http://msdn.microsoft.com/data/jj193542.aspx) zelfstudie voor EF fungeert als de actieve voorbeeld in dit document. De voorbeeldcode bij dit document is onderdeel van de hulpmiddelen voor elastic database stellen van de voorbeelden in de Visual Studio-codevoorbeelden.
+Dit document bevat de wijzigingen in een Entity Framework-toepassing die nodig zijn om te integreren met de [hulpmiddelen voor Elastic Database](sql-database-elastic-scale-introduction.md). De focus ligt op het samenstellen van [shard-Toewijzingsbeheer](sql-database-elastic-scale-shard-map-management.md) en [gegevensafhankelijke routering](sql-database-elastic-scale-data-dependent-routing.md) met het Entity Framework **Code First** benadering. De [Code-: nieuwe Database](https://msdn.microsoft.com/data/jj193542.aspx) zelfstudie voor EF fungeert als de actieve voorbeeld in dit document. De voorbeeldcode bij dit document is onderdeel van de hulpmiddelen voor elastic database stellen van de voorbeelden in de Visual Studio-codevoorbeelden.
 
 ## <a name="downloading-and-running-the-sample-code"></a>Downloaden en uitvoeren van de voorbeeldcode
 Voor het downloaden van de code voor dit artikel:
@@ -169,9 +169,9 @@ Het volgende codevoorbeeld laat zien hoe een SQL-beleid voor opnieuw proberen ka
             } 
         }); 
 
-**SqlDatabaseUtils.SqlRetryPolicy** in de bovenstaande code wordt gedefinieerd als een **SqlDatabaseTransientErrorDetectionStrategy** met een aantal nieuwe pogingen van 10, en op 5 seconden wachttijd tussen nieuwe pogingen. Deze aanpak is vergelijkbaar met de richtlijnen voor EF en de gebruiker geïnitieerde transacties (Zie [beperkingen bij uitvoeringsstrategieën voor opnieuw proberen (EF6 en hoger)](http://msdn.microsoft.com/data/dn307226). Beide situaties is vereist dat de toepassing Hiermee bepaalt u het bereik waarvoor de tijdelijke uitzondering geretourneerd: aan de transactie opnieuw of maak opnieuw de context van de juiste constructor (zoals) die gebruikmaakt van de clientbibliotheek van elastische database.
+**SqlDatabaseUtils.SqlRetryPolicy** in de bovenstaande code wordt gedefinieerd als een **SqlDatabaseTransientErrorDetectionStrategy** met een aantal nieuwe pogingen van 10, en op 5 seconden wachttijd tussen nieuwe pogingen. Deze aanpak is vergelijkbaar met de richtlijnen voor EF en de gebruiker geïnitieerde transacties (Zie [beperkingen bij uitvoeringsstrategieën voor opnieuw proberen (EF6 en hoger)](https://msdn.microsoft.com/data/dn307226). Beide situaties is vereist dat de toepassing Hiermee bepaalt u het bereik waarvoor de tijdelijke uitzondering geretourneerd: aan de transactie opnieuw of maak opnieuw de context van de juiste constructor (zoals) die gebruikmaakt van de clientbibliotheek van elastische database.
 
-De noodzaak om te bepalen waar tijdelijke uitzonderingen worden we weer binnen het bereik ook het gebruik van de ingebouwde uitsluit **SqlAzureExecutionStrategy** die wordt geleverd met EF. **SqlAzureExecutionStrategy** zou opnieuw een verbinding openen, maar niet **OpenConnectionForKey** en daarom bypass alle validatietests die wordt uitgevoerd als onderdeel van de **OpenConnectionForKey**aanroepen. In plaats daarvan de voorbeeldcode maakt gebruik van de ingebouwde **DefaultExecutionStrategy** die wordt geleverd met EF. Plaats **SqlAzureExecutionStrategy**, deze correct werkt in combinatie met het beleid voor opnieuw proberen van de afhandeling van tijdelijke fouten. Het uitvoeringsbeleid is ingesteld in de **ElasticScaleDbConfiguration** klasse. Houd er rekening mee dat we niet te gebruiken besloten **DefaultSqlExecutionStrategy** omdat dit kan erop met behulp van wijzen **SqlAzureExecutionStrategy** als er tijdelijke uitzonderingen optreden - wat zou leiden tot onjuist gedrag, zoals beschreven. Zie voor meer informatie over de verschillende retry-beleid en de EF [Verbindingstolerantie in EF](http://msdn.microsoft.com/data/dn456835.aspx).     
+De noodzaak om te bepalen waar tijdelijke uitzonderingen worden we weer binnen het bereik ook het gebruik van de ingebouwde uitsluit **SqlAzureExecutionStrategy** die wordt geleverd met EF. **SqlAzureExecutionStrategy** zou opnieuw een verbinding openen, maar niet **OpenConnectionForKey** en daarom bypass alle validatietests die wordt uitgevoerd als onderdeel van de **OpenConnectionForKey**aanroepen. In plaats daarvan de voorbeeldcode maakt gebruik van de ingebouwde **DefaultExecutionStrategy** die wordt geleverd met EF. Plaats **SqlAzureExecutionStrategy**, deze correct werkt in combinatie met het beleid voor opnieuw proberen van de afhandeling van tijdelijke fouten. Het uitvoeringsbeleid is ingesteld in de **ElasticScaleDbConfiguration** klasse. Houd er rekening mee dat we niet te gebruiken besloten **DefaultSqlExecutionStrategy** omdat dit kan erop met behulp van wijzen **SqlAzureExecutionStrategy** als er tijdelijke uitzonderingen optreden - wat zou leiden tot onjuist gedrag, zoals beschreven. Zie voor meer informatie over de verschillende retry-beleid en de EF [Verbindingstolerantie in EF](https://msdn.microsoft.com/data/dn456835.aspx).     
 
 #### <a name="constructor-rewrites"></a>Constructor regeneraties
 De bovenstaande codevoorbeelden ziet u de standaard-constructor herschrijft vereist zijn voor uw toepassing om te kunnen gebruiken gegevensafhankelijke routering met het Entity Framework. De volgende tabel generaliseert deze aanpak voor het andere constructors. 

@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: juliako
-ms.openlocfilehash: bc1a53ba9e3630c7f985ce5c78bc4c874c70b26e
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 7e32d0826d36b0d6f68264ba8c74aec49574b0c2
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230383"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51254550"
 ---
 # <a name="encoding-error-codes"></a>Foutcodes voor codering
 
-De volgende tabel bevat de foutcodes die kunnen worden geretourneerd in het geval een fout tijdens de uitvoering van de taak codering opgetreden is.  Als u details van fouten in uw .NET-code, gebruikt de [ErrorDetails](http://msdn.microsoft.com/library/microsoft.windowsazure.mediaservices.client.errordetail.aspx) klasse. Als u details van fouten in uw code REST, gebruikt de [ErrorDetail](https://msdn.microsoft.com/library/jj853026.aspx) REST-API.
+De volgende tabel bevat de foutcodes die kunnen worden geretourneerd in het geval een fout tijdens de uitvoering van de taak codering opgetreden is.  Als u details van fouten in uw .NET-code, gebruikt de [ErrorDetails](https://msdn.microsoft.com/library/microsoft.windowsazure.mediaservices.client.errordetail.aspx) klasse. Als u details van fouten in uw code REST, gebruikt de [ErrorDetail](https://msdn.microsoft.com/library/jj853026.aspx) REST-API.
 
 | ErrorDetail.Code | Mogelijke oorzaken voor fout |
 | --- | --- |

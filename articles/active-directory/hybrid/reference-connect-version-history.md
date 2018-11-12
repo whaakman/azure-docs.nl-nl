@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 09/06/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 335db0130ae6dd3d11d6592208fdf37e762509e5
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 1f74538deab38db536bfcdc6d0f703d455039d51
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50914818"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51235901"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Versiegeschiedenis van release
 Azure AD Connect het team van Azure Active Directory (Azure AD) regelmatig bijgewerkt met nieuwe functies en functionaliteit. Niet alle toevoegingen gelden voor alle doelgroepen.
@@ -35,7 +35,7 @@ Onderwerp |  Details
 Stappen voor het upgraden van Azure AD Connect | Verschillende methoden voor [een upgrade uitvoeren van een eerdere versie naar de meest recente](how-to-upgrade-previous-version.md) Azure AD Connect-versie.
 Vereiste machtigingen | Zie voor de vereiste machtigingen voor een update toepast, [accounts en machtigingen](reference-connect-accounts-permissions.md#upgrade).
 
-Downloaden | [Azure AD Connect downloaden](http://go.microsoft.com/fwlink/?LinkId=615771).
+Downloaden | [Azure AD Connect downloaden](https://go.microsoft.com/fwlink/?LinkId=615771).
 
 ## <a name="12650"></a>1.2.65.0 
 

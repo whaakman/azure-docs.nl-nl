@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: 14b9a4ed66995a73f00234f4b25f52fccbcbe556
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: e055b51af19ad3958c0c9155490c598ed0f4a80e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38562601"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51235204"
 ---
 # <a name="tutorial-push-notifications-to-windows-phone-apps-by-using-azure-notification-hubs"></a>Zelfstudie: Pushmeldingen verzenden naar Windows Phone-apps met Azure Notification Hubs
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -61,7 +61,7 @@ Het voltooien van deze zelfstudie is een vereiste voor alle andere Notification 
     De hub is nu gemaakt en geconfigureerd om niet-geverifieerde meldingen voor Windows Phone te verzenden.
 
     > [!NOTE]
-    > In deze zelfstudie wordt MPNS in niet-geverifieerde modus gebruikt. Bij de niet-geverifieerde MPNS-modus gelden beperkingen voor meldingen die u naar elk kanaal kunt verzenden. Notification Hubs ondersteunt de [geverifieerde MPNS-modus](http://msdn.microsoft.com/library/windowsphone/develop/ff941099.aspx) doordat u uw certificaat kunt uploaden.
+    > In deze zelfstudie wordt MPNS in niet-geverifieerde modus gebruikt. Bij de niet-geverifieerde MPNS-modus gelden beperkingen voor meldingen die u naar elk kanaal kunt verzenden. Notification Hubs ondersteunt de [geverifieerde MPNS-modus](https://msdn.microsoft.com/library/windowsphone/develop/ff941099.aspx) doordat u uw certificaat kunt uploaden.
 
 ## <a name="create-a-windows-phone-application"></a>Een Windows Phone-toepassing maken
 In deze sectie maakt u een Windows Phone-toepassing die zichzelf bij uw Notification Hub registreert. 

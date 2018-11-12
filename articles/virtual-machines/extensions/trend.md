@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2018
 ms.author: roiyz
-ms.openlocfilehash: 134105ee2446f3c7bf0f19e2f9611597ee9bedfe
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: ddb999c252f0802ef57942de694340ae29f2d8ba
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47451949"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240355"
 ---
 # <a name="how-to-install-and-configure-trend-micro-deep-security-as-a-service-on-a-windows-vm"></a>Trend Micro Deep Security installeren en configureren als een service op een Windows VM
 [!INCLUDE [virtual-machines-extensions-deprecation-statement](../../../includes/virtual-machines-extensions-deprecation-statement.md)]
@@ -30,7 +30,7 @@ De client is geïnstalleerd als een beveiligingsuitbreiding van via de VM-Agent.
 
 Een bestaande virtuele machine gemaakt met behulp van Azure portal, de Azure CLI of PowerShell wellicht een VM-agent. Voor een bestaande virtuele machine waarop de VM-Agent niet is, moet u download en installeer deze eerst. In dit artikel bevat informatie over beide situaties.
 
-Als u een abonnement van Trend Micro voor een on-premises oplossing hebt, kunt u het beveiligen van uw Azure virtual machines. Als u nog niet een klant bent, kunt u zich aanmelden voor een proefabonnement. Zie voor meer informatie over deze oplossing, de Trend Micro blogbericht [Microsoft Azure VM Agent-extensie voor Deep Security](http://go.microsoft.com/fwlink/p/?LinkId=403945).
+Als u een abonnement van Trend Micro voor een on-premises oplossing hebt, kunt u het beveiligen van uw Azure virtual machines. Als u nog niet een klant bent, kunt u zich aanmelden voor een proefabonnement. Zie voor meer informatie over deze oplossing, de Trend Micro blogbericht [Microsoft Azure VM Agent-extensie voor Deep Security](https://go.microsoft.com/fwlink/p/?LinkId=403945).
 
 ## <a name="install-the-deep-security-agent-on-a-new-vm"></a>De Deep Security-Agent installeren op een nieuwe virtuele machine
 
@@ -67,7 +67,7 @@ Controleer eerst of dat de VM-Agent al is geïnstalleerd. Vul in de cloud servic
 
 Als u niet weet de service in de cloud en de naam van de virtuele machine wat, voert u **Get-AzureVM** om die gegevens voor alle virtuele machines in uw huidige abonnement weer te geven.
 
-Als de **write-host** opdracht retourneert **waar**, de VM-Agent is geïnstalleerd. Als het resultaat **False**, Zie de instructies en een koppeling naar de download in het Azure-blog-bericht [VM-Agent en -extensies - deel 2](http://go.microsoft.com/fwlink/p/?LinkId=403947).
+Als de **write-host** opdracht retourneert **waar**, de VM-Agent is geïnstalleerd. Als het resultaat **False**, Zie de instructies en een koppeling naar de download in het Azure-blog-bericht [VM-Agent en -extensies - deel 2](https://go.microsoft.com/fwlink/p/?LinkId=403947).
 
 Als de VM-Agent is geïnstalleerd, moet u deze opdrachten uitvoeren.
 
@@ -78,9 +78,9 @@ Als de VM-Agent is geïnstalleerd, moet u deze opdrachten uitvoeren.
 ## <a name="next-steps"></a>Volgende stappen
 Het duurt enkele minuten om de agent te starten met het uitvoeren als deze is geïnstalleerd. Hierna moet u Deep Security activeren op de virtuele machine, zodat deze kan worden beheerd door een Deep Security Manager. Zie de volgende artikelen voor aanvullende instructies:
 
-* Trend van artikel over deze oplossing [Instant-On Cloud Security for Microsoft Azure](http://go.microsoft.com/fwlink/?LinkId=404101)
-* Een [Windows PowerShell-script voorbeeld](http://go.microsoft.com/fwlink/?LinkId=404100) aan de virtuele machine configureren
-* [Instructies](http://go.microsoft.com/fwlink/?LinkId=404099) voor het voorbeeld
+* Trend van artikel over deze oplossing [Instant-On Cloud Security for Microsoft Azure](https://go.microsoft.com/fwlink/?LinkId=404101)
+* Een [Windows PowerShell-script voorbeeld](https://go.microsoft.com/fwlink/?LinkId=404100) aan de virtuele machine configureren
+* [Instructies](https://go.microsoft.com/fwlink/?LinkId=404099) voor het voorbeeld
 
 ## <a name="additional-resources"></a>Aanvullende resources
 [Hoe u aan te melden met een virtuele machine met Windows Server]

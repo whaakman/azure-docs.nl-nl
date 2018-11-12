@@ -3,19 +3,19 @@ title: Voorbeeld van een machine learning met Spark MLlib op HDInsight - Azure
 description: Informatie over het gebruik van Spark MLlib te maken van een machine learning-app die met een gegevensset met behulp van classificatie via logistieke regressie worden geanalyseerd.
 keywords: machine learning in Spark, spark machine learning voorbeeld
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 05/18/2018
-ms.author: jasonh
-ms.openlocfilehash: 78f9240e6b01bafc68b71d20044c7ec7458cc972
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.date: 11/06/2018
+ms.author: hrasheed
+ms.openlocfilehash: e553833f8b9a5daab5c454cea628acdda0320e76
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43047293"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51257636"
 ---
 # <a name="use-spark-mllib-to-build-a-machine-learning-application-and-analyze-a-dataset"></a>Gebruik Spark MLlib een machine learning-toepassing bouwen en analyseren van een gegevensset
 
@@ -78,7 +78,7 @@ Omdat de onbewerkte gegevens in een CSV-indeling, kunt u de Spark-context gebrui
         sio.close()
         return value
     
-    inspections = sc.textFile('wasb:///HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections1.csv')\
+    inspections = sc.textFile('/HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections1.csv')\
                     .map(csvParse)
     ```
 
@@ -372,7 +372,7 @@ U kunt nu een definitieve visualisatie te maken u over de resultaten van deze te
     plt.axis('equal')
     ```
 
-    Hier ziet u de volgende uitvoer:
+    In dat geval moet de volgende uitvoer worden weergegeven:
 
     ![Spark machine learning-uitvoer van de toepassing - cirkeldiagram percentages van mislukte food controles. ](./media/apache-spark-machine-learning-mllib-ipython/spark-machine-learning-result-output-2.png "Spark machine learning-resultaat uitvoer")
 
