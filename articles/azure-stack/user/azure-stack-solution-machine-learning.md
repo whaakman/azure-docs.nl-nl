@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/26/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 28ff8dbf073596e5f9565c56ae903af6af68f3e2
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 59696245dc33302c65aee5a39dc856926347b8fb
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353706"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51569111"
 ---
 # <a name="tutorial-create-an-edge-machine-learning-solution-with-azure-and-azure-stack"></a>Zelfstudie: Een edge-machine learning-oplossing met Azure en Azure Stack maken
 
@@ -144,7 +144,7 @@ Maak een opslagaccount en container schoon gegevens zich bevinden.
 
 2.  Vouw in de Azure-portal het menu aan de linkerkant op het menu met services te openen en kies **alle Services**. Schuif omlaag naar **opslag** en kies **opslagaccounts**. In de ** Opslagaccounts ** venster Kies **toevoegen**.
 
-3.  Voer een naam voor het opslagaccount.
+3.  Voer een naam in voor het opslagaccount.
 
     > [!Note]  
     > Namen van opslagaccounts moeten tussen 3 en 24 tekens lang zijn en mogen alleen cijfers en kleine letters bevatten. Naam van het opslagaccount moet uniek zijn binnen Azure. De Azure portal wordt aangegeven als de opslagaccountnaam die is geselecteerd al gebruikt wordt.
@@ -1175,7 +1175,7 @@ Gebruik de volgende opdrachten in het Windows-subsysteem voor Linux-sessie voor 
 
 ### <a name="create-a-service-principal-in-azure-ad"></a>Een service-principal maken in Azure AD
 
-1.  Meld u aan de globale [ *Azure-portal*](http://www.poartal.azure.com/).
+1.  Meld u aan de globale [ *Azure-portal*](http://portal.azure.com/).
 
 2.  Meld u aan met behulp van de Azure AD-tenant die is gekoppeld aan de Azure Stack-exemplaar.
 
@@ -2098,7 +2098,7 @@ Maak een Azure Stack-opslagaccount en de Storage-wachtrij voor gegevens.
 
 2.  Vouw het menu aan de linkerkant op het menu met services te openen en kies in de gebruikersportal van Azure Stack **alle Services**. Schuif omlaag naar **opslag** en kies **opslagaccounts**. In de **Opslagaccounts** venster Kies **toevoegen**.
 
-3.  Voer een naam voor het opslagaccount.
+3.  Voer een naam in voor het opslagaccount.
 
 4.  Selecteer de replicatieoptie voor het opslagaccount: **LRS**.
 

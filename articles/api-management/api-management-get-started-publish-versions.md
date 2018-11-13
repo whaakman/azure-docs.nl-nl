@@ -14,12 +14,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: a7e5051248a579b0943fa69620215b060bd1e235
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 6820b44309ac2b3dbeb5ad6f0beb460c8712e9af
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47092690"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50912115"
 ---
 # <a name="publish-multiple-versions-of-your-api"></a>Meerdere versies van uw API publiceren 
 
@@ -37,8 +37,9 @@ In deze zelfstudie leert u het volgende:
 
 ## <a name="prerequisites"></a>Vereisten
 
-* Lees de volgende snelstartgids: [Een Azure API Management-exemplaar maken](get-started-create-service-instance.md).
-* Voltooi tevens de volgende zelfstudie: [Uw eerste API importeren en publiceren](import-and-publish.md).
++ Informatie over de [terminologie van Azure API Management](api-management-terminology.md).
++ Lees de volgende snelstartgids: [Een Azure API Management-exemplaar maken](get-started-create-service-instance.md).
++ Voltooi tevens de volgende zelfstudie: [Uw eerste API importeren en publiceren](import-and-publish.md).
 
 ## <a name="add-a-new-version"></a>Een nieuwe versie toevoegen
 
@@ -48,8 +49,8 @@ In deze zelfstudie leert u het volgende:
 2. Selecteer het contextmenu (**...** ) ernaast.
 3. Selecteer **+ Versie toevoegen**.
 
-    > [!TIP]
-    > Versies kunnen ook worden ingeschakeld wanneer u eerst een nieuwe API maakt - selecteer **Versie van deze API?** op het scherm **API toevoegen**.
+> [!TIP]
+> Versies kunnen ook worden ingeschakeld wanneer u eerst een nieuwe API maakt - selecteer **Versie van deze API?** op het scherm **API toevoegen**.
 
 ## <a name="choose-a-versioning-scheme"></a>Kies een versiebeheerschema
 
@@ -58,34 +59,38 @@ Met Azure API Management kunt u de manier kiezen waarop u het aanroepers mogelij
 ![Versiescherm toevoegen](media/api-management-getstarted-publish-versions/AddVersion.PNG)
 
 1. Laat **pad** geselecteerd als uw **versiebeheerschema**.
-2. Voeg **v1** toe als **Naam** en **Versie-id**.
+2. Typ **demo-conference-api-v1** in het veld **Naam**.
+
+    > [!NOTE]
+    > Versie is in feite een nieuwe API die is gebaseerd op een revisie van de API. **Naam** is de naam van de nieuwe API en deze moet uniek zijn binnen het API Management-exemplaar.
+
+3. Typ **v1** in het veld **Versie-id**.
 
     > [!TIP]
     > Als u **header** of **querytekenreeks** selecteert als een versiebeheerschema, moet u een extra waarde opgeven: de naam van de header of query-tekenreeksparameter.
 
-3. Selecteer **Maken** voor het instellen van uw nieuwe versie.
-4. Onder **Demo Conference API** in de lijst met API's ziet u nu twee verschillende API's: **Origineel** en **v1**.
+4. Selecteer **Maken** voor het instellen van uw nieuwe versie.
+5. Onder **Demo Conference API** in de lijst met API's ziet u nu twee verschillende API's: **Origineel** en **v1**.
 
     ![Versies vermeld in een API in Azure Portal](media/api-management-getstarted-publish-versions/VersionList.PNG)
 
     > [!Note]
     > Als u een versie aan een niet-samengestelde API toevoegt, wordt automatisch een **Origineel** gemaakt dat reageert op de standaard-URL. Dit zorgt ervoor dat eventuele bestaande aanroepfuncties niet worden onderbroken door het proces van het toevoegen van een versie. Als u een nieuwe API met versies maakt die aan het begin zijn ingeschakeld, wordt geen Origineel gemaakt.
 
-5. U kunt nu **v1** bewerken en configureren als een API die verschilt van het **Origineel**. Wijzigingen in één versie hebben geen invloed op een andere.
+6. U kunt nu **v1** bewerken en configureren als een API die verschilt van het **Origineel**. Wijzigingen in één versie hebben geen invloed op een andere.
 
 ## <a name="add-the-version-to-a-product"></a>Voeg de versie toe aan een product
 
 Als aanroepers de nieuwe versie willen zien, moet deze worden toegevoegd aan een **product**.
 
+![API Management-producten](media/api-management-getstarted-publish-versions/08-AddMultipleVersions-03-AddVersionToProduct.png)
+
 1. Selecteer **Producten** via de klassieke implementatiemodel-pagina.
-
-    ![API Management-producten](media/api-management-getstarted-publish-versions/Products.png)
-
 2. Selecteer **Onbeperkt**.
 3. Selecteer **API's**.
 4. Selecteer **Toevoegen**.
 5. Selecteer **Demo Conference API, versie v1**.
-6. Navigeer naar de service-beheerpagina en selecteer **API's**.
+6. Klik op **Selecteren**.
 
 ## <a name="browse-the-developer-portal-to-see-the-version"></a>Blader door de portal voor ontwikkelaars om de versie te zien
 

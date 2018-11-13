@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 09/24/2018
+ms.date: 11/02/2018
 ms.author: celested
 ms.reviewer: lenalepa
 ms.custom: aaddev
-ms.openlocfilehash: b2dea11b6573be8f574bd18fa69ee76658d6d698
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: c0bf5bbdf496a23a5ed66a149933f25a059984a9
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46975807"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50913275"
 ---
 # <a name="quickstart-register-an-app-with-the-azure-active-directory-v20-endpoint"></a>Snelstart: Een app registreren bij het Azure Active Directory v2.0-eindpunt
 
@@ -30,8 +30,10 @@ ms.locfileid: "46975807"
 
 Als u een app wilt bouwen die zowel aanmelding via een persoonlijk Microsoft-account (MSA) als een werk- of schoolaccount (Azure Active Directory) accepteert, moet u een app registreren bij het Azure Active Directory-v2.0-eindpunt (Azure AD). Op dit moment kunt u geen van de bestaande apps gebruiken die u bij Azure Active Directory of MSA hebt - u moet u een compleet nieuwe app maken.
 
+Niet alle Azure Active Directory-scenario's en -functies worden ondersteund door het v2.0-eindpunt. Lees meer informatie over de [beperkingen van v2.0](active-directory-v2-limitations.md) om te bepalen of u het v2.0-eindpunt moet gebruiken.
+
 > [!NOTE]
-> Niet alle Azure Active Directory-scenario's en -functies worden ondersteund door het v2.0-eindpunt. Lees meer informatie over de [beperkingen van v2.0](active-directory-v2-limitations.md) om te bepalen of u het v2.0-eindpunt moet gebruiken.
+> Een nieuwe app registreren? Probeer de nieuwe **App-registraties-ervaring (preview)** uit in de Azure-portal. Zie [Een app registreren (preview)](quickstart-register-app.md) om aan de slag te gaan.
 
 ## <a name="step-1-sign-in-to-the-microsoft-application-registration-portal"></a>Stap 1: Aanmelden bij de Microsoft-portal voor toepassingsregistratie
 

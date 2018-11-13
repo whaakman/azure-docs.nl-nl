@@ -4,21 +4,21 @@ description: Gebruik Azure Blueprints om artefacten te maken, definiëren en imp
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 11/07/2018
 ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: b873ee869b2044977ebefcfd65331567c24e7ec8
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: b600eeff0482944a8b9b18ad39c23ee6ea4700ce
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46974201"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283543"
 ---
 # <a name="define-and-assign-an-azure-blueprint-with-rest-api"></a>Een Azure Blueprint definiëren en toewijzen met REST API
 
-Inzicht in hoe u blauwdrukken in Azure maakt en toewijst, zorgt ervoor dat een organisatie algemene consistentiepatronen kan definiëren en herbruikbare en snel implementeerbare configuraties kan ontwikkelen op basis van Resource Manager-sjablonen, beleid, beveiliging en meer. In deze zelfstudie leert u hoe u Azure Blueprints gebruikt om algemene taken uit te voeren met betrekking tot het maken, publiceren en toewijzen van een blauwdruk binnen uw organisatie, zoals:
+Als u leert hoe u blauwdrukken in Azure maakt en toewijst, kunnen er algemene patronen worden gedefinieerd voor de ontwikkeling van herbruikbare en snel implementeerbare configuraties op basis van Resource Manager-sjablonen, beleid, beveiliging en meer. In deze zelfstudie leert u hoe u Azure Blueprints gebruikt om algemene taken uit te voeren met betrekking tot het maken, publiceren en toewijzen van een blauwdruk binnen uw organisatie, zoals:
 
 > [!div class="checklist"]
 > - Een nieuwe blauwdruk maken en verschillende ondersteunde artefacten toevoegen
@@ -33,6 +33,8 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 ## <a name="getting-started-with-rest-api"></a>Aan de slag met REST API
 
 Als u niet bekend bent met REST API, begint u met de [Azure REST API-verwijzing](/rest/api/azure/) voor een algemeen begrip van REST API, in het bijzonder van aanvraag-URI en aanvraagbody. In dit artikel worden deze concepten gebruikt om u aan de slag te helpen met Azure Blueprints. Er wordt van uitgegaan dat u er praktische kennis van hebt. Hulpprogramma's zoals [ARMClient](https://github.com/projectkudu/ARMClient) en anderen verwerken autorisatie automatisch en zijn voor beginners aangeraden.
+
+Zie [Azure Blueprints REST API](/rest/api/blueprints/) voor de specificaties van Blueprints.
 
 ### <a name="rest-api-and-powershell"></a>REST API en PowerShell
 
@@ -59,7 +61,7 @@ Vervang `{subscriptionId}` in de bovenstaande variabele **$restUri** om informat
 
 ## <a name="create-a-blueprint"></a>Een blauwdruk maken
 
-De eerste stap bij het definiëren van een standaardpatroon voor naleving is om een blauwdruk samen te stellen uit de beschikbare resources. In dit voorbeeld maakt u een blauwdruk met de naam 'MyBlueprint' om rol- en beleidstoewijzingen voor het abonnement te configureren, een resourcegroep toe te voegen en een Resource Manager-sjabloon en roltoewijzing voor de resourcegroep te maken.
+De eerste stap bij het definiëren van een standaardpatroon voor naleving bestaat uit het samenstellen van een blauwdruk uit de beschikbare resources. U maakt een blauwdruk met de naam MyBlueprint om de rol en de beleidstoewijzingen voor het abonnement te configureren. Vervolgens voegt u een resourcegroep en een Resource Manager-sjabloon toe en voegt u een roltoewijzing aan de resourcegroep toe.
 
 > [!NOTE]
 > Wanneer u de REST API gebruikt, wordt het object _blauwdruk_ eerst gemaakt. Voor elk _artefact_ dat wordt toegevoegd en parameters bevat, moeten de parameters vooraf worden gedefinieerd in de eerste _blauwdruk_.
@@ -69,7 +71,7 @@ In elke REST API-URI zijn er verschillende variabelen die worden gebruikt en die
 - Vervang `{YourMG}` door de naam van uw beheergroep
 - Vervang `{subscriptionId}` door uw abonnements-ID
 
-1. Maak het eerste _blauwdruk_object. De **Aanvraagbody** bevat eigenschappen van de blauwdruk, te maken resourcegroepen en alle parameters op blauwdrukniveau die tijdens de toewijzing worden ingesteld en worden gebruikt door artefacten die later worden toegevoegd.
+1. Maak het eerste _blauwdruk_object. De **Aanvraagbody** bevat eigenschappen van de blauwdruk, te maken resourcegroepen en alle parameters op blauwdrukniveau. De parameters worden tijdens het toewijzen ingesteld en gebruikt door de artefacten die in latere stappen worden toegevoegd.
 
    - REST API-URI
 
@@ -148,7 +150,7 @@ In elke REST API-URI zijn er verschillende variabelen die worden gebruikt en die
      }
      ```
 
-1. Voeg de beleidstoewijzing toe aan het abonnement. De **Aanvraagbody** definieert het _soort_ artefact, de eigenschappen die zijn afgestemd op een beleid of een initiatiefdefinitie en configureert de beleidstoewijzing, zodat deze de blauwdrukparameters definieert die tijdens de toewijzing van de blauwdruk worden gedefinieerd.
+1. Voeg de beleidstoewijzing toe aan het abonnement. De **Aanvraagbody** definieert het _soort_ artefact, de eigenschappen die zijn afgestemd op een beleid of een initiatiefdefinitie, en configureert de beleidstoewijzing, zodat deze de gedefinieerde blauwdrukparameters kan gebruiken die tijdens het toewijzen van de blauwdruk moeten worden geconfigureerd.
 
    - REST API-URI
 
@@ -176,7 +178,7 @@ In elke REST API-URI zijn er verschillende variabelen die worden gebruikt en die
      }
      ```
 
-1. Voeg nog een beleidstoewijzing toe voor de Storage-tag (gebruik hierbij de parameter _storageAccountType_ opnieuw) aan het abonnement. Deze aanvullende beleidstoewijzingsartefact toont aan dat een parameter die gedefinieerd is in de blauwdruk kan worden gebruikt door meer dan één artefact. In het voorbeeld wordt **storageAccountType** gebruikt om een tag in te stellen in de resourcegroep en wordt informatie opgegeven over het opslagaccount dat in de volgende stap wordt gemaakt.
+1. Voeg nog een beleidstoewijzing toe voor de Storage-tag (gebruik hierbij de parameter _storageAccountType_ opnieuw) aan het abonnement. Deze aanvullende beleidstoewijzingsartefact laat zien dat een in de blauwdruk gedefinieerde parameter door meer dan één artefact kan worden gebruikt. In dit voorbeeld wordt **storageAccountType** gebruikt voor het instellen van een tag op de resourcegroep. Deze waarde geeft informatie over het opslagaccount dat in de volgende stap wordt gemaakt.
 
    - REST API-URI
 
@@ -204,7 +206,7 @@ In elke REST API-URI zijn er verschillende variabelen die worden gebruikt en die
      }
      ```
 
-1. Voeg een sjabloon toe onder resourcegroep. De **Aanvraagbody** voor een Resource Manager-sjabloon bevat het normale JSON-component van het sjabloon, definieert de doelresourcegroep met **properties.resourceGroup** en gebruikt de blauwdrukparameters **storageAccountType**, **tagName** en **tagValue** opnieuw door elke parameter op te geven in het sjabloon. De blauwdrukparameters worden beschikbaar gemaakt in het sjabloon door **properties.parameters** te definiëren. Binnen de sjabloon-JSON wordt die sleutel/waarde gebruikt om de waarde in te voeren. De namen van de blauwdruk- en sjabloonparameters kunnen dezelfde zijn, maar zijn verschillend gemaakt om aan te tonen hoe elke parameter van de blauwdruk wordt doorgegeven aan de sjabloonartefact.
+1. Voeg een sjabloon toe onder resourcegroep. De **aanvraagbody** voor een Resource Manager-sjabloon omvat de normale JSON-component van de sjabloon en definieert de doelresourcegroep met **properties.resourceGroup**. De sjabloon maakt ook opnieuw gebruik van de blauwdrukparameters **storageAccountType**, **tagName** en **tagValue** door ze allemaal door te geven aan de sjabloon. De blauwdrukparameters zijn voor de sjabloon beschikbaar door **properties.parameters** te definiëren. Binnen de sjabloon-JSON wordt die sleutel/waarde gebruikt om de waarde in te voeren. De namen van de blauwdruk- en sjabloonparameters kunnen dezelfde zijn, maar zijn verschillend gemaakt om aan te geven hoe elke parameter wordt doorgegeven van de blauwdruk aan de sjabloonartefact.
 
    - REST API-URI
 
@@ -313,7 +315,7 @@ In elke REST API-URI zijn er verschillende variabelen die worden gebruikt en die
 
 ## <a name="publish-a-blueprint"></a>Een blauwdruk publiceren
 
-Nu de artefacten zijn toegevoegd aan de blauwdruk, is het tijd om deze te publiceren. Als de blauwdruk wordt gepubliceerd, wordt deze toegewezen aan een abonnement.
+Nu de artefacten zijn toegevoegd aan de blauwdruk, is het tijd om deze te publiceren. Als de blauwdruk wordt gepubliceerd, kan deze worden toegewezen aan een abonnement.
 
 - REST API-URI
 
@@ -321,7 +323,7 @@ Nu de artefacten zijn toegevoegd aan de blauwdruk, is het tijd om deze te public
   PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint/versions/{BlueprintVersion}?api-version=2017-11-11-preview
   ```
 
-De waarde voor `{BlueprintVersion}` is een reeks letters, cijfers en afbreekstreepjes (geen spaties of andere speciale tekens) met een maximale lengte van 20 tekens. Gebruik iets unieks en informatiefs als **v20180622-135541**.
+De waarde voor `{BlueprintVersion}` is een reeks letters, cijfers en afbreekstreepjes (geen spaties of andere speciale tekens) met een maximale lengte van twintig tekens. Gebruik iets unieks en informatiefs als **v20180622-135541**.
 
 ## <a name="assign-a-blueprint"></a>Een blauwdruk toewijzen
 
@@ -388,7 +390,7 @@ Nadat een blauwdruk is gepubliceerd met REST API, kan deze worden toegewezen aan
 
 ## <a name="unassign-a-blueprint"></a>De toewijzing van een blauwdruk ongedaan maken
 
-Blauwdrukken kunnen uit een abonnement worden verwijderd als deze niet langer nodig zijn of zijn vervangen door nieuwe blauwdrukken met bijgewerkte patronen, ontwerpen en bijgewerkt beleid. Wanneer een blauwdruk wordt verwijderd, worden de artefacten die als onderdeel van die blauwdruk zijn toegewezen, achtergelaten. Als u de toewijzing van een blauwdruk ongedaan wilt maken, gebruikt u de volgende REST API-bewerking:
+U kunt een blauwdruk uit een abonnement verwijderen. Het verwijderen wordt vaak uitgevoerd als de artefactresources niet langer nodig zijn. Wanneer een blauwdruk wordt verwijderd, blijven de artefacten die als onderdeel van die blauwdruk zijn toegewezen, achter. Als u de toewijzing van een blauwdruk ongedaan wilt maken, gebruikt u de volgende REST API-bewerking:
 
 - REST API-URI
 
@@ -410,7 +412,7 @@ Als u de blauwdruk zelf wilt verwijderen, gebruikt u de volgende REST API-bewerk
 
 - Meer informatie over de [levenscyclus van een blauwdruk](./concepts/lifecycle.md)
 - Informatie over hoe u [statische en dynamische parameters](./concepts/parameters.md) gebruikt
-- Leer hoe u de [blauwdrukvolgorde](./concepts/sequencing-order.md) aanpast
+- Meer informatie over hoe u de [blauwdrukvolgorde](./concepts/sequencing-order.md) aanpast
 - Ontdek hoe u gebruikmaakt van [resourcevergrendeling in blauwdrukken](./concepts/resource-locking.md)
-- Leer hoe u [bestaande toewijzingen bijwerkt](./how-to/update-existing-assignments.md)
+- Meer informatie over hoe u [bestaande toewijzingen bijwerkt](./how-to/update-existing-assignments.md)
 - Problemen oplossen tijdens de toewijzing van een blauwdruk met [algemene probleemoplossing](./troubleshoot/general.md)

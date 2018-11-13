@@ -8,34 +8,36 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 09/20/2018
-ms.openlocfilehash: 02b98cb22d897fc9599f6e44ddc57ef4211b0893
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: e3c165c87d6c179141f2ddd44f00f0f62a84b285
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47410814"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50912863"
 ---
-# <a name="manage-web-traffic-with-azure-application-gateway-using-ansible-preview"></a>Ansible (preview) gebruiken om webverkeer te beheren met Azure Application Gateway
-[Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/) is een load balancer voor webverkeer waarmee u het verkeer naar uw webapps kunt beheren. 
+# <a name="manage-web-traffic-with-azure-application-gateway-by-using-ansible-preview"></a>Ansible (preview) gebruiken om webverkeer te beheren met Azure Application Gateway
 
-U kunt Ansible ook gebruiken om de implementatie en configuratie van resources in uw omgeving te automatiseren. In dit artikel leest u hoe u Ansible gebruikt om een Azure Application Gateway te maken en deze te gebruiken om het verkeer van twee webservers te beheren die worden uitgevoerd in Azure-containerinstanties. 
+[Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/) is een load balancer voor webverkeer waarmee u het verkeer naar uw webapps kunt beheren.
 
-In deze zelfstudie leert u het volgende:
+Ansible kan worden gebruikt om de implementatie en configuratie van resources in uw omgeving te automatiseren. In dit artikel leest u hoe u Ansible gebruikt om een toepassingsgateway te maken. U kunt hier ook lezen u hoe u de gateway kunt gebruiken voor het beheren van verkeer naar twee webservers die worden uitgevoerd in Azure-containerinstanties.
+
+In deze zelfstudie ontdekt u hoe u:
 
 > [!div class="checklist"]
 > * Het netwerk instellen
-> * Twee Azure-containerinstanties maken met een httpd-installatiekopie
-> * Een toepassingsgateway maken met bovenstaande Azure-containerinstanties in de back-endpool
-
+> * Twee Azure-containerinstanties maken met HTTPD-installatiekopieën
+> * Een toepassingsgateway maken die werkt met de Azure-containerinstanties in de serverpool
 
 ## <a name="prerequisites"></a>Vereisten
+
 - **Azure-abonnement**: als u geen Azure-abonnement hebt, maakt u een [gratis account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) aan voordat u begint.
 - [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
 
 > [!Note]
-> Ansible 2.7 is vereist om de volgende playbooks-voorbeelden in deze zelfstudie uit te voeren. U kunt de RC-versie van Ansible 2.7 installeren door `sudo pip install ansible[azure]==2.7.0rc2` uit te voeren. Ansible 2.7 wordt uitgebracht in oktober 2018. Daarna hoeft u hier geen versie op te geven omdat de 2.7 de standaardversie is. 
+> Ansible 2.7 is vereist om de volgende voorbeeld-playbooks in deze zelfstudie uit te voeren. U kunt Ansible 2.7 RC installeren door `sudo pip install ansible[azure]==2.7.0rc2` uit te voeren. Nadat Ansible 2.7 is uitgebracht, hoeft u de versie niet op te geven.
 
 ## <a name="create-a-resource-group"></a>Een resourcegroep maken
+
 Een resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd.  
 
 In het volgende voorbeeld wordt een resourcegroep met de naam **myResourceGroup** gemaakt op de locatie **VS - oost**.
@@ -52,15 +54,17 @@ In het volgende voorbeeld wordt een resourcegroep met de naam **myResourceGroup*
         location: "{{ location }}"
 ```
 
-Sla bovenstaand playbook op als *rg.yml*. Als u het playbook wilt uitvoeren, gebruikt u de opdracht **ansible-playbook** als volgt:
+Sla dit playbook op als *rg.yml*. Als u het playbook wilt uitvoeren, gebruikt u de opdracht **ansible-playbook** als volgt:
+
 ```bash
 ansible-playbook rg.yml
 ```
 
-## <a name="create-network-resources"></a>Netwerkbronnen maken 
-U moet een virtueel netwerk maken om de toepassingsgateway in staat te stellen te communiceren met andere resources. 
+## <a name="create-network-resources"></a>Netwerkbronnen maken
 
-In het volgende voorbeeld worden een virtueel netwerk met de naam **myVNet**, een subnet met de naam **myAGSubnet** en een openbaar IP-adres met de naam **myAGPublicIPAddress** met domein met de naam **mydomain** gemaakt. 
+Maak eerst een virtueel netwerk om de toepassingsgateway in staat te stellen te communiceren met andere resources.
+
+In het volgende voorbeeld worden een virtueel netwerk met de naam **myVNet**, een subnet met de naam **myAGSubnet** en een openbaar IP-adres met de naam **myAGPublicIPAddress** met een domein met de naam **mydomain** gemaakt.
 
 ```yml
 - hosts: localhost
@@ -98,13 +102,15 @@ In het volgende voorbeeld worden een virtueel netwerk met de naam **myVNet**, ee
         domain_name_label: "{{ publicip_domain }}"
 ```
 
-Sla bovenstaand playbook op als *vnet_create.yml*. Als u het playbook wilt uitvoeren, gebruikt u de opdracht **ansible-playbook** als volgt:
+Sla dit playbook op als *vnet_create.yml*. Als u het playbook wilt uitvoeren, gebruikt u de opdracht **ansible-playbook** als volgt:
+
 ```bash
 ansible-playbook vnet_create.yml
 ```
 
-## <a name="create-backend-servers"></a>Back-endservers maken
-In dit voorbeeld maakt u twee Azure-containerinstanties met httpd-installatiekopieën die worden gebruikt als back-endservers voor de toepassingsgateway.  
+## <a name="create-servers"></a>Servers maken
+
+In het volgende voorbeeld wordt getoond hoe u twee Azure-containerinstanties met HTTPD-installatiekopieën maakt die worden gebruikt als webservers voor de toepassingsgateway.  
 
 ```yml
 - hosts: localhost
@@ -147,22 +153,22 @@ In dit voorbeeld maakt u twee Azure-containerinstanties met httpd-installatiekop
               - 80
 ```
 
-Sla bovenstaand playbook op als *aci_create.yml*. Als u het playbook wilt uitvoeren, gebruikt u de opdracht **ansible-playbook** als volgt:
+Sla dit playbook op als *aci_create.yml*. Als u het playbook wilt uitvoeren, gebruikt u de opdracht **ansible-playbook** als volgt:
+
 ```bash
 ansible-playbook aci_create.yml
 ```
 
 ## <a name="create-the-application-gateway"></a>De toepassingsgateway maken
 
-We gaan nu een toepassingsgateway maken. In het volgende voorbeeld wordt een toepassingsgateway met de naam **myAppGateway** gemaakt, met back-end-, front-end- en http-configuratie.  
+In het volgende voorbeeld wordt een toepassingsgateway met de naam **myAppGateway** gemaakt, met configuraties voor back-end-, front-end- en HTTP.  
 
-> [!div class="checklist"]
-> * **appGatewayIP**, gedefinieerd in het **gateway_ip_configurations**-blok: subnetverwijzing is vereist voor de IP-configuratie van de gateway. 
-> * **appGatewayBackendPool**, gedefinieerd in het **backend_address_pools**-blok: een toepassingsgateway moet minimaal één back-endadresgroep hebben. 
-> * **appGatewayBackendHttpSettings**, gedefinieerd in het **backend_http_settings_collection**-blok: hiermee wordt aangegeven dat voor de communicatie poort 80 en een HTTP-protocol worden gebruikt. 
-> * **appGatewayHttpListener**, gedefinieerd in het **backend_http_settings_collection**-blok: de standaard-listener voor appGatewayBackendPool. 
-> * **appGatewayFrontendIP**, gedefinieerd in het **frontend_ip_configurations**-blok: wijst myAGPublicIPAddress toe aan appGatewayHttpListener. 
-> * **rule1**, gedefinieerd in het **request_routing_rules**-blok: de standaardregel voor doorsturen voor appGatewayHttpListener. 
+* **appGatewayIP** wordt gedefinieerd in het blok **gateway_ip_configurations**. Er is een subnetverwijzing vereist voor de IP-configuratie van de gateway.
+* **appGatewayBackendPool** wordt gedefinieerd in het blok **backend_address_pools**. Een toepassingsgateway moet ten minste één back-endadresgroep hebben.
+* **appGatewayBackendHttpSettings** wordt gedefinieerd in het blok **backend_http_settings_collection**. Hiermee wordt aangegeven dat voor de communicatie poort 80 en een HTTP-protocol worden gebruikt.
+* **appGatewayHttpListener** wordt gedefinieerd in het blok **backend_http_settings_collection**. Dit is de standaard-listener die aan appGatewayBackendPool is gekoppeld.
+* **appGatewayFrontendIP** wordt gedefinieerd in het blok **frontend_ip_configurations**. Hiermee wordt myAGPublicIPAddress aan appGatewayHttpListener toegewezen.
+* **Rule1** wordt gedefinieerd in het blok **request_routing_rules**. Dit is de standaardregel voor doorsturen die aan appGatewayHttpListener is gekoppeld.
 
 ```yml
 - hosts: localhost
@@ -246,22 +252,23 @@ We gaan nu een toepassingsgateway maken. In het volgende voorbeeld wordt een toe
             name: rule1
 ```
 
-Sla bovenstaand playbook op als *appgw_create.yml*. Als u het playbook wilt uitvoeren, gebruikt u de opdracht **ansible-playbook** als volgt:
+Sla dit playbook op als*appgw_create.yml*. Als u het playbook wilt uitvoeren, gebruikt u de opdracht **ansible-playbook** als volgt:
+
 ```bash
 ansible-playbook appgw_create.yml
 ```
 
-Het kan enkele minuten duren voordat de toepassingsgateway is gemaakt. 
+Het kan enkele minuten duren voordat de toepassingsgateway is gemaakt.
 
 ## <a name="test-the-application-gateway"></a>De toepassingsgateway testen
 
-In bovenstaand voorbeeld-playbook voor netwerkresources is het domein met de naam **mydomain** gemaakt in **eastus**. Nu kunt u naar de browser navigeren en `http://mydomain.eastus.cloudapp.azure.com` invoeren, waarna de volgende pagina wordt weergegeven waarop wordt bevestigd dat de Application Gateway werkt zoals verwacht.
+In het voorbeeldplaybook voor netwerkresources hebt u het domein met de naam **mydomain** gemaakt in **eastus**. Ga naar `http://mydomain.eastus.cloudapp.azure.com` in uw browser. Als u de volgende pagina ziet, werkt de toepassingsgateway zoals verwacht.
 
-![Application Gateway openen](media/ansible-create-configure-application-gateway/applicationgateway.PNG)
+![Testen of een toepassingsgateway werkt](media/ansible-create-configure-application-gateway/applicationgateway.PNG)
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Als u deze resources niet nodig hebt, kunt u ze verwijderen door onderstaand voorbeeld uit te voeren. Hiermee verwijdert u een resourcegroep met de naam **myResourceGroup**. 
+Als u deze resources niet nodig hebt, kunt u ze verwijderen door de volgende code uit te voeren. Hiermee verwijdert u een resourcegroep met de naam **myResourceGroup**.
 
 ```yml
 - hosts: localhost
@@ -274,11 +281,13 @@ Als u deze resources niet nodig hebt, kunt u ze verwijderen door onderstaand voo
         state: absent
 ```
 
-Sla bovenstaand playbook op als *rg_delete*.yml. Als u het playbook wilt uitvoeren, gebruikt u de opdracht **ansible-playbook** als volgt:
+Sla het dit playbook op als *rg_delete*.yml. Als u het playbook wilt uitvoeren, gebruikt u de opdracht **ansible-playbook** als volgt:
+
 ```bash
 ansible-playbook rg_delete.yml
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-> [!div class="nextstepaction"] 
+
+> [!div class="nextstepaction"]
 > [Ansible in Azure](https://docs.microsoft.com/azure/ansible/)

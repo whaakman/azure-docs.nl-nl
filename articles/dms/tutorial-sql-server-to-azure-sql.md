@@ -1,5 +1,5 @@
 ---
-title: Azure Database Migration Service gebruiken voor het offline migreren van SQL Server naar Azure SQL Database | Microsoft Docs
+title: 'Zelfstudie: SQL Server migreren naar een offline exemplaar van Azure SQL Database met behulp van DMS | Microsoft Docs'
 description: Informatie over het offline migreren van on-premises SQL Server naar Azure SQL Database met behulp van de Azure Database Migration Service.
 services: dms
 author: pochiraju
@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
 ms.date: 10/10/2018
-ms.openlocfilehash: 6b8b6994b810db939a5e690d16d3c5d2f1a0825f
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 783785a73b3a6a99126b07f3759be540fe3098d8
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945396"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50959236"
 ---
-# <a name="migrate-sql-server-to-azure-sql-database-offline-using-dms"></a>SQL Server migreren naar een offline exemplaar van Azure SQL Database met behulp van DMS
+# <a name="tutorial-migrate-sql-server-to-azure-sql-database-offline-using-dms"></a>Zelfstudie: SQL Server migreren naar een offline exemplaar van Azure SQL Database met behulp van DMS
 U kunt de Azure Database Migration Service gebruiken voor het migreren van de databases van een on-premises SQL Server-exemplaar naar [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/). In deze zelfstudie migreert u de database **Adventureworks2012** hersteld naar een on-premises exemplaar van SQL Server 2016 (of hoger) met een Azure SQL Database met behulp van de Azure Database Migration Service.
 
 In deze zelfstudie leert u het volgende:

@@ -1,5 +1,5 @@
 ---
-title: Gebruik de Azure Database Migration Service om een onlinemigratie uit te voeren van SQL Server naar Azure SQL Database Managed Instance | Microsoft Docs
+title: 'Zelfstudie: de Azure Database Migration Service gebruiken om een onlinemigratie uit te voeren van SQL Server naar Azure SQL Database Managed Instance | Microsoft Docs'
 description: Lees hoe u een onlinemigratie uitvoert van on-premises SQL Server naar Azure SQL Database Managed Instance met behulp van de Azure Database Migration Service.
 services: dms
 author: pochiraju
@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
 ms.date: 10/10/2018
-ms.openlocfilehash: 4d46a438708e2e72d625f5104293b4605f7b096d
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: ab869e53810f049593803d58b3df75d0c083bbd2
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49946076"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50962891"
 ---
-# <a name="migrate-sql-server-to-azure-sql-database-managed-instance-online-using-dms"></a>SQL Server online migreren naar Azure SQL Database Managed Instance met behulp van DMS
+# <a name="tutorial-migrate-sql-server-to-azure-sql-database-managed-instance-online-using-dms"></a>Zelfstudie: SQL Server online migreren naar Azure SQL Database Managed Instance met behulp van DMS
 U kunt de Azure Database Migration Service gebruiken om met minimale downtime databases te migreren van een on-premises SQL Server-exemplaar naar een [beheerd exemplaar voor Azure SQL Database](../sql-database/sql-database-managed-instance.md). In het artikel [SQL Server-exemplaar migreren naar Azure SQL Database Managed Instance](../sql-database/sql-database-managed-instance-migrate.md) vindt u aanvullende methoden, waarvoor enkele handmatige stappen nodig kunnen zijn.
 
 >[!IMPORTANT]
@@ -145,7 +145,7 @@ Nadat er een exemplaar van de service is gemaakt, zoekt u het exemplaar in de Az
 
 3. Geef waarden op voor **SQL-gebruiker** en **Wachtwoord** om verbinding te maken met het doelexemplaar van Azure SQL Database Managed Instance.
 
-       ![Select Target](media\tutorial-sql-server-to-managed-instance-online\dms-target-details3.png)
+    ![Doel selecteren](media\tutorial-sql-server-to-managed-instance-online\dms-target-details3.png)
 
 2.  Selecteer **Opslaan**.
 

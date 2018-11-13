@@ -13,28 +13,97 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/18/2018
+ms.date: 11/02/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 40ac3ca92c65607df056b883608dde60d816143e
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: 2aca42c23cc213d5d7e451105052d5d5d697b77d
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47181770"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50979468"
 ---
-# <a name="hybrid-identity-and-microsofts-identity-solutions"></a>Hybride identiteit en identiteitsoplossingen van Microsoft
-Vandaag de dag maken organisaties en bedrijven steeds meer gebruik van een mix van on-premises toepassingen en cloudtoepassingen.  Het ondersteunen van toepassingen en gebruikers die toegang nodig hebben tot deze toepassingen, zowel on-premises als in de cloud, is inmiddels een flinke uitdaging.
+# <a name="hybrid-identity-and-microsoft-identity-solutions"></a>Hybride identiteit en identiteitsoplossingen van Microsoft
+Met hybride identiteitsoplossingen van [Microsoft Azure Active Directory (Azure AD)](../../active-directory/fundamentals/active-directory-whatis.md) kunt u on-premises Directory-objecten synchroniseren met Azure AD terwijl u uw gebruikers on-premises kunt blijven beheren. De eerste beslissing die u dient te nemen als u uw on-premises Windows Server Active Directory wilt synchroniseren met Azure AD, is of u beheerde identiteiten of gefedereerde identiteit wilt gebruiken. 
 
-De identiteitsoplossingen van Microsoft omvatten mogelijkheden voor zowel on-premises als in de cloud. Er wordt één gebruikersidentiteit gemaakt voor verificatie en autorisatie bij alle resources, ongeacht hun locatie. We noemen dit hybride identiteit.
+- **Beheerde identiteiten** - gebruikersaccounts en groepen die worden gesynchroniseerd vanuit een on-premises Active Directory en waarvan de gebruikersverificatie wordt beheerd door Azure.   
+- Met **gefedereerde identiteiten** heeft u meer controle over gebruikers door de gebruikersverificatie van Azure te scheiden en de verificatie over te dragen aan een vertrouwde, on-premises identiteitsprovider. 
+
+Voor het configureren van hybride identiteit zijn er diverse opties beschikbaar. Terwijl u overweegt welk identiteitsmodel het beste bij uw organisatie past, moet u ook nadenken over tijd, bestaande infrastructuur, complexiteit en kosten. Deze factoren zijn voor elke organisatie verschillend en kunnen in de loop der tijd veranderen. Als uw vereisten inderdaad veranderen, bent u flexibel genoeg om op een ander identiteitsmodel over te stappen.
+
+## <a name="managed-identity"></a>Beheerde identiteit 
+
+Beheerde identiteit is de eenvoudigste manier om on-premises Directory-objecten (gebruikers en groepen) met Azure AD te synchroniseren. 
+
+![Gesynchroniseerde hybride identiteit](./media/whatis-hybrid-identity/managed.png)
+
+Hoewel beheerde identiteit de makkelijkste en snelste methode is, moeten uw gebruikers nog wel een afzonderlijk wachtwoord hebben voor resources in de cloud. U kunt dit voorkomen door [een gebruikerswachtwoord-hash te synchroniseren](how-to-connect-password-hash-synchronization.md) met uw Azure AD Directory. Het synchroniseren van wachtwoord-hashes stelt gebruikers in staat zich met dezelfde gebruikersnaam en hetzelfde wachtwoord die ze on-premises gebruiken, aan te melden bij organisatieresources in de cloud. Azure AD Connect controleert regelmatig uw on-premises directory op wijzigingen en houdt uw Azure AD Directory gesynchroniseerd. Als een gebruikerskenmerk of -wachtwoord on-premises in Active Directory wordt gewijzigd, wordt het automatisch in Azure AD bijgewerkt. 
+
+Voor de meeste organisaties waarvoor geldt dat ze hun gebruikers moeten laten aanmelden bij Office 365, SaaS-toepassingen en andere Azure-resources, wordt de standaardoptie voor wachtwoordhashsynchronisatie aanbevolen. Als dat niet geschikt is, dient u te kiezen tussen Pass-through-verificatie en AD FS.
+
+> [!TIP]
+> Gebruikerswachtwoorden worden opgeslagen in on-premises Windows Server Active Directory en wel in de vorm van een hash waarde die het feitelijke gebruikerswachtwoord voorstelt. Een hash-waarde is het resultaat vaan een eenzijdige wiskundige functie (het hash-algoritme). Er bestaat geen methode het resultaat van een eenzijdige functie terug te draaien naar de versie in tekst zonder opmaak van een wachtwoord. U kunt een wachtwoord-hash niet gebruiken om u aan te melden bij uw on-premises netwerk. Als u ervoor kiest wachtwoorden te synchroniseren, extraheert Azure AD Connect wachtwoord-hashes uit de on-premises Active Directory en past extra beveiligingsverwerking op de wachtwoord-hash toe voordat deze met Azure AD wordt gesynchroniseerd. Wachtwoordhashsynchronisatie kan ook in combinatie met terugschrijven van wachtwoord worden gebruikt om self-service voor wachtwoord opnieuw instellen in te schakelen. Daarnaast kunt u eenmalige aanmelding inschakelen voor gebruikers op computers die zijn toegevoegd aan een domein en verbonden met het bedrijfsnetwerk. Met eenmalige aanmelding hoeven gebruikers die hiervan gebruikmaken, alleen een gebruikersnaam in te voeren voor veilige toegang tot cloudresources. 
+>
+
+## <a name="pass-through-authentication"></a>Pass-through-verificatie
+
+[Azure AD-pass-through-verificatie](how-to-connect-pta.md) biedt een eenvoudige valideringsoplossing voor Azure AD-services die gebruikmaken van uw on-premises Active Directory. Als het beveiligings- en nalevingsbeleid van uw organisatie het verzenden van gebruikerswachtwoorden niet toestaat, ook niet in een gehashte vorm, en als u alleen eenmalige aanmelding via het bureaublad hoeft te ondersteunen voor apparaten die zijn toegevoegd aan een domein, wordt het aangeraden evaluatie uit te voeren via pass-through-verificatie. Voor pass-through-verificatie is geen implementatie in de DMS vereist, wat de infrastructuur voor de implementatie vereenvoudigt in vergelijking met AD FS. Als gebruikers zich aanmelden bij Azure AD, worden met deze verificatiemethode de wachtwoorden rechtstreeks gecontroleerd tegen de on-premises Active Directory.
+
+![Pass-through-verificatie](./media/whatis-hybrid-identity/pass-through-authentication.png)
+
+Met pass-through-verificatie is er geen behoefte aan een complexe netwerkinfrastructuur en hoeft u geen on-premises wachtwoorden in de cloud op te slaan. In combinatie met eenmalige aanmelding biedt pass-through-verificatie een werkelijk geïntegreerde ervaring bij het aanmelden bij Azure AD of andere cloudservices.
+
+Pass-through-verificatie wordt geconfigureerd met Azure AD Connect, waarvoor een eenvoudige on-premises agent wordt gebruikt die luistert naar aanvragen voor wachtwoordvalidatie. De agent kan eenvoudig worden geïmplementeerd voor meerdere machines, zodat hoge beschikbaarheid en taakverdeling wordt geboden. Omdat alle communicatie alleen uitgaand is, hoeft er geen connector in een DMS te worden geïnstalleerd. De vereisten van de server voor de connector zijn als volgt:
+
+- Windows Server 2012 R2 of hoger
+- Toegevoegd aan een domein in de forest via welke gebruikers worden gevalideerd
+
+## <a name="federated-identity-ad-fs"></a>Federatieve identiteit (AD FS)
+
+Als u meer controle wilt over hoe gebruikers toegang tot Office 365 en andere cloudservices krijgen, kunt u adreslijstsynchronisatie instellen met eenmalige aanmelding met behulp van [Active Directory Federation Services (AD FS)](how-to-connect-fed-whatis.md). Als u de aanmeldingen van uw gebruikers federeert met AD FS, wordt de verificatie gedelegeerd naar een on-premises server die de gebruikersreferenties valideert. In dit model worden on-premises Active Directory-referenties nooit doorgegeven aan Azure AD.
+
+![Federatieve identiteit](./media/whatis-hybrid-identity/federated-identity.png)
+
+Met deze aanmeldingsmethode, ook wel identiteitsfederatie genoemd, wordt gegarandeerd dat alle gebruikersverificatie on-premises wordt afgehandeld. Bovendien kunnen beheerders dan een robuuster niveau van toegangsbeheer implementeren. Identiteitsfederatie met AD FS is de ingewikkeldste optie en hiervoor is de implementatie van extra servers in uw on-premises omgeving vereist. Bij identiteitsfederatie bent u ook verplicht 24/7 ondersteuning te bieden voor uw Active Directory- en AD FS-infrastructuur. Dit hoge niveau van ondersteuning is noodzakelijk, omdat als uw on-premises internettoegang, domeincontroller of AD FS-servers niet beschikbaar zijn, gebruikers zich bij cloudservices kunnen aanmelden.
+
+> [!TIP]
+> Als u besluit federatie met Active Directory Federation Services (AD FS) te gebruiken, kunt u optioneel als back-up wachtwoordhashsynchronisatie instellen in geval de AD FS-infrastructuur mislukt.
+>
+
+## <a name="common-scenarios-and-recommendations"></a>Veelvoorkomende scenario's en aanbevelingen
+
+Hieronder volgen enkele veelvoorkomende hybride identiteits- en beheerscenario's met aanbevelingen voor de meest geschikte hybride identiteitsoptie(s) voor elk scenario.
+
+|Ik wil graag:|PHS en eenmalige aanmelding<sup>1</sup>| PTA en eenmalige aanmelding<sup>2</sup> | AD FS<sup>3</sup>|
+|-----|-----|-----|-----|
+|nieuwe accounts van gebruikers, contactpersonen en groepen die in mijn on-premises Active Directory zijn gemaakt, automatisch met de cloud synchroniseren.|![Aanbevolen](./media/whatis-hybrid-identity/ic195031.png)| ![Aanbevolen](./media/whatis-hybrid-identity/ic195031.png) |![Aanbevolen](./media/whatis-hybrid-identity/ic195031.png)|
+|mijn tenant instellen voor hybride Office 365-scenario's|![Aanbevolen](./media/whatis-hybrid-identity/ic195031.png)| ![Aanbevolen](./media/whatis-hybrid-identity/ic195031.png) |![Aanbevolen](./media/whatis-hybrid-identity/ic195031.png)|
+|mijn gebruikers in staat stellen zich aan te melden bij cloudservices met hun on-premises wachtwoord|![Aanbevolen](./media/whatis-hybrid-identity/ic195031.png)| ![Aanbevolen](./media/whatis-hybrid-identity/ic195031.png) |![Aanbevolen](./media/whatis-hybrid-identity/ic195031.png)|
+|eenmalige aanmelding implementeren met bedrijfsreferenties|![Aanbevolen](./media/whatis-hybrid-identity/ic195031.png)| ![Aanbevolen](./media/whatis-hybrid-identity/ic195031.png) |![Aanbevolen](./media/whatis-hybrid-identity/ic195031.png)|
+|ervoor zorgen dat wachtwoord-hashes in de cloud worden opgeslagen| |![Aanbevolen](./media/whatis-hybrid-identity/ic195031.png)|![Aanbevolen](./media/whatis-hybrid-identity/ic195031.png)|
+|oplossingen voor meervoudige verificatie in de cloud mogelijk maken| |![Aanbevolen](./media/whatis-hybrid-identity/ic195031.png)|![Aanbevolen](./media/whatis-hybrid-identity/ic195031.png)|
+|oplossingen voor meervoudige verificatie on-premises mogelijk maken| | |![Aanbevolen](./media/whatis-hybrid-identity/ic195031.png)|
+|verificatie van smartcards voor mijn gebruikers mogelijk maken<sup>4</sup>| | |![Aanbevolen](./media/whatis-hybrid-identity/ic195031.png)|
+|meldingen voor verlopen wachtwoorden weergeven in de Office-portal en op het Windows 10-bureaublad| | |![Aanbevolen](./media/whatis-hybrid-identity/ic195031.png)|
+
+> <sup>1</sup> Wachtwoordhashsynchronisatie met eenmalige aanmelding.
+>
+> <sup>2</sup> Pass-through-verificatie en eenmalige aanmelding. 
+>
+> <sup>3</sup> Federatieve eenmalige aanmelding met AD FS.
+>
+> <sup>4</sup> AD FS kan worden geïntegreerd met uw Enterprise PKI om aanmelding met certificaten toe te staan. Deze certificaten kunnen voorlopige certificaten zijn die worden geïmplementeerd via vertrouwde inrichtingskanalen, zoals MDM-, GPO- of smartcardcertificaten (waaronder PIV/CAC-kaarten) of Hello voor Bedrijven (cert-trust). Zie [dit blog](https://blogs.msdn.microsoft.com/samueld/2016/07/19/adfs-certauth-aad-o365/) (Engelstalig) voor meer informatie over ondersteuning voor smartcardverificatie.
+>
 
 ## <a name="what-is-azure-ad-connect"></a>Wat is Azure AD Connect?
 
 Azure AD Connect is het programma van Microsoft dat is ontworpen om te voldoen aan uw doelstellingen voor een hybride identiteit.  Hiermee kunt u uw gebruikers een algemene identiteit bieden voor Office 365, Azure en SaaS toepassingen die zijn geïntegreerd met Azure AD.  Deze biedt de volgende functies:
     
 - [Synchronisatie](how-to-connect-sync-whatis.md): dit onderdeel is verantwoordelijk voor het maken van gebruikers, groepen en andere objecten. Het kan ook gebruikt worden om te controleren of de identiteitsinformatie van uw on-premises gebruikers en groepen overeenkomt met de cloud.  Het onderdeel is verantwoordelijk voor het synchroniseren van wachtwoord-hashes met Azure AD.
+- [Synchronisatie van wachtwoord-hashes](how-to-connect-password-hash-synchronization.md): een optioneel onderdeel waarmee gebruikers hetzelfde wachtwoord on-premises en in de cloud kunnen gebruiken door een hash van het gebruikerswachtwoord met Azure AD te synchroniseren.
 -   [AD FS en integratie van federatie](how-to-connect-fed-whatis.md): een optioneel onderdeel van Azure AD Connect dat kan worden gebruikt om een hybride omgeving te configureren met behulp van een on-premises AD FS-infrastructuur. Het onderdeel biedt ook beheermogelijkheden voor AD FS, zoals het vernieuwen van certificaten en aanvullende implementaties van AD FS-servers.
 -   [Pass through-verificatie](how-to-connect-pta.md): met dit optionele onderdeel kunnen gebruikers hetzelfde wachtwoord on-premises en in de cloud gebruiken, zonder dat er een extra infrastructuur van een federatieve omgeving vereist is.
+-   [PingFederate en integratie van federatie](how-to-connect-install-custom.md#configuring-federation-with-pingfederate): een andere federatieoptie waarmee u PingFederate kunt gebruiken als uw identiteitsprovider.
 -   [Statuscontrole](whatis-hybrid-identity-health.md): Azure AD Connect Health biedt goede controle en een centrale locatie in de Azure-portal om deze activiteit weer te geven. 
 
 

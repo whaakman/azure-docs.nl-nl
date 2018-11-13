@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 0765e79b90eed49742f5eead33063907eb1db1f4
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 7f93a225db845840545b761d812f5a8a81f76f91
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47030843"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50913560"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>Zelfstudie: Gegevensexports instellen en beheren
 
@@ -42,11 +42,11 @@ Voor Azure-opslagaccounts:
 - Uw Azure-opslagaccount moet zijn geconfigureerd voor blob- of bestandsopslag.
 
 ## <a name="sign-in-to-azure"></a>Aanmelden bij Azure
-Meld u aan bij de Azure-portal op [https://portal.azure.com](https://portal.azure.com/).
+Meld u aan bij de Azure Portal op [https://portal.azure.com](https://portal.azure.com/).
 
 ## <a name="create-a-daily-export"></a>Een dagelijkse export uitvoeren
 
-Kostenbeheer en facturering &gt; selecteer een abonnement of een resourcegroep in een abonnement &gt; klik op Exporteren &gt; klik op **Toevoegen**.
+Kostenbeheer en facturering &gt; Kostenbeheer &gt; selecteer een abonnement of een resourcegroep in een abonnement &gt; Exporteren &gt; **Toevoegen**.
 
 Typ een naam voor de export en geef het abonnement, het Azure-opslagaccount, de container en de map voor bestandsopslag of de blobcontainer op. Klik vervolgens op **Maken**.
 
@@ -66,7 +66,7 @@ Klik in de lijst met exports op de naam van het opslagaccount. Klik op de pagina
 
 Ga in Storage Explorer naar de container die u wilt openen en selecteer de map voor de huidige maand. U ziet nu een lijst met CSV-bestanden. Selecteer het gewenste bestand en klik op **Openen**.
 
-![Storage Explorer](./media/tutorial-export-acm-data/storage-explorer.png)
+![Opslagverkenner](./media/tutorial-export-acm-data/storage-explorer.png)
 
 Het bestand wordt geopend met het programma of de toepassing waarmee bestanden met de extensie CSV standaard worden geopend. Dit is een voorbeeld met Excel.
 
@@ -78,7 +78,7 @@ Het exporteren van Cost Management-gegevens heeft vaak als doel om deze gegevens
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie hebt u het volgende geleerd:
+In deze zelfstudie heeft u het volgende geleerd:
 
 > [!div class="checklist"]
 > * Een dagelijkse export uitvoeren

@@ -60,7 +60,7 @@ items:
       href: azure-to-azure-tutorial-migrate.md
 - name: Concepten
   items:
-  - name: Veelgestelde vragen
+  - name: Veelgestelde vragen over Site Recovery
     href: site-recovery-faq.md
   - name: Over herstel na noodgevallen van virtuele Azure-machines naar Azure
     items:
@@ -80,6 +80,8 @@ items:
       href: vmware-azure-common-questions.md
     - name: Ondersteuningsmatrix
       href: vmware-physical-azure-support-matrix.md
+    - name: Ondersteuningsvereisten voor implementatie van configuratieserver
+      href: vmware-azure-configuration-server-requirements.md
     - name: VMware naar Azure-architectuur
       href: vmware-azure-architecture.md
     - name: Opties voor failbacklocaties van Azure naar VMware
@@ -134,9 +136,9 @@ items:
       items:
       - name: Netwerken voorbereiden voor herstel na noodgevallen voor Azure-VM
         href: azure-to-azure-about-networking.md
-      - name: Netwerktoewijzing voorbereiden voor herstel na noodgevallen voor Azure-VM
+      - name: Netwerktoewijzing instellen en IP-adressen behouden na een failover
         href: azure-to-azure-network-mapping.md
-      - name: IP-adressering voor failover instellen
+      - name: Voorbeelden voor het behouden van IP-adressen na een failover
         href: site-recovery-retain-ip-azure-vm-failover.md
       - name: ExpressRoute integreren met herstel na noodgevallen voor Azure-VM
         href: azure-vm-disaster-recovery-with-expressroute.md
@@ -148,14 +150,6 @@ items:
         href: azure-to-azure-how-to-enable-replication-ade-vms.md
       - name: Azure VM's opnieuw beveiligen na een failover
         href: azure-to-azure-how-to-reprotect.md
-    - name: Problemen oplossen
-      items:
-      - name: Problemen met replicatie van Azure naar Azure oplossen
-        href: azure-to-azure-troubleshoot-errors.md
-      - name: Problemen met doorlopende replicatie oplossen
-        href: azure-to-azure-troubleshoot-replication.md
-      - name: Problemen met de Azure Site Recovery-extensie oplossen
-        href: site-recovery-extension-troubleshoot.md
       - name: Herstel na noodgevallen instellen voor virtuele Azure-machines na migratie naar Azure
         href: azure-to-azure-replicate-after-migration.md
     - name: Beheren
@@ -188,10 +182,8 @@ items:
         href: vmware-azure-set-up-process-server-scale.md
     - name: Herstel na noodgeval instellen
       items:
-      - name: De bronomgeving instellen
+      - name: De bronomgeving/configuratieserver instellen
         href: vmware-azure-set-up-source.md
-      - name: De configuratieserver voor virtuele VMware-machines implementeren
-        href: vmware-azure-deploy-configuration-server.md
       - name: De doelomgeving instellen
         href: vmware-azure-set-up-target.md
       - name: Replicatie-instellingen configureren
@@ -390,14 +382,18 @@ items:
     href: site-recovery-monitor-and-troubleshoot.md
   - name: Azure-VM's
     items:
-    - name: Problemen met replicatie van Azure naar Azure oplossen
+    - name: Problemen met replicatie voor virtuele Azure-machines oplossen
       href: azure-to-azure-troubleshoot-errors.md
+    - name: Problemen met doorlopende replicatie voor virtuele Azure-machines oplossen
+      href: azure-to-azure-troubleshoot-replication.md
     - name: Problemen met de Mobility-service voor Azure VM's oplossen
       href: site-recovery-extension-troubleshoot.md
   - name: VMware/fysieke server
     items:
     - name: Problemen met replicatie van VMware naar Azure oplossen
       href: vmware-azure-troubleshoot-replication.md
+    - name: Problemen met de configuratieserver oplossen
+      href: vmware-azure-troubleshoot-configuration-server.md
     - name: Problemen met de push-installatie van de Mobility-service voor virtuele VMware-machines/fysieke servers oplossen
       href: vmware-azure-troubleshoot-push-install.md
     - name: Problemen met failover naar Azure oplossen
@@ -438,9 +434,9 @@ items:
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Service-updates
     href: https://azure.microsoft.com/updates/?product=site-recovery
-ms.openlocfilehash: 770aa6a07df6900b10558ebbb7718c248296ee51
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: d0d5ff955caa7cf9206973f0411f4170ba3bbc35
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51288081"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51566344"

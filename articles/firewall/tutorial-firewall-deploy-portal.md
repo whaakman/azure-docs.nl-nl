@@ -1,36 +1,38 @@
 ---
-title: Azure Firewall implementeren en configureren met de Azure-portal
+title: 'Zelfstudie: Azure Firewall implementeren en configureren met de Azure-portal'
 description: In deze zelfstudie leert u hoe u Azure Firewall kunt implementeren en configureren via de Azure-portal.
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 10/30/2018
+ms.date: 11/6/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 47a04df843ec307b54cc1d6597f9a3cf8668e291
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 4873da97b790df98b6d10ae8b7a57fc39b534755
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50238825"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51278579"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Zelfstudie: Azure Firewall implementeren en configureren met de Azure-portal
 
-Azure Firewall heeft twee soorten regels om de uitgaande toegang te beheren:
+Het beheren van toegang tot uitgaande netwerken is een belangrijk onderdeel van een algemeen netwerkbeveiligingsabonnement. Zo wilt u wellicht de toegang tot websites, uitgaande IP-adressen of poorten beperken.
 
-- **Toepassingsregels**
+Een van de manieren waarop u de toegang tot uitgaande netwerken kunt beheren vanaf een Azure-subnet is met Azure Firewall. Met Azure Firewall kunt u het volgende configureren:
 
-   Hiermee kunt u volledig gekwalificeerde domeinnamen (FQDN’s) configureren waartoe toegang kan worden verkregen via een subnet. U kunt bijvoorbeeld toegang tot *github.com* via uw subnet toestaan.
-- **Netwerkregels**
-
-   Hiermee kunt u regels configureren die een bronadres, protocol, doelpoort en doeladres bevatten. U kunt bijvoorbeeld een regel maken die toestaat dat verkeer naar poort 53 (DNS) naar het IP-adres van uw DNS-server gaat via uw subnet.
+* Toepassingsregels die volledig gekwalificeerde domeinnamen (FQDN's) definiëren waartoe toegang kan worden verkregen via een subnet.
+* Netwerkregels die een bronadres, protocol, doelpoort en doeladres definiëren.
 
 Netwerkverkeer is onderhevig aan de geconfigureerde firewallregels wanneer u het routeert naar de firewall als standaardgateway van het subnet.
 
-Toepassings- en netwerkregels worden opgeslagen in *regelverzamelingen*. Een regelverzameling is een lijst met regels die dezelfde actie en prioriteit hebben.  Een netwerkregelverzameling is een lijst met netwerkregels en een toepassingsregelverzameling is een lijst met toepassingsregels.
+Voor deze zelfstudie maakt u één vereenvoudigd VNet met drie subnetten voor eenvoudige implementatie. Voor productie-implementaties wordt een [hub-en-spoke-model](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) aanbevolen, waarbij de firewall zich in zijn eigen VNet bevindt en workloadservers zich in gekoppelde VNets bevinden in dezelfde regio met één of meer subnetten.
 
-Zie [Verwerkingslogica voor Azure Firewall-regels](rule-processing.md) voor meer informatie over de verwerkingslogica voor Azure Firewall-regels.
+- **AzureFirewallSubnet** – De firewall bevindt zich in dit subnet.
+- **Workload-SN** – De workloadserver bevindt zich in dit subnet. Het netwerkverkeer van dit subnet gaat via de firewall.
+- **Jump-SN** – De "jumpserver" bevindt zich in dit subnet. De jumpserver heeft een openbaar IP-adres waarmee u verbinding kunt maken via een extern bureaublad. Van daaruit kunt u vervolgens (via een ander extern bureaublad) verbinding maken met de workloadserver.
+
+![Netwerkinfrastructuur van zelfstudie](media/tutorial-firewall-rules-portal/Tutorial_network.png)
 
 In deze zelfstudie leert u het volgende:
 
@@ -38,29 +40,22 @@ In deze zelfstudie leert u het volgende:
 > * Een testnetwerkomgeving instellen
 > * Een firewall implementeren
 > * Een standaardroute maken
-> * Toepassingsregels configureren
-> * Netwerkregels configureren
+> * Een toepassing configureren om toegang tot github.com toe te staan
+> * Een netwerkregel configureren om toegang tot externe DNS-servers toe te staan
 > * De firewall testen
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
-Voor deze zelfstudie maakt u één VNet met drie subnetten:
-- **FW-SN** – De firewall bevindt zich in dit subnet.
-- **Workload-SN** – De workloadserver bevindt zich in dit subnet. Het netwerkverkeer van dit subnet gaat via de firewall.
-- **Jump-SN** – De "jumpserver" bevindt zich in dit subnet. De jumpserver heeft een openbaar IP-adres waarmee u verbinding kunt maken via een extern bureaublad. Van daaruit kunt u vervolgens (via een ander extern bureaublad) verbinding maken met de workloadserver.
-
-![Netwerkinfrastructuur van zelfstudie](media/tutorial-firewall-rules-portal/Tutorial_network.png)
-
-Deze zelfstudie maakt gebruik van een vereenvoudigde netwerkconfiguratie voor gemakkelijke implementatie. Voor productie-implementaties wordt een [hub-en-spoke-model](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) aanbevolen, waarbij de firewall zich in zijn eigen VNet bevindt en workloadservers zich in gekoppelde VNets bevinden in dezelfde regio met één of meer subnetten.
-
-## <a name="set-up-the-network-environment"></a>De netwerkomgeving instellen
+## <a name="set-up-the-network"></a>Het netwerk instellen
 
 Maak eerst een resourcegroep met de resources die nodig zijn om de firewall te implementeren. Maak vervolgens een VNet, subnetten en testservers.
 
 ### <a name="create-a-resource-group"></a>Een resourcegroep maken
 
+De resourcegroep bevat alle resources voor de zelfstudie.
+
 1. Meld u aan bij de Azure Portal op [http://portal.azure.com](http://portal.azure.com).
-2. Klik op de startpagina van de Azure-portal op **Resourcegroepen** en klik vervolgens op **Toevoegen**.
+2. Klik op de startpagina van de Azure-portal op **Resourcegroepen** > **Toevoegen**.
 3. Bij **Resourcegroepnaam** typt u **Test-FW-RG**.
 4. Bij **Abonnement** selecteert u uw abonnement.
 5. Bij **Resourcegroeplocatie** selecteert u een locatie. Alle volgende resources die u maakt, moeten zich op dezelfde locatie bevinden.
@@ -68,13 +63,15 @@ Maak eerst een resourcegroep met de resources die nodig zijn om de firewall te i
 
 ### <a name="create-a-vnet"></a>Een VNet maken
 
+Dit VNet bevat drie subnetten.
+
 1. Klik op de startpagina van de Azure-portal op **Alle services**.
 2. Klik onder **Netwerken** op **Virtuele netwerken**.
 3. Klik op **Add**.
 4. Bij **Naam** typt u **Test-FW-VN**.
 5. Bij **Adresruimte** typt u **10.0.0.0/16**.
 6. Bij **Abonnement** selecteert u uw abonnement.
-7. Bij **Resourcegroep** selecteert u **Bestaande gebruiken** en selecteert u vervolgens **Test-FW-RG**.
+7. Voor **Resourcegroep** selecteert u **Bestaande gebruiken** > **Test-FW-RG**.
 8. Bij **Locatie** selecteert u dezelfde locatie die u eerder hebt gebruikt.
 9. Onder **Subnet** typt u bij **Naam** de naam **AzureFirewallSubnet**. De firewall zal zich in dit subnet bevinden, en de subnetnaam **moet** AzureFirewallSubnet zijn.
 10. Bij **Adresbereik** typt u **10.0.1.0/24**.
@@ -87,9 +84,9 @@ Maak eerst een resourcegroep met de resources die nodig zijn om de firewall te i
 
 Maak vervolgens subnetten voor de jumpserver en een subnet voor de workloadservers.
 
-1. Klik op de startpagina van de Azure-portal op **Resourcegroepen** en klik vervolgens op **Test-FW-RG**.
+1. Klik op de startpagina van de Azure-portal op **Resourcegroepen** > **Test-FW-RG**.
 2. Klik op het virtuele netwerk **Test-FW-VN**.
-3. Klik op **Subnetten** en klik vervolgens op **+Subnet**.
+3. Klik op **Subnetten** > **+Subnet**.
 4. Bij **Naam** typt u **Workload-SN**.
 5. Bij **Adresbereik** typt u **10.0.2.0/24**.
 6. Klik op **OK**.
@@ -102,14 +99,14 @@ Maak nu de virtuele jump- en workloadmachines en plaats ze in de toepasselijke s
 
 1. Klik op de startpagina van de Azure-portal op **Alle services**.
 2. Klik onder **Compute** op **Virtuele machines**.
-3. Klik achtereenvolgens op **Toevoegen**, **Windows Server**, **Windows Server 2016 Datacenter** en **Maken**.
+3. Klik op **Toevoegen** > **Windows Server** > **Windows Server 2016 Datacenter** > **Maken**.
 
 **Basisinstellingen**
 
 1. Bij **Naam** typt u **Srv-Jump**.
 5. Typ een gebruikersnaam en wachtwoord.
 6. Bij **Abonnement** selecteert u uw abonnement.
-7. Bij **Resourcegroep** klikt u op **Bestaande gebruiken** en selecteert u vervolgens **Test-FW-RG**.
+7. Voor **Resourcegroep** klikt u op **Bestaande gebruiken** > **Test-FW-RG**.
 8. Bij **Locatie** selecteert u dezelfde locatie die u eerder hebt gebruikt.
 9. Klik op **OK**.
 
@@ -143,9 +140,11 @@ Gebruik de informatie in de volgende tabel om de **Instellingen** voor de virtue
 
 ## <a name="deploy-the-firewall"></a>De firewall implementeren
 
+Implementeer de firewall in het VNet.
+
 1. Klik op de startpagina van de portal op **Een resource maken**.
 2. Klik op **Netwerken** en klik bij **Aanbevolen** op **Alles weergeven**.
-3. Klik op **Firewall** en klik vervolgens op **Maken**. 
+3. Klik op **Firewall** > **Maken**. 
 4. Gebruik op de pagina **Firewall maken** de volgende tabel om de firewall te configureren:
    
    |Instelling  |Waarde  |
@@ -177,15 +176,12 @@ Voor het subnet **Workload-SN** configureert u de standaardroute voor uitgaand v
 7. Bij **Locatie** selecteert u dezelfde locatie die u eerder hebt gebruikt.
 8. Klik op **Create**.
 9. Klik op **Vernieuwen** en klik vervolgens op de routetabel **Firewall-route**.
-10. Klik op **Subnetten** en klik vervolgens op **Koppelen**.
-11. Klik op **Virtueel netwerk** en selecteer vervolgens **Test-FW-VN**.
-12. Klik bij **Subnet** op **Workload-SN**.
-
-    > [!IMPORTANT]
-    > Zorg ervoor dat u alleen het subnet **Workload-SN** selecteert voor deze route, anders werkt de firewall niet correct.
+10. Klik op **Subnetten** > **Koppelen**.
+11. Klik op **Virtueel netwerk** > **Test-FW-VN**.
+12. Klik bij **Subnet** op **Workload-SN**. Zorg ervoor dat u alleen het subnet **Workload-SN** selecteert voor deze route, anders werkt de firewall niet correct.
 
 13. Klik op **OK**.
-14. Klik op **Routes** en klik vervolgens op **Toevoegen**.
+14. Klik op **Routes** > **Toevoegen**.
 15. Bij **Routenaam** typt u **FW-DG**.
 16. Bij **Adresvoorvoegsel** typt u **0.0.0.0/0**.
 17. Bij **Volgend hoptype** selecteert u **Virtueel apparaat**.
@@ -194,7 +190,9 @@ Voor het subnet **Workload-SN** configureert u de standaardroute voor uitgaand v
 18. Bij **Adres van de volgende hop** typt u het privé-IP-adres voor de firewall dat u eerder hebt genoteerd.
 19. Klik op **OK**.
 
-## <a name="configure-application-rules"></a>Toepassingsregels configureren
+## <a name="configure-an-application-rule"></a>Een toepassingsregel configureren
+
+Dit is de toepassingsregel waarmee uitgaande toegang wordt toegestaan tot github.com.
 
 1. Open de resourcegroep **Test-FW-RG** en klik op de firewall **Test-FW01**.
 2. Klik op de pagina **Test-FW01** onder **Instellingen** op **Regels**.
@@ -204,13 +202,15 @@ Voor het subnet **Workload-SN** configureert u de standaardroute voor uitgaand v
 6. Bij **Actie** selecteert u **Toestaan**.
 7. Onder **Regels** typt u bij **Naam** de naam **AllowGH**.
 8. Bij **Bronadressen** typt u **10.0.2.0/24**.
-9. Bij **Protocol:poort** typt u **http, https**. 
+9. Bij **Protocol:poort** typt u **http, https**.
 10. Bij **Doel-FQDN’s** typt u **github.com**.
 11. Klik op **Add**.
 
 Azure Firewall bevat een ingebouwde regelverzameling voor infrastructuur-FQDN’s die standaard zijn toegestaan. Deze FQDN’s zijn specifiek voor het platform en kunnen niet voor andere doeleinden worden gebruikt. Zie [FQDN's voor infrastructuur](infrastructure-fqdns.md) voor meer informatie.
 
-## <a name="configure-network-rules"></a>Netwerkregels configureren
+## <a name="configure-a-network-rule"></a>Een netwerkregel configureren
+
+Dit is de netwerkregel waarmee uitgaande toegang tot twee IP-adressen op poort 53 (DNS) wordt toegestaan.
 
 1. Klik op **Netwerkregelverzameling toevoegen**.
 2. Bij **Naam** typt u **Net-Coll01**.
@@ -226,7 +226,7 @@ Azure Firewall bevat een ingebouwde regelverzameling voor infrastructuur-FQDN’
 
 ### <a name="change-the-primary-and-secondary-dns-address-for-the-srv-work-network-interface"></a>Het primaire en secundaire DNS-adres voor de netwerkinterface **Srv-Work** wijzigen
 
-Voor testdoeleinden in deze zelfstudie configureert u het primaire en secundaire DNS-adres. Dit is geen algemene Azure Firewall-vereiste. 
+Voor testdoeleinden in deze zelfstudie configureert u het primaire en secundaire DNS-adres. Dit is geen algemene Azure Firewall-vereiste.
 
 1. Open de resourcegroep **Test-FW-RG** in de Azure-portal.
 2. Klik op de netwerkinterface voor de virtuele machine **Srv-Work**.
@@ -238,11 +238,13 @@ Voor testdoeleinden in deze zelfstudie configureert u het primaire en secundaire
 
 ## <a name="test-the-firewall"></a>De firewall testen
 
+Test nu de firewall om te controleren of deze werkt zoals verwacht.
+
 1. Controleer in de Azure-portal de netwerkinstellingen voor de virtuele machine **Srv-Work** en noteer het privé-IP-adres.
 2. Verbind een extern bureaublad met de virtuele machine **Srv-Jump** en open van daaruit een externe bureaubladverbinding met het privé-IP-adres van **Srv-Work**.
 
 5. Open Internet Explorer en blader naar http://github.com.
-6. Klik op **OK** en **Sluiten** bij de beveiligingswaarschuwingen.
+6. Klik op **OK** > **Sluiten** bij de beveiligingswaarschuwingen.
 
    U zou nu de startpagina van GitHub moeten zien.
 
@@ -260,17 +262,6 @@ Nu u hebt geverifieerd dat de firewallregels werken:
 U kunt de firewall-resources voor de volgende zelfstudie bewaren. Als u ze niet meer nodig hebt, verwijdert u de resourcegroep **Test-FW-RG** om alle firewall-gerelateerde resources te verwijderen.
 
 ## <a name="next-steps"></a>Volgende stappen
-
-In deze zelfstudie heeft u het volgende geleerd:
-
-> [!div class="checklist"]
-> * Het netwerk instellen
-> * Een firewall maken
-> * Een standaardroute maken
-> * Toepassings- en netwerkfirewallregels configureren
-> * De firewall testen
-
-Als volgende kunt u de Azure Firewall-logboeken bewaken.
 
 > [!div class="nextstepaction"]
 > [Zelfstudie: Azure Firewall-logboeken bewaken](./tutorial-diagnostics.md)

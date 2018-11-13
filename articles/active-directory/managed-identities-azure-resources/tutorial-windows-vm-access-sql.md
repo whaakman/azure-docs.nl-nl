@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/20/2017
+ms.date: 11/07/2018
 ms.author: daveba
-ms.openlocfilehash: 57f9def09f498c3fc644cbee979d5ae552f2206c
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 61b176f4f1fccbb975ee53de497d5afcc8ede060
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46369391"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238111"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-sql"></a>Zelfstudie: een door het Windows-VM-systeem toegewezen beheerde identiteit gebruiken voor toegang tot Azure SQL
 
@@ -29,9 +29,8 @@ Deze zelfstudie laat zien hoe u toegang krijgt tot een Azure SQL-server met een 
 
 > [!div class="checklist"]
 > * Uw virtuele machine toegang verlenen tot een Azure SQL-server
-> * Een groep in Azure AD maken en de door het systeem toegewezen beheerde identiteit van de VM lid van de groep maken
 > * Azure AD-verificatie inschakelen voor de SQL-server
-> * Een ingesloten gebruiker maken in de database die staat voor de Azure AD-groep
+> * Een ingesloten gebruiker maken in de database die staat voor de door de systeem toegewezen id van de VM
 > * Een toegangstoken ophalen met de identiteit van de virtuele machine en daarmee een query uitvoeren op een Azure SQL-server
 
 ## <a name="prerequisites"></a>Vereisten
@@ -48,74 +47,16 @@ Deze zelfstudie laat zien hoe u toegang krijgt tot een Azure SQL-server met een 
 
 ## <a name="grant-your-vm-access-to-a-database-in-an-azure-sql-server"></a>Uw virtuele machine toegang verlenen tot een database op een Azure SQL-server
 
-U kunt nu uw virtuele machine toegang verlenen tot een database op een Azure SQL-server.  Voor deze stap kunt u een bestaande SQL-server gebruiken, of een nieuwe maken.  Voor het maken van een nieuwe server en database met behulp van Azure Portal, volgt u deze [Azure SQL-snelstart](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal). Er zijn ook snelstarts in de [documentatie over Azure SQL](https://docs.microsoft.com/azure/sql-database/) voor het gebruik van Azure CLI en Azure Powershell.
+Als u uw virtuele machine toegang wilt verlenen tot een database in een Azure SQL-server, kunt u een bestaande SQL-server gebruiken of een nieuwe server maken.  Voor het maken van een nieuwe server en database met behulp van Azure Portal, volgt u deze [Azure SQL-snelstart](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal). Er zijn ook snelstarts in de [documentatie over Azure SQL](https://docs.microsoft.com/azure/sql-database/) voor het gebruik van Azure CLI en Azure Powershell.
 
-U moet drie stappen uitvoeren om uw virtuele machine toegang te verlenen tot een database:
-1.  Maak een groep in Azure AD en maak de door het systeem toegewezen beheerde identiteit van de VM lid van de groep.
-2.  Schakel Azure AD-verificatie in voor de SQL-server.
-3.  Maak een **ingesloten gebruiker** in de database die staat voor de Azure AD-groep.
+U moet twee stappen uitvoeren om uw virtuele machine toegang te verlenen tot een database:
 
-> [!NOTE]
-> Doorgaans maakt u een ingesloten gebruiker die direct is gekoppeld aan de door het systeem toegewezen beheerde identiteit van de VM.  Momenteel is het in Azure SQL niet mogelijk om de Azure AD-service-principal die de door het systeem toegewezen beheerde identiteit van de VM vertegenwoordigt, te koppelen aan een ingesloten gebruiker.  Als ondersteunde oplossing maakt u de door het systeem toegewezen beheerde identiteit van de VM lid van een Azure AD-groep en maakt u vervolgens een ingesloten gebruiker in de database die staat voor de groep.
-
-
-## <a name="create-a-group-in-azure-ad-and-make-the-vms-system-assigned-managed-identity-a-member-of-the-group"></a>Een groep in Azure AD maken en de door het systeem toegewezen beheerde identiteit van de VM lid van de groep maken
-
-U kunt een bestaande Azure AD-groep gebruiken of een nieuwe groep maken met behulp van Azure AD PowerShell.  
-
-Installeer eerst de module [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2). Meld u vervolgens aan met behulp van `Connect-AzureAD`, en voer de volgende opdracht uit om de groep te maken en op te slaan in een variabele:
-
-```powershell
-$Group = New-AzureADGroup -DisplayName "VM managed identity access to SQL" -MailEnabled $false -SecurityEnabled $true -MailNickName "NotSet"
-```
-
-De uitvoer ziet er ongeveer als volgt uit, waarbij ook de waarde van de variabele wordt onderzocht:
-
-```powershell
-$Group = New-AzureADGroup -DisplayName "VM managed identity access to SQL" -MailEnabled $false -SecurityEnabled $true -MailNickName "NotSet"
-$Group
-ObjectId                             DisplayName          Description
---------                             -----------          -----------
-6de75f3c-8b2f-4bf4-b9f8-78cc60a18050 VM managed identity access to SQL
-```
-
-Voeg vervolgens de door het systeem toegewezen beheerde identiteit van de VM aan de groep toe.  Hiervoor hebt u de **object-id** van de door het systeem toegewezen beheerde identiteit nodig. U kunt deze ophalen met behulp van Azure PowerShell.  Download eerst [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps). Meld u vervolgens aan met behulp van `Connect-AzureRmAccount`, en voer de volgende opdrachten uit om het volgende te doen:
-- Controleren of de sessiecontext is ingesteld op het gewenste Azure-abonnement, als u meerdere abonnementen hebt.
-- Weergeven van de beschikbare resources in uw Azure-abonnement om te verifiëren of de naam van de resourcegroep en de naam van de virtuele machine juist zijn ingesteld.
-- De eigenschappen van de door het systeem toegewezen beheerde identiteit van de VM ophalen met behulp van de juiste waarden voor `<RESOURCE-GROUP>` en `<VM-NAME>`.
-
-```powershell
-Set-AzureRMContext -subscription "bdc79274-6bb9-48a8-bfd8-00c140fxxxx"
-Get-AzureRmResource
-$VM = Get-AzureRmVm -ResourceGroup <RESOURCE-GROUP> -Name <VM-NAME>
-```
-
-De uitvoer ziet er ongeveer als volgt uit, waarbij ook de service-principal-object-id van de door het systeem toegewezen beheerde identiteit van de VM wordt onderzocht:
-```powershell
-$VM = Get-AzureRmVm -ResourceGroup DevTestGroup -Name DevTestWinVM
-$VM.Identity.PrincipalId
-b83305de-f496-49ca-9427-e77512f6cc64
-```
-
-Voeg nu de door het systeem toegewezen beheerde identiteit van de VM aan de groep toe.  U kunt alleen een service-principal aan een groep toevoegen met behulp van Azure AD PowerShell.  Voer deze opdracht uit:
-```powershell
-Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId $VM.Identity.PrincipalId
-```
-
-Als u daarna ook het groepslidmaatschap onderzoekt, ziet de uitvoer er ongeveer als volgt uit:
-
-```powershell
-Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId $VM.Identity.PrincipalId
-Get-AzureAdGroupMember -ObjectId $Group.ObjectId
-
-ObjectId                             AppId                                DisplayName
---------                             -----                                -----------
-b83305de-f496-49ca-9427-e77512f6cc64 0b67a6d6-6090-4ab4-b423-d6edda8e5d9f DevTestWinVM
-```
+1.  Schakel Azure AD-verificatie in voor de SQL-server.
+2.  Maak een **ingesloten gebruiker** in de database die staat voor de door de systeem toegewezen id van de VM.
 
 ## <a name="enable-azure-ad-authentication-for-the-sql-server"></a>Azure AD-verificatie inschakelen voor de SQL-server
 
-U hebt de groep gemaakt en u hebt de door het systeem toegewezen beheerde identiteit van de VM toegevoegd als lid van de groep. Nu kunt u [Azure AD-verificatie configureren voor de SQL-server](/azure/sql-database/sql-database-aad-authentication-configure#provision-an-azure-active-directory-administrator-for-your-azure-sql-server) met behulp van de volgende stappen:
+[Azure AD-verificatie voor de SQL-server configureren](/azure/sql-database/sql-database-aad-authentication-configure#provision-an-azure-active-directory-administrator-for-your-azure-sql-server) met behulp van de volgende stappen:
 
 1.  Selecteer **SQL-servers** in het linkernavigatievenster van Azure Portal.
 2.  Klik op de SQL-server waarvoor Azure AD-verificatie moet worden ingeschakeld.
@@ -124,7 +65,7 @@ U hebt de groep gemaakt en u hebt de door het systeem toegewezen beheerde identi
 5.  Selecteer een Azure AD-gebruikersaccount dat beheerder van de server moet worden gemaakt en klik op **Selecteren**.
 6.  Klik in de opdrachtbalk op **Opslaan**.
 
-## <a name="create-a-contained-user-in-the-database-that-represents-the-azure-ad-group"></a>Een ingesloten gebruiker maken in de database die staat voor de Azure AD-groep
+## <a name="create-a-contained-user-in-the-database-that-represents-the-vms-system-assigned-identity"></a>Een ingesloten gebruiker maken in de database die staat voor de door de systeem toegewezen id van de VM
 
 Voor de volgende stap hebt u [Microsoft SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) nodig. Voordat u begint, kan het ook handig zijn de volgende artikelen te lezen voor meer achtergrondinformatie over Azure AD-integratie:
 
@@ -140,17 +81,23 @@ Voor de volgende stap hebt u [Microsoft SQL Server Management Studio](https://do
 7.  Klik op **Verbinden**.  Voltooi het aanmeldingsproces.
 8.  Vouw in **Objectverkenner** de map **Databases** uit.
 9.  Klik met de rechtermuisknop op een gebruikersdatabase en klik op **Nieuwe query**.
-10.  Voer in het queryvenster de volgende regel in en klik op **Uitvoeren** in de werkbalk:
+10. Voer in het queryvenster de volgende regel in en klik op **Uitvoeren** in de werkbalk:
+
+    > [!NOTE]
+    > `VMName` in de volgende opdracht staat de naam van de VM waarvoor u door het systeem toegewezen id's hebt ingeschakeld in het gedeelte met vereisten.
     
      ```
-     CREATE USER [VM managed identity access to SQL] FROM EXTERNAL PROVIDER
+     CREATE USER [VMName] FROM EXTERNAL PROVIDER
      ```
     
-     De opdracht voor het maken van de ingesloten gebruiker voor de groep wordt uitgevoerd.
+     De opdracht voor het maken van de ingesloten gebruiker voor de door het systeem toegewezen id voor de VM wordt uitgevoerd.
 11.  Wis het queryvenster, voer de volgende regel in en klik op **Uitvoeren** in de werkbalk:
+
+    > [!NOTE]
+    > `VMName` in de volgende opdracht staat de naam van de VM waarvoor u door het systeem toegewezen id's hebt ingeschakeld in het gedeelte met vereisten.
      
      ```
-     ALTER ROLE db_datareader ADD MEMBER [VM managed identity access to SQL]
+     ALTER ROLE db_datareader ADD MEMBER [VMName]
      ```
 
      De opdracht wordt uitgevoerd en de ingesloten gebruiker heeft nu leestoegang tot de gehele database.

@@ -10,12 +10,12 @@ ms.component: bing-custom-search
 ms.topic: tutorial
 ms.date: 10/16/2017
 ms.author: v-brapel
-ms.openlocfilehash: 3e892131a0109d2fff924940542b5d8b2b701950
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 6d08a36d7a464ccc1904839d6631be0553aacb17
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48815372"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51279208"
 ---
 # <a name="tutorial-build-a-custom-search-web-page"></a>Zelfstudie: Een webpagina voor aangepaste zoekopdrachten maken
 
@@ -79,7 +79,7 @@ Als u resultaten van bepaalde websites of URL's wilt uitsluiten, voegt u deze to
 
 ## <a name="add-pinned-entries"></a>Vastgemaakte vermeldingen toevoegen
 
-Als u een bepaalde webpagina altijd aan het begin van de lijst met zoekresultaten wilt weergeven, voegt u de webpagina en zoekterm toe aan het tabblad **Pinned**. Het tabblad **Pinned** bevat een lijst van paren van webpagina's en zoektermen die de webpagina opgeven die als het beste resultaat wordt weergegeven voor een specifieke query. De webpagina wordt alleen vastgemaakt als de querytekenreeks van de gebruiker overeenkomt met de querytekenreeks van de vastgemaakte webpagina, op basis van de voorwaarde voor overeenkomst van de vastgemaakte pagina. [Meer informatie](../define-your-custom-view.md#pin-to-top).
+Als u een bepaalde webpagina altijd aan het begin van de lijst met zoekresultaten wilt weergeven, voegt u de webpagina en zoekterm toe aan het tabblad **Pinned**. Het tabblad **Pinned** bevat een lijst van paren van webpagina's en zoektermen die de webpagina opgeven die als het beste resultaat wordt weergegeven voor een specifieke query. De webpagina wordt alleen vastgemaakt als de querytekenreeks van de gebruiker overeenkomt met de querytekenreeks van de vastgemaakte webpagina, op basis van de voorwaarde voor overeenkomst van de vastgemaakte pagina. In zoekopdrachten worden alleen geïndexeerde webpagina's weergegeven. Zie [Uw aangepaste weergave definiëren](../define-your-custom-view.md#pin-to-top) voor meer informatie.
 
 1. Klik op de pagina **Configuration** op het tabblad **Pinned** en voer de webpagina en zoekterm in van de webpagina die u als het bovenste resultaat in de lijst wilt weergeven.  
   

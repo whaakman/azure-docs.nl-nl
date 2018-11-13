@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 06/11/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 0fd843b150148057399a4e05f5e25a728cd4ae56
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 7cf3db5020d6a100ca6afdd5a1dccd522189720d
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44298507"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978499"
 ---
 # <a name="tutorial-use-azure-security-center-to-monitor-windows-virtual-machines"></a>Zelfstudie: Azure Security Center gebruiken om virtuele Windows-machines te controleren
 
@@ -37,7 +37,7 @@ Met Azure Security Center kunt u meer inzicht krijgen in de beveiliging van uw A
 
 Security Center identificeert mogelijke configuratieproblemen voor virtuele machine (VM's) en gerichte beveiligingsrisico's. Dit kan het volgende omvatten: virtuele machines waarbij netwerkbeveiligingsgroepen ontbreken, niet-versleutelde schijven en RDP-beveiligingsaanvallen (Remote Desktop Protocol). De informatie wordt op het Security Center-dashboard in duidelijke grafieken weergegeven.
 
-Als u het Security Center-dashboard wilt openen, selecteert u in het menu van de Azure-portal de optie **Security Center**. Op het dashboard kunt u de beveiligingsstatus van uw Azure-omgeving bekijken, een aantal huidige aanbevelingen zien en de huidige status van bedreigingswaarschuwingen weergeven. U kunt elke algemene grafiek uitvouwen voor gedetailleerdere gegevens.
+Als u het Security Center-dashboard wilt openen, selecteert u in het menu van Azure Portal de optie **Security Center**. Op het dashboard kunt u de beveiligingsstatus van uw Azure-omgeving bekijken, een aantal huidige aanbevelingen zien en de huidige status van bedreigingswaarschuwingen weergeven. U kunt elke algemene grafiek uitvouwen voor gedetailleerdere gegevens.
 
 ![Dashboard van Security Center](./media/tutorial-azure-security/asc-dash.png)
 
@@ -133,7 +133,7 @@ In deze zelfstudie hebt u Azure Security Center ingesteld en vervolgens VM's in 
 > * Problemen met de configuratiestatus kunt weergeven en oplossen
 > * Gedetecteerde bedreigingen kunt controleren
 
-Ga naar de volgende zelfstudie voor informatie over het maken van een CI/CD-pijplijn met Azure DevOps Services en een Windows-VM waarop IIS wordt uitgevoerd.
+Ga verder met de volgende zelfstudie als u wilt weten hoe u een SQL&#92;IIS&#92;.NET-stack op een combinatie van twee virtuele Windows-machines kunt installeren.
 
 > [!div class="nextstepaction"]
-> [Azure Pipelines(./tutorial-vsts-iis-cicd.md)
+> [SQL&#92;IIS&#92;.NET-stack](tutorial-iis-sql.md)

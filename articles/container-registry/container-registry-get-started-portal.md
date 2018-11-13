@@ -5,15 +5,15 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: quickstart
-ms.date: 03/03/2018
+ms.date: 11/06/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: a75d7e599b10b1d56bd41db1d6785dace67d5d06
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 1e039c465bf37e0ee5ca1db5837798680e27463d
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857836"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51278664"
 ---
 # <a name="quickstart-create-a-container-registry-using-the-azure-portal"></a>Snelstart: een containerregister maken met Azure Portal
 
@@ -27,11 +27,11 @@ Meld u aan bij Azure Portal op https://portal.azure.com.
 
 ## <a name="create-a-container-registry"></a>Een containerregister maken
 
-Selecteer **Een resource maken** > **Containers** > **Azure Container Registry**.
+Selecteer **Een resource maken** > **Containers** > **Container Registry**.
 
 ![Een containerregister maken met Azure Portal][qs-portal-01]
 
-Voer waarden in voor **Registernaam** en **Resourcegroep**. De registernaam moet uniek zijn binnen Azure en mag 5 tot 50 alfanumerieke tekens bevatten. Maak een nieuwe resourcegroep met de naam `myResourceGroup`, en selecteer 'Basic' voor **SKU**. Selecteer **Maken** om de ACR-instantie te implementeren.
+Voer waarden in voor **Registernaam** en **Resourcegroep**. De registernaam moet uniek zijn binnen Azure en mag 5 tot 50 alfanumerieke tekens bevatten. Maak voor deze snelstart een nieuwe resourcegroep met de naam `myResourceGroup` in locatie `West US`. Kies voor **SKU** de optie Basic. Selecteer **Maken** om de ACR-instantie te implementeren.
 
 ![Een containerregister maken met Azure Portal][qs-portal-03]
 
@@ -71,29 +71,29 @@ Als u een installatiekopie naar uw Azure Container Registry wilt pushen, moet u 
 docker pull microsoft/aci-helloworld
 ```
 
-Voorzie de installatiekopie van een label met de naam van de ACR-aanmeldingsserver voordat u de kopie naar het register pusht. Label de installatiekopie met de opdracht [docker tag][docker-tag]. Vervang *login server* door de naam van de aanmeldingsserver die u eerder hebt genoteerd.
+Voorzie de installatiekopie van een label met de naam van de ACR-aanmeldingsserver voordat u de kopie naar het register pusht. Label de installatiekopie met de opdracht [docker tag][docker-tag]. Vervang *login server* door de naam van de aanmeldingsserver die u eerder hebt genoteerd. Voeg een *naam van de opslagplaats* toe, zoals **`myrepo`**, om uw installatiekopie in een opslagplaats te plaatsen.
 
 ```bash
-docker tag microsoft/aci-helloworld <login server>/aci-helloworld:v1
+docker tag microsoft/aci-helloworld <login server>/<repository name>/aci-helloworld:v1
 ```
 
-Gebruik ten slotte [docker push][docker-push] om de installatiekopie naar de ACR-instantie te pushen. Vervang *login server* door de naam van de ACR-instantie.
+Gebruik ten slotte [docker push][docker-push] om de installatiekopie naar de ACR-instantie te pushen. Vervang *login server* door de naam van de aanmeldingsserver van uw ACR-instantie en vervang *repository name* door de naam van de opslagplaats die u in de vorige opdracht hebt gebruikt.
 
 ```bash
-docker push <login server>/aci-helloworld:v1
+docker push <login server>/<repository name>/aci-helloworld:v1
 ```
 
 De uitvoer van een geslaagde `docker push`-opdracht is soortgelijk aan:
 
 ```
-The push refers to a repository [uniqueregistryname.azurecr.io/aci-helloworld]
-7c701b1aeecd: Pushed
-c4332f071aa2: Pushed
-0607e25cc175: Pushed
+The push refers to repository [specificregistryname.azurecr.io/myrepo/aci-helloworld]
+31ba1ebd9cf5: Pushed
+cd07853fe8be: Pushed
+73f25249687f: Pushed
 d8fbd47558a8: Pushed
 44ab46125c35: Pushed
 5bef08742407: Pushed
-v1: digest: sha256:f2867748615cc327d31c68b1172cc03c0544432717c4d2ba2c1c2d34b18c62ba size: 1577
+v1: digest: sha256:565dba8ce20ca1a311c2d9485089d7ddc935dd50140510050345a1b0ea4ffa6e size: 1576
 ```
 
 ## <a name="list-container-images"></a>Containerinstallatiekopieën opvragen
@@ -114,7 +114,7 @@ Selecteer **Uitvoeringsinstantie** in het contextmenu dat wordt weergegeven:
 
 ![Contextmenu voor starten van ACI][qs-portal-11]
 
-Geef een waarde op voor **Containernaam**, zorg ervoor dat het juiste abonnement is geselecteerd, selecteer bij **Resourcegroep** de bestaande groep myResourceGroup en klik vervolgens op **OK** om het Azure Container-exemplaar te starten.
+Geef een waarde op voor **Containernaam**, zorg ervoor dat het juiste abonnement is geselecteerd en selecteer bij **Resourcegroep** de bestaande groep myResourceGroup. Zorg ervoor dat de optie Openbaar IP-adres is ingeschakeld door **Ja** te selecteren en klik op **OK** om de Azure-containerinstantie te starten.
 
 ![Implementatieopties voor starten van ACI][qs-portal-12]
 
@@ -136,7 +136,7 @@ Als de container de status **Actief** heeft, gaat u in uw browser naar het IP-ad
 
 Als u uw resources wilt opschonen, navigeert u naar de resourcegroep **myResourceGroup** in de portal. Nadat de resourcegroep is geladen, klikt u op **Resourcegroep verwijderen** om de resourcegroep te verwijderen, evenals het containerregister van Azure en alle exemplaren van het register.
 
-![Een containerregister maken met Azure Portal][qs-portal-08]
+![Een resourcegroep verwijderen in de Azure-portal][qs-portal-08]
 
 ## <a name="next-steps"></a>Volgende stappen
 

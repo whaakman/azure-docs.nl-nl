@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 08/29/2018
 ms.author: ryanwi,v-steg
 ms.custom: mvc
-ms.openlocfilehash: 5ec898465b550a136db71ee731be5943c7441dcd
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: db0abf2c70ac79356496c78275dc658d1ee29a23
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44381943"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51035903"
 ---
 # <a name="tutorial-deploy-a-container-application-with-cicd-to-a-service-fabric-cluster"></a>Zelfstudie: Een containertoepassing met CI/CD implementeren in een Service Fabric-cluster
 
@@ -76,6 +76,9 @@ Een definitie van een Team Services-release beschrijft een werkstroom waarmee ee
 Open een webbrowser en ga naar uw nieuwe teamproject op: [https://&lt;myaccount&gt;.visualstudio.com/Voting/Voting%20Team/_git/Voting](https://myaccount.visualstudio.com/Voting/Voting%20Team/_git/Voting).
 
 Selecteer het tabblad **Build and release**, vervolgens **Builds** en klik daarna op **New Pipeline**.
+
+>[!NOTE]
+>Als u de sjabloon voor de builddefinitie niet ziet, controleert u of de functie **New YAML pipeline creation experience** is uitgeschakeld. Deze functie wordt geconfigureerd in de sectie **Preview-functies** van uw DevOps-account.
 
 ![Nieuwe pijplijn][new-pipeline]
 

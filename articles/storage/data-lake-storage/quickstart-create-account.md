@@ -9,18 +9,18 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 06/27/2018
 ms.author: jamesbak
-ms.openlocfilehash: 2dae7938c63ee141ea6705ab4c324882f575e298
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 41f25496d089a5c6487176afee01f7cb06330794
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49426869"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281554"
 ---
-# <a name="quickstart-create-an-azure-data-lake-storage-gen2-preview-storage-account"></a>Snelstart: Een Azure Data Lake Storage Gen2 Preview-opslagaccount maken
+# <a name="quickstart-create-a-storage-account-for-analytics"></a>Snelstart: Een opslagaccount maken voor analyse
 
-Azure Data Lake Storage Gen2 Preview-accounts bieden [ondersteuning voor een hiërarchische naamruimteservice](introduction.md) met een systeemeigen, op mappen gebaseerd bestandssysteem dat is toegesneden op Hadoop Distributed File System (HDFS). Toegang tot Data Lake Storage Gen2-gegevens uit HDFS is beschikbaar via het [ABFS-stuurprogramma](abfs-driver.md).
+Opslagaccounts waarvoor de preview van Data Lake Storage Gen2 is ingeschakeld, [ondersteunen een hiërarchische naamruimteservice](introduction.md) met een systeemeigen, op mappen gebaseerd bestandssysteem dat is toegesneden op Hadoop Distributed File System (HDFS). Toegang tot Data Lake Storage Gen2-gegevens uit HDFS is beschikbaar via het [ABFS-stuurprogramma](abfs-driver.md).
 
-[Vul de preview-vragenlijst in om toegang te vragen](https://aka.ms/adlsgen2signup) en de mogelijkheden van Data Lake Storage Gen2 in te schakelen voor uw opslagaccount. Na goedkeuring kunt u vervolgens een nieuw Data Lake Storage Gen2-account maken. In deze snelstart wordt gedemonstreerd hoe u een account maakt met [Azure Portal](https://portal.azure.com/), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) of [Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest).
+[Vul de preview-vragenlijst in om toegang te vragen](https://aka.ms/adlsgen2signup) en de mogelijkheden van Data Lake Storage Gen2 in te schakelen voor uw opslagaccount. Na goedkeuring kunt u vervolgens een opslagaccount maken waarvoor Data Lake Storage Gen2-account is ingeschakeld. In deze snelstart wordt gedemonstreerd hoe u een account maakt met [Azure Portal](https://portal.azure.com/), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) of [Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest).
 
 > [!NOTE]
 > De gebruikersinterface voor het maken van een account in Azure Portal wordt bijgewerkt zodra uw aanvraag voor een Data Lake Storage Gen2-account is goedgekeurd. Op dezelfde manier werken de PowerShell- en CLI-argumenten voor Data Lake Storage Gen2 pas als uw preview-aanvraag is goedgekeurd.
@@ -51,7 +51,7 @@ Met de knop start u een interactieve shell waarmee u alle stappen in deze snelst
 
 U kunt Azure CLI ook lokaal installeren en gebruiken. Voor deze snelstart moet u versie 2.0.38 of later van Azure CLI uitvoeren. Voer `az --version` uit om de versie te bekijken. Als u uw CLI wilt installeren of upgraden, raadpleegt u [De Azure CLI installeren](/cli/azure/install-azure-cli).
 
-## <a name="overview-of-creating-an-azure-data-lake-storage-gen2-account"></a>Overzicht van het maken van een Azure Data Lake Storage Gen2-account
+## <a name="create-a-storage-account-with-azure-data-lake-storage-gen2-enabled"></a>Een opslagaccount maken waarvoor Azure Data Lake Storage Gen2 is ingeschakeld
 
 Voordat u een account maakt, maakt u eerst een resourcegroep die fungeert als een logische container voor opslagaccounts of andere Azure resources die u maakt. Als u de resources die in deze snelstartgids zijn gemaakt, wilt opschonen, verwijdert u gewoon de resourcegroep. Als u de resourcegroep verwijdert, worden ook het bijbehorende opslagaccount en eventuele andere resources die zijn gekoppeld aan de resourcegroep, verwijderd. Zie [Overzicht van Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md) voor meer informatie over resourcegroepen.
 
@@ -135,7 +135,7 @@ Start vervolgens de shell opnieuw.
 Gebruik de opdracht [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) om een nieuwe resourcegroep te maken: 
 
 > [!NOTE]
-> > De hiërarchische naamruimte is momenteel beschikbaar in alle openbare regio's, maar in geen van de persoonlijke regio's. De naamruimte is momenteel ook niet beschikbaar in soevereine clouds.
+> > De hiërarchische naamruimte is momenteel beschikbaar in alle openbare regio's. De naamruimte is momenteel ook niet beschikbaar in soevereine clouds.
 
 ```powershell
 # put resource group in a variable so you can use the same group name going forward,
@@ -222,6 +222,6 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze snelstart hebt u een Data Lake Storage Gen2-opslagaccount gemaakt. Voor informatie over het uploaden en downloaden van blobs naar en uit uw opslagaccount gaat u verder met de snelstartgids over blob-opslag.
+In deze snelstart hebt u een opslagaccount gemaakt met Data Lake Storage Gen2-mogelijkheden. Voor informatie over het uploaden en downloaden van blobs naar en uit uw opslagaccount gaat u verder met de snelstartgids over blob-opslag.
 
 * [Gegevens met AzCopy verplaatsen van en naar Azure Blob-opslag](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/move-data-to-azure-blob-using-azcopy)

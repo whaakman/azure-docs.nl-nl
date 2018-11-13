@@ -8,20 +8,24 @@ services: digital-twins
 ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 10/02/2018
+ms.date: 11/7/2018
 ms.author: alinast
-ms.openlocfilehash: e0b47b1322a520ad8b09fd2fe2967e628b5e4e03
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 6e83ca543937948ad8028969cceca0f8787972c9
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49322771"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281215"
 ---
 # <a name="quickstart-find-available-rooms-using-azure-digital-twins"></a>Snelstart: Beschikbare ruimten zoeken met behulp van Azure Digital Twins
 
 Met de Azure Digital Twins-service kunt u een digitale kopie van uw fysieke omgeving opnieuw maken. U kunt vervolgens een melding ontvangen van gebeurtenissen in uw omgeving en uw reacties hierop aanpassen. 
 
 Deze snelstart maakt gebruik van [een combinatie van .NET-voorbeelden](https://github.com/Azure-Samples/digital-twins-samples-csharp) voor het digitaliseren van een denkbeeldige kantoorgebouw, en laat u zien hoe u beschikbare ruimten kunt vinden in het gebouw. Met Digital Twins kunt u meerdere sensoren koppelen aan uw omgeving. Samen met de beschikbaarheid van ruimten kunt u hier met behulp van een gesimuleerde sensor voor koolstofdioxide ook vaststellen of de luchtkwaliteit van de beschikbare ruimte optimaal is. Door een van de voorbeeldtoepassingen worden willekeurige sensorgegevens gegenereerd, zodat u dit scenario beter kunt visualiseren.
+
+De volgende video geeft een overzicht van de installatie van de snelstart:
+
+> [!VIDEO https://www.youtube.com/embed/1izK266tbMI]
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -36,7 +40,7 @@ Deze snelstart maakt gebruik van [een combinatie van .NET-voorbeelden](https://g
 
 Maak een nieuw exemplaar van Digital Twins in de [portal](https://portal.azure.com) met behulp van de stappen in deze sectie.
 
-[!INCLUDE [create-digital-twins-portal](../../includes/create-digital-twins-portal.md)]
+[!INCLUDE [create-digital-twins-portal](../../includes/digital-twins-create-portal.md)]
 
 ## <a name="set-permissions-for-your-app"></a>Machtigingen instellen voor uw app
 

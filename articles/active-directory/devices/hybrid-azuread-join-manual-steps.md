@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/18/2018
+ms.date: 11/01/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 33fc8a3822def68cc0baad4670233f57044d1985
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: a3c35057af883eb790c44b3547072031eaf4ad2f
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49408404"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50962007"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>Zelfstudie: Hybride Azure Active Directory-gekoppelde apparaten handmatig configureren 
 
@@ -504,6 +504,9 @@ Als sommige van uw domein-gekoppelde apparaten downlevel Windows-apparaten zijn,
  
 - Het Azure AD-apparaatverificatie-eindpunt aan de zone Lokaal intranet toevoegen om certificaatprompts te vermijden wanneer het apparaat wordt geverifieerd.
 
+- Downlevel Windows-apparaten beheren 
+
+
 ### <a name="set-policy-in-azure-ad-to-enable-users-to-register-devices"></a>Een beleid in Azure AD instellen om gebruikers in staat te stellen apparaten te registreren
 
 Om downlevel Windows-apparaten te kunnen registreren, moet u ervoor zorgen dat de instelling is geconfigureerd die gebruikers in staat stellen apparaten te registreren in Azure AD. In de Azure-portal vindt u deze instelling onder:
@@ -551,6 +554,12 @@ In AD FS moet u een uitgiftetransformatieregel toevoegen die wordt doorgegeven v
 Om certificaatprompts te vermijden wanneer gebruikers in registerapparaten verifiëren bij Azure AD, kunt u een beleid naar uw domein-gekoppelde apparaten pushen om de volgende URL toe te voegen aan de zone Lokaal intranet in Internet Explorer:
 
 `https://device.login.microsoftonline.com`
+
+
+### <a name="control-windows-down-level-devices"></a>Downlevel Windows-apparaten beheren 
+
+Als u downlevel Windows-apparaten wilt registreren, dient u een Windows Installer-pakket (.msi) in het Downloadcentrum te downloaden en installeren. Klik [hier](hybrid-azuread-join-control.md#control-windows-down-level-devices) voor meer informatie. 
+
 
 
 ## <a name="verify-joined-devices"></a>Gekoppelde apparaten verifiëren

@@ -8,16 +8,16 @@ ms.service: storage
 ms.topic: tutorial
 ms.date: 6/27/2018
 ms.author: dineshm
-ms.openlocfilehash: fd9dfaa2042cae0923c919f4e76d7b59a170918e
-ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
+ms.openlocfilehash: c46a9f827bdeeaf7a2b9897b262484f64f83b9a8
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46466027"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283458"
 ---
 # <a name="tutorial-access-azure-data-lake-storage-gen2-preview-data-with-azure-databricks-using-spark"></a>Zelfstudie: Toegang tot Azure Data Lake Storage Gen2 Preview-gegevens met Azure Databricks met behulp van Spark
 
-In deze zelfstudie leert u hoe u Spark-query's kunt uitvoeren op een Azure Databricks-cluster om query's uit te voeren voor gegevens in een account dat geschikt is voor Azure Data Lake Storage Gen2 Preview.
+In deze zelfstudie leert u hoe u Spark-query's kunt uitvoeren op een Azure Databricks-cluster om gegevens te doorzoeken in een Azure-opslagaccount met Azure Data Lake Storage Gen2 Preview.
 
 > [!div class="checklist"]
 > * Een Databricks-cluster maken
@@ -31,9 +31,9 @@ In deze zelfstudie wordt getoond hoe u de vluchtgegevens kunt gebruiken en doorz
 > [!NOTE]
 > Klik op het selectievakje **Prezipped file** om alle gegevensvelden te selecteren. De download is heel groot (vele gigabytes), maar deze hoeveelheid gegevens is nodig voor de analyse.
 
-## <a name="create-an-azure-data-lake-storage-gen2-account"></a>Een Azure Data Lake Storage Gen2-account maken
+## <a name="create-an-azure-storage-account-with-analytic-capabilities"></a>Een Azure-opslagaccount met analysemogelijkheden maken
 
-Maak om te beginnen een [Azure Data Lake Storage Gen2-account](quickstart-create-account.md) en geef deze een unieke naam. Navigeer vervolgens naar het opslagaccount om de configuratie-instellingen op te halen.
+Maak eerst een nieuw [opslagaccount met analysemogelijkheden](quickstart-create-account.md) en geef dit account een unieke naam. Navigeer vervolgens naar het opslagaccount om de configuratie-instellingen op te halen.
 
 1. Klik onder **Instellingen** op **Toegangssleutels**.
 2. Klik op de knop **Kopiëren** naast **key1** om de sleutelwaarde te kopiëren.
@@ -137,11 +137,12 @@ dbutils.fs.help()
 dbutils.fs.put(source + "/temp/1.txt", "Hello, World!", True)
 dbutils.fs.ls(source + "/temp/parquet/flights")
 ```
-Met deze codevoorbeelden hebt u de hiërarchische aard van HDFS verkend met behulp van gegevens die zijn opgeslagen in een account dat geschikt is voor Azure Data Lake Storage Gen2.
+
+Met deze codevoorbeelden hebt u de hiërarchische aard van HDFS verkend met behulp van gegevens die zijn opgeslagen in een opslagaccount met Azure Data Lake Storage Gen2.
 
 ## <a name="query-the-data"></a>Query’s uitvoeren voor de gegevens
 
-Hierna kunt u beginnen met het uitvoeren van query’s voor de gegevens die u hebt geüpload in Azure Data Lake Storage. Voer elk van de volgende codeblokken in **Cmd 1** in en druk op **Cmd + Enter** om het Python-script uit te voeren.
+Hierna kunt u beginnen met het doorzoeken van de gegevens die u hebt geüpload in het opslagaccount. Voer elk van de volgende codeblokken in **Cmd 1** in en druk op **Cmd + Enter** om het Python-script uit te voeren.
 
 ### <a name="simple-queries"></a>Eenvoudige query’s
 

@@ -9,12 +9,12 @@ ms.date: 07/26/2018
 ms.topic: get-started-article
 ms.service: service-fabric-mesh
 manager: timlt
-ms.openlocfilehash: 7e8a12a215c94102f6b08262f129faebf9cfcde9
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: c30f4b9de279f8c02b7f6bc7fa7d9765972899b1
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49115621"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50977428"
 ---
 # <a name="set-up-the-service-fabric-mesh-cli"></a>De Service Fabric Mesh CLI instellen
 De Service Fabric Mesh CLI (opdrachtregelinterface) is vereist voor het implementeren en beheren van resources in Service Fabric Mesh. 
@@ -37,7 +37,10 @@ Voer de volgende opdracht uit voor het bijwerken van een bestaande Azure Service
 ```azurecli-interactive
 az extension update --name mesh
 ```
+## <a name="next-steps"></a>Volgende stappen
 
 U kunt ook uw [Windows-ontwikkelomgeving](service-fabric-mesh-howto-setup-developer-environment-sdk.md) instellen.
+
+Zoek antwoorden op [veelgestelde vragen en problemen](service-fabric-mesh-faq.md).
 
 [azure-cli-install]: /cli/azure/install-azure-cli

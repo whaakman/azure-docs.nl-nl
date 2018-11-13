@@ -9,13 +9,13 @@ editor: jasonwhowell
 ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 09/12/2018
-ms.openlocfilehash: f26cadf28205359b111a8f92b8fadcbd9f26f958
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.date: 11/01/2018
+ms.openlocfilehash: b413636f173a682ed74bf92688126d33d429839e
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47407618"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50959219"
 ---
 # <a name="create-an-azure-database-for-mysql-server-by-using-the-azure-portal"></a>Een Azure-database voor MySQL-server maken met behulp van Azure Portal
 
@@ -98,20 +98,9 @@ Ga hiervoor als volgt te werk:
 In dit voorbeeld is de servernaam **mydemoserver.mysql.database.azure.com**. De aanmeldingsgegevens van de serverbeheerder zijn **myadmin@mydemoserver**.
 
 ## <a name="connect-to-mysql-by-using-the-mysql-command-line-tool"></a>Verbinding maken met MySQL via het opdrachtregelprogramma mysql
-Er zijn verschillende toepassingen die u kunt gebruiken om verbinding te maken met uw Azure Database voor MySQL-server. 
+Maak verbinding met de server met behulp van het opdrachtregelprogramma **mysql.exe**. U kunt MySQL [hier](https://dev.mysql.com/downloads/) downloaden en vervolgens op uw computer installeren. 
 
-We gaan eerst het opdrachtregelprogramma [mysql](https://dev.mysql.com/doc/refman/5.7/en/mysql.html) gebruiken om te laten zien hoe u verbinding maakt met de server. U kunt ook een webbrowser en Azure Cloud Shell gebruiken zoals hier wordt beschreven zonder dat u extra software hoeft te installeren. Als het hulpprogramma mysql lokaal is geïnstalleerd, kunt u dit ook gebruiken om verbinding te maken.
-
-1. Open Azure Cloud Shell via het terminalpictogram (**>_**) in de rechterbovenhoek van Azure Portal.
-![Het terminalsymbool voor Azure Cloud Shell](./media/quickstart-create-mysql-server-database-using-azure-portal/7-cloud-console.png)
-
-2.  Azure Cloud Shell wordt geopend in uw browser, zodat u bash shell-opdrachten kunt invoeren.
-
-   ![Opdrachtprompt - voorbeeld van opdrachtregel mysql](./media/quickstart-create-mysql-server-database-using-azure-portal/8-bash.png)
-
-3. Maak vanaf de Cloud Shell-prompt verbinding met uw Azure Database voor MySQL-server door de mysql-opdrachtregel te typen.
-
-    Gebruik de volgende indeling om verbinding te maken met een Azure Database voor MySQL-server via het hulpprogramma mysql:
+1. Gebruik de volgende indeling om verbinding te maken met een Azure Database voor MySQL-server via het hulpprogramma mysql:
 
     ```bash
     mysql --host <fully qualified server name> --user <server admin login name>@<server name> -p
@@ -119,7 +108,7 @@ We gaan eerst het opdrachtregelprogramma [mysql](https://dev.mysql.com/doc/refma
 
     Met de volgende opdracht maakt u bijvoorbeeld verbinding met onze voorbeeldserver:
 
-    ```azurecli-interactive
+    ```bash
     mysql --host mydemoserver.mysql.database.azure.com --user myadmin@mydemoserver -p
     ```
 
@@ -149,7 +138,7 @@ We gaan eerst het opdrachtregelprogramma [mysql](https://dev.mysql.com/doc/refma
     mysql>
     ```
     > [!TIP]
-    > Als de firewall niet is geconfigureerd voor het toestaan van het IP-adres van Azure Cloud Shell, wordt het volgende foutbericht weergegeven:
+    > Als de firewall niet is geconfigureerd voor het toestaan van het IP-adres van uw client, wordt het volgende foutbericht weergegeven:
     >
     > ERROR 2003 (28000): Client with IP address 123.456.789.0 is not allowed to access the server.
     >
@@ -178,7 +167,7 @@ We gaan eerst het opdrachtregelprogramma [mysql](https://dev.mysql.com/doc/refma
     SHOW DATABASES;
     ```
 
-7.  Typ `\q` en druk vervolgens op **Enter** om het hulpprogramma mysql af te sluiten. U kunt Azure Cloud Shell sluiten als u klaar bent.
+7.  Typ `\q` en druk vervolgens op **Enter** om het hulpprogramma mysql af te sluiten. 
 
 U hebt nu verbinding gemaakt met de Azure Database voor MySQL-server en een lege gebruikersdatabase gemaakt. Ga verder met de volgende sectie voor een vergelijkbare oefening. In de volgende oefening wordt verbinding gemaakt met dezelfde server, maar met behulp van een andere veelgebruikt hulpprogramma, MySQL Workbench.
 

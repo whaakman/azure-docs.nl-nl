@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 09/19/2018
 ms.author: tamram
-ms.openlocfilehash: 10b54d20f73a16bdc723f60019b1184b01812508
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 4aa78fe91d5813e9b1fa8abd30c8b8720ea510e4
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138120"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51278394"
 ---
 # <a name="quickstart-upload-download-list-and-delete-blobs-using-azure-storage-v10-sdk-for-javascript-preview"></a>Snelstart: blobs uploaden, downloaden, weergeven en verwijderen met behulp van Azure Storage v10 SDK voor JavaScript (preview)
 
@@ -349,3 +349,4 @@ In deze snelstart leert u hoe u met behulp van Node.js blobs en containers kunt 
 
 > [!div class="nextstepaction"]
 > [Opslagplaats voor Azure Storage SDK v10 voor JavaScript](https://github.com/Azure/azure-storage-js)
+> [JavaScript API Reference](https://docs.microsoft.com/en-us/javascript/api/overview/azure/storage/client?view=azure-node-preview) (JavaScript-API-verwijzing)

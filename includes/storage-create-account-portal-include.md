@@ -8,31 +8,35 @@ ms.topic: include
 ms.date: 09/18/2018
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: f21710354572c9b54dbf0e08d02809bb68a8e120
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 3b770c3e51b17fa5d70abb03360e17e1073974d8
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49805011"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51222149"
 ---
 Als u een v2-opslagaccount voor algemeen gebruik wilt maken in de Azure Portal, volgt u deze stappen:
 
-1. Vouw in Azure Portal het menu links open om het menu met services te openen en kies **Alle services**. Schuif vervolgens omlaag naar **Opslag** en kies **Opslagaccounts**. Kies in het venster **Opslagaccounts** dat wordt weergegeven de optie **Toevoegen**.
+1. Selecteer in de Azure-portal de optie **Alle services**. Typ in de lijst met resources **Opslagaccounts**. Als u begint te typen, wordt de lijst gefilterd op basis van uw invoer. Selecteer **Opslagaccounts**.
+1. Kies in het venster **Opslagaccounts** dat wordt weergegeven de optie **Toevoegen**.
 1. Selecteer het abonnement waarin u het opslagaccount wilt maken.
-1. Onder het veld **Resourcegroep** klikt u op **Nieuw**. Voer een naam in voor de nieuwe resourcegroep, zoals in de volgende afbeelding wordt weergegeven.
+1. Selecteer **Nieuwe maken** onder het veld **Resourcegroep**. Voer een naam in voor de nieuwe resourcegroep, zoals in de volgende afbeelding wordt weergegeven.
 
     ![Schermafbeelding van het maken van een resourcegroep in de portal](./media/storage-create-account-portal-include/create-resource-group.png)
 
-1. Voer vervolgens een naam in voor het opslagaccount. De naam die u kiest, moet uniek zijn in Azure, moet tussen de 3 en 24 tekens lang zijn en mag alleen cijfers en kleine letters bevatten.
+1. Voer vervolgens een naam in voor het opslagaccount. De naam die u kiest, moet uniek zijn binnen Azure. Verder moet de naam 3 tot 24 tekens lang zijn en mag alleen cijfers en kleine letters bevatten.
 1. Selecteer een locatie voor uw opslagaccount of gebruik de standaardlocatie.
 1. Laat deze velden ingesteld staan op de standaardwaarden:
-    - Het veld **Implementatiemodel** is standaard ingesteld op **Resource Manager**.
-    - Het veld **Prestaties** is standaard ingesteld op **Standaard**.
-    - Het veld **Soort account** is standaard ingesteld op **StorageV2 (algemeen gebruik v2)**.
-    - Het veld **Replicatie** is standaard ingesteld op **Lokaal redundante opslag (LRS)**.
-    - De **toegangslaag** is standaard ingesteld op **Dynamisch**.
 
-1. Klik op **Beoordelen en maken** om uw opslagaccountinstellingen te bekijken en het account te maken.
-1. Klik op **Create**.
+   |Veld  |Waarde  |
+   |---------|---------|
+   |Implementatiemodel     |Resource Manager         |
+   |Prestaties     |Standard         |
+   |Soort account     |StorageV2 (general-purpose v2)         |
+   |Replicatie     |Lokaal redundante opslag (LRS)         |
+   |Toegangslaag     |Warm         |
+
+1. Selecteer **Beoordelen en maken** om uw opslagaccountinstellingen te bekijken en het account te maken.
+1. Selecteer **Maken**.
 
 Zie [Azure-opslagaccountoverzicht](https://docs.microsoft.com/azure/storage/common/storage-account-overview) voor meer informatie over typen opslagaccounts en andere opslagaccountinstellingen. Zie [Azure Resource Manager overview](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) (Overzicht van Azure Resource Manager) voor meer informatie over resourcegroepen. 

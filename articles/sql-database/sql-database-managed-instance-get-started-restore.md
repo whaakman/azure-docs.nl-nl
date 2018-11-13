@@ -11,15 +11,15 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: carlrab, bonova
 manager: craigg
-ms.date: 09/20/2018
-ms.openlocfilehash: fa9686e7f9ca7f14a51ea2b9c313dd69a2e40cec
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.date: 11/01/2018
+ms.openlocfilehash: bc27ece2eddc842a81698aaa685cbe6d63c6a1df
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49362251"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50912251"
 ---
-# <a name="restore-a-database-backup-to-an-azure-sql-database-managed-instance"></a>Een back-up van de database herstellen voor een beheerd exemplaar voor Azure SQL Database
+# <a name="quickstart-restore-a-database-backup-to-an-azure-sql-database-managed-instance"></a>Snelstart: een back-up van de database herstellen voor een beheerd exemplaar voor Azure SQL Database
 
 Deze snelstartgids laat zien hoe u een back-up van een database die is opgeslagen in Azure Blob Storage, kunt herstellen naar het beheerd exemplaar met behulp van het standaard back-upbestand van Wide World Importers. Deze methode vereist enige uitvaltijd. 
 

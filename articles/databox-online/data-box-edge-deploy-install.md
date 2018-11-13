@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 10/08/2018
+ms.date: 11/01/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to install Data Box Edge in datacenter so I can use it to transfer data to Azure.
-ms.openlocfilehash: 21ac3de793f5ce559c3a03de2a09f11ccb86b12a
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 6bd3c1b2cdbd83673a181ee7e088adb39749036e
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167355"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50963843"
 ---
 # <a name="tutorial-install-azure-data-box-edge-preview"></a>Zelfstudie: Azure Data Box Edge (preview-versie) installeren
 
@@ -111,8 +111,14 @@ Voordat u begint met de bekabeling van uw apparaat hebt u het volgende nodig:
 
 - Uw fysieke Edge-apparaat, uitgepakt en in het rek gemonteerd.
 - Twee netsnoeren. 
-- Twee 1 GbE-RJ-45-netwerkkabels en vier 25-GbE SFP + koperen kabels.
+- Ten minste één 1-GbE RJ-45-netwerkkabel voor verbinding met de beheerinterface. Er zijn twee 1-GbE-netwerkinterfaces, één beheerinterface en één gegevensinterface, op het apparaat aanwezig.
+- Eén koperen 25-GbE SFP+-kabel voor elke te configureren netwerkinterface. Ten minste één netwerkinterface, PORT 2, PORT 3, PORT 4, PORT 5 of PORT 6, moet worden verbonden met internet (verbindingen naar Azure).
 - Toegang tot twee Power Distribution Units (aanbevolen).
+
+> [!NOTE]
+> - Als u slechts één netwerkinterface verbindt, wordt u aangeraden een 25-GbE netwerkinterface, zoals PORT 3, PORT 4, PORT 5 of PORT 6, te gebruiken om gegevens naar Azure te verzenden. 
+> - Voor de beste prestaties en voor het verwerken van grote gegevensvolumes, kunt u eventueel alle gegevenspoorten verbinden.
+> - Het Edge-apparaat moet worden aangesloten op het netwerk van het datacenter, zodat het gegevens kan opnemen van gegevensbronservers. 
 
 Uw Edge-apparaat heeft 8 SSD's van het type NVMe. Het voorpaneel bevat ook status-LED's en aan/uit-knoppen. Het apparaat is aan de achterzijde voorzien van redundante Power Supply Units (PSU's). Uw apparaat heeft zes netwerkinterfaces: twee 1-Gbps interfaces en vier 25-Gbps interfaces. Het apparaat is uitgerust met een Baseboard Management Controller (BMC). Hieronder ziet u de verschillende poorten en aansluitingen op het achterpaneel van het apparaat.
  
@@ -123,13 +129,7 @@ Voer de volgende stappen uit om uw apparaat te bekabelen voor stroom en netwerk.
 1. Sluit de netsnoeren aan op de PSU's in de behuizing. Voor een hoge beschikbaarheid moet u beide PSU's verbinden met verschillende stopcontacten.
 2. Sluit de netsnoeren aan op de PDU's van het rek. Zorg ervoor dat de twee PSU's op verschillende stopcontacten zijn aangesloten.
 3. Verbind PORT 1 van de 1-GbE netwerkinterface met de computer die wordt gebruikt voor het configureren van het fysieke apparaat. PORT 1 is de gereserveerde beheerinterface.
-4. Verbind PORT 2 van de 1-GbE netwerkinterface via de RJ-45-netwerkkabels met het netwerk van het datacenter/internet. 
-5. Verbind de vier 25-GbE-netwerkinterfaces PORT 3, PORT 4, PORT 5 en PORT 6 met SFP + koperen kabels met het netwerk van het datacenter/internet. 
-
-> [!NOTE]
-> - Ten minste één netwerkinterface, PORT 3, PORT 4, PORT 5 of PORT 6 moet worden verbonden met internet (verbindingen naar Azure). 
-> - Het wordt aangeraden om een 25-GbE netwerkinterface, zoals PORT 3, PORT 4, PORT 5, of PORT 6 te gebruiken om gegevens te verzenden naar Azure. 
-> - Het Edge-apparaat moet worden aangesloten op het netwerk van het datacenter, zodat het gegevens kan opnemen van gegevensbronservers.  
+4. Verbind één of meer interfaces, bijvoorbeeld PORT 2, PORT 3, PORT 4, PORT 5 of PORT 6 aan het netwerk van het datacenter of internet. Gebruik de RJ-45-netwerkkabel als u PORT 2 verbindt. Gebruik de koperen SFP+-kabels voor de 25-GbE-netwerkinterfaces.  
 
 
 ## <a name="next-steps"></a>Volgende stappen

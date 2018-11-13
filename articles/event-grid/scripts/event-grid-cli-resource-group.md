@@ -4,20 +4,19 @@ description: Voorbeeld van Azure CLI-script - abonneren op resourcegroep
 services: event-grid
 documentationcenter: na
 author: tfitzmac
-manager: timlt
 ms.service: event-grid
 ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/05/2018
+ms.date: 11/02/2018
 ms.author: tomfitz
-ms.openlocfilehash: f13ba64825cb760412f8e4e73f1fc3a7daa8edd8
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 7bc07ec294e341c7f96c60fd2c9916b0c6b9f215
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31425898"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51035832"
 ---
 # <a name="subscribe-to-events-for-a-resource-group-with-azure-cli"></a>Abonneren op gebeurtenissen voor een resourcegroep met Azure CLI
 
@@ -27,9 +26,15 @@ Met dit script maakt u een Event Grid-abonnement op de gebeurtenissen voor een r
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="sample-script"></a>Voorbeeldscript
+Voor het voorbeeldscript van de preview is de Event Grid-extensie vereist. Voer `az extension add --name eventgrid` uit om deze te installeren.
+
+## <a name="sample-script---stable"></a>Voorbeeldscript - stabiel
 
 [!code-azurecli[main](../../../cli_scripts/event-grid/subscribe-to-resource-group/subscribe-to-resource-group.sh "Subscribe to resource group")]
+
+## <a name="sample-script---preview-extension"></a>Voorbeeldscript - preview-extensie
+
+[!code-azurecli[main](../../../cli_scripts/event-grid/subscribe-to-resource-group-preview/subscribe-to-resource-group-preview.sh "Subscribe to resource group")]
 
 ## <a name="script-explanation"></a>Uitleg van het script
 
@@ -38,7 +43,7 @@ In dit script wordt de volgende opdracht gebruikt om het abonnement op de gebeur
 | Opdracht | Opmerkingen |
 |---|---|
 | [az eventgrid event-subscription create](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription#az-eventgrid-event-subscription-create) | Hiermee wordt een Event Grid-abonnement gemaakt. |
-
+| [az eventgrid event-subscription create](/cli/azure/ext/eventgrid/eventgrid/event-subscription#ext-eventgrid-az-eventgrid-event-subscription-create) - extensieversie | Hiermee wordt een Event Grid-abonnement gemaakt. |
 
 ## <a name="next-steps"></a>Volgende stappen
 

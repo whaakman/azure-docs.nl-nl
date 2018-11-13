@@ -3,7 +3,7 @@ title: Formaat van geüploade afbeeldingen automatisch wijzigen met Azure Event 
 description: U kunt instellen dat Azure Event Grid wordt geactiveerd als er blobs worden geüpload in Azure Storage. Dit is handig om afbeeldingsbestanden naar Azure Storage die worden geüpload naar Azure Storage te verzenden naar andere services, zoals Azure Functions, voor het aanpassen van het formaat en andere verbeteringen.
 services: event-grid, functions
 author: ggailey777
-manager: cfowler
+manager: jpconnoc
 editor: ''
 ms.service: event-grid
 ms.tgt_pltfrm: na
@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 09/29/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 2d94389ade02cb6e61f192e9b9e8adb8f8ceec31
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: 2a60084577255b9aa88700509129b8d917c43a79
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47585574"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282495"
 ---
 # <a name="automate-resizing-uploaded-images-using-event-grid"></a>Formaat van geüploade afbeeldingen automatisch wijzigen met Event Grid
 
@@ -158,19 +158,18 @@ Een gebeurtenisabonnement geeft aan welke door de provider gegenereerde gebeurte
 
 3. Gebruik de instellingen voor het gebeurtenisabonnement zoals die zijn opgegeven in de tabel onder de afbeelding.
     
-    ![Een gebeurtenisabonnement maken voor de functie in Azure Portal](./media/resize-images-on-storage-blob-upload-event/event-subscription-create-flow.png)
+    ![Een gebeurtenisabonnement maken voor de functie in Azure Portal](./media/resize-images-on-storage-blob-upload-event/event-subscription-create.png)
 
     | Instelling      | Voorgestelde waarde  | Beschrijving                                        |
     | ------------ |  ------- | -------------------------------------------------- |
-    | **Naam** | imageresizersub | De naam voor het nieuwe gebeurtenisabonnement. | 
     | **Onderwerptype** |  Opslagaccounts | Kies de provider voor de gebeurtenissen van het opslagaccount. | 
     | **Abonnement** | Uw Azure-abonnement | Uw huidige Azure-abonnement is standaard geselecteerd.   |
     | **Resourcegroep** | myResourceGroup | Selecteer **Bestaande gebruiken** en kies de resourcegroep die u in deze zelfstudie hebt gebruikt.  |
-    | **Exemplaar** |  Uw Blob-opslagaccount |  Kies het Blob-opslagaccount dat u hebt gemaakt. |
+    | **Resource** |  Uw Blob-opslagaccount |  Kies het Blob-opslagaccount dat u hebt gemaakt. |
     | **Gebeurtenistypen** | BlobCreated | Schakel alle typen uit behalve **BlobCreated**. Alleen gebeurtenistypen van `Microsoft.Storage.BlobCreated` worden doorgegeven aan de functie.| 
-    | **Abonneetype** |  Webhook |  De keuzes zijn Webhook of Event Hubs. |
+    | **Abonneetype** |  automatisch gegenereerd |  Vooraf gedefinieerd als webhook. |
     | **Eindpunt abonnee** | automatisch gegenereerd | Gebruik de eindpunt-URL die voor u wordt gegenereerd. | 
-    | **Voorvoegselfilter** | /blobServices/default/containers/images/blobs/ | Opslaggebeurtenissen filteren op alleen de gebeurtenissen in de container **images**.| 
+    | **Naam** | imageresizersub | De naam voor het nieuwe gebeurtenisabonnement. | 
 
 4. Klik op **Maken** om het gebeurtenisabonnement toe te voegen. Er wordt een gebeurtenisabonnement gemaakt die `imageresizerfunc` activeert op het moment dat er een blob wordt toegevoegd aan de container *images*. De functie past de afbeelding in grootte aan en voegt deze toe aan de container *thumbnails*.
 

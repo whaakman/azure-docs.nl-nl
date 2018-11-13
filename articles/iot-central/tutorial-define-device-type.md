@@ -3,24 +3,24 @@ title: Een nieuw apparaattype definiëren in Azure IoT Central | Microsoft Docs
 description: Deze zelfstudie laat zien hoe u als bouwer een nieuw apparaattype kunt definiëren in uw Azure IoT Central-toepassing. U definieert de telemetrie, status, eigenschappen en instellingen voor uw type.
 author: tbhagwat3
 ms.author: tanmayb
-ms.date: 10/12/2018
+ms.date: 10/30/2018
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 8c69a863d8719a0e4eba30a6d5a619210e7f95b8
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: dd81c10bcda6665de7ffabe94a4c1be991687797
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50156031"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50963589"
 ---
 # <a name="tutorial-define-a-new-device-type-in-your-azure-iot-central-application"></a>Zelfstudie: Een nieuw apparaattype definiëren in uw Azure IoT Central-toepassing
 
 Deze zelfstudie laat zien hoe u als bouwer een apparaatsjabloon kunt gebruiken om een nieuw apparaattype te definiëren in uw Microsoft Azure IoT Central-toepassing. Een apparaatsjabloon definieert de telemetrie, status, eigenschappen en instellingen voor uw apparaattype.
 
-Om u in staat te stellen uw toepassing te testen voordat u een echt apparaat aansluit, genereert Azure IoT Central een gesimuleerd apparaat op basis van de apparaatsjabloon wanneer u deze maakt.
+Om u in staat te stellen uw toepassing te testen voordat u een echt apparaat aansluit, genereert IoT Central een gesimuleerd apparaat op basis van de apparaatsjabloon wanneer u deze maakt.
 
 In deze zelfstudie maakt u een apparaatsjabloon voor een **aangesloten airconditioner**. Een aangesloten airconditioningapparaat:
 
@@ -59,9 +59,9 @@ U hebt een Azure IoT Central-toepassing nodig om deze zelfstudie te voltooien. A
 
 4. Een nieuwe Azure IoT Central-toepassing maken:
     
-    * Kies **Gratis**. Voor de gratis proefversie van zeven dagen bestaan geen abonnementsvereisten.
+    * Kies **Proef**. U hebt geen Azure-abonnement nodig om een proeftoepassing te maken.
     
-       Zie [Een Azure IoT Central-toepassing maken ](howto-create-application.md) voor meer informatie over directory’s en abonnementen.
+       Zie de [snelstart over het maken van een toepassing](quick-deploy-iot-central.md)voor meer informatie over directory's en abonnementen.
     
     * Kies **Aangepaste toepassing**.
     
@@ -69,9 +69,9 @@ U hebt een Azure IoT Central-toepassing nodig om deze zelfstudie te voltooien. A
     
     * Kies **Maken**.
 
-    ![Pagina Toepassing maken van Azure IoT Central](./media/tutorial-define-device-type/iotcentralcreatenew.png)
+    ![Pagina Toepassing maken van Azure IoT Central](./media/tutorial-define-device-type/iotcentralcreate.png)
 
-    Zie [Een Azure IoT Central-toepassing maken](howto-create-application.md) voor meer informatie.
+    Zie voor meer informatie de [snelstart over het maken van een toepassing](quick-deploy-iot-central.md).
 
 ## <a name="create-a-new-custom-device-template"></a>Een nieuwe aangepaste apparaatsjabloon maken
 

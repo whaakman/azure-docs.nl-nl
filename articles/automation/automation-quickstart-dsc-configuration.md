@@ -7,16 +7,16 @@ ms.component: dsc
 keywords: dsc, configuratie, automatiseren
 author: KrisBash
 ms.author: krbash
-ms.date: 12/17/2017
+ms.date: 11/06/2018
 ms.topic: quickstart
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 959171963bcdc721c81823fcf4f9769174b32636
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 7a9e394213ef40b995cb048c71f14a190e5e7970
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34053712"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51243689"
 ---
 # <a name="configure-a-linux-virtual-machine-with-desired-state-configuration"></a>Een virtuele Linux-machine met Desired State Configuration configureren
 
@@ -30,7 +30,7 @@ U hebt het volgende nodig om deze quickstart te voltooien:
 * Een Azure Automation-account. Zie [Azure Uitvoeren-als-account](automation-sec-configure-azure-runas-account.md) voor instructies over het maken van een Azure Automation Uitvoeren-als-account.
 * Een virtuele Azure Resource Manager-machine (niet Klassiek) waarop Red Hat Enterprise Linux, CentOS of Oracle Linux wordt uitgevoerd. Zie [Uw eerste virtuele Linux-machine maken met behulp van Azure Portal](../virtual-machines/linux/quick-create-portal.md) voor instructies voor het maken van een VM.
 
-## <a name="log-in-to-azure"></a>Meld u aan bij Azure.
+## <a name="sign-in-to-azure"></a>Aanmelden bij Azure
 Aanmelden bij Azure op https://portal.azure.com
 
 ## <a name="onboard-a-virtual-machine"></a>Een virtuele machine onboarden
@@ -38,12 +38,12 @@ Er zijn veel verschillende methoden voor het uitvoeren van onboarding op een mac
 
 1. Selecteer in het linkerdeelvenster van Azure Portal de optie **Automation-accounts**. Als die niet in het linkerdeelvenster wordt weergegeven, klikt u op **Alle services** en zoekt u ernaar in de weergave die u dan ziet.
 1. Selecteer een Automation-account in de lijst.
-1. Selecteer in het linkerdeelvenster van het Automation-account de optie **DSC-knooppunten**.
-1. Klik op de menuoptie **Azure VM toevoegen**.
-1. Zoek naar de virtuele machine waarvoor u DSC wilt inschakelen DSC. U kunt het zoekveld en de filteropties gebruiken om een specifieke virtuele machine te vinden.
-1. Klik op de virtuele machine en selecteer vervolgens **Verbinden**
-1. Selecteer de juiste DSC-instellingen voor de virtuele machine. Als u al een configuratie hebt voorbereid, kunt u deze opgeven als *knooppuntconfiguratienaam*. U kunt de [configuratiemodus](https://docs.microsoft.com/powershell/dsc/metaconfig) instellen om het configuratiegedrag voor de machine te bepalen.
-1. Klik op **OK**
+1. Selecteer in het linkerdeelvenster van het Automation-account de optie **Statusconfiguratie (DSC)**.
+2. Klik op **Toevoegen** om de selectiepagina van de virtuele machine te openen.
+3. Zoek naar de virtuele machine waarvoor u DSC wilt inschakelen DSC. U kunt het zoekveld en de filteropties gebruiken om een specifieke virtuele machine te vinden.
+4. Klik op de virtuele machine en selecteer vervolgens **Verbinden**
+5. Selecteer de juiste DSC-instellingen voor de virtuele machine. Als u al een configuratie hebt voorbereid, kunt u deze opgeven als *knooppuntconfiguratienaam*. U kunt de [configuratiemodus](https://docs.microsoft.com/powershell/dsc/metaconfig) instellen om het configuratiegedrag voor de machine te bepalen.
+6. Klik op **OK**
 
 ![De onboarding van virtuele Azure-machine voor DSC](./media/automation-quickstart-dsc-configuration/dsc-onboard-azure-vm.png)
 
@@ -101,10 +101,10 @@ configuration LAMPServer {
 
 De configuratie importeren:
 
-1. Selecteer in het linkerdeelvenster van het Automation-account de optie **DSC-configuraties**.
-1. Klik op de menuoptie om een **configuratie toe te voegen**.
-1. Selecteer het *configuratiebestand* dat u hebt opgeslagen tijdens de vorige stap.
-1. Klik op **OK**
+1. Selecteer in het linkerdeelvenster van het Automation-account de optie **Statusconfiguratie (DSC)** en klik vervolgens op het tabblad **Configuraties**.
+2. Klik op **+ Toevoegen**
+3. Selecteer het *configuratiebestand* dat u hebt opgeslagen tijdens de vorige stap.
+4. Klik op **OK**
 
 ## <a name="compile-a-configuration"></a>Een configuratie compileren
 
@@ -112,18 +112,16 @@ DSC-configuraties moeten worden gecompileerd naar een knooppuntconfiguratie (MOF
 
 De configuratie compileren:
 
-1. Selecteer in het linkerdeelvenster van het Automation-account de optie **DSC-configuraties**.
+1. Selecteer in het linkerdeelvenster van het Automation-account de optie **Statusconfiguratie (DSC)** en klik vervolgens op het tabblad **Configuraties**.
 1. Selecteer de configuratie die u tijdens een eerdere stap hebt geïmporteerd, namelijk 'LAMPServer'.
 1. Klik bij de menuopties op **Compileren** en vervolgens op **Ja**
 1. In de configuratieweergave ziet u een nieuwe *compilatietaak* in de wachtrij. Wanneer de taak is voltooid, bent u klaar om door te gaan met de volgende stap. Als er fouten zijn, kunt u op de compilatietaak klikken voor meer informatie.
-
-![De status van de compilatietaak](./media/automation-quickstart-dsc-configuration/dsc-compilationjob.png)
 
 ## <a name="assign-a-node-configuration"></a>Een knooppuntconfiguratie toewijzen
 
 Aan DSC-knooppunten kan een gecompileerde *knooppuntconfiguratie* worden toegewezen. Door deze toe te wijzen, wordt de configuratie op de computer toegepast en wordt gecontroleerd of er van die configuratie wordt afgeweken (of wordt deze automatisch gecorrigeerd).
 
-1. Selecteer in het linkerdeelvenster van het Automation-account de optie **DSC-knooppunten**.
+1. Selecteer in het linkerdeelvenster van het Automation-account de optie **Statusconfiguratie (DSC) en klik vervolgens op het tabblad **Knooppunten**.
 1. Selecteer het knooppunt waar u een configuratie wilt toewijzen.
 1. Klik op **Een knooppuntconfiguratie toewijzen**.
 1. Selecteer de *knooppuntconfiguratie* - **LAMPServer.localhost** - om deze toe te wijzen en klik op **OK**
@@ -133,7 +131,7 @@ Aan DSC-knooppunten kan een gecompileerde *knooppuntconfiguratie* worden toegewe
 
 ## <a name="viewing-node-status"></a>De knooppuntstatus weergeven
 
-De status van alle beheerde knooppunten vindt u in de weergave **DSC-knooppunten** van het Automation-account. U kunt de weergave filteren op status, knooppuntconfiguratie of naam. 
+De status van alle beheerde knooppunten vindt u in **Statusconfiguratie (DSC)** en vervolgens onder het tabblad **Knooppunten** in het Automation-account. U kunt de weergave filteren op status, knooppuntconfiguratie of naam.
 
 ![Status van het DSC-knooppunt](./media/automation-quickstart-dsc-configuration/dsc-node-status.png)
 

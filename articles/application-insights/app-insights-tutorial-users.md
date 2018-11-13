@@ -1,6 +1,6 @@
 ---
-title: Inzicht in uw klanten in Azure Application Insights | Microsoft Docs
-description: Zelfstudie over het gebruik van Azure Application Insights om te begrijpen hoe klanten uw toepassing gebruiken.
+title: Uw klanten begrijpen in Azure Application Insights | Microsoft Docs
+description: Zelfstudie over het gebruiken van Application Insights om inzicht te krijgen in de wijze waarop klanten van uw app gebruikmaken.
 keywords: ''
 services: application-insights
 author: mrbullwinkle
@@ -10,25 +10,25 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: db61c300ad82270e59d315fa3372d9e4390c7a21
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: 6d4f96a2c1d288648543a92614cab0f8cf5ee2ea
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/09/2017
-ms.locfileid: "24099018"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255997"
 ---
-# <a name="use-azure-application-insights-to-understand-how-customers-are-using-your-application"></a>Azure Application Insights gebruiken om te begrijpen hoe klanten uw toepassing gebruiken
+# <a name="use-azure-application-insights-to-understand-how-customers-are-using-your-application"></a>Gebruik Application Insights om inzicht te krijgen in de wijze waarop klanten van uw app gebruikmaken
 
-Azure Application Insights verzamelt gebruiksgegevens om te begrijpen hoe uw gebruikers werken met uw toepassing.  Deze zelfstudie leert u de verschillende bronnen die beschikbaar zijn voor deze gegevens analyseren.  U leert hoe:
+Azure Application Insights verzamelt gebruiksgegevens om u meer inzicht te geven in hoe uw gebruikers omgaan met uw toepassing.  Dit zelfstudie leidt u door de verschillende resources die beschikbaar zijn om deze informatie te analyseren.  U leert het volgende:
 
 > [!div class="checklist"]
-> * Meer informatie over gebruikers die toegang tot uw toepassing analyseren
-> * Sessie-informatie voor het analyseren van hoe klanten gebruiken voor uw toepassing gebruiken
-> * Definieer schoorstenen waarmee u de gewenste gebruikersactiviteit aan de werkelijke activiteit vergelijken 
-> * Maak een werkmap om te consolideren van visualisaties en query's in een document
-> * Groep vergelijkbare gebruikers ze samen analyseren
-> * Meer informatie over welke gebruikers aan uw toepassing wilt retourneren
-> * Hoe gebruikers navigeren door uw toepassing controleren
+> * Details van gebruikers die toegang hebben tot uw toepassing analyseren
+> * Sessie-informatie gebruiken om te analyseren hoe klanten uw toepassing gebruiken
+> * Trechters definiëren waarmee u uw gewenste gebruikersactiviteit kunt vergelijken met hun werkelijke activiteit 
+> * Een werkmap maken om visualisaties en query's in één document samen te voegen
+> * Vergelijkbare gebruikers groeperen om ze gezamenlijk te analyseren
+> * Ontdekken welke gebruikers terugkomen naar uw toepassing
+> * Zien hoe gebruikers navigeren in uw toepassing
 
 
 ## <a name="prerequisites"></a>Vereisten
@@ -38,133 +38,133 @@ Vereisten voor het voltooien van deze zelfstudie:
 - Installeer [Visual Studio 2017](https://www.visualstudio.com/downloads/) met de volgende workloads:
     - ASP.NET-ontwikkeling en webontwikkeling
     - Azure-ontwikkeling
-- Download en installeer de [Visual Studio momentopname Debugger](http://aka.ms/snapshotdebugger).
-- Een .NET-toepassing in Azure implementeert en [inschakelen van de Application Insights-SDK](app-insights-asp-net.md). 
-- [Verzend telemetrie vanuit uw toepassing](app-insights-usage-overview.md#send-telemetry-from-your-app) voor het toevoegen van aangepaste gebeurtenissen/paginaweergaven
-- Verzenden [gebruikerscontext](https://docs.microsoft.com/azure/application-insights/app-insights-usage-send-user-context) te houden wat een gebruiker gedurende een bepaalde periode doet en volledig gebruikmaken van de functies voor informatie over het gebruik.
+- Download en installeer de [Visual Studio Snapshot Debugger](https://aka.ms/snapshotdebugger).
+- Implementeer een .NET-toepassing in Azure en [schakel de Application Insights-SDK](app-insights-asp-net.md)in. 
+- [Telemetrie van uw toepassing versturen](app-insights-usage-overview.md#send-telemetry-from-your-app) voor het toevoegen van aangepaste gebeurtenissen/paginaweergaven
+- [Gebruikerscontext](https://docs.microsoft.com/azure/application-insights/app-insights-usage-send-user-context) verzenden om bij te houden wat een gebruiker in de loop der tijd doet en volledig gebruikmaken van de gebruiksfuncties.
 
 ## <a name="log-in-to-azure"></a>Meld u aan bij Azure.
-Aanmelden bij de Azure portal op [https://portal.azure.com](https://portal.azure.com).
+Meld u aan bij de Azure-portal op [https://portal.azure.com](https://portal.azure.com).
 
-## <a name="get-information-about-your-users"></a>Informatie ophalen over uw gebruikers
-De **gebruikers** deelvenster kunt u belangrijke informatie over uw gebruikers in tal van manieren begrijpen. U kunt dit deelvenster om te begrijpen gegevens zoals waar uw gebruikers verbinding maakt vanaf de details van de client en welke gebieden van uw toepassing ze openen. 
+## <a name="get-information-about-your-users"></a>Informatie over uw gebruikers verzamelen
+In het deelvenster **Gebruikers** kunt u op verschillende manieren inzicht krijgen in belangrijke informatie over uw gebruikers. U kunt dit deelvenster gebruiken om informatie te begrijpen over waarvandaan uw gebruikers verbinding maken, details van hun client en welke delen van uw toepassing ze bezoeken. 
 
 1. Selecteer **Application Insights** en selecteer vervolgens uw abonnement.
-2. Selecteer **gebruikers** in het menu.
-3. De standaardweergave toont het aantal unieke gebruikers die zijn verbonden met uw toepassing in de afgelopen 24 uur.  U kunt het tijdvenster wijzigen en verschillende andere criteria voor het filteren van deze informatie instellen.
+2. Selecteer **Gebruikers** in het menu.
+3. De standaardweergave toont het aantal unieke gebruikers die de afgelopen 24 uur verbinding hebben gemaakt met uw toepassing.  U kunt het tijdvenster wijzigen en verschillende andere criteria voor het filteren van deze informatie instellen.
 
-    ![Opbouwfunctie voor query 's](media\app-insights-tutorial-users\QueryBuilder.png)
+    ![Opbouwfunctie voor query's](media\app-insights-tutorial-users\QueryBuilder.png)
 
-6. Klik op de **tijdens** dropdown en wijzigt u de tijdsduur op 7 dagen.  Dit verhoogt de gegevens die zijn opgenomen in de verschillende grafieken in het deelvenster.
+6. Klik op de vervolgkeuzelijst **Tijdens** en wijzig het tijdvenster in zeven dagen.  Hierdoor worden meer gegevens opgenomen in de verschillende grafieken in het deelvenster.
 
     ![Tijdsbereik wijzigen](media\app-insights-tutorial-users\TimeRange.png)
 
-4. Klik op de **gesplitst** dropdown een uitsplitsing door de gebruikerseigenschap van een toevoegen aan de grafiek.  Selecteer **land of regio**.  De grafiek bevat dezelfde gegevens, maar kunt u een overzicht van het aantal gebruikers per land weergeven.
+4. Klik op de vervolgkeuzelijst **Splitsen op basis van** om een uitsplitsing op basis van een gebruikerseigenschap aan de grafiek toe te voegen.  Selecteer **Land of regio**.  De grafiek bevat dezelfde gegevens, maar laat een uitsplitsing zien van het aantal gebruikers per land.
 
-    ![Land of regio grafiek](media\app-insights-tutorial-users\CountryorRegion.png)
+    ![Land of regio-grafiek](media\app-insights-tutorial-users\CountryorRegion.png)
 
-5. Plaats de cursor op verschillende balken in het diagram en houd er rekening mee dat het aantal voor elk land alleen de periode dat wordt vertegenwoordigd door die voor de balk weergeeft.
-6. Bekijk de **Insights** kolom rechts die analyse uitvoeren op uw gebruikersgegevens.  Hierdoor krijgt u informatie zoals het aantal unieke sessies gedurende de periode en records met algemene eigenschappen voor die gezamenlijk aanzienlijke van de gebruikersgegevens 
+5. Plaats de cursor op verschillende balken in het diagram en merk op dat het aantal voor elk land alleen geldt voor het tijdvenster dat door die balk wordt weergegeven.
+6. Bekijk de kolom **Insights** aan de rechterkant voor analyse van uw gebruikersgegevens.  Dit levert informatie op zoals het aantal unieke sessies gedurende de periode en records met gemeenschappelijke eigenschappen die significant zijn voor de gebruikersgegevens 
 
-    ![Insights kolom](media\app-insights-tutorial-users\insights.png)
+    ![Insights-kolom](media\app-insights-tutorial-users\insights.png)
 
 
 ## <a name="analyze-user-sessions"></a>Gebruikerssessies analyseren
-De **sessies** Configuratiescherm is vergelijkbaar met de **gebruikers** Configuratiescherm.  Waar **gebruikers** biedt meer inzicht in gegevens over de gebruikers die toegang tot uw toepassing **sessies** helpt u begrijpen hoe deze gebruikers uw toepassing gebruikt.  
+Het deelvenster **Sessies** lijkt op het deelvenster **Gebruikers**.  Terwijl **Gebruikers** u helpt meer te weten te komen over de gebruikers van uw toepassing, helpt **Sessies** u te begrijpen hoe die gebruikers uw toepassing hebben gebruikt.  
 
-1. Selecteer **sessies** in het menu.
-2. Bekijk de grafiek en houd er rekening mee dat u dezelfde opties om te filteren en opsplitsen van de gegevens als in de **gebruikers** Configuratiescherm.
+1. Selecteer **Sessies** in het menu.
+2. Bekijk de grafiek en merk op dat u dezelfde opties hebt voor filteren en uitsplitsen van de gegevens als in het deelvenster **Gebruikers**.
 
-    ![Sessies opbouwfunctie voor Query 's](media\app-insights-tutorial-users\SessionsBuilder.png)
+    ![Opbouwfunctie voor sessiequery's](media\app-insights-tutorial-users\SessionsBuilder.png)
 
-3. De **voorbeeld van deze sessies** rechterdeelvenster een lijst met sessies met een groot aantal gebeurtenissen.  Dit zijn interessante sessies te analyseren.
+3. Het deelvenster **Voorbeeld van deze sessies** deelvenster aan de rechterkant bevat een lijst met sessies die een groot aantal gebeurtenissen bevatten.  Dit zijn interessante sessies om te analyseren.
 
     ![Voorbeeld van deze sessies](media\app-insights-tutorial-users\SessionsSample.png)
 
-4. Klik op een van de sessies om weer te geven de **sessie tijdlijn**, waarin elke actie in de sessies.  Hierdoor kunt u informatie zoals de sessies met een groot aantal uitzonderingen identificeren.
+4. Klik op een van de sessies om de **Sessietijdlijn** te bekijken, die elke actie in de sessies laat zien.  Hiermee kunt u informatie identificeren zoals sessies met een groot aantal uitzonderingen.
 
-    ![Tijdlijn voor sessies](media\app-insights-tutorial-users\SessionsTimeline.png)
+    ![Sessietijdlijn](media\app-insights-tutorial-users\SessionsTimeline.png)
 
-## <a name="group-together-similar-users"></a>Groeperen van vergelijkbare gebruikers
-Een **Cohort** is een set gebruikers groupd op vergelijkbare kenmerken.  In andere deelvensters zodat u voor het analyseren van bepaalde groepen gebruikers kunt u cohorten om gegevens te filteren.  U wilt analyseren alleen gebruikers die een aankoop voltooid.
+## <a name="group-together-similar-users"></a>Vergelijkbare gebruikers groeperen
+Een **Cohort** is een set gebruikers die zijn gegroepeerd op vergelijkbare kenmerken.  U kunt cohorten gebruiken om gegevens in andere deelvensters te filteren zodat u bepaalde groepen gebruikers kunt analyseren.  U wilt bijvoorbeeld alleen gebruikers analyseren die een aankoop hebben voltooid.
 
-1.  Selecteer **cohorten** in het menu.
-2.  Klik op **nieuw** voor het maken van een nieuwe cohort.
-3.  Selecteer de **wie gebruikt** vervolgkeuzelijst en selecteer een actie.  Alleen gebruikers met deze actie binnen de periode van het rapport is uitgevoerd, worden opgenomen.
+1.  Selecteer **Cohorten** in het menu.
+2.  Klik op **Nieuw** om een nieuw cohort te maken.
+3.  Selecteer de vervolgkeuzelijst **Die hebben gebruikt** en selecteer een actie.  Alleen gebruikers die deze actie binnen het tijdvenster van het rapport hebben uitgevoerd, worden opgenomen.
 
-    ![Cohort die opgegeven acties uitgevoerd](media\app-insights-tutorial-users\CohortsDropdown.png)
+    ![Cohort dat opgegeven acties heeft uitgevoerd](media\app-insights-tutorial-users\CohortsDropdown.png)
 
-4.  Selecteer **gebruikers** in het menu.
-5.  In de **weergeven** vervolgkeuzelijst, selecteer de cohort die u zojuist hebt gemaakt.  De gegevens voor de grafiek is beperkt tot gebruikers.
+4.  Selecteer **Gebruikers** in het menu.
+5.  Selecteer in de vervolgkeuzelijst **Weergeven** het cohort dat u zojuist hebt gemaakt.  De gegevens voor de grafiek worden beperkt tot die gebruikers.
 
-    ![Cohort in gebruikers-hulpprogramma](media\app-insights-tutorial-users\UsersCohort.png)
+    ![Cohort in hulpprogramma gebruikers](media\app-insights-tutorial-users\UsersCohort.png)
 
 
-## <a name="compare-desired-activity-to-reality"></a>Gewenste activiteit realiteit vergelijken
-Tijdens de vorige panelen gericht zijn op wat gebruikers van uw toepassing gedaan **schoorstenen** zich richten op wat u wilt dat gebruikers te doen.  Een trechter vertegenwoordigt een reeks stappen in uw toepassing en het percentage van de gebruikers die de stappen doorlopen.  U kunt bijvoorbeeld een trechter die berekent het percentage van de gebruikers die verbinding maken met uw toepassing die product zoeken maken.  Vervolgens ziet u het percentage van de gebruikers die aan een winkelwagen product toevoegen en het percentage van de personen die een aankoop voltooit.
+## <a name="compare-desired-activity-to-reality"></a>Gewenste activiteit vergelijken met de werkelijkheid
+Terwijl de vorige deelvensters gericht zijn op wat gebruikers van uw toepassing hebben gedaan, richten **Trechters** zich op wat u gebruikers wilt laten doen.  Een trechter vertegenwoordigt een reeks stappen in uw toepassing en het percentage gebruikers dat zich tussen fasen verplaatst.  U kunt bijvoorbeeld een trechter maken die het percentage meet van de gebruikers die verbinding maken met uw toepassing die een product zoeken.  Vervolgens kunt u het percentage gebruikers zien dat dat product aan een winkelwagen toevoegt, en vervolgens het percentage van degenen die een aankoop voltooien.
 
-1. Selecteer **schoorstenen** in het menu en klik vervolgens op **nieuw**. 
+1. Selecteer **Trechters** in het menu en klik op **Nieuw**. 
 
     ![](media\app-insights-tutorial-users\funnelsnew.png)
 
-2. Typ in een **trechter naam**.
-3. Een trechter met ten minste twee stappen maken door een actie voor elke stap.  De lijst met acties wordt samengesteld uit verzameld door Application Insights.
+2. Typ een **Trechternaam**.
+3. Maak een trechter met ten minste twee stappen door voor elke stap een actie te selecteren.  De lijst met acties is opgebouwd op basis van door Application Insights verzamelde gebruiksgegevens.
 
     ![](media\app-insights-tutorial-users\funnelsedit.png)
 
-4. Klik op **opslaan** opslaan van de trechter en bekijk vervolgens de resultaten.  Het venster rechts van de trechter bevat de meest voorkomende gebeurtenissen voor de eerste activiteit en na de laatste activiteit om te begrijpen gebruiker instinct rond de specifieke volgorde.
+4. Klik op **Opslaan** om de trechter op te slaan en de resultaten te bekijken.  Het venster rechts van de trechter toont de meest voorkomende gebeurtenissen vóór de eerste activiteit en na de laatste activiteit om u te helpen inzicht te krijgen in de tendensen van gebruikers rond de specifieke reeks.
 
     ![](media\app-insights-tutorial-users\funnelsright.png)
 
 
-## <a name="learn-which-customers-return"></a>Meer informatie over welke klanten retourneren
-**Bewaartermijn** biedt meer inzicht in welke gebruikers zijn terugkomen voor uw toepassing.  
+## <a name="learn-which-customers-return"></a>Ontdek welke klanten terugkeren
+**Retentie** helpt u te begrijpen welke gebruikers terugkomen naar uw toepassing.  
 
-1. Selecteer **bewaren** in het menu.
-2. Standaard bevat de geanalyseerde gegevens gebruikers die geen actie uitgevoerd en vervolgens wordt geretourneerd als actie wilt uitvoeren.  U kunt dit filter wijzigen in een opnemen, bijvoorbeeld alleen gebruikers die na het voltooien van een aankoop geretourneerd.
+1. Selecteer **Retentie** in het menu.
+2. Standaard bevat de geanalyseerde informatie gebruikers die een actie hebben uitgevoerd en vervolgens zijn teruggekeerd om een ​​actie uit te voeren.  U kunt dit filter wijzigen om bijvoorbeeld alleen die gebruikers op te nemen die zijn teruggekeerd na het voltooien van een aankoop.
 
     ![](media\app-insights-tutorial-users\retentionquery.png)
 
-3. De bestaande gebruikers die overeenkomen met de criteria worden weergegeven in de grafische en tabel formulier voor verschillende tijdsduren.  Er is een doorsnee patroon voor een geleidelijke afname gebruikers gedurende een periode wordt geretourneerd.  Een plotselinge afname van een periode naar de volgende mogelijk een probleem veroorzaakt. 
+3. De terugkerende gebruikers die aan de criteria voldoen, worden in grafische en tabelvorm weergegeven voor verschillende tijdsduren.  Het gebruikelijke patroon is een geleidelijke afname van terugkerende gebruikers in de loop van de tijd.  Een plotselinge daling van de ene periode naar de andere kan reden tot zorg zijn. 
 
     ![](media\app-insights-tutorial-users\retentiongraph.png)
 
-## <a name="analyze-user-navigation"></a>Navigatie door de gebruiker analyseren
-Een **gebruikersstroom** visualiseren hoe gebruikers navigeren tussen de pagina's en onderdelen van uw toepassing.  Zo kunt u antwoorden op vragen zoals waar gebruikers doorgaans verplaatsen van een bepaalde pagina, hoe ze doorgaans sluit uw toepassing en of er zijn geen acties die regelmatig worden herhaald.
+## <a name="analyze-user-navigation"></a>Gebruikersnavigatie analyseren
+Een **Gebruikersstroom** visualiseert hoe gebruikers navigeren tussen de pagina's en functies van uw toepassing.  Dit helpt u vragen te beantwoorden zoals waar gebruikers doorgaans naartoe gaan vanaf een bepaalde pagina, hoe ze uw toepassing doorgaans verlaten en of er acties zijn die regelmatig worden herhaald.
 
-1.  Selecteer **gebruiker stromen** in het menu.
-2.  Klik op **nieuw** maken van een nieuwe gebruikersstroom en klik vervolgens op **bewerken** om de gegevens te bewerken.
-3.  Vergroot de **tijdsbereik** in 7 dagen en selecteer vervolgens een eerste gebeurtenis.  De stroom wordt gebruikerssessies die met die gebeurtenis beginnen bijhouden.
+1.  Selecteer **Gebruikersstromen** in het menu.
+2.  Klik op **Nieuw** om een ​​nieuwe gebruikersstroom te maken en klik vervolgens op **Bewerken** om de details te bewerken.
+3.  Verhoog het **Tijdsbereik**  tot 7 dagen en selecteer vervolgens een eerste gebeurtenis.  De stroom volgt gebruikerssessies die beginnen met die gebeurtenis.
 
     ![](media\app-insights-tutorial-users\flowsedit.png)
 
-4.  De gebruikersstroom wordt weergegeven, ziet u de paden naar andere gebruikers en hun sessie telt.  Blauwe lijnen duiden op een actie die de gebruiker na de huidige actie uitgevoerd.  Een rode regel geeft aan het einde van de gebruikerssessie.
+4.  De gebruikersstroom wordt weergegeven en u kunt de verschillende gebruikerspaden en hun sessieaantallen bekijken.  Blauwe lijnen geven een actie aan die de gebruiker na de huidige actie heeft uitgevoerd.  Een rode lijn geeft het einde van de gebruikerssessie aan.
 
     ![](media\app-insights-tutorial-users\flows.png)
 
-5.  Als een gebeurtenis uit de stroom verwijderen, klikt u op de **x** in de linkerbenedenhoek van de actie en klik vervolgens op **maken grafiek**.  De grafiek wordt opnieuw getekend met alle geopende exemplaren van die gebeurtenis verwijderd.  Klik op **bewerken** om te zien van de gebeurtenis is nu toegevoegd aan **uitgesloten gebeurtenissen**.
+5.  Als u een gebeurtenis uit de stroom wilt verwijderen, klikt u op **x** in de hoek van de actie en vervolgens op **Grafiek maken**.  De grafiek wordt opnieuw getekend met alle exemplaren van die gebeurtenis verwijderd.  Klik op **Bewerken** om te zien dat de gebeurtenis nu is toegevoegd aan de **Uitgesloten gebeurtenissen**.
 
     ![](media\app-insights-tutorial-users\flowsexclude.png)
 
-## <a name="consolidate-usage-data"></a>Consolideren van gebruiksgegevens
-**Werkmappen** combineren gegevensvisualisaties, Analytics query's en tekst in interactieve documenten.  Werkmappen kunt u algemene informatie over het gebruik van groeperen, samenvoegen van gegevens uit een bepaald incident of rapporteren aan het team van uw toepassing gebruik.
+## <a name="consolidate-usage-data"></a>Gebruiksgegevens consolideren
+**Werkmappen** combineren gegevensvisualisaties, Analytics-query's en tekst in interactieve documenten.  U kunt werkmappen gebruiken om algemene gebruiksinformatie te groeperen, informatie uit een bepaald incident te consolideren of aan uw team terug te rapporteren over het gebruik van uw toepassing.
 
-1.  Selecteer **werkmappen** in het menu.
-2.  Klik op **nieuw** voor het maken van een nieuwe werkmap.
-3.  Een query is al opgegeven waarin alle gebruiksgegevens in de laatste dag als een staafdiagram weergegeven.  U kunt deze query te gebruiken, handmatig bewerken of op **steekproef query's** in andere nuttige query's te selecteren.
+1.  Selecteer **Werkmappen** in het menu.
+2.  Klik op **Nieuw** om een nieuwe werkmap te maken.
+3.  De werkmap bevat al een query waarin alle gebruiksgegevens op de laatste dag worden weergegeven als een staafdiagram.  U kunt deze query gebruiken, deze handmatig bewerken of op **Voorbeeldquery's** klikken om uit andere nuttige query's te selecteren.
 
     ![](media\app-insights-tutorial-users\samplequeries.png)
 
-4.  Klik op **bewerken voltooid**.
-5.  Klik op **bewerken** in het bovenste deelvenster om de tekst aan de bovenkant van de werkmap te bewerken.  Dit is geformatteerd met markdown.
+4.  Klik op **Klaar met bewerken**.
+5.  Klik op **Bewerken** in het bovenste deelvenster om de tekst bovenaan de werkmap te bewerken.  Deze wordt opgemaakt met markdown.
 
     ![](media\app-insights-tutorial-users\markdown.png)
 
-6.  Klik op **gebruikers toevoegen** toevoegen van een grafiek met gebruikersgegevens.  Als u wilt en klik vervolgens op de details van de grafiek bewerken **bewerken voltooid** op te slaan.
+6.  Klik op **Gebruikers toevoegen** om een grafiek met gebruikersgegevens toe te voegen.  Bewerk desgewenst de details van de grafiek en klik vervolgens op **Klaar met bewerken** om deze op te slaan.
 
 
 ## <a name="next-steps"></a>Volgende stappen
-Nu dat u hebt geleerd hoe u uw gebruikers te analyseren, Ga naar de volgende zelfstudie voor meer informatie over het maken van aangepaste dashboards die deze informatie met andere nuttige informatie over uw toepassing combineren.
+Nu u hebt geleerd hoe u uw gebruikers kunt analyseren, gaat u door naar de volgende zelfstudie om te leren hoe u aangepaste dashboards kunt maken die deze informatie combineren met andere nuttige gegevens over uw toepassing.
 
 > [!div class="nextstepaction"]
 > [Aangepaste dashboards maken](app-insights-tutorial-dashboards.md)

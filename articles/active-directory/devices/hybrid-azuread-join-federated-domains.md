@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/25/2018
+ms.date: 11/07/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: c7396d7322958442fab51417eb350f26f7ada78e
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: e40c18edadebae1f92cf811ea054503b9cd6b1ae
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49352657"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277967"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-federated-domains"></a>Zelfstudie: Hybride Azure Active Directory-koppeling configureren voor federatieve domeinen
 
@@ -156,6 +156,8 @@ Als sommige van uw domein-gekoppelde apparaten downlevel Windows-apparaten zijn,
  
 - De lokale intranetinstellingen voor apparaatregistratie configureren
 
+- Downlevel Windows-apparaten beheren 
+
 
 ### <a name="update-device-settings"></a>Apparaatinstellingen bijwerken 
 
@@ -176,8 +178,6 @@ Om de hybride Azure AD-koppeling van uw downlevel Windows-apparaten succesvol te
 
 - `https://device.login.microsoftonline.com`
 
-- `https://device.login.microsoftonline.com`
-
 - De beveiligingstokenservice (STS - federatieve domeinen) van uw organisatie
 
 - `https://autologon.microsoftazuread-sso.com` (voor naadloze eenmalige aanmelding).
@@ -185,6 +185,10 @@ Om de hybride Azure AD-koppeling van uw downlevel Windows-apparaten succesvol te
 Daarnaast moet u **Statusbalkupdates via scripts toestaan** inschakelen in de zone Lokaal intranet van de gebruiker.
 
 
+
+### <a name="control-windows-down-level-devices"></a>Downlevel Windows-apparaten beheren 
+
+Als u downlevel Windows-apparaten wilt registreren, dient u een Windows Installer-pakket (.msi) in het Downloadcentrum te downloaden en installeren. Klik [hier](hybrid-azuread-join-control.md#control-windows-down-level-devices) voor meer informatie. 
 
 ## <a name="verify-the-registration"></a>De registratie verifiëren
 

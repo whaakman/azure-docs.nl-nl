@@ -2,19 +2,19 @@
 title: "Zelfstudie: Gegevens laden en query's uitvoeren in een Apache Spark-cluster in Azure HDInsight "
 description: Leer hoe u gegevens laadt en interactieve query's uitvoert op Spark-clusters in Azure HDInsight.
 services: azure-hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
-ms.author: jasonh
-ms.date: 05/17/2018
-ms.openlocfilehash: d59f04c5dde522f3d193f345ac59147ece9d86f0
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.author: hrasheed
+ms.date: 11/06/2018
+ms.openlocfilehash: 85afc16fe6bcae4e0a7218fa9f66bab3e947ec6b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43047554"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51244067"
 ---
 # <a name="tutorial-load-data-and-run-queries-on-an-apache-spark-cluster-in-azure-hdinsight"></a>Zelfstudie: Gegevens laden en query's uitvoeren in een Apache Spark-cluster in Azure HDInsight
 
@@ -33,7 +33,7 @@ Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.
 
 ## <a name="create-a-dataframe-from-a-csv-file"></a>Een gegevensframe maken van een CSV-bestand
 
-Toepassingen kunnen gegevensframes maken van een bestaande RDD (Resilient Distributed Dataset), van een Hive-tabel of van gegevensbronnen met behulp van het SQLContext-object. In de volgende schermafbeelding ziet u een momentopname van het bestand HVAC.csv dat wordt gebruikt in deze zelfstudie. Het CSV-bestand wordt geleverd met alle HDInsight Spark-clusters. De gegevens hebben betrekking op de schommelingen in temperatuur van sommige gebouwen.
+Toepassingen kunnen dataframes rechtstreeks maken vanuit bestanden of mappen op de externe opslag, zoals Azure Storage of Azure Data Lake Storage, vanuit een Hive-tabel, of vanuit andere gegevensbronnen die worden ondersteund door Apache Spark, zoals Cosmos DB, Azure SQL DB, DW enzovoort. In de volgende schermafbeelding ziet u een momentopname van het bestand HVAC.csv dat wordt gebruikt in deze zelfstudie. Het CSV-bestand wordt geleverd met alle HDInsight Spark-clusters. De gegevens hebben betrekking op de schommelingen in temperatuur van sommige gebouwen.
     
 ![Momentopname van gegevens voor interactieve Spark SQL-query](./media/apache-spark-load-data-run-query/hdinsight-spark-sample-data-interactive-spark-sql-query.png "Momentopname van gegevens voor interactieve Spark SQL-query")
 
@@ -41,7 +41,7 @@ Toepassingen kunnen gegevensframes maken van een bestaande RDD (Resilient Distri
 1. Open het Jupyter-notebook dat u hebt gemaakt in de snelstart die wordt vermeld bij Vereisten.
 2. Plak de volgende code in een lege cel van het notebook en druk op **Shift+Enter** om de code uit te voeren. Met de code importeert u de typen die voor dit scenario zijn vereist:
 
-    ```PySpark
+    ```python
     from pyspark.sql import *
     from pyspark.sql.types import *
     ```
@@ -52,14 +52,14 @@ Toepassingen kunnen gegevensframes maken van een bestaande RDD (Resilient Distri
 
 3. Voer de volgende code uit om een gegevensframe en een tijdelijke tabel (**hvac**) te maken. 
 
-    ```PySpark
-    # Create an RDD from sample data
-    csvFile = spark.read.csv('wasb:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv', header=True, inferSchema=True)
+    ```python
+    # Create a dataframe and table from sample data
+    csvFile = spark.read.csv('/HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv', header=True, inferSchema=True)
     csvFile.write.saveAsTable("hvac")
     ```
 
     > [!NOTE]
-    > Door met behulp van de PySpark-kernel een notebook te maken, worden de SQL-contexten automatisch voor u gemaakt tijdens het uitvoeren van de eerste cel met code. U hoeft dus niet expliciet contexten te maken.
+    > Door de PySpark-kernel te gebruiken voor het maken van een notebook, wordt de `spark`-sessie automatisch voor u gemaakt wanneer u de eerste cel met code uitvoert. U hoeft de sessie dus niet expliciet te maken.
 
 
 ## <a name="run-queries-on-the-dataframe"></a>Query's uitvoeren op het gegevensframe
@@ -68,12 +68,10 @@ Zodra de tabel is gemaakt, kunt u een interactieve query uitvoeren op de gegeven
 
 1. Voer de volgende code uit in een lege cel van de notebook:
 
-    ```PySpark
+    ```sql
     %%sql
     SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvac WHERE date = \"6/1/13\"
     ```
-
-   Omdat de PySpark-kernel wordt gebruikt in het notebook, kunt u nu rechtstreeks een interactieve SQL-query uitvoeren op de tijdelijke tabel **hvac**.
 
    De uitvoer wordt weergegeven in een tabel.
 
@@ -89,7 +87,7 @@ Zodra de tabel is gemaakt, kunt u een interactieve query uitvoeren op de gegeven
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Met HDInsight worden uw gegevens opgeslagen in Azure Storage of Azure Data Lake Store, zodat u een cluster veilig kunt verwijderen wanneer dit niet wordt gebruikt. Voor een HDInsight-cluster worden ook kosten in rekening gebracht, zelfs wanneer het niet wordt gebruikt. Aangezien de kosten voor het cluster vaak zoveel hoger zijn dan de kosten voor opslag, is het financieel gezien logischer clusters te verwijderen wanneer ze niet worden gebruikt. Als u direct verder wilt met de zelfstudie, is het beter om het cluster te behouden.
+Met HDInsight worden uw gegevens en Jupyter Notebooks opgeslagen in Azure Storage of Azure Data Lake Store, zodat u een cluster veilig kunt verwijderen wanneer dit niet wordt gebruikt. Voor een HDInsight-cluster worden ook kosten in rekening gebracht, zelfs wanneer het niet wordt gebruikt. Aangezien de kosten voor het cluster vaak zoveel hoger zijn dan de kosten voor opslag, is het financieel gezien logischer clusters te verwijderen wanneer ze niet worden gebruikt. Als u direct verder wilt met de zelfstudie, is het beter om het cluster te behouden.
 
 Open het cluster in Azure Portal en selecteer **Verwijderen**.
 

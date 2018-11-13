@@ -1,5 +1,5 @@
 ---
-title: De Azure Database Migration Service gebruiken om een online migratie uit te voeren van PostgreSQL naar Azure Database for MySQL | Microsoft Docs
+title: 'Zelfstudie: De Azure Database Migration Service gebruiken om een online migratie uit te voeren van PostgreSQL naar Azure Database for MySQL | Microsoft Docs'
 description: Leer hoe u een online migratie uitvoert van PostgreSQL on-premises naar Azure Database for PostgreSQL met behulp van de Azure Database Migration Service.
 services: dms
 author: HJToland3
@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
 ms.date: 09/26/2018
-ms.openlocfilehash: 51103f6661be22e355aafe01783af5afddd51f54
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: 004db061e721f0169491e98bd8e7cdd86e08bb01
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47182464"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50963590"
 ---
-# <a name="migrate-postgresql-to-azure-database-for-postgresql-online-using-dms"></a>PostgreSQL migreren naar Azure Database for PostgreSQL online met behulp van DMS
+# <a name="tutorial-migrate-postgresql-to-azure-database-for-postgresql-online-using-dms"></a>Zelfstudie: PostgreSQL online migreren naar Azure Database for PostgreSQL met behulp van DMS
 U kunt de Azure Database Migration Service gebruiken om de databases met minimale downtime te migreren van een on-premises PostgreSQL-exemplaar naar [Azure Database for MySQL](https://docs.microsoft.com/azure/postgresql/). Met andere woorden, de migratie is mogelijk met minimale downtime van de toepassing. In deze zelfstudie migreert u de voorbeelddatabase **DVD-verhuur** van een on-premises exemplaar van PostgreSQL 9.6 naar Azure Database for PostgreSQL met behulp van een online migratieactiviteit in de Azure Database Migration Service.
 
 In deze zelfstudie leert u het volgende:

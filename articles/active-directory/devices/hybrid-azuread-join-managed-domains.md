@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/25/2018
+ms.date: 11/01/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: c3c0d9bb6da00272cc7da0ad9f4fae978552c39b
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 48bedff0cd09c3f0dbffdabe6a94847d035a0cf9
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49352607"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50963928"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Zelfstudie: Hybride Azure Active Directory-koppeling configureren voor beheerde domeinen
 
@@ -140,6 +140,9 @@ Als sommige van uw domein-gekoppelde apparaten downlevel Windows-apparaten zijn,
  
 - De lokale intranetinstellingen voor apparaatregistratie configureren
 
+- Downlevel Windows-apparaten beheren 
+
+
 ### <a name="update-device-settings"></a>Apparaatinstellingen bijwerken 
 
 Om downlevel Windows-apparaten te kunnen registreren, moet u ervoor zorgen dat de apparaatinstellingen zijn geconfigureerd waarmee gebruikers apparaten mogen registreren in Azure AD. In de Azure-portal vindt u deze instelling onder:
@@ -163,6 +166,12 @@ Om de hybride Azure AD-koppeling van uw downlevel Windows-apparaten succesvol te
 - `https://autologon.microsoftazuread-sso.com`.
 
 Daarnaast moet u **Statusbalkupdates via scripts toestaan** inschakelen in de zone Lokaal intranet van de gebruiker.
+
+
+### <a name="control-windows-down-level-devices"></a>Downlevel Windows-apparaten beheren 
+
+Als u downlevel Windows-apparaten wilt registreren, dient u een Windows Installer-pakket (.msi) in het Downloadcentrum te downloaden en installeren. Klik [hier](hybrid-azuread-join-control.md#control-windows-down-level-devices) voor meer informatie. 
+
 
 ## <a name="verify-the-registration"></a>De registratie verifiëren
 

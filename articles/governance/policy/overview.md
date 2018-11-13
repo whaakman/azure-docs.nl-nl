@@ -4,17 +4,17 @@ description: Azure Policy is een service in Azure die u gebruikt om beleidsdefin
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 11/06/2018
 ms.topic: overview
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: dbdffc7a6f77f3f34ce7937c60eb7a53e5f72590
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: c016e21ff59d5f68afee79b2159218d10e90a7ec
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46961277"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51252816"
 ---
 # <a name="what-is-azure-policy"></a>Wat is Azure Policy?
 
@@ -35,12 +35,14 @@ Beleid is gericht op resource-eigenschappen tijdens de implementatie en voor al 
 
 ### <a name="rbac-permissions-in-azure-policy"></a>RBAC-machtigingen in Azure Policy
 
-Met Azure Policy worden machtigingen in twee verschillende resourceproviders voorgesteld als bewerkingen:
+Azure Policy heeft diverse machtigingen, oftewel bewerkingen, in twee verschillende resourceproviders:
 
 - [Microsoft.Authorization](../../role-based-access-control/resource-provider-operations.md#microsoftauthorization)
-- [Microsoft.PolicyInsight](../../role-based-access-control/resource-provider-operations.md#microsoftpolicyinsights)
+- [Microsoft.PolicyInsights](../../role-based-access-control/resource-provider-operations.md#microsoftpolicyinsights)
 
-Voor enkele van de ingebouwde rollen bestaan diverse machtigingsniveaus voor Azure Policy-resources. Zo kan de **beveiligingsbeheerder** beleidstoewijzingen en -definities beheren maar geen informatie over naleving bekijken. Een **lezer** kan details betreffende beleidstoewijzingen en -definities lezen maar geen wijzigingen aanbrengen of informatie over naleving bekijken. Terwijl een **eigenaar** volledige rechten heeft, heeft een **inzender** geen Azure Policy-machtigingen. Maak een [aangepaste rol](../../role-based-access-control/custom-roles.md) als u machtigingen wilt verlenen om de details van Azure Policy-naleving wilt bekijken.
+Veel ingebouwde rollen wijzen machtigingen toe aan Azure Policy-resources. De rol **Inzender voor resourcebeleid (preview)** bevat de meeste beleidsbewerkingen en de rol **Eigenaar** heeft volledige rechten. Zowel een **Inzender** als een **Lezer** kan alle details lezen met betrekking tot beleid, maar een **Inzender** kan ook herstel activeren.
+
+Als geen van de ingebouwde rollen de vereiste machtigingen heeft, maakt u een [aangepaste rol](../../role-based-access-control/custom-roles.md).
 
 ## <a name="policy-definition"></a>Beleidsdefinitie
 

@@ -9,16 +9,16 @@ ms.reviewer: jasonwhowell
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/27/2018
-ms.openlocfilehash: 96114270c246e23db0423dec7871e4c24fe1be10
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 5c1684f7367aec2d283cd6ad310657def49dd3cb
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024342"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282557"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-azure-databricks"></a>Zelfstudie: Gegevens extraheren, transformeren en laden met behulp van Azure Databricks
 
-In deze zelfstudie voert u een ETL-bewerking uit (gegevens extraheren, transformeren en laden) om gegevens uit Azure Data Lake Storage Gen2 Preview te verplaatsen naar Azure SQL Data Warehouse, met behulp van Azure Databricks.
+In deze zelfstudie voert u een ETL-bewerking uit (gegevens extraheren, transformeren en laden) om gegevens uit een Azure-opslagaccount waarvoor Azure Data Lake Storage Gen2 is ingeschakeld te verplaatsen naar Azure SQL Data Warehouse, met behulp van Azure Databricks.
 
 In de volgende afbeelding wordt de stroom van de toepassing weergegeven:
 
@@ -52,7 +52,7 @@ Meld u aan bij [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-an-azure-databricks-workspace"></a>Een Azure Databricks-werkruimte maken
 
-In deze sectie gaat u een Azure Databricks-werkruimte maken met behulp van Azure Portal. 
+In deze sectie gaat u een Azure Databricks-werkruimte maken met behulp van Azure Portal.
 
 1. Selecteer in Azure Portal **Een resource maken** > **Analyse** > **Azure Databricks**.
 
@@ -138,7 +138,7 @@ De volgende stap is het uploaden van een voorbeeldbestand naar het opslagaccount
 
 2. Upload de voorbeeldgegevens vervolgens naar het opslagaccount. De methode die u gebruikt om gegevens te uploaden naar het opslagaccount, verschilt afhankelijk van of u de hiërarchische naamruimte hebt ingeschakeld.
 
-    Als de hiërarchische naamruimte is ingeschakeld in het Azure Storage-account dat voor het Gen2-account is gemaakt, kunt u Azure Data Factory, distp of AzCopy (versie 10) gebruiken om de upload te verwerken. AzCopy-versie 10 is alleen beschikbaar voor klanten van de preview-versie. AzCopy pase gebruiken in de volgende code in een opdrachtvenster:
+    Als de hiërarchische naamruimte is ingeschakeld in uw Azure Storage-account, kunt u Azure Data Factory, distp of AzCopy (versie 10) gebruiken om de upload te verwerken. AzCopy-versie 10 is momenteel alleen beschikbaar via de preview. Plak om AzCopy te gebruiken de volgende code in een opdrachtvenster:
 
     ```bash
     set ACCOUNT_NAME=<ACCOUNT_NAME>
