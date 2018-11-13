@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: andrl
-ms.openlocfilehash: 49682a2d9ec5d3ce7c2139dc8b2e2fd6a1c3ec18
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 24b6beec8ecda993667464be5c74dab50fd93201
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51236780"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51278885"
 ---
 # <a name="provision-throughput-for-cosmos-db-containers-and-databases"></a>Doorvoer inrichten voor Cosmos DB-containers en -databases
 
@@ -27,7 +27,7 @@ Instellen van de ingerichte doorvoer voor een container is de meest gebruikte op
 
 Het verdient aanbeveling om doorvoer te configureren op de granulatie van de container als u wilt dat gegarandeerde prestaties voor de container.
 
-Voor een container van Cosmos ingerichte doorvoer is gelijkmatig verdeeld over alle logische partities van de container. Omdat een of meer logische partities van een container worden gehost door een resourcepartitie, wordt de resourcepartities uitsluitend deel uitmaken van de container en ondersteuning voor de doorvoer die is ingericht voor de container. De volgende afbeelding ziet u hoe een resourcepartitie als host fungeert voor een of meer logische partities van een container:
+Voor een container van Cosmos ingerichte doorvoer is gelijkmatig verdeeld over alle logische partities van de container. Omdat een of meer logische partities van een container worden gehost door een resourcepartitie, wordt de fysieke partities uitsluitend deel uitmaken van de container en ondersteuning voor de doorvoer die is ingericht voor de container. De volgende afbeelding ziet u hoe een resourcepartitie als host fungeert voor een of meer logische partities van een container:
 
 ![Resourcepartitie](./media/set-throughput/resource-partition.png)
 
@@ -49,7 +49,7 @@ Het verdient aanbeveling om de doorvoer van een database te configureren wanneer
 
 Op een willekeurig moment tijd wordt opgelost, wordt de doorvoer die is toegewezen aan een container in een database verdeeld over alle logische partities van die container. Wanneer u containers delen ingerichte doorvoer voor een database hebt, kunt u de doorvoer niet selectief toepassen op een specifieke container of een logische partitie. Als de werkbelasting van een logische partitie meer dan de doorvoer die is toegewezen aan een specifieke logische partitie verbruikt, worden uw bewerkingen tarief beperkt. Wanneer er gelden enkele beperkingen optreedt, kunt u verhoogt de doorvoer voor de volledige container of Voer de bewerking opnieuw uit. Zie voor meer informatie over het partitioneren van [logische partities](partition-data.md).
 
-Meerdere logische partities delen van de doorvoer die is ingericht met een database kunnen worden gehost op een enkele resource-partitie. Als één logische partitie van een container heeft altijd een bereik binnen een resourcepartitie, kunnen 'L' logische partities 'C' containers delen van de ingerichte doorvoer van een database kunnen worden toegewezen en die worden gehost op 'R' resourcepartities. De volgende afbeelding ziet u hoe een resource aan een of meer logische partities die deel uitmaken van verschillende containers in een database kan hosten:
+Meerdere logische partities delen van de doorvoer die is ingericht met een database kunnen worden gehost op een enkele resource-partitie. Als één logische partitie van een container heeft altijd een bereik binnen een resourcepartitie, kunnen 'L' logische partities 'C' containers delen van de ingerichte doorvoer van een database kunnen worden toegewezen en die worden gehost op 'R' fysieke partities. De volgende afbeelding ziet u hoe een resource aan een of meer logische partities die deel uitmaken van verschillende containers in een database kan hosten:
 
 ![Resourcepartitie](./media/set-throughput/resource-partition2.png)
 
